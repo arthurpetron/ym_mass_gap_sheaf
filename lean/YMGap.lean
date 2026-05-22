@@ -19,3 +19,4 @@ import YMGap.Sheaf.BoundWitness
 import YMGap.Sheaf.Summability
 import YMGap.Sheaf.Gluing
 import YMGap.RG.InductiveState
+import YMGap.RG.BlockSpin

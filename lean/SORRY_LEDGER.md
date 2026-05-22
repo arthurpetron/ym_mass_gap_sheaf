@@ -33,6 +33,22 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **axiom-gate**: `#print axioms domGlue_preserves_KP` reports `depends on axioms: [sorryAx]`. Crucially, **no `Classical.choice`, no `propext`, no `Quot.sound`** — the unique axiom in the dependency closure is `sorryAx`, the explicit signal of an unclosed obligation rather than a silent classical lapse.
 - **must not be closed classically**: per AGENTS.md Rule 6, closing this `sorry` later via `Classical.*` would defeat the constructive-law purpose of `lean/`. Closure of (a) must come with a constructive predicate `P` from 3.1–3.3 and a constructive proof at those constants; (b) must come with a constructive tightness estimate.
 
+### [P2.3] block-spin step inhabitation, owed by 3.1–3.4
+
+- **milestone**: 2.3 (work_plan.md L237–260)
+- **file**: `lean/YMGap/RG/BlockSpin.lean`
+- **decl**: `YMGap.RG.step_obligation_witness`
+- **obligation**: Exhibit a term of type `StepObligation V P PolyAtlas b` — that is, choose budget functions `(eps_sf, eps_lf, delta_cap, eta) : V → V → V` and produce a step function inhabiting `StepTypeWithBudget V P PolyAtlas b eps_sf eps_lf delta_cap eta`, satisfying the four per-step conditions S1–S4 of `docs/context.md` §3.3 / `formal/block-spin-morphism.tex` Definition 5.2.
+- **constructive?**: yes — the obligation type is Σ'-typed (the budget functions and the step function are data); the proofs of S1–S4 are constructive inequalities; the codomain demands `Valid s_next`, a constructive predicate.
+- **owed by (joint)**:
+  - Milestone 3.1 (`eps_sf` + sf-certificate pushforward),
+  - Milestone 3.2 (`eps_lf` + lf-certificate pushforward),
+  - Milestone 3.3 (`delta_cap` + buffer-certificate pushforward; inherits 2.1's `domGlue_preserves_KP` sorry through V2-cap and Conjecture 7.4 tightness through V3-K),
+  - Milestone 3.4 (`eta` + S4 / Θ_k transport).
+- **axiom-gate**: `#print axioms step_obligation_witness` reports `depends on axioms: [sorryAx]`. Crucially, **no `Classical.choice`, no `propext`, no `Quot.sound`**. The unique axiom in the dependency closure is `sorryAx`, the explicit signal of an unclosed constructive obligation rather than a silent classical lapse.
+- **per-step scope**: the obligation is single-step. No conjunct mentions `Σ_k`, no clause asserts a uniform-in-`k` property. The global budget closure (`Σ_k η < σ̂_0`, `Σ_k Δ_∩ < ∞`, `inf_k σ̂_k > 0`) is Milestone 3.4's separate downstream content — Phase-3 territory, never a 2.3-level claim. Closure of this `[P2.3]` sorry must respect that boundary.
+- **must not be closed classically**: per AGENTS.md Rule 6. Closure requires constructive budget functions from 3.1–3.4 and a constructive step term against them.
+
 ## How to add an entry
 
 ```markdown
