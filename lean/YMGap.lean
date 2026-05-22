@@ -18,3 +18,4 @@ import YMGap.Sheaf.Site
 import YMGap.Sheaf.BoundWitness
 import YMGap.Sheaf.Summability
 import YMGap.Sheaf.Gluing
+import YMGap.RG.InductiveState

@@ -1,0 +1,220 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+}
+\usepackage{mathtools}
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{conjecture}[definition]{Conjecture}
+\newtheorem{remark}[definition]{Remark}
+\newtheorem{example}[definition]{Example}
+
+\newcommand{\Rnnext}{\overline{\mathbb{R}}_{\ge 0}}
+\newcommand{\Rnn}{\mathbb{R}_{\ge 0}}
+\newcommand{\Pcal}{\mathcal{P}}
+\newcommand{\Acal}{\mathcal{A}}
+\newcommand{\Scal}{\mathcal{S}}
+\newcommand{\Ical}{\mathcal{I}}
+\newcommand{\Omk}{\Omega_k}
+\newcommand{\Omsf}{\Omega_k^{\mathrm{sf}}}
+\newcommand{\Omlf}{\Omega_k^{\mathrm{lf}}}
+\newcommand{\Omcap}{\Omega_k^{\cap}}
+\newcommand{\sigh}{\widehat{\sigma}}
+
+\title{The Inductive State $\Ical_k$\\
+  and the Type of the Block-Spin Step}
+\author{Arthur Petron}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We define the inductive state package $\Ical_k$ carried across RG steps of the constructive Yang--Mills mass gap program: the renormalized string tension $\sigh_k$, the running coupling $g_k$, the three Kotecký--Preiss certificates from the small-field, large-field, and buffer regions, and the polymer atlas $\Pcal_k$.  We state the named predicate $\mathrm{Valid}_k$ for the scale-$k$ induction hypotheses, and we state the \emph{type} of the block-spin pushforward as the 2.2$\to$2.3 handoff: the four degradation conditions of \texttt{docs/context.md} \S3.3 appear as type-level constraints on the step, but no term inhabiting that type is exhibited in this document.  Inhabiting the type is the content of Milestone~2.3.  This document corresponds to Milestone~2.2 of \texttt{work\_plan.md}.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+\label{sec:intro}
+
+\texttt{formal/sheaf-framework.tex} (Milestone~2.1) fixed the framework: the configuration site with its small/large/buffer three-element cover, the flabby bound-witness presheaf $\Acal_k$, the summability-certificate presheaf $\Scal_k$, the named compatibility predicate binding them, and Proposition~7.1 of that document --- the load-bearing claim that the domination glue on the buffer preserves Kotecký--Preiss summability with constants $\rho_{\cap} = \min(\rho_{\mathrm{sf}}, \rho_{\mathrm{lf}})$, $K_{\cap} \le K_{\mathrm{sf}} + K_{\mathrm{lf}}$.
+
+The present document defines the \emph{state object} the inductive step transports.  It is intentionally a state, not a theorem: it bundles the data and witnesses at scale $k$, names the scale-$k$ induction hypotheses, and exposes only the \emph{type} of the step that takes $\Ical_k$ to $\Ical_{k+1}$.  The four conditions of \texttt{docs/context.md} \S3.3 governing that step --- the $\rho$-degradation budget, the $K_{\cap}$ growth, and the $\sigh$ transport --- appear here as type-level constraints, not as proven facts.  Producing a term inhabiting that type is the content of Milestone~2.3.
+
+\textbf{Scope (the 2.2/2.3 boundary).}  Everything in this document is \emph{scale-$k$ local}.  No definition or predicate refers to scale $k+1$, no statement asserts a sum $\sum_k$ over RG scales, and no claim presupposes a uniform constant $\sigma_{\mathrm{phys}}$ valid across all $k$.  The cross-scale content (the degradation inequalities, the budget, the uniform bound) belongs to Milestones~2.3 and Phase~3.  Where the present text mentions those obligations, it is to mark the type-level handoff, not to discharge them.
+
+\section{The state package $\Ical_k$}
+\label{sec:state}
+
+We work over the configuration site of \texttt{formal/sheaf-framework.tex} \S2.  Throughout, $V$ denotes the scalar value type for $\sigh$, $g$, $\rho$, $K$ (in the math paper, $V = \mathbb{R}_{>0}$; in the Lean formalization, $V$ is an abstract type with a partial order, zero, binary $\min$, and binary $+$).  $P$ is an abstract KP-inequality predicate $P \colon V \times V \to \mathrm{Prop}$ (its concrete forms are pinned in Milestones~3.1--3.3).  $\mathrm{KPCertificate}(V, P)$ denotes the type of triples $(\rho, K, \mathrm{sat})$ with $\rho, K \in V$ and $\mathrm{sat}$ a proof that $P(\rho, K)$ holds (\texttt{formal/sheaf-framework.tex} Definition~4.1).
+
+\begin{definition}[Inductive state $\Ical_k$]
+\label{def:I-k}
+The \emph{inductive state at scale $k$} is the tuple
+\begin{equation}
+  \label{eq:I-k}
+  \Ical_k \;=\; \bigl( k, \;\sigh_k, \;g_k, \;c^{\mathrm{sf}}_k, \;c^{\mathrm{lf}}_k, \;c^{\cap}_k, \;\Pcal_k \bigr),
+\end{equation}
+whose fields are:
+\begin{itemize}
+  \item $k \in \mathbb{N}$: the RG scale index.
+  \item $\sigh_k \in V$: the renormalized string tension $\sigh_k = a_k^2 \sigma_k$, in the $\sigma$-$3$ sense of \texttt{docs/context.md} \S2 (dimensionless, scale-adjusted).
+  \item $g_k \in V$: the running gauge coupling at scale $k$.
+  \item $c^{\mathrm{sf}}_k = (\rho_{\mathrm{sf}, k}, K_{\mathrm{sf}, k}, \mathrm{sat}_{\mathrm{sf}}) \in \mathrm{KPCertificate}(V, P_{\mathrm{sf}})$: the small-field KP certificate, with the regime predicate $P_{\mathrm{sf}}$ pinned by Milestone~3.1.
+  \item $c^{\mathrm{lf}}_k = (\rho_{\mathrm{lf}, k}, K_{\mathrm{lf}, k}, \mathrm{sat}_{\mathrm{lf}}) \in \mathrm{KPCertificate}(V, P_{\mathrm{lf}})$: the large-field KP certificate (Milestone~3.2).
+  \item $c^{\cap}_k = (\rho_{\cap, k}, K_{\cap, k}, \mathrm{sat}_{\cap}) \in \mathrm{KPCertificate}(V, P_{\cap})$: the buffer KP certificate.  Its existence and well-formedness is the discharge of \texttt{sheaf-framework.tex} Proposition~7.1 (the sorry'd 2.1 Lean obligation \texttt{domGlue\_preserves\_KP}); see Remark~\ref{rem:carry-uncertainty} below.
+  \item $\Pcal_k$: the polymer atlas at scale $k$.  Its representation is the open question of \S\ref{sec:open}.
+\end{itemize}
+\end{definition}
+
+\begin{remark}[A state, not a theorem]
+$\Ical_k$ is a data object.  Constructing one provides values for each field; it does not by itself prove the inductive hypotheses.  Those are stated separately in \S\ref{sec:valid} as a predicate $\mathrm{Valid}_k$, and asserting that a particular $\Ical_k$ satisfies $\mathrm{Valid}_k$ is what carries analytic content.
+\end{remark}
+
+\section{The scale-$k$ induction hypotheses: $\mathrm{Valid}_k$}
+\label{sec:valid}
+
+\begin{definition}[$\mathrm{Valid}_k$]
+\label{def:valid-k}
+For an inductive state $\Ical_k$ as in Definition~\ref{def:I-k}, define the predicate
+\begin{equation}
+  \mathrm{Valid}_k(\Ical_k) \;:=\; \mathrm{(V1)} \;\wedge\; \mathrm{(V2)} \;\wedge\; \mathrm{(V3)},
+\end{equation}
+where:
+\begin{description}
+  \item[\textnormal{(V1) String-tension positivity (local $\sigma$-$3$).}] $\sigh_k > 0$ in $V$.
+  \item[\textnormal{(V2) KP certificate well-formedness.}] Each of $c^{\mathrm{sf}}_k, c^{\mathrm{lf}}_k, c^{\cap}_k$ satisfies its regime predicate $P$ (already implied by the certificate's $\mathrm{sat}$ field).
+  \item[\textnormal{(V3) Buffer-glue relationship.}] The buffer constants match the form of \texttt{sheaf-framework.tex} Proposition~7.1:
+  \begin{equation}
+    \label{eq:buffer-glue}
+    \rho_{\cap, k} = \min(\rho_{\mathrm{sf}, k}, \rho_{\mathrm{lf}, k}),
+    \qquad
+    K_{\cap, k} \le K_{\mathrm{sf}, k} + K_{\mathrm{lf}, k}.
+  \end{equation}
+\end{description}
+\end{definition}
+
+\begin{remark}[All hypotheses are scale-$k$ local]
+\label{rem:scale-k-local}
+Each of (V1), (V2), (V3) references only quantities indexed by~$k$.  No quantity at scale $k+1$ appears; no sum $\sum_k$ appears; no uniform-in-$k$ constant $\sigma_{\mathrm{phys}}$ appears.  This is by design: the cross-scale content lives in the step (\S\ref{sec:step}) and in Phase~3.
+\end{remark}
+
+\begin{remark}[Outline \S10.2 hypothesis (4) deferred]
+\label{rem:hypothesis-4}
+\texttt{docs/outline.md} \S10.2 lists, alongside the analogues of (V1)--(V3), a fourth hypothesis ``effective-action deviation is polymer controlled.''  That hypothesis is implicit in the existence of the three KP certificates (it is what they certify), so it is not separately required in (V2).  When Milestone~3.1 pins the small-field action expansion, the deviation hypothesis will reduce to (V2) for $c^{\mathrm{sf}}_k$.
+\end{remark}
+
+\begin{remark}[Carry-uncertainty: where $\mathrm{Valid}_k$ inherits 2.1's open obligations]
+\label{rem:carry-uncertainty}
+The clause (V3) is the framework-level claim of \texttt{sheaf-framework.tex} Proposition~7.1.  It asserts the constants relationship but \emph{does not} re-prove the underlying analytic claim that the KP predicate $P_{\cap}$ holds at those constants --- that claim is the sorry'd Lean theorem \texttt{domGlue\_preserves\_KP} (\texttt{lean/YMGap/Sheaf/Gluing.lean}; \texttt{lean/SORRY\_LEDGER.md} entry \texttt{[P2.1]}).
+
+Concretely: a user constructing $\Ical_k$ from concrete small-field and large-field certificates must invoke \texttt{domGlue\_preserves\_KP} to obtain a buffer certificate that satisfies $P_{\cap}$ at the constants of equation~\eqref{eq:buffer-glue}.  Until that theorem is discharged in Milestone~3.3, every concrete $\Ical_k$ inherits the open obligation through its buffer field.  Additionally, the \emph{tightness} of $K_{\cap, k} \le K_{\mathrm{sf}, k} + K_{\mathrm{lf}, k}$ --- i.e.\ whether the factor-of-2 union bound hides a fat lossy buffer band --- is the second part of the same ledger entry, owed by Milestone~3.3 against concrete activity forms (\texttt{sheaf-framework.tex} Conjecture~7.4).
+
+The state package $\Ical_k$ is therefore well-defined here, but it is no more closed than the 2.1 framework it rests on.  This is the carry-uncertainty principle in operation: the structure transparently inherits the open obligations of the layer beneath, rather than silently re-asserting them as fact.
+\end{remark}
+
+\section{The type of the block-spin step}
+\label{sec:step}
+
+The block-spin pushforward $T_b$ takes an inductive state at scale $k$ to one at scale $k+1$, with controlled degradation in each component.  This section states the \emph{type} of $T_b$: the four conditions of \texttt{docs/context.md} \S3.3 / \texttt{outline.md} \S10.3 appear here as type-level constraints.  This document does \emph{not} exhibit a term inhabiting the type; doing so is Milestone~2.3 (the block-spin sheaf morphism) and rests on regime-specific inputs from Milestones~3.1--3.3.
+
+\begin{definition}[Type of the block-spin step]
+\label{def:step-type}
+Fix a block scale $b > 1$ and degradation budget functions
+\begin{equation*}
+  \varepsilon_{\mathrm{sf}}, \;\varepsilon_{\mathrm{lf}}, \;\Delta_{\cap}, \;\eta \;\colon\; V \times V \to V
+\end{equation*}
+(whose concrete forms are fixed by Milestone~2.3 and depend on $b$ and $g_k$).  A \emph{block-spin step at scale $k$} is a function
+\begin{equation}
+  \label{eq:T-b-type}
+  T_b \colon \{ \Ical_k : \mathrm{Valid}_k(\Ical_k) \} \;\longrightarrow\; \{ \Ical_{k+1} : \mathrm{Valid}_{k+1}(\Ical_{k+1}) \}
+\end{equation}
+satisfying, for every input $\Ical_k$ and its image $\Ical_{k+1} = T_b(\Ical_k)$:
+\begin{description}
+  \item[\textnormal{(S1) Small-field $\rho$-degradation:}] $\rho_{\mathrm{sf}, k+1} \;\ge\; \rho_{\mathrm{sf}, k} - \varepsilon_{\mathrm{sf}}(b, g_k)$.
+  \item[\textnormal{(S2) Large-field $\rho$-degradation:}] $\rho_{\mathrm{lf}, k+1} \;\ge\; \rho_{\mathrm{lf}, k} - \varepsilon_{\mathrm{lf}}(b, g_k)$.
+  \item[\textnormal{(S3) Overlap $K$-growth:}] $K_{\cap, k+1} \;\le\; K_{\cap, k} + \Delta_{\cap}(b, g_k)$.
+  \item[\textnormal{(S4) String-tension transport:}] $\sigh_{k+1} \;\ge\; \sigh_k - \eta(b, g_k)$.
+\end{description}
+\end{definition}
+
+\begin{remark}[What this definition is and is not]
+\label{rem:step-type-scope}
+Definition~\ref{def:step-type} is a \emph{type-level statement}: it describes what a block-spin step \emph{would} be, if one existed, in terms of constraints on its input-output pairs.  It does not assert the existence of such a $T_b$ for $SU(2)$ or any other group, it does not prove that the four conditions can be simultaneously satisfied with the regime constants of $SU(2)$, and it does not state any global claim such as the summability $\sum_k \eta(b, g_k) < \sigh_0$ (which is the Phase-3 inductive-budget claim).
+
+What the definition does provide is a precise statement of what Milestone~2.3 owes: a function inhabiting the type~\eqref{eq:T-b-type}.  Producing such a function for $SU(2)$ is the joint content of Milestones~2.3, 3.1, 3.2, 3.3, with the inductive budget closure being Milestone~3.4.
+\end{remark}
+
+\begin{remark}[2.2$\to$2.3 handoff in Lean]
+\label{rem:2-2-2-3-handoff}
+The Lean mirror in \texttt{lean/YMGap/RG/InductiveState.lean} exposes a $\mathrm{def}$ \texttt{StepType}, returning a Lean type.  At the present milestone's scope this is the simplest form,
+\[
+  \mathtt{StepType} \;=\; \mathtt{InductiveState} \to \mathtt{InductiveState},
+\]
+with the four conditions (S1)--(S4) documented in the file's prose but not encoded in the Lean type itself (encoding them requires committing to representations of $\varepsilon_{\mathrm{sf}}, \varepsilon_{\mathrm{lf}}, \Delta_{\cap}, \eta$ in $V$, which is Milestone~2.3's job).  This is the clean handoff: 2.2 produces the \emph{type}; 2.3 refines the type with the budget functions and produces the \emph{term}.
+
+In particular, \texttt{\#print axioms StepType} should report an empty axiom dependency set, since the definition is purely type-level and references no theorem.
+\end{remark}
+
+\section{The polymer atlas: open question}
+\label{sec:open}
+
+\texttt{work\_plan.md} Milestone~2.2 flags the polymer atlas $\Pcal_k$ as undefined: ``This milestone needs to either commit to a definition or document the choice as still-open.''
+
+\begin{remark}[Recommendation: leave $\Pcal_k$ as an abstract type, document as still-open]
+\label{rem:poly-atlas}
+The framework at the present scope does not require a concrete representation of $\Pcal_k$.  $\Pcal_k$ appears as a field of $\Ical_k$ but is not acted upon by $\mathrm{Valid}_k$; it is also not referenced by the type of the block-spin step (Definition~\ref{def:step-type}).  Plausible concrete representations include:
+\begin{itemize}
+  \item a finite set of polymers (\texttt{Finset Polymer} in Lean);
+  \item a graph adjacency / plaquette-set structure indexing polymers;
+  \item an indicator function $\Pcal_k \colon \mathrm{Polymer} \to \mathrm{Bool}$;
+  \item a cardinality-bounded subtype $\{X : \mathrm{Polymer} \mid |X| \le N_k\}$.
+\end{itemize}
+Each choice commits to a downstream interface that Milestones~3.1--3.3 will need to consume when they produce concrete polymer activities and their KP estimates.  Committing now risks rework; deferring costs nothing structurally.
+
+\textbf{Decision for the present milestone:} $\Pcal_k$ is left as an abstract type parameter \texttt{PolyAtlas} throughout the Lean formalization; the math paper describes it informally as ``the polymer atlas at scale $k$, with representation pinned in Phase~3''; the Python dataclass carries it as \texttt{Any} with a docstring.  The decision is recorded here, in \texttt{docs/sheaf-framework.md}'s polymer-atlas note, and in the Python module's docstring.  When Milestone~3.1 first needs a concrete representation, this remark is the place to update.
+\end{remark}
+
+\section{Lean mirror}
+\label{sec:lean}
+
+The Lean formalization is in \texttt{lean/YMGap/RG/InductiveState.lean}:
+\begin{itemize}
+  \item \texttt{InductiveState} as a \texttt{structure} carrying the data fields of Definition~\ref{def:I-k}, with no well-formedness baked in.  The structure type itself has no axiom dependencies.
+  \item \texttt{Valid} as a \texttt{def} returning a \texttt{Prop} that conjoins (V1)--(V3) of Definition~\ref{def:valid-k}.  Decidable when the value type $V$ has decidable equality and order, which is the case for concrete instantiations like $\mathbb{Q}$ or $\mathbb{N}$.
+  \item \texttt{ValidWitness} as a \texttt{structure} bundling the same content as \texttt{Valid} but in structure form (ergonomic for destructuring), with \texttt{validToWitness} / \texttt{witnessToValid} converters.  Hypothesis (V2) is automatic in this encoding: every \texttt{c\_sf : KPCertificate V P} carries a \texttt{satisfies : P c\_sf.rho c\_sf.K} proof as a field, so KP-predicate-holding is discharged by mere existence of the certificate.  The Python mirror (\texttt{computations/inductive\_state.py}) keeps V2 as an explicit per-clause check because Python dataclasses do not enforce the predicate at construction.  A field \texttt{c\_cap.satisfies} constructed via \texttt{domGlue\_preserves\_KP} inherits that theorem's $\mathtt{sorryAx}$ dependency, carrying the 2.1 obligation through any concrete instance.
+  \item \texttt{StepType} as a \texttt{def} returning a Lean \texttt{Type}, the simplest form of the pushforward signature, with the four conditions (S1)--(S4) documented in the file's docstring.  Refinement is Milestone~2.3.
+\end{itemize}
+The module is wired into the root aggregator \texttt{YMGap.lean}, so \texttt{lake build} covers it.
+
+The value type $V$ for the scalar quantities ($\sigh$, $g$, $\rho$, $K$) is, as in \texttt{sheaf-framework.tex}, intentionally abstract; concrete instantiation awaits \texttt{YMGap/Constructive/Reals.lean} (currently not implemented), per the 2.1 commit and AGENTS.md Rule~3.  The same applies to the partial-order, zero, $\min$, and addition typeclasses required by $\mathrm{Valid}$: they are recorded as \texttt{[LT V] [Zero V] [LE V] [Min V] [Add V]} on the predicate's signature and have no analytic content.
+
+\section{Cross-references}
+\label{sec:xref}
+
+\begin{itemize}
+  \item Prose companion (forthcoming): \texttt{docs/inductive-state.md} (if produced); meanwhile see \texttt{docs/sheaf-framework.md} \S5 (the carry-uncertainty paragraph applies verbatim to $\Ical_k$).
+  \item Lean formalization: \texttt{lean/YMGap/RG/InductiveState.lean}.
+  \item Python implementation: \texttt{computations/inductive\_state.py} with tests in \texttt{tests/test\_inductive\_state.py}.
+  \item Diagram: \texttt{visualizations/structure/inductive-state.tikz} (labeled tuple with the 2.3-step arrow).
+  \item Foundations: \texttt{formal/sheaf-framework.tex} (Definitions 4.1, 5.1; Proposition 7.1; Conjecture 7.4).
+  \item Motivation: \texttt{docs/context.md} \S2 ($\sigma$-1/$\sigma$-2/$\sigma$-3), \S3.3 (the four conditions).
+  \item Specification: \texttt{docs/outline.md} \S10.1--\S10.2 (this document); \S10.3--\S10.5 (Milestone~2.3 and Phase~3).
+  \item Open obligations: \texttt{lean/SORRY\_LEDGER.md} \texttt{[P2.1]} entry, parts (a) and (b), inherited through field \texttt{c\_cap} of $\Ical_k$.
+\end{itemize}
+
+\end{document}
