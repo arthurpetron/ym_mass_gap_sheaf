@@ -18,6 +18,7 @@
 \newtheorem{theorem}[definition]{Theorem}
 \newtheorem{lemma}[definition]{Lemma}
 \newtheorem{proposition}[definition]{Proposition}
+\newtheorem{conjecture}[definition]{Conjecture}
 \newtheorem{remark}[definition]{Remark}
 \newtheorem{example}[definition]{Example}
 
@@ -300,16 +301,19 @@ The step $\max(a, b) \le a + b$ in Case~A is the union bound, loose by at most a
 Proposition~\ref{prop:summability-preservation} is the load-bearing claim of the buffer mechanism.  Its proof above is structural and assumes only the standing setup of the framework (Definition~\ref{def:three-cover} cover structure, Definition~\ref{def:compatibility} compatibility).  The proposition is therefore stated and proved \emph{here}, at the framework level (Milestone~2.1), rather than deferred entirely to Milestone~3.3 as the previous version of this document did (see \texttt{docs/sheaf-framework.md} \S5).  Milestone~3.3's remaining obligation is the \emph{regime-specific} verification: producing concrete coherent families $\{s^{\mathrm{sf}}_{X'}\}$ and $\{s^{\mathrm{lf}}_{X'}\}$ for $SU(2)$ at each scale~$k$, with explicit $(\rho_{\mathrm{sf}}, K_{\mathrm{sf}})$ and $(\rho_{\mathrm{lf}}, K_{\mathrm{lf}})$, and showing the resulting $(\rho_{\cap}, K_{\cap})$ from~\eqref{eq:buffer-kp-constants} is small enough to feed the inductive step (Milestone~3.4).
 \end{remark}
 
-\begin{remark}[Conjecture for heat-kernel / Gaussian activities]
-\label{rem:gaussian-conjecture}
-The author's judgment, stated as a conjecture to be tested against the SU(2) constants computed in Milestones 1.3, 1.4, and 3.1--3.3:
+\begin{conjecture}[Expected sharpness of the union-bound estimate, to be verified]
+\label{conj:gaussian-sharpness}
+The author's judgment, stated as a \emph{conjecture} and not a proved fact, to be tested against the SU(2) constants computed in Milestones 1.3, 1.4, and 3.1--3.3:
 \begin{quote}
-For heat-kernel / Gaussian polymer activities, the union-bound estimate $K_{\cap} \le K_{\mathrm{sf}} + K_{\mathrm{lf}}$ is sharp up to a constant factor $\le 2$.  For each polymer $X'$, exactly one of $s^{\mathrm{sf}}_{X'}$ or $s^{\mathrm{lf}}_{X'}$ saturates the maximum --- the small-field bound dominates for short polymers ($|X'|_{\mathrm{phys}}/a_k$ small), the large-field bound for long ones ($|X'|_{\mathrm{plaq}}$ large) --- so the polymer sum splits naturally into ``mostly sf'' and ``mostly lf'' contributions and the union bound is rarely a true factor-of-$2$ lossy.
+For heat-kernel / Gaussian polymer activities, the union-bound estimate $K_{\cap} \le K_{\mathrm{sf}} + K_{\mathrm{lf}}$ is sharp up to a constant factor $\le 2$.  The expected mechanism: for each polymer $X'$, exactly one of $s^{\mathrm{sf}}_{X'}$ or $s^{\mathrm{lf}}_{X'}$ saturates the maximum --- the small-field bound dominates for short polymers, the large-field bound for long ones --- so the polymer sum splits naturally into ``mostly sf'' and ``mostly lf'' contributions and the union bound is rarely a true factor-of-$2$ lossy.
 \end{quote}
-A softer glue does not help here.  Replacing $\max$ with log-sum-exp on linear values gives $\log(s^{\mathrm{sf}} + s^{\mathrm{lf}})$ in linear scale, which is the union bound itself.  A convex combination $\lambda s^{\mathrm{sf}} + (1-\lambda) s^{\mathrm{lf}}$ with $\lambda \in (0,1)$ is smaller than $\max$ and would fail admissibility (Proposition~\ref{prop:domGlue-admissible}), undoing the structural pay-off of the sheaf reformulation.  The right glue for this framework is $\max$, and the buffer mechanism's tightness is controlled by the $\rho$-degradation budget across RG steps, not by the form of the glue itself.
 
-If the inductive step fails to close at Milestone~3.4, the author predicts the failure will surface in the $\rho_{\cap}$ trajectory --- $\min(\rho_{\mathrm{sf}}, \rho_{\mathrm{lf}})$ degrading too fast as $k$ grows --- not in the additive $K_{\cap}$ constant.  This is the version of context.md \S3.4's union-bound warning that applies to the buffer KP glue: the structural ($K_{\cap}$) part is robust; the analytic ($\rho_{\cap}$) part is where the real work is.
-\end{remark}
+\textbf{Unit-mismatch caveat.}  The above expectation is \emph{not} a settled fact because the two regime bounds live in different units: the small-field activity is bounded by $\exp(-\rho_{\mathrm{sf}} |X'|_{\mathrm{phys}}/a_k)$ (continuum-like, indexed by physical extent in lattice units) while the large-field activity is bounded by $\exp(-\rho_{\mathrm{lf}} |X'|_{\mathrm{plaq}})$ (lattice-combinatorial, indexed by plaquette count).  Whether these two regimes admit a clean crossover at a polymer-by-polymer level --- so that the conjecture's ``exactly one saturates'' claim holds --- or whether there is a fat buffer band of polymers for which neither bound is tight is \emph{exactly} the unit-mismatch difficulty that \texttt{docs/context.md} \S3.1 names as the original obstruction the sheaf reformulation is built to absorb.  Until concrete forms of $s^{\mathrm{sf}}_{X'}$, $s^{\mathrm{lf}}_{X'}$ exist (Milestones 1.3, 1.4) and the resulting union bound is checked against direct estimation on the buffer (Milestone 3.3), the conjecture stands as an expectation, not a result.  This is the same flavour of warning \texttt{docs/context.md} \S3.4 raises about the parallel per-plaquette union bound for the overlap \emph{measure}: union bounds in this framework ``do real work and may be too loose,'' and tightness has to be checked against concrete polymer-activity forms, not assumed.
+
+A softer glue does not help here.  Replacing $\max$ with log-sum-exp on linear values gives $\log(s^{\mathrm{sf}} + s^{\mathrm{lf}})$ in linear scale, which is the union bound itself.  A convex combination $\lambda s^{\mathrm{sf}} + (1-\lambda) s^{\mathrm{lf}}$ with $\lambda \in (0,1)$ is smaller than $\max$ and would fail admissibility (Proposition~\ref{prop:domGlue-admissible}), undoing the structural pay-off of the sheaf reformulation.  The right glue for this framework is $\max$, and the buffer mechanism's tightness is controlled by the $\rho$-degradation budget across RG steps and by whether the conjecture above turns out to hold, not by the form of the glue itself.
+
+If the inductive step fails to close at Milestone~3.4, the author's expectation is that the failure will surface either in the $\rho_{\cap}$ trajectory ($\min(\rho_{\mathrm{sf}}, \rho_{\mathrm{lf}})$ degrading too fast as $k$ grows) or in the conjecture above turning out to be false on a fat buffer band of polymers.  The structural ($K_{\cap}$) framework is robust; both robustness questions are analytic and owed to Phase~3.
+\end{conjecture}
 
 \section{Lean mirror}
 \label{sec:lean}
