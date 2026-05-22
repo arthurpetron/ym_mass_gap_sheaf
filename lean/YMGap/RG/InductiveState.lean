@@ -87,26 +87,56 @@ variable {V : Type} {P : V → V → Prop} {PolyAtlas : Type}
   Three named clauses:
 
   - (V1) `σ̂_k > 0` — the local σ-3 positivity.
-  - (V2) Each KP certificate is well-formed — *automatic* in this
-        Lean encoding: every `c_sf : KPCertificate V P` carries its
-        own `satisfies : P c_sf.rho c_sf.K` proof as a field, so V2
-        is discharged by mere existence of the certificate.  We
-        therefore omit V2 from `Valid`; the Python mirror keeps it
-        as a per-clause check because Python dataclasses do not
-        enforce the predicate at construction.
+  - (V2) The KP predicate `P` holds for each certificate's `(ρ, K)`.
+        This is propositionally `P c.rho c.K`, not the proof term
+        `c.satisfies`; the predicate is the Prop, and the certificate's
+        `satisfies` field is exactly its proof.  V2 is thus redundant
+        in the sense that `c : KPCertificate V P` already carries a
+        proof of `P c.rho c.K`, but listing it as a `Valid` clause
+        makes `Valid` the *self-contained, complete* statement of the
+        scale-k induction hypotheses — see the design note below.
   - (V3) The buffer constants relate to the sf and lf constants
         per `sheaf-framework.tex` Proposition 7.1.
 
-  All scale-k-local.  No reference to k+1; no sum over k. -/
+  All scale-k-local.  No reference to k+1; no sum over k.
 
-/-- The scale-k induction hypotheses, as a `Prop`.  Decidable when
-the value type `V` has decidable equality and order, which holds
-for concrete instantiations (`ℕ`, `ℚ`, future constructive `ℝ`). -/
+  ## Design note: V2 is included for self-containedness
+
+  Earlier P2.2 iterations omitted V2 from `Valid` on the grounds that
+  every `KPCertificate V P` already carries its `satisfies : P ρ K`
+  field, so V2 was structurally enforced and would be redundant
+  here.  That encoding is correct but it leaks the V2 obligation —
+  in particular the sorry'd `YMGap.Sheaf.domGlue_preserves_KP`
+  (the analytic content for the buffer certificate's V2) — into a
+  field that `Valid` never mentions.  Reasoning in 2.3 / Phase 3
+  about how validity degrades across the block-spin step would then
+  have to combine `Valid` with `c_*.satisfies` reach-into-field
+  proofs.
+
+  Restoring V2 as explicit `Valid` clauses (the predicate `P ρ K`
+  itself, not the proof term) makes `Valid` the complete scale-k
+  hypothesis statement.  The cost is three trivial conjuncts whose
+  proofs are exactly the certificate `satisfies` fields; no
+  analytic content is added.  Consistency with `formal/inductive-state.tex`
+  Definition 3.1 and the Python `validate()` is also restored. -/
+
+/-- The scale-k induction hypotheses, as a `Prop`.
+
+`Valid` is the complete self-contained statement (V1 ∧ V2 ∧ V3).
+Decidable for the V1 and V3 conjuncts when the value type `V` has
+decidable equality and order; the V2 conjuncts (the regime
+predicates) are decidable only for predicates that are themselves
+decidable, which in general they will not be (they encode the KP
+inequality, an infinite sum). -/
 def Valid
     [LT V] [Zero V] [LE V] [Min V] [Add V]
     (s : InductiveState V P PolyAtlas) : Prop :=
   -- (V1) σ̂_k > 0
   (0 < s.sigmaHat) ∧
+  -- (V2) KP predicate holds for each regime
+  P s.c_sf.rho s.c_sf.K ∧
+  P s.c_lf.rho s.c_lf.K ∧
+  P s.c_cap.rho s.c_cap.K ∧
   -- (V3) buffer-glue constants relationship from Proposition 7.1
   (s.c_cap.rho = min s.c_sf.rho s.c_lf.rho) ∧
   (s.c_cap.K ≤ s.c_sf.K + s.c_lf.K)
@@ -119,6 +149,14 @@ structure ValidWitness
     (s : InductiveState V P PolyAtlas) where
   /-- (V1) `σ̂_k > 0`. -/
   sigmaHat_pos : 0 < s.sigmaHat
+  /-- (V2-sf) `P` holds for the small-field certificate. -/
+  c_sf_predicate : P s.c_sf.rho s.c_sf.K
+  /-- (V2-lf) `P` holds for the large-field certificate. -/
+  c_lf_predicate : P s.c_lf.rho s.c_lf.K
+  /-- (V2-cap) `P` holds for the buffer certificate.  When this state
+  is constructed from concrete sf/lf via `YMGap.Sheaf.domGlue_preserves_KP`,
+  this field inherits that theorem's `sorryAx` dependency. -/
+  c_cap_predicate : P s.c_cap.rho s.c_cap.K
   /-- (V3-ρ) `ρ_∩ = min(ρ_sf, ρ_lf)`. -/
   buffer_glue_rho : s.c_cap.rho = min s.c_sf.rho s.c_lf.rho
   /-- (V3-K) `K_∩ ≤ K_sf + K_lf`. -/
@@ -128,13 +166,31 @@ structure ValidWitness
 def validToWitness
     [LT V] [Zero V] [LE V] [Min V] [Add V]
     {s : InductiveState V P PolyAtlas} (h : Valid s) : ValidWitness s :=
-  ⟨h.1, h.2.1, h.2.2⟩
+  ⟨h.1, h.2.1, h.2.2.1, h.2.2.2.1, h.2.2.2.2.1, h.2.2.2.2.2⟩
 
 /-- Project a `ValidWitness` back to a `Valid` proof. -/
 def witnessToValid
     [LT V] [Zero V] [LE V] [Min V] [Add V]
     {s : InductiveState V P PolyAtlas} (w : ValidWitness s) : Valid s :=
-  ⟨w.sigmaHat_pos, w.buffer_glue_rho, w.buffer_glue_K⟩
+  ⟨w.sigmaHat_pos,
+   w.c_sf_predicate, w.c_lf_predicate, w.c_cap_predicate,
+   w.buffer_glue_rho, w.buffer_glue_K⟩
+
+/-- A convenient builder: given an `InductiveState`, prove `Valid` by
+combining a `V1` proof, a `V3-ρ` proof, a `V3-K` proof, and using the
+certificates' built-in `satisfies` fields for V2.  This is the
+intended construction path: V2 is filled by the certificate fields
+and the analytic obligation flows in through `c_cap.satisfies`. -/
+def Valid.mkFromCertificates
+    [LT V] [Zero V] [LE V] [Min V] [Add V]
+    {s : InductiveState V P PolyAtlas}
+    (sigmaHat_pos : 0 < s.sigmaHat)
+    (glue_rho : s.c_cap.rho = min s.c_sf.rho s.c_lf.rho)
+    (glue_K : s.c_cap.K ≤ s.c_sf.K + s.c_lf.K) :
+    Valid s :=
+  ⟨sigmaHat_pos,
+   s.c_sf.satisfies, s.c_lf.satisfies, s.c_cap.satisfies,
+   glue_rho, glue_K⟩
 
 end InductiveState
 
@@ -174,6 +230,7 @@ def StepType
 #print axioms InductiveState.Valid
 #print axioms InductiveState.validToWitness
 #print axioms InductiveState.witnessToValid
+#print axioms InductiveState.Valid.mkFromCertificates
 #print axioms StepType
 
 end YMGap.RG

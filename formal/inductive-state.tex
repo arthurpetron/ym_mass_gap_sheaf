@@ -97,7 +97,7 @@ For an inductive state $\Ical_k$ as in Definition~\ref{def:I-k}, define the pred
 where:
 \begin{description}
   \item[\textnormal{(V1) String-tension positivity (local $\sigma$-$3$).}] $\sigh_k > 0$ in $V$.
-  \item[\textnormal{(V2) KP certificate well-formedness.}] Each of $c^{\mathrm{sf}}_k, c^{\mathrm{lf}}_k, c^{\cap}_k$ satisfies its regime predicate $P$ (already implied by the certificate's $\mathrm{sat}$ field).
+  \item[\textnormal{(V2) KP certificate well-formedness.}] The regime predicate holds for each certificate's constants: $P_{\mathrm{sf}}(\rho_{\mathrm{sf}, k}, K_{\mathrm{sf}, k})$, $P_{\mathrm{lf}}(\rho_{\mathrm{lf}, k}, K_{\mathrm{lf}, k})$, $P_{\cap}(\rho_{\cap, k}, K_{\cap, k})$.  Each clause is propositionally redundant given the certificate's $\mathrm{sat}$ field (which is exactly its proof), but is listed here so that $\mathrm{Valid}_k$ is the \emph{self-contained, complete} scale-$k$ hypothesis; see Remark~\ref{rem:V2-self-contained} below.
   \item[\textnormal{(V3) Buffer-glue relationship.}] The buffer constants match the form of \texttt{sheaf-framework.tex} Proposition~7.1:
   \begin{equation}
     \label{eq:buffer-glue}
@@ -111,6 +111,15 @@ where:
 \begin{remark}[All hypotheses are scale-$k$ local]
 \label{rem:scale-k-local}
 Each of (V1), (V2), (V3) references only quantities indexed by~$k$.  No quantity at scale $k+1$ appears; no sum $\sum_k$ appears; no uniform-in-$k$ constant $\sigma_{\mathrm{phys}}$ appears.  This is by design: the cross-scale content lives in the step (\S\ref{sec:step}) and in Phase~3.
+\end{remark}
+
+\begin{remark}[Why V2 is in $\mathrm{Valid}_k$ even though it is redundant]
+\label{rem:V2-self-contained}
+An earlier iteration of this document and its Lean mirror omitted V2 from $\mathrm{Valid}_k$ on the grounds that each $\mathrm{KPCertificate}(V, P)$ already carries a proof of its predicate as a structure field; mere existence of $c^{\mathrm{sf}}_k, c^{\mathrm{lf}}_k, c^{\cap}_k$ \emph{is} V2.  That encoding is logically correct but leaks the V2 obligation into a structure field that $\mathrm{Valid}_k$ never mentions --- in particular, the sorry'd analytic content of $\mathrm{c}^{\cap}_k.\mathrm{satisfies}$, owed by Milestone~3.3 via \texttt{YMGap.Sheaf.domGlue\_preserves\_KP}.  Subsequent reasoning in Milestone~2.3 and Phase~3 about how validity degrades under the block-spin step would have to combine $\mathrm{Valid}_k$ with reach-into-field proofs.
+
+Listing V2 explicitly closes that ambiguity: $\mathrm{Valid}_k$ is the complete, self-contained scale-$k$ hypothesis; the budget claims of 2.3 and Phase~3 can reason against $\mathrm{Valid}_k$ alone.  The cost is three trivial conjuncts whose proofs are the certificates' $\mathrm{sat}$ fields; no analytic content is added.
+
+The Lean mirror in \texttt{lean/YMGap/RG/InductiveState.lean} matches this layout, with a convenience builder \texttt{Valid.mkFromCertificates} that fills the V2 conjuncts from the certificates' \texttt{satisfies} fields and asks the caller only to provide V1 and V3.
 \end{remark}
 
 \begin{remark}[Outline \S10.2 hypothesis (4) deferred]
@@ -196,7 +205,7 @@ The Lean formalization is in \texttt{lean/YMGap/RG/InductiveState.lean}:
 \begin{itemize}
   \item \texttt{InductiveState} as a \texttt{structure} carrying the data fields of Definition~\ref{def:I-k}, with no well-formedness baked in.  The structure type itself has no axiom dependencies.
   \item \texttt{Valid} as a \texttt{def} returning a \texttt{Prop} that conjoins (V1)--(V3) of Definition~\ref{def:valid-k}.  Decidable when the value type $V$ has decidable equality and order, which is the case for concrete instantiations like $\mathbb{Q}$ or $\mathbb{N}$.
-  \item \texttt{ValidWitness} as a \texttt{structure} bundling the same content as \texttt{Valid} but in structure form (ergonomic for destructuring), with \texttt{validToWitness} / \texttt{witnessToValid} converters.  Hypothesis (V2) is automatic in this encoding: every \texttt{c\_sf : KPCertificate V P} carries a \texttt{satisfies : P c\_sf.rho c\_sf.K} proof as a field, so KP-predicate-holding is discharged by mere existence of the certificate.  The Python mirror (\texttt{computations/inductive\_state.py}) keeps V2 as an explicit per-clause check because Python dataclasses do not enforce the predicate at construction.  A field \texttt{c\_cap.satisfies} constructed via \texttt{domGlue\_preserves\_KP} inherits that theorem's $\mathtt{sorryAx}$ dependency, carrying the 2.1 obligation through any concrete instance.
+  \item \texttt{ValidWitness} as a \texttt{structure} bundling the same content as \texttt{Valid} in structure form (ergonomic for destructuring), with \texttt{validToWitness} / \texttt{witnessToValid} converters.  Hypothesis (V2) is explicit in both \texttt{Valid} and \texttt{ValidWitness} as the conjuncts \texttt{P c\_sf.rho c\_sf.K $\wedge$ P c\_lf.rho c\_lf.K $\wedge$ P c\_cap.rho c\_cap.K} (the predicate, not the proof term); they are propositionally redundant given each certificate's \texttt{satisfies} field but make \texttt{Valid} self-contained --- see Remark~\ref{rem:V2-self-contained}.  The convenience builder \texttt{Valid.mkFromCertificates} closes V2 from the certificates' \texttt{satisfies} fields automatically.  When the buffer certificate $c^{\cap}_k$ is constructed via \texttt{YMGap.Sheaf.domGlue\_preserves\_KP}, the V2-cap conjunct inherits that theorem's $\mathtt{sorryAx}$ dependency, carrying the 2.1 obligation through any concrete instance.
   \item \texttt{StepType} as a \texttt{def} returning a Lean \texttt{Type}, the simplest form of the pushforward signature, with the four conditions (S1)--(S4) documented in the file's docstring.  Refinement is Milestone~2.3.
 \end{itemize}
 The module is wired into the root aggregator \texttt{YMGap.lean}, so \texttt{lake build} covers it.
