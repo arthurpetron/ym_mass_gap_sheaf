@@ -28,21 +28,28 @@ The cocycle observation forces a **three-element cover**: $\Omega_k^{\mathrm{sf}
 
 The single most useful observation about $\mathcal{A}_k$ is that it is **flabby in the domination sense** (`formal/sheaf-framework.tex` Theorem 3.4 = `thm:flabbiness`): every local bound is dominated by the restriction of some global bound. The proof is one line: take the constant section $t \equiv \infty$. It is admissible everywhere (since $|a_k(X)|(u) \le \infty$ trivially), and it dominates any other section pointwise.
 
-This means $\mathcal{A}_k$'s sheaf condition is automatic and carries no analytic content. The framework's content lives elsewhere — specifically, in the **compatibility predicate** that binds a bound $s \in \mathcal{A}_k(U, X)$ to a KP pair $(\rho, K) \in \mathcal{S}_k(U, X)$:
+This means $\mathcal{A}_k$'s sheaf condition is automatic and carries no analytic content. The framework's content lives in **two named places**:
 
-$$
-  \sum_{X' \supseteq X,\ X' \ni x} s_{X'}(u)\, e^{\rho |X'|} \le K
-  \qquad \text{for all } u \in U,\ x \text{ a plaquette of } X.
-$$
+1. The **compatibility predicate** (`formal/sheaf-framework.tex` Definition 5.1) that binds a bound $s \in \mathcal{A}_k(U, X)$ to a KP pair $(\rho, K) \in \mathcal{S}_k(U, X)$:
+   $$
+     \sum_{X' \supseteq X,\ X' \ni x} s_{X'}(u)\, e^{\rho |X'|} \le K
+     \qquad \text{for all } u \in U,\ x \text{ a plaquette of } X.
+   $$
 
-This is `formal/sheaf-framework.tex` Definition 5.1 (= `def:compatibility`), the named definition Milestone 2.1 requires. The compatibility predicate is where the analytic obligations of the program crystallize:
+2. The **summability-preservation proposition** (`formal/sheaf-framework.tex` Proposition 7.1 = `prop:summability-preservation`) that says the domination glue on the buffer inherits a KP certificate from the inputs, with constants
+   $$
+     \rho_\cap = \min(\rho_{sf}, \rho_{lf}), \qquad K_\cap \le K_{sf} + K_{lf}.
+   $$
+   This is the *load-bearing claim of the buffer mechanism*: if $\max$ destroyed KP summability the framework would fail at Milestone 3.3. The proposition is proved structurally in the LaTeX (the union-bound calculation, half a page) and stated in Lean as a sorry'd Σ-typed obligation in `Sheaf/Gluing.lean` (`domGlue_preserves_KP`), with the analytic discharge owed by 3.3 per AGENTS.md Rule 5.
+
+These are the two places where the analytic obligations of the program crystallize:
 
 - **Existence of a compatible pair** at small-field is Milestone 3.1.
 - **Existence of a compatible pair** at large-field is Milestone 3.2.
-- **Existence of a compatible pair** on the overlap, with $s^\cap$ built by domination gluing, is Milestone 3.3.
+- **Existence of a compatible pair on the overlap** is Milestone 3.3 — but the *framework-level* part (Proposition 7.1: summability transfers under $\max$ with the conjectured constants) is settled here in 2.1; 3.3's remaining job is the regime-specific verification that the resulting $(\rho_\cap, K_\cap)$ is tight enough for the inductive step.
 - **Persistence of compatible pairs** along the block-spin pushforward, with controlled degradation $\Delta_\cap(b, g_k)$ summable in $k$, is the inductive step (work_plan.md Phase 3).
 
-So the framework isolates the analytic problem (compatibility, regime-by-regime, with summable degradation across RG steps) without entangling it with the small-field/large-field obstruction. The sheaf condition on $\mathcal{A}_k$ comes for free; the cocycle on the overlap is dissolved by domination; what is left is a clean inductive obligation.
+So the framework isolates the analytic problem (compatibility, regime-by-regime, with summable degradation across RG steps) without entangling it with the small-field/large-field obstruction. The sheaf condition on $\mathcal{A}_k$ comes for free; the cocycle on the overlap is dissolved by domination; the buffer's summability-preservation is settled at the framework level; what is left is a clean regime-specific inductive obligation.
 
 ## 3. Why $\mathbb{R}_{\ge 0}$ should be read constructively
 
@@ -67,13 +74,15 @@ The practical consequence: the structural lemmas of this section have **empty ax
 | Compatibility | Definition 5.1 (`def:compatibility`) | `Gluing.lean`: `CompatibilityRule` |
 | Domination glue | Definition 6.1 (`def:domGlue`) | `Gluing.lean`: `domGlue` |
 | Domination glue admissible | Proposition 6.2 (`prop:domGlue-admissible`) | `Gluing.lean`: `domGlue_dominates_*` |
+| Summability preservation under glue | Proposition 7.1 (`prop:summability-preservation`) | `Gluing.lean`: `domGlue_preserves_KP` (sorry'd, owed by 3.3) |
 
 ## 5. What this milestone deliberately does *not* close
 
 Per the cross-cutting policy in `work_plan.md` and the AGENTS.md Rule 5 (Lean mirrors the rest of the repo), Milestone 2.1 establishes the *framework* and leaves the *constants* to later phases:
 
 - The polymer activity $|a_k(X)|$ is an abstract parameter here. The small-field, large-field, and overlap activity forms are pinned in Milestones 1.3, 1.4, and 3.1–3.3.
-- The compatibility predicate (Definition 5.1) is stated but no specific KP pair $(\rho, K)$ is exhibited. Existence-with-witnesses is the job of Milestones 3.1–3.3.
+- The compatibility predicate (Definition 5.1) is stated but no specific KP pair $(\rho, K)$ is exhibited for any concrete regime. Existence-with-witnesses is the job of Milestones 3.1–3.3.
+- Proposition 7.1 (summability preservation under the buffer glue) is *proved structurally* in the LaTeX and *stated* in Lean with the analytic content (that the regime-specific predicate `P` holds at the conjectured buffer constants) discharged in Milestone 3.3. The Lean `sorry` is logged in `lean/SORRY_LEDGER.md`.
 - The block-spin pushforward and the 2-cell degradation $\Theta_k$ are deferred to Milestones 2.2 (inductive state) and 2.3 (block-spin sheaf morphism).
 - The Lean value type for $\mathcal{A}_k$-sections is abstract `[BoundValues T]`; the instantiation $T = \overline{\mathbb{R}}_{\ge 0}$ awaits `YMGap/Constructive/Reals.lean`.
 

@@ -95,11 +95,57 @@ def Compatible {Config T V : Type} [BoundValues T] {P : V → V → Prop}
     (s : Section Config T) (c : KPCertificate V P) : Prop :=
   rule s c
 
+/-! ## Summability preservation under domination gluing
+
+The load-bearing claim of the buffer mechanism: given KP
+certificates `(ρ_sf, K_sf)` and `(ρ_lf, K_lf)` for the small-field
+and large-field families, the buffer-glued family admits a KP
+certificate `(ρ_∩, K_∩)` with the explicit constants
+
+    ρ_∩ = min(ρ_sf, ρ_lf),    K_∩ ≤ K_sf + K_lf.
+
+This is the union-bound estimate from `max(a, b) ≤ a + b`.
+
+Mirror: `formal/sheaf-framework.tex` Proposition 7.1
+(`prop:summability-preservation`).
+
+The statement is constructively phrased — Σ-typed witness producing
+the buffer KP certificate together with the conjectured constant
+relationships.  The proof is `sorry`'d because at this abstract
+typeclass layer the inequality predicate `P` does not know about
+the polymer sum structure (`P` is regime-specific, fixed in
+Milestones 3.1–3.3).  The obligation is logged in
+`lean/SORRY_LEDGER.md` as `[P2.1] overlap summability preservation,
+owed by 3.3`.
+-/
+
+/-- **Summability preservation under domination gluing** (Σ-typed
+statement).  Closed in Milestone 3.3 with regime-specific
+predicates; here we record the type of the obligation.
+
+Given two KP certificates over the same predicate `P` and value
+type `V` (with `Min`, `Add`, `LE`), exhibit a buffer certificate
+whose decay rate is bounded above by `min` of the inputs and whose
+amplitude is bounded above by the sum of the inputs.  The proof
+that the predicate `P` holds at the new constants is the analytic
+content owed by Milestone 3.3. -/
+def domGlue_preserves_KP
+    {V : Type} [Min V] [Add V] [LE V]
+    {P : V → V → Prop}
+    (c_sf c_lf : KPCertificate V P) :
+    Σ' c_cap : KPCertificate V P,
+      c_cap.rho = min c_sf.rho c_lf.rho ∧ c_cap.K ≤ c_sf.K + c_lf.K := by
+  -- SORRY[P2.1]: overlap summability preservation, owed by 3.3.
+  -- The analytic content (max ≤ sum applied to the polymer KP
+  -- sum) requires a concrete predicate P from Milestone 3.3.
+  sorry
+
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
 
 #print axioms domGlue_dominates_sf
 #print axioms domGlue_dominates_lf
 #print axioms domGlue_le
 #print axioms domGlue_witness
+#print axioms domGlue_preserves_KP
 
 end YMGap.Sheaf

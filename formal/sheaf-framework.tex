@@ -215,13 +215,14 @@ where $s_{X'} \in \Acal_k(U, X')$ ranges over a coherent family of bound-witness
 This is the named definition Milestone~2.1 requires (work\_plan.md L191--195).  It is the place where the analytic content of the framework lives: compatibility binds an admissible activity bound (from $\Acal_k$) to a Kotecký--Preiss decay/amplitude pair (from $\Scal_k$), and the inductive step of the program (outline \S10, work\_plan.md Phase~3) is exactly the assertion that compatible families persist along the block-spin pushforward up to a controlled degradation.
 
 \begin{remark}[Where compatibility is closed]
-The compatibility predicate~\eqref{eq:compatibility} is not closed in this document.  It is closed --- with explicit constants --- in:
+\label{rem:where-closed}
+The compatibility predicate~\eqref{eq:compatibility} is not closed in this document for any concrete regime.  Regime-by-regime, it is closed in:
 \begin{itemize}
   \item Milestone~3.1 for the small-field regime, $(s^{\mathrm{sf}}, (\rho_{\mathrm{sf}}, K_{\mathrm{sf}}))$ on $(\Omsf, X)$;
   \item Milestone~3.2 for the large-field regime, $(s^{\mathrm{lf}}, (\rho_{\mathrm{lf}}, K_{\mathrm{lf}}))$ on $(\Omlf, X)$;
-  \item Milestone~3.3 for the overlap, $(s^{\cap}, (\rho_{\cap}, K_{\cap}))$ on $(\Omcap, X)$, with $s^{\cap}$ glued by domination (Section~\ref{sec:gluing}).
+  \item Milestone~3.3 for the overlap, by combining 3.1 and 3.2 with the framework-level Proposition~\ref{prop:summability-preservation} of \S\ref{sec:buffer-summability}.  The framework-level claim (that $\max$ preserves KP summability with the constants of~\eqref{eq:buffer-kp-constants}) is settled in the present document; what 3.3 owes is the regime-specific verification that the resulting $(\rho_{\cap}, K_{\cap})$ is tight enough to feed the inductive step of Milestone~3.4.
 \end{itemize}
-The role of the present document is to fix the predicate's signature and statement; the role of Milestones 3.1--3.3 is to exhibit the witnesses.
+The role of the present document is to fix the predicate's signature and to establish the structural Proposition~\ref{prop:summability-preservation}; the role of Milestones 3.1--3.3 is to exhibit concrete witnesses.
 \end{remark}
 
 \section{Domination gluing on the buffer overlap}
@@ -249,6 +250,65 @@ For $u \in \Omcap$, the activity $|a_k(X)|(u)$ is a single nonneg real (Definiti
 
 \begin{remark}[Why domination, not equality]
 Two distinct upper bounds $s^{\mathrm{sf}}$ and $s^{\mathrm{lf}}$ on the same activity will not in general agree on the overlap: the small-field bound is derived from a Gaussian/perturbative expansion of the action, the large-field bound from a heat-kernel character expansion (outline \S6.4, \S6.5).  They bound the same function from above, but disagree pointwise on $\Omcap$.  Gluing by equality would fail.  Gluing by domination (Proposition~\ref{prop:domGlue-admissible}) absorbs the disagreement by taking the looser bound on the overlap.  This is the structural pay-off of the sheaf reformulation announced in \texttt{docs/context.md} \S3.1: the cocycle problem becomes a domination problem.
+\end{remark}
+
+\section{Summability preservation under domination gluing}
+\label{sec:buffer-summability}
+
+Proposition~\ref{prop:domGlue-admissible} establishes that the
+domination glue is an admissible \emph{bound}.  The trivial section
+$\infty$ is also admissible (Theorem~\ref{thm:flabbiness}), so
+admissibility alone has no analytic content.  The non-trivial half
+of the buffer mechanism is the question: \emph{does the domination
+glue preserve KP summability, and with what constants?}  This
+section states the load-bearing claim that answers it.
+
+\begin{proposition}[Summability preservation under domination gluing]
+\label{prop:summability-preservation}
+Let $X \in \Pcal_k$ be a polymer.  Suppose:
+\begin{enumerate}
+  \item[(i)] A coherent family $\{s^{\mathrm{sf}}_{X'}\}_{X' \supseteq X}$ of bound-witness sections on $\Omsf$ is compatible with the KP datum $(\rho_{\mathrm{sf}}, K_{\mathrm{sf}}) \in \Scal_k(\Omsf, X)$ in the sense of Definition~\ref{def:compatibility}.
+  \item[(ii)] A coherent family $\{s^{\mathrm{lf}}_{X'}\}_{X' \supseteq X}$ of bound-witness sections on $\Omlf$ is compatible with $(\rho_{\mathrm{lf}}, K_{\mathrm{lf}}) \in \Scal_k(\Omlf, X)$.
+\end{enumerate}
+Define the buffer-glued family $\{s^{\cap}_{X'}\}_{X' \supseteq X}$ on $\Omcap$ by Definition~\ref{def:domGlue} (pointwise maximum, falling back to the single available bound where only one of $s^{\mathrm{sf}}, s^{\mathrm{lf}}$ is defined).  Then the buffer family is compatible with the KP datum
+\begin{equation}
+  \label{eq:buffer-kp-constants}
+  (\rho_{\cap}, K_{\cap}) \;:=\; \bigl(\, \min(\rho_{\mathrm{sf}}, \rho_{\mathrm{lf}}),\ \ K_{\mathrm{sf}} + K_{\mathrm{lf}}\, \bigr) \;\in\; \Scal_k(\Omcap, X).
+\end{equation}
+\end{proposition}
+
+\begin{proof}[Proof sketch]
+Fix $u \in \Omcap$ and a plaquette $x$ of $X$.  By the cover structure (Definition~\ref{def:three-cover}, $\Omcap \subseteq \Omsf \cup \Omlf$), $u$ lies in at least one of the two regions; we split into two cases.
+
+\textbf{Case A:} $u \in \Omsf \cap \Omlf$.  Both $s^{\mathrm{sf}}_{X'}(u)$ and $s^{\mathrm{lf}}_{X'}(u)$ are defined for every $X' \supseteq X$, and $s^{\cap}_{X'}(u) = \max\!\bigl(s^{\mathrm{sf}}_{X'}(u), s^{\mathrm{lf}}_{X'}(u)\bigr)$.  Applying $\max(a, b) \le a + b$:
+\begin{align*}
+  \sum_{X' \supseteq X,\ X' \ni x} s^{\cap}_{X'}(u)\, e^{\rho_{\cap} |X'|}
+  &\le\; \sum_{X'} s^{\mathrm{sf}}_{X'}(u)\, e^{\rho_{\cap} |X'|} \;+\; \sum_{X'} s^{\mathrm{lf}}_{X'}(u)\, e^{\rho_{\cap} |X'|}.
+\end{align*}
+Since $\rho_{\cap} \le \rho_{\mathrm{sf}}$ by~\eqref{eq:buffer-kp-constants}, $e^{\rho_{\cap} |X'|} \le e^{\rho_{\mathrm{sf}} |X'|}$, and by hypothesis~(i) the first sum is $\le K_{\mathrm{sf}}$.  Symmetrically the second is $\le K_{\mathrm{lf}}$.  Total: $\le K_{\mathrm{sf}} + K_{\mathrm{lf}} = K_{\cap}$.
+
+\textbf{Case B:} $u \in \Omlf \setminus \Omsf$ (or symmetrically $u \in \Omsf \setminus \Omlf$).  Only one of $s^{\mathrm{sf}}, s^{\mathrm{lf}}$ is defined at $u$; by Definition~\ref{def:domGlue} $s^{\cap}_{X'}(u)$ equals that single value.  The KP sum is then $\le K_{\mathrm{lf}} \le K_{\mathrm{sf}} + K_{\mathrm{lf}}$ (resp.\ $\le K_{\mathrm{sf}}$).
+\end{proof}
+
+\begin{remark}[Looseness of the union-bound estimate]
+\label{rem:union-bound-looseness}
+The step $\max(a, b) \le a + b$ in Case~A is the union bound, loose by at most a factor of $2$.  \texttt{docs/context.md} \S3.4 raises a parallel concern about a \emph{different} union bound (the per-plaquette union bound on the overlap \emph{measure}, not the KP-summability glue treated here).  For the present statement, the looseness factor is constant in $k$, so it does not accumulate across RG steps; the substantive tightness question is whether $\rho_{\cap} = \min(\rho_{\mathrm{sf}}, \rho_{\mathrm{lf}})$ stays bounded away from zero across the RG trajectory.  That is the content of Milestone~3.4 (string-tension 2-cell budget), not of this proposition.
+\end{remark}
+
+\begin{remark}[Discharge schedule]
+\label{rem:summability-discharge}
+Proposition~\ref{prop:summability-preservation} is the load-bearing claim of the buffer mechanism.  Its proof above is structural and assumes only the standing setup of the framework (Definition~\ref{def:three-cover} cover structure, Definition~\ref{def:compatibility} compatibility).  The proposition is therefore stated and proved \emph{here}, at the framework level (Milestone~2.1), rather than deferred entirely to Milestone~3.3 as the previous version of this document did (see \texttt{docs/sheaf-framework.md} \S5).  Milestone~3.3's remaining obligation is the \emph{regime-specific} verification: producing concrete coherent families $\{s^{\mathrm{sf}}_{X'}\}$ and $\{s^{\mathrm{lf}}_{X'}\}$ for $SU(2)$ at each scale~$k$, with explicit $(\rho_{\mathrm{sf}}, K_{\mathrm{sf}})$ and $(\rho_{\mathrm{lf}}, K_{\mathrm{lf}})$, and showing the resulting $(\rho_{\cap}, K_{\cap})$ from~\eqref{eq:buffer-kp-constants} is small enough to feed the inductive step (Milestone~3.4).
+\end{remark}
+
+\begin{remark}[Conjecture for heat-kernel / Gaussian activities]
+\label{rem:gaussian-conjecture}
+The author's judgment, stated as a conjecture to be tested against the SU(2) constants computed in Milestones 1.3, 1.4, and 3.1--3.3:
+\begin{quote}
+For heat-kernel / Gaussian polymer activities, the union-bound estimate $K_{\cap} \le K_{\mathrm{sf}} + K_{\mathrm{lf}}$ is sharp up to a constant factor $\le 2$.  For each polymer $X'$, exactly one of $s^{\mathrm{sf}}_{X'}$ or $s^{\mathrm{lf}}_{X'}$ saturates the maximum --- the small-field bound dominates for short polymers ($|X'|_{\mathrm{phys}}/a_k$ small), the large-field bound for long ones ($|X'|_{\mathrm{plaq}}$ large) --- so the polymer sum splits naturally into ``mostly sf'' and ``mostly lf'' contributions and the union bound is rarely a true factor-of-$2$ lossy.
+\end{quote}
+A softer glue does not help here.  Replacing $\max$ with log-sum-exp on linear values gives $\log(s^{\mathrm{sf}} + s^{\mathrm{lf}})$ in linear scale, which is the union bound itself.  A convex combination $\lambda s^{\mathrm{sf}} + (1-\lambda) s^{\mathrm{lf}}$ with $\lambda \in (0,1)$ is smaller than $\max$ and would fail admissibility (Proposition~\ref{prop:domGlue-admissible}), undoing the structural pay-off of the sheaf reformulation.  The right glue for this framework is $\max$, and the buffer mechanism's tightness is controlled by the $\rho$-degradation budget across RG steps, not by the form of the glue itself.
+
+If the inductive step fails to close at Milestone~3.4, the author predicts the failure will surface in the $\rho_{\cap}$ trajectory --- $\min(\rho_{\mathrm{sf}}, \rho_{\mathrm{lf}})$ degrading too fast as $k$ grows --- not in the additive $K_{\cap}$ constant.  This is the version of context.md \S3.4's union-bound warning that applies to the buffer KP glue: the structural ($K_{\cap}$) part is robust; the analytic ($\rho_{\cap}$) part is where the real work is.
 \end{remark}
 
 \section{Lean mirror}

@@ -15,7 +15,17 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 
 ## Entries
 
-_No `sorry`s logged. The first entries will appear when a milestone surfaces a load-bearing obligation that cannot be discharged with the constructive tooling available at the time._
+### [P2.1] overlap summability preservation, owed by 3.3
+
+- **milestone**: 2.1 (work_plan.md L184–202)
+- **file**: `lean/YMGap/Sheaf/Gluing.lean`
+- **decl**: `YMGap.Sheaf.domGlue_preserves_KP`
+- **obligation**: Given KP certificates `(ρ_sf, K_sf)` for the small-field family and `(ρ_lf, K_lf)` for the large-field family, exhibit a buffer KP certificate `(ρ_∩, K_∩)` with `ρ_∩ = min(ρ_sf, ρ_lf)` and `K_∩ ≤ K_sf + K_lf` such that the regime-specific KP predicate `P` holds at the buffer constants. The constructive content of the obligation is the union-bound estimate `max(a, b) ≤ a + b` applied to the polymer-summability sum (see `formal/sheaf-framework.tex` Proposition 7.1 for the math statement and proof sketch).
+- **constructive?**: yes — the statement is Σ-typed (`Σ' c_cap : KPCertificate V P, ...`); the `sorry` isolates only the claim that the regime-specific predicate `P` holds at the explicitly stated buffer constants. The conjectured constants themselves (`min` of decay rates, sum of amplitudes) are baked into the type signature.
+- **owed by**: Milestone 3.3 (overlap KP constants).
+- **axiom-gate**: `#print axioms domGlue_preserves_KP` reports `depends on axioms: [sorryAx]`. Crucially, **no `Classical.choice`, no `propext`, no `Quot.sound`** — the unique axiom in the dependency closure is `sorryAx`, which is the explicit signal of an unclosed obligation rather than a silent classical lapse.
+- **load-bearing status**: this is the actual buffer mechanism. If `max` destroys KP summability, the framework fails at 3.3. Author's heat-kernel/Gaussian conjecture (`formal/sheaf-framework.tex` Remark 7.5): the union-bound estimate is sharp up to a factor `≤ 2` because, for each polymer `X'`, exactly one of `s^sf_X'` or `s^lf_X'` dominates the max — sf for short polymers, lf for long.
+- **must not be closed classically**: per AGENTS.md Rule 6, closing this `sorry` later via `Classical.*` would defeat the constructive-law purpose of `lean/`. The closure must come with a constructive predicate `P` from 3.1–3.3 and a constructive proof at those constants.
 
 ## How to add an entry
 
