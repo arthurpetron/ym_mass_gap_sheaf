@@ -39,6 +39,10 @@ dist/
 _generated/
 visualizations/_generated/
 
+# Lean / Lake build artifacts
+lean/.lake/
+lean/build/
+
 # LaTeX build artifacts
 *.aux
 *.bbl

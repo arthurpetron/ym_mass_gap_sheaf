@@ -1,0 +1,12 @@
+name = "YMGap"
+defaultTargets = ["YMGap"]
+
+# Milestone 1.1 deliberately depends on nothing but Lean core: SU(2)
+# Casimirs are exact rationals, so `Nat`/`Rat` suffice and no
+# real-number infrastructure is needed. Later phases that touch
+# moduli will introduce a constructive-reals module under
+# `YMGap/Constructive/Reals.lean` per the AGENTS.md contract;
+# Mathlib's `Real` is forbidden by Rule 3.
+
+[[lean_lib]]
+name = "YMGap"
