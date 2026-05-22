@@ -219,3 +219,53 @@ These constants feed:
 - **Milestone 3.2** — large-field KP constants come from the heat-kernel character expansion, where the Casimir gap $C_2(1/2) - C_2(0) = 3/4$ controls $\rho_{\mathrm{lf}}$.
 
 If any later module needs an SU(2) Casimir, it must import from this module rather than re-deriving — the `KILLING_FORM_CONVENTION` tag exists so that a mismatch is detectable at import time.
+
+---
+
+## 6. Lean side — scope and deferrals
+
+The Lean track of Milestone 1.1 lives in `lean/YMGap/RepTheory/SU2.lean`. It carries the **Casimir-spectrum half** of the obligation in `lean/AGENTS.md`'s Phase-1 row ("SU(2) Casimir spectrum and characters as decidable/computable data") and explicitly defers the **characters half** to a later Phase-1 milestone.
+
+### 6.1. What the Lean side establishes
+
+Using a `Nat`-only encoding (`fourTimesCasimir s := s * (s + 2)` for `s = 2j`):
+
+- the dimension and Casimir formulas as `Nat`-valued functions (`dimension`, `fourTimesCasimir`),
+- the spec values from `docs/outline.md` §18.1: $d_0 = 1$, $d_{1/2} = 2$, $d_1 = 3$, $d_{3/2} = 4$, $d_2 = 5$ and $4 \cdot C_2(j) \in \{0, 3, 8, 15, 24\}$,
+- the **general defining equation** `fourTimesCasimir_eq : fourTimesCasimir s = s · (s + 2)` so downstream files can rewrite without unfolding,
+- the **minimality lemma** `fourTimesCasimir_ge_three_of_pos : 1 ≤ s → 3 ≤ fourTimesCasimir s`, which combined with `fourTimesCasimir_zero : fourTimesCasimir 0 = 0` justifies the name `smallestNonzeroFourCasimir` as a proved property rather than a label,
+- the witness-bearing `Irrep` structure (`spin`, `dim`, `fourCas` plus their `*_spec` certificates),
+- `smallestNonzeroFourCasimir` as a `Subtype` (constructive existence, not `Exists`).
+
+Every one of those declarations passes its `#print axioms` gate with "does not depend on any axioms" — there is no `Classical.*`, no `propext`, no `Quot.sound`, no `sorryAx` in the dependency closure. The full build log is in the `[P1.1]` commit body for the Lean side.
+
+### 6.2. Why the rational encoding is not exposed
+
+Lean 4 core's `Rat` was tried first. A probe established that **even the reflexive equality `(3 : Rat) / 4 = (3 : Rat) / 4` proved by `rfl`** has axiom dependencies
+
+```
+depends on axioms: [propext, Classical.choice, Quot.sound]
+```
+
+via `Rat.decEq`. AGENTS.md Rule 1 forbids `Classical.choice` in load-bearing theorems, so the Lean module exposes the integer numerator `fourTimesCasimir s = 4 · C_2(j)` instead. The rational semantics is documented in this note (`C_2(j) = fourTimesCasimir(s) / 4`) and in the SU2.lean docstring; no information is lost. A future quarantined `YMGap/Classical/Rat.lean` could re-export Rat-valued aliases per AGENTS.md Rule 4, but only when a downstream phase truly needs them.
+
+### 6.3. Why the character function is deferred
+
+The spec-quoted character $\chi_j(\theta) = \sin((2j+1)\theta/2)/\sin(\theta/2)$ depends on $\theta \in \mathbb{R}$. A faithful Lean encoding therefore needs real-number infrastructure:
+
+- **Mathlib's `Real`** is forbidden by AGENTS.md Rule 3 (Cauchy-sequence quotient using choice; equality not decidable).
+- The project's own **`YMGap/Constructive/Reals.lean`** with explicit moduli — the only constructively acceptable choice — does not yet exist; `lean/README.md` schedules it as the entry point for the constructive-analysis phase. Building it inside Milestone 1.1 would expand the scope beyond a Casimir-spectrum exercise.
+- **Discrete representations** (e.g. the weight list as a `List Int` carrying the exponents in $\chi_j(\theta) = \sum_m e^{im\theta/2}$) are possible without reals, but their utility is limited until they couple to the analytic formula.
+
+The deferral is therefore deliberate. The character formula and its orthogonality are verified in Python (`computations/su2_representations.py`: 11×11 Gram matrix to machine precision, $\|M - I\|_\infty \approx 7 \times 10^{-16}$); the obligation will be picked up on the Lean side when a Phase-1 milestone introduces `YMGap/Constructive/Reals.lean`.
+
+### 6.4. Status
+
+Phase-1 Lean obligation per `AGENTS.md`:
+
+| sub-obligation | status |
+| --- | --- |
+| SU(2) Casimir spectrum as decidable/computable data | ✅ closed in `YMGap/RepTheory/SU2.lean` |
+| SU(2) characters as decidable/computable data        | ⏳ deferred to a Phase-1 milestone introducing constructive reals |
+
+The deferral is **not** a hole in the constructive law — the obligation is "produce a witness when a witness is claimed", and no claim about $\chi_j(\theta)$ has been made on the Lean side yet. The Python side carries the claim and its modulus.
