@@ -1,0 +1,280 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+}
+\usepackage{mathtools}
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{remark}[definition]{Remark}
+\newtheorem{example}[definition]{Example}
+
+\newcommand{\Rnnext}{\overline{\mathbb{R}}_{\ge 0}}
+\newcommand{\Rnn}{\mathbb{R}_{\ge 0}}
+\newcommand{\Pcal}{\mathcal{P}}
+\newcommand{\Acal}{\mathcal{A}}
+\newcommand{\Scal}{\mathcal{S}}
+\newcommand{\Omk}{\Omega_k}
+\newcommand{\Omsf}{\Omega_k^{\mathrm{sf}}}
+\newcommand{\Omlf}{\Omega_k^{\mathrm{lf}}}
+\newcommand{\Omcap}{\Omega_k^{\cap}}
+
+\title{The Sheaf-Theoretic Framework for the Constructive\\
+  Yang--Mills Mass Gap Program:\\
+  Sites, Bound-Witnesses, and Summability Certificates}
+\author{Arthur Petron}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We define the sheaf-theoretic framework underlying the constructive Yang--Mills mass gap program: the configuration site over $\Omk = G^{E_k}$ with its three-element small-field/large-field/buffer cover, the bound-witness presheaf $\Acal_k$ valued in $(\Rnnext, \le)$, its flabbiness, and the summability-certificate presheaf $\Scal_k$ carrying Kotecký--Preiss data $(\rho, K)$.  We prove that $\Acal_k$ is flabby in the domination sense; the proof is constructive (no excluded middle), exhibiting the constant-$\infty$ section as the trivial dominator.  Flabbiness is what makes the sheaf condition automatic for $\Acal_k$, isolating the analytic content of the framework in the compatibility condition between $\Acal_k$ and $\Scal_k$, which we state as a named definition.  This document is the formal reference companion to \texttt{docs/sheaf-framework.md} (prose argument) and \texttt{lean/YMGap/Sheaf/} (Lean formalization).  It is group-independent: no $SU(2)$-specific constants appear.  Its scope corresponds to Milestone~2.1 of \texttt{work\_plan.md}.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+\label{sec:intro}
+
+The constructive Yang--Mills mass gap program (\texttt{docs/outline.md}) reorganizes the small-field/large-field obstruction of the classical Bałaban-style construction as a \emph{cocycle problem rather than a restriction problem}: the small-field and large-field activity bounds are not restrictions of a single function to two subsets of $\Omk$, but two distinct upper bounds on the same activity derived under two different approximations of the action (\texttt{docs/context.md}, \S3.1).  The gluing of these bounds on their overlap is therefore by \emph{domination} rather than \emph{equality}, and the question of whether the two bounds are simultaneously usable becomes a question of a coupled pair of presheaves on a shared site.
+
+This document fixes the categorical and analytic vocabulary of that framework, in the scope required by Milestone~2.1 of \texttt{work\_plan.md}.  We do not in this document close any analytic obligation; the constants for the three regimes are computed in Milestones 3.1--3.3 against the framework defined here.
+
+\section{The configuration site}
+\label{sec:site}
+
+Throughout, $G$ is a compact simple Lie group, $k \in \mathbb{N}$ an RG scale, $a_k > 0$ the lattice spacing at scale $k$, $E_k$ the set of (oriented) lattice edges at scale $k$, and $\Omk := G^{E_k}$ the link-configuration space.  We do not specialize $G$: this section is group-independent.
+
+\begin{definition}[Polymer]
+\label{def:polymer}
+A \emph{polymer} is a finite, connected subgraph $X$ of the plaquette adjacency graph at scale $k$.  We write $\Pcal_k$ for the set of polymers and $|X|$ for the plaquette count of $X \in \Pcal_k$.  Polymer inclusion $X \subseteq X'$ is the inclusion of underlying plaquette sets.
+\end{definition}
+
+\begin{definition}[Three-element configuration cover]
+\label{def:three-cover}
+Let $\delta_k > 0$ be the smallness parameter (computable from $g_k$ via $\delta_k \sim g_k^\alpha$ for some $\alpha \in (0,1)$; see outline \S6.4).  The three-element cover of $\Omk$ is
+\begin{align*}
+  \Omsf  &:= \{ U \in \Omk : \forall p,\ d(U_p, 1) < \delta_k \},\\
+  \Omlf  &:= \{ U \in \Omk : \exists p,\ d(U_p, 1) > \delta_k / 2 \},\\
+  \Omcap &:= \{ U \in \Omk : \exists p,\ \delta_k / 2 < d(U_p, 1) < 2 \delta_k \},
+\end{align*}
+where $d(\cdot, 1)$ is the geodesic distance on $G$ from the identity.  By construction $\Omsf \cup \Omlf \cup \Omcap = \Omk$ and the buffer $\Omcap$ contains the pairwise overlap $\Omsf \cap \Omlf$ but is strictly larger: $\Omcap$ absorbs every plaquette in the indeterminate annulus $\delta_k / 2 < d(U_p, 1) < 2 \delta_k$, not only the strict intersection.
+
+\textbf{Critical remark.}  This is a \emph{three-element} cover.  The buffer $\Omcap$ is a first-class open subset, not a derived "overlap" between two regions.  The cocycle observation of \texttt{docs/context.md} \S3.1 forces this: two distinct local bounds (small-field and large-field) need to be \emph{reconciled} on $\Omcap$, not glued by equality, so $\Omcap$ must carry sections of its own.
+\end{definition}
+
+\begin{definition}[Configuration site $\mathrm{Site}(\Omk)$]
+\label{def:site}
+The \emph{configuration site at scale $k$} is the Grothendieck site whose
+\begin{itemize}
+  \item \emph{objects} are pairs $(U, X)$ with $U \subseteq \Omk$ an open subset (in any topology on $\Omk$ admitting decidable membership for the cover of Definition~\ref{def:three-cover}) and $X \in \Pcal_k$ a polymer;
+  \item \emph{morphisms} $(U, X) \to (U', X')$ are pairs $(\iota, \jmath)$ where $\iota \colon U \hookrightarrow U'$ is the inclusion of opens and $\jmath \colon X \subseteq X'$ is the inclusion of polymers (so $U \subseteq U'$ and $X \subseteq X'$ as sets);
+  \item \emph{coverage} is generated by the single covering family
+  \begin{equation}
+    \label{eq:cover}
+    \big\{ (\Omsf, X),\ (\Omlf, X),\ (\Omcap, X) \big\} \;\Rightarrow\; (\Omk, X), \qquad X \in \Pcal_k.
+  \end{equation}
+\end{itemize}
+\end{definition}
+
+A presheaf on $\mathrm{Site}(\Omk)$ is a functor $\mathrm{Site}(\Omk)^{\mathrm{op}} \to \mathbf{Set}$; for our purposes we only need presheaves valued in partially ordered sets, with restriction maps that preserve the order.
+
+\section{The bound-witness presheaf $\Acal_k$}
+\label{sec:awitness}
+
+We use the extended nonneg reals $\Rnnext := [0, \infty]$ as the value type, ordered by the standard $\le$.  We write $\sup$ for binary sup and treat $+\infty$ as the order-theoretic top.
+
+\paragraph{Constructive reading.}  Where below we write "$f \colon U \to \Rnnext$", the intended reading throughout is Bishop-constructive: each value $f(u)$ is presented together with a computable modulus of convergence (a Cauchy modulus when finite, or an explicit witness $f(u) = \infty$).  This is the reading recommended by Milestone~2.1's open-question paragraph in \texttt{work\_plan.md}, and the level at which downstream Lean instantiations should be made.  The structural lemmas of this section do not depend on the constructive interpretation, but their downstream use does.
+
+\begin{definition}[Polymer activity]
+\label{def:activity}
+We assume given a polymer activity $|a_k(X)| \colon \Omk \to \Rnnext$ for each $X \in \Pcal_k$, measurable and bounded.  Specific forms (small-field perturbative activity, large-field heat-kernel activity, and their reconciliation on the buffer) are pinned in Milestones 1.3, 1.4, and 3.1--3.3.  Here $|a_k(X)|$ is an abstract parameter.
+\end{definition}
+
+\begin{definition}[Bound-witness presheaf $\Acal_k$]
+\label{def:Akpresheaf}
+For each object $(U, X)$ of the configuration site, set
+\begin{equation*}
+  \Acal_k(U, X) \;:=\; \big\{ f \colon U \to \Rnnext \;\big|\; |a_k(X)|(u) \le f(u) \ \text{for every}\ u \in U \big\}.
+\end{equation*}
+For a morphism $(U, X) \to (U', X')$ (so $U \subseteq U'$, $X \subseteq X'$), define the \emph{restriction map}
+\begin{equation*}
+  \rho_{(U', X') \to (U, X)} \colon \Acal_k(U', X') \to \Acal_k(U, X), \qquad f \mapsto f|_U.
+\end{equation*}
+The set $\Acal_k(U, X)$ is partially ordered by pointwise inequality on $U$: $f \le g$ iff $f(u) \le g(u)$ for every $u \in U$.  In this order, larger means \emph{looser bound}.
+\end{definition}
+
+\begin{lemma}[Restriction stability]
+\label{lem:restriction-stability}
+The map $\rho_{(U', X') \to (U, X)}$ is well-defined: if $f \in \Acal_k(U', X')$ then $f|_U \in \Acal_k(U, X)$.
+\end{lemma}
+
+\begin{proof}
+For $u \in U \subseteq U'$ we have $|a_k(X')|(u) \le f(u)$ by the admissibility of $f$ on $U'$.  Since $X \subseteq X'$ as polymers, the activity $|a_k(X)|$ is dominated by $|a_k(X')|$ on $u$ (the larger polymer's activity dominates the smaller's; see Definition~\ref{def:activity}'s standing assumption).  Hence $|a_k(X)|(u) \le |a_k(X')|(u) \le f(u)$, and $f|_U$ is admissible.
+\end{proof}
+
+\begin{remark}[The order is the analytic data]
+The set $\Acal_k(U, X)$ is an \emph{upper set} in $\Rnnext^U$: if $f$ is admissible and $g \ge f$ pointwise, then $g$ is also admissible.  In particular, $\Acal_k(U, X)$ is nonempty as soon as some bound exists --- and the constant function $\infty$ on $U$ is always in $\Acal_k(U, X)$.
+\end{remark}
+
+\subsection{Flabbiness}
+\label{sec:flabby}
+
+\begin{theorem}[Flabbiness of $\Acal_k$]
+\label{thm:flabbiness}
+The bound-witness presheaf $\Acal_k$ is \emph{flabby in the domination sense}: for every morphism $(U, X) \to (V, X)$ in the configuration site and every $s \in \Acal_k(U, X)$, there exists $t \in \Acal_k(V, X)$ with $s \le t|_U$ in the pointwise order on $\Rnnext^U$.
+\end{theorem}
+
+\begin{proof}
+Define $t \colon V \to \Rnnext$ by $t \equiv \infty$ (constant function).  Then for every $v \in V$, $|a_k(X)|(v) \le \infty = t(v)$, so $t \in \Acal_k(V, X)$.  Restricting to $U$: $t|_U(u) = \infty \ge s(u)$ for every $u \in U$, so $s \le t|_U$.
+\end{proof}
+
+\begin{remark}[Constructive content of the proof]
+\label{rem:flabby-constructive}
+The proof of Theorem~\ref{thm:flabbiness} is constructive in the strong sense.  It does not case-split on whether $u$ lies in $U$ or $V \setminus U$ (so it does not need decidability of open membership), it does not invoke excluded middle for the inequality $|a_k(X)|(v) \le \infty$ (this is the structural fact that $\infty$ is the top of $\Rnnext$, available constructively in any presentation), and the witness $t$ is exhibited explicitly as the constant section.
+
+This is by design: the Lean formalization in \texttt{lean/YMGap/Sheaf/BoundWitness.lean} mirrors the same proof, with $\Rnnext$ replaced by an abstract type $T$ carrying a partial order, a top element $\top$, and a binary sup.  Concrete value-type instantiations (rational surrogates; constructive reals in the sense of \texttt{lean/README.md}, when that module lands; the extended nonneg reals here) all enjoy the same flabbiness proof.
+\end{remark}
+
+\begin{remark}[Why "domination" rather than "equality"]
+\label{rem:domination-flabby}
+The standard classical statement of flabbiness, "the restriction map $\Acal_k(V, X) \to \Acal_k(U, X)$ is surjective onto $s$", would require constructing a $t \in \Acal_k(V, X)$ with $t|_U = s$ exactly.  In the framework of \texttt{docs/context.md} \S3.2 this strict version is also true (by piecewise extension: $t|_U := s$, $t|_{V \setminus U} := \infty$), but only \emph{given} decidable membership in $U$.  The domination form chosen here is what the program actually uses downstream: it suffices for the structural content of the sheaf condition --- "every local bound has a global bound dominating it" --- without the decidability hypothesis.
+\end{remark}
+
+\begin{remark}[What flabbiness buys us]
+\label{rem:flabby-buys}
+Flabbiness in the domination sense means the only structural constraint on $\Acal_k$ is the existence of \emph{some} global bound, which is trivially $t \equiv \infty$.  The sheaf condition on $\Acal_k$ is therefore automatic and carries no analytic content.  The analytic content of the framework lives in the \emph{summability constraint} on $\Acal_k$, which we formalize as a second presheaf $\Scal_k$ and a named compatibility condition.
+\end{remark}
+
+\section{The summability-certificate presheaf $\Scal_k$}
+\label{sec:scertif}
+
+The polymer expansion of the partition function at scale $k$,
+\begin{equation*}
+  Z_k = \sum_{\{X_1, \ldots, X_n\}} \prod_i a_k(X_i)
+\end{equation*}
+(sum over compatible finite polymer families), converges absolutely under a Kotecký--Preiss (KP) summability condition: there exist $\rho, K > 0$ such that
+\begin{equation}
+  \label{eq:kp}
+  \sum_{X \in \Pcal_k,\ X \ni x} |a_k(X)|(u)\, e^{\rho |X|} \;\le\; K
+  \qquad \text{for all } u \in U,\ x \in X(u),
+\end{equation}
+where $X \ni x$ denotes that the polymer $X$ contains the plaquette or vertex $x$.  The data $(\rho, K)$ is what we record in $\Scal_k$.
+
+\begin{definition}[Summability-certificate presheaf $\Scal_k$]
+\label{def:Skpresheaf}
+For each object $(U, X)$ of the configuration site, set
+\begin{equation*}
+  \Scal_k(U, X) \;:=\; \big\{ (\rho, K) \in \mathbb{R}_{> 0} \times \mathbb{R}_{\ge 0} \;\big|\; (\rho, K) \text{ is a KP datum at } (U, X) \big\}
+\end{equation*}
+where "KP datum at $(U, X)$" means equation~\eqref{eq:kp} holds for the polymer activity restricted to $U$ and summed over polymers $X' \in \Pcal_k$ with $X' \supseteq X$ (i.e. the polymers extending the marker $X$).  Restriction along a morphism $(U, X) \to (U', X')$ takes $(\rho, K)$ to itself --- the same datum certifies summability on the smaller open $U \subseteq U'$ over the smaller family of polymers $\{X'' : X'' \supseteq X'\} \subseteq \{X'' : X'' \supseteq X\}$.
+\end{definition}
+
+The three regimes carry their own KP witnesses, one per element of the configuration cover (Definition~\ref{def:three-cover}):
+\begin{equation*}
+  (\rho_{\mathrm{sf}}, K_{\mathrm{sf}}) \in \Scal_k(\Omsf, X), \quad
+  (\rho_{\mathrm{lf}}, K_{\mathrm{lf}}) \in \Scal_k(\Omlf, X), \quad
+  (\rho_{\cap}, K_{\cap}) \in \Scal_k(\Omcap, X).
+\end{equation*}
+Their specific values for $SU(2)$ are computed in Milestones 3.1--3.3.
+
+\begin{remark}[Why $\Scal_k$ is not automatically nonempty]
+Unlike $\Acal_k$, the presheaf $\Scal_k$ has no trivial section: the constant $K \equiv \infty$ does not satisfy equation~\eqref{eq:kp} for any meaningful $\rho > 0$, and finite $K$'s require the activity to actually decay exponentially.  Existence of $\Scal_k$ sections is therefore the analytic content of the framework.  This is the structural opposite of $\Acal_k$'s flabbiness (Remark~\ref{rem:flabby-buys}): $\Acal_k$ is structurally trivial and analytically rich, $\Scal_k$ is structurally simple but analytically demanding.
+\end{remark}
+
+\section{Compatibility: where the analytic content lives}
+\label{sec:compat}
+
+\begin{definition}[Compatibility between $\Acal_k$ and $\Scal_k$]
+\label{def:compatibility}
+Let $(U, X)$ be an object of $\mathrm{Site}(\Omk)$.  A bound $s \in \Acal_k(U, X)$ and a KP datum $(\rho, K) \in \Scal_k(U, X)$ are \emph{compatible}, written
+\begin{equation*}
+  s \rightleftharpoons (\rho, K),
+\end{equation*}
+if they jointly certify polymer summability at $(U, X)$: for every $u \in U$ and every plaquette $x \in U_p$,
+\begin{equation}
+  \label{eq:compatibility}
+  \sum_{X' \in \Pcal_k,\ X' \supseteq X,\ X' \ni x} s_{X'}(u)\, e^{\rho |X'|} \;\le\; K,
+\end{equation}
+where $s_{X'} \in \Acal_k(U, X')$ ranges over a coherent family of bound-witness sections (one per polymer $X'$ extending $X$).  Coherence here means each $s_{X'}$ is admissible on $(U, X')$ in the sense of Definition~\ref{def:Akpresheaf}.
+\end{definition}
+
+This is the named definition Milestone~2.1 requires (work\_plan.md L191--195).  It is the place where the analytic content of the framework lives: compatibility binds an admissible activity bound (from $\Acal_k$) to a Kotecký--Preiss decay/amplitude pair (from $\Scal_k$), and the inductive step of the program (outline \S10, work\_plan.md Phase~3) is exactly the assertion that compatible families persist along the block-spin pushforward up to a controlled degradation.
+
+\begin{remark}[Where compatibility is closed]
+The compatibility predicate~\eqref{eq:compatibility} is not closed in this document.  It is closed --- with explicit constants --- in:
+\begin{itemize}
+  \item Milestone~3.1 for the small-field regime, $(s^{\mathrm{sf}}, (\rho_{\mathrm{sf}}, K_{\mathrm{sf}}))$ on $(\Omsf, X)$;
+  \item Milestone~3.2 for the large-field regime, $(s^{\mathrm{lf}}, (\rho_{\mathrm{lf}}, K_{\mathrm{lf}}))$ on $(\Omlf, X)$;
+  \item Milestone~3.3 for the overlap, $(s^{\cap}, (\rho_{\cap}, K_{\cap}))$ on $(\Omcap, X)$, with $s^{\cap}$ glued by domination (Section~\ref{sec:gluing}).
+\end{itemize}
+The role of the present document is to fix the predicate's signature and statement; the role of Milestones 3.1--3.3 is to exhibit the witnesses.
+\end{remark}
+
+\section{Domination gluing on the buffer overlap}
+\label{sec:gluing}
+
+\begin{definition}[Domination gluing]
+\label{def:domGlue}
+Given an admissible small-field bound $s^{\mathrm{sf}} \in \Acal_k(\Omsf, X)$ and an admissible large-field bound $s^{\mathrm{lf}} \in \Acal_k(\Omlf, X)$, the \emph{domination glue} on the buffer is
+\begin{equation}
+  \label{eq:domGlue}
+  s^{\cap}(u) \;:=\; \max\!\big( s^{\mathrm{sf}}(u),\ s^{\mathrm{lf}}(u) \big)
+  \qquad \text{for } u \in \Omcap.
+\end{equation}
+(Where one of $s^{\mathrm{sf}}, s^{\mathrm{lf}}$ is not defined at $u$, we take $\max$ to be the other; in the presentation chosen in this document both are everywhere-defined on $\Omk$ but only admissible on their respective region.)
+\end{definition}
+
+\begin{proposition}[Domination gluing is admissible]
+\label{prop:domGlue-admissible}
+Under the standing assumption of Definition~\ref{def:activity}, the domination glue~\eqref{eq:domGlue} is in $\Acal_k(\Omcap, X)$.
+\end{proposition}
+
+\begin{proof}
+For $u \in \Omcap$, the activity $|a_k(X)|(u)$ is a single nonneg real (Definition~\ref{def:activity}).  The pointwise max satisfies $s^{\cap}(u) \ge s^{\mathrm{sf}}(u)$ and $s^{\cap}(u) \ge s^{\mathrm{lf}}(u)$ trivially.  Now,~$\Omcap \subseteq \Omsf \cup \Omlf$ (every buffer configuration is in either the small-field or the large-field region, possibly both), so for every $u \in \Omcap$ at least one of $|a_k(X)|(u) \le s^{\mathrm{sf}}(u)$ or $|a_k(X)|(u) \le s^{\mathrm{lf}}(u)$ holds; hence $|a_k(X)|(u) \le s^{\cap}(u)$.
+\end{proof}
+
+\begin{remark}[Why domination, not equality]
+Two distinct upper bounds $s^{\mathrm{sf}}$ and $s^{\mathrm{lf}}$ on the same activity will not in general agree on the overlap: the small-field bound is derived from a Gaussian/perturbative expansion of the action, the large-field bound from a heat-kernel character expansion (outline \S6.4, \S6.5).  They bound the same function from above, but disagree pointwise on $\Omcap$.  Gluing by equality would fail.  Gluing by domination (Proposition~\ref{prop:domGlue-admissible}) absorbs the disagreement by taking the looser bound on the overlap.  This is the structural pay-off of the sheaf reformulation announced in \texttt{docs/context.md} \S3.1: the cocycle problem becomes a domination problem.
+\end{remark}
+
+\section{Lean mirror}
+\label{sec:lean}
+
+The Lean formalization of this document lives in \texttt{lean/YMGap/Sheaf/}:
+\begin{itemize}
+  \item \texttt{Site.lean} --- the configuration site (\texttt{Open}, \texttt{Object}, \texttt{Morphism}, \texttt{ThreeCover}; cf.\ Section~\ref{sec:site}).
+  \item \texttt{BoundWitness.lean} --- the bound-witness presheaf abstract scaffold (\texttt{BoundValues} typeclass, \texttt{Section}, the flabbiness theorem; cf.\ Section~\ref{sec:awitness}).
+  \item \texttt{Summability.lean} --- the summability-certificate record (\texttt{KPCertificate}; cf.\ Section~\ref{sec:scertif}).
+  \item \texttt{Gluing.lean} --- the domination glue (\texttt{domGlue}) and the named compatibility predicate (\texttt{CompatibilityRule}; cf.\ Sections~\ref{sec:compat} and~\ref{sec:gluing}).
+\end{itemize}
+The value type for $\Acal_k$-sections in Lean is intentionally abstract: a generic type $T$ with $[\mathrm{BoundValues}\ T]$, where $\mathrm{BoundValues}$ records the partial order, the top element $\top$, and the binary sup.  The math paper instantiates $T = \Rnnext$; the Lean formalization defers the value-type commitment until \texttt{lean/YMGap/Constructive/Reals.lean} is built (currently not implemented).  Per AGENTS.md Rule~3 and the empirical finding of Milestone~1.1 that Lean~4 core's \texttt{Rat} drags \texttt{Classical.choice} into reflexive equality, the Lean value type cannot be a real-number type built on Mathlib without breaking the axiom-clean discipline.
+
+The structural lemmas of this document --- Theorem~\ref{thm:flabbiness} (flabbiness) and Proposition~\ref{prop:domGlue-admissible} (domination gluing) --- are mirrored in Lean at the abstract value-type level, with empty axiom dependency sets.
+
+\section{Cross-references}
+\label{sec:xref}
+
+\begin{itemize}
+  \item Prose companion: \texttt{docs/sheaf-framework.md}.
+  \item Lean formalization: \texttt{lean/YMGap/Sheaf/}.
+  \item Diagram: \texttt{visualizations/structure/sheaf-gluing.tikz} (the three-region cover with the coupled $\Acal_k$, $\Scal_k$ sheaves).
+  \item Motivation: \texttt{docs/context.md} \S3.1 (cocycle observation), \S3.2 (sheaf reformulation), \S3.4 (overlap measure bound).
+  \item Specification: \texttt{docs/outline.md} \S8 (sheaf framework axiomatics) and \S9 (buffer-overlap estimate).
+  \item Downstream consumers: Milestones 2.2 (inductive state), 2.3 (block-spin morphism), 3.1--3.3 (regime KP constants), 3.4 (string-tension 2-cell).
+\end{itemize}
+
+\end{document}
