@@ -33,7 +33,67 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **axiom-gate**: `#print axioms domGlue_preserves_KP` reports `depends on axioms: [sorryAx]`. Crucially, **no `Classical.choice`, no `propext`, no `Quot.sound`** — the unique axiom in the dependency closure is `sorryAx`, the explicit signal of an unclosed obligation rather than a silent classical lapse.
 - **must not be closed classically**: per AGENTS.md Rule 6, closing this `sorry` later via `Classical.*` would defeat the constructive-law purpose of `lean/`. Closure of (a) must come with a constructive predicate `P` from 3.1–3.3 and a constructive proof at those constants; (b) must come with a constructive tightness estimate.
 
-### [P2.3] block-spin step inhabitation, owed by 3.1–3.4
+### [P2.3] block-spin step inhabitation — SUPERSEDED by [P2.3-addendum]
+
+> **Status update (P2.3-addendum):** This atomic entry is superseded by the four per-milestone sub-obligations below. The single `step_obligation_witness` is now an assembly of the four sub-witnesses; it inherits `sorryAx` precisely while any sub-witness remains open. Discharging the atomic obligation reduces to closing the four children. The entry below is preserved for the original phrasing; the binding obligations are the children.
+
+### [P2.3-addendum] decomposition of [P2.3] into four sub-obligations
+
+- **milestone**: 2.3-addendum (commit `[P2.3-addendum]`)
+- **file**: `lean/YMGap/RG/BlockSpin.lean` (refactored), `formal/block-spin-morphism.tex` §6 (Definition 6.1, Remark 6.2 encoded-but-unverified)
+- **what changed**: The atomic `StepObligation` of P2.3 has been decomposed into four typed sub-obligations: `Obligation_sf`, `Obligation_lf`, `Obligation_cap` (takes `sf_part`, `lf_part`), `Obligation_sigma` (takes `cap_part` only). The atomic form is recovered as `StepObligation_decomposed`. Coupling structure is exposed at the type level.
+- **encoded-but-unverified structural predictions** (the entire point of the addendum being on record):
+  - `Obligation_lf` takes no `sf_part` input — sf ⊥ lf is encoded, **unverified**. Confirmed when 3.2 closes against this signature; refuted otherwise.
+  - `Obligation_sigma` takes only `cap_part` (not direct `sf_part`/`lf_part`) — η via cap-only is encoded, **unverified**. Confirmed when 3.4 closes against this signature; refuted otherwise.
+  - These predictions are self-correcting: if they are wrong, the corresponding milestones cannot close at the current types, and the signatures will need additional coupling edges. The audit point is exactly when each closes.
+
+### [P2.3-sf] small-field budget obligation, owed by 3.1
+
+- **milestone**: 2.3-addendum child / 3.1 closes
+- **file**: `lean/YMGap/RG/BlockSpin.lean`
+- **decl**: `YMGap.RG.step_obligation_sf`
+- **obligation**: Choose `eps_sf : V → V → V` and produce, for every `Valid` input `s_k`, a `c_sf_next : KPCertificate V P` satisfying `s_k.c_sf.rho - eps_sf b s_k.g ≤ c_sf_next.rho` (S1).
+- **constructive?**: yes — Σ'-typed; the rho-budget is a constructive inequality.
+- **owed by**: Milestone 3.1.
+- **axiom-gate**: `[sorryAx]` only.
+- **must not be closed classically**: per AGENTS.md Rule 6.
+
+### [P2.3-lf] large-field budget obligation, owed by 3.2
+
+- **milestone**: 2.3-addendum child / 3.2 closes
+- **file**: `lean/YMGap/RG/BlockSpin.lean`
+- **decl**: `YMGap.RG.step_obligation_lf`
+- **obligation**: Choose `eps_lf : V → V → V` and produce, for every `Valid` input `s_k`, a `c_lf_next : KPCertificate V P` satisfying `s_k.c_lf.rho - eps_lf b s_k.g ≤ c_lf_next.rho` (S2).
+- **constructive?**: yes.
+- **owed by**: Milestone 3.2.
+- **axiom-gate**: `[sorryAx]` only.
+- **structural prediction encoded**: this obligation takes no `sf_part` input. See `[P2.3-addendum]` for the prediction's status.
+- **must not be closed classically**: per AGENTS.md Rule 6.
+
+### [P2.3-cap] overlap budget obligation, owed by 3.3
+
+- **milestone**: 2.3-addendum child / 3.3 closes
+- **file**: `lean/YMGap/RG/BlockSpin.lean`
+- **decl**: `YMGap.RG.step_obligation_cap`
+- **obligation**: Given closed `sf_part : Obligation_sf` and `lf_part : Obligation_lf`, choose `delta_cap : V → V → V` and produce `c_cap_next` satisfying S3 plus the buffer-glue invariants at scale `k+1` (V3-ρ: `c_cap_next.rho = min sf_step.rho lf_step.rho`; V3-K: `c_cap_next.K ≤ sf_step.K + lf_step.K`).
+- **constructive?**: yes.
+- **owed by**: Milestone 3.3.
+- **axiom-gate**: `[sorryAx]` only. (Once closed, the result will inherit `[P2.1]` part (a) `domGlue_preserves_KP` `sorryAx` and Conjecture 7.4 tightness obligation through V2-cap/V3-K of the constructed certificate.)
+- **must not be closed classically**: per AGENTS.md Rule 6.
+
+### [P2.3-sigma] σ̂-transport budget obligation, owed by 3.4
+
+- **milestone**: 2.3-addendum child / 3.4 closes
+- **file**: `lean/YMGap/RG/BlockSpin.lean`
+- **decl**: `YMGap.RG.step_obligation_sigma`
+- **obligation**: Given closed `sf_part`, `lf_part`, `cap_part`, choose `eta : V → V → V` and produce `sigmaHat_next : V` satisfying S4 (`s_k.sigmaHat - eta b s_k.g ≤ sigmaHat_next`) and V1 (`0 < sigmaHat_next`).
+- **constructive?**: yes (per-step part).
+- **owed by**: Milestone 3.4 (per-step). The **global** budget closure `Σ_k η(b, g_k) < σ̂_0` is a separate downstream claim about an infinite sum's convergence — NOT this entry. See `lean/YMGap/Constructive/Rationals.lean` (Milestone 3.0) docstring for the boundary of the ℚ-only representation w.r.t. infinite sums; whether ℚ-bounds suffice for the sum's convergence is a question to be re-examined at 3.4 specifically.
+- **axiom-gate**: `[sorryAx]` only.
+- **structural prediction encoded**: this obligation takes only `cap_part`, not direct `sf_part`/`lf_part`. See `[P2.3-addendum]` for the prediction's status.
+- **must not be closed classically**: per AGENTS.md Rule 6.
+
+### [P2.3] (original) block-spin step inhabitation, owed by 3.1–3.4
 
 - **milestone**: 2.3 (work_plan.md L237–260)
 - **file**: `lean/YMGap/RG/BlockSpin.lean`

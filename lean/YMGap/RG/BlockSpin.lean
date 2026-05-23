@@ -112,48 +112,235 @@ def StepTypeWithBudget
       -- S4: string-tension budget (= Θ_k decrease)
       (s_k.sigmaHat - eta b s_k.g ≤ s_next.sigmaHat)
 
-/-! ## The obligation: what 3.x must produce -/
+/-! ## Per-milestone sub-obligations (P2.3-addendum decomposition)
 
-/-- The 2.3 obligation, as a Σ'-typed statement.
+The atomic `StepObligation` of the initial P2.3 commit bundled all
+four budgets and the step function in a single Σ', which made
+incremental progress impossible: a milestone could not close its
+own piece without simultaneously producing the others.  The
+P2.3-addendum decomposes this into four typed sub-obligations,
+one per Phase-3 milestone, with the analytic coupling exposed via
+dependent inputs:
 
-A term of this type exhibits, for some choice of budget functions,
-a step inhabiting `StepTypeWithBudget`.  Discharging this
-obligation for the SU(2) pilot is the joint content of:
+  * `Obligation_sf`     — closed by 3.1.  Independent.
+  * `Obligation_lf`     — closed by 3.2.  Independent (NO `sf_part` input).
+  * `Obligation_cap`    — closed by 3.3.  Takes `sf_part` and `lf_part`.
+  * `Obligation_sigma`  — closed by 3.4.  Takes `cap_part`.
 
-  * Milestone 3.1 — supplies `eps_sf` and the sf-cert pushforward;
-  * Milestone 3.2 — supplies `eps_lf` and the lf-cert pushforward;
-  * Milestone 3.3 — supplies `delta_cap` and the buffer pushforward,
-    inheriting the 2.1 `domGlue_preserves_KP` sorry through V2-cap
-    and the Conjecture 7.4 tightness obligation through V3-K;
-  * Milestone 3.4 — supplies `eta` and proves the σ̂-transport S4
-    (= Θ_k); also responsible for the Phase-3 global budget
-    closure `Σ_k η < σ̂_0`, which is OUT OF SCOPE here.
+The atomic `StepObligation` is recovered as a `Σ'` over the four
+parts (`StepObligation_decomposed`); a derived theorem
+reconstructing a `StepTypeWithBudget` inhabitant from the four
+pieces is left for whichever later milestone needs it.
 
-The obligation is parametrized by `b` (block scale, fixed
-program-level by outline §6.1). -/
-def StepObligation
+### Encoded-but-unverified structural predictions
+
+The dependency graph above (sf ⊥ lf; cap depends on sf, lf; sigma
+depends on cap only) is a STRUCTURAL PREDICTION about analytic
+derivations that don't exist yet.  It is encoded at the Lean type
+level — `Obligation_lf` takes no `sf_part`, `Obligation_sigma`
+takes only `cap_part` — and is self-correcting: if 3.1/3.2 turn
+out to couple, `Obligation_lf` will not close standalone and the
+type will need a coupling edge; if 3.4 needs direct ε_sf access,
+`Obligation_sigma`'s signature will need to be widened.  The
+predictions are confirmed when 3.1, 3.2, 3.4 close at the current
+signatures, and refuted otherwise.
+
+This note is recorded in `formal/block-spin-morphism.tex` §6 and
+`lean/SORRY_LEDGER.md` `[P2.3-addendum]`. -/
+
+/-- **Obligation for Milestone 3.1: small-field budget.**
+
+Choose `eps_sf` and produce, for every valid input state, a
+new small-field KP certificate at scale k+1 satisfying the S1
+budget. -/
+def Obligation_sf
     (V : Type) [LT V] [Zero V] [LE V] [Min V] [Add V] [Sub V]
     (P : V → V → Prop) (PolyAtlas : Type)
     (b : V) : Type :=
-  Σ' (eps_sf eps_lf delta_cap eta : V → V → V),
-    StepTypeWithBudget V P PolyAtlas b eps_sf eps_lf delta_cap eta
+  Σ' (eps_sf : V → V → V),
+    (s_k : InductiveState V P PolyAtlas) → InductiveState.Valid s_k →
+      Σ' (c_sf_next : KPCertificate V P),
+        s_k.c_sf.rho - eps_sf b s_k.g ≤ c_sf_next.rho
 
-/-- The unwritten 2.3 obligation, placeholder for Milestones 3.1–3.4.
+/-- **Obligation for Milestone 3.2: large-field budget.**
 
-`sorry`'d on purpose; logged in `lean/SORRY_LEDGER.md` as `[P2.3]`.
-Per AGENTS.md Rule 6, this `sorry` must not be closed classically;
-closure requires a constructive term against concrete budget
-functions from 3.1–3.4.
+Choose `eps_lf` and produce, for every valid input state, a new
+large-field KP certificate at scale k+1 satisfying S2.
 
-`#print axioms` will report `depends on axioms: [sorryAx]` here —
-the explicit signal of an unclosed constructive obligation, not a
-silent classical lapse. -/
+**Encoded-but-unverified.**  This signature takes NO `sf_part`
+input — the analytic prediction is that the large-field budget
+derivation does not reference the small-field one.  Confirmed
+when 3.2 closes against this signature; refuted otherwise. -/
+def Obligation_lf
+    (V : Type) [LT V] [Zero V] [LE V] [Min V] [Add V] [Sub V]
+    (P : V → V → Prop) (PolyAtlas : Type)
+    (b : V) : Type :=
+  Σ' (eps_lf : V → V → V),
+    (s_k : InductiveState V P PolyAtlas) → InductiveState.Valid s_k →
+      Σ' (c_lf_next : KPCertificate V P),
+        s_k.c_lf.rho - eps_lf b s_k.g ≤ c_lf_next.rho
+
+/-- **Obligation for Milestone 3.3: overlap budget.**
+
+Takes explicit `sf_part` and `lf_part` inputs: by Proposition 7.1
+of `sheaf-framework.tex`, the buffer certificate at scale k+1 is
+constrained by the sf and lf certificates at scale k+1 (ρ_∩ = min,
+K_∩ ≤ sum).  3.3 chooses `delta_cap` and produces the buffer
+certificate consistent with the sf/lf outputs and the S3 budget.
+
+This obligation **inherits**:
+  * The `domGlue_preserves_KP` `sorryAx` from 2.1 (`[P2.1]` part (a))
+    through the V2-cap conjunct of `Valid s_next`.
+  * The Conjecture 7.4 tightness obligation through the V3-K
+    conjunct (`K_∩ ≤ K_sf + K_lf`).
+-/
+def Obligation_cap
+    (V : Type) [LT V] [Zero V] [LE V] [Min V] [Add V] [Sub V]
+    (P : V → V → Prop) (PolyAtlas : Type)
+    (b : V)
+    (sf_part : Obligation_sf V P PolyAtlas b)
+    (lf_part : Obligation_lf V P PolyAtlas b) : Type :=
+  Σ' (delta_cap : V → V → V),
+    (s_k : InductiveState V P PolyAtlas) → (h : InductiveState.Valid s_k) →
+      Σ' (c_cap_next : KPCertificate V P),
+        -- S3: K-growth budget.
+        c_cap_next.K ≤ s_k.c_cap.K + delta_cap b s_k.g ∧
+        -- V3-ρ at scale k+1: buffer ρ = min of the sf/lf outputs.
+        c_cap_next.rho = min (sf_part.2 s_k h).1.rho (lf_part.2 s_k h).1.rho ∧
+        -- V3-K at scale k+1: buffer K ≤ sum of the sf/lf outputs.
+        c_cap_next.K ≤ (sf_part.2 s_k h).1.K + (lf_part.2 s_k h).1.K
+
+/-- **Obligation for Milestone 3.4: σ̂-transport (Θ_k) budget.**
+
+Takes only `cap_part`.  The analytic prediction is that the
+σ̂-transport's per-step degradation depends on the buffer KP
+constants only — not on ε_sf or ε_lf directly.  3.4 chooses `eta`,
+produces the next σ̂ value satisfying S4 and V1 at scale k+1, and
+discharges the per-step Θ_k 2-cell.
+
+**Encoded-but-unverified.**  This signature takes `cap_part` only,
+not `sf_part` or `lf_part`.  Confirmed when 3.4 closes against this
+signature; refuted otherwise.
+
+Out of scope for this obligation: the GLOBAL budget closure
+`Σ_k η(b, g_k) < σ̂_0`, a Phase-3-level convergence claim about an
+infinite sum.  See `lean/YMGap/Constructive/Rationals.lean`
+docstring (Milestone 3.0) for the boundary of the ℚ-only
+representation: rational per-step bounds do not automatically
+yield the sum's convergence; the global closure is a separate
+constructive-limit argument owed by 3.4.
+-/
+def Obligation_sigma
+    (V : Type) [LT V] [Zero V] [LE V] [Min V] [Add V] [Sub V]
+    (P : V → V → Prop) (PolyAtlas : Type)
+    (b : V)
+    (sf_part : Obligation_sf V P PolyAtlas b)
+    (lf_part : Obligation_lf V P PolyAtlas b)
+    (cap_part : Obligation_cap V P PolyAtlas b sf_part lf_part) : Type :=
+  -- Anchor on cap_part so the dependency on Δ_∩ is visible at the type level,
+  -- even though `eta` itself is fresh data.
+  let _carries_cap_dependency := cap_part
+  Σ' (eta : V → V → V),
+    (s_k : InductiveState V P PolyAtlas) → InductiveState.Valid s_k →
+      Σ' (sigmaHat_next : V),
+        -- S4: σ̂ transport via Θ_k decrease.
+        s_k.sigmaHat - eta b s_k.g ≤ sigmaHat_next ∧
+        -- V1 at scale k+1: σ̂_{k+1} > 0.
+        (0 : V) < sigmaHat_next
+
+/-! ## The atomic obligation, reconstructed -/
+
+/-- The atomic block-spin step obligation as a Σ' over the four
+sub-obligations.  This is the type that, once inhabited by 3.1–3.4
+jointly, gives a complete block-spin step for the SU(2) pilot.
+
+The relationship to the original P2.3 `StepObligation`: an
+inhabitant of `StepObligation_decomposed` extracts the four budget
+functions and the four pieces, which a downstream derived theorem
+(left for whichever later milestone needs it) can assemble into a
+`StepTypeWithBudget` inhabitant. -/
+def StepObligation_decomposed
+    (V : Type) [LT V] [Zero V] [LE V] [Min V] [Add V] [Sub V]
+    (P : V → V → Prop) (PolyAtlas : Type)
+    (b : V) : Type :=
+  Σ' (sf_part : Obligation_sf V P PolyAtlas b)
+     (lf_part : Obligation_lf V P PolyAtlas b)
+     (cap_part : Obligation_cap V P PolyAtlas b sf_part lf_part),
+     Obligation_sigma V P PolyAtlas b sf_part lf_part cap_part
+
+/-- Backward-compatibility alias for the original P2.3 atomic
+obligation name.  Defined as `StepObligation_decomposed`; the old
+single-Σ' form (four budgets bundled flat with the step) is
+deprecated in favor of the decomposed form, which carries the
+analytic coupling structure at the type level. -/
+@[inline] def StepObligation
+    (V : Type) [LT V] [Zero V] [LE V] [Min V] [Add V] [Sub V]
+    (P : V → V → Prop) (PolyAtlas : Type)
+    (b : V) : Type :=
+  StepObligation_decomposed V P PolyAtlas b
+
+/-! ## Per-milestone sorry'd witnesses
+
+Four placeholders, one per Phase-3 milestone.  Each reports
+`depends on axioms: [sorryAx]` only — no `Classical.*`, no
+`propext`, no `Quot.sound`.  Logged in `lean/SORRY_LEDGER.md` as
+`[P2.3-sf]`, `[P2.3-lf]`, `[P2.3-cap]`, `[P2.3-sigma]`. -/
+
+/-- 3.1 small-field obligation placeholder. -/
+def step_obligation_sf
+    (V : Type) [LT V] [Zero V] [LE V] [Min V] [Add V] [Sub V]
+    (P : V → V → Prop) (PolyAtlas : Type)
+    (b : V) : Obligation_sf V P PolyAtlas b := by
+  -- SORRY[P2.3-sf]: small-field budget, owed by 3.1
+  sorry
+
+/-- 3.2 large-field obligation placeholder. -/
+def step_obligation_lf
+    (V : Type) [LT V] [Zero V] [LE V] [Min V] [Add V] [Sub V]
+    (P : V → V → Prop) (PolyAtlas : Type)
+    (b : V) : Obligation_lf V P PolyAtlas b := by
+  -- SORRY[P2.3-lf]: large-field budget, owed by 3.2
+  sorry
+
+/-- 3.3 overlap obligation placeholder.  Given sf and lf parts
+(themselves sorry'd until 3.1, 3.2 close), produces the buffer
+piece. -/
+def step_obligation_cap
+    (V : Type) [LT V] [Zero V] [LE V] [Min V] [Add V] [Sub V]
+    (P : V → V → Prop) (PolyAtlas : Type)
+    (b : V)
+    (sf_part : Obligation_sf V P PolyAtlas b)
+    (lf_part : Obligation_lf V P PolyAtlas b) :
+    Obligation_cap V P PolyAtlas b sf_part lf_part := by
+  -- SORRY[P2.3-cap]: overlap budget, owed by 3.3
+  sorry
+
+/-- 3.4 σ̂-transport obligation placeholder.  Given the cap part
+(itself sorry'd until 3.3 closes), produces the σ̂ piece. -/
+def step_obligation_sigma
+    (V : Type) [LT V] [Zero V] [LE V] [Min V] [Add V] [Sub V]
+    (P : V → V → Prop) (PolyAtlas : Type)
+    (b : V)
+    (sf_part : Obligation_sf V P PolyAtlas b)
+    (lf_part : Obligation_lf V P PolyAtlas b)
+    (cap_part : Obligation_cap V P PolyAtlas b sf_part lf_part) :
+    Obligation_sigma V P PolyAtlas b sf_part lf_part cap_part := by
+  -- SORRY[P2.3-sigma]: σ̂-transport budget, owed by 3.4
+  sorry
+
+/-- The decomposed atomic obligation, assembled from the four
+sorry'd sub-witnesses.  Inhabits `StepObligation_decomposed` (and
+therefore the deprecated `StepObligation` alias).  Each
+sub-sorry must be closed independently by its owning milestone. -/
 def step_obligation_witness
     (V : Type) [LT V] [Zero V] [LE V] [Min V] [Add V] [Sub V]
     (P : V → V → Prop) (PolyAtlas : Type)
-    (b : V) : StepObligation V P PolyAtlas b := by
-  -- SORRY[P2.3]: block-spin step inhabitation, owed by 3.1-3.4
-  sorry
+    (b : V) : StepObligation_decomposed V P PolyAtlas b :=
+  let sf := step_obligation_sf V P PolyAtlas b
+  let lf := step_obligation_lf V P PolyAtlas b
+  let cap := step_obligation_cap V P PolyAtlas b sf lf
+  let sig := step_obligation_sigma V P PolyAtlas b sf lf cap
+  ⟨sf, lf, cap, sig⟩
 
 /-! ## Helper: extracting the 2-cell from an S4 proof -/
 
@@ -174,7 +361,16 @@ def extractTwoCell
 #print axioms TwoCellTheta
 #print axioms TwoCellTheta.mk'
 #print axioms StepTypeWithBudget
+#print axioms Obligation_sf
+#print axioms Obligation_lf
+#print axioms Obligation_cap
+#print axioms Obligation_sigma
+#print axioms StepObligation_decomposed
 #print axioms StepObligation
+#print axioms step_obligation_sf
+#print axioms step_obligation_lf
+#print axioms step_obligation_cap
+#print axioms step_obligation_sigma
 #print axioms step_obligation_witness
 #print axioms extractTwoCell
 

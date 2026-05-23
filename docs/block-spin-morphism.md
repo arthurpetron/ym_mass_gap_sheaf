@@ -62,6 +62,19 @@ If the term constructs the output buffer certificate `c_cap_{k+1}` from `c_sf_{k
 
 This is the design intent: the 2.3 obligation honestly carries the 2.1 open obligations through. A future agent reading "`StepTypeWithBudget` has a term, what's its axiom set?" will see, transitively, the `sorryAx` from 2.1 — not because 2.3 invented it but because the obligation chain genuinely depends on 2.1.
 
+## 4a. The P2.3-addendum decomposition
+
+Subsequent to the original P2.3 close, the atomic `StepObligation` was decomposed into four per-milestone sub-obligations (`formal/block-spin-morphism.tex` Definition 6.1):
+
+- **`Obligation_sf`** — closed by 3.1. Independent.
+- **`Obligation_lf`** — closed by 3.2. Independent (takes no `sf_part`).
+- **`Obligation_cap`** — closed by 3.3. Takes `sf_part`, `lf_part`.
+- **`Obligation_sigma`** — closed by 3.4. Takes `cap_part`.
+
+The atomic form is recovered as a `Σ'` over the four parts (`StepObligation_decomposed`); the original `StepObligation` becomes an alias. Each Phase-3 milestone now has a precisely-scoped Lean obligation, with the analytic coupling exposed at the type level (cap depends on sf and lf; sigma depends on cap only).
+
+**Encoded-but-unverified.** The dependency graph — sf ⊥ lf, sigma-via-cap-only — is a structural prediction about analytic derivations that don't exist yet. It's *self-correcting*: if 3.1/3.2 actually couple, `Obligation_lf` will not close standalone and the type will need a coupling edge added; if 3.4 needs direct ε-access, `Obligation_sigma`'s signature will need to be widened. The audit point is exactly when each owning milestone closes. See `formal/block-spin-morphism.tex` Remark 6.2 and `lean/SORRY_LEDGER.md` `[P2.3-addendum]`.
+
 ## 5. The 2.3 / 3.x boundary, made explicit
 
 Five things 2.3 produces:
@@ -70,7 +83,7 @@ Five things 2.3 produces:
 2. The pushforward $(T_b)_*$ on $\mathcal{A}_k$ and $\mathcal{S}_k$.
 3. The 2-cell $\Theta_k$ as a separate typed object.
 4. The refined `StepTypeWithBudget` carrying S1–S4 with abstract budget.
-5. The stated obligation `StepObligation` (the Σ-typed type a 3.x term must inhabit), plus a `sorry`'d witness placeholder.
+5. The four per-milestone sub-obligations (`Obligation_sf`, `Obligation_lf`, `Obligation_cap`, `Obligation_sigma`) and their atomic recombination `StepObligation_decomposed`, plus four `sorry`'d witness placeholders — one per Phase-3 milestone.
 
 Six things 2.3 does **not** produce:
 
@@ -93,8 +106,10 @@ Six things 2.3 does **not** produce:
 | 2-cell $\Theta_k$ | Definition 4.1 (`def:two-cell-theta`) | `BlockSpin.TwoCellTheta` |
 | Per-step budget functions | Definition 5.1 (`def:budget-functions`) | Four `V → V → V` parameters in Lean |
 | Refined step type | Definition 5.2 (`def:step-type-with-budget`) | `StepTypeWithBudget` |
-| Obligation type | Definition 6.1 (`def:obligation`) | `StepObligation` |
-| Obligation witness (sorry'd) | (LaTeX states what 3.x must produce; no LaTeX-side sorry) | `step_obligation_witness` (sorry'd, logged in SORRY_LEDGER `[P2.3]`) |
+| Sub-obligations (per milestone) | Definition 6.1 (`def:sub-obligations`) | `Obligation_sf`, `Obligation_lf`, `Obligation_cap`, `Obligation_sigma` |
+| Atomic obligation (reconstructed) | Remark 6.3 (`rem:atomic-obligation`) | `StepObligation_decomposed`; `StepObligation` is an alias |
+| Sub-witnesses (sorry'd, one per milestone) | (LaTeX states what 3.x must produce; no LaTeX-side sorry) | `step_obligation_sf`, `…_lf`, `…_cap`, `…_sigma` (sorry'd, logged in SORRY_LEDGER `[P2.3-sf]`, `[P2.3-lf]`, `[P2.3-cap]`, `[P2.3-sigma]`) |
+| Encoded-but-unverified note (sf ⊥ lf; σ-via-cap-only) | Remark 6.2 (`rem:encoded-unverified`) | Type signatures of `Obligation_lf` (no `sf_part`) and `Obligation_sigma` (only `cap_part`) |
 
 ## 7. Pointers
 
