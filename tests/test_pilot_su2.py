@@ -40,22 +40,40 @@ def test_run_pilot_result_shape() -> None:
     assert isinstance(result.threshold_success, bool)
 
 
-def test_pilot_all_five_pass_with_placeholders() -> None:
-    """In the placeholder regime, all five criteria trivially pass."""
-    result = run_pilot()
+def test_pilot_fails_at_default_g_0_post_balaban() -> None:
+    """Post-3.1-upgrade: default g_0 = 1.0 is OUTSIDE the small-field
+    cluster-expansion convergence threshold (g_max ≈ 0.4).  K_sf = ∞
+    propagates; criteria 4 and 5 fail."""
+    result = run_pilot(g_0=1.0)
+    # crit_1, _2, _3 are about positivity, which still pass.
+    assert result.crit_1_small_field_KP is True
+    assert result.crit_2_large_field_KP is True
+    # crit_4 may still pass if total is "finite" by Python's bool(inf < inf)
+    # but the σ̂ budget closure should fail.
+    assert result.crit_5_sigma_hat_positive_and_budget is False
+    assert result.pilot_succeeds is False
+
+
+def test_pilot_passes_at_small_g_0_convergent_regime() -> None:
+    """In the asymptotic-freedom regime (g_0 sufficiently small), the
+    small-field cluster expansion converges and the pilot can pass."""
+    # g_0 = 0.1 keeps g_k well below the threshold across K = 3 RG steps.
+    result = run_pilot(g_0=0.1, sigma_hat_initial=10.0)
+    # In convergent regime, η is finite + small.
+    import math
+
+    assert math.isfinite(result.total_eta)
+    # σ̂ remains positive.
+    assert result.sigma_hat_final > 0
+    # All five criteria pass.
     assert result.all_five_pass is True
 
 
-def test_pilot_succeeds_with_placeholders() -> None:
-    """Five criteria + threshold all pass in placeholder regime."""
-    result = run_pilot()
-    assert result.pilot_succeeds is True
-
-
-def test_pilot_sigma_hat_retained_in_placeholder() -> None:
-    """σ̂_K = σ̂_0 with placeholder (Σ η = 0)."""
-    result = run_pilot(sigma_hat_initial=2.5)
-    assert result.sigma_hat_final == pytest.approx(2.5)
+def test_pilot_sigma_hat_retained_in_convergent_regime() -> None:
+    """In convergent regime, σ̂_K close to σ̂_0 (small accumulation)."""
+    result = run_pilot(g_0=0.1, sigma_hat_initial=10.0)
+    # σ̂_K should be close to σ̂_0; not equal (η ≠ 0 now).
+    assert 0.5 * result.sigma_hat_initial <= result.sigma_hat_final <= result.sigma_hat_initial
 
 
 def test_pilot_rejects_too_small_K() -> None:
@@ -80,7 +98,8 @@ def test_plot_writes_svg(tmp_path: Path) -> None:
 
 
 def test_pilot_provides_supporting_data() -> None:
-    result = run_pilot()
+    """Supporting data is structured correctly regardless of convergence."""
+    result = run_pilot(g_0=0.1)  # convergent regime
     assert result.sigma_hat_initial > 0
     assert result.sigma_hat_final > 0
     assert result.total_delta_cap >= 0

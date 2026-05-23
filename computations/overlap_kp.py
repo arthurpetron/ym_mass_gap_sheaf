@@ -145,13 +145,19 @@ def delta_cap(
 ) -> float:
     """The per-step Δ_∩ budget: K_∩(k+1) ≤ K_∩(k) + Δ_∩(b, g_k).
 
-    Computed as the change in K_∩ across consecutive scales.  Since
-    K_sf and K_lf are placeholder-constants in 3.1 / 3.2, Δ_∩ is
-    currently ZERO with the placeholder values — when the actual
-    K_sf(g_k), K_lf(g_k) lands, this gives the real per-step growth.
+    Computed as the change in K_∩ across consecutive scales.  Returns
+    ``float('inf')`` when either endpoint's K_∩ is infinite (i.e.,
+    when 3.1's cluster expansion diverges in the non-convergent regime
+    — work_plan 3.1 post-upgrade).  This propagates the "non-convergent
+    regime" honestly through 3.4 / 3.5.
     """
+    import math
+
     ok = compute_overlap_kp(g_k, t_choice=t_choice)
     ok_next = compute_overlap_kp(g_k_next, t_choice=t_choice)
+    # If either K_cap is non-finite, Δ_∩ is non-finite too.
+    if not math.isfinite(ok.K_cap) or not math.isfinite(ok_next.K_cap):
+        return float("inf")
     # Δ_∩ is non-negative: the buffer K can only grow (or stay flat).
     return max(0.0, ok_next.K_cap - ok.K_cap)
 

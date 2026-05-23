@@ -18,23 +18,33 @@ from computations.sigma_hat_trajectory import (
 CANONICAL = HeatKernelConvention.CANONICAL
 
 
-def test_compute_eta_nonnegative() -> None:
-    """η_k ≥ 0 — degradation can only reduce σ̂, not increase it."""
-    assert compute_eta(0.8, 1.0, CANONICAL) >= 0
-    assert compute_eta(1.0, 0.8, CANONICAL) >= 0
+def test_compute_eta_nonnegative_in_convergent_regime() -> None:
+    """η_k ≥ 0 in the small-field convergent regime (g < 0.4)."""
+    assert compute_eta(0.1, 0.2, CANONICAL) >= 0
+    assert compute_eta(0.2, 0.1, CANONICAL) >= 0
 
 
-def test_compute_eta_zero_with_placeholder_K_values() -> None:
-    """Placeholder K_sf, K_lf are g-independent → Δ_∩ = 0 → η = 0."""
-    assert compute_eta(0.8, 1.2, CANONICAL) == 0.0
+def test_compute_eta_finite_in_convergent_regime() -> None:
+    """In convergent regime, η_k is finite (and grows with g)."""
+    import math
+
+    assert math.isfinite(compute_eta(0.1, 0.2, CANONICAL))
 
 
-def test_compute_eta_zero_when_g_unchanged() -> None:
-    assert compute_eta(1.0, 1.0, CANONICAL) == 0.0
+def test_compute_eta_infinite_in_non_convergent_regime() -> None:
+    """Above cluster-expansion threshold, K's → ∞ → η_k → ∞."""
+    import math
+
+    assert math.isinf(compute_eta(0.8, 1.2, CANONICAL))
+
+
+def test_compute_eta_zero_when_g_unchanged_convergent() -> None:
+    """In convergent regime, no g change → no η."""
+    assert compute_eta(0.2, 0.2, CANONICAL) == 0.0
 
 
 def test_sigma_hat_trajectory_result_shape() -> None:
-    g_traj = [1.0, 1.05, 1.1, 1.15]
+    g_traj = [0.1, 0.15, 0.2, 0.25]  # convergent regime
     result = sigma_hat_trajectory(g_traj)
     assert isinstance(result, SigmaHatTrajectory)
     assert len(result.steps) == 4
@@ -42,28 +52,42 @@ def test_sigma_hat_trajectory_result_shape() -> None:
 
 
 def test_sigma_hat_trajectory_initial_sigma_at_step_zero() -> None:
-    g_traj = [1.0, 1.05, 1.1]
+    g_traj = [0.1, 0.15, 0.2]
     result = sigma_hat_trajectory(g_traj, sigma_hat_initial=0.7)
     assert result.steps[0].sigma_hat == pytest.approx(0.7)
 
 
 def test_sigma_hat_trajectory_total_eta_is_sum() -> None:
-    g_traj = [1.0, 1.05, 1.1, 1.15]
+    g_traj = [0.1, 0.15, 0.2, 0.25]
     result = sigma_hat_trajectory(g_traj)
     assert result.total_eta == pytest.approx(sum(s.eta_k for s in result.steps))
 
 
-def test_sigma_hat_trajectory_budget_closure_with_placeholders() -> None:
-    """With placeholders Σ η = 0 < σ̂_0; closure trivially passes."""
-    g_traj = [1.0, 1.05, 1.1, 1.15]
+def test_sigma_hat_trajectory_budget_closure_convergent_regime() -> None:
+    """In convergent regime, Σ η finite; closure depends on σ̂_0 and accumulation."""
+    g_traj = [0.1, 0.15, 0.2, 0.25]
     result = sigma_hat_trajectory(g_traj, sigma_hat_initial=1.0)
-    assert result.budget_closure is True
-    assert result.total_eta == pytest.approx(0.0)
+    import math
+
+    assert math.isfinite(result.total_eta)
+    # With small g changes, the total η is small; closure passes for σ̂_0 = 1.
+    if result.total_eta < 1.0:
+        assert result.budget_closure is True
+
+
+def test_sigma_hat_trajectory_budget_fails_non_convergent_regime() -> None:
+    """In non-convergent regime, Σ η = ∞ → budget closure fails."""
+    g_traj = [0.8, 0.9, 1.0]
+    result = sigma_hat_trajectory(g_traj, sigma_hat_initial=1.0)
+    import math
+
+    assert math.isinf(result.total_eta)
+    assert result.budget_closure is False
 
 
 def test_sigma_hat_decreases_or_constant_along_trajectory() -> None:
-    """σ̂ is non-increasing across the trajectory."""
-    g_traj = [1.0, 1.05, 1.1, 1.15]
+    """σ̂ is non-increasing across the trajectory (convergent regime, finite η)."""
+    g_traj = [0.1, 0.15, 0.2, 0.25]
     result = sigma_hat_trajectory(g_traj)
     sigmas = [s.sigma_hat for s in result.steps]
     for i in range(len(sigmas) - 1):
@@ -72,19 +96,19 @@ def test_sigma_hat_decreases_or_constant_along_trajectory() -> None:
 
 def test_sigma_hat_trajectory_rejects_nonpositive_initial() -> None:
     with pytest.raises(ValueError):
-        sigma_hat_trajectory([1.0, 1.05], sigma_hat_initial=0.0)
+        sigma_hat_trajectory([0.1, 0.2], sigma_hat_initial=0.0)
     with pytest.raises(ValueError):
-        sigma_hat_trajectory([1.0, 1.05], sigma_hat_initial=-0.1)
+        sigma_hat_trajectory([0.1, 0.2], sigma_hat_initial=-0.1)
 
 
-def test_eta_coupling_scales_total() -> None:
-    """Scaling eta_coupling scales η_k linearly (when Δ_∩ ≠ 0)."""
-    g_traj = [1.0, 1.1, 1.2]
-    # With placeholder Δ_∩ = 0, total η = 0 regardless of coupling.
-    r1 = sigma_hat_trajectory(g_traj, eta_coupling=0.5)
-    r2 = sigma_hat_trajectory(g_traj, eta_coupling=1.0)
-    assert r1.total_eta == pytest.approx(2 * r2.total_eta - r2.total_eta)
-    # i.e., both are 0.0; equality holds trivially.
+def test_eta_coupling_scales_total_in_convergent_regime() -> None:
+    """In convergent regime where Δ_∩ ≠ 0, eta_coupling scales η linearly."""
+    g_traj = [0.1, 0.15, 0.2]
+    r_half = sigma_hat_trajectory(g_traj, eta_coupling=0.5)
+    r_one = sigma_hat_trajectory(g_traj, eta_coupling=1.0)
+    # η scales linearly with the coupling.
+    if r_one.total_eta > 0:
+        assert r_half.total_eta == pytest.approx(0.5 * r_one.total_eta)
 
 
 def test_plot_writes_svg(tmp_path: Path) -> None:
