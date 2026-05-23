@@ -13,6 +13,7 @@ Currently populated:
     predicate type.  See `formal/sheaf-framework.tex` and
     `docs/sheaf-framework.md`.
 -/
+import YMGap.Constructive.Rationals
 import YMGap.RepTheory.SU2
 import YMGap.Sheaf.Site
 import YMGap.Sheaf.BoundWitness
