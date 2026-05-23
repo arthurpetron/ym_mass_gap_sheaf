@@ -63,6 +63,8 @@ select = [
 "computations/block_spin.py" = ["SIM300"]
 # math labels: N (gauge rank), C_2_min, KAPPA_SU2_*, etc.
 "computations/heat_kernel.py" = ["N803", "N806", "N816"]
+# math labels: C_value, K (heat kernel), twoJ, C_2_min_float, etc.
+"computations/buffer_shell.py" = ["N803", "N806", "N816"]
 
 [tool.mypy]
 python_version = "3.11"
