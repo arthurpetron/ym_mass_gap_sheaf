@@ -65,6 +65,10 @@ select = [
 "computations/heat_kernel.py" = ["N803", "N806", "N816"]
 # math labels: C_value, K (heat kernel), twoJ, C_2_min_float, etc.
 "computations/buffer_shell.py" = ["N803", "N806", "N816"]
+# math labels: K_sf, K_lf, K_cap, etc.
+"computations/small_field_kp.py" = ["N803", "N806", "N816"]
+"computations/large_field_kp.py" = ["N803", "N806", "N816"]
+"computations/overlap_kp.py" = ["N803", "N806", "N816"]
 
 [tool.mypy]
 python_version = "3.11"
