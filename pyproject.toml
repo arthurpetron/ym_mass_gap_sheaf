@@ -69,6 +69,8 @@ select = [
 "computations/small_field_kp.py" = ["N803", "N806", "N816"]
 "computations/large_field_kp.py" = ["N803", "N806", "N816"]
 "computations/overlap_kp.py" = ["N803", "N806", "N816"]
+# math labels in field names: crit_1_small_field_KP etc. (intentional KP/SU2 caps)
+"computations/pilot_su2.py" = ["N803", "N806", "N815", "N816"]
 
 [tool.mypy]
 python_version = "3.11"
