@@ -55,10 +55,14 @@ select = [
     "ANN", # flake8-annotations (reinforces strict typing)
 ]
 [tool.ruff.lint.per-file-ignores]
-# tests can use math-label names (V1, V2, K_sf, ...) and don't need return-type annotation
-"tests/*" = ["ANN201", "N802", "N803", "N806"]
-# math labels like `kp_cap.K`, `s_k.kp_lf.rho` trip Yoda-condition heuristics
+# tests can use math-label names (V1, V2, K_sf, ...), don't need return-type
+# annotation, and assertions on math constants (KAPPA_SU2_*, etc.) trip the
+# Yoda-condition heuristic.
+"tests/*" = ["ANN201", "N802", "N803", "N806", "SIM300"]
+# math labels like `kp_cap.K`, `s_k.kp_lf.rho` trip the Yoda heuristic.
 "computations/block_spin.py" = ["SIM300"]
+# math labels: N (gauge rank), C_2_min, KAPPA_SU2_*, etc.
+"computations/heat_kernel.py" = ["N803", "N806", "N816"]
 
 [tool.mypy]
 python_version = "3.11"
