@@ -161,6 +161,35 @@ threshold on the activity rate: ``ρ_lf > log μ_plaq`` is necessary for
 """
 
 
+def plaquette_edge_neighbor_count(d: int) -> int:
+    """Direct combinatorial count of edge-neighbors of a $d$-dim plaquette.
+
+    A plaquette in $d$-dim has 4 edges; each edge lies in $2(d-1)$
+    plaquettes total ($d-1$ perpendicular directions $\\times$ 2 sides),
+    of which 1 is the current plaquette, leaving $2d - 3$ other
+    plaquettes per edge.  Total: $4 (2d - 3) = 8d - 12$ edge-neighbors.
+
+    Spot values:
+      * $d = 2$: $4$
+      * $d = 3$: $12$
+      * $d = 4$: $20$
+
+    **Audit use** (``notes/fiducials_notes.md`` §3.1, 2026-05-25): the
+    Brydges–Federbush universal bound for connected n-subgraphs of a
+    max-degree-$\\Delta$ graph gives $\\mu \\le e \\cdot \\Delta$, so
+    the direct-count BF bound for ``MU_PLAQUETTE_4D`` is
+    ``e * plaquette_edge_neighbor_count(4) ≈ 54.4`` — strictly looser
+    than Seiler's literature 16 and the project's conservative 8e fallback.
+    This function exposes the direct count for sanity-checking;
+    it does NOT replace ``MU_PLAQUETTE_4D``.
+
+    Raises ``ValueError`` for $d < 2$ (no plaquettes in 1D or 0D).
+    """
+    if d < 2:
+        raise ValueError(f"plaquettes require d ≥ 2; got d = {d}")
+    return 8 * d - 12
+
+
 # --------------------------------------------------------------------------
 # Heat-kernel character sum with constructive tail bound
 # --------------------------------------------------------------------------

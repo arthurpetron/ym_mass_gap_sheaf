@@ -1,0 +1,127 @@
+% rewind-budget.tikz
+%
+% Visualization of the RewindBudget ↔ Δ_∩ correspondence: the
+% per-step budget decrement law shared between EKF (B_{n+1} = B_n -
+% |D_n|) and YM (B_{k+1} = B_k - η_k), with the closure condition
+% (Σ degradation < initial budget) as a horizontal cap line.
+%
+% Companion to:
+%   - notes/codynamic-transfer.md §6 (budget transfer derivation).
+%   - computations/transfer_examples/protocol.py::InductiveBoundWitness.remaining_budget.
+%   - visualizations/transfer/ekf-to-ym-types.tikz (the three-column diagram).
+%
+% To preview standalone:
+%   pdflatex -shell-escape \
+%     "\documentclass{standalone}\usepackage{tikz,amsmath,amssymb}\usetikzlibrary{positioning,arrows.meta,decorations.pathreplacing}\begin{document}\input{rewind-budget.tikz}\end{document}"
+%
+% Intended use: \input{visualizations/transfer/rewind-budget.tikz}.
+
+\begin{tikzpicture}[
+    boxL/.style={
+      draw=blue!60!black, fill=blue!8, thick, rounded corners=4pt,
+      inner sep=6pt, minimum width=3.6cm, align=center,
+    },
+    boxR/.style={
+      draw=orange!70!black, fill=orange!8, thick, rounded corners=4pt,
+      inner sep=6pt, minimum width=3.6cm, align=center,
+    },
+    bridge/.style={
+      draw=green!60!black, fill=green!12, thick, rounded corners=4pt,
+      inner sep=6pt, minimum width=4.4cm, align=center,
+    },
+    stepArrow/.style={->, very thick, >=stealth, gray!70},
+    capLine/.style={dashed, thick, red!60!black},
+    label/.style={font=\small},
+    formula/.style={font=\small\itshape},
+    capLabel/.style={font=\footnotesize\itshape, color=red!60!black, anchor=west},
+  ]
+
+  %==================================================================
+  % EKF column (left)
+  %==================================================================
+  \node[boxL] (B0_ekf) at (0, 3.5) {%
+    $B_0$ \\ \footnotesize initial rewind budget
+  };
+  \node[boxL] (B1_ekf) at (0, 2.0) {%
+    $B_1 = B_0 - |D_0|$
+  };
+  \node[boxL] (B2_ekf) at (0, 0.5) {%
+    $B_2 = B_1 - |D_1|$
+  };
+  \node[boxL] (Bn_ekf) at (0, -1.0) {%
+    $B_n = B_0 - \sum_{i<n}|D_i|$
+  };
+  \draw[stepArrow] (B0_ekf) -- (B1_ekf);
+  \draw[stepArrow] (B1_ekf) -- (B2_ekf);
+  \draw[stepArrow, dashed] (B2_ekf) -- (Bn_ekf);
+
+  \node[label, above=4pt of B0_ekf, anchor=south, font=\bfseries] {EKF side};
+
+  %==================================================================
+  % Shared cap / closure box (center)
+  %==================================================================
+  \node[bridge] (closure) at (5.4, 1.25) {%
+    \textbf{closure condition} \\[3pt]
+    $\displaystyle \sum_{\text{steps}} \text{degradation} \;<\; \text{initial budget}$ \\[5pt]
+    \footnotesize (the §6 transferred lemma; \\
+    \footnotesize identical type signature on both sides)
+  };
+
+  %==================================================================
+  % YM column (right)
+  %==================================================================
+  \node[boxR] (B0_ym) at (10.8, 3.5) {%
+    $\widehat\sigma_0$ \\ \footnotesize initial $\widehat\sigma$ margin
+  };
+  \node[boxR] (B1_ym) at (10.8, 2.0) {%
+    $\widehat\sigma_1 = \widehat\sigma_0 - \eta_0$
+  };
+  \node[boxR] (B2_ym) at (10.8, 0.5) {%
+    $\widehat\sigma_2 = \widehat\sigma_1 - \eta_1$
+  };
+  \node[boxR] (Bk_ym) at (10.8, -1.0) {%
+    $\widehat\sigma_k = \widehat\sigma_0 - \sum_{i<k}\eta_i$
+  };
+  \draw[stepArrow] (B0_ym) -- (B1_ym);
+  \draw[stepArrow] (B1_ym) -- (B2_ym);
+  \draw[stepArrow, dashed] (B2_ym) -- (Bk_ym);
+
+  \node[label, above=4pt of B0_ym, anchor=south, font=\bfseries] {YM side};
+
+  %==================================================================
+  % Bridges (per-step degradation ↔ Δ-style polymer growth)
+  %==================================================================
+  \node[font=\footnotesize, color=green!40!black, align=center]
+    at (3.2, 0.3) {%
+      \(|D_n|\)\\(innovation $\propto$ \\ overlap polymer)
+    };
+  \node[font=\footnotesize, color=green!40!black, align=center]
+    at (7.6, 0.3) {%
+      \(\eta_k = \tfrac{c_{\text{polymer}}}{A_{\min}} \cdot \Delta_{\cap}\) \\
+      (Protocol \texttt{degradation})
+    };
+
+  %==================================================================
+  % Floor / failure cap
+  %==================================================================
+  \draw[capLine] (-1.8, -2.4) -- (12.6, -2.4);
+  \node[capLabel] at (-1.8, -2.7) {%
+    closure fails iff cumulative degradation crosses 0 (budget exhausted)
+  };
+
+  %==================================================================
+  % Caption strip
+  %==================================================================
+  \node[font=\footnotesize, text width=14cm, align=center,
+        below=12pt of closure.south, anchor=north, xshift=-1.8cm] {%
+    \textbf{RewindBudget $\leftrightarrow$ $\Delta_{\cap}$ correspondence.}\;
+    The per-step budget law is identical on both sides up to renaming:
+    each step decrements the remaining budget by the per-step
+    degradation; closure requires the cumulative decrement stays under
+    the initial budget.\;
+    Realized in code as \texttt{InductiveBoundWitness.remaining\_budget}
+    (\texttt{computations/transfer\_examples/protocol.py}); enforced by
+    \texttt{run\_inductive\_steps} (\texttt{runner.py}).%
+  };
+
+\end{tikzpicture}

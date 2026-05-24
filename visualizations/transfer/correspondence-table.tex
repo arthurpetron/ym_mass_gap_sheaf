@@ -1,0 +1,69 @@
+% correspondence-table.tex
+%
+% Typeset version of the EKF/YM correspondence table from
+% docs/context.md §6, suitable for inclusion in the paper draft.
+%
+% Companion to:
+%   - notes/codynamic-transfer.md §4 (the line-by-line transfer table).
+%   - computations/transfer_examples/protocol.py (member-level mapping).
+%   - visualizations/transfer/ekf-to-ym-types.tikz (the three-column diagram).
+%
+% To preview standalone:
+%   pdflatex -shell-escape \
+%     "\documentclass{standalone}\usepackage{array,booktabs,amsmath,amssymb}\begin{document}\input{correspondence-table.tex}\end{document}"
+%
+% Intended use: \input{visualizations/transfer/correspondence-table.tex}.
+
+\begin{tabular}{@{}p{4.4cm}p{4.4cm}p{5.4cm}@{}}
+  \toprule
+  \textbf{EKF / sensor-fusion invariant} & \textbf{YM / RG invariant} & \textbf{Transferred proof role} \\
+  \midrule
+  local sensor section &
+    local activity-bound witness &
+    local estimate valid on one regime \\
+  \addlinespace[2pt]
+  sensor chart / manifold patch &
+    gauge chart / small-field patch &
+    local coordinates where approximation is valid \\
+  \addlinespace[2pt]
+  covariance matrix $P_n$ &
+    KP pair $(\rho_k, K_k)$ &
+    quantitative uncertainty / summability bound \\
+  \addlinespace[2pt]
+  innovation residual &
+    RG correction term &
+    stepwise error introduced by update \\
+  \addlinespace[2pt]
+  overlap agreement &
+    overlap domination &
+    compatibility is weaker than equality \\
+  \addlinespace[2pt]
+  gluing failure &
+    KP incompatibility &
+    obstruction to global section \\
+  \addlinespace[2pt]
+  RewindEvent &
+    RG correction / degradation event &
+    local repair of failed compatibility \\
+  \addlinespace[2pt]
+  RewindBudget $B_n$ &
+    degradation budget $B_k$ &
+    finite resource that must not be exhausted \\
+  \addlinespace[2pt]
+  cadence / discontinuity detector &
+    small / large / buffer detector &
+    regime-selection logic \\
+  \addlinespace[2pt]
+  manifold-aware estimator &
+    Lie-group gauge chart &
+    local linearization on nonlinear space \\
+  \addlinespace[2pt]
+  covariance update &
+    KP degradation update &
+    bound propagation through one step \\
+  \addlinespace[2pt]
+  stable filter &
+    uniform area-law package &
+    global bound survives all updates \\
+  \bottomrule
+\end{tabular}

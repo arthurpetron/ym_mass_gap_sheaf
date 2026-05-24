@@ -197,6 +197,76 @@ in [DrouffeItzykson1978] / [ItzyksonDrouffe1989]). Refinement
 *enlarges* the lf convergent regime. The shape of $K_{\mathrm{lf}}$
 does not change.
 
+### 3.1. Direct edge-neighbor count — audit note (2026-05-25)
+
+A first-principles attempt to derive $\mu_{\text{plaq}}$ at $d = 4$
+in the same spirit as §5's $c_{\text{polymer}}$ derivation gives a
+**looser** bound than either of the cited values. Recording the count
+for audit transparency.
+
+**Direct combinatorial count.** A 4D plaquette has 4 edges. For each
+edge in direction $\mu$, the perpendicular directions are $\{x,y,z,w\}
+\setminus \{\mu\}$ (3 choices); for each perpendicular direction $\nu$,
+the edge sits in 2 plaquettes (the one extending in $+\nu$ and the one
+in $-\nu$). So $3 \times 2 = 6$ plaquettes contain a given edge,
+including the current plaquette, leaving 5 other plaquettes per edge.
+
+Total edge-neighbors per plaquette:
+$$
+4 \text{ edges} \times 5 \text{ other plaquettes per edge} = 20.
+$$
+
+In general $d$-dim: edges have $d-1$ perpendicular directions × 2 sides
+$= 2(d-1)$ plaquettes through them, minus the current = $2d - 3$ other
+plaquettes per edge, $\times 4$ edges $= 8d - 12$ edge-neighbors per
+plaquette. For $d = 4$: $20$; for $d = 3$: $12$; for $d = 2$: $4$.
+
+**BF implication.** The Brydges–Federbush universal bound for connected
+$n$-subgraphs of a max-degree-$\Delta$ graph through a fixed vertex is
+$\le (e \Delta)^n$ (up to lower-order factors). With $\Delta = 20$:
+$$
+\mu_{\text{plaq, 4D, direct}} \;\le\; 20 \cdot e \;\approx\; 54.4.
+$$
+This is **strictly looser** than both:
+- Seiler 1982's cited $5d - 4 = 16$ (which the direct count does not
+  reproduce — Seiler must use a refinement specific to plaquette
+  polymers beyond the BF universal bound).
+- The project's conservative fallback $8e \approx 21.7$.
+
+**Apparent issue with the 8e fallback's justification.** The note
+above says "plaquette polymers have fewer neighbors than sites" as
+the basis for the $8e$ fallback's a-fortiori claim. The direct count
+gives plaquette degree $20$ vs site degree $2d = 8$ at $d = 4$ —
+the *opposite* relation. Either the fallback's justification needs
+re-derivation under a different mapping (e.g., centroid-of-plaquette
+sublattice with a non-standard adjacency), or the fallback is not
+genuinely a-fortiori from BF.
+
+**Implication for the pilot.** Numerically, the pilot was already
+using $\mu_{\text{plaq}} = 16$ as the default (literature-shape); the
+$8e$ fallback was available as a "more conservative" option. The
+audit shows:
+- The literature value $16$ remains unverified from first principles,
+  but is *tighter* than any value the project can directly derive.
+- The conservative fallback $8e \approx 21.7$ is *less conservative*
+  than the direct BF bound $20e \approx 54.4$, and the "a fortiori"
+  justification for it is questionable.
+- A genuinely-rigorous-from-direct-count default would be $\mu_{\text{plaq}}
+  = 20 e$, which would substantially shrink the pilot's convergent
+  window (canonical $g_{\max}^{\text{lf}} \to \sqrt{3/(4 \log 20 e)}
+  \approx 0.33$, vs current $0.42$).
+
+**Recommendation.** Keep $16$ as the default (Seiler-cited; the project
+runs in this regime). Document the conservative fallback's justification
+as pending re-derivation. Treat the direct count $20e$ as a verified
+upper bound for sanity-checking — not as a default.
+
+**Code exposure.** A future helper
+`derive_plaquette_edge_neighbor_count_4d() → 20` would surface this
+count programmatically, with the per-dim function `8d - 12` for
+generality. Not added yet; the audit lives here for the next
+analytic pass.
+
 **Citations.**
 - TeX: `\cite{Seiler1982,DrouffeItzykson1978,ItzyksonDrouffe1989}`
 - Lean: not currently a Lean constant; if needed, encode as a `Q'` or

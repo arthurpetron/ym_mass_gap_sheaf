@@ -17,6 +17,7 @@ from computations.large_field_kp import (
     eps_lf,
     first_few_rg_steps,
     heat_kernel_character_tail_Z,
+    plaquette_edge_neighbor_count,
 )
 
 CANONICAL = HeatKernelConvention.CANONICAL
@@ -312,3 +313,58 @@ def test_lf_trajectory_output_in_convergent_regime() -> None:
     for i in range(len(kps) - 1):
         assert kps[i].rho_lf > kps[i + 1].rho_lf
         assert kps[i].K_lf < kps[i + 1].K_lf  # K grows with g
+
+
+# --------------------------------------------------------------------------
+# Direct edge-neighbor count audit (notes/fiducials_notes.md §3.1, 2026-05-25)
+# --------------------------------------------------------------------------
+
+
+class TestPlaquetteEdgeNeighborCount:
+    """Direct combinatorial count for the d-dim plaquette edge-neighbor degree.
+
+    Surfaces the audit calculation that produces the BF universal upper bound
+    μ_plaq ≤ e · plaquette_edge_neighbor_count(d) for any d.  At d = 4 this
+    gives 20e ≈ 54.4, looser than both Seiler's 16 and the project's 8e
+    fallback — see notes/fiducials_notes.md §3.1 for the audit discussion.
+    """
+
+    def test_d2_returns_4(self):
+        """A 2D plaquette has 4 edge-neighbors: the four other unit squares
+        sharing each of its 4 edges."""
+        assert plaquette_edge_neighbor_count(2) == 4
+
+    def test_d3_returns_12(self):
+        """A 3D plaquette has 12 edge-neighbors: 4 edges × 3 other plaquettes
+        per edge (2 perpendicular directions × 2 sides − 1 current)."""
+        assert plaquette_edge_neighbor_count(3) == 12
+
+    def test_d4_returns_20(self):
+        """A 4D plaquette has 20 edge-neighbors: 4 edges × 5 other plaquettes
+        per edge (3 perpendicular directions × 2 sides − 1 current)."""
+        assert plaquette_edge_neighbor_count(4) == 20
+
+    def test_formula_8d_minus_12(self):
+        """The general formula: 8d - 12 for d ≥ 2."""
+        for d in (2, 3, 4, 5, 8, 10):
+            assert plaquette_edge_neighbor_count(d) == 8 * d - 12
+
+    def test_d1_rejected(self):
+        with pytest.raises(ValueError, match="d ≥ 2"):
+            plaquette_edge_neighbor_count(1)
+        with pytest.raises(ValueError, match="d ≥ 2"):
+            plaquette_edge_neighbor_count(0)
+
+    def test_bf_universal_bound_at_d4_is_loose(self):
+        """The BF universal bound μ ≤ e · max_degree at d=4 gives ~54.4,
+        strictly looser than the literature MU_PLAQUETTE_4D = 16 and
+        looser than the conservative 8e ≈ 21.7 fallback.  This is the
+        audit-note finding: the direct count does NOT beat the cited
+        values; they rely on refinements beyond the BF universal bound."""
+        direct_bf_bound = math.e * plaquette_edge_neighbor_count(4)
+        assert direct_bf_bound > MU_PLAQUETTE_4D, (
+            "expected direct BF bound 20e ≈ 54.4 > literature 16; "
+            "if this assertion ever fails, recheck whether the cited "
+            "literature value is being refined upward"
+        )
+        assert direct_bf_bound > 8.0 * math.e
