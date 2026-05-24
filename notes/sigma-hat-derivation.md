@@ -4,7 +4,7 @@
 >
 > **Milestone.** 3.4 of `work_plan.md`. The make-or-break pilot milestone.
 >
-> **Status: framework + placeholders inherited from 3.1–3.3.** The budget closure is trivially satisfied in the placeholder regime; genuine verification requires the analytic derivations to land first.
+> **Status: framework + one live upstream obstruction.** The post-3.1 small-field upgrade makes $K_{sf}$ infinite outside the current Bałaban/Brydges-Federbush convergence window. In that regime this module correctly propagates $\Delta_\cap = \infty$ to $\eta = \infty$ and budget closure fails.
 
 ---
 
@@ -22,17 +22,18 @@ where $\eta(b, g_k)$ is the per-step σ̂ degradation budget (the 2.3 S4 conjunc
 
 ---
 
-## 2. The current placeholder regime
+## 2. The current analytic regime
 
-With 3.1 placeholder $K_{sf} = 1$, 3.2 placeholder $K_{lf} = 1$, and 3.3's $K_\cap = K_{sf} + K_{lf} = 2$ (constant in $g_k$), the per-step buffer growth $\Delta_\cap \equiv 0$. The σ̂ degradation via the coupling $\eta_k = c \cdot \Delta_\cap$ (placeholder coupling $c = 0.5$) is therefore identically 0. The total $\sum_k \eta_k = 0$ trivially satisfies $< \widehat{\sigma}_0$ for any positive σ̂_0.
+With the post-3.1 small-field upgrade, $K_{sf}$ is finite only when the small-field cluster expansion converges. With the canonical fiducial constants this requires $g_k \lesssim 0.40$. If the tested trajectory leaves that window, $K_{sf} = \infty$, hence $K_\cap = K_{sf} + K_{lf} = \infty$, $\Delta_\cap = \infty$, and the placeholder coupling $\eta_k = 0.5 \Delta_\cap$ also gives $\eta_k = \infty$.
 
-**This passes the make-or-break test trivially; it tells us nothing**. Genuine verification of the global closure requires:
+Thus the default $g_0 = 1.0$ pilot fails the make-or-break test. A deliberately weak-coupling pilot can still pass, but that is only a finite-window framework check. Genuine verification of the global closure requires:
 
-1. **Real $K_{sf}(g_k), K_{lf}(g_k)$** from the Bałaban derivations (3.1, 3.2 replacement points).
-2. **Real $\eta(b, g_k)$ coupling** from the σ̂-transport derivation (this module's `compute_eta` placeholder).
-3. **Real $\widehat{\sigma}_0$** from the input lattice gauge theory (a program-level input, not derived).
+1. **Real $K_{lf}(g_k)$** from the large-field character-expansion residual (3.2 replacement point).
+2. **A refined or directly extracted small-field $c_\lambda$** replacing the current fiducial $1/2$ if the threshold is to be treated quantitatively.
+3. **Real $\eta(b, g_k)$ coupling** from the σ̂-transport derivation (this module's `compute_eta` placeholder).
+4. **Real $\widehat{\sigma}_0$** from the input lattice gauge theory (a program-level input, not derived).
 
-When all three land, this module's machinery becomes a real test.
+When these land, this module's machinery becomes a real test.
 
 ---
 
@@ -52,7 +53,7 @@ For the **full convergence claim** $\sum_{k=0}^{\infty} \eta_k < \widehat{\sigma
 
 ### 3.2. Verdict for the SU(2) pilot
 
-**Q' suffices.** The standard SU(2) trajectory's $N_p(k) = N_p(0) \cdot b^{-4k}$ decays geometrically; the per-plaquette factors are bounded for the trajectory's bounded $g_k$ range. The tail $\sum_{k \ge K_0} \eta_k$ admits a rational geometric bound, and the full sum admits a rational upper estimate. The Lean closure of `[P2.3-sigma]` against Q' is mechanical once the actual $\eta(b, g_k)$ formula lands.
+**Q' suffices for finite pilots and for any later proof with an explicit rational tail bound.** The previous geometric-tail argument is conditional on finite per-step factors. If $K_\cap$ or $\eta$ is infinite at any step, no Q' representation issue is involved: the analytic bound has failed before the constructive-limit layer becomes relevant.
 
 **For Phase 4+ (the continuum limit)**, where the trajectory extends over a continuum of scales, a constructive-reals layer might be needed. That's downstream of 3.5 and beyond Phase 3's scope.
 
@@ -72,7 +73,7 @@ For the **full convergence claim** $\sum_{k=0}^{\infty} \eta_k < \widehat{\sigma
 
 3.4 **does not**:
 
-- Verify the actual SU(2) inductive step closes. With placeholders, the test is trivial (Σ η = 0); the real test awaits 3.1–3.3 replacement.
+- Verify the actual SU(2) inductive step closes. The default trajectory currently fails because the small-field threshold is exceeded; the remaining real test awaits 3.2 and 3.4 upgrades plus a normalization audit.
 - Build a constructive-limit layer. Q' suffices for the pilot.
 - Close `[P2.3-sigma]` in Lean. Same reason as 3.1–3.3: needs the actual η formula plus the Q'-lift.
 

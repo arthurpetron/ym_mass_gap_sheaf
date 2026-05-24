@@ -203,10 +203,11 @@ def delta_cap_budget(
     work_plan 3.3 task: verify Σ_k Δ_∩ < ∞ (or at least bounded for
     the trajectory tested).
 
-    Note: with placeholder K_sf, K_lf the per-step Δ_∩ is identically
-    zero — this trivially passes summability.  When the actual
-    g_k-dependent K_sf(g_k), K_lf(g_k) land, this produces the
-    real per-step growth.
+    Note: after the post-3.1 small-field upgrade, Δ_∩ is no longer
+    structurally trivial. If either endpoint has non-finite K_cap
+    (for example because K_sf diverges outside the current convergence
+    window), the total budget is non-finite and downstream pilot checks
+    fail. K_lf is still a placeholder until the 3.2-upgrade lands.
     """
     per_step: list[float] = []
     partials: list[float] = []

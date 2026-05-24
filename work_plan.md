@@ -435,9 +435,103 @@ project; the master branch should always be in a buildable state.
 
 ## Current status
 
-As of repository initialization: Phase 0 in progress. No milestones
-closed.
+As of 2026-05-24: Phases 0--2 are structurally closed, and Phase 3
+is structurally complete through the SU(2) pilot validator. The
+status is no longer "placeholder success"; the post-3.1 small-field
+upgrade makes the default pilot fail outside the current weak-coupling
+window.
 
-To find the next task, locate the lowest-numbered milestone whose
-dependencies are all closed and whose deliverables are not yet
-complete.
+Closed / integrated:
+
+- **P0.1--P2.3.** Repository scaffold, SU(2) representation data,
+  heat-kernel normalization interface, buffer-shell and union-bound
+  overlap code, sheaf framework, inductive state, and block-spin
+  morphism are present.
+- **P3.1--P3.5.** Small-field KP, large-field KP, overlap KP,
+  $\widehat{\sigma}$ trajectory, and the five-criterion SU(2) pilot
+  validator are wired end-to-end.
+- **P3.1 post-upgrade.** `computations/small_field_kp.py` now uses a
+  Bałaban/Brydges-Federbush style convergence synthesis. The
+  consequence is explicit: with canonical fiducial constants,
+  $g_{\max} \approx 0.40$; with Wilson constants, $g_{\max} \approx
+  0.81$. Above threshold, $K_{\mathrm{sf}} = \infty$, which propagates
+  to $K_{\cap}$, $\Delta_{\cap}$, $\eta$, and pilot failure.
+
+Current pilot outcome:
+
+- `run_pilot(g_0=1.0)` **fails** in the canonical convention because
+  the small-field cluster expansion is outside its convergence window.
+- `run_pilot(g_0=0.1, sigma_hat_initial=10.0)` passes the finite
+  weak-coupling framework test. This is a useful sanity check, not a
+  mass-gap claim.
+- The local test suite passes in the repo virtualenv:
+  `.venv/bin/pytest -q` gives `191 passed`.
+- The Lean top-level file checks with
+  `cd lean && lake env lean YMGap.lean`.
+
+Still placeholder / open:
+
+1. **P3.2 large-field amplitude.** $\rho_{\mathrm{lf}}$ is derived from
+   the SU(2) Casimir and the chosen convention; $K_{\mathrm{lf}}$ is
+   still placeholder `1.0`.
+2. **P3.1 coefficient extraction.** The small-field spectral-gap
+   coefficient $c_{\lambda}=1/2$ is fiducial pending direct extraction
+   from the Bałaban estimates in the project's normalization.
+3. **P3.4 $\eta$ coupling.** The relationship
+   $\Delta_{\cap}\mapsto \eta$ is still the placeholder
+   $\eta = 0.5\,\Delta_{\cap}$.
+4. **P1.2/P1.3 heat-kernel normalization audit.** The current notes
+   carry both inverse-coupling and diffusion-time language. Since a
+   genuine heat kernel $K_t$ on a compact group concentrates at the
+   identity as $t\downarrow 0$ and tends to Haar as $t\to\infty$, the
+   use of `t = 2N/g^2` as heat-kernel time must be audited before
+   character-expansion constants are treated as probability bounds.
+   The buffer-shell note already exposes the related Haar-floor issue.
+5. **Lean sorries.** `lean/SORRY_LEDGER.md` records the open
+   `[P2.1]` and `[P2.3-{sf,lf,cap,sigma}]` obligations plus the
+   assembled `step_obligation_witness`; all remain `sorryAx`-only.
+6. **Continuum limit, OS reconstruction, and the mass-gap theorem.**
+   These remain outside Phase 3 and are not implied by the pilot.
+
+## Suggested next milestone
+
+### Milestone 3.2-upgrade — large-field character-expansion amplitude
+
+**Goal.** Replace the placeholder $K_{\mathrm{lf}}=1.0$ by a
+constructive SU(2) character-expansion residual bound, with an
+explicit finite/convergent regime and exact rational constants where
+possible.
+
+**Preflight requirement.** Before changing `large_field_kp.py`, audit
+the P1.2/P1.3 heat-kernel normalization: decide whether Phase 3 is
+using inverse-coupling character weights, genuine diffusion-time heat
+kernels, or a named canonical rescaling. Record the decision in
+`notes/heat-kernel-normalization.md`, and update `buffer_shell.py` /
+`notes/single-plaquette-derivation.md` if the probability-bound
+interpretation changes.
+
+**Deliverables.**
+
+- `computations/large_field_kp.py` upgraded so `K_lf` is computed from
+  the SU(2) character expansion rather than a fixed placeholder.
+- `notes/large-field-derivation.md` updated with the exact residual
+  estimate, convergence condition, and normalization choice.
+- Tests covering finite/infinite large-field regimes, monotonicity in
+  `g_k`, and propagation through `overlap_kp`, `sigma_hat_trajectory`,
+  and `pilot_su2`.
+- A Phase-3 sweep over the weak-coupling window showing where the five
+  pilot criteria and the $\widehat{\sigma}_K \ge 0.5\widehat{\sigma}_0$
+  threshold pass or fail.
+
+**Why this is next.** It is the smallest scope-bounded move that
+materially improves the pilot's honesty: it removes the last upstream
+placeholder feeding $K_{\cap}$, and it tells us whether the current
+small-field obstruction is the only quantitative obstruction in the
+weak-coupling window.
+
+**Recommended follow-up.** After 3.2-upgrade, close the Lean
+`[P2.3-sf]` and `[P2.3-lf]` obligations against exact rational upper
+bounds. Do not open Phase 4 or Phase 5 as primary work until
+`K_lf`, $c_{\lambda}$ provenance, and the $\eta$ coupling have been
+made explicit enough that the pilot is a numerical experiment rather
+than a structural demo.

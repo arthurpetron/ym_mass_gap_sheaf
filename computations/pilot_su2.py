@@ -4,24 +4,25 @@ Milestone 3.5 of `work_plan.md`.  Runs the full inductive-step
 validator over `k = 0, 1, …, K` for `K ≥ 3` and reports the five
 success criteria from `docs/context.md` §7:
 
-  1. Small-field KP condition (ρ_sf > 0, KP inequality satisfied).
+  1. Small-field KP condition (ρ_sf > 0, finite K_sf, convergent flag set).
   2. Large-field KP condition.
-  3. Overlap KP condition (buffer-glue via Proposition 7.1).
+  3. Overlap KP condition (finite buffer KP witness via Proposition 7.1).
   4. Summable degradation of K_∩: Σ_k Δ_∩ < ∞ (bounded for the
      trajectory tested).
   5. Positive retained renormalized string tension: σ̂_k > 0 for
      all k, and Σ_k η_k < σ̂_0.
 
 Status: pilot validator runs over the standard SU(2) trajectory
-with the placeholder upstream (3.1, 3.2, 3.3, 3.4).  All five
-criteria trivially pass in the placeholder regime — Σ Δ_∩ = 0,
-Σ η = 0 — so the pilot "succeeds" trivially.  Genuine success or
-failure requires real upstream derivations.
+with the post-3.1 small-field upgrade.  The default g_0 = 1.0 lies
+outside the current Bałaban/Brydges-Federbush convergence threshold,
+so K_sf = ∞, Δ_∩ = ∞, η = ∞, and the pilot fails honestly.  The same
+validator passes only in the asymptotic-freedom window where K_sf is
+finite.
 
 The validator's job here is to:
   (a) Lock in the FIVE-CRITERIA INTERFACE so a future genuine
       pilot can be measured against the same five flags.
-  (b) Run the validator against the placeholder upstream and emit
+  (b) Run the validator against the current upstream and emit
       a structured report.
   (c) Generate the inductive-closure summary figure.
 
@@ -141,12 +142,27 @@ def run_pilot(
     lf_certs = [compute_large_field_kp(g, k, t_choice) for k, g in enumerate(g_traj)]
     cap_certs = [compute_overlap_kp(g, k, t_choice) for k, g in enumerate(g_traj)]
 
-    # Criterion 1: every sf cert has ρ_sf > 0 and K_sf ≥ 0.
-    crit_1 = all(c.rho_sf > 0 and c.K_sf >= 0 for c in sf_certs)
+    # Criterion 1: every sf cert is a finite, convergent KP certificate.
+    # K_sf = ∞ is a diagnostic of cluster-expansion non-convergence, not a
+    # valid KP witness for the pilot.
+    import math
+
+    crit_1 = all(
+        c.rho_sf > 0 and c.K_sf >= 0 and math.isfinite(c.K_sf) and c.convergent
+        for c in sf_certs
+    )
     # Criterion 2: every lf cert has ρ_lf > 0 and K_lf ≥ 0.
     crit_2 = all(c.rho_lf > 0 and c.K_lf >= 0 for c in lf_certs)
-    # Criterion 3: every overlap cert satisfies Proposition 7.1.
-    crit_3 = all(c.proposition_7_1_satisfied for c in cap_certs)
+    # Criterion 3: every overlap cert is a finite KP witness satisfying
+    # Proposition 7.1. The structural min/sum relationship can hold with
+    # K_cap = ∞, but that is not a useful KP certificate for the pilot.
+    crit_3 = all(
+        c.proposition_7_1_satisfied
+        and c.rho_cap > 0
+        and c.K_cap >= 0
+        and math.isfinite(c.K_cap)
+        for c in cap_certs
+    )
     # Criterion 4: Σ_k Δ_∩ is bounded for the tested K.
     budget = delta_cap_budget(g_traj, t_choice)
     crit_4 = budget.total < float("inf")  # always True structurally
@@ -232,7 +248,7 @@ def plot_inductive_closure(
         f"Σ η = {result.total_eta:.3e})"
     )
     overall = "SUCCEEDS" if result.pilot_succeeds else "FAILS"
-    fig.suptitle(f"Pilot {overall} (placeholder regime — see notes/pilot-su2-results.md)",
+    fig.suptitle(f"Pilot {overall} (current analytic regime — see notes/pilot-su2-results.md)",
                  fontsize=12)
     fig.tight_layout()
 
@@ -273,6 +289,6 @@ if __name__ == "__main__":
     print("=" * 65)
     print(f"PILOT {'SUCCEEDS' if result.pilot_succeeds else 'FAILS'}")
     print("=" * 65)
-    print("(Note: placeholder regime — see notes/pilot-su2-results.md)")
+    print("(Note: current analytic regime — see notes/pilot-su2-results.md)")
     path = plot_inductive_closure(result)
     print(f"\nFigure: {path}")

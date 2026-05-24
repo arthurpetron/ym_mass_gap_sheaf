@@ -32,6 +32,19 @@ The exponent coefficient $\kappa_{SU(2)} = 3/4$ here is exactly $C_2(1/2)$, the 
 
 `computations/heat_kernel.py` carries all three as named `HeatKernelConvention` values, with explicit conversion formulas and the SU(2) spot values as `Fraction` constants for downstream Lean / `Q'` interop.
 
+> **Audit note (2026-05-24).** The probability-bound use of this file
+> needs a normalization audit before the 3.2 large-field upgrade. A
+> genuine compact-group heat kernel $K_t$ concentrates at the identity
+> as $t \downarrow 0$ and tends to Haar as $t \to \infty$. Therefore
+> language that identifies `t = 2N/g^2` simultaneously as inverse
+> coupling and literal diffusion time is potentially misleading. The
+> Phase-3 code currently treats the canonical and Wilson choices as
+> named exponent normalizations; before deriving a real $K_{lf}$, decide
+> whether the character weights are inverse-coupling weights, genuine
+> heat-kernel diffusion weights, or a canonical rescaling. The related
+> Haar-floor issue is already visible in
+> `notes/single-plaquette-derivation.md`.
+
 ---
 
 ## 2. Wilson convention, derived

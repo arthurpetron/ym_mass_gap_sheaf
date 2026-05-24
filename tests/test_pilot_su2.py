@@ -45,11 +45,12 @@ def test_pilot_fails_at_default_g_0_post_balaban() -> None:
     cluster-expansion convergence threshold (g_max ≈ 0.4).  K_sf = ∞
     propagates; criteria 4 and 5 fail."""
     result = run_pilot(g_0=1.0)
-    # crit_1, _2, _3 are about positivity, which still pass.
-    assert result.crit_1_small_field_KP is True
+    # An infinite K_sf is not a valid KP witness.
+    assert result.crit_1_small_field_KP is False
     assert result.crit_2_large_field_KP is True
-    # crit_4 may still pass if total is "finite" by Python's bool(inf < inf)
-    # but the σ̂ budget closure should fail.
+    assert result.crit_3_overlap_KP is False
+    # The non-finite K_sf cascades into the global budgets.
+    assert result.crit_4_delta_cap_summable is False
     assert result.crit_5_sigma_hat_positive_and_budget is False
     assert result.pilot_succeeds is False
 
