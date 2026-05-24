@@ -448,3 +448,9 @@ verifies the structural isomorphism:
 
 This realizes the §6/§7 claim at the Python type-system level: the proof
 shape is a single Protocol, and the EKF/YM instances genuinely share it.
+
+[`visualizations/transfer/ekf-to-ym-types.tikz`](../visualizations/transfer/ekf-to-ym-types.tikz)
+renders the three-column structure (EKF | `InductiveBoundWitness` |
+YM) with the per-field correspondence table inset; verified to
+compile standalone via
+`pdflatex \documentclass{standalone}\usepackage{tikz,amsmath,amssymb}\usetikzlibrary{positioning,arrows.meta}\begin{document}\input{ekf-to-ym-types.tikz}\end{document}`.

@@ -1,0 +1,145 @@
+% ekf-to-ym-types.tikz
+%
+% The codynamic transfer template at the type-signature level: EKFStep
+% and YMStep both satisfy the InductiveBoundWitness Protocol without
+% sharing inheritance.  Three columns (EKF | Protocol | YM) with
+% horizontal correspondence arrows.
+%
+% Companion to:
+%   - notes/codynamic-transfer.md §1, §4, §11
+%   - computations/transfer_examples/protocol.py
+%   - tests/test_transfer_examples.py::TestProtocolConformance
+%
+% To preview standalone:
+%   pdflatex -shell-escape \
+%     "\documentclass{standalone}\usepackage{tikz,amsmath,amssymb}\begin{document}\input{ekf-to-ym-types.tikz}\end{document}"
+%
+% Intended use: \input{visualizations/transfer/ekf-to-ym-types.tikz}.
+
+\begin{tikzpicture}[
+    sideBox/.style={
+      draw=black!70, fill=blue!8, thick, rounded corners=4pt,
+      inner sep=8pt, align=left, minimum width=4.6cm, text width=4.4cm,
+    },
+    centerBox/.style={
+      draw=black!70, fill=green!10, very thick, rounded corners=4pt,
+      inner sep=8pt, align=left, minimum width=4.6cm, text width=4.4cm,
+    },
+    title/.style={font=\bfseries\small, anchor=center, inner sep=2pt},
+    field/.style={font=\small, anchor=west, inner sep=1pt},
+    proto/.style={font=\small\ttfamily, anchor=west, inner sep=1pt, color=green!35!black},
+    note/.style={font=\footnotesize\itshape, color=black!60},
+    corrArrow/.style={<->, thick, >=stealth, gray!70},
+    instArrow/.style={->, thick, >=stealth, blue!60!black, double},
+    arrowlabel/.style={font=\small, fill=white, inner sep=2pt},
+    headerStrip/.style={font=\bfseries\small, anchor=center, fill=gray!15,
+      inner sep=4pt, minimum width=4.6cm, rounded corners=2pt},
+  ]
+
+  %==================================================================
+  % Header row: three column labels
+  %==================================================================
+  \node[headerStrip] (headerEKF)    at (0, 0)   {EKF side};
+  \node[headerStrip] (headerProto)  at (5.6, 0) {InductiveBoundWitness};
+  \node[headerStrip] (headerYM)     at (11.2, 0) {YM side};
+
+  %==================================================================
+  % EKF column (left)
+  %==================================================================
+  \node[sideBox, below=4pt of headerEKF.south, anchor=north] (ekf) {%
+    \begin{tabular}{@{}l@{}}
+      \textbf{class} \texttt{EKFStep}\\[2pt]
+      \texttt{n: int}\\
+      \texttt{x\_hat: float}\\
+      \texttt{P: float}\\
+      \texttt{B: float}\\
+      \texttt{last\_innovation: float}\\
+      \texttt{step()} $\to$ \texttt{EKFStep}?\\[2pt]
+      {\footnotesize\itshape covariance $P_n$ tracks}\\
+      {\footnotesize\itshape uncertainty; budget $B_n$}\\
+      {\footnotesize\itshape decremented by $|D_n|$.}
+    \end{tabular}%
+  };
+
+  %==================================================================
+  % Protocol column (center) — the shared interface
+  %==================================================================
+  \node[centerBox, below=4pt of headerProto.south, anchor=north] (proto) {%
+    \begin{tabular}{@{}l@{}}
+      \textbf{@runtime\_checkable}\\
+      \textbf{class} \texttt{InductiveBoundWitness}\\[2pt]
+      \texttt{scale\_index: int}\\
+      \texttt{bound\_witness: BoundWitness}\\
+      \texttt{remaining\_budget: float}\\
+      \texttt{degradation: float}\\
+      \texttt{step()} $\to$ \texttt{Self?}\\
+      \texttt{overlap\_compatible(o)}\\[2pt]
+      {\footnotesize\itshape structurally typed: any}\\
+      {\footnotesize\itshape class providing these is a}\\
+      {\footnotesize\itshape conformer (no inheritance).}
+    \end{tabular}%
+  };
+
+  %==================================================================
+  % YM column (right)
+  %==================================================================
+  \node[sideBox, below=4pt of headerYM.south, anchor=north] (ym) {%
+    \begin{tabular}{@{}l@{}}
+      \textbf{class} \texttt{YMStep}\\[2pt]
+      \texttt{k: int}\\
+      \texttt{trajectory: SigmaHatTrajectory}\\
+      \texttt{trajectory[k].sigma\_hat}\\
+      \quad\textit{(= remaining $\hat\sigma_k$)}\\
+      \texttt{trajectory[k].eta\_k}\\
+      \texttt{step()} $\to$ \texttt{YMStep}?\\[2pt]
+      {\footnotesize\itshape string-tension margin $\hat\sigma_k$}\\
+      {\footnotesize\itshape decremented by $\eta_k$ per}\\
+      {\footnotesize\itshape RG step.}
+    \end{tabular}%
+  };
+
+  %==================================================================
+  % Correspondence arrows (EKF ↔ Protocol ↔ YM)
+  %==================================================================
+  % The "satisfies" arrows from each side to the Protocol.
+  \draw[instArrow] (ekf.east) -- (proto.west)
+    node[arrowlabel, font=\footnotesize, midway, above, fill=white, inner sep=1pt]
+      {satisfies};
+  \draw[instArrow] (ym.west) -- (proto.east)
+    node[arrowlabel, font=\footnotesize, midway, above, fill=white, inner sep=1pt]
+      {satisfies};
+
+  %==================================================================
+  % Caption strip below the three columns
+  %==================================================================
+  \node[font=\footnotesize, text width=14cm, align=center,
+        below=14pt of proto.south, anchor=north] {%
+    \textbf{Milestone 4.1 codynamic transfer template.}\;
+    \texttt{EKFStep} and \texttt{YMStep} have \emph{no} common ancestor
+    beyond \texttt{object}: their conformance is purely structural,
+    via Python's \texttt{@runtime\_checkable} Protocol.\;
+    The generic \texttt{run\_inductive\_steps} runner consumes either as a
+    single argument type, realizing the §1 "local trusted estimate
+    $+$ overlap compatibility $+$ summable innovation $\Rightarrow$ global
+    stable bound" claim at the language level
+    (\texttt{tests/test\_transfer\_examples.py}).%
+  };
+
+  %==================================================================
+  % Per-field correspondence table below the caption
+  %==================================================================
+  \node[draw=black!50, fill=yellow!8, rounded corners=4pt, inner sep=6pt,
+        text width=13.6cm, font=\footnotesize, align=left,
+        below=12pt of proto.south, anchor=north, yshift=-44pt]
+    (corrTable) {%
+    \textbf{Field-level correspondence} (\texttt{notes/codynamic-transfer.md} §4):\\[2pt]
+    \begin{tabular}{@{}lcccl@{}}
+      \texttt{n}                 & $\leftrightarrow$ & \texttt{scale\_index}      & $\leftrightarrow$ & \texttt{k}\\
+      \texttt{P\_n} (covariance) & $\leftrightarrow$ & \texttt{bound\_witness}    & $\leftrightarrow$ & $\hat\sigma_k$ (string-tension margin)\\
+      \texttt{B\_n} (rewind)     & $\leftrightarrow$ & \texttt{remaining\_budget} & $\leftrightarrow$ & $\hat\sigma_0 - \sum_{i<k}\eta_i$\\
+      $|D_n|$ (innovation)       & $\leftrightarrow$ & \texttt{degradation}       & $\leftrightarrow$ & $\eta_k$\\
+      predict/update Riccati     & $\leftrightarrow$ & \texttt{step()}            & $\leftrightarrow$ & block-spin pushforward\\
+    \end{tabular}%
+  };
+
+\end{tikzpicture}
