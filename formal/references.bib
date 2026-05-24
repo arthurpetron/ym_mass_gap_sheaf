@@ -1,0 +1,195 @@
+% References for the constructive Yang-Mills mass gap program.
+%
+% Conventions:
+%   - Each entry includes a verified DOI / URL where applicable.
+%   - The "note" field flags WHICH project-side fiducial constant each
+%     reference supports, and whether the reference directly supplies
+%     the value or only the SHAPE of the formula (with the specific
+%     constant being fiducial pending direct paper extraction).
+%   - See `notes/fiducials_notes.md` for the project-wide audit of
+%     which constants come from where.
+
+% =============================================================================
+% Bałaban renormalization-group series (lattice non-abelian gauge theories)
+% =============================================================================
+%
+% The full Bałaban RG series spans many papers (CMP 85, 86, 88, 89, 96,
+% 98, 99, 102, 109, 116, 119, ...).  The three most directly relevant
+% to Phase-3 of this project are:
+
+@article{Balaban1987RG-I,
+  author  = {Ba{\l}aban, Tadeusz},
+  title   = {Renormalization group approach to lattice gauge field theories. {I}.
+             {G}eneration of effective actions in a small field approximation
+             and a coupling constant renormalization in four dimensions},
+  journal = {Communications in Mathematical Physics},
+  volume  = {109},
+  number  = {2},
+  pages   = {249--301},
+  year    = {1987},
+  publisher = {Springer},
+  url     = {https://projecteuclid.org/journals/communications-in-mathematical-physics/volume-109/issue-2/Renormalization-group-approach-to-lattice-gauge-field-theories-I-Generation/cmp/1104116842.full},
+  note    = {Source for the small-field action expansion and the spectral-gap
+             activity bound shape used in computations/small_field_kp.py.
+             The specific value of c_lambda = 1/2 in BAŁABAN_SPECTRAL_GAP_COEFF
+             is a LITERATURE-SHAPE FIDUCIAL, not directly extracted from a
+             single inequality in this paper; see notes/fiducials_notes.md.}
+}
+
+@article{Balaban1988RG-II,
+  author  = {Ba{\l}aban, Tadeusz},
+  title   = {Renormalization group approach to lattice gauge field theories. {II}.
+             {C}luster expansions},
+  journal = {Communications in Mathematical Physics},
+  volume  = {116},
+  number  = {1},
+  pages   = {1--22},
+  year    = {1988},
+  publisher = {Springer},
+  url     = {https://projecteuclid.org/journals/communications-in-mathematical-physics/volume-116/issue-1/Renormalization-group-approach-to-lattice-gauge-field-theories-II-Cluster/cmp/1104161193.full},
+  note    = {Cluster-expansion convergence for the small-field part of the
+             Bałaban RG series.  Used as a shape source for the geometric
+             series form K_sf = 1/(1 - exp(-(rho_sf - mu))) in
+             computations/small_field_kp.py.}
+}
+
+@article{Balaban1988convergent,
+  author  = {Ba{\l}aban, Tadeusz},
+  title   = {Convergent renormalization expansions for lattice gauge theories},
+  journal = {Communications in Mathematical Physics},
+  volume  = {119},
+  number  = {2},
+  pages   = {243--285},
+  year    = {1988},
+  publisher = {Springer},
+  doi     = {10.1007/BF01217741},
+  url     = {https://link.springer.com/article/10.1007/BF01217741},
+  note    = {Inductive description of complete effective densities including
+             large-field domains; establishes that RG transformations preserve
+             density form.  Used as a shape source for the sigma-hat-transport
+             polymer-residual factor in computations/sigma_hat_trajectory.py;
+             the BALABAN_POLYMER_RESIDUAL = 2.0 value is HEURISTIC, NOT
+             directly extracted.}
+}
+
+% =============================================================================
+% Brydges-Federbush cluster-expansion convergence
+% =============================================================================
+
+@article{BrydgesFederbush1978,
+  author  = {Brydges, David C. and Federbush, Paul},
+  title   = {A new form of the {M}ayer expansion in classical statistical mechanics},
+  journal = {Journal of Mathematical Physics},
+  volume  = {19},
+  number  = {10},
+  pages   = {2064--2067},
+  year    = {1978},
+  month   = oct,
+  publisher = {AIP Publishing},
+  note    = {Polymer-cluster-expansion convergence theorem.  Source for the
+             ``rho > log mu'' convergence threshold used as the basis for
+             both K_sf (3.1) and K_lf (3.2) cluster-expansion residual
+             bounds.  Directly used (in shape) by both small_field_kp.py
+             and large_field_kp.py.}
+}
+
+% =============================================================================
+% Seiler lecture notes (plaquette polymer counting, constructive QFT)
+% =============================================================================
+
+@book{Seiler1982,
+  author    = {Seiler, Erhard},
+  title     = {Gauge Theories as a Problem of Constructive Quantum Field Theory
+               and Statistical Mechanics},
+  series    = {Lecture Notes in Physics},
+  volume    = {159},
+  publisher = {Springer-Verlag},
+  address   = {Berlin, Heidelberg, New York},
+  year      = {1982},
+  isbn      = {3-540-11559-5},
+  doi       = {10.1007/3-540-11559-5},
+  url       = {https://link.springer.com/book/10.1007/3-540-11559-5},
+  note      = {Comprehensive reference for the constructive lattice gauge
+               theory framework.  Source for the plaquette-polymer counting
+               idea used by computations/large_field_kp.py
+               (MU_PLAQUETTE_4D = 16).  The specific ``5d-4'' formula is a
+               LITERATURE-SHAPE value commonly cited in this context but
+               not directly verified by a quoted line from Seiler;
+               see notes/fiducials_notes.md.}
+}
+
+% =============================================================================
+% Drouffe-Itzykson — two distinct works
+% =============================================================================
+
+@article{DrouffeItzykson1978,
+  author  = {Drouffe, Jean-Michel and Itzykson, Claude},
+  title   = {Lattice gauge fields},
+  journal = {Physics Reports},
+  volume  = {38},
+  number  = {3},
+  pages   = {133--175},
+  year    = {1978},
+  publisher = {Elsevier},
+  url     = {https://www.sciencedirect.com/science/article/abs/pii/0370157378901540},
+  note    = {Early comprehensive review of lattice gauge theory, including
+             the heat-kernel character expansion treatment used by
+             computations/large_field_kp.py.}
+}
+
+@book{ItzyksonDrouffe1989,
+  author    = {Itzykson, Claude and Drouffe, Jean-Michel},
+  title     = {Statistical Field Theory},
+  subtitle  = {Volume 1: From Brownian Motion to Renormalization and Lattice
+               Gauge Theory; Volume 2: Strong Coupling, Monte Carlo Methods,
+               Conformal Field Theory, and Random Systems},
+  series    = {Cambridge Monographs on Mathematical Physics},
+  publisher = {Cambridge University Press},
+  address   = {Cambridge},
+  year      = {1989},
+  isbn      = {0-521-34058-6, 0-521-37012-4},
+  note      = {The standard textbook on statistical field theory and
+               lattice gauge theory.  Source for the heat-kernel character
+               expansion conventions used throughout the project's
+               Phase-1.2 / 3.2 modules.}
+}
+
+% =============================================================================
+% Cammarota cluster-expansion refinements
+% =============================================================================
+
+@article{Cammarota1982,
+  author  = {Cammarota, Camillo},
+  title   = {Decay of correlations for infinite range interactions in
+             unbounded spin systems},
+  journal = {Communications in Mathematical Physics},
+  volume  = {85},
+  number  = {4},
+  pages   = {517--528},
+  year    = {1982},
+  publisher = {Springer},
+  doi     = {10.1007/BF01403502},
+  url     = {https://projecteuclid.org/journals/communications-in-mathematical-physics/volume-85/issue-4/Decay-of-correlations-for-infinite-range-interactions-in-unbounded-spin/cmp/1103921545.full},
+  note    = {New proof of Mayer-series convergence for general polymer
+             models.  Refined cluster-expansion convergence criteria used
+             as a secondary reference for the K_sf / K_lf bounds.}
+}
+
+% =============================================================================
+% Glimm-Jaffe textbook
+% =============================================================================
+
+@book{GlimmJaffe1987,
+  author    = {Glimm, James and Jaffe, Arthur},
+  title     = {Quantum Physics: A Functional Integral Point of View},
+  edition   = {2nd},
+  publisher = {Springer-Verlag},
+  address   = {New York},
+  year      = {1987},
+  isbn      = {0-387-96477-0},
+  doi       = {10.1007/978-1-4612-4728-9},
+  note      = {Chapter 18 discusses polymer cluster expansions and
+               convergence criteria.  Used as a textbook-level cross-check
+               for the cluster-expansion shape in
+               computations/small_field_kp.py and large_field_kp.py.}
+}

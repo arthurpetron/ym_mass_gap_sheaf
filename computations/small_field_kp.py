@@ -32,28 +32,40 @@ numbers.
 
 ## References
 
-[Bałaban 1985]
-  T. Bałaban, "Renormalization group approach to non-abelian gauge
-  field theories on a lattice", Comm. Math. Phys. 99 (1985), 195–211.
-  Establishes the small-field action expansion S_k(U) = ½⟨A, Δ_k A⟩
-  + V_k(A) on a Gribov-safe patch.
+See `notes/fiducials_notes.md` §1 / §2 for the project-wide audit of
+the provenance of `BAŁABAN_SPECTRAL_GAP_COEFF` and `MU_CONNECTIVITY_4D`;
+BibTeX entries are in `formal/references.bib`.
 
-[Bałaban 1988]
+[Balaban1987RG-I]
+  T. Bałaban, "Renormalization group approach to lattice gauge field
+  theories. I. Generation of effective actions in a small field
+  approximation and a coupling constant renormalization in four
+  dimensions", Comm. Math. Phys. 109 (1987), 249–301.  Source for the
+  small-field action expansion S_k(U) = ½⟨A, Δ_k A⟩ + V_k(A) on a
+  Gribov-safe patch and the spectral-gap activity bound shape.
+
+[Balaban1988RG-II]
+  T. Bałaban, "Renormalization group approach to lattice gauge field
+  theories. II. Cluster expansions", Comm. Math. Phys. 116 (1988),
+  1–22.  Cluster-expansion convergence for the small-field part.
+
+[Balaban1988convergent]
   T. Bałaban, "Convergent renormalization expansions for lattice
-  gauge theories", Comm. Math. Phys. 119 (1988), 243–285.  Establishes
-  cluster-expansion convergence for the small-field part.
+  gauge theories", Comm. Math. Phys. 119 (1988), 243–285.  DOI
+  10.1007/BF01217741.  Inductive description of complete effective
+  densities including large-field domains.
 
-[Brydges–Federbush 1978]
+[BrydgesFederbush1978]
   D. Brydges and P. Federbush, "A new form of the Mayer expansion in
   classical statistical mechanics", J. Math. Phys. 19 (1978),
   2064–2067.  Polymer-cluster-expansion convergence theorem.
 
-[Cammarota 1982]
+[Cammarota1982]
   C. Cammarota, "Decay of correlations for infinite range interactions
   in unbounded spin systems", Comm. Math. Phys. 85 (1982), 517–528.
-  Refined convergence criteria.
+  Refined convergence criteria for general polymer models.
 
-[Glimm–Jaffe 1987]
+[GlimmJaffe1987]
   J. Glimm and A. Jaffe, "Quantum Physics: A Functional Integral Point
   of View" (2nd ed., Springer 1987), Ch. 18.  Textbook treatment of
   cluster expansions.

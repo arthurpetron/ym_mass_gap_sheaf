@@ -40,16 +40,19 @@ def test_run_pilot_result_shape() -> None:
     assert isinstance(result.threshold_success, bool)
 
 
-def test_pilot_fails_at_default_g_0_post_balaban() -> None:
-    """Post-3.1-upgrade: default g_0 = 1.0 is OUTSIDE the small-field
-    cluster-expansion convergence threshold (g_max ≈ 0.4).  K_sf = ∞
-    propagates; criteria 4 and 5 fail."""
+def test_pilot_fails_at_default_g_0_post_balaban_and_lf_upgrade() -> None:
+    """Post-3.1-upgrade AND post-3.2-upgrade: default g_0 = 1.0 is OUTSIDE
+    BOTH the small-field threshold (g < 0.40 canonical) AND the large-field
+    threshold (g < 0.42 canonical).  K_sf = K_lf = ∞ and the strict ρ_lf < 0
+    at this coupling; criteria 1, 2, 3, 4, 5 all fail honestly."""
     result = run_pilot(g_0=1.0)
-    # An infinite K_sf is not a valid KP witness.
+    # Small-field cluster expansion does not converge: K_sf = ∞.
     assert result.crit_1_small_field_KP is False
-    assert result.crit_2_large_field_KP is True
+    # Large-field character-tail bound is vacuous: ρ_lf ≤ 0 at g = 1.
+    assert result.crit_2_large_field_KP is False
+    # Overlap inherits non-convergence from both upstream certificates.
     assert result.crit_3_overlap_KP is False
-    # The non-finite K_sf cascades into the global budgets.
+    # The non-finite K cascades into the global budgets.
     assert result.crit_4_delta_cap_summable is False
     assert result.crit_5_sigma_hat_positive_and_budget is False
     assert result.pilot_succeeds is False

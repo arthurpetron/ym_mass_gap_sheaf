@@ -32,18 +32,25 @@ The exponent coefficient $\kappa_{SU(2)} = 3/4$ here is exactly $C_2(1/2)$, the 
 
 `computations/heat_kernel.py` carries all three as named `HeatKernelConvention` values, with explicit conversion formulas and the SU(2) spot values as `Fraction` constants for downstream Lean / `Q'` interop.
 
-> **Audit note (2026-05-24).** The probability-bound use of this file
-> needs a normalization audit before the 3.2 large-field upgrade. A
-> genuine compact-group heat kernel $K_t$ concentrates at the identity
-> as $t \downarrow 0$ and tends to Haar as $t \to \infty$. Therefore
-> language that identifies `t = 2N/g^2` simultaneously as inverse
-> coupling and literal diffusion time is potentially misleading. The
-> Phase-3 code currently treats the canonical and Wilson choices as
-> named exponent normalizations; before deriving a real $K_{lf}$, decide
-> whether the character weights are inverse-coupling weights, genuine
-> heat-kernel diffusion weights, or a canonical rescaling. The related
-> Haar-floor issue is already visible in
-> `notes/single-plaquette-derivation.md`.
+> **Audit resolved (2026-05-24, in 3.2-upgrade).** The Phase-3 code
+> uses the canonical and Wilson choices as **inverse-coupling activity-
+> exponent normalizations**, *not* literal heat-kernel diffusion times.
+> Concretely: in `CANONICAL` (`t = 1/g²`) and `WILSON` (`t = 2N/g²`),
+> large `t` corresponds to small `g` and to strong exponential
+> suppression of non-trivial irrep contributions in the character
+> weights `exp(-t · C_2(j))`. This is the OPPOSITE of the literal-
+> diffusion-time reading of $K_t$ (where small `t` ↔ concentration at
+> the identity, large `t` ↔ Haar).
+>
+> For the large-field activity bound, the inverse-coupling reading is
+> what we need: the bound `|a^lf(X)| ≤ Z_t^{|X|}` is one-sided and
+> shrinks as `g` shrinks, matching the spec form `exp(-ρ_lf · |X|_plaq)`
+> of `docs/outline.md` §6.5. The Haar-floor issue documented in
+> `notes/single-plaquette-derivation.md` §4 is a property of the
+> two-sided buffer-shell *probability* bound; it does not arise for the
+> one-sided polymer-activity upper bound used in the large-field KP
+> certificate. See `notes/large-field-derivation.md` §3, §5 for the
+> derivation in this convention.
 
 ---
 

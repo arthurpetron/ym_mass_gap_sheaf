@@ -44,20 +44,25 @@ def test_proposition_7_1_K_at_upper_bound() -> None:
 
 
 def test_overlap_kp_canonical_su2_g_one() -> None:
-    """At g=1 canonical: ρ_sf = 0.5 (Bałaban c_λ/g²), ρ_lf = 3/4 (3.2 derived).
-    Buffer ρ_∩ = min = 0.5.
+    """At g=1 canonical, both 3.1 small-field and 3.2 large-field are outside
+    their cluster-expansion convergence thresholds (sf: g < 0.40, lf: g < 0.42).
 
-    At g=1, K_sf = ∞ (cluster expansion diverges, post-3.1-upgrade),
-    so K_∩ = ∞ as well."""
+    Sanity checks:
+      * Small-field rate ρ_sf = c_λ/g² = 0.5 (Bałaban literature shape).
+      * Large-field leading-asymptotic rate ρ_lf_asymptotic = 3/4 (outline §18.5).
+      * Strict ρ_lf is negative (Z_t > 1 at this coupling: bound vacuous).
+      * Both K_sf and K_lf are ∞ → K_∩ = ∞.
+    """
     import math
 
     ok = compute_overlap_kp(g_k=1.0, t_choice=CANONICAL)
     assert ok.sf_part.rho_sf == pytest.approx(0.5)
-    assert ok.lf_part.rho_lf == pytest.approx(0.75)
-    assert ok.rho_cap == pytest.approx(0.5)
-    # K is infinite in the non-convergent regime.
-    assert math.isinf(ok.K_cap)
+    assert ok.lf_part.rho_lf_asymptotic == pytest.approx(0.75)
+    assert ok.lf_part.rho_lf < 0  # strict rate is negative at this coupling
+    assert not ok.lf_part.convergent
     assert not ok.sf_part.convergent
+    # K is infinite in the joint non-convergent regime.
+    assert math.isinf(ok.K_cap)
 
 
 def test_overlap_kp_canonical_su2_convergent_regime() -> None:

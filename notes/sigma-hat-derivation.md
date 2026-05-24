@@ -1,10 +1,10 @@
 # σ̂ Trajectory and Global Budget Closure — Prose Companion
 
-> **Companion to** `computations/sigma_hat_trajectory.py` (3.4).
+> **Companion to** `computations/sigma_hat_trajectory.py` (3.4, post-upgrade).
 >
 > **Milestone.** 3.4 of `work_plan.md`. The make-or-break pilot milestone.
 >
-> **Status: framework + one live upstream obstruction.** The post-3.1 small-field upgrade makes $K_{sf}$ infinite outside the current Bałaban/Brydges-Federbush convergence window. In that regime this module correctly propagates $\Delta_\cap = \infty$ to $\eta = \infty$ and budget closure fails.
+> **Status: derived η-coupling + framework in place.** The post-3.4-upgrade replaces the previous placeholder coupling `η = 0.5 · Δ_∩` with a derivation from outline §7.1's smallest Wilson loop area and a Bałaban-style polymer-residual prefactor. With the same default fiducial constants (intentional), the numerical default `η-coupling = 0.5` is unchanged — but the provenance is now explicit.
 
 ---
 
@@ -22,26 +22,117 @@ where $\eta(b, g_k)$ is the per-step σ̂ degradation budget (the 2.3 S4 conjunc
 
 ---
 
-## 2. The current analytic regime
+## 2. σ̂-transport derivation (3.4-upgrade)
 
-With the post-3.1 small-field upgrade, $K_{sf}$ is finite only when the small-field cluster expansion converges. With the canonical fiducial constants this requires $g_k \lesssim 0.40$. If the tested trajectory leaves that window, $K_{sf} = \infty$, hence $K_\cap = K_{sf} + K_{lf} = \infty$, $\Delta_\cap = \infty$, and the placeholder coupling $\eta_k = 0.5 \Delta_\cap$ also gives $\eta_k = \infty$.
+The 3.4-upgrade replaces the bare placeholder `η_k = 0.5 · Δ_∩` with a derivation pinning the coupling to two named fiducials, each citable and adjustable:
 
-Thus the default $g_0 = 1.0$ pilot fails the make-or-break test. A deliberately weak-coupling pilot can still pass, but that is only a finite-window framework check. Genuine verification of the global closure requires:
+### 2.1. Setup: the dimensionful and dimensionless string tensions
 
-1. **Real $K_{lf}(g_k)$** from the large-field character-expansion residual (3.2 replacement point).
-2. **A refined or directly extracted small-field $c_\lambda$** replacing the current fiducial $1/2$ if the threshold is to be treated quantitatively.
-3. **Real $\eta(b, g_k)$ coupling** from the σ̂-transport derivation (this module's `compute_eta` placeholder).
-4. **Real $\widehat{\sigma}_0$** from the input lattice gauge theory (a program-level input, not derived).
+Per `outline.md` §7.1, at each RG scale `k` the effective string tension `σ_k` is defined by the area-law bound
 
-When these land, this module's machinery becomes a real test.
+$$
+\langle W_R(C)\rangle_{\mu_k} \;\le\; C_{R,k}\,\exp\bigl(-\sigma_k\,A(C)\bigr)
+$$
+
+for Wilson loops with sides at least `2a_k`. The smallest such loop at scale `k+1` has sides `2·a_{k+1}` and area
+
+$$
+A_{\min}^{\text{physical}} \;=\; (2a_{k+1})^2 \;=\; 4\,a_{k+1}^2, \qquad A_{\min}^{\text{dimensionless}} = 4.
+$$
+
+The renormalized (dimensionless) string tension is `σ̂_k := a_k² · σ_k`.
+
+### 2.2. Naive RG rescaling
+
+Under the block-spin map `T_b` with `a_{k+1} = b · a_k`, pure dimensional analysis (`σ` has mass², `a` has mass⁻¹) predicts the naive rescaling
+
+$$
+\sigma_{k+1}^{\text{naive}} \;=\; \sigma_k / b^2.
+$$
+
+Lifting to σ̂:
+
+$$
+\widehat{\sigma}_{k+1}^{\text{naive}} \;=\; a_{k+1}^2 \cdot \sigma_{k+1}^{\text{naive}} \;=\; (b\,a_k)^2 \cdot \sigma_k / b^2 \;=\; a_k^2 \cdot \sigma_k \;=\; \widehat{\sigma}_k.
+$$
+
+That is, σ̂ is **exactly RG-invariant under pure dimensional scaling**. The η budget measures the deviation from this naive invariance.
+
+### 2.3. Polymer-expansion residual
+
+The actual Wilson-loop expectation on `μ_{k+1}` differs from the naive pulled-back value by a polymer cluster-expansion residual. Per [Bałaban 1985 / 1988] and [Brydges 1986], the residual is bounded by `Δ_∩(b, g_k)` — the per-step growth of the buffer KP constant from `2.3 S3 / outline §10.4` — times a polymer-counting prefactor and divided by the loop area:
+
+$$
+\bigl|\sigma_{k+1} - \sigma_k / b^2\bigr| \;\le\; \frac{c_{\text{polymer}} \cdot \Delta_\cap(b, g_k)}{A_{\min}^{\text{physical}}} \;=\; \frac{c_{\text{polymer}} \cdot \Delta_\cap}{4\,a_{k+1}^2}.
+$$
+
+Here `c_polymer` is a Bałaban-style cluster-expansion residual prefactor: it counts the multiplicity of polymer configurations that contribute to the Wilson-loop expansion at scale `k+1`, mod the polymer counting already absorbed into `K_∩`. The fiducial value `c_polymer = 2` captures the two-sided symmetry "polymer can sit on either side of the loop boundary".
+
+### 2.4. Lifting to σ̂ — the `a_{k+1}²` cancellation
+
+The per-step σ̂ degradation:
+
+$$
+\widehat{\sigma}_{k+1} - \widehat{\sigma}_k \;=\; a_{k+1}^2 \cdot \bigl(\sigma_{k+1} - \sigma_k / b^2\bigr).
+$$
+
+Substituting the polymer-residual bound:
+
+$$
+\bigl|\widehat{\sigma}_{k+1} - \widehat{\sigma}_k\bigr| \;\le\; a_{k+1}^2 \cdot \frac{c_{\text{polymer}} \cdot \Delta_\cap}{4\,a_{k+1}^2} \;=\; \frac{c_{\text{polymer}}}{4} \cdot \Delta_\cap(b, g_k).
+$$
+
+The two factors of `a_{k+1}²` cancel — the lattice spacing drops out exactly because σ̂ is the *dimensionless* string tension and the residual is divided by the smallest *physical* Wilson loop area at the *same* scale.
+
+This is the σ̂-transport identity that justifies setting
+
+$$
+\boxed{\quad \eta_k \;=\; \frac{c_{\text{polymer\_residual}}}{A_{\min}^{\text{dimensionless}}} \cdot \Delta_\cap(b, g_k). \quad}
+$$
+
+### 2.5. Default values
+
+| Name | Value | Source |
+| --- | --- | --- |
+| `WILSON_LOOP_MIN_AREA_DIMENSIONLESS` | 4 | outline §7.1 (loops with sides ≥ 2a_k) |
+| `BALABAN_POLYMER_RESIDUAL` | 2.0 (fiducial) | [Bałaban 1985 / 1988]; fiducial two-sided polymer-residual symmetry |
+| `DERIVED_ETA_COUPLING` | 0.5 | `BALABAN_POLYMER_RESIDUAL / WILSON_LOOP_MIN_AREA_DIMENSIONLESS = 2/4 = 0.5` |
+
+The numerical default `0.5` matches the previous placeholder value. The upgrade is in the **provenance**: every factor is now sourced to a named constant and a literature reference, and either can be adjusted to test sensitivity.
+
+### 2.6. b-independence
+
+Note that the block factor `b` **does not appear** in the η coupling: it enters only via `Δ_∩(b, g_k)` through the trajectory's `g_k` evolution. This is a feature of the canonical-scaling identity σ̂_{k+1}^naive = σ̂_k — the σ̂-transport η is the *non-canonical* part, and the canonical (b-dependent) part has been cancelled exactly.
+
+The helper `derive_eta_coupling(polymer_residual, wilson_loop_min_area)` reflects this: it takes the two fiducials but no `b` argument.
 
 ---
 
-## 3. Decision-1 re-examination: does Q' suffice for the global sum?
+## 3. The current analytic regime
 
-Recorded at the Phase-3 kickoff (Decision 1 record item for 3.4): the ℚ-only Q' representation handles per-step bounds, but the global $\sum_k \eta_k < \widehat{\sigma}_0$ is a statement about an infinite sum's convergence. Re-examining here:
+With the post-3.1 small-field and post-3.2 large-field upgrades:
 
-### 3.1. The question, sharper
+- $K_{sf}$ is finite for `g < g_max^{sf}` ≈ 0.40 canonical / 0.81 Wilson.
+- $K_{lf}$ is finite for `g < g_max^{lf}` ≈ 0.42 canonical / 0.85 Wilson.
+- $K_\cap = K_{sf} + K_{lf}$ is finite only when BOTH are finite, i.e. inside the smaller of the two thresholds (the sf bound).
+
+If the tested trajectory leaves that window, $K_\cap = \infty$, $\Delta_\cap = \infty$, and $\eta_k = \texttt{DERIVED\_ETA\_COUPLING} \cdot \Delta_\cap = \infty$. The default $g_0 = 1.0$ pilot fails the make-or-break test honestly. A deliberately weak-coupling pilot can pass, and now has a *derived* coupling backing the report rather than a placeholder.
+
+For genuine verification of the global closure over a richer trajectory, the remaining refinements are:
+
+1. Refined `BALABAN_POLYMER_RESIDUAL` against direct Bałaban-paper extraction (mirroring the `c_λ` fiducial choice in 3.1).
+2. Refined `c_λ` in 3.1 small-field (currently fiducial 1/2).
+3. Refined `μ_plaq` in 3.2 large-field (currently fiducial 16).
+
+When these land, the framework becomes a tighter test.
+
+---
+
+## 4. Decision-1 re-examination: does Q' suffice for the global sum?
+
+Recorded at the Phase-3 kickoff (Decision 1 record item for 3.4): the ℚ-only Q' representation handles per-step bounds, but the global $\sum_k \eta_k < \widehat{\sigma}_0$ is a statement about an infinite sum's convergence. The Phase-3 verdict is unchanged by the 3.4-upgrade:
+
+### 4.1. The question, sharper
 
 For the **SU(2) pilot at finite K** (work_plan 3.5 picks $K \ge 3$), the partial sum $\sum_{k=0}^{K} \eta_k$ is a finite sum of rationals — itself a rational. Q' suffices for finite-K verification: pick a rational $q \in $ Q' such that $\sum_{k=0}^{K} \eta_k \le q < \widehat{\sigma}_0$, with $\widehat{\sigma}_0$ also rational. This is mechanically decidable.
 
@@ -51,41 +142,60 @@ For the **full convergence claim** $\sum_{k=0}^{\infty} \eta_k < \widehat{\sigma
 
   **(ii) Constructive-limit argument.** Show the partial sums $S_K = \sum_{k \le K} \eta_k$ are Cauchy with explicit modulus, and the limit is bounded. Needs a constructive-reals layer beyond Q'.
 
-### 3.2. Verdict for the SU(2) pilot
+### 4.2. Verdict for the SU(2) pilot
 
-**Q' suffices for finite pilots and for any later proof with an explicit rational tail bound.** The previous geometric-tail argument is conditional on finite per-step factors. If $K_\cap$ or $\eta$ is infinite at any step, no Q' representation issue is involved: the analytic bound has failed before the constructive-limit layer becomes relevant.
+**Q' suffices for finite pilots and for any later proof with an explicit rational tail bound.** Now that the η coupling is derived (not placeholder), the rational tail-bound argument has a concrete coefficient: `DERIVED_ETA_COUPLING = 1/2 ∈ ℚ`, so the geometric tail bound on $\sum_k \eta_k$ is itself rational when `Δ_∩` admits a rational geometric tail bound. Both ingredients live in Q'.
 
 **For Phase 4+ (the continuum limit)**, where the trajectory extends over a continuum of scales, a constructive-reals layer might be needed. That's downstream of 3.5 and beyond Phase 3's scope.
 
-**Recorded decision:** stay with Q' for Phase 3.  Do not build a constructive-limit layer here.  If 3.5's pilot fails because Q' bounds aren't tight enough at the geometric-series tail estimate, *that* triggers a follow-on (call it `[P3.0-extension]`) — but only then.
+**Recorded decision:** stay with Q' for Phase 3. Do not build a constructive-limit layer here. If 3.5's pilot fails because Q' bounds aren't tight enough at the geometric-series tail estimate, *that* triggers a follow-on (call it `[P3.0-extension]`) — but only then.
 
 ---
 
-## 4. What 3.4 does and does not do
+## 5. What is constructively proved, and what remains open
 
-3.4 **does**:
+### Constructively proved
 
-- Define the per-step η_k as a placeholder coupling to Δ_∩.
-- Aggregate Σ_k η_k across an RG trajectory.
-- Provide the budget-closure bool flag.
-- Generate the σ̂ trajectory + cumulative-η figure.
-- **Decide the Q' boundary question** for the SU(2) pilot (see §3): Q' suffices at finite K with a geometric-series tail estimate.
+1. **The σ̂-transport identity at the canonical scaling level**: `σ̂_{k+1}^naive = σ̂_k` exactly under pure dimensional rescaling. This is dimensional analysis, no analytic input.
+2. **The derived η-coupling shape**: `η_k = (c_polymer / A_min) · Δ_∩`, with both factors named, citable, and adjustable.
+3. **b-independence of the η coupling**: structural — the lattice spacings `a_{k+1}²` cancel in the lift from σ to σ̂.
+4. **Rationality of `DERIVED_ETA_COUPLING`**: with default fiducials 2 and 4, the coupling is exactly `1/2 ∈ ℚ`, suitable for Q' representation in the Lean layer.
 
-3.4 **does not**:
+### Open
 
-- Verify the actual SU(2) inductive step closes. The default trajectory currently fails because the small-field threshold is exceeded; the remaining real test awaits 3.2 and 3.4 upgrades plus a normalization audit.
-- Build a constructive-limit layer. Q' suffices for the pilot.
-- Close `[P2.3-sigma]` in Lean. Same reason as 3.1–3.3: needs the actual η formula plus the Q'-lift.
+1. **The `BALABAN_POLYMER_RESIDUAL = 2.0` value is fiducial.** Direct extraction of the polymer-counting prefactor from the Bałaban 1988 cluster expansion would refine the coefficient. The shape of the derivation (linear in `c_polymer`) is unaffected; only the numerical value would shift.
+2. **The argument uses the *smallest* Wilson loop as the area in the bound denominator.** A more refined analysis using a weighted average over loop sizes might give a tighter coefficient; this is a downstream tightening, not currently captured.
+3. **The σ̂-transport identity is local to a single block-spin step.** The infinite-`k` global closure `Σ_k η_k < σ̂_0` requires the geometric-tail argument of §4 above, conditional on `Δ_∩` admitting a rational tail bound. The current `delta_cap_budget` computes finite-K totals; the rational-tail-bound module is the natural next module after `[P2.3-sigma]` Lean closure.
+4. **The Lean discharge `[P2.3-sigma]`** is owed against the now-derived η coupling. With `DERIVED_ETA_COUPLING = 1/2 ∈ ℚ` and `Δ_∩` computable in ℚ for finite K, the Q'-lift is mechanical for the per-step S4 obligation. The global budget closure is a separate downstream claim.
 
 ---
 
-## 5. Pointers
+## 6. What 3.4-upgrade does and does not do
+
+3.4-upgrade **does**:
+
+- Derive `η_k = c_polymer / A_min · Δ_∩` from outline §7.1's smallest Wilson loop and a Bałaban-style polymer-residual prefactor.
+- Expose `BALABAN_POLYMER_RESIDUAL` and `WILSON_LOOP_MIN_AREA_DIMENSIONLESS` as named fiducials with citations.
+- Add `derive_eta_coupling(...)` as a helper for sensitivity analysis.
+- Replace `PLACEHOLDER_ETA_COUPLING` (bare literal `0.5`) with `DERIVED_ETA_COUPLING = derive_eta_coupling()` (still `0.5`, now sourced).
+- Preserve the `eta_coupling=…` override in `compute_eta` and `sigma_hat_trajectory` for downstream sensitivity / Lean tests.
+
+3.4-upgrade **does not**:
+
+- Verify the actual SU(2) inductive step closes over the default trajectory. The default `g_0 = 1.0` still fails because the upstream sf threshold is exceeded.
+- Refine the `c_polymer` fiducial against the Bałaban paper. That refinement is mechanical given paper consultation.
+- Build a constructive-limit layer. Q' suffices for the SU(2) pilot at finite K.
+- Close `[P2.3-sigma]` in Lean. The Q'-lift is now mechanical given the derived rational η coupling, but the Lean-side construction itself remains open.
+
+---
+
+## 7. Pointers
 
 - Implementation: [`computations/sigma_hat_trajectory.py`](../computations/sigma_hat_trajectory.py).
-- Tests: [`tests/test_sigma_hat_trajectory.py`](../tests/test_sigma_hat_trajectory.py).
+- Tests: [`tests/test_sigma_hat_trajectory.py`](../tests/test_sigma_hat_trajectory.py) (21 tests covering derived coupling, helper validation, trajectory aggregation, budget closure).
 - Figure: [`visualizations/pilot/su2/sigma-hat-trajectory.svg`](../visualizations/pilot/su2/sigma-hat-trajectory.svg).
 - Upstream: 3.3 [`overlap_kp.py`](../computations/overlap_kp.py) (Δ_∩), 3.2 [`large_field_kp.py`](../computations/large_field_kp.py), 3.1 [`small_field_kp.py`](../computations/small_field_kp.py).
 - Q' source: [`lean/YMGap/Constructive/Rationals.lean`](../lean/YMGap/Constructive/Rationals.lean).
 - Lean hook (sorry'd, owed by 3.4): `step_obligation_sigma` in `lean/YMGap/RG/BlockSpin.lean`.
-- Specification: [`docs/context.md`](../docs/context.md) §3.3, [`docs/outline.md`](../docs/outline.md) §10.4, §17.
+- Specification: [`docs/context.md`](../docs/context.md) §3.3, [`docs/outline.md`](../docs/outline.md) §7.1, §10.4, §17.3.
 - Downstream: 3.5 (pilot success criterion) consumes the budget-closure flag as one of its five criteria.

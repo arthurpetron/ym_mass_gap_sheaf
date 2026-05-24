@@ -1,4 +1,4 @@
-"""Tests for `computations.sigma_hat_trajectory` (Milestone 3.4)."""
+"""Tests for `computations.sigma_hat_trajectory` (Milestone 3.4, post-upgrade)."""
 
 from __future__ import annotations
 
@@ -8,14 +8,87 @@ import pytest
 
 from computations.heat_kernel import HeatKernelConvention
 from computations.sigma_hat_trajectory import (
+    BALABAN_POLYMER_RESIDUAL,
+    DERIVED_ETA_COUPLING,
+    WILSON_LOOP_MIN_AREA_DIMENSIONLESS,
     SigmaHatStep,
     SigmaHatTrajectory,
     compute_eta,
+    derive_eta_coupling,
     plot_sigma_hat_trajectory,
     sigma_hat_trajectory,
 )
 
 CANONICAL = HeatKernelConvention.CANONICAL
+
+
+# --------------------------------------------------------------------------
+# Derived η-coupling: replaces the previous PLACEHOLDER_ETA_COUPLING = 0.5
+# --------------------------------------------------------------------------
+
+
+def test_derive_eta_coupling_default_value() -> None:
+    """Default fiducials (c_polymer=2, A_min=4) give η-coupling = 0.5,
+    matching the previous placeholder value but now sourced from
+    ``derive_eta_coupling`` rather than a bare literal."""
+    assert derive_eta_coupling() == pytest.approx(0.5)
+
+
+def test_derived_eta_coupling_constant_matches_helper() -> None:
+    """The module-level ``DERIVED_ETA_COUPLING`` constant equals the
+    helper's default return value."""
+    assert DERIVED_ETA_COUPLING == derive_eta_coupling()
+
+
+def test_derive_eta_coupling_uses_balaban_and_wilson_constants() -> None:
+    """The default coupling is the explicit ratio of the two fiducial
+    constants: ``BALABAN_POLYMER_RESIDUAL / WILSON_LOOP_MIN_AREA_DIMENSIONLESS``."""
+    expected = BALABAN_POLYMER_RESIDUAL / WILSON_LOOP_MIN_AREA_DIMENSIONLESS
+    assert derive_eta_coupling() == pytest.approx(expected)
+
+
+def test_derive_eta_coupling_scales_linearly_with_polymer_residual() -> None:
+    """Doubling the Bałaban polymer-residual prefactor doubles the coupling."""
+    base = derive_eta_coupling(polymer_residual=2.0)
+    doubled = derive_eta_coupling(polymer_residual=4.0)
+    assert doubled == pytest.approx(2.0 * base)
+
+
+def test_derive_eta_coupling_scales_inversely_with_wilson_loop_area() -> None:
+    """Doubling the smallest-Wilson-loop area (i.e. requiring larger loops
+    in the area-law bound) halves the coupling."""
+    base = derive_eta_coupling(wilson_loop_min_area=4)
+    larger_area = derive_eta_coupling(wilson_loop_min_area=8)
+    assert larger_area == pytest.approx(0.5 * base)
+
+
+def test_derive_eta_coupling_rejects_nonpositive_inputs() -> None:
+    with pytest.raises(ValueError, match="polymer_residual"):
+        derive_eta_coupling(polymer_residual=0.0)
+    with pytest.raises(ValueError, match="polymer_residual"):
+        derive_eta_coupling(polymer_residual=-1.0)
+    with pytest.raises(ValueError, match="wilson_loop_min_area"):
+        derive_eta_coupling(wilson_loop_min_area=0)
+    with pytest.raises(ValueError, match="wilson_loop_min_area"):
+        derive_eta_coupling(wilson_loop_min_area=-2)
+
+
+def test_compute_eta_default_uses_derived_coupling() -> None:
+    """``compute_eta`` defaults to ``DERIVED_ETA_COUPLING`` rather than
+    a bare literal; passing the constant explicitly yields the same result."""
+    eta_default = compute_eta(0.1, 0.2, CANONICAL)
+    eta_explicit = compute_eta(0.1, 0.2, CANONICAL, eta_coupling=DERIVED_ETA_COUPLING)
+    assert eta_default == pytest.approx(eta_explicit)
+
+
+def test_derived_eta_coupling_is_b_independent() -> None:
+    """The derivation is b-independent (the block factor enters only via
+    Δ_∩ through the g_k trajectory).  The helper has no ``b`` argument."""
+    import inspect
+
+    sig = inspect.signature(derive_eta_coupling)
+    assert "b" not in sig.parameters
+    assert "block_factor" not in sig.parameters
 
 
 def test_compute_eta_nonnegative_in_convergent_regime() -> None:

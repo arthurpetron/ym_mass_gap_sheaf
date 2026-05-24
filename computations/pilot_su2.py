@@ -151,8 +151,14 @@ def run_pilot(
         c.rho_sf > 0 and c.K_sf >= 0 and math.isfinite(c.K_sf) and c.convergent
         for c in sf_certs
     )
-    # Criterion 2: every lf cert has ρ_lf > 0 and K_lf ≥ 0.
-    crit_2 = all(c.rho_lf > 0 and c.K_lf >= 0 for c in lf_certs)
+    # Criterion 2: every lf cert is a finite, convergent KP certificate.
+    # Post-3.2-upgrade: ρ_lf and K_lf both encode the heat-kernel character-tail
+    # cluster-expansion regime; a non-convergent regime gives K_lf = ∞ and is
+    # not a valid KP witness, parallel to criterion 1.
+    crit_2 = all(
+        c.rho_lf > 0 and c.K_lf >= 0 and math.isfinite(c.K_lf) and c.convergent
+        for c in lf_certs
+    )
     # Criterion 3: every overlap cert is a finite KP witness satisfying
     # Proposition 7.1. The structural min/sum relationship can hold with
     # K_cap = ∞, but that is not a useful KP certificate for the pilot.

@@ -14,6 +14,7 @@ Currently populated:
     `docs/sheaf-framework.md`.
 -/
 import YMGap.Constructive.Rationals
+import YMGap.Constructive.RationalTail
 import YMGap.RepTheory.SU2
 import YMGap.Sheaf.Site
 import YMGap.Sheaf.BoundWitness

@@ -411,6 +411,48 @@ function may return `True` or `1` as a "proof"; it must return the
 witnessing object (the bound, the modulus, the KP pair). This is
 enforced by the `validate()` methods on the dataclasses.
 
+### No law of excluded middle (LEM); no classical choice
+
+The program is **Bishop / Martin-Löf constructive**, not merely
+non-circular classical. Every theorem, lemma, and proof obligation
+across the repo — Python, Lean, and LaTeX — must avoid:
+
+- **Law of excluded middle** (`P ∨ ¬P` without exhibiting which side).
+- **Proof by contradiction** for existential / data claims (`¬¬∃x. P x`
+  does not constructively yield an `x`; only the direct construction does).
+- **Classical choice** (selecting a witness from a nonempty set without
+  a construction procedure).
+- **The classical spectral theorem, Hahn–Banach, Zorn's lemma**, and
+  other tools that depend on the above.
+
+This rule binds the whole project:
+
+- **Lean** (`lean/`): enforced by `lean/AGENTS.md` Rule 1. Every
+  load-bearing theorem must pass `#print axioms foo` with no
+  `Classical.choice`, no `Classical.em`, no `Classical.byContradiction`,
+  no `sorryAx` in the dependency closure. `propext` and `Quot.sound`
+  are allowed where they carry no erased computational content.
+  Quarantined classical uses go under `YMGap/Classical/` per Rule 4 and
+  are logged in `lean/CLASSICAL_LEDGER.md`.
+- **Python** (`computations/`): every existence claim returns the
+  witnessing data, not a bare boolean. Functions never *decide*
+  existence classically (e.g. by `try/except` over a search that has no
+  termination certificate); they construct the witness or report a
+  bounded failure. Decidable Python branches (`if x > 0: ...`) on
+  computable data are constructive; they do not invoke LEM in the
+  prohibited sense.
+- **LaTeX** (`formal/`): a proof presented in the paper that hides a
+  non-constructive existence claim violates this rule. Each existence
+  statement in the paper must point to either an explicit construction
+  (with computable modulus) or a clearly-flagged constructive obligation
+  owed by a downstream module.
+
+The motivation is in `docs/context.md` §1.2 (LEM / choice usage hidden
+in standard tools) and `docs/outline.md` §0.2 (the constructive law) /
+§0.3 (the no-circularity law). A constructive proof of the Yang–Mills
+mass gap that secretly invokes LEM is, by the standards of this
+program, no proof at all.
+
 ### Test discipline
 
 Every `computations/*.py` has a matching `tests/test_*.py`. Tests

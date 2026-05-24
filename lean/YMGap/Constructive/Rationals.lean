@@ -202,6 +202,159 @@ instance : DecidableRel ((· < ·) : Q' → Q' → Prop) := fun p q =>
 instance : Min Q' := ⟨min'⟩
 instance : Max Q' := ⟨max'⟩
 
+/-! ### Reflexivity and identity laws
+
+These are the load-bearing arithmetic facts needed by the Phase-3 Lean
+closures (`YMGap/RG/BlockSpin.lean`, `step_obligation_*`).  Each proof
+uses only `Int.le_refl` / `Int` arithmetic identities — axiom-clean
+from Lean core. -/
+
+/-- Semantic ≤ is reflexive on `Q'`.  Follows from `Int.le_refl` on the
+cross-product representation. -/
+theorem le_refl' (p : Q') : p ≤ p := by
+  show p.num * (p.den : Int) ≤ p.num * (p.den : Int)
+  exact Int.le_refl _
+
+/-- `p + 0 = p` structurally on `Q'`, by reduction through the `Q'.add`
+formula at `q = 0` (which has `den = 1` and `num = 0`). -/
+theorem add_zero' (p : Q') : p + (0 : Q') = p := by
+  show Q'.add p 0 = p
+  cases p with | mk num denPred =>
+  -- Q'.add ⟨num, denPred⟩ ⟨0,0⟩
+  --   = ⟨num*1 + 0*(denPred+1), (denPred+1)*1 - 1⟩
+  --   = ⟨num, denPred⟩
+  show (⟨num * ((1 : Nat) : Int) + (0 : Int) * ((denPred + 1 : Nat) : Int),
+         (denPred + 1) * 1 - 1⟩ : Q') = ⟨num, denPred⟩
+  congr 1
+  · -- num * 1 + 0 * (denPred + 1 : Int) = num
+    simp
+  · -- (denPred + 1) * 1 - 1 = denPred
+    simp
+
+/-- `0 + p = p` structurally on `Q'`.  Mirror of `add_zero'` for the
+left-zero case. -/
+theorem zero_add' (p : Q') : (0 : Q') + p = p := by
+  show Q'.add 0 p = p
+  cases p with | mk num denPred =>
+  -- Q'.add ⟨0, 0⟩ ⟨num, denPred⟩
+  --   = ⟨0 * (denPred+1) + num * 1, 1 * (denPred+1) - 1⟩
+  --   = ⟨num, denPred⟩
+  show (⟨(0 : Int) * ((denPred + 1 : Nat) : Int) + num * ((1 : Nat) : Int),
+         1 * (denPred + 1) - 1⟩ : Q') = ⟨num, denPred⟩
+  congr 1
+  · -- 0 * (denPred + 1) + num * 1 = num
+    simp
+  · -- 1 * (denPred + 1) - 1 = denPred
+    simp
+
+/-- `p - 0 = p` structurally on `Q'`, via `p - 0 = p + (-0) = p + 0 = p`. -/
+theorem sub_zero' (p : Q') : p - (0 : Q') = p := by
+  show Q'.sub p 0 = p
+  unfold Q'.sub
+  -- Q'.sub p 0 = p + (-0).  Q'.neg 0 = ⟨-0, 0⟩ which is structurally 0
+  -- since -(0 : Int) = 0.  Then p + 0 = p by `add_zero'`.
+  show p + (-(0 : Q')) = p
+  have h : (-(0 : Q')) = (0 : Q') := by
+    show Q'.neg 0 = 0
+    -- Q'.neg ⟨0, 0⟩ = ⟨-0, 0⟩ = ⟨0, 0⟩ since -(0 : Int) = 0.
+    rfl
+  rw [h]
+  exact add_zero' p
+
+/-! ### Nonnegativity lemmas (for the [P2.1] concrete-`P` closure)
+
+These let us state and discharge the simplest substantive
+`KPCertificate` predicate at Q': nonnegativity of both `ρ` and `K`.
+Each proof reduces to `Int.add_nonneg` / `Int.mul_nonneg`, both
+axiom-free in Lean core. -/
+
+/-- `0 ≤ p` iff its numerator is nonnegative.  Both sides reduce to
+`0 ≤ p.num` after evaluating `(0 : Q').num = 0` and `(0 : Q').den = 1`. -/
+theorem zero_le_iff_num_nonneg (p : Q') : (0 : Q') ≤ p ↔ (0 : Int) ≤ p.num := by
+  -- LHS unfolds to (0 : Int) * p.den ≤ p.num * 1.
+  show (0 : Int) * (p.den : Int) ≤ p.num * (((0 : Q').den) : Int) ↔
+       (0 : Int) ≤ p.num
+  show (0 : Int) * (p.den : Int) ≤ p.num * (1 : Int) ↔ (0 : Int) ≤ p.num
+  simp
+
+/-- Sum of two nonnegative `Q'` values is nonnegative.
+
+Reduces to: if `0 ≤ p.num` and `0 ≤ q.num`, then
+`0 ≤ p.num * q.den + q.num * p.den` (sum of products of nonnegs). -/
+theorem zero_le_add (p q : Q') (h_p : (0 : Q') ≤ p) (h_q : (0 : Q') ≤ q) :
+    (0 : Q') ≤ p + q := by
+  rw [zero_le_iff_num_nonneg] at h_p h_q
+  rw [zero_le_iff_num_nonneg]
+  show (0 : Int) ≤ (p + q).num
+  show (0 : Int) ≤ p.num * ((q.den : Nat) : Int) + q.num * ((p.den : Nat) : Int)
+  have h_q_den : (0 : Int) ≤ ((q.den : Nat) : Int) := Int.ofNat_nonneg _
+  have h_p_den : (0 : Int) ≤ ((p.den : Nat) : Int) := Int.ofNat_nonneg _
+  exact Int.add_nonneg (Int.mul_nonneg h_p h_q_den) (Int.mul_nonneg h_q h_p_den)
+
+/-- `min` of two nonnegative `Q'` values is nonnegative.
+
+`min p q = if p ≤ q then p else q`, so the result is one of the two
+inputs — both nonnegative by hypothesis. -/
+theorem zero_le_min (p q : Q') (h_p : (0 : Q') ≤ p) (h_q : (0 : Q') ≤ q) :
+    (0 : Q') ≤ min p q := by
+  show (0 : Q') ≤ min' p q
+  unfold min'
+  split <;> assumption
+
+/-! ### Transitivity of `≤`
+
+The key arithmetic identity for chaining inequalities at Q'.  Proof goes
+through the cross-product representation and uses `Int.le_of_mul_le_mul_right`
+to cancel the middle denominator. -/
+
+/-- A specialization of `Int.mul_comm`/`Int.mul_assoc`: swap the second and
+third factors of a triple product.  Used in the transitivity proof of
+`Q'.le` to rearrange cross-products without depending on Mathlib's `ring`. -/
+private theorem int_mul_right_comm (a b c : Int) : a * b * c = a * c * b := by
+  rw [Int.mul_assoc, Int.mul_comm b c, ← Int.mul_assoc]
+
+/-- Transitivity of `Q'.le`: `p ≤ q ≤ r ⟹ p ≤ r`.
+
+Proof:
+- `p ≤ q` unfolds to `p.num * q.den ≤ q.num * p.den`.
+- `q ≤ r` unfolds to `q.num * r.den ≤ r.num * q.den`.
+- Multiply each by a positive denominator factor and chain via the
+  `int_mul_right_comm` helper to rearrange triple products.
+- Cancel the resulting `q.den > 0` via `Int.le_of_mul_le_mul_right`. -/
+theorem le_trans' (p q r : Q') (h_pq : p ≤ q) (h_qr : q ≤ r) : p ≤ r := by
+  show p.num * (r.den : Int) ≤ r.num * (p.den : Int)
+  have h1 : p.num * (q.den : Int) ≤ q.num * (p.den : Int) := h_pq
+  have h2 : q.num * (r.den : Int) ≤ r.num * (q.den : Int) := h_qr
+  have h_p_nn : (0 : Int) ≤ (p.den : Int) := Int.ofNat_nonneg _
+  have h_r_nn : (0 : Int) ≤ (r.den : Int) := Int.ofNat_nonneg _
+  have step1 : p.num * (q.den : Int) * (r.den : Int)
+             ≤ q.num * (p.den : Int) * (r.den : Int) :=
+    Int.mul_le_mul_of_nonneg_right h1 h_r_nn
+  have step2 : q.num * (r.den : Int) * (p.den : Int)
+             ≤ r.num * (q.den : Int) * (p.den : Int) :=
+    Int.mul_le_mul_of_nonneg_right h2 h_p_nn
+  have e1 : q.num * (p.den : Int) * (r.den : Int)
+          = q.num * (r.den : Int) * (p.den : Int) :=
+    int_mul_right_comm q.num (p.den : Int) (r.den : Int)
+  have e2 : r.num * (q.den : Int) * (p.den : Int)
+          = r.num * (p.den : Int) * (q.den : Int) :=
+    int_mul_right_comm r.num (q.den : Int) (p.den : Int)
+  have e3 : p.num * (q.den : Int) * (r.den : Int)
+          = p.num * (r.den : Int) * (q.den : Int) :=
+    int_mul_right_comm p.num (q.den : Int) (r.den : Int)
+  have chain :
+      p.num * (r.den : Int) * (q.den : Int)
+        ≤ r.num * (p.den : Int) * (q.den : Int) := by
+    calc p.num * (r.den : Int) * (q.den : Int)
+        = p.num * (q.den : Int) * (r.den : Int) := e3.symm
+      _ ≤ q.num * (p.den : Int) * (r.den : Int) := step1
+      _ = q.num * (r.den : Int) * (p.den : Int) := e1
+      _ ≤ r.num * (q.den : Int) * (p.den : Int) := step2
+      _ = r.num * (p.den : Int) * (q.den : Int) := e2
+  have h_q_pos : (0 : Int) < (q.den : Int) := by
+    exact_mod_cast Q'.den_pos q
+  exact Int.le_of_mul_le_mul_right chain h_q_pos
+
 /-! ## Spec-quoted SU(2) Casimir constants (P1.1 mirror, ℚ form)
 
 The Casimirs that `lean/YMGap/RepTheory/SU2.lean` exposes as
@@ -268,3 +421,11 @@ end YMGap.Constructive
 #print axioms YMGap.Constructive.Q'.C2_oneHalf_eqv
 #print axioms YMGap.Constructive.Q'.C2_oneHalf_le_one
 #print axioms YMGap.Constructive.Q'.C2_oneHalf_pos
+#print axioms YMGap.Constructive.Q'.le_refl'
+#print axioms YMGap.Constructive.Q'.add_zero'
+#print axioms YMGap.Constructive.Q'.zero_add'
+#print axioms YMGap.Constructive.Q'.sub_zero'
+#print axioms YMGap.Constructive.Q'.zero_le_iff_num_nonneg
+#print axioms YMGap.Constructive.Q'.zero_le_add
+#print axioms YMGap.Constructive.Q'.zero_le_min
+#print axioms YMGap.Constructive.Q'.le_trans'
