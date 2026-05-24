@@ -137,22 +137,32 @@ pass.  A rigorously-derivable alternative is
 """
 
 MU_PLAQUETTE_CONSERVATIVE_4D: Final[float] = 8.0 * math.e
-"""Conservative rigorous fallback for ``μ_plaq`` at d = 4.
+"""**Deprecated as "BF-conservative".** ``8e ≈ 21.746`` at d = 4.
 
-Per [Brydges–Federbush 1978] / [Glimm–Jaffe 1987] §18.5: the site
-connectivity bound on a d-dimensional cubic lattice is ``2d · e``, and
-plaquette polymers (having fewer neighbours than sites) are bounded
-*a fortiori* by the same number.  At d = 4: ``8e ≈ 21.746``.
+The original claim that ``8e`` is BF-conservative for plaquette polymers
+"a fortiori, because plaquettes have fewer neighbours than sites" is
+**not correct**: the 4D plaquette edge-neighbour degree is 20
+(``plaquette_edge_neighbor_count(4)``), strictly *greater* than the
+2d = 8 site-neighbour degree.  The Brydges–Federbush universal bound
+``μ ≤ e · max-degree`` applied directly to plaquette polymers gives
+``e · 20 ≈ 54.4``, not ``8e``.
 
-This is *looser* than ``MU_PLAQUETTE_4D = 16`` and so shrinks the
-large-field convergent regime by the factor
-``√(log 16 / log(8e)) ≈ 0.86`` — a real cost.  Use this when the
-audit margin on the unverified Seiler ``5d - 4 = 16`` bound matters
-(e.g. when the pilot would land in the disputed ``g ∈ [16-threshold,
-8e-threshold]`` band).
+The constant is preserved here under its historical name for
+backwards compatibility (existing callers, tests, sweep history).  For
+a genuinely BF-conservative bound, use
+``MU_PLAQUETTE_BF_CONSERVATIVE_4D`` below.
 
-Per `notes/fiducials_notes.md` §3 option 2.
+The 8e value is still meaningful as a **site-bound transfer**: it
+correctly bounds site-polymer connectivity on Z^4 per
+[Brydges–Federbush 1978].  Whether it bounds plaquette-polymer
+connectivity under any non-trivial transfer map (e.g., centroid
+sublattice with a non-standard adjacency) is an open question; the
+current code makes no such claim.
+
+See ``notes/fiducials_notes.md`` §3.1 / §3.2 for the audit and the
+corrected derivation.
 """
+
 
 MU_PLAQUETTE_4D_LOG: Final[float] = math.log(MU_PLAQUETTE_4D)
 """``log μ_plaq = log 16 ≈ 2.7726``.  The cluster-expansion convergence
@@ -188,6 +198,68 @@ def plaquette_edge_neighbor_count(d: int) -> int:
     if d < 2:
         raise ValueError(f"plaquettes require d ≥ 2; got d = {d}")
     return 8 * d - 12
+
+
+def mu_plaquette_bf_conservative(d: int) -> float:
+    """Genuinely-BF-conservative bound on plaquette-polymer connectivity
+    at dimension ``d``: ``e · (8d - 12)``.
+
+    The Brydges–Federbush universal bound: for a graph with max-degree
+    ``Δ``, the cluster-expansion convergence rate is bounded by
+    ``e · Δ``.  Applied to the plaquette-edge-adjacency graph at
+    dimension ``d`` (max-degree ``8d - 12`` from
+    ``plaquette_edge_neighbor_count``):
+
+        μ_plaq^{BF}(d)  =  e · (8d - 12).
+
+    Spot values:
+      * d = 2: ``4e ≈ 10.873``
+      * d = 3: ``12e ≈ 32.619``
+      * d = 4: ``20e ≈ 54.366``
+
+    This is the **honest** rigorous-from-direct-count alternative to the
+    Seiler-cited (but unverified) ``MU_PLAQUETTE_4D = 16``.  Strictly
+    looser than ``16`` (the literature value depends on refinements
+    beyond the BF universal bound), but truly conservative — derivable
+    from first principles, no paper-specific argument required.
+
+    Replaces ``MU_PLAQUETTE_CONSERVATIVE_4D = 8e`` as the project's
+    preferred genuinely-conservative fallback; the 8e value is the
+    site-bound, **not** a true plaquette-polymer BF-conservative bound
+    (the original "plaquettes have fewer neighbours than sites"
+    justification is inverted in 4D: plaquette degree 20 > site
+    degree 8 — see ``notes/fiducials_notes.md`` §3.1).
+
+    Use cases:
+      * Phase-3 audit margin: run the pilot at this μ to confirm
+        closure under the genuinely-rigorous upper bound.
+      * Sensitivity-sweep upper edge: the largest μ the project will
+        defend without paper-specific refinements.
+    """
+    if d < 2:
+        raise ValueError(f"plaquettes require d ≥ 2; got d = {d}")
+    return math.e * float(plaquette_edge_neighbor_count(d))
+
+
+MU_PLAQUETTE_BF_CONSERVATIVE_4D: Final[float] = mu_plaquette_bf_conservative(4)
+"""**Genuinely-BF-conservative** plaquette-polymer μ at d = 4: ``20e ≈ 54.366``.
+
+The project's preferred rigorous-fallback for ``MU_PLAQUETTE_4D``.
+Derivation: ``e · 20`` where 20 = ``plaquette_edge_neighbor_count(4)``
+(4 edges × 5 other plaquettes per edge in 4D, the direct combinatorial
+count).  See ``mu_plaquette_bf_conservative`` and
+``notes/fiducials_notes.md`` §3.2.
+
+**Pilot impact** (canonical convention, K = 3):
+  * Default ``MU_PLAQUETTE_4D = 16``:                   ``g_max_lf ≈ 0.4245``.
+  * Site-bound ``MU_PLAQUETTE_CONSERVATIVE_4D = 8e``:   ``g_max_lf ≈ 0.4098``.
+  * Genuine BF ``MU_PLAQUETTE_BF_CONSERVATIVE_4D = 20e``: ``g_max_lf ≈ 0.374``.
+
+Switching to the genuine-BF default shrinks the pilot lf-window by ~12%
+vs the literature default, but the small-field sf-window (≈ 0.40) is
+the binding constraint on the SU(2) pilot, so pilot closure at the
+canonical ``g_0 = 0.30`` wire-in is essentially unchanged.
+"""
 
 
 # --------------------------------------------------------------------------
@@ -447,7 +519,7 @@ def compute_large_field_kp(
             f"{'Convergent' if convergent else 'NOT convergent (K_lf = ∞)'}; "
             f"K_lf = {K_lf:.4e}.  "
             f"μ_plaq = {mu_plaq:.4f} "
-            f"({'literature-shape (5d-4 = 16, Seiler 1982)' if mu_plaq == MU_PLAQUETTE_4D else 'conservative (8e, Brydges–Federbush 1978)' if mu_plaq == MU_PLAQUETTE_CONSERVATIVE_4D else 'custom override'})."
+            f"({'literature-shape (5d-4 = 16, Seiler 1982)' if mu_plaq == MU_PLAQUETTE_4D else 'site-bound 8e (NOT a true plaquette BF-conservative; see fiducials_notes §3.1)' if mu_plaq == MU_PLAQUETTE_CONSERVATIVE_4D else 'BF-conservative 20e (genuine plaquette-BF bound from direct count)' if mu_plaq == MU_PLAQUETTE_BF_CONSERVATIVE_4D else 'custom override'})."
         ),
         "convergent": (
             f"q = μ_plaq · Z_t^upper = {q:.4e} "

@@ -368,3 +368,74 @@ class TestPlaquetteEdgeNeighborCount:
             "literature value is being refined upward"
         )
         assert direct_bf_bound > 8.0 * math.e
+
+
+# --------------------------------------------------------------------------
+# Genuinely-BF-conservative μ_plaq (notes/fiducials_notes.md §3.2)
+# --------------------------------------------------------------------------
+
+
+class TestMuPlaquetteBFConservative:
+    """The genuine plaquette-polymer BF-conservative bound."""
+
+    def test_4d_value_is_20e(self) -> None:
+        """MU_PLAQUETTE_BF_CONSERVATIVE_4D = e · plaquette_edge_neighbor_count(4)
+        = e · 20 ≈ 54.366."""
+        from computations.large_field_kp import (
+            MU_PLAQUETTE_BF_CONSERVATIVE_4D,
+        )
+        assert MU_PLAQUETTE_BF_CONSERVATIVE_4D == pytest.approx(
+            math.e * 20.0
+        )
+
+    def test_helper_spot_values(self) -> None:
+        """mu_plaquette_bf_conservative(d) = e · (8d - 12) at all valid d."""
+        from computations.large_field_kp import mu_plaquette_bf_conservative
+        for d in (2, 3, 4, 5, 6):
+            assert mu_plaquette_bf_conservative(d) == pytest.approx(
+                math.e * (8 * d - 12)
+            )
+
+    def test_helper_rejects_low_d(self) -> None:
+        from computations.large_field_kp import mu_plaquette_bf_conservative
+        with pytest.raises(ValueError, match="d ≥ 2"):
+            mu_plaquette_bf_conservative(1)
+        with pytest.raises(ValueError, match="d ≥ 2"):
+            mu_plaquette_bf_conservative(0)
+
+    def test_bf_conservative_strictly_larger_than_site_bound(self) -> None:
+        """The genuine BF-conservative for plaquettes (20e) is strictly
+        LARGER than the site bound (8e), because plaquettes have MORE
+        edge-neighbors than sites in 4D — the inversion that prompted
+        this re-derivation."""
+        from computations.large_field_kp import (
+            MU_PLAQUETTE_BF_CONSERVATIVE_4D,
+            MU_PLAQUETTE_CONSERVATIVE_4D,
+        )
+        assert MU_PLAQUETTE_BF_CONSERVATIVE_4D > MU_PLAQUETTE_CONSERVATIVE_4D
+
+    def test_bf_conservative_larger_than_literature(self) -> None:
+        """The genuine BF-conservative (20e ≈ 54.4) is also strictly larger
+        than the Seiler literature value (16), as expected: 16 reflects a
+        tighter argument beyond the BF universal bound that the project
+        cannot reproduce from first principles."""
+        from computations.large_field_kp import (
+            MU_PLAQUETTE_4D,
+            MU_PLAQUETTE_BF_CONSERVATIVE_4D,
+        )
+        assert MU_PLAQUETTE_BF_CONSERVATIVE_4D > MU_PLAQUETTE_4D
+
+    def test_bf_conservative_shrinks_pilot_window(self) -> None:
+        """The genuine BF-conservative μ shrinks g_max_lf vs the literature
+        default — quantitative cost of insisting on rigor."""
+        from computations.large_field_kp import (
+            MU_PLAQUETTE_4D,
+            MU_PLAQUETTE_BF_CONSERVATIVE_4D,
+        )
+        g_default = convergence_threshold_g_lf(mu_plaq=MU_PLAQUETTE_4D)
+        g_bf = convergence_threshold_g_lf(
+            mu_plaq=MU_PLAQUETTE_BF_CONSERVATIVE_4D
+        )
+        assert g_bf < g_default
+        # Expected ~0.42 → ~0.37, a ~12% reduction.  Allow margin.
+        assert 0.30 < g_bf < 0.40

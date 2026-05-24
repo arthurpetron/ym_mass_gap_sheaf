@@ -44,6 +44,7 @@ from dataclasses import dataclass, field
 from computations.heat_kernel import HeatKernelConvention
 from computations.large_field_kp import (
     MU_PLAQUETTE_4D,
+    MU_PLAQUETTE_BF_CONSERVATIVE_4D,
     MU_PLAQUETTE_CONSERVATIVE_4D,
     convergence_threshold_g_lf,
 )
@@ -169,9 +170,10 @@ def sweep_mu_plaq(
         values = [
             8.0,
             12.0,
-            MU_PLAQUETTE_4D,                # 16, default literature-shape
-            MU_PLAQUETTE_CONSERVATIVE_4D,   # 8e ≈ 21.75, rigorous fallback
+            MU_PLAQUETTE_4D,                  # 16, default literature-shape
+            MU_PLAQUETTE_CONSERVATIVE_4D,     # 8e ≈ 21.75, site-bound (deprecated as conservative)
             32.0,
+            MU_PLAQUETTE_BF_CONSERVATIVE_4D,  # 20e ≈ 54.37, GENUINE plaquette BF-conservative
             64.0,
         ]
 

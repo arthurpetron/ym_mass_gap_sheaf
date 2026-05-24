@@ -161,34 +161,46 @@ returned excerpts contained the formula verbatim. It is widely cited
 in the field but the project does not (yet) have a primary-source
 verification.
 
-**Two honest options:**
+**Three honest options:**
 
 1. **Keep `MU_PLAQUETTE_4D = 16` as a literature-shape value.** Mark
    it as such in the code provenance (currently does); refinement
    awaits direct access to Seiler 1982 (or equivalent) to verify
    the bound and possibly tighten.
-2. **Use the conservative site-connectivity bound
-   $\mu_{\text{site}} = 8e \approx 21.7$.** This is the
+2. **Use the site-bound $8e \approx 21.7$** as a fallback. ~~This is the
    [BrydgesFederbush1978] bound, which holds for site polymers and
-   *a fortiori* for plaquette polymers (plaquettes have fewer
-   neighbors than sites). Conservative; loses the tightness but is
-   rigorous. Would shift the lf convergence threshold
-   $g_{\max}^{\mathrm{lf}}$ down by a factor of $\sqrt{\log 16 / \log(8e)} \approx 0.97$
-   (canonical: $0.4245 \to 0.4098$; Wilson: $0.8491 \to 0.8195$).
+   *a fortiori* for plaquette polymers (plaquettes have fewer neighbors
+   than sites).~~ **The a-fortiori argument is invalid** (the 2026-05-25
+   audit in §3.1 below shows plaquettes have *more* edge-neighbors than
+   sites at d = 4: 20 vs 8). The 8e value is preserved in code under
+   the historical name `MU_PLAQUETTE_CONSERVATIVE_4D` for backwards
+   compatibility but is **not** a true BF-conservative bound on
+   plaquette-polymer connectivity; it is the site bound, not transferred.
+3. **Use the genuinely-BF-conservative $20e \approx 54.4$** (per §3.2
+   below, landed 2026-05-25). The honest plaquette-polymer BF universal
+   bound from a direct edge-neighbor count. Strictly looser than the
+   literature 16 but truly conservative — derivable from first
+   principles, no paper-specific argument required. Shifts canonical
+   $g_{\max}^{\mathrm{lf}} \to 0.374$ (~12% reduction), with the SU(2)
+   pilot still closing because the sf threshold (≈ 0.40) is binding.
 
-**Both are available in code** (as of 2026-05-24):
+**All three are available in code** (as of 2026-05-25):
 
 ```python
 from computations.large_field_kp import (
-    MU_PLAQUETTE_4D,                 # 16.0, default (option 1)
-    MU_PLAQUETTE_CONSERVATIVE_4D,    # 8e ≈ 21.7, rigorous fallback (option 2)
+    MU_PLAQUETTE_4D,                     # 16.0, default literature-shape (option 1)
+    MU_PLAQUETTE_CONSERVATIVE_4D,        # 8e ≈ 21.7, site-bound (option 2; not true BF-conservative)
+    MU_PLAQUETTE_BF_CONSERVATIVE_4D,     # 20e ≈ 54.4, genuine BF-conservative (option 3)
+    mu_plaquette_bf_conservative,        # parameterized helper for any d
     compute_large_field_kp,
 )
 kp_default  = compute_large_field_kp(g, mu_plaq=MU_PLAQUETTE_4D)
-kp_rigorous = compute_large_field_kp(g, mu_plaq=MU_PLAQUETTE_CONSERVATIVE_4D)
+kp_site_alt = compute_large_field_kp(g, mu_plaq=MU_PLAQUETTE_CONSERVATIVE_4D)
+kp_rigorous = compute_large_field_kp(g, mu_plaq=MU_PLAQUETTE_BF_CONSERVATIVE_4D)
 ```
 
-Sensitivity sweep: `computations/fiducial_sensitivity.py::sweep_mu_plaq`.
+Sensitivity sweep: `computations/fiducial_sensitivity.py::sweep_mu_plaq`
+(includes all three values in the default sweep).
 
 **Refinement strategy.** Direct extraction from [Seiler1982 LNP 159]
 of the plaquette-polymer connectivity bound for $d = 4$ (or any tighter
@@ -261,11 +273,92 @@ runs in this regime). Document the conservative fallback's justification
 as pending re-derivation. Treat the direct count $20e$ as a verified
 upper bound for sanity-checking — not as a default.
 
-**Code exposure.** A future helper
-`derive_plaquette_edge_neighbor_count_4d() → 20` would surface this
-count programmatically, with the per-dim function `8d - 12` for
-generality. Not added yet; the audit lives here for the next
-analytic pass.
+**Code exposure (2026-05-25).** `computations/large_field_kp.py` now
+provides `plaquette_edge_neighbor_count(d) → 8d - 12` as the direct
+combinatorial count.
+
+### 3.2. Genuinely-BF-conservative fallback `MU_PLAQUETTE_BF_CONSERVATIVE_4D = 20e` (2026-05-25)
+
+Building on the §3.1 audit: the project now exposes a
+**genuinely-BF-conservative** plaquette-polymer connectivity bound,
+replacing the (incorrectly-justified) `MU_PLAQUETTE_CONSERVATIVE_4D = 8e`
+as the project's preferred rigorous-fallback option.
+
+**Derivation.** The Brydges–Federbush universal bound:
+
+> For polymer activities $|a(X)| \le e^{-\rho|X|}$ on a graph with
+> max-degree $\Delta$, the cluster-expansion sum
+> $\sum_{X \ni p_0} |a(X)| e^{\rho |X|}$ converges iff $\rho > \log(e
+> \cdot \Delta)$. Equivalently, the polymer-counting "connectivity
+> constant" satisfies $\mu \le e \cdot \Delta$.
+
+(Brydges 1986 Les Houches lecture notes, §IV; Glimm–Jaffe 1987 §18.5.)
+
+Applied directly to the **plaquette-edge-adjacency** graph at dimension
+$d$, with $\Delta = $ `plaquette_edge_neighbor_count(d) = 8d - 12` from
+§3.1:
+
+$$
+\boxed{\quad \mu_{\text{plaq}}^{\text{BF}}(d) \;=\; e \cdot (8d - 12). \quad}
+$$
+
+For $d = 4$: $\mu_{\text{plaq}}^{\text{BF}}(4) = 20 e \approx 54.366$.
+
+**Why this is genuinely-conservative.** Unlike the site-bound transfer
+attempt (the 8e false-conservative claim refuted in §3.1), this
+derivation:
+
+  - Applies the BF universal bound directly to the plaquette-polymer
+    graph, not via a transfer from another lattice.
+  - Uses the actual plaquette edge-degree $20$, derivable from a direct
+    combinatorial count (no paper-specific argument).
+  - Is rigorously an upper bound (BF is a theorem; the only assumption
+    is the convergent regime, which holds wherever the project uses
+    the cluster expansion).
+
+**Why this is loose.** $20 e \approx 54.4$ is strictly greater than
+both:
+
+  - Seiler's literature $5d - 4 = 16$ (which requires a refinement
+    beyond the BF universal bound — likely exploiting planarity or
+    lattice structure specific to plaquette-polymers; not derivable
+    from first principles here).
+  - The deprecated $8e \approx 21.7$ site-bound (which is the
+    *site*-polymer BF bound, not the plaquette one).
+
+So the genuine-conservative bound costs pilot window: canonical
+$g_{\max}^{\text{lf}}$ drops from $0.4245$ (literature 16) to $0.3733$
+(BF 20e), a ~12% reduction.
+
+**Pilot impact.** The SU(2) pilot's small-field window is binding at
+canonical $g_{\max}^{\text{sf}} \approx 0.40$, so the lf-window
+shrinkage from 0.4245 → 0.3733 is largely inactive for the canonical
+$g_0 = 0.30$ wire-in. The pilot still closes; the BF-conservative
+default is essentially free at the wire-in operating point.
+
+**Recommendation.** Use `MU_PLAQUETTE_BF_CONSERVATIVE_4D = 20e` when:
+
+  - You need a genuinely-rigorous upper bound (audit margin, paper
+    draft's "we can also defend $\mu = 20e$" footnote).
+  - The pilot's lf-window margin matters and you want the honest
+    cost figure.
+
+Use `MU_PLAQUETTE_4D = 16` (default) when:
+
+  - You're working in the literature-shape regime and willing to cite
+    Seiler 1982 for the unverified $5d - 4$ count.
+
+Avoid `MU_PLAQUETTE_CONSERVATIVE_4D = 8e` for new code: it's preserved
+as a backwards-compat alias but its "conservative for plaquettes"
+justification is invalid.
+
+**Generalizes to arbitrary $d$.** The helper `mu_plaquette_bf_conservative(d)`
+returns `e · (8d - 12)` for any $d \ge 2$:
+
+  - $d = 2$: $4 e \approx 10.87$
+  - $d = 3$: $12 e \approx 32.62$
+  - $d = 4$: $20 e \approx 54.37$
+  - $d = 5$: $28 e \approx 76.11$
 
 **Citations.**
 - TeX: `\cite{Seiler1982,DrouffeItzykson1978,ItzyksonDrouffe1989}`
@@ -402,7 +495,7 @@ physics constants.**
 | --- | --- | --- | --- | --- |
 | `BAŁABAN_SPECTRAL_GAP_COEFF` | 1/2 | literature-shape fiducial | first target | `fiducial_sensitivity.sweep_spectral_gap_coeff` |
 | `MU_CONNECTIVITY_4D` | log(8e) | literature formula | already standard | — |
-| `MU_PLAQUETTE_4D` | 16 | literature-shape (5d-4) | rigorous fallback `MU_PLAQUETTE_CONSERVATIVE_4D = 8e` available | `fiducial_sensitivity.sweep_mu_plaq` |
+| `MU_PLAQUETTE_4D` | 16 | literature-shape (5d-4) | genuinely-BF-conservative fallback `MU_PLAQUETTE_BF_CONSERVATIVE_4D = 20e` (or deprecated `MU_PLAQUETTE_CONSERVATIVE_4D = 8e`, site-bound) | `fiducial_sensitivity.sweep_mu_plaq` |
 | `J_MAX_DEFAULT` | 12 | engineering | only if needed | — |
 | `BALABAN_POLYMER_RESIDUAL` | 2.0 | **DERIVED 2026-05-25** | tighter c=1 via sign-preservation lemma (open) | `fiducial_sensitivity.sweep_polymer_residual` |
 | `WILSON_LOOP_MIN_AREA_DIMENSIONLESS` | 4 | from project spec | n/a | — |

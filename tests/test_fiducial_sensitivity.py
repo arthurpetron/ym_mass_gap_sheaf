@@ -15,6 +15,7 @@ from computations.fiducial_sensitivity import (
 from computations.heat_kernel import HeatKernelConvention
 from computations.large_field_kp import (
     MU_PLAQUETTE_4D,
+    MU_PLAQUETTE_BF_CONSERVATIVE_4D,
     MU_PLAQUETTE_CONSERVATIVE_4D,
 )
 
@@ -84,8 +85,10 @@ class TestSweepMuPlaq:
         result = sweep_mu_plaq()
         values = [p.fiducial_value for p in result.points]
         assert MU_PLAQUETTE_4D in values
-        # Conservative is included (within tolerance for float compare).
+        # Site-bound (deprecated as conservative) is included.
         assert any(abs(v - MU_PLAQUETTE_CONSERVATIVE_4D) < 1e-9 for v in values)
+        # Genuine BF-conservative is included (post 2026-05-25).
+        assert any(abs(v - MU_PLAQUETTE_BF_CONSERVATIVE_4D) < 1e-9 for v in values)
 
     def test_conservative_shrinks_g_max(self):
         # Larger μ_plaq ↔ smaller g_max_lf.
