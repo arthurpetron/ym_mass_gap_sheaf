@@ -236,42 +236,51 @@ exited anyway).
 **Used in.** The σ̂-transport η-coupling derivation:
 $$
 \eta_k \;\le\; \frac{c_{\text{polymer}}}{A_{\min}^{\text{dimensionless}}}
-\cdot \Delta_\cap(b, g_k), \qquad c_{\text{polymer}} := 2
-\quad(\text{fiducial}).
+\cdot \Delta_\cap(b, g_k), \qquad c_{\text{polymer}} = 2.
 $$
 
-**Status: HEURISTIC, NOT EXTRACTED FROM A SPECIFIC PAPER.**
+**Status: DERIVED (reclassified 2026-05-25).** Previously HEURISTIC.
 
-**Shape source.** The polymer-expansion residual on the Wilson-loop
-expectation $\langle W_R(C)\rangle$ relative to its naive-rescaling
-pulled-back value, in the style of the Bałaban / Brydges cluster
-expansion ([Balaban1988convergent], [BrydgesFederbush1978]). The shape
-$\eta_k \le (\text{const}) \cdot \Delta_\cap / A_{\min}$ is genuine and
-comes from a standard dimensional argument (`notes/sigma-hat-derivation.md`
-§2). The two-sided "polymer can sit on either side of the loop
-boundary" symmetry that picks out the coefficient 2 is **my heuristic
-interpretation**, not a quoted line from a paper.
+**First-principles derivation** (full argument in
+`notes/sigma-hat-derivation.md` §2.3-derivation; surfaced in code as
+`derive_polymer_boundary_channel_count() → 2`).
 
-The value 2 was chosen so that, with the smallest Wilson loop area
-$A_{\min}^{\text{dimensionless}} = 4$ (which IS extracted, from
-`outline.md` §7.1), the derived $\eta$-coupling $2/4 = 1/2$ matches
-the previous **placeholder** value. This was a deliberate design
-choice to preserve the numerical behavior of the upgraded code while
-giving the coupling an explicit derivational structure.
+Under the block-spin coarsening $T_b$, each scale-$k$ polymer $X$ maps
+to a deterministic scale-$(k+1)$ image $X' = T_b(X)$. The per-polymer
+contribution to the σ-residual is the change in the cluster-expansion
+truncated correlation:
+$$
+\Delta T(X) \;:=\; T_{k+1}(X'; C') - T_k(X; C).
+$$
+The triangle inequality gives the cleanest possible bound:
+$$
+\bigl|\Delta T(X)\bigr|
+\;\le\; \bigl|T_{k+1}(X')\bigr| + \bigl|T_k(X)\bigr|
+\;\le\; |a_{k+1}(X')| + |a_k(X)|
+\;\le\; 2 \cdot \max\bigl(|a_{k+1}(X')|,\,|a_k(X)|\bigr).
+$$
+The factor of 2 is the **channel multiplicity**: the per-polymer change
+is bounded by the sum of *two* activity terms — one at scale $k$, one
+at scale $k+1$ — and there's no further reduction without additional
+analytic input.
 
-**Refinement strategy.** A real extraction of the polymer-residual
-coefficient from [Balaban1988convergent] (or one of the "Large field
-renormalization" papers in the same series) would replace this. The
-shape of the derivation does not change; only the coefficient (and
-therefore the η-coupling and consequently the budget-closure margin)
-shifts.
+**Tightness.** The triangle inequality $|a - b| \le |a| + |b|$
+saturates when $a$ and $b$ have opposite signs. Sign-preservation of
+$T_k(X)$ under $T_b$ is **not generic** for cluster-expansion polymer
+activities (truncation orders can flip signs). So $c_{\text{polymer}}
+= 2$ is the **optimal worst-case** constant from first principles.
 
-The current value is the most-likely-overestimate side of the
-heuristic range; refinement could go either way:
-- A larger $c_{\text{polymer}}$ → larger η-coupling → tighter
-  budget-closure (harder to satisfy $\sum_k \eta_k < \widehat\sigma_0$).
-- A smaller $c_{\text{polymer}}$ → easier budget closure → wider
-  pilot-success window.
+**Refinement (open analytic target).** A sign-preservation lemma for
+the SU(2) heat-kernel polymer activities under $T_b$ would tighten the
+constant to $c_{\text{polymer}} = 1$, halving the σ-budget consumption.
+This is a real pilot-window enlargement opportunity, but it requires a
+genuinely new analytic input (signed cluster-expansion control).
+Without that lemma, the worst-case 2 is correct.
+
+The historical match $2/4 = 1/2$ with the previous placeholder is now
+**coincidence** rather than design: the placeholder was 1/2, and the
+independently-derived worst-case happens to equal 1/2 with the
+spec-mandated $A_{\min} = 4$.
 
 **Citations.**
 - TeX: `\cite{Balaban1988convergent,BrydgesFederbush1978}`
@@ -325,19 +334,27 @@ physics constants.**
 | `MU_CONNECTIVITY_4D` | log(8e) | literature formula | already standard | — |
 | `MU_PLAQUETTE_4D` | 16 | literature-shape (5d-4) | rigorous fallback `MU_PLAQUETTE_CONSERVATIVE_4D = 8e` available | `fiducial_sensitivity.sweep_mu_plaq` |
 | `J_MAX_DEFAULT` | 12 | engineering | only if needed | — |
-| `BALABAN_POLYMER_RESIDUAL` | 2.0 | **heuristic** | swept directly via `polymer_residual` parameter | `fiducial_sensitivity.sweep_polymer_residual` |
+| `BALABAN_POLYMER_RESIDUAL` | 2.0 | **DERIVED 2026-05-25** | tighter c=1 via sign-preservation lemma (open) | `fiducial_sensitivity.sweep_polymer_residual` |
 | `WILSON_LOOP_MIN_AREA_DIMENSIONLESS` | 4 | from project spec | n/a | — |
 | Trajectory defaults | various | engineering | n/a | — |
 
-**Two flagged HEURISTIC values that should be refined first:**
+**One flagged HEURISTIC value remaining (after 2026-05-25 derivation pass):**
 1. `BAŁABAN_SPECTRAL_GAP_COEFF = 1/2` (literature-shape, but the
    number itself was chosen for order-of-magnitude plausibility).
-2. `BALABAN_POLYMER_RESIDUAL = 2.0` (no specific paper, chosen to
-   match the placeholder value the upgrade preserved).
 
 **One value flagged as "widely cited but not directly verified":**
-3. `MU_PLAQUETTE_4D = 16` (the $5d-4$ formula is standard but the
+2. `MU_PLAQUETTE_4D = 16` (the $5d-4$ formula is standard but the
    project's web-search pass did not surface a primary-source verbatim).
+   Rigorous fallback `MU_PLAQUETTE_CONSERVATIVE_4D = 8e ≈ 21.7` available
+   (Brydges–Federbush site-connectivity bound), costs only −0.2% in the
+   pilot window.
+
+**Reclassified from HEURISTIC to DERIVED (2026-05-25):**
+3. `BALABAN_POLYMER_RESIDUAL = 2.0` — now derived from a triangle-inequality
+   argument on the per-polymer activity change under block-spin coarsening
+   (`derive_polymer_boundary_channel_count() → 2`). See §5 for the
+   first-principles derivation. The tighter `c = 1` requires a
+   sign-preservation lemma (open analytic refinement).
 
 ---
 

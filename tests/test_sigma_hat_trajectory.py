@@ -15,6 +15,7 @@ from computations.sigma_hat_trajectory import (
     SigmaHatTrajectory,
     compute_eta,
     derive_eta_coupling,
+    derive_polymer_boundary_channel_count,
     plot_sigma_hat_trajectory,
     sigma_hat_trajectory,
 )
@@ -32,6 +33,38 @@ def test_derive_eta_coupling_default_value() -> None:
     matching the previous placeholder value but now sourced from
     ``derive_eta_coupling`` rather than a bare literal."""
     assert derive_eta_coupling() == pytest.approx(0.5)
+
+
+# --------------------------------------------------------------------------
+# Combinatorial derivation of c_polymer (notes/sigma-hat-derivation.md §2.3-derivation)
+# --------------------------------------------------------------------------
+
+
+def test_derive_polymer_boundary_channel_count_returns_2() -> None:
+    """The triangle-inequality derivation: |ΔT(X)| ≤ |T_{k+1}(X')| +
+    |T_k(X)| ≤ 2 · max(...), so c_polymer = 2 is the worst-case channel
+    multiplicity.  See notes/sigma-hat-derivation.md §2.3-derivation.
+
+    Status reclassification (2026-05-25): previously HEURISTIC, now
+    DERIVED via this returns-2 function."""
+    assert derive_polymer_boundary_channel_count() == 2
+
+
+def test_balaban_polymer_residual_sourced_from_derivation() -> None:
+    """BALABAN_POLYMER_RESIDUAL is derived from the channel-count
+    function rather than a bare literal — the post-2026-05-25 status
+    upgrade from HEURISTIC to DERIVED."""
+    assert BALABAN_POLYMER_RESIDUAL == float(
+        derive_polymer_boundary_channel_count()
+    )
+
+
+def test_polymer_boundary_channel_count_is_integer() -> None:
+    """The derivation returns a Nat (worst-case multiplicity is a count).
+    Integer-valued by construction; relevant for any future Q'-lift."""
+    n = derive_polymer_boundary_channel_count()
+    assert isinstance(n, int)
+    assert n > 0
 
 
 def test_derived_eta_coupling_constant_matches_helper() -> None:

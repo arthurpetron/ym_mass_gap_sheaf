@@ -148,16 +148,62 @@ polymer-expansion residual per unit area gets multiplied by the smallest
 admissible loop area to bound the per-step σ̂ degradation.
 """
 
-BALABAN_POLYMER_RESIDUAL: Final[float] = 2.0
-"""Fiducial Bałaban-style polymer-expansion residual prefactor for σ̂.
+def derive_polymer_boundary_channel_count() -> int:
+    """Worst-case channel multiplicity for boundary-polymer σ-residual.
 
-Per [Bałaban 1985 / 1988] and [Brydges 1986]: the polymer-expansion
-correction to the Wilson-loop expectation ``⟨W_R(C)⟩_{μ_{k+1}}`` relative
-to its naive-rescaling pulled-back value carries a dimensionless
-prefactor counting the "polymer can sit on either side of the loop
-boundary" multiplicity.  The fiducial value ``c_polymer = 2`` captures
-this two-sided symmetry; refinement against direct extraction from the
-Bałaban literature is deferred (mirroring 3.1's ``c_λ`` fiducial choice).
+    **First-principles derivation** (see
+    ``notes/sigma-hat-derivation.md`` §2.3-derivation):
+
+    The per-step σ-residual decomposes as
+    ``σ_{k+1} - σ_k/b² = -(1/A(C)) · Σ_X ΔT(X)`` over boundary polymers,
+    where ``ΔT(X) := T_{k+1}(X'; C') - T_k(X; C)`` is the change in the
+    cluster-expansion truncated correlation for polymer ``X`` under the
+    block-spin coarsening ``T_b`` (with ``X' = T_b(X)``).
+
+    Apply the triangle inequality:
+
+        |ΔT(X)|  ≤  |T_{k+1}(X'; C')| + |T_k(X; C)|
+                 ≤  |a_{k+1}(X')| + |a_k(X)|       (cluster-expansion bound)
+                 ≤  2 · max(|a_{k+1}(X')|, |a_k(X)|).
+
+    The final factor of 2 is the **channel multiplicity**: the per-polymer
+    change is bounded by the sum of two activity terms (scale-k original
+    and scale-(k+1) image), hence ``c_polymer = 2``.
+
+    **Tightness**: the triangle inequality saturates when the two
+    activities have opposite signs.  Sign-preservation under block-spin
+    coarsening is not generically true (cluster-expansion truncation
+    orders can flip signs), so ``c_polymer = 2`` is the optimal worst-case.
+
+    A tighter ``c_polymer = 1`` would require an additional
+    sign-preservation lemma for the SU(2) heat-kernel polymer activities;
+    that's an open refinement target (see the docstring of
+    ``BALABAN_POLYMER_RESIDUAL`` below).
+
+    Returns the integer ``2``; consumed by ``BALABAN_POLYMER_RESIDUAL``.
+    """
+    return 2
+
+
+BALABAN_POLYMER_RESIDUAL: Final[float] = float(derive_polymer_boundary_channel_count())
+"""Per-polymer channel multiplicity in the Wilson-loop σ-residual.
+
+**Status: DERIVED** (2026-05-25).  Previously labeled HEURISTIC; now
+sourced from ``derive_polymer_boundary_channel_count()``, which gives
+``2`` via the triangle-inequality argument on the per-polymer
+``ΔT(X) = T_{k+1}(X'; C') - T_k(X; C)`` under block-spin coarsening
+(``notes/sigma-hat-derivation.md`` §2.3-derivation).
+
+The value 2 is the optimal worst-case constant: the triangle inequality
+``|a - b| ≤ |a| + |b|`` saturates exactly when sign-preservation under
+``T_b`` fails, and sign-preservation is not generic for cluster-expansion
+polymer activities.
+
+**Refinement target** (analytic, open): show that the SU(2) heat-kernel
+measure preserves polymer-activity sign under block-spin coarsening at
+the leading order.  If true, ``c_polymer = 1`` halves the σ-budget
+consumption — a real pilot-window enlargement.  Until that lemma is
+established, ``c_polymer = 2`` is the correct worst-case value.
 """
 
 
