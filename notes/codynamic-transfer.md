@@ -403,3 +403,48 @@ The transfer is:
 \]
 
 This is not a metaphor. It is the same constructive induction pattern with different local estimates.
+
+---
+
+## 11. Code-level realization (Milestone 4.1, landed 2026-05-25)
+
+The §1 shared proof shape is realized concretely in
+[`computations/transfer_examples/`](../computations/transfer_examples/).
+
+  * [`protocol.py`](../computations/transfer_examples/protocol.py) —
+    `InductiveBoundWitness` Protocol with members `scale_index`,
+    `bound_witness`, `remaining_budget`, `degradation`, `step()`,
+    `overlap_compatible()`.  Structurally typed (`@runtime_checkable`):
+    any class providing these members at the right types is an
+    `InductiveBoundWitness`, no inheritance required.
+  * [`runner.py`](../computations/transfer_examples/runner.py) —
+    `run_inductive_steps(initial, K)` iterates the Protocol's `step()`,
+    accumulates per-step `degradation`, and reports a `RunResult` with
+    the closure flag `closes := (all steps succeeded) ∧ (total_deg < B_0)`.
+    One function, two domains.
+  * [`ekf_example.py`](../computations/transfer_examples/ekf_example.py) —
+    `EKFStep`: a vendored 1-D toy EKF satisfying the Protocol.  Closes
+    the work_plan 4.1 open question "depend on `codynamic-sensor-data`
+    or vendor?" by vendoring a minimal example with no external dep.
+  * [`ym_example.py`](../computations/transfer_examples/ym_example.py) —
+    `YMStep`: a thin wrapper around `sigma_hat_trajectory` exposing the
+    SU(2) RG step as an `InductiveBoundWitness`.
+
+[`tests/test_transfer_examples.py`](../tests/test_transfer_examples.py)
+verifies the structural isomorphism:
+
+  * **Protocol conformance**: `isinstance(EKFStep, InductiveBoundWitness)`
+    and `isinstance(YMStep, InductiveBoundWitness)` both succeed,
+    without any inheritance between them.
+  * **Generic-runner polymorphism**: the same `run_inductive_steps`
+    callable handles both, returning `RunResult` in each case.
+  * **Member-level correspondence** with §4: scale indices advance by 1
+    per `step()`; bound-witness labels reflect §4's "EKF P_n ↔ YM σ̂_k"
+    mapping; cross-type overlap (EKF vs YM) is structurally decidable
+    but semantically refused.
+  * **Failure modes**: EKF budget exhaustion and YM trajectory
+    exhaustion are reported honestly (`closes = False`,
+    `n_steps_taken < K`).
+
+This realizes the §6/§7 claim at the Python type-system level: the proof
+shape is a single Protocol, and the EKF/YM instances genuinely share it.
