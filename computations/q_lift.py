@@ -246,6 +246,25 @@ above the binding ``η_2 ≈ 1.05e-3``.  Total bound after 4 steps =
 4 · 11/10000 = 44/10000 = 11/2500, comfortably ≤ σ̂_0 = 1.
 """
 
+WILSON_LEAN_PILOT_G0: Final[float] = 0.50
+"""g_0 for the Wilson-convention Lean SU(2) pilot wire-in.
+
+The Wilson convergence window is wider (g_max_sf ≈ 0.81); the wire-in
+sits at g_0 = 0.50 — substantively inside the Wilson convergent regime
+with per-step η ≈ 3e-4.  Mirrors the canonical structure for
+``lean/YMGap/RG/SigmaHatPilot.lean::eta_pilot_wilson``.
+"""
+
+WILSON_LEAN_PILOT_K: Final[int] = 3
+
+WILSON_LEAN_PILOT_DENOMINATOR: Final[int] = 10000
+"""Rational denominator for the Wilson Lean wire-in.
+
+At ``g_0 = 0.50``, ``convention = WILSON``, ``denominator = 10000``,
+``eta_max_numerator = 4`` (η_max = 4/10000 = 4e-4), total = 3·4 = 12;
+σ̂_0 = 1 ≫ 12/10000.
+"""
+
 
 if __name__ == "__main__":
     print("Pilot η rational bound (canonical Lean wire-in)")

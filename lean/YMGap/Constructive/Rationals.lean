@@ -287,8 +287,8 @@ theorem zero_le_add (p q : Q') (h_p : (0 : Q') ≤ p) (h_q : (0 : Q') ≤ q) :
   rw [zero_le_iff_num_nonneg]
   show (0 : Int) ≤ (p + q).num
   show (0 : Int) ≤ p.num * ((q.den : Nat) : Int) + q.num * ((p.den : Nat) : Int)
-  have h_q_den : (0 : Int) ≤ ((q.den : Nat) : Int) := Int.ofNat_nonneg _
-  have h_p_den : (0 : Int) ≤ ((p.den : Nat) : Int) := Int.ofNat_nonneg _
+  have h_q_den : (0 : Int) ≤ ((q.den : Nat) : Int) := Int.natCast_nonneg _
+  have h_p_den : (0 : Int) ≤ ((p.den : Nat) : Int) := Int.natCast_nonneg _
   exact Int.add_nonneg (Int.mul_nonneg h_p h_q_den) (Int.mul_nonneg h_q h_p_den)
 
 /-- `min` of two nonnegative `Q'` values is nonnegative.
@@ -325,8 +325,8 @@ theorem le_trans' (p q r : Q') (h_pq : p ≤ q) (h_qr : q ≤ r) : p ≤ r := by
   show p.num * (r.den : Int) ≤ r.num * (p.den : Int)
   have h1 : p.num * (q.den : Int) ≤ q.num * (p.den : Int) := h_pq
   have h2 : q.num * (r.den : Int) ≤ r.num * (q.den : Int) := h_qr
-  have h_p_nn : (0 : Int) ≤ (p.den : Int) := Int.ofNat_nonneg _
-  have h_r_nn : (0 : Int) ≤ (r.den : Int) := Int.ofNat_nonneg _
+  have h_p_nn : (0 : Int) ≤ (p.den : Int) := Int.natCast_nonneg _
+  have h_r_nn : (0 : Int) ≤ (r.den : Int) := Int.natCast_nonneg _
   have step1 : p.num * (q.den : Int) * (r.den : Int)
              ≤ q.num * (p.den : Int) * (r.den : Int) :=
     Int.mul_le_mul_of_nonneg_right h1 h_r_nn

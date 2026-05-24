@@ -11,6 +11,9 @@ from computations.q_lift import (
     CANONICAL_LEAN_PILOT_DENOMINATOR,
     CANONICAL_LEAN_PILOT_G0,
     CANONICAL_LEAN_PILOT_K,
+    WILSON_LEAN_PILOT_DENOMINATOR,
+    WILSON_LEAN_PILOT_G0,
+    WILSON_LEAN_PILOT_K,
     pilot_eta_rational_bound,
     rational_ceiling,
     to_q_prime_pair,
@@ -208,5 +211,32 @@ class TestLeanWireInConsistency:
         # times eta_max=11/10000).  If Python changes, update Lean.
         assert (bound.eta_total_numerator, bound.denominator) == (33, 10000), (
             "Lean SigmaHatPilot.eta_total_pilot is hard-coded as 33/10000. "
+            f"Python now produces {bound.eta_total_numerator}/{bound.denominator}."
+        )
+
+    def test_wilson_eta_max_matches_lean_hardcoded(self):
+        bound = pilot_eta_rational_bound(
+            g_0=WILSON_LEAN_PILOT_G0,
+            K=WILSON_LEAN_PILOT_K,
+            convention=HeatKernelConvention.WILSON,
+            denominator=WILSON_LEAN_PILOT_DENOMINATOR,
+        )
+        # Lean hard-codes eta_max_pilot_wilson := mkPos 4 10000.  If Python
+        # changes, update lean/YMGap/RG/SigmaHatPilot.lean.
+        assert (bound.eta_max_numerator, bound.denominator) == (4, 10000), (
+            "Lean SigmaHatPilot.eta_max_pilot_wilson is hard-coded as 4/10000. "
+            f"Python now produces {bound.eta_max_numerator}/{bound.denominator}."
+        )
+
+    def test_wilson_eta_total_matches_lean_hardcoded(self):
+        bound = pilot_eta_rational_bound(
+            g_0=WILSON_LEAN_PILOT_G0,
+            K=WILSON_LEAN_PILOT_K,
+            convention=HeatKernelConvention.WILSON,
+            denominator=WILSON_LEAN_PILOT_DENOMINATOR,
+        )
+        # Lean hard-codes eta_total_pilot_wilson := mkPos 12 10000.
+        assert (bound.eta_total_numerator, bound.denominator) == (12, 10000), (
+            "Lean SigmaHatPilot.eta_total_pilot_wilson is hard-coded as 12/10000. "
             f"Python now produces {bound.eta_total_numerator}/{bound.denominator}."
         )

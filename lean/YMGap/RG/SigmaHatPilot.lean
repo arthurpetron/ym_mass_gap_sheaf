@@ -171,6 +171,89 @@ theorem eta_pilot_budget_closes :
   sigma_hat_budget_closure eta_pilot eta_total_pilot sigma_hat_0_pilot
     eta_pilot_partial_sum_bound eta_total_le_sigma_0
 
+/-! ## Wilson-convention instance (g_0 = 0.50, K = 3, denominator = 10000)
+
+Parallel to the canonical instance above.  Python
+`q_lift.pilot_eta_rational_bound(g_0=0.50, K=3, convention=WILSON,
+denominator=10000)` produces η_max_numerator = 4, eta_total_numerator = 12.
+
+The Wilson regime is *more permissive* than canonical (Wilson g_max_sf ≈
+0.81 vs canonical ≈ 0.40), so this pilot sits well inside the Wilson
+convergence window with a substantive but small per-step η ≈ 1e-4.  The
+proof obligations have the same shape as the canonical case.
+
+Note: each Wilson constant has a `_wilson` suffix to avoid collision with
+the canonical defaults; nothing about the proof relies on the suffix. -/
+
+/-- Wilson-pilot rational upper bound: `4 / 10000 = 4e-4` (dominates the
+~3e-4 actual per-step η at g_0 = 0.50). -/
+def eta_max_pilot_wilson : Q' := Q'.mkPos 4 10000 (by decide)
+
+/-- Wilson-pilot total bound after K = 3 transitions: `12 / 10000`. -/
+def eta_total_pilot_wilson : Q' := Q'.mkPos 12 10000 (by decide)
+
+/-- σ̂_0 for the Wilson wire-in.  Same as canonical: `1`. -/
+def sigma_hat_0_pilot_wilson : Q' := 1
+
+/-- The Wilson pilot's truncated-constant η-sequence. -/
+def eta_pilot_wilson : QSeq
+  | 0     => eta_max_pilot_wilson
+  | 1     => eta_max_pilot_wilson
+  | 2     => eta_max_pilot_wilson
+  | _ + 3 => 0
+
+/-- `eta_pilot_wilson` is zero past index `3`. -/
+theorem eta_pilot_wilson_zero_of_ge_3 : ∀ k, 3 ≤ k → eta_pilot_wilson k = 0
+  | 0,     h => absurd h (by decide)
+  | 1,     h => absurd h (by decide)
+  | 2,     h => absurd h (by decide)
+  | _ + 3, _ => rfl
+
+/-- Wilson partial-sum bound at the cut-off: `finSum eta_pilot_wilson 3 ≤
+eta_total_pilot_wilson`, i.e. `0 + 4/10000 + 4/10000 + 4/10000 ≤ 12/10000`. -/
+theorem finSum_eta_pilot_wilson_three_le :
+    finSum eta_pilot_wilson 3 ≤ eta_total_pilot_wilson := by
+  show (((0 : Q') + eta_max_pilot_wilson) + eta_max_pilot_wilson) + eta_max_pilot_wilson
+        ≤ eta_total_pilot_wilson
+  decide
+
+/-- `∀ N, finSum eta_pilot_wilson N ≤ eta_total_pilot_wilson`. -/
+theorem eta_pilot_wilson_partial_sum_bound :
+    ∀ N, finSum eta_pilot_wilson N ≤ eta_total_pilot_wilson
+  | 0     => by
+    show (0 : Q') ≤ eta_total_pilot_wilson
+    decide
+  | 1     => by
+    show (0 : Q') + eta_max_pilot_wilson ≤ eta_total_pilot_wilson
+    decide
+  | 2     => by
+    show ((0 : Q') + eta_max_pilot_wilson) + eta_max_pilot_wilson
+          ≤ eta_total_pilot_wilson
+    decide
+  | 3     => finSum_eta_pilot_wilson_three_le
+  | n + 4 => by
+    show finSum eta_pilot_wilson ((n + 1) + 3) ≤ eta_total_pilot_wilson
+    rw [Nat.add_comm (n + 1) 3,
+        YMGap.Constructive.RationalTail.finSum_stabilizes_after_K
+          eta_pilot_wilson 3 eta_pilot_wilson_zero_of_ge_3 (n + 1)]
+    exact finSum_eta_pilot_wilson_three_le
+
+/-- Wilson closure condition: `12/10000 ≤ 1`, i.e. `12 · 1 ≤ 1 · 10000`. -/
+theorem eta_total_wilson_le_sigma_0 :
+    eta_total_pilot_wilson ≤ sigma_hat_0_pilot_wilson := by
+  show (12 : Int) * (1 : Int) ≤ (1 : Int) * (10000 : Int)
+  decide
+
+/-- **SU(2) pilot σ̂-budget closure (Wilson wire-in).**
+
+Parallel to `eta_pilot_budget_closes` but for the Wilson convention at
+`g_0 = 0.50`.  Confirms the closure framework is convention-agnostic. -/
+theorem eta_pilot_wilson_budget_closes :
+    ∀ N, finSum eta_pilot_wilson N ≤ sigma_hat_0_pilot_wilson :=
+  sigma_hat_budget_closure eta_pilot_wilson eta_total_pilot_wilson
+    sigma_hat_0_pilot_wilson
+    eta_pilot_wilson_partial_sum_bound eta_total_wilson_le_sigma_0
+
 end YMGap.RG.SigmaHatPilot
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
@@ -184,3 +267,5 @@ end YMGap.RG.SigmaHatPilot
 #print axioms YMGap.RG.SigmaHatPilot.eta_pilot_partial_sum_bound
 #print axioms YMGap.RG.SigmaHatPilot.eta_total_le_sigma_0
 #print axioms YMGap.RG.SigmaHatPilot.eta_pilot_budget_closes
+#print axioms YMGap.RG.SigmaHatPilot.eta_pilot_wilson_partial_sum_bound
+#print axioms YMGap.RG.SigmaHatPilot.eta_pilot_wilson_budget_closes
