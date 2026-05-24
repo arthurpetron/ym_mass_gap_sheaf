@@ -154,6 +154,70 @@ theorem sigma_hat_budget_closure
     ∀ N, finSum η N ≤ sigma_0 :=
   fun N => Q'.le_trans' _ _ _ (h_eta_bound N) h_budget
 
+/-! ## Generic K = 3 truncated-constant pilot closure
+
+A reusable closure theorem for any "η is η_max for k ∈ {0, 1, 2}, zero
+thereafter" pilot.  Phase-3 (`work_plan.md` 3.5) picks `K ≥ 3` as the
+target, so the K = 3 case is the canonical pilot shape; both the
+canonical (g_0 = 0.30) and Wilson (g_0 = 0.50) SU(2) wire-ins in
+`YMGap/RG/SigmaHatPilot.lean` instantiate it.
+
+Pulling the structural induction out here means each new pilot variant
+needs only the four partial-sum inequalities (each discharged by
+`decide` at concrete rationals) plus the closure condition — the
+recursive proof is shared. -/
+
+/-- Truncated-constant pilot sequence: `η_max` for `k < 3`, zero thereafter. -/
+def truncated_const_3 (η_max : Q') : QSeq
+  | 0     => η_max
+  | 1     => η_max
+  | 2     => η_max
+  | _ + 3 => 0
+
+/-- `truncated_const_3 η_max` is zero past index 3. -/
+theorem truncated_const_3_zero_of_ge_3 (η_max : Q') :
+    ∀ k, 3 ≤ k → truncated_const_3 η_max k = 0
+  | 0,     h => absurd h (by decide)
+  | 1,     h => absurd h (by decide)
+  | 2,     h => absurd h (by decide)
+  | _ + 3, _ => rfl
+
+/-- Generic K = 3 truncated-constant partial-sum bound.
+
+Given four partial-sum hypotheses (each typically discharged by `decide`
+at concrete rational `η_max`), conclude the bound holds at every `N`.
+The proof is structural induction on `N` with stabilization past `K = 3`.
+
+For each Phase-3 pilot wire-in:
+
+  * Choose `η_max ∈ Q'` as a rational upper bound on `max_k η_k` from
+    the Python pilot (`computations/q_lift.py`).
+  * Choose `σ_0 ∈ Q'` as the initial σ̂.
+  * Discharge `h0 : 0 ≤ σ_0` and `h1, h2, h3 : i-fold sum ≤ σ_0` by `decide`.
+  * Apply this theorem.
+
+The four inequalities encode "after 0, 1, 2, 3 transitions, the running
+total stays under the budget." -/
+theorem truncated_const_3_partial_sum_bound
+    (η_max σ_0 : Q')
+    (h0 : (0 : Q') ≤ σ_0)
+    (h1 : (0 : Q') + η_max ≤ σ_0)
+    (h2 : ((0 : Q') + η_max) + η_max ≤ σ_0)
+    (h3 : (((0 : Q') + η_max) + η_max) + η_max ≤ σ_0) :
+    ∀ N, finSum (truncated_const_3 η_max) N ≤ σ_0
+  | 0     => h0
+  | 1     => h1
+  | 2     => h2
+  | 3     => h3
+  | n + 4 => by
+    -- For N ≥ 4 the partial sum stabilizes at finSum (...) 3 via the
+    -- zero-tail past index 3.
+    show finSum (truncated_const_3 η_max) ((n + 1) + 3) ≤ σ_0
+    rw [Nat.add_comm (n + 1) 3,
+        finSum_stabilizes_after_K (truncated_const_3 η_max) 3
+          (truncated_const_3_zero_of_ge_3 η_max) (n + 1)]
+    exact h3
+
 /-! ## Smoke-test instance: zero-η trajectory
 
 The trivially-closed pilot: an η sequence that is identically zero
@@ -257,6 +321,9 @@ end YMGap.Constructive.RationalTail
 #print axioms YMGap.Constructive.RationalTail.finSum_succ
 #print axioms YMGap.Constructive.RationalTail.finSum_zero_seq
 #print axioms YMGap.Constructive.RationalTail.finSum_stabilizes_after_K
+#print axioms YMGap.Constructive.RationalTail.truncated_const_3
+#print axioms YMGap.Constructive.RationalTail.truncated_const_3_zero_of_ge_3
+#print axioms YMGap.Constructive.RationalTail.truncated_const_3_partial_sum_bound
 #print axioms YMGap.Constructive.RationalTail.sigma_hat_budget_closure
 #print axioms YMGap.Constructive.RationalTail.zero_eta_bound
 #print axioms YMGap.Constructive.RationalTail.smoke_test_zero_eta_closes

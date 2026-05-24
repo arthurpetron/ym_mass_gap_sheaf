@@ -1,44 +1,38 @@
 /-
-SU(2) pilot wire-in for the σ̂-budget closure.
+SU(2) pilot wire-ins for the σ̂-budget closure.
 
 This module instantiates `YMGap.Constructive.RationalTail.sigma_hat_budget_closure`
-on a concrete `Q'`-rational upper bound for the per-step η_k of the SU(2)
-pilot, computed in Python at `g_0 = 0.30`, `K = 3` (transitions), canonical
-heat-kernel convention.
+on concrete `Q'`-rational upper bounds for the per-step η_k of the SU(2)
+pilot, in both canonical and Wilson conventions.
+
+The structural proof (partial-sum bound at every N via stabilization past
+the cut-off) lives in
+`YMGap.Constructive.RationalTail.truncated_const_3_partial_sum_bound`;
+each pilot here is a thin instantiation supplying the four arithmetic
+inequalities (discharged by `decide` at the chosen rationals) plus the
+closure condition.
 
 # Data provenance
 
-Python (`computations.q_lift.pilot_eta_rational_bound`) at the canonical
-wire-in parameters yields:
+Python (`computations.q_lift.pilot_eta_rational_bound`) produces:
 
-  * `g_trajectory`            ≈ [0.30000, 0.30044, 0.30087, 0.30131]
-  * `η₀`                      ≈ 1.008e-3
-  * `η₁`                      ≈ 1.029e-3
-  * `η₂`                      ≈ 1.050e-3
-  * `max_k η_k`               ≈ 1.050e-3
-  * `eta_max_numerator`       = 11    (at denominator 10000)
-  * `eta_total_numerator`     = 33    (= K × 11 = 3 × 11)
-  * `σ̂_0 (Q')`                = 1/1
+  * **Canonical** at `g_0 = 0.30`, `K = 3`, `denominator = 10000`:
+    η_max numerator = 11, eta_total numerator = 33.
+  * **Wilson** at `g_0 = 0.50`, `K = 3`, `denominator = 10000`:
+    η_max numerator = 4, eta_total numerator = 12.
 
-The Lean module hard-codes these as:
-
-  * `eta_max_pilot`           := `Q'.mkPos 11 10000 _`   (1.1e-3, bounds each η_k)
-  * `eta_total_pilot`         := `Q'.mkPos 33 10000 _`   (3.3e-3, bounds Σ η_k)
-  * `sigma_hat_0_pilot`       := `1`
-
-A regression test (`tests/test_q_lift.py::TestLeanWireInConsistency`) verifies
-the Python pilot still produces `(11, 33)` at denominator `10000` — if the
-fiducials in `computations/sigma_hat_trajectory.py` change, that test breaks
-loudly and this module's constants must be updated together.
+The Lean module hard-codes these.  A regression test
+(`tests/test_q_lift.py::TestLeanWireInConsistency`) enforces lockstep:
+if the Python fiducials drift, the test fails loudly and these constants
+must be updated.
 
 # What this module proves
 
-  `∀ N, finSum eta_pilot N ≤ sigma_hat_0_pilot`
+  * Canonical: `∀ N, finSum eta_pilot N ≤ 1`.
+  * Wilson:    `∀ N, finSum eta_pilot_wilson N ≤ 1`.
 
-via `RationalTail.sigma_hat_budget_closure`, where `eta_pilot` is the
-truncated-constant sequence `(η_max, η_max, η_max, 0, 0, …)`.  The
-partial-sum bound is shown directly for `N ≤ 3` and via
-`finSum_stabilizes_after_K` for `N ≥ 4`.
+Both via `RationalTail.sigma_hat_budget_closure` composed with
+`RationalTail.truncated_const_3_partial_sum_bound`.
 
 # Axiom gate (AGENTS.md Rule 1)
 
@@ -54,104 +48,34 @@ namespace YMGap.RG.SigmaHatPilot
 open YMGap.Constructive
 open YMGap.Constructive.RationalTail
 
-/-! ## Pilot constants (canonical wire-in: g_0 = 0.30, K = 3, denominator = 10000) -/
+/-! ## Canonical-convention wire-in (g_0 = 0.30, K = 3, denominator = 10000) -/
 
-/-- Rational upper bound on `max_k η_k` from the SU(2) pilot at `g_0 = 0.30`.
-
-Python value: `11 / 10000 = 1.1e-3`.  Dominates each of the three per-step
+/-- Rational upper bound on `max_k η_k` from the canonical SU(2) pilot at
+`g_0 = 0.30`: `11/10000 = 1.1e-3`, dominates each of the three per-step
 η_k ≈ 1.0e-3 from above. -/
 def eta_max_pilot : Q' := Q'.mkPos 11 10000 (by decide)
 
-/-- Rational upper bound on `Σ_{k<K} η_k` for `K = 3`: `33 / 10000 = 3.3e-3`.
-
-This is `K · eta_max_pilot` realized exactly in `Q'` (3 × 11 = 33). -/
+/-- Total budget after K = 3 transitions: `33/10000`. -/
 def eta_total_pilot : Q' := Q'.mkPos 33 10000 (by decide)
 
-/-- σ̂_0 for the canonical wire-in.  Chosen as `(1 : Q')` so the closure
-condition `eta_total_pilot ≤ sigma_hat_0_pilot` is the easy bound
-`33/10000 ≤ 1`. -/
+/-- σ̂_0 for the canonical wire-in: `(1 : Q')`. -/
 def sigma_hat_0_pilot : Q' := 1
 
-/-! ## The pilot η-sequence
+/-- The canonical pilot's η-sequence — `truncated_const_3` at η_max. -/
+def eta_pilot : QSeq := truncated_const_3 eta_max_pilot
 
-Truncated constant: `η_max_pilot` for `k < 3`, zero thereafter.  The
-pattern `_ + 3 => 0` reduces by `rfl` for any explicit `n + 3`, which is
-the load-bearing fact used by `finSum_stabilizes_after_K`. -/
-
-/-- The pilot's truncated-constant η-sequence (Q'-rational upper bound). -/
-def eta_pilot : QSeq
-  | 0     => eta_max_pilot
-  | 1     => eta_max_pilot
-  | 2     => eta_max_pilot
-  | _ + 3 => 0
-
-/-! ## Per-step structural facts about `eta_pilot` -/
-
-/-- `eta_pilot` is zero past index `3`.  Proof: case split on `k`, with the
-three nonzero indices contradicted by `3 ≤ k` and `k + 3` matching the
-`rfl` case of the definition. -/
-theorem eta_pilot_zero_of_ge_3 : ∀ k, 3 ≤ k → eta_pilot k = 0
-  | 0,     h => absurd h (by decide)
-  | 1,     h => absurd h (by decide)
-  | 2,     h => absurd h (by decide)
-  | _ + 3, _ => rfl
-
-/-! ## Partial-sum bound at the cut-off -/
-
-/-- `finSum eta_pilot 3 ≤ eta_total_pilot` —
-i.e. `(0 + η_max) + η_max + η_max ≤ 33/10000`.
-
-Discharged by `decide`: the LHS reduces structurally to a closed `Q'` term
-whose ≤ check reduces to a closed `Int` decision. -/
-theorem finSum_eta_pilot_three_le : finSum eta_pilot 3 ≤ eta_total_pilot := by
-  -- finSum eta_pilot 3
-  --   = finSum eta_pilot 2 + eta_pilot 2
-  --   = (finSum eta_pilot 1 + eta_pilot 1) + eta_pilot 2
-  --   = ((finSum eta_pilot 0 + eta_pilot 0) + eta_pilot 1) + eta_pilot 2
-  --   = ((0 + η_max) + η_max) + η_max  (by recursion on Q'.add, defs)
-  show (((0 : Q') + eta_max_pilot) + eta_max_pilot) + eta_max_pilot
-        ≤ eta_total_pilot
-  decide
-
-/-! ## The universal partial-sum bound
-
-Split into the four base cases `N ∈ {0, 1, 2, 3}` and the tail case
-`N = n + 4`, where stabilization reduces the partial sum to `finSum eta_pilot 3`. -/
-
-/-- `∀ N, finSum eta_pilot N ≤ eta_total_pilot`. -/
-theorem eta_pilot_partial_sum_bound : ∀ N, finSum eta_pilot N ≤ eta_total_pilot
-  | 0     => by
-    -- finSum eta_pilot 0 = 0 ≤ 33/10000
-    show (0 : Q') ≤ eta_total_pilot
-    decide
-  | 1     => by
-    -- finSum eta_pilot 1 = 0 + eta_max_pilot ≤ 33/10000
-    show (0 : Q') + eta_max_pilot ≤ eta_total_pilot
-    decide
-  | 2     => by
-    -- finSum eta_pilot 2 = (0 + η_max) + η_max ≤ 33/10000
-    show ((0 : Q') + eta_max_pilot) + eta_max_pilot ≤ eta_total_pilot
-    decide
-  | 3     => finSum_eta_pilot_three_le
-  | n + 4 => by
-    -- For N ≥ 4 the partial sum equals finSum eta_pilot 3 (stabilization).
-    -- n + 4 = (n + 1) + 3 holds by `rfl` (Nat.add recurses on the right arg);
-    -- (n + 1) + 3 = 3 + (n + 1) by Nat.add_comm; then apply stabilization.
-    show finSum eta_pilot ((n + 1) + 3) ≤ eta_total_pilot
-    rw [Nat.add_comm (n + 1) 3,
-        YMGap.Constructive.RationalTail.finSum_stabilizes_after_K
-          eta_pilot 3 eta_pilot_zero_of_ge_3 (n + 1)]
-    exact finSum_eta_pilot_three_le
-
-/-! ## The closure condition -/
-
-/-- `eta_total_pilot ≤ sigma_hat_0_pilot`: `33/10000 ≤ 1`.  The cross-product
-check is `33 · 1 ≤ 1 · 10000`. -/
+/-- Closure condition for the canonical pilot: `33/10000 ≤ 1`. -/
 theorem eta_total_le_sigma_0 : eta_total_pilot ≤ sigma_hat_0_pilot := by
   show (33 : Int) * (1 : Int) ≤ (1 : Int) * (10000 : Int)
   decide
 
-/-! ## Pilot closure — the assembled load-bearing theorem -/
+/-- Partial-sum bound for the canonical pilot.  Discharges the four
+arithmetic obligations of `truncated_const_3_partial_sum_bound` by `decide`
+at the concrete `η_max = 11/10000`, `σ_0 = 33/10000`. -/
+theorem eta_pilot_partial_sum_bound :
+    ∀ N, finSum eta_pilot N ≤ eta_total_pilot :=
+  truncated_const_3_partial_sum_bound eta_max_pilot eta_total_pilot
+    (by decide) (by decide) (by decide) (by decide)
 
 /-- **SU(2) pilot σ̂-budget closure (canonical wire-in).**
 
@@ -171,78 +95,36 @@ theorem eta_pilot_budget_closes :
   sigma_hat_budget_closure eta_pilot eta_total_pilot sigma_hat_0_pilot
     eta_pilot_partial_sum_bound eta_total_le_sigma_0
 
-/-! ## Wilson-convention instance (g_0 = 0.50, K = 3, denominator = 10000)
+/-! ## Wilson-convention wire-in (g_0 = 0.50, K = 3, denominator = 10000)
 
-Parallel to the canonical instance above.  Python
-`q_lift.pilot_eta_rational_bound(g_0=0.50, K=3, convention=WILSON,
-denominator=10000)` produces η_max_numerator = 4, eta_total_numerator = 12.
+Parallel to the canonical instance.  Wilson's convergence window is
+wider (g_max_sf ≈ 0.81 vs canonical ≈ 0.40), so g_0 = 0.50 sits well
+inside it with per-step η ≈ 3e-4. -/
 
-The Wilson regime is *more permissive* than canonical (Wilson g_max_sf ≈
-0.81 vs canonical ≈ 0.40), so this pilot sits well inside the Wilson
-convergence window with a substantive but small per-step η ≈ 1e-4.  The
-proof obligations have the same shape as the canonical case.
-
-Note: each Wilson constant has a `_wilson` suffix to avoid collision with
-the canonical defaults; nothing about the proof relies on the suffix. -/
-
-/-- Wilson-pilot rational upper bound: `4 / 10000 = 4e-4` (dominates the
-~3e-4 actual per-step η at g_0 = 0.50). -/
+/-- Wilson-pilot rational upper bound: `4/10000 = 4e-4`. -/
 def eta_max_pilot_wilson : Q' := Q'.mkPos 4 10000 (by decide)
 
-/-- Wilson-pilot total bound after K = 3 transitions: `12 / 10000`. -/
+/-- Wilson-pilot total bound: `12/10000`. -/
 def eta_total_pilot_wilson : Q' := Q'.mkPos 12 10000 (by decide)
 
-/-- σ̂_0 for the Wilson wire-in.  Same as canonical: `1`. -/
+/-- σ̂_0 for the Wilson wire-in: `(1 : Q')`. -/
 def sigma_hat_0_pilot_wilson : Q' := 1
 
-/-- The Wilson pilot's truncated-constant η-sequence. -/
-def eta_pilot_wilson : QSeq
-  | 0     => eta_max_pilot_wilson
-  | 1     => eta_max_pilot_wilson
-  | 2     => eta_max_pilot_wilson
-  | _ + 3 => 0
+/-- The Wilson pilot's η-sequence. -/
+def eta_pilot_wilson : QSeq := truncated_const_3 eta_max_pilot_wilson
 
-/-- `eta_pilot_wilson` is zero past index `3`. -/
-theorem eta_pilot_wilson_zero_of_ge_3 : ∀ k, 3 ≤ k → eta_pilot_wilson k = 0
-  | 0,     h => absurd h (by decide)
-  | 1,     h => absurd h (by decide)
-  | 2,     h => absurd h (by decide)
-  | _ + 3, _ => rfl
-
-/-- Wilson partial-sum bound at the cut-off: `finSum eta_pilot_wilson 3 ≤
-eta_total_pilot_wilson`, i.e. `0 + 4/10000 + 4/10000 + 4/10000 ≤ 12/10000`. -/
-theorem finSum_eta_pilot_wilson_three_le :
-    finSum eta_pilot_wilson 3 ≤ eta_total_pilot_wilson := by
-  show (((0 : Q') + eta_max_pilot_wilson) + eta_max_pilot_wilson) + eta_max_pilot_wilson
-        ≤ eta_total_pilot_wilson
-  decide
-
-/-- `∀ N, finSum eta_pilot_wilson N ≤ eta_total_pilot_wilson`. -/
-theorem eta_pilot_wilson_partial_sum_bound :
-    ∀ N, finSum eta_pilot_wilson N ≤ eta_total_pilot_wilson
-  | 0     => by
-    show (0 : Q') ≤ eta_total_pilot_wilson
-    decide
-  | 1     => by
-    show (0 : Q') + eta_max_pilot_wilson ≤ eta_total_pilot_wilson
-    decide
-  | 2     => by
-    show ((0 : Q') + eta_max_pilot_wilson) + eta_max_pilot_wilson
-          ≤ eta_total_pilot_wilson
-    decide
-  | 3     => finSum_eta_pilot_wilson_three_le
-  | n + 4 => by
-    show finSum eta_pilot_wilson ((n + 1) + 3) ≤ eta_total_pilot_wilson
-    rw [Nat.add_comm (n + 1) 3,
-        YMGap.Constructive.RationalTail.finSum_stabilizes_after_K
-          eta_pilot_wilson 3 eta_pilot_wilson_zero_of_ge_3 (n + 1)]
-    exact finSum_eta_pilot_wilson_three_le
-
-/-- Wilson closure condition: `12/10000 ≤ 1`, i.e. `12 · 1 ≤ 1 · 10000`. -/
+/-- Wilson closure condition: `12/10000 ≤ 1`. -/
 theorem eta_total_wilson_le_sigma_0 :
     eta_total_pilot_wilson ≤ sigma_hat_0_pilot_wilson := by
   show (12 : Int) * (1 : Int) ≤ (1 : Int) * (10000 : Int)
   decide
+
+/-- Wilson partial-sum bound, via the generic K = 3 truncated-constant
+theorem. -/
+theorem eta_pilot_wilson_partial_sum_bound :
+    ∀ N, finSum eta_pilot_wilson N ≤ eta_total_pilot_wilson :=
+  truncated_const_3_partial_sum_bound eta_max_pilot_wilson eta_total_pilot_wilson
+    (by decide) (by decide) (by decide) (by decide)
 
 /-- **SU(2) pilot σ̂-budget closure (Wilson wire-in).**
 
@@ -262,8 +144,6 @@ end YMGap.RG.SigmaHatPilot
 #print axioms YMGap.RG.SigmaHatPilot.eta_total_pilot
 #print axioms YMGap.RG.SigmaHatPilot.sigma_hat_0_pilot
 #print axioms YMGap.RG.SigmaHatPilot.eta_pilot
-#print axioms YMGap.RG.SigmaHatPilot.eta_pilot_zero_of_ge_3
-#print axioms YMGap.RG.SigmaHatPilot.finSum_eta_pilot_three_le
 #print axioms YMGap.RG.SigmaHatPilot.eta_pilot_partial_sum_bound
 #print axioms YMGap.RG.SigmaHatPilot.eta_total_le_sigma_0
 #print axioms YMGap.RG.SigmaHatPilot.eta_pilot_budget_closes
