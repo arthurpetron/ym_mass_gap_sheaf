@@ -150,6 +150,36 @@ For the **full convergence claim** $\sum_{k=0}^{\infty} \eta_k < \widehat{\sigma
 
 **Recorded decision:** stay with Q' for Phase 3. Do not build a constructive-limit layer here. If 3.5's pilot fails because Q' bounds aren't tight enough at the geometric-series tail estimate, *that* triggers a follow-on (call it `[P3.0-extension]`) — but only then.
 
+### 4.3. Q' realization — landed 2026-05-24
+
+The Q'-rational framework is now materialized in
+[`lean/YMGap/Constructive/RationalTail.lean`](../lean/YMGap/Constructive/RationalTail.lean):
+
+  - `QSeq := Nat → Q'` and `finSum` give finite partial sums in Q'.
+  - `sigma_hat_budget_closure (η eta_total_bound σ_0) (h_bound h_budget) : ∀ N, finSum η N ≤ σ_0` discharges the closure by transitivity, given a uniform partial-sum bound and the closure condition.
+  - `finSum_stabilizes_after_K` is the workhorse for truncated-constant sequences: if `η_k = 0` for `k ≥ K` then `finSum η (K + M) = finSum η K`.
+  - Smoke (`zero η`) and single-step instances are closed at the framework level.
+
+The **SU(2) pilot wire-in** at
+[`lean/YMGap/RG/SigmaHatPilot.lean`](../lean/YMGap/RG/SigmaHatPilot.lean)
+takes the canonical Python pilot at `(g_0 = 0.30, K = 3, σ̂_0 = 1)`, bounds
+each per-step η_k by a rational `η_max = 11/10000` (Python check: each
+of the three η_k ≈ 1.0e-3 falls below this), and discharges the assembled
+theorem
+
+```
+∀ N, finSum eta_pilot N ≤ sigma_hat_0_pilot     -- = 1
+```
+
+with axiom-gate `[propext]` only (no `sorryAx`, no `Classical.*`). A Python
+regression test ([`tests/test_q_lift.py::TestLeanWireInConsistency`])
+enforces that any change to the upstream fiducials (which would shift the
+per-step η values) requires updating the Lean constants in lockstep.
+
+This is the first time the *global* σ̂-budget closure
+`Σ_{k=0}^{N} η_k ≤ σ̂_0` has been load-bearingly machine-verified at finite
+truncation for the SU(2) pilot.
+
 ---
 
 ## 5. What is constructively proved, and what remains open
@@ -196,6 +226,7 @@ For the **full convergence claim** $\sum_{k=0}^{\infty} \eta_k < \widehat{\sigma
 - Figure: [`visualizations/pilot/su2/sigma-hat-trajectory.svg`](../visualizations/pilot/su2/sigma-hat-trajectory.svg).
 - Upstream: 3.3 [`overlap_kp.py`](../computations/overlap_kp.py) (Δ_∩), 3.2 [`large_field_kp.py`](../computations/large_field_kp.py), 3.1 [`small_field_kp.py`](../computations/small_field_kp.py).
 - Q' source: [`lean/YMGap/Constructive/Rationals.lean`](../lean/YMGap/Constructive/Rationals.lean).
-- Lean hook (sorry'd, owed by 3.4): `step_obligation_sigma` in `lean/YMGap/RG/BlockSpin.lean`.
+- Lean per-step closure (closed 2026-05-24): `step_obligation_sigma` in `lean/YMGap/RG/BlockSpin.lean`.
+- Lean global closure (closed 2026-05-24, finite truncation): `YMGap.RG.SigmaHatPilot.eta_pilot_budget_closes` in `lean/YMGap/RG/SigmaHatPilot.lean`, built on `YMGap.Constructive.RationalTail.sigma_hat_budget_closure`.
 - Specification: [`docs/context.md`](../docs/context.md) §3.3, [`docs/outline.md`](../docs/outline.md) §7.1, §10.4, §17.3.
 - Downstream: 3.5 (pilot success criterion) consumes the budget-closure flag as one of its five criteria.

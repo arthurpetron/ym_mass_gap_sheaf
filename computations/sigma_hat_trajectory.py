@@ -127,6 +127,7 @@ from dataclasses import dataclass
 from typing import Final
 
 from computations.heat_kernel import HeatKernelConvention
+from computations.large_field_kp import MU_PLAQUETTE_4D
 from computations.overlap_kp import delta_cap
 
 # --------------------------------------------------------------------------
@@ -239,6 +240,10 @@ def compute_eta(
     g_k_next: float,
     t_choice: HeatKernelConvention,
     eta_coupling: float = DERIVED_ETA_COUPLING,
+    polymer_residual: float | None = None,
+    wilson_loop_min_area: int | None = None,
+    spectral_gap_coeff: float | None = None,
+    mu_plaq: float = MU_PLAQUETTE_4D,
 ) -> float:
     """Per-step η_k from Δ_∩ via the σ̂-transport polymer-residual factor.
 
@@ -248,10 +253,33 @@ def compute_eta(
     from outline §7.1's smallest dimensionless Wilson loop area
     ``A_min = 4`` and the Bałaban-style polymer-residual prefactor
     ``c_polymer = 2`` per the module docstring's σ̂-transport derivation.
-    Override via the ``eta_coupling`` parameter for sensitivity analysis
-    or to test refined-fiducial values.
+
+    For fiducial sensitivity sweeps:
+
+      * Pass ``polymer_residual`` and/or ``wilson_loop_min_area`` to
+        rebuild the η coupling; when either is supplied, ``eta_coupling``
+        is recomputed via ``derive_eta_coupling`` and the explicit
+        ``eta_coupling`` argument is ignored.
+      * Pass ``spectral_gap_coeff`` and/or ``mu_plaq`` to override the
+        small-field / large-field upstream fiducials.  These flow into
+        Δ_∩ and so affect η through the upstream cluster-expansion
+        amplitudes.  See ``notes/fiducials_notes.md``.
     """
-    d = delta_cap(g_k, g_k_next, t_choice)
+    if polymer_residual is not None or wilson_loop_min_area is not None:
+        eta_coupling = derive_eta_coupling(
+            polymer_residual=(
+                polymer_residual if polymer_residual is not None
+                else BALABAN_POLYMER_RESIDUAL
+            ),
+            wilson_loop_min_area=(
+                wilson_loop_min_area if wilson_loop_min_area is not None
+                else WILSON_LOOP_MIN_AREA_DIMENSIONLESS
+            ),
+        )
+    d = delta_cap(
+        g_k, g_k_next, t_choice,
+        spectral_gap_coeff=spectral_gap_coeff, mu_plaq=mu_plaq,
+    )
     return eta_coupling * d
 
 
@@ -260,6 +288,10 @@ def sigma_hat_trajectory(
     sigma_hat_initial: float = 1.0,
     t_choice: HeatKernelConvention = HeatKernelConvention.CANONICAL,
     eta_coupling: float = DERIVED_ETA_COUPLING,
+    polymer_residual: float | None = None,
+    wilson_loop_min_area: int | None = None,
+    spectral_gap_coeff: float | None = None,
+    mu_plaq: float = MU_PLAQUETTE_4D,
 ) -> SigmaHatTrajectory:
     """The σ̂ trajectory σ̂_0, σ̂_1, …, σ̂_K and the budget closure check.
 
@@ -268,7 +300,28 @@ def sigma_hat_trajectory(
     Per work_plan 3.4, returns the cumulative degradation and a
     boolean indicating whether Σ_k η_k < σ̂_0 (the inductive-step
     budget closure).
+
+    Fiducial-sweep parameters:
+
+      * ``polymer_residual``, ``wilson_loop_min_area`` — recompute the
+        η coupling (overrides explicit ``eta_coupling``).
+      * ``spectral_gap_coeff``, ``mu_plaq`` — override the upstream
+        small-field / large-field fiducials, flowing into Δ_∩.
+
+    All sweep parameters default to the project-wide fiducials in
+    ``notes/fiducials_notes.md``.
     """
+    if polymer_residual is not None or wilson_loop_min_area is not None:
+        eta_coupling = derive_eta_coupling(
+            polymer_residual=(
+                polymer_residual if polymer_residual is not None
+                else BALABAN_POLYMER_RESIDUAL
+            ),
+            wilson_loop_min_area=(
+                wilson_loop_min_area if wilson_loop_min_area is not None
+                else WILSON_LOOP_MIN_AREA_DIMENSIONLESS
+            ),
+        )
     if sigma_hat_initial <= 0:
         raise ValueError(f"sigma_hat_initial must be positive; got {sigma_hat_initial}")
 
@@ -280,7 +333,8 @@ def sigma_hat_trajectory(
         # η_k is the FROM-this-step transition.  For the last k there's no next.
         if k < len(g_trajectory) - 1:
             eta_k = compute_eta(
-                g_trajectory[k], g_trajectory[k + 1], t_choice, eta_coupling
+                g_trajectory[k], g_trajectory[k + 1], t_choice, eta_coupling,
+                spectral_gap_coeff=spectral_gap_coeff, mu_plaq=mu_plaq,
             )
         else:
             eta_k = 0.0

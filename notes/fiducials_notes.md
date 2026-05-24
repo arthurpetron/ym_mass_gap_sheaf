@@ -167,15 +167,28 @@ verification.
    it as such in the code provenance (currently does); refinement
    awaits direct access to Seiler 1982 (or equivalent) to verify
    the bound and possibly tighten.
-2. **Replace with the conservative site-connectivity bound
+2. **Use the conservative site-connectivity bound
    $\mu_{\text{site}} = 8e \approx 21.7$.** This is the
    [BrydgesFederbush1978] bound, which holds for site polymers and
    *a fortiori* for plaquette polymers (plaquettes have fewer
    neighbors than sites). Conservative; loses the tightness but is
    rigorous. Would shift the lf convergence threshold
-   $g_{\max}^{\mathrm{lf}}$ down by a factor of $\sqrt{16/21.7} \approx 0.86$.
+   $g_{\max}^{\mathrm{lf}}$ down by a factor of $\sqrt{\log 16 / \log(8e)} \approx 0.97$
+   (canonical: $0.4245 \to 0.4098$; Wilson: $0.8491 \to 0.8195$).
 
-The current code uses option 1.
+**Both are available in code** (as of 2026-05-24):
+
+```python
+from computations.large_field_kp import (
+    MU_PLAQUETTE_4D,                 # 16.0, default (option 1)
+    MU_PLAQUETTE_CONSERVATIVE_4D,    # 8e ≈ 21.7, rigorous fallback (option 2)
+    compute_large_field_kp,
+)
+kp_default  = compute_large_field_kp(g, mu_plaq=MU_PLAQUETTE_4D)
+kp_rigorous = compute_large_field_kp(g, mu_plaq=MU_PLAQUETTE_CONSERVATIVE_4D)
+```
+
+Sensitivity sweep: `computations/fiducial_sensitivity.py::sweep_mu_plaq`.
 
 **Refinement strategy.** Direct extraction from [Seiler1982 LNP 159]
 of the plaquette-polymer connectivity bound for $d = 4$ (or any tighter
@@ -306,15 +319,15 @@ physics constants.**
 
 ## Summary table
 
-| Constant | Value | Status | Refine? |
-| --- | --- | --- | --- |
-| `BAŁABAN_SPECTRAL_GAP_COEFF` | 1/2 | literature-shape fiducial | first target |
-| `MU_CONNECTIVITY_4D` | log(8e) | literature formula | already standard |
-| `MU_PLAQUETTE_4D` | 16 | literature-shape (5d-4) | second target |
-| `J_MAX_DEFAULT` | 12 | engineering | only if needed |
-| `BALABAN_POLYMER_RESIDUAL` | 2.0 | **heuristic** | second target |
-| `WILSON_LOOP_MIN_AREA_DIMENSIONLESS` | 4 | from project spec | n/a |
-| Trajectory defaults | various | engineering | n/a |
+| Constant | Value | Status | Refine? | Sweep entry point |
+| --- | --- | --- | --- | --- |
+| `BAŁABAN_SPECTRAL_GAP_COEFF` | 1/2 | literature-shape fiducial | first target | `fiducial_sensitivity.sweep_spectral_gap_coeff` |
+| `MU_CONNECTIVITY_4D` | log(8e) | literature formula | already standard | — |
+| `MU_PLAQUETTE_4D` | 16 | literature-shape (5d-4) | rigorous fallback `MU_PLAQUETTE_CONSERVATIVE_4D = 8e` available | `fiducial_sensitivity.sweep_mu_plaq` |
+| `J_MAX_DEFAULT` | 12 | engineering | only if needed | — |
+| `BALABAN_POLYMER_RESIDUAL` | 2.0 | **heuristic** | swept directly via `polymer_residual` parameter | `fiducial_sensitivity.sweep_polymer_residual` |
+| `WILSON_LOOP_MIN_AREA_DIMENSIONLESS` | 4 | from project spec | n/a | — |
+| Trajectory defaults | various | engineering | n/a | — |
 
 **Two flagged HEURISTIC values that should be refined first:**
 1. `BAŁABAN_SPECTRAL_GAP_COEFF = 1/2` (literature-shape, but the
@@ -339,12 +352,43 @@ physics constants.**
 - **In Lean** (`lean/`): when lifting Python constants to `Q'` for the
   quantitative closures (planned), add a docstring line citing the
   relevant entry here. The arithmetic in Q' is exact, but the
-  *source* of the rational is the relevant fiducial.
+  *source* of the rational is the relevant fiducial. For the SU(2)
+  pilot σ̂-budget closure, see
+  [`lean/YMGap/RG/SigmaHatPilot.lean`](../lean/YMGap/RG/SigmaHatPilot.lean):
+  it instantiates the `RationalTail.sigma_hat_budget_closure` framework
+  on a Q'-rational upper bound `η_max = 11/10000` matching the Python
+  pilot at the canonical wire-in parameters
+  `(g_0 = 0.30, K = 3, denominator = 10000)`.
 
 - **In Python** (`computations/`): the module-level docstring of each
   module already names the constants and their status. The provenance
   dict on each `*KP` dataclass records per-constant origin. This file
   is the audit; the module docstrings are the per-use citations.
+
+  Run sensitivity sweeps via
+  [`computations/fiducial_sensitivity.py`](../computations/fiducial_sensitivity.py)
+  (`python -m computations.fiducial_sensitivity` from the repo root) to
+  see how each fiducial moves the pilot's convergence thresholds and
+  budget closure.  As of 2026-05-24 all three flagged fiducials —
+  `BAŁABAN_SPECTRAL_GAP_COEFF`, `MU_PLAQUETTE_4D`,
+  `BALABAN_POLYMER_RESIDUAL` — are threaded through
+  `sigma_hat_trajectory` (via `spectral_gap_coeff`, `mu_plaq`,
+  `polymer_residual` parameters), so the sweep tables report each
+  fiducial's real impact on `Σ_k η_k` rather than the constant default.
+
+  For "what does adopting this refinement cost in pilot window?"
+  questions, use `fiducial_sensitivity.max_g0_closure(...)`.  Sample
+  output (canonical, K = 3, σ̂_0 = 1):
+
+  | refinement                       | g_0_max | delta |
+  | --- | --- | --- |
+  | default fiducials                | 0.3912  | baseline |
+  | conservative μ_plaq = 8e         | 0.3905  | −0.2% |
+  | tighter sf (c_λ = 1.0)           | 0.4133  | +5.6% |
+  | looser  sf (c_λ = 0.3)           | 0.3054  | −22.0% |
+
+  The pilot window is dominated by the small-field fiducial; the
+  conservative large-field fallback is essentially free.
 
 ---
 

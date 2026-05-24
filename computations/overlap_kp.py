@@ -43,7 +43,11 @@ from dataclasses import dataclass
 from typing import Final
 
 from computations.heat_kernel import HeatKernelConvention
-from computations.large_field_kp import LargeFieldKP, compute_large_field_kp
+from computations.large_field_kp import (
+    MU_PLAQUETTE_4D,
+    LargeFieldKP,
+    compute_large_field_kp,
+)
 from computations.small_field_kp import SmallFieldKP, compute_small_field_kp
 
 # --------------------------------------------------------------------------
@@ -84,6 +88,8 @@ def compute_overlap_kp(
     g_k: float,
     scale_k: int = 0,
     t_choice: HeatKernelConvention = HeatKernelConvention.CANONICAL,
+    spectral_gap_coeff: float | None = None,
+    mu_plaq: float = MU_PLAQUETTE_4D,
 ) -> OverlapKP:
     """Compute `(ρ_∩, K_∩)` from 3.1 + 3.2 via Proposition 7.1.
 
@@ -94,9 +100,20 @@ def compute_overlap_kp(
         K_∩ = K_sf + K_lf  (saturating the upper bound).
 
     The proposition_7_1_satisfied flag is set after structural check.
+
+    Pass ``spectral_gap_coeff`` to override the small-field fiducial
+    ``BAŁABAN_SPECTRAL_GAP_COEFF``; pass ``mu_plaq`` to override the
+    large-field fiducial ``MU_PLAQUETTE_4D`` (e.g. with
+    ``MU_PLAQUETTE_CONSERVATIVE_4D = 8e``).  See
+    ``notes/fiducials_notes.md`` for the audit.
     """
-    sf = compute_small_field_kp(g_k, scale_k=scale_k, t_choice=t_choice)
-    lf = compute_large_field_kp(g_k, scale_k=scale_k, t_choice=t_choice)
+    sf = compute_small_field_kp(
+        g_k, scale_k=scale_k, t_choice=t_choice,
+        spectral_gap_coeff=spectral_gap_coeff,
+    )
+    lf = compute_large_field_kp(
+        g_k, scale_k=scale_k, t_choice=t_choice, mu_plaq=mu_plaq,
+    )
 
     rho_cap = min(sf.rho_sf, lf.rho_lf)
     K_cap = sf.K_sf + lf.K_lf
@@ -141,7 +158,11 @@ def compute_overlap_kp(
 
 
 def delta_cap(
-    g_k: float, g_k_next: float, t_choice: HeatKernelConvention
+    g_k: float,
+    g_k_next: float,
+    t_choice: HeatKernelConvention,
+    spectral_gap_coeff: float | None = None,
+    mu_plaq: float = MU_PLAQUETTE_4D,
 ) -> float:
     """The per-step Δ_∩ budget: K_∩(k+1) ≤ K_∩(k) + Δ_∩(b, g_k).
 
@@ -150,11 +171,22 @@ def delta_cap(
     when 3.1's cluster expansion diverges in the non-convergent regime
     — work_plan 3.1 post-upgrade).  This propagates the "non-convergent
     regime" honestly through 3.4 / 3.5.
+
+    The ``spectral_gap_coeff`` and ``mu_plaq`` overrides feed straight
+    into the upstream small-field / large-field KP certificates; used
+    by ``computations/fiducial_sensitivity.py`` to surface fiducial
+    impact on ``Σ_k η_k``.
     """
     import math
 
-    ok = compute_overlap_kp(g_k, t_choice=t_choice)
-    ok_next = compute_overlap_kp(g_k_next, t_choice=t_choice)
+    ok = compute_overlap_kp(
+        g_k, t_choice=t_choice,
+        spectral_gap_coeff=spectral_gap_coeff, mu_plaq=mu_plaq,
+    )
+    ok_next = compute_overlap_kp(
+        g_k_next, t_choice=t_choice,
+        spectral_gap_coeff=spectral_gap_coeff, mu_plaq=mu_plaq,
+    )
     # If either K_cap is non-finite, Δ_∩ is non-finite too.
     if not math.isfinite(ok.K_cap) or not math.isfinite(ok_next.K_cap):
         return float("inf")
@@ -170,10 +202,15 @@ def delta_cap(
 def first_few_rg_steps(
     g_trajectory: list[float],
     t_choice: HeatKernelConvention = HeatKernelConvention.CANONICAL,
+    spectral_gap_coeff: float | None = None,
+    mu_plaq: float = MU_PLAQUETTE_4D,
 ) -> list[OverlapKP]:
     """Compute the overlap KP certificate at each scale in the trajectory."""
     return [
-        compute_overlap_kp(g, scale_k=k, t_choice=t_choice)
+        compute_overlap_kp(
+            g, scale_k=k, t_choice=t_choice,
+            spectral_gap_coeff=spectral_gap_coeff, mu_plaq=mu_plaq,
+        )
         for k, g in enumerate(g_trajectory)
     ]
 
@@ -197,23 +234,28 @@ class DeltaCapBudgetResult:
 def delta_cap_budget(
     g_trajectory: list[float],
     t_choice: HeatKernelConvention = HeatKernelConvention.CANONICAL,
+    spectral_gap_coeff: float | None = None,
+    mu_plaq: float = MU_PLAQUETTE_4D,
 ) -> DeltaCapBudgetResult:
     """Compute Σ_k Δ_∩(b, g_k) across an RG trajectory.
 
     work_plan 3.3 task: verify Σ_k Δ_∩ < ∞ (or at least bounded for
     the trajectory tested).
 
-    Note: after the post-3.1 small-field upgrade, Δ_∩ is no longer
-    structurally trivial. If either endpoint has non-finite K_cap
-    (for example because K_sf diverges outside the current convergence
-    window), the total budget is non-finite and downstream pilot checks
-    fail. K_lf is still a placeholder until the 3.2-upgrade lands.
+    After the 3.1 / 3.2 upgrades, Δ_∩ is non-trivial: if either
+    endpoint has non-finite K_cap (e.g. because K_sf or K_lf diverges
+    outside the cluster-expansion convergence window), the total
+    budget is non-finite and downstream pilot checks fail.  Pass
+    ``spectral_gap_coeff`` / ``mu_plaq`` to swap fiducials.
     """
     per_step: list[float] = []
     partials: list[float] = []
     running = 0.0
     for i in range(len(g_trajectory) - 1):
-        d = delta_cap(g_trajectory[i], g_trajectory[i + 1], t_choice=t_choice)
+        d = delta_cap(
+            g_trajectory[i], g_trajectory[i + 1], t_choice=t_choice,
+            spectral_gap_coeff=spectral_gap_coeff, mu_plaq=mu_plaq,
+        )
         per_step.append(d)
         running += d
         partials.append(running)

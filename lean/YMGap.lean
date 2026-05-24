@@ -22,3 +22,4 @@ import YMGap.Sheaf.Summability
 import YMGap.Sheaf.Gluing
 import YMGap.RG.InductiveState
 import YMGap.RG.BlockSpin
+import YMGap.RG.SigmaHatPilot

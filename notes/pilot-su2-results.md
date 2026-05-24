@@ -105,20 +105,28 @@ The Lean side has six open sorries (`[P2.1]` × 2 parts, `[P2.3-{sf,lf,cap,sigma
 
 ---
 
-## 6. Recommended next moves (post-3.4-upgrade)
+## 6. Recommended next moves (post-3.4-upgrade and post-RationalTail wire-in)
 
-Three parallel directions:
+Updates landed 2026-05-24:
 
-1. **Close the Lean sorries `[P2.3-{sf,lf,cap,sigma}]`.** With 3.1, 3.2, 3.4 all upgraded — and 3.3 a structural composition of those — every per-step obligation has real rational coefficients in Python. For each `[P2.3-X]`, lift the rational constants to Q' and construct a Lean term inhabiting `Obligation_X`. The Q'-lift is mechanical given the real upstream. When all four close, the SU(2) inductive step is machine-verified at the abstract per-step type level.
+  * **Lean sorries `[P2.3-{sf,lf,cap,sigma}]` all CLOSED** — per `lean/SORRY_LEDGER.md`, the four per-step obligations are inhabited at `V = Q'` with axiom-gate `[propext]` only.  Only `[P2.1]` part (b) (tightness conjecture) remains open in `lean/`.
+  * **Global σ̂-budget closure framework + SU(2) pilot wire-in CLOSED at finite truncation** — `lean/YMGap/Constructive/RationalTail.lean` provides the framework theorem `sigma_hat_budget_closure` plus the workhorse `finSum_stabilizes_after_K`; `lean/YMGap/RG/SigmaHatPilot.lean` instantiates it on the canonical Python pilot at `(g_0 = 0.30, K = 3, σ̂_0 = 1)` with a Q'-rational upper bound `η_max = 11/10000`.  All theorems report `[propext]` only.
+  * **Fiducial handling formalized** — `MU_PLAQUETTE_CONSERVATIVE_4D = 8e ≈ 21.75` added as a rigorous-fallback variant for the large-field plaquette connectivity bound (fiducials §3 option 2); `compute_large_field_kp` and `convergence_threshold_g_lf` expose `mu_plaq` as a parameter.  `sigma_hat_trajectory` and `compute_eta` now thread `polymer_residual` and `wilson_loop_min_area` directly.  Sensitivity sweeps live in `computations/fiducial_sensitivity.py`.
 
-2. **Refine the fiducial constants against direct paper extraction.** Three load-bearing fiducials remain (each adjustable, each documented):
-   - `BAŁABAN_SPECTRAL_GAP_COEFF = 1/2` in 3.1 small-field;
-   - `MU_PLAQUETTE_4D = 16` and the trivial `|χ_j(U)| ≤ d_j` sup bound in 3.2 large-field;
-   - `BALABAN_POLYMER_RESIDUAL = 2.0` in 3.4 σ̂-transport.
+Remaining directions:
 
-   Each refinement is mechanical given paper consultation; the framework here accepts adjusted values without code changes beyond the named constants.
+1. **Refine the three flagged fiducials against direct paper extraction.** Per `notes/fiducials_notes.md`:
+   - `BAŁABAN_SPECTRAL_GAP_COEFF = 1/2` (literature-shape; refinement awaits Bałaban paper consultation).
+   - `MU_PLAQUETTE_4D = 16` (widely cited as `5d - 4` but unverified; conservative `MU_PLAQUETTE_CONSERVATIVE_4D = 8e` available NOW as a rigorous alternative).
+   - `BALABAN_POLYMER_RESIDUAL = 2.0` (heuristic; refinement awaits Bałaban 1988 polymer-residual extraction).
 
-3. **Build a rational-tail-bound module for the global budget.** The per-step S4 budget closure is now real, but the global claim `Σ_{k=0}^∞ η_k < σ̂_0` requires a rational tail bound (per the Decision-1 record). With `DERIVED_ETA_COUPLING = 1/2 ∈ ℚ` and `Δ_∩` admitting a geometric structure from the upstream cluster-expansions, the tail bound is computable in Q' — but the module hasn't been written. This is the natural follow-up after the Lean closures.
+   Each refinement is mechanical given paper consultation.  Run `python -m computations.fiducial_sensitivity` for an at-a-glance impact table — all three fiducials now report real `Σ η_k` movement and a pilot-window `g_0_max` (via `max_g0_closure`) since the 2026-05-24 threading work.
+
+2. **Close `[P2.1]` part (b)** — Conjecture 7.4 tightness of `K_∩ ≤ K_sf + K_lf`.  Requires concrete polymer activity forms; depends on a sharper analytic input than 3.1 / 3.2 / 3.3 currently provide.
+
+3. **Lift the rational-tail closure to the Phase-1-output trajectory.**  The current `SigmaHatPilot.eta_pilot_budget_closes` is at finite `N`; for a Phase-4 continuum-limit claim we'd want either a rational tail bound on `Σ_{k ≥ K} η_k` (option (i) of §4.2 in `notes/sigma-hat-derivation.md`) or a constructive-reals layer (option (ii)).  Not on the Phase-3 critical path.
+
+4. **Audit the heat-kernel normalization** (`work_plan.md` Current-status item 4).  The current notes carry both inverse-coupling and diffusion-time language; before any character-expansion constant is treated as a probability bound, this needs resolution.  Independent of the σ̂-budget work.
 
 Pilot sweep summary (post-3.2-upgrade, K = 3, canonical):
 
@@ -141,4 +149,8 @@ See `notes/large-field-derivation.md` §9 for the full sweep table.
 - Figure: [`visualizations/pilot/su2/inductive-closure.svg`](../visualizations/pilot/su2/inductive-closure.svg).
 - All upstream notes: [`notes/`](.).
 - Lean ledger: [`lean/SORRY_LEDGER.md`](../lean/SORRY_LEDGER.md).
+- Lean RationalTail framework: [`lean/YMGap/Constructive/RationalTail.lean`](../lean/YMGap/Constructive/RationalTail.lean).
+- Lean SU(2) pilot wire-in: [`lean/YMGap/RG/SigmaHatPilot.lean`](../lean/YMGap/RG/SigmaHatPilot.lean).
+- Python → Lean rational lift: [`computations/q_lift.py`](../computations/q_lift.py).
+- Fiducial audit + sensitivity sweeps: [`notes/fiducials_notes.md`](fiducials_notes.md), [`computations/fiducial_sensitivity.py`](../computations/fiducial_sensitivity.py).
 - Specification: [`docs/context.md`](../docs/context.md) §7, [`docs/outline.md`](../docs/outline.md) §18.7.

@@ -128,6 +128,30 @@ d-dimensional cubic lattice is bounded by ``(5d - 4)^n``.  For
 ``d = 4``: ``16^n``.  This is a fiducial literature value with the
 cited form; specific numerical refinement (tighter polymer-counting
 bounds) is deferred to a future analytic upgrade.
+
+See `notes/fiducials_notes.md` §3 for the project-wide audit: the
+``5d - 4`` formula is widely cited in lattice gauge theory but was not
+verified verbatim against a primary source in the 2026-05-24 web-search
+pass.  A rigorously-derivable alternative is
+``MU_PLAQUETTE_CONSERVATIVE_4D`` below.
+"""
+
+MU_PLAQUETTE_CONSERVATIVE_4D: Final[float] = 8.0 * math.e
+"""Conservative rigorous fallback for ``μ_plaq`` at d = 4.
+
+Per [Brydges–Federbush 1978] / [Glimm–Jaffe 1987] §18.5: the site
+connectivity bound on a d-dimensional cubic lattice is ``2d · e``, and
+plaquette polymers (having fewer neighbours than sites) are bounded
+*a fortiori* by the same number.  At d = 4: ``8e ≈ 21.746``.
+
+This is *looser* than ``MU_PLAQUETTE_4D = 16`` and so shrinks the
+large-field convergent regime by the factor
+``√(log 16 / log(8e)) ≈ 0.86`` — a real cost.  Use this when the
+audit margin on the unverified Seiler ``5d - 4 = 16`` bound matters
+(e.g. when the pilot would land in the disputed ``g ∈ [16-threshold,
+8e-threshold]`` band).
+
+Per `notes/fiducials_notes.md` §3 option 2.
 """
 
 MU_PLAQUETTE_4D_LOG: Final[float] = math.log(MU_PLAQUETTE_4D)
@@ -298,6 +322,7 @@ def compute_large_field_kp(
     scale_k: int = 0,
     t_choice: HeatKernelConvention = HeatKernelConvention.CANONICAL,
     j_max_int: int = J_MAX_DEFAULT,
+    mu_plaq: float = MU_PLAQUETTE_4D,
 ) -> LargeFieldKP:
     """Compute ``(ρ_lf, K_lf)`` via heat-kernel character-tail truncation.
 
@@ -334,6 +359,8 @@ def compute_large_field_kp(
             "Manton's exp(-c·g²) shape mismatches the large-field bound "
             "shape exp(-ρ_lf · |X|_plaq).  Use CANONICAL or WILSON."
         )
+    if mu_plaq <= 0:
+        raise ValueError(f"mu_plaq must be positive; got {mu_plaq}")
 
     # Step 1: Z_t with rigorous truncation tail bound.
     Z = heat_kernel_character_tail_Z(g_k, t_choice, j_max_int)
@@ -354,7 +381,7 @@ def compute_large_field_kp(
     rho_lf_asymptotic = kappa / (g_k * g_k)
 
     # Step 4: K_lf via cluster-expansion convergence (Brydges–Federbush 1978).
-    q = MU_PLAQUETTE_4D * Z.upper_bound
+    q = mu_plaq * Z.upper_bound
     if math.isfinite(q) and q < 1.0:
         K_lf = q / (1.0 - q)
         convergent = True
@@ -364,7 +391,7 @@ def compute_large_field_kp(
 
     # Estimated convergence threshold from the small-g leading asymptotic.
     convention_factor = 4.0 if t_choice is HeatKernelConvention.WILSON else 1.0
-    log_threshold_g_sq = math.log(4.0) + MU_PLAQUETTE_4D_LOG
+    log_threshold_g_sq = math.log(4.0) + math.log(mu_plaq)
     g_max_estimate = math.sqrt(
         (float(C_2_SU2_FUNDAMENTAL) * convention_factor) / log_threshold_g_sq
     )
@@ -387,10 +414,11 @@ def compute_large_field_kp(
         "K_lf": (
             f"DERIVED via Brydges–Federbush cluster-expansion: "
             f"K_lf = q/(1-q) with q = μ_plaq · Z_t^upper = "
-            f"{MU_PLAQUETTE_4D:.1f}·{Z.upper_bound:.4e} = {q:.4e}.  "
+            f"{mu_plaq:.4f}·{Z.upper_bound:.4e} = {q:.4e}.  "
             f"{'Convergent' if convergent else 'NOT convergent (K_lf = ∞)'}; "
             f"K_lf = {K_lf:.4e}.  "
-            f"μ_plaq = 5d-4 = 16 (Seiler 1982 plaquette polymer count, d=4)."
+            f"μ_plaq = {mu_plaq:.4f} "
+            f"({'literature-shape (5d-4 = 16, Seiler 1982)' if mu_plaq == MU_PLAQUETTE_4D else 'conservative (8e, Brydges–Federbush 1978)' if mu_plaq == MU_PLAQUETTE_CONSERVATIVE_4D else 'custom override'})."
         ),
         "convergent": (
             f"q = μ_plaq · Z_t^upper = {q:.4e} "
@@ -433,15 +461,20 @@ def compute_large_field_kp(
 # --------------------------------------------------------------------------
 
 
-def eps_lf(g_k: float, g_k_next: float, t_choice: HeatKernelConvention) -> float:
+def eps_lf(
+    g_k: float,
+    g_k_next: float,
+    t_choice: HeatKernelConvention,
+    mu_plaq: float = MU_PLAQUETTE_4D,
+) -> float:
     """Per-step ``ε_lf`` budget: ``ρ_lf(k+1) ≥ ρ_lf(k) - ε_lf(b, g_k)``.
 
     Computed as ``max(0, ρ_lf(k) - ρ_lf(k+1))`` when both rates are
     finite; returns ``+∞`` when either rate is non-finite (which signals
     the character-tail truncation diverged at the corresponding ``g_k``).
     """
-    kp_k = compute_large_field_kp(g_k, t_choice=t_choice)
-    kp_next = compute_large_field_kp(g_k_next, t_choice=t_choice)
+    kp_k = compute_large_field_kp(g_k, t_choice=t_choice, mu_plaq=mu_plaq)
+    kp_next = compute_large_field_kp(g_k_next, t_choice=t_choice, mu_plaq=mu_plaq)
     if not math.isfinite(kp_k.rho_lf) or not math.isfinite(kp_next.rho_lf):
         return float("inf")
     return max(0.0, kp_k.rho_lf - kp_next.rho_lf)
@@ -455,10 +488,11 @@ def eps_lf(g_k: float, g_k_next: float, t_choice: HeatKernelConvention) -> float
 def first_few_rg_steps(
     g_trajectory: list[float],
     t_choice: HeatKernelConvention = HeatKernelConvention.CANONICAL,
+    mu_plaq: float = MU_PLAQUETTE_4D,
 ) -> list[LargeFieldKP]:
     """Compute the large-field KP certificate at each scale."""
     return [
-        compute_large_field_kp(g, scale_k=k, t_choice=t_choice)
+        compute_large_field_kp(g, scale_k=k, t_choice=t_choice, mu_plaq=mu_plaq)
         for k, g in enumerate(g_trajectory)
     ]
 
@@ -474,6 +508,7 @@ def convergence_threshold_g_lf(
     g_search_range: tuple[float, float] = (1e-3, 5.0),
     tolerance: float = 1e-6,
     max_iter: int = 200,
+    mu_plaq: float = MU_PLAQUETTE_4D,
 ) -> float:
     """Largest ``g_k`` (within ``g_search_range``) for which ``K_lf`` is finite.
 
@@ -481,20 +516,23 @@ def convergence_threshold_g_lf(
     smaller ``Z_t`` ↔ smaller ``q`` ↔ more likely ``q < 1``.  Uses
     bisection.  Returns the lower edge of the range if no ``g_k`` in
     the range is convergent; the upper edge if every ``g_k`` converges.
+
+    Pass ``mu_plaq=MU_PLAQUETTE_CONSERVATIVE_4D`` (= 8e) for the rigorous
+    site-connectivity fallback per `notes/fiducials_notes.md` §3 option 2.
     """
     g_low, g_high = g_search_range
     if not compute_large_field_kp(
-        g_low, t_choice=t_choice, j_max_int=j_max_int
+        g_low, t_choice=t_choice, j_max_int=j_max_int, mu_plaq=mu_plaq,
     ).convergent:
         return g_low
     if compute_large_field_kp(
-        g_high, t_choice=t_choice, j_max_int=j_max_int
+        g_high, t_choice=t_choice, j_max_int=j_max_int, mu_plaq=mu_plaq,
     ).convergent:
         return g_high
     for _ in range(max_iter):
         g_mid = 0.5 * (g_low + g_high)
         if compute_large_field_kp(
-            g_mid, t_choice=t_choice, j_max_int=j_max_int
+            g_mid, t_choice=t_choice, j_max_int=j_max_int, mu_plaq=mu_plaq,
         ).convergent:
             g_low = g_mid
         else:

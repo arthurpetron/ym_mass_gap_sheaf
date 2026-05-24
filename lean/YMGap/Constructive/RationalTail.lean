@@ -93,6 +93,37 @@ theorem finSum_zero_seq (n : Nat) : finSum (fun _ => (0 : Q')) n = 0 := by
     exact ih
 
 
+/-! ## Stabilization of `finSum` past a zero-tail cut-off
+
+A workhorse lemma: if a `QSeq` is identically zero from index `K` onward, then
+its partial sums stabilize at `finSum f K` for every `N ≥ K`.  This lets a
+truncated-constant pilot (`η_k = η_max` for `k < K`, then `0`) reduce its
+`∀ N` partial-sum bound to a finite case analysis on `N < K` plus the
+stabilized tail.
+
+No monotonicity assumption is needed; the proof is structural induction on
+the offset `M = N - K` and uses only `Q'.add_zero'` plus the recursive
+defining equation `finSum f (K + M + 1) = finSum f (K + M) + f (K + M)`. -/
+
+/-- If `f k = 0` for every `k ≥ K`, then `finSum f (K + M) = finSum f K`
+for every offset `M`.
+
+Equivalently: past the cut-off `K`, partial sums of `f` are constant.
+
+Useful for closing the partial-sum bound on a finitely-supported `QSeq` —
+all the work happens for `N ≤ K`, and this lemma handles `N > K`. -/
+theorem finSum_stabilizes_after_K
+    (f : QSeq) (K : Nat) (h : ∀ k, K ≤ k → f k = 0) :
+    ∀ M, finSum f (K + M) = finSum f K
+  | 0 => rfl
+  | M + 1 => by
+    -- finSum f (K + (M + 1)) reduces to finSum f (K + M) + f (K + M),
+    -- and f (K + M) = 0 by hypothesis, then add_zero' + ih.
+    show finSum f (K + M) + f (K + M) = finSum f K
+    have hf : f (K + M) = 0 := h (K + M) (Nat.le_add_right K M)
+    rw [hf, Q'.add_zero']
+    exact finSum_stabilizes_after_K f K h M
+
 /-! ## The σ̂-budget closure framework theorem
 
 The Phase-3 load-bearing closure at finite truncation. -/
@@ -225,6 +256,7 @@ end YMGap.Constructive.RationalTail
 #print axioms YMGap.Constructive.RationalTail.finSum_zero
 #print axioms YMGap.Constructive.RationalTail.finSum_succ
 #print axioms YMGap.Constructive.RationalTail.finSum_zero_seq
+#print axioms YMGap.Constructive.RationalTail.finSum_stabilizes_after_K
 #print axioms YMGap.Constructive.RationalTail.sigma_hat_budget_closure
 #print axioms YMGap.Constructive.RationalTail.zero_eta_bound
 #print axioms YMGap.Constructive.RationalTail.smoke_test_zero_eta_closes
