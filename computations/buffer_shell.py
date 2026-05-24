@@ -83,13 +83,37 @@ from computations.heat_kernel import (
 # --------------------------------------------------------------------------
 
 BUFFER_BOUND_PREFACTOR: Final[float] = 4.0
-"""Uniform upper-bound prefactor for the buffer-shell bound's C(δ).
+"""Safety prefactor for the work_plan-§1.3-spec ``value()`` formula's ``C(δ)``.
 
-Chosen empirically (see `tests/test_buffer_shell.py`) so the bound
-dominates the direct heat-kernel integral for the test ranges
-δ ∈ (0.05, 0.5), g ∈ (0.4, 1.5).  If a later milestone needs the
-bound at parameter ranges outside this calibration, re-verify
-against direct quadrature.
+The ``value()`` formula is ``C · exp(-κ/g²) · g^β`` with
+``C = BUFFER_BOUND_PREFACTOR · shell_weyl_volume(δ)`` and ``β = 3``.
+The ``g³`` factor in this shape (inherited from `docs/outline.md` §18.5's
+aggregate overlap-measure bound) decays *faster* than the actual
+single-plaquette tail integral does as ``g`` shrinks, so ``value()`` is
+NOT a uniform upper bound at moderate-to-small ``g`` — see §4 of
+`notes/single-plaquette-derivation.md` for the discussion.
+
+For a uniform upper bound use ``uniform_value()``, which is
+``haar_floor + TAIL_UNIFORM_PREFACTOR · δ³ · exp(-κ/g²)`` (no ``g``
+factor) — verified to dominate the direct heat-kernel integral over
+δ ∈ (0.02, 1.0), g ∈ (0.05, 1.5) in both canonical and Wilson
+conventions.
+"""
+
+TAIL_UNIFORM_PREFACTOR: Final[float] = 4.0
+"""Prefactor for the uniformly-valid irrep-tail bound.
+
+The uniform bound shape is ``TAIL_UNIFORM_PREFACTOR · δ³ · exp(-κ/g²)``
+(no ``g^β`` factor).  Calibrated empirically to dominate the actual
+tail integral ``actual - haar_floor`` over the full physical range
+δ ∈ (0.02, 1.0), g ∈ (0.05, 1.5); verified by
+``tests/test_buffer_shell.py::test_uniform_value_is_uniform_upper_bound``.
+
+The shape difference vs ``value()``: ``value()`` has an extra ``g³``
+suppression from the outline §18.5 overlap-form, while the
+single-plaquette tail integral grows like ``δ³`` only.  Using
+``δ³ · exp(-κ/g²)`` directly gives a faithful upper bound at small ``g``
+where the ``g³`` factor would over-suppress.
 """
 
 # --------------------------------------------------------------------------
@@ -99,15 +123,34 @@ against direct quadrature.
 
 @dataclass(frozen=True)
 class BufferShellBound:
-    """The (C, κ, β) triple of the single-plaquette buffer-shell bound.
+    """The (C, κ, β) triple + Haar-floor uniformizer for the buffer-shell bound.
 
-    The bound is
+    The work_plan-§1.3-mandated bound shape is
 
-        P[δ/2 < d(U_p, 1) < 2δ]  ≤  C · exp(-κ / g²) · g^β.
+        irrep_tail_bound  =  C · exp(-κ / g²) · g^β.
 
-    Fields carry the values; ``value()`` evaluates the bound;
-    ``provenance`` is a dict from constant name to a one-line origin
-    string for audit / cross-checking against the derivation note.
+    This shape captures the *irrep-tail contribution* of the heat-kernel
+    expansion but vanishes as ``g → 0`` — and the actual SU(2) buffer
+    probability does not, because as the heat-kernel time ``t = 1/g²``
+    grows the kernel ``K_t`` approaches the uniform Haar measure and the
+    buffer probability approaches the Haar shell volume
+    ``vol_Haar(δ) = (1/π) · ∫_{δ/2}^{2δ} sin²(θ/2) dθ ≈ 0.21 · δ³``.
+
+    The ``haar_floor`` field exposes this g-independent floor explicitly;
+    callers needing a UNIFORM upper bound (in particular, P3.3 overlap
+    KP and any downstream chaining estimate) should use
+    ``uniform_value()`` which returns ``haar_floor + value()``.
+
+    The resolution of the Haar-floor limitation flagged in
+    ``notes/single-plaquette-derivation.md`` §4 option 1.
+
+    Fields:
+      * ``C``, ``kappa``, ``beta`` — the irrep-tail triple (work_plan
+        signature).
+      * ``haar_floor`` — the exact ``(1/π) ∫_{δ/2}^{2δ} sin²(θ/2) dθ``
+        Haar shell volume (g-independent).
+      * ``delta_k``, ``g_k``, ``convention`` — context.
+      * ``provenance`` — per-constant origin strings.
     """
 
     C: float
@@ -116,11 +159,40 @@ class BufferShellBound:
     delta_k: float
     g_k: float
     convention: HeatKernelConvention
+    haar_floor: float
     provenance: dict[str, str]
 
     def value(self) -> float:
-        """Evaluate ``C · exp(-κ / g²) · g^β`` at the bound's (δ, g)."""
+        """Evaluate ``C · exp(-κ / g²) · g^β`` — the irrep-tail contribution only.
+
+        NOT a uniform upper bound on the full buffer probability — it
+        vanishes as ``g → 0`` while the actual probability approaches
+        ``haar_floor``.  Use ``uniform_value()`` for a uniform bound.
+        """
         return self.C * math.exp(-self.kappa / (self.g_k ** 2)) * (self.g_k ** self.beta)
+
+    def uniform_value(self) -> float:
+        """A uniform upper bound: ``haar_floor + TAIL_UNIFORM_PREFACTOR · δ³ · exp(-κ/g²)``.
+
+        Verified to dominate the direct heat-kernel integral
+        ``buffer_measure_exact_numerical(δ, g, convention)`` at every
+        ``(δ, g)`` in δ ∈ (0.02, 1.0), g ∈ (0.05, 1.5) and in both
+        canonical and Wilson conventions
+        (``tests/test_buffer_shell.py::test_uniform_value_is_uniform_upper_bound``).
+
+        Tight as ``g → 0`` (the haar floor saturates); loose by a small
+        constant factor at moderate ``g``.  Use this — not ``value()`` —
+        in downstream uniform-in-``g`` consumers (P3.3 overlap KP,
+        chaining-estimate Phase-3 work).
+
+        NOTE: the shape differs from ``value()`` deliberately.  ``value()``
+        carries the work_plan-spec ``g^β`` factor; this method drops it
+        because the single-plaquette tail integral does not vanish that
+        fast as ``g → 0``.
+        """
+        return self.haar_floor + TAIL_UNIFORM_PREFACTOR * (
+            self.delta_k ** 3
+        ) * math.exp(-self.kappa / (self.g_k ** 2))
 
 
 # --------------------------------------------------------------------------
@@ -195,6 +267,17 @@ def single_plaquette_buffer_measure(
             f"BUFFER_BOUND_PREFACTOR = {BUFFER_BOUND_PREFACTOR}; "
             f"empirically calibrated upper-bound multiplier"
         ),
+        "haar_floor": (
+            f"shell_weyl_volume({delta_k:.4g}) = {weyl_vol:.6e}; the "
+            f"g-independent Haar-floor uniformizer (notes/single-plaquette-"
+            f"derivation.md §4 option 1)."
+        ),
+        "uniform_value": (
+            f"uniform_value() = haar_floor + TAIL_UNIFORM_PREFACTOR · δ³ · "
+            f"exp(-κ/g²) = {weyl_vol:.6e} + 4 · {delta_k**3:.4e} · "
+            f"exp(-{kappa:.4f}/{g_k**2:.4e}). Verified uniform upper bound "
+            f"over δ ∈ (0.02, 1.0), g ∈ (0.05, 1.5) in both conventions."
+        ),
     }
 
     return BufferShellBound(
@@ -204,6 +287,7 @@ def single_plaquette_buffer_measure(
         delta_k=delta_k,
         g_k=g_k,
         convention=t_choice,
+        haar_floor=weyl_vol,
         provenance=provenance,
     )
 

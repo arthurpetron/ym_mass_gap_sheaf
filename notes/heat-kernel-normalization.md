@@ -52,6 +52,19 @@ The exponent coefficient $\kappa_{SU(2)} = 3/4$ here is exactly $C_2(1/2)$, the 
 > certificate. See `notes/large-field-derivation.md` §3, §5 for the
 > derivation in this convention.
 
+> **Buffer-shell Haar-floor uniform bound landed (2026-05-24).** The
+> two-sided buffer-shell probability bound that was the load-bearing
+> concern of `work_plan.md` Current-status item 4 has now been given a
+> uniform-in-$g$ form via `BufferShellBound.uniform_value()` (the
+> Haar-floor + correctly-shaped tail term). Empirically verified to
+> dominate the direct heat-kernel integral across the full physical
+> pilot range in both canonical and Wilson conventions. See
+> `notes/single-plaquette-derivation.md` §4 for the derivation and the
+> shape-mismatch story (the work_plan-spec $g^\beta$ factor was
+> over-suppressing the actual single-plaquette tail). Downstream Phase-3
+> consumers (1.4, 3.3) should now compose `uniform_value()` per
+> plaquette, not the legacy `value()`.
+
 ---
 
 ## 2. Wilson convention, derived

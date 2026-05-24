@@ -109,30 +109,59 @@ The **Haar floor** is not captured by the $\exp(-\kappa/g^2)\,g^\beta$ form — 
 
 ---
 
-## 4. Looseness — the Haar-floor limitation
+## 4. Looseness — the Haar-floor limitation (RESOLVED 2026-05-24)
+
+> **Resolution (2026-05-24).** Option 1 below has been implemented as
+> `BufferShellBound.uniform_value()` in `computations/buffer_shell.py`.
+> The original `value()` method is preserved with the work_plan-spec
+> $C \cdot \exp(-\kappa/g^2) \cdot g^\beta$ shape (useful as an asymptotic
+> reference at large $g$, **NOT** an upper bound at moderate-to-small $g$);
+> `uniform_value()` returns $\text{haar\_floor} + C \cdot \delta^3 \cdot \exp(-\kappa/g^2)$
+> (no $g^\beta$ factor), verified to dominate the direct heat-kernel
+> integral over $\delta \in (0.02, 1.0)$, $g \in (0.05, 1.5)$ in both
+> canonical and Wilson conventions
+> (`tests/test_buffer_shell.py::test_uniform_value_is_uniform_upper_bound`).
+> Two prefactors are exposed: `BUFFER_BOUND_PREFACTOR = 4` (legacy, for
+> `value()`) and `TAIL_UNIFORM_PREFACTOR = 4` (for `uniform_value()`).
+> The discussion below documents what the problem was and why this
+> resolution is the right one.
+
+### 4.1. The problem
 
 The work_plan-required bound form $C \cdot \exp(-\kappa/g^2) \cdot g^\beta$ with $\kappa > 0$ **vanishes as $g \to 0$**. The actual canonical-convention buffer probability **does not**: as $g \to 0$, the heat-kernel time $t = 1/g^2 \to \infty$, the kernel $K_t \to $ uniform Haar, and the buffer probability approaches the Haar shell volume $\approx 0.21\,\delta^3$ — a $g$-independent floor.
 
-**Consequence.** The bound formula is **not a uniform upper bound** on the full buffer probability at small $g$. At large enough $g$ (numerically: $g \gtrsim 1$), the bound and the direct heat-kernel integral agree in shape and order of magnitude; at smaller $g$, the bound underestimates the actual probability.
+**Consequence (pre-resolution).** The bound formula was **not a uniform upper bound** on the full buffer probability at small $g$. Worse: empirical sweep showed the underlying $g^\beta = g^3$ factor in the spec shape made `value()` consistently UNDERESTIMATE the actual integral by factors of 1.5–50× at moderate $g$ in the canonical-convention test range. The `BUFFER_BOUND_PREFACTOR = 4` "empirical calibration" was only an order-of-magnitude match, not a true upper bound.
 
-`tests/test_buffer_shell.py` verifies:
-
-- monotonicity in $\delta_k$ (formula);
-- the bound formula vanishes as $g_k \to 0$ (formula);
-- order-of-magnitude consistency with the direct numerical heat-kernel integral at $g = 1.5$ (`test_bound_consistent_with_numerical_at_moderate_g`).
-
-It does **not** verify the bound is an upper bound at $g \to 0$, because it isn't — that's what the canonical-vs-Wilson-vs-Manton convention table of 1.2 already flagged as a regime-dependent question, and the issue surfaces concretely here.
-
-`work_plan.md` 1.3 anticipates this:
+`work_plan.md` 1.3 anticipated the qualitative issue:
 
 > "Whether the bound is tight enough to survive the union bound in Milestone 1.4. The expected answer is 'not quite' — that is what motivates the chaining argument in Phase 3."
 
-The looseness at small $g$ is the *quantitative* version of that warning. Milestone 1.4 (union bound) and Milestone 3.3 (overlap KP constants) will need to handle this. Two paths to tightening:
+The 2026-05-24 audit (per `work_plan.md` Current-status item 4) made the quantitative shape mismatch explicit and triggered the resolution.
 
-1. **Add the Haar floor.** Replace $C\,\exp(-\kappa/g^2)\,g^\beta$ with $C_1 \,\delta^3 + C_2\,\exp(-\kappa/g^2)\,g^\beta$ — explicit two-part bound. Loses the single-triple shape work_plan asks for but is a uniform upper bound.
-2. **Chaining estimate.** Per `docs/context.md` §3.4, replace the per-plaquette union bound with a chaining / correlated-plaquette argument. This may produce a tighter aggregate bound on $\Omega_k^\cap$ even when the per-plaquette bound has the looseness documented here.
+### 4.2. The fix
 
-Both are 1.4 / 3.3 decisions; for 1.3 we deliver the work_plan-required triple and document its limitation honestly.
+The resolved bound has shape
+
+$$
+\boxed{\quad \text{uniform\_value}(\delta, g) \;=\; \text{haar\_floor}(\delta) \;+\; C \cdot \delta^3 \cdot \exp\!\Big(\!-\tfrac{\kappa}{g^2}\Big) \quad}
+$$
+
+with $C = \texttt{TAIL\_UNIFORM\_PREFACTOR} = 4$, $\kappa$ the convention-appropriate Casimir value (3/4 canonical, 3 Wilson), and $\text{haar\_floor}(\delta) = \texttt{shell\_weyl\_volume}(\delta) = (1/\pi) \int_{\delta/2}^{2\delta} \sin^2(\theta/2) \mathrm{d}\theta$.
+
+**Why this shape works.** The $\delta^3$ factor matches the geometric shell volume; the missing $g^\beta$ factor (vs the work_plan spec) is the load-bearing change. The work_plan/outline $g^3$ factor inherits from the aggregate overlap-measure bound's Gaussian-width Jacobian — that derivation is appropriate at the aggregate level but over-suppresses at the single-plaquette level. Dropping it gives a faithful upper bound at moderate $g$; adding the Haar floor handles the $g \to 0$ limit.
+
+**Verified domain.** The bound dominates over the entire physical pilot range:
+- $\delta \in [0.02, 1.0]$ in steps of 0.04;
+- $g \in [0.05, 1.5]$ in steps of 0.05;
+- both canonical ($\kappa = 3/4$) and Wilson ($\kappa = 3$) conventions.
+
+Worst-case `uniform_value / numerical` ratio: 1.0000 (tight at small $g$ where the Haar floor saturates).
+
+### 4.3. Downstream impact
+
+- **Milestone 1.4** (`computations/overlap_measure.py`): **migrated 2026-05-24.** `union_bound_overlap`, `is_summable_in_k`, and `g_max_for_validity` default to `use_uniform=True` (composing `uniform_value()` per plaquette); pass `use_uniform=False` for legacy access. See `notes/union-bound-tightness.md` §7 for the numerical-impact table.
+- **Milestone 3.3** (`computations/overlap_kp.py`): does NOT consume `buffer_shell` directly — the overlap KP certificate is built from the small-field (3.1) and large-field (3.2) cluster-expansion certificates, not the buffer-shell measure. No migration needed here; the Phase-3 σ̂-pilot uses the upgraded cluster-expansion route exclusively.
+- **Chaining estimate** (still open): even with the uniform pointwise bound, the per-plaquette union may be loose. The chaining argument of `docs/context.md` §3.4 remains a separate tightening direction.
 
 ---
 

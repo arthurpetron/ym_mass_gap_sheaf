@@ -29,6 +29,7 @@ import pytest
 
 from computations.buffer_shell import (
     BUFFER_BOUND_PREFACTOR,
+    TAIL_UNIFORM_PREFACTOR,
     BufferShellBound,
     buffer_measure_exact_numerical,
     plot_buffer_bound_vs_g,
@@ -91,9 +92,17 @@ def test_bound_is_BufferShellBound_with_provenance() -> None:
     assert b.delta_k == 0.2
     assert b.g_k == 1.0
     assert b.convention is CANONICAL
-    # Provenance dict has the four documented keys.
-    for key in ("kappa", "beta", "C_weyl_volume", "C_safety_prefactor"):
+    # Provenance dict has the documented keys (post-Haar-floor uniformization).
+    for key in ("kappa", "beta", "C_weyl_volume", "C_safety_prefactor",
+                "haar_floor", "uniform_value"):
         assert key in b.provenance
+
+
+def test_bound_haar_floor_equals_shell_weyl_volume() -> None:
+    """The haar_floor field is exactly the shell Weyl volume at δ."""
+    for delta in (0.05, 0.1, 0.2, 0.4):
+        b = single_plaquette_buffer_measure(delta, 1.0, CANONICAL)
+        assert b.haar_floor == shell_weyl_volume(delta)
 
 
 def test_bound_kappa_canonical_is_three_quarters() -> None:
@@ -170,6 +179,71 @@ def test_bound_consistent_with_numerical_at_moderate_g() -> None:
         assert 0.5 <= ratio <= 5.0, (
             f"δ={delta}, g=1.5: bound/numerical = {ratio:.3f}, expected [0.5, 5.0]"
         )
+
+
+# --------------------------------------------------------------------------
+# Uniform upper bound — the Haar-floor resolution (notes §4 option 1)
+# --------------------------------------------------------------------------
+
+
+def test_uniform_value_is_uniform_upper_bound() -> None:
+    """`uniform_value()` dominates the direct integral at every (δ, g)
+    in the physical pilot range, in both canonical and Wilson conventions.
+
+    Coverage: δ ∈ (0.02, 1.0), g ∈ (0.05, 1.5).  Resolves the Haar-floor
+    limitation flagged in notes/single-plaquette-derivation.md §4.
+    """
+    failures = []
+    for delta_int in range(2, 101, 4):  # 0.02 .. 1.00 step 0.04
+        delta = delta_int / 100.0
+        for g_int in range(5, 151, 5):  # 0.05 .. 1.50 step 0.05
+            g = g_int / 100.0
+            for conv in (CANONICAL, WILSON):
+                bound = single_plaquette_buffer_measure(delta, g, conv).uniform_value()
+                numerical = buffer_measure_exact_numerical(delta, g, conv)
+                if numerical < 1e-12:
+                    continue  # below scipy quadrature noise floor
+                if bound < numerical * (1.0 - 1e-9):
+                    failures.append((delta, g, conv.value, bound, numerical))
+    assert not failures, (
+        f"uniform_value() failed to dominate at {len(failures)} points; "
+        f"sample: {failures[:5]}"
+    )
+
+
+def test_uniform_value_tight_at_small_g() -> None:
+    """As g → 0, the actual probability approaches haar_floor; uniform_value
+    should be tight (uniform / actual → 1).  Float noise of ~1e-12 tolerated."""
+    for delta in (0.05, 0.1, 0.3, 0.5):
+        for g in (0.05, 0.1, 0.15):
+            b = single_plaquette_buffer_measure(delta, g, CANONICAL)
+            uniform = b.uniform_value()
+            numerical = buffer_measure_exact_numerical(delta, g, CANONICAL)
+            ratio = uniform / numerical
+            assert 1.0 - 1e-9 <= ratio <= 1.01, (
+                f"δ={delta}, g={g}: uniform/numerical = {ratio:.6f}, "
+                f"expected [1.0, 1.01]"
+            )
+
+
+def test_uniform_value_decomposition() -> None:
+    """uniform_value() = haar_floor + TAIL_UNIFORM_PREFACTOR · δ³ · exp(-κ/g²)."""
+    import math
+    delta, g = 0.2, 0.7
+    b = single_plaquette_buffer_measure(delta, g, CANONICAL)
+    expected = b.haar_floor + TAIL_UNIFORM_PREFACTOR * (delta**3) * math.exp(
+        -b.kappa / (g**2)
+    )
+    assert b.uniform_value() == pytest.approx(expected)
+
+
+def test_uniform_value_strictly_above_value() -> None:
+    """uniform_value() ≥ haar_floor > 0, while value() can be arbitrarily
+    small.  At small g, uniform_value() >> value()."""
+    delta, g = 0.2, 0.1
+    b = single_plaquette_buffer_measure(delta, g, CANONICAL)
+    assert b.uniform_value() > b.value()
+    assert b.uniform_value() > b.haar_floor - 1e-15
 
 
 # --------------------------------------------------------------------------

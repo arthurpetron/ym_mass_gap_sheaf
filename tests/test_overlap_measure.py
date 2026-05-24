@@ -62,6 +62,60 @@ def test_union_bound_rejects_manton() -> None:
 
 
 # --------------------------------------------------------------------------
+# Haar-floor migration (2026-05-24): uniform vs legacy per-plaquette bound
+# --------------------------------------------------------------------------
+
+
+def test_union_bound_default_uses_uniform_value() -> None:
+    """Since the 2026-05-24 Haar-floor audit, the default per-plaquette
+    bound is BufferShellBound.uniform_value() (verified upper bound)."""
+    r = union_bound_overlap(100, 1.0, 0.2, CANONICAL)
+    assert r.use_uniform is True
+    expected_per_plaquette = r.plaquette_bound_breakdown.uniform_value()
+    assert r.per_plaquette == pytest.approx(expected_per_plaquette)
+
+
+def test_union_bound_legacy_path_still_available() -> None:
+    """use_uniform=False falls back to the work_plan-spec value() (the
+    asymptotic-reference form, NOT a uniform upper bound)."""
+    r = union_bound_overlap(100, 1.0, 0.2, CANONICAL, use_uniform=False)
+    assert r.use_uniform is False
+    expected_per_plaquette = r.plaquette_bound_breakdown.value()
+    assert r.per_plaquette == pytest.approx(expected_per_plaquette)
+
+
+def test_uniform_bound_dominates_legacy_per_plaquette() -> None:
+    """At every (δ, g) tested, uniform_value() ≥ value() for the
+    per-plaquette bound — the uniform form adds the Haar floor and uses
+    a strictly larger irrep-tail shape (no g^β suppression)."""
+    for delta in (0.05, 0.1, 0.2, 0.5):
+        for g in (0.3, 0.5, 1.0, 1.5):
+            r_uniform = union_bound_overlap(100, g, delta, CANONICAL, use_uniform=True)
+            r_legacy = union_bound_overlap(100, g, delta, CANONICAL, use_uniform=False)
+            assert r_uniform.bound >= r_legacy.bound, (
+                f"δ={delta}, g={g}: uniform={r_uniform.bound}, "
+                f"legacy={r_legacy.bound}; uniform should dominate"
+            )
+
+
+def test_summability_default_uses_uniform() -> None:
+    """is_summable_in_k default mirrors union_bound_overlap default."""
+    g_t, n_t, d_t = [1.0, 0.9, 0.8], [100, 50, 25], [0.2, 0.18, 0.16]
+    r_default = is_summable_in_k(g_t, n_t, d_t, CANONICAL)
+    r_uniform = is_summable_in_k(g_t, n_t, d_t, CANONICAL, use_uniform=True)
+    assert r_default.total == pytest.approx(r_uniform.total)
+
+
+def test_summability_legacy_total_smaller_than_uniform() -> None:
+    """Legacy ``value()`` was systematically below the actual integral;
+    the uniform total is therefore systematically larger."""
+    g_t, n_t, d_t = [1.0, 0.9, 0.8], [100, 50, 25], [0.2, 0.18, 0.16]
+    legacy = is_summable_in_k(g_t, n_t, d_t, CANONICAL, use_uniform=False)
+    uniform = is_summable_in_k(g_t, n_t, d_t, CANONICAL, use_uniform=True)
+    assert uniform.total >= legacy.total
+
+
+# --------------------------------------------------------------------------
 # g_max_for_validity
 # --------------------------------------------------------------------------
 

@@ -68,14 +68,20 @@ class UnionBoundResult:
     bound: float
     """The aggregate bound ``N_p · P_plaquette``."""
     per_plaquette: float
-    """The 1.3 single-plaquette bound at (δ_k, g_k)."""
+    """The 1.3 single-plaquette bound at (δ_k, g_k).  Defaults to
+    ``BufferShellBound.uniform_value()`` since the 2026-05-24 Haar-floor
+    audit; pass ``use_uniform=False`` to use the legacy work_plan-spec
+    ``value()`` (which is NOT a uniform upper bound at small g)."""
     n_plaquettes: int
     """Plaquette count `N_p(k)`."""
     g_k: float
     delta_k: float
     convention: HeatKernelConvention
     plaquette_bound_breakdown: BufferShellBound
-    """The full (C, κ, β) breakdown from 1.3."""
+    """The full (C, κ, β, haar_floor) breakdown from 1.3."""
+    use_uniform: bool
+    """True if the per-plaquette bound came from ``uniform_value()``
+    (the verified uniform upper bound); False if from legacy ``value()``."""
 
 
 def union_bound_overlap(
@@ -83,15 +89,27 @@ def union_bound_overlap(
     g_k: float,
     delta_k: float,
     t_choice: HeatKernelConvention,
+    use_uniform: bool = True,
 ) -> UnionBoundResult:
     """Aggregate bound: ``N_p · P_plaquette(δ_k, g_k)``.
 
     Per work_plan 1.4.  Raises for Manton (inherited from 1.3).
+
+    Since the 2026-05-24 Haar-floor audit
+    (``notes/single-plaquette-derivation.md`` §4), the default per-plaquette
+    bound is ``BufferShellBound.uniform_value()`` — the verified-uniform
+    Haar-floor + correctly-shaped tail term that dominates the direct
+    heat-kernel integral over the full physical range.  Pass
+    ``use_uniform=False`` to fall back to the legacy work_plan-spec
+    ``value()`` (which is NOT a uniform upper bound at small g and is
+    retained for asymptotic-reference and audit-trail purposes).
     """
     if n_plaquettes < 0:
         raise ValueError(f"n_plaquettes must be ≥ 0; got {n_plaquettes}")
     plaquette_bound = single_plaquette_buffer_measure(delta_k, g_k, t_choice)
-    pp_value = plaquette_bound.value()
+    pp_value = (
+        plaquette_bound.uniform_value() if use_uniform else plaquette_bound.value()
+    )
     return UnionBoundResult(
         bound=n_plaquettes * pp_value,
         per_plaquette=pp_value,
@@ -100,6 +118,7 @@ def union_bound_overlap(
         delta_k=delta_k,
         convention=t_choice,
         plaquette_bound_breakdown=plaquette_bound,
+        use_uniform=use_uniform,
     )
 
 
@@ -110,6 +129,7 @@ def g_max_for_validity(
     target_bound: float = 1.0,
     g_search_range: tuple[float, float] = (0.1, 5.0),
     n_search: int = 200,
+    use_uniform: bool = True,
 ) -> float | None:
     """The largest g_k such that the union bound is ≤ ``target_bound``.
 
@@ -118,13 +138,16 @@ def g_max_for_validity(
     upper edge of the search range if the bound is always valid.
 
     Useful for context.md §3.4's "threshold `g_max` above which the
-    union bound fails."
+    union bound fails."  ``use_uniform`` selects the per-plaquette
+    bound shape; see ``union_bound_overlap``.
     """
     g_values = np.linspace(g_search_range[0], g_search_range[1], n_search)
     valid_gs = [
         float(g)
         for g in g_values
-        if union_bound_overlap(n_plaquettes, float(g), delta_k, t_choice).bound
+        if union_bound_overlap(
+            n_plaquettes, float(g), delta_k, t_choice, use_uniform=use_uniform
+        ).bound
         <= target_bound
     ]
     if not valid_gs:
@@ -161,6 +184,7 @@ def is_summable_in_k(
     n_p_trajectory: list[int],
     delta_trajectory: list[float],
     t_choice: HeatKernelConvention,
+    use_uniform: bool = True,
 ) -> SummabilityResult:
     """Compute the partial sums of ``μ_k(Ω_k^∩)`` bounds across the trajectory.
 
@@ -171,6 +195,10 @@ def is_summable_in_k(
     each partial sum; the caller decides whether the sum is "small
     enough."  Per work_plan 1.4 this is the test of whether
     Σ_k μ_k(Ω_k^∩) < ∞ structurally.
+
+    Default ``use_uniform=True`` uses the verified-uniform per-plaquette
+    bound (Haar-floor audit landing 2026-05-24); pass False for the
+    legacy work_plan-spec ``value()`` (asymptotic-reference only).
     """
     if not (len(g_trajectory) == len(n_p_trajectory) == len(delta_trajectory)):
         raise ValueError(
@@ -181,7 +209,7 @@ def is_summable_in_k(
     running_total = 0.0
     all_valid = True
     for g, n_p, d in zip(g_trajectory, n_p_trajectory, delta_trajectory, strict=True):
-        result = union_bound_overlap(n_p, g, d, t_choice)
+        result = union_bound_overlap(n_p, g, d, t_choice, use_uniform=use_uniform)
         per_step.append(result.bound)
         running_total += result.bound
         partials.append(running_total)

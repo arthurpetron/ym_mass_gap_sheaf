@@ -91,7 +91,27 @@ For the figure `visualizations/pilot/su2/overlap-vs-rg-step.svg`: the per-step b
 
 ---
 
-## 7. Pointers
+## 7. Per-plaquette bound migration (2026-05-24)
+
+The Haar-floor audit resolution at `notes/single-plaquette-derivation.md` §4 landed a uniformly-valid replacement `BufferShellBound.uniform_value()` for the per-plaquette buffer-shell bound. The 1.4 union-bound aggregator has been migrated:
+
+- `union_bound_overlap(...)` defaults to `use_uniform=True` and pulls the per-plaquette term from `uniform_value()` rather than the legacy `value()`.
+- `is_summable_in_k(...)` and `g_max_for_validity(...)` inherit the same default.
+- Pass `use_uniform=False` to fall back to the legacy work_plan-spec form for asymptotic-reference / audit-trail use.
+
+Numerical impact on the standard SU(2) trajectory (`g_0 = 1.2, k_max = 8, canonical`):
+
+| convention | Σ_k bound (legacy `value()`) | Σ_k bound (uniform) | ratio |
+| --- | --- | --- | --- |
+| canonical | 9.50e+03 | 3.58e+04 | ~3.8× |
+
+Both totals exceed 1.0 throughout, which is the well-known union-bound looseness flagged in §5; the resolution that matters is **the bound is now an honest upper bound on the probability rather than an underestimate**. Tightening below 1 requires the chaining estimate (`docs/outline.md` §17.1), still open.
+
+`tests/test_overlap_measure.py` enforces the migration with a default-uses-uniform regression test, a legacy-path-still-available test, a domination test (`uniform ≥ legacy` per plaquette over a δ × g grid), and parity tests for `is_summable_in_k`.
+
+---
+
+## 8. Pointers
 
 - Implementation: [`computations/overlap_measure.py`](../computations/overlap_measure.py).
 - Tests: [`tests/test_overlap_measure.py`](../tests/test_overlap_measure.py).

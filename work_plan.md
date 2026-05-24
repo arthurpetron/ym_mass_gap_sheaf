@@ -519,23 +519,53 @@ Still placeholder / open:
 2. **P3.1 coefficient extraction.** The small-field spectral-gap
    coefficient $c_{\lambda}=1/2$ is fiducial pending direct extraction
    from the Bałaban estimates in the project's normalization.
-3. **P3.4 $\eta$ coupling.** The relationship
-   $\Delta_{\cap}\mapsto \eta$ is still the placeholder
-   $\eta = 0.5\,\Delta_{\cap}$.
-4. **P1.2/P1.3 heat-kernel normalization audit.** The current notes
+3. **P3.4 $\eta$ coupling.** ~~Still placeholder $\eta = 0.5\,\Delta_{\cap}$.~~
+   **DERIVED 2026-05-24**: `DERIVED_ETA_COUPLING = c_polymer / A_min = 2 / 4
+   = 1/2 ∈ ℚ`, with `c_polymer = BALABAN_POLYMER_RESIDUAL` (heuristic,
+   refinable) and `A_min = WILSON_LOOP_MIN_AREA_DIMENSIONLESS` (from
+   project spec, outline §7.1).  See `notes/sigma-hat-derivation.md` and
+   `notes/fiducials_notes.md` §5–6.
+4. **P1.2/P1.3 heat-kernel normalization audit.** ~~The current notes
    carry both inverse-coupling and diffusion-time language. Since a
    genuine heat kernel $K_t$ on a compact group concentrates at the
    identity as $t\downarrow 0$ and tends to Haar as $t\to\infty$, the
    use of `t = 2N/g^2` as heat-kernel time must be audited before
    character-expansion constants are treated as probability bounds.
-   The buffer-shell note already exposes the related Haar-floor issue.
-5. **Lean sorries.** `lean/SORRY_LEDGER.md` records the open
+   The buffer-shell note already exposes the related Haar-floor issue.~~
+   **RESOLVED 2026-05-24.** (a) The CANONICAL / WILSON usage was
+   clarified as inverse-coupling activity-exponent (3.2-upgrade);
+   (b) the buffer-shell Haar-floor was given a uniform-in-$g$
+   resolution via `BufferShellBound.uniform_value()` (a Haar floor +
+   correctly-shaped tail term, with `TAIL_UNIFORM_PREFACTOR = 4`
+   verified to dominate the direct heat-kernel integral over
+   $\delta \in (0.02, 1.0)$, $g \in (0.05, 1.5)$ in both conventions).
+   The legacy `value()` keeps the work_plan-spec $g^\beta$ shape but
+   is no longer the uniform-in-$g$ reference; downstream consumers
+   should use `uniform_value()`. See
+   `notes/single-plaquette-derivation.md` §4 for the discussion.
+5. **Lean sorries.** ~~`lean/SORRY_LEDGER.md` records the open
    `[P2.1]` and `[P2.3-{sf,lf,cap,sigma}]` obligations plus the
-   assembled `step_obligation_witness`; all remain `sorryAx`-only.
+   assembled `step_obligation_witness`; all remain `sorryAx`-only.~~
+   **As of 2026-05-24, all `[P2.3-{sf,lf,cap,sigma}]` and the assembled
+   `step_obligation_witness` are CLOSED at `V = Q'` with axiom-gate
+   `[propext]` only.  `[P2.1]` part (a) is also CLOSED; only part (b)
+   (Conjecture 7.4 tightness) remains open.**  In addition, the global
+   σ̂-budget closure framework `RationalTail.sigma_hat_budget_closure`
+   is instantiated on the SU(2) pilot at finite truncation by
+   `lean/YMGap/RG/SigmaHatPilot.lean::eta_pilot_budget_closes`
+   (axiom-gate `[propext]`).
 6. **Continuum limit, OS reconstruction, and the mass-gap theorem.**
    These remain outside Phase 3 and are not implied by the pilot.
 
 ## Suggested next milestone
+
+> **Status note (2026-05-24):** Milestone 3.2-upgrade is COMPLETE
+> (see `notes/large-field-derivation.md`), the σ̂-budget Q' framework
+> (`RationalTail`) and SU(2) pilot wire-in (`SigmaHatPilot`) are
+> landed, fiducials are documented and pluggable, and the conservative
+> `MU_PLAQUETTE_CONSERVATIVE_4D = 8e` fallback is exposed.  The
+> recommendations below describe the next milestone targets; the
+> 3.2-upgrade text is preserved for context.
 
 ### Milestone 3.2-upgrade — large-field character-expansion amplitude
 
