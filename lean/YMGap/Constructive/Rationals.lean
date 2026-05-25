@@ -364,6 +364,87 @@ theorem add_le_self_of_nonneg (a b : Q') (h : (0 : Q') ≤ b) : a ≤ a + b := b
     Int.mul_nonneg (Int.mul_nonneg h_b_num_nn h_a_den_nn) h_a_den_nn
   exact Int.le_add_of_nonneg_right h_diff_nn
 
+/-! ### Left-monotonicity of `+`
+
+Adding a Q' value on the left preserves ≤: `b ≤ c → a + b ≤ a + c`.
+Needed by `YMGap/Sheaf/PolymerDomination.lean` for the formal Conjecture
+7.4 closure (Phase 6.1 of `work_plan.md`).
+
+Proof: cross-product expansion gives
+``(a + b).num · (a + c).den ≤ (a + c).num · (a + b).den``
+⟺ ``a.den · b.den · c.den · a.num + a.den² · c.den · b.num
+   ≤ a.den · b.den · c.den · a.num + a.den² · b.den · c.num``
+⟺ ``a.den² · (b.num · c.den) ≤ a.den² · (c.num · b.den)``
+which follows from `b ≤ c` (which IS `b.num · c.den ≤ c.num · b.den`)
+multiplied by `a.den² ≥ 0`. -/
+
+/-- Algebraic rearrangement helper: `x · y · (z · w) = x · z · (y · w)`
+when only `y, z` are swapped.  Used in `add_le_add_left` proof. -/
+private theorem int_swap_middle (x y z w : Int) :
+    x * y * (z * w) = x * z * (y * w) := by
+  rw [Int.mul_assoc x y (z * w), Int.mul_assoc x z (y * w)]
+  congr 1
+  rw [← Int.mul_assoc, ← Int.mul_assoc, Int.mul_comm y z]
+
+/-- Algebraic rearrangement helper: `x · y · (y · z) = x · z · (y · y)`. -/
+private theorem int_pull_square (x y z : Int) :
+    x * y * (y * z) = x * z * (y * y) := by
+  -- Strategy: y · (y · z) = (y · y) · z = z · (y · y).
+  rw [Int.mul_assoc x y (y * z)]            -- x * (y * (y * z))
+  rw [← Int.mul_assoc y y z]                 -- x * (y * y * z)
+  rw [Int.mul_comm (y * y) z]                -- x * (z * (y * y))
+  rw [← Int.mul_assoc x z (y * y)]           -- x * z * (y * y)
+
+/-- Adding a Q' value on the left preserves ≤: `b ≤ c → a + b ≤ a + c`. -/
+theorem add_le_add_left (a b c : Q') (h_bc : b ≤ c) : a + b ≤ a + c := by
+  show (a + b).num * ((a + c).den : Int) ≤ (a + c).num * ((a + b).den : Int)
+  -- Get the underlying b ≤ c cross-product.
+  have h_b_le_c : b.num * (c.den : Int) ≤ c.num * (b.den : Int) := h_bc
+  -- Compute the denominators definitionally.
+  have h_ab_den : ((a + b).den : Int) = (a.den : Int) * (b.den : Int) := by
+    show (((a.den * b.den - 1) + 1 : Nat) : Int) = (a.den : Int) * (b.den : Int)
+    rw [Nat.sub_add_cancel (Nat.one_le_iff_ne_zero.mpr
+        (Nat.pos_iff_ne_zero.mp (Nat.mul_pos (den_pos a) (den_pos b))))]
+    exact Int.natCast_mul a.den b.den
+  have h_ac_den : ((a + c).den : Int) = (a.den : Int) * (c.den : Int) := by
+    show (((a.den * c.den - 1) + 1 : Nat) : Int) = (a.den : Int) * (c.den : Int)
+    rw [Nat.sub_add_cancel (Nat.one_le_iff_ne_zero.mpr
+        (Nat.pos_iff_ne_zero.mp (Nat.mul_pos (den_pos a) (den_pos c))))]
+    exact Int.natCast_mul a.den c.den
+  -- Numerators are definitional.
+  have h_ab_num : (a + b).num = a.num * (b.den : Int) + b.num * (a.den : Int) := rfl
+  have h_ac_num : (a + c).num = a.num * (c.den : Int) + c.num * (a.den : Int) := rfl
+  rw [h_ab_num, h_ac_num, h_ab_den, h_ac_den]
+  -- Goal: (a.num·b.den + b.num·a.den)·(a.den·c.den)
+  --        ≤ (a.num·c.den + c.num·a.den)·(a.den·b.den).
+  -- Distribute via Int.add_mul on both sides.
+  rw [Int.add_mul, Int.add_mul]
+  -- Goal: a.num·b.den·(a.den·c.den) + b.num·a.den·(a.den·c.den)
+  --        ≤ a.num·c.den·(a.den·b.den) + c.num·a.den·(a.den·b.den).
+  -- Rewrite the first term on each side to a common form
+  -- a.num·a.den·(b.den·c.den) via int_swap_middle.
+  rw [int_swap_middle a.num (b.den : Int) (a.den : Int) (c.den : Int)]
+  -- LHS first term: a.num·a.den·(b.den·c.den).  Same target for RHS:
+  rw [int_swap_middle a.num (c.den : Int) (a.den : Int) (b.den : Int)]
+  -- RHS first term: a.num·a.den·(c.den·b.den).  Make them match via mul_comm:
+  rw [show ((c.den : Int) * (b.den : Int)) = ((b.den : Int) * (c.den : Int))
+       from Int.mul_comm _ _]
+  -- Now both first terms are a.num·a.den·(b.den·c.den).  Use Int.add_le_add_left.
+  -- Reduce the second-term inequality:
+  --   b.num·a.den·(a.den·c.den) ≤ c.num·a.den·(a.den·b.den)
+  -- Rewrite each side via int_pull_square:
+  rw [int_pull_square b.num (a.den : Int) (c.den : Int)]
+  rw [int_pull_square c.num (a.den : Int) (b.den : Int)]
+  -- Goal: a.num·a.den·(b.den·c.den) + b.num·c.den·(a.den·a.den)
+  --        ≤ a.num·a.den·(b.den·c.den) + c.num·b.den·(a.den·a.den).
+  -- Strip the common first term:
+  apply Int.add_le_add_left
+  -- Goal: b.num·c.den·(a.den·a.den) ≤ c.num·b.den·(a.den·a.den).
+  -- This is h_b_le_c (b.num·c.den ≤ c.num·b.den) scaled by a.den² ≥ 0.
+  have h_a_den_nn : (0 : Int) ≤ (a.den : Int) := Int.natCast_nonneg _
+  exact Int.mul_le_mul_of_nonneg_right h_b_le_c
+    (Int.mul_nonneg h_a_den_nn h_a_den_nn)
+
 /-! ### Transitivity of `≤`
 
 The key arithmetic identity for chaining inequalities at Q'.  Proof goes
@@ -492,4 +573,5 @@ end YMGap.Constructive
 #print axioms YMGap.Constructive.Q'.zero_le_add
 #print axioms YMGap.Constructive.Q'.zero_le_min
 #print axioms YMGap.Constructive.Q'.add_le_self_of_nonneg
+#print axioms YMGap.Constructive.Q'.add_le_add_left
 #print axioms YMGap.Constructive.Q'.le_trans'

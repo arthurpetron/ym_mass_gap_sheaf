@@ -20,6 +20,7 @@ import YMGap.Sheaf.Site
 import YMGap.Sheaf.BoundWitness
 import YMGap.Sheaf.Summability
 import YMGap.Sheaf.Gluing
+import YMGap.Sheaf.PolymerDomination
 import YMGap.RG.InductiveState
 import YMGap.RG.BlockSpin
 import YMGap.RG.SigmaHatPilot
