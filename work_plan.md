@@ -402,6 +402,414 @@ calculation is publishable as a numerical experiment.
 
 ---
 
+## Phase 6: Lean-level analytic closures and tightenings
+
+**Phase goal.** Complete the analytic infrastructure needed to lift the
+finite-K SU(2) pilot of Phase 3 to a genuine infinite-trajectory
+closure with Lean-level verification, and tighten the per-plaquette
+overlap-measure bound from the union estimate to a chaining estimate.
+Together these close the analytical loose ends Phase 3 leaves dangling
+and prepare the framework for the continuum-limit work of Phase 7.
+
+### Milestone 6.1 — Polymer-level activity-domination lemma
+
+**Goal.** Formal Lean closure of `[P2.1]` part (b) Conjecture 7.4:
+prove at the type level that for the SU(2) heat-kernel measure, the
+polymer activity domination `s_sf(X) ≥ s_lf(X)` holds for every
+polymer `X` throughout the joint convergent regime, completing the
+union-bound-sharpness closure that the 2026-05-25 empirical evidence
+package (`notes/conjecture-7.4-empirical-evidence.md`) began.
+
+**Deliverables.**
+- `lean/YMGap/Sheaf/PolymerDomination.lean` with:
+  - Theorem `polymer_dominance_sf` proving `s_sf(X) ≥ s_lf(X)` at the
+    type level (filament + ball polymer extremes + interpolation).
+  - Theorem `kp_sum_dominance` deriving `K_max = K_sf` from polymer-level
+    domination.
+  - Quantitative looseness bound `union_bound_tight_at_q_prime`
+    expressing `1 + K_lf/K_sf` in Q'.
+- Tests and axiom-gate `[propext]` only.
+- Updated `lean/SORRY_LEDGER.md` `[P2.1]` part (b) entry: status →
+  CLOSED.
+
+**Dependencies.** `[P2.1]` part (a), Milestones 3.1, 3.2, the
+2026-05-25 empirical evidence package.
+
+**Open questions.** Whether the polymer-level domination admits a
+parametric shape-class proof (filament + ball + interpolation, paralleling
+the empirical argument) or requires more delicate enumeration. The
+empirical evidence makes the parametric form plausible; the actual
+formal proof may need an additional lemma about monotonicity of the
+activity ratio across polymer shapes.
+
+---
+
+### Milestone 6.2 — `Q'.pow` + geometric-series sum infrastructure
+
+**Goal.** Extend the `Q'` arithmetic with the multiplicative machinery
+needed for geometric-tail derivations: `Q'.pow`, `Q'.mul` monotonicity
+lemmas, and the closed-form geometric-series partial-sum bound
+`Σ_{k<N} r^k ≤ 1/(1-r)` for `r : Q'` with `0 ≤ r < 1`.
+
+**Deliverables.**
+- `lean/YMGap/Constructive/Geometric.lean` with:
+  - `Q'.pow : Q' → Nat → Q'` defined by structural induction.
+  - Monotonicity lemmas: `Q'.mul_le_mul_of_nonneg_right`, `Q'.pow_succ`,
+    `Q'.pow_le_pow_of_le`, `Q'.pow_nonneg_of_nonneg`.
+  - `Q'.geometric_partial_sum_bound : ∀ N, finSum (fun k => r^k · η_max) N ≤ η_max · q_div_one_minus_r`
+    for chosen `r, η_max, q_div_one_minus_r : Q'` with the divisor expressed
+    as a precomputed rational (avoiding `Q'.div` as a partial operation).
+- Tests and axiom-gate `[propext]` only.
+
+**Dependencies.** Existing `Rationals.lean` and `RationalTail.lean`.
+
+**Open questions.** Whether to expose a full `Q'.div : Q' → Q' → Q'` as a
+partial operation requiring a nonzero hypothesis on the denominator, or
+to restrict to the geometric-sum-shape closed form where the divisor
+`1/(1-r)` is supplied externally as a rational. The latter is leaner
+and sufficient for 6.4.
+
+---
+
+### Milestone 6.3 — UV-direction SU(2) trajectory
+
+**Goal.** Build the asymptotic-freedom-direction SU(2) trajectory
+generator (g_k → 0 as k → ∞) complementing the existing IR-direction
+`standard_su2_trajectory` (which approaches the Landau pole). The UV
+trajectory is the natural setting for the genuine infinite-tail closure
+because η_k decays geometrically in k in this direction.
+
+**Deliverables.**
+- `computations/uv_trajectory.py` with `uv_su2_trajectory(k_max, b, g_0)`:
+  - One-loop SU(2) β-function in the AF direction:
+    `1/g_{k+1}² = 1/g_k² + (b_0/16π²) · log b` (note: `+`, not `−`).
+  - Lattice spacing `a_{k+1} = a_k / b` (refining).
+  - Per-step `η_k` exhibits geometric decay because both `K_sf` and `K_lf`
+    approach 1 as g → 0.
+- `tests/test_uv_trajectory.py` covering monotonicity of `g_k`, geometric
+  decay of `η_k`, and the Phase-3-budget-closure check at any finite
+  truncation.
+- `visualizations/pilot/su2/uv-trajectory.svg`.
+
+**Dependencies.** Phases 1.2, 3.1, 3.4, `prefix_plus_tail_closure`.
+
+**Open questions.** Step-direction convention. Decision: in
+`uv_su2_trajectory`, `k → k+1` means `a_k → a_k/b` (refining, going to UV).
+The existing `standard_su2_trajectory`'s `k → k+1` means coarsening
+(going to IR / Landau pole). The two trajectories flow in opposite
+directions and complement each other; documentation should make this
+explicit to avoid confusion.
+
+---
+
+### Milestone 6.4 — Genuine infinite-tail SU(2) closure
+
+**Goal.** Compose 6.2 + 6.3 with `RationalTail.prefix_plus_tail_closure`
+(already landed) for a non-zero-tail Lean-verified σ̂-budget closure on
+the UV-direction SU(2) trajectory. This is the milestone where the
+"infinite trajectory" terminology becomes literal in Lean — partial sums
+past any finite `K_0` are bounded by a rational geometric tail derived
+inside Q'.
+
+**Deliverables.**
+- `lean/YMGap/RG/SigmaHatPilotUV.lean` parallel to `SigmaHatPilot.lean`:
+  - Canonical and Wilson UV-pilot rational constants from the Python
+    pilot's actual UV trajectory.
+  - Geometric-tail bound `∀ M, finSum η_uv (K_0 + M) ≤ S_{K_0} +
+    η_max · geo_tail_bound` derived via 6.2's `Q'.geometric_partial_sum_bound`.
+  - Closure: `∀ N, finSum η_uv N ≤ σ̂_0` via `prefix_plus_tail_closure`.
+- `computations/q_lift.py` extension to emit the geometric decay rate
+  `r ∈ Q'` and `η_max ∈ Q'` from the UV pilot data, with lockstep
+  Python ↔ Lean regression tests.
+- Updated `notes/sigma-hat-derivation.md` §4: infinite-trajectory closure
+  is now realized for SU(2), not just framework-only.
+
+**Dependencies.** 6.2, 6.3, `prefix_plus_tail_closure` (already in place).
+
+**Open questions.** Choice of `r` (the geometric decay rate) for the UV
+pilot — likely tied to the β-function's leading coefficient
+`b_0 / (16π²)`. Sensitivity of the closure margin to `r` should be
+exposed via the existing fiducial-sensitivity framework.
+
+---
+
+### Milestone 6.5 — Chaining-estimate tightening
+
+**Goal.** Replace the per-plaquette union bound on `μ_k(Ω_k^∩)` in 1.4
+with a chaining / correlated-plaquette estimate, per
+`docs/outline.md` §17.1 and `docs/context.md` §3.4. This tightens the
+aggregate buffer-measure bound below the current `Σ_k > 1` regime
+that the standard trajectory exhibits, addressing the union-bound
+looseness identified in 1.4's notes.
+
+**Deliverables.**
+- `computations/chaining_estimate.py` with the tightened bound.
+- Comparison figure: per-step bound (chaining) vs per-step bound
+  (union) across the standard trajectory.
+- `notes/chaining-estimate.md` with the derivation.
+- Tests covering monotonicity, dominated-bound consistency
+  (chaining ≤ union), and a trajectory where chaining stays < 1 while
+  union exceeds 1.
+
+**Dependencies.** Milestones 1.3 (uniform_value), 1.4 (union bound).
+
+**Open questions.** Whether the chaining estimate is tight enough to
+admit Phase-3 budget closure at `g_0 > 0.4` (currently fails because
+the small-field threshold pins the convergent regime; the union-bound
+looseness is part of the issue). If the chaining estimate alone is
+insufficient, the question reduces to the sf-threshold itself, which
+is `c_λ`-fiducial-bound.
+
+---
+
+## Phase 7: Continuum limit construction
+
+**Phase goal.** Show that the UV-direction RG flow built in Phase 6
+admits a continuum limit: the renormalized string tension `σ̂_k`
+converges to a positive limit `σ̂_∞ > 0`, and the lattice measures
+`μ_k` admit a projective limit `μ_∞` to a continuum measure on the
+continuum gauge configuration space. This is the structural precursor
+to the mass-gap theorem of Phase 9.
+
+### Milestone 7.1 — UV limit of the σ̂ trajectory
+
+**Goal.** Prove that under the UV-direction RG flow (Phase 6.3), the
+trajectory `{σ̂_k}` converges to a positive limit `σ̂_∞ > 0`, with
+explicit rate (geometric or polynomial) tied to the one-loop
+β-function.
+
+**Deliverables.**
+- `computations/continuum_limit.py` with `sigma_hat_uv_limit(g_0, b, ...)`
+  computing the numerical `σ̂_∞`.
+- Convergence theorem in `formal/continuum-limit.tex` and
+  `notes/continuum-limit.md`.
+- `lean/YMGap/Continuum/SigmaHatLimit.lean` with the Lean closure of
+  `σ̂_uv_limit_positive : σ̂_∞ > 0` (statement at the framework level;
+  the actual limit value requires a constructive-reals layer — see open
+  questions).
+- Tests covering convergence rate, monotonicity, and `g_0`-dependence.
+
+**Dependencies.** Milestone 6.4 (genuine infinite-tail closure provides
+the bound; the limit itself requires showing the partial sums are
+Cauchy).
+
+**Open questions.** Whether `σ̂_∞` is `g_0`-independent in the AF limit
+(suggesting a universal continuum string tension) or carries residual
+`g_0`-dependence. Either is publishable; the universal case is the
+cleaner story for the mass-gap argument.
+
+---
+
+### Milestone 7.2 — Continuum measure construction
+
+**Goal.** Define the continuum SU(2) Wilson measure `μ_∞` as a
+projective limit of the lattice measures `μ_k` under the UV-direction
+block-spin flow, with tightness and limit-existence proofs.
+
+**Deliverables.**
+- `formal/continuum-measure.tex` with the projective-limit construction.
+- `notes/continuum-measure.md` prose companion.
+- Lean type signature `continuum_measure_SU2 : ContinuumMeasure`. The
+  *existence* proof likely lives at the paper level and not Lean (the
+  projective-limit construction of infinite tensor products on compact
+  groups is significant analytical machinery beyond the current Q' /
+  constructive-reals stack).
+
+**Dependencies.** Milestone 7.1.
+
+**Open questions.** This is the boundary where `Q'` definitively does
+not suffice and `lean/YMGap/Constructive/Reals.lean` becomes necessary
+(or the formalization is paper-only). Decide explicitly at the
+Milestone 7.2 kickoff whether to invest in `Constructive/Reals.lean` or
+to accept a Lean-paper hybrid for the continuum limit and beyond.
+
+---
+
+## Phase 8: Osterwalder–Schrader reconstruction
+
+**Phase goal.** Verify the Osterwalder–Schrader axioms for the
+continuum SU(2) Wilson measure `μ_∞` (Phase 7.2) and apply the
+reconstruction theorem to obtain a Hilbert space with a self-adjoint
+Hamiltonian, ready for the mass-gap analysis of Phase 9.
+
+### Milestone 8.1 — OS axiom verification
+
+**Goal.** Verify each OS axiom (translation invariance, reflection
+positivity, Euclidean / O(4) invariance after continuum limit,
+exponential clustering) for `μ_∞`. Reflection positivity lifts from the
+standard lattice argument via the projective limit; clustering follows
+from the Phase 7.1 σ̂_∞ > 0 result.
+
+**Deliverables.**
+- `formal/os-axioms.tex` with per-axiom verification.
+- `notes/os-axiom-verification.md`.
+- Reflection-positivity proof using the standard lattice argument (link
+  variables on each timeslice, reflection through a fixed lattice plane,
+  inner-product positivity).
+- Exponential-clustering proof from σ̂_∞ > 0.
+
+**Dependencies.** Milestone 7.2, Phase 6.5 (chaining estimate
+needs to be OS-compatible).
+
+**Open questions.** Whether the chaining estimate (6.5) preserves OS
+reflection positivity; if not, may need to reshape it.
+
+---
+
+### Milestone 8.2 — Hamiltonian reconstruction
+
+**Goal.** Apply the OS reconstruction theorem to obtain `(H_∞, H_op)`:
+a Hilbert space with a self-adjoint Hamiltonian whose spectrum will be
+analyzed in Phase 9.
+
+**Deliverables.**
+- `formal/os-reconstruction.tex`: reconstruction theorem statement and
+  proof, referencing 8.1 verified axioms.
+- The Hilbert space `H_∞` and Hamiltonian `H_op` as defined objects
+  ready for spectral analysis.
+- `notes/os-reconstruction.md` prose companion.
+
+**Dependencies.** Milestone 8.1.
+
+**Open questions.** Lean formalization of the reconstruction is a major
+undertaking (Stone's theorem, spectral theorem for self-adjoint
+operators). Likely deferred to "paper-first, Lean-later" or a parallel
+Lean-formal-statement-only milestone.
+
+---
+
+## Phase 9: Mass-gap theorem for SU(2)
+
+**Phase goal.** State and prove the mass-gap theorem for SU(2)
+Yang–Mills: the continuum-limit Hamiltonian `H_op` (Phase 8.2) has a
+spectral gap above the ground state, `inf σ(H_op) \ {0} > 0`. This is
+the target the entire program serves.
+
+### Milestone 9.1 — Mass-gap statement and proof
+
+**Goal.** State and prove the SU(2) mass-gap theorem. Proof structure:
+σ̂_∞ > 0 (from Phase 7.1) → exponential clustering of Wilson loops
+(from Phase 8.1) → spectral gap of `H_op` (from Phase 8.2's
+reconstruction).
+
+**Deliverables.**
+- `formal/mass-gap-theorem.tex` with statement and full proof.
+- `notes/mass-gap-theorem.md` companion.
+- The explicit lower bound `m_0 > 0` derived from the Phase-3 pilot
+  numerics — i.e. a *constructive* mass-gap statement, not just an
+  existence claim.
+
+**Dependencies.** Phases 7.1, 8.1, 8.2.
+
+**Open questions.** Sharpness: is the constructed `m_0` the actual
+gap (likely not), or just a positive lower bound? Documenting the gap
+between the proven bound and the conjectured exact value is part of
+the deliverable. Whether quantitative improvement of `m_0` requires
+Phase-3 fiducial refinement (`c_λ` extraction, chaining tightening)
+or Phase-7 / Phase-8 sharpening.
+
+---
+
+### Milestone 9.2 — Lean formalization of the mass-gap statement
+
+**Goal.** Lean-formalize at least the STATEMENT of the SU(2) mass-gap
+theorem and the constructive chain from σ̂_∞ > 0 through to the spectral
+gap (with operator-theoretic steps potentially as type-level placeholders
+or quarantined classical lemmas).
+
+**Deliverables.**
+- `lean/YMGap/MassGap/SU2.lean` with:
+  - Statement: `theorem mass_gap_SU2 : ∃ m : Q', 0 < m ∧ ∀ ε ∈ Spec(H_op) \ {0}, m ≤ ε`
+    (with appropriate types for `Spec` and `H_op`).
+  - Path from `σ̂_∞ > 0` (Phase 7.1's Lean witness) through the OS-reconstruction
+    bridge to the spectral statement.
+- Updated `SORRY_LEDGER.md` reflecting which steps are formal vs paper.
+
+**Dependencies.** Milestone 9.1 (paper-level proof), Phase 7.1 (Lean
+σ̂_∞ closure), `lean/YMGap/Constructive/Reals.lean` (if built; otherwise
+the spectral statement is paper-only).
+
+---
+
+## Phase 10: SU(N) extension framework (toward SU(3))
+
+**Phase goal.** Identify exactly which pieces of Phases 1–9 are
+SU(2)-specific and which are gauge-group-agnostic, then build the SU(3)
+representation infrastructure and instantiate the inductive step for
+SU(3). This converts the SU(2) mass-gap theorem into a recipe for SU(N)
+extensions, with SU(3) as the immediate next target.
+
+### Milestone 10.1 — SU(2)-specific dependency audit
+
+**Goal.** Per-milestone audit of which Phase 1–9 deliverables use
+SU(2)-specific content (Casimir values, group dimension, root system,
+representation theory) vs which are abstract over the gauge group. Produce
+a checklist for SU(N) extension.
+
+**Deliverables.**
+- `notes/su-N-extension-audit.md` with a per-milestone audit (Phase 1–9)
+  identifying SU(2)-specific lemmas, constants, and proofs.
+- An "extension recipe" specifying what changes for SU(3) vs what is
+  reused.
+
+**Dependencies.** All prior phases.
+
+**Open questions.** Whether the abstract sheaf framework (Phase 2) was
+sufficiently gauge-group-agnostic. Some leak is expected; the audit
+will surface it. The SU(2)-specific places most likely to leak: P1.1
+Casimir formulas, P1.2 heat-kernel conventions with `2N = 4`, P3.1's
+`c_λ` fiducial (whose value may depend on N).
+
+---
+
+### Milestone 10.2 — SU(3) representation theory mirror
+
+**Goal.** Mirror Phase 1.1 for SU(3): compute the Casimir spectrum,
+identify the smallest non-trivial Casimir (`C_2(fund) = 4/3` for SU(3)),
+verify orthogonality of characters numerically and symbolically, and
+provide the SU(3)-specific spot values for downstream phases.
+
+**Deliverables.**
+- `computations/su3_representations.py` mirroring `su2_representations.py`.
+- `lean/YMGap/RepTheory/SU3.lean` with the SU(3) Casimir spectrum and
+  spot values at `Q'` for Lean interop.
+- `tests/test_su3_representations.py` against literature values.
+- `visualizations/pilot/su3/casimir-spectrum.svg`.
+
+**Dependencies.** Milestone 1.1 (SU(2) template), 10.1 (extension audit).
+
+**Open questions.** Convention choice for SU(3) characters (Weyl
+character formula, fundamental-vs-anti-fundamental, etc.). Pick the
+convention that mirrors P1.1 most cleanly.
+
+---
+
+### Milestone 10.3 — SU(3) inductive-step pilot
+
+**Goal.** Instantiate the Phase-3 inductive step for SU(3) using the
+10.2 representation data, verifying the framework lifts from SU(2) to
+SU(3) cleanly. Identify any new analytic obstructions specific to
+SU(3) (the larger group dimension affects spectral-gap thresholds and
+polymer-counting constants).
+
+**Deliverables.**
+- `computations/pilot_su3.py` mirroring `pilot_su2.py`.
+- `notes/pilot-su3-results.md` with the SU(3) inductive-step closure
+  status (pass / fail / partial across a sweep of `g_0`).
+- Updated `visualizations/pilot/su3/`.
+- Updated `lean/YMGap/RG/SigmaHatPilotSU3.lean` mirroring `SigmaHatPilot.lean`.
+
+**Dependencies.** Milestones 10.1, 10.2, all Phases 3.x (SU(2) templates).
+
+**Open questions.** Whether the SU(3) small-field convergence threshold
+is meaningfully different from SU(2)'s. The Wilson conversion factor
+becomes `2N = 6` for SU(3) (vs `4` for SU(2)), which enlarges the
+convergent regime in Wilson convention; in canonical convention, the
+threshold depends on the spectral-gap `c_λ` which is `N`-independent at
+leading order. Verifying this is part of the 10.1 audit's payoff.
+
+---
+
 ## Cross-cutting policies
 
 ### Constructive law
@@ -477,11 +885,18 @@ project; the master branch should always be in a buildable state.
 
 ## Current status
 
-As of 2026-05-24: Phases 0--2 are structurally closed, and Phase 3
-is structurally complete through the SU(2) pilot validator. The
-status is no longer "placeholder success"; the post-3.1 small-field
+As of 2026-05-25: Phases 0--4 are structurally closed; Phase 5
+(reduction-theorem paper) is the next big-ticket item not yet started.
+**Scope expanded 2026-05-25**: Phases 6--10 added to take the program
+from the SU(2) pilot validator (Phase 3) through the actual SU(2)
+mass-gap theorem (Phase 9), with Phase 10 setting up the SU(3)
+extension that is the stated downstream goal.
+
+The status is no longer "placeholder success"; the post-3.1 small-field
 upgrade makes the default pilot fail outside the current weak-coupling
-window.
+window, and post-3.4 the σ̂-budget closure is machine-verified at
+finite truncation. The Phase-6+ work extends this to infinite
+trajectories and continuum limits.
 
 Closed / integrated:
 
@@ -555,17 +970,32 @@ Still placeholder / open:
    `lean/YMGap/RG/SigmaHatPilot.lean::eta_pilot_budget_closes`
    (axiom-gate `[propext]`).
 6. **Continuum limit, OS reconstruction, and the mass-gap theorem.**
-   These remain outside Phase 3 and are not implied by the pilot.
+   ~~These remain outside Phase 3 and are not implied by the pilot.~~
+   **As of 2026-05-25 these are IN SCOPE** as Phases 7, 8, and 9
+   respectively. Their analytic preconditions (genuine infinite-tail
+   closure, chaining estimate, polymer activity domination at the type
+   level) are scoped as Phase 6 (Lean-level analytic closures and
+   tightenings). The goal is a constructive SU(2) mass-gap theorem;
+   Phase 10 then sets up the extension to SU(3).
 
 ## Suggested next milestone
 
-> **Status note (2026-05-24):** Milestone 3.2-upgrade is COMPLETE
-> (see `notes/large-field-derivation.md`), the σ̂-budget Q' framework
-> (`RationalTail`) and SU(2) pilot wire-in (`SigmaHatPilot`) are
-> landed, fiducials are documented and pluggable, and the conservative
-> `MU_PLAQUETTE_CONSERVATIVE_4D = 8e` fallback is exposed.  The
-> recommendations below describe the next milestone targets; the
-> 3.2-upgrade text is preserved for context.
+> **Status note (2026-05-25):** Phases 0–4 are closed; Phases 6–10 are
+> the new in-scope work. The recommended near-term targets are:
+>
+> 1. **Phase 5.1** (reduction-theorem paper draft) — can begin now,
+>    purely a write-up of the Phase-3 closure.
+> 2. **Phase 6.1** (polymer-level activity-domination lemma) — formal
+>    Lean closure of `[P2.1]` part (b); the empirical 2026-05-25 evidence
+>    package supplies the analytical skeleton.
+> 3. **Phase 6.2 + 6.3 + 6.4** (Q'.pow, UV-direction trajectory,
+>    genuine infinite-tail closure) — the natural Phase-4-prep cluster
+>    that unlocks Phase 7.
+> 4. **Phase 6.5** (chaining estimate) — independent of (2)–(3); can
+>    run in parallel.
+>
+> The legacy 3.2-upgrade text below is preserved as historical
+> context.
 
 ### Milestone 3.2-upgrade — large-field character-expansion amplitude
 
