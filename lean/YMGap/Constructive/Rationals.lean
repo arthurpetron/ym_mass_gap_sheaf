@@ -395,6 +395,11 @@ private theorem int_pull_square (x y z : Int) :
   rw [Int.mul_comm (y * y) z]                -- x * (z * (y * y))
   rw [← Int.mul_assoc x z (y * y)]           -- x * z * (y * y)
 
+/-- A specialization of `Int.mul_comm`/`Int.mul_assoc`: swap the second and
+third factors of a triple product. -/
+private theorem int_mul_right_comm (a b c : Int) : a * b * c = a * c * b := by
+  rw [Int.mul_assoc, Int.mul_comm b c, ← Int.mul_assoc]
+
 /-- Adding a Q' value on the left preserves ≤: `b ≤ c → a + b ≤ a + c`. -/
 theorem add_le_add_left (a b c : Q') (h_bc : b ≤ c) : a + b ≤ a + c := by
   show (a + b).num * ((a + c).den : Int) ≤ (a + c).num * ((a + b).den : Int)
@@ -445,17 +450,171 @@ theorem add_le_add_left (a b c : Q') (h_bc : b ≤ c) : a + b ≤ a + c := by
   exact Int.mul_le_mul_of_nonneg_right h_b_le_c
     (Int.mul_nonneg h_a_den_nn h_a_den_nn)
 
+/-! ### Multiplication: nonneg-preservation and right-monotonicity
+
+Needed by `YMGap/Constructive/Geometric.lean` for the geometric-tail
+closure (Phase 6.2 of `work_plan.md`).  Proofs use cross-product
+manipulation + `Int.mul_le_mul_of_nonneg_right` / `Int.mul_nonneg`. -/
+
+/-- Product of two nonneg `Q'` values is nonneg.  Reduces to `0 ≤ a.num · b.num`
+via `(a*b).num = a.num · b.num` definitionally. -/
+theorem mul_nonneg (a b : Q') (h_a : (0 : Q') ≤ a) (h_b : (0 : Q') ≤ b) :
+    (0 : Q') ≤ a * b := by
+  rw [zero_le_iff_num_nonneg] at h_a h_b
+  rw [zero_le_iff_num_nonneg]
+  show (0 : Int) ≤ (a * b).num
+  show (0 : Int) ≤ a.num * b.num
+  exact Int.mul_nonneg h_a h_b
+
+/-- Multiplying both sides of `a ≤ b` by `c ≥ 0` preserves `≤`:
+`a ≤ b → 0 ≤ c → a * c ≤ b * c`. -/
+theorem mul_le_mul_of_nonneg_right
+    (a b c : Q') (h_ab : a ≤ b) (h_c : (0 : Q') ≤ c) :
+    a * c ≤ b * c := by
+  show (a * c).num * ((b * c).den : Int)
+      ≤ (b * c).num * ((a * c).den : Int)
+  -- (a*c).num = a.num * c.num; (a*c).den = a.den * c.den.
+  have h_ab_num : (a * c).num = a.num * c.num := rfl
+  have h_bc_num : (b * c).num = b.num * c.num := rfl
+  have h_ac_den : ((a * c).den : Int) = (a.den : Int) * (c.den : Int) := by
+    show (((a.den * c.den - 1) + 1 : Nat) : Int) = (a.den : Int) * (c.den : Int)
+    rw [Nat.sub_add_cancel (Nat.one_le_iff_ne_zero.mpr
+        (Nat.pos_iff_ne_zero.mp (Nat.mul_pos (den_pos a) (den_pos c))))]
+    exact Int.natCast_mul a.den c.den
+  have h_bc_den : ((b * c).den : Int) = (b.den : Int) * (c.den : Int) := by
+    show (((b.den * c.den - 1) + 1 : Nat) : Int) = (b.den : Int) * (c.den : Int)
+    rw [Nat.sub_add_cancel (Nat.one_le_iff_ne_zero.mpr
+        (Nat.pos_iff_ne_zero.mp (Nat.mul_pos (den_pos b) (den_pos c))))]
+    exact Int.natCast_mul b.den c.den
+  rw [h_ab_num, h_bc_num, h_ac_den, h_bc_den]
+  -- Goal: (a.num · c.num) · (b.den · c.den) ≤ (b.num · c.num) · (a.den · c.den).
+  -- Rearrange both sides using int_swap_middle and int_pull_square-style helpers.
+  -- LHS = (a.num · b.den) · (c.num · c.den) (swap middle: c.num ↔ b.den)
+  -- RHS = (b.num · a.den) · (c.num · c.den) (swap middle: c.num ↔ a.den)
+  -- Then h_ab gives (a.num · b.den) ≤ (b.num · a.den), and c.num · c.den ≥ 0.
+  rw [int_swap_middle a.num c.num (b.den : Int) (c.den : Int)]
+  rw [int_swap_middle b.num c.num (a.den : Int) (c.den : Int)]
+  -- Goal: a.num · b.den · (c.num · c.den) ≤ b.num · a.den · (c.num · c.den).
+  -- Both sides have (c.num · c.den) on the right; use Int.mul_le_mul_of_nonneg_right.
+  have h_c_nn_num : (0 : Int) ≤ c.num :=
+    (zero_le_iff_num_nonneg c).mp h_c
+  have h_c_den_nn : (0 : Int) ≤ (c.den : Int) := Int.natCast_nonneg _
+  have h_c_prod_nn : (0 : Int) ≤ c.num * (c.den : Int) :=
+    Int.mul_nonneg h_c_nn_num h_c_den_nn
+  have h_ab_cp : a.num * (b.den : Int) ≤ b.num * (a.den : Int) := h_ab
+  exact Int.mul_le_mul_of_nonneg_right h_ab_cp h_c_prod_nn
+
+/-- Adding a Q' value on the right preserves ≤: `a ≤ b → a + c ≤ b + c`.
+Mirror of `add_le_add_left`. Proof structure is symmetric: cross-product
+expansion yields a target that decomposes as (common term in a, b, c.den²)
++ (term comparison after scaling h_ab by c.den²). -/
+theorem add_le_add_right (a b c : Q') (h_ab : a ≤ b) : a + c ≤ b + c := by
+  show (a + c).num * ((b + c).den : Int)
+      ≤ (b + c).num * ((a + c).den : Int)
+  have h_a_le_b : a.num * (b.den : Int) ≤ b.num * (a.den : Int) := h_ab
+  have h_ac_den : ((a + c).den : Int) = (a.den : Int) * (c.den : Int) := by
+    show (((a.den * c.den - 1) + 1 : Nat) : Int) = (a.den : Int) * (c.den : Int)
+    rw [Nat.sub_add_cancel (Nat.one_le_iff_ne_zero.mpr
+        (Nat.pos_iff_ne_zero.mp (Nat.mul_pos (den_pos a) (den_pos c))))]
+    exact Int.natCast_mul a.den c.den
+  have h_bc_den : ((b + c).den : Int) = (b.den : Int) * (c.den : Int) := by
+    show (((b.den * c.den - 1) + 1 : Nat) : Int) = (b.den : Int) * (c.den : Int)
+    rw [Nat.sub_add_cancel (Nat.one_le_iff_ne_zero.mpr
+        (Nat.pos_iff_ne_zero.mp (Nat.mul_pos (den_pos b) (den_pos c))))]
+    exact Int.natCast_mul b.den c.den
+  have h_ac_num : (a + c).num = a.num * (c.den : Int) + c.num * (a.den : Int) := rfl
+  have h_bc_num : (b + c).num = b.num * (c.den : Int) + c.num * (b.den : Int) := rfl
+  rw [h_ac_num, h_bc_num, h_ac_den, h_bc_den]
+  -- Goal: (a.num·c.den + c.num·a.den) · (b.den·c.den)
+  --      ≤ (b.num·c.den + c.num·b.den) · (a.den·c.den)
+  -- After distribution and rearrangement, this reduces to
+  --   c.num·a.den·b.den·c.den + a.num·c.den·b.den·c.den
+  --   ≤ c.num·a.den·b.den·c.den + b.num·c.den·a.den·c.den
+  -- where the first terms cancel and the remaining inequality is
+  -- (a.num·b.den) · (c.den·c.den) ≤ (b.num·a.den) · (c.den·c.den),
+  -- which follows from h_a_le_b scaled by c.den² ≥ 0.
+  -- We bypass step-by-step rewriting and prove via a single calc chain:
+  have h_c_den_nn : (0 : Int) ≤ (c.den : Int) := Int.natCast_nonneg _
+  have h_c_den_sq_nn : (0 : Int) ≤ (c.den : Int) * (c.den : Int) :=
+    Int.mul_nonneg h_c_den_nn h_c_den_nn
+  have h_scaled :
+      a.num * (b.den : Int) * ((c.den : Int) * (c.den : Int))
+        ≤ b.num * (a.den : Int) * ((c.den : Int) * (c.den : Int)) :=
+    Int.mul_le_mul_of_nonneg_right h_a_le_b h_c_den_sq_nn
+  -- Show that both sides of the goal equal a "common term + the scaled term":
+  -- LHS = (a.num·c.den + c.num·a.den) · (b.den·c.den)
+  --     = a.num·c.den·b.den·c.den + c.num·a.den·b.den·c.den
+  -- RHS = (b.num·c.den + c.num·b.den) · (a.den·c.den)
+  --     = b.num·c.den·a.den·c.den + c.num·b.den·a.den·c.den
+  -- We need: a.num·c.den·b.den·c.den ≤ b.num·c.den·a.den·c.den (after equating the c.num terms).
+  -- Use int_swap_middle: a.num·c.den·(b.den·c.den) = a.num·b.den·(c.den·c.den).
+  --                       b.num·c.den·(a.den·c.den) = b.num·a.den·(c.den·c.den).
+  -- Same for the c.num terms.
+  have h_LHS_eq :
+      (a.num * (c.den : Int) + c.num * (a.den : Int))
+        * ((b.den : Int) * (c.den : Int))
+      = a.num * (b.den : Int) * ((c.den : Int) * (c.den : Int))
+        + c.num * (a.den : Int) * ((b.den : Int) * (c.den : Int)) := by
+    rw [Int.add_mul]
+    congr 1
+    exact int_swap_middle a.num (c.den : Int) (b.den : Int) (c.den : Int)
+  have h_RHS_eq :
+      (b.num * (c.den : Int) + c.num * (b.den : Int))
+        * ((a.den : Int) * (c.den : Int))
+      = b.num * (a.den : Int) * ((c.den : Int) * (c.den : Int))
+        + c.num * (b.den : Int) * ((a.den : Int) * (c.den : Int)) := by
+    rw [Int.add_mul]
+    congr 1
+    exact int_swap_middle b.num (c.den : Int) (a.den : Int) (c.den : Int)
+  rw [h_LHS_eq, h_RHS_eq]
+  -- Need: a.num·b.den·c.den² + c.num·a.den·(b.den·c.den)
+  --     ≤ b.num·a.den·c.den² + c.num·b.den·(a.den·c.den)
+  -- The second terms are equal: c.num·a.den·(b.den·c.den) = c.num·b.den·(a.den·c.den).
+  -- (Both equal c.num·a.den·b.den·c.den after expansion.)
+  have h_second_eq :
+      c.num * (a.den : Int) * ((b.den : Int) * (c.den : Int))
+      = c.num * (b.den : Int) * ((a.den : Int) * (c.den : Int)) := by
+    -- c.num·a.den·(b.den·c.den) = c.num·(a.den·b.den·c.den)
+    rw [Int.mul_assoc (c.num) (a.den : Int) ((b.den : Int) * (c.den : Int))]
+    rw [Int.mul_assoc (c.num) (b.den : Int) ((a.den : Int) * (c.den : Int))]
+    congr 1
+    -- a.den·(b.den·c.den) = b.den·(a.den·c.den)
+    rw [← Int.mul_assoc (a.den : Int) (b.den : Int) (c.den : Int)]
+    rw [← Int.mul_assoc (b.den : Int) (a.den : Int) (c.den : Int)]
+    congr 1
+    exact Int.mul_comm (a.den : Int) (b.den : Int)
+  rw [h_second_eq]
+  -- Now: a.num·b.den·c.den² + X ≤ b.num·a.den·c.den² + X.
+  -- Use Int.add_le_add_right (= add_le_add_right on Int):
+  exact Int.add_le_add_right h_scaled _
+
+/-! ### Semantic equivalence: refl, symm, and the `eqv → le` bridge
+
+`Q'.eqv` was defined above as `a.num · b.den = b.num · a.den`.  The
+following lemmas turn `eqv` into a usable chaining tool: refl/symm/trans,
+and the bridge to `Q'.le`. -/
+
+/-- Reflexivity of `Q'.eqv`. -/
+theorem eqv_refl (a : Q') : a.eqv a := rfl
+
+/-- Symmetry of `Q'.eqv`. -/
+theorem eqv_symm {a b : Q'} (h : a.eqv b) : b.eqv a := h.symm
+
+/-- `a.eqv b → a ≤ b`: semantic-equality implies semantic-≤. -/
+theorem le_of_eqv {a b : Q'} (h : a.eqv b) : a ≤ b := by
+  show a.num * (b.den : Int) ≤ b.num * (a.den : Int)
+  exact Int.le_of_eq h
+
+/-- `a.eqv b → b ≤ a`: the symmetric direction. -/
+theorem ge_of_eqv {a b : Q'} (h : a.eqv b) : b ≤ a := by
+  show b.num * (a.den : Int) ≤ a.num * (b.den : Int)
+  exact Int.le_of_eq h.symm
+
 /-! ### Transitivity of `≤`
 
 The key arithmetic identity for chaining inequalities at Q'.  Proof goes
 through the cross-product representation and uses `Int.le_of_mul_le_mul_right`
 to cancel the middle denominator. -/
-
-/-- A specialization of `Int.mul_comm`/`Int.mul_assoc`: swap the second and
-third factors of a triple product.  Used in the transitivity proof of
-`Q'.le` to rearrange cross-products without depending on Mathlib's `ring`. -/
-private theorem int_mul_right_comm (a b c : Int) : a * b * c = a * c * b := by
-  rw [Int.mul_assoc, Int.mul_comm b c, ← Int.mul_assoc]
 
 /-- Transitivity of `Q'.le`: `p ≤ q ≤ r ⟹ p ≤ r`.
 
@@ -574,4 +733,11 @@ end YMGap.Constructive
 #print axioms YMGap.Constructive.Q'.zero_le_min
 #print axioms YMGap.Constructive.Q'.add_le_self_of_nonneg
 #print axioms YMGap.Constructive.Q'.add_le_add_left
+#print axioms YMGap.Constructive.Q'.mul_nonneg
+#print axioms YMGap.Constructive.Q'.mul_le_mul_of_nonneg_right
+#print axioms YMGap.Constructive.Q'.add_le_add_right
+#print axioms YMGap.Constructive.Q'.eqv_refl
+#print axioms YMGap.Constructive.Q'.eqv_symm
+#print axioms YMGap.Constructive.Q'.le_of_eqv
+#print axioms YMGap.Constructive.Q'.ge_of_eqv
 #print axioms YMGap.Constructive.Q'.le_trans'

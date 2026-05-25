@@ -15,6 +15,7 @@ Currently populated:
 -/
 import YMGap.Constructive.Rationals
 import YMGap.Constructive.RationalTail
+import YMGap.Constructive.Geometric
 import YMGap.RepTheory.SU2
 import YMGap.Sheaf.Site
 import YMGap.Sheaf.BoundWitness
@@ -24,3 +25,4 @@ import YMGap.Sheaf.PolymerDomination
 import YMGap.RG.InductiveState
 import YMGap.RG.BlockSpin
 import YMGap.RG.SigmaHatPilot
+import YMGap.RG.SigmaHatPilotUV

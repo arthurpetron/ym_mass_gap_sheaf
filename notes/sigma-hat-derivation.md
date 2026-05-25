@@ -224,6 +224,51 @@ For the **full convergence claim** $\sum_{k=0}^{\infty} \eta_k < \widehat{\sigma
 
 **Recorded decision:** stay with Q' for Phase 3. Do not build a constructive-limit layer here. If 3.5's pilot fails because Q' bounds aren't tight enough at the geometric-series tail estimate, *that* triggers a follow-on (call it `[P3.0-extension]`) — but only then.
 
+### 4.5. UV-direction genuine infinite-trajectory closure — landed 2026-05-25 (Phase 6.2 + 6.3 + 6.4)
+
+Phase 6 of `work_plan.md` delivers the genuine infinite-trajectory closure
+for the UV direction in three layers:
+
+  - **Phase 6.2** (`lean/YMGap/Constructive/Geometric.lean`): adds
+    `Q'.pow`, `Q'.pow_nonneg`, and the framework theorem
+    `geometric_tail_via_input` that composes the user-supplied uniform
+    partial-sum bound with `prefix_plus_tail_closure`.  The fully
+    inductive `geometric_tail_closure_strong` is documented as a
+    follow-on (Milestone 6.2-extension) requiring Q' multiplicative
+    arithmetic (`mul_comm`/`mul_assoc`/`mul_add` at the `eqv` level
+    + `mul_le_mul_of_nonneg_left`) — not yet built out.
+  - **Phase 6.3** (`computations/uv_trajectory.py`): the
+    asymptotic-freedom-direction trajectory generator, with the
+    AF β-function `1/g_{k+1}² = 1/g_k² + (b_0/16π²)·log b` and the
+    monotone-decreasing g_k sequence.
+  - **Phase 6.4** (`lean/YMGap/RG/SigmaHatPilotUV.lean`): the UV pilot's
+    σ̂-budget closure ``∀ N, finSum eta_pilot_uv N ≤ sigma_hat_0_pilot_uv``
+    proven in three independent ways (via `sigma_hat_budget_closure`,
+    `prefix_plus_tail_closure`, and `geometric_tail_via_input`).
+
+**Empirical reality**: in the UV direction `K_∩` is non-increasing in k
+(because g_k decreases → K_sf and K_lf both decrease), so `Δ_∩ = max(0,
+K_next - K) = 0` at every step.  Hence `η_k = 0` for all k in the UV
+direction, and the budget closure is the trivial closure
+`Σ_{k=0}^∞ 0 = 0 < σ̂_0`.
+
+**Why this is the FIRST "genuine infinite-trajectory" closure in Lean**:
+unlike `SigmaHatPilot.lean` (which uses `truncated_const_3` to zero the
+sequence past K = 3 artificially), `SigmaHatPilotUV.lean`'s
+`eta_pilot_uv` is defined for ALL k ∈ ℕ and is intrinsically zero —
+no artifact truncation.  The infinite-N quantifier `∀ N` is genuinely
+infinite, supported by the UV trajectory's intrinsic geometric-decay
+structure (which collapses to "exactly zero" under the project's
+current floating-point + integer-clipped Δ_∩ derivation).
+
+**What remains for Phase 7+** (continuum limit, mass-gap theorem):
+the σ̂-budget closure here is necessary but not sufficient for σ̂_∞ > 0
+in the continuum limit.  Phase 7.1 builds on this infrastructure to
+show σ̂_k converges to a positive limit as k → ∞ (which is what σ̂_∞ > 0
+in Lean means).  The non-trivially-decaying η case (relevant for
+near-threshold UV trajectories or refined Δ_∩ derivations) requires the
+full `geometric_tail_closure_strong`, scoped as 6.2-extension.
+
 ### 4.4. Infinite-trajectory closure framework — landed 2026-05-25
 
 The Phase-3 SigmaHatPilot wire-ins use `RationalTail.sigma_hat_budget_closure`,
