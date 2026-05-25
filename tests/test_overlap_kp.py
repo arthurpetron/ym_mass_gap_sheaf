@@ -168,3 +168,103 @@ def test_plot_writes_svg(tmp_path: Path) -> None:
     assert Path(result) == out
     assert out.exists()
     assert out.stat().st_size > 0
+
+
+# --------------------------------------------------------------------------
+# Conjecture 7.4 union-bound looseness (empirical evidence for [P2.1] part (b))
+# --------------------------------------------------------------------------
+
+
+class TestUnionBoundLooseness:
+    def test_estimate_at_canonical_wire_in(self):
+        """At canonical g = 0.30 (the SigmaHatPilot wire-in operating
+        point), the union-bound looseness is well below the conjecture's
+        allowed factor of 2."""
+        from computations.overlap_kp import union_bound_looseness_estimate
+        r = union_bound_looseness_estimate(0.30)
+        assert r.looseness_upper_bound < 1.05  # < 5% loss
+        assert r.dominant_regime == "sf"
+        assert r.K_sf > r.K_lf
+
+    def test_estimate_at_deep_weak_coupling(self):
+        """At very weak coupling, K_lf ≈ 0 and looseness ≈ 1."""
+        from computations.overlap_kp import union_bound_looseness_estimate
+        r = union_bound_looseness_estimate(0.10)
+        assert r.looseness_upper_bound == pytest.approx(1.0, abs=1e-6)
+
+    def test_trajectory_max_below_two(self):
+        """The maximum looseness across the entire SU(2) canonical
+        convergent regime stays below the conjecture's factor of 2 ---
+        EMPIRICAL EVIDENCE for Conjecture 7.4."""
+        from computations.overlap_kp import (
+            union_bound_looseness_trajectory_max,
+        )
+        # Scan the full canonical convergent regime in fine steps.
+        g_grid = [i / 100.0 for i in range(5, 41)]
+        max_loose, g_at, regime = union_bound_looseness_trajectory_max(g_grid)
+        assert max_loose < 1.5, (
+            f"max looseness {max_loose:.4f} at g={g_at:.4f} should be "
+            f"comfortably below 2 (conjecture's allowed bound)"
+        )
+        # Stronger: in practice should be < 1.20 across the full regime.
+        assert max_loose < 1.20
+
+    def test_trajectory_max_wilson_below_two(self):
+        """Same conjecture validation in Wilson convention."""
+        import math
+        from computations.heat_kernel import HeatKernelConvention
+        from computations.overlap_kp import (
+            union_bound_looseness_trajectory_max,
+        )
+        g_grid = [i / 100.0 for i in range(10, 81)]
+        max_loose, _, _ = union_bound_looseness_trajectory_max(
+            g_grid, t_choice=HeatKernelConvention.WILSON,
+        )
+        assert math.isfinite(max_loose)
+        assert max_loose < 1.5  # well below conjecture's 2.0
+
+    def test_dominant_regime_is_sf_in_convergent_window(self):
+        """Throughout the joint convergent regime, K_sf > K_lf — the
+        observation underpinning the semi-analytical lemma in
+        union_bound_looseness_estimate's docstring."""
+        from computations.overlap_kp import union_bound_looseness_estimate
+        for g in (0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.35):
+            r = union_bound_looseness_estimate(g)
+            assert r.K_sf >= r.K_lf, (
+                f"sf-dominance expected at g={g}: K_sf={r.K_sf}, K_lf={r.K_lf}"
+            )
+            assert r.dominant_regime in ("sf", "tied")
+
+    def test_looseness_dataclass_fields(self):
+        """UnionBoundLoosenessResult carries the documented fields."""
+        from computations.overlap_kp import union_bound_looseness_estimate
+        r = union_bound_looseness_estimate(0.30)
+        for key in ("K_sf", "K_lf", "K_sum", "K_max_lower_bound",
+                    "looseness_upper_bound", "dominant_regime",
+                    "g_k", "convention", "provenance"):
+            assert hasattr(r, key)
+        assert "status" in r.provenance
+
+
+# --------------------------------------------------------------------------
+# Diagram smoke test
+# --------------------------------------------------------------------------
+
+
+def test_plot_conjecture_7_4_looseness_writes_svg(tmp_path) -> None:
+    """Conjecture 7.4 evidence diagram: writes a non-empty SVG."""
+    from pathlib import Path
+    from computations.overlap_kp import plot_conjecture_7_4_looseness
+    out = tmp_path / "conj74.svg"
+    result = plot_conjecture_7_4_looseness(
+        g_range_canonical=(0.10, 0.35),
+        g_range_wilson=(0.20, 0.70),
+        n_points=20,
+        output_path=str(out),
+    )
+    assert Path(result) == out
+    assert out.exists()
+    assert out.stat().st_size > 0
+    text = out.read_text(encoding="utf-8")
+    assert text.lstrip().startswith("<?xml")
+    assert "</svg>" in text
