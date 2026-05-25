@@ -333,6 +333,84 @@ def max_g0_closure(
 
 
 # --------------------------------------------------------------------------
+# c_λ pilot tolerance — empirical lower bound on a fiducial we can't derive
+# --------------------------------------------------------------------------
+
+
+def c_lambda_pilot_tolerance_threshold(
+    g_0: float = 0.30,
+    K: int = 3,
+    sigma_hat_initial: float = 1.0,
+    convention: HeatKernelConvention = HeatKernelConvention.CANONICAL,
+    mu_plaq: float = MU_PLAQUETTE_4D,
+    polymer_residual: float | None = None,
+    wilson_loop_min_area: int | None = None,
+    c_lambda_search_range: tuple[float, float] = (0.01, 5.0),
+    tolerance: float = 1e-4,
+    max_iter: int = 80,
+) -> float:
+    """Smallest ``c_λ`` for which the SU(2) pilot still closes at the
+    given operating point.
+
+    ``c_λ`` (``BAŁABAN_SPECTRAL_GAP_COEFF``) controls the small-field
+    activity-decay rate ``ρ_sf = c_λ · conv_factor / g_k²``.  Larger
+    ``c_λ`` makes the small-field expansion converge over a wider
+    g window (and shrinks ``K_sf``, reducing Δ_∩ and Σ η_k); smaller
+    ``c_λ`` shrinks the convergent window.
+
+    This function bisects ``c_λ`` in ``c_lambda_search_range`` to find
+    the threshold: above the threshold the pilot closes, below it the
+    pilot fails (typically because the trajectory exits the small-field
+    convergence window and ``K_sf`` diverges).
+
+    Use case: ``c_λ`` itself cannot be derived from first principles in
+    this project (it depends on Gribov-patch geometry, Killing-form
+    normalization, and the patch atlas — none of which are fixed in
+    Phase 3).  The pilot-tolerance threshold gives an empirical
+    **lower bound**: any ``c_λ`` above this value will close the pilot
+    at the given operating point.  The fiducial ``c_λ = 0.5`` is
+    defensible iff this threshold lies below 0.5.
+
+    Returns the smallest ``c_λ`` (within tolerance) for which the
+    pilot closes; the lower edge of the search range if the pilot
+    fails everywhere; the upper edge if it closes everywhere.
+    """
+    def closes_at(c_lambda: float) -> bool:
+        g_trajectory = standard_su2_trajectory(k_max=K, g_0=g_0)[0]
+        kwargs: dict = {
+            "sigma_hat_initial": sigma_hat_initial,
+            "t_choice": convention,
+            "spectral_gap_coeff": c_lambda,
+            "mu_plaq": mu_plaq,
+        }
+        if polymer_residual is not None:
+            kwargs["polymer_residual"] = polymer_residual
+        if wilson_loop_min_area is not None:
+            kwargs["wilson_loop_min_area"] = wilson_loop_min_area
+        try:
+            res = sigma_hat_trajectory(g_trajectory, **kwargs)
+        except Exception:
+            return False
+        return res.budget_closure
+
+    c_low, c_high = c_lambda_search_range
+    # The closure direction: HIGHER c_λ closes, LOWER fails.
+    if closes_at(c_low):
+        return c_low  # closes everywhere in range
+    if not closes_at(c_high):
+        return c_high  # fails everywhere in range
+    for _ in range(max_iter):
+        c_mid = 0.5 * (c_low + c_high)
+        if closes_at(c_mid):
+            c_high = c_mid
+        else:
+            c_low = c_mid
+        if c_high - c_low < tolerance:
+            break
+    return c_high
+
+
+# --------------------------------------------------------------------------
 # Reporting
 # --------------------------------------------------------------------------
 
@@ -442,7 +520,21 @@ if __name__ == "__main__":
     g_loose_sf = max_g0_closure(
         K=3, sigma_hat_initial=1.0, spectral_gap_coeff=0.3,
     )
-    print(f"  default fiducials                          g_0_max ≈ {g_default:.4f}")
-    print(f"  conservative μ_plaq = 8e                  g_0_max ≈ {g_conserv:.4f}")
-    print(f"  tighter sf (c_λ = 1.0)                    g_0_max ≈ {g_tight_sf:.4f}")
-    print(f"  looser  sf (c_λ = 0.3)                    g_0_max ≈ {g_loose_sf:.4f}")
+    from computations.large_field_kp import MU_PLAQUETTE_BF_CONSERVATIVE_4D
+    g_bf_conserv = max_g0_closure(
+        K=3, sigma_hat_initial=1.0, mu_plaq=MU_PLAQUETTE_BF_CONSERVATIVE_4D,
+    )
+    print(f"  default fiducials                              g_0_max ≈ {g_default:.4f}")
+    print(f"  site-bound μ_plaq = 8e (deprecated)            g_0_max ≈ {g_conserv:.4f}")
+    print(f"  BF-conservative μ_plaq = 20e (rigorous)        g_0_max ≈ {g_bf_conserv:.4f}")
+    print(f"  tighter sf (c_λ = 1.0)                         g_0_max ≈ {g_tight_sf:.4f}")
+    print(f"  looser  sf (c_λ = 0.3)                         g_0_max ≈ {g_loose_sf:.4f}")
+    print()
+    print("=" * 65)
+    print("c_λ pilot-tolerance threshold (smallest c_λ for which pilot closes)")
+    print("=" * 65)
+    for g0 in (0.10, 0.20, 0.30, 0.35):
+        t = c_lambda_pilot_tolerance_threshold(g_0=g0, K=3, sigma_hat_initial=1.0)
+        margin = (0.5 - t) / 0.5 * 100
+        print(f"  g_0 = {g0:.2f}: threshold ≈ {t:.4f}   "
+              f"(default c_λ = 0.5 margin: {margin:+.1f}%)")

@@ -5,6 +5,7 @@ from __future__ import annotations
 import pytest
 
 from computations.fiducial_sensitivity import (
+    c_lambda_pilot_tolerance_threshold,
     format_sweep_result,
     max_g0_closure,
     run_all_sweeps,
@@ -268,3 +269,63 @@ class TestMaxG0Closure:
             f"loose sf (c_λ=0.3) should not enlarge the window; "
             f"default={g_default}, loose={g_loose}"
         )
+
+
+# --------------------------------------------------------------------------
+# c_λ pilot tolerance (empirical lower bound on the BAŁABAN_SPECTRAL_GAP_COEFF fiducial)
+# --------------------------------------------------------------------------
+
+
+class TestCLambdaPilotTolerance:
+    def test_threshold_at_canonical_wire_in(self):
+        """At the canonical wire-in g_0 = 0.30, the c_λ pilot-tolerance
+        threshold is well below the default fiducial 0.5 — the pilot
+        has substantial margin in the c_λ direction."""
+        threshold = c_lambda_pilot_tolerance_threshold(
+            g_0=0.30, K=3, sigma_hat_initial=1.0,
+        )
+        assert 0.20 < threshold < 0.40, (
+            f"unexpected c_λ pilot-tolerance threshold at g_0=0.30: {threshold}"
+        )
+        # Default fiducial 0.5 sits comfortably above.
+        assert threshold < 0.5
+
+    def test_threshold_monotone_in_g_0(self):
+        """Larger g_0 → larger c_λ pilot-tolerance threshold (the harder
+        the operating point, the more c_λ you need)."""
+        t_small = c_lambda_pilot_tolerance_threshold(g_0=0.10, K=3)
+        t_mid = c_lambda_pilot_tolerance_threshold(g_0=0.20, K=3)
+        t_large = c_lambda_pilot_tolerance_threshold(g_0=0.30, K=3)
+        assert t_small < t_mid < t_large
+
+    def test_threshold_at_weak_coupling_is_tiny(self):
+        """At very weak coupling g_0 = 0.10, the threshold should be
+        well below the fiducial 0.5 — large margin."""
+        threshold = c_lambda_pilot_tolerance_threshold(
+            g_0=0.10, K=3, sigma_hat_initial=1.0,
+        )
+        assert threshold < 0.1
+
+    def test_threshold_returns_upper_when_pilot_fails_everywhere(self):
+        """At g_0 above the sf convergence threshold (≈ 0.40), the pilot
+        fails for ANY c_λ in a tight search range; the bisection returns
+        the upper edge."""
+        threshold = c_lambda_pilot_tolerance_threshold(
+            g_0=0.60, K=3, sigma_hat_initial=1.0,
+            c_lambda_search_range=(0.01, 2.0),
+        )
+        assert threshold == 2.0
+
+    def test_threshold_returns_lower_when_pilot_closes_everywhere(self):
+        """If the lower edge of the search range already closes the
+        pilot, the bisection returns the lower edge.  Note: c_λ has a
+        hard lower limit ρ_sf > log(8e) ≈ 3.08, so the search range's
+        lower edge must respect that (c_λ_low · 1/g² > 3.08 at the
+        smallest g in the trajectory)."""
+        # At g_0 = 0.05, ρ_sf = c_λ/g² > 3.08 ⟺ c_λ > 3.08·0.0025 ≈ 0.0077.
+        # Pick c_low = 0.05, comfortably in the closes-everywhere region.
+        threshold = c_lambda_pilot_tolerance_threshold(
+            g_0=0.05, K=3, sigma_hat_initial=10.0,
+            c_lambda_search_range=(0.05, 1.0),
+        )
+        assert threshold == 0.05

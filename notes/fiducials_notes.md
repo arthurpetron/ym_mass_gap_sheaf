@@ -83,12 +83,44 @@ coefficient, and updating `BAŁABAN_SPECTRAL_GAP_COEFF`. The shape
 of the formula does not change; only the numerical value shifts and,
 with it, the convergence threshold $g_{\max}^{\mathrm{sf}}$.
 
+### 1.1. Empirical lower bound: pilot-tolerance threshold (2026-05-25)
+
+Although we cannot derive $c_{\lambda}$ from first principles within
+this project (it depends on Gribov-patch geometry, Killing-form
+normalization, and the patch atlas — all undecided in Phase 3), we can
+bisect for the **smallest $c_{\lambda}$ at which the SU(2) pilot still
+closes** at a given operating point. This gives an empirical defensibility
+lower bound: any $c_{\lambda}$ above this threshold makes the pilot work.
+
+Computed via `fiducial_sensitivity.c_lambda_pilot_tolerance_threshold`
+(default $K = 3$, $\widehat\sigma_0 = 1$, canonical):
+
+| $g_0$ | threshold | default 0.5 margin |
+| --- | --- | --- |
+| 0.10 | $\approx 0.031$ | $+94$% |
+| 0.20 | $\approx 0.127$ | $+75$% |
+| 0.30 (canonical wire-in) | $\approx 0.289$ | $+42$% |
+| 0.35 | $\approx 0.397$ | $+21$% |
+| 0.40 | $\approx 0.525$ | $-5$% (fails) |
+
+The fiducial $c_{\lambda} = 1/2$ has a comfortable $+42$% margin at
+the canonical wire-in $g_0 = 0.30$. The pilot's defensibility against
+$c_{\lambda}$ uncertainty is robust: even if the true $c_{\lambda}$
+were as low as $0.29$, the pilot still closes at the wire-in.
+
+This empirical lower bound does **not** establish that $c_{\lambda} \ge
+0.289$ as a theorem; it establishes that the project's pilot is
+*tolerant* of $c_{\lambda}$ values down to that point. The numerical
+value $0.5$ is consistent with that constraint, but the BOUND comes
+from operational behavior, not from a first-principles derivation.
+
 **Citations.**
 - TeX: `\cite{Balaban1987RG-I,Balaban1988RG-II,BrydgesFederbush1978}`
 - Lean (planned quantitative closure): import `YMGap.Constructive.Rationals`
   and use `Q'.mkPos 1 2 (by decide)` for the rational value.
 - Python: `computations.small_field_kp.BAŁABAN_SPECTRAL_GAP_COEFF`
   (currently `Fraction(1, 2)`).
+- Empirical lower bound: `computations.fiducial_sensitivity.c_lambda_pilot_tolerance_threshold`.
 
 ---
 
@@ -493,7 +525,7 @@ physics constants.**
 
 | Constant | Value | Status | Refine? | Sweep entry point |
 | --- | --- | --- | --- | --- |
-| `BAŁABAN_SPECTRAL_GAP_COEFF` | 1/2 | literature-shape fiducial | first target | `fiducial_sensitivity.sweep_spectral_gap_coeff` |
+| `BAŁABAN_SPECTRAL_GAP_COEFF` | 1/2 | literature-shape fiducial; pilot-tolerance lower bound 0.289 at canonical wire-in (§1.1) | refinement requires Bałaban paper extraction | `fiducial_sensitivity.sweep_spectral_gap_coeff`, `c_lambda_pilot_tolerance_threshold` |
 | `MU_CONNECTIVITY_4D` | log(8e) | literature formula | already standard | — |
 | `MU_PLAQUETTE_4D` | 16 | literature-shape (5d-4) | genuinely-BF-conservative fallback `MU_PLAQUETTE_BF_CONSERVATIVE_4D = 20e` (or deprecated `MU_PLAQUETTE_CONSERVATIVE_4D = 8e`, site-bound) | `fiducial_sensitivity.sweep_mu_plaq` |
 | `J_MAX_DEFAULT` | 12 | engineering | only if needed | — |
