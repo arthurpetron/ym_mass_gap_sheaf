@@ -224,6 +224,37 @@ For the **full convergence claim** $\sum_{k=0}^{\infty} \eta_k < \widehat{\sigma
 
 **Recorded decision:** stay with Q' for Phase 3. Do not build a constructive-limit layer here. If 3.5's pilot fails because Q' bounds aren't tight enough at the geometric-series tail estimate, *that* triggers a follow-on (call it `[P3.0-extension]`) — but only then.
 
+### 4.4. Infinite-trajectory closure framework — landed 2026-05-25
+
+The Phase-3 SigmaHatPilot wire-ins use `RationalTail.sigma_hat_budget_closure`,
+which takes a uniform-in-N bound directly.  For Phase-4 / continuum-limit
+work (UV-direction trajectories where η_k decays geometrically), the
+natural shape is "uniform-past-`K_0` bound + nonneg-monotonicity for
+`N < K_0`" — which is precisely the §4.2 option (i) "rational tail bound."
+
+`lean/YMGap/Constructive/RationalTail.lean` now provides this:
+
+  - `prefix_plus_tail_closure (η K_0 bound σ_0 h_nonneg h_tail h_budget) : ∀ N, finSum η N ≤ σ_0`
+  - Requires monotonicity of partial sums for nonneg sequences, supplied by
+    new lemmas `finSum_le_succ_of_nonneg`, `finSum_le_add_of_nonneg`,
+    `finSum_monotone_of_nonneg`.
+  - Underlying Q' lemma: `Q'.add_le_self_of_nonneg` (`0 ≤ b → a ≤ a + b`),
+    proven from cross-product manipulation using only `Int.le_add_of_nonneg_right`
+    and basic associativity / commutativity — axiom-gate `[propext]` only.
+
+The SigmaHatPilot canonical and Wilson wire-ins each factor through the
+new framework as smoke instances (`eta_pilot_budget_closes_via_prefix_tail`,
+`eta_pilot_wilson_budget_closes_via_prefix_tail`).  For the truncated-constant
+pilot the tail is exactly zero past `K_0 = 3` (via `finSum_stabilizes_after_K`),
+so both routes produce the same closure ``∀ N, finSum eta_pilot N ≤
+sigma_hat_0_pilot``.
+
+Pending Phase-4 work: a genuine UV-direction SU(2) trajectory with
+geometrically-decaying η_k, plus the Q' geometric-tail-bound derivation
+(would require Q'.pow and explicit series-sum machinery).  The framework
+above accepts the per-K_0 tail bound as a hypothesis; supplying it from a
+geometric formula is the next step.
+
 ### 4.3. Q' realization — landed 2026-05-24
 
 The Q'-rational framework is now materialized in

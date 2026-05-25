@@ -136,6 +136,93 @@ theorem eta_pilot_wilson_budget_closes :
     sigma_hat_0_pilot_wilson
     eta_pilot_wilson_partial_sum_bound eta_total_wilson_le_sigma_0
 
+/-! ## Composition via `prefix_plus_tail_closure` (infinite-trajectory framework)
+
+The Phase-3 wire-in above uses the simpler `sigma_hat_budget_closure`,
+which takes a uniform-in-N bound directly.  The Phase-4-prep alternative
+`prefix_plus_tail_closure` derives the global bound from a uniform-PAST-
+`K_0` bound plus nonneg-monotonicity for `N < K_0` — the natural shape
+for an infinite-trajectory closure where the tail past `K_0` is rationally
+bounded (e.g. via geometric decay of η_k in the UV-direction trajectory).
+
+For the existing truncated-constant pilot the tail is exactly zero past
+`K_0 = 3`, so both routes produce the same closure.  The pair of theorems
+below confirms the new framework COMPOSES with the existing wire-ins
+without changing the closure content. -/
+
+/-- Every element of `eta_pilot` is nonneg (input to `prefix_plus_tail_closure`).
+
+For `k ∈ {0, 1, 2}`: ``eta_pilot k = eta_max_pilot = 11/10000 ≥ 0``.
+For `k = n + 3`: ``eta_pilot k = 0 ≥ 0``. -/
+theorem eta_pilot_nonneg : ∀ k, (0 : Q') ≤ eta_pilot k
+  | 0 => by show (0 : Q') ≤ eta_max_pilot; decide
+  | 1 => by show (0 : Q') ≤ eta_max_pilot; decide
+  | 2 => by show (0 : Q') ≤ eta_max_pilot; decide
+  | _ + 3 => by
+    show (0 : Q') ≤ (0 : Q')
+    exact Q'.le_refl' _
+
+/-- Canonical partial-sum bound at the cut-off `K = 3`, mirrors the
+Wilson-side `finSum_eta_pilot_wilson_three_le`.  Exposed for use in the
+`prefix_plus_tail` composition below. -/
+theorem finSum_eta_pilot_three_le :
+    finSum eta_pilot 3 ≤ eta_total_pilot := by
+  show (((0 : Q') + eta_max_pilot) + eta_max_pilot) + eta_max_pilot
+        ≤ eta_total_pilot
+  decide
+
+/-- The canonical pilot's closure derived via the new infinite-trajectory
+framework `prefix_plus_tail_closure` (rather than `sigma_hat_budget_closure`).
+Cut-off `K_0 = 3`; tail past 3 is zero (via `finSum_stabilizes_after_K`),
+so the uniform-past-K_0 bound is exactly `finSum eta_pilot 3`.
+
+Confirms the new framework composes; produces the same closure
+``∀ N, finSum eta_pilot N ≤ sigma_hat_0_pilot`` as
+`eta_pilot_budget_closes`. -/
+theorem eta_pilot_budget_closes_via_prefix_tail :
+    ∀ N, finSum eta_pilot N ≤ sigma_hat_0_pilot := by
+  apply prefix_plus_tail_closure eta_pilot 3 eta_total_pilot sigma_hat_0_pilot
+  · -- nonneg
+    exact eta_pilot_nonneg
+  · -- uniform-past-K_0: finSum eta_pilot (3 + M) ≤ eta_total_pilot for all M
+    intro M
+    -- Stabilization: finSum eta_pilot (3 + M) = finSum eta_pilot 3
+    rw [finSum_stabilizes_after_K eta_pilot 3
+        (truncated_const_3_zero_of_ge_3 eta_max_pilot) M]
+    exact finSum_eta_pilot_three_le
+  · -- budget condition
+    exact eta_total_le_sigma_0
+
+/-- Every element of `eta_pilot_wilson` is nonneg. -/
+theorem eta_pilot_wilson_nonneg : ∀ k, (0 : Q') ≤ eta_pilot_wilson k
+  | 0 => by show (0 : Q') ≤ eta_max_pilot_wilson; decide
+  | 1 => by show (0 : Q') ≤ eta_max_pilot_wilson; decide
+  | 2 => by show (0 : Q') ≤ eta_max_pilot_wilson; decide
+  | _ + 3 => by
+    show (0 : Q') ≤ (0 : Q')
+    exact Q'.le_refl' _
+
+/-- Wilson partial-sum bound at K = 3, exposed for use in the
+`prefix_plus_tail` composition below. -/
+theorem finSum_eta_pilot_wilson_three_le :
+    finSum eta_pilot_wilson 3 ≤ eta_total_pilot_wilson := by
+  show (((0 : Q') + eta_max_pilot_wilson) + eta_max_pilot_wilson) + eta_max_pilot_wilson
+        ≤ eta_total_pilot_wilson
+  decide
+
+/-- Wilson pilot's closure via `prefix_plus_tail_closure`.  Same shape as
+`eta_pilot_budget_closes_via_prefix_tail`. -/
+theorem eta_pilot_wilson_budget_closes_via_prefix_tail :
+    ∀ N, finSum eta_pilot_wilson N ≤ sigma_hat_0_pilot_wilson := by
+  apply prefix_plus_tail_closure eta_pilot_wilson 3
+        eta_total_pilot_wilson sigma_hat_0_pilot_wilson
+  · exact eta_pilot_wilson_nonneg
+  · intro M
+    rw [finSum_stabilizes_after_K eta_pilot_wilson 3
+        (truncated_const_3_zero_of_ge_3 eta_max_pilot_wilson) M]
+    exact finSum_eta_pilot_wilson_three_le
+  · exact eta_total_wilson_le_sigma_0
+
 end YMGap.RG.SigmaHatPilot
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
@@ -149,3 +236,8 @@ end YMGap.RG.SigmaHatPilot
 #print axioms YMGap.RG.SigmaHatPilot.eta_pilot_budget_closes
 #print axioms YMGap.RG.SigmaHatPilot.eta_pilot_wilson_partial_sum_bound
 #print axioms YMGap.RG.SigmaHatPilot.eta_pilot_wilson_budget_closes
+#print axioms YMGap.RG.SigmaHatPilot.eta_pilot_nonneg
+#print axioms YMGap.RG.SigmaHatPilot.eta_pilot_budget_closes_via_prefix_tail
+#print axioms YMGap.RG.SigmaHatPilot.eta_pilot_wilson_nonneg
+#print axioms YMGap.RG.SigmaHatPilot.finSum_eta_pilot_wilson_three_le
+#print axioms YMGap.RG.SigmaHatPilot.eta_pilot_wilson_budget_closes_via_prefix_tail

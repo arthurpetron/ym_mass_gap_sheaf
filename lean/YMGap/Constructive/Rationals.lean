@@ -301,6 +301,69 @@ theorem zero_le_min (p q : Q') (h_p : (0 : Q') ≤ p) (h_q : (0 : Q') ≤ q) :
   unfold min'
   split <;> assumption
 
+/-! ### Adding a nonnegative number is monotone
+
+The Q' analog of `Int.le_add_of_nonneg_right`.  Needed by the
+`prefix_plus_tail_closure` extension in `YMGap/Constructive/RationalTail.lean`
+for the infinite-trajectory closure framework (monotonicity of partial sums
+for nonneg sequences). -/
+
+/-- Adding a nonnegative `Q'` value cannot decrease the result: `0 ≤ b → a ≤ a + b`.
+
+Cross-product unfolding: the goal `a.num · (a+b).den ≤ (a+b).num · a.den`
+reduces, after expanding `(a+b).num = a.num·b.den + b.num·a.den` and
+`(a+b).den = a.den·b.den`, to `0 ≤ b.num · a.den²`.  The latter holds
+since `b.num ≥ 0` (from `0 ≤ b`) and `a.den² ≥ 0` (Nat cast).
+
+Avoids `ring`/`linarith` to keep the axiom-gate at `[propext]` only;
+proof goes through `Int.mul_assoc`, `Int.mul_comm`, `Int.add_mul`, and
+`Int.le_add_of_nonneg_right` (all Lean core, axiom-clean). -/
+theorem add_le_self_of_nonneg (a b : Q') (h : (0 : Q') ≤ b) : a ≤ a + b := by
+  -- The goal unfolds to a cross-product inequality on Int.
+  show a.num * ((a + b).den : Int) ≤ (a + b).num * (a.den : Int)
+  -- Get b.num ≥ 0 from the Q' hypothesis.
+  have h_b_num_nn : (0 : Int) ≤ b.num := (zero_le_iff_num_nonneg b).mp h
+  -- (a + b).den as a Nat is (a.den * b.den - 1) + 1 = a.den * b.den, since
+  -- the product of positive Nats is at least 1.
+  have h_ab_pos : 0 < a.den * b.den :=
+    Nat.mul_pos (den_pos a) (den_pos b)
+  have h_ab_den_eq : (a + b).den = a.den * b.den := by
+    show (Q'.add a b).denPred + 1 = a.den * b.den
+    show (a.den * b.den - 1) + 1 = a.den * b.den
+    exact Nat.sub_add_cancel (Nat.one_le_iff_ne_zero.mpr
+      (Nat.pos_iff_ne_zero.mp h_ab_pos))
+  -- (a + b).num as Int: a.num * b.den + b.num * a.den (definition of Q'.add).
+  have h_ab_num : (a + b).num = a.num * (b.den : Int) + b.num * (a.den : Int) :=
+    rfl
+  rw [h_ab_num, h_ab_den_eq]
+  -- Cast Nat product to Int product: ((a.den * b.den : Nat) : Int) = a.den * b.den.
+  show a.num * (((a.den * b.den : Nat) : Int))
+        ≤ (a.num * (b.den : Int) + b.num * (a.den : Int)) * (a.den : Int)
+  rw [Int.natCast_mul]
+  -- After expansion, we need:
+  --   a.num · (a.den · b.den) ≤ (a.num · b.den + b.num · a.den) · a.den.
+  -- Set up the RHS as LHS + (b.num · a.den²) via algebra; then conclude via
+  -- Int.le_add_of_nonneg_right on the nonneg term b.num · a.den².
+  have h_RHS_decomp :
+      (a.num * (b.den : Int) + b.num * (a.den : Int)) * (a.den : Int)
+        = a.num * ((a.den : Int) * (b.den : Int))
+          + b.num * (a.den : Int) * (a.den : Int) := by
+    calc (a.num * (b.den : Int) + b.num * (a.den : Int)) * (a.den : Int)
+        = a.num * (b.den : Int) * (a.den : Int)
+          + b.num * (a.den : Int) * (a.den : Int) := Int.add_mul _ _ _
+      _ = a.num * ((b.den : Int) * (a.den : Int))
+          + b.num * (a.den : Int) * (a.den : Int) := by
+          rw [Int.mul_assoc a.num (b.den : Int) (a.den : Int)]
+      _ = a.num * ((a.den : Int) * (b.den : Int))
+          + b.num * (a.den : Int) * (a.den : Int) := by
+          rw [Int.mul_comm (b.den : Int) (a.den : Int)]
+  rw [h_RHS_decomp]
+  -- Now: a.num * (a.den * b.den) ≤ a.num * (a.den * b.den) + b.num * a.den * a.den.
+  have h_a_den_nn : (0 : Int) ≤ (a.den : Int) := Int.natCast_nonneg _
+  have h_diff_nn : (0 : Int) ≤ b.num * (a.den : Int) * (a.den : Int) :=
+    Int.mul_nonneg (Int.mul_nonneg h_b_num_nn h_a_den_nn) h_a_den_nn
+  exact Int.le_add_of_nonneg_right h_diff_nn
+
 /-! ### Transitivity of `≤`
 
 The key arithmetic identity for chaining inequalities at Q'.  Proof goes
@@ -428,4 +491,5 @@ end YMGap.Constructive
 #print axioms YMGap.Constructive.Q'.zero_le_iff_num_nonneg
 #print axioms YMGap.Constructive.Q'.zero_le_add
 #print axioms YMGap.Constructive.Q'.zero_le_min
+#print axioms YMGap.Constructive.Q'.add_le_self_of_nonneg
 #print axioms YMGap.Constructive.Q'.le_trans'

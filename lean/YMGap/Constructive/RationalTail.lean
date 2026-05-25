@@ -218,6 +218,122 @@ theorem truncated_const_3_partial_sum_bound
           (truncated_const_3_zero_of_ge_3 η_max) (n + 1)]
     exact h3
 
+/-! ## Monotonicity of `finSum` for nonneg sequences
+
+The Q' analog of "Σ_{k=0}^{N-1} a_k is monotone-increasing in N if a_k ≥ 0."
+Needed by `prefix_plus_tail_closure` below: for N below the cut-off K_0,
+monotonicity bounds the partial sum by `finSum η K_0`.
+
+Both lemmas follow from `Q'.add_le_self_of_nonneg` by structural induction. -/
+
+/-- One-step monotonicity: `finSum η n ≤ finSum η (n + 1)` when `0 ≤ η n`. -/
+theorem finSum_le_succ_of_nonneg (η : QSeq) (n : Nat) (h : (0 : Q') ≤ η n) :
+    finSum η n ≤ finSum η (n + 1) := by
+  show finSum η n ≤ finSum η n + η n
+  exact Q'.add_le_self_of_nonneg (finSum η n) (η n) h
+
+/-- For nonneg `η`, `finSum η M ≤ finSum η (M + K)` for every `K`.
+Proof by induction on `K` using `finSum_le_succ_of_nonneg`. -/
+theorem finSum_le_add_of_nonneg
+    (η : QSeq) (h_nonneg : ∀ k, (0 : Q') ≤ η k) (M : Nat) :
+    ∀ K, finSum η M ≤ finSum η (M + K)
+  | 0 => by
+    show finSum η M ≤ finSum η (M + 0)
+    show finSum η M ≤ finSum η M
+    exact Q'.le_refl' _
+  | K + 1 => by
+    -- finSum η (M + (K + 1)) = finSum η (M + K) + η (M + K)
+    -- ≥ finSum η (M + K)        (by finSum_le_succ_of_nonneg)
+    -- ≥ finSum η M               (by IH)
+    show finSum η M ≤ finSum η (M + K) + η (M + K)
+    have h_ih : finSum η M ≤ finSum η (M + K) :=
+      finSum_le_add_of_nonneg η h_nonneg M K
+    have h_step : finSum η (M + K) ≤ finSum η (M + K) + η (M + K) :=
+      Q'.add_le_self_of_nonneg _ _ (h_nonneg _)
+    exact Q'.le_trans' _ _ _ h_ih h_step
+
+/-- General monotonicity: `M ≤ N → finSum η M ≤ finSum η N` for nonneg `η`.
+
+Derived from `finSum_le_add_of_nonneg` via `Nat.exists_eq_add_of_le`. -/
+theorem finSum_monotone_of_nonneg
+    (η : QSeq) (h_nonneg : ∀ k, (0 : Q') ≤ η k)
+    (M N : Nat) (h_le : M ≤ N) :
+    finSum η M ≤ finSum η N := by
+  obtain ⟨K, rfl⟩ := Nat.exists_eq_add_of_le h_le
+  -- Goal: finSum η M ≤ finSum η (M + K)
+  exact finSum_le_add_of_nonneg η h_nonneg M K
+
+/-! ## Prefix-plus-tail closure for infinite trajectories
+
+Extends `sigma_hat_budget_closure` to the natural "infinite trajectory"
+shape of `notes/sigma-hat-derivation.md` §4.2 option (i): the global
+closure ``∀ N, finSum η N ≤ σ_0`` follows from a UNIFORM-PAST-K_0 bound
+(a single rational `bound` that bounds `finSum η (K_0 + M)` for every
+`M`) plus the budget condition `bound ≤ σ_0`.
+
+For `N ≥ K_0`, the result is the uniform bound transitioned through the
+budget condition (the same shape as `sigma_hat_budget_closure`).
+
+For `N < K_0`, the result uses **monotonicity** of `finSum η` for
+nonneg sequences (`finSum_monotone_of_nonneg`): partial sums at smaller
+`N` can only be smaller, so they too are bounded by `finSum η K_0 ≤ bound`.
+
+The new infrastructure that makes this work:
+  * `Q'.add_le_self_of_nonneg`  (added 2026-05-25 to `Rationals.lean`)
+  * `finSum_le_add_of_nonneg`   (above)
+  * `finSum_monotone_of_nonneg` (above)
+
+Use case (Phase-4 prep): for the UV-direction SU(2) trajectory where
+`g_k → 0` as `k → ∞`, η_k decays geometrically and the tail `Σ_{k ≥ K_0}
+η_k ≤ T` is rationally bounded.  Picking `bound := finSum η K_0 + T`
+(both rational at finite K_0) and supplying the per-M tail bound gives
+the infinite-trajectory closure entirely in Q'. -/
+
+/-- **Prefix-plus-tail closure for infinite trajectories.**
+
+Given:
+  * `η : QSeq` with `h_nonneg : ∀ k, 0 ≤ η k`,
+  * `K_0 : Nat` (the cut-off scale),
+  * `bound : Q'` such that `∀ M, finSum η (K_0 + M) ≤ bound` (the
+    uniform-past-K_0 hypothesis — typically derived as
+    `finSum η K_0 + (geometric tail bound)`),
+  * `h_budget : bound ≤ σ_0` (the closure condition),
+
+conclude: `∀ N, finSum η N ≤ σ_0`.
+
+Differs from `sigma_hat_budget_closure` in that the user only supplies
+the bound past `K_0`; for `N < K_0` we use nonneg-monotonicity of the
+partial sums, which is the structural payoff of `add_le_self_of_nonneg`
++ `finSum_monotone_of_nonneg`. -/
+theorem prefix_plus_tail_closure
+    (η : QSeq) (K_0 : Nat) (bound σ_0 : Q')
+    (h_nonneg : ∀ k, (0 : Q') ≤ η k)
+    (h_tail_uniform : ∀ M, finSum η (K_0 + M) ≤ bound)
+    (h_budget : bound ≤ σ_0) :
+    ∀ N, finSum η N ≤ σ_0 := by
+  intro N
+  -- Case split on whether N ≥ K_0 or N < K_0.
+  by_cases h : K_0 ≤ N
+  case pos =>
+    -- N ≥ K_0: write N = K_0 + M for some M, apply h_tail_uniform.
+    obtain ⟨M, rfl⟩ := Nat.exists_eq_add_of_le h
+    exact Q'.le_trans' _ _ _ (h_tail_uniform M) h_budget
+  case neg =>
+    -- N < K_0: by monotonicity, finSum η N ≤ finSum η K_0 = finSum η (K_0 + 0)
+    -- ≤ bound (by h_tail_uniform at M = 0) ≤ σ_0 (by h_budget).
+    have h_N_le_K0 : N ≤ K_0 := Nat.le_of_not_le h
+    have h_mono : finSum η N ≤ finSum η K_0 :=
+      finSum_monotone_of_nonneg η h_nonneg N K_0 h_N_le_K0
+    have h_K0_bound : finSum η K_0 ≤ bound := by
+      have h_zero := h_tail_uniform 0
+      -- h_zero : finSum η (K_0 + 0) ≤ bound
+      -- Need: finSum η K_0 ≤ bound.  K_0 + 0 = K_0 by Nat.add_zero.
+      show finSum η K_0 ≤ bound
+      have h_eq : K_0 + 0 = K_0 := Nat.add_zero K_0
+      rw [h_eq] at h_zero
+      exact h_zero
+    exact Q'.le_trans' _ _ _ (Q'.le_trans' _ _ _ h_mono h_K0_bound) h_budget
+
 /-! ## Smoke-test instance: zero-η trajectory
 
 The trivially-closed pilot: an η sequence that is identically zero
@@ -321,10 +437,14 @@ end YMGap.Constructive.RationalTail
 #print axioms YMGap.Constructive.RationalTail.finSum_succ
 #print axioms YMGap.Constructive.RationalTail.finSum_zero_seq
 #print axioms YMGap.Constructive.RationalTail.finSum_stabilizes_after_K
+#print axioms YMGap.Constructive.RationalTail.finSum_le_succ_of_nonneg
+#print axioms YMGap.Constructive.RationalTail.finSum_le_add_of_nonneg
+#print axioms YMGap.Constructive.RationalTail.finSum_monotone_of_nonneg
 #print axioms YMGap.Constructive.RationalTail.truncated_const_3
 #print axioms YMGap.Constructive.RationalTail.truncated_const_3_zero_of_ge_3
 #print axioms YMGap.Constructive.RationalTail.truncated_const_3_partial_sum_bound
 #print axioms YMGap.Constructive.RationalTail.sigma_hat_budget_closure
+#print axioms YMGap.Constructive.RationalTail.prefix_plus_tail_closure
 #print axioms YMGap.Constructive.RationalTail.zero_eta_bound
 #print axioms YMGap.Constructive.RationalTail.smoke_test_zero_eta_closes
 #print axioms YMGap.Constructive.RationalTail.single_step_eta
