@@ -29,9 +29,22 @@
 > knowledge plus standard-textbook conventions; it has **not** been
 > cross-checked against the physical journals.
 >
+> **Update 2026-05-25**: the user supplied PDFs in
+> `docs/pdf_references/` for the following primary sources, which have
+> been directly audited (extractions cited per-fiducial below):
+> [Balaban1987RG-I] (CMP 109), [Balaban1988RG-II] (CMP 116),
+> [Balaban1985UV3D] (CMP 102), [BrydgesFroehlichSeiler1978IHES]
+> (IHES preprint), [JaffeWitten2006] (Clay statement),
+> [Jorgensen1986AnalyticContinuation] (Pac. J. Math. 125).
+> The audit conclusions: (a) Bałaban's `c_λ` is qualitative
+> (existence-only); (b) BFS confirms our direct per-bond plaquette
+> count; (c) the Seiler 1982 $5d - 4 = 16$ formula remains unverified
+> (LNP 159 not in the PDF set); (d) no sign-preservation lemma for the
+> $c_{\text{polymer}} = 1$ tightening was found in any audited PDF.
+>
 > Each fiducial below carries a `status` field marking how strong its
-> provenance is. Two values are flagged as **HEURISTIC** — they should
-> be the first refinement targets.
+> provenance is. One value remains flagged **HEURISTIC** — see the
+> summary table below.
 
 ---
 
@@ -47,7 +60,7 @@ $$
 \quad(\text{fiducial}).
 $$
 
-**Status: LITERATURE-SHAPE, FIDUCIAL VALUE.**
+**Status: LITERATURE-SHAPE, FIDUCIAL VALUE — confirmed qualitative by direct PDF audit 2026-05-25.**
 
 **Shape source.** The Bałaban RG series establishes a small-field
 activity bound of the form
@@ -58,6 +71,41 @@ $$
 where $c_\lambda(P_k)$ is the spectral gap of the small-field Laplacian
 $\Delta_k$ restricted to a Gribov-safe patch $P_k$. This is the SHAPE
 of the bound; see [Balaban1987RG-I, Balaban1988RG-II].
+
+**Direct PDF audit (2026-05-25)** of [Balaban1987RG-I] and
+[Balaban1988RG-II] (PDFs in `docs/pdf_references/`):
+
+  - **CMP 109 (Part I)** activity bound appears as eqs.~(0.27) and (1.18):
+    `|E_ω(X, U_k)| ≤ E_0 · exp(-κ · d_j(X))` (with `d_j` a tree-distance
+    measuring polymer extent). The bound rate is `κ`, Bałaban's analog
+    of our `c_λ`.
+  - **CMP 109 Theorem 3 (precise statement of the main bound)**:
+    "There exist positive constants $\kappa_0, M(\kappa), \gamma,
+    \varepsilon_0, \varepsilon_1, \alpha_0, \alpha_1$ such that
+    if $\kappa \le \kappa_0$, $M \ge M(\kappa)$, $0 < g_k \le \gamma$
+    for $k = 0, 1, \ldots, K$, then the sequence of actions $A_k$
+    [...] satisfy all the inductive assumptions [...]"
+  - **CMP 109 Theorem 2 (SU(2) specialization)**: "Let $d = 4, G =
+    SU(2)$, and let $\gamma$ be a sufficiently small positive constant,
+    then for a sufficiently small positive $g$ there exists a bare
+    coupling constant $g_0 = g_0(\varepsilon, \gamma)$ such that the
+    sequence of effective coupling constants $g_k$ is contained [...]."
+  - **CMP 116 (Part II)** cluster-expansion convergence theorems
+    invoke a SECOND constant $\kappa_1$ ("sufficiently big positive
+    number") satisfying ordering constraints like $\tfrac{1}{8}\kappa_1
+    \ge (1 - 2\delta)\kappa$ (eq.~1.32) — i.e., `κ` and `κ_1` are linked
+    by inequalities, not equalities.
+
+**Verdict of the audit.** Bałaban's framework establishes the
+**existence** of a positive `κ` satisfying a system of upper-bound
+constraints (`κ ≤ κ_0`, plus compatibility with `κ_1, M, γ, ε_i, α_i`).
+The primary sources do NOT pin down a numerical value for `κ`.
+
+The project's `BAŁABAN_SPECTRAL_GAP_COEFF = 1/2` is correctly labeled
+fiducial: it is a representative value within Bałaban's qualitative
+range, not a number extracted from a primary inequality. The
+2026-05-25 audit thus CONFIRMS the existing fiducial status; it does
+not refine the numerical value.
 
 **Specific value 1/2 — provenance.** The value $c_\lambda = 1/2$ is
 **not** directly extracted from a single inequality in those papers.
@@ -309,6 +357,32 @@ upper bound for sanity-checking — not as a default.
 provides `plaquette_edge_neighbor_count(d) → 8d - 12` as the direct
 combinatorial count.
 
+**Primary-source confirmation of the per-edge count (PDF audit 2026-05-25).**
+[BrydgesFroehlichSeiler1978IHES] (PDF in `docs/pdf_references/`),
+Section 4 eq.~(4.24), states explicitly:
+
+> "Given a bond $\langle x, y \rangle$, there are $2(\nu - 1)$
+> plaquettes, $P_1, P'_1, \ldots, P_{\nu-1}, P'_{\nu-1}$ with
+> $\langle x, y \rangle$ as a common bond and such that $P_i$ and
+> $P'_i$ are in the same plane, $i = 1, \ldots, \nu - 1$."
+
+(BFS uses $\nu$ for the lattice dimension; we use $d$.) For $d = 4$,
+$2(d-1) = 6$ plaquettes share a given bond, INCLUDING the current
+plaquette in the same plane (counted in the $P_i / P'_i$ pairing).
+Per-edge other-plaquette count: $2(d-1) - 1 = 2d - 3 = 5$ at $d = 4$.
+Total edge-neighbors per plaquette: $4 \cdot (2d - 3) = 8d - 12 = 20$
+at $d = 4$. ✓ Direct confirmation of `plaquette_edge_neighbor_count(4) = 20`.
+
+**What the audit does NOT confirm.** The Seiler 1982 $5d - 4 = 16$
+plaquette-polymer **connectivity constant** is NOT in the BFS PDF
+(which deals with diamagnetic inequalities and bond-level
+combinatorics, not aggregate polymer counts). The original 5d-4
+formula remains pending verification against [Seiler1982] LNP 159
+(not in the project's PDF collection). The
+$\mu_{\text{plaq}}^{\text{BF}} = e(8d - 12) = 20e$ direct-from-BFS
+fallback (§3.2) is rigorously derivable from this confirmed
+per-bond count alone.
+
 ### 3.2. Genuinely-BF-conservative fallback `MU_PLAQUETTE_BF_CONSERVATIVE_4D = 20e` (2026-05-25)
 
 Building on the §3.1 audit: the project now exposes a
@@ -471,6 +545,16 @@ constant to $c_{\text{polymer}} = 1$, halving the σ-budget consumption.
 This is a real pilot-window enlargement opportunity, but it requires a
 genuinely new analytic input (signed cluster-expansion control).
 Without that lemma, the worst-case 2 is correct.
+
+**PDF audit 2026-05-25.** Neither [Balaban1988RG-II] CMP 116
+(Part II) nor [BrydgesFroehlichSeiler1978IHES] contains a
+sign-preservation lemma of the form needed for the $c_{\text{polymer}}
+= 1$ tightening. CMP 116's cluster-expansion bounds carry absolute
+values throughout (e.g., eq.~1.36: $|V_i(y, U, J, B)| \le B_0 e^{C_1 M}
+\exp(C_2 \kappa_1) \exp(-(1 - 2\delta) \kappa d_t(y))$); the argument
+does not invoke sign-preservation. The conjectured $c_{\text{polymer}}
+= 1$ tightening remains a project-level open analytic target, not a
+direct extraction.
 
 The historical match $2/4 = 1/2$ with the previous placeholder is now
 **coincidence** rather than design: the placeholder was 1/2, and the

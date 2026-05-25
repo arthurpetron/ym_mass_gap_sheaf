@@ -632,6 +632,13 @@ continuum SU(2) Wilson measure `μ_∞` (Phase 7.2) and apply the
 reconstruction theorem to obtain a Hilbert space with a self-adjoint
 Hamiltonian, ready for the mass-gap analysis of Phase 9.
 
+**Foundational references.** [Jorgensen1986AnalyticContinuation]
+(Pac. J. Math. 125) on analytic continuation of local Lie-group
+representations and its OS-positivity connection (PDF in
+`docs/pdf_references/`). Klein–Landau prior work on OS positivity
+cited within. The lattice-to-continuum OS-axiom-lift uses the
+projective-limit construction of Phase 7.2.
+
 ### Milestone 8.1 — OS axiom verification
 
 **Goal.** Verify each OS axiom (translation invariance, reflection
@@ -681,9 +688,27 @@ Lean-formal-statement-only milestone.
 ## Phase 9: Mass-gap theorem for SU(2)
 
 **Phase goal.** State and prove the mass-gap theorem for SU(2)
-Yang–Mills: the continuum-limit Hamiltonian `H_op` (Phase 8.2) has a
-spectral gap above the ground state, `inf σ(H_op) \ {0} > 0`. This is
-the target the entire program serves.
+Yang–Mills, mirroring the Clay Millennium problem statement of
+[JaffeWitten2006] (PDF in `docs/pdf_references/`):
+
+> "*Yang–Mills Existence and Mass Gap.* Prove that for any compact
+> simple gauge group $G$, a non-trivial quantum Yang–Mills theory
+> exists on $\mathbb{R}^4$ and has a mass gap $\Delta > 0$. Existence
+> includes establishing axiomatic properties at least as strong as
+> those cited in [Streater–Wightman, Osterwalder–Schrader]."
+
+The Clay-statement definition of the mass gap is:
+
+> "A quantum field theory has a mass gap $\Delta$ if $H$ has no
+> spectrum in the interval $(0, \Delta)$ for some $\Delta > 0$. The
+> supremum of such $\Delta$ is the mass $m$, and we require
+> $m < \infty$."
+
+Our Phase-9 target is the SU(2) instance of this: the continuum-limit
+Hamiltonian `H_op` (Phase 8.2) has a spectral gap above the ground
+state, `inf σ(H_op) \ {0} > 0`. Per the Phase-3 inductive-step
+infrastructure, the project produces a CONSTRUCTIVE lower bound `m_0
+≤ m`, not just an existence claim.
 
 ### Milestone 9.1 — Mass-gap statement and proof
 

@@ -39,6 +39,9 @@ dist/
 _generated/
 visualizations/_generated/
 
+# Primary-source PDFs (copyrighted; local-only for audit, not redistributed)
+docs/pdf_references/
+
 # Lean / Lake build artifacts
 lean/.lake/
 lean/build/
