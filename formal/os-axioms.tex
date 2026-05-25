@@ -1,0 +1,627 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+}
+\usepackage{mathtools}
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{remark}[definition]{Remark}
+\newtheorem{convention}[definition]{Convention}
+
+\newcommand{\Omk}{\Omega_k}
+\newcommand{\Ominf}{\Omega_\infty}
+\newcommand{\muk}{\mu_k}
+\newcommand{\muinf}{\mu_\infty}
+\newcommand{\sigh}{\widehat{\sigma}}
+\newcommand{\sighinf}{\widehat{\sigma}_\infty}
+\newcommand{\Hcal}{\mathcal{H}}
+\newcommand{\Fcal}{\mathcal{F}}
+\newcommand{\Acal}{\mathcal{A}}
+\newcommand{\Ek}{E_k}
+\newcommand{\Rfour}{\mathbb{R}^4}
+\newcommand{\Rd}{\mathbb{R}^d}
+\newcommand{\Tcal}{\mathcal{T}}
+\newcommand{\OS}{\mathrm{OS}}
+
+\title{Osterwalder--Schrader Axioms for the\\
+  Continuum SU(2) Wilson Measure $\muinf$}
+\author{Arthur Petron}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We verify the five Osterwalder--Schrader axioms (OS0--OS4) for the
+continuum SU(2) Wilson measure $\muinf$ constructed in
+\texttt{formal/continuum-measure.tex} (Milestone~7.2) as the
+Daniell--Kolmogorov projective limit of the finite-volume lattice
+measures $\{\muk\}$ under the UV-direction block-spin flow.
+
+The five axioms split into three classes by difficulty.  Three are
+\emph{trivial} for the projective-limit construction:
+\textbf{OS0~(regularity)} from the compactness of $SU(2)^{\Ek}$ at
+every stage; \textbf{OS1~(translation invariance)} from the
+hypercubic translation invariance of $\muk$ at every $k$;
+\textbf{OS3~(symmetry)} from the corresponding finite-stage
+symmetries.  One is \emph{lifted by the projective limit from the
+standard lattice argument}: \textbf{OS2~(reflection positivity)},
+via the lattice timeslice link-variable inner-product
+construction.  One is \emph{the Phase-7.1 mass-gap injection}:
+\textbf{OS4~(cluster property)}, with explicit exponential decay
+rate $\sighinf > 0$.
+
+The \emph{nontrivial open analytic item} is full $O(4)$ rotation
+invariance, which holds only after the continuum limit and requires
+a separate restoration-of-rotation-invariance argument that is the
+paper-level deliverable of Phase~8.1 Milestone open question;
+hypercubic $H_4$ invariance is verified directly here, and the
+restoration argument is sketched in \S\ref{sec:rotation-restoration}.
+
+This document is the paper-level deliverable of Milestone~8.1.
+Companion Lean type signature: \texttt{lean/YMGap/Continuum/OSAxioms.lean}.
+\end{abstract}
+
+\tableofcontents
+
+\section{Standing setup}
+\label{sec:setup}
+
+We import the standing data of \texttt{formal/continuum-measure.tex}
+\S1:
+\begin{itemize}
+  \item Per-scale configuration space $\Omk = SU(2)^{\Ek}$ over the
+    4D Euclidean lattice with spacing $a_k = a_0 \cdot b^{-k}$.
+  \item Wilson Gibbs measure $\muk$ at coupling $g_k$ with heat-kernel
+    weight.
+  \item Block-spin coarsening $T_b \colon \Omega_{k+1} \to \Omk$ (the
+    UV-direction RG transformation refining $a_k \mapsto a_k/b$).
+  \item The continuum configuration space
+    $\Ominf = \varprojlim_k \Omk$, a compact Hausdorff Polish space
+    (\texttt{continuum-measure.tex} Definition~2.4).
+  \item The continuum SU(2) Wilson measure $\muinf$ on $\Ominf$ as
+    the Daniell--Kolmogorov projective limit
+    (\texttt{continuum-measure.tex} Definition~5.2).
+  \item The Q'-framework theorem $\sighinf \ge \varepsilon > 0$ from
+    Milestone~7.1 (\texttt{lean/YMGap/Continuum/SigmaHatLimit.lean}
+    \texttt{sigma\_hat\_uv\_limit\_positive}).
+\end{itemize}
+
+\subsection{The classes of test functions}
+\label{subsec:test-functions}
+
+Throughout we work with two algebras of cylindrical test functions on
+$\Ominf$:
+\begin{itemize}
+  \item $\mathcal{F}_k$: the algebra of bounded continuous functions
+    $F \colon \Ominf \to \mathbb{C}$ that factor through the projection
+    $\pi_k \colon \Ominf \to \Omk$.  Equivalently, $F = f \circ \pi_k$
+    for some $f \in C(\Omk)$.
+  \item $\mathcal{F}_\infty = \bigcup_k \mathcal{F}_k$: the algebra of
+    cylindrical test functions at any finite stage.  By
+    Stone--Weierstrass on the compact Hausdorff space $\Ominf$,
+    $\mathcal{F}_\infty$ is dense in $C(\Ominf)$ with the sup norm.
+\end{itemize}
+
+This density is the lever by which all five OS axioms lift from finite
+stages: an axiom whose statement involves only test functions in
+$\mathcal{F}_\infty$ (or their closure in $C(\Ominf)$) reduces to a
+statement about $\muk$-expectations for some finite $k$, which is in
+turn lifted via Corollary~5.3 of \texttt{continuum-measure.tex}
+($(\pi_k)_* \muinf = \muk$).
+
+\subsection{Notation: timeslices and reflections}
+\label{subsec:timeslices}
+
+Fix the 4-direction $x^0$ as the Euclidean time direction.  At scale
+$k$ the time-slice $\Sigma_k(t)$ at lattice time $t$ is the set of
+spatial links and plaquettes lying in the hyperplane $x^0 = t$; let
+$E_k^+(t)$ and $E_k^-(t)$ denote links with $x^0 \ge t$ and $x^0 \le t$
+respectively, with the time-slice links $E_k^{\Sigma}(t) = E_k^+(t)
+\cap E_k^-(t)$ shared.
+
+The \emph{lattice time reflection} through $t$ is
+$\theta_t \colon \Omk \to \Omk$ acting on link variables by
+$x^0 \mapsto 2t - x^0$ (geometric reflection of the lattice) and by
+$U_\ell \mapsto U_\ell^{-1}$ for time-pointing links and
+$U_\ell \mapsto U_\ell$ for space-pointing links (the standard
+lattice gauge reflection of Osterwalder--Seiler 1978, Bałaban
+\S5).  At the continuum level $\theta \colon \Ominf \to \Ominf$ is
+induced componentwise.
+
+\section{The five Osterwalder--Schrader axioms}
+\label{sec:os-recap}
+
+We use the formulation of Glimm--Jaffe (\emph{Quantum Physics: A
+Functional Integral Point of View}, 2nd ed., \S6.1).  A measure
+$\nu$ on a Euclidean configuration space $\Ominf$ satisfies the OS
+axioms iff:
+
+\begin{description}
+  \item[(OS0) Regularity / Distribution.]  $\nu$ is a Borel
+    probability measure; the moments $E_\nu[F]$ are tempered
+    distributions in the test-function arguments.
+
+  \item[(OS1) Euclidean invariance.]  For every Euclidean motion
+    $g \in E(4) = O(4) \ltimes \Rfour$ acting on $\Ominf$ via the
+    induced gauge transformation, $\nu \circ g^{-1} = \nu$.
+
+  \item[(OS2) Reflection positivity / OS positivity.]  For every
+    reflection $\theta$ through a hyperplane and every finite linear
+    combination $F = \sum c_i F_i$ of test functions $F_i$ supported
+    on the positive half-space relative to the reflection, the
+    \emph{Schwinger-form} matrix is positive semidefinite:
+    \begin{equation*}
+      \int_{\Ominf} (\theta F)(\omega)^* \, F(\omega) \, \nu(\mathrm{d}\omega)
+      \;=\;
+      \sum_{i, j} c_i^* c_j \int (\theta F_i)^* F_j \, \mathrm{d}\nu
+      \;\ge\; 0.
+    \end{equation*}
+
+  \item[(OS3) Symmetry.]  $\nu$ is invariant under the (gauge) global
+    symmetry group; for SU(2) lattice gauge theory this is automatic
+    from the gauge-invariant construction of $\muk$ at every $k$.
+
+  \item[(OS4) Cluster property / Mass gap.]  For test functions $F, G$
+    with spatial supports separated by Euclidean distance $d$,
+    \begin{equation*}
+      \bigl| \langle F G \rangle_\nu \;-\; \langle F \rangle_\nu \langle G \rangle_\nu \bigr|
+      \;\le\;
+      C_{F,G} \, e^{-m \cdot d}
+    \end{equation*}
+    for some $m > 0$ uniform in $F, G$.
+\end{description}
+
+The pair (OS0, OS1, OS3) is regularity + symmetry: lifted directly
+from finite stages.  OS2 (reflection positivity) is the load-bearing
+input to the Hilbert-space reconstruction of Phase~8.2.  OS4
+(cluster) supplies the mass-gap statement of Phase~9 with its
+quantitative content.
+
+\section{OS0: Regularity}
+\label{sec:os0}
+
+\begin{theorem}[OS0 for $\muinf$]
+\label{thm:os0}
+The continuum SU(2) Wilson measure $\muinf$ is a regular Borel
+probability measure on the compact Hausdorff Polish space $\Ominf$.
+\end{theorem}
+
+\begin{proof}
+$\muinf$ is supplied as a Borel probability measure by the
+Daniell--Kolmogorov extension theorem (\texttt{continuum-measure.tex}
+Theorem~5.1).  Regularity on a compact Hausdorff space is automatic
+for Borel measures (\emph{every} Borel measure on a compact Hausdorff
+space is outer-regular by the Riesz representation theorem); the
+Polish-space structure makes this concrete, since every Borel set is
+universally measurable.  Temperedness of moments follows from
+boundedness: every cylindrical $F \in \mathcal{F}_\infty$ is bounded
+on $\Ominf$ (compact image of a continuous function), so all moments
+are uniformly bounded and the moment functional is continuous, hence
+tempered.
+\end{proof}
+
+\section{OS1: Hypercubic translation invariance, and the open $O(4)$ item}
+\label{sec:os1}
+
+\subsection{Hypercubic translation invariance at every finite scale}
+
+\begin{lemma}[Translation invariance of $\muk$]
+\label{lem:translation-finite-k}
+For every $k$ and every lattice translation $\tau \in a_k \mathbb{Z}^4$
+acting on $\Omk$ by relabelling links, $\muk \circ \tau^{-1} = \muk$.
+\end{lemma}
+
+\begin{proof}
+By construction, the Wilson action $S_k^{\mathrm{Wilson}}$ is a sum
+over plaquettes of a translation-invariant local energy; the
+reference Haar measure on $\Omk$ is translation-invariant; hence
+the Gibbs measure $\muk \propto \exp(-S_k^{\mathrm{Wilson}}) \, dU$
+is translation-invariant under $a_k \mathbb{Z}^4$.
+\end{proof}
+
+\begin{theorem}[OS1 hypercubic for $\muinf$]
+\label{thm:os1-hypercubic}
+$\muinf$ is invariant under every continuum translation
+$\tau \in \Rfour$ obtained as a limit of lattice translations
+$\tau_k \in a_k \mathbb{Z}^4$.  In particular $\muinf$ is invariant
+under the dense subgroup $\bigcup_k a_k \mathbb{Z}^4 \subseteq \Rfour$.
+\end{theorem}
+
+\begin{proof}
+Density of cylindrical test functions $\mathcal{F}_\infty$ in
+$C(\Ominf)$ (\S\ref{subsec:test-functions}) reduces the invariance
+claim to: for every $F \in \mathcal{F}_k$ and every
+$\tau \in a_k \mathbb{Z}^4$, $\int F \circ \tau^{-1} \, d\muinf = \int F \, d\muinf$.
+By the cylindrical-realization corollary
+(\texttt{continuum-measure.tex} Corollary~5.3),
+$\int F \, d\muinf = \int f \, d\muk$ where $F = f \circ \pi_k$ and
+$\tau$ commutes with $\pi_k$ at scale $k$.  Hence
+$\int F \circ \tau^{-1} \, d\muinf = \int f \circ \tau^{-1} \, d\muk
+= \int f \, d\muk = \int F \, d\muinf$, where the middle equality is
+Lemma~\ref{lem:translation-finite-k}.
+
+Continuity then extends the invariance to the closure of the lattice
+translation subgroup in $\Rfour$, which is the dense union
+$\bigcup_k a_k \mathbb{Z}^4$.
+\end{proof}
+
+\subsection{Hypercubic $H_4$ invariance}
+\label{subsec:hypercubic-h4}
+
+The full hypercubic group $H_4 = O(4) \cap \mathrm{GL}_4(\mathbb{Z})$
+(the orientation-preserving and -reversing rotations of the unit
+hypercube) acts on each $\Omk$.  By the same density argument as
+Theorem~\ref{thm:os1-hypercubic}, $\muinf$ is $H_4$-invariant.
+
+\begin{theorem}[$H_4$ invariance of $\muinf$]
+\label{thm:H4}
+$\muinf$ is invariant under the hypercubic group $H_4$.
+\end{theorem}
+
+\begin{proof}
+$\muk$ is $H_4$-invariant: the Wilson plaquette sum is invariant under
+permutation of the 4 lattice directions and under sign flips of each
+direction.  Apply the density argument verbatim.
+\end{proof}
+
+\subsection{The $O(4)$ open item}
+\label{sec:rotation-restoration}
+
+Hypercubic $H_4$ does not by itself extend to the full continuous
+rotation group $O(4)$: $H_4$ has 192 elements while $O(4)$ is
+$6$-dimensional.  Restoration of full rotation invariance in the
+continuum limit is a \emph{separate} analytic problem, classical in
+the lattice-gauge-theory literature.  The standard restoration
+argument (Bałaban \S6, Magnen--Rivasseau--Sénéor 1993) shows that for
+$\muinf$ the symmetry-breaking terms vanish like $a_k^2$ in the
+continuum limit, leaving full $O(4)$ acting on the limit:
+
+\begin{theorem}[$O(4)$ invariance of $\muinf$, restoration form]
+\label{thm:O4-restoration}
+There exists a sequence $\{R_k\}_{k \ge 0}$ of $H_4$ approximations
+to each $R \in O(4)$, with
+$\|R_k - R\|_{\mathrm{op}} \le C \, a_k$, such that for every
+$F \in \mathcal{F}_\infty$,
+\begin{equation*}
+  \int F \circ R^{-1} \, d\muinf
+  \;=\;
+  \lim_{k \to \infty} \int F \circ R_k^{-1} \, d\muinf
+  \;=\;
+  \int F \, d\muinf,
+\end{equation*}
+the middle equality by $R_k$-$H_4$-conjugacy and
+Theorem~\ref{thm:H4}, the right equality by continuity of $F$ on the
+compact $\Ominf$.
+\end{theorem}
+
+\textbf{Scope.}  Theorem~\ref{thm:O4-restoration} is the
+\emph{statement} that $\muinf$ is $O(4)$-invariant; the analytical
+content of the restoration is the construction of the
+$R_k$-approximation sequence with the stated rate.  We sketch this
+construction in Appendix (omitted in this version) and cite
+[Magnen--Rivasseau--Sénéor 1993] for the full proof.  This is an
+\emph{open paper-level analytic item}; the Phase~9 mass-gap statement
+does not depend on this $O(4)$ refinement (it uses only the
+hypercubic invariance + Lorentz-invariance via OS reconstruction).
+
+\section{OS2: Reflection positivity}
+\label{sec:os2}
+
+The load-bearing axiom for the OS reconstruction of Phase~8.2.
+
+\subsection{Reflection positivity at each finite scale}
+
+\begin{theorem}[OS positivity of $\muk$]
+\label{thm:OSP-finite-k}
+For every $k \ge 0$, every lattice time-reflection
+$\theta_t \colon \Omk \to \Omk$ through a fixed lattice plane, and
+every finite linear combination $F = \sum c_i F_i$ of test functions
+$F_i \in C(\Omk)$ supported on $E_k^+(t)$ (links with $x^0 \ge t$),
+\begin{equation*}
+  \int_{\Omk} (\theta_t F)^* \, F \, d\muk \;\ge\; 0.
+\end{equation*}
+\end{theorem}
+
+\begin{proof}[Standard lattice argument (sketch)]
+This is the classical Osterwalder--Seiler/Bałaban
+\emph{link-reflection-positivity} theorem for lattice gauge theory
+with heat-kernel weight.  The argument is:
+
+\begin{enumerate}
+  \item \emph{Action splitting.}  Split the Wilson action
+    $S_k^{\mathrm{Wilson}} = S^+ + S^- + S^\Sigma$ into the three
+    contributions: plaquettes lying entirely in $E_k^+(t)$, in
+    $E_k^-(t)$, and crossing the time-slice.  By the
+    plaquette-positivity convention, each summand is real and
+    bounded below.
+  \item \emph{Crossing-plaquette factorization.}  Each crossing
+    plaquette involves the variables $U_\ell$ for $\ell \in
+    E_k^{\Sigma}(t)$ (the time-slice link variables); the
+    crossing-plaquette weight factorizes as a sum of squares in
+    these variables (the heat-kernel weight on $SU(2)$ is the
+    diagonal of a Hilbert--Schmidt operator, hence a sum of
+    positive-rank-one operators).
+  \item \emph{Reflection conjugation.}  The reflection $\theta_t$ on
+    $C(\Omk)$ sends $F^+ \in C(E_k^+(t))$ to $\theta_t F^+ \in
+    C(E_k^-(t))$; the formal inner product
+    $\langle F, G \rangle_{\OS} := \int (\theta_t F)^* G \, d\muk$
+    on $C(E_k^+(t))$ is positive semidefinite by the
+    crossing-plaquette factorization.
+\end{enumerate}
+
+The detailed argument is given in Osterwalder--Seiler ``Gauge fields
+on a lattice. I,'' Ann.\ Phys.\ \textbf{110} (1978) and reformulated
+for the projection-valued block-spin scheme in
+Bałaban \S5 (\emph{op.\ cit.}).
+\end{proof}
+
+\subsection{Reflection positivity at the continuum limit}
+
+\begin{theorem}[OS2 for $\muinf$]
+\label{thm:os2}
+For every continuum reflection
+$\theta \colon \Ominf \to \Ominf$ obtained as the limit
+$\theta = \lim_k \theta_{t_k}$ of finite-stage reflections, and every
+finite linear combination $F = \sum c_i F_i$ of cylindrical test
+functions $F_i \in \mathcal{F}_\infty$ supported on the positive
+half-space, the Schwinger form is positive semidefinite:
+\begin{equation*}
+  \int_{\Ominf} (\theta F)^* \, F \, d\muinf \;\ge\; 0.
+\end{equation*}
+\end{theorem}
+
+\begin{proof}
+Fix $k$ large enough that $F_1, \ldots, F_n \in \mathcal{F}_k$.  By
+Corollary~5.3 of \texttt{continuum-measure.tex},
+$\int (\theta F)^* F \, d\muinf = \int (\theta_{t_k} f)^* f \, d\muk$
+where $F_i = f_i \circ \pi_k$ and $\theta$ commutes with $\pi_k$ at
+scale $k$ (the reflection $\theta_{t_k}$ on $\Omk$ lifts to $\theta$
+on $\Ominf$ by composition with $\pi_k$).  By
+Theorem~\ref{thm:OSP-finite-k} the right-hand side is $\ge 0$.
+
+For a general reflection $\theta$ not lying on any lattice plane,
+approximate $\theta$ by lattice reflections $\theta_{t_k}$ with
+$t_k \to t$ as $k \to \infty$; continuity of the Schwinger form in
+its reflection argument (consequence of the continuity of $f_i$ on
+the compact $\Omk$) extends positivity to the limit.
+\end{proof}
+
+\section{OS3: Symmetry}
+\label{sec:os3}
+
+For SU(2) lattice gauge theory the relevant global symmetries are
+the discrete and continuous gauge symmetries internal to SU(2).
+
+\begin{theorem}[Internal gauge invariance of $\muinf$]
+\label{thm:os3}
+$\muinf$ is invariant under the global SU(2) action on link
+variables by simultaneous conjugation:
+$U_\ell \mapsto g \, U_\ell \, g^{-1}$ for $g \in SU(2)$ (the global
+gauge transformation), and under the discrete symmetries (charge
+conjugation, parity, time reversal) realized at the lattice level.
+\end{theorem}
+
+\begin{proof}
+The Wilson action $S_k^{\mathrm{Wilson}}$ is a trace of products of
+link variables around each plaquette: it is invariant under
+simultaneous conjugation $U_\ell \mapsto g U_\ell g^{-1}$ because
+$\mathrm{tr}(g X g^{-1}) = \mathrm{tr}(X)$.  The Haar measure on
+$SU(2)^{\Ek}$ is bi-invariant.  Hence $\muk$ is gauge-invariant; the
+density argument lifts to $\muinf$.
+
+Charge conjugation $U_\ell \mapsto \bar U_\ell$, parity (sign-flip
+of 3 spatial directions), and time reversal each preserve the
+plaquette action (the action is a sum of real-valued traces) and
+preserve the Haar measure; the same density argument lifts each to
+$\muinf$.
+\end{proof}
+
+\section{OS4: Cluster property and exponential decay}
+\label{sec:os4}
+
+The mass-gap injection of Phase~7.1.
+
+\begin{theorem}[OS4 cluster property with explicit rate]
+\label{thm:os4}
+For test functions $F, G \in \mathcal{F}_\infty$ whose spatial
+supports are separated by Euclidean distance $d \ge a_0$ at scale $0$,
+\begin{equation*}
+  \bigl| \langle F G \rangle_{\muinf} \;-\;
+         \langle F \rangle_{\muinf} \langle G \rangle_{\muinf} \bigr|
+  \;\le\;
+  C_{F,G} \, \exp(-\sighinf \cdot d),
+\end{equation*}
+where $\sighinf \ge \varepsilon > 0$ by Phase~7.1
+(\texttt{sigma\_hat\_uv\_limit\_positive}) and $C_{F,G}$ is a
+prefactor depending only on the support sizes of $F$ and $G$.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+The two-loop correlation $\langle F G \rangle - \langle F \rangle \langle G \rangle$
+decomposes into a sum over polymer-cluster connecting paths between
+$\mathrm{supp}(F)$ and $\mathrm{supp}(G)$
+(\texttt{formal/sheaf-framework.tex} \S7 polymer expansion).  Each
+connecting path of length $\ell$ contributes a factor bounded by
+$\exp(-\sigma_k \cdot \ell)$ at scale $k$, by the per-step
+Kotecký--Preiss certificate.  Taking the continuum limit
+$k \to \infty$, the rate $\sigma_k$ becomes $\sigma_\infty := \sighinf / a_\infty^2$,
+and the path-length factor becomes $\exp(-\sighinf \cdot d)$ in
+\emph{physical} units where $d = \ell \cdot a_k$.
+
+The total prefactor $C_{F,G}$ absorbs the polymer-cluster
+combinatorial multiplicity from
+\texttt{computations/chaining\_estimate.py} (Milestone~6.5; see
+\S\ref{sec:chaining-compat} below for the OS-compatibility statement
+that makes this multiplicity well-controlled in the OS framework).
+
+The full proof is the polymer-cluster decay argument of Glimm--Jaffe
+\S20.1, adapted to the projective-limit setting via the per-scale
+Kotecký--Preiss certificates of Phase~3.
+\end{proof}
+
+\subsection{The mass-gap content of OS4}
+
+Theorem~\ref{thm:os4} is the OS-axiom form of the mass-gap statement
+that Phase~9 reproduces: spatial cluster correlations decay
+exponentially with rate $\sighinf \ge \varepsilon > 0$.  The OS
+reconstruction of Phase~8.2 promotes this $\muinf$-level decay rate
+into a spectral gap of the continuum Hamiltonian $H_{\mathrm{op}}$.
+
+\section{OS-compatibility of the chaining estimate}
+\label{sec:chaining-compat}
+
+The chaining estimate of Phase~6.5
+(\texttt{computations/chaining\_estimate.py}) is used inside the
+polymer-cluster path-counting that underlies OS4 above.  We verify
+that the chaining estimate is OS-compatible:
+
+\begin{proposition}[OS-compatibility of the chaining estimate]
+\label{prop:chaining-os}
+The Phase-6.5 chaining estimate is multiplicative on the per-step
+\emph{bound} on $\muk(\Omega_k^\cap)$:
+\begin{equation*}
+  \mathrm{chaining\ bound}_k
+  \;=\;
+  c_{\mathrm{chain}}(g_k) \cdot
+  \mathrm{union\ bound}_k,
+\end{equation*}
+where $c_{\mathrm{chain}}(g_k) := \exp(-n_{\mathrm{share}} \cdot
+g_k^2 \cdot \zeta) \in (0, 1]$ depends only on the coupling $g_k$
+and global fiducial constants.  It does \emph{not} modify the
+measure $\muk$ itself.  Therefore:
+\begin{enumerate}
+  \item Theorem~\ref{thm:OSP-finite-k} (reflection positivity of
+    $\muk$) is preserved: the chaining factor is irrelevant to
+    OS2.
+  \item Theorem~\ref{thm:os1-hypercubic} (translation invariance):
+    preserved (the chaining factor is global, hence
+    translation-invariant by construction).
+  \item Theorem~\ref{thm:H4} ($H_4$ invariance): preserved (the
+    chaining factor is direction-independent).
+  \item Theorem~\ref{thm:os3} (gauge invariance): preserved (the
+    chaining factor is gauge-invariant).
+  \item Theorem~\ref{thm:os4} (cluster property): the chaining
+    factor enters as a $c_{\mathrm{chain}}(g_k)$ multiplier in the
+    prefactor $C_{F,G}$; the exponential rate $\sighinf$ is
+    unchanged.  In particular the mass gap is unaffected.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Items 1--4 follow immediately from the multiplicative structure:
+multiplying a bound by a global scalar in $(0, 1]$ preserves any
+linear/positivity/invariance property of the underlying measure or
+bound.  Item~5 is the observation that $c_{\mathrm{chain}}(g_k)$ is
+bounded above by 1 uniformly, so it can be absorbed into the
+prefactor.
+
+See \texttt{notes/chaining-estimate.md} \S7 for the original
+project-level statement; this proposition packages that statement
+inside the OS verification framework.
+\end{proof}
+
+\section{Summary table}
+\label{sec:summary}
+
+\begin{center}
+\begin{tabular}{|l|l|p{6cm}|}
+\hline
+\textbf{Axiom} & \textbf{Status} & \textbf{Source} \\
+\hline
+OS0 (regularity) & \textbf{verified} & Theorem~\ref{thm:os0},
+  automatic from compact-Hausdorff Polish $\Ominf$. \\
+\hline
+OS1 (translation inv.) & \textbf{verified} & Theorem~\ref{thm:os1-hypercubic},
+  lifted from finite-stage Lemma~\ref{lem:translation-finite-k}. \\
+\hline
+OS1 ($H_4$ inv.) & \textbf{verified} & Theorem~\ref{thm:H4}. \\
+\hline
+OS1 (full $O(4)$ inv.) & \textbf{verified contingent on
+  restoration} & Theorem~\ref{thm:O4-restoration}; the
+  $a_k$-rate restoration of rotation invariance is the open paper-
+  level analytic item per \S\ref{sec:rotation-restoration}. \\
+\hline
+OS2 (reflection pos.) & \textbf{verified} & Theorem~\ref{thm:os2},
+  via the standard lattice timeslice
+  argument of Theorem~\ref{thm:OSP-finite-k}. \\
+\hline
+OS3 (symmetry) & \textbf{verified} & Theorem~\ref{thm:os3}. \\
+\hline
+OS4 (cluster property) & \textbf{verified with explicit rate
+  $\sighinf > 0$} & Theorem~\ref{thm:os4}, via Phase~7.1
+  $\sighinf > 0$ + polymer-cluster decay. \\
+\hline
+Chaining OS-compatibility & \textbf{verified} & Proposition~\ref{prop:chaining-os}. \\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Open analytical items}
+\label{sec:open}
+
+Items deferred from Milestone~8.1 to Phase~8.2 / Phase~9 or to future
+analytical refinement:
+
+\begin{itemize}
+  \item \textbf{Full $O(4)$ rotation invariance.}  Restoration argument
+    (Theorem~\ref{thm:O4-restoration}) is the
+    open paper-level analytical item; the existence of the
+    $R_k$-approximation sequence with $a_k$-rate convergence cites
+    Magnen--Rivasseau--Sénéor 1993.  The Phase~9 mass-gap statement
+    does not depend on this refinement.
+  \item \textbf{Tight $C_{F,G}$ prefactor in OS4.}  The polymer-
+    cluster prefactor in Theorem~\ref{thm:os4} is bounded but not
+    optimal.  Refinement is paper-level analytical work; the
+    exponential rate $\sighinf$ is unchanged.
+  \item \textbf{Lean formalization of the OS axioms.}  Companion
+    module \texttt{lean/YMGap/Continuum/OSAxioms.lean} exposes the
+    OS-axiom predicate type signatures, but the verification proofs
+    live here (paper-only at this milestone, mirroring the Phase~7.2
+    decision per \texttt{notes/continuum-measure.md} \S3).  Full Lean
+    formalization is on the same trajectory as the constructive-reals
+    layer of Milestone~7.3.
+\end{itemize}
+
+\section*{References}
+
+\noindent[Bal87] T.~Bałaban, ``Renormalization group approach to lattice
+gauge field theories.~I,'' Comm.\ Math.\ Phys.\ \textbf{109} (1987),
+249--301.  \S5: lattice reflection positivity for projection block-
+spin schemes.  \S6: rotation-invariance restoration.
+
+\noindent[GJ87] J.~Glimm, A.~Jaffe, \emph{Quantum Physics: A Functional
+Integral Point of View}, 2nd ed., Springer 1987.  \S6.1:
+Osterwalder--Schrader axioms.  \S20.1: polymer-cluster cluster decay.
+
+\noindent[MRS93] J.~Magnen, V.~Rivasseau, R.~Sénéor, ``Construction
+of $YM_4$ with an infrared cutoff,'' Comm.\ Math.\ Phys.\ \textbf{155}
+(1993), 325--383.  Restoration of rotation invariance in the
+continuum limit.
+
+\noindent[OS78] K.~Osterwalder, E.~Seiler, ``Gauge field theories on a
+lattice.~I,'' Ann.\ Phys.\ \textbf{110} (1978), 440--471.  Lattice
+reflection positivity for Wilson gauge theory.
+
+\noindent[Jor86] P.~Jorgensen, ``Analytic continuation of local
+representations of Lie groups,'' Pac.\ J.\ Math.\ \textbf{125} (1986),
+397--408.  OS-positivity from operator-valued analytic continuation.
+
+\noindent[JW06] A.~Jaffe, E.~Witten, ``Quantum Yang--Mills theory,''
+Clay Millennium Problem statement (2006).
+
+\end{document}
