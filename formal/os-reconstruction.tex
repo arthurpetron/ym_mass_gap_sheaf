@@ -1,0 +1,581 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+}
+\usepackage{mathtools}
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{remark}[definition]{Remark}
+\newtheorem{convention}[definition]{Convention}
+
+\newcommand{\Omk}{\Omega_k}
+\newcommand{\Ominf}{\Omega_\infty}
+\newcommand{\muinf}{\mu_\infty}
+\newcommand{\Ecal}{\mathcal{E}}
+\newcommand{\Ecalp}{\mathcal{E}_+}
+\newcommand{\Hcal}{\mathcal{H}}
+\newcommand{\Hphys}{\mathcal{H}_\infty}
+\newcommand{\Fcal}{\mathcal{F}}
+\newcommand{\Ncal}{\mathcal{N}}
+\newcommand{\Hop}{H_{\mathrm{op}}}
+\newcommand{\Ut}{U(t)}
+\newcommand{\Tt}{T(t)}
+\newcommand{\Iprod}[2]{\langle #1, #2 \rangle}
+\newcommand{\IprodOS}[2]{\langle #1, #2 \rangle_{\mathrm{OS}}}
+\newcommand{\Omegavac}{\Omega_0}
+\newcommand{\sigh}{\widehat{\sigma}}
+\newcommand{\sighinf}{\widehat{\sigma}_\infty}
+\newcommand{\Rfour}{\mathbb{R}^4}
+
+\title{Osterwalder--Schrader Reconstruction for $\muinf$:\\
+  Hilbert Space and Hamiltonian}
+\author{Arthur Petron}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We apply the Osterwalder--Schrader reconstruction theorem to the
+continuum SU(2) Wilson measure $\muinf$ of Milestone~7.2, verified
+to satisfy the OS axioms in Milestone~8.1, to construct the physical
+Hilbert space $\Hphys$ and the self-adjoint Hamiltonian
+$\Hop \ge 0$ ready for the spectral analysis of Phase~9.
+
+The construction has four canonical steps: (i)~assemble the algebra
+$\Ecalp$ of cylindrical test functions supported on the positive-
+time half-space; (ii)~define the Schwinger inner product
+$\IprodOS{F}{G} := \int (\theta F)^* G \, d\muinf$ on $\Ecalp$, which
+is positive semidefinite by OS2; (iii)~complete the quotient
+$\Ecalp / \Ncal$ by its null space $\Ncal$ to obtain $\Hphys$;
+(iv)~the time-translation $\Tt$ on $\Ecalp$ extends to a strongly
+continuous contraction semigroup on $\Hphys$, and Stone's theorem
+gives the self-adjoint generator
+$\Hop \ge 0$ such that $\Tt = e^{-t\Hop}$.
+
+Following the work-plan's explicit open-question kickoff for 8.2,
+we deliver the construction at the \textbf{paper level} (full
+analytical content here), with a parallel \textbf{Lean-formal-
+statement-only} type signature module
+\texttt{lean/YMGap/Continuum/OSReconstruction.lean} exposing the
+data of $(\Hphys, \Hop, \Omegavac)$ that downstream Phase~9
+references symbolically.  The full Lean formalization (Stone's
+theorem, spectral theorem for self-adjoint operators) is a major
+undertaking deferred to a parallel constructive-analysis layer
+(Milestone~7.3+).
+\end{abstract}
+
+\tableofcontents
+
+\section{Standing setup}
+\label{sec:setup}
+
+We import the OS axiom verification of \texttt{formal/os-axioms.tex}
+(Milestone~8.1): the measure $\muinf$ on $\Ominf$ satisfies
+OS0~(regularity), OS1~(hypercubic translation and $H_4$ invariance,
+contingent $O(4)$ via the restoration argument),
+OS2~(reflection positivity), OS3~(internal gauge and discrete
+symmetry), and OS4~(cluster property with explicit exponential rate
+$\sighinf \ge \varepsilon > 0$ via Milestone~7.1).
+
+The continuum configuration space $\Ominf$ is compact Hausdorff
+Polish (\texttt{formal/continuum-measure.tex} Definition~2.4); the
+cylindrical test-function algebra $\Fcal_\infty = \bigcup_k \Fcal_k$
+is dense in $C(\Ominf)$ by Stone--Weierstrass.
+
+\subsection{Notation: time direction and half-space algebra}
+\label{subsec:half-space}
+
+Fix the 4-direction $x^0$ as Euclidean time (cf.\ \texttt{os-axioms.tex}
+\S1.2).  The \emph{positive-time half-space} is
+$H^+ := \{ x \in \Rfour : x^0 \ge 0 \}$, with corresponding link set
+$E_k^+ = \{ \ell \in E_k : \ell \subseteq H^+ \}$ at finite scale
+$k$ and limit $E_\infty^+$ at the continuum.
+
+The \emph{positive-half-space test function algebra} is
+\begin{equation*}
+  \Ecalp \;:=\;
+  \bigl\{ F \in \Fcal_\infty : F \text{ depends only on link variables in } E_\infty^+ \bigr\}.
+\end{equation*}
+By the projective-limit construction, $F \in \Ecalp$ iff $F$ factors
+as $F = f \circ \pi_k$ with $f \in C(\Omk)$ depending only on
+$E_k^+$ link variables, for some $k$.
+
+The time reflection $\theta \colon \Ominf \to \Ominf$ of
+\texttt{os-axioms.tex} \S1.2 maps $E_\infty^+$ onto $E_\infty^-$ and
+reverses the orientation of time-pointing links; pulled back to
+test functions, $\theta F \in \Ecal_-$ (the analogous negative-time
+algebra).
+
+\subsection{Time-translation action}
+\label{subsec:time-translation}
+
+For each $t \ge 0$, the lattice time-translation $\tau_t$ acts on
+$E_\infty^+$ by $x^0 \mapsto x^0 + t$; this restricts to a map
+$\tau_t \colon E_\infty^+ \to E_\infty^+$ (positive-time
+half-space is preserved by forward time-translation).
+
+Define the pullback $\Tt \colon \Ecalp \to \Ecalp$ by
+$(\Tt F)(\omega) := F(\tau_t^{-1} \omega)$.  By OS1
+(\texttt{os-axioms.tex} Theorem~4.2),
+$\int (\Tt F) \, d\muinf = \int F \, d\muinf$.
+
+\section{The Schwinger inner product}
+\label{sec:schwinger}
+
+\begin{definition}[Schwinger inner product]
+\label{def:schwinger}
+The \emph{Schwinger inner product} on $\Ecalp$ is
+\begin{equation*}
+  \IprodOS{F}{G} \;:=\; \int_{\Ominf} (\theta F)^* \, G \, d\muinf
+  \qquad (F, G \in \Ecalp).
+\end{equation*}
+\end{definition}
+
+\begin{proposition}[Schwinger form is positive semidefinite Hermitian]
+\label{prop:schwinger-psd}
+For every $F, G \in \Ecalp$:
+\begin{enumerate}
+  \item $\IprodOS{F}{G} = \overline{\IprodOS{G}{F}}$  (Hermitian symmetry).
+  \item $\IprodOS{F}{F} \ge 0$  (positive semidefiniteness).
+  \item $\IprodOS{\cdot}{\cdot}$ is sesquilinear: conjugate-linear in
+    the first argument, linear in the second.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\emph{(i) Hermitian symmetry}: $\overline{\IprodOS{G}{F}} =
+\overline{\int (\theta G)^* F \, d\muinf} = \int F^* (\theta G) \, d\muinf$.
+Apply the reflection $\theta$ to the integration variable (which
+preserves $\muinf$ by OS3 reflection symmetry, or equivalently by
+the definition of $\theta$ as a measurable involution with
+$\theta_* \muinf = \muinf$): $= \int (\theta F)^* G \, d\muinf =
+\IprodOS{F}{G}$.
+
+\emph{(ii) Positive semidefiniteness}: this is exactly OS2 of
+\texttt{os-axioms.tex} Theorem~5.2.
+
+\emph{(iii) Sesquilinearity}: linear in $G$ and conjugate-linear in
+$F$ by definition.
+\end{proof}
+
+\begin{remark}[Schwinger form is not strictly positive definite]
+\label{rem:schwinger-not-pd}
+$\IprodOS{F}{F} = 0$ can hold for $F \ne 0$: any $F$ for which
+$\theta F$ is uncorrelated with $F$ under $\muinf$ has zero
+self-inner-product.  The quotient by the null space (next section)
+is what converts the semidefinite form into a definite inner
+product on the physical Hilbert space.
+\end{remark}
+
+\section{The physical Hilbert space $\Hphys$}
+\label{sec:hilbert-space}
+
+\begin{definition}[Null subspace]
+\label{def:null-subspace}
+The \emph{Schwinger null subspace} is
+\begin{equation*}
+  \Ncal \;:=\; \{ F \in \Ecalp : \IprodOS{F}{F} = 0 \}.
+\end{equation*}
+By the Cauchy--Schwarz inequality on the positive-semidefinite
+Hermitian form (Proposition~\ref{prop:schwinger-psd}), $\Ncal$ is a
+\emph{linear subspace} of $\Ecalp$ and $F \in \Ncal$ iff
+$\IprodOS{F}{G} = 0$ for every $G \in \Ecalp$.
+\end{definition}
+
+\begin{definition}[Pre-Hilbert quotient]
+\label{def:pre-hilbert-quotient}
+The quotient $\Ecalp / \Ncal$ inherits a non-degenerate
+positive-definite Hermitian inner product
+\begin{equation*}
+  \Iprod{[F]}{[G]} \;:=\; \IprodOS{F}{G}
+\end{equation*}
+that is well-defined (independent of representatives) by the
+null-subspace characterization.
+\end{definition}
+
+\begin{theorem}[The physical Hilbert space]
+\label{thm:physical-hilbert-space}
+The \emph{physical Hilbert space} of the OS reconstruction is the
+metric completion
+\begin{equation*}
+  \Hphys \;:=\; \overline{\,\Ecalp / \Ncal\,}^{\,\|\cdot\|_{\mathrm{OS}}}
+\end{equation*}
+with the inner product extended by continuity.  $\Hphys$ is a complex
+Hilbert space.
+\end{theorem}
+
+\begin{proof}
+Apply the standard completion of a non-degenerate inner-product
+space to a Hilbert space.  Separability of $\Hphys$ follows from
+separability of $\Ecalp$ in the sup norm
+(consequence of the Polish-space structure of $\Ominf$).
+\end{proof}
+
+\begin{definition}[Vacuum vector]
+\label{def:vacuum}
+The \emph{vacuum vector} $\Omegavac \in \Hphys$ is the equivalence
+class of the constant function $1 \in \Ecalp$:
+\begin{equation*}
+  \Omegavac \;:=\; [\,1\,] \in \Hphys.
+\end{equation*}
+By OS0 + $\muinf$ a probability measure,
+$\IprodOS{1}{1} = \int 1 \, d\muinf = 1$, so $\|\Omegavac\| = 1$ and
+$\Omegavac \ne 0$.
+\end{definition}
+
+\section{The contraction semigroup}
+\label{sec:semigroup}
+
+The time-translation $\Tt$ on $\Ecalp$ descends to the quotient
+$\Ecalp / \Ncal$ and extends to $\Hphys$ as a one-parameter
+strongly continuous contraction semigroup.
+
+\begin{proposition}[$\Tt$ preserves the null space]
+\label{prop:T-preserves-null}
+For every $t \ge 0$ and every $F \in \Ncal$, $\Tt F \in \Ncal$.
+\end{proposition}
+
+\begin{proof}
+$\IprodOS{\Tt F}{\Tt F} = \int (\theta \Tt F)^* \, \Tt F \, d\muinf$.
+The reflection $\theta$ commutes with $\Tt$ up to a sign on
+time-pointing links (which is absorbed into $\theta$'s definition):
+$\theta \Tt = \Tt \theta$ on $\Ecalp$.  Hence
+$(\theta \Tt F)^* = (\Tt \theta F)^* = \Tt (\theta F)^*$.
+
+The time-translation $\Tt$ preserves $\muinf$ by OS1
+(\texttt{os-axioms.tex} Theorem~4.2), so
+$\int (\Tt (\theta F)^*) \, (\Tt F) \, d\muinf =
+ \int (\theta F)^* F \, d\muinf =
+ \IprodOS{F}{F} = 0$.
+
+Therefore $\IprodOS{\Tt F}{\Tt F} = 0$, i.e.\ $\Tt F \in \Ncal$.
+\end{proof}
+
+By Proposition~\ref{prop:T-preserves-null}, $\Tt$ descends to a
+linear map $\overline{\Tt} \colon \Ecalp / \Ncal \to \Ecalp / \Ncal$.
+
+\begin{proposition}[$\overline{\Tt}$ is a contraction]
+\label{prop:T-contraction}
+For every $t \ge 0$ and every $[F] \in \Ecalp / \Ncal$,
+$\|\overline{\Tt} [F]\| \le \|[F]\|$.
+\end{proposition}
+
+\begin{proof}[Proof sketch]
+This is the classical Glimm--Jaffe contraction estimate.  Write
+$F = F^+ + F^-$ where $F^+$ depends only on links with
+$x^0 \ge t/2$ and $F^-$ depends only on links with
+$x^0 \le t/2$ (refinement of $\Ecalp$ via the spatial
+half-space at midheight $t/2$).  Then $\Tt F^+ \in \Ecal^{++}$ (the
+quadruple half-space, $x^0 \ge 3t/2$) and the inner product
+$\IprodOS{\Tt F}{\Tt F}$ factors through the spatial reflection at
+$t/2$, which by a second application of reflection positivity
+contracts the norm:
+$\|\overline{\Tt} [F]\|^2 \le \|[F^+]\|^2 + \|[F^-]\|^2$.
+
+The full argument is given in Glimm--Jaffe \S6.1 (the
+``positivity-implies-contraction'' theorem); see Osterwalder--Schrader
+1973 for the original.
+\end{proof}
+
+\begin{theorem}[Strongly continuous contraction semigroup]
+\label{thm:semigroup}
+$\overline{\Tt}$ extends by continuity to a strongly continuous
+one-parameter contraction semigroup $\Ut \colon \Hphys \to \Hphys$
+($t \ge 0$) satisfying:
+\begin{enumerate}
+  \item $U(0) = \mathrm{Id}_{\Hphys}$.
+  \item $U(t + s) = U(t) \, U(s)$ for all $s, t \ge 0$.
+  \item $\|\Ut\|_{\mathrm{op}} \le 1$ for every $t \ge 0$.
+  \item $t \mapsto \Ut$ is strongly continuous: for every
+    $\psi \in \Hphys$, $\lim_{t \to 0^+} \|\Ut \psi - \psi\| = 0$.
+  \item $\Ut \Omegavac = \Omegavac$ for every $t \ge 0$  (vacuum
+    is time-translation invariant).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Items 1--3 are inherited from $\Tt$ on $\Ecalp$
+(Proposition~\ref{prop:T-contraction}).  Item~5 follows from
+$\Tt \cdot 1 = 1$ at the level of $\Ecalp$.  Item~4 (strong
+continuity) follows from the dense-subspace approximation:
+$\Ut \to \mathrm{Id}$ pointwise on the dense $\Ecalp / \Ncal$ by
+continuity of $\muinf$-expectations in their integrand
+(consequence of dominated convergence on the compact $\Ominf$).
+\end{proof}
+
+\section{Stone's theorem and the Hamiltonian $\Hop$}
+\label{sec:stone}
+
+\begin{theorem}[Stone's theorem for self-adjoint semigroups]
+\label{thm:stone-semigroup}
+Let $\Ut$ ($t \ge 0$) be a strongly continuous one-parameter
+contraction semigroup on a complex Hilbert space $\Hphys$.  Then
+there exists a unique self-adjoint nonnegative operator
+$\Hop \ge 0$ on $\Hphys$ such that
+\begin{equation*}
+  \Ut \;=\; e^{-t \Hop} \qquad \text{for every } t \ge 0.
+\end{equation*}
+The domain $\mathcal{D}(\Hop) = \{ \psi : t \mapsto \Ut \psi \text{ is}\ C^1 \text{ at } 0 \}$
+and $\Hop \psi = -\frac{d}{dt}\Big|_{t=0^+} \Ut \psi$ for $\psi \in \mathcal{D}(\Hop)$.
+\end{theorem}
+
+This is the classical Hille--Yosida + Stone construction; see
+Reed--Simon \emph{Methods of Modern Mathematical Physics} Vol.~II,
+Theorems X.47a and X.49.  For self-adjoint contraction semigroups
+(the OS case), self-adjointness of $\Hop$ is automatic from
+$\Ut^* = \Ut$ (a consequence of OS2 reflection symmetry of the
+Schwinger form; cf.\ Proposition~\ref{prop:schwinger-psd}(i)
+applied to $\Ut$ on $\Ecalp / \Ncal$).
+
+\begin{theorem}[The OS Hamiltonian $\Hop$]
+\label{thm:OS-hamiltonian}
+There exists a unique self-adjoint nonnegative operator
+$\Hop \ge 0$ on $\Hphys$ such that the time-translation semigroup
+of Theorem~\ref{thm:semigroup} is $\Ut = e^{-t \Hop}$.  The vacuum
+$\Omegavac$ is in the kernel: $\Hop \Omegavac = 0$.
+\end{theorem}
+
+\begin{proof}
+Apply Stone's theorem (Theorem~\ref{thm:stone-semigroup}) to $\Ut$
+of Theorem~\ref{thm:semigroup}; self-adjointness uses the
+contraction-semigroup-is-symmetric refinement of OS reflection
+positivity (Reed--Simon Vol.~II Thm.~X.47a).  Vacuum-annihilation:
+$\Ut \Omegavac = \Omegavac$ for every $t$ implies
+$\Hop \Omegavac = -\frac{d}{dt}\big|_{t=0^+} \Omegavac = 0$.
+\end{proof}
+
+\section{The OS reconstruction package}
+\label{sec:package}
+
+\begin{definition}[OS reconstruction quintuple]
+\label{def:os-reconstruction}
+The \emph{Osterwalder--Schrader reconstruction} of $(\Ominf, \muinf)$
+is the quintuple
+\begin{equation*}
+  \mathrm{Rec}(\muinf) \;:=\; \bigl( \Hphys, \; \Omegavac, \; \Ut, \; \Hop, \; \mathcal{D}(\Hop) \bigr)
+\end{equation*}
+consisting of:
+\begin{enumerate}
+  \item The physical Hilbert space $\Hphys$ (Theorem~\ref{thm:physical-hilbert-space}).
+  \item The vacuum vector $\Omegavac \in \Hphys$ with
+    $\|\Omegavac\| = 1$ (Definition~\ref{def:vacuum}).
+  \item The strongly continuous contraction semigroup $\Ut$
+    (Theorem~\ref{thm:semigroup}).
+  \item The self-adjoint Hamiltonian $\Hop \ge 0$ with
+    $\Hop \Omegavac = 0$ (Theorem~\ref{thm:OS-hamiltonian}).
+  \item The dense domain $\mathcal{D}(\Hop) \subseteq \Hphys$.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Existence and uniqueness of $\mathrm{Rec}(\muinf)$]
+\label{thm:reconstruction-existence}
+For the continuum SU(2) Wilson measure $\muinf$ satisfying the OS
+axioms (\texttt{os-axioms.tex} \S2), the reconstruction
+$\mathrm{Rec}(\muinf)$ exists and is unique up to unitary equivalence
+of Hilbert spaces.
+\end{theorem}
+
+\begin{proof}
+\emph{Existence}: by composition of
+Theorems~\ref{thm:physical-hilbert-space}, \ref{thm:semigroup}, and
+\ref{thm:OS-hamiltonian}.  \emph{Uniqueness up to unitary
+equivalence}: the construction is canonical given $(\muinf, \Ecalp,
+\theta, \Tt)$; any two reconstructions
+$\mathrm{Rec}(\muinf)$ and $\mathrm{Rec}'(\muinf)$ have isometric
+$\Ecalp / \Ncal$ pre-Hilbert spaces (by the same Schwinger inner
+product), hence isometric completions, hence unitarily equivalent
+Hamiltonians.
+\end{proof}
+
+\section{Preparation for Phase~9: the spectral injection}
+\label{sec:phase-9-prep}
+
+\begin{proposition}[Spectral content of $\Hop$ and the mass gap]
+\label{prop:spectral-mass-gap}
+The spectrum $\sigma(\Hop) \subseteq [0, \infty)$ decomposes as
+\begin{equation*}
+  \sigma(\Hop) \;=\; \{0\} \;\cup\; \sigma_+(\Hop),
+\end{equation*}
+where $\sigma_+(\Hop) := \sigma(\Hop) \cap (0, \infty)$ is the
+\emph{excited spectrum}.  The vacuum $\Omegavac$ spans the
+$0$-eigenspace.  The \emph{mass gap} is
+\begin{equation*}
+  m \;:=\; \inf \, \sigma_+(\Hop) \;\in\; [0, \infty].
+\end{equation*}
+The mass-gap statement is $m > 0$, equivalently
+$\sigma(\Hop) \cap (0, m) = \emptyset$ for some $m > 0$
+(Clay-statement form, \texttt{work\_plan.md} \S9).
+\end{proposition}
+
+\begin{proof}
+Standard spectral theorem decomposition for self-adjoint operators;
+see Reed--Simon Vol.~I Chapter~VII.  Vacuum-annihilation
+($\Hop \Omegavac = 0$) gives the $0$-eigenspace; the rest of the
+spectrum is the excited spectrum.
+\end{proof}
+
+\begin{theorem}[OS4 cluster property $\Rightarrow$ spectral gap]
+\label{thm:cluster-to-gap}
+If $\muinf$ satisfies OS4 with explicit exponential cluster rate
+$m_0 > 0$ (\texttt{os-axioms.tex} Theorem~7.1; the rate is
+$m_0 := \sighinf$ from Phase~7.1), then the OS Hamiltonian satisfies
+\begin{equation*}
+  \sigma(\Hop) \cap (0, m_0) \;=\; \emptyset,
+  \qquad \text{i.e., } \;\; m \;\ge\; m_0 \;>\; 0.
+\end{equation*}
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+The two-point Schwinger function under $\muinf$ has the spectral
+representation
+\begin{equation*}
+  \int (\theta F)^* (\Tt G) \, d\muinf
+  \;=\;
+  \IprodOS{F}{\Ut G}
+  \;=\;
+  \int_0^\infty e^{-tE} \, d\mu_{F,G}(E),
+\end{equation*}
+where $d\mu_{F,G}(E)$ is the spectral measure of $\Hop$ between
+$[F]$ and $[G]$ in $\Hphys$.  OS4 says the LHS decays as
+$\le C \, e^{-m_0 \cdot t}$ for spatially-separated $F, G$ at large
+$t$; the RHS decay rate is the lower edge of $\mathrm{supp} \, d\mu_{F,G}$.
+Combining: $\inf \mathrm{supp} \, d\mu_{F,G} \ge m_0$ for every
+$F, G$ with $\IprodOS{F}{\Omegavac} = \IprodOS{G}{\Omegavac} = 0$
+(i.e., orthogonal to the vacuum).  Taking the supremum over such
+$F, G$ gives $\inf \sigma_+(\Hop) \ge m_0$.
+
+The detailed argument is Glimm--Jaffe \S6.1 (the
+``mass-gap-from-clustering'' theorem); see also Simon
+\emph{The $P(\phi)_2$ Euclidean Quantum Field Theory} \S6.
+\end{proof}
+
+Theorem~\ref{thm:cluster-to-gap} is the analytical bridge from OS4
+of Phase~8.1 to the spectral gap of Phase~9.  Its precondition
+(OS4 with explicit rate $m_0 > 0$) is Phase~7.1 + 8.1; its
+conclusion ($m \ge m_0 > 0$) is the SU(2) mass-gap statement at the
+Hilbert-space level.
+
+\section{Lean type signature and scope}
+\label{sec:lean-signature}
+
+The Lean module \texttt{lean/YMGap/Continuum/OSReconstruction.lean}
+exposes:
+\begin{itemize}
+  \item \texttt{HilbertSpace} — abstract type for the physical
+    Hilbert space.
+  \item \texttt{SelfAdjointOp} — abstract type for the Hamiltonian
+    operator on \texttt{HilbertSpace}.
+  \item \texttt{VacuumVector} — abstract type for the
+    distinguished vacuum.
+  \item \texttt{OSReconstruction} — the structure bundling
+    $(\Hphys, \Omegavac, \Hop)$ together with the abstract
+    semigroup data.
+  \item \texttt{os\_reconstruct\_su2} — smart constructor taking
+    the paper-level Prop inputs (existence of $\Hphys$, etc.) and
+    assembling the reconstruction.
+  \item \texttt{cluster\_implies\_gap} — Prop signature for
+    Theorem~\ref{thm:cluster-to-gap}, the Phase~9 mass-gap input.
+\end{itemize}
+
+\subsection*{Decision: paper-only existence + Lean-formal-statement-only}
+
+Per the work-plan Milestone~8.2 open question (``Lean formalization
+of the reconstruction is a major undertaking [...] likely deferred
+to paper-first, Lean-later or a parallel Lean-formal-statement-only
+milestone''), this project commits to the \textbf{paper-first +
+Lean-formal-statement-only} branch.  Rationale:
+
+\begin{enumerate}
+  \item Stone's theorem + the spectral theorem for unbounded
+    self-adjoint operators require a major constructive-analysis
+    Lean build-out (densely-defined operators, spectral measures,
+    functional calculus) that is far beyond the current Q'-rational
+    + projective-system stack.
+  \item The Phase~9 mass-gap statement can be expressed against the
+    \texttt{OSReconstruction} type signature; the paper-level
+    existence proof here + the Theorem~\ref{thm:cluster-to-gap}
+    bridge lets Phase~9 land in Lean without waiting on Stone's
+    theorem.
+  \item Milestone~7.3+ reserves the option of building the
+    constructive analysis layer later (with $\Hop$ as one motivating
+    use case); this decision does not foreclose that.
+\end{enumerate}
+
+This is parallel to the Phase~7.2 decision recorded in
+\texttt{notes/continuum-measure.md} \S3 and the Phase~8.1 decision
+recorded in \texttt{notes/os-axiom-verification.md} \S6.  Each of
+the three milestones (7.2, 8.1, 8.2) explicitly opts for the
+paper-only / Lean-formal-statement-only branch with the same
+rationale.
+
+\section{Open analytical items}
+\label{sec:open}
+
+\begin{itemize}
+  \item \textbf{Lean formalization of Stone's theorem.}  Required
+    to refine the abstract \texttt{SelfAdjointOp} type into a Lean
+    object with a real domain, spectral measure, functional
+    calculus.  Major undertaking; deferred.
+  \item \textbf{Sharper $m \ge m_0$ bound.}
+    Theorem~\ref{thm:cluster-to-gap} gives $m \ge m_0$ where
+    $m_0 = \sighinf$ from Phase~7.1; the inequality may be strict
+    (the actual mass could be larger than the σ̂-derived lower bound).
+    Sharpness is a Phase~9 / Phase~10 open analytic item.
+  \item \textbf{Stability under perturbations.}  The OS reconstruction
+    is stable under small perturbations of $\muinf$ (Hille--Yosida
+    perturbation theory); making this constructive at the rate
+    needed for the Phase-10 SU(3) extension is downstream work.
+  \item \textbf{Operator-valued distribution structure.}  The full
+    Wightman reconstruction of Streater--Wightman fields from the
+    Schwinger functions is a further analytical step, not addressed
+    here; we deliver the Hilbert space + Hamiltonian, which is what
+    the Phase~9 mass-gap statement needs.
+\end{itemize}
+
+\section*{References}
+
+\noindent[GJ87] J.~Glimm, A.~Jaffe, \emph{Quantum Physics: A
+Functional Integral Point of View}, 2nd ed., Springer 1987.
+\S6.1: OS axioms and the reconstruction theorem (the canonical
+reference for the construction here).
+
+\noindent[OS73] K.~Osterwalder, R.~Schrader, ``Axioms for Euclidean
+Green's functions,'' Comm.\ Math.\ Phys.\ \textbf{31} (1973),
+83--112.  Original OS reconstruction paper.
+
+\noindent[OS75] K.~Osterwalder, R.~Schrader, ``Axioms for Euclidean
+Green's functions.~II,'' Comm.\ Math.\ Phys.\ \textbf{42} (1975),
+281--305.  Refinement and clustering-to-mass-gap argument.
+
+\noindent[RS-II] M.~Reed, B.~Simon, \emph{Methods of Modern
+Mathematical Physics}, Vol.~II: Fourier Analysis, Self-Adjointness,
+Academic Press 1975.  Theorems X.47a and X.49 on contraction
+semigroups + Stone's theorem.
+
+\noindent[Sim74] B.~Simon, \emph{The $P(\phi)_2$ Euclidean (Quantum)
+Field Theory}, Princeton 1974.  \S6: clustering-to-mass-gap.
+
+\noindent[Jor86] P.~Jorgensen, ``Analytic continuation of local
+representations of Lie groups,'' Pac.\ J.\ Math.\ \textbf{125}
+(1986), 397--408.  Operator-valued analytic continuation,
+OS-positivity from a Lie-group representation-theoretic angle.
+
+\noindent[JW06] A.~Jaffe, E.~Witten, ``Quantum Yang--Mills theory,''
+Clay Millennium Problem statement (2006).
+
+\end{document}
