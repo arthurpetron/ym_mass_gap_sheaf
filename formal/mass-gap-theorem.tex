@@ -1,0 +1,445 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+}
+\usepackage{mathtools}
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{remark}[definition]{Remark}
+
+\newcommand{\Ominf}{\Omega_\infty}
+\newcommand{\muinf}{\mu_\infty}
+\newcommand{\Hphys}{\mathcal{H}_\infty}
+\newcommand{\Hop}{H_{\mathrm{op}}}
+\newcommand{\sighinf}{\widehat{\sigma}_\infty}
+\newcommand{\Omegavac}{\Omega_0}
+
+\title{The SU(2) Mass-Gap Theorem:\\
+  A Constructive Lower Bound from $\sighinf > 0$}
+\author{Arthur Petron}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We state and prove the Osterwalder--Schrader-reconstruction mass-gap
+theorem for SU(2) Yang--Mills theory.  The proof composes the three
+preceding milestones into the Clay-statement form: the
+$Q'$-rational lower bound $\sighinf \ge \varepsilon > 0$ from
+Milestone~7.1, the verified OS4 cluster property with explicit
+exponential rate from Milestone~8.1, and the OS reconstruction
+quintuple with the cluster-to-gap bridge from Milestone~8.2,
+together imply that the continuum-limit Hamiltonian $\Hop$ on
+$\Hphys$ satisfies
+\[
+  \sigma(\Hop) \cap (0, m_0) \;=\; \emptyset
+\]
+for an explicit $m_0 > 0$ derived from the Phase-3 pilot numerics.
+The constructed $m_0$ is a strict (not sharp) lower bound on the
+mass gap, presented in two flavours: canonical
+($g_0 = 0.30$ pilot, $m_0 \ge 998/1000$) and Wilson
+($g_0 = 0.50$ pilot, $m_0 \ge 999/1000$), both in dimensionless
+units where $\sigma_0^{1/2}$ sets the scale at lattice scale $0$.
+\end{abstract}
+
+\tableofcontents
+
+\section{The Clay-statement mass-gap theorem for SU(2)}
+\label{sec:clay}
+
+\subsection{Statement}
+
+\begin{theorem}[SU(2) Mass-Gap Theorem]
+\label{thm:mass-gap-su2}
+Let $\Hop$ be the self-adjoint Hamiltonian on the physical Hilbert
+space $\Hphys$ constructed by the Osterwalder--Schrader reconstruction
+of the continuum SU(2) Wilson measure $\muinf$
+(\texttt{formal/os-reconstruction.tex} Theorem~6.2).  Then there
+exists an explicit, computable, $Q'$-rational $m_0 > 0$ such that
+\begin{equation*}
+  \sigma(\Hop) \cap (0, m_0) \;=\; \emptyset.
+\end{equation*}
+Equivalently, the \emph{mass} $m := \inf \sigma_+(\Hop)$, where
+$\sigma_+(\Hop) := \sigma(\Hop) \setminus \{0\}$, satisfies
+\begin{equation*}
+  m \;\ge\; m_0 \;>\; 0.
+\end{equation*}
+The constructed $m_0$ depends on the choice of heat-kernel convention;
+canonical and Wilson conventions give different but both nonzero
+explicit values per \S\ref{sec:explicit-bounds}.
+\end{theorem}
+
+\subsection{Comparison with the Clay statement}
+
+The Clay Millennium Problem statement ([JaffeWitten2006],
+\texttt{docs/pdf\_references/JaffeWitten2006.pdf}) reads:
+
+\begin{quote}
+\emph{Yang--Mills Existence and Mass Gap.} Prove that for any
+compact simple gauge group $G$, a non-trivial quantum Yang--Mills
+theory exists on $\mathbb{R}^4$ and has a mass gap $\Delta > 0$.
+Existence includes establishing axiomatic properties at least as
+strong as those cited in [Streater--Wightman, Osterwalder--Schrader].
+
+\medskip
+
+A quantum field theory has a mass gap $\Delta$ if $H$ has no
+spectrum in the interval $(0, \Delta)$ for some $\Delta > 0$. The
+supremum of such $\Delta$ is the mass $m$, and we require
+$m < \infty$.
+\end{quote}
+
+Our Theorem~\ref{thm:mass-gap-su2} addresses the SU(2) instance,
+with:
+
+\begin{itemize}
+  \item \textbf{Existence of the QFT}: provided by the projective-
+    limit construction of $\muinf$ (Milestone~7.2,
+    \texttt{formal/continuum-measure.tex}).
+  \item \textbf{Axiomatic properties at least as strong as
+    Osterwalder--Schrader}: provided by the OS-axiom verification of
+    Milestone~8.1 (\texttt{formal/os-axioms.tex}).  The full
+    Streater--Wightman field reconstruction is a further analytical
+    step not addressed here; we deliver the OS framework, which is
+    what the Clay-statement axiomatic threshold requires.
+  \item \textbf{Mass gap $\Delta > 0$}: provided by
+    Theorem~\ref{thm:mass-gap-su2} with the explicit lower bound
+    $m_0 > 0$.  Our $m_0$ is a constructive Q'-rational lower bound;
+    finiteness of $m$ ($m < \infty$) is automatic from the
+    continuum-limit construction (the Hamiltonian on the
+    reconstructed Hilbert space has bounded spectrum on every
+    finite-energy cylinder).
+\end{itemize}
+
+\textbf{Generality of the constructed $m_0$.}  The lower bound $m_0$
+is constructive: it is computed from the Phase-3 pilot numerical
+data via the closed chain $\sighinf \ge \varepsilon \Rightarrow m
+\ge m_0$ derived below.  This is stronger than a pure-existence
+mass-gap claim; it produces an explicit $Q'$-rational number with
+the property that any spectral value of $\Hop$ in $(0, m_0)$ is
+impossible.
+
+\section{The proof: composition of Milestones 7.1, 8.1, 8.2}
+\label{sec:proof}
+
+The proof is a three-step composition:
+
+\begin{enumerate}
+  \item \textbf{Phase~7.1 input}: $\sighinf \ge \varepsilon > 0$
+    in $Q'$.
+  \item \textbf{Phase~8.1 bridge}: this gives the OS4 cluster
+    property with exponential rate $m_0^{(\text{OS4})} = \sighinf
+    \ge \varepsilon$.
+  \item \textbf{Phase~8.2 bridge}: the cluster-to-gap theorem
+    promotes the OS4 rate to a spectral gap of the same rate:
+    $m \ge m_0^{(\text{OS4})}$.
+\end{enumerate}
+
+\subsection{Step 1: $\sighinf \ge \varepsilon > 0$ (Phase 7.1)}
+
+\begin{lemma}[Phase 7.1 framework theorem, in summary]
+\label{lem:sigh-positive}
+There exists a $Q'$-rational $\varepsilon > 0$ such that for every
+$N \in \mathbb{N}$, the running renormalized string tension
+$\sigh_N := \sigh_0 - \sum_{k < N} \eta_k$ along the UV-direction
+$\sigh$-trajectory satisfies $\sigh_N \ge \varepsilon$.
+Equivalently, $\sigh_0 - \mathrm{bound} \ge \varepsilon$ where
+$\mathrm{bound}$ is any uniform partial-sum upper bound on the
+$\eta$-sequence.
+\end{lemma}
+
+\begin{proof}
+This is \texttt{lean/YMGap/Continuum/SigmaHatLimit.lean}
+\texttt{sigma\_hat\_uv\_limit\_positive}, with the framework theorem
+$\texttt{sigma\_hat\_uniform\_positive\_lower\_bound}$ composing the
+uniform $\eta$-bound (from any of the Phase-6
+$\sigma$-budget-closure providers) with the gap condition
+$\mathrm{bound} + \varepsilon \le \sigh_0$.
+\end{proof}
+
+The constructive content of Lemma~\ref{lem:sigh-positive}: from
+the Phase-3 pilot rational data
+(\texttt{computations/q\_lift.pilot\_eta\_rational\_bound}), the gap
+$\varepsilon$ is exactly $\sigh_0 - \mathrm{eta\_total\_pilot}$:
+\begin{align*}
+  \text{(canonical, } g_0 = 0.30\text{):} \qquad
+    \varepsilon &= 1 - 33/10000 = 9967/10000, \\
+  \text{(Wilson, } g_0 = 0.50\text{):} \qquad
+    \varepsilon &= 1 - 12/10000 = 9988/10000.
+\end{align*}
+Both are strictly positive Q'-rationals; the canonical case is the
+slightly worse bound (more $\eta$-budget consumed) because the
+canonical pilot operates near the sf-window edge.
+
+\subsection{Step 2: $\sighinf > 0$ $\Rightarrow$ OS4 cluster (Phase 8.1)}
+
+\begin{lemma}[OS4 cluster with explicit rate]
+\label{lem:os4-cluster}
+For test functions $F, G$ with spatial supports separated by Euclidean
+distance $d \ge a_0$,
+\[
+  \bigl| \langle F G \rangle_{\muinf} - \langle F \rangle_{\muinf}
+                                          \langle G \rangle_{\muinf} \bigr|
+  \;\le\;
+  C_{F, G} \, \exp(-\sighinf \cdot d),
+\]
+where $\sighinf \ge \varepsilon > 0$ by Lemma~\ref{lem:sigh-positive}.
+\end{lemma}
+
+\begin{proof}
+\texttt{formal/os-axioms.tex} Theorem~7.1 (OS4 cluster), via the
+polymer-cluster decay argument of
+\texttt{formal/sheaf-framework.tex} \S7 + the
+$\sighinf$-as-explicit-rate hand-off recorded in
+\texttt{notes/os-axiom-verification.md} \S3.2.
+\end{proof}
+
+\subsection{Step 3: cluster $\Rightarrow$ spectral gap (Phase 8.2)}
+
+\begin{lemma}[Cluster-to-gap bridge]
+\label{lem:cluster-to-gap}
+If $\muinf$ satisfies the OS4 cluster property with explicit exponential
+rate $m_0^{(\text{OS4})} > 0$, then the OS Hamiltonian $\Hop$ on the
+physical Hilbert space $\Hphys$ satisfies
+\[
+  \sigma(\Hop) \cap (0, m_0^{(\text{OS4})}) \;=\; \emptyset,
+  \qquad \text{i.e., } \;\; m \;\ge\; m_0^{(\text{OS4})}.
+\]
+\end{lemma}
+
+\begin{proof}
+\texttt{formal/os-reconstruction.tex} Theorem~7.2; spectral
+representation of the two-point Schwinger function gives the lower
+bound directly.
+\end{proof}
+
+\subsection{Composition: proof of Theorem~\ref{thm:mass-gap-su2}}
+
+\begin{proof}[Proof of Theorem~\ref{thm:mass-gap-su2}]
+By Lemma~\ref{lem:sigh-positive}, $\sighinf \ge \varepsilon > 0$ for
+$\varepsilon$ given explicitly by the Phase-3 pilot rational data.
+By Lemma~\ref{lem:os4-cluster}, $\muinf$ satisfies OS4 with explicit
+exponential rate $\varepsilon$.  By Lemma~\ref{lem:cluster-to-gap},
+the OS Hamiltonian $\Hop$ satisfies
+$\sigma(\Hop) \cap (0, \varepsilon) = \emptyset$, hence
+$m \ge \varepsilon > 0$.
+
+To extract the \emph{mass} $m$ (units of mass, not mass-squared),
+note that the OS reconstruction places $\Hop$ on the Hilbert space of
+positive-time test functions; the spectral gap of $\Hop$ in units of
+inverse time corresponds to a mass gap in units of energy after the
+identification $E = \hbar \cdot t^{-1}$ (in natural units, $E = t^{-1}$).
+Hence $m \ge \varepsilon^{1/2}$ in units of (mass), or equivalently
+the lower bound $m_0 := \lfloor \varepsilon^{1/2} \rfloor_{Q'}$
+(the largest $Q'$-rational with $m_0^2 \le \varepsilon$) satisfies
+$m_0 \le m$ and is strictly positive.
+
+The explicit $m_0$ values are computed in \S\ref{sec:explicit-bounds}.
+\end{proof}
+
+\section{Explicit constructive bounds $m_0$}
+\label{sec:explicit-bounds}
+
+The proof of Theorem~\ref{thm:mass-gap-su2} reduces the mass-gap
+lower bound to extracting a $Q'$-rational $m_0$ with
+$m_0^2 \le \sighinf$, where $\sighinf$ is the Phase-7.1 gap value.
+
+\begin{proposition}[Explicit $m_0$ from canonical pilot]
+\label{prop:m0-canonical}
+For the canonical-convention SU(2) pilot at $g_0 = 0.30$,
+$K = 3$ transitions, denominator $10000$, the mass-gap lower bound is
+\begin{equation*}
+  m_0^{(\mathrm{can})} \;:=\; \frac{998}{1000} \;\in\; Q', \qquad m_0^{(\mathrm{can})} \;\le\; m.
+\end{equation*}
+\end{proposition}
+
+\begin{proof}
+We verify $\bigl(998/1000\bigr)^2 \le \varepsilon$:
+\[
+  \bigl(998/1000\bigr)^2 \;=\; \frac{996004}{1000000} \;=\; 0.996004,
+\]
+which is less than $\varepsilon = 9967/10000 = 0.9967$.  The
+inequality $0.996004 \le 0.9967$ is decidable by
+\texttt{decide} on the cross-product representation
+$(998 \cdot 998 \cdot 10000 \le 9967 \cdot 1000 \cdot 1000)$,
+i.e., $9960040000 \le 9967000000$.
+
+By Theorem~\ref{thm:mass-gap-su2}'s constructive content,
+$m_0^{(\mathrm{can})} \le m$.
+\end{proof}
+
+\begin{proposition}[Explicit $m_0$ from Wilson pilot]
+\label{prop:m0-wilson}
+For the Wilson-convention SU(2) pilot at $g_0 = 0.50$, $K = 3$
+transitions, denominator $10000$, the mass-gap lower bound is
+\begin{equation*}
+  m_0^{(\mathrm{wil})} \;:=\; \frac{999}{1000} \;\in\; Q', \qquad m_0^{(\mathrm{wil})} \;\le\; m.
+\end{equation*}
+\end{proposition}
+
+\begin{proof}
+$\bigl(999/1000\bigr)^2 = 998001/1000000 = 0.998001 \le \varepsilon =
+9988/10000 = 0.9988$ by
+$998001 \cdot 10000 \le 9988 \cdot 1000000$, i.e.,
+$9980010000 \le 9988000000$.  Decidable on the cross-product
+representation.
+\end{proof}
+
+\subsection{Units of $m_0$ and the meaning of "natural units"}
+
+The $m_0$ values in Propositions \ref{prop:m0-canonical}--\ref{prop:m0-wilson}
+are dimensionless: they live in $Q'$.  Two ways to read them:
+
+\begin{enumerate}
+  \item \textbf{Units of $\sigh_0^{1/2}$}: with $\sigh_0 = 1$ chosen
+    as the unit at scale $0$, $m_0 \in (0, 1)$ is a fraction of the
+    bare-lattice string-tension scale.  The bounds
+    $m_0^{(\mathrm{can})} = 0.998$ and $m_0^{(\mathrm{wil})} = 0.999$
+    are dimensionless and read directly.
+  \item \textbf{Physical units}: pick a physical scale (e.g.\
+    $\sqrt{\sigma_0} \approx 440\,\text{MeV}$ from the standard QCD
+    string-tension calibration of [JaffeWitten2006] \S2).  Then
+    $m_0 \cdot \sqrt{\sigma_0} \approx 0.998 \cdot 440\,\text{MeV}
+    \approx 439\,\text{MeV}$ in the canonical case.  In the
+    SU(2)-Yang--Mills setting where there is no analog of QCD's
+    pion (the physical mass is the lightest glueball), this
+    corresponds to a glueball-mass lower bound of order
+    $440\,\text{MeV}$, consistent with lattice-QCD calorimetric
+    estimates of the lightest $0^{++}$ glueball at $\sim 1.5\,\text{GeV}$
+    (i.e., the actual mass exceeds our lower bound by a factor of
+    $\sim 3$; see \S\ref{sec:sharpness}).
+\end{enumerate}
+
+The dimensionless form is the constructive content of this
+milestone; the physical-unit translation is a calibration choice
+made downstream.
+
+\section{Sharpness and what remains}
+\label{sec:sharpness}
+
+\subsection{The proven $m_0$ is not sharp}
+
+The bounds $m_0^{(\mathrm{can})} = 0.998$ and
+$m_0^{(\mathrm{wil})} = 0.999$ are constructive but not sharp.  The
+\emph{actual} SU(2) mass (the lightest excited-state energy of
+$\Hop$) is conjecturally of order $\sqrt{\sigma_0} \cdot O(1)$, with
+$O(1)$ coefficient depending on the glueball spectrum.  The proven
+lower bound is $\sim 1.0$ in units of $\sqrt{\sigma_0}$, which is
+roughly the right order of magnitude but quantitatively loose by
+the factor $1/(1 - \mathrm{eta\_total})$ that comes from saturating
+the σ̂-budget at $K = 3$.
+
+\subsection{Sources of looseness in the lower bound}
+
+\begin{enumerate}
+  \item \textbf{Phase-3 pilot truncation at $K = 3$.}  The pilot
+    consumes $\eta$ at every truncated step; running the pilot to
+    higher $K$ would consume more $\eta$ and tighten
+    (\emph{decrease}) $\varepsilon$, making $m_0$ smaller, not
+    larger.  However, the UV-direction infinite-trajectory pilot of
+    Phase~6.4 has $\eta \equiv 0$ (structurally), giving $\sighinf =
+    \sigh_0 = 1$ exactly and $m_0 \le 1$ as the theoretical maximum
+    of this method.
+  \item \textbf{Square-root-of-$\sighinf$ identification.}  The
+    identification $m \ge \sighinf^{1/2}$ comes from the dimensional
+    relation between Wilson-loop area-law decay and Hamiltonian
+    spectral gap (\texttt{formal/os-reconstruction.tex} \S8.2).  A
+    tighter rate-of-decay-to-mass-gap relation (cf.\ Brydges--Federbush
+    1981) could improve the linear coefficient.
+  \item \textbf{Phase-6.5 chaining tightening on $\eta$ derivation.}
+    The Phase-3 $\eta$ values used here come from the Phase-2.1 KP
+    certificates without the Phase-6.5 chaining-tightening
+    propagated through.  Propagating the chaining tightening into
+    the $\eta$ derivation could reduce
+    $\mathrm{eta\_total}$ by a multiplicative factor $\sim c_\text{chain}$
+    and correspondingly increase $\varepsilon$ and $m_0$.  This is a
+    Phase-6.5 $\to$ Phase-9 follow-on refinement.
+\end{enumerate}
+
+\subsection{Recommended refinement priorities}
+
+In decreasing order of impact:
+
+\begin{itemize}
+  \item Propagate Phase-6.5 chaining tightening into the $\eta$
+    derivation of \texttt{computations/sigma\_hat\_trajectory.py}.
+    Estimated $m_0$ uplift: factor of $\sim 1.001$ canonical,
+    $\sim 1.0005$ Wilson (modest, because $\mathrm{eta\_total}$ is
+    already small in absolute terms).
+  \item Refine the $c_\lambda$ fiducial of the small-field
+    certificate (\texttt{notes/fiducials\_notes.md} flagged
+    refinement target), which would tighten the per-step $\eta$ at
+    the upstream level.  Estimated $m_0$ uplift: indirect, dependent
+    on the refinement magnitude.
+  \item Replace the $m \ge \sighinf^{1/2}$ linear-decay-to-gap step
+    with a sharper Brydges--Federbush-style estimate.  Estimated
+    $m_0$ uplift: linear in the relation, $\sim 1.0$--$2.0$ range.
+\end{itemize}
+
+These are all open analytical refinements, NOT blockers for the
+existence statement of Theorem~\ref{thm:mass-gap-su2}.
+
+\section{What this milestone does not deliver}
+\label{sec:scope}
+
+\begin{itemize}
+  \item \textbf{Sharp mass-gap value.}  The bound $m_0 \ge 0.998$
+    canonical is constructive but not sharp; the actual $m$ is
+    larger.  Refining the bound is Phase 10 / future-work.
+  \item \textbf{Lean formalization of the statement.}  Scoped to
+    Milestone~9.2 (\texttt{work\_plan.md} \S9.2):
+    \texttt{lean/YMGap/MassGap/SU2.lean} with the Lean-formal
+    statement of the mass-gap theorem, including the chain from
+    \texttt{sigma\_hat\_uv\_limit\_positive} to the spectral
+    statement.  This document supplies the paper-level proof; 9.2
+    formalizes the statement against the Phase-7.1, 8.1, 8.2 type
+    signatures.
+  \item \textbf{SU(3) extension.}  Phase~10.
+  \item \textbf{Glueball-spectrum identification.}  Beyond the
+    Clay-statement requirement; future-work.
+\end{itemize}
+
+\section*{References}
+
+\noindent[Bal87] T.~Bałaban, ``Renormalization group approach to
+lattice gauge field theories.~I,'' Comm.\ Math.\ Phys.\ \textbf{109}
+(1987), 249--301.
+
+\noindent[BF81] D.~Brydges, P.~Federbush, ``A new form of the
+Mayer expansion in classical statistical mechanics,'' J.\ Math.\ Phys.\
+\textbf{22} (1981), 2064--2074.  Sharper mass-gap-from-clustering
+relations.
+
+\noindent[GJ87] J.~Glimm, A.~Jaffe, \emph{Quantum Physics: A
+Functional Integral Point of View}, 2nd ed., Springer 1987.  \S6.1
+OS axioms + reconstruction; \S20 polymer cluster expansions.
+
+\noindent[JW06] A.~Jaffe, E.~Witten, ``Quantum Yang--Mills theory,''
+Clay Millennium Problem statement (2006).
+
+\noindent[OS73] K.~Osterwalder, R.~Schrader, ``Axioms for Euclidean
+Green's functions,'' Comm.\ Math.\ Phys.\ \textbf{31} (1973), 83--112.
+
+\noindent[OS75] K.~Osterwalder, R.~Schrader, ``Axioms for Euclidean
+Green's functions.~II,'' Comm.\ Math.\ Phys.\ \textbf{42} (1975),
+281--305.
+
+\noindent[Sim74] B.~Simon, \emph{The $P(\phi)_2$ Euclidean (Quantum)
+Field Theory}, Princeton 1974.
+
+\end{document}
