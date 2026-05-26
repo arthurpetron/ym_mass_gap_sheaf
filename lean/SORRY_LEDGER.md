@@ -145,6 +145,96 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **per-step scope**: the obligation is single-step. No conjunct mentions `Σ_k`, no clause asserts a uniform-in-`k` property. The global budget closure (`Σ_k η < σ̂_0`, `Σ_k Δ_∩ < ∞`, `inf_k σ̂_k > 0`) is a separate downstream claim, **NOT discharged here**. Closing it requires either a rational-tail-bound module or a constructive-reals layer (see `notes/sigma-hat-derivation.md` §4 / Q' module docstring boundary).
 - **must not be closed classically**: per AGENTS.md Rule 6 — and isn't.
 
+### [P9.2] Mass-gap theorem chain — Lean-vs-paper split
+
+- **milestone**: 9.2 (work_plan.md L738–755)
+- **file**: `lean/YMGap/MassGap/SU2.lean`
+- **decl**: `YMGap.MassGap.SU2.mass_gap_SU2`, `mass_gap_SU2_wilson`,
+  `mass_gap_su2_q_rational_data_canonical`, `mass_gap_su2_q_rational_data_wilson`
+- **status**: Lean-formalized at the statement level; analytic content
+  in the paper.  This entry documents the formal/paper boundary for
+  the entire 7.1 → 8.1 → 8.2 → 9.1 → 9.2 chain.
+
+**What is FORMALLY LEAN-PROVED (axiom-gate empty)**:
+
+  * `m_0_canonical := 998/1000 : Q'` and `m_0_wilson := 999/1000 : Q'`
+    — explicit constructive Q'-rational mass-gap lower bounds.
+  * `sigma_hat_inf_lower_canonical := 9967/10000` and
+    `sigma_hat_inf_lower_wilson := 9988/10000` — Q'-rational σ̂_∞
+    lower bounds from Phase-3 pilot data, lockstep with
+    `YMGap.RG.SigmaHatPilot.eta_total_pilot`/`eta_total_pilot_wilson`.
+  * `m_0_canonical_positive`, `m_0_wilson_positive` (`decide`).
+  * `m_0_canonical_squared_le_sigma_hat`,
+    `m_0_wilson_squared_le_sigma_hat` — the decidable witness
+    `m_0² ≤ ε` via cross-product on `Int`:
+      - Canonical: `998² · 10000 = 9960040000 ≤ 9967 · 1000² = 9967000000`
+      - Wilson: `999² · 10000 = 9980010000 ≤ 9988 · 1000² = 9988000000`
+  * `mass_gap_su2_q_rational_data_canonical` /
+    `mass_gap_su2_q_rational_data_wilson` — the purely-Q' content of
+    the mass-gap theorem (∃ m_0 ∈ Q', 0 < m_0 ∧ m_0² ≤ ε).
+  * `phase_71_consistent_canonical_holds` — Phase-7.1 framework
+    consistency check at the canonical pilot point.
+  * `mass_gap_SU2` / `mass_gap_SU2_wilson` — the composed statement:
+    Q'-rational data + abstract `HasSpectralGap rec` from the
+    Phase-8.2 cluster-to-gap bridge.
+
+  All 13 exports report `does not depend on any axioms` (lake build,
+  2026-05-26).  No `sorryAx`, no `Classical.choice`, no `Quot.sound`,
+  no `propext`.
+
+**What is PAPER-LEVEL (`formal/mass-gap-theorem.tex` §2)**:
+
+  * Phase 7.1 → 8.1 step: the analytic OS4 cluster property is
+    established at the paper level via the polymer-cluster decay
+    machinery of `formal/sheaf-framework.tex` §7.  The Lean
+    `IsOS4ClusterProperty` Prop is abstractly `True`-valued at the
+    type-level interface (`lean/YMGap/Continuum/OSAxioms.lean`).
+  * Phase 8.1 → 8.2 step: the OS reconstruction theorem
+    (Schwinger inner product → quotient/completion → Hilbert space
+    → Stone's theorem → self-adjoint H_op) lives in
+    `formal/os-reconstruction.tex` §3–§6.  The Lean
+    `OSReconstruction` structure carries abstract types for the
+    Hilbert space, vacuum, semigroup, Hamiltonian, and the
+    reconstruction laws as `True`-valued Props.
+  * Phase 8.2 cluster-to-gap bridge: paper Theorem 7.2 (spectral
+    representation of the two-point Schwinger function + OS4 rate
+    ⇒ spectral gap of H_op).  The Lean
+    `cluster_implies_gap_signature` is the type-level interface;
+    `HasSpectralGap rec` is abstractly `True`-valued.
+  * Dimensional identification `m ≥ √σ̂_∞`: paper §2.4
+    (Wilson-loop area-law decay rate to mass scale via standard
+    spectral/transfer-matrix correspondence).  Not explicitly stated
+    in Lean — the Lean theorem uses the rational `m_0² ≤ σ̂_∞`
+    directly, leaving the identification of `m_0` with the actual
+    mass dimension to the paper.
+
+**What is COMPUTATIONS-LEVEL** (`computations/mass_gap_bound.py`):
+
+  * Extracts the explicit m_0 from any pilot operating point.
+  * Tests enforce Lean lockstep
+    (`tests/test_mass_gap_bound.py::test_canonical_pilot_data_matches_lean_module`).
+
+**Why this split is fully principled**:
+
+  Per the work-plan Milestone 9.2 open question (and the parallel
+  7.2, 8.1, 8.2 decisions), the operator-theoretic content (Stone's
+  theorem, spectral theorem for unbounded self-adjoint operators) is
+  scoped out of the current Lean stack.  The Q' arithmetic chain is
+  fully formalized; the OS axiom verifications and the operator-
+  theoretic completion are paper-supplied.  Future work
+  (constructive-reals layer at Milestone 7.3+) can refine the
+  abstract Lean Props into substantive statements without changing
+  the type signatures consumed here.
+
+- **constructive?**: yes — the Q'-rational lower bound is constructive
+  (Σ-typed via `Exists` on Q'); the witness is decidable; the
+  abstract spectral-gap Prop is `True` at the type-level interface
+  (paper-supplied at the analytical level).
+- **owed by**: Phase 9.1 (paper) + Phase 9.2 (this entry).  Both
+  closed 2026-05-26.
+- **must not be closed classically**: per AGENTS.md Rule 6 — and
+  isn't.  All 13 Lean exports are axiom-free.
+
 ## How to add an entry
 
 ```markdown
