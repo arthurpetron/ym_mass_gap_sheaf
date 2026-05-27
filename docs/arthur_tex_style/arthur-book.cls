@@ -170,43 +170,60 @@
   \endgroup
 }
 
-% ---------- Full-bleed header rule (2pt inset from paper edges) ----------
-% We'll draw across paper width minus 4pt, shifted left by (oddsidemargin+1in-2pt).
-\newcommand{\arthur@headrule}{%
-  \vspace*{-\dimexpr\baselineskip-1.6ex}%
+% ---------- Header rule (paper-edge-aligned, butted against the page box) ----------
+% The rule abuts the page-box's outer-vertical edge so that the box appears
+% to sit on (and touch) the rule, rather than the rule running through it.
+% Vertical position: at the page-box's baseline (`\rule[0pt]`), matching
+% the bottom edge of the printed page number.
+\newlength{\arthur@pageboxwidth}
+
+\newcommand{\arthur@headrule@LE}{%
+  \settowidth{\arthur@pageboxwidth}{\arthur@pagebox}%
   \makebox[0pt][l]{%
-    \hspace*{\dimexpr -\oddsidemargin-1in+2pt}%
-    \rule{\dimexpr \paperwidth-4pt}{0.4pt}%
+    % Start the rule at exactly the right edge of the page-box:
+    %   left-paper-edge offset (2pt) + box width.
+    \hspace*{\dimexpr -\evensidemargin-1in+2pt+\arthur@pageboxwidth}%
+    \rule[0pt]{\dimexpr \paperwidth-4pt-\arthur@pageboxwidth}{0.4pt}%
   }%
-  \vspace*{1.2ex}%
 }
+
+\newcommand{\arthur@headrule@RO}{%
+  \settowidth{\arthur@pageboxwidth}{\arthur@pagebox}%
+  \makebox[0pt][l]{%
+    % Rule runs from left-paper-edge (2pt inset) up to the left edge of
+    % the page-box (right-paper-edge - 2pt - box width).
+    \hspace*{\dimexpr -\oddsidemargin-1in+2pt}%
+    \rule[0pt]{\dimexpr \paperwidth-4pt-\arthur@pageboxwidth}{0.4pt}%
+  }%
+}
+
 \newcommand{\arthur@headerlabel}{\raisebox{0.45ex}{\textsc{\small \arthur@path}}}
 
 % ---------- Headers/footers ----------
 \pagestyle{fancy}
 \fancyhf{} % clear
 
-% Left (even) pages: page box at absolute left; Right (odd) pages: at absolute right.
-% We compute edge-aligned placements using \makebox[0pt] and hspace offsets from text origin.
+% Left (even) pages: page box at absolute left; rule runs from box's right edge
+% to the right paper edge.
 \fancyhead[LE]{%
-  % Page box 2pt from left paper edge:
+  \arthur@headrule@LE
   \makebox[0pt][l]{\hspace*{\dimexpr -\evensidemargin-1in+2pt}\arthur@pagebox}%
   \quad\arthur@headerlabel
-  \arthur@headrule
 }
+% Right (odd) pages: page box at absolute right; rule runs from left paper edge
+% up to the box's left edge.
 \fancyhead[RO]{%
-  % Page box 2pt from right paper edge:
+  \arthur@headrule@RO
   \makebox[0pt][r]{\hspace*{\dimexpr \textwidth+\oddsidemargin+1in-2pt}\arthur@pagebox}%
   \arthur@headerlabel
-  \arthur@headrule
 }
 % Keep each page to one path header; duplicating both inner and outer headers
 % makes long section paths collide in the compact layouts.
 \fancyhead[LO]{}
 \fancyhead[RE]{}
 
-% Footer: simple centered page number (redundant but handy)
-\fancyfoot[C]{\thepage}
+% No footer page number: the boxed top-corner page label is the single source.
+\fancyfoot[C]{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 \makeatother

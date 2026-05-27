@@ -216,27 +216,39 @@ sits at the heart of the proof:
 \begin{tikzpicture}[
   every node/.style={align=center,font=\small},
   state/.style={rectangle,rounded corners=2pt,draw,thick,
-    inner sep=8pt,minimum height=20mm,minimum width=44mm,fill=green!5},
+    inner sep=10pt,minimum height=22mm,minimum width=58mm,fill=green!5},
   budget/.style={rectangle,rounded corners=2pt,draw,thick,densely dashed,
-    inner sep=6pt,minimum height=12mm,minimum width=44mm,fill=orange!8},
-  arr/.style={-{Stealth[length=2.4mm]},thick},
-  twocell/.style={-{Stealth[length=2.4mm]},thick,double,double distance=1.2pt},
-  ann/.style={font=\scriptsize\itshape,gray!40!black}
+    inner sep=8pt,minimum height=14mm,minimum width=82mm,fill=orange!8},
+  arr/.style={-{Stealth[length=2.6mm]},thick},
+  twocell/.style={-{Stealth[length=2.6mm]},thick,double,double distance=1.2pt},
+  ann/.style={font=\footnotesize\itshape,gray!40!black}
 ]
-  \node[state] (Ik)   at (0,0)
-    {$\Ik = (\Omk,\; \muk,\; \Acal_k,\; \Scal_k,\; \sighk)$\\[1pt]
-     \scriptsize config space, measure, bound-witnesses,\\
-     \scriptsize KP certs, renorm.\ string tension};
-  \node[state] (Ikp1) at (8,0)
-    {$\Ik[k+1]$\\[1pt] \scriptsize same shape, scale $k+1$};
-  \node[budget] (theta) at (4,-2.6)
-    {$\Thetak \colon \sighk \;\Rightarrow\; \sighk - \etak$\\
-     \scriptsize $\etak \in \Qp$ degradation;\;
-     $\sum_k \etak < \sigma_0$};
+  % Two state boxes on top, well separated.
+  \node[state] (Ik) at (0,0)
+    {$\Ik = (\Omk,\; \muk,\; \Acal_k,\; \Scal_k,\; \sighk)$\\[3pt]
+     {\scriptsize config space, measure, bound-witnesses,}\\
+     {\scriptsize KP certs, renormalized string tension}};
+  \node[state] (Ikp1) at (10,0)
+    {$\Ik[k+1]$\\[3pt]
+     {\scriptsize same data shape}\\
+     {\scriptsize at scale $k+1$}};
+  % Budget box pushed down for clearance.
+  \node[budget] (theta) at (5,-5.0)
+    {$\Thetak \colon\; \sighk \;\Rightarrow\; \sighk - \etak$\\[2pt]
+     {\scriptsize $\etak \in \Qp$ per-step degradation; \quad
+       $\sum_k \etak < \sigma_0$}};
 
-  \draw[arr] (Ik) -- node[above,ann]{$\Tb$: block-spin morphism} (Ikp1);
-  \draw[twocell] (Ik.south)+(0.5,0) to[bend right=18] (theta.north -| 3.5,-2.0);
-  \draw[twocell] (theta.north -| 4.5,-2.0) to[bend right=18] ($(Ikp1.south)+(-0.5,0)$);
+  % Top arrow: T_b connects the two state boxes, label above.
+  \draw[arr] (Ik.east) -- node[above=2pt,ann] {$\Tb$\,: block-spin morphism}
+                          (Ikp1.west);
+
+  % 2-cells: start at the outer-bottom corners of each state box (clearly
+  % below the box content), arc down into theta's top corners.  The
+  % Theta_k label is placed horizontally near the curve midpoint.
+  \draw[twocell] (Ik.south east) to[out=-70,in=160] (theta.north west);
+  \node[ann] at (3.4,-2.7) {$\Thetak$};
+  \draw[twocell] (Ikp1.south west) to[out=-110,in=20] (theta.north east);
+  \node[ann] at (6.6,-2.7) {$\Thetak$};
 \end{tikzpicture}
 \caption{The inductive state and its block-spin transport.  The state
 package $\Ik$ at scale $k$ is mapped to its scale-$(k+1)$ counterpart
@@ -259,23 +271,36 @@ preceding analytic bundle.  The same composition, drawn:
 \begin{tikzpicture}[
   every node/.style={align=center,font=\small},
   box/.style={rectangle,rounded corners=2pt,draw,thick,
-    inner sep=6pt,minimum height=11mm,minimum width=29mm,fill=blue!4},
-  arr/.style={-{Stealth[length=2.4mm]},thick},
-  ann/.style={font=\scriptsize\itshape,gray!50!black}
+    inner sep=8pt,minimum height=18mm,minimum width=48mm,fill=blue!4},
+  arr/.style={-{Stealth[length=2.6mm]},thick},
+  ann/.style={font=\footnotesize\itshape,gray!50!black}
 ]
-  \node[box] (qp)   at (0,0)    {$\Qp$-rational\\ pilot data\\ ($K=3$ truncation)};
-  \node[box] (sig)  at (4.4,0)  {$\sighinf \ge \varepsilon > 0$\\ $\varepsilon \in \Qp$};
-  \node[box] (os4)  at (8.8,0)  {OS4 cluster\\ with explicit rate\\ $\sighinf$};
-  \node[box] (gap)  at (13.2,0) {$\sigma(\Hop) \cap (0, \massgap)$\\ $= \emptyset$\\ ($\massgap \ge 999/1000$)};
+  % 2x2 grid, read clockwise from the top-left.  Wide horizontal gap so
+  % arrow labels sit cleanly between boxes without touching either edge.
+  \node[box] (qp)  at (0,0)
+    {$\Qp$-rational pilot data\\[1pt] {\footnotesize ($K = 3$ truncation)}};
+  \node[box] (sig) at (10,0)
+    {$\sighinf \ge \varepsilon > 0$\\[1pt] {\footnotesize ($\varepsilon \in \Qp$)}};
+  \node[box] (os4) at (10,-4.0)
+    {OS4 cluster bound\\[1pt] {\footnotesize with explicit rate $\sighinf$}};
+  \node[box] (gap) at (0,-4.0)
+    {$\sigma(\Hop) \cap (0, \massgap) = \emptyset$\\[1pt]
+     {\footnotesize ($\massgap \ge 999/1000$)}};
 
-  \draw[arr] (qp)  -- node[above,ann]{(1) inductive step} node[below,ann]{Parts II--III} (sig);
-  \draw[arr] (sig) -- node[above,ann]{(2) continuum} node[below,ann]{Part IV (OS axioms)} (os4);
-  \draw[arr] (os4) -- node[above,ann]{(3) cluster $\to$ gap} node[below,ann]{Part IV (OS recon.)} (gap);
+  % Top arrow: (1) inductive step — single-line label sits in the gap.
+  \draw[arr] (qp.east) -- node[above=2pt,ann]{(1) inductive step (Parts II--III)}
+                          (sig.west);
+  % Right vertical arrow: (2) continuum — label to the right of the arrow.
+  \draw[arr] (sig.south) -- node[right=4pt,ann,align=left]
+                              {(2) continuum limit\\ \ \ \ \ + OS axioms} (os4.north);
+  % Bottom arrow: (3) cluster -> gap.  Keep the label short so it stays
+  % within the inter-box gap on both sides.
+  \draw[arr] (os4.west) -- node[above=2pt,ann]{(3) cluster $\to$ gap} (gap.east);
 \end{tikzpicture}
 \caption{Proof-composition flow.  Each arrow is a $\Qp$-data
 theorem assuming the analytic bundle of its predecessor.  The
-left-most box is finite, computable, machine-verifiable; the
-right-most box is the Clay-statement conclusion specialized to
+top-left box is finite, computable, machine-verifiable; the
+bottom-left box is the Clay-statement conclusion specialized to
 $\SUtwo$.}
 \label{fig:proof-composition}
 \end{mainfigure}
