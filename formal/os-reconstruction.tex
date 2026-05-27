@@ -4,7 +4,7 @@
 % Linked code / Lean:
 %   - lean/YMGap/Continuum/OSReconstruction.lean (Lean type signature
 %     exposing the OS-reconstruction quintuple)
-%   - Milestone 8.2 of work_plan.md.
+%   - \Cref{ch:os-reconstruction} of work_plan.md.
 
 \chapter{Osterwalder--Schrader Reconstruction
   for \texorpdfstring{$\muinf$}{mu\_infinity}:
@@ -16,11 +16,11 @@ $(\Ecalp, \IprodOS{\cdot}{\cdot}, \Hphys, \Omegavac, \Hop)$ ready for
 spectral analysis.}
 
 We apply the Osterwalder--Schrader reconstruction theorem to the
-continuum $\SUtwo$ Wilson measure $\muinf$ of Milestone~7.2 (verified
-to satisfy the OS axioms in Milestone~8.1,
+continuum $\SUtwo$ Wilson measure $\muinf$ of \Cref{ch:continuum-measure} (verified
+to satisfy the OS axioms in \Cref{ch:os-axioms},
 Chapter~\ref{ch:os-axioms}) to construct the physical Hilbert space
 $\Hphys$ and the self-adjoint Hamiltonian $\Hop \ge 0$ ready for the
-spectral analysis of Phase~9 (Chapter~\ref{ch:mass-gap-theorem}).
+spectral analysis of the mass-gap chapter (Chapter~\ref{ch:mass-gap-theorem}).
 
 The construction has four canonical steps: (i)~assemble the algebra
 $\Ecalp$ of cylindrical test functions supported on the positive-
@@ -38,25 +38,24 @@ we deliver the construction at the \textbf{paper level} (full
 analytical content here), with a parallel \textbf{Lean-formal-
 statement-only} type signature module
 \codepath{lean/YMGap/Continuum/OSReconstruction.lean} exposing the
-data of $(\Hphys, \Hop, \Omegavac)$ that downstream Phase~9
+data of $(\Hphys, \Hop, \Omegavac)$ that downstream the mass-gap chapter
 references symbolically.  The full Lean formalization (Stone's
 theorem, spectral theorem for self-adjoint operators) is a major
 undertaking deferred to a parallel constructive-analysis layer
-(Milestone~7.3+).
+(a constructive-reals layer+).
 
 \section{Standing setup}
 \label{sec:os-reconstruction-setup}
 
-We import the OS axiom verification of \texttt{formal/os-axioms.tex}
-(Milestone~8.1): the measure $\muinf$ on $\Ominf$ satisfies
+We import the OS axiom verification of \Cref{ch:os-axioms}: the measure $\muinf$ on $\Ominf$ satisfies
 OS0~(regularity), OS1~(hypercubic translation and $H_4$ invariance,
 contingent $O(4)$ via the restoration argument),
 OS2~(reflection positivity), OS3~(internal gauge and discrete
 symmetry), and OS4~(cluster property with explicit exponential rate
-$\sighinf \ge \varepsilon > 0$ via Milestone~7.1).
+$\sighinf \ge \varepsilon > 0$ via the $\sighinf$-positivity theorem).
 
 The continuum configuration space $\Ominf$ is compact Hausdorff
-Polish (\texttt{formal/continuum-measure.tex} Definition~2.4); the
+Polish (\Cref{ch:continuum-measure} Definition~2.4); the
 cylindrical test-function algebra $\Fcal_\infty = \bigcup_k \Fcal_k$
 is dense in $C(\Ominf)$ by Stone--Weierstrass.
 
@@ -365,7 +364,7 @@ product), hence isometric completions, hence unitarily equivalent
 Hamiltonians.
 \end{proof}
 
-\section{Preparation for Phase~9: the spectral injection}
+\section{Preparation for the mass-gap chapter: the spectral injection}
 \label{sec:phase-9-prep}
 
 \begin{proposition}[Spectral content of $\Hop$ and the mass gap]
@@ -382,7 +381,7 @@ $0$-eigenspace.  The \emph{mass gap} is
 \end{equation*}
 The mass-gap statement is $m > 0$, equivalently
 $\sigma(\Hop) \cap (0, m) = \emptyset$ for some $m > 0$
-(Clay-statement form, \texttt{work\_plan.md} \S9).
+(Clay-statement form, the work plan \S9).
 \end{proposition}
 
 \begin{proof}
@@ -396,7 +395,7 @@ spectrum is the excited spectrum.
 \label{thm:cluster-to-gap}
 If $\muinf$ satisfies OS4 with explicit exponential cluster rate
 $m_0 > 0$ (\texttt{os-axioms.tex} Theorem~7.1; the rate is
-$m_0 := \sighinf$ from Phase~7.1), then the OS Hamiltonian satisfies
+$m_0 := \sighinf$ from the $\sighinf$-positivity analysis), then the OS Hamiltonian satisfies
 \begin{equation*}
   \sigma(\Hop) \cap (0, m_0) \;=\; \emptyset,
   \qquad \text{i.e., } \;\; m \;\ge\; m_0 \;>\; 0.
@@ -428,8 +427,8 @@ The detailed argument is Glimm--Jaffe \S6.1 (the
 \end{proof}
 
 Theorem~\ref{thm:cluster-to-gap} is the analytical bridge from OS4
-of Phase~8.1 to the spectral gap of Phase~9.  Its precondition
-(OS4 with explicit rate $m_0 > 0$) is Phase~7.1 + 8.1; its
+of the OS-axiom verification to the spectral gap of the mass-gap chapter.  Its precondition
+(OS4 with explicit rate $m_0 > 0$) is the $\sighinf$-positivity analysis + 8.1; its
 conclusion ($m \ge m_0 > 0$) is the SU(2) mass-gap statement at the
 Hilbert-space level.
 
@@ -452,12 +451,12 @@ exposes:
     the paper-level Prop inputs (existence of $\Hphys$, etc.) and
     assembling the reconstruction.
   \item \texttt{cluster\_implies\_gap} — Prop signature for
-    Theorem~\ref{thm:cluster-to-gap}, the Phase~9 mass-gap input.
+    Theorem~\ref{thm:cluster-to-gap}, the the mass-gap chapter mass-gap input.
 \end{itemize}
 
 \subsection*{Decision: paper-only existence + Lean-formal-statement-only}
 
-Per the work-plan Milestone~8.2 open question (``Lean formalization
+Per the work-plan \Cref{ch:os-reconstruction} open question (``Lean formalization
 of the reconstruction is a major undertaking [...] likely deferred
 to paper-first, Lean-later or a parallel Lean-formal-statement-only
 milestone''), this project commits to the \textbf{paper-first +
@@ -469,19 +468,19 @@ Lean-formal-statement-only} branch.  Rationale:
     Lean build-out (densely-defined operators, spectral measures,
     functional calculus) that is far beyond the current Q'-rational
     + projective-system stack.
-  \item The Phase~9 mass-gap statement can be expressed against the
+  \item The the mass-gap chapter mass-gap statement can be expressed against the
     \texttt{OSReconstruction} type signature; the paper-level
     existence proof here + the Theorem~\ref{thm:cluster-to-gap}
-    bridge lets Phase~9 land in Lean without waiting on Stone's
+    bridge lets the mass-gap chapter land in Lean without waiting on Stone's
     theorem.
-  \item Milestone~7.3+ reserves the option of building the
+  \item a constructive-reals layer+ reserves the option of building the
     constructive analysis layer later (with $\Hop$ as one motivating
     use case); this decision does not foreclose that.
 \end{enumerate}
 
-This is parallel to the Phase~7.2 decision recorded in
-\texttt{notes/continuum-measure.md} \S3 and the Phase~8.1 decision
-recorded in \texttt{notes/os-axiom-verification.md} \S6.  Each of
+This is parallel to the the continuum-limit analysis.2 decision recorded in
+the supporting analysis and the the OS-axiom verification decision
+recorded in the supporting analysis  Each of
 the three milestones (7.2, 8.1, 8.2) explicitly opts for the
 paper-only / Lean-formal-statement-only branch with the same
 rationale.
@@ -496,9 +495,9 @@ rationale.
     calculus.  Major undertaking; deferred.
   \item \textbf{Sharper $m \ge m_0$ bound.}
     Theorem~\ref{thm:cluster-to-gap} gives $m \ge m_0$ where
-    $m_0 = \sighinf$ from Phase~7.1; the inequality may be strict
+    $m_0 = \sighinf$ from the $\sighinf$-positivity analysis; the inequality may be strict
     (the actual mass could be larger than the σ̂-derived lower bound).
-    Sharpness is a Phase~9 / Phase~10 open analytic item.
+    Sharpness is a the mass-gap chapter / the SU(N) extension framework open analytic item.
   \item \textbf{Stability under perturbations.}  The OS reconstruction
     is stable under small perturbations of $\muinf$ (Hille--Yosida
     perturbation theory); making this constructive at the rate
@@ -507,7 +506,7 @@ rationale.
     Wightman reconstruction of Streater--Wightman fields from the
     Schwinger functions is a further analytical step, not addressed
     here; we deliver the Hilbert space + Hamiltonian, which is what
-    the Phase~9 mass-gap statement needs.
+    the the mass-gap chapter mass-gap statement needs.
 \end{itemize}
 
 \section*{References}

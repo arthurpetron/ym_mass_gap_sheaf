@@ -4,7 +4,7 @@
 % Linked code / Lean:
 %   - computations/mass_gap_bound.py (derive_mass_gap_bound)
 %   - lean/YMGap/MassGap/SU2.lean    (mass_gap_SU2 headline theorem)
-%   - Milestone 9.1 of work_plan.md.
+%   - \Cref{ch:mass-gap-theorem} of work_plan.md.
 
 \chapter{The \texorpdfstring{$\SUtwo$}{SU(2)} Mass-Gap Theorem:
   A Constructive Lower Bound from
@@ -19,10 +19,10 @@ We state and prove the Osterwalder--Schrader-reconstruction mass-gap
 theorem for $\SUtwo$ Yang--Mills theory.  The proof composes the
 three preceding milestones into the Clay-statement form: the
 $\Qp$-rational lower bound $\sighinf \ge \varepsilon > 0$ from
-Milestone~7.1, the verified OS4 cluster property with explicit
-exponential rate from Milestone~8.1
+the $\sighinf$-positivity theorem, the verified OS4 cluster property with explicit
+exponential rate from \Cref{ch:os-axioms}
 (Chapter~\ref{ch:os-axioms}), and the OS reconstruction
-quintuple with the cluster-to-gap bridge from Milestone~8.2
+quintuple with the cluster-to-gap bridge from \Cref{ch:os-reconstruction}
 (Chapter~\ref{ch:os-reconstruction}), together imply that the
 continuum-limit Hamiltonian $\Hop$ on $\Hphys$ satisfies
 \[
@@ -45,7 +45,7 @@ units where $\sigma_0^{1/2}$ sets the scale at lattice scale $0$.
 Let $\Hop$ be the self-adjoint Hamiltonian on the physical Hilbert
 space $\Hphys$ constructed by the Osterwalder--Schrader reconstruction
 of the continuum SU(2) Wilson measure $\muinf$
-(\texttt{formal/os-reconstruction.tex} Theorem~6.2).  Then there
+(\Cref{ch:os-reconstruction} Theorem~6.2).  Then there
 exists an explicit, computable, $Q'$-rational $m_0 > 0$ such that
 \begin{equation*}
   \sigma(\Hop) \cap (0, m_0) \;=\; \emptyset.
@@ -85,11 +85,10 @@ with:
 
 \begin{itemize}
   \item \textbf{Existence of the QFT}: provided by the projective-
-    limit construction of $\muinf$ (Milestone~7.2,
-    \texttt{formal/continuum-measure.tex}).
+    limit construction of $\muinf$ (\Cref{ch:continuum-measure}).
   \item \textbf{Axiomatic properties at least as strong as
     Osterwalder--Schrader}: provided by the OS-axiom verification of
-    Milestone~8.1 (\texttt{formal/os-axioms.tex}).  The full
+    \Cref{ch:os-axioms}.  The full
     Streater--Wightman field reconstruction is a further analytical
     step not addressed here; we deliver the OS framework, which is
     what the Clay-statement axiomatic threshold requires.
@@ -116,19 +115,19 @@ impossible.
 The proof is a three-step composition:
 
 \begin{enumerate}
-  \item \textbf{Phase~7.1 input}: $\sighinf \ge \varepsilon > 0$
+  \item \textbf{the $\sighinf$-positivity analysis input}: $\sighinf \ge \varepsilon > 0$
     in $Q'$.
-  \item \textbf{Phase~8.1 bridge}: this gives the OS4 cluster
+  \item \textbf{the OS-axiom verification bridge}: this gives the OS4 cluster
     property with exponential rate $m_0^{(\text{OS4})} = \sighinf
     \ge \varepsilon$.
-  \item \textbf{Phase~8.2 bridge}: the cluster-to-gap theorem
+  \item \textbf{the OS-reconstruction analysis bridge}: the cluster-to-gap theorem
     promotes the OS4 rate to a spectral gap of the same rate:
     $m \ge m_0^{(\text{OS4})}$.
 \end{enumerate}
 
-\subsection{Step 1: $\sighinf \ge \varepsilon > 0$ (Phase 7.1)}
+\subsection{Step 1: $\sighinf \ge \varepsilon > 0$ (the $\sighinf$-positivity analysis)}
 
-\begin{lemma}[Phase 7.1 framework theorem, in summary]
+\begin{lemma}[the $\sighinf$-positivity analysis framework theorem, in summary]
 \label{lem:sigh-positive}
 There exists a $Q'$-rational $\varepsilon > 0$ such that for every
 $N \in \mathbb{N}$, the running renormalized string tension
@@ -162,7 +161,7 @@ Both are strictly positive Q'-rationals; the canonical case is the
 slightly worse bound (more $\eta$-budget consumed) because the
 canonical pilot operates near the sf-window edge.
 
-\subsection{Step 2: $\sighinf > 0$ $\Rightarrow$ OS4 cluster (Phase 8.1)}
+\subsection{Step 2: $\sighinf > 0$ $\Rightarrow$ OS4 cluster (the OS-axiom verification)}
 
 \begin{lemma}[OS4 cluster with explicit rate]
 \label{lem:os4-cluster}
@@ -178,14 +177,14 @@ where $\sighinf \ge \varepsilon > 0$ by Lemma~\ref{lem:sigh-positive}.
 \end{lemma}
 
 \begin{proof}
-\texttt{formal/os-axioms.tex} Theorem~7.1 (OS4 cluster), via the
+\Cref{ch:os-axioms} Theorem~7.1 (OS4 cluster), via the
 polymer-cluster decay argument of
-\texttt{formal/sheaf-framework.tex} \S7 + the
+\Cref{ch:sheaf-framework} \S7 + the
 $\sighinf$-as-explicit-rate hand-off recorded in
-\texttt{notes/os-axiom-verification.md} \S3.2.
+the supporting analysis
 \end{proof}
 
-\subsection{Step 3: cluster $\Rightarrow$ spectral gap (Phase 8.2)}
+\subsection{Step 3: cluster $\Rightarrow$ spectral gap (the OS-reconstruction analysis)}
 
 \begin{lemma}[Cluster-to-gap bridge]
 \label{lem:cluster-to-gap}
@@ -199,7 +198,7 @@ physical Hilbert space $\Hphys$ satisfies
 \end{lemma}
 
 \begin{proof}
-\texttt{formal/os-reconstruction.tex} Theorem~7.2; spectral
+\Cref{ch:os-reconstruction} Theorem~7.2; spectral
 representation of the two-point Schwinger function gives the lower
 bound directly.
 \end{proof}
@@ -427,13 +426,13 @@ above.
     higher $K$ would consume more $\eta$ and tighten
     (\emph{decrease}) $\varepsilon$, making $m_0$ smaller, not
     larger.  However, the UV-direction infinite-trajectory pilot of
-    Phase~6.4 has $\eta \equiv 0$ (structurally), giving $\sighinf =
+    the Lean-closure analysis.4 has $\eta \equiv 0$ (structurally), giving $\sighinf =
     \sigh_0 = 1$ exactly and $m_0 \le 1$ as the theoretical maximum
     of this method.
   \item \textbf{Square-root-of-$\sighinf$ identification.}  The
     identification $m \ge \sighinf^{1/2}$ comes from the dimensional
     relation between Wilson-loop area-law decay and Hamiltonian
-    spectral gap (\texttt{formal/os-reconstruction.tex} \S8.2).  A
+    spectral gap (\Cref{ch:os-reconstruction} \S8.2).  A
     tighter rate-of-decay-to-mass-gap relation (cf.\ Brydges--Federbush
     1981) could improve the linear coefficient.
   \item \textbf{Phase-6.5 chaining tightening on $\eta$ derivation.}
@@ -457,10 +456,10 @@ In decreasing order of impact:
     $\sim 1.0005$ Wilson (modest, because $\mathrm{eta\_total}$ is
     already small in absolute terms).
   \item Refine the $c_\lambda$ fiducial of the small-field
-    certificate (\texttt{notes/fiducials\_notes.md} flagged
-    refinement target), which would tighten the per-step $\eta$ at
-    the upstream level.  Estimated $m_0$ uplift: indirect, dependent
-    on the refinement magnitude.
+    certificate (flagged refinement target in the fiducial audit),
+    which would tighten the per-step $\eta$ at the upstream level.
+    Estimated $m_0$ uplift: indirect, dependent on the refinement
+    magnitude.
   \item Replace the $m \ge \sighinf^{1/2}$ linear-decay-to-gap step
     with a sharper Brydges--Federbush-style estimate.  Estimated
     $m_0$ uplift: linear in the relation, $\sim 1.0$--$2.0$ range.
@@ -475,16 +474,16 @@ existence statement of Theorem~\ref{thm:mass-gap-su2}.
 \begin{itemize}
   \item \textbf{Sharp mass-gap value.}  The bound $m_0 \ge 0.998$
     canonical is constructive but not sharp; the actual $m$ is
-    larger.  Refining the bound is Phase 10 / future-work.
-  \item \textbf{Lean formalization of the statement.}  Scoped to
-    Milestone~9.2 (\texttt{work\_plan.md} \S9.2):
-    \texttt{lean/YMGap/MassGap/SU2.lean} with the Lean-formal
-    statement of the mass-gap theorem, including the chain from
-    \texttt{sigma\_hat\_uv\_limit\_positive} to the spectral
-    statement.  This document supplies the paper-level proof; 9.2
-    formalizes the statement against the Phase-7.1, 8.1, 8.2 type
-    signatures.
-  \item \textbf{SU(3) extension.}  Phase~10.
+    larger.  Refining the bound is the SU(N) extension framework / future-work.
+  \item \textbf{Lean formalization of the statement.}  The Lean
+    module \codepath{lean/YMGap/MassGap/SU2.lean} carries the
+    Lean-formal statement of the mass-gap theorem, including the
+    chain from \codepath{sigma\_hat\_uv\_limit\_positive} to the
+    spectral statement.  This chapter supplies the paper-level
+    proof; the Lean module formalizes the statement against the
+    abstract type signatures of the continuum-limit and OS-axiom
+    layers.
+  \item \textbf{SU(3) extension.}  the SU(N) extension framework.
   \item \textbf{Glueball-spectrum identification.}  Beyond the
     Clay-statement requirement; future-work.
 \end{itemize}

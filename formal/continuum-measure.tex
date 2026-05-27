@@ -5,7 +5,7 @@
 %   - computations/continuum_limit.py (numerical UV-trajectory data)
 %   - lean/YMGap/Continuum/ContinuumMeasure.lean (type signature only;
 %     analytical existence lives at paper level)
-%   - Milestone 7.2 of work_plan.md.
+%   - \Cref{ch:continuum-measure} of work_plan.md.
 
 \chapter{The Continuum
   \texorpdfstring{$\SUtwo$}{SU(2)} Wilson Measure
@@ -31,7 +31,7 @@ $\muinf$ on the projective-limit space $\Ominf$, into which the
 Phase-7.1 limit $\sighinf > 0$ injects as the area-law-decay rate of
 Wilson-loop expectations under $\muinf$.
 
-This chapter is the paper-level deliverable of Milestone~7.2.  Per
+Per
 the work-plan, the analytical existence proof lives at the paper
 level (the projective-limit construction for compact-group lattice
 measures is standard but heavier than the $\Qp$~/~constructive-reals
@@ -61,7 +61,7 @@ the Wilson action at coupling $g_k$:
 where the action sums over plaquettes of the scale-$k$ lattice with
 the standard heat-kernel weight.  Per
 \texttt{computations/uv\_trajectory.py} and
-\texttt{formal/block-spin-morphism.tex} we move \emph{UV-ward} by
+\Cref{ch:block-spin-morphism} we move \emph{UV-ward} by
 refining ($a_{k+1} = a_k / b$, $b > 1$); the coupling evolves as
 $g_{k+1}$ via the one-loop SU(2) $\beta$-function
 \begin{equation*}
@@ -72,7 +72,7 @@ $g_{k+1}$ via the one-loop SU(2) $\beta$-function
 and remains strictly inside the small-field convergent regime.
 
 The block-spin map $\Tb \colon \Omkp \to \Omk$ of
-\texttt{formal/block-spin-morphism.tex} Definition~3.1, read in the
+\Cref{ch:block-spin-morphism} Definition~3.1, read in the
 UV direction, is a measurable \emph{coarsening} that sends fine-lattice
 configurations to coarse-lattice configurations by averaging or
 projection.  The pushforward $\Tbstar = (\Tb)_*$ takes a probability
@@ -80,7 +80,7 @@ measure on $\Omkp$ to a probability measure on $\Omk$.
 
 \begin{convention}[UV indexing]
 \label{conv:uv}
-Throughout this document, the index $k$ \emph{increases} along the
+Throughout this chapter, the index $k$ \emph{increases} along the
 UV-direction RG flow.  Hence $a_k$ decreases in $k$,
 $\dim \Omk = |\Ek|$ increases in $k$, the coupling $g_k$ decreases in $k$
 toward zero, and the lattice $\Omk$ becomes finer.  The projective
@@ -92,10 +92,10 @@ where every arrow is a coarsening and the limit object $\Ominf$ is the
 \emph{finest} continuum-like configuration space.
 \end{convention}
 
-\subsection{Scope and what this document does not do}
+\subsection{Scope and what this chapter does not do}
 \label{subsec:scope}
 
-This document constructs $\muinf$ as a cylindrical probability measure
+This chapter constructs $\muinf$ as a cylindrical probability measure
 on $\Ominf$ via the Daniell--Kolmogorov projective-limit theorem.  It
 does \emph{not}:
 
@@ -103,16 +103,16 @@ does \emph{not}:
   \item Identify $\muinf$ with any continuum quantum field-theoretic
     measure beyond the projective-limit construction.  The
     identification with the OS-axiom-compliant continuum Wilson
-    measure is the deliverable of Phase~8.1.
+    measure is the deliverable of the OS-axiom verification.
   \item Establish the Osterwalder--Schrader axioms for $\muinf$
-    (Phase~8.1).
+    (the OS-axiom verification).
   \item Lift the Lean formalization beyond a type signature.  The
     analytical content (consistency, tightness, the extension
-    theorem) lives here.  Per the work-plan Milestone~7.2 open
+    theorem) lives here.  Per the work-plan \Cref{ch:continuum-measure} open
     question, this is the deliberate decision point at which $Q'$
     no longer suffices; the project has chosen the \textbf{paper-only}
     branch and deferred any \texttt{Constructive/Reals.lean} build-out
-    to Milestone~7.3 (which is downstream of the mass-gap statement
+    to a constructive-reals layer (which is downstream of the mass-gap statement
     and is not on the critical path for stating the result).
 \end{itemize}
 
@@ -150,7 +150,7 @@ that sends the object $k$ to $\Omk = SU(2)^{\Ek}$ and sends the
 morphism $k+1 \to k$ to $\Tb \colon \Omkp \to \Omk$.  Functoriality
 holds because consecutive coarsenings compose, $\Tb \circ \Tb$ is
 itself a coarsening at block-factor $b^2$ (consistent with the
-$\Tb^n$ notation used in \texttt{formal/block-spin-morphism.tex}~\S4
+$\Tb^n$ notation used in \Cref{ch:block-spin-morphism}~\S4
 for iterated steps).
 \end{definition}
 
@@ -249,7 +249,7 @@ where $Z_{k+1, \bar U}$ is the partition function at scale~$k+1$
 conditioned on the coarse-spin profile $\bar U$.  The block-renormalized
 action is defined precisely so that this identity holds; this is the
 content of the polymer-expansion convergence proof of
-\texttt{formal/sheaf-framework.tex}~\S7 applied at every scale~$k$.
+\Cref{ch:sheaf-framework}~\S7 applied at every scale~$k$.
 \end{proof}
 
 \begin{remark}[Where the analytic content lives]
@@ -257,14 +257,15 @@ content of the polymer-expansion convergence proof of
 The proof of Theorem~\ref{thm:wilson-consistency} appeals to the
 polymer-expansion convergence at every scale, which is in turn
 underwritten by the Kotecký--Preiss certificates of the
-Phase-2.1~/~3.1--3.3 framework (small-field, large-field, and
+framework (small-field, large-field, and
 buffer-overlap KP).  In the project's current state, those KP
 certificates are recorded as
-\texttt{SORRY\_LEDGER.md} entries~\texttt{[P2.1]} (analytical content
+open-obligation entries~$[P2.1]$ (analytical content
 of \texttt{domGlue\_preserves\_KP}) and the buffer constants of
-\texttt{sheaf-framework.tex} Proposition~7.1.  Closing those analytical
-sorries closes the proof of Theorem~\ref{thm:wilson-consistency}; no
-new analytical content is introduced by Milestone~7.2 \emph{per~se}.
+\Cref{ch:sheaf-framework}, Proposition~7.1.  Closing those
+analytical sorries closes the proof of
+Theorem~\ref{thm:wilson-consistency}; no new analytical content is
+introduced here \emph{per~se}.
 \end{remark}
 
 \section{Tightness via compactness of the target}
@@ -366,14 +367,14 @@ $\muinf$-expectation of the trace satisfies
   C_R \, \exp\bigl(-\sighinf \cdot A(C)\bigr),
 \end{equation*}
 where $A(C) = L_1 L_2$ is the loop area, $\sighinf \ge \varepsilon > 0$
-by Phase~7.1, and $C_R$ is the representation-dependent prefactor of
-\texttt{docs/outline.md} \S7.1.
+by the $\sighinf$-positivity analysis, and $C_R$ is the representation-dependent prefactor of
+the development outline
 \end{proposition}
 
 \begin{proof}
 $\langle W_R(C) \rangle_{\muk}$ is bounded by
 $C_R \exp(-\sigh_k \cdot A(C))$ at every finite scale~$k$ by the
-inductive-step closure of Phase~3 + dimensional scaling
+inductive-step closure of the inductive-step analysis + dimensional scaling
 $\sigma_k = a_k^{-2} \sigh_k$.  Taking the limit $k \to \infty$ on
 both sides (using Corollary~\ref{cor:cylindrical} to pass the
 expectation through to $\muinf$, and using continuity of the
@@ -383,10 +384,10 @@ $\sigh_k$.
 
 \begin{remark}[Why this is the bridge to the mass gap]
 \label{rem:bridge-mass-gap}
-Phase~8.1 verifies the Osterwalder--Schrader axioms for $\muinf$;
-Phase~8.2 applies the OS reconstruction theorem to obtain the
+the OS-axiom verification verifies the Osterwalder--Schrader axioms for $\muinf$;
+the OS-reconstruction analysis applies the OS reconstruction theorem to obtain the
 continuum Hilbert space $\mathcal{H}_\infty$ and Hamiltonian
-$H_{\mathrm{op}}$.  Phase~9 then identifies the mass gap with the
+$H_{\mathrm{op}}$.  the mass-gap chapter then identifies the mass gap with the
 exponential-decay rate $\sighinf$ via the standard
 Wilson-loop$\to$transfer-matrix correspondence: an
 area-law-decaying Wilson loop expectation under $\muinf$ implies a
@@ -413,14 +414,14 @@ provides a type-level interface for the data of this construction:
     \texttt{ProjectiveSystem} plus an abstract token for ``the
     Daniell--Kolmogorov extension exists.''  The extension theorem
     itself is referenced back to Theorem~\ref{thm:dk-extension} of
-    this document; no Lean proof is provided.
+    this chapter; no Lean proof is provided.
   \item \texttt{su2\_continuum\_measure}: the SU(2) instance built
     from the Phase-2~/~Phase-3~/~Phase-6 inductive-state machinery.
 \end{itemize}
 
-\subsection*{Decision: paper-only existence at Milestone~7.2}
+\subsection*{Decision: paper-only existence at \Cref{ch:continuum-measure}}
 
-Per the work-plan Milestone~7.2 open question (``decide explicitly
+Per the work-plan \Cref{ch:continuum-measure} open question (``decide explicitly
 at the kickoff whether to invest in \texttt{Constructive/Reals.lean}
 or to accept a Lean-paper hybrid''), this project commits to the
 \textbf{Lean-paper hybrid}.  Rationale:
@@ -431,11 +432,11 @@ or to accept a Lean-paper hybrid''), this project commits to the
     the Bishop-style constructive measure theory of compact Hausdorff
     spaces --- a major analytical build-out far beyond the current
     $Q'$-rational stack.
-  \item The mass-gap statement of Phase~9 can be expressed in Lean
+  \item The mass-gap statement of the mass-gap chapter can be expressed in Lean
     against the type signature of \texttt{ContinuumMeasure}; the
-    paper-level existence proof here lets Phase~9 land in Lean without
+    paper-level existence proof here lets the mass-gap chapter land in Lean without
     waiting on Constructive/Reals.
-  \item Milestone~7.3 of the work-plan reserves the option of building
+  \item a constructive-reals layer of the work-plan reserves the option of building
     \texttt{Constructive/Reals.lean} later; this decision does not
     foreclose that.
 \end{enumerate}
@@ -443,27 +444,27 @@ or to accept a Lean-paper hybrid''), this project commits to the
 \section{Open analytical items}
 \label{sec:open}
 
-Items deferred from Milestone~7.2 to subsequent milestones:
+Items deferred from \Cref{ch:continuum-measure} to subsequent milestones:
 
 \begin{itemize}
   \item \textbf{Identification with the OS continuum measure.}
     Section~\ref{sec:sigma-injection} shows $\muinf$ satisfies area-law
     decay; identifying $\muinf$ with the unique OS-axiom-compliant
-    continuum SU(2) Wilson measure is Phase~8.1.
+    continuum SU(2) Wilson measure is the OS-axiom verification.
   \item \textbf{Reflection positivity for $\muinf$.}  Follows from
     reflection positivity of the finite-stage $\muk$ via the
     projective limit; the lattice argument is standard (lattice link
     variables on each timeslice + reflection through a fixed plane).
-    To be carried out as part of Phase~8.1.
+    To be carried out as part of the OS-axiom verification.
   \item \textbf{Euclidean / $O(4)$ invariance.}  At each finite stage
     only the hypercubic symmetry holds; the full $O(4)$ invariance is
     a property of the continuum limit and requires a separate argument
     via the renormalization-group flow restoring rotation invariance.
-    Phase~8.1 open item; not addressed here.
+    the OS-axiom verification open item; not addressed here.
   \item \textbf{Exponential clustering.}  Follows from Proposition
     \ref{prop:area-law-mu-infinity} (area-law $\Rightarrow$ exponential
     decay of two-loop correlations for separated loops) via standard
-    arguments.  Phase~8.1.
+    arguments.  the OS-axiom verification.
 \end{itemize}
 
 \section*{References}

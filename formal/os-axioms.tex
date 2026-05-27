@@ -3,7 +3,7 @@
 %
 % Linked code / Lean:
 %   - lean/YMGap/Continuum/OSAxioms.lean (Lean type signature)
-%   - Milestone 8.1 of work_plan.md.
+%   - \Cref{ch:os-axioms} of work_plan.md.
 
 \chapter{Osterwalder--Schrader Axioms for the
   Continuum \texorpdfstring{$\SUtwo$}{SU(2)} Wilson Measure
@@ -15,7 +15,7 @@ delivering the explicit OS4 cluster rate.}
 
 We verify the five Osterwalder--Schrader axioms (OS0--OS4) for the
 continuum $\SUtwo$ Wilson measure $\muinf$ constructed in
-Chapter~\ref{ch:continuum-measure} (Milestone~7.2) as the
+Chapter~\ref{ch:continuum-measure} as the
 Daniell--Kolmogorov projective limit of the finite-volume lattice
 measures $\{\muk\}$ under the UV-direction block-spin flow.
 
@@ -34,19 +34,17 @@ rate $\sighinf > 0$.
 
 The \emph{nontrivial open analytic item} is full $O(4)$ rotation
 invariance, which holds only after the continuum limit and requires
-a separate restoration-of-rotation-invariance argument that is the
-paper-level deliverable of Phase~8.1 Milestone open question;
-hypercubic $H_4$ invariance is verified directly here, and the
-restoration argument is sketched in \S\ref{sec:rotation-restoration}.
+a separate restoration-of-rotation-invariance argument; hypercubic
+$H_4$ invariance is verified directly here, and the restoration
+argument is sketched in \S\ref{sec:rotation-restoration}.
 
-This chapter is the paper-level deliverable of Milestone~8.1.
 Companion Lean type signature:
 \codepath{lean/YMGap/Continuum/OSAxioms.lean}.
 
 \section{Standing setup}
 \label{sec:os-axioms-setup}
 
-We import the standing data of \texttt{formal/continuum-measure.tex}
+We import the standing data of \Cref{ch:continuum-measure}
 \S1:
 \begin{itemize}
   \item Per-scale configuration space $\Omk = SU(2)^{\Ek}$ over the
@@ -62,7 +60,7 @@ We import the standing data of \texttt{formal/continuum-measure.tex}
     the Daniell--Kolmogorov projective limit
     (\texttt{continuum-measure.tex} Definition~5.2).
   \item The Q'-framework theorem $\sighinf \ge \varepsilon > 0$ from
-    Milestone~7.1 (\texttt{lean/YMGap/Continuum/SigmaHatLimit.lean}
+    the $\sighinf$-positivity theorem (\texttt{lean/YMGap/Continuum/SigmaHatLimit.lean}
     \texttt{sigma\_hat\_uv\_limit\_positive}).
 \end{itemize}
 
@@ -153,8 +151,8 @@ axioms iff:
 
 The pair (OS0, OS1, OS3) is regularity + symmetry: lifted directly
 from finite stages.  OS2 (reflection positivity) is the load-bearing
-input to the Hilbert-space reconstruction of Phase~8.2.  OS4
-(cluster) supplies the mass-gap statement of Phase~9 with its
+input to the Hilbert-space reconstruction of the OS-reconstruction analysis.  OS4
+(cluster) supplies the mass-gap statement of the mass-gap chapter with its
 quantitative content.
 
 \section{OS0: Regularity}
@@ -280,14 +278,14 @@ content of the restoration is the construction of the
 $R_k$-approximation sequence with the stated rate.  We sketch this
 construction in Appendix (omitted in this version) and cite
 [Magnen--Rivasseau--Sénéor 1993] for the full proof.  This is an
-\emph{open paper-level analytic item}; the Phase~9 mass-gap statement
+\emph{open paper-level analytic item}; the the mass-gap chapter mass-gap statement
 does not depend on this $O(4)$ refinement (it uses only the
 hypercubic invariance + Lorentz-invariance via OS reconstruction).
 
 \section{OS2: Reflection positivity}
 \label{sec:os2}
 
-The load-bearing axiom for the OS reconstruction of Phase~8.2.
+The load-bearing axiom for the OS reconstruction of the OS-reconstruction analysis.
 
 \subsection{Reflection positivity at each finite scale}
 
@@ -399,7 +397,7 @@ $\muinf$.
 \section{OS4: Cluster property and exponential decay}
 \label{sec:os4}
 
-The mass-gap injection of Phase~7.1.
+The mass-gap injection of the $\sighinf$-positivity analysis.
 
 \begin{theorem}[OS4 cluster property with explicit rate]
 \label{thm:os4}
@@ -411,7 +409,7 @@ supports are separated by Euclidean distance $d \ge a_0$ at scale $0$,
   \;\le\;
   C_{F,G} \, \exp(-\sighinf \cdot d),
 \end{equation*}
-where $\sighinf \ge \varepsilon > 0$ by Phase~7.1
+where $\sighinf \ge \varepsilon > 0$ by the $\sighinf$-positivity analysis
 (\texttt{sigma\_hat\_uv\_limit\_positive}) and $C_{F,G}$ is a
 prefactor depending only on the support sizes of $F$ and $G$.
 \end{theorem}
@@ -420,7 +418,7 @@ prefactor depending only on the support sizes of $F$ and $G$.
 The two-loop correlation $\langle F G \rangle - \langle F \rangle \langle G \rangle$
 decomposes into a sum over polymer-cluster connecting paths between
 $\mathrm{supp}(F)$ and $\mathrm{supp}(G)$
-(\texttt{formal/sheaf-framework.tex} \S7 polymer expansion).  Each
+(\Cref{ch:sheaf-framework} \S7 polymer expansion).  Each
 connecting path of length $\ell$ contributes a factor bounded by
 $\exp(-\sigma_k \cdot \ell)$ at scale $k$, by the per-step
 Kotecký--Preiss certificate.  Taking the continuum limit
@@ -430,27 +428,27 @@ and the path-length factor becomes $\exp(-\sighinf \cdot d)$ in
 
 The total prefactor $C_{F,G}$ absorbs the polymer-cluster
 combinatorial multiplicity from
-\texttt{computations/chaining\_estimate.py} (Milestone~6.5; see
+\texttt{computations/chaining\_estimate.py} (the chaining-estimate analysis; see
 \S\ref{sec:chaining-compat} below for the OS-compatibility statement
 that makes this multiplicity well-controlled in the OS framework).
 
 The full proof is the polymer-cluster decay argument of Glimm--Jaffe
 \S20.1, adapted to the projective-limit setting via the per-scale
-Kotecký--Preiss certificates of Phase~3.
+Kotecký--Preiss certificates of the inductive-step analysis.
 \end{proof}
 
 \subsection{The mass-gap content of OS4}
 
 Theorem~\ref{thm:os4} is the OS-axiom form of the mass-gap statement
-that Phase~9 reproduces: spatial cluster correlations decay
+that the mass-gap chapter reproduces: spatial cluster correlations decay
 exponentially with rate $\sighinf \ge \varepsilon > 0$.  The OS
-reconstruction of Phase~8.2 promotes this $\muinf$-level decay rate
+reconstruction of the OS-reconstruction analysis promotes this $\muinf$-level decay rate
 into a spectral gap of the continuum Hamiltonian $H_{\mathrm{op}}$.
 
 \section{OS-compatibility of the chaining estimate}
 \label{sec:chaining-compat}
 
-The chaining estimate of Phase~6.5
+The chaining estimate of the Lean-closure analysis.5
 (\texttt{computations/chaining\_estimate.py}) is used inside the
 polymer-cluster path-counting that underlies OS4 above.  We verify
 that the chaining estimate is OS-compatible:
@@ -495,7 +493,7 @@ bound.  Item~5 is the observation that $c_{\mathrm{chain}}(g_k)$ is
 bounded above by 1 uniformly, so it can be absorbed into the
 prefactor.
 
-See \texttt{notes/chaining-estimate.md} \S7 for the original
+See the supporting analysis for the original
 project-level statement; this proposition packages that statement
 inside the OS verification framework.
 \end{proof}
@@ -528,7 +526,7 @@ OS2 (reflection pos.) & \textbf{verified} & Theorem~\ref{thm:os2},
 OS3 (symmetry) & \textbf{verified} & Theorem~\ref{thm:os3}. \\
 \hline
 OS4 (cluster property) & \textbf{verified with explicit rate
-  $\sighinf > 0$} & Theorem~\ref{thm:os4}, via Phase~7.1
+  $\sighinf > 0$} & Theorem~\ref{thm:os4}, via the $\sighinf$-positivity analysis
   $\sighinf > 0$ + polymer-cluster decay. \\
 \hline
 Chaining OS-compatibility & \textbf{verified} & Proposition~\ref{prop:chaining-os}. \\
@@ -539,7 +537,7 @@ Chaining OS-compatibility & \textbf{verified} & Proposition~\ref{prop:chaining-o
 \section{Open analytical items}
 \label{sec:open}
 
-Items deferred from Milestone~8.1 to Phase~8.2 / Phase~9 or to future
+Items deferred from \Cref{ch:os-axioms} to the OS-reconstruction analysis / the mass-gap chapter or to future
 analytical refinement:
 
 \begin{itemize}
@@ -547,7 +545,7 @@ analytical refinement:
     (Theorem~\ref{thm:O4-restoration}) is the
     open paper-level analytical item; the existence of the
     $R_k$-approximation sequence with $a_k$-rate convergence cites
-    Magnen--Rivasseau--Sénéor 1993.  The Phase~9 mass-gap statement
+    Magnen--Rivasseau--Sénéor 1993.  The the mass-gap chapter mass-gap statement
     does not depend on this refinement.
   \item \textbf{Tight $C_{F,G}$ prefactor in OS4.}  The polymer-
     cluster prefactor in Theorem~\ref{thm:os4} is bounded but not
@@ -556,10 +554,10 @@ analytical refinement:
   \item \textbf{Lean formalization of the OS axioms.}  Companion
     module \texttt{lean/YMGap/Continuum/OSAxioms.lean} exposes the
     OS-axiom predicate type signatures, but the verification proofs
-    live here (paper-only at this milestone, mirroring the Phase~7.2
-    decision per \texttt{notes/continuum-measure.md} \S3).  Full Lean
+    live here (paper-only at this milestone, mirroring the the continuum-limit analysis.2
+    decision per the supporting analysis).  Full Lean
     formalization is on the same trajectory as the constructive-reals
-    layer of Milestone~7.3.
+    layer of a constructive-reals layer.
 \end{itemize}
 
 \section*{References}

@@ -3,7 +3,7 @@
 %
 % Linked code / Lean:
 %   - lean/YMGap/Sheaf/PolymerDomination.lean (T_b pushforward on A_k, S_k)
-%   - Milestone 2.3 of work_plan.md.
+%   - \Cref{ch:block-spin-morphism} of work_plan.md.
 
 \chapter{The Block-Spin Step:
   Refined Type and Proof Obligations}
@@ -13,15 +13,15 @@
 the pushforward $\Tbstar$, the $\Theta_k$ 2-cell, and the typed
 signature of the step.}
 
-This chapter refines the bare \texttt{StepType} of Milestone~2.2
+This chapter refines the bare \texttt{StepType} of \Cref{ch:inductive-state}
 (Chapter~\ref{ch:inductive-state}) with the four conditions of
-\codepath{docs/context.md} \S3.3, abstract over the per-step budget
+the development outline, abstract over the per-step budget
 functions $\varepsilon_{\mathrm{sf}}, \varepsilon_{\mathrm{lf}},
 \Delta_{\cap}, \eta$.  The block-spin map $\Tb$ is defined as a
 morphism of configuration sites; the pushforward $\Tbstar$ on the
 bound-witness and summability-certificate presheaves is named; the
 dimensional-rescaling 2-cell $\Theta_k$ is defined as a separate
-typed object per Milestone~2.3's open-question recommendation.  The
+typed object per \Cref{ch:block-spin-morphism}'s open-question recommendation.  The
 refined step type \texttt{StepTypeWithBudget} bundles the step
 function with the four conjuncts $S_1\!-\!S_4$, each a per-step
 inequality relating scale~$k$ to scale~$k+1$ via budget values at
@@ -29,22 +29,22 @@ scale~$k$ only.  We state the proof obligation a term inhabiting this
 type must discharge and identify it as the joint deliverable of
 Milestones~3.1--3.4.  We do not in this chapter inhabit the type for
 any group, and we do not state any global (summability) claim about
-the budget.  This chapter corresponds to Milestone~2.3 of
-\codepath{work\_plan.md}.
+the budget.  This chapter corresponds to \Cref{ch:block-spin-morphism} of
+the work plan.
 
 \section{Introduction}
 \label{sec:block-spin-intro}
 
-\texttt{formal/inductive-state.tex} (Milestone~2.2) defined the inductive state $\Ical_k$ and the scale-$k$-local predicate $\mathrm{Valid}_k = \mathrm{V1} \wedge \mathrm{V2} \wedge \mathrm{V3}$ (the option-B self-contained form ratified in the 2.2 close).  It also exposed a bare \texttt{StepType} = $\Ical_k \to \Ical_{k+1}$ as the clean 2.2$\to$2.3 handoff: the type was stated, the term was not.
+\Cref{ch:inductive-state} defined the inductive state $\Ical_k$ and the scale-$k$-local predicate $\mathrm{Valid}_k = \mathrm{V1} \wedge \mathrm{V2} \wedge \mathrm{V3}$ (the option-B self-contained form ratified in the 2.2 close).  It also exposed a bare \texttt{StepType} = $\Ical_k \to \Ical_{k+1}$ as the clean 2.2$\to$2.3 handoff: the type was stated, the term was not.
 
-The present document does \emph{two} things on top of that.  First, it refines the step type to carry the four conditions $S_1\!-\!S_4$ of \texttt{docs/context.md} \S3.3 as type-level constraints, abstract over the four budget functions $\varepsilon_{\mathrm{sf}}, \varepsilon_{\mathrm{lf}}, \Delta_{\cap}, \eta$.  Second, it states the categorical-level objects work\_plan.md L240--246 asks for: $\Tb$ as a site morphism, the pushforward $\Tbstar$ on $\Acal_k$ and $\Scal_k$, and the 2-cell $\Theta_k$ as a separate typed object.
+This chapter does \emph{two} things on top of that.  First, it refines the step type to carry the four conditions $S_1\!-\!S_4$ of the development outline as type-level constraints, abstract over the four budget functions $\varepsilon_{\mathrm{sf}}, \varepsilon_{\mathrm{lf}}, \Delta_{\cap}, \eta$.  Second, it states the categorical-level objects the work plan asks for: $\Tb$ as a site morphism, the pushforward $\Tbstar$ on $\Acal_k$ and $\Scal_k$, and the 2-cell $\Theta_k$ as a separate typed object.
 
-\textbf{Scope.}  Everything in this document is either a type definition or a per-step inequality.  No term inhabiting the refined type is exhibited; no global / Phase-3 claim is stated.  See \S\ref{sec:scope} for the explicit boundary.
+\textbf{Scope.}  Everything in this chapter is either a type definition or a per-step inequality.  No term inhabiting the refined type is exhibited; no global / Phase-3 claim is stated.  See \S\ref{sec:scope} for the explicit boundary.
 
 \section{The block-spin map as a site morphism}
 \label{sec:site-morphism}
 
-We work over the configuration site of \texttt{formal/sheaf-framework.tex} \S2.  At each RG scale~$k$ we have a site $\mathrm{Site}(\Omk)$ whose objects are $(U, X)$ pairs and whose covering family is the three-element small/large/buffer cover \texttt{ThreeCover}.  Let $b > 1$ be the block-scale factor and $a_{k+1} = b\, a_k$.
+We work over the configuration site of \Cref{ch:sheaf-framework} \S2.  At each RG scale~$k$ we have a site $\mathrm{Site}(\Omk)$ whose objects are $(U, X)$ pairs and whose covering family is the three-element small/large/buffer cover \texttt{ThreeCover}.  Let $b > 1$ be the block-scale factor and $a_{k+1} = b\, a_k$.
 
 \begin{definition}[Block-spin configuration map]
 \label{def:T-b-config}
@@ -52,7 +52,7 @@ The \emph{block-spin map at scale $k$} is a measurable function
 \begin{equation*}
   \Tb \colon \Omk \;\longrightarrow\; \Omega_{k+1}
 \end{equation*}
-that averages link variables of the scale-$k$ lattice over blocks of side~$b$ to produce link variables on the scale-$(k+1)$ lattice.  The specific averaging procedure (\textsc{Wilson}, \textsc{Migdal--Kadanoff}, or \textsc{block-spin-with-projection}) is a program-level choice fixed in Milestone~3.x; here $\Tb$ is an abstract parameter.
+that averages link variables of the scale-$k$ lattice over blocks of side~$b$ to produce link variables on the scale-$(k+1)$ lattice.  The specific averaging procedure (\textsc{Wilson}, \textsc{Migdal--Kadanoff}, or \textsc{block-spin-with-projection}) is fixed at the regime-specific level in Part III; here $\Tb$ is an abstract parameter.
 \end{definition}
 
 \begin{definition}[Block-spin polymer map]
@@ -66,7 +66,7 @@ The \emph{block-spin site morphism} is the functor
 \begin{equation*}
   \Tb \colon \mathrm{Site}(\Omk)^{\mathrm{op}} \;\longrightarrow\; \mathrm{Site}(\Omega_{k+1})^{\mathrm{op}}
 \end{equation*}
-that acts on objects by $(U, X) \mapsto (\Tb(U), \Tb(X))$, on morphisms by preserving inclusion (Definition~\ref{def:T-b-poly} ensures this), and on the covering family by sending the three-element cover $\{\Omsf, \Omlf, \Omcap\}$ to the corresponding cover of $\Omega_{k+1}$ at smallness parameter $\delta_{k+1}$ (whose relation to $\delta_k$ via $b$ is fixed program-level by \texttt{docs/outline.md} \S6.4).
+that acts on objects by $(U, X) \mapsto (\Tb(U), \Tb(X))$, on morphisms by preserving inclusion (Definition~\ref{def:T-b-poly} ensures this), and on the covering family by sending the three-element cover $\{\Omsf, \Omlf, \Omcap\}$ to the corresponding cover of $\Omega_{k+1}$ at smallness parameter $\delta_{k+1}$ (whose relation to $\delta_k$ via $b$ is fixed program-level by the development outline).
 \end{definition}
 
 \section{The pushforward on bound-witnesses and certificates}
@@ -90,7 +90,7 @@ For a KP certificate $(\rho, K) \in \Scal_k(U, X)$, the pushforward $\Tbstar(\rh
 \section{The 2-cell $\Theta_k$ as a separate typed object}
 \label{sec:two-cell}
 
-Per \texttt{work\_plan.md} Milestone~2.3's open-question recommendation (``a separate typed object for clarity''), we define the dimensional-rescaling 2-cell $\Theta_k$ as its own object, not as a method on $\Ical_k$ or as an inline conjunct of the step type.
+Per the work plan \Cref{ch:block-spin-morphism}'s open-question recommendation (``a separate typed object for clarity''), we define the dimensional-rescaling 2-cell $\Theta_k$ as its own object, not as a method on $\Ical_k$ or as an inline conjunct of the step type.
 
 \begin{definition}[The 2-cell $\Theta_k$]
 \label{def:two-cell-theta}
@@ -100,7 +100,7 @@ A \emph{$\Theta_k$-witness} is a tuple
 \end{equation*}
 where:
 \begin{itemize}
-  \item $\sigh_{\mathrm{in}}, \sigh_{\mathrm{out}} \in V$ are the input and output renormalized string tensions (the $\sigma$-3 sense, \texttt{docs/context.md} \S2);
+  \item $\sigh_{\mathrm{in}}, \sigh_{\mathrm{out}} \in V$ are the input and output renormalized string tensions (the $\sigma$-3 sense, the development outline);
   \item $\eta_k \in V$ is the per-step degradation budget;
   \item $\pi$ is a proof of the per-step inequality
   \begin{equation}
@@ -111,18 +111,18 @@ where:
 \end{definition}
 
 \begin{remark}[Categorical content]
-$\Theta_k$ is the 2-cell of \texttt{docs/outline.md} \S10.4 expressing that ``dimensional rescaling is not a definition but a compatibility'' --- the relationship between the pushforward of the bare string tension and the next-scale renormalized one.  It carries the proof~\eqref{eq:theta-decrease} as data; its constructive role is to be inhabited by Milestone~3.4 against the concrete $\eta$ supplied there.
+$\Theta_k$ is the 2-cell of the development outline expressing that ``dimensional rescaling is not a definition but a compatibility'' --- the relationship between the pushforward of the bare string tension and the next-scale renormalized one.  It carries the proof~\eqref{eq:theta-decrease} as data; its constructive role is to be inhabited by the $\widehat\sigma$-trajectory analysis against the concrete $\eta$ supplied there.
 \end{remark}
 
 \begin{remark}[Per-step only, no global claim]
 \label{rem:theta-per-step}
-Equation~\eqref{eq:theta-decrease} is a \emph{single} inequality at scale $k$.  It says nothing about $\sum_k \eta_k$, nothing about $\sigh_k$ at other scales, and nothing about a uniform lower bound $\sigh_k \ge \sigma_{\mathrm{phys}}$.  Those are Phase~3 / Milestone~3.4 claims and are explicitly out of scope here; see \S\ref{sec:scope}.
+Equation~\eqref{eq:theta-decrease} is a \emph{single} inequality at scale $k$.  It says nothing about $\sum_k \eta_k$, nothing about $\sigh_k$ at other scales, and nothing about a uniform lower bound $\sigh_k \ge \sigma_{\mathrm{phys}}$.  Those are the inductive-step analysis / the $\widehat\sigma$-trajectory analysis claims and are explicitly out of scope here; see \S\ref{sec:scope}.
 \end{remark}
 
 \section{The refined step type}
 \label{sec:refined-type}
 
-We now refine Milestone~2.2's bare $\Ical_k \to \Ical_{k+1}$ \texttt{StepType} with the four conditions of \texttt{docs/context.md} \S3.3.  The four conditions are abstract over budget functions, which are program-level data fixed regime-by-regime in Milestones~3.1--3.4.
+We now refine \Cref{ch:inductive-state}'s bare $\Ical_k \to \Ical_{k+1}$ \texttt{StepType} with the four conditions of the development outline  The four conditions are abstract over budget functions, which are program-level data fixed regime-by-regime in Milestones~3.1--3.4.
 
 \begin{definition}[Per-step budget functions]
 \label{def:budget-functions}
@@ -132,12 +132,12 @@ A \emph{per-step budget} at block scale $b$ is a tuple of four functions
 \end{equation*}
 each taking $(b, g_k)$ to a budget value at scale $k$.  Their concrete forms are:
 \begin{itemize}
-  \item $\varepsilon_{\mathrm{sf}}(b, g_k)$ --- the small-field $\rho$-degradation budget, supplied in Milestone~3.1;
-  \item $\varepsilon_{\mathrm{lf}}(b, g_k)$ --- the large-field $\rho$-degradation budget, Milestone~3.2;
-  \item $\Delta_{\cap}(b, g_k)$ --- the overlap $K$-growth budget, Milestone~3.3;
-  \item $\eta(b, g_k)$ --- the string-tension degradation budget, Milestone~3.4.
+  \item $\varepsilon_{\mathrm{sf}}(b, g_k)$ --- the small-field $\rho$-degradation budget, supplied in the small-field analysis;
+  \item $\varepsilon_{\mathrm{lf}}(b, g_k)$ --- the large-field $\rho$-degradation budget, the large-field analysis;
+  \item $\Delta_{\cap}(b, g_k)$ --- the overlap $K$-growth budget, the buffer-overlap analysis;
+  \item $\eta(b, g_k)$ --- the string-tension degradation budget, the $\widehat\sigma$-trajectory analysis.
 \end{itemize}
-The present document treats all four as abstract parameters.
+This chapter treats all four as abstract parameters.
 \end{definition}
 
 \begin{definition}[The refined step type]
@@ -164,12 +164,12 @@ where, writing $\Ical_{k+1} = \mathcal{T}(\Ical_k)$ and abbreviating $\varepsilo
 
 \begin{remark}[Per-step structure of each $S_i$]
 \label{rem:per-step}
-Each of $S_1, S_2, S_3, S_4$ is an inequality between scale-$k$ and scale-$(k+1)$ quantities, with the budget value taken at scale $k$.  No conjunct quantifies over $k$, no conjunct references $\sum_k$, no conjunct asserts a uniform-in-$k$ bound.  These are the per-step content of \texttt{docs/context.md} \S3.3; the corresponding \emph{global} claims (summability of budget; uniform lower bound on $\sigh$) are Phase~3 / Milestone~3.4, see \S\ref{sec:scope}.
+Each of $S_1, S_2, S_3, S_4$ is an inequality between scale-$k$ and scale-$(k+1)$ quantities, with the budget value taken at scale $k$.  No conjunct quantifies over $k$, no conjunct references $\sum_k$, no conjunct asserts a uniform-in-$k$ bound.  These are the per-step content of the development outline; the corresponding \emph{global} claims (summability of budget; uniform lower bound on $\sigh$) are the inductive-step analysis / the $\widehat\sigma$-trajectory analysis, see \S\ref{sec:scope}.
 \end{remark}
 
 \begin{remark}[$\sigh_{k+1} > 0$ is not a conjunct of $S_4$]
 \label{rem:no-double-positivity}
-$S_4$ is the inequality $\sigh_{k+1} \ge \sigh_k - \eta_k$; it does \emph{not} additionally assert $\sigh_{k+1} > 0$.  Positivity of the output string tension is already required by the codomain of the step, which demands $\mathrm{Valid}_{k+1}(\Ical_{k+1})$; the V1 conjunct of $\mathrm{Valid}_{k+1}$ ($\sigh_{k+1} > 0$) is therefore structurally provided by the step's output type.  Asserting $\sigh_{k+1} > 0$ \emph{inside} $S_4$ would be a redundant double-statement; deriving $\sigh_{k+1} > 0$ \emph{from} $S_4$ alone would falsely conflate the per-step budget with a positivity claim that genuinely depends on the input $\sigh_k$ being large enough relative to $\eta_k$ (which is the Phase~3 budget-closure claim).
+$S_4$ is the inequality $\sigh_{k+1} \ge \sigh_k - \eta_k$; it does \emph{not} additionally assert $\sigh_{k+1} > 0$.  Positivity of the output string tension is already required by the codomain of the step, which demands $\mathrm{Valid}_{k+1}(\Ical_{k+1})$; the V1 conjunct of $\mathrm{Valid}_{k+1}$ ($\sigh_{k+1} > 0$) is therefore structurally provided by the step's output type.  Asserting $\sigh_{k+1} > 0$ \emph{inside} $S_4$ would be a redundant double-statement; deriving $\sigh_{k+1} > 0$ \emph{from} $S_4$ alone would falsely conflate the per-step budget with a positivity claim that genuinely depends on the input $\sigh_k$ being large enough relative to $\eta_k$ (which is the the inductive-step analysis budget-closure claim).
 \end{remark}
 
 \section{Proof obligations: what a term must discharge}
@@ -275,16 +275,16 @@ V3-K are inherited as in the atomic case.
 To make the boundary unambiguous, we list explicitly what 2.3 \emph{does not} contain.
 
 \begin{enumerate}
-  \item \textbf{Inhabitation.}  No term of $\mathrm{StepTypeWithBudget}_b$ is exhibited, neither for the abstract value type $V$ and predicate $P$ nor for any concrete instantiation ($SU(2)$ included).  The body of the step --- constructing the next-scale certificates, proving the four budget inequalities --- is the joint content of Milestones~3.1--3.4.
-  \item \textbf{Concrete budget functions.}  No specific form of $\varepsilon_{\mathrm{sf}}, \varepsilon_{\mathrm{lf}}, \Delta_{\cap}, \eta$ is supplied.  Each of these is computed regime-by-regime in Milestones~3.1, 3.2, 3.3, 3.4 respectively, from the SU(2) representation-theoretic data of Milestone~1.1 and the heat-kernel normalization of Milestone~1.2.
-  \item \textbf{No global / Phase-3 budget claim.}  In particular, none of the following appears as a conjunct, assumption, or consequence anywhere in this document:
+  \item \textbf{Inhabitation.}  No term of $\mathrm{StepTypeWithBudget}_b$ is exhibited, neither for the abstract value type $V$ and predicate $P$ nor for any concrete instantiation ($\SUtwo$ included).  The body of the step --- constructing the next-scale certificates, proving the four budget inequalities --- is the joint content of the regime-specific analyses of Part III.
+  \item \textbf{Concrete budget functions.}  No specific form of $\varepsilon_{\mathrm{sf}}, \varepsilon_{\mathrm{lf}}, \Delta_{\cap}, \eta$ is supplied.  Each of these is computed regime-by-regime in Part III, from the $\SUtwo$ representation-theoretic data and the heat-kernel normalization of Part II.
+  \item \textbf{No global summability claim.}  In particular, none of the following appears as a conjunct, assumption, or consequence anywhere in this chapter:
   \begin{itemize}
-    \item $\sum_k \Delta_{\cap}(b, g_k) < \infty$ (the overlap-$K$-summability of \texttt{outline.md} \S10.3);
-    \item $\sum_k \eta(b, g_k) < \sigh_0$ (the string-tension-budget closure of \texttt{outline.md} \S10.4);
-    \item $\inf_k \sigh_k > 0$ (the uniform $\sigma$-3 survival of \texttt{outline.md} \S10.4);
+    \item $\sum_k \Delta_{\cap}(b, g_k) < \infty$ (overlap-$K$-summability);
+    \item $\sum_k \eta(b, g_k) < \sigh_0$ (the string-tension-budget closure);
+    \item $\inf_k \sigh_k > 0$ (uniform $\sigma$-3 survival);
     \item any statement quantified ``for all $k$'' over the RG trajectory.
   \end{itemize}
-  These are Milestone~3.4's content (the inductive-budget closure).  Including any of them here would conflate per-step degradation with global summability and undo the boundary the 2.2 / 2.3 / 3.4 staging exists to preserve.
+  These are the $\widehat\sigma$-trajectory analysis's content (the inductive-budget closure).  Including any of them here would conflate per-step degradation with global summability and undo the staging.
 \end{enumerate}
 
 \section{Lean mirror}
@@ -294,21 +294,28 @@ The Lean formalization is in \texttt{lean/YMGap/RG/BlockSpin.lean}:
 \begin{itemize}
   \item \texttt{TwoCellTheta} as a \texttt{structure} carrying $(\sigh_{\mathrm{in}}, \eta, \sigh_{\mathrm{out}}, \mathrm{decrease})$ per Definition~\ref{def:two-cell-theta}.  Separate typed object per work\_plan's recommendation.
   \item \texttt{StepTypeWithBudget} as a \texttt{def} returning a \texttt{Type} (the $\Sigma'$-typed family of step functions with their S-conjuncts), abstract over the budget functions $\varepsilon_*, \Delta_{\cap}, \eta$ per Definition~\ref{def:budget-functions}.
-  \item \texttt{StepObligation} as the $\Sigma'$-typed obligation: a budget and a $\mathrm{StepTypeWithBudget}$ inhabitant.  This is the explicit type that Milestone~3.x must produce.
-  \item \texttt{step\_obligation\_witness} as a \texttt{sorry}'d \texttt{def} of type \texttt{StepObligation}.  The \texttt{sorry} is the unwritten 3.x term, logged in \texttt{lean/SORRY\_LEDGER.md} as \texttt{[P2.3]}, owed by Milestones~3.1--3.4.
+  \item \texttt{StepObligation} as the $\Sigma'$-typed obligation: a budget and a $\mathrm{StepTypeWithBudget}$ inhabitant.  This is the explicit type that the Part-III regime analyses must inhabit.
+  \item \texttt{step\_obligation\_witness} as a \texttt{sorry}'d \texttt{def} of type \texttt{StepObligation}.  The \texttt{sorry} is the unwritten Part-III term, tracked in the open-obligation ledger as entry $[P2.3]$.
 \end{itemize}
 The value type $V$ requires \texttt{[Sub V]} in addition to the 2.2 typeclasses (\texttt{[LT V] [Zero V] [LE V] [Min V] [Add V]}); subtraction is needed to express $\rho_k - \varepsilon^k_*$ and $\sigh_k - \eta_k$.  For Nat-valued instantiations \texttt{[Sub V]} is truncating; for $\mathbb{Z}$, $\mathbb{Q}$, or constructive $\mathbb{R}$ it is exact.  The refined type does not care which: each $S_i$ is a single $\le$-inequality, and the step's codomain demands $\mathrm{Valid}_{k+1}$ which ensures positivity of $\sigh_{k+1}$ independently of the sign of $\sigh_k - \eta_k$.
 
-\section{Cross-references}
-\label{sec:xref}
+\section{Code provenance}
+\label{sec:block-spin-codeanchor}
 
 \begin{itemize}
-  \item Prose companion: \texttt{docs/block-spin-morphism.md}.
-  \item Lean formalization: \texttt{lean/YMGap/RG/BlockSpin.lean}.
-  \item Python representation: \texttt{computations/block\_spin.py} with tests in \texttt{tests/test\_block\_spin.py}.
-  \item Diagram: \texttt{visualizations/structure/block-spin-2cell.tikz}.
-  \item Foundations: \texttt{formal/inductive-state.tex} (Definition 2.1 the state, 3.1 \texttt{Valid}, 4.1 the bare \texttt{StepType} of 2.2).
-  \item Framework: \texttt{formal/sheaf-framework.tex} (Definition 5.1 compatibility, Proposition 7.1 buffer summability, Conjecture 7.4 tightness).
-  \item Specification: \texttt{docs/context.md} \S3.3 (the four conditions), \S2 ($\sigma$-3 sense).  \texttt{docs/outline.md} \S10.3--\S10.4 (block-spin obligations and string-tension transport), \S10.5 (Phase-3 main theorem target).
-  \item Open obligations: \texttt{lean/SORRY\_LEDGER.md} entry \texttt{[P2.3]} (this milestone, owed by 3.1--3.4), and the inherited 2.1 \texttt{[P2.1]} entry (parts (a) and (b)) which surfaces through V2-cap and V3-K of $\mathrm{Valid}_{k+1}$.
+  \item Lean formalization:
+    \codepath{lean/YMGap/RG/BlockSpin.lean}.
+  \item Python representation: \codepath{computations/block\_spin.py}
+    with tests in \codepath{tests/test\_block\_spin.py}.
+  \item Structural diagram:
+    \codepath{visualizations/structure/block-spin-2cell.tikz}.
+  \item Foundations: \Cref{ch:inductive-state} (the state package
+    $\Ical_k$, the predicate $\mathrm{Valid}_k$, and the bare
+    \texttt{StepType});\;
+    \Cref{ch:sheaf-framework} (compatibility, buffer-summability
+    preservation, and the tightness conjecture).
+  \item Open obligations: ledger entry $[P2.3]$ (this chapter's
+    step-inhabitation obligation, owed by Part~III) and the
+    inherited entry $[P2.1]$ (parts (a) and (b)) surfacing through
+    V2-cap and V3-K of $\mathrm{Valid}_{k+1}$.
 \end{itemize}
