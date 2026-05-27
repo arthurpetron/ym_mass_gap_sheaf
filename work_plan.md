@@ -1438,6 +1438,85 @@ is `c_λ`-fiducial-bound.
 
 ---
 
+### Milestone 6.5-eta — Chaining tightening threaded into η
+
+**Goal.** Thread the Phase-6.5 chaining factor
+`c_chain(g_k) = exp(-n_share · g_k² · ζ)` into the σ̂-budget
+derivation's per-step η, converting the buffer-shell aggregate
+tightening into a manuscript-quotable uplift of the constructive
+mass-gap lower bound `m_0`.
+
+**Status.** **CLOSED 2026-05-27** — opt-in `use_chaining=True`
+plumbed through `compute_eta`, `sigma_hat_trajectory`,
+`pilot_eta_rational_bound`, and `derive_mass_gap_bound`; uplift
+helper, plot, and tests in place.
+
+**Mathematical placement (sigma_hat_trajectory.py module docstring).**
+The σ̂-budget derivation `η_k = (c_polymer / A_min) · Δ_∩` absorbs a
+per-plaquette union bound on `μ_k(Ω_k^∩)` inside Δ_∩'s polymer-
+cluster-expansion derivation.  Replacing that union bound with the
+Phase-6.5 chaining bound gives the multiplicative tightening
+
+  `η_k_chain = c_chain(g_k) · η_k_base`,
+
+with `c_chain ∈ (0, 1]` (so the chaining bound only tightens η, never
+loosens it; preserves the σ̂-budget) and the regime check
+`g_k ≤ G_MAX_CHAIN = 2.0` enforced per step (small-positive-correlation
+admissibility).
+
+**Deliverables (all complete).**
+- `computations/sigma_hat_trajectory.py`: `compute_eta` and
+  `sigma_hat_trajectory` extended with `use_chaining`,
+  `chain_n_share`, `chain_zeta` kwargs (default `use_chaining=False`,
+  preserving pre-2026-05-27 behavior bit-for-bit).
+- `computations/q_lift.py`: `pilot_eta_rational_bound` threads
+  the chaining kwargs through to `sigma_hat_trajectory`.
+- `computations/mass_gap_bound.py`: `derive_mass_gap_bound` threads
+  the chaining kwargs through to `pilot_eta_rational_bound`.
+- `computations/chaining_eta_uplift.py` (~250 LOC):
+  `ChainingUpliftRow`, `chaining_uplift_row`, `chaining_uplift_table`,
+  `plot_chaining_uplift`, and CLI for the multi-point uplift table.
+- `visualizations/pilot/su2/chaining-eta-uplift.svg` (~84 KB,
+  Fig. 10.2): bar-chart comparison + uplift-ratio panel.
+- `tests/test_chaining_eta.py` (15 tests): per-step ratio = c_chain,
+  closure-preservation, manuscript-uplift at K=10, near-threshold
+  uplift ≥ 1.05, regime-check rejection.
+- `tests/test_chaining_eta_uplift.py` (6 tests): single-point and
+  table-level comparisons.
+- `docs/outline.md` Ch. 10 entry **T10.1-chain** added with the
+  numerical headline; Fig. 10.2 registered.
+
+**Empirical impact (2026-05-27, canonical pilot).**
+
+| Operating point         | Baseline `m_0` | Chaining `m_0` | Uplift |
+|-------------------------|----------------|----------------|--------|
+| g_0 = 0.30, K = 3       | 999/1000       | 999/1000       | ×1.000000 (sub-/1000) |
+| g_0 = 0.30, K = 10      | 997/1000       | **998/1000**   | **×1.001003** ← manuscript headline |
+| g_0 = 0.35, K = 3       | 995/1000       | 996/1000       | ×1.001005 |
+| g_0 = 0.35, K = 10      | 979/1000       | 984/1000       | ×1.005107 |
+| g_0 = 0.40, K = 3       | 907/1000       | 934/1000       | ×1.029768 |
+| g_0 = 0.40, K = 5       | 798/1000       | 859/1000       | **×1.076441** ← largest at threshold |
+
+At the canonical pilot's binding g-value `g_0 = 0.30`,
+`c_chain(0.30) = exp(-0.18) ≈ 0.8353`, giving a 16.5% per-step `Σ η`
+reduction.  At /1000 resolution this only nudges the m_0 numerator at
+`K ≥ 10`; at higher Q' resolution (/10000, /100000) the bump is
+visible from `K = 3` onward.
+
+**Dependencies.** Milestone 6.5 (chaining bound), Milestone 3.4 (η
+derivation), Milestone 3.5 (canonical pilot), Phase 9.1
+(derive_mass_gap_bound).
+
+**Open questions.** None for Phase 3.  Future refinements:
+- A Lean closure of `chain_factor` and `c_chain ≤ 1` at `Q'`
+  (currently a Python float; deferred to a future
+  `lean/YMGap/Chaining.lean` after the constructive-reals layer).
+- Tighter `n_share`/`ζ` derivation from the SU(2) heat-kernel
+  two-plaquette joint integral (would further tighten `c_chain`
+  at small g).
+
+---
+
 ## Phase 7: Continuum limit construction
 
 **Phase goal.** Show that the UV-direction RG flow built in Phase 6

@@ -120,6 +120,9 @@ def derive_mass_gap_bound(
     denominator: int = 10000,
     sigma_hat_initial: float = 1.0,
     m_0_denominator: int = 1000,
+    use_chaining: bool = False,
+    chain_n_share: int | None = None,
+    chain_zeta: float | None = None,
 ) -> MassGapBound:
     """Derive the explicit Q'-rational mass-gap lower bound from pilot numerics.
 
@@ -158,6 +161,9 @@ def derive_mass_gap_bound(
         g_0=g_0, K=K, convention=convention,
         denominator=denominator,
         sigma_hat_initial=sigma_hat_initial,
+        use_chaining=use_chaining,
+        chain_n_share=chain_n_share,
+        chain_zeta=chain_zeta,
     )
 
     # Step 2: σ̂_∞ ≥ ε.  With σ̂_0 = 1 = denominator/denominator,

@@ -1754,6 +1754,18 @@ sharpness of T2.3.
     `work_plan.md`).
   - **T10.1 Per-step η coupling** `η_k = c_polymer / A_min · Δ_∩(b, g_k)`
     in `Q′` (derived; was placeholder `0.5 Δ_∩`, derived 2026-05-24).
+  - **T10.1-chain Chaining tightening of η** (Milestone 6.5-eta,
+    2026-05-27): when threaded through the σ̂-budget, the Phase-6.5
+    chaining bound on `μ_k(Ω_k^∩)` gives
+    `η_k_chain = c_chain(g_k) · η_k_base`,
+    with `c_chain(g_k) = exp(-n_share · g_k² · ζ) ∈ (0, 1]`.  At the
+    canonical pilot `g_0 = 0.30`, `c_chain(0.30) ≈ 0.8353` reduces
+    `Σ η` by 16.5% (per-step level) and bumps the manuscript-quotable
+    `m_0` numerator from `997/1000 → 998/1000` at `K = 10` (uplift
+    ratio ≈ 1.001).  Near the convergent threshold `g_0 = 0.40,
+    K = 5`, the uplift reaches `798/1000 → 859/1000` (uplift ratio
+    ≈ 1.076).  Opt-in via `use_chaining=True` on
+    `compute_eta` / `sigma_hat_trajectory` / `derive_mass_gap_bound`.
   - **T10.2 Finite-K σ̂ budget closure** for the canonical SU(2)
     pilot at `K = 3`, `g_0 ∈ {0.1, 0.3}`: explicit `Q′` witness
     `σ̂_K ≥ ½ σ̂_0`.
@@ -1763,9 +1775,15 @@ sharpness of T2.3.
   - **Fig. 10.1** — `visualizations/pilot/su2/sigma-hat-trajectory.svg`:
     `σ̂_k` along the canonical and Wilson trajectories with the
     threshold `½ σ̂_0` annotated.  Placement: after T10.2.
+  - **Fig. 10.2** — `visualizations/pilot/su2/chaining-eta-uplift.svg`:
+    side-by-side `m_0` bars (baseline vs chaining-tightened η) across
+    8 operating points in the canonical convergent window, with
+    per-point uplift-ratio annotations.  Placement: after T10.1-chain.
 - **Code provenance.** `computations/sigma_hat_trajectory.py`,
-  `q_lift.py` (Python ↔ Lean lockstep).  Tests:
-  `tests/test_sigma_hat_trajectory.py`, `test_q_lift.py`.
+  `q_lift.py` (Python ↔ Lean lockstep),
+  `computations/chaining_eta_uplift.py` (Milestone 6.5-eta).  Tests:
+  `tests/test_sigma_hat_trajectory.py`, `test_q_lift.py`,
+  `test_chaining_eta.py`, `test_chaining_eta_uplift.py`.
 - **Lean.** `lean/YMGap/Constructive/Rationals.lean`,
   `RationalTail.lean`, `Geometric.lean`,
   `lean/YMGap/RG/SigmaHatPilot.lean` (`eta_pilot_budget_closes`);
@@ -2449,6 +2467,7 @@ The following table is the master figure index.  All structural
 | 8.1 | `pilot/su2/delta-cap-budget.svg` | `Δ_∩` degradation budget across RG trajectory | Ch. 8, after T8.3 |
 | 9.1 | `pilot/su2/conjecture-7.4-looseness.svg` (re-used) | Same figure, new caption emphasizing T9.3 | Ch. 9, after T9.3 |
 | 10.1 | `pilot/su2/sigma-hat-trajectory.svg` | σ̂_k along canonical and Wilson trajectories | Ch. 10, after T10.2 |
+| 10.2 | `pilot/su2/chaining-eta-uplift.svg` | `m_0` uplift from threading the Phase-6.5 chaining factor into η: baseline (red) vs chaining-tightened (green) across 8 operating points; ratio 1.001 at canonical K=10, up to 1.076 near the convergent threshold | Ch. 10, after T10.1-chain |
 | 11.1 | `pilot/su2/inductive-closure.svg` | Five-criterion summary panel | Ch. 11, after T11.1 |
 | 11.5.1 | `pilot/su2/mcmc-cross-check.svg` | SU(2) MCMC `⟨P⟩(β)` vs strong/weak-coupling analytical curves; pilot operating points annotated | Ch. 11.5 |
 | 12.1 | `pilot/su2/uv-trajectory.svg` | `g_k`, `η_k`, partial sums along UV trajectory | Ch. 12, after T12.2 |

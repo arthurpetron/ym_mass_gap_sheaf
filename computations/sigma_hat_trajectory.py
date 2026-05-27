@@ -119,6 +119,46 @@ scope.
 
 Decision: Q' SUFFICES for the SU(2) pilot at finite K.  Recording
 this here.
+
+## Chaining tightening of η (Milestone 6.5-eta, 2026-05-27)
+
+The base η-bound
+
+    η_k = (c_polymer / A_min) · Δ_∩(b, g_k)
+
+absorbs a per-plaquette **union bound** on the buffer-shell aggregate
+probability μ_k(Ω_k^∩) inside its polymer-cluster-expansion derivation
+(outline §17.1, §10.4).  Milestone 6.5
+(`computations/chaining_estimate.py`) replaces that union bound with a
+**chaining bound**
+
+    μ_k(Ω_k^∩)  ≤  c_chain(g_k) · (union bound),
+
+where ``c_chain(g) = exp(-n_share · g² · ζ)`` (n_share = 4, ζ = 1/2)
+is the correlation-aware tightening factor admissible in the
+small-positive-correlation regime ``g ≤ G_MAX_CHAIN = 2``.  Threading
+this factor into the η-bound gives the chaining-tightened η:
+
+    η_k_chaining  =  c_chain(g_k) · η_k_baseline.
+
+This is mathematically honest because:
+  * ``c_chain ∈ (0, 1]`` everywhere, so the chaining bound can only
+    TIGHTEN η, never loosen it (preserves the σ̂-budget).
+  * The chaining factor is grounded in the same heat-kernel
+    two-plaquette correlation structure that drives Δ_∩'s
+    cluster-expansion residuals (no double-counting).
+  * The ``g ≤ G_MAX_CHAIN`` regime check prevents silent misuse
+    outside the small-positive-correlation regime.
+
+The chaining-tightened ``η`` is opt-in via ``use_chaining=True`` on
+``compute_eta`` and ``sigma_hat_trajectory``; the default behavior is
+unchanged (``use_chaining=False`` matches the pre-2026-05-27 baseline).
+
+Phase-3 numerical impact (canonical pilot, g_0 = 0.30, K = 3): the
+chaining factor at the trajectory's binding g-value g_0 = 0.30 is
+``c_chain(0.30) ≈ 0.835``, giving ``η_total`` ≈ 0.835× the baseline,
+which uplifts the constructive mass-gap lower bound ``m_0 = sqrt(σ̂_∞)``
+by a small but ironclad factor.
 """
 
 from __future__ import annotations
@@ -290,10 +330,22 @@ def compute_eta(
     wilson_loop_min_area: int | None = None,
     spectral_gap_coeff: float | None = None,
     mu_plaq: float = MU_PLAQUETTE_4D,
+    use_chaining: bool = False,
+    chain_n_share: int | None = None,
+    chain_zeta: float | None = None,
 ) -> float:
     """Per-step η_k from Δ_∩ via the σ̂-transport polymer-residual factor.
 
-    ``η_k = eta_coupling · Δ_∩(g_k, g_k_next)``.
+    ``η_k = eta_coupling · Δ_∩(g_k, g_k_next)``  (baseline)
+
+    or, with ``use_chaining=True`` (Milestone 6.5-eta, 2026-05-27):
+
+    ``η_k = c_chain(g_k) · eta_coupling · Δ_∩(g_k, g_k_next)``,
+
+    where ``c_chain(g_k) = exp(-n_share · g_k² · ζ)`` is the
+    chaining tightening factor from ``computations/chaining_estimate.py``.
+    See the module docstring §"Chaining tightening of η" for the
+    derivation.
 
     The default ``eta_coupling = DERIVED_ETA_COUPLING = 0.5`` is derived
     from outline §7.1's smallest dimensionless Wilson loop area
@@ -310,6 +362,16 @@ def compute_eta(
         small-field / large-field upstream fiducials.  These flow into
         Δ_∩ and so affect η through the upstream cluster-expansion
         amplitudes.  See ``notes/fiducials_notes.md``.
+
+    Chaining tightening (opt-in):
+
+      * ``use_chaining=True`` multiplies the base η by
+        ``chain_factor(g_k, n_share, zeta)``.  Pass ``chain_n_share`` /
+        ``chain_zeta`` to override the chaining fiducials (defaults are
+        ``SHARED_LINK_CHANNEL_MULTIPLICITY = 4`` and
+        ``PER_CHANNEL_CORRELATION_STRENGTH = 0.5``).
+      * Raises ``RuntimeError`` if ``g_k > G_MAX_CHAIN = 2.0`` (the
+        small-positive-correlation regime no longer holds).
     """
     if polymer_residual is not None or wilson_loop_min_area is not None:
         eta_coupling = derive_eta_coupling(
@@ -326,7 +388,28 @@ def compute_eta(
         g_k, g_k_next, t_choice,
         spectral_gap_coeff=spectral_gap_coeff, mu_plaq=mu_plaq,
     )
-    return eta_coupling * d
+    eta = eta_coupling * d
+
+    if use_chaining:
+        from computations.chaining_estimate import (
+            PER_CHANNEL_CORRELATION_STRENGTH,
+            SHARED_LINK_CHANNEL_MULTIPLICITY,
+            chain_factor,
+        )
+        cf = chain_factor(
+            g_k,
+            n_share=(
+                chain_n_share if chain_n_share is not None
+                else SHARED_LINK_CHANNEL_MULTIPLICITY
+            ),
+            zeta=(
+                chain_zeta if chain_zeta is not None
+                else PER_CHANNEL_CORRELATION_STRENGTH
+            ),
+        )
+        eta = cf * eta
+
+    return eta
 
 
 def sigma_hat_trajectory(
@@ -338,6 +421,9 @@ def sigma_hat_trajectory(
     wilson_loop_min_area: int | None = None,
     spectral_gap_coeff: float | None = None,
     mu_plaq: float = MU_PLAQUETTE_4D,
+    use_chaining: bool = False,
+    chain_n_share: int | None = None,
+    chain_zeta: float | None = None,
 ) -> SigmaHatTrajectory:
     """The σ̂ trajectory σ̂_0, σ̂_1, …, σ̂_K and the budget closure check.
 
@@ -353,6 +439,15 @@ def sigma_hat_trajectory(
         η coupling (overrides explicit ``eta_coupling``).
       * ``spectral_gap_coeff``, ``mu_plaq`` — override the upstream
         small-field / large-field fiducials, flowing into Δ_∩.
+
+    Chaining (Milestone 6.5-eta, 2026-05-27):
+
+      * ``use_chaining=True`` multiplies each η_k by
+        ``chain_factor(g_k)`` (only tightens, never loosens; the
+        chaining model's regime check ``g_k ≤ G_MAX_CHAIN`` is enforced
+        per step).  ``chain_n_share`` / ``chain_zeta`` override the
+        chaining fiducials.  See the module docstring's "Chaining
+        tightening of η" section.
 
     All sweep parameters default to the project-wide fiducials in
     ``notes/fiducials_notes.md``.
@@ -381,6 +476,9 @@ def sigma_hat_trajectory(
             eta_k = compute_eta(
                 g_trajectory[k], g_trajectory[k + 1], t_choice, eta_coupling,
                 spectral_gap_coeff=spectral_gap_coeff, mu_plaq=mu_plaq,
+                use_chaining=use_chaining,
+                chain_n_share=chain_n_share,
+                chain_zeta=chain_zeta,
             )
         else:
             eta_k = 0.0

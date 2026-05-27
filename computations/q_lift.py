@@ -124,6 +124,9 @@ def pilot_eta_rational_bound(
     convention: HeatKernelConvention = HeatKernelConvention.CANONICAL,
     denominator: int = 10000,
     sigma_hat_initial_q: tuple[int, int] = (1, 1),
+    use_chaining: bool = False,
+    chain_n_share: int | None = None,
+    chain_zeta: float | None = None,
 ) -> PilotEtaRationalBound:
     """Compute the SU(2) pilot at ``(g_0, K)`` and return a Q' upper bound on η_k.
 
@@ -166,7 +169,10 @@ def pilot_eta_rational_bound(
         )
 
     traj = sigma_hat_trajectory(
-        g_trajectory, sigma_hat_initial=sigma_hat_initial, t_choice=convention
+        g_trajectory, sigma_hat_initial=sigma_hat_initial, t_choice=convention,
+        use_chaining=use_chaining,
+        chain_n_share=chain_n_share,
+        chain_zeta=chain_zeta,
     )
     eta_floats = [s.eta_k for s in traj.steps[:-1]]  # last step has η = 0 by convention
     if len(eta_floats) != K:
