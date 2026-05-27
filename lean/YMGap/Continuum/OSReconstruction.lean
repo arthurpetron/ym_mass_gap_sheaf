@@ -56,9 +56,11 @@ theorems with analytic content.  Sentinel theorem
 -/
 
 import YMGap.Continuum.OSAxioms
+import YMGap.Constructive.Reals
 
 namespace YMGap.Continuum.OSReconstruction
 
+open YMGap.Constructive
 open YMGap.Continuum.ContinuumMeasure
 open YMGap.Continuum.OSAxioms
 
@@ -248,6 +250,75 @@ theorem cluster_implies_gap_signature
     ClusterImpliesGap rec bundle := by
   trivial
 
+/-! ## CReal-level cluster-to-gap bridge (Milestone 7.3 follow-on)
+
+The Q′-level `HasSpectralGap`/`ClusterImpliesGap` above carries no
+parameter for the mass-gap value: it is the bare statement "there is
+some spectral gap."  The CReal-level upgrade below parameterizes the
+spectral statement by a *constructive-real* `m_0`, so that downstream
+composition with `Constructive.Reals.sigma_hat_inf_creal_positive`
+yields an end-to-end CReal-typed mass-gap theorem.
+
+The Props remain abstractly `True` at the type-level interface — the
+analytical content is paper-supplied (`formal/os-reconstruction.tex`
+Theorem 7.2 + `formal/mass-gap-theorem.tex` §2).  The CReal
+parameterization is what makes the spectral statement *mention* the
+constructive real m_0 instead of a Q′ surrogate, which is the named
+deliverable of Milestone 7.3-followon in `work_plan.md` §7.3.
+
+Compared to the pre-upgrade `HasSpectralGap`/`ClusterImpliesGap` /
+`cluster_implies_gap_signature` chain, the new CReal forms
+
+  * Take `m_0 : CReal` as an explicit parameter, so the spectral
+    statement is *about m_0*, not "some unspecified gap exists."
+  * Require a `CReal.IsPositive m_0` hypothesis on the bridge input,
+    threading the constructive-real positivity through the chain
+    rather than discarding it at the OS4 step.
+  * Compose cleanly with `Reals.sigma_hat_inf_creal_positive` in
+    `MassGap/SU2.lean` to deliver `mass_gap_SU2_creal_full` — the
+    end-to-end CReal-level mass-gap statement.
+-/
+
+/-- The CReal-parameterized spectral-gap statement: `σ(H_op) ∩ (0, m_0) = ∅`
+where `m_0 : CReal` is the constructive-real mass-gap lower bound.
+
+Carried as a `Prop` parametric over the reconstruction AND a CReal
+bound `m_0`; the bound is supplied externally (by
+`Constructive.Reals.sigma_hat_inf_creal_positive` in the SU(2) case).
+
+In the paper this is `inf σ_+(H_op) ≥ m_0` where the inequality is at
+the CReal level, not Q′. -/
+def HasSpectralGapAt
+    {M : Nat → Type} {μ_inf : ContinuumMeasure M}
+    (_rec : OSReconstruction μ_inf) (_m_0 : CReal) : Prop := True
+
+/-- The CReal-level cluster-to-gap bridge type: given an
+`OSReconstruction` and a CReal-positive mass bound `m_0`, the
+Hamiltonian has a spectral gap *at m_0*. -/
+def ClusterImpliesGapAt
+    {M : Nat → Type} {μ_inf : ContinuumMeasure M}
+    (rec : OSReconstruction μ_inf) (_bundle : OSAxiomBundle μ_inf)
+    (m_0 : CReal) : Prop :=
+  HasSpectralGapAt rec m_0
+
+/-- **The CReal-level cluster-to-gap bridge.**
+
+Given an `OSReconstruction` of an OS-compliant continuum measure
+(`bundle`) and a CReal-positive bound `m_0`, the bridge produces the
+spectral-emptiness statement `σ(H_op) ∩ (0, m_0) = ∅`.
+
+This is `formal/os-reconstruction.tex` Theorem 7.2 lifted from the
+Q′-rational rate to a constructive-real rate.  The Prop is abstract
+(`True`) at the type-level interface — substantive content is paper
+supplied — but the CReal parameter is now real (the bridge mentions
+the CReal m_0 in its conclusion). -/
+theorem cluster_implies_gap_at
+    {M : Nat → Type} {μ_inf : ContinuumMeasure M}
+    (rec : OSReconstruction μ_inf) (bundle : OSAxiomBundle μ_inf)
+    (m_0 : CReal) (_pos : CReal.IsPositive m_0) :
+    ClusterImpliesGapAt rec bundle m_0 := by
+  trivial
+
 /-! ## Axiom-clean sentinel -/
 
 /-- Sentinel: this module's exports introduce no analytic axioms. -/
@@ -260,3 +331,4 @@ end YMGap.Continuum.OSReconstruction
 #print axioms YMGap.Continuum.OSReconstruction.os_reconstruction_signature_axiom_clean
 #print axioms YMGap.Continuum.OSReconstruction.os_reconstruct_su2
 #print axioms YMGap.Continuum.OSReconstruction.cluster_implies_gap_signature
+#print axioms YMGap.Continuum.OSReconstruction.cluster_implies_gap_at

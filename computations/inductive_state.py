@@ -7,7 +7,9 @@ The state at RG scale k bundles:
   - the renormalized string tension σ̂_k (σ-3 sense),
   - the running coupling g_k,
   - three Kotecký–Preiss certificates (small-field, large-field, buffer),
-  - the polymer atlas P_k (representation left abstract; see open question).
+  - the polymer atlas P_k (`PolyAtlas`, **concrete commitment 2026-05-26**;
+    see `PolyAtlas` class docstring for the partition of unity and the
+    three-region Gribov-boundary parameterization).
 
 The `validate()` method checks the scale-k induction hypotheses
 (V1)–(V3) of `formal/inductive-state.tex` Definition 3.1.  All
@@ -35,16 +37,169 @@ relationship as a check.
 Polymer atlas
 -------------
 
-The representation of P_k is the open question of Milestone 2.2.
-Here it is typed as `Any` with a docstring acknowledging the
-deferral.  Concrete representations are pinned in Phase 3 against
-the polymer activities of Milestones 3.1–3.3.
+The representation of P_k is **closed 2026-05-26** as the
+`PolyAtlas` dataclass defined below.  See `PolyAtlas` for the
+concrete commitments: smallness parameter `δ_k = g_k` (α = 1
+convention), plaquette enumeration cutoff `n_max = 16`, shape
+classifier for partition of unity over admissible polymers, and
+explicit three-region Gribov-boundary parameterization
+`(sf, ∩, lf)` matching `formal/sheaf-framework.tex` Def. 2.2.
 """
 
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Any
+from typing import Final, Literal
+
+
+# --------------------------------------------------------------------------
+# Polymer atlas: concrete commitment (Milestone 2.2 closure, 2026-05-26)
+# --------------------------------------------------------------------------
+
+
+# Shape class labels for the partition of unity.
+ShapeClass = Literal["filament", "intermediate", "ball"]
+"""Polymer shape class — partition of unity over admissible polymers.
+
+Three classes determined by aspect ratio `|X|_phys / (a_k · |X|_plaq)`:
+  * **filament**: ratio ≥ 0.8 (extended polymer, low aspect → 1)
+  * **intermediate**: 0.2 < ratio < 0.8 (between extremes)
+  * **ball**: ratio ≤ 0.2 (compact polymer, low aspect)
+
+Every admissible polymer falls into exactly one class.  The
+3-class partition is the polymer-shape interpolation grid that
+Milestone 6.1-tighten's `polymer_shape_dominance` theorem covers
+uniformly via the universal Q' chain `ρ_sf · m ≤ ρ_lf · n`
+(`lean/YMGap/Sheaf/PolymerDomination.lean`).
+"""
+
+
+# Gribov-region labels for the three-region atlas.
+GribovRegion = Literal["sf", "buffer", "lf"]
+"""Gribov-region tag — three-region atlas matching
+`formal/sheaf-framework.tex` Definition 2.2.
+
+A polymer X gets a region tag determined by its maximum-plaquette
+geodesic distance `max_p d(U_p, 1)`:
+  * **sf** (small-field):  `max_p d < δ_k / 2` — clearly small-field.
+  * **buffer** (∩):        `δ_k / 2 ≤ max_p d ≤ 2 · δ_k` — overlap region.
+  * **lf** (large-field):  `max_p d > 2 · δ_k` — clearly large-field.
+
+The three regions form a cover of `Ω_k = G^{E_k}` per the
+three-element cover `{Ω_k^sf, Ω_k^lf, Ω_k^∩}`.
+"""
+
+
+POLYMER_PLAQUETTE_CUTOFF_DEFAULT: Final[int] = 16
+"""Default polymer enumeration cutoff: maximum plaquette count
+admitted in the polymer atlas.  Matches `J_MAX_DEFAULT = 12` in
+`large_field_kp.py`'s character expansion modulo the `2j ≤ J_MAX`
+vs `n ≤ N_max` indexing difference.  Sized to dominate the
+Brydges–Federbush tail bound at the project's `μ_plaq` connectivity.
+"""
+
+
+POLYMER_ATLAS_ALPHA: Final[float] = 1.0
+"""The α exponent in `δ_k = g_k^α` (outline §6.4 says α ∈ (0, 1)).
+
+**Project commitment 2026-05-26**: α = 1, giving `δ_k = g_k` exactly.
+The α = 1 choice keeps `δ_k` Q'-rational at every pilot operating
+point (avoiding the irrational square roots that α = 1/2 would
+introduce: e.g., at canonical g_0 = 3/10, √(3/10) is irrational).
+
+The outline-permitted range α ∈ (0, 1) leaves design flexibility
+for downstream refinement; the α = 1 commitment is the most
+conservative choice (largest δ_k for given g_k) and is consistent
+with the buffer-shell bound derivation of T6.1.
+"""
+
+
+@dataclass(frozen=True)
+class PolyAtlas:
+    """**Concrete polymer atlas P_k at RG scale k (Milestone 2.2 closure).**
+
+    Resolves the polymer-atlas open question of Milestone 2.2
+    (`formal/inductive-state.tex` §5, now closed 2026-05-26) with a
+    concrete dataclass committing to four design choices:
+
+    1. **Smallness parameter**: `δ_k = g_k` (α = 1 convention; see
+       `POLYMER_ATLAS_ALPHA`).  Keeps δ_k Q'-rational at every pilot
+       operating point.
+
+    2. **Plaquette enumeration cutoff**: `n_max = 16` plaquettes
+       (default; see `POLYMER_PLAQUETTE_CUTOFF_DEFAULT`).  Dominates
+       the Brydges–Federbush tail at the project's μ_plaq.
+
+    3. **Shape classifier** (`shape_class`): partition of unity into
+       three shape classes (filament, intermediate, ball) by aspect
+       ratio threshold.  Every admissible polymer is in exactly one
+       class.
+
+    4. **Gribov-region classifier** (`gribov_region`): three-region
+       atlas (sf, buffer, lf) determined by maximum-plaquette geodesic
+       distance to identity, with explicit thresholds δ_k/2 and 2·δ_k.
+       Matches `formal/sheaf-framework.tex` Definition 2.2's cover.
+
+    The atlas is **scale-k-local** (carries g_k, δ_k, n_max only;
+    no cross-scale data).  Phase-3 modules consume it for polymer
+    enumeration + activity bounds; the small-field, large-field,
+    buffer regions are routed through `gribov_region` to the
+    corresponding KP certificate.
+    """
+
+    g_k: float
+    """Running gauge coupling at scale k."""
+
+    delta_k: float
+    """Smallness parameter; under α = 1 equals `g_k`."""
+
+    n_max: int = POLYMER_PLAQUETTE_CUTOFF_DEFAULT
+    """Plaquette enumeration cutoff."""
+
+    def __post_init__(self) -> None:
+        if self.g_k <= 0:
+            raise ValueError(f"g_k must be positive; got {self.g_k}")
+        if self.delta_k <= 0:
+            raise ValueError(f"delta_k must be positive; got {self.delta_k}")
+        if self.n_max < 1:
+            raise ValueError(f"n_max must be ≥ 1; got {self.n_max}")
+
+    @classmethod
+    def at_scale(
+        cls, g_k: float, n_max: int = POLYMER_PLAQUETTE_CUTOFF_DEFAULT
+    ) -> "PolyAtlas":
+        """Construct the canonical polymer atlas at coupling `g_k`
+        under the α = 1 convention: `δ_k = g_k`."""
+        return cls(g_k=g_k, delta_k=g_k, n_max=n_max)
+
+    def shape_class(self, aspect_ratio: float) -> ShapeClass:
+        """Classify a polymer by aspect ratio
+        `|X|_phys / (a_k · |X|_plaq)`.  Returns 'filament', 'intermediate',
+        or 'ball'.  The three returns partition the polymer space."""
+        if aspect_ratio < 0:
+            raise ValueError(f"aspect_ratio must be nonneg; got {aspect_ratio}")
+        if aspect_ratio >= 0.8:
+            return "filament"
+        if aspect_ratio <= 0.2:
+            return "ball"
+        return "intermediate"
+
+    def gribov_region(self, max_plaquette_distance: float) -> GribovRegion:
+        """Classify a polymer by Gribov region.
+
+        Returns 'sf' (clearly small-field, `max_p d < δ_k/2`), 'buffer'
+        (`δ_k/2 ≤ max_p d ≤ 2 δ_k`), or 'lf' (clearly large-field,
+        `max_p d > 2 δ_k`).  The three returns are mutually exclusive
+        and exhaustive for nonneg distances."""
+        if max_plaquette_distance < 0:
+            raise ValueError(
+                f"max_plaquette_distance must be nonneg; got {max_plaquette_distance}"
+            )
+        if max_plaquette_distance < self.delta_k / 2.0:
+            return "sf"
+        if max_plaquette_distance > 2.0 * self.delta_k:
+            return "lf"
+        return "buffer"
 
 
 @dataclass(frozen=True)
@@ -105,12 +260,19 @@ class InductiveState:
     per `sheaf-framework.tex` Proposition 7.1; checked by V3 of `validate()`.
     """
 
-    poly_atlas: Any = field(default=None)
-    """The polymer atlas P_k.
+    poly_atlas: PolyAtlas | None = field(default=None)
+    """The polymer atlas P_k (concrete commitment 2026-05-26).
 
-    Representation deliberately abstract (`Any`).  The decision is
-    the open question of Milestone 2.2; see `formal/inductive-state.tex`
-    §5 and `work_plan.md` Milestone 2.2 open-question paragraph.
+    Representation: `PolyAtlas` dataclass with `g_k`, `delta_k` (= g_k
+    under α = 1), `n_max = 16`, plus the `shape_class` partition-of-
+    unity classifier and `gribov_region` three-region classifier.
+    See the `PolyAtlas` class docstring for the full commitment.
+
+    Closes the polymer-atlas open question of Milestone 2.2
+    (`formal/inductive-state.tex` §5, now §"closed").  Default
+    `None` is permitted at construction sites that don't require the
+    atlas (e.g., σ̂-trajectory-only tests); production sites use
+    `PolyAtlas.at_scale(g_k)` to materialize the canonical atlas.
     """
 
     def validate(self) -> dict[str, bool]:

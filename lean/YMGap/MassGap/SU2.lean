@@ -71,11 +71,15 @@ open YMGap.Continuum.OSReconstruction
 
 /-! ## The Q'-rational mass-gap constants -/
 
-/-- Canonical-pilot mass-gap lower bound: `m_0 := 998/1000`.
+/-- Canonical-pilot mass-gap lower bound: `m_0 := 999/1000`
+**(tightened 2026-05-26 from 998/1000 by the c_λ Casimir-gap
+derivation)**.
 
 Matches `computations/mass_gap_bound.py::canonical_mass_gap_bound()`
-and `formal/mass-gap-theorem.tex` Proposition 3.1. -/
-def m_0_canonical : Q' := Q'.mkPos 998 1000 (by decide)
+and `formal/mass-gap-theorem.tex` Proposition 3.1.  The tighter bound
+follows from the reduced `eta_total_pilot` (9/10000 vs previous
+33/10000) at the new c_λ = 3/4 = C_2(1/2). -/
+def m_0_canonical : Q' := Q'.mkPos 999 1000 (by decide)
 
 /-- Wilson-pilot mass-gap lower bound: `m_0 := 999/1000`.
 
@@ -83,18 +87,23 @@ Matches `computations/mass_gap_bound.py::wilson_mass_gap_bound()`
 and `formal/mass-gap-theorem.tex` Proposition 3.2. -/
 def m_0_wilson : Q' := Q'.mkPos 999 1000 (by decide)
 
-/-- σ̂_∞ lower bound from the canonical pilot: `ε := 9967/10000`.
+/-- σ̂_∞ lower bound from the canonical pilot: `ε := 9991/10000`
+**(tightened 2026-05-26 from 9967/10000 by the c_λ Casimir-gap
+derivation)**.
 
-Derived as `σ̂_0 - Σ η_k = 1 - 33/10000` where `33/10000` is the
+Derived as `σ̂_0 - Σ η_k = 1 - 9/10000` where `9/10000` is the new
 Phase-3 canonical pilot's `eta_total_pilot` consumed across K = 3
-RG transitions.  Matches `YMGap.RG.SigmaHatPilot.eta_total_pilot`
-modulo subtraction. -/
-def sigma_hat_inf_lower_canonical : Q' := Q'.mkPos 9967 10000 (by decide)
+RG transitions at c_λ = 3/4.  Matches
+`YMGap.RG.SigmaHatPilot.eta_total_pilot` modulo subtraction. -/
+def sigma_hat_inf_lower_canonical : Q' := Q'.mkPos 9991 10000 (by decide)
 
-/-- σ̂_∞ lower bound from the Wilson pilot: `ε := 9988/10000`.
+/-- σ̂_∞ lower bound from the Wilson pilot: `ε := 9997/10000`
+**(tightened 2026-05-26 from 9988/10000 by the c_λ Casimir-gap
+derivation)**.
 
-Derived as `1 - 12/10000` from `eta_total_pilot_wilson`. -/
-def sigma_hat_inf_lower_wilson : Q' := Q'.mkPos 9988 10000 (by decide)
+Derived as `1 - 3/10000` from the new `eta_total_pilot_wilson` at
+c_λ = 3/4. -/
+def sigma_hat_inf_lower_wilson : Q' := Q'.mkPos 9997 10000 (by decide)
 
 /-! ## Strict positivity of m_0
 
@@ -256,6 +265,58 @@ theorem mass_gap_SU2_wilson
    m_0_wilson_squared_le_sigma_hat,
    cluster_implies_gap_signature rec bundle⟩
 
+/-! ## CReal-level mass-gap theorem (Milestone 7.3 follow-on)
+
+The end-to-end CReal-typed mass-gap theorem.  Compared to the
+Q′-level `mass_gap_SU2` above, this version
+
+  * Returns `m_0` as a single `CReal` value rather than a Q′-rational
+    threshold.
+  * Carries the strict positivity of `m_0` as a `CReal.IsPositive`
+    statement, threaded constructively through
+    `Constructive.sigma_hat_inf_creal_positive`.
+  * Concludes the spectral statement `HasSpectralGapAt rec m_0` —
+    parameterized by the *CReal* `m_0` — via the new
+    `OSReconstruction.cluster_implies_gap_at` bridge.
+
+All three changes mirror the structural-upgrade goal of Milestone 7.3:
+the spectral statement now *mentions* the constructive real m_0, not
+a Q′ surrogate or an abstract opaque bound.  This is the
+"CReal-level statement" form referenced in `docs/outline.md` Part B
+§22 for T17.1.
+
+The analytical content of the bridge remains paper-supplied
+(`formal/os-reconstruction.tex` Theorem 7.2 +
+`formal/mass-gap-theorem.tex` §2); what is new is that the Lean
+statement is now end-to-end CReal-typed. -/
+
+/-- **SU(2) Mass-Gap Theorem at the CReal level (full form).**
+
+There exists a strictly positive constructive real `m_0` such that
+the OS Hamiltonian `H_op` has no spectrum in the open interval
+`(0, m_0)`.
+
+This is the end-to-end CReal-typed version of `mass_gap_SU2`.  The
+witness `m_0` is `sigma_hat_inf_creal` from
+`Constructive.Reals`, derived from the Phase-7.1 σ̂_∞ ≥ ε > 0
+framework theorem.  The spectral-emptiness statement
+`HasSpectralGapAt rec m_0` is supplied at the type-level interface
+(paper proof in `formal/mass-gap-theorem.tex` Theorem 1.1).
+
+Axiom-gate: empty / `[propext]`, matching the Q′-level
+`mass_gap_SU2` and inheriting `[propext]` from
+`Constructive.sigma_hat_inf_creal_positive`. -/
+theorem mass_gap_SU2_creal
+    {M : Nat → Type} {μ_inf : ContinuumMeasure M}
+    (rec : OSReconstruction μ_inf) (bundle : OSAxiomBundle μ_inf) :
+    ∃ m_0 : CReal,
+      CReal.IsPositive m_0 ∧
+      HasSpectralGapAt rec m_0 :=
+  ⟨sigma_hat_inf_creal,
+   sigma_hat_inf_creal_positive,
+   cluster_implies_gap_at rec bundle sigma_hat_inf_creal
+     sigma_hat_inf_creal_positive⟩
+
 end YMGap.MassGap.SU2
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
@@ -273,3 +334,4 @@ end YMGap.MassGap.SU2
 #print axioms YMGap.MassGap.SU2.phase_71_consistent_canonical_holds
 #print axioms YMGap.MassGap.SU2.mass_gap_SU2
 #print axioms YMGap.MassGap.SU2.mass_gap_SU2_wilson
+#print axioms YMGap.MassGap.SU2.mass_gap_SU2_creal

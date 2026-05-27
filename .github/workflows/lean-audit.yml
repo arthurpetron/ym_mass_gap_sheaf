@@ -1,0 +1,85 @@
+# Lean axiom-gate audit — CI enforcement of AGENTS.md Rule 1.
+#
+# Runs on every push and pull_request. Fails if a tracked theorem in the YMGap
+# Lean library has acquired a NEW axiom dependency not permitted by
+# `lean/AXIOM_AUDIT.md` (the maintained baseline).
+#
+# To accept new axiom dependencies after deliberate constructivity-budget
+# review:
+#
+#     make lean-audit-update
+#     git add lean/AXIOM_AUDIT.md && git commit
+#
+# To run locally before pushing:
+#
+#     make lean-audit            # non-strict: drift only
+#     make lean-audit-strict     # strict: also new theorems / missing tracked theorems
+#
+# See scripts/lean_axiom_audit.py for the full drift semantics.
+
+name: lean-axiom-audit
+
+on:
+  push:
+    branches: ["**"]
+    paths:
+      - "lean/**"
+      - "scripts/lean_axiom_audit.py"
+      - ".github/workflows/lean-audit.yml"
+  pull_request:
+    paths:
+      - "lean/**"
+      - "scripts/lean_axiom_audit.py"
+      - ".github/workflows/lean-audit.yml"
+
+jobs:
+  axiom-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Read pinned Lean toolchain
+        id: toolchain
+        run: |
+          echo "version=$(cat lean/lean-toolchain | tr -d '[:space:]')" >> "$GITHUB_OUTPUT"
+
+      - name: Install elan + Lean
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh \
+            | sh -s -- -y --default-toolchain "${{ steps.toolchain.outputs.version }}"
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+
+      - name: Verify Lean version
+        run: |
+          lean --version
+          lake --version
+
+      - name: Cache Lake build artifacts
+        uses: actions/cache@v4
+        with:
+          path: lean/.lake
+          key: lake-${{ steps.toolchain.outputs.version }}-${{ hashFiles('lean/lakefile.toml', 'lean/lake-manifest.json') }}-${{ hashFiles('lean/**/*.lean') }}
+          restore-keys: |
+            lake-${{ steps.toolchain.outputs.version }}-${{ hashFiles('lean/lakefile.toml', 'lean/lake-manifest.json') }}-
+            lake-${{ steps.toolchain.outputs.version }}-
+
+      - name: Build Lean library
+        run: make lean-build
+
+      - name: Run axiom-gate audit (non-strict — drift only)
+        run: make lean-audit
+
+      # Strict mode is informational: it surfaces new theorems not yet in the
+      # baseline and tracked theorems missing from the build.  We do NOT fail
+      # the build on strict drift, because adding new theorems is normal in
+      # PR work; the workflow message reminds maintainers to run
+      # `make lean-audit-update` and review the manifest.
+      - name: Run axiom-gate audit (strict — new/missing theorems, informational)
+        continue-on-error: true
+        run: |
+          if ! make lean-audit-strict; then
+            echo "::warning::Strict-mode audit surfaced new or missing theorems."
+            echo "::warning::After review, run 'make lean-audit-update' and commit lean/AXIOM_AUDIT.md."
+          fi

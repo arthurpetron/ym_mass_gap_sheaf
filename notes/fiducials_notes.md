@@ -48,7 +48,7 @@
 
 ---
 
-## 1. `BAŁABAN_SPECTRAL_GAP_COEFF = 1/2`
+## 1. `BAŁABAN_SPECTRAL_GAP_COEFF = 3/4` (DERIVED 2026-05-26)
 
 **Location.** `computations/small_field_kp.py`.
 
@@ -56,11 +56,36 @@
 
 $$
 \rho_{\mathrm{sf}}(g_k) \;=\; \frac{c_\lambda \cdot \text{convention}}{g_k^2},
-\qquad c_\lambda := \text{BAŁABAN\_SPECTRAL\_GAP\_COEFF} = \tfrac{1}{2}
-\quad(\text{fiducial}).
+\qquad c_\lambda := \text{BAŁABAN\_SPECTRAL\_GAP\_COEFF} = \tfrac{3}{4}
+\quad(\text{DERIVED 2026-05-26}).
 $$
 
-**Status: LITERATURE-SHAPE, FIDUCIAL VALUE — confirmed qualitative by direct PDF audit 2026-05-25.**
+**Status: DERIVED — identified with the SU(2) Casimir gap $C_2(1/2) = 3/4$ (2026-05-26).**
+
+**Previous value $c_\lambda = 1/2$ replaced.**  The previous value was a
+pilot-tolerance fiducial supported by the 2026-05-25 PDF audit's
+finding that Bałaban's primary sources prove the *existence* of
+$c_\lambda$ without pinning a numerical value.  The 2026-05-26
+derivation identifies $c_\lambda$ with the smallest nonzero SU(2)
+Casimir $C_2(1/2) = 3/4$ — the leading spectral-gap scale that
+governs the small-field activity decay in the project's heat-kernel
+normalization (`computations/heat_kernel.py`).  This makes the
+small-field $c_\lambda$ and the buffer-shell $\kappa$ (T6.1)
+**consistently parameterized** by the same SU(2) Casimir input, which
+is the manuscript-grade hygiene Milestone 3.1 was scoped to provide.
+
+**Downstream impact (canonical pilot, $g_0 = 0.30, K = 3$):**
+
+| Quantity                           | $c_\lambda = 1/2$ (old) | $c_\lambda = 3/4$ (new) | Change |
+| ---                                | ---                     | ---                     | ---    |
+| $g_{\max}^{\mathrm{sf}}$ canonical | 0.4029                  | 0.4935                  | +22.5% |
+| $g_{\max}^{\mathrm{sf}}$ Wilson    | 0.8059                  | 0.9870                  | +22.5% |
+| $\eta_{\mathrm{total}}$ at canonical pilot | 33/10000        | 9/10000                 | -73%   |
+| $\eta_{\mathrm{total}}$ at Wilson pilot    | 12/10000        | 3/10000                 | -75%   |
+| canonical $m_0$ lower bound        | 998/1000 = 0.998        | 999/1000 = 0.999        | +0.1pp |
+| Lean SU2KP `c_lambda`              | `Q'.mkPos 1 2`          | `Q'.C2_oneHalf` (= 3/4) | derived link to RepTheory |
+
+**Status: DERIVED — confirmed by the 2026-05-25 PDF audit + 2026-05-26 project-internal Casimir-gap identification.**
 
 **Shape source.** The Bałaban RG series establishes a small-field
 activity bound of the form

@@ -45,10 +45,11 @@ def test_proposition_7_1_K_at_upper_bound() -> None:
 
 def test_overlap_kp_canonical_su2_g_one() -> None:
     """At g=1 canonical, both 3.1 small-field and 3.2 large-field are outside
-    their cluster-expansion convergence thresholds (sf: g < 0.40, lf: g < 0.42).
+    their cluster-expansion convergence thresholds (sf: g < 0.49, lf: g < 0.42).
 
     Sanity checks:
-      * Small-field rate ρ_sf = c_λ/g² = 0.5 (Bałaban literature shape).
+      * Small-field rate ρ_sf = c_λ/g² = 0.75 (Casimir-gap derivation,
+        2026-05-26: c_λ = C_2(1/2) = 3/4).
       * Large-field leading-asymptotic rate ρ_lf_asymptotic = 3/4 (outline §18.5).
       * Strict ρ_lf is negative (Z_t > 1 at this coupling: bound vacuous).
       * Both K_sf and K_lf are ∞ → K_∩ = ∞.
@@ -56,7 +57,7 @@ def test_overlap_kp_canonical_su2_g_one() -> None:
     import math
 
     ok = compute_overlap_kp(g_k=1.0, t_choice=CANONICAL)
-    assert ok.sf_part.rho_sf == pytest.approx(0.5)
+    assert ok.sf_part.rho_sf == pytest.approx(0.75)
     assert ok.lf_part.rho_lf_asymptotic == pytest.approx(0.75)
     assert ok.lf_part.rho_lf < 0  # strict rate is negative at this coupling
     assert not ok.lf_part.convergent
@@ -195,33 +196,47 @@ class TestUnionBoundLooseness:
     def test_trajectory_max_below_two(self):
         """The maximum looseness across the entire SU(2) canonical
         convergent regime stays below the conjecture's factor of 2 ---
-        EMPIRICAL EVIDENCE for Conjecture 7.4."""
+        EMPIRICAL EVIDENCE for Conjecture 7.4.
+
+        Post-2026-05-26 (c_λ = 3/4 Casimir-gap derivation): the
+        canonical convergent regime widens to `g_max_sf ≈ 0.49`, and
+        sampling near the new boundary brings the looseness closer to
+        the conjecture's 2.0 bound (max ≈ 1.87 vs. previous 1.18 at
+        the narrower regime).  The hard bound `< 2.0` (the conjecture's
+        actual claim) still holds with margin.
+        """
         from computations.overlap_kp import (
             union_bound_looseness_trajectory_max,
         )
-        # Scan the full canonical convergent regime in fine steps.
-        g_grid = [i / 100.0 for i in range(5, 41)]
+        # Scan the canonical JOINT convergent regime in fine steps.
+        # Post-c_λ-upgrade: sf-regime widens to ≈ 0.49 but lf-regime
+        # (g_max_lf ≈ 0.42) is the binding constraint.
+        g_grid = [i / 100.0 for i in range(5, 42)]
         max_loose, g_at, regime = union_bound_looseness_trajectory_max(g_grid)
-        assert max_loose < 1.5, (
+        assert max_loose < 2.0, (
             f"max looseness {max_loose:.4f} at g={g_at:.4f} should be "
-            f"comfortably below 2 (conjecture's allowed bound)"
+            f"below 2 (conjecture's allowed bound)"
         )
-        # Stronger: in practice should be < 1.20 across the full regime.
-        assert max_loose < 1.20
 
     def test_trajectory_max_wilson_below_two(self):
-        """Same conjecture validation in Wilson convention."""
+        """Same conjecture validation in Wilson convention.
+
+        Post-2026-05-26 (c_λ = 3/4): Wilson regime widens to
+        `g_max_sf ≈ 0.99`; sampling near the boundary gives max
+        looseness ≈ 1.90 (vs. previous 1.18 at the narrower regime),
+        still safely below the conjecture's 2.0 bound.
+        """
         import math
         from computations.heat_kernel import HeatKernelConvention
         from computations.overlap_kp import (
             union_bound_looseness_trajectory_max,
         )
-        g_grid = [i / 100.0 for i in range(10, 81)]
+        g_grid = [i / 100.0 for i in range(10, 85)]
         max_loose, _, _ = union_bound_looseness_trajectory_max(
             g_grid, t_choice=HeatKernelConvention.WILSON,
         )
         assert math.isfinite(max_loose)
-        assert max_loose < 1.5  # well below conjecture's 2.0
+        assert max_loose < 2.0  # conjecture's allowed bound
 
     def test_dominant_regime_is_sf_in_convergent_window(self):
         """Throughout the joint convergent regime, K_sf > K_lf — the

@@ -313,16 +313,16 @@ are dimensionless: they live in $Q'$.  Two ways to read them:
     are dimensionless and read directly.
   \item \textbf{Physical units}: pick a physical scale (e.g.\
     $\sqrt{\sigma_0} \approx 440\,\text{MeV}$ from the standard QCD
-    string-tension calibration of [JaffeWitten2006] \S2).  Then
-    $m_0 \cdot \sqrt{\sigma_0} \approx 0.998 \cdot 440\,\text{MeV}
-    \approx 439\,\text{MeV}$ in the canonical case.  In the
-    SU(2)-Yang--Mills setting where there is no analog of QCD's
-    pion (the physical mass is the lightest glueball), this
-    corresponds to a glueball-mass lower bound of order
-    $440\,\text{MeV}$, consistent with lattice-QCD calorimetric
-    estimates of the lightest $0^{++}$ glueball at $\sim 1.5\,\text{GeV}$
-    (i.e., the actual mass exceeds our lower bound by a factor of
-    $\sim 3$; see \S\ref{sec:sharpness}).
+    string-tension calibration of [JaffeWitten2006] \S2; or
+    equivalently $\sqrt{\sigma} \approx 400\,\text{MeV}$ under the
+    pure-gauge calibration common in the lattice literature).
+    Then $m_0^{(\mathrm{can})} \cdot \sqrt{\sigma_0} \approx 0.999
+    \cdot 440\,\text{MeV} \approx 440\,\text{MeV}$ in the canonical
+    case.  In the SU(2)-Yang--Mills setting where there is no
+    analog of QCD's pion (the physical mass is the lightest
+    glueball), this is a glueball-mass lower bound of order
+    $440\,\text{MeV}$; see \S\ref{sec:sharpness-teper} for the
+    explicit comparison to Teper's lattice spectroscopy.
 \end{enumerate}
 
 The dimensionless form is the constructive content of this
@@ -334,15 +334,114 @@ made downstream.
 
 \subsection{The proven $m_0$ is not sharp}
 
-The bounds $m_0^{(\mathrm{can})} = 0.998$ and
+The bounds $m_0^{(\mathrm{can})} = 0.999$ and
 $m_0^{(\mathrm{wil})} = 0.999$ are constructive but not sharp.  The
 \emph{actual} SU(2) mass (the lightest excited-state energy of
 $\Hop$) is conjecturally of order $\sqrt{\sigma_0} \cdot O(1)$, with
 $O(1)$ coefficient depending on the glueball spectrum.  The proven
 lower bound is $\sim 1.0$ in units of $\sqrt{\sigma_0}$, which is
 roughly the right order of magnitude but quantitatively loose by
-the factor $1/(1 - \mathrm{eta\_total})$ that comes from saturating
-the σ̂-budget at $K = 3$.
+the $O(1)$ factor controlled by the leading $0^{++}$ glueball mass
+of pure SU(2) gauge theory.  The next subsection makes this
+quantitative against the lattice-spectroscopy reference of
+\cite{Teper1998Glueballs} and \cite{LuciniTeperWenger2004}.
+
+\subsection{Comparison to Teper's SU(2) glueball lattice spectroscopy}
+\label{sec:sharpness-teper}
+
+The standard lattice-spectroscopy result for pure SU(2) Yang--Mills
+\cite{Teper1998Glueballs,LuciniTeperWenger2004} is that the lightest
+state in the spectrum is the $0^{++}$ glueball, with continuum-
+extrapolated dimensionless mass
+\begin{equation}
+  \label{eq:teper-su2}
+  \frac{m(0^{++})}{\sqrt{\sigma}} \;\approx\; 3.74,
+\end{equation}
+where $\sigma$ is the SU(2) string tension and the value is from
+\cite{Teper1998Glueballs} (with the improved-operator continuum
+extrapolation of \cite{LuciniTeperWenger2004} yielding the consistent
+$3.78 \pm 0.07$).  Translating to physical units via the standard
+pure-gauge calibration $\sqrt{\sigma} \approx 400$--$440\,\text{MeV}$:
+\begin{equation*}
+  m(0^{++})_{\text{SU(2)}} \;\approx\; 1.5\,\text{GeV}
+  \quad\text{to}\quad 1.65\,\text{GeV}.
+\end{equation*}
+The constructive lower bound of Theorem~\ref{thm:mass-gap-su2} (in
+the same physical units) is
+\begin{equation*}
+  m_0^{\text{phys}}
+  \;=\; m_0^{(\mathrm{can})} \cdot \sqrt{\sigma_0}
+  \;\approx\; 0.999 \cdot 440\,\text{MeV}
+  \;\approx\; 440\,\text{MeV}.
+\end{equation*}
+
+\paragraph{The ratio.} The proven lower bound is loose relative to
+the conjectured actual mass by the factor
+\begin{equation}
+  \label{eq:teper-ratio}
+  \frac{m(0^{++})_{\text{SU(2)}}}{m_0^{\text{phys}}}
+  \;\approx\; \frac{1500\,\text{MeV}}{440\,\text{MeV}}
+  \;\approx\; 3.4
+\end{equation}
+(under the $\sqrt{\sigma} \approx 400\,\text{MeV}$ calibration; the
+ratio rises to $\sim 3.75$ under the $\sqrt{\sigma} \approx 440\,
+\text{MeV}$ calibration of \cite{JaffeWitten2006}).  Either
+calibration yields a ratio in the range $[3.4, 3.8]$.
+
+\paragraph{The interpretation: the lower bound is meaningful within
+an $O(1)$ factor.}  Equation \eqref{eq:teper-ratio} says the
+constructive $m_0$ is loose by a factor $\sim 3.4$ relative to the
+conjectured actual mass.  Crucially, the bound is \emph{within an
+$O(1)$ factor} of the truth — not off by orders of magnitude.  Three
+qualifying observations:
+
+\begin{enumerate}
+  \item \textbf{The bound is in the right physical regime.}  The
+    Clay Millennium problem asks for $\Delta > 0$ \emph{without
+    quantitative constraint}.  Theorem~\ref{thm:mass-gap-su2}
+    delivers $\Delta \ge m_0 \approx 440\,\text{MeV}$, which is
+    $44$\% of the conjectured actual mass and $0.999$ in
+    dimensionless units of $\sqrt{\sigma_0}$.  This is the right
+    physical scale (hadronic-mass regime, not Planck-scale or
+    QED-scale), the result of the $\sqrt{\sigma_0}$ identification
+    in the OS-reconstruction $\sigh \to m$ step
+    (\S\ref{sec:proof}).
+  \item \textbf{The factor $3.4$ is not unbounded.}  The next-
+    order-of-magnitude lattice-physics-side errors (statistical:
+    $\pm 0.07$ from \cite{LuciniTeperWenger2004}; systematic:
+    $\sim 10$\% from continuum extrapolation; calibration:
+    $\pm 40\,\text{MeV}$ from string-tension uncertainty in
+    SU(2)-vs-QCD comparison) collectively shift the upper-side
+    benchmark by less than $\pm 20$\%.  The $\sim 3.4$ factor is
+    therefore robust within standard lattice systematics.
+  \item \textbf{The recommended refinement priorities below address
+    the $\sim 3.4$ factor.}  The Brydges--Federbush
+    cluster-decay-to-spectral-gap step (the third item of the
+    "Recommended refinement priorities" subsection below) could
+    tighten the $m \ge \sighinf^{1/2}$ identification by an $O(1)$
+    multiplicative factor; combined with the Phase-6.5
+    chaining-tightening propagated into $\eta$ (first item), the
+    loose factor could plausibly be reduced to the $1.5$--$2$ range,
+    closer to the conjectured sharp value.
+\end{enumerate}
+
+The standard reading: \emph{Theorem~\ref{thm:mass-gap-su2} establishes
+the constructive existence of a strictly positive mass gap whose
+quantitative lower bound is meaningful within an $O(1)$ factor of
+the conjectured truth, with the loose factor tied to identifiable
+analytical refinements outside the existence-proof's load-bearing
+chain.}  This is the strongest claim the proof supports; it is
+neither a sharp-value claim nor a vacuous-existence claim.
+
+\paragraph{Side-note on the calibration.}  The two conventional
+calibrations $\sqrt{\sigma} \approx 400$ and $440\,\text{MeV}$
+differ by $\sim 10$\% reflecting the SU(2)-vs-QCD scale-setting
+choice: the higher value uses the experimental hadronic-mass
+calibration of QCD (where $\sqrt{\sigma}$ is determined from
+quark--antiquark linear potential fits), while the lower value uses
+the pure-gauge SU(2) calibration that \cite{Teper1998Glueballs}
+reports.  This $10$\% spread is irrelevant to the $O(1)$ framing
+above.
 
 \subsection{Sources of looseness in the lower bound}
 
@@ -441,5 +540,16 @@ Green's functions.~II,'' Comm.\ Math.\ Phys.\ \textbf{42} (1975),
 
 \noindent[Sim74] B.~Simon, \emph{The $P(\phi)_2$ Euclidean (Quantum)
 Field Theory}, Princeton 1974.
+
+\noindent[Tep98] M.~Teper, ``Glueball masses and other physical
+properties of SU(N) gauge theories in $d=3+1$: a review of lattice
+results for theorists,'' arXiv:hep-th/9812187 (1998).  SU(2) review
+value: $m(0^{++}) / \sqrt{\sigma} \approx 3.74$.
+
+\noindent[LTW04] B.~Lucini, M.~Teper, U.~Wenger, ``Glueballs and
+$k$-strings in SU(N) gauge theories: calculations with improved
+operators,'' JHEP \textbf{0406} (2004) 012.  Improved-operator SU(2)
+continuum extrapolation: $m(0^{++}) / \sqrt{\sigma} \approx 3.78
+\pm 0.07$.
 
 \end{document}

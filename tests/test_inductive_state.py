@@ -15,7 +15,13 @@ from __future__ import annotations
 
 import pytest
 
-from computations.inductive_state import InductiveState, KPData
+from computations.inductive_state import (
+    POLYMER_ATLAS_ALPHA,
+    POLYMER_PLAQUETTE_CUTOFF_DEFAULT,
+    InductiveState,
+    KPData,
+    PolyAtlas,
+)
 
 # --------------------------------------------------------------------------
 # KPData construction
@@ -209,14 +215,121 @@ def test_step_signature_mentions_2_3_handoff() -> None:
 
 
 # --------------------------------------------------------------------------
-# Polymer atlas — open question, deliberately abstract
+# Polymer atlas — concrete commitment (Milestone 2.2 closure, 2026-05-26)
 # --------------------------------------------------------------------------
 
 
-def test_poly_atlas_accepts_any_object() -> None:
-    """`poly_atlas` is `Any` per the deferred-representation decision."""
+def test_poly_atlas_alpha_is_one() -> None:
+    """Project commits to α = 1 in `δ_k = g_k^α` (Milestone 2.2 closure)."""
+    assert POLYMER_ATLAS_ALPHA == 1.0
+
+
+def test_poly_atlas_n_max_is_16() -> None:
+    """Default plaquette enumeration cutoff is 16."""
+    assert POLYMER_PLAQUETTE_CUTOFF_DEFAULT == 16
+
+
+def test_poly_atlas_at_scale_uses_alpha_one() -> None:
+    """`at_scale(g)` constructs δ_k = g_k under α = 1."""
+    atlas = PolyAtlas.at_scale(g_k=0.30)
+    assert atlas.g_k == 0.30
+    assert atlas.delta_k == 0.30
+    assert atlas.n_max == POLYMER_PLAQUETTE_CUTOFF_DEFAULT
+
+
+def test_poly_atlas_rejects_invalid_inputs() -> None:
+    with pytest.raises(ValueError, match="g_k"):
+        PolyAtlas(g_k=0.0, delta_k=0.1)
+    with pytest.raises(ValueError, match="delta_k"):
+        PolyAtlas(g_k=0.1, delta_k=-0.1)
+    with pytest.raises(ValueError, match="n_max"):
+        PolyAtlas(g_k=0.1, delta_k=0.1, n_max=0)
+
+
+def test_poly_atlas_shape_class_filament() -> None:
+    """Aspect ratio ≥ 0.8 → filament."""
+    atlas = PolyAtlas.at_scale(0.30)
+    assert atlas.shape_class(1.0) == "filament"
+    assert atlas.shape_class(0.85) == "filament"
+    assert atlas.shape_class(0.8) == "filament"
+
+
+def test_poly_atlas_shape_class_ball() -> None:
+    """Aspect ratio ≤ 0.2 → ball."""
+    atlas = PolyAtlas.at_scale(0.30)
+    assert atlas.shape_class(0.0) == "ball"
+    assert atlas.shape_class(0.1) == "ball"
+    assert atlas.shape_class(0.2) == "ball"
+
+
+def test_poly_atlas_shape_class_intermediate() -> None:
+    """Aspect ratio in (0.2, 0.8) → intermediate."""
+    atlas = PolyAtlas.at_scale(0.30)
+    assert atlas.shape_class(0.5) == "intermediate"
+    assert atlas.shape_class(0.3) == "intermediate"
+    assert atlas.shape_class(0.7) == "intermediate"
+
+
+def test_poly_atlas_shape_class_rejects_negative() -> None:
+    atlas = PolyAtlas.at_scale(0.30)
+    with pytest.raises(ValueError, match="nonneg"):
+        atlas.shape_class(-0.1)
+
+
+def test_poly_atlas_shape_class_partition_of_unity() -> None:
+    """For every aspect ratio in [0, 1], shape_class returns exactly one of
+    the three labels."""
+    atlas = PolyAtlas.at_scale(0.30)
+    valid_labels = {"filament", "intermediate", "ball"}
+    for ratio in (0.0, 0.1, 0.2, 0.5, 0.8, 1.0):
+        assert atlas.shape_class(ratio) in valid_labels
+
+
+def test_poly_atlas_gribov_region_sf() -> None:
+    """`max_p d < δ_k/2` → sf."""
+    atlas = PolyAtlas.at_scale(0.30)
+    # δ_k = 0.30, so δ_k/2 = 0.15.
+    assert atlas.gribov_region(0.0) == "sf"
+    assert atlas.gribov_region(0.10) == "sf"
+    assert atlas.gribov_region(0.149) == "sf"
+
+
+def test_poly_atlas_gribov_region_buffer() -> None:
+    """`δ_k/2 ≤ max_p d ≤ 2 δ_k` → buffer."""
+    atlas = PolyAtlas.at_scale(0.30)
+    # buffer: [0.15, 0.60].
+    assert atlas.gribov_region(0.15) == "buffer"
+    assert atlas.gribov_region(0.30) == "buffer"
+    assert atlas.gribov_region(0.60) == "buffer"
+
+
+def test_poly_atlas_gribov_region_lf() -> None:
+    """`max_p d > 2 δ_k` → lf."""
+    atlas = PolyAtlas.at_scale(0.30)
+    # lf: > 0.60.
+    assert atlas.gribov_region(0.61) == "lf"
+    assert atlas.gribov_region(1.0) == "lf"
+
+
+def test_poly_atlas_gribov_region_partition() -> None:
+    """The three Gribov regions are mutually exclusive and exhaustive
+    for nonneg distances."""
+    atlas = PolyAtlas.at_scale(0.30)
+    valid_regions = {"sf", "buffer", "lf"}
+    for d in (0.0, 0.1, 0.15, 0.3, 0.5, 0.6, 0.7, 1.0, 5.0):
+        assert atlas.gribov_region(d) in valid_regions
+
+
+def test_poly_atlas_gribov_region_rejects_negative() -> None:
+    atlas = PolyAtlas.at_scale(0.30)
+    with pytest.raises(ValueError, match="nonneg"):
+        atlas.gribov_region(-0.1)
+
+
+def test_inductive_state_accepts_concrete_poly_atlas() -> None:
+    """`InductiveState.poly_atlas` is now the concrete `PolyAtlas` (not Any)."""
     base = _well_formed_state()
-    # Replace with a deliberately exotic placeholder.
+    atlas = PolyAtlas.at_scale(g_k=base.g)
     s = InductiveState(
         k=base.k,
         sigma_hat=base.sigma_hat,
@@ -224,6 +337,8 @@ def test_poly_atlas_accepts_any_object() -> None:
         kp_sf=base.kp_sf,
         kp_lf=base.kp_lf,
         kp_cap=base.kp_cap,
-        poly_atlas={"placeholder": "any object accepted"},
+        poly_atlas=atlas,
     )
     assert s.all_valid() is True
+    assert isinstance(s.poly_atlas, PolyAtlas)
+    assert s.poly_atlas.g_k == base.g

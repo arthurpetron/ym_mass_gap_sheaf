@@ -77,7 +77,7 @@ whose fields are:
   \item $c^{\mathrm{sf}}_k = (\rho_{\mathrm{sf}, k}, K_{\mathrm{sf}, k}, \mathrm{sat}_{\mathrm{sf}}) \in \mathrm{KPCertificate}(V, P_{\mathrm{sf}})$: the small-field KP certificate, with the regime predicate $P_{\mathrm{sf}}$ pinned by Milestone~3.1.
   \item $c^{\mathrm{lf}}_k = (\rho_{\mathrm{lf}, k}, K_{\mathrm{lf}, k}, \mathrm{sat}_{\mathrm{lf}}) \in \mathrm{KPCertificate}(V, P_{\mathrm{lf}})$: the large-field KP certificate (Milestone~3.2).
   \item $c^{\cap}_k = (\rho_{\cap, k}, K_{\cap, k}, \mathrm{sat}_{\cap}) \in \mathrm{KPCertificate}(V, P_{\cap})$: the buffer KP certificate.  Its existence and well-formedness is the discharge of \texttt{sheaf-framework.tex} Proposition~7.1 (the sorry'd 2.1 Lean obligation \texttt{domGlue\_preserves\_KP}); see Remark~\ref{rem:carry-uncertainty} below.
-  \item $\Pcal_k$: the polymer atlas at scale $k$.  Its representation is the open question of \S\ref{sec:open}.
+  \item $\Pcal_k$: the polymer atlas at scale $k$.  Concrete representation: \texttt{CanonicalPolyAtlas} (\S\ref{sec:open} Definition~\ref{def:poly-atlas}, closed 2026-05-26).
 \end{itemize}
 \end{definition}
 
@@ -179,23 +179,71 @@ with the four conditions (S1)--(S4) documented in the file's prose but not encod
 In particular, \texttt{\#print axioms StepType} should report an empty axiom dependency set, since the definition is purely type-level and references no theorem.
 \end{remark}
 
-\section{The polymer atlas: open question}
+\section{The polymer atlas: concrete commitment (Milestone 2.2 closure)}
 \label{sec:open}
 
-\texttt{work\_plan.md} Milestone~2.2 flags the polymer atlas $\Pcal_k$ as undefined: ``This milestone needs to either commit to a definition or document the choice as still-open.''
+\textbf{Status (2026-05-26): CLOSED.}  $\Pcal_k$ is now committed to a
+specific concrete representation; the previous ``open question'' is
+resolved.
 
-\begin{remark}[Recommendation: leave $\Pcal_k$ as an abstract type, document as still-open]
-\label{rem:poly-atlas}
-The framework at the present scope does not require a concrete representation of $\Pcal_k$.  $\Pcal_k$ appears as a field of $\Ical_k$ but is not acted upon by $\mathrm{Valid}_k$; it is also not referenced by the type of the block-spin step (Definition~\ref{def:step-type}).  Plausible concrete representations include:
-\begin{itemize}
-  \item a finite set of polymers (\texttt{Finset Polymer} in Lean);
-  \item a graph adjacency / plaquette-set structure indexing polymers;
-  \item an indicator function $\Pcal_k \colon \mathrm{Polymer} \to \mathrm{Bool}$;
-  \item a cardinality-bounded subtype $\{X : \mathrm{Polymer} \mid |X| \le N_k\}$.
-\end{itemize}
-Each choice commits to a downstream interface that Milestones~3.1--3.3 will need to consume when they produce concrete polymer activities and their KP estimates.  Committing now risks rework; deferring costs nothing structurally.
+\begin{definition}[Canonical polymer atlas]
+\label{def:poly-atlas}
+The polymer atlas $\Pcal_k$ at scale $k$ is the structure
+\begin{equation*}
+  \Pcal_k \;=\; \bigl(\, g_k, \,\delta_k, \,N_{\max}, \,\sigma, \,\gamma \,\bigr),
+\end{equation*}
+with components:
+\begin{enumerate}
+  \item \textbf{Smallness parameter} $\delta_k = g_k$ ($\alpha = 1$
+    convention; \texttt{outline.md} \S6.4 permits $\alpha \in (0,1)$,
+    and $\alpha = 1$ keeps $\delta_k$ $\mathbb{Q}'$-rational at every
+    pilot operating point).
+  \item \textbf{Plaquette enumeration cutoff} $N_{\max} = 16$ (default;
+    dominates the Brydges--Federbush tail at the project's $\mu_{\mathrm{plaq}}$).
+  \item \textbf{Shape classifier} $\sigma \colon \mathbb{Q}'_{\ge 0} \to \mathcal{S}$,
+    $\mathcal{S} = \{\mathrm{filament}, \mathrm{intermediate}, \mathrm{ball}\}$,
+    a partition of unity over admissible polymers by aspect ratio
+    $r = |X|_{\mathrm{phys}} / (a_k \cdot |X|_{\mathrm{plaq}})$:
+    \[
+      \sigma(r) = \begin{cases}
+        \mathrm{filament} & r \ge 4/5, \\
+        \mathrm{intermediate} & 1/5 < r < 4/5, \\
+        \mathrm{ball} & r \le 1/5.
+      \end{cases}
+    \]
+  \item \textbf{Gribov-region classifier} $\gamma \colon \mathbb{Q}'_{\ge 0} \to \mathcal{G}$,
+    $\mathcal{G} = \{\mathrm{sf}, \mathrm{buffer}, \mathrm{lf}\}$, the
+    three-region atlas determined by maximum-plaquette geodesic distance
+    $d = \max_p d(U_p, 1)$:
+    \[
+      \gamma(d) = \begin{cases}
+        \mathrm{sf} & d < \delta_k / 2, \\
+        \mathrm{buffer} & \delta_k / 2 \le d \le 2 \delta_k, \\
+        \mathrm{lf} & d > 2 \delta_k.
+      \end{cases}
+    \]
+    Matches the three-element cover $\{\Omsf, \Omlf, \Omcap\}$ of
+    \texttt{formal/sheaf-framework.tex} Definition 2.2.
+\end{enumerate}
+\end{definition}
 
-\textbf{Decision for the present milestone:} $\Pcal_k$ is left as an abstract type parameter \texttt{PolyAtlas} throughout the Lean formalization; the math paper describes it informally as ``the polymer atlas at scale $k$, with representation pinned in Phase~3''; the Python dataclass carries it as \texttt{Any} with a docstring.  The decision is recorded here, in \texttt{docs/sheaf-framework.md}'s polymer-atlas note, and in the Python module's docstring.  When Milestone~3.1 first needs a concrete representation, this remark is the place to update.
+\begin{remark}[Lean realization]
+\label{rem:poly-atlas-lean}
+The Lean structure \texttt{lean/YMGap/PolyAtlas.lean::CanonicalPolyAtlas}
+realizes Definition~\ref{def:poly-atlas} with $\mathbb{Q}'$-rational
+fields and decidable shape/Gribov classifiers; the sentinel theorem
+\texttt{poly\_atlas\_concrete\_commitment} verifies the four design
+choices at the SU(2) pilot operating points by \texttt{decide}, with
+empty axiom dependency set.  The Python mirror is
+\texttt{computations/inductive\_state.py::PolyAtlas}, a frozen
+dataclass with the same field semantics.
+
+The previous abstract type parameter \texttt{PolyAtlas : Type} in
+\texttt{lean/YMGap/RG/InductiveState.lean} is preserved as a
+polymorphic abstraction; the new
+\texttt{Canonical\-Poly\-Atlas} provides a concrete instance for that
+type parameter, so the closure is additive (no breaking change to
+existing Lean signatures).
 \end{remark}
 
 \section{Lean mirror}

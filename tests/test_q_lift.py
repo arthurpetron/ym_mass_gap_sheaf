@@ -127,13 +127,14 @@ class TestPilotEtaRationalBound:
         assert bound.eta_max_float > 1e-6, (
             f"expected nonzero η_max at g_0=0.30; got {bound.eta_max_float}"
         )
-        # Should equal 11 at d=10000 per the module's commentary.
-        assert bound.eta_max_numerator == 11, (
-            f"expected eta_max_numerator=11 at canonical pilot; "
+        # Should equal 3 at d=10000 (post-2026-05-26 c_λ Casimir-gap
+        # derivation; previously 11 under c_λ = 1/2).
+        assert bound.eta_max_numerator == 3, (
+            f"expected eta_max_numerator=3 at canonical pilot; "
             f"got {bound.eta_max_numerator}"
         )
-        # Total = K · 11 = 33 (not 44; K is number of transitions = 3).
-        assert bound.eta_total_numerator == 33
+        # Total = K · 3 = 9 (post-c_λ-upgrade; previously 33 under c_λ = 1/2).
+        assert bound.eta_total_numerator == 9
 
     def test_strong_coupling_fails(self):
         # At g_0 = 1.0 the small-field cluster expansion diverges; η_k = ∞.
@@ -194,9 +195,10 @@ class TestLeanWireInConsistency:
             denominator=CANONICAL_LEAN_PILOT_DENOMINATOR,
         )
         # If this changes, lean/YMGap/RG/SigmaHatPilot.lean must be updated.
-        # The hard-coded constants are eta_max_pilot := mkPos 11 10000.
-        assert (bound.eta_max_numerator, bound.denominator) == (11, 10000), (
-            "Lean SigmaHatPilot.eta_max_pilot is hard-coded as 11/10000. "
+        # Post-2026-05-26 c_λ Casimir-gap derivation: eta_max_pilot := mkPos 3 10000
+        # (was 11/10000 under the pre-upgrade c_λ = 1/2).
+        assert (bound.eta_max_numerator, bound.denominator) == (3, 10000), (
+            "Lean SigmaHatPilot.eta_max_pilot is hard-coded as 3/10000. "
             f"Python now produces {bound.eta_max_numerator}/{bound.denominator}. "
             "Update the Lean module to match (or adjust pilot parameters)."
         )
@@ -207,10 +209,10 @@ class TestLeanWireInConsistency:
             K=CANONICAL_LEAN_PILOT_K,
             denominator=CANONICAL_LEAN_PILOT_DENOMINATOR,
         )
-        # Lean hard-codes eta_total_pilot := mkPos 33 10000 (K=3 transitions
-        # times eta_max=11/10000).  If Python changes, update Lean.
-        assert (bound.eta_total_numerator, bound.denominator) == (33, 10000), (
-            "Lean SigmaHatPilot.eta_total_pilot is hard-coded as 33/10000. "
+        # Post-c_λ-upgrade: eta_total_pilot := mkPos 9 10000 (K=3 transitions
+        # times eta_max=3/10000; was 33/10000 under c_λ = 1/2).
+        assert (bound.eta_total_numerator, bound.denominator) == (9, 10000), (
+            "Lean SigmaHatPilot.eta_total_pilot is hard-coded as 9/10000. "
             f"Python now produces {bound.eta_total_numerator}/{bound.denominator}."
         )
 
@@ -221,10 +223,10 @@ class TestLeanWireInConsistency:
             convention=HeatKernelConvention.WILSON,
             denominator=WILSON_LEAN_PILOT_DENOMINATOR,
         )
-        # Lean hard-codes eta_max_pilot_wilson := mkPos 4 10000.  If Python
-        # changes, update lean/YMGap/RG/SigmaHatPilot.lean.
-        assert (bound.eta_max_numerator, bound.denominator) == (4, 10000), (
-            "Lean SigmaHatPilot.eta_max_pilot_wilson is hard-coded as 4/10000. "
+        # Post-c_λ-upgrade: eta_max_pilot_wilson := mkPos 1 10000
+        # (was 4/10000 under c_λ = 1/2).
+        assert (bound.eta_max_numerator, bound.denominator) == (1, 10000), (
+            "Lean SigmaHatPilot.eta_max_pilot_wilson is hard-coded as 1/10000. "
             f"Python now produces {bound.eta_max_numerator}/{bound.denominator}."
         )
 
@@ -235,8 +237,9 @@ class TestLeanWireInConsistency:
             convention=HeatKernelConvention.WILSON,
             denominator=WILSON_LEAN_PILOT_DENOMINATOR,
         )
-        # Lean hard-codes eta_total_pilot_wilson := mkPos 12 10000.
-        assert (bound.eta_total_numerator, bound.denominator) == (12, 10000), (
-            "Lean SigmaHatPilot.eta_total_pilot_wilson is hard-coded as 12/10000. "
+        # Post-c_λ-upgrade: eta_total_pilot_wilson := mkPos 3 10000
+        # (was 12/10000 under c_λ = 1/2).
+        assert (bound.eta_total_numerator, bound.denominator) == (3, 10000), (
+            "Lean SigmaHatPilot.eta_total_pilot_wilson is hard-coded as 3/10000. "
             f"Python now produces {bound.eta_total_numerator}/{bound.denominator}."
         )

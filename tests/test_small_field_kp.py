@@ -54,9 +54,16 @@ def test_convergent_flag_is_bool() -> None:
 # --------------------------------------------------------------------------
 
 
-def test_balaban_coefficient_is_one_half() -> None:
-    """Fiducial value from the Bałaban-literature shape."""
-    assert float(BAŁABAN_SPECTRAL_GAP_COEFF) == 0.5
+def test_balaban_coefficient_is_three_quarters() -> None:
+    """Derived 2026-05-26: c_λ = C_2(1/2) = 3/4, the SU(2) Casimir gap.
+
+    Replaces the previous c_λ = 1/2 fiducial; the new value identifies
+    c_λ with the smallest nonzero Casimir, matching the buffer-shell
+    `κ_canonical = 3/4` and the heat-kernel `kappa_from_casimir`.
+    See `small_field_kp.py::BAŁABAN_SPECTRAL_GAP_COEFF` docstring for
+    the full derivation chain.
+    """
+    assert float(BAŁABAN_SPECTRAL_GAP_COEFF) == 0.75
 
 
 def test_mu_connectivity_4d_is_log_8e() -> None:
@@ -65,11 +72,16 @@ def test_mu_connectivity_4d_is_log_8e() -> None:
 
 
 def test_convergence_threshold_su2_canonical() -> None:
-    """g_max = sqrt(c_λ / μ) ≈ 0.40 in canonical convention."""
+    """g_max = sqrt(c_λ / μ) ≈ 0.49 in canonical convention.
+
+    Post-2026-05-26 (c_λ = 3/4 derivation): g_max ≈ 0.494 (was 0.403
+    under c_λ = 1/2).  The +23% widening of the convergent regime is
+    the downstream effect of the Casimir-gap derivation.
+    """
     g_max = convergence_threshold_g(CANONICAL)
-    assert g_max == pytest.approx(math.sqrt(0.5 / MU_CONNECTIVITY_4D), rel=1e-6)
-    # Numerically ≈ 0.403.
-    assert 0.39 < g_max < 0.41
+    assert g_max == pytest.approx(math.sqrt(0.75 / MU_CONNECTIVITY_4D), rel=1e-6)
+    # Numerically ≈ 0.4935.
+    assert 0.48 < g_max < 0.50
 
 
 def test_convergence_threshold_wilson_is_2x_canonical() -> None:

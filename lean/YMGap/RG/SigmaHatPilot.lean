@@ -17,9 +17,11 @@ closure condition.
 Python (`computations.q_lift.pilot_eta_rational_bound`) produces:
 
   * **Canonical** at `g_0 = 0.30`, `K = 3`, `denominator = 10000`:
-    η_max numerator = 11, eta_total numerator = 33.
+    η_max numerator = 3, eta_total numerator = 9 (post-2026-05-26
+    c_λ Casimir-gap derivation; previously 11 and 33 under c_λ = 1/2).
   * **Wilson** at `g_0 = 0.50`, `K = 3`, `denominator = 10000`:
-    η_max numerator = 4, eta_total numerator = 12.
+    η_max numerator = 1, eta_total numerator = 3 (post-c_λ-upgrade;
+    previously 4 and 12).
 
 The Lean module hard-codes these.  A regression test
 (`tests/test_q_lift.py::TestLeanWireInConsistency`) enforces lockstep:
@@ -51,12 +53,14 @@ open YMGap.Constructive.RationalTail
 /-! ## Canonical-convention wire-in (g_0 = 0.30, K = 3, denominator = 10000) -/
 
 /-- Rational upper bound on `max_k η_k` from the canonical SU(2) pilot at
-`g_0 = 0.30`: `11/10000 = 1.1e-3`, dominates each of the three per-step
-η_k ≈ 1.0e-3 from above. -/
-def eta_max_pilot : Q' := Q'.mkPos 11 10000 (by decide)
+`g_0 = 0.30`: `3/10000 = 3e-4` (post-2026-05-26 c_λ Casimir-gap
+derivation; previously 11/10000 under c_λ = 1/2).  Dominates each of
+the three per-step η_k ≈ 2.7e-4 from above. -/
+def eta_max_pilot : Q' := Q'.mkPos 3 10000 (by decide)
 
-/-- Total budget after K = 3 transitions: `33/10000`. -/
-def eta_total_pilot : Q' := Q'.mkPos 33 10000 (by decide)
+/-- Total budget after K = 3 transitions: `9/10000` (post-c_λ-upgrade;
+previously 33/10000). -/
+def eta_total_pilot : Q' := Q'.mkPos 9 10000 (by decide)
 
 /-- σ̂_0 for the canonical wire-in: `(1 : Q')`. -/
 def sigma_hat_0_pilot : Q' := 1
@@ -64,9 +68,9 @@ def sigma_hat_0_pilot : Q' := 1
 /-- The canonical pilot's η-sequence — `truncated_const_3` at η_max. -/
 def eta_pilot : QSeq := truncated_const_3 eta_max_pilot
 
-/-- Closure condition for the canonical pilot: `33/10000 ≤ 1`. -/
+/-- Closure condition for the canonical pilot: `9/10000 ≤ 1`. -/
 theorem eta_total_le_sigma_0 : eta_total_pilot ≤ sigma_hat_0_pilot := by
-  show (33 : Int) * (1 : Int) ≤ (1 : Int) * (10000 : Int)
+  show (9 : Int) * (1 : Int) ≤ (1 : Int) * (10000 : Int)
   decide
 
 /-- Partial-sum bound for the canonical pilot.  Discharges the four
@@ -101,11 +105,13 @@ Parallel to the canonical instance.  Wilson's convergence window is
 wider (g_max_sf ≈ 0.81 vs canonical ≈ 0.40), so g_0 = 0.50 sits well
 inside it with per-step η ≈ 3e-4. -/
 
-/-- Wilson-pilot rational upper bound: `4/10000 = 4e-4`. -/
-def eta_max_pilot_wilson : Q' := Q'.mkPos 4 10000 (by decide)
+/-- Wilson-pilot rational upper bound: `1/10000 = 1e-4` (post-2026-05-26
+c_λ Casimir-gap derivation; previously 4/10000 under c_λ = 1/2). -/
+def eta_max_pilot_wilson : Q' := Q'.mkPos 1 10000 (by decide)
 
-/-- Wilson-pilot total bound: `12/10000`. -/
-def eta_total_pilot_wilson : Q' := Q'.mkPos 12 10000 (by decide)
+/-- Wilson-pilot total bound: `3/10000` (post-c_λ-upgrade;
+previously 12/10000). -/
+def eta_total_pilot_wilson : Q' := Q'.mkPos 3 10000 (by decide)
 
 /-- σ̂_0 for the Wilson wire-in: `(1 : Q')`. -/
 def sigma_hat_0_pilot_wilson : Q' := 1
@@ -113,10 +119,10 @@ def sigma_hat_0_pilot_wilson : Q' := 1
 /-- The Wilson pilot's η-sequence. -/
 def eta_pilot_wilson : QSeq := truncated_const_3 eta_max_pilot_wilson
 
-/-- Wilson closure condition: `12/10000 ≤ 1`. -/
+/-- Wilson closure condition: `3/10000 ≤ 1`. -/
 theorem eta_total_wilson_le_sigma_0 :
     eta_total_pilot_wilson ≤ sigma_hat_0_pilot_wilson := by
-  show (12 : Int) * (1 : Int) ≤ (1 : Int) * (10000 : Int)
+  show (3 : Int) * (1 : Int) ≤ (1 : Int) * (10000 : Int)
   decide
 
 /-- Wilson partial-sum bound, via the generic K = 3 truncated-constant

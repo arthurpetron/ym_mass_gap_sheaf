@@ -131,7 +131,7 @@ For the asymptotic-freedom direction ($g_{k+1} < g_k$), ε_sf < 0 → clipped to
 
 2. **Convergence-threshold tightening.** The current threshold $g_{\max} \approx 0.40$ may be conservative. Refined polymer-counting (e.g., [Cammarota 1982]'s improved bounds) could push it up to $\sim 0.5$ or more.
 
-3. **3.2 large-field upgrade.** 3.2's K_lf is still placeholder = 1.0. Analogous Brydges–Federbush analysis would give a g-dependent K_lf. Same shape; same downstream impact.
+3. ~~**3.2 large-field upgrade.** 3.2's K_lf is still placeholder = 1.0. Analogous Brydges–Federbush analysis would give a g-dependent K_lf. Same shape; same downstream impact.~~ **CLOSED 2026-05-26**: K_lf is now derived in `computations/large_field_kp.py` via heat-kernel character-tail + BF cluster expansion (`K_lf = q/(1-q)` with `q = μ_plaq · Z_t^upper`), and Lean-verified algebraically via `Sheaf.SU2KP.K_lf_canonical_derivation` / `K_lf_wilson_derivation`.
 
 4. **Lean closure**. `[P2.3-sf]` sorry remains open. With the literature-grounded formulas now in Python, the Q'-lift to Lean is more substantive — but the open question of which specific rational upper bound to commit to for a Lean closure remains.
 
