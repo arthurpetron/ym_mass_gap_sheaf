@@ -16,8 +16,9 @@
 \ProcessOptions\relax
 
 % ---------- Base class ----------
-% Keep it flexible: book, but openany, twoside so we control paging & headers.
-\LoadClass[11pt,openany,twoside]{book}
+% Tufte-style monograph: one-sided layout so the wide margin column is
+% always on the right and the page-number box always at top-left.
+\LoadClass[11pt,openany,oneside]{book}
 
 % ---------- Required packages ----------
 \RequirePackage{etoolbox}
@@ -57,8 +58,8 @@
   }
 \fi
 \ifarthur@widenotes
-  % Tufte-like letterpaper layout:
-  % textwidth=26pc, marginparsep=2pc, marginparwidth=12pc.
+  % Tufte-like letterpaper layout: text column on the left, wide note
+  % column on the right, on every page (one-sided book class).
   \geometry{
     letterpaper,
     left=1in,
@@ -69,12 +70,8 @@
     textheight=44\baselineskip,
     headheight=\baselineskip,
     headsep=2\baselineskip,
-    footskip=2\baselineskip,
-    asymmetric
+    footskip=2\baselineskip
   }
-\makeatletter
-  \@mparswitchfalse
-\makeatother
 \fi
 
 % ---------- Depth of numbering (Arthur wants details!) ----------
@@ -171,28 +168,16 @@
 }
 
 % ---------- Header rule (paper-edge-aligned, butted against the page box) ----------
-% The rule abuts the page-box's outer-vertical edge so that the box appears
-% to sit on (and touch) the rule, rather than the rule running through it.
-% Vertical position: at the page-box's baseline (`\rule[0pt]`), matching
-% the bottom edge of the printed page number.
+% One-sided layout: the page-box is always at top-left and the rule runs
+% from the box's right edge to the right paper edge.  Vertical position is
+% the page-box's baseline (`\rule[0pt]`), so the rule touches the bottom
+% of the printed page number.
 \newlength{\arthur@pageboxwidth}
 
-\newcommand{\arthur@headrule@LE}{%
+\newcommand{\arthur@headrule}{%
   \settowidth{\arthur@pageboxwidth}{\arthur@pagebox}%
   \makebox[0pt][l]{%
-    % Start the rule at exactly the right edge of the page-box:
-    %   left-paper-edge offset (2pt) + box width.
-    \hspace*{\dimexpr -\evensidemargin-1in+2pt+\arthur@pageboxwidth}%
-    \rule[0pt]{\dimexpr \paperwidth-4pt-\arthur@pageboxwidth}{0.4pt}%
-  }%
-}
-
-\newcommand{\arthur@headrule@RO}{%
-  \settowidth{\arthur@pageboxwidth}{\arthur@pagebox}%
-  \makebox[0pt][l]{%
-    % Rule runs from left-paper-edge (2pt inset) up to the left edge of
-    % the page-box (right-paper-edge - 2pt - box width).
-    \hspace*{\dimexpr -\oddsidemargin-1in+2pt}%
+    \hspace*{\dimexpr -\oddsidemargin-1in+2pt+\arthur@pageboxwidth}%
     \rule[0pt]{\dimexpr \paperwidth-4pt-\arthur@pageboxwidth}{0.4pt}%
   }%
 }
@@ -203,59 +188,64 @@
 \pagestyle{fancy}
 \fancyhf{} % clear
 
-% Left (even) pages: page box at absolute left; rule runs from box's right edge
-% to the right paper edge.
-\fancyhead[LE]{%
-  \arthur@headrule@LE
-  \makebox[0pt][l]{\hspace*{\dimexpr -\evensidemargin-1in+2pt}\arthur@pagebox}%
+% Single header style (one-sided): page box at far left of paper, then the
+% running label, then the rule running from the box's right edge to the
+% right paper edge.
+\fancyhead[L]{%
+  \arthur@headrule
+  \makebox[0pt][l]{\hspace*{\dimexpr -\oddsidemargin-1in+2pt}\arthur@pagebox}%
   \quad\arthur@headerlabel
 }
-% Right (odd) pages: page box at absolute right; rule runs from left paper edge
-% up to the box's left edge.
-\fancyhead[RO]{%
-  \arthur@headrule@RO
-  \makebox[0pt][r]{\hspace*{\dimexpr \textwidth+\oddsidemargin+1in-2pt}\arthur@pagebox}%
-  \arthur@headerlabel
-}
-% Keep each page to one path header; duplicating both inner and outer headers
-% makes long section paths collide in the compact layouts.
-\fancyhead[LO]{}
-\fancyhead[RE]{}
 
-% No footer page number: the boxed top-corner page label is the single source.
+% No footer page number: the boxed top-left label is the single source.
 \fancyfoot[C]{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
+
+% Chapter pages (which use \thispagestyle{plain}) and front-matter pages
+% otherwise default to plain.  Override the plain style so it also has
+% no footer page number; the boxed top-corner label still renders via
+% the fancy style on subsequent pages, but on the chapter's first page
+% the page is intentionally clean.
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}
 \makeatother
 
 % ---------- Title page ----------
+% In wide-notes mode the text column lives on the left half of the paper.
+% The default book-class \maketitle centers within the text column, which
+% looks off-center on the page.  Replace with an explicit paper-centered
+% title block that spans the full paper width.
 \makeatletter
 \ifarthur@widenotes
-\newcommand{\arthur@fullwidth@geometry}{%
-  \newgeometry{
-    left=1in,
-    right=1in,
-    top=1in,
-    bottom=1in,
-    headheight=\baselineskip,
-    headsep=2\baselineskip,
-    footskip=2\baselineskip
-  }%
-}
-  \let\arthur@book@maketitle\maketitle
   \renewcommand{\maketitle}{%
-    \arthur@fullwidth@geometry
-    \arthur@book@maketitle
-    \restoregeometry
-  }%
-  \let\arthur@book@tableofcontents\tableofcontents
-  \renewcommand{\tableofcontents}{%
+    \thispagestyle{empty}%
+    \null\vfil
+    \vskip 60\p@
+    \makebox[0pt][l]{%
+      % Jump from text-column origin to paper's left edge:
+      \hspace*{\dimexpr -\oddsidemargin-1in\relax}%
+      \hbox to \paperwidth{%
+        \hss
+        \begin{minipage}{0.72\paperwidth}\centering
+          {\LARGE\bfseries \@title \par}%
+          \vskip 2.5em
+          {\large \@author \par}%
+          \vskip 1.5em
+          {\large \@date \par}%
+        \end{minipage}%
+        \hss
+      }%
+    }%
+    \vfil\null
     \clearpage
-    \arthur@fullwidth@geometry
-    \arthur@book@tableofcontents
-    \clearpage
-    \restoregeometry
   }%
+  % TOC keeps the original (text-column) geometry; the dotted-leader layout
+  % already reads cleanly within the text column even though the page itself
+  % is asymmetric.
 \fi
 \makeatother
 

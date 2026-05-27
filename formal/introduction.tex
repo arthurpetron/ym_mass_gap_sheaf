@@ -129,12 +129,8 @@ whose axiom-gate is restricted to \texttt{[propext]}.
 \codeanchor{lean/YMGap/MassGap/SU2.lean::mass\_gap\_SU2}
 \end{theorem}
 
-\begin{infobox}[margin][title=One-line headline]
-$\massgap \ge 999/1000$ in dimensionless units, with a
-\texttt{[propext]}-only Lean witness.  Joint-envelope robustness:
-$\massgap \ge 994/1000$ across $5000$ uniform bootstrap draws of
-the four named fiducials.
-\end{infobox}
+% (margin infobox removed -- the headline statement is already plainly
+% rendered in the theorem above; the margin variant was redundant.)
 
 Equation~\eqref{eq:m0-numbers} is the manuscript headline.  At
 $\Qp$-resolution $/1000$ the canonical and Wilson pilots both
@@ -211,7 +207,7 @@ The inductive object of step~(1) — the typed state package $\Ik$
 together with the block-spin morphism and the degradation $\Thetak$ —
 sits at the heart of the proof:
 
-\begin{mainfigure}
+\begin{mainfigure}[!htbp]
 \centering
 \begin{tikzpicture}[
   every node/.style={align=center,font=\small},
@@ -266,7 +262,7 @@ $\Qp\text{-data} \stackrel{(1)}{\Longrightarrow} \sighinf \ge
 \emptyset$, with each arrow a $\Qp$-data theorem assuming the
 preceding analytic bundle.  The same composition, drawn:
 
-\begin{mainfigure}
+\begin{mainfigure}[!htbp]
 \centering
 \begin{tikzpicture}[
   every node/.style={align=center,font=\small},
