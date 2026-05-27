@@ -233,9 +233,9 @@ DEFAULT_PLOT_PATH: Final[str] = "visualizations/pilot/su2/uv-trajectory.svg"
 
 
 def plot_uv_trajectory(
-    k_max: int = 10,
+    k_max: int = 30,
     b: float = 2.0,
-    g_0: float = 0.50,
+    g_0: float = 0.45,
     t_choice: HeatKernelConvention = HeatKernelConvention.CANONICAL,
     output_path: str | None = None,
 ) -> str:
@@ -305,5 +305,7 @@ if __name__ == "__main__":
     print()
     print(f"  monotone g_k → 0:     {traj.converges_to_zero}")
     print(f"  median decay ratio:    {geometric_decay_rate(traj)}")
-    path = plot_uv_trajectory(g_0=0.30)
+    # For the manuscript figure, render at g_0 = 0.45 (near the small-field
+    # convergence threshold) where eta_k is large enough to plot visibly.
+    path = plot_uv_trajectory(g_0=0.45, k_max=30)
     print(f"  figure: {path}")

@@ -1,14 +1,11 @@
 % inductive-state.tikz
 %
-% The inductive state ℐ_k as a labeled tuple, with an outgoing arrow
-% to ℐ_{k+1} labeled by the block-spin step T_b — the 2.2→2.3 handoff.
-%
-% Companion to formal/inductive-state.tex (Definitions 2.1, 3.1, 4.1)
-% and docs/sheaf-framework.md.
+% The inductive state I_k as a labeled tuple, with an outgoing arrow
+% to I_{k+1} labeled by the block-spin step T_b.
 %
 % To preview standalone:
 %   pdflatex -shell-escape \
-%     "\documentclass{standalone}\usepackage{tikz,amsmath,amssymb}\begin{document}\input{inductive-state.tikz}\end{document}"
+%     "\documentclass{standalone}\usepackage{tikz,amsmath,amssymb}\usetikzlibrary{positioning,arrows.meta}\begin{document}\input{inductive-state.tikz}\end{document}"
 %
 % Intended use: \input{visualizations/structure/inductive-state.tikz}.
 
@@ -21,69 +18,57 @@
       draw=black!50, fill=gray!10, thick, rounded corners=4pt, dashed,
       inner sep=8pt, align=left, minimum width=5.4cm,
     },
-    field/.style={font=\small, anchor=west, inner sep=1pt},
-    title/.style={font=\bfseries\small, anchor=west, inner sep=1pt},
-    valid/.style={font=\footnotesize, color=green!40!black, anchor=west, inner sep=1pt},
-    open/.style={font=\footnotesize\itshape, color=orange!60!black, anchor=west, inner sep=1pt},
-    arrowlabel/.style={font=\small, fill=white, inner sep=2pt},
     stepArrow/.style={->, very thick, >=stealth, blue!60!black},
   ]
 
   %==================================================================
-  % ℐ_k box (the current scale)
+  % I_k box (the current scale)
   %==================================================================
-  \node[boxk] (Ik) {%
-    \begin{minipage}{5.4cm}\raggedright
-      {\bfseries $\mathcal{I}_k$ \;=\; the state at scale $k$}\\[3pt]
+  \node[boxk] (Ik) at (0,0) {%
+    \begin{minipage}{5.0cm}\raggedright
+      {\bfseries $\mathcal{I}_k$ \;=\; state at scale $k$}\\[3pt]
       $k \in \mathbb{N}$\\
-      $\widehat{\sigma}_k \in V$ \;\;{\footnotesize\color{green!40!black}(V1: $>0$)}\\
+      $\widehat{\sigma}_k \in V$
+        \,{\footnotesize\color{green!40!black}(V1: $>0$)}\\
       $g_k \in V$\\[2pt]
       $c^{\mathrm{sf}}_k = (\rho_{\mathrm{sf}}, K_{\mathrm{sf}}, \mathrm{sat})$\\
       $c^{\mathrm{lf}}_k = (\rho_{\mathrm{lf}}, K_{\mathrm{lf}}, \mathrm{sat})$\\
       $c^{\cap}_k\; = (\rho_{\cap}, K_{\cap}, \mathrm{sat})$\\
-      {\footnotesize\color{green!40!black}V3: $\rho_{\cap} = \min(\rho_{\mathrm{sf}}, \rho_{\mathrm{lf}})$,\\\hspace*{1.7em} $K_{\cap} \le K_{\mathrm{sf}} + K_{\mathrm{lf}}$}\\[2pt]
-      $\mathcal{P}_k$ \;{\footnotesize\itshape\color{orange!60!black}(atlas — open)}
+      {\footnotesize\color{green!40!black}V3:
+        $\rho_{\cap} = \min(\rho_{\mathrm{sf}}, \rho_{\mathrm{lf}})$,\;
+        $K_{\cap} \le K_{\mathrm{sf}} + K_{\mathrm{lf}}$}\\[2pt]
+      $\mathcal{P}_k$
+        \;{\footnotesize\itshape\color{green!40!black}(polymer atlas)}
     \end{minipage}
   };
 
   %==================================================================
-  % ℐ_{k+1} placeholder box (the 2.3 deliverable)
+  % I_{k+1} placeholder box at the next scale, well separated.
   %==================================================================
-  \node[boxnext, right=4.2cm of Ik] (Ik1) {%
-    \begin{minipage}{5.4cm}\raggedright
-      {\bfseries $\mathcal{I}_{k+1}$ \;=\; the state at scale $k+1$}\\[3pt]
-      $k+1$\\
-      $\widehat{\sigma}_{k+1} \ge \widehat{\sigma}_k - \eta(b, g_k)$ \,{\footnotesize\color{blue!60!black}(S4)}\\
+  \node[boxnext] (Ik1) at (10.5,0) {%
+    \begin{minipage}{5.0cm}\raggedright
+      {\bfseries $\mathcal{I}_{k+1}$ \;=\; state at scale $k\!+\!1$}\\[3pt]
+      $k\!+\!1$\\
+      $\widehat{\sigma}_{k+1} \ge \widehat{\sigma}_k - \eta(b, g_k)$
+        \,{\footnotesize\color{blue!60!black}(S4)}\\
       $g_{k+1}$\\[2pt]
-      $\rho_{\mathrm{sf}, k+1} \ge \rho_{\mathrm{sf}, k} - \varepsilon_{\mathrm{sf}}$ \,{\footnotesize\color{blue!60!black}(S1)}\\
-      $\rho_{\mathrm{lf}, k+1} \ge \rho_{\mathrm{lf}, k} - \varepsilon_{\mathrm{lf}}$ \,{\footnotesize\color{blue!60!black}(S2)}\\
-      $K_{\cap, k+1} \le K_{\cap, k} + \Delta_{\cap}$ \,{\footnotesize\color{blue!60!black}(S3)}\\[2pt]
+      $\rho_{\mathrm{sf}, k+1} \ge \rho_{\mathrm{sf}, k} - \varepsilon_{\mathrm{sf}}$
+        \,{\footnotesize\color{blue!60!black}(S1)}\\
+      $\rho_{\mathrm{lf}, k+1} \ge \rho_{\mathrm{lf}, k} - \varepsilon_{\mathrm{lf}}$
+        \,{\footnotesize\color{blue!60!black}(S2)}\\
+      $K_{\cap, k+1} \le K_{\cap, k} + \Delta_{\cap}$
+        \,{\footnotesize\color{blue!60!black}(S3)}\\[2pt]
       $\mathcal{P}_{k+1}$
     \end{minipage}
   };
 
   %==================================================================
-  % The step arrow: 2.2 → 2.3 handoff
+  % Step arrow: I_k -> I_{k+1}
   %==================================================================
   \draw[stepArrow] (Ik.east) -- (Ik1.west)
-    node[arrowlabel, midway, above=10pt] {%
-      \(T_b\) \,(block-spin step)%
-    }
-    node[arrowlabel, midway, below=10pt] {%
-      \footnotesize\itshape type stated here; term produced in 2.3%
-    };
-
-  %==================================================================
-  % Caption strip below the two boxes
-  %==================================================================
-  \node[font=\footnotesize, text width=12.5cm, align=center, below=8pt of Ik.south west, anchor=north west, xshift=0pt] {%
-    \textbf{Milestone 2.2 boundary.}\;
-    Boxes carry data; green annotations are the scale-$k$-local hypotheses
-    \textsc{Valid}$_k$ (V1, V2 implicit in $\mathrm{sat}$ fields, V3).\;
-    Blue annotations (S1--S4) are the cross-scale degradation budget,
-    \emph{the type of the step}, produced in Milestone 2.3.\;
-    Orange annotation is the open question on $\mathcal{P}_k$
-    (\texttt{formal/inductive-state.tex} \S5).%
-  };
+    node[font=\small, midway, above=3pt]
+      {$T_b$ \;(block-spin step)}
+    node[font=\footnotesize\itshape, midway, below=3pt, color=blue!60!black]
+      {type only};
 
 \end{tikzpicture}

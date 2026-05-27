@@ -87,11 +87,15 @@
 \makeatother
 
 % ---------- Chapter/Section formatting ----------
+% Chapter heading: suppress mid-word hyphenation in the large title
+% (the \Huge font is wide and otherwise hyphenates English words at
+% line breaks).  \raggedright lets long words push to the next line
+% rather than breaking inside them.
 \titleformat{\chapter}[hang]
-  {\huge\bfseries}
+  {\huge\bfseries\hyphenpenalty=10000\exhyphenpenalty=10000\raggedright}
   {\thechapter\;\;\rule[-0.3ex]{.5pt}{1.25em}}
   {1em}
-  {\Huge}
+  {\Huge\hyphenpenalty=10000\exhyphenpenalty=10000\raggedright}
   [\vspace{0.5ex}\rule{\textwidth}{0.5pt}\vspace{0.75ex}]
 \titlespacing*{\chapter}{0pt}{1.2ex plus .3ex}{1.0ex}
 
@@ -148,12 +152,13 @@
   \gdef\arthur@subsubsubsecname{}%
 }
 \newcommand{\subsubsubsectionmark}[1]{\gdef\arthur@subsubsubsecname{#1}}
+% The running header shows only the current chapter name.  Earlier
+% iterations of the class composed a chapter -> section -> subsection
+% path, but long chapter+section combinations overflowed the
+% available header width.  The chapter-only form fits cleanly on every
+% page; readers consult the TOC for finer-grained navigation.
 \newcommand{\arthur@path}{%
   \ifx\arthur@chapname\@empty\else \arthur@chapname\fi
-  \ifx\arthur@secname\@empty\else \,{\footnotesize$\rightarrow$}\, \arthur@secname\fi
-  \ifx\arthur@subsecname\@empty\else \,{\footnotesize$\rightarrow$}\, \arthur@subsecname\fi
-  \ifx\arthur@subsubsecname\@empty\else \,{\footnotesize$\rightarrow$}\, \arthur@subsubsecname\fi
-  \ifx\arthur@subsubsubsecname\@empty\else \,{\footnotesize$\rightarrow$}\, \arthur@subsubsubsecname\fi
 }
 \makeatother
 
@@ -172,13 +177,18 @@
 % from the box's right edge to the right paper edge.  Vertical position is
 % the page-box's baseline (`\rule[0pt]`), so the rule touches the bottom
 % of the printed page number.
+%
+% \arthur@pageboxinset controls the inset from the left paper edge to the
+% page-box's left edge.  2pc (24pt) keeps the box clear of typical
+% printer-margin clipping zones.
 \newlength{\arthur@pageboxwidth}
+\newcommand{\arthur@pageboxinset}{2pc}
 
 \newcommand{\arthur@headrule}{%
   \settowidth{\arthur@pageboxwidth}{\arthur@pagebox}%
   \makebox[0pt][l]{%
-    \hspace*{\dimexpr -\oddsidemargin-1in+2pt+\arthur@pageboxwidth}%
-    \rule[0pt]{\dimexpr \paperwidth-4pt-\arthur@pageboxwidth}{0.4pt}%
+    \hspace*{\dimexpr -\oddsidemargin-1in+\arthur@pageboxinset+\arthur@pageboxwidth}%
+    \rule[0pt]{\dimexpr \paperwidth-\arthur@pageboxinset-2pt-\arthur@pageboxwidth}{0.4pt}%
   }%
 }
 
@@ -188,12 +198,12 @@
 \pagestyle{fancy}
 \fancyhf{} % clear
 
-% Single header style (one-sided): page box at far left of paper, then the
-% running label, then the rule running from the box's right edge to the
-% right paper edge.
+% Single header style (one-sided): page box inset from the paper's left
+% edge, then the running label, then the rule running from the box's
+% right edge to the right paper edge.
 \fancyhead[L]{%
   \arthur@headrule
-  \makebox[0pt][l]{\hspace*{\dimexpr -\oddsidemargin-1in+2pt}\arthur@pagebox}%
+  \makebox[0pt][l]{\hspace*{\dimexpr -\oddsidemargin-1in+\arthur@pageboxinset}\arthur@pagebox}%
   \quad\arthur@headerlabel
 }
 

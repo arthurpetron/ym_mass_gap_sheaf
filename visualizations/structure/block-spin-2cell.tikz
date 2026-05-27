@@ -1,11 +1,8 @@
 % block-spin-2cell.tikz
 %
-% The block-spin step T_b : ℐ_k → ℐ_{k+1} with the four per-step
-% budget conditions S1–S4 of context.md §3.3, and the 2-cell Θ_k
-% as a separate typed object on the S4 leg.
-%
-% Companion to formal/block-spin-morphism.tex (Definitions 4.1,
-% 5.2, 6.1) and docs/block-spin-morphism.md.
+% The block-spin step T_b : I_k -> I_{k+1} with the four per-step
+% budget conditions S1-S4, and the 2-cell Theta_k as a separate
+% typed object on the S4 leg.
 %
 % To preview standalone:
 %   pdflatex \
@@ -16,40 +13,41 @@
 \begin{tikzpicture}[
     boxk/.style={
       draw=black!70, fill=blue!8, thick, rounded corners=4pt,
-      inner sep=8pt, align=left, minimum width=4.6cm,
+      inner sep=8pt, align=left, minimum width=5.4cm, minimum height=3.4cm,
     },
     boxnext/.style={
       draw=black!50, fill=gray!10, thick, rounded corners=4pt, dashed,
-      inner sep=8pt, align=left, minimum width=4.6cm,
+      inner sep=8pt, align=left, minimum width=5.4cm, minimum height=3.4cm,
     },
     boxtheta/.style={
       draw=purple!60!black, fill=purple!10, thick, rounded corners=4pt,
-      inner sep=6pt, align=left, minimum width=4.2cm,
+      inner sep=8pt, align=left, minimum width=6.5cm,
     },
     stepArr/.style={->, very thick, >=stealth, blue!60!black},
-    sCond/.style={->, thick, dashed, >=stealth, blue!50!black, shorten >=2pt},
-    thetaArr/.style={->, thick, >=stealth, purple!60!black},
-    legend/.style={font=\footnotesize, anchor=west, inner sep=1pt},
+    thetaArr/.style={->, thick, >=stealth, purple!60!black, dashed},
   ]
 
   %==================================================================
-  % ℐ_k (left), ℐ_{k+1} (right)
+  % Top row: I_k (left), I_{k+1} (right).  Spaced clearly apart with
+  % a wide gap for the T_b arrow + label.
   %==================================================================
-  \node[boxk] (Ik) {%
-    \begin{minipage}{4.6cm}\raggedright
-      {\bfseries $\mathcal{I}_k$} \;{\footnotesize\color{green!40!black}$\mathrm{Valid}_k$}\\[3pt]
+  \node[boxk] (Ik) at (0,0) {%
+    \begin{minipage}{5.0cm}\raggedright
+      {\bfseries $\mathcal{I}_k$}\;
+      {\footnotesize\color{green!40!black}$\mathrm{Valid}_k$}\\[3pt]
       $k,\; g_k$\\
       $\widehat{\sigma}_k$\\
       $c^{\mathrm{sf}}_k = (\rho_{\mathrm{sf},k}, K_{\mathrm{sf},k})$\\
       $c^{\mathrm{lf}}_k = (\rho_{\mathrm{lf},k}, K_{\mathrm{lf},k})$\\
-      $c^{\cap}_k\; = (\rho_{\cap,k}, K_{\cap,k})$\\
+      $c^{\cap}_k = (\rho_{\cap,k}, K_{\cap,k})$\\
       $\mathcal{P}_k$
     \end{minipage}
   };
 
-  \node[boxnext, right=5.2cm of Ik] (Ik1) {%
-    \begin{minipage}{4.6cm}\raggedright
-      {\bfseries $\mathcal{I}_{k+1}$} \;{\footnotesize\color{green!40!black}$\mathrm{Valid}_{k+1}$}\\[3pt]
+  \node[boxnext] (Ik1) at (10,0) {%
+    \begin{minipage}{5.0cm}\raggedright
+      {\bfseries $\mathcal{I}_{k+1}$}\;
+      {\footnotesize\color{green!40!black}$\mathrm{Valid}_{k+1}$}\\[3pt]
       $k\!+\!1,\; g_{k+1}$\\
       $\widehat{\sigma}_{k+1}$\\
       $c^{\mathrm{sf}}_{k+1} = (\rho_{\mathrm{sf},k+1}, K_{\mathrm{sf},k+1})$\\
@@ -60,52 +58,42 @@
   };
 
   %==================================================================
-  % Step arrow with refined-type label
+  % Step arrow between the two state boxes (T_b, block-spin step).
   %==================================================================
   \draw[stepArr] (Ik.east) -- (Ik1.west)
-    node[font=\small, fill=white, inner sep=2pt, midway, above=10pt]
-      {$T_b$ \,(block-spin step)}
-    node[font=\footnotesize, fill=white, inner sep=2pt, midway, below=10pt]
-      {\itshape\color{blue!60!black} StepTypeWithBudget --- 2.3 type; 3.1--3.4 term};
+    node[font=\small, midway, above=4pt]{$T_b$ \;(block-spin step)};
 
   %==================================================================
-  % S1–S3 budget conditions (small annotations near top)
+  % Theta_k box centered below, well clear of the state boxes.
   %==================================================================
-  \node[font=\footnotesize, color=blue!50!black, align=left,
-        above=24pt of Ik1.north west, anchor=south west, xshift=-4cm] (Sconds) {%
-    \textbf{Per-step budget conditions} (each at scale $k$ via $(b, g_k)$):\\
-    \quad (S1)\; $\rho_{\mathrm{sf},k+1} \ge \rho_{\mathrm{sf},k} - \varepsilon_{\mathrm{sf}}(b, g_k)$ \quad[3.1]\\
-    \quad (S2)\; $\rho_{\mathrm{lf},k+1} \ge \rho_{\mathrm{lf},k} - \varepsilon_{\mathrm{lf}}(b, g_k)$ \quad[3.2]\\
-    \quad (S3)\; $K_{\cap,k+1} \le K_{\cap,k} + \Delta_{\cap}(b, g_k)$ \quad[3.3]
-  };
-
-  %==================================================================
-  % Θ_k as a separate typed object, hanging off the S4 leg
-  %==================================================================
-  \node[boxtheta, below=1.4cm of $(Ik.south east)!0.5!(Ik1.south west)$] (Theta) {%
-    \begin{minipage}{4.4cm}\raggedright
-      {\bfseries $\Theta_k$} \,{\footnotesize(separate typed object)}\\[2pt]
-      $\sigma_{\mathrm{in}} = \widehat{\sigma}_k$\\
-      $\eta_k = \eta(b, g_k)$\\
+  \node[boxtheta] (Theta) at (5,-4.0) {%
+    \begin{minipage}{6.2cm}\raggedright
+      {\bfseries $\Theta_k$}\;
+      {\footnotesize(separate typed object, S4 obligation)}\\[3pt]
+      $\sigma_{\mathrm{in}} = \widehat{\sigma}_k$,\quad
+      $\eta_k = \eta(b, g_k)$,\quad
       $\sigma_{\mathrm{out}} = \widehat{\sigma}_{k+1}$\\[2pt]
-      {\footnotesize\color{purple!50!black}(S4)\; $\sigma_{\mathrm{in}} - \eta_k \le \sigma_{\mathrm{out}}$\quad[3.4]}
+      {\footnotesize\color{purple!50!black}(S4)\;
+       $\sigma_{\mathrm{in}} - \eta_k \le \sigma_{\mathrm{out}}$}
     \end{minipage}
   };
 
-  \draw[thetaArr, dashed] (Ik.south) .. controls +(-30:1cm) and +(-160:1cm) .. (Theta.west);
-  \draw[thetaArr, dashed] (Theta.east) .. controls +(20:1cm) and +(-150:1cm) .. (Ik1.south);
+  % 2-cells: dashed curves from each state box's bottom-INNER corner
+  % down to Theta's top corners.
+  \draw[thetaArr] (Ik.south east) to[out=-70,in=160] (Theta.north west);
+  \draw[thetaArr] (Ik1.south west) to[out=-110,in=20] (Theta.north east);
 
   %==================================================================
-  % Caption / boundary note
+  % Per-step budget conditions S1-S3 as a clean text block at the
+  % bottom, fully separated from the diagram above.
   %==================================================================
-  \node[font=\footnotesize, text width=13cm, align=center,
-        below=8pt of Theta.south, anchor=north] {%
-    \textbf{2.3 boundary.}\;
-    Conditions S1--S4 are \emph{per-step}: each relates scale-$k$ to scale-$(k+1)$
-    quantities via a budget at scale $k$.\;
-    \emph{No conjunct} mentions $\sum_k$, ``for all $k$'', or a uniform lower bound.\;
-    Global budget closure ($\sum_k \eta_k < \widehat{\sigma}_0$,
-    $\sum_k \Delta_{\cap} < \infty$) is Milestone 3.4.%
+  \node[font=\footnotesize, text width=14cm, align=left,
+        color=blue!50!black,
+        below=12pt of Theta.south, anchor=north] {%
+    \textbf{Per-step budget conditions} (each at scale $k$ via $(b, g_k)$):\quad
+    (S1)\; $\rho_{\mathrm{sf},k+1} \ge \rho_{\mathrm{sf},k} - \varepsilon_{\mathrm{sf}}^k$,\quad
+    (S2)\; $\rho_{\mathrm{lf},k+1} \ge \rho_{\mathrm{lf},k} - \varepsilon_{\mathrm{lf}}^k$,\quad
+    (S3)\; $K_{\cap,k+1} \le K_{\cap,k} + \Delta_{\cap}^k$.
   };
 
 \end{tikzpicture}

@@ -25,52 +25,52 @@
   ]
 
   %---------- Outer frame: Ω_k ----------
-  \draw[thick, gray!70] (-5.3,-3.5) rectangle (5.3,3.0);
-  \node[gray!70!black, font=\small] at (-4.7,2.65) {$\Omega_k$};
+  \draw[thick, gray!70] (-5.3,-3.5) rectangle (5.3,3.2);
+  \node[gray!70!black, font=\small] at (-4.7,2.85) {$\Omega_k$};
 
   %---------- Three-region cover ----------
   % Small-field (left)
-  \fill[sf] (-2.1,0.7) circle (2.15);
-  \node[blue!55!black, label] at (-3.9,2.0) {$\Omega_k^{\mathrm{sf}}$};
+  \fill[sf] (-2.1,0.9) circle (2.0);
+  \node[blue!55!black, label] at (-3.9,2.4) {$\Omega_k^{\mathrm{sf}}$};
 
   % Large-field (right)
-  \fill[lf] (2.1,0.7) circle (2.15);
-  \node[red!55!black, label] at (3.9,2.0) {$\Omega_k^{\mathrm{lf}}$};
+  \fill[lf] (2.1,0.9) circle (2.0);
+  \node[red!55!black, label] at (3.9,2.4) {$\Omega_k^{\mathrm{lf}}$};
 
   % Buffer (bottom, absorbing the pairwise overlap and a strip beyond)
-  \fill[buf] (0,-1.4) ellipse (3.6 and 1.55);
-  \node[green!40!black, label] at (4.2,-1.4) {$\Omega_k^{\cap}$};
+  \fill[buf] (0,-1.55) ellipse (3.5 and 1.40);
+  \node[green!40!black, label] at (4.0,-1.55) {$\Omega_k^{\cap}$};
 
   %---------- Sheaf data on each region ----------
   % 𝒜_k bound and 𝒮_k certificate on small-field
-  \node[blue!55!black, sheafdata] at (-2.8,0.85) {%
-    $s^{\mathrm{sf}} \!\in\! \mathcal{A}_k(\Omega_k^{\mathrm{sf}}\!, X)$\\[1pt]
+  \node[blue!55!black, sheafdata] at (-2.8,0.95) {%
+    $s^{\mathrm{sf}} \!\in\! \mathcal{A}_k$\\[1pt]
     $(\rho_{\mathrm{sf}}, K_{\mathrm{sf}}) \!\in\! \mathcal{S}_k$
   };
 
   % 𝒜_k and 𝒮_k on large-field
-  \node[red!55!black, sheafdata] at (2.8,0.85) {%
-    $s^{\mathrm{lf}} \!\in\! \mathcal{A}_k(\Omega_k^{\mathrm{lf}}\!, X)$\\[1pt]
+  \node[red!55!black, sheafdata] at (2.8,0.95) {%
+    $s^{\mathrm{lf}} \!\in\! \mathcal{A}_k$\\[1pt]
     $(\rho_{\mathrm{lf}}, K_{\mathrm{lf}}) \!\in\! \mathcal{S}_k$
   };
 
-  % Gluing on the buffer
-  \node[green!35!black, sheafdata] at (0,-1.2) {%
-    $s^{\cap} = \max\!\bigl(s^{\mathrm{sf}}\!, s^{\mathrm{lf}}\bigr)$\\[1pt]
+  % Gluing on the buffer — the "max" formula on top, the constants below.
+  \node[green!35!black, sheafdata] at (0,-1.30) {%
+    $s^{\cap} = \max\!\bigl(s^{\mathrm{sf}}\!, s^{\mathrm{lf}}\bigr)$
+  };
+  \node[green!35!black, sheafdata] at (0,-1.75) {%
     $(\rho_{\cap}, K_{\cap}) \!\in\! \mathcal{S}_k$
   };
-  \node[green!30!black, font=\scriptsize, align=center] at (0,-2.05) {%
-    domination glue\\(not equality)
+  \node[green!30!black, font=\scriptsize, align=center] at (0,-2.40) {%
+    domination glue \emph{(not equality)}
   };
 
   %---------- Domination arrows: sf and lf bounds feed into the buffer glue ----------
-  \draw[dom, blue!55!black]  (-1.6,-0.05) .. controls (-1.4,-0.7) and (-0.9,-0.9) .. (-0.55,-0.95);
-  \draw[dom, red!55!black]   ( 1.6,-0.05) .. controls ( 1.4,-0.7) and ( 0.9,-0.9) .. ( 0.55,-0.95);
-
-  %---------- Compatibility annotation ----------
-  \node[font=\scriptsize, gray!40!black, align=left] at (0,2.5) {%
-    Compatibility $s \rightleftharpoons (\rho, K)$ binds $\mathcal{A}_k$ to $\mathcal{S}_k$ at each $(U, X)$;\\
-    the analytic content of the framework lives in this predicate.%
-  };
+  % Arrows arc from the centers of the upper circles down into the
+  % buffer ellipse, NOT crossing the central max-formula label.
+  \draw[dom, blue!55!black]
+    (-2.1,0.9) .. controls (-2.6,-0.8) and (-1.8,-1.35) .. (-1.55,-1.40);
+  \draw[dom, red!55!black]
+    ( 2.1,0.9) .. controls ( 2.6,-0.8) and ( 1.8,-1.35) .. ( 1.55,-1.40);
 
 \end{tikzpicture}

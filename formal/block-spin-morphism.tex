@@ -157,16 +157,20 @@ This chapter treats all four as abstract parameters.
 \begin{definition}[The refined step type]
 \label{def:step-type-with-budget}
 Fix budget functions $(\varepsilon_{\mathrm{sf}}, \varepsilon_{\mathrm{lf}}, \Delta_{\cap}, \eta)$ as in Definition~\ref{def:budget-functions}.  The \emph{block-spin step type with budget} is
-\begin{equation}
+\begin{align}
   \label{eq:step-type-with-budget}
   \mathrm{StepTypeWithBudget}_b
-  \;=\;
-  \Bigl\{
-    \mathcal{T} \colon \{\Ical_k : \mathrm{Valid}_k(\Ical_k)\} \to \{\Ical_{k+1} : \mathrm{Valid}_{k+1}(\Ical_{k+1})\}
-    \;\Big|\;
-    \forall \Ical_k, \;\bigl(S_1 \wedge S_2 \wedge S_3 \wedge S_4\bigr)\bigl(\Ical_k, \mathcal{T}(\Ical_k)\bigr)
-  \Bigr\},
-\end{equation}
+  \;:=\;
+  \Bigl\{\,
+    \mathcal{T} \colon\;
+      &\{\Ical_k : \mathrm{Valid}_k(\Ical_k)\}
+      \;\longrightarrow\;
+      \{\Ical_{k+1} : \mathrm{Valid}_{k+1}(\Ical_{k+1})\}
+    \notag\\[-1pt]
+    &\Big|\;
+    \forall \Ical_k, \;\bigl(S_1 \wedge S_2 \wedge S_3 \wedge S_4\bigr)\bigl(\Ical_k,\, \mathcal{T}(\Ical_k)\bigr)
+  \,\Bigr\},
+\end{align}
 where, writing $\Ical_{k+1} = \mathcal{T}(\Ical_k)$ and abbreviating $\varepsilon_*^k := \varepsilon_*(b, g_k)$, $\Delta_{\cap}^k := \Delta_{\cap}(b, g_k)$, $\eta_k := \eta(b, g_k)$:
 \begin{description}
   \item[\textnormal{($S_1$) Small-field $\rho$-budget.}] $\rho_{\mathrm{sf}, k+1} \;\ge\; \rho_{\mathrm{sf}, k} - \varepsilon_{\mathrm{sf}}^k$.

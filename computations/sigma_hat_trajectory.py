@@ -531,7 +531,10 @@ def plot_sigma_hat_trajectory(
     if g_trajectory is None:
         from computations.overlap_measure import standard_su2_trajectory
 
-        traj = standard_su2_trajectory(k_max=10)
+        # Default to the canonical pilot (g_0 = 0.30, K = 10) so the rendered
+        # figure shows a budget that closes.  Earlier the default g_0 = 1.2
+        # produced an Σ η = ∞ blow-up with no plottable data.
+        traj = standard_su2_trajectory(k_max=10, g_0=0.30)
         g_trajectory = traj[0]
 
     result = sigma_hat_trajectory(g_trajectory, sigma_hat_initial, t_choice)
@@ -585,7 +588,7 @@ def plot_sigma_hat_trajectory(
 if __name__ == "__main__":
     from computations.overlap_measure import standard_su2_trajectory
 
-    traj = standard_su2_trajectory(k_max=5)
+    traj = standard_su2_trajectory(k_max=10, g_0=0.30)
     g_traj: list[float] = traj[0]
     result = sigma_hat_trajectory(g_traj, sigma_hat_initial=1.0)
     print(f"σ̂ trajectory (σ̂_0 = {result.sigma_hat_initial}, "
