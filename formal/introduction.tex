@@ -12,6 +12,7 @@
 \section{The Clay Millennium statement}
 \label{sec:clay-statement}
 
+\marginkey{Clay statement}%
 The Clay Millennium Problem on Yang--Mills existence and mass gap,
 posed by Jaffe and Witten in 2006~\cite{JaffeWitten2006}, asks for
 the following.
@@ -56,6 +57,7 @@ $\{\muk\}_{k}$ and the verification of OS at the continuum limit
 \section{Specialization to \texorpdfstring{$\SUtwo$}{SU(2)}}
 \label{sec:su2-specialization}
 
+\marginkey{Why $\SUtwo$}%
 We specialize~(C1)--(C3) to $G = \SUtwo$, the smallest non-abelian
 compact simple gauge group, for three reasons.
 
@@ -79,8 +81,7 @@ compact simple gauge group, for three reasons.
     (small-field convergence threshold, polymer-residual constant)
     are isolated into named fiducials whose audit and refinement
     track stands ready for $\SUthree$
-    (Chapter~\ref{ch:mass-gap-discussion} and the Phase-10 roadmap
-    in \codepath{work\_plan.md}).
+    (Chapter~\ref{ch:mass-gap-discussion}).
 \end{enumerate}
 
 The $\SUtwo$ instance of (C3) reads:
@@ -100,6 +101,7 @@ for some explicit, computable $\massgap > 0$, with $m := \inf
 \section{What we prove}
 \label{sec:what-we-prove}
 
+\marginkey{Headline theorem}%
 The main theorem of this monograph is the following.
 
 \begin{theorem}[$\SUtwo$ mass gap; constructive
@@ -126,6 +128,13 @@ Both numerators are certified by a machine-checked Lean witness
 whose axiom-gate is restricted to \texttt{[propext]}.
 \codeanchor{lean/YMGap/MassGap/SU2.lean::mass\_gap\_SU2}
 \end{theorem}
+
+\begin{infobox}[margin][title=One-line headline]
+$\massgap \ge 999/1000$ in dimensionless units, with a
+\texttt{[propext]}-only Lean witness.  Joint-envelope robustness:
+$\massgap \ge 994/1000$ across $5000$ uniform bootstrap draws of
+the four named fiducials.
+\end{infobox}
 
 Equation~\eqref{eq:m0-numbers} is the manuscript headline.  At
 $\Qp$-resolution $/1000$ the canonical and Wilson pilots both
@@ -168,6 +177,7 @@ collapsed to an explicit number.
 \section{The proof, in one paragraph}
 \label{sec:proof-one-paragraph}
 
+\marginkey{Proof composition}%
 The proof composes three big constructions.
 
 \begin{enumerate}
@@ -197,16 +207,83 @@ The proof composes three big constructions.
     bound~\eqref{eq:su2-mass-gap}.
 \end{enumerate}
 
+The inductive object of step~(1) — the typed state package $\Ik$
+together with the block-spin morphism and the degradation $\Thetak$ —
+sits at the heart of the proof:
+
+\begin{mainfigure}
+\centering
+\begin{tikzpicture}[
+  every node/.style={align=center,font=\small},
+  state/.style={rectangle,rounded corners=2pt,draw,thick,
+    inner sep=8pt,minimum height=20mm,minimum width=44mm,fill=green!5},
+  budget/.style={rectangle,rounded corners=2pt,draw,thick,densely dashed,
+    inner sep=6pt,minimum height=12mm,minimum width=44mm,fill=orange!8},
+  arr/.style={-{Stealth[length=2.4mm]},thick},
+  twocell/.style={-{Stealth[length=2.4mm]},thick,double,double distance=1.2pt},
+  ann/.style={font=\scriptsize\itshape,gray!40!black}
+]
+  \node[state] (Ik)   at (0,0)
+    {$\Ik = (\Omk,\; \muk,\; \Acal_k,\; \Scal_k,\; \sighk)$\\[1pt]
+     \scriptsize config space, measure, bound-witnesses,\\
+     \scriptsize KP certs, renorm.\ string tension};
+  \node[state] (Ikp1) at (8,0)
+    {$\Ik[k+1]$\\[1pt] \scriptsize same shape, scale $k+1$};
+  \node[budget] (theta) at (4,-2.6)
+    {$\Thetak \colon \sighk \;\Rightarrow\; \sighk - \etak$\\
+     \scriptsize $\etak \in \Qp$ degradation;\;
+     $\sum_k \etak < \sigma_0$};
+
+  \draw[arr] (Ik) -- node[above,ann]{$\Tb$: block-spin morphism} (Ikp1);
+  \draw[twocell] (Ik.south)+(0.5,0) to[bend right=18] (theta.north -| 3.5,-2.0);
+  \draw[twocell] (theta.north -| 4.5,-2.0) to[bend right=18] ($(Ikp1.south)+(-0.5,0)$);
+\end{tikzpicture}
+\caption{The inductive state and its block-spin transport.  The state
+package $\Ik$ at scale $k$ is mapped to its scale-$(k+1)$ counterpart
+by the block-spin morphism $\Tb$.  The $\Qp$-rational 2-cell
+$\Thetak$ records the per-step degradation $\etak$ of the
+renormalized string tension; finiteness of $\sum_k \etak$ in $\Qp$,
+strictly below $\sigma_0$, is the make-or-break inductive condition.}
+\label{fig:inductive-state}
+\end{mainfigure}
+
 The end-to-end composition is
 $\Qp\text{-data} \stackrel{(1)}{\Longrightarrow} \sighinf \ge
 \varepsilon > 0 \stackrel{(2)}{\Longrightarrow} \mathrm{OS4\ cluster}
 \stackrel{(3)}{\Longrightarrow} \sigma(\Hop) \cap (0, \massgap) =
 \emptyset$, with each arrow a $\Qp$-data theorem assuming the
-preceding analytic bundle.
+preceding analytic bundle.  The same composition, drawn:
+
+\begin{mainfigure}
+\centering
+\begin{tikzpicture}[
+  every node/.style={align=center,font=\small},
+  box/.style={rectangle,rounded corners=2pt,draw,thick,
+    inner sep=6pt,minimum height=11mm,minimum width=29mm,fill=blue!4},
+  arr/.style={-{Stealth[length=2.4mm]},thick},
+  ann/.style={font=\scriptsize\itshape,gray!50!black}
+]
+  \node[box] (qp)   at (0,0)    {$\Qp$-rational\\ pilot data\\ ($K=3$ truncation)};
+  \node[box] (sig)  at (4.4,0)  {$\sighinf \ge \varepsilon > 0$\\ $\varepsilon \in \Qp$};
+  \node[box] (os4)  at (8.8,0)  {OS4 cluster\\ with explicit rate\\ $\sighinf$};
+  \node[box] (gap)  at (13.2,0) {$\sigma(\Hop) \cap (0, \massgap)$\\ $= \emptyset$\\ ($\massgap \ge 999/1000$)};
+
+  \draw[arr] (qp)  -- node[above,ann]{(1) inductive step} node[below,ann]{Parts II--III} (sig);
+  \draw[arr] (sig) -- node[above,ann]{(2) continuum} node[below,ann]{Part IV (OS axioms)} (os4);
+  \draw[arr] (os4) -- node[above,ann]{(3) cluster $\to$ gap} node[below,ann]{Part IV (OS recon.)} (gap);
+\end{tikzpicture}
+\caption{Proof-composition flow.  Each arrow is a $\Qp$-data
+theorem assuming the analytic bundle of its predecessor.  The
+left-most box is finite, computable, machine-verifiable; the
+right-most box is the Clay-statement conclusion specialized to
+$\SUtwo$.}
+\label{fig:proof-composition}
+\end{mainfigure}
 
 \section{Constructivity, in practice}
 \label{sec:constructivity}
 
+\marginkey{Constructive $\Qp$}%
 The word ``constructive'' is used in this monograph in a precise
 technical sense.
 
@@ -252,13 +329,15 @@ the $\Qp$-data layer.
 carries a Lean signature panel below its headline theorem,
 listing the relevant Lean term and its \codepath{\#print axioms}
 output.  The audit is reproducible via \codepath{make lean-audit}
-(\codepath{scripts/lean\_axiom\_audit.py}), and the manifest is
-checked in CI against the baseline in
-\codepath{lean/AXIOM\_AUDIT.md}.
+(\codepath{scripts/lean\_axiom\_audit.py}); the manifest is checked
+in continuous integration against a versioned baseline so that any
+drift in the axiom budget surfaces immediately, before the affected
+theorem is allowed to land.
 
 \section{Fiducials and their robustness}
 \label{sec:fiducials-overview}
 
+\marginkey{Four fiducials}%
 Four fiducial constants enter the proof of
 Theorem~\ref{thm:su2-mass-gap}.  We list them here with their
 status; full provenance lives in
@@ -306,6 +385,7 @@ defensible envelopes.}
 \section{Code, Lean, and reproducibility}
 \label{sec:code-and-lean}
 
+\marginkey{Code as artifact}%
 This monograph is companion to a working code repository.  Every
 theorem corresponds to a Python or Lean entry point, and every
 non-trivial constant in the manuscript has a corresponding
