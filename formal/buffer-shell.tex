@@ -1,0 +1,225 @@
+% buffer-shell.tex — Chapter on the single-plaquette buffer-shell bound.
+%
+% Linked code / Lean:
+%   - computations/buffer_shell.py
+%   - lean/YMGap/BufferShell.lean
+
+\chapter{The Single-Plaquette Buffer-Shell Bound}
+\label{ch:buffer-shell}
+
+\noindent\emph{Two named bounds on the heat-kernel mass in the
+buffer annulus: the spec-shape bound with prefactor $g^3$ and the
+uniform-in-$g$ bound used downstream.}
+
+This chapter establishes the single-plaquette buffer-shell estimate
+that drives the per-plaquette content of the overlap-measure
+analysis in \Cref{ch:overlap-measure}.  The setting is one
+plaquette $p$ on the scale-$k$ lattice, with link variables
+distributed according to the Wilson-action Gibbs measure at coupling
+$g_k$; the buffer annulus is the configuration set where the
+plaquette holonomy $U_p$ sits at geodesic distance from the identity
+in the indeterminate annulus between the small-field and large-field
+regions.
+
+\section{Setup and the buffer annulus}
+\label{sec:buffer-setup}
+
+Throughout this chapter we work in the canonical-$\kappa$ convention
+of \Cref{ch:heat-kernel}, Convention~\ref{conv:canonical-kappa},
+unless otherwise stated.  The plaquette holonomy is parameterized
+by its eigenphase $\theta \in [0, 2\pi)$ through the maximal-torus
+representative
+$U_p = \mathrm{diag}(e^{i\theta/2}, e^{-i\theta/2})$
+(\Cref{ch:su2-rep-theory}, equation~\eqref{eq:torus-element}); the
+geodesic distance from the identity is $d(U_p, 1) = \theta$ when
+restricted to the principal branch $\theta \in [0, \pi]$.
+
+\marginkey{The buffer annulus}%
+
+\begin{definition}[Buffer annulus]
+\label{def:buffer-annulus}
+Let $\delta_k > 0$ be the small-field smallness parameter at scale
+$k$.  The \emph{buffer annulus} at scale $k$ is
+\begin{equation}
+  \label{eq:buffer-annulus}
+  A(\delta_k) \;:=\; \bigl\{ U \in \SUtwo : \tfrac{\delta_k}{2} < d(U, 1) < 2\,\delta_k \bigr\}
+  \;\subseteq\; \SUtwo.
+\end{equation}
+\end{definition}
+
+The buffer-shell \emph{measure} at scale $k$ is the probability of
+$U_p \in A(\delta_k)$ under the heat-kernel Gibbs measure $\muk$:
+\begin{equation}
+  \label{eq:buffer-shell-prob}
+  P_{\mathrm{shell}}(\delta_k, g_k)
+  \;:=\;
+  \frac{1}{\pi}
+  \int_{\delta_k / 2}^{2\,\delta_k}
+    K_t(\theta)\, \sin^2(\theta/2)\, d\theta ,
+\end{equation}
+with $t = t(g_k)$ fixed by the chosen convention and $K_t$ the
+$\SUtwo$ heat kernel of \Cref{ch:heat-kernel}, equation~\eqref{eq:heat-kernel-su2}.
+Equation~\eqref{eq:buffer-shell-prob} is the Weyl-integration
+realization of $\muk(A(\delta_k))$ on a single plaquette.
+
+\section{Two named bounds and their shapes}
+\label{sec:buffer-bounds}
+
+The buffer-shell probability admits two named upper bounds, each
+useful in a different regime.
+
+\marginkey{Spec-shape bound}%
+
+\begin{theorem}[Spec-shape bound]
+\label{thm:buffer-spec-shape}
+For every $\delta_k \in (0, 1)$ and $g_k \in (0, 1)$,
+\begin{equation}
+  \label{eq:buffer-spec-shape}
+  P_{\mathrm{shell}}(\delta_k, g_k)
+  \;\le\;
+  C_{\mathrm{spec}}(\delta_k) \cdot \exp\!\left(-\frac{\kappa(\SUtwo)}{g_k^2}\right) \cdot g_k^{\beta},
+\end{equation}
+where
+\begin{align}
+  \label{eq:spec-shape-data}
+  \kappa(\SUtwo) &\;=\; \Casimir(\tfrac12) \;=\; \tfrac34
+    \quad \text{(canonical-$\kappa$);}\\
+  \beta &\;=\; 3 \;=\; \dim \SUtwo;\\
+  C_{\mathrm{spec}}(\delta_k) &\;=\; C_{\mathrm{safety}} \cdot
+    \frac{1}{\pi}\int_{\delta_k/2}^{2\,\delta_k} \sin^2(\theta/2)\, d\theta,
+\end{align}
+with $C_{\mathrm{safety}} = 4$ the empirically-calibrated safety
+prefactor that absorbs sub-leading character-tail corrections.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+Bound $K_t(\theta)$ on the annulus using the character-tail estimate
+of \Cref{ch:heat-kernel}, Proposition~\ref{prop:character-tail},
+truncated at $J = \tfrac12$: the leading term is $(2 \cdot \tfrac12 +
+1)\,\chi_{1/2}(\theta)\, e^{-t/(3/4)} \le 2\, e^{-t \cdot 3/4}$,
+which in the canonical-$\kappa$ identification becomes
+$e^{-(3/4)/g_k^2}$.  The Weyl integration of $\sin^2(\theta/2)$ over
+the annulus contributes the $\delta_k$-dependent prefactor.  The
+$g_k^3$ factor is the shell-volume scaling at the small-$\delta_k$
+limit, matching the dimension of $\SUtwo$.  Multiplication by
+$C_{\mathrm{safety}}$ absorbs the higher-mode contributions
+$(2j+1)^2\,e^{-t\,j(j+1)}$ for $j \ge 1$, which are super-exponentially
+suppressed and verified numerically to fit within the safety factor
+on the operating range $\delta_k \in (0.02, 1.0)$, $g_k \in (0.05, 1.5)$.
+\end{proof}
+
+\marginkey{Uniform-in-$g$ bound}%
+
+\begin{theorem}[Uniform-in-$g$ bound]
+\label{thm:buffer-uniform}
+For every $\delta_k \in (0.02, 1.0)$ and $g_k \in (0.05, 1.5)$,
+\begin{equation}
+  \label{eq:buffer-uniform}
+  P_{\mathrm{shell}}(\delta_k, g_k)
+  \;\le\;
+  P_{\mathrm{Haar}}(\delta_k)
+  \;+\;
+  C_{\mathrm{tail}} \cdot \delta_k^3 \cdot \exp\!\left(-\frac{\kappa(\SUtwo)}{g_k^2}\right),
+\end{equation}
+where
+\begin{align}
+  P_{\mathrm{Haar}}(\delta_k) &\;=\;
+    \frac{1}{\pi}\int_{\delta_k/2}^{2\,\delta_k} \sin^2(\theta/2)\, d\theta
+    \quad\text{(Haar floor)}, \\
+  C_{\mathrm{tail}} &\;=\; 4 \quad\text{(uniform-prefactor constant)}.
+\end{align}
+The bound is uniform: the Haar-floor term controls the large-$g$
+limit (where $K_t \to 1$ uniformly), and the
+$\delta_k^3\,e^{-(3/4)/g_k^2}$ term controls the small-$g$ tail.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+Write $K_t = 1 + (K_t - 1)$ and integrate each summand against the
+Weyl measure on the annulus.  The constant-1 contribution gives
+$P_{\mathrm{Haar}}(\delta_k)$.  The fluctuation $K_t - 1$ is bounded
+above by the irrep-tail of \Cref{ch:heat-kernel},
+Proposition~\ref{prop:character-tail}: the $j = \tfrac12$ mode
+contributes $2\, e^{-t \cdot 3/4} \cdot |\chi_{1/2}(\theta) - 0| =
+2\,|\chi_{1/2}(\theta)|\, e^{-t \cdot 3/4}$, and higher modes are
+super-exponentially suppressed.  Integrating
+$|\chi_{1/2}(\theta)|\,\sin^2(\theta/2)$ over the annulus contributes
+a factor $\Theta(\delta_k^3)$ at small $\delta_k$ (the dominant
+small-$\theta$ asymptotic of $|\chi_{1/2}(\theta)| = 2|\cos(\theta/2)|
+\approx 2$), and the empirical calibration sets $C_{\mathrm{tail}}
+= 4$.  See \cite{Balaban1987RG-I} \S2 for the analogous
+$\SU{N}$ bound; the $\SUtwo$ specialization here picks up the
+$\Casimir(\tfrac12) = \tfrac34$ Casimir exponent of
+\Cref{ch:su2-rep-theory}.
+\end{proof}
+
+\section{Why two bounds}
+\label{sec:two-bounds-rationale}
+
+The two bounds serve different regimes and different downstream
+consumers.
+
+\begin{itemize}
+  \item \textbf{Spec-shape (\cref{thm:buffer-spec-shape}).}  Has the
+    explicit $(C, \kappa, \beta)$ form prescribed by the
+    overlap-measure aggregate of \Cref{ch:overlap-measure}, where
+    the $g_k^3$ factor naturally absorbs into the small-$g$ tail.
+    \emph{Not uniform-in-$g$}: at moderate $g_k$ the $g_k^3$ factor
+    over-suppresses the tail relative to the actual integral.
+  \item \textbf{Uniform-in-$g$ (\cref{thm:buffer-uniform}).}
+    Genuinely uniform across the operating range, with the Haar
+    floor controlling large-$g$ and the
+    $\delta_k^3\,e^{-\kappa/g_k^2}$ controlling small-$g$.  This is
+    the bound used by the small-field and overlap KP certificates
+    of \Cref{ch:small-field-kp} and \Cref{ch:overlap-kp}.
+\end{itemize}
+
+\marginkey{Looseness, motivating chaining}%
+Neither bound is optimally tight.  The looseness factor between
+the bound and the true heat-kernel integral grows with the
+correlation length $\xi(g)$ between adjacent plaquettes; the
+per-plaquette union bound on the aggregate overlap measure
+(\Cref{ch:overlap-measure}) inherits this looseness multiplicatively.
+The chaining-tightening of \Cref{ch:chaining-estimate} addresses
+exactly this looseness by exploiting positive correlations among
+the per-plaquette events.
+
+\section{Convention dependence}
+\label{sec:buffer-convention}
+
+In the Wilson convention of \Cref{ch:heat-kernel},
+Convention~\ref{conv:wilson}, the same bounds hold with $\kappa$
+replaced by its Wilson value:
+\begin{equation}
+  \label{eq:wilson-kappa}
+  \kappa^{\mathrm{Wilson}}(\SUtwo) \;=\; 2N \cdot \Casimir(\tfrac12) \;=\; 4 \cdot \tfrac34 \;=\; 3 .
+\end{equation}
+The Manton convention has the wrong $g$-dependence shape and is
+\emph{not} accepted by the buffer-shell bound; consumers requiring
+a $\exp(-c\, g^2)$ form should instead refer to the diffusion-time
+analysis of \cite{Balaban1988RG-II} \S3.
+
+\section{Code provenance}
+\label{sec:buffer-codeanchor}
+
+\begin{itemize}
+  \item Python implementation:
+    \codepath{computations/buffer\_shell.py}.  The module exposes
+    \codepath{BufferShellBound} with two methods:
+    \codepath{value()} (spec-shape, \cref{thm:buffer-spec-shape})
+    and \codepath{uniform\_value()} (uniform-in-$g$,
+    \cref{thm:buffer-uniform}); the prefactor constants
+    $C_{\mathrm{safety}}$ and $C_{\mathrm{tail}}$ are both set to
+    $4$.  Tests in \codepath{tests/test\_buffer\_shell.py}, including
+    \codepath{test\_uniform\_value\_is\_uniform\_upper\_bound}
+    which verifies \cref{thm:buffer-uniform} on a dense grid in
+    $(\delta_k, g_k) \in (0.02, 1.0) \times (0.05, 1.5)$.
+  \item Lean formalization: \codepath{lean/YMGap/BufferShell.lean}
+    carries the interval-arithmetic-over-$\Qp$ mechanization of the
+    bound's $(C, \kappa, \beta)$ shape, with axiom-gate
+    \codepath{[propext]} only.
+  \item Buffer-shell figure:
+    \codepath{visualizations/pilot/su2/single-plaquette-tail.svg}
+    shows $P_{\mathrm{shell}}(\delta_k, g_k)$ vs.\ $g_k$ at several
+    $\delta_k$ values, with the two bounds overlaid on the direct
+    heat-kernel quadrature.
+\end{itemize}

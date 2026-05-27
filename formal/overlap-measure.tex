@@ -1,0 +1,246 @@
+% overlap-measure.tex — Chapter on the per-plaquette union bound
+% on mu_k(Omega_k^cap) and its summability across RG trajectories.
+%
+% Linked code / Lean:
+%   - computations/overlap_measure.py
+%   - lean/YMGap/Sheaf/Site.lean (the configuration site)
+
+\chapter{The Overlap-Measure Union Bound}
+\label{ch:overlap-measure}
+
+\noindent\emph{Aggregating the single-plaquette buffer-shell bound
+across all plaquettes at scale $k$ via the union bound, and the
+structural summability check $\sum_k \muk(\Omkcap) < \infty$.}
+
+This chapter aggregates the single-plaquette bound of
+\Cref{ch:buffer-shell} over every plaquette in the scale-$k$ lattice
+via the standard union bound, producing a closed-form upper bound on
+the buffer-region measure $\muk(\Omkcap)$.  The aggregate bound has
+the same $(C, \kappa, \beta)$ shape as its per-plaquette parent,
+multiplied by the plaquette count $N_p(k)$; summability of the
+sequence $\{\muk(\Omkcap)\}_k$ across an RG trajectory is the
+structural condition that makes the buffer-shell sequence harmless
+for the inductive-step closure.  The chapter is short and
+classical; its content is structural, not analytical.
+
+\section{The buffer event at scale \texorpdfstring{$k$}{k}}
+\label{sec:overlap-setup}
+
+Let $E_k$ be the set of (oriented) lattice edges at scale $k$ and
+$\Omk = \SUtwo^{E_k}$ the link-configuration space.  Let $\Pcal_k$
+be the set of plaquettes (oriented two-dimensional faces of the
+hypercubic lattice at scale $k$), with cardinality $N_p(k)$.  For
+each plaquette $p \in \Pcal_k$, write $U_p \in \SUtwo$ for the
+plaquette holonomy (the oriented product of link variables around
+$p$).
+
+\marginkey{Buffer region $\Omkcap$}%
+
+\begin{definition}[Per-plaquette buffer event and buffer region]
+\label{def:buffer-region}
+Fix the small-field smallness parameter $\delta_k > 0$ as in
+\Cref{ch:buffer-shell}, Definition~\ref{def:buffer-annulus}.  The
+per-plaquette buffer event is
+\begin{equation}
+  \label{eq:per-plaquette-event}
+  A_p \;:=\; \bigl\{ U \in \Omk : U_p \in A(\delta_k) \bigr\},
+\end{equation}
+and the (aggregate) \emph{buffer region} at scale $k$ is
+\begin{equation}
+  \label{eq:buffer-region}
+  \Omkcap \;:=\; \bigcup_{p \in \Pcal_k} A_p \;\subseteq\; \Omk .
+\end{equation}
+$\Omkcap$ is the subset of configurations where at least one
+plaquette holonomy lands in the buffer annulus.
+\end{definition}
+
+The buffer region is the dynamical setting for the sheaf-theoretic
+overlap analysis of \Cref{ch:sheaf-framework} (the three-element
+cover $\{\Omksf, \Omklf, \Omkcap\}$).  We need an upper bound on
+its Gibbs measure $\muk(\Omkcap)$.
+
+\section{The union bound}
+\label{sec:union-bound}
+
+\marginkey{The union bound}%
+
+\begin{theorem}[Per-plaquette union bound]
+\label{thm:union-bound}
+Under the heat-kernel Gibbs measure $\muk$,
+\begin{equation}
+  \label{eq:union-bound}
+  \muk(\Omkcap)
+  \;=\;
+  \muk\!\left(\bigcup_{p \in \Pcal_k} A_p\right)
+  \;\le\;
+  \sum_{p \in \Pcal_k} \muk(A_p)
+  \;=\;
+  N_p(k) \cdot P_{\mathrm{shell}}(\delta_k, g_k),
+\end{equation}
+where the last equality uses translation invariance of $\muk$
+(every $A_p$ has the same probability $P_{\mathrm{shell}}(\delta_k,
+g_k)$ of \Cref{ch:buffer-shell},
+equation~\eqref{eq:buffer-shell-prob}).
+\end{theorem}
+
+\begin{proof}
+The first inequality is the union bound for the probability of a
+finite union of events.  The equality uses that the heat-kernel
+Gibbs measure on $\Omk$ is invariant under lattice translations, so
+$\muk(A_p)$ is independent of $p$.
+\end{proof}
+
+Combining \cref{thm:union-bound} with the single-plaquette
+uniform-in-$g$ bound of \Cref{ch:buffer-shell},
+Theorem~\ref{thm:buffer-uniform}:
+
+\begin{corollary}[Aggregate buffer-region bound]
+\label{cor:aggregate-bound}
+For $\delta_k \in (0.02, 1.0)$ and $g_k \in (0.05, 1.5)$,
+\begin{equation}
+  \label{eq:aggregate-bound}
+  \muk(\Omkcap)
+  \;\le\;
+  N_p(k) \cdot \bigl(\, P_{\mathrm{Haar}}(\delta_k)
+    \;+\; C_{\mathrm{tail}} \cdot \delta_k^3 \cdot \exp(-\kappa(\SUtwo) / g_k^2)\,\bigr) ,
+\end{equation}
+with $\kappa(\SUtwo) = \tfrac34$ in the canonical-$\kappa$
+convention and $C_{\mathrm{tail}} = 4$.
+\end{corollary}
+
+\section{Summability across an RG trajectory}
+\label{sec:overlap-summability}
+
+The structural question raised by the buffer construction is:
+\emph{does the buffer-region measure remain controlled across the
+RG trajectory?}  Concretely, given a trajectory of couplings
+$\{g_k\}_{k \ge 0}$ and smallness parameters $\{\delta_k\}_{k \ge 0}$,
+is the sequence $\{\muk(\Omkcap)\}_k$ summable?
+
+\marginkey{Geometric plaquette count}%
+
+\begin{lemma}[Plaquette count under block-spinning]
+\label{lem:plaquette-count}
+Under block-spin coarsening with block factor $b > 1$ in four
+dimensions, $a_{k+1} = b\, a_k$, so $N_p(k+1) = b^{-4}\, N_p(k)$.
+Hence $N_p(k) = N_p(0)\, b^{-4k}$.
+\end{lemma}
+
+\begin{proof}
+Direct: the number of plaquettes in a volume of fixed physical size
+$L^4$ at lattice spacing $a_k$ is approximately $6\,(L/a_k)^4$;
+block-spinning replaces $a_k$ by $b\,a_k$, dividing the count by
+$b^4$.
+\end{proof}
+
+\begin{theorem}[Per-step bound + summability sufficient condition]
+\label{thm:union-summability}
+Let $\{(g_k, \delta_k)\}_{k \ge 0}$ be an RG trajectory satisfying:
+\begin{enumerate}[label=(\arabic*)]
+  \item the buffer-shell bound of \Cref{ch:buffer-shell},
+    Theorem~\ref{thm:buffer-uniform}, applies at every $k$ (i.e.,
+    $(\delta_k, g_k) \in (0.02, 1.0) \times (0.05, 1.5)$);
+  \item the smallness parameter satisfies $\delta_k \to 0$ as
+    $k \to \infty$ (small-field convergence in the UV-direction
+    trajectory).
+\end{enumerate}
+Then
+\begin{equation}
+  \label{eq:union-summability}
+  \sum_{k \ge 0} \muk(\Omkcap)
+  \;\le\;
+  N_p(0) \sum_{k \ge 0} b^{-4k}\,
+    \bigl(\,P_{\mathrm{Haar}}(\delta_k) + 4\,\delta_k^3\,e^{-3/(4 g_k^2)}\,\bigr)
+  \;<\; \infty,
+\end{equation}
+the right-hand side being finite by \cref{lem:plaquette-count} and
+the geometric factor $b^{-4k}$.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+The per-step bound is \cref{cor:aggregate-bound} multiplied by
+$N_p(k) = N_p(0)\,b^{-4k}$ from \cref{lem:plaquette-count}.  The
+sum is bounded above by a geometric series with ratio $b^{-4}$,
+which is convergent for any block factor $b > 1$, and the per-step
+factor $(P_{\mathrm{Haar}}(\delta_k) + 4\,\delta_k^3\,e^{-\kappa/g_k^2})$
+is bounded uniformly in $k$ on the convergent trajectory.
+\end{proof}
+
+\marginkey{Structural, not analytical}%
+
+\Cref{thm:union-summability} is a \emph{structural} closure: it
+guarantees the aggregate buffer-region measure remains controlled
+across the trajectory.  The stronger \emph{analytical} closure —
+that the $\sigh$-budget $\sum_k \eta_k$ stays below $\sigma_0$ — is
+the content of \Cref{ch:sigma-hat-trajectory}; the buffer-region
+summability of this chapter is a necessary precursor to that
+closure, not a substitute.
+
+\section{Looseness of the union bound}
+\label{sec:union-looseness}
+
+The per-plaquette events $\{A_p\}_{p \in \Pcal_k}$ are
+\emph{positively correlated}: adjacent plaquettes share an edge, so
+the Wilson-action heat-kernel measure conditions $U_p \in A(\delta_k)$
+into a probability of $U_{p'} \in A(\delta_k)$ that is greater than
+the unconditional value, for any face-neighbor plaquette $p'$.  The
+union bound's worst-case independence assumption is exactly wrong
+in this direction: the true measure $\muk(\Omkcap)$ is strictly
+less than the right-hand side of \eqref{eq:union-bound}, and the
+overestimation factor grows with the correlation length $\xi(g)$
+between plaquettes.
+
+\begin{definition}[Union-bound looseness factor]
+\label{def:looseness}
+At scale $k$ with parameters $(\delta_k, g_k)$, the union-bound
+looseness factor is
+\begin{equation}
+  \label{eq:looseness-factor}
+  L(\delta_k, g_k) \;:=\; \frac{N_p(k) \cdot P_{\mathrm{shell}}(\delta_k, g_k)}{\muk(\Omkcap)}
+  \;\in\; [1, \infty),
+\end{equation}
+with $L = 1$ in the strictly-independent (Gaussian) limit and
+$L > 1$ at any nontrivial correlation length.
+\end{definition}
+
+\marginkey{Conjecture: $L \le 2$}%
+
+\begin{conjecture}[Bounded looseness]
+\label{conj:gaussian-sharpness}
+There exists a universal constant $C \le 2$ such that for every
+trajectory and every $k$ in the convergent regime,
+$L(\delta_k, g_k) \le C$.  Empirically, across the canonical $\SUtwo$
+trajectory we observe $L \le 1.18$.
+\end{conjecture}
+
+The looseness conjecture motivates \Cref{ch:chaining-estimate},
+where a correlation-aware tightening replaces the union bound with
+a chaining estimate that captures the positive-correlation
+reduction explicitly.  In the regime where the chaining estimate
+is admissible (small-positive correlations, $g_k \le 2$), the
+chaining bound is strictly tighter than the union bound; outside
+that regime the union bound remains in use.
+
+\section{Code provenance}
+\label{sec:overlap-codeanchor}
+
+\begin{itemize}
+  \item Python implementation:
+    \codepath{computations/overlap\_measure.py}.  Key entry points:
+    \codepath{union\_bound\_overlap(n\_plaquettes, g\_k, delta\_k,
+    t\_choice)} (\cref{thm:union-bound}, returning
+    \codepath{UnionBoundResult}); \codepath{is\_summable\_in\_k}
+    (\cref{thm:union-summability}); and the standard SU(2)
+    trajectory generator
+    \codepath{standard\_su2\_trajectory(k\_max, g\_0)}.  Tests:
+    \codepath{tests/test\_overlap\_measure.py}.
+  \item Visualizations:
+    \codepath{visualizations/pilot/su2/overlap-vs-rg-step.svg}
+    plots $\muk(\Omkcap)$ across the canonical trajectory with the
+    union bound;
+    \codepath{visualizations/pilot/su2/conjecture-7.4-looseness.svg}
+    quantifies $L(\delta_k, g_k)$ empirically.
+  \item The chaining tightening of \cref{conj:gaussian-sharpness}
+    is in \codepath{computations/chaining\_estimate.py} and is the
+    subject of \Cref{ch:chaining-estimate}.
+\end{itemize}

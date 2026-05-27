@@ -1,0 +1,212 @@
+% heat-kernel.tex — Chapter on the heat-kernel normalization
+% conventions used to write the lattice Gibbs measure.
+%
+% Linked code / Lean:
+%   - computations/heat_kernel.py  (the three named conventions)
+%   - computations/su2_representations.py (Casimir input feeding here)
+
+\chapter{Heat-Kernel Normalization}
+\label{ch:heat-kernel}
+
+\noindent\emph{Three named conventions relating the heat-kernel time
+parameter to the gauge coupling, and the character expansion that
+drives all downstream activity bounds.}
+
+The lattice Gibbs measure on $\SUtwo$ is presented via its heat
+kernel on the group.  Different communities normalize the
+heat-kernel time parameter differently; mixing them silently is a
+classical source of factor-of-$2N$ errors in cluster-expansion
+constants.  This chapter pins down three explicit named conventions
+(Wilson, Manton, canonical) and records the conversion between them.
+Downstream chapters declare which convention they use; the
+manuscript never mixes them implicitly.
+
+\section{The heat kernel on \texorpdfstring{$\SUtwo$}{SU(2)}}
+\label{sec:heat-kernel-su2}
+
+\marginkey{Character expansion}%
+On a compact connected Lie group $G$ the heat kernel $K_t$ at time
+$t > 0$ admits the character expansion
+\begin{equation}
+  \label{eq:heat-kernel-character-expansion}
+  K_t(g) \;=\; \sum_{\lambda \in \widehat{G}}
+    \dim V_\lambda \cdot \chi_\lambda(g)
+    \cdot e^{-t\, \Casimir(\lambda)} ,
+  \qquad g \in G,
+\end{equation}
+where $\widehat{G}$ is the unitary dual, $V_\lambda$ the
+irreducible representation with quadratic Casimir
+$\Casimir(\lambda)$, $\dim V_\lambda$ its dimension, and
+$\chi_\lambda$ its character.  For $G = \SUtwo$ the sum is over
+$j \in \tfrac12\mathbb{N}$ and
+\begin{equation}
+  \label{eq:heat-kernel-su2}
+  K_t(g) \;=\; \sum_{j \in \tfrac12\mathbb{N}}
+    (2j + 1) \cdot \chi_j(g) \cdot e^{-t\,j(j+1)} ,
+\end{equation}
+using the Casimir of \Cref{ch:su2-rep-theory},
+equation~\eqref{eq:casimir-formula}.
+
+The heat kernel is the integral kernel of the heat semigroup
+$e^{t\Delta}$ associated to the Laplace--Beltrami operator
+$\Delta$ on $\SUtwo$.  Two of its properties are load-bearing
+downstream:
+
+\begin{itemize}
+  \item \textbf{Identity concentration at small $t$.}
+    $K_t \to \delta_1$ as $t \downarrow 0$ in the sense of
+    distributions.  In particular, $K_t$ concentrates near the
+    identity $1 \in \SUtwo$ for small $t$.
+  \item \textbf{Haar limit at large $t$.}  $K_t(g) \to 1$
+    uniformly in $g$ as $t \to \infty$; the heat kernel
+    equidistributes toward the normalized Haar measure on
+    $\SUtwo$ at large times.
+\end{itemize}
+
+\section{Three named conventions}
+\label{sec:heat-kernel-conventions}
+
+The lattice Wilson action at coupling $g$ writes the Gibbs density
+for a single plaquette as $\exp(-\beta\, S_{\mathrm{plaq}})$ with
+$\beta$ proportional to $g^{-2}$.  Equating this with the heat
+kernel \eqref{eq:heat-kernel-su2} requires a choice of time
+parameter $t = t(g)$.  We carry three named conventions
+side-by-side.
+
+\begin{convention}[Wilson]
+\label{conv:wilson}
+The Wilson convention sets
+\begin{equation}
+  \label{eq:wilson-time}
+  t_W \;:=\; \frac{2N}{g^2} \quad\text{for $G = \SU{N}$};
+  \qquad
+  t_W^{\SUtwo} \;=\; \frac{4}{g^2}.
+\end{equation}
+Large $t_W$ corresponds to weak coupling.  In this convention the
+small-field activity for a single plaquette has exponential factor
+$\exp(-t_W \cdot \Casimir(\tfrac12)) = \exp(-3/g^2)$ at the leading
+mode.
+\end{convention}
+
+\begin{convention}[Manton (diffusion-time)]
+\label{conv:manton}
+The Manton convention sets
+\begin{equation}
+  \label{eq:manton-time}
+  t_M \;:=\; \frac{g^2}{2N} \quad\text{for $G = \SU{N}$};
+  \qquad
+  t_M^{\SUtwo} \;=\; \frac{g^2}{4}.
+\end{equation}
+The Wilson and Manton times are reciprocals: $t_W \cdot t_M = 1$.
+Small $t_M$ corresponds to weak coupling.  In this convention the
+single-plaquette weight has shape $\exp(-c\, g^2)$ rather than
+$\exp(-c / g^2)$ — the $g$-dependence is inverted.
+\end{convention}
+
+\begin{convention}[Canonical-$\kappa$]
+\label{conv:canonical-kappa}
+The canonical-$\kappa$ convention writes the leading single-plaquette
+activity bound directly as
+\begin{equation}
+  \label{eq:canonical-kappa}
+  \exp\!\left(-\frac{\kappa(G)}{g^2}\right),
+  \qquad \kappa(G) \;:=\; \Casimir(\lambda_{\min}),
+\end{equation}
+where $\lambda_{\min} \in \widehat{G} \setminus \{0\}$ is the
+nontrivial irrep of smallest Casimir.  For $\SUtwo$,
+$\kappa(\SUtwo) = \Casimir(\tfrac12) = \tfrac34$.  This convention
+absorbs the factor of $2N$ that distinguishes Wilson from
+canonical: $\kappa^{\mathrm{Wilson}}(\SUtwo) = 2N\cdot
+\Casimir(\tfrac12) = 3$ versus
+$\kappa^{\mathrm{canonical}}(\SUtwo) = \tfrac34$.
+\end{convention}
+
+\marginkey{Same physics, different bookkeeping}%
+The three conventions describe the same lattice measure; they
+differ only in how the leading exponential factor is bookkept.
+
+\begin{infobox}[main][title=Convention switchboard]
+\centering
+\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{l@{\hspace{2em}}c@{\hspace{2em}}c@{\hspace{2em}}c}
+\toprule
+                            & Wilson           & Manton           & canonical-$\kappa$    \\
+\midrule
+time parameter              & $t_W = 4/g^2$    & $t_M = g^2/4$    & ---                   \\
+small-coupling direction    & $t_W \to \infty$ & $t_M \to 0$      & $g \to 0$             \\
+leading activity exponent   & $\exp(-3/g^2)$   & $\exp(-3\,g^2/16)$ & $\exp(-3/(4g^2))$ \\
+$\kappa$ value (\SUtwo)     & $3$              & ---              & $\tfrac34$            \\
+\bottomrule
+\end{tabular}
+\end{infobox}
+
+\section{Convergence of the character expansion}
+\label{sec:character-tail}
+
+The character expansion~\eqref{eq:heat-kernel-su2} converges
+absolutely for every $t > 0$, with explicit tail bound.
+
+\begin{proposition}[Character-tail bound]
+\label{prop:character-tail}
+For every $t > 0$ and every $J \in \tfrac12\mathbb{N}$,
+\begin{equation}
+  \label{eq:character-tail-bound}
+  \left|\,K_t(g) - \sum_{j \le J} (2j+1)\, \chi_j(g)\, e^{-t\,j(j+1)}\,\right|
+  \;\le\;
+  \sum_{j > J} (2j+1)^2 \, e^{-t\,j(j+1)}
+  \quad\forall g \in \SUtwo .
+\end{equation}
+The right-hand side decays super-exponentially in $J$ at every
+fixed $t > 0$.
+\end{proposition}
+
+\begin{proof}
+On the maximal torus, $|\chi_j(\theta)| \le 2j + 1$ (since
+$|\sin((2j+1)\theta/2)| \le 1$ and the limit at $\theta = 0$ is
+$2j+1$).  The bound follows by termwise triangle inequality.
+Super-exponential decay: $(2j+1)^2 e^{-t\,j(j+1)} \le
+(2j+1)^2 e^{-t\,j^2}$, and the tail $\sum_{j > J} (2j+1)^2
+e^{-t\,j^2}$ is dominated by a Gaussian integral.
+\end{proof}
+
+\begin{remark}[Truncation in practice]
+\label{rem:j-max-truncation}
+At every numerical operating point this manuscript visits, the
+Wilson time satisfies $t_W \ge 4$ (canonical pilot $g_0 = 0.30$
+gives $t_W \approx 44$; Wilson pilot $g_0 = 0.50$ gives $t_W = 16$).
+The character-expansion tail at $J = 6$ — the $J_{\max}$ used in the
+code — is bounded by $\sum_{j > 6} (2j+1)^2 e^{-t \cdot 42}$, which
+for $t \ge 1$ is below $10^{-15}$.  Truncation at $J = 6$ therefore
+contributes a strictly negligible error to every downstream
+estimate.
+\end{remark}
+
+\section{Use throughout the manuscript}
+\label{sec:heat-kernel-downstream}
+
+\Cref{ch:buffer-shell} uses the canonical-$\kappa$ convention to
+write the single-plaquette buffer-shell bound with the explicit
+exponent $\kappa(\SUtwo) = \tfrac34$, matching the spectral gap of
+\Cref{ch:su2-rep-theory}.  \Cref{ch:overlap-measure} keeps the same
+convention through the aggregate overlap-measure estimate.
+\Cref{ch:small-field-kp} and \Cref{ch:large-field-kp} accept either
+the canonical or the Wilson convention via a typed convention flag,
+and both consume the heat-kernel character expansion only in the
+truncated $J = 6$ form of Remark~\ref{rem:j-max-truncation}.
+
+\section{Code provenance}
+\label{sec:heat-kernel-codeanchor}
+
+\begin{itemize}
+  \item Python implementation: \codepath{computations/heat\_kernel.py}.
+    The module exposes the enum
+    \codepath{HeatKernelConvention.\{WILSON, MANTON, CANONICAL\}},
+    the conversion helpers \codepath{wilson\_time(g, N)},
+    \codepath{manton\_time(g, N)}, and the canonical-$\kappa$
+    accessor \codepath{kappa\_from\_casimir(C2\_lambda\_min)}.
+    Tests: \codepath{tests/test\_heat\_kernel.py}.
+  \item Companion Lean fixture: \codepath{lean/YMGap/Sheaf/SU2KP.lean}
+    carries the $\Qp$-rational literals $\Casimir(\tfrac12) =
+    \tfrac34$ and the typed convention tag used throughout the
+    Phase-3 KP certificates.
+\end{itemize}
