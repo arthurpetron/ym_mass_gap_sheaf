@@ -1,0 +1,267 @@
+% large-field-kp.tex — Chapter on the large-field Kotecky-Preiss
+% certificate (rho_lf, K_lf) for SU(2), derived from a constructive
+% character-tail truncation of the heat-kernel partition function.
+%
+% Linked code / Lean:
+%   - computations/large_field_kp.py
+%   - lean/YMGap/Sheaf/SU2KP.lean (K_lf canonical / Wilson derivations)
+
+\chapter{The Large-Field Kotecký--Preiss Certificate}
+\label{ch:large-field-kp}
+
+\noindent\emph{The large-field activity-decay rate $\rholf$, the
+cluster-expansion summability constant $\Klf$, and the constructive
+character-tail derivation that closes them in $\Qp$ at each pilot
+operating point.}
+
+This chapter derives the large-field Kotecký--Preiss certificate
+$(\rholf, \Klf)$ for $\SUtwo$ at scale $k$ from a constructive
+truncation of the heat-kernel character expansion of
+\Cref{ch:heat-kernel}, equation~\eqref{eq:heat-kernel-su2}.  The
+construction is structurally independent of the small-field
+machinery of \Cref{ch:small-field-kp}: the large-field certificate
+needs only the per-plaquette activity bound away from the identity
+on $\SUtwo$ and the plaquette-polymer connectivity constant
+$\muplaq$ on the 4D lattice.  The derivation replaces a placeholder
+$\Klf = 1$ used in earlier project iterations with an explicit
+$\Qp$-rational closure verified at the canonical and Wilson pilot
+operating points.
+
+\section{The character-tail partition function}
+\label{sec:Zt}
+
+\marginkey{The non-trivial-irrep tail $Z_t$}%
+
+Define
+\begin{equation}
+  \label{eq:zt-definition}
+  Z_t \;:=\; \sum_{j \in \tfrac12\mathbb{N}_{> 0}} (2j+1)^2 \cdot e^{-t\,\Casimir(j)}
+  \;=\;
+  \sum_{2j \ge 1} (2j+1)^2 \cdot e^{-t\,j(j+1)} ,
+\end{equation}
+the partition function on the non-trivial $\SUtwo$ irreps with the
+heat-kernel time parameter $t = t(g_k)$ of \Cref{ch:heat-kernel}.
+The leading term is $j = \tfrac12$, contributing $4\,e^{-3t/4}$.
+
+\begin{proposition}[Truncation with geometric tail]
+\label{prop:zt-truncation}
+For any cutoff $J \in \tfrac12\mathbb{N}$ and every $t \ge 1$,
+\begin{equation}
+  \label{eq:zt-truncation}
+  Z_t
+  \;=\;
+  \sum_{2j = 1}^{2J} (2j+1)^2 \cdot e^{-t\,j(j+1)}
+  \;+\; \mathrm{tail}_{J}(t) ,
+\end{equation}
+with
+\begin{equation}
+  \label{eq:zt-tail-bound}
+  \mathrm{tail}_{J}(t)
+  \;\le\;
+  (2J + 3)^2 \cdot e^{-t\,(J + \tfrac12)(J + \tfrac32)}
+  \cdot \frac{1}{1 - r_J(t)},
+  \qquad
+  r_J(t) := e^{-t\,(2J + 2)} \cdot \left(\frac{2J+5}{2J+3}\right)^2 ,
+\end{equation}
+the geometric tail sum bounded by the worst-case ratio between
+consecutive terms.  Truncation at $J = 6$ keeps $\mathrm{tail}_6(t)
+< 10^{-15}$ for every $t \ge 1$.
+\end{proposition}
+
+\begin{proof}
+The tail is $\sum_{2j > 2J} (2j+1)^2 e^{-t\,j(j+1)}$, dominated by
+the term $j = J + \tfrac12$ which contributes
+$(2J+3)^2\,e^{-t(J+\tfrac12)(J+\tfrac32)}$.  The ratio between
+consecutive terms in the tail is bounded above by $r_J(t)$, so the
+remaining contribution is bounded by the geometric series
+$1/(1 - r_J(t))$.  At $J = 6$ and $t \ge 1$ the prefactor is $13^2
+\cdot e^{-42}$, far below $10^{-15}$.
+\end{proof}
+
+The $J = 6$ truncation is the manuscript-standard cutoff
+(it is also the default in the companion Python module);
+downstream estimates use the truncated $Z_t$ replaced by an
+explicit $\Qp$-rational upper bound $Z_t^{\mathrm{upper}}$ that
+includes the geometric tail correction.
+
+\section{The large-field activity bound}
+\label{sec:lf-activity}
+
+\marginkey{Per-plaquette tail bound}%
+
+\begin{theorem}[Large-field activity bound]
+\label{thm:large-field-activity}
+For every polymer $X \in \Pcal_k$ supported in the large-field
+region $\Omklf$,
+\begin{equation}
+  \label{eq:large-field-activity}
+  |a_k^{\mathrm{lf}}(X)| \;\le\; Z_t^{|X|},
+\end{equation}
+where $|X|$ is the plaquette count of $X$ and $Z_t$ is the
+character-tail partition function of \eqref{eq:zt-definition}.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+Each plaquette in the large-field region contributes a factor of
+$Z_t$ under the heat-kernel character expansion of
+\Cref{ch:heat-kernel}, equation~\eqref{eq:heat-kernel-su2},
+restricted to non-trivial irreps.  The polymer-activity bound is
+the product over plaquettes in $X$.  See
+\cite{DrouffeItzykson1978} \S3 and \cite{ItzyksonDrouffe1989}
+\S5 for the standard heat-kernel character-expansion treatment.
+\end{proof}
+
+The activity-decay rate is therefore
+\begin{equation}
+  \label{eq:rho-lf}
+  \rholf(g_k) \;:=\; -\log Z_t^{\mathrm{upper}}(g_k),
+\end{equation}
+positive in the regime $Z_t^{\mathrm{upper}}(g_k) < 1$, equivalently
+$t \ge t^\star$ for an explicit threshold $t^\star$.
+
+\section{The plaquette-polymer connectivity constant
+  \texorpdfstring{$\muplaq$}{mu\_plaq}}
+\label{sec:mu-plaq}
+
+The Brydges--Federbush convergence theorem applied to the
+large-field polymer expansion requires a polymer-counting bound on
+the plaquette graph of the 4D hypercubic lattice.
+
+\begin{convention}[Plaquette connectivity, $\muplaq$]
+\label{conv:mu-plaq}
+The number of connected plaquette-polymers of size $n$ containing a
+fixed plaquette is bounded by $\muplaq^n$, with
+\begin{equation}
+  \label{eq:mu-plaq-default}
+  \muplaq \;:=\; 16
+  \quad (\textnormal{literature-shape}, \cite{Seiler1982});
+\end{equation}
+a genuinely Brydges--Federbush-conservative fallback
+$\muplaq^{\mathrm{BF}} = 20\,e \approx 54.4$ is available from the
+direct combinatorial edge-degree count
+\cite{BrydgesFroehlichSeiler1978IHES}.
+\end{convention}
+
+The two values are in tension: $20\,e \approx 54$ is rigorously
+derivable from a direct count (each plaquette has $4$ edges, each
+edge sits in $2(d - 1) - 1 = 5$ other plaquettes for $d = 4$, giving
+plaquette edge-degree $20$ and BF-conservative
+$\muplaq^{\mathrm{BF}} = e \cdot 20 = 20\,e$), while $5d - 4 = 16$
+is the standard lattice-gauge value attributed to Seiler that
+exploits planarity beyond the universal BF bound.  The manuscript
+adopts $\muplaq = 16$ as the default; downstream sensitivity is
+audited in \Cref{ch:fiducials-audit} (Appendix~\ref{ch:appx-fiducials}).
+
+\section{The cluster-expansion summability constant
+  \texorpdfstring{$\Klf$}{K\_lf}}
+\label{sec:klf}
+
+\marginkey{Brydges--Federbush convergence}%
+
+\begin{theorem}[Large-field cluster-expansion convergence]
+\label{thm:klf-convergence}
+Set $q := \muplaq \cdot Z_t^{\mathrm{upper}}$.  The large-field
+polymer sum
+\begin{equation}
+  \label{eq:polymer-sum-lf}
+  \sum_{X \ni p} |a_k^{\mathrm{lf}}(X)| \cdot e^{\rholf \cdot |X|}
+  \;\le\;
+  \sum_{n \ge 1} \muplaq^n \cdot Z_t^n \cdot e^{n\,\rholf}
+  \;=\;
+  \sum_{n \ge 1} q^n
+\end{equation}
+converges to a finite bound $\Klf < \infty$ if and only if $q < 1$,
+in which case
+\begin{equation}
+  \label{eq:k-lf-formula}
+  \Klf \;\le\; \frac{q}{1 - q} \;=\; \frac{\muplaq \cdot Z_t^{\mathrm{upper}}}{1 - \muplaq \cdot Z_t^{\mathrm{upper}}} .
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The polymer-activity bound \cref{thm:large-field-activity} gives
+$|a^{\mathrm{lf}}(X)| \le Z_t^{|X|}$, and the connectivity bound
+\cref{conv:mu-plaq} gives at most $\muplaq^n$ polymers of size $n$
+through a fixed plaquette.  Multiplying by the
+$e^{\rholf\,|X|}$ weight and using $e^{\rholf} = 1/Z_t^{\mathrm{upper}}$
+collapses the $Z_t$ factors, leaving the geometric series in $q$.
+\end{proof}
+
+\begin{infobox}[margin][title=Numerical impact]
+At the canonical pilot $g_0 = 0.30$:
+$Z_t^{\mathrm{upper}} \approx 9.7 \times 10^{-4}$,
+$q = 16\,Z_t^{\mathrm{upper}} \approx 0.0156$,
+$\Klf \approx 0.0156$.  At Wilson pilot $g_0 = 0.50$:
+$Z_t^{\mathrm{upper}} \approx 2.4 \times 10^{-5}$,
+$q \approx 3.9 \times 10^{-4}$, $\Klf \approx 3.9 \times 10^{-4}$.
+The cluster-expansion convergence threshold $q < 1$ is comfortably
+satisfied at both operating points.
+\end{infobox}
+
+\section{The certificate}
+\label{sec:lf-certificate}
+
+\begin{definition}[Large-field KP certificate]
+\label{def:lf-certificate}
+The \emph{large-field Kotecký--Preiss certificate at scale $k$} is
+the triple
+\begin{equation}
+  \label{eq:lf-certificate}
+  c_k^{\mathrm{lf}} \;:=\;
+  \bigl(\rholf(g_k),\; \Klf(g_k),\; \mathrm{sat}_{\mathrm{lf}}\bigr)
+  \;\in\; \mathrm{KPCertificate}(V, P_{\mathrm{lf}}),
+\end{equation}
+where $\mathrm{sat}_{\mathrm{lf}}$ is a proof of the Kotecký--Preiss
+predicate
+\[
+  P_{\mathrm{lf}}(\rholf, \Klf) :\Leftrightarrow
+  \rholf > 0 \;\wedge\;
+  q := \muplaq\,e^{-\rholf} < 1 \;\wedge\;
+  \Klf \le q/(1 - q),
+\]
+with the value type $V$ as in \Cref{ch:small-field-kp},
+Definition~\ref{def:sf-certificate}.
+\end{definition}
+
+\section{Structural independence from the small-field certificate}
+\label{sec:lf-independence}
+
+The large-field certificate is derived independently of the
+small-field certificate of \Cref{ch:small-field-kp}: the inputs are
+$(g_k, t)$ and the plaquette-polymer connectivity constant
+$\muplaq$, none of which involves $\clambda$ or the small-field
+Gribov-patch geometry.  The two certificates meet only at the
+\emph{buffer overlap} of \Cref{ch:overlap-kp}, where the
+domination-gluing of \Cref{ch:sheaf-framework} combines them into
+the overlap certificate $c_k^{\cap}$.
+
+\section{Code provenance}
+\label{sec:lf-codeanchor}
+
+\begin{itemize}
+  \item Python implementation:
+    \codepath{computations/large\_field\_kp.py}.  Key entry points:
+    \codepath{compute\_zt\_upper(g\_k, t\_choice, j\_max)} for the
+    constructive $Z_t^{\mathrm{upper}}$ of \cref{prop:zt-truncation};
+    \codepath{compute\_large\_field\_kp(g\_k, t\_choice, mu\_plaq,
+    j\_max)} returns a \codepath{LargeFieldKP} record carrying
+    $\rholf$, $\Klf$, the \codepath{convergent} flag of
+    \cref{thm:klf-convergence}, and the four named fiducial values
+    $\muplaq \in \{16,\; 8e,\; 20e,\; \text{custom}\}$.
+    Tests in \codepath{tests/test\_large\_field\_kp.py}.
+  \item Constants:
+    \codepath{MU\_PLAQUETTE\_4D = 16} (default,
+    Seiler-cited),
+    \codepath{MU\_PLAQUETTE\_BF\_CONSERVATIVE\_4D = 20*e}
+    (rigorously BF-conservative fallback),
+    \codepath{J\_MAX\_DEFAULT = 12} (the manuscript-standard
+    truncation $J = 6$ in half-integer notation; the code stores
+    $2J = 12$).
+  \item Lean formalization: \codepath{lean/YMGap/Sheaf/SU2KP.lean}
+    carries the $\Qp$-rational closures
+    \codepath{K\_lf\_canonical\_derivation} and
+    \codepath{K\_lf\_wilson\_derivation} verifying the
+    Brydges--Federbush convergence relation $q \le \Klf \cdot
+    (1 - q)$ at the rounded $\Qp$ values of $Z_t^{\mathrm{upper}}$
+    and $\muplaq$.
+\end{itemize}

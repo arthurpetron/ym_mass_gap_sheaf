@@ -1,0 +1,269 @@
+% small-field-kp.tex — Chapter on the small-field Kotecky-Preiss
+% certificate (rho_sf, K_sf) for SU(2).
+%
+% Linked code / Lean:
+%   - computations/small_field_kp.py
+%   - lean/YMGap/Sheaf/SU2KP.lean  (Q'-rational c_lambda = 3/4 literal)
+
+\chapter{The Small-Field Kotecký--Preiss Certificate}
+\label{ch:small-field-kp}
+
+\noindent\emph{The small-field activity-decay rate
+$\rhosf$, the cluster-expansion summability constant $\Ksf$, and
+the identification of the spectral-gap coefficient $\clambda$ with
+the SU(2) Casimir gap $\Casimir(\tfrac12) = \tfrac34$.}
+
+This chapter establishes the small-field Kotecký--Preiss
+certificate $(\rhosf, \Ksf)$ for $\SUtwo$ at scale $k$, as a
+function of the running coupling $g_k$ and the
+heat-kernel convention.  The certificate is the load-bearing input
+of the polymer-cluster expansion in the small-field region $\Omksf$
+of \Cref{ch:sheaf-framework}, and the spectral-gap coefficient
+$\clambda$ that controls its exponential rate is identified with
+the Casimir gap of \Cref{ch:su2-rep-theory}.  This identification —
+$\clambda = \tfrac34$ — replaces what was previously a fiducial
+value and is the key step toward the manuscript-quotable
+mass-gap lower bound $\massgap \ge 999/1000$ of
+\Cref{ch:mass-gap-theorem}.
+
+\section{Bałaban-style small-field synthesis}
+\label{sec:small-field-synthesis}
+
+\marginkey{Small-field activity bound}%
+On a Gribov-safe patch $P_k(\delta_k)$ at scale $k$, every plaquette
+holonomy $U_p$ admits the exponential parameterization
+$U_p = \exp(A_p)$ with $A_p \in \mathfrak{su}(2)$ and
+$\|A_p\| < \delta_k$.  The Wilson action expands as a quadratic plus
+higher-order:
+\begin{equation}
+  \label{eq:small-field-action}
+  S_k(U)
+  \;=\;
+  \tfrac12 \langle A,\; \Delta_k A \rangle
+  \;+\;
+  V_k(A) ,
+  \qquad
+  V_k(A) = O(\|A\|^3),
+\end{equation}
+where $\Delta_k$ is the small-field lattice Laplacian on $P_k$
+\cite{Balaban1987RG-I}.
+
+\begin{theorem}[Small-field activity bound, Bałaban-style]
+\label{thm:small-field-activity}
+For every polymer $X \in \Pcal_k$ supported in the small-field
+region $\Omksf$,
+\begin{equation}
+  \label{eq:small-field-activity-bound}
+  |a_k^{\mathrm{sf}}(X)|
+  \;\le\;
+  \exp\!\left(-\,\frac{\clambda \cdot \kappa_{\mathrm{conv}}}{g_k^2}
+    \cdot \frac{|X|_{\mathrm{phys}}}{a_k}\right) ,
+\end{equation}
+where:
+\begin{itemize}
+  \item $\clambda$ is the spectral gap of $\Delta_k$ restricted to
+    the Gribov-safe patch $P_k$, equivalently the smallest
+    nonzero quadratic Casimir of $\SUtwo$;
+  \item $\kappa_{\mathrm{conv}} \in \{1, 2N\}$ is the
+    convention factor of \Cref{ch:heat-kernel}
+    (canonical-$\kappa$ vs.\ Wilson);
+  \item $|X|_{\mathrm{phys}} / a_k$ is the polymer size in
+    lattice-spacing-normalized units.
+\end{itemize}
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+Standard small-field expansion in the Bałaban framework: the
+quadratic part of \eqref{eq:small-field-action} gives Gaussian
+suppression with rate set by the smallest eigenvalue of $\Delta_k$,
+and the cubic-or-higher correction $V_k$ is dominated uniformly on
+$P_k$ when $\|A_p\| < \delta_k$.  See
+\cite{Balaban1987RG-I} \S2--3 and \cite{Balaban1988RG-II} for the
+detailed derivation; the version here is the SU(2) specialization
+in the heat-kernel convention of \Cref{ch:heat-kernel}.  The
+$g_k^{-2}$ scaling tracks the standard lattice-gauge
+$\beta = 2N/g^2$ relation.
+\end{proof}
+
+\section{Identifying \texorpdfstring{$\clambda$}{c\_lambda}
+  with the SU(2) Casimir gap}
+\label{sec:c-lambda-casimir}
+
+\marginkey{$\clambda = \tfrac34$, derived}%
+
+The spectral-gap coefficient $\clambda$ of
+\cref{thm:small-field-activity} is, in the Bałaban framework, the
+smallest nonzero eigenvalue of the small-field Laplacian $\Delta_k$
+on the patch $P_k$.  Restricted to a single plaquette (the
+basic patch) and in the physics-spin convention of
+\Cref{ch:su2-rep-theory}, this eigenvalue is the smallest nonzero
+quadratic Casimir of $\SUtwo$.
+
+\begin{theorem}[Identification with the Casimir gap]
+\label{thm:c-lambda-casimir}
+In the physics-spin convention of \Cref{ch:su2-rep-theory},
+Convention~\ref{conv:physics-spin},
+\begin{equation}
+  \label{eq:c-lambda-casimir-id}
+  \clambda \;=\; \Casimir(\tfrac12) \;=\; \tfrac{3}{4} .
+\end{equation}
+This identification supersedes the fiducial value $\clambda =
+\tfrac12$ used in earlier project iterations.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+The Laplace--Beltrami operator on $\SUtwo$ acts on the spin-$j$
+irreducible representation by multiplication by
+$\Casimir(j) = j(j+1)$
+(\Cref{ch:su2-rep-theory}, equation~\eqref{eq:casimir-formula}).
+Restricted to nontrivial irreps, the spectrum is bounded below by
+$\Casimir(\tfrac12) = \tfrac34$
+(\Cref{ch:su2-rep-theory}, Lemma~\ref{lem:spectral-gap}).  In the
+small-field-Bałaban context, the lattice Laplacian $\Delta_k$
+restricted to a Gribov-safe patch inherits this spectral gap to
+leading order in $\delta_k$, with sub-leading corrections of order
+$\delta_k^2$ that are absorbed into the polymer-size scaling.
+\end{proof}
+
+\begin{infobox}[margin][title=Numerical impact]
+At the canonical pilot $g_0 = 0.30$, the upgrade
+$\clambda \colon \tfrac12 \to \tfrac34$ shifts:
+\begin{itemize}
+  \item Convergent regime $g_{\max}^{\mathrm{sf}}$:
+    $0.40 \to 0.49$ (+22.5\%).
+  \item Aggregate $\eta_{\mathrm{total}}$:
+    $33/10000 \to 9/10000$ (−73\%).
+  \item Manuscript-quotable bound $\massgap$:
+    $998/1000 \to 999/1000$ (+0.1pp).
+\end{itemize}
+\end{infobox}
+
+\section{The Kotecký--Preiss summability constant
+  \texorpdfstring{$\Ksf$}{K\_sf}}
+\label{sec:ksf}
+
+The activity bound of \cref{thm:small-field-activity} feeds into
+the Brydges--Federbush polymer-cluster expansion to produce the
+summability amplitude $\Ksf$.  The convergence condition is the
+classical Kotecký--Preiss inequality.
+
+\begin{theorem}[Kotecký--Preiss convergence for the small-field
+  expansion]
+\label{thm:ksf-convergence}
+Define
+\begin{equation}
+  \label{eq:rho-sf}
+  \rhosf(g_k) \;:=\; \frac{\clambda \cdot \kappa_{\mathrm{conv}}}{g_k^2}
+\end{equation}
+and let $\mu_{\mathrm{conn}} = \log(2d \cdot e)$ be the
+plaquette-polymer connectivity constant on the $d$-dimensional
+hypercubic lattice
+($\mu_{\mathrm{conn}} = \log(8e) \approx 3.0794$ at $d = 4$).
+The small-field polymer sum
+\begin{equation}
+  \label{eq:polymer-sum-sf}
+  \sum_{X \ni p} |a_k^{\mathrm{sf}}(X)| \cdot e^{\rhosf \cdot |X|}
+\end{equation}
+converges to a finite bound $\Ksf < \infty$ if and only if
+$\rhosf > \mu_{\mathrm{conn}}$, in which case
+\begin{equation}
+  \label{eq:k-sf-formula}
+  \Ksf
+  \;\le\;
+  \frac{1}{1 - e^{-(\rhosf - \mu_{\mathrm{conn}})}} .
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The Brydges--Federbush cluster-expansion convergence theorem
+\cite{BrydgesFederbush1978} (also \cite{GlimmJaffe1987} \S18.5):
+the polymer sum over polymers of total weight $\sum_X w(X)$
+converges absolutely on the d-dimensional lattice when the per-polymer
+weight decays faster than the polymer-counting growth.
+Specifically, with $N(n) \le C\,\mu_{\mathrm{conn}}^n$ connected
+polymers of plaquette-size $n$ through a fixed site
+\cite{Cammarota1982}, and per-polymer activity bound
+$|a(X)| \le \exp(-\rhosf\,|X|)$, the sum
+$\sum_X |a(X)| e^{\rhosf|X|} \le
+\sum_n C\,\mu_{\mathrm{conn}}^n\,e^{-(\rhosf - \mu_{\mathrm{conn}})\,n}$
+converges as a geometric series with common ratio
+$e^{-(\rhosf - \mu_{\mathrm{conn}})}$, whence the closed-form
+\eqref{eq:k-sf-formula}.
+\end{proof}
+
+\marginkey{Convergent regime}%
+
+\begin{corollary}[Small-field convergent regime]
+\label{cor:sf-convergent-regime}
+The small-field cluster expansion converges at $\SUtwo$ scale-$k$
+coupling $g_k$ iff
+\begin{equation}
+  \label{eq:sf-convergent-regime}
+  g_k \;<\; g_{\max}^{\mathrm{sf}}
+  \;:=\;
+  \sqrt{\frac{\clambda \cdot \kappa_{\mathrm{conv}}}{\mu_{\mathrm{conn}}}} .
+\end{equation}
+With $\clambda = \tfrac34$ and the canonical-$\kappa$ convention
+($\kappa_{\mathrm{conv}} = 1$), $g_{\max}^{\mathrm{sf}} \approx
+0.49$ at $d = 4$.  Under the Wilson convention
+($\kappa_{\mathrm{conv}} = 4$ for $\SUtwo$), $g_{\max}^{\mathrm{sf}}
+\approx 0.99$.
+\end{corollary}
+
+The convergent-regime restriction is real, not an artefact: the
+small-field machinery is known to require asymptotic-freedom-regime
+couplings.  A pilot trajectory must start with sufficiently small
+$g_0$ for the inductive step to close at every scale.
+
+\section{The certificate}
+\label{sec:sf-certificate}
+
+\begin{definition}[Small-field KP certificate]
+\label{def:sf-certificate}
+The \emph{small-field Kotecký--Preiss certificate at scale $k$} is
+the triple
+\begin{equation}
+  \label{eq:sf-certificate}
+  c_k^{\mathrm{sf}} \;:=\;
+  \bigl(\rhosf(g_k),\; \Ksf(g_k),\; \mathrm{sat}_{\mathrm{sf}}\bigr)
+  \;\in\; \mathrm{KPCertificate}(V, P_{\mathrm{sf}}),
+\end{equation}
+where $\mathrm{sat}_{\mathrm{sf}}$ is a proof of the
+Kotecký--Preiss predicate
+\[
+  P_{\mathrm{sf}}(\rhosf, \Ksf) :\Leftrightarrow
+  \rhosf > \mu_{\mathrm{conn}} \;\wedge\;
+  \Ksf \le 1 / (1 - e^{-(\rhosf - \mu_{\mathrm{conn}})}),
+\]
+and $V$ is the value type ($V = \mathbb{R}_{>0}$ at the math layer,
+$V = \Qp$ at the Lean layer).
+\end{definition}
+
+The certificate $c_k^{\mathrm{sf}}$ is the input the small-field
+component of the inductive state $\Ical_k$ of
+\Cref{ch:inductive-state}, Definition~\ref{def:I-k}, requires.
+
+\section{Code provenance}
+\label{sec:sf-codeanchor}
+
+\begin{itemize}
+  \item Python implementation:
+    \codepath{computations/small\_field\_kp.py}.  Key entry points:
+    the constants \codepath{BAŁABAN\_SPECTRAL\_GAP\_COEFF}
+    (the $\clambda = \tfrac34$ of \cref{thm:c-lambda-casimir}) and
+    \codepath{MU\_CONNECTIVITY\_4D} (the $\mu_{\mathrm{conn}} =
+    \log(8e)$ of \cref{thm:ksf-convergence}); the function
+    \codepath{compute\_small\_field\_kp(g\_k, t\_choice,
+    spectral\_gap\_coeff)} returns a \codepath{SmallFieldKP}
+    record carrying $\rhosf$, $\Ksf$, and the
+    \codepath{convergent} flag of \cref{cor:sf-convergent-regime};
+    \codepath{c\_lambda\_pilot\_tolerance\_threshold} bisects the
+    empirical $\clambda$ lower bound for pilot closure.
+    Tests in \codepath{tests/test\_small\_field\_kp.py}.
+  \item Lean formalization:
+    \codepath{lean/YMGap/Sheaf/SU2KP.lean} carries the $\Qp$-literal
+    \codepath{Q'.C2\_oneHalf = 3/4} that wires the
+    representation-theoretic input of \Cref{ch:su2-rep-theory} into
+    the small-field certificate, with axiom-gate
+    \codepath{[propext]} only.
+\end{itemize}

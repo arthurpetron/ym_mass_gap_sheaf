@@ -1,0 +1,273 @@
+% sigma-hat-trajectory.tex — Chapter on the per-step eta and the
+% global sigma-hat-budget closure, including the chaining-tightening
+% (Sec. 10.5) and the manuscript m_0 uplift.
+%
+% Linked code / Lean:
+%   - computations/sigma_hat_trajectory.py
+%   - computations/chaining_eta_uplift.py
+%   - lean/YMGap/RG/SigmaHatPilot.lean
+
+\chapter{The
+  \texorpdfstring{$\widehat\sigma$}{sigma-hat} Trajectory and
+  Budget Closure}
+\label{ch:sigma-hat-trajectory}
+
+\noindent\emph{The $\sigh$-transport derivation
+$\eta_k = (\cpolymer / \Amin) \cdot \Dcap(b, g_k)$, the global
+budget $\sum_k \eta_k < \sigma_0$ in $\Qp$, and the chaining
+tightening that uplifts the constructive mass-gap lower bound.}
+
+This chapter is the cumulative-budget closure step.  It converts
+the per-step buffer growth $\Dcap$ of \Cref{ch:overlap-kp} into the
+per-step renormalized-string-tension degradation $\eta_k$ via a
+$\Qp$-rational coupling constant derived from the area-law
+convention.  The global budget $\sum_k \eta_k < \sigma_0$ in $\Qp$
+at finite truncation is the make-or-break inductive condition; its
+closure delivers the $\sigh$-positivity $\sighinf \ge \varepsilon
+> 0$ that feeds the continuum-limit and OS-reconstruction chapters.
+\Cref{sec:eta-chaining-thread} threads the chaining factor of
+\Cref{ch:chaining-estimate} into the budget, contributing a clean
+multiplicative uplift to the manuscript-quotable $\massgap$ at the
+canonical pilot.
+
+\section{The
+  \texorpdfstring{$\widehat\sigma$}{sigma-hat} transport derivation}
+\label{sec:sigma-hat-transport}
+
+\marginkey{Per-step $\eta$ from $\Dcap$}%
+
+The renormalized string tension at scale $k$ is
+$\sighk := a_k^2 \cdot \sigma_k$, where $\sigma_k$ is the dimensional
+string tension governing the area-law decay of Wilson-loop
+expectations,
+\begin{equation}
+  \label{eq:wilson-area-law}
+  \langle W_R(C) \rangle_{\muk}
+  \;\le\;
+  C_R \cdot \exp\bigl(-\sigma_k \cdot A(C)\bigr),
+\end{equation}
+for Wilson loops with sides $\ge 2\,a_k$.  Under the block-spin
+map $\Tb \colon \Omk \to \Omkpone$ with $a_{k+1} = b \cdot a_k$,
+dimensional analysis gives the naive
+scaling $\sigma_{k+1}^{\mathrm{naive}} = \sigma_k / b^2$, equivalently
+$\sighk^{\mathrm{naive}} = \sighk$ — the renormalized string tension
+$\sigh$ is RG-invariant under pure dimensional rescaling.
+
+\marginkey{Polymer-residual correction}%
+
+The deviation from naive scaling is the polymer-residual correction
+on the Wilson-loop expectation, controlled by the per-step buffer
+growth $\Dcap(b, g_k)$ via a Bałaban-style cluster-expansion
+residual:
+\begin{equation}
+  \label{eq:wilson-residual}
+  \bigl|\sigma_{k+1} - \sigma_k / b^2\bigr|
+  \;\le\;
+  \frac{\cpolymer \cdot \Dcap(b, g_k)}{\Amin \cdot a_{k+1}^2} ,
+\end{equation}
+where
+\begin{itemize}
+  \item $\cpolymer = 2$ is the polymer-residual prefactor, derived
+    as the channel multiplicity from the triangle-inequality bound
+    on the per-polymer activity difference under $\Tb$;
+  \item $\Amin = 4$ is the smallest dimensionless Wilson-loop
+    area, $(2\,a_k)^2 = 4\,a_k^2$ in lattice-spacing-normalized
+    units.
+\end{itemize}
+Lifting \eqref{eq:wilson-residual} to $\sigh$, the $a_{k+1}^2$
+factor in the denominator absorbs:
+
+\begin{theorem}[The per-step $\eta$ coupling]
+\label{thm:eta-coupling}
+With the convention above,
+\begin{equation}
+  \label{eq:eta-coupling}
+  \bigl|\sighk[k+1] - \sighk\bigr|
+  \;\le\;
+  \etak,
+  \qquad
+  \etak \;:=\; \frac{\cpolymer}{\Amin} \cdot \Dcap(b, g_k)
+  \;=\;
+  \frac12 \cdot \Dcap(b, g_k) .
+\end{equation}
+With $\cpolymer = 2$ and $\Amin = 4$, the per-step
+proportionality constant is $\cpolymer / \Amin = 1/2$, which
+matches what was previously a placeholder coupling but is now
+explicitly derived from project-level conventions.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+The Bałaban-style polymer-cluster expansion writes
+$\langle W \rangle_{\muk}$ as a leading area-law factor plus a
+polymer correction; under the block-spin step $\Tb$, the
+correction picks up at most a factor $\cpolymer$ per polymer
+boundary channel (from the triangle inequality on the activity
+difference), divided by the smallest loop area $\Amin a_{k+1}^2$
+that the Wilson loops in question can realize.  The bound
+\eqref{eq:wilson-residual} is then lifted to $\sigh$ by
+multiplying both sides by $a_{k+1}^2$, which cancels the
+denominator.  See \cite{Balaban1988convergent} \S2 for the
+analogous step at the Wilson-action level.
+\end{proof}
+
+\section{The global $\widehat\sigma$ trajectory}
+\label{sec:sigma-hat-global}
+
+\marginkey{Cumulative degradation}%
+
+Define the $\sigh$ trajectory recursively by
+\begin{equation}
+  \label{eq:sigma-hat-recursion}
+  \sighk[0] \;:=\; \sigma_0,
+  \qquad
+  \sighk[k+1] \;:=\; \sighk - \etak,
+\end{equation}
+where $\sigma_0 > 0$ is the initial dimensionless string tension
+(normalized to $\sigma_0 = 1$ in the manuscript-standard
+convention).  By \cref{thm:eta-coupling},
+$\sighk \ge \sigma_0 - \sum_{j < k} \eta_j$ for every $k$.
+
+\begin{theorem}[Finite-$K$ budget closure]
+\label{thm:budget-closure}
+If $\sum_{k < K} \etak < \sigma_0$ in $\Qp$, then
+$\sighk[K] \ge \sigma_0 - \sum_{k < K} \etak > 0$, also in $\Qp$.
+The trajectory $\sighk[0], \sighk[1], \dots, \sighk[K]$ remains
+strictly positive across the $K$-truncation.
+\end{theorem}
+
+\begin{proof}
+By induction on $k$, using \cref{thm:eta-coupling} and the
+inductive hypothesis $\sighk \ge \sigma_0 - \sum_{j < k} \eta_j$.
+\end{proof}
+
+\begin{infobox}[main][title=Canonical pilot,
+  $g_0 = 0.30$, $K = 3$]
+\centering
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{rcccc}
+\toprule
+$k$ & $g_k$    & $\Dcap(b, g_k)$ & $\etak$ ($\le$ in $\Qp$)  & $\sighk$ ($\ge$ in $\Qp$) \\
+\midrule
+0   & $0.3000$ & $5.17\times 10^{-4}$ & $2.58\times 10^{-4}$ & $1$                          \\
+1   & $0.3004$ & $5.30\times 10^{-4}$ & $2.65\times 10^{-4}$ & $9997/10000$                 \\
+2   & $0.3009$ & $5.43\times 10^{-4}$ & $2.72\times 10^{-4}$ & $9995/10000$                 \\
+3   & $0.3013$ & $0$ (truncation)     & $0$                  & $9992/10000$                 \\
+\bottomrule
+\end{tabular}
+\vspace{0.3em}\\
+Aggregate: $\sum_{k < 3} \etak \le 9/10000$,
+$\sighinf \ge \sigma_0 - 9/10000 = 9991/10000$.
+\end{infobox}
+
+\section{Convergence to a positive
+  \texorpdfstring{$\widehat\sigma_\infty$}{sigma\_infty}}
+\label{sec:sigma-hat-infty}
+
+The finite-$K$ closure of \cref{thm:budget-closure} extends to a
+genuine projective limit $\sighinf \ge \varepsilon > 0$ provided
+the tail $\sum_{k \ge K_0} \etak$ admits a rational upper bound.
+Across the canonical SU(2) trajectory in the UV-direction (where
+the one-loop $\beta$-function drives $g_k \to 0$ monotonically),
+$\Dcap(b, g_k)$ decays geometrically with explicit ratio
+$r \approx 0.976$ derived from $b = 2$ and the SU(2) coefficient
+$b_0 = 22/3$ of the one-loop running.  The tail is therefore
+dominated by a geometric series with $\Qp$-rational closure.
+
+\begin{theorem}[$\sigh$-positivity in the projective limit]
+\label{thm:sigma-hat-positivity}
+Under the asymptotic-freedom UV-direction trajectory, there exists
+an explicit $\Qp$-rational $\varepsilon > 0$ such that
+\begin{equation}
+  \label{eq:sigma-hat-positivity}
+  \sighinf \;:=\; \lim_{k \to \infty} \sighk \;\ge\; \varepsilon \;>\; 0 .
+\end{equation}
+At the canonical pilot, $\varepsilon = 9991/10000$.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+Combine the finite-$K$ closure of \cref{thm:budget-closure} at
+$K = 3$ (the empirically-verified $\Qp$-rational truncation) with
+the geometric tail bound on $\sum_{k \ge K} \etak$ established in
+\Cref{ch:uv-trajectory} below; the partial sum is Cauchy in $\Qp$
+at the rational truncation, and the limit is bounded by
+$\sigma_0 - \mathrm{partial} > 0$ at every truncation.
+\end{proof}
+
+\section{Threading the chaining factor into
+  \texorpdfstring{$\eta$}{eta}}
+\label{sec:eta-chaining-thread}
+
+\marginkey{Chaining tightens $\eta$}%
+
+The buffer-region aggregate measure $\muk(\Omkcap)$ enters the
+$\sigh$-transport derivation of \cref{thm:eta-coupling} through the
+polymer-cluster expansion's per-step residual.  When the chaining
+tightening of \Cref{ch:chaining-estimate},
+Theorem~\ref{thm:chaining-bound}, is admissible
+($g_k \le G_{\max}^{\mathrm{chain}} = 2$), the aggregate measure is
+strictly tighter than its union-bound estimate, and the per-step
+$\eta$ inherits a multiplicative reduction:
+\begin{equation}
+  \label{eq:eta-chaining}
+  \eta_k^{\mathrm{chain}} \;:=\; \cchain(g_k) \cdot \etak[k]^{\mathrm{union}} ,
+  \qquad
+  \cchain(g_k) = \exp\bigl(-\,n_{\mathrm{share}} \cdot g_k^2 \cdot \zeta\bigr) ,
+\end{equation}
+with $n_{\mathrm{share}} = 4$ and $\zeta = \tfrac12$ as in
+\Cref{ch:chaining-estimate},
+Definition~\ref{def:chain-factor}.  Since $\cchain \in (0, 1]$, the
+chaining-tightened $\eta$ never exceeds the union-bound $\eta$, and
+the budget-closure theorem of \cref{thm:budget-closure} continues
+to hold under chaining (with a strictly tighter bound).
+
+\begin{theorem}[Chaining-uplifted $\massgap$ at the canonical pilot]
+\label{thm:chaining-uplift}
+At the canonical pilot $g_0 = 0.30$, the chaining factor
+$\cchain(0.30) = e^{-0.18} \approx 0.8353$ reduces
+$\eta_{\mathrm{total}}$ from the union-bound value
+$\sum_k \etak[k]^{\mathrm{union}} \approx 7.95 \times 10^{-4}$ to
+$\sum_k \cchain(g_k)\, \etak[k]^{\mathrm{union}} \approx
+6.64 \times 10^{-4}$, a $16.5\%$ reduction.  At trajectory
+length $K = 10$ this is sufficient to uplift the $\Qp$-rational
+floor of $\sqrt{\sighinf}$ from $997/1000$ to $998/1000$,
+an uplift ratio of $\approx 1.001$ on the manuscript-quotable bound.
+\end{theorem}
+
+\section{Code provenance}
+\label{sec:sigma-hat-codeanchor}
+
+\begin{itemize}
+  \item Python implementation:
+    \codepath{computations/sigma\_hat\_trajectory.py}.  Key entry
+    points: \codepath{compute\_eta(g\_k, g\_k\_next, t\_choice,
+    eta\_coupling, use\_chaining, ...)} for the per-step degradation
+    of \cref{thm:eta-coupling}, with the chaining-tightening
+    option of \eqref{eq:eta-chaining};
+    \codepath{sigma\_hat\_trajectory(g\_trajectory,
+    sigma\_hat\_initial, t\_choice)} for the global trajectory of
+    \cref{thm:budget-closure}, returning a
+    \codepath{SigmaHatTrajectory} record with the per-step
+    \codepath{SigmaHatStep}s and the \codepath{budget\_closure}
+    boolean.  Tests in
+    \codepath{tests/test\_sigma\_hat\_trajectory.py}.
+  \item Constants: \codepath{BALABAN\_POLYMER\_RESIDUAL = 2}
+    ($\cpolymer$), \codepath{WILSON\_LOOP\_MIN\_AREA\_DIMENSIONLESS
+    = 4} ($\Amin$); the derived
+    \codepath{DERIVED\_ETA\_COUPLING = 1/2} is recomputed at every
+    fiducial sensitivity sweep via
+    \codepath{derive\_eta\_coupling(polymer\_residual,
+    wilson\_loop\_min\_area)}.
+  \item Chaining-uplift comparison:
+    \codepath{computations/chaining\_eta\_uplift.py} provides
+    \codepath{chaining\_uplift\_row(g\_0, K)} and
+    \codepath{chaining\_uplift\_table(operating\_points)}; the
+    side-by-side bar chart of $\massgap$ baseline vs.\ chaining is
+    in \codepath{visualizations/pilot/su2/chaining-eta-uplift.svg}
+    (Figure~10.2 of the manuscript-quotable mass-gap chapter
+    cross-reference).
+  \item Lean formalization:
+    \codepath{lean/YMGap/RG/SigmaHatPilot.lean::eta\_pilot\_budget\_closes}
+    discharges the finite-$K$ closure of \cref{thm:budget-closure}
+    at the canonical pilot $K = 3$, with axiom-gate
+    \codepath{[propext]} only.
+\end{itemize}

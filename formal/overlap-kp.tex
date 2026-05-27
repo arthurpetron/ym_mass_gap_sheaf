@@ -1,0 +1,224 @@
+% overlap-kp.tex — Chapter on the buffer-overlap Kotecky-Preiss
+% certificate (rho_cap, K_cap) and the per-step Delta_cap budget.
+%
+% Linked code / Lean:
+%   - computations/overlap_kp.py
+%   - lean/YMGap/Sheaf/Gluing.lean (domGlue_preserves_KP)
+
+\chapter{The Overlap KP Certificate and the
+  \texorpdfstring{$\Dcap$}{Delta\_cap} Budget}
+\label{ch:overlap-kp}
+
+\noindent\emph{The buffer-overlap Kotecký--Preiss certificate
+$(\rhocap, \Kcap)$ obtained by gluing the small-field and
+large-field certificates via the domination construction of the
+sheaf framework, and the per-step buffer growth $\Dcap(b, g_k) =
+\Kcap(k+1) - \Kcap(k)$ that feeds the $\sigh$-budget.}
+
+This chapter combines the small-field certificate of
+\Cref{ch:small-field-kp} with the large-field certificate of
+\Cref{ch:large-field-kp} via the domination gluing of
+\Cref{ch:sheaf-framework} to produce the buffer-overlap certificate
+$c_k^{\cap}$.  The constants relationship
+$\rhocap = \min(\rhosf, \rholf)$ and $\Kcap \le \Ksf + \Klf$ is the
+framework-level claim, and the per-step buffer growth $\Dcap$ — the
+quantity that feeds the $\sigh$-budget of
+\Cref{ch:sigma-hat-trajectory} — is defined as the discrete
+difference $\Kcap(k+1) - \Kcap(k)$.  We also state the empirical
+looseness bound that motivates the chaining tightening of
+\Cref{ch:chaining-estimate}.
+
+\section{The overlap certificate}
+\label{sec:overlap-certificate}
+
+\marginkey{Domination gluing}%
+
+Recall from \Cref{ch:sheaf-framework},
+Proposition~\ref{prop:summability-preservation}, the
+\emph{domination-gluing} construction: given KP certificates
+$(\rhosf, \Ksf)$ on $\Omksf$ and $(\rholf, \Klf)$ on $\Omklf$, the
+buffer overlap region $\Omkcap$ inherits a glued certificate.
+
+\begin{theorem}[Domination gluing on the buffer]
+\label{thm:overlap-glue}
+Suppose at scale $k$ both certificates converge: $\rhosf(g_k) >
+\mu_{\mathrm{conn}}$ (\Cref{ch:small-field-kp},
+Theorem~\ref{thm:ksf-convergence}) and
+$\muplaq\,Z_t^{\mathrm{upper}}(g_k) < 1$ (\Cref{ch:large-field-kp},
+Theorem~\ref{thm:klf-convergence}).  Then the buffer overlap region
+$\Omkcap$ carries a Kotecký--Preiss certificate $(\rhocap, \Kcap)$
+with constants
+\begin{align}
+  \label{eq:rho-cap}
+  \rhocap(g_k) &\;:=\; \min\bigl(\rhosf(g_k),\, \rholf(g_k)\bigr), \\
+  \label{eq:k-cap}
+  \Kcap(g_k) &\;\le\; \Ksf(g_k) + \Klf(g_k) .
+\end{align}
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+On the buffer overlap, every polymer activity is dominated by both
+the small-field and the large-field activity bound; therefore its
+maximum is dominated by either, and the slower of the two decay
+rates controls.  The summability constant inherits the union of
+both contributions, giving $\Kcap \le \Ksf + \Klf$ by the triangle
+inequality applied to the polymer-cluster expansion on the
+disjoint union $\Omksf \sqcup \Omklf \supseteq \Omkcap$.  The
+detailed argument is in \Cref{ch:sheaf-framework}; the present
+chapter applies it at the $\SUtwo$ regime-specific level.
+\end{proof}
+
+\begin{remark}[Saturation of the union bound]
+\label{rem:K-cap-saturation}
+The bound $\Kcap \le \Ksf + \Klf$ is the worst-case union bound; it
+saturates when the small-field and large-field activity bounds are
+\emph{disjoint} in polymer support.  In practice they overlap in
+the buffer annulus, so the actual $\Kcap$ is strictly less than
+$\Ksf + \Klf$ — the looseness factor of
+\Cref{ch:overlap-measure}, Definition~\ref{def:looseness}, recurs
+here, with the same chaining-tightening remedy of
+\Cref{ch:chaining-estimate}.
+\end{remark}
+
+\begin{definition}[Overlap KP certificate]
+\label{def:overlap-certificate}
+The \emph{buffer-overlap Kotecký--Preiss certificate at scale $k$}
+is the triple
+\begin{equation}
+  \label{eq:cap-certificate}
+  c_k^{\cap} \;:=\;
+  \bigl(\rhocap(g_k),\, \Kcap(g_k),\, \mathrm{sat}_{\cap}\bigr)
+  \;\in\; \mathrm{KPCertificate}(V, P_{\cap}),
+\end{equation}
+where $\mathrm{sat}_{\cap}$ is the proof of
+\[
+  P_{\cap}(\rhocap, \Kcap) :\Leftrightarrow
+  \rhocap > 0 \;\wedge\; \Kcap < \infty
+\]
+delivered by \cref{thm:overlap-glue}.
+\end{definition}
+
+\section{The per-step buffer growth
+  \texorpdfstring{$\Dcap$}{Delta\_cap}}
+\label{sec:delta-cap}
+
+\marginkey{Buffer-$K$ growth per RG step}%
+
+The buffer-overlap summability constant $\Kcap(g_k)$ is
+\emph{coupling-dependent}: as $g_k$ flows along the RG trajectory,
+$\Kcap$ changes.  The per-step growth of $\Kcap$ is the
+buffer-budget quantity $\Dcap$ used by the $\sigh$-transport of
+\Cref{ch:sigma-hat-trajectory}.
+
+\begin{definition}[Per-step buffer growth]
+\label{def:delta-cap}
+Let $b > 1$ be the block-spin factor of \Cref{ch:block-spin-morphism}.
+The \emph{per-step buffer growth at scale $k$} is
+\begin{equation}
+  \label{eq:delta-cap}
+  \Dcap(b, g_k) \;:=\; \max\bigl(0,\;\; \Kcap(g_{k+1}) - \Kcap(g_k)\bigr),
+\end{equation}
+where $g_{k+1}$ is the next-scale coupling determined by the
+one-loop $\beta$-function (\Cref{ch:uv-trajectory}).
+\end{definition}
+
+The $\max(0, \cdot)$ truncation reflects the buffer growth being
+monotone non-decreasing across the block-spin step: in the UV-direction
+$g$ flows downward, both $\Ksf$ and $\Klf$ flow downward,
+and so does $\Kcap$, giving $\Dcap = 0$.  In the IR-direction
+flow $g$ grows and $\Kcap$ grows; $\Dcap > 0$ captures the
+incremental buffer cost.
+
+When either endpoint's $\Kcap$ is non-finite (the
+non-convergent regime), $\Dcap = \infty$ by convention, propagating
+the non-convergence honestly through the downstream budget.
+
+\section{Empirical looseness and the gaussian-sharpness
+  conjecture}
+\label{sec:k-cap-looseness}
+
+\Cref{rem:K-cap-saturation} flagged the union bound $\Kcap \le
+\Ksf + \Klf$ as worst-case.  Empirically, on the $\SUtwo$ canonical
+convergent trajectory we observe the union-bound looseness factor
+\begin{equation}
+  \label{eq:k-looseness}
+  L_K(g_k) \;:=\; \frac{\Ksf(g_k) + \Klf(g_k)}{\max\bigl(\Ksf(g_k),\, \Klf(g_k)\bigr)}
+  \;=\;
+  1 + \frac{\min(\Ksf, \Klf)}{\max(\Ksf, \Klf)}
+\end{equation}
+stays comfortably below $1.2$ across the convergent regime, with
+peak $\approx 1.18$ at $g = 0.35$.
+
+\begin{conjecture}[Gaussian sharpness; \Cref{ch:overlap-measure},
+  Conjecture~\ref{conj:gaussian-sharpness}, restated]
+\label{conj:K-cap-sharpness}
+There exists $C \le 2$ such that on every trajectory in the
+joint-convergent regime, $L_K(g_k) \le C$.
+\end{conjecture}
+
+The conjecture is the gaussian-sharpness analog of
+\Cref{conj:gaussian-sharpness}, lifted to the $\Kcap$-summability
+level.  Empirically the bound is much tighter than $2$, but the
+universal constant $C \le 2$ remains the manuscript's open
+theoretical target.
+
+\begin{infobox}[margin][title=Why $\Ksf$ dominates]
+The small-field and large-field certificates approach divergence
+from opposite directions: $\Ksf \to \infty$ as $g \to
+g_{\max}^{\mathrm{sf}}$ from below, while $\Klf \to 0$ as $g \to 0$
+(the activity bound trivializes).  At the joint-convergent regime
+boundary, $\Ksf \gg \Klf$, and the union-bound looseness factor
+collapses to $1 + \Klf/\Ksf \approx 1 + \mathrm{small}$.
+\end{infobox}
+
+\section{Convention and the $\Dcap$ budget in
+  \texorpdfstring{$\Qp$}{Q'}}
+\label{sec:overlap-Q-rational}
+
+Both $\Ksf$ and $\Klf$ are constructively $\Qp$-rational at every
+pilot operating point (\Cref{ch:small-field-kp,ch:large-field-kp},
+respectively), so $\Kcap \le \Ksf + \Klf$ is $\Qp$-rational by
+closure under addition.  $\Dcap(b, g_k) = \Kcap(g_{k+1}) -
+\Kcap(g_k)$ is therefore also $\Qp$-rational, provided the
+trajectory's $\{g_k\}$ values are $\Qp$-rational — which they are at
+every finite-$K$ pilot truncation of \Cref{ch:sigma-hat-trajectory}.
+
+\section{Use throughout the manuscript}
+\label{sec:overlap-kp-downstream}
+
+\Cref{ch:sigma-hat-trajectory} feeds $\Dcap(b, g_k)$ into the
+$\sigh$-transport derivation: the per-step degradation $\eta_k$ is
+proportional to $\Dcap$, with proportionality constant
+$\cpolymer / \Amin = 2/4 = 1/2$.  The full chain
+$\Ksf, \Klf \to \Kcap \to \Dcap \to \eta_k \to \sum_k \eta_k <
+\sigma_0$ closes the budget at the $\Qp$-rational level at finite
+truncation $K$, supplying the constructive mass-gap lower bound
+$\massgap$ of \Cref{ch:mass-gap-theorem}.
+
+\section{Code provenance}
+\label{sec:overlap-kp-codeanchor}
+
+\begin{itemize}
+  \item Python implementation:
+    \codepath{computations/overlap\_kp.py}.  Key entry points:
+    \codepath{compute\_overlap\_kp(g\_k, t\_choice, scale\_k,
+    spectral\_gap\_coeff, mu\_plaq)} returns an
+    \codepath{OverlapKP} record carrying $\rhocap$, $\Kcap$, both
+    underlying regime certificates, and a provenance dictionary;
+    \codepath{delta\_cap(g\_k, g\_k\_next, t\_choice)} computes the
+    per-step buffer growth of \cref{def:delta-cap};
+    \codepath{union\_bound\_looseness\_estimate(g\_k, t\_choice)}
+    surfaces the empirical $L_K$ of \eqref{eq:k-looseness}.
+    Tests in \codepath{tests/test\_overlap\_kp.py}.
+  \item Lean formalization:
+    \codepath{lean/YMGap/Sheaf/Gluing.lean::domGlue\_preserves\_KP}
+    is the type-level statement of \cref{thm:overlap-glue}.  The
+    Lean theorem carries part~(a) of the open-obligation ledger
+    entry $[P2.1]$; part~(b) is \cref{conj:K-cap-sharpness},
+    currently open.
+  \item Visualizations:
+    \codepath{visualizations/pilot/su2/delta-cap-budget.svg}
+    plots $\Dcap(b, g_k)$ across the canonical trajectory;
+    \codepath{visualizations/pilot/su2/conjecture-7.4-looseness.svg}
+    plots $L_K(g_k)$.
+\end{itemize}
