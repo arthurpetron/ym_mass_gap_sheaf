@@ -269,18 +269,35 @@ def plot_uv_trajectory(
     ax_top.grid(True, alpha=0.3)
     ax_top.legend()
 
-    # Bottom: η_k vs k (log scale, exhibits geometric decay).
-    # Filter zeros for log plot
-    eta_plot = np.array([e if e > 1e-300 else float("nan") for e in eta_values])
-    ax_bot.semilogy(k_values, eta_plot, "s-", color="tab:red", markersize=5,
-                    label=r"$\eta_k$")
-    decay = geometric_decay_rate(traj)
-    decay_label = (
-        f"median ratio $\\eta_{{k+1}}/\\eta_k \\approx {decay:.4f}$"
-        if decay is not None else "all $\\eta_k = 0$ (deep weak coupling)"
-    )
+    # Bottom: K_lf(g_k) surrogate vs k.  Eta itself is zero in the UV
+    # direction because K_cap is monotone non-increasing under the
+    # standard Delta_cap = max(0, K_cap(g_{k+1}) - K_cap(g_k))
+    # accounting; the large-field summability K_lf(g_k) is the natural
+    # surrogate that exhibits the geometric decay rate r_uv_inf.
+    from computations.large_field_kp import compute_large_field_kp
+    klf_values = np.array([
+        compute_large_field_kp(s.g_k, t_choice=t_choice).K_lf for s in traj.steps
+    ])
+    # Filter zeros for log plot.
+    klf_plot = np.array([k if k > 1e-300 else float("nan") for k in klf_values])
+    ax_bot.semilogy(k_values, klf_plot, "s-", color="tab:red", markersize=5,
+                    label=r"$K_{\mathrm{lf}}(g_k)$ (large-field surrogate)")
+    # Empirical median ratio of the K_lf sequence, restricted to the
+    # regime where K_lf is finite & positive (out of the spike at small k).
+    finite_mask = np.isfinite(klf_values) & (klf_values > 0)
+    if finite_mask.sum() >= 4:
+        finite_klf = klf_values[finite_mask]
+        ratios = finite_klf[1:] / finite_klf[:-1]
+        ratios = ratios[np.isfinite(ratios) & (ratios > 0)]
+        if ratios.size:
+            median_ratio = float(np.median(ratios))
+            decay_label = rf"median ratio $K_{{\mathrm{{lf}}}}(g_{{k+1}})/K_{{\mathrm{{lf}}}}(g_k) \approx {median_ratio:.4f}$"
+        else:
+            decay_label = r"$K_{\mathrm{lf}}(g_k)$: large-field summability surrogate"
+    else:
+        decay_label = r"$K_{\mathrm{lf}}(g_k)$: large-field summability surrogate"
     ax_bot.set_xlabel(r"scale index $k$ (UV: $a_k \to 0$)")
-    ax_bot.set_ylabel(r"per-step $\eta_k$ (log scale)")
+    ax_bot.set_ylabel(r"$K_{\mathrm{lf}}(g_k)$ (log scale)")
     ax_bot.set_title(decay_label)
     ax_bot.grid(True, alpha=0.3, which="both")
     ax_bot.legend()

@@ -268,7 +268,8 @@ def plot_inductive_closure(
 
 
 if __name__ == "__main__":
-    result = run_pilot()
+    # Canonical convergent operating point used in the manuscript caption.
+    result = run_pilot(K=3, g_0=0.30)
     print("=" * 65)
     print("SU(2) inductive-step pilot — work_plan 3.5")
     print("=" * 65)
