@@ -1,0 +1,242 @@
+% appx-notation.tex — Appendix A: notation glossary.
+
+\chapter{Notation Glossary}
+\label{ch:appx-notation}
+
+\noindent\emph{Symbols used throughout the manuscript, organized by
+topic.  First-appearance chapter is given for each entry.}
+
+This glossary collects the project-wide notation in one place.
+Each entry lists the symbol, its meaning, and the chapter (or
+section, for highly local symbols) where it is introduced.
+
+\section{Group theory and representation theory}
+\label{sec:notation-group}
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{l@{\hspace{2em}}p{8.5cm}@{\hspace{1.5em}}l}
+\toprule
+Symbol           & Meaning                                                     & First in       \\
+\midrule
+$G$              & Compact simple gauge group; specialized to $\SUtwo$ in
+                   Part~II onward.                                           & \Cref{ch:introduction} \\
+$\SUtwo$         & The compact special unitary group of degree~$2$;
+                   the manuscript's working gauge group.                     & \Cref{ch:introduction} \\
+$\SUthree$       & The Yang--Mills $\SUN$ case $N = 3$;
+                   referenced in the extension roadmap.                      & \Cref{ch:mass-gap-discussion} \\
+$\SUN$           & General special unitary group of degree $N$.              & \Cref{ch:mass-gap-discussion} \\
+$j$              & Half-integer spin label for $\SUtwo$ irreps;
+                   $j \in \tfrac12\mathbb{N}$.                                & \Cref{ch:su2-rep-theory} \\
+$V_j$            & The spin-$j$ irreducible representation of $\SUtwo$.       & \Cref{ch:su2-rep-theory} \\
+$\dim V_j = 2j+1$ & Dimension of the spin-$j$ irrep.                          & \Cref{ch:su2-rep-theory} \\
+$\Casimir(j)$    & Quadratic Casimir of the spin-$j$ irrep,
+                   $\Casimir(j) = j(j+1)$ (physics-spin convention).         & \Cref{ch:su2-rep-theory} \\
+$\chi_j$         & Character of the spin-$j$ irrep on $\SUtwo$.               & \Cref{ch:su2-rep-theory} \\
+$T_a$            & Generators of $\mathfrak{su}(2)$, $T_a = \sigma_a/2$.      & \Cref{ch:su2-rep-theory} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Lattice geometry and RG}
+\label{sec:notation-lattice}
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{l@{\hspace{2em}}p{8.5cm}@{\hspace{1.5em}}l}
+\toprule
+Symbol           & Meaning                                                     & First in       \\
+\midrule
+$k$              & RG scale index, $k \in \mathbb{N}$.  Increases UV-ward
+                   from Part~III onward.                                     & \Cref{ch:sheaf-framework} \\
+$a_k$            & Lattice spacing at scale $k$.                              & \Cref{ch:sheaf-framework} \\
+$b$              & Block scale factor; the manuscript standard is $b = 2$.    & \Cref{ch:block-spin-morphism} \\
+$E_k$            & Set of (oriented) lattice edges at scale $k$.              & \Cref{ch:sheaf-framework} \\
+$\Pcal_k$        & Set of plaquettes at scale $k$.                            & \Cref{ch:sheaf-framework} \\
+$N_p(k)$         & Plaquette count at scale $k$;
+                   $N_p(k) = N_p(0)\,b^{-4k}$ in 4D block-spinning.          & \Cref{ch:overlap-measure} \\
+$\Omk$           & Link-configuration space at scale $k$,
+                   $\Omk = G^{E_k}$.                                          & \Cref{ch:sheaf-framework} \\
+$\Omksf$         & Small-field region of $\Omk$.                              & \Cref{ch:sheaf-framework} \\
+$\Omklf$         & Large-field region of $\Omk$.                              & \Cref{ch:sheaf-framework} \\
+$\Omkcap$        & Buffer region (overlap) of $\Omk$.                         & \Cref{ch:sheaf-framework} \\
+$\delta_k$       & Small-field smallness parameter;
+                   $\delta_k \sim g_k^\alpha$ with $\alpha \in (0,1]$.        & \Cref{ch:sheaf-framework} \\
+$\Tb$            & Block-spin morphism $\Omk \to \Omkpone$
+                   (\textsc{IR} direction in Part~III).                        & \Cref{ch:block-spin-morphism} \\
+$\Tbstar$        & Pushforward of measures and presheaves along $\Tb$.        & \Cref{ch:block-spin-morphism} \\
+$\Ominf$         & Continuum configuration space,
+                   $\Ominf = \varprojlim_k \Omk$.                              & \Cref{ch:continuum-measure} \\
+$g_k$            & Running gauge coupling at scale $k$.                       & \Cref{ch:sheaf-framework} \\
+$b_0$            & One-loop $\beta$-function coefficient;
+                   $b_0 = 22/3$ for $\SUtwo$.                                  & \Cref{ch:uv-trajectory} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Measures and Hilbert spaces}
+\label{sec:notation-measure}
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{l@{\hspace{2em}}p{8.5cm}@{\hspace{1.5em}}l}
+\toprule
+Symbol           & Meaning                                                     & First in       \\
+\midrule
+$\muk$           & Heat-kernel Gibbs measure on $\Omk$.                       & \Cref{ch:sheaf-framework} \\
+$\muinf$         & Continuum-limit Wilson measure on $\Ominf$.                & \Cref{ch:continuum-measure} \\
+$K_t$            & Heat kernel on $\SUtwo$ at time parameter $t$.             & \Cref{ch:heat-kernel} \\
+$t_W, t_M$       & Wilson and Manton heat-kernel-time parameters.             & \Cref{ch:heat-kernel} \\
+$\kappa(G)$      & Canonical-$\kappa$ activity-exponent coefficient,
+                   $\kappa(G) = \Casimir(\lambda_{\min})$;
+                   $\kappa(\SUtwo) = \tfrac34$.                                & \Cref{ch:heat-kernel} \\
+$\Eplus$         & Half-space cylindrical test-function algebra (positive
+                   Euclidean time).                                          & \Cref{ch:os-reconstruction} \\
+$\osPair$        & Schwinger inner product
+                   $\langle F, G \rangle_{\mathrm{OS}}
+                    = \int (\theta F)^* G \, d\muinf$.                       & \Cref{ch:os-reconstruction} \\
+$\Hphys$         & OS-reconstructed physical Hilbert space,
+                   $\Hphys = \overline{\Eplus / \Ncal}^{\,\|\cdot\|_{\mathrm{OS}}}$. & \Cref{ch:os-reconstruction} \\
+$\Hop$           & Self-adjoint Hamiltonian on $\Hphys$ from
+                   Stone's theorem.                                          & \Cref{ch:os-reconstruction} \\
+$\Omega_0$       & Vacuum vector in $\Hphys$, $\Hop\,\Omega_0 = 0$.            & \Cref{ch:os-reconstruction} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Sheaves, certificates, and the inductive state}
+\label{sec:notation-sheaves}
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{l@{\hspace{2em}}p{8.5cm}@{\hspace{1.5em}}l}
+\toprule
+Symbol           & Meaning                                                     & First in       \\
+\midrule
+$\Ak$            & Bound-witness presheaf on the configuration site at
+                   scale $k$.                                                  & \Cref{ch:sheaf-framework} \\
+$\Sk$            & Summability-certificate presheaf at scale $k$
+                   (carries the Kotecký--Preiss data).                         & \Cref{ch:sheaf-framework} \\
+$\Ical_k$        & Inductive state package at scale $k$.                       & \Cref{ch:inductive-state} \\
+$\mathrm{Valid}_k$ & The scale-$k$ induction-hypothesis predicate.             & \Cref{ch:inductive-state} \\
+$(\rho, K)$      & Kotecký--Preiss datum:
+                   activity-decay rate and summability constant.              & \Cref{ch:sheaf-framework} \\
+$\rhosf, \Ksf$   & Small-field KP constants.                                  & \Cref{ch:small-field-kp} \\
+$\rholf, \Klf$   & Large-field KP constants.                                  & \Cref{ch:large-field-kp} \\
+$\rhocap, \Kcap$ & Buffer-overlap KP constants;
+                   $\rhocap = \min(\rhosf, \rholf)$, $\Kcap \le \Ksf + \Klf$. & \Cref{ch:overlap-kp} \\
+$P_{\mathrm{sf}}, P_{\mathrm{lf}}, P_\cap$
+                 & Regime-specific Kotecký--Preiss predicates.                & \Cref{ch:inductive-state} \\
+$\mu_{\mathrm{conn}}$ & Plaquette-polymer connectivity bound,
+                   $\mu_{\mathrm{conn}} = \log(2d \cdot e) \approx 3.08$ at $d=4$.
+                                                                              & \Cref{ch:small-field-kp} \\
+$Z_t$            & Non-trivial-irrep character partition function,
+                   $Z_t = \sum_{j > 0} (2j+1)^2 \, e^{-t\,j(j+1)}$.            & \Cref{ch:large-field-kp} \\
+$\cchain$        & Chaining factor on the per-plaquette aggregate,
+                   $\cchain(g) = \exp(-n_{\mathrm{share}}\,g^2\,\zeta)$.        & \Cref{ch:chaining-estimate} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{String tension and the budget}
+\label{sec:notation-budget}
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{l@{\hspace{2em}}p{8.5cm}@{\hspace{1.5em}}l}
+\toprule
+Symbol           & Meaning                                                     & First in       \\
+\midrule
+$\sigk$          & Dimensional string tension at scale $k$.                   & \Cref{ch:sigma-hat-trajectory} \\
+$\sighk$         & Renormalized (dimensionless) string tension,
+                   $\sighk = a_k^2 \, \sigk$.                                  & \Cref{ch:sigma-hat-trajectory} \\
+$\sigma_0$       & Scale-$0$ value of $\sighk$, normalized to $1$.            & \Cref{ch:sigma-hat-trajectory} \\
+$\sighinf$       & Continuum-limit value,
+                   $\sighinf = \lim_{k\to\infty} \sighk \in \Qp$.              & \Cref{ch:continuum-limit} \\
+$\etak$          & Per-step $\sighk$ degradation;
+                   $\etak = (\cpolymer/\Amin) \cdot \Dcap(b, g_k)$.            & \Cref{ch:sigma-hat-trajectory} \\
+$\Dcap$          & Per-step buffer growth, $\Dcap = \Kcap(g_{k+1}) - \Kcap(g_k)$. & \Cref{ch:overlap-kp} \\
+$\Thetak$        & String-tension 2-cell,
+                   $\sighk \Rightarrow \sighk - \etak$.                        & \Cref{ch:block-spin-morphism} \\
+$r_{\mathrm{uv}}^\infty$ & Asymptotic $\eta$-decay rate on the UV trajectory,
+                   $\approx 0.976$ at $b = 2$.                                 & \Cref{ch:uv-trajectory} \\
+$\massgap$       & Constructive $\Qp$-rational lower bound on the
+                   spectral gap of $\Hop$.                                    & \Cref{ch:introduction} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Named fiducials}
+\label{sec:notation-fiducials}
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{l@{\hspace{2em}}p{8cm}@{\hspace{1.5em}}l}
+\toprule
+Symbol           & Meaning, baseline                                            & First in       \\
+\midrule
+$\clambda$       & Small-field spectral-gap coefficient;
+                   derived $\clambda = \Casimir(\tfrac12) = \tfrac34$.         & \Cref{ch:small-field-kp} \\
+$\muplaq$        & Plaquette-polymer connectivity bound;
+                   literature-shape default $16$.                              & \Cref{ch:large-field-kp} \\
+$\cpolymer$      & Bałaban polymer-residual prefactor;
+                   derived $\cpolymer = 2$.                                    & \Cref{ch:sigma-hat-trajectory} \\
+$\Amin$          & Dimensionless Wilson-loop minimum area;
+                   $\Amin = 4$ from the $2 \times 2$ spec convention.          & \Cref{ch:sigma-hat-trajectory} \\
+$n_{\mathrm{share}}, \zeta$
+                 & Chaining-factor parameters;
+                   $n_{\mathrm{share}} = 4$ (4D edge-degree),
+                   $\zeta = \tfrac12$.                                          & \Cref{ch:chaining-estimate} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Constructive analysis}
+\label{sec:notation-constructive}
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{l@{\hspace{2em}}p{9cm}}
+\toprule
+Symbol      & Meaning                                                                                   \\
+\midrule
+$\Qp$       & Project-internal constructive rationals; axiom-gate restricted to
+              \texttt{[propext]} on the Lean side.                                                     \\
+$\Rnn$      & Non-negative reals $[0, \infty)$.                                                         \\
+$\Rnnext$   & Extended non-negative reals $[0, \infty]$, ordered with $+\infty$ as the top.              \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Conventions reminder}
+\label{sec:notation-conventions}
+
+\begin{itemize}
+  \item \textbf{Scale index $k$} increases \textsc{UV}-ward in Parts~III
+    onward (refining $a_k \to a_k / b$), the direction used by the
+    continuum-limit construction.  Earlier, the \textsc{IR}-direction
+    trajectory of \Cref{ch:block-spin-morphism}
+    (coarsening) carries the opposite convention; when both appear
+    in the same chapter, the direction is annotated explicitly.
+  \item \textbf{``Mass gap''} in Part~V is in dimensionless units of
+    $\sqrt{\sigma_0}$ unless the physical-unit calibration is
+    invoked (\Cref{ch:mass-gap-discussion}); the conversion to
+    MeV uses the standard $\sqrt{\sigma_0} \approx 440$~MeV
+    pure-gauge $\SUtwo$ calibration and is downstream of the proof.
+  \item \textbf{Heat-kernel convention} is canonical-$\kappa$ by default
+    (\Cref{ch:heat-kernel}, Convention~\ref{conv:canonical-kappa});
+    Wilson is the alternative.  The Manton convention is admissible
+    but has the inverted $g$-dependence shape and is used only for
+    specific cross-checks.
+  \item \textbf{Codeanchors} of the form
+    \codepath{module::name} below a theorem or equation locate the
+    Python or Lean entry point that computes or certifies the
+    result.
+\end{itemize}

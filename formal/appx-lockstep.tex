@@ -1,0 +1,132 @@
+% appx-lockstep.tex — Appendix C: Python <-> Lean lockstep test
+% enumeration.
+
+\chapter{Python$\leftrightarrow$Lean Lockstep Tests}
+\label{ch:appx-lockstep}
+
+\noindent\emph{The test surface that binds the Python numerical
+pilot to the Lean rational literals, ensuring that every constant
+the Lean witness depends on agrees with the Python computation to
+the last $\Qp$-rational digit.}
+
+The manuscript's two-layer construction --- $\Qp$-rational data
+theorems in Lean (\Cref{ch:appx-lean-audit}) on top of Python-side
+numerical pilots (\Cref{ch:pilot-su2}) --- requires that the
+numerical values in the Python pilots match the rational literals
+hardcoded in the Lean library exactly.  This appendix enumerates
+the tests that enforce this lockstep: a drift in either side
+without the corresponding update on the other triggers a CI
+failure.
+
+\section{The lockstep contract}
+\label{sec:lockstep-contract}
+
+\marginkey{Two-layer contract}%
+
+The Python pilot computes per-step $\etak$ values as floats; the
+Lean witness uses $\Qp$-rational literals with explicit
+denominators.  The contract is:
+
+\begin{enumerate}[label=(L\arabic*)]
+  \item Every Lean $\Qp$-literal that appears in a load-bearing
+    theorem has a corresponding Python computation that produces
+    the same numerator at the matching denominator (with the
+    Python value $\le$ the Lean literal at every operating point,
+    so the Lean witness is an honest upper bound).
+  \item The lockstep tests in \codepath{tests/test\_q\_lift.py}
+    assert numerator equality (or "Python $\le$ Lean rational")
+    for each tracked literal.
+  \item A Python-side numerical change that violates the contract
+    triggers a test failure; updating the contract requires
+    deliberate co-edits to both the Python ceiling and the Lean
+    literal.
+\end{enumerate}
+
+\section{Tracked tests}
+\label{sec:lockstep-tracked}
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{p{4.5cm}@{\hspace{1em}}p{4.5cm}@{\hspace{1em}}p{4cm}}
+\toprule
+Python test                       & Asserts                          & Lean literal                \\
+\midrule
+\codepath{test\_eta\_max\_matches\_lean\_hardcoded}
+& Max per-step $\etak$ on the canonical pilot ($K = 3$) is
+  bounded by the Lean rational.
+& \codepath{eta\_max\_pilot}     \\
+\codepath{test\_eta\_total\_matches\_lean\_hardcoded}
+& Cumulative $\sum_{k < 3} \etak$ canonical bounded by the Lean
+  literal.
+& \codepath{eta\_total\_pilot}   \\
+\codepath{test\_wilson\_eta\_max\_matches\_lean\_hardcoded}
+& Same for the Wilson pilot at $g_0 = 0.50$, $K = 3$.
+& \codepath{eta\_max\_pilot\_wilson} \\
+\codepath{test\_wilson\_eta\_total\_matches\_lean\_hardcoded}
+& Cumulative Wilson-pilot sum vs.\ Lean literal.
+& \codepath{eta\_total\_pilot\_wilson} \\
+\codepath{test\_canonical\_pilot\_data\_matches\_lean\_module}
+& Full per-scale $\etak$ vector at $K = 3$ matches the Lean module's
+  per-scale rational table.
+& \codepath{RG.SigmaHatPilot}    \\
+\codepath{test\_canonical\_pilot\_closes}
+& The five-criterion validator predicate
+  $\mathrm{Pilot}_{\SUtwo}(0.30, 3) = \mathsf{True}$ holds in
+  Python, mirroring the Lean
+  \codepath{eta\_pilot\_budget\_closes}.
+& \codepath{eta\_pilot\_budget\_closes} \\
+\bottomrule
+\end{tabular}
+\caption{Python$\leftrightarrow$Lean lockstep tests in
+\codepath{tests/test\_q\_lift.py} and
+\codepath{tests/test\_pilot\_su2.py}.  Each row binds a Python
+numerical assertion to a Lean rational literal; CI failure
+indicates drift in one or the other.}
+\label{tab:lockstep-tests}
+\end{table}
+
+\section{The rational-ceiling helper}
+\label{sec:rational-ceiling}
+
+\marginkey{Float $\to$ $\Qp$ ceiling}%
+
+The bridge from a Python float to a $\Qp$-rational upper bound is
+the helper \codepath{rational\_ceiling(x, denom)} in
+\codepath{computations/q\_lift.py}: it returns the smallest integer
+$n$ with $n/\mathrm{denom} \ge x$, i.e., the rational ceiling at
+the given denominator.  All Lean rationals in the load-bearing
+theorems are sourced from this helper applied to the Python
+numerical output, ensuring the Lean literal is always a
+\emph{conservative} (upper-bound) rational, never an underestimate
+of the true Python value.
+
+The properties asserted in the test suite:
+\begin{itemize}[nosep]
+  \item \codepath{test\_exact\_rational}:
+    $\mathrm{ceiling}(p/q, q) = p$ when $x = p/q$ is exact.
+  \item \codepath{test\_strict\_round\_up}:
+    irrational $x$ rounds strictly up.
+  \item \codepath{test\_upper\_bound\_property}:
+    $\mathrm{ceiling}(x, \mathrm{denom}) / \mathrm{denom} \ge x$
+    for every valid input.
+  \item \codepath{test\_invalid\_denominator}: rejects $\mathrm{denom} \le 0$.
+\end{itemize}
+
+\section{Reproduction}
+\label{sec:lockstep-reproduce}
+
+The lockstep tests are part of the project's main
+\codepath{pytest} suite.  From the repository root:
+\begin{itemize}
+  \item \codepath{pytest tests/test\_q\_lift.py -v}
+    runs the Python$\leftrightarrow$Lean rational tests in
+    isolation; the manuscript-bundle release pipeline runs
+    these as part of the broader $500+$-test suite.
+  \item \codepath{pytest -k lockstep} runs every test whose name
+    contains ``lockstep'', spanning multiple test files.
+\end{itemize}
+
+The combined Python$\leftrightarrow$Lean tests pass in under five
+seconds on a modern laptop and have been a stable manuscript-build
+gate since their introduction.
