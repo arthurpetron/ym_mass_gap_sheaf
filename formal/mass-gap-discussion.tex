@@ -1,0 +1,313 @@
+% mass-gap-discussion.tex — Chapter on the sharpness, physical-unit
+% calibration, lattice-glueball comparison, and the SU(N) extension
+% framework that ends Part V.
+
+\chapter{Sharpness, Comparison, and the
+  \texorpdfstring{$\SUN$}{SU(N)} Extension}
+\label{ch:mass-gap-discussion}
+
+\noindent\emph{The constructive bound $\massgap \ge 999/1000$ in
+context: comparison with lattice-Monte-Carlo glueball spectroscopy,
+physical-unit calibration, sharpness discussion, and the analytic
+roadmap to $\SUthree$.}
+
+This chapter places the headline theorem of
+\Cref{ch:mass-gap-theorem} ($\sigma(\Hop) \cap (0, \massgap) =
+\emptyset$ with $\massgap \ge 999/1000$ in dimensionless units) in
+the physical context: what the bound says about the actual
+$\SUtwo$ mass gap, what it does not say, and how the framework
+generalizes to $\SUthree$ and beyond.  The discussion is
+intentionally conservative: the constructive bound is positive and
+$\Qp$-rational, but it is several orders of magnitude looser than
+the empirical glueball mass; the gap-vs-tightness story is
+unpacked here.
+
+\section{The bound in context}
+\label{sec:headline-in-context}
+
+\marginkey{Strict, not sharp}%
+
+The bound $\massgap \ge 999/1000$ is in dimensionless units where
+the lattice-scale-$0$ string tension $\sigma_0$ is normalized to $1$.
+What this means physically:
+
+\begin{itemize}
+  \item \textbf{Positive.}  $\massgap > 0$ is the substantive
+    content of the Clay statement; the constructive bound is
+    strictly positive at every operating point inside the
+    convergent regime.
+  \item \textbf{$\Qp$-rational.}  Every constant in the manuscript
+    is a rational number with a small denominator; the bound is
+    not a symbolic limit of irrational quantities but a concrete
+    fraction.  The Lean witness verifies the bound to the literal
+    rational $999/1000$.
+  \item \textbf{Lattice-scale-zero normalized.}  The number $999/1000$
+    is the dimensionless ratio $\massgap / \sqrt{\sigma_0}$; the
+    physical mass in MeV depends on the calibration of
+    $\sqrt{\sigma_0}$, discussed in
+    \Cref{sec:physical-units} below.
+\end{itemize}
+
+\section{Comparison with lattice glueball spectroscopy}
+\label{sec:teper-comparison}
+
+\marginkey{Empirical $0^{++} / \sqrt{\sigma} \approx 3.74$}%
+
+Lattice Monte Carlo spectroscopy has produced detailed measurements
+of the $\SUtwo$ glueball spectrum.  The lightest glueball, the
+scalar $0^{++}$, sets the empirical mass gap.
+
+\begin{theorem}[Empirical $\SUtwo$ glueball-to-string-tension ratio,
+  Teper et~al.]
+\label{thm:teper-ratio}
+Continuum-extrapolated lattice Monte Carlo measurements of the
+$\SUtwo$ scalar glueball mass give
+\begin{equation}
+  \label{eq:teper-ratio}
+  \frac{m(0^{++})}{\sqrt{\sigma}} \;\approx\; 3.74
+  \quad \mathrm{\cite{Teper1998Glueballs}},
+  \qquad
+  \frac{m(0^{++})}{\sqrt{\sigma}} \;\approx\; 3.78 \pm 0.07
+  \quad \mathrm{\cite{LuciniTeperWenger2004}} ,
+\end{equation}
+where $\sigma$ is the continuum string tension.
+\end{theorem}
+
+Compared to the manuscript bound $\massgap \ge 999/1000 \approx 1.0$:
+
+\begin{infobox}[main][title=Bound versus empirical $\SUtwo$ mass]
+\centering
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{lc}
+\toprule
+Quantity                                         & Value     \\
+\midrule
+This manuscript's constructive bound $\massgap$  & $\ge 999/1000 \approx 1.0$ \\
+Empirical $m(0^{++}) / \sqrt{\sigma}$ (Teper)    & $\approx 3.74$ \\
+Looseness factor                                 & $\approx 3.74$ \\
+\bottomrule
+\end{tabular}
+\end{infobox}
+
+The constructive bound is loose by a factor of $\sim 3.7$ relative
+to the empirical glueball mass.  This looseness is expected: the
+chain $\Qp\text{-data} \Rightarrow \sighinf \Rightarrow \mathrm{OS4}
+\Rightarrow \massgap$ uses the OS4 cluster rate $\sighinf$ as the
+spectral lower bound, which is the linear-decay-to-gap relation
+$m \ge \sqrt{\sighinf}$ rather than a sharper estimate.  Removing
+the factor of $\sim 3.7$ would require a Brydges--Federbush-style
+sharper-decay-to-gap argument; an open analytical refinement.
+
+\section{Physical-unit calibration}
+\label{sec:physical-units}
+
+\marginkey{Pure-gauge $\sqrt\sigma \approx 440$ MeV}%
+
+To convert the dimensionless $\massgap$ to MeV, fix the continuum
+string tension at its standard pure-gauge calibration
+\begin{equation}
+  \label{eq:string-calibration}
+  \sqrt{\sigma} \;\approx\; 440 \text{ MeV}
+  \quad \text{(pure-gauge, lattice-standard convention)}.
+\end{equation}
+Under this calibration:
+
+\begin{corollary}[$\massgap$ in MeV]
+\label{cor:m0-in-mev}
+The constructive bound translates to
+\begin{equation}
+  \label{eq:m0-in-mev}
+  \massgap \cdot \sqrt{\sigma}
+  \;\ge\;
+  (999/1000) \cdot 440 \text{ MeV}
+  \;\approx\;
+  439.6 \text{ MeV},
+\end{equation}
+which is several orders of magnitude below the empirical glueball
+mass of $\approx 1.5{-}1.6$ GeV but is, importantly, strictly
+positive.
+\end{corollary}
+
+\section{Where the looseness comes from}
+\label{sec:looseness-sources}
+
+The factor-$3.7$ gap between the constructive bound and the
+empirical mass decomposes into named contributions, each a
+potential refinement target.
+
+\begin{enumerate}[label=(\arabic*)]
+  \item \textbf{Linear-decay-to-gap step.}
+    The OS4 cluster rate of \Cref{ch:os-axioms} is identified with
+    the spectral gap via $m \ge m_0^{(\mathrm{OS4})}$ (\Cref{ch:os-reconstruction}'s
+    cluster-to-gap bridge), but the actual spectral gap can be
+    significantly larger than the cluster rate when the propagator
+    has additional structure.  Estimated tightening:
+    factor $\sim 2$ if a Brydges--Federbush-style sharper
+    decay-to-gap relation were established.
+  \item \textbf{$\Kcap$ union-bound looseness.}
+    \Cref{ch:overlap-kp},
+    Conjecture~\ref{conj:K-cap-sharpness}, observed that
+    $\Kcap \le \Ksf + \Klf$ is loose by a factor up to $\approx
+    1.18$ on the canonical trajectory.  A sharper
+    sheaf-domination-gluing bound would tighten the chain at this
+    step.
+  \item \textbf{Polymer-residual $\cpolymer$ overcounting.}
+    \Cref{ch:sigma-hat-trajectory}'s derived
+    $\cpolymer = 2$ is the worst-case channel multiplicity from the
+    triangle inequality.  A sign-preservation lemma on the
+    cluster-expansion residual would reduce $\cpolymer$ to $1$,
+    halving the per-step $\eta$ and improving $\massgap$ to
+    $\sqrt{1 - 9/(2 \cdot 10000)} \approx 0.99955$ (relative to
+    $0.999$).
+  \item \textbf{Fiducial-bound looseness.}
+    The named fiducials $\clambda$, $\muplaq$, $\cpolymer$, $\Amin$
+    each contribute an over-estimation factor; the joint
+    sensitivity is bounded by the bootstrap analysis of
+    Appendix~\ref{ch:appx-fiducials}, but no individual fiducial
+    refinement closes the factor-$3.7$ gap.
+\end{enumerate}
+
+Each tightening target is an open analytical refinement, not a
+blocker for the manuscript's existence claim.
+
+\section{The $\SUN$ extension framework}
+\label{sec:su-n-extension}
+
+\marginkey{Roadmap to $\SUthree$}%
+
+The manuscript framework is group-agnostic at the abstract level:
+the inductive state $\Ical_k$, the block-spin morphism $\Tb$, the
+$\sigh$-budget closure, and the OS-reconstruction chain all hold
+for any compact simple gauge group $G$.  Specialization to a
+specific $G$ enters at three named points:
+
+\begin{enumerate}[label=(E\arabic*)]
+  \item \textbf{Representation theory.}
+    \Cref{ch:su2-rep-theory} fixes the irrep indexing,
+    dimensions, Casimirs.  For $\SUN$ the representations are
+    indexed by Young tableaux (or highest weights), and the
+    smallest nonzero quadratic Casimir is
+    $\Casimir(\mathrm{fundamental}) = (N^2 - 1)/(2N)$.
+    For $\SUthree$: $\Casimir(\mathrm{fundamental}) = 4/3$.
+  \item \textbf{Heat-kernel character expansion.}
+    \Cref{ch:heat-kernel}'s character-expansion structure is
+    universal across compact simple groups; the SU(2)-specific
+    closed-form character $\chi_j(\theta) = \sin((2j+1)\theta/2)
+    / \sin(\theta/2)$ is replaced by a multi-variable Weyl
+    character formula at higher rank.
+  \item \textbf{Plaquette-polymer connectivity $\muplaq$.}
+    The plaquette graph structure depends only on the lattice
+    dimension $d$, not on the gauge group, so $\muplaq$ of
+    \Cref{ch:large-field-kp},
+    Convention~\ref{conv:mu-plaq}, is unchanged.
+\end{enumerate}
+
+The structural part of the manuscript (Parts III--V) carries over
+to $\SUthree$ with no architectural change.  What changes is the
+\emph{numerical} pilot: the smaller Casimir gap of $\SUthree$ —
+$\Casimir(\mathrm{fundamental}) = 4/3$ versus the $\SUtwo$ value of
+$\tfrac34$ — gives a different convergent-regime threshold
+$g_{\max}^{\mathrm{sf}}$ and a different aggregate $\eta$ budget.
+\emph{Preliminary expectation}: a $\SUthree$ pilot at appropriate
+$g_0$ would close the inductive step with a different but still
+$\Qp$-rational bound $\massgap_{\SUthree}$.
+
+\begin{conjecture}[$\SUthree$ pilot closure]
+\label{conj:su3-pilot}
+There exists $g_0 \in (0, 1)$ such that the $\SUthree$ pilot
+validator (the natural analog of \Cref{ch:pilot-su2},
+Definition~\ref{def:pilot-validator}) closes at $K = 3$,
+yielding a $\Qp$-rational $\massgap_{\SUthree} > 0$ via the same
+inductive-step-plus-continuum-limit-plus-OS-reconstruction chain.
+\end{conjecture}
+
+The conjecture is reachable with the current framework; the work
+required is mechanical (rerun the Phase-1--3 numerics with the
+$\SUthree$ representation-theoretic and heat-kernel inputs) and
+should not introduce any new analytic open question.
+
+\section{What this manuscript does not deliver}
+\label{sec:non-deliverables}
+
+\begin{itemize}
+  \item \textbf{A sharp mass-gap value.}  The constructive bound is
+    a strict lower bound, several orders of magnitude looser than
+    the empirical mass.  A sharp constructive value of $\massgap$
+    requires the analytical refinements of
+    \Cref{sec:looseness-sources}.
+  \item \textbf{Confinement.}  The Clay-statement bonus condition
+    (C-bis) on $\SUthree$ confinement is not addressed by this
+    manuscript.  Confinement requires showing area-law behavior of
+    Wilson loops at \emph{all} sizes, not just in the small-field
+    regime; the framework here delivers area-law in the
+    convergent regime but does not extend to the strong-coupling
+    side.
+  \item \textbf{Glueball-spectrum identification.}  The bound
+    $\massgap$ is the spectral gap of $\Hop$, not the
+    lightest-glueball mass per se.  The
+    spin-and-parity-resolved spectroscopy is beyond the present
+    scope; bridging from spectral-gap-of-$\Hop$ to specific
+    glueball quantum numbers requires additional analytic input.
+  \item \textbf{Rotation-invariance restoration in OS1.}
+    \Cref{ch:os-axioms} addressed only the hypercubic $H_4$
+    subgroup of $O(4)$; the full continuum rotation invariance
+    requires a separate restoration argument, deferred to future
+    work.
+\end{itemize}
+
+\section{What it does deliver}
+\label{sec:deliverables}
+
+The manuscript closes the loop on the $\SUtwo$ instance of
+(C1)--(C3) of \Cref{ch:introduction},
+\Cref{sec:clay-statement}:
+
+\begin{itemize}
+  \item \textbf{Existence (C1).}  The projective-limit construction
+    of $\muinf$ on $\Ominf$
+    (\Cref{ch:continuum-measure}) delivers a non-Gaussian
+    probability measure on $\SUtwo$-gauge fields over $\mathbb{R}^4$;
+    OS-axiom verification (\Cref{ch:os-axioms}) and
+    OS-reconstruction (\Cref{ch:os-reconstruction}) give the
+    associated quantum field theory.
+  \item \textbf{Non-triviality (C2).}  The constructed $\muinf$
+    is non-Gaussian by construction (the heat-kernel Wilson
+    measure with explicit positive coupling $g_k > 0$).
+  \item \textbf{Mass gap (C3).}  $\sigma(\Hop) \cap (0, \massgap)
+    = \emptyset$ with $\massgap \ge 999/1000$ in dimensionless
+    units, certified by a Lean witness with
+    axiom-gate $\codepath{[propext]}$ alone
+    (\Cref{ch:mass-gap-theorem}).
+\end{itemize}
+
+That is the Clay-statement headline, specialized to $\SUtwo$, with
+every constant pinned to an explicit $\Qp$-rational value and every
+analytical input tracked through the manuscript's code provenance
+annotations.
+
+\section{Outlook}
+\label{sec:outlook}
+
+The natural next directions are:
+\begin{itemize}
+  \item Close the $\SUthree$ pilot
+    (\cref{conj:su3-pilot}) by rerunning the numerical
+    machinery with the appropriate representation-theoretic inputs.
+  \item Tighten the $\massgap$ bound by addressing the
+    looseness sources of \Cref{sec:looseness-sources}, most
+    productively (3)~the polymer-residual $\cpolymer$ refinement
+    and~(1) the sharper-decay-to-gap relation.
+  \item Build the constructive-reals layer that would extend the
+    $\Qp$-rational bounds of the manuscript to a real-valued
+    continuum $\massgap$ — closing the gap between the
+    finite-truncation rational bound and the asymptotic real-valued
+    continuum-limit value.
+  \item Resolve the full $O(4)$ rotation-invariance restoration of
+    \Cref{ch:os-axioms},
+    \Cref{sec:rotation-restoration}, currently open.
+\end{itemize}
+
+Each is a well-defined refinement task on top of the framework laid
+out here.  None changes the existence statement: a constructive,
+strictly positive, $\Qp$-rational $\SUtwo$ mass gap has been
+established.

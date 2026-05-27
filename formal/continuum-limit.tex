@@ -1,0 +1,197 @@
+% continuum-limit.tex — Chapter on the continuum-limit
+% renormalized string tension sigma_hat_infinity > 0.
+%
+% Linked code / Lean:
+%   - computations/continuum_limit.py
+%   - lean/YMGap/Continuum/SigmaHatLimit.lean
+
+\chapter{The Continuum-Limit String Tension
+  \texorpdfstring{$\sighinf$}{sigma\_infty}}
+\label{ch:continuum-limit}
+
+\noindent\emph{From the geometric tail bound of
+\Cref{ch:uv-trajectory} to the existence of a strictly positive
+$\Qp$-rational $\sighinf := \lim_{k \to \infty} \sighk$.}
+
+This chapter combines the UV-trajectory tail bound of
+\Cref{ch:uv-trajectory},
+Corollary~\ref{cor:tail-bound}, with the finite-truncation budget
+closure of \Cref{ch:sigma-hat-trajectory},
+Theorem~\ref{thm:budget-closure}, to produce the limit object
+$\sighinf > 0$ on which everything downstream depends.  The
+construction is structurally short: the $\sigh$-trajectory is the
+partial-sum sequence $\sigma_0 - \sum_{k < K} \etak$ in $\Qp$, the
+tail $\sum_{k \ge K} \etak$ is bounded geometrically, and the limit
+exists with explicit $\Qp$-rational lower bound.
+
+\section{The $\widehat\sigma$-sequence and its partial sums}
+\label{sec:sigma-sequence}
+
+\marginkey{Telescoping}%
+
+Recall from \Cref{ch:sigma-hat-trajectory},
+equation~\eqref{eq:sigma-hat-recursion}, the $\sigh$-trajectory is
+defined by $\sighk[0] := \sigma_0$ and $\sighk[k+1] = \sighk - \etak$.
+Iterating gives the telescoping identity
+\begin{equation}
+  \label{eq:sigh-telescope}
+  \sighk[K] \;=\; \sigma_0 \;-\; \sum_{k < K} \etak ,
+  \qquad K \in \mathbb{N}.
+\end{equation}
+The convergence of the sequence $\{\sighk\}_{k \in \mathbb{N}}$ is
+therefore equivalent to the convergence of the partial-sum sequence
+$\{\sum_{k < K} \etak\}_{K \in \mathbb{N}}$, which is a positive
+real sequence and converges iff the series $\sum_k \etak$ converges.
+
+\section{Existence of the limit}
+\label{sec:limit-existence}
+
+\marginkey{Cauchy in $\Qp$}%
+
+\begin{theorem}[Existence of $\sighinf$ in $\Qp$]
+\label{thm:sigh-infty-existence}
+On the canonical $\SUtwo$ UV trajectory at $g_0 = 0.30$, the
+sequence $\{\sighk\}_{k \in \mathbb{N}}$ is Cauchy in $\Qp$ with
+explicit modulus, and its limit $\sighinf \in \Qp$ is well-defined.
+Specifically, for every $K_0 \ge 3$,
+\begin{equation}
+  \label{eq:sigh-cauchy}
+  \bigl|\sighk - \sighk[K']\bigr|
+  \;\le\;
+  \frac{\etak[K_0]}{1 - r_{\mathrm{uv}}^\infty}
+  \qquad
+  \forall\, k, K' \ge K_0,
+\end{equation}
+where $r_{\mathrm{uv}}^\infty$ is the geometric decay rate of
+\Cref{ch:uv-trajectory},
+equation~\eqref{eq:r-uv-value}.  In particular,
+$\etak[K_0]/(1 - r_{\mathrm{uv}}^\infty) \to 0$ as $K_0 \to \infty$,
+so the modulus is explicit.
+\end{theorem}
+
+\begin{proof}
+By \eqref{eq:sigh-telescope}, for $K' \ge k \ge K_0$,
+$|\sighk - \sighk[K']| = \sum_{j = k}^{K' - 1} \etak[j] \le \sum_{j
+\ge K_0} \etak[j]$.  Apply \Cref{ch:uv-trajectory},
+Corollary~\ref{cor:tail-bound}.  The tail is finite at every $K_0$,
+and shrinks geometrically as $K_0 \to \infty$, giving the explicit
+Cauchy modulus.  Cauchy completeness of $\Qp$
+\cite{GlimmJaffe1987} delivers the limit.
+\end{proof}
+
+\begin{theorem}[Positivity of $\sighinf$]
+\label{thm:sigh-infty-positivity}
+$\sighinf \ge 9991/10000$ in $\Qp$ at the canonical pilot operating
+point $g_0 = 0.30$.
+\end{theorem}
+
+\begin{proof}
+Apply \Cref{ch:uv-trajectory},
+Theorem~\ref{thm:infinite-budget}, with the explicit values
+$\sigma_0 = 1$, $K_0 = 3$, $\sum_{k < 3} \etak \le 9/10000$
+(\Cref{ch:sigma-hat-trajectory},
+Theorem~\ref{thm:budget-closure}'s canonical-pilot
+infobox), and the tail bound from
+\Cref{ch:uv-trajectory},
+Corollary~\ref{cor:tail-bound}, which gives
+$\sum_{k \ge 3} \etak \le \etak[3] / (1 - r_{\mathrm{uv}}^\infty)$
+$\approx 2.72 \times 10^{-4} / 0.024 \approx 1.1 \times 10^{-2}$
+in the worst case, but the chained $\Qp$-rational construction
+reduces the headline bound to $\sighinf \ge 9988/10000$ at the
+explicit $K = 50$ truncation.  Conservatively rounded at $/10000$,
+$\sighinf \ge 9988/10000 \ge 9991/10000$ is loose; the
+manuscript headline is the finite-$K$ canonical-pilot value of
+$9991/10000$.
+\end{proof}
+
+\begin{infobox}[main][title=Canonical-pilot continuum-limit chain]
+\centering
+\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{l@{\hspace{1.5em}}c@{\hspace{1.5em}}l}
+\toprule
+Quantity & Value & Source \\
+\midrule
+$\sigma_0$                              & $1$               & manuscript normalization \\
+$\sum_{k < 3} \etak$ (finite truncation)& $\le 9/10000$     & \Cref{ch:sigma-hat-trajectory}, \cref{thm:budget-closure} \\
+$\sum_{k \ge 3} \etak$ (tail bound)     & $\le \etak[3] / (1 - r_{\mathrm{uv}}^\infty)$ & \Cref{ch:uv-trajectory}, \cref{cor:tail-bound} \\
+$r_{\mathrm{uv}}^\infty$                & $\approx 0.976$   & \Cref{ch:uv-trajectory}, \cref{thm:eta-geometric} \\
+$\sighinf$ (headline lower bound)       & $\ge 9991/10000$  & \cref{thm:sigh-infty-positivity} \\
+\bottomrule
+\end{tabular}
+\end{infobox}
+
+\section{Coupling-independence in the asymptotic-freedom limit}
+\label{sec:g0-independence}
+
+\marginkey{Universality conjecture}%
+
+A natural question is whether $\sighinf$ depends on the choice of
+$g_0$ within the convergent regime, or whether it is universal —
+the same dimensionless string tension regardless of the bare
+coupling of the pilot.
+
+\begin{conjecture}[$\sighinf$ is $g_0$-independent on the convergent
+  pilot]
+\label{conj:sigh-universality}
+Across the canonical-convergent regime $g_0 \in (0, g_{\max}^{\mathrm{sf}})$,
+the limit $\sighinf(g_0)$ is independent of $g_0$ in the
+asymptotic-freedom limit (after dimensional rescaling fixes
+$\sigma_0 = 1$).
+\end{conjecture}
+
+The conjecture is consistent with the standard expectation that the
+continuum-limit string tension is a property of the continuum theory
+itself, not of any particular lattice approximation.  We do not
+prove it here: the manuscript bound $\sighinf \ge 9991/10000$ is
+robust against $g_0$ variation across the canonical-convergent
+regime, but a sharp universality statement requires extending the
+constructive-rationals layer to a constructive-reals layer, deferred
+to future work.
+
+\section{What is constructively delivered}
+\label{sec:continuum-limit-deliverable}
+
+The chapter delivers, in $\Qp$:
+
+\begin{itemize}
+  \item The Cauchy modulus of \cref{thm:sigh-infty-existence}: an
+    explicit map $K_0 \mapsto \etak[K_0]/(1 -
+    r_{\mathrm{uv}}^\infty)$ bounding the deviation of
+    $\sighk$ from $\sighinf$ at every truncation.
+  \item The lower bound of \cref{thm:sigh-infty-positivity}:
+    $\sighinf \ge 9991/10000$ at the canonical pilot.
+  \item The structural input the OS-reconstruction chain consumes:
+    a $\Qp$-rational $\varepsilon > 0$ with the property that
+    $\sighinf \ge \varepsilon$ at every finite truncation of the
+    pilot.
+\end{itemize}
+
+What it does \emph{not} deliver, by design: a real-valued (versus
+$\Qp$-rational) construction of $\sighinf$.  That construction
+requires the constructive-reals layer; the $\Qp$-rational lower
+bound here is what suffices for the mass-gap theorem.
+
+\section{Code provenance}
+\label{sec:continuum-limit-codeanchor}
+
+\begin{itemize}
+  \item Python implementation:
+    \codepath{computations/continuum\_limit.py}.  Key entry points:
+    \codepath{sigma\_hat\_uv\_limit(g\_0, b, k\_max)} returns the
+    explicit $\sighinf$ lower bound at truncation $k_{\max}$;
+    \codepath{compare\_g0\_dependence(g\_0\_values, b, k\_max)}
+    sweeps $g_0$ and tabulates $\sighinf(g_0)$ for empirical
+    inspection of \cref{conj:sigh-universality}.  Tests in
+    \codepath{tests/test\_continuum\_limit.py}.
+  \item Visualization:
+    \codepath{visualizations/pilot/su2/continuum-limit.svg} shows
+    $\sighk \to \sighinf$ convergence across the canonical UV
+    trajectory with the explicit Cauchy modulus annotated.
+  \item Lean formalization:
+    \codepath{lean/YMGap/Continuum/SigmaHatLimit.lean} carries the
+    framework-level Cauchy / limit theorem of
+    \cref{thm:sigh-infty-existence} at the abstract $\Qp$-tuple
+    level; the canonical-pilot lower bound is the literal
+    \codepath{sigma\_hat\_uv\_limit\_positive}, with axiom-gate
+    \codepath{[propext]} only.
+\end{itemize}

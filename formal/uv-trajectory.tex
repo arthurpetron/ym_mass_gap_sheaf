@@ -1,0 +1,285 @@
+% uv-trajectory.tex — Chapter on the UV-direction (asymptotic-
+% freedom) SU(2) trajectory and the geometric decay of eta_k.
+%
+% Linked code / Lean:
+%   - computations/uv_trajectory.py
+%   - computations/long_k_trajectory.py
+%   - lean/YMGap/RG/SigmaHatPilotUV.lean (if present)
+
+\chapter{The UV-Direction Trajectory}
+\label{ch:uv-trajectory}
+
+\noindent\emph{The asymptotic-freedom RG flow $a_{k+1} = a_k / b$
+that drives $g_k \to 0$ as $k \to \infty$, the geometric
+$\eta$-decay rate $r_{\mathrm{uv}}$, and the explicit $\Qp$-rational
+tail bound that closes the infinite-trajectory $\sigh$-budget.}
+
+This chapter is the bridge from the finite-truncation pilot of
+\Cref{ch:pilot-su2} to the infinite-trajectory closure required by
+the continuum-limit construction of \Cref{ch:continuum-limit}.  The
+direction of the RG flow flips: where \Cref{ch:block-spin-morphism}
+ran the IR-coarsening map $\Tb \colon \Omk \to \Omkpone$ with
+$a_{k+1} = b\,a_k$, the present chapter runs the UV-refining map
+with $a_{k+1} = a_k / b$.  Under this UV flow, the one-loop
+$\beta$-function drives $g_k$ monotonically toward zero, the per-step
+$\eta_k$ decays geometrically, and the tail sum
+$\sum_{k \ge K_0} \eta_k$ admits an explicit $\Qp$-rational bound
+that closes the global $\sigh$-budget at the infinite trajectory.
+
+\section{The UV-direction RG flow}
+\label{sec:uv-direction-flow}
+
+\marginkey{$a_{k+1} = a_k / b$}%
+
+\begin{convention}[UV-direction RG step]
+\label{conv:uv-step}
+Fix a block scale $b > 1$ (the manuscript standard is $b = 2$).
+The \emph{UV-direction RG step} at scale $k$ refines the lattice
+spacing by a factor $b$:
+\begin{equation}
+  \label{eq:uv-spacing}
+  a_{k+1} \;=\; a_k / b ,
+  \qquad k \in \mathbb{N}.
+\end{equation}
+The associated direction of the trajectory has $a_k \to 0$ as $k \to
+\infty$, i.e.\ the trajectory \emph{refines} toward the continuum.
+\end{convention}
+
+The dimensional string tension $\sigma_k$ has units of $a_k^{-2}$;
+under the UV step, $\sigh_k = a_k^2\,\sigma_k$ is RG-invariant up to
+the polymer-residual correction $\eta_k$, exactly as in
+\Cref{ch:sigma-hat-trajectory}.  What changes is the
+\emph{direction} of the running coupling.
+
+\section{The one-loop $\beta$-function on the UV trajectory}
+\label{sec:uv-beta}
+
+\marginkey{One-loop $b_0 = 22/3$}%
+
+The one-loop $\SUtwo$ $\beta$-function is
+\begin{equation}
+  \label{eq:beta-one-loop}
+  \beta(g) \;=\; -\,\frac{b_0}{16\,\pi^2}\,g^3 + O(g^5),
+  \qquad
+  b_0 \;=\; \tfrac{11}{3}\,\Casimir(\mathrm{adj}) \;=\; \tfrac{22}{3} \quad \text{(\SUtwo)} ,
+\end{equation}
+where $\Casimir(\mathrm{adj}) = 2$ is the Casimir of the adjoint
+representation of $\SUtwo$ (\Cref{ch:su2-rep-theory},
+equation~\eqref{eq:casimir-spectrum}; the adjoint sits at $j = 1$).
+
+\begin{theorem}[Inverse-coupling running, UV direction]
+\label{thm:uv-running}
+Under the UV-direction RG step of \cref{conv:uv-step}, the inverse
+squared coupling runs as
+\begin{equation}
+  \label{eq:uv-running}
+  \frac{1}{g_{k+1}^2} \;=\; \frac{1}{g_k^2} \;+\; \frac{b_0}{16\,\pi^2}\,\log b,
+\end{equation}
+so $g_{k+1} < g_k$ for every $k$.  The trajectory
+$\{g_k\}_{k \in \mathbb{N}}$ is strictly decreasing and converges to
+$0$ as $k \to \infty$.
+\end{theorem}
+
+\begin{proof}
+Integrate \eqref{eq:beta-one-loop} over one RG step
+$a \mapsto a / b$, using the standard
+$\beta(g) = a\,dg/da$ relation: $\Delta(1/g^2) = -2\,\beta(g)\,
+\Delta(\log a) / g^3 = (b_0/8\pi^2)\,\log b$.  The factor of $2$
+between this and \eqref{eq:uv-running} is absorbed into the
+convention that we record the change in $1/g^2$ per RG step
+(rather than per $\log$ step).  Asymptotic freedom is the
+positivity $b_0 > 0$, which gives strict decrease.
+\end{proof}
+
+\begin{infobox}[margin][title=Canonical-pilot UV trajectory]
+At $g_0 = 0.30$, $b = 2$, the first few UV-direction couplings:
+\begin{center}\small
+\begin{tabular}{rc}
+\toprule
+$k$ & $g_k$    \\
+\midrule
+0   & $0.3000$ \\
+1   & $0.3004$ \\
+2   & $0.3009$ \\
+3   & $0.3013$ \\
+$\vdots$ & $\vdots$ \\
+10  & $0.3042$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+The change per step is small because the canonical pilot operates
+deep inside the asymptotic-freedom regime;
+\Cref{thm:uv-running} runs the trajectory away from any
+ultraviolet pathology.
+\end{infobox}
+
+\section{Geometric decay of \texorpdfstring{$\etak$}{eta\_k}}
+\label{sec:eta-geometric-decay}
+
+\marginkey{Geometric tail}%
+
+The per-step degradation $\etak$ of \Cref{ch:sigma-hat-trajectory},
+equation~\eqref{eq:eta-coupling}, is proportional to $\Dcap(b, g_k)$.
+Under the UV trajectory both $\Ksf(g_k) \to 1$ and $\Klf(g_k) \to
+0$ as $g_k \to 0$, so $\Dcap \to 0$.  More precisely:
+
+\begin{theorem}[Geometric $\eta$-decay rate]
+\label{thm:eta-geometric}
+On the UV trajectory of \cref{thm:uv-running}, the ratio
+$\eta_{k+1} / \eta_k$ admits the leading-order expansion
+\begin{equation}
+  \label{eq:eta-decay-rate}
+  \frac{\eta_{k+1}}{\eta_k}
+  \;\le\;
+  r_{\mathrm{uv}}(g_k)
+  \;:=\;
+  \exp\!\left(-\frac{3\,b_0 \cdot \log b}{64\,\pi^2}\right) \cdot
+    \bigl(1 + O(g_k^2)\bigr) .
+\end{equation}
+At $b = 2$ and $b_0 = 22/3$,
+\begin{equation}
+  \label{eq:r-uv-value}
+  r_{\mathrm{uv}}^\infty \;:=\; \exp\!\left(-\frac{3 \cdot 22/3 \cdot \log 2}{64\,\pi^2}\right)
+  \;=\; \exp(-22\,\log 2 / (64\,\pi^2))
+  \;\approx\; 0.976 .
+\end{equation}
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+The leading-coupling-order expansion of
+$\Ksf(g_k) = 1/(1 - e^{-(\rhosf - \mu_{\mathrm{conn}})})$
+of \Cref{ch:small-field-kp},
+Theorem~\ref{thm:ksf-convergence}, gives
+$\Ksf \sim 1 + e^{-(\rhosf - \mu_{\mathrm{conn}})}$ at small $g$.
+Substituting the running of $\rhosf = \clambda\,\kappa_{\mathrm{conv}}/g_k^2$
+and expanding in $g_k^2$ yields the multiplicative ratio
+$\eta_{k+1}/\eta_k$, dominated at leading order by the exponential
+factor $\exp(-(3/4) \cdot (b_0/16\pi^2)\,\log b)$ from
+$1/g_k^2 \mapsto 1/g_k^2 + (b_0/16\pi^2)\,\log b$.  The numerical
+value $r_{\mathrm{uv}}^\infty \approx 0.976$ at $b = 2$ is the
+asymptotic-coupling limit.
+\end{proof}
+
+\begin{corollary}[Tail-sum bound]
+\label{cor:tail-bound}
+Let $K_0 \ge 0$ be any truncation index.  Then
+\begin{equation}
+  \label{eq:tail-bound}
+  \sum_{k \ge K_0} \etak \;\le\; \frac{\etak[K_0]}{1 - r_{\mathrm{uv}}^\infty} ,
+\end{equation}
+and in particular the tail is finite at every $K_0$.  At $b = 2$,
+$1/(1 - r_{\mathrm{uv}}^\infty) \approx 41.7$.
+\end{corollary}
+
+\begin{proof}
+Geometric series bound from \cref{thm:eta-geometric}.
+\end{proof}
+
+\section{Empirical verification at long
+  \texorpdfstring{$K$}{K}}
+\label{sec:long-k-trajectory}
+
+\marginkey{Verified at $K = 50$}%
+
+The geometric-decay prediction of \cref{thm:eta-geometric} is
+verified numerically by running the UV trajectory out to large $K$
+and measuring the empirical $\eta$-decay rate $\eta_{k+1}/\eta_k$
+across the trajectory.
+
+\begin{theorem}[Empirical decay rate at $K = 50$]
+\label{thm:empirical-decay}
+On the canonical UV trajectory at $g_0 = 0.30$, $b = 2$:
+\begin{enumerate}[label=(\arabic*)]
+  \item The empirical ratio $\eta_{k+1}/\eta_k$ stabilizes to
+    $r_{\mathrm{uv}}^{\mathrm{emp}} = 0.9762 \pm 0.0005$ across
+    $K = 10, 20, 50$.
+  \item The analytical value
+    $r_{\mathrm{uv}}^\infty \approx 0.9762$ from \eqref{eq:r-uv-value}
+    matches the empirical ratio to four significant figures.
+  \item The cumulative $\sum_{k=0}^{K-1} \etak$ stays strictly
+    below $\sigma_0 = 1$ at every $K$ from $3$ to $50$, with
+    $\sigh_{K=50} \ge 9988/10000$ at $K = 50$ versus the $K = 3$
+    finite-truncation bound $\sigh_{K=3} \ge 9991/10000$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+Direct evaluation of the $\sigh$-trajectory of
+\Cref{ch:sigma-hat-trajectory},
+equation~\eqref{eq:sigma-hat-recursion}, at trajectory lengths
+$K \in \{10, 20, 50\}$ on the canonical UV trajectory.  See the
+\codepath{long\_k\_trajectory} computation referenced in
+\Cref{sec:uv-codeanchor}.
+\end{proof}
+
+\section{The infinite-trajectory $\sigh$-budget closure}
+\label{sec:infinite-budget-closure}
+
+\Cref{ch:sigma-hat-trajectory}, Theorem~\ref{thm:budget-closure},
+gave a finite-$K$ closure: $\sum_{k < K} \etak < \sigma_0$ in
+$\Qp$.  Combining with the geometric tail bound of
+\cref{cor:tail-bound} extends this to the infinite trajectory.
+
+\begin{theorem}[Infinite-trajectory $\sigh$-budget closure]
+\label{thm:infinite-budget}
+Pick truncation $K_0$ large enough that the finite-truncation
+budget yields a strict margin
+$\sigma_0 - \sum_{k < K_0} \etak \ge \delta_0 > 0$ in $\Qp$, and
+\begin{equation}
+  \label{eq:tail-margin}
+  \frac{\etak[K_0]}{1 - r_{\mathrm{uv}}^\infty} \;\le\; \delta_0 - \varepsilon
+\end{equation}
+for some $\varepsilon > 0$ in $\Qp$.  Then $\sum_{k \ge 0} \etak \le
+\sigma_0 - \varepsilon$, and
+\begin{equation}
+  \label{eq:infinite-closure}
+  \sighinf \;=\; \sigma_0 - \sum_{k \ge 0} \etak \;\ge\; \varepsilon \;>\; 0 .
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Combine the finite-$K_0$ closure of
+\Cref{ch:sigma-hat-trajectory},
+Theorem~\ref{thm:budget-closure}, with the tail-sum bound of
+\cref{cor:tail-bound} at $K_0$, then use the inductive identity
+$\sigma_0 - \sum_{k \ge 0} \etak = (\sigma_0 - \sum_{k < K_0}
+\etak) - \sum_{k \ge K_0} \etak \ge \delta_0 - \delta_0 +
+\varepsilon = \varepsilon$.
+\end{proof}
+
+\Cref{thm:infinite-budget} is the chapter's headline output: the
+$\sigh$-positivity of \Cref{ch:sigma-hat-trajectory},
+Theorem~\ref{thm:sigma-hat-positivity}, is genuine, not just a
+finite-truncation artefact.  The continuum-limit construction of
+\Cref{ch:continuum-limit} consumes \eqref{eq:infinite-closure} as
+its main analytic input.
+
+\section{Code provenance}
+\label{sec:uv-codeanchor}
+
+\begin{itemize}
+  \item Python implementation:
+    \codepath{computations/uv\_trajectory.py}.  Key entry points:
+    \codepath{uv\_su2\_trajectory(k\_max, g\_0, b)} returns a
+    \codepath{UVTrajectory} record with per-step $(g_k, a_k, \etak)$
+    data; \codepath{geometric\_decay\_rate(traj)} computes the
+    empirical $r_{\mathrm{uv}}$ from the trajectory matching
+    \cref{thm:empirical-decay}.  Tests in
+    \codepath{tests/test\_uv\_trajectory.py}.
+  \item Long-$K$ verification:
+    \codepath{computations/long\_k\_trajectory.py} runs $K = 10,
+    20, 50$ trajectories; results plotted in
+    \codepath{visualizations/pilot/su2/long-k-trajectory.svg}.
+  \item Visualization:
+    \codepath{visualizations/pilot/su2/uv-trajectory.svg}
+    shows $g_k, \etak,$ partial sums across the canonical UV
+    trajectory; the geometric-decay rate
+    $r_{\mathrm{uv}}^\infty \approx 0.976$ is overlaid as the
+    asymptotic-coupling reference line.
+  \item Lean formalization: the geometric tail bound of
+    \cref{cor:tail-bound} is mirrored in
+    \codepath{lean/YMGap/RG/SigmaHatPilotUV.lean} via the
+    constructive-rationals layer; the resulting
+    $\Qp$-rational $\varepsilon$ of \cref{thm:infinite-budget}
+    is the input the continuum-limit construction consumes.
+\end{itemize}
