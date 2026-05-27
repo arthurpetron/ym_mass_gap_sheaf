@@ -71,13 +71,14 @@
 \include{mass-gap-discussion}                % Ch. — sharpness, Teper, SU(N) roadmap
 
 % -------------------- Back matter --------------------
-% \appendix
-% \include{appx-notation}
-% \include{appx-lean-audit}
-% \include{appx-lockstep}
-% \include{appx-fiducials}                   % Appendix D (tornado + bootstrap)
-% \include{appx-refs-manifest}
-% \include{appx-roadmap}
+\appendix
+% \include{appx-notation}                    % App. A
+% \include{appx-lean-audit}                  % App. B
+% \include{appx-lockstep}                    % App. C
+\setcounter{chapter}{3}                      % so next appendix renders as D
+\include{appx-fiducials}                     % App. D (tornado + bootstrap)
+% \include{appx-refs-manifest}               % App. E
+% \include{appx-roadmap}                     % App. F
 
 \backmatter
 \printbibliography
