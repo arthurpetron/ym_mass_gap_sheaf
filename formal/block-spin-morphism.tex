@@ -1,55 +1,39 @@
-\documentclass[11pt]{article}
+% block-spin-morphism.tex — Chapter on the block-spin step T_b, its
+% type, and the 2-cell Theta_k.
+%
+% Linked code / Lean:
+%   - lean/YMGap/Sheaf/PolymerDomination.lean (T_b pushforward on A_k, S_k)
+%   - Milestone 2.3 of work_plan.md.
 
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{amsmath, amssymb, amsthm}
-\usepackage{geometry}
-\geometry{margin=1in}
-\usepackage{hyperref}
-\hypersetup{
-  colorlinks=true,
-  linkcolor=blue,
-  citecolor=blue,
-  urlcolor=blue,
-}
-\usepackage{mathtools}
-
-\newtheorem{definition}{Definition}[section]
-\newtheorem{theorem}[definition]{Theorem}
-\newtheorem{lemma}[definition]{Lemma}
-\newtheorem{proposition}[definition]{Proposition}
-\newtheorem{conjecture}[definition]{Conjecture}
-\newtheorem{remark}[definition]{Remark}
-
-\newcommand{\Rnn}{\mathbb{R}_{\ge 0}}
-\newcommand{\Pcal}{\mathcal{P}}
-\newcommand{\Acal}{\mathcal{A}}
-\newcommand{\Scal}{\mathcal{S}}
-\newcommand{\Ical}{\mathcal{I}}
-\newcommand{\Omk}{\Omega_k}
-\newcommand{\Omsf}{\Omega_k^{\mathrm{sf}}}
-\newcommand{\Omlf}{\Omega_k^{\mathrm{lf}}}
-\newcommand{\Omcap}{\Omega_k^{\cap}}
-\newcommand{\sigh}{\widehat{\sigma}}
-\newcommand{\Tb}{T_b}
-\newcommand{\Tbstar}{(\Tb)_{\!*}}
-
-\title{The Block-Spin Step:\\
+\chapter{The Block-Spin Step:
   Refined Type and Proof Obligations}
-\author{Arthur Petron}
-\date{\today}
+\label{ch:block-spin-morphism}
 
-\begin{document}
-\maketitle
+\noindent\emph{The block-spin morphism $\Tb$ of configuration sites,
+the pushforward $\Tbstar$, the $\Theta_k$ 2-cell, and the typed
+signature of the step.}
 
-\begin{abstract}
-We refine the bare \texttt{StepType} of Milestone~2.2 with the four conditions of \texttt{docs/context.md} \S3.3, abstract over the per-step budget functions $\varepsilon_{\mathrm{sf}}, \varepsilon_{\mathrm{lf}}, \Delta_{\cap}, \eta$.  The block-spin map $\Tb$ is defined as a morphism of configuration sites; the pushforward $\Tbstar$ on the bound-witness and summability-certificate presheaves is named; the dimensional-rescaling 2-cell $\Theta_k$ is defined as a separate typed object per Milestone~2.3's open-question recommendation.  The refined step type \texttt{StepTypeWithBudget} bundles the step function with the four conjuncts $S_1\!-\!S_4$, each a per-step inequality relating scale~$k$ to scale~$k+1$ via budget values at scale~$k$ only.  We state the proof obligation a term inhabiting this type must discharge and identify it as the joint deliverable of Milestones~3.1--3.4.  We do not in this document inhabit the type for any group, and we do not state any global (summability) claim about the budget.  This document corresponds to Milestone~2.3 of \texttt{work\_plan.md}.
-\end{abstract}
-
-\tableofcontents
+This chapter refines the bare \texttt{StepType} of Milestone~2.2
+(Chapter~\ref{ch:inductive-state}) with the four conditions of
+\codepath{docs/context.md} \S3.3, abstract over the per-step budget
+functions $\varepsilon_{\mathrm{sf}}, \varepsilon_{\mathrm{lf}},
+\Delta_{\cap}, \eta$.  The block-spin map $\Tb$ is defined as a
+morphism of configuration sites; the pushforward $\Tbstar$ on the
+bound-witness and summability-certificate presheaves is named; the
+dimensional-rescaling 2-cell $\Theta_k$ is defined as a separate
+typed object per Milestone~2.3's open-question recommendation.  The
+refined step type \texttt{StepTypeWithBudget} bundles the step
+function with the four conjuncts $S_1\!-\!S_4$, each a per-step
+inequality relating scale~$k$ to scale~$k+1$ via budget values at
+scale~$k$ only.  We state the proof obligation a term inhabiting this
+type must discharge and identify it as the joint deliverable of
+Milestones~3.1--3.4.  We do not in this chapter inhabit the type for
+any group, and we do not state any global (summability) claim about
+the budget.  This chapter corresponds to Milestone~2.3 of
+\codepath{work\_plan.md}.
 
 \section{Introduction}
-\label{sec:intro}
+\label{sec:block-spin-intro}
 
 \texttt{formal/inductive-state.tex} (Milestone~2.2) defined the inductive state $\Ical_k$ and the scale-$k$-local predicate $\mathrm{Valid}_k = \mathrm{V1} \wedge \mathrm{V2} \wedge \mathrm{V3}$ (the option-B self-contained form ratified in the 2.2 close).  It also exposed a bare \texttt{StepType} = $\Ical_k \to \Ical_{k+1}$ as the clean 2.2$\to$2.3 handoff: the type was stated, the term was not.
 
@@ -328,5 +312,3 @@ The value type $V$ requires \texttt{[Sub V]} in addition to the 2.2 typeclasses 
   \item Specification: \texttt{docs/context.md} \S3.3 (the four conditions), \S2 ($\sigma$-3 sense).  \texttt{docs/outline.md} \S10.3--\S10.4 (block-spin obligations and string-tension transport), \S10.5 (Phase-3 main theorem target).
   \item Open obligations: \texttt{lean/SORRY\_LEDGER.md} entry \texttt{[P2.3]} (this milestone, owed by 3.1--3.4), and the inherited 2.1 \texttt{[P2.1]} entry (parts (a) and (b)) which surfaces through V2-cap and V3-K of $\mathrm{Valid}_{k+1}$.
 \end{itemize}
-
-\end{document}

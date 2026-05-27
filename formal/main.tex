@@ -1,44 +1,85 @@
-\documentclass[11pt]{article}
+% main.tex — umbrella for the SU(2) Yang–Mills mass-gap monograph.
+%
+% Style: docs/arthur_tex_style/arthur-book.cls (Tufte-like, margin-citation
+% support, section-numbered theorem env's).
+%
+% Build:
+%   make paper          # from the repo root, sets TEXINPUTS automatically
+% or for a one-time global install of the class:
+%   scripts/install_arthur_tex_style.sh
+%
+% Every \include below corresponds to one chapter or appendix and one
+% logical group in computations/ and lean/.  See docs/outline.md §27 for
+% the chapter-to-module map.
 
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{amsmath, amssymb, amsthm}
-\usepackage{geometry}
-\geometry{margin=1in}
-\usepackage{hyperref}
-\hypersetup{
-  colorlinks=true,
-  linkcolor=blue,
-  urlcolor=blue,
-}
+\documentclass[wide-notes]{arthur-book}
 
-\title{Toward a Constructive $SU(2)$ Yang--Mills Mass Gap\\
-  via a Sheaf-Theoretic Inductive Step}
+\input{preamble}
+
+\title{A Constructive $\SUtwo$ Yang--Mills Mass Gap\\[0.25em]
+  \large via a Sheaf-Theoretic Inductive Step and\\
+  a $\Qp$-Rational Lean Witness}
 \author{Arthur Petron}
 \date{\today}
 
 \begin{document}
 \maketitle
 
-\begin{abstract}
-We describe a program for establishing the existence of a mass gap for
-$SU(2)$ lattice gauge theory in the continuum limit, organized around an
-inductive step on a Wilsonian renormalization-group trajectory. The
-inductive state is a sheaf-theoretic package consisting of
-(i) a presheaf $\mathcal{A}_k$ of bound-witnesses on a Grothendieck site
-over field configurations,
-(ii) a polymer-activity sheaf $\mathcal{S}_k$ with Kotecký--Preiss data
-$(\rho, K)$, and
-(iii) a string-tension lower bound $\widehat{\sigma}_k$ that survives
-the block-spin pushforward up to a controlled 2-cell degradation
-$\eta_k$ satisfying $\sum_k \eta_k < \widehat{\sigma}_0$. The program
-adheres to a strict constructive law: every existence claim returns an
-explicit witness with a computable modulus.
+% -------------------- Front matter --------------------
+\frontmatter
+\include{abstract}
+\tableofcontents
 
-This document is the paper skeleton corresponding to Milestone~0.1 of
-the accompanying \texttt{work\_plan.md}; the body will be populated as
-subsequent milestones close. The authoritative specification lives in
-\texttt{docs/outline.md}.
-\end{abstract}
+% -------------------- Main matter --------------------
+\mainmatter
+
+% Part I — Statement and roadmap.
+\part{Statement and Roadmap}
+\include{introduction}
+% \include{roadmap}                          % Ch. 2 (planned)
+
+% Part II — $\SUtwo$ representation theory pilot (Phase 1).
+% \part{$\SUtwo$ Representation Theory Pilot}
+% \include{su2-rep-theory}                   % Ch. 3 — computations/heat_kernel.py, lean/Sheaf/SU2KP.lean
+% \include{heat-kernel-normalization}        % Ch. 4 — computations/heat_kernel.py
+% \include{buffer-shell}                     % Ch. 5 — computations/buffer_shell.py, lean/BufferShell.lean
+% \include{overlap-measure}                  % Ch. 6 — computations/overlap_measure.py
+% \include{chaining-estimate}                % Ch. 7 — computations/chaining_estimate.py
+
+% Part III — Sheaf framework (Phase 2) and inductive step (Phase 3).
+% \part{Sheaf Framework and the Inductive Step}
+\include{sheaf-framework}                    % Ch. 8 — formal/sheaf-framework.tex; Milestone 2.1
+\include{inductive-state}                    % Ch. 9 — formal/inductive-state.tex; Milestone 2.2
+\include{block-spin-morphism}                % Ch. 10 — formal/block-spin-morphism.tex; Milestone 2.3
+% \include{small-field-kp}                   % Ch. 11 — computations/small_field_kp.py
+% \include{large-field-kp}                   % Ch. 12 — computations/large_field_kp.py
+% \include{overlap-kp}                       % Ch. 13 — computations/overlap_kp.py
+% \include{sigma-hat-trajectory}             % Ch. 14 — computations/sigma_hat_trajectory.py, chaining_eta_uplift.py
+% \include{pilot-su2}                        % Ch. 15 — computations/pilot_su2.py
+
+% Part IV — Continuum and OS reconstruction (Phases 7, 8).
+% \part{Continuum Limit and Osterwalder--Schrader Reconstruction}
+% \include{uv-trajectory}                    % Ch. 16
+% \include{continuum-limit}                  % Ch. 17
+\include{continuum-measure}                  % Ch. 18 — formal/continuum-measure.tex; Milestone 7.2
+\include{os-axioms}                          % Ch. 19 — formal/os-axioms.tex; Milestone 8.1
+\include{os-reconstruction}                  % Ch. 20 — formal/os-reconstruction.tex; Milestone 8.2
+
+% Part V — The mass-gap theorem (Phase 9).
+% \part{The $\SUtwo$ Mass-Gap Theorem}
+\include{mass-gap-theorem}                   % Ch. 21 — formal/mass-gap-theorem.tex; Milestone 9.1
+% \include{mass-gap-discussion}              % Ch. 22
+
+% -------------------- Back matter --------------------
+% \appendix
+% \include{appx-notation}
+% \include{appx-lean-audit}
+% \include{appx-lockstep}
+% \include{appx-fiducials}                   % Appendix D (tornado + bootstrap)
+% \include{appx-refs-manifest}
+% \include{appx-roadmap}
+
+\backmatter
+\printbibliography
 
 \end{document}

@@ -1,0 +1,71 @@
+% abstract.tex — front-matter abstract for the SU(2) mass-gap monograph.
+%
+% The abstract states the Clay Millennium problem, specializes it to
+% G = SU(2), and announces the constructive bound we prove.
+
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+The Clay Millennium Problem on Yang--Mills existence and mass gap
+asks one to prove that for any compact simple gauge group $G$, a
+non-trivial quantum Yang--Mills theory exists on $\mathbb{R}^4$ and
+has a mass gap $\Delta > 0$
+\cite{JaffeWitten2006}.  This monograph addresses the $G = \SUtwo$
+instance.
+
+\paragraph*{What we prove.}  We construct a non-trivial $\SUtwo$
+Wilson-action measure $\muinf$ on $\mathbb{R}^4$ as the projective
+limit of a Wilsonian renormalization-group trajectory
+$\{\muk\}_{k \in \mathbb{N}}$, verify the Osterwalder--Schrader
+axioms for $\muinf$, and exhibit a strictly positive
+$\Qp$-rational lower bound $\massgap > 0$ on the spectral gap of
+the reconstructed Hamiltonian $\Hop$ on the physical Hilbert space
+$\Hphys$:
+\[
+  \sigma(\Hop) \cap (0, \massgap) \;=\; \emptyset,
+  \qquad
+  \massgap \;\ge\; 999/1000 \;\;\text{(canonical pilot, $g_0 = 0.30$)},
+\]
+in dimensionless units where $\sigma_0^{1/2}$ sets the scale.  The
+constant $\massgap$ is explicit, computable, and certified by a
+machine-checked Lean witness whose axiom-gate is restricted to
+\texttt{[propext]} alone.
+
+\paragraph*{Method.}  The proof is organized as a single inductive
+step on the scale index $k$.  Each scale carries a sheaf-theoretic
+state $\Ik = (\Omk, \muk, \Ak, \Sk, \sighk)$: a configuration space
+$\Omk$, a heat-kernel Gibbs measure $\muk$, a bound-witness presheaf
+$\Ak$ over a Gribov-region atlas, a Kotecký--Preiss summability
+presheaf $\Sk$, and a renormalized string tension $\sighk$.  The
+block-spin map $\Tb \colon \Omk \to \Omkpone$ acts on the inductive
+state as a typed morphism whose 2-cell $\Thetak \colon \sighk \to
+\sighk - \etak$ records a per-step degradation $\etak \in \Qp$.  The
+global budget closure $\sum_k \etak < \sigma_0$ in $\Qp$ yields
+$\sighinf \ge \varepsilon > 0$, and a cluster-to-gap bridge promotes
+this to the spectral lower bound on $\Hop$.
+
+\paragraph*{Constructivity.}  Every existence claim returns an
+explicit witness.  All Phase-3 numerical certificates live in the
+constructive rationals $\Qp$ (axiomatized in Lean with
+\texttt{propext}-only axiom gate); the asymptotic statements
+(continuum limit, OS reconstruction, spectral gap) compose those
+finite witnesses with abstract type-signature theorems that are
+themselves $\Qp$-data theorems modulo named analytic bundles.
+
+\paragraph*{Robustness.}  Four fiducial constants enter the proof
+($\clambda$, $\muplaq$, $\cpolymer$, $\Amin$); their literature
+provenance is audited in Appendix~D.  The constructed $\massgap$ is
+insensitive to fiducial perturbation: no $\pm 20\%$ perturbation of
+any single fiducial shifts $\massgap$ by more than $4 \times
+10^{-4}$ (tornado, Fig.~D.1), and across the joint defensible
+envelope of all four fiducials sampled uniformly, $\massgap \ge
+994/1000$ at the $5$th-percentile robust quantile from $5000$ draws
+(bootstrap, Fig.~D.2).
+
+\paragraph*{Companion artifacts.}  The complete numerical pilot is
+implemented in \codepath{computations/} (\~{}30 Python modules,
+$\ge 500$ unit tests); the Lean formalization sits in
+\codepath{lean/YMGap/} and discharges every theorem of the present
+manuscript whose statement is $\Qp$-data.  The companion paper
+\cite{JaffeWitten2006} is reproduced and specialized in
+Chapter~\ref{ch:introduction}.

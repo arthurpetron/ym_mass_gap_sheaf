@@ -28,7 +28,7 @@ figures:
 	@echo "No figures yet; populated as Phase 1 milestones close."
 
 paper:
-	cd formal && latexmk -pdf main.tex
+	cd formal && TEXINPUTS="../docs/arthur_tex_style/:../docs/arthur_tex_style/tex/:../docs/arthur_tex_style/assets/:$$TEXINPUTS" latexmk -pdf main.tex
 
 lean-build:
 	cd lean && lake build

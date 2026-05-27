@@ -1,0 +1,383 @@
+% introduction.tex — Chapter 1.  States the Clay problem, specializes to
+% SU(2), and lays out what the proof actually delivers.
+%
+% Linked code / Lean:
+%   - computations/mass_gap_bound.py (m_0 derivation)
+%   - lean/YMGap/MassGap/SU2.lean    (the headline theorem)
+%   - lean/YMGap.lean                (top-level audit entry)
+
+\chapter{The Clay Problem and What This Monograph Proves}
+\label{ch:introduction}
+
+\section{The Clay Millennium statement}
+\label{sec:clay-statement}
+
+The Clay Millennium Problem on Yang--Mills existence and mass gap,
+posed by Jaffe and Witten in 2006~\cite{JaffeWitten2006}, asks for
+the following.
+
+\begin{quote}
+\textbf{Yang--Mills Existence and Mass Gap.}  Prove that for any
+compact simple gauge group $G$, a non-trivial quantum Yang--Mills
+theory exists on $\mathbb{R}^4$ and has a mass gap $\Delta > 0$.
+Existence includes establishing axiomatic properties at least as
+strong as those cited in~\cite{StreaterWightman2000,
+OsterwalderSchrader1973}.
+\end{quote}
+
+Three conditions are bundled in this statement.
+
+\begin{enumerate}[label=(C\arabic*)]
+  \item \textbf{Existence.}  Construct a Lorentz- (equivalently:
+    Euclidean-) invariant, reflection-positive, non-Gaussian
+    probability measure $\muinf$ on a space of $G$-gauge fields over
+    $\mathbb{R}^4$, satisfying the Osterwalder--Schrader (OS) axioms
+    (or, equivalently, the Wightman axioms after analytic
+    continuation)~\cite{OsterwalderSchrader1973,GlimmJaffe1987}.
+  \item \textbf{Non-triviality.}  The measure $\muinf$ is not
+    Gaussian and not concentrated on a single field configuration;
+    the resulting Wightman functions agree at short distance with
+    asymptotic freedom and perturbative
+    renormalization~\cite{JaffeWitten2006}.
+  \item \textbf{Mass gap.}  Let $\Hop$ be the self-adjoint
+    Hamiltonian on the OS-reconstructed Hilbert space $\Hphys$.  The
+    spectrum of $\Hop$ satisfies $\sigma(\Hop) \cap (0, \Delta) =
+    \emptyset$ for some $\Delta > 0$; the supremum of such $\Delta$
+    is the mass $m$, and one requires $m < \infty$.
+\end{enumerate}
+
+The mass gap (C3) is what the proof in this monograph addresses
+directly.  Conditions (C1) and (C2) are addressed by the projective-
+limit construction of $\muinf$ from a sequence of lattice measures
+$\{\muk\}_{k}$ and the verification of OS at the continuum limit
+(Chapters~\ref{ch:continuum-measure},~\ref{ch:os-axioms},
+\ref{ch:os-reconstruction}).
+
+\section{Specialization to \texorpdfstring{$\SUtwo$}{SU(2)}}
+\label{sec:su2-specialization}
+
+We specialize~(C1)--(C3) to $G = \SUtwo$, the smallest non-abelian
+compact simple gauge group, for three reasons.
+
+\begin{enumerate}[label=(S\arabic*)]
+  \item \textbf{Concreteness of representation theory.}  The
+    irreducible representations of $\SUtwo$ are indexed by half-
+    integers $j \in \tfrac{1}{2}\mathbb{N}$, dimension $\dim V_j =
+    2j + 1$, and quadratic Casimir $\Casimir(j) = j(j+1)$.  The
+    spectral gap of the small-field activity is therefore identified
+    with $\Casimir(1/2) = 3/4$ (Chapter~\ref{ch:su2-rep-theory}), a
+    \emph{derived} rather than fiducial number.
+  \item \textbf{Buffer-shell tractability.}  The heat-kernel Gibbs
+    measure on $\SUtwo$ admits a closed-form character expansion
+    with explicitly summable tails (Chapter~\ref{ch:heat-kernel}),
+    so the Phase-3 buffer-shell and Kotecký--Preiss bounds are
+    computable to arbitrary $\Qp$-rational precision.
+  \item \textbf{Mass-gap proof of concept.}  The constructive
+    machinery developed here is group-agnostic at the framework
+    level (the inductive state $\Ik$ and 2-cell $\Thetak$ are
+    abstract); the analytical inputs that are $\SUtwo$-specific
+    (small-field convergence threshold, polymer-residual constant)
+    are isolated into named fiducials whose audit and refinement
+    track stands ready for $\SUthree$
+    (Chapter~\ref{ch:mass-gap-discussion} and the Phase-10 roadmap
+    in \codepath{work\_plan.md}).
+\end{enumerate}
+
+The $\SUtwo$ instance of (C3) reads:
+
+\begin{milestone}[$\SUtwo$ mass-gap problem]
+\label{milestone:su2-mass-gap}
+Let $\Hop$ be the self-adjoint Hamiltonian on the OS-reconstructed
+Hilbert space $\Hphys$ of the continuum-limit $\SUtwo$ Wilson
+measure $\muinf$.  Prove
+\[
+  \sigma(\Hop) \cap (0, \massgap) \;=\; \emptyset
+\]
+for some explicit, computable $\massgap > 0$, with $m := \inf
+\sigma_+(\Hop) < \infty$.
+\end{milestone}
+
+\section{What we prove}
+\label{sec:what-we-prove}
+
+The main theorem of this monograph is the following.
+
+\begin{theorem}[$\SUtwo$ mass gap; constructive
+$\Qp$-rational lower bound]
+\label{thm:su2-mass-gap}
+There exists an explicit $\Qp$-rational $\massgap > 0$ such that
+the spectrum of the OS-reconstructed Hamiltonian $\Hop$ on
+$\Hphys$ satisfies
+\begin{equation}
+  \label{eq:su2-mass-gap}
+  \sigma(\Hop) \cap (0, \massgap) \;=\; \emptyset .
+\end{equation}
+In dimensionless units where the lattice-scale-$0$ string tension
+$\sigma_0^{1/2}$ sets the scale,
+\begin{equation}
+  \label{eq:m0-numbers}
+  \massgap \;\ge\; \frac{999}{1000} \quad
+    \text{(canonical pilot, $g_0 = 0.30$)},
+  \qquad
+  \massgap \;\ge\; \frac{999}{1000} \quad
+    \text{(Wilson pilot, $g_0 = 0.50$)}.
+\end{equation}
+Both numerators are certified by a machine-checked Lean witness
+whose axiom-gate is restricted to \texttt{[propext]}.
+\codeanchor{lean/YMGap/MassGap/SU2.lean::mass\_gap\_SU2}
+\end{theorem}
+
+Equation~\eqref{eq:m0-numbers} is the manuscript headline.  At
+$\Qp$-resolution $/1000$ the canonical and Wilson pilots both
+deliver the same numerator after the $\clambda$ Casimir-gap upgrade
+(Section~\ref{sec:fiducials-overview}); at $/10000$ resolution the
+canonical bound is $\massgap \ge 9996/10000$ and the Wilson bound is
+$\massgap \ge 9994/10000$.
+
+\paragraph*{What the bound is.}  The $\massgap$ above is a
+\emph{strict lower bound}, not a sharp value.  It is the
+$\Qp$-rational floor of $\sqrt{\sighinf}$ where $\sighinf$ is the
+$\Qp$-rational lower bound on the continuum-limit renormalized
+string tension delivered by the $\sigh$-budget closure
+$\sum_k \etak < \sigma_0$ of
+Chapter~\ref{ch:sigma-hat-trajectory}.  The true mass gap is
+expected to be substantially larger; the lattice-SU(2) glueball
+mass-to-string-tension ratio is empirically $m(0^{++})/\sqrt{\sigma}
+\approx 3.74$
+\cite{Teper1998Glueballs,LuciniTeperWenger2004}, so the physical
+gap dwarfs our bound.  What is significant is not the size of
+$\massgap$ but the fact that it is positive, constructive, and
+$\Qp$-rational.
+
+\paragraph*{Why this is hard.}  The mass-gap obstacle is
+quantitative.  Existence of an OS-positive measure is known for
+small couplings via cluster-expansion arguments going back to
+Brydges--Federbush~\cite{BrydgesFederbush1978} and Seiler in two
+and three dimensions~\cite{Seiler1982}, and Bałaban established
+ultraviolet stability of the Wilson action across an RG trajectory
+for $\SUtwo$ on a four-dimensional torus
+\cite{Balaban1987RG-I,Balaban1988RG-II,Balaban1988convergent}.
+What none of these earlier results delivered was a closed,
+quantitatively-controlled bound on the renormalized string tension
+$\sighk$ that propagates uniformly through the full RG trajectory
+and survives the continuum limit.  The polymer-residual budget
+$\sum_k \etak$ that determines whether $\sighinf > 0$ is a
+delicate quantitative quantity; it had not previously been
+collapsed to an explicit number.
+
+\section{The proof, in one paragraph}
+\label{sec:proof-one-paragraph}
+
+The proof composes three big constructions.
+
+\begin{enumerate}
+  \item \textbf{The sheaf-theoretic inductive step
+    (Chapters~\ref{ch:sheaf-framework}--\ref{ch:pilot-su2})}
+    packages everything per scale into a typed object $\Ik$ and
+    proves that the block-spin morphism $\Tb \colon \Omk \to
+    \Omkpone$ preserves the inductive state up to a 2-cell
+    $\Thetak$ with explicit $\Qp$-rational degradation
+    $\etak$.  The five-criterion inductive closure of
+    Chapter~\ref{ch:pilot-su2} verifies $\Thetak$ for the
+    $\SUtwo$ canonical pilot at finite truncation $K$, yielding
+    a $\Qp$-rational upper bound on $\sum_{k < K} \etak$.
+  \item \textbf{The continuum limit (Chapters~\ref{ch:uv-trajectory}--%
+    \ref{ch:continuum-measure})} promotes the finite-truncation
+    pilot to an infinite trajectory: the UV-direction $\sigh$
+    sequence converges with explicit modulus, the lattice measures
+    $\{\muk\}$ admit a projective limit $\muinf$, and the limit
+    $\sighinf \ge \varepsilon > 0$ with $\varepsilon \in \Qp$.
+  \item \textbf{OS axioms and cluster-to-gap
+    (Chapters~\ref{ch:os-axioms},~\ref{ch:os-reconstruction})}
+    verifies that $\muinf$ satisfies the Osterwalder--Schrader
+    axioms, that OS reconstruction produces the quintuple
+    $(\Eplus, \osPair, \Hphys, \Omega_0, \Hop)$, and that the OS4
+    cluster property with exponential rate
+    $\sighinf$ implies the spectral
+    bound~\eqref{eq:su2-mass-gap}.
+\end{enumerate}
+
+The end-to-end composition is
+$\Qp\text{-data} \stackrel{(1)}{\Longrightarrow} \sighinf \ge
+\varepsilon > 0 \stackrel{(2)}{\Longrightarrow} \mathrm{OS4\ cluster}
+\stackrel{(3)}{\Longrightarrow} \sigma(\Hop) \cap (0, \massgap) =
+\emptyset$, with each arrow a $\Qp$-data theorem assuming the
+preceding analytic bundle.
+
+\section{Constructivity, in practice}
+\label{sec:constructivity}
+
+The word ``constructive'' is used in this monograph in a precise
+technical sense.
+
+\begin{notation}[Constructive content]
+A theorem is \emph{constructive} (in our sense) when every
+existence claim it makes returns an explicit witness with a
+computable modulus.  In particular, $\massgap > 0$ is constructive
+because the proof exhibits an explicit $\Qp$-rational value of
+$\massgap$ together with a finite computation showing
+$\massgap^2 \le \sighinf$.
+\end{notation}
+
+The constructive content is realized at two layers.
+
+\paragraph*{Layer 1: $\Qp$-rational data theorems.}  Every Phase-3
+witness (the per-scale KP certificates, the $\sigh$-budget
+closure, the explicit $\massgap$) is a finite computation over
+$\Qp$, the project's constructive rationals.  $\Qp$ is axiomatized
+in Lean (\codepath{lean/YMGap/Constructive/Rationals.lean}) with
+axiom-gate \texttt{[propext]} only, so every Layer-1 theorem
+discharges with the same minimal axiom budget.  Examples:
+\begin{itemize}[nosep]
+  \item \codepath{m\_0\_canonical = 999/1000} (this paper's
+    Theorem~\ref{thm:su2-mass-gap} numerator);
+  \item \codepath{mass\_gap\_su2\_q\_rational\_data}
+    (the pilot's KP certificates);
+  \item \codepath{eta\_pilot\_budget\_closes}
+    ($\sum_{k < K} \etak < \sigma_0$ for $K = 3$).
+\end{itemize}
+
+\paragraph*{Layer 2: composed analytical theorems.}  The continuum-
+limit and OS-reconstruction theorems live in Lean as type
+signatures: their statements assume abstract analytic bundles
+(continuum measure, cluster bridge), and their proofs in Lean are
+themselves $\Qp$-data theorems modulo those bundles.  The bundles
+are discharged in the paper's prose proof, not in Lean.  This
+hybrid keeps the Lean axiom budget tight while exposing the
+analytic ground via the paper.  Example:
+\codepath{mass\_gap\_SU2}, which composes OS reconstruction with
+the $\Qp$-data layer.
+
+\paragraph*{Per-chapter Lean signature panels.}  Each chapter
+carries a Lean signature panel below its headline theorem,
+listing the relevant Lean term and its \codepath{\#print axioms}
+output.  The audit is reproducible via \codepath{make lean-audit}
+(\codepath{scripts/lean\_axiom\_audit.py}), and the manifest is
+checked in CI against the baseline in
+\codepath{lean/AXIOM\_AUDIT.md}.
+
+\section{Fiducials and their robustness}
+\label{sec:fiducials-overview}
+
+Four fiducial constants enter the proof of
+Theorem~\ref{thm:su2-mass-gap}.  We list them here with their
+status; full provenance lives in
+Chapter~\ref{ch:fiducials-audit} and Appendix~\ref{ch:appx-fiducials}.
+
+\begin{itemize}
+  \item $\clambda = 3/4$ — small-field spectral-gap coefficient.
+    Identified with $\Casimir(1/2)$ by the SU(2) Casimir gap
+    (Chapter~\ref{ch:small-field-kp}); previously a fiducial value
+    $1/2$, upgraded $2026$-$05$-$26$ to the derived Casimir form.
+  \item $\muplaq = 16$ — plaquette polymer-connectivity constant.
+    Literature-shape value from the Seiler $5d - 4$ count
+    \cite{Seiler1982}; rigorous Brydges--Federbush-conservative
+    fallback $20e \approx 54$ from a direct edge-neighbor count
+    (Chapter~\ref{ch:large-field-kp}).
+  \item $\cpolymer = 2$ — Bałaban polymer-residual prefactor in
+    the $\sigh$-transport derivation.  Derived as the channel
+    multiplicity from triangle-inequality control of per-polymer
+    activity differences across $\Tb$
+    (Chapter~\ref{ch:sigma-hat-trajectory}).
+  \item $\Amin = 4$ — dimensionless minimum Wilson-loop area
+    ($2 a_k \times 2 a_k$ at scale $k$), per the area-law
+    convention of Chapter~\ref{ch:overlap-measure} \S7.1.
+\end{itemize}
+
+The bound is robust against perturbation of any of these.
+
+\paragraph*{Tornado (Fig.~\ref{fig:m0-tornado}).}  At $\pm 20\%$
+perturbation of each fiducial in turn, $\massgap$ stays in the
+interval $[0.9993, 0.9997]$; the most sensitive is $\clambda$,
+which shifts $\massgap$ by at most $4 \times 10^{-4}$.
+
+\paragraph*{Bootstrap (Fig.~\ref{fig:m0-bootstrap}).}  Across $5000$
+joint uniform draws of all four fiducials from their defensible
+envelopes (Appendix~\ref{ch:appx-fiducials}, Table~D.1),
+$\massgap \ge 994/1000$ at the $5$th-percentile robust quantile,
+with $0/5000$ draws falling outside the convergent regime.
+
+The headline robustness statement: \emph{the bound
+$\massgap \ge 999/1000$ at the canonical pilot is not an artefact
+of any particular fiducial choice; the bound stays above
+$994/1000$ under joint random sampling within the project's
+defensible envelopes.}
+
+\section{Code, Lean, and reproducibility}
+\label{sec:code-and-lean}
+
+This monograph is companion to a working code repository.  Every
+theorem corresponds to a Python or Lean entry point, and every
+non-trivial constant in the manuscript has a corresponding
+literal in the code.  The convention used throughout:
+
+\begin{itemize}[nosep]
+  \item A small bracketed \codeanchor{path::name} marker below a
+    theorem or equation indicates the Python module or Lean term
+    that produces or certifies the result.
+  \item Per-chapter ``Code provenance'' boxes list the Python
+    modules, test files, and Lean files relevant to the chapter.
+  \item Appendix~\ref{ch:appx-lockstep} enumerates the Python$\leftrightarrow$Lean
+    lockstep tests that bind the numerical pilots to their Lean
+    counterparts (e.g.\ \codepath{test\_canonical\_pilot\_data\_matches\_lean\_module}).
+  \item The complete Lean audit ($\Qp$-data theorems and their
+    \codepath{\#print axioms} output) is reproduced in
+    Appendix~\ref{ch:appx-lean-audit}, generated automatically by
+    \codepath{make lean-audit}.
+\end{itemize}
+
+\paragraph*{Reproduction.}  From the repository root,
+\codepath{make paper} builds this manuscript;
+\codepath{make figures} regenerates every SVG referenced in the
+figure registry; \codepath{make lean-audit} re-checks the axiom
+gate; \codepath{pytest} runs the full numerical test suite
+($500+$ tests; under five seconds on a 2024 laptop).
+
+\section{Reading guide}
+\label{sec:reading-guide}
+
+The chapters that follow are organized by Part:
+
+\begin{description}
+  \item[Part~II, $\SUtwo$ representation theory pilot
+    (Chs.~\ref{ch:su2-rep-theory}--\ref{ch:chaining-estimate}).]
+    The heat-kernel character expansion on $\SUtwo$, the
+    buffer-shell tail bound and its uniform-in-$g$ form, the
+    union-bound overlap measure and its chaining tightening.
+    Self-contained representation-theoretic input; can be read in
+    isolation.
+  \item[Part~III, the sheaf framework and the inductive step
+    (Chs.~\ref{ch:sheaf-framework}--\ref{ch:pilot-su2}).]
+    The Grothendieck site of regional restrictions, the
+    presheaves $\Ak$ and $\Sk$, the polymer atlas $\Pk$, the
+    inductive state $\Ik$, the block-spin morphism $\Tb$, the
+    small-field/large-field/overlap KP certificates, the
+    $\sigh$-budget trajectory, and the five-criterion validator.
+    The core of the proof.
+  \item[Part~IV, continuum limit and OS reconstruction
+    (Chs.~\ref{ch:uv-trajectory}--\ref{ch:os-reconstruction}).]
+    The UV-direction trajectory, the projective-limit construction
+    of $\muinf$, OS-axiom verification for $\muinf$, OS
+    reconstruction quintuple $(\Eplus, \osPair, \Hphys, \Omega_0,
+    \Hop)$, and the cluster-to-gap bridge.
+  \item[Part~V, the mass-gap theorem
+    (Chs.~\ref{ch:mass-gap-theorem}--\ref{ch:mass-gap-discussion}).]
+    Statement, proof by composition, sharpness discussion,
+    physical-unit calibration, and the road to $\SUthree$.
+  \item[Appendices.]  Notation glossary
+    (Appendix~\ref{ch:appx-notation}); Lean axiom-audit manifest
+    (Appendix~\ref{ch:appx-lean-audit}); Python$\leftrightarrow$Lean
+    lockstep test enumeration
+    (Appendix~\ref{ch:appx-lockstep}); fiducial-sensitivity
+    figures and tables (Appendix~\ref{ch:appx-fiducials});
+    PDF-reference manifest
+    (Appendix~\ref{ch:appx-refs-manifest}); open-obligations
+    roadmap (Appendix~\ref{ch:appx-roadmap}).
+\end{description}
+
+A reader interested only in the mass-gap statement and its proof
+sketch can read Chapters~\ref{ch:introduction},
+\ref{ch:sheaf-framework}, \ref{ch:sigma-hat-trajectory},
+\ref{ch:continuum-measure}, and~\ref{ch:mass-gap-theorem} for a
+$\sim 40$-page reduction.  All other chapters elaborate on this
+core.

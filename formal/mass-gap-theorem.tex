@@ -1,66 +1,42 @@
-\documentclass[11pt]{article}
+% mass-gap-theorem.tex — Chapter on the SU(2) mass-gap theorem,
+% composing Phases 7.1, 8.1, 8.2 into the Clay-statement form.
+%
+% Linked code / Lean:
+%   - computations/mass_gap_bound.py (derive_mass_gap_bound)
+%   - lean/YMGap/MassGap/SU2.lean    (mass_gap_SU2 headline theorem)
+%   - Milestone 9.1 of work_plan.md.
 
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{amsmath, amssymb, amsthm}
-\usepackage{geometry}
-\geometry{margin=1in}
-\usepackage{hyperref}
-\hypersetup{
-  colorlinks=true,
-  linkcolor=blue,
-  citecolor=blue,
-  urlcolor=blue,
-}
-\usepackage{mathtools}
+\chapter{The \texorpdfstring{$\SUtwo$}{SU(2)} Mass-Gap Theorem:
+  A Constructive Lower Bound from
+  \texorpdfstring{$\sighinf > 0$}{sigma\_infty > 0}}
+\label{ch:mass-gap-theorem}
 
-\newtheorem{definition}{Definition}[section]
-\newtheorem{theorem}[definition]{Theorem}
-\newtheorem{proposition}[definition]{Proposition}
-\newtheorem{lemma}[definition]{Lemma}
-\newtheorem{corollary}[definition]{Corollary}
-\newtheorem{remark}[definition]{Remark}
+\noindent\emph{The headline theorem: $\sigma(\Hop) \cap (0, \massgap)
+= \emptyset$, with $\massgap \in \Qp$ derived from the Phase-3 pilot
+numerics and the OS reconstruction of Chapter~\ref{ch:os-reconstruction}.}
 
-\newcommand{\Ominf}{\Omega_\infty}
-\newcommand{\muinf}{\mu_\infty}
-\newcommand{\Hphys}{\mathcal{H}_\infty}
-\newcommand{\Hop}{H_{\mathrm{op}}}
-\newcommand{\sighinf}{\widehat{\sigma}_\infty}
-\newcommand{\Omegavac}{\Omega_0}
-
-\title{The SU(2) Mass-Gap Theorem:\\
-  A Constructive Lower Bound from $\sighinf > 0$}
-\author{Arthur Petron}
-\date{\today}
-
-\begin{document}
-\maketitle
-
-\begin{abstract}
 We state and prove the Osterwalder--Schrader-reconstruction mass-gap
-theorem for SU(2) Yang--Mills theory.  The proof composes the three
-preceding milestones into the Clay-statement form: the
-$Q'$-rational lower bound $\sighinf \ge \varepsilon > 0$ from
+theorem for $\SUtwo$ Yang--Mills theory.  The proof composes the
+three preceding milestones into the Clay-statement form: the
+$\Qp$-rational lower bound $\sighinf \ge \varepsilon > 0$ from
 Milestone~7.1, the verified OS4 cluster property with explicit
-exponential rate from Milestone~8.1, and the OS reconstruction
-quintuple with the cluster-to-gap bridge from Milestone~8.2,
-together imply that the continuum-limit Hamiltonian $\Hop$ on
-$\Hphys$ satisfies
+exponential rate from Milestone~8.1
+(Chapter~\ref{ch:os-axioms}), and the OS reconstruction
+quintuple with the cluster-to-gap bridge from Milestone~8.2
+(Chapter~\ref{ch:os-reconstruction}), together imply that the
+continuum-limit Hamiltonian $\Hop$ on $\Hphys$ satisfies
 \[
-  \sigma(\Hop) \cap (0, m_0) \;=\; \emptyset
+  \sigma(\Hop) \cap (0, \massgap) \;=\; \emptyset
 \]
-for an explicit $m_0 > 0$ derived from the Phase-3 pilot numerics.
-The constructed $m_0$ is a strict (not sharp) lower bound on the
-mass gap, presented in two flavours: canonical
-($g_0 = 0.30$ pilot, $m_0 \ge 998/1000$) and Wilson
-($g_0 = 0.50$ pilot, $m_0 \ge 999/1000$), both in dimensionless
+for an explicit $\massgap > 0$ derived from the Phase-3 pilot
+numerics.  The constructed $\massgap$ is a strict (not sharp) lower
+bound on the mass gap, presented in two flavours: canonical
+($g_0 = 0.30$ pilot, $\massgap \ge 999/1000$) and Wilson
+($g_0 = 0.50$ pilot, $\massgap \ge 999/1000$), both in dimensionless
 units where $\sigma_0^{1/2}$ sets the scale at lattice scale $0$.
-\end{abstract}
 
-\tableofcontents
-
-\section{The Clay-statement mass-gap theorem for SU(2)}
-\label{sec:clay}
+\section{The Clay-statement mass-gap theorem for $\SUtwo$}
+\label{sec:mass-gap-clay}
 
 \subsection{Statement}
 
@@ -551,5 +527,3 @@ $k$-strings in SU(N) gauge theories: calculations with improved
 operators,'' JHEP \textbf{0406} (2004) 012.  Improved-operator SU(2)
 continuum extrapolation: $m(0^{++}) / \sqrt{\sigma} \approx 3.78
 \pm 0.07$.
-
-\end{document}

@@ -1,0 +1,163 @@
+% preamble.tex — shared preamble for the SU(2) mass-gap monograph.
+%
+% Loaded by formal/main.tex BEFORE \begin{document}.  The class itself
+% lives in docs/arthur_tex_style/arthur-book.cls (Tufte-style book class
+% with margin-citation support and section-numbered theorem env's; it
+% already loads amsmath, amssymb, amsthm, mathtools, hyperref, and the
+% theorem environments theorem/lemma/proposition/corollary/definition/
+% example numbered by section).
+%
+% The Makefile's `paper` target sets TEXINPUTS to find the class without
+% a system install.  Run scripts/install_arthur_tex_style.sh once to make
+% the class available globally.
+
+% ---------- Additional packages ----------
+% (arthur-book.cls already loaded amsmath et al; only add what's new.)
+
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{listings}
+
+% Allow bare `_` in text mode (the project's bibliography `note` fields
+% reference Python identifiers like `sigma_hat_trajectory.py`).  Must
+% come BEFORE biblatex.
+\usepackage{underscore}
+
+\usepackage[backend=biber,style=numeric-comp,maxbibnames=99]{biblatex}
+\addbibresource{references.bib}
+
+% cleveref must load AFTER hyperref (loaded by the class).
+\usepackage[capitalise,noabbrev]{cleveref}
+
+% ---------- Extra theorem-like environments ----------
+% arthur-math.sty already provides theorem, lemma, proposition, corollary,
+% definition, example (section-numbered).  Add domain-specific ones.
+
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{milestone}[theorem]{Milestone}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{convention}[theorem]{Convention}
+\theoremstyle{arthurdefinition}
+\newtheorem*{notation}{Notation}
+
+% ---------- Project macros ----------
+
+% Group theory.
+\newcommand{\SUtwo}{\mathrm{SU}(2)}
+\newcommand{\SUthree}{\mathrm{SU}(3)}
+\newcommand{\SUN}{\mathrm{SU}(N)}
+\newcommand{\Casimir}{C_2}
+
+% RG / measures.
+\newcommand{\Omk}{\Omega_k}
+\newcommand{\Omkpone}{\Omega_{k+1}}
+\newcommand{\Omksf}{\Omega_k^{\mathrm{sf}}}
+\newcommand{\Omklf}{\Omega_k^{\mathrm{lf}}}
+\newcommand{\Omkcap}{\Omega_k^{\cap}}
+\newcommand{\muk}{\mu_k}
+\newcommand{\muinf}{\mu_\infty}
+\newcommand{\Tb}{T_b}
+
+% Sheaves / KP.
+\newcommand{\Ak}{\mathcal{A}_k}
+\newcommand{\Sk}{\mathcal{S}_k}
+\newcommand{\Pk}{\mathcal{P}_k}
+\newcommand{\Ik}{\mathcal{I}_k}
+
+% String tension / budget.
+\newcommand{\sigk}{\sigma_k}
+\newcommand{\sigh}{\widehat{\sigma}}
+\newcommand{\sighk}{\widehat{\sigma}_k}
+\newcommand{\sighinf}{\widehat{\sigma}_\infty}
+\newcommand{\etak}{\eta_k}
+\newcommand{\Dcap}{\Delta_{\cap}}
+\newcommand{\Thetak}{\Theta_k}
+
+% Cluster expansion.
+\newcommand{\Ksf}{K_{\mathrm{sf}}}
+\newcommand{\Klf}{K_{\mathrm{lf}}}
+\newcommand{\Kcap}{K_{\cap}}
+\newcommand{\rhok}{\rho_k}
+\newcommand{\rhosf}{\rho_{\mathrm{sf}}}
+\newcommand{\rholf}{\rho_{\mathrm{lf}}}
+\newcommand{\rhocap}{\rho_{\cap}}
+
+% Continuum / OS.
+\newcommand{\Hphys}{\mathcal{H}_\infty}
+\newcommand{\Hop}{H_{\mathrm{op}}}
+\newcommand{\Eplus}{\mathcal{E}_+}
+\newcommand{\osPair}{\langle\cdot,\cdot\rangle_{\mathrm{OS}}}
+\newcommand{\massgap}{m_0}
+
+% Constructive rationals.
+\newcommand{\Qp}{\mathbb{Q}'}
+
+% Fiducials (used in Appendix D and Ch. 3.1, 3.2, 3.4).
+\newcommand{\clambda}{c_\lambda}
+\newcommand{\muplaq}{\mu_{\mathrm{plaq}}}
+\newcommand{\cpolymer}{c_{\mathrm{polymer}}}
+\newcommand{\Amin}{A_{\min}}
+\newcommand{\cchain}{c_{\mathrm{chain}}}
+
+% Code references — keep tight typography for path names.
+\newcommand{\codepath}[1]{\texttt{#1}}
+\newcommand{\modref}[1]{\codepath{#1}}
+
+% Inline "code-anchor" marker: a small bracketed tag in the margin or
+% inline indicating the Python/Lean entry point of an equation or
+% theorem.  Renders as "[code: path::name]" in slate-gray small font.
+\newcommand{\codeanchor}[1]{%
+  \hspace{0.5em}\textsuperscript{\textcolor{gray!70!black}{\footnotesize[\texttt{#1}]}}%
+}
+
+% ---------- Legacy / chapter-internal macros ----------
+% These mirror the macros that used to live in each chapter file's own
+% preamble.  Kept here so the chapter bodies can be \include'd verbatim
+% (after stripping their per-file \documentclass...\begin{document}
+% boilerplate).  Use \providecommand to be safe against name clashes.
+
+% Calligraphic letter shortcuts.
+\providecommand{\Acal}{\mathcal{A}}
+\providecommand{\Bb}{\mathcal{B}}
+\providecommand{\Ecal}{\mathcal{E}}
+\providecommand{\Ecalp}{\mathcal{E}_+}
+\providecommand{\Fcal}{\mathcal{F}}
+\providecommand{\Hcal}{\mathcal{H}}
+\providecommand{\Ical}{\mathcal{I}}
+\providecommand{\Ncal}{\mathcal{N}}
+\providecommand{\Pcal}{\mathcal{P}}
+\providecommand{\Scal}{\mathcal{S}}
+\providecommand{\Tcal}{\mathcal{T}}
+
+% Non-negative reals and extended reals.
+\providecommand{\Rnn}{\mathbb{R}_{\ge 0}}
+\providecommand{\Rnnext}{\overline{\mathbb{R}}_{\ge 0}}
+\providecommand{\Rd}{\mathbb{R}^d}
+\providecommand{\Rfour}{\mathbb{R}^4}
+
+% Configuration-space shortcuts (no clashes with the main macros above).
+\providecommand{\Omsf}{\Omega_k^{\mathrm{sf}}}
+\providecommand{\Omlf}{\Omega_k^{\mathrm{lf}}}
+\providecommand{\Omcap}{\Omega_k^{\cap}}
+\providecommand{\Omkp}{\Omega_{k+1}}
+\providecommand{\Ominf}{\Omega_\infty}
+\providecommand{\Omegavac}{\Omega_0}
+
+% Block-spin pushforward star.
+\providecommand{\Tbstar}{(\Tb)_{\!*}}
+
+% Cylinder set and edge set.
+\providecommand{\Cyl}{\mathrm{Cyl}}
+\providecommand{\Ek}{E_k}
+
+% OS abbreviation.
+\providecommand{\OS}{\mathrm{OS}}
+
+% Inner-product shortcuts.
+\providecommand{\Iprod}[2]{\langle #1, #2 \rangle}
+\providecommand{\IprodOS}[2]{\langle #1, #2 \rangle_{\mathrm{OS}}}
+
+% Time-evolution operators (used in os-reconstruction).
+\providecommand{\Tt}{T(t)}
+\providecommand{\Ut}{U(t)}

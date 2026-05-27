@@ -1,54 +1,32 @@
-\documentclass[11pt]{article}
+% sheaf-framework.tex — Chapter on the sheaf-theoretic framework.
+%
+% Linked code / Lean:
+%   - lean/YMGap/Sheaf/        (Lean formalization of A_k, S_k, the site)
+%   - docs/sheaf-framework.md  (prose companion)
+%   - Milestone 2.1 of work_plan.md.
 
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{amsmath, amssymb, amsthm}
-\usepackage{geometry}
-\geometry{margin=1in}
-\usepackage{hyperref}
-\hypersetup{
-  colorlinks=true,
-  linkcolor=blue,
-  citecolor=blue,
-  urlcolor=blue,
-}
-\usepackage{mathtools}
+\chapter{The Sheaf-Theoretic Framework}
+\label{ch:sheaf-framework}
 
-\newtheorem{definition}{Definition}[section]
-\newtheorem{theorem}[definition]{Theorem}
-\newtheorem{lemma}[definition]{Lemma}
-\newtheorem{proposition}[definition]{Proposition}
-\newtheorem{conjecture}[definition]{Conjecture}
-\newtheorem{remark}[definition]{Remark}
-\newtheorem{example}[definition]{Example}
+\noindent\emph{Sites, bound-witnesses, and summability certificates.}
 
-\newcommand{\Rnnext}{\overline{\mathbb{R}}_{\ge 0}}
-\newcommand{\Rnn}{\mathbb{R}_{\ge 0}}
-\newcommand{\Pcal}{\mathcal{P}}
-\newcommand{\Acal}{\mathcal{A}}
-\newcommand{\Scal}{\mathcal{S}}
-\newcommand{\Omk}{\Omega_k}
-\newcommand{\Omsf}{\Omega_k^{\mathrm{sf}}}
-\newcommand{\Omlf}{\Omega_k^{\mathrm{lf}}}
-\newcommand{\Omcap}{\Omega_k^{\cap}}
-
-\title{The Sheaf-Theoretic Framework for the Constructive\\
-  Yang--Mills Mass Gap Program:\\
-  Sites, Bound-Witnesses, and Summability Certificates}
-\author{Arthur Petron}
-\date{\today}
-
-\begin{document}
-\maketitle
-
-\begin{abstract}
-We define the sheaf-theoretic framework underlying the constructive Yang--Mills mass gap program: the configuration site over $\Omk = G^{E_k}$ with its three-element small-field/large-field/buffer cover, the bound-witness presheaf $\Acal_k$ valued in $(\Rnnext, \le)$, its flabbiness, and the summability-certificate presheaf $\Scal_k$ carrying Kotecký--Preiss data $(\rho, K)$.  We prove that $\Acal_k$ is flabby in the domination sense; the proof is constructive (no excluded middle), exhibiting the constant-$\infty$ section as the trivial dominator.  Flabbiness is what makes the sheaf condition automatic for $\Acal_k$, isolating the analytic content of the framework in the compatibility condition between $\Acal_k$ and $\Scal_k$, which we state as a named definition.  This document is the formal reference companion to \texttt{docs/sheaf-framework.md} (prose argument) and \texttt{lean/YMGap/Sheaf/} (Lean formalization).  It is group-independent: no $SU(2)$-specific constants appear.  Its scope corresponds to Milestone~2.1 of \texttt{work\_plan.md}.
-\end{abstract}
-
-\tableofcontents
+This chapter defines the sheaf-theoretic framework underlying the
+constructive Yang--Mills mass-gap program: the configuration site
+over $\Omk = G^{E_k}$ with its three-element small-field/large-field/
+buffer cover, the bound-witness presheaf $\Acal_k$ valued in
+$(\Rnnext, \le)$, its flabbiness, and the summability-certificate
+presheaf $\Scal_k$ carrying Kotecký--Preiss data $(\rho, K)$.  We
+prove that $\Acal_k$ is flabby in the domination sense; the proof
+is constructive (no excluded middle), exhibiting the constant-$\infty$
+section as the trivial dominator.  Flabbiness is what makes the sheaf
+condition automatic for $\Acal_k$, isolating the analytic content of
+the framework in the compatibility condition between $\Acal_k$ and
+$\Scal_k$, which we state as a named definition.  This chapter is
+group-independent: no $\SUtwo$-specific constants appear.  Its scope
+corresponds to Milestone~2.1 of \codepath{work\_plan.md}.
 
 \section{Introduction}
-\label{sec:intro}
+\label{sec:sheaf-intro}
 
 The constructive Yang--Mills mass gap program (\texttt{docs/outline.md}) reorganizes the small-field/large-field obstruction of the classical Bałaban-style construction as a \emph{cocycle problem rather than a restriction problem}: the small-field and large-field activity bounds are not restrictions of a single function to two subsets of $\Omk$, but two distinct upper bounds on the same activity derived under two different approximations of the action (\texttt{docs/context.md}, \S3.1).  The gluing of these bounds on their overlap is therefore by \emph{domination} rather than \emph{equality}, and the question of whether the two bounds are simultaneously usable becomes a question of a coupled pair of presheaves on a shared site.
 
@@ -340,5 +318,3 @@ The structural lemmas of this document --- Theorem~\ref{thm:flabbiness} (flabbin
   \item Specification: \texttt{docs/outline.md} \S8 (sheaf framework axiomatics) and \S9 (buffer-overlap estimate).
   \item Downstream consumers: Milestones 2.2 (inductive state), 2.3 (block-spin morphism), 3.1--3.3 (regime KP constants), 3.4 (string-tension 2-cell).
 \end{itemize}
-
-\end{document}

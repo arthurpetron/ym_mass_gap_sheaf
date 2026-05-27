@@ -1,60 +1,27 @@
-\documentclass[11pt]{article}
+% os-axioms.tex — Chapter on the Osterwalder–Schrader axioms for
+% the continuum SU(2) Wilson measure mu_infinity.
+%
+% Linked code / Lean:
+%   - lean/YMGap/Continuum/OSAxioms.lean (Lean type signature)
+%   - Milestone 8.1 of work_plan.md.
 
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{amsmath, amssymb, amsthm}
-\usepackage{geometry}
-\geometry{margin=1in}
-\usepackage{hyperref}
-\hypersetup{
-  colorlinks=true,
-  linkcolor=blue,
-  citecolor=blue,
-  urlcolor=blue,
-}
-\usepackage{mathtools}
+\chapter{Osterwalder--Schrader Axioms for the
+  Continuum \texorpdfstring{$\SUtwo$}{SU(2)} Wilson Measure
+  \texorpdfstring{$\muinf$}{mu\_infinity}}
+\label{ch:os-axioms}
 
-\newtheorem{definition}{Definition}[section]
-\newtheorem{theorem}[definition]{Theorem}
-\newtheorem{proposition}[definition]{Proposition}
-\newtheorem{lemma}[definition]{Lemma}
-\newtheorem{corollary}[definition]{Corollary}
-\newtheorem{remark}[definition]{Remark}
-\newtheorem{convention}[definition]{Convention}
+\noindent\emph{Verification of OS0--OS4 for $\muinf$, with $\sighinf$
+delivering the explicit OS4 cluster rate.}
 
-\newcommand{\Omk}{\Omega_k}
-\newcommand{\Ominf}{\Omega_\infty}
-\newcommand{\muk}{\mu_k}
-\newcommand{\muinf}{\mu_\infty}
-\newcommand{\sigh}{\widehat{\sigma}}
-\newcommand{\sighinf}{\widehat{\sigma}_\infty}
-\newcommand{\Hcal}{\mathcal{H}}
-\newcommand{\Fcal}{\mathcal{F}}
-\newcommand{\Acal}{\mathcal{A}}
-\newcommand{\Ek}{E_k}
-\newcommand{\Rfour}{\mathbb{R}^4}
-\newcommand{\Rd}{\mathbb{R}^d}
-\newcommand{\Tcal}{\mathcal{T}}
-\newcommand{\OS}{\mathrm{OS}}
-
-\title{Osterwalder--Schrader Axioms for the\\
-  Continuum SU(2) Wilson Measure $\muinf$}
-\author{Arthur Petron}
-\date{\today}
-
-\begin{document}
-\maketitle
-
-\begin{abstract}
 We verify the five Osterwalder--Schrader axioms (OS0--OS4) for the
-continuum SU(2) Wilson measure $\muinf$ constructed in
-\texttt{formal/continuum-measure.tex} (Milestone~7.2) as the
+continuum $\SUtwo$ Wilson measure $\muinf$ constructed in
+Chapter~\ref{ch:continuum-measure} (Milestone~7.2) as the
 Daniell--Kolmogorov projective limit of the finite-volume lattice
 measures $\{\muk\}$ under the UV-direction block-spin flow.
 
 The five axioms split into three classes by difficulty.  Three are
 \emph{trivial} for the projective-limit construction:
-\textbf{OS0~(regularity)} from the compactness of $SU(2)^{\Ek}$ at
+\textbf{OS0~(regularity)} from the compactness of $\SUtwo^{\Ek}$ at
 every stage; \textbf{OS1~(translation invariance)} from the
 hypercubic translation invariance of $\muk$ at every $k$;
 \textbf{OS3~(symmetry)} from the corresponding finite-stage
@@ -72,14 +39,12 @@ paper-level deliverable of Phase~8.1 Milestone open question;
 hypercubic $H_4$ invariance is verified directly here, and the
 restoration argument is sketched in \S\ref{sec:rotation-restoration}.
 
-This document is the paper-level deliverable of Milestone~8.1.
-Companion Lean type signature: \texttt{lean/YMGap/Continuum/OSAxioms.lean}.
-\end{abstract}
-
-\tableofcontents
+This chapter is the paper-level deliverable of Milestone~8.1.
+Companion Lean type signature:
+\codepath{lean/YMGap/Continuum/OSAxioms.lean}.
 
 \section{Standing setup}
-\label{sec:setup}
+\label{sec:os-axioms-setup}
 
 We import the standing data of \texttt{formal/continuum-measure.tex}
 \S1:
@@ -623,5 +588,3 @@ representations of Lie groups,'' Pac.\ J.\ Math.\ \textbf{125} (1986),
 
 \noindent[JW06] A.~Jaffe, E.~Witten, ``Quantum Yang--Mills theory,''
 Clay Millennium Problem statement (2006).
-
-\end{document}

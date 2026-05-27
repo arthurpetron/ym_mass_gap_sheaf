@@ -1,60 +1,26 @@
-\documentclass[11pt]{article}
+% os-reconstruction.tex — Chapter on Osterwalder–Schrader
+% reconstruction of (E_+, <,>_OS, H_infty, Omega_0, H_op) from mu_infinity.
+%
+% Linked code / Lean:
+%   - lean/YMGap/Continuum/OSReconstruction.lean (Lean type signature
+%     exposing the OS-reconstruction quintuple)
+%   - Milestone 8.2 of work_plan.md.
 
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{amsmath, amssymb, amsthm}
-\usepackage{geometry}
-\geometry{margin=1in}
-\usepackage{hyperref}
-\hypersetup{
-  colorlinks=true,
-  linkcolor=blue,
-  citecolor=blue,
-  urlcolor=blue,
-}
-\usepackage{mathtools}
-
-\newtheorem{definition}{Definition}[section]
-\newtheorem{theorem}[definition]{Theorem}
-\newtheorem{proposition}[definition]{Proposition}
-\newtheorem{lemma}[definition]{Lemma}
-\newtheorem{corollary}[definition]{Corollary}
-\newtheorem{remark}[definition]{Remark}
-\newtheorem{convention}[definition]{Convention}
-
-\newcommand{\Omk}{\Omega_k}
-\newcommand{\Ominf}{\Omega_\infty}
-\newcommand{\muinf}{\mu_\infty}
-\newcommand{\Ecal}{\mathcal{E}}
-\newcommand{\Ecalp}{\mathcal{E}_+}
-\newcommand{\Hcal}{\mathcal{H}}
-\newcommand{\Hphys}{\mathcal{H}_\infty}
-\newcommand{\Fcal}{\mathcal{F}}
-\newcommand{\Ncal}{\mathcal{N}}
-\newcommand{\Hop}{H_{\mathrm{op}}}
-\newcommand{\Ut}{U(t)}
-\newcommand{\Tt}{T(t)}
-\newcommand{\Iprod}[2]{\langle #1, #2 \rangle}
-\newcommand{\IprodOS}[2]{\langle #1, #2 \rangle_{\mathrm{OS}}}
-\newcommand{\Omegavac}{\Omega_0}
-\newcommand{\sigh}{\widehat{\sigma}}
-\newcommand{\sighinf}{\widehat{\sigma}_\infty}
-\newcommand{\Rfour}{\mathbb{R}^4}
-
-\title{Osterwalder--Schrader Reconstruction for $\muinf$:\\
+\chapter{Osterwalder--Schrader Reconstruction
+  for \texorpdfstring{$\muinf$}{mu\_infinity}:
   Hilbert Space and Hamiltonian}
-\author{Arthur Petron}
-\date{\today}
+\label{ch:os-reconstruction}
 
-\begin{document}
-\maketitle
+\noindent\emph{From the OS-axiomatized $\muinf$ to the OS quintuple
+$(\Ecalp, \IprodOS{\cdot}{\cdot}, \Hphys, \Omegavac, \Hop)$ ready for
+spectral analysis.}
 
-\begin{abstract}
 We apply the Osterwalder--Schrader reconstruction theorem to the
-continuum SU(2) Wilson measure $\muinf$ of Milestone~7.2, verified
-to satisfy the OS axioms in Milestone~8.1, to construct the physical
-Hilbert space $\Hphys$ and the self-adjoint Hamiltonian
-$\Hop \ge 0$ ready for the spectral analysis of Phase~9.
+continuum $\SUtwo$ Wilson measure $\muinf$ of Milestone~7.2 (verified
+to satisfy the OS axioms in Milestone~8.1,
+Chapter~\ref{ch:os-axioms}) to construct the physical Hilbert space
+$\Hphys$ and the self-adjoint Hamiltonian $\Hop \ge 0$ ready for the
+spectral analysis of Phase~9 (Chapter~\ref{ch:mass-gap-theorem}).
 
 The construction has four canonical steps: (i)~assemble the algebra
 $\Ecalp$ of cylindrical test functions supported on the positive-
@@ -71,18 +37,15 @@ Following the work-plan's explicit open-question kickoff for 8.2,
 we deliver the construction at the \textbf{paper level} (full
 analytical content here), with a parallel \textbf{Lean-formal-
 statement-only} type signature module
-\texttt{lean/YMGap/Continuum/OSReconstruction.lean} exposing the
+\codepath{lean/YMGap/Continuum/OSReconstruction.lean} exposing the
 data of $(\Hphys, \Hop, \Omegavac)$ that downstream Phase~9
 references symbolically.  The full Lean formalization (Stone's
 theorem, spectral theorem for self-adjoint operators) is a major
 undertaking deferred to a parallel constructive-analysis layer
 (Milestone~7.3+).
-\end{abstract}
-
-\tableofcontents
 
 \section{Standing setup}
-\label{sec:setup}
+\label{sec:os-reconstruction-setup}
 
 We import the OS axiom verification of \texttt{formal/os-axioms.tex}
 (Milestone~8.1): the measure $\muinf$ on $\Ominf$ satisfies
@@ -577,5 +540,3 @@ OS-positivity from a Lie-group representation-theoretic angle.
 
 \noindent[JW06] A.~Jaffe, E.~Witten, ``Quantum Yang--Mills theory,''
 Clay Millennium Problem statement (2006).
-
-\end{document}
