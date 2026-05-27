@@ -133,6 +133,17 @@ When either endpoint's $\Kcap$ is non-finite (the
 non-convergent regime), $\Dcap = \infty$ by convention, propagating
 the non-convergence honestly through the downstream budget.
 
+\begin{mainfigure}
+\centering
+\includegraphics[width=\textwidth]{delta-cap-budget}
+\caption{Per-step buffer growth $\Dcap(b, g_k)$ across the canonical
+$\SUtwo$ RG trajectory at $b = 2$.  The geometric decay matches
+the analytic UV-direction rate $r_{\mathrm{uv}}^\infty \approx
+0.976$ used by the global $\sigh$-budget closure of
+\Cref{ch:sigma-hat-trajectory}.}
+\label{fig:delta-cap-budget}
+\end{mainfigure}
+
 \section{Empirical looseness and the gaussian-sharpness
   conjecture}
 \label{sec:k-cap-looseness}
@@ -170,6 +181,19 @@ g_{\max}^{\mathrm{sf}}$ from below, while $\Klf \to 0$ as $g \to 0$
 boundary, $\Ksf \gg \Klf$, and the union-bound looseness factor
 collapses to $1 + \Klf/\Ksf \approx 1 + \mathrm{small}$.
 \end{infobox}
+
+\begin{mainfigure}
+\centering
+\includegraphics[width=\textwidth]{conjecture-7.4-looseness}
+\caption{The empirical union-bound looseness factor
+$L_K(g_k) = 1 + \min(\Ksf, \Klf)/\max(\Ksf, \Klf)$ of
+\cref{eq:k-looseness} across the canonical $\SUtwo$ convergent
+regime.  $L_K$ peaks at $\approx 1.18$ near $g = 0.35$, far below
+the gaussian-sharpness conjecture bound $C \le 2$.  At the
+canonical pilot $g_0 = 0.30$, $L_K \approx 1.01$ — the union bound
+is essentially saturated.}
+\label{fig:conjecture-7.4-looseness}
+\end{mainfigure}
 
 \section{Convention and the $\Dcap$ budget in
   \texorpdfstring{$\Qp$}{Q'}}

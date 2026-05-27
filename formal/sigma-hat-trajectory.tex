@@ -159,6 +159,17 @@ Aggregate: $\sum_{k < 3} \etak \le 9/10000$,
 $\sighinf \ge \sigma_0 - 9/10000 = 9991/10000$.
 \end{infobox}
 
+\begin{mainfigure}
+\centering
+\includegraphics[width=\textwidth]{sigma-hat-trajectory}
+\caption{The $\sighk$ trajectory across the canonical and Wilson
+pilots at $K = 3$, with the threshold $\tfrac12\sigma_0$ annotated
+for reference.  Both trajectories remain strictly within
+$[\tfrac12\sigma_0, \sigma_0]$, with cumulative $\eta$-budget
+$\le 9/10000$ (canonical) and $\le 3/10000$ (Wilson).}
+\label{fig:sigma-hat-trajectory}
+\end{mainfigure}
+
 \section{Convergence to a positive
   \texorpdfstring{$\widehat\sigma_\infty$}{sigma\_infty}}
 \label{sec:sigma-hat-infty}
@@ -232,6 +243,21 @@ length $K = 10$ this is sufficient to uplift the $\Qp$-rational
 floor of $\sqrt{\sighinf}$ from $997/1000$ to $998/1000$,
 an uplift ratio of $\approx 1.001$ on the manuscript-quotable bound.
 \end{theorem}
+
+\begin{mainfigure}
+\centering
+\includegraphics[width=\textwidth]{chaining-eta-uplift}
+\caption{Manuscript-quotable $\massgap$ baseline (red, union-bound
+$\eta$) vs.\ chaining-tightened $\massgap$ (green) across eight
+operating points in the canonical convergent window.  The
+chaining factor $\cchain(g_k) \in (0, 1]$ never weakens the bound
+and gives a numerator uplift $\Delta_{\mathrm{num}} \ge 0$ at each
+point; the largest uplift is at the convergent-threshold
+operating point $g_0 = 0.40, K = 5$
+(ratio $\times 1.076$), and the manuscript-binding canonical
+$g_0 = 0.30, K = 10$ uplift is $\times 1.001$.}
+\label{fig:chaining-eta-uplift}
+\end{mainfigure}
 
 \section{Code provenance}
 \label{sec:sigma-hat-codeanchor}

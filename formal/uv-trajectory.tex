@@ -175,6 +175,17 @@ $1/(1 - r_{\mathrm{uv}}^\infty) \approx 41.7$.
 Geometric series bound from \cref{thm:eta-geometric}.
 \end{proof}
 
+\begin{mainfigure}
+\centering
+\includegraphics[width=\textwidth]{uv-trajectory}
+\caption{The canonical UV trajectory at $g_0 = 0.30$, $b = 2$ over
+$K$ scales: top panel $g_k$ (strictly decreasing), middle panel
+$\etak$ (geometric decay with rate $r_{\mathrm{uv}}^\infty \approx
+0.976$), bottom panel partial sum $\sum_{k < K} \etak$ converging
+to the limit value tracked in \cref{cor:tail-bound}.}
+\label{fig:uv-trajectory}
+\end{mainfigure}
+
 \section{Empirical verification at long
   \texorpdfstring{$K$}{K}}
 \label{sec:long-k-trajectory}
@@ -211,6 +222,21 @@ $K \in \{10, 20, 50\}$ on the canonical UV trajectory.  See the
 \codepath{long\_k\_trajectory} computation referenced in
 \Cref{sec:uv-codeanchor}.
 \end{proof}
+
+\begin{mainfigure}
+\centering
+\includegraphics[width=\textwidth]{long-k-trajectory}
+\caption{Long-$K$ verification of the geometric $\eta$-decay
+prediction.  Top panel: the empirical ratio
+$\eta_{k+1}/\eta_k$ along trajectories of length $K = 10, 20, 50$
+stabilizes to $r_{\mathrm{uv}}^{\mathrm{emp}} = 0.9762 \pm 0.0005$,
+matching the analytical value
+$r_{\mathrm{uv}}^\infty \approx 0.9762$ of \cref{eq:r-uv-value}
+to four significant figures.  Bottom panel: the $\sigh$-surrogate
+remains strictly positive across all three trajectory lengths,
+with $\sigh_{K=50} \ge 9988/10000$.}
+\label{fig:long-k-trajectory}
+\end{mainfigure}
 
 \section{The infinite-trajectory $\sigh$-budget closure}
 \label{sec:infinite-budget-closure}

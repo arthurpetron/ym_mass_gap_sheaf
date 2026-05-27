@@ -149,17 +149,25 @@ $\mathrm{bound} + \varepsilon \le \sigh_0$.
 
 The constructive content of Lemma~\ref{lem:sigh-positive}: from
 the Phase-3 pilot rational data
-(\texttt{computations/q\_lift.pilot\_eta\_rational\_bound}), the gap
-$\varepsilon$ is exactly $\sigh_0 - \mathrm{eta\_total\_pilot}$:
+(\codeanchor{computations/q\_lift.py::pilot\_eta\_rational\_bound}),
+the gap $\varepsilon$ is exactly
+$\sigh_0 - \mathrm{eta\_total\_pilot}$ in the post-$\clambda$
+Casimir-gap upgrade:
 \begin{align*}
   \text{(canonical, } g_0 = 0.30\text{):} \qquad
-    \varepsilon &= 1 - 33/10000 = 9967/10000, \\
+    \varepsilon &= 1 - 9/10000 = 9991/10000, \\
   \text{(Wilson, } g_0 = 0.50\text{):} \qquad
-    \varepsilon &= 1 - 12/10000 = 9988/10000.
+    \varepsilon &= 1 - 3/10000 = 9997/10000.
 \end{align*}
-Both are strictly positive Q'-rationals; the canonical case is the
-slightly worse bound (more $\eta$-budget consumed) because the
-canonical pilot operates near the sf-window edge.
+Both are strictly positive $\Qp$-rationals; the canonical case is
+slightly worse (more $\eta$-budget consumed) because the canonical
+pilot operates closer to the small-field convergence threshold.
+The previous values $9967/10000$ (canonical) and $9988/10000$
+(Wilson) were tracked when $\clambda$ was a fiducial $\tfrac12$;
+the upgrade to the derived Casimir gap $\clambda = \tfrac34$
+(\Cref{ch:small-field-kp},
+Theorem~\ref{thm:c-lambda-casimir}) tightens the budget by a
+factor of $\approx 3$ at both operating points.
 
 \subsection{Step 2: $\sighinf > 0$ $\Rightarrow$ OS4 cluster (the OS-axiom verification)}
 
@@ -234,44 +242,48 @@ The proof of Theorem~\ref{thm:mass-gap-su2} reduces the mass-gap
 lower bound to extracting a $Q'$-rational $m_0$ with
 $m_0^2 \le \sighinf$, where $\sighinf$ is the Phase-7.1 gap value.
 
-\begin{proposition}[Explicit $m_0$ from canonical pilot]
+\begin{proposition}[Explicit $\massgap$ from the canonical pilot]
 \label{prop:m0-canonical}
-For the canonical-convention SU(2) pilot at $g_0 = 0.30$,
+For the canonical-convention $\SUtwo$ pilot at $g_0 = 0.30$,
 $K = 3$ transitions, denominator $10000$, the mass-gap lower bound is
 \begin{equation*}
-  m_0^{(\mathrm{can})} \;:=\; \frac{998}{1000} \;\in\; Q', \qquad m_0^{(\mathrm{can})} \;\le\; m.
+  \massgap^{(\mathrm{can})} \;:=\; \frac{999}{1000} \;\in\; \Qp,
+  \qquad
+  \massgap^{(\mathrm{can})} \;\le\; m.
 \end{equation*}
 \end{proposition}
 
 \begin{proof}
-We verify $\bigl(998/1000\bigr)^2 \le \varepsilon$:
+We verify $\bigl(999/1000\bigr)^2 \le \varepsilon$:
 \[
-  \bigl(998/1000\bigr)^2 \;=\; \frac{996004}{1000000} \;=\; 0.996004,
+  \bigl(999/1000\bigr)^2 \;=\; \frac{998001}{1000000} \;=\; 0.998001,
 \]
-which is less than $\varepsilon = 9967/10000 = 0.9967$.  The
-inequality $0.996004 \le 0.9967$ is decidable by
+which is less than $\varepsilon = 9991/10000 = 0.9991$.  The
+inequality $0.998001 \le 0.9991$ is decidable by
 \texttt{decide} on the cross-product representation
-$(998 \cdot 998 \cdot 10000 \le 9967 \cdot 1000 \cdot 1000)$,
-i.e., $9960040000 \le 9967000000$.
+$(999 \cdot 999 \cdot 10000 \le 9991 \cdot 1000 \cdot 1000)$,
+i.e., $9980010000 \le 9991000000$.
 
 By Theorem~\ref{thm:mass-gap-su2}'s constructive content,
-$m_0^{(\mathrm{can})} \le m$.
+$\massgap^{(\mathrm{can})} \le m$.
 \end{proof}
 
-\begin{proposition}[Explicit $m_0$ from Wilson pilot]
+\begin{proposition}[Explicit $\massgap$ from the Wilson pilot]
 \label{prop:m0-wilson}
-For the Wilson-convention SU(2) pilot at $g_0 = 0.50$, $K = 3$
+For the Wilson-convention $\SUtwo$ pilot at $g_0 = 0.50$, $K = 3$
 transitions, denominator $10000$, the mass-gap lower bound is
 \begin{equation*}
-  m_0^{(\mathrm{wil})} \;:=\; \frac{999}{1000} \;\in\; Q', \qquad m_0^{(\mathrm{wil})} \;\le\; m.
+  \massgap^{(\mathrm{wil})} \;:=\; \frac{999}{1000} \;\in\; \Qp,
+  \qquad
+  \massgap^{(\mathrm{wil})} \;\le\; m.
 \end{equation*}
 \end{proposition}
 
 \begin{proof}
 $\bigl(999/1000\bigr)^2 = 998001/1000000 = 0.998001 \le \varepsilon =
-9988/10000 = 0.9988$ by
-$998001 \cdot 10000 \le 9988 \cdot 1000000$, i.e.,
-$9980010000 \le 9988000000$.  Decidable on the cross-product
+9997/10000 = 0.9997$ by
+$998001 \cdot 10000 \le 9997 \cdot 1000000$, i.e.,
+$9980010000 \le 9997000000$.  Decidable on the cross-product
 representation.
 \end{proof}
 
@@ -284,7 +296,7 @@ are dimensionless: they live in $Q'$.  Two ways to read them:
   \item \textbf{Units of $\sigh_0^{1/2}$}: with $\sigh_0 = 1$ chosen
     as the unit at scale $0$, $m_0 \in (0, 1)$ is a fraction of the
     bare-lattice string-tension scale.  The bounds
-    $m_0^{(\mathrm{can})} = 0.998$ and $m_0^{(\mathrm{wil})} = 0.999$
+    $\massgap^{(\mathrm{can})} = 0.999$ and $\massgap^{(\mathrm{wil})} = 0.999$
     are dimensionless and read directly.
   \item \textbf{Physical units}: pick a physical scale (e.g.\
     $\sqrt{\sigma_0} \approx 440\,\text{MeV}$ from the standard QCD
@@ -472,9 +484,10 @@ existence statement of Theorem~\ref{thm:mass-gap-su2}.
 \label{sec:scope}
 
 \begin{itemize}
-  \item \textbf{Sharp mass-gap value.}  The bound $m_0 \ge 0.998$
+  \item \textbf{Sharp mass-gap value.}  The bound $\massgap \ge 0.999$
     canonical is constructive but not sharp; the actual $m$ is
-    larger.  Refining the bound is the SU(N) extension framework / future-work.
+    larger.  Refining the bound is part of the
+    $\SUN$-extension and analytic-refinement programme.
   \item \textbf{Lean formalization of the statement.}  The Lean
     module \codepath{lean/YMGap/MassGap/SU2.lean} carries the
     Lean-formal statement of the mass-gap theorem, including the

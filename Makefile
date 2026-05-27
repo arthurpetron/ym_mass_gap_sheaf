@@ -1,4 +1,4 @@
-.PHONY: test lint typecheck figures paper clean help \
+.PHONY: test lint typecheck figures svg-to-pdf paper clean help \
         lean-build lean-audit lean-audit-strict lean-audit-update
 
 help:
@@ -27,7 +27,20 @@ typecheck:
 figures:
 	@echo "No figures yet; populated as Phase 1 milestones close."
 
-paper:
+# Convert every SVG under visualizations/ to a sibling PDF using rsvg-convert.
+# pdflatex cannot embed SVGs directly, so the manuscript references the
+# generated PDFs.  Idempotent: skips up-to-date PDFs.
+svg-to-pdf:
+	@command -v rsvg-convert >/dev/null || { echo "error: rsvg-convert not on PATH (brew install librsvg)"; exit 1; }
+	@find visualizations -name '*.svg' | while read svg; do \
+	    pdf="$${svg%.svg}.pdf"; \
+	    if [ ! -f "$$pdf" ] || [ "$$svg" -nt "$$pdf" ]; then \
+	        echo "  svg -> pdf: $$svg"; \
+	        rsvg-convert -f pdf -o "$$pdf" "$$svg"; \
+	    fi; \
+	done
+
+paper: svg-to-pdf
 	cd formal && TEXINPUTS="../docs/arthur_tex_style/:../docs/arthur_tex_style/tex/:../docs/arthur_tex_style/assets/:$$TEXINPUTS" latexmk -pdf main.tex
 
 lean-build:

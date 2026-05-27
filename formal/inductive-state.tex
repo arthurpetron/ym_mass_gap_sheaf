@@ -116,6 +116,21 @@ Concretely: a user constructing $\Ical_k$ from concrete small-field and large-fi
 The state package $\Ical_k$ is therefore well-defined here, but it is no more closed than the 2.1 framework it rests on.  This is the carry-uncertainty principle in operation: the structure transparently inherits the open obligations of the layer beneath, rather than silently re-asserting them as fact.
 \end{remark}
 
+\begin{mainfigure}
+\centering
+\input{../visualizations/structure/inductive-state.tikz}
+\caption{The inductive state $\Ical_k$ as a labeled tuple of its
+seven components ($k$, $\sigh_k$, $g_k$, $c^{\mathrm{sf}}_k$,
+$c^{\mathrm{lf}}_k$, $c^\cap_k$, $\Pcal_k$), annotated with the
+scale-$k$-local validity hypotheses (V1)--(V3).  The step arrow
+$\Ical_k \to \Ical_{k+1}$ represents the block-spin pushforward of
+the next section, whose type-level constraints are not yet
+discharged here.  The polymer atlas $\Pcal_k$ is now closed in
+the concrete \texttt{CanonicalPolyAtlas} variant (previously open
+in the project's design).}
+\label{fig:inductive-state-tuple}
+\end{mainfigure}
+
 \section{The type of the block-spin step}
 \label{sec:step}
 

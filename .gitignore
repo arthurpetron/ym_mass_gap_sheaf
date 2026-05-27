@@ -65,3 +65,6 @@ lean/build/
 *.xdv
 # Built PDFs in formal/ are regenerable via `make paper`
 formal/*.pdf
+
+# Generated PDFs from rsvg-convert (svg-to-pdf Makefile target)
+visualizations/**/*.pdf

@@ -30,6 +30,16 @@
 % cleveref must load AFTER hyperref (loaded by the class).
 \usepackage[capitalise,noabbrev]{cleveref}
 
+% Graphics: pdflatex does not embed SVG directly.  The Makefile's
+% `svg-to-pdf` target pre-converts every SVG under visualizations/
+% to a sibling PDF via rsvg-convert; \includegraphics then resolves
+% by stem (e.g. {casimir-spectrum} -> visualizations/pilot/su2/casimir-spectrum.pdf).
+\graphicspath{%
+  {../visualizations/pilot/su2/}%
+  {../visualizations/structure/}%
+  {../visualizations/transfer/}%
+}
+
 % ---------- Extra theorem-like environments ----------
 % arthur-math.sty already provides theorem, lemma, proposition, corollary,
 % definition, example (section-numbered).  Add domain-specific ones.

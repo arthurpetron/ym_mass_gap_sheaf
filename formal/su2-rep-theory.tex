@@ -171,50 +171,12 @@ Haar measure suffice.  See~\cite{GlimmJaffe1987} Appendix~A.
 
 \begin{mainfigure}
 \centering
-\begin{tikzpicture}[
-  every node/.style={align=center,font=\small},
-  axis/.style={->,thick},
-  bar/.style={fill=blue!30,draw=blue!60!black,thick},
-  hl/.style={fill=red!30,draw=red!60!black,thick},
-  scale=1.0
-]
-  \draw[axis] (-0.4,0) -- (10.4,0) node[right]{$j$};
-  \draw[axis] (0,-0.4) -- (0,5.2) node[above]{$\Casimir(j) = j(j+1)$};
-  % horizontal grid
-  \foreach \y in {1,2,3,4,5} {
-    \draw[gray!30,dashed] (0,\y) -- (10.2,\y);
-    \node[left,font=\scriptsize] at (-0.05,\y) {$\y$};
-  }
-  % bars at j=0, 1/2, 1, 3/2, 2, 5/2, 3 (scaled: x = 2*j+0.5)
-  \node[below,font=\scriptsize] at (0.5,0) {$0$};
-  \node[below,font=\scriptsize] at (1.5,-0.05) {$\tfrac12$};
-  \node[below,font=\scriptsize] at (2.5,0) {$1$};
-  \node[below,font=\scriptsize] at (3.5,-0.05) {$\tfrac32$};
-  \node[below,font=\scriptsize] at (4.5,0) {$2$};
-  \node[below,font=\scriptsize] at (5.5,-0.05) {$\tfrac52$};
-  \node[below,font=\scriptsize] at (6.5,0) {$3$};
-  % Casimir values: 0, 3/4, 2, 15/4, 6, 35/4, 12 -> clip at 5 for display
-  \fill[bar] (0.35,0) rectangle (0.65,0.0001);
-  \fill[hl]  (1.35,0) rectangle (1.65,0.75);
-  \fill[bar] (2.35,0) rectangle (2.65,2.0);
-  \fill[bar] (3.35,0) rectangle (3.65,3.75);
-  \fill[bar] (4.35,0) rectangle (4.65,5.0);
-  \fill[bar] (5.35,0) rectangle (5.65,5.0);
-  \fill[bar] (6.35,0) rectangle (6.65,5.0);
-  % annotations for last two (clipped)
-  \node[above,font=\scriptsize,red!60!black] at (1.5,0.85) {$\tfrac34$};
-  \node[above,font=\scriptsize] at (5.5,5.0) {$\tfrac{35}{4}$};
-  \node[above,font=\scriptsize] at (6.5,5.0) {$12$};
-  % spectral-gap annotation
-  \draw[red!70!black,dashed] (0,0.75) -- (10.2,0.75);
-  \node[right,font=\scriptsize,red!70!black] at (8.4,0.75) {spectral gap $\tfrac34$};
-\end{tikzpicture}
-\caption{The first seven entries of the $\SUtwo$ Casimir spectrum
+\includegraphics[width=\textwidth]{casimir-spectrum}
+\caption{The $\SUtwo$ Casimir spectrum
 $\Casimir(j) = j(j+1)$ in the physics-spin convention.  The
-spin-$\tfrac12$ value $\Casimir(\tfrac12) = \tfrac34$ (highlighted
-in red) is the smallest nonzero Casimir; it is the spectral gap
-referenced throughout the rest of the manuscript.  Bars for $j \ge 2$
-are clipped at the top of the display range.}
+spin-$\tfrac12$ value $\Casimir(\tfrac12) = \tfrac34$ is the
+smallest nonzero Casimir; it is the spectral gap referenced
+throughout the rest of the manuscript.}
 \label{fig:casimir-spectrum}
 \end{mainfigure}
 
