@@ -2245,8 +2245,19 @@ regression tests that bind Python numerical pilots to their Lean
 counterparts (e.g.
 `test_canonical_pilot_data_matches_lean_module`).
 
-**Appendix D — Fiducial sensitivity (tornado figure + supporting table,
-2026-05-27).**  The headline figure is the **m_0 sensitivity tornado**
+**Appendix D — Fiducial sensitivity (tornado + bootstrap robustness,
+2026-05-27).**  Appendix D carries two complementary figures: the
+**per-fiducial tornado** (Fig. D.1) and the **joint bootstrap
+distribution** (Fig. D.2).  The tornado shows m_0's sensitivity to
+±20% perturbation of each fiducial **one at a time**; the bootstrap
+samples all four fiducials **simultaneously** within their defensible
+envelopes and quotes a robust percentile lower bound.  The headline
+robustness statement combines both: *no single ±20% fiducial
+perturbation shifts m_0 by more than `4 × 10⁻⁴`* (tornado, Fig. D.1),
+and *across the full joint defensible envelope, `m_0 ≥ 994/1000` at
+the 5th percentile* (bootstrap, Fig. D.2).
+
+**Tornado figure (Fig. D.1).** The **m_0 sensitivity tornado**
 (`visualizations/pilot/su2/m_0-tornado.svg`, Fig. D.1): a sorted
 horizontal bar chart showing m_0's range under ±20% perturbation of
 each of the four named fiducials (`c_λ`, `μ_plaq`, `c_polymer`,
@@ -2284,6 +2295,62 @@ Provenance: `computations/m_0_tornado.py` (`compute_tornado_bars`,
 `plot_tornado`), tested by `tests/test_m_0_tornado.py` (13 unit
 tests covering registry, sensitivity-sorting, baseline consistency,
 m_0 envelope, and plot generation).
+
+**Bootstrap-uncertainty figure (Fig. D.2, 2026-05-27).**
+The tornado varies one fiducial at a time; the **joint** robustness
+statement requires sampling all four together within their
+*defensible envelopes* from `notes/fiducials_notes.md`:
+
+| Fiducial    | Baseline | Envelope    | Justification                              |
+|-------------|----------|-------------|--------------------------------------------|
+| `c_λ`       | 0.75     | [0.30, 1.50]| 0.30 = pilot-tolerance threshold at        |
+|             |          |             |  `g_0 = 0.30`; 1.50 ≈ 2× SU(2) Casimir gap |
+| `μ_plaq`    | 16.0     | [10, 55]    | 10 = hypothetical tighter polymer count;   |
+|             |          |             |  55 ≈ 20e (BF-conservative bound)          |
+| `c_polymer` | 2.0      | [1.0, 2.0]  | 1.0 = sign-preservation tightening (open); |
+|             |          |             |  2.0 = derived worst-case (triangle ineq.) |
+| `A_min`     | 4.0      | [4, 9]      | 4 = 2×2 minimum loop (spec); 9 = 3×3       |
+
+Each envelope brackets the values the project considers defensible
+(literature-shape, derived, or pilot-tolerance bounded), so sampling
+within them explores the project's *epistemic* uncertainty rather
+than arbitrary perturbations.
+
+Empirical result (`computations/m_0_bootstrap.py`, 5000 uniform draws,
+seed 0, canonical pilot):
+
+| Statistic                  | Value     |
+|----------------------------|-----------|
+| n_samples / n_failed       | 5000 / 0  |
+| mean                       | 0.998518  |
+| std                        | 0.005283  |
+| 1st percentile             | 0.973138  |
+| **5th percentile (robust)**| **0.994972** |
+| 50th percentile (median)   | 0.999626  |
+| 95th percentile            | 0.999887  |
+| 99th percentile            | 0.999922  |
+
+**Headline statement (Fig. D.2).** *Across joint uniform sampling of
+all four named fiducials within their defensible envelopes, the
+constructive mass-gap lower bound satisfies*
+$$m_0 \;\ge\; 994/1000 \;=\; 0.994$$
+*at the 5th-percentile robust quantile* (rounded *down* from the
+empirical percentile `0.994972` to preserve the lower-bound
+character). This converts the tornado's per-fiducial statement
+("`m_0 = 999/1000` under the canonical baseline") into the
+uncertainty-quantified "**`m_0 ≥ 994/1000` across the defensible
+envelope of all four fiducials simultaneously**."  Notably **0/5000
+draws fell outside the convergent regime**, so the envelopes lie
+entirely within the small-field/large-field cluster-expansion
+convergence window.
+
+Provenance: `computations/m_0_bootstrap.py` (`run_bootstrap`,
+`BootstrapResult`, `plot_bootstrap`), tested by
+`tests/test_m_0_bootstrap.py` (20 unit tests covering envelope
+validation, sampling determinism, percentile monotonicity, the
+`m_0 ≥ 950/1000` headline-threshold check, zero-failure-in-envelope
+property, and the conservative `numerator_at_denom(1000)` rational
+floor).
 
 **Appendix E — Source-document and PDF reference manifest.**  The PDFs
 in `docs/pdf_references/` with the chapters that cite each.
@@ -2391,6 +2458,7 @@ The following table is the master figure index.  All structural
 | 19.1 | `transfer/ekf-to-ym-types.tikz` | Three-column EKF / Protocol / YM type-signature mapping | Ch. 19, after D19.1 |
 | 19.2 | `transfer/rewind-budget.tikz` | Shared per-step budget decrement law | Ch. 19, after T19.2 |
 | D.1 | `pilot/su2/m_0-tornado.svg` | `m_0` sensitivity tornado: ±20% perturbation of each of the four named fiducials (`c_λ`, `μ_plaq`, `c_polymer`, `A_min`), sorted by sensitivity; m_0 stays in `[0.9993, 0.9997]` across all four (2026-05-27, post-c_λ Casimir-gap upgrade) | App. D |
+| D.2 | `pilot/su2/m_0-bootstrap.svg` | `m_0` bootstrap distribution: 5000 joint uniform draws of all four fiducials within their defensible envelopes (`c_λ ∈ [0.30, 1.50]`, `μ_plaq ∈ [10, 55]`, `c_polymer ∈ [1, 2]`, `A_min ∈ [4, 9]`); 5th-percentile robust lower bound `m_0 ≥ 994/1000`, 0/5000 outside the convergent regime (2026-05-27) | App. D |
 
 Figures missing from this registry that the manuscript might add as
 revisions land:
@@ -2583,13 +2651,16 @@ is a mechanical step that does not touch any mathematical content.
   Appendix D supporting table.
 - `make tornado` — runs `python -m computations.m_0_tornado`, emits
   `visualizations/pilot/su2/m_0-tornado.svg` (Fig. D.1).
+- `make bootstrap` — runs `python -m computations.m_0_bootstrap`,
+  emits `visualizations/pilot/su2/m_0-bootstrap.svg` (Fig. D.2).
 - `make figures` — re-runs all SVG-producing Python modules and
   re-builds the TikZ standalone previews.
 
 The `make paper` target should depend on `make figures`, `make
-lean-audit`, `make lockstep`, `make fiducial-tables`, and `make
-tornado`, so that the PDF is never out of step with the code, the
-Lean axiom-gate, or the Appendix D robustness figure.
+lean-audit`, `make lockstep`, `make fiducial-tables`, `make
+tornado`, and `make bootstrap`, so that the PDF is never out of step
+with the code, the Lean axiom-gate, or the Appendix D robustness
+figures.
 
 ---
 

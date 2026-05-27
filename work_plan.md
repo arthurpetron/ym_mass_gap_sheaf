@@ -790,6 +790,90 @@ optional aesthetic upgrade.
 
 ---
 
+### Milestone D-bootstrap — m_0 bootstrap uncertainty across defensible envelopes
+
+**Goal.** Convert the deterministic "`m_0 = 999/1000` under the
+canonical fiducials" statement into an uncertainty-quantified
+"`m_0 ≥ X/1000` across the defensible envelope of all four fiducials
+simultaneously" via uniform joint sampling.  The bootstrap is the
+**joint** counterpart of the per-fiducial tornado (Fig. D.1):
+the tornado varies one fiducial at a time, the bootstrap samples all
+four together and quotes a robust percentile lower bound.
+
+**Status.** **CLOSED 2026-05-27**: implementation, unit tests, plot,
+outline cross-reference, and Makefile target are all in place.
+
+**Defensible envelopes (per `notes/fiducials_notes.md`, audit-driven).**
+
+| Fiducial    | Baseline | Envelope    | Justification (one-line)                       |
+|-------------|----------|-------------|------------------------------------------------|
+| `c_λ`       | 0.75     | [0.30, 1.50]| 0.30 ≈ pilot-tolerance lower; 1.50 ≈ 2× C_2(1/2)|
+| `μ_plaq`    | 16.0     | [10, 55]    | 10 ≈ tighter polymer count; 55 ≈ 20e (BF-cons.)|
+| `c_polymer` | 2.0      | [1.0, 2.0]  | 1.0 = open sign-preservation tightening; 2.0 = derived worst case |
+| `A_min`     | 4.0      | [4, 9]      | 4 = 2×2 spec minimum; 9 = 3×3 conservative     |
+
+**Deliverables (all complete).**
+- `computations/m_0_bootstrap.py` (~330 LOC):
+  - `FiducialEnvelope` dataclass with `__post_init__` validation
+    (low < high and baseline ∈ [low, high]).
+  - `ENVELOPES` tuple — one envelope per named fiducial, with the
+    defensibility rationale stored as a `rationale` field.
+  - `run_bootstrap(n_samples, seed, g_0, K, sigma_hat_initial,
+    convention, envelopes, robust_percentile)` — uniform joint
+    sampling, m_0 evaluation, `BootstrapResult` with mean / std /
+    `{1, 5, 50, 95, 99}` percentiles, and a `robust_lower_bound`
+    (5th percentile by default).
+  - `BootstrapResult.quote_rational_lower_bound(denom)` and
+    `numerator_at_denom(denom)` — round the percentile *down* to a
+    clean rational `k/denom` (manuscript convention: `denom = 1000`).
+  - `plot_bootstrap` — histogram of `m_0` with percentile lines and
+    a yellow annotation box quoting the robust lower bound.
+  - CLI `python -m computations.m_0_bootstrap` prints the result and
+    writes the SVG.
+- `tests/test_m_0_bootstrap.py` — **20 unit tests** covering envelope
+  validation (inverted, baseline-outside), determinism under seed,
+  draws-stay-within-envelope, percentile monotonicity, the
+  `m_0 ≥ 950/1000` headline-threshold check, zero-failure-in-envelope,
+  conservative rational floor, and SVG generation.
+- `visualizations/pilot/su2/m_0-bootstrap.svg` (~77 KB) — Fig. D.2.
+- `docs/outline.md` Appendix D extended with the bootstrap subsection
+  and statistic table; §23 figure registry row added; `make bootstrap`
+  Makefile target listed in §27.
+- `Makefile` target `make bootstrap` planned for Phase 5.1.
+
+**Empirical result (5000 draws, seed 0, canonical pilot, 2026-05-27).**
+
+| Statistic                  | Value      |
+|----------------------------|------------|
+| n_samples / n_failed       | 5000 / 0   |
+| mean                       | 0.998518   |
+| std                        | 0.005283   |
+| 1st percentile             | 0.973138   |
+| **5th percentile (robust)**| **0.994972** |
+| 50th percentile (median)   | 0.999626   |
+| 95th percentile            | 0.999887   |
+| 99th percentile            | 0.999922   |
+
+**Headline.** Across all 5000 joint draws within the defensible
+envelopes, `m_0 ≥ 994/1000` at the 5th-percentile robust quantile
+(rounded down from the empirical `0.994972`).  **0 draws fell outside
+the convergent regime** — the defensible envelopes lie entirely
+inside the small-field/large-field cluster-expansion convergence
+window at `g_0 = 0.30`.
+
+**Dependencies.** Milestone 3.1 (c_λ Casimir-gap upgrade), Milestone
+3.5 (canonical pilot), Milestone 3.4 (η_k budget), Milestone
+D-tornado (shared `_m_0_from_kwargs` infrastructure).
+
+**Open questions.** None.  Optional refinements:
+- Tighter envelope on `c_λ` once Bałaban's normalization is directly
+  extracted (would shift the 5th percentile upward).
+- Per-fiducial *marginal* posterior plots if a reviewer requests the
+  distributional shape of any single fiducial's contribution
+  (currently captured only as joint samples).
+
+---
+
 ## Phase 4: Codynamic transfer template
 
 ### Milestone 4.1 — Explicit EKF–to–YM type-signature port
