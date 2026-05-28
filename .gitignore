@@ -68,3 +68,6 @@ formal/*.pdf
 
 # Generated PDFs from rsvg-convert (svg-to-pdf Makefile target)
 visualizations/**/*.pdf
+
+# Rust build artifacts
+simulations/target/

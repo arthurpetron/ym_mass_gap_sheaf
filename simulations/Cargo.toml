@@ -1,0 +1,25 @@
+[package]
+name = "ym_simulations"
+version = "0.1.0"
+edition = "2021"
+description = "Compute-intensive SU(2) lattice-gauge simulations for the mass-gap monograph (heatbath+overrelaxation MCMC). Standalone, dependency-free Rust crate; results consumed as JSON by the Python plotting pipeline."
+
+[lib]
+name = "ym_simulations"
+path = "src/lib.rs"
+
+[[bin]]
+name = "plaquette_scan"
+path = "src/bin/plaquette_scan.rs"
+
+[[bin]]
+name = "glueball"
+path = "src/bin/glueball.rs"
+
+# Deliberately dependency-free (std only): self-contained RNG, JSON, and
+# std::thread::scope parallelism, so `cargo build` needs no network access.
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
