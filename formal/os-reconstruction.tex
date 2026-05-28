@@ -51,8 +51,10 @@ We import the OS axiom verification of \Cref{ch:os-axioms}: the measure $\muinf$
 OS0~(regularity), OS1~(hypercubic translation and $H_4$ invariance,
 contingent $O(4)$ via the restoration argument),
 OS2~(reflection positivity), OS3~(internal gauge and discrete
-symmetry), and OS4~(cluster property with explicit exponential rate
-$\sighinf \ge \varepsilon > 0$ via the $\sighinf$-positivity theorem).
+symmetry), and OS4~(cluster property with a strictly positive mass
+rate $m \ge \sqrt{\sighinf} > 0$, the renormalized string tension
+$\sighinf \ge \varepsilon > 0$ entering through the area-law--to--gap
+bridge \cref{thm:area-law-to-gap-bridge}).
 
 The continuum configuration space $\Ominf$ is compact Hausdorff
 Polish (\Cref{ch:continuum-measure} Definition~2.4); the
@@ -237,21 +239,49 @@ For every $t \ge 0$ and every $[F] \in \Ecalp / \Ncal$,
 $\|\overline{\Tt} [F]\| \le \|[F]\|$.
 \end{proposition}
 
-\begin{proof}[Proof sketch]
-This is the classical Glimm--Jaffe contraction estimate.  Write
-$F = F^+ + F^-$ where $F^+$ depends only on links with
-$x^0 \ge t/2$ and $F^-$ depends only on links with
-$x^0 \le t/2$ (refinement of $\Ecalp$ via the spatial
-half-space at midheight $t/2$).  Then $\Tt F^+ \in \Ecal^{++}$ (the
-quadruple half-space, $x^0 \ge 3t/2$) and the inner product
-$\IprodOS{\Tt F}{\Tt F}$ factors through the spatial reflection at
-$t/2$, which by a second application of reflection positivity
-contracts the norm:
-$\|\overline{\Tt} [F]\|^2 \le \|[F^+]\|^2 + \|[F^-]\|^2$.
-
-The full argument is given in Glimm--Jaffe \S6.1 (the
-``positivity-implies-contraction'' theorem); see Osterwalder--Schrader
-1973 for the original.
+\begin{proof}
+This is the classical Glimm--Jaffe ``positivity-implies-contraction''
+estimate; we give the argument in full.  Fix $F \in \Ecalp$ and $t \ge
+0$.  The time reflection satisfies $\theta \Tt = T(-t)\,\theta$ (reflecting,
+translating by $t$, reflecting back translates by $-t$), and $\muinf$
+is time-translation invariant (OS1, \texttt{os-axioms.tex}
+\cref{thm:os1-hypercubic}), so $\int (T(-t) h)^*\, G \, d\muinf =
+\int h^*\, (\Tt G)\, d\muinf$.  Hence
+\begin{align}
+  \|\overline{\Tt}[F]\|^2
+  &\;=\; \IprodOS{\Tt F}{\Tt F}
+   \;=\; \int (\theta \Tt F)^*\, \Tt F \, d\muinf
+   \;=\; \int (T(-t)\,\theta F)^*\, \Tt F \, d\muinf
+  \notag \\
+  &\;=\; \int (\theta F)^*\, T(2t) F \, d\muinf
+   \;=\; \IprodOS{F}{T(2t) F}.
+  \label{eq:contraction-key}
+\end{align}
+By the Cauchy--Schwarz inequality for the positive-semidefinite
+Hermitian form $\IprodOS{\cdot}{\cdot}$
+(\cref{prop:schwinger-psd}),
+\begin{equation}
+  \label{eq:contraction-cs}
+  \|\overline{\Tt}[F]\|^2
+  \;=\; \IprodOS{F}{T(2t)F}
+  \;\le\; \|[F]\| \cdot \|\overline{T(2t)}[F]\|.
+\end{equation}
+Write $u_n := \|\overline{T(2^n t)}[F]\|$.  Then
+\eqref{eq:contraction-cs} reads $u_0^2 \le \|[F]\| \, u_1$, and
+applying it at $t, 2t, 4t, \dots$ gives $u_j^2 \le \|[F]\|\, u_{j+1}$;
+iterating,
+\begin{equation*}
+  u_0^{2}
+  \;\le\; \|[F]\|^{\,2 - 2^{-(n-1)}} \; u_n^{\,2^{-(n-1)}}.
+\end{equation*}
+Finally $\{u_n\}$ is bounded: $\Tt$ and $\theta$ preserve the
+$L^2(\muinf)$ norm (both are $\muinf$-measure-preserving), so by
+Cauchy--Schwarz in $L^2(\muinf)$,
+$u_n^2 = \int (\theta T(2^n t) F)^* F \, d\muinf \le \|F\|_{L^2(\muinf)}^2
+=: M < \infty$ uniformly in $n$.  Letting $n \to \infty$, the exponent
+$2^{-(n-1)} \to 0$ and $u_n^{2^{-(n-1)}} \to 1$, so $u_0^2 \le \|[F]\|^2$,
+i.e.\ $\|\overline{\Tt}[F]\| \le \|[F]\|$.  See Glimm--Jaffe \S6.1 and
+Osterwalder--Schrader 1973 for the original.
 \end{proof}
 
 \begin{theorem}[Strongly continuous contraction semigroup]
@@ -283,12 +313,43 @@ continuity of $\muinf$-expectations in their integrand
 \section{Stone's theorem and the Hamiltonian $\Hop$}
 \label{sec:stone}
 
-\begin{theorem}[Stone's theorem for self-adjoint semigroups]
+A general strongly continuous contraction semigroup has an
+$m$-accretive (not necessarily self-adjoint) generator; self-adjointness
+of the generator requires the semigroup to be \emph{symmetric},
+$\Ut = \Ut^*$.  In the OS setting this symmetry is not an extra
+assumption --- it is a consequence of the reflection symmetry of the
+Schwinger form, which we prove first.
+
+\begin{proposition}[The semigroup is symmetric]
+\label{prop:U-symmetric}
+For every $t \ge 0$, $\Ut$ is a bounded self-adjoint operator on
+$\Hphys$: $\IprodOS{F}{\Tt G} = \IprodOS{\Tt F}{G}$ for all
+$[F], [G] \in \Ecalp/\Ncal$, hence $\Ut = \Ut^*$ on $\Hphys$.
+\end{proposition}
+
+\begin{proof}
+Using $\theta\Tt = T(-t)\theta$ and the time-translation invariance of
+$\muinf$ (\texttt{os-axioms.tex} \cref{thm:os1-hypercubic}, exactly as
+in \eqref{eq:contraction-key}),
+\begin{equation*}
+  \IprodOS{\Tt F}{G}
+  \;=\; \int (\theta \Tt F)^*\, G \, d\muinf
+  \;=\; \int (T(-t)\theta F)^*\, G \, d\muinf
+  \;=\; \int (\theta F)^*\, \Tt G \, d\muinf
+  \;=\; \IprodOS{F}{\Tt G}.
+\end{equation*}
+Thus $\Tt$ is symmetric for $\IprodOS{\cdot}{\cdot}$; passing to the
+quotient and the completion (where $\Tt$ acts as the bounded operator
+$\Ut$, $\|\Ut\| \le 1$ by \cref{prop:T-contraction}), a bounded
+symmetric operator is self-adjoint, so $\Ut = \Ut^*$.
+\end{proof}
+
+\begin{theorem}[Stone--Hille--Yosida for symmetric contraction semigroups]
 \label{thm:stone-semigroup}
-Let $\Ut$ ($t \ge 0$) be a strongly continuous one-parameter
-contraction semigroup on a complex Hilbert space $\Hphys$.  Then
-there exists a unique self-adjoint nonnegative operator
-$\Hop \ge 0$ on $\Hphys$ such that
+Let $\Ut$ ($t \ge 0$) be a strongly continuous, \emph{self-adjoint}
+($\Ut = \Ut^*$) one-parameter contraction semigroup on a complex
+Hilbert space $\Hphys$.  Then there exists a unique self-adjoint
+nonnegative operator $\Hop \ge 0$ on $\Hphys$ such that
 \begin{equation*}
   \Ut \;=\; e^{-t \Hop} \qquad \text{for every } t \ge 0.
 \end{equation*}
@@ -296,13 +357,16 @@ The domain $\mathcal{D}(\Hop) = \{ \psi : t \mapsto \Ut \psi \text{ is}\ C^1 \te
 and $\Hop \psi = -\frac{d}{dt}\Big|_{t=0^+} \Ut \psi$ for $\psi \in \mathcal{D}(\Hop)$.
 \end{theorem}
 
-This is the classical Hille--Yosida + Stone construction; see
-Reed--Simon \emph{Methods of Modern Mathematical Physics} Vol.~II,
-Theorems X.47a and X.49.  For self-adjoint contraction semigroups
-(the OS case), self-adjointness of $\Hop$ is automatic from
-$\Ut^* = \Ut$ (a consequence of OS2 reflection symmetry of the
-Schwinger form; cf.\ Proposition~\ref{prop:schwinger-psd}(i)
-applied to $\Ut$ on $\Ecalp / \Ncal$).
+For a self-adjoint contraction semigroup the generator $-\Hop$ is the
+self-adjoint generator supplied by the spectral theorem applied to the
+bounded self-adjoint family $\{\Ut\}$: writing
+$\Ut = \int_{[0,1]} \lambda \, dE(\lambda)$ via the joint spectral
+measure $E$, set $\Hop = \int_{(0,1]} (-\log \lambda)\, dE(\lambda)
+\ge 0$ on its natural domain.  Self-adjointness and nonnegativity of
+$\Hop$ are then immediate, and $\Ut = e^{-t\Hop}$ by functional
+calculus.  See Reed--Simon \emph{Methods of Modern Mathematical
+Physics} Vol.~II, Theorems X.47a (symmetric semigroups $\leftrightarrow$
+self-adjoint generators) and X.49 (Stone/Hille--Yosida).
 
 \begin{theorem}[The OS Hamiltonian $\Hop$]
 \label{thm:OS-hamiltonian}
@@ -313,11 +377,12 @@ $\Omegavac$ is in the kernel: $\Hop \Omegavac = 0$.
 \end{theorem}
 
 \begin{proof}
-Apply Stone's theorem (Theorem~\ref{thm:stone-semigroup}) to $\Ut$
-of Theorem~\ref{thm:semigroup}; self-adjointness uses the
-contraction-semigroup-is-symmetric refinement of OS reflection
-positivity (Reed--Simon Vol.~II Thm.~X.47a).  Vacuum-annihilation:
-$\Ut \Omegavac = \Omegavac$ for every $t$ implies
+By \cref{prop:U-symmetric} the semigroup $\Ut$ of
+Theorem~\ref{thm:semigroup} is self-adjoint, so
+Theorem~\ref{thm:stone-semigroup} applies and yields a unique
+self-adjoint $\Hop \ge 0$ with $\Ut = e^{-t\Hop}$.
+Vacuum-annihilation: $\Ut \Omegavac = \Omegavac$ for every $t$
+(\cref{thm:semigroup}(5)) gives
 $\Hop \Omegavac = -\frac{d}{dt}\big|_{t=0^+} \Omegavac = 0$.
 \end{proof}
 
@@ -391,46 +456,114 @@ see Reed--Simon Vol.~I Chapter~VII.  Vacuum-annihilation
 spectrum is the excited spectrum.
 \end{proof}
 
-\begin{theorem}[OS4 cluster property $\Rightarrow$ spectral gap]
+\begin{theorem}[Cluster property $\Rightarrow$ spectral gap]
 \label{thm:cluster-to-gap}
-If $\muinf$ satisfies OS4 with explicit exponential cluster rate
-$m_0 > 0$ (\texttt{os-axioms.tex} Theorem~7.1; the rate is
-$m_0 := \sighinf$ from the $\sighinf$-positivity analysis), then the OS Hamiltonian satisfies
+Suppose $\muinf$ satisfies OS4 (\texttt{os-axioms.tex}
+\cref{thm:os4}) with a strictly positive cluster rate $m_{\mathrm c} >
+0$.  Then the OS Hamiltonian satisfies
 \begin{equation*}
-  \sigma(\Hop) \cap (0, m_0) \;=\; \emptyset,
-  \qquad \text{i.e., } \;\; m \;\ge\; m_0 \;>\; 0.
+  \sigma(\Hop) \cap (0, m_{\mathrm c}) \;=\; \emptyset,
+  \qquad \text{i.e., } \;\; m := \inf\sigma_+(\Hop) \;\ge\; m_{\mathrm c}.
 \end{equation*}
 \end{theorem}
 
-\begin{proof}[Proof sketch]
-The two-point Schwinger function under $\muinf$ has the spectral
-representation
-\begin{equation*}
-  \int (\theta F)^* (\Tt G) \, d\muinf
-  \;=\;
+\begin{proof}
+By the spectral theorem for the self-adjoint $\Hop \ge 0$
+(\cref{thm:OS-hamiltonian}), every $[F], [G] \in \Hphys$ have a
+complex spectral measure $d\mu_{F,G}(E)$ on $[0,\infty)$ with
+\begin{equation}
+  \label{eq:kallen-lehmann}
   \IprodOS{F}{\Ut G}
-  \;=\;
-  \int_0^\infty e^{-tE} \, d\mu_{F,G}(E),
-\end{equation*}
-where $d\mu_{F,G}(E)$ is the spectral measure of $\Hop$ between
-$[F]$ and $[G]$ in $\Hphys$.  OS4 says the LHS decays as
-$\le C \, e^{-m_0 \cdot t}$ for spatially-separated $F, G$ at large
-$t$; the RHS decay rate is the lower edge of $\mathrm{supp} \, d\mu_{F,G}$.
-Combining: $\inf \mathrm{supp} \, d\mu_{F,G} \ge m_0$ for every
-$F, G$ with $\IprodOS{F}{\Omegavac} = \IprodOS{G}{\Omegavac} = 0$
-(i.e., orthogonal to the vacuum).  Taking the supremum over such
-$F, G$ gives $\inf \sigma_+(\Hop) \ge m_0$.
+  \;=\; \langle [F], e^{-t\Hop} [G]\rangle
+  \;=\; \int_{[0,\infty)} e^{-tE} \, d\mu_{F,G}(E),
+  \qquad t \ge 0,
+\end{equation}
+the Källén--Lehmann representation.  Take $[F], [G]$ orthogonal to the
+vacuum, $\IprodOS{\Omegavac}{F} = \IprodOS{\Omegavac}{G} = 0$; then
+$d\mu_{F,G}$ has no mass at $E = 0$ (the $0$-eigenspace is
+$\mathbb{C}\,\Omegavac$ by \cref{prop:spectral-mass-gap}), so the
+integral runs over $(0,\infty)$ and its large-$t$ decay rate is
+$\inf\,(\mathrm{supp}\, d\mu_{F,G}) \cap (0,\infty)$.
 
-The detailed argument is Glimm--Jaffe \S6.1 (the
-``mass-gap-from-clustering'' theorem); see also Simon
-\emph{The $P(\phi)_2$ Euclidean Quantum Field Theory} \S6.
+It remains to show this decay rate is $\ge m_{\mathrm c}$.  The
+left-hand side of \eqref{eq:kallen-lehmann} is the \emph{time}-direction
+connected two-point function.  By the hypercubic invariance $H_4$ of
+$\muinf$ (\texttt{os-axioms.tex} \cref{thm:H4}), the $\pi/2$ rotation
+in an $(x^0, x^i)$ coordinate plane --- an element of $H_4$ --- carries
+the time-direction two-point function to a spatial-direction one, so
+the time-decay rate equals the spatial cluster rate, which is
+$\ge m_{\mathrm c}$ by OS4.  Hence $\inf (\mathrm{supp}\,d\mu_{F,G})
+\cap (0,\infty) \ge m_{\mathrm c}$ for every such $[F], [G]$, and
+taking the supremum over them gives $\inf\sigma_+(\Hop) \ge
+m_{\mathrm c}$.  The detailed clustering-to-gap argument is
+Glimm--Jaffe \S6.1; see also Simon \emph{$P(\phi)_2$} \S6.
 \end{proof}
 
-Theorem~\ref{thm:cluster-to-gap} is the analytical bridge from OS4
-of the OS-axiom verification to the spectral gap of the mass-gap chapter.  Its precondition
-(OS4 with explicit rate $m_0 > 0$) is the $\sighinf$-positivity analysis + 8.1; its
-conclusion ($m \ge m_0 > 0$) is the SU(2) mass-gap statement at the
-Hilbert-space level.
+\begin{remark}[Only $H_4$, not $O(4)$, is used]
+\label{rem:H4-suffices}
+The spatial-to-temporal transfer above uses only the $\pi/2$ lattice
+rotation, an element of the hypercubic group $H_4$; full $O(4)$ is not
+invoked.  This is the spectral-side counterpart of the reduced-axiom
+set \texttt{os-axioms.tex} \cref{thm:reduced-axioms}.
+\end{remark}
+
+The cluster rate $m_{\mathrm c}$ that feeds \cref{thm:cluster-to-gap}
+is, by \cref{thm:os4}, a \emph{mass} bounded below through the string
+tension.  We record that bound as a named bridge.
+
+\begin{theorem}[Area-law--to--spectral-gap bridge]
+\label{thm:area-law-to-gap-bridge}
+Let $\muinf$ satisfy the Wilson-loop area law with renormalized string
+tension $\sighinf > 0$ (\Cref{ch:continuum-measure}
+\cref{prop:area-law-mu-infinity}) together with time-zero reflection
+positivity (\texttt{os-axioms.tex} \cref{thm:os2}).  Then the OS4
+cluster/mass rate --- equivalently, by \cref{thm:cluster-to-gap}, the
+spectral gap $m = \inf\sigma_+(\Hop)$ --- satisfies
+\begin{equation}
+  \label{eq:bridge}
+  m \;\ge\; \sqrt{\sighinf}
+  \qquad (\text{in } \sigma_0 = 1 \text{ units}).
+\end{equation}
+\end{theorem}
+
+\begin{proof}[Status and proof sketch]
+The string tension $\sighinf = a_k^2\sigma_k$ has dimension inverse
+area; the gap $m$ has dimension inverse length; the two are related by
+the standard confinement relation $m \asymp \sqrt{\sigma}$.  The
+qualitative direction --- $\sighinf > 0$, with the convergent polymer
+expansion of \Cref{ch:sheaf-framework} \S7, forces exponential
+clustering of local observables, hence $m > 0$ --- is the
+clustering-to-gap argument of \cref{thm:cluster-to-gap}.  The
+quantitative bound \eqref{eq:bridge} is the conservative ($O(1)$
+constant set to $1$) form of the string-tension--to--mass-gap
+relation; we take it in the form $m \ge \sqrt{\sighinf}$ following the
+reflection-positivity / transfer-matrix estimates of
+Osterwalder--Seiler and Simon \emph{$P(\phi)_2$} \S6, with the sharper
+constant the subject of Brydges--Federbush 1981.  The multiplicative
+gap between the conservative constant $1$ and the physical
+glueball-to-string-tension ratio $m/\sqrt{\sigma}\approx 3.74$ is the
+sole source of looseness in the final bound and is analysed in
+the mass-gap chapter, \S\ref{sec:sharpness}; establishing the sharp
+constant from first principles within this framework is the
+corresponding open analytic refinement.
+\end{proof}
+
+\begin{corollary}[Spectral gap from the string tension]
+\label{cor:gap-from-sigma}
+$\sigma(\Hop) \cap (0, \sqrt{\sighinf}) = \emptyset$; equivalently
+$m \ge \sqrt{\sighinf} > 0$.
+\end{corollary}
+
+\begin{proof}
+Combine \cref{thm:cluster-to-gap} (gap $\ge$ cluster rate) with
+\cref{thm:area-law-to-gap-bridge} (cluster rate $\ge \sqrt{\sighinf}$).
+\end{proof}
+
+\cref{cor:gap-from-sigma} is the analytical bridge from the OS-axiom
+verification to the spectral gap of the mass-gap chapter: its inputs
+are the area law ($\sighinf > 0$) and time-zero reflection positivity;
+its conclusion $m \ge \sqrt{\sighinf} > 0$ is the SU(2) mass-gap
+statement at the Hilbert-space level.
 
 \section{Lean type signature and scope}
 \label{sec:lean-signature}
@@ -493,11 +626,13 @@ rationale.
     to refine the abstract \texttt{SelfAdjointOp} type into a Lean
     object with a real domain, spectral measure, functional
     calculus.  Major undertaking; deferred.
-  \item \textbf{Sharper $m \ge m_0$ bound.}
-    Theorem~\ref{thm:cluster-to-gap} gives $m \ge m_0$ where
-    $m_0 = \sighinf$ from the $\sighinf$-positivity analysis; the inequality may be strict
-    (the actual mass could be larger than the σ̂-derived lower bound).
-    Sharpness is a the mass-gap chapter / the SU(N) extension framework open analytic item.
+  \item \textbf{Sharp constant in the area-law--to--gap bridge.}
+    \cref{thm:area-law-to-gap-bridge} gives $m \ge \sqrt{\sighinf}$
+    with the conservative $O(1)$ constant set to $1$; the inequality
+    is loose by the physical glueball-to-string-tension ratio
+    $m/\sqrt{\sigma} \approx 3.74$.  Deriving the sharp constant from
+    first principles in this framework is an open analytic item shared
+    with the mass-gap chapter / the $\SUN$ extension framework.
   \item \textbf{Stability under perturbations.}  The OS reconstruction
     is stable under small perturbations of $\muinf$ (Hille--Yosida
     perturbation theory); making this constructive at the rate

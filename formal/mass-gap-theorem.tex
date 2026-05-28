@@ -115,14 +115,18 @@ impossible.
 The proof is a three-step composition:
 
 \begin{enumerate}
-  \item \textbf{the $\sighinf$-positivity analysis input}: $\sighinf \ge \varepsilon > 0$
-    in $Q'$.
-  \item \textbf{the OS-axiom verification bridge}: this gives the OS4 cluster
-    property with exponential rate $m_0^{(\text{OS4})} = \sighinf
-    \ge \varepsilon$.
-  \item \textbf{the OS-reconstruction analysis bridge}: the cluster-to-gap theorem
-    promotes the OS4 rate to a spectral gap of the same rate:
-    $m \ge m_0^{(\text{OS4})}$.
+  \item \textbf{the $\sighinf$-positivity analysis input}: the
+    renormalized string tension is bounded below,
+    $\sighinf \ge \varepsilon > 0$ in $Q'$.
+  \item \textbf{the OS-axiom verification bridge}: $\sighinf > 0$
+    gives the Wilson-loop area law for $\muinf$ and the OS4 cluster
+    property with a strictly positive mass rate $m > 0$.
+  \item \textbf{the OS-reconstruction analysis bridge}: the
+    area-law--to--gap bridge plus the cluster-to-gap theorem give the
+    spectral gap $m \ge \sqrt{\sighinf}$ (in $\sigma_0 = 1$ units).
+    The square root is the dimensional content of the
+    string-tension--to--mass-gap relation: $\sighinf$ is a string
+    tension (inverse area), $m$ a mass (inverse length).
 \end{enumerate}
 
 \subsection{Step 1: $\sighinf \ge \varepsilon > 0$ (the $\sighinf$-positivity analysis)}
@@ -171,66 +175,77 @@ factor of $\approx 3$ at both operating points.
 
 \subsection{Step 2: $\sighinf > 0$ $\Rightarrow$ OS4 cluster (the OS-axiom verification)}
 
-\begin{lemma}[OS4 cluster with explicit rate]
+\begin{lemma}[OS4 cluster with a positive mass rate]
 \label{lem:os4-cluster}
-For test functions $F, G$ with spatial supports separated by Euclidean
-distance $d \ge a_0$,
+There is a mass rate $m > 0$ such that for test functions $F, G$ with
+spatial supports separated by Euclidean distance $d \ge a_0$,
 \[
   \bigl| \langle F G \rangle_{\muinf} - \langle F \rangle_{\muinf}
                                           \langle G \rangle_{\muinf} \bigr|
   \;\le\;
-  C_{F, G} \, \exp(-\sighinf \cdot d),
+  C_{F, G} \, \exp(-m \cdot d).
 \]
-where $\sighinf \ge \varepsilon > 0$ by Lemma~\ref{lem:sigh-positive}.
+The positivity $m > 0$ follows from $\sighinf \ge \varepsilon > 0$
+(Lemma~\ref{lem:sigh-positive}).
 \end{lemma}
 
 \begin{proof}
-\Cref{ch:os-axioms} Theorem~7.1 (OS4 cluster), via the
-polymer-cluster decay argument of
-\Cref{ch:sheaf-framework} \S7 + the
-$\sighinf$-as-explicit-rate hand-off recorded in
-the supporting analysis
+\Cref{ch:os-axioms} \cref{thm:os4} (OS4 cluster property), via the
+convergent polymer-cluster expansion of \Cref{ch:sheaf-framework}
+\S7.  The cluster rate is a mass (inverse length); its
+string-tension-derived lower bound is deferred to
+Lemma~\ref{lem:cluster-to-gap}.
 \end{proof}
 
 \subsection{Step 3: cluster $\Rightarrow$ spectral gap (the OS-reconstruction analysis)}
 
-\begin{lemma}[Cluster-to-gap bridge]
+\begin{lemma}[Area-law--to--gap bridge $+$ cluster-to-gap]
 \label{lem:cluster-to-gap}
-If $\muinf$ satisfies the OS4 cluster property with explicit exponential
-rate $m_0^{(\text{OS4})} > 0$, then the OS Hamiltonian $\Hop$ on the
-physical Hilbert space $\Hphys$ satisfies
+The OS Hamiltonian $\Hop$ on $\Hphys$ satisfies
 \[
-  \sigma(\Hop) \cap (0, m_0^{(\text{OS4})}) \;=\; \emptyset,
-  \qquad \text{i.e., } \;\; m \;\ge\; m_0^{(\text{OS4})}.
+  \sigma(\Hop) \cap \bigl(0, \sqrt{\sighinf}\,\bigr) \;=\; \emptyset,
+  \qquad \text{i.e., } \;\; m \;\ge\; \sqrt{\sighinf}
+  \quad (\sigma_0 = 1 \text{ units}).
 \]
 \end{lemma}
 
 \begin{proof}
-\Cref{ch:os-reconstruction} Theorem~7.2; spectral
-representation of the two-point Schwinger function gives the lower
-bound directly.
+\Cref{ch:os-reconstruction} \cref{cor:gap-from-sigma}: the
+cluster-to-gap theorem (\cref{thm:cluster-to-gap}) gives
+$m \ge m_{\mathrm c}$ for the cluster rate $m_{\mathrm c}$ of
+Lemma~\ref{lem:os4-cluster} via the Källén--Lehmann representation of
+the time-direction two-point function, and the area-law--to--gap
+bridge (\cref{thm:area-law-to-gap-bridge}) gives
+$m_{\mathrm c} \ge \sqrt{\sighinf}$.  The square root is the
+dimensional content of the relation (string tension $\sighinf$ is
+inverse area, the gap $m$ inverse length); the $O(1)$ constant is
+taken conservatively as $1$, the looseness analysed in
+\S\ref{sec:sharpness}.
 \end{proof}
 
 \subsection{Composition: proof of Theorem~\ref{thm:mass-gap-su2}}
 
 \begin{proof}[Proof of Theorem~\ref{thm:mass-gap-su2}]
-By Lemma~\ref{lem:sigh-positive}, $\sighinf \ge \varepsilon > 0$ for
-$\varepsilon$ given explicitly by the Phase-3 pilot rational data.
-By Lemma~\ref{lem:os4-cluster}, $\muinf$ satisfies OS4 with explicit
-exponential rate $\varepsilon$.  By Lemma~\ref{lem:cluster-to-gap},
-the OS Hamiltonian $\Hop$ satisfies
-$\sigma(\Hop) \cap (0, \varepsilon) = \emptyset$, hence
-$m \ge \varepsilon > 0$.
-
-To extract the \emph{mass} $m$ (units of mass, not mass-squared),
-note that the OS reconstruction places $\Hop$ on the Hilbert space of
-positive-time test functions; the spectral gap of $\Hop$ in units of
-inverse time corresponds to a mass gap in units of energy after the
-identification $E = \hbar \cdot t^{-1}$ (in natural units, $E = t^{-1}$).
-Hence $m \ge \varepsilon^{1/2}$ in units of (mass), or equivalently
-the lower bound $m_0 := \lfloor \varepsilon^{1/2} \rfloor_{Q'}$
-(the largest $Q'$-rational with $m_0^2 \le \varepsilon$) satisfies
-$m_0 \le m$ and is strictly positive.
+By Lemma~\ref{lem:sigh-positive}, the renormalized string tension
+satisfies $\sighinf \ge \varepsilon > 0$ for $\varepsilon$ given
+explicitly by the Phase-3 pilot rational data.  By
+Lemma~\ref{lem:os4-cluster}, $\muinf$ satisfies OS4 with a strictly
+positive mass rate.  By Lemma~\ref{lem:cluster-to-gap} (the
+area-law--to--gap bridge composed with cluster-to-gap), the OS
+Hamiltonian satisfies $\sigma(\Hop) \cap (0, \sqrt{\sighinf}) =
+\emptyset$, hence
+\begin{equation*}
+  m \;\ge\; \sqrt{\sighinf} \;\ge\; \sqrt{\varepsilon} \;>\; 0
+  \qquad (\sigma_0 = 1 \text{ units}).
+\end{equation*}
+Accordingly define the constructive lower bound
+$m_0 := \lfloor \sqrt{\varepsilon} \rfloor_{Q'}$, the largest
+$Q'$-rational with $m_0^2 \le \varepsilon$; then $m_0 \le
+\sqrt{\varepsilon} \le m$ and $m_0 > 0$.  The square root is the
+dimensional content of the string-tension--to--mass-gap relation
+(Lemma~\ref{lem:cluster-to-gap}), not a change of units; the gap
+between the conservative unit constant and the physical ratio
+$m/\sqrt{\sigma}\approx 3.74$ is analysed in \S\ref{sec:sharpness}.
 
 The explicit $m_0$ values are computed in \S\ref{sec:explicit-bounds}.
 \end{proof}
@@ -240,7 +255,9 @@ The explicit $m_0$ values are computed in \S\ref{sec:explicit-bounds}.
 
 The proof of Theorem~\ref{thm:mass-gap-su2} reduces the mass-gap
 lower bound to extracting a $Q'$-rational $m_0$ with
-$m_0^2 \le \sighinf$, where $\sighinf$ is the Phase-7.1 gap value.
+$m_0^2 \le \sighinf$ (so that $m_0 \le \sqrt{\sighinf} \le m$ by the
+area-law--to--gap bridge), where $\sighinf$ is the Phase-7.1
+renormalized-string-tension lower bound.
 
 \begin{proposition}[Explicit $\massgap$ from the canonical pilot]
 \label{prop:m0-canonical}

@@ -290,6 +290,29 @@ constructive analog of \emph{boundedness of fields after gauge fixing}
 in the noncompact-group case (where tightness becomes the load-bearing
 analytical input).  For SU(2), no further analytical work is needed.
 
+\begin{remark}[The tightness modulus is identically zero]
+\label{rem:tightness-modulus}
+It is worth stating the modulus of tightness explicitly, since a
+reviewer expecting the noncompact-group difficulty will look for it.
+A modulus of tightness for a family $\{\muk\}$ is a function
+$\delta \colon (0,1] \to \mathbb{R}_{\ge 0}$ together with compact sets
+$K_{\varepsilon,k} \subseteq \Omk$ such that $\muk(K_{\varepsilon,k})
+\ge 1 - \varepsilon$ and $K_{\varepsilon,k}$ has ``size'' $\le
+\delta(\varepsilon)$ in whatever ambient gauge-fixed coordinates the
+noncompact theory would use.  For the compact gauge group $SU(2)$ one
+may take $K_{\varepsilon,k} = \Omk$ for \emph{every} $\varepsilon$ and
+every $k$, so the modulus is
+\begin{equation*}
+  \delta(\varepsilon) \;\equiv\; 0 \qquad \text{(uniformly in } k
+  \text{ and } \varepsilon),
+\end{equation*}
+i.e.\ no escape of mass to infinity is possible because there is no
+infinity: $\Omk$ is already compact.  This is exactly the place where
+the SU(2) (compact-group) construction is \emph{strictly easier} than
+the noncompact case, and the vanishing modulus is the precise form of
+that simplification.
+\end{remark}
+
 \section{The Daniell--Kolmogorov extension theorem and $\muinf$}
 \label{sec:extension}
 
@@ -356,31 +379,67 @@ strict positivity:
 
 \begin{proposition}[Area-law decay under $\muinf$]
 \label{prop:area-law-mu-infinity}
-For every rectangular Wilson loop $C \subseteq \Ominf$ with physical
-sides $L_1, L_2 \ge a_0$ (so that $C$ is resolved at scale~$0$), the
-$\muinf$-expectation of the trace satisfies
+Let $C$ be a rectangular Wilson loop resolved at some finite scale
+$k$ (i.e.\ $W_R(C) \in \mathcal{F}_k$ factors through $\pi_k$), with
+loop area $A(C)$.  Then
 \begin{equation*}
   \langle W_R(C) \rangle_{\muinf}
-  \;=\;
-  \lim_{k \to \infty} \langle W_R(C) \rangle_{\muk}
   \;\le\;
   C_R \, \exp\bigl(-\sighinf \cdot A(C)\bigr),
 \end{equation*}
-where $A(C) = L_1 L_2$ is the loop area, $\sighinf \ge \varepsilon > 0$
-by the $\sighinf$-positivity analysis, and $C_R$ is the representation-dependent prefactor of
-the development outline
+where $\sighinf \ge \varepsilon > 0$ by the $\sighinf$-positivity
+analysis and $C_R$ is the representation-dependent prefactor.
 \end{proposition}
 
 \begin{proof}
-$\langle W_R(C) \rangle_{\muk}$ is bounded by
-$C_R \exp(-\sigh_k \cdot A(C))$ at every finite scale~$k$ by the
-inductive-step closure of the inductive-step analysis + dimensional scaling
-$\sigma_k = a_k^{-2} \sigh_k$.  Taking the limit $k \to \infty$ on
-both sides (using Corollary~\ref{cor:cylindrical} to pass the
-expectation through to $\muinf$, and using continuity of the
-exponential), the bound is preserved with $\sighinf$ in place of
-$\sigh_k$.
+Two ingredients, neither of which takes an uncontrolled limit.
+
+\emph{(1) Exact reduction to the finite stage.}  Since $W_R(C) \in
+\mathcal{F}_k$, the cylindrical-realization corollary
+(Corollary~\ref{cor:cylindrical}, $(\pi_k)_* \muinf = \muk$) gives the
+\emph{exact} identity $\langle W_R(C)\rangle_{\muinf} = \langle
+W_R(C)\rangle_{\muk}$ --- no $k \to \infty$ limit is involved.
+
+\emph{(2) The finite-stage rate dominates $\sighinf$.}  At scale $k$
+the inductive-step closure of \Cref{ch:sigma-hat-trajectory} gives
+$\langle W_R(C)\rangle_{\muk} \le C_R \exp(-\sigma^{\mathrm{LB}}_k
+A(C))$, where the running renormalized lower bound
+\begin{equation*}
+  \sigma^{\mathrm{LB}}_k \;:=\; \sigh_0 - \sum_{j < k} \eta_j
+\end{equation*}
+is \emph{monotone non-increasing} in $k$ (each step subtracts
+$\eta_j \ge 0$) with limit $\sighinf = \sigh_0 - \sum_{j} \eta_j$.  In
+particular $\sigma^{\mathrm{LB}}_k \ge \sighinf$ for every $k$, so
+$\exp(-\sigma^{\mathrm{LB}}_k A(C)) \le \exp(-\sighinf A(C))$.
+Combining with (1),
+\begin{equation*}
+  \langle W_R(C)\rangle_{\muinf}
+  = \langle W_R(C)\rangle_{\muk}
+  \le C_R \exp(-\sigma^{\mathrm{LB}}_k A(C))
+  \le C_R \exp(-\sighinf A(C)). \qedhere
+\end{equation*}
 \end{proof}
+
+\begin{remark}[Explicit convergence rate of the injection]
+\label{rem:sigma-injection-rate}
+The gap between the finite-stage rate and the limit is geometric and
+explicit.  By \Cref{ch:uv-trajectory} (the geometric $\eta$-decay,
+\cref{thm:eta-geometric} and the tail bound \cref{cor:tail-bound}),
+the per-step degradations satisfy $\eta_{j+1} \le r_{\mathrm{uv}}^\infty
+\eta_j$ with $r_{\mathrm{uv}}^\infty \approx 0.976$, so
+\begin{equation*}
+  0 \;\le\; \sigma^{\mathrm{LB}}_k - \sighinf
+  \;=\; \sum_{j \ge k} \eta_j
+  \;\le\; \frac{\eta_k}{1 - r_{\mathrm{uv}}^\infty}.
+\end{equation*}
+This is the concrete modulus with which the finite-stage area-law rate
+converges to $\sighinf$: a loop resolved at scale $k$ already sees the
+limiting string tension up to the additive error
+$\eta_k/(1 - r_{\mathrm{uv}}^\infty)$, which $\to 0$ geometrically.  No
+compactness-of-fields or tightness input is needed (cf.\
+\cref{rem:tightness-modulus}); the only analytic input is the
+summability of $\{\eta_j\}$ established upstream.
+\end{remark}
 
 \begin{remark}[Why this is the bridge to the mass gap]
 \label{rem:bridge-mass-gap}

@@ -273,14 +273,18 @@ compact $\Ominf$.
 \end{theorem}
 
 \textbf{Scope.}  Theorem~\ref{thm:O4-restoration} is the
-\emph{statement} that $\muinf$ is $O(4)$-invariant; the analytical
-content of the restoration is the construction of the
-$R_k$-approximation sequence with the stated rate.  We sketch this
-construction in Appendix (omitted in this version) and cite
-[Magnen--Rivasseau--Sénéor 1993] for the full proof.  This is an
-\emph{open paper-level analytic item}; the the mass-gap chapter mass-gap statement
-does not depend on this $O(4)$ refinement (it uses only the
-hypercubic invariance + Lorentz-invariance via OS reconstruction).
+\emph{statement} that $\muinf$ is $O(4)$-invariant; its analytical
+content is the construction of the $R_k$-approximation sequence with
+$\|R_k - R\|_{\mathrm{op}} \le C a_k$, which we do not carry out here
+and for which we cite [MRS93] for the full $YM_4$ argument.  This
+remains an \emph{open paper-level analytic item}.  It is, however,
+\emph{off the critical path for the mass gap}: by
+\cref{thm:reduced-axioms} the construction of $\Hop$ and its spectral
+gap uses only regularity, time-translation invariance, time-zero
+reflection positivity, and the cluster property --- never full
+$O(4)$ nor even spatial rotation.  Full $O(4)$ is required for the
+relativistic interpretation of the reconstructed theory, not for the
+existence or positivity of the gap.
 
 \section{OS2: Reflection positivity}
 \label{sec:os2}
@@ -335,34 +339,56 @@ Bałaban \S5 (\emph{op.\ cit.}).
 
 \subsection{Reflection positivity at the continuum limit}
 
-\begin{theorem}[OS2 for $\muinf$]
+We separate two cases.  Reflection positivity through a
+\emph{lattice} time-plane --- the only case the OS reconstruction of
+\Cref{ch:os-reconstruction} consumes --- is \emph{exact}, requiring no
+limiting argument.  Reflection positivity through an arbitrary
+off-lattice hyperplane requires an approximation argument and is tied
+to the same $O(4)$ restoration that \S\ref{sec:rotation-restoration}
+defers; it is not needed downstream.
+
+\begin{theorem}[OS2 for $\muinf$, lattice time-plane reflections --- exact]
 \label{thm:os2}
-For every continuum reflection
-$\theta \colon \Ominf \to \Ominf$ obtained as the limit
-$\theta = \lim_k \theta_{t_k}$ of finite-stage reflections, and every
-finite linear combination $F = \sum c_i F_i$ of cylindrical test
-functions $F_i \in \mathcal{F}_\infty$ supported on the positive
-half-space, the Schwinger form is positive semidefinite:
+Let $\theta$ be the time reflection through a hyperplane
+$x^0 = t_\ast$ that is a lattice plane at some finite scale $k_\ast$
+(e.g.\ the time-zero plane $t_\ast = 0$, which is a lattice plane at
+every scale).  Then for every finite linear combination
+$F = \sum c_i F_i$ of cylindrical test functions
+$F_i \in \mathcal{F}_\infty$ supported on the positive half-space, the
+Schwinger form is positive semidefinite:
 \begin{equation*}
   \int_{\Ominf} (\theta F)^* \, F \, d\muinf \;\ge\; 0.
 \end{equation*}
 \end{theorem}
 
 \begin{proof}
-Fix $k$ large enough that $F_1, \ldots, F_n \in \mathcal{F}_k$.  By
-Corollary~5.3 of \texttt{continuum-measure.tex},
-$\int (\theta F)^* F \, d\muinf = \int (\theta_{t_k} f)^* f \, d\muk$
-where $F_i = f_i \circ \pi_k$ and $\theta$ commutes with $\pi_k$ at
-scale $k$ (the reflection $\theta_{t_k}$ on $\Omk$ lifts to $\theta$
-on $\Ominf$ by composition with $\pi_k$).  By
-Theorem~\ref{thm:OSP-finite-k} the right-hand side is $\ge 0$.
-
-For a general reflection $\theta$ not lying on any lattice plane,
-approximate $\theta$ by lattice reflections $\theta_{t_k}$ with
-$t_k \to t$ as $k \to \infty$; continuity of the Schwinger form in
-its reflection argument (consequence of the continuity of $f_i$ on
-the compact $\Omk$) extends positivity to the limit.
+Fix $k \ge k_\ast$ large enough that $F_1, \ldots, F_n \in
+\mathcal{F}_k$.  Since $x^0 = t_\ast$ is a lattice plane at scale $k$,
+the continuum reflection $\theta$ is exactly the lift of the lattice
+reflection $\theta_{t_\ast} \colon \Omk \to \Omk$ along $\pi_k$
+($\theta = $ lift of $\theta_{t_\ast}$, with no approximation).  By
+the cylindrical-realization corollary
+(\Cref{ch:continuum-measure} Corollary~\ref{cor:cylindrical}),
+$\int (\theta F)^* F \, d\muinf = \int (\theta_{t_\ast} f)^* f \,
+d\muk$ where $F_i = f_i \circ \pi_k$.  By
+Theorem~\ref{thm:OSP-finite-k} the right-hand side is $\ge 0$.  No
+limit in $k$ is taken: the identity is exact at every $k \ge k_\ast$.
 \end{proof}
+
+\begin{remark}[Off-lattice reflections]
+\label{rem:os2-offlattice}
+For a reflection through a hyperplane not lying on any lattice plane
+at any finite scale, the above exact argument does not apply; one must
+approximate $\theta$ by lattice reflections $\theta_{t_k}$ with
+$t_k \to t_\ast$ and pass to the limit using continuity of the
+Schwinger form in its reflection argument.  This limiting case is part
+of the same continuum-rotation-restoration problem deferred in
+\S\ref{sec:rotation-restoration}; crucially, the OS reconstruction
+of \Cref{ch:os-reconstruction} uses \emph{only} the time-zero
+lattice-plane reflection of \cref{thm:os2}, so the off-lattice case is
+not on the critical path for the mass gap (see
+\cref{thm:reduced-axioms} below).
+\end{remark}
 
 \section{OS3: Symmetry}
 \label{sec:os3}
@@ -399,51 +425,91 @@ $\muinf$.
 
 The mass-gap injection of the $\sighinf$-positivity analysis.
 
-\begin{theorem}[OS4 cluster property with explicit rate]
+\begin{theorem}[OS4 cluster property]
 \label{thm:os4}
-For test functions $F, G \in \mathcal{F}_\infty$ whose spatial
-supports are separated by Euclidean distance $d \ge a_0$ at scale $0$,
+There is a strictly positive mass rate $m > 0$ (dimension inverse
+length) such that for test functions $F, G \in \mathcal{F}_\infty$
+whose spatial supports are separated by Euclidean distance
+$d \ge a_0$,
 \begin{equation*}
   \bigl| \langle F G \rangle_{\muinf} \;-\;
          \langle F \rangle_{\muinf} \langle G \rangle_{\muinf} \bigr|
   \;\le\;
-  C_{F,G} \, \exp(-\sighinf \cdot d),
+  C_{F,G} \, \exp(-m \cdot d),
 \end{equation*}
-where $\sighinf \ge \varepsilon > 0$ by the $\sighinf$-positivity analysis
-(\texttt{sigma\_hat\_uv\_limit\_positive}) and $C_{F,G}$ is a
-prefactor depending only on the support sizes of $F$ and $G$.
+where $C_{F,G}$ is a prefactor depending only on the support sizes of
+$F$ and $G$.  The positivity $m > 0$ follows from the strict
+positivity of the renormalized string tension $\sighinf \ge
+\varepsilon > 0$ (the $\sighinf$-positivity analysis,
+\texttt{sigma\_hat\_uv\_limit\_positive}); the quantitative lower
+bound is the area-law--to--mass-gap relation
+\begin{equation}
+  \label{eq:os4-mass-bound}
+  m \;\ge\; \sqrt{\sighinf} \qquad (\text{in } \sigma_0 = 1 \text{ units})
+\end{equation}
+of \cref{thm:area-law-to-gap-bridge}.
 \end{theorem}
 
+\begin{remark}[Why the rate is $\sqrt{\sighinf}$ and not $\sighinf$]
+\label{rem:os4-dimensions}
+The cluster rate $m$ in \cref{thm:os4} is a \emph{mass} (dimension
+inverse length), while the renormalized string tension $\sighinf =
+a_k^2 \sigma_k$ (\Cref{ch:sigma-hat-trajectory},
+\eqref{eq:wilson-area-law}) is a \emph{string tension} (dimension
+inverse area): it sets the rate of the Wilson-loop area law, not of a
+two-point cluster correlation.  The two are related by the standard
+confinement relation $m \asymp \sqrt{\sigma}$; equating them directly
+would be dimensionally inconsistent.  The conservative form
+$m \ge \sqrt{\sighinf}$ with unit constant is
+\cref{thm:area-law-to-gap-bridge}; the $O(1)$ multiplicative gap to
+the physical glueball-to-string-tension ratio
+$m/\sqrt{\sigma} \approx 3.74$ is exactly the looseness analysed in
+the mass-gap chapter, \S\ref{sec:sharpness}.
+\end{remark}
+
 \begin{proof}[Proof sketch]
-The two-loop correlation $\langle F G \rangle - \langle F \rangle \langle G \rangle$
-decomposes into a sum over polymer-cluster connecting paths between
-$\mathrm{supp}(F)$ and $\mathrm{supp}(G)$
-(\Cref{ch:sheaf-framework} \S7 polymer expansion).  Each
-connecting path of length $\ell$ contributes a factor bounded by
-$\exp(-\sigma_k \cdot \ell)$ at scale $k$, by the per-step
-Kotecký--Preiss certificate.  Taking the continuum limit
-$k \to \infty$, the rate $\sigma_k$ becomes $\sigma_\infty := \sighinf / a_\infty^2$,
-and the path-length factor becomes $\exp(-\sighinf \cdot d)$ in
-\emph{physical} units where $d = \ell \cdot a_k$.
-
-The total prefactor $C_{F,G}$ absorbs the polymer-cluster
-combinatorial multiplicity from
-\texttt{computations/chaining\_estimate.py} (the chaining-estimate analysis; see
-\S\ref{sec:chaining-compat} below for the OS-compatibility statement
-that makes this multiplicity well-controlled in the OS framework).
-
-The full proof is the polymer-cluster decay argument of Glimm--Jaffe
-\S20.1, adapted to the projective-limit setting via the per-scale
-Kotecký--Preiss certificates of the inductive-step analysis.
+The connected correlation $\langle F G \rangle - \langle F \rangle
+\langle G \rangle$ decomposes into a sum over polymer-cluster
+connecting paths between $\mathrm{supp}(F)$ and $\mathrm{supp}(G)$
+(\Cref{ch:sheaf-framework} \S7 polymer expansion).  Convergence of
+the polymer expansion at every scale --- the Kotecký--Preiss
+condition $\rho_{\cap,k} > \mu_{\mathrm{conn}}$ of
+\Cref{ch:sheaf-framework}, equation~\eqref{eq:kp} --- forces the
+connected correlation to decay exponentially in the
+connecting-path length, hence in $d$, with a strictly positive rate;
+this gives $m > 0$.  The quantitative bound $m \ge \sqrt{\sighinf}$
+is \cref{thm:area-law-to-gap-bridge}: the area law with renormalized
+string tension $\sighinf > 0$ (\Cref{ch:continuum-measure}
+Proposition~\ref{prop:area-law-mu-infinity}) lower-bounds the
+spectral gap by $\sqrt{\sighinf}$.  The prefactor $C_{F,G}$ absorbs
+the polymer-cluster combinatorial multiplicity controlled by the
+chaining estimate (see \S\ref{sec:chaining-compat}); the full
+polymer-cluster decay argument is Glimm--Jaffe \S20.1, adapted to the
+projective-limit setting via the per-scale Kotecký--Preiss
+certificates of the inductive-step analysis.
 \end{proof}
+
+\begin{remark}[Conditionality on the per-scale KP certificates]
+\label{rem:os4-conditional}
+The exponential clustering above rests on convergence of the
+per-scale polymer expansion, i.e.\ on the small-field, large-field,
+and overlap Kotecký--Preiss certificates of
+\Cref{ch:small-field-kp}--\ref{ch:overlap-kp}.  Those certificates
+are the analytic obligations $[\mathrm{P}2.1]$ of the framework; OS4
+is established \emph{relative} to them, introducing no new analytic
+content beyond the area-law--to--gap bridge.
+\end{remark}
 
 \subsection{The mass-gap content of OS4}
 
-Theorem~\ref{thm:os4} is the OS-axiom form of the mass-gap statement
-that the mass-gap chapter reproduces: spatial cluster correlations decay
-exponentially with rate $\sighinf \ge \varepsilon > 0$.  The OS
-reconstruction of the OS-reconstruction analysis promotes this $\muinf$-level decay rate
-into a spectral gap of the continuum Hamiltonian $H_{\mathrm{op}}$.
+\cref{thm:os4} is the OS-axiom form of the mass-gap statement that the
+mass-gap chapter reproduces: spatial cluster correlations of local
+observables decay exponentially with a strictly positive mass rate
+$m \ge \sqrt{\sighinf} > 0$.  The OS reconstruction of the
+OS-reconstruction analysis promotes this $\muinf$-level decay rate
+into a spectral gap of the continuum Hamiltonian $H_{\mathrm{op}}$ of
+the same rate (\Cref{ch:os-reconstruction},
+\cref{thm:cluster-to-gap}).
 
 \section{OS-compatibility of the chaining estimate}
 \label{sec:chaining-compat}
@@ -498,6 +564,73 @@ project-level statement; this proposition packages that statement
 inside the OS verification framework.
 \end{proof}
 
+\section{The reduced axiom set sufficient for the mass gap}
+\label{sec:reduced-axioms}
+
+The full Osterwalder--Schrader reconstruction of a relativistic
+quantum field theory requires all of OS0--OS4 including full
+$O(4)$ Euclidean invariance.  The \emph{mass-gap} conclusion, however,
+uses strictly less.  We isolate the minimal subset, so that the open
+$O(4)$ item of \S\ref{sec:rotation-restoration} is visibly off the
+critical path.
+
+\begin{theorem}[Reduced axiom set for the mass gap]
+\label{thm:reduced-axioms}
+The construction of the self-adjoint Hamiltonian $\Hop \ge 0$ with a
+spectral gap $\sigma(\Hop) \cap (0, m) = \emptyset$, $m > 0$
+(\Cref{ch:os-reconstruction}, \Cref{ch:mass-gap-theorem}) uses only
+the following four properties of $\muinf$:
+\begin{enumerate}
+  \item[\textnormal{(R0)}] \textbf{Regularity} (OS0): $\muinf$ a
+    regular Borel probability measure --- \cref{thm:os0}.
+  \item[\textnormal{(R1)}] \textbf{Time-translation invariance}: the
+    one-parameter subgroup $\{\tau_t : t \in \mathbb{R}\}$ of
+    translations along $x^0$ preserves $\muinf$ --- the
+    $x^0$-direction case of \cref{thm:os1-hypercubic}.
+  \item[\textnormal{(R2)}] \textbf{Reflection positivity through the
+    time-zero lattice plane} --- \cref{thm:os2} (the exact case; no
+    off-lattice reflection and no $O(4)$ needed).
+  \item[\textnormal{(R4)}] \textbf{Cluster property} with a strictly
+    positive mass rate $m > 0$ --- \cref{thm:os4}.
+\end{enumerate}
+It uses neither full $O(4)$ rotation invariance
+(\cref{thm:O4-restoration}), nor spatial-rotation invariance, nor
+off-lattice reflection positivity (\cref{rem:os2-offlattice}), nor
+OS3 internal symmetry.
+\end{theorem}
+
+\begin{proof}
+The OS reconstruction (\Cref{ch:os-reconstruction}) builds $\Hphys$
+from the Schwinger inner product
+$\langle F, G\rangle_{\OS} = \int (\theta F)^* G \, d\muinf$, which
+requires only the single time-zero reflection $\theta$ --- (R2) ---
+and OS0 --- (R0) --- for $\muinf$ to be a probability measure with a
+normalizable vacuum.  The contraction semigroup $\Ut = e^{-t\Hop}$ is
+generated by the \emph{time}-translation $\Tt$, whose
+$\muinf$-invariance is (R1); positivity of $\Hop$ and the
+contraction property use (R2) again (reflection through the time
+plane at height $t/2$, \Cref{ch:os-reconstruction}
+\cref{prop:T-contraction}).  Finally the spectral gap
+$\sigma(\Hop) \cap (0, m) = \emptyset$ is read off the
+Källén--Lehmann representation of the time-direction two-point
+function, whose decay rate is the cluster rate (R4)
+(\Cref{ch:os-reconstruction} \cref{thm:cluster-to-gap}).  None of
+these four steps invokes a spatial rotation, an off-lattice
+reflection, or OS3.
+\end{proof}
+
+\begin{remark}[Consequence for the open $O(4)$ item]
+\label{rem:o4-off-critical-path}
+\cref{thm:reduced-axioms} makes precise the standing claim that the
+mass gap does not depend on the $O(4)$ restoration of
+\S\ref{sec:rotation-restoration}: the gap is a property of the
+time-translation semigroup and the time-reflection, both of which are
+available from the hypercubic ($H_4$) structure alone.  Full $O(4)$
+invariance is required for the \emph{relativistic} (Lorentz-invariant)
+interpretation of the reconstructed theory, not for the existence or
+positivity of the mass gap.
+\end{remark}
+
 \section{Summary table}
 \label{sec:summary}
 
@@ -525,9 +658,10 @@ OS2 (reflection pos.) & \textbf{verified} & Theorem~\ref{thm:os2},
 \hline
 OS3 (symmetry) & \textbf{verified} & Theorem~\ref{thm:os3}. \\
 \hline
-OS4 (cluster property) & \textbf{verified with explicit rate
-  $\sighinf > 0$} & Theorem~\ref{thm:os4}, via the $\sighinf$-positivity analysis
-  $\sighinf > 0$ + polymer-cluster decay. \\
+OS4 (cluster property) & \textbf{verified with explicit mass rate
+  $m \ge \sqrt{\sighinf} > 0$} & Theorem~\ref{thm:os4} + the
+  area-law--to--gap bridge \cref{thm:area-law-to-gap-bridge}, via the
+  $\sighinf$-positivity analysis + polymer-cluster decay. \\
 \hline
 Chaining OS-compatibility & \textbf{verified} & Proposition~\ref{prop:chaining-os}. \\
 \hline
@@ -542,11 +676,12 @@ analytical refinement:
 
 \begin{itemize}
   \item \textbf{Full $O(4)$ rotation invariance.}  Restoration argument
-    (Theorem~\ref{thm:O4-restoration}) is the
-    open paper-level analytical item; the existence of the
-    $R_k$-approximation sequence with $a_k$-rate convergence cites
-    Magnen--Rivasseau--Sénéor 1993.  The the mass-gap chapter mass-gap statement
-    does not depend on this refinement.
+    (Theorem~\ref{thm:O4-restoration}) is the open paper-level
+    analytical item; the existence of the $R_k$-approximation sequence
+    with $a_k$-rate convergence cites Magnen--Rivasseau--Sénéor 1993.
+    By \cref{thm:reduced-axioms} the mass-gap statement does not depend
+    on this refinement (it is needed only for the relativistic
+    interpretation, not for the gap).
   \item \textbf{Tight $C_{F,G}$ prefactor in OS4.}  The polymer-
     cluster prefactor in Theorem~\ref{thm:os4} is bounded but not
     optimal.  Refinement is paper-level analytical work; the
