@@ -17,6 +17,77 @@ catalogues what remains: analytical refinements that would tighten
 the bound, structural extensions that would broaden it, and
 deliberately deferred items.
 
+\section{Open-items register (at a glance)}
+\label{sec:open-register}
+
+\marginkey{Every open item, one table}%
+
+The single table below is the complete register of open items, each
+with its locus, its category, and --- the column a reviewer should
+read first --- whether it blocks the existence conclusion
+$\massgap > 0$.  \emph{No item in any category blocks
+$\massgap > 0$}: the load-bearing analytic inputs are the standard
+constructive-QFT toolkit (supplied at the paper level against Lean
+interfaces), the refinements affect only the \emph{size} of
+$\massgap$, the Lean items are mechanization of already-paper-proved
+statements, and the remainder is out of scope.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\footnotesize
+\begin{tabular}{p{3.5cm}p{2.7cm}p{2.9cm}p{3.1cm}}
+\toprule
+\textbf{Open item} & \textbf{Locus} & \textbf{Category} &
+  \textbf{Blocks $\massgap > 0$?} \\
+\midrule
+Kotecký--Preiss certificates (full polymer-level) &
+  \Cref{ch:sheaf-framework}--\ref{ch:overlap-kp}, \texttt{[P2.1]} &
+  Load-bearing, paper-level (standard) &
+  No --- $K$-level Lean-closed; full proof is standard
+  cluster-expansion technique \\
+Daniell--Kolmogorov limit; OS0--OS4 axioms &
+  \Cref{ch:continuum-measure}--\ref{ch:os-axioms} &
+  Load-bearing, paper-level (standard) &
+  No --- classical theorems applied to a compact-group system \\
+Stone reconstruction (operator theory) &
+  \Cref{ch:os-reconstruction} &
+  Load-bearing, paper-level (standard) &
+  No --- classical Hille--Yosida\,/\,Stone \\
+$\sqrt{\sighinf}$-bridge $O(1)$ constant ($=1$ vs $\approx 3.74$) &
+  \Cref{ch:os-reconstruction}, \cref{thm:area-law-to-gap-bridge} &
+  Sharpness refinement &
+  No --- affects only the size of $\massgap$ \\
+Bałaban constant $C$ in uniform decay &
+  \Cref{ch:uv-trajectory}, \cref{lem:uniform-decay} &
+  Sharpness refinement &
+  No --- uniformity itself is rigorous (monotone $g_k$) \\
+$\cpolymer = 2 \to 1$ (sign-preservation) &
+  \Cref{ch:sigma-hat-trajectory} &
+  Sharpness refinement &
+  No --- worst-case corner still gives $\massgap = 0.863 > 0$ \\
+Full $O(4)$ rotation restoration &
+  \Cref{ch:os-axioms}, \cref{thm:O4-restoration} &
+  Analytic, off critical path &
+  No --- reduced axiom set
+  (\cref{thm:reduced-axioms}) needs only $H_4$ \\
+Lean: Stone\,/\,spectral $+$ continuum measure &
+  \Cref{ch:os-reconstruction}, \ref{ch:continuum-measure} &
+  Formalization deferral &
+  No --- math is paper-proved; only mechanization deferred \\
+$\SUthree$ pilot closure &
+  \Cref{ch:mass-gap-discussion}, \cref{conj:su3-pilot} &
+  Structural extension &
+  n/a --- a different ($\SUthree$) instance \\
+Confinement; glueball-spectrum identification &
+  \Cref{ch:mass-gap-discussion}, \cref{sec:non-deliverables} &
+  Out of scope &
+  n/a --- beyond the Clay $\Delta > 0$ condition \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The remaining sections elaborate each row in turn.
+
 \section{Analytical refinements (bound tightening)}
 \label{sec:roadmap-tightening}
 

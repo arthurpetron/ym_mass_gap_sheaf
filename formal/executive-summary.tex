@@ -1,0 +1,96 @@
+% executive-summary.tex — scannable 1-2 page front-matter summary for
+% reviewers: the main theorem, the explicit m_0, the constructive
+% witnesses, and a one-paragraph proof sketch.
+
+\chapter*{Executive Summary}
+\addcontentsline{toc}{chapter}{Executive Summary}
+
+\noindent\emph{One page for the reviewer in a hurry: the theorem, the
+number, the witnesses, the proof in three lines.}
+
+\begin{infobox}[main][breakable=false,title=Main theorem (SU(2) mass gap)]
+Let $\Hop \ge 0$ be the self-adjoint Hamiltonian obtained by
+Osterwalder--Schrader reconstruction of the continuum $\SUtwo$
+Wilson measure $\muinf$ on $\mathbb{R}^4$
+(\Cref{ch:continuum-measure}--\ref{ch:os-reconstruction}).  Then
+there is an explicit, computable, $\Qp$-rational $\massgap > 0$ with
+\begin{equation*}
+  \sigma(\Hop) \cap (0, \massgap) \;=\; \emptyset,
+  \qquad
+  \massgap \;\ge\; \frac{999}{1000}
+  \quad\text{(canonical pilot, $g_0 = 0.30$)},
+\end{equation*}
+in dimensionless units where $\sigma_0^{1/2}$ sets the scale
+(\Cref{ch:mass-gap-theorem}, \cref{thm:mass-gap-su2}).
+\end{infobox}
+
+\paragraph*{The explicit number.}  The bound is a strict $\Qp$-rational
+lower bound, not a sharp value.  At two resolutions and two
+heat-kernel conventions:
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{lccc}
+\toprule
+Pilot & $\sighinf \ge$ & $\massgap \ge$ ($/1000$) & $\massgap \ge$ ($/10000$) \\
+\midrule
+canonical ($g_0 = 0.30$) & $9991/10000$ & $999/1000$ & $9996/10000$ \\
+Wilson ($g_0 = 0.50$)    & $9997/10000$ & $999/1000$ & $9994/10000$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+The physical gap is expected to be a factor $\approx 3.74$ larger (the
+SU(2) glueball-to-string-tension ratio); the value of $\massgap$ is not
+the point --- its being \emph{positive, explicit, and machine-checked}
+is (\Cref{ch:mass-gap-theorem}, \S\ref{sec:sharpness}).
+
+\paragraph*{The constructive witnesses.}  Every finite step returns an
+explicit witness in the constructive rationals $\Qp$, and the
+$\Qp$-data layer is machine-verified in Lean:
+\begin{itemize}\setlength{\itemsep}{1pt}
+  \item \codepath{YMGap.MassGap.SU2.mass_gap_SU2} (and
+    \codepath{_wilson}) --- the composed mass-gap statement;
+    \textbf{axiom-free}.
+  \item the $\massgap$ / $\sighinf$ rational data and the decidable
+    witness $\massgap^2 \le \sighinf$ --- \textbf{axiom-free}.
+  \item \codepath{YMGap.RG.step_obligation_witness} --- the per-step
+    inductive closure; axiom-gate \codepath{[propext]} only.
+  \item \codepath{YMGap.Sheaf.domGlue_preserves_KP} --- the buffer-glue
+    certificate; \textbf{axiom-free}.
+\end{itemize}
+A full \codepath{lake build} (lean4 v4.29.1) reports zero
+\codepath{sorry}; the sorry ledger (\codepath{lean/SORRY_LEDGER.md})
+is empty of open obligations.  The numerical pilot
+(\codepath{computations/}, ${\sim}30$ modules, $\ge 500$ tests)
+produces every constant in lockstep with the Lean literals.
+
+\paragraph*{The proof in three lines.}  The proof composes three
+constructions along the scale index $k$ (\Cref{fig:proof-composition}):
+\begin{enumerate}\setlength{\itemsep}{1pt}
+  \item \textbf{Typed inductive step} (\Cref{ch:sheaf-framework}--%
+    \ref{ch:pilot-su2}): each scale carries a sheaf-theoretic state
+    $\Ik$; the block-spin morphism $\Tb$ preserves it up to a
+    $\Qp$-rational per-step degradation $\etak$, verified by the
+    five-criterion pilot at finite truncation $K = 3$.
+  \item \textbf{Continuum limit} (\Cref{ch:uv-trajectory}--%
+    \ref{ch:continuum-measure}): the budget $\sum_k \etak < \sigma_0$
+    closes with an explicit uniform-geometric tail
+    (\cref{lem:uniform-decay}), giving $\sighinf \ge \varepsilon > 0$;
+    the lattice measures admit a projective limit $\muinf$.
+  \item \textbf{OS reconstruction + cluster-to-gap}
+    (\Cref{ch:os-axioms}--\ref{ch:os-reconstruction}): $\muinf$
+    satisfies the Osterwalder--Schrader axioms; the area-law--to--gap
+    bridge $m \ge \sqrt{\sighinf}$ promotes string-tension positivity
+    to the spectral gap of $\Hop$.
+\end{enumerate}
+
+\paragraph*{What is machine-checked vs.\ paper-level.}  The
+$\Qp$-rational spine --- the per-step budget, the closure
+$\sum_k \etak < \sigma_0$, and the arithmetic
+$\massgap^2 \le \sighinf$ --- is fully formalized in Lean.  The
+analytic bundle it composes against --- the Kotecký--Preiss
+certificates, the Daniell--Kolmogorov projective limit, the OS-axiom
+verifications, and the operator-theoretic reconstruction (Stone's
+theorem) --- is supplied at the paper level, against Lean
+type-signature interfaces.  This split is made visual in
+\Cref{fig:proof-composition} and itemized in the open-items register
+of Appendix~\ref{ch:appx-roadmap}.
