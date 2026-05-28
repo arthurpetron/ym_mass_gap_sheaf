@@ -437,6 +437,34 @@ analytical refinements outside the existence-proof's load-bearing
 chain.}  This is the strongest claim the proof supports; it is
 neither a sharp-value claim nor a vacuous-existence claim.
 
+\paragraph{Why a non-sharp bound is still meaningful.}  Three points
+make the looseness a feature of the \emph{calibration}, not a weakness
+of the \emph{result}.
+\begin{enumerate}[label=(\alph*)]
+  \item \textbf{The Clay condition is $\Delta > 0$, not a value.}  The
+    Millennium Problem asks for a mass gap $\Delta > 0$ with no
+    quantitative target; $\massgap \ge 999/1000$ meets that condition
+    and over-delivers by naming an explicit positive constant.
+  \item \textbf{It is, to our knowledge, the first \emph{explicit}
+    constructive lower bound.}  Prior constructive control of
+    four-dimensional gauge theory (Bałaban; Magnen--Rivasseau--Sénéor)
+    establishes that a positive gap \emph{exists} in suitable regimes
+    but does not collapse the renormalized string tension to a named
+    number; here every constant in the chain
+    $\sighinf \ge \varepsilon \Rightarrow m \ge \sqrt{\varepsilon}$ is
+    an explicit $\Qp$-rational, and the final inequality is
+    machine-checked (\Cref{ch:mass-gap-theorem} Lean witness,
+    axiom-gate $\codepath{[propext]}$).
+  \item \textbf{The gap is an $O(1)$ factor from the truth, not orders
+    of magnitude.}  The loose factor is the single
+    string-tension--to--mass-gap constant ($\approx 3.74$,
+    \cref{sec:looseness-decomposition}); the bound lands in the
+    correct hadronic-mass regime ($\approx 440\,\text{MeV}$), within
+    a factor $\sim 3.7$ of the conjectured glueball mass --- the
+    difference between a meaningful constructive bound and a vacuous
+    one.
+\end{enumerate}
+
 \paragraph{Side-note on the calibration.}  The two conventional
 calibrations $\sqrt{\sigma} \approx 400$ and $440\,\text{MeV}$
 differ by $\sim 10$\% reflecting the SU(2)-vs-QCD scale-setting

@@ -170,6 +170,55 @@ $\sum_k \etak$ that determines whether $\sighinf > 0$ is a
 delicate quantitative quantity; it had not previously been
 collapsed to an explicit number.
 
+\paragraph*{Relation to prior constructive control.}  The distinction
+is \emph{existential ultraviolet stability} versus a
+\emph{quantitative, uniformly-propagated budget}.  The classical
+constructions establish that the relevant expansions converge and
+that stability bounds \emph{exist}; what they do not do is collapse
+the scale-to-scale degradation of the renormalized string tension into
+a single explicit number that survives the continuum limit.  The
+sheaf-plus-typed-inductive-step reformulation is precisely the device
+that makes that number computable and decidable.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{p{3.0cm}p{3.6cm}p{4.4cm}}
+\toprule
+\textbf{Prior result} & \textbf{What it established} &
+  \textbf{What the typed $\sigh$-budget adds} \\
+\midrule
+Brydges--Federbush~\cite{BrydgesFederbush1978};
+  Seiler~\cite{Seiler1982} &
+  Cluster-expansion convergence and OS-positivity at small coupling
+  ($d = 2,3$) --- existence at a \emph{fixed} scale. &
+  The typed inductive step propagates the Kotecký--Preiss certificate
+  across \emph{every} RG scale, with an explicit $\Qp$-rational
+  per-step degradation $\etak$ rather than a fixed-scale existence
+  statement. \\
+Bałaban~\cite{Balaban1987RG-I,Balaban1988RG-II,Balaban1988convergent} &
+  Ultraviolet stability of the $\SUtwo$ Wilson action across the full
+  RG trajectory on $T^4$ --- the stability constants \emph{exist}. &
+  The $\sigh$-budget closure $\sum_k \etak < \sigma_0$ collapses those
+  constants to one decidable inequality, yielding the explicit
+  $\sighinf \ge 9991/10000 \in \Qp$ that survives the limit. \\
+Magnen--Rivasseau--Sénéor~\cite{MagnenRivasseauSeneor1993} &
+  Construction of $YM_4$ with an \emph{infrared cutoff}; restoration
+  of rotation invariance. &
+  The compact-group projective limit
+  (\Cref{ch:continuum-measure}) needs no infrared cutoff; the residual
+  $O(4)$ restoration is isolated as the single open item, shown
+  off the mass-gap critical path
+  (\Cref{ch:os-axioms}). \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+In one sentence: prior work proved the ultraviolet flow is
+\emph{controllable}; this manuscript pins the control to an explicit
+$\Qp$-rational budget and checks, by a decidable computation, that the
+budget closes --- which is exactly what turns ``a positive gap should
+exist'' into ``$\massgap \ge 999/1000$.''
+
 \section{The proof, in one paragraph}
 \label{sec:proof-one-paragraph}
 

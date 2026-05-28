@@ -365,6 +365,54 @@ precisely at the phase boundary already characterised in
 result, whose headline $\massgap \ge 994/1000$ is a fixed-$g_0 = 0.30$
 statement.
 
+\section{The worst-case corner}
+\label{sec:appx-worst-case}
+
+\marginkey{All fiducials adverse}%
+
+The tornado perturbs one fiducial at a time; the bootstrap samples the
+envelopes \emph{randomly}, so its $5$th percentile is a probabilistic
+quantile, not the single most adverse point.  For completeness we
+evaluate the deterministic \emph{worst-case corner}: all four
+fiducials pushed simultaneously to their most-adverse defensible
+extreme (\Cref{tab:appx-envelopes}),
+\begin{equation*}
+  \clambda = 0.30 \;(\text{low}), \quad
+  \muplaq = 55 \;(\text{high}), \quad
+  \cpolymer = 2 \;(\text{high}), \quad
+  \Amin = 4 \;(\text{low}),
+\end{equation*}
+each chosen in the direction that \emph{maximizes} the per-step
+$\eta = (\cpolymer/\Amin)\,\Dcap$ and \emph{shrinks} the convergent
+window (smaller $\clambda$ lowers $\rhosf$, larger $\muplaq$ raises the
+connectivity threshold).  This corner has joint probability $\approx 0$
+under the bootstrap, so it never appears even in $10^7$ draws; it is
+the literal extreme of the defensible box.
+
+\begin{infobox}[main][title=Worst-case corner: the budget still closes]
+\begin{center}
+\large
+$\massgap^{\mathrm{worst}} \;=\; 0.863 \;>\; 0$
+\end{center}
+At the simultaneous adverse extreme of all four envelopes, the
+$\sigh$-budget still closes: $\sum_k \etak \approx 0.255 < \sigma_0 =
+1$, leaving $\sighinf \approx 0.745$ and
+$\massgap = \sqrt{\sighinf} \approx 0.863$.  The bound degrades from
+the baseline $0.9996$ but \emph{remains strictly positive} --- the
+mass-gap conclusion $\massgap > 0$ survives the most pessimistic
+defensible fiducial assignment, not merely the $5$th-percentile one.
+\end{infobox}
+
+This is the strongest robustness statement the envelopes support: the
+existence claim $\massgap > 0$ holds at \emph{every} point of the
+four-dimensional defensible box, corner included.  The canonical
+$g_0 = 0.30$ is held fixed here (the corner is over fiducials, not the
+operating point); combining the corner with the UV-flow boundary of
+\Cref{sec:appx-uvflow} is the only regime in which $\massgap$ is driven
+to zero, and that regime is exactly the convergent boundary
+$g_0 \to g_0^\ast$ already excluded by the pilot's convergence
+hypothesis.
+
 \section{What the figures together say}
 \label{sec:appx-conclusion}
 

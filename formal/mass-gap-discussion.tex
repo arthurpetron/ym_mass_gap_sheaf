@@ -221,13 +221,62 @@ specific $G$ enters at three named points:
 
 The structural part of the manuscript (Parts III--V) carries over
 to $\SUthree$ with no architectural change.  What changes is the
-\emph{numerical} pilot: the smaller Casimir gap of $\SUthree$ —
-$\Casimir(\mathrm{fundamental}) = 4/3$ versus the $\SUtwo$ value of
-$\tfrac34$ — gives a different convergent-regime threshold
-$g_{\max}^{\mathrm{sf}}$ and a different aggregate $\eta$ budget.
-\emph{Preliminary expectation}: a $\SUthree$ pilot at appropriate
-$g_0$ would close the inductive step with a different but still
-$\Qp$-rational bound $\massgap_{\SUthree}$.
+\emph{numerical} pilot.  The two group-dependent inputs are the
+fundamental quadratic Casimir $\Casimir(\mathrm{fund}) = (N^2-1)/(2N)$
+(which sets the small-field decay coefficient $\clambda$) and the
+one-loop coefficient $b_0 = 11N/3$ (which sets the UV running and
+hence the geometric $\eta$-decay rate $r_{\mathrm{uv}}^\infty$).  Both
+move \emph{favorably} from $\SUtwo$ to $\SUthree$:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lccl}
+\toprule
+Input & $\SUtwo$ & $\SUthree$ & Note \\
+\midrule
+$\Casimir(\mathrm{fund}) = \tfrac{N^2-1}{2N}$ & $\tfrac34$ & $\tfrac43$ &
+  larger gap $\Rightarrow$ stronger suppression \\
+one-loop $b_0 = \tfrac{11N}{3}$ & $\tfrac{22}{3}$ & $11$ &
+  steeper running \\
+canonical $g_{\max}^{\mathrm{sf}} = \sqrt{\clambda/\mu_{\mathrm{conn}}}$ &
+  $0.49$ & $0.66$ & \textbf{wider} convergent regime \\
+$r_{\mathrm{uv}}^\infty = e^{-3 b_0 \log b / 64\pi^2}$ ($b=2$) &
+  $0.976$ & $0.964$ & \textbf{faster} $\eta$-decay \\
+$\muplaq$, $\mu_{\mathrm{conn}}$ ($d = 4$) & $16,\,3.08$ & $16,\,3.08$ &
+  unchanged (depend on $d$, not $G$) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Both differences \emph{help}: the larger Casimir widens the
+small-field convergent window ($g_{\max}^{\mathrm{sf}}$ rises from
+$0.49$ to $0.66$), and the steeper one-loop running gives a smaller
+geometric ratio ($r_{\mathrm{uv}}^\infty$ drops from $0.976$ to
+$0.964$, so the tail $\sum_{k>K}\etak$ shrinks faster).  A $\SUthree$
+pilot therefore has \emph{more} margin than the $\SUtwo$ one at the
+same $g_0$, not less.  \emph{Preliminary expectation}: a $\SUthree$
+pilot at an appropriate $g_0$ closes the inductive step with a
+different but still $\Qp$-rational bound $\massgap_{\SUthree}$, and the
+closure is no harder than the $\SUtwo$ case.
+
+\paragraph{Concrete next steps for $\SUthree$.}
+\begin{enumerate}[label=(\roman*)]
+  \item Replace the $\SUtwo$ Casimir literal
+    $\Casimir(\tfrac12) = \tfrac34$ in
+    \codepath{computations/small_field_kp.py} and
+    \codepath{lean/YMGap/Sheaf/SU2KP.lean} with
+    $\Casimir(\mathrm{fund}) = \tfrac43$, and set $b_0 = 11$ in the
+    UV-running of \codepath{computations/uv_trajectory.py}.
+  \item Replace the closed-form $\SUtwo$ character
+    $\chi_j(\theta)$ in \codepath{computations/heat_kernel.py} with the
+    rank-2 Weyl character (the large-field activity bound of
+    \Cref{ch:large-field-kp} otherwise carries over verbatim, since
+    $\muplaq$ is group-independent).
+  \item Re-run the pilot validator and bootstrap at the $\SUthree$
+    inputs; the structural Lean modules (sheaf, block-spin,
+    inductive-state, OS layer) need no change --- only the
+    $\Qp$-rational leaf constants.
+\end{enumerate}
 
 \begin{conjecture}[$\SUthree$ pilot closure]
 \label{conj:su3-pilot}
