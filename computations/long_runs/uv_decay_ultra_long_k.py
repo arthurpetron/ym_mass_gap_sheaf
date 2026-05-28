@@ -234,24 +234,31 @@ def main() -> None:
     svg_path = plot_summary(results)
     print(f"\nJSON: {json_path}\nSVG:  {svg_path}")
 
-    # Headline pass/fail at the largest K, smallest g_0 (the strictest test).
-    by_g0_then_K = sorted(results, key=lambda r: (r.g_0, -r.K))
-    if by_g0_then_K:
-        toughest = by_g0_then_K[0]
-        analytical = toughest.analytical_ratio
-        dev = toughest.max_abs_deviation_from_analytical
-        if dev is not None and dev < 0.01:
-            print(
-                f"\n  HEADLINE: at g_0 = {toughest.g_0}, K = {toughest.K}, "
-                f"max |empirical − analytical| = {dev:.4f} "
-                f"({dev / analytical * 100:.2f}% of {analytical:.4f}) — "
-                f"PASSES the 1% deviation criterion."
-            )
-        else:
-            print(
-                f"\n  HEADLINE: at g_0 = {toughest.g_0}, K = {toughest.K}, "
-                f"max |empirical − analytical| = {dev} — exceeds 1% criterion."
-            )
+    # Headline: how close is the empirical ASYMPTOTIC rate (the median
+    # ratio, robust to the early-K transient) to the analytical rate, at
+    # the largest K available for each g_0?  The max-deviation field is
+    # transient-dominated and is reported in the JSON for diagnostics but
+    # is the wrong "did the theorem hold" statistic.
+    print("\n=== HEADLINE: asymptotic empirical vs analytical decay rate ===")
+    largest_K_per_g0: dict[float, UltraLongKResult] = {}
+    for r in results:
+        prev = largest_K_per_g0.get(r.g_0)
+        if prev is None or r.K > prev.K:
+            largest_K_per_g0[r.g_0] = r
+    for g_0, r in sorted(largest_K_per_g0.items()):
+        med = r.empirical_median_ratio
+        if med is None:
+            print(f"  g_0 = {g_0}, K = {r.K}: no finite K_lf ratios "
+                  f"(deep weak coupling — K_lf underflows)")
+            continue
+        med_dev = abs(med - r.analytical_ratio)
+        verdict = "PASSES" if med_dev < 0.01 * r.analytical_ratio else "exceeds"
+        print(
+            f"  g_0 = {g_0}, K = {r.K}: median r = {med:.6f}, "
+            f"analytical = {r.analytical_ratio:.6f}, "
+            f"|Δ| = {med_dev:.2e} ({med_dev / r.analytical_ratio * 100:.3f}%) "
+            f"— {verdict} the 1% criterion"
+        )
 
 
 if __name__ == "__main__":
