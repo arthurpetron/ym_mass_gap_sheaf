@@ -37,8 +37,8 @@ from computations.heat_kernel import HeatKernelConvention
 from computations.m_0_bootstrap import run_bootstrap
 
 
-DEFAULT_PLOT_PATH: Final[str] = "visualizations/pilot/su2/m0-bootstrap-high-n.svg"
-DEFAULT_JSON_PATH: Final[str] = "visualizations/pilot/su2/m0-bootstrap-high-n.json"
+DEFAULT_PLOT_PATH: Final[str] = "visualizations/pilot/su2/m_0-bootstrap-high-n.svg"
+DEFAULT_JSON_PATH: Final[str] = "visualizations/pilot/su2/m_0-bootstrap-high-n.json"
 
 
 @dataclass(frozen=True)

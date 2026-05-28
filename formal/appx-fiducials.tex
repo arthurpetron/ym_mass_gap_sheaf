@@ -234,6 +234,70 @@ constructive Lean witness corresponding to this manuscript
 appendix uses the exact $\Qp$-rational $994/1000$.
 \end{infobox}
 
+\subsection{High-statistics confirmation
+  (\texorpdfstring{$N = 10^7$}{N = 10^7})}
+\label{sec:appx-bootstrap-highn}
+
+\marginkey{$2000\times$ more draws}%
+
+The $n = 5000$ run above fixes the headline, but its $5$th-percentile
+estimate carries Monte-Carlo error of order $1/\sqrt{n} \approx
+1.4\%$.  To pin the robust quantile we re-ran the identical
+joint-envelope experiment at $N = 10^7$ draws (seed $0$, canonical
+pilot $g_0 = 0.30$, $K = 3$;
+\codepath{computations/long_runs/m0_bootstrap_high_n.py}), and
+computed a nonparametric bootstrap confidence interval on the
+$5$th-percentile statistic itself ($1000$ resamples).
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{lcc}
+\toprule
+Statistic & $n = 5000$ & $N = 10^7$ \\
+\midrule
+$n_{\mathrm{failed}}$ (out-of-regime)  & $0$        & $0$        \\
+mean                                   & $0.998518$ & $0.998563$ \\
+$0.1$st percentile                     & ---        & $0.934741$ \\
+$1$st percentile                       & $0.973138$ & $0.973527$ \\
+$\mathbf{5}$th \textbf{percentile (robust)} & $\mathbf{0.994972}$ & $\mathbf{0.994896}$ \\
+$50$th percentile (median)             & $0.999626$ & $0.999622$ \\
+$95$th percentile                      & $0.999887$ & $0.999887$ \\
+$99$th percentile                      & $0.999923$ & $0.999923$ \\
+\midrule
+$5$th-pct.\ $95\%$ bootstrap CI        & ---        & $[0.994877,\,0.994914]$ \\
+\bottomrule
+\end{tabular}
+\caption{The $N = 10^7$ rerun ($2000\times$ the headline sample)
+reproduces every percentile to the third--fourth decimal and pins the
+robust $5$th-percentile quantile to
+$0.99489 \pm 2 \times 10^{-5}$ (a $95\%$ bootstrap CI of width
+$\approx 3.7 \times 10^{-5}$).  Both runs have exactly $0$
+out-of-regime draws; the $N = 10^7$ run additionally resolves the
+$0.1$st percentile at $0.9347$, so even the extreme one-in-a-thousand
+tail of the joint envelope keeps $\massgap$ well above $0.93$.}
+\label{tab:appx-bootstrap-highn}
+\end{table}
+
+\begin{fullfigure}
+\centering
+\includegraphics[width=\arthurfullwidth]{m_0-bootstrap-high-n}
+\caption{High-statistics bootstrap at $N = 10^7$.  Left: the
+empirical $\massgap$ density with the $5$th-percentile robust quantile
+($0.99490$, dashed) and its $95\%$ bootstrap CI (dotted).  Right: the
+empirical CDF lower tail, with the $0.1$st, $1$st, and $5$th
+percentiles marked.  The robust lower bound is confirmed:
+$\massgap \ge 994/1000$ at the $5$th percentile, now with a
+CI of width $\approx 4 \times 10^{-5}$.}
+\label{fig:m0-bootstrap-highn}
+\end{fullfigure}
+
+The headline of \Cref{sec:appx-bootstrap} is unchanged: rounding the
+$N = 10^7$ $5$th-percentile $0.994896$ down still gives
+$\massgap \ge 994/1000$, and the bootstrap CI
+$[0.994877, 0.994914]$ lies entirely above $994/1000$, so the
+rounding is not an artifact of Monte-Carlo noise.
+
 \section{What the figures together say}
 \label{sec:appx-conclusion}
 
