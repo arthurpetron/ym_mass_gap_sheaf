@@ -153,6 +153,73 @@ fn random_su2(rng: &mut Rng) -> Su2 {
 
 pub const DIM: usize = 4;
 
+/// Lattice geometry only (no link data), so it can be shared `Copy` into worker
+/// threads without aliasing the mutable `links` buffer.
+#[derive(Clone, Copy)]
+pub struct Geom {
+    pub l: usize,
+    pub vol: usize,
+    pub strides: [usize; DIM],
+}
+
+impl Geom {
+    #[inline]
+    fn coord(&self, site: usize, dir: usize) -> usize {
+        (site / self.strides[dir]) % self.l
+    }
+    #[inline]
+    fn shift(&self, site: usize, mu: usize, fwd: bool) -> usize {
+        let c = self.coord(site, mu);
+        let st = self.strides[mu];
+        if fwd {
+            if c + 1 == self.l {
+                site + st - self.l * st
+            } else {
+                site + st
+            }
+        } else if c == 0 {
+            site + (self.l - 1) * st
+        } else {
+            site - st
+        }
+    }
+}
+
+/// Staple sum for link (site, mu) reading links through a raw base pointer.
+/// Same convention as `Lattice::staple`.  Used by the parallel sweep workers,
+/// which read neighbour links (other checkerboard classes, never written in the
+/// current sub-sweep) and write only their own class's links.
+///
+/// SAFETY: `base` must point to a valid `[Su2; geom.vol*DIM]`, and the cells
+/// read here (the neighbours of (site, mu)) must not be concurrently written.
+#[inline]
+unsafe fn staple_ptr(base: *const Su2, geom: &Geom, site: usize, mu: usize) -> Su2 {
+    #[inline(always)]
+    unsafe fn get(base: *const Su2, s: usize, m: usize) -> Su2 {
+        *base.add(s * DIM + m)
+    }
+    let mut a = [0.0; 4];
+    for nu in 0..DIM {
+        if nu == mu {
+            continue;
+        }
+        let x_pmu = geom.shift(site, mu, true);
+        let x_pnu = geom.shift(site, nu, true);
+        let fwd = mul(
+            mul(get(base, x_pmu, nu), dag(get(base, x_pnu, mu))),
+            dag(get(base, site, nu)),
+        );
+        let x_mnu = geom.shift(site, nu, false);
+        let x_mnu_pmu = geom.shift(x_mnu, mu, true);
+        let bwd = mul(
+            mul(dag(get(base, x_mnu_pmu, nu)), dag(get(base, x_mnu, mu))),
+            get(base, x_mnu, nu),
+        );
+        a = add(a, add(fwd, bwd));
+    }
+    dag(a)
+}
+
 pub struct Lattice {
     pub l: usize,
     pub vol: usize,             // l^4
@@ -198,6 +265,11 @@ impl Lattice {
         self.links[site * DIM + mu]
     }
 
+    #[inline]
+    pub fn geom(&self) -> Geom {
+        Geom { l: self.l, vol: self.vol, strides: self.strides }
+    }
+
     /// Parity (even/odd checkerboard) of a site.
     #[inline]
     fn parity(&self, site: usize) -> usize {
@@ -206,37 +278,6 @@ impl Lattice {
             s += self.coord(site, d);
         }
         s & 1
-    }
-
-    /// Sum of the 6 staples around link (site, mu): an (unnormalized) quaternion
-    /// `A` with `(1/2) Re Tr(U A^dag) = sum over the 6 plaquettes of (1/2) Re Tr U_plaq`.
-    fn staple(&self, site: usize, mu: usize) -> Su2 {
-        // We accumulate the plaquette "completions" C such that
-        // U_plaq = U_mu(x) * C, then return A = sum(C^dag), so that
-        // (1/2) Re Tr(U_mu(x) A^dag) = sum over the 6 plaquettes of
-        // (1/2) Re Tr U_plaq.  (dag is linear, so we conjugate the sum.)
-        let mut a = [0.0; 4];
-        for nu in 0..DIM {
-            if nu == mu {
-                continue;
-            }
-            // forward completion: U_nu(x+mu) U_mu(x+nu)^dag U_nu(x)^dag
-            let x_pmu = self.shift(site, mu, true);
-            let x_pnu = self.shift(site, nu, true);
-            let fwd = mul(
-                mul(self.link(x_pmu, nu), dag(self.link(x_pnu, mu))),
-                dag(self.link(site, nu)),
-            );
-            // backward completion: U_nu(x-nu+mu)^dag U_mu(x-nu)^dag U_nu(x-nu)
-            let x_mnu = self.shift(site, nu, false);
-            let x_mnu_pmu = self.shift(x_mnu, mu, true);
-            let bwd = mul(
-                mul(dag(self.link(x_mnu_pmu, nu)), dag(self.link(x_mnu, mu))),
-                self.link(x_mnu, nu),
-            );
-            a = add(a, add(fwd, bwd));
-        }
-        dag(a)
     }
 
     /// Average plaquette `<P> = < (1/2) Re Tr U_plaq >` over all plaquettes.
@@ -350,9 +391,44 @@ pub fn build_classes(lat: &Lattice) -> Vec<Vec<usize>> {
     classes
 }
 
-/// One full sweep: a heatbath pass then `n_or` overrelaxation passes, each
-/// done over the 8 (mu, parity) classes.  Within a class, links share no
-/// plaquette, so the compute is exact under read-the-lattice / apply-after.
+/// Update one checkerboard class link `idx[k]`, in place, via the base pointer.
+/// SAFETY: caller guarantees `idx[k]` is unique among concurrently-running
+/// workers (checkerboard), and that the staple neighbours of (site, mu) are not
+/// concurrently written (they belong to other classes, updated in other
+/// barrier-separated phases).
+#[inline]
+unsafe fn update_link(
+    base: *mut Su2,
+    geom: &Geom,
+    link_idx: usize,
+    beta: f64,
+    is_heatbath: bool,
+    sweep_idx: u64,
+    pass_tag: u64,
+    seed: u64,
+) {
+    let site = link_idx / DIM;
+    let mu = link_idx % DIM;
+    let a = staple_ptr(base, geom, site, mu);
+    let v = if is_heatbath {
+        let mut rng = Rng::seed(stream_seed(seed, sweep_idx, pass_tag, link_idx));
+        heatbath_link(a, beta, &mut rng)
+    } else {
+        overrelax_link(*base.add(link_idx), a)
+    };
+    *base.add(link_idx) = v;
+}
+
+/// One full sweep: a heatbath pass then `n_or` overrelaxation passes, each over
+/// the 8 (mu, parity) checkerboard classes.  Workers are spawned **once per
+/// sweep** and march through all class sub-sweeps together, synchronized by a
+/// barrier after each class so that every write of class C lands before any
+/// neighbour read of class C+1.  (Spawning once per sweep instead of once per
+/// class cut the OS-thread-creation overhead ~100x.)
+///
+/// Determinism: each link's heatbath RNG is seeded from
+/// `(seed, sweep_idx, pass_tag, link_idx)`, independent of thread count, so the
+/// result is bit-identical for any `threads`.
 pub fn sweep(
     lat: &mut Lattice,
     beta: f64,
@@ -362,93 +438,71 @@ pub fn sweep(
     threads: usize,
     classes: &[Vec<usize>],
 ) {
-    for pass in 0..(1 + n_or) {
-        let is_heatbath = pass == 0;
-        for mu in 0..DIM {
-            for parity in 0..2 {
-                let idx = &classes[mu * 2 + parity];
-                let pass_tag = ((pass as u64) << 8) | (parity as u64) << 2 | mu as u64;
-                let new_vals = compute_class(
-                    lat, idx, beta, is_heatbath, sweep_idx, pass_tag, seed, threads,
-                );
-                // Parallel apply.  compute_class has fully returned, so there is
-                // no concurrent read of lat.links here; the class indices are
-                // pairwise distinct (checkerboard), so the writes are disjoint.
-                apply_class(&mut lat.links, idx, &new_vals, threads);
-            }
-        }
-    }
-}
+    let nthreads = threads.max(1);
+    let geom = lat.geom();
 
-/// Scatter `new_vals[k]` into `links[idx[k]]` in parallel.  `idx` must be
-/// pairwise distinct (the checkerboard class guarantees this), so the writes
-/// are disjoint and race-free; we use a raw base pointer because the target
-/// indices are scattered (not a contiguous sub-slice).
-fn apply_class(links: &mut [Su2], idx: &[usize], new_vals: &[Su2], threads: usize) {
-    let n = idx.len();
-    let nthreads = threads.max(1).min(n.max(1));
     if nthreads == 1 {
-        for (k, &li) in idx.iter().enumerate() {
-            links[li] = new_vals[k];
+        let base = lat.links.as_mut_ptr();
+        for pass in 0..(1 + n_or) {
+            let is_heatbath = pass == 0;
+            for mu in 0..DIM {
+                for parity in 0..2 {
+                    let pass_tag = ((pass as u64) << 8) | (parity as u64) << 2 | mu as u64;
+                    for &link_idx in &classes[mu * 2 + parity] {
+                        // SAFETY: serial; indices valid.
+                        unsafe {
+                            update_link(
+                                base, &geom, link_idx, beta, is_heatbath, sweep_idx, pass_tag,
+                                seed,
+                            );
+                        }
+                    }
+                }
+            }
         }
         return;
     }
-    let base = links.as_mut_ptr() as usize; // pass as usize so the closure is Send
-    let chunk = (n + nthreads - 1) / nthreads;
+
+    let base = lat.links.as_mut_ptr() as usize; // usize so the closure is Send
+    let barrier = std::sync::Barrier::new(nthreads);
     std::thread::scope(|s| {
-        for ci in 0..nthreads {
-            let lo = ci * chunk;
-            let hi = ((ci + 1) * chunk).min(n);
-            if lo >= hi {
-                break;
-            }
+        for tid in 0..nthreads {
+            let barrier = &barrier;
+            let geom = geom;
+            let classes = &classes;
             s.spawn(move || {
                 let base = base as *mut Su2;
-                for k in lo..hi {
-                    // SAFETY: idx[lo..hi] are distinct from every other chunk's
-                    // indices (checkerboard), so this write aliases nothing.
-                    unsafe {
-                        *base.add(idx[k]) = new_vals[k];
+                for pass in 0..(1 + n_or) {
+                    let is_heatbath = pass == 0;
+                    for mu in 0..DIM {
+                        for parity in 0..2 {
+                            let idx = &classes[mu * 2 + parity];
+                            let pass_tag =
+                                ((pass as u64) << 8) | (parity as u64) << 2 | mu as u64;
+                            let n = idx.len();
+                            let chunk = (n + nthreads - 1) / nthreads;
+                            let lo = (tid * chunk).min(n);
+                            let hi = ((tid + 1) * chunk).min(n);
+                            for &link_idx in &idx[lo..hi] {
+                                // SAFETY: idx values are pairwise distinct, the
+                                // per-worker ranges are disjoint, and a class
+                                // link's staple reads only other-class links
+                                // (fixed during this phase).  The barrier below
+                                // orders this phase's writes before the next.
+                                unsafe {
+                                    update_link(
+                                        base, &geom, link_idx, beta, is_heatbath, sweep_idx,
+                                        pass_tag, seed,
+                                    );
+                                }
+                            }
+                            barrier.wait();
+                        }
                     }
                 }
             });
         }
     });
-}
-
-/// Parallel compute of new link values for one class (read-only on the lattice).
-fn compute_class(
-    lat: &Lattice,
-    idx: &[usize],
-    beta: f64,
-    is_heatbath: bool,
-    sweep_idx: u64,
-    pass_tag: u64,
-    seed: u64,
-    threads: usize,
-) -> Vec<Su2> {
-    let n = idx.len();
-    let mut out = vec![ID; n];
-    let nthreads = threads.max(1).min(n.max(1));
-    let chunk = (n + nthreads - 1) / nthreads;
-    std::thread::scope(|s| {
-        for (idx_chunk, out_chunk) in idx.chunks(chunk).zip(out.chunks_mut(chunk)) {
-            s.spawn(move || {
-                for (j, &link_idx) in idx_chunk.iter().enumerate() {
-                    let site = link_idx / DIM;
-                    let mu = link_idx % DIM;
-                    let a = lat.staple(site, mu);
-                    out_chunk[j] = if is_heatbath {
-                        let mut rng = Rng::seed(stream_seed(seed, sweep_idx, pass_tag, link_idx));
-                        heatbath_link(a, beta, &mut rng)
-                    } else {
-                        overrelax_link(lat.link(site, mu), a)
-                    };
-                }
-            });
-        }
-    });
-    out
 }
 
 // ---------------------------------------------------------------------------
