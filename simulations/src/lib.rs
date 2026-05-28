@@ -652,6 +652,148 @@ pub fn measure_glueball(
 }
 
 // ---------------------------------------------------------------------------
+// String tension: rectangular Wilson loops W(R,T) in the (spatial, time)
+// planes, with APE-smeared spatial links to improve the static-potential
+// signal.  Python extracts sigma via Creutz ratios / the static potential.
+// ---------------------------------------------------------------------------
+
+impl Lattice {
+    /// Site reached by `n` steps in +/-mu from `site` (periodic).
+    #[inline]
+    fn shift_n(&self, mut site: usize, mu: usize, n: usize, fwd: bool) -> usize {
+        for _ in 0..n {
+            site = self.shift(site, mu, fwd);
+        }
+        site
+    }
+}
+
+pub struct StringTensionData {
+    pub l: usize,
+    pub beta: f64,
+    pub n_therm: usize,
+    pub n_collected: usize,
+    pub overrelax: usize,
+    pub threads: usize,
+    pub r_max: usize,
+    pub t_max: usize,
+    pub smear_steps: usize,
+    pub smear_alpha: f64,
+    /// `w[r-1][t-1] = <W(r, t)>`, the planar R x T Wilson loop (R spatial,
+    /// T temporal), averaged over sites and the 3 spatial directions.
+    pub w: Vec<Vec<f64>>,
+}
+
+/// Measure rectangular Wilson loops W(R,T) for R=1..=r_max, T=1..=t_max.
+/// Spatial segments use spatial links APE-smeared `smear_steps` times;
+/// temporal segments use the unsmeared temporal links.
+#[allow(clippy::too_many_arguments)]
+pub fn measure_string_tension(
+    l: usize,
+    beta: f64,
+    n_therm: usize,
+    n_meas: usize,
+    meas_interval: usize,
+    n_overrelax: usize,
+    r_max: usize,
+    t_max: usize,
+    smear_steps: usize,
+    smear_alpha: f64,
+    seed: u64,
+    threads: usize,
+) -> StringTensionData {
+    assert!(r_max < l && t_max < l, "loop extents must be < L");
+    let mut lat = Lattice::new_hot(l, seed);
+    let mut sweep_idx: u64 = 0;
+    for _ in 0..n_therm {
+        sweep(&mut lat, beta, n_overrelax, sweep_idx, seed, threads);
+        sweep_idx += 1;
+    }
+
+    let vol = lat.vol;
+    let mut w_sum = vec![vec![0.0f64; t_max]; r_max];
+    let mut n_collected = 0usize;
+    let mut since = 0usize;
+
+    for _ in 0..n_meas {
+        sweep(&mut lat, beta, n_overrelax, sweep_idx, seed, threads);
+        sweep_idx += 1;
+        since += 1;
+        if since < meas_interval {
+            continue;
+        }
+        since = 0;
+
+        // APE-smear spatial links.
+        let mut sm = lat.links.clone();
+        for _ in 0..smear_steps {
+            sm = ape_smear_spatial(&sm, &lat, smear_alpha);
+        }
+
+        // Temporal lines tl[t][x] = product of t temporal links from x (unsmeared).
+        let mut tl = vec![vec![ID; vol]; t_max + 1];
+        for x in 0..vol {
+            tl[1][x] = lat.link(x, 0);
+        }
+        for t in 2..=t_max {
+            for x in 0..vol {
+                let xp = lat.shift_n(x, 0, t - 1, true);
+                tl[t][x] = mul(tl[t - 1][x], lat.link(xp, 0));
+            }
+        }
+
+        // Per spatial direction: spatial lines (smeared) + loop assembly.
+        for i in 1..DIM {
+            let mut sl = vec![vec![ID; vol]; r_max + 1];
+            for x in 0..vol {
+                sl[1][x] = lget(&sm, x, i);
+            }
+            for r in 2..=r_max {
+                for x in 0..vol {
+                    let xp = lat.shift_n(x, i, r - 1, true);
+                    sl[r][x] = mul(sl[r - 1][x], lget(&sm, xp, i));
+                }
+            }
+            for x in 0..vol {
+                for r in 1..=r_max {
+                    let x_pr = lat.shift_n(x, i, r, true);
+                    for t in 1..=t_max {
+                        let x_pt = lat.shift_n(x, 0, t, true);
+                        // W = L_i(x,r) T_0(x+r i, t) L_i(x+t e0, r)^dag T_0(x, t)^dag
+                        let lp = mul(
+                            mul(sl[r][x], tl[t][x_pr]),
+                            mul(dag(sl[r][x_pt]), dag(tl[t][x])),
+                        );
+                        w_sum[r - 1][t - 1] += lp[0];
+                    }
+                }
+            }
+        }
+        n_collected += 1;
+    }
+
+    let norm = (n_collected.max(1) * vol * (DIM - 1)) as f64;
+    let w: Vec<Vec<f64>> = w_sum
+        .iter()
+        .map(|row| row.iter().map(|s| s / norm).collect())
+        .collect();
+
+    StringTensionData {
+        l,
+        beta,
+        n_therm,
+        n_collected,
+        overrelax: n_overrelax,
+        threads,
+        r_max,
+        t_max,
+        smear_steps,
+        smear_alpha,
+        w,
+    }
+}
+
+// ---------------------------------------------------------------------------
 // Tests.
 // ---------------------------------------------------------------------------
 
@@ -743,6 +885,20 @@ mod tests {
         assert!(c[0] > c[1], "C(0) should exceed C(1): {} vs {}", c[0], c[1]);
         let meff = (c[0] / c[1]).ln();
         assert!(meff > 0.0 && meff.is_finite(), "effective mass should be positive finite, got {meff}");
+    }
+
+    #[test]
+    fn wilson_loops_decrease_and_creutz_positive() {
+        // W(R,T) must decrease with area; the Creutz ratio must be positive
+        // (a positive string tension).
+        let s = measure_string_tension(8, 2.4, 300, 2000, 4, 4, 3, 3, 0, 0.5, 11, 4);
+        let w = &s.w; // w[r-1][t-1]
+        assert!(w[0][0] > w[1][0], "W(2,1) should be < W(1,1)");
+        assert!(w[0][0] > w[0][1], "W(1,2) should be < W(1,1)");
+        assert!(w[2][2] > 0.0, "W(3,3) should still have positive signal");
+        // Creutz ratio chi(2,2) = -ln[ W(2,2)W(1,1) / (W(1,2)W(2,1)) ] > 0.
+        let chi = -(w[1][1] * w[0][0] / (w[0][1] * w[1][0])).ln();
+        assert!(chi > 0.0, "Creutz ratio chi(2,2) should be positive, got {chi}");
     }
 
     #[test]

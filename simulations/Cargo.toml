@@ -16,6 +16,10 @@ path = "src/bin/plaquette_scan.rs"
 name = "glueball"
 path = "src/bin/glueball.rs"
 
+[[bin]]
+name = "string_tension"
+path = "src/bin/string_tension.rs"
+
 # Deliberately dependency-free (std only): self-contained RNG, JSON, and
 # std::thread::scope parallelism, so `cargo build` needs no network access.
 
