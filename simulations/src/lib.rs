@@ -675,6 +675,18 @@ pub struct GlueballData {
     /// Connected correlator C_ij(tau) = <O_i(t) O_j(t+tau)> - <O_i><O_j>,
     /// indexed [i][j][tau], tau = 0..=l/2.
     pub corr: Vec<Vec<Vec<f64>>>,
+    /// Number of (contiguous) configuration bins for jackknife error analysis.
+    pub n_bins: usize,
+    /// Configs in each bin; `[n_bins]`.
+    pub bin_counts: Vec<usize>,
+    /// Per-bin UNSUBTRACTED operator sum: sum over the bin's configs of the
+    /// per-timeslice mean (1/L) sum_t O_i(t).  `[n_bins][nlev]`.  The connected
+    /// correlator on any jackknife sample is rebuilt downstream from these and
+    /// `bin_corr_sum` (so the subtraction uses the leave-one-out mean).
+    pub bin_op_sum: Vec<Vec<f64>>,
+    /// Per-bin UNSUBTRACTED correlator sum: sum over the bin's configs of
+    /// (1/L) sum_t O_i(t) O_j(t+tau).  `[n_bins][nlev][nlev][tau_max+1]`.
+    pub bin_corr_sum: Vec<Vec<Vec<Vec<f64>>>>,
 }
 
 /// Measure the 0++ glueball correlation matrix.  `smear_levels` must be
@@ -690,12 +702,23 @@ pub fn measure_glueball(
     n_overrelax: usize,
     smear_levels: &[usize],
     smear_alpha: f64,
+    n_bins: usize,
     seed: u64,
     threads: usize,
 ) -> GlueballData {
     let nlev = smear_levels.len();
     let max_level = *smear_levels.iter().max().unwrap_or(&0);
     let tau_max = l / 2;
+
+    // Contiguous binning of the collected configs for jackknife errors.  The
+    // expected collected count is n_meas/meas_interval; clamp the bin count to
+    // that and assign configs to bins by their collection index.
+    let expected = (n_meas / meas_interval.max(1)).max(1);
+    let n_bins = n_bins.clamp(1, expected);
+    let bin_size = (expected + n_bins - 1) / n_bins;
+    let mut bin_counts = vec![0usize; n_bins];
+    let mut bin_op_sum = vec![vec![0.0f64; nlev]; n_bins];
+    let mut bin_corr_sum = vec![vec![vec![vec![0.0f64; tau_max + 1]; nlev]; nlev]; n_bins];
 
     let mut lat = Lattice::new_hot(l, seed);
     let classes = build_classes(&lat);
@@ -705,8 +728,6 @@ pub fn measure_glueball(
         sweep_idx += 1;
     }
 
-    let mut mean_op = vec![0.0f64; nlev];
-    let mut corr = vec![vec![vec![0.0f64; tau_max + 1]; nlev]; nlev];
     let mut n_collected = 0usize;
     let mut since = 0usize;
 
@@ -748,23 +769,38 @@ pub fn measure_glueball(
             }
         }
 
+        let bin = (n_collected / bin_size).min(n_bins - 1);
+        bin_counts[bin] += 1;
         for i in 0..nlev {
             let si: f64 = op[i].iter().sum::<f64>() / l as f64;
-            mean_op[i] += si;
+            bin_op_sum[bin][i] += si;
             for j in 0..nlev {
                 for tau in 0..=tau_max {
                     let mut acc = 0.0;
                     for t in 0..l {
                         acc += op[i][t] * op[j][(t + tau) % l];
                     }
-                    corr[i][j][tau] += acc / l as f64;
+                    bin_corr_sum[bin][i][j][tau] += acc / l as f64;
                 }
             }
         }
         n_collected += 1;
     }
 
+    // Global connected correlator, rebuilt from the bin sums.
     let nc = n_collected.max(1) as f64;
+    let mut mean_op = vec![0.0f64; nlev];
+    let mut corr = vec![vec![vec![0.0f64; tau_max + 1]; nlev]; nlev];
+    for b in 0..n_bins {
+        for i in 0..nlev {
+            mean_op[i] += bin_op_sum[b][i];
+            for j in 0..nlev {
+                for tau in 0..=tau_max {
+                    corr[i][j][tau] += bin_corr_sum[b][i][j][tau];
+                }
+            }
+        }
+    }
     for i in 0..nlev {
         mean_op[i] /= nc;
     }
@@ -787,6 +823,10 @@ pub fn measure_glueball(
         threads,
         mean_op,
         corr,
+        n_bins,
+        bin_counts,
+        bin_op_sum,
+        bin_corr_sum,
     }
 }
 
@@ -1045,13 +1085,28 @@ mod tests {
     fn glueball_correlator_sane() {
         // Connected 0++ correlator: positive at tau=0, decreasing, finite
         // positive effective mass for the smeared operator.
-        let g = measure_glueball(8, 2.4, 300, 2000, 4, 4, &[0, 4, 8], 0.5, 7, 4);
+        let g = measure_glueball(8, 2.4, 300, 2000, 4, 4, &[0, 4, 8], 0.5, 8, 7, 4);
         let top = g.smear_levels.len() - 1;
         let c = &g.corr[top][top];
         assert!(c[0] > 0.0, "C(0) must be positive, got {}", c[0]);
         assert!(c[0] > c[1], "C(0) should exceed C(1): {} vs {}", c[0], c[1]);
         let meff = (c[0] / c[1]).ln();
         assert!(meff > 0.0 && meff.is_finite(), "effective mass should be positive finite, got {meff}");
+
+        // Bin bookkeeping: counts sum to n_collected, and the global connected
+        // correlator equals the one rebuilt from the bin sums (the jackknife
+        // inputs must reproduce the reported central value).
+        assert_eq!(g.bin_counts.iter().sum::<usize>(), g.n_collected);
+        let nc = g.n_collected as f64;
+        let mut acc = 0.0;
+        let mut mop_i = 0.0;
+        for b in 0..g.n_bins {
+            acc += g.bin_corr_sum[b][top][top][0];
+            mop_i += g.bin_op_sum[b][top];
+        }
+        let rebuilt = acc / nc - (mop_i / nc) * (mop_i / nc);
+        assert!((rebuilt - c[0]).abs() < 1e-9 * c[0].abs().max(1.0),
+            "bin-rebuilt C(0)={rebuilt} must match reported {}", c[0]);
     }
 
     #[test]

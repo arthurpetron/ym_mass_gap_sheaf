@@ -22,6 +22,7 @@ fn main() {
     let mut overrelax = 4usize;
     let mut smear_levels = vec![0usize, 4, 8, 16];
     let mut smear_alpha = 0.5f64;
+    let mut bins = 40usize;
     let mut seed = 0u64;
     let mut threads = std::thread::available_parallelism().map(|n| n.get()).unwrap_or(1);
     let mut out: Option<String> = None;
@@ -47,6 +48,7 @@ fn main() {
                 smear_levels = val().split(',').map(|s| s.trim().parse().unwrap()).collect()
             }
             "--smear-alpha" => smear_alpha = val().parse().unwrap(),
+            "--bins" => bins = val().parse().unwrap(),
             "--seed" => seed = val().parse().unwrap(),
             "--threads" => threads = val().parse().unwrap(),
             "--out" => out = Some(val()),
@@ -57,11 +59,11 @@ fn main() {
     smear_levels.dedup();
 
     eprintln!(
-        "=== 0++ glueball (L={l}, beta={beta}, smear {smear_levels:?} @ alpha={smear_alpha}) ===\n  {therm} therm + {meas} meas (every {interval}), {overrelax} overrelax, {threads} threads"
+        "=== 0++ glueball (L={l}, beta={beta}, smear {smear_levels:?} @ alpha={smear_alpha}) ===\n  {therm} therm + {meas} meas (every {interval}), {overrelax} overrelax, {bins} bins, {threads} threads"
     );
     let t0 = Instant::now();
     let g = measure_glueball(
-        l, beta, therm, meas, interval, overrelax, &smear_levels, smear_alpha, seed, threads,
+        l, beta, therm, meas, interval, overrelax, &smear_levels, smear_alpha, bins, seed, threads,
     );
     let secs = t0.elapsed().as_secs_f64();
     eprintln!("  collected {} configs in {:.1}s", g.n_collected, secs);
@@ -107,13 +109,50 @@ fn main() {
         .collect::<Vec<_>>()
         .join(", ");
 
+    // Per-bin jackknife inputs: counts, unsubtracted operator sums, and
+    // unsubtracted correlator sums [bin][i][j][tau].
+    let counts_json =
+        g.bin_counts.iter().map(|c| c.to_string()).collect::<Vec<_>>().join(", ");
+    let bin_op_json = g
+        .bin_op_sum
+        .iter()
+        .map(|row| format!("[{}]", fmt_vec(row)))
+        .collect::<Vec<_>>()
+        .join(", ");
+    let mut bin_corr_json = String::new();
+    bin_corr_json.push('[');
+    for (b, mat) in g.bin_corr_sum.iter().enumerate() {
+        if b > 0 {
+            bin_corr_json.push_str(", ");
+        }
+        bin_corr_json.push('[');
+        for (i, row) in mat.iter().enumerate() {
+            if i > 0 {
+                bin_corr_json.push_str(", ");
+            }
+            bin_corr_json.push('[');
+            for (j, series) in row.iter().enumerate() {
+                if j > 0 {
+                    bin_corr_json.push_str(", ");
+                }
+                bin_corr_json.push_str(&format!("[{}]", fmt_vec(series)));
+            }
+            bin_corr_json.push(']');
+        }
+        bin_corr_json.push(']');
+    }
+    bin_corr_json.push(']');
+
     let json = format!(
-        "{{\n  \"l\": {}, \"beta\": {}, \"n_therm\": {}, \"n_collected\": {},\n  \"smear_levels\": [{}], \"smear_alpha\": {}, \"n_overrelax\": {}, \"threads\": {},\n  \"meas_interval\": {}, \"elapsed_seconds\": {:.3},\n  \"mean_op\": [{}],\n  \"corr\": {}\n}}\n",
+        "{{\n  \"l\": {}, \"beta\": {}, \"n_therm\": {}, \"n_collected\": {},\n  \"smear_levels\": [{}], \"smear_alpha\": {}, \"n_overrelax\": {}, \"threads\": {},\n  \"meas_interval\": {}, \"elapsed_seconds\": {:.3},\n  \"mean_op\": [{}],\n  \"corr\": {},\n  \"n_bins\": {}, \"bin_counts\": [{}],\n  \"bin_op_sum\": [{}],\n  \"bin_corr_sum\": {}\n}}\n",
         g.l, g.beta, g.n_therm, g.n_collected,
         levels_json, g.smear_alpha, g.overrelax, g.threads,
         interval, secs,
         fmt_vec(&g.mean_op),
-        corr_json
+        corr_json,
+        g.n_bins, counts_json,
+        bin_op_json,
+        bin_corr_json
     );
     match &out {
         Some(p) => {
