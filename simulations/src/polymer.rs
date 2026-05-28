@@ -84,6 +84,131 @@ fn grow<G: Geometry>(
 }
 
 // ---------------------------------------------------------------------------
+// Parallel enumeration: decompose the Redelmeier tree into independent tasks
+// at a fixed split depth, then run them across threads with a work queue.
+// ---------------------------------------------------------------------------
+
+use std::sync::atomic::{AtomicUsize, Ordering};
+
+/// A resumable Redelmeier subtree: a partial polyomino at depth `size` with the
+/// candidate `frontier` to extend and a set of `blocked` cells (poly + frontier
+/// + forbidden) to seed the status array.  Counts sizes `size+1..=max`.
+struct Task {
+    blocked: Vec<usize>,
+    frontier: Vec<usize>,
+    size: usize,
+}
+
+/// Generate the depth-`split` tasks (serial; cheap), and the low-order counts
+/// for sizes `1..=split` discovered along the way.  Mirrors `grow`'s discipline
+/// but carries (poly, frontier, forbidden) explicitly so each node's state can
+/// be snapshotted into an independent task.
+fn gen_tasks<G: Geometry>(
+    geom: &G,
+    split: usize,
+    poly: &[usize],
+    frontier: &[usize],
+    forbidden: &[usize],
+    counts_low: &mut [u64],
+    tasks: &mut Vec<Task>,
+) {
+    let size = poly.len();
+    if size == split {
+        let mut blocked = Vec::with_capacity(poly.len() + frontier.len() + forbidden.len());
+        blocked.extend_from_slice(poly);
+        blocked.extend_from_slice(frontier);
+        blocked.extend_from_slice(forbidden);
+        tasks.push(Task { blocked, frontier: frontier.to_vec(), size });
+        return;
+    }
+    let mut frontier = frontier.to_vec();
+    let mut forbidden = forbidden.to_vec();
+    let mut child_buf: Vec<usize> = Vec::new();
+    while let Some(c) = frontier.pop() {
+        counts_low[size + 1] += 1;
+        // c's new candidates: children not already in poly/frontier/forbidden.
+        child_buf.clear();
+        geom.children(c, &mut child_buf);
+        let mut new_frontier = frontier.clone();
+        for &nb in &child_buf {
+            if !poly.contains(&nb)
+                && !new_frontier.contains(&nb)
+                && !forbidden.contains(&nb)
+            {
+                new_frontier.push(nb);
+            }
+        }
+        let mut new_poly = poly.to_vec();
+        new_poly.push(c);
+        gen_tasks(geom, split, &new_poly, &new_frontier, &forbidden, counts_low, tasks);
+        forbidden.push(c); // EXCLUDE c for subsequent siblings
+    }
+}
+
+/// Parallel connected-animal count: identical result to `count_animals`, run
+/// across `threads` via a work queue over depth-`split` subtrees.
+pub fn count_animals_parallel<G: Geometry + Sync>(
+    geom: &G,
+    max: usize,
+    threads: usize,
+) -> Vec<u64> {
+    if max < 4 || threads <= 1 {
+        return count_animals(geom, max);
+    }
+    let split = 3.min(max - 1);
+
+    // Generate tasks + low-order counts (serial, cheap).
+    let mut counts_low = vec![0u64; max + 1];
+    counts_low[1] = 1;
+    let origin = geom.origin();
+    let mut children0: Vec<usize> = Vec::new();
+    geom.children(origin, &mut children0);
+    let mut tasks: Vec<Task> = Vec::new();
+    gen_tasks(geom, split, &[origin], &children0, &[], &mut counts_low, &mut tasks);
+
+    // Work queue across threads.
+    let cursor = AtomicUsize::new(0);
+    let board = geom.board_size();
+    let nthreads = threads.max(1).min(tasks.len().max(1));
+    let partials: Vec<Vec<u64>> = std::thread::scope(|s| {
+        let handles: Vec<_> = (0..nthreads)
+            .map(|_| {
+                let cursor = &cursor;
+                let tasks = &tasks;
+                s.spawn(move || {
+                    let mut local = vec![0u64; max + 1];
+                    let mut status = vec![false; board];
+                    loop {
+                        let i = cursor.fetch_add(1, Ordering::Relaxed);
+                        if i >= tasks.len() {
+                            break;
+                        }
+                        let t = &tasks[i];
+                        for &c in &t.blocked {
+                            status[c] = true;
+                        }
+                        grow(geom, &mut status, &mut local, t.frontier.clone(), t.size, max);
+                        for &c in &t.blocked {
+                            status[c] = false; // reset scratch for the next task
+                        }
+                    }
+                    local
+                })
+            })
+            .collect();
+        handles.into_iter().map(|h| h.join().unwrap()).collect()
+    });
+
+    let mut counts = counts_low;
+    for p in partials {
+        for n in 0..=max {
+            counts[n] += p[n];
+        }
+    }
+    counts
+}
+
+// ---------------------------------------------------------------------------
 // 2D square lattice (validation against A001168).
 // ---------------------------------------------------------------------------
 
@@ -297,5 +422,23 @@ mod tests {
         for n in 2..=5 {
             assert!(counts[n] > counts[n - 1], "counts should grow: {:?}", counts);
         }
+    }
+
+    #[test]
+    fn parallel_matches_serial_plaq4d() {
+        let geom = Plaq4D::new(6);
+        let serial = count_animals(&geom, 6);
+        for threads in [2usize, 4, 8, 16] {
+            let par = count_animals_parallel(&geom, 6, threads);
+            assert_eq!(serial, par, "parallel != serial at {threads} threads");
+        }
+    }
+
+    #[test]
+    fn parallel_matches_serial_square2d() {
+        let geom = Square2D::new(8);
+        let serial = count_animals(&geom, 8);
+        let par = count_animals_parallel(&geom, 8, 8);
+        assert_eq!(serial, par);
     }
 }

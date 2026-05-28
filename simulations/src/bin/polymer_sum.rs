@@ -14,7 +14,7 @@
 
 use std::time::Instant;
 
-use ym_simulations::polymer::{count_animals, Plaq4D};
+use ym_simulations::polymer::{count_animals_parallel, Plaq4D};
 
 const MU_CONN: f64 = 3.0794415416798357; // log(8e), d=4
 
@@ -32,6 +32,7 @@ fn main() {
     let mut max = 6usize;
     let mut rho_sf = 8.333f64; // canonical g_0=0.30: c_lambda*kappa/g^2 = 0.75/0.09
     let mut rho_lf = 5.0f64;
+    let mut threads = std::thread::available_parallelism().map(|n| n.get()).unwrap_or(1);
     let mut out: Option<String> = None;
 
     let argv: Vec<String> = std::env::args().collect();
@@ -48,15 +49,16 @@ fn main() {
             "--max" => max = val().parse().unwrap(),
             "--rho-sf" => rho_sf = val().parse().unwrap(),
             "--rho-lf" => rho_lf = val().parse().unwrap(),
+            "--threads" => threads = val().parse().unwrap(),
             "--out" => out = Some(val()),
             other => panic!("unknown flag: {other}"),
         }
     }
 
-    eprintln!("=== 4D plaquette polymer enumeration (max size = {max}) ===");
+    eprintln!("=== 4D plaquette polymer enumeration (max size = {max}, {threads} threads) ===");
     let t0 = Instant::now();
     let geom = Plaq4D::new(max);
-    let counts = count_animals(&geom, max);
+    let counts = count_animals_parallel(&geom, max, threads);
     let secs = t0.elapsed().as_secs_f64();
 
     eprintln!("  N(n) = connected plaquette-animals (lex-min = fixed origin):");

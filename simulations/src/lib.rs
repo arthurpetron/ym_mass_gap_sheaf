@@ -335,32 +335,85 @@ fn overrelax_link(u: Su2, a: Su2) -> Su2 {
 // Parallel checkerboard sweep.
 // ---------------------------------------------------------------------------
 
+/// The 8 (mu, parity) checkerboard classes of link indices, indexed
+/// `[mu*2 + parity]`.  Within a class, links share no plaquette, so a class can
+/// be updated fully in parallel.  Precompute once per run (the partition is
+/// fixed); rebuilding it every sweep was pure overhead.
+pub fn build_classes(lat: &Lattice) -> Vec<Vec<usize>> {
+    let mut classes: Vec<Vec<usize>> = vec![Vec::with_capacity(lat.vol / 2); DIM * 2];
+    for site in 0..lat.vol {
+        let p = lat.parity(site);
+        for mu in 0..DIM {
+            classes[mu * 2 + p].push(site * DIM + mu);
+        }
+    }
+    classes
+}
+
 /// One full sweep: a heatbath pass then `n_or` overrelaxation passes, each
 /// done over the 8 (mu, parity) classes.  Within a class, links share no
 /// plaquette, so the compute is exact under read-the-lattice / apply-after.
-pub fn sweep(lat: &mut Lattice, beta: f64, n_or: usize, sweep_idx: u64, seed: u64, threads: usize) {
-    // class index list cache reused across classes (rebuilt cheaply).
+pub fn sweep(
+    lat: &mut Lattice,
+    beta: f64,
+    n_or: usize,
+    sweep_idx: u64,
+    seed: u64,
+    threads: usize,
+    classes: &[Vec<usize>],
+) {
     for pass in 0..(1 + n_or) {
         let is_heatbath = pass == 0;
         for mu in 0..DIM {
             for parity in 0..2 {
-                // gather link indices for this class
-                let mut idx: Vec<usize> = Vec::with_capacity(lat.vol / 2);
-                for site in 0..lat.vol {
-                    if lat.parity(site) == parity {
-                        idx.push(site * DIM + mu);
-                    }
-                }
+                let idx = &classes[mu * 2 + parity];
                 let pass_tag = ((pass as u64) << 8) | (parity as u64) << 2 | mu as u64;
                 let new_vals = compute_class(
-                    lat, &idx, beta, is_heatbath, sweep_idx, pass_tag, seed, threads,
+                    lat, idx, beta, is_heatbath, sweep_idx, pass_tag, seed, threads,
                 );
-                for (j, &link_idx) in idx.iter().enumerate() {
-                    lat.links[link_idx] = new_vals[j];
-                }
+                // Parallel apply.  compute_class has fully returned, so there is
+                // no concurrent read of lat.links here; the class indices are
+                // pairwise distinct (checkerboard), so the writes are disjoint.
+                apply_class(&mut lat.links, idx, &new_vals, threads);
             }
         }
     }
+}
+
+/// Scatter `new_vals[k]` into `links[idx[k]]` in parallel.  `idx` must be
+/// pairwise distinct (the checkerboard class guarantees this), so the writes
+/// are disjoint and race-free; we use a raw base pointer because the target
+/// indices are scattered (not a contiguous sub-slice).
+fn apply_class(links: &mut [Su2], idx: &[usize], new_vals: &[Su2], threads: usize) {
+    let n = idx.len();
+    let nthreads = threads.max(1).min(n.max(1));
+    if nthreads == 1 {
+        for (k, &li) in idx.iter().enumerate() {
+            links[li] = new_vals[k];
+        }
+        return;
+    }
+    let base = links.as_mut_ptr() as usize; // pass as usize so the closure is Send
+    let chunk = (n + nthreads - 1) / nthreads;
+    std::thread::scope(|s| {
+        for ci in 0..nthreads {
+            let lo = ci * chunk;
+            let hi = ((ci + 1) * chunk).min(n);
+            if lo >= hi {
+                break;
+            }
+            s.spawn(move || {
+                let base = base as *mut Su2;
+                for k in lo..hi {
+                    // SAFETY: idx[lo..hi] are distinct from every other chunk's
+                    // indices (checkerboard), so this write aliases nothing.
+                    unsafe {
+                        *base.add(idx[k]) = new_vals[k];
+                    }
+                }
+            });
+        }
+    });
 }
 
 /// Parallel compute of new link values for one class (read-only on the lattice).
@@ -426,15 +479,16 @@ pub fn run_mcmc(
     threads: usize,
 ) -> McmcResult {
     let mut lat = Lattice::new_hot(l, seed);
+    let classes = build_classes(&lat);
     let mut sweep_idx: u64 = 0;
     for _ in 0..n_therm {
-        sweep(&mut lat, beta, n_overrelax, sweep_idx, seed, threads);
+        sweep(&mut lat, beta, n_overrelax, sweep_idx, seed, threads, &classes);
         sweep_idx += 1;
     }
     let mut samples: Vec<f64> = Vec::new();
     let mut since = 0usize;
     for _ in 0..n_meas {
-        sweep(&mut lat, beta, n_overrelax, sweep_idx, seed, threads);
+        sweep(&mut lat, beta, n_overrelax, sweep_idx, seed, threads, &classes);
         sweep_idx += 1;
         since += 1;
         if since >= meas_interval {
@@ -503,15 +557,30 @@ fn spatial_staple_from(links: &[Su2], lat: &Lattice, site: usize, mu: usize) -> 
 }
 
 /// One APE smearing step on the spatial links (temporal links copied through):
-/// U' = renorm(U + alpha * spatial_staple(U)).
-fn ape_smear_spatial(links: &[Su2], lat: &Lattice, alpha: f64) -> Vec<Su2> {
+/// U' = renorm(U + alpha * spatial_staple(U)).  Parallel over site chunks; the
+/// map is a pure function of `links`, so the result is independent of thread
+/// count.
+fn ape_smear_spatial(links: &[Su2], lat: &Lattice, alpha: f64, threads: usize) -> Vec<Su2> {
     let mut out = links.to_vec();
-    for site in 0..lat.vol {
-        for mu in 1..DIM {
-            let s = spatial_staple_from(links, lat, site, mu);
-            out[site * DIM + mu] = renorm(add(lget(links, site, mu), scale(s, alpha)));
+    let vol = lat.vol;
+    let nthreads = threads.max(1).min(vol);
+    let chunk_sites = (vol + nthreads - 1) / nthreads;
+    std::thread::scope(|s| {
+        for (ci, out_chunk) in out.chunks_mut(chunk_sites * DIM).enumerate() {
+            let site0 = ci * chunk_sites;
+            s.spawn(move || {
+                let n = out_chunk.len() / DIM;
+                for j in 0..n {
+                    let site = site0 + j;
+                    for mu in 1..DIM {
+                        let st = spatial_staple_from(links, lat, site, mu);
+                        out_chunk[j * DIM + mu] =
+                            renorm(add(lget(links, site, mu), scale(st, alpha)));
+                    }
+                }
+            });
         }
-    }
+    });
     out
 }
 
@@ -575,9 +644,10 @@ pub fn measure_glueball(
     let tau_max = l / 2;
 
     let mut lat = Lattice::new_hot(l, seed);
+    let classes = build_classes(&lat);
     let mut sweep_idx: u64 = 0;
     for _ in 0..n_therm {
-        sweep(&mut lat, beta, n_overrelax, sweep_idx, seed, threads);
+        sweep(&mut lat, beta, n_overrelax, sweep_idx, seed, threads, &classes);
         sweep_idx += 1;
     }
 
@@ -587,7 +657,7 @@ pub fn measure_glueball(
     let mut since = 0usize;
 
     for _ in 0..n_meas {
-        sweep(&mut lat, beta, n_overrelax, sweep_idx, seed, threads);
+        sweep(&mut lat, beta, n_overrelax, sweep_idx, seed, threads, &classes);
         sweep_idx += 1;
         since += 1;
         if since < meas_interval {
@@ -601,13 +671,26 @@ pub fn measure_glueball(
         let mut idx = 0usize;
         for level in 0..=max_level {
             while idx < nlev && smear_levels[idx] == level {
-                for t in 0..l {
-                    op[idx][t] = timeslice_op(&sm, &lat, t);
-                }
+                // parallel over timeslices (each independent).
+                let row = &mut op[idx];
+                let sm_ref = &sm;
+                let lat_ref = &lat;
+                let nthreads = threads.max(1).min(l);
+                let chunk = (l + nthreads - 1) / nthreads;
+                std::thread::scope(|s| {
+                    for (ci, rchunk) in row.chunks_mut(chunk).enumerate() {
+                        let t0 = ci * chunk;
+                        s.spawn(move || {
+                            for (j, slot) in rchunk.iter_mut().enumerate() {
+                                *slot = timeslice_op(sm_ref, lat_ref, t0 + j);
+                            }
+                        });
+                    }
+                });
                 idx += 1;
             }
             if level < max_level {
-                sm = ape_smear_spatial(&sm, &lat, smear_alpha);
+                sm = ape_smear_spatial(&sm, &lat, smear_alpha, threads);
             }
         }
 
@@ -706,9 +789,10 @@ pub fn measure_string_tension(
 ) -> StringTensionData {
     assert!(r_max < l && t_max < l, "loop extents must be < L");
     let mut lat = Lattice::new_hot(l, seed);
+    let classes = build_classes(&lat);
     let mut sweep_idx: u64 = 0;
     for _ in 0..n_therm {
-        sweep(&mut lat, beta, n_overrelax, sweep_idx, seed, threads);
+        sweep(&mut lat, beta, n_overrelax, sweep_idx, seed, threads, &classes);
         sweep_idx += 1;
     }
 
@@ -718,7 +802,7 @@ pub fn measure_string_tension(
     let mut since = 0usize;
 
     for _ in 0..n_meas {
-        sweep(&mut lat, beta, n_overrelax, sweep_idx, seed, threads);
+        sweep(&mut lat, beta, n_overrelax, sweep_idx, seed, threads, &classes);
         sweep_idx += 1;
         since += 1;
         if since < meas_interval {
@@ -729,7 +813,7 @@ pub fn measure_string_tension(
         // APE-smear spatial links.
         let mut sm = lat.links.clone();
         for _ in 0..smear_steps {
-            sm = ape_smear_spatial(&sm, &lat, smear_alpha);
+            sm = ape_smear_spatial(&sm, &lat, smear_alpha, threads);
         }
 
         // Temporal lines tl[t][x] = product of t temporal links from x (unsmeared).
@@ -756,17 +840,44 @@ pub fn measure_string_tension(
                     sl[r][x] = mul(sl[r - 1][x], lget(&sm, xp, i));
                 }
             }
-            for x in 0..vol {
-                for r in 1..=r_max {
-                    let x_pr = lat.shift_n(x, i, r, true);
-                    for t in 1..=t_max {
-                        let x_pt = lat.shift_n(x, 0, t, true);
-                        // W = L_i(x,r) T_0(x+r i, t) L_i(x+t e0, r)^dag T_0(x, t)^dag
-                        let lp = mul(
-                            mul(sl[r][x], tl[t][x_pr]),
-                            mul(dag(sl[r][x_pt]), dag(tl[t][x])),
-                        );
-                        w_sum[r - 1][t - 1] += lp[0];
+            // Parallel loop assembly: each thread accumulates a partial w over a
+            // contiguous site range; combine after.  (Statistical observable, so
+            // float-sum reordering across threads is immaterial.)
+            let sl_ref = &sl;
+            let tl_ref = &tl;
+            let lat_ref = &lat;
+            let nthreads = threads.max(1).min(vol);
+            let chunk = (vol + nthreads - 1) / nthreads;
+            let partials: Vec<Vec<Vec<f64>>> = std::thread::scope(|s| {
+                let handles: Vec<_> = (0..nthreads)
+                    .map(|ti| {
+                        let lo = ti * chunk;
+                        let hi = ((ti + 1) * chunk).min(vol);
+                        s.spawn(move || {
+                            let mut wp = vec![vec![0.0f64; t_max]; r_max];
+                            for x in lo..hi {
+                                for r in 1..=r_max {
+                                    let x_pr = lat_ref.shift_n(x, i, r, true);
+                                    for t in 1..=t_max {
+                                        let x_pt = lat_ref.shift_n(x, 0, t, true);
+                                        let lp = mul(
+                                            mul(sl_ref[r][x], tl_ref[t][x_pr]),
+                                            mul(dag(sl_ref[r][x_pt]), dag(tl_ref[t][x])),
+                                        );
+                                        wp[r - 1][t - 1] += lp[0];
+                                    }
+                                }
+                            }
+                            wp
+                        })
+                    })
+                    .collect();
+                handles.into_iter().map(|h| h.join().unwrap()).collect()
+            });
+            for wp in partials {
+                for r in 0..r_max {
+                    for t in 0..t_max {
+                        w_sum[r][t] += wp[r][t];
                     }
                 }
             }
