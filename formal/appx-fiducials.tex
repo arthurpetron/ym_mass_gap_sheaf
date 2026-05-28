@@ -298,6 +298,73 @@ $\massgap \ge 994/1000$, and the bootstrap CI
 $[0.994877, 0.994914]$ lies entirely above $994/1000$, so the
 rounding is not an artifact of Monte-Carlo noise.
 
+\section{UV-flow (operating-point) robustness}
+\label{sec:appx-uvflow}
+
+\marginkey{Varying $g_0$}%
+
+The bootstraps above vary the four \emph{analytic} fiducials at the
+\emph{fixed} canonical operating point $g_0 = 0.30$.  A sharper
+robustness question is whether the bound survives variation of the
+UV-flow operating point itself.  We therefore re-run the joint
+bootstrap with the initial coupling $g_0$ sampled uniformly alongside
+the fiducials (\codepath{computations/long_runs/m0_bootstrap_uvflow.py},
+$N = 10^6$ per envelope).  The block factor $b = 2$ and the one-loop
+coefficient $b_0 = 22/3$ are \emph{exact} structural constants of the
+SU(2) UV flow, not fiducials, and are held fixed.
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{lcccc}
+\toprule
+$g_0$ sampling & out-of-regime & $1$st pct.\ & \textbf{$5$th pct.} & median \\
+\midrule
+fixed $0.30$ ($N=10^7$)          & $0\%$    & $0.9735$ & $\mathbf{0.99490}$ & $0.99962$ \\
+$U[0.25, 0.35]$ ($\pm 0.05$ band) & $1.6\%$  & $0.9559$ & $\mathbf{0.99142}$ & $0.99958$ \\
+$U[0.20, 0.40]$ (full range)      & $9.9\%$  & $0.7353$ & $\mathbf{0.95114}$ & $0.99974$ \\
+\bottomrule
+\end{tabular}
+\caption{Joint bootstrap with the operating point $g_0$ varied.  The
+\emph{median} $\massgap$ is robust across the entire convergent range
+($\ge 0.9996$ in all three rows), but the $5$th-percentile robust
+quantile is operating-point-sensitive: it degrades from $0.9949$ (fixed
+$g_0$) to $0.9914$ ($\pm 0.05$ band) to $0.9511$ (full range).  The
+degradation is entirely driven by draws approaching the convergent
+boundary $g_0^\ast \approx 0.40$ (\Cref{ch:pilot-su2}
+\S\ref{sec:pilot-failure-modes}, \cref{fig:g0-phase-boundary}), where
+the cluster expansion stops converging --- the out-of-regime fraction
+grows from $0\%$ to $9.9\%$ as the upper envelope edge reaches
+$g_0^\ast$.}
+\label{tab:appx-uvflow}
+\end{table}
+
+\begin{fullfigure}
+\centering
+\includegraphics[width=\arthurfullwidth]{m_0-bootstrap-uvflow}
+\caption{UV-flow robustness.  Left: $\massgap$ versus the sampled
+$g_0$ over the full convergent range; $\massgap$ stays near $1$ until
+$g_0$ approaches the boundary $g_0^\ast \approx 0.40$ (red dashed),
+where draws collapse toward (and below) the regime edge.  The
+canonical operating point $g_0 = 0.30$ (green dotted) sits with
+comfortable margin.  Right: the $\massgap$ density over the $\pm 0.05$
+band $g_0 \sim U[0.25, 0.35]$, with the $5$th-percentile quantile
+($0.9914$) marked.}
+\label{fig:m0-bootstrap-uvflow}
+\end{fullfigure}
+
+The reading is honest and specific: the constructive bound is robust to
+operating-point choice \emph{as long as $g_0$ stays clear of the
+convergent boundary}.  At the canonical $g_0 = 0.30$ --- a margin of
+$\approx 0.10$ below $g_0^\ast$ --- the bound is unaffected; the
+$5$th-percentile only dips below $994/1000$ once the sampled $g_0$ is
+allowed within $\approx 0.05$ of the boundary.  This is the
+expected behaviour and locates the operating-point sensitivity
+precisely at the phase boundary already characterised in
+\Cref{ch:pilot-su2}; it is not a hidden fragility of the canonical
+result, whose headline $\massgap \ge 994/1000$ is a fixed-$g_0 = 0.30$
+statement.
+
 \section{What the figures together say}
 \label{sec:appx-conclusion}
 

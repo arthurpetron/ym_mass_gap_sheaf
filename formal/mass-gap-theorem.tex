@@ -448,30 +448,67 @@ reports.  This $10$\% spread is irrelevant to the $O(1)$ framing
 above.
 
 \subsection{Sources of looseness in the lower bound}
+\label{sec:looseness-decomposition}
+
+The $\sim 3.74$ gap between $m_0$ and the conjectured $m$ factorizes
+across the proof chain.  The decisive observation is that it is
+\emph{dominated by a single step} --- the area-law--to--mass-gap
+bridge --- while every $\sigh$-trajectory-side source contributes
+below the $2\%$ level, because $\sighinf \approx 0.999$ already leaves
+almost no headroom and $m_0 = \sqrt{\sighinf}$ compresses it further.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{p{3.5cm}p{2.6cm}p{2.3cm}p{3.0cm}}
+\toprule
+\textbf{Source} & \textbf{Enters via} & \textbf{Magnitude} &
+  \textbf{Refinement status} \\
+\midrule
+Linear-decay-to-gap ($m$ vs $\sqrt{\sigma}$) &
+  cluster-to-gap bridge, \cref{thm:area-law-to-gap-bridge} &
+  $\sim 3.74\times$ \textbf{(dominant)} &
+  open: sharper $O(1)$ constant, Brydges--Federbush 1981 \\
+$\Kcap$ union bound ($\Kcap \le \Ksf + \Klf$) &
+  overlap KP, \cref{ch:overlap-kp} &
+  $1.01$--$1.18\times$ on $\Kcap$ &
+  empirically tight (Conj.\ 7.4, $1.014$ at $g_0=0.30$); $K$-level
+  Lean-closed \\
+$\cpolymer$ overcounting ($2$ vs $1$) &
+  $\eta = (\cpolymer/\Amin)\Dcap$ &
+  $\le 2\times$ on $\eta$;\, $\sim\!+5\times10^{-4}$ on $\sighinf$ &
+  open: sign-preservation lemma \\
+$\Dcap$ buffer growth &
+  same $\eta$ coupling &
+  true UV value $0$;\, surrogate $\le 1.2\times10^{-2}$ &
+  structural: $\eta \equiv 0$ in the UV (\cref{rmk:explicit-tail}) \\
+Polymer-size cutoff / chaining &
+  KP sum truncation; $c_{\mathrm{chain}}(g)$ &
+  $c_{\mathrm{chain}}\!\in\!(0,1]$ \emph{uplift};\, $\sim\!+10^{-3}$ on $m_0$ &
+  tightening, applied (\cref{ch:chaining-estimate}) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Reading the table: the four $\sigh$-side rows compound to under
+$1.02\times$ --- they move $\sighinf$ only in its third--fourth
+decimal, hence $m_0$ in its fourth --- so \emph{the entire $\sim 3.74$
+looseness is the linear-decay-to-gap constant}.  Two consequences:
 
 \begin{enumerate}
-  \item \textbf{Phase-3 pilot truncation at $K = 3$.}  The pilot
-    consumes $\eta$ at every truncated step; running the pilot to
-    higher $K$ would consume more $\eta$ and tighten
-    (\emph{decrease}) $\varepsilon$, making $m_0$ smaller, not
-    larger.  However, the UV-direction infinite-trajectory pilot of
-    the Lean-closure analysis.4 has $\eta \equiv 0$ (structurally), giving $\sighinf =
-    \sigh_0 = 1$ exactly and $m_0 \le 1$ as the theoretical maximum
-    of this method.
-  \item \textbf{Square-root-of-$\sighinf$ identification.}  The
-    identification $m \ge \sighinf^{1/2}$ comes from the dimensional
-    relation between Wilson-loop area-law decay and Hamiltonian
-    spectral gap (\Cref{ch:os-reconstruction} \S8.2).  A
-    tighter rate-of-decay-to-mass-gap relation (cf.\ Brydges--Federbush
-    1981) could improve the linear coefficient.
-  \item \textbf{Phase-6.5 chaining tightening on $\eta$ derivation.}
-    The Phase-3 $\eta$ values used here come from the Phase-2.1 KP
-    certificates without the Phase-6.5 chaining-tightening
-    propagated through.  Propagating the chaining tightening into
-    the $\eta$ derivation could reduce
-    $\mathrm{eta\_total}$ by a multiplicative factor $\sim c_\text{chain}$
-    and correspondingly increase $\varepsilon$ and $m_0$.  This is a
-    Phase-6.5 $\to$ Phase-9 follow-on refinement.
+  \item \textbf{The only lever that matters is the $\sqrt{\sigma}$
+    bridge.}  Tightening the union bound, $\cpolymer$, $\Dcap$, or the
+    polymer cutoff cannot close the gap: their combined headroom is
+    $<2\%$.  A sharper area-law--to--gap relation
+    (\cref{thm:area-law-to-gap-bridge}, conservative constant $1$ vs
+    the physical $\approx 3.74$) is the sole route to a quantitatively
+    sharp bound.
+  \item \textbf{Pilot truncation is not a looseness source.}  Running
+    the pilot to higher $K$ \emph{consumes} more surrogate $\eta$ and
+    would \emph{decrease} $\varepsilon$; but the true UV-direction
+    trajectory has $\eta \equiv 0$ (\cref{rmk:explicit-tail}), so
+    $\sighinf = \sigma_0 = 1$ and the finite-$K=3$ quotable
+    $9991/10000$ is already within $9\times10^{-4}$ of the
+    method's ceiling $m_0 \le 1$.
 \end{enumerate}
 
 \subsection{Recommended refinement priorities}
