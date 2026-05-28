@@ -20,6 +20,10 @@ path = "src/bin/glueball.rs"
 name = "string_tension"
 path = "src/bin/string_tension.rs"
 
+[[bin]]
+name = "polymer_sum"
+path = "src/bin/polymer_sum.rs"
+
 # Deliberately dependency-free (std only): self-contained RNG, JSON, and
 # std::thread::scope parallelism, so `cargo build` needs no network access.
 

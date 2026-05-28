@@ -14,6 +14,8 @@
 
 use std::f64::consts::PI;
 
+pub mod polymer;
+
 // ---------------------------------------------------------------------------
 // RNG: splitmix64 — fast, seedable, good enough for MC; supports independent
 // per-(sweep, pass, link) streams for thread-count-independent determinism.
