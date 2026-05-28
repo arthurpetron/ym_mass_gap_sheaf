@@ -95,7 +95,12 @@ def run(
     K: int = 3,
     convention: HeatKernelConvention = HeatKernelConvention.CANONICAL,
     n_ci_resamples: int = 1000,
-) -> HighNSummary:
+) -> tuple[HighNSummary, np.ndarray]:
+    """Draw once, return the summary AND the valid-sample array.
+
+    Returning the samples lets the caller plot without re-drawing the
+    (potentially very expensive) bootstrap a second time.
+    """
     print(f"=== high-N m_0 bootstrap: n_samples = {n_samples:,}, seed = {seed} ===")
     t_start = time.time()
     result = run_bootstrap(
@@ -142,7 +147,7 @@ def run(
         bca_5_lo=bca_5_lo,
         bca_5_hi=bca_5_hi,
         elapsed_seconds=time.time() - t_start,
-    )
+    ), valid
 
 
 def plot_tail(
@@ -219,18 +224,10 @@ def main() -> None:
                    help="bootstrap CI resamples on the 5th percentile (default 1000)")
     args = p.parse_args()
 
-    # Re-run to get the full samples array (run_bootstrap stores it on the result).
-    from computations.m_0_bootstrap import run_bootstrap
-
     conv = HeatKernelConvention(args.convention)
-    print(f"=== drawing {args.n_samples:,} samples for the empirical-CDF plot ===")
-    result = run_bootstrap(
-        n_samples=args.n_samples, seed=args.seed, g_0=args.g0, K=args.K,
-        convention=conv,
-    )
-    arr = np.asarray(result.m_0_samples, dtype=np.float64)
-    valid = arr[np.isfinite(arr) & (arr > 0)]
-    summary = run(
+    # Single draw: run() returns both the summary and the valid-sample
+    # array, so the empirical-CDF plot reuses the same draw.
+    summary, valid = run(
         n_samples=args.n_samples, seed=args.seed, g_0=args.g0, K=args.K,
         convention=conv, n_ci_resamples=args.ci_resamples,
     )
