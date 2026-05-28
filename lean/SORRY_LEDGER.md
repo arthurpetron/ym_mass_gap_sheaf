@@ -13,9 +13,22 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## Current status (2026-05-28)
+
+**Zero open `sorry`s.** `lake build` (`leanprover/lean4:v4.29.1`, 28 jobs)
+completes cleanly with no `sorry`/`sorryAx` warnings; every entry below is
+closed. Axiom gates (re-verified 2026-05-28): the load-bearing decls
+`domGlue_preserves_KP`, `mass_gap_SU2`, `mass_gap_SU2_wilson`, and the
+`m_0`/`σ̂_∞` rational data are **axiom-free** (`does not depend on any
+axioms`); `step_obligation_witness` and the constructive-reals exports
+are `[propext]`-only. No `Classical.choice`, no `Quot.sound`, no
+`sorryAx`. The remaining open items are the *paper-level* analytic
+obligations (full KP-certificate proofs, the √-bridge O(1) constant,
+O(4) restoration), tracked in the chapters and `notes/`, not here.
+
 ## Entries
 
-### [P2.1] overlap summability preservation — **part (a) CLOSED**, part (b) open
+### [P2.1] overlap summability preservation — **part (a) CLOSED, part (b) CLOSED**
 
 - **milestone**: 2.1 (work_plan.md L184–202)
 - **file**: `lean/YMGap/Sheaf/Gluing.lean`
@@ -111,7 +124,7 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **owed by**: Milestone 3.3.
 - **closed**: 2026-05-24, specialized to `V = Q'` with `sf_part`/`lf_part` pinned to the canonical `step_obligation_sf` / `step_obligation_lf` closures. Identity closure (`delta_cap := 0`, `c_cap_next := s_k.c_cap`). S3 discharges via `Q'.add_zero'` + `Q'.le_refl'`; V3-ρ and V3-K reduce by `rfl` to Valid's V3-ρ and V3-K conjuncts (since the canonical sf/lf return `s_k.c_sf` / `s_k.c_lf` as their next certificates).
 - **specialized signature**: the closed `step_obligation_cap` has signature `(P) (PolyAtlas) (b) → Obligation_cap Q' P PolyAtlas b (step_obligation_sf P PolyAtlas b) (step_obligation_lf P PolyAtlas b)` — it accepts only the canonical sf/lf, not arbitrary sf_part/lf_part. A more general closure (over arbitrary sf_part/lf_part) would require `domGlue_preserves_KP` and inherit [P2.1]'s sorryAx; the canonical specialization avoids that.
-- **axiom-gate (closed)**: `depends on axioms: [propext]` only. **Crucially does NOT inherit [P2.1] `domGlue_preserves_KP`'s `sorryAx`** because the identity closure structurally avoids the buffer-glue construction (reuses `s_k.c_cap` directly). The [P2.1] sorry remains independently open; the cap closure simply doesn't depend on it.
+- **axiom-gate (closed)**: `depends on axioms: [propext]` only. The identity closure structurally avoids the buffer-glue construction (reuses `s_k.c_cap` directly), so it does not depend on `domGlue_preserves_KP` at all. (Historical note: an earlier `domGlue_preserves_KP` carried a `sorryAx`; since the 2026-05-24 explicit-hypothesis refactor it is axiom-free — `#print axioms domGlue_preserves_KP` reports *does not depend on any axioms*, build-verified 2026-05-28 — so there is no longer any `[P2.1]` sorry to inherit in the first place.)
 - **must not be closed classically**: per AGENTS.md Rule 6 — and isn't.
 
 ### [P2.3-sigma] σ̂-transport budget obligation, owed by 3.4 — **CLOSED**
@@ -157,18 +170,23 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 
 **What is FORMALLY LEAN-PROVED (axiom-gate empty)**:
 
-  * `m_0_canonical := 998/1000 : Q'` and `m_0_wilson := 999/1000 : Q'`
+  * `m_0_canonical := 999/1000 : Q'` and `m_0_wilson := 999/1000 : Q'`
     — explicit constructive Q'-rational mass-gap lower bounds.
-  * `sigma_hat_inf_lower_canonical := 9967/10000` and
-    `sigma_hat_inf_lower_wilson := 9988/10000` — Q'-rational σ̂_∞
+    (Tightened 2026-05-26 from `998/1000` by the `c_λ = 3/4`
+    Casimir-gap upgrade; see `formal/small-field-kp.tex`
+    Theorem `thm:c-lambda-casimir`.)
+  * `sigma_hat_inf_lower_canonical := 9991/10000` and
+    `sigma_hat_inf_lower_wilson := 9997/10000` — Q'-rational σ̂_∞
     lower bounds from Phase-3 pilot data, lockstep with
     `YMGap.RG.SigmaHatPilot.eta_total_pilot`/`eta_total_pilot_wilson`.
+    (Tightened 2026-05-26 from `9967/10000` and `9988/10000` by the
+    same `c_λ` upgrade.)
   * `m_0_canonical_positive`, `m_0_wilson_positive` (`decide`).
   * `m_0_canonical_squared_le_sigma_hat`,
     `m_0_wilson_squared_le_sigma_hat` — the decidable witness
     `m_0² ≤ ε` via cross-product on `Int`:
-      - Canonical: `998² · 10000 = 9960040000 ≤ 9967 · 1000² = 9967000000`
-      - Wilson: `999² · 10000 = 9980010000 ≤ 9988 · 1000² = 9988000000`
+      - Canonical: `999² · 10000 = 9980010000 ≤ 9991 · 1000² = 9991000000`
+      - Wilson: `999² · 10000 = 9980010000 ≤ 9997 · 1000² = 9997000000`
   * `mass_gap_su2_q_rational_data_canonical` /
     `mass_gap_su2_q_rational_data_wilson` — the purely-Q' content of
     the mass-gap theorem (∃ m_0 ∈ Q', 0 < m_0 ∧ m_0² ≤ ε).
@@ -179,8 +197,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
     Phase-8.2 cluster-to-gap bridge.
 
   All 13 exports report `does not depend on any axioms` (lake build,
-  2026-05-26).  No `sorryAx`, no `Classical.choice`, no `Quot.sound`,
-  no `propext`.
+  2026-05-26; re-verified 2026-05-28, `leanprover/lean4:v4.29.1`,
+  28 jobs, clean).  No `sorryAx`, no `Classical.choice`, no
+  `Quot.sound`, no `propext`.
 
 **What is PAPER-LEVEL (`formal/mass-gap-theorem.tex` §2)**:
 
@@ -196,17 +215,21 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
     `OSReconstruction` structure carries abstract types for the
     Hilbert space, vacuum, semigroup, Hamiltonian, and the
     reconstruction laws as `True`-valued Props.
-  * Phase 8.2 cluster-to-gap bridge: paper Theorem 7.2 (spectral
-    representation of the two-point Schwinger function + OS4 rate
-    ⇒ spectral gap of H_op).  The Lean
-    `cluster_implies_gap_signature` is the type-level interface;
-    `HasSpectralGap rec` is abstractly `True`-valued.
-  * Dimensional identification `m ≥ √σ̂_∞`: paper §2.4
-    (Wilson-loop area-law decay rate to mass scale via standard
-    spectral/transfer-matrix correspondence).  Not explicitly stated
-    in Lean — the Lean theorem uses the rational `m_0² ≤ σ̂_∞`
-    directly, leaving the identification of `m_0` with the actual
-    mass dimension to the paper.
+  * Phase 8.2 cluster-to-gap bridge: paper `os-reconstruction.tex`
+    Theorem `thm:cluster-to-gap` (Källén–Lehmann spectral
+    representation of the time-direction two-point function + OS4
+    rate ⇒ spectral gap of H_op; the spatial→temporal step uses only
+    H_4, not O(4)).  The Lean `cluster_implies_gap_signature` is the
+    type-level interface; `HasSpectralGap rec` is abstractly
+    `True`-valued.
+  * Dimensional identification `m ≥ √σ̂_∞`: paper
+    `os-reconstruction.tex` Theorem `thm:area-law-to-gap-bridge` (the
+    area-law–to–spectral-gap bridge: string tension σ̂_∞ is inverse
+    area, the mass m is inverse length, so the relation carries a
+    square root with conservative O(1) constant 1).  Not explicitly
+    stated in Lean — the Lean theorem uses the rational
+    `m_0² ≤ σ̂_∞` directly, leaving the identification of `m_0` with
+    the mass dimension to the paper.
 
 **What is COMPUTATIONS-LEVEL** (`computations/mass_gap_bound.py`):
 

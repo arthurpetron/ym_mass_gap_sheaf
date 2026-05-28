@@ -10,10 +10,11 @@ Constructive contract (`lean/AGENTS.md`):
   - The refined step type and the obligation type are exposed as
     `def`s returning Lean `Type`s.  No term inhabiting them is
     constructed here — that is the joint job of Milestones 3.1–3.4.
-  - The placeholder inhabitant `step_obligation_witness` is a
-    sorry'd `def` of type `StepObligation`, logged in
-    `SORRY_LEDGER.md` as `[P2.3]`.  Constructively phrased
-    (Σ-typed); never to be closed classically.
+  - The inhabitant `step_obligation_witness` is a `def` of type
+    `StepObligation`, **CLOSED** at `V = Q'` (assembled from the four
+    `[P2.3-X]` sub-witnesses; `[propext]`-only, build-verified
+    2026-05-28), logged in `SORRY_LEDGER.md` as `[P2.3]`.
+    Constructively phrased (Σ-typed); never to be closed classically.
   - Witness-bearing scalars (σ̂, ρ, K, η, ε, Δ) inhabit an abstract
     value type `V` with `[LT V] [Zero V] [LE V] [Min V] [Add V]
     [Sub V]`.  Per Rule 3, no Mathlib `ℝ`, no Lean-core `Rat`.
@@ -190,11 +191,12 @@ constrained by the sf and lf certificates at scale k+1 (ρ_∩ = min,
 K_∩ ≤ sum).  3.3 chooses `delta_cap` and produces the buffer
 certificate consistent with the sf/lf outputs and the S3 budget.
 
-This obligation **inherits**:
-  * The `domGlue_preserves_KP` `sorryAx` from 2.1 (`[P2.1]` part (a))
-    through the V2-cap conjunct of `Valid s_next`.
-  * The Conjecture 7.4 tightness obligation through the V3-K
-    conjunct (`K_∩ ≤ K_sf + K_lf`).
+This obligation's analytic content enters through `Valid s_next`:
+  * The `domGlue_preserves_KP` closure-under-glue content from 2.1
+    (`[P2.1]` part (a), CLOSED — axiom-free, exposed as the explicit
+    `P_glue` hypothesis) via the V2-cap conjunct.
+  * The Conjecture 7.4 tightness content (`[P2.1]` part (b), CLOSED
+    at the K-level) through the V3-K conjunct (`K_∩ ≤ K_sf + K_lf`).
 -/
 def Obligation_cap
     (V : Type) [LT V] [Zero V] [LE V] [Min V] [Add V] [Sub V]
@@ -295,10 +297,12 @@ The quantitative analytic content lives in `computations/`:
 ``compute_small_field_kp``, ``compute_large_field_kp``,
 ``compute_overlap_kp``, ``compute_eta`` all return real Q'-representable
 constants.  These Lean witnesses certify that the *shape* of each S1–S4
-obligation is constructively dischargeable, modulo the [P2.1]
-`domGlue_preserves_KP` sorry (which the cap closure structurally
-avoids by reusing the input ``c_cap`` directly — the input's `Valid`
-proof already supplies the V3-ρ and V3-K relations).
+obligation is constructively dischargeable.  The cap closure
+structurally avoids `domGlue_preserves_KP` entirely by reusing the
+input ``c_cap`` directly (the input's `Valid` proof already supplies
+the V3-ρ and V3-K relations); and `domGlue_preserves_KP` is in any
+case axiom-free per `[P2.1]` (both parts CLOSED, build-verified
+2026-05-28).
 
 Axiom-gate (per AGENTS.md Rule 1): each closure depends only on
 `propext` from Lean core (via the `Q'` arithmetic identities

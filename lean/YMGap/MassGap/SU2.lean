@@ -25,8 +25,8 @@ This module exposes the mass-gap theorem in two layers:
     holds (Phase-8.2 cluster-to-gap bridge, trivially-true at the
     type-level interface).
 
-The Q'-rational constants (`m_0_canonical = 998/1000`,
-`sigma_hat_inf_lower_canonical = 9967/10000`) match exactly those
+The Q'-rational constants (`m_0_canonical = 999/1000`,
+`sigma_hat_inf_lower_canonical = 9991/10000`) match exactly those
 of `computations/mass_gap_bound.py::canonical_mass_gap_bound()` and
 the values cited in `formal/mass-gap-theorem.tex` Propositions 3.1
 and 3.2.  Lockstep is enforced by tests
@@ -123,10 +123,10 @@ lower bound `m_0` satisfies the inequality `m_0² ≤ ε` that's the
 square of `m_0 ≤ √ε ≤ m`.
 
 Both witnesses are decidable on the cross-product representation:
-  * Canonical: `(998²/1000²) ≤ 9967/10000` iff
-    `998² · 10000 ≤ 9967 · 1000²` iff `9960040000 ≤ 9967000000`.
-  * Wilson: `(999²/1000²) ≤ 9988/10000` iff
-    `999² · 10000 ≤ 9988 · 1000²` iff `9980010000 ≤ 9988000000`.
+  * Canonical: `(999²/1000²) ≤ 9991/10000` iff
+    `999² · 10000 ≤ 9991 · 1000²` iff `9980010000 ≤ 9991000000`.
+  * Wilson: `(999²/1000²) ≤ 9997/10000` iff
+    `999² · 10000 ≤ 9997 · 1000²` iff `9980010000 ≤ 9997000000`.
 
 Both inequalities `decide` directly. -/
 
@@ -155,7 +155,7 @@ There exists a strictly positive Q'-rational `m_0` with
 
 This is the purely-Q' content of the SU(2) mass-gap theorem at the
 canonical pilot operating point.  The witness is
-`m_0 = m_0_canonical = 998/1000`. -/
+`m_0 = m_0_canonical = 999/1000`. -/
 theorem mass_gap_su2_q_rational_data_canonical :
     ∃ m_0 : Q',
       (0 : Q') < m_0 ∧
@@ -188,8 +188,8 @@ Q'-rationals).
 
 The Phase-7.1 framework theorem `sigma_hat_uv_limit_positive` produces
 an `ε : Q'` with `0 < ε`; for the canonical SU(2) pilot at K = 3 with
-the project's σ̂_0 = 1, this `ε` is exactly `9967/10000 =
-sigma_hat_inf_lower_canonical` (one minus Σ η_k = 33/10000 from
+the project's σ̂_0 = 1, this `ε` is exactly `9991/10000 =
+sigma_hat_inf_lower_canonical` (one minus Σ η_k = 9/10000 from
 `YMGap.RG.SigmaHatPilot.eta_total_pilot`).
 
 Documented here as a Prop; substantive content is the Q'-rational
@@ -225,13 +225,13 @@ the Lean type-level interface exposes.
 type-level interface.  Composes:
 
   * Phase 7.1 σ̂_∞ ≥ ε > 0 (via the canonical Q'-rational `ε =
-    sigma_hat_inf_lower_canonical = 9967/10000`).
+    sigma_hat_inf_lower_canonical = 9991/10000`).
   * Phase 8.1 OS-axiom bundle (`bundle` argument).
   * Phase 8.2 OS reconstruction (`rec` argument) + cluster-to-gap
     bridge (`cluster_implies_gap_signature`).
 
 into the explicit constructive Q'-rational mass-gap lower bound
-`m_0 = 998/1000` paired with the abstract spectral-gap statement on
+`m_0 = 999/1000` paired with the abstract spectral-gap statement on
 the OS-reconstructed Hamiltonian.
 
 Axiom-gate: empty (composes Q'-rational `decide` proofs with the
@@ -251,8 +251,8 @@ theorem mass_gap_SU2
 /-- **SU(2) Mass-Gap Theorem (Wilson-pilot variant).**
 
 Same statement as `mass_gap_SU2` but instantiated at the Wilson pilot
-(`m_0 = 999/1000`, `ε = 9988/10000`).  Wilson gives a slightly tighter
-m_0 because the Wilson pilot consumes less η-budget. -/
+(`m_0 = 999/1000`, `ε = 9997/10000`).  Wilson gives a slightly tighter
+σ̂_∞ bound because the Wilson pilot consumes less η-budget. -/
 theorem mass_gap_SU2_wilson
     {M : Nat → Type} {μ_inf : ContinuumMeasure M}
     (rec : OSReconstruction μ_inf) (bundle : OSAxiomBundle μ_inf) :

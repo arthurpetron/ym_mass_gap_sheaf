@@ -18,10 +18,13 @@ Constructive contract (`lean/AGENTS.md`):
     `Rat` (which costs `Classical.choice` via `Rat.decEq` per
     P1.1's empirical finding).
   - The buffer-glue relation in `Valid` literally states the
-    conjectured constants of `sheaf-framework.tex` Proposition 7.1,
-    so any concrete instance whose buffer field is constructed via
-    `domGlue_preserves_KP` inherits that theorem's `sorryAx`
-    dependency.  ℐ_k looks no more closed than 2.1 actually is.
+    conjectured constants of `sheaf-framework.tex` Proposition 7.1.
+    Any concrete instance whose buffer field is constructed via
+    `domGlue_preserves_KP` carries that theorem's explicit
+    closure-under-glue hypothesis `P_glue` — the analytic content,
+    supplied at the concrete Q' instances / paper level per `[P2.1]`.
+    `domGlue_preserves_KP` itself is axiom-free (build-verified
+    2026-05-28); the obligation is the hypothesis, not a `sorry`.
 
 Scope (the 2.2/2.3 boundary).  Everything here is scale-k-local.
 No definition references scale k+1, no statement asserts a sum
@@ -68,9 +71,10 @@ structure InductiveState
   c_lf : KPCertificate V P
   /-- The buffer KP certificate.  Well-formedness — both the existence
   of `c_cap.satisfies` at the conjectured constants and the tightness
-  of the resulting `K_∩` — is the obligation of
-  `YMGap.Sheaf.domGlue_preserves_KP`, sorry'd in
-  `lean/SORRY_LEDGER.md` entry `[P2.1]`. -/
+  of the resulting `K_∩` — is discharged by
+  `YMGap.Sheaf.domGlue_preserves_KP` (axiom-free; the analytic content
+  is its explicit `P_glue` closure-under-glue hypothesis), per
+  `lean/SORRY_LEDGER.md` entry `[P2.1]` (both parts CLOSED). -/
   c_cap : KPCertificate V P
   /-- The polymer atlas.  Representation is the open question of
   Milestone 2.2; here it is an abstract type. -/
@@ -106,9 +110,10 @@ variable {V : Type} {P : V → V → Prop} {PolyAtlas : Type}
   every `KPCertificate V P` already carries its `satisfies : P ρ K`
   field, so V2 was structurally enforced and would be redundant
   here.  That encoding is correct but it leaks the V2 obligation —
-  in particular the sorry'd `YMGap.Sheaf.domGlue_preserves_KP`
-  (the analytic content for the buffer certificate's V2) — into a
-  field that `Valid` never mentions.  Reasoning in 2.3 / Phase 3
+  in particular the `YMGap.Sheaf.domGlue_preserves_KP` analytic
+  content for the buffer certificate's V2, exposed as that theorem's
+  explicit `P_glue` hypothesis — into a field that `Valid` never
+  mentions.  Reasoning in 2.3 / Phase 3
   about how validity degrades across the block-spin step would then
   have to combine `Valid` with `c_*.satisfies` reach-into-field
   proofs.
@@ -155,7 +160,9 @@ structure ValidWitness
   c_lf_predicate : P s.c_lf.rho s.c_lf.K
   /-- (V2-cap) `P` holds for the buffer certificate.  When this state
   is constructed from concrete sf/lf via `YMGap.Sheaf.domGlue_preserves_KP`,
-  this field inherits that theorem's `sorryAx` dependency. -/
+  this field is supplied by that theorem's explicit `P_glue`
+  closure-under-glue hypothesis (axiom-free; the analytic content
+  lives in `P_glue`, per `[P2.1]`). -/
   c_cap_predicate : P s.c_cap.rho s.c_cap.K
   /-- (V3-ρ) `ρ_∩ = min(ρ_sf, ρ_lf)`. -/
   buffer_glue_rho : s.c_cap.rho = min s.c_sf.rho s.c_lf.rho

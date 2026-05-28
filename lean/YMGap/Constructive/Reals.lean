@@ -339,7 +339,7 @@ theorem sigma_hat_inf_creal_positive : CReal.IsPositive sigma_hat_inf_creal := b
 The headline mass-gap upgrade at the CReal level.  The MVP form
 exposes the *existence* of a positive CReal lower bound — i.e. the
 constructive-real version of `m_0 > 0` from `MassGap/SU2.lean`'s
-Q'-rational `m_0_canonical = 998/1000`.  The full
+Q'-rational `m_0_canonical = 999/1000`.  The full
 "`σ(H_op) ∩ (0, m_0) = ∅`" statement requires the cluster-to-gap
 bridge at the CReal level, which is paper-only at present (Phase
 8.2 deliverable); a Lean type signature consuming a CReal value is
