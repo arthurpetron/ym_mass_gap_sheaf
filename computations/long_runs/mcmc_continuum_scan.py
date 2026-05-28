@@ -147,12 +147,22 @@ def run_scan(
     n_measurement: int,
     measurement_interval: int,
     seed_base: int,
+    precomputed: dict[tuple[float, int], MCMCContinuumPoint] | None = None,
 ) -> tuple[list[MCMCContinuumPoint], list[ContinuumExtrapolation]]:
+    precomputed = precomputed or {}
     all_points: list[MCMCContinuumPoint] = []
     extrapolations: list[ContinuumExtrapolation] = []
     for beta in betas:
         beta_points: list[MCMCContinuumPoint] = []
         for L in L_values:
+            key = (round(beta, 6), L)
+            cached = precomputed.get(key)
+            if cached is not None:
+                print(f"  β = {beta:.2f}, L = {L}  "
+                      f"⟨P⟩ = {cached.plaquette_mean:.6f} ± "
+                      f"{cached.plaquette_stderr:.6f}   (resumed from JSON)")
+                beta_points.append(cached)
+                continue
             seed = seed_base + 1000 * int(round(beta * 10)) + L
             print(f"  β = {beta:.2f}, L = {L}  ", end="", flush=True)
             p = run_one_point(
@@ -258,6 +268,23 @@ def write_json(
     return str(target)
 
 
+def load_existing_points(
+    json_path: str | None = None,
+) -> dict[tuple[float, int], MCMCContinuumPoint]:
+    """Load (beta, L) -> point from a prior run's JSON, for --resume."""
+    target = Path(json_path) if json_path else Path(
+        __file__
+    ).resolve().parent.parent.parent / DEFAULT_JSON_PATH
+    if not target.exists():
+        return {}
+    payload = json.loads(target.read_text())
+    out: dict[tuple[float, int], MCMCContinuumPoint] = {}
+    for d in payload.get("points", []):
+        point = MCMCContinuumPoint(**d)
+        out[(round(point.beta, 6), point.L)] = point
+    return out
+
+
 def main() -> None:
     p = argparse.ArgumentParser(description="Multi-L SU(2) MCMC continuum scan.")
     p.add_argument("--betas", type=float, nargs="+",
@@ -269,20 +296,32 @@ def main() -> None:
     p.add_argument("--interval", type=int, default=5,
                    help="measurement interval (auto-decorrelation, default 5)")
     p.add_argument("--seed", type=int, default=42)
+    p.add_argument("--resume", action="store_true",
+                   help="load already-computed (beta, L) points from the "
+                        "existing JSON and only run the missing cells")
     args = p.parse_args()
 
+    precomputed = load_existing_points() if args.resume else {}
+    n_total = len(args.betas) * len(args.L)
+    n_cached = sum(
+        1 for b in args.betas for L in args.L
+        if (round(b, 6), L) in precomputed
+    )
     print(
         f"\n=== MCMC continuum scan ===\n"
         f"  β: {args.betas}\n"
         f"  L: {args.L}\n"
         f"  sweeps: {args.sweeps} thermal + {args.sweeps} measure (every {args.interval})\n"
-        f"  total runs: {len(args.betas) * len(args.L)}\n"
+        f"  total cells: {n_total}"
+        + (f"  (resuming {n_cached} from JSON, {n_total - n_cached} to run)\n"
+           if args.resume else "\n")
     )
     t_start = time.time()
     points, extrapolations = run_scan(
         betas=tuple(args.betas), L_values=tuple(args.L),
         n_thermalization=args.sweeps, n_measurement=args.sweeps,
         measurement_interval=args.interval, seed_base=args.seed,
+        precomputed=precomputed,
     )
     print(f"\n  total elapsed: {time.time() - t_start:.1f}s")
 
