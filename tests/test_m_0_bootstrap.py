@@ -118,6 +118,35 @@ def test_run_bootstrap_samples_within_envelopes() -> None:
             )
 
 
+def test_run_bootstrap_g0_envelope_samples_and_determinism() -> None:
+    """UV-flow extension: g_0 is sampled within its envelope, recorded,
+    and deterministic under seed."""
+    lo, hi = 0.25, 0.35
+    r1 = run_bootstrap(n_samples=300, seed=7, g_0_envelope=(lo, hi))
+    r2 = run_bootstrap(n_samples=300, seed=7, g_0_envelope=(lo, hi))
+    assert "g_0" in r1.fiducial_samples
+    g0_draws = r1.fiducial_samples["g_0"]
+    assert len(g0_draws) == 300
+    for v in g0_draws:
+        assert lo <= v <= hi, f"g_0 draw {v} outside [{lo}, {hi}]"
+    # Determinism: same seed -> identical samples (incl. the g_0 draws).
+    assert r1.m_0_samples == r2.m_0_samples
+    assert r1.fiducial_samples["g_0"] == r2.fiducial_samples["g_0"]
+
+
+def test_run_bootstrap_g0_envelope_default_omits_g0() -> None:
+    """Without g_0_envelope, g_0 is fixed and not added to the draws."""
+    result = run_bootstrap(n_samples=50, seed=0)
+    assert "g_0" not in result.fiducial_samples
+
+
+def test_run_bootstrap_g0_envelope_rejects_inverted() -> None:
+    import pytest
+
+    with pytest.raises(ValueError):
+        run_bootstrap(n_samples=10, seed=0, g_0_envelope=(0.40, 0.20))
+
+
 def test_run_bootstrap_percentiles_monotone() -> None:
     """The percentile statistics are weakly monotone in percentile."""
     result = run_bootstrap(n_samples=500, seed=0)

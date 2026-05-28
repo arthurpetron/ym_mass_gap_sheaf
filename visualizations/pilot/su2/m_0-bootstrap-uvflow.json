@@ -1,0 +1,30 @@
+[
+  {
+    "label": "band ($\\pm 0.05$): $g_0 \\sim U[0.25, 0.35]$",
+    "g_0_low": 0.25,
+    "g_0_high": 0.35,
+    "n_samples": 1000000,
+    "n_failed": 15827,
+    "frac_failed": 0.015827,
+    "mean": 0.9967012262201725,
+    "median": 0.9995757738659594,
+    "percentile_1": 0.9559207320779954,
+    "percentile_5": 0.9914209739999965,
+    "percentile_50": 0.9995757738659594,
+    "robust_lower_994": false
+  },
+  {
+    "label": "full range: $g_0 \\sim U[0.20, 0.40]$",
+    "g_0_low": 0.2,
+    "g_0_high": 0.4,
+    "n_samples": 1000000,
+    "n_failed": 98878,
+    "frac_failed": 0.098878,
+    "mean": 0.9881016878602377,
+    "median": 0.9997419574974119,
+    "percentile_1": 0.7353256613135286,
+    "percentile_5": 0.9511360576366983,
+    "percentile_50": 0.9997419574974119,
+    "robust_lower_994": false
+  }
+]

@@ -244,6 +244,7 @@ def run_bootstrap(
     convention: HeatKernelConvention = HeatKernelConvention.CANONICAL,
     envelopes: Sequence[FiducialEnvelope] = ENVELOPES,
     robust_percentile: float = 5.0,
+    g_0_envelope: tuple[float, float] | None = None,
 ) -> BootstrapResult:
     """Sample fiducials uniformly from their envelopes and collect m_0.
 
@@ -272,6 +273,13 @@ def run_bootstrap(
 
     import numpy as np
 
+    if g_0_envelope is not None:
+        lo, hi = g_0_envelope
+        if not (0.0 < lo < hi):
+            raise ValueError(
+                f"g_0_envelope must satisfy 0 < low < high; got {g_0_envelope}"
+            )
+
     rng = np.random.default_rng(seed)
     envelopes_tuple = tuple(envelopes)
 
@@ -279,14 +287,27 @@ def run_bootstrap(
         env.short_name: rng.uniform(env.low, env.high, size=n_samples).tolist()
         for env in envelopes_tuple
     }
+    # UV-flow robustness: optionally draw the initial coupling g_0
+    # jointly with the analytic fiducials, turning the bootstrap from
+    # "robust to fiducial uncertainty at the fixed operating point
+    # g_0 = 0.30" into "robust to the operating-point choice too".
+    if g_0_envelope is not None:
+        g_0_draws = rng.uniform(g_0_envelope[0], g_0_envelope[1], size=n_samples).tolist()
+        fiducial_draws["g_0"] = g_0_draws
+    else:
+        g_0_draws = [g_0] * n_samples
 
     m_0_samples: list[float] = []
     n_failed = 0
     for i in range(n_samples):
-        draw = {short: fiducial_draws[short][i] for short in fiducial_draws}
+        draw = {
+            short: fiducial_draws[short][i]
+            for short in fiducial_draws
+            if short != "g_0"
+        }
         m_0 = _evaluate_m_0(
             draw,
-            g_0=g_0, K=K,
+            g_0=g_0_draws[i], K=K,
             sigma_hat_initial=sigma_hat_initial,
             convention=convention,
         )
