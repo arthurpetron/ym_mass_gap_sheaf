@@ -1,0 +1,7 @@
+{"teper": 3.74,
+ "points": [
+   {"beta": 2.3, "glue": "visualizations/pilot/su2/glueball-L16-b2.3.json",    "sigma": "visualizations/pilot/su2/sigma-L16-b2.3.json", "rmin": 3},
+   {"beta": 2.4, "glue": "visualizations/pilot/su2/glueball-L16-b2.4-hi.json", "sigma": "visualizations/pilot/su2/sigma-L16-b2.4.json", "rmin": 3},
+   {"beta": 2.5, "glue": "visualizations/pilot/su2/glueball-L16-b2.5.json",    "sigma": "visualizations/pilot/su2/sigma-L16-b2.5.json", "rmin": 3},
+   {"beta": 2.6, "glue": "visualizations/pilot/su2/glueball-L16-b2.6.json",    "sigma": "visualizations/pilot/su2/sigma-L16-b2.6.json", "rmin": 3}
+ ]}
