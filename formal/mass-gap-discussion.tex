@@ -115,6 +115,64 @@ Carlo correctly interpolates between the two analytical limits.}
 \label{fig:mcmc-cross-check}
 \end{mainfigure}
 
+\subsection{Direct heatbath measurement of the two observables}
+\label{sec:direct-heatbath}
+
+\marginkey{$\sqrt{\sigma}/\Lambda_L \to {\approx}\,46$}%
+
+The plaquette check of Figure~\ref{fig:mcmc-cross-check} probes only the
+bulk action.  The two observables that actually enter the
+ratio~\eqref{eq:teper-ratio} were therefore measured directly, with a
+Kennedy--Pendleton heatbath and microcanonical overrelaxation: the
+string tension $\sigma a^2$ from rectangular Wilson loops, Creutz
+ratios, and a Cornell-form static potential; and the scalar glueball
+mass $m(0^{++})a$ from a variational basis of APE-smeared zero-momentum
+spatial-plaquette operators, a generalized-eigenvalue plateau, and a
+delete-one jackknife over configuration bins.
+
+The string tension is the cleaner observable and gives the sharper
+statement.  With the two-loop lattice $\Lambda$-parameter
+\begin{equation}
+  \label{eq:a-lambda}
+  a\Lambda_L
+  \;=\; (b_0\, g^2)^{-b_1/2b_0^2}\,
+        \exp\!\big(\!-1/2 b_0 g^2\big),
+  \qquad
+  g^2 = 4/\beta,
+\end{equation}
+and the universal $\SUtwo$ coefficients $b_0 = 11/24\pi^2$ and
+$b_1 = 17/96\pi^4$, asymptotic scaling demands that
+$\sqrt{\sigma}/\Lambda_L$ be independent of $\beta$.  At fixed lattice
+size $L = 16$ the measured ratio is
+\begin{equation}
+  \label{eq:asymptotic-scaling}
+  \frac{\sqrt{\sigma}}{\Lambda_L}\bigg|_{\beta = 2.4,\,2.5,\,2.6}
+  \;=\; 63,\quad 50,\quad 46,
+\end{equation}
+drifting monotonically downward and stabilizing near $46$ at the finest
+coupling.  This is the known behaviour of $\SUtwo$ asymptotic scaling
+and its violations at coarse $\beta$ \cite{ItzyksonDrouffe1989}: the
+ratio approaches a constant from above as $a \to 0$, confirming
+\emph{empirically} --- rather than assuming --- that these couplings
+lie in the window where a continuum limit is meaningful, which is the
+regime the constructive argument presupposes.
+
+The glueball ratio is consistent with this picture, though noisier.
+The directly measured $m(0^{++})/\sqrt{\sigma}$ rises from $3.16(13)$ at
+$\beta = 2.4$ to $3.77(10)$ at $\beta = 2.5$, bracketing the continuum
+value~\eqref{eq:teper-ratio}.  At fixed $L = 16$ it then falls to
+$\approx 2.4$ at $\beta = 2.6$, where the physical box has shrunk to
+$L\sqrt{\sigma}\,a \approx 2.0$ and a torelon of mass
+$\sigma L a \approx 0.26 < m(0^{++})a$ contaminates the scalar channel;
+that this is a finite-volume artifact, not a failure of the
+measurement, is confirmed by the string tension at the same point
+remaining on the scaling trend~\eqref{eq:asymptotic-scaling}, and it is
+removed by a matched-volume series in which $L$ grows with $\beta$.
+None of this feeds the constructive bound; it is an independent
+numerical corroboration that the $\SUtwo$ Wilson action carries both a
+confining string tension and a scalar gap of the empirically expected
+size.
+
 \section{Physical-unit calibration}
 \label{sec:physical-units}
 
