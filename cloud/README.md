@@ -18,7 +18,7 @@ analysis + continuum fit is done locally afterward on the pulled JSONs.
 | `cloudbuild.yaml` | Build the image with Cloud Build (no local Docker needed) |
 | `points.tsv` | One row per `(beta, L)` point; row index = Batch task index |
 | `entrypoint.sh` | Maps `BATCH_TASK_INDEX` -> a `points.tsv` row and runs it |
-| `batch-job.json` | Batch job: the affordable set (rows 0-3) as a 4-task array |
+| `batch-job.json` | Batch job: Tier A (rows 0-3) as a 4-task array |
 
 ## One-time setup
 
@@ -65,7 +65,60 @@ gcloud builds submit --config cloud/cloudbuild.yaml \
 This compiles the Rust binaries in the cloud and pushes `ym-sim:latest` to
 Artifact Registry. Takes a couple of minutes.
 
-## Submit the campaign (the affordable set: beta = 2.3, 2.4, 2.45, 2.5)
+## How the points are tuned
+
+`points.tsv` is not arbitrary — each column is set from the measured SU(2)
+physics so the continuum extrapolation is clean and not dominated by avoidable
+systematics:
+
+- **`L` (matched physical volume).** Held so `L*sqrt(sigma)*a ~ 4.3-4.5` across
+  all beta, using the known `sqrt(sigma)*a` (0.369, 0.266, 0.222, 0.186, 0.157,
+  0.133 for beta = 2.3 .. 2.6; our beta=2.5/2.6 runs confirm 0.180/0.128). This
+  keeps the **torelon-to-glueball mass ratio ~ 1.18-1.24** at every point, so the
+  winding torelon stays safely above the 0++ and does not contaminate the scalar
+  plateau. (Letting `L` lag — e.g. L30 at beta=2.6 — drops that ratio to ~1.11,
+  torelon and glueball nearly degenerate.)
+- **`rmax = L/2`.** The largest Wilson loop the box allows; the previous smaller
+  `rmax` left the Cornell fit `V(r)=V0+sigma*r-c/r` with only 4-5 points and a
+  10-40% error on sigma. More points in the linear regime is the single biggest
+  lever on string-tension precision, which is the binding error here.
+- **`rmin`.** Set so `rmin*sqrt(sigma)*a ~ 0.6-0.8` (the short-distance Coulomb
+  term subdominant) while leaving enough of the `[rmin, rmax]` window for the fit.
+- **`g_meas` (glueball statistics) scales with beta.** Finer lattices resolve the
+  0++ plateau only at larger tau, where signal/noise is worse, so the config
+  count grows from 60k (beta=2.3) to 300k (beta=2.6).
+- **`s_meas` (string-tension statistics).** Boosted to 40k-100k configs (was
+  ~6k): sigma was the noisy observable and would otherwise dominate the
+  continuum-fit uncertainty.
+- **`g_therm` / `s_therm`.** Grow with beta for critical slowing down (mitigated
+  by the overrelaxation, dynamical exponent ~ 1).
+- **`seed`.** Distinct per point -> independent samples.
+
+## Cost tiers (decide how far in beta to go)
+
+Cost scales like `L^4 x meas`, so the high-beta points dominate. Run in two tiers:
+
+| row | point | ~VM-hours (incl. string tension) |
+|---|---|---|
+| 0 | 2.30 / L12 | ~0.25 |
+| 1 | 2.40 / L16 | ~1.4 |
+| 2 | 2.45 / L20 | ~4.5 |
+| 3 | 2.50 / L24 | ~11 |
+| 4 | 2.55 / L28 | ~25 |
+| 5 | 2.60 / L32 | ~55 |
+
+- **Tier A (rows 0-3, `batch-job.json` as shipped):** a 4-point continuum fit
+  spanning `sigma*a^2 = 0.136 -> 0.035`. ~17 VM-h total, wall ~11 h (the L24
+  point), **~$25 on-demand** on `c2d-standard-32`. Validates the pipeline and
+  already gives a real `a -> 0` extrapolation.
+- **Tier B (rows 4-5):** the scaling-tail points that tighten the continuum value
+  toward a 6-sigma statement. These dominate — **~80 VM-h, ~$100-200**, wall set
+  by the L32 point (~1 day on `c2d-standard-60`). Run each as its own job on a
+  bigger machine (below), or on Spot.
+
+Start with Tier A. Inspect the 4-point fit before paying for the tail.
+
+## Submit the campaign (Tier A: beta = 2.3, 2.4, 2.45, 2.5)
 
 Fill the placeholders in `batch-job.json` and submit a 4-task array (one VM per
 beta point, all concurrent):
@@ -105,46 +158,25 @@ gsutil -m cp "gs://${BUCKET}/runs/*.json" visualizations/pilot/su2/
 .venv/bin/python -m computations.long_runs.continuum_trend   # point it at the new JSONs
 ```
 
-## The heavy points (beta = 2.55/L26, 2.60/L30 — rows 4-5)
+## The heavy points (Tier B: beta = 2.55/L28, 2.60/L32 — rows 4-5)
 
-Cost scales like `L^4`, so these dominate. Run each as its OWN job on a bigger
-machine rather than holding up the array. Example for the L30 point (row 5):
+These dominate the cost (`L^4`), so don't let them hold up Tier A. Two ways to
+run them on a bigger machine:
 
-```bash
-# a single-task job that selects row 5 via taskCount/parallelism on a 60-vCPU VM
-# (copy batch-job.json -> batch-heavy.json, set taskCount=1, machineType
-#  c2d-standard-60, maxRunDuration 86400s, and add to the taskSpec.environment:
-#    "BATCH_TASK_INDEX_OFFSET" is NOT a thing -- instead duplicate the row you
-#    want as row 0 of a points-heavy.tsv baked into a second image tag, OR just
-#    submit the affordable job with taskCount=6 and a c2d-standard-60 machine
-#    and let the small points finish fast while the big ones run.)
-```
-
-Simplest: submit **one** job with `taskCount: 6` (all rows) on
-`c2d-standard-60`; the small points finish in minutes and release their VMs
-while L26/L30 keep running. You pay only for what each VM uses.
-
-## Cost and wall-time (rough, us-central1, on-demand)
-
-`c2d-standard-32` ~ $1.4/h; `c2d-standard-60` ~ $2.6/h. With `g_meas=600000`:
-
-| point | ~VM-hours (c2d-32) |
-|---|---|
-| 2.3/L12 | ~0.4 |
-| 2.4/L16 | ~1.2 |
-| 2.45/L18 | ~1.8 |
-| 2.5/L22 | ~4 |
-| 2.55/L26 | ~8 (use c2d-60: ~4) |
-| 2.6/L30 | ~14 (use c2d-60: ~7) |
-
-Affordable set (rows 0-3, concurrent): **~$10-15, wall time ~4 h.**
-Full 6-point campaign: **~$40-60 on-demand**, wall time set by the L30 point.
+- **Simplest — one job, all rows, big machine.** Submit the array with
+  `taskCount: 6` and `machineType: c2d-standard-60`: the small points finish in
+  minutes and release their VMs while L28/L32 keep running. You pay per VM for
+  only what each uses.
+- **Per-point control.** Bake a one-row `points.tsv` (just the heavy point) into
+  a second image tag and submit a `taskCount: 1` job on `c2d-standard-60` with
+  `maxRunDuration: 172800s` (48 h). Use this if you want different machine sizes
+  or Spot settings per point.
 
 ### Cheaper: Spot VMs (~60-70% off)
 
 Set `"provisioningModel": "SPOT"` in `batch-job.json`. Caveat: the engine has
 **no checkpointing**, so a preempted multi-hour run restarts from scratch
-(Batch retries the task). Fine for the short low-beta points; risky for L26/L30,
+(Batch retries the task). Fine for the short low-beta points; risky for L28/L32,
 where a preemption late in the run wastes hours. Use Spot for rows 0-3, on-demand
 for the heavy points. (Adding checkpointing to the engine would remove this
 caveat and is the right move before a large Spot campaign.)

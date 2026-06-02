@@ -1,5 +1,5 @@
 {
-  "_comment": "Continuum campaign, affordable set: points.tsv rows 0-3 (beta=2.3/L12, 2.4/L16, 2.45/L18, 2.5/L22). One task per beta point, each on its own 32-vCPU compute-optimized VM, all running concurrently. Replace IMAGE_URI and BUCKET_NAME before submitting (or use the sed line in the README). The heavier L26/L30 points (rows 4-5) are better run as separate jobs on a bigger machine - see the README.",
+  "_comment": "Continuum campaign, Tier A: points.tsv rows 0-3 (beta=2.3/L12, 2.4/L16, 2.45/L20, 2.5/L24). One task per beta point, each on its own 32-vCPU compute-optimized VM, all running concurrently. Replace IMAGE_URI and BUCKET_NAME before submitting (or use the sed line in the README). The heavier L28/L32 points (rows 4-5) are better run as separate jobs on a bigger machine - see the README.",
   "taskGroups": [
     {
       "taskCount": 4,
@@ -14,7 +14,7 @@
           { "gcs": { "remotePath": "BUCKET_NAME/runs" }, "mountPath": "/mnt/out" }
         ],
         "computeResource": { "cpuMilli": 30000, "memoryMib": 16384 },
-        "maxRunDuration": "43200s",
+        "maxRunDuration": "64800s",
         "maxRetryCount": 1
       }
     }
