@@ -22,13 +22,16 @@ analysis + continuum fit is done locally afterward on the pulled JSONs.
 
 ## One-time setup
 
-Pick a project and region, and set shell variables (adjust to yours):
+Pick a project and region, and set shell variables (adjust to yours). Use
+**hyphens, not underscores**, in resource names — Artifact Registry and GCS
+reject or dislike underscores, so do NOT name a resource after this repo's
+folder (`ym_mass_gap_sheaf`):
 
 ```bash
-PROJECT=$(gcloud config get-value project)
+PROJECT=$(gcloud config get-value project)   # e.g. ym-gap
 REGION=us-central1
-REPO=ym                       # Artifact Registry repo name
-BUCKET=${PROJECT}-ym-runs     # GCS bucket for outputs (must be globally unique)
+REPO=ym-sim                   # Artifact Registry repo name -- hyphens only
+BUCKET=${PROJECT}-ym-runs     # GCS bucket for outputs (globally unique, hyphens)
 IMAGE=${REGION}-docker.pkg.dev/${PROJECT}/${REPO}/ym-sim:latest
 ```
 
@@ -53,6 +56,17 @@ gcloud artifacts repositories create "$REPO" \
 
 gsutil mb -l "$REGION" "gs://${BUCKET}" || true
 ```
+
+**Verify the registry exists before building** — Cloud Build pushes to it but
+will NOT create it, and a missing repo fails the push with
+`name unknown: Repository "..." not found`:
+
+```bash
+gcloud artifacts repositories describe "$REPO" --location="$REGION"
+```
+
+If that errors, the create above did not succeed (often a stray underscore in
+`$REPO`, or the API was not enabled yet) — fix `$REPO` and re-run the create.
 
 ## Build the image (Cloud Build, from the repo root)
 
