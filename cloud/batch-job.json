@@ -8,9 +8,9 @@
         "runnables": [
           { "container": { "imageUri": "IMAGE_URI" } }
         ],
-        "environment": { "variables": { "OUT_DIR": "/mnt/out" } },
+        "environment": { "variables": { "OUT_DIR": "/mnt/disks/out" } },
         "volumes": [
-          { "gcs": { "remotePath": "BUCKET_NAME/runs" }, "mountPath": "/mnt/out" }
+          { "gcs": { "remotePath": "BUCKET_NAME/runs" }, "mountPath": "/mnt/disks/out" }
         ],
         "computeResource": { "cpuMilli": 30000, "memoryMib": 16384 },
         "maxRunDuration": "64800s",

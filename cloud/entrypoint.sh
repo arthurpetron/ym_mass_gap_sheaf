@@ -10,7 +10,7 @@
 set -euo pipefail
 
 idx="${BATCH_TASK_INDEX:?BATCH_TASK_INDEX not set (run me under Cloud Batch)}"
-out="${OUT_DIR:-/mnt/out}"
+out="${OUT_DIR:-/mnt/disks/out}"
 points="${POINTS_FILE:-/work/points.tsv}"
 mkdir -p "$out"
 

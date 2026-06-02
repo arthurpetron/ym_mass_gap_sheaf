@@ -205,6 +205,11 @@ gcloud logging read 'labels."batch.googleapis.com/job_id"="ym-continuum-1"' \
     --limit=50 --freshness=2h
 ```
 
+> Note: the GCS volume mounts at `/mnt/disks/out` (set in `OUT_DIR` and the job's
+> `mountPath`). The Batch VM runs Container-Optimized OS with a read-only root, so
+> the mount point must live under a writable path like `/mnt/disks/` — a plain
+> `/mnt/out` fails gcsfuse with `stat /mnt/out: no such file or directory`.
+
 ## Pull results and analyze locally
 
 When the job state is `SUCCEEDED`:
