@@ -117,6 +117,36 @@ the constant is where the looseness lives). OS4 (Ch. 18) and cluster-to-gap
 by the bridge), not σ̂_∞ directly. Ch. 20's "units E=t⁻¹" paragraph is deleted
 and replaced by the bridge; the headline `m_0² ≤ σ̂_∞` computation is unchanged.
 
+### STATUS — §0 CLOSED (2026-06-02)
+
+Most of Option A was already applied in commit `4ae7586` (`[paper] Tighten
+Ch.17-20: dimensionally-honest mass-gap chain`), which post-dates this note's
+audit. Current state verified file-by-file:
+
+- `os-axioms.tex` Thm `os4` — rate is a mass `m`, `m ≥ √σ̂_∞` via the bridge,
+  with a dedicated dimensional remark. ✓
+- `os-reconstruction.tex` — `cluster-to-gap` is stated GENERICALLY (gap ≥
+  cluster rate `m_c`, no √); the √ lives only in the named, cited bridge
+  theorem `thm:area-law-to-gap-bridge` (`m_c ≥ √σ̂_∞`); `cor:gap-from-sigma`
+  composes them. ✓
+- `mass-gap-theorem.tex` — composition gives `m ≥ √σ̂_∞ ≥ √ε`, headline
+  `m_0² ≤ ε`; the wrong "units E=t⁻¹" paragraph is gone, replaced by an
+  explicit "the √ is dimensional content, not a unit change" note. ✓
+
+Two residual spots the `4ae7586` sweep MISSED, fixed in this commit:
+
+- `continuum-measure.tex` `rem:bridge-mass-gap` — still said "identifies the
+  mass gap with the exponential-decay rate σ̂_∞ … spectral gap ≥ σ̂_∞" (bare,
+  no √). Rewritten to `gap ≥ √σ̂_∞` via `\cref{thm:area-law-to-gap-bridge}`.
+- `appx-roadmap.tex` sharper-decay item — called σ̂_∞ "the OS4 cluster rate"
+  (it is the string tension; the cluster rate is the mass `m`) and wrote the
+  sharper bound as `m ≥ c·σ̂_∞` (dimensionally wrong). Fixed to `m ≥ c·√σ̂_∞`.
+
+Full-paper grep now shows σ̂_∞ used only as an area-law (string-tension) rate
+or under a √; no surviving bare-σ̂_∞ gap/cluster statement. `latexmk` resolves
+both new cross-refs (the pre-existing multiply-defined-label / 1-missing-citation
+warnings are unrelated document hygiene, out of §0 scope).
+
 ---
 
 ## (a) Ch. 17 — continuum projective limit + tightness  [cleanly closeable]
