@@ -1,0 +1,10 @@
+# Build the engine image with Cloud Build (no local Docker needed).
+# Submit from the REPO ROOT so the build context includes simulations/:
+#   gcloud builds submit --config cloud/cloudbuild.yaml \
+#       --substitutions=_IMAGE=REGION-docker.pkg.dev/PROJECT/ym/ym-sim:latest .
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args: ['build', '-f', 'cloud/Dockerfile', '-t', '${_IMAGE}', '.']
+images: ['${_IMAGE}']
+options:
+  machineType: E2_HIGHCPU_8   # faster cargo build

@@ -1,0 +1,33 @@
+{
+  "_comment": "Continuum campaign, affordable set: points.tsv rows 0-3 (beta=2.3/L12, 2.4/L16, 2.45/L18, 2.5/L22). One task per beta point, each on its own 32-vCPU compute-optimized VM, all running concurrently. Replace IMAGE_URI and BUCKET_NAME before submitting (or use the sed line in the README). The heavier L26/L30 points (rows 4-5) are better run as separate jobs on a bigger machine - see the README.",
+  "taskGroups": [
+    {
+      "taskCount": 4,
+      "parallelism": 4,
+      "taskCountPerNode": 1,
+      "taskSpec": {
+        "runnables": [
+          { "container": { "imageUri": "IMAGE_URI" } }
+        ],
+        "environment": { "variables": { "OUT_DIR": "/mnt/out" } },
+        "volumes": [
+          { "gcs": { "remotePath": "BUCKET_NAME/runs" }, "mountPath": "/mnt/out" }
+        ],
+        "computeResource": { "cpuMilli": 30000, "memoryMib": 16384 },
+        "maxRunDuration": "43200s",
+        "maxRetryCount": 1
+      }
+    }
+  ],
+  "allocationPolicy": {
+    "instances": [
+      {
+        "policy": {
+          "machineType": "c2d-standard-32",
+          "provisioningModel": "STANDARD"
+        }
+      }
+    ]
+  },
+  "logsPolicy": { "destination": "CLOUD_LOGGING" }
+}
