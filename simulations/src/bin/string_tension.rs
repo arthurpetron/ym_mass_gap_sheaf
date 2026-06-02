@@ -21,6 +21,7 @@ fn main() {
     let mut tmax = 4usize;
     let mut smear = 0usize;
     let mut smear_alpha = 0.5f64;
+    let mut bins = 50usize;
     let mut seed = 0u64;
     let mut threads = std::thread::available_parallelism().map(|n| n.get()).unwrap_or(1);
     let mut out: Option<String> = None;
@@ -46,6 +47,7 @@ fn main() {
             "--tmax" => tmax = val().parse().unwrap(),
             "--smear" => smear = val().parse().unwrap(),
             "--smear-alpha" => smear_alpha = val().parse().unwrap(),
+            "--bins" => bins = val().parse().unwrap(),
             "--seed" => seed = val().parse().unwrap(),
             "--threads" => threads = val().parse().unwrap(),
             "--out" => out = Some(val()),
@@ -58,7 +60,8 @@ fn main() {
     );
     let t0 = Instant::now();
     let s = measure_string_tension(
-        l, beta, therm, meas, interval, overrelax, rmax, tmax, smear, smear_alpha, seed, threads,
+        l, beta, therm, meas, interval, overrelax, rmax, tmax, smear, smear_alpha, bins, seed,
+        threads,
     );
     let secs = t0.elapsed().as_secs_f64();
     eprintln!("  collected {} configs in {:.1}s", s.n_collected, secs);
@@ -77,23 +80,35 @@ fn main() {
         eprintln!("    chi({r},{r}) = {chi:.5}  (sqrt = {:.4})", chi.max(0.0).sqrt());
     }
 
-    // JSON: emit the full W(R,T) grid.
-    let mut rows = String::new();
-    rows.push('[');
-    for (ri, row) in s.w.iter().enumerate() {
-        if ri > 0 {
-            rows.push_str(", ");
+    // JSON: emit the full W(R,T) grid plus per-bin sums for jackknife errors.
+    let grid = |g: &[Vec<f64>]| -> String {
+        let mut rows = String::from("[");
+        for (ri, row) in g.iter().enumerate() {
+            if ri > 0 {
+                rows.push_str(", ");
+            }
+            let series = row.iter().map(|x| format!("{x}")).collect::<Vec<_>>().join(", ");
+            rows.push_str(&format!("[{series}]"));
         }
-        let series = row.iter().map(|x| format!("{x}")).collect::<Vec<_>>().join(", ");
-        rows.push_str(&format!("[{series}]"));
-    }
-    rows.push(']');
+        rows.push(']');
+        rows
+    };
+    let rows = grid(&s.w);
+    let counts_json =
+        s.bin_counts.iter().map(|c| c.to_string()).collect::<Vec<_>>().join(", ");
+    let bin_w_json = s
+        .bin_w_sum
+        .iter()
+        .map(|mat| grid(mat))
+        .collect::<Vec<_>>()
+        .join(", ");
 
     let json = format!(
-        "{{\n  \"l\": {}, \"beta\": {}, \"n_therm\": {}, \"n_collected\": {},\n  \"r_max\": {}, \"t_max\": {}, \"smear_steps\": {}, \"smear_alpha\": {}, \"n_overrelax\": {}, \"threads\": {},\n  \"meas_interval\": {}, \"elapsed_seconds\": {:.3},\n  \"w\": {}\n}}\n",
+        "{{\n  \"l\": {}, \"beta\": {}, \"n_therm\": {}, \"n_collected\": {},\n  \"r_max\": {}, \"t_max\": {}, \"smear_steps\": {}, \"smear_alpha\": {}, \"n_overrelax\": {}, \"threads\": {},\n  \"meas_interval\": {}, \"elapsed_seconds\": {:.3},\n  \"w\": {},\n  \"n_bins\": {}, \"bin_counts\": [{}],\n  \"bin_w_sum\": [{}]\n}}\n",
         s.l, s.beta, s.n_therm, s.n_collected,
         s.r_max, s.t_max, s.smear_steps, s.smear_alpha, s.overrelax, s.threads,
-        interval, secs, rows
+        interval, secs, rows,
+        s.n_bins, counts_json, bin_w_json
     );
     match &out {
         Some(p) => {

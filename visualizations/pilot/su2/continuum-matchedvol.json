@@ -2,5 +2,6 @@
  "points": [
    {"beta": 2.3,  "glue": "visualizations/pilot/su2/glueball-L12-b2.3.json",    "sigma": "visualizations/pilot/su2/sigma-L12-b2.3.json",  "rmin": 2},
    {"beta": 2.4,  "glue": "visualizations/pilot/su2/glueball-L16-b2.4-hi.json", "sigma": "visualizations/pilot/su2/sigma-L16-b2.4.json",  "rmin": 3},
-   {"beta": 2.45, "glue": "visualizations/pilot/su2/glueball-L18-b2.45.json",   "sigma": "visualizations/pilot/su2/sigma-L18-b2.45.json", "rmin": 3}
+   {"beta": 2.45, "glue": "visualizations/pilot/su2/glueball-L18-b2.45.json",   "sigma": "visualizations/pilot/su2/sigma-L18-b2.45.json", "rmin": 3},
+   {"beta": 2.5,  "glue": "visualizations/pilot/su2/glueball-L22-b2.5.json",    "sigma": "visualizations/pilot/su2/sigma-L22-b2.5.json",  "rmin": 3}
  ]}

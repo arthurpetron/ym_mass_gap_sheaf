@@ -42,14 +42,24 @@ def measure_point(pt: dict, tau0: int, rel_thresh: float) -> dict:
     m0, m0e = gres["m0_lattice"], gres["m0_lattice_err"]
 
     sd = st.load(pt["sigma"])
-    v0, sig, c, sige = st.fit_cornell(st.static_potential(sd["w"]), pt.get("rmin", 2))
-    # If the Cornell covariance is singular (0 dof: as many fit points as
-    # parameters), fall back to the scatter of the large-r Creutz ratios, which
-    # independently estimate sigma a^2.
+    rmin = pt.get("rmin", 2)
+    v0, sig, c, sige = st.fit_cornell(st.static_potential(sd["w"]), rmin)
+    # Prefer a genuine configuration jackknife on sigma a^2 when the JSON carries
+    # per-bin sums (string_tension --bins); it is the honest statistical error
+    # (typically several times the Cornell-fit covariance).  Central value stays
+    # the full-sample fit.
+    sig_err_kind = "fit"
+    if "bin_w_sum" in sd:
+        _, jk = st.jackknife_sigma(sd, rmin)
+        if np.isfinite(jk) and jk > 0:
+            sige, sig_err_kind = jk, "jackknife"
+    # If neither is available (singular Cornell covariance, no bins), fall back to
+    # the scatter of the large-r Creutz ratios, which independently estimate sigma.
     if not (np.isfinite(sige) and sige > 0):
         cr = st.creutz_ratios(sd["w"])
         tail = [cr[r] for r in sorted(cr)[-3:]]
         sige = float(np.std(tail, ddof=1)) if len(tail) >= 2 else 0.1 * sig
+        sig_err_kind = "creutz"
     rs = math.sqrt(sig)
     rse = 0.5 * sige / sig * rs  # error on sqrt(sigma a^2)
 
@@ -61,6 +71,7 @@ def measure_point(pt: dict, tau0: int, rel_thresh: float) -> dict:
         "n_glue": gd["n_collected"],
         "sigma_a2": sig,
         "sigma_a2_err": sige,
+        "sigma_err_kind": sig_err_kind,
         "sqrt_sigma_a": rs,
         "m0_a": m0,
         "m0_a_err": m0e,
@@ -106,12 +117,13 @@ def main() -> None:
     pts.sort(key=lambda d: d["sigma_a2"])  # ascending a^2 (continuum on the left)
 
     print("=== 0++ glueball / sqrt(sigma) continuum trend ===")
-    print(f"  {'beta':>5} {'L':>3} {'configs':>8}  {'sigma a^2':>12}  {'sqrt(s)a':>9}  "
+    print(f"  {'beta':>5} {'L':>3} {'configs':>8}  {'sigma a^2':>12} {'serr':>4}  {'sqrt(s)a':>9}  "
           f"{'m0 a':>14}  {'plateau':>9}  {'m0/sqrt(s)':>16}")
     for d in pts:
         lo, hi = d["plateau"]
+        tag = {"jackknife": "jk", "fit": "fit", "creutz": "cr"}.get(d["sigma_err_kind"], "?")
         print(f"  {d['beta']:>5.3f} {d['L']:>3d} {d['n_glue']:>8d}  "
-              f"{d['sigma_a2']:>8.5f}±{d['sigma_a2_err']:.5f}  {d['sqrt_sigma_a']:>9.4f}  "
+              f"{d['sigma_a2']:>8.5f}±{d['sigma_a2_err']:.5f} {tag:>4}  {d['sqrt_sigma_a']:>9.4f}  "
               f"{d['m0_a']:>7.4f}±{d['m0_a_err']:.4f}  [{lo},{hi}]      "
               f"{d['ratio']:>7.3f}±{d['ratio_err']:.3f}")
 

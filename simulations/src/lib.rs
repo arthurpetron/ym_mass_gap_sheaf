@@ -638,14 +638,22 @@ fn ape_smear_spatial(links: &[Su2], lat: &Lattice, alpha: f64, threads: usize) -
     out
 }
 
-/// Zero-momentum 0++ operator on timeslice `t`: sum over spatial sites and the
-/// 3 spatial planes of (1/2)Re Tr U_spatial-plaq, built from `links`.
-fn timeslice_op(links: &[Su2], lat: &Lattice, t: usize) -> f64 {
-    let mut sum = 0.0;
+/// Zero-momentum spatial-plaquette sums per plane on timeslice `t`: returns
+/// `(P_{12}(t), P_{13}(t), P_{23}(t))` where `P_{ij}(t)` is the sum over
+/// spatial sites of `(1/2)Re Tr U_{plaq}` in plane `(i,j)`.  The A_1 (0++)
+/// operator is the symmetric sum P_{12}+P_{13}+P_{23}; the E (2++) operators
+/// are the two orthogonal cubic-irrep combinations
+///     E_1 = (2 P_{23} - P_{12} - P_{13}) / sqrt(6),
+///     E_2 = (P_{13} - P_{12}) / sqrt(2).
+/// Loop order maps (i,j) -> plane index:
+///   (1,2) -> 0,  (1,3) -> 1,  (2,3) -> 2.
+fn timeslice_op_planes(links: &[Su2], lat: &Lattice, t: usize) -> [f64; 3] {
+    let mut p = [0.0f64; 3];
     let st0 = lat.l * lat.l * lat.l; // stride for x0
     let base = t * st0;
     for s in 0..st0 {
         let site = base + s; // sites with coord(.,0) == t (x0 is the slowest index)
+        let mut k = 0usize;
         for i in 1..DIM {
             for j in (i + 1)..DIM {
                 let x_pi = lat.shift(site, i, true);
@@ -654,11 +662,12 @@ fn timeslice_op(links: &[Su2], lat: &Lattice, t: usize) -> f64 {
                     mul(lget(links, site, i), lget(links, x_pi, j)),
                     mul(dag(lget(links, x_pj, i)), dag(lget(links, site, j))),
                 );
-                sum += up[0];
+                p[k] += up[0];
+                k += 1;
             }
         }
     }
-    sum
+    p
 }
 
 pub struct GlueballData {
@@ -687,6 +696,17 @@ pub struct GlueballData {
     /// Per-bin UNSUBTRACTED correlator sum: sum over the bin's configs of
     /// (1/L) sum_t O_i(t) O_j(t+tau).  `[n_bins][nlev][nlev][tau_max+1]`.
     pub bin_corr_sum: Vec<Vec<Vec<Vec<f64>>>>,
+    /// `<O^E_a>` for each (smear i, E component a in {0,1}), flat-indexed as
+    /// `mean_op_E[2*i + a]`.  Length `2*nlev`.  Component 0 = E_1, 1 = E_2.
+    pub mean_op_E: Vec<f64>,
+    /// Connected 2++ E-channel correlator `C^E_{(ia)(jb)}(tau)`, indexed
+    /// `[2*i+a][2*j+b][tau]`.  Size `(2*nlev) x (2*nlev) x (tau_max+1)`.
+    pub corr_E: Vec<Vec<Vec<f64>>>,
+    /// Per-bin UNSUBTRACTED E-channel operator sum, `[n_bins][2*nlev]`.
+    pub bin_op_E_sum: Vec<Vec<f64>>,
+    /// Per-bin UNSUBTRACTED E-channel correlator sum,
+    /// `[n_bins][2*nlev][2*nlev][tau_max+1]`.
+    pub bin_corr_E_sum: Vec<Vec<Vec<Vec<f64>>>>,
 }
 
 /// Measure the 0++ glueball correlation matrix.  `smear_levels` must be
@@ -707,6 +727,7 @@ pub fn measure_glueball(
     threads: usize,
 ) -> GlueballData {
     let nlev = smear_levels.len();
+    let n_e = 2 * nlev; // E-channel operators: 2 per smear (E_1, E_2)
     let max_level = *smear_levels.iter().max().unwrap_or(&0);
     let tau_max = l / 2;
 
@@ -719,6 +740,8 @@ pub fn measure_glueball(
     let mut bin_counts = vec![0usize; n_bins];
     let mut bin_op_sum = vec![vec![0.0f64; nlev]; n_bins];
     let mut bin_corr_sum = vec![vec![vec![vec![0.0f64; tau_max + 1]; nlev]; nlev]; n_bins];
+    let mut bin_op_E_sum = vec![vec![0.0f64; n_e]; n_bins];
+    let mut bin_corr_E_sum = vec![vec![vec![vec![0.0f64; tau_max + 1]; n_e]; n_e]; n_bins];
 
     let mut lat = Lattice::new_hot(l, seed);
     let classes = build_classes(&lat);
@@ -740,14 +763,15 @@ pub fn measure_glueball(
         }
         since = 0;
 
-        // op[i][t] for each smearing level i and timeslice t.
-        let mut op = vec![vec![0.0f64; l]; nlev];
+        // op_planes[i][t] = (P_{12}, P_{13}, P_{23}) per smear level i and
+        // timeslice t.  A_1 (0++) and E (2++) operators are linear combinations.
+        let mut op_planes = vec![vec![[0.0f64; 3]; l]; nlev];
         let mut sm = lat.links.clone();
         let mut idx = 0usize;
         for level in 0..=max_level {
             while idx < nlev && smear_levels[idx] == level {
                 // parallel over timeslices (each independent).
-                let row = &mut op[idx];
+                let row = &mut op_planes[idx];
                 let sm_ref = &sm;
                 let lat_ref = &lat;
                 let nthreads = threads.max(1).min(l);
@@ -757,7 +781,7 @@ pub fn measure_glueball(
                         let t0 = ci * chunk;
                         s.spawn(move || {
                             for (j, slot) in rchunk.iter_mut().enumerate() {
-                                *slot = timeslice_op(sm_ref, lat_ref, t0 + j);
+                                *slot = timeslice_op_planes(sm_ref, lat_ref, t0 + j);
                             }
                         });
                     }
@@ -769,8 +793,23 @@ pub fn measure_glueball(
             }
         }
 
+        // Derive A_1 (0++) and E (2++) operators from per-plane sums.
+        let inv_sqrt6 = 1.0 / 6.0f64.sqrt();
+        let inv_sqrt2 = 1.0 / 2.0f64.sqrt();
+        let mut op = vec![vec![0.0f64; l]; nlev]; // A_1 channel
+        let mut op_e = vec![vec![0.0f64; l]; n_e]; // E channel: [2*smear + comp][t]
+        for i in 0..nlev {
+            for t in 0..l {
+                let p = op_planes[i][t];
+                op[i][t] = p[0] + p[1] + p[2]; // A_1: symmetric sum
+                op_e[2 * i][t] = inv_sqrt6 * (2.0 * p[2] - p[0] - p[1]); // E_1
+                op_e[2 * i + 1][t] = inv_sqrt2 * (p[1] - p[0]); // E_2
+            }
+        }
+
         let bin = (n_collected / bin_size).min(n_bins - 1);
         bin_counts[bin] += 1;
+        // A_1 (0++) channel accumulation -- unchanged from the original.
         for i in 0..nlev {
             let si: f64 = op[i].iter().sum::<f64>() / l as f64;
             bin_op_sum[bin][i] += si;
@@ -784,10 +823,24 @@ pub fn measure_glueball(
                 }
             }
         }
+        // E (2++) channel accumulation -- same shape, sized 2*nlev.
+        for i in 0..n_e {
+            let si: f64 = op_e[i].iter().sum::<f64>() / l as f64;
+            bin_op_E_sum[bin][i] += si;
+            for j in 0..n_e {
+                for tau in 0..=tau_max {
+                    let mut acc = 0.0;
+                    for t in 0..l {
+                        acc += op_e[i][t] * op_e[j][(t + tau) % l];
+                    }
+                    bin_corr_E_sum[bin][i][j][tau] += acc / l as f64;
+                }
+            }
+        }
         n_collected += 1;
     }
 
-    // Global connected correlator, rebuilt from the bin sums.
+    // Global connected correlators (A_1 and E), rebuilt from the bin sums.
     let nc = n_collected.max(1) as f64;
     let mut mean_op = vec![0.0f64; nlev];
     let mut corr = vec![vec![vec![0.0f64; tau_max + 1]; nlev]; nlev];
@@ -812,6 +865,29 @@ pub fn measure_glueball(
         }
     }
 
+    let mut mean_op_E = vec![0.0f64; n_e];
+    let mut corr_E = vec![vec![vec![0.0f64; tau_max + 1]; n_e]; n_e];
+    for b in 0..n_bins {
+        for i in 0..n_e {
+            mean_op_E[i] += bin_op_E_sum[b][i];
+            for j in 0..n_e {
+                for tau in 0..=tau_max {
+                    corr_E[i][j][tau] += bin_corr_E_sum[b][i][j][tau];
+                }
+            }
+        }
+    }
+    for i in 0..n_e {
+        mean_op_E[i] /= nc;
+    }
+    for i in 0..n_e {
+        for j in 0..n_e {
+            for tau in 0..=tau_max {
+                corr_E[i][j][tau] = corr_E[i][j][tau] / nc - mean_op_E[i] * mean_op_E[j];
+            }
+        }
+    }
+
     GlueballData {
         l,
         beta,
@@ -827,6 +903,10 @@ pub fn measure_glueball(
         bin_counts,
         bin_op_sum,
         bin_corr_sum,
+        mean_op_E,
+        corr_E,
+        bin_op_E_sum,
+        bin_corr_E_sum,
     }
 }
 
@@ -861,6 +941,14 @@ pub struct StringTensionData {
     /// `w[r-1][t-1] = <W(r, t)>`, the planar R x T Wilson loop (R spatial,
     /// T temporal), averaged over sites and the 3 spatial directions.
     pub w: Vec<Vec<f64>>,
+    /// Number of (contiguous) configuration bins for jackknife error analysis.
+    pub n_bins: usize,
+    /// Configs in each bin; `[n_bins]`.
+    pub bin_counts: Vec<usize>,
+    /// Per-bin Wilson-loop sum: sum over the bin's configs of the per-config
+    /// loop `(1/(vol*(DIM-1))) sum_{sites,dirs} W(r,t)`.  `[n_bins][r][t]`.
+    /// The leave-one-out grid is `(sum_b - bin_b) / (n_collected - count_b)`.
+    pub bin_w_sum: Vec<Vec<Vec<f64>>>,
 }
 
 /// Measure rectangular Wilson loops W(R,T) for R=1..=r_max, T=1..=t_max.
@@ -878,6 +966,7 @@ pub fn measure_string_tension(
     t_max: usize,
     smear_steps: usize,
     smear_alpha: f64,
+    n_bins: usize,
     seed: u64,
     threads: usize,
 ) -> StringTensionData {
@@ -891,7 +980,15 @@ pub fn measure_string_tension(
     }
 
     let vol = lat.vol;
-    let mut w_sum = vec![vec![0.0f64; t_max]; r_max];
+    // Contiguous binning of the collected configs for jackknife errors (same
+    // convention as measure_glueball): clamp the bin count to the expected
+    // collected count and assign by collection index.
+    let expected = (n_meas / meas_interval.max(1)).max(1);
+    let n_bins = n_bins.clamp(1, expected);
+    let bin_size = (expected + n_bins - 1) / n_bins;
+    let mut bin_counts = vec![0usize; n_bins];
+    let mut bin_w_sum = vec![vec![vec![0.0f64; t_max]; r_max]; n_bins];
+    let dirnorm = (vol * (DIM - 1)) as f64;
     let mut n_collected = 0usize;
     let mut since = 0usize;
 
@@ -923,6 +1020,7 @@ pub fn measure_string_tension(
         }
 
         // Per spatial direction: spatial lines (smeared) + loop assembly.
+        let mut w_cfg = vec![vec![0.0f64; t_max]; r_max];
         for i in 1..DIM {
             let mut sl = vec![vec![ID; vol]; r_max + 1];
             for x in 0..vol {
@@ -971,19 +1069,38 @@ pub fn measure_string_tension(
             for wp in partials {
                 for r in 0..r_max {
                     for t in 0..t_max {
-                        w_sum[r][t] += wp[r][t];
+                        w_cfg[r][t] += wp[r][t];
                     }
                 }
+            }
+        }
+        // Bin this config's per-config loop average (normalized over sites and
+        // the DIM-1 spatial directions).
+        let bin = (n_collected / bin_size).min(n_bins - 1);
+        bin_counts[bin] += 1;
+        for r in 0..r_max {
+            for t in 0..t_max {
+                bin_w_sum[bin][r][t] += w_cfg[r][t] / dirnorm;
             }
         }
         n_collected += 1;
     }
 
-    let norm = (n_collected.max(1) * vol * (DIM - 1)) as f64;
-    let w: Vec<Vec<f64>> = w_sum
-        .iter()
-        .map(|row| row.iter().map(|s| s / norm).collect())
-        .collect();
+    // Global grid rebuilt from the bin sums: w[r][t] = (sum_b bin_w_sum) / nc.
+    let nc = n_collected.max(1) as f64;
+    let mut w = vec![vec![0.0f64; t_max]; r_max];
+    for b in 0..n_bins {
+        for r in 0..r_max {
+            for t in 0..t_max {
+                w[r][t] += bin_w_sum[b][r][t];
+            }
+        }
+    }
+    for r in 0..r_max {
+        for t in 0..t_max {
+            w[r][t] /= nc;
+        }
+    }
 
     StringTensionData {
         l,
@@ -997,6 +1114,9 @@ pub fn measure_string_tension(
         smear_steps,
         smear_alpha,
         w,
+        n_bins,
+        bin_counts,
+        bin_w_sum,
     }
 }
 
@@ -1110,10 +1230,42 @@ mod tests {
     }
 
     #[test]
+    fn glueball_2pp_E_channel_sane() {
+        // 2++ E-channel correlator: 2 operators per smear level, diagonal at
+        // tau=0 must be non-negative (it is Var(O_E) >= 0), and the global
+        // correlator must be reproducible from the bin sums.
+        let g = measure_glueball(8, 2.4, 300, 2000, 4, 4, &[0, 4, 8], 0.5, 8, 7, 4);
+        let nlev = g.smear_levels.len();
+        let n_e = 2 * nlev;
+        assert_eq!(g.mean_op_E.len(), n_e, "E-channel must have 2*nlev operators");
+        assert_eq!(g.corr_E.len(), n_e);
+
+        // Diagonal Var(O_E_a) >= 0 for every (smear, component).
+        for a in 0..n_e {
+            let c0 = g.corr_E[a][a][0];
+            assert!(c0 >= -1e-9, "C^E_{a}{a}(0)={c0} must be >= 0 (Var)");
+        }
+
+        // Bin reconstruction matches the reported global E correlator at tau=0.
+        let nc = g.n_collected as f64;
+        let top_e = n_e - 1; // last E operator (most-smeared, E_2)
+        let mut acc = 0.0;
+        let mut mop_e = 0.0;
+        for b in 0..g.n_bins {
+            acc += g.bin_corr_E_sum[b][top_e][top_e][0];
+            mop_e += g.bin_op_E_sum[b][top_e];
+        }
+        let rebuilt = acc / nc - (mop_e / nc) * (mop_e / nc);
+        let reported = g.corr_E[top_e][top_e][0];
+        assert!((rebuilt - reported).abs() < 1e-9 * reported.abs().max(1.0),
+            "bin-rebuilt C^E({top_e},{top_e})(0)={rebuilt} must match reported {reported}");
+    }
+
+    #[test]
     fn wilson_loops_decrease_and_creutz_positive() {
         // W(R,T) must decrease with area; the Creutz ratio must be positive
         // (a positive string tension).
-        let s = measure_string_tension(8, 2.4, 300, 2000, 4, 4, 3, 3, 0, 0.5, 11, 4);
+        let s = measure_string_tension(8, 2.4, 300, 2000, 4, 4, 3, 3, 0, 0.5, 4, 11, 4);
         let w = &s.w; // w[r-1][t-1]
         assert!(w[0][0] > w[1][0], "W(2,1) should be < W(1,1)");
         assert!(w[0][0] > w[0][1], "W(1,2) should be < W(1,1)");
@@ -1121,6 +1273,17 @@ mod tests {
         // Creutz ratio chi(2,2) = -ln[ W(2,2)W(1,1) / (W(1,2)W(2,1)) ] > 0.
         let chi = -(w[1][1] * w[0][0] / (w[0][1] * w[1][0])).ln();
         assert!(chi > 0.0, "Creutz ratio chi(2,2) should be positive, got {chi}");
+
+        // Bin bookkeeping: counts sum to n_collected, and the global grid equals
+        // the one rebuilt from the bin sums (jackknife inputs reproduce <W>).
+        assert_eq!(s.bin_counts.iter().sum::<usize>(), s.n_collected);
+        let nc = s.n_collected as f64;
+        let mut rebuilt = 0.0;
+        for b in 0..s.n_bins {
+            rebuilt += s.bin_w_sum[b][1][1];
+        }
+        rebuilt /= nc;
+        assert!((rebuilt - w[1][1]).abs() < 1e-9, "rebuilt W(2,2) {rebuilt} != {}", w[1][1]);
     }
 
     #[test]

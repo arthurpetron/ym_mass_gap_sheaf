@@ -35,7 +35,40 @@ import numpy as np
 def load(path: str) -> dict:
     d = json.loads(Path(path).read_text())
     d["w"] = np.asarray(d["w"], dtype=float)  # w[r-1][t-1] = W(r, t)
+    if "bin_w_sum" in d:
+        d["bin_w_sum"] = np.asarray(d["bin_w_sum"], dtype=float)  # [nb][r][t]
+        d["bin_counts"] = np.asarray(d["bin_counts"], dtype=float)  # [nb]
     return d
+
+
+def sigma_from_grid(w: np.ndarray, rmin: int) -> float:
+    """sigma a^2 from the Cornell fit on a Wilson-loop grid (NaN on failure)."""
+    try:
+        _, sigma, _, _ = fit_cornell(static_potential(w), rmin)
+        return float(sigma)
+    except Exception:
+        return float("nan")
+
+
+def jackknife_sigma(d: dict, rmin: int) -> tuple[float, float]:
+    """Delete-one jackknife error on sigma a^2 over configuration bins.  Rebuilds
+    the leave-one-out Wilson-loop grid from the per-bin sums and re-runs the full
+    static-potential / Cornell extraction on each.  Returns (mean, jk_err)."""
+    bw, cnt = d["bin_w_sum"], d["bin_counts"]
+    nb = bw.shape[0]
+    tot_w, tot_n = bw.sum(0), cnt.sum()
+    samples = np.full(nb, np.nan)
+    for k in range(nb):
+        nk = tot_n - cnt[k]
+        if nk <= 0:
+            continue
+        samples[k] = sigma_from_grid((tot_w - bw[k]) / nk, rmin)
+    s = samples[np.isfinite(samples)]
+    if s.size < 2:
+        return float("nan"), float("nan")
+    mean = float(s.mean())
+    err = float(np.sqrt((s.size - 1) / s.size * np.sum((s - mean) ** 2)))
+    return mean, err
 
 
 def creutz_ratios(w: np.ndarray) -> dict[int, float]:
@@ -153,10 +186,25 @@ def main() -> None:
     print("  Creutz ratios chi(r,r) [-> sigma a^2 at large r]:")
     for r in sorted(creutz):
         print(f"    chi({r},{r}) = {creutz[r]:.5f}   sqrt = {max(creutz[r],0)**0.5:.4f}")
-    print(f"  Cornell fit (r >= {args.rmin}):  V0={v0:.4f}  sigma a^2={sigma:.5f} +/- {sig_err:.5f}  c={c:.4f}")
+    print(f"  Cornell fit (r >= {args.rmin}):  V0={v0:.4f}  sigma a^2={sigma:.5f} +/- {sig_err:.5f} (fit)  c={c:.4f}")
+
+    sigma_jk_err = float("nan")
+    if "bin_w_sum" in d:
+        _, sigma_jk_err = jackknife_sigma(d, args.rmin)
+        print(f"  jackknife (config) error on sigma a^2: +/- {sigma_jk_err:.5f}  "
+              f"({int(d['bin_counts'].shape[0])} bins)")
+    else:
+        print("  (no per-bin data in JSON -> only the Cornell-fit error is available;"
+              " rerun string_tension to get a configuration jackknife)")
+
     if np.isfinite(sigma) and sigma > 0:
-        print(f"  => sqrt(sigma) a = {math.sqrt(sigma):.5f}  (lattice units)")
-        print(f"     With a glueball m_0 a, the ratio m(0++)/sqrt(sigma) = (m_0 a)/{math.sqrt(sigma):.5f}.")
+        root = math.sqrt(sigma)
+        # propagate sigma error to sqrt(sigma): d(sqrt sigma) = d(sigma)/(2 sqrt sigma)
+        err = sigma_jk_err if np.isfinite(sigma_jk_err) else sig_err
+        root_err = err / (2.0 * root) if np.isfinite(err) else float("nan")
+        kind = "jackknife" if np.isfinite(sigma_jk_err) else "fit"
+        print(f"  => sqrt(sigma) a = {root:.5f} +/- {root_err:.5f} ({kind})  (lattice units)")
+        print(f"     With a glueball m_0 a, the ratio m(0++)/sqrt(sigma) = (m_0 a)/{root:.5f}.")
     out = args.plot or str(Path(args.json).with_suffix(".svg"))
     print(f"  SVG: {plot(d, creutz, vr, fit, out)}")
 

@@ -85,22 +85,46 @@ fn main() {
     let fmt_vec = |v: &[f64]| -> String {
         v.iter().map(|x| format!("{x}")).collect::<Vec<_>>().join(", ")
     };
-    let mut corr_json = String::new();
-    corr_json.push('[');
-    for (i, row) in g.corr.iter().enumerate() {
-        if i > 0 {
-            corr_json.push_str(", ");
-        }
-        corr_json.push('[');
-        for (j, series) in row.iter().enumerate() {
-            if j > 0 {
-                corr_json.push_str(", ");
+    let corr_to_json = |c: &Vec<Vec<Vec<f64>>>| -> String {
+        let mut s = String::from("[");
+        for (i, row) in c.iter().enumerate() {
+            if i > 0 {
+                s.push_str(", ");
             }
-            corr_json.push_str(&format!("[{}]", fmt_vec(series)));
+            s.push('[');
+            for (j, series) in row.iter().enumerate() {
+                if j > 0 {
+                    s.push_str(", ");
+                }
+                s.push_str(&format!("[{}]", fmt_vec(series)));
+            }
+            s.push(']');
         }
-        corr_json.push(']');
-    }
-    corr_json.push(']');
+        s.push(']');
+        s
+    };
+    let bin_corr_to_json = |b: &Vec<Vec<Vec<Vec<f64>>>>| -> String {
+        let mut s = String::from("[");
+        for (bi, mat) in b.iter().enumerate() {
+            if bi > 0 {
+                s.push_str(", ");
+            }
+            s.push_str(&corr_to_json(mat));
+        }
+        s.push(']');
+        s
+    };
+    let bin_op_to_json = |b: &Vec<Vec<f64>>| -> String {
+        b.iter().map(|row| format!("[{}]", fmt_vec(row))).collect::<Vec<_>>().join(", ")
+    };
+
+    let corr_json = corr_to_json(&g.corr);
+    let bin_corr_json = bin_corr_to_json(&g.bin_corr_sum);
+    let bin_op_json = bin_op_to_json(&g.bin_op_sum);
+    // 2++ E-channel: same serializers, mean_op_E / corr_E / bin_* sized 2*nlev.
+    let corr_E_json = corr_to_json(&g.corr_E);
+    let bin_corr_E_json = bin_corr_to_json(&g.bin_corr_E_sum);
+    let bin_op_e_json = bin_op_to_json(&g.bin_op_E_sum);
 
     let levels_json = g
         .smear_levels
@@ -108,43 +132,11 @@ fn main() {
         .map(|x| x.to_string())
         .collect::<Vec<_>>()
         .join(", ");
-
-    // Per-bin jackknife inputs: counts, unsubtracted operator sums, and
-    // unsubtracted correlator sums [bin][i][j][tau].
     let counts_json =
         g.bin_counts.iter().map(|c| c.to_string()).collect::<Vec<_>>().join(", ");
-    let bin_op_json = g
-        .bin_op_sum
-        .iter()
-        .map(|row| format!("[{}]", fmt_vec(row)))
-        .collect::<Vec<_>>()
-        .join(", ");
-    let mut bin_corr_json = String::new();
-    bin_corr_json.push('[');
-    for (b, mat) in g.bin_corr_sum.iter().enumerate() {
-        if b > 0 {
-            bin_corr_json.push_str(", ");
-        }
-        bin_corr_json.push('[');
-        for (i, row) in mat.iter().enumerate() {
-            if i > 0 {
-                bin_corr_json.push_str(", ");
-            }
-            bin_corr_json.push('[');
-            for (j, series) in row.iter().enumerate() {
-                if j > 0 {
-                    bin_corr_json.push_str(", ");
-                }
-                bin_corr_json.push_str(&format!("[{}]", fmt_vec(series)));
-            }
-            bin_corr_json.push(']');
-        }
-        bin_corr_json.push(']');
-    }
-    bin_corr_json.push(']');
 
     let json = format!(
-        "{{\n  \"l\": {}, \"beta\": {}, \"n_therm\": {}, \"n_collected\": {},\n  \"smear_levels\": [{}], \"smear_alpha\": {}, \"n_overrelax\": {}, \"threads\": {},\n  \"meas_interval\": {}, \"elapsed_seconds\": {:.3},\n  \"mean_op\": [{}],\n  \"corr\": {},\n  \"n_bins\": {}, \"bin_counts\": [{}],\n  \"bin_op_sum\": [{}],\n  \"bin_corr_sum\": {}\n}}\n",
+        "{{\n  \"l\": {}, \"beta\": {}, \"n_therm\": {}, \"n_collected\": {},\n  \"smear_levels\": [{}], \"smear_alpha\": {}, \"n_overrelax\": {}, \"threads\": {},\n  \"meas_interval\": {}, \"elapsed_seconds\": {:.3},\n  \"mean_op\": [{}],\n  \"corr\": {},\n  \"n_bins\": {}, \"bin_counts\": [{}],\n  \"bin_op_sum\": [{}],\n  \"bin_corr_sum\": {},\n  \"mean_op_E\": [{}],\n  \"corr_E\": {},\n  \"bin_op_E_sum\": [{}],\n  \"bin_corr_E_sum\": {}\n}}\n",
         g.l, g.beta, g.n_therm, g.n_collected,
         levels_json, g.smear_alpha, g.overrelax, g.threads,
         interval, secs,
@@ -152,7 +144,11 @@ fn main() {
         corr_json,
         g.n_bins, counts_json,
         bin_op_json,
-        bin_corr_json
+        bin_corr_json,
+        fmt_vec(&g.mean_op_E),
+        corr_E_json,
+        bin_op_e_json,
+        bin_corr_E_json
     );
     match &out {
         Some(p) => {
