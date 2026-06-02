@@ -132,6 +132,22 @@ Cost scales like `L^4 x meas`, so the high-beta points dominate. Run in two tier
 
 Start with Tier A. Inspect the 4-point fit before paying for the tail.
 
+## Grant the Batch service account access (one-time)
+
+Batch tasks run as the Compute Engine default service account, which must be
+able to pull the image and write to the output bucket — otherwise the job fails
+to start or the GCS mount is read-only:
+
+```bash
+PNUM=$(gcloud projects describe "$PROJECT" --format='value(projectNumber)')
+SA="${PNUM}-compute@developer.gserviceaccount.com"
+
+gcloud projects add-iam-policy-binding "$PROJECT" \
+    --member="serviceAccount:${SA}" --role="roles/artifactregistry.reader"
+gcloud projects add-iam-policy-binding "$PROJECT" \
+    --member="serviceAccount:${SA}" --role="roles/storage.objectAdmin"
+```
+
 ## Submit the campaign (Tier A: beta = 2.3, 2.4, 2.45, 2.5)
 
 Fill the placeholders in `batch-job.json` and submit a 4-task array (one VM per
