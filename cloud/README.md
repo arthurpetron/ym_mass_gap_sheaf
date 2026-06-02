@@ -148,6 +148,24 @@ gcloud projects add-iam-policy-binding "$PROJECT" \
     --member="serviceAccount:${SA}" --role="roles/storage.objectAdmin"
 ```
 
+## CPU quota (the first thing that bites a new project)
+
+New projects often cap `CPUS_ALL_REGIONS` (global vCPUs) at **32**, and have a
+low regional `C2D_CPUS`. Tier A as shipped wants 4 x 32 = 128 vCPUs at once, so
+it fails immediately with `CODE_GCE_QUOTA_EXCEEDED` (state -> FAILED, not stuck).
+Two responses:
+
+- **Raise the quota (the real fix).** Console: IAM & Admin -> Quotas -> filter
+  "CPUs (all regions)" -> 256, and "C2D CPUs" in your region -> 128. Usually
+  approved in minutes to hours. Then submit `batch-job.json` (the 128-vCPU
+  parallel version) normally.
+- **Fit inside 32 vCPUs now.** Submit `batch-job-32vcpu.json` instead:
+  `parallelism: 2` x `c2d-standard-16` = 32 vCPUs, two points at a time on 16
+  cores each (and `c2d-standard-16` is more widely available than `-32`, dodging
+  the transient `ZONE_RESOURCE_POOL_EXHAUSTED` you may also see). The L24 point
+  is slow on 16 cores (~20 h); set `taskCount: 3` to run just L12/L16/L20 now and
+  do L24 after the quota bump.
+
 ## Submit the campaign (Tier A: beta = 2.3, 2.4, 2.45, 2.5)
 
 Fill the placeholders in `batch-job.json` and submit a 4-task array (one VM per
