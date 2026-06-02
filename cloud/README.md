@@ -132,21 +132,36 @@ Cost scales like `L^4 x meas`, so the high-beta points dominate. Run in two tier
 
 Start with Tier A. Inspect the 4-point fit before paying for the tail.
 
-## Grant the Batch service account access (one-time)
+## Grant the Batch service account access (one-time — easy to miss)
 
-Batch tasks run as the Compute Engine default service account, which must be
-able to pull the image and write to the output bucket — otherwise the job fails
-to start or the GCS mount is read-only:
+Batch tasks run as the Compute Engine default service account. On newer projects
+this SA no longer has the broad Editor role, so it starts with **none** of the
+permissions Batch needs and you must grant all four explicitly. Skipping these
+fails in confusing ways:
+
+| role | without it |
+|---|---|
+| `logging.logWriter` | **no logs appear at all** (even for a running, failing task) |
+| `storage.objectAdmin` | task exits 1 — the JSON `--out` write to the GCS mount is denied |
+| `artifactregistry.reader` | image pull fails, container never starts |
+| `batch.agentReporter` | task-status reporting fails |
 
 ```bash
 PNUM=$(gcloud projects describe "$PROJECT" --format='value(projectNumber)')
 SA="${PNUM}-compute@developer.gserviceaccount.com"
 
-gcloud projects add-iam-policy-binding "$PROJECT" \
-    --member="serviceAccount:${SA}" --role="roles/artifactregistry.reader"
-gcloud projects add-iam-policy-binding "$PROJECT" \
-    --member="serviceAccount:${SA}" --role="roles/storage.objectAdmin"
+for role in logging.logWriter storage.objectAdmin artifactregistry.reader batch.agentReporter; do
+  gcloud projects add-iam-policy-binding "$PROJECT" \
+      --member="serviceAccount:${SA}" --role="roles/${role}" --condition=None
+done
+
+# confirm all four:
+gcloud projects get-iam-policy "$PROJECT" --flatten="bindings[].members" \
+    --filter="bindings.members:${SA}" --format="value(bindings.role)" | sort
 ```
+
+If a running task fails with `exit code 1` and **no container logs**, this grant
+(specifically `logging.logWriter` + `storage.objectAdmin`) is almost always why.
 
 ## CPU quota (the first thing that bites a new project)
 
