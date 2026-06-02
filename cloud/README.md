@@ -228,17 +228,24 @@ gsutil -m cp "gs://${BUCKET}/runs/*.json" visualizations/pilot/su2/
 
 ## The heavy points (Tier B: beta = 2.55/L28, 2.60/L32 — rows 4-5)
 
-These dominate the cost (`L^4`), so don't let them hold up Tier A. Two ways to
-run them on a bigger machine:
+These dominate the cost (`L^4`), so run them as their own job on bigger VMs,
+in parallel with (or instead of) Tier A. Use `batch-job-tierB.json`: two tasks,
+one per heavy point, on `c2d-standard-60` (60 vCPUs each, `maxRunDuration` 48 h).
+It sets `ROW_OFFSET=4`, so `BATCH_TASK_INDEX` 0,1 select points.tsv rows 4,5 —
+exactly L28 and L32 — instead of re-running the cheap points.
 
-- **Simplest — one job, all rows, big machine.** Submit the array with
-  `taskCount: 6` and `machineType: c2d-standard-60`: the small points finish in
-  minutes and release their VMs while L28/L32 keep running. You pay per VM for
-  only what each uses.
-- **Per-point control.** Bake a one-row `points.tsv` (just the heavy point) into
-  a second image tag and submit a `taskCount: 1` job on `c2d-standard-60` with
-  `maxRunDuration: 172800s` (48 h). Use this if you want different machine sizes
-  or Spot settings per point.
+```bash
+sed -e "s|IMAGE_URI|${IMAGE}|" -e "s|BUCKET_NAME|${BUCKET}|" \
+    cloud/batch-job-tierB.json > /tmp/ym-batch-tierB.json
+gcloud batch jobs submit ym-continuum-tierb --location="$REGION" --config=/tmp/ym-batch-tierB.json
+```
+
+Prerequisites: (1) `ROW_OFFSET` is read by `entrypoint.sh`, so **rebuild the image
+first** (`gcloud builds submit ...`) if your pushed image predates it; (2) 2 x
+c2d-standard-60 = 120 vCPUs, so the `CPUS_ALL_REGIONS` / `C2D_CPUS` quota must be
+raised above 120 (the 256/128 bump covers it). L32 is ~1 day even on 60 cores —
+the campaign's wall time is this point, so start it early if you want the full
+6-point result soonest.
 
 ### Cheaper: Spot VMs (~60-70% off)
 

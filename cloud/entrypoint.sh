@@ -10,14 +10,16 @@
 set -euo pipefail
 
 idx="${BATCH_TASK_INDEX:?BATCH_TASK_INDEX not set (run me under Cloud Batch)}"
+offset="${ROW_OFFSET:-0}"   # lets a job target a slice of points.tsv (e.g. Tier B)
 out="${OUT_DIR:-/mnt/disks/out}"
 points="${POINTS_FILE:-/work/points.tsv}"
 mkdir -p "$out"
 
-# Select the idx-th data row (row 0 = header is skipped).
-row="$(awk -v n="$idx" 'NR>1 && (NR-2)==n' "$points")"
+# Select data row (BATCH_TASK_INDEX + ROW_OFFSET); row 0 = header is skipped.
+n=$(( idx + offset ))
+row="$(awk -v n="$n" 'NR>1 && (NR-2)==n' "$points")"
 if [[ -z "$row" ]]; then
-  echo "no points.tsv row for BATCH_TASK_INDEX=$idx" >&2
+  echo "no points.tsv row for index $n (BATCH_TASK_INDEX=$idx + ROW_OFFSET=$offset)" >&2
   exit 1
 fi
 read -r beta L g_meas g_therm s_meas s_therm rmax rmin seed <<<"$row"
