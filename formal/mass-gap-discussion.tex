@@ -173,6 +173,80 @@ numerical corroboration that the $\SUtwo$ Wilson action carries both a
 confining string tension and a scalar gap of the empirically expected
 size.
 
+\subsection{Robustness of the scalar mass: isolation and blocking}
+\label{sec:scalar-robustness}
+
+Two further checks, both on the $\beta = 2.4$, $L = 16$ anchor
+ensemble, confirm that the directly measured $m(0^{++})a$ is a single,
+well-resolved state with a sound statistical error.
+
+\emph{Excited-state isolation.}  The same generalized eigenvalue
+problem that delivers the ground state returns its next eigenvalue as
+the first-excited $0^{++}$ mass, at no additional cost.  Read at the
+first time separation --- where the faster-decaying excited state still
+carries signal --- it gives
+\begin{equation}
+  \label{eq:excited-0pp}
+  m_1(0^{++})\,a = 1.51(15),
+  \qquad
+  \bigl(m_1 - m_0\bigr)a = 0.59(15),
+  \qquad
+  m_1/m_0 = 1.6,
+\end{equation}
+a separation of nearly four standard deviations
+(Figure~\ref{fig:glueball-excited}).  A first excited state cleanly
+above the ground-state plateau is direct evidence that the variational
+basis has projected onto a single lowest state, so $m_0 a$ is the
+channel gap and not an unresolved operator mixture.
+
+\emph{Blocking certification of the error bar.}  The configuration
+jackknife treats the $50$ saved bins as independent.  Re-blocking them
+into successively coarser block counts $B = 50, 25, 10, 5, 4$ and
+re-running the full pipeline leaves the central value invariant
+($m_0 a = 0.9237$ at every $B$, drift below $0.01\%$) and the jackknife
+error stable, rising only mildly from $0.012$ at the finest blocking to
+$\approx 0.02$ at the coarsest (Figure~\ref{fig:glueball-blocking}).
+Because only the binned sums are saved the re-blocking can coarsen but
+not refine, so this is a one-sided check; but the autocorrelation time
+is far below one fine block ($1200$ configurations, measured every five
+overrelaxed sweeps), so the finest blocking already sits in the
+plateau and the mild growth at small $B$ is consistent with the
+$\mathcal{O}(1/\sqrt{B})$ noise of the jackknife error estimator
+itself.  Conservatively the error is $\le 0.02$, leaving
+$m_0 a = 0.92(2)$ firmly nonzero --- all the corroboration requires.
+
+\begin{mainfigure}
+\centering
+\includegraphics[width=\textwidth]{gevp-excited-L16-b2.4}
+\caption{Ground and first-excited $0^{++}$ effective masses from the
+two-state generalized-eigenvalue problem on the $\beta = 2.4$,
+$L = 16$ anchor ensemble ($6\times 10^4$ configurations, reference time
+$\tau_0 = 1$, delete-one jackknife over $50$ bins).  The ground state
+plateaus over $\tau \in [1,2]$ at $m_0 a = 0.924(12)$; the
+faster-decaying excited state is resolved at $\tau = 1$ at
+$m_1 a = 1.51(15)$, separated from the ground state by nearly four
+standard deviations before both collapse into noise.  The clean
+separation confirms the variational basis has isolated a single lowest
+$0^{++}$ state.}
+\label{fig:glueball-excited}
+\end{mainfigure}
+
+\begin{mainfigure}
+\centering
+\includegraphics[width=\textwidth]{blocking-L16-b2.4}
+\caption{Blocking check of the scalar-mass error bar: the delete-one
+jackknife error on $m(0^{++})a$ as the $50$ configuration bins are
+merged into $B = 50, 25, 10, 5, 4$ coarser blocks (point labels),
+plotted against block size.  The central value is invariant across all
+blockings ($m_0 a = 0.9237$, drift below $0.01\%$); the error rises
+only mildly with block size and, given the $\mathcal{O}(1/\sqrt{B})$
+uncertainty of the estimator at small $B$, is consistent with the
+finest blocking already lying in the autocorrelation plateau.
+Re-blocking can only coarsen the saved bins, so the error bar is
+certified one-sidedly.}
+\label{fig:glueball-blocking}
+\end{mainfigure}
+
 \subsection{A scale-independent check: the $2^{++}/0^{++}$ ratio}
 \label{sec:two-plus-plus}
 
