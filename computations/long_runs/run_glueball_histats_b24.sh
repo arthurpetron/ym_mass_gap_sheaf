@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 # High-statistics glueball run at the matched-vol anchor (beta=2.4, L=16):
-# 3x the configurations of the 60k anchor (180k) so the first-excited 0++ gap
-# (m_1 - m_0)a, currently 0.59(15) ~ 3.8 sigma, sharpens by sqrt(3) to >6 sigma.
-# The gap is read at a single tau, so its error is pure 1/sqrt(N); 3x stats also
-# raises the tau=2 signal-to-noise by sqrt(3) in both the 0++ and 2++ channels.
+# 3x the configurations of the 60k anchor (180k) to sharpen the first-excited
+# 0++ gap (m_1 - m_0)a.  Achieved: the gap goes from 0.59(15) ~ 3.8 sigma (60k)
+# to 0.73(5) ~ 15.8 sigma (180k), read at tau=1.  (Naive 1/sqrt(N) predicts only
+# ~6.5 sigma; the rest is the choose_window noise-cliff guard keeping the noisy
+# tau=2 point out of the excited/2++ plateau -- without it the auto-window
+# swallowed tau=2 and the gap read a spurious 1.7 sigma.  See glueball_analysis.)
 #
 # Basis note: this run KEEPS the proven 5-level APE basis 0,8,16,24,32.  A
 # basis-conditioning study (computations/long_runs/, seed-44 8k-config probe)
