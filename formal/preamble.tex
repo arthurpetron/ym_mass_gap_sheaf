@@ -55,9 +55,11 @@
 % ---------- Project macros ----------
 
 % Group theory.
-\newcommand{\SUtwo}{\mathrm{SU}(2)}
-\newcommand{\SUthree}{\mathrm{SU}(3)}
-\newcommand{\SUN}{\mathrm{SU}(N)}
+% \ensuremath so these read correctly in BOTH text and math mode (they appear
+% bare in prose, infobox cells, and table headers as well as inside $...$).
+\newcommand{\SUtwo}{\ensuremath{\mathrm{SU}(2)}}
+\newcommand{\SUthree}{\ensuremath{\mathrm{SU}(3)}}
+\newcommand{\SUN}{\ensuremath{\mathrm{SU}(N)}}
 \newcommand{\Casimir}{C_2}
 
 % RG / measures.

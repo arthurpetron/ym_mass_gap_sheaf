@@ -2,6 +2,9 @@
 \ProvidesPackage{tex/arthur-tikz}[2026/04/25 Arthur TikZ helpers]
 
 \RequirePackage{tikz}
+% Libraries used by the bundled diagrams (e.g. visualizations/structure/*.tikz,
+% which position nodes with the `of` syntax).
+\usetikzlibrary{positioning,arrows.meta,calc}
 
 \providecommand{\shrug}[1][]{%
   \begin{tikzpicture}[baseline,x=0.8\ht\strutbox,y=0.8\ht\strutbox,line width=0.125ex,#1]
