@@ -32,7 +32,8 @@
       {
         "policy": {
           "machineType": "__MACHINE_TYPE__",
-          "provisioningModel": "__PROVISIONING__"
+          "provisioningModel": "__PROVISIONING__",
+          "bootDisk": { "type": "pd-standard", "sizeGb": 30 }
         }
       }
     ]__NETWORK_BLOCK__
