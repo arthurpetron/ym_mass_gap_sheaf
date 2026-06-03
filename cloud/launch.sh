@@ -29,11 +29,20 @@ MACHINE="${MACHINE:-c2d-standard-16}"
 PROVISIONING="${PROVISIONING:-SPOT}"        # SPOT (cheap, preemptible) or STANDARD
 MEAS_OVERRIDE="${MEAS_OVERRIDE:-0}"         # >0 overrides points.tsv `meas` (smoke/budget)
 THERM_OVERRIDE="${THERM_OVERRIDE:-0}"       # >0 overrides points.tsv `therm`
+NO_EXTERNAL_IP="${NO_EXTERNAL_IP:-0}"       # 1 => VMs get no external IP (bypasses the
+                                            # IN_USE_ADDRESSES quota; needs Private Google
+                                            # Access on the subnet so they reach Google APIs)
 IMAGE="${REGION}-docker.pkg.dev/${PROJECT}/${REPO}/ym-sim:latest"
 
 vcpu="${MACHINE##*-}"                 # e.g. c2d-standard-16 -> 16
 cpu_milli=$(( vcpu * 1000 ))
 mem_mib=$(( vcpu * 1024 ))            # 1 GiB/vCPU reservation; the VM has more
+
+if [ "$NO_EXTERNAL_IP" = "1" ]; then
+    netblock=", \"network\": { \"networkInterfaces\": [ { \"network\": \"projects/${PROJECT}/global/networks/default\", \"subnetwork\": \"projects/${PROJECT}/regions/${REGION}/subnetworks/default\", \"noExternalIpAddress\": true } ] }"
+else
+    netblock=""
+fi
 
 rows=("$@")
 if (( ${#rows[@]} == 0 )); then
@@ -61,9 +70,10 @@ for row in "${rows[@]}"; do
         -e "s|__PROVISIONING__|${PROVISIONING}|g" \
         -e "s|__MEAS_OVERRIDE__|${MEAS_OVERRIDE}|g" \
         -e "s|__THERM_OVERRIDE__|${THERM_OVERRIDE}|g" \
+        -e "s|__NETWORK_BLOCK__|${netblock}|g" \
         "$template" | grep -v '"_comment"' > "$tmp"
 
-    echo "==> row $row: beta=$beta L=$L  shards=$shards parallel=$parallel machine=$MACHINE prov=$PROVISIONING  job=$job"
+    echo "==> row $row: beta=$beta L=$L  shards=$shards parallel=$parallel machine=$MACHINE prov=$PROVISIONING noExtIP=$NO_EXTERNAL_IP  job=$job"
     gcloud batch jobs submit "$job" \
         --location="$REGION" --config="$tmp"
     rm -f "$tmp"

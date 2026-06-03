@@ -35,7 +35,7 @@
           "provisioningModel": "__PROVISIONING__"
         }
       }
-    ]
+    ]__NETWORK_BLOCK__
   },
   "logsPolicy": { "destination": "CLOUD_LOGGING" }
 }
