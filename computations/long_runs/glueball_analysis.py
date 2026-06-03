@@ -97,12 +97,31 @@ def jk_err(samples: np.ndarray) -> float:
 
 
 def choose_window(
-    meff: np.ndarray, meff_err: np.ndarray | None, lo: int, hi: int | None, rel_thresh: float
+    meff: np.ndarray,
+    meff_err: np.ndarray | None,
+    lo: int,
+    hi: int | None,
+    rel_thresh: float,
+    err_growth_max: float = 5.0,
 ) -> tuple[int, int]:
     """Plateau window: a contiguous run from `lo` of timeslices that carry real
-    signal -- finite, positive, and (when jackknife errors are available)
-    statistically significant (err/|m_eff| <= rel_thresh).  This keeps the noise
-    region (where the connected correlator turns over) out of the average."""
+    signal -- finite, positive, statistically significant (err/|m_eff| <=
+    rel_thresh), and not past the signal/noise cliff.
+
+    Noise-cliff guard (`err_growth_max`).  A plateau ends where the principal
+    correlator turns over and the signal is lost; the symptom is the per-step
+    jackknife error *exploding* (a sudden >Nx jump), not the value alone.
+    Without this guard the window can swallow the first noise-dominated
+    timeslice -- which sneaks past the per-point significance cut by a hair --
+    inflating the plateau error and biasing the central value.  Two artifacts
+    this fixes: the first-excited 0++ window auto-extending from [1,1] to [1,2]
+    once higher statistics shrink the noisy tau=2 error just under rel_thresh
+    (error blows up ~13x there), and the re-blocking drift where coarser blocks
+    pull tau into the noise.  A *consistency* (pull) test does NOT discriminate
+    here: the bad timeslice has such a large error that it reads as consistent,
+    while a genuine plateau point with a small error can read as a mild outlier.
+    The error-growth cliff is the robust separator.
+    """
     ntau = len(meff)
     lo = max(1, lo)
     if hi is not None:
@@ -120,6 +139,10 @@ def choose_window(
         return lo, lo
     h = lo
     while h + 1 <= ntau - 1 and good(h + 1):
+        if meff_err is not None:
+            e_prev, e_next = meff_err[h], meff_err[h + 1]
+            if np.isfinite(e_prev) and e_prev > 0 and e_next > err_growth_max * e_prev:
+                break  # signal/noise cliff: the plateau ends here
         h += 1
     return lo, h
 
