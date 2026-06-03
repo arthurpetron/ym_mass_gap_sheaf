@@ -42,6 +42,11 @@ if (( shard >= shards )); then
     exit 1
 fi
 
+# Optional overrides (smoke tests / budget runs): a non-zero value replaces the
+# points.tsv column.  Default 0 = use the table.
+if [[ "${MEAS_OVERRIDE:-0}" != "0" ]]; then meas="$MEAS_OVERRIDE"; fi
+if [[ "${THERM_OVERRIDE:-0}" != "0" ]]; then therm="$THERM_OVERRIDE"; fi
+
 # Per-shard chain length (ceil division) and a unique seed per shard.
 per_shard_meas=$(( (meas + shards - 1) / shards ))
 seed=$(( seed_base + shard ))

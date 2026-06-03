@@ -1,0 +1,13 @@
+# Keep the Cloud Build upload tiny: cloud/Dockerfile only needs the engine
+# source (simulations/, minus build artifacts) and the cloud/ configs.
+# Ignore everything, then re-include just those.
+*
+!simulations/
+!simulations/**
+!cloud/
+!cloud/**
+
+# ...but never the compiled Rust artifacts (rebuilt in-container) or caches.
+simulations/target/
+**/*.rs.bk
+.git/

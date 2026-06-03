@@ -26,6 +26,9 @@ REGION="${REGION:-us-central1}"
 REPO="${REPO:-ym-sim}"
 BUCKET="${BUCKET:-${PROJECT}-ym-runs}"
 MACHINE="${MACHINE:-c2d-standard-16}"
+PROVISIONING="${PROVISIONING:-SPOT}"        # SPOT (cheap, preemptible) or STANDARD
+MEAS_OVERRIDE="${MEAS_OVERRIDE:-0}"         # >0 overrides points.tsv `meas` (smoke/budget)
+THERM_OVERRIDE="${THERM_OVERRIDE:-0}"       # >0 overrides points.tsv `therm`
 IMAGE="${REGION}-docker.pkg.dev/${PROJECT}/${REPO}/ym-sim:latest"
 
 vcpu="${MACHINE##*-}"                 # e.g. c2d-standard-16 -> 16
@@ -55,9 +58,12 @@ for row in "${rows[@]}"; do
         -e "s|__MACHINE_TYPE__|${MACHINE}|g" \
         -e "s|__CPU_MILLI__|${cpu_milli}|g" \
         -e "s|__MEM_MIB__|${mem_mib}|g" \
+        -e "s|__PROVISIONING__|${PROVISIONING}|g" \
+        -e "s|__MEAS_OVERRIDE__|${MEAS_OVERRIDE}|g" \
+        -e "s|__THERM_OVERRIDE__|${THERM_OVERRIDE}|g" \
         "$template" | grep -v '"_comment"' > "$tmp"
 
-    echo "==> row $row: beta=$beta L=$L  shards=$shards parallel=$parallel machine=$MACHINE  job=$job"
+    echo "==> row $row: beta=$beta L=$L  shards=$shards parallel=$parallel machine=$MACHINE prov=$PROVISIONING  job=$job"
     gcloud batch jobs submit "$job" \
         --location="$REGION" --config="$tmp"
     rm -f "$tmp"
