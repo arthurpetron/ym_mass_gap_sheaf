@@ -24,6 +24,10 @@ path = "src/bin/string_tension.rs"
 name = "polymer_sum"
 path = "src/bin/polymer_sum.rs"
 
+[[bin]]
+name = "measure"
+path = "src/bin/measure.rs"
+
 # Deliberately dependency-free (std only): self-contained RNG, JSON, and
 # std::thread::scope parallelism, so `cargo build` needs no network access.
 

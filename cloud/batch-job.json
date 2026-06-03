@@ -1,20 +1,27 @@
 {
+  "_comment": "Template: one Batch job per (beta,L) point, run as TASK_COUNT independent shards on Spot VMs. launch.sh substitutes the __PLACEHOLDERS__. Each shard checkpoints to the GCS mount, so Spot preemption -> Batch retry -> resume (not restart).",
   "taskGroups": [
     {
-      "taskCount": 4,
-      "parallelism": 4,
+      "taskCount": __TASK_COUNT__,
+      "parallelism": __PARALLELISM__,
       "taskCountPerNode": 1,
       "taskSpec": {
         "runnables": [
-          { "container": { "imageUri": "IMAGE_URI" } }
+          { "container": { "imageUri": "__IMAGE_URI__" } }
         ],
-        "environment": { "variables": { "OUT_DIR": "/mnt/disks/out" } },
+        "environment": {
+          "variables": {
+            "OUT_DIR": "/mnt/disks/out",
+            "POINT_ROW": "__POINT_ROW__",
+            "CKPT_SECS": "300"
+          }
+        },
         "volumes": [
-          { "gcs": { "remotePath": "BUCKET_NAME/runs" }, "mountPath": "/mnt/disks/out" }
+          { "gcs": { "remotePath": "__BUCKET_NAME__/runs" }, "mountPath": "/mnt/disks/out" }
         ],
-        "computeResource": { "cpuMilli": 30000, "memoryMib": 16384 },
-        "maxRunDuration": "64800s",
-        "maxRetryCount": 1
+        "computeResource": { "cpuMilli": __CPU_MILLI__, "memoryMib": __MEM_MIB__ },
+        "maxRunDuration": "86400s",
+        "maxRetryCount": 10
       }
     }
   ],
@@ -22,8 +29,8 @@
     "instances": [
       {
         "policy": {
-          "machineType": "c2d-standard-32",
-          "provisioningModel": "STANDARD"
+          "machineType": "__MACHINE_TYPE__",
+          "provisioningModel": "SPOT"
         }
       }
     ]

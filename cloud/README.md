@@ -1,24 +1,41 @@
 # Running the continuum campaign on Google Cloud Batch
 
 The continuum-limit study for `m(0++)/sqrt(sigma)` vs the Teper benchmark needs
-several `(beta, L)` points, each a `glueball` + `string_tension` measurement.
-The points are independent, so instead of running them sequentially on one
-machine (days) we run each on its own multi-core VM **concurrently** via
-**Google Cloud Batch** (wall time = the single slowest point).
+several `(beta, L)` points, each a glueball **and** a string-tension
+measurement. Two design choices make this fast and cheap:
 
-The crate is dependency-free, so the only cloud artifacts are a tiny container
+- **One chain, both observables.** The `measure` binary runs a single
+  heatbath+overrelax chain and measures the 0++/2++ glueball correlators *and*
+  the Wilson-loop grid on every config — instead of two independent chains. One
+  thermalization, ~30% fewer sweeps.
+- **Shard each point across machines.** A point is split into `shards`
+  independent chains (distinct seeds), one Batch task each, run concurrently on
+  **Spot** VMs. Independent draws merge into one larger jackknife ensemble, so
+  wall time ≈ (point cost) / shards and the heavy points stop blowing the
+  per-task time cap. The local `merge_shards.py` concatenates the per-shard
+  bins afterward.
+- **Checkpoint to GCS.** Every shard writes a resumable checkpoint to the
+  GCS-mounted output dir every few minutes (and rewrites its partial JSONs, so a
+  run is analyzable live). A preempted Spot VM **resumes** instead of restarting
+  — which is what makes Spot safe even for the multi-hour points.
+
+The crate is dependency-free; the only cloud artifacts are a tiny container
 image and a parameter table. Only the heavy MCMC runs in-cloud; the Python
-analysis + continuum fit is done locally afterward on the pulled JSONs.
+analysis + continuum fit is done locally on the merged JSONs.
 
 ## Files
 
 | File | Purpose |
 |---|---|
-| `Dockerfile` | Multi-stage build of the `glueball` + `string_tension` binaries |
+| `Dockerfile` | Multi-stage build of the `measure` (+ `glueball`, `string_tension`) binaries |
 | `cloudbuild.yaml` | Build the image with Cloud Build (no local Docker needed) |
-| `points.tsv` | One row per `(beta, L)` point; row index = Batch task index |
-| `entrypoint.sh` | Maps `BATCH_TASK_INDEX` -> a `points.tsv` row and runs it |
-| `batch-job.json` | Batch job: Tier A (rows 0-3) as a 4-task array |
+| `points.tsv` | One row per `(beta, L)` point: physics knobs + `shards` |
+| `entrypoint.sh` | Maps `(POINT_ROW, BATCH_TASK_INDEX)` -> a point + shard and runs `measure` with checkpointing |
+| `batch-job.json` | Templated Batch job (Spot, shard array); placeholders filled by `launch.sh` |
+| `launch.sh` | Submit one Batch job per point (rendering the template) |
+| `merge_all.sh` | Pull shard JSONs from GCS and merge each point (calls `merge_shards.py`) |
+
+The merge tool itself is `computations/long_runs/merge_shards.py`.
 
 ## One-time setup
 
@@ -81,68 +98,55 @@ Artifact Registry. Takes a couple of minutes.
 
 ## How the points are tuned
 
-`points.tsv` is not arbitrary — each column is set from the measured SU(2)
-physics so the continuum extrapolation is clean and not dominated by avoidable
-systematics:
+`points.tsv` columns are set from the measured SU(2) physics so the continuum
+extrapolation is clean and not dominated by avoidable systematics:
 
 - **`L` (matched physical volume).** Held so `L*sqrt(sigma)*a ~ 4.3-4.5` across
-  all beta, using the known `sqrt(sigma)*a` (0.369, 0.266, 0.222, 0.186, 0.157,
-  0.133 for beta = 2.3 .. 2.6; our beta=2.5/2.6 runs confirm 0.180/0.128). This
-  keeps the **torelon-to-glueball mass ratio ~ 1.18-1.24** at every point, so the
-  winding torelon stays safely above the 0++ and does not contaminate the scalar
-  plateau. (Letting `L` lag — e.g. L30 at beta=2.6 — drops that ratio to ~1.11,
-  torelon and glueball nearly degenerate.)
-- **`rmax = L/2`.** The largest Wilson loop the box allows; the previous smaller
-  `rmax` left the Cornell fit `V(r)=V0+sigma*r-c/r` with only 4-5 points and a
-  10-40% error on sigma. More points in the linear regime is the single biggest
-  lever on string-tension precision, which is the binding error here.
-- **`rmin`.** Set so `rmin*sqrt(sigma)*a ~ 0.6-0.8` (the short-distance Coulomb
-  term subdominant) while leaving enough of the `[rmin, rmax]` window for the fit.
-- **`g_meas` (glueball statistics) scales with beta.** Finer lattices resolve the
-  0++ plateau only at larger tau, where signal/noise is worse, so the config
-  count grows from 60k (beta=2.3) to 300k (beta=2.6).
-- **`s_meas` (string-tension statistics).** Boosted to 40k-100k configs (was
-  ~6k): sigma was the noisy observable and would otherwise dominate the
-  continuum-fit uncertainty.
-- **`g_therm` / `s_therm`.** Grow with beta for critical slowing down (mitigated
-  by the overrelaxation, dynamical exponent ~ 1).
-- **`seed`.** Distinct per point -> independent samples.
+  all beta, keeping the torelon safely above the 0++ so it does not contaminate
+  the scalar plateau.
+- **`rmax = L/2`** (and `tmax = rmax`). The largest Wilson loop the box allows;
+  more points in the linear regime of `V(r)=V0+sigma*r-c/r` is the single
+  biggest lever on string-tension precision, which is the binding error here.
+- **`meas` (chain length) scales with beta.** Finer lattices resolve the 0++
+  plateau only at larger tau, so the total config target grows with beta. Both
+  observables now share this one chain.
+- **`sigma_smear`.** APE steps on the spatial links for the Wilson loops
+  (captured for free from the glueball smear ladder).
+- **`bins`** are *per shard*; the merge concatenates them, so the final ensemble
+  has `bins * shards` jackknife bins.
+- **`seed_base`.** Shard `k` uses `seed_base + k`; rows are spaced by ≥ shards so
+  seeds never collide across points -> all shards are independent draws.
+- **`shards`.** How many concurrent machines the point is split across. Heavy
+  points get more shards so each shard finishes in a similar wall time.
 
-## Cost tiers (decide how far in beta to go)
+## Cost / sharding (decide how far in beta to go)
 
-Cost scales like `L^4 x meas`, so the high-beta points dominate. Run in two tiers:
+Per-point compute scales like `L^4 x meas`; sharding divides the **wall** time
+(not the cost) by `shards`. Approximate single-machine (16-vCPU) cost and the
+resulting per-shard wall time at the shipped `shards`:
 
-| row | point | ~VM-hours (incl. string tension) |
-|---|---|---|
-| 0 | 2.30 / L12 | ~0.25 |
-| 1 | 2.40 / L16 | ~1.4 |
-| 2 | 2.45 / L20 | ~4.5 |
-| 3 | 2.50 / L24 | ~11 |
-| 4 | 2.55 / L28 | ~25 |
-| 5 | 2.60 / L32 | ~55 |
+| row | point | ~VM-h (point) | shards | ~wall/shard |
+|---|---|---|---|---|
+| 1 | 2.30 / L12 | ~0.3 | 4  | minutes |
+| 2 | 2.40 / L16 | ~1.5 | 4  | ~0.4 h |
+| 3 | 2.45 / L20 | ~5   | 6  | ~0.8 h |
+| 4 | 2.50 / L24 | ~12  | 8  | ~1.5 h |
+| 5 | 2.55 / L28 | ~28  | 12 | ~2.3 h |
+| 6 | 2.60 / L32 | ~60  | 20 | ~3 h |
 
-- **Tier A (rows 0-3, `batch-job.json` as shipped):** a 4-point continuum fit
-  spanning `sigma*a^2 = 0.136 -> 0.035`. ~17 VM-h total, wall ~11 h (the L24
-  point), **~$25 on-demand** on `c2d-standard-32`. Validates the pipeline and
-  already gives a real `a -> 0` extrapolation.
-- **Tier B (rows 4-5):** the scaling-tail points that tighten the continuum value
-  toward a 6-sigma statement. These dominate — **~80 VM-h, ~$100-200**, wall set
-  by the L32 point (~1 day on `c2d-standard-60`). Run each as its own job on a
-  bigger machine (below), or on Spot.
-
-Start with Tier A. Inspect the 4-point fit before paying for the tail.
+On Spot (~60-70% off) the whole 6-point campaign is on the order of ~$40-70 of
+compute, and — quota permitting (below) — completes in a few wall hours rather
+than days. Tune `shards` after a real benchmark; these are starting points.
 
 ## Grant the Batch service account access (one-time — easy to miss)
 
 Batch tasks run as the Compute Engine default service account. On newer projects
-this SA no longer has the broad Editor role, so it starts with **none** of the
-permissions Batch needs and you must grant all four explicitly. Skipping these
-fails in confusing ways:
+this SA no longer has the broad Editor role, so grant all four roles explicitly:
 
 | role | without it |
 |---|---|
 | `logging.logWriter` | **no logs appear at all** (even for a running, failing task) |
-| `storage.objectAdmin` | task exits 1 — the JSON `--out` write to the GCS mount is denied |
+| `storage.objectAdmin` | task exits 1 — the JSON/checkpoint write to the GCS mount is denied |
 | `artifactregistry.reader` | image pull fails, container never starts |
 | `batch.agentReporter` | task-status reporting fails |
 
@@ -154,110 +158,81 @@ for role in logging.logWriter storage.objectAdmin artifactregistry.reader batch.
   gcloud projects add-iam-policy-binding "$PROJECT" \
       --member="serviceAccount:${SA}" --role="roles/${role}" --condition=None
 done
-
-# confirm all four:
-gcloud projects get-iam-policy "$PROJECT" --flatten="bindings[].members" \
-    --filter="bindings.members:${SA}" --format="value(bindings.role)" | sort
 ```
 
 If a running task fails with `exit code 1` and **no container logs**, this grant
 (specifically `logging.logWriter` + `storage.objectAdmin`) is almost always why.
 
-## CPU quota (the first thing that bites a new project)
+## Spot CPU quota (the lever that decides wall time)
 
-New projects often cap `CPUS_ALL_REGIONS` (global vCPUs) at **32**, and have a
-low regional `C2D_CPUS`. Tier A as shipped wants 4 x 32 = 128 vCPUs at once, so
-it fails immediately with `CODE_GCE_QUOTA_EXCEEDED` (state -> FAILED, not stuck).
-Two responses:
+Sharding only buys concurrency if the quota allows the shards to run at once.
+`N` concurrent shards need `N * vCPU(MACHINE)` **Spot** vCPUs in the region
+(quota `PREEMPTIBLE_CPUS`, plus the global `CPUS_ALL_REGIONS`). New projects
+often cap these low (e.g. 32), which would run only 2 × 16-vCPU shards at a time.
 
 - **Raise the quota (the real fix).** Console: IAM & Admin -> Quotas -> filter
-  "CPUs (all regions)" -> 256, and "C2D CPUs" in your region -> 128. Usually
-  approved in minutes to hours. Then submit `batch-job.json` (the 128-vCPU
-  parallel version) normally.
-- **Fit inside 32 vCPUs now.** Submit `batch-job-32vcpu.json` instead:
-  `parallelism: 2` x `c2d-standard-16` = 32 vCPUs, two points at a time on 16
-  cores each (and `c2d-standard-16` is more widely available than `-32`, dodging
-  the transient `ZONE_RESOURCE_POOL_EXHAUSTED` you may also see). The L24 point
-  is slow on 16 cores (~20 h); set `taskCount: 3` to run just L12/L16/L20 now and
-  do L24 after the quota bump.
+  "Preemptible CPUs" (your region) and "CPUs (all regions)" -> request enough for
+  your peak (e.g. 256). Usually approved in minutes to hours.
+- **Cap it for now.** `launch.sh` respects `MAX_PARALLEL` and `MACHINE`: set
+  `MAX_PARALLEL=2` (shards queue, running 2 at a time) and/or a smaller
+  `MACHINE` to fit more shards per vCPU. Checkpointing makes a long-queued shard
+  harmless — it just runs later.
 
-## Submit the campaign (Tier A: beta = 2.3, 2.4, 2.45, 2.5)
+## Submit the campaign
 
-Fill the placeholders in `batch-job.json` and submit a 4-task array (one VM per
-beta point, all concurrent):
+`launch.sh` renders `batch-job.json` per point and submits one Spot job each:
 
 ```bash
-sed -e "s|IMAGE_URI|${IMAGE}|" -e "s|BUCKET_NAME|${BUCKET}|" \
-    cloud/batch-job.json > /tmp/ym-batch.json
+export PROJECT REGION BUCKET REPO          # from setup above
+cloud/launch.sh                # all points (rows 1..6)
+cloud/launch.sh 1 2 3 4        # just the lighter points first
+cloud/launch.sh 6             # only L32
 
-gcloud batch jobs submit ym-continuum-1 \
-    --location="$REGION" --config=/tmp/ym-batch.json
+# knobs:
+MACHINE=c2d-standard-8 MAX_PARALLEL=4 cloud/launch.sh 5 6
 ```
 
-Monitor:
+Each job is named `ym-c-l<L>-b<beta>` (e.g. `ym-c-l24-b25`). Monitor:
 
 ```bash
-gcloud batch jobs describe ym-continuum-1 --location="$REGION"
-gcloud batch tasks list  --job=ym-continuum-1 --location="$REGION" \
-    --task-group=group0
-# live logs:
-gcloud logging read 'labels."batch.googleapis.com/job_id"="ym-continuum-1"' \
+gcloud batch jobs list --location="$REGION"
+gcloud batch tasks list --job=ym-c-l24-b25 --location="$REGION" --task_group=group0
+# live logs (and progress: the binary prints "[progress] collected N configs"):
+gcloud logging read 'labels."batch.googleapis.com/job_id"="ym-c-l24-b25"' \
     --limit=50 --freshness=2h
 ```
+
+Because each shard rewrites its partial `glueball-*-s*.json` / `sigma-*-s*.json`
+at every checkpoint, you can also just `merge_all.sh` mid-run to see how the
+point is converging so far.
 
 > Note: the GCS volume mounts at `/mnt/disks/out` (set in `OUT_DIR` and the job's
 > `mountPath`). The Batch VM runs Container-Optimized OS with a read-only root, so
 > the mount point must live under a writable path like `/mnt/disks/` — a plain
 > `/mnt/out` fails gcsfuse with `stat /mnt/out: no such file or directory`.
 
-## Pull results and analyze locally
+## Pull, merge, and analyze locally
 
-When the job state is `SUCCEEDED`:
+`merge_all.sh` pulls every `*-s*.json` shard from GCS and merges each point into
+the single `glueball-L<L>-b<beta>.json` / `sigma-...` the analysis expects:
 
 ```bash
-gsutil -m cp "gs://${BUCKET}/runs/*.json" visualizations/pilot/su2/
+cloud/merge_all.sh                       # -> visualizations/pilot/su2/
+# (or a custom dest dir: cloud/merge_all.sh /tmp/runs)
 
-# then the usual local pipeline (per point):
+# then the usual local pipeline (per point), unchanged:
 .venv/bin/python -m computations.long_runs.glueball_analysis \
-    visualizations/pilot/su2/glueball-L16-b2.40.json --plot ...-b2.40.svg
+    visualizations/pilot/su2/glueball-L24-b2.50.json --plot ...-b2.50.svg
 .venv/bin/python -m computations.long_runs.string_tension_analysis \
-    visualizations/pilot/su2/sigma-L16-b2.40.json --rmin 3 --plot ...
-# and the continuum extrapolation:
-.venv/bin/python -m computations.long_runs.continuum_trend   # point it at the new JSONs
+    visualizations/pilot/su2/sigma-L24-b2.50.json --rmin 4 --plot ...
+.venv/bin/python -m computations.long_runs.continuum_trend   # point it at the merged JSONs
 ```
 
-## The heavy points (Tier B: beta = 2.55/L28, 2.60/L32 — rows 4-5)
-
-These dominate the cost (`L^4`), so run them as their own job on bigger VMs,
-in parallel with (or instead of) Tier A. Use `batch-job-tierB.json`: two tasks,
-one per heavy point, on `c2d-standard-60` (60 vCPUs each, `maxRunDuration` 48 h).
-It sets `ROW_OFFSET=4`, so `BATCH_TASK_INDEX` 0,1 select points.tsv rows 4,5 —
-exactly L28 and L32 — instead of re-running the cheap points.
-
-```bash
-sed -e "s|IMAGE_URI|${IMAGE}|" -e "s|BUCKET_NAME|${BUCKET}|" \
-    cloud/batch-job-tierB.json > /tmp/ym-batch-tierB.json
-gcloud batch jobs submit ym-continuum-tierb --location="$REGION" --config=/tmp/ym-batch-tierB.json
-```
-
-Prerequisites: (1) `ROW_OFFSET` is read by `entrypoint.sh`, so **rebuild the image
-first** (`gcloud builds submit ...`) if your pushed image predates it; (2) 2 x
-c2d-standard-60 = 120 vCPUs, so the `CPUS_ALL_REGIONS` / `C2D_CPUS` quota must be
-raised above 120 (the 256/128 bump covers it). L32 is ~1 day even on 60 cores —
-the campaign's wall time is this point, so start it early if you want the full
-6-point result soonest.
-
-### Cheaper: Spot VMs (~60-70% off)
-
-Set `"provisioningModel": "SPOT"` in `batch-job.json`. Caveat: the engine has
-**no checkpointing**, so a preempted multi-hour run restarts from scratch
-(Batch retries the task). Fine for the short low-beta points; risky for L28/L32,
-where a preemption late in the run wastes hours. Use Spot for rows 0-3, on-demand
-for the heavy points. (Adding checkpointing to the engine would remove this
-caveat and is the right move before a large Spot campaign.)
+The merged JSON carries `n_shards`, `shard_seeds`, and `total_cpu_seconds` for
+provenance; the analysis ignores the extra keys.
 
 ## First-run smoke test
 
-Before the full campaign, shrink `points.tsv` to `g_meas=20000 s_meas=4000` and
-submit — it finishes in minutes and verifies the image, the GCS mount, and the
-JSON shapes end-to-end for a few dollars.
+Before the full campaign, shrink `points.tsv` (e.g. `meas=20000`, `shards=2`) and
+`launch.sh 1` — it finishes in minutes and verifies the image, the GCS mount,
+checkpoint/resume, and the shard→merge→analysis path end-to-end for a few cents.

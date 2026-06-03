@@ -11,10 +11,14 @@
 FROM rust:1-slim AS build
 WORKDIR /src
 COPY simulations/ ./simulations/
-RUN cd simulations && cargo build --release --bin glueball --bin string_tension
+# `measure` is the combined, checkpointing, shardable driver used by the
+# campaign; glueball/string_tension stay for ad-hoc single-observable runs.
+RUN cd simulations && cargo build --release \
+    --bin measure --bin glueball --bin string_tension
 
 # ---- runtime stage ----
 FROM debian:stable-slim
+COPY --from=build /src/simulations/target/release/measure        /usr/local/bin/measure
 COPY --from=build /src/simulations/target/release/glueball       /usr/local/bin/glueball
 COPY --from=build /src/simulations/target/release/string_tension /usr/local/bin/string_tension
 COPY cloud/entrypoint.sh /usr/local/bin/entrypoint.sh
