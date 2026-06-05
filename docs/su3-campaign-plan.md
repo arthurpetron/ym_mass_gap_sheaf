@@ -124,14 +124,16 @@ Dependencies in parentheses. ★ = on the critical path to a first SU(3) result.
 - **10.1 — SU(2)-specificity audit** *(largely DONE this session)*. The
   four-pillar map + the spike are the audit's payoff. Deliverable: fold this doc
   + `scripts/su3_closure_spike.py` findings into `notes/su-N-extension-audit.md`.
-- **10.2 — SU(3) representation theory** (fork). `su3_representations.py`,
-  `tests/test_su3_representations.py`, `visualizations/pilot/su3/casimir-spectrum.svg`.
-  Acceptance: dims/Casimirs/character orthogonality vs literature.
-- **★ 10.4 — Rigorous SU(3) large-field Z_t** (10.2). Replace the spike
-  truncation with a rigorous geometric-tail bound over (p,q) irreps, ℚ′-encodable
-  like the SU(2) `heat_kernel_character_tail_Z`. Add the `char_sum` hook to the
-  `GaugeGroup` seam (10.6-py). Acceptance: bound is provable and reproduces the
-  spike's Z_t to working precision.
+- **10.2 — SU(3) representation theory** (fork). *Seeded:* `su3_representations.py`
+  (exact `int` dim + `Fraction` Casimir + spot values) and
+  `tests/test_su3_representations.py` landed with 10.4. *Remaining:* characters /
+  Weyl-formula orthogonality, `visualizations/pilot/su3/casimir-spectrum.svg`.
+- **★ 10.4 — Rigorous SU(3) large-field Z_t** (10.2). **DONE** (commit 9165187).
+  `computations/su3_character_sum.py`: provable upper bound via an exact box sum
+  + a 2-D geometric tail (factorized majorant `a(p,q) ≤ g(p)g(q)`), drop-in
+  field-compatible with `CharacterTailSum`. Reproduces the spike Z_t and closure
+  (Σ η = 1.2149e-5 at g₀=0.30) and the g ≈ 0.485 threshold; 38 tests incl. a
+  rigour stress test. Still owed: wire as the `char_sum` hook under 10.6-py.
 - **10.3 — SU(3) inductive pilot** (10.2, 10.4). Promote the spike to
   `computations/pilot_su3.py` driven by the `GaugeGroup` object;
   `notes/pilot-su3-results.md` with the g₀ sweep. Acceptance: five-criteria pass
