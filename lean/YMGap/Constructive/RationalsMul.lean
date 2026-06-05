@@ -142,6 +142,47 @@ theorem mul_eqv_congr_right (a b c : Q') (h : a.eqv b) : (a * c).eqv (b * c) := 
       int_AABB b.num c.num (a.den : Int) (c.den : Int),
       show a.num * (b.den : Int) = b.num * (a.den : Int) from h]
 
+/-! ## Negation laws (at `eqv`)
+
+The sign algebra the alternating `expNeg` series needs: `(−a)·b`, `a·(−b)`,
+and `−(−a)` reduce to `−(a·b)` / `a` up to `eqv`, and negation is an `eqv`
+congruence.  Each is an `Int.neg_mul`/`Int.mul_neg`/`Int.neg_neg` rewrite
+after the cross-product reduction. -/
+
+/-- `(−a).den = a.den` (negation preserves the stored `denPred`). -/
+theorem neg_den (a : Q') : (-a).den = a.den := rfl
+
+/-- `(−a) * b ≃ −(a * b)`. -/
+theorem neg_mul_eqv (a b : Q') : ((-a) * b).eqv (-(a * b)) := by
+  show ((-a.num) * b.num) * ((a * b).den : Int)
+      = (-(a.num * b.num)) * (((-a) * b).den : Int)
+  rw [Int.neg_mul, mul_den_cast a b, mul_den_cast (-a) b, neg_den a]
+
+/-- `a * (−b) ≃ −(a * b)`. -/
+theorem mul_neg_eqv (a b : Q') : (a * (-b)).eqv (-(a * b)) := by
+  show (a.num * (-b.num)) * ((a * b).den : Int)
+      = (-(a.num * b.num)) * ((a * (-b)).den : Int)
+  rw [Int.mul_neg, mul_den_cast a b, mul_den_cast a (-b), neg_den b]
+
+/-- `−(−a) ≃ a`. -/
+theorem neg_neg_eqv (a : Q') : (-(-a)).eqv a := by
+  show (-(-a.num)) * (a.den : Int) = a.num * (a.den : Int)
+  rw [Int.neg_neg]
+
+/-- Negation is an `eqv` congruence: `a ≃ b → −a ≃ −b`. -/
+theorem neg_eqv_congr (a b : Q') (h : a.eqv b) : (-a).eqv (-b) := by
+  show (-a.num) * (b.den : Int) = (-b.num) * (a.den : Int)
+  rw [Int.neg_mul, Int.neg_mul,
+      show a.num * (b.den : Int) = b.num * (a.den : Int) from h]
+
+/-- `b ≃ c → a * b ≃ a * c` (congruence, left factor fixed). -/
+theorem mul_eqv_congr_left (a b c : Q') (h : b.eqv c) : (a * b).eqv (a * c) := by
+  show (a.num * b.num) * ((a * c).den : Int) = (a.num * c.num) * ((a * b).den : Int)
+  rw [mul_den_cast a c, mul_den_cast a b,
+      int_AABB a.num b.num (a.den : Int) (c.den : Int),
+      int_AABB a.num c.num (a.den : Int) (b.den : Int),
+      show b.num * (c.den : Int) = c.num * (b.den : Int) from h]
+
 /-! ## Left-monotonicity of `*` -/
 
 /-- `a ≤ b → 0 ≤ c → c * a ≤ c * b`.  Derived from the right-mono lemma
@@ -169,4 +210,9 @@ end YMGap.Constructive
 #print axioms YMGap.Constructive.Q'.add_comm_eqv
 #print axioms YMGap.Constructive.Q'.add_assoc_eqv
 #print axioms YMGap.Constructive.Q'.mul_eqv_congr_right
+#print axioms YMGap.Constructive.Q'.neg_mul_eqv
+#print axioms YMGap.Constructive.Q'.mul_neg_eqv
+#print axioms YMGap.Constructive.Q'.neg_neg_eqv
+#print axioms YMGap.Constructive.Q'.neg_eqv_congr
+#print axioms YMGap.Constructive.Q'.mul_eqv_congr_left
 #print axioms YMGap.Constructive.Q'.mul_le_mul_of_nonneg_left

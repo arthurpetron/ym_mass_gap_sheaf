@@ -87,6 +87,7 @@ Every theorem below reports `[propext]` or empty.  No `Classical.*`, no
 -/
 
 import YMGap.Constructive.Reals
+import YMGap.Constructive.RationalsMul
 
 namespace YMGap.Constructive.ExpNeg
 
@@ -132,6 +133,94 @@ theorem partialSum_two (x : Q') : partialSum x 2 = 1 + term x 1 := by
   show partialSum x 1 + term x 1 = 1 + term x 1
   rw [partialSum_one]
 
+/-! ## The magnitude series `Σ xᵏ/k!` (all nonnegative)
+
+`termAbs x k = xᵏ/k! = |term x k|` (for `x ≥ 0`), via the same recurrence
+with `+x` in place of `−x`.  It dominates `term x k` two-sidedly
+(`−termAbs ≤ term ≤ termAbs`), which is what turns the alternating series'
+block differences into a (sign-free) magnitude tail — the first half of
+the Cauchy modulus.  `Q'.mkPos 1 (k+1) (Nat.succ_pos _)` is `Q'.invSucc k`
+definitionally, so `Q'.invSucc_nonneg` discharges the factor's sign. -/
+
+/-- `k`-th magnitude term `xᵏ/k!`. -/
+def termAbs (x : Q') : Nat → Q'
+  | 0 => 1
+  | k + 1 => termAbs x k * (x * Q'.mkPos 1 (k + 1) (Nat.succ_pos _))
+
+@[simp] theorem termAbs_zero (x : Q') : termAbs x 0 = 1 := rfl
+
+@[simp] theorem termAbs_succ (x : Q') (k : Nat) :
+    termAbs x (k + 1) = termAbs x k * (x * Q'.mkPos 1 (k + 1) (Nat.succ_pos _)) := rfl
+
+/-- The magnitude partial sum `Σ_{k<n} termAbs x k`. -/
+def partialSumAbs (x : Q') : Nat → Q'
+  | 0 => 0
+  | n + 1 => partialSumAbs x n + termAbs x n
+
+@[simp] theorem partialSumAbs_zero (x : Q') : partialSumAbs x 0 = 0 := rfl
+
+@[simp] theorem partialSumAbs_succ (x : Q') (n : Nat) :
+    partialSumAbs x (n + 1) = partialSumAbs x n + termAbs x n := rfl
+
+/-- For `x ≥ 0`, every magnitude term is nonnegative. -/
+theorem termAbs_nonneg (x : Q') (hx : (0 : Q') ≤ x) :
+    ∀ k, (0 : Q') ≤ termAbs x k
+  | 0 => by show (0 : Q') ≤ 1; decide
+  | k + 1 => by
+    show (0 : Q') ≤ termAbs x k * (x * Q'.mkPos 1 (k + 1) (Nat.succ_pos _))
+    exact Q'.mul_nonneg _ _ (termAbs_nonneg x hx k)
+      (Q'.mul_nonneg _ _ hx (Q'.invSucc_nonneg k))
+
+/-! ## The alternating → magnitude two-sided bound
+
+`−(termAbs x k) ≤ term x k ≤ termAbs x k` for `x ≥ 0`.  This is the
+conceptual core that turns the *signed* alternating series into the
+*nonnegative* magnitude series: it lets the block differences
+`partialSum x m − partialSum x n` be bounded by the magnitude tail
+`partialSumAbs x m − partialSumAbs x n`, which is the route to the Cauchy
+modulus without any absolute-value construction on `Q'`.
+
+Proved by induction: the step uses `term x (k+1) = term x k · (−x)·c`,
+`termAbs x (k+1) = termAbs x k · (x·c)`, and the negation/congruence
+`eqv` laws from `RationalsMul.lean`, chained through `≤` via
+`le_of_eqv`/`ge_of_eqv` (the symmetric `±term ≤ termAbs` form keeps each
+side using one induction hypothesis, with no double-negation). -/
+theorem term_two_sided (x : Q') (hx : (0 : Q') ≤ x) :
+    ∀ k, term x k ≤ termAbs x k ∧ (-(term x k)) ≤ termAbs x k
+  | 0 => by
+    refine ⟨?_, ?_⟩
+    · show (1 : Q') ≤ 1; exact Q'.le_refl' 1
+    · show (-(1 : Q')) ≤ 1; decide
+  | k + 1 => by
+    obtain ⟨h1, h2⟩ := term_two_sided x hx k
+    -- `Q'.invSucc k` is `Q'.mkPos 1 (k+1) (Nat.succ_pos _)` definitionally.
+    have he : (0 : Q') ≤ x * Q'.invSucc k :=
+      Q'.mul_nonneg _ _ hx (Q'.invSucc_nonneg k)
+    refine ⟨?_, ?_⟩
+    · -- term x (k+1) = term x k · ((−x)·c) ≤ termAbs x k · (x·c)
+      show term x k * ((-x) * Q'.invSucc k) ≤ termAbs x k * (x * Q'.invSucc k)
+      exact Q'.le_trans' _ _ _
+        (Q'.le_of_eqv (Q'.mul_eqv_congr_left (term x k) ((-x) * Q'.invSucc k)
+          (-(x * Q'.invSucc k)) (Q'.neg_mul_eqv x (Q'.invSucc k))))
+        (Q'.le_trans' _ _ _
+          (Q'.le_of_eqv (Q'.mul_neg_eqv (term x k) (x * Q'.invSucc k)))
+          (Q'.le_trans' _ _ _
+            (Q'.ge_of_eqv (Q'.neg_mul_eqv (term x k) (x * Q'.invSucc k)))
+            (Q'.mul_le_mul_of_nonneg_right (-(term x k)) (termAbs x k)
+              (x * Q'.invSucc k) h2 he)))
+    · -- −(term x (k+1)) ≤ termAbs x k · (x·c)
+      show (-(term x k * ((-x) * Q'.invSucc k))) ≤ termAbs x k * (x * Q'.invSucc k)
+      exact Q'.le_trans' _ _ _
+        (Q'.le_of_eqv (Q'.neg_eqv_congr _ _
+          (Q'.mul_eqv_congr_left (term x k) ((-x) * Q'.invSucc k) (-(x * Q'.invSucc k))
+            (Q'.neg_mul_eqv x (Q'.invSucc k)))))
+        (Q'.le_trans' _ _ _
+          (Q'.le_of_eqv (Q'.neg_eqv_congr _ _ (Q'.mul_neg_eqv (term x k) (x * Q'.invSucc k))))
+          (Q'.le_trans' _ _ _
+            (Q'.le_of_eqv (Q'.neg_neg_eqv (term x k * (x * Q'.invSucc k))))
+            (Q'.mul_le_mul_of_nonneg_right (term x k) (termAbs x k)
+              (x * Q'.invSucc k) h1 he)))
+
 end YMGap.Constructive.ExpNeg
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
@@ -140,3 +229,7 @@ end YMGap.Constructive.ExpNeg
 #print axioms YMGap.Constructive.ExpNeg.partialSum
 #print axioms YMGap.Constructive.ExpNeg.partialSum_one
 #print axioms YMGap.Constructive.ExpNeg.partialSum_two
+#print axioms YMGap.Constructive.ExpNeg.termAbs
+#print axioms YMGap.Constructive.ExpNeg.partialSumAbs
+#print axioms YMGap.Constructive.ExpNeg.termAbs_nonneg
+#print axioms YMGap.Constructive.ExpNeg.term_two_sided

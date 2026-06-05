@@ -247,6 +247,22 @@ theorem ofQ'_le_of_approx_ge
     Q'.add_le_self_of_nonneg (x.approx n) (Q'.invSucc n) (Q'.invSucc_nonneg n)
   exact Q'.le_trans' lb (x.approx n) (x.approx n + Q'.invSucc n) (h n) h_step
 
+/-- **Dual of `ofQ'_le_of_approx_ge`.**
+
+If every approximation `x.approx n` is ≤ some `Q'`-rational `ub`, then
+`x ≤ ofQ' ub` at the CReal level.  The constructive analog of "if a
+sequence is bounded above by a constant, its limit is too" — the lift
+needed to state a CReal-level *upper* bound (e.g. `expNeg x ≤ ofQ' (E x)`
+for a rational exponential bound `E`). -/
+theorem le_ofQ'_of_approx_le
+    {x : CReal} {ub : Q'}
+    (h : ∀ n : Nat, x.approx n ≤ ub) :
+    x ≤ ofQ' ub := by
+  intro n
+  show x.approx n ≤ ub + Q'.invSucc n
+  exact Q'.le_trans' (x.approx n) ub (ub + Q'.invSucc n)
+    (h n) (Q'.add_le_self_of_nonneg ub (Q'.invSucc n) (Q'.invSucc_nonneg n))
+
 /-! ### Strict positivity at the CReal level -/
 
 /-- A CReal-level "strictly positive": there is a positive `Q'`
@@ -377,6 +393,7 @@ Every theorem below must report `propext` or empty.  No
 #print axioms YMGap.Constructive.CReal.le_refl
 #print axioms YMGap.Constructive.CReal.ofQ'_le_ofQ'
 #print axioms YMGap.Constructive.CReal.ofQ'_le_of_approx_ge
+#print axioms YMGap.Constructive.CReal.le_ofQ'_of_approx_le
 #print axioms YMGap.Constructive.CReal.isPositive_of_approx_ge
 #print axioms YMGap.Constructive.CReal.limit_of_constant_eq
 #print axioms YMGap.Constructive.zero_lt_sigma_hat_inf_creal_epsilon
