@@ -18,6 +18,10 @@ Inputs come from a small manifest JSON:
         {"beta": 2.4, "glue": "g_b2.4.json", "sigma": "s_b2.4.json", "rmin": 3},
         ...]}
 
+Each point may set "rmin"/"rmax" to bound the Cornell-fit r-window: "rmax" cuts
+the noise-dominated large-r tail of V(r), which at fine lattice spacing would
+otherwise drag the fitted string tension negative.
+
 Usage:
     python -m computations.long_runs.continuum_trend manifest.json --plot trend.svg
 """
@@ -43,14 +47,15 @@ def measure_point(pt: dict, tau0: int, rel_thresh: float) -> dict:
 
     sd = st.load(pt["sigma"])
     rmin = pt.get("rmin", 2)
-    v0, sig, c, sige = st.fit_cornell(st.static_potential(sd["w"]), rmin)
+    rmax = pt.get("rmax")  # optional: cut the noise-dominated large-r tail (fine a)
+    v0, sig, c, sige = st.fit_cornell(st.static_potential(sd["w"]), rmin, rmax)
     # Prefer a genuine configuration jackknife on sigma a^2 when the JSON carries
     # per-bin sums (string_tension --bins); it is the honest statistical error
     # (typically several times the Cornell-fit covariance).  Central value stays
     # the full-sample fit.
     sig_err_kind = "fit"
     if "bin_w_sum" in sd:
-        _, jk = st.jackknife_sigma(sd, rmin)
+        _, jk = st.jackknife_sigma(sd, rmin, rmax)
         if np.isfinite(jk) and jk > 0:
             sige, sig_err_kind = jk, "jackknife"
     # If neither is available (singular Cornell covariance, no bins), fall back to

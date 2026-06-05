@@ -41,16 +41,16 @@ def load(path: str) -> dict:
     return d
 
 
-def sigma_from_grid(w: np.ndarray, rmin: int) -> float:
+def sigma_from_grid(w: np.ndarray, rmin: int, rmax: int | None = None) -> float:
     """sigma a^2 from the Cornell fit on a Wilson-loop grid (NaN on failure)."""
     try:
-        _, sigma, _, _ = fit_cornell(static_potential(w), rmin)
+        _, sigma, _, _ = fit_cornell(static_potential(w), rmin, rmax)
         return float(sigma)
     except Exception:
         return float("nan")
 
 
-def jackknife_sigma(d: dict, rmin: int) -> tuple[float, float]:
+def jackknife_sigma(d: dict, rmin: int, rmax: int | None = None) -> tuple[float, float]:
     """Delete-one jackknife error on sigma a^2 over configuration bins.  Rebuilds
     the leave-one-out Wilson-loop grid from the per-bin sums and re-runs the full
     static-potential / Cornell extraction on each.  Returns (mean, jk_err)."""
@@ -62,7 +62,7 @@ def jackknife_sigma(d: dict, rmin: int) -> tuple[float, float]:
         nk = tot_n - cnt[k]
         if nk <= 0:
             continue
-        samples[k] = sigma_from_grid((tot_w - bw[k]) / nk, rmin)
+        samples[k] = sigma_from_grid((tot_w - bw[k]) / nk, rmin, rmax)
     s = samples[np.isfinite(samples)]
     if s.size < 2:
         return float("nan"), float("nan")
@@ -100,11 +100,17 @@ def static_potential(w: np.ndarray) -> dict[int, float]:
     return out
 
 
-def fit_cornell(vr: dict[int, float], rmin: int) -> tuple[float, float, float, float]:
-    """Fit V(r) = V0 + sigma r - c/r over r >= rmin.  Returns (V0, sigma, c, sigma_err)."""
+def fit_cornell(vr: dict[int, float], rmin: int, rmax: int | None = None) -> tuple[float, float, float, float]:
+    """Fit V(r) = V0 + sigma r - c/r over rmin <= r <= rmax.  Returns (V0, sigma, c, sigma_err).
+
+    At fine lattice spacing the largest-r static-potential points are
+    noise-dominated (the Wilson loops W(r,t) underflow into noise), which drags
+    the linear slope -- the string tension -- negative.  Pass rmax to cut the fit
+    at the last r where V(r) is still a clean, monotonic signal."""
     from scipy.optimize import curve_fit
 
-    rs = np.array([r for r in sorted(vr) if r >= rmin], dtype=float)
+    rs = np.array([r for r in sorted(vr)
+                   if r >= rmin and (rmax is None or r <= rmax)], dtype=float)
     vs = np.array([vr[int(r)] for r in rs], dtype=float)
     if rs.size < 3:
         # too few points: fix the Luscher coefficient c = pi/12
@@ -172,6 +178,9 @@ def main() -> None:
     p = argparse.ArgumentParser(description="SU(2) string-tension extraction.")
     p.add_argument("json")
     p.add_argument("--rmin", type=int, default=2, help="min r for the Cornell fit (default 2)")
+    p.add_argument("--rmax", type=int, default=None,
+                   help="max r for the Cornell fit (default: all r; set to cut the "
+                        "noise-dominated large-r tail at fine lattice spacing)")
     p.add_argument("--plot", default=None)
     args = p.parse_args()
 
@@ -179,7 +188,7 @@ def main() -> None:
     w = d["w"]
     creutz = creutz_ratios(w)
     vr = static_potential(w)
-    fit = fit_cornell(vr, args.rmin)
+    fit = fit_cornell(vr, args.rmin, args.rmax)
     v0, sigma, c, sig_err = fit
 
     print(f"=== SU(2) string tension (L={d['l']}, beta={d['beta']}, {d['n_collected']} configs) ===")
@@ -190,7 +199,7 @@ def main() -> None:
 
     sigma_jk_err = float("nan")
     if "bin_w_sum" in d:
-        _, sigma_jk_err = jackknife_sigma(d, args.rmin)
+        _, sigma_jk_err = jackknife_sigma(d, args.rmin, args.rmax)
         print(f"  jackknife (config) error on sigma a^2: +/- {sigma_jk_err:.5f}  "
               f"({int(d['bin_counts'].shape[0])} bins)")
     else:
