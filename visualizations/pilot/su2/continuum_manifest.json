@@ -1,0 +1,41 @@
+{
+  "teper": 3.74,
+  "_note": "rmax bounds the Cornell-fit r-window at the noise onset of V(r): the last r before the static-potential increments stop decreasing (V(r) must be concave: increment -> sigma a^2 from above). This drops the anomalous high r=8 point at L16/L20/L24 and the r=11 spike at L28, and is independently consistent with the matched-volume run design L*sqrt(sigma)a ~ 4.2.",
+  "_provisional": "sigma at L24 (beta=2.50) and L28 (beta=2.55) is NOT yet reliable: at these spacings the static potential loses signal (r~8-10) before reaching a clean linear regime, so sigma swings by ~2x with rmax (ratio 3.4-5.5). These two points dominate the a->0 lever arm, so the continuum m(0++)/sqrt(sigma) below is INDICATIVE ONLY. A trustworthy continuum value needs more fine-a statistics: larger Wilson-loop extent and/or more configs at L24/L28 (and L32) so V(r) reaches the asymptotic linear regime with signal.",
+  "points": [
+    {
+      "beta": 2.3,
+      "glue": "visualizations/pilot/su2/glueball-L12-b2.30.json",
+      "sigma": "visualizations/pilot/su2/sigma-L12-b2.30.json",
+      "rmin": 2
+    },
+    {
+      "beta": 2.4,
+      "glue": "visualizations/pilot/su2/glueball-L16-b2.40.json",
+      "sigma": "visualizations/pilot/su2/sigma-L16-b2.40.json",
+      "rmin": 2,
+      "rmax": 7
+    },
+    {
+      "beta": 2.45,
+      "glue": "visualizations/pilot/su2/glueball-L20-b2.45.json",
+      "sigma": "visualizations/pilot/su2/sigma-L20-b2.45.json",
+      "rmin": 2,
+      "rmax": 7
+    },
+    {
+      "beta": 2.5,
+      "glue": "visualizations/pilot/su2/glueball-L24-b2.50.json",
+      "sigma": "visualizations/pilot/su2/sigma-L24-b2.50.json",
+      "rmin": 2,
+      "rmax": 7
+    },
+    {
+      "beta": 2.55,
+      "glue": "visualizations/pilot/su2/glueball-L28-b2.55.json",
+      "sigma": "visualizations/pilot/su2/sigma-L28-b2.55.json",
+      "rmin": 2,
+      "rmax": 10
+    }
+  ]
+}

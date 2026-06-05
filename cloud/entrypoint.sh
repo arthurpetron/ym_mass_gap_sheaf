@@ -19,6 +19,10 @@ row_n="${POINT_ROW:?POINT_ROW not set (which points.tsv row this job runs)}"
 shard="${BATCH_TASK_INDEX:?BATCH_TASK_INDEX not set (run me under Cloud Batch)}"
 out="${OUT_DIR:-/mnt/disks/out}"
 points="${POINTS_FILE:-/work/points.tsv}"
+# Optional campaign tag (e.g. "-hi"): isolates a parallel run at the SAME (beta,L)
+# from the base run in its output/checkpoint filenames, so a high-statistics
+# rerun does not collide with -- or resume the checkpoint of -- the base point.
+TAG="${TAG:-}"
 mkdir -p "$out"
 
 # Fixed across the campaign (kept here, not in points.tsv, so the table is just
@@ -51,9 +55,9 @@ if [[ "${THERM_OVERRIDE:-0}" != "0" ]]; then therm="$THERM_OVERRIDE"; fi
 per_shard_meas=$(( (meas + shards - 1) / shards ))
 seed=$(( seed_base + shard ))
 
-g="$out/glueball-L${L}-b${beta}-s${shard}.json"
-s="$out/sigma-L${L}-b${beta}-s${shard}.json"
-ckpt="$out/ckpt-L${L}-b${beta}-s${shard}.bin"
+g="$out/glueball-L${L}-b${beta}${TAG}-s${shard}.json"
+s="$out/sigma-L${L}-b${beta}${TAG}-s${shard}.json"
+ckpt="$out/ckpt-L${L}-b${beta}${TAG}-s${shard}.bin"
 
 echo "=== [row $row_n shard $shard/$shards] beta=$beta L=$L seed=$seed  start $(date -u) ==="
 echo ">>> measure: $per_shard_meas meas / $therm therm  (every $INTERVAL), Rmax=$rmax  ($(nproc) cores)"
