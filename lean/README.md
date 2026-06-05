@@ -47,6 +47,18 @@ This is the same discipline as Bishop-style constructive analysis,
 mechanized. The `#print axioms` gate is the enforcement mechanism;
 see `AGENTS.md`.
 
+**Substrate: MLTT / HoTT.** Lean is the Calculus of Inductive
+Constructions, an extension of Martin-Löf Type Theory. We hold ourselves
+to what is valid in MLTT and its homotopy-type-theory extension: the
+only permitted axioms are `propext` and `Quot.sound` (both HoTT-valid —
+`propext` is univalence for mere propositions, `Quot` is the set-quotient
+HIT); `Classical.choice`/LEM (invalid in MLTT/HoTT) and `native_decide`
+(trusts the compiler, not a kernel reduction) are banned. Because the
+proof's worth is its computational content, we prefer **canonicity**:
+axiom-free, `decide`-checkable proofs, and witnesses carried as
+`Type`-level data (`Σ`, functions `ε ↦ N`) rather than erased inside a
+proof-irrelevant `Prop` `∃`. See `AGENTS.md` Rule 8.
+
 ---
 
 ## Folder structure

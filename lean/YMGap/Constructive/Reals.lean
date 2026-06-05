@@ -60,10 +60,18 @@ spectral statement gated through three abstract bundle inputs.
 
 # Constructive content and axiom gate (AGENTS.md Rule 1)
 
-  * Every regular sequence carries its Cauchy modulus as data: the
-    structure field `cauchy` returns an `∃ N`, but because `Nat` has
-    decidable order, the witness is constructively extractable via
-    structural recursion on `Nat`.  No `Classical.choice` is used.
+  * **Modulus caveat (AGENTS.md Rule 8).**  The `cauchy` field is a
+    `Prop`-level `∃ N`.  No `Classical.choice` is used (a proof of it
+    BHK-constructs a specific `N`), but the earlier claim that the
+    witness is "extractable via structural recursion on `Nat`" was
+    over-stated: the body is a `∀ m n ≥ N` (not decidable), so `Nat.find`
+    does not apply and Lean's proof-irrelevant `Prop` blocks recovering
+    `N` as data.  In MLTT the same datum written with `Σ` keeps the
+    modulus as a function with a working projection; that is the
+    Rule-8.3-mandated direction.  New modulus work (see
+    `Constructive/ExpNeg.lean`) therefore builds the modulus as a
+    `Type`-level function and applies it to fill this legacy field; a
+    `Type`-level-modulus refactor of `CReal` is the standing follow-on.
   * Equality on `CReal` is *not* decidable (this is genuine and
     reflects the constructive nature of reals); the module does
     NOT pretend otherwise.  We expose only `≤`, not `=`.

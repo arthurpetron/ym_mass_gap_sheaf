@@ -41,7 +41,12 @@ The output **may** contain:
 - `Quot.sound`
 
 provided they are used only for propositional equality / quotients
-that carry no erased computational content. If in doubt, treat their
+that carry no erased computational content. Both are valid in HoTT
+(`propext` follows from univalence for mere propositions; `Quot` is the
+set-quotient higher inductive type), so they keep us inside the
+MLTT/HoTT substrate (Rule 8) — but both *cost canonicity*, so prefer an
+axiom-free (`#print axioms` empty) proof when one is available,
+especially for `def`s and computational lemmas. If in doubt, treat their
 appearance as a signal to review whether a witness has been silently
 discarded.
 
@@ -183,11 +188,64 @@ A change is complete only when:
 
 ---
 
+## Rule 8: Stay inside MLTT / HoTT — the computational substrate
+
+Lean is the Calculus of Inductive Constructions, an *extension* of
+Martin-Löf Type Theory. Because this proof's value is its computational
+content, everything we introduce going forward **must be valid in MLTT
+and its homotopy-type-theory (HoTT) extension**, and should preserve
+**canonicity** (closed terms compute) wherever possible. Concretely:
+
+1. **Only `propext` and `Quot.sound` as axioms — nothing else (Rule 1).**
+   Both are HoTT-valid (`propext` = univalence for mere propositions;
+   `Quot` = the set-quotient HIT). `Classical.choice` / LEM are *not*
+   valid in MLTT/HoTT — they are banned, not merely discouraged. Both
+   permitted axioms still cost canonicity: prefer an axiom-free proof.
+
+2. **No `native_decide`.** It discharges goals via `Lean.ofReduceBool`
+   (trusting the compiler), which is neither a type-theoretic reduction
+   nor MLTT/HoTT-valid. Use `decide` (kernel computation = MLTT
+   canonicity) or an explicit proof.
+
+3. **Content-bearing witnesses live in `Type`, not `Prop` (this sharpens
+   Rules 2–3).** A `Prop`-level `∃` is a *valid proposition* in
+   MLTT/HoTT, but Lean's proof-irrelevant `Prop` forbids large
+   elimination, so a modulus / rate / bound hidden in `∃` cannot be
+   recovered or computed. In MLTT the same datum as `Σ` keeps the
+   witness with a working projection, and canonicity reduces a closed
+   proof to an actual value. Therefore every **modulus of convergence,
+   rate, or constant a later step consumes** must be carried as
+   `Type`-level data (`Σ`, a `Type`-valued structure field, or a
+   function `ε ↦ N`), never a `Prop` `∃`. When you must fill a legacy
+   `Prop` `∃` field, build the witness as a named `Type`-level function
+   first and apply it, so the computational content exists even if the
+   wrapper erases it. (The `cauchy` field of `Constructive/Reals.lean`
+   is exactly such a legacy `Prop` `∃`; new modulus work carries the
+   modulus as data and a `Type`-level-modulus refactor of `CReal` is the
+   standing direction.)
+
+4. **Prefer predicative / setoid formulations where natural.** Plain
+   MLTT is predicative and quotient-free (it uses setoids); `Q'` with
+   `eqv` already *is* a setoid, so reason in the setoid rather than
+   reaching for `Quot` when that avoids a `Quot.sound` dependence.
+   Essential reliance on `Prop` impredicativity in the analytic core
+   (`Q'`, `CReal`, the series) should be avoided; in the
+   categorical/sheaf scaffolding it is tolerated but not extended.
+
+The test for any new definition or lemma: *would it typecheck and
+compute in MLTT (or HoTT, for `propext` / quotients)?* If it needs LEM,
+choice, or `native_decide`, the answer is no — restate it (Rule 1) or
+carry the missing witness as data (Rules 2, 8.3).
+
+---
+
 ## Summary
 
 The folder exists to make one promise checkable: *the constructive
 steps are actually constructive.* Classical Lean makes that promise
 trivial to break by accident. These rules — sigma-not-exists,
-constructive reals, the axiom gate, quarantine, honest holes — are how
-the promise stays intact. When a rule and a quick proof conflict,
-the rule wins.
+constructive reals, the axiom gate, quarantine, honest holes, and the
+MLTT/HoTT substrate — are how the promise stays intact. The north star:
+everything typechecks and **computes** in MLTT/HoTT; witnesses are data,
+not erased `Prop` content. When a rule and a quick proof conflict, the
+rule wins.
