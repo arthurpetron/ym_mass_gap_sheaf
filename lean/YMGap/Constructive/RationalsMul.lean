@@ -191,6 +191,65 @@ theorem mul_eqv_congr_left (a b c : Q') (h : b.eqv c) : (a * b).eqv (a * c) := b
       int_AABB a.num c.num (a.den : Int) (b.den : Int),
       show b.num * (c.den : Int) = c.num * (b.den : Int) from h]
 
+/-! ## Transitivity of `eqv`, additive congruence, inner swap
+
+`eqv` is transitive (cancel the common denominator), and `+` is an `eqv`
+congruence on each side.  With `add_comm_eqv`/`add_assoc_eqv` these compose
+into the 4-term inner swap `(w+x)+(y+z) ≃ (w+y)+(x+z)` the block bound
+needs — built from proven small steps, not AC-`simp` (which times out at
+this term size). -/
+
+/-- `a * b * c = a * c * b` on `Int` (right commutation). -/
+private theorem int_mrc (a b c : Int) : a * b * c = a * c * b := by
+  rw [Int.mul_assoc, Int.mul_comm b c, ← Int.mul_assoc]
+
+/-- `eqv` is transitive (cancel the common denominator `b.den > 0`). -/
+theorem eqv_trans (a b c : Q') (hab : a.eqv b) (hbc : b.eqv c) : a.eqv c := by
+  have hbne : (b.den : Int) ≠ 0 := by
+    intro heq
+    exact (Nat.pos_iff_ne_zero.mp b.den_pos) (by exact_mod_cast heq)
+  show a.num * (c.den : Int) = c.num * (a.den : Int)
+  apply Int.eq_of_mul_eq_mul_right hbne
+  calc a.num * (c.den : Int) * (b.den : Int)
+      = a.num * (b.den : Int) * (c.den : Int) := int_mrc _ _ _
+    _ = b.num * (a.den : Int) * (c.den : Int) := by
+        rw [show a.num * (b.den : Int) = b.num * (a.den : Int) from hab]
+    _ = b.num * (c.den : Int) * (a.den : Int) := int_mrc _ _ _
+    _ = c.num * (b.den : Int) * (a.den : Int) := by
+        rw [show b.num * (c.den : Int) = c.num * (b.den : Int) from hbc]
+    _ = c.num * (a.den : Int) * (b.den : Int) := int_mrc _ _ _
+
+/-- `a ≃ b → a + c ≃ b + c`. -/
+theorem add_eqv_congr_right (a b c : Q') (h : a.eqv b) : (a + c).eqv (b + c) := by
+  show (a.num * (c.den : Int) + c.num * (a.den : Int)) * ((b + c).den : Int)
+      = (b.num * (c.den : Int) + c.num * (b.den : Int)) * ((a + c).den : Int)
+  rw [add_den_cast b c, add_den_cast a c, Int.add_mul, Int.add_mul,
+      int_AABB a.num (c.den : Int) (b.den : Int) (c.den : Int),
+      int_AABB c.num (a.den : Int) (b.den : Int) (c.den : Int),
+      int_AABB b.num (c.den : Int) (a.den : Int) (c.den : Int),
+      show a.num * (b.den : Int) = b.num * (a.den : Int) from h]
+
+/-- `b ≃ c → a + b ≃ a + c` (via `add_comm` + `add_eqv_congr_right`). -/
+theorem add_eqv_congr_left (a b c : Q') (h : b.eqv c) : (a + b).eqv (a + c) :=
+  eqv_trans (a + b) (b + a) (a + c) (add_comm_eqv a b)
+    (eqv_trans (b + a) (c + a) (a + c)
+      (add_eqv_congr_right b c a h) (add_comm_eqv c a))
+
+/-- Inner swap: `(w + x) + (y + z) ≃ (w + y) + (x + z)`. -/
+theorem add_swap_inner (w x y z : Q') :
+    ((w + x) + (y + z)).eqv ((w + y) + (x + z)) :=
+  eqv_trans ((w + x) + (y + z)) ((w + x) + y + z) ((w + y) + (x + z))
+    (eqv_symm (add_assoc_eqv (w + x) y z))
+    (eqv_trans ((w + x) + y + z) (w + (x + y) + z) ((w + y) + (x + z))
+      (add_eqv_congr_right ((w + x) + y) (w + (x + y)) z (add_assoc_eqv w x y))
+      (eqv_trans (w + (x + y) + z) (w + (y + x) + z) ((w + y) + (x + z))
+        (add_eqv_congr_right (w + (x + y)) (w + (y + x)) z
+          (add_eqv_congr_left w (x + y) (y + x) (add_comm_eqv x y)))
+        (eqv_trans (w + (y + x) + z) ((w + y) + x + z) ((w + y) + (x + z))
+          (add_eqv_congr_right (w + (y + x)) ((w + y) + x) z
+            (eqv_symm (add_assoc_eqv w y x)))
+          (add_assoc_eqv (w + y) x z))))
+
 /-! ## Left-monotonicity of `*` -/
 
 /-- `a ≤ b → 0 ≤ c → c * a ≤ c * b`.  Derived from the right-mono lemma
@@ -224,4 +283,8 @@ end YMGap.Constructive
 #print axioms YMGap.Constructive.Q'.neg_add_self_eqv
 #print axioms YMGap.Constructive.Q'.neg_eqv_congr
 #print axioms YMGap.Constructive.Q'.mul_eqv_congr_left
+#print axioms YMGap.Constructive.Q'.eqv_trans
+#print axioms YMGap.Constructive.Q'.add_eqv_congr_right
+#print axioms YMGap.Constructive.Q'.add_eqv_congr_left
+#print axioms YMGap.Constructive.Q'.add_swap_inner
 #print axioms YMGap.Constructive.Q'.mul_le_mul_of_nonneg_left

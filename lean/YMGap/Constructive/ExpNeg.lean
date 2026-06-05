@@ -279,6 +279,27 @@ theorem block_upper (x : Q') (hx : (0 : Q') ≤ x) (n : Nat) :
         (Q'.le_of_eqv (Q'.add_assoc_eqv (partialSum x n) (blockAbs x n d)
           (termAbs x (n + d)))))
 
+/-- **Block lower bound.**  `partialSum x n ≤ partialSum x (n+d) + blockAbs x n d`.
+By induction on `d`: the step injects the nonnegative `term + termAbs`
+(`term_add_termAbs_nonneg`) and re-sorts the four summands with
+`add_swap_inner` — this is the half that needs additive `eqv`-congruence. -/
+theorem block_lower (x : Q') (hx : (0 : Q') ≤ x) (n : Nat) :
+    ∀ d, partialSum x n ≤ partialSum x (n + d) + blockAbs x n d
+  | 0 => by
+    show partialSum x n ≤ partialSum x n + 0
+    exact Q'.add_le_self_of_nonneg _ _ (Q'.le_refl' 0)
+  | d + 1 => by
+    have ih := block_lower x hx n d
+    show partialSum x n
+          ≤ (partialSum x (n + d) + term x (n + d))
+            + (blockAbs x n d + termAbs x (n + d))
+    refine Q'.le_trans' _ _ _ ih ?_
+    exact Q'.le_trans' _ _ _
+      (Q'.add_le_self_of_nonneg (partialSum x (n + d) + blockAbs x n d)
+        (term x (n + d) + termAbs x (n + d)) (term_add_termAbs_nonneg x hx (n + d)))
+      (Q'.le_of_eqv (Q'.add_swap_inner (partialSum x (n + d)) (blockAbs x n d)
+        (term x (n + d)) (termAbs x (n + d))))
+
 end YMGap.Constructive.ExpNeg
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
@@ -294,3 +315,4 @@ end YMGap.Constructive.ExpNeg
 #print axioms YMGap.Constructive.ExpNeg.blockAbs
 #print axioms YMGap.Constructive.ExpNeg.term_add_termAbs_nonneg
 #print axioms YMGap.Constructive.ExpNeg.block_upper
+#print axioms YMGap.Constructive.ExpNeg.block_lower
