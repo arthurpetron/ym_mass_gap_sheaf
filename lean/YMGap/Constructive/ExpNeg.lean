@@ -64,12 +64,21 @@ the same `mul_le_mul_of_nonneg_left` gap noted in `Geometric.lean`.
 
 # Open work (ledgered, not `sorry`)
 
-  * `expNeg (x : Q') : CReal` — needs the modulus above (⇒ geometric
-    closed form).
-  * `expNeg_le_one_of_nonneg`, `expNeg_antitone`, the `ExpUB` instance.
-  * The `Q'` multiplicative lemmas (`mul_comm/assoc/add` at `eqv`,
-    `mul_le_mul_of_nonneg_left`) shared with `Geometric.lean`'s
-    extension — the single common dependency.
+The shared dependencies are now **discharged**: the `Q'` semiring-`eqv`
+layer (`RationalsMul.lean`: `mul_comm/assoc/add_eqv`,
+`mul_le_mul_of_nonneg_left`, congruence) and the geometric tail closed
+form (`GeometricTail.lean`: `geometric_tail_closure`) both exist and are
+axiom-clean.  What remains for `expNeg`:
+
+  * `expNeg (x : Q') : CReal` — the `cauchy` field.  Its analytic core
+    (geometric tail past `N₀ > x`) is now `geometric_tail_closure`; the
+    residual is the *term-magnitude* control: `|t_{k+1}| ≤ r·|t_k|` for
+    `k ≥ N₀` (ratio `x/(k+1) ≤ r < 1`), the alternating two-sided block
+    bound `|Sₘ − Sₙ| ≤` tail, and the `∃N` witness from `ε` (factorial
+    growth).  No new shared lemmas — only series-specific `Q'` work.
+  * `expNeg_le_one_of_nonneg`, `expNeg_antitone`, the `ExpUB` instance
+    (and its `E_bounds` tie `expNeg x ≤ ofQ' (E x)`), then the SU(3)
+    `Z_t` CReal upper bound feeding `ExpBound.Z_upper_su3`.
 
 # Axiom-gate (AGENTS.md Rule 1)
 

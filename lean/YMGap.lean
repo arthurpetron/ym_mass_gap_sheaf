@@ -14,8 +14,10 @@ Currently populated:
     `docs/sheaf-framework.md`.
 -/
 import YMGap.Constructive.Rationals
+import YMGap.Constructive.RationalsMul
 import YMGap.Constructive.RationalTail
 import YMGap.Constructive.Geometric
+import YMGap.Constructive.GeometricTail
 import YMGap.Constructive.Reals
 import YMGap.Constructive.ExpNeg
 import YMGap.RepTheory.SU2
