@@ -169,6 +169,14 @@ theorem neg_neg_eqv (a : Q') : (-(-a)).eqv a := by
   show (-(-a.num)) * (a.den : Int) = a.num * (a.den : Int)
   rw [Int.neg_neg]
 
+/-- `−a + a ≃ 0`. -/
+theorem neg_add_self_eqv (a : Q') : ((-a) + a).eqv 0 := by
+  show ((-a.num) * (a.den : Int) + a.num * (a.den : Int)) * ((0 : Q').den : Int)
+      = (0 : Int) * (((-a) + a).den : Int)
+  have h0 : (-a.num) * (a.den : Int) + a.num * (a.den : Int) = 0 := by
+    rw [← Int.add_mul, Int.add_left_neg, Int.zero_mul]
+  rw [h0, Int.zero_mul, Int.zero_mul]
+
 /-- Negation is an `eqv` congruence: `a ≃ b → −a ≃ −b`. -/
 theorem neg_eqv_congr (a b : Q') (h : a.eqv b) : (-a).eqv (-b) := by
   show (-a.num) * (b.den : Int) = (-b.num) * (a.den : Int)
@@ -213,6 +221,7 @@ end YMGap.Constructive
 #print axioms YMGap.Constructive.Q'.neg_mul_eqv
 #print axioms YMGap.Constructive.Q'.mul_neg_eqv
 #print axioms YMGap.Constructive.Q'.neg_neg_eqv
+#print axioms YMGap.Constructive.Q'.neg_add_self_eqv
 #print axioms YMGap.Constructive.Q'.neg_eqv_congr
 #print axioms YMGap.Constructive.Q'.mul_eqv_congr_left
 #print axioms YMGap.Constructive.Q'.mul_le_mul_of_nonneg_left

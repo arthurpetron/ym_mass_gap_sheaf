@@ -221,6 +221,64 @@ theorem term_two_sided (x : Q') (hx : (0 : Q') ≤ x) :
             (Q'.mul_le_mul_of_nonneg_right (term x k) (termAbs x k)
               (x * Q'.invSucc k) h1 he)))
 
+/-! ## Block bound: alternating partial-sum differences ≤ magnitude block
+
+`blockAbs x n d = Σ_{j<d} termAbs x (n+j)` is the (nonnegative) magnitude
+of the term block `[n, n+d)`.  The two-sided bound says the *signed*
+partial-sum difference over that block is dominated by it — the bridge
+from `term_two_sided` to the Cauchy modulus (a `Q'`, sign-free tail
+two-sidedly bounding the alternating partials, no abs construction).
+
+`block_upper` is the clean half (`add_assoc` only).  `block_lower` is the
+standing follow-on: its step must commute a term past `blockAbs`, which
+needs *additive* `eqv`-congruence (`a ≃ b → a+c ≃ b+c`), built like
+`mul_eqv_congr_left` via a bespoke `Int` rearrangement — the AC-`simp`
+route that sufficed for 3-term `add_assoc_eqv` times out on the 4-term
+rearrangement. -/
+
+/-- Magnitude of the term block `[n, n+d)`: `Σ_{j<d} termAbs x (n+j)`. -/
+def blockAbs (x : Q') (n : Nat) : Nat → Q'
+  | 0 => 0
+  | d + 1 => blockAbs x n d + termAbs x (n + d)
+
+@[simp] theorem blockAbs_zero (x : Q') (n : Nat) : blockAbs x n 0 = 0 := rfl
+
+@[simp] theorem blockAbs_succ (x : Q') (n d : Nat) :
+    blockAbs x n (d + 1) = blockAbs x n d + termAbs x (n + d) := rfl
+
+/-- `0 ≤ term x k + termAbs x k` for `x ≥ 0` (from `term_two_sided.2`,
+via `−(term) + term ≃ 0` and `add_comm`). -/
+theorem term_add_termAbs_nonneg (x : Q') (hx : (0 : Q') ≤ x) (k : Nat) :
+    (0 : Q') ≤ term x k + termAbs x k :=
+  Q'.le_trans' _ _ _
+    (Q'.ge_of_eqv (Q'.neg_add_self_eqv (term x k)))
+    (Q'.le_trans' _ _ _
+      (Q'.add_le_add_right (-(term x k)) (termAbs x k) (term x k)
+        (term_two_sided x hx k).2)
+      (Q'.le_of_eqv (Q'.add_comm_eqv (termAbs x k) (term x k))))
+
+/-- **Block upper bound.**  `partialSum x (n+d) ≤ partialSum x n + blockAbs x n d`.
+By induction on `d`: the step replaces `term` by `termAbs` in place
+(`term ≤ termAbs`) and regroups with `add_assoc` — no commutation, so no
+additive congruence is needed. -/
+theorem block_upper (x : Q') (hx : (0 : Q') ≤ x) (n : Nat) :
+    ∀ d, partialSum x (n + d) ≤ partialSum x n + blockAbs x n d
+  | 0 => by
+    show partialSum x n ≤ partialSum x n + 0
+    exact Q'.add_le_self_of_nonneg _ _ (Q'.le_refl' 0)
+  | d + 1 => by
+    have ih := block_upper x hx n d
+    show partialSum x (n + d) + term x (n + d)
+          ≤ partialSum x n + (blockAbs x n d + termAbs x (n + d))
+    exact Q'.le_trans' _ _ _
+      (Q'.add_le_add_left (partialSum x (n + d)) (term x (n + d)) (termAbs x (n + d))
+        (term_two_sided x hx (n + d)).1)
+      (Q'.le_trans' _ _ _
+        (Q'.add_le_add_right (partialSum x (n + d)) (partialSum x n + blockAbs x n d)
+          (termAbs x (n + d)) ih)
+        (Q'.le_of_eqv (Q'.add_assoc_eqv (partialSum x n) (blockAbs x n d)
+          (termAbs x (n + d)))))
+
 end YMGap.Constructive.ExpNeg
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
@@ -233,3 +291,6 @@ end YMGap.Constructive.ExpNeg
 #print axioms YMGap.Constructive.ExpNeg.partialSumAbs
 #print axioms YMGap.Constructive.ExpNeg.termAbs_nonneg
 #print axioms YMGap.Constructive.ExpNeg.term_two_sided
+#print axioms YMGap.Constructive.ExpNeg.blockAbs
+#print axioms YMGap.Constructive.ExpNeg.term_add_termAbs_nonneg
+#print axioms YMGap.Constructive.ExpNeg.block_upper
