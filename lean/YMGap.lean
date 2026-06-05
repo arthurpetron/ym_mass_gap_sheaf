@@ -18,6 +18,8 @@ import YMGap.Constructive.RationalsMul
 import YMGap.Constructive.RationalTail
 import YMGap.Constructive.Geometric
 import YMGap.Constructive.GeometricTail
+import YMGap.Constructive.HalfPow
+import YMGap.Constructive.RatNat
 import YMGap.Constructive.Reals
 import YMGap.Constructive.ExpNeg
 import YMGap.RepTheory.SU2
