@@ -18,6 +18,7 @@ import YMGap.Constructive.RationalTail
 import YMGap.Constructive.Geometric
 import YMGap.Constructive.Reals
 import YMGap.RepTheory.SU2
+import YMGap.RepTheory.RepData
 import YMGap.Sheaf.Site
 import YMGap.Sheaf.BoundWitness
 import YMGap.Sheaf.Summability
