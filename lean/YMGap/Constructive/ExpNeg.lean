@@ -91,6 +91,7 @@ import YMGap.Constructive.RationalsMul
 import YMGap.Constructive.GeometricTail
 import YMGap.Constructive.HalfPow
 import YMGap.Constructive.RatNat
+import YMGap.Constructive.CRealLe
 
 namespace YMGap.Constructive.ExpNeg
 
@@ -616,6 +617,52 @@ def expNeg (x : Q') (hx : (0 : Q') ≤ x) : CReal where
     · exact ⟨(dir m n hm hmn).2, (dir m n hm hmn).1⟩
     · exact ⟨(dir n m hn hnm).1, (dir n m hn hnm).2⟩
 
+/-! ## Sound rational upper bounds on `expNeg`
+
+`expNeg x ≤ᵣ b` (the regularity-free `CReal.leRat`) holds whenever a
+single rational certificate `partialSum x K + (termAbs x K + termAbs x K)
+≤ b` holds at some `K` past the cutoff: past `K` the partials stay within
+the block bound `2·termAbs x K` of `partialSum x K`, hence `≤ b`.  This is
+the sound bound the one-slack `≤` could not provide. -/
+
+/-- **Sound upper bound on `e^{−x}`.**  `expNeg x ≤ᵣ b`, certified by a
+single `Q'` inequality at a cutoff index `K`. -/
+theorem expNeg_leRat (x : Q') (hx : (0 : Q') ≤ x) (b : Q') (K : Nat)
+    (hcut : halfRatioCutoff x ≤ K)
+    (hcert : partialSum x K + (termAbs x K + termAbs x K) ≤ b) :
+    CReal.leRat (expNeg x hx) b := by
+  apply CReal.leRat_of_eventually
+  refine ⟨K, fun n hn => ?_⟩
+  obtain ⟨d, rfl⟩ := Nat.exists_eq_add_of_le hn
+  show partialSum x (K + d) ≤ b
+  have hc : (0 : Q') ≤ termAbs x K := termAbs_nonneg x hx K
+  have hH : (0 : Q') ≤ termAbs x K + termAbs x K := Q'.zero_le_add _ _ hc hc
+  have hhalfcc : (half * (termAbs x K + termAbs x K)).eqv (termAbs x K) :=
+    Q'.eqv_trans _ _ _
+      (Q'.mul_add_eqv half (termAbs x K) (termAbs x K))
+      (two_halves (termAbs x K))
+  have hrec : termAbs x K + half * (termAbs x K + termAbs x K)
+      ≤ termAbs x K + termAbs x K :=
+    expNeg_recurrence x K (termAbs x K + termAbs x K) (Q'.ge_of_eqv hhalfcc)
+  have htail : blockAbs x K d ≤ termAbs x K + termAbs x K :=
+    blockAbs_le x half (termAbs x K + termAbs x K) hx K half_nonneg hH
+      (x_invSucc_le_half x hx K hcut) hrec d
+  exact Q'.le_trans' _ _ _ (block_upper x hx K d)
+    (Q'.le_trans' _ _ _
+      (Q'.add_le_add_left (partialSum x K) (blockAbs x K d)
+        (termAbs x K + termAbs x K) htail)
+      hcert)
+
+/-- Demonstration on a tractable argument: `e^{−1} ≤ 5/12`, certified at
+cutoff `K = 4` (`partialSum 1 4 + 2·termAbs 1 4 = 1/3 + 1/12 = 5/12`).
+At the SU(3) operating point (`x ≈ 14.8`) the analogous certificate needs
+`K ≳ 30` and partial sums with astronomically large numerators/denominators,
+beyond `decide`; that bound stays a documented `Q'` fiducial in
+`ExpBound`, now backed by this sound mechanism. -/
+theorem expNeg_one_leRat :
+    CReal.leRat (expNeg 1 (by decide)) (Q'.mkPos 5 12 (by decide)) :=
+  expNeg_leRat 1 (by decide) (Q'.mkPos 5 12 (by decide)) 4 (by decide) (by decide)
+
 end YMGap.Constructive.ExpNeg
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
@@ -647,3 +694,5 @@ end YMGap.Constructive.ExpNeg
 #print axioms YMGap.Constructive.ExpNeg.expNeg_recurrence
 #print axioms YMGap.Constructive.ExpNeg.expNeg_tail_bound
 #print axioms YMGap.Constructive.ExpNeg.expNeg
+#print axioms YMGap.Constructive.ExpNeg.expNeg_leRat
+#print axioms YMGap.Constructive.ExpNeg.expNeg_one_leRat
