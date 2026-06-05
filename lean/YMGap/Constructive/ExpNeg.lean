@@ -93,6 +93,7 @@ import YMGap.Constructive.GeometricTail
 namespace YMGap.Constructive.ExpNeg
 
 open YMGap.Constructive
+open YMGap.Constructive.RationalTail
 
 /-! ## The series, in `Q'`
 
@@ -346,6 +347,51 @@ theorem termAbs_geom_dom (x r : Q') (hx : (0 : Q') ≤ x) (N₀ : Nat)
       (Q'.le_of_eqv (Q'.mul_eqv_congr_left (termAbs x N₀) (r ^ j * r) (r * r ^ j)
         (Q'.mul_comm_eqv (r ^ j) r)))
 
+/-! ## The magnitude tail is uniformly bounded: `blockAbs x N₀ d ≤ H`
+
+Feeding the geometric domination into `geometric_tail_closure`: with a
+ratio `r < 1` and a `Q'` bound `H` satisfying the one-step recurrence
+`termAbs x N₀ + r·H ≤ H` (i.e. `H ≥ termAbs x N₀ / (1−r)`), every
+magnitude block from `N₀` is bounded by `H`, uniformly in its length `d`.
+This is the sign-free tail bound the Cauchy modulus rests on. -/
+
+/-- Termwise comparison lifts to finite sums. -/
+theorem finSum_le_finSum_of_termwise (f g : QSeq) (h : ∀ k, f k ≤ g k) :
+    ∀ n, finSum f n ≤ finSum g n
+  | 0 => by show (0 : Q') ≤ 0; exact Q'.le_refl' 0
+  | n + 1 => by
+    show finSum f n + f n ≤ finSum g n + g n
+    exact Q'.le_trans' _ _ _
+      (Q'.add_le_add_left (finSum f n) (f n) (g n) (h n))
+      (Q'.add_le_add_right (finSum f n) (finSum g n) (g n)
+        (finSum_le_finSum_of_termwise f g h n))
+
+/-- `blockAbs x n d` is the finite sum of the shifted magnitude terms. -/
+theorem blockAbs_eq_finSum (x : Q') (n : Nat) :
+    ∀ d, blockAbs x n d = finSum (fun j => termAbs x (n + j)) d
+  | 0 => rfl
+  | d + 1 => by
+    show blockAbs x n d + termAbs x (n + d)
+        = finSum (fun j => termAbs x (n + j)) d + termAbs x (n + d)
+    rw [blockAbs_eq_finSum x n d]
+
+/-- **Uniform magnitude-tail bound.**  For `x ≥ 0`, ratio `r` with
+`x · invSucc N₀ ≤ r` and `0 ≤ r`, and a bound `H ≥ 0` closing the
+geometric recurrence `termAbs x N₀ + r·H ≤ H`, every block from `N₀` is
+`≤ H`. -/
+theorem blockAbs_le (x r H : Q') (hx : (0 : Q') ≤ x) (N₀ : Nat)
+    (hr0 : (0 : Q') ≤ r) (hH : (0 : Q') ≤ H)
+    (hbound : x * Q'.invSucc N₀ ≤ r)
+    (hrec : termAbs x N₀ + r * H ≤ H) :
+    ∀ d, blockAbs x N₀ d ≤ H := by
+  intro d
+  rw [blockAbs_eq_finSum]
+  exact Q'.le_trans' _ _ _
+    (finSum_le_finSum_of_termwise (fun j => termAbs x (N₀ + j))
+      (fun j => termAbs x N₀ * r ^ j)
+      (fun j => termAbs_geom_dom x r hx N₀ hr0 hbound j) d)
+    (geometric_tail_closure (termAbs x N₀) r H hr0 hH hrec d)
+
 end YMGap.Constructive.ExpNeg
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
@@ -364,3 +410,6 @@ end YMGap.Constructive.ExpNeg
 #print axioms YMGap.Constructive.ExpNeg.block_lower
 #print axioms YMGap.Constructive.ExpNeg.invSucc_le_of_le
 #print axioms YMGap.Constructive.ExpNeg.termAbs_geom_dom
+#print axioms YMGap.Constructive.ExpNeg.finSum_le_finSum_of_termwise
+#print axioms YMGap.Constructive.ExpNeg.blockAbs_eq_finSum
+#print axioms YMGap.Constructive.ExpNeg.blockAbs_le
