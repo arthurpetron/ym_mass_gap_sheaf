@@ -89,11 +89,15 @@ Every theorem below reports `[propext]` or empty.  No `Classical.*`, no
 import YMGap.Constructive.Reals
 import YMGap.Constructive.RationalsMul
 import YMGap.Constructive.GeometricTail
+import YMGap.Constructive.HalfPow
+import YMGap.Constructive.RatNat
 
 namespace YMGap.Constructive.ExpNeg
 
 open YMGap.Constructive
 open YMGap.Constructive.RationalTail
+open YMGap.Constructive.HalfPow
+open YMGap.Constructive.RatNat
 
 /-! ## The series, in `Q'`
 
@@ -392,6 +396,226 @@ theorem blockAbs_le (x r H : Q') (hx : (0 : Q') ≤ x) (N₀ : Nat)
       (fun j => termAbs_geom_dom x r hx N₀ hr0 hbound j) d)
     (geometric_tail_closure (termAbs x N₀) r H hr0 hH hrec d)
 
+/-! ## `termAbs x n → 0` with an explicit `Nat` modulus
+
+Past `M := halfRatioCutoff x` the ratio is `≤ 1/2`, so
+`termAbs x (M+j) ≤ termAbs x M · (1/2)ʲ` (`termAbs_geom_dom` at `r = half`),
+and `(1/2)ʲ → 0` (`HalfPow.pow_half_le`).  The modulus is the closed-form
+`Nat` `termAbsModulus x ε`. -/
+
+/-- Half-powers are antitone: `half^(i+d) ≤ half^i`. -/
+theorem pow_half_antitone (i : Nat) : ∀ d, half ^ (i + d) ≤ half ^ i
+  | 0 => Q'.le_refl' _
+  | d + 1 => by
+    show half * half ^ (i + d) ≤ half ^ i
+    have hy : (0 : Q') ≤ half ^ (i + d) := Q'.pow_nonneg half half_nonneg (i + d)
+    have hstep : half * half ^ (i + d) ≤ half ^ (i + d) :=
+      Q'.le_trans' _ _ _
+        (Q'.mul_le_mul_of_nonneg_right half 1 (half ^ (i + d)) (by decide) hy)
+        (Q'.le_of_eqv (Q'.one_mul_eqv _))
+    exact Q'.le_trans' _ _ _ hstep (pow_half_antitone i d)
+
+/-- `c · invSucc c.num.toNat ≤ 1` for `c ≥ 0` (since `c ≤ c.num.toNat`). -/
+theorem mul_invSucc_toNat_le_one (c : Q') (hc : (0 : Q') ≤ c) :
+    c * Q'.invSucc c.num.toNat ≤ 1 := by
+  show (c * Q'.invSucc c.num.toNat).num * ((1 : Q').den : Int)
+      ≤ (1 : Q').num * ((c * Q'.invSucc c.num.toNat).den : Int)
+  have h_prod_num : (c * Q'.invSucc c.num.toNat).num = c.num * (1 : Int) := rfl
+  rw [h_prod_num, Int.mul_one]
+  rw [Q'.mul_den_cast c (Q'.invSucc c.num.toNat), Q'.invSucc_den]
+  show c.num * (1 : Int) ≤ (1 : Int) * ((c.den : Int) * ((c.num.toNat + 1 : Nat) : Int))
+  rw [Int.mul_one, Int.one_mul]
+  have h_num_nn : (0 : Int) ≤ c.num := (Q'.zero_le_iff_num_nonneg c).mp hc
+  have h_toNat : (Int.ofNat c.num.toNat) = c.num := Int.toNat_of_nonneg h_num_nn
+  have h_cnt1 : ((c.num.toNat + 1 : Nat) : Int) = c.num + 1 := by
+    rw [Int.natCast_add]
+    show (Int.ofNat c.num.toNat) + (1 : Int) = c.num + 1
+    rw [h_toNat]
+  rw [h_cnt1]
+  have h_one_le_den : (1 : Int) ≤ (c.den : Int) := by
+    have : (1 : Nat) ≤ c.den := c.den_pos
+    exact_mod_cast this
+  have h_rhs_nn : (0 : Int) ≤ c.num + 1 := Int.add_nonneg h_num_nn (by decide)
+  have h1 : c.num ≤ c.num + 1 := Int.le_add_of_nonneg_right (by decide)
+  have h2 : (1 : Int) * (c.num + 1) ≤ (c.den : Int) * (c.num + 1) :=
+    Int.mul_le_mul_of_nonneg_right h_one_le_den h_rhs_nn
+  rw [Int.one_mul] at h2
+  exact Int.le_trans h1 h2
+
+/-- `c · (ε · invSucc c.num.toNat) ≤ ε` for `c, ε ≥ 0`: the `c·δ ≤ ε`
+fact behind the `termAbs → 0` modulus, with `δ = ε · invSucc c.num.toNat`. -/
+theorem mul_le_of_mul_invSucc_toNat (c ε : Q') (hc : (0 : Q') ≤ c)
+    (hε : (0 : Q') ≤ ε) : c * (ε * Q'.invSucc c.num.toNat) ≤ ε := by
+  have hcy : c * Q'.invSucc c.num.toNat ≤ 1 := mul_invSucc_toNat_le_one c hc
+  have hrearr : (c * (ε * Q'.invSucc c.num.toNat)).eqv
+      (ε * (c * Q'.invSucc c.num.toNat)) :=
+    Q'.eqv_trans _ _ _
+      (Q'.eqv_symm (Q'.mul_assoc_eqv c ε (Q'.invSucc c.num.toNat)))
+      (Q'.eqv_trans _ _ _
+        (Q'.mul_eqv_congr_right (c * ε) (ε * c) (Q'.invSucc c.num.toNat)
+          (Q'.mul_comm_eqv c ε))
+        (Q'.mul_assoc_eqv ε c (Q'.invSucc c.num.toNat)))
+  exact Q'.le_trans' _ _ _
+    (Q'.le_of_eqv hrearr)
+    (Q'.le_trans' _ _ _
+      (Q'.mul_le_mul_of_nonneg_left (c * Q'.invSucc c.num.toNat) 1 ε hcy hε)
+      (Q'.le_of_eqv (Q'.mul_one_eqv ε)))
+
+/-- The `termAbs → 0` modulus: `Nat` cutoff past which `termAbs x n ≤ ε`. -/
+def termAbsModulus (x ε : Q') : Nat :=
+  halfRatioCutoff x
+    + (ε * Q'.invSucc (termAbs x (halfRatioCutoff x)).num.toNat).den
+
+/-- **`termAbs x n → 0`.**  For `x ≥ 0` and `ε > 0`, every `n` at or past
+`termAbsModulus x ε` has `termAbs x n ≤ ε`. -/
+theorem termAbs_le_of_modulus_le (x ε : Q') (hx : (0 : Q') ≤ x)
+    (hε : (0 : Q') < ε) (n : Nat) (hn : termAbsModulus x ε ≤ n) :
+    termAbs x n ≤ ε := by
+  -- Abbreviations.
+  have hεnn : (0 : Q') ≤ ε := Q'.le_of_lt hε
+  -- M ≤ n, so n = M + j.
+  have hMn : halfRatioCutoff x ≤ n :=
+    Nat.le_trans (Nat.le_add_right _ _) hn
+  obtain ⟨j, hj⟩ := Nat.exists_eq_add_of_le hMn   -- n = halfRatioCutoff x + j
+  subst hj
+  -- c := termAbs x M, δ := ε * invSucc c.num.toNat ; j ≥ δ.den.
+  have hjδ : (ε * Q'.invSucc (termAbs x (halfRatioCutoff x)).num.toNat).den ≤ j := by
+    have := hn
+    -- termAbsModulus = M + δ.den ≤ M + j  ⇒  δ.den ≤ j
+    exact Nat.le_of_add_le_add_left this
+  -- δ > 0.
+  have hcnn : (0 : Q') ≤ termAbs x (halfRatioCutoff x) := termAbs_nonneg x hx _
+  have hδpos : (0 : Q') < ε * Q'.invSucc (termAbs x (halfRatioCutoff x)).num.toNat := by
+    show (0 : Int) * _ < (ε * Q'.invSucc _).num * ((0 : Q').den : Int)
+    rw [Int.zero_mul]
+    have hεnum : (0 : Int) < ε.num := by
+      have h : (0 : Int) * (ε.den : Int) < ε.num * ((0 : Q').den : Int) := hε
+      rw [Int.zero_mul] at h
+      have h' : (0 : Int) < ε.num * (1 : Int) := h
+      rwa [Int.mul_one] at h'
+    show (0 : Int) < (ε.num * 1) * ((0 : Q').den : Int)
+    rw [Int.mul_one]
+    show (0 : Int) < ε.num * (1 : Int)
+    rw [Int.mul_one]
+    exact hεnum
+  -- termAbs x (M+j) ≤ termAbs x M · half^j.
+  have hgeom : termAbs x (halfRatioCutoff x + j)
+      ≤ termAbs x (halfRatioCutoff x) * half ^ j :=
+    termAbs_geom_dom x half hx (halfRatioCutoff x) half_nonneg
+      (halfRatioCutoff_spec x hx) j
+  -- half^j ≤ δ.
+  obtain ⟨e, he⟩ := Nat.exists_eq_add_of_le hjδ   -- j = δ.den + e
+  have hhalf : half ^ j
+      ≤ ε * Q'.invSucc (termAbs x (halfRatioCutoff x)).num.toNat := by
+    rw [he]
+    exact Q'.le_trans' _ _ _
+      (pow_half_antitone _ e)
+      (pow_half_le _ hδpos)
+  -- termAbs x M · half^j ≤ termAbs x M · δ ≤ ε.
+  exact Q'.le_trans' _ _ _ hgeom
+    (Q'.le_trans' _ _ _
+      (Q'.mul_le_mul_of_nonneg_left (half ^ j)
+        (ε * Q'.invSucc (termAbs x (halfRatioCutoff x)).num.toNat)
+        (termAbs x (halfRatioCutoff x)) hhalf hcnn)
+      (mul_le_of_mul_invSucc_toNat (termAbs x (halfRatioCutoff x)) ε hcnn hεnn))
+
+/-! ## Assembling `expNeg : Q' → CReal`
+
+`partialSum x` is the approximating sequence; its Cauchy modulus comes
+from the block bounds (`block_upper`/`block_lower`) plus the uniform tail
+bound `blockAbs ≤ ε` (`blockAbs_le` at `r = 1/2`, `H = ε`), once the
+smaller index is past `termAbsModulus x (ε/2)`. -/
+
+/-- Right-distributivity at `eqv`: `(a + b) * c ≃ a*c + b*c`. -/
+theorem add_mul_eqv (a b c : Q') : ((a + b) * c).eqv (a * c + b * c) :=
+  Q'.eqv_trans _ _ _ (Q'.mul_comm_eqv (a + b) c)
+    (Q'.eqv_trans _ _ _ (Q'.mul_add_eqv c a b)
+      (Q'.eqv_trans _ _ _
+        (Q'.add_eqv_congr_right (c * a) (a * c) (c * b) (Q'.mul_comm_eqv c a))
+        (Q'.add_eqv_congr_left (a * c) (c * b) (b * c) (Q'.mul_comm_eqv c b))))
+
+/-- `half + half ≃ 1`. -/
+theorem half_add_half_eqv : (half + half).eqv 1 := by decide
+
+/-- `half·a + half·a ≃ a`. -/
+theorem two_halves (a : Q') : (half * a + half * a).eqv a :=
+  Q'.eqv_trans _ _ _ (Q'.eqv_symm (add_mul_eqv half half a))
+    (Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_right (half + half) 1 a half_add_half_eqv)
+      (Q'.one_mul_eqv a))
+
+/-- Past the cutoff the ratio is `≤ 1/2`: `x · invSucc k ≤ half` for
+`k ≥ halfRatioCutoff x`. -/
+theorem x_invSucc_le_half (x : Q') (hx : (0 : Q') ≤ x) (k : Nat)
+    (hk : halfRatioCutoff x ≤ k) : x * Q'.invSucc k ≤ half :=
+  Q'.le_trans' _ _ _
+    (Q'.mul_le_mul_of_nonneg_left (Q'.invSucc k) (Q'.invSucc (halfRatioCutoff x)) x
+      (invSucc_le_of_le hk) hx)
+    (halfRatioCutoff_spec x hx)
+
+/-- The geometric recurrence `termAbs x k + half·ε ≤ ε`, given
+`termAbs x k ≤ half·ε`. -/
+theorem expNeg_recurrence (x : Q') (k : Nat) (ε : Q')
+    (h : termAbs x k ≤ half * ε) : termAbs x k + half * ε ≤ ε :=
+  Q'.le_trans' _ _ _
+    (Q'.add_le_add_right (termAbs x k) (half * ε) (half * ε) h)
+    (Q'.le_of_eqv (two_halves ε))
+
+/-- Uniform tail bound: every block from a `k` past the cutoff with
+`termAbs x k ≤ half·ε` is `≤ ε`. -/
+theorem expNeg_tail_bound (x : Q') (hx : (0 : Q') ≤ x) (ε : Q')
+    (hε : (0 : Q') ≤ ε) (k : Nat) (hcut : halfRatioCutoff x ≤ k)
+    (hterm : termAbs x k ≤ half * ε) (d : Nat) :
+    blockAbs x k d ≤ ε :=
+  blockAbs_le x half ε hx k half_nonneg hε
+    (x_invSucc_le_half x hx k hcut) (expNeg_recurrence x k ε hterm) d
+
+/-- `0 < half · ε` for `ε > 0`. -/
+theorem half_mul_pos (ε : Q') (hε : (0 : Q') < ε) : (0 : Q') < half * ε := by
+  show (0 : Int) * ((half * ε).den : Int) < (half * ε).num * ((0 : Q').den : Int)
+  rw [Int.zero_mul]
+  have hεnum : (0 : Int) < ε.num := by
+    have h : (0 : Int) * (ε.den : Int) < ε.num * ((0 : Q').den : Int) := hε
+    rw [Int.zero_mul] at h
+    have h' : (0 : Int) < ε.num * (1 : Int) := h
+    rwa [Int.mul_one] at h'
+  show (0 : Int) < (1 * ε.num) * ((0 : Q').den : Int)
+  rw [Int.one_mul]
+  show (0 : Int) < ε.num * (1 : Int)
+  rw [Int.mul_one]
+  exact hεnum
+
+/-- **The constructive exponential `e^{−x}` for `x ≥ 0`.**  Its
+approximations are the rational partial sums `partialSum x`; the Cauchy
+modulus is `max (halfRatioCutoff x) (termAbsModulus x (half·ε))`. -/
+def expNeg (x : Q') (hx : (0 : Q') ≤ x) : CReal where
+  approx := partialSum x
+  cauchy := by
+    intro ε hε
+    have hεnn : (0 : Q') ≤ ε := Q'.le_of_lt hε
+    have hhε : (0 : Q') < half * ε := half_mul_pos ε hε
+    refine ⟨max (halfRatioCutoff x) (termAbsModulus x (half * ε)),
+      fun m n hm hn => ?_⟩
+    -- One direction for the smaller index `k ≤ l`.
+    have dir : ∀ k l : Nat,
+        max (halfRatioCutoff x) (termAbsModulus x (half * ε)) ≤ k → k ≤ l →
+        partialSum x l ≤ partialSum x k + ε ∧ partialSum x k ≤ partialSum x l + ε := by
+      intro k l hk hkl
+      obtain ⟨d, rfl⟩ := Nat.exists_eq_add_of_le hkl
+      have hcut : halfRatioCutoff x ≤ k :=
+        Nat.le_trans (Nat.le_max_left _ _) hk
+      have hterm : termAbs x k ≤ half * ε :=
+        termAbs_le_of_modulus_le x (half * ε) hx hhε k
+          (Nat.le_trans (Nat.le_max_right _ _) hk)
+      have htail : blockAbs x k d ≤ ε := expNeg_tail_bound x hx ε hεnn k hcut hterm d
+      exact ⟨Q'.le_trans' _ _ _ (block_upper x hx k d)
+               (Q'.add_le_add_left (partialSum x k) (blockAbs x k d) ε htail),
+             Q'.le_trans' _ _ _ (block_lower x hx k d)
+               (Q'.add_le_add_left (partialSum x (k + d)) (blockAbs x k d) ε htail)⟩
+    rcases Nat.le_total m n with hmn | hnm
+    · exact ⟨(dir m n hm hmn).2, (dir m n hm hmn).1⟩
+    · exact ⟨(dir n m hn hnm).1, (dir n m hn hnm).2⟩
+
 end YMGap.Constructive.ExpNeg
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
@@ -413,3 +637,13 @@ end YMGap.Constructive.ExpNeg
 #print axioms YMGap.Constructive.ExpNeg.finSum_le_finSum_of_termwise
 #print axioms YMGap.Constructive.ExpNeg.blockAbs_eq_finSum
 #print axioms YMGap.Constructive.ExpNeg.blockAbs_le
+#print axioms YMGap.Constructive.ExpNeg.pow_half_antitone
+#print axioms YMGap.Constructive.ExpNeg.mul_invSucc_toNat_le_one
+#print axioms YMGap.Constructive.ExpNeg.mul_le_of_mul_invSucc_toNat
+#print axioms YMGap.Constructive.ExpNeg.termAbs_le_of_modulus_le
+#print axioms YMGap.Constructive.ExpNeg.add_mul_eqv
+#print axioms YMGap.Constructive.ExpNeg.two_halves
+#print axioms YMGap.Constructive.ExpNeg.x_invSucc_le_half
+#print axioms YMGap.Constructive.ExpNeg.expNeg_recurrence
+#print axioms YMGap.Constructive.ExpNeg.expNeg_tail_bound
+#print axioms YMGap.Constructive.ExpNeg.expNeg
