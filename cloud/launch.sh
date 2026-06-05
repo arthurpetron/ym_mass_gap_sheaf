@@ -32,6 +32,9 @@ THERM_OVERRIDE="${THERM_OVERRIDE:-0}"       # >0 overrides points.tsv `therm`
 NO_EXTERNAL_IP="${NO_EXTERNAL_IP:-0}"       # 1 => VMs get no external IP (bypasses the
                                             # IN_USE_ADDRESSES quota; needs Private Google
                                             # Access on the subnet so they reach Google APIs)
+TAG="${TAG:-}"                              # campaign tag (e.g. -hi): isolates a parallel
+                                            # run at the same (beta,L) -- distinct job name
+                                            # and distinct output/checkpoint filenames
 IMAGE="${REGION}-docker.pkg.dev/${PROJECT}/${REPO}/ym-sim:latest"
 
 vcpu="${MACHINE##*-}"                 # e.g. c2d-standard-16 -> 16
@@ -57,9 +60,10 @@ for row in "${rows[@]}"; do
     parallel="${MAX_PARALLEL:-$shards}"
     (( parallel > shards )) && parallel="$shards"
 
-    job="ym-c-l${L}-b${beta//./}"     # e.g. ym-c-l24-b25  (hyphens/digits only)
+    job="ym-c-l${L}-b${beta//./}${TAG}"     # e.g. ym-c-l24-b25 (base) or ym-c-l24-b25-hi
     tmp="$(mktemp)"
     sed -e "s|__IMAGE_URI__|${IMAGE}|g" \
+        -e "s|__TAG__|${TAG}|g" \
         -e "s|__BUCKET_NAME__|${BUCKET}|g" \
         -e "s|__POINT_ROW__|${row}|g" \
         -e "s|__TASK_COUNT__|${shards}|g" \

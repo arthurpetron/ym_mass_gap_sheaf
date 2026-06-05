@@ -13,6 +13,7 @@
           "variables": {
             "OUT_DIR": "/mnt/disks/out",
             "POINT_ROW": "__POINT_ROW__",
+            "TAG": "__TAG__",
             "CKPT_SECS": "300",
             "MEAS_OVERRIDE": "__MEAS_OVERRIDE__",
             "THERM_OVERRIDE": "__THERM_OVERRIDE__"
