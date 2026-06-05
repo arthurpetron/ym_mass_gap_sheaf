@@ -250,6 +250,13 @@ theorem add_swap_inner (w x y z : Q') :
             (eqv_symm (add_assoc_eqv w y x)))
           (add_assoc_eqv (w + y) x z))))
 
+/-- `a * 1 ≃ a` (base case of the geometric domination). -/
+theorem mul_one_eqv (a : Q') : (a * 1).eqv a := by
+  show (a * 1).num * (a.den : Int) = a.num * ((a * 1).den : Int)
+  rw [mul_den_cast a 1]
+  show (a.num * (1 : Int)) * (a.den : Int) = a.num * ((a.den : Int) * (1 : Int))
+  rw [Int.mul_one, Int.mul_one]
+
 /-! ## Left-monotonicity of `*` -/
 
 /-- `a ≤ b → 0 ≤ c → c * a ≤ c * b`.  Derived from the right-mono lemma
@@ -287,4 +294,5 @@ end YMGap.Constructive
 #print axioms YMGap.Constructive.Q'.add_eqv_congr_right
 #print axioms YMGap.Constructive.Q'.add_eqv_congr_left
 #print axioms YMGap.Constructive.Q'.add_swap_inner
+#print axioms YMGap.Constructive.Q'.mul_one_eqv
 #print axioms YMGap.Constructive.Q'.mul_le_mul_of_nonneg_left

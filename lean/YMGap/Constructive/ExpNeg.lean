@@ -88,6 +88,7 @@ Every theorem below reports `[propext]` or empty.  No `Classical.*`, no
 
 import YMGap.Constructive.Reals
 import YMGap.Constructive.RationalsMul
+import YMGap.Constructive.GeometricTail
 
 namespace YMGap.Constructive.ExpNeg
 
@@ -300,6 +301,51 @@ theorem block_lower (x : Q') (hx : (0 : Q') ≤ x) (n : Nat) :
       (Q'.le_of_eqv (Q'.add_swap_inner (partialSum x (n + d)) (blockAbs x n d)
         (term x (n + d)) (termAbs x (n + d))))
 
+/-! ## Geometric domination of the magnitude terms
+
+Past a cutoff `N₀ > x` the ratio `termAbs(k+1)/termAbs(k) = x/(k+1)` is
+`≤ x/(N₀+1) =: r < 1`, so `termAbs x (N₀+j) ≤ termAbs x N₀ · rʲ`.  This is
+what feeds the magnitude block into the geometric tail bound
+(`GeometricTail.geometric_tail_closure`). -/
+
+/-- `invSucc` is antitone: `k ≤ m → invSucc m ≤ invSucc k` (`1/(m+1) ≤ 1/(k+1)`).
+Lives here (not `RationalsMul`) because `invSucc` is defined in `Reals`. -/
+theorem invSucc_le_of_le {k m : Nat} (h : k ≤ m) : Q'.invSucc m ≤ Q'.invSucc k := by
+  show (Q'.invSucc m).num * ((Q'.invSucc k).den : Int)
+      ≤ (Q'.invSucc k).num * ((Q'.invSucc m).den : Int)
+  rw [Q'.invSucc_num, Q'.invSucc_num, Q'.invSucc_den, Q'.invSucc_den,
+      Int.one_mul, Int.one_mul]
+  exact_mod_cast Nat.succ_le_succ h
+
+/-- **Geometric domination.**  For `x ≥ 0` and a rational ratio `r` with
+`x · invSucc N₀ ≤ r` (and `0 ≤ r`), the magnitude terms past `N₀` decay
+geometrically: `termAbs x (N₀ + j) ≤ termAbs x N₀ · rʲ`. -/
+theorem termAbs_geom_dom (x r : Q') (hx : (0 : Q') ≤ x) (N₀ : Nat)
+    (hr0 : (0 : Q') ≤ r) (hbound : x * Q'.invSucc N₀ ≤ r) :
+    ∀ j, termAbs x (N₀ + j) ≤ termAbs x N₀ * r ^ j
+  | 0 => by
+    show termAbs x N₀ ≤ termAbs x N₀ * r ^ 0
+    exact Q'.ge_of_eqv (Q'.mul_one_eqv (termAbs x N₀))
+  | j + 1 => by
+    have ih := termAbs_geom_dom x r hx N₀ hr0 hbound j
+    have hxr : x * Q'.invSucc (N₀ + j) ≤ r :=
+      Q'.le_trans' _ _ _
+        (Q'.mul_le_mul_of_nonneg_left (Q'.invSucc (N₀ + j)) (Q'.invSucc N₀) x
+          (invSucc_le_of_le (Nat.le_add_right N₀ j)) hx)
+        hbound
+    have htAk : (0 : Q') ≤ termAbs x (N₀ + j) := termAbs_nonneg x hx (N₀ + j)
+    show termAbs x (N₀ + j) * (x * Q'.invSucc (N₀ + j)) ≤ termAbs x N₀ * r ^ (j + 1)
+    refine Q'.le_trans' _ _ _
+      (Q'.mul_le_mul_of_nonneg_left (x * Q'.invSucc (N₀ + j)) r (termAbs x (N₀ + j))
+        hxr htAk) ?_
+    refine Q'.le_trans' _ _ _
+      (Q'.mul_le_mul_of_nonneg_right (termAbs x (N₀ + j)) (termAbs x N₀ * r ^ j) r
+        ih hr0) ?_
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (Q'.mul_assoc_eqv (termAbs x N₀) (r ^ j) r))
+      (Q'.le_of_eqv (Q'.mul_eqv_congr_left (termAbs x N₀) (r ^ j * r) (r * r ^ j)
+        (Q'.mul_comm_eqv (r ^ j) r)))
+
 end YMGap.Constructive.ExpNeg
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
@@ -316,3 +362,5 @@ end YMGap.Constructive.ExpNeg
 #print axioms YMGap.Constructive.ExpNeg.term_add_termAbs_nonneg
 #print axioms YMGap.Constructive.ExpNeg.block_upper
 #print axioms YMGap.Constructive.ExpNeg.block_lower
+#print axioms YMGap.Constructive.ExpNeg.invSucc_le_of_le
+#print axioms YMGap.Constructive.ExpNeg.termAbs_geom_dom
