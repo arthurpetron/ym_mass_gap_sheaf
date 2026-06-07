@@ -240,11 +240,25 @@ analytic obligation; (L) = Lean.
 - **U.3 — Small/large-field & η monotonicity** (P, U.2). §2.1+§2.3:
   assemble `η_max(C₂_fund, C₂_adj, g₀)` monotone non-increasing in both
   invariants on the admissible range; state the worst-case reduction.
-- **U.4 — Numerical corroboration sweep** (computations). Extend
-  `su3_closure_spike.py` to sweep all nine groups' invariants (SU(N) for
-  N≤8, SO/Sp small ranks, G₂/F₄/E₆/E₇/E₈) and confirm
-  `Σ η(G) ≤ Σ η(su2)` pointwise; chart `Σ η` vs Δ to *empirically verify
-  monotonicity* before the proof. De-risks U.2/U.3. (Cheap; do first.)
+- **U.4 — Numerical corroboration sweep** (computations). **DONE
+  2026-06-07 — STRONG GO.** `computations/lie_algebras.py` (a general
+  simple-Lie-algebra engine: Cartan data → Weyl dims + Casimirs →
+  character sum `Z_t`, calibrated so `C₂(adj)=h∨` and `dim(adj)=dim(G)`
+  exactly for all 19 tested groups) + `scripts/uniform_bound_sweep.py`
+  drive the existing KP/RG pipeline per group. Results
+  (`visualizations/pilot/general/uniform-bound-sweep.{json,svg}`):
+  * SU(2) reproduces the documented baseline `Σ η = 7.951e-4` (validates
+    the engine+pipeline chain end-to-end).
+  * **Every** simple type has `Σ η(G) ≤ Σ η(SU(2))`, strictly, and `Σ η`
+    is **monotone decreasing in the spectral gap Δ** (the global minimum
+    Δ=3/4 is SU(2)'s, the next is B₂'s 5/4 already 31× smaller budget).
+  * **SU(2) is the worst case across the entire `g₀` window [0.20, 0.45]**
+    — at `g₀=0.45` SU(2)'s budget diverges (`Σ η = ∞`) while every other
+    group stays finite. The risk-register "non-monotone pocket near the
+    convergence edge" did **not** materialize.
+
+  The worst-case-reduction strategy (§1) is numerically de-risked: the
+  uniform bound reduces to monotonicity in Δ + the proven SU(2) closure.
 
 ### Pillar B — Lean substrate
 
