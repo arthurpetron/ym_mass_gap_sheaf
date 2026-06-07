@@ -40,6 +40,7 @@ import YMGap.Continuum.SigmaHatLimit
 import YMGap.Continuum.ContinuumMeasure
 import YMGap.Continuum.OSAxioms
 import YMGap.Continuum.OSReconstruction
+import YMGap.Continuum.SpectralGap
 import YMGap.MassGap.SU2
 import YMGap.BufferShell
 import YMGap.Codynamic
