@@ -42,6 +42,7 @@ import YMGap.Continuum.OSAxioms
 import YMGap.Continuum.OSReconstruction
 import YMGap.Continuum.SpectralGap
 import YMGap.Continuum.SpectralGapConverse
+import YMGap.Continuum.SpectralGapGrowth
 import YMGap.MassGap.SU2
 import YMGap.BufferShell
 import YMGap.Codynamic

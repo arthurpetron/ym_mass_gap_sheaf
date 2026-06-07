@@ -421,18 +421,25 @@ paper/code/Lean triangle, at finite volume.
 ## II.3 Plan — cluster→gap (finish the converse, then lift)
 
 - **★ F.1 — Converse: clustering ⇒ gap (finite volume)** (L).
-  *Status 2026-06-07: logical reduction DONE & verified; arithmetic
-  kernel remaining.* `Continuum/SpectralGapConverse.lean` proves the full
-  reduction `gap_of_decay_of_growth` (axiom-clean, `[propext]`): measured
-  decay ⇒ every populated mode `λ_j ≤ μ`, **modulo** the growth kernel
-  `pow_dominates`. Delivered en route: the Q′ strict-order layer the
-  stack lacked (`pos_iff_num_pos`, `mul_pos`, `pow_pos`, `lt_of_not_le`,
-  `not_lt_of_le`) and single-term domination (`finSum_ge_term`,
-  `term_le_corr`). Remaining: the kernel
-  `pow_dominates : 0<μ → μ<λ → 0<w → 0≤C → ∃ n, C·μⁿ < w·λⁿ`.
-  The physically load-bearing direction: measured decay `corr S n ≤ C·μⁿ`
-  ⇒ every populated mode has `λ_j ≤ μ`. Division-free proof (Q′ has no
-  reciprocal), three new lemmas:
+  **Status 2026-06-07: DONE & verified, axiom-clean.** The unconditional
+  `gap_of_decay` (`Continuum/SpectralGapGrowth.lean`) proves: measured
+  exponential clustering `corr S n ≤ C·μⁿ` ⇒ every populated mode
+  `λ_j ≤ μ`. `#print axioms` = `[propext]` / `[propext, Quot.sound]`
+  (the `Quot.sound` is from `omega`; no `Classical.choice`). Two layers:
+  - `SpectralGapConverse.lean` — the logical reduction
+    `gap_of_decay_of_growth` (single-term domination + contradiction) plus
+    the Q′ strict-order layer the stack lacked (`pos_iff_num_pos`,
+    `mul_pos`, `pow_pos`, `lt_of_not_le`, `not_lt_of_le`, `finSum_ge_term`,
+    `term_le_corr`).
+  - `SpectralGapGrowth.lean` — the geometric-growth kernel
+    `pow_dominates : 0<μ → μ<λ → 0<w → 0≤C → ∃ n, C·μⁿ < w·λⁿ`, discharged
+    division-free by reducing the Q′ inequality through the `num/den`
+    representation to a `Nat` fact `nat_geom_dominates`, itself proved from
+    a `Nat` Bernoulli bound (`nat_bernoulli`). Reusable bridge lemmas:
+    `num_pow`, `den_cast_pow`, `int_mul_pow`, `int_geom_dominates`.
+
+  *(Historical proof sketch retained below.)* Division-free proof
+  (Q′ has no reciprocal), three new lemmas:
   1. `term_le_corr` — a single nonnegative term is ≤ the finite sum
      (`w_j λ_jⁿ ≤ corr S n`); from `finSum` nonneg-monotonicity.
   2. `pair_bernoulli` — for `0 ≤ μ ≤ λ`, `λⁿ ≥ μⁿ + n·μⁿ⁻¹·(λ−μ)`
