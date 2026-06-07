@@ -233,10 +233,22 @@ analytic obligation; (L) = Lean.
   `C₂_adj = h∨`, and the smallest nonzero Casimir Δ for A/B/C/D + the 5
   exceptionals; prove `Δ ≥ 3/4`, `h∨ ≥ 2`, minima only at su(2). Largely
   a literature table + two min arguments. Feeds `AdmissibleSimpleGroup`.
-- **★ U.2 — Uniform character-tail lemma** (P, U.1). §2.2: `Z_t(G)`
-  non-increasing in Δ and `≤ Z_t^{su(2)}(3/4)`. The hard analytic
-  deliverable. Output: a paper lemma with explicit box/tail constants
-  generalizing `su3_character_sum.py` to rank-`r` weight lattices.
+- **★ U.2 — Uniform character-tail lemma** (P, U.1). **Core established
+  2026-06-07.** Derivation + verified implementation in
+  `computations/general_character_sum.py`; writeup in
+  `notes/uniform-character-tail-bound.md`. The rigorous majorant
+  `Z_t(G) ≤ ∏_i S_i(t) − 1` (Casimir splits below via the nonnegative
+  off-diagonal Gram entries; dimension splits above via the Weyl-factor
+  convexity; each `S_i` = exact box + geometric tail) **specializes
+  verbatim to `su3_character_sum.py`** for SU(3). Validated: it dominates
+  the engine's exact `Z_t` for all 19 groups, and **`Z_upper(G) ≤
+  Z_upper(SU(2))` for every group on the operating window** `t ≥ t₀≈6.25`
+  (`g ≤ 0.40`), which the canonical trajectory (`g₀=0.30`, RG flow only
+  raises `t`) stays inside. *Remaining*: tighten `t₀` (sharper dimension
+  bound), the written product-≤-sum proof for `formal-suN/`, and the Lean
+  port (U.6). The earlier "non-increasing in Δ" framing is superseded by
+  the stronger **direct domination by SU(2)** (the loose majorant is not
+  Δ-monotone — G₂ slightly exceeds A₃ — but is uniformly ≤ SU(2)).
 - **U.3 — Small/large-field & η monotonicity** (P, U.2). §2.1+§2.3:
   assemble `η_max(C₂_fund, C₂_adj, g₀)` monotone non-increasing in both
   invariants on the admissible range; state the worst-case reduction.
