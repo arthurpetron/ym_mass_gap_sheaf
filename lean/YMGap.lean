@@ -23,6 +23,7 @@ import YMGap.Constructive.HalfPow
 import YMGap.Constructive.RatNat
 import YMGap.Constructive.CRealLe
 import YMGap.Constructive.Reals
+import YMGap.Constructive.CRealMul
 import YMGap.Constructive.ExpNeg
 import YMGap.Constructive.ExpPos
 import YMGap.RepTheory.SU2
