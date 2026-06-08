@@ -24,6 +24,7 @@ no `sorryAx`.
 
 import YMGap.Constructive.AbsQ
 import YMGap.Constructive.Reals
+import YMGap.Constructive.RatNat
 
 namespace YMGap.Constructive
 
@@ -135,12 +136,160 @@ theorem localBound (a : CReal) : ∃ N : Nat, ∃ B : Q', (0 : Q') ≤ B ∧
       exact le_trans' (a.approx n) (a.approx N + 1) (Q'.abs (a.approx N) + 1) hub
         (Q'.add_le_add_right (a.approx N) (Q'.abs (a.approx N)) 1 (Q'.le_abs_self _))
 
+/-! ## A division-free product modulus -/
+
+theorem pos_of_num_pos {q : Q'} (h : 0 < q.num) : (0 : Q') < q := by
+  show (0 : Int) * (q.den : Int) < q.num * (1 : Int)
+  rw [Int.zero_mul, Int.mul_one]; exact h
+
+theorem num_pos_of_pos {q : Q'} (h : (0 : Q') < q) : 0 < q.num := by
+  have h' : (0 : Int) * (q.den : Int) < q.num * (1 : Int) := h
+  rw [Int.zero_mul, Int.mul_one] at h'; exact h'
+
+theorem ofNat_le_ofNat {n m : Nat} (h : n ≤ m) : (Q'.ofNat n) ≤ Q'.ofNat m := by
+  show (Int.ofNat n) * (1 : Int) ≤ (Int.ofNat m) * (1 : Int)
+  rw [Int.mul_one, Int.mul_one]; exact Int.ofNat_le.mpr h
+
+/-- `(ofNat M)·(ε.num / (ε.den·M)) ≃ ε` — the `M`-cancellation. -/
+theorem ofNatMul_mkPos_eqv (M : Nat) (ε : Q') (hden : 0 < ε.den * M) :
+    (Q'.ofNat M * Q'.mkPos ε.num (ε.den * M) hden).eqv ε := by
+  show ((M : Int) * ε.num) * (ε.den : Int)
+     = ε.num * ((Q'.ofNat M * Q'.mkPos ε.num (ε.den * M) hden).den : Int)
+  rw [Q'.mul_den_cast, Q'.mkPos_den,
+      show ((Q'.ofNat M).den : Int) = 1 from rfl, Int.one_mul, Int.natCast_mul]
+  simp only [Int.mul_comm, Int.mul_assoc, Int.mul_left_comm]
+
+/-- **Division-free product modulus**: `∃ δ > 0, B·δ ≤ ε` (`B ≥ 0`, `ε > 0`). -/
+theorem exists_mul_le {B ε : Q'} (hB : (0 : Q') ≤ B) (hε : (0 : Q') < ε) :
+    ∃ δ : Q', (0 : Q') < δ ∧ B * δ ≤ ε := by
+  have hεn : 0 < ε.num := num_pos_of_pos hε
+  obtain ⟨M, hMdef⟩ : ∃ M, B.num.toNat + 1 = M := ⟨_, rfl⟩
+  have hMpos : 0 < M := by omega
+  have hden : 0 < ε.den * M := Nat.mul_pos ε.den_pos hMpos
+  have hδpos : (0 : Q') < Q'.mkPos ε.num (ε.den * M) hden :=
+    pos_of_num_pos (by rw [Q'.mkPos_num]; exact hεn)
+  refine ⟨Q'.mkPos ε.num (ε.den * M) hden, hδpos, ?_⟩
+  have hBM : B ≤ Q'.ofNat M :=
+    le_trans' B (Q'.ofNat B.num.toNat) (Q'.ofNat M)
+      (RatNat.le_ofNat_toNat B hB) (ofNat_le_ofNat (by omega))
+  exact le_trans' _ _ _
+    (Q'.mul_le_mul_of_nonneg_right B (Q'.ofNat M) _ hBM (Q'.le_of_lt hδpos))
+    (Q'.le_of_eqv (ofNatMul_mkPos_eqv M ε hden))
+
+/-! ## `CReal.mul` -/
+
+/-- Pointwise product of constructive reals; Cauchy via the two-step bound
+`a_p b_p ≤ a_q b_p + δ·Bb ≤ a_q b_q + δ·Bb + δ·Ba ≤ a_q b_q + ε`. -/
+def mul (a b : CReal) : CReal where
+  approx n := a.approx n * b.approx n
+  cauchy := by
+    intro ε hε
+    obtain ⟨Na, Ba, hBa, hba⟩ := localBound a
+    obtain ⟨Nb, Bb, hBb, hbb⟩ := localBound b
+    have hB : (0 : Q') ≤ Ba + Bb :=
+      le_trans' 0 Ba (Ba + Bb) hBa (Q'.add_le_self_of_nonneg Ba Bb hBb)
+    obtain ⟨δ, hδpos, hδ⟩ := exists_mul_le hB hε
+    have hδnn : (0 : Q') ≤ δ := Q'.le_of_lt hδpos
+    obtain ⟨Na', ha'⟩ := a.cauchy δ hδpos
+    obtain ⟨Nb', hb'⟩ := b.cauchy δ hδpos
+    -- the directional bound, used both ways
+    have key : ∀ p q : Nat, Na ≤ p → Nb ≤ p → Na ≤ q → Na' ≤ p → Na' ≤ q →
+        Nb' ≤ p → Nb' ≤ q →
+        a.approx p * b.approx p ≤ a.approx q * b.approx q + ε := by
+      intro p q hpa hpb hqa hpa' hqa' hpb' hqb'
+      -- δ-closeness of the two factors
+      have hac := ha' p q hpa' hqa'   -- a_p ≤ a_q+δ ∧ a_q ≤ a_p+δ
+      have hbc := hb' p q hpb' hqb'   -- b_p ≤ b_q+δ ∧ b_q ≤ b_p+δ
+      have hda1 : a.approx p + -a.approx q ≤ δ := Q'.sub_le_of_le_add hac.1
+      have hda2 : -δ ≤ a.approx p + -a.approx q := Q'.neg_le_sub_of_le_add hac.2
+      have hdb1 : b.approx p + -b.approx q ≤ δ := Q'.sub_le_of_le_add hbc.1
+      have hdb2 : -δ ≤ b.approx p + -b.approx q := Q'.neg_le_sub_of_le_add hbc.2
+      -- factor bounds
+      have hbp := hbb p hpb   -- -Bb ≤ b_p ∧ b_p ≤ Bb
+      have haq := hba q hqa   -- -Ba ≤ a_q ∧ a_q ≤ Ba
+      -- Step A: a_p b_p ≤ a_q b_p + δ*Bb
+      have termA : (a.approx p + -a.approx q) * b.approx p ≤ δ * Bb :=
+        Q'.mul_le_of_bounds hδnn hBb hda2 hda1 hbp.1 hbp.2
+      have idA : (a.approx p * b.approx p).eqv
+          (a.approx q * b.approx p + (a.approx p + -a.approx q) * b.approx p) := by
+        have e1 := Q'.add_sub_cancel_eqv (a.approx p) (a.approx q)  -- a_p ≃ a_q+(a_p+-a_q)
+        have e2 : (a.approx p * b.approx p).eqv
+            ((a.approx q + (a.approx p + -a.approx q)) * b.approx p) :=
+          Q'.mul_eqv_congr_right (a.approx p) (a.approx q + (a.approx p + -a.approx q))
+            (b.approx p) e1
+        exact Q'.eqv_trans _ _ _ e2
+          (Q'.add_mul_eqv (a.approx q) (a.approx p + -a.approx q) (b.approx p))
+      have stepA : a.approx p * b.approx p ≤ a.approx q * b.approx p + δ * Bb :=
+        le_trans' _ _ _ (Q'.le_of_eqv idA)
+          (Q'.add_le_add_left (a.approx q * b.approx p)
+            ((a.approx p + -a.approx q) * b.approx p) (δ * Bb) termA)
+      -- Step B: a_q b_p ≤ a_q b_q + δ*Ba
+      have termB : (b.approx p + -b.approx q) * a.approx q ≤ δ * Ba :=
+        Q'.mul_le_of_bounds hδnn hBa hdb2 hdb1 haq.1 haq.2
+      have idB : (a.approx q * b.approx p).eqv
+          (a.approx q * b.approx q + (b.approx p + -b.approx q) * a.approx q) := by
+        have e1 := Q'.add_sub_cancel_eqv (b.approx p) (b.approx q)  -- b_p ≃ b_q+(b_p+-b_q)
+        have e2 : (a.approx q * b.approx p).eqv
+            (a.approx q * (b.approx q + (b.approx p + -b.approx q))) :=
+          Q'.mul_eqv_congr_left (a.approx q) (b.approx p)
+            (b.approx q + (b.approx p + -b.approx q)) e1
+        have e3 : (a.approx q * (b.approx q + (b.approx p + -b.approx q))).eqv
+            (a.approx q * b.approx q + a.approx q * (b.approx p + -b.approx q)) :=
+          Q'.mul_add_eqv (a.approx q) (b.approx q) (b.approx p + -b.approx q)
+        have e4 : (a.approx q * (b.approx p + -b.approx q)).eqv
+            ((b.approx p + -b.approx q) * a.approx q) :=
+          Q'.mul_comm_eqv (a.approx q) (b.approx p + -b.approx q)
+        exact Q'.eqv_trans _ _ _ e2 (Q'.eqv_trans _ _ _ e3
+          (Q'.add_eqv_congr_left (a.approx q * b.approx q)
+            (a.approx q * (b.approx p + -b.approx q))
+            ((b.approx p + -b.approx q) * a.approx q) e4))
+      have stepB : a.approx q * b.approx p ≤ a.approx q * b.approx q + δ * Ba :=
+        le_trans' _ _ _ (Q'.le_of_eqv idB)
+          (Q'.add_le_add_left (a.approx q * b.approx q)
+            ((b.approx p + -b.approx q) * a.approx q) (δ * Ba) termB)
+      -- combine: a_p b_p ≤ a_q b_q + (δ*Ba + δ*Bb) ≤ a_q b_q + ε
+      have hsum : δ * Bb + δ * Ba ≤ ε := by
+        have e : (δ * Ba + δ * Bb).eqv ((Ba + Bb) * δ) := by
+          have c1 : (δ * Ba + δ * Bb).eqv (δ * (Ba + Bb)) :=
+            Q'.eqv_symm (Q'.mul_add_eqv δ Ba Bb)
+          exact Q'.eqv_trans _ _ _ c1 (Q'.mul_comm_eqv δ (Ba + Bb))
+        have e' : (δ * Bb + δ * Ba).eqv ((Ba + Bb) * δ) :=
+          Q'.eqv_trans _ _ _ (Q'.add_comm_eqv (δ * Bb) (δ * Ba)) e
+        exact le_trans' _ _ _ (Q'.le_of_eqv e') hδ
+      -- a_p b_p ≤ (a_q b_p + δ*Bb) ≤ (a_q b_q + δ*Ba) + δ*Bb = a_q b_q + (δ*Ba + δ*Bb)
+      have chain : a.approx p * b.approx p ≤ (a.approx q * b.approx q + δ * Ba) + δ * Bb :=
+        le_trans' _ _ _ stepA
+          (Q'.add_le_add_right (a.approx q * b.approx p)
+            (a.approx q * b.approx q + δ * Ba) (δ * Bb) stepB)
+      have reassoc : ((a.approx q * b.approx q + δ * Ba) + δ * Bb).eqv
+          (a.approx q * b.approx q + (δ * Bb + δ * Ba)) := by
+        have a1 := Q'.add_assoc_eqv (a.approx q * b.approx q) (δ * Ba) (δ * Bb)
+        exact Q'.eqv_trans _ _ _ a1
+          (Q'.add_eqv_congr_left (a.approx q * b.approx q) (δ * Ba + δ * Bb) (δ * Bb + δ * Ba)
+            (Q'.add_comm_eqv (δ * Ba) (δ * Bb)))
+      exact le_trans' _ _ _ (le_trans' _ _ _ chain (Q'.le_of_eqv reassoc))
+        (Q'.add_le_add_left (a.approx q * b.approx q) (δ * Bb + δ * Ba) ε hsum)
+    -- assemble both directions
+    refine ⟨max (max Na Nb) (max Na' Nb'), fun p q hp hq => ?_⟩
+    have lpa : Na ≤ p := Nat.le_trans (Nat.le_trans (Nat.le_max_left _ _) (Nat.le_max_left _ _)) hp
+    have lpb : Nb ≤ p := Nat.le_trans (Nat.le_trans (Nat.le_max_right _ _) (Nat.le_max_left _ _)) hp
+    have lpa' : Na' ≤ p := Nat.le_trans (Nat.le_trans (Nat.le_max_left _ _) (Nat.le_max_right _ _)) hp
+    have lpb' : Nb' ≤ p := Nat.le_trans (Nat.le_trans (Nat.le_max_right _ _) (Nat.le_max_right _ _)) hp
+    have lqa : Na ≤ q := Nat.le_trans (Nat.le_trans (Nat.le_max_left _ _) (Nat.le_max_left _ _)) hq
+    have lqb : Nb ≤ q := Nat.le_trans (Nat.le_trans (Nat.le_max_right _ _) (Nat.le_max_left _ _)) hq
+    have lqa' : Na' ≤ q := Nat.le_trans (Nat.le_trans (Nat.le_max_left _ _) (Nat.le_max_right _ _)) hq
+    have lqb' : Nb' ≤ q := Nat.le_trans (Nat.le_trans (Nat.le_max_right _ _) (Nat.le_max_right _ _)) hq
+    exact ⟨key p q lpa lpb lqa lpa' lqa' lpb' lqb',
+           key q p lqa lqb lpa lqa' lpa' lqb' lpb'⟩
+
 end CReal
 
 end YMGap.Constructive
 
 /-! ## Axiom-dependency gates -/
 
+#print axioms YMGap.Constructive.CReal.exists_mul_le
+#print axioms YMGap.Constructive.CReal.mul
 #print axioms YMGap.Constructive.CReal.localBound
 #print axioms YMGap.Constructive.Q'.neg_add_eqv
 #print axioms YMGap.Constructive.Q'.add_sub_cancel_eqv
