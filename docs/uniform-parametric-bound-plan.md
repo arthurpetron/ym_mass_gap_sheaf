@@ -305,12 +305,21 @@ analytic obligation; (L) = Lean.
       avoiding the product law hits the *alternating* `e^{-x}` series
       (the `(1+x)·partialSumₙ` telescoping sign *is* the soundness fact,
       circular). Shares `CReal.mul` with F.4/F.5 (√-bridge).
-- **★ U.6 — Constructive character-tail module** (L, U.5). S2 (**amended**)
-  + S3: `Constructive/CharacterTail.lean` — the **finite box** via
-  `termMaj`/`recipExpUB` (sound box bound) and the **exponential tail**
-  via a `expNeg`-ratio geometric bound (reusing
-  `GeometricTail.geometric_tail_closure`); `Z_upper` + SU(2)/SU(3)
-  `decide` regression locks mirroring `computations/general_character_sum.py`.
+- **★ U.6 — Constructive character-tail module** (L, U.5). **Tail core
+  DONE 2026-06-08** (`Constructive/CharacterTail.lean`, axiom-clean):
+  `geom_dom` (term-ratio ⇒ geometric domination `f k ≤ f₀·rᵏ`) and
+  `geom_series_le` (a ratio-dominated nonneg series sums under `H`, via
+  `geom_dom` + termwise-`finSum` + `geometric_tail_closure`). This is the
+  reusable engine for each factor `S_i`'s **exponential tail**,
+  parametrized by the ratio bound — so it reduces "bound `S_i`" to "show
+  `((x+2)/(x+1))^{2n}·e^{−t·(linear)} ≤ r < 1`", the analytic input
+  supplied by `expNeg`'s geometric ratio (not a rational `E` — the tail is
+  irreducibly exponential, per the U.5 design correction).
+  *Remaining*: (i) the **exp-ratio input** `term(x+1) ≤ r·term(x)` for the
+  character terms (from `expNeg`); (ii) the **finite box** sum via
+  `termMaj` (sound per-point `e^{−t·c}` bounds); (iii) assemble `Z_upper`
+  (`∏ S_i − 1`) with SU(2)/SU(3) `decide` regression locks vs
+  `computations/general_character_sum.py`.
 - **U.7 — Parametric KP wrappers** (L, U.6). S4: generalize
   `Sheaf/SU2KP.lean` → `KPParametric.lean`; `K_sf`/`K_lf` monotone.
 - **★ U.8 — `eta_max_param` + `monotone_budget`** (L, U.7). S5+S6 in
