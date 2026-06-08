@@ -15,6 +15,7 @@ Currently populated:
 -/
 import YMGap.Constructive.Rationals
 import YMGap.Constructive.RationalsMul
+import YMGap.Constructive.AbsQ
 import YMGap.Constructive.RationalTail
 import YMGap.Constructive.Geometric
 import YMGap.Constructive.GeometricTail
