@@ -290,13 +290,21 @@ analytic obligation; (L) = Lean.
     exponential and U.6 must bound it with `expNeg`'s geometric ratio
     (`e^{-t·linear} < 1`, a `CReal` fact via `expNeg_leRat`), not a
     rational `E`. The plan's S2 is amended accordingly.
-  - **Remaining:** the soundness `e^{-x} ≤ E(x)` (the genuine `expNeg`
-    connection). It is the elementary fact `(1+x)e^{-x} ≤ 1`, but the
-    telescoping `(1+x)·partialSumₙ = 1 − Σ_{k≥2}(k−1)(−x)ᵏ/k!` reduces it
-    to the *same* alternating-series sign, i.e. it needs either a
-    constructive `e^{+x}` + the product law `e^{x}e^{-x}=1`, or a
-    derivative/convexity argument — neither yet in the discrete `CReal`
-    stack. Named obligation; see `notes/uniform-character-tail-bound.md`.
+  - **Soundness — half built (2026-06-08).** The chain is
+    `(1+x) ≤ e^x` ⟹ `(1+x)e^{-x} ≤ e^x·e^{-x} = 1` ⟹ `e^{-x} ≤ 1/(1+x)`.
+    - **Done:** `Constructive/ExpPos.lean` — constructive `e^{+x}`
+      (`expPos`, monotone partial sums) with `oneAddX_le_expPos`:
+      `1 + x ≤ e^x` (the clean monotone half), axiom-clean.
+    - **Remaining:** the product law `e^x·e^{-x} = 1`, which needs
+      **`CReal` multiplication** (a milestone, ~300 LOC): (i) bounded
+      `CReal.mul` — the product modulus needs rational bounds
+      (`e^{-x} ≤ 1`; `e^x ≤ partialSumAbs x K + 2·termAbs x K`, provable
+      like `expNeg_leRat`); (ii) `mul` monotonicity + `ofQ'`-scalar; (iii)
+      the Cauchy-product binomial `Σ_{k+j=m}(−1)ʲC(m,j)=0 (m≥1)` with a
+      corner-term tail estimate. No cheaper bypass exists — every route
+      avoiding the product law hits the *alternating* `e^{-x}` series
+      (the `(1+x)·partialSumₙ` telescoping sign *is* the soundness fact,
+      circular). Shares `CReal.mul` with F.4/F.5 (√-bridge).
 - **★ U.6 — Constructive character-tail module** (L, U.5). S2 (**amended**)
   + S3: `Constructive/CharacterTail.lean` — the **finite box** via
   `termMaj`/`recipExpUB` (sound box bound) and the **exponential tail**
