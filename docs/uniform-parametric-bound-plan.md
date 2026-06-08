@@ -525,8 +525,14 @@ paper/code/Lean triangle, at finite volume.
 Currently `m_0² ≤ σ̂∞` is proved in `Q'`. The honest upgrade is to make
 `m_0` *be* `√σ̂∞` as a constructive real.
 
-- **F.4 — `CReal` arithmetic** (L). `CReal.add`, `CReal.mul`, `neg`
-  (Milestone 7.3-arith). Prerequisite for squaring a `CReal`.
+- **F.4 — `CReal` arithmetic** (L). **`CReal.mul` DONE 2026-06-08**
+  (`Constructive/CRealMul.lean`, axiom-clean `[propext, Quot.sound]`):
+  pointwise product, choice-free (moduli used only in the `cauchy` proof),
+  with the `Q'` substrate `AbsQ` (abs + `mul_le_of_bounds`), `CReal.localBound`
+  (boundedness), and `exists_mul_le` (division-free product modulus).
+  Remaining: `CReal.add`/`neg` (straightforward), `mul` monotonicity
+  (`a ≤ b → 0 ≤ c → c·a ≤ c·b`), and the product law `e^x·e^{-x}=1`
+  (Cauchy-product binomial) ⇒ U.5 soundness `e^{-x} ≤ 1/(1+x)`.
 - **F.5 — `CReal.sqrt`** (L, F.4). Heron/Newton iteration with explicit
   Cauchy modulus (constructive, no choice — same shape as `expNeg`).
   Prove `(sqrt x)·(sqrt x) ≈ x` and `0 < sqrt x` for `0 < x`. Then
