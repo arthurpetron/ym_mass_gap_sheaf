@@ -103,3 +103,30 @@ smaller).
 
 The analytic structure and the uniform-domination result are established;
 items 1–3 are the rigour/formalization follow-through.
+
+## 6. U.5 addendum (2026-06-08) — the `ExpUB` seed and why the tail stays exponential
+
+`lean/YMGap/Constructive/ExpUBInstance.lean` instantiates the abstract
+`ExpBound.ExpUB` concretely: `recipExpUB` with `E(x) = 1/(1+x)` (the `[0/1]`
+Padé bound for `e^{-x}`), defined via `Int.toNat` clamping so it equals
+`1/(1+max(0,x))` and is therefore **antitone on all of `Q'`**.  The three
+structural fields (`E_pos`, `E_zero_le_one`, `E_antitone`) are proven in pure
+`Q'`, axiom-clean (`[propext]` / `[propext, Quot.sound]`).
+
+**Design correction.**  A *rational* `E` cannot carry the §2 bound's tail.  The
+factor `S_i(t) = Σ_x (x+1)^{2n_i} E(t·h_i(x))` with `E = 1/(1+·)` has terms
+`~ (x+1)^{2n_i}/(t·½G_ii x²) ~ x^{2n_i-2}` → **diverges** for `n_i ≥ 1`
+(verified numerically).  Only the genuine exponential `e^{-t h_i(x)}` decays
+fast enough.  Consequence for U.6: use `recipExpUB.E` (or any sound antitone
+rational bound) for the **finite box** `x ≤ M`, and bound the **tail** `x > M`
+with `expNeg`'s geometric ratio `e^{-t·(linear in x)} < 1` (a `CReal` fact),
+fed through `GeometricTail.geometric_tail_closure`.  The `ExpUB` rational seed
+is a box tool, not a tail tool.
+
+**Soundness obligation.**  `e^{-x} ≤ E(x)` (`= 1/(1+x)`, i.e. `(1+x)e^{-x} ≤ 1`)
+is the remaining `expNeg` connection.  The telescoping identity
+`(1+x)·partialSumₙ(x) = 1 − Σ_{k=2}^{n-1}(k−1)(−x)ᵏ/k! − n(−x)ⁿ/n!` reduces it
+to `Σ_{k≥2}(k−1)(−x)ᵏ/k! ≥ 0`, which is the *same* fact restated — so a clean
+discharge needs a constructive `e^{+x}` plus the product law `e^{x}e^{-x}=1`
+(then invert `1+x ≤ e^x`), or a derivative/convexity argument.  Neither is in
+the current discrete `CReal` stack; tracked as the U.5 soundness obligation.

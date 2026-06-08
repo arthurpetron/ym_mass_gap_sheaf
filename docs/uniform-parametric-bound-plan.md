@@ -274,12 +274,35 @@ analytic obligation; (L) = Lean.
 
 ### Pillar B — Lean substrate
 
-- **★ U.5 — `ExpUB` from `expNeg`** (L). Substrate item S1: concrete `E`,
-  with `E_pos`/`E_zero_le_one`/`E_antitone`. Closes the listed ExpNeg
-  open work (bracket facts). Axiom-clean.
-- **★ U.6 — Constructive character-tail module** (L, U.5). S2+S3:
-  `Constructive/CharacterTail.lean`; `Z_upper` + its Δ-monotonicity;
-  SU(2)/SU(3) `decide` regression locks mirroring Python.
+- **★ U.5 — `ExpUB` from `expNeg`** (L). **Structural core done
+  2026-06-08; soundness + a design correction remain.**
+  `Constructive/ExpUBInstance.lean` provides the concrete instance
+  `recipExpUB : ExpUB` with `E(x) = 1/(1+x)` (the `[0/1]` Padé bound),
+  defined via `Int.toNat` clamping so it is literally `1/(1+max(0,x))` and
+  hence **antitone on all of `Q'`**; `E_pos`, `E_zero_le_one`,
+  `E_antitone` proven in pure `Q'`, axiom-clean. This de-abstracts
+  `ExpBound.ExpUB`.
+  - **Design correction (important):** a *rational* `E` cannot carry the
+    character-tail convergence — substituting `1/(1+x)` for `e^{-x}` makes
+    `S_i = Σ_x (x+1)^{2n_i}E(t h_i(x))` **diverge** (terms grow like
+    `x^{2n_i-2}`; verified numerically). So `ExpUB.E` can only bound the
+    **finite box** terms of `Z_t`; the infinite tail is irreducibly
+    exponential and U.6 must bound it with `expNeg`'s geometric ratio
+    (`e^{-t·linear} < 1`, a `CReal` fact via `expNeg_leRat`), not a
+    rational `E`. The plan's S2 is amended accordingly.
+  - **Remaining:** the soundness `e^{-x} ≤ E(x)` (the genuine `expNeg`
+    connection). It is the elementary fact `(1+x)e^{-x} ≤ 1`, but the
+    telescoping `(1+x)·partialSumₙ = 1 − Σ_{k≥2}(k−1)(−x)ᵏ/k!` reduces it
+    to the *same* alternating-series sign, i.e. it needs either a
+    constructive `e^{+x}` + the product law `e^{x}e^{-x}=1`, or a
+    derivative/convexity argument — neither yet in the discrete `CReal`
+    stack. Named obligation; see `notes/uniform-character-tail-bound.md`.
+- **★ U.6 — Constructive character-tail module** (L, U.5). S2 (**amended**)
+  + S3: `Constructive/CharacterTail.lean` — the **finite box** via
+  `termMaj`/`recipExpUB` (sound box bound) and the **exponential tail**
+  via a `expNeg`-ratio geometric bound (reusing
+  `GeometricTail.geometric_tail_closure`); `Z_upper` + SU(2)/SU(3)
+  `decide` regression locks mirroring `computations/general_character_sum.py`.
 - **U.7 — Parametric KP wrappers** (L, U.6). S4: generalize
   `Sheaf/SU2KP.lean` → `KPParametric.lean`; `K_sf`/`K_lf` monotone.
 - **★ U.8 — `eta_max_param` + `monotone_budget`** (L, U.7). S5+S6 in
