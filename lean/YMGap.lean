@@ -31,6 +31,7 @@ import YMGap.Constructive.CRealAdd
 import YMGap.Constructive.CRealMulMono
 import YMGap.Constructive.CauchyConv
 import YMGap.Constructive.ProductDecomp
+import YMGap.Constructive.CornerBound
 import YMGap.Constructive.CharacterTail
 import YMGap.RepTheory.SU2
 import YMGap.RepTheory.RepData
