@@ -315,13 +315,18 @@ analytic obligation; (L) = Lean.
   dim t c` (`= dim²/(1+t·c)`) as a sound `leRat` — the `termMaj` per-point
   bound (ExpBound's "deferred to Level 2" obligation) is now proven, the box
   half of each `S_i`.
-  *Remaining*: (i) the **exp-ratio input** `term(x+1) ≤ r·term(x)` for the
-  character terms — the irreducibly-exponential **tail**, needing a rational
-  geometric majorant for `e^{−t·h(x)}`.  This rests on the exponential
-  *addition* law `e^{−(a+b)} = e^{−a}·e^{−b}` (and `e^{−ak} = (e^{−a})ᵏ`),
-  the general case of the just-built product law — buildable on the same
-  L1–L3 Cauchy-product infrastructure (`FinSumAlg`/`CauchyConv`/
-  `ProductDecomp`/`CornerBound`).  (ii) the finite **box** sum
+  **Addition law DONE 2026-06-09** — the foundation of the exp-ratio input.
+  `e^{−a}·e^{−b} ≃ e^{−(a+b)}` (`ExpAdd.lean`, `expNeg_add_equiv`), the
+  general case of the product law, built by generalizing L2–L4:
+  `ExpAddConv.lean` (`convAdd ≃ term(a+b)`, binomial-free recurrence),
+  `ProductDecompAdd.lean` (triangle ≃ `partialSum(a+b)`),
+  `CornerBoundAdd.lean` (two-cutoff Mertens, signed weight via
+  `mul_le_of_bounds`), and `CReal.Equiv`/`leRat_of_equiv` (sound
+  limit-equality that transfers `leRat`).
+  *Remaining*: (i) `expNeg` antitone + power `e^{−ak} ≃ (e^{−a})ᵏ` (short
+  corollaries of the addition law), then the rational geometric majorant
+  `e^{−t·h(x)} ≤ E(t·h(M))·ρ^{x−M}` and the **exp-ratio** `term(x+1) ≤
+  r·term(x)` feeding `geom_series_le`.  (ii) the finite **box** sum
   `Σ_{x<M} termMaj …` (rational, `decide`) over `charTerm_leRat`.  (iii)
   assemble `Z_upper` (`∏ S_i − 1`) with SU(2)/SU(3) `decide` regression locks
   vs `computations/general_character_sum.py`.
