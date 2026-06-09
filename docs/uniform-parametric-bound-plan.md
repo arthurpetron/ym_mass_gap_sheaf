@@ -539,7 +539,12 @@ Currently `m_0² ≤ σ̂∞` is proved in `Q'`. The honest upgrade is to make
   pointwise product, choice-free (moduli used only in the `cauchy` proof),
   with the `Q'` substrate `AbsQ` (abs + `mul_le_of_bounds`), `CReal.localBound`
   (boundedness), and `exists_mul_le` (division-free product modulus).
-  Remaining: `CReal.add`/`neg` (straightforward), `mul` monotonicity
+  **`CReal.add`/`neg` DONE 2026-06-09** (`Constructive/CRealAdd.lean`,
+  axiom-clean `[propext]`): pointwise `add`/`neg` with Cauchy proofs
+  (`neg` preserves the modulus; `add` splits `ε = half·ε + half·ε` via the
+  `Q'.regroup` rearrangement + `ExpNeg.two_halves`), the `ofQ'` homomorphisms
+  (`ofQ'_add`/`ofQ'_neg`, by proof irrelevance), and `leRat_add` (sound
+  upper bound of a sum). Remaining: `mul` monotonicity
   (`a ≤ b → 0 ≤ c → c·a ≤ c·b`), and the product law `e^x·e^{-x}=1`
   (Cauchy-product binomial) ⇒ U.5 soundness `e^{-x} ≤ 1/(1+x)`.
 - **F.5 — `CReal.sqrt`** (L, F.4). Heron/Newton iteration with explicit
