@@ -29,6 +29,69 @@ the same boundary `mass_gap_SU2` sits at today.
 
 ---
 
+## Progress log — constructive substrate (as of 2026-06-09)
+
+The Lean-substrate front (Pillar B, U.5–U.6 + the F.4/F.5 √-bridge layer)
+advanced substantially. Everything below is **axiom-clean**
+(`#print axioms` = `[propext]`, plus `[propext, Quot.sound]` where
+`omega`/`Nat`/`Int` enter); full `lake build` green; no `sorry`/`sorryAx`,
+no `Classical.*`.
+
+**DONE — the three deep analytic results + the U.6 abstract tail layer:**
+
+1. **F.4 constructive-real arithmetic.** `CReal.mul` (`CRealMul`),
+   `add`/`neg` (`CRealAdd`), `mul`-monotonicity / `mul_nonneg` /
+   `leRat_smul_nonneg` (`CRealMulMono`).
+2. **Product law `eˣ·e⁻ˣ = 1`** (the full Cauchy-product proof,
+   *binomial-free*): `FinSumAlg` (L1) → `CauchyConv` (L2, `cₘ=[m=0]` via
+   the recurrence `m·cₘ = x·c_{m−1}−x·c_{m−1}=0`) → `ProductDecomp` (L3a,
+   rectangle/corner) → `CornerBound` (L3b, single-cutoff Mertens) →
+   `ProductLaw` (L4a, `expProd_leRat`/`expProd_geRat`).
+3. **U.5 soundness `e⁻ˣ ≤ 1/(1+x)`** (`Soundness`,
+   `expNeg_le_oneOver1p`): `recipExpUB` is a *proven* sound `ExpUB`.
+4. **Exponential addition law `e⁻ᵃ·e⁻ᵇ ≃ e⁻⁽ᵃ⁺ᵇ⁾`** (the general case of
+   the product law): `ExpAddConv` (`convAdd ≃ term(a+b)`) →
+   `ProductDecompAdd` → `CornerBoundAdd` (two-cutoff Mertens) → `ExpAdd`
+   (`CReal.Equiv`, `leRat_of_equiv`, `expNeg_add_equiv`).
+5. **U.6 abstract tail machinery.** `CharacterTermBound`
+   (`charTerm_leRat`, `termMaj` soundness); `CRealMulLe` (`leRat_mul`,
+   product upper bound); `ExpGeomMaj` (`expNeg_le_geomMaj`, the inductive
+   rational geometric majorant `e⁻ᴴ⁽ᵏ⁾ ≤ B(k)` whose step *is* the
+   addition law + `leRat_mul`); `CRealSum` (`leRat_csum`, finite
+   CReal-sum bound); `FinSumGeom` (`finSum_geom_uniform`, uniform
+   box + geometric-tail bound).
+
+**Key design finding (box must be tight).** For SU(3) at `t = 100/9` the
+rational `E = 1/(1+·)` (`termMaj`/`recipExpUB`) is *too loose for the box*
+(`termMaj(1) = 16/(1+14.8) ≈ 1.01` vs the true `16·e⁻¹⁴·⁸ ≈ 6×10⁻⁶`), and
+`Z_upper = S²−1` must be `< 1/16`. So the **box must use the tight
+`expNeg_leRat`** (truncated-series bound ≈ `e⁻ᵗᶜ`), not `termMaj`; the
+geometric majorant (also genuine-exp) carries the small tail.
+`charTerm_leRat`/`termMaj` remains a *valid* bound, tight only when `t·C₂`
+is small.
+
+**NEXT — concrete SU(3) `Z_upper` assembly** (U.6 (i)–(iii), all
+`decide`-heavy SU(3)-specific engineering, no new mathematics; use
+`computations/su3_character_sum.py` for the exact `M`, truncation depth
+`K`, and box rationals):
+
+- wire `expNeg_leRat` per box term (tight rational) + the geometric
+  majorant `B` for the tail into `finSum_geom_uniform` + `leRat_csum` ⇒
+  `leRat (csum charTerm N) (boxRational + H)` uniformly = `S_i ≤ Z_factor`;
+- the per-term ratio `g(x+1) ≤ r·g(x)` (`r<1`, `decide` at fixed `M`) for
+  `h(x) = (x²+3x)/3`, increment `(2x+4)/3`;
+- assemble `Z_upper = ∏ Sᵢ − 1` with the `< 1/μ_plaq` arithmetic, feed the
+  cluster reduction (`ExpBound.largeField_bf`) to replace the *posited*
+  `Z_upper_su3 = 1/1000` with a *proven* tail bound; SU(2)/SU(3)
+  regression locks vs `computations/general_character_sum.py`.
+
+After U.6: U.7 (parametric KP wrappers) → U.8 (`monotone_budget`) →
+U.9 (`budget_closes_uniform`) → U.10/U.11 (`mass_gap_simple_group`, SU(3)
+corollary). The F.5 √-bridge (`CReal.sqrt`) now also unblocks: F.4 is done,
+so Heron iteration + `(√x)² ≃ x` is the remaining step there.
+
+---
+
 ## 0. The target theorem
 
 The end state is a single Lean theorem, axiom-clean per AGENTS.md Rule 1:
