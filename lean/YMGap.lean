@@ -29,6 +29,7 @@ import YMGap.Constructive.ExpNeg
 import YMGap.Constructive.ExpPos
 import YMGap.Constructive.CRealAdd
 import YMGap.Constructive.CRealMulMono
+import YMGap.Constructive.CauchyConv
 import YMGap.Constructive.CharacterTail
 import YMGap.RepTheory.SU2
 import YMGap.RepTheory.RepData
