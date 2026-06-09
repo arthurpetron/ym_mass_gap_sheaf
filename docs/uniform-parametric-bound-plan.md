@@ -323,12 +323,26 @@ analytic obligation; (L) = Lean.
   `CornerBoundAdd.lean` (two-cutoff Mertens, signed weight via
   `mul_le_of_bounds`), and `CReal.Equiv`/`leRat_of_equiv` (sound
   limit-equality that transfers `leRat`).
-  *Remaining*: (i) `expNeg` antitone + power `e^{−ak} ≃ (e^{−a})ᵏ` (short
-  corollaries of the addition law), then the rational geometric majorant
-  `e^{−t·h(x)} ≤ E(t·h(M))·ρ^{x−M}` and the **exp-ratio** `term(x+1) ≤
-  r·term(x)` feeding `geom_series_le`.  (ii) the finite **box** sum
-  `Σ_{x<M} termMaj …` (rational, `decide`) over `charTerm_leRat`.  (iii)
-  assemble `Z_upper` (`∏ S_i − 1`) with SU(2)/SU(3) `decide` regression locks
+  **Abstract tail machinery DONE 2026-06-09** — the rational geometric
+  majorant and the finite-sum plumbing are all in:
+  `expNeg_le_geomMaj` (`ExpGeomMaj.lean`, `e^{−H(k)} ≤ B(k)` for
+  `B(k+1)=B(k)·E(d(k))` via the addition law + `leRat_mul`),
+  `leRat_csum` (`CRealSum.lean`, finite CReal sum ≤ rational sum), and
+  `finSum_geom_uniform` (`FinSumGeom.lean`, `finSum g N ≤ finSum g M + H`
+  uniformly = box + geometric tail).  *Design correction* (verified
+  numerically): for SU(3) at `t=100/9` the rational `E=1/(1+·)` is **too
+  loose for the box** (`termMaj(1)=16/(1+14.8)≈1.01` vs the true `16·e^{−14.8}
+  ≈6e−6`, and `Z_upper=S²−1` must be `<1/16`), so the **box must use the
+  tight `expNeg_leRat`** (truncated-series bound, ≈`e^{−t·c}`), NOT
+  `termMaj`/`charTerm_leRat`.  The geometric majorant (also genuine-exp)
+  carries the small tail.
+  *Remaining (concrete SU(3) assembly)*: (i) wire `expNeg_leRat` per box term
+  (tight rational, `decide`) + the geometric majorant `B` for the tail into
+  `finSum_geom_uniform` ⇒ `leRat (csum charTerm N) (boxRational + H)`
+  uniformly = `S_i ≤ Z_factor`.  (ii) the per-term ratio `g(x+1) ≤ r·g(x)`
+  (`r<1`, `decide` at fixed `M`) for the concrete `h(x)=(x²+3x)/3`,
+  increment `(2x+4)/3`.  (iii) assemble `Z_upper` (`∏ S_i − 1`) with the
+  `<1/μ_plaq` arithmetic + SU(2)/SU(3) `decide` regression locks
   vs `computations/general_character_sum.py`.
 - **U.7 — Parametric KP wrappers** (L, U.6). S4: generalize
   `Sheaf/SU2KP.lean` → `KPParametric.lean`; `K_sf`/`K_lf` monotone.
