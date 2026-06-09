@@ -34,6 +34,7 @@ import YMGap.Constructive.ExpAddConv
 import YMGap.Constructive.ProductDecomp
 import YMGap.Constructive.ProductDecompAdd
 import YMGap.Constructive.CornerBound
+import YMGap.Constructive.CornerBoundAdd
 import YMGap.Constructive.ProductLaw
 import YMGap.Constructive.Soundness
 import YMGap.Constructive.CharacterTail
