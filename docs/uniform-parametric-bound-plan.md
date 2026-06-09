@@ -310,11 +310,21 @@ analytic obligation; (L) = Lean.
   `((x+2)/(x+1))^{2n}·e^{−t·(linear)} ≤ r < 1`", the analytic input
   supplied by `expNeg`'s geometric ratio (not a rational `E` — the tail is
   irreducibly exponential, per the U.5 design correction).
+  **Box-term soundness DONE 2026-06-09** (`CharacterTermBound.lean`,
+  `charTerm_leRat`): with U.5 proven, `dim²·e^{−t·c} ≤ termMaj recipExpUB
+  dim t c` (`= dim²/(1+t·c)`) as a sound `leRat` — the `termMaj` per-point
+  bound (ExpBound's "deferred to Level 2" obligation) is now proven, the box
+  half of each `S_i`.
   *Remaining*: (i) the **exp-ratio input** `term(x+1) ≤ r·term(x)` for the
-  character terms (from `expNeg`); (ii) the **finite box** sum via
-  `termMaj` (sound per-point `e^{−t·c}` bounds); (iii) assemble `Z_upper`
-  (`∏ S_i − 1`) with SU(2)/SU(3) `decide` regression locks vs
-  `computations/general_character_sum.py`.
+  character terms — the irreducibly-exponential **tail**, needing a rational
+  geometric majorant for `e^{−t·h(x)}`.  This rests on the exponential
+  *addition* law `e^{−(a+b)} = e^{−a}·e^{−b}` (and `e^{−ak} = (e^{−a})ᵏ`),
+  the general case of the just-built product law — buildable on the same
+  L1–L3 Cauchy-product infrastructure (`FinSumAlg`/`CauchyConv`/
+  `ProductDecomp`/`CornerBound`).  (ii) the finite **box** sum
+  `Σ_{x<M} termMaj …` (rational, `decide`) over `charTerm_leRat`.  (iii)
+  assemble `Z_upper` (`∏ S_i − 1`) with SU(2)/SU(3) `decide` regression locks
+  vs `computations/general_character_sum.py`.
 - **U.7 — Parametric KP wrappers** (L, U.6). S4: generalize
   `Sheaf/SU2KP.lean` → `KPParametric.lean`; `K_sf`/`K_lf` monotone.
 - **★ U.8 — `eta_max_param` + `monotone_budget`** (L, U.7). S5+S6 in
