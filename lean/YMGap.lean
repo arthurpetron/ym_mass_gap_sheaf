@@ -41,6 +41,7 @@ import YMGap.Constructive.CRealMulLe
 import YMGap.Constructive.Soundness
 import YMGap.Constructive.ExpGeomMaj
 import YMGap.Constructive.CRealSum
+import YMGap.Constructive.FinSumGeom
 import YMGap.Constructive.CharacterTail
 import YMGap.Constructive.CharacterTermBound
 import YMGap.RepTheory.SU2
