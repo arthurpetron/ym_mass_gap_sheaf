@@ -290,21 +290,16 @@ analytic obligation; (L) = Lean.
     exponential and U.6 must bound it with `expNeg`'s geometric ratio
     (`e^{-t·linear} < 1`, a `CReal` fact via `expNeg_leRat`), not a
     rational `E`. The plan's S2 is amended accordingly.
-  - **Soundness — half built (2026-06-08).** The chain is
-    `(1+x) ≤ e^x` ⟹ `(1+x)e^{-x} ≤ e^x·e^{-x} = 1` ⟹ `e^{-x} ≤ 1/(1+x)`.
-    - **Done:** `Constructive/ExpPos.lean` — constructive `e^{+x}`
-      (`expPos`, monotone partial sums) with `oneAddX_le_expPos`:
-      `1 + x ≤ e^x` (the clean monotone half), axiom-clean.
-    - **Remaining:** the product law `e^x·e^{-x} = 1`, which needs
-      **`CReal` multiplication** (a milestone, ~300 LOC): (i) bounded
-      `CReal.mul` — the product modulus needs rational bounds
-      (`e^{-x} ≤ 1`; `e^x ≤ partialSumAbs x K + 2·termAbs x K`, provable
-      like `expNeg_leRat`); (ii) `mul` monotonicity + `ofQ'`-scalar; (iii)
-      the Cauchy-product binomial `Σ_{k+j=m}(−1)ʲC(m,j)=0 (m≥1)` with a
-      corner-term tail estimate. No cheaper bypass exists — every route
-      avoiding the product law hits the *alternating* `e^{-x}` series
-      (the `(1+x)·partialSumₙ` telescoping sign *is* the soundness fact,
-      circular). Shares `CReal.mul` with F.4/F.5 (√-bridge).
+  - **Soundness — DONE 2026-06-09** (`Soundness.lean`,
+    `expNeg_le_oneOver1p`, axiom-clean). The chain
+    `(1+x) ≤ e^x` ⟹ `(1+x)e^{-x} ≤ e^x·e^{-x} = 1` ⟹ `e^{-x} ≤ 1/(1+x)`
+    is fully built. The product law `e^x·e^{-x} = 1` was discharged by the
+    full Cauchy-product proof (F.4, L1–L4a) — the binomial
+    `Σ_{k+j=m}(−1)ʲC(m,j)=0` was *avoided* via the binomial-free recurrence
+    `(m+1)·c_{m+1} = x·cₘ − x·cₘ = 0`, and the corner-term tail by a
+    single-cutoff Mertens estimate. `e^{-x} ≥ 0` (needed for the multiply
+    step) falls out of `e^x·e^{-x} ≥ ½ > 0` + `e^x > 0`. So
+    `recipExpUB` is now a *proven* sound `ExpUB`, not a named obligation.
 - **★ U.6 — Constructive character-tail module** (L, U.5). **Tail core
   DONE 2026-06-08** (`Constructive/CharacterTail.lean`, axiom-clean):
   `geom_dom` (term-ratio ⇒ geometric domination `f k ≤ f₀·rᵏ`) and
@@ -544,9 +539,27 @@ Currently `m_0² ≤ σ̂∞` is proved in `Q'`. The honest upgrade is to make
   (`neg` preserves the modulus; `add` splits `ε = half·ε + half·ε` via the
   `Q'.regroup` rearrangement + `ExpNeg.two_halves`), the `ofQ'` homomorphisms
   (`ofQ'_add`/`ofQ'_neg`, by proof irrelevance), and `leRat_add` (sound
-  upper bound of a sum). Remaining: `mul` monotonicity
-  (`a ≤ b → 0 ≤ c → c·a ≤ c·b`), and the product law `e^x·e^{-x}=1`
-  (Cauchy-product binomial) ⇒ U.5 soundness `e^{-x} ≤ 1/(1+x)`.
+  upper bound of a sum). **`mul` monotonicity DONE 2026-06-09**
+  (`Constructive/CRealMulMono.lean`): `mul_nonneg` (product of nonnegatives),
+  `leRat_smul_nonneg`, `geRat_add_neg`, via the sign-cased `Q'.mul_ge_of_bounds`.
+  **Product law `e^x·e^{-x}=1` DONE 2026-06-09** — the full Cauchy-product
+  proof, axiom-clean, *without* binomial coefficients:
+  * L1 `FinSumAlg.lean` — `finSum` distributivity/additivity.
+  * L2 `CauchyConv.lean` — the convolution coefficient vanishes
+    (`conv_succ_eqv_zero`, `cₘ=[m=0]`) via the recurrence
+    `(m+1)·c_{m+1} = x·cₘ − x·cₘ = 0` + the weighted term-recurrences
+    `(k+1)·a_{k+1}=x·aₖ`, `(k+1)·b_{k+1}=−x·bₖ`.
+  * L3a `ProductDecomp.lean` — row-split `P⁺_{n+1}·P⁻_{n+1} ≃ 1 + corner`
+    (triangle = `Σ cₘ` = 1).
+  * L3b `CornerBound.lean` — Mertens estimate `cornerₘ → 0` (single-cutoff
+    split at `max(halfRatioCutoff, termAbsModulus(½δ))`, uniform
+    `expNeg_tail_bound`).
+  * L4a `ProductLaw.lean` — `expProd_leRat`/`expProd_geRat` (eˣ·e⁻ˣ = 1).
+  **U.5 soundness `e^{-x} ≤ 1/(1+x)` DONE 2026-06-09**
+  (`Soundness.lean`, `expNeg_le_oneOver1p`): `eˣ·e⁻ˣ=1` + `e⁻ˣ≥0` ⇒
+  `(1+x)·e⁻ˣ ≤ 1` ⇒ divide. So `ExpUBInstance.recipExpUB` is a *proven*
+  sound bound for `expNeg`. F.4/U.5 closed; all axiom-clean
+  (`[propext]` / `[propext, Quot.sound]`).
 - **F.5 — `CReal.sqrt`** (L, F.4). Heron/Newton iteration with explicit
   Cauchy modulus (constructive, no choice — same shape as `expNeg`).
   Prove `(sqrt x)·(sqrt x) ≈ x` and `0 < sqrt x` for `0 < x`. Then
