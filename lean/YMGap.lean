@@ -35,6 +35,7 @@ import YMGap.Constructive.CornerBound
 import YMGap.Constructive.ProductLaw
 import YMGap.Constructive.Soundness
 import YMGap.Constructive.CharacterTail
+import YMGap.Constructive.CharacterTermBound
 import YMGap.RepTheory.SU2
 import YMGap.RepTheory.RepData
 import YMGap.Sheaf.Site
