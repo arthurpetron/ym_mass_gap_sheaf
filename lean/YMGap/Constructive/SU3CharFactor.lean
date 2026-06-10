@@ -46,6 +46,7 @@ import YMGap.Constructive.ExpNegCongr
 import YMGap.Constructive.CauchyConv
 import YMGap.Constructive.FinSumGeom
 import YMGap.Constructive.CRealSum
+import YMGap.Constructive.FinSumAlg
 
 namespace YMGap.Constructive.SU3CharFactor
 
@@ -652,6 +653,68 @@ theorem oneDimSum_le (N : Nat) :
     (CReal.leRat_csum (gFactor tCanon tCanon_nonneg) gBound gBound_ge N)
     (finSum_gBound_le N)
 
+/-! ## Module 4 — the 2-D character-tail sum `Z_t ≤ S² ≤ (801/800)²`
+
+The 2-D term `a(p,q) = dim(p,q)²·e^{−t·C₂}` is bounded by `gBound p · gBound q`
+(`charTerm2D_le_gBound`, from the factorization `charTerm2D_le`), and the
+nested sum factorizes `Σ_{p,q} a(p,q) ≤ (Σ_p gBound p)(Σ_q gBound q)` (via
+`leRat_csum` + `const_mul_finSum`/`finSum_mul_const`), giving
+`Z₂ᴰ N ≤ (finSum gBound N)² ≤ (801/800)²`.  (The `(0,0)`-exclusion
+`Z_t ≤ S²−1` and the cluster wire-in to `largeField_bf` are the final
+step — see the plan.) -/
+
+/-- Interchange `(a·b)·(c·d) ≃ (a·c)·(b·d)`. -/
+theorem mul_interchange_eqv (a b c d : Q') :
+    ((a * b) * (c * d)).eqv ((a * c) * (b * d)) := by
+  refine Q'.eqv_trans _ _ _ (Q'.mul_assoc_eqv a b (c * d)) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_left a _ _ (Q'.eqv_symm (Q'.mul_assoc_eqv b c d))) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_left a _ _ (Q'.mul_eqv_congr_right _ _ d (Q'.mul_comm_eqv b c))) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_left a _ _ (Q'.mul_assoc_eqv c b d)) ?_
+  exact Q'.eqv_symm (Q'.mul_assoc_eqv a c (b * d))
+
+/-- The 2-D character term `a(p,q) = dim(p,q)²·e^{−t·C₂(p,q)}` as a `CReal`. -/
+def charTerm2D (p q : Nat) : CReal :=
+  CReal.mul (CReal.ofQ' (dimSqQ p q))
+    (ExpNeg.expNeg (tCanon * casimirQ p q) (tcasimirQ_nonneg tCanon p q tCanon_nonneg))
+
+/-- **Per-term 2-D bound** `a(p,q) ≤ gBound p · gBound q`. -/
+theorem charTerm2D_le_gBound (p q : Nat) :
+    CReal.leRat (charTerm2D p q) (gBound p * gBound q) := by
+  refine CReal.leRat_mono
+    (charTerm2D_le tCanon p q tCanon_nonneg
+      ((Q'.mkPos 5 12 (by decide)) ^ (11 * p)) ((Q'.mkPos 5 12 (by decide)) ^ (11 * q))
+      (Q'.pow_nonneg (Q'.mkPos 5 12 (by decide)) (by decide) (11 * p))
+      (Q'.pow_nonneg (Q'.mkPos 5 12 (by decide)) (by decide) (11 * q))
+      (tail_exp_bound p) (tail_exp_bound q)) ?_
+  exact Q'.le_of_eqv (Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_right _ _ _ (ofNat_mul_eqv (SU3.gPrefactor p) (SU3.gPrefactor q)))
+    (mul_interchange_eqv (Q'.ofNat (SU3.gPrefactor p)) (Q'.ofNat (SU3.gPrefactor q))
+      ((Q'.mkPos 5 12 (by decide)) ^ (11 * p)) ((Q'.mkPos 5 12 (by decide)) ^ (11 * q))))
+
+/-- The `p`-th row sum is bounded by `gBound p · (Σ_q gBound q)`. -/
+theorem row_le (p N : Nat) :
+    CReal.leRat (CReal.csum (fun q => charTerm2D p q) N)
+      (gBound p * RationalTail.finSum gBound N) :=
+  CReal.leRat_mono
+    (CReal.leRat_csum (fun q => charTerm2D p q) (fun q => gBound p * gBound q)
+      (fun q => charTerm2D_le_gBound p q) N)
+    (Q'.le_of_eqv (Q'.eqv_symm (RationalTail.const_mul_finSum gBound (gBound p) N)))
+
+/-- The 2-D truncated character sum (including `(0,0)`). -/
+def Z2D (N : Nat) : CReal := CReal.csum (fun p => CReal.csum (fun q => charTerm2D p q) N) N
+
+/-- **2-D sum bound** `Z₂ᴰ N ≤ (Σ gBound N)²`. -/
+theorem Z2D_le (N : Nat) :
+    CReal.leRat (Z2D N) (RationalTail.finSum gBound N * RationalTail.finSum gBound N) :=
+  CReal.leRat_mono
+    (CReal.leRat_csum (fun p => CReal.csum (fun q => charTerm2D p q) N)
+      (fun p => gBound p * RationalTail.finSum gBound N) (fun p => row_le p N) N)
+    (Q'.le_of_eqv (Q'.eqv_symm
+      (RationalTail.finSum_mul_const gBound (RationalTail.finSum gBound N) N)))
+
 end YMGap.Constructive.SU3CharFactor
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
@@ -667,6 +730,9 @@ end YMGap.Constructive.SU3CharFactor
 #print axioms YMGap.Constructive.SU3CharFactor.gBound_dom
 #print axioms YMGap.Constructive.SU3CharFactor.finSum_gBound_le
 #print axioms YMGap.Constructive.SU3CharFactor.oneDimSum_le
+#print axioms YMGap.Constructive.SU3CharFactor.charTerm2D_le_gBound
+#print axioms YMGap.Constructive.SU3CharFactor.row_le
+#print axioms YMGap.Constructive.SU3CharFactor.Z2D_le
 #print axioms YMGap.Constructive.SU3CharFactor.gFactor_box_zero
 #print axioms YMGap.Constructive.SU3CharFactor.gFactor_box_one
 #print axioms YMGap.Constructive.SU3CharFactor.gFactor_box_two

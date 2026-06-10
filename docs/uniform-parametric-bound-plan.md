@@ -208,12 +208,34 @@ All `[propext, Quot.sound]`; baseline 471; strict audit PASS.  The
 
    All `[propext, Quot.sound]`; baseline 483; strict audit PASS.
 
-**NEXT — Module 4 (`Z_upper`)**: `Z_t ≤ S² − 1 ≤ (801/800)² − 1 < 1/16`
-(`decide`) — the 2-D factorization `Z_t ≤ (Σ_p g(p))(Σ_q g(q)) − 1 = S²−1`
-(via `charTerm2D_le` + a Fubini/product-of-sums step) feeds
-`ExpBound.largeField_bf`, replacing the posited `Z_upper_su3 = 1/1000`
-with a *proven* tail bound.  `(801/800)² − 1 = 1601/640000 ≈ 0.0025 <
-1/16 = 0.0625` ✓.
+9. **A1.9 (Module 4 — 2-D Fubini core)** (`SU3CharFactor.lean`).  **DONE.**
+   - `mul_interchange_eqv` : `(a·b)·(c·d) ≃ (a·c)·(b·d)`.
+   - `charTerm2D p q := dim(p,q)²·e^{−t·C₂}` (`CReal`); `charTerm2D_le_gBound`
+     : `a(p,q) ≤ gBound p · gBound q` (from `charTerm2D_le` + `ofNat_mul_eqv`
+     + `mul_interchange_eqv`).
+   - `row_le` : `Σ_q a(p,q) ≤ gBound p · (Σ_q gBound q)` (`leRat_csum` +
+     `const_mul_finSum`); `Z2D N := Σ_p Σ_q a(p,q)`;
+     `Z2D_le` : `Z₂ᴰ N ≤ (Σ gBound N)² ≤ (801/800)²` (nested `leRat_csum` +
+     `finSum_mul_const`).
+
+   Baseline 486; strict audit PASS.  The 2-D factorization + nested-sum
+   Fubini is machine-checked: the full double character sum is bounded by
+   the square of the 1-D bound.
+
+**NEXT — Module 4 final step (`(0,0)`-exclusion + cluster wire-in)**: the
+usable bound needs `Z_t = Z₂ᴰ − a(0,0) ≤ S² − 1 ≈ 0.0025` (the `−1` is
+essential: `Z₂ᴰ ≤ S² ≈ 1.0025` alone gives `16·S² > 1`).  This needs CReal
+subtraction primitives not yet in the substrate:
+- `leRat_neg_of_geRat` : `geRat B d → leRat (neg B) (−d)` (direct from the
+  defs — `neg`'s approx is `−B.approx`);
+- `charTerm00_ge` : `geRat (a(0,0)) 1` — `a(0,0) = 1·e^{0}`, needs the
+  `partialSum 0 (n+1) = 1` fact and a product lower bound (`geRat_mul`);
+- `leRat_sub` (= `leRat_add` + `leRat_neg_of_geRat`) ⇒
+  `Z_t = Z₂ᴰ − a(0,0) ≤ (Σ gBound N)² − 1 ≤ (801/800)² − 1`;
+- `Z_upper := (801/800)² − 1 = 1601/640000`, prove `< 1/16` and the BF
+  relation (`decide`), feed `ExpBound.largeField_bf` — replacing the
+  posited `Z_upper_su3 = 1/1000` with a *proven* tail bound.
+`(801/800)² − 1 = 1601/640000 ≈ 0.0025 < 1/16 = 0.0625` ✓.
 
 - wire `expNeg_leRat` per box term (tight rational) + the geometric
   majorant `B` for the tail into `finSum_geom_uniform` + `leRat_csum` ⇒
