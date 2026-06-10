@@ -87,9 +87,16 @@ about a **constructed** object, not about an abstract hypothesis.
     (`wilsonCharExp_nonneg`) and `⟨1⟩_t = 1` (`wilsonCharExp_unit`, both
     bounds) — the genuine probability normalization.  Replaces `trivFunc`'s
     values with real heat-kernel expectations.
-    *Remaining for E1:* full positivity `0 ≤ E(a*·a)` (heat-kernel Gram
-    PSD) ⇒ a full `ProbFunctional`; then the plaquette-coupled finite
-    lattice.
+    *Positivity (in progress):* the Gram entries `G_{μν} = ⟨χ_μ χ_ν⟩_t`
+    are each `≥ 0` (`gramEntry_nonneg`, via the SU(2) Clebsch–Gordan
+    decomposition + nonneg moments), giving **positivity on the
+    nonnegative-coefficient cone** (`coneExp_nonneg`) — a genuine partial
+    GNS positivity (substrate: `geRat_add`, `geRat_csum_nonneg`).
+    *Remaining for E1:* FULL positivity (arbitrary real coeffs) = the
+    heat-kernel Gram **PSD** theorem (heat-semigroup positivity / parabolic
+    maximum principle / SU(2) Poisson summation; the `2×2` minor is
+    `1+3e^{−2t}−4e^{−3t/2} ≥ 0` by AM–GM) ⇒ a full `ProbFunctional`; then
+    the plaquette-coupled finite lattice.
   * **E2 (cluster expansion / infinite volume)**, **E3 (RG transport)** —
     the analytic core, interleaved with B2's OS axioms.
 
