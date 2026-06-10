@@ -30,6 +30,7 @@ import YMGap.Constructive.ExpPos
 import YMGap.Constructive.CRealAdd
 import YMGap.Constructive.CRealMulMono
 import YMGap.Constructive.SumOfSquares
+import YMGap.Constructive.QPoly
 import YMGap.Constructive.CauchyConv
 import YMGap.Constructive.ExpAddConv
 import YMGap.Constructive.ProductDecomp
