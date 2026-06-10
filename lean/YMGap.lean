@@ -45,6 +45,7 @@ import YMGap.Constructive.FinSumGeom
 import YMGap.Constructive.CharacterTail
 import YMGap.Constructive.CharacterTermBound
 import YMGap.RepTheory.SU2
+import YMGap.RepTheory.SU3
 import YMGap.RepTheory.RepData
 import YMGap.Sheaf.Site
 import YMGap.Sheaf.BoundWitness
