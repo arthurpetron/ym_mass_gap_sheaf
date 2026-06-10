@@ -147,8 +147,31 @@ described in `AGENTS.md`.
 
 ## Current status
 
-Scaffolding only. No theorems closed. The first Lean target is
-`YMGap/RepTheory/SU2.lean` (constructive SU(2) Casimir spectrum),
-mirroring Python Milestone 1.1, because it is the smallest
-self-contained constructive obligation and exercises the
-`Constructive/` infrastructure end to end.
+The constructive `Q'`-data layer is substantial and machine-checked:
+493 tracked theorems (see `AXIOM_AUDIT.md`), axiom-gated to `[propext]`
+(plus `Quot.sound` where `omega`/`Nat`/`Int` enter); no `Classical.*`,
+no `sorryAx`, no `native_decide`, and zero open `sorry` (`SORRY_LEDGER.md`).
+Closed work includes:
+
+  * the SU(2) Casimir spectrum (`RepTheory/SU2`) and the SU(3) irrep data
+    (`RepTheory/SU3`);
+  * the constructive-reals substrate (`Constructive/`): `CReal` arithmetic,
+    the exponential `expNeg` with its product/addition laws, the soundness
+    bound `e^{−x} ≤ 1/(1+x)`, geometric majorants, and finite-sum machinery;
+  * the σ̂-budget closure for the SU(2)/SU(3) pilots and the group-uniform
+    *conditional* closure `RepData.budget_closes`;
+  * the rigorous SU(3) heat-kernel character-tail bound `Z_t < 1/16`
+    (`Constructive/SU3CharFactor`): per-term factorization
+    `a(p,q) ≤ g(p)·g(q)`, the `(5/12)^n` power law (bounding `e^{−x}` at
+    exponents beyond `decide`), box + general-`x` tail bounds, the 1-D sum
+    `S ≤ 801/800`, and the 2-D Fubini with `(0,0)`-exclusion `Z_t ≤ S²−1` —
+    replacing the previously-posited `ExpBound.Z_upper_su3` fiducial with a
+    machine-checked bound.
+
+The headline `MassGap.SU2.mass_gap_SU2` composes the `Q'`-rational gap data
+with the OS-reconstruction *interface*.  That interface layer — `Continuum/`
+(the projective-limit measure, the OS axioms, the Hilbert-space/Hamiltonian
+reconstruction, and the cluster-to-gap bridge) — is still **type-level only**
+(`Prop := True` laws, `Unit`-witness structures); its analytic content is
+supplied in the manuscript (`formal/`), not in Lean.  Promoting that layer to
+genuine constructive operator theory is the major remaining undertaking.
