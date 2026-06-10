@@ -44,6 +44,8 @@ import YMGap.Constructive.Soundness
 import YMGap.Constructive.CRealMulLe
 import YMGap.Constructive.ExpNegCongr
 import YMGap.Constructive.CauchyConv
+import YMGap.Constructive.FinSumGeom
+import YMGap.Constructive.CRealSum
 
 namespace YMGap.Constructive.SU3CharFactor
 
@@ -451,52 +453,52 @@ theorem gFactor_box_three :
 For the *infinite* tail the box's per-`x` `decide` won't do; we need a
 bound at general `x`.  Use a **linear** integer lower bound `n_x = 4x`
 on `t·f(x) = (100/9)·(x²+3x)/3 = (100x²+300x)/27`: the explicit remainder
-`r_x = t·f(x) − 4x = (100x²+192x)/27 ≥ 0` gives the split
+`r_x = t·f(x) − 11x = (100x²+3x)/27 ≥ 0` gives the split
 `t·f(x) ≃ 4x + r_x` (no `Q'` subtraction), so `box_term_bound` yields
 `e^{−t·f(x)} ≤ (5/12)^{4x}` for *every* `x` (`tail_exp_bound`), and
 `gFactor_le` gives `g(x) ≤ (x+1)⁴·(5/12)^{4x}` (`gFactor_tail_le`).  The
 slope `4` is the minimum making the resulting gBound ratio
 `((x+2)/(x+1))⁴·(5/12)^4 ≤ 16·(5/12)^4 < 1` (next: the geometric tail). -/
 
-/-- The general-`x` exponent split `t·f(x) ≃ 4x + (100x²+192x)/27`. -/
+/-- The general-`x` exponent split `t·f(x) ≃ 11x + (100x²+3x)/27`. -/
 theorem tail_split (x : Nat) :
     (tCanon * fQ x).eqv
-      (Q'.ofNat (4 * x)
-        + Q'.mkPos ((100 * (x * x) + 192 * x : Nat) : Int) 27 (by decide)) := by
+      (Q'.ofNat (11 * x)
+        + Q'.mkPos ((100 * (x * x) + 3 * x : Nat) : Int) 27 (by decide)) := by
   show (tCanon * fQ x).num
-        * ((Q'.ofNat (4 * x)
-            + Q'.mkPos ((100 * (x * x) + 192 * x : Nat) : Int) 27 (by decide)).den : Int)
-     = (Q'.ofNat (4 * x)
-          + Q'.mkPos ((100 * (x * x) + 192 * x : Nat) : Int) 27 (by decide)).num
+        * ((Q'.ofNat (11 * x)
+            + Q'.mkPos ((100 * (x * x) + 3 * x : Nat) : Int) 27 (by decide)).den : Int)
+     = (Q'.ofNat (11 * x)
+          + Q'.mkPos ((100 * (x * x) + 3 * x : Nat) : Int) 27 (by decide)).num
         * ((tCanon * fQ x).den : Int)
   have hLnum : (tCanon * fQ x).num = 100 * (SU3.threeF x : Int) := rfl
   have hLden : (tCanon * fQ x).den = 27 := rfl
-  have hRnum : (Q'.ofNat (4 * x)
-        + Q'.mkPos ((100 * (x * x) + 192 * x : Nat) : Int) 27 (by decide)).num
-      = (Int.ofNat (4 * x)) * 27 + ((100 * (x * x) + 192 * x : Nat) : Int) * 1 := rfl
-  have hRden : (Q'.ofNat (4 * x)
-        + Q'.mkPos ((100 * (x * x) + 192 * x : Nat) : Int) 27 (by decide)).den = 27 := rfl
+  have hRnum : (Q'.ofNat (11 * x)
+        + Q'.mkPos ((100 * (x * x) + 3 * x : Nat) : Int) 27 (by decide)).num
+      = (Int.ofNat (11 * x)) * 27 + ((100 * (x * x) + 3 * x : Nat) : Int) * 1 := rfl
+  have hRden : (Q'.ofNat (11 * x)
+        + Q'.mkPos ((100 * (x * x) + 3 * x : Nat) : Int) 27 (by decide)).den = 27 := rfl
   rw [hLnum, hLden, hRnum, hRden]
   show 100 * (SU3.threeF x : Int) * ((27 : Nat) : Int)
-     = (Int.ofNat (4 * x) * 27 + ((100 * (x * x) + 192 * x : Nat) : Int) * 1)
+     = (Int.ofNat (11 * x) * 27 + ((100 * (x * x) + 3 * x : Nat) : Int) * 1)
         * ((27 : Nat) : Int)
   have hf : (SU3.threeF x : Int) = (x : Int) * (x : Int) + 3 * (x : Int) := by
     show ((x * x + 3 * x : Nat) : Int) = (x : Int) * (x : Int) + 3 * (x : Int)
     push_cast; omega
-  -- core identity (no ·27): 100·threeF x = 4x·27 + (100x²+192x)
-  have ha : Int.ofNat (4 * x) = 4 * (x : Int) := by
-    show ((4 * x : Nat) : Int) = 4 * (x : Int); push_cast; omega
+  -- core identity (no ·27): 100·threeF x = 11x·27 + (100x²+3x)
+  have ha : Int.ofNat (11 * x) = 11 * (x : Int) := by
+    show ((11 * x : Nat) : Int) = 11 * (x : Int); push_cast; omega
   have key : (100 : Int) * (SU3.threeF x : Int)
-      = Int.ofNat (4 * x) * 27 + ((100 * (x * x) + 192 * x : Nat) : Int) * 1 := by
+      = Int.ofNat (11 * x) * 27 + ((100 * (x * x) + 3 * x : Nat) : Int) * 1 := by
     rw [hf, ha]; push_cast; omega
   rw [key]
 
 /-- `e^{−t·f(x)} ≤ (5/12)^{4x}` for every `x` — the general-`x` box bound. -/
 theorem tail_exp_bound (x : Nat) :
     CReal.leRat (ExpNeg.expNeg (tCanon * fQ x) (tfQ_nonneg tCanon x tCanon_nonneg))
-      ((Q'.mkPos 5 12 (by decide)) ^ (4 * x)) :=
-  box_term_bound tCanon tCanon_nonneg x (4 * x)
-    (Q'.mkPos ((100 * (x * x) + 192 * x : Nat) : Int) 27 (by decide))
+      ((Q'.mkPos 5 12 (by decide)) ^ (11 * x)) :=
+  box_term_bound tCanon tCanon_nonneg x (11 * x)
+    (Q'.mkPos ((100 * (x * x) + 3 * x : Nat) : Int) 27 (by decide))
     (by rw [Q'.zero_le_iff_num_nonneg]; exact Int.natCast_nonneg _)
     (tail_split x)
 
@@ -504,10 +506,151 @@ theorem tail_exp_bound (x : Nat) :
 bound consumed by the geometric domination. -/
 theorem gFactor_tail_le (x : Nat) :
     CReal.leRat (gFactor tCanon tCanon_nonneg x)
-      (gPrefQ x * (Q'.mkPos 5 12 (by decide)) ^ (4 * x)) :=
-  gFactor_le tCanon tCanon_nonneg x ((Q'.mkPos 5 12 (by decide)) ^ (4 * x))
-    (Q'.pow_nonneg (Q'.mkPos 5 12 (by decide)) (by decide) (4 * x))
+      (gPrefQ x * (Q'.mkPos 5 12 (by decide)) ^ (11 * x)) :=
+  gFactor_le tCanon tCanon_nonneg x ((Q'.mkPos 5 12 (by decide)) ^ (11 * x))
+    (Q'.pow_nonneg (Q'.mkPos 5 12 (by decide)) (by decide) (11 * x))
     (tail_exp_bound x)
+
+/-! ## Module 3c-assembly — the 1-D sum bound
+
+`gBound x := (x+1)⁴·(5/12)^{11x}` bounds every `g(x)` (`gFactor_tail_le`,
+definitionally), is geometrically dominated from `M = 1` with ratio
+`r = 16·(5/12)^{11}` (`gBound_dom`, via `(x+2)⁴ ≤ 16(x+1)⁴` and the power
+law `pow_add_eqv`), and `gBound 0 = 1`, so `finSum_geom_uniform` +
+`leRat_csum` give `S = Σ_x g(x) ≤ 1 + H` uniformly. -/
+
+/-- Power addition law (`.eqv`, since `Q'` mul is not definitionally
+unital/associative): `q^(a+b) ≃ q^a·q^b`. -/
+theorem pow_add_eqv (q : Q') (a b : Nat) : (q ^ (a + b)).eqv (q ^ a * q ^ b) := by
+  induction b with
+  | zero => exact Q'.eqv_symm (Q'.mul_one_eqv (q ^ a))
+  | succ b ih =>
+    show (q ^ (a + b + 1)).eqv (q ^ a * q ^ (b + 1))
+    rw [Q'.pow_succ, Q'.pow_succ]
+    refine Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_left q _ _ ih) ?_
+    refine Q'.eqv_trans _ _ _ (Q'.eqv_symm (Q'.mul_assoc_eqv q (q ^ a) (q ^ b))) ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_right _ _ (q ^ b) (Q'.mul_comm_eqv q (q ^ a))) ?_
+    exact Q'.mul_assoc_eqv (q ^ a) q (q ^ b)
+
+/-- `ofNat (a·b) ≃ ofNat a · ofNat b`. -/
+theorem ofNat_mul_eqv (a b : Nat) :
+    (Q'.ofNat (a * b)).eqv (Q'.ofNat a * Q'.ofNat b) := by
+  have hd1 : ((Q'.ofNat a * Q'.ofNat b).den : Int) = 1 := rfl
+  have hd2 : ((Q'.ofNat (a * b)).den : Int) = 1 := rfl
+  show ((a * b : Nat) : Int) * ((Q'.ofNat a * Q'.ofNat b).den : Int)
+     = (((a : Nat) : Int) * ((b : Nat) : Int)) * ((Q'.ofNat (a * b)).den : Int)
+  rw [hd1, hd2]; push_cast; omega
+
+/-- Prefactor ratio bound (`Nat`): `(x+2)⁴ ≤ 16·(x+1)⁴`, from `x+2 ≤ 2(x+1)`. -/
+theorem gPrefactor_dom (x : Nat) :
+    SU3.gPrefactor (x + 1) ≤ 16 * SU3.gPrefactor x := by
+  show (x + 2) * (x + 2) * (x + 2) * (x + 2)
+      ≤ 16 * ((x + 1) * (x + 1) * (x + 1) * (x + 1))
+  have h : x + 2 ≤ 2 * (x + 1) := by omega
+  have hmul : (x + 2) * (x + 2) * (x + 2) * (x + 2)
+      ≤ (2 * (x + 1)) * (2 * (x + 1)) * (2 * (x + 1)) * (2 * (x + 1)) :=
+    Nat.mul_le_mul (Nat.mul_le_mul (Nat.mul_le_mul h h) h) h
+  have hac : (2 * (x + 1)) * (2 * (x + 1)) * (2 * (x + 1)) * (2 * (x + 1))
+      = 16 * ((x + 1) * (x + 1) * (x + 1) * (x + 1)) := by
+    have e : (2 * (x + 1)) * (2 * (x + 1)) * (2 * (x + 1)) * (2 * (x + 1))
+        = (2 * 2 * 2 * 2) * ((x + 1) * (x + 1) * (x + 1) * (x + 1)) := by ac_rfl
+    rw [e]
+  omega
+
+/-- Prefactor ratio bound (`Q'`): `gPrefQ (x+1) ≤ 16·gPrefQ x`. -/
+theorem gPrefQ_dom (x : Nat) : gPrefQ (x + 1) ≤ Q'.ofNat 16 * gPrefQ x := by
+  show Q'.ofNat (SU3.gPrefactor (x + 1)) ≤ Q'.ofNat 16 * Q'.ofNat (SU3.gPrefactor x)
+  refine Q'.le_trans' _ _ _ (CReal.ofNat_le_ofNat (gPrefactor_dom x)) ?_
+  exact Q'.le_of_eqv (ofNat_mul_eqv 16 (SU3.gPrefactor x))
+
+/-- AC swap: `(a·b)·(c·d) ≃ (a·d)·(b·c)`. -/
+theorem mul_swap_eqv (a b c d : Q') : ((a * b) * (c * d)).eqv ((a * d) * (b * c)) := by
+  refine Q'.eqv_trans _ _ _ (Q'.mul_assoc_eqv a b (c * d)) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_left a _ _ (Q'.eqv_symm (Q'.mul_assoc_eqv b c d))) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_left a _ _ (Q'.mul_comm_eqv (b * c) d)) ?_
+  exact Q'.eqv_symm (Q'.mul_assoc_eqv a d (b * c))
+
+/-- The geometric majorant sequence `gBound x = (x+1)⁴·(5/12)^{11x}`.
+Matches `gFactor_tail_le`'s bound definitionally. -/
+def gBound (x : Nat) : Q' := gPrefQ x * (Q'.mkPos 5 12 (by decide)) ^ (11 * x)
+
+/-- The geometric ratio `r = 16·(5/12)^{11}`. -/
+def rTail : Q' := Q'.ofNat 16 * (Q'.mkPos 5 12 (by decide)) ^ 11
+
+/-- Each `g(x)` is bounded by `gBound x` (definitionally `gFactor_tail_le`). -/
+theorem gBound_ge (x : Nat) :
+    CReal.leRat (gFactor tCanon tCanon_nonneg x) (gBound x) := gFactor_tail_le x
+
+theorem gBound_nonneg (x : Nat) : (0 : Q') ≤ gBound x :=
+  Q'.mul_nonneg _ _ (ofNat_nonneg _)
+    (Q'.pow_nonneg (Q'.mkPos 5 12 (by decide)) (by decide) (11 * x))
+
+/-- **Geometric domination** `gBound (x+1) ≤ r·gBound x`, `r = 16·(5/12)^{11}`. -/
+theorem gBound_dom (x : Nat) : gBound (x + 1) ≤ rTail * gBound x := by
+  have hpow : ((Q'.mkPos 5 12 (by decide)) ^ (11 * (x + 1))).eqv
+      ((Q'.mkPos 5 12 (by decide)) ^ (11 * x) * (Q'.mkPos 5 12 (by decide)) ^ 11) := by
+    have h11 : 11 * (x + 1) = 11 * x + 11 := by omega
+    rw [h11]; exact pow_add_eqv (Q'.mkPos 5 12 (by decide)) (11 * x) 11
+  have h1 : gBound (x + 1)
+      ≤ (Q'.ofNat 16 * gPrefQ x) * (Q'.mkPos 5 12 (by decide)) ^ (11 * (x + 1)) := by
+    show gPrefQ (x + 1) * (Q'.mkPos 5 12 (by decide)) ^ (11 * (x + 1))
+        ≤ (Q'.ofNat 16 * gPrefQ x) * (Q'.mkPos 5 12 (by decide)) ^ (11 * (x + 1))
+    exact Q'.mul_le_mul_of_nonneg_right _ _ _ (gPrefQ_dom x)
+      (Q'.pow_nonneg (Q'.mkPos 5 12 (by decide)) (by decide) (11 * (x + 1)))
+  have h2 : ((Q'.ofNat 16 * gPrefQ x) * (Q'.mkPos 5 12 (by decide)) ^ (11 * (x + 1))).eqv
+      (rTail * gBound x) :=
+    Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_left (Q'.ofNat 16 * gPrefQ x) _ _ hpow)
+      (mul_swap_eqv (Q'.ofNat 16) (gPrefQ x)
+        ((Q'.mkPos 5 12 (by decide)) ^ (11 * x)) ((Q'.mkPos 5 12 (by decide)) ^ 11))
+  exact Q'.le_trans' _ _ _ h1 (Q'.le_of_eqv h2)
+
+/-! ## The 1-D sum bound `S ≤ 801/800`
+
+Feed `gBound_nonneg`/`gBound_dom`/`gBound 0 = 1` into
+`finSum_geom_uniform` (box `M = 1`, ratio `1/900 ≥ 16·(5/12)^{11}`, tail
+`H = 1/800`), then `leRat_csum` lifts the rational `finSum` bound to the
+`CReal` sum `S = Σ_x g(x)`. -/
+
+set_option maxRecDepth 100000 in
+/-- `r = 16·(5/12)^{11} ≤ 1/900` (a clean rational ratio for the tail). -/
+theorem rTail_le : rTail ≤ Q'.mkPos 1 900 (by decide) := by decide
+
+set_option maxRecDepth 100000 in
+/-- `gBound 1 = 16·(5/12)^{11} ≤ 1/900`. -/
+theorem gBound_one_le : gBound 1 ≤ Q'.mkPos 1 900 (by decide) := by decide
+
+/-- Geometric domination at the clean rational ratio `1/900`. -/
+theorem gBound_dom900 (k : Nat) :
+    gBound (1 + (k + 1)) ≤ Q'.mkPos 1 900 (by decide) * gBound (1 + k) := by
+  have hidx : 1 + (k + 1) = (1 + k) + 1 := by omega
+  rw [hidx]
+  refine Q'.le_trans' _ _ _ (gBound_dom (1 + k)) ?_
+  exact Q'.mul_le_mul_of_nonneg_right _ _ _ rTail_le (gBound_nonneg (1 + k))
+
+/-- The rational majorant sum is bounded uniformly: `finSum gBound N ≤ 801/800`. -/
+theorem finSum_gBound_le (N : Nat) :
+    RationalTail.finSum gBound N ≤ Q'.mkPos 801 800 (by decide) := by
+  have hkey := finSum_geom_uniform gBound 1
+    (Q'.mkPos 1 900 (by decide)) (Q'.mkPos 1 900 (by decide)) (Q'.mkPos 1 800 (by decide))
+    gBound_nonneg (by decide) (by decide) gBound_one_le gBound_dom900 (by decide) N
+  refine Q'.le_trans' _ _ _ hkey ?_
+  show RationalTail.finSum gBound 1 + Q'.mkPos 1 800 (by decide) ≤ Q'.mkPos 801 800 (by decide)
+  decide
+
+/-- **The 1-D character-tail factor sum** `S = Σ_x g(x) ≤ 801/800`,
+uniformly in the truncation `N`.  This is the `Sᵢ ≤ Z_factor` of the U.6
+plan: every truncation of the factor sum is bounded by a clean rational
+with `(801/800)² − 1 < 1/16` (the Module-4 `Z_upper` threshold). -/
+theorem oneDimSum_le (N : Nat) :
+    CReal.leRat (CReal.csum (gFactor tCanon tCanon_nonneg) N)
+      (Q'.mkPos 801 800 (by decide)) :=
+  CReal.leRat_mono
+    (CReal.leRat_csum (gFactor tCanon tCanon_nonneg) gBound gBound_ge N)
+    (finSum_gBound_le N)
 
 end YMGap.Constructive.SU3CharFactor
 
@@ -519,6 +662,11 @@ end YMGap.Constructive.SU3CharFactor
 #print axioms YMGap.Constructive.SU3CharFactor.tail_split
 #print axioms YMGap.Constructive.SU3CharFactor.tail_exp_bound
 #print axioms YMGap.Constructive.SU3CharFactor.gFactor_tail_le
+#print axioms YMGap.Constructive.SU3CharFactor.pow_add_eqv
+#print axioms YMGap.Constructive.SU3CharFactor.gPrefactor_dom
+#print axioms YMGap.Constructive.SU3CharFactor.gBound_dom
+#print axioms YMGap.Constructive.SU3CharFactor.finSum_gBound_le
+#print axioms YMGap.Constructive.SU3CharFactor.oneDimSum_le
 #print axioms YMGap.Constructive.SU3CharFactor.gFactor_box_zero
 #print axioms YMGap.Constructive.SU3CharFactor.gFactor_box_one
 #print axioms YMGap.Constructive.SU3CharFactor.gFactor_box_two

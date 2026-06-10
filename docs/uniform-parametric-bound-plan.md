@@ -189,19 +189,31 @@ All `[propext, Quot.sound]`; baseline 471; strict audit PASS.  The
    ≤ 16·(5/12)^4 < 1` (using `(x+2)/(x+1) ≤ 2`, i.e. `(x+2)⁴ ≤ 16(x+1)⁴`).
    Baseline 478; strict audit PASS.
 
-**NEXT — Module 3c-assembly then `Z_upper`** (the remaining wiring, all
-on the rational `gBound x := (x+1)⁴·(5/12)^{4x}`):
-- geometric domination `gBound(M+(k+1)) ≤ r·gBound(M+k)`, `r = 16·(5/12)^4`,
-  ∀k — reduces to `(x+2)⁴ ≤ 16(x+1)⁴` (a `Nat`/`Q'` general-`x`
-  inequality, `omega`-friendly via `(x+2) ≤ 2(x+1)`) + the `(5/12)^4`
-  geometric factor; `gBound` nonneg, `hf0`, `hrec` are `decide` at fixed
-  `M`;
-- `gFactor_tail_le` ⇒ `∀x, leRat (gFactor x) (gBound x)`, feed
-  `leRat_csum` + `finSum_geom_uniform` ⇒ `S = Σ_x g(x) ≤ finSum gBound M + H`
-  uniformly; choose `M = 4`, bound `finSum gBound 4 + H` by a clean
-  rational `Z_factor ≤ ~1.001` (`decide`);
-- **Module 4:** `Z_t ≤ Z_factor² − 1 < 1/16` (`decide`) → feed
-  `ExpBound.largeField_bf`, replacing the posited `Z_upper_su3 = 1/1000`.
+8. **A1.8 (Module 3c-assembly) — the 1-D sum bound** (`SU3CharFactor.lean`).
+   **DONE.  Module 3 is finished.**  Slope `11` (not `4`): the max slope
+   with an all-positive remainder `(100x²+3x)/27`, so `gBound(1) =
+   16·(5/12)^{11} ≈ 0.001` (slope `4` gave `0.48`, too big), and `M = 1`
+   works with NO piecewise.
+   - `pow_add_eqv` : `q^(a+b) ≃ q^a·q^b` (`.eqv`; `Q'` mul not unital).
+   - `gPrefactor_dom` / `gPrefQ_dom` : `(x+2)⁴ ≤ 16(x+1)⁴` (`Nat`/`Q'`).
+   - `gBound x := (x+1)⁴·(5/12)^{11x}`, `rTail := 16·(5/12)^{11}`;
+     `gBound_dom` : `gBound(x+1) ≤ rTail·gBound x` (geometric domination,
+     ∀x, via `gPrefQ_dom` + `pow_add_eqv` + `mul_swap_eqv`).
+   - `rTail_le`/`gBound_one_le` : `16·(5/12)^{11} ≤ 1/900` (`decide`,
+     `maxRecDepth`); `gBound_dom900` : domination at the clean ratio.
+   - `finSum_gBound_le` : `finSum gBound N ≤ 801/800` ∀N (via
+     `finSum_geom_uniform`, `M=1`, `r=1/900`, `H=1/800`, `gBound 0 = 1`).
+   - **`oneDimSum_le`** : `∀N, leRat (csum (gFactor) N) (801/800)` — the
+     `CReal` 1-D sum `S = Σ_x g(x) ≤ 801/800`, via `leRat_csum`.
+
+   All `[propext, Quot.sound]`; baseline 483; strict audit PASS.
+
+**NEXT — Module 4 (`Z_upper`)**: `Z_t ≤ S² − 1 ≤ (801/800)² − 1 < 1/16`
+(`decide`) — the 2-D factorization `Z_t ≤ (Σ_p g(p))(Σ_q g(q)) − 1 = S²−1`
+(via `charTerm2D_le` + a Fubini/product-of-sums step) feeds
+`ExpBound.largeField_bf`, replacing the posited `Z_upper_su3 = 1/1000`
+with a *proven* tail bound.  `(801/800)² − 1 = 1601/640000 ≈ 0.0025 <
+1/16 = 0.0625` ✓.
 
 - wire `expNeg_leRat` per box term (tight rational) + the geometric
   majorant `B` for the tail into `finSum_geom_uniform` + `leRat_csum` ⇒
