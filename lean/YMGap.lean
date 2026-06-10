@@ -73,6 +73,13 @@ import YMGap.Continuum.Pivot2Moments
 import YMGap.Continuum.Pivot2Nonneg
 import YMGap.Continuum.Pivot2
 import YMGap.Continuum.Pivot2Schur
+import YMGap.Continuum.Pivot3Defs
+import YMGap.Continuum.Pivot3Moments
+import YMGap.Continuum.Pivot3Identity
+import YMGap.Continuum.Pivot3Form
+import YMGap.Continuum.Pivot3
+import YMGap.Continuum.MomentPositivity
+import YMGap.Continuum.E2ProductFunctional
 import YMGap.Continuum.OSAxioms
 import YMGap.Continuum.OSReconstruction
 import YMGap.Continuum.SpectralGap

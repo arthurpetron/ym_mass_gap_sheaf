@@ -133,11 +133,22 @@ measure is positive* (≡ `E(a²) ≥ 0` for all `a` ≡ the Gram matrix
     (c₀+c₁m₁)² + D₁·c₁²` → `geRat_sos_creal`.  Each higher order `N×N`
     follows the SAME pattern (moments→poly, factor by `QPoly`/`decide`, SOS,
     Schur).
-  * **The all-orders certificate** (uniform `D_s ≥ 0` for all `s`) is the
-    irreducible moment-positivity content; route (a) localizes but does not
-    dissolve it.  Per-truncation it is finite; a uniform inductive proof is
-    the open piece.  Alternative: route (b) (Hermite unfolding via Poisson
-    summation) makes positivity manifest but needs theta-function machinery.
+  * **The 3×3 certificate — DONE** (`Continuum/Pivot3*.lean`):
+    `form3_nonneg : 0 ≤ E(a²)` for `a = c₀χ₀+c₁χ₁+c₂χ₂` and ALL real `cᵢ`.
+    Division-free via scaling by `P = 3a⁴+2a²+1 ≥ 1`: `P·form3 ≃ P·M₀² +
+    M₁² + big·M₂²` (a degree-32 identity discharged by `QPoly`/`decide`),
+    then `form3 ≥ 0` by the pointwise `P ≥ 1`.
+  * **The all-orders certificate** (uniform `D_s ≥ 0` for all `s`) — the
+    irreducible moment-positivity content.  PARTIAL (`Continuum/Moment
+    Positivity.lean`): the leading Gram minors factor UNIFORMLY as
+    `Δ_N(a) = S_N(a)²·P_N(a)` with `P_N` a nonnegative-coefficient polynomial
+    (so `Δ_N ≥ 0` with no per-N SOS search) — verified exact through N=6,
+    proved end-to-end at N=3 (`delta3_nonneg_at`) with a reusable
+    nonneg-coefficient positivity engine (`geRat_minor_factored`).  OPEN: the
+    uniform N-indexed construction of `(S_N, P_N)` (most promising route: the
+    Favard three-term recurrence `β_s(a) ≥ 0`), the moment-bridge per order,
+    and the Sylvester `(∀N Δ_N≥0) ⇒ PSD` step.  Alternative: route (b)
+    (Hermite/Poisson) makes positivity manifest but needs theta machinery.
   * **E2 (cluster expansion / infinite volume)**, **E3 (RG transport)** —
     the analytic core, interleaved with B2's OS axioms.
 
