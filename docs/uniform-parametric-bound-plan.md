@@ -70,6 +70,33 @@ geometric majorant (also genuine-exp) carries the small tail.
 `charTerm_leRat`/`termMaj` remains a *valid* bound, tight only when `t·C₂`
 is small.
 
+**DONE — A1 character-tail assembly, Modules 1–2 (as of 2026-06-10).**
+The termwise factorization `a(p,q) = dim(p,q)²·e^{−t·C₂} ≤ g(p)·g(q)`,
+`g(x) = (x+1)⁴·e^{−t·f(x)}`, mirroring `computations/su3_character_sum.py`:
+
+1. **A1.1 — irrep data + combinatorial bounds** (`RepTheory/SU3.lean`).
+   `dim(p,q)`, `threeCasimir = 3·C₂`, `threeF = 3·f` as `(p,q)`-polynomials
+   (`Nat`); `casimir_split_le` (`f(p)+f(q) ≤ C₂`, drop `pq/3 ≥ 0`),
+   `add_le_two_mul` (`u+v ≤ 2uv`), `dim_le`/`dimSq_le`
+   (`dim² ≤ (p+1)⁴(q+1)⁴ = gPrefactor p · q`).  Spec values by `decide`.
+2. **A1.2 — `Q'` data + prefactor/cross-term halves** (`Constructive/
+   SU3CharFactor.lean`).  `fQ`/`casimirQ`/`crossQ`/`gPrefQ`/`dimSqQ` (`Q'`
+   renderings, nonneg); `threeCasimir_split_eq` (the *exact* split
+   `3·C₂ = 3f(p)+3f(q)+pq`, equality form); `dimSqQ_le` (prefactor half,
+   `leRat`-ready); `expNeg_le_one` (cross-term factor `e^{−x} ≤ 1`,
+   closing the `expNeg_le_one_of_nonneg` item flagged in `ExpNeg.lean`).
+
+Both modules `lake build` green; axiom audit (strict) PASS, `[propext]`
+or `[propext, Quot.sound]` (omega) only; baseline 459 theorems.
+
+**Remaining for the per-term factorization `charTerm2D_le`** — the
+*exponent half*: assemble `e^{−t·C₂} = e^{−t·f(p)}·e^{−t·f(q)}·e^{−t·(pq/3)}`
+via the addition law `expNeg_add_equiv`.  This needs one new substrate
+lemma, **`expNeg_eqv_congr`** (`expNeg` respects `.eqv` of its argument),
+because `t·C₂` equals `t·f(p)+t·f(q)+t·(pq/3)` only up to `.eqv` (`Q'`
+addition is not definitional).  That lemma + the two `leRat_mul`
+applications + `dimSqQ_le` close `charTerm2D_le`.
+
 **NEXT — concrete SU(3) `Z_upper` assembly** (U.6 (i)–(iii), all
 `decide`-heavy SU(3)-specific engineering, no new mathematics; use
 `computations/su3_character_sum.py` for the exact `M`, truncation depth
