@@ -446,6 +446,69 @@ theorem gFactor_box_three :
         (by decide) (by decide)))
     (by decide)
 
+/-! ## Module 3c-tail — the general-`x` per-term bound
+
+For the *infinite* tail the box's per-`x` `decide` won't do; we need a
+bound at general `x`.  Use a **linear** integer lower bound `n_x = 4x`
+on `t·f(x) = (100/9)·(x²+3x)/3 = (100x²+300x)/27`: the explicit remainder
+`r_x = t·f(x) − 4x = (100x²+192x)/27 ≥ 0` gives the split
+`t·f(x) ≃ 4x + r_x` (no `Q'` subtraction), so `box_term_bound` yields
+`e^{−t·f(x)} ≤ (5/12)^{4x}` for *every* `x` (`tail_exp_bound`), and
+`gFactor_le` gives `g(x) ≤ (x+1)⁴·(5/12)^{4x}` (`gFactor_tail_le`).  The
+slope `4` is the minimum making the resulting gBound ratio
+`((x+2)/(x+1))⁴·(5/12)^4 ≤ 16·(5/12)^4 < 1` (next: the geometric tail). -/
+
+/-- The general-`x` exponent split `t·f(x) ≃ 4x + (100x²+192x)/27`. -/
+theorem tail_split (x : Nat) :
+    (tCanon * fQ x).eqv
+      (Q'.ofNat (4 * x)
+        + Q'.mkPos ((100 * (x * x) + 192 * x : Nat) : Int) 27 (by decide)) := by
+  show (tCanon * fQ x).num
+        * ((Q'.ofNat (4 * x)
+            + Q'.mkPos ((100 * (x * x) + 192 * x : Nat) : Int) 27 (by decide)).den : Int)
+     = (Q'.ofNat (4 * x)
+          + Q'.mkPos ((100 * (x * x) + 192 * x : Nat) : Int) 27 (by decide)).num
+        * ((tCanon * fQ x).den : Int)
+  have hLnum : (tCanon * fQ x).num = 100 * (SU3.threeF x : Int) := rfl
+  have hLden : (tCanon * fQ x).den = 27 := rfl
+  have hRnum : (Q'.ofNat (4 * x)
+        + Q'.mkPos ((100 * (x * x) + 192 * x : Nat) : Int) 27 (by decide)).num
+      = (Int.ofNat (4 * x)) * 27 + ((100 * (x * x) + 192 * x : Nat) : Int) * 1 := rfl
+  have hRden : (Q'.ofNat (4 * x)
+        + Q'.mkPos ((100 * (x * x) + 192 * x : Nat) : Int) 27 (by decide)).den = 27 := rfl
+  rw [hLnum, hLden, hRnum, hRden]
+  show 100 * (SU3.threeF x : Int) * ((27 : Nat) : Int)
+     = (Int.ofNat (4 * x) * 27 + ((100 * (x * x) + 192 * x : Nat) : Int) * 1)
+        * ((27 : Nat) : Int)
+  have hf : (SU3.threeF x : Int) = (x : Int) * (x : Int) + 3 * (x : Int) := by
+    show ((x * x + 3 * x : Nat) : Int) = (x : Int) * (x : Int) + 3 * (x : Int)
+    push_cast; omega
+  -- core identity (no ·27): 100·threeF x = 4x·27 + (100x²+192x)
+  have ha : Int.ofNat (4 * x) = 4 * (x : Int) := by
+    show ((4 * x : Nat) : Int) = 4 * (x : Int); push_cast; omega
+  have key : (100 : Int) * (SU3.threeF x : Int)
+      = Int.ofNat (4 * x) * 27 + ((100 * (x * x) + 192 * x : Nat) : Int) * 1 := by
+    rw [hf, ha]; push_cast; omega
+  rw [key]
+
+/-- `e^{−t·f(x)} ≤ (5/12)^{4x}` for every `x` — the general-`x` box bound. -/
+theorem tail_exp_bound (x : Nat) :
+    CReal.leRat (ExpNeg.expNeg (tCanon * fQ x) (tfQ_nonneg tCanon x tCanon_nonneg))
+      ((Q'.mkPos 5 12 (by decide)) ^ (4 * x)) :=
+  box_term_bound tCanon tCanon_nonneg x (4 * x)
+    (Q'.mkPos ((100 * (x * x) + 192 * x : Nat) : Int) 27 (by decide))
+    (by rw [Q'.zero_le_iff_num_nonneg]; exact Int.natCast_nonneg _)
+    (tail_split x)
+
+/-- `g(x) ≤ (x+1)⁴·(5/12)^{4x}` for every `x` — the general-`x` tail factor
+bound consumed by the geometric domination. -/
+theorem gFactor_tail_le (x : Nat) :
+    CReal.leRat (gFactor tCanon tCanon_nonneg x)
+      (gPrefQ x * (Q'.mkPos 5 12 (by decide)) ^ (4 * x)) :=
+  gFactor_le tCanon tCanon_nonneg x ((Q'.mkPos 5 12 (by decide)) ^ (4 * x))
+    (Q'.pow_nonneg (Q'.mkPos 5 12 (by decide)) (by decide) (4 * x))
+    (tail_exp_bound x)
+
 end YMGap.Constructive.SU3CharFactor
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
@@ -453,6 +516,9 @@ end YMGap.Constructive.SU3CharFactor
 #print axioms YMGap.Constructive.SU3CharFactor.expNeg_nat_le
 #print axioms YMGap.Constructive.SU3CharFactor.box_term_bound
 #print axioms YMGap.Constructive.SU3CharFactor.box_term_canon_one
+#print axioms YMGap.Constructive.SU3CharFactor.tail_split
+#print axioms YMGap.Constructive.SU3CharFactor.tail_exp_bound
+#print axioms YMGap.Constructive.SU3CharFactor.gFactor_tail_le
 #print axioms YMGap.Constructive.SU3CharFactor.gFactor_box_zero
 #print axioms YMGap.Constructive.SU3CharFactor.gFactor_box_one
 #print axioms YMGap.Constructive.SU3CharFactor.gFactor_box_two

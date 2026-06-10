@@ -171,19 +171,37 @@ All `[propext, Quot.sound]`; baseline 471; strict audit PASS.  The
    machinery (`box_term_bound → gFactor_le → decide`) is demonstrated
    end-to-end on real SU(3) numbers.
 
-**NEXT — Module 3c-tail (the general-`x` geometric tail) then `Z_upper`**:
-the remaining piece is the *infinite* tail `Σ_{x ≥ M} g(x) ≤ H`.  Unlike
-the box, it needs a **general-`x`** bound (not per-`x` `decide`): a
-`QSeq` `gBound` with `∀x, leRat (g(x)) (gBound x)` AND geometric
-domination `gBound(M+(k+1)) ≤ r·gBound(M+k)` for all `k`, fed to
-`finSum_geom_uniform`.  The ratio `g(x+1)/g(x) =
-((x+2)/(x+1))⁴·e^{−t·(2x+4)/3}` is `< 1` and decreasing, but proving the
-uniform rational `r`-domination over all `k` needs a general-`x`
-induction (e.g. `g(x) ≤ g(M)·r^{x−M}` for `x ≥ M`, using a *linear*
-lower bound `n_x ≥ a·x + b` on the floor `⌊t·f(x)⌋` so `(5/12)^{n_x}`
-gives a clean geometric factor that dominates the `(x+1)⁴` prefactor).
-With `S ≤ box + H ≤ ~1.001`, the `Z_upper` assembly (Module 4) is then
-`Z_t ≤ S²−1 < 1/16` by `decide`, fed to `ExpBound.largeField_bf`.
+7. **A1.7 (Module 3c-tail) — the general-`x` per-term bound**
+   (`SU3CharFactor.lean`).  **DONE.**  The general-`x` capability an
+   *infinite* tail needs (the box's per-`x` `decide` won't do):
+   - `tail_split` : `t·f(x) ≃ 4x + (100x²+192x)/27` — the linear lower
+     bound `n_x = 4x` with explicit nonneg remainder, so *no* `Q'`
+     subtraction; the general-`x` `.eqv` is a cross-mult + `omega`
+     (with `↑x·↑x` as an atom).
+   - `tail_exp_bound` : `e^{−t·f(x)} ≤ (5/12)^{4x}` for *every* `x`, via
+     `box_term_bound` (general `x`) — the power law applied at a linear
+     integer exponent.
+   - `gFactor_tail_le` : `g(x) ≤ (x+1)⁴·(5/12)^{4x}` for *every* `x`
+     (`gPrefQ x · (5/12)^{4x}`), via `gFactor_le`.
+
+   Slope `4` is chosen so the resulting `gBound(x) = (x+1)⁴·(5/12)^{4x}`
+   has ratio `gBound(x+1)/gBound(x) = ((x+2)/(x+1))⁴·(5/12)^4
+   ≤ 16·(5/12)^4 < 1` (using `(x+2)/(x+1) ≤ 2`, i.e. `(x+2)⁴ ≤ 16(x+1)⁴`).
+   Baseline 478; strict audit PASS.
+
+**NEXT — Module 3c-assembly then `Z_upper`** (the remaining wiring, all
+on the rational `gBound x := (x+1)⁴·(5/12)^{4x}`):
+- geometric domination `gBound(M+(k+1)) ≤ r·gBound(M+k)`, `r = 16·(5/12)^4`,
+  ∀k — reduces to `(x+2)⁴ ≤ 16(x+1)⁴` (a `Nat`/`Q'` general-`x`
+  inequality, `omega`-friendly via `(x+2) ≤ 2(x+1)`) + the `(5/12)^4`
+  geometric factor; `gBound` nonneg, `hf0`, `hrec` are `decide` at fixed
+  `M`;
+- `gFactor_tail_le` ⇒ `∀x, leRat (gFactor x) (gBound x)`, feed
+  `leRat_csum` + `finSum_geom_uniform` ⇒ `S = Σ_x g(x) ≤ finSum gBound M + H`
+  uniformly; choose `M = 4`, bound `finSum gBound 4 + H` by a clean
+  rational `Z_factor ≤ ~1.001` (`decide`);
+- **Module 4:** `Z_t ≤ Z_factor² − 1 < 1/16` (`decide`) → feed
+  `ExpBound.largeField_bf`, replacing the posited `Z_upper_su3 = 1/1000`.
 
 - wire `expNeg_leRat` per box term (tight rational) + the geometric
   majorant `B` for the tail into `finSum_geom_uniform` + `leRat_csum` ⇒
