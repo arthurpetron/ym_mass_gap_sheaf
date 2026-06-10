@@ -1,7 +1,7 @@
 {
   "teper": 3.74,
-  "_note": "rmax bounds the Cornell-fit r-window at the noise onset of V(r): the last r before the static-potential increments stop decreasing (V(r) must be concave: increment -> sigma a^2 from above). This drops the anomalous high r=8 point at L16/L20/L24 and the r=11 spike at L28, and is independently consistent with the matched-volume run design L*sqrt(sigma)a ~ 4.2.",
-  "_provisional": "sigma at L24 (beta=2.50) and L28 (beta=2.55) is NOT yet reliable: at these spacings the static potential loses signal (r~8-10) before reaching a clean linear regime, so sigma swings by ~2x with rmax (ratio 3.4-5.5). These two points dominate the a->0 lever arm, so the continuum m(0++)/sqrt(sigma) below is INDICATIVE ONLY. A trustworthy continuum value needs more fine-a statistics: larger Wilson-loop extent and/or more configs at L24/L28 (and L32) so V(r) reaches the asymptotic linear regime with signal.",
+  "_note": "Matched-volume series: L grows with beta (12,16,20,24,28,32) to hold the physical box L*sqrt(sigma)a roughly fixed as a->0, suppressing the torelon contamination of the scalar channel. rmax bounds the Cornell-fit r-window at the noise onset of V(r): the last r before the static-potential increments stop decreasing monotonically (V(r) must be concave; the increment -> sigma a^2 from above). Cuts are read directly from the per-point dV(r) table: L24/L28 stay clean through r=7 (jump at r=8), L32 through r=6.",
+  "_provisional": "The three fine points (beta=2.50/2.55/2.60) now carry high statistics (800k-960k configs at L24/L28; 300k at L32). The 0++ glueball mass m_0 a is well-resolved at all three (sub-2% jackknife). The string tension remains the limiting observable: even at this statistics V(r) loses signal (r~7) before reaching a long clean linear regime, so the Cornell-fit sigma a^2 carries a large jackknife error (~30% at L28, and sigma is effectively undetermined at L32 b2.60 where only 300k configs were collected at the finest/noisiest spacing). The continuum m(0++)/sqrt(sigma) intercept below is therefore consistent with the Teper value but NOT a sharper determination; it is dominated by the sigma uncertainty, not the glueball. A trustworthy sharpening needs more fine-a sigma statistics (larger Wilson-loop extent and/or more configs at L28/L32) so V(r) reaches the asymptotic linear regime with signal.",
   "points": [
     {
       "beta": 2.3,
@@ -25,17 +25,24 @@
     },
     {
       "beta": 2.5,
-      "glue": "visualizations/pilot/su2/glueball-L24-b2.50.json",
-      "sigma": "visualizations/pilot/su2/sigma-L24-b2.50.json",
+      "glue": "visualizations/pilot/su2/glueball-L24-b2.50-hi.json",
+      "sigma": "visualizations/pilot/su2/sigma-L24-b2.50-hi.json",
       "rmin": 2,
       "rmax": 7
     },
     {
       "beta": 2.55,
-      "glue": "visualizations/pilot/su2/glueball-L28-b2.55.json",
-      "sigma": "visualizations/pilot/su2/sigma-L28-b2.55.json",
+      "glue": "visualizations/pilot/su2/glueball-L28-b2.55-hi.json",
+      "sigma": "visualizations/pilot/su2/sigma-L28-b2.55-hi.json",
       "rmin": 2,
-      "rmax": 10
+      "rmax": 7
+    },
+    {
+      "beta": 2.6,
+      "glue": "visualizations/pilot/su2/glueball-L32-b2.60.json",
+      "sigma": "visualizations/pilot/su2/sigma-L32-b2.60.json",
+      "rmin": 2,
+      "rmax": 6
     }
   ]
 }

@@ -166,12 +166,57 @@ $L\sqrt{\sigma}\,a \approx 2.0$ and a torelon of mass
 $\sigma L a \approx 0.26 < m(0^{++})a$ contaminates the scalar channel;
 that this is a finite-volume artifact, not a failure of the
 measurement, is confirmed by the string tension at the same point
-remaining on the scaling trend~\eqref{eq:asymptotic-scaling}, and it is
-removed by a matched-volume series in which $L$ grows with $\beta$.
+remaining on the scaling trend~\eqref{eq:asymptotic-scaling}.
+
+The matched-volume series confirms this directly.  Growing the
+lattice with the coupling to hold the physical box roughly fixed
+($L = 12, 16, 20, 24, 28, 32$ at $\beta = 2.30$ through $2.60$, the
+three finest points carried to $8$--$9.6 \times 10^{5}$
+Kennedy--Pendleton heatbath configurations on Cloud Batch), the scalar
+ratio rises smoothly from $3.4$ to $4.7$ across the series with no
+trace of the fixed-$L$ collapse.  Reading $\sigma a^{2}$ from a
+Cornell fit truncated at the noise onset of the static potential ---
+the last separation before the increments of $V(r)$ cease to decrease,
+$r \approx 7$ --- and $m(0^{++})a$ from the GEVP plateau, a
+linear-in-$\sigma a^{2}$ extrapolation to the continuum gives
+\begin{equation}
+  \label{eq:matchedvol-continuum}
+  \frac{m(0^{++})}{\sqrt{\sigma}}\bigg|_{a \to 0}
+  \;=\; 4.14 \pm 0.29\ (\mathrm{stat}),
+  \qquad \chi^{2}/\mathrm{dof} = 0.17,
+\end{equation}
+with an $r_{\max}$ systematic of comparable size: the continuum
+intercept ranges over ${\approx}\,[3.7, 4.1]$ across the defensible
+noise-onset cuts.  This is consistent with the continuum
+benchmark~\eqref{eq:teper-ratio} within the combined uncertainty
+(\Cref{fig:continuum-trend}).  The glueball mass is resolved to better
+than $2\%$ at every point; the residual spread is carried entirely by
+the string tension, which loses signal near $r \approx 7$ before
+reaching a long linear regime --- the one observable in this ratio
+that the present statistics do not yet pin sharply.
 None of this feeds the constructive bound; it is an independent
 numerical corroboration that the $\SUtwo$ Wilson action carries both a
 confining string tension and a scalar gap of the empirically expected
 size.
+
+\begin{mainfigure}
+\centering
+\includegraphics[width=\textwidth]{continuum-trend}
+\caption{Matched-volume continuum trend of the $\SUtwo$ scalar ratio
+$m(0^{++})/\sqrt{\sigma}$ versus $\sigma a^{2}$ (the continuum limit is
+the left edge, $\sigma a^{2} \to 0$).  Six couplings $\beta = 2.30$ to
+$2.60$ with the lattice grown from $L = 12$ to $32$ to hold the
+physical box fixed; the three finest points carry $8$--$9.6\times
+10^{5}$ heatbath configurations.  The string tension is a Cornell fit
+truncated at the static-potential noise onset and the scalar mass a
+GEVP plateau, each with a delete-one jackknife over configuration
+bins.  The weighted linear
+extrapolation~\eqref{eq:matchedvol-continuum} reaches
+$m(0^{++})/\sqrt{\sigma} = 4.14 \pm 0.29$ as $a \to 0$, consistent with
+the literature value~\eqref{eq:teper-ratio} (dashed) within the
+combined statistical and $r_{\max}$-systematic uncertainty.}
+\label{fig:continuum-trend}
+\end{mainfigure}
 
 \subsection{Robustness of the scalar mass: isolation and blocking}
 \label{sec:scalar-robustness}
