@@ -63,6 +63,7 @@ import YMGap.RG.SigmaHatPilot
 import YMGap.RG.SigmaHatPilotUV
 import YMGap.Continuum.SigmaHatLimit
 import YMGap.Continuum.ContinuumMeasure
+import YMGap.Continuum.ObservableMeasure
 import YMGap.Continuum.OSAxioms
 import YMGap.Continuum.OSReconstruction
 import YMGap.Continuum.SpectralGap
