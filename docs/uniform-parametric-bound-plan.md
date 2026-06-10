@@ -111,10 +111,34 @@ audit PASS.  The per-term factorization `a(p,q) ≤ g(p)·g(q)` (the
 the per-axis exp bounds `bp, bq` (supplied per-`x` by the box/tail of
 Module 3).
 
-**NEXT — concrete SU(3) `Z_upper` assembly** (U.6 (i)–(iii), all
-`decide`-heavy SU(3)-specific engineering, no new mathematics; use
-`computations/su3_character_sum.py` for the exact `M`, truncation depth
-`K`, and box rationals):
+4. **A1.4 (Module 3a) — the 1-D factor + per-term bound** (`SU3CharFactor.lean`).
+   `gFactor t x = (x+1)⁴·e^{−t·f(x)}` (`CReal`); `gFactor_le`:
+   `g(x) ≤ (x+1)⁴·b` given `b ≥ e^{−t·f(x)}` — the term shape `leRat_csum`
+   consumes for the 1-D sum `S = Σ_x g(x)`.  Plus `expNeg_le_drop`:
+   `e^{−(y+z)} ≤ e^{−y}` (`z ≥ 0`), friction-free via the addition law +
+   `expNeg_le_one`.  Baseline 468; strict audit PASS.
+
+**KEY FINDING (box bound is beyond `decide`).**  The box-must-be-tight
+terms need `e^{−t·f(x)}` at `t·f(x) ≈ 15` (`x=1`), `≈ 37` (`x=2`), …  Per
+`ExpNeg.lean`'s `expNeg_one_leRat` docstring, the tight `expNeg_leRat`
+certificate there needs `K ≳ 30` with astronomically large partial-sum
+numerators/denominators — **beyond `decide`**.  So the box cannot be
+discharged by a direct `expNeg_leRat` + `decide`.  Resolution (Module 3b):
+bound `e^{−t·f(x)} ≤ e^{−n} ≤ (5/12)^n`, `n = ⌊t·f(x)⌋`, using
+
+  * `expNeg_le_drop` (DONE): `e^{−(n+r)} ≤ e^{−n}` for the fractional part
+    `r = t·f(x) − n ≥ 0` (needs the `Q'` identity `t·f(x) ≃ n + r`);
+  * a power law `e^{−n} ≤ (5/12)^n` (`e^{−n} = (e^{−1})^n` by `n`-fold
+    addition law, `e^{−1} ≤ 5/12` = `expNeg_one_leRat`, power-monotone);
+  * `(5/12)^n` is a clean `decide`-able rational, crushing the `(x+1)⁴`
+    prefactor (e.g. `x=1`: `16·(5/12)^14 ≈ 7×10⁻⁵`).
+
+Then `gFactor_le` per box term + the geometric majorant for the far tail
+feed `finSum_geom_uniform` + `leRat_csum` ⇒ `S ≤ box + H`.
+
+**NEXT — Module 3b (box power-bound) then the `Z_upper` assembly** (U.6
+(i)–(iii); use `computations/su3_character_sum.py` for the exact `M`,
+truncation depth, and box rationals):
 
 - wire `expNeg_leRat` per box term (tight rational) + the geometric
   majorant `B` for the tail into `finSum_geom_uniform` + `leRat_csum` ⇒

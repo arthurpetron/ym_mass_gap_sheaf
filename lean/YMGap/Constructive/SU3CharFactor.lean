@@ -277,10 +277,53 @@ theorem charTerm2D_le (t : Q') (p q : Nat) (ht : (0 : Q') ≤ t)
     (ofNat_nonneg _)
     (Q'.mul_nonneg bp bq hbp0 hbq0)
 
+/-! ## Module 3a — the 1-D factor and its per-term bound
+
+The character tail factorizes as `Z_t ≤ S² − 1` with the 1-D factor sum
+`S = Σ_x g(x)`, `g(x) = (x+1)⁴·e^{−t·f(x)}` (`gFactor`).  `gFactor_le`
+bounds each `g(x)` by `(x+1)⁴·b` given a per-term exp bound
+`b ≥ e^{−t·f(x)}` — the term shape `leRat_csum` consumes for the 1-D sum.
+
+`expNeg_le_drop` is the monotone-decreasing step
+`e^{−(y+z)} ≤ e^{−y}` (`z ≥ 0`): the box terms' exponents `t·f(x) ≈ 15–40`
+are beyond a `decide`-able `expNeg_leRat` certificate (see `ExpNeg.lean`,
+`expNeg_one_leRat` docstring), so the box bound goes through
+`e^{−t·f(x)} ≤ e^{−n} ≤ (5/12)^n` (`n = ⌊t·f(x)⌋`); this lemma is the
+`e^{−(n+r)} ≤ e^{−n}` half of that, friction-free via the addition law
+and `expNeg_le_one` (no `Q'` subtraction). -/
+
+/-- The 1-D character-tail factor `g(x) = (x+1)⁴·e^{−t·f(x)}` as a `CReal`. -/
+def gFactor (t : Q') (ht : (0 : Q') ≤ t) (x : Nat) : CReal :=
+  CReal.mul (CReal.ofQ' (gPrefQ x)) (ExpNeg.expNeg (t * fQ x) (tfQ_nonneg t x ht))
+
+/-- **Per-term factor bound.**  `g(x) ≤ (x+1)⁴·b` given `b ≥ e^{−t·f(x)}`. -/
+theorem gFactor_le (t : Q') (ht : (0 : Q') ≤ t) (x : Nat) (b : Q')
+    (hb0 : (0 : Q') ≤ b)
+    (hb : CReal.leRat (ExpNeg.expNeg (t * fQ x) (tfQ_nonneg t x ht)) b) :
+    CReal.leRat (gFactor t ht x) (gPrefQ x * b) :=
+  CReal.leRat_mul
+    (CReal.leRat_ofQ' (Q'.le_refl' (gPrefQ x))) hb
+    (ExpPos.geRat_of_eventually ⟨0, fun _ _ => ofNat_nonneg (SU3.gPrefactor x)⟩)
+    (expNeg_geRat_zero _ _)
+    (ofNat_nonneg _) hb0
+
+/-- **Drop step** `e^{−(y+z)} ≤ e^{−y}` for `z ≥ 0`: the second factor
+`e^{−z} ≤ 1` is absorbed.  Transfers any rational bound `c ≥ e^{−y}`. -/
+theorem expNeg_le_drop {y z : Q'} (hy : (0 : Q') ≤ y) (hz : (0 : Q') ≤ z)
+    (c : Q') (hc0 : (0 : Q') ≤ c)
+    (hc : CReal.leRat (ExpNeg.expNeg y hy) c) :
+    CReal.leRat (ExpNeg.expNeg (y + z) (Q'.zero_le_add y z hy hz)) c := by
+  refine CReal.leRat_mono ?_ (Q'.le_of_eqv (Q'.mul_one_eqv c))
+  refine CReal.leRat_of_equiv (CReal.Equiv.symm (expNeg_add_equiv y z hy hz)) ?_
+  exact CReal.leRat_mul hc (expNeg_le_one z hz)
+    (expNeg_geRat_zero _ _) (expNeg_geRat_zero _ _) hc0 (by decide)
+
 end YMGap.Constructive.SU3CharFactor
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
 
+#print axioms YMGap.Constructive.SU3CharFactor.gFactor_le
+#print axioms YMGap.Constructive.SU3CharFactor.expNeg_le_drop
 #print axioms YMGap.Constructive.SU3CharFactor.charTerm2D_le
 #print axioms YMGap.Constructive.SU3CharFactor.expNeg_casimir_le
 #print axioms YMGap.Constructive.SU3CharFactor.mkPos3_add_eqv
