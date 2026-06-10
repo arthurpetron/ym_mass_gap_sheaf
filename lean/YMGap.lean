@@ -44,6 +44,7 @@ import YMGap.Constructive.CRealSum
 import YMGap.Constructive.FinSumGeom
 import YMGap.Constructive.CharacterTail
 import YMGap.Constructive.CharacterTermBound
+import YMGap.Constructive.ExpNegCongr
 import YMGap.Constructive.SU3CharFactor
 import YMGap.RepTheory.SU2
 import YMGap.RepTheory.SU3

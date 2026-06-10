@@ -89,13 +89,27 @@ The termwise factorization `a(p,q) = dim(p,q)²·e^{−t·C₂} ≤ g(p)·g(q)`,
 Both modules `lake build` green; axiom audit (strict) PASS, `[propext]`
 or `[propext, Quot.sound]` (omega) only; baseline 459 theorems.
 
-**Remaining for the per-term factorization `charTerm2D_le`** — the
-*exponent half*: assemble `e^{−t·C₂} = e^{−t·f(p)}·e^{−t·f(q)}·e^{−t·(pq/3)}`
-via the addition law `expNeg_add_equiv`.  This needs one new substrate
-lemma, **`expNeg_eqv_congr`** (`expNeg` respects `.eqv` of its argument),
-because `t·C₂` equals `t·f(p)+t·f(q)+t·(pq/3)` only up to `.eqv` (`Q'`
-addition is not definitional).  That lemma + the two `leRat_mul`
-applications + `dimSqQ_le` close `charTerm2D_le`.
+3. **A1.3 — the per-term factorization capstone** (`Constructive/
+   ExpNegCongr.lean`, `SU3CharFactor.lean`).  **DONE.**
+   - `expNeg_eqv_congr` (new substrate lemma, `[propext]`-only): `expNeg`
+     respects `.eqv` of its argument.  `term`/`partialSum` are pure `Q'`
+     arithmetic, hence `.eqv`-congruent in `x` (`term_eqv`,
+     `partialSum_eqv`); `.eqv`-equal exponents give `Equiv` limits.
+   - `mkPos3_add_eqv` / `casimirQ_split_eqv`: the exact `Q'` exponent split
+     `t·C₂ ≃ t·f(p)+(t·f(q)+t·pq/3)` (same-denominator-3 addition).
+   - `expNeg_casimir_le`: the *exponent half*, `e^{−t·C₂} ≤ bp·bq` —
+     transport across the `.eqv` split (`expNeg_eqv_congr`), split the
+     product via `expNeg_add_equiv`, absorb the cross factor `e^{−t·pq/3}
+     ≤ 1` (`expNeg_le_one`).
+   - `charTerm2D_le`: the full termwise majorant
+     `dim(p,q)²·e^{−t·C₂} ≤ (p+1)⁴(q+1)⁴·bp·bq = g(p)·g(q)`, combining
+     the prefactor half (`dimSqQ_le`) and exponent half via `leRat_mul`.
+
+All `[propext]` or `[propext, Quot.sound]`; baseline 466 theorems; strict
+audit PASS.  The per-term factorization `a(p,q) ≤ g(p)·g(q)` (the
+"termwise covers all irreps" obligation) is now closed, parametrized by
+the per-axis exp bounds `bp, bq` (supplied per-`x` by the box/tail of
+Module 3).
 
 **NEXT — concrete SU(3) `Z_upper` assembly** (U.6 (i)–(iii), all
 `decide`-heavy SU(3)-specific engineering, no new mathematics; use
