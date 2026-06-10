@@ -136,9 +136,33 @@ bound `e^{−t·f(x)} ≤ e^{−n} ≤ (5/12)^n`, `n = ⌊t·f(x)⌋`, using
 Then `gFactor_le` per box term + the geometric majorant for the far tail
 feed `finSum_geom_uniform` + `leRat_csum` ⇒ `S ≤ box + H`.
 
-**NEXT — Module 3b (box power-bound) then the `Z_upper` assembly** (U.6
-(i)–(iii); use `computations/su3_character_sum.py` for the exact `M`,
-truncation depth, and box rationals):
+5. **A1.5 (Module 3b) — the power law (beyond `decide`)** (`SU3CharFactor.lean`).
+   **DONE.**  The new-math step that breaks the `decide` wall:
+   - `expNeg_nat_le` : `e^{−n} ≤ (5/12)^n` for all `n : Nat`, by induction
+     — `e^{−(n+1)} ≃ e^{−n}·e^{−1} ≤ (5/12)^n·(5/12)` via the addition law,
+     `expNeg_one_leRat` (`decide`-able at the tractable argument `1`), and
+     the IH; integer exponent transported across `ofNat(n+1) ≃ ofNat n + 1`
+     with `expNeg_eqv_congr`.
+   - `box_term_bound` : `e^{−t·f(x)} ≤ (5/12)^n` whenever `t·f(x) ≃ n + r`
+     (`r ≥ 0`) — `expNeg_le_drop` (drop `r`) + `expNeg_nat_le` + transport.
+     The split `t·f(x) ≃ n + r` is `decide`-able at concrete `(t, x)`.
+   - `box_term_canon_one` : at `t = 100/9` (`tCanon`), `e^{−400/27} ≤
+     (5/12)^14` — a *proven* bound at exponent `≈ 14.8`, where direct
+     `expNeg_leRat` needs astronomically large `decide`-infeasible partial
+     sums.  `(5/12)^14 ≈ 4.8×10⁻⁶`, so `g(1) ≤ 16·(5/12)^14 ≈ 7×10⁻⁵`.
+
+All `[propext, Quot.sound]`; baseline 471; strict audit PASS.  The
+`decide` wall is broken: any box term is now bounded by a `decide`-able
+`(5/12)^n`.
+
+**NEXT — Module 3c (1-D sum assembly) then `Z_upper`** (U.6 (ii)–(iii);
+use `computations/su3_character_sum.py` for the box cutoff `M` and the
+geometric tail ratio):
+- per box term `x < M`: `box_term_bound` ⇒ `e^{−t·f(x)} ≤ (5/12)^{n_x}`,
+  then `gFactor_le` ⇒ `g(x) ≤ (x+1)⁴·(5/12)^{n_x}` (`decide`-able `Q'`);
+- far tail `x ≥ M`: geometric majorant `expNeg_le_geomMaj` ⇒ `gBound`;
+- assemble the rational `gBound : QSeq`, feed `finSum_geom_uniform` +
+  `leRat_csum` ⇒ `S = Σ_x g(x) ≤ box + H`;
 
 - wire `expNeg_leRat` per box term (tight rational) + the geometric
   majorant `B` for the tail into `finSum_geom_uniform` + `leRat_csum` ⇒

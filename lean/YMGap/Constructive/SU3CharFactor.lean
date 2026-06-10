@@ -43,6 +43,7 @@ import YMGap.RepTheory.SU3
 import YMGap.Constructive.Soundness
 import YMGap.Constructive.CRealMulLe
 import YMGap.Constructive.ExpNegCongr
+import YMGap.Constructive.CauchyConv
 
 namespace YMGap.Constructive.SU3CharFactor
 
@@ -318,10 +319,90 @@ theorem expNeg_le_drop {y z : Q'} (hy : (0 : Q') ≤ y) (hz : (0 : Q') ≤ z)
   exact CReal.leRat_mul hc (expNeg_le_one z hz)
     (expNeg_geRat_zero _ _) (expNeg_geRat_zero _ _) hc0 (by decide)
 
+/-! ## Module 3b — the power law and `decide`-able box bounds
+
+The box terms need `e^{−t·f(x)}` at `t·f(x) ≈ 15–40`, where the tight
+`expNeg_leRat` certificate is beyond `decide`.  The power law
+`e^{−n} ≤ (5/12)^n` routes around it: `e^{−1} ≤ 5/12` (`expNeg_one_leRat`,
+`decide`-able at the tractable argument `1`) raised to the `n`-th power
+via the addition law gives a `decide`-able rational bound at any integer
+exponent.  Then `e^{−t·f(x)} ≤ e^{−⌊t·f(x)⌋} ≤ (5/12)^{⌊t·f(x)⌋}`
+(`box_term_bound`), and `(5/12)^n` crushes the `(x+1)⁴` prefactor. -/
+
+/-- **Power law `e^{−n} ≤ (5/12)^n`.**  By induction: `e^{−(n+1)} ≃
+e^{−n}·e^{−1} ≤ (5/12)^n·(5/12)` via the addition law, `expNeg_one_leRat`,
+and the inductive hypothesis.  The integer exponent is transported across
+`ofNat(n+1) ≃ ofNat n + 1` with `expNeg_eqv_congr`. -/
+theorem expNeg_nat_le (n : Nat) :
+    CReal.leRat (ExpNeg.expNeg (Q'.ofNat n) (ofNat_nonneg n))
+      ((Q'.mkPos 5 12 (by decide)) ^ n) := by
+  induction n with
+  | zero => exact expNeg_le_one (Q'.ofNat 0) (ofNat_nonneg 0)
+  | succ n ih =>
+    -- ofNat(n+1) ≃ ofNat n + 1
+    have hid : (Q'.ofNat (n + 1)).eqv (Q'.ofNat n + 1) :=
+      Q'.eqv_trans _ _ _ (Q'.ofNat_add_eqv n 1)
+        (Q'.add_eqv_congr_left (Q'.ofNat n) (Q'.ofNat 1) 1 (by decide))
+    -- e^{−(ofNat n + 1)} ≤ (5/12)^n · (5/12)
+    have hsplit : CReal.leRat
+        (ExpNeg.expNeg (Q'.ofNat n + 1)
+          (Q'.zero_le_add _ _ (ofNat_nonneg n) (by decide)))
+        ((Q'.mkPos 5 12 (by decide)) ^ n * Q'.mkPos 5 12 (by decide)) :=
+      CReal.leRat_of_equiv
+        (CReal.Equiv.symm (expNeg_add_equiv (Q'.ofNat n) 1 (ofNat_nonneg n) (by decide)))
+        (CReal.leRat_mul ih ExpNeg.expNeg_one_leRat
+          (expNeg_geRat_zero _ _) (expNeg_geRat_zero _ _)
+          (Q'.pow_nonneg (Q'.mkPos 5 12 (by decide)) (by decide) n) (by decide))
+    refine CReal.leRat_mono
+      (CReal.leRat_of_equiv
+        (expNeg_eqv_congr (ofNat_nonneg (n + 1))
+          (Q'.zero_le_add _ _ (ofNat_nonneg n) (by decide)) hid) hsplit) ?_
+    -- (5/12)^n · (5/12) ≤ (5/12)^(n+1) = (5/12) · (5/12)^n
+    rw [Q'.pow_succ]
+    exact Q'.le_of_eqv (Q'.mul_comm_eqv _ _)
+
+/-- **`decide`-able box-term bound.**  `e^{−t·f(x)} ≤ (5/12)^n` whenever
+`t·f(x) ≃ n + r` with `r ≥ 0` (the integer/fractional split, `decide`-able
+at a concrete `(t, x)`).  Drop the fractional part `r` (`expNeg_le_drop`),
+apply the power law, transport across the `.eqv` split. -/
+theorem box_term_bound (t : Q') (ht : (0 : Q') ≤ t) (x : Nat) (n : Nat) (r : Q')
+    (hr : (0 : Q') ≤ r) (hid : (t * fQ x).eqv (Q'.ofNat n + r)) :
+    CReal.leRat (ExpNeg.expNeg (t * fQ x) (tfQ_nonneg t x ht))
+      ((Q'.mkPos 5 12 (by decide)) ^ n) :=
+  CReal.leRat_of_equiv
+    (expNeg_eqv_congr (tfQ_nonneg t x ht)
+      (Q'.zero_le_add _ _ (ofNat_nonneg n) hr) hid)
+    (expNeg_le_drop (ofNat_nonneg n) hr ((Q'.mkPos 5 12 (by decide)) ^ n)
+      (Q'.pow_nonneg (Q'.mkPos 5 12 (by decide)) (by decide) n)
+      (expNeg_nat_le n))
+
+/-! ## SU(3) canonical operating point demonstration
+
+`g₀ = 0.30`, canonical convention ⇒ `t = 1/g² = 100/9`.  The first box
+term `x = 1` has exponent `t·f(1) = (100/9)·(4/3) = 400/27 = 14 + 22/27`,
+so `e^{−t·f(1)} ≤ (5/12)^14 ≈ 4.8×10⁻⁶` — a proven `decide`-able bound at
+an exponent (`≈ 14.8`) that direct `expNeg_leRat` cannot reach. -/
+
+/-- SU(3) canonical heat-kernel time `t = 100/9`. -/
+def tCanon : Q' := Q'.mkPos 100 9 (by decide)
+
+theorem tCanon_nonneg : (0 : Q') ≤ tCanon := by decide
+
+/-- Box term `x = 1` at `t = 100/9`: `e^{−400/27} ≤ (5/12)^14`.  The
+exponent split `400/27 ≃ 14 + 22/27` is by `decide`. -/
+theorem box_term_canon_one :
+    CReal.leRat (ExpNeg.expNeg (tCanon * fQ 1) (tfQ_nonneg tCanon 1 tCanon_nonneg))
+      ((Q'.mkPos 5 12 (by decide)) ^ 14) :=
+  box_term_bound tCanon tCanon_nonneg 1 14 (Q'.mkPos 22 27 (by decide))
+    (by decide) (by decide)
+
 end YMGap.Constructive.SU3CharFactor
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
 
+#print axioms YMGap.Constructive.SU3CharFactor.expNeg_nat_le
+#print axioms YMGap.Constructive.SU3CharFactor.box_term_bound
+#print axioms YMGap.Constructive.SU3CharFactor.box_term_canon_one
 #print axioms YMGap.Constructive.SU3CharFactor.gFactor_le
 #print axioms YMGap.Constructive.SU3CharFactor.expNeg_le_drop
 #print axioms YMGap.Constructive.SU3CharFactor.charTerm2D_le
