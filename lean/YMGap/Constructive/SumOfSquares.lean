@@ -28,6 +28,7 @@ import YMGap.Constructive.CRealAdd
 import YMGap.Constructive.CRealSum
 import YMGap.Constructive.CRealMul
 import YMGap.Constructive.CRealMulMono
+import YMGap.Constructive.ExpAdd
 
 namespace YMGap.Constructive.SumOfSquares
 
@@ -112,6 +113,37 @@ theorem geRat_sos (D : Nat → Q') (L : Nat → CReal)
   geRat_csum_nonneg
     (fun k => CReal.mul_nonneg (geRat_ofQ'_nonneg (hD k)) (geRat_sq_nonneg (L k))) m
 
+/-- **CReal-weighted SOS ⟹ PSD:** the same with `CReal` weights `P_k ≥ 0`
+(the heat-kernel Gram pivots are `CReal`, not rational, so the LDLᵀ
+certificate needs this form): `0 ≤ Σ_{k<m} P_k · (L_k)²` when each
+`P_k ≥ 0`. -/
+theorem geRat_sos_creal (P L : Nat → CReal)
+    (hP : ∀ k, ExpPos.geRat (P k) 0) (m : Nat) :
+    ExpPos.geRat
+      (CReal.csum (fun k => CReal.mul (P k) (CReal.mul (L k) (L k))) m) 0 :=
+  geRat_csum_nonneg
+    (fun k => CReal.mul_nonneg (hP k) (geRat_sq_nonneg (L k))) m
+
+/-! ## Lifting `CReal` identities from pointwise `Q'` equalities
+
+`CReal.Equiv` is just "eventually `|A_n − B_n| ≤ ε`", so it follows
+immediately from pointwise equality of approximations.  Since `CReal.mul`
+and `CReal.add` act approx-wise, this reduces **any** `CReal` polynomial
+identity to the corresponding `Q'` identity (where the ring-eqv lemmas
+live) — the enabler for the LDLᵀ / SOS-factorization certificates that
+route (a) needs at each order. -/
+
+/-- If two constructive reals agree approx-wise (`A_n ≃ B_n` for all `n`),
+they are `Equiv`. -/
+theorem Equiv_of_approx_eqv {A B : CReal}
+    (h : ∀ n, (A.approx n).eqv (B.approx n)) : CReal.Equiv A B := by
+  intro ε hε
+  refine ⟨0, fun n _ => ⟨?_, ?_⟩⟩
+  · exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (h n))
+      (Q'.add_le_self_of_nonneg (B.approx n) ε (Q'.le_of_lt hε))
+  · exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.eqv_symm (h n)))
+      (Q'.add_le_self_of_nonneg (A.approx n) ε (Q'.le_of_lt hε))
+
 end YMGap.Constructive.SumOfSquares
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
@@ -120,3 +152,5 @@ end YMGap.Constructive.SumOfSquares
 #print axioms YMGap.Constructive.SumOfSquares.geRat_sq_nonneg
 #print axioms YMGap.Constructive.SumOfSquares.geRat_csum_nonneg
 #print axioms YMGap.Constructive.SumOfSquares.geRat_sos
+#print axioms YMGap.Constructive.SumOfSquares.geRat_sos_creal
+#print axioms YMGap.Constructive.SumOfSquares.Equiv_of_approx_eqv

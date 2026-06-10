@@ -110,15 +110,26 @@ measure is positive* (≡ `E(a²) ≥ 0` for all `a` ≡ the Gram matrix
     on the atoms `q_mul_self_nonneg`, `geRat_sq_nonneg` (a `CReal` square is
     `≥ 0`, immediate as `CReal.mul` is unclamped), `geRat_csum_nonneg`.
     This is what OS2 / OS4 / GNS positivity all consume.
-  * **The certificate — TODO**: exhibit `E(a²) = Σ_k D_k·L_k(a)²` with
-    `D_k ≥ 0` (a constructive LDLᵀ / positive Gauss quadrature of the
-    heat-kernel moment matrix).  The pivots `D_k ≥ 0` are AM–GM-type
-    inequalities generalizing the `2×2` `1+3e^{−2t}−4e^{−3t/2} ≥ 0`;
-    candidate routes: (a) explicit orthogonal-polynomial recurrence for the
-    eigenvalue measure `ρ_t` (positive recurrence coefficients ⇒ positive
-    Gauss weights), (b) Gaussian/Hermite unfolding via Weyl + Poisson
-    summation.  Feeding any such certificate to `geRat_sos` closes the
-    full `ProbFunctional`.
+  * **Route (a) — findings (in progress).**  Substituting `a = e^{−t/4}`
+    makes the moments **polynomial**: `m_s = (s+1)·a^{s(s+2)}` (`m_1=2a³`,
+    `m_2=3a⁸`).  Completing the square reduces `n×n` PSD to `n` pivots fed
+    to `geRat_sos`; each pivot is a univariate polynomial in `a`, nonneg on
+    `[0,1]`, with an SOS factorization.  The `2×2` pivot is
+    `1+3a⁸−4a⁶ = (1−a²)²·(3a⁴+2a²+1) ≥ 0` — a clean, manifest certificate.
+  * **The substrate wall (now mapped).**  `Q'` has ring-eqv lemmas but
+    `CReal` has none (no `ring`), so each per-order certificate is a `CReal`
+    polynomial identity.  Enabler landed: `SumOfSquares.Equiv_of_approx_eqv`
+    reduces any `CReal` identity to a pointwise `Q'` identity, and
+    `geRat_sos_creal` handles `CReal`-valued pivots.  What remains per order
+    is grinding the `Q'` polynomial identity by hand (no `Q'` `ring`
+    either) — mechanical but laborious — OR building a minimal `Q'`
+    polynomial-normalization helper (the high-leverage next step, since
+    route (a) needs it at every order).
+  * **The all-orders certificate** (uniform `D_s ≥ 0` for all `s`) is the
+    irreducible moment-positivity content; route (a) localizes but does not
+    dissolve it.  Per-truncation it is finite; a uniform inductive proof is
+    the open piece.  Alternative: route (b) (Hermite unfolding via Poisson
+    summation) makes positivity manifest but needs theta-function machinery.
   * **E2 (cluster expansion / infinite volume)**, **E3 (RG transport)** —
     the analytic core, interleaved with B2's OS axioms.
 
