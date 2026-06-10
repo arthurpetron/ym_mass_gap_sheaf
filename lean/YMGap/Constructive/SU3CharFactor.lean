@@ -715,6 +715,41 @@ theorem Z2D_le (N : Nat) :
     (Q'.le_of_eqv (Q'.eqv_symm
       (RationalTail.finSum_mul_const gBound (RationalTail.finSum gBound N) N)))
 
+/-! ## Module 4 final — the `(0,0)`-exclusion `Z_t ≤ S² − 1`
+
+`Z_t = Z₂ᴰ − a(0,0)`, and `a(0,0) = 1·e^{0}` has limit `≥ 1`
+(`charTerm00_ge`), so `Z_t ≤ (Σ gBound N)² − 1 ≤ (801/800)² − 1 < 1/16`. -/
+
+/-- Every `e^{0}`-series term is `≥ 0` (the `x = 0` terms past `0` are `≃ 0`). -/
+theorem term_zero_nonneg (k : Nat) : (0 : Q') ≤ ExpNeg.term 0 k := by
+  induction k with
+  | zero => decide
+  | succ k ih =>
+    rw [ExpNeg.term_succ]
+    refine Q'.mul_nonneg _ _ ih (Q'.mul_nonneg _ _ ?_ ?_)
+    · decide
+    · rw [Q'.zero_le_iff_num_nonneg]; show (0 : Int) ≤ 1; decide
+
+/-- `partialSum 0 (n+1) ≥ 1`: `partialSum 0 1 = 1` and later terms are `≥ 0`. -/
+theorem partialSum_zero_ge_one (n : Nat) : (1 : Q') ≤ ExpNeg.partialSum 0 (n + 1) := by
+  induction n with
+  | zero =>
+    show (1 : Q') ≤ ExpNeg.partialSum 0 1
+    rw [ExpNeg.partialSum_one]; exact Q'.le_refl' 1
+  | succ n ih =>
+    rw [ExpNeg.partialSum_succ]
+    exact Q'.le_trans' _ _ _ ih
+      (Q'.add_le_self_of_nonneg _ _ (term_zero_nonneg (n + 1)))
+
+/-- **`e^{0} ≥ 1`** — the lower bound the `(0,0)` term needs. -/
+theorem geRat_expNeg_zero : ExpPos.geRat (ExpNeg.expNeg (0 : Q') (by decide)) 1 := by
+  apply ExpPos.geRat_of_eventually
+  refine ⟨1, fun n hn => ?_⟩
+  obtain ⟨m, rfl⟩ := Nat.exists_eq_add_of_le hn
+  show (1 : Q') ≤ ExpNeg.partialSum 0 (1 + m)
+  rw [Nat.add_comm]
+  exact partialSum_zero_ge_one m
+
 end YMGap.Constructive.SU3CharFactor
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
@@ -733,6 +768,7 @@ end YMGap.Constructive.SU3CharFactor
 #print axioms YMGap.Constructive.SU3CharFactor.charTerm2D_le_gBound
 #print axioms YMGap.Constructive.SU3CharFactor.row_le
 #print axioms YMGap.Constructive.SU3CharFactor.Z2D_le
+#print axioms YMGap.Constructive.SU3CharFactor.geRat_expNeg_zero
 #print axioms YMGap.Constructive.SU3CharFactor.gFactor_box_zero
 #print axioms YMGap.Constructive.SU3CharFactor.gFactor_box_one
 #print axioms YMGap.Constructive.SU3CharFactor.gFactor_box_two

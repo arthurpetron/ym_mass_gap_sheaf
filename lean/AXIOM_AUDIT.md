@@ -263,6 +263,7 @@ YMGap.Constructive.SU3CharFactor.gFactor_box_zero = Quot.sound, propext
 YMGap.Constructive.SU3CharFactor.gFactor_le = Quot.sound, propext
 YMGap.Constructive.SU3CharFactor.gFactor_tail_le = Quot.sound, propext
 YMGap.Constructive.SU3CharFactor.gPrefactor_dom = Quot.sound, propext
+YMGap.Constructive.SU3CharFactor.geRat_expNeg_zero = propext
 YMGap.Constructive.SU3CharFactor.mkPos3_add_eqv = Quot.sound, propext
 YMGap.Constructive.SU3CharFactor.oneDimSum_le = Quot.sound, propext
 YMGap.Constructive.SU3CharFactor.pow_add_eqv = propext
