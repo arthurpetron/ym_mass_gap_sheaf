@@ -121,10 +121,18 @@ measure is positive* (≡ `E(a²) ≥ 0` for all `a` ≡ the Gram matrix
     polynomial identity.  Enabler landed: `SumOfSquares.Equiv_of_approx_eqv`
     reduces any `CReal` identity to a pointwise `Q'` identity, and
     `geRat_sos_creal` handles `CReal`-valued pivots.  What remains per order
-    is grinding the `Q'` polynomial identity by hand (no `Q'` `ring`
-    either) — mechanical but laborious — OR building a minimal `Q'`
-    polynomial-normalization helper (the high-leverage next step, since
-    route (a) needs it at every order).
+    is grinding the `Q'` polynomial identity — SOLVED by the reflective
+    `Q'` ring `Constructive/QPoly.lean` (`poly_eqv … (by decide)`).
+  * **The 2×2 certificate — DONE** (`Continuum/Pivot2*.lean`): full
+    heat-kernel PSD on degree-≤1 observables — `form2_nonneg : 0 ≤ E(a²)` for
+    `a = c₀χ₀+c₁χ₁` and ALL real `c₀,c₁` (off-cone, beyond
+    `coneExp_nonneg`).  Pivot `D₁ = 1+m₂−m₁² ≥ 0` (`pivotGram_nonneg`) from
+    three pieces (developed in parallel): moments→polynomial (expNeg power
+    law), the SOS factorization `1+3r⁴−4r³ = (1−r)²(3r²+2r+1)` via `QPoly`,
+    and `(1−r)²(3r²+2r+1) ≥ 0`; then completing the square `form2 ≃
+    (c₀+c₁m₁)² + D₁·c₁²` → `geRat_sos_creal`.  Each higher order `N×N`
+    follows the SAME pattern (moments→poly, factor by `QPoly`/`decide`, SOS,
+    Schur).
   * **The all-orders certificate** (uniform `D_s ≥ 0` for all `s`) is the
     irreducible moment-positivity content; route (a) localizes but does not
     dissolve it.  Per-truncation it is finite; a uniform inductive proof is

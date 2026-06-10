@@ -342,6 +342,7 @@ YMGap.Continuum.ObservableMeasure.expectation_stable =
 YMGap.Continuum.ObservableMeasure.trivConsistent =
 YMGap.Continuum.ObservableMeasure.trivContinuumMeasure =
 YMGap.Continuum.ObservableMeasure.trivContinuumMeasure_proj =
+YMGap.Continuum.Pivot2.form2_nonneg = Quot.sound, propext
 YMGap.Continuum.Pivot2.pivotGram_eqv_poly = Quot.sound, propext
 YMGap.Continuum.Pivot2.pivotGram_nonneg = Quot.sound, propext
 YMGap.Continuum.Pivot2.pivotPoly_eqv_sos = Quot.sound, propext

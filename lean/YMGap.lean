@@ -72,6 +72,7 @@ import YMGap.Continuum.Pivot2Identity
 import YMGap.Continuum.Pivot2Moments
 import YMGap.Continuum.Pivot2Nonneg
 import YMGap.Continuum.Pivot2
+import YMGap.Continuum.Pivot2Schur
 import YMGap.Continuum.OSAxioms
 import YMGap.Continuum.OSReconstruction
 import YMGap.Continuum.SpectralGap
