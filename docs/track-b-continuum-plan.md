@@ -79,10 +79,19 @@ about a **constructed** object, not about an abstract hypothesis.
 
   * **B1 framework** — DONE (inverse limit; `ProbFunctional`; coarsening
     preserves probability; limit + exact modulus; concrete inhabitant).
-  * **E1 (real Wilson functional via characters)** — NEXT: the first
-    existence down-payment, replacing `trivFunc` with genuine finite-volume
-    heat-kernel expectations.  Then E2 (cluster expansion) and E3 (RG
-    transport) are the analytic core, interleaved with B2's OS axioms.
+  * **E1 (real Wilson functional via characters)** — STARTED
+    (`Continuum/WilsonFunctional.lean`).  `wilsonCharExp t s =
+    dim(s)·e^{−t·C₂(s)}` is the genuine single-edge SU(2) heat-kernel
+    character moment `⟨χ_{s/2}⟩_t` (Peter–Weyl orthogonality), reusing the
+    A1 `expNeg` + the SU(2) Casimir.  Proved: each moment `≥ 0`
+    (`wilsonCharExp_nonneg`) and `⟨1⟩_t = 1` (`wilsonCharExp_unit`, both
+    bounds) — the genuine probability normalization.  Replaces `trivFunc`'s
+    values with real heat-kernel expectations.
+    *Remaining for E1:* full positivity `0 ≤ E(a*·a)` (heat-kernel Gram
+    PSD) ⇒ a full `ProbFunctional`; then the plaquette-coupled finite
+    lattice.
+  * **E2 (cluster expansion / infinite volume)**, **E3 (RG transport)** —
+    the analytic core, interleaved with B2's OS axioms.
 
 The genuinely-open residue (named conjectures, the quantitative RG
 transport) is flagged at E3; everything up to it is formalizable, and we
