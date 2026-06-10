@@ -222,20 +222,37 @@ All `[propext, Quot.sound]`; baseline 471; strict audit PASS.  The
    Fubini is machine-checked: the full double character sum is bounded by
    the square of the 1-D bound.
 
-**NEXT — Module 4 final step (`(0,0)`-exclusion + cluster wire-in)**: the
-usable bound needs `Z_t = Z₂ᴰ − a(0,0) ≤ S² − 1 ≈ 0.0025` (the `−1` is
-essential: `Z₂ᴰ ≤ S² ≈ 1.0025` alone gives `16·S² > 1`).  This needs CReal
-subtraction primitives not yet in the substrate:
-- `leRat_neg_of_geRat` : `geRat B d → leRat (neg B) (−d)` (direct from the
-  defs — `neg`'s approx is `−B.approx`);
-- `charTerm00_ge` : `geRat (a(0,0)) 1` — `a(0,0) = 1·e^{0}`, needs the
-  `partialSum 0 (n+1) = 1` fact and a product lower bound (`geRat_mul`);
-- `leRat_sub` (= `leRat_add` + `leRat_neg_of_geRat`) ⇒
-  `Z_t = Z₂ᴰ − a(0,0) ≤ (Σ gBound N)² − 1 ≤ (801/800)² − 1`;
-- `Z_upper := (801/800)² − 1 = 1601/640000`, prove `< 1/16` and the BF
-  relation (`decide`), feed `ExpBound.largeField_bf` — replacing the
-  posited `Z_upper_su3 = 1/1000` with a *proven* tail bound.
-`(801/800)² − 1 = 1601/640000 ≈ 0.0025 < 1/16 = 0.0625` ✓.
+10. **A1.10 (Module 4 final — the `(0,0)`-exclusion + cluster wire-in)**
+   (`SU3CharFactor.lean`).  **DONE.  Module 4 / A1 is finished.**
+   - `geRat_expNeg_zero` : `e^{0} ≥ 1` (via `partialSum 0 (n+1) ≥ 1`,
+     `term_zero_nonneg`).
+   - `leRat_neg_of_geRat` : `geRat B d → leRat (neg B) (−d)` (via the
+     existing `Q'.neg_add_eqv` + `neg_le_neg`).
+   - `geRat_of_equiv`, `geRat_smul_nonneg` (mirrors of the `leRat`
+     versions) ⇒ `charTerm00_ge` : `geRat (a(0,0)) 1` (`a(0,0) = 1·e^{0}`).
+   - **`charSum_le`** : `Z_t = Z₂ᴰ − a(0,0) ≤ (801/800)² − 1 = 1601/640000`
+     (`leRat_add` (Z2D_le) (leRat_neg charTerm00_ge), then `S² ≤ (801/800)²`).
+   - `ZUpperProven := 1601/640000`, `ZUpperProven_lt` : `< 1/16`;
+     `su3_largeField_proven` : `q = 16·Z_upper < 1` + BF relation (axiom-free);
+     `c_lf_su3_proven` : `ExpBound.largeFieldCert` at the *proven* `Z_upper`.
+
+   The posited `ExpBound.Z_upper_su3 = 1/1000` is now backed by a
+   machine-checked tail bound: the actual 2-D character sum (minus its
+   trivial `(0,0)` term) is `≤ 1601/640000 ≈ 0.0025 < 1/16`.  Baseline 493;
+   strict audit PASS; `[propext, Quot.sound]` only (cluster lemmas axiom-free).
+
+**A1 COMPLETE.**  The rigorous SU(3) heat-kernel character-tail bound
+`Z_t < 1/16` is machine-checked end-to-end — per-term factorization
+(A1.1–A1.3), the `(5/12)^n` power law breaking the `decide` wall (A1.5),
+box + general-`x` tail (A1.6–A1.7), the 1-D sum `S ≤ 801/800` (Module 3),
+and the 2-D Fubini + `(0,0)`-exclusion `Z_t ≤ S²−1` (Module 4).
+
+**NEXT — U.7+ (parametric / all-groups).**  With the SU(3) `Z_t` bound
+proven, return to the parametric `ClosureCertificate.budget` over the
+invariant range (`docs/uniform-parametric-bound-plan.md` §0): wrap the
+character-tail machinery by the group's Casimirs (Weyl dimensions for
+general `G`), then `monotone_budget` → `budget_closes_uniform` →
+`mass_gap_simple_group`.
 
 - wire `expNeg_leRat` per box term (tight rational) + the geometric
   majorant `B` for the tail into `finSum_geom_uniform` + `leRat_csum` ⇒

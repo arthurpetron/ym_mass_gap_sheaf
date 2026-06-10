@@ -47,6 +47,7 @@ import YMGap.Constructive.CauchyConv
 import YMGap.Constructive.FinSumGeom
 import YMGap.Constructive.CRealSum
 import YMGap.Constructive.FinSumAlg
+import YMGap.Constructive.ExpBound
 
 namespace YMGap.Constructive.SU3CharFactor
 
@@ -750,6 +751,121 @@ theorem geRat_expNeg_zero : ExpPos.geRat (ExpNeg.expNeg (0 : Q') (by decide)) 1 
   rw [Nat.add_comm]
   exact partialSum_zero_ge_one m
 
+/-- **`leRat` of a negation from `geRat`.**  `geRat B d → leRat (neg B) (−d)`. -/
+theorem leRat_neg_of_geRat {B : CReal} {d : Q'} (h : ExpPos.geRat B d) :
+    CReal.leRat (CReal.neg B) (-d) := by
+  intro ε hε
+  obtain ⟨N, hN⟩ := h ε hε
+  refine ⟨N, fun n hn => ?_⟩
+  show -(B.approx n) ≤ -d + ε
+  have hd := hN n hn
+  have h2 : -(B.approx n + ε) + ε ≤ -d + ε :=
+    Q'.add_le_add_right _ _ ε (Q'.neg_le_neg hd)
+  have h3 : (-(B.approx n + ε) + ε).eqv (-(B.approx n)) := by
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_right _ _ ε (Q'.neg_add_eqv (B.approx n) ε)) ?_
+    refine Q'.eqv_trans _ _ _ (Q'.add_assoc_eqv (-(B.approx n)) (-ε) ε) ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_left (-(B.approx n)) _ _ (Q'.neg_add_self_eqv ε)) ?_
+    rw [Q'.add_zero']; exact Q'.eqv_refl _
+  exact Q'.le_trans' _ _ _ (Q'.ge_of_eqv h3) h2
+
+/-- `geRat` transfers through `Equiv` (mirror of `leRat_of_equiv`). -/
+theorem geRat_of_equiv {A B : CReal} {d : Q'} (h : CReal.Equiv A B)
+    (hB : ExpPos.geRat B d) : ExpPos.geRat A d := by
+  intro ε hε
+  have hhε : (0 : Q') < HalfPow.half * ε := ExpNeg.half_mul_pos ε hε
+  obtain ⟨N1, h1⟩ := h (HalfPow.half * ε) hhε
+  obtain ⟨N2, h2⟩ := hB (HalfPow.half * ε) hhε
+  refine ⟨max N1 N2, fun n hn => ?_⟩
+  have hn1 : N1 ≤ n := Nat.le_trans (Nat.le_max_left _ _) hn
+  have hn2 : N2 ≤ n := Nat.le_trans (Nat.le_max_right _ _) hn
+  refine Q'.le_trans' _ _ _ (h2 n hn2) ?_
+  refine Q'.le_trans' _ _ _ (Q'.add_le_add_right _ _ (HalfPow.half * ε) (h1 n hn1).2) ?_
+  refine Q'.le_of_eqv (Q'.eqv_trans _ _ _
+    (Q'.add_assoc_eqv (A.approx n) (HalfPow.half * ε) (HalfPow.half * ε)) ?_)
+  exact Q'.add_eqv_congr_left (A.approx n) (HalfPow.half * ε + HalfPow.half * ε) ε (ExpNeg.two_halves ε)
+
+/-- Scale a lower bound by a nonnegative constant (mirror of
+`leRat_smul_nonneg`). -/
+theorem geRat_smul_nonneg {c : Q'} (hc : (0 : Q') ≤ c) {y : CReal} {d : Q'}
+    (h : ExpPos.geRat y d) : ExpPos.geRat (CReal.mul (CReal.ofQ' c) y) (c * d) := by
+  intro ε hε
+  obtain ⟨δ, hδpos, hδ⟩ := CReal.exists_mul_le hc hε
+  obtain ⟨N, hN⟩ := h δ hδpos
+  refine ⟨N, fun n hn => ?_⟩
+  show c * d ≤ c * y.approx n + ε
+  have s1 : c * d ≤ c * (y.approx n + δ) :=
+    Q'.mul_le_mul_of_nonneg_left d (y.approx n + δ) c (hN n hn) hc
+  have e1 : (c * (y.approx n + δ)).eqv (c * y.approx n + c * δ) :=
+    Q'.mul_add_eqv c (y.approx n) δ
+  have s2 : c * y.approx n + c * δ ≤ c * y.approx n + ε :=
+    Q'.add_le_add_left _ _ ε hδ
+  exact Q'.le_trans' _ _ _ s1 (Q'.le_trans' _ _ _ (Q'.le_of_eqv e1) s2)
+
+/-- **The `(0,0)` term `a(0,0) = 1·e^{0} ≥ 1`.** -/
+theorem charTerm00_ge : ExpPos.geRat (charTerm2D 0 0) 1 := by
+  have hE0 : (tCanon * casimirQ 0 0).eqv 0 := by decide
+  have hge0 : ExpPos.geRat
+      (ExpNeg.expNeg (tCanon * casimirQ 0 0) (tcasimirQ_nonneg tCanon 0 0 tCanon_nonneg)) 1 :=
+    geRat_of_equiv
+      (expNeg_eqv_congr (tcasimirQ_nonneg tCanon 0 0 tCanon_nonneg) (by decide) hE0)
+      geRat_expNeg_zero
+  refine ExpPos.geRat_mono
+    (geRat_smul_nonneg (c := dimSqQ 0 0) (by decide) hge0) ?_
+  decide
+
+/-- `0 ≤ Σ gBound N` (monotone from `Σ gBound 0 = 0`). -/
+theorem finSum_gBound_nonneg (N : Nat) : (0 : Q') ≤ RationalTail.finSum gBound N := by
+  have h := RationalTail.finSum_monotone_of_nonneg gBound gBound_nonneg 0 N (Nat.zero_le N)
+  rwa [RationalTail.finSum_zero] at h
+
+/-- **The 2-D character-tail sum bound** `Z_t = Z₂ᴰ − a(0,0) ≤ (801/800)² − 1
+= 1601/640000`.  This is the rigorous, machine-checked `Z_upper` (replacing
+the posited `ExpBound.Z_upper_su3 = 1/1000`): the actual double character
+sum minus its trivial `(0,0)` term is bounded by a clean rational `< 1/16`. -/
+theorem charSum_le (N : Nat) :
+    CReal.leRat (CReal.add (Z2D N) (CReal.neg (charTerm2D 0 0)))
+      (Q'.mkPos 1601 640000 (by decide)) := by
+  refine CReal.leRat_mono
+    (CReal.leRat_add (Z2D_le N) (leRat_neg_of_geRat charTerm00_ge)) ?_
+  have hfs := finSum_gBound_le N
+  have hnn := finSum_gBound_nonneg N
+  have hsq : RationalTail.finSum gBound N * RationalTail.finSum gBound N
+      ≤ Q'.mkPos 801 800 (by decide) * Q'.mkPos 801 800 (by decide) :=
+    Q'.le_trans' _ _ _
+      (Q'.mul_le_mul_of_nonneg_right _ _ _ hfs hnn)
+      (Q'.mul_le_mul_of_nonneg_left _ _ _ hfs (by decide))
+  refine Q'.le_trans' _ _ _ (Q'.add_le_add_right _ _ (-(1 : Q')) hsq) ?_
+  decide
+
+/-! ## The cluster wire-in (replacing the posited `Z_upper_su3`)
+
+`Z_upper := (801/800)² − 1 = 1601/640000` is the rigorous bound proven in
+`charSum_le`; it satisfies the Brydges–Federbush cluster relation at
+`μ_plaq = 16` (`q = 16·Z_upper = 1601/40000 < 1`), so it feeds
+`ExpBound.largeFieldCert` exactly as the posited `Z_upper_su3` did — but
+now backed by a machine-checked tail bound. -/
+
+/-- The proven `Z_upper` (`= (801/800)² − 1`). -/
+def ZUpperProven : Q' := Q'.mkPos 1601 640000 (by decide)
+
+/-- `Z_upper < 1/16` (cluster-expansion threshold). -/
+theorem ZUpperProven_lt : ZUpperProven < Q'.mkPos 1 16 (by decide) := by decide
+
+/-- The SU(3) large-field cluster reduction at the *proven* `Z_upper`:
+`q = 16·Z_upper < 1` and the BF amplitude relation hold (`K_lf = 1/20`). -/
+theorem su3_largeField_proven :
+    ExpBound.residual ExpBound.mu_plaq ZUpperProven < 1 ∧
+    ExpBound.residual ExpBound.mu_plaq ZUpperProven
+      ≤ Q'.mkPos 1 20 (by decide) * (1 - ExpBound.residual ExpBound.mu_plaq ZUpperProven) :=
+  ⟨by decide, by decide⟩
+
+/-- The SU(3) large-field KP certificate from the *proven* `Z_upper`. -/
+def c_lf_su3_proven : Sheaf.KPCertificate Q' Sheaf.P_nonneg :=
+  ExpBound.largeFieldCert ExpBound.rho_lf_su3 (Q'.mkPos 1 20 (by decide))
+    (by decide) (by decide)
+
 end YMGap.Constructive.SU3CharFactor
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
@@ -769,6 +885,12 @@ end YMGap.Constructive.SU3CharFactor
 #print axioms YMGap.Constructive.SU3CharFactor.row_le
 #print axioms YMGap.Constructive.SU3CharFactor.Z2D_le
 #print axioms YMGap.Constructive.SU3CharFactor.geRat_expNeg_zero
+#print axioms YMGap.Constructive.SU3CharFactor.leRat_neg_of_geRat
+#print axioms YMGap.Constructive.SU3CharFactor.charTerm00_ge
+#print axioms YMGap.Constructive.SU3CharFactor.charSum_le
+#print axioms YMGap.Constructive.SU3CharFactor.ZUpperProven_lt
+#print axioms YMGap.Constructive.SU3CharFactor.su3_largeField_proven
+#print axioms YMGap.Constructive.SU3CharFactor.c_lf_su3_proven
 #print axioms YMGap.Constructive.SU3CharFactor.gFactor_box_zero
 #print axioms YMGap.Constructive.SU3CharFactor.gFactor_box_one
 #print axioms YMGap.Constructive.SU3CharFactor.gFactor_box_two
