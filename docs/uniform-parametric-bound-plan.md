@@ -155,14 +155,35 @@ All `[propext, Quot.sound]`; baseline 471; strict audit PASS.  The
 `decide` wall is broken: any box term is now bounded by a `decide`-able
 `(5/12)^n`.
 
-**NEXT — Module 3c (1-D sum assembly) then `Z_upper`** (U.6 (ii)–(iii);
-use `computations/su3_character_sum.py` for the box cutoff `M` and the
-geometric tail ratio):
-- per box term `x < M`: `box_term_bound` ⇒ `e^{−t·f(x)} ≤ (5/12)^{n_x}`,
-  then `gFactor_le` ⇒ `g(x) ≤ (x+1)⁴·(5/12)^{n_x}` (`decide`-able `Q'`);
-- far tail `x ≥ M`: geometric majorant `expNeg_le_geomMaj` ⇒ `gBound`;
-- assemble the rational `gBound : QSeq`, feed `finSum_geom_uniform` +
-  `leRat_csum` ⇒ `S = Σ_x g(x) ≤ box + H`;
+6. **A1.6 (Module 3c-box) — the dominant box terms** (`SU3CharFactor.lean`).
+   **DONE.**  At `t = 100/9` (`tCanon`), the four dominant factors bounded
+   by clean `decide`-able rationals via `box_term_bound` + `gFactor_le`:
+   - `gFactor_box_zero` : `g(0) ≤ 1`  (`t·f(0) = 0`)
+   - `gFactor_box_one`  : `g(1) ≤ 1/10000`  (`400/27 = 14+22/27`,
+     `16·(5/12)^14`)
+   - `gFactor_box_two`  : `g(2) ≤ 1/10000`  (`1000/27 = 37+1/27`,
+     `81·(5/12)^37`)
+   - `gFactor_box_three`: `g(3) ≤ 1/10000`  (`200/3 = 66+2/3`,
+     `256·(5/12)^66`; `set_option maxRecDepth` for the deep power `decide`)
+
+   So `g(0)+g(1)+g(2)+g(3) ≤ 1 + 3/10000` — the box half of `S`, all
+   machine-checked.  Baseline 475; strict audit PASS.  The full box
+   machinery (`box_term_bound → gFactor_le → decide`) is demonstrated
+   end-to-end on real SU(3) numbers.
+
+**NEXT — Module 3c-tail (the general-`x` geometric tail) then `Z_upper`**:
+the remaining piece is the *infinite* tail `Σ_{x ≥ M} g(x) ≤ H`.  Unlike
+the box, it needs a **general-`x`** bound (not per-`x` `decide`): a
+`QSeq` `gBound` with `∀x, leRat (g(x)) (gBound x)` AND geometric
+domination `gBound(M+(k+1)) ≤ r·gBound(M+k)` for all `k`, fed to
+`finSum_geom_uniform`.  The ratio `g(x+1)/g(x) =
+((x+2)/(x+1))⁴·e^{−t·(2x+4)/3}` is `< 1` and decreasing, but proving the
+uniform rational `r`-domination over all `k` needs a general-`x`
+induction (e.g. `g(x) ≤ g(M)·r^{x−M}` for `x ≥ M`, using a *linear*
+lower bound `n_x ≥ a·x + b` on the floor `⌊t·f(x)⌋` so `(5/12)^{n_x}`
+gives a clean geometric factor that dominates the `(x+1)⁴` prefactor).
+With `S ≤ box + H ≤ ~1.001`, the `Z_upper` assembly (Module 4) is then
+`Z_t ≤ S²−1 < 1/16` by `decide`, fed to `ExpBound.largeField_bf`.
 
 - wire `expNeg_leRat` per box term (tight rational) + the geometric
   majorant `B` for the tail into `finSum_geom_uniform` + `leRat_csum` ⇒

@@ -396,6 +396,56 @@ theorem box_term_canon_one :
   box_term_bound tCanon tCanon_nonneg 1 14 (Q'.mkPos 22 27 (by decide))
     (by decide) (by decide)
 
+/-! ## The dominant box terms `g(0), g(1), g(2), g(3)` at `t = 100/9`
+
+Each factor `g(x) = (x+1)⁴·e^{−t·f(x)}` bounded by a clean `decide`-able
+rational, via `box_term_bound` (`e^{−t·f(x)} ≤ (5/12)^{n_x}`) then
+`gFactor_le` (`g(x) ≤ (x+1)⁴·(5/12)^{n_x}`).  The exponent split
+`t·f(x) ≃ n_x + r_x` is by `decide`:
+`f(0)=0` (`0+0`), `f(1)=4/3` (`400/27 = 14+22/27`), `f(2)=10/3`
+(`1000/27 = 37+1/27`), `f(3)=6` (`200/3 = 66+2/3`).  `(5/12)^{n_x}` crushes
+the `(x+1)⁴` prefactor: `g(0) ≤ 1`, `g(1),g(2),g(3) ≤ 10⁻⁴`. -/
+
+/-- `g(0) = 1·e^{0} ≤ 1`. -/
+theorem gFactor_box_zero :
+    CReal.leRat (gFactor tCanon tCanon_nonneg 0) 1 :=
+  CReal.leRat_mono
+    (gFactor_le tCanon tCanon_nonneg 0 ((Q'.mkPos 5 12 (by decide)) ^ 0)
+      (Q'.pow_nonneg (Q'.mkPos 5 12 (by decide)) (by decide) 0)
+      (box_term_bound tCanon tCanon_nonneg 0 0 0 (by decide) (by decide)))
+    (by decide)
+
+/-- `g(1) ≤ 16·(5/12)^14 ≤ 1/10000`. -/
+theorem gFactor_box_one :
+    CReal.leRat (gFactor tCanon tCanon_nonneg 1) (Q'.mkPos 1 10000 (by decide)) :=
+  CReal.leRat_mono
+    (gFactor_le tCanon tCanon_nonneg 1 ((Q'.mkPos 5 12 (by decide)) ^ 14)
+      (Q'.pow_nonneg (Q'.mkPos 5 12 (by decide)) (by decide) 14)
+      box_term_canon_one)
+    (by decide)
+
+set_option maxRecDepth 100000 in
+/-- `g(2) ≤ 81·(5/12)^37 ≤ 1/10000`. -/
+theorem gFactor_box_two :
+    CReal.leRat (gFactor tCanon tCanon_nonneg 2) (Q'.mkPos 1 10000 (by decide)) :=
+  CReal.leRat_mono
+    (gFactor_le tCanon tCanon_nonneg 2 ((Q'.mkPos 5 12 (by decide)) ^ 37)
+      (Q'.pow_nonneg (Q'.mkPos 5 12 (by decide)) (by decide) 37)
+      (box_term_bound tCanon tCanon_nonneg 2 37 (Q'.mkPos 1 27 (by decide))
+        (by decide) (by decide)))
+    (by decide)
+
+set_option maxRecDepth 100000 in
+/-- `g(3) ≤ 256·(5/12)^66 ≤ 1/10000`. -/
+theorem gFactor_box_three :
+    CReal.leRat (gFactor tCanon tCanon_nonneg 3) (Q'.mkPos 1 10000 (by decide)) :=
+  CReal.leRat_mono
+    (gFactor_le tCanon tCanon_nonneg 3 ((Q'.mkPos 5 12 (by decide)) ^ 66)
+      (Q'.pow_nonneg (Q'.mkPos 5 12 (by decide)) (by decide) 66)
+      (box_term_bound tCanon tCanon_nonneg 3 66 (Q'.mkPos 2 3 (by decide))
+        (by decide) (by decide)))
+    (by decide)
+
 end YMGap.Constructive.SU3CharFactor
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
@@ -403,6 +453,10 @@ end YMGap.Constructive.SU3CharFactor
 #print axioms YMGap.Constructive.SU3CharFactor.expNeg_nat_le
 #print axioms YMGap.Constructive.SU3CharFactor.box_term_bound
 #print axioms YMGap.Constructive.SU3CharFactor.box_term_canon_one
+#print axioms YMGap.Constructive.SU3CharFactor.gFactor_box_zero
+#print axioms YMGap.Constructive.SU3CharFactor.gFactor_box_one
+#print axioms YMGap.Constructive.SU3CharFactor.gFactor_box_two
+#print axioms YMGap.Constructive.SU3CharFactor.gFactor_box_three
 #print axioms YMGap.Constructive.SU3CharFactor.gFactor_le
 #print axioms YMGap.Constructive.SU3CharFactor.expNeg_le_drop
 #print axioms YMGap.Constructive.SU3CharFactor.charTerm2D_le
