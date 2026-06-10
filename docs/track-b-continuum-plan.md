@@ -93,10 +93,32 @@ about a **constructed** object, not about an abstract hypothesis.
     nonnegative-coefficient cone** (`coneExp_nonneg`) — a genuine partial
     GNS positivity (substrate: `geRat_add`, `geRat_csum_nonneg`).
     *Remaining for E1:* FULL positivity (arbitrary real coeffs) = the
-    heat-kernel Gram **PSD** theorem (heat-semigroup positivity / parabolic
-    maximum principle / SU(2) Poisson summation; the `2×2` minor is
-    `1+3e^{−2t}−4e^{−3t/2} ≥ 0` by AM–GM) ⇒ a full `ProbFunctional`; then
-    the plaquette-coupled finite lattice.
+    heat-kernel Gram **PSD** theorem ⇒ a full `ProbFunctional`; then the
+    plaquette-coupled finite lattice.  See the PSD subproject below.
+
+### The heat-kernel Gram PSD theorem (E1's analytic completion)
+
+No reusable proof exists (Mathlib is banned and classical; no portable
+constructive compact-group heat-kernel positivity — the fact is nontrivial
+even classically, since the SU(2)/S³ theta formula has mixed-sign Poisson
+terms).  So we build it.  The irreducible content is *the heat-kernel
+measure is positive* (≡ `E(a²) ≥ 0` for all `a` ≡ the Gram matrix
+`G_{μν} = ⟨χ_μ χ_ν⟩_t` is PSD ≡ the moments are a genuine moment sequence).
+
+  * **SOS backbone — DONE** (`Constructive/SumOfSquares.lean`): the reusable
+    certificate consumer `geRat_sos : 0 ≤ Σ_{k<m} D_k·(L_k)²` for `D_k ≥ 0`,
+    on the atoms `q_mul_self_nonneg`, `geRat_sq_nonneg` (a `CReal` square is
+    `≥ 0`, immediate as `CReal.mul` is unclamped), `geRat_csum_nonneg`.
+    This is what OS2 / OS4 / GNS positivity all consume.
+  * **The certificate — TODO**: exhibit `E(a²) = Σ_k D_k·L_k(a)²` with
+    `D_k ≥ 0` (a constructive LDLᵀ / positive Gauss quadrature of the
+    heat-kernel moment matrix).  The pivots `D_k ≥ 0` are AM–GM-type
+    inequalities generalizing the `2×2` `1+3e^{−2t}−4e^{−3t/2} ≥ 0`;
+    candidate routes: (a) explicit orthogonal-polynomial recurrence for the
+    eigenvalue measure `ρ_t` (positive recurrence coefficients ⇒ positive
+    Gauss weights), (b) Gaussian/Hermite unfolding via Weyl + Poisson
+    summation.  Feeding any such certificate to `geRat_sos` closes the
+    full `ProbFunctional`.
   * **E2 (cluster expansion / infinite volume)**, **E3 (RG transport)** —
     the analytic core, interleaved with B2's OS axioms.
 
