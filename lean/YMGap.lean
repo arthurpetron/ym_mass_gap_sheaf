@@ -91,7 +91,10 @@ import YMGap.Continuum.HeatKernelPos2
 import YMGap.Continuum.Positivstellensatz
 import YMGap.Continuum.MarkovLukacs
 import YMGap.Continuum.ChebyshevBound
+import YMGap.Continuum.ChebyshevU
 import YMGap.Continuum.HeatKernelConv
+import YMGap.Continuum.ThetaConv
+import YMGap.Continuum.MomentBridge
 import YMGap.Continuum.GramReduction3
 import YMGap.Continuum.PlaquetteReweight
 import YMGap.Continuum.KPLimit
