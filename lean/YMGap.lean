@@ -82,6 +82,8 @@ import YMGap.Continuum.MomentPositivity
 import YMGap.Continuum.E2ProductFunctional
 import YMGap.Continuum.Favard
 import YMGap.Continuum.QHankel
+import YMGap.Continuum.FavardRec
+import YMGap.Continuum.LGVPositivity
 import YMGap.Continuum.PlaquetteReweight
 import YMGap.Continuum.KPLimit
 import YMGap.Continuum.RGTransport

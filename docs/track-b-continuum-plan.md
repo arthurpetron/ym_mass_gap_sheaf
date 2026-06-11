@@ -178,10 +178,24 @@ measure is positive* (≡ `E(a²) ≥ 0` for all `a` ≡ the Gram matrix
     moments are the SU(2)-theta (continuous q-Hermite, `q=a²`) deformation of
     the semicircle; `(2N−1)!!` is the q-Hermite Hankel signature.  OPEN
     reduces to a SINGLE statement: **`P_N = Δ_N/S_N²` has nonneg coefficients
-    for every N** (exact through N=8; not yet N-indexed) — lever: the
-    positive Favard factor `P_s P_{s−2}/P_{s−1}²`, or LGV/non-intersecting
-    paths for the q-Hankel cofactor.  Plus the (bookkeeping) order-N
-    moment-bridge and the Sylvester `(∀N Δ_N≥0) ⇒ PSD` step.
+    for every N** (exact through N=8; not yet N-indexed).  BOTH proposed
+    levers were tried in parallel and BOTH honestly FAILED to close it
+    (`Continuum/FavardRec.lean`, `Continuum/LGVPositivity.lean`): the Favard
+    recurrence `P_{k+1}=β_k P_k²/((a^{2k}−1)²P_{k−1})` is irreducibly
+    rational/subtractive (`P_{k−1}∤P_k²`; Desnanot–Jacobi gives a difference,
+    not a subtraction-free form); and the LGV/column route only yields the
+    LOWEST columns (`c_0=1, c_1=2(N−1), c_2=(N+1)(2N−3), c_3=…`, now proved
+    nonneg `∀N` — but these are only *conditionally* positive, higher
+    columns `j≥4` are undetermined by feasible data, and the Hankel↔Jacobi
+    weights are rational not nonneg-polynomial).  **Strategic reframing
+    (the genuine insight):** `nonnegCoeffs P_N` is strictly STRONGER than
+    needed — the actual target is just `Δ_N(a) ≥ 0`, which is uniform via
+    the **Andréief/Heine identity** `Δ_N = (1/N!)∫(∏_{i<j}(cosθ_i−cosθ_j)²)dν^N
+    ≥ 0` once `ν` (the heat-kernel representing measure) is shown POSITIVE
+    (a 1-D trig-series positivity, `a`-uniform).  That recommends a
+    constructive-measure route over the combinatorial `P_N` route — but it
+    needs constructive integration, itself unbuilt.  Net: the uniform all-N
+    PSD remains OPEN, now with a sharper recommended path.
   * **E2 (cluster expansion / infinite volume)**, **E3 (RG transport)** —
     the analytic core, interleaved with B2's OS axioms.
 
