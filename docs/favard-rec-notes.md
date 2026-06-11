@@ -136,3 +136,27 @@ itself has negative coefficients) and is *not required* for Gram-PSD / Sylvester
 cyclotomic square, division-free reduction, `β_5` extension) and documents the
 obstruction sharply; it does not — and per this analysis cannot — close
 `nonnegCoeffs P_N` uniformly via the recurrence.
+
+## Update — difference-positivity reduction + attack-surface map
+
+The uniform `nonnegCoeffs P_N` was reduced (Lean: `PNInduction.lean`) to the
+cleaner **`UniformPNDiffNonneg`**: `D_N = P_N − P_{N−1}` coefficient-nonneg
+(`P_N` coefficient-monotone in N). Telescoping `P_N = P_1 + Σ D_k` then closes
+it. `decide`-verified through N = 8.
+
+Structural probe of `p_N(q) = P_N` (`q = a²`), exact through N = 8:
+
+- `[qᵏ]p_N` is a **degree-k polynomial in N**, leading coeff `2ᵏ/k!`.
+- `p_N` is coefficient-monotone *and* coefficient-**convex** in N
+  (`D²_N = p_N − 2p_{N−1} + p_{N−2} ≥ 0`).
+- Bottom coefficients of `D_N` are explicit and manifestly `≥ 0` for all N:
+  `[q¹]D_N = 2`, `[q²]D_N = 4N−3`, `[q³]D_N = 4N²−14`.
+
+Newly ruled out: **no fixed-degree holonomic recurrence in N** (order ≤ 3,
+`deg_q ≤ 4`) — and `deg_q p_N ∼ N³` grows, so none with fixed q-degree can
+exist. The telescoping tower `D → D² → …` does not terminate uniformly.
+
+The one route with headroom: a **sign-clean determinant / LGV model for `p_N`**
+(nonneg-coefficient matrix entries, `S_N²` absorbed without sign-bearing
+rescalers). See `docs/continuum-positivity-status.md` §5 for the full map and
+the formalizable bottom-strip partial.

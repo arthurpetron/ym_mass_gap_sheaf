@@ -208,3 +208,27 @@ Chebyshev bound).  Honest verdict: sub-target 2 (the manifestly-positive object
 `R ≥ 0`) is closed as a `CReal` statement modulo the existence of the two
 limit `CReal`s; sub-targets 1 and 3 are partial, with the convergence wiring and
 the infinite identity as the precisely-stated outstanding gaps.
+
+## Update — G1/G2 progress (this session)
+
+The two gaps named in §6.3 are now substantially advanced (see
+`docs/continuum-positivity-status.md` for the full map):
+
+- **(G1) convergence.** `S(x) = Σ 2a^{2n-1}/factorₙ` is built as a genuine
+  convergent `CReal` with explicit modulus for **all `a ∈ (0,1)`**
+  (`HeatKernelConvGen.sConvCReal_general`, via a general-base geometric engine;
+  the general `rⁿ→0` modulus, previously open in `KPLimit`, is closed as
+  `pow_base_le`). `ϑ₃` is built as a `CReal` for `a ≤ 1/16`
+  (`ThetaConv.thetaConvCReal`), and the full `R = ϑ₃·S ≥ 0` is assembled as
+  `CReal`s there (`ThetaConv.R_geRat_zero_sixteenth`). Remaining: `ϑ₃` for
+  general `a` (its partial-product magnitude bound needs the smallness).
+
+- **(G2) the identity + the Chebyshev bound.** The crux sub-fact
+  `|U_{n-1}(x)| ≤ n` on `[−1,1]` is **closed** (`ChebyshevU.absU_le`, via
+  `|T_n|≤1` + the bounded recurrence `U(n+2) ≈ U n + 2T(n+2)`; the naive
+  triangle bound's `2.414ⁿ` failure is bypassed). The Chebyshev-U telescoping
+  `(1−2xz+z²)Σ_{n≤M}U_n zⁿ = 1 − U_{M+1}z^{M+1}+U_M z^{M+2}` is **closed at
+  general M** (`UTelescope.uTelescope_all`). The differentiated-Jacobi identity
+  `K_t = R` itself remains open, now reduced to the single convergence
+  `Rtrunc M ≈ R` (`UTelescope.Kt_nonneg_of_residual`); the geometric-weight
+  telescoping does not reach the Gaussian-weight (`aⁿ²`) theta identity.
