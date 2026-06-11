@@ -167,8 +167,21 @@ measure is positive* (≡ `E(a²) ≥ 0` for all `a` ≡ the Gram matrix
     for `s = 1..4` (incl. a degree-160 `decide` at `s=4`), with `P_N ≥ 1`
     (`geRat_ceval_ge_const`) and nonneg-coeff cone closure under `pmul`.  The
     remaining crux is *evenness of every cyclotomic multiplicity* in `Δ_N`
-    (⇒ the perfect square `S_N²` uniformly) — plausibly a Vandermonde/Slater
-    determinant fact on the discrete heat-kernel spectrum.
+    (⇒ the perfect square `S_N²` uniformly).  SOLVED for the square factor
+    (`Continuum/QHankel.lean`): the explicit q-product
+    `S_N(a) = ∏_{j=1}^{N−1}(a^{2j}−1)^{N−j}` (Möbius-inverted from the
+    cyclotomic table, sympy-verified through N=8) is realized uniformly
+    (`def SN`), proved a perfect square `≥ 0` for ALL N
+    (`geRat_SN_sq_nonneg`), with the uniform reduction `Δ_N = S_N²·P_N`,
+    `P_N` nonneg-coeff ⇒ `Δ_N ≥ 0` (`geRat_minor_SN_factored`) and the
+    telescoping recurrence `S_s·S_{s−2} = (a^{2(s−1)}−1)·S_{s−1}²`.  The
+    moments are the SU(2)-theta (continuous q-Hermite, `q=a²`) deformation of
+    the semicircle; `(2N−1)!!` is the q-Hermite Hankel signature.  OPEN
+    reduces to a SINGLE statement: **`P_N = Δ_N/S_N²` has nonneg coefficients
+    for every N** (exact through N=8; not yet N-indexed) — lever: the
+    positive Favard factor `P_s P_{s−2}/P_{s−1}²`, or LGV/non-intersecting
+    paths for the q-Hankel cofactor.  Plus the (bookkeeping) order-N
+    moment-bridge and the Sylvester `(∀N Δ_N≥0) ⇒ PSD` step.
   * **E2 (cluster expansion / infinite volume)**, **E3 (RG transport)** —
     the analytic core, interleaved with B2's OS axioms.
 
