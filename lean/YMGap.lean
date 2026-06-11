@@ -80,6 +80,10 @@ import YMGap.Continuum.Pivot3Form
 import YMGap.Continuum.Pivot3
 import YMGap.Continuum.MomentPositivity
 import YMGap.Continuum.E2ProductFunctional
+import YMGap.Continuum.Favard
+import YMGap.Continuum.PlaquetteReweight
+import YMGap.Continuum.KPLimit
+import YMGap.Continuum.RGTransport
 import YMGap.Continuum.OSAxioms
 import YMGap.Continuum.OSReconstruction
 import YMGap.Continuum.SpectralGap

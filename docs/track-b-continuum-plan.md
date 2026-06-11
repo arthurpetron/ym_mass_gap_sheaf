@@ -45,16 +45,29 @@ critical path.  Hence:
     real finite-volume Wilson functional.
   * **E2 — thermodynamic (infinite-volume) limit.**  Infinite-volume
     expectations exist in the convergent regime via the Kotecký–Preiss
-    cluster expansion.  The repo already has the KP framework
-    (`Sheaf/Summability`, the KP certificates); lifting it to infinite-volume
-    functional values with bounds is substantial but structured.
+    cluster expansion.  PARTIAL: the *free* finite-volume rung
+    (`Continuum/E2ProductFunctional.lean`, `prodFunctional` + the
+    independence law); the plaquette-coupled rung
+    (`Continuum/PlaquetteReweight.lean` — a constructive `Q'` reciprocal +
+    the reweighting-positivity lemma `Eβ(o)=Ew(o)/Z` positive/normalized,
+    with `Ew_pos` = OS2 as the isolated input); and the KP→limit ENGINE
+    (`Continuum/KPLimit.lean` — `crealOfGeoIncrement`: a geometric increment
+    bound `|S_{Λ+1}−S_Λ| ≤ C·ρ^Λ` gives a `CReal` limit with explicit
+    modulus, the "second half" matching the proved `Z_t<1/16` smallness).
+    OPEN: the actual lattice polymer expansion deriving the increment bound;
+    plaquette weight `W=e^{−S}` with `Z>0`; OS2 itself.
   * **E3 — RG consistency (the load-bearing claim).**  Block-spin transport
-    `restrict (E_{k+1}) (incl k) = E_k`.  This is the project's
-    inductive-step / `[P2.1]` content — currently Lean carries only the
-    *shape* (the identity / zero-budget witness in `RG/BlockSpin`), with the
-    quantitative transport in `computations/` (the σ̂ numerics).  Formalizing
-    the genuine transport is the hardest core; parts (Conj. 7.4, O(4)) are
-    flagged as conjectures in the paper.
+    `restrict (E_{k+1}) (incl k) = E_k`.  PARTIAL
+    (`Continuum/RGTransport.lean`): the transport lemma
+    `consistent_iff_transport` (consistency ⟺ the value law `E∘map = E`); a
+    NON-trivial consistent tower on genuine non-`PUnit` data (the SU(2)
+    character algebra `charAlg` + diagonal heat-kernel functional `charFunc`,
+    proved a `ProbFunctional` and genuinely non-constant), replacing the
+    `trivConsistent` placeholder; and a non-identity block-spin *-hom
+    (`collapseHom`) with proved consistency.  OPEN: the genuine SU(2)
+    block-spin map (neither identity nor collapse), strict-`=` vs `.eqv` for
+    a *moving* heat-kernel tower, and the QUANTITATIVE σ̂-budget transport /
+    named conjectures (Conj. 7.4, O(4)).
   * **E4 — non-triviality.**  σ̂_∞ > 0 (Track A) ⇒ the continuum limit is
     non-trivial (a mass gap, not a free/trivial theory).  Track A's
     character-tail / σ̂ work plugs in here.
@@ -149,6 +162,13 @@ measure is positive* (≡ `E(a²) ≥ 0` for all `a` ≡ the Gram matrix
     Favard three-term recurrence `β_s(a) ≥ 0`), the moment-bridge per order,
     and the Sylvester `(∀N Δ_N≥0) ⇒ PSD` step.  Alternative: route (b)
     (Hermite/Poisson) makes positivity manifest but needs theta machinery.
+    Favard progress (`Continuum/Favard.lean`): `β_s = Δ_s·Δ_{s−2}/Δ_{s−1}²`,
+    so `β_s ≥ 0 ⟺ Δ_s·Δ_{s−2} = (S_s S_{s−2})²·(P_s P_{s−2}) ≥ 0` — proved
+    for `s = 1..4` (incl. a degree-160 `decide` at `s=4`), with `P_N ≥ 1`
+    (`geRat_ceval_ge_const`) and nonneg-coeff cone closure under `pmul`.  The
+    remaining crux is *evenness of every cyclotomic multiplicity* in `Δ_N`
+    (⇒ the perfect square `S_N²` uniformly) — plausibly a Vandermonde/Slater
+    determinant fact on the discrete heat-kernel spectrum.
   * **E2 (cluster expansion / infinite volume)**, **E3 (RG transport)** —
     the analytic core, interleaved with B2's OS axioms.
 
