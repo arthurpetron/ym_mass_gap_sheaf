@@ -87,6 +87,9 @@ import YMGap.Continuum.LGVPositivity
 import YMGap.Continuum.HeatKernelPos
 import YMGap.Continuum.TrigAverage
 import YMGap.Continuum.GramReduction
+import YMGap.Continuum.HeatKernelPos2
+import YMGap.Continuum.Positivstellensatz
+import YMGap.Continuum.GramReduction3
 import YMGap.Continuum.PlaquetteReweight
 import YMGap.Continuum.KPLimit
 import YMGap.Continuum.RGTransport
