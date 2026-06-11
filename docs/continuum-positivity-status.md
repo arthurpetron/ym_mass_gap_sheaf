@@ -156,3 +156,56 @@ elementary routes (recurrence, product, value-positivity, telescoping) are
 exhausted; the one route with genuine headroom is a sign-clean combinatorial
 (determinant/LGV) model for `p_N`, which is a real research problem, not a
 mechanical formalization.
+
+### 5b. Determinant-model deep dive (sympy + OEIS + literature sweep)
+
+A focused search (q-enumeration, direct determinant-model fitting, and a
+literature sweep) sharpened the picture but did **not** find a model that proves
+coefficient-positivity. Durable findings:
+
+- **`P_N(1) = ∏_{k=1}^{N−1} (2k+1)!/(k!)²`** (the per-factor ratio is OEIS
+  A002457; `q=1` is the flat-Weyl `a=1` limit; these are Legendre/Jacobi OP
+  squared-norms `h_k = (2k+1)C(2k,k)`). The product `6,180,25200,…` and the
+  `P_N` rows are **not in OEIS** — the object is uncatalogued.
+- **`P_N` is irreducible over ℚ** and **not palindromic** (but log-concave /
+  unimodal). Irreducibility ⟹ `P_N` is NOT a principal specialization or any
+  symmetry-class (plane-partition / ASM / single-character) generating function
+  — all of those factor into cyclotomics. Non-palindromic ⟹ not a symmetric
+  volume/box statistic. Any q-enumeration realizing `P_N` must use a
+  **non-principal** (descent / major-index / charge-type) statistic.
+- **The Gram is Hankel−minus−Toeplitz** — the determinantal signature of
+  **symplectic `Sp(2N)` / odd-orthogonal `SO(2N+1)` characters** (Okada /
+  Krattenthaler). This is the natural "home" of `P_N`; the recommended live
+  route is an `Sp(2N)`-character / non-intersecting-path (LGV) realization with
+  a non-principal weight.
+- **Literature: no published evaluation.** `S_N` is exactly the
+  Stieltjes–Wigert / Chern–Simons q-Vandermonde (the "trivial" factor). The
+  moments are **differentiated Jacobi-theta** coefficients (`a·m_{r−1}=r a^{r²}`),
+  so `Δ_N` is a theta-derivative Hankel / Toda–KP tau-determinant; the `(s+1)`
+  derivative factor moves it off every named q-orthogonal family (Stieltjes–
+  Wigert, q-Hermite, Al-Salam–Chihara), and no theorem gives coefficient-
+  positivity of such tau-determinants. Refs: Krattenthaler *Adv. Det. Calc.*
+  (math/9902004) & *Complement* (math/0503507); Cigler–Zeng (0905.0228);
+  Takahashi–Katori (1312.5848); elliptic-DPP (1804.07994).
+- **Recurrence-coefficient relation (live structural lead):**
+  `λ_k = [∏_{j≤k}(a^{2j}−1)]² · P_{k+1}P_{k−1}/P_k² / 4`, i.e. `λ_k` has
+  denominator exactly `P_k²` — a **Toda / log-concavity relation**
+  `P_{k−1}P_{k+1} = (manifestly-nonneg cyclotomic)·(positive)·P_k²`. A
+  Dodgson/Toda recursion plus induction on coefficient-positivity is the
+  realistic self-contained route (no closed form to import).
+
+- **Near-miss (do not mistake for a proof):** a non-symmetric tridiagonal
+  `P_N = det J_N` with nonneg-coefficient (but rational, denominator-growing)
+  entries exists, via the gauge freedom `g_{k} → g_{k} + r·P_{k}` of the
+  non-symmetric Jacobi form. But its recurrence `P_n = b_n P_{n−1} −
+  g_{n−1}P_{n−2}` carries a **minus**, and tridiagonal total-nonnegativity gives
+  only **value**-positivity (`P_N(q) ≥ 0`, already known), NOT coefficient-
+  positivity. Not a closer.
+
+**Refined verdict:** `nonnegCoeffs P_N` is a *genuinely novel* positivity of a
+theta-derivative Hankel-determinant residual, symplectic-character-flavored and
+irreducible, uncatalogued and unaddressed in the determinant-calculus
+literature. The two routes with real headroom — an `Sp(2N)`/LGV non-principal-
+weight enumeration, or a Dodgson–Toda induction off the `λ_k` relation — are
+research programs, not mechanical formalizations. The Wall-2 (analytic) route to
+the same uniform PSD remains the alternative.
