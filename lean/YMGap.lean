@@ -31,6 +31,7 @@ import YMGap.Constructive.CRealAdd
 import YMGap.Constructive.CRealMulMono
 import YMGap.Constructive.SumOfSquares
 import YMGap.Constructive.QPoly
+import YMGap.Constructive.Sqrt
 import YMGap.Constructive.CauchyConv
 import YMGap.Constructive.ExpAddConv
 import YMGap.Constructive.ProductDecomp
@@ -99,6 +100,9 @@ import YMGap.Continuum.ThetaConvGen
 import YMGap.Continuum.MomentBridge
 import YMGap.Continuum.UTelescope
 import YMGap.Continuum.GaussQBinom
+import YMGap.Continuum.JTPIdentity
+import YMGap.Continuum.PNDeterminant
+import YMGap.Continuum.ContinuumExistence
 import YMGap.Continuum.PNPaths
 import YMGap.Continuum.PNInduction
 import YMGap.Continuum.GramReduction3
@@ -111,6 +115,7 @@ import YMGap.Continuum.SpectralGap
 import YMGap.Continuum.SpectralGapConverse
 import YMGap.Continuum.SpectralGapGrowth
 import YMGap.MassGap.SU2
+import YMGap.Continuum.SqrtBridge
 import YMGap.BufferShell
 import YMGap.Codynamic
 import YMGap.HigherCategorical

@@ -149,7 +149,56 @@ positive factor, and the `Q'` Archimedean property `∀ X Y, 0<Y → ∃ n,
 X < (ofNat n)·Y`. Tracked as a hypothesis-gated obligation in
 `lean/SORRY_LEDGER.md` (NOT a `sorry`; this module is axiom-clean).
 Discharging it specializes `gap_of_decay_of_growth` to the unconditional
-`gap_of_decay`. -/
+`gap_of_decay` (`Continuum/SpectralGapGrowth.lean`). -/
+
+/-! ## The finite-volume gap ⇔ clustering equivalence
+
+`SpectralGap.decay_of_spectralGap` is the *forward* direction (gap ⇒ decay):
+a gap at `μ` forces `corr S n ≤ (Σ_i w_i)·μ^n`.  `gap_of_decay_of_growth` above
+is the *converse* (decay ⇒ gap).  Packaging them gives the finite-volume
+equivalence — the load-bearing statement that the lattice GEVP effective-mass
+extraction operationalizes.
+
+The forward direction is unconditional.  The converse is gated on the
+geometric-growth kernel `growth` (a pure `Q'`-arithmetic fact), discharged
+unconditionally as `pow_dominates`/`gap_of_decay` in
+`Continuum/SpectralGapGrowth.lean`; this module keeps the equivalence in the
+kernel-gated form to stay non-circular (the discharge imports *this* module). -/
+
+/-- Spectral gap at `μ`: every mode `≤ μ` (the hypothesis of
+`SpectralGap.decay_of_spectralGap`). -/
+def HasGapAt (S : SpectralModel) (μ : Q') : Prop := SpectralGapBound S μ
+
+/-- **Gap ⇒ clustering (forward, unconditional).**  A gap at `μ ≥ 0` forces
+`corr S n ≤ (Σ_i w_i)·μ^n` — exponential decay at rate `−log μ`.  (Repackaging
+of `SpectralGap.decay_of_spectralGap` under the `DecaysAt` envelope, with the
+total weight `Σ_i w_i` as the prefactor `C`.) -/
+theorem clustering_of_gap (S : SpectralModel) (μ : Q') (hμ : (0 : Q') ≤ μ)
+    (hgap : HasGapAt S μ) : DecaysAt S (finSum S.w S.k) μ :=
+  fun n => decay_of_spectralGap S μ hμ hgap n
+
+/-- **Finite-volume gap ⇔ clustering (kernel-gated).**
+
+Given the geometric-growth kernel `growth` (discharged unconditionally by
+`SpectralGapGrowth.pow_dominates`), the following are equivalent for a
+populated mode `j` (`w_j > 0`):
+
+  * a spectral gap at `μ` (every mode `≤ μ`), which forces `λ_j ≤ μ`; and
+  * measured exponential clustering `corr S n ≤ C·μ^n`.
+
+Concretely: clustering at rate `μ` ⇒ `λ_j ≤ μ` (the converse), and a gap at `μ`
+⇒ clustering with `C = Σ_i w_i` (the forward direction).  This is the
+finite-volume content of "exponential decay of the connected two-point
+function ⇔ a mass gap". -/
+theorem gap_iff_clustering_of_growth
+    (S : SpectralModel) (C μ : Q') (hμ : (0 : Q') ≤ μ)
+    (growth : ∀ (w lam : Q'), (0 : Q') < w → μ < lam →
+      ∃ n : Nat, C * μ ^ n < w * lam ^ n)
+    (j : Nat) (hj : j < S.k) (hwj : (0 : Q') < S.w j) :
+    (DecaysAt S C μ → S.lam j ≤ μ)
+      ∧ (HasGapAt S μ → DecaysAt S (finSum S.w S.k) μ) :=
+  ⟨fun hdecay => gap_of_decay_of_growth S C μ growth hdecay j hj hwj,
+   fun hgap => clustering_of_gap S μ hμ hgap⟩
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
 
@@ -162,5 +211,7 @@ Discharging it specializes `gap_of_decay_of_growth` to the unconditional
 #print axioms finSum_ge_term
 #print axioms term_le_corr
 #print axioms gap_of_decay_of_growth
+#print axioms clustering_of_gap
+#print axioms gap_iff_clustering_of_growth
 
 end YMGap.Continuum.SpectralGap
