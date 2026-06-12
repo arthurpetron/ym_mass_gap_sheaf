@@ -36,6 +36,8 @@ routes unconditionally.
 | general `rⁿ→0` modulus (was open in KPLimit) | `pow_base_le` | `HeatKernelConvGen.lean` |
 | `ϑ₃` as a convergent CReal (`a≤1/16`) | `thetaConvCReal` | `ThetaConv.lean` |
 | full `R = ϑ₃·S ≥ 0` as CReals (`a≤1/16`) | `R_geRat_zero_sixteenth` | `ThetaConv.lean` |
+| `ϑ₃` as a convergent CReal, **all `a∈(0,1)`** | `thetaConvCRealGen` | `ThetaConvGen.lean` |
+| full `R = ϑ₃·S ≥ 0` as CReals, **all `a∈(0,1)`** | `R_geRat_zero_gen` | `ThetaConvGen.lean` |
 | Chebyshev-U telescoping, general M | `uTelescope_all` | `UTelescope.lean` |
 | `K_t=R` reduced to single convergence `Rtrunc M ≈ R` | `Kt_nonneg_of_residual` | `UTelescope.lean` |
 | `SOSPresentation → MomentSquarePos` bridge | `momentSquarePosAt_of_sos` | `MomentBridge.lean` |
@@ -87,12 +89,17 @@ weights rational with `P_k` in the denominator).
 ### Wall 2 — differentiated Jacobi triple product (analytic)
 
 `K_t(x) = (ϑ₃(x)/2a)·S(x)` with `K_t(x) = a^{-1} Σ n a^{n²} U_{n-1}(x)`. The
-positivity object `R = ϑ₃·S ≥ 0` is built (CReals, `a≤1/16`); the finite
+positivity object `R = ϑ₃·S ≥ 0` is now built as CReals **for all `a∈(0,1)`**
+(`ThetaConvGen.R_geRat_zero_gen`; the old `a≤1/16` restriction is removed via a
+prefix-split magnitude bound + the general-base geometric engine). The finite
 telescoping engine `uTelescope_all` and the convergence machinery (G1) are
 done. **Open: the identity itself** — the theta-function (Gaussian-weight
 `aⁿ²`) identity, which the geometric-weight `uTelescope` does not reach.
 `UTelescope.Kt_nonneg_of_residual` shows it suffices to supply the single
-convergence `Rtrunc M ≈ R`; all telescoping algebra is closed.
+convergence `Rtrunc M ≈ R`; all telescoping algebra is closed. The exact
+N→∞ assembly via Gauss's q-binomial identity (`GaussQBinom.gauss_qbinom_all`),
+and the sharp differentiation obligation that remains, are mapped in
+`docs/jtp-convergence-notes.md`.
 
 If Wall 2 closes (`K_t ≥ 0` pointwise), the Andréief / positive-measure route
 gives every `Δ_N ≥ 0` in value, hence the LDLᵀ pivots `≥ 0`, hence

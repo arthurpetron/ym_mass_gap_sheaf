@@ -95,8 +95,10 @@ import YMGap.Continuum.ChebyshevU
 import YMGap.Continuum.HeatKernelConv
 import YMGap.Continuum.HeatKernelConvGen
 import YMGap.Continuum.ThetaConv
+import YMGap.Continuum.ThetaConvGen
 import YMGap.Continuum.MomentBridge
 import YMGap.Continuum.UTelescope
+import YMGap.Continuum.GaussQBinom
 import YMGap.Continuum.PNPaths
 import YMGap.Continuum.PNInduction
 import YMGap.Continuum.GramReduction3
