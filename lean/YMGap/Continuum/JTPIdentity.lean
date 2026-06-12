@@ -646,6 +646,41 @@ theorem Kt_geRat_zero_of_productDerivativeLimit {a x : Q'}
     ExpPos.geRat (dSeriesCReal ha0 ha1 hx hx1) 0 :=
   Kt_geRat_zero_of_diff ha0 ha1 hx hx1 hPDL
 
+/-! ## 6. Closure through the genuine C¹-uniform-limit engine (`TsumDeriv.lean`)
+
+`DiffProduct.C1ToEquiv` is the named `Σ`-obligation that specialises the generic
+Bishop C¹-limit engine `TsumDeriv.fdDeriv_of_unif` to the heat-kernel / Jacobi
+factors: it carries the `C1Inputs` modulus data for the theta-product family plus
+the derivative-value identification.  Given such an instance linking `dSeriesCReal`
+and `Rhalf`, both `DiffJTP` and the unconditional-shaped `K_t ≥ 0` follow.  This
+threads the heat-kernel positivity through the ACTUAL analysis engine — the part
+that commutes `d/dθ` with the limit — rather than a black-box `Prop`.
+
+The single remaining open input is therefore exactly `C1ToEquiv` (equivalently its
+`C1Inputs` field, the `O((a·a)^k)`-modulus theta-product differentiation data); the
+engine and the conditional closure are both discharged. -/
+
+/-- **`C1ToEquiv → DiffJTP`.**  The named C¹-engine instantiation obligation (for
+the heat-kernel series `dSeriesCReal` and the halved product `Rhalf`) discharges
+the differentiated-JTP residual `DiffJTP`. -/
+theorem DiffJTP_of_c1 {a x : Q'}
+    (ha0 : (0 : Q') < a) (ha1 : a < (1 : Q')) (hx : (-1 : Q') ≤ x) (hx1 : x ≤ (1 : Q'))
+    (H : DiffProduct.C1ToEquiv (dSeriesCReal ha0 ha1 hx hx1) (Rhalf ha0 ha1 hx hx1)) :
+    DiffJTP ha0 ha1 hx hx1 :=
+  DiffProduct.productDerivativeLimit_of_c1 H
+
+/-- **THE ENGINE-ROUTED CLOSURE: `C1ToEquiv → K_t ≥ 0`.**  Given the C¹-limit-engine
+instantiation data for the heat-kernel theta-product family, the heat-kernel series
+`K_t = dSeriesCReal ≥ 0`.  The positivity flows through `TsumDeriv.fdDeriv_of_unif`
+(the genuine "derivative of the limit = uniform limit of derivatives" theorem) via
+the `C1Inputs` carried by `C1ToEquiv`; the sole open input is that instantiation
+datum.  Same downstream consequence as `Kt_geRat_zero_of_diff`. -/
+theorem Kt_geRat_zero_of_c1 {a x : Q'}
+    (ha0 : (0 : Q') < a) (ha1 : a < (1 : Q')) (hx : (-1 : Q') ≤ x) (hx1 : x ≤ (1 : Q'))
+    (H : DiffProduct.C1ToEquiv (dSeriesCReal ha0 ha1 hx hx1) (Rhalf ha0 ha1 hx hx1)) :
+    ExpPos.geRat (dSeriesCReal ha0 ha1 hx hx1) 0 :=
+  Kt_geRat_zero_of_diff ha0 ha1 hx hx1 (DiffJTP_of_c1 ha0 ha1 hx hx1 H)
+
 end YMGap.Continuum.JTPIdentity
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1)
@@ -667,3 +702,5 @@ named hypothesis (the single open analytic obligation), NOT a `sorry`. -/
 #print axioms YMGap.Continuum.JTPIdentity.Kt_geRat_zero_of_diff
 #print axioms YMGap.Continuum.JTPIdentity.DiffJTP_eq_productDerivativeLimit
 #print axioms YMGap.Continuum.JTPIdentity.Kt_geRat_zero_of_productDerivativeLimit
+#print axioms YMGap.Continuum.JTPIdentity.DiffJTP_of_c1
+#print axioms YMGap.Continuum.JTPIdentity.Kt_geRat_zero_of_c1

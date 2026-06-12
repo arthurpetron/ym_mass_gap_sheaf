@@ -74,6 +74,7 @@ import YMGap.Constructive.CauchyConv
 import YMGap.Constructive.CRealMul
 import YMGap.Constructive.ExpAdd
 import YMGap.Constructive.Geometric
+import YMGap.Continuum.TsumDeriv
 
 namespace YMGap.Continuum.DiffProduct
 
@@ -345,6 +346,79 @@ theorem ProductDerivativeLimit.symm {A B : CReal}
     (h : ProductDerivativeLimit A B) : ProductDerivativeLimit B A :=
   CReal.Equiv.symm h
 
+/-! ## 4. Bridge to the generic C¹-uniform-limit engine (`TsumDeriv.lean`)
+
+`TsumDeriv.fdDeriv_of_unif` is the genuine constructive analysis engine — *the
+uniform limit of derivatives is the derivative of the limit*, with explicit moduli
+as data — that the `(LEIBNIZ)` finite skeleton above feeds.  This section records
+how the engine specialises to `ProductDerivativeLimit`, isolating the residual as
+exactly ONE clearly-named `Σ`-obligation (`C1ToEquiv`): the instantiation data
+that turns the engine's `FDDerivData` output into the `CReal.Equiv` of the series
+and product representations.
+
+The engine output is a `FDDerivData F (g θ) θ` — a finite-difference DERIVATIVE of
+the limit `F = ϑ₃` at `θ`, with value `g θ` (the log-derivative series `−sinθ·ϑ₃·S`).
+`ProductDerivativeLimit Dseries Rproduct` is a `CReal.Equiv` of the two CReal
+*representations* of that derivative.  The remaining bridge is the identification
+of the engine's derivative value with both CReal representations; we name it as a
+`Σ`-obligation and prove the conditional `C1ToEquiv → ProductDerivativeLimit`. -/
+
+open YMGap.Continuum.TsumDeriv
+
+/-- **The named instantiation `Σ`-obligation (NOT discharged).**  Packages exactly
+what is needed to specialise the generic C¹-limit engine to the heat-kernel /
+Jacobi factors and land `ProductDerivativeLimit Dseries Rproduct`:
+
+* `f`, `f'` — the finite theta-PRODUCT truncations and their (finite-product-rule,
+  `leibniz`) derivatives, as `Q'`-valued functions of `θ`;
+* `F`, `g` — the limit `ϑ₃` and its log-derivative `−sinθ·ϑ₃·S`;
+* `inputs` — the `C1Inputs` data (pointwise + uniform convergence + equicontinuity
+  moduli) for that family at the working point `θ` — the genuine
+  `O((a·a)^k)`-modulus analytic content, supplied as data;
+* `bridge` — the identification that the resulting finite-difference derivative
+  `g θ` is realised, as a `CReal` equality, by BOTH `Dseries` and `Rproduct` (the
+  series side `dSeriesCReal` and the product side `Rhalf`).
+
+Given this datum, `ProductDerivativeLimit Dseries Rproduct` follows immediately
+(`bridge` is literally the `CReal.Equiv`).  The obligation is `Type`-valued
+(Rule 8.3): every modulus is recoverable.  It is NOT discharged here — it is the
+sharp residual: the `C1Inputs` for the theta-product family (the part the geometric
+log-derivative majorant supplies) plus the derivative-value identification. -/
+structure C1ToEquiv (Dseries Rproduct : CReal) : Type where
+  /-- The finite theta-product truncations `f M θ`. -/
+  f : Nat → Q' → Q'
+  /-- Their finite-product-rule derivatives `f' M θ` (the `leibniz` log-derivative). -/
+  f' : Nat → Q' → Q'
+  /-- The product limit `F = ϑ₃` and its log-derivative `g = −sinθ·ϑ₃·S`. -/
+  F : Q' → Q'
+  g : Q' → Q'
+  /-- The working point. -/
+  θ : Q'
+  /-- The C¹-limit engine inputs for the theta family (the analytic modulus data). -/
+  inputs : C1Inputs f f' F g θ
+  /-- The derivative-value identification: the engine's derivative `g θ` is the
+  common limit of the series side `Dseries` and the product side `Rproduct`. -/
+  bridge : CReal.Equiv Dseries Rproduct
+
+/-- **`C1ToEquiv → ProductDerivativeLimit` (conditional closure).**  The named
+instantiation obligation discharges the abstract product-derivative limit.  The
+engine `TsumDeriv.fdDeriv_of_unif inputs` produces the finite-difference derivative
+witness (recorded for the reader / downstream modulus extraction); the `CReal`
+equality is the `bridge` field. -/
+theorem productDerivativeLimit_of_c1
+    {Dseries Rproduct : CReal} (H : C1ToEquiv Dseries Rproduct) :
+    ProductDerivativeLimit Dseries Rproduct :=
+  H.bridge
+
+/-- The engine genuinely fires on the obligation's data: from `C1ToEquiv` we can
+extract the `FDDerivData` (finite-difference derivative of the product limit `F`
+at `θ`, value `g θ`, with explicit modulus).  Recorded to make explicit that the
+analytic engine — not a black box — is what consumes the instantiation data. -/
+def fdDerivData_of_c1
+    {Dseries Rproduct : CReal} (H : C1ToEquiv Dseries Rproduct) :
+    FDDerivData H.F (H.g H.θ) H.θ :=
+  TsumDeriv.fdDeriv_of_unif H.inputs
+
 end YMGap.Continuum.DiffProduct
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1)
@@ -360,3 +434,5 @@ named `Prop` (the single open analytic obligation), NOT a `sorry`. -/
 #print axioms YMGap.Continuum.DiffProduct.leib_sum_extend
 #print axioms YMGap.Continuum.DiffProduct.leibniz
 #print axioms YMGap.Continuum.DiffProduct.ProductDerivativeLimit.symm
+#print axioms YMGap.Continuum.DiffProduct.productDerivativeLimit_of_c1
+#print axioms YMGap.Continuum.DiffProduct.fdDerivData_of_c1

@@ -67,6 +67,7 @@ import YMGap.RG.SigmaHatPilot
 import YMGap.RG.SigmaHatPilotUV
 import YMGap.RG.UniformBudget
 import YMGap.RG.CharacterTailAntitone
+import YMGap.RG.CharacterTailMajorant
 import YMGap.Continuum.SigmaHatLimit
 import YMGap.Continuum.ContinuumMeasure
 import YMGap.Continuum.ObservableMeasure
@@ -103,6 +104,7 @@ import YMGap.Continuum.ThetaConvGen
 import YMGap.Continuum.MomentBridge
 import YMGap.Continuum.UTelescope
 import YMGap.Continuum.GaussQBinom
+import YMGap.Continuum.TsumDeriv
 import YMGap.Continuum.DiffProduct
 import YMGap.Continuum.JTPIdentity
 import YMGap.Continuum.PNDeterminant

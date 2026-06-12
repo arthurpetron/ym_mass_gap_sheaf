@@ -165,10 +165,73 @@ introduces **no new positivity content** (positivity is already closed in
 `HasDerivAt`-of-`tsum` engine with explicit modulus, and that — specialised to
 the geometric log-derivative modulus — is the sole outstanding Wall-2 lemma.
 
+## NEW: the generic C¹-uniform-limit engine (`TsumDeriv.lean`)
+
+The genuine remaining analytic engine — *the uniform limit of derivatives is the
+derivative of the limit* (Bishop's constructive C¹-limit theorem) — is now BUILT,
+in a new module `lean/YMGap/Continuum/TsumDeriv.lean`, axiom-clean (`[propext]`
+only), with all moduli carried as `Type`-level data (AGENTS.md Rule 8):
+
+- **`FDDerivData f d θ`** — the data-carrying Bishop finite-difference derivative:
+  a modulus `δ : Q' → Q'` with the cleared (division-free) bound
+  `|f(θ+h) − f(θ) − d·h| ≤ ε·|h|` for `0 < |h| ≤ δ ε`.
+- **`PtwiseConvAt` / `UnifDerivConvAt`** — pointwise / uniform convergence with
+  their moduli as data.
+- **`C1Inputs f f' F g θ`** — the bundled hypotheses (pointwise convergence at the
+  base and perturbed points, uniform derivative convergence, and the family's
+  common finite-difference modulus = equicontinuity at `θ`).
+- **`fdDeriv_of_unif` (CLOSED)** — the theorem: from `C1Inputs`, the pointwise
+  limit `F` has finite-difference derivative `g θ` at `θ`, with explicit assembled
+  modulus `δ ε := delStar (ε/4)`.  The proof is the genuine **four-piece triangle
+  estimate** (pointwise tail at `θ+h` + the M-th finite-difference derivative +
+  pointwise tail at `θ` + uniform derivative convergence), each piece `≤ (ε/4)·|h|`,
+  assembled at the `Q'` increment level via the new `Q'` toolkit
+  (`abs_eqv_congr`, `abs_neg`, `abs_sub_comm`, `abs_mul_le`, `abs_four_le`,
+  `telescope6` — a pure six-atom abelian-group telescoping identity — and
+  `four_q_eqv`).  No `CReal` division, no `Mathlib ℝ`, no `sorry`.
+
+This is the reusable engine the convergence notes §2.3 named as the sole missing
+piece.  It is generic (arbitrary `Q'`-valued function families) and carries no
+positivity content.
+
+### Bridge to the residual (`DiffProduct.lean`, `JTPIdentity.lean`)
+
+The engine is specialised to the heat-kernel / Jacobi factors through ONE named
+`Σ`-obligation (NOT discharged), isolating the instantiation residual precisely:
+
+- **`DiffProduct.C1ToEquiv Dseries Rproduct`** (`Type`-valued) — carries the finite
+  theta-product truncations `f`, their `leibniz`-derivatives `f'`, the limit
+  `F = ϑ₃` and log-derivative `g = −sinθ·ϑ₃·S`, the working point `θ`, the
+  `C1Inputs` modulus data for that family (the `O((a·a)^k)` geometric content), and
+  the `bridge` identifying the engine's derivative value with the two CReal
+  representations.
+- **`DiffProduct.productDerivativeLimit_of_c1`** (axiom-free) —
+  `C1ToEquiv → ProductDerivativeLimit`.
+- **`DiffProduct.fdDerivData_of_c1`** — extracts the `FDDerivData` from the
+  obligation's data, making explicit that `fdDeriv_of_unif` (the real engine, not a
+  black box) consumes it.
+- **`JTPIdentity.DiffJTP_of_c1`** — `C1ToEquiv (dSeriesCReal) (Rhalf) → DiffJTP`.
+- **`JTPIdentity.Kt_geRat_zero_of_c1`** — the engine-routed closure
+  `C1ToEquiv → K_t ≥ 0`.
+
+**Is `K_t ≥ 0` unconditional?**  Not yet: it is now reduced to the SINGLE named
+`Σ`-obligation `C1ToEquiv` (equivalently its `C1Inputs` field — the theta-product
+differentiation modulus data for the specific Jacobi factors).  The generic
+C¹-limit theorem that consumes it is fully discharged; what remains is the
+*instantiation* — supplying the pointwise/uniform/equicontinuity moduli for the
+concrete theta-product family (the `leibniz` finite-product-rule derivative plus
+the geometric `O((a·a)^k)` log-derivative tail).  This is a genuine, bounded
+modulus-construction task, no longer an open analysis theorem.
+
+Modules build via
+`cd lean && lake build YMGap.Continuum.TsumDeriv YMGap.Continuum.DiffProduct
+YMGap.Continuum.JTPIdentity`; all new declarations axiom-clean.
+
 ## Axiom status
 
 All load-bearing declarations report `[propext]` or `[propext, Quot.sound]`.
-No `Classical.*`, no `native_decide`, no `sorry`/`sorryAx`.
+No `Classical.*`, no `native_decide`, no `sorry`/`sorryAx`.  The new
+`TsumDeriv.lean` engine is `[propext]`-only.
 
 ## Build / wiring
 

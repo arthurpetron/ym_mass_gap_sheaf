@@ -54,6 +54,7 @@ group it is the paper-layer obligation.
 
 import YMGap.RG.UniformBudget
 import YMGap.RG.CharacterTailAntitone
+import YMGap.RG.CharacterTailMajorant
 import YMGap.MassGap.SU2
 
 namespace YMGap.MassGap.SimpleGroup
@@ -189,6 +190,46 @@ theorem mass_gap_simple_group_of_gapMonotone
   mass_gap_simple_group R hadm
     (uniformBudgetWitness_of_gapMonotone R hadm hmono hwin) rec bundle
 
+/-! ## Mass gap from the rank-general `Z_t` majorant (the honest unconditional path)
+
+`mass_gap_simple_group_of_gapMonotone` consumes the named `EtaGapMonotone R`.
+`RG/CharacterTailMajorant.lean` discharges *that* through the rank-general
+character-tail majorant `Z_t(R) = ∏_i S_i − 1 ≤ Z_t(su2)`
+(`etaGapMonotone_of_ztMajorant`), whose only non-`Q'` inputs are the named
+`ZtMajorant.rank_collapse` (the §3 rank-collapse) and the `EtaFromZt`
+`Z_t ↦ η` packaging — both bounded to the paper layer, neither faked, and
+both *concrete `decide` facts* for the SU(N) family.  This corollary threads
+that reduction end to end: from an `AdmissibleSimpleGroup R`, the
+`EtaFromZt R` bridge (carrying the majorant), and the same-window fact, it
+delivers the mass gap.  The remaining obligation is then exactly the rank-`r`
+`Z_t` majorant of `R`, not the bare `eta_max` inequality. -/
+theorem mass_gap_simple_group_of_ztMajorant
+    (R : RepData) (hadm : AdmissibleSimpleGroup R)
+    (bridge : EtaFromZt R) (hwin : R.K_steps = su2.K_steps)
+    {M : Nat → Type} {μ_inf : ContinuumMeasure M}
+    (rec : OSReconstruction μ_inf) (bundle : OSAxiomBundle μ_inf) :
+    ∃ m_0 : Q',
+      (0 : Q') < m_0 ∧
+      m_0 * m_0 ≤ sigma_hat_inf_lower_uniform ∧
+      HasSpectralGap rec ∧
+      (∀ N, finSum (truncatedConst R.K_steps R.eta_max) N ≤ su2.sigma0) :=
+  mass_gap_simple_group_of_gapMonotone R hadm
+    (etaGapMonotone_of_ztMajorant bridge) hwin rec bundle
+
+/-- **SU(2) mass gap via the rank-general `Z_t` majorant chain.**  Threads
+SU(2) through the rank-1 product majorant (`su2_etaFromZt`), exhibiting the
+full `Z_t ↦ η ↦ budget` path with no named obligation open at the boundary
+instance. -/
+theorem mass_gap_SU2_via_ztMajorant
+    {M : Nat → Type} {μ_inf : ContinuumMeasure M}
+    (rec : OSReconstruction μ_inf) (bundle : OSAxiomBundle μ_inf) :
+    ∃ m_0 : Q',
+      (0 : Q') < m_0 ∧
+      m_0 * m_0 ≤ sigma_hat_inf_lower_uniform ∧
+      HasSpectralGap rec ∧
+      (∀ N, finSum (truncatedConst su2.K_steps su2.eta_max) N ≤ su2.sigma0) :=
+  mass_gap_simple_group_of_ztMajorant su2 su2_admissible su2_etaFromZt (by decide) rec bundle
+
 /-! ## SU(3) corollary — the near-free instance
 
 SU(3) is admissible (`su3_admissible`) and η-dominated: its per-step
@@ -242,6 +283,8 @@ end YMGap.MassGap.SimpleGroup
 #print axioms YMGap.MassGap.SimpleGroup.m_0_uniform_squared_le
 #print axioms YMGap.MassGap.SimpleGroup.mass_gap_simple_group
 #print axioms YMGap.MassGap.SimpleGroup.mass_gap_simple_group_of_gapMonotone
+#print axioms YMGap.MassGap.SimpleGroup.mass_gap_simple_group_of_ztMajorant
+#print axioms YMGap.MassGap.SimpleGroup.mass_gap_SU2_via_ztMajorant
 #print axioms YMGap.MassGap.SimpleGroup.su3_uniform_witness
 #print axioms YMGap.MassGap.SimpleGroup.mass_gap_SU3
 #print axioms YMGap.MassGap.SimpleGroup.su2_uniform_witness
