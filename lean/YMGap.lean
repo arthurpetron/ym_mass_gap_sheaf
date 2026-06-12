@@ -68,6 +68,7 @@ import YMGap.RG.SigmaHatPilotUV
 import YMGap.RG.UniformBudget
 import YMGap.RG.CharacterTailAntitone
 import YMGap.RG.CharacterTailMajorant
+import YMGap.RG.RankCollapse
 import YMGap.Continuum.SigmaHatLimit
 import YMGap.Continuum.ContinuumMeasure
 import YMGap.Continuum.ObservableMeasure
@@ -107,8 +108,10 @@ import YMGap.Continuum.GaussQBinom
 import YMGap.Continuum.TsumDeriv
 import YMGap.Continuum.DiffProduct
 import YMGap.Continuum.JTPIdentity
+import YMGap.Continuum.JTPInstance
 import YMGap.Continuum.PNDeterminant
 import YMGap.Continuum.ContinuumExistence
+import YMGap.Continuum.PartitionPos
 import YMGap.Continuum.PNPaths
 import YMGap.Continuum.PNInduction
 import YMGap.Continuum.GramReduction3

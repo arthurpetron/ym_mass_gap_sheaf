@@ -55,6 +55,7 @@ group it is the paper-layer obligation.
 import YMGap.RG.UniformBudget
 import YMGap.RG.CharacterTailAntitone
 import YMGap.RG.CharacterTailMajorant
+import YMGap.RG.RankCollapse
 import YMGap.MassGap.SU2
 
 namespace YMGap.MassGap.SimpleGroup
@@ -216,6 +217,47 @@ theorem mass_gap_simple_group_of_ztMajorant
   mass_gap_simple_group_of_gapMonotone R hadm
     (etaGapMonotone_of_ztMajorant bridge) hwin rec bundle
 
+/-! ## Mass gap with `rank_collapse` discharged from the scalar sum bound
+
+`mass_gap_simple_group_of_ztMajorant` still consumes a whole `EtaFromZt R`
+whose `major.rank_collapse` was a *posited* field.  `RG/RankCollapse.lean`
+discharges that field as a **theorem** (`rank_collapse_of_sum`,
+`ztMajorant_of_sum`): from the per-axis floor excesses `sFloor`, the window
+`2·Σ sFloor ≤ 1`, and the concrete cap `2·Σ sFloor ≤ Z_t(su2)`, the rank
+collapse `∏(1+sFloor)−1 ≤ Z_t(su2)` is proven over `Q'` (the scalar bound
+`∏(1+sᵢ)−1 ≤ 2·Σ sᵢ` plus the §3 uniform-domination cap).  This corollary
+takes that scalar data *directly* (no posited `rank_collapse`), builds the
+majorant, and — given only the `eta_of_zt` packaging (the `Z_t ↦ η` bridge,
+the explicitly out-of-scope residual) — delivers the mass gap.  The
+`rank_collapse` obligation is thus removed from the named-obligation list. -/
+theorem mass_gap_simple_group_of_rankCollapseData
+    (R : RepData) (hadm : AdmissibleSimpleGroup R)
+    (r : Nat) (sR sFloor : Nat → Q') (su2Zt : Q')
+    (hsR_nn : ∀ i, (0 : Q') ≤ sR i) (hsR_le : ∀ i, sR i ≤ sFloor i)
+    (hFloor_nn : ∀ i, (0 : Q') ≤ sFloor i)
+    (hwin : 2 * (sumExcess sFloor r) ≤ 1)
+    (hcap : 2 * (sumExcess sFloor r) ≤ su2Zt)
+    (eta_of_zt :
+      ztValue (ztMajorant_of_sum (R := R) r sR sFloor su2Zt
+          hsR_nn hsR_le hFloor_nn hwin hcap).sR
+        (ztMajorant_of_sum (R := R) r sR sFloor su2Zt
+          hsR_nn hsR_le hFloor_nn hwin hcap).rank
+        ≤ (ztMajorant_of_sum (R := R) r sR sFloor su2Zt
+          hsR_nn hsR_le hFloor_nn hwin hcap).su2Zt → R.eta_max ≤ su2.eta_max)
+    (hKwin : R.K_steps = su2.K_steps)
+    {M : Nat → Type} {μ_inf : ContinuumMeasure M}
+    (rec : OSReconstruction μ_inf) (bundle : OSAxiomBundle μ_inf) :
+    ∃ m_0 : Q',
+      (0 : Q') < m_0 ∧
+      m_0 * m_0 ≤ sigma_hat_inf_lower_uniform ∧
+      HasSpectralGap rec ∧
+      (∀ N, finSum (truncatedConst R.K_steps R.eta_max) N ≤ su2.sigma0) :=
+  mass_gap_simple_group_of_ztMajorant R hadm
+    { major := ztMajorant_of_sum (R := R) r sR sFloor su2Zt
+        hsR_nn hsR_le hFloor_nn hwin hcap
+      eta_of_zt := eta_of_zt }
+    hKwin rec bundle
+
 /-- **SU(2) mass gap via the rank-general `Z_t` majorant chain.**  Threads
 SU(2) through the rank-1 product majorant (`su2_etaFromZt`), exhibiting the
 full `Z_t ↦ η ↦ budget` path with no named obligation open at the boundary
@@ -284,6 +326,7 @@ end YMGap.MassGap.SimpleGroup
 #print axioms YMGap.MassGap.SimpleGroup.mass_gap_simple_group
 #print axioms YMGap.MassGap.SimpleGroup.mass_gap_simple_group_of_gapMonotone
 #print axioms YMGap.MassGap.SimpleGroup.mass_gap_simple_group_of_ztMajorant
+#print axioms YMGap.MassGap.SimpleGroup.mass_gap_simple_group_of_rankCollapseData
 #print axioms YMGap.MassGap.SimpleGroup.mass_gap_SU2_via_ztMajorant
 #print axioms YMGap.MassGap.SimpleGroup.su3_uniform_witness
 #print axioms YMGap.MassGap.SimpleGroup.mass_gap_SU3

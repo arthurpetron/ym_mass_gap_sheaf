@@ -15,12 +15,25 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 
 ## Current status (2026-05-28; updated 2026-06-12)
 
-**One scoping module with open `sorry`s.** As of 2026-06-12,
-`YMGap/Continuum/ContinuumExistence.lean` is a *statements-only attack-surface
-skeleton* (NOT imported by `YMGap.lean`; built standalone with
-`lake build YMGap.Continuum.ContinuumExistence`) carrying 7 honest
-`-- SORRY[continuum]` holes for the staged μ_∞-existence construction (S2–S6);
-see entry `[continuum]` below and `docs/continuum-measure-attack-surface.md`.
+**One scoping module with open `sorry`s.** As of 2026-06-12 (updated),
+`YMGap/Continuum/ContinuumExistence.lean` (NOT imported by `YMGap.lean`;
+built standalone with `lake build YMGap.Continuum.ContinuumExistence`) now
+carries **2** honest `-- SORRY[continuum]` holes (down from 7): stages **S3**
+(`finiteVolumeExpectation`) and **S4** (`kpIncrementBound`, the analytic
+heart) remain open. Stages **S2** (`partitionFunctionLB`/`partitionFunction_pos`,
+partition-function positivity — CLOSED for real), **S5** (`infiniteVolumeExpectation`
++ `_approx`, the `CReal` limit via the KP engine — CLOSED given the S4
+increment datum), and **S6** (`infiniteVolumeExpectation_nonneg`, limit
+positivity — CLOSED conditional on the per-volume OS2 input) are now
+theorems, axiom-gated `[propext]`/`[propext, Quot.sound]`. The S2 partition
+positivity + the **Bishop integration-space packaging** (`BishopFunctional`,
+the positive normalized functional on a dense observable subalgebra completed
+by an explicit geometric convergence modulus — the constructive-measure
+object, NOT a σ-algebra) live in the new
+`YMGap/Continuum/PartitionPos.lean` (also standalone, axiom-clean, with
+`BishopFunctional.I_inf`/`_approx`/`_nonneg` and a concrete `constBishop`
+inhabitant). See entry `[continuum]` below and
+`docs/continuum-measure-attack-surface.md`.
 The MAIN-library build (`YMGap.lean`) remains **zero open `sorry`s**:
 `lake build` (`leanprover/lean4:v4.29.1`, 28 jobs)
 completes cleanly with no `sorry`/`sorryAx` warnings; every entry below is
@@ -35,27 +48,40 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 
 ## Entries
 
-### [continuum] μ_∞ existence attack-surface skeleton — **OPEN (scoping)**
+### [continuum] μ_∞ existence attack-surface skeleton — **S2/S5/S6 CLOSED; S3/S4 OPEN**
 
 - **milestone**: Track B continuum (E1–E4; `docs/track-b-continuum-plan.md`,
   `docs/continuum-measure-attack-surface.md`)
-- **file**: `lean/YMGap/Continuum/ContinuumExistence.lean` (standalone; NOT in `YMGap.lean`)
-- **decls / obligations** (7 `sorry`s, all commented `-- SORRY[continuum]: …`):
-  - `partitionFunctionLB`, `partitionFunction_pos` — **S2 (the first concrete
-    lemma)**: finite-volume partition function `Z_n = Π_{i<n} W i > 0` with an
-    explicit `Q'` lower bound carried as `Σ'` data. *constructive?* yes (Type-level
-    witness). Needs a `Q'.mul_pos` helper. Tier-(S) standard.
-  - `finiteVolumeExpectation` — S3: the reweighted expectation sequence
-    `S Λ = Ew_Λ(o)·recip(Z_Λ)`. *constructive?* yes. Tier-(S).
-  - `kpIncrementBound` — **S4 (the analytic heart)**: the convergent KP/cluster
+- **files**: `lean/YMGap/Continuum/ContinuumExistence.lean` and
+  `lean/YMGap/Continuum/PartitionPos.lean` (both standalone; NOT in `YMGap.lean`)
+- **CLOSED stages** (now theorems, axiom-gated `[propext]`/`[propext, Quot.sound]`,
+  no `sorryAx`/`Classical`):
+  - `partitionFunctionLB`, `partitionFunction_pos` — **S2 CLOSED**: finite-volume
+    partition function `Z_n = Π_{i<n} W i > 0` with explicit `Q'` lower bound carried
+    as `Σ'` data. Via the new `mul_pos` (positive·positive) + `prodE_pos` induction.
+    Also in `PartitionPos.lean` with the `weightFromPos`/`half_partitionFunction_pos`
+    non-unit concrete instances.
+  - `infiniteVolumeExpectation`, `infiniteVolumeExpectation_approx` — **S5 CLOSED**
+    (given the S4 increment datum): the `CReal` limit with modulus, = the KP engine
+    `crealOfGeoIncrement` applied to the carried `(C, hC, hup, hlo, modulus)`. The
+    decl now takes that datum as arguments (the S4 obligation supplies it).
+  - `infiniteVolumeExpectation_nonneg` — **S6 CLOSED**, CONDITIONAL on the per-volume
+    OS2 input `hS`: limit-of-nonneg via `ExpPos.geRat_of_eventually`. The OS2 input
+    (full single-edge Wilson PSD) is 🟡 open (cone-only `coneExp_nonneg`; all-N `P_N`).
+  - **Bishop integration-space packaging** (`PartitionPos.BishopFunctional`,
+    `.I_inf`/`_approx`/`_nonneg`, `constBishop`): the constructive-measure object —
+    a positive normalized functional on a dense observable subalgebra completed by an
+    explicit geometric convergence modulus (Bishop summability axiom in modulus form;
+    KP cluster-series remainder), NOT a σ-algebra. The increment constant
+    `incrementC` is the S4 analytic datum, carried as a structure FIELD (not faked).
+- **OPEN stages** (2 remaining `-- SORRY[continuum]` holes in `ContinuumExistence.lean`):
+  - `finiteVolumeExpectation` — **S3 OPEN**: the reweighted expectation sequence
+    `S Λ = Ew_Λ(o)·recip(Z_Λ)`; needs the constructed interacting `E_Λ` (stage S1).
+    *constructive?* yes. Tier-(S).
+  - `kpIncrementBound` — **S4 OPEN (the analytic heart)**: the convergent KP/cluster
     expansion's two-sided geometric single-step increment `|S(Λ+1)−S Λ| ≤ C·(1/2)^Λ`,
-    `(C)` as data. *constructive?* yes. Tier-(S) but the genuinely-novel-to-formalize step.
-  - `infiniteVolumeExpectation`, `infiniteVolumeExpectation_approx` — S5: the
-    `CReal` limit with modulus via `KPLimit.crealOfGeoIncrement`. *constructive?* yes.
-    Mechanical given S4.
-  - `infiniteVolumeExpectation_nonneg` — S6: positivity of the limit; CONDITIONAL on
-    the full single-edge Wilson PSD positivity (= OS2), which is 🟡 open
-    (cone-only `coneExp_nonneg`; all-N `P_N` open). *constructive?* yes given PSD.
+    `(C)` as data. *constructive?* yes. Tier-(S) but the genuinely-novel-to-formalize
+    step; NOT faked here.
 - **must not be closed classically**: per AGENTS.md Rule 6. These stand for
   *constructive* obligations (witnesses as data); a classical closure is forbidden.
 - **out of scope (NOT stated here, genuinely open)**: 4D existence + O(4) restoration

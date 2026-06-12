@@ -8,20 +8,29 @@ existing `ContinuumMeasure`/`OSReconstruction` carry the existence content
 as input hypotheses / abstract `Prop`/`Type` fields — see §1 of
 `docs/continuum-measure-attack-surface.md`).
 
-It states the staged obligations S1–S6 of that attack surface as honest
-`sorry`s (Rule 6), with the FIRST concrete formalizable lemma — the
-finite-volume partition-function lower bound (stage S2,
-`partitionFunction_pos` / `partitionFunctionLB`) — written as a Type-level
-witness (Rule 2/8). The chosen construction route is the convergent
+It stages the obligations S2–S6 of that attack surface.  Stages **S2**
+(partition-function positivity, `partitionFunction_pos` / `partitionFunctionLB`),
+**S5** (the `CReal` infinite-volume limit with modulus,
+`infiniteVolumeExpectation` / `_approx`), and **S6** (limit positivity,
+`infiniteVolumeExpectation_nonneg`, conditional on the per-volume OS2 input)
+are CLOSED as theorems carrying Type-level witnesses (Rule 2/8).  The
+remaining two `sorry`s (Rule 6) are the genuinely-open analytic stages **S3**
+(`finiteVolumeExpectation`, needs the constructed interacting `E_Λ`) and
+**S4** (`kpIncrementBound`, the convergent-cluster-expansion increment bound
+— the analytic heart, NOT faked).  The chosen route is the convergent
 Kotecký–Preiss route (ii): reuse the `KPLimit` engine
 (`crealOfGeoIncrement`) and the `PlaquetteReweight` reweighting state-law,
-both already present and axiom-clean.
+both already present and axiom-clean.  The companion module
+`Continuum/PartitionPos.lean` carries the S2 positivity again plus the
+**Bishop integration-space packaging** of the limit functional.
 
 # Honesty (per AGENTS.md)
 
-  * Every `sorry` here stands for a tier-(S) "standard but unformalized"
-    obligation in the convergent regime, EXCEPT where it is conditional on
-    the open full-Wilson-PSD positivity (OS2) — flagged inline.
+  * The two remaining `sorry`s (S3, S4) stand for tier-(S) "standard but
+    unformalized" obligations in the convergent regime; S4 is the
+    genuinely-novel-to-formalize cluster-expansion increment bound and is
+    NOT faked.  S6's positivity is conditional on the open full-Wilson-PSD
+    positivity (OS2) — flagged inline.
   * The 4D existence + O(4) restoration (the Clay problem) and Conjecture
     7.4 (RG transport) are NOT stated here; they are the genuinely-open
     residue flagged in the attack-surface doc, not formalizable obligations.
@@ -30,13 +39,15 @@ both already present and axiom-clean.
 
 # Axiom-gate (AGENTS.md Rule 1)
 
-The one non-`sorry` declaration here is the data structure
-`PlaquetteWeight`; the lemmas carry `sorry` and are logged.
+The CLOSED stages (S2/S5/S6) are `#print axioms`-gated at the foot of the
+file (`propext` / `Quot.sound` only).  The two open lemmas carry logged
+`sorry`s (S3, S4).
 -/
 
 import YMGap.Continuum.PlaquetteReweight
 import YMGap.Continuum.KPLimit
 import YMGap.Constructive.ExpPos
+import YMGap.Constructive.CRealMul
 
 namespace YMGap.Continuum.ContinuumExistence
 
@@ -69,25 +80,37 @@ field of `PlaquetteReweight.Reweight`, turning the reweighting state-law
 from conditional into constructed.  Proof is `prodE`-induction on a product
 of positives — pure tier-(S), no PSD / no increment bound / no conjecture. -/
 
-/-- **S2 (first lemma), data form.**  The partition function
+/-- **Product of two strictly-positive `Q'` is strictly positive.**
+`(a·b).num = a.num·b.num > 0` (both numerators positive). -/
+theorem mul_pos {a b : Q'} (ha : (0 : Q') < a) (hb : (0 : Q') < b) :
+    (0 : Q') < a * b := by
+  apply CReal.pos_of_num_pos
+  show (0 : Int) < a.num * b.num
+  exact Int.mul_pos (CReal.num_pos_of_pos ha) (CReal.num_pos_of_pos hb)
+
+/-- `0 < 1` on `Q'` (closed-form, no free variables — used inside the
+`prodE_pos` match arm). -/
+theorem zero_lt_one' : (0 : Q') < 1 := by decide
+
+/-- **Product of strictly-positive weights is strictly positive.** -/
+theorem prodE_pos (f : Nat → Q') (h : ∀ i, (0 : Q') < f i) :
+    ∀ n, (0 : Q') < prodE f n
+  | 0 => zero_lt_one'
+  | n + 1 => by
+    show (0 : Q') < prodE f n * f n
+    exact mul_pos (prodE_pos f h n) (h n)
+
+/-- **S2 (first lemma), data form — CLOSED.**  The partition function
 `Z_n = Π_{i<n} W i` is positive, returning the explicit lower bound
 `z₀ = Z_n` itself as Type-level witness data (`Σ'`, Rule 8.3). -/
 def partitionFunctionLB {n : Nat} (p : PlaquetteWeight n) :
     Σ' z₀ : Q', (0 : Q') < z₀ ∧ z₀ ≤ prodE p.W n :=
-  -- SORRY[continuum]: S2 — induct on n; `prodE W 0 = 1 > 0`, step is a
-  -- product of two positives (`W_pos`); take z₀ = prodE p.W n with the
-  -- bound `≤` by reflexivity.  Needs a `Q'.mul_pos` (positive·positive)
-  -- helper not yet in `Constructive/Rationals*.lean` — derivable from
-  -- `mul_nonneg` + a strictness lemma.
-  sorry
+  ⟨prodE p.W n, prodE_pos p.W p.W_pos n, Q'.le_refl' _⟩
 
-/-- **S2 (first lemma), Prop form.**  `0 < Z_n = Π_{i<n} W i`.  The first
-projection of `partitionFunctionLB`. -/
+/-- **S2 (first lemma), Prop form — CLOSED.**  `0 < Z_n = Π_{i<n} W i`. -/
 theorem partitionFunction_pos {n : Nat} (p : PlaquetteWeight n) :
     (0 : Q') < prodE p.W n :=
-  -- SORRY[continuum]: S2 — `(partitionFunctionLB p).2.1` transported along
-  -- the bound; or direct `prodE`-induction.
-  sorry
+  prodE_pos p.W p.W_pos n
 
 /-! ## Stage S3 — the finite-volume reweighted expectation sequence
 
@@ -136,22 +159,31 @@ Feed S4 into `KPLimit.crealOfGeoIncrement`: the limit exists as a `CReal`
 with explicit Cauchy modulus, `approx Λ = S Λ`.  This stage is mostly
 mechanical GIVEN S4 — the engine is present and axiom-clean. -/
 
-/-- **S5.**  The infinite-volume expectation `⟨o⟩_∞` exists as a `CReal`
-with explicit modulus, built by feeding the S4 increment bound into the KP
-engine `crealOfGeoIncrement`. -/
-def infiniteVolumeExpectation (S : Nat → Q') : CReal :=
-  -- SORRY[continuum]: S5 — `crealOfGeoIncrement S C hC hup hlo modulus`
-  -- with `(C, hC, hup, hlo)` from `kpIncrementBound S` and `modulus` the
-  -- `ρ=1/2` instance (`δ = ε/2`, cf. `geoPolymerLimit`).  Mechanical.
-  sorry
+/-- **S5 — CLOSED (given the S4 increment datum).**  The infinite-volume
+expectation `⟨o⟩_∞` exists as a `CReal` with explicit modulus, built by
+feeding the S4 geometric increment bound `(C, hC, hup, hlo, modulus)` into
+the KP engine `crealOfGeoIncrement`.  S4 (`kpIncrementBound`) is the genuine
+analytic obligation that produces this datum for the real Wilson sequence;
+GIVEN it, the limit assembly is exactly the engine call — no compactness,
+no dominated convergence. -/
+def infiniteVolumeExpectation (S : Nat → Q') (C : Q') (hC : (0 : Q') ≤ C)
+    (hup : ∀ l, S (l + 1) ≤ S l + geoIncr C l)
+    (hlo : ∀ l, S l ≤ S (l + 1) + geoIncr C l)
+    (modulus : ∀ ε : Q', (0 : Q') < ε →
+      ∃ δ : Q', (0 : Q') < δ ∧ (Q'.ofNat 2 * C) * δ ≤ ε) :
+    CReal :=
+  crealOfGeoIncrement S C hC hup hlo modulus
 
-/-- **S5 (modulus exactness).**  The limit's `Λ`-th approximation is the
-finite-volume expectation `S Λ` — the limit is genuinely `lim_Λ ⟨o⟩_Λ`. -/
-theorem infiniteVolumeExpectation_approx (S : Nat → Q') (Λ : Nat) :
-    (infiniteVolumeExpectation S).approx Λ = S Λ :=
-  -- SORRY[continuum]: S5 — `rfl` once `infiniteVolumeExpectation` is the
-  -- `crealOfGeoIncrement` (whose `approx` is `S` by `crealOfGeoIncrement_approx`).
-  sorry
+/-- **S5 (modulus exactness) — CLOSED.**  The limit's `Λ`-th approximation
+is the finite-volume expectation `S Λ` — the limit is genuinely
+`lim_Λ ⟨o⟩_Λ`. -/
+theorem infiniteVolumeExpectation_approx (S : Nat → Q') (C : Q') (hC : (0 : Q') ≤ C)
+    (hup : ∀ l, S (l + 1) ≤ S l + geoIncr C l)
+    (hlo : ∀ l, S l ≤ S (l + 1) + geoIncr C l)
+    (modulus : ∀ ε : Q', (0 : Q') < ε →
+      ∃ δ : Q', (0 : Q') < δ ∧ (Q'.ofNat 2 * C) * δ ≤ ε)
+    (Λ : Nat) :
+    (infiniteVolumeExpectation S C hC hup hlo modulus).approx Λ = S Λ := rfl
 
 /-! ## Stage S6 — positivity + normalization of the limit functional
 
@@ -162,21 +194,37 @@ NOTE (honesty): the positivity INPUT is the FULL single-edge Wilson PSD
 positivity (= OS2), which is 🟡 (cone-only, `coneExp_nonneg`; all-N `P_N`
 OPEN).  Until that closes, S6 is CONDITIONAL on the per-volume `Ew_pos`. -/
 
-/-- **S6 (positivity, conditional on OS2).**  If every finite-volume
-expectation `S Λ` is nonnegative, the infinite-volume limit is `≥ 0`. -/
-theorem infiniteVolumeExpectation_nonneg (S : Nat → Q')
+/-- **S6 (positivity) — CLOSED, conditional on OS2.**  If every
+finite-volume expectation `S Λ` is nonnegative, the infinite-volume limit
+is `≥ 0`, via `ExpPos.geRat` limit-of-nonneg (the limit's `Λ`-th
+approximation is `S Λ`).  The hypothesis `hS` is, on `a*·a`, the per-volume
+Wilson reflection positivity (OS2) — 🟡 open at full PSD; tier-(S) given
+PSD. -/
+theorem infiniteVolumeExpectation_nonneg (S : Nat → Q') (C : Q') (hC : (0 : Q') ≤ C)
+    (hup : ∀ l, S (l + 1) ≤ S l + geoIncr C l)
+    (hlo : ∀ l, S l ≤ S (l + 1) + geoIncr C l)
+    (modulus : ∀ ε : Q', (0 : Q') < ε →
+      ∃ δ : Q', (0 : Q') < δ ∧ (Q'.ofNat 2 * C) * δ ≤ ε)
     (hS : ∀ Λ, (0 : Q') ≤ S Λ) :
-    ExpPos.geRat (infiniteVolumeExpectation S) 0 :=
-  -- SORRY[continuum]: S6 — limit-of-nonneg: `ofQ'_le_of_approx_ge` /
-  -- `geRat_of_approx` on `approx Λ = S Λ ≥ 0`.  The hypothesis `hS` is, on
-  -- `a*·a`, the per-volume Wilson reflection positivity (OS2) — 🟡 open at
-  -- full PSD; tier-(S) given PSD.
-  sorry
+    ExpPos.geRat (infiniteVolumeExpectation S C hC hup hlo modulus) 0 :=
+  ExpPos.geRat_of_eventually ⟨0, fun Λ _ => hS Λ⟩
 
 end YMGap.Continuum.ContinuumExistence
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1)
 
-The only `sorry`-free declaration is the `PlaquetteWeight` data structure.
-The staged lemmas carry `sorry` (logged above and in `SORRY_LEDGER.md`);
-once closed, each gets a `#print axioms` gate here. -/
+The CLOSED stages — S2 (`partitionFunctionLB`/`partitionFunction_pos`),
+S5 (`infiniteVolumeExpectation`/`_approx`), S6
+(`infiniteVolumeExpectation_nonneg`) — are gated below (`propext` /
+`Quot.sound` only).  The genuinely-open analytic stages remain logged
+`sorry`s: S3 `finiteVolumeExpectation` (needs the constructed interacting
+`E_Λ`) and S4 `kpIncrementBound` (THE analytic heart: the convergent
+cluster-expansion increment bound). -/
+
+#print axioms YMGap.Continuum.ContinuumExistence.mul_pos
+#print axioms YMGap.Continuum.ContinuumExistence.prodE_pos
+#print axioms YMGap.Continuum.ContinuumExistence.partitionFunctionLB
+#print axioms YMGap.Continuum.ContinuumExistence.partitionFunction_pos
+#print axioms YMGap.Continuum.ContinuumExistence.infiniteVolumeExpectation
+#print axioms YMGap.Continuum.ContinuumExistence.infiniteVolumeExpectation_approx
+#print axioms YMGap.Continuum.ContinuumExistence.infiniteVolumeExpectation_nonneg
