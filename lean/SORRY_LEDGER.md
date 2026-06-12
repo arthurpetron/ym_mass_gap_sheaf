@@ -62,6 +62,35 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   (Clay), Conjecture 7.4 RG transport — flagged in the attack-surface doc, never as a
   `sorry` here.
 
+### [uniform] all-simple-groups budget — **named-hypothesis, NO `sorry`**
+
+- **milestone**: U.8–U.11 (`docs/uniform-parametric-bound-plan.md`)
+- **files**: `lean/YMGap/RG/UniformBudget.lean`,
+  `lean/YMGap/MassGap/SimpleGroup.lean`,
+  `lean/YMGap/RepTheory/SimpleGroup.lean`
+- **decl / named obligation**: `YMGap.RG.UniformBudgetWitness.eta_dominated`
+  (`R.eta_max ≤ su2.eta_max`).
+- **obligation**: the per-step σ̂-degradation bound of an admissible simple
+  group is dominated by SU(2)'s — the analytic "SU(2) is the worst case"
+  input (the plan's `E_antitone` / uniform character-tail: `e^{−tΔ}`
+  antitone in the Casimir gap `Δ ≥ 3/4`, a `CReal` statement outside `Q'`).
+- **how it is carried**: as an explicit **structure field** (AGENTS.md
+  Rule 2 / Rule 6, the `domGlue_preserves_KP` quarantine pattern), **NOT a
+  `sorry`** — these three modules contain zero `sorry`/`sorryAx`. The entire
+  uniform reduction (`monotone_budget`, `budget_closes_uniform`,
+  `mass_gap_simple_group`) is constructive and axiom-clean
+  (`[propext]`/`[propext, Quot.sound]`) *given* this field. The pure-`Q'`
+  monotonicity substrate around it closes unconditionally
+  (`recip_antitone`, `qOver1mq_mono`, `truncatedConst_le`).
+- **discharged for instances**: SU(2) (`su2_uniform_witness`) and SU(3)
+  (`su3_uniform_witness`) discharge `eta_dominated` by `decide`
+  (`13e-6 ≤ 3e-4`); the general-group discharge is the paper-layer step
+  (numerically corroborated by the U.4 sweep `Σ η(G) ≤ Σ η(su2)`).
+- **constructive?**: yes — the field is a `Q'` inequality (decidable for
+  concrete groups); the antitone-in-Δ derivation for the general group is
+  the open paper obligation, named not hidden.
+- **must not be closed classically**: per AGENTS.md Rule 6.
+
 ### [P2.1] overlap summability preservation — **part (a) CLOSED, part (b) CLOSED**
 
 - **milestone**: 2.1 (work_plan.md L184–202)

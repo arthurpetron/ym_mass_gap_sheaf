@@ -52,6 +52,7 @@ import YMGap.Constructive.SU3CharFactor
 import YMGap.RepTheory.SU2
 import YMGap.RepTheory.SU3
 import YMGap.RepTheory.RepData
+import YMGap.RepTheory.SimpleGroup
 import YMGap.Sheaf.Site
 import YMGap.Sheaf.BoundWitness
 import YMGap.Sheaf.Summability
@@ -64,6 +65,7 @@ import YMGap.RG.InductiveState
 import YMGap.RG.BlockSpin
 import YMGap.RG.SigmaHatPilot
 import YMGap.RG.SigmaHatPilotUV
+import YMGap.RG.UniformBudget
 import YMGap.Continuum.SigmaHatLimit
 import YMGap.Continuum.ContinuumMeasure
 import YMGap.Continuum.ObservableMeasure
@@ -100,6 +102,7 @@ import YMGap.Continuum.ThetaConvGen
 import YMGap.Continuum.MomentBridge
 import YMGap.Continuum.UTelescope
 import YMGap.Continuum.GaussQBinom
+import YMGap.Continuum.DiffProduct
 import YMGap.Continuum.JTPIdentity
 import YMGap.Continuum.PNDeterminant
 import YMGap.Continuum.ContinuumExistence
@@ -115,6 +118,7 @@ import YMGap.Continuum.SpectralGap
 import YMGap.Continuum.SpectralGapConverse
 import YMGap.Continuum.SpectralGapGrowth
 import YMGap.MassGap.SU2
+import YMGap.MassGap.SimpleGroup
 import YMGap.Continuum.SqrtBridge
 import YMGap.BufferShell
 import YMGap.Codynamic

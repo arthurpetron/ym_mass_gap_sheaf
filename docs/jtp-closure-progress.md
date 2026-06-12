@@ -57,6 +57,37 @@ the honest residual.
   `DiffJTP` would carry the `O((a·a)ᵏ)` log-derivative modulus of
   `jtp-convergence-notes.md §2.3`.
 
+## NEW: the finite-difference Leibniz engine (`DiffProduct.lean`)
+
+A new module `lean/YMGap/Continuum/DiffProduct.lean` closes the **finite
+algebraic skeleton** of the differentiation — the genuine pure-`Q'` core that any
+constructive product-differentiation engine must rest on:
+
+- `pre f L = ∏_{k<L} f k`, `sufLen g m d = ∏_{m≤k<m+d} g k` — general (no
+  positivity) finite products over arbitrary `Q'`-factor sequences.
+- `sufLen_append`, `pre_split` — the prefix/suffix split identities.
+- `split_core` — the pure ring identity `Pf − Qg ≈ (P−Q)g + P(f−g)`.
+- `leib_sum_extend` — appending a factor `g L` extends every suffix product;
+  `finSum (leibTerm f g (L+1)) L ≈ (finSum (leibTerm f g L) L)·g L`.
+- **`leibniz` (CLOSED, all `L`)** — the discrete product rule / finite-difference
+  Leibniz identity:
+  `∏_{k<L} f k − ∏_{k<L} g k ≈ Σ_{j<L} (∏_{k<j} f k)·(f j − g j)·(∏_{j<k<L} g k)`,
+  by induction on `L`, pure `Q'.eqv` algebra, NO smallness/positivity hypotheses.
+
+With `f k = factor(c_k)(θ+h)`, `g k = factor(c_k)(θ)`, dividing `leibniz` by `h`
+is exactly the finite-difference Leibniz expansion of `(∏(θ+h) − ∏(θ))/h` — the
+term-by-term product derivative whose `L→∞` then `h→0` limit is the log-derivative
+series.  `leibniz` is that interchange's *finite skeleton*; it introduces no new
+positivity content.  The remaining analytic step (the uniform double-limit) is
+exposed as the named `Prop` `DiffProduct.ProductDerivativeLimit`, and
+`JTPIdentity.DiffJTP` is identified with it definitionally
+(`DiffJTP_eq_productDerivativeLimit`), with the conditional closure re-exposed as
+`Kt_geRat_zero_of_productDerivativeLimit`.
+
+All of `DiffProduct.lean` and the new `JTPIdentity` bridges are axiom-clean
+(`[propext]` / `[propext, Quot.sound]`; no `Classical.*`, no `native_decide`, no
+`sorry`).
+
 ## The honest residual
 
 `DiffJTP` (`= CReal.Equiv (dSeriesCReal …) (Rproduct …)`) is the single
@@ -83,8 +114,11 @@ No `Classical.*`, no `native_decide`, no `sorry`/`sorryAx`.
 
 ## Build / wiring
 
-- Module: `lean/YMGap/Continuum/JTPIdentity.lean`; builds green standalone via
-  `cd lean && lake build YMGap.Continuum.JTPIdentity`.
+- Modules: `lean/YMGap/Continuum/DiffProduct.lean` (the finite Leibniz engine)
+  and `lean/YMGap/Continuum/JTPIdentity.lean` (imports `DiffProduct`); both build
+  green via `cd lean && lake build YMGap.Continuum.DiffProduct
+  YMGap.Continuum.JTPIdentity`.
 - To include in the default build, add to `lean/YMGap.lean` (after the
   `UTelescope` / `ThetaConvGen` imports):
+  `import YMGap.Continuum.DiffProduct`
   `import YMGap.Continuum.JTPIdentity`.

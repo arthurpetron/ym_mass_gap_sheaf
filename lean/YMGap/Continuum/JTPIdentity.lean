@@ -55,6 +55,7 @@ import YMGap.Continuum.UTelescope
 import YMGap.Continuum.ThetaConvGen
 import YMGap.Continuum.HeatKernelConvGen
 import YMGap.Continuum.ChebyshevU
+import YMGap.Continuum.DiffProduct
 import YMGap.Constructive.Reals
 
 namespace YMGap.Continuum.JTPIdentity
@@ -574,6 +575,40 @@ theorem Kt_geRat_zero_of_diff {a x : Q'}
     (fun _ => hDiff)
     (Rproduct_approx_nonneg ha0 ha1 hx hx1)
 
+/-! ## 5. Bridge to the finite-difference Leibniz engine (`DiffProduct.lean`)
+
+`DiffProduct.leibniz` closes the FINITE skeleton of the differentiation — the
+discrete product rule
+`∏_{k<L} f k − ∏_{k<L} g k ≈ Σ_{j<L} pre f j·(f j − g j)·∏_{j<k<L} g k` — for ALL
+`L`, as pure `Q'` algebra.  The residual `DiffJTP` is EXACTLY the abstract
+`DiffProduct.ProductDerivativeLimit` (the double-limit interchange feeding off
+that finite skeleton) specialised to the heat-kernel `K_t`-series and the product
+object `R = ϑ₃·S`.  We record this identification and re-expose the conditional
+closure through it, so the single open analytic obligation is the named
+`ProductDerivativeLimit` whose finite core is the proven `leibniz`. -/
+
+/-- **`DiffJTP` IS the `ProductDerivativeLimit` obligation** for the heat-kernel
+series vs the product object.  Definitional (`CReal.Equiv` on both sides),
+recorded to connect the named residual to the finite-difference Leibniz engine of
+`DiffProduct.lean` (whose `leibniz` is the proven finite core). -/
+theorem DiffJTP_eq_productDerivativeLimit {a x : Q'}
+    (ha0 : (0 : Q') < a) (ha1 : a < (1 : Q')) (hx : (-1 : Q') ≤ x) (hx1 : x ≤ (1 : Q')) :
+    DiffJTP ha0 ha1 hx hx1
+      = DiffProduct.ProductDerivativeLimit
+          (dSeriesCReal ha0 ha1 hx hx1) (Rproduct ha0 ha1 hx hx1) :=
+  rfl
+
+/-- **Conditional closure via the product-derivative obligation.**  Given the
+abstract `ProductDerivativeLimit` linking the `K_t`-series and `R = ϑ₃·S` (whose
+finite core `DiffProduct.leibniz` is proven), `K_t = dSeriesCReal ≥ 0`.  Same
+content as `Kt_geRat_zero_of_diff`, oriented through `DiffProduct`. -/
+theorem Kt_geRat_zero_of_productDerivativeLimit {a x : Q'}
+    (ha0 : (0 : Q') < a) (ha1 : a < (1 : Q')) (hx : (-1 : Q') ≤ x) (hx1 : x ≤ (1 : Q'))
+    (hPDL : DiffProduct.ProductDerivativeLimit
+              (dSeriesCReal ha0 ha1 hx hx1) (Rproduct ha0 ha1 hx hx1)) :
+    ExpPos.geRat (dSeriesCReal ha0 ha1 hx hx1) 0 :=
+  Kt_geRat_zero_of_diff ha0 ha1 hx hx1 hPDL
+
 end YMGap.Continuum.JTPIdentity
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1)
@@ -592,3 +627,5 @@ named hypothesis (the single open analytic obligation), NOT a `sorry`. -/
 #print axioms YMGap.Continuum.JTPIdentity.Rproduct_approx_nonneg
 #print axioms YMGap.Continuum.JTPIdentity.Equiv_refl
 #print axioms YMGap.Continuum.JTPIdentity.Kt_geRat_zero_of_diff
+#print axioms YMGap.Continuum.JTPIdentity.DiffJTP_eq_productDerivativeLimit
+#print axioms YMGap.Continuum.JTPIdentity.Kt_geRat_zero_of_productDerivativeLimit
