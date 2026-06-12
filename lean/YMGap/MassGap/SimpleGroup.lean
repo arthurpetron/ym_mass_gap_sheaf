@@ -53,6 +53,7 @@ group it is the paper-layer obligation.
 -/
 
 import YMGap.RG.UniformBudget
+import YMGap.RG.CharacterTailAntitone
 import YMGap.MassGap.SU2
 
 namespace YMGap.MassGap.SimpleGroup
@@ -159,6 +160,35 @@ theorem mass_gap_simple_group
    cluster_implies_gap_signature rec bundle,
    budget_closes_uniform R hadm w⟩
 
+/-! ## Mass gap from the gap → η monotonicity obligation
+
+`mass_gap_simple_group` consumes the raw η-domination witness
+`UniformBudgetWitness R` (whose load-bearing field is
+`eta_dominated : R.eta_max ≤ su2.eta_max`).  The uniform character-tail
+analysis (`RG/CharacterTailAntitone.lean`) reduces that field to the
+*structural* gap → η monotonicity `EtaGapMonotone R` (the per-step bound
+is antitone in the Casimir gap down to the SU(2) floor), whose analytic
+engine — `e^{−tΔ}` non-increasing in Δ — is proven constructively there.
+This corollary threads that reduction: from an `AdmissibleSimpleGroup R`
+(supplying the floor `3/4 ≤ R.C2_fund`), the named `EtaGapMonotone R`,
+and the same-window fact, it builds the budget witness and delivers the
+mass gap.  The remaining obligation is then exactly `EtaGapMonotone R`
+(the antitone exponential's *assembly* into `eta_max` via the
+rank-general Weyl-dimension `Z_t` majorant), not the bare `eta_max`
+inequality. -/
+theorem mass_gap_simple_group_of_gapMonotone
+    (R : RepData) (hadm : AdmissibleSimpleGroup R)
+    (hmono : EtaGapMonotone R) (hwin : R.K_steps = su2.K_steps)
+    {M : Nat → Type} {μ_inf : ContinuumMeasure M}
+    (rec : OSReconstruction μ_inf) (bundle : OSAxiomBundle μ_inf) :
+    ∃ m_0 : Q',
+      (0 : Q') < m_0 ∧
+      m_0 * m_0 ≤ sigma_hat_inf_lower_uniform ∧
+      HasSpectralGap rec ∧
+      (∀ N, finSum (truncatedConst R.K_steps R.eta_max) N ≤ su2.sigma0) :=
+  mass_gap_simple_group R hadm
+    (uniformBudgetWitness_of_gapMonotone R hadm hmono hwin) rec bundle
+
 /-! ## SU(3) corollary — the near-free instance
 
 SU(3) is admissible (`su3_admissible`) and η-dominated: its per-step
@@ -211,6 +241,7 @@ end YMGap.MassGap.SimpleGroup
 #print axioms YMGap.MassGap.SimpleGroup.m_0_uniform_positive
 #print axioms YMGap.MassGap.SimpleGroup.m_0_uniform_squared_le
 #print axioms YMGap.MassGap.SimpleGroup.mass_gap_simple_group
+#print axioms YMGap.MassGap.SimpleGroup.mass_gap_simple_group_of_gapMonotone
 #print axioms YMGap.MassGap.SimpleGroup.su3_uniform_witness
 #print axioms YMGap.MassGap.SimpleGroup.mass_gap_SU3
 #print axioms YMGap.MassGap.SimpleGroup.su2_uniform_witness

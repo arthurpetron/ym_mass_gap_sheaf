@@ -185,6 +185,13 @@ Equivalently, in the trig-free `U`-form used by `UTelescope`,
 (`UTelescope.Kt_nonneg_of_residual` already reduces `K_t≥0` to exactly the single
 convergence `Rtrunc M ≈ R`; (DIFF) is the content of that residual).
 
+> **The `1/2` is load-bearing.**  In the `U`-grading the Lean `dSeriesCReal`
+> realises `Dseries/s = Σ_{n≥1} n a^{n²} U_{n−1}(x)`, and the bare product object
+> `ϑ₃·S` equals `2·dSeriesCReal` (NOT `dSeriesCReal`) — verified to 40 digits,
+> ratio `= 2.0`.  The Lean residual must therefore target `(1/2)·ϑ₃·S` (`Rhalf`
+> in `JTPIdentity.lean`), not the bare `ϑ₃·S`.  A previous Lean round dropped the
+> `1/2`; corrected 2026-06-12 (see `docs/jtp-closure-progress.md`).
+
 ### 2.3 Why it is hard, stated sharply
 
 (DIFF) is **not** a termwise rational identity at finite truncation: at finite

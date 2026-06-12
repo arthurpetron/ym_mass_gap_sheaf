@@ -66,6 +66,7 @@ import YMGap.RG.BlockSpin
 import YMGap.RG.SigmaHatPilot
 import YMGap.RG.SigmaHatPilotUV
 import YMGap.RG.UniformBudget
+import YMGap.RG.CharacterTailAntitone
 import YMGap.Continuum.SigmaHatLimit
 import YMGap.Continuum.ContinuumMeasure
 import YMGap.Continuum.ObservableMeasure

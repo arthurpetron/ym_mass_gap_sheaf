@@ -44,6 +44,21 @@ remains a named hypothesis).  `(LEIBNIZ)` is the finite skeleton that any such
 constructive engine must rest on, and it is the largest genuine fragment that is
 pure algebra (no analysis).
 
+### Why a finite "matched-truncation" identity does NOT exist (sharp finding)
+
+`leibniz` differentiates the finite PRODUCT exactly (`d/dθ ∏_{k<L} = −sin θ·∏·S`,
+the log-derivative).  The SERIES side `dSeriesCReal` is the differentiated finite
+theta-SERIES truncation (`= D_M/sin θ`).  These two finite objects are NOT equal
+at any finite truncation level: the finite theta-series truncation `th3series_M`
+and the finite theta-product truncation `th3prod_M` differ by `~(a·a)^M` (Gauss's
+`qProd = gaussSum` equates them only for the full sum / `N → ∞`).  So the series
+truncation converges super-geometrically (`~a^{(M+1)²}`) while the product
+truncation converges only geometrically (`~(a·a)^M`); they share a limit but
+match at NO finite `M`.  `leibniz` (the finite product rule) therefore cannot be
+upgraded to a finite equal-at-each-level identity — the bridge IS the `M → ∞`
+limit of differentiated Gauss, the missing engine.  (Details + 40-digit
+verification in `docs/jtp-closure-progress.md`.)
+
 ## Axiom gate (AGENTS.md Rule 1)
 
 `[propext]` / `[propext, Quot.sound]` (`Quot.sound` only via reused

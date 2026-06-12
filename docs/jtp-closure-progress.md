@@ -88,19 +88,77 @@ All of `DiffProduct.lean` and the new `JTPIdentity` bridges are axiom-clean
 (`[propext]` / `[propext, Quot.sound]`; no `Classical.*`, no `native_decide`, no
 `sorry`).
 
+## FACTOR-`1/2` CORRECTION (soundness fix, 2026-06-12)
+
+The residual was previously stated as `DiffJTP = CReal.Equiv (dSeriesCReal) (Rproduct)`
+with `Rproduct = ϑ₃·S` (NO `1/2`).  **That statement is numerically false.**
+At every `a ∈ (0,1)`, `θ ∈ (0,π)`, the bare product equals TWICE the series:
+
+    ϑ₃(θ)·S(cos θ)  =  2 · dSeriesCReal      (ratio = 2.0, verified to 40 digits
+                                              at a = 0.2, 0.3, 0.5, 0.8).
+
+The correct differentiated-JTP identity is `§2.1(C)` of the convergence notes,
+`K_t = ϑ₃·S/(2a)`, i.e. in the `U`-grading carried by `dSeriesCReal`
+(`= Σ_{n≥1} n a^{n²} U_{n−1}(x) = D(θ)/sin θ`):
+
+    dSeriesCReal  ≈  (1/2)·(ϑ₃·S)  =  Rhalf.                                  (DIFF)
+
+The previous round dropped the `1/2`.  Closing the un-halved version would have
+closed a FALSE `CReal.Equiv`; since the obligation was never discharged this did
+not propagate (the conditional `K_t ≥ 0` never fired), but the *named obligation
+itself was wrong*.  Fixed in `JTPIdentity.lean`:
+
+- new `Rhalf := CReal.mul (ofQ' half) Rproduct` and `Rhalf_approx_nonneg`,
+- `DiffJTP` now `:= CReal.Equiv (dSeriesCReal) (Rhalf)` (the TRUE identity),
+- `Kt_geRat_zero_of_diff` / `Kt_geRat_zero_of_productDerivativeLimit` /
+  `DiffJTP_eq_productDerivativeLimit` all re-oriented through `Rhalf`.
+
+All axiom-clean (`[propext]`/`[propext, Quot.sound]`); build green.
+
 ## The honest residual
 
-`DiffJTP` (`= CReal.Equiv (dSeriesCReal …) (Rproduct …)`) is the single
-remaining analytic obligation — the differentiated Jacobi-triple-product
-identity `Σ n a^{n²} sin nθ = (sin θ/2)·ϑ₃·S`, equivalently `Rtrunc M ≈ R` of
-`UTelescope.Kt_nonneg_of_residual`.  It is **NOT** discharged and is **NOT** a
-`sorry`: it is exposed as a named `Prop` hypothesis, and only the conditional
-`DiffJTP → K_t ≥ 0` is proved.
+`DiffJTP` (`= CReal.Equiv (dSeriesCReal …) (Rhalf …)`, with the corrected `1/2`)
+is the single remaining analytic obligation — the differentiated
+Jacobi-triple-product identity `Σ n a^{n²} sin nθ = (sin θ/2)·ϑ₃·S`, equivalently
+`Rtrunc M ≈ R` of `UTelescope.Kt_nonneg_of_residual`.  It is **NOT** discharged
+and is **NOT** a `sorry`: it is exposed as a named `Prop` hypothesis, and only the
+conditional `DiffJTP → K_t ≥ 0` is proved.
+
+### Why the matched-truncation strategy does NOT close it (sharp finding, 2026-06-12)
+
+The proposed closure route — find finite truncations `seriesTrunc M ≈ productTrunc M`
+matched at each level `M` — **cannot succeed**, and the obstruction is now pinned
+down exactly.  Reindex `dSeriesCReal`'s partial sum as `dPartial M`.  Then
+(verified to 40 digits):
+
+1. `dPartial M = D_M/sin θ` **exactly**, where `D_M = −½·d/dθ(th3series_M)` and
+   `th3series_M(θ) = 1 + 2Σ_{n≤M} a^{n²} cos nθ` is the finite theta-**series**
+   truncation.  (So the series side IS the differentiated finite theta-series.)
+2. The finite log-derivative `d/dθ(th3prod_M) = −sin θ·th3prod_M·Spart_M` holds
+   **exactly** (pure product rule — this is what `DiffProduct.leibniz` captures).
+   So `(1/2)·Ppart_M·Spart_M` is the differentiated finite theta-**product**.
+3. BUT `th3series_M ≠ th3prod_M` at every finite `M`: the finite Gauss identity
+   `gauss_qbinom_all` (`qProd = gaussSum`) equates the product and the Gaussian
+   sum only for the FULL coefficient sum / `N → ∞`; truncating the series at `M`
+   terms and truncating the product at `M` factors give **different** finite
+   numbers (differences `~ (a·a)^M`, e.g. `0.18, 0.028, 0.0059, 0.0015, …` at
+   `a = 0.5`).
+4. Consequently `dPartial M` (super-geometric, `~ a^{(M+1)²}`: at `a=0.5` already
+   `10^{−11}` from its limit by `M=5`) and `(1/2)·Ppart_M·Spart_M` (geometric,
+   `~ (a·a)^M`: only `10^{−3}` by `M=5`) converge to the SAME limit at
+   **different rates**.  There is **no** finite `M` at which they are equal, so
+   no finite equal-at-each-level identity exists.
+
+The two truncation families are genuinely distinct finite objects coinciding
+only in the limit; `CReal.Equiv` between them therefore reduces to *the two
+limits being equal*, which is precisely the differentiation–limit interchange
+and is NOT a finite algebraic identity.  `DiffProduct.leibniz` supplies the
+finite product rule (step 2) but cannot bridge the series↔product truncation gap
+(step 3) — that bridge is the `M → ∞` limit of Gauss's identity differentiated,
+i.e. the missing engine.
 
 It is genuinely hard: a term-by-term differentiation of a convergent product (a
-double-limit interchange `lim_h lim_L = lim_L lim_h`), NOT a finite identity (at
-every truncation the two sides live in different gradings — linear-Gaussian
-`n a^{n²}` partial sums vs a product of two geometric truncations).  It
+double-limit interchange `lim_h lim_L = lim_L lim_h`), NOT a finite identity.  It
 introduces **no new positivity content** (positivity is already closed in
 `ThetaConvGen.R_geRat_zero_gen`); it is purely an analysis engine (commuting
 `d/dθ` with the limit).  The repo does not contain a constructive

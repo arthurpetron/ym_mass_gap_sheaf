@@ -508,21 +508,37 @@ def dSeriesCReal {a x : Q'}
 
 `R = ϑ₃·S` is the manifestly-nonnegative product object (`ThetaConvGen`), with
 limit `≥ 0` for ALL `a ∈ (0,1)` (`R_geRat_zero_gen`).  `dSeriesCReal` is the
-genuine `K_t`-side series (this module).  The single remaining analytic
-obligation — the differentiated Jacobi-triple-product identity (DIFF) — is
-exactly the `CReal` equality of these two:
+genuine `K_t`-side series (this module).
 
-  `DiffJTP : CReal.Equiv (dSeriesCReal …) (CReal.mul ϑ₃ S)`.
+### THE FACTOR-`1/2` CORRECTION (a soundness fix, AGENTS.md Rule 6)
 
-This is NOT a finite identity (the two sides live in different gradings at every
-truncation, §2.3 of the notes); it is a term-by-term differentiation of the
-convergent product, a double-limit interchange `lim_h lim_L = lim_L lim_h` with
-explicit `O((a·a)ᵏ)` log-derivative modulus.  We do NOT discharge it (it is the
-one genuinely-hard analytic engine still required); we expose it as a named
-hypothesis and prove the conditional closure `DiffJTP → K_t ≥ 0`. -/
+The differentiated-JTP identity of `docs/jtp-convergence-notes.md §2.1(C)` reads
+`K_t(x) = ϑ₃(θ)·S(x)/(2a)`, equivalently — in the `U`-grading carried here, where
+`dSeriesCReal = Σ_{n≥1} n·a^{n²}·U_{n−1}(x) = D(θ)/sin θ` — the identity
+`Dseries = (sin θ/2)·ϑ₃·S`, i.e.
 
-/-- **`R = ϑ₃·S` as a `CReal`** (the product positivity object), for ALL
-`a ∈ (0,1)`, `−1 ≤ x ≤ 1`. -/
+    `dSeriesCReal  ≈  (1/2)·(ϑ₃·S)`.                                          (DIFF)
+
+The crucial half-factor was DROPPED in the previous round, which stated the
+residual as `dSeriesCReal ≈ ϑ₃·S` (no `1/2`).  That statement is **numerically
+false**: at every `a ∈ (0,1)`, `θ ∈ (0,π)`, `ϑ₃·S = 2·dSeriesCReal` exactly
+(verified to 40 digits; ratio `= 2.0` at `a = 0.2,0.3,0.5,0.8`).  We CORRECT it:
+the genuine residual is `(DIFF)` above, with the `(1/2)` carried by `Rhalf`.
+Closing the un-halved version would have closed a FALSE equality; the named
+obligation must be the true identity, so `DiffJTP` now targets `Rhalf`.
+
+`(DIFF)` is NOT a finite identity (the two sides live in different gradings at
+every truncation, §2.3 of the notes; see the sharp finding below); it is a
+term-by-term differentiation of the convergent product, a double-limit
+interchange `lim_h lim_L = lim_L lim_h` with explicit `O((a·a)ᵏ)` log-derivative
+modulus.  We do NOT discharge it (it is the one genuinely-hard analytic engine
+still required); we expose it as a named hypothesis and prove the conditional
+closure `DiffJTP → K_t ≥ 0`. -/
+
+/-- **`R = ϑ₃·S` as a `CReal`** (the bare product object), for ALL `a ∈ (0,1)`,
+`−1 ≤ x ≤ 1`.  NOTE: this is `2·dSeriesCReal` in the limit, NOT `dSeriesCReal`;
+the differentiated-JTP residual links `dSeriesCReal` to `Rhalf = (1/2)·Rproduct`
+below, not to `Rproduct`. -/
 def Rproduct {a x : Q'}
     (ha0 : (0 : Q') < a) (ha1 : a < (1 : Q')) (hx : (-1 : Q') ≤ x) (hx1 : x ≤ (1 : Q')) :
     CReal :=
@@ -540,16 +556,34 @@ theorem Rproduct_approx_nonneg {a x : Q'}
     (ThetaConvGen.thetaConvCRealGen_approx_nonneg ha0 ha1 hx hx1 n)
     (HKConvGen.sConvCReal_general_approx_nonneg ha0 ha1 hx n)
 
+/-- **`Rhalf = (1/2)·ϑ₃·S` as a `CReal`** — the CORRECT product object the
+differentiated-JTP residual links to.  `approx n = half · (ϑ₃·S).approx n`.  In
+the limit `Rhalf = dSeriesCReal` (the factor-`1/2`-corrected identity `(DIFF)`). -/
+def Rhalf {a x : Q'}
+    (ha0 : (0 : Q') < a) (ha1 : a < (1 : Q')) (hx : (-1 : Q') ≤ x) (hx1 : x ≤ (1 : Q')) :
+    CReal :=
+  CReal.mul (CReal.ofQ' HalfPow.half) (Rproduct ha0 ha1 hx hx1)
+
+/-- Every approximation of `Rhalf` is `≥ 0` (`half ≥ 0` and `Rproduct.approx ≥ 0`). -/
+theorem Rhalf_approx_nonneg {a x : Q'}
+    (ha0 : (0 : Q') < a) (ha1 : a < (1 : Q')) (hx : (-1 : Q') ≤ x) (hx1 : x ≤ (1 : Q'))
+    (n : Nat) : (0 : Q') ≤ (Rhalf ha0 ha1 hx hx1).approx n := by
+  show (0 : Q') ≤ (CReal.ofQ' HalfPow.half).approx n * (Rproduct ha0 ha1 hx hx1).approx n
+  exact Q'.mul_nonneg _ _ HalfPow.half_nonneg
+    (Rproduct_approx_nonneg ha0 ha1 hx hx1 n)
+
 /-- **The differentiated Jacobi-triple-product residual `(DIFF)` (named `Prop`).**
 The single remaining analytic obligation of Wall 2: the `K_t`-side series
-`dSeriesCReal` and the product object `R = ϑ₃·S` have the same limit.  Equivalently
-`Σ_{n≥1} n a^{n²} sin nθ = (sin θ/2)·ϑ₃(θ)·S(cos θ)`.  NOT discharged here — it is
-the term-by-term differentiation of a convergent product (a genuine double-limit
-interchange), the one analysis engine still required. -/
+`dSeriesCReal` and the (HALVED) product object `Rhalf = (1/2)·ϑ₃·S` have the same
+limit.  Equivalently `Σ_{n≥1} n a^{n²} sin nθ = (sin θ/2)·ϑ₃(θ)·S(cos θ)` — the
+`(sin θ/2)` factor is the `1/2` of `Rhalf` (the `1/sin θ` is folded into the
+`U`-grading of `dSeriesCReal`).  NOT discharged here — it is the term-by-term
+differentiation of a convergent product (a genuine double-limit interchange), the
+one analysis engine still required. -/
 def DiffJTP {a x : Q'}
     (ha0 : (0 : Q') < a) (ha1 : a < (1 : Q')) (hx : (-1 : Q') ≤ x) (hx1 : x ≤ (1 : Q')) :
     Prop :=
-  CReal.Equiv (dSeriesCReal ha0 ha1 hx hx1) (Rproduct ha0 ha1 hx hx1)
+  CReal.Equiv (dSeriesCReal ha0 ha1 hx hx1) (Rhalf ha0 ha1 hx hx1)
 
 /-- `CReal.Equiv` is reflexive (one-slack tolerance is met with `ε`). -/
 theorem Equiv_refl (A : CReal) : CReal.Equiv A A :=
@@ -558,22 +592,23 @@ theorem Equiv_refl (A : CReal) : CReal.Equiv A A :=
      Q'.add_le_self_of_nonneg (A.approx n) ε (Q'.le_of_lt hε)⟩⟩
 
 /-- **THE CONDITIONAL CLOSURE: `DiffJTP → K_t ≥ 0`.**  Given the differentiated-JTP
-residual `(DIFF)` (`dSeriesCReal ≈ R`), the heat-kernel series `K_t = dSeriesCReal`
-is `≥ 0` (`ExpPos.geRat … 0`).  Routes through `UTelescope.Kt_nonneg_of_residual`
-with the constant truncation family `Rtrunc M = dSeriesCReal` (so `hTrunc` is
-reflexivity and `hConv` is exactly `(DIFF)`), and `R`'s approximation
-nonnegativity from `Rproduct_approx_nonneg`.  The ONLY open input is `DiffJTP`. -/
+residual `(DIFF)` (`dSeriesCReal ≈ Rhalf`, with the corrected `1/2` factor), the
+heat-kernel series `K_t = dSeriesCReal` is `≥ 0` (`ExpPos.geRat … 0`).  Routes
+through `UTelescope.Kt_nonneg_of_residual` with the constant truncation family
+`Rtrunc M = dSeriesCReal` (so `hTrunc` is reflexivity and `hConv` is exactly
+`(DIFF)`), and `Rhalf`'s approximation nonnegativity from `Rhalf_approx_nonneg`.
+The ONLY open input is `DiffJTP`. -/
 theorem Kt_geRat_zero_of_diff {a x : Q'}
     (ha0 : (0 : Q') < a) (ha1 : a < (1 : Q')) (hx : (-1 : Q') ≤ x) (hx1 : x ≤ (1 : Q'))
     (hDiff : DiffJTP ha0 ha1 hx hx1) :
     ExpPos.geRat (dSeriesCReal ha0 ha1 hx hx1) 0 :=
   UTelescope.Kt_nonneg_of_residual
     (dSeriesCReal ha0 ha1 hx hx1)
-    (Rproduct ha0 ha1 hx hx1)
+    (Rhalf ha0 ha1 hx hx1)
     (fun _ => dSeriesCReal ha0 ha1 hx hx1)
     (fun _ => Equiv_refl (dSeriesCReal ha0 ha1 hx hx1))
     (fun _ => hDiff)
-    (Rproduct_approx_nonneg ha0 ha1 hx hx1)
+    (Rhalf_approx_nonneg ha0 ha1 hx hx1)
 
 /-! ## 5. Bridge to the finite-difference Leibniz engine (`DiffProduct.lean`)
 
@@ -588,24 +623,26 @@ closure through it, so the single open analytic obligation is the named
 `ProductDerivativeLimit` whose finite core is the proven `leibniz`. -/
 
 /-- **`DiffJTP` IS the `ProductDerivativeLimit` obligation** for the heat-kernel
-series vs the product object.  Definitional (`CReal.Equiv` on both sides),
-recorded to connect the named residual to the finite-difference Leibniz engine of
-`DiffProduct.lean` (whose `leibniz` is the proven finite core). -/
+series vs the (HALVED) product object `Rhalf = (1/2)·ϑ₃·S`.  Definitional
+(`CReal.Equiv` on both sides), recorded to connect the named residual to the
+finite-difference Leibniz engine of `DiffProduct.lean` (whose `leibniz` is the
+proven finite core).  NOTE: the obligation targets `Rhalf`, not the bare
+`Rproduct` — the factor-`1/2` correction (see §4). -/
 theorem DiffJTP_eq_productDerivativeLimit {a x : Q'}
     (ha0 : (0 : Q') < a) (ha1 : a < (1 : Q')) (hx : (-1 : Q') ≤ x) (hx1 : x ≤ (1 : Q')) :
     DiffJTP ha0 ha1 hx hx1
       = DiffProduct.ProductDerivativeLimit
-          (dSeriesCReal ha0 ha1 hx hx1) (Rproduct ha0 ha1 hx hx1) :=
+          (dSeriesCReal ha0 ha1 hx hx1) (Rhalf ha0 ha1 hx hx1) :=
   rfl
 
 /-- **Conditional closure via the product-derivative obligation.**  Given the
-abstract `ProductDerivativeLimit` linking the `K_t`-series and `R = ϑ₃·S` (whose
-finite core `DiffProduct.leibniz` is proven), `K_t = dSeriesCReal ≥ 0`.  Same
-content as `Kt_geRat_zero_of_diff`, oriented through `DiffProduct`. -/
+abstract `ProductDerivativeLimit` linking the `K_t`-series and `Rhalf = (1/2)·ϑ₃·S`
+(whose finite core `DiffProduct.leibniz` is proven), `K_t = dSeriesCReal ≥ 0`.
+Same content as `Kt_geRat_zero_of_diff`, oriented through `DiffProduct`. -/
 theorem Kt_geRat_zero_of_productDerivativeLimit {a x : Q'}
     (ha0 : (0 : Q') < a) (ha1 : a < (1 : Q')) (hx : (-1 : Q') ≤ x) (hx1 : x ≤ (1 : Q'))
     (hPDL : DiffProduct.ProductDerivativeLimit
-              (dSeriesCReal ha0 ha1 hx hx1) (Rproduct ha0 ha1 hx hx1)) :
+              (dSeriesCReal ha0 ha1 hx hx1) (Rhalf ha0 ha1 hx hx1)) :
     ExpPos.geRat (dSeriesCReal ha0 ha1 hx hx1) 0 :=
   Kt_geRat_zero_of_diff ha0 ha1 hx hx1 hPDL
 
@@ -625,6 +662,7 @@ named hypothesis (the single open analytic obligation), NOT a `sorry`. -/
 #print axioms YMGap.Continuum.JTPIdentity.neg_dTerm_le
 #print axioms YMGap.Continuum.JTPIdentity.dSeriesCReal
 #print axioms YMGap.Continuum.JTPIdentity.Rproduct_approx_nonneg
+#print axioms YMGap.Continuum.JTPIdentity.Rhalf_approx_nonneg
 #print axioms YMGap.Continuum.JTPIdentity.Equiv_refl
 #print axioms YMGap.Continuum.JTPIdentity.Kt_geRat_zero_of_diff
 #print axioms YMGap.Continuum.JTPIdentity.DiffJTP_eq_productDerivativeLimit
