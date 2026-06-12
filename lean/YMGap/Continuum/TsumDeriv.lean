@@ -564,11 +564,310 @@ def fdDeriv_of_unif {f f' : Nat → Q' → Q'} {F g : Q' → Q'} {θ : Q'}
     refine Q'.le_trans' _ _ _ hgoal ?_
     exact Q'.le_of_eqv (four_q_eqv ε h)
 
+/-! ## 4. DERIVATIVE UNIQUENESS over `Q'` (Route A — the structural blocker fix)
+
+The reason the differentiated-JTP residual stalls is that it tries to equate two
+truncation SEQUENCES converging at different rates (`a^{(M+1)²}` vs `(a·a)^M`),
+agreeing at no finite `M`.  The constructive fix is the CoRN-style
+`Derivative_I_unique`: do NOT compare the sequences — instead observe that two
+finite-difference derivatives of the SAME function `F` at the SAME point `θ` are
+EQUAL.  This section builds that lemma over `Q'`, with NO uniformity needed (it is
+purely per-`θ`): from `FDDerivData F d₁ θ` and `FDDerivData F d₂ θ` we get
+`d₁ ≃ d₂`.
+
+The proof is the short Bishop uniqueness argument.  The two cleared remainders
+`fdRem F d₁ θ h` and `fdRem F d₂ θ h` differ by exactly `(d₂ − d₁)·h`
+(the common `F(θ+h) − F θ` cancels), so for every `ε > 0` and every `h` past both
+moduli, `|(d₁ − d₂)·h| ≤ 2ε·|h|`.  Cancelling the positive `|h|` gives
+`|d₁ − d₂| ≤ 2ε` for all `ε > 0`, whence `d₁ ≃ d₂` by the Archimedean lemma. -/
+
+namespace Q'
+
+/-- **Multiplicative cancellation on the left** (local copy; the `TsumDeriv`
+import chain does not reach `Sqrt.lean`).  `c·a ≤ c·b` and `0 < c` give `a ≤ b`,
+through the `Int` cross-product representation. -/
+theorem le_of_mul_le_mul_left {a b c : Q'} (h : c * a ≤ c * b) (hc : (0 : Q') < c) :
+    a ≤ b := by
+  have hh : (c * a).num * ((c * b).den : Int) ≤ (c * b).num * ((c * a).den : Int) := h
+  show a.num * (b.den : Int) ≤ b.num * (a.den : Int)
+  have hcn : 0 < c.num := CReal.num_pos_of_pos hc
+  rw [show (c * a).num = c.num * a.num from rfl,
+      show (c * b).num = c.num * b.num from rfl,
+      Q'.mul_den_cast c b, Q'.mul_den_cast c a] at hh
+  have hh2 : (c.num * (c.den : Int)) * (a.num * (b.den : Int))
+           ≤ (c.num * (c.den : Int)) * (b.num * (a.den : Int)) := by
+    have e1 : (c.num * a.num) * ((c.den : Int) * (b.den : Int))
+            = (c.num * (c.den : Int)) * (a.num * (b.den : Int)) := by ac_rfl
+    have e2 : (c.num * b.num) * ((c.den : Int) * (a.den : Int))
+            = (c.num * (c.den : Int)) * (b.num * (a.den : Int)) := by ac_rfl
+    rw [← e1, ← e2]; exact hh
+  have hcc : 0 < c.num * (c.den : Int) :=
+    Int.mul_pos hcn (by exact_mod_cast c.den_pos)
+  exact Int.le_of_mul_le_mul_left hh2 hcc
+
+/-- `half > 0`. -/
+theorem half_pos : (0 : Q') < HalfPow.half := CReal.pos_of_num_pos (by decide)
+
+/-- `abs q ≈ q` when `0 ≤ q` (the `if`-branch of `abs`). -/
+theorem abs_of_nonneg {q : Q'} (hq : (0 : Q') ≤ q) : Q'.abs q ≈ q := by
+  show Q'.abs q ≈ q
+  unfold Q'.abs
+  rw [if_pos hq]; exact Q'.eqv_refl q
+
+/-- `¬ (p ≤ q) → q < p` (decidable trichotomy at the `Int`-num level). -/
+theorem lt_of_not_le {p q : Q'} (h : ¬ (p ≤ q)) : q < p := by
+  have hnum : ¬ (p.num * (q.den : Int) ≤ q.num * (p.den : Int)) := h
+  show q.num * (p.den : Int) < p.num * (q.den : Int)
+  exact Int.not_le.mp hnum
+
+/-- `min p q ≤ p`. -/
+theorem min_le_left' (p q : Q') : Q'.min' p q ≤ p := by
+  show Q'.min' p q ≤ p
+  unfold Q'.min'
+  by_cases h : p ≤ q
+  · rw [if_pos h]; exact Q'.le_refl' p
+  · rw [if_neg h]; exact Q'.le_of_lt (lt_of_not_le h)
+
+/-- `min p q ≤ q`. -/
+theorem min_le_right' (p q : Q') : Q'.min' p q ≤ q := by
+  show Q'.min' p q ≤ q
+  unfold Q'.min'
+  by_cases h : p ≤ q
+  · rw [if_pos h]; exact h
+  · rw [if_neg h]; exact Q'.le_refl' q
+
+/-- `0 < p → 0 < q → 0 < min p q`. -/
+theorem lt_min' {p q : Q'} (hp : (0 : Q') < p) (hq : (0 : Q') < q) :
+    (0 : Q') < Q'.min' p q := by
+  show (0 : Q') < Q'.min' p q
+  unfold Q'.min'
+  by_cases h : p ≤ q
+  · rw [if_pos h]; exact hp
+  · rw [if_neg h]; exact hq
+
+/-- `¬(c ≤ 0) → 0 < c` over `Q'` (decidable trichotomy at the `Int`-num level). -/
+theorem pos_of_not_nonpos {c : Q'} (h : ¬ (c ≤ (0 : Q'))) : (0 : Q') < c := by
+  -- c ≤ 0  ↔  c.num * 1 ≤ 0 * c.den  ↔  c.num ≤ 0 ; ¬ of that is 0 < c.num ↔ 0 < c.
+  have hnum : ¬ (c.num ≤ 0) := by
+    intro hc
+    apply h
+    show c.num * ((0 : Q').den : Int) ≤ (0 : Q').num * (c.den : Int)
+    have e1 : ((0 : Q').den : Int) = 1 := rfl
+    have e2 : (0 : Q').num = 0 := rfl
+    rw [e1, e2]; simpa using hc
+  have : 0 < c.num := Int.not_le.mp hnum
+  exact CReal.pos_of_num_pos this
+
+/-- **The constructive Archimedean lemma over `Q'`.**  If `c ≤ ε` for EVERY
+`ε > 0`, then `c ≤ 0`.  Decidable case split on `c ≤ 0`; in the `0 < c` branch,
+instantiating at `ε = (1/2)·c` gives `c ≤ (1/2)·c`, i.e. `(1/2)·c ≤ 0`
+(`c ≃ (1/2)c + (1/2)c`), contradicting `0 < (1/2)·c`. -/
+theorem le_zero_of_le_all_pos {c : Q'} (h : ∀ ε : Q', (0 : Q') < ε → c ≤ ε) :
+    c ≤ (0 : Q') := by
+  by_cases hc : c ≤ (0 : Q')
+  · exact hc
+  · exfalso
+    have hcpos : (0 : Q') < c := pos_of_not_nonpos hc
+    have hhc : (0 : Q') < HalfPow.half * c := ExpNeg.half_mul_pos c hcpos
+    have hle : c ≤ HalfPow.half * c := h (HalfPow.half * c) hhc
+    -- c ≃ half·c + half·c, so c ≤ half·c gives half·c + half·c ≤ half·c, i.e. half·c ≤ 0.
+    have hcc : (HalfPow.half * c + HalfPow.half * c) ≤ HalfPow.half * c :=
+      Q'.le_trans' _ _ _ (Q'.le_of_eqv (ExpNeg.two_halves c)) hle
+    -- subtract half·c: half·c ≤ 0
+    have hsub : HalfPow.half * c ≤ (0 : Q') := by
+      have hadd := Q'.add_le_add_right _ _ (-(HalfPow.half * c)) hcc
+      -- (half·c + half·c) + (−half·c) ≤ half·c + (−half·c)
+      refine Q'.le_trans' _ _ _ ?_ (Q'.le_trans' _ _ _ hadd
+        (Q'.le_of_eqv (Q'.add_neg_self_eqv (HalfPow.half * c))))
+      -- LHS ≃ half·c
+      refine Q'.ge_of_eqv ?_
+      refine Q'.eqv_trans _ _ _
+        (Q'.add_assoc_eqv (HalfPow.half * c) (HalfPow.half * c) (-(HalfPow.half * c))) ?_
+      refine Q'.eqv_trans _ _ _
+        (Q'.add_eqv_congr_left (HalfPow.half * c) _ _
+          (Q'.add_neg_self_eqv (HalfPow.half * c))) ?_
+      exact eqv_of_eq (Q'.add_zero' (HalfPow.half * c))
+    -- 0 < half·c (hhc) and half·c ≤ 0 (hsub) ⟹ 0 < (half·c).num and (half·c).num ≤ 0 ⟹ False.
+    have hposnum : 0 < (HalfPow.half * c).num := CReal.num_pos_of_pos hhc
+    have hnonpos : (HalfPow.half * c).num ≤ 0 := by
+      have hh : (HalfPow.half * c).num * ((0:Q').den : Int)
+          ≤ (0:Q').num * ((HalfPow.half * c).den : Int) := hsub
+      have e1 : ((0:Q').den : Int) = 1 := rfl
+      have e2 : (0:Q').num = 0 := rfl
+      rw [e1, e2] at hh; simpa using hh
+    omega
+
+/-- **`c ≃ 0` from `|c| ≤ ε` for all `ε > 0`.**  Both `c ≤ 0` and `−c ≤ 0`
+follow from the Archimedean lemma applied to `|c|` (since `c ≤ |c|` and
+`−c ≤ |c|`), giving `c ≃ 0`. -/
+theorem eqv_zero_of_abs_le_all_pos {c : Q'}
+    (h : ∀ ε : Q', (0 : Q') < ε → Q'.abs c ≤ ε) : c ≈ (0 : Q') := by
+  have habs0 : Q'.abs c ≤ (0 : Q') := le_zero_of_le_all_pos h
+  -- c ≤ |c| ≤ 0 and −c ≤ |c| ≤ 0, so c ≤ 0 and 0 ≤ c.
+  have hcle : c ≤ (0 : Q') := Q'.le_trans' _ _ _ (Q'.le_abs_self c) habs0
+  have hnegle : -c ≤ (0 : Q') := Q'.le_trans' _ _ _ (Q'.neg_le_abs c) habs0
+  have hge : (0 : Q') ≤ c := by
+    have h1 := Q'.neg_le_neg hnegle   -- −0 ≤ −(−c)
+    have h2 : (0 : Q') ≤ -(-c) :=
+      Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.eqv_symm (eqv_of_eq (by rfl : -(0:Q') = (0:Q'))))) h1
+    exact Q'.le_trans' _ _ _ h2 (Q'.le_of_eqv (Q'.neg_neg_eqv c))
+  exact Q'.eqv_of_le_le hcle hge
+
+end Q'
+
+/-- **The algebraic core** (arbitrary common block `A`):
+`(A + −(d₂·h)) + −(A + −(d₁·h)) ≈ (d₁ − d₂)·h`. -/
+theorem sub_rem_alg (A d₁ d₂ h : Q') :
+    ((A + (-(d₂ * h))) + (-(A + (-(d₁ * h))))) ≈ ((d₁ + (-d₂)) * h) := by
+  -- Step 1: −(A + −(d₁h)) ≈ (−A) + (d₁h)
+  have hneg : (-(A + (-(d₁ * h)))) ≈ ((-A) + (d₁ * h)) := by
+    refine Q'.eqv_trans _ _ _ (Q'.neg_add_eqv A (-(d₁ * h))) ?_
+    exact Q'.add_eqv_congr_left (-A) _ _ (Q'.neg_neg_eqv (d₁ * h))
+  refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr_left (A + (-(d₂ * h))) _ _ hneg) ?_
+  -- (A + −(d₂h)) + ((−A) + (d₁h)) ≈ (d₁h) + (−(d₂h))  [cancel A]
+  have hcancel : ((A + (-(d₂ * h))) + ((-A) + (d₁ * h)))
+      ≈ ((d₁ * h) + (-(d₂ * h))) := by
+    -- regroup to (A + −A) + (−(d₂h) + d₁h)
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_assoc_eqv A (-(d₂ * h)) ((-A) + (d₁ * h))) ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_left A _ _
+        (Q'.eqv_symm (Q'.add_assoc_eqv (-(d₂ * h)) (-A) (d₁ * h)))) ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_left A _ _
+        (Q'.add_eqv_congr_right _ _ (d₁ * h) (Q'.add_comm_eqv (-(d₂ * h)) (-A)))) ?_
+    -- A + (((−A) + −(d₂h)) + d₁h) ≈ (A + (−A)) + (−(d₂h) + d₁h)
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_left A _ _
+        (Q'.add_assoc_eqv (-A) (-(d₂ * h)) (d₁ * h))) ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.eqv_symm (Q'.add_assoc_eqv A (-A) ((-(d₂ * h)) + (d₁ * h)))) ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_right _ _ ((-(d₂ * h)) + (d₁ * h)) (Q'.add_neg_self_eqv A)) ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.eqv_of_eq (Q'.zero_add' ((-(d₂ * h)) + (d₁ * h)))) ?_
+    exact Q'.add_comm_eqv (-(d₂ * h)) (d₁ * h)
+  refine Q'.eqv_trans _ _ _ hcancel ?_
+  -- (d₁h) + −(d₂h) ≈ (d₁ + −d₂)·h
+  refine Q'.eqv_symm ?_
+  refine Q'.eqv_trans _ _ _ (Q'.add_mul_eqv d₁ (-d₂) h) ?_
+  exact Q'.add_eqv_congr_left (d₁ * h) _ _ (Q'.neg_mul_eqv d₂ h)
+
+/-- **The difference of the two cleared remainders is `(d₁ − d₂)·h`.**
+`fdRem F d₂ θ h ⊖ fdRem F d₁ θ h ≈ (d₁ − d₂)·h` — the common `F(θ+h) − F θ`
+telescopes away.  Definitional unfold of `fdRem` then `sub_rem_alg`. -/
+theorem fdRem_sub (F : Q' → Q') (d₁ d₂ θ h : Q') :
+    ((fdRem F d₂ θ h) + (-(fdRem F d₁ θ h))) ≈ ((d₁ + (-d₂)) * h) :=
+  sub_rem_alg ((F (θ + h)) + (-(F θ))) d₁ d₂ h
+
+/-- **DERIVATIVE UNIQUENESS (constructive, `Q'`-level, per-`θ`, no uniformity).**
+Two finite-difference derivatives of the SAME function `F` at the SAME point `θ`
+are equal: `FDDerivData F d₁ θ → FDDerivData F d₂ θ → d₁ ≃ d₂`.
+
+This is the CoRN `Derivative_I_unique` analogue.  It needs only the per-`θ`
+`FDDerivData` (NO uniform modulus): pick any `ε > 0` and any nonzero `h` past both
+moduli `D₁.δ ε`, `D₂.δ ε`; then `(d₁−d₂)·h = fdRem F d₂ ⊖ fdRem F d₁`
+(`fdRem_sub`), so `|(d₁−d₂)·h| ≤ |fdRem F d₂| + |fdRem F d₁| ≤ ε|h| + ε|h|`.
+Cancelling `|h|` (`|c·h| = |c|·|h|`, `|h| > 0`) gives `|d₁−d₂| ≤ ε + ε = 2ε`, for
+every `ε`, hence `d₁ ≃ d₂` (Archimedean). -/
+theorem fdDeriv_unique {F : Q' → Q'} {d₁ d₂ θ : Q'}
+    (D₁ : FDDerivData F d₁ θ) (D₂ : FDDerivData F d₂ θ) : d₁ ≈ d₂ := by
+  -- It suffices: |d₁ − d₂| ≤ ε for all ε > 0  (Archimedean ⟹ d₁−d₂ ≃ 0 ⟹ d₁ ≃ d₂).
+  have hkey : ∀ ε : Q', (0 : Q') < ε → Q'.abs (d₁ + (-d₂)) ≤ ε := by
+    intro ε hε
+    -- work at tolerance ε' = (1/2)·ε on each remainder; pick h = min of the two moduli.
+    have hε' : (0 : Q') < HalfPow.half * ε := ExpNeg.half_mul_pos ε hε
+    -- a concrete nonzero increment h within both moduli: h = min(δ₁ ε', δ₂ ε')
+    let δ₁ := D₁.δ (HalfPow.half * ε)
+    let δ₂ := D₂.δ (HalfPow.half * ε)
+    have hδ₁ : (0 : Q') < δ₁ := D₁.δ_pos _ hε'
+    have hδ₂ : (0 : Q') < δ₂ := D₂.δ_pos _ hε'
+    let h : Q' := Q'.min' δ₁ δ₂
+    have hhpos : (0 : Q') < h := Q'.lt_min' hδ₁ hδ₂
+    have hh_abs_pos : (0 : Q') < Q'.abs h := by
+      show (0 : Q') < Q'.abs h
+      unfold Q'.abs; rw [if_pos (Q'.le_of_lt hhpos)]; exact hhpos
+    have habsh_eqv : Q'.abs h ≈ h := Q'.abs_of_nonneg (Q'.le_of_lt hhpos)
+    have hhle₁ : Q'.abs h ≤ δ₁ :=
+      Q'.le_trans' _ _ _ (Q'.le_of_eqv habsh_eqv) (Q'.min_le_left' δ₁ δ₂)
+    have hhle₂ : Q'.abs h ≤ δ₂ :=
+      Q'.le_trans' _ _ _ (Q'.le_of_eqv habsh_eqv) (Q'.min_le_right' δ₁ δ₂)
+    -- the two remainder bounds
+    have hb₁ : Q'.abs (fdRem F d₁ θ h) ≤ (HalfPow.half * ε) * Q'.abs h :=
+      D₁.bound _ hε' h hh_abs_pos hhle₁
+    have hb₂ : Q'.abs (fdRem F d₂ θ h) ≤ (HalfPow.half * ε) * Q'.abs h :=
+      D₂.bound _ hε' h hh_abs_pos hhle₂
+    -- |(d₁−d₂)·h| ≤ |fdRem F d₂| + |fdRem F d₁| ≤ 2·(½ε)·|h| = ε·|h|
+    have hsub := fdRem_sub F d₁ d₂ θ h
+    have htri : Q'.abs ((d₁ + (-d₂)) * h)
+        ≤ Q'.abs (fdRem F d₂ θ h) + Q'.abs (fdRem F d₁ θ h) := by
+      refine Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.abs_eqv_congr (Q'.eqv_symm hsub))) ?_
+      refine Q'.le_trans' _ _ _ (abs_add_le (fdRem F d₂ θ h) (-(fdRem F d₁ θ h))) ?_
+      exact Q'.add_le_add_left _ _ _ (Q'.le_of_eqv (Q'.abs_neg (fdRem F d₁ θ h)))
+    have hbound : Q'.abs ((d₁ + (-d₂)) * h) ≤ ε * Q'.abs h := by
+      refine Q'.le_trans' _ _ _ htri ?_
+      refine Q'.le_trans' _ _ _ (Q'.add_le_add hb₂ hb₁) ?_
+      -- (½ε)|h| + (½ε)|h| ≈ ε|h|
+      refine Q'.le_of_eqv ?_
+      refine Q'.eqv_trans _ _ _
+        (Q'.add_eqv_congr (Q'.mul_comm_eqv (HalfPow.half * ε) (Q'.abs h))
+          (Q'.mul_comm_eqv (HalfPow.half * ε) (Q'.abs h))) ?_
+      -- |h|·(½ε) + |h|·(½ε) ≈ |h|·(½ε+½ε) ≈ |h|·ε ≈ ε·|h|
+      refine Q'.eqv_trans _ _ _
+        (Q'.eqv_symm (Q'.mul_add_eqv (Q'.abs h) (HalfPow.half * ε) (HalfPow.half * ε))) ?_
+      refine Q'.eqv_trans _ _ _
+        (Q'.mul_eqv_congr_left (Q'.abs h) _ _ (ExpNeg.two_halves ε)) ?_
+      exact Q'.mul_comm_eqv (Q'.abs h) ε
+    -- Now cancel |h| via the SIGNED route (no abs_mul): bound c·h and (−c)·h by ε·|h|,
+    -- rewrite |h| ≈ h, cancel h > 0, get c ≤ ε and −c ≤ ε ⟹ |c| ≤ ε.
+    let c : Q' := d₁ + (-d₂)
+    -- c·h ≤ |c·h| ≤ ε·|h| ≈ ε·h
+    have hεh : ε * Q'.abs h ≈ ε * h := Q'.mul_eqv_congr_left ε _ _ habsh_eqv
+    have hch_le : c * h ≤ ε * h :=
+      Q'.le_trans' _ _ _ (Q'.le_abs_self (c * h))
+        (Q'.le_trans' _ _ _ hbound (Q'.le_of_eqv hεh))
+    -- −(c·h) ≤ |c·h| ≤ ε·h, and −(c·h) ≈ (−c)·h
+    have hnegch_le : (-c) * h ≤ ε * h := by
+      refine Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.neg_mul_eqv c h)) ?_
+      exact Q'.le_trans' _ _ _ (Q'.neg_le_abs (c * h))
+        (Q'.le_trans' _ _ _ hbound (Q'.le_of_eqv hεh))
+    -- cancel h > 0 (commute to h·· form): c ≤ ε and −c ≤ ε
+    have hc_le : c ≤ ε := by
+      refine Q'.le_of_mul_le_mul_left (c := h) ?_ hhpos
+      refine Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.mul_comm_eqv h c)) ?_
+      exact Q'.le_trans' _ _ _ hch_le (Q'.le_of_eqv (Q'.mul_comm_eqv ε h))
+    have hnegc_le : -c ≤ ε := by
+      refine Q'.le_of_mul_le_mul_left (c := h) ?_ hhpos
+      refine Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.mul_comm_eqv h (-c))) ?_
+      exact Q'.le_trans' _ _ _ hnegch_le (Q'.le_of_eqv (Q'.mul_comm_eqv ε h))
+    -- −ε ≤ c from −c ≤ ε
+    have hge : -ε ≤ c := by
+      have h1 := Q'.neg_le_neg hnegc_le   -- −ε ≤ −(−c)
+      exact Q'.le_trans' _ _ _ h1 (Q'.le_of_eqv (Q'.neg_neg_eqv c))
+    exact Q'.abs_le hge hc_le
+  -- Archimedean ⟹ d₁ − d₂ ≃ 0 ⟹ d₁ ≃ d₂.
+  have hz : (d₁ + (-d₂)) ≈ (0 : Q') := Q'.eqv_zero_of_abs_le_all_pos hkey
+  -- d₁ ≈ d₂ from d₁ − d₂ ≈ 0
+  have : (d₁ + (-d₂)) + d₂ ≈ (0 : Q') + d₂ := Q'.add_eqv_congr_right _ _ d₂ hz
+  refine Q'.eqv_trans _ _ _ (Q'.eqv_symm ?_) (Q'.eqv_trans _ _ _ this ?_)
+  · -- (d₁ + −d₂) + d₂ ≈ d₁ : regroup to d₁ + (−d₂ + d₂) ≈ d₁ + 0 ≈ d₁.
+    refine Q'.eqv_trans _ _ _ (Q'.add_assoc_eqv d₁ (-d₂) d₂) ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_left d₁ _ _ (Q'.neg_add_self_eqv d₂)) ?_
+    exact Q'.eqv_of_eq (Q'.add_zero' d₁)
+  · -- 0 + d₂ ≈ d₂
+    exact Q'.eqv_of_eq (Q'.zero_add' d₂)
+
 end YMGap.Continuum.TsumDeriv
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
 
 #print axioms YMGap.Continuum.TsumDeriv.Q'.mul_pos'
+#print axioms YMGap.Continuum.TsumDeriv.Q'.le_of_mul_le_mul_left
+#print axioms YMGap.Continuum.TsumDeriv.Q'.le_zero_of_le_all_pos
+#print axioms YMGap.Continuum.TsumDeriv.Q'.eqv_zero_of_abs_le_all_pos
+#print axioms YMGap.Continuum.TsumDeriv.fdRem_sub
+#print axioms YMGap.Continuum.TsumDeriv.fdDeriv_unique
 #print axioms YMGap.Continuum.TsumDeriv.Q'.abs_eqv_congr
 #print axioms YMGap.Continuum.TsumDeriv.Q'.abs_neg
 #print axioms YMGap.Continuum.TsumDeriv.Q'.abs_sub_comm

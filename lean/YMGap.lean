@@ -53,6 +53,7 @@ import YMGap.RepTheory.SU2
 import YMGap.RepTheory.SU3
 import YMGap.RepTheory.RepData
 import YMGap.RepTheory.SimpleGroup
+import YMGap.RepTheory.CasimirData
 import YMGap.Sheaf.Site
 import YMGap.Sheaf.BoundWitness
 import YMGap.Sheaf.Summability
@@ -69,6 +70,7 @@ import YMGap.RG.UniformBudget
 import YMGap.RG.CharacterTailAntitone
 import YMGap.RG.CharacterTailMajorant
 import YMGap.RG.RankCollapse
+import YMGap.RG.EtaPackaging
 import YMGap.Continuum.SigmaHatLimit
 import YMGap.Continuum.ContinuumMeasure
 import YMGap.Continuum.ObservableMeasure
@@ -112,6 +114,7 @@ import YMGap.Continuum.JTPInstance
 import YMGap.Continuum.PNDeterminant
 import YMGap.Continuum.ContinuumExistence
 import YMGap.Continuum.PartitionPos
+import YMGap.Continuum.KPIncrement
 import YMGap.Continuum.PNPaths
 import YMGap.Continuum.PNInduction
 import YMGap.Continuum.GramReduction3

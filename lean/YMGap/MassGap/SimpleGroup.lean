@@ -56,6 +56,8 @@ import YMGap.RG.UniformBudget
 import YMGap.RG.CharacterTailAntitone
 import YMGap.RG.CharacterTailMajorant
 import YMGap.RG.RankCollapse
+import YMGap.RG.EtaPackaging
+import YMGap.RepTheory.CasimirData
 import YMGap.MassGap.SU2
 
 namespace YMGap.MassGap.SimpleGroup
@@ -272,6 +274,50 @@ theorem mass_gap_SU2_via_ztMajorant
       (∀ N, finSum (truncatedConst su2.K_steps su2.eta_max) N ≤ su2.sigma0) :=
   mass_gap_simple_group_of_ztMajorant su2 su2_admissible su2_etaFromZt (by decide) rec bundle
 
+/-! ## Mass gap with BOTH residuals discharged from data
+(`rank_collapse` from the scalar sum bound, `eta_of_zt` from the proven
+monotone `Z_t ↦ η` packaging)
+
+`mass_gap_simple_group_of_rankCollapseData` still consumed a *posited*
+`eta_of_zt` implication.  `RG/EtaPackaging.lean` discharges that as a
+**theorem** (`eta_of_zt_of_model`) from the explicit monotone activity model
+`etaModel μ Z = μ · (Z · recip(1−Z))` (the `K_lf = q/(1−q)` wrapper
+`qOver1mq_mono`, already proven).  So given a `ZtEtaModel R` whose two
+character tails match the sum-bound majorant's (`ZtR = ztValue sR r`,
+`Ztsu2 = su2Zt`), the `Z_t ↦ η_max` packaging is no longer a posited
+implication but a consequence of `Q'` monotonicity.
+
+This corollary therefore consumes only *data* — the admissibility floors
+(now backed per-Cartan-type by `RepTheory/CasimirData.lean`), the per-axis
+floor excesses with their window/cap rationals, and the `ZtEtaModel`
+(single-plaquette heat-kernel output: weight `μ` and the two tails) — with
+no posited implication anywhere.  The remaining honest content is exactly
+the per-group analytic *data* (`sFloor`, the cap, and the model's `μ`/tails),
+not any unproven monotonicity step. -/
+theorem mass_gap_simple_group_of_modelData
+    (R : RepData) (hadm : AdmissibleSimpleGroup R)
+    (r : Nat) (sR sFloor : Nat → Q') (su2Zt : Q')
+    (hsR_nn : ∀ i, (0 : Q') ≤ sR i) (hsR_le : ∀ i, sR i ≤ sFloor i)
+    (hFloor_nn : ∀ i, (0 : Q') ≤ sFloor i)
+    (hwin : 2 * (sumExcess sFloor r) ≤ 1)
+    (hcap : 2 * (sumExcess sFloor r) ≤ su2Zt)
+    (m : ZtEtaModel R)
+    (hZtR : m.ZtR = ztValue sR r) (hZtsu2 : m.Ztsu2 = su2Zt)
+    (hKwin : R.K_steps = su2.K_steps)
+    {M : Nat → Type} {μ_inf : ContinuumMeasure M}
+    (rec : OSReconstruction μ_inf) (bundle : OSAxiomBundle μ_inf) :
+    ∃ m_0 : Q',
+      (0 : Q') < m_0 ∧
+      m_0 * m_0 ≤ sigma_hat_inf_lower_uniform ∧
+      HasSpectralGap rec ∧
+      (∀ N, finSum (truncatedConst R.K_steps R.eta_max) N ≤ su2.sigma0) :=
+  mass_gap_simple_group_of_ztMajorant R hadm
+    (etaFromZt_of_model
+      (ztMajorant_of_sum (R := R) r sR sFloor su2Zt
+        hsR_nn hsR_le hFloor_nn hwin hcap)
+      m hZtR hZtsu2)
+    hKwin rec bundle
+
 /-! ## SU(3) corollary — the near-free instance
 
 SU(3) is admissible (`su3_admissible`) and η-dominated: its per-step
@@ -327,6 +373,7 @@ end YMGap.MassGap.SimpleGroup
 #print axioms YMGap.MassGap.SimpleGroup.mass_gap_simple_group_of_gapMonotone
 #print axioms YMGap.MassGap.SimpleGroup.mass_gap_simple_group_of_ztMajorant
 #print axioms YMGap.MassGap.SimpleGroup.mass_gap_simple_group_of_rankCollapseData
+#print axioms YMGap.MassGap.SimpleGroup.mass_gap_simple_group_of_modelData
 #print axioms YMGap.MassGap.SimpleGroup.mass_gap_SU2_via_ztMajorant
 #print axioms YMGap.MassGap.SimpleGroup.su3_uniform_witness
 #print axioms YMGap.MassGap.SimpleGroup.mass_gap_SU3

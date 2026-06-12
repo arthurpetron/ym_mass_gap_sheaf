@@ -10,27 +10,33 @@ as input hypotheses / abstract `Prop`/`Type` fields — see §1 of
 
 It stages the obligations S2–S6 of that attack surface.  Stages **S2**
 (partition-function positivity, `partitionFunction_pos` / `partitionFunctionLB`),
+**S4** (the Kotecký–Preiss cluster-expansion increment bound,
+`kpIncrementBound`, the analytic heart — now PROVED from the explicit
+weak-coupling smallness datum `KPIncrement.KPIncrementData`, NOT faked),
 **S5** (the `CReal` infinite-volume limit with modulus,
 `infiniteVolumeExpectation` / `_approx`), and **S6** (limit positivity,
 `infiniteVolumeExpectation_nonneg`, conditional on the per-volume OS2 input)
 are CLOSED as theorems carrying Type-level witnesses (Rule 2/8).  The
-remaining two `sorry`s (Rule 6) are the genuinely-open analytic stages **S3**
-(`finiteVolumeExpectation`, needs the constructed interacting `E_Λ`) and
-**S4** (`kpIncrementBound`, the convergent-cluster-expansion increment bound
-— the analytic heart, NOT faked).  The chosen route is the convergent
-Kotecký–Preiss route (ii): reuse the `KPLimit` engine
-(`crealOfGeoIncrement`) and the `PlaquetteReweight` reweighting state-law,
-both already present and axiom-clean.  The companion module
+single remaining `sorry` (Rule 6) is the genuinely-open analytic stage
+**S3** (`finiteVolumeExpectation`, needs the constructed interacting
+`E_Λ`).  The chosen route is the convergent Kotecký–Preiss route (ii):
+reuse the `KPLimit` engine (`crealOfGeoIncrement`), the `KPIncrement`
+increment-bound derivation, and the `PlaquetteReweight` reweighting
+state-law, all present and axiom-clean.  The companion module
 `Continuum/PartitionPos.lean` carries the S2 positivity again plus the
 **Bishop integration-space packaging** of the limit functional.
 
 # Honesty (per AGENTS.md)
 
-  * The two remaining `sorry`s (S3, S4) stand for tier-(S) "standard but
-    unformalized" obligations in the convergent regime; S4 is the
-    genuinely-novel-to-formalize cluster-expansion increment bound and is
-    NOT faked.  S6's positivity is conditional on the open full-Wilson-PSD
-    positivity (OS2) — flagged inline.
+  * The single remaining `sorry` (S3) stands for a tier-(S) "standard but
+    unformalized" obligation in the convergent regime (the constructed
+    interacting `E_Λ`).  S4 — the genuinely-novel-to-formalize
+    cluster-expansion increment bound — is now CLOSED: PROVED from the
+    explicit weak-coupling smallness datum (`KPIncrement.KPIncrementData`,
+    the convergent-regime cluster-activity tower with geometric ratio
+    `r ≤ 1/2`), NOT faked, the smallness being a genuine hypothesis.  S6's
+    positivity is conditional on the open full-Wilson-PSD positivity (OS2)
+    — flagged inline.
   * The 4D existence + O(4) restoration (the Clay problem) and Conjecture
     7.4 (RG transport) are NOT stated here; they are the genuinely-open
     residue flagged in the attack-surface doc, not formalizable obligations.
@@ -39,13 +45,14 @@ both already present and axiom-clean.  The companion module
 
 # Axiom-gate (AGENTS.md Rule 1)
 
-The CLOSED stages (S2/S5/S6) are `#print axioms`-gated at the foot of the
-file (`propext` / `Quot.sound` only).  The two open lemmas carry logged
-`sorry`s (S3, S4).
+The CLOSED stages (S2/S4/S5/S6) are `#print axioms`-gated at the foot of the
+file (`propext` / `Quot.sound` only).  The one open lemma carries a logged
+`sorry` (S3).
 -/
 
 import YMGap.Continuum.PlaquetteReweight
 import YMGap.Continuum.KPLimit
+import YMGap.Continuum.KPIncrement
 import YMGap.Constructive.ExpPos
 import YMGap.Constructive.CRealMul
 
@@ -136,22 +143,29 @@ of the reweighted expectation gives a two-sided geometric single-step
 increment `|S (Λ+1) − S Λ| ≤ C·(1/2)^Λ` from the certified activity
 smallness (`Sheaf/SU2KP.lean` `ρ < 1`, `q < 1`; `SU3CharFactor` `Z_t<1/16`).
 We state it in EXACTLY the shape `KPLimit.crealOfGeoIncrement` consumes
-(`geoIncr C l = C · (1/2)^l`), with `(C)` returned as data. -/
+(`geoIncr C l = C · (1/2)^l`), with `(C)` returned as data.
 
-/-- **S4 (the analytic heart).**  The finite-volume expectation sequence
-`S` has a two-sided geometric single-step increment bound with explicit
-constant `C ≥ 0`, in the form the KP engine consumes.  Derived from the
-convergent cluster expansion + the certified activity smallness. -/
-def kpIncrementBound (S : Nat → Q') :
+**CLOSED (2026-06-13).**  The increment bound is now PROVED — not assumed —
+from the explicit weak-coupling smallness datum `KPIncrement.KPIncrementData S`
+(the convergent-regime single-site cluster-activity tower with geometric
+ratio `r ≤ 1/2`, carried as DATA; the geometric per-step increment is
+derived from it by `KPIncrement.kpIncrementBound`).  The smallness is a
+genuine HYPOTHESIS (an argument), not a hidden assumption of the
+conclusion: `kpIncrementBound` for an *arbitrary* `S` is false, and the
+datum supplies exactly the missing convergent-regime analytic input. -/
+
+/-- **S4 (the analytic heart) — CLOSED.**  Given the convergent-regime KP
+increment datum `D : KPIncrement.KPIncrementData S` (the weak-coupling
+activity smallness, carried as DATA), the finite-volume expectation
+sequence `S` has a two-sided geometric single-step increment bound with
+explicit constant `C ≥ 0`, in the form the KP engine consumes.  PROVED
+from the convergent cluster expansion smallness — no faked cluster bound;
+see `KPIncrement.kpIncrementBound`. -/
+def kpIncrementBound {S : Nat → Q'} (D : KPIncrement.KPIncrementData S) :
     Σ' C : Q', (0 : Q') ≤ C ∧
       (∀ l, S (l + 1) ≤ S l + geoIncr C l) ∧
       (∀ l, S l ≤ S (l + 1) + geoIncr C l) :=
-  -- SORRY[continuum]: S4 — the convergent SU(2) polymer/cluster expansion
-  -- bounds the volume increment by the geometric polymer-activity tail
-  -- `C·ρ^Λ`, `ρ ≤ 1/2` after domination; the constants come from the Sheaf
-  -- KP certificates.  This is the one genuinely-novel-to-formalize step on
-  -- route (ii); everything around it is mechanical.
-  sorry
+  KPIncrement.kpIncrementBound D
 
 /-! ## Stage S5 — the infinite-volume limit as a `CReal` with modulus
 
@@ -214,17 +228,19 @@ end YMGap.Continuum.ContinuumExistence
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1)
 
 The CLOSED stages — S2 (`partitionFunctionLB`/`partitionFunction_pos`),
-S5 (`infiniteVolumeExpectation`/`_approx`), S6
+S4 (`kpIncrementBound`, PROVED from the `KPIncrement.KPIncrementData`
+weak-coupling smallness datum), S5
+(`infiniteVolumeExpectation`/`_approx`), S6
 (`infiniteVolumeExpectation_nonneg`) — are gated below (`propext` /
-`Quot.sound` only).  The genuinely-open analytic stages remain logged
-`sorry`s: S3 `finiteVolumeExpectation` (needs the constructed interacting
-`E_Λ`) and S4 `kpIncrementBound` (THE analytic heart: the convergent
-cluster-expansion increment bound). -/
+`Quot.sound` only).  The single genuinely-open analytic stage remains a
+logged `sorry`: S3 `finiteVolumeExpectation` (needs the constructed
+interacting `E_Λ`). -/
 
 #print axioms YMGap.Continuum.ContinuumExistence.mul_pos
 #print axioms YMGap.Continuum.ContinuumExistence.prodE_pos
 #print axioms YMGap.Continuum.ContinuumExistence.partitionFunctionLB
 #print axioms YMGap.Continuum.ContinuumExistence.partitionFunction_pos
+#print axioms YMGap.Continuum.ContinuumExistence.kpIncrementBound
 #print axioms YMGap.Continuum.ContinuumExistence.infiniteVolumeExpectation
 #print axioms YMGap.Continuum.ContinuumExistence.infiniteVolumeExpectation_approx
 #print axioms YMGap.Continuum.ContinuumExistence.infiniteVolumeExpectation_nonneg

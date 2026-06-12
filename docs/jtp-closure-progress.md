@@ -227,6 +227,58 @@ Modules build via
 `cd lean && lake build YMGap.Continuum.TsumDeriv YMGap.Continuum.DiffProduct
 YMGap.Continuum.JTPIdentity`; all new declarations axiom-clean.
 
+## NEW: DERIVATIVE UNIQUENESS (Route A — the CoRN `Derivative_I_unique` analogue)
+
+The structural reason `C1ToEquiv` stalled is that its `bridge` field was a *raw
+assumed* `CReal.Equiv Dseries Rproduct` (the differentiated identity), and the
+engine output `FDDerivData` was computed then DISCARDED.  The constructive fix
+(CoRN `ftc/Derivative.v` `Derivative_I_unique`): two finite-difference derivatives
+of the SAME function `F` at the SAME point are EQUAL — so do not compare the two
+truncation sequences (incompatible rates `a^{(M+1)²}` vs `(a·a)^M`), compare the
+two derivative VALUES instead.
+
+LANDED, axiom-clean (`[propext, Quot.sound]`), in `TsumDeriv.lean`:
+
+- `Q'.le_of_mul_le_mul_left`, `Q'.le_zero_of_le_all_pos` (constructive Archimedean
+  over `Q'`, via decidable `Int`-num trichotomy), `Q'.eqv_zero_of_abs_le_all_pos`,
+  `Q'.abs_of_nonneg`, `Q'.min_le_left'/right'`, `Q'.lt_min'` — the small `Q'`
+  toolkit the uniqueness estimate needs (the import chain does not reach
+  `Sqrt.lean`, so these are local).
+- `sub_rem_alg` / `fdRem_sub` — the two cleared remainders differ by exactly
+  `(d₁ − d₂)·h` (the common `F(θ+h) − F θ` telescopes away).
+- **`fdDeriv_unique` (CLOSED)** — `FDDerivData F d₁ θ → FDDerivData F d₂ θ →
+  d₁ ≃ d₂`.  Per-`θ`, NO uniformity required: pick `ε`, pick `h = min(δ₁ ε', δ₂ ε')`
+  past both moduli; `|(d₁−d₂)·h| ≤ |fdRem F d₂| + |fdRem F d₁| ≤ ε·|h|`; cancel the
+  positive `|h|` ⇒ `|d₁−d₂| ≤ ε` for all `ε` ⇒ `d₁ ≃ d₂` (Archimedean).  Genuinely
+  independent inputs (`D₁`, `D₂` are separate) — not circular.
+
+In `DiffProduct.lean`: `deriv_values_eq_of_common_limit` (re-export of the engine),
+and the SHARPENED residual `C1UniqInputs` + `productDerivativeLimit_of_uniq`
+(closes `ProductDerivativeLimit` from two common-`F` `FDDerivData` + a realisation,
+the engine output now CONSUMED not discarded).  In `JTPIdentity.lean`:
+`DiffJTP_of_uniq`, `Kt_geRat_zero_of_uniq`.  In `JTPInstance.lean`:
+`ThetaUniqAssembly`, `Kt_geRat_zero_of_uniq_assembly`.
+
+### Honest verdict — is `K_t ≥ 0` now unconditional?
+
+**No** — but the blocker is genuinely RELOCATED, and the reusable uniqueness lemma
+is in hand.  Route A reduces the *differentiated* double-limit interchange to:
+
+1. the UNDIFFERENTIATED limit-level Jacobi identity `ϑ₃^{ser} = ϑ₃^{prod}` as
+   functions (the `N → ∞` limit of the proven finite `GaussQBinom.gauss_qbinom_all`)
+   — this is what makes the SERIES-side `FDDerivData` live over the SAME `F` as the
+   product side, and
+2. a rational→real realisation (`C1UniqInputs.realise`): the `Q'`-valued
+   `fdDeriv_unique` equates RATIONAL derivative values, whereas the actual
+   derivative (the limit of `Dseries`) is a genuine `CReal`.  A fully unconditional
+   close would need a `CReal`-valued `fdDeriv_unique` (CReal abs / CReal Archimedean
+   / cancellation-by-a-positive-CReal — none of which currently exist in the repo).
+
+Both (1) and (2) are strictly more elementary than the differentiated interchange
+`ThetaFamilyAssembly` previously asked for: (1) is an *undifferentiated* identity
+whose finite core is already proved, (2) is a packaging concern.  The genuine
+analysis engine (uniqueness) is fully discharged.
+
 ## Axiom status
 
 All load-bearing declarations report `[propext]` or `[propext, Quot.sound]`.

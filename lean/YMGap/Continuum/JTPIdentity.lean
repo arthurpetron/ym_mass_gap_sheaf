@@ -681,6 +681,34 @@ theorem Kt_geRat_zero_of_c1 {a x : Q'}
     ExpPos.geRat (dSeriesCReal ha0 ha1 hx hx1) 0 :=
   Kt_geRat_zero_of_diff ha0 ha1 hx hx1 (DiffJTP_of_c1 ha0 ha1 hx hx1 H)
 
+/-! ### Closure through the DERIVATIVE-UNIQUENESS route (Route A)
+
+`DiffProduct.C1UniqInputs` packages the Route-A instantiation: two finite-difference
+derivatives (series side + product side) of the SAME limit function `F = ϑ₃`, plus a
+realisation map.  The genuine `TsumDeriv.fdDeriv_unique` engine collapses the two
+derivative values to a `Q'`-equality, and the realisation lifts it to the `CReal`
+bridge.  This routes `K_t ≥ 0` through the actual uniqueness theorem rather than a
+raw differentiated-identity assumption, relocating the residual to the
+UNdifferentiated Jacobi identity (`ϑ₃^{ser} = ϑ₃^{prod}`, common `F`) + realisation. -/
+
+/-- **`C1UniqInputs → DiffJTP`** (the uniqueness-routed residual closure). -/
+theorem DiffJTP_of_uniq {a x : Q'}
+    (ha0 : (0 : Q') < a) (ha1 : a < (1 : Q')) (hx : (-1 : Q') ≤ x) (hx1 : x ≤ (1 : Q'))
+    (H : DiffProduct.C1UniqInputs (dSeriesCReal ha0 ha1 hx hx1) (Rhalf ha0 ha1 hx hx1)) :
+    DiffJTP ha0 ha1 hx hx1 :=
+  DiffProduct.productDerivativeLimit_of_uniq H
+
+/-- **THE UNIQUENESS-ROUTED CLOSURE: `C1UniqInputs → K_t ≥ 0`.**  Given the Route-A
+instantiation data (two common-`F` finite-difference derivatives + realisation), the
+heat-kernel series `K_t = dSeriesCReal ≥ 0`.  Positivity flows through the genuine
+`TsumDeriv.fdDeriv_unique` (CoRN `Derivative_I_unique` analogue), not a black-box
+`Prop`. -/
+theorem Kt_geRat_zero_of_uniq {a x : Q'}
+    (ha0 : (0 : Q') < a) (ha1 : a < (1 : Q')) (hx : (-1 : Q') ≤ x) (hx1 : x ≤ (1 : Q'))
+    (H : DiffProduct.C1UniqInputs (dSeriesCReal ha0 ha1 hx hx1) (Rhalf ha0 ha1 hx hx1)) :
+    ExpPos.geRat (dSeriesCReal ha0 ha1 hx hx1) 0 :=
+  Kt_geRat_zero_of_diff ha0 ha1 hx hx1 (DiffJTP_of_uniq ha0 ha1 hx hx1 H)
+
 end YMGap.Continuum.JTPIdentity
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1)
@@ -704,3 +732,5 @@ named hypothesis (the single open analytic obligation), NOT a `sorry`. -/
 #print axioms YMGap.Continuum.JTPIdentity.Kt_geRat_zero_of_productDerivativeLimit
 #print axioms YMGap.Continuum.JTPIdentity.DiffJTP_of_c1
 #print axioms YMGap.Continuum.JTPIdentity.Kt_geRat_zero_of_c1
+#print axioms YMGap.Continuum.JTPIdentity.DiffJTP_of_uniq
+#print axioms YMGap.Continuum.JTPIdentity.Kt_geRat_zero_of_uniq

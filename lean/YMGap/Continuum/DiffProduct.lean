@@ -419,6 +419,95 @@ def fdDerivData_of_c1
     FDDerivData H.F (H.g H.θ) H.θ :=
   TsumDeriv.fdDeriv_of_unif H.inputs
 
+/-! ## 5. DERIVATIVE-UNIQUENESS BRIDGE (Route A — collapsing the differentiated
+identity to the UNdifferentiated one)
+
+`TsumDeriv.fdDeriv_unique` (the CoRN `Derivative_I_unique` analogue, landed
+axiom-clean in `TsumDeriv.lean`) says: two finite-difference derivatives of the
+SAME function `F` at the SAME point `θ` are EQUAL (`d₁ ≃ d₂`), with NO uniformity
+needed.  This is the structural fix for the blocker named in
+`docs/jtp-closure-progress.md`: instead of comparing the two truncation SEQUENCES
+(which converge at incompatible rates `a^{(M+1)²}` vs `(a·a)^M` and agree at no
+finite `M`), we observe that BOTH the series side and the product side are
+finite-difference derivatives of the *one* limit function, so their derivative
+values coincide by uniqueness.
+
+What this genuinely buys, and the honest residual it exposes:
+
+* The PRODUCT side gives `FDDerivData F (g θ) θ` directly from the engine
+  (`fdDerivData_of_c1`), where `F = ϑ₃` realised as the convergent PRODUCT.
+* The SERIES side, IF its differentiated truncations are a finite-difference
+  derivative of the SAME `F` at `θ`, gives `FDDerivData F dser θ`.  But the series
+  truncations differentiate the theta-**series** `ϑ₃^{ser}`, so this requires the
+  UNDIFFERENTIATED limit-level Jacobi identity `ϑ₃^{ser} = ϑ₃^{prod}` as functions
+  (the `N → ∞` limit of the finite `GaussQBinom.gauss_qbinom_all`).
+* Given both, `fdDeriv_unique` yields `g θ ≃ dser` at the `Q'` level.
+
+So the uniqueness route REPLACES the *differentiated* double-limit interchange
+(`C1ToEquiv.bridge` as a raw `CReal.Equiv` assumption) by the *undifferentiated*
+limit-level identity plus uniqueness.  The piece below packages exactly that
+collapse: from two `FDDerivData` of a common `F` it derives the `Q'`-equality of
+derivative values via the genuine `fdDeriv_unique` engine. -/
+
+open YMGap.Continuum.TsumDeriv in
+/-- **The two-derivative collapse (genuine, axiom-clean).**  Two finite-difference
+derivatives of the SAME limit function `F` at the SAME point `θ` have equal
+derivative values: `dser ≃ dprod`.  This is `TsumDeriv.fdDeriv_unique` re-exposed in
+the `DiffProduct` namespace; it is the reusable core of Route A.  The honest
+residual it leaves for the heat-kernel application is supplying the SERIES-side
+`FDDerivData` over the SAME `F` as the product side — i.e. the undifferentiated
+Jacobi identity `ϑ₃^{ser} = ϑ₃^{prod}`. -/
+theorem deriv_values_eq_of_common_limit {F : Q' → Q'} {dser dprod θ : Q'}
+    (Dser : FDDerivData F dser θ) (Dprod : FDDerivData F dprod θ) :
+    dser ≈ dprod :=
+  TsumDeriv.fdDeriv_unique Dser Dprod
+
+/-- **The Route-A instantiation obligation (named `Type`, NOT discharged).**  This
+is the SHARPENED residual for `C1ToEquiv`: rather than assuming the differentiated
+`CReal.Equiv` (`C1ToEquiv.bridge`) outright, it asks for
+
+* the product-family C¹ engine inputs (`inputs`, supplying `FDDerivData F (g θ) θ`
+  via `fdDeriv_of_unif` — the part that genuinely commutes `d/dθ` with the limit),
+* a SERIES-side finite-difference derivative `FDDerivData F dser θ` over the SAME
+  limit function `F` (this is where the UNDIFFERENTIATED Jacobi identity
+  `ϑ₃^{ser} = ϑ₃^{prod}` enters — both families must differentiate one `F`), and
+* a `CReal` realisation linking the `Q'`-equality `g θ ≃ dser` (which
+  `fdDeriv_unique` then supplies) back to `CReal.Equiv Dseries Rproduct`.
+
+It makes precise that Route A relocates the blocker from the *differentiated*
+double-limit interchange to the *undifferentiated* limit identity + a rational→real
+realisation.  The `Q'`-level uniqueness engine (`fdDeriv_unique`) is fully
+discharged; the residual is the common-`F` series derivative and the realisation. -/
+structure C1UniqInputs (Dseries Rproduct : CReal) : Type where
+  /-- The common limit function `F = ϑ₃` (one function — the crux of the route). -/
+  F : Q' → Q'
+  /-- The working point. -/
+  θ : Q'
+  /-- The product-side derivative value `g θ` (log-derivative `−sinθ·ϑ₃·S`). -/
+  dprod : Q'
+  /-- The series-side derivative value `dser`. -/
+  dser : Q'
+  /-- The product-side finite-difference derivative of `F` at `θ` (engine output). -/
+  Dprod : FDDerivData F dprod θ
+  /-- The series-side finite-difference derivative of the SAME `F` at `θ`.  Carrying
+  this over the SAME `F` is exactly the undifferentiated Jacobi identity. -/
+  Dser : FDDerivData F dser θ
+  /-- The realisation: the `Q'`-equality of derivative values (supplied by
+  `fdDeriv_unique` from `Dser`, `Dprod`) lifts to the `CReal` bridge. -/
+  realise : dser ≈ dprod → CReal.Equiv Dseries Rproduct
+
+/-- **`C1UniqInputs → C1ToEquiv`** is NOT claimed (the `inputs`/`f`/`f'` fields of
+`C1ToEquiv` need the full product family); instead we close the END goal directly:
+`C1UniqInputs → ProductDerivativeLimit`.  The derivative-value equality comes from
+the GENUINE `fdDeriv_unique` engine applied to the two `FDDerivData`, and `realise`
+lifts it to the `CReal` bridge.  This is the uniqueness-routed conditional closure:
+it consumes the two derivatives (engine output NOT discarded) rather than a raw
+`CReal.Equiv` assumption. -/
+theorem productDerivativeLimit_of_uniq
+    {Dseries Rproduct : CReal} (H : C1UniqInputs Dseries Rproduct) :
+    ProductDerivativeLimit Dseries Rproduct :=
+  H.realise (deriv_values_eq_of_common_limit H.Dser H.Dprod)
+
 end YMGap.Continuum.DiffProduct
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1)
@@ -436,3 +525,5 @@ named `Prop` (the single open analytic obligation), NOT a `sorry`. -/
 #print axioms YMGap.Continuum.DiffProduct.ProductDerivativeLimit.symm
 #print axioms YMGap.Continuum.DiffProduct.productDerivativeLimit_of_c1
 #print axioms YMGap.Continuum.DiffProduct.fdDerivData_of_c1
+#print axioms YMGap.Continuum.DiffProduct.deriv_values_eq_of_common_limit
+#print axioms YMGap.Continuum.DiffProduct.productDerivativeLimit_of_uniq

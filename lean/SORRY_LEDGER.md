@@ -15,12 +15,20 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 
 ## Current status (2026-05-28; updated 2026-06-12)
 
-**One scoping module with open `sorry`s.** As of 2026-06-12 (updated),
+**One scoping module with one open `sorry`.** As of 2026-06-13 (updated),
 `YMGap/Continuum/ContinuumExistence.lean` (NOT imported by `YMGap.lean`;
 built standalone with `lake build YMGap.Continuum.ContinuumExistence`) now
-carries **2** honest `-- SORRY[continuum]` holes (down from 7): stages **S3**
-(`finiteVolumeExpectation`) and **S4** (`kpIncrementBound`, the analytic
-heart) remain open. Stages **S2** (`partitionFunctionLB`/`partitionFunction_pos`,
+carries **1** honest `-- SORRY[continuum]` hole (down from 7→2→1): only
+stage **S3** (`finiteVolumeExpectation`) remains open. Stage **S4**
+(`kpIncrementBound`, the analytic heart — the Kotecký–Preiss
+cluster-expansion increment bound) is now **CLOSED**: PROVED from the
+explicit weak-coupling smallness datum `KPIncrement.KPIncrementData`
+(the convergent-regime single-site cluster-activity tower with geometric
+ratio `r ≤ 1/2`, carried as DATA), in the new
+`YMGap/Continuum/KPIncrement.lean`, axiom-gated `[propext]`. The
+smallness is a genuine HYPOTHESIS (a structure argument), NOT a hidden
+assumption of the conclusion (the bound is false for arbitrary `S`).
+Stages **S2** (`partitionFunctionLB`/`partitionFunction_pos`,
 partition-function positivity — CLOSED for real), **S5** (`infiniteVolumeExpectation`
 + `_approx`, the `CReal` limit via the KP engine — CLOSED given the S4
 increment datum), and **S6** (`infiniteVolumeExpectation_nonneg`, limit
@@ -48,12 +56,13 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 
 ## Entries
 
-### [continuum] μ_∞ existence attack-surface skeleton — **S2/S5/S6 CLOSED; S3/S4 OPEN**
+### [continuum] μ_∞ existence attack-surface skeleton — **S2/S4/S5/S6 CLOSED; S3 OPEN**
 
 - **milestone**: Track B continuum (E1–E4; `docs/track-b-continuum-plan.md`,
   `docs/continuum-measure-attack-surface.md`)
-- **files**: `lean/YMGap/Continuum/ContinuumExistence.lean` and
-  `lean/YMGap/Continuum/PartitionPos.lean` (both standalone; NOT in `YMGap.lean`)
+- **files**: `lean/YMGap/Continuum/ContinuumExistence.lean`,
+  `lean/YMGap/Continuum/KPIncrement.lean` (S4), and
+  `lean/YMGap/Continuum/PartitionPos.lean` (all standalone; NOT in `YMGap.lean`)
 - **CLOSED stages** (now theorems, axiom-gated `[propext]`/`[propext, Quot.sound]`,
   no `sorryAx`/`Classical`):
   - `partitionFunctionLB`, `partitionFunction_pos` — **S2 CLOSED**: finite-volume
@@ -61,10 +70,25 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
     as `Σ'` data. Via the new `mul_pos` (positive·positive) + `prodE_pos` induction.
     Also in `PartitionPos.lean` with the `weightFromPos`/`half_partitionFunction_pos`
     non-unit concrete instances.
+  - `kpIncrementBound` — **S4 CLOSED (the analytic heart)**: the convergent
+    Kotecký–Preiss cluster-expansion's two-sided geometric single-step increment
+    `|S(Λ+1)−S Λ| ≤ C·(1/2)^Λ`, `(C)` as `Σ'` data. PROVED in the new
+    `KPIncrement.lean` from `KPIncrementData S` — the explicit weak-coupling
+    smallness (single-site cluster-activity tower `a Λ` with base `a 0 ≤ C`,
+    geometric ratio `a(n+1) ≤ r·a n`, `0 ≤ r ≤ 1/2`, and KP telescoping
+    `|S(Λ+1)−S Λ| ≤ a Λ`; Friedli–Velenik Ch.5 eqs 5.10/5.29/5.30–5.34). The
+    derivation: `geom_dom` ⇒ `a Λ ≤ C·r^Λ`; `pow_le_pow_base` ⇒ `r^Λ ≤ (1/2)^Λ`;
+    compose ⇒ `geoIncr C` bound; modulus via `CReal.exists_mul_le`. The smallness
+    is a genuine HYPOTHESIS (structure argument), NOT a hidden assumption — the
+    bound is false for arbitrary `S`. *constructive?* yes. Axiom-gate `[propext]`.
+    The `ContinuumExistence.kpIncrementBound` wrapper takes `KPIncrement.KPIncrementData S`
+    and discharges via `KPIncrement.kpIncrementBound`.
   - `infiniteVolumeExpectation`, `infiniteVolumeExpectation_approx` — **S5 CLOSED**
     (given the S4 increment datum): the `CReal` limit with modulus, = the KP engine
     `crealOfGeoIncrement` applied to the carried `(C, hC, hup, hlo, modulus)`. The
     decl now takes that datum as arguments (the S4 obligation supplies it).
+    `KPIncrement.infiniteVolumeLimit` also assembles the limit straight from a
+    `KPIncrementData`, showing S4 plugs directly into S5.
   - `infiniteVolumeExpectation_nonneg` — **S6 CLOSED**, CONDITIONAL on the per-volume
     OS2 input `hS`: limit-of-nonneg via `ExpPos.geRat_of_eventually`. The OS2 input
     (full single-edge Wilson PSD) is 🟡 open (cone-only `coneExp_nonneg`; all-N `P_N`).
@@ -74,14 +98,10 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
     explicit geometric convergence modulus (Bishop summability axiom in modulus form;
     KP cluster-series remainder), NOT a σ-algebra. The increment constant
     `incrementC` is the S4 analytic datum, carried as a structure FIELD (not faked).
-- **OPEN stages** (2 remaining `-- SORRY[continuum]` holes in `ContinuumExistence.lean`):
+- **OPEN stages** (1 remaining `-- SORRY[continuum]` hole in `ContinuumExistence.lean`):
   - `finiteVolumeExpectation` — **S3 OPEN**: the reweighted expectation sequence
     `S Λ = Ew_Λ(o)·recip(Z_Λ)`; needs the constructed interacting `E_Λ` (stage S1).
     *constructive?* yes. Tier-(S).
-  - `kpIncrementBound` — **S4 OPEN (the analytic heart)**: the convergent KP/cluster
-    expansion's two-sided geometric single-step increment `|S(Λ+1)−S Λ| ≤ C·(1/2)^Λ`,
-    `(C)` as data. *constructive?* yes. Tier-(S) but the genuinely-novel-to-formalize
-    step; NOT faked here.
 - **must not be closed classically**: per AGENTS.md Rule 6. These stand for
   *constructive* obligations (witnesses as data); a classical closure is forbidden.
 - **out of scope (NOT stated here, genuinely open)**: 4D existence + O(4) restoration

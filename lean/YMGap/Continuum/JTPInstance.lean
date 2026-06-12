@@ -437,6 +437,33 @@ theorem Kt_geRat_zero_of_assembly {a x : Q'}
     ExpPos.geRat (JTPIdentity.dSeriesCReal ha0 ha1 hx hx1) 0 :=
   JTPIdentity.Kt_geRat_zero_of_c1 ha0 ha1 hx hx1 H
 
+/-! ### The Route-A (derivative-uniqueness) family-level residual
+
+The alternative assembly that routes `K_t ≥ 0` through the genuine
+`TsumDeriv.fdDeriv_unique` engine instead of a raw differentiated-identity
+assumption.  `ThetaUniqAssembly` is the `DiffProduct.C1UniqInputs` for the
+heat-kernel families: the SERIES-side and PRODUCT-side finite-difference derivatives
+of the SAME limit `F = ϑ₃` at `θ`, plus the `Q'→CReal` realisation.  Supplying it
+closes `DiffJTP` (hence `K_t ≥ 0`) via the already-proven
+`JTPIdentity.Kt_geRat_zero_of_uniq`.  The honest residual it now isolates is the
+UNDIFFERENTIATED Jacobi identity `ϑ₃^{ser} = ϑ₃^{prod}` (the common `F`; the
+`N → ∞` limit of the proven finite `GaussQBinom.gauss_qbinom_all`) plus the rational
+derivative-value → real realisation — strictly weaker / more elementary than the
+differentiated double-limit interchange `ThetaFamilyAssembly` asks for. -/
+def ThetaUniqAssembly {a x : Q'}
+    (ha0 : (0 : Q') < a) (ha1 : a < (1 : Q')) (hx : (-1 : Q') ≤ x) (hx1 : x ≤ (1 : Q')) :
+    Type :=
+  DiffProduct.C1UniqInputs
+    (JTPIdentity.dSeriesCReal ha0 ha1 hx hx1)
+    (JTPIdentity.Rhalf ha0 ha1 hx hx1)
+
+/-- **`ThetaUniqAssembly → K_t ≥ 0`** via the derivative-uniqueness route. -/
+theorem Kt_geRat_zero_of_uniq_assembly {a x : Q'}
+    (ha0 : (0 : Q') < a) (ha1 : a < (1 : Q')) (hx : (-1 : Q') ≤ x) (hx1 : x ≤ (1 : Q'))
+    (H : ThetaUniqAssembly ha0 ha1 hx hx1) :
+    ExpPos.geRat (JTPIdentity.dSeriesCReal ha0 ha1 hx hx1) 0 :=
+  JTPIdentity.Kt_geRat_zero_of_uniq ha0 ha1 hx hx1 H
+
 end YMGap.Continuum.JTPInstance
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1)
@@ -460,3 +487,4 @@ Every load-bearing declaration reports `[propext]` or `[propext, Quot.sound]`
 #print axioms YMGap.Continuum.JTPInstance.fourAmp_le_of_cutoff
 #print axioms YMGap.Continuum.JTPInstance.perFactorModuli
 #print axioms YMGap.Continuum.JTPInstance.Kt_geRat_zero_of_assembly
+#print axioms YMGap.Continuum.JTPInstance.Kt_geRat_zero_of_uniq_assembly
