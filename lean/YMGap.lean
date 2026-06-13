@@ -35,6 +35,7 @@ import YMGap.Constructive.Sqrt
 import YMGap.Constructive.CRealAbs
 import YMGap.Constructive.TrigBound
 import YMGap.Constructive.Trig
+import YMGap.Constructive.TrigAdd
 import YMGap.Constructive.CauchyConv
 import YMGap.Constructive.ExpAddConv
 import YMGap.Constructive.ProductDecomp
