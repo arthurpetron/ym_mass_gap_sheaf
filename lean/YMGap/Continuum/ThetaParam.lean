@@ -94,12 +94,16 @@ and the product-partial (the real diagonal of the two-sided Gauss collapse).  We
 name it as a `Type`-obligation carrying exactly the per-`N` `Q'.eqv` data; supplying
 it yields the common limit via `theta_common_F_of_approx_equal`. -/
 
-/-- **The per-`N` REAL theta identity (named residual).**  Carries, for two `CReal`
-realisations `Pser` (theta-SERIES partials) and `Pprod` (theta-PRODUCT partials,
-e.g. `thetaConvCRealGen`), the per-`N` REAL equality of their approximations.  This
-is the diagonal collapse of the two-sided Gauss product (B1) — the genuine real
-content that `gauss_qbinom_creal_equiv` cannot supply directly because the real
-theta factor is two-sided / complex.  NOT discharged here. -/
+/-- **The per-`N` REAL theta identity (named residual, now dischargeable).**
+Carries, for two `CReal` realisations `Pser` (theta-SERIES partials) and `Pprod`
+(theta-PRODUCT partials, e.g. `thetaConvCRealGen`), the per-`N` REAL equality of
+their approximations.  It is the real diagonal of the two-sided Gauss product (B1);
+a single `gauss_qbinom_creal_equiv` cannot supply it directly, but the genuine real
+content is a trivial product-REGROUPING — each theta factor is the PRODUCT of an
+Euler prefactor `(1 − a^{2k+2})` and a heat-kernel factor `factor(a^{2k+1}, x)`, so
+the partial product separates into a product of two one-sided REAL products (no
+complex `z`, no q-series theory).  Discharged in the companion `RealTheta` module
+(`Ppart_eqv_prodRegroup`, `realThetaPerN_of_regroup`). -/
 structure RealThetaPerN (Pser Pprod : CReal) : Type where
   /-- The per-`N` real equality `Pser.approx N ≈ Pprod.approx N`. -/
   perN : ∀ N : Nat, Pser.approx N ≈ Pprod.approx N

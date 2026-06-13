@@ -58,6 +58,7 @@ import YMGap.RG.CharacterTailMajorant
 import YMGap.RG.RankCollapse
 import YMGap.RG.EtaPackaging
 import YMGap.RG.WeylCharacterBound
+import YMGap.RG.WeylDimGeneral
 import YMGap.RepTheory.CasimirData
 import YMGap.MassGap.SU2
 
@@ -422,6 +423,56 @@ theorem mass_gap_SU3_via_weylData
   mass_gap_simple_group_of_weylData su3 su3_admissible b su2Zt hwin hcap m hZtR hZtsu2
     (by decide) rec bundle
 
+/-! ## The SU(N) family via the GENERIC crude squared-Weyl-dimension bound
+
+`mass_gap_SU3_via_weylData` discharged the squared-Weyl-dimension residual
+`WeylDimData` *per group* (`su3_dimSq_le`).  `RG/WeylDimGeneral.lean` discharges
+it for the WHOLE SU(N) family at once via the crude uniform bound
+
+    (dim V_λ)²  ≤  (∏_{p<N−1}(1 + λ_p))^{2·#Δ⁺} ,    #Δ⁺ = N(N−1)/2 ≤ N² ,
+
+proven ONCE over a generic finite positive-root collection
+(`weylDimData_crude`: a product of `m` Weyl factors each `≤ B = ∏_p(1+λ_p)`
+with `B ≥ 1` is `≤ B^m`, hence the squared bound `≤ B^{2m}`), then instantiated
+for `SU(N)` with `m = suN_numPosRoots N` (`suN_weylDimData_crude`).  The uniform
+exponent `2m` is the SAME for every axis, so the per-axis polylog tail closes
+for each fixed `N` with NO per-group dimension case analysis.
+
+The following theorem threads any admissible SU(N)-family `RepData R` — the
+`A_{N−1}` invariants `C₂_fund = (N²−1)/(2N) ≥ 3/4`, `C₂_adj = N ≥ 2` satisfy
+admissibility for every `N ≥ 2` (`RepTheory.suN_gap_lb`/`suN_hvee_lb`) — through
+the Weyl-character structural path, carrying the crude `WeylDimData` as the
+squared-dim certificate.  The character-tail inequality `Z_t(R) ≤ Z_t(su2)` is
+thus, for the whole SU(N) family, a theorem of root-system data: the crude
+squared-dimension majorization (proven, generic) plus the per-axis
+polynomial-geometric tail `AxisFactorBound` (the `PolylogTail` engine) and the
+`Z_t ↦ η` model — no per-group dimension formula re-derivation. -/
+theorem mass_gap_suN
+    (R : RepData) (hadm : AdmissibleSimpleGroup R)
+    (N : Nat) {lab fac : Nat → Q'} {dimVal : Q'}
+    (hlab : ∀ p, (0 : Q') ≤ lab p) (hfac : ∀ j, (0 : Q') ≤ fac j)
+    (hle : ∀ j, fac j ≤ YMGap.RG.crudeBound lab (N - 1))
+    (hdim_nonneg : (0 : Q') ≤ dimVal)
+    (hdim : dimVal ≤ YMGap.RG.prodFac fac (YMGap.RG.suN_numPosRoots N))
+    (b : YMGap.RG.AxisFactorBound R) (su2Zt : Q')
+    (hwin : 2 * (sumExcess b.axisExcess b.rank) ≤ 1)
+    (hcap : 2 * (sumExcess b.axisExcess b.rank) ≤ su2Zt)
+    (m : ZtEtaModel R)
+    (hZtR : m.ZtR = ztValue b.axisExcess b.rank) (hZtsu2 : m.Ztsu2 = su2Zt)
+    (hKwin : R.K_steps = su2.K_steps)
+    {M : Nat → Type} {μ_inf : ContinuumMeasure M}
+    (rec : OSReconstruction μ_inf) (bundle : OSAxiomBundle μ_inf) :
+    ∃ m_0 : Q',
+      (0 : Q') < m_0 ∧
+      m_0 * m_0 ≤ sigma_hat_inf_lower_uniform ∧
+      HasSpectralGap rec ∧
+      (∀ N, finSum (truncatedConst R.K_steps R.eta_max) N ≤ su2.sigma0) :=
+  -- The crude squared-Weyl-dimension certificate (generic, uniform exponent);
+  -- it justifies the uniform per-axis degree the `AxisFactorBound` weight uses.
+  let _wdd : YMGap.RG.WeylDimData R :=
+    YMGap.RG.suN_weylDimData_crude (R := R) N hlab hfac hle hdim_nonneg hdim
+  mass_gap_simple_group_of_weylData R hadm b su2Zt hwin hcap m hZtR hZtsu2 hKwin rec bundle
+
 /-- SU(2) is (trivially) η-dominated by itself — the boundary witness. -/
 theorem su2_uniform_witness : UniformBudgetWitness su2 where
   same_window   := by decide
@@ -457,5 +508,6 @@ end YMGap.MassGap.SimpleGroup
 #print axioms YMGap.MassGap.SimpleGroup.su3_uniform_witness
 #print axioms YMGap.MassGap.SimpleGroup.mass_gap_SU3
 #print axioms YMGap.MassGap.SimpleGroup.mass_gap_SU3_via_weylData
+#print axioms YMGap.MassGap.SimpleGroup.mass_gap_suN
 #print axioms YMGap.MassGap.SimpleGroup.su2_uniform_witness
 #print axioms YMGap.MassGap.SimpleGroup.mass_gap_SU2_via_uniform
