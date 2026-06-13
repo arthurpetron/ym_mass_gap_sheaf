@@ -33,6 +33,7 @@ import YMGap.Constructive.SumOfSquares
 import YMGap.Constructive.QPoly
 import YMGap.Constructive.Sqrt
 import YMGap.Constructive.CRealAbs
+import YMGap.Constructive.TrigBound
 import YMGap.Constructive.CauchyConv
 import YMGap.Constructive.ExpAddConv
 import YMGap.Constructive.ProductDecomp
