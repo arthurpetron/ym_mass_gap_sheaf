@@ -34,6 +34,7 @@ import YMGap.Constructive.QPoly
 import YMGap.Constructive.Sqrt
 import YMGap.Constructive.CRealAbs
 import YMGap.Constructive.TrigBound
+import YMGap.Constructive.Trig
 import YMGap.Constructive.CauchyConv
 import YMGap.Constructive.ExpAddConv
 import YMGap.Constructive.ProductDecomp
@@ -138,6 +139,9 @@ import YMGap.Continuum.SpectralGapGrowth
 import YMGap.MassGap.SU2
 import YMGap.MassGap.SimpleGroup
 import YMGap.Continuum.SqrtBridge
+import YMGap.Continuum.FiniteVolumeGNS
+import YMGap.Continuum.OSContent
+import YMGap.Continuum.FourDExistence
 import YMGap.BufferShell
 import YMGap.Codynamic
 import YMGap.HigherCategorical

@@ -279,11 +279,71 @@ Both (1) and (2) are strictly more elementary than the differentiated interchang
 whose finite core is already proved, (2) is a packaging concern.  The genuine
 analysis engine (uniqueness) is fully discharged.
 
+## NEW: the CReal-VALUED derivative-uniqueness port (Route A, unconditional layer)
+
+The `Q'`-valued `fdDeriv_unique` equated RATIONAL derivative values, leaving a
+`Q'→CReal` realisation/infinitesimal lift for the user (Route A's `realise`, Route
+B's `infinitesimal`).  That lift is now CLOSED at the `CReal` level — the genuine
+CReal upgrade of the uniqueness engine, landed axiom-clean
+(`[propext, Quot.sound]`) in `TsumDeriv.lean`:
+
+- **`FDDerivDataC F d θ`** — the `CReal`-VALUED data-carrying finite-difference
+  derivative: `F : Q' → CReal`, derivative value `d : CReal`, modulus `δ`, and the
+  cleared bound `CReal.leRat (CReal.abs (fdRemC F d θ h)) (ε·|h|)`.  The increment
+  `h` stays RATIONAL (the natural setting: `θ, h, ε` rational, only VALUES are
+  `CReal`s).
+- **`fdRemC` / `fdRemC_approx` / `fdRemC_sub_approx`** — the `CReal` remainder (all
+  ops index-wise, so its `approx n` is the `Q'`-level `fdRem`); the two-remainder
+  difference telescopes to `(d₁−d₂)·h` at every index (the same `sub_rem_alg`).
+- **`abs_mul_nonneg_right`** — `|c·h| ≈ |c|·h` for `h ≥ 0` (sign-cased; avoids the
+  general multiplicative `|c·h| = |c|·|h|` the `Q'` substrate lacks).
+- **`fdDeriv_uniqueC` (CLOSED)** — `FDDerivDataC F d₁ θ → FDDerivDataC F d₂ θ →
+  CReal.Equiv d₁ d₂`.  Proof shape unchanged from the `Q'` version
+  (`|(d₁−d₂)·h| ≤ |fdRem d₂|+|fdRem d₁| ≤ ε|h|`), cancelling the positive RATIONAL
+  `h` per-approximation (`Q'.le_of_mul_le_mul_left`), then the CReal infinitesimal
+  cancellation `CReal.Equiv_of_abs_sub_le_all_pos` (CoRN `AbsIR_approach_zero`).
+  Genuinely independent inputs (`D₁`, `D₂` separate `FDDerivDataC` — no assumed
+  `Equiv`); NOT circular.
+
+Wired downstream (axiom-clean): `DiffProduct.C1UniqInputsCRealDeriv` (carries ONLY
+the two common-`F` `FDDerivDataC`, NO `realise`/`infinitesimal` field) +
+`productDerivativeLimit_of_uniq_creal_deriv`; `JTPIdentity.DiffJTP_of_uniq_creal_deriv`
++ `Kt_geRat_zero_of_uniq_creal_deriv`.  This is the strongest available routing: the
+WHOLE remaining input is two `CReal` finite-difference derivatives (series side +
+product side) of the ONE limit `ϑ₃` at `θ` — the `Equiv` is produced by the engine,
+not assumed.
+
+### The parametrisation match (Task A): BLOCKED, residual pinned (`ThetaParam.lean`)
+
+The clean single-substitution `(z, q)` match `gauss_qbinom_creal_equiv` hoped for is
+GENUINELY BLOCKED by the complex-vs-real / two-sided structure of the real theta
+factor: `HKPos.factor c x = 1 + 2cx + c² = (1 + cz)(1 + cz⁻¹)` with `z = e^{iθ}`
+COMPLEX, whereas a single `GaussQBinom.qProd z a N` is ONE-sided.  The repo's product
+side `thetaConvCRealGen` has `approx N = Ppart a x N`, the TWO-SIDED real product
+`∏(1−a^{2k+1})·(1+2a^{2k+1}x+a^{4k+2})`, which is NOT a single `qProd z a N` and so
+is NOT in the image of `gauss_qbinom_creal_equiv`.  `ThetaParam.lean` records this
+honestly (does NOT fake a match) and supplies the genuine reusable REAL bridge
+`theta_common_F_of_approx_equal` (common-`F` from per-`N` real equality, via the
+`CRealAbs` limit-of-equal-sequences engine) + the sharp named residual
+`RealThetaPerN` (the per-`N` REAL diagonal collapse of the two-sided Gauss product).
+
+### Honest verdict — is `K_t ≥ 0` unconditional?
+
+**Still not unconditional**, but the residual is RELOCATED to its most elementary
+form and the analysis engines are ALL discharged.  Both the `Q'`-uniqueness
+(`fdDeriv_unique`) AND the `CReal`-uniqueness (`fdDeriv_uniqueC`) engines are closed;
+the CReal port removes the prior rational→real lift entirely.  What remains is purely
+the INSTANTIATION: exhibit `dSeriesCReal` and `Rhalf` as `FDDerivDataC` of one common
+`CReal` limit `F = ϑ₃` at `θ` (the two derivative-modulus data + the per-`N` real
+common-`F` identity `RealThetaPerN`, the two-sided Gauss diagonal).  No open ANALYSIS
+theorem remains on this layer — only the concrete modulus/identity construction.
+
 ## Axiom status
 
 All load-bearing declarations report `[propext]` or `[propext, Quot.sound]`.
 No `Classical.*`, no `native_decide`, no `sorry`/`sorryAx`.  The new
-`TsumDeriv.lean` engine is `[propext]`-only.
+`TsumDeriv.lean` engine and the `CReal` `fdDeriv_uniqueC` port are axiom-clean;
+`ThetaParam.lean` is `[propext]`-only.
 
 ## Build / wiring
 
