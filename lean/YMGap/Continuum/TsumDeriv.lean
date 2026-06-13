@@ -65,6 +65,7 @@ import YMGap.Constructive.HalfPow
 import YMGap.Constructive.ExpNeg
 import YMGap.Constructive.CRealMul
 import YMGap.Constructive.CRealAdd
+import YMGap.Constructive.CRealAbs
 
 namespace YMGap.Continuum.TsumDeriv
 
@@ -858,6 +859,238 @@ theorem fdDeriv_unique {F : Q' → Q'} {d₁ d₂ θ : Q'}
   · -- 0 + d₂ ≈ d₂
     exact Q'.eqv_of_eq (Q'.zero_add' d₂)
 
+/-! ## 5. THE CReal-VALUED DERIVATIVE-UNIQUENESS PORT (Route A, unconditional layer)
+
+The `Q'`-valued `fdDeriv_unique` above equates RATIONAL derivative values.  In the
+heat-kernel application the actual derivative is a genuine `CReal` (the limit of
+`dSeriesCReal`), so the residual `C1UniqInputs.realise` had to lift the rational
+equality to a `CReal.Equiv` by hand.  This section closes that lift GENUINELY at the
+`CReal` level: it ports `fdDeriv_unique` to a function `F : Q' → CReal` with
+`CReal`-valued derivative values `d₁, d₂`, concluding `CReal.Equiv d₁ d₂` directly.
+
+The proof shape is UNCHANGED from the `Q'` version — `|(d₁−d₂)·h| ≤ |fdRem d₂| +
+|fdRem d₁| ≤ ε·|h|`, cancel the positive rational `|h|`, infinitesimal lemma — but
+the abs / infinitesimal / cancellation primitives are swapped for the now-built
+`CReal.abs` (`CRealAbs.lean`, index-wise) and `CReal.Equiv_of_abs_sub_le_all_pos`
+(the CoRN `AbsIR_approach_zero` infinitesimal cancellation).  The increment `h`
+stays RATIONAL (the natural setting: `θ`, `h`, `ε` are rationals, only the function
+VALUES are `CReal`s), so the final cancellation is a per-approximation
+`Q'.le_of_mul_le_mul_left` by the positive rational `|h|` — no `CReal`-by-`CReal`
+cancellation (which the substrate lacks) is needed.
+
+`CReal` add / neg / mul / abs are all INDEX-WISE here, so every algebraic step is
+the corresponding `Q'` identity at each approximation index `n` — in particular the
+common `F(θ+h) − F θ` telescopes away by the same `sub_rem_alg` used in the `Q'`
+proof, applied at each `n`. -/
+
+open YMGap.Constructive (CReal)
+
+/-- The cleared `CReal` finite-difference remainder `F(θ+h) ⊖ F(θ) ⊖ d·(ofQ' h)`,
+the `CReal` analogue of `fdRem`.  All operations are index-wise, so
+`(fdRemC F d θ h).approx n = fdRem (fun t => (F t).approx n) (d.approx n) θ h` is a
+definitional `rfl` (see `fdRemC_approx`). -/
+def fdRemC (F : Q' → CReal) (d : CReal) (θ h : Q') : CReal :=
+  CReal.add (CReal.add (F (θ + h)) (CReal.neg (F θ)))
+    (CReal.neg (CReal.mul d (CReal.ofQ' h)))
+
+/-- The `n`-th approximation of `fdRemC` IS the `Q'`-level `fdRem` of the `n`-th
+approximations.  (`rfl`: every `CReal` operation involved is index-wise.) -/
+theorem fdRemC_approx (F : Q' → CReal) (d : CReal) (θ h : Q') (n : Nat) :
+    (fdRemC F d θ h).approx n
+      = fdRem (fun t => (F t).approx n) (d.approx n) θ h := rfl
+
+/-- **The data-carrying `CReal`-valued finite-difference derivative.**  `d` (a
+`CReal`) is the derivative of `F : Q' → CReal` at the rational point `θ`, with
+explicit modulus `δ`: for `0 < |h| ≤ δ ε`, the cleared `CReal` remainder has limit
+`≤ ε·|h|` (`CReal.leRat (CReal.abs (fdRemC …)) (ε·|h|)`).  The `leRat` form (sound
+rational upper bound of a `CReal`) is the natural `CReal` analogue of the `Q'`
+remainder bound and is exactly what the `CRealAbs.lean` infinitesimal lemma
+consumes. -/
+structure FDDerivDataC (F : Q' → CReal) (d : CReal) (θ : Q') : Type where
+  /-- The modulus: how small `|h|` must be for the `ε`-remainder bound. -/
+  δ : Q' → Q'
+  /-- The modulus is positive for positive tolerance. -/
+  δ_pos : ∀ ε : Q', (0 : Q') < ε → (0 : Q') < δ ε
+  /-- The cleared `CReal` finite-difference bound at increments within the modulus. -/
+  bound : ∀ ε : Q', (0 : Q') < ε → ∀ h : Q', (0 : Q') < Q'.abs h → Q'.abs h ≤ δ ε →
+    CReal.leRat (CReal.abs (fdRemC F d θ h)) (ε * Q'.abs h)
+
+/-- **The `CReal` two-remainder difference is `(d₁ − d₂)·h`, index-wise.**  At every
+approximation index `n`, `(fdRemC F d₂ θ h)_n − (fdRemC F d₁ θ h)_n ≈ (d₁_n − d₂_n)·h`,
+the same telescoping (`sub_rem_alg`) as the `Q'` proof, with the common
+`F(θ+h)_n − F θ_n` cancelling. -/
+theorem fdRemC_sub_approx (F : Q' → CReal) (d₁ d₂ : CReal) (θ h : Q') (n : Nat) :
+    (((fdRemC F d₂ θ h).approx n) + (-((fdRemC F d₁ θ h).approx n)))
+      ≈ (((d₁.approx n) + (-(d₂.approx n))) * h) := by
+  -- Both approxes are `fdRem` of the n-th approximations; apply `fdRem_sub` at n.
+  rw [fdRemC_approx, fdRemC_approx]
+  exact fdRem_sub (fun t => (F t).approx n) (d₁.approx n) (d₂.approx n) θ h
+
+/-- **`abs (c·h) ≈ abs c · h` for `h ≥ 0`.**  Sign-cases `c` through the `if` of
+`Q'.abs`; with `h ≥ 0` the sign of `c·h` matches the sign of `c`.  (Avoids the
+general multiplicative `|c·h| = |c|·|h|`, which the `Q'` substrate does not carry;
+we only need the nonneg-`h` specialisation for the cancellation step.) -/
+theorem abs_mul_nonneg_right (c : Q') {h : Q'} (hh : (0 : Q') ≤ h) :
+    Q'.abs (c * h) ≈ (Q'.abs c) * h := by
+  -- |c·h| ≤ |c|·h  and  |c|·h ≤ |c·h|.
+  refine Q'.eqv_of_le_le ?_ ?_
+  · -- |c·h| ≤ |c|·h
+    refine Q'.abs_le ?_ ?_
+    · -- -(|c|·h) ≤ c·h
+      have hcl : -(Q'.abs c) ≤ c := by
+        have := Q'.neg_le_abs c
+        have hh' := Q'.neg_le_neg this
+        exact Q'.le_trans' _ _ _ hh' (Q'.le_of_eqv (Q'.neg_neg_eqv c))
+      have hmul := Q'.mul_le_mul_of_nonneg_right (-(Q'.abs c)) c h hcl hh
+      refine Q'.le_trans' _ _ _ ?_ hmul
+      exact Q'.ge_of_eqv (Q'.neg_mul_eqv (Q'.abs c) h)
+    · exact Q'.mul_le_mul_of_nonneg_right c (Q'.abs c) h (Q'.le_abs_self c) hh
+  · -- |c|·h ≤ |c·h| : case on sign of c.
+    unfold Q'.abs
+    by_cases hc : (0 : Q') ≤ c
+    · -- c ≥ 0, h ≥ 0 ⟹ c·h ≥ 0, so |c·h| = c·h = |c|·h.
+      rw [if_pos hc]
+      have hch_nn : (0 : Q') ≤ c * h := Q'.mul_nonneg c h hc hh
+      rw [if_pos hch_nn]; exact Q'.le_refl' (c * h)
+    · -- c < 0, h ≥ 0 ⟹ c·h ≤ 0, so |c·h| = -(c·h) = (-c)·h = |c|·h.
+      rw [if_neg hc]
+      have hnegc_nn : (0 : Q') ≤ -c := Q'.neg_nonneg_of_not_nonneg hc
+      -- (-c)·h ≥ 0 and (-c)·h ≈ -(c·h), so c·h ≤ 0.
+      have hnegch_nn : (0 : Q') ≤ (-c) * h := Q'.mul_nonneg _ _ hnegc_nn hh
+      have hch_np : c * h ≤ (0 : Q') := by
+        -- -(c·h) ≥ 0 ⟹ c·h ≤ 0.
+        have hnegch_eq : ((-c) * h) ≈ (-(c * h)) := Q'.neg_mul_eqv c h
+        have h0le : (0 : Q') ≤ -(c * h) := Q'.le_trans' _ _ _ hnegch_nn (Q'.le_of_eqv hnegch_eq)
+        -- 0 ≤ -(c·h) ⟹ c·h ≤ 0 : negate.
+        have := Q'.neg_le_neg h0le   -- -(-(c·h)) ≤ -0
+        refine Q'.le_trans' _ _ _ (Q'.ge_of_eqv (Q'.neg_neg_eqv (c * h))) ?_
+        refine Q'.le_trans' _ _ _ this (Q'.le_of_eqv ?_)
+        exact Q'.eqv_of_eq (by rfl : -(0:Q') = (0:Q'))
+      by_cases hch : (0 : Q') ≤ c * h
+      · -- both ≤0 and ≥0 ⟹ c·h ≈ 0, so (-c)·h ≤ 0 = c·h.
+        rw [if_pos hch]
+        have hch0 : c * h ≈ (0 : Q') := Q'.eqv_of_le_le hch_np hch
+        refine Q'.le_trans' _ _ _ ?_ (Q'.ge_of_eqv hch0)
+        -- (-c)·h ≤ 0 : -c ≥ 0, h ≥ 0 ⟹ (-c)·h ≥ 0; but we need ≤ 0.  Since c·h ≈ 0,
+        -- (-c)·h ≈ -(c·h) ≈ 0, so ≤ 0.
+        have e : ((-c) * h) ≈ (-(c * h)) := Q'.neg_mul_eqv c h
+        refine Q'.le_trans' _ _ _ (Q'.le_of_eqv e) ?_
+        have : (-(c * h)) ≈ (0 : Q') := by
+          refine Q'.eqv_trans _ _ _ (Q'.neg_eqv_congr _ _ hch0) ?_
+          exact Q'.eqv_of_eq (by rfl : -(0:Q') = (0:Q'))
+        exact Q'.le_of_eqv this
+      · -- c·h < 0, so |c·h| = -(c·h) = (-c)·h.
+        rw [if_neg hch]
+        exact Q'.le_of_eqv (Q'.neg_mul_eqv c h)
+
+/-- **DERIVATIVE UNIQUENESS at the `CReal` level (the unconditional Route-A layer).**
+Two `CReal`-valued finite-difference derivatives of the SAME function `F` at the
+SAME rational point `θ` are `CReal.Equiv`: `FDDerivDataC F d₁ θ → FDDerivDataC F d₂ θ
+→ CReal.Equiv d₁ d₂`.
+
+This is the genuine `CReal` upgrade of `fdDeriv_unique`.  Per-`θ`, NO uniformity:
+for every `ε > 0` pick `h = min(δ₁ ε', δ₂ ε')` past both moduli (`ε' = ½ε`); the two
+`CReal` remainder bounds give `leRat |fdRemC d₁| (ε'|h|)`, `leRat |fdRemC d₂|
+(ε'|h|)`.  Their `Q'`-difference is `(d₁−d₂)·h` at each `n` (`fdRemC_sub_approx`), so
+`leRat |d₁−d₂|·|h| (ε·|h|)`; cancelling the positive RATIONAL `|h|` per-approximation
+(`Q'.le_of_mul_le_mul_left`) gives `leRat |d₁−d₂| ε` for every `ε`, whence
+`CReal.Equiv d₁ d₂` by the infinitesimal cancellation
+`CReal.Equiv_of_abs_sub_le_all_pos`. -/
+theorem fdDeriv_uniqueC {F : Q' → CReal} {d₁ d₂ : CReal} {θ : Q'}
+    (D₁ : FDDerivDataC F d₁ θ) (D₂ : FDDerivDataC F d₂ θ) :
+    CReal.Equiv d₁ d₂ := by
+  -- It suffices: for all ε>0, leRat |d₁ − d₂| ε  (then Equiv via infinitesimal lemma).
+  apply CReal.Equiv_of_abs_sub_le_all_pos
+  intro ε hε
+  -- work at ε' = ½ε on each remainder; pick h = min(δ₁ ε', δ₂ ε').
+  have hε' : (0 : Q') < HalfPow.half * ε := ExpNeg.half_mul_pos ε hε
+  let δ₁ := D₁.δ (HalfPow.half * ε)
+  let δ₂ := D₂.δ (HalfPow.half * ε)
+  have hδ₁ : (0 : Q') < δ₁ := D₁.δ_pos _ hε'
+  have hδ₂ : (0 : Q') < δ₂ := D₂.δ_pos _ hε'
+  let h : Q' := Q'.min' δ₁ δ₂
+  have hhpos : (0 : Q') < h := Q'.lt_min' hδ₁ hδ₂
+  have hh_abs_pos : (0 : Q') < Q'.abs h := by
+    show (0 : Q') < Q'.abs h
+    unfold Q'.abs; rw [if_pos (Q'.le_of_lt hhpos)]; exact hhpos
+  have habsh_eqv : Q'.abs h ≈ h := Q'.abs_of_nonneg (Q'.le_of_lt hhpos)
+  have hhle₁ : Q'.abs h ≤ δ₁ :=
+    Q'.le_trans' _ _ _ (Q'.le_of_eqv habsh_eqv) (Q'.min_le_left' δ₁ δ₂)
+  have hhle₂ : Q'.abs h ≤ δ₂ :=
+    Q'.le_trans' _ _ _ (Q'.le_of_eqv habsh_eqv) (Q'.min_le_right' δ₁ δ₂)
+  -- the two CReal remainder bounds (as leRat)
+  have hb₁ : CReal.leRat (CReal.abs (fdRemC F d₁ θ h)) ((HalfPow.half * ε) * Q'.abs h) :=
+    D₁.bound _ hε' h hh_abs_pos hhle₁
+  have hb₂ : CReal.leRat (CReal.abs (fdRemC F d₂ θ h)) ((HalfPow.half * ε) * Q'.abs h) :=
+    D₂.bound _ hε' h hh_abs_pos hhle₂
+  -- Goal: leRat (abs (add d₁ (neg d₂))) ε.  Unfold leRat and prove eventually.
+  intro tol htol
+  -- choose the per-approximation tolerance δtol := tol · |h|  (so that after cancelling
+  -- |h| the slack becomes `tol`).  δtol > 0.
+  have hδtol_pos : (0 : Q') < tol * Q'.abs h := Q'.mul_pos' htol hh_abs_pos
+  -- Each leRat fires at scale (½·δtol): eventual |fdRemC dᵢ|_n ≤ (½ε)|h| + ½δtol.
+  have hhalf_δtol : (0 : Q') < HalfPow.half * (tol * Q'.abs h) :=
+    ExpNeg.half_mul_pos _ hδtol_pos
+  obtain ⟨N₁, hN₁⟩ := hb₁ (HalfPow.half * (tol * Q'.abs h)) hhalf_δtol
+  obtain ⟨N₂, hN₂⟩ := hb₂ (HalfPow.half * (tol * Q'.abs h)) hhalf_δtol
+  refine ⟨max N₁ N₂, fun n hn => ?_⟩
+  have hn₁ : N₁ ≤ n := Nat.le_trans (Nat.le_max_left _ _) hn
+  have hn₂ : N₂ ≤ n := Nat.le_trans (Nat.le_max_right _ _) hn
+  -- per-approx remainder bounds
+  have ha₁ : Q'.abs ((fdRemC F d₁ θ h).approx n)
+      ≤ (HalfPow.half * ε) * Q'.abs h + HalfPow.half * (tol * Q'.abs h) := hN₁ n hn₁
+  have ha₂ : Q'.abs ((fdRemC F d₂ θ h).approx n)
+      ≤ (HalfPow.half * ε) * Q'.abs h + HalfPow.half * (tol * Q'.abs h) := hN₂ n hn₂
+  -- the n-th difference IS (d₁_n − d₂_n)·h
+  let c : Q' := (d₁.approx n) + (-(d₂.approx n))
+  have hsub := fdRemC_sub_approx F d₁ d₂ θ h n   -- (R₂_n − R₁_n) ≈ c·h
+  -- |c·h| ≤ |R₂_n| + |R₁_n|  (triangle on the difference, abs_neg)
+  have htri : Q'.abs (c * h)
+      ≤ Q'.abs ((fdRemC F d₂ θ h).approx n) + Q'.abs ((fdRemC F d₁ θ h).approx n) := by
+    refine Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.abs_eqv_congr (Q'.eqv_symm hsub))) ?_
+    refine Q'.le_trans' _ _ _
+      (abs_add_le ((fdRemC F d₂ θ h).approx n) (-((fdRemC F d₁ θ h).approx n))) ?_
+    exact Q'.add_le_add_left _ _ _ (Q'.le_of_eqv (Q'.abs_neg ((fdRemC F d₁ θ h).approx n)))
+  -- |c·h| ≤ 2·((½ε)|h| + ½δtol) = ε|h| + δtol = ε|h| + tol|h| = (ε+tol)|h|
+  have hbound : Q'.abs (c * h) ≤ (ε * Q'.abs h) + (tol * Q'.abs h) := by
+    refine Q'.le_trans' _ _ _ htri ?_
+    refine Q'.le_trans' _ _ _ (Q'.add_le_add ha₂ ha₁) ?_
+    -- ((½ε)|h| + ½δtol) + ((½ε)|h| + ½δtol) ≈ ε|h| + δtol
+    refine Q'.le_of_eqv ?_
+    -- regroup to ((½ε)|h| + (½ε)|h|) + (½δtol + ½δtol) ≈ ε|h| + δtol  (δtol = tol|h|)
+    refine Q'.eqv_trans _ _ _
+      (Q'.regroup ((HalfPow.half * ε) * Q'.abs h) ((HalfPow.half * ε) * Q'.abs h)
+        (HalfPow.half * (tol * Q'.abs h))) ?_
+    refine Q'.add_eqv_congr ?_ ?_
+    · -- (½ε)|h| + (½ε)|h| ≈ ε|h|
+      refine Q'.eqv_trans _ _ _
+        (Q'.eqv_symm (Q'.add_mul_eqv (HalfPow.half * ε) (HalfPow.half * ε) (Q'.abs h))) ?_
+      exact Q'.mul_eqv_congr_right _ _ (Q'.abs h) (ExpNeg.two_halves ε)
+    · -- ½δtol + ½δtol ≈ δtol = tol·|h|
+      exact ExpNeg.two_halves (tol * Q'.abs h)
+  -- Now cancel the positive rational `h` from `|c|·h ≤ (ε+tol)·h`.
+  -- `|c·h| ≈ |c|·h` (h ≥ 0, `abs_mul_nonneg_right`); the bound is in `|h|`, so first
+  -- rewrite `|h| ≈ h` throughout.
+  have hbound_h : Q'.abs (c * h) ≤ (ε * h) + (tol * h) := by
+    refine Q'.le_trans' _ _ _ hbound ?_
+    exact Q'.add_le_add
+      (Q'.le_of_eqv (Q'.mul_eqv_congr_left ε _ _ habsh_eqv))
+      (Q'.le_of_eqv (Q'.mul_eqv_congr_left tol _ _ habsh_eqv))
+  -- |c|·h ≤ (ε+tol)·h
+  have hbound2 : (Q'.abs c) * h ≤ (ε + tol) * h := by
+    refine Q'.le_trans' _ _ _ (Q'.ge_of_eqv (abs_mul_nonneg_right c (Q'.le_of_lt hhpos))) ?_
+    refine Q'.le_trans' _ _ _ hbound_h ?_
+    exact Q'.le_of_eqv (Q'.eqv_symm (Q'.add_mul_eqv ε tol h))
+  -- cancel h > 0 : |c| ≤ ε + tol.  Commute to h·· form for le_of_mul_le_mul_left.
+  have hgoal : Q'.abs c ≤ ε + tol := by
+    refine Q'.le_of_mul_le_mul_left (c := h) ?_ hhpos
+    refine Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.mul_comm_eqv h (Q'.abs c))) ?_
+    exact Q'.le_trans' _ _ _ hbound2 (Q'.le_of_eqv (Q'.mul_comm_eqv (ε + tol) h))
+  -- (abs (add d₁ (neg d₂))).approx n = |d₁_n − d₂_n| = |c| ≤ ε + tol.
+  show Q'.abs ((CReal.add d₁ (CReal.neg d₂)).approx n) ≤ ε + tol
+  show Q'.abs ((d₁.approx n) + (-(d₂.approx n))) ≤ ε + tol
+  exact hgoal
+
 end YMGap.Continuum.TsumDeriv
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
@@ -878,3 +1111,7 @@ end YMGap.Continuum.TsumDeriv
 #print axioms YMGap.Continuum.TsumDeriv.fdRem_telescope
 #print axioms YMGap.Continuum.TsumDeriv.four_q_eqv
 #print axioms YMGap.Continuum.TsumDeriv.fdDeriv_of_unif
+#print axioms YMGap.Continuum.TsumDeriv.fdRemC_approx
+#print axioms YMGap.Continuum.TsumDeriv.fdRemC_sub_approx
+#print axioms YMGap.Continuum.TsumDeriv.abs_mul_nonneg_right
+#print axioms YMGap.Continuum.TsumDeriv.fdDeriv_uniqueC

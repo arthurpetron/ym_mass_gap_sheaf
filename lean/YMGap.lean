@@ -72,6 +72,7 @@ import YMGap.RG.CharacterTailAntitone
 import YMGap.RG.CharacterTailMajorant
 import YMGap.RG.RankCollapse
 import YMGap.RG.EtaPackaging
+import YMGap.RG.PolylogTail
 import YMGap.RG.WeylCharacterBound
 import YMGap.Continuum.SigmaHatLimit
 import YMGap.Continuum.ContinuumMeasure
@@ -114,6 +115,7 @@ import YMGap.Continuum.DiffProduct
 import YMGap.Continuum.JTPIdentity
 import YMGap.Continuum.JTPInstance
 import YMGap.Continuum.ThetaLimit
+import YMGap.Continuum.ThetaParam
 import YMGap.Continuum.PNDeterminant
 import YMGap.Continuum.ContinuumExistence
 import YMGap.Continuum.PartitionPos

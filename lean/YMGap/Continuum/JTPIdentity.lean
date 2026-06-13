@@ -738,6 +738,38 @@ theorem Kt_geRat_zero_of_uniq_creal {a x : Q'}
     ExpPos.geRat (dSeriesCReal ha0 ha1 hx hx1) 0 :=
   Kt_geRat_zero_of_diff ha0 ha1 hx hx1 (DiffJTP_of_uniq_creal ha0 ha1 hx hx1 H)
 
+/-! ### Closure through the CReal-VALUED derivative-uniqueness route (Route A,
+unconditional layer)
+
+`DiffProduct.C1UniqInputsCRealDeriv` is the sharpest form of the residual: the
+series side `dSeriesCReal` and the product side `Rhalf` are each exhibited as a
+`CReal`-VALUED finite-difference derivative (`TsumDeriv.FDDerivDataC`) of the SAME
+`CReal`-valued limit `F = ϑ₃` at `θ`.  The `CReal.Equiv` is then produced ENTIRELY by
+the genuine `TsumDeriv.fdDeriv_uniqueC` engine — NO rational→real realisation lift
+(Route A's `realise`) and NO infinitesimal-difference bound (Route B's
+`infinitesimal`).  The whole remaining input is two common-`F` `CReal`
+finite-difference derivatives. -/
+
+/-- **`C1UniqInputsCRealDeriv → DiffJTP`** (the CReal-derivative-uniqueness closure). -/
+theorem DiffJTP_of_uniq_creal_deriv {a x : Q'}
+    (ha0 : (0 : Q') < a) (ha1 : a < (1 : Q')) (hx : (-1 : Q') ≤ x) (hx1 : x ≤ (1 : Q'))
+    (H : DiffProduct.C1UniqInputsCRealDeriv
+            (dSeriesCReal ha0 ha1 hx hx1) (Rhalf ha0 ha1 hx hx1)) :
+    DiffJTP ha0 ha1 hx hx1 :=
+  DiffProduct.productDerivativeLimit_of_uniq_creal_deriv H
+
+/-- **THE CReal-DERIVATIVE-UNIQUENESS-ROUTED CLOSURE: `C1UniqInputsCRealDeriv →
+K_t ≥ 0`.**  Positivity flows through the genuine `CReal`-valued uniqueness engine
+`TsumDeriv.fdDeriv_uniqueC` alone (no realisation lift, no infinitesimal bound); the
+sole open input is the two common-`F` `CReal` finite-difference derivatives (series
+side + product side of the one limit `ϑ₃`). -/
+theorem Kt_geRat_zero_of_uniq_creal_deriv {a x : Q'}
+    (ha0 : (0 : Q') < a) (ha1 : a < (1 : Q')) (hx : (-1 : Q') ≤ x) (hx1 : x ≤ (1 : Q'))
+    (H : DiffProduct.C1UniqInputsCRealDeriv
+            (dSeriesCReal ha0 ha1 hx hx1) (Rhalf ha0 ha1 hx hx1)) :
+    ExpPos.geRat (dSeriesCReal ha0 ha1 hx hx1) 0 :=
+  Kt_geRat_zero_of_diff ha0 ha1 hx hx1 (DiffJTP_of_uniq_creal_deriv ha0 ha1 hx hx1 H)
+
 end YMGap.Continuum.JTPIdentity
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1)
@@ -765,3 +797,5 @@ named hypothesis (the single open analytic obligation), NOT a `sorry`. -/
 #print axioms YMGap.Continuum.JTPIdentity.Kt_geRat_zero_of_uniq
 #print axioms YMGap.Continuum.JTPIdentity.DiffJTP_of_uniq_creal
 #print axioms YMGap.Continuum.JTPIdentity.Kt_geRat_zero_of_uniq_creal
+#print axioms YMGap.Continuum.JTPIdentity.DiffJTP_of_uniq_creal_deriv
+#print axioms YMGap.Continuum.JTPIdentity.Kt_geRat_zero_of_uniq_creal_deriv

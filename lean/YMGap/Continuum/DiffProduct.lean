@@ -570,6 +570,54 @@ theorem productDerivativeLimit_of_uniq_creal
   -- The CReal cancellation produces the bridge from the infinitesimal bound:
   CReal.Equiv_of_abs_sub_le_all_pos H.infinitesimal
 
+/-! ## 7. The CReal-DERIVATIVE-UNIQUENESS closure (Route A, unconditional layer)
+
+`TsumDeriv.fdDeriv_uniqueC` (landed axiom-clean in `TsumDeriv.lean`) is the genuine
+`CReal` upgrade of `fdDeriv_unique`: two `CReal`-VALUED finite-difference derivatives
+(`FDDerivDataC`) of the SAME function `F : Q' → CReal` at the SAME point `θ` are
+`CReal.Equiv`.  This discharges, AT THE CReal LEVEL, the `realise`/`infinitesimal`
+lift that the `Q'`-valued routes left to the user: the series-side derivative
+`Dseries` and the product-side derivative `Rproduct` are equated DIRECTLY by the
+uniqueness engine, with NO hand-supplied lift and NO separate infinitesimal-bound
+hypothesis — provided both are exhibited as `FDDerivDataC` of one common `F`.
+
+The honest residual it isolates is therefore EXACTLY: exhibit the series side
+`Dseries` and the product side `Rproduct` as `CReal`-valued finite-difference
+derivatives of the SAME `CReal`-valued limit function `F = ϑ₃` at `θ`.  This is the
+undifferentiated common-`F` identity (the `N → ∞` limit of `gauss_qbinom_all`,
+`ThetaLimit.gauss_qbinom_creal_equiv`) PLUS the two derivative-modulus data — and it
+no longer needs any rational→real realisation or infinitesimal-difference bound:
+the CReal uniqueness engine supplies the `CReal.Equiv` outright. -/
+
+open YMGap.Continuum.TsumDeriv in
+/-- **The Route-A CReal-derivative instantiation obligation (named `Type`).**  The
+sharpest form of the residual: the series side `Dseries` and product side `Rproduct`
+are each a `CReal`-VALUED finite-difference derivative (`FDDerivDataC`) of the SAME
+`CReal`-valued limit `F = ϑ₃` at `θ`.  No `realise` lift, no `infinitesimal` bound:
+the `CReal.Equiv` is produced by the genuine `fdDeriv_uniqueC` engine. -/
+structure C1UniqInputsCRealDeriv (Dseries Rproduct : CReal) : Type where
+  /-- The common limit function `F = ϑ₃`, as a `CReal`-valued function of `θ`. -/
+  F : Q' → CReal
+  /-- The working point. -/
+  θ : Q'
+  /-- The product-side finite-difference derivative of `F` at `θ`, value `Rproduct`. -/
+  Dprod : FDDerivDataC F Rproduct θ
+  /-- The series-side finite-difference derivative of the SAME `F` at `θ`, value
+  `Dseries`.  Carrying it over the SAME `F` is the undifferentiated Jacobi identity. -/
+  Dser : FDDerivDataC F Dseries θ
+
+open YMGap.Continuum.TsumDeriv in
+/-- **`C1UniqInputsCRealDeriv → ProductDerivativeLimit` (the unconditional-layer
+closure).**  The `CReal.Equiv Dseries Rproduct` is produced ENTIRELY by the genuine
+`CReal`-valued uniqueness engine `fdDeriv_uniqueC` — no raw realisation lift, no
+infinitesimal-difference hypothesis.  This is the strongest available routing of the
+Wall-2 residual: the WHOLE remaining input is two common-`F` `CReal` finite-difference
+derivatives. -/
+theorem productDerivativeLimit_of_uniq_creal_deriv
+    {Dseries Rproduct : CReal} (H : C1UniqInputsCRealDeriv Dseries Rproduct) :
+    ProductDerivativeLimit Dseries Rproduct :=
+  fdDeriv_uniqueC H.Dser H.Dprod
+
 end YMGap.Continuum.DiffProduct
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1)
@@ -590,3 +638,4 @@ named `Prop` (the single open analytic obligation), NOT a `sorry`. -/
 #print axioms YMGap.Continuum.DiffProduct.deriv_values_eq_of_common_limit
 #print axioms YMGap.Continuum.DiffProduct.productDerivativeLimit_of_uniq
 #print axioms YMGap.Continuum.DiffProduct.productDerivativeLimit_of_uniq_creal
+#print axioms YMGap.Continuum.DiffProduct.productDerivativeLimit_of_uniq_creal_deriv

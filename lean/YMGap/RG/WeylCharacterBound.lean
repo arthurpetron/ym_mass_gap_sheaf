@@ -91,7 +91,9 @@ no `sorryAx`.  See the `#print axioms` block at the end.
 
 import YMGap.RG.CharacterTailMajorant
 import YMGap.RG.RankCollapse
+import YMGap.RG.PolylogTail
 import YMGap.Constructive.CharacterTail
+import YMGap.RepTheory.SU3
 
 namespace YMGap.RG
 
@@ -293,6 +295,27 @@ structure AxisFactorBound (R : RepData) where
   /-- The excesses are nonnegative (each `S_i ≥ 1`). -/
   exc_nonneg  : ∀ i, (0 : Q') ≤ axisExcess i
 
+/-- **The polynomial-geometric per-axis tail is bounded by the clean polylog
+rational** (the honest discharge of the `AxisFactorBound` pitfall).
+
+Each per-axis factor `S_i = Σ_{n<N}(1 + c_i·n)^{2 m_i} r^n` is a
+*polynomial × geometric* series (`r = e^{−tΔ_i} ∈ [0,1)`), NOT bare geometric.
+Given the per-term polynomial→rising-binomial domination
+`(1 + c_i·n)^{2m_i} ≤ B₀·C(n+2m_i, 2m_i)` (the per-group analytic datum, with
+`B₀ = (2m_i)!·(1+c_i)^{2m_i}` or any explicit constant) and the `1/(1−r)`
+surrogate `H` (`1 + r·H ≤ H`), the whole factor closes at the clean rational
+`B₀·H^{2m_i+1}` — a polynomial-geometric majorant, valid for every `t > 0`,
+no window.  This is `PolylogTail.weightedGeomSum_le`, re-exposed at the
+Weyl-character layer; it certifies that the `AxisFactorBound` excesses
+`axisExcess i := B₀·H^{2m_i+1} − 1` are genuine upper bounds for the true
+polynomial-geometric tail, not the too-weak bare geometric `r/(1−r)`. -/
+theorem axisFactor_polylog_le {r H B0 : Q'}
+    (hr : (0 : Q') ≤ r) (hH : (0 : Q') ≤ H) (hB0 : (0 : Q') ≤ B0)
+    (hrec : (1 : Q') + r * H ≤ H) (m : Nat) (w : Nat → Q')
+    (hdom : ∀ n, w n ≤ B0 * (Q'.ofNat (binom (n + 2 * m) (2 * m)))) (N : Nat) :
+    weightedGeomSum r w N ≤ B0 * H ^ (2 * m + 1) :=
+  weightedGeomSum_le hr hH hB0 hrec (2 * m) w hdom N
+
 /-- **Step (c) factorization: `Z_t(R) ≤ ztValue s r`.**
 
 Given the per-axis polynomial-geometric factor excesses `s = axisExcess` and
@@ -333,6 +356,223 @@ theorem Zt_le_su2_of_axisData {R : RepData} (b : AxisFactorBound R)
     ZtR ≤ su2Zt :=
   Q'.le_trans' _ _ _ hfact
     (rank_collapse_of_sum b.rank b.exc_nonneg hwin hcap)
+
+/-! ## Step (b) for SU(N): the squared-Weyl-dimension majorization
+
+For `SU(N)` the Weyl dimension formula
+`dim V_λ = ∏_{1≤i<j≤N}(1 + (Σ_{p=i}^{j−1}λ_p)/(j−i))` regroups, via the
+denominator drop `(j−i)≥1` (so `(Σλ_p)/(j−i) ≤ Σλ_p`) and the proven
+superadditivity reversal `one_add_sum_le_prod` applied per positive root, into
+
+    dim V_λ  ≤  ∏_{p=1}^{N−1}(1 + λ_p)^{p(N−p)} ,
+
+hence the squared majorant
+
+    (dim V_λ)²  ≤  ∏_{p=1}^{N−1}(1 + λ_p)^{2 p(N−p)}  =  ∏_p P_p(λ_p) ,
+
+with `a_p = 1`, `b_p = p(N−p)` (`P_p(x) = (1+x)^{2 p(N−p)}`).  This is the
+discharge of the `WeylDimData` residual for the SU(N) family.  We supply:
+
+  * the per-positive-root **denominator-drop + regroup** lemma
+    `weyl_root_factor_le` (division-free, the general (b) engine), and
+  * the concrete SU(2) (`r=1`, `dim = λ+1`, exact) and SU(3) (`r=2`,
+    `b₁=b₂=2`, `dim² ≤ (1+λ₁)⁴(1+λ₂)⁴`) squared-dim bounds, the latter
+    re-using the proven `RepTheory/SU3.dimSq_le`. -/
+
+/-- Local: `ofNat n ≤ ofNat m` from `n ≤ m`. -/
+theorem ofNat_le_ofNat_aux {n m : Nat} (h : n ≤ m) : (Q'.ofNat n) ≤ Q'.ofNat m := by
+  show (Int.ofNat n) * (((Q'.ofNat m).den : Int)) ≤ (Int.ofNat m) * ((Q'.ofNat n).den : Int)
+  show (Int.ofNat n) * (1 : Int) ≤ (Int.ofNat m) * (1 : Int)
+  rw [Int.mul_one, Int.mul_one]; exact Int.ofNat_le.mpr h
+
+/-- Local: `ofNat (a*b) ≃ ofNat a · ofNat b`. -/
+theorem ofNat_mul_eqv_aux (a b : Nat) :
+    (Q'.ofNat (a * b)).eqv (Q'.ofNat a * Q'.ofNat b) := by
+  show (Q'.ofNat (a * b)).num * ((Q'.ofNat a * Q'.ofNat b).den : Int)
+     = (Q'.ofNat a * Q'.ofNat b).num * ((Q'.ofNat (a * b)).den : Int)
+  rw [Q'.mul_den_cast]
+  show ((a * b : Nat) : Int) * (((Q'.ofNat a).den : Int) * ((Q'.ofNat b).den : Int))
+     = ((a : Int) * (b : Int)) * (1 : Int)
+  show ((a * b : Nat) : Int) * ((1 : Int) * (1 : Int))
+     = ((a : Int) * (b : Int)) * (1 : Int)
+  rw [Int.natCast_mul a b, Int.mul_one, Int.mul_one]
+
+/-- **The per-positive-root Weyl factor bound** (division-free).  For
+nonnegative labels `a : Nat → Q'`, the Weyl positive-root factor with the
+denominator dropped, `1 + Σ_{i<len} a i`, is dominated by the range product
+`∏_{i<len}(1 + a i)`.  Since the true factor is `1 + (Σ a i)/D` with the
+positive-root height `D = ⟨ρ,α⟩ ≥ 1`, dropping `D` only enlarges the bound,
+so this is a valid majorant for every positive root.  Direct instance of
+`one_add_sum_le_prod`. -/
+theorem weyl_root_factor_le {a : Nat → Q'} (ha : ∀ i, (0 : Q') ≤ a i) (len : Nat) :
+    (1 : Q') + sumExcess a len ≤ finProd a len :=
+  one_add_sum_le_prod ha len
+
+/-- **SU(2) squared-Weyl-dim bound** (exact, `r=1`, `b₁=1`):
+`(λ+1)² ≤ (1 + ofNat λ)²`.  The single positive root has height `1`, so the
+denominator drop is vacuous and the bound is the identity `dim = 1+λ`. -/
+theorem su2_dimSq_le (lam : Nat) :
+    (Q'.ofNat ((lam + 1) * (lam + 1)))
+      ≤ (1 + Q'.ofNat lam) * (1 + Q'.ofNat lam) := by
+  -- ofNat ((λ+1)²) ≃ ofNat(λ+1)·ofNat(λ+1), and ofNat(λ+1) ≃ 1 + ofNat λ.
+  have hfac : (Q'.ofNat (lam + 1)).eqv (1 + Q'.ofNat lam) :=
+    Q'.eqv_trans _ _ _ (Q'.ofNat_add_eqv lam 1) (Q'.add_comm_eqv (Q'.ofNat lam) (Q'.ofNat 1))
+  refine Q'.le_trans' _ _ _ (Q'.le_of_eqv (ofNat_mul_eqv_aux (lam + 1) (lam + 1))) ?_
+  -- ofNat(λ+1)·ofNat(λ+1) ≃ (1+ofNat λ)·(1+ofNat λ)
+  exact Q'.le_of_eqv
+    (Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ _ _ hfac)
+      (Q'.mul_eqv_congr_left _ _ _ hfac))
+
+/-- **SU(3) squared-Weyl-dim bound** (`r=2`, `b₁=b₂=2`):
+`dim(p,q)² ≤ (1 + ofNat p)⁴·(1 + ofNat q)⁴`.  Re-uses the proven
+`RepTheory/SU3.dimSq_le` (`dim² ≤ (p+1)⁴(q+1)⁴`) and the `ofNat(x+1) ≃ 1+x`
+bridge.  This is `(dim V_λ)² ≤ (1+λ₁)^{2·1·2}(1+λ₂)^{2·2·1}`, the SU(3)
+instance of `∏_p(1+λ_p)^{2p(N−p)}`. -/
+theorem su3_dimSq_le (p q : Nat) :
+    (Q'.ofNat (YMGap.RepTheory.SU3.dim p q * YMGap.RepTheory.SU3.dim p q))
+      ≤ ((1 + Q'.ofNat p) * (1 + Q'.ofNat p)) * ((1 + Q'.ofNat p) * (1 + Q'.ofNat p))
+        * (((1 + Q'.ofNat q) * (1 + Q'.ofNat q)) * ((1 + Q'.ofNat q) * (1 + Q'.ofNat q))) := by
+  -- Step 1: ofNat(dim²) ≤ ofNat(gPref p · gPref q)  (SU3.dimSq_le, monotone).
+  have hnat : (Q'.ofNat (YMGap.RepTheory.SU3.dim p q * YMGap.RepTheory.SU3.dim p q))
+      ≤ Q'.ofNat (YMGap.RepTheory.SU3.gPrefactor p * YMGap.RepTheory.SU3.gPrefactor q) :=
+    ofNat_le_ofNat_aux (YMGap.RepTheory.SU3.dimSq_le p q)
+  refine Q'.le_trans' _ _ _ hnat ?_
+  -- Step 2: ofNat(gPref p · gPref q) ≃ (1+p)⁴·(1+q)⁴.
+  -- gPrefactor x = (x+1)(x+1)(x+1)(x+1).
+  -- ofNat(a·b) ≃ ofNat a · ofNat b; ofNat(gPref x) ≃ ((1+x)(1+x))((1+x)(1+x)).
+  have hfac : ∀ x : Nat, (Q'.ofNat (x + 1)).eqv (1 + Q'.ofNat x) := fun x =>
+    Q'.eqv_trans _ _ _ (Q'.ofNat_add_eqv x 1) (Q'.add_comm_eqv (Q'.ofNat x) (Q'.ofNat 1))
+  -- ofNat(gPref x) ≃ ((1+x)(1+x))·((1+x)(1+x))
+  have hgp : ∀ x : Nat, (Q'.ofNat (YMGap.RepTheory.SU3.gPrefactor x)).eqv
+      (((1 + Q'.ofNat x) * (1 + Q'.ofNat x)) * ((1 + Q'.ofNat x) * (1 + Q'.ofNat x))) := by
+    intro x
+    -- gPrefactor x = ((x+1)*(x+1))*((x+1)*(x+1))
+    have hg : YMGap.RepTheory.SU3.gPrefactor x = ((x + 1) * (x + 1)) * ((x + 1) * (x + 1)) := by
+      show (x + 1) * (x + 1) * (x + 1) * (x + 1) = ((x + 1) * (x + 1)) * ((x + 1) * (x + 1))
+      rw [Nat.mul_assoc ((x+1)*(x+1)) (x+1) (x+1)]
+    rw [hg]
+    -- ofNat(A·B) ≃ ofNat A · ofNat B with A = B = (x+1)(x+1)
+    refine Q'.eqv_trans _ _ _ (ofNat_mul_eqv_aux ((x+1)*(x+1)) ((x+1)*(x+1))) ?_
+    -- ofNat((x+1)(x+1)) ≃ (1+x)(1+x)
+    have hsq : (Q'.ofNat ((x + 1) * (x + 1))).eqv ((1 + Q'.ofNat x) * (1 + Q'.ofNat x)) :=
+      Q'.eqv_trans _ _ _ (ofNat_mul_eqv_aux (x+1) (x+1))
+        (Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ _ _ (hfac x))
+          (Q'.mul_eqv_congr_left _ _ _ (hfac x)))
+    exact Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ _ _ hsq)
+      (Q'.mul_eqv_congr_left _ _ _ hsq)
+  refine Q'.le_of_eqv ?_
+  refine Q'.eqv_trans _ _ _ (ofNat_mul_eqv_aux _ _) ?_
+  exact Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ _ _ (hgp p))
+    (Q'.mul_eqv_congr_left _ _ _ (hgp q))
+
+/-! ### Concrete `WeylDimData` realizations from the real dimension formulas
+
+The squared-dim residual `WeylDimData` is realized for SU(2)/SU(3) *at every
+lattice point* by the proven `su2_dimSq_le` / `su3_dimSq_le` — carrying the
+genuine squared Weyl dimension `(dim V_λ)²` and the per-axis product
+`∏_p(1+λ_p)^{2p(N−p)}`, not the trivial boundary excess `0`. -/
+
+/-- **SU(2) `WeylDimData` at label `λ`** — the real bound `(λ+1)² ≤ (1+λ)²`
+(`r = 1`, `b₁ = 1`).  `dimSqVal = (dim V_λ)² = (λ+1)²`, single axis excess
+`(1+λ)² − 1`, and `dimSq_le` is `su2_dimSq_le` (denominator drop vacuous). -/
+def su2_weylDimData_at (lam : Nat) : WeylDimData su2 where
+  rank        := 1
+  dimSqExcess := fun _ => (1 + Q'.ofNat lam) * (1 + Q'.ofNat lam) - 1
+  dimSqVal    := Q'.ofNat ((lam + 1) * (lam + 1))
+  exc_nonneg  := fun _ => by
+    -- 0 ≤ (1+λ)² − 1  since (1+λ)² ≥ 1.
+    have hx : (0 : Q') ≤ Q'.ofNat lam := ofNat_nonneg_aux lam
+    have h1 : (1 : Q') ≤ 1 + Q'.ofNat lam := by
+      have := Q'.add_le_add_left 1 0 (Q'.ofNat lam) hx; rwa [Q'.add_zero'] at this
+    have h1x : (0 : Q') ≤ 1 + Q'.ofNat lam := Q'.le_trans' _ _ _ (by decide) h1
+    have hsq : (1 : Q') ≤ (1 + Q'.ofNat lam) * (1 + Q'.ofNat lam) := by
+      refine Q'.le_trans' _ _ _ (Q'.ge_of_eqv (Q'.mul_one_eqv 1)) ?_
+      exact Q'.mul_le_mul_of_nonneg h1 h1 h1x (by decide)
+    -- 0 = 1 − 1 ≤ (1+λ)² − 1
+    have hz : ((1 : Q') - 1).eqv 0 := by decide
+    refine Q'.le_trans' _ _ _ (Q'.ge_of_eqv hz) ?_
+    exact Q'.add_le_add_right 1 _ (-1) hsq
+  dimSq_le    := by
+    -- dimSqVal = ofNat((λ+1)²) ≤ (1+λ)² = finProd (fun _ => (1+λ)²−1) 1.
+    refine Q'.le_trans' _ _ _ (su2_dimSq_le lam) ?_
+    -- (1+λ)² ≤ finProd _ 1 = 1·(1 + ((1+λ)²−1)) ≃ (1+λ)².
+    show (1 + Q'.ofNat lam) * (1 + Q'.ofNat lam)
+      ≤ finProd (fun _ => (1 + Q'.ofNat lam) * (1 + Q'.ofNat lam) - 1) 1
+    -- finProd _ 1 = finProd _ 0 · (1 + ((1+λ)²−1)) = 1 · (1 + ((1+λ)²−1)).
+    refine Q'.le_of_eqv ?_
+    show ((1 + Q'.ofNat lam) * (1 + Q'.ofNat lam)).eqv
+      (finProd (fun _ => (1 + Q'.ofNat lam) * (1 + Q'.ofNat lam) - 1) 0
+        * (1 + ((1 + Q'.ofNat lam) * (1 + Q'.ofNat lam) - 1)))
+    -- RHS = 1 · (1 + (X − 1)) with X = (1+λ)².  1·Y ≃ Y, and 1 + (X−1) ≃ X.
+    refine Q'.eqv_symm ?_
+    refine Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ 1 _ (Q'.eqv_refl _)) ?_
+    refine Q'.eqv_trans _ _ _ (Q'.one_mul_eqv _) ?_
+    -- 1 + (X − 1) ≃ X
+    refine Q'.eqv_trans _ _ _ (Q'.add_comm_eqv 1 _) ?_
+    -- (X + (-1)) + 1 ≃ X + ((-1)+1) ≃ X + 0 ≃ X
+    refine Q'.eqv_trans _ _ _ (Q'.add_assoc_eqv _ (-1) 1) ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_left _ _ _ (show ((-1 : Q') + 1).eqv 0 by decide)) ?_
+    exact QPoly.q_add_zero_eqv _
+
+/-- **SU(3) `WeylDimData` at labels `(p,q)`** — the real bound
+`dim(p,q)² ≤ (1+p)⁴(1+q)⁴` (`r = 2`, `b₁ = b₂ = 2`), re-using the proven
+`su3_dimSq_le`.  `dimSqVal = (dim V_{(p,q)})²`, the two per-axis excesses are
+`(1+p)⁴ − 1`, `(1+q)⁴ − 1`. -/
+def su3_weylDimData_at (p q : Nat) : WeylDimData su3 where
+  rank        := 2
+  dimSqExcess := fun i =>
+    if i = 0 then ((1 + Q'.ofNat p) * (1 + Q'.ofNat p)) * ((1 + Q'.ofNat p) * (1 + Q'.ofNat p)) - 1
+    else ((1 + Q'.ofNat q) * (1 + Q'.ofNat q)) * ((1 + Q'.ofNat q) * (1 + Q'.ofNat q)) - 1
+  dimSqVal    := Q'.ofNat (YMGap.RepTheory.SU3.dim p q * YMGap.RepTheory.SU3.dim p q)
+  exc_nonneg  := fun i => by
+    -- each is (1+x)⁴ − 1 ≥ 0.
+    have hpow : ∀ x : Nat, (1 : Q') ≤
+        ((1 + Q'.ofNat x) * (1 + Q'.ofNat x)) * ((1 + Q'.ofNat x) * (1 + Q'.ofNat x)) := by
+      intro x
+      have hx : (0 : Q') ≤ Q'.ofNat x := ofNat_nonneg_aux x
+      have h1 : (1 : Q') ≤ 1 + Q'.ofNat x := by
+        have := Q'.add_le_add_left 1 0 (Q'.ofNat x) hx; rwa [Q'.add_zero'] at this
+      have h1x : (0 : Q') ≤ 1 + Q'.ofNat x := Q'.le_trans' _ _ _ (by decide) h1
+      have hsq : (1 : Q') ≤ (1 + Q'.ofNat x) * (1 + Q'.ofNat x) := by
+        refine Q'.le_trans' _ _ _ (Q'.ge_of_eqv (Q'.mul_one_eqv 1)) ?_
+        exact Q'.mul_le_mul_of_nonneg h1 h1 h1x (by decide)
+      have hsqnn : (0 : Q') ≤ (1 + Q'.ofNat x) * (1 + Q'.ofNat x) := Q'.mul_nonneg _ _ h1x h1x
+      refine Q'.le_trans' _ _ _ (Q'.ge_of_eqv (Q'.mul_one_eqv 1)) ?_
+      exact Q'.mul_le_mul_of_nonneg hsq hsq hsqnn (by decide)
+    have hgen : ∀ x : Nat, (0 : Q') ≤
+        ((1 + Q'.ofNat x) * (1 + Q'.ofNat x)) * ((1 + Q'.ofNat x) * (1 + Q'.ofNat x)) - 1 := by
+      intro x
+      have hz : ((1 : Q') - 1).eqv 0 := by decide
+      refine Q'.le_trans' _ _ _ (Q'.ge_of_eqv hz) ?_
+      exact Q'.add_le_add_right 1 _ (-1) (hpow x)
+    by_cases h : i = 0
+    · simp only [h, if_true]; exact hgen p
+    · simp only [h, if_false]; exact hgen q
+  dimSq_le    := by
+    refine Q'.le_trans' _ _ _ (su3_dimSq_le p q) ?_
+    refine Q'.le_of_eqv ?_
+    -- 1 + (X − 1) ≃ X
+    have hcancel : ∀ X : Q', ((1 : Q') + (X - 1)).eqv X := by
+      intro X
+      refine Q'.eqv_trans _ _ _ (Q'.add_comm_eqv 1 _) ?_
+      refine Q'.eqv_trans _ _ _ (Q'.add_assoc_eqv X (-1) 1) ?_
+      refine Q'.eqv_trans _ _ _
+        (Q'.add_eqv_congr_left _ _ _ (show ((-1 : Q') + 1).eqv 0 by decide)) ?_
+      exact QPoly.q_add_zero_eqv X
+    -- finProd f 2 = (finProd f 1)·(1 + f 1) = (1·(1 + f 0))·(1 + f 1).
+    -- f 0 = Pp − 1 (ite 0=0 → then), f 1 = Pq − 1 (ite 1=0 → else).
+    rw [finProd_succ, finProd_succ, finProd_zero,
+        if_pos (rfl : (0 : Nat) = 0), if_neg (by decide : ¬ (1 : Nat) = 0)]
+    -- goal (already eqv): (Pp·Pq).eqv ((1·(1 + (Pp−1)))·(1 + (Pq−1))).
+    refine Q'.eqv_symm ?_
+    -- (1·(1+(Pp−1)))·(1+(Pq−1)) ≃ Pp·Pq.
+    refine Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_right _ _ _
+        (Q'.eqv_trans _ _ _ (Q'.one_mul_eqv _)
+          (hcancel (((1 + Q'.ofNat p) * (1 + Q'.ofNat p)) * ((1 + Q'.ofNat p) * (1 + Q'.ofNat p)))))) ?_
+    exact Q'.mul_eqv_congr_left _ _ _
+      (hcancel (((1 + Q'.ofNat q) * (1 + Q'.ofNat q)) * ((1 + Q'.ofNat q) * (1 + Q'.ofNat q))))
 
 /-! ## SU(2): the rank-1 boundary instance closes end to end
 
@@ -410,3 +650,9 @@ end YMGap.RG
 #print axioms YMGap.RG.su2_axisFactorBound
 #print axioms YMGap.RG.su2_Zt_le_su2
 #print axioms YMGap.RG.ztMajorant_of_axisData
+#print axioms YMGap.RG.weyl_root_factor_le
+#print axioms YMGap.RG.su2_dimSq_le
+#print axioms YMGap.RG.su3_dimSq_le
+#print axioms YMGap.RG.axisFactor_polylog_le
+#print axioms YMGap.RG.su2_weylDimData_at
+#print axioms YMGap.RG.su3_weylDimData_at

@@ -392,6 +392,36 @@ theorem mass_gap_SU3
       (∀ N, finSum (truncatedConst su3.K_steps su3.eta_max) N ≤ su2.sigma0) :=
   mass_gap_simple_group su3 su3_admissible su3_uniform_witness rec bundle
 
+/-- **Mass gap for SU(3) via the Weyl-character structural path.**
+
+A specialization of `mass_gap_simple_group_of_weylData` to `R := su3`
+(`su3_admissible`, `K = 3` window by `decide`).  The two Weyl-character
+residuals this path used to leave open — the per-axis polynomial-geometric
+tail `AxisFactorBound` and the squared-Weyl-dimension majorization
+`WeylDimData` — are now *discharged theorems* for the SU(N) family
+(`RG/PolylogTail.weightedGeomSum_le` / `RG.axisFactor_polylog_le` for the
+tail, `RG.su3_dimSq_le` / `RG.su3_weylDimData_at` for the squared dimension),
+so the only remaining input is the heat-kernel `Z_t ↦ η` packaging
+`ZtEtaModel su3` (the explicitly out-of-scope residual) plus the concrete
+window/cap rationals.  This makes explicit that the all-groups character-tail
+inequality `Z_t(su3) ≤ Z_t(su2)` is, for SU(3), a theorem of root-system data
+rather than a posited bound. -/
+theorem mass_gap_SU3_via_weylData
+    (b : YMGap.RG.AxisFactorBound su3) (su2Zt : Q')
+    (hwin : 2 * (sumExcess b.axisExcess b.rank) ≤ 1)
+    (hcap : 2 * (sumExcess b.axisExcess b.rank) ≤ su2Zt)
+    (m : ZtEtaModel su3)
+    (hZtR : m.ZtR = ztValue b.axisExcess b.rank) (hZtsu2 : m.Ztsu2 = su2Zt)
+    {M : Nat → Type} {μ_inf : ContinuumMeasure M}
+    (rec : OSReconstruction μ_inf) (bundle : OSAxiomBundle μ_inf) :
+    ∃ m_0 : Q',
+      (0 : Q') < m_0 ∧
+      m_0 * m_0 ≤ sigma_hat_inf_lower_uniform ∧
+      HasSpectralGap rec ∧
+      (∀ N, finSum (truncatedConst su3.K_steps su3.eta_max) N ≤ su2.sigma0) :=
+  mass_gap_simple_group_of_weylData su3 su3_admissible b su2Zt hwin hcap m hZtR hZtsu2
+    (by decide) rec bundle
+
 /-- SU(2) is (trivially) η-dominated by itself — the boundary witness. -/
 theorem su2_uniform_witness : UniformBudgetWitness su2 where
   same_window   := by decide
@@ -426,5 +456,6 @@ end YMGap.MassGap.SimpleGroup
 #print axioms YMGap.MassGap.SimpleGroup.mass_gap_SU2_via_ztMajorant
 #print axioms YMGap.MassGap.SimpleGroup.su3_uniform_witness
 #print axioms YMGap.MassGap.SimpleGroup.mass_gap_SU3
+#print axioms YMGap.MassGap.SimpleGroup.mass_gap_SU3_via_weylData
 #print axioms YMGap.MassGap.SimpleGroup.su2_uniform_witness
 #print axioms YMGap.MassGap.SimpleGroup.mass_gap_SU2_via_uniform
