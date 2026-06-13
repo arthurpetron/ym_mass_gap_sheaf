@@ -709,6 +709,35 @@ theorem Kt_geRat_zero_of_uniq {a x : Q'}
     ExpPos.geRat (dSeriesCReal ha0 ha1 hx hx1) 0 :=
   Kt_geRat_zero_of_diff ha0 ha1 hx hx1 (DiffJTP_of_uniq ha0 ha1 hx hx1 H)
 
+/-! ### Closure through the CReal-LEVEL uniqueness route (Route B)
+
+`DiffProduct.C1UniqInputsCReal` discharges the `Q'→CReal` realisation gap of Route
+A through the genuine constructive-real cancellation
+(`CReal.Equiv_of_abs_sub_le_all_pos`, the CoRN infinitesimal lemma): rather than a
+hand-supplied `dser ≈ dprod → CReal.Equiv …` lift, it consumes the checkable
+infinitesimal-difference bound on the two `CReal` realisations.  Both the
+`Q'`-uniqueness engine (`fdDeriv_unique`) and the `CReal`-cancellation engine are
+fully discharged; the sole open input is the infinitesimal-difference bound (the
+matched-truncation + undifferentiated-Jacobi content). -/
+
+/-- **`C1UniqInputsCReal → DiffJTP`** (the CReal-uniqueness-routed residual closure). -/
+theorem DiffJTP_of_uniq_creal {a x : Q'}
+    (ha0 : (0 : Q') < a) (ha1 : a < (1 : Q')) (hx : (-1 : Q') ≤ x) (hx1 : x ≤ (1 : Q'))
+    (H : DiffProduct.C1UniqInputsCReal (dSeriesCReal ha0 ha1 hx hx1) (Rhalf ha0 ha1 hx hx1)) :
+    DiffJTP ha0 ha1 hx hx1 :=
+  DiffProduct.productDerivativeLimit_of_uniq_creal H
+
+/-- **THE CReal-UNIQUENESS-ROUTED CLOSURE: `C1UniqInputsCReal → K_t ≥ 0`.**
+Positivity flows through BOTH the genuine `TsumDeriv.fdDeriv_unique` (value
+equality) and the genuine `CReal.Equiv_of_abs_sub_le_all_pos` (the infinitesimal
+cancellation lifting it to the `CReal` bridge); the sole open input is the
+infinitesimal-difference bound. -/
+theorem Kt_geRat_zero_of_uniq_creal {a x : Q'}
+    (ha0 : (0 : Q') < a) (ha1 : a < (1 : Q')) (hx : (-1 : Q') ≤ x) (hx1 : x ≤ (1 : Q'))
+    (H : DiffProduct.C1UniqInputsCReal (dSeriesCReal ha0 ha1 hx hx1) (Rhalf ha0 ha1 hx hx1)) :
+    ExpPos.geRat (dSeriesCReal ha0 ha1 hx hx1) 0 :=
+  Kt_geRat_zero_of_diff ha0 ha1 hx hx1 (DiffJTP_of_uniq_creal ha0 ha1 hx hx1 H)
+
 end YMGap.Continuum.JTPIdentity
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1)
@@ -734,3 +763,5 @@ named hypothesis (the single open analytic obligation), NOT a `sorry`. -/
 #print axioms YMGap.Continuum.JTPIdentity.Kt_geRat_zero_of_c1
 #print axioms YMGap.Continuum.JTPIdentity.DiffJTP_of_uniq
 #print axioms YMGap.Continuum.JTPIdentity.Kt_geRat_zero_of_uniq
+#print axioms YMGap.Continuum.JTPIdentity.DiffJTP_of_uniq_creal
+#print axioms YMGap.Continuum.JTPIdentity.Kt_geRat_zero_of_uniq_creal

@@ -58,6 +58,7 @@ identification, exposed downstream as `DiffProduct.C1ToEquiv`.
 
 import YMGap.Continuum.HeatKernelConvGen
 import YMGap.Continuum.JTPIdentity
+import YMGap.Continuum.ThetaLimit
 import YMGap.Constructive.AbsQ
 import YMGap.Constructive.Geometric
 
@@ -464,6 +465,38 @@ theorem Kt_geRat_zero_of_uniq_assembly {a x : Q'}
     ExpPos.geRat (JTPIdentity.dSeriesCReal ha0 ha1 hx hx1) 0 :=
   JTPIdentity.Kt_geRat_zero_of_uniq ha0 ha1 hx hx1 H
 
+/-! ### The Route-B (CReal-uniqueness) family-level residual
+
+`ThetaUniqAssemblyCReal` is the `DiffProduct.C1UniqInputsCReal` for the heat-kernel
+families: the SERIES-side and PRODUCT-side finite-difference derivatives of the
+SAME limit `F = ϑ₃` at `θ`, plus the genuinely-checkable INFINITESIMAL-difference
+bound on the two `CReal` realisations `dSeriesCReal` / `Rhalf` (replacing Route A's
+raw `Q'→CReal` realisation map).  Supplying it closes `DiffJTP` (hence `K_t ≥ 0`)
+via the already-proven `JTPIdentity.Kt_geRat_zero_of_uniq_creal`, routing BOTH
+through the genuine `TsumDeriv.fdDeriv_unique` (value equality) AND the genuine
+`CReal.Equiv_of_abs_sub_le_all_pos` (the CoRN infinitesimal cancellation).  The
+common limit function `F = ϑ₃` the route needs is delivered by the UNDIFFERENTIATED
+Jacobi identity `ThetaLimit.gauss_qbinom_creal_equiv` (the `N → ∞` limit of the
+proven finite `GaussQBinom.gauss_qbinom_all`); the residual is the
+infinitesimal-difference bound. -/
+def ThetaUniqAssemblyCReal {a x : Q'}
+    (ha0 : (0 : Q') < a) (ha1 : a < (1 : Q')) (hx : (-1 : Q') ≤ x) (hx1 : x ≤ (1 : Q')) :
+    Type :=
+  DiffProduct.C1UniqInputsCReal
+    (JTPIdentity.dSeriesCReal ha0 ha1 hx hx1)
+    (JTPIdentity.Rhalf ha0 ha1 hx hx1)
+
+/-- **`ThetaUniqAssemblyCReal → K_t ≥ 0`** via the CReal-uniqueness route (Route B).
+The positivity flows through the genuine constructive-real cancellation engine
+(`CReal.Equiv_of_abs_sub_le_all_pos`), with the common limit function provided by
+`ThetaLimit.gauss_qbinom_creal_equiv`; the sole open input is the
+infinitesimal-difference bound carried by `ThetaUniqAssemblyCReal`. -/
+theorem Kt_geRat_zero_of_uniq_creal_assembly {a x : Q'}
+    (ha0 : (0 : Q') < a) (ha1 : a < (1 : Q')) (hx : (-1 : Q') ≤ x) (hx1 : x ≤ (1 : Q'))
+    (H : ThetaUniqAssemblyCReal ha0 ha1 hx hx1) :
+    ExpPos.geRat (JTPIdentity.dSeriesCReal ha0 ha1 hx hx1) 0 :=
+  JTPIdentity.Kt_geRat_zero_of_uniq_creal ha0 ha1 hx hx1 H
+
 end YMGap.Continuum.JTPInstance
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1)
@@ -488,3 +521,4 @@ Every load-bearing declaration reports `[propext]` or `[propext, Quot.sound]`
 #print axioms YMGap.Continuum.JTPInstance.perFactorModuli
 #print axioms YMGap.Continuum.JTPInstance.Kt_geRat_zero_of_assembly
 #print axioms YMGap.Continuum.JTPInstance.Kt_geRat_zero_of_uniq_assembly
+#print axioms YMGap.Continuum.JTPInstance.Kt_geRat_zero_of_uniq_creal_assembly

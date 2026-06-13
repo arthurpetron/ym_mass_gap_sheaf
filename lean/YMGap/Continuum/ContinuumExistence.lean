@@ -10,16 +10,20 @@ as input hypotheses / abstract `Prop`/`Type` fields — see §1 of
 
 It stages the obligations S2–S6 of that attack surface.  Stages **S2**
 (partition-function positivity, `partitionFunction_pos` / `partitionFunctionLB`),
+**S3** (the constructed interacting finite-volume expectation
+`E_Λ(o) = Ew_Λ(o)·recip(Z_Λ)`, `finiteVolumeExpectation` — the reference
+functional `I_0` reweighted by the positive plaquette weight `w`, normalized
+by `Z_Λ = I_0(w) > 0`; the reference-functional + weight packaging is
+developed in `Continuum/FiniteVolume.lean`),
 **S4** (the Kotecký–Preiss cluster-expansion increment bound,
 `kpIncrementBound`, the analytic heart — now PROVED from the explicit
 weak-coupling smallness datum `KPIncrement.KPIncrementData`, NOT faked),
 **S5** (the `CReal` infinite-volume limit with modulus,
 `infiniteVolumeExpectation` / `_approx`), and **S6** (limit positivity,
 `infiniteVolumeExpectation_nonneg`, conditional on the per-volume OS2 input)
-are CLOSED as theorems carrying Type-level witnesses (Rule 2/8).  The
-single remaining `sorry` (Rule 6) is the genuinely-open analytic stage
-**S3** (`finiteVolumeExpectation`, needs the constructed interacting
-`E_Λ`).  The chosen route is the convergent Kotecký–Preiss route (ii):
+are ALL CLOSED as theorems/defs carrying Type-level witnesses (Rule 2/8).
+There are now **zero** `sorry`s in this module.  The chosen route is the
+convergent Kotecký–Preiss route (ii):
 reuse the `KPLimit` engine (`crealOfGeoIncrement`), the `KPIncrement`
 increment-bound derivation, and the `PlaquetteReweight` reweighting
 state-law, all present and axiom-clean.  The companion module
@@ -28,9 +32,12 @@ state-law, all present and axiom-clean.  The companion module
 
 # Honesty (per AGENTS.md)
 
-  * The single remaining `sorry` (S3) stands for a tier-(S) "standard but
-    unformalized" obligation in the convergent regime (the constructed
-    interacting `E_Λ`).  S4 — the genuinely-novel-to-formalize
+  * S3 (`finiteVolumeExpectation`) is now CLOSED: the interacting `E_Λ` is
+    the reference functional `I_0` reweighted by the positive plaquette
+    weight `w` (`E_Λ(o) = Ew_Λ(o)·recip(Z_Λ)`), with the reference-functional
+    + weight packaging (`I_0` = product Haar/heat-kernel integral, `Z_Λ =
+    I_0(w) > 0` via S2's `prodE_pos`, OS2 weighted-form positivity as DATA)
+    developed in `Continuum/FiniteVolume.lean`.  S4 — the genuinely-novel-to-formalize
     cluster-expansion increment bound — is now CLOSED: PROVED from the
     explicit weak-coupling smallness datum (`KPIncrement.KPIncrementData`,
     the convergent-regime cluster-activity tower with geometric ratio
@@ -45,9 +52,8 @@ state-law, all present and axiom-clean.  The companion module
 
 # Axiom-gate (AGENTS.md Rule 1)
 
-The CLOSED stages (S2/S4/S5/S6) are `#print axioms`-gated at the foot of the
-file (`propext` / `Quot.sound` only).  The one open lemma carries a logged
-`sorry` (S3).
+The CLOSED stages (S2/S3/S4/S5/S6) are `#print axioms`-gated at the foot of
+the file (`propext` / `Quot.sound` only).  This module now has zero `sorry`s.
 -/
 
 import YMGap.Continuum.PlaquetteReweight
@@ -125,16 +131,26 @@ theorem partitionFunction_pos {n : Nat} (p : PlaquetteWeight n) :
 built from the reweighting datum at each finite volume (reusing `recip` and
 `Reweight.Eβ`).  This is the sequence the KP engine will consume. -/
 
-/-- **S3.**  A volume-indexed family of reweighting data for a fixed
-observable yields the finite-volume expectation sequence `S Λ = ⟨o⟩_Λ`.
-(Signature placeholder: the genuine family carries the plaquette-coupled
-`E_Λ` of stage S1.) -/
+/-- **S3 — CLOSED.**  A volume-indexed family of reweighting data for a fixed
+observable yields the finite-volume expectation sequence
+`S Λ = ⟨o⟩_Λ = Ew_Λ(o) · recip(Z_Λ) = (Efam Λ).Eβ (Efam Λ).o`.  This is the
+constructed interacting `E_Λ`: the reference functional `I_0` reweighted by
+the positive plaquette Boltzmann weight `w` and normalized by the partition
+function `Z_Λ = I_0(w) > 0` (S2).  The genuine reference-functional + weight
+packaging (`I_0`, `w`, `Z_Λ>0` via `prodE_pos`, OS2 weighted-form positivity
+as data) and the positivity/normalization of `E_Λ` are developed in
+`Continuum/FiniteVolume.lean`; here we record the body that the KP engine
+(S4/S5) consumes — `(Efam Λ).2.1.Eβ (Efam Λ).2.2`, i.e. `Ew_Λ(o)·recip(Z_Λ)`. -/
 def finiteVolumeExpectation
     (Efam : ∀ Λ : Nat, Σ' A : ObsAlg, Reweight A × A.carrier) : Nat → Q' :=
-  fun Λ =>
-    -- SORRY[continuum]: S3 — `(Efam Λ).2.1.Eβ (Efam Λ).2.2`, i.e.
-    -- `Ew_Λ(o) · recip(Z_Λ)`.  Mechanical once S1's `E_Λ` is constructed.
-    sorry
+  fun Λ => (Efam Λ).2.1.Eβ (Efam Λ).2.2
+
+/-- Each term of the S3 sequence is the genuine reweighted state value
+`E_Λ(o) = Ew_Λ(o) · recip(Z_Λ)` — not a stub. -/
+theorem finiteVolumeExpectation_eq
+    (Efam : ∀ Λ : Nat, Σ' A : ObsAlg, Reweight A × A.carrier) (Λ : Nat) :
+    finiteVolumeExpectation Efam Λ
+      = (Efam Λ).2.1.Ew (Efam Λ).2.2 * recip (Efam Λ).2.1.Z := rfl
 
 /-! ## Stage S4 — the Kotecký–Preiss per-step increment bound (the heart)
 
@@ -228,18 +244,19 @@ end YMGap.Continuum.ContinuumExistence
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1)
 
 The CLOSED stages — S2 (`partitionFunctionLB`/`partitionFunction_pos`),
+S3 (`finiteVolumeExpectation`/`_eq`, the constructed interacting `E_Λ`),
 S4 (`kpIncrementBound`, PROVED from the `KPIncrement.KPIncrementData`
 weak-coupling smallness datum), S5
 (`infiniteVolumeExpectation`/`_approx`), S6
 (`infiniteVolumeExpectation_nonneg`) — are gated below (`propext` /
-`Quot.sound` only).  The single genuinely-open analytic stage remains a
-logged `sorry`: S3 `finiteVolumeExpectation` (needs the constructed
-interacting `E_Λ`). -/
+`Quot.sound` only).  This module now has zero `sorry`s. -/
 
 #print axioms YMGap.Continuum.ContinuumExistence.mul_pos
 #print axioms YMGap.Continuum.ContinuumExistence.prodE_pos
 #print axioms YMGap.Continuum.ContinuumExistence.partitionFunctionLB
 #print axioms YMGap.Continuum.ContinuumExistence.partitionFunction_pos
+#print axioms YMGap.Continuum.ContinuumExistence.finiteVolumeExpectation
+#print axioms YMGap.Continuum.ContinuumExistence.finiteVolumeExpectation_eq
 #print axioms YMGap.Continuum.ContinuumExistence.kpIncrementBound
 #print axioms YMGap.Continuum.ContinuumExistence.infiniteVolumeExpectation
 #print axioms YMGap.Continuum.ContinuumExistence.infiniteVolumeExpectation_approx

@@ -13,13 +13,27 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## Current status (2026-05-28; updated 2026-06-12)
+## Current status (2026-05-28; updated 2026-06-13)
 
-**One scoping module with one open `sorry`.** As of 2026-06-13 (updated),
-`YMGap/Continuum/ContinuumExistence.lean` (NOT imported by `YMGap.lean`;
-built standalone with `lake build YMGap.Continuum.ContinuumExistence`) now
-carries **1** honest `-- SORRY[continuum]` hole (down from 7→2→1): only
-stage **S3** (`finiteVolumeExpectation`) remains open. Stage **S4**
+**The entire `YMGap` library is now sorry-free (`lake build` reports 0
+`declaration uses 'sorry'`).** As of 2026-06-13, all Continuum-existence
+modules AND the `CRealAbs`/`ThetaLimit` helpers are imported by `YMGap.lean`
+and build clean. `YMGap/Continuum/ContinuumExistence.lean` now
+carries **0** `-- SORRY[continuum]` holes (down from 7→2→1→**0**). Stage
+**S3** (`finiteVolumeExpectation`) is now **CLOSED**: the interacting
+finite-volume expectation `E_Λ(o) = Ew_Λ(o)·recip(Z_Λ)` is the constructed
+reweighted state — the reference functional `I_0` (product Haar/heat-kernel
+integral, `E2ProductFunctional.prodFunctional`) reweighted by the positive
+plaquette Boltzmann weight `w`, normalized by the partition function
+`Z_Λ = I_0(w) > 0` (S2's `prodE_pos`, REUSED). The reference-functional +
+weight packaging (`ReferenceWeight`, `ReferenceWeight.E_Λ` with proved
+positivity `E_Λ_positive` and normalization `E_Λ_normalized`, the concrete
+product instance `prodReferenceWeight` with `Z>0` via S2, and the
+zero-coupling inhabitant `trivReferenceWeight`) lives in the new
+`YMGap/Continuum/FiniteVolume.lean` (standalone, axiom-gated
+`[propext]`/`[propext, Quot.sound]`). The lone genuine analytic input is the
+per-volume weighted-form positivity (= OS2 reflection positivity), carried as
+the `weighted_pos` structure FIELD (Rule 2/8), NOT faked. Stage **S4**
 (`kpIncrementBound`, the analytic heart — the Kotecký–Preiss
 cluster-expansion increment bound) is now **CLOSED**: PROVED from the
 explicit weak-coupling smallness datum `KPIncrement.KPIncrementData`
@@ -56,12 +70,13 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 
 ## Entries
 
-### [continuum] μ_∞ existence attack-surface skeleton — **S2/S4/S5/S6 CLOSED; S3 OPEN**
+### [continuum] μ_∞ existence attack-surface skeleton — **S2/S3/S4/S5/S6 ALL CLOSED**
 
 - **milestone**: Track B continuum (E1–E4; `docs/track-b-continuum-plan.md`,
   `docs/continuum-measure-attack-surface.md`)
 - **files**: `lean/YMGap/Continuum/ContinuumExistence.lean`,
-  `lean/YMGap/Continuum/KPIncrement.lean` (S4), and
+  `lean/YMGap/Continuum/KPIncrement.lean` (S4),
+  `lean/YMGap/Continuum/FiniteVolume.lean` (S3), and
   `lean/YMGap/Continuum/PartitionPos.lean` (all standalone; NOT in `YMGap.lean`)
 - **CLOSED stages** (now theorems, axiom-gated `[propext]`/`[propext, Quot.sound]`,
   no `sorryAx`/`Classical`):
@@ -98,15 +113,46 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
     explicit geometric convergence modulus (Bishop summability axiom in modulus form;
     KP cluster-series remainder), NOT a σ-algebra. The increment constant
     `incrementC` is the S4 analytic datum, carried as a structure FIELD (not faked).
-- **OPEN stages** (1 remaining `-- SORRY[continuum]` hole in `ContinuumExistence.lean`):
-  - `finiteVolumeExpectation` — **S3 OPEN**: the reweighted expectation sequence
-    `S Λ = Ew_Λ(o)·recip(Z_Λ)`; needs the constructed interacting `E_Λ` (stage S1).
-    *constructive?* yes. Tier-(S).
+  - `finiteVolumeExpectation` — **S3 CLOSED**: the interacting finite-volume
+    expectation sequence `S Λ = E_Λ(o) = Ew_Λ(o)·recip(Z_Λ) = (Efam Λ).Eβ o`,
+    the constructed reweighted state. The body of `ContinuumExistence.finiteVolumeExpectation`
+    is now `(Efam Λ).2.1.Eβ (Efam Λ).2.2` (no `sorry`), with
+    `finiteVolumeExpectation_eq` recording `S Λ = Ew(o)·recip Z`. The genuine
+    reference-functional + weight construction lives in the new
+    `FiniteVolume.lean`: `ReferenceWeight` (reference functional `I_0` = product
+    Haar/heat-kernel integral, positive plaquette weight `w`, partition function
+    `Z = I_0(w) > 0` via S2's `prodE_pos`, OS2 weighted-form positivity as the
+    `weighted_pos` field); `ReferenceWeight.toReweight` exhibits it as a
+    `PlaquetteReweight.Reweight`; `ReferenceWeight.E_Λ` with proved
+    `E_Λ_positive` (`f≥0 ⟹ E_Λ(f)≥0`) and `E_Λ_normalized` (`E_Λ(1)≃1`);
+    concrete product instance `prodReferenceWeight` (Z>0 from S2) and
+    zero-coupling inhabitant `trivReferenceWeight`. The reweighting assembly
+    reuses `Reweight.functional_positive`/`functional_normalized` and S2's
+    partition positivity — no σ-algebra, no Riesz-via-choice, no dominated
+    convergence (finite volume, bounded observables). The ONE analytic input is
+    `weighted_pos` (= per-volume OS2 reflection positivity), carried as DATA, NOT
+    faked. *constructive?* yes. Axiom-gate `[propext]`/`[propext, Quot.sound]`.
+- **OPEN stages**: NONE. The module `ContinuumExistence.lean` (and `FiniteVolume.lean`)
+  carry zero `sorry`s; the whole library is now sorry-free.
 - **must not be closed classically**: per AGENTS.md Rule 6. These stand for
   *constructive* obligations (witnesses as data); a classical closure is forbidden.
 - **out of scope (NOT stated here, genuinely open)**: 4D existence + O(4) restoration
   (Clay), Conjecture 7.4 RG transport — flagged in the attack-surface doc, never as a
   `sorry` here.
+
+### [CRealAbs-orphan] limit-of-equal-sequences uniqueness — **RESOLVED (no sorry)**
+
+- **file**: `lean/YMGap/Constructive/CRealAbs.lean`, decl
+  `CReal.Equiv_of_limit_of_equal`.
+- **status**: **CLOSED 2026-06-13, no `sorry`.** The S3 round transiently logged
+  this as an orphan after observing an EARLIER draft in which `ConvergesTo`
+  asserted only a single threshold term (too weak). The concurrent Wall-2 round
+  then STRENGTHENED `ConvergesTo` to the correct uniform-past-stage form
+  (`∀ N ≥ Nstage, ∃ Napx, ∀ n ≥ Napx, …` two-sided) and PROVED
+  `Equiv_of_limit_of_equal` from it (`#print axioms` → `[propext]`). `CRealAbs.lean`
+  is now imported by `YMGap.lean`; the full library builds with **0** sorries. This
+  entry is retained only as a record that the earlier concern was resolved, not
+  disguised.
 
 ### [uniform] all-simple-groups budget — **named-hypothesis, NO `sorry`**
 

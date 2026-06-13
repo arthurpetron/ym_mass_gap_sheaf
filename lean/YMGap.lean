@@ -32,6 +32,7 @@ import YMGap.Constructive.CRealMulMono
 import YMGap.Constructive.SumOfSquares
 import YMGap.Constructive.QPoly
 import YMGap.Constructive.Sqrt
+import YMGap.Constructive.CRealAbs
 import YMGap.Constructive.CauchyConv
 import YMGap.Constructive.ExpAddConv
 import YMGap.Constructive.ProductDecomp
@@ -71,6 +72,7 @@ import YMGap.RG.CharacterTailAntitone
 import YMGap.RG.CharacterTailMajorant
 import YMGap.RG.RankCollapse
 import YMGap.RG.EtaPackaging
+import YMGap.RG.WeylCharacterBound
 import YMGap.Continuum.SigmaHatLimit
 import YMGap.Continuum.ContinuumMeasure
 import YMGap.Continuum.ObservableMeasure
@@ -111,10 +113,12 @@ import YMGap.Continuum.TsumDeriv
 import YMGap.Continuum.DiffProduct
 import YMGap.Continuum.JTPIdentity
 import YMGap.Continuum.JTPInstance
+import YMGap.Continuum.ThetaLimit
 import YMGap.Continuum.PNDeterminant
 import YMGap.Continuum.ContinuumExistence
 import YMGap.Continuum.PartitionPos
 import YMGap.Continuum.KPIncrement
+import YMGap.Continuum.FiniteVolume
 import YMGap.Continuum.PNPaths
 import YMGap.Continuum.PNInduction
 import YMGap.Continuum.GramReduction3

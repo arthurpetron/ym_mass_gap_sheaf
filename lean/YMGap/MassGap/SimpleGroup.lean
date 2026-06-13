@@ -57,6 +57,7 @@ import YMGap.RG.CharacterTailAntitone
 import YMGap.RG.CharacterTailMajorant
 import YMGap.RG.RankCollapse
 import YMGap.RG.EtaPackaging
+import YMGap.RG.WeylCharacterBound
 import YMGap.RepTheory.CasimirData
 import YMGap.MassGap.SU2
 
@@ -318,6 +319,53 @@ theorem mass_gap_simple_group_of_modelData
       m hZtR hZtsu2)
     hKwin rec bundle
 
+/-! ## Mass gap from the Weyl-character STRUCTURAL data
+(the honest reduction of the assumed inequality to root-system data)
+
+`mass_gap_simple_group_of_modelData` consumed the per-axis floor excesses
+`sFloor`/`sR` as *bare `Q'` data* — the inequality `Z_t(R) ≤ Z_t(su2)` was
+realized through those numbers without a structural account of *where they
+come from*.  `RG/WeylCharacterBound.lean` supplies that account — the
+three-step Lie-theory chain over the dominant weight lattice `λ ∈ ℕ^r`:
+
+  * (a) `casimir_axis_lower` : `h_i(x) ≥ Δ_i·x` (drop nonneg Gram cross
+    terms, `x² ≥ x` on the support) — the Casimir lower split, *proven*;
+  * (b) `one_add_sum_le_prod` : `1 + Σ a_i ≤ ∏(1 + a_i)` — the Weyl-product
+    regrouping engine, *proven*; the per-root squaring is the named
+    `WeylDimData`;
+  * (c) `Zt_le_su2_of_axisData` : factorization + `rank_collapse_of_sum`
+    caps `Z_t(R)` at `Z_t(su2)` from the per-axis polynomial-geometric
+    factor excesses `AxisFactorBound` (the pitfall-aware tail data).
+
+This corollary consumes the **structural** `AxisFactorBound R` (the per-axis
+character-tail factor data, whose excesses ARE the `sFloor`/`sR` of the old
+path — but now *named as the Weyl-character factors* they represent), builds
+the `ZtMajorant` through the proven `ztMajorant_of_axisData`, and delivers
+the mass gap.  The remaining honest content is exactly the two named
+per-group data items of `WeylCharacterBound.lean` — `WeylDimData` (Weyl
+squaring constants) and `AxisFactorBound` (polynomial-geometric tail) — plus
+the `Z_t ↦ η` model `ZtEtaModel`; no assumed inequality anywhere. -/
+theorem mass_gap_simple_group_of_weylData
+    (R : RepData) (hadm : AdmissibleSimpleGroup R)
+    (b : YMGap.RG.AxisFactorBound R) (su2Zt : Q')
+    (hwin : 2 * (sumExcess b.axisExcess b.rank) ≤ 1)
+    (hcap : 2 * (sumExcess b.axisExcess b.rank) ≤ su2Zt)
+    (m : ZtEtaModel R)
+    (hZtR : m.ZtR = ztValue b.axisExcess b.rank) (hZtsu2 : m.Ztsu2 = su2Zt)
+    (hKwin : R.K_steps = su2.K_steps)
+    {M : Nat → Type} {μ_inf : ContinuumMeasure M}
+    (rec : OSReconstruction μ_inf) (bundle : OSAxiomBundle μ_inf) :
+    ∃ m_0 : Q',
+      (0 : Q') < m_0 ∧
+      m_0 * m_0 ≤ sigma_hat_inf_lower_uniform ∧
+      HasSpectralGap rec ∧
+      (∀ N, finSum (truncatedConst R.K_steps R.eta_max) N ≤ su2.sigma0) :=
+  mass_gap_simple_group_of_ztMajorant R hadm
+    (YMGap.RG.etaFromZt_of_model
+      (YMGap.RG.ztMajorant_of_axisData b su2Zt hwin hcap)
+      m hZtR hZtsu2)
+    hKwin rec bundle
+
 /-! ## SU(3) corollary — the near-free instance
 
 SU(3) is admissible (`su3_admissible`) and η-dominated: its per-step
@@ -374,6 +422,7 @@ end YMGap.MassGap.SimpleGroup
 #print axioms YMGap.MassGap.SimpleGroup.mass_gap_simple_group_of_ztMajorant
 #print axioms YMGap.MassGap.SimpleGroup.mass_gap_simple_group_of_rankCollapseData
 #print axioms YMGap.MassGap.SimpleGroup.mass_gap_simple_group_of_modelData
+#print axioms YMGap.MassGap.SimpleGroup.mass_gap_simple_group_of_weylData
 #print axioms YMGap.MassGap.SimpleGroup.mass_gap_SU2_via_ztMajorant
 #print axioms YMGap.MassGap.SimpleGroup.su3_uniform_witness
 #print axioms YMGap.MassGap.SimpleGroup.mass_gap_SU3
