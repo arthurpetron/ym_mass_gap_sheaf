@@ -44,6 +44,12 @@ No `Classical.*`, no `native_decide`, no `sorry`.
 import YMGap.Constructive.Trig
 import YMGap.Constructive.TrigBound
 import YMGap.Constructive.CRealAbs
+import YMGap.Constructive.ExpAddConv
+import YMGap.Constructive.FinSumAlg
+import YMGap.Constructive.CornerBound
+import YMGap.Constructive.ProductDecompAdd
+import YMGap.Constructive.CornerBoundAdd
+import YMGap.Constructive.ExpAdd
 
 namespace YMGap.Constructive
 
@@ -455,6 +461,630 @@ theorem cosConv_addition_zero (A B : Q') :
   rw [cosTerm_zero, cosTerm_zero, cosTerm_zero, Q'.zero_add']
   exact Q'.mul_one_eqv 1
 
+/-! ### 5a. `negPow` sign algebra (the source of the addition-formula minus)
+
+The two shared signs in the even/odd reassembly are `negPow m = (−1)^m` (even
+sub-sum) and `negPow (m−1) = (−1)^{m−1}` (odd sub-sum).  Their product with the
+outer `negPow m` collapses to `1` (even) and `−1` (odd), and that single `−1` is
+the minus of `cos(A+B) = cos A cos B − sin A sin B`. -/
+
+/-- `negPow (i + j) ≈ negPow i · negPow j`. -/
+theorem negPow_add (i : Nat) : ∀ j, (negPow (i + j)).eqv (negPow i * negPow j)
+  | 0 => by
+    show (negPow (i + 0)).eqv (negPow i * negPow 0)
+    rw [Nat.add_zero]
+    exact Q'.eqv_symm (Q'.mul_one_eqv (negPow i))
+  | j + 1 => by
+    show (negPow (i + (j + 1))).eqv (negPow i * negPow (j + 1))
+    have hidx : i + (j + 1) = (i + j) + 1 := by omega
+    rw [hidx]
+    show (-(negPow (i + j))).eqv (negPow i * (-(negPow j)))
+    refine Q'.eqv_trans _ _ _ (Q'.neg_eqv_congr _ _ (negPow_add i j)) ?_
+    exact Q'.eqv_symm (Q'.mul_neg_eqv (negPow i) (negPow j))
+
+/-- `negPow (2k) ≈ 1`. -/
+theorem negPow_two_mul : ∀ k, (negPow (2 * k)).eqv 1
+  | 0 => by show (negPow 0).eqv 1; exact Q'.eqv_refl 1
+  | k + 1 => by
+    have hidx : 2 * (k + 1) = (2 * k + 1) + 1 := by omega
+    rw [hidx]
+    show (-(negPow (2 * k + 1))).eqv 1
+    show (-(-(negPow (2 * k)))).eqv 1
+    refine Q'.eqv_trans _ _ _ (Q'.neg_neg_eqv (negPow (2 * k))) ?_
+    exact negPow_two_mul k
+
+/-- `negPow m · negPow m ≈ 1`. -/
+theorem negPow_self_mul (m : Nat) : (negPow m * negPow m).eqv 1 := by
+  refine Q'.eqv_trans _ _ _ (Q'.eqv_symm (negPow_add m m)) ?_
+  have : m + m = 2 * m := by omega
+  rw [this]
+  exact negPow_two_mul m
+
+/-- `negPow (m+1) · negPow m ≈ −1`. -/
+theorem negPow_succ_mul (m : Nat) : (negPow (m + 1) * negPow m).eqv (-(1 : Q')) := by
+  show ((-(negPow m)) * negPow m).eqv (-(1 : Q'))
+  refine Q'.eqv_trans _ _ _ (Q'.neg_mul_eqv (negPow m) (negPow m)) ?_
+  exact Q'.neg_eqv_congr _ _ (negPow_self_mul m)
+
+/-! ### 5b. The even/odd `finSum` deinterleave
+
+`finSum f (2m+1) ≃ Σ_{p≤m} f(2p) + Σ_{p<m} f(2p+1)` — the even-index sub-sum (`m+1`
+terms) plus the odd-index sub-sum (`m` terms).  Proved by induction on `m`, peeling
+one even and one odd term per step.  Pure `finSum`/`add`-algebra reindexing. -/
+
+/-- `finSum f (2m+3) = finSum f (2m+1) + f(2m+1) + f(2m+2)` (defeq peel of two). -/
+theorem finSum_two_step (f : RationalTail.QSeq) (k : Nat) :
+    RationalTail.finSum f (k + 2)
+      = RationalTail.finSum f k + f k + f (k + 1) := rfl
+
+/-- Pure `Q'` rearrangement: `(s·t)·(a·b) ≈ (s·a)·(t·b)`. -/
+theorem mul_shuffle_4 (s t a b : Q') :
+    ((s * t) * (a * b)).eqv ((s * a) * (t * b)) := by
+  -- (s·t)·(a·b) ≈ s·(t·(a·b)) ≈ s·((t·a)·b) ≈ s·((a·t)·b) ≈ s·(a·(t·b))
+  --   ≈ (s·a)·(t·b)
+  refine Q'.eqv_trans _ _ _ (Q'.mul_assoc_eqv s t (a * b)) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_left s _ _ (Q'.eqv_symm (Q'.mul_assoc_eqv t a b))) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_left s _ _
+      (Q'.mul_eqv_congr_right (t * a) (a * t) b (Q'.mul_comm_eqv t a))) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_left s _ _ (Q'.mul_assoc_eqv a t b)) ?_
+  exact Q'.eqv_symm (Q'.mul_assoc_eqv s a (t * b))
+
+/-- Pure `Q'` rearrangement: `(a+b)+((p+q)+r) ≈ (a+p)+((b+r)+q)`.  Both sides
+reduce to `((a+p)+(b+r))+q`. -/
+theorem add_rearrange_5 (a b p q r : Q') :
+    ((a + b) + ((p + q) + r)).eqv ((a + p) + ((b + r) + q)) := by
+  -- LHS ≈ ((a+p)+(b+r))+q
+  have hL : ((a + b) + ((p + q) + r)).eqv (((a + p) + (b + r)) + q) := by
+    -- (p+q)+r ≈ (p+r)+q
+    have h1 : ((p + q) + r).eqv ((p + r) + q) := by
+      refine Q'.eqv_trans _ _ _ (Q'.add_assoc_eqv p q r) ?_
+      refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr_left p _ _ (Q'.add_comm_eqv q r)) ?_
+      exact Q'.eqv_symm (Q'.add_assoc_eqv p r q)
+    refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr_left (a + b) _ _ h1) ?_
+    -- (a+b)+((p+r)+q) ≈ ((a+b)+(p+r))+q ≈ ((a+p)+(b+r))+q
+    refine Q'.eqv_trans _ _ _
+      (Q'.eqv_symm (Q'.add_assoc_eqv (a + b) (p + r) q)) ?_
+    exact Q'.add_eqv_congr_right _ _ q (Q'.add_swap_inner a b p r)
+  -- RHS ≈ ((a+p)+(b+r))+q
+  have hR : ((a + p) + ((b + r) + q)).eqv (((a + p) + (b + r)) + q) :=
+    Q'.eqv_symm (Q'.add_assoc_eqv (a + p) (b + r) q)
+  exact Q'.eqv_trans _ _ _ hL (Q'.eqv_symm hR)
+
+/-- Pure `Q'` rearrangement: `((E+O)+a)+b ≈ (E+b)+(O+a)`. -/
+theorem add_rearrange_4 (E O a b : Q') :
+    (((E + O) + a) + b).eqv ((E + b) + (O + a)) := by
+  -- ((E+O)+a)+b ≈ (E+(O+a))+b ≈ E+((O+a)+b) ≈ E+(b+(O+a)) ≈ (E+b)+(O+a)
+  refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr_right _ _ b (Q'.add_assoc_eqv E O a)) ?_
+  refine Q'.eqv_trans _ _ _ (Q'.add_assoc_eqv E (O + a) b) ?_
+  refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr_left E _ _ (Q'.add_comm_eqv (O + a) b)) ?_
+  exact Q'.eqv_symm (Q'.add_assoc_eqv E b (O + a))
+
+/-- **Even/odd deinterleave.**  `Σ_{i<2m+1} f(i) ≃ Σ_{p≤m} f(2p) + Σ_{p<m} f(2p+1)`. -/
+theorem finSum_even_odd_split (f : RationalTail.QSeq) :
+    ∀ m, (RationalTail.finSum f (2 * m + 1)).eqv
+        (RationalTail.finSum (fun p => f (2 * p)) (m + 1)
+          + RationalTail.finSum (fun p => f (2 * p + 1)) m)
+  | 0 => by
+    show (RationalTail.finSum f 1).eqv
+        (RationalTail.finSum (fun p => f (2 * p)) 1 + RationalTail.finSum (fun p => f (2 * p + 1)) 0)
+    show ((0 : Q') + f 0).eqv (((0 : Q') + f (2 * 0)) + (0 : Q'))
+    rw [Nat.mul_zero, Q'.zero_add', Q'.add_zero']
+    exact Q'.eqv_refl (f 0)
+  | m + 1 => by
+    -- LHS index 2*(m+1)+1 = (2m+1)+2 reduces (defeq) to a two-term peel; RHS even
+    -- sub-sum at m+2 peels (defeq) to (Σ even m+1)+f(2(m+1)), odd at m+1 to (Σ odd m)+f(2m+1).
+    show (RationalTail.finSum f (2 * m + 1) + f (2 * m + 1) + f (2 * (m + 1))).eqv
+        ((RationalTail.finSum (fun p => f (2 * p)) (m + 1) + f (2 * (m + 1)))
+          + (RationalTail.finSum (fun p => f (2 * p + 1)) m + f (2 * m + 1)))
+    -- IH: finSum f (2m+1) ≈ E + O.  Goal: ((E+O) + a) + b ≈ (E+b) + (O+a).
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_right _ _ (f (2 * (m + 1)))
+        (Q'.add_eqv_congr_right _ _ (f (2 * m + 1)) (finSum_even_odd_split f m))) ?_
+    exact add_rearrange_4 _ _ (f (2 * m + 1)) (f (2 * (m + 1)))
+
+/-! ### 5c. The bridge from trig convolution terms to even/odd convAdd terms
+
+`cosConvTerm A B m p = cosTerm A p · cosTerm B (m−p)` reassembles the **even**-index
+convAdd term `convAddTerm A B (2m) (2p)` with the shared sign `(−1)^m`; the
+**odd**-index convAdd term `convAddTerm A B (2m) (2p+1)` reassembles
+`sinConvTerm A B (m−1) p` with shared sign `(−1)^{m−1}`.  Sign via §5a, magnitude
+via the §4 bridge `term_even_eq_abs`/`term_odd_eq_neg_abs`. -/
+
+/-- Even-term bridge: for `p ≤ m`,
+`cosConvTerm A B m p ≈ negPow m · convAddTerm A B (2m) (2p)`. -/
+theorem cosConvTerm_eqv (A B : Q') (m p : Nat) (hp : p ≤ m) :
+    (cosConvTerm A B m p).eqv (negPow m * convAddTerm A B (2 * m) (2 * p)) := by
+  have hsub : 2 * m - 2 * p = 2 * (m - p) := by omega
+  -- LHS = (negPow p · termAbs A (2p)) · (negPow (m−p) · termAbs B (2(m−p)))
+  show ((negPow p * termAbs A (2 * p)) * (negPow (m - p) * termAbs B (2 * (m - p)))).eqv
+      (negPow m * (ExpNeg.term A (2 * p) * ExpNeg.term B (2 * m - 2 * p)))
+  rw [hsub]
+  -- RHS: replace term A (2p) ≈ termAbs A (2p), term B (2(m−p)) ≈ termAbs B (2(m−p)).
+  refine Q'.eqv_symm ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_left (negPow m) _ _
+      (Q'.mul_eqv_congr_right (ExpNeg.term A (2 * p)) (termAbs A (2 * p)) _
+        (term_even_eq_abs A p))) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_left (negPow m) _ _
+      (Q'.mul_eqv_congr_left (termAbs A (2 * p)) (ExpNeg.term B (2 * (m - p)))
+        (termAbs B (2 * (m - p))) (term_even_eq_abs B (m - p)))) ?_
+  -- Now: negPow m · (termAbs A (2p) · termAbs B (2(m−p)))  ≈  LHS.
+  -- LHS = (negPow p · tA) · (negPow (m−p) · tB).  Rearrange to negPow m · (tA · tB).
+  -- First collapse the sign: negPow m ≈ negPow p · negPow (m−p)  (p + (m−p) = m).
+  have hsign : (negPow m).eqv (negPow p * negPow (m - p)) := by
+    have hpm : p + (m - p) = m := by omega
+    refine Q'.eqv_trans _ _ _ ?_ (negPow_add p (m - p))
+    rw [hpm]
+    exact Q'.eqv_refl (negPow m)
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_right (negPow m) (negPow p * negPow (m - p))
+      (termAbs A (2 * p) * termAbs B (2 * (m - p))) hsign) ?_
+  -- Goal: (negPow p · negPow (m−p)) · (tA · tB) ≈ (negPow p · tA) · (negPow (m−p) · tB)
+  -- Pure mul-comm/assoc shuffle: (s·t)·(a·b) ≈ (s·a)·(t·b).
+  exact mul_shuffle_4 (negPow p) (negPow (m - p)) (termAbs A (2 * p)) (termAbs B (2 * (m - p)))
+
+/-- `(-a)·(-b) ≈ a·b`. -/
+theorem neg_mul_neg (a b : Q') : ((-a) * (-b)).eqv (a * b) := by
+  refine Q'.eqv_trans _ _ _ (Q'.neg_mul_eqv a (-b)) ?_
+  refine Q'.eqv_trans _ _ _ (Q'.neg_eqv_congr _ _ (Q'.mul_neg_eqv a b)) ?_
+  exact Q'.neg_neg_eqv (a * b)
+
+/-- Odd-term bridge: for `p ≤ m`,
+`sinConvTerm A B m p ≈ negPow m · convAddTerm A B (2(m+1)) (2p+1)`.
+The convAdd partner index is `(2m+2)−(2p+1) = 2(m−p)+1` (odd), so both factors
+flip sign and the product is positive; the shared sign is `negPow m`. -/
+theorem sinConvTerm_eqv (A B : Q') (m p : Nat) (hp : p ≤ m) :
+    (sinConvTerm A B m p).eqv (negPow m * convAddTerm A B (2 * (m + 1)) (2 * p + 1)) := by
+  have hsub : 2 * (m + 1) - (2 * p + 1) = 2 * (m - p) + 1 := by omega
+  show ((negPow p * termAbs A (2 * p + 1)) * (negPow (m - p) * termAbs B (2 * (m - p) + 1))).eqv
+      (negPow m * (ExpNeg.term A (2 * p + 1) * ExpNeg.term B (2 * (m + 1) - (2 * p + 1))))
+  rw [hsub]
+  refine Q'.eqv_symm ?_
+  -- Replace term A (2p+1) ≈ −termAbs A (2p+1), term B (2(m−p)+1) ≈ −termAbs B (2(m−p)+1).
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_left (negPow m) _ _
+      (Q'.mul_eqv_congr_right (ExpNeg.term A (2 * p + 1)) (-(termAbs A (2 * p + 1))) _
+        (term_odd_eq_neg_abs A p))) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_left (negPow m) _ _
+      (Q'.mul_eqv_congr_left (-(termAbs A (2 * p + 1))) (ExpNeg.term B (2 * (m - p) + 1))
+        (-(termAbs B (2 * (m - p) + 1))) (term_odd_eq_neg_abs B (m - p)))) ?_
+  -- (−tA)·(−tB) ≈ tA·tB
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_left (negPow m) _ _
+      (neg_mul_neg (termAbs A (2 * p + 1)) (termAbs B (2 * (m - p) + 1)))) ?_
+  -- sign collapse negPow m ≈ negPow p · negPow (m−p)
+  have hsign : (negPow m).eqv (negPow p * negPow (m - p)) := by
+    have hpm : p + (m - p) = m := by omega
+    refine Q'.eqv_trans _ _ _ ?_ (negPow_add p (m - p))
+    rw [hpm]; exact Q'.eqv_refl (negPow m)
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_right (negPow m) (negPow p * negPow (m - p))
+      (termAbs A (2 * p + 1) * termAbs B (2 * (m - p) + 1)) hsign) ?_
+  exact mul_shuffle_4 (negPow p) (negPow (m - p)) (termAbs A (2 * p + 1)) (termAbs B (2 * (m - p) + 1))
+
+/-! ### 5d. Sum-level even/odd bridges and the per-degree addition identity (TC) -/
+
+/-- The even sub-sum of `convAdd A B (2(m+1))` (the `m+2` even-index terms). -/
+def evenSub (A B : Q') (m : Nat) : Q' :=
+  RationalTail.finSum (fun p => convAddTerm A B (2 * (m + 1)) (2 * p)) (m + 2)
+
+/-- The odd sub-sum of `convAdd A B (2(m+1))` (the `m+1` odd-index terms). -/
+def oddSub (A B : Q') (m : Nat) : Q' :=
+  RationalTail.finSum (fun p => convAddTerm A B (2 * (m + 1)) (2 * p + 1)) (m + 1)
+
+/-- `cosConv A B (m+1) ≈ negPow (m+1) · evenSub A B m`. -/
+theorem cosConv_eqv_evenSub (A B : Q') (m : Nat) :
+    (cosConv A B (m + 1)).eqv (negPow (m + 1) * evenSub A B m) := by
+  -- cosConv (m+1) = finSum (cosConvTerm A B (m+1)) (m+2)
+  show (RationalTail.finSum (cosConvTerm A B (m + 1)) (m + 2)).eqv
+      (negPow (m + 1) * RationalTail.finSum
+        (fun p => convAddTerm A B (2 * (m + 1)) (2 * p)) (m + 2))
+  refine Q'.eqv_trans _ _ _
+    (RationalTail.finSum_eqv_congr_lt (cosConvTerm A B (m + 1))
+      (fun p => negPow (m + 1) * convAddTerm A B (2 * (m + 1)) (2 * p)) (m + 2)
+      (fun p hp => cosConvTerm_eqv A B (m + 1) p (by omega))) ?_
+  exact Q'.eqv_symm
+    (RationalTail.const_mul_finSum
+      (fun p => convAddTerm A B (2 * (m + 1)) (2 * p)) (negPow (m + 1)) (m + 2))
+
+/-- `sinConv A B m ≈ negPow m · oddSub A B m`. -/
+theorem sinConv_eqv_oddSub (A B : Q') (m : Nat) :
+    (sinConv A B m).eqv (negPow m * oddSub A B m) := by
+  show (RationalTail.finSum (sinConvTerm A B m) (m + 1)).eqv
+      (negPow m * RationalTail.finSum
+        (fun p => convAddTerm A B (2 * (m + 1)) (2 * p + 1)) (m + 1))
+  refine Q'.eqv_trans _ _ _
+    (RationalTail.finSum_eqv_congr_lt (sinConvTerm A B m)
+      (fun p => negPow m * convAddTerm A B (2 * (m + 1)) (2 * p + 1)) (m + 1)
+      (fun p hp => sinConvTerm_eqv A B m p (by omega))) ?_
+  exact Q'.eqv_symm
+    (RationalTail.const_mul_finSum
+      (fun p => convAddTerm A B (2 * (m + 1)) (2 * p + 1)) (negPow m) (m + 1))
+
+/-- `convAdd A B (2(m+1)) ≈ evenSub A B m + oddSub A B m` (even/odd deinterleave at
+the convAdd degree). -/
+theorem convAdd_eqv_even_odd (A B : Q') (m : Nat) :
+    (convAdd A B (2 * (m + 1))).eqv (evenSub A B m + oddSub A B m) := by
+  -- convAdd A B D = finSum (convAddTerm A B D) (D+1), D = 2(m+1); D+1 = 2(m+1)+1.
+  show (RationalTail.finSum (convAddTerm A B (2 * (m + 1))) (2 * (m + 1) + 1)).eqv
+      (RationalTail.finSum (fun p => convAddTerm A B (2 * (m + 1)) (2 * p)) (m + 2)
+        + RationalTail.finSum (fun p => convAddTerm A B (2 * (m + 1)) (2 * p + 1)) (m + 1))
+  exact finSum_even_odd_split (convAddTerm A B (2 * (m + 1))) (m + 1)
+
+/-- `cosTerm (A+B) (m+1) ≈ negPow (m+1) · term (A+B) (2(m+1))` (even-index magnitude
+bridge applied at the sum angle). -/
+theorem cosTerm_eqv_negPow_term (A B : Q') (m : Nat) :
+    (cosTerm (A + B) (m + 1)).eqv (negPow (m + 1) * ExpNeg.term (A + B) (2 * (m + 1))) := by
+  show (negPow (m + 1) * termAbs (A + B) (2 * (m + 1))).eqv
+      (negPow (m + 1) * ExpNeg.term (A + B) (2 * (m + 1)))
+  exact Q'.mul_eqv_congr_left (negPow (m + 1)) _ _
+    (Q'.eqv_symm (term_even_eq_abs (A + B) (m + 1)))
+
+/-- **The per-degree trig addition identity (TC), inductive degrees `m+1`.**
+`cosConv A B (m+1) + (−(sinConv A B m)) ≃ cosTerm (A+B) (m+1)`.
+
+This is the algebraic heart of `cos(A+B) = cos A cos B − sin A sin B`: the even
+sub-sum of the exponential Cauchy coefficient `convAdd A B (2(m+1))` reassembles
+`cosConv` with sign `(−1)^{m+1}`, the odd sub-sum reassembles `sinConv` with sign
+`(−1)^m`, and the single `(−1)^{m+1}·(−1)^m = −1` discrepancy is the MINUS sign. -/
+theorem cosConv_addition (A B : Q') (m : Nat) :
+    (cosConv A B (m + 1) + (-(sinConv A B m))).eqv (cosTerm (A + B) (m + 1)) := by
+  -- Step 1: substitute (C) and (Sn).
+  -- cosConv(m+1) ≈ negPow(m+1)·even ; sinConv m ≈ negPow m·odd.
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr' (cosConv_eqv_evenSub A B m)
+      (Q'.neg_eqv_congr _ _ (sinConv_eqv_oddSub A B m))) ?_
+  -- Goal: negPow(m+1)·even + (−(negPow m·odd)) ≈ cosTerm(A+B)(m+1)
+  -- Step 2: −(negPow m·odd) ≈ negPow(m+1)·odd  (since negPow(m+1) = −negPow m).
+  have hflip : (-(negPow m * oddSub A B m)).eqv (negPow (m + 1) * oddSub A B m) := by
+    show (-(negPow m * oddSub A B m)).eqv ((-(negPow m)) * oddSub A B m)
+    exact Q'.eqv_symm (Q'.neg_mul_eqv (negPow m) (oddSub A B m))
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr_left (negPow (m + 1) * evenSub A B m) _ _ hflip) ?_
+  -- Goal: negPow(m+1)·even + negPow(m+1)·odd ≈ cosTerm(A+B)(m+1)
+  -- Step 3: factor: ≈ negPow(m+1)·(even+odd)
+  refine Q'.eqv_trans _ _ _
+    (Q'.eqv_symm (Q'.mul_add_eqv (negPow (m + 1)) (evenSub A B m) (oddSub A B m))) ?_
+  -- Step 4: even+odd ≈ convAdd A B (2(m+1)) ≈ term(A+B)(2(m+1))
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_left (negPow (m + 1)) _ _
+      (Q'.eqv_symm (convAdd_eqv_even_odd A B m))) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_left (negPow (m + 1)) _ _ (convAdd_eqv_term A B (2 * (m + 1)))) ?_
+  -- Goal: negPow(m+1)·term(A+B)(2(m+1)) ≈ cosTerm(A+B)(m+1)
+  exact Q'.eqv_symm (cosTerm_eqv_negPow_term A B m)
+
+/-! ### 5e. Trig triangle decompositions (cos·cos and sin·sin diagonal sums)
+
+Exactly as `ProductDecompAdd.triAdd` does for the exponential single product, the
+cos·cos and sin·sin partial products row-split at the diagonal into a triangle
+(whose recurrence peels one `cosConv`/`sinConv` per row) plus a corner.  Here we
+land the triangle recurrences `cosTri (n+1) ≃ cosTri n + cosConv n` and
+`cosTri n ≃ Σ_{m<n} cosConv m` (and the `sin` analogues).  These are the clean
+adaptations of `triAdd_succ`/`triAdd_eqv_convAddSum`; the difference-of-products
+diagonal collapse (which needs the degree-shifted telescope of `cosConv_addition`)
+and the corner bounds remain — see the footer residual. -/
+
+/-- `cosPartial x n = finSum (cosTerm x) n` (defeq by induction). -/
+theorem cosPartial_eq_finSum (x : Q') :
+    ∀ n, cosPartial x n = RationalTail.finSum (cosTerm x) n
+  | 0 => rfl
+  | n + 1 => by
+    show cosPartial x n + cosTerm x n = RationalTail.finSum (cosTerm x) n + cosTerm x n
+    rw [cosPartial_eq_finSum x n]
+
+/-- `sinPartial x n = finSum (sinTerm x) n` (defeq by induction). -/
+theorem sinPartial_eq_finSum (x : Q') :
+    ∀ n, sinPartial x n = RationalTail.finSum (sinTerm x) n
+  | 0 => rfl
+  | n + 1 => by
+    show sinPartial x n + sinTerm x n = RationalTail.finSum (sinTerm x) n + sinTerm x n
+    rw [sinPartial_eq_finSum x n]
+
+/-- `cosTriTerm A B n i = cosTerm A i · cosPartial B (n−i)`. -/
+def cosTriTerm (A B : Q') (n : Nat) : Nat → Q' :=
+  fun i => cosTerm A i * cosPartial B (n - i)
+
+/-- `cosTri A B n = Σ_{i<n} cosTerm A i · cosPartial B (n−i)`. -/
+def cosTri (A B : Q') (n : Nat) : Q' := RationalTail.finSum (cosTriTerm A B n) n
+
+/-- `sinTriTerm A B n i = sinTerm A i · sinPartial B (n−i)`. -/
+def sinTriTerm (A B : Q') (n : Nat) : Nat → Q' :=
+  fun i => sinTerm A i * sinPartial B (n - i)
+
+/-- `sinTri A B n = Σ_{i<n} sinTerm A i · sinPartial B (n−i)`. -/
+def sinTri (A B : Q') (n : Nat) : Q' := RationalTail.finSum (sinTriTerm A B n) n
+
+/-- Cosine triangle recurrence `cosTri (n+1) ≃ cosTri n + cosConv n`. -/
+theorem cosTri_succ (A B : Q') (n : Nat) :
+    (cosTri A B (n + 1)).eqv (cosTri A B n + cosConv A B n) := by
+  show (RationalTail.finSum (cosTriTerm A B (n + 1)) n + cosTriTerm A B (n + 1) n).eqv
+      (cosTri A B n + cosConv A B n)
+  -- last term: cosTerm A n · cosPartial B 1 = cosTerm A n · cosTerm B 0
+  have hlast : (cosTriTerm A B (n + 1) n).eqv (cosTerm A n * cosTerm B 0) := by
+    show (cosTerm A n * cosPartial B ((n + 1) - n)).eqv (cosTerm A n * cosTerm B 0)
+    have h1 : (n + 1) - n = 1 := by omega
+    rw [h1]
+    show (cosTerm A n * ((0 : Q') + cosTerm B 0)).eqv (cosTerm A n * cosTerm B 0)
+    exact Q'.mul_eqv_congr_left (cosTerm A n) _ _ (Q'.eqv_of_eq (Q'.zero_add' (cosTerm B 0)))
+  -- row split: cosTriTerm (n+1) i ≈ cosTriTerm n i + cosConvTerm n i for i < n
+  have hrow : ∀ i, i < n →
+      (cosTriTerm A B (n + 1) i).eqv (cosTriTerm A B n i + cosConvTerm A B n i) := by
+    intro i hi
+    have hsub : (n + 1) - i = (n - i) + 1 := by omega
+    show (cosTerm A i * cosPartial B ((n + 1) - i)).eqv
+        (cosTerm A i * cosPartial B (n - i) + cosTerm A i * cosTerm B (n - i))
+    rw [hsub]
+    show (cosTerm A i * (cosPartial B (n - i) + cosTerm B (n - i))).eqv
+        (cosTerm A i * cosPartial B (n - i) + cosTerm A i * cosTerm B (n - i))
+    exact Q'.mul_add_eqv (cosTerm A i) (cosPartial B (n - i)) (cosTerm B (n - i))
+  have hinner : (RationalTail.finSum (cosTriTerm A B (n + 1)) n).eqv
+      (cosTri A B n + RationalTail.finSum (cosConvTerm A B n) n) :=
+    Q'.eqv_trans _ _ _
+      (RationalTail.finSum_eqv_congr_lt (cosTriTerm A B (n + 1))
+        (fun i => cosTriTerm A B n i + cosConvTerm A B n i) n hrow)
+      (RationalTail.finSum_add (cosTriTerm A B n) (cosConvTerm A B n) n)
+  -- cosConv n = finSum (cosConvTerm n) (n+1) = finSum (cosConvTerm n) n + cosConvTerm n n,
+  -- and cosConvTerm n n = cosTerm A n · cosTerm B 0.
+  have hconv : (cosConv A B n).eqv
+      (RationalTail.finSum (cosConvTerm A B n) n + cosTerm A n * cosTerm B 0) := by
+    show (RationalTail.finSum (cosConvTerm A B n) n + cosConvTerm A B n n).eqv
+        (RationalTail.finSum (cosConvTerm A B n) n + cosTerm A n * cosTerm B 0)
+    refine Q'.add_eqv_congr_left _ _ _ ?_
+    show (cosTerm A n * cosTerm B (n - n)).eqv (cosTerm A n * cosTerm B 0)
+    have hnn : n - n = 0 := by omega
+    rw [hnn]
+    exact Q'.eqv_refl _
+  refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr_right _ _ _ hinner) ?_
+  refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr_left _ _ _ hlast) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_assoc_eqv (cosTri A B n) (RationalTail.finSum (cosConvTerm A B n) n)
+      (cosTerm A n * cosTerm B 0)) ?_
+  exact Q'.add_eqv_congr_left (cosTri A B n) _ _ (Q'.eqv_symm hconv)
+
+/-- Sine triangle recurrence `sinTri (n+1) ≃ sinTri n + sinConv n`. -/
+theorem sinTri_succ (A B : Q') (n : Nat) :
+    (sinTri A B (n + 1)).eqv (sinTri A B n + sinConv A B n) := by
+  show (RationalTail.finSum (sinTriTerm A B (n + 1)) n + sinTriTerm A B (n + 1) n).eqv
+      (sinTri A B n + sinConv A B n)
+  have hlast : (sinTriTerm A B (n + 1) n).eqv (sinTerm A n * sinTerm B 0) := by
+    show (sinTerm A n * sinPartial B ((n + 1) - n)).eqv (sinTerm A n * sinTerm B 0)
+    have h1 : (n + 1) - n = 1 := by omega
+    rw [h1]
+    show (sinTerm A n * ((0 : Q') + sinTerm B 0)).eqv (sinTerm A n * sinTerm B 0)
+    exact Q'.mul_eqv_congr_left (sinTerm A n) _ _ (Q'.eqv_of_eq (Q'.zero_add' (sinTerm B 0)))
+  have hrow : ∀ i, i < n →
+      (sinTriTerm A B (n + 1) i).eqv (sinTriTerm A B n i + sinConvTerm A B n i) := by
+    intro i hi
+    have hsub : (n + 1) - i = (n - i) + 1 := by omega
+    show (sinTerm A i * sinPartial B ((n + 1) - i)).eqv
+        (sinTerm A i * sinPartial B (n - i) + sinTerm A i * sinTerm B (n - i))
+    rw [hsub]
+    show (sinTerm A i * (sinPartial B (n - i) + sinTerm B (n - i))).eqv
+        (sinTerm A i * sinPartial B (n - i) + sinTerm A i * sinTerm B (n - i))
+    exact Q'.mul_add_eqv (sinTerm A i) (sinPartial B (n - i)) (sinTerm B (n - i))
+  have hinner : (RationalTail.finSum (sinTriTerm A B (n + 1)) n).eqv
+      (sinTri A B n + RationalTail.finSum (sinConvTerm A B n) n) :=
+    Q'.eqv_trans _ _ _
+      (RationalTail.finSum_eqv_congr_lt (sinTriTerm A B (n + 1))
+        (fun i => sinTriTerm A B n i + sinConvTerm A B n i) n hrow)
+      (RationalTail.finSum_add (sinTriTerm A B n) (sinConvTerm A B n) n)
+  have hconv : (sinConv A B n).eqv
+      (RationalTail.finSum (sinConvTerm A B n) n + sinTerm A n * sinTerm B 0) := by
+    show (RationalTail.finSum (sinConvTerm A B n) n + sinConvTerm A B n n).eqv
+        (RationalTail.finSum (sinConvTerm A B n) n + sinTerm A n * sinTerm B 0)
+    refine Q'.add_eqv_congr_left _ _ _ ?_
+    show (sinTerm A n * sinTerm B (n - n)).eqv (sinTerm A n * sinTerm B 0)
+    have hnn : n - n = 0 := by omega
+    rw [hnn]
+    exact Q'.eqv_refl _
+  refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr_right _ _ _ hinner) ?_
+  refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr_left _ _ _ hlast) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_assoc_eqv (sinTri A B n) (RationalTail.finSum (sinConvTerm A B n) n)
+      (sinTerm A n * sinTerm B 0)) ?_
+  exact Q'.add_eqv_congr_left (sinTri A B n) _ _ (Q'.eqv_symm hconv)
+
+/-- `cosTri A B n ≃ Σ_{m<n} cosConv A B m`. -/
+theorem cosTri_eqv_convSum (A B : Q') :
+    ∀ n, (cosTri A B n).eqv (RationalTail.finSum (cosConv A B) n)
+  | 0 => Q'.eqv_refl 0
+  | n + 1 => by
+    show (cosTri A B (n + 1)).eqv (RationalTail.finSum (cosConv A B) n + cosConv A B n)
+    refine Q'.eqv_trans _ _ _ (cosTri_succ A B n) ?_
+    exact Q'.add_eqv_congr_right (cosTri A B n) _ (cosConv A B n) (cosTri_eqv_convSum A B n)
+
+/-- `sinTri A B n ≃ Σ_{m<n} sinConv A B m`. -/
+theorem sinTri_eqv_convSum (A B : Q') :
+    ∀ n, (sinTri A B n).eqv (RationalTail.finSum (sinConv A B) n)
+  | 0 => Q'.eqv_refl 0
+  | n + 1 => by
+    show (sinTri A B (n + 1)).eqv (RationalTail.finSum (sinConv A B) n + sinConv A B n)
+    refine Q'.eqv_trans _ _ _ (sinTri_succ A B n) ?_
+    exact Q'.add_eqv_congr_right (sinTri A B n) _ (sinConv A B n) (sinTri_eqv_convSum A B n)
+
+/-! ### 5f. The diagonal collapse (degree-shifted telescope via (TC))
+
+`Σ_{m<n+1} cosConv m  +  (−ΣQ_{m<n} sinConv m)  ≃  cosPartial (A+B) (n+1)`.  The cos
+diagonal sum runs ONE degree past the sin diagonal sum; each paired summand
+`cosConv (m+1) − sinConv m` collapses to `cosTerm (A+B) (m+1)` by `cosConv_addition`,
+and the unpaired `cosConv 0` collapses by `cosConv_addition_zero`.  This is the
+exact `Q'`-level addition law at the *diagonal-sum* level — the trig analogue of
+`triAdd_eqv_partialSum`, with the minus and the degree shift made explicit. -/
+
+/-- **Diagonal collapse.**  `(Σ_{m<n+1} cosConv) + (−(Σ_{m<n} sinConv)) ≃
+cosPartial (A+B) (n+1)`. -/
+theorem cosSum_sub_sinSum_eqv_cosPartial (A B : Q') :
+    ∀ n, (RationalTail.finSum (cosConv A B) (n + 1)
+        + (-(RationalTail.finSum (sinConv A B) n))).eqv (cosPartial (A + B) (n + 1))
+  | 0 => by
+    -- (cosConv 0) + (−0) ≃ cosTerm (A+B) 0 = cosPartial (A+B) 1.
+    show ((0 : Q') + cosConv A B 0 + (-(0 : Q'))).eqv ((0 : Q') + cosTerm (A + B) 0)
+    refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr_left _ _ 0 (by show (-(0:Q')).eqv 0; decide)) ?_
+    refine Q'.eqv_trans _ _ _ (Q'.eqv_of_eq (Q'.add_zero' ((0:Q') + cosConv A B 0))) ?_
+    refine Q'.eqv_trans _ _ _ (Q'.eqv_of_eq (Q'.zero_add' (cosConv A B 0))) ?_
+    refine Q'.eqv_trans _ _ _ (cosConv_addition_zero A B) ?_
+    exact Q'.eqv_symm (Q'.eqv_of_eq (Q'.zero_add' (cosTerm (A + B) 0)))
+  | n + 1 => by
+    -- LHS = (Σcos (n+1) + cosConv(n+1)) + (−(Σsin n + sinConv n))
+    --     ≃ [Σcos(n+1) + (−Σsin n)] + [cosConv(n+1) + (−sinConv n)]
+    --     ≃ cosPartial(A+B)(n+1) + cosTerm(A+B)(n+1) = cosPartial(A+B)(n+2).
+    show ((RationalTail.finSum (cosConv A B) (n + 1) + cosConv A B (n + 1))
+        + (-(RationalTail.finSum (sinConv A B) n + sinConv A B n))).eqv
+        (cosPartial (A + B) (n + 1) + cosTerm (A + B) (n + 1))
+    -- expand the negation of the sin sum
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_left _ _ _
+        (Q'.neg_add_eqv (RationalTail.finSum (sinConv A B) n) (sinConv A B n))) ?_
+    -- now: (Σcos(n+1) + cosConv(n+1)) + ((−Σsin n) + (−sinConv n))
+    -- rearrange to [Σcos(n+1) + (−Σsin n)] + [cosConv(n+1) + (−sinConv n)]
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_swap_inner (RationalTail.finSum (cosConv A B) (n + 1)) (cosConv A B (n + 1))
+        (-(RationalTail.finSum (sinConv A B) n)) (-(sinConv A B n))) ?_
+    -- apply IH and (TC)
+    refine Q'.add_eqv_congr' (cosSum_sub_sinSum_eqv_cosPartial A B n) ?_
+    exact cosConv_addition A B n
+
+/-! ### 5g. Trig rectangle/corner product decompositions (clean copies)
+
+`cosPartial A n · cosPartial B n ≃ cosTri A B n + cosCorner A B n` (and sin), the
+direct trig analogue of `prodAdd_eqv_tri_add_corner`.  Combined with §5e
+(`cosTri ≃ Σ cosConv`) and §5f (diagonal collapse), the *only* remaining gap to the
+CReal addition law is the vanishing of the corners and the trailing `sinConv`
+mismatch term — the analytic (modulus) ingredient, named in the footer. -/
+
+/-- `cosCornerTerm A B n i = cosTerm A i · (cosPartial B n − cosPartial B (n−i))`. -/
+def cosCornerTerm (A B : Q') (n : Nat) : Nat → Q' :=
+  fun i => cosTerm A i * (cosPartial B n + -(cosPartial B (n - i)))
+
+/-- `cosCorner A B n = Σ_{i<n} cosCornerTerm A B n i`. -/
+def cosCorner (A B : Q') (n : Nat) : Q' := RationalTail.finSum (cosCornerTerm A B n) n
+
+/-- `sinCornerTerm A B n i = sinTerm A i · (sinPartial B n − sinPartial B (n−i))`. -/
+def sinCornerTerm (A B : Q') (n : Nat) : Nat → Q' :=
+  fun i => sinTerm A i * (sinPartial B n + -(sinPartial B (n - i)))
+
+/-- `sinCorner A B n = Σ_{i<n} sinCornerTerm A B n i`. -/
+def sinCorner (A B : Q') (n : Nat) : Q' := RationalTail.finSum (sinCornerTerm A B n) n
+
+/-- **Cosine rectangle/corner decomposition.**  `cosPartial A n · cosPartial B n ≃
+cosTri A B n + cosCorner A B n`. -/
+theorem cosProd_eqv_tri_add_corner (A B : Q') (n : Nat) :
+    (cosPartial A n * cosPartial B n).eqv (cosTri A B n + cosCorner A B n) := by
+  rw [cosPartial_eq_finSum A]
+  refine Q'.eqv_trans _ _ _
+    (RationalTail.finSum_mul_const (cosTerm A) (cosPartial B n) n) ?_
+  have hterm : ∀ i, (cosTerm A i * cosPartial B n).eqv
+      (cosTriTerm A B n i + cosCornerTerm A B n i) := by
+    intro i
+    show (cosTerm A i * cosPartial B n).eqv
+        (cosTerm A i * cosPartial B (n - i)
+          + cosTerm A i * (cosPartial B n + -(cosPartial B (n - i))))
+    refine Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_left (cosTerm A i) (cosPartial B n)
+        (cosPartial B (n - i) + (cosPartial B n + -(cosPartial B (n - i))))
+        (Q'.add_sub_cancel_eqv (cosPartial B n) (cosPartial B (n - i)))) ?_
+    exact Q'.mul_add_eqv (cosTerm A i) (cosPartial B (n - i))
+      (cosPartial B n + -(cosPartial B (n - i)))
+  refine Q'.eqv_trans _ _ _
+    (RationalTail.finSum_eqv_congr (fun i => cosTerm A i * cosPartial B n)
+      (fun i => cosTriTerm A B n i + cosCornerTerm A B n i) hterm n) ?_
+  exact RationalTail.finSum_add (cosTriTerm A B n) (cosCornerTerm A B n) n
+
+/-- **Sine rectangle/corner decomposition.**  `sinPartial A n · sinPartial B n ≃
+sinTri A B n + sinCorner A B n`. -/
+theorem sinProd_eqv_tri_add_corner (A B : Q') (n : Nat) :
+    (sinPartial A n * sinPartial B n).eqv (sinTri A B n + sinCorner A B n) := by
+  rw [sinPartial_eq_finSum A]
+  refine Q'.eqv_trans _ _ _
+    (RationalTail.finSum_mul_const (sinTerm A) (sinPartial B n) n) ?_
+  have hterm : ∀ i, (sinTerm A i * sinPartial B n).eqv
+      (sinTriTerm A B n i + sinCornerTerm A B n i) := by
+    intro i
+    show (sinTerm A i * sinPartial B n).eqv
+        (sinTerm A i * sinPartial B (n - i)
+          + sinTerm A i * (sinPartial B n + -(sinPartial B (n - i))))
+    refine Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_left (sinTerm A i) (sinPartial B n)
+        (sinPartial B (n - i) + (sinPartial B n + -(sinPartial B (n - i))))
+        (Q'.add_sub_cancel_eqv (sinPartial B n) (sinPartial B (n - i)))) ?_
+    exact Q'.mul_add_eqv (sinTerm A i) (sinPartial B (n - i))
+      (sinPartial B n + -(sinPartial B (n - i)))
+  refine Q'.eqv_trans _ _ _
+    (RationalTail.finSum_eqv_congr (fun i => sinTerm A i * sinPartial B n)
+      (fun i => sinTriTerm A B n i + sinCornerTerm A B n i) hterm n) ?_
+  exact RationalTail.finSum_add (sinTriTerm A B n) (sinCornerTerm A B n) n
+
+/-- **Cosine rectangle decomposition, diagonal form.**  `cosPartial A n · cosPartial B n
+≃ (Σ_{m<n} cosConv A B m) + cosCorner A B n`. -/
+theorem cosProd_eqv_convSum_add_corner (A B : Q') (n : Nat) :
+    (cosPartial A n * cosPartial B n).eqv
+      (RationalTail.finSum (cosConv A B) n + cosCorner A B n) := by
+  refine Q'.eqv_trans _ _ _ (cosProd_eqv_tri_add_corner A B n) ?_
+  exact Q'.add_eqv_congr_right (cosTri A B n) _ (cosCorner A B n) (cosTri_eqv_convSum A B n)
+
+/-- **Sine rectangle decomposition, diagonal form.**  `sinPartial A n · sinPartial B n
+≃ (Σ_{m<n} sinConv A B m) + sinCorner A B n`. -/
+theorem sinProd_eqv_convSum_add_corner (A B : Q') (n : Nat) :
+    (sinPartial A n * sinPartial B n).eqv
+      (RationalTail.finSum (sinConv A B) n + sinCorner A B n) := by
+  refine Q'.eqv_trans _ _ _ (sinProd_eqv_tri_add_corner A B n) ?_
+  exact Q'.add_eqv_congr_right (sinTri A B n) _ (sinCorner A B n) (sinTri_eqv_convSum A B n)
+
+/-! ### 5h. The trig rectangle/corner addition identity (step 4, `Q'` level)
+
+Assembling §5f (diagonal collapse) with §5g (rectangle decompositions) gives the
+exact `Q'.eqv` identity, for `n = k+1`,
+
+  cosPartial A n · cosPartial B n  −  sinPartial A n · sinPartial B n
+      ≃  cosPartial (A+B) n  +  remCorner A B k ,
+
+where `remCorner A B k := (cosCorner A B (k+1) − sinCorner A B (k+1)) − sinConv A B k`
+collects the two product corners and the single trailing degree-`k` sin convolution
+left over from the degree-shifted telescope.  The CReal addition law (step 5) is
+exactly `remCorner → 0` past an explicit modulus (the analytic residual). -/
+
+/-- The combined corner remainder of the trig rectangle decomposition at `n = k+1`. -/
+def remCorner (A B : Q') (k : Nat) : Q' :=
+  (cosCorner A B (k + 1) + (-(sinCorner A B (k + 1)))) + (-(sinConv A B k))
+
+/-- **The trig rectangle/corner addition identity (`Q'` level).**  For `n = k+1`,
+`cosPartial A n · cosPartial B n − sinPartial A n · sinPartial B n
+≃ cosPartial (A+B) n + remCorner A B k`. -/
+theorem cosSinProd_eqv_cosPartial_add_remCorner (A B : Q') (k : Nat) :
+    (cosPartial A (k + 1) * cosPartial B (k + 1)
+        + (-(sinPartial A (k + 1) * sinPartial B (k + 1)))).eqv
+      (cosPartial (A + B) (k + 1) + remCorner A B k) := by
+  -- substitute both rectangle decompositions
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr' (cosProd_eqv_convSum_add_corner A B (k + 1))
+      (Q'.neg_eqv_congr _ _ (sinProd_eqv_convSum_add_corner A B (k + 1)))) ?_
+  -- LHS now: (CS + CC) + (−(SS + SC)) with CS=Σcos(k+1), CC=cosCorner, SS=Σsin(k+1),
+  -- SC=sinCorner.  Σsin(k+1) = Σsin k + sinConv k (defeq), so peel sinConv k:
+  -- −SS ≃ (−Σsin k) + (−sinConv k).  Then a pure 5-term rearrangement lands
+  -- [CS + (−Σsin k)] + [(CC + (−SC)) + (−sinConv k)] = [collapse] + remCorner.
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr_left _ _ _
+      (Q'.neg_add_eqv (RationalTail.finSum (sinConv A B) (k + 1)) (sinCorner A B (k + 1)))) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr_left _ _ _
+      (Q'.add_eqv_congr_right _ _ (-(sinCorner A B (k + 1)))
+        (Q'.neg_add_eqv (RationalTail.finSum (sinConv A B) k) (sinConv A B k)))) ?_
+  -- now: (CS + CC) + (((−Σsin k) + (−sinConv k)) + (−SC))
+  refine Q'.eqv_trans _ _ _
+    (add_rearrange_5 (RationalTail.finSum (cosConv A B) (k + 1)) (cosCorner A B (k + 1))
+      (-(RationalTail.finSum (sinConv A B) k)) (-(sinConv A B k)) (-(sinCorner A B (k + 1)))) ?_
+  -- goal: [CS + (−Σsin k)] + [(CC + (−SC)) + (−sinConv k)]
+  --        ≃ cosPartial(A+B)(k+1) + remCorner A B k
+  refine Q'.add_eqv_congr' (cosSum_sub_sinSum_eqv_cosPartial A B k) ?_
+  -- (CC + (−SC)) + (−sinConv k) = remCorner A B k  (defeq).
+  exact Q'.eqv_refl _
+
 end TrigAdd
 
 end YMGap.Constructive
@@ -472,32 +1102,47 @@ What is CLOSED here and discharges `TrigBound`:
     constants; the sharp `x²/2` would need an alternating-cancellation refinement
     of the magnitude-sum block bound, not landed here.)
 
-What REMAINS for the `hadd` hypothesis family (the addition formula itself):
+Now CLOSED (the addition-formula core, all `Q'.eqv`, no convergence theory):
 
-  The exact per-degree convolution identity `(TC)`
+  * EVEN/ODD REASSEMBLY (`finSum_even_odd_split`): the deinterleave
+    `finSum f (2m+1) ≃ Σ_{p≤m} f(2p) + Σ_{p<m} f(2p+1)`, by induction on `m`.
 
-      cosConv A B m  +  (−(sinConv A B (m−1)))  ≃  cosTerm (A+B) m
+  * THE PER-DEGREE ADDITION IDENTITY `(TC)` (`cosConv_addition`):
+        cosConv A B (m+1)  +  (−(sinConv A B m))  ≃  cosTerm (A+B) (m+1) ,
+    via the §5a `negPow` sign algebra (`(−1)^{m+1}·(−1)^m = −1` is the MINUS), the
+    §4 magnitude bridge, and `ExpAddConv.convAdd_eqv_term`.  The even sub-sum
+    reassembles `cosConv` with sign `(−1)^{m+1}`, the odd sub-sum `sinConv` with
+    sign `(−1)^m`.  Base case: `cosConv_addition_zero` (`m = 0`).
 
-  is reduced — via `term_even_eq_abs`/`term_odd_eq_neg_abs` and
-  `ExpAddConv.convAdd_eqv_term` (`convAdd A B (2m) ≃ term (A+B) (2m)`) — to ONE
-  missing combinatorial lemma:
+  * THE DIAGONAL COLLAPSE (`cosSum_sub_sinSum_eqv_cosPartial`):
+        (Σ_{m<n+1} cosConv)  +  (−(Σ_{m<n} sinConv))  ≃  cosPartial (A+B) (n+1) ,
+    the degree-shifted telescope of `(TC)` (cos diagonal one degree ahead of sin).
 
-      EVEN/ODD REASSEMBLY:  finSum (convAddTerm A B (2m)) (2m+1)
-          ≃  (Σ even-i terms)  +  (Σ odd-i terms),
-      with the even part reindexing to `(−1)^m · cosConv A B m` and the odd part
-      to `(−1)^{m−1} · sinConv A B (m−1)` (sign bookkeeping via the bridge).
+  * THE RECTANGLE/CORNER ADDITION IDENTITY at the `Q'` level (step 4,
+    `cosSinProd_eqv_cosPartial_add_remCorner`): for `n = k+1`,
+        cosPartial A n · cosPartial B n  −  sinPartial A n · sinPartial B n
+            ≃  cosPartial (A+B) n  +  remCorner A B k ,
+    `remCorner A B k = (cosCorner A B (k+1) − sinCorner A B (k+1)) − sinConv A B k`,
+    assembled from the cos/sin rectangle decompositions (`cos/sinProd_eqv_…`) and
+    the diagonal collapse.
 
-  The `i²=−1` cross-cancellation of the real addition formula appears here purely
-  as the `(−1)^m` vs `(−1)^{m−1}` sign discrepancy between the even and odd
-  reindexings, which is exactly the algebraic source of the MINUS sign.  No new
-  convergence theory is needed — the reassembly is pure `finSum` reindexing over
-  `Q'.eqv`.  Once `(TC)` is in hand, the rectangle/corner decomposition and the
-  `CReal.Equiv` addition law copy `ProductDecompAdd.lean` / `CornerBoundAdd.lean`
-  / `ExpAdd.lean` verbatim (with cos/sin partials in place of `partialSum`), and
-  the signed `cosFull`/`sinFull` four-case extension uses `cosFull_even` /
-  `sinFull_odd_of_nonneg`.
+What REMAINS (the analytic residual — the CReal addition law, steps 5–6):
 
-  The base case `cosConv_addition_zero` validates `(TC)` at `m = 0`.
+  ONE named obligation: `remCorner A B k → 0` past an explicit modulus, i.e.
+        ∀ ε>0, ∃ N, ∀ k ≥ N, |remCorner A B k| ≤ ε .
+  This is the trig analogue of `CornerBoundAdd.cornerAbsAdd_le` (the two product
+  corners `cosCorner`/`sinCorner` are dominated by the exponential magnitude
+  corner, and the trailing `sinConv A B k` is a degree-`k` convolution coefficient
+  which vanishes).  It is NOT a verbatim copy of `CornerBoundAdd` — it needs the
+  trig magnitude-corner bound (cos/sin corners ≤ the `blockAbs`-dominated exp
+  corner) plus the `sinConv`-tail estimate.  Given that modulus, step 5
+  (`cos_add_equiv : CReal.Equiv (cosFull (A+B)) (cosFull A · cosFull B −
+  sinFull A · sinFull B)`) copies `ExpAdd.expNeg_add_equiv` — it transfers the
+  `Q'`-level identity `cosSinProd_eqv_cosPartial_add_remCorner` to a `CReal.Equiv`
+  via `leRat_of_equiv`, using the four-case signed extension
+  (`cosFull_even`/`sinFull_odd_of_nonneg`).  Step 6 then discharges the `Q'`-level
+  `TrigBound.hadd : cAB ≈ cA·cB + (−(sA·sB))` per approximation index and combines
+  with `cos_small_angle`/`sin_small_angle` for the second-difference bound.
 
 # Axiom-dependency gates (AGENTS.md Rule 1) -/
 
@@ -515,3 +1160,21 @@ What REMAINS for the `hadd` hypothesis family (the addition formula itself):
 #print axioms YMGap.Constructive.TrigAdd.term_even_eq_abs
 #print axioms YMGap.Constructive.TrigAdd.term_odd_eq_neg_abs
 #print axioms YMGap.Constructive.TrigAdd.cosConv_addition_zero
+#print axioms YMGap.Constructive.TrigAdd.negPow_add
+#print axioms YMGap.Constructive.TrigAdd.negPow_self_mul
+#print axioms YMGap.Constructive.TrigAdd.negPow_succ_mul
+#print axioms YMGap.Constructive.TrigAdd.finSum_even_odd_split
+#print axioms YMGap.Constructive.TrigAdd.cosConvTerm_eqv
+#print axioms YMGap.Constructive.TrigAdd.sinConvTerm_eqv
+#print axioms YMGap.Constructive.TrigAdd.cosConv_eqv_evenSub
+#print axioms YMGap.Constructive.TrigAdd.sinConv_eqv_oddSub
+#print axioms YMGap.Constructive.TrigAdd.convAdd_eqv_even_odd
+#print axioms YMGap.Constructive.TrigAdd.cosConv_addition
+#print axioms YMGap.Constructive.TrigAdd.cosTri_succ
+#print axioms YMGap.Constructive.TrigAdd.sinTri_succ
+#print axioms YMGap.Constructive.TrigAdd.cosTri_eqv_convSum
+#print axioms YMGap.Constructive.TrigAdd.sinTri_eqv_convSum
+#print axioms YMGap.Constructive.TrigAdd.cosSum_sub_sinSum_eqv_cosPartial
+#print axioms YMGap.Constructive.TrigAdd.cosProd_eqv_convSum_add_corner
+#print axioms YMGap.Constructive.TrigAdd.sinProd_eqv_convSum_add_corner
+#print axioms YMGap.Constructive.TrigAdd.cosSinProd_eqv_cosPartial_add_remCorner
