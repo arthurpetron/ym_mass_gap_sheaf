@@ -1085,6 +1085,554 @@ theorem cosSinProd_eqv_cosPartial_add_remCorner (A B : Q') (k : Nat) :
   -- (CC + (−SC)) + (−sinConv k) = remCorner A B k  (defeq).
   exact Q'.eqv_refl _
 
+/-! ## 6. STEP A — `remCorner A B k → 0` past an explicit modulus
+
+`remCorner A B k = (cosCorner A B (k+1) − sinCorner A B (k+1)) − sinConv A B k`.
+We bound each piece for `A, B ≥ 0`:
+
+  * the cos/sin product corners are dominated by a trig magnitude corner
+    `cos/sinCornerAbs A B n`, which `→ 0` by a Mertens estimate copied from
+    `CornerBound.cornerAbs_le` (weights `termAbs A (2i)` / `termAbs A (2i+1)`,
+    blocks `cos/sinBlockAbs B (n−i) i`, both dominated by the exponential block
+    via `cos/sinBlockAbs_le_blockAbs`);
+
+  * the trailing single convolution `sinConv A B k = Σ_{i≤k} sinTerm A i·sinTerm B (k−i)`
+    is dominated by the magnitude convolution `sinConvAbs A B k`, in which every
+    term has total magnitude index `(2i+1)+(2(k−i)+1) = 2k+2`, so at least one
+    factor has index `≥ k+1`; splitting at the midpoint gives a bound by two
+    exponential blocks past the cutoff, hence `→ 0`.
+
+The assembly `remCorner_le` is the genuinely-new analytic (modulus) piece. -/
+
+/-! ### 6a. The trig magnitude corners and the `±corner ≤ cornerAbs` reduction -/
+
+/-- `cosCornerAbsTerm A B n i = termAbs A (2i)·cosBlockAbs B (n−i) i`. -/
+def cosCornerAbsTerm (A B : Q') (n : Nat) : Nat → Q' :=
+  fun i => termAbs A (2 * i) * cosBlockAbs B (n - i) i
+
+/-- `cosCornerAbs A B n = Σ_{i<n} termAbs A (2i)·cosBlockAbs B (n−i) i`. -/
+def cosCornerAbs (A B : Q') (n : Nat) : Q' :=
+  RationalTail.finSum (cosCornerAbsTerm A B n) n
+
+/-- `sinCornerAbsTerm A B n i = termAbs A (2i+1)·sinBlockAbs B (n−i) i`. -/
+def sinCornerAbsTerm (A B : Q') (n : Nat) : Nat → Q' :=
+  fun i => termAbs A (2 * i + 1) * sinBlockAbs B (n - i) i
+
+/-- `sinCornerAbs A B n = Σ_{i<n} termAbs A (2i+1)·sinBlockAbs B (n−i) i`. -/
+def sinCornerAbs (A B : Q') (n : Nat) : Q' :=
+  RationalTail.finSum (sinCornerAbsTerm A B n) n
+
+/-- Termwise: `±cosCornerTerm ≤ cosCornerAbsTerm`, for `i < n` (with `A, B ≥ 0`). -/
+theorem cosCornerTerm_abs_le (A B : Q') (hA : (0 : Q') ≤ A) (hB : (0 : Q') ≤ B)
+    (n i : Nat) (hi : i < n) :
+    cosCornerTerm A B n i ≤ cosCornerAbsTerm A B n i
+      ∧ -(cosCornerTerm A B n i) ≤ cosCornerAbsTerm A B n i := by
+  have hni : (n - i) + i = n := by omega
+  have hBnn : (0 : Q') ≤ termAbs A (2 * i) := termAbs_nonneg A hA (2 * i)
+  have hdnn : (0 : Q') ≤ cosBlockAbs B (n - i) i := cosBlockAbs_nonneg B hB (n - i) i
+  -- weight bounds: -termAbs A (2i) ≤ cosTerm A i ≤ termAbs A (2i)
+  obtain ⟨hu2, hu1⟩ := cosTerm_two_sided A hA i
+  -- diff bounds: -cosBlockAbs ≤ (cosPartial B n − cosPartial B (n−i)) ≤ cosBlockAbs
+  have hv2 : cosPartial B n + -(cosPartial B (n - i)) ≤ cosBlockAbs B (n - i) i := by
+    have h := cos_block_upper B hB (n - i) i
+    rw [hni] at h
+    exact Q'.sub_le_of_le_add h
+  have hv1 : -(cosBlockAbs B (n - i) i) ≤ cosPartial B n + -(cosPartial B (n - i)) := by
+    have hbl := cos_block_lower B hB (n - i) i
+    rw [hni] at hbl
+    have h2 : cosPartial B (n - i) + -(cosPartial B n) ≤ cosBlockAbs B (n - i) i :=
+      Q'.sub_le_of_le_add hbl
+    have hnv : -(cosPartial B n + -(cosPartial B (n - i))) ≤ cosBlockAbs B (n - i) i := by
+      refine Q'.le_trans' _ _ _ (Q'.le_of_eqv ?_) h2
+      exact Q'.eqv_trans _ _ _
+        (Q'.neg_add_eqv (cosPartial B n) (-(cosPartial B (n - i))))
+        (Q'.eqv_trans _ _ _
+          (Q'.add_eqv_congr_left (-(cosPartial B n)) (-(-(cosPartial B (n - i))))
+            (cosPartial B (n - i)) (Q'.neg_neg_eqv (cosPartial B (n - i))))
+          (Q'.add_comm_eqv (-(cosPartial B n)) (cosPartial B (n - i))))
+    refine Q'.le_trans' _ _ _ (Q'.neg_le_neg hnv) (Q'.le_of_eqv ?_)
+    exact Q'.neg_neg_eqv (cosPartial B n + -(cosPartial B (n - i)))
+  refine ⟨?_, ?_⟩
+  · exact Q'.mul_le_of_bounds hBnn hdnn hu1 hu2 hv1 hv2
+  · refine Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.eqv_symm (Q'.neg_mul_eqv _ _))) ?_
+    have hnu1 : -(termAbs A (2 * i)) ≤ -(cosTerm A i) := by
+      refine Q'.le_trans' _ _ _ ?_ (Q'.neg_le_neg hu2); exact Q'.le_refl' _
+    have hnu2 : -(cosTerm A i) ≤ termAbs A (2 * i) := by
+      refine Q'.le_trans' _ _ _ (Q'.neg_le_neg hu1) (Q'.le_of_eqv ?_)
+      exact Q'.neg_neg_eqv (termAbs A (2 * i))
+    exact Q'.mul_le_of_bounds hBnn hdnn hnu1 hnu2 hv1 hv2
+
+/-- Termwise: `±sinCornerTerm ≤ sinCornerAbsTerm`, for `i < n` (with `A, B ≥ 0`). -/
+theorem sinCornerTerm_abs_le (A B : Q') (hA : (0 : Q') ≤ A) (hB : (0 : Q') ≤ B)
+    (n i : Nat) (hi : i < n) :
+    sinCornerTerm A B n i ≤ sinCornerAbsTerm A B n i
+      ∧ -(sinCornerTerm A B n i) ≤ sinCornerAbsTerm A B n i := by
+  have hni : (n - i) + i = n := by omega
+  have hBnn : (0 : Q') ≤ termAbs A (2 * i + 1) := termAbs_nonneg A hA (2 * i + 1)
+  have hdnn : (0 : Q') ≤ sinBlockAbs B (n - i) i := sinBlockAbs_nonneg B hB (n - i) i
+  obtain ⟨hu2, hu1⟩ := sinTerm_two_sided A hA i
+  have hv2 : sinPartial B n + -(sinPartial B (n - i)) ≤ sinBlockAbs B (n - i) i := by
+    have h := sin_block_upper B hB (n - i) i
+    rw [hni] at h
+    exact Q'.sub_le_of_le_add h
+  have hv1 : -(sinBlockAbs B (n - i) i) ≤ sinPartial B n + -(sinPartial B (n - i)) := by
+    have hbl := sin_block_lower B hB (n - i) i
+    rw [hni] at hbl
+    have h2 : sinPartial B (n - i) + -(sinPartial B n) ≤ sinBlockAbs B (n - i) i :=
+      Q'.sub_le_of_le_add hbl
+    have hnv : -(sinPartial B n + -(sinPartial B (n - i))) ≤ sinBlockAbs B (n - i) i := by
+      refine Q'.le_trans' _ _ _ (Q'.le_of_eqv ?_) h2
+      exact Q'.eqv_trans _ _ _
+        (Q'.neg_add_eqv (sinPartial B n) (-(sinPartial B (n - i))))
+        (Q'.eqv_trans _ _ _
+          (Q'.add_eqv_congr_left (-(sinPartial B n)) (-(-(sinPartial B (n - i))))
+            (sinPartial B (n - i)) (Q'.neg_neg_eqv (sinPartial B (n - i))))
+          (Q'.add_comm_eqv (-(sinPartial B n)) (sinPartial B (n - i))))
+    refine Q'.le_trans' _ _ _ (Q'.neg_le_neg hnv) (Q'.le_of_eqv ?_)
+    exact Q'.neg_neg_eqv (sinPartial B n + -(sinPartial B (n - i)))
+  refine ⟨?_, ?_⟩
+  · exact Q'.mul_le_of_bounds hBnn hdnn hu1 hu2 hv1 hv2
+  · refine Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.eqv_symm (Q'.neg_mul_eqv _ _))) ?_
+    have hnu1 : -(termAbs A (2 * i + 1)) ≤ -(sinTerm A i) := by
+      refine Q'.le_trans' _ _ _ ?_ (Q'.neg_le_neg hu2); exact Q'.le_refl' _
+    have hnu2 : -(sinTerm A i) ≤ termAbs A (2 * i + 1) := by
+      refine Q'.le_trans' _ _ _ (Q'.neg_le_neg hu1) (Q'.le_of_eqv ?_)
+      exact Q'.neg_neg_eqv (termAbs A (2 * i + 1))
+    exact Q'.mul_le_of_bounds hBnn hdnn hnu1 hnu2 hv1 hv2
+
+/-- `±cosCorner ≤ cosCornerAbs`. -/
+theorem cosCorner_abs_le (A B : Q') (hA : (0 : Q') ≤ A) (hB : (0 : Q') ≤ B) (n : Nat) :
+    cosCorner A B n ≤ cosCornerAbs A B n
+      ∧ -(cosCorner A B n) ≤ cosCornerAbs A B n := by
+  refine ⟨finSum_le_lt (cosCornerTerm A B n) (cosCornerAbsTerm A B n) n
+      (fun i hi => (cosCornerTerm_abs_le A B hA hB n i hi).1), ?_⟩
+  refine Q'.le_trans' _ _ _ (Q'.le_of_eqv (neg_finSum (cosCornerTerm A B n) n)) ?_
+  exact finSum_le_lt (fun i => -(cosCornerTerm A B n i)) (cosCornerAbsTerm A B n) n
+    (fun i hi => (cosCornerTerm_abs_le A B hA hB n i hi).2)
+
+/-- `±sinCorner ≤ sinCornerAbs`. -/
+theorem sinCorner_abs_le (A B : Q') (hA : (0 : Q') ≤ A) (hB : (0 : Q') ≤ B) (n : Nat) :
+    sinCorner A B n ≤ sinCornerAbs A B n
+      ∧ -(sinCorner A B n) ≤ sinCornerAbs A B n := by
+  refine ⟨finSum_le_lt (sinCornerTerm A B n) (sinCornerAbsTerm A B n) n
+      (fun i hi => (sinCornerTerm_abs_le A B hA hB n i hi).1), ?_⟩
+  refine Q'.le_trans' _ _ _ (Q'.le_of_eqv (neg_finSum (sinCornerTerm A B n) n)) ?_
+  exact finSum_le_lt (fun i => -(sinCornerTerm A B n i)) (sinCornerAbsTerm A B n) n
+    (fun i hi => (sinCornerTerm_abs_le A B hA hB n i hi).2)
+
+/-! ### 6b. The Mertens bound on the trig magnitude corners
+
+`cos/sinCornerAbs A B n → 0` past an explicit modulus, copied from
+`CornerBound.cornerAbs_le`: split at `K`; for `i < K` the `B`-block starts past
+the `B`-cutoff (`cos/sinBlock_bound`), summing the `A`-weights to a global bound
+`Ba`; for `K ≤ i` the `A`-weights sum to the `A`-tail `cos/sinBlockAbs A K d ≤ δ`
+and the `B`-blocks are `≤ Bb`. -/
+
+/-- The even-index magnitude sub-sum is the `cosBlockAbs … 0` block (eqv). -/
+theorem evenTermSum_eqv_cosBlock (A : Q') :
+    ∀ m, (RationalTail.finSum (fun i => termAbs A (2 * i)) m).eqv (cosBlockAbs A 0 m)
+  | 0 => Q'.eqv_refl 0
+  | m + 1 => by
+    show (RationalTail.finSum (fun i => termAbs A (2 * i)) m + termAbs A (2 * m)).eqv
+        (cosBlockAbs A 0 m + termAbs A (2 * (0 + m)))
+    have hidx : 2 * (0 + m) = 2 * m := by omega
+    rw [hidx]
+    exact Q'.add_eqv_congr_right _ _ (termAbs A (2 * m)) (evenTermSum_eqv_cosBlock A m)
+
+/-- The odd-index magnitude sub-sum is the `sinBlockAbs … 0` block (eqv). -/
+theorem oddTermSum_eqv_sinBlock (A : Q') :
+    ∀ m, (RationalTail.finSum (fun i => termAbs A (2 * i + 1)) m).eqv (sinBlockAbs A 0 m)
+  | 0 => Q'.eqv_refl 0
+  | m + 1 => by
+    show (RationalTail.finSum (fun i => termAbs A (2 * i + 1)) m + termAbs A (2 * m + 1)).eqv
+        (sinBlockAbs A 0 m + termAbs A (2 * (0 + m) + 1))
+    have hidx : 2 * (0 + m) + 1 = 2 * m + 1 := by omega
+    rw [hidx]
+    exact Q'.add_eqv_congr_right _ _ (termAbs A (2 * m + 1)) (oddTermSum_eqv_sinBlock A m)
+
+/-- `cosBlockAbs A K e = Σ_{j<e} termAbs A (2(K+j))` (eqv). -/
+theorem cosBlockAbs_eqv_finSum (A : Q') (K : Nat) :
+    ∀ e, (cosBlockAbs A K e).eqv (RationalTail.finSum (fun j => termAbs A (2 * (K + j))) e)
+  | 0 => Q'.eqv_refl 0
+  | e + 1 => by
+    show (cosBlockAbs A K e + termAbs A (2 * (K + e))).eqv
+        (RationalTail.finSum (fun j => termAbs A (2 * (K + j))) e + termAbs A (2 * (K + e)))
+    exact Q'.add_eqv_congr_right _ _ (termAbs A (2 * (K + e))) (cosBlockAbs_eqv_finSum A K e)
+
+/-- `sinBlockAbs A K e = Σ_{j<e} termAbs A (2(K+j)+1)` (eqv). -/
+theorem sinBlockAbs_eqv_finSum (A : Q') (K : Nat) :
+    ∀ e, (sinBlockAbs A K e).eqv (RationalTail.finSum (fun j => termAbs A (2 * (K + j) + 1)) e)
+  | 0 => Q'.eqv_refl 0
+  | e + 1 => by
+    show (sinBlockAbs A K e + termAbs A (2 * (K + e) + 1)).eqv
+        (RationalTail.finSum (fun j => termAbs A (2 * (K + j) + 1)) e + termAbs A (2 * (K + e) + 1))
+    exact Q'.add_eqv_congr_right _ _ (termAbs A (2 * (K + e) + 1)) (sinBlockAbs_eqv_finSum A K e)
+
+/-- **`cosCornerAbs A B n → 0`.**  For `A, B ≥ 0` and `ε > 0`, every `n` past an
+explicit modulus has `cosCornerAbs A B n ≤ ε`. -/
+theorem cosCornerAbs_le (A B : Q') (hA : (0 : Q') ≤ A) (hB : (0 : Q') ≤ B)
+    (ε : Q') (hε : (0 : Q') < ε) :
+    ∃ N : Nat, ∀ n : Nat, N ≤ n → cosCornerAbs A B n ≤ ε := by
+  obtain ⟨Ba, hBa0, hBa⟩ := exists_psAbs_bound A hA
+  obtain ⟨Bb, hBb0, hBb⟩ := exists_psAbs_bound B hB
+  obtain ⟨δ, hδpos, hδ⟩ := CReal.exists_mul_le (Q'.zero_le_add _ _ hBa0 hBb0) hε
+  have hδnn : (0 : Q') ≤ δ := Q'.le_of_lt hδpos
+  obtain ⟨K, hKdef⟩ : ∃ K, K = Trig.trigModulus A δ := ⟨_, rfl⟩
+  have hKmodA : Trig.trigModulus A δ ≤ K := Nat.le_of_eq hKdef.symm
+  refine ⟨K + Trig.trigModulus B δ, fun n hn => ?_⟩
+  have hKn : K ≤ n := Nat.le_trans (Nat.le_add_right _ _) hn
+  obtain ⟨d, rfl⟩ := Nat.exists_eq_add_of_le hKn
+  have hsplit : (cosCornerAbs A B (K + d)).eqv
+      (RationalTail.finSum (cosCornerAbsTerm A B (K + d)) K
+        + RationalTail.finSum (fun j => cosCornerAbsTerm A B (K + d) (K + j)) d) :=
+    finSum_split (cosCornerAbsTerm A B (K + d)) K d
+  have hpart1 : RationalTail.finSum (cosCornerAbsTerm A B (K + d)) K ≤ Ba * δ := by
+    have hterm1 : ∀ i, i < K → cosCornerAbsTerm A B (K + d) i ≤ termAbs A (2 * i) * δ := by
+      intro i hiK
+      have hblock : cosBlockAbs B ((K + d) - i) i ≤ δ := by
+        have hmodi : Trig.trigModulus B δ ≤ (K + d) - i := by omega
+        exact Trig.cosBlock_bound B hB δ hδpos ((K + d) - i) hmodi i
+      exact Q'.mul_le_mul_of_nonneg_left _ _ (termAbs A (2 * i)) hblock
+        (termAbs_nonneg A hA (2 * i))
+    refine Q'.le_trans' _ _ _
+      (finSum_le_lt (cosCornerAbsTerm A B (K + d)) (fun i => termAbs A (2 * i) * δ) K hterm1) ?_
+    refine Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (Q'.eqv_symm (RationalTail.finSum_mul_const (fun i => termAbs A (2 * i)) δ K))) ?_
+    refine Q'.mul_le_mul_of_nonneg_right _ Ba δ ?_ hδnn
+    refine Q'.le_trans' _ _ _ (Q'.le_of_eqv (evenTermSum_eqv_cosBlock A K)) ?_
+    refine Q'.le_trans' _ _ _ (Trig.cosBlockAbs_le_blockAbs A hA 0 K) ?_
+    exact blockAbs_le_bound A hA hBa 0 (2 * K)
+  have hpart2 : RationalTail.finSum (fun j => cosCornerAbsTerm A B (K + d) (K + j)) d ≤ δ * Bb := by
+    have hterm2 : ∀ j, (fun j => cosCornerAbsTerm A B (K + d) (K + j)) j
+        ≤ termAbs A (2 * (K + j)) * Bb := by
+      intro j
+      show termAbs A (2 * (K + j)) * cosBlockAbs B ((K + d) - (K + j)) (K + j)
+          ≤ termAbs A (2 * (K + j)) * Bb
+      refine Q'.mul_le_mul_of_nonneg_left _ _ (termAbs A (2 * (K + j))) ?_
+        (termAbs_nonneg A hA (2 * (K + j)))
+      refine Q'.le_trans' _ _ _ (Trig.cosBlockAbs_le_blockAbs B hB ((K + d) - (K + j)) (K + j)) ?_
+      exact blockAbs_le_bound B hB hBb _ _
+    refine Q'.le_trans' _ _ _
+      (finSum_le_finSum_of_termwise (fun j => cosCornerAbsTerm A B (K + d) (K + j))
+        (fun j => termAbs A (2 * (K + j)) * Bb) hterm2 d) ?_
+    refine Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (Q'.eqv_symm (RationalTail.finSum_mul_const
+        (fun j => termAbs A (2 * (K + j))) Bb d))) ?_
+    refine Q'.mul_le_mul_of_nonneg_right _ δ Bb ?_ hBb0
+    refine Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.eqv_symm (cosBlockAbs_eqv_finSum A K d)))
+      (Trig.cosBlock_bound A hA δ hδpos K hKmodA d)
+  refine Q'.le_trans' _ _ _ (Q'.le_of_eqv hsplit) ?_
+  refine Q'.le_trans' _ _ _ (Q'.add_le_add hpart1 hpart2) ?_
+  refine Q'.le_trans' _ _ _ (Q'.le_of_eqv ?_) hδ
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr_left (Ba * δ) (δ * Bb) (Bb * δ) (Q'.mul_comm_eqv δ Bb)) ?_
+  exact Q'.eqv_symm (Q'.add_mul_eqv Ba Bb δ)
+
+/-- **`sinCornerAbs A B n → 0`.**  For `A, B ≥ 0` and `ε > 0`, every `n` past an
+explicit modulus has `sinCornerAbs A B n ≤ ε`. -/
+theorem sinCornerAbs_le (A B : Q') (hA : (0 : Q') ≤ A) (hB : (0 : Q') ≤ B)
+    (ε : Q') (hε : (0 : Q') < ε) :
+    ∃ N : Nat, ∀ n : Nat, N ≤ n → sinCornerAbs A B n ≤ ε := by
+  obtain ⟨Ba, hBa0, hBa⟩ := exists_psAbs_bound A hA
+  obtain ⟨Bb, hBb0, hBb⟩ := exists_psAbs_bound B hB
+  obtain ⟨δ, hδpos, hδ⟩ := CReal.exists_mul_le (Q'.zero_le_add _ _ hBa0 hBb0) hε
+  have hδnn : (0 : Q') ≤ δ := Q'.le_of_lt hδpos
+  obtain ⟨K, hKdef⟩ : ∃ K, K = Trig.trigModulus A δ := ⟨_, rfl⟩
+  have hKmodA : Trig.trigModulus A δ ≤ K := Nat.le_of_eq hKdef.symm
+  refine ⟨K + Trig.trigModulus B δ, fun n hn => ?_⟩
+  have hKn : K ≤ n := Nat.le_trans (Nat.le_add_right _ _) hn
+  obtain ⟨d, rfl⟩ := Nat.exists_eq_add_of_le hKn
+  have hsplit : (sinCornerAbs A B (K + d)).eqv
+      (RationalTail.finSum (sinCornerAbsTerm A B (K + d)) K
+        + RationalTail.finSum (fun j => sinCornerAbsTerm A B (K + d) (K + j)) d) :=
+    finSum_split (sinCornerAbsTerm A B (K + d)) K d
+  have hpart1 : RationalTail.finSum (sinCornerAbsTerm A B (K + d)) K ≤ Ba * δ := by
+    have hterm1 : ∀ i, i < K → sinCornerAbsTerm A B (K + d) i ≤ termAbs A (2 * i + 1) * δ := by
+      intro i hiK
+      have hblock : sinBlockAbs B ((K + d) - i) i ≤ δ := by
+        have hmodi : Trig.trigModulus B δ ≤ (K + d) - i := by omega
+        exact Trig.sinBlock_bound B hB δ hδpos ((K + d) - i) hmodi i
+      exact Q'.mul_le_mul_of_nonneg_left _ _ (termAbs A (2 * i + 1)) hblock
+        (termAbs_nonneg A hA (2 * i + 1))
+    refine Q'.le_trans' _ _ _
+      (finSum_le_lt (sinCornerAbsTerm A B (K + d)) (fun i => termAbs A (2 * i + 1) * δ) K hterm1) ?_
+    refine Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (Q'.eqv_symm (RationalTail.finSum_mul_const (fun i => termAbs A (2 * i + 1)) δ K))) ?_
+    refine Q'.mul_le_mul_of_nonneg_right _ Ba δ ?_ hδnn
+    refine Q'.le_trans' _ _ _ (Q'.le_of_eqv (oddTermSum_eqv_sinBlock A K)) ?_
+    refine Q'.le_trans' _ _ _ (Trig.sinBlockAbs_le_blockAbs A hA 0 K) ?_
+    exact blockAbs_le_bound A hA hBa (2 * 0 + 1) (2 * K)
+  have hpart2 : RationalTail.finSum (fun j => sinCornerAbsTerm A B (K + d) (K + j)) d ≤ δ * Bb := by
+    have hterm2 : ∀ j, (fun j => sinCornerAbsTerm A B (K + d) (K + j)) j
+        ≤ termAbs A (2 * (K + j) + 1) * Bb := by
+      intro j
+      show termAbs A (2 * (K + j) + 1) * sinBlockAbs B ((K + d) - (K + j)) (K + j)
+          ≤ termAbs A (2 * (K + j) + 1) * Bb
+      refine Q'.mul_le_mul_of_nonneg_left _ _ (termAbs A (2 * (K + j) + 1)) ?_
+        (termAbs_nonneg A hA (2 * (K + j) + 1))
+      refine Q'.le_trans' _ _ _ (Trig.sinBlockAbs_le_blockAbs B hB ((K + d) - (K + j)) (K + j)) ?_
+      exact blockAbs_le_bound B hB hBb _ _
+    refine Q'.le_trans' _ _ _
+      (finSum_le_finSum_of_termwise (fun j => sinCornerAbsTerm A B (K + d) (K + j))
+        (fun j => termAbs A (2 * (K + j) + 1) * Bb) hterm2 d) ?_
+    refine Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (Q'.eqv_symm (RationalTail.finSum_mul_const
+        (fun j => termAbs A (2 * (K + j) + 1)) Bb d))) ?_
+    refine Q'.mul_le_mul_of_nonneg_right _ δ Bb ?_ hBb0
+    refine Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.eqv_symm (sinBlockAbs_eqv_finSum A K d)))
+      (Trig.sinBlock_bound A hA δ hδpos K hKmodA d)
+  refine Q'.le_trans' _ _ _ (Q'.le_of_eqv hsplit) ?_
+  refine Q'.le_trans' _ _ _ (Q'.add_le_add hpart1 hpart2) ?_
+  refine Q'.le_trans' _ _ _ (Q'.le_of_eqv ?_) hδ
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr_left (Ba * δ) (δ * Bb) (Bb * δ) (Q'.mul_comm_eqv δ Bb)) ?_
+  exact Q'.eqv_symm (Q'.add_mul_eqv Ba Bb δ)
+
+/-! ### 6c. The trailing convolution `sinConv A B k → 0`
+
+`sinConv A B k = Σ_{i≤k} sinTerm A i·sinTerm B (k−i)` is dominated by the
+magnitude convolution `sinConvAbs A B k = Σ_{i≤k} termAbs A (2i+1)·termAbs B (2(k−i)+1)`,
+in which every term has total magnitude index `(2i+1)+(2(k−i)+1) = 2k+2`.  Splitting
+the sum at `h = (k+1)/2`: for `i < h` the `B`-factor's index `2(k−i)+1 ≥ k+1` is past
+the `B`-cutoff (single-term `termAbs_le_of_modulus_le`), and the `A`-weights sum to
+`≤ Ba`; for `i ≥ h` the `A`-index `2i+1 ≥ k+1` and the `A`-weights form the odd
+`A`-tail block `sinBlockAbs A h _ ≤ δ`, the `B`-factors `≤ Bb`. -/
+
+/-- `termAbs A m ≤ partialSumAbs A (m+1)` (a single term ≤ its partial sum). -/
+theorem termAbs_le_psAbs_succ (A : Q') (hA : (0 : Q') ≤ A) (m : Nat) :
+    termAbs A m ≤ partialSumAbs A (m + 1) := by
+  show termAbs A m ≤ partialSumAbs A m + termAbs A m
+  refine Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.eqv_of_eq (Q'.zero_add' (termAbs A m)).symm)) ?_
+  exact Q'.add_le_add_right 0 (partialSumAbs A m) (termAbs A m) (psAbs_nonneg A hA m)
+
+/-- Global term bound: `termAbs A m ≤ B` whenever `B` bounds every `partialSumAbs A`. -/
+theorem termAbs_le_bound (A : Q') (hA : (0 : Q') ≤ A) {B : Q'}
+    (hB : ∀ n, partialSumAbs A n ≤ B) (m : Nat) : termAbs A m ≤ B :=
+  Q'.le_trans' _ _ _ (termAbs_le_psAbs_succ A hA m) (hB (m + 1))
+
+/-- `sinConvAbsTerm A B k i = termAbs A (2i+1)·termAbs B (2(k−i)+1)`. -/
+def sinConvAbsTerm (A B : Q') (k : Nat) : Nat → Q' :=
+  fun i => termAbs A (2 * i + 1) * termAbs B (2 * (k - i) + 1)
+
+/-- `sinConvAbs A B k = Σ_{i≤k} termAbs A (2i+1)·termAbs B (2(k−i)+1)`. -/
+def sinConvAbs (A B : Q') (k : Nat) : Q' :=
+  RationalTail.finSum (sinConvAbsTerm A B k) (k + 1)
+
+/-- Termwise `±sinConvTerm ≤ sinConvAbsTerm`, for any `i`. -/
+theorem sinConvTerm_abs_le (A B : Q') (hA : (0 : Q') ≤ A) (hB : (0 : Q') ≤ B)
+    (k i : Nat) :
+    sinConvTerm A B k i ≤ sinConvAbsTerm A B k i
+      ∧ -(sinConvTerm A B k i) ≤ sinConvAbsTerm A B k i := by
+  have hAnn : (0 : Q') ≤ termAbs A (2 * i + 1) := termAbs_nonneg A hA (2 * i + 1)
+  have hBnn : (0 : Q') ≤ termAbs B (2 * (k - i) + 1) := termAbs_nonneg B hB (2 * (k - i) + 1)
+  obtain ⟨hu2, hu1⟩ := sinTerm_two_sided A hA i
+  obtain ⟨hv2, hv1⟩ := sinTerm_two_sided B hB (k - i)
+  refine ⟨?_, ?_⟩
+  · exact Q'.mul_le_of_bounds hAnn hBnn hu1 hu2 hv1 hv2
+  · refine Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.eqv_symm (Q'.neg_mul_eqv _ _))) ?_
+    have hnu1 : -(termAbs A (2 * i + 1)) ≤ -(sinTerm A i) := by
+      refine Q'.le_trans' _ _ _ ?_ (Q'.neg_le_neg hu2); exact Q'.le_refl' _
+    have hnu2 : -(sinTerm A i) ≤ termAbs A (2 * i + 1) := by
+      refine Q'.le_trans' _ _ _ (Q'.neg_le_neg hu1) (Q'.le_of_eqv ?_)
+      exact Q'.neg_neg_eqv (termAbs A (2 * i + 1))
+    exact Q'.mul_le_of_bounds hAnn hBnn hnu1 hnu2 hv1 hv2
+
+/-- `±sinConv ≤ sinConvAbs`. -/
+theorem sinConv_abs_le (A B : Q') (hA : (0 : Q') ≤ A) (hB : (0 : Q') ≤ B) (k : Nat) :
+    sinConv A B k ≤ sinConvAbs A B k ∧ -(sinConv A B k) ≤ sinConvAbs A B k := by
+  refine ⟨finSum_le_lt (sinConvTerm A B k) (sinConvAbsTerm A B k) (k + 1)
+      (fun i _ => (sinConvTerm_abs_le A B hA hB k i).1), ?_⟩
+  refine Q'.le_trans' _ _ _ (Q'.le_of_eqv (neg_finSum (sinConvTerm A B k) (k + 1))) ?_
+  exact finSum_le_lt (fun i => -(sinConvTerm A B k i)) (sinConvAbsTerm A B k) (k + 1)
+    (fun i _ => (sinConvTerm_abs_le A B hA hB k i).2)
+
+/-- **`sinConvAbs A B k → 0`.**  For `A, B ≥ 0` and `ε > 0`, every `k` past an
+explicit modulus has `sinConvAbs A B k ≤ ε`. -/
+theorem sinConvAbs_le (A B : Q') (hA : (0 : Q') ≤ A) (hB : (0 : Q') ≤ B)
+    (ε : Q') (hε : (0 : Q') < ε) :
+    ∃ N : Nat, ∀ k : Nat, N ≤ k → sinConvAbs A B k ≤ ε := by
+  obtain ⟨Ba, hBa0, hBa⟩ := exists_psAbs_bound A hA
+  obtain ⟨Bb, hBb0, hBb⟩ := exists_psAbs_bound B hB
+  obtain ⟨δ, hδpos, hδ⟩ := CReal.exists_mul_le (Q'.zero_le_add _ _ hBa0 hBb0) hε
+  have hδnn : (0 : Q') ≤ δ := Q'.le_of_lt hδpos
+  refine ⟨2 * Trig.trigModulus A δ + termAbsModulus B δ, fun k hk => ?_⟩
+  obtain ⟨h, hhdef⟩ : ∃ h, h = (k + 1) / 2 := ⟨_, rfl⟩
+  have hhmodA : Trig.trigModulus A δ ≤ h := by omega
+  obtain ⟨e, hek⟩ : ∃ e, k + 1 = h + e := ⟨(k + 1) - h, by omega⟩
+  have hsplit : (sinConvAbs A B k).eqv
+      (RationalTail.finSum (sinConvAbsTerm A B k) h
+        + RationalTail.finSum (fun j => sinConvAbsTerm A B k (h + j)) e) := by
+    show (RationalTail.finSum (sinConvAbsTerm A B k) (k + 1)).eqv _
+    rw [hek]
+    exact finSum_split (sinConvAbsTerm A B k) h e
+  -- Part 1 ≤ Ba·δ
+  have hpart1 : RationalTail.finSum (sinConvAbsTerm A B k) h ≤ Ba * δ := by
+    have hterm1 : ∀ i, i < h → sinConvAbsTerm A B k i ≤ termAbs A (2 * i + 1) * δ := by
+      intro i hih
+      have hBfac : termAbs B (2 * (k - i) + 1) ≤ δ := by
+        have hidx : termAbsModulus B δ ≤ 2 * (k - i) + 1 := by omega
+        exact termAbs_le_of_modulus_le B δ hB hδpos (2 * (k - i) + 1) hidx
+      exact Q'.mul_le_mul_of_nonneg_left _ _ (termAbs A (2 * i + 1)) hBfac
+        (termAbs_nonneg A hA (2 * i + 1))
+    refine Q'.le_trans' _ _ _
+      (finSum_le_lt (sinConvAbsTerm A B k) (fun i => termAbs A (2 * i + 1) * δ) h hterm1) ?_
+    refine Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (Q'.eqv_symm (RationalTail.finSum_mul_const (fun i => termAbs A (2 * i + 1)) δ h))) ?_
+    refine Q'.mul_le_mul_of_nonneg_right _ Ba δ ?_ hδnn
+    refine Q'.le_trans' _ _ _ (Q'.le_of_eqv (oddTermSum_eqv_sinBlock A h)) ?_
+    refine Q'.le_trans' _ _ _ (Trig.sinBlockAbs_le_blockAbs A hA 0 h) ?_
+    exact blockAbs_le_bound A hA hBa (2 * 0 + 1) (2 * h)
+  -- Part 2 ≤ δ·Bb
+  have hpart2 : RationalTail.finSum (fun j => sinConvAbsTerm A B k (h + j)) e ≤ δ * Bb := by
+    have hterm2 : ∀ j, (fun j => sinConvAbsTerm A B k (h + j)) j ≤ termAbs A (2 * (h + j) + 1) * Bb := by
+      intro j
+      show termAbs A (2 * (h + j) + 1) * termAbs B (2 * (k - (h + j)) + 1)
+          ≤ termAbs A (2 * (h + j) + 1) * Bb
+      exact Q'.mul_le_mul_of_nonneg_left _ _ (termAbs A (2 * (h + j) + 1))
+        (termAbs_le_bound B hB hBb (2 * (k - (h + j)) + 1)) (termAbs_nonneg A hA (2 * (h + j) + 1))
+    refine Q'.le_trans' _ _ _
+      (finSum_le_finSum_of_termwise (fun j => sinConvAbsTerm A B k (h + j))
+        (fun j => termAbs A (2 * (h + j) + 1) * Bb) hterm2 e) ?_
+    refine Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (Q'.eqv_symm (RationalTail.finSum_mul_const
+        (fun j => termAbs A (2 * (h + j) + 1)) Bb e))) ?_
+    refine Q'.mul_le_mul_of_nonneg_right _ δ Bb ?_ hBb0
+    refine Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.eqv_symm (sinBlockAbs_eqv_finSum A h e)))
+      (Trig.sinBlock_bound A hA δ hδpos h hhmodA e)
+  refine Q'.le_trans' _ _ _ (Q'.le_of_eqv hsplit) ?_
+  refine Q'.le_trans' _ _ _ (Q'.add_le_add hpart1 hpart2) ?_
+  refine Q'.le_trans' _ _ _ (Q'.le_of_eqv ?_) hδ
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr_left (Ba * δ) (δ * Bb) (Bb * δ) (Q'.mul_comm_eqv δ Bb)) ?_
+  exact Q'.eqv_symm (Q'.add_mul_eqv Ba Bb δ)
+
+/-! ### 6d. STEP A — assembling `|remCorner A B k| ≤ ε` past an explicit modulus -/
+
+/-- **STEP A: `remCorner A B k → 0`.**  For `A, B ≥ 0` and `ε > 0`, every `k` past
+an explicit (max of three) modulus has both `remCorner A B k ≤ ε` and
+`−(remCorner A B k) ≤ ε`.  The trig analogue of `cornerAbsAdd_le`: the two product
+corners are dominated by `cos/sinCornerAbs` (→0) and the trailing convolution by
+`sinConvAbs` (→0); split `ε` into thirds. -/
+theorem remCorner_le (A B : Q') (hA : (0 : Q') ≤ A) (hB : (0 : Q') ≤ B)
+    (ε : Q') (hε : (0 : Q') < ε) :
+    ∃ N : Nat, ∀ k : Nat, N ≤ k →
+      remCorner A B k ≤ ε ∧ -(remCorner A B k) ≤ ε := by
+  obtain ⟨t, htpos, ht⟩ := CReal.exists_mul_le (by decide : (0 : Q') ≤ (3 : Q')) hε
+  have ht3 : t + t + t ≤ ε := by
+    refine Q'.le_trans' _ _ _ (Q'.le_of_eqv ?_) ht
+    show (t + t + t).eqv (3 * t)
+    refine Q'.eqv_symm ?_
+    refine Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right (3 : Q') ((1 : Q') + 1 + 1) t (by decide)) ?_
+    refine Q'.eqv_trans _ _ _ (Q'.add_mul_eqv ((1 : Q') + 1) 1 t) ?_
+    refine Q'.add_eqv_congr' ?_ (Q'.one_mul_eqv t)
+    refine Q'.eqv_trans _ _ _ (Q'.add_mul_eqv (1 : Q') 1 t) ?_
+    exact Q'.add_eqv_congr' (Q'.one_mul_eqv t) (Q'.one_mul_eqv t)
+  obtain ⟨Nc, hNc⟩ := cosCornerAbs_le A B hA hB t htpos
+  obtain ⟨Ns, hNs⟩ := sinCornerAbs_le A B hA hB t htpos
+  obtain ⟨Nv, hNv⟩ := sinConvAbs_le A B hA hB t htpos
+  refine ⟨max (max Nc Ns) Nv, fun k hk => ?_⟩
+  have hkNc : Nc ≤ k + 1 := by
+    have : Nc ≤ k := Nat.le_trans (Nat.le_trans (Nat.le_max_left _ _) (Nat.le_max_left _ _)) hk
+    omega
+  have hkNs : Ns ≤ k + 1 := by
+    have : Ns ≤ k := Nat.le_trans (Nat.le_trans (Nat.le_max_right _ _) (Nat.le_max_left _ _)) hk
+    omega
+  have hkNv : Nv ≤ k := Nat.le_trans (Nat.le_max_right _ _) hk
+  have hcc : cosCornerAbs A B (k + 1) ≤ t := hNc (k + 1) hkNc
+  have hsc : sinCornerAbs A B (k + 1) ≤ t := hNs (k + 1) hkNs
+  have hsv : sinConvAbs A B k ≤ t := hNv k hkNv
+  obtain ⟨hcc1, hcc2⟩ := cosCorner_abs_le A B hA hB (k + 1)
+  obtain ⟨hsc1, hsc2⟩ := sinCorner_abs_le A B hA hB (k + 1)
+  obtain ⟨hsv1, hsv2⟩ := sinConv_abs_le A B hA hB k
+  have hup : remCorner A B k ≤ t + t + t := by
+    show (cosCorner A B (k + 1) + -(sinCorner A B (k + 1))) + -(sinConv A B k) ≤ t + t + t
+    refine Q'.add_le_add (Q'.add_le_add (Q'.le_trans' _ _ _ hcc1 hcc)
+      (Q'.le_trans' _ _ _ hsc2 hsc)) (Q'.le_trans' _ _ _ hsv2 hsv)
+  have hlo : -(remCorner A B k) ≤ t + t + t := by
+    show -((cosCorner A B (k + 1) + -(sinCorner A B (k + 1))) + -(sinConv A B k)) ≤ t + t + t
+    have heqv : (-((cosCorner A B (k + 1) + -(sinCorner A B (k + 1))) + -(sinConv A B k))).eqv
+        ((-(cosCorner A B (k + 1)) + -(-(sinCorner A B (k + 1)))) + -(-(sinConv A B k))) :=
+      Q'.eqv_trans _ _ _
+        (Q'.neg_add_eqv (cosCorner A B (k + 1) + -(sinCorner A B (k + 1))) (-(sinConv A B k)))
+        (Q'.add_eqv_congr_right _ _ (-(-(sinConv A B k)))
+          (Q'.neg_add_eqv (cosCorner A B (k + 1)) (-(sinCorner A B (k + 1)))))
+    refine Q'.le_trans' _ _ _ (Q'.le_of_eqv heqv) ?_
+    refine Q'.add_le_add (Q'.add_le_add (Q'.le_trans' _ _ _ hcc2 hcc) ?_) ?_
+    · refine Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.neg_neg_eqv (sinCorner A B (k + 1)))) ?_
+      exact Q'.le_trans' _ _ _ hsc1 hsc
+    · refine Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.neg_neg_eqv (sinConv A B k))) ?_
+      exact Q'.le_trans' _ _ _ hsv1 hsv
+  exact ⟨Q'.le_trans' _ _ _ hup ht3, Q'.le_trans' _ _ _ hlo ht3⟩
+
+/-! ## 7. STEP B — the CReal addition law `cos(A+B) ≃ cos A·cos B − sin A·sin B`
+
+We transfer the `Q'`-level rectangle identity `cosSinProd_eqv_cosPartial_add_remCorner`
+to a `CReal.Equiv`, using the Step-A modulus `remCorner_le`, mirroring
+`ExpAdd.expNeg_add_equiv`.  The right-hand combination is
+`cosProdMinus A B := cosFull A · cosFull B − sinFull A · sinFull B` as a `CReal`. -/
+
+/-- The right-hand side of the trig addition law as a `CReal`:
+`cosFull A · cosFull B + (−(sinFull A · sinFull B))`. -/
+def cosProdMinus (A B : Q') : CReal :=
+  CReal.add (CReal.mul (cosFull A) (cosFull B))
+    (CReal.neg (CReal.mul (sinFull A) (sinFull B)))
+
+/-- `Q'.abs A = A` for `A ≥ 0`. -/
+theorem abs_of_nonneg {A : Q'} (hA : (0 : Q') ≤ A) : Q'.abs A = A := by
+  unfold Q'.abs; rw [if_pos hA]
+
+/-- For `A, B ≥ 0`, the RHS approximation is the magnitude product expression. -/
+theorem cosProdMinus_approx_nonneg (A B : Q') (hA : (0 : Q') ≤ A) (hB : (0 : Q') ≤ B)
+    (n : Nat) :
+    (cosProdMinus A B).approx n
+      = cosPartial A n * cosPartial B n + -(sinPartial A n * sinPartial B n) := by
+  have hsA : sinFull A = sinNN (Q'.abs A) (Q'.abs_nonneg A) := sinFull_of_nonneg hA
+  have hsB : sinFull B = sinNN (Q'.abs B) (Q'.abs_nonneg B) := sinFull_of_nonneg hB
+  show (cosFull A).approx n * (cosFull B).approx n
+      + -((sinFull A).approx n * (sinFull B).approx n) = _
+  rw [hsA, hsB]
+  show cosPartial (Q'.abs A) n * cosPartial (Q'.abs B) n
+      + -(sinPartial (Q'.abs A) n * sinPartial (Q'.abs B) n) = _
+  rw [abs_of_nonneg hA, abs_of_nonneg hB]
+
+/-- **STEP B (nonnegative core).**  For `A, B ≥ 0`,
+`CReal.Equiv (cosFull (A+B)) (cosProdMinus A B)`. -/
+theorem cos_add_equiv_nonneg (A B : Q') (hA : (0 : Q') ≤ A) (hB : (0 : Q') ≤ B) :
+    CReal.Equiv (cosFull (A + B)) (cosProdMinus A B) := by
+  intro ε hε
+  obtain ⟨N, hN⟩ := remCorner_le A B hA hB ε hε
+  refine ⟨N + 1, fun n hn => ?_⟩
+  obtain ⟨k, rfl⟩ : ∃ k, n = k + 1 := ⟨n - 1, by omega⟩
+  have hkN : N ≤ k := by omega
+  obtain ⟨hrem1, hrem2⟩ := hN k hkN
+  have hABabs : Q'.abs (A + B) = A + B := abs_of_nonneg (Q'.zero_le_add A B hA hB)
+  have hid := cosSinProd_eqv_cosPartial_add_remCorner A B k
+  show (cosFull (A + B)).approx (k + 1) ≤ (cosProdMinus A B).approx (k + 1) + ε
+      ∧ (cosProdMinus A B).approx (k + 1) ≤ (cosFull (A + B)).approx (k + 1) + ε
+  rw [cosFull_approx, cosProdMinus_approx_nonneg A B hA hB, hABabs]
+  -- Abbreviations for the product expression `P` and the sum-partial `C`.
+  have hCeqv : (cosPartial (A + B) (k + 1)).eqv
+      ((cosPartial A (k + 1) * cosPartial B (k + 1)
+          + -(sinPartial A (k + 1) * sinPartial B (k + 1))) + -(remCorner A B k)) := by
+    have e1 : ((cosPartial A (k + 1) * cosPartial B (k + 1)
+            + -(sinPartial A (k + 1) * sinPartial B (k + 1))) + -(remCorner A B k)).eqv
+        ((cosPartial (A + B) (k + 1) + remCorner A B k) + -(remCorner A B k)) :=
+      Q'.add_eqv_congr_right _ _ (-(remCorner A B k)) hid
+    have e2 : ((cosPartial (A + B) (k + 1) + remCorner A B k) + -(remCorner A B k)).eqv
+        (cosPartial (A + B) (k + 1)) := by
+      refine Q'.eqv_trans _ _ _
+        (Q'.add_assoc_eqv (cosPartial (A + B) (k + 1)) (remCorner A B k) (-(remCorner A B k))) ?_
+      refine Q'.eqv_trans _ _ _
+        (Q'.add_eqv_congr_left (cosPartial (A + B) (k + 1)) _ 0
+          (Q'.add_neg_self_eqv (remCorner A B k))) ?_
+      exact Q'.eqv_of_eq (Q'.add_zero' (cosPartial (A + B) (k + 1)))
+    exact Q'.eqv_symm (Q'.eqv_trans _ _ _ e1 e2)
+  refine ⟨?_, ?_⟩
+  · refine Q'.le_trans' _ _ _ (Q'.le_of_eqv hCeqv) ?_
+    exact Q'.add_le_add_left _ (-(remCorner A B k)) ε hrem2
+  · refine Q'.le_trans' _ _ _ (Q'.le_of_eqv hid) ?_
+    exact Q'.add_le_add_left (cosPartial (A + B) (k + 1)) (remCorner A B k) ε hrem1
+
 end TrigAdd
 
 end YMGap.Constructive
@@ -1126,23 +1674,57 @@ Now CLOSED (the addition-formula core, all `Q'.eqv`, no convergence theory):
     assembled from the cos/sin rectangle decompositions (`cos/sinProd_eqv_…`) and
     the diagonal collapse.
 
-What REMAINS (the analytic residual — the CReal addition law, steps 5–6):
+NOW CLOSED (STEP A — the analytic modulus, §6): `remCorner A B k → 0` past an
+EXPLICIT modulus (`remCorner_le`), for `A, B ≥ 0`:
+        ∀ ε>0, ∃ N, ∀ k ≥ N, remCorner A B k ≤ ε ∧ −(remCorner A B k) ≤ ε .
+  The trig analogue of `CornerBoundAdd.cornerAbsAdd_le`, assembled from three
+  independent Mertens-style estimates (NOT a verbatim copy):
+    * `cosCornerAbs_le` / `sinCornerAbs_le` — the two product corners
+      `cosCorner`/`sinCorner` are two-sidedly dominated by trig magnitude corners
+      `cos/sinCornerAbs` (`cos/sinCorner_abs_le`), each → 0 by a split-at-`K`
+      Mertens bound copied from `CornerBound.cornerAbs_le` (weights `termAbs A (2i)`
+      / `termAbs A (2i+1)`, blocks `cos/sinBlockAbs B (n−i) i` dominated by the
+      exponential block via `Trig.cos/sinBlockAbs_le_blockAbs`);
+    * `sinConvAbs_le` — the trailing single convolution `sinConv A B k` is dominated
+      by the magnitude convolution `sinConvAbs`, in which every term has total
+      magnitude index `2k+2`, so splitting at `h = (k+1)/2` bounds it by two
+      exponential tails (`termAbs_le_of_modulus_le` + `sinBlock_bound`) → 0.
 
-  ONE named obligation: `remCorner A B k → 0` past an explicit modulus, i.e.
-        ∀ ε>0, ∃ N, ∀ k ≥ N, |remCorner A B k| ≤ ε .
-  This is the trig analogue of `CornerBoundAdd.cornerAbsAdd_le` (the two product
-  corners `cosCorner`/`sinCorner` are dominated by the exponential magnitude
-  corner, and the trailing `sinConv A B k` is a degree-`k` convolution coefficient
-  which vanishes).  It is NOT a verbatim copy of `CornerBoundAdd` — it needs the
-  trig magnitude-corner bound (cos/sin corners ≤ the `blockAbs`-dominated exp
-  corner) plus the `sinConv`-tail estimate.  Given that modulus, step 5
-  (`cos_add_equiv : CReal.Equiv (cosFull (A+B)) (cosFull A · cosFull B −
-  sinFull A · sinFull B)`) copies `ExpAdd.expNeg_add_equiv` — it transfers the
-  `Q'`-level identity `cosSinProd_eqv_cosPartial_add_remCorner` to a `CReal.Equiv`
-  via `leRat_of_equiv`, using the four-case signed extension
-  (`cosFull_even`/`sinFull_odd_of_nonneg`).  Step 6 then discharges the `Q'`-level
-  `TrigBound.hadd : cAB ≈ cA·cB + (−(sA·sB))` per approximation index and combines
-  with `cos_small_angle`/`sin_small_angle` for the second-difference bound.
+NOW CLOSED (STEP B nonneg core, §7): `cos_add_equiv_nonneg`, for `A, B ≥ 0`,
+        CReal.Equiv (cosFull (A+B)) (cosProdMinus A B) ,
+  `cosProdMinus A B = cosFull A · cosFull B + (−(sinFull A · sinFull B))`.  This
+  copies `ExpAdd.expNeg_add_equiv`: it transfers the `Q'`-level identity
+  `cosSinProd_eqv_cosPartial_add_remCorner` to a `CReal.Equiv` using the Step-A
+  modulus `remCorner_le`.  (`abs_of_nonneg` reduces `|A|=A` etc. for the nonneg
+  approximations.)
+
+What REMAINS (the residual to the unconditional K_t ≥ 0 / OS2 headline):
+
+  (B-signed) the SIGNED extension `cos_add_equiv`/`sin_add_equiv` for arbitrary
+  `A, B : Q'` via the four-case parity algebra (`cosFull_even`/`sinFull_odd_of_nonneg`)
+  — needs `CReal.Equiv` transitivity and `mul`/`neg`/`add` Equiv-congruence lemmas
+  (not yet in the CReal layer; only `Equiv.symm` and `Equiv_of_lifted_approx_equal`
+  exist).  The nonneg core is the analytic content; the signed version is parity
+  bookkeeping.
+
+  (C) the CReal-level per-cosine-term second-difference bound
+        |cosFull(θ+h) − cosFull(θ) − (−sinFull(θ))·h| ≤ ε·|h|  for 0<|h|≤δ(ε),
+  assembled from (B-signed) + `cos_small_angle`/`sin_small_angle` +
+  `TrigBound.cos_second_diff_abs_le` at the Equiv/leRat level (the per-index
+  `TrigBound.hadd` does NOT hold exactly — only as a limit Equiv — so the bound
+  must go through `leRat_of_equiv`, not per-index `cos_second_diff_eq`).
+
+  (D) the θ-parametrised `FDDerivDataC F dSeriesCReal θ` for `F = ϑ₃(θ) =
+  1 + 2Σ a^{n²} cosFull(2nθ)` summed (over n) against the tail majorant
+  `M = Cmaj a` (`JTPIdentity.dTermMaj_le`), and the θ↔x Chebyshev bridge
+  `T_n(cos 2θ) = cos(2nθ)` connecting this θ-ϑ₃ to the x-parametrised
+  `dSeriesCReal`/`Rhalf`/`thetaConvCRealGen` — to feed
+  `DiffProduct.C1UniqInputsCRealDeriv` →
+  `JTPIdentity.Kt_geRat_zero_of_uniq_creal_deriv` for UNCONDITIONAL `K_t ≥ 0`.
+  This requires NEW infrastructure not present in the repo: a θ-parametrised ϑ₃
+  `CReal` (the entire heat-kernel/theta layer is currently x = cos θ /Chebyshev-`U`
+  parametrised, never angle-θ parametrised) and the Chebyshev θ↔x identity.  It is
+  the genuine remaining Wall-2 analytic build, named here and NOT faked.
 
 # Axiom-dependency gates (AGENTS.md Rule 1) -/
 
@@ -1178,3 +1760,10 @@ What REMAINS (the analytic residual — the CReal addition law, steps 5–6):
 #print axioms YMGap.Constructive.TrigAdd.cosProd_eqv_convSum_add_corner
 #print axioms YMGap.Constructive.TrigAdd.sinProd_eqv_convSum_add_corner
 #print axioms YMGap.Constructive.TrigAdd.cosSinProd_eqv_cosPartial_add_remCorner
+#print axioms YMGap.Constructive.TrigAdd.cosCorner_abs_le
+#print axioms YMGap.Constructive.TrigAdd.sinCorner_abs_le
+#print axioms YMGap.Constructive.TrigAdd.cosCornerAbs_le
+#print axioms YMGap.Constructive.TrigAdd.sinCornerAbs_le
+#print axioms YMGap.Constructive.TrigAdd.sinConvAbs_le
+#print axioms YMGap.Constructive.TrigAdd.remCorner_le
+#print axioms YMGap.Constructive.TrigAdd.cos_add_equiv_nonneg
