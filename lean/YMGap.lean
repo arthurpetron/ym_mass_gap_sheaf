@@ -146,5 +146,9 @@ import YMGap.Continuum.FourDExistence
 import YMGap.BufferShell
 import YMGap.Codynamic
 import YMGap.HigherCategorical
-import YMGap.PolyAtlas
-import YMGap.ModuliAlgebra
+-- NOTE: `YMGap.PolyAtlas` and `YMGap.ModuliAlgebra` are non-load-bearing
+-- expository/design-closure scaffolding (their own headers state "NOT
+-- load-bearing"); no other module imports them and nothing references their
+-- contents.  They are intentionally EXCLUDED from the default build aggregator
+-- to keep the load-bearing / axiom-audit surface honest.  The files remain on
+-- disk and build on demand (`lake build YMGap.PolyAtlas YMGap.ModuliAlgebra`).

@@ -85,38 +85,14 @@ open YMGap.Continuum
 open YMGap.Constructive
 open YMGap.Constructive.HalfPow
 
-/-! ## The missing primitive: strict-positivity multiplication on `Q'`
+/-! ## Strict-positivity primitives and Stage S2 — single-sourced from `ContinuumExistence`
 
-`Q'` carries `mul_nonneg` (product of nonnegatives) but no
-`mul_pos` (product of POSITIVES).  We supply it: `(a·b).num = a.num·b.num`
-definitionally, and a product of two positive `Int`s is positive, so
-`pos_of_num_pos` lands `0 < a·b`. -/
-
-/-- `0 < 1` on `Q'` (closed-form, no free variables — used inside the
-`prodE_pos` match arm where bare `decide` would revert the index family). -/
-theorem zero_lt_one' : (0 : Q') < 1 := by decide
-
-/-- **Product of two strictly-positive `Q'` is strictly positive.**
-`(a·b).num = a.num·b.num > 0` since both factors' numerators are `> 0`. -/
-theorem mul_pos {a b : Q'} (ha : (0 : Q') < a) (hb : (0 : Q') < b) :
-    (0 : Q') < a * b := by
-  apply CReal.pos_of_num_pos
-  -- `(a*b).num = a.num * b.num` definitionally (`Q'.mul = ⟨num*num, …⟩`).
-  show (0 : Int) < a.num * b.num
-  exact Int.mul_pos (CReal.num_pos_of_pos ha) (CReal.num_pos_of_pos hb)
-
-/-! ## Stage S2 — the finite-volume partition function is positive
-
-`Z_n = prodE W n = Π_{i<n} W i`.  Base `prodE W 0 = 1 > 0`; the step
-`prodE W (k+1) = prodE W k * W k` is a product of two positives. -/
-
-/-- **Product of strictly-positive weights is strictly positive.** -/
-theorem prodE_pos (f : Nat → Q') (h : ∀ i, (0 : Q') < f i) :
-    ∀ n, (0 : Q') < prodE f n
-  | 0 => zero_lt_one'
-  | n + 1 => by
-    show (0 : Q') < prodE f n * f n
-    exact mul_pos (prodE_pos f h n) (h n)
+The strict-positivity helpers `mul_pos` / `zero_lt_one'` / `prodE_pos` (and the
+`PlaquetteWeight` structure) live in `Continuum/ContinuumExistence.lean` and are
+in scope here via `open YMGap.Continuum.ContinuumExistence` (above).  This module
+formerly re-declared byte-identical copies of all three; they are now
+single-sourced.  The Stage-S2 partition-function lemmas below are stated locally
+(re-exported) for this module's `BishopFunctional` packaging. -/
 
 /-- **S2 (first lemma), data form — CLOSED.**  The partition function
 `Z_n = Π_{i<n} W i` is positive, returning the explicit lower bound
@@ -277,8 +253,6 @@ end YMGap.Continuum.PartitionPos
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
 
-#print axioms YMGap.Continuum.PartitionPos.mul_pos
-#print axioms YMGap.Continuum.PartitionPos.prodE_pos
 #print axioms YMGap.Continuum.PartitionPos.partitionFunctionLB
 #print axioms YMGap.Continuum.PartitionPos.partitionFunction_pos
 #print axioms YMGap.Continuum.PartitionPos.weightFromPos

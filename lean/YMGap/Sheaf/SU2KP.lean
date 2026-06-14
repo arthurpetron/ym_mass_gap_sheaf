@@ -256,6 +256,19 @@ canonical g = 0.30: Python returns 6.94703683…; rounded DOWN to
 (slower decay is more conservative). -/
 def rho_lf_canonical : Q' := Q'.mkPos 6947 1000 (by decide)
 
+/-- **The canonical KP rates satisfy `ρ_lf ≤ ρ_sf`** (small-field activity
+decays *faster* than large-field): at the canonical pilot
+`ρ_sf = 25/3 ≈ 8.333 ≥ 6.947 ≈ ρ_lf`.  Cross-product: `6947 · 3 = 20841 ≤
+25 · 1000 = 25000`.
+
+Recorded explicitly as the *source of truth* for this relationship, because
+the illustrative (non-load-bearing) polymer-shape demonstration in
+`Sheaf/PolymerDomination.lean` historically used a STALE `ρ_sf = 50/9` — the
+pre-`c_λ = 3/4` Bałaban value — which inverts it (`50/9 ≈ 5.556 < 6.947`).  The
+correct `ρ_sf = 25/3` is the one this module derives (`rho_sf_canonical_derivation`)
+and the Python `computations/small_field_kp.compute_small_field_kp` returns. -/
+theorem rho_lf_le_rho_sf_canonical : rho_lf_canonical ≤ rho_sf_canonical := by decide
+
 /-- Large-field rate at Wilson g = 0.50: `ρ_lf ≈ 10.614`. -/
 def rho_lf_wilson : Q' := Q'.mkPos 10613 1000 (by decide)
 

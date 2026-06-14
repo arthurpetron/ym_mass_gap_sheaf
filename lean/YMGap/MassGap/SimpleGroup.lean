@@ -166,6 +166,96 @@ theorem mass_gap_simple_group
    cluster_implies_gap_signature rec bundle,
    budget_closes_uniform R hadm w⟩
 
+/-! ## The mass-gap INPUT operad
+
+`mass_gap_simple_group` consumes exactly one datum — a `UniformBudgetWitness R`.
+The many entry points below differ ONLY in how that witness is built (gap→η
+monotonicity, the `Z_t` majorant, the scalar rank-collapse data, the activity
+model, the Weyl-character data).  We name those builders as **constructors** of
+the input, turning the former chain of mutually-delegating theorems into an
+explicit *algebra of input adapters* feeding one evaluation.  Each `ofX` is
+independently reusable (build a witness without invoking the mass-gap theorem),
+and every `mass_gap_*_of_X` theorem below becomes a one-line evaluation
+`mass_gap_simple_group R hadm (MassGapInput.ofX …) rec bundle`. -/
+
+/-- The polymorphic mass-gap input: the single datum `mass_gap_simple_group`
+consumes.  An `abbrev` of `UniformBudgetWitness R` so the base theorem's
+signature is unchanged; the `MassGapInput.*` constructors are the operad's
+operations (the witness-building adapters).  (`UniformBudgetWitness` is a
+`Prop`, so this input is propositional — the "data" is a proof.) -/
+abbrev MassGapInput (R : RepData) : Prop := UniformBudgetWitness R
+
+namespace MassGapInput
+
+/-- Build the input from the structural gap→η monotonicity `EtaGapMonotone R`
+(the per-step bound antitone in the Casimir gap to the SU(2) floor). -/
+def ofGapMonotone (R : RepData) (hadm : AdmissibleSimpleGroup R)
+    (hmono : EtaGapMonotone R) (hwin : R.K_steps = su2.K_steps) : MassGapInput R :=
+  uniformBudgetWitness_of_gapMonotone R hadm hmono hwin
+
+/-- Build the input from the rank-general `Z_t` majorant bridge `EtaFromZt R`. -/
+def ofZtMajorant (R : RepData) (hadm : AdmissibleSimpleGroup R)
+    (bridge : EtaFromZt R) (hwin : R.K_steps = su2.K_steps) : MassGapInput R :=
+  ofGapMonotone R hadm (etaGapMonotone_of_ztMajorant bridge) hwin
+
+/-- Build the input from the scalar rank-collapse data (per-axis floor excesses
+`sFloor`, window/cap rationals), with `rank_collapse` discharged via
+`ztMajorant_of_sum`; the `Z_t ↦ η` packaging `eta_of_zt` is the remaining input. -/
+def ofRankCollapseData (R : RepData) (hadm : AdmissibleSimpleGroup R)
+    (r : Nat) (sR sFloor : Nat → Q') (su2Zt : Q')
+    (hsR_nn : ∀ i, (0 : Q') ≤ sR i) (hsR_le : ∀ i, sR i ≤ sFloor i)
+    (hFloor_nn : ∀ i, (0 : Q') ≤ sFloor i)
+    (hwin : 2 * (sumExcess sFloor r) ≤ 1)
+    (hcap : 2 * (sumExcess sFloor r) ≤ su2Zt)
+    (eta_of_zt :
+      ztValue (ztMajorant_of_sum (R := R) r sR sFloor su2Zt
+          hsR_nn hsR_le hFloor_nn hwin hcap).sR
+        (ztMajorant_of_sum (R := R) r sR sFloor su2Zt
+          hsR_nn hsR_le hFloor_nn hwin hcap).rank
+        ≤ (ztMajorant_of_sum (R := R) r sR sFloor su2Zt
+          hsR_nn hsR_le hFloor_nn hwin hcap).su2Zt → R.eta_max ≤ su2.eta_max)
+    (hKwin : R.K_steps = su2.K_steps) : MassGapInput R :=
+  ofZtMajorant R hadm
+    { major := ztMajorant_of_sum (R := R) r sR sFloor su2Zt
+        hsR_nn hsR_le hFloor_nn hwin hcap
+      eta_of_zt := eta_of_zt }
+    hKwin
+
+/-- Build the input from the rank-collapse data plus the activity model
+`ZtEtaModel R` (which discharges `eta_of_zt` via `etaFromZt_of_model`). -/
+def ofModelData (R : RepData) (hadm : AdmissibleSimpleGroup R)
+    (r : Nat) (sR sFloor : Nat → Q') (su2Zt : Q')
+    (hsR_nn : ∀ i, (0 : Q') ≤ sR i) (hsR_le : ∀ i, sR i ≤ sFloor i)
+    (hFloor_nn : ∀ i, (0 : Q') ≤ sFloor i)
+    (hwin : 2 * (sumExcess sFloor r) ≤ 1)
+    (hcap : 2 * (sumExcess sFloor r) ≤ su2Zt)
+    (m : ZtEtaModel R)
+    (hZtR : m.ZtR = ztValue sR r) (hZtsu2 : m.Ztsu2 = su2Zt)
+    (hKwin : R.K_steps = su2.K_steps) : MassGapInput R :=
+  ofZtMajorant R hadm
+    (etaFromZt_of_model
+      (ztMajorant_of_sum (R := R) r sR sFloor su2Zt
+        hsR_nn hsR_le hFloor_nn hwin hcap)
+      m hZtR hZtsu2)
+    hKwin
+
+/-- Build the input from the Weyl-character structural data `AxisFactorBound R`
+(per-axis polynomial-geometric tail) plus the activity model `ZtEtaModel R`. -/
+def ofWeylData (R : RepData) (hadm : AdmissibleSimpleGroup R)
+    (b : YMGap.RG.AxisFactorBound R) (su2Zt : Q')
+    (hwin : 2 * (sumExcess b.axisExcess b.rank) ≤ 1)
+    (hcap : 2 * (sumExcess b.axisExcess b.rank) ≤ su2Zt)
+    (m : ZtEtaModel R)
+    (hZtR : m.ZtR = ztValue b.axisExcess b.rank) (hZtsu2 : m.Ztsu2 = su2Zt)
+    (hKwin : R.K_steps = su2.K_steps) : MassGapInput R :=
+  ofZtMajorant R hadm
+    (YMGap.RG.etaFromZt_of_model
+      (YMGap.RG.ztMajorant_of_axisData b su2Zt hwin hcap)
+      m hZtR hZtsu2)
+    hKwin
+
+end MassGapInput
+
 /-! ## Mass gap from the gap → η monotonicity obligation
 
 `mass_gap_simple_group` consumes the raw η-domination witness
@@ -192,8 +282,7 @@ theorem mass_gap_simple_group_of_gapMonotone
       m_0 * m_0 ≤ sigma_hat_inf_lower_uniform ∧
       HasSpectralGap rec ∧
       (∀ N, finSum (truncatedConst R.K_steps R.eta_max) N ≤ su2.sigma0) :=
-  mass_gap_simple_group R hadm
-    (uniformBudgetWitness_of_gapMonotone R hadm hmono hwin) rec bundle
+  mass_gap_simple_group R hadm (MassGapInput.ofGapMonotone R hadm hmono hwin) rec bundle
 
 /-! ## Mass gap from the rank-general `Z_t` majorant (the honest unconditional path)
 
@@ -218,8 +307,7 @@ theorem mass_gap_simple_group_of_ztMajorant
       m_0 * m_0 ≤ sigma_hat_inf_lower_uniform ∧
       HasSpectralGap rec ∧
       (∀ N, finSum (truncatedConst R.K_steps R.eta_max) N ≤ su2.sigma0) :=
-  mass_gap_simple_group_of_gapMonotone R hadm
-    (etaGapMonotone_of_ztMajorant bridge) hwin rec bundle
+  mass_gap_simple_group R hadm (MassGapInput.ofZtMajorant R hadm bridge hwin) rec bundle
 
 /-! ## Mass gap with `rank_collapse` discharged from the scalar sum bound
 
@@ -256,11 +344,9 @@ theorem mass_gap_simple_group_of_rankCollapseData
       m_0 * m_0 ≤ sigma_hat_inf_lower_uniform ∧
       HasSpectralGap rec ∧
       (∀ N, finSum (truncatedConst R.K_steps R.eta_max) N ≤ su2.sigma0) :=
-  mass_gap_simple_group_of_ztMajorant R hadm
-    { major := ztMajorant_of_sum (R := R) r sR sFloor su2Zt
-        hsR_nn hsR_le hFloor_nn hwin hcap
-      eta_of_zt := eta_of_zt }
-    hKwin rec bundle
+  mass_gap_simple_group R hadm
+    (MassGapInput.ofRankCollapseData R hadm r sR sFloor su2Zt
+      hsR_nn hsR_le hFloor_nn hwin hcap eta_of_zt hKwin) rec bundle
 
 /-- **SU(2) mass gap via the rank-general `Z_t` majorant chain.**  Threads
 SU(2) through the rank-1 product majorant (`su2_etaFromZt`), exhibiting the
@@ -313,12 +399,9 @@ theorem mass_gap_simple_group_of_modelData
       m_0 * m_0 ≤ sigma_hat_inf_lower_uniform ∧
       HasSpectralGap rec ∧
       (∀ N, finSum (truncatedConst R.K_steps R.eta_max) N ≤ su2.sigma0) :=
-  mass_gap_simple_group_of_ztMajorant R hadm
-    (etaFromZt_of_model
-      (ztMajorant_of_sum (R := R) r sR sFloor su2Zt
-        hsR_nn hsR_le hFloor_nn hwin hcap)
-      m hZtR hZtsu2)
-    hKwin rec bundle
+  mass_gap_simple_group R hadm
+    (MassGapInput.ofModelData R hadm r sR sFloor su2Zt
+      hsR_nn hsR_le hFloor_nn hwin hcap m hZtR hZtsu2 hKwin) rec bundle
 
 /-! ## Mass gap from the Weyl-character STRUCTURAL data
 (the honest reduction of the assumed inequality to root-system data)
@@ -361,11 +444,8 @@ theorem mass_gap_simple_group_of_weylData
       m_0 * m_0 ≤ sigma_hat_inf_lower_uniform ∧
       HasSpectralGap rec ∧
       (∀ N, finSum (truncatedConst R.K_steps R.eta_max) N ≤ su2.sigma0) :=
-  mass_gap_simple_group_of_ztMajorant R hadm
-    (YMGap.RG.etaFromZt_of_model
-      (YMGap.RG.ztMajorant_of_axisData b su2Zt hwin hcap)
-      m hZtR hZtsu2)
-    hKwin rec bundle
+  mass_gap_simple_group R hadm
+    (MassGapInput.ofWeylData R hadm b su2Zt hwin hcap m hZtR hZtsu2 hKwin) rec bundle
 
 /-! ## SU(3) corollary — the near-free instance
 
@@ -499,6 +579,11 @@ end YMGap.MassGap.SimpleGroup
 #print axioms YMGap.MassGap.SimpleGroup.m_0_uniform_positive
 #print axioms YMGap.MassGap.SimpleGroup.m_0_uniform_squared_le
 #print axioms YMGap.MassGap.SimpleGroup.mass_gap_simple_group
+#print axioms YMGap.MassGap.SimpleGroup.MassGapInput.ofGapMonotone
+#print axioms YMGap.MassGap.SimpleGroup.MassGapInput.ofZtMajorant
+#print axioms YMGap.MassGap.SimpleGroup.MassGapInput.ofRankCollapseData
+#print axioms YMGap.MassGap.SimpleGroup.MassGapInput.ofModelData
+#print axioms YMGap.MassGap.SimpleGroup.MassGapInput.ofWeylData
 #print axioms YMGap.MassGap.SimpleGroup.mass_gap_simple_group_of_gapMonotone
 #print axioms YMGap.MassGap.SimpleGroup.mass_gap_simple_group_of_ztMajorant
 #print axioms YMGap.MassGap.SimpleGroup.mass_gap_simple_group_of_rankCollapseData

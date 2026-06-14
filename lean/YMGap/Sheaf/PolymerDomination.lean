@@ -367,23 +367,34 @@ theorem shape_intermediate_2_8_admissible :
     (0 : Q') ≤ shape_intermediate_2_8.m ∧ shape_intermediate_2_8.m ≤ shape_intermediate_2_8.n := by
   refine ⟨?_, ?_⟩ <;> decide
 
-/-! ### Activity-exponent dominance at each grid point
+/-! ### Activity-exponent dominance — ABSTRACT demonstration of `polymer_shape_dominance`
 
-Using `polymer_shape_dominance`, instantiate at each sample shape
-with the canonical-pilot rates `ρ_sf = 50/9, ρ_lf = 6947/1000`. -/
+**These are abstract illustrative rates, NOT the canonical KP certificate.**  The
+actual canonical KP rates have `ρ_sf > ρ_lf` (small field decays *faster* — see
+`Sheaf.SU2KP.rho_lf_le_rho_sf_canonical`: `ρ_sf = 25/3 ≈ 8.333 > 6.947 ≈ ρ_lf`),
+so they do **not** instantiate the `ρ_sf ≤ ρ_lf` hypothesis of
+`polymer_shape_dominance`.
 
-/-- Canonical-pilot ρ_sf as Q′ (matches `Sheaf.SU2KP.rho_sf_canonical`). -/
-def rho_sf_can : Q' := Q'.mkPos 50 9 (by decide)
+A prior version used a stale `ρ_sf = 50/9` — the pre-`c_λ = 3/4` Bałaban value —
+and falsely claimed it "matches `SU2KP.rho_sf_canonical`".  That grid was *unsound
+at the true rate*: with `ρ_sf = 25/3 > ρ_lf`, the `filament` shapes (`m = n`) would
+require `ρ_sf ≤ ρ_lf`, which is false.  We therefore keep this grid as a pure
+demonstration of the abstract lemma, with unambiguous abstract rates `a = 1 ≤ b = 2`
+(the single source of truth for the canonical KP rates is `Sheaf/SU2KP.lean`). -/
 
-/-- Canonical-pilot ρ_lf as Q′ (matches `Sheaf.SU2KP.rho_lf_canonical`). -/
-def rho_lf_can : Q' := Q'.mkPos 6947 1000 (by decide)
+/-- Abstract illustrative small-field rate `a = 1` (NOT the KP certificate rate;
+the canonical `ρ_sf = 25/3` lives in `Sheaf.SU2KP.rho_sf_canonical`). -/
+def rho_sf_can : Q' := 1
 
-/-- The canonical rates satisfy `ρ_sf ≤ ρ_lf` (the load-bearing input
-to T9.1).  At canonical g = 0.30: 50/9 ≈ 5.556 ≤ 6.947 ≈ 6947/1000.
-Cross-product: 50 · 1000 = 50000 ≤ 6947 · 9 = 62523. -/
+/-- Abstract illustrative large-field rate `b = 2` (NOT the KP certificate rate;
+the canonical `ρ_lf = 6947/1000` lives in `Sheaf.SU2KP.rho_lf_canonical`). -/
+def rho_lf_can : Q' := 2
+
+/-- The abstract demo rates satisfy `a ≤ b` (`1 ≤ 2`) — the hypothesis the
+polymer-shape dominance lemma consumes. -/
 theorem rho_sf_can_le_rho_lf_can : rho_sf_can ≤ rho_lf_can := by decide
 
-/-- Canonical ρ_lf is nonneg. -/
+/-- The abstract large-field rate is nonneg (`0 ≤ 2`). -/
 theorem rho_lf_can_nonneg : (0 : Q') ≤ rho_lf_can := by decide
 
 /-- Polymer-shape dominance at filament-1: `ρ_sf · 1 ≤ ρ_lf · 1`. -/

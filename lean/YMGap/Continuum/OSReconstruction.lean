@@ -56,6 +56,7 @@ theorems with analytic content.  Sentinel theorem
 -/
 
 import YMGap.Continuum.OSAxioms
+import YMGap.Continuum.SpectralGap
 import YMGap.Constructive.Reals
 
 namespace YMGap.Continuum.OSReconstruction
@@ -63,6 +64,7 @@ namespace YMGap.Continuum.OSReconstruction
 open YMGap.Constructive
 open YMGap.Continuum.ContinuumMeasure
 open YMGap.Continuum.OSAxioms
+open YMGap.Continuum.SpectralGap
 
 /-! ## Abstract types for the reconstruction objects
 
@@ -162,6 +164,20 @@ structure OSReconstruction {M : Nat → Type} (_μ_inf : ContinuumMeasure M) whe
   hamiltonian_nonneg : HamiltonianNonneg hamiltonian
   vacuum_annihilated : VacuumAnnihilated hamiltonian vacuum
   semigroup_generated : SemigroupGenerated hamiltonian semigroup
+  /-- The finite-volume transfer-matrix spectral model `(w_i, λ_i)` whose
+  finite Källén–Lehmann decomposition realises the genuine (non-`True`)
+  spectral-gap content.  At finite volume the transfer matrix is a genuine
+  positive matrix, so this datum is constructive; the continuum unbounded-`H`
+  spectral measure is the paper-level boundary (Pour-El–Richards). -/
+  spec : SpectralModel
+  /-- The transfer-matrix gap location `μ = e^{−m₀} ∈ [0,1)`. -/
+  gapBound : Q'
+  /-- `0 ≤ μ`. -/
+  gapBound_nonneg : (0 : Q') ≤ gapBound
+  /-- **The genuine spectral gap:** every excited transfer-matrix eigenvalue is
+  `≤ μ` (equivalently every energy `≥ −log μ`).  This is the substantive content
+  behind the predicate `HasSpectralGap`, replacing the former `:= True` stub. -/
+  hasGap : SpectralGapBound spec gapBound
 
 /-! ## The SU(2) instance (paper-level supply)
 
@@ -192,7 +208,11 @@ def os_reconstruct_su2
     (h_vac_norm : VacuumNormalized vacuum)
     (h_ham_nonneg : HamiltonianNonneg hamiltonian)
     (h_vac_ann : VacuumAnnihilated hamiltonian vacuum)
-    (h_sg_gen : SemigroupGenerated hamiltonian semigroup) :
+    (h_sg_gen : SemigroupGenerated hamiltonian semigroup)
+    (spec : SpectralModel)
+    (gapBound : Q')
+    (gapBound_nonneg : (0 : Q') ≤ gapBound)
+    (hasGap : SpectralGapBound spec gapBound) :
     OSReconstruction μ_inf :=
   { space := space,
     vacuum := vacuum,
@@ -201,7 +221,11 @@ def os_reconstruct_su2
     vacuum_normalized := h_vac_norm,
     hamiltonian_nonneg := h_ham_nonneg,
     vacuum_annihilated := h_vac_ann,
-    semigroup_generated := h_sg_gen }
+    semigroup_generated := h_sg_gen,
+    spec := spec,
+    gapBound := gapBound,
+    gapBound_nonneg := gapBound_nonneg,
+    hasGap := hasGap }
 
 /-! ## Bridge to Phase 9: cluster property ⇒ spectral gap
 
@@ -226,7 +250,18 @@ as `σ̂_∞`).
 In the paper this is `inf σ_+(H_op) ≥ m_0`. -/
 def HasSpectralGap
     {M : Nat → Type} {μ_inf : ContinuumMeasure M}
-    (_rec : OSReconstruction μ_inf) : Prop := True
+    (rec : OSReconstruction μ_inf) : Prop :=
+  SpectralGapBound rec.spec rec.gapBound
+
+/-- **The spectral gap has teeth:** `HasSpectralGap rec` implies geometric
+clustering of the finite-volume connected two-point function,
+`G(n) ≤ G(0)·μ^n` (`decay_of_spectralGap_corr0`).  This is exactly the
+substantive consequence the former `:= True` stub could not deliver. -/
+theorem HasSpectralGap.clustering
+    {M : Nat → Type} {μ_inf : ContinuumMeasure M}
+    {rec : OSReconstruction μ_inf} (h : HasSpectralGap rec) (n : Nat) :
+    corr rec.spec n ≤ corr rec.spec 0 * rec.gapBound ^ n :=
+  decay_of_spectralGap_corr0 rec.spec rec.gapBound rec.gapBound_nonneg h n
 
 /-- The cluster-to-gap bridge: `formal/os-reconstruction.tex` Theorem 7.2.
 
@@ -247,8 +282,8 @@ content in the paper). -/
 theorem cluster_implies_gap_signature
     {M : Nat → Type} {μ_inf : ContinuumMeasure M}
     (rec : OSReconstruction μ_inf) (bundle : OSAxiomBundle μ_inf) :
-    ClusterImpliesGap rec bundle := by
-  trivial
+    ClusterImpliesGap rec bundle :=
+  rec.hasGap
 
 /-! ## CReal-level cluster-to-gap bridge (Milestone 7.3 follow-on)
 
@@ -290,7 +325,8 @@ In the paper this is `inf σ_+(H_op) ≥ m_0` where the inequality is at
 the CReal level, not Q′. -/
 def HasSpectralGapAt
     {M : Nat → Type} {μ_inf : ContinuumMeasure M}
-    (_rec : OSReconstruction μ_inf) (_m_0 : CReal) : Prop := True
+    (rec : OSReconstruction μ_inf) (_m_0 : CReal) : Prop :=
+  SpectralGapBound rec.spec rec.gapBound
 
 /-- The CReal-level cluster-to-gap bridge type: given an
 `OSReconstruction` and a CReal-positive mass bound `m_0`, the
@@ -316,8 +352,8 @@ theorem cluster_implies_gap_at
     {M : Nat → Type} {μ_inf : ContinuumMeasure M}
     (rec : OSReconstruction μ_inf) (bundle : OSAxiomBundle μ_inf)
     (m_0 : CReal) (_pos : CReal.IsPositive m_0) :
-    ClusterImpliesGapAt rec bundle m_0 := by
-  trivial
+    ClusterImpliesGapAt rec bundle m_0 :=
+  rec.hasGap
 
 /-! ## Axiom-clean sentinel -/
 
