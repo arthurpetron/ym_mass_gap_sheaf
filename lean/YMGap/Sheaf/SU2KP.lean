@@ -91,6 +91,7 @@ Every load-bearing theorem reports `[propext]` only (from the
 import YMGap.Sheaf.Summability
 import YMGap.Sheaf.Gluing
 import YMGap.Constructive.Rationals
+import YMGap.Constructive.Soundness
 
 namespace YMGap.Sheaf.SU2KP
 
@@ -197,12 +198,16 @@ theorem rho_sf_wilson_derivation :
 
 /-- Small-field amplitude at canonical g = 0.30: `K_sf ≈ 1.099`.
 
-Sourced from `computations/small_field_kp.compute_small_field_kp` at
-canonical g = 0.30: Python returns 1.0917856…; rounded UP to 1099/1000
-in Q'.  Provenance: `notes/fiducials_notes.md` §2 + the
-Brydges–Federbush cluster-expansion formula
-`K_sf = 1 / (1 - exp(-(ρ_sf - μ)))` with μ = `MU_CONNECTIVITY_4D ≈ 3.08`. -/
-def K_sf_canonical : Q' := Q'.mkPos 1099 1000 (by decide)
+**Constructively grounded (proof-as-construction, not a frozen float).**  The
+Brydges–Federbush amplitude is `K_sf = 1/(1 − r)`, `r = exp(−(ρ_sf − μ))`.  The
+previous value `1099/1000` was a tight over-approximation read off a *Python
+float* (`compute_small_field_kp` → 1.0918, the stale ρ_sf=50/9 era; the true
+canonical value is ≈ 1.005).  We instead BOUND `r` by a machine-checked surveyed
+inequality (`K_sf_canonical_derivation` below, built on `expNeg_le_oneOver1p`:
+`e^{−x} ≤ 1/(1+x)`) and take the slightly looser `6/5` that the surveyed bound
+*certifies*.  The trade is deliberate: a tighter-but-float `1099/1000` for a
+looser-but-fully-surveyed `6/5` whose every step is holdable in cognition. -/
+def K_sf_canonical : Q' := Q'.mkPos 6 5 (by decide)
 
 /-- Small-field amplitude at Wilson g = 0.50: `K_sf ≈ 1.0073`.
 
@@ -367,6 +372,51 @@ theorem K_lf_canonical_nonneg : (0 : Q') ≤ K_lf_canonical := by decide
 theorem rho_lf_wilson_nonneg : (0 : Q') ≤ rho_lf_wilson := by decide
 theorem K_lf_wilson_nonneg : (0 : Q') ≤ K_lf_wilson := by decide
 
+/-! ### Constructive convergence bound for `K_sf` (proof-as-construction)
+
+`K_sf` is the Brydges–Federbush amplitude `1/(1 − r)`, `r = exp(−(ρ_sf − μ))`.
+We replace the Python-float justification of `K_sf` by a fully machine-checked
+chain — every step holdable in cognition, no transcendental read off a float:
+
+  1. `μ = log(8e) ≈ 3.0794 ≤ 31/10 =: μ_upper`        (the one documented rational input)
+  2. `ρ_sf − μ ≥ 25/3 − 31/10 = 157/30 =: gap > 0`     (convergence; surveyed `<`)
+  3. `r = exp(−(ρ_sf − μ)) ≤ exp(−gap) = expNeg gap`   (exp antitone; `gap ≤ ρ_sf − μ`)
+  4. `expNeg gap ≤ 1/(1 + gap) = oneOver1p gap`        (the SURVEYED elementary
+     inequality `expNeg_le_oneOver1p` — this is the step that used to be a float)
+  5. `K_sf · (1 − oneOver1p gap) ≥ 1`, i.e. `K_sf ≥ 1/(1 − r)`  (decidable `Q'`)
+
+so `6/5` is a *certified* small-field amplitude.  Step 4 is the genuine
+construction: the rational `oneOver1p gap = 30/187` dominating the exponential is
+now proved in the kernel, not asserted from `math.exp`.  Only step 1 (`μ ≤ 31/10`)
+remains a documented rational input — the analogue of `q` in the `K_lf` derivation. -/
+
+/-- Rational upper bound on `μ = log(8e)` (≈ 3.0794 ≤ 31/10). -/
+def mu_upper_canonical : Q' := Q'.mkPos 31 10 (by decide)
+
+/-- The convergence-gap lower bound `ρ_sf − μ ≥ 25/3 − 31/10 = 157/30 > 0`. -/
+def gap_canonical : Q' := Q'.mkPos 157 30 (by decide)
+
+/-- The gap is exactly `ρ_sf − μ_upper` (the gap is what it claims to be). -/
+theorem gap_canonical_eq :
+    (rho_sf_canonical - mu_upper_canonical).eqv gap_canonical := by decide
+
+/-- Convergence: the gap is strictly positive (`ρ_sf > μ`). -/
+theorem gap_canonical_pos : (0 : Q') < gap_canonical := by decide
+
+/-- **The surveyed transcendental bound (the float-replacement).**
+`exp(−gap) ≤ 1/(1 + gap)`, machine-checked via `expNeg_le_oneOver1p` — no float. -/
+theorem expNeg_gap_le_oneOver1p :
+    CReal.leRat (ExpNeg.expNeg gap_canonical (by decide))
+      (ExpUBInstance.oneOver1p gap_canonical) :=
+  expNeg_le_oneOver1p gap_canonical (by decide)
+
+/-- **`K_sf` Brydges–Federbush derivation (constructive `r`).**  The amplitude
+relation `1 ≤ K_sf · (1 − r_upper)` with `r_upper = oneOver1p gap = 30/187` the
+*constructively-bounded* convergence factor (`expNeg_gap_le_oneOver1p`).  Equivalent
+to `K_sf ≥ 1/(1 − r_upper)`; mirrors `K_lf_canonical_derivation`. -/
+theorem K_sf_canonical_derivation :
+    (1 : Q') ≤ K_sf_canonical * (1 - ExpUBInstance.oneOver1p gap_canonical) := by decide
+
 /-! ### The large-field certificates -/
 
 /-- The canonical-pilot large-field KP certificate. -/
@@ -525,5 +575,9 @@ Every load-bearing theorem must report `propext` or empty.  No
 #print axioms YMGap.Sheaf.SU2KP.q_wilson_lt_one
 #print axioms YMGap.Sheaf.SU2KP.K_lf_canonical_derivation
 #print axioms YMGap.Sheaf.SU2KP.K_lf_wilson_derivation
+#print axioms YMGap.Sheaf.SU2KP.rho_lf_le_rho_sf_canonical
+#print axioms YMGap.Sheaf.SU2KP.gap_canonical_eq
+#print axioms YMGap.Sheaf.SU2KP.expNeg_gap_le_oneOver1p
+#print axioms YMGap.Sheaf.SU2KP.K_sf_canonical_derivation
 #print axioms YMGap.Sheaf.SU2KP.su2_kp_derivation_canonical
 #print axioms YMGap.Sheaf.SU2KP.su2_kp_derivation_wilson
