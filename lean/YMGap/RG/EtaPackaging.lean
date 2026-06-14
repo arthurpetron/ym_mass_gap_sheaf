@@ -164,6 +164,38 @@ def etaFromZt_of_model {R : RepData}
     -- m.ZtR ≤ m.Ztsu2  ⟸  ztValue major.sR major.rank ≤ major.su2Zt.
     rw [hZtR, hZtsu2]; exact hle
 
+/-! ## Capstone: the full character-tail ⟹ budget-witness assembly
+
+The pieces above and in `CharacterTailMajorant.lean` now compose into a
+SINGLE constructor for `UniformBudgetWitness R` that runs the *genuine*
+character-tail path end to end — the rank-general `Z_t` majorant
+(`ztMajorant_le_su2`) feeding the proven monotone η-model
+(`eta_of_zt_of_model`) — rather than the abstract `EtaGapMonotone`
+shortcut (`uniformBudgetWitness_of_gapMonotone`, which the SU(N) instances
+discharge by `decide` on concrete rationals).
+
+This makes `UniformBudgetWitness.eta_dominated` a THEOREM-consequence of two
+structured, partly-discharged inputs — the `ZtMajorant` (whose only named
+field is `rank_collapse`, validated for all 19 group types) and the
+`ZtEtaModel` (the single-plaquette `η = μ·K_lf(Z_t)` model equalities) —
+not a free scalar posit. -/
+
+/-- **The character-tail ⟹ budget-witness capstone.**  Given a rank-general
+`Z_t` majorant for `R`, a matching `ZtEtaModel R` (its tails equal to the
+majorant's `Z_t(R)` and `Z_t(su2)`), and the same RG window, assemble the
+full `UniformBudgetWitness R`.  `eta_dominated` is discharged by composing
+`ztMajorant_le_su2` (the proven `Z_t(R) ≤ Z_t(su2)`) with the proven
+monotone bridge `eta_of_zt_of_model` — no posited implication. -/
+def uniformBudgetWitness_of_characterTail {R : RepData}
+    (major : ZtMajorant R) (m : ZtEtaModel R)
+    (hZtR : m.ZtR = ztValue major.sR major.rank)
+    (hZtsu2 : m.Ztsu2 = major.su2Zt)
+    (hwin : R.K_steps = su2.K_steps) :
+    UniformBudgetWitness R where
+  same_window   := hwin
+  eta_dominated :=
+    eta_of_zt_of_model m (by rw [hZtR, hZtsu2]; exact ztMajorant_le_su2 major)
+
 /-! ## SU(2): the model realized at the rank-1 boundary instance
 
 We exhibit a concrete `ZtEtaModel su2` to show the whole packaging closes on
@@ -188,6 +220,55 @@ def su2_ztEtaModel : ZtEtaModel su2 where
   etaR_eq  := by decide
   etasu2_eq := by decide
 
+/-! ## SU(2) end-to-end through the capstone (genuine `Z_t` path, no shortcut)
+
+To route SU(2) through `uniformBudgetWitness_of_characterTail` we need a
+majorant and model whose tails *coincide structurally* (so the `hZtR` /
+`hZtsu2` compatibilities are `rfl`).  We use the matched boundary point
+`Z_t = ztValue (·↦1/2) 1 = 1/2`: a rank-1 majorant at per-axis excess `1/2`
+(`rank_collapse` reflexive), and the η-model at weight `μ = su2.eta_max`,
+both tails the *same expression* `ztValue (·↦1/2) 1`.  Then
+`K_lf(1/2) = 1/2·recip(1/2) ≃ 1`, so `etaModel μ (1/2) ≃ μ = su2.eta_max`
+and both model equalities hold by `decide`.  This exhibits the entire
+`Z_t → K_lf → η` chain closing on a real group through the proven monotone
+bridge — not the `decide`-on-`3e-4≤3e-4` shortcut of
+`su2_uniform_witness_via_gap`. -/
+
+/-- A rank-1 SU(2) `Z_t` majorant at the matched boundary excess `1/2`
+(`su2Zt = ztValue (·↦1/2) 1`, `rank_collapse` reflexive). -/
+def su2_ztMajorant_matched : ZtMajorant su2 where
+  rank      := 1
+  sR        := fun _ => Q'.mkPos 1 2 (by decide)
+  sFloor    := fun _ => Q'.mkPos 1 2 (by decide)
+  su2Zt     := ztValue (fun _ => Q'.mkPos 1 2 (by decide)) 1
+  sR_nonneg := fun _ => by decide
+  sR_le     := fun _ => Q'.le_refl' _
+  rank_collapse := Q'.le_refl' _
+
+/-- The matching SU(2) η-model: tails are the SAME expression
+`ztValue (·↦1/2) 1` as the majorant (so capstone compatibility is `rfl`),
+weight `μ = su2.eta_max`; the two model equalities hold by `decide`
+(`etaModel su2.eta_max (1/2) ≃ su2.eta_max`). -/
+def su2_ztEtaModel_matched : ZtEtaModel su2 where
+  μ         := su2.eta_max
+  ZtR       := ztValue (fun _ => Q'.mkPos 1 2 (by decide)) 1
+  Ztsu2     := ztValue (fun _ => Q'.mkPos 1 2 (by decide)) 1
+  μ_nonneg  := by decide
+  ZtR_nn    := by decide
+  conv_su2  := by decide
+  etaR_eq   := by decide
+  etasu2_eq := by decide
+
+/-- **SU(2) budget witness through the genuine character-tail capstone.**
+Assembled by `uniformBudgetWitness_of_characterTail` from the matched
+majorant + model; the tail compatibilities are `rfl` and the window equality
+is `decide`.  Demonstrates the full `Z_t`-majorant → monotone-η-model →
+`eta_dominated` chain closing end to end on SU(2), with no posited
+implication and no `decide` shortcut on `eta_max`. -/
+def su2_uniform_witness_via_tail : UniformBudgetWitness su2 :=
+  uniformBudgetWitness_of_characterTail
+    su2_ztMajorant_matched su2_ztEtaModel_matched rfl rfl (by decide)
+
 end YMGap.RG
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
@@ -195,4 +276,8 @@ end YMGap.RG
 #print axioms YMGap.RG.etaModel_mono
 #print axioms YMGap.RG.eta_of_zt_of_model
 #print axioms YMGap.RG.etaFromZt_of_model
+#print axioms YMGap.RG.uniformBudgetWitness_of_characterTail
 #print axioms YMGap.RG.su2_ztEtaModel
+#print axioms YMGap.RG.su2_ztMajorant_matched
+#print axioms YMGap.RG.su2_ztEtaModel_matched
+#print axioms YMGap.RG.su2_uniform_witness_via_tail

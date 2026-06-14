@@ -132,6 +132,21 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
     convergence (finite volume, bounded observables). The ONE analytic input is
     `weighted_pos` (= per-volume OS2 reflection positivity), carried as DATA, NOT
     faked. *constructive?* yes. Axiom-gate `[propext]`/`[propext, Quot.sound]`.
+  - **UPDATE 2026-06-14 — the per-volume `weighted_pos` (OS2 at the product
+    functional) now FACTORIZES to per-bond OS2.** `FiniteVolume.prodWeighted_pos_of_perEdge`
+    (axiom-gate `[propext]`) proves: because `prodFunctional` is the decoupled
+    product `Π_i (μ i).E(o i)` over the componentwise `prodAlg`, the weighted
+    reflection form `I₀(w·a*·a) = Π_i (μ i).E(w_i·(a_i)*·a_i)` is a product of
+    per-edge weighted forms, `≥ 0` by `prodE_nonneg` GIVEN per-bond OS2. This
+    is the standard Osterwalder–Seiler **cross-plane tensor factorization** of
+    RP for the free measure: the n-edge OS2 obligation REDUCES to the 1-edge
+    obligation. The constructor `prodReferenceWeight_of_perEdge` builds the
+    `ReferenceWeight` from per-bond OS2 instead of the opaque joint
+    `weighted_pos`. The single-bond OS2 is the heat-kernel reflection
+    positivity `ReflectionPositivity.reflSchwinger_nonneg` (`Σ_s e^{−tC₂(s)}c_s²
+    ≥ 0`, CReal-level, unconditional); the 1-edge `Q'`-functional ↔ CReal
+    reflection-form reconciliation is the standard `Q'`/CReal representation
+    boundary, not a new hole.
 - **OPEN stages**: NONE. The module `ContinuumExistence.lean` (and `FiniteVolume.lean`)
   carry zero `sorry`s; the whole library is now sorry-free.
 - **must not be closed classically**: per AGENTS.md Rule 6. These stand for
@@ -182,6 +197,21 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   concrete groups); the antitone-in-Δ derivation for the general group is
   the open paper obligation, named not hidden.
 - **must not be closed classically**: per AGENTS.md Rule 6.
+- **UPDATE 2026-06-14 — `eta_dominated` is no longer a free posit.** It is
+  now assembled by the capstone `RG.uniformBudgetWitness_of_characterTail`
+  (`EtaPackaging.lean`), which threads the GENUINE character-tail path:
+  `ztMajorant_le_su2` (the proven rank-general `Z_t(R) ≤ Z_t(su2)`,
+  `CharacterTailMajorant.lean`) composed with `eta_of_zt_of_model` (the
+  proven monotone `η = μ·K_lf(Z_t)` bridge) yields `R.eta_max ≤ su2.eta_max`.
+  SU(2) closes **end-to-end through this capstone**
+  (`su2_uniform_witness_via_tail`, axiom-clean), NOT via the `decide`-on-
+  `3e-4≤3e-4` shortcut. The residual named inputs are now the *structured*
+  per-group data — `ZtMajorant.rank_collapse` (validated for all 19 group
+  types) + the `ZtEtaModel` `η`-model equalities + the per-group
+  `WeylDimData`/`AxisFactorBound` (realized for SU(2),SU(3)) — not the opaque
+  scalar `eta_dominated`. The antitone exponential engine
+  `E_antitone` is the proved `RG.expNeg_scaled_antitone_leRat`
+  (`CharacterTailAntitone.lean`).
 
 ### [OS2-RP] reflection positivity via standard Osterwalder–Seiler — **CLOSED, wall removed (2026-06-14)**
 

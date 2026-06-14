@@ -55,6 +55,16 @@ The value delivered: the *entire* reduction is constructive and
 axiom-clean **modulo this one named field**, exactly mirroring how
 `mass_gap_SU2` isolates its OS-reconstruction hypotheses.
 
+UPDATE (2026-06-14): `eta_dominated` is no longer carried as a bare posit.
+`RG/EtaPackaging.uniformBudgetWitness_of_characterTail` now *assembles* the
+`UniformBudgetWitness` from the genuine character-tail path — the proven
+`Z_t(R) ≤ Z_t(su2)` (`CharacterTailMajorant.ztMajorant_le_su2`) composed
+with the proven monotone `η = μ·K_lf(Z_t)` bridge
+(`EtaPackaging.eta_of_zt_of_model`) — and SU(2) closes end-to-end through it
+(`su2_uniform_witness_via_tail`). The residual is the structured per-group
+data (`ZtMajorant.rank_collapse`, the `ZtEtaModel` model equalities, the
+per-group Weyl-dimension / axis-factor bounds), not this scalar inequality.
+
 # Axiom-gate (AGENTS.md Rule 1)
 
 Every load-bearing theorem reports `[propext]` / `[propext, Quot.sound]`

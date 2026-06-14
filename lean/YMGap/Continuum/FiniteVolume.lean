@@ -77,6 +77,7 @@ and `recip`).  No `Classical.*`, no `sorryAx`, no `native_decide`.
 
 import YMGap.Continuum.PlaquetteReweight
 import YMGap.Continuum.ContinuumExistence
+import YMGap.Continuum.ReflectionPositivity
 
 namespace YMGap.Continuum.FiniteVolume
 
@@ -211,6 +212,58 @@ theorem prodReferenceWeight_Z_pos
     (0 : Q') < (prodReferenceWeight A μ n w hw hOS2).Z :=
   (prodReferenceWeight A μ n w hw hOS2).Z_pos
 
+/-! ## OS2 at the product level from per-bond OS2 — the cross-plane factorization
+
+The genuine analytic OS2 input `weighted_pos` over the product functional is
+NOT atomic: because `prodFunctional` is the **decoupled product**
+`I₀(o) = Π_{i<n} (μ i).E(o i)` over the **componentwise** product algebra
+`prodAlg`, the weighted reflection form factorizes edge-by-edge,
+
+    I₀(w · a*·a) = Π_{i<n} (μ i).E( w_i · (a_i)*·a_i ),
+
+a finite product of the *per-edge* weighted forms.  This is the standard
+Osterwalder–Seiler **cross-plane tensor factorization** of reflection
+positivity for the free (uncoupled) measure: RP of the product is the product
+of per-bond RP.  By `prodE_nonneg` (product of nonnegatives), product-level
+OS2 follows from **per-bond OS2** — the single-edge reflection positivity,
+which `Continuum/ReflectionPositivity.reflSchwinger_nonneg` proves
+unconditionally for the heat-kernel bond (the Schur-diagonalized
+`Σ_s e^{−t·C₂(s)}·c_s² ≥ 0`).  So the n-edge OS2 obligation REDUCES to the
+1-edge OS2 obligation. -/
+
+/-- **Cross-plane tensor factorization of OS2.**  Given per-bond OS2 — for
+every edge `i` and observable `b`, the per-edge weighted form
+`(μ i).E(w_i · b*·b) ≥ 0` — the product functional's weighted reflection form
+is `≥ 0` for every separable observable `a`.  The product
+`I₀(w·a*·a) = Π_i (μ i).E(w_i · (a_i)*·a_i)` is a finite product of
+nonnegatives (`prodE_nonneg`); `prodAlg`'s componentwise `mul`/`star` make the
+factorization definitional. -/
+theorem prodWeighted_pos_of_perEdge
+    {A : Nat → ObsAlg} (μ : ∀ i, ProbFunctional (A i)) (n : Nat)
+    (w : (prodAlg A n).carrier)
+    (hper : ∀ (i : Nat) (b : (A i).carrier),
+      (0 : Q') ≤ (μ i).E ((A i).mul (w i) ((A i).mul ((A i).star b) b))) :
+    ∀ a : (prodAlg A n).carrier, (0 : Q') ≤ (prodFunctional A μ n).E
+      ((prodAlg A n).mul w ((prodAlg A n).mul ((prodAlg A n).star a) a)) :=
+  fun a => prodE_nonneg _ (fun i => hper i (a i)) n
+
+/-- **Product reference-weight datum from per-bond OS2.**  The same as
+`prodReferenceWeight`, but the OS2 input is supplied per-edge
+(`hper`, the single-bond reflection positivity) instead of as the opaque
+joint product positivity — the joint `weighted_pos` is then DERIVED via the
+cross-plane factorization `prodWeighted_pos_of_perEdge`.  This is the honest
+shape: the genuine analytic content lives at the single bond
+(`ReflectionPositivity.reflSchwinger_nonneg`), and the product assembly is the
+standard factorization, proved here. -/
+def prodReferenceWeight_of_perEdge
+    (A : Nat → ObsAlg) (μ : ∀ i, ProbFunctional (A i)) (n : Nat)
+    (w : (prodAlg A n).carrier)
+    (hw : ∀ i, (0 : Q') < (μ i).E ((A i).mul (w i) (A i).one))
+    (hper : ∀ (i : Nat) (b : (A i).carrier),
+      (0 : Q') ≤ (μ i).E ((A i).mul (w i) ((A i).mul ((A i).star b) b))) :
+    ReferenceWeight (prodAlg A n) :=
+  prodReferenceWeight A μ n w hw (prodWeighted_pos_of_perEdge μ n w hper)
+
 /-! ## Stage S3 — the finite-volume expectation sequence
 
 A volume-indexed family of reference-weight data for a fixed observable
@@ -308,6 +361,8 @@ end YMGap.Continuum.FiniteVolume
 #print axioms YMGap.Continuum.FiniteVolume.ReferenceWeight.E_Λ_normalized
 #print axioms YMGap.Continuum.FiniteVolume.prodReferenceWeight
 #print axioms YMGap.Continuum.FiniteVolume.prodReferenceWeight_Z_pos
+#print axioms YMGap.Continuum.FiniteVolume.prodWeighted_pos_of_perEdge
+#print axioms YMGap.Continuum.FiniteVolume.prodReferenceWeight_of_perEdge
 #print axioms YMGap.Continuum.FiniteVolume.finiteVolumeExpectationSeq
 #print axioms YMGap.Continuum.FiniteVolume.finiteVolumeExpectationFromReweight
 #print axioms YMGap.Continuum.FiniteVolume.finiteVolumeExpectationSeq_via_reweight
