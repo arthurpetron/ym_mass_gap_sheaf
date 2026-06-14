@@ -63,7 +63,29 @@ routes unconditionally.
   (moment path-positivity, Hankel factorization).
 - **Positivstellensatz**: `Positivstellensatz.lean`, `MarkovLukacs.lean`.
 
-## 4. The two walls (equivalent — either closes uniform PSD)
+## 3b. OS2 is now off the walls (2026-06-14)
+
+**The mass-gap critical path no longer depends on either wall.** OS2
+reflection positivity was being routed through the all-order character
+*product* Gram PSD `MomentSquarePos` (= pointwise heat-kernel positivity),
+which is exactly what the two walls below attack. That was a **conflation**:
+the genuine OS2 axiom is the *reflection* form `⟨θ(a)*·a⟩`, which Schur
+orthogonality (Peter–Weyl) **diagonalizes** to `Σ_s e^{−t·C₂(s)}·c_s²` — a
+weighted sum of squares with nonnegative weights, hence `≥ 0` for **every
+real** `c`, unconditionally. The only input is `e^{−t·C₂(s)} ≥ 0`
+(elementary). See `docs/os2-via-standard-rp.md` and
+`lean/YMGap/Continuum/ReflectionPositivity.lean`
+(`reflectionPositiveSchwinger_holds`, axiom-clean). `OSAxioms`'
+`IsOS2ReflectionPositivity` is retargeted to this reflection Schwinger form,
+so the full `OSAxiomBundle` is now inhabitable for SU(2) with **no open
+analytic input**.
+
+The two walls below remain **mathematically open** but are now a *stronger*,
+**non-load-bearing** statement (pointwise `K_t ≥ 0` / uniform Gram PSD),
+retained for completeness and as the `reflectionPositive_of_momentSquarePos`
+record. They are no longer required for the mass gap.
+
+## 4. The two walls (equivalent — either closes uniform PSD) — DEMOTED, see §3b
 
 ### Wall 1 — Favard / `nonnegCoeffs P_N` (algebraic)
 

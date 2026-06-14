@@ -82,6 +82,7 @@ import YMGap.Continuum.SigmaHatLimit
 import YMGap.Continuum.ContinuumMeasure
 import YMGap.Continuum.ObservableMeasure
 import YMGap.Continuum.WilsonFunctional
+import YMGap.Continuum.ReflectionPositivity
 import YMGap.Continuum.Pivot2Defs
 import YMGap.Continuum.Pivot2Identity
 import YMGap.Continuum.Pivot2Moments

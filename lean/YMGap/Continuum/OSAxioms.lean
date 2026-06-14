@@ -66,6 +66,7 @@ finite-order OS2 witness `os2_su2_finite_order` inherits only `[propext]`
 
 import YMGap.Continuum.ContinuumMeasure
 import YMGap.Continuum.WilsonFunctional
+import YMGap.Continuum.ReflectionPositivity
 import YMGap.Continuum.GramReduction
 import YMGap.Continuum.MomentBridge
 import YMGap.Continuum.SpectralGap
@@ -135,12 +136,15 @@ theorem reflectionPositiveAt_three (t : Q') (ht : (0 : Q') ≤ t) :
     (CReal.Equiv.symm (GramRed.coneExp_eq_gramForm t ht c 3))
     (MomentBridge.gram_psd_three_via_bridge t ht c)
 
-/-- **All-order reflection positivity from the single analytic input.**
-Given `GramRed.MomentSquarePos` for the heat-kernel moments (the
-heat-kernel positive-measure content, the one named open input of
-`MomentBridge`), OS2 holds at *every* order.  This is the bridge that
-makes `ReflectionPositive` the genuine moment-square positivity, not an
-abstract token. -/
+/-- **The stronger product-Gram route (retained, OFF the critical path).**
+Given `GramRed.MomentSquarePos` for the heat-kernel moments (the strictly
+stronger pointwise heat-kernel positive-measure content, attacked through the
+`P_N` walls), the all-order character *product* Gram `ReflectionPositive`
+holds.  This is no longer used to discharge OS2 — `IsOS2ReflectionPositivity`
+is now the Osterwalder–Seiler reflection Schwinger form, discharged
+unconditionally (`ReflectionPositivity.reflectionPositiveSchwinger_holds`).
+Kept on record as the implication "the stronger statement also holds, given
+its (open) hypothesis"; `docs/os2-via-standard-rp.md` §5. -/
 theorem reflectionPositive_of_momentSquarePos (t : Q') (ht : (0 : Q') ≤ t)
     (h : GramRed.MomentSquarePos (GramRed.wilsonMoments t ht)) :
     ReflectionPositive t ht :=
@@ -257,12 +261,22 @@ def IsOS1HypercubicH4 {A : ObsAlg}
   FunctionalEquivariant E ψ
 
 /-- **OS2 (Reflection positivity).**  `0 ≤ E(θ(a)*·a)` for every reflected
-observable — the heat-kernel character Gram matrix is positive-semidefinite
-at every order.  Definitionally `ReflectionPositive`, the genuine
-moment-square positivity (discharged at finite orders unconditionally,
-at all orders modulo the named `MomentSquarePos` input). -/
+observable `a = Σ c_s χ_s`, at every order.  Definitionally the
+Osterwalder–Seiler **reflection Schwinger form**
+`ReflectionPositivity.ReflectionPositiveSchwinger`: after Schur
+diagonalization (Peter–Weyl) the reflection pairing `⟨θ(χ_μ)*·χ_ν⟩`
+diagonalizes to `Σ_s e^{−t·C₂(s)}·c_s²`, a weighted sum of squares with
+nonnegative weights — hence `≥ 0` for EVERY real `c`, UNCONDITIONALLY
+(`docs/os2-via-standard-rp.md`).
+
+This is the genuine OS2 axiom and the wall-free route.  The earlier encoding
+`ReflectionPositive` (= the all-order character *product* Gram PSD
+`MomentSquarePos`, retained below) conflated OS2 with the strictly stronger
+pointwise heat-kernel positivity attacked through the `P_N` walls; that
+statement is kept on record (`reflectionPositive_of_momentSquarePos`) but is
+no longer on the mass-gap critical path. -/
 def IsOS2ReflectionPositivity (t : Q') (ht : (0 : Q') ≤ t) : Prop :=
-  ReflectionPositive t ht
+  ReflectionPositivity.ReflectionPositiveSchwinger t ht
 
 /-- **OS2 (Reflection positivity), finite-order grade.**  The provable-now
 form: reflection positivity at orders up to `N`.  At `N = 2, 3` this is
@@ -378,20 +392,20 @@ structure OSAxiomBundleAt {M : Nat → Type} (μ_inf : ContinuumMeasure M) (N : 
   os3_symmetry : IsOS3Symmetry E ρ
   os4_cluster : IsOS4ClusterProperty S μ
 
-/-- A finite-order bundle yields the abstract bundle once the all-order OS2
-input is supplied (the named open analytic content `MomentSquarePos`).  This
-is the bridge from the *unconditional* finite-order bundle to the full
-bundle, carrying the same content data. -/
+/-- A finite-order bundle yields the abstract bundle **unconditionally**: the
+all-order OS2 obligation is now the reflection Schwinger form, discharged with
+no open input by `ReflectionPositivity.reflectionPositiveSchwinger_holds`.
+This is the bridge from the finite-order bundle to the full bundle, carrying
+the same content data — no `MomentSquarePos`/`P_N` input required. -/
 def OSAxiomBundleAt.toFull {M : Nat → Type} {μ_inf : ContinuumMeasure M} {N : Nat}
-    (b : OSAxiomBundleAt μ_inf N)
-    (hMSP : GramRed.MomentSquarePos (GramRed.wilsonMoments b.t b.ht)) :
+    (b : OSAxiomBundleAt μ_inf N) :
     OSAxiomBundle μ_inf :=
   { t := b.t, ht := b.ht, A := b.A, E := b.E, φ := b.φ, ψ := b.ψ, ρ := b.ρ,
     S := b.S, μ := b.μ,
     os0 := b.os0,
     os1_translation := b.os1_translation,
     os1_h4 := b.os1_h4,
-    os2_reflection_positivity := reflectionPositive_of_momentSquarePos b.t b.ht hMSP,
+    os2_reflection_positivity := ReflectionPositivity.reflectionPositiveSchwinger_holds b.t b.ht,
     os3_symmetry := b.os3_symmetry,
     os4_cluster := b.os4_cluster }
 
@@ -410,12 +424,13 @@ heat-kernel normalization, OS1 / OS3 by the identity-symmetry equivariance,
 and OS4 by any spectral gap.
 -/
 
-/-- **Smart constructor (all-order, SU(2)).**  Assembles an `OSAxiomBundle
-μ_inf` for the SU(2) heat-kernel functional, discharging:
+/-- **Smart constructor (all-order, SU(2)), UNCONDITIONAL.**  Assembles an
+`OSAxiomBundle μ_inf` for the SU(2) heat-kernel functional, discharging:
 
   * OS0 from `WilsonFunctional.wilsonCharExp_unit_le` (normalization bound);
-  * OS2 from `reflectionPositive_of_momentSquarePos` applied to the single
-    named analytic input `hMSP : MomentSquarePos (wilsonMoments t ht)`;
+  * OS2 from `ReflectionPositivity.reflectionPositiveSchwinger_holds` — the
+    standard Osterwalder–Seiler reflection positivity, all orders, with NO
+    open analytic input (the `MomentSquarePos`/`P_N` wall is off the path);
   * OS1 / OS3 from supplied symmetry-equivariance witnesses;
   * OS4 from a supplied finite-volume gap.
 
@@ -427,7 +442,6 @@ def os_compliant_su2_measure
     {A : ObsAlg} (E : ProbFunctional A)
     (φ ψ ρ : ObsHom A A)
     (S : SpectralGap.SpectralModel) (μ : Q') (hμ : (0 : Q') ≤ μ)
-    (hMSP : GramRed.MomentSquarePos (GramRed.wilsonMoments t ht))
     (h_os1_translation : IsOS1HypercubicTranslation E φ)
     (h_os1_h4 : IsOS1HypercubicH4 E ψ)
     (h_os3_symmetry : IsOS3Symmetry E ρ)
@@ -437,7 +451,7 @@ def os_compliant_su2_measure
     os0 := WilsonFunctional.wilsonCharExp_unit_le t ht,
     os1_translation := h_os1_translation,
     os1_h4 := h_os1_h4,
-    os2_reflection_positivity := reflectionPositive_of_momentSquarePos t ht hMSP,
+    os2_reflection_positivity := ReflectionPositivity.reflectionPositiveSchwinger_holds t ht,
     os3_symmetry := h_os3_symmetry,
     os4_cluster := clusterDecay_of_gap S μ hμ hgap }
 

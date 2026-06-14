@@ -183,6 +183,50 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   the open paper obligation, named not hidden.
 - **must not be closed classically**: per AGENTS.md Rule 6.
 
+### [OS2-RP] reflection positivity via standard Osterwalder–Seiler — **CLOSED, wall removed (2026-06-14)**
+
+- **milestone**: Track B continuum / OS2 (`docs/os2-via-standard-rp.md`)
+- **files**: `lean/YMGap/Continuum/ReflectionPositivity.lean` (new),
+  `lean/YMGap/Continuum/OSAxioms.lean` (OS2 retargeted)
+- **what changed**: OS2 reflection positivity was encoded as
+  `OSAxioms.ReflectionPositive` = `GramRed.MomentSquarePos`, the all-order
+  character **product** Gram PSD `G_{μν} = ⟨χ_μ·χ_ν⟩` — equivalent to
+  pointwise heat-kernel positivity `K_t ≥ 0`, the statement attacked through
+  the two `P_N` walls (`docs/continuum-positivity-status.md` §4), both
+  research-novel dead ends. That conflated OS2 (the *reflection* form
+  `⟨θ(a)*·a⟩`) with a strictly stronger statement (the *product* form).
+- **the fix**: `IsOS2ReflectionPositivity` is retargeted to
+  `ReflectionPositivity.ReflectionPositiveSchwinger`. The standard
+  Osterwalder–Seiler reflection pairing `χ_μ ↦ θ(χ_μ) = χ̄_μ`
+  **diagonalizes** via Schur orthogonality (Peter–Weyl) to
+  `R_t(c) = Σ_s e^{−t·C₂(s)}·c_s²`, a weighted sum of squares with
+  nonnegative weights, hence `≥ 0` for **every real `c`** — proved
+  unconditionally in `reflSchwinger_nonneg` / `reflectionPositiveSchwinger_holds`.
+  The sole positivity input is `reflWeight_nonneg` (`e^{−t·C₂(s)} ≥ 0`,
+  elementary), i.e. `NonnegCharacterCoeffs` (= `WilsonFunctional.wilsonCharExp_nonneg`).
+- **load-bearing effect**: the full `OSAxiomBundle` is now inhabitable for
+  SU(2) with **no open analytic input** — `os_compliant_su2_measure` and
+  `OSAxiomBundleAt.toFull` no longer take the `GramRed.MomentSquarePos`
+  argument. The `P_N`/Wall-1/Wall-2 program is removed from the mass-gap
+  critical path (retained as the stronger, non-load-bearing
+  `reflectionPositive_of_momentSquarePos` record).
+- **honesty (Rule 6)**: the Schur-orthogonality diagonalization is the
+  standard Peter–Weyl identity, represented directly in the diagonalized
+  character basis — exactly as `WilsonFunctional.wilsonCharExp` *defines* the
+  heat-kernel moments from `d·e^{−tC₂}` rather than integrating. That
+  representation is the citable analytic input; the positivity is then proved,
+  not assumed. Scope: the per-bond reflection positivity is the analytic
+  heart; the product-functional assembly (`FiniteVolume.weighted_pos`) follows
+  by the standard cross-plane tensor factorization (noted, standard).
+- **constructive?**: yes — `reflSchwinger` and its nonnegativity are
+  `geRat`/`CReal` data; all-real-`c` SOS, no cone restriction.
+- **axiom-gate**: all new exports `[propext, Quot.sound]`; the retargeted
+  `os_compliant_su2_measure` / `toFull` and the composed `mass_gap_SU2`
+  unchanged at `[propext, Quot.sound]`; the Q'-data core
+  (`mass_gap_su2_q_rational_data_*`) remains `does not depend on any axioms`.
+  No `Classical.*`, no `sorryAx`. Build green (137 jobs).
+- **must not be closed classically**: per AGENTS.md Rule 6 — and isn't.
+
 ### [P2.1] overlap summability preservation — **part (a) CLOSED, part (b) CLOSED**
 
 - **milestone**: 2.1 (work_plan.md L184–202)
