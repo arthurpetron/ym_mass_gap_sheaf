@@ -30,6 +30,7 @@ and reuses the proven finite-volume decay (`decay_of_spectralGap_corr0`).
 -/
 
 import YMGap.Continuum.SpectralGap
+import YMGap.Constructive.CRealMul
 
 namespace YMGap.Continuum
 
@@ -159,6 +160,36 @@ spectrum is only lower-semicomputable). -/
 instance locatedGap_decidable (S : SpectralModel) (μ : Q') :
     Decidable (specMax S ≤ μ) := inferInstance
 
+/-! ## The positive eigenvalue-gap margin
+
+`sep < 1 ⟹ 0 < 1 − sep`: the located gap below the vacuum eigenvalue `1` is a
+STRICTLY POSITIVE `Q'` quantity — the mass gap in transfer-eigenvalue space, with
+no `log` needed (the physical mass is `m = −log sep`; here `1 − sep > 0` is the
+constructive positive-gap witness). -/
+
+/-- `sep < 1 ⟹ 0 < 1 − sep` (positivity of the eigenvalue-gap margin). -/
+theorem one_sub_pos_of_lt_one {sep : Q'} (h : sep < (1 : Q')) : (0 : Q') < 1 - sep := by
+  apply CReal.pos_of_num_pos
+  have h' : sep.num * ((1 : Q').den : Int) < (1 : Q').num * (sep.den : Int) := h
+  have hone_num : (1 : Q').num = 1 := rfl
+  have hone_den : ((1 : Q').den : Int) = 1 := rfl
+  change (0 : Int) < (1 : Q').num * (sep.den : Int) + (-sep.num) * (((1 : Q').den : Int))
+  rw [hone_num, hone_den]
+  rw [hone_num, hone_den] at h'
+  omega
+
+/-- The positive eigenvalue-gap margin `1 − sep > 0` of a located gap — the
+located mass gap as a strictly positive `Q'` quantity (the spectral gap in
+transfer-eigenvalue space, no `log` required). -/
+def LocatedSpectralGap.gapMargin {S : SpectralModel} (g : LocatedSpectralGap S) : Q' :=
+  1 - g.sep
+
+/-- The eigenvalue-gap margin is strictly positive — THE constructive
+"there is a mass gap" witness at the bounded transfer-operator level. -/
+theorem LocatedSpectralGap.gapMargin_pos {S : SpectralModel} (g : LocatedSpectralGap S) :
+    (0 : Q') < g.gapMargin :=
+  one_sub_pos_of_lt_one g.sep_lt_one
+
 end YMGap.Continuum
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
@@ -168,3 +199,5 @@ end YMGap.Continuum
 #print axioms YMGap.Continuum.specMax_nonneg
 #print axioms YMGap.Continuum.LocatedSpectralGap.located
 #print axioms YMGap.Continuum.LocatedSpectralGap.decay
+#print axioms YMGap.Continuum.one_sub_pos_of_lt_one
+#print axioms YMGap.Continuum.LocatedSpectralGap.gapMargin_pos
