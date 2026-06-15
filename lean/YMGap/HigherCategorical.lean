@@ -67,6 +67,8 @@ All load-bearing theorems report `[propext]` only (inherited from
 -/
 
 import YMGap.Codynamic
+import YMGap.Constructive.RationalsMul
+import YMGap.Constructive.QPoly
 
 namespace YMGap.HigherCategorical
 
@@ -305,10 +307,63 @@ theorem rg_flow_2_functor (s : InductiveBoundWitnessSystem) :
    positivity_2_categorical s,
    canonical_gap_is_valid s⟩
 
+/-! ## Genuine 2-functoriality: the Θ-cell composition coherence — NOW PROVED
+
+The coherence `Theta s 0 (k+n) ≃ Theta s 0 k + Theta s k n` (the
+natural-2-transformation law making `F_RG` a genuine 2-functor) was previously
+flagged as "ornamental / deferred" because Q' addition is not strictly
+associative.  It holds at Q'-semantic equivalence, and we now PROVE it via a
+finite-sum split lemma — upgrading `F_RG` from an object map to a 2-functor
+with verified functoriality. -/
+
+/-- **Finite-sum split (at `eqv`):** `Σ_{j<k+n} a_j ≃ Σ_{j<k} a_j + Σ_{j<n} a_{j+k}`.
+Induction on `n`; the step reassociates (Q' `add_assoc_eqv`) and commutes the
+boundary index (`Nat.add_comm`).  The genuine new lemma behind the 2-functor
+coherence. -/
+theorem finSum_split (a : QSeq) (k : Nat) :
+    ∀ n, (finSum a (k + n)).eqv (finSum a k + finSum (fun j => a (j + k)) n)
+  | 0 => Q'.eqv_symm (QPoly.q_add_zero_eqv (finSum a k))
+  | (n + 1) => by
+      have ih := finSum_split a k n
+      have ecomm : a (n + k) = a (k + n) := congrArg a (Nat.add_comm n k)
+      show (finSum a (k + n) + a (k + n)).eqv
+            (finSum a k + (finSum (fun j => a (j + k)) n + a (n + k)))
+      -- reconcile the boundary index `a(n+k)` (RHS) with `a(k+n)` (LHS)
+      rw [ecomm]
+      refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr_right _ _ _ ih) ?_
+      exact Q'.add_assoc_eqv (finSum a k) (finSum (fun j => a (j + k)) n) (a (k + n))
+
+/-- **The Θ-cell composition coherence (natural 2-transformation), PROVED.**
+`Theta s 0 (k+n) ≃ Theta s 0 k + Theta s k n`: composing two consecutive
+scale-shifts accumulates the same degradation as one direct shift.  This is the
+functoriality 2-cell of `F_RG`, now a theorem (was deferred).  Direct from
+`finSum_split` at the shifted degradation sequence. -/
+theorem theta_compose_natural_transformation
+    (s : InductiveBoundWitnessSystem) (k n : Nat) :
+    (Theta s 0 (k + n)).eqv (Theta s 0 k + Theta s k n) :=
+  finSum_split (fun j => s.degradation (j + 0)) k n
+
+/-- **`F_RG` is a genuine 2-functor (packaged).**  Strengthens
+`rg_flow_2_functor` with the now-PROVEN functoriality coherence: boundary,
+positivity property, universal-property gap, AND the natural-2-transformation
+composition law for the Θ-cells. -/
+theorem rg_flow_2_functor_genuine (s : InductiveBoundWitnessSystem) :
+    (Theta s 0 0 = (0 : Q')) ∧
+    (∀ k, Theta s 0 k + s.gap ≤ s.initial_bound) ∧
+    ((0 : Q') < s.gap ∧ s.budget + s.gap ≤ s.initial_bound) ∧
+    (∀ k n, (Theta s 0 (k + n)).eqv (Theta s 0 k + Theta s k n)) :=
+  ⟨theta_zero s 0,
+   positivity_2_categorical s,
+   canonical_gap_is_valid s,
+   theta_compose_natural_transformation s⟩
+
 end YMGap.HigherCategorical
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
 
+#print axioms YMGap.HigherCategorical.finSum_split
+#print axioms YMGap.HigherCategorical.theta_compose_natural_transformation
+#print axioms YMGap.HigherCategorical.rg_flow_2_functor_genuine
 #print axioms YMGap.HigherCategorical.ScaleShift.id
 #print axioms YMGap.HigherCategorical.ScaleShift.comp
 #print axioms YMGap.HigherCategorical.theta_zero
