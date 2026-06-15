@@ -1111,6 +1111,7 @@ YMGap.RG.TwoCellTheta.mk' =
 YMGap.RG.Zt_le_su2_of_axisData = Quot.sound, propext
 YMGap.RG.Zt_le_ztValue =
 YMGap.RG.axisFactor_gap_antitone = Quot.sound, propext
+YMGap.RG.axisFactor_geom_le = Quot.sound, propext
 YMGap.RG.axisFactor_polylog_le = Quot.sound, propext
 YMGap.RG.binomGeomSum_le = Quot.sound, propext
 YMGap.RG.binomGeomSum_recurrence = Quot.sound, propext

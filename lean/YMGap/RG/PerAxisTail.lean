@@ -35,6 +35,7 @@ import YMGap.Constructive.CRealSum
 import YMGap.Constructive.CRealMulMono
 import YMGap.Constructive.CharacterTail
 import YMGap.RG.CharacterTailAntitone
+import YMGap.RG.CharacterTailMajorant
 import YMGap.RG.PolylogTail
 
 namespace YMGap.RG
@@ -192,6 +193,33 @@ theorem polyWeight_ratio (q m : Nat) :
   rw [Int.natCast_mul] at this
   exact this
 
+/-! ## Bounding the CONSTRUCTED per-axis factor `axisFactor`
+
+`CharacterTailMajorant.axisFactor dimSq t C2 hC2 n = Σ_{x<n} dimSq(x)·e^{−t·C2(x)}`
+is the genuine per-axis character factor as a constructed `CReal`.  Its term
+`charTermGap = ofQ'(dimSq)·e^{−t·C2}` is exactly `charTail_geom_le`'s term shape
+(`w = dimSq`, `g(m) = t·C2(m)`), so the tight tool bounds it directly — closing
+the constructed per-axis factor at the geometric rational `H`. -/
+
+/-- **The constructed per-axis factor is bounded by `H`.**  `axisFactor` (the
+genuine `CReal` per-axis character sum) `≤ H`, given `e^{−a} ≤ ρ`, the linear
+lower bound `a·m ≤ t·C2(m)`, the weight ratio `dimSq(m+1) ≤ P·dimSq(m)`, and the
+geometric recurrence `dimSq(0) + (P·ρ)·H ≤ H`.  Direct from `charTail_geom_le`
+(the per-axis term `charTermGap` IS its term). -/
+theorem axisFactor_geom_le
+    (t a ρ P H : Q') (dimSq C2 : Nat → Q')
+    (hC2 : ∀ m, (0 : Q') ≤ t * C2 m)
+    (ha : (0 : Q') ≤ a) (hρ0 : (0 : Q') ≤ ρ) (hP0 : (0 : Q') ≤ P) (hH : (0 : Q') ≤ H)
+    (hw0 : ∀ m, (0 : Q') ≤ dimSq m)
+    (hρ : CReal.leRat (ExpNeg.expNeg a ha) ρ)
+    (hge : ∀ m, a * Q'.ofNat m ≤ t * C2 m)
+    (hwratio : ∀ m, dimSq (m + 1) ≤ P * dimSq m)
+    (hrec : dimSq 0 + (P * ρ) * H ≤ H)
+    (n : Nat) :
+    CReal.leRat (axisFactor dimSq t C2 hC2 n) H :=
+  charTail_geom_le a ρ P H dimSq (fun m => t * C2 m)
+    ha hρ0 hP0 hH hC2 hw0 hρ hge hwratio hrec n
+
 end YMGap.RG
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
@@ -201,3 +229,4 @@ end YMGap.RG
 #print axioms YMGap.RG.charTail_geom_le
 #print axioms YMGap.RG.polyWeight_ratio_nat
 #print axioms YMGap.RG.polyWeight_ratio
+#print axioms YMGap.RG.axisFactor_geom_le
