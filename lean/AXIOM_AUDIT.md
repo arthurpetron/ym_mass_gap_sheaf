@@ -1127,6 +1127,7 @@ YMGap.RG.etaGapMonotone_of_ztMajorant = propext
 YMGap.RG.etaModel_mono = Quot.sound, propext
 YMGap.RG.eta_of_zt_of_model = Quot.sound, propext
 YMGap.RG.expNeg_antitone_leRat = Quot.sound, propext
+YMGap.RG.expNeg_poly_csum_le = Quot.sound, propext
 YMGap.RG.expNeg_scaled_antitone_leRat = Quot.sound, propext
 YMGap.RG.extractTwoCell =
 YMGap.RG.finProd_const_le = Quot.sound, propext

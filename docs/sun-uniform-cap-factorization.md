@@ -89,12 +89,32 @@ geometric domination):
     With `e^{−tδ_N} ≤ ρ^{N−1}` (`expNeg_mul_le_pow` at `m = N−1`, `δ_N ≥ c(N−1)`)
     and `s = 4ρ ≤ 1/2`, this gives `(N−1)(4ρ)^{N−1} ≤ 1`, i.e. (B3).
 
-All axiom-clean (`[propext]`/`[propext, Quot.sound]`).  What remains to fully
-assemble the cap: the polynomial-weighted refinement of (B1) (scale the
-geometric term bound by `(m+1)^{2q}` via `leRat_smul_nonneg` + `weightedGeomSum_le`)
-and the SU(N)-specific wiring (`δ_N ≥ c(N−1)`, the `h(m) ≥ c·m` linear lower
-bound) — concrete plumbing on top of the now-built exp machinery, no longer a
-"missing machinery" gap.
+  * `RG/PerAxisTail.expNeg_poly_csum_le` : **the FULL (B1) per-axis tail** —
+    `Σ_{m<N} w(m)·e^{−g(m)} ≤ B₀·H^{d+1}` for a per-term exponent `g(m) ≥ a·m`,
+    polynomial weight `w` dominated by `B₀·C(m+d,d)`.  Chains
+    `expNeg_mul_le_pow` + `expNeg_antitone_leRat` (through `g(m) ≥ a·m`) +
+    `leRat_smul_nonneg` + `leRat_csum` + `weightedGeomSum_le`.  This closes the
+    *polynomial*-geometric per-axis character tail (`(m+1)^{2q_i}·e^{−t h_i(m)}`,
+    `d = 2q_i`, `g(m) = t h_i(m) ≥ (t q_i/2) m`) at a single explicit rational —
+    the complete discharge of `AxisFactorBound` from the constructive exp stack.
+
+All axiom-clean (`[propext]`/`[propext, Quot.sound]`).
+
+**The exponential machinery for the cap is now COMPLETE** — every atom (B1
+full polynomial-geometric, B3) has a built, general, axiom-clean kernel, and the
+"rational surrogate can't carry the tail" obstruction (§6) is fully resolved.
+
+What remains to assemble the LITERAL uniform-in-N cap is now purely concrete
+(no machinery gap): (i) instantiate the per-axis kernel for SU(N) — supply the
+concrete `a_i = t q_i/2`, geometric base `ρ_i` (via `expNeg_le_rat`), `H_i`,
+`B₀_i`, `d_i = 2q_i`, the linear lower bound `t h_i(m) ≥ (t q_i/2) m` (from
+`h_i(m) = (q_i/2)m(1+m/N) ≥ (q_i/2)m`), and the polynomial domination
+`(m+1)^{2q_i} ≤ B₀_i·C(m+2q_i,2q_i)`; (ii) the rank-general Tonelli
+factorization `Z_t(R) ≤ ∏_i S_i − 1` (the rank-2 case `Z2D_le` is proved); and
+(iii) the final N-uniform sum `2 Σ_i s_i ≤ Z_t(su2)` — bookkeeping over the
+N-dependent constants `B₀_i, H_i` (large but `e^{−t·}`-crushed; `(B3)`'s
+`geom_beats_linear` is the scalar tool).  Items (i)–(iii) are substantial
+concrete arithmetic, but rest entirely on built, verified kernels.
 
 ## 5. Honest status
 

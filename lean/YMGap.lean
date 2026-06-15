@@ -79,6 +79,7 @@ import YMGap.RG.CharacterTailMajorant
 import YMGap.RG.RankCollapse
 import YMGap.RG.EtaPackaging
 import YMGap.RG.PolylogTail
+import YMGap.RG.PerAxisTail
 import YMGap.RG.SUNWeylData
 import YMGap.RG.WeylCharacterBound
 import YMGap.RG.WeylDimGeneral
