@@ -107,17 +107,36 @@ finite transfer operator's spectrum is now constructively LOCATED. The bare
     `decay_of_spectralGap_corr0`), and `locatedGap_decidable`.
 All axiom-clean (`[propext]`), in the aggregator.
 
+**STEP 2 — DONE (2026-06-15), `Continuum/LocatedReconstruction.lean`:** bridged
+the located gap into the OS-reconstruction datum and exhibited a genuine STRICT
+gap. The bare `SpectralGapBound`/`OSReconstruction.HasSpectralGap` never required
+`gapBound < 1` (so the "gap" could be vacuous); this module supplies the
+strictness:
+  * `locatedGap_of_reconstruction` — from a `FiniteVolumeReconstruction` + the
+    strictness `gapBound < 1`, builds the `LocatedSpectralGap` (depends on NO
+    axioms);
+  * `reconstruction_specMax_le` — the computable located top-of-spectrum on the
+    datum (`specMax spec ≤ gapBound`);
+  * `located_strict_decay` — genuine geometric clustering `G(n) ≤ G(0)·sep^n`;
+  * `gappedSpectralModel`/`gappedLocated` — a CONCRETE strict gap at `sep = 1/2 < 1`
+    (a real mass gap `m = log 2`, not the saturated free `sep = 0`);
+  * `genuine_gap_summary` — packages LOCATED ∧ STRICT (`sep<1`) ∧ DECAYING as the
+    constructive finite-volume mass-gap statement at the bounded transfer-operator
+    level. As far as R2's gap is provable WITHOUT Stone / the unbounded spectral
+    theorem.
+All axiom-clean (`[propext]`), in the aggregator.
+
 **Next steps (Option B continuation):**
-  * wire `LocatedSpectralGap` into `OSContent.FiniteVolumeReconstruction` /
-    `hasSpectralGap_genuine`, replacing the `SpectralGapBound` predicate with the
-    located witness, and expose the located gap as the genuine
-    `OSReconstruction.HasSpectralGap` content;
   * connect `specMax`/`sep` to the mass `m = −log sep` via a constructive
     `CReal` log (or carry the eigenvalue-gap `sep<1` as the gap, with the
-    √-bridge `m≥√σ̂∞` already built in `Sqrt.lean`);
+    √-bridge `m≥√σ̂∞` already built in `Sqrt.lean`); give the positive
+    eigenvalue-margin `0 < 1 − sep` (needs a small `Q'.sub_pos` lemma);
   * exhibit the finite transfer operator as a genuine compact self-adjoint
     operator on the `FiniteVolumeGNS` space (so `specMax` = its located largest
     excited eigenvalue), tightening the "compact ⇒ located" link from the
     abstract `SpectralModel` to the constructed GNS operator;
+  * thread the located strict gap through `OSContent.FiniteVolumeReconstruction`
+    as a (strict) field, so the genuine OS-reconstruction datum carries the real
+    mass gap by construction;
   * leave the single continuum limit (thermodynamic Λ→∞ gap persistence +
     Conj 7.4 tightness) as the honest declared interface — the only remaining gap.

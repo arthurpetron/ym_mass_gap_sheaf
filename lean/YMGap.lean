@@ -150,6 +150,7 @@ import YMGap.MassGap.SimpleGroup
 import YMGap.Continuum.SqrtBridge
 import YMGap.Continuum.FiniteVolumeGNS
 import YMGap.Continuum.OSContent
+import YMGap.Continuum.LocatedReconstruction
 import YMGap.Continuum.FourDExistence
 import YMGap.BufferShell
 import YMGap.Codynamic
