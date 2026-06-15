@@ -41,6 +41,7 @@ inequality) is documented in `docs/sun-uniform-cap-factorization.md`.
 -/
 
 import YMGap.RepTheory.SimpleGroup
+import YMGap.Constructive.RationalsMul
 
 namespace YMGap.RepTheory
 
@@ -132,9 +133,65 @@ theorem suN_C2_fundweight_gap_lb (N i : Nat) (hi : 1 ≤ i) (hiN : i + 1 ≤ N) 
   -- atoms B := q_i·(N+1), A := N²;  step1: A−1 ≤ B, hkk: 2N ≤ A, hk2: N≥2 ⟹ 6N ≤ 4B.
   omega
 
+/-! ## The lattice exponent `h_i(m)` and the linear lower bound
+
+The per-axis character tail factor is `S_i = Σ_m (m+1)^{2q_i} e^{−t h_i(m)}`,
+where `h_i(m) = (q_i/2)·m·(1 + m/N) = q_i·m·(N+m)/(2N)` is the Casimir split
+rate (`h_i(1) = C₂(ω_i)`).  The tight per-axis tool `RG.charTail_geom_le` needs
+the LINEAR lower bound `C₂(ω_i)·m ≤ h_i(m)` (its `hge` input, scaled by `t`),
+which makes the geometric base `ρ = e^{−t·C₂(ω_i)}` and `e^{−t h_i(m)} ≤ ρ^m`. -/
+
+/-- `h_i(m) = q_i·m·(N+m)/(2N)` for SU(N): the Casimir split rate at the lattice
+point `m·ω_i`.  `h_i(1) = q_i(N+1)/(2N) = C₂(ω_i)`. -/
+def suN_hk (N i m : Nat) (hN : 0 < N) : Q' :=
+  Q'.mkPos ((suN_qWeight N i * m * (N + m) : Nat) : Int) (2 * N)
+    (Nat.mul_pos (by decide) hN)
+
+/-- **The linear lower bound `C₂(ω_i)·m ≤ h_i(m)`.**  Reduces (same denominator
+`2N`) to the Nat fact `q_i·(N+1)·m ≤ q_i·m·(N+m)`, i.e. `m·(N+1) ≤ m·(N+m)`
+(from `m ≤ m²`).  This is the `hge` input to `charTail_geom_le`. -/
+theorem suN_C2_fundweight_mul_le_hk (N i m : Nat) (hN : 0 < N) :
+    suN_C2_fundweight N i hN * Q'.ofNat m ≤ suN_hk N i m hN := by
+  show (suN_C2_fundweight N i hN * Q'.ofNat m).num * ((suN_hk N i m hN).den : Int)
+     ≤ (suN_hk N i m hN).num * ((suN_C2_fundweight N i hN * Q'.ofNat m).den : Int)
+  -- numerators / denominators
+  have hln : (suN_C2_fundweight N i hN * Q'.ofNat m).num
+      = ((suN_qWeight N i * (N + 1) : Nat) : Int) * (m : Int) := rfl
+  have hld : ((suN_C2_fundweight N i hN * Q'.ofNat m).den : Int) = ((2 * N : Nat) : Int) := by
+    rw [Q'.mul_den_cast]
+    have hc : ((suN_C2_fundweight N i hN).den : Int) = ((2 * N : Nat) : Int) := by
+      rw [suN_C2_fundweight, Q'.mkPos_den (h := by omega)]
+    have hm : ((Q'.ofNat m).den : Int) = 1 := rfl
+    rw [hc, hm, Int.mul_one]
+  have hrn : (suN_hk N i m hN).num = ((suN_qWeight N i * m * (N + m) : Nat) : Int) := rfl
+  have hrd : ((suN_hk N i m hN).den : Int) = ((2 * N : Nat) : Int) := by
+    rw [suN_hk, Q'.mkPos_den (h := by omega)]
+  rw [hln, hld, hrn, hrd]
+  -- goal: (↑(q·(N+1)) · ↑m) · ↑(2N) ≤ ↑(q·m·(N+m)) · ↑(2N)
+  -- reduce to the Nat key fact, then cancel ↑(2N) > 0
+  have key : suN_qWeight N i * (N + 1) * m ≤ suN_qWeight N i * m * (N + m) := by
+    -- m·(N+1) ≤ m·(N+m) from m ≤ m·m
+    have hmm : m ≤ m * m := by
+      cases m with
+      | zero => omega
+      | succ k => exact Nat.le_mul_of_pos_right (k + 1) (by omega)
+    have h1 : m * (N + 1) ≤ m * (N + m) := by
+      rw [Nat.mul_add, Nat.mul_add, Nat.mul_one]; omega
+    -- q·(N+1)·m = q·(m·(N+1)) ≤ q·(m·(N+m)) = q·m·(N+m)
+    calc suN_qWeight N i * (N + 1) * m
+        = suN_qWeight N i * (m * (N + 1)) := by
+          rw [Nat.mul_assoc, Nat.mul_comm (N + 1) m]
+      _ ≤ suN_qWeight N i * (m * (N + m)) := Nat.mul_le_mul_left _ h1
+      _ = suN_qWeight N i * m * (N + m) := by rw [Nat.mul_assoc]
+  -- cast key to Int and finish (multiply both sides by the common ↑(2N) ≥ 0)
+  have keyZ : ((suN_qWeight N i * (N + 1) : Nat) : Int) * (m : Int)
+      ≤ ((suN_qWeight N i * m * (N + m) : Nat) : Int) := by exact_mod_cast key
+  exact Int.mul_le_mul_of_nonneg_right keyZ (Int.natCast_nonneg _)
+
 end YMGap.RepTheory
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
 
 #print axioms YMGap.RepTheory.suN_qWeight_ge
 #print axioms YMGap.RepTheory.suN_C2_fundweight_gap_lb
+#print axioms YMGap.RepTheory.suN_C2_fundweight_mul_le_hk

@@ -1258,6 +1258,7 @@ YMGap.RepTheory.su3_matches_suN =
 YMGap.RepTheory.suN_C2_adj =
 YMGap.RepTheory.suN_C2_fund =
 YMGap.RepTheory.suN_C2_fundweight_gap_lb = Quot.sound, propext
+YMGap.RepTheory.suN_C2_fundweight_mul_le_hk = Quot.sound, propext
 YMGap.RepTheory.suN_gap_lb = Quot.sound, propext
 YMGap.RepTheory.suN_hvee_lb = Quot.sound, propext
 YMGap.RepTheory.suN_qWeight_ge = Quot.sound, propext
