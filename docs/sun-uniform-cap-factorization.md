@@ -104,17 +104,50 @@ All axiom-clean (`[propext]`/`[propext, Quot.sound]`).
 full polynomial-geometric, B3) has a built, general, axiom-clean kernel, and the
 "rational surrogate can't carry the tail" obstruction (§6) is fully resolved.
 
-What remains to assemble the LITERAL uniform-in-N cap is now purely concrete
-(no machinery gap): (i) instantiate the per-axis kernel for SU(N) — supply the
-concrete `a_i = t q_i/2`, geometric base `ρ_i` (via `expNeg_le_rat`), `H_i`,
-`B₀_i`, `d_i = 2q_i`, the linear lower bound `t h_i(m) ≥ (t q_i/2) m` (from
-`h_i(m) = (q_i/2)m(1+m/N) ≥ (q_i/2)m`), and the polynomial domination
-`(m+1)^{2q_i} ≤ B₀_i·C(m+2q_i,2q_i)`; (ii) the rank-general Tonelli
-factorization `Z_t(R) ≤ ∏_i S_i − 1` (the rank-2 case `Z2D_le` is proved); and
-(iii) the final N-uniform sum `2 Σ_i s_i ≤ Z_t(su2)` — bookkeeping over the
-N-dependent constants `B₀_i, H_i` (large but `e^{−t·}`-crushed; `(B3)`'s
-`geom_beats_linear` is the scalar tool).  Items (i)–(iii) are substantial
-concrete arithmetic, but rest entirely on built, verified kernels.
+## 6. SU(N) per-axis inputs now built (2026-06-15)
+
+The tight per-axis tool `RG.charTail_geom_le` (`S_i ≤ 1/(1−P·ρ)`) and its SU(N)
+inputs are now in place:
+
+  * `RG.polyWeight_ratio` — the weight `(m+1)^{2q_i}` has ratio `P = 4^{q_i}`.
+  * `RepTheory.suN_C2_fundweight_mul_le_hk` — the linear lower bound
+    `C₂(ω_i)·m ≤ h_i(m)` (the `hge` input, scaled by `t`).
+  * The geometric base is `ρ = e^{−t·C₂(ω_i)} = e^{−c·q_i} ≤ ρ_0^{q_i}` (via
+    `expNeg_mul_le_pow`, `c = t(N+1)/(2N)`), so `P·ρ = (4ρ_0)^{q_i} < 1` for
+    `ρ_0 < 1/4` (`t` past `t_0`).  (The Padé base `1/(1+·)` is only
+    *polynomially* small and would give `P·ρ → ∞`; the geometric base is
+    essential — this is the same §6 obstruction, resolved.)
+
+## 7. The HONEST remaining gap (infrastructure-scale, not lemma-scale)
+
+Assembling the literal uniform-in-N cap from here is NOT mere plumbing — it
+requires two pieces of genuine NEW infrastructure that the cap framework
+deliberately ABSTRACTS as named inputs (`AxisFactorBound`, the `hfact`
+hypothesis of `Zt_le_ztValue`):
+
+  1. **The general SU(N) heat-kernel character SUM as a constructed object.**
+     `charTail_geom_le` bounds a *constructed* `CReal.csum`; but the SU(N)
+     per-axis factor `S_i = Σ_{λ} (dim V_λ)² e^{−t C₂(λ)}` is, for general `N`,
+     ONLY abstract `Q'` data in `AxisFactorBound` — the actual `CReal` lattice
+     sum is constructed only for SU(2) (`WilsonFunctional`) and SU(3)
+     (`SU3CharFactor`).  Building it for all `N` needs the general Weyl
+     dimension formula + the multi-index `ℕ^r` lattice sum — major
+     representation-theory formalization.
+
+  2. **The rank-general Tonelli factorization** `Z_t(R) ≤ ∏_i S_i − 1` (the
+     `hfact` input; rank-2 `Z2D_le` proved) — a multi-index `CReal` lattice
+     sum, flagged in `WeylCharacterBound.lean` as "the one genuinely new
+     construction beyond the proven rank-2 case."
+
+So: the ENTIRE arithmetic spine of the cap is built and axiom-clean — the
+exponential machinery (B1/B3 kernels), the tight per-axis tail tool, the
+rank-collapse, the geometric-beats-linear scalar, and the SU(N) rep-theory
+(gap floor, `q_i ≥ N−1`, `h_i` linear bound, `P = 4^{q_i}`).  What remains is
+the CONSTRUCTION of the general SU(N) character-sum object and its Tonelli
+factorization — rep-theory infrastructure of the scale of a `SU3CharFactor`
+generalized to all ranks.  This is why SU(2) and SU(3) are the only groups
+closed unconditionally: they are the only ones whose character sum is built.
+The remaining gap is therefore infrastructure-scale, not a missing lemma.
 
 ## 5. Honest status
 
