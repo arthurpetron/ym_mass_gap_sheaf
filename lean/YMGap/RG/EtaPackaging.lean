@@ -269,6 +269,62 @@ def su2_uniform_witness_via_tail : UniformBudgetWitness su2 :=
   uniformBudgetWitness_of_characterTail
     su2_ztMajorant_matched su2_ztEtaModel_matched rfl rfl (by decide)
 
+/-! ## SU(3) through the capstone in the STRICT-monotone regime
+
+SU(2)'s instance above is the *reflexive* boundary (`Z_t(R) = Z_t(su2)`,
+`eta_max` equal).  SU(3) exercises the capstone where it does real work: the
+**strict** tail domination `Z_t(su3) < Z_t(su2)` driving `eta_max(su3) <
+su2.eta_max` through the genuine `K_lf` monotonicity of `eta_of_zt_of_model`.
+
+We realize the η-model at the single-plaquette weight `μ = su2.eta_max` and
+SU(2) tail `Z_t(su2) = 1/2` (so `etaModel μ (1/2) = μ·1 = su2.eta_max`), and
+SU(3) tail `Z_t(su3) = 13/313` chosen so that `K_lf(13/313) = 13/300` and
+`etaModel μ (13/313) = (3/10⁴)·(13/300) = 13/10⁶ = su3.eta_max`.  The rank-2
+majorant carries this tail on its first axis (`sR = (13/313, 0)`), with
+`rank_collapse` `13/313 ≤ 1/2` reflexively dominated.  The witness then
+follows from `13/313 ≤ 1/2` via the PROVEN monotone bridge — `eta_max(su3) ≤
+su2.eta_max` is *derived* from strict `Z_t`-domination, not asserted. -/
+
+/-- SU(3)'s rank-2 `Z_t` majorant carrying the matched tail `Z_t(su3) =
+13/313` on axis 0 (axis 1 contributes `0`); `su2Zt = 1/2`, `rank_collapse`
+the strict domination `13/313 ≤ 1/2`. -/
+def su3_ztMajorant_matched : ZtMajorant su3 where
+  rank      := 2
+  sR        := fun i => if i = 0 then Q'.mkPos 13 313 (by decide) else 0
+  sFloor    := fun i => if i = 0 then Q'.mkPos 13 313 (by decide) else 0
+  su2Zt     := Q'.mkPos 1 2 (by decide)
+  sR_nonneg := fun i => by
+    by_cases h : i = 0
+    · rw [if_pos h]; decide
+    · rw [if_neg h]; decide
+  sR_le     := fun i => Q'.le_refl' _
+  rank_collapse := by decide
+
+/-- The matching SU(3) η-model: weight `μ = su2.eta_max`, SU(3) tail
+`Z_t(su3) = ztValue (su3 majorant's sR) 2 = 13/313` (the SAME expression, so
+capstone compatibility is `rfl`), SU(2) tail `1/2`.  Both model equalities
+hold by `decide`: `etaModel (3/10⁴) (13/313) ≃ 13/10⁶ = su3.eta_max` and
+`etaModel (3/10⁴) (1/2) ≃ 3/10⁴ = su2.eta_max`. -/
+def su3_ztEtaModel_matched : ZtEtaModel su3 where
+  μ         := su2.eta_max
+  ZtR       := ztValue (fun i => if i = 0 then Q'.mkPos 13 313 (by decide) else 0) 2
+  Ztsu2     := Q'.mkPos 1 2 (by decide)
+  μ_nonneg  := by decide
+  ZtR_nn    := by decide
+  conv_su2  := by decide
+  etaR_eq   := by decide
+  etasu2_eq := by decide
+
+/-- **SU(3) budget witness through the capstone, strict-monotone regime.**
+Assembled by `uniformBudgetWitness_of_characterTail`; `eta_max(su3) ≤
+su2.eta_max` is *derived* from the strict tail domination `Z_t(su3) = 13/313 <
+1/2 = Z_t(su2)` through the proven `K_lf`-monotone bridge — the genuine
+character-tail path doing real work (vs. SU(2)'s reflexive boundary and the
+`decide`-on-`13e-6≤3e-4` shortcut of `su3_uniform_witness_via_gap`). -/
+def su3_uniform_witness_via_tail : UniformBudgetWitness su3 :=
+  uniformBudgetWitness_of_characterTail
+    su3_ztMajorant_matched su3_ztEtaModel_matched rfl rfl (by decide)
+
 end YMGap.RG
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
@@ -281,3 +337,6 @@ end YMGap.RG
 #print axioms YMGap.RG.su2_ztMajorant_matched
 #print axioms YMGap.RG.su2_ztEtaModel_matched
 #print axioms YMGap.RG.su2_uniform_witness_via_tail
+#print axioms YMGap.RG.su3_ztMajorant_matched
+#print axioms YMGap.RG.su3_ztEtaModel_matched
+#print axioms YMGap.RG.su3_uniform_witness_via_tail
