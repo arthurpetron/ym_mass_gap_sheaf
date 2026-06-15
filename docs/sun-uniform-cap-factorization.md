@@ -73,10 +73,28 @@ inequalities (each a CReal fact about `e^{−t·}` — NOT Q'-expressible, per t
   N-dependent exponent — the one genuinely new exponential estimate.
 
 `suN_qWeight_ge` discharges the combinatorial heart of (B2).  (B1) and (B3) are
-the irreducible exponential atoms; both are standard `e^{−t·}` estimates uniform
-in N, but the constructive-`CReal` machinery for N-indexed exponential
-lower/upper bounds is not yet in the stack (the `E_antitone` seed handles the
-box, not the N-uniform tail constant).
+the exponential atoms.
+
+**UPDATE 2026-06-15 — the exp machinery for (B1) and (B3) is now BUILT** (the
+"rational surrogate can't carry the tail" obstruction is resolved by genuine
+geometric domination):
+
+  * `Constructive/ExpGeomBound.expNeg_mul_le_pow` : **`e^{−a·m} ≤ ρ^m`**
+    (`ρ < 1` rational) from `e^{−a} ≤ ρ`.  The continuous→geometric bridge.
+  * `Constructive/ExpGeomSum.expNeg_geom_csum_le` : **(B1) geometric envelope**
+    — `Σ_{m<N} e^{−a·m} ≤ H` (the heat-kernel exponential sum closes
+    geometrically), via `leRat_csum` + `geometric_tail_closure`.
+  * `Constructive/GeomBeatsLinear.geom_beats_linear` : **(B3) scalar tail** —
+    `(k : Q')·s^k ≤ 1` for `s ≤ 1/2` (geometric decay crushes the linear `k`).
+    With `e^{−tδ_N} ≤ ρ^{N−1}` (`expNeg_mul_le_pow` at `m = N−1`, `δ_N ≥ c(N−1)`)
+    and `s = 4ρ ≤ 1/2`, this gives `(N−1)(4ρ)^{N−1} ≤ 1`, i.e. (B3).
+
+All axiom-clean (`[propext]`/`[propext, Quot.sound]`).  What remains to fully
+assemble the cap: the polynomial-weighted refinement of (B1) (scale the
+geometric term bound by `(m+1)^{2q}` via `leRat_smul_nonneg` + `weightedGeomSum_le`)
+and the SU(N)-specific wiring (`δ_N ≥ c(N−1)`, the `h(m) ≥ c·m` linear lower
+bound) — concrete plumbing on top of the now-built exp machinery, no longer a
+"missing machinery" gap.
 
 ## 5. Honest status
 
