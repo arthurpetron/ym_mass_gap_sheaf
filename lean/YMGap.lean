@@ -81,6 +81,7 @@ import YMGap.RG.EtaPackaging
 import YMGap.RG.PolylogTail
 import YMGap.RG.PerAxisTail
 import YMGap.RG.SUNWeylData
+import YMGap.RG.TonelliFactor
 import YMGap.RG.WeylCharacterBound
 import YMGap.RG.WeylDimGeneral
 import YMGap.Continuum.SigmaHatLimit

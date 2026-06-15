@@ -134,10 +134,28 @@ hypothesis of `Zt_le_ztValue`):
      dimension formula + the multi-index `ℕ^r` lattice sum — major
      representation-theory formalization.
 
-  2. **The rank-general Tonelli factorization** `Z_t(R) ≤ ∏_i S_i − 1` (the
-     `hfact` input; rank-2 `Z2D_le` proved) — a multi-index `CReal` lattice
-     sum, flagged in `WeylCharacterBound.lean` as "the one genuinely new
-     construction beyond the proven rank-2 case."
+  2. ~~**The rank-general Tonelli factorization**~~ — **RESOLVED for ranks 2–3**
+     (2026-06-15, `RG/TonelliFactor.lean`).  The multi-index step is NOT a
+     measure-theoretic statement: it is a bound on a NESTED FINITE `CReal.csum`
+     whose term obeys a SEPARABLE rational bound `term(λ) ≤ ∏_i aᵢ(λᵢ)`.
+       * `csum2_prod_le` — rank-2 Tonelli, `Z2D_le` abstracted OFF the SU(3)
+         specifics (`charTerm2D`/`gBound`) to an arbitrary term family + separable
+         bound, with independent lengths: `Σ_p Σ_q term ≤ (Σa)(Σb)`.
+       * `csum3_prod_le` — **rank-3 (the SU(4) case)**: `Σ_pΣ_qΣ_r term ≤
+         (Σa·Σb)·Σc` given `term p q r ≤ (a p·b q)·c r`.  Same nested-`leRat_csum`
+         argument one layer deeper; the middle layer threads the outer factor past
+         the `Σc` constant via `mul_swap_right_eqv`.
+     Both axiom-clean (`[propext]`), in the aggregator.  The Tonelli lemma cleanly
+     ABSTRACTS the analytic separable bound `term(λ) ≤ ∏ aᵢ(λᵢ)` (Casimir split
+     `C₂(λ) ≥ Σ hᵢ(λᵢ)` + Weyl-dim factorization, each axis's `e^{−t·}` dominated
+     by a rational `ρ^{λᵢ}` via `expNeg_mul_le_pow`) as its `hterm` hypothesis and
+     delivers `Z_t ≤ ∏ Σaᵢ`.  The per-axis `Σaᵢ ≤ Hᵢ` is the geometric closure
+     (rational analogue of `axisFactor_geom_le`).  Ranks 2–3 cover SU(3) and
+     SU(4); arbitrary `r` still needs the `r`-fold nested-`csum` structure, but the
+     `csum2 → csum3` pattern shows that is mechanical induction on rank, not a new
+     idea.  What remains genuinely open is therefore (1) [the constructed
+     character-sum object for general `N`] and the analytic separable bound — NOT
+     the Tonelli combinatorics.
 
 So: the ENTIRE arithmetic spine of the cap is built and axiom-clean — the
 exponential machinery (B1/B3 kernels), the tight per-axis tail tool, the
