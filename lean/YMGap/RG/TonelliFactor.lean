@@ -116,6 +116,50 @@ theorem csum3_prod_le (term : Nat → Nat → Nat → CReal) (a b c : Nat → Q'
   exact RationalTail.finSum_mul_const
     (fun p => a p * RationalTail.finSum b N) (RationalTail.finSum c L) M
 
+/-- Two-sided product monotonicity: `x ≤ X`, `y ≤ Y`, `0 ≤ y`, `0 ≤ X` ⟹
+`x·y ≤ X·Y`.  (Mathlib-free; chains the two one-sided `mul_le_mul` lemmas.) -/
+theorem mul_le_mul_both (x y X Y : Q') (hx : x ≤ X) (hy : y ≤ Y)
+    (h0y : (0 : Q') ≤ y) (h0X : (0 : Q') ≤ X) : x * y ≤ X * Y :=
+  Q'.le_trans' (x * y) (X * y) (X * Y)
+    (Q'.mul_le_mul_of_nonneg_right x X y hx h0y)
+    (Q'.mul_le_mul_of_nonneg_left y Y X hy h0X)
+
+/-- A `finSum` of a nonnegative sequence is nonnegative. -/
+theorem finSum_nonneg (f : Nat → Q') (h0 : ∀ m, (0 : Q') ≤ f m) (n : Nat) :
+    (0 : Q') ≤ RationalTail.finSum f n :=
+  RationalTail.finSum_monotone_of_nonneg f h0 0 n (Nat.zero_le n)
+
+/-- **Rank-3 cap (the SU(4) capstone shape).**  Composes the rank-3 Tonelli
+(`csum3_prod_le`) with three per-axis geometric closures `finSum aᵢ ≤ Hᵢ` to bound
+the full triply-nested character sum by the constant rational product
+`(Ha·Hb)·Hc`, for ALL truncation lengths.
+
+This leaves exactly two named inputs: (1) `hterm`, the SEPARABLE analytic bound
+`term λ ≤ ∏ᵢ aᵢ(λᵢ)` (Casimir split `C₂(λ) ≥ Σ hᵢ(λᵢ)` + Weyl-dim factorization,
+each `e^{−t·}` dominated by a rational `ρ^{λᵢ}`); (2) `hA/hB/hC`, the per-axis
+geometric closures (discharged by `CharacterTail.geom_series_le` for the concrete
+SU(4) ρᵢ, qᵢ = 3,4,3).  The multi-index combinatorics is now internal. -/
+theorem csum3_cap (term : Nat → Nat → Nat → CReal) (a b c : Nat → Q')
+    (Ha Hb Hc : Q')
+    (hterm : ∀ p q r, CReal.leRat (term p q r) ((a p * b q) * c r))
+    (ha0 : ∀ m, (0 : Q') ≤ a m) (hb0 : ∀ m, (0 : Q') ≤ b m)
+    (hc0 : ∀ m, (0 : Q') ≤ c m)
+    (hHa : (0 : Q') ≤ Ha) (hHb : (0 : Q') ≤ Hb)
+    (hA : ∀ M, RationalTail.finSum a M ≤ Ha)
+    (hB : ∀ N, RationalTail.finSum b N ≤ Hb)
+    (hC : ∀ L, RationalTail.finSum c L ≤ Hc)
+    (M N L : Nat) :
+    CReal.leRat
+      (CReal.csum (fun p =>
+        CReal.csum (fun q => CReal.csum (fun r => term p q r) L) N) M)
+      ((Ha * Hb) * Hc) := by
+  refine CReal.leRat_mono (csum3_prod_le term a b c hterm M N L) ?_
+  -- (Σa·Σb)·Σc ≤ (Ha·Hb)·Hc  via two-sided product monotonicity
+  have hAB : RationalTail.finSum a M * RationalTail.finSum b N ≤ Ha * Hb :=
+    mul_le_mul_both _ _ _ _ (hA M) (hB N) (finSum_nonneg b hb0 N) hHa
+  exact mul_le_mul_both _ _ _ _ hAB (hC L) (finSum_nonneg c hc0 L)
+    (Q'.mul_nonneg Ha Hb hHa hHb)
+
 end YMGap.RG
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
@@ -123,3 +167,6 @@ end YMGap.RG
 #print axioms YMGap.RG.mul_swap_right_eqv
 #print axioms YMGap.RG.csum2_prod_le
 #print axioms YMGap.RG.csum3_prod_le
+#print axioms YMGap.RG.mul_le_mul_both
+#print axioms YMGap.RG.finSum_nonneg
+#print axioms YMGap.RG.csum3_cap
