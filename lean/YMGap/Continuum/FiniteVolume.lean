@@ -264,6 +264,84 @@ def prodReferenceWeight_of_perEdge
     ReferenceWeight (prodAlg A n) :=
   prodReferenceWeight A μ n w hw (prodWeighted_pos_of_perEdge μ n w hper)
 
+/-! ## A genuine NON-TRIVIAL (interacting, `w ≠ 1`) product OS2 inhabitant
+
+The only prior concrete inhabitant of the `ReferenceWeight` construction is
+`trivReferenceWeight` — the *zero-coupling* free state (`w ≡ 1`, `Z = 1`).  We
+now exhibit a genuine **interacting** product OS2-positive state via the
+cross-plane factorization, with a non-unit weight and non-unit partition
+function, built from a per-edge OS2 input proved by the diagonal SOS.
+
+The single-mode "real edge" carries one real coefficient: carrier `Q'`,
+product `·`, involution `id` (a real observable, `a* = a`).  Its functional
+`E = id` is a genuine `ProbFunctional` — `E(1) = 1`, `E(a*·a) = a·a ≥ 0`
+(`q_mul_self_nonneg`).  Per-bond OS2 with a nonnegative weight `w` is
+`E(w·a*·a) = w·a² ≥ 0`.  The cross-plane factorization then lifts this to the
+`n`-fold product with a uniform Boltzmann weight `w_i = 1/2`, giving an
+interacting state with partition function `Z = (1/2)^n`. -/
+
+/-- The single-mode **real edge**: one real coefficient (`carrier = Q'`),
+product `·`, trivial involution (`a* = a`). -/
+def realEdge : ObsAlg where
+  carrier := Q'
+  one := 1
+  mul := fun a b => a * b
+  star := fun a => a
+
+/-- `E = id` is a genuine probability functional on `realEdge`: normalized
+(`E 1 = 1`) and positive (`E(a*·a) = a·a ≥ 0`, a rational square). -/
+def realEdgeFunc : ProbFunctional realEdge where
+  E := fun a => a
+  normalized := rfl
+  positive := fun a => SumOfSquares.q_mul_self_nonneg a
+
+/-- The uniform `n`-edge Boltzmann weight `w_i = 1/2` (a genuine non-unit
+positive weight): a separable observable over the product real-edge algebra. -/
+def halfWeight (n : Nat) : (prodAlg (fun _ => realEdge) n).carrier :=
+  fun _ => Q'.mkPos 1 2 (by decide)
+
+/-- Per-bond partition-function positivity for the `1/2`-weighted real edge:
+`E(w·1) = (1/2)·1 > 0` (closed `Q'` fact). -/
+theorem realEdge_half_hw :
+    (0 : Q') < realEdgeFunc.E (realEdge.mul (Q'.mkPos 1 2 (by decide)) realEdge.one) := by
+  decide
+
+/-- Per-bond OS2 for the `1/2`-weighted real edge:
+`E(w·b*·b) = (1/2)·(b·b) ≥ 0` for every real coefficient `b`. -/
+theorem realEdge_half_hper (b : Q') :
+    (0 : Q') ≤ realEdgeFunc.E (realEdge.mul (Q'.mkPos 1 2 (by decide))
+      (realEdge.mul (realEdge.star b) b)) := by
+  show (0 : Q') ≤ Q'.mkPos 1 2 (by decide) * (b * b)
+  exact Q'.mul_nonneg _ _ (by decide) (SumOfSquares.q_mul_self_nonneg b)
+
+/-- **A genuine interacting product OS2 inhabitant.**  The `n`-fold product of
+real edges, reweighted by the uniform Boltzmann weight `w ≡ 1/2`: an
+OS2-positive `ReferenceWeight` with non-unit partition function
+`Z = Π_i (1/2) = (1/2)^n > 0`.  OS2 is supplied per-bond
+(`E(w_i·a_i*·a_i) = (1/2)·a_i² ≥ 0`, `realEdge_half_hper`) and lifted by the
+cross-plane factorization `prodReferenceWeight_of_perEdge` — NOT the opaque
+joint input, and NOT the zero-coupling shortcut. -/
+def halfReferenceWeight (n : Nat) : ReferenceWeight (prodAlg (fun _ => realEdge) n) :=
+  prodReferenceWeight_of_perEdge (fun _ => realEdge) (fun _ => realEdgeFunc) n
+    (halfWeight n)
+    (fun _ => realEdge_half_hw)
+    (fun _ b => realEdge_half_hper b)
+
+/-- The interacting inhabitant's partition function is strictly positive — the
+cross-plane assembly yields a bona-fide (non-zero-coupling) finite-volume
+state. -/
+theorem halfReferenceWeight_Z_pos (n : Nat) : (0 : Q') < (halfReferenceWeight n).Z :=
+  (halfReferenceWeight n).Z_pos
+
+/-- Its interacting expectation is positive on `a*·a` (genuine OS2 at non-unit
+coupling), inherited from the per-bond OS2 via the factorization. -/
+theorem halfReferenceWeight_positive (n : Nat)
+    (a : (prodAlg (fun _ => realEdge) n).carrier) :
+    (0 : Q') ≤ (halfReferenceWeight n).E_Λ
+      ((prodAlg (fun _ => realEdge) n).mul
+        ((prodAlg (fun _ => realEdge) n).star a) a) :=
+  (halfReferenceWeight n).E_Λ_positive a
+
 /-! ## Stage S3 — the finite-volume expectation sequence
 
 A volume-indexed family of reference-weight data for a fixed observable
@@ -363,6 +441,9 @@ end YMGap.Continuum.FiniteVolume
 #print axioms YMGap.Continuum.FiniteVolume.prodReferenceWeight_Z_pos
 #print axioms YMGap.Continuum.FiniteVolume.prodWeighted_pos_of_perEdge
 #print axioms YMGap.Continuum.FiniteVolume.prodReferenceWeight_of_perEdge
+#print axioms YMGap.Continuum.FiniteVolume.halfReferenceWeight
+#print axioms YMGap.Continuum.FiniteVolume.halfReferenceWeight_Z_pos
+#print axioms YMGap.Continuum.FiniteVolume.halfReferenceWeight_positive
 #print axioms YMGap.Continuum.FiniteVolume.finiteVolumeExpectationSeq
 #print axioms YMGap.Continuum.FiniteVolume.finiteVolumeExpectationFromReweight
 #print axioms YMGap.Continuum.FiniteVolume.finiteVolumeExpectationSeq_via_reweight
