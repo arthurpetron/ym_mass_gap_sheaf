@@ -41,6 +41,27 @@ theorem Equiv.symm {A B : CReal} (h : Equiv A B) : Equiv B A :=
     obtain ⟨N, hN⟩ := h ε hε
     exact ⟨N, fun n hn => ⟨(hN n hn).2, (hN n hn).1⟩⟩
 
+/-- `Equiv` is transitive (ε/2 split). -/
+theorem Equiv.trans {A B C : CReal} (h1 : Equiv A B) (h2 : Equiv B C) : Equiv A C := by
+  intro ε hε
+  have hhε : (0 : Q') < half * ε := ExpNeg.half_mul_pos ε hε
+  obtain ⟨N1, hN1⟩ := h1 (half * ε) hhε
+  obtain ⟨N2, hN2⟩ := h2 (half * ε) hhε
+  refine ⟨max N1 N2, fun n hn => ?_⟩
+  have hn1 : N1 ≤ n := Nat.le_trans (Nat.le_max_left _ _) hn
+  have hn2 : N2 ≤ n := Nat.le_trans (Nat.le_max_right _ _) hn
+  refine ⟨?_, ?_⟩
+  · refine Q'.le_trans' _ _ _ (hN1 n hn1).1 ?_
+    refine Q'.le_trans' _ _ _ (Q'.add_le_add_right _ _ (half * ε) (hN2 n hn2).1) ?_
+    refine Q'.le_of_eqv (Q'.eqv_trans _ _ _
+      (Q'.add_assoc_eqv (C.approx n) (half * ε) (half * ε)) ?_)
+    exact Q'.add_eqv_congr_left (C.approx n) (half * ε + half * ε) ε (ExpNeg.two_halves ε)
+  · refine Q'.le_trans' _ _ _ (hN2 n hn2).2 ?_
+    refine Q'.le_trans' _ _ _ (Q'.add_le_add_right _ _ (half * ε) (hN1 n hn1).2) ?_
+    refine Q'.le_of_eqv (Q'.eqv_trans _ _ _
+      (Q'.add_assoc_eqv (A.approx n) (half * ε) (half * ε)) ?_)
+    exact Q'.add_eqv_congr_left (A.approx n) (half * ε + half * ε) ε (ExpNeg.two_halves ε)
+
 /-- **`Equiv` transfers `leRat`.**  Same limit ⇒ same rational upper bounds. -/
 theorem leRat_of_equiv {A B : CReal} {c : Q'} (h : Equiv A B) (hB : CReal.leRat B c) :
     CReal.leRat A c := by

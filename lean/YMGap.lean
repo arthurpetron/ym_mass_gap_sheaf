@@ -50,6 +50,7 @@ import YMGap.Constructive.ExpGeomMaj
 import YMGap.Constructive.CRealSum
 import YMGap.Constructive.FinSumGeom
 import YMGap.Constructive.CharacterTail
+import YMGap.Constructive.ExpGeomBound
 import YMGap.Constructive.CharacterTermBound
 import YMGap.Constructive.ExpNegCongr
 import YMGap.Constructive.SU3CharFactor
