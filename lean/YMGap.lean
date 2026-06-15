@@ -147,6 +147,9 @@ import YMGap.Continuum.FourDExistence
 import YMGap.BufferShell
 import YMGap.Codynamic
 import YMGap.HigherCategorical
+import YMGap.Categorical.Core
+import YMGap.Categorical.RGCategory
+import YMGap.Categorical.CodynCat
 -- NOTE: `YMGap.PolyAtlas` and `YMGap.ModuliAlgebra` are non-load-bearing
 -- expository/design-closure scaffolding (their own headers state "NOT
 -- load-bearing"); no other module imports them and nothing references their
