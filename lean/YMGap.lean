@@ -154,6 +154,7 @@ import YMGap.Continuum.CompactTransferGNS
 import YMGap.Continuum.LocatedReconstruction
 import YMGap.Continuum.FourDExistence
 import YMGap.Continuum.ContinuumGapLimit
+import YMGap.Continuum.ClusterGapReduction
 import YMGap.BufferShell
 import YMGap.Codynamic
 import YMGap.HigherCategorical
