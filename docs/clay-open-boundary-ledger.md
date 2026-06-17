@@ -243,6 +243,41 @@ finite / lattice-level fact now in Lean feeding that carrier. The
 | Continuum-limit interface | `ProbFunctional.restrict`, `continuumMeasure`, `expectation_stable` | actual YM RG-consistent limit + σ-additive extension | open research math (+ wiring) |
 | Interacting-operator construction | `OSReconstruction`, `ym_mass_gap_of_existence` | construct continuum self-adjoint `H_op` with spectrum | open research math |
 
+## Addendum (2026-06-17): the constructive `RegularCReal` continuum pipeline
+
+A full constructive substrate for the continuum limit was built (4 phases, all
+axiom-clean), recasting the continuum theory as a positive linear functional with
+real-number expectations and routing the gap through the compact transfer operator —
+never an unbounded spectral theorem (Brattka–Dillhage: compact ⇒ computable spectrum).
+
+- **`RegularCReal`** (`Constructive/RegularCReal.lean`) — a regular Bishop real with the
+  Cauchy modulus carried as canonical Type-level DATA (choice-free; the existing one-slack
+  `CReal.le` is genuinely non-transitive for lack of a regularity field). `le_trans` PROVED.
+- **Arithmetic + completeness** (`Constructive/RegularCRealArith.lean`) — `add`/`sub`,
+  rational scaling `qmul`, and `completeLimit` (modulus-Cauchy sequence ⇒ limit), with
+  bound-passing.
+- **Positive (linear) functional** (`Continuum/RegularFunctional.lean`) —
+  `RegProbFunctional` (RegularCReal-valued, positive, normalized; concrete SU(2)
+  char inhabitant `regCharFunctional`); `RegLinearFunctional` on an enriched additive
+  algebra with **additivity & homogeneity PROVED** (linearity is now a theorem, enabled by
+  the new arithmetic).
+- **Capstone** (`Continuum/RegularContinuumPipeline.lean`) — `regContinuumGapRate` (the
+  Λ→∞ gap as a positive `RegularCReal`), `ConstructiveContinuumYM` (functional + positive
+  gap + clustering via the compact operator), and a CONCRETE **UNCONDITIONAL** inhabitant
+  `concreteContinuumYM` on `sep = 1/1000` SU(2) data with hypothesis-free, axiom-clean
+  `concreteContinuumYM_gap_pos`.
+
+**Unconditional vs conditional (unchanged honest boundary).** The infinite-volume
+(Λ→∞, fixed lattice spacing) positive gap + functional bundle is UNCONDITIONAL. The
+scaling limit (`a→0`) is isolated as the single named open obligation
+`RegScalingLimitModulus` — **no inhabitant** (none known for 4D YM), conditional theorems
+only. The no-go results (Cubitt et al. = family decision problem; Pour-El–Richards =
+low-regularity artifact) do not bind a fixed-theory proof; the missing piece is a genuine
+spacing-uniform estimate, not a logical obstruction. **This does not close the Clay
+problem.** It builds the constructive pipeline so the continuum gap reduces to that one
+estimate, with everything else proved and axiom-clean. The estimate is provable for scalar
+φ⁴ in d=2,3 (Bauerschmidt–Dagallier) — the realistic proof-of-concept target.
+
 **Bottom line.** Three carriers (UV, gauge, nontriviality) now have genuine
 lattice-level precursors tied to real SU(2) heat-kernel / Casimir data, and
 the OS axioms (notably OS2 reflection positivity) carry real proved content.
