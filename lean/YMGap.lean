@@ -152,6 +152,7 @@ import YMGap.Continuum.FiniteVolumeGNS
 import YMGap.Continuum.OSContent
 import YMGap.Continuum.LocatedReconstruction
 import YMGap.Continuum.FourDExistence
+import YMGap.Continuum.ContinuumGapLimit
 import YMGap.BufferShell
 import YMGap.Codynamic
 import YMGap.HigherCategorical
