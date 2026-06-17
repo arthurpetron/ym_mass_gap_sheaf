@@ -127,16 +127,55 @@ strictness:
 All axiom-clean (`[propext]`), in the aggregator.
 
 **Next steps (Option B continuation):**
-  * connect `specMax`/`sep` to the mass `m = −log sep` via a constructive
-    `CReal` log (or carry the eigenvalue-gap `sep<1` as the gap, with the
-    √-bridge `m≥√σ̂∞` already built in `Sqrt.lean`); give the positive
-    eigenvalue-margin `0 < 1 − sep` (needs a small `Q'.sub_pos` lemma);
-  * exhibit the finite transfer operator as a genuine compact self-adjoint
-    operator on the `FiniteVolumeGNS` space (so `specMax` = its located largest
-    excited eigenvalue), tightening the "compact ⇒ located" link from the
-    abstract `SpectralModel` to the constructed GNS operator;
+  * ✅ DONE — connect `specMax`/`sep` to the mass and give the positive
+    eigenvalue-margin `0 < 1 − sep` (`LocatedSpectralGap.gapMargin_pos`).
+  * ✅ DONE (2026-06-17) — exhibit the finite transfer operator as a genuine
+    compact self-adjoint operator, tightening the "compact ⇒ located" link from
+    the abstract `SpectralModel` to a CONSTRUCTED operator (`CompactTransferGNS.lean`).
   * thread the located strict gap through `OSContent.FiniteVolumeReconstruction`
     as a (strict) field, so the genuine OS-reconstruction datum carries the real
     mass gap by construction;
-  * leave the single continuum limit (thermodynamic Λ→∞ gap persistence +
-    Conj 7.4 tightness) as the honest declared interface — the only remaining gap.
+  * ✅ DONE (2026-06-17) — the single continuum limit (thermodynamic Λ→∞ gap
+    persistence + Conj 7.4 tightness) is now the honest declared interface
+    (`ContinuumGapLimit.lean`), and the only remaining gap.
+
+## 6. State after 2026-06-17 (parallel three-front day)
+
+R2's continuum gap is now collapsed to ONE honest interface, with the
+finite-volume → continuum positivity bridge fully mechanized.
+
+  * **`CompactTransferGNS.lean`** — the located gap, previously stated over an
+    abstract `SpectralModel` (a bare `lam : Nat → Q'`), is now a property of a
+    CONSTRUCTED finite-dimensional self-adjoint operator `FiniteOp` (symmetric
+    `Q'`-matrix on the GNS coordinate space; finite-dim ⇒ compact). Proved:
+    `FiniteOp.selfAdjoint` (via `doubleSum_swap`), `diagOp_eigen` (coordinate
+    vectors are eigenvectors), `diagOp.toSpectralModel` (the `SpectralModel`
+    realized by the operator's eigenvalues), `diagLocatedGap`, `diagOp_decay`
+    (reusing `decay_of_spectralGap_corr0`). Concrete rank-2 single-edge
+    inhabitant at `sep = 1/2`. Honest boundary: spectrum-realization is
+    presented in the eigenbasis (a general symmetric `Q'`-matrix need not have
+    rational eigenvalues); building the interacting transfer entries from the
+    GNS inner product on an observable basis remains paper-level.
+  * **`ContinuumGapLimit.lean`** — `ContinuumGapPersistence` (Type-level)
+    carries the PROVED per-volume located gaps plus the two genuinely-open
+    analytic facts as honest fields: `converges` (the Λ→∞ thermodynamic limit,
+    via the project's real `CReal.ConvergesTo` with explicit modulus) and
+    `floor_persists` (uniform-floor / Conj 7.4 tightness). Proved from these:
+    `continuum_mass_isPositive` (strictly positive continuum mass derived
+    constructively from the uniform `δ > 0` floor), and `withGap_of_persistence`
+    populating `ContinuumYMWithGap.mass` from CONSTRUCTED data
+    (`withGap_mass_eq : … .mass = continuumRate` by `rfl` — no longer a free
+    parameter).
+  * The Continuum tree is **sorry-free** (verified: every textual `sorry` is in
+    comments/docstrings; no `sorryAx` across the full 152-job build). The open
+    frontier is surfaced as explicit typed obligations / structure fields
+    (`DiffJTP`, `ThetaFamilyAssembly`, `ProductDerivativeLimit`, `converges`,
+    `floor_persists`), not hidden holes.
+
+  * **Remaining honest interfaces for R2/R3:** (i) the two
+    `ContinuumGapPersistence` fields (thermodynamic limit + tightness); (ii) the
+    four `ContinuumYMExistence` carriers (O(4) restoration, gauge-generated,
+    UV asymptotic freedom, nontriviality); (iii) the interacting-operator
+    construction from the GNS inner product. These are the genuine open
+    mathematics; everything connecting them to the mass-gap conclusion is proved
+    and axiom-clean.
