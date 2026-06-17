@@ -19,8 +19,14 @@ piece (`SemigroupGenerated`) and the continuum limit that stay paper-level.
 |------------------------------|-------------|------------------------------------------------------------|
 | `VacuumNormalized Ω`         | UPGRADEABLE | `FiniteVolumeGNS.gnsVacuumNormalizedContent` (⟨Ω,Ω⟩ ≃ 1)   |
 | `HamiltonianNonneg H`        | UPGRADEABLE | `FiniteVolumeGNS.hamiltonianNonnegContent` (σ(T) ⊆ [0,∞))   |
-| `HasSpectralGap rec`         | UPGRADEABLE | `FiniteVolumeGNS.hasSpectralGapContent` ⇒ geometric decay  |
+| `HasSpectralGap rec`         | UPGRADEABLE | strict located gap (`sep < 1`) carried by construction      |
 | `SemigroupGenerated H U`     | PAPER       | continuum Stone generator (declared, not faked)            |
+
+The reconstruction datum now carries the **strictness** `gapBound < 1` as a
+structural field (`gapBound_lt_one`), so the bare `SpectralGapBound`
+(`∀ i, λᵢ ≤ μ`, which alone permits the vacuous `μ = 1`) is upgraded to a
+genuine `LocatedSpectralGap` (`sep < 1`) **by construction** — every datum
+yields a real mass gap with no side hypothesis (`FiniteVolumeReconstruction.located`).
 
 The thermodynamic limit `Λ → ∞` (inductive-limit completion of the finite
 GNS spaces + gap persistence), the continuum self-adjointness of `H` on a
@@ -37,6 +43,7 @@ No `Classical.*`, no `sorryAx`, no `native_decide`.
 -/
 
 import YMGap.Continuum.FiniteVolumeGNS
+import YMGap.Continuum.LocatedSpectralGap
 
 namespace YMGap.Continuum.OSContent
 
@@ -72,8 +79,26 @@ structure FiniteVolumeReconstruction (A : ObsAlg) where
   gapBound_nonneg : (0 : Q') ≤ gapBound
   /-- The gap holds: every excited eigenvalue is `≤ μ`. -/
   hasGap : SpectralGapBound spec gapBound
+  /-- **Strictness (the real mass gap).**  The eigenvalue bound is STRICTLY
+  below the vacuum eigenvalue `1`.  This is the field that upgrades the bare
+  `SpectralGapBound` (which alone permits the vacuous `μ = 1`, no decay) to a
+  genuine located gap `sep < 1`, so every datum carries a real mass gap by
+  construction. -/
+  gapBound_lt_one : gapBound < (1 : Q')
 
 /-! ### The three upgraded Props, proved on the datum -/
+
+/-- **The located strict gap, by construction.**  The strict field
+`gapBound_lt_one` is exactly the content that upgrades the bare
+`SpectralGapBound` to a `LocatedSpectralGap` (`sep < 1`) — with NO side
+hypothesis.  Every reconstruction datum therefore carries a genuine located
+mass gap: the computable `specMax spec ≤ sep` makes it located, `sep < 1`
+makes it strict, and `.decay` gives geometric clustering. -/
+def FiniteVolumeReconstruction.located {A : ObsAlg}
+    (rec : FiniteVolumeReconstruction A) : LocatedSpectralGap rec.spec where
+  sep := rec.gapBound
+  sep_lt_one := rec.gapBound_lt_one
+  bound := rec.hasGap
 
 /-- **VacuumNormalized (genuine).**  The replacement content holds: the GNS
 cyclic vacuum has squared norm `≃ 1`. -/
@@ -103,6 +128,22 @@ theorem gram_nonneg_genuine {A : ObsAlg} (rec : FiniteVolumeReconstruction A)
     (a : A.carrier) : (0 : Q') ≤ rec.gns.inner a a :=
   rec.gns.inner_nonneg a
 
+/-- **Strict geometric clustering, by construction.**  Because the datum now
+carries the strict located gap (`rec.located`), the connected two-point
+function decays geometrically `G(n) ≤ G(0)·μ^n` with NO side hypothesis — the
+genuine finite-volume mass-gap consequence is a property of every datum. -/
+theorem hasSpectralGap_strict_genuine {A : ObsAlg}
+    (rec : FiniteVolumeReconstruction A) (n : Nat) :
+    corr rec.spec n ≤ (corr rec.spec 0) * rec.gapBound ^ n :=
+  rec.located.decay n
+
+/-- **The positive eigenvalue-gap margin, by construction.**  The strict field
+gives `0 < 1 − μ`, the positive transfer-eigenvalue margin (the gap in
+eigenvalue space, `m = −log μ > 0`). -/
+theorem gapMargin_pos_genuine {A : ObsAlg} (rec : FiniteVolumeReconstruction A) :
+    (0 : Q') < rec.located.gapMargin :=
+  rec.located.gapMargin_pos
+
 /-! ## A concrete inhabitant
 
 The trivially-coupled product state (free product, `Z = 1`) gives a genuine
@@ -131,6 +172,7 @@ def trivReconstruction (n : Nat) :
   gapBound := 0
   gapBound_nonneg := Q'.le_refl' 0
   hasGap := fun _ => Q'.le_refl' 0
+  gapBound_lt_one := by decide
 
 /-- The upgraded VacuumNormalized fires on the concrete object. -/
 theorem trivReconstruction_vacuum_normalized (n : Nat) :
@@ -207,6 +249,9 @@ end YMGap.Continuum.OSContent
 #print axioms YMGap.Continuum.OSContent.vacuumNormalized_genuine
 #print axioms YMGap.Continuum.OSContent.hamiltonianNonneg_genuine
 #print axioms YMGap.Continuum.OSContent.hasSpectralGap_genuine
+#print axioms YMGap.Continuum.OSContent.FiniteVolumeReconstruction.located
+#print axioms YMGap.Continuum.OSContent.hasSpectralGap_strict_genuine
+#print axioms YMGap.Continuum.OSContent.gapMargin_pos_genuine
 #print axioms YMGap.Continuum.OSContent.gram_nonneg_genuine
 #print axioms YMGap.Continuum.OSContent.trivSpectralModel
 #print axioms YMGap.Continuum.OSContent.trivReconstruction

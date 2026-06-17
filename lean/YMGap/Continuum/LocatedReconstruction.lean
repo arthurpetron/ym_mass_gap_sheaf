@@ -4,20 +4,22 @@ OS-reconstruction datum.
 
 # What this adds over `OSContent`
 
-`OSContent.FiniteVolumeReconstruction` (and `OSReconstruction.HasSpectralGap`)
-carry the gap as a bare `SpectralGapBound spec gapBound` (`∀ i, λᵢ ≤ gapBound`)
-— which does NOT require `gapBound < 1`, so the "gap" can be VACUOUS
-(`gapBound = 1` ⟹ no actual mass gap, the correlator need not decay).
-
-This module supplies the missing strictness via the located gap of
-`Continuum/LocatedSpectralGap.lean`: a `LocatedSpectralGap spec` carries
+`OSContent.FiniteVolumeReconstruction` now carries the strictness
+`gapBound < 1` as a structural field (`gapBound_lt_one`), so its
+`SpectralGapBound spec gapBound` (`∀ i, λᵢ ≤ gapBound`) is no longer vacuous
+(the degenerate `gapBound = 1`, no decay, is excluded by construction).  The
+datum's `.located` projection is the genuine `LocatedSpectralGap spec`:
 `sep < 1` — the located second eigenvalue STRICTLY below the vacuum eigenvalue
 `1` — so its decay `G(n) ≤ G(0)·sep ^ n` is genuinely geometric (a real mass
 gap), and the computable `specMax spec ≤ sep` makes the gap LOCATED (one
 decidable comparison), per the compact-operator constructive-spectral verdict.
 
-  * `locatedGap_of_reconstruction` — from a finite-volume reconstruction datum
-    PLUS the strictness `gapBound < 1`, build the located strict gap.
+This module exhibits that located strict gap end-to-end and a genuinely-gapped
+datum (`sep = 1/2`), and packages the constructive finite-volume mass-gap
+statement.
+
+  * `locatedGap_of_reconstruction` — the located strict gap read off the datum's
+    structural strictness field, with no side hypothesis.
   * `reconstruction_specMax_le` — the computable located top-of-spectrum is at
     or below the gap bound (the located content on the datum).
   * `gappedSpectralModel` / `gappedLocated` — a CONCRETE genuine strict gap at
@@ -45,15 +47,14 @@ open YMGap.Continuum.ObservableMeasure
 /-! ## Bridging the reconstruction datum to the located strict gap -/
 
 /-- **From the OS reconstruction datum to the located strict gap.**  A
-`FiniteVolumeReconstruction` whose eigenvalue bound is STRICTLY below the vacuum
-eigenvalue `1` carries a genuine `LocatedSpectralGap` — the strictness
-`gapBound < 1` is exactly the content the bare `SpectralGapBound` lacked. -/
+`FiniteVolumeReconstruction` carries the strictness `gapBound < 1` as its
+structural field `gapBound_lt_one`, so the genuine `LocatedSpectralGap` is read
+off the datum with NO side hypothesis — this is exactly the content the bare
+`SpectralGapBound` lacked, now an invariant of every datum. -/
 def locatedGap_of_reconstruction {A : ObsAlg}
-    (rec : FiniteVolumeReconstruction A) (h : rec.gapBound < (1 : Q')) :
-    LocatedSpectralGap rec.spec where
-  sep := rec.gapBound
-  sep_lt_one := h
-  bound := rec.hasGap
+    (rec : FiniteVolumeReconstruction A) :
+    LocatedSpectralGap rec.spec :=
+  rec.located
 
 /-- **The located content on the datum.**  The computable top-of-spectrum
 `specMax` is at or below the gap bound — equivalently (since `0 ≤ gapBound`) the
@@ -64,13 +65,14 @@ theorem reconstruction_specMax_le {A : ObsAlg}
   (specMax_le_iff rec.spec rec.gapBound rec.gapBound_nonneg).mpr
     (fun i _ => rec.hasGap i)
 
-/-- **Strict geometric clustering.**  With a strict located gap (`sep < 1`), the
-connected two-point function decays geometrically, `G(n) ≤ G(0)·sep ^ n`, the
-genuine finite-volume mass-gap consequence. -/
+/-- **Strict geometric clustering.**  With the datum's strict located gap
+(`sep < 1`, by construction), the connected two-point function decays
+geometrically, `G(n) ≤ G(0)·sep ^ n`, the genuine finite-volume mass-gap
+consequence. -/
 theorem located_strict_decay {A : ObsAlg}
-    (rec : FiniteVolumeReconstruction A) (h : rec.gapBound < (1 : Q')) (n : Nat) :
+    (rec : FiniteVolumeReconstruction A) (n : Nat) :
     corr rec.spec n ≤ (corr rec.spec 0) * rec.gapBound ^ n :=
-  (locatedGap_of_reconstruction rec h).decay n
+  (locatedGap_of_reconstruction rec).decay n
 
 /-! ## A concrete genuine strict gap (`sep = 1/2`)
 
@@ -126,6 +128,48 @@ theorem gappedLocated_genuine_gap :
         ≤ (corr gappedSpectralModel 0) * (Q'.mkPos 1 2 (by decide)) ^ n) :=
   genuine_gap_summary gappedLocated
 
+/-! ## A genuinely-gapped reconstruction datum (`sep = 1/2`)
+
+The strictness is now a structural field, so a reconstruction datum can be
+populated with a REAL mass gap by construction.  Reusing the trivial GNS space
+(the `gns` field is independent of the transfer spectral model), the gapped
+datum carries `sep = 1/2 < 1` — contrast `OSContent.trivReconstruction`'s
+saturated `sep = 0`. -/
+
+/-- A genuinely-gapped finite-volume reconstruction datum: the strict field is
+populated with `gapBound = 1/2 < 1`, so its `.located` projection is a
+non-degenerate located mass gap by construction. -/
+def gappedReconstruction (n : Nat) :=
+  { OSContent.trivReconstruction n with
+    spec := gappedSpectralModel
+    gapBound := Q'.mkPos 1 2 (by decide)
+    gapBound_nonneg := by decide
+    hasGap := fun _ => Q'.le_refl' _
+    gapBound_lt_one := by decide }
+
+/-- The gapped datum carries the genuine located mass gap by construction
+(LOCATED ∧ STRICT ∧ DECAYING), with no side hypothesis. -/
+theorem gappedReconstruction_genuine_gap (n : Nat) :
+    specMax (gappedReconstruction n).spec
+        ≤ (locatedGap_of_reconstruction (gappedReconstruction n)).sep
+    ∧ (locatedGap_of_reconstruction (gappedReconstruction n)).sep < (1 : Q')
+    ∧ (∀ m, corr (gappedReconstruction n).spec m
+        ≤ (corr (gappedReconstruction n).spec 0)
+          * (locatedGap_of_reconstruction (gappedReconstruction n)).sep ^ m) :=
+  genuine_gap_summary (locatedGap_of_reconstruction (gappedReconstruction n))
+
+/-- The gapped datum's connected correlator decays geometrically — the real
+finite-volume mass gap, read off the datum. -/
+theorem gappedReconstruction_decay (n m : Nat) :
+    corr (gappedReconstruction n).spec m
+      ≤ (corr (gappedReconstruction n).spec 0) * (gappedReconstruction n).gapBound ^ m :=
+  located_strict_decay (gappedReconstruction n) m
+
+/-- The gapped datum has a strictly positive eigenvalue-gap margin `0 < 1 − 1/2`. -/
+theorem gappedReconstruction_gapMargin_pos (n : Nat) :
+    (0 : Q') < (locatedGap_of_reconstruction (gappedReconstruction n)).gapMargin :=
+  (locatedGap_of_reconstruction (gappedReconstruction n)).gapMargin_pos
+
 end YMGap.Continuum.LocatedReconstruction
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
@@ -136,3 +180,6 @@ end YMGap.Continuum.LocatedReconstruction
 #print axioms YMGap.Continuum.LocatedReconstruction.gappedLocated
 #print axioms YMGap.Continuum.LocatedReconstruction.genuine_gap_summary
 #print axioms YMGap.Continuum.LocatedReconstruction.gappedLocated_genuine_gap
+#print axioms YMGap.Continuum.LocatedReconstruction.gappedReconstruction_genuine_gap
+#print axioms YMGap.Continuum.LocatedReconstruction.gappedReconstruction_decay
+#print axioms YMGap.Continuum.LocatedReconstruction.gappedReconstruction_gapMargin_pos
