@@ -160,6 +160,7 @@ import YMGap.Continuum.CarrierPrecursors
 import YMGap.Continuum.ContinuumGapLimit
 import YMGap.Continuum.ClusterGapReduction
 import YMGap.Continuum.ContinuumFunctional
+import YMGap.Continuum.RegularFunctional
 import YMGap.Continuum.ClusterBoundInstance
 import YMGap.Continuum.SigmaGroundedFloor
 import YMGap.Continuum.NonSaturatedFloor
