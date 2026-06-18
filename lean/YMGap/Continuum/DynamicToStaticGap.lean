@@ -102,7 +102,7 @@ capped rate gives `sep < 1` — the gap below the vacuum eigenvalue `1`.  Reduce
 to `0 < d.num` on the cross-product `Int` representation. -/
 
 /-- `0 < d ⟹ 1 − d < 1`. -/
-theorem sub_lt_self_of_pos {d : Q'} (h : (0 : Q') < d) : (1 : Q') - d < (1 : Q') := by
+theorem sub_lt_self_of_pos_dyn {d : Q'} (h : (0 : Q') < d) : (1 : Q') - d < (1 : Q') := by
   -- `1 - d = 1 + (-d)`; with `1 = ⟨1,0⟩` and `-d = ⟨-d.num, d.denPred⟩`:
   --   (1-d).num = 1 * d.den + (-d.num) * 1,  (1-d).den = 1 * d.den - 1 + 1 = d.den.
   -- Goal `(1-d).num * 1 < 1 * (1-d).den` ↔ `d.den - d.num < d.den` ↔ `0 < d.num`.
@@ -165,7 +165,7 @@ From `λ > 0` we PRODUCE `m > 0` with a located separator `sep < 1`.
 
 The conservative, division-free choice:
   * `m   := λ`            — positivity transfers directly (`m_pos` from `λ_pos`).
-  * `sep := 1 − min(λ,½)` — strictly below `1` by `sub_lt_self_of_pos` applied to
+  * `sep := 1 − min(λ,½)` — strictly below `1` by `sub_lt_self_of_pos_dyn` applied to
     the positive capped rate, so the correlator decays geometrically at base
     `sep`.
 
@@ -177,7 +177,7 @@ def dynamic_to_static (g : DynamicGap) : StaticGap where
   m := g.lambda
   m_pos := g.lambda_pos
   sep := 1 - cappedRate g.lambda
-  sep_lt_one := sub_lt_self_of_pos (cappedRate_pos g.lambda_pos)
+  sep_lt_one := sub_lt_self_of_pos_dyn (cappedRate_pos g.lambda_pos)
 
 /-- **The qualitative bridge, as a positivity-transfer statement.**
 A positive dynamic gap yields a positive static gap.  This is the citable
@@ -255,7 +255,7 @@ end YMGap.Continuum
 #print axioms YMGap.Continuum.half_lt_one
 #print axioms YMGap.Continuum.cappedRate_pos
 #print axioms YMGap.Continuum.cappedRate_le_half
-#print axioms YMGap.Continuum.sub_lt_self_of_pos
+#print axioms YMGap.Continuum.sub_lt_self_of_pos_dyn
 #print axioms YMGap.Continuum.dynamic_to_static
 #print axioms YMGap.Continuum.dynamic_to_static_m_pos
 #print axioms YMGap.Continuum.dynamic_to_static_sep_lt_one
