@@ -44,6 +44,7 @@ import YMGap.Constructive.CRealMul
 import YMGap.Constructive.ExpNeg
 import YMGap.Constructive.HalfPow
 import YMGap.Constructive.RegularCReal
+import YMGap.Constructive.Sqrt
 
 namespace YMGap.Constructive
 
@@ -90,6 +91,68 @@ theorem invSucc_double_eqv (k : Nat) :
       rw [show (2 : Int) = 1 + 1 from by decide, Int.add_mul, Int.one_mul]
     rw [h2, Int.mul_add]
   rw [lhs, rhs]
+
+/-! ### `Q'`-level division by a positive denominator
+
+`divPos p q hq = p · (1/q)`, built on the rational reciprocal `recipPos` for a
+positive denominator.  The defining identity `divPos p q hq · q ≃ p` is a
+theorem (`divPos_mul_eqv`), and two-sided bounds on the quotient follow from
+two-sided bounds on `p` against `q` WITHOUT any positive-factor cancellation
+lemma: multiply the hypothesis by `recipPos q ≥ 0` and collapse `q · (1/q) ≃ 1`. -/
+
+/-- **Division by a positive rational denominator.**  `divPos p q hq = p · (1/q)`,
+using the positive-denominator reciprocal `recipPos`. -/
+def divPos (p q : Q') (hq : (0 : Q') < q) : Q' := p * recipPos q hq
+
+/-- **The defining identity:** `divPos p q hq · q ≃ p`.  Proof:
+`(p · (1/q)) · q ≃ p · ((1/q) · q) ≃ p · (q · (1/q)) ≃ p · 1 ≃ p`. -/
+theorem divPos_mul_eqv (p q : Q') (hq : (0 : Q') < q) :
+    (divPos p q hq * q).eqv p := by
+  unfold divPos
+  -- (p * r) * q ≃ p * (r * q) ≃ p * (q * r) ≃ p * 1 ≃ p
+  refine eqv_trans _ _ _ (mul_assoc_eqv p (recipPos q hq) q) ?_
+  refine eqv_trans _ _ _
+    (mul_eqv_congr_left p _ _ (mul_comm_eqv (recipPos q hq) q)) ?_
+  refine eqv_trans _ _ _
+    (mul_eqv_congr_left p _ _ (mul_recipPos_eqv q hq)) ?_
+  exact mul_one_eqv p
+
+/-- **Lower bound on the quotient.**  If `c · q ≤ p` then `c ≤ divPos p q hq`.
+Multiply `c · q ≤ p` by `1/q ≥ 0` and collapse `(c·q)·(1/q) ≃ c`,
+`p·(1/q) = divPos`. -/
+theorem le_divPos_of_mul_le (p q : Q') (hq : (0 : Q') < q) {c : Q'}
+    (h : c * q ≤ p) : c ≤ divPos p q hq := by
+  have hr : (0 : Q') ≤ recipPos q hq := le_of_lt (recipPos_pos q hq)
+  -- (c*q)*(1/q) ≤ p*(1/q) = divPos
+  have hstep : (c * q) * recipPos q hq ≤ p * recipPos q hq :=
+    mul_le_mul_of_nonneg_right _ _ _ h hr
+  -- (c*q)*(1/q) ≃ c·(q·(1/q)) ≃ c·1 ≃ c
+  have hc : ((c * q) * recipPos q hq).eqv c := by
+    refine eqv_trans _ _ _ (mul_assoc_eqv c q (recipPos q hq)) ?_
+    refine eqv_trans _ _ _ (mul_eqv_congr_left c _ _ (mul_recipPos_eqv q hq)) ?_
+    exact mul_one_eqv c
+  exact le_trans' _ _ _ (ge_of_eqv hc) hstep
+
+/-- **Upper bound on the quotient.**  If `p ≤ C · q` then `divPos p q hq ≤ C`.
+Multiply `p ≤ C · q` by `1/q ≥ 0` and collapse `(C·q)·(1/q) ≃ C`,
+`p·(1/q) = divPos`. -/
+theorem divPos_le_of_le_mul (p q : Q') (hq : (0 : Q') < q) {C : Q'}
+    (h : p ≤ C * q) : divPos p q hq ≤ C := by
+  have hr : (0 : Q') ≤ recipPos q hq := le_of_lt (recipPos_pos q hq)
+  -- divPos = p*(1/q) ≤ (C*q)*(1/q) ≃ C
+  have hstep : p * recipPos q hq ≤ (C * q) * recipPos q hq :=
+    mul_le_mul_of_nonneg_right _ _ _ h hr
+  have hC : ((C * q) * recipPos q hq).eqv C := by
+    refine eqv_trans _ _ _ (mul_assoc_eqv C q (recipPos q hq)) ?_
+    refine eqv_trans _ _ _ (mul_eqv_congr_left C _ _ (mul_recipPos_eqv q hq)) ?_
+    exact mul_one_eqv C
+  exact le_trans' _ _ _ hstep (le_of_eqv hC)
+
+/-- **Positivity of the quotient.**  For `0 < p` and `0 < q`, `0 < divPos p q hq`
+(`p · (1/q)` is a product of positives). -/
+theorem divPos_pos (p q : Q') (hq : (0 : Q') < q) (hp : (0 : Q') < p) :
+    (0 : Q') < divPos p q hq :=
+  Q'.mul_pos hp (recipPos_pos q hq)
 
 /-- Negation flips a one-slack bound: `a ≤ b + ε ⟹ -b ≤ -a + ε`.  Re-derived
 here (the foundation does not import the `CReal` add layer) from the `Q'`
@@ -974,6 +1037,32 @@ theorem isPositive_completeLimit (s : Nat → RegularCReal) (c : ModCauchy s) {�
     IsPositive (completeLimit s c) :=
   ⟨ε, hε, ofQ'_le_completeLimit s c h⟩
 
+/-! ### The `f(x)/x`-limit corollary: a uniformly two-sided-bounded quotient
+sequence has a positive, ceiling-bounded `completeLimit`.
+
+`divLimit` packages, for a sequence `s := fun j => ofQ' (qseq j)` of `ofQ'`-lifted
+rational quotient terms with a uniform two-sided rational bound
+`c ≤ qseq j ≤ C` (`0 < c`), the three facts a continuum quotient limit needs:
+its `completeLimit` is `IsPositive` (witness `c`), and it is squeezed
+`ofQ' c ≤ completeLimit ≤ ofQ' C`.  Reusable for any constructive `f(x)/x`
+limit whose quotient terms are uniformly two-sided bounded. -/
+
+/-- **The `f(x)/x`-limit corollary.**  Given rational quotient terms `qseq` with
+a uniform two-sided rational bound `c ≤ qseq j ≤ C` (`0 < c`) and a `ModCauchy`
+modulus `cm` on the lifted sequence `fun j => ofQ' (qseq j)`, the `completeLimit`
+is strictly positive (witness `c`) and squeezed between `ofQ' c` and `ofQ' C`.
+Packages `isPositive_completeLimit` / `ofQ'_le_completeLimit` /
+`completeLimit_le_ofQ'`. -/
+theorem divLimit (qseq : Nat → Q') (cm : ModCauchy (fun j => ofQ' (qseq j)))
+    {c C : Q'} (hc : (0 : Q') < c)
+    (hlo : ∀ j : Nat, c ≤ qseq j) (hhi : ∀ j : Nat, qseq j ≤ C) :
+    IsPositive (completeLimit (fun j => ofQ' (qseq j)) cm) ∧
+      ofQ' c ≤ completeLimit (fun j => ofQ' (qseq j)) cm ∧
+      completeLimit (fun j => ofQ' (qseq j)) cm ≤ ofQ' C :=
+  ⟨isPositive_completeLimit _ cm hc (fun k _ => hlo k),
+   ofQ'_le_completeLimit _ cm (fun k _ => hlo k),
+   completeLimit_le_ofQ' _ cm (fun k _ => hhi k)⟩
+
 /-! ### Priority 3: non-vacuity demo
 
 The constant sequence `s k = ofQ' r` is modulus-Cauchy with the trivial outer
@@ -1012,6 +1101,12 @@ end RegularCReal
 end YMGap.Constructive
 
 #print axioms YMGap.Constructive.Q'.invSucc_double_eqv
+#print axioms YMGap.Constructive.Q'.divPos
+#print axioms YMGap.Constructive.Q'.divPos_mul_eqv
+#print axioms YMGap.Constructive.Q'.le_divPos_of_mul_le
+#print axioms YMGap.Constructive.Q'.divPos_le_of_le_mul
+#print axioms YMGap.Constructive.Q'.divPos_pos
+#print axioms YMGap.Constructive.RegularCReal.divLimit
 #print axioms YMGap.Constructive.Q'.add_regroup
 #print axioms YMGap.Constructive.Q'.add_slack_collapse
 #print axioms YMGap.Constructive.Q'.neg_le_neg_add'

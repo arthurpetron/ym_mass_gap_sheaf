@@ -378,8 +378,10 @@ So the scaling interface below carries, indexed by refinement step `j`
     MUST) → 0 as `j → ∞`;
   * `latMargin j` — the lattice-unit gap margin at step `j` (the floor of
     `atSpacing j`, derived), which vanishes like `a_j`;
-  * `physGap j` — the PHYSICAL gap `latMargin j / a_j`, carried as data with
-    its defining multiplicative relation (`Q'` division is avoided);
+  * `physGap j` — the PHYSICAL gap, DERIVED as the genuine quotient
+    `latMargin j / a_j` (`Q'.divPos`, a rational division of two positives), so
+    its defining multiplicative relation `physGap j · a_j ≃ latMargin j` is a
+    THEOREM, not assumed data;
   * the two-sided UNIFORM PHYSICAL bound `0 < physGapMin ≤ physGap j ≤
     physGapMax` — dimensional transmutation: the gap is finite and positive
     in PHYSICAL units, uniformly in the spacing.  `physGapMin > 0` surviving
@@ -402,9 +404,10 @@ Carries, indexed by refinement step `j` (spacing `a_j → 0`):
   * `atSpacing` — the fixed-spacing infinite-volume cluster bounds.  Its
     own lattice floor `(atSpacing j).floorRate` is the lattice-unit margin
     `latMargin j` and MUST be allowed to vanish as `j → ∞`;
-  * `physGap`, `physGap_spacing` — the PHYSICAL gap `latMargin j / a_j`,
-    carried as data with its defining relation `physGap j * a_j ≃ latMargin
-    j` (avoiding `Q'` division);
+  * `physGap` (DERIVED, not a field) — the PHYSICAL gap `latMargin j / a_j` as
+    the genuine rational quotient `Q'.divPos (latMargin j) (a_j)`, with its
+    defining relation `physGap j * a_j ≃ latMargin j` now a THEOREM
+    (`physGap_spacing`) from `Q'.divPos_mul_eqv`;
   * `physGapMin`, `physGapMax`, `physGapMin_pos`, `physGap_ge`, `physGap_le`
     — the two-sided UNIFORM PHYSICAL bound `0 < physGapMin ≤ physGap j ≤
     physGapMax`.  `physGapMin > 0` surviving `a → 0` is the OPEN content
@@ -432,15 +435,10 @@ structure RegScalingLimitModulus where
   bareCoupling : Nat → Q'
   /-- The fixed-spacing infinite-volume cluster bounds, indexed by `j`.  Its
   own LATTICE floor `(atSpacing j).floorRate` is the lattice-unit margin and
-  may (indeed must) → 0 as `j → ∞`. -/
+  may (indeed must) → 0 as `j → ∞`.  The PHYSICAL gap `Δ(a_j)` is DERIVED from
+  this and `spacing` as the genuine quotient `(atSpacing j).floorRate / a_j`
+  (see `RegScalingLimitModulus.physGap`); it is NOT carried as primitive data. -/
   atSpacing : Nat → RegUniformClusterBound
-  /-- The PHYSICAL gap `Δ(a_j) = latMargin j / a_j`, carried as data. -/
-  physGap : Nat → Q'
-  /-- The defining relation pinning `physGap` to the lattice margin divided
-  by the spacing: `physGap j · a_j ≃ latMargin j`, where the lattice margin
-  is the (vanishing) lattice-unit floor `(atSpacing j).floorRate`. -/
-  physGap_spacing : ∀ j : Nat,
-    (physGap j * spacing j).eqv (atSpacing j).floorRate
   /-- The uniform physical lower bound (the dimensional-transmutation gap). -/
   physGapMin : Q'
   /-- The uniform physical upper bound. -/
@@ -448,10 +446,14 @@ structure RegScalingLimitModulus where
   /-- **The OPEN content:** the physical gap floor is strictly positive,
   surviving `a → 0`. -/
   physGapMin_pos : (0 : Q') < physGapMin
-  /-- The physical gap is bounded below by `physGapMin`, uniformly in `j`. -/
-  physGap_ge : ∀ j : Nat, physGapMin ≤ physGap j
+  /-- The physical gap (the genuine quotient `(atSpacing j).floorRate / a_j`,
+  here as `Q'.divPos`) is bounded below by `physGapMin`, uniformly in `j` —
+  the dimensional-transmutation floor (OPEN as `a → 0`). -/
+  physGap_ge : ∀ j : Nat,
+    physGapMin ≤ Q'.divPos ((atSpacing j).floorRate) (spacing j) (spacing_pos j)
   /-- The physical gap is bounded above by `physGapMax`, uniformly in `j`. -/
-  physGap_le : ∀ j : Nat, physGap j ≤ physGapMax
+  physGap_le : ∀ j : Nat,
+    Q'.divPos ((atSpacing j).floorRate) (spacing j) (spacing_pos j) ≤ physGapMax
   /-- Spacing-uniform convergence modulus on the physical-gap sequence. -/
   physMod : Q' → Nat
   /-- The convergence modulus is antitone. -/
@@ -459,7 +461,10 @@ structure RegScalingLimitModulus where
   /-- Two-sided convergence of the physical gap: for `i, j ≥ physMod ε`, the
   physical gaps are `ε`-close — the physical gap converges as `a → 0`. -/
   physBound : ∀ ε : Q', (0 : Q') < ε → ∀ i j : Nat, physMod ε ≤ i → physMod ε ≤ j →
-    physGap i ≤ physGap j + ε ∧ physGap j ≤ physGap i + ε
+    Q'.divPos ((atSpacing i).floorRate) (spacing i) (spacing_pos i)
+        ≤ Q'.divPos ((atSpacing j).floorRate) (spacing j) (spacing_pos j) + ε ∧
+      Q'.divPos ((atSpacing j).floorRate) (spacing j) (spacing_pos j)
+        ≤ Q'.divPos ((atSpacing i).floorRate) (spacing i) (spacing_pos i) + ε
 
 /-- The lattice-unit gap margin at refinement step `j`: the (vanishing)
 lattice floor of the fixed-spacing cluster bound.  As `a_j → 0` this
@@ -470,6 +475,26 @@ def RegScalingLimitModulus.latMargin (L : RegScalingLimitModulus) (j : Nat) : Q'
 
 @[simp] theorem RegScalingLimitModulus.latMargin_eq (L : RegScalingLimitModulus)
     (j : Nat) : L.latMargin j = (L.atSpacing j).floorRate := rfl
+
+/-- **The PHYSICAL gap `Δ(a_j) = latMargin j / a_j`, DERIVED** as the genuine
+rational quotient of the (vanishing) lattice-unit margin by the spacing,
+via `Q'.divPos`.  Both numerator `(atSpacing j).floorRate` and denominator
+`spacing j` are strictly positive, so the quotient is a genuine division — the
+`physGap ↔ latMargin` relation below is now a THEOREM, not assumed data. -/
+def RegScalingLimitModulus.physGap (L : RegScalingLimitModulus) (j : Nat) : Q' :=
+  Q'.divPos (L.latMargin j) (L.spacing j) (L.spacing_pos j)
+
+@[simp] theorem RegScalingLimitModulus.physGap_eq (L : RegScalingLimitModulus)
+    (j : Nat) :
+    L.physGap j = Q'.divPos ((L.atSpacing j).floorRate) (L.spacing j) (L.spacing_pos j) :=
+  rfl
+
+/-- **The defining relation, now a THEOREM:** `physGap j · a_j ≃ latMargin j`.
+Proved from `Q'.divPos`'s defining identity `divPos_mul_eqv` (the physical gap
+is the genuine quotient of `latMargin j` by `spacing j`). -/
+theorem RegScalingLimitModulus.physGap_spacing (L : RegScalingLimitModulus)
+    (j : Nat) : (L.physGap j * L.spacing j).eqv (L.atSpacing j).floorRate :=
+  Q'.divPos_mul_eqv (L.latMargin j) (L.spacing j) (L.spacing_pos j)
 
 /-- The defining relation in `latMargin` form: `physGap j · a_j ≃ latMargin j`. -/
 theorem RegScalingLimitModulus.physGap_mul_spacing (L : RegScalingLimitModulus)
@@ -629,8 +654,9 @@ substrate (transitive Bishop order, `Type`-level canonical modulus):
      stays finite and positive is the PHYSICAL gap `Δ(a) = m_lat(a)/a`.  The
      interface `RegScalingLimitModulus` carries the spacings `a_j → 0` (with
      modulus), the AF bare coupling `g₀(a_j)`, the fixed-spacing cluster
-     bounds (whose lattice floors `→ 0`), the physical gap `physGap j` (with
-     its defining relation `physGap j · a_j ≃ latMargin j`), the two-sided
+     bounds (whose lattice floors `→ 0`), the physical gap `physGap j` DERIVED
+     as the genuine quotient `latMargin j / a_j` (with its defining relation
+     `physGap j · a_j ≃ latMargin j` now a THEOREM), the two-sided
      UNIFORM PHYSICAL bound `0 < physGapMin ≤ physGap j ≤ physGapMax`, and a
      spacing-uniform two-sided convergence modulus on `physGap`.  The
      continuum physical gap `scaling_continuum_physGap` is the `completeLimit`
@@ -667,6 +693,9 @@ end YMGap.Continuum.RegularContinuumPipeline
 #print axioms YMGap.Continuum.RegularContinuumPipeline.concreteContinuumYM_gapRate
 #print axioms YMGap.Continuum.RegularContinuumPipeline.concreteContinuumYM_gap_pos
 #print axioms YMGap.Continuum.RegularContinuumPipeline.RegScalingLimitModulus.latMargin_eq
+#print axioms YMGap.Continuum.RegularContinuumPipeline.RegScalingLimitModulus.physGap
+#print axioms YMGap.Continuum.RegularContinuumPipeline.RegScalingLimitModulus.physGap_eq
+#print axioms YMGap.Continuum.RegularContinuumPipeline.RegScalingLimitModulus.physGap_spacing
 #print axioms YMGap.Continuum.RegularContinuumPipeline.RegScalingLimitModulus.physGap_mul_spacing
 #print axioms YMGap.Continuum.RegularContinuumPipeline.regPhysGapSeq_approx
 #print axioms YMGap.Continuum.RegularContinuumPipeline.regPhysGapModCauchy
