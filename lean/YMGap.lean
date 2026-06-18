@@ -167,6 +167,7 @@ import YMGap.Continuum.SigmaGroundedFloor
 import YMGap.Continuum.NonSaturatedFloor
 import YMGap.Continuum.RegularContinuumPipeline
 import YMGap.Continuum.RGGapPersistence
+import YMGap.Continuum.HeatKernelPersistence
 import YMGap.BufferShell
 import YMGap.Codynamic
 import YMGap.HigherCategorical
