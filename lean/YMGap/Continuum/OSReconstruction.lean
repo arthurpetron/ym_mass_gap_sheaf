@@ -322,11 +322,26 @@ bound `m_0`; the bound is supplied externally (by
 `Constructive.Reals.sigma_hat_inf_creal_positive` in the SU(2) case).
 
 In the paper this is `inf σ_+(H_op) ≥ m_0` where the inequality is at
-the CReal level, not Q′. -/
+the CReal level, not Q′.
+
+**Two genuine, jointly faithful conjuncts** (the rate `m_0` is *not*
+ignored):
+
+  * `SpectralGapBound rec.spec rec.gapBound` — the located finite
+    spectral gap: every excited transfer-matrix eigenvalue is `≤ sep`
+    (`sep = rec.gapBound < 1`).
+  * `m_0 ≤ CReal.ofQ' (1 - rec.gapBound)` — the **rate binding**: the
+    constructive-real `m_0` is no larger than the eigenvalue-gap
+    MARGIN `1 − sep` (the margin currency the located-gap pipeline uses;
+    the physical mass is `−log sep`, here kept as the margin to avoid
+    `exp`/`log` on `CReal`).  This is the conjunct that makes "the gap
+    is at least `m_0`" mean what it says: the located margin avoids the
+    gap below `m_0`. -/
 def HasSpectralGapAt
     {M : Nat → Type} {μ_inf : ContinuumMeasure M}
-    (rec : OSReconstruction μ_inf) (_m_0 : CReal) : Prop :=
-  SpectralGapBound rec.spec rec.gapBound
+    (rec : OSReconstruction μ_inf) (m_0 : CReal) : Prop :=
+  SpectralGapBound rec.spec rec.gapBound ∧
+    m_0 ≤ CReal.ofQ' (1 - rec.gapBound)
 
 /-- The CReal-level cluster-to-gap bridge type: given an
 `OSReconstruction` and a CReal-positive mass bound `m_0`, the
@@ -340,20 +355,27 @@ def ClusterImpliesGapAt
 /-- **The CReal-level cluster-to-gap bridge.**
 
 Given an `OSReconstruction` of an OS-compliant continuum measure
-(`bundle`) and a CReal-positive bound `m_0`, the bridge produces the
-spectral-emptiness statement `σ(H_op) ∩ (0, m_0) = ∅`.
+(`bundle`), a CReal-positive bound `m_0`, and the **rate binding**
+`m_0 ≤ ofQ' (1 − sep)` (the constructive-real mass does not exceed the
+located eigenvalue-gap margin), the bridge produces the
+spectral-emptiness statement `σ(H_op) ∩ (0, m_0) = ∅` *at `m_0`*.
 
 This is `formal/os-reconstruction.tex` Theorem 7.2 lifted from the
-Q′-rational rate to a constructive-real rate.  The Prop is abstract
-(`True`) at the type-level interface — substantive content is paper
-supplied — but the CReal parameter is now real (the bridge mentions
-the CReal m_0 in its conclusion). -/
+Q′-rational rate to a constructive-real rate.  The located finite gap
+is `rec.hasGap` (the genuine `SpectralGapBound`); the rate binding
+`hbind` relating the OS4 cluster rate `m_0` to the transfer-matrix
+margin `1 − sep` is the analytic OS4 content, supplied here as an
+explicit hypothesis (it cannot be derived from an abstract `rec` whose
+`gapBound` is unconstrained relative to `m_0`).  Both conjuncts of the
+conclusion are thereby genuine, and the CReal `m_0` truly lower-bounds
+the gap margin. -/
 theorem cluster_implies_gap_at
     {M : Nat → Type} {μ_inf : ContinuumMeasure M}
     (rec : OSReconstruction μ_inf) (bundle : OSAxiomBundle μ_inf)
-    (m_0 : CReal) (_pos : CReal.IsPositive m_0) :
+    (m_0 : CReal) (_pos : CReal.IsPositive m_0)
+    (hbind : m_0 ≤ CReal.ofQ' (1 - rec.gapBound)) :
     ClusterImpliesGapAt rec bundle m_0 :=
-  rec.hasGap
+  ⟨rec.hasGap, hbind⟩
 
 /-! ## Axiom-clean sentinel -/
 
