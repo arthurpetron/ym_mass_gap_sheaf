@@ -92,6 +92,32 @@ Phase D — proof-of-concept (after A–C, against the corrected band interface)
 Do NOT: assert a single limit as primary; add an exponent field; port UCT/Lang-PDE/
 Dubrulle-classification; let `999/1000`/`1/2` appear in theorem conclusions.
 
+## EXECUTION STATUS (2026-06-18) — Phases A, B, C DONE
+
+All merged green, axiom-clean, base 1565→1574 thms, tip c8fce3b.
+- **A1** (`e46c88a`): `Q'.divPos` + `divLimit`; `physGap := latMargin/spacing` a genuine
+  quotient ⇒ `physGap_spacing` now a THEOREM (was assumed data).
+- **A2** (`078a06c`): dimensionless `Δ/√σ̂` multiplicatively (`gapRatioOf`,
+  `gapRatioOf_mul_m_0_equiv`); fiducials quarantined `unitScale` (cancelling unit) vs
+  `gapFloorWitness` (numeric claim). Additive.
+- **B** (`b00f20a`): `RegScalingBand` = modulus-free two-sided band PRIMARY
+  (`band_gap_survives`, `physGapMin>0` dimensionless = "gap survives a→0", liminf≥δ);
+  `RegScalingLimitModulus extends RegScalingBand` keeps the single-limit refinement.
+- **C** (`e37a1c0`): `convergesTo_unique` (RegularCReal limit-uniqueness, Bishop triangle,
+  UNCONDITIONAL) ⇒ the continuum gap is a WELL-DEFINED RG-INVARIANT (`extractGap_unique`,
+  `band_collapse_of_modulus`). Collapse is conditioned on a SUPPLIED convergence modulus;
+  monotonicity (BGT Monotone Density) noted as the classical-only degeneracy reason.
+
+ONE honest deferral (Phase B/C stretch): explicit liminf/limsup band-edge REALS need
+`Q'.min'`/`Q'.max'` order lemmas (absent; no `Q'.le_total`) AND supplied band-edge moduli
+(Specker — not derivable from monotonicity). Deferred, not faked; documented in the
+pipeline §8 "a→0 trichotomy". Next-step if pursued: add `Q'.min'/max'` order theory +
+carry `bandLowMod`/`bandHighMod` as data.
+
+Remaining genuinely-open content unchanged: `physGapMin>0` (dimensional transmutation,
+the physical gap surviving a→0) — uninhabited for 4D YM. Phase D (φ⁴ d=2,3 convergence-
+modulus proof-of-concept) not yet started.
+
 Sources (refereed unless flagged): Sornette Phys.Rep.297(1998); Bingham–Goldie–Teugels
 *Regular Variation* (CUP 1987); Strichartz Proc.AMS 140(2012); Lapidus–Pomerance
 Proc.LMS 66(1993); Husung–Marquard–Sommer EPJC 80(2020), PLB 829(2022); Athenodorou–Teper
