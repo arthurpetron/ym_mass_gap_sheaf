@@ -114,6 +114,29 @@ The frontier residual (the 4D near-fixed-point deviation / non-abelian susceptib
 the real open mathematics — but it is now ONE sharply-stated one-variable-flavoured
 obstruction, anchored at the exact `3/4` Casimir gap, not a diffuse continuum-limit problem.
 
+## EXECUTION STATUS (2026-06-18) — rungs built (tip a62f39d, audit 1666, all axiom-clean)
+
+- `HeatKernelGap.lean` (6c27582): `sep_HK = w³` closed form, monotone, located gap
+  `gapMargin = 1−w³ > 0`, geometric decay.
+- `RGGapPersistence.lean` (5929561): continuum gap ⟸ ONE inequality; reduction +
+  per-block⇒uniform + strong-coupling anchor PROVED.
+- `HeatKernelPersistence.lean` (Rung 1, fb8916f): wires `sep=w³` in — the open content is
+  now the EXPLICIT `HeatKernelResidual` = `∃c>0,∀j, c ≤ (1−w_j³)/a_j`;
+  `HeatKernelPersistence ⇒ RGGapPersistence ⇒ physGapMin>0` proved. NO inhabitant (w(a)↔a open).
+- `PerScaleContraction.lean` (Rung 2, 496753f): single-link S³ contraction at the EXACT
+  `3/4` Casimir gap — `su2PerScale` a GENUINE inhabitant (Poincaré 4/3, ρ≃1/4);
+  `rhoOfPerScale` feeds `RGBlockPersistence.rho`. Multi-link composition = named frontier.
+- `DynamicToStaticGap.lean` (Rung 3, fb8d102): Helffer–Sjöstrand `λ>0 ⇒ m>0` qualitative
+  bridge + geometric clustering via `decay_of_spectralGap_corr0`. Sharp m(λ) + spacing-
+  uniformity = named frontier.
+
+NET: the continuum SU(2) gap is reduced — in Lean, axiom-clean — to the explicit cubic
+inequality `(1−w(a)³)/a ≥ c`, with both routes' atomic rungs (heat-kernel `sep=w³`;
+single-scale 3/4 contraction; dynamic⇒static bridge) GENUINELY PROVED. The single open
+residual is the crossover/dimensional-transmutation relation `w(a)↔a` (= 4D near-fixed-point
+deviation = non-abelian susceptibility), now isolated to one explicit one-variable statement.
+Does NOT solve Clay.
+
 Sources (refereed unless flagged): Menotti–Onofri NPB190(1981); Osterwalder–Seiler
 Ann.Phys.110(1978); Lüscher–Weisz PLB349(1995); Bauerschmidt–Bodineau–Dagallier
 Prob.Surveys 21(2024, arXiv:2307.07619); Bauerschmidt–Dagallier CPAM 77(2024,
