@@ -334,6 +334,35 @@ theorem gap_as_clustering (S : SpectralModel) (μ : Q') (hμ : (0 : Q') ≤ μ)
     corr S n ≤ (corr S 0) * μ ^ n :=
   decay_of_spectralGap_corr0 S μ hμ hgap n
 
+/-! ### The continuum / PHYSICAL-rate clustering form (CONDITIONAL)
+
+`gap_as_clustering` is the correct FIXED-SPACING (lattice-unit) form: the
+decay rate `μ` is the lattice second eigenvalue, and `−log μ` is the gap in
+LATTICE units.  For the continuum (`a → 0`) theory the rate that matters is
+the PHYSICAL one: as the spacing is refined the lattice rate `μ(a) → 1` (the
+dimensionless lattice gap vanishes at the critical point), while the
+SPACING-UNIFORM physical decay is what must persist.  The honest content is
+therefore a SPACING-UNIFORM rate bound supplied as an explicit hypothesis
+(the open dimensional-transmutation input), under which every refinement
+step clusters at a single uniform geometric rate.  The hypothesis is the
+open obligation; the conclusion is proved from it and `gap_as_clustering`
+applied per step.  NO inhabitant of the uniform rate is faked for YM. -/
+
+/-- **Continuum (physical-rate) clustering — CONDITIONAL.**  Given a
+spacing-indexed family `Sfam j` of compact transfer-operator spectral models
+(refinement step `j`, spacing `a_j → 0`) together with a SINGLE
+spacing-UNIFORM rate `μ★ < 1` that bounds the spectral gap at every step
+(`hgap : ∀ j, SpectralGapBound (Sfam j) μ★`), the connected correlator of
+EVERY step decays at the one uniform geometric rate: `G_j(n) ≤ G_j(0)·μ★^n`,
+uniformly in `j`.  The uniform rate `μ★` is the (open) physical decay rate
+that survives `a → 0`; its existence for 4D YM is NOT asserted here.  Proved
+per step by `gap_as_clustering`. -/
+theorem continuum_physical_clustering
+    (Sfam : Nat → SpectralModel) (μstar : Q') (hμ : (0 : Q') ≤ μstar)
+    (hgap : ∀ j : Nat, SpectralGapBound (Sfam j) μstar) (j n : Nat) :
+    corr (Sfam j) n ≤ (corr (Sfam j) 0) * μstar ^ n :=
+  gap_as_clustering (Sfam j) μstar hμ (hgap j) n
+
 /-! ## 6. The remaining genuinely-open limit: scaling `a → 0`
 
 Everything above is the INFINITE-VOLUME limit `Λ → ∞` at FIXED lattice
@@ -413,4 +442,5 @@ end YMGap.Continuum.ContinuumFunctional
 #print axioms YMGap.Continuum.ContinuumFunctional.charContinuumFunctional
 #print axioms YMGap.Continuum.ContinuumFunctional.charContinuumFunctional_approx
 #print axioms YMGap.Continuum.ContinuumFunctional.gap_as_clustering
+#print axioms YMGap.Continuum.ContinuumFunctional.continuum_physical_clustering
 #print axioms YMGap.Continuum.ContinuumFunctional.scalingFunctional_of_modulus

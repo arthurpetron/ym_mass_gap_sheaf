@@ -36,14 +36,20 @@ The chain it builds, all on `RegularCReal`:
     operator (via `decay_of_spectralGap_corr0`), NOT any unbounded
     spectral theorem.
 
-  * **CONDITIONAL on ONE open input.**  The scaling limit `a → 0` requires
-    a lattice-spacing-uniform two-sided modulus, which is NOT known for
+  * **CONDITIONAL on ONE open input — DIMENSIONAL TRANSMUTATION.**  The
+    scaling limit `a → 0` requires a lattice-spacing-uniform two-sided
+    modulus on the PHYSICAL gap `Δ(a) = m_lat(a)/a`, NOT on the lattice-unit
+    gap (which must VANISH like `a` as `a → 0`).  This is NOT known for
     4D Yang–Mills.  It is isolated as the named obligation
-    `RegScalingLimitModulus`, with a CONDITIONAL theorem
-    (`reg_scaling_continuum_gap`) that consumes such a modulus together
-    with the infinite-volume pipeline.  NO inhabitant is claimed — none is
-    known.  This is the precise, single location of the open continuum
-    problem, kept rigorously distinct from the unconditional content above.
+    `RegScalingLimitModulus` carrying the spacings `a_j → 0`, the AF bare
+    coupling, the physical gap with its uniform two-sided bound
+    `0 < physGapMin ≤ physGap j ≤ physGapMax`, and a spacing-uniform
+    convergence modulus.  The CONDITIONAL theorem
+    `scaling_continuum_physGap_isPositive` builds the continuum physical gap
+    as a positive regular real from this data.  NO inhabitant is claimed —
+    `physGapMin > 0` surviving `a → 0` is the open content.  This is the
+    precise, single location of the open continuum problem, kept rigorously
+    distinct from the unconditional content above.
 
 This module does NOT close the Clay problem.  Its deliverable is the
 unconditional infinite-volume positive regular-real gap rate + functional
@@ -340,73 +346,250 @@ theorem concreteContinuumYM_gap_pos :
     IsPositive concreteContinuumYM.gapRate :=
   concreteContinuumYM.gap_pos
 
-/-! ## 6. The single open a→0 interface (CONDITIONAL)
+/-! ## 6. The single open a→0 (scaling / continuum) interface (CONDITIONAL)
 
 Everything above is the INFINITE-VOLUME limit `Λ → ∞` at FIXED lattice
-spacing, and is UNCONDITIONAL.  The continuum theory additionally requires
-the SCALING limit `a → 0`, which needs a lattice-spacing-UNIFORM two-sided
-modulus on the gap-margin sequence as the spacing is refined.  Such a
-uniform modulus is known for scalar `φ⁴` in `d = 2, 3` but is NOT known for
-Yang–Mills in `d = 4`.
+spacing `a`, and is UNCONDITIONAL.  The continuum theory additionally
+requires the SCALING limit `a → 0`.  The correct shape of this limit is
+DIMENSIONAL TRANSMUTATION, and getting that shape right is the whole point
+of this section.
 
-It is isolated as the single named obligation `RegScalingLimitModulus`.  NO
-inhabitant is provided — none is known for YM.  This is an HONEST open
-interface, not a `True`-stub: an inhabitant would carry, indexed by the
-refinement step `j` (spacing `a_j → 0`), a fixed-spacing infinite-volume
-cluster bound together with a spacing-UNIFORM positive floor surviving the
-refinement, i.e. exactly the data this module's constructor consumes but
-now along the spacing axis. -/
+**Why a uniform LATTICE-unit floor is the WRONG shape.**  A finite-volume
+gap margin `m_lat = 1 − sep` is a DIMENSIONLESS lattice quantity (a gap in
+lattice units).  At the continuum critical point the correlation length
+diverges in lattice units, so the dimensionless lattice gap must VANISH,
+`m_lat(a) → 0` like `a`, as `a → 0`.  A single positive lattice-unit floor
+holding uniformly across the spacing sequence would therefore describe an
+infinite physical mass — a trivial, non-interacting "continuum" with NO
+continuum limit, not Yang–Mills.  The quantity that stays finite and
+positive is the PHYSICAL gap `Δ(a) = m_lat(a) / a`, carrying mass dimension
+one.  The genuine open content is that THIS physical gap is bounded below by
+a positive constant uniformly in the spacing and converges as `a → 0`.
 
-/-- **The scaling-limit modulus — the single remaining OPEN obligation.**
+So the scaling interface below carries, indexed by refinement step `j`
+(spacing `a_j → 0`):
+
+  * `spacing j = a_j > 0` with an explicit modulus `a_j → 0`;
+  * `bareCoupling j = g₀(a_j)` — the asymptotically-free RG-trajectory bare
+    coupling (its AF running is itself deep input: carried as data, not
+    proved);
+  * `atSpacing j` — the fixed-spacing infinite-volume cluster bound at step
+    `j`, whose own LATTICE floor `(atSpacing j).floorRate` may (indeed
+    MUST) → 0 as `j → ∞`;
+  * `latMargin j` — the lattice-unit gap margin at step `j` (the floor of
+    `atSpacing j`, derived), which vanishes like `a_j`;
+  * `physGap j` — the PHYSICAL gap `latMargin j / a_j`, carried as data with
+    its defining multiplicative relation (`Q'` division is avoided);
+  * the two-sided UNIFORM PHYSICAL bound `0 < physGapMin ≤ physGap j ≤
+    physGapMax` — dimensional transmutation: the gap is finite and positive
+    in PHYSICAL units, uniformly in the spacing.  `physGapMin > 0` surviving
+    `a → 0` is the OPEN content;
+  * a spacing-uniform two-sided CONVERGENCE modulus on `j ↦ physGap j` (so
+    the physical gap CONVERGES as `a → 0`).
+
+NO inhabitant is provided — none is known for YM in `d = 4`.  This is an
+HONEST open interface, not a `True`-stub.  The conditional theorems below
+build the genuine continuum (`a → 0`) PHYSICAL gap from such an inhabitant. -/
+
+/-- **The scaling-limit modulus — the single remaining OPEN obligation, in
+its dimensionally-correct (dimensional-transmutation) shape.**
 
 Carries, indexed by refinement step `j` (spacing `a_j → 0`):
 
-  * `atSpacing j` — the fixed-spacing infinite-volume regular-real cluster
-    bound at refinement step `j`;
-  * `spacingFloor` — a candidate spacing-uniform positive floor;
-  * `spacingFloor_pos` — its positivity;
-  * `uniform_in_spacing` — that the floor is uniform IN the spacing: every
-    step's own cluster floor is at least `spacingFloor`.
+  * `spacing`, `spacing_pos`, `spacingMod`, `spacing_to_zero` — the lattice
+    spacings `a_j > 0` together with an explicit modulus making `a_j → 0`;
+  * `bareCoupling` — the AF RG-trajectory bare coupling `g₀(a_j)` (data);
+  * `atSpacing` — the fixed-spacing infinite-volume cluster bounds.  Its
+    own lattice floor `(atSpacing j).floorRate` is the lattice-unit margin
+    `latMargin j` and MUST be allowed to vanish as `j → ∞`;
+  * `physGap`, `physGap_spacing` — the PHYSICAL gap `latMargin j / a_j`,
+    carried as data with its defining relation `physGap j * a_j ≃ latMargin
+    j` (avoiding `Q'` division);
+  * `physGapMin`, `physGapMax`, `physGapMin_pos`, `physGap_ge`, `physGap_le`
+    — the two-sided UNIFORM PHYSICAL bound `0 < physGapMin ≤ physGap j ≤
+    physGapMax`.  `physGapMin > 0` surviving `a → 0` is the OPEN content
+    (dimensional transmutation);
+  * `physMod`, `physMod_mono`, `physBound` — a spacing-uniform two-sided
+    `ModCauchy`-style convergence modulus on `j ↦ physGap j`.
 
-No inhabitant is asserted: for Yang–Mills in `d = 4` this spacing-uniform
-floor (the persistence of the mass gap as `a → 0`) is OPEN.  This structure
-is the precise location of the open continuum problem, kept rigorously
-distinct from the (constructed, unconditional) infinite-volume limit. -/
+No inhabitant is asserted: for Yang–Mills in `d = 4` the positivity of
+`physGapMin` as `a → 0` is OPEN.  This structure is the precise location of
+the open continuum problem, kept rigorously distinct from the (constructed,
+unconditional) infinite-volume limit. -/
 structure RegScalingLimitModulus where
-  /-- The fixed-spacing infinite-volume cluster bounds, indexed by the
-  refinement step `j`. -/
+  /-- The lattice spacings `a_j`, indexed by refinement step `j`. -/
+  spacing : Nat → Q'
+  /-- Each spacing is strictly positive. -/
+  spacing_pos : ∀ j : Nat, (0 : Q') < spacing j
+  /-- Modulus witnessing `a_j → 0`: `spacingMod ε` is a step beyond which the
+  spacing is below `ε`. -/
+  spacingMod : Q' → Nat
+  /-- The spacing vanishes: for `j ≥ spacingMod ε`, `a_j ≤ ε`. -/
+  spacing_to_zero : ∀ ε : Q', (0 : Q') < ε → ∀ j : Nat, spacingMod ε ≤ j →
+    spacing j ≤ ε
+  /-- The AF RG-trajectory bare coupling `g₀(a_j)` (carried as data; its
+  asymptotic-freedom running is itself deep input, not proved here). -/
+  bareCoupling : Nat → Q'
+  /-- The fixed-spacing infinite-volume cluster bounds, indexed by `j`.  Its
+  own LATTICE floor `(atSpacing j).floorRate` is the lattice-unit margin and
+  may (indeed must) → 0 as `j → ∞`. -/
   atSpacing : Nat → RegUniformClusterBound
-  /-- A candidate spacing-uniform positive floor. -/
-  spacingFloor : Q'
-  /-- The candidate floor is strictly positive. -/
-  spacingFloor_pos : (0 : Q') < spacingFloor
-  /-- **Spacing-uniformity (the open content):** every refinement step's own
-  cluster floor is at least `spacingFloor` — the mass gap survives `a → 0`. -/
-  uniform_in_spacing : ∀ j : Nat, spacingFloor ≤ (atSpacing j).floorRate
+  /-- The PHYSICAL gap `Δ(a_j) = latMargin j / a_j`, carried as data. -/
+  physGap : Nat → Q'
+  /-- The defining relation pinning `physGap` to the lattice margin divided
+  by the spacing: `physGap j · a_j ≃ latMargin j`, where the lattice margin
+  is the (vanishing) lattice-unit floor `(atSpacing j).floorRate`. -/
+  physGap_spacing : ∀ j : Nat,
+    (physGap j * spacing j).eqv (atSpacing j).floorRate
+  /-- The uniform physical lower bound (the dimensional-transmutation gap). -/
+  physGapMin : Q'
+  /-- The uniform physical upper bound. -/
+  physGapMax : Q'
+  /-- **The OPEN content:** the physical gap floor is strictly positive,
+  surviving `a → 0`. -/
+  physGapMin_pos : (0 : Q') < physGapMin
+  /-- The physical gap is bounded below by `physGapMin`, uniformly in `j`. -/
+  physGap_ge : ∀ j : Nat, physGapMin ≤ physGap j
+  /-- The physical gap is bounded above by `physGapMax`, uniformly in `j`. -/
+  physGap_le : ∀ j : Nat, physGap j ≤ physGapMax
+  /-- Spacing-uniform convergence modulus on the physical-gap sequence. -/
+  physMod : Q' → Nat
+  /-- The convergence modulus is antitone. -/
+  physMod_mono : ∀ ε δ : Q', (0 : Q') < δ → δ ≤ ε → physMod ε ≤ physMod δ
+  /-- Two-sided convergence of the physical gap: for `i, j ≥ physMod ε`, the
+  physical gaps are `ε`-close — the physical gap converges as `a → 0`. -/
+  physBound : ∀ ε : Q', (0 : Q') < ε → ∀ i j : Nat, physMod ε ≤ i → physMod ε ≤ j →
+    physGap i ≤ physGap j + ε ∧ physGap j ≤ physGap i + ε
 
-/-- **The conditional scaling-limit theorem.**  GIVEN a `RegScalingLimitModulus`
-(the OPEN input) and ANY refinement step `j`, the fixed-spacing
-infinite-volume gap rate at that step dominates the spacing-uniform floor
-`ofQ' spacingFloor`, which is strictly positive UNIFORMLY in the spacing.
+/-- The lattice-unit gap margin at refinement step `j`: the (vanishing)
+lattice floor of the fixed-spacing cluster bound.  As `a_j → 0` this
+DIMENSIONLESS quantity vanishes like `a_j` — only `physGap j = latMargin j /
+a_j` stays finite and positive. -/
+def RegScalingLimitModulus.latMargin (L : RegScalingLimitModulus) (j : Nat) : Q' :=
+  (L.atSpacing j).floorRate
 
-This is the CONDITIONAL `a → 0` statement: it says exactly that IF the
-spacing-uniform floor exists (the open YM input), THEN the infinite-volume
-gap rate at every refinement step is bounded below by a single positive
-constant independent of the spacing — the continuum-scaling-limit gap.  The
-hypothesis is the open obligation; the conclusion is proved from it together
-with the unconditional infinite-volume pipeline (`regContinuumGapRate_ge_floor`). -/
-theorem reg_scaling_continuum_gap (L : RegScalingLimitModulus) (j : Nat) :
-    ofQ' L.spacingFloor ≤ regContinuumGapRate (L.atSpacing j) :=
-  le_trans (ofQ'_le_ofQ' (L.uniform_in_spacing j))
-    (regContinuumGapRate_ge_floor (L.atSpacing j))
+@[simp] theorem RegScalingLimitModulus.latMargin_eq (L : RegScalingLimitModulus)
+    (j : Nat) : L.latMargin j = (L.atSpacing j).floorRate := rfl
 
-/-- **The conditional positivity corollary.**  Under the open
-`RegScalingLimitModulus`, every fixed-spacing infinite-volume gap rate is
-strictly positive with the SINGLE spacing-uniform witness `spacingFloor` —
-the continuum (`a → 0`) mass gap, CONDITIONAL on the one open input. -/
-theorem reg_scaling_continuum_gap_isPositive (L : RegScalingLimitModulus)
-    (j : Nat) : IsPositive (regContinuumGapRate (L.atSpacing j)) :=
-  ⟨L.spacingFloor, L.spacingFloor_pos, reg_scaling_continuum_gap L j⟩
+/-- The defining relation in `latMargin` form: `physGap j · a_j ≃ latMargin j`. -/
+theorem RegScalingLimitModulus.physGap_mul_spacing (L : RegScalingLimitModulus)
+    (j : Nat) : (L.physGap j * L.spacing j).eqv (L.latMargin j) :=
+  L.physGap_spacing j
+
+/-! ### The lifted physical-gap sequence and its `ModCauchy` modulus -/
+
+/-- The lifted regular-real physical-gap sequence `j ↦ ofQ' (physGap j)`. -/
+def regPhysGapSeq (L : RegScalingLimitModulus) : Nat → RegularCReal :=
+  fun j => ofQ' (L.physGap j)
+
+@[simp] theorem regPhysGapSeq_approx (L : RegScalingLimitModulus) (j k : Nat) :
+    (regPhysGapSeq L j).approx k = L.physGap j := rfl
+
+/-- The lifted physical-gap sequence is `ModCauchy`: the `Q'` two-sided
+physical convergence bound transfers termwise through `ofQ'` (constant
+approximations), and the antitone modulus carries over unchanged. -/
+def regPhysGapModCauchy (L : RegScalingLimitModulus) :
+    ModCauchy (regPhysGapSeq L) where
+  M := L.physMod
+  Mmono := L.physMod_mono
+  bound := by
+    intro ε hε i j hi hj k
+    exact L.physBound ε hε i j hi hj
+
+/-! ### The continuum (`a → 0`) PHYSICAL gap
+
+This is the dimensionally-CORRECT continuum gap: the `completeLimit` of the
+lifted physical-gap sequence `j ↦ ofQ' (physGap j)`, with its positivity
+PROVED from the uniform physical floor `physGapMin > 0`. -/
+
+/-- **The continuum (`a → 0`) physical gap.**  The diagonal completeness
+limit of the lifted physical-gap sequence on the regular reals: the genuine
+continuum PHYSICAL mass gap (mass dimension one), with the spacing-uniform
+physical convergence modulus as its canonical Cauchy modulus.  This REPLACES
+the old (dimensionally wrong) uniform-lattice-floor scaling statement. -/
+def scaling_continuum_physGap (L : RegScalingLimitModulus) : RegularCReal :=
+  completeLimit (regPhysGapSeq L) (regPhysGapModCauchy L)
+
+@[simp] theorem scaling_continuum_physGap_approx (L : RegScalingLimitModulus)
+    (k : Nat) :
+    (scaling_continuum_physGap L).approx k =
+      L.physGap (Mhat (regPhysGapSeq L) (regPhysGapModCauchy L) k) := rfl
+
+/-- **The conditional scaling-limit theorem (dimensionally correct).**  GIVEN
+a `RegScalingLimitModulus` (the OPEN input), the continuum (`a → 0`) PHYSICAL
+gap dominates the spacing-uniform physical floor `ofQ' physGapMin`.
+
+This is the CONDITIONAL `a → 0` statement in its correct PHYSICAL-unit shape:
+IF the physical gap stays bounded below by a positive constant uniformly in
+the spacing (the open dimensional-transmutation input), THEN the continuum
+physical gap is bounded below by that single positive constant.  Proved from
+the open lower bound `physGap_ge` together with the regular-real completeness
+limit (`ofQ'_le_completeLimit`). -/
+theorem scaling_continuum_physGap_ge_floor (L : RegScalingLimitModulus) :
+    ofQ' L.physGapMin ≤ scaling_continuum_physGap L :=
+  ofQ'_le_completeLimit (regPhysGapSeq L) (regPhysGapModCauchy L)
+    (fun j _ => L.physGap_ge j)
+
+/-- **The conditional positivity of the continuum physical gap.**  Under the
+open `RegScalingLimitModulus`, the continuum (`a → 0`) physical gap is
+strictly positive with the single spacing-uniform witness `physGapMin` — the
+continuum YM mass gap as a positive `RegularCReal`, CONDITIONAL on the one
+open input (`physGapMin > 0` surviving `a → 0`).  Proved via
+`isPositive_completeLimit`. -/
+theorem scaling_continuum_physGap_isPositive (L : RegScalingLimitModulus) :
+    IsPositive (scaling_continuum_physGap L) :=
+  isPositive_completeLimit (regPhysGapSeq L) (regPhysGapModCauchy L)
+    L.physGapMin_pos (fun j _ => L.physGap_ge j)
+
+/-- The continuum physical gap is also bounded ABOVE by the uniform physical
+ceiling `ofQ' physGapMax` — the finiteness half of dimensional transmutation
+(the gap does not blow up as `a → 0`). -/
+theorem scaling_continuum_physGap_le_ceiling (L : RegScalingLimitModulus) :
+    scaling_continuum_physGap L ≤ ofQ' L.physGapMax :=
+  completeLimit_le_ofQ' (regPhysGapSeq L) (regPhysGapModCauchy L)
+    (fun j _ => L.physGap_le j)
+
+/-! ### Continuum clustering at the PHYSICAL rate (CONDITIONAL)
+
+The fixed-spacing clustering `G(n) ≤ G(0)·sep_Λ^n` (`ConstructiveContinuumYM.clustering`)
+is the correct `Λ → ∞` lattice-unit form and is kept unchanged.  Its
+continuum (`a → 0`) counterpart asserts decay at the PHYSICAL gap.  Two
+honest pieces:
+
+  * PROVED here: at EVERY refinement step `j` and volume `Λ`, the lattice
+    connected correlator decays geometrically at that step's located rate
+    `sep < 1` — the per-spacing clustering datum whose physical gaps converge
+    to `scaling_continuum_physGap L`.
+  * CONDITIONAL (the open content): that the LIMIT correlator decays at the
+    LIMIT physical gap requires the spacing-uniform modulus, i.e. exactly the
+    `RegScalingLimitModulus` hypothesis.  We expose the physical-gap limit
+    bound (`scaling_continuum_physGap_ge_floor`) as the rate witness; the full
+    continuum-correlator decay is NOT faked. -/
+
+/-- **Per-step lattice clustering of the scaling family (PROVED).**  At every
+refinement step `j`, volume `Λ`, and separation `n`, the fixed-spacing
+connected correlator of the compact transfer operator decays geometrically
+at the located rate `sep_Λ^{(j)} < 1`.  This is the spacing-indexed family
+of lattice clustering data whose PHYSICAL gaps (`physGap j`) converge to the
+continuum physical gap `scaling_continuum_physGap L`. -/
+theorem scaling_lattice_clustering (L : RegScalingLimitModulus)
+    (j Λ n : Nat) :
+    corr ((L.atSpacing j).gaps Λ) n
+      ≤ (corr ((L.atSpacing j).gaps Λ) 0)
+        * ((L.atSpacing j).located Λ).sep ^ n :=
+  ((L.atSpacing j).located Λ).decay n
+
+/-- **Continuum clustering rate = the physical gap (CONDITIONAL).**  The rate
+governing continuum (`a → 0`) clustering is the continuum PHYSICAL gap
+`scaling_continuum_physGap L`, which is bounded below by the strictly
+positive spacing-uniform floor `ofQ' physGapMin`.  This packages the physical
+decay RATE as a positive regular real; combined with `scaling_lattice_clustering`
+(the per-spacing geometric decay) it is the dimensionally-correct continuum
+clustering statement, CONDITIONAL on the open `RegScalingLimitModulus`. -/
+theorem scaling_continuum_clustering_rate_pos (L : RegScalingLimitModulus) :
+    ofQ' L.physGapMin ≤ scaling_continuum_physGap L ∧
+      IsPositive (scaling_continuum_physGap L) :=
+  ⟨scaling_continuum_physGap_ge_floor L, scaling_continuum_physGap_isPositive L⟩
 
 /-! ## 7. Doc-section: the end-to-end constructive chain on `RegularCReal`
 
@@ -437,15 +620,30 @@ substrate (transitive Bishop order, `Type`-level canonical modulus):
      `sep = 1/1000`) and the concrete SU(2) character functional — a genuine,
      hypothesis-free positive regular-real continuum gap.
 
-  5. **The ONE remaining open interface (`a → 0`, CONDITIONAL).**  The
-     scaling limit needs a lattice-spacing-uniform floor, OPEN for 4D YM.
-     It is named `RegScalingLimitModulus` with the conditional theorem
-     `reg_scaling_continuum_gap` and NO inhabitant.
+  5. **The ONE remaining open interface (`a → 0`, CONDITIONAL) — DIMENSIONAL
+     TRANSMUTATION.**  The scaling limit is NOT a uniform lattice-unit floor:
+     the dimensionless lattice gap `m_lat(a) = 1 − sep` must VANISH like `a`
+     as `a → 0` (the correlation length diverges in lattice units at the
+     critical point), so a uniform lattice floor would describe an infinite
+     physical mass — a trivial continuum, not Yang–Mills.  The quantity that
+     stays finite and positive is the PHYSICAL gap `Δ(a) = m_lat(a)/a`.  The
+     interface `RegScalingLimitModulus` carries the spacings `a_j → 0` (with
+     modulus), the AF bare coupling `g₀(a_j)`, the fixed-spacing cluster
+     bounds (whose lattice floors `→ 0`), the physical gap `physGap j` (with
+     its defining relation `physGap j · a_j ≃ latMargin j`), the two-sided
+     UNIFORM PHYSICAL bound `0 < physGapMin ≤ physGap j ≤ physGapMax`, and a
+     spacing-uniform two-sided convergence modulus on `physGap`.  The
+     continuum physical gap `scaling_continuum_physGap` is the `completeLimit`
+     of `j ↦ ofQ' (physGap j)`, with positivity PROVED from `physGapMin > 0`
+     (`scaling_continuum_physGap_isPositive`) and finiteness from `physGapMax`
+     (`scaling_continuum_physGap_le_ceiling`).  The OPEN content is
+     `physGapMin > 0` SURVIVING `a → 0`; NO inhabitant is provided for 4D YM.
 
 Underclaim: the unconditional deliverable is the INFINITE-VOLUME positive
 regular-real gap rate + functional bundle on concrete SU(2) data.  The
-`a → 0` step is a NAMED open obligation.  This module does NOT close the
-Clay problem. -/
+`a → 0` step is a NAMED open obligation in its dimensionally-correct
+(physical-gap, two-sided, with convergence modulus) shape.  This module does
+NOT close the Clay problem. -/
 
 end YMGap.Continuum.RegularContinuumPipeline
 
@@ -468,5 +666,14 @@ end YMGap.Continuum.RegularContinuumPipeline
 #print axioms YMGap.Continuum.RegularContinuumPipeline.concreteContinuumYM
 #print axioms YMGap.Continuum.RegularContinuumPipeline.concreteContinuumYM_gapRate
 #print axioms YMGap.Continuum.RegularContinuumPipeline.concreteContinuumYM_gap_pos
-#print axioms YMGap.Continuum.RegularContinuumPipeline.reg_scaling_continuum_gap
-#print axioms YMGap.Continuum.RegularContinuumPipeline.reg_scaling_continuum_gap_isPositive
+#print axioms YMGap.Continuum.RegularContinuumPipeline.RegScalingLimitModulus.latMargin_eq
+#print axioms YMGap.Continuum.RegularContinuumPipeline.RegScalingLimitModulus.physGap_mul_spacing
+#print axioms YMGap.Continuum.RegularContinuumPipeline.regPhysGapSeq_approx
+#print axioms YMGap.Continuum.RegularContinuumPipeline.regPhysGapModCauchy
+#print axioms YMGap.Continuum.RegularContinuumPipeline.scaling_continuum_physGap
+#print axioms YMGap.Continuum.RegularContinuumPipeline.scaling_continuum_physGap_approx
+#print axioms YMGap.Continuum.RegularContinuumPipeline.scaling_continuum_physGap_ge_floor
+#print axioms YMGap.Continuum.RegularContinuumPipeline.scaling_continuum_physGap_isPositive
+#print axioms YMGap.Continuum.RegularContinuumPipeline.scaling_continuum_physGap_le_ceiling
+#print axioms YMGap.Continuum.RegularContinuumPipeline.scaling_lattice_clustering
+#print axioms YMGap.Continuum.RegularContinuumPipeline.scaling_continuum_clustering_rate_pos
