@@ -766,6 +766,72 @@ theorem scaling_continuum_clustering_rate_pos (L : RegScalingLimitModulus) :
       IsPositive (scaling_continuum_physGap L) :=
   ⟨scaling_continuum_physGap_ge_floor L, scaling_continuum_physGap_isPositive L⟩
 
+/-! ### 6.3 The CONDITIONAL collapse: the continuum gap is a unique RG-invariant
+
+This is the honest collapse theorem.  Its hypothesis is precisely the SUPPLIED
+convergence modulus of `RegScalingLimitModulus` — NOT monotonicity.  The
+trichotomy of the a→0 obligation is:
+
+  (a) modulus-FREE band (`RegScalingBand`, §6.1): the gap SURVIVES (`physGapMin
+      > 0`, `band_gap_survives`), the primary Clay-relevant claim;
+  (b) supplied band-edge moduli (liminf/limsup as explicit reals): DEFERRED here
+      — `physGap : Nat → Q'` admits cheap running-min/running-max `Q'` folds, but
+      their `ModCauchy` convergence moduli (the liminf/limsup edges) must be
+      SUPPLIED data (Specker: monotone bounded sequences have no computable limit
+      without a modulus), so faking them is forbidden; this phase does not ship
+      explicit band edges and the modulus-free band remains the honest two-sided
+      bound;
+  (c) supplied SINGLE convergence modulus (`RegScalingLimitModulus`, §6.2): the
+      band collapses to ONE value `scaling_continuum_physGap`, which is UNIQUE up
+      to `Equiv` — an RG-invariant continuum gap.
+
+The collapse below is exactly (c).  Classically, MONOTONICITY of `physGap`
+(plus boundedness) would force the band to degenerate by the Bingham–Goldie–
+Teugels Monotone Density Theorem — liminf = limsup.  Constructively this is NOT
+enough: a monotone bounded sequence has no computable limit without a supplied
+modulus (Specker).  So `RegScalingLimitModulus` (modulus supplied as data) IS
+the collapsed case, and the collapse witness is limit-uniqueness, not
+monotonicity. -/
+
+/-- **The band collapses to a single value when the convergence modulus is
+present — and that value is UNIQUE (RG-invariant).**  Given the SUPPLIED
+convergence modulus of `RegScalingLimitModulus`, ANY limit `L'` of the
+physical-gap sequence `regPhysGapSeq L` is `Equiv` to the canonical continuum
+gap `scaling_continuum_physGap L`.  Proof: limit-uniqueness (`convergesTo_unique`)
+against the built `convergesTo_completeLimit` witness.  Honest hypothesis: a
+SUPPLIED convergence modulus (the `RegScalingLimitModulus` data); NOT
+monotonicity — by Specker, monotonicity alone is not constructively sufficient
+to force a limit, so the collapse cannot be obtained from it. -/
+theorem band_collapse_of_modulus (L : RegScalingLimitModulus) {L' : RegularCReal}
+    (hL' : ConvergesTo (regPhysGapSeq L) L') :
+    Equiv L' (scaling_continuum_physGap L) :=
+  convergesTo_unique (regPhysGapSeq L) hL'
+    (convergesTo_completeLimit (regPhysGapSeq L) (regPhysGapModCauchy L))
+
+/-- **The continuum physical gap is a well-defined RG-invariant.**  Any two
+continuum limits of the physical-gap sequence agree up to `Equiv`.  This is the
+specialization of limit-uniqueness that makes `scaling_continuum_physGap` a
+genuine invariant of the supplied-modulus refinement: the continuum gap does not
+depend on which convergent realization is taken. -/
+theorem scaling_continuum_physGap_unique (L : RegScalingLimitModulus)
+    {L₁ L₂ : RegularCReal}
+    (h₁ : ConvergesTo (regPhysGapSeq L) L₁)
+    (h₂ : ConvergesTo (regPhysGapSeq L) L₂) :
+    Equiv L₁ L₂ :=
+  convergesTo_unique (regPhysGapSeq L) h₁ h₂
+
+/-- **`extractGap_unique` — limit-uniqueness specialized to the continuum gap.**
+The canonical continuum physical gap `scaling_continuum_physGap L` is `Equiv` to
+ANY limit of `regPhysGapSeq L`; in particular it is `Equiv` to itself as the
+distinguished `completeLimit`.  This is the headline RG-invariance corollary:
+the continuum gap built by `completeLimit` is, up to `Equiv`, the only limit the
+supplied-modulus refinement can have. -/
+theorem extractGap_unique (L : RegScalingLimitModulus) {L' : RegularCReal}
+    (hL' : ConvergesTo (regPhysGapSeq L) L') :
+    Equiv (scaling_continuum_physGap L) L' :=
+  convergesTo_unique (regPhysGapSeq L)
+    (convergesTo_completeLimit (regPhysGapSeq L) (regPhysGapModCauchy L)) hL'
+
 /-! ## 7. Doc-section: the end-to-end constructive chain on `RegularCReal`
 
 The pipeline assembled in this module, on the unified `RegularCReal`
@@ -843,7 +909,45 @@ regular-real gap rate + functional bundle on concrete SU(2) data.  The
 `a → 0` step is a NAMED open obligation whose PRIMARY honest form is the
 modulus-free two-sided band (`physGapMin > 0`); the single continuum limit is
 a stronger refinement requiring a supplied convergence modulus.  This module
-does NOT close the Clay problem. -/
+does NOT close the Clay problem.
+
+## 8. The a→0 trichotomy (honest statement)
+
+The scaling obligation comes in exactly three strengths, in increasing order,
+each with a precise constructive status:
+
+  (a) **Modulus-FREE band** (primary; `RegScalingBand`).  Data: spacings
+      `a_j → 0`, fixed-spacing cluster bounds, the derived physical gap, and the
+      two-sided uniform bound `0 < physGapMin ≤ physGap j ≤ physGapMax` — NO
+      convergence modulus.  Headline: `band_gap_survives` (liminf physGap ≥
+      physGapMin > 0, "the gap survives `a → 0`").  This is exactly what the Clay
+      mass gap needs and is the honest modulus-free claim (Specker forbids more).
+
+  (b) **Supplied band-edge moduli = explicit liminf/limsup** (this phase:
+      DEFERRED, with reason).  Because `physGap : Nat → Q'` is `Q'`-valued, the
+      running-min and running-max are cheap `Q'` folds (over `Q'.min'` / `Q'.max'`),
+      so the band edges exist as `Q'` sequences.  But the liminf/limsup as actual
+      regular reals are the `completeLimit`s of those folds, which require
+      SUPPLIED `ModCauchy` convergence moduli on the running-min / running-max
+      sequences — and by Specker a monotone bounded sequence has NO computable
+      limit without such a modulus.  Deriving the moduli from monotonicity alone
+      is therefore impossible constructively, and fabricating them is forbidden.
+      This phase does not ship explicit band edges; the modulus-free two-sided
+      bound of (a) stays the honest edge statement.
+
+  (c) **Supplied SINGLE convergence modulus = the collapsed, RG-invariant gap**
+      (`RegScalingLimitModulus`).  When a spacing-uniform convergence modulus on
+      `physGap` is supplied as data, the band degenerates to a SINGLE value
+      `scaling_continuum_physGap`, which is UNIQUE up to `Equiv`
+      (`band_collapse_of_modulus` / `scaling_continuum_physGap_unique` /
+      `extractGap_unique`, all via the unconditional limit-uniqueness
+      `convergesTo_unique`).  This is the well-defined continuum gap as an
+      RG-invariant.  CLASSICALLY, monotonicity of `physGap` (with boundedness)
+      would force this collapse by the Bingham–Goldie–Teugels Monotone Density
+      Theorem (liminf = limsup); CONSTRUCTIVELY monotonicity is NOT sufficient
+      (Specker) — the convergence modulus must be supplied as data, so
+      `RegScalingLimitModulus` (modulus supplied) IS precisely the collapsed
+      case, and the collapse witness is limit-uniqueness, not monotonicity. -/
 
 end YMGap.Continuum.RegularContinuumPipeline
 
@@ -886,3 +990,6 @@ end YMGap.Continuum.RegularContinuumPipeline
 #print axioms YMGap.Continuum.RegularContinuumPipeline.scaling_continuum_physGap_le_ceiling
 #print axioms YMGap.Continuum.RegularContinuumPipeline.scaling_lattice_clustering
 #print axioms YMGap.Continuum.RegularContinuumPipeline.scaling_continuum_clustering_rate_pos
+#print axioms YMGap.Continuum.RegularContinuumPipeline.band_collapse_of_modulus
+#print axioms YMGap.Continuum.RegularContinuumPipeline.scaling_continuum_physGap_unique
+#print axioms YMGap.Continuum.RegularContinuumPipeline.extractGap_unique
