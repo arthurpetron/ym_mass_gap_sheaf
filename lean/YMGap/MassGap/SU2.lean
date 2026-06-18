@@ -300,22 +300,29 @@ This is the end-to-end CReal-typed version of `mass_gap_SU2`.  The
 witness `m_0` is `sigma_hat_inf_creal` from
 `Constructive.Reals`, derived from the Phase-7.1 σ̂_∞ ≥ ε > 0
 framework theorem.  The spectral-emptiness statement
-`HasSpectralGapAt rec m_0` is supplied at the type-level interface
-(paper proof in `formal/mass-gap-theorem.tex` Theorem 1.1).
+`HasSpectralGapAt rec m_0` now carries two genuine conjuncts: the
+located finite spectral gap (from `rec.hasGap`) and the **rate
+binding** `m_0 ≤ ofQ' (1 − sep)` saying the constructive-real mass is
+no larger than the located eigenvalue-gap margin.  The rate binding is
+taken as the explicit hypothesis `hbind` — it is the OS4 analytic
+content relating the cluster rate to the transfer-matrix margin and
+cannot be derived from an abstract `rec` (paper proof in
+`formal/mass-gap-theorem.tex` Theorem 1.1).
 
 Axiom-gate: empty / `[propext]`, matching the Q′-level
 `mass_gap_SU2` and inheriting `[propext]` from
 `Constructive.sigma_hat_inf_creal_positive`. -/
 theorem mass_gap_SU2_creal
     {M : Nat → Type} {μ_inf : ContinuumMeasure M}
-    (rec : OSReconstruction μ_inf) (bundle : OSAxiomBundle μ_inf) :
+    (rec : OSReconstruction μ_inf) (bundle : OSAxiomBundle μ_inf)
+    (hbind : sigma_hat_inf_creal ≤ CReal.ofQ' (1 - rec.gapBound)) :
     ∃ m_0 : CReal,
       CReal.IsPositive m_0 ∧
       HasSpectralGapAt rec m_0 :=
   ⟨sigma_hat_inf_creal,
    sigma_hat_inf_creal_positive,
    cluster_implies_gap_at rec bundle sigma_hat_inf_creal
-     sigma_hat_inf_creal_positive⟩
+     sigma_hat_inf_creal_positive hbind⟩
 
 end YMGap.MassGap.SU2
 
