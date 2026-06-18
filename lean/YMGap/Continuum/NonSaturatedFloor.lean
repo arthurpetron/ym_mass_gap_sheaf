@@ -264,6 +264,30 @@ def nonSaturated_continuum_gap_bridge : Σ' m : CReal, CReal.IsPositive m :=
 theorem nonSaturated_bridge_fst :
     nonSaturated_continuum_gap_bridge.1 = nonSaturatedContinuumRate := rfl
 
+/-! ## Quarantine: the strong-coupling NUMERIC floor witness (honesty split)
+
+Unlike `σ̂ = 1` / `√σ̂ = 1` (a mass-UNIT choice that cancels in dimensionless
+ratios, Buckingham-Π), `mFiducial = 999/1000` is a genuine NUMERIC claim: a
+strong-coupling SU(2) lower bound on the (dimensionless) gap margin, certified
+`≤ √σ̂` here.  It does NOT cancel — it is content.  This namespace re-exposes it
+(ADDITIVE alias; the original is untouched) tagged as a numeric witness. -/
+
+namespace gapFloorWitness
+
+/-- NUMERIC WITNESS (content, not a unit).  `mFiducial = 999/1000` is the
+strong-coupling SU(2) lower-bound on the gap margin — a genuine claim, in `(0,1)`,
+that does not cancel in dimensionless ratios.  Alias of `mFiducial`. -/
+def floorMargin : Q' := mFiducial
+
+theorem floorMargin_eq : floorMargin = mFiducial := rfl
+
+/-- The numeric floor witness is strictly positive and strictly below the vacuum
+scale `1` — it is genuine content (a non-degenerate gap), not a unit convention. -/
+theorem floorMargin_pos_lt_one : (0 : Q') < floorMargin ∧ floorMargin < (1 : Q') :=
+  ⟨mFiducial_pos, mFiducial_lt_one⟩
+
+end gapFloorWitness
+
 end YMGap.Continuum.NonSaturatedFloor
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
@@ -288,3 +312,5 @@ end YMGap.Continuum.NonSaturatedFloor
 #print axioms YMGap.Continuum.NonSaturatedFloor.nonSaturated_continuum_mass_ge_fiducial
 #print axioms YMGap.Continuum.NonSaturatedFloor.nonSaturated_continuum_gap_bridge
 #print axioms YMGap.Continuum.NonSaturatedFloor.nonSaturated_bridge_fst
+#print axioms YMGap.Continuum.NonSaturatedFloor.gapFloorWitness.floorMargin_eq
+#print axioms YMGap.Continuum.NonSaturatedFloor.gapFloorWitness.floorMargin_pos_lt_one

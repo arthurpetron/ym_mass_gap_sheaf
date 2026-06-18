@@ -170,6 +170,32 @@ theorem gappedReconstruction_gapMargin_pos (n : Nat) :
     (0 : Q') < (locatedGap_of_reconstruction (gappedReconstruction n)).gapMargin :=
   (locatedGap_of_reconstruction (gappedReconstruction n)).gapMargin_pos
 
+/-! ## Quarantine: the gap separator is a NUMERIC witness (honesty split)
+
+The concrete separator `sep = 1/2` is a genuine NUMERIC claim — a strong-coupling
+located gap value, content — NOT a mass-unit choice.  Contrast `σ̂ = 1` / `√σ̂ = 1`,
+which is an arbitrary unit convention that cancels in dimensionless ratios
+(Buckingham-Π).  The `1/2` does not cancel: `sep < 1` strictly is the
+non-degeneracy of the gap.  This namespace re-exposes it as an ADDITIVE alias
+(the original `gappedLocated` is untouched) tagged as a numeric witness. -/
+
+namespace gapFloorWitness
+
+/-- NUMERIC WITNESS (content, not a unit).  The concrete located separator
+`sep = 1/2` of `gappedLocated` — a strong-coupling gap value strictly below the
+vacuum eigenvalue `1`.  It is genuine content (it does not cancel), unlike the
+`σ̂ = 1` mass-unit choice.  Alias of the `gappedLocated` separator. -/
+def sepWitness : Q' := gappedLocated.sep
+
+theorem sepWitness_eq : sepWitness = Q'.mkPos 1 2 (by decide) := rfl
+
+/-- The separator witness is a genuine strict gap: `0 < sep < 1` (content, not a
+unit convention). -/
+theorem sepWitness_pos_lt_one : (0 : Q') < sepWitness ∧ sepWitness < (1 : Q') :=
+  ⟨by decide, gappedLocated.sep_lt_one⟩
+
+end gapFloorWitness
+
 end YMGap.Continuum.LocatedReconstruction
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
@@ -183,3 +209,5 @@ end YMGap.Continuum.LocatedReconstruction
 #print axioms YMGap.Continuum.LocatedReconstruction.gappedReconstruction_genuine_gap
 #print axioms YMGap.Continuum.LocatedReconstruction.gappedReconstruction_decay
 #print axioms YMGap.Continuum.LocatedReconstruction.gappedReconstruction_gapMargin_pos
+#print axioms YMGap.Continuum.LocatedReconstruction.gapFloorWitness.sepWitness_eq
+#print axioms YMGap.Continuum.LocatedReconstruction.gapFloorWitness.sepWitness_pos_lt_one
