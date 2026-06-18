@@ -148,6 +148,7 @@ import YMGap.Continuum.SpectralGap
 import YMGap.Continuum.SpectralGapConverse
 import YMGap.Continuum.SpectralGapGrowth
 import YMGap.Continuum.LocatedSpectralGap
+import YMGap.Continuum.HeatKernelGap
 import YMGap.MassGap.SU2
 import YMGap.MassGap.SimpleGroup
 import YMGap.Continuum.SqrtBridge
