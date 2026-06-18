@@ -189,6 +189,36 @@ gap is `Δ = c·Λ > 0` for a pure number `c`.
 `(1−w) ≤ 1−w³ ≤ 3(1−w)`, so the cubic and linear floors are equivalent up to a factor
 of 3. Hence it suffices to bound the **linear** quantity `(1−w(a))/a`.
 
+### 5.1 CRITICAL CAVEAT — bare vs physical separator (the real load-bearing point)
+
+The inequality of §5 is only the genuine Clay obstruction **if `w(a)` is the physical,
+gauge-invariant continuum transfer separator** — not merely the *bare* heat-kernel
+weight. This distinction is load-bearing and must be respected:
+
+- **If `w` is the BARE heat-kernel weight** and the usual asymptotic-freedom dictionary
+  holds (`t ≍ g₀²`, hence `1−w ≍ g₀²`, while `a·Λ_L ≍ e^{−B/g₀²}·g₀^{−p}` is
+  exponentially small in `1/g₀²`), then the lower bound `(1−w(a))/a ≥ c₀` is **trivially
+  true** — indeed `(1−w(a))/a → ∞`. That is *unphysical*: it corresponds to a physical
+  mass `M(a)=(1−w³)/a → ∞`, i.e. no continuum theory. (This kill-test is formalised in
+  `BareAFDiagnostic.lean`.) So the LOWER bound alone, on the bare `w`, is the wrong target.
+- **The genuine obligation is two-sided** (`physGapMin ≤ M(a) ≤ physGapMax`, the
+  `RegScalingBand` shape): the physical mass must be both **positive** and **finite**. The
+  bare trajectory fails the *finiteness* (upper) bound. A continuum limit requires a
+  **non-perturbative tuning** of the trajectory with `t(a) ≍ a` (so `M→` finite), not the
+  perturbative `t ≍ g₀²`.
+- **Therefore the residual must be carried on a PHYSICAL separator** `sep_phys(a)` (a
+  gauge-invariant continuum transfer separator governing decay of gauge-invariant
+  correlators), with the obligation `−log sep_phys(a) ≥ c·a·Λ_L` (and finiteness), and the
+  exact heat-kernel `sep_HK=w³` related to it by a **deviation** `δ(a)` (the 4D
+  near-fixed-point correction): `|−log sep_phys − Φ_RG(w,δ)| ≤ δ(a)`, with `δ(a) ≤ C·a·Λ_L`
+  the genuine crossover residual. This is formalised as the named interface in
+  `PhysicalSeparator.lean` (`PhysicalGapFloor`, `HKPhysicalComparison`); it is the honest
+  home of the open content. **`δ` is uninhabited — it is the open mathematics.**
+
+In short: the reductions of §4 are correct, but the *object* the final inequality must
+speak about is `sep_phys`, not the bare `w`; relating the two (the deviation `δ`) is where
+the four-dimensional difficulty actually lives.
+
 ---
 
 ## 6. Two equivalent formulations (the same obstruction, two methods)
@@ -287,10 +317,10 @@ arXiv** for failing quality standards and should not be relied on.
 
 Reachable now (do not require crossing the residual), each a clean lemma:
 1. **Route A overlap bound.** Prove `(1−w(a))/a ≥ c₀` in the *strong-coupling /
-   convergent-cluster-expansion* window (small `t`, large coupling), where
-   Osterwalder–Seiler/Münster give convergent series for `sep`. This anchors the
-   trajectory's `a→a₀` end rigorously; the open part is then only its *persistence*
-   across the crossover.
+   convergent-cluster-expansion* window (**large `t`, small `w`** — strong coupling is
+   `w→0`; cf. the normalization note below), where Osterwalder–Seiler/Münster give
+   convergent series for `sep`. This anchors the coarse-lattice end rigorously; the open
+   part is then its *persistence* across the crossover toward `a→0`.
 2. **Route B per-block from per-scale.** Establish a single block-spin step's gap
    multiplier `ρ_0` for the `SU(2)` heat-kernel action explicitly (one Migdal-style
    block), and identify the precise rate at which `ρ_k` must approach 1 (the
