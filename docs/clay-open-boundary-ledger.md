@@ -267,16 +267,30 @@ never an unbounded spectral theorem (Brattka–Dillhage: compact ⇒ computable 
   `concreteContinuumYM` on `sep = 1/1000` SU(2) data with hypothesis-free, axiom-clean
   `concreteContinuumYM_gap_pos`.
 
-**Unconditional vs conditional (unchanged honest boundary).** The infinite-volume
-(Λ→∞, fixed lattice spacing) positive gap + functional bundle is UNCONDITIONAL. The
-scaling limit (`a→0`) is isolated as the single named open obligation
-`RegScalingLimitModulus` — **no inhabitant** (none known for 4D YM), conditional theorems
-only. The no-go results (Cubitt et al. = family decision problem; Pour-El–Richards =
-low-regularity artifact) do not bind a fixed-theory proof; the missing piece is a genuine
-spacing-uniform estimate, not a logical obstruction. **This does not close the Clay
-problem.** It builds the constructive pipeline so the continuum gap reduces to that one
-estimate, with everything else proved and axiom-clean. The estimate is provable for scalar
-φ⁴ in d=2,3 (Bauerschmidt–Dagallier) — the realistic proof-of-concept target.
+**Unconditional vs conditional (honest boundary, corrected to the right shape 2026-06-18).**
+The infinite-volume (Λ→∞, fixed lattice spacing) positive gap + functional bundle is
+UNCONDITIONAL. The scaling limit (`a→0`) is the single named open obligation
+`RegScalingLimitModulus`, now in its physically-correct **dimensional-transmutation**
+form: the dimensionless lattice gap `m_lat(a_j)` is allowed (indeed must) vanish as the
+spacing `a_j→0`, while the PHYSICAL gap `Δ(a_j) = m_lat(a_j)/a_j` carries a two-sided
+spacing-UNIFORM bound `0 < physGapMin ≤ Δ(a_j) ≤ physGapMax` plus a spacing-uniform
+convergence modulus. (The earlier interface — a uniform positive *lattice-unit* floor —
+was the wrong shape: it describes an infinite-mass/trivial continuum, not YM; it has been
+removed.) The genuine open content is `physGapMin > 0` (the gap surviving `a→0` in
+physical units) — **no inhabitant** for 4D YM. The conditional theorem
+`scaling_continuum_physGap` builds the continuum physical gap as a positive `RegularCReal`
+from this; continuum clustering is stated at the physical rate. The no-go results (Cubitt
+et al. = family decision problem; Pour-El–Richards = low-regularity artifact) do not bind a
+fixed-theory proof; the missing piece is a genuine spacing-uniform estimate, not a logical
+obstruction. Also fixed: `HasSpectralGapAt rec m_0` now genuinely binds its rate
+(`SpectralGapBound ∧ m_0 ≤ ofQ'(1 − sep)`), no longer ignoring `m_0`; the rate-to-margin
+relation, where not internally derivable, is carried as an explicit OS4 obligation.
+**This does not close the Clay problem.** It builds the constructive pipeline so the
+continuum gap reduces to that one estimate, with everything else proved and axiom-clean.
+The convergence-modulus half is provable for scalar φ⁴ in d=2,3 (Bauerschmidt–Dagallier) —
+the realistic proof-of-concept target (φ⁴ has a tunable bare mass, so it exercises the
+spacing-uniform convergence machinery but NOT YM's dimensional-transmutation gap
+generation, which is the genuinely open part).
 
 **Bottom line.** Three carriers (UV, gauge, nontriviality) now have genuine
 lattice-level precursors tied to real SU(2) heat-kernel / Casimir data, and
