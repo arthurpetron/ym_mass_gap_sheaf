@@ -1037,6 +1037,190 @@ theorem isPositive_completeLimit (s : Nat → RegularCReal) (c : ModCauchy s) {�
     IsPositive (completeLimit s c) :=
   ⟨ε, hε, ofQ'_le_completeLimit s c h⟩
 
+/-! ### Limit uniqueness for `ConvergesTo` (unconditional)
+
+Limits of a `RegularCReal` sequence are unique up to `Equiv`, with NO
+monotonicity, modulus-extraction, or classical input.  This makes any
+`completeLimit` (and hence the continuum gap built from it) a well-defined
+invariant: any two limits of the same sequence agree.
+
+The proof is the Bishop triangle estimate at the regular-real order level.
+To show `L₁ ≤ L₂` it suffices (Archimedean principle, `le_of_le_add_residual`)
+to bound, at every fixed index `n` and every auxiliary index `K`,
+
+    L₁_n ≤ (L₂_n + (invSucc n + invSucc n)) + r K,   r K ≤ ofNat 2 · invSucc K,
+
+via the four-step chain at a LATE shared approximation index `m := max(2K+1, …)`,
+working at tolerance `ε := invSucc (2K+1)`:
+
+    L₁_n  ≤ L₁_m + (invSucc n + invSucc m)        (regularity of L₁)
+          ≤ (s_N)_m + ε + (invSucc n + invSucc m)           (L₁ convergence)
+          ≤ L₂_m + ε + ε + (invSucc n + invSucc m)          (L₂ convergence)
+          ≤ L₂_n + (invSucc n + invSucc m) + 2·ε + (invSucc n + invSucc m)
+                                                  (regularity of L₂),
+
+so the slack beyond `L₂_n + 2·invSucc n` is `2·invSucc m + 2·ε`; since `m ≥ 2K+1`
+gives `invSucc m ≤ ε = invSucc (2K+1)`, this is `≤ 4·invSucc (2K+1)`, and
+`invSucc (2K+1) + invSucc (2K+1) ≃ invSucc K` (`invSucc_double_eqv`) collects
+that to `≃ invSucc K + invSucc K ≤ ofNat 2 · invSucc K`.  `N` is the common
+convergence stage `max(Nstage₁, Nstage₂)`; `m` is taken past both eventual-approx
+stages and past `2K+1`. -/
+
+/-- `invSucc K + invSucc K ≃ ofNat 2 · invSucc K`.  The two-unit-fraction
+collection used to bound the uniqueness residual. -/
+private theorem two_invSucc_eqv (K : Nat) :
+    ((Q'.invSucc K + Q'.invSucc K)).eqv (Q'.ofNat 2 * Q'.invSucc K) := by
+  -- (c+c) ≃ ofNat 2 · c with c = invSucc K, by the cross-product on c.num/c.den.
+  show ((Q'.invSucc K + Q'.invSucc K).num) * ((Q'.ofNat 2 * Q'.invSucc K).den : Int)
+      = ((Q'.ofNat 2 * Q'.invSucc K).num)
+        * ((Q'.invSucc K + Q'.invSucc K).den : Int)
+  have hLn : (Q'.invSucc K + Q'.invSucc K).num
+      = (Q'.invSucc K).num * ((Q'.invSucc K).den : Int)
+        + (Q'.invSucc K).num * ((Q'.invSucc K).den : Int) := rfl
+  have hLd : ((Q'.invSucc K + Q'.invSucc K).den : Int)
+      = ((Q'.invSucc K).den : Int) * ((Q'.invSucc K).den : Int) :=
+    Q'.add_den_cast _ _
+  have hRn : (Q'.ofNat 2 * Q'.invSucc K).num = 2 * (Q'.invSucc K).num := rfl
+  have hRd : ((Q'.ofNat 2 * Q'.invSucc K).den : Int) = ((Q'.invSucc K).den : Int) := by
+    rw [Q'.mul_den_cast]
+    show ((Q'.ofNat 2).den : Int) * ((Q'.invSucc K).den : Int) = ((Q'.invSucc K).den : Int)
+    rw [show ((Q'.ofNat 2).den : Int) = 1 from rfl, Int.one_mul]
+  rw [hLn, hLd, hRn, hRd]
+  generalize (Q'.invSucc K).num = m
+  generalize ((Q'.invSucc K).den : Int) = E
+  show (m * E + m * E) * E = (2 * m) * (E * E)
+  rw [show m * E + m * E = 2 * (m * E) by omega, Int.mul_assoc 2 m (E * E),
+      Int.mul_assoc 2 (m * E) E, Int.mul_assoc m E E]
+
+/-- **Directional limit comparison.**  If `s` converges to BOTH `L₁` and `L₂`
+(`ConvergesTo`), then `L₁ ≤ L₂`.  Proved by the Bishop triangle estimate fed to
+the Archimedean principle; symmetric in `L₁, L₂`, so the two directions give
+`Equiv`. -/
+theorem le_of_convergesTo_convergesTo (s : Nat → RegularCReal) {L₁ L₂ : RegularCReal}
+    (h₁ : ConvergesTo s L₁) (h₂ : ConvergesTo s L₂) : L₁ ≤ L₂ := by
+  intro n
+  -- Goal: L₁_n ≤ L₂_n + (invSucc n + invSucc n).
+  refine Q'.le_of_le_add_residual (L₁.approx n)
+    (L₂.approx n + (Q'.invSucc n + Q'.invSucc n)) 2
+    (fun K => Q'.invSucc K + Q'.invSucc K)
+    (fun K => Q'.le_of_eqv (two_invSucc_eqv K)) ?_
+  intro K
+  -- Work at tolerance ε = invSucc (2K+1).
+  have hεpos : (0 : Q') < Q'.invSucc (2 * K + 1) := Q'.invSucc_pos _
+  obtain ⟨Nst₁, hst₁⟩ := h₁ (Q'.invSucc (2 * K + 1)) hεpos
+  obtain ⟨Nst₂, hst₂⟩ := h₂ (Q'.invSucc (2 * K + 1)) hεpos
+  -- Common term stage.
+  let N : Nat := max Nst₁ Nst₂
+  obtain ⟨Napx₁, hcl₁⟩ := hst₁ N (Nat.le_max_left _ _)   -- s N vs L₁
+  obtain ⟨Napx₂, hcl₂⟩ := hst₂ N (Nat.le_max_right _ _)  -- s N vs L₂
+  -- Late shared approximation index, also ≥ 2K+1.
+  let m : Nat := max (max Napx₁ Napx₂) (2 * K + 1)
+  have hm₁ : Napx₁ ≤ m := Nat.le_trans (Nat.le_max_left _ _) (Nat.le_max_left _ _)
+  have hm₂ : Napx₂ ≤ m := Nat.le_trans (Nat.le_max_right _ _) (Nat.le_max_left _ _)
+  have hmK : 2 * K + 1 ≤ m := Nat.le_max_right _ _
+  -- L₁ convergence at index m: L₁_m ≤ (s N)_m + ε.
+  obtain ⟨hA1, hA2⟩ := hcl₁ m hm₁
+  -- L₂ convergence at index m: (s N)_m ≤ L₂_m + ε.
+  obtain ⟨hB1, hB2⟩ := hcl₂ m hm₂
+  -- Regularity of L₁ between indices n and m, and of L₂ between m and n.
+  have hL1reg : L₁.approx n ≤ L₁.approx m + (Q'.invSucc n + Q'.invSucc m) :=
+    approx_le_approx_add L₁ n m
+  have hL2reg : L₂.approx m ≤ L₂.approx n + (Q'.invSucc n + Q'.invSucc m) := by
+    -- regular m n side: L₂_m ≤ L₂_n + (invSucc n + invSucc m); commute slack.
+    have h := (L₂.regular m n).1
+    refine Q'.le_trans' _ _ _ h ?_
+    refine Q'.add_le_add_left (L₂.approx n) _ _ ?_
+    exact Q'.le_of_eqv (Q'.add_comm_eqv (Q'.invSucc m) (Q'.invSucc n))
+  -- invSucc m ≤ invSucc (2K+1) = ε (since 2K+1 ≤ m).
+  have hmKle : Q'.invSucc m ≤ Q'.invSucc (2 * K + 1) := invSucc_antitone hmK
+  -- Chain:  L₁_n
+  --   ≤ L₁_m + (invSucc n + invSucc m)                              [hL1reg]
+  --   ≤ ((s N)_m + ε) + (invSucc n + invSucc m)                     [hA2]
+  --   ≤ ((L₂_m + ε) + ε) + (invSucc n + invSucc m)                  [hB1]
+  --   ≤ ((L₂_n + (invSucc n + invSucc m) + ε) + ε) + (invSucc n + invSucc m) [hL2reg]
+  have step1 : L₁.approx n ≤ L₁.approx m + (Q'.invSucc n + Q'.invSucc m) := hL1reg
+  have step2 : L₁.approx m + (Q'.invSucc n + Q'.invSucc m)
+      ≤ ((s N).approx m + Q'.invSucc (2 * K + 1)) + (Q'.invSucc n + Q'.invSucc m) :=
+    Q'.add_le_add_right _ _ _ hA2
+  have step3 : ((s N).approx m + Q'.invSucc (2 * K + 1)) + (Q'.invSucc n + Q'.invSucc m)
+      ≤ ((L₂.approx m + Q'.invSucc (2 * K + 1)) + Q'.invSucc (2 * K + 1))
+          + (Q'.invSucc n + Q'.invSucc m) :=
+    Q'.add_le_add_right _ _ _ (Q'.add_le_add_right _ _ _ hB1)
+  have step4 : ((L₂.approx m + Q'.invSucc (2 * K + 1)) + Q'.invSucc (2 * K + 1))
+          + (Q'.invSucc n + Q'.invSucc m)
+      ≤ (((L₂.approx n + (Q'.invSucc n + Q'.invSucc m)) + Q'.invSucc (2 * K + 1))
+            + Q'.invSucc (2 * K + 1))
+          + (Q'.invSucc n + Q'.invSucc m) :=
+    Q'.add_le_add_right _ _ _
+      (Q'.add_le_add_right _ _ _ (Q'.add_le_add_right _ _ _ hL2reg))
+  have hchain : L₁.approx n
+      ≤ (((L₂.approx n + (Q'.invSucc n + Q'.invSucc m)) + Q'.invSucc (2 * K + 1))
+            + Q'.invSucc (2 * K + 1))
+          + (Q'.invSucc n + Q'.invSucc m) :=
+    Q'.le_trans' _ _ _ step1
+      (Q'.le_trans' _ _ _ step2 (Q'.le_trans' _ _ _ step3 step4))
+  refine Q'.le_trans' _ _ _ hchain ?_
+  -- Push every `invSucc m` up to `ε = invSucc (2K+1)` so the residual becomes a
+  -- pure four-`ε` block, then collect `4·ε ≃ 2·invSucc K` (via invSucc_double_eqv).
+  have hblk : (Q'.invSucc n + Q'.invSucc m) ≤ (Q'.invSucc n + Q'.invSucc (2 * K + 1)) :=
+    Q'.add_le_add_left _ _ _ hmKle
+  have hub : (((L₂.approx n + (Q'.invSucc n + Q'.invSucc m)) + Q'.invSucc (2 * K + 1))
+            + Q'.invSucc (2 * K + 1))
+          + (Q'.invSucc n + Q'.invSucc m)
+      ≤ (((L₂.approx n + (Q'.invSucc n + Q'.invSucc (2 * K + 1)))
+              + Q'.invSucc (2 * K + 1)) + Q'.invSucc (2 * K + 1))
+          + (Q'.invSucc n + Q'.invSucc (2 * K + 1)) := by
+    refine Q'.le_trans' _ _ _ (Q'.add_le_add_left _ _ _ hblk) ?_
+    refine Q'.add_le_add_right _ _ _ ?_
+    refine Q'.add_le_add_right _ _ _ ?_
+    refine Q'.add_le_add_right _ _ _ ?_
+    exact Q'.add_le_add_left _ _ _ hblk
+  refine Q'.le_trans' _ _ _ hub (Q'.le_of_eqv ?_)
+  -- Rearrange the all-`ε` upper bound to `(L₂_n + (s_n+s_n)) + (invSucc K + invSucc K)`.
+  -- Write s_n = invSucc n, e = invSucc (2K+1); the double e+e ≃ invSucc K.
+  -- LHS = (((L₂_n + (s_n+e)) + e) + e) + (s_n+e)  ≃  (L₂_n + (s_n+s_n)) + ((e+e)+(e+e))
+  have hrearr :
+      ((((L₂.approx n + (Q'.invSucc n + Q'.invSucc (2 * K + 1))) + Q'.invSucc (2 * K + 1))
+            + Q'.invSucc (2 * K + 1)) + (Q'.invSucc n + Q'.invSucc (2 * K + 1))).eqv
+        ((L₂.approx n + (Q'.invSucc n + Q'.invSucc n))
+          + ((Q'.invSucc (2 * K + 1) + Q'.invSucc (2 * K + 1))
+              + (Q'.invSucc (2 * K + 1) + Q'.invSucc (2 * K + 1)))) := by
+    show ((((((L₂.approx n + (Q'.invSucc n + Q'.invSucc (2 * K + 1)))
+                + Q'.invSucc (2 * K + 1)) + Q'.invSucc (2 * K + 1))
+              + (Q'.invSucc n + Q'.invSucc (2 * K + 1)))).num)
+          * (((L₂.approx n + (Q'.invSucc n + Q'.invSucc n))
+              + ((Q'.invSucc (2 * K + 1) + Q'.invSucc (2 * K + 1))
+                  + (Q'.invSucc (2 * K + 1) + Q'.invSucc (2 * K + 1)))).den : Int)
+        = (((L₂.approx n + (Q'.invSucc n + Q'.invSucc n))
+              + ((Q'.invSucc (2 * K + 1) + Q'.invSucc (2 * K + 1))
+                  + (Q'.invSucc (2 * K + 1) + Q'.invSucc (2 * K + 1)))).num)
+          * ((((((L₂.approx n + (Q'.invSucc n + Q'.invSucc (2 * K + 1)))
+                + Q'.invSucc (2 * K + 1)) + Q'.invSucc (2 * K + 1))
+              + (Q'.invSucc n + Q'.invSucc (2 * K + 1)))).den : Int)
+    simp only [Q'.add_num_cast, Q'.add_den_cast, Int.add_mul, Int.mul_add]
+    ac_rfl
+  refine Q'.eqv_trans _ _ _ hrearr ?_
+  -- ((e+e)+(e+e)) ≃ invSucc K + invSucc K, since e+e ≃ invSucc K.
+  refine Q'.add_eqv_congr_left (L₂.approx n + (Q'.invSucc n + Q'.invSucc n)) _ _ ?_
+  have he2 : (Q'.invSucc (2 * K + 1) + Q'.invSucc (2 * K + 1)).eqv (Q'.invSucc K) :=
+    Q'.invSucc_double_eqv K
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr_right _ _ (Q'.invSucc (2 * K + 1) + Q'.invSucc (2 * K + 1)) he2) ?_
+  exact Q'.add_eqv_congr_left (Q'.invSucc K) _ _ he2
+
+/-- **Limit uniqueness (HEADLINE, unconditional).**  A `RegularCReal` sequence
+has at most one limit up to `Equiv`: if `ConvergesTo s L₁` and `ConvergesTo s L₂`
+then `Equiv L₁ L₂`.  NO monotonicity, NO modulus extraction, NO classical input
+— uniqueness of limits is the Bishop triangle estimate (both limits are within
+`ε` of the same term, hence within `2ε` of each other, for every `ε`).  This is
+the constructive guarantee that `completeLimit` (and any continuum gap built as
+one) is a well-defined invariant: any two limits of the same sequence agree. -/
+theorem convergesTo_unique (s : Nat → RegularCReal) {L₁ L₂ : RegularCReal}
+    (h₁ : ConvergesTo s L₁) (h₂ : ConvergesTo s L₂) : Equiv L₁ L₂ :=
+  le_antisymm
+    (le_of_convergesTo_convergesTo s h₁ h₂)
+    (le_of_convergesTo_convergesTo s h₂ h₁)
+
 /-! ### The `f(x)/x`-limit corollary: a uniformly two-sided-bounded quotient
 sequence has a positive, ceiling-bounded `completeLimit`.
 
@@ -1146,3 +1330,5 @@ end YMGap.Constructive
 #print axioms YMGap.Constructive.RegularCReal.isPositive_completeLimit
 #print axioms YMGap.Constructive.RegularCReal.demoConstLimit_approx
 #print axioms YMGap.Constructive.RegularCReal.demoConstLimit_converges
+#print axioms YMGap.Constructive.RegularCReal.le_of_convergesTo_convergesTo
+#print axioms YMGap.Constructive.RegularCReal.convergesTo_unique
