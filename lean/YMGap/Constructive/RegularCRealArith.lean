@@ -197,6 +197,127 @@ theorem add_slack_collapse (m n : Nat) :
   exact Q'.le_trans' _ _ _ (Q'.add_le_add_right _ _ _ h1)
     (Q'.add_le_add_left _ _ _ h2)
 
+/-! ### `Q'` join/meet (`max'`/`min'`) order lemmas
+
+The dual of the existing `min_le_left'`/`min_le_right'`/`max'_le_iff` family,
+exactly the ordering facts the running-fold band edges below need.  Decidable
+case split on the defining `if p ≤ q`. -/
+
+/-- `¬ (p ≤ q) → q ≤ p` over `Q'` (decidable trichotomy at the `Int`-num
+level).  The strict converse of `lt` not being needed here, only `≤`. -/
+theorem le_of_not_le' {p q : Q'} (h : ¬ (p ≤ q)) : q ≤ p := by
+  show q.num * (p.den : Int) ≤ p.num * (q.den : Int)
+  have h' : ¬ (p.num * (q.den : Int) ≤ q.num * (p.den : Int)) := h
+  exact Int.le_of_lt (Int.not_le.mp h')
+
+/-- `min' p q ≤ p`. -/
+theorem min_le_left' (p q : Q') : Q'.min' p q ≤ p := by
+  unfold Q'.min'
+  by_cases h : p ≤ q
+  · rw [if_pos h]; exact Q'.le_refl' p
+  · rw [if_neg h]; exact le_of_not_le' h
+
+/-- `min' p q ≤ q`. -/
+theorem min_le_right' (p q : Q') : Q'.min' p q ≤ q := by
+  unfold Q'.min'
+  by_cases h : p ≤ q
+  · rw [if_pos h]; exact h
+  · rw [if_neg h]; exact Q'.le_refl' q
+
+/-- `p ≤ max' p q`. -/
+theorem le_max'_left (p q : Q') : p ≤ Q'.max' p q := by
+  unfold Q'.max'
+  by_cases h : p ≤ q
+  · rw [if_pos h]; exact h
+  · rw [if_neg h]; exact Q'.le_refl' p
+
+/-- `q ≤ max' p q`. -/
+theorem le_max'_right (p q : Q') : q ≤ Q'.max' p q := by
+  unfold Q'.max'
+  by_cases h : p ≤ q
+  · rw [if_pos h]; exact Q'.le_refl' q
+  · rw [if_neg h]; exact le_of_not_le' h
+
+/-- `c ≤ min' p q ↔ c ≤ p ∧ c ≤ q` (the located meet). -/
+theorem le_min'_iff (c p q : Q') : c ≤ Q'.min' p q ↔ c ≤ p ∧ c ≤ q := by
+  unfold Q'.min'
+  by_cases h : p ≤ q
+  · rw [if_pos h]
+    exact ⟨fun hcp => ⟨hcp, Q'.le_trans' c p q hcp h⟩, fun hp => hp.1⟩
+  · rw [if_neg h]
+    have hqp : q ≤ p := le_of_not_le' h
+    exact ⟨fun hcq => ⟨Q'.le_trans' c q p hcq hqp, hcq⟩, fun hp => hp.2⟩
+
+/-- `max' p q ≤ c ↔ p ≤ c ∧ q ≤ c` (the located join).  Local copy of the
+join elimination on this foundation's import surface. -/
+theorem max'_le_iff' (p q c : Q') : Q'.max' p q ≤ c ↔ p ≤ c ∧ q ≤ c := by
+  unfold Q'.max'
+  by_cases h : p ≤ q
+  · rw [if_pos h]
+    exact ⟨fun hqc => ⟨Q'.le_trans' p q c h hqc, hqc⟩, fun hp => hp.2⟩
+  · rw [if_neg h]
+    have hqp : q ≤ p := le_of_not_le' h
+    exact ⟨fun hpc => ⟨hpc, Q'.le_trans' q p c hqp hpc⟩, fun hp => hp.1⟩
+
+/-! ### Running min / max folds over a rational sequence
+
+`runningMin f j = min{ f 0, …, f j }` and `runningMax f j = max{ f 0, …, f j }`
+as honest `Q'` folds.  These are the cheap liminf/limsup *prefix* data — the
+running-min is antitone, the running-max monotone, both squeeze `f j`, and a
+uniform pointwise floor/ceiling on `f` transfers to the folds.  (Their
+`ModCauchy` *convergence* moduli — the actual liminf/limsup reals — are NOT
+derivable from monotonicity and must be supplied as data; Specker.) -/
+
+/-- Running minimum of `f 0, …, f j`. -/
+def runningMin (f : Nat → Q') : Nat → Q'
+  | 0 => f 0
+  | j + 1 => Q'.min' (runningMin f j) (f (j + 1))
+
+/-- Running maximum of `f 0, …, f j`. -/
+def runningMax (f : Nat → Q') : Nat → Q'
+  | 0 => f 0
+  | j + 1 => Q'.max' (runningMax f j) (f (j + 1))
+
+/-- One step of the running minimum is `≤` the previous (antitone step). -/
+theorem runningMin_succ_le (f : Nat → Q') (j : Nat) :
+    runningMin f (j + 1) ≤ runningMin f j :=
+  Q'.min_le_left' _ _
+
+/-- One step of the running maximum is `≥` the previous (monotone step). -/
+theorem le_runningMax_succ (f : Nat → Q') (j : Nat) :
+    runningMax f j ≤ runningMax f (j + 1) :=
+  Q'.le_max'_left _ _
+
+/-- The running minimum squeezes the term: `runningMin f j ≤ f j`. -/
+theorem runningMin_le (f : Nat → Q') : ∀ j : Nat, runningMin f j ≤ f j
+  | 0 => Q'.le_refl' _
+  | _ + 1 => Q'.min_le_right' _ _
+
+/-- The running maximum squeezes the term: `f j ≤ runningMax f j`. -/
+theorem le_runningMax (f : Nat → Q') : ∀ j : Nat, f j ≤ runningMax f j
+  | 0 => Q'.le_refl' _
+  | _ + 1 => Q'.le_max'_right _ _
+
+/-- The running minimum is `≤` the running maximum pointwise (both squeeze
+`f j`). -/
+theorem runningMin_le_runningMax (f : Nat → Q') (j : Nat) :
+    runningMin f j ≤ runningMax f j :=
+  Q'.le_trans' _ _ _ (runningMin_le f j) (le_runningMax f j)
+
+/-- **Floor transfers to the running minimum.**  A uniform lower bound on `f`
+is a uniform lower bound on `runningMin f`. -/
+theorem le_runningMin_of_le {f : Nat → Q'} {c : Q'} (h : ∀ k, c ≤ f k) :
+    ∀ j : Nat, c ≤ runningMin f j
+  | 0 => h 0
+  | j + 1 => (le_min'_iff c _ _).mpr ⟨le_runningMin_of_le h j, h (j + 1)⟩
+
+/-- **Ceiling transfers to the running maximum.**  A uniform upper bound on `f`
+is a uniform upper bound on `runningMax f`. -/
+theorem runningMax_le_of_le {f : Nat → Q'} {C : Q'} (h : ∀ k, f k ≤ C) :
+    ∀ j : Nat, runningMax f j ≤ C
+  | 0 => h 0
+  | j + 1 => (max'_le_iff' _ _ C).mpr ⟨runningMax_le_of_le h j, h (j + 1)⟩
+
 end Q'
 
 namespace RegularCReal
@@ -1221,6 +1342,149 @@ theorem convergesTo_unique (s : Nat → RegularCReal) {L₁ L₂ : RegularCReal}
     (le_of_convergesTo_convergesTo s h₁ h₂)
     (le_of_convergesTo_convergesTo s h₂ h₁)
 
+/-! ### Two-sequence limit comparison and the squeeze
+
+Two Bishop estimates the band edges need: a pointwise-`≤` between two
+convergent sequences passes to their limits, and a squeezed middle sequence
+converges to the common limit of its bounds. -/
+
+/-- **Pointwise `≤` passes to the limits.**  If `s` converges to `Ls`, `t`
+converges to `Lt`, and `(s k).approx j ≤ (t k).approx j` for every term and
+index, then `Ls ≤ Lt`.  Same Bishop triangle estimate as
+`le_of_convergesTo_convergesTo` with the pointwise hypothesis inserted between
+the two terms at the late shared index. -/
+theorem le_of_convergesTo_le_convergesTo {s t : Nat → RegularCReal}
+    {Ls Lt : RegularCReal} (hs : ConvergesTo s Ls) (ht : ConvergesTo t Lt)
+    (hst : ∀ k j : Nat, (s k).approx j ≤ (t k).approx j) : Ls ≤ Lt := by
+  intro n
+  refine Q'.le_of_le_add_residual (Ls.approx n)
+    (Lt.approx n + (Q'.invSucc n + Q'.invSucc n)) 2
+    (fun K => Q'.invSucc K + Q'.invSucc K)
+    (fun K => Q'.le_of_eqv (two_invSucc_eqv K)) ?_
+  intro K
+  have hεpos : (0 : Q') < Q'.invSucc (2 * K + 1) := Q'.invSucc_pos _
+  obtain ⟨Nsts, hsts⟩ := hs (Q'.invSucc (2 * K + 1)) hεpos
+  obtain ⟨Nstt, hstt⟩ := ht (Q'.invSucc (2 * K + 1)) hεpos
+  let N : Nat := max Nsts Nstt
+  obtain ⟨Napxs, hcls⟩ := hsts N (Nat.le_max_left _ _)
+  obtain ⟨Napxt, hclt⟩ := hstt N (Nat.le_max_right _ _)
+  let m : Nat := max (max Napxs Napxt) (2 * K + 1)
+  have hms : Napxs ≤ m := Nat.le_trans (Nat.le_max_left _ _) (Nat.le_max_left _ _)
+  have hmt : Napxt ≤ m := Nat.le_trans (Nat.le_max_right _ _) (Nat.le_max_left _ _)
+  have hmK : 2 * K + 1 ≤ m := Nat.le_max_right _ _
+  -- Ls convergence at m:  Ls_m ≤ (s N)_m + ε.
+  obtain ⟨_, hA2⟩ := hcls m hms
+  -- Lt convergence at m:  (t N)_m ≤ Lt_m + ε.
+  obtain ⟨hB1, _⟩ := hclt m hmt
+  -- regularities
+  have hLsreg : Ls.approx n ≤ Ls.approx m + (Q'.invSucc n + Q'.invSucc m) :=
+    approx_le_approx_add Ls n m
+  have hLtreg : Lt.approx m ≤ Lt.approx n + (Q'.invSucc n + Q'.invSucc m) := by
+    have h := (Lt.regular m n).1
+    refine Q'.le_trans' _ _ _ h ?_
+    refine Q'.add_le_add_left (Lt.approx n) _ _ ?_
+    exact Q'.le_of_eqv (Q'.add_comm_eqv (Q'.invSucc m) (Q'.invSucc n))
+  have hmKle : Q'.invSucc m ≤ Q'.invSucc (2 * K + 1) := invSucc_antitone hmK
+  -- Chain:  Ls_n
+  --   ≤ Ls_m + (s_n+s_m)                         [hLsreg]
+  --   ≤ ((s N)_m + ε) + (s_n+s_m)                [hA2]
+  --   ≤ ((t N)_m + ε) + (s_n+s_m)                [hst : (s N)_m ≤ (t N)_m]
+  --   ≤ ((Lt_m + ε) + ε) + (s_n+s_m)             [hB1]
+  --   ≤ ((Lt_n + (s_n+s_m) + ε) + ε) + (s_n+s_m) [hLtreg]
+  have step1 : Ls.approx n ≤ Ls.approx m + (Q'.invSucc n + Q'.invSucc m) := hLsreg
+  have step2 : Ls.approx m + (Q'.invSucc n + Q'.invSucc m)
+      ≤ ((s N).approx m + Q'.invSucc (2 * K + 1)) + (Q'.invSucc n + Q'.invSucc m) :=
+    Q'.add_le_add_right _ _ _ hA2
+  have step2' : ((s N).approx m + Q'.invSucc (2 * K + 1)) + (Q'.invSucc n + Q'.invSucc m)
+      ≤ ((t N).approx m + Q'.invSucc (2 * K + 1)) + (Q'.invSucc n + Q'.invSucc m) :=
+    Q'.add_le_add_right _ _ _ (Q'.add_le_add_right _ _ _ (hst N m))
+  have step3 : ((t N).approx m + Q'.invSucc (2 * K + 1)) + (Q'.invSucc n + Q'.invSucc m)
+      ≤ ((Lt.approx m + Q'.invSucc (2 * K + 1)) + Q'.invSucc (2 * K + 1))
+          + (Q'.invSucc n + Q'.invSucc m) :=
+    Q'.add_le_add_right _ _ _ (Q'.add_le_add_right _ _ _ hB1)
+  have step4 : ((Lt.approx m + Q'.invSucc (2 * K + 1)) + Q'.invSucc (2 * K + 1))
+          + (Q'.invSucc n + Q'.invSucc m)
+      ≤ (((Lt.approx n + (Q'.invSucc n + Q'.invSucc m)) + Q'.invSucc (2 * K + 1))
+            + Q'.invSucc (2 * K + 1))
+          + (Q'.invSucc n + Q'.invSucc m) :=
+    Q'.add_le_add_right _ _ _
+      (Q'.add_le_add_right _ _ _ (Q'.add_le_add_right _ _ _ hLtreg))
+  have hchain : Ls.approx n
+      ≤ (((Lt.approx n + (Q'.invSucc n + Q'.invSucc m)) + Q'.invSucc (2 * K + 1))
+            + Q'.invSucc (2 * K + 1))
+          + (Q'.invSucc n + Q'.invSucc m) :=
+    Q'.le_trans' _ _ _ step1
+      (Q'.le_trans' _ _ _ step2
+        (Q'.le_trans' _ _ _ step2' (Q'.le_trans' _ _ _ step3 step4)))
+  refine Q'.le_trans' _ _ _ hchain ?_
+  have hblk : (Q'.invSucc n + Q'.invSucc m) ≤ (Q'.invSucc n + Q'.invSucc (2 * K + 1)) :=
+    Q'.add_le_add_left _ _ _ hmKle
+  have hub : (((Lt.approx n + (Q'.invSucc n + Q'.invSucc m)) + Q'.invSucc (2 * K + 1))
+            + Q'.invSucc (2 * K + 1))
+          + (Q'.invSucc n + Q'.invSucc m)
+      ≤ (((Lt.approx n + (Q'.invSucc n + Q'.invSucc (2 * K + 1)))
+              + Q'.invSucc (2 * K + 1)) + Q'.invSucc (2 * K + 1))
+          + (Q'.invSucc n + Q'.invSucc (2 * K + 1)) := by
+    refine Q'.le_trans' _ _ _ (Q'.add_le_add_left _ _ _ hblk) ?_
+    refine Q'.add_le_add_right _ _ _ ?_
+    refine Q'.add_le_add_right _ _ _ ?_
+    refine Q'.add_le_add_right _ _ _ ?_
+    exact Q'.add_le_add_left _ _ _ hblk
+  refine Q'.le_trans' _ _ _ hub (Q'.le_of_eqv ?_)
+  have hrearr :
+      ((((Lt.approx n + (Q'.invSucc n + Q'.invSucc (2 * K + 1))) + Q'.invSucc (2 * K + 1))
+            + Q'.invSucc (2 * K + 1)) + (Q'.invSucc n + Q'.invSucc (2 * K + 1))).eqv
+        ((Lt.approx n + (Q'.invSucc n + Q'.invSucc n))
+          + ((Q'.invSucc (2 * K + 1) + Q'.invSucc (2 * K + 1))
+              + (Q'.invSucc (2 * K + 1) + Q'.invSucc (2 * K + 1)))) := by
+    show ((((((Lt.approx n + (Q'.invSucc n + Q'.invSucc (2 * K + 1)))
+                + Q'.invSucc (2 * K + 1)) + Q'.invSucc (2 * K + 1))
+              + (Q'.invSucc n + Q'.invSucc (2 * K + 1)))).num)
+          * (((Lt.approx n + (Q'.invSucc n + Q'.invSucc n))
+              + ((Q'.invSucc (2 * K + 1) + Q'.invSucc (2 * K + 1))
+                  + (Q'.invSucc (2 * K + 1) + Q'.invSucc (2 * K + 1)))).den : Int)
+        = (((Lt.approx n + (Q'.invSucc n + Q'.invSucc n))
+              + ((Q'.invSucc (2 * K + 1) + Q'.invSucc (2 * K + 1))
+                  + (Q'.invSucc (2 * K + 1) + Q'.invSucc (2 * K + 1)))).num)
+          * ((((((Lt.approx n + (Q'.invSucc n + Q'.invSucc (2 * K + 1)))
+                + Q'.invSucc (2 * K + 1)) + Q'.invSucc (2 * K + 1))
+              + (Q'.invSucc n + Q'.invSucc (2 * K + 1)))).den : Int)
+    simp only [Q'.add_num_cast, Q'.add_den_cast, Int.add_mul, Int.mul_add]
+    ac_rfl
+  refine Q'.eqv_trans _ _ _ hrearr ?_
+  refine Q'.add_eqv_congr_left (Lt.approx n + (Q'.invSucc n + Q'.invSucc n)) _ _ ?_
+  have he2 : (Q'.invSucc (2 * K + 1) + Q'.invSucc (2 * K + 1)).eqv (Q'.invSucc K) :=
+    Q'.invSucc_double_eqv K
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr_right _ _ (Q'.invSucc (2 * K + 1) + Q'.invSucc (2 * K + 1)) he2) ?_
+  exact Q'.add_eqv_congr_left (Q'.invSucc K) _ _ he2
+
+/-- **The constructive squeeze (Bishop).**  If `lo` and `hi` both converge to
+the same limit `L`, and the middle sequence is pointwise squeezed
+`(lo k).approx n ≤ (mid k).approx n ≤ (hi k).approx n` at every term and index,
+then `mid` also converges to `L`.  At tolerance `ε`: take the term stage past
+both bound stages; from `lo_N ≥ L − ε` and `hi_N ≤ L + ε`, the squeezed `mid_N`
+is two-sided `ε`-close to `L`. -/
+theorem convergesTo_of_squeeze {lo mid hi : Nat → RegularCReal} {L : RegularCReal}
+    (hlo : ConvergesTo lo L) (hhi : ConvergesTo hi L)
+    (hsqlo : ∀ k n : Nat, (lo k).approx n ≤ (mid k).approx n)
+    (hsqhi : ∀ k n : Nat, (mid k).approx n ≤ (hi k).approx n) :
+    ConvergesTo mid L := by
+  intro ε hε
+  obtain ⟨Nlo, hNlo⟩ := hlo ε hε
+  obtain ⟨Nhi, hNhi⟩ := hhi ε hε
+  refine ⟨max Nlo Nhi, fun N hN => ?_⟩
+  obtain ⟨Apxlo, hApxlo⟩ := hNlo N (Nat.le_trans (Nat.le_max_left _ _) hN)
+  obtain ⟨Apxhi, hApxhi⟩ := hNhi N (Nat.le_trans (Nat.le_max_right _ _) hN)
+  refine ⟨max Apxlo Apxhi, fun n hn => ?_⟩
+  obtain ⟨_, hlo2⟩ := hApxlo n (Nat.le_trans (Nat.le_max_left _ _) hn)   -- L_n ≤ lo_N n + ε
+  obtain ⟨hhi1, _⟩ := hApxhi n (Nat.le_trans (Nat.le_max_right _ _) hn)  -- hi_N n ≤ L_n + ε
+  refine ⟨?_, ?_⟩
+  · -- mid_N n ≤ hi_N n ≤ L_n + ε
+    exact Q'.le_trans' _ _ _ (hsqhi N n) hhi1
+  · -- L_n ≤ lo_N n + ε ≤ mid_N n + ε
+    exact Q'.le_trans' _ _ _ hlo2 (Q'.add_le_add_right _ _ _ (hsqlo N n))
+
 /-! ### The `f(x)/x`-limit corollary: a uniformly two-sided-bounded quotient
 sequence has a positive, ceiling-bounded `completeLimit`.
 
@@ -1332,3 +1596,21 @@ end YMGap.Constructive
 #print axioms YMGap.Constructive.RegularCReal.demoConstLimit_converges
 #print axioms YMGap.Constructive.RegularCReal.le_of_convergesTo_convergesTo
 #print axioms YMGap.Constructive.RegularCReal.convergesTo_unique
+#print axioms YMGap.Constructive.RegularCReal.le_of_convergesTo_le_convergesTo
+#print axioms YMGap.Constructive.RegularCReal.convergesTo_of_squeeze
+#print axioms YMGap.Constructive.Q'.le_of_not_le'
+#print axioms YMGap.Constructive.Q'.min_le_left'
+#print axioms YMGap.Constructive.Q'.min_le_right'
+#print axioms YMGap.Constructive.Q'.le_max'_left
+#print axioms YMGap.Constructive.Q'.le_max'_right
+#print axioms YMGap.Constructive.Q'.le_min'_iff
+#print axioms YMGap.Constructive.Q'.max'_le_iff'
+#print axioms YMGap.Constructive.Q'.runningMin
+#print axioms YMGap.Constructive.Q'.runningMax
+#print axioms YMGap.Constructive.Q'.runningMin_succ_le
+#print axioms YMGap.Constructive.Q'.le_runningMax_succ
+#print axioms YMGap.Constructive.Q'.runningMin_le
+#print axioms YMGap.Constructive.Q'.le_runningMax
+#print axioms YMGap.Constructive.Q'.runningMin_le_runningMax
+#print axioms YMGap.Constructive.Q'.le_runningMin_of_le
+#print axioms YMGap.Constructive.Q'.runningMax_le_of_le

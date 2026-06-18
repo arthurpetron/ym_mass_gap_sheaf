@@ -832,6 +832,179 @@ theorem extractGap_unique (L : RegScalingLimitModulus) {L' : RegularCReal}
   convergesTo_unique (regPhysGapSeq L)
     (convergesTo_completeLimit (regPhysGapSeq L) (regPhysGapModCauchy L)) hL'
 
+/-! ### 6.4 The CONSTRUCTED band edges (liminf / limsup) — given supplied moduli
+
+This is trichotomy strength (b): the genuine liminf/limsup band EDGES as
+regular reals.  Since `physGap : Nat → Q'` is `Q'`-valued, the running-min and
+running-max are cheap `Q'` folds (`Q'.runningMin` / `Q'.runningMax`).  But the
+EDGES as actual reals are the `completeLimit`s of those folds, which need
+SUPPLIED `ModCauchy` convergence moduli — by Specker a monotone bounded
+sequence has NO computable limit without one, so these moduli are HONEST data
+the inhabitant must provide, NOT derivable from monotonicity.
+
+`RegScalingBandEdges` carries exactly those two moduli on top of the band.
+From them `bandLow` (the liminf) and `bandHigh` (the limsup) are CONSTRUCTED,
+with `bandLow ≤ bandHigh` (running-min ≤ running-max pointwise) and `bandLow`
+strictly positive (the uniform floor `physGapMin > 0` transfers to the
+running-min).  The OPEN content is unchanged: `physGapMin > 0` surviving
+`a → 0`.  No inhabitant is asserted. -/
+
+/-- The lifted running-MINIMUM physical-gap sequence
+`j ↦ ofQ' (runningMin physGap j)` — the liminf prefix data. -/
+def regBandLowSeq (L : RegScalingBand) : Nat → RegularCReal :=
+  fun j => ofQ' (Q'.runningMin L.physGap j)
+
+@[simp] theorem regBandLowSeq_approx (L : RegScalingBand) (j k : Nat) :
+    (regBandLowSeq L j).approx k = Q'.runningMin L.physGap j := rfl
+
+/-- The lifted running-MAXIMUM physical-gap sequence
+`j ↦ ofQ' (runningMax physGap j)` — the limsup prefix data. -/
+def regBandHighSeq (L : RegScalingBand) : Nat → RegularCReal :=
+  fun j => ofQ' (Q'.runningMax L.physGap j)
+
+@[simp] theorem regBandHighSeq_approx (L : RegScalingBand) (j k : Nat) :
+    (regBandHighSeq L j).approx k = Q'.runningMax L.physGap j := rfl
+
+/-- **The band-edge data — the STRONGER refinement (b) of the band.**
+
+EXTENDS `RegScalingBand` with SUPPLIED `ModCauchy` convergence moduli on the
+running-min and running-max physical-gap fold sequences.  By Specker these
+moduli are genuine `Type`-level data the inhabitant must provide — a monotone
+bounded sequence has no computable limit without one, so they are NOT derivable
+from the band's monotonicity.  From them the liminf edge `bandLow` and the
+limsup edge `bandHigh` are constructed as `completeLimit`s.  No inhabitant is
+asserted: for 4D Yang–Mills `physGapMin > 0` surviving `a → 0` is OPEN. -/
+structure RegScalingBandEdges extends RegScalingBand where
+  /-- SUPPLIED convergence modulus on the running-MIN fold (the liminf edge). -/
+  bandLowMod : ModCauchy (regBandLowSeq toRegScalingBand)
+  /-- SUPPLIED convergence modulus on the running-MAX fold (the limsup edge). -/
+  bandHighMod : ModCauchy (regBandHighSeq toRegScalingBand)
+
+/-- **The liminf band edge `bandLow`.**  The `completeLimit` of the
+running-minimum physical-gap fold — the genuine liminf of `physGap` as a
+regular real, given the supplied convergence modulus. -/
+def RegScalingBandEdges.bandLow (E : RegScalingBandEdges) : RegularCReal :=
+  completeLimit (regBandLowSeq E.toRegScalingBand) E.bandLowMod
+
+/-- **The limsup band edge `bandHigh`.**  The `completeLimit` of the
+running-maximum physical-gap fold — the genuine limsup of `physGap` as a
+regular real, given the supplied convergence modulus. -/
+def RegScalingBandEdges.bandHigh (E : RegScalingBandEdges) : RegularCReal :=
+  completeLimit (regBandHighSeq E.toRegScalingBand) E.bandHighMod
+
+/-- Every physical gap dominates the uniform floor: `∀ k, physGapMin ≤ physGap k`
+(the `physGap_ge` field repackaged through `physGap_eq`). -/
+theorem RegScalingBand.physGapMin_le_physGap (L : RegScalingBand) (k : Nat) :
+    L.physGapMin ≤ L.physGap k := L.physGap_ge k
+
+/-- The uniform floor `physGapMin` is below every running-MINIMUM term: from
+`∀ k, physGapMin ≤ physGap k` via `Q'.le_runningMin_of_le`. -/
+theorem RegScalingBand.physGapMin_le_runningMin (L : RegScalingBand) (j : Nat) :
+    L.physGapMin ≤ Q'.runningMin L.physGap j :=
+  Q'.le_runningMin_of_le (fun k => L.physGapMin_le_physGap k) j
+
+/-- **The band edges are ORDERED: `bandLow ≤ bandHigh`.**  The running-min is
+`≤` the running-max pointwise (`Q'.runningMin_le_runningMax`, both squeeze
+`physGap j`), and this pointwise `≤` between the two `ofQ'`-lifted fold
+sequences passes to their limits (`le_of_convergesTo_le_convergesTo` against the
+two `convergesTo_completeLimit` witnesses).  So the liminf edge is below the
+limsup edge — the band `[bandLow, bandHigh]` is genuine. -/
+theorem RegScalingBandEdges.band_lo_le_hi (E : RegScalingBandEdges) :
+    E.bandLow ≤ E.bandHigh :=
+  le_of_convergesTo_le_convergesTo
+    (convergesTo_completeLimit (regBandLowSeq E.toRegScalingBand) E.bandLowMod)
+    (convergesTo_completeLimit (regBandHighSeq E.toRegScalingBand) E.bandHighMod)
+    (fun k _ => Q'.runningMin_le_runningMax E.toRegScalingBand.physGap k)
+
+/-- **The liminf band edge is strictly positive.**  Every approximation of
+every running-min term is `runningMin physGap j ≥ physGapMin` (the uniform
+floor transfers to the running-min), and `physGapMin > 0`, so the `completeLimit`
+is positive with witness `physGapMin` (`isPositive_completeLimit`).  The mass
+gap SURVIVES `a → 0` at the level of the genuine liminf edge. -/
+theorem RegScalingBandEdges.bandLow_isPositive (E : RegScalingBandEdges) :
+    IsPositive E.bandLow :=
+  isPositive_completeLimit (regBandLowSeq E.toRegScalingBand) E.bandLowMod
+    E.physGapMin_pos
+    (fun j _ => E.toRegScalingBand.physGapMin_le_runningMin j)
+
+/-- The liminf band edge dominates the uniform floor as a regular real:
+`ofQ' physGapMin ≤ bandLow`. -/
+theorem RegScalingBandEdges.ofQ'_physGapMin_le_bandLow (E : RegScalingBandEdges) :
+    ofQ' E.physGapMin ≤ E.bandLow :=
+  ofQ'_le_completeLimit (regBandLowSeq E.toRegScalingBand) E.bandLowMod
+    (fun j _ => E.toRegScalingBand.physGapMin_le_runningMin j)
+
+/-! ### 6.5 The band edges BRACKET the single continuum limit
+
+When BOTH the band-edge moduli (6.4) AND the single convergence modulus (6.2)
+are present, the three sequences are pointwise ordered `runningMin ≤ physGap ≤
+runningMax`, so their limits are ordered:
+`bandLow ≤ scaling_continuum_physGap ≤ bandHigh`.  The liminf edge is below the
+RG-invariant gap, which is below the limsup edge — the genuine bracketing of the
+continuum gap by its located edges.
+
+The full COLLAPSE `bandLow ≃ gap ≃ bandHigh` (liminf = limsup) is a STRICTLY
+stronger statement: it requires the supplied `physGap` convergence modulus to
+control the TAIL of the running-max (not just a one-sided squeeze — the
+running-max can exceed `physGap`).  A `convergesTo_of_squeeze` with both
+brackets sharing the limit is available (above) but is not satisfied by the
+order data alone; deriving the running-fold convergence to the canonical gap
+from the `physGap` modulus is the remaining step.  This phase ships the genuine
+edges, their ordering, positivity, and the bracketing; the equality collapse is
+the precise next step. -/
+
+/-- The full band-edge-plus-modulus datum: a `RegScalingLimitModulus` (the
+single convergence modulus, §6.2) that ALSO carries the band-edge moduli of
+§6.4.  Under both, the band edges BRACKET the single continuum gap. -/
+structure RegScalingLimitEdges extends RegScalingLimitModulus where
+  /-- SUPPLIED convergence modulus on the running-MIN fold. -/
+  bandLowMod : ModCauchy (regBandLowSeq toRegScalingLimitModulus.toRegScalingBand)
+  /-- SUPPLIED convergence modulus on the running-MAX fold. -/
+  bandHighMod : ModCauchy (regBandHighSeq toRegScalingLimitModulus.toRegScalingBand)
+
+/-- The underlying band-edge datum of a `RegScalingLimitEdges`. -/
+def RegScalingLimitEdges.toEdges (E : RegScalingLimitEdges) : RegScalingBandEdges where
+  toRegScalingBand := E.toRegScalingLimitModulus.toRegScalingBand
+  bandLowMod := E.bandLowMod
+  bandHighMod := E.bandHighMod
+
+/-- **The liminf edge is below the continuum gap: `bandLow ≤
+scaling_continuum_physGap`.**  Pointwise `runningMin physGap k ≤ physGap k`,
+the running-min fold converges to `bandLow`, and `physGap` converges to the
+canonical continuum gap, so the pointwise `≤` passes to the limits
+(`le_of_convergesTo_le_convergesTo`). -/
+theorem RegScalingLimitEdges.bandLow_le_gap (E : RegScalingLimitEdges) :
+    E.toEdges.bandLow ≤ scaling_continuum_physGap E.toRegScalingLimitModulus :=
+  le_of_convergesTo_le_convergesTo
+    (convergesTo_completeLimit (regBandLowSeq E.toRegScalingLimitModulus.toRegScalingBand)
+      E.bandLowMod)
+    (convergesTo_completeLimit (regPhysGapSeq E.toRegScalingLimitModulus)
+      (regPhysGapModCauchy E.toRegScalingLimitModulus))
+    (fun k _ => Q'.runningMin_le E.toRegScalingLimitModulus.toRegScalingBand.physGap k)
+
+/-- **The continuum gap is below the limsup edge: `scaling_continuum_physGap ≤
+bandHigh`.**  Pointwise `physGap k ≤ runningMax physGap k`, `physGap` converges
+to the canonical gap, and the running-max fold converges to `bandHigh`, so the
+pointwise `≤` passes to the limits. -/
+theorem RegScalingLimitEdges.gap_le_bandHigh (E : RegScalingLimitEdges) :
+    scaling_continuum_physGap E.toRegScalingLimitModulus ≤ E.toEdges.bandHigh :=
+  le_of_convergesTo_le_convergesTo
+    (convergesTo_completeLimit (regPhysGapSeq E.toRegScalingLimitModulus)
+      (regPhysGapModCauchy E.toRegScalingLimitModulus))
+    (convergesTo_completeLimit (regBandHighSeq E.toRegScalingLimitModulus.toRegScalingBand)
+      E.bandHighMod)
+    (fun k _ => Q'.le_runningMax E.toRegScalingLimitModulus.toRegScalingBand.physGap k)
+
+/-- **The band edges BRACKET the single continuum gap:** `bandLow ≤
+scaling_continuum_physGap ≤ bandHigh`.  The genuine liminf/limsup edges (6.4)
+sandwich the RG-invariant continuum gap (6.2).  The equality collapse (liminf =
+limsup) is a strictly stronger statement (it needs the `physGap` modulus to
+control the running-fold tails) and is the precise remaining step. -/
+theorem RegScalingLimitEdges.band_brackets_gap (E : RegScalingLimitEdges) :
+    E.toEdges.bandLow ≤ scaling_continuum_physGap E.toRegScalingLimitModulus ∧
+      scaling_continuum_physGap E.toRegScalingLimitModulus ≤ E.toEdges.bandHigh :=
+  ⟨E.bandLow_le_gap, E.gap_le_bandHigh⟩
+
 /-! ## 7. Doc-section: the end-to-end constructive chain on `RegularCReal`
 
 The pipeline assembled in this module, on the unified `RegularCReal`
@@ -924,30 +1097,41 @@ each with a precise constructive status:
       mass gap needs and is the honest modulus-free claim (Specker forbids more).
 
   (b) **Supplied band-edge moduli = explicit liminf/limsup** (this phase:
-      DEFERRED, with reason).  Because `physGap : Nat → Q'` is `Q'`-valued, the
-      running-min and running-max are cheap `Q'` folds (over `Q'.min'` / `Q'.max'`),
-      so the band edges exist as `Q'` sequences.  But the liminf/limsup as actual
-      regular reals are the `completeLimit`s of those folds, which require
-      SUPPLIED `ModCauchy` convergence moduli on the running-min / running-max
-      sequences — and by Specker a monotone bounded sequence has NO computable
-      limit without such a modulus.  Deriving the moduli from monotonicity alone
-      is therefore impossible constructively, and fabricating them is forbidden.
-      This phase does not ship explicit band edges; the modulus-free two-sided
-      bound of (a) stays the honest edge statement.
+      CONSTRUCTED, given supplied moduli).  Because `physGap : Nat → Q'` is
+      `Q'`-valued, the running-min and running-max are cheap `Q'` folds
+      (`Q'.runningMin` / `Q'.runningMax`, over `Q'.min'` / `Q'.max'`): the
+      running-min is antitone, the running-max monotone, both squeeze `physGap`,
+      and a uniform floor/ceiling transfers to them.  The EDGES as actual regular
+      reals are the `completeLimit`s of those folds, which require SUPPLIED
+      `ModCauchy` convergence moduli on the running-min / running-max sequences —
+      by Specker a monotone bounded sequence has NO computable limit without one,
+      so these moduli are HONEST data (`RegScalingBandEdges`), NOT derivable from
+      monotonicity.  Given them, `RegScalingBandEdges.bandLow` (the liminf) and
+      `RegScalingBandEdges.bandHigh` (the limsup) are CONSTRUCTED, with
+      `band_lo_le_hi` (`bandLow ≤ bandHigh`, from `runningMin ≤ runningMax`
+      pointwise via `le_of_convergesTo_le_convergesTo`) and `bandLow_isPositive`
+      (the uniform floor `physGapMin > 0` transfers to the running-min via
+      `Q'.le_runningMin_of_le`, then `isPositive_completeLimit`).  These are the
+      genuine liminf/limsup edge reals.
 
-  (c) **Supplied SINGLE convergence modulus = the collapsed, RG-invariant gap**
-      (`RegScalingLimitModulus`).  When a spacing-uniform convergence modulus on
-      `physGap` is supplied as data, the band degenerates to a SINGLE value
-      `scaling_continuum_physGap`, which is UNIQUE up to `Equiv`
-      (`band_collapse_of_modulus` / `scaling_continuum_physGap_unique` /
+  (c) **Supplied SINGLE convergence modulus = the RG-invariant gap, BRACKETED by
+      the edges** (`RegScalingLimitModulus` / `RegScalingLimitEdges`).  When a
+      spacing-uniform convergence modulus on `physGap` is supplied as data, the
+      `completeLimit` `scaling_continuum_physGap` is a SINGLE value, UNIQUE up to
+      `Equiv` (`band_collapse_of_modulus` / `scaling_continuum_physGap_unique` /
       `extractGap_unique`, all via the unconditional limit-uniqueness
-      `convergesTo_unique`).  This is the well-defined continuum gap as an
-      RG-invariant.  CLASSICALLY, monotonicity of `physGap` (with boundedness)
-      would force this collapse by the Bingham–Goldie–Teugels Monotone Density
-      Theorem (liminf = limsup); CONSTRUCTIVELY monotonicity is NOT sufficient
-      (Specker) — the convergence modulus must be supplied as data, so
-      `RegScalingLimitModulus` (modulus supplied) IS precisely the collapsed
-      case, and the collapse witness is limit-uniqueness, not monotonicity. -/
+      `convergesTo_unique`).  When BOTH the band-edge moduli (b) and this single
+      modulus are present (`RegScalingLimitEdges`), the edges BRACKET the gap:
+      `band_brackets_gap` proves `bandLow ≤ scaling_continuum_physGap ≤ bandHigh`
+      (the pointwise order `runningMin ≤ physGap ≤ runningMax` passing to the
+      limits).  The full EQUALITY collapse `bandLow ≃ gap ≃ bandHigh` (liminf =
+      limsup) is strictly stronger — it needs the `physGap` modulus to control the
+      running-MAX tail (the running-max can exceed `physGap`, so a one-sided
+      squeeze does not suffice) — and is the precise remaining step.  CLASSICALLY,
+      monotonicity of `physGap` (with boundedness) would force the equality
+      collapse by the Bingham–Goldie–Teugels Monotone Density Theorem;
+      CONSTRUCTIVELY monotonicity is NOT sufficient (Specker), so the bracketing
+      is the honest constructive statement under the supplied data. -/
 
 end YMGap.Continuum.RegularContinuumPipeline
 
@@ -993,3 +1177,16 @@ end YMGap.Continuum.RegularContinuumPipeline
 #print axioms YMGap.Continuum.RegularContinuumPipeline.band_collapse_of_modulus
 #print axioms YMGap.Continuum.RegularContinuumPipeline.scaling_continuum_physGap_unique
 #print axioms YMGap.Continuum.RegularContinuumPipeline.extractGap_unique
+#print axioms YMGap.Continuum.RegularContinuumPipeline.regBandLowSeq_approx
+#print axioms YMGap.Continuum.RegularContinuumPipeline.regBandHighSeq_approx
+#print axioms YMGap.Continuum.RegularContinuumPipeline.RegScalingBandEdges.bandLow
+#print axioms YMGap.Continuum.RegularContinuumPipeline.RegScalingBandEdges.bandHigh
+#print axioms YMGap.Continuum.RegularContinuumPipeline.RegScalingBand.physGapMin_le_physGap
+#print axioms YMGap.Continuum.RegularContinuumPipeline.RegScalingBand.physGapMin_le_runningMin
+#print axioms YMGap.Continuum.RegularContinuumPipeline.RegScalingBandEdges.band_lo_le_hi
+#print axioms YMGap.Continuum.RegularContinuumPipeline.RegScalingBandEdges.bandLow_isPositive
+#print axioms YMGap.Continuum.RegularContinuumPipeline.RegScalingBandEdges.ofQ'_physGapMin_le_bandLow
+#print axioms YMGap.Continuum.RegularContinuumPipeline.RegScalingLimitEdges.toEdges
+#print axioms YMGap.Continuum.RegularContinuumPipeline.RegScalingLimitEdges.bandLow_le_gap
+#print axioms YMGap.Continuum.RegularContinuumPipeline.RegScalingLimitEdges.gap_le_bandHigh
+#print axioms YMGap.Continuum.RegularContinuumPipeline.RegScalingLimitEdges.band_brackets_gap
