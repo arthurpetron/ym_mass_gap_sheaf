@@ -171,6 +171,7 @@ import YMGap.Continuum.ProductFloor
 import YMGap.Continuum.HeatKernelPersistence
 import YMGap.Continuum.PhysicalSeparator
 import YMGap.Continuum.HeatKernelLinearBound
+import YMGap.Continuum.HeatKernelRGStep
 import YMGap.Continuum.PerScaleContraction
 import YMGap.Continuum.PerScaleCompose
 import YMGap.BufferShell
