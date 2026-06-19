@@ -168,6 +168,7 @@ import YMGap.Continuum.NonSaturatedFloor
 import YMGap.Continuum.RegularContinuumPipeline
 import YMGap.Continuum.RGGapPersistence
 import YMGap.Continuum.ProductFloor
+import YMGap.Continuum.ExpProductFloor
 import YMGap.Continuum.HeatKernelPersistence
 import YMGap.Continuum.PhysicalSeparator
 import YMGap.Continuum.HeatKernelLinearBound
