@@ -183,6 +183,7 @@ import YMGap.Categorical.BudgetDomination
 import YMGap.Continuum.ReflectionDagger
 import YMGap.Continuum.DynamicToStaticGap
 import YMGap.Continuum.BareAFDiagnostic
+import YMGap.Continuum.NonAbelianGapChain
 -- NOTE: `YMGap.PolyAtlas` and `YMGap.ModuliAlgebra` are non-load-bearing
 -- expository/design-closure scaffolding (their own headers state "NOT
 -- load-bearing"); no other module imports them and nothing references their
