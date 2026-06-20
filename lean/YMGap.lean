@@ -206,6 +206,7 @@ import YMGap.Continuum.FusionResidualBound
 import YMGap.Continuum.AFTrajectoryCertificate
 import YMGap.Continuum.ContinuumYMStack
 import YMGap.Continuum.FusionQuotientCollapse
+import YMGap.Continuum.FusionRDFactor
 -- NOTE: `YMGap.PolyAtlas` and `YMGap.ModuliAlgebra` are non-load-bearing
 -- expository/design-closure scaffolding (their own headers state "NOT
 -- load-bearing"); no other module imports them and nothing references their
