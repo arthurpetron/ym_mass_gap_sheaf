@@ -191,6 +191,7 @@ import YMGap.Continuum.NonAbelianGapChain
 import YMGap.Continuum.BondMovingStep
 import YMGap.Continuum.BondMovingQuadratic
 import YMGap.Continuum.AFRateCalibration
+import YMGap.Continuum.AFReciprocalRate
 import YMGap.Continuum.SummabilityCapstone
 -- NOTE: `YMGap.PolyAtlas` and `YMGap.ModuliAlgebra` are non-load-bearing
 -- expository/design-closure scaffolding (their own headers state "NOT
