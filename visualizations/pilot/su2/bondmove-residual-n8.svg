@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="460" font-family="sans-serif">
+<rect width="720" height="460" fill="white"/>
+<text x="360.0" y="22" text-anchor="middle" font-size="15" font-weight="bold">SU(2) bond-moving residual (n=8): envelope -&gt; const vs genuine ~ tau^2</text>
+<line x1="70" y1="40" x2="70" y2="405" stroke="black"/><line x1="70" y1="405" x2="560" y2="405" stroke="black"/>
+<text x="315.0" y="442" text-anchor="middle" font-size="12">retuned tau  (log scale; continuum tau-&gt;0 at left)</text>
+<text x="18" y="222.5" text-anchor="middle" font-size="12" transform="rotate(-90 18 222.5)">per-step defect (log)</text>
+<polyline fill="none" stroke="#c0392b" stroke-width="2.5" points="560.0,41.2 488.8,40.5 424.9,40.2 364.0,40.1 304.4,40.1 245.5,40.0 186.9,40.0 128.4,40.0 70.0,40.0"/><circle cx="560.0" cy="41.2" r="3.5" fill="#c0392b"/><circle cx="488.8" cy="40.5" r="3.5" fill="#c0392b"/><circle cx="424.9" cy="40.2" r="3.5" fill="#c0392b"/><circle cx="364.0" cy="40.1" r="3.5" fill="#c0392b"/><circle cx="304.4" cy="40.1" r="3.5" fill="#c0392b"/><circle cx="245.5" cy="40.0" r="3.5" fill="#c0392b"/><circle cx="186.9" cy="40.0" r="3.5" fill="#c0392b"/><circle cx="128.4" cy="40.0" r="3.5" fill="#c0392b"/><circle cx="70.0" cy="40.0" r="3.5" fill="#c0392b"/>
+<polyline fill="none" stroke="#1565c0" stroke-width="2.5" points="560.0,162.8 488.8,198.1 424.9,229.6 364.0,259.7 304.4,289.1 245.5,318.3 186.9,347.2 128.4,376.1 70.0,405.0"/><circle cx="560.0" cy="162.8" r="3.5" fill="#1565c0"/><circle cx="488.8" cy="198.1" r="3.5" fill="#1565c0"/><circle cx="424.9" cy="229.6" r="3.5" fill="#1565c0"/><circle cx="364.0" cy="259.7" r="3.5" fill="#1565c0"/><circle cx="304.4" cy="289.1" r="3.5" fill="#1565c0"/><circle cx="245.5" cy="318.3" r="3.5" fill="#1565c0"/><circle cx="186.9" cy="347.2" r="3.5" fill="#1565c0"/><circle cx="128.4" cy="376.1" r="3.5" fill="#1565c0"/><circle cx="70.0" cy="405.0" r="3.5" fill="#1565c0"/>
+<rect x="566" y="50" width="150" height="78" fill="#fafafa" stroke="#ccc"/>
+<circle cx="578" cy="68" r="4" fill="#c0392b"/><text x="590" y="72" font-size="11">envelope C4^2</text>
+<text x="590" y="86" font-size="10" fill="#c0392b">~tau^-0.01 (const)</text>
+<circle cx="578" cy="102" r="4" fill="#1565c0"/><text x="590" y="106" font-size="11">genuine r_s/Ktau</text>
+<text x="590" y="120" font-size="10" fill="#1565c0">~tau^+2.00, M≈10.5</text>
+</svg>
