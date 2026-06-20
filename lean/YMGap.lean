@@ -199,6 +199,7 @@ import YMGap.Continuum.AFReciprocalRate
 import YMGap.Continuum.SummabilityCapstone
 import YMGap.Continuum.FullModeAssembly
 import YMGap.Continuum.CasimirMoment
+import YMGap.Continuum.MovingCutoff
 -- NOTE: `YMGap.PolyAtlas` and `YMGap.ModuliAlgebra` are non-load-bearing
 -- expository/design-closure scaffolding (their own headers state "NOT
 -- load-bearing"); no other module imports them and nothing references their
