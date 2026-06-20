@@ -189,6 +189,7 @@ import YMGap.Continuum.BareAFDiagnostic
 import YMGap.Continuum.HierarchicalGap
 import YMGap.Continuum.NonAbelianGapChain
 import YMGap.Continuum.BondMovingStep
+import YMGap.Continuum.BondMovingScaledNorm
 import YMGap.Continuum.BondMovingQuadratic
 import YMGap.Continuum.AFRateCalibration
 import YMGap.Continuum.AFReciprocalRate
