@@ -201,6 +201,7 @@ import YMGap.Continuum.FullModeAssembly
 import YMGap.Continuum.CasimirMoment
 import YMGap.Continuum.MovingCutoff
 import YMGap.Continuum.PartitionUpperBound
+import YMGap.Continuum.GenuineResidualDefect
 -- NOTE: `YMGap.PolyAtlas` and `YMGap.ModuliAlgebra` are non-load-bearing
 -- expository/design-closure scaffolding (their own headers state "NOT
 -- load-bearing"); no other module imports them and nothing references their
