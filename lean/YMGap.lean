@@ -192,6 +192,7 @@ import YMGap.Continuum.BondMovingStep
 import YMGap.Continuum.BondMovingScaledNorm
 import YMGap.Continuum.FusionPositivity
 import YMGap.Continuum.BondMovingQuadratic
+import YMGap.Continuum.FullModeQuadratic
 import YMGap.Continuum.AFRateCalibration
 import YMGap.Continuum.AFReciprocalRate
 import YMGap.Continuum.SummabilityCapstone
