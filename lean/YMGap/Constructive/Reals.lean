@@ -369,7 +369,7 @@ bridge at the CReal level, which is paper-only at present (Phase
 8.2 deliverable); a Lean type signature consuming a CReal value is
 the natural follow-on once Phase 8.2's bridge is also lifted.
 
-Compared to `MassGap.SU2.mass_gap_SU2`, this version expresses the
+Compared to `MassGap.SU2.mass_gap_SU2_of_osReconstruction`, this version expresses the
 mass bound as a single CReal value rather than a Q'-rational
 threshold gated through three abstract bundles — which is exactly
 the structural upgrade Milestone 7.3 is scoped to deliver. -/

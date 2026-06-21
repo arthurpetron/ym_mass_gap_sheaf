@@ -109,9 +109,12 @@ All axiom-clean (`[propext]`), in the aggregator.
 
 **STEP 2 — DONE (2026-06-15), `Continuum/LocatedReconstruction.lean`:** bridged
 the located gap into the OS-reconstruction datum and exhibited a genuine STRICT
-gap. The bare `SpectralGapBound`/`OSReconstruction.HasSpectralGap` never required
-`gapBound < 1` (so the "gap" could be vacuous); this module supplies the
-strictness:
+gap. The bare `SpectralGapBound` does not by itself require `gapBound < 1`; this
+module supplies the strictness on the reconstruction datum. (As of the 2026-06-21
+honesty audit, `OSReconstruction` ALSO carries `gapBound_lt_one : gapBound < 1`
+as a structural field, so `OSReconstruction.HasSpectralGap` now entails a genuine
+geometric decay — `HasSpectralGap.clustering`/`HasSpectralGap.gapBound_lt_one` —
+rather than a possibly-vacuous `gapBound = 1`.)  This module:
   * `locatedGap_of_reconstruction` — from a `FiniteVolumeReconstruction` + the
     strictness `gapBound < 1`, builds the `LocatedSpectralGap` (depends on NO
     axioms);

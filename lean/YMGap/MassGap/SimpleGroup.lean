@@ -4,7 +4,7 @@ Mass gap for *every* compact simple gauge group — the uniform
 
 # What this module delivers
 
-`MassGap/SU2.lean` proves the SU(2) mass gap (`mass_gap_SU2`) by pairing
+`MassGap/SU2.lean` proves the SU(2) mass gap (`mass_gap_SU2_of_osReconstruction`) by pairing
 a Q'-rational lower bound `m_0 = 999/1000` (with `m_0² ≤ σ̂∞ = 9991/10000`)
 against the paper-supplied OS-reconstruction spectral-gap interface.  The
 σ̂∞ bound there is `1 − Σ η_k` at SU(2)'s budget.
@@ -28,10 +28,10 @@ mass-gap witness `m_0 = 999/1000` transports verbatim.
   * `budget_closes_uniform R hadm w` — the unconditional all-truncations
     σ̂-budget closure for `R`, derived (no per-group `decide`) from
     `monotone_budget` + the proven `su2_budget_closes`.
-  * `mass_gap_simple_group R hadm w rec bundle` — the §0 target: an
+  * `mass_gap_simple_group_of_osReconstruction R hadm w rec bundle` — the §0 target: an
     explicit `m_0 : Q'` with `0 < m_0`, `m_0² ≤ ε` (the transported SU(2)
     floor), and the OS spectral-gap conjunct `HasSpectralGap rec`.  Same
-    formal/paper boundary as `mass_gap_SU2`.
+    formal/paper boundary as `mass_gap_SU2_of_osReconstruction`.
   * `mass_gap_SU3` — the near-free SU(3) corollary: SU(3) is admissible
     (`su3_admissible`) and η-dominated (`su3_uniform_witness`, by `decide`:
     `13e-6 ≤ 3e-4`), so the top theorem instantiates directly.
@@ -41,13 +41,13 @@ mass-gap witness `m_0 = 999/1000` transports verbatim.
 Everything here is constructive and axiom-clean **modulo** the single
 named field `UniformBudgetWitness.eta_dominated` (`R.eta_max ≤ su2.eta_max`,
 the antitone-in-Δ heat-kernel input) and the OS-reconstruction interface
-Props inherited unchanged from `mass_gap_SU2`.  For the SU(N) instances
+Props inherited unchanged from `mass_gap_SU2_of_osReconstruction`.  For the SU(N) instances
 (SU(2), SU(3)) the witness is discharged by `decide`; for the general
 group it is the paper-layer obligation.
 
 # Axiom-gate (AGENTS.md Rule 1)
 
-`mass_gap_simple_group` composes Q'-rational `decide` facts, the
+`mass_gap_simple_group_of_osReconstruction` composes Q'-rational `decide` facts, the
 `[propext]` budget closure, and the trivial OS bridge; it reports
 `[propext]` (or `[propext, Quot.sound]`).  See the `#print axioms` block.
 -/
@@ -138,20 +138,20 @@ bound.  Given:
   * `w : UniformBudgetWitness R` — the named analytic input pinning SU(2)
     as the worst case (`R.eta_max ≤ su2.eta_max`);
   * `rec`, `bundle` — the OS-reconstruction quintuple and OS-axiom witness
-    (paper-supplied, exactly as in `mass_gap_SU2`);
+    (paper-supplied, exactly as in `mass_gap_SU2_of_osReconstruction`);
 
 we conclude there is an explicit `m_0 : Q'` with `0 < m_0`,
 `m_0² ≤ ε` (the transported σ̂∞ floor `9991/10000`), the OS spectral
 gap `HasSpectralGap rec`, AND the *derived* all-truncations σ̂-budget
 closure for `R` (`∀ N, Σ η_k(R) ≤ σ̂₀`).
 
-The novelty over `mass_gap_SU2`: `R` ranges over *all* simple groups and
+The novelty over `mass_gap_SU2_of_osReconstruction`: `R` ranges over *all* simple groups and
 the budget conjunct is **derived** (`budget_closes_uniform`), not
 re-`decide`d per group — `hadm`/`w` are genuinely load-bearing (the fourth
 conjunct consumes them).  Axiom-gate: `[propext]` / `[propext, Quot.sound]`
 (Q'-rational `decide` facts + the budget-closure `[propext]` + the trivial
 OS bridge). -/
-theorem mass_gap_simple_group
+theorem mass_gap_simple_group_of_osReconstruction
     (R : RepData) (hadm : AdmissibleSimpleGroup R) (w : UniformBudgetWitness R)
     {M : Nat → Type} {μ_inf : ContinuumMeasure M}
     (rec : OSReconstruction μ_inf) (bundle : OSAxiomBundle μ_inf) :
@@ -168,7 +168,7 @@ theorem mass_gap_simple_group
 
 /-! ## The mass-gap INPUT operad
 
-`mass_gap_simple_group` consumes exactly one datum — a `UniformBudgetWitness R`.
+`mass_gap_simple_group_of_osReconstruction` consumes exactly one datum — a `UniformBudgetWitness R`.
 The many entry points below differ ONLY in how that witness is built (gap→η
 monotonicity, the `Z_t` majorant, the scalar rank-collapse data, the activity
 model, the Weyl-character data).  We name those builders as **constructors** of
@@ -176,9 +176,9 @@ the input, turning the former chain of mutually-delegating theorems into an
 explicit *algebra of input adapters* feeding one evaluation.  Each `ofX` is
 independently reusable (build a witness without invoking the mass-gap theorem),
 and every `mass_gap_*_of_X` theorem below becomes a one-line evaluation
-`mass_gap_simple_group R hadm (MassGapInput.ofX …) rec bundle`. -/
+`mass_gap_simple_group_of_osReconstruction R hadm (MassGapInput.ofX …) rec bundle`. -/
 
-/-- The polymorphic mass-gap input: the single datum `mass_gap_simple_group`
+/-- The polymorphic mass-gap input: the single datum `mass_gap_simple_group_of_osReconstruction`
 consumes.  An `abbrev` of `UniformBudgetWitness R` so the base theorem's
 signature is unchanged; the `MassGapInput.*` constructors are the operad's
 operations (the witness-building adapters).  (`UniformBudgetWitness` is a
@@ -258,7 +258,7 @@ end MassGapInput
 
 /-! ## Mass gap from the gap → η monotonicity obligation
 
-`mass_gap_simple_group` consumes the raw η-domination witness
+`mass_gap_simple_group_of_osReconstruction` consumes the raw η-domination witness
 `UniformBudgetWitness R` (whose load-bearing field is
 `eta_dominated : R.eta_max ≤ su2.eta_max`).  The uniform character-tail
 analysis (`RG/CharacterTailAntitone.lean`) reduces that field to the
@@ -282,7 +282,7 @@ theorem mass_gap_simple_group_of_gapMonotone
       m_0 * m_0 ≤ sigma_hat_inf_lower_uniform ∧
       HasSpectralGap rec ∧
       (∀ N, finSum (truncatedConst R.K_steps R.eta_max) N ≤ su2.sigma0) :=
-  mass_gap_simple_group R hadm (MassGapInput.ofGapMonotone R hadm hmono hwin) rec bundle
+  mass_gap_simple_group_of_osReconstruction R hadm (MassGapInput.ofGapMonotone R hadm hmono hwin) rec bundle
 
 /-! ## Mass gap from the rank-general `Z_t` majorant (the honest unconditional path)
 
@@ -307,7 +307,7 @@ theorem mass_gap_simple_group_of_ztMajorant
       m_0 * m_0 ≤ sigma_hat_inf_lower_uniform ∧
       HasSpectralGap rec ∧
       (∀ N, finSum (truncatedConst R.K_steps R.eta_max) N ≤ su2.sigma0) :=
-  mass_gap_simple_group R hadm (MassGapInput.ofZtMajorant R hadm bridge hwin) rec bundle
+  mass_gap_simple_group_of_osReconstruction R hadm (MassGapInput.ofZtMajorant R hadm bridge hwin) rec bundle
 
 /-! ## Mass gap with `rank_collapse` discharged from the scalar sum bound
 
@@ -344,7 +344,7 @@ theorem mass_gap_simple_group_of_rankCollapseData
       m_0 * m_0 ≤ sigma_hat_inf_lower_uniform ∧
       HasSpectralGap rec ∧
       (∀ N, finSum (truncatedConst R.K_steps R.eta_max) N ≤ su2.sigma0) :=
-  mass_gap_simple_group R hadm
+  mass_gap_simple_group_of_osReconstruction R hadm
     (MassGapInput.ofRankCollapseData R hadm r sR sFloor su2Zt
       hsR_nn hsR_le hFloor_nn hwin hcap eta_of_zt hKwin) rec bundle
 
@@ -399,7 +399,7 @@ theorem mass_gap_simple_group_of_modelData
       m_0 * m_0 ≤ sigma_hat_inf_lower_uniform ∧
       HasSpectralGap rec ∧
       (∀ N, finSum (truncatedConst R.K_steps R.eta_max) N ≤ su2.sigma0) :=
-  mass_gap_simple_group R hadm
+  mass_gap_simple_group_of_osReconstruction R hadm
     (MassGapInput.ofModelData R hadm r sR sFloor su2Zt
       hsR_nn hsR_le hFloor_nn hwin hcap m hZtR hZtsu2 hKwin) rec bundle
 
@@ -444,7 +444,7 @@ theorem mass_gap_simple_group_of_weylData
       m_0 * m_0 ≤ sigma_hat_inf_lower_uniform ∧
       HasSpectralGap rec ∧
       (∀ N, finSum (truncatedConst R.K_steps R.eta_max) N ≤ su2.sigma0) :=
-  mass_gap_simple_group R hadm
+  mass_gap_simple_group_of_osReconstruction R hadm
     (MassGapInput.ofWeylData R hadm b su2Zt hwin hcap m hZtR hZtsu2 hKwin) rec bundle
 
 /-! ## SU(3) corollary — the near-free instance
@@ -460,7 +460,7 @@ theorem su3_uniform_witness : UniformBudgetWitness su3 where
   same_window   := by decide
   eta_dominated := by decide
 
-/-- **Mass gap for SU(3)** — a corollary of `mass_gap_simple_group` at the
+/-- **Mass gap for SU(3)** — a corollary of `mass_gap_simple_group_of_osReconstruction` at the
 admissible, η-dominated instance `su3`.  No new analysis: SU(3)'s
 admissibility floors and η-domination are both `decide`-able. -/
 theorem mass_gap_SU3
@@ -471,7 +471,7 @@ theorem mass_gap_SU3
       m_0 * m_0 ≤ sigma_hat_inf_lower_uniform ∧
       HasSpectralGap rec ∧
       (∀ N, finSum (truncatedConst su3.K_steps su3.eta_max) N ≤ su2.sigma0) :=
-  mass_gap_simple_group su3 su3_admissible su3_uniform_witness rec bundle
+  mass_gap_simple_group_of_osReconstruction su3 su3_admissible su3_uniform_witness rec bundle
 
 /-- **Mass gap for SU(3) via the Weyl-character structural path.**
 
@@ -568,7 +568,7 @@ theorem mass_gap_SU2_via_uniform
       m_0 * m_0 ≤ sigma_hat_inf_lower_uniform ∧
       HasSpectralGap rec ∧
       (∀ N, finSum (truncatedConst su2.K_steps su2.eta_max) N ≤ su2.sigma0) :=
-  mass_gap_simple_group su2 su2_admissible su2_uniform_witness rec bundle
+  mass_gap_simple_group_of_osReconstruction su2 su2_admissible su2_uniform_witness rec bundle
 
 end YMGap.MassGap.SimpleGroup
 
@@ -578,7 +578,7 @@ end YMGap.MassGap.SimpleGroup
 #print axioms YMGap.MassGap.SimpleGroup.closureCertificate_of_admissible
 #print axioms YMGap.MassGap.SimpleGroup.m_0_uniform_positive
 #print axioms YMGap.MassGap.SimpleGroup.m_0_uniform_squared_le
-#print axioms YMGap.MassGap.SimpleGroup.mass_gap_simple_group
+#print axioms YMGap.MassGap.SimpleGroup.mass_gap_simple_group_of_osReconstruction
 #print axioms YMGap.MassGap.SimpleGroup.MassGapInput.ofGapMonotone
 #print axioms YMGap.MassGap.SimpleGroup.MassGapInput.ofZtMajorant
 #print axioms YMGap.MassGap.SimpleGroup.MassGapInput.ofRankCollapseData

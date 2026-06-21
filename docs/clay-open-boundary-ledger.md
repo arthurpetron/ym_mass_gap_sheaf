@@ -25,11 +25,19 @@ reports at most `propext` and `Quot.sound` (both MLTT/HoTT-valid), with no
 
 ### R1 — Mass gap for ALL compact simple gauge groups
 
-- **PROVED in Lean.** The reduction of all compact simple groups to the
-  single worst case SU(2) is assembled axiom-clean:
-  `YMGap.MassGap.SimpleGroup.mass_gap_simple_group` (the global minima
-  `h∨ = 2`, `Δ = 3/4` are attained at SU(2) = A₁; the rep-theory floor for
-  all fundamental weights and all N is in `RG/SUNWeylData.lean`).
+- **PROVED in Lean (CONDITIONAL on a supplied OS reconstruction).** The
+  reduction of all compact simple groups to the single worst case SU(2) is
+  assembled axiom-clean:
+  `YMGap.MassGap.SimpleGroup.mass_gap_simple_group_of_osReconstruction`
+  (renamed from `mass_gap_simple_group` per the 2026-06-21 audit so the name
+  signals the OS-reconstruction hypothesis; the global minima `h∨ = 2`,
+  `Δ = 3/4` are attained at SU(2) = A₁; the rep-theory floor for all
+  fundamental weights and all N is in `RG/SUNWeylData.lean`).  The SU(2) leaf
+  is `YMGap.MassGap.SU2.mass_gap_SU2_of_osReconstruction`.  The spectral
+  conjunct is genuine: the supplied `OSReconstruction` now carries
+  `gapBound < 1` structurally (`gapBound_lt_one`), so `HasSpectralGap`
+  entails a real geometric decay (`HasSpectralGap.clustering`), not a
+  vacuous `gapBound = 1`.
 - **GENUINELY OPEN.** Nothing at the R1 *level* is open as research
   mathematics: R1 is a finite classification discharged by one worst-case
   reduction. Its remaining dependency is the analytic content of R2/R3 for
@@ -213,11 +221,20 @@ finite / lattice-level fact now in Lean feeding that carrier. The
 - **PROVED in Lean.** The OS-reconstruction interface and its consumption are
   in place: `YMGap.Continuum.OSReconstruction` (the abstract reconstruction
   quintuple `(H_∞, Ω_0, U(t), H_op)` with `H_op ≥ 0`, `H_op Ω_0 = 0`,
-  `U(t) = exp(−t H_op)` as named Prop laws), and
+  `U(t) = exp(−t H_op)`), and
   `FourDExistence.ym_mass_gap_of_existence` (existence ⇒ positive spectral
   gap, a pure projection out of the hypothesis, axiom-clean). The
   finite-volume GNS construction and the located reconstruction datum are in
   `FiniteVolumeGNS.lean` / `LocatedReconstruction.lean`.
+- **The four reconstruction laws are HONEST OBLIGATIONS, not `True`.** Per the
+  2026-06-21 audit (`docs/clay-requirements-audit-2026-06-21.md`), the four
+  reconstruction laws `VacuumNormalized`, `HamiltonianNonneg`,
+  `VacuumAnnihilated`, `SemigroupGenerated` — formerly `def _ : Prop := True`
+  vacuous stubs — are now GENUINE abstract `Prop` predicates read off the
+  carriers (`law_witness` / `nonneg_law` / `annihilation_law` /
+  `generation_law` fields). A caller of `os_reconstruct_su2` must SUPPLY a
+  proof of each; nothing reads as `True`-content. These are the paper-level
+  Pour-El–Richards boundary carried as explicit obligations.
 - **GENUINELY OPEN.** The genuine construction of the interacting continuum
   Hamiltonian as a self-adjoint operator with the correct spectrum from the
   reconstructed Hilbert space — i.e. inhabiting `OSReconstruction` for the
@@ -233,7 +250,7 @@ finite / lattice-level fact now in Lean feeding that carrier. The
 
 | Item | Proved-in-Lean precursor (theorem) | Open remainder | Open-part character |
 |---|---|---|---|
-| R1 | `mass_gap_simple_group` | analytic content of SU(2) worst case (= R2/R3) | engineering/wiring |
+| R1 | `mass_gap_simple_group_of_osReconstruction` (conditional on supplied OS recon) | analytic content of SU(2) worst case (= R2/R3) | engineering/wiring |
 | R2 | `OSAxiomBundle`, `reflectionPositiveSchwinger_holds` | full-measure 4D continuum `μ_∞` satisfying OS | open research math |
 | R3 | `decay_of_spectralGap_corr0`, located finite gap | continuum spectral theorem for `H_op` | open research math |
 | UV freedom | `betaZero_pos`, `invRunningCoupling_strictMono` | nonperturbative continuum running | open research math |
@@ -242,6 +259,44 @@ finite / lattice-level fact now in Lean feeding that carrier. The
 | O(4) restoration | `o4_restoration_on_charAlg` (id only) + `heatKernel_not_equivariant_under_collapse` | (1) non-trivial `H₄` rotation `*`-hom; (2) continuum O(4) restoration | (1) engineering; (2) open research math |
 | Continuum-limit interface | `ProbFunctional.restrict`, `continuumMeasure`, `expectation_stable` | actual YM RG-consistent limit + σ-additive extension | open research math (+ wiring) |
 | Interacting-operator construction | `OSReconstruction`, `ym_mass_gap_of_existence` | construct continuum self-adjoint `H_op` with spectrum | open research math |
+
+## Addendum (2026-06-21): honesty-hardening of the four audited blemishes
+
+The full-tree audit (`docs/clay-requirements-audit-2026-06-21.md`) flagged four
+honesty blemishes where a claim outran its content. All four are now fixed as
+non-breaking refactors (no new mathematics; the build stays green and
+axiom-clean, `propext`/`Quot.sound` only):
+
+1. **Spectral conjunct strengthened.** `OSReconstruction` now carries
+   `gapBound_lt_one : gapBound < 1` as a structural field (mirroring the
+   `LocatedReconstruction`/`FiniteVolumeReconstruction` path). With `μ < 1` the
+   bound `G(n) ≤ G(0)·μⁿ` (`HasSpectralGap.clustering`) is a REAL geometric
+   decay, and `HasSpectralGap.gapBound_lt_one` surfaces the positive gap. The
+   former wiring admitted `gapBound = 1` (no decay).
+
+2. **Four `Prop := True` stubs removed.** `VacuumNormalized`,
+   `HamiltonianNonneg`, `VacuumAnnihilated`, `SemigroupGenerated` are now
+   genuine abstract `Prop` predicates read off carrier fields
+   (`law_witness`/`nonneg_law`/`annihilation_law`/`generation_law`), supplied
+   by the caller — honest open obligations, not vacuous content.
+
+3. **Degenerate cluster witnesses relabeled.** The constant-margin
+   `UniformClusterBound` inhabitants are renamed
+   `ClusterBoundInstance.degenerateConstClusterBound` and
+   `SigmaGroundedFloor.degenerateSigmaGroundedClusterBound`, with loud
+   `⚠ DEGENERATE PLACEHOLDER` doc banners. They inhabit the TYPE via a constant
+   `sep`, `tailConst = 0` family (the tail vanishes trivially); the genuine
+   strong-coupling cluster-EXPANSION instance remains OPEN. The prose no longer
+   claims cluster physics.
+
+4. **Headline theorems renamed for honest conditionality.**
+   `mass_gap_SU2 → mass_gap_SU2_of_osReconstruction` and
+   `mass_gap_simple_group → mass_gap_simple_group_of_osReconstruction`, matching
+   the `constructive_YM4_gap_conditional` convention so the NAME signals
+   "conditional on a supplied OS reconstruction." All references updated.
+
+None of this discharges any Clay obligation; it makes the claims match the
+content.
 
 ## Addendum (2026-06-17): the constructive `RegularCReal` continuum pipeline
 

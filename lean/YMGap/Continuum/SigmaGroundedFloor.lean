@@ -40,6 +40,12 @@ This module:
 
 # Honesty
 
+⚠ The `UniformClusterBound` built here (`degenerateSigmaGroundedClusterBound`) is
+a DEGENERATE PLACEHOLDER, exactly as in `ClusterBoundInstance`: it inhabits the
+type via a CONSTANT (volume-independent) margin family, NOT a cluster-expansion
+estimate.  The genuine strong-coupling cluster bound is OPEN.  The only content
+beyond the const witness is that the FLOOR is σ̂-derived (`sqrtL`), not arbitrary.
+
 `sqrtL` and `σ̂_∞` are the UV-pilot fiducial values (`sqrtL = 1`, `σ̂_∞ = 1`), not
 the final physical numbers.  The point is structural: the floor is now DERIVED
 from σ̂_∞ via the √-bridge — `sqrtL` is certified by `sqrtL² ≤ σ̂_∞` with
@@ -134,21 +140,25 @@ theorem free_uniform_floor (Λ : Nat) :
   show SqrtBridge.sqrtL ≤ 1 - 0
   decide
 
-/-! ## The σ̂-grounded cluster bound
+/-! ## The σ̂-grounded DEGENERATE cluster bound (placeholder)
 
-Identical in shape to the strong-coupling inhabitant, but with the floor REPLACED
-by the σ̂-derived √-bridge certificate `sqrtL` and the located family the
-saturated free case meeting it.  The cluster tail vanishes (`tailConst = 0`), as
-for a volume-independent gap margin. -/
+⚠ Identical in DEGENERACY to `ClusterBoundInstance.degenerateConstClusterBound`:
+a CONSTANT (volume-independent) margin family, here the saturated free case
+(`sep = 0`, margin `1`), with `tailConst = 0` vanishing trivially.  The only
+difference is the floor is the σ̂-derived √-bridge certificate `sqrtL` instead of
+an arbitrary constant.  The cluster bound is STILL degenerate — no
+cluster-expansion estimate — and the genuine strong-coupling instance is OPEN. -/
 
-/-- **The σ̂-grounded volume-uniform cluster bound, CONSTRUCTED.**  A genuine
-inhabitant of `UniformClusterBound` whose clustering floor `sqrtL` is the
-√-bridge rational lower bound on the physical mass `√σ̂_∞` (`sqrtL² ≤ σ̂_∞`,
-`σ̂_∞ > 0`) — the floor is now DERIVED from the renormalized string tension via
-the √-bridge, not an arbitrary constant.  The located family is the saturated
-free case (`sep = 0`, gap margin `1`) meeting the pilot floor `sqrtL = 1`; the
-cluster tail vanishes (constant margin sequence). -/
-def sigmaGroundedClusterBound : UniformClusterBound where
+/-- **DEGENERATE PLACEHOLDER inhabitant of `UniformClusterBound` (σ̂-grounded
+floor).**  ⚠ Like `ClusterBoundInstance.degenerateConstClusterBound`, this
+inhabits the type via a CONSTANT (volume-independent) margin family — here the
+saturated free case `sep = 0`, gap margin `1`, with `tailConst = 0` vanishing
+trivially.  Its only upgrade over the const witness is that `floorRate` is the
+√-bridge rational `sqrtL` (`sqrtL² ≤ σ̂_∞`, `σ̂_∞ > 0`), so the floor is DERIVED
+from the renormalized string tension rather than an arbitrary constant.  But the
+cluster bound itself is STILL degenerate: no cluster-expansion estimate is made,
+and the genuine strong-coupling instance is **OPEN**. -/
+def degenerateSigmaGroundedClusterBound : UniformClusterBound where
   gaps := freeFamily
   located := freeLocatedAt
   floorRate := sigmaGroundedFloor
@@ -166,12 +176,12 @@ def sigmaGroundedClusterBound : UniformClusterBound where
 
 /-- The σ̂-grounded cluster bound's clustering floor is the √-bridge certificate
 `sqrtL` — the σ̂-derived mass floor. -/
-theorem sigmaGroundedClusterBound_floor :
-    sigmaGroundedClusterBound.floorRate = SqrtBridge.sqrtL := rfl
+theorem degenerateSigmaGroundedClusterBound_floor :
+    degenerateSigmaGroundedClusterBound.floorRate = SqrtBridge.sqrtL := rfl
 
 /-- The σ̂-grounded cluster bound's cluster tail constant vanishes. -/
-theorem sigmaGroundedClusterBound_tailConst :
-    sigmaGroundedClusterBound.tailConst = 0 := rfl
+theorem degenerateSigmaGroundedClusterBound_tailConst :
+    degenerateSigmaGroundedClusterBound.tailConst = 0 := rfl
 
 /-! ## The continuum gap rate of the σ̂-grounded inhabitant -/
 
@@ -179,7 +189,7 @@ theorem sigmaGroundedClusterBound_tailConst :
 the (constant, margin-`1`) saturated-free margin sequence, with floor grounded in
 σ̂_∞ via the √-bridge. -/
 def sigmaGroundedContinuumRate : CReal :=
-  continuumRate sigmaGroundedClusterBound
+  continuumRate degenerateSigmaGroundedClusterBound
 
 /-- Every approximation of the σ̂-grounded continuum rate is the saturated-free
 gap margin `1 − 0`. -/
@@ -199,7 +209,7 @@ strictly-positive constructive real — the end-to-end chain fires on the σ̂-d
 floor. -/
 theorem sigmaGrounded_continuum_mass_isPositive :
     CReal.IsPositive sigmaGroundedContinuumRate :=
-  clusterBound_continuum_mass_isPositive sigmaGroundedClusterBound
+  clusterBound_continuum_mass_isPositive degenerateSigmaGroundedClusterBound
 
 /-- **Capstone (physical floor — the σ̂-grounded continuum mass lower bound).**
 The continuum gap rate dominates the √-bridge rational certificate `sqrtL`:
@@ -208,15 +218,15 @@ the physical mass `√σ̂_∞` (`sqrtL_le_m_0`) — and `sqrtL² ≤ σ̂_∞` 
 the continuum mass gap is grounded in the renormalized string tension via the
 √-bridge, realizing the `m ≥ √σ̂_∞` mass-gap lower bound (R3-style) at the
 continuum-rate level rather than via an arbitrary constant.  Proof: this is
-`floor_persists` at `sigmaGroundedClusterBound`, whose `floorRate` is `sqrtL`. -/
+`floor_persists` at `degenerateSigmaGroundedClusterBound`, whose `floorRate` is `sqrtL`. -/
 theorem sigmaGrounded_continuum_mass_ge_sqrtL :
     CReal.ofQ' SqrtBridge.sqrtL ≤ sigmaGroundedContinuumRate :=
-  floor_persists sigmaGroundedClusterBound
+  floor_persists degenerateSigmaGroundedClusterBound
 
 /-- **Capstone (packaged).**  The σ̂-grounded continuum mass as `Type`-level data
 with its positivity proof. -/
 def sigmaGrounded_continuum_gap_bridge : Σ' m : CReal, CReal.IsPositive m :=
-  clusterBound_continuum_gap_bridge sigmaGroundedClusterBound
+  clusterBound_continuum_gap_bridge degenerateSigmaGroundedClusterBound
 
 /-- The packaged mass is exactly the σ̂-grounded continuum rate. -/
 theorem sigmaGrounded_bridge_fst :
@@ -230,9 +240,9 @@ end YMGap.Continuum.SigmaGroundedFloor
 #print axioms YMGap.Continuum.SigmaGroundedFloor.sigmaGroundedFloor_pos
 #print axioms YMGap.Continuum.SigmaGroundedFloor.freeLocated
 #print axioms YMGap.Continuum.SigmaGroundedFloor.free_uniform_floor
-#print axioms YMGap.Continuum.SigmaGroundedFloor.sigmaGroundedClusterBound
-#print axioms YMGap.Continuum.SigmaGroundedFloor.sigmaGroundedClusterBound_floor
-#print axioms YMGap.Continuum.SigmaGroundedFloor.sigmaGroundedClusterBound_tailConst
+#print axioms YMGap.Continuum.SigmaGroundedFloor.degenerateSigmaGroundedClusterBound
+#print axioms YMGap.Continuum.SigmaGroundedFloor.degenerateSigmaGroundedClusterBound_floor
+#print axioms YMGap.Continuum.SigmaGroundedFloor.degenerateSigmaGroundedClusterBound_tailConst
 #print axioms YMGap.Continuum.SigmaGroundedFloor.sigmaGroundedContinuumRate
 #print axioms YMGap.Continuum.SigmaGroundedFloor.sigmaGroundedContinuumRate_approx
 #print axioms YMGap.Continuum.SigmaGroundedFloor.sigmaGrounded_continuum_mass_isPositive

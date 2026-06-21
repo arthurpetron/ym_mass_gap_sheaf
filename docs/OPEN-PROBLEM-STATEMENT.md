@@ -133,7 +133,8 @@ Each arrow is a Lean theorem depending only on `propext`/`Quot.sound`.
 
 ```
 Clay gap for all compact simple G
-   ⟸  [worst-case reduction]              MassGap/SimpleGroup.mass_gap_simple_group
+   ⟸  [worst-case reduction, CONDITIONAL    MassGap/SimpleGroup.mass_gap_simple_group_of_osReconstruction
+        on a supplied OS reconstruction]
 SU(2) continuum mass gap
    ⟸  [located gap survives a→0]          RegScalingBand.band_gap_survives
 "physGapMin > 0"
@@ -156,6 +157,20 @@ gap for all compact simple groups.
 (No part of this chain assumes the open inequality; `RGGapPersistence`,
 `HeatKernelResidual`, and `RegScalingBand.physGapMin` are *named obligations*, never
 inhabited for the real `SU(2)` trajectory and never faked with `sorry`/axioms.)
+
+**The headline `mass_gap_simple_group_of_osReconstruction` is CONDITIONAL** (its
+name now says so): it takes a caller-supplied `OSReconstruction` + `OSAxiomBundle`
+as hypotheses and projects the gap out of them — it does not construct the
+continuum reconstruction. The `OSReconstruction` carries `gapBound < 1`
+structurally, so its spectral conjunct is a genuine geometric decay; but its four
+reconstruction laws (`VacuumNormalized`, `HamiltonianNonneg`, `VacuumAnnihilated`,
+`SemigroupGenerated`) are honest abstract `Prop` obligations the caller must supply
+(no longer `Prop := True`), and the `UniformClusterBound` is inhabited in Lean only
+by a relabeled DEGENERATE constant-margin placeholder
+(`degenerateConstClusterBound` / `degenerateSigmaGroundedClusterBound`) — the
+genuine cluster-expansion instance is OPEN. See
+`docs/clay-requirements-audit-2026-06-21.md` and
+`docs/clay-open-boundary-ledger.md`.
 
 ---
 

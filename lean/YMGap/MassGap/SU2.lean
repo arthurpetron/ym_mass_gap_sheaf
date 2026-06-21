@@ -18,7 +18,7 @@ This module exposes the mass-gap theorem in two layers:
     via `decide` on cross-product representations; axiom-gate is
     empty (`does not depend on any axioms`).
 
-2.  **`mass_gap_SU2`** — the composed theorem: given a paper-supplied
+2.  **`mass_gap_SU2_of_osReconstruction`** — the composed theorem: given a paper-supplied
     `OSReconstruction μ_inf` and `OSAxiomBundle μ_inf`, there exists
     an explicit m_0 ∈ Q' with 0 < m_0, m_0² ≤ ε (decidable witness),
     AND the abstract spectral gap statement `HasSpectralGap rec`
@@ -235,8 +235,13 @@ into the explicit constructive Q'-rational mass-gap lower bound
 the OS-reconstructed Hamiltonian.
 
 Axiom-gate: empty (composes Q'-rational `decide` proofs with the
-trivially-true type-level abstract bridge). -/
-theorem mass_gap_SU2
+trivially-true type-level abstract bridge).
+
+**Name signals conditionality:** this theorem is CONDITIONAL on a
+caller-supplied `OSReconstruction` (which already carries the gap as
+`rec.hasGap`); the `_of_osReconstruction` suffix matches the honest
+`constructive_YM4_gap_conditional` convention. -/
+theorem mass_gap_SU2_of_osReconstruction
     {M : Nat → Type} {μ_inf : ContinuumMeasure M}
     (rec : OSReconstruction μ_inf) (bundle : OSAxiomBundle μ_inf) :
     ∃ m_0 : Q',
@@ -250,7 +255,7 @@ theorem mass_gap_SU2
 
 /-- **SU(2) Mass-Gap Theorem (Wilson-pilot variant).**
 
-Same statement as `mass_gap_SU2` but instantiated at the Wilson pilot
+Same statement as `mass_gap_SU2_of_osReconstruction` but instantiated at the Wilson pilot
 (`m_0 = 999/1000`, `ε = 9997/10000`).  Wilson gives a slightly tighter
 σ̂_∞ bound because the Wilson pilot consumes less η-budget. -/
 theorem mass_gap_SU2_wilson
@@ -268,7 +273,7 @@ theorem mass_gap_SU2_wilson
 /-! ## CReal-level mass-gap theorem (Milestone 7.3 follow-on)
 
 The end-to-end CReal-typed mass-gap theorem.  Compared to the
-Q′-level `mass_gap_SU2` above, this version
+Q′-level `mass_gap_SU2_of_osReconstruction` above, this version
 
   * Returns `m_0` as a single `CReal` value rather than a Q′-rational
     threshold.
@@ -296,7 +301,7 @@ There exists a strictly positive constructive real `m_0` such that
 the OS Hamiltonian `H_op` has no spectrum in the open interval
 `(0, m_0)`.
 
-This is the end-to-end CReal-typed version of `mass_gap_SU2`.  The
+This is the end-to-end CReal-typed version of `mass_gap_SU2_of_osReconstruction`.  The
 witness `m_0` is `sigma_hat_inf_creal` from
 `Constructive.Reals`, derived from the Phase-7.1 σ̂_∞ ≥ ε > 0
 framework theorem.  The spectral-emptiness statement
@@ -310,7 +315,7 @@ cannot be derived from an abstract `rec` (paper proof in
 `formal/mass-gap-theorem.tex` Theorem 1.1).
 
 Axiom-gate: empty / `[propext]`, matching the Q′-level
-`mass_gap_SU2` and inheriting `[propext]` from
+`mass_gap_SU2_of_osReconstruction` and inheriting `[propext]` from
 `Constructive.sigma_hat_inf_creal_positive`. -/
 theorem mass_gap_SU2_creal
     {M : Nat → Type} {μ_inf : ContinuumMeasure M}
@@ -339,6 +344,6 @@ end YMGap.MassGap.SU2
 #print axioms YMGap.MassGap.SU2.mass_gap_su2_q_rational_data_canonical
 #print axioms YMGap.MassGap.SU2.mass_gap_su2_q_rational_data_wilson
 #print axioms YMGap.MassGap.SU2.phase_71_consistent_canonical_holds
-#print axioms YMGap.MassGap.SU2.mass_gap_SU2
+#print axioms YMGap.MassGap.SU2.mass_gap_SU2_of_osReconstruction
 #print axioms YMGap.MassGap.SU2.mass_gap_SU2_wilson
 #print axioms YMGap.MassGap.SU2.mass_gap_SU2_creal

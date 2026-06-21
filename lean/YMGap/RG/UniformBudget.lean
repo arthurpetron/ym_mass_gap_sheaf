@@ -53,7 +53,7 @@ group types) is the remaining paper-layer step.
 
 The value delivered: the *entire* reduction is constructive and
 axiom-clean **modulo this one named field**, exactly mirroring how
-`mass_gap_SU2` isolates its OS-reconstruction hypotheses.
+`mass_gap_SU2_of_osReconstruction` isolates its OS-reconstruction hypotheses.
 
 UPDATE (2026-06-14): `eta_dominated` is no longer carried as a bare posit.
 `RG/EtaPackaging.uniformBudgetWitness_of_characterTail` now *assembles* the
@@ -236,7 +236,7 @@ which controls the large-field `Z_t` and hence `η_max`.  It is a `CReal`
 statement; carried here as data, to be discharged at the paper layer
 (numerically corroborated by the U.4 sweep: `Σ η(G) ≤ Σ η(su2)` strictly
 for every simple type).  Mirrors the OS-hypothesis pattern of
-`mass_gap_SU2`. -/
+`mass_gap_SU2_of_osReconstruction`. -/
 structure UniformBudgetWitness (R : RepData) : Prop where
   /-- Same finite RG window as the SU(2) certificate (`K = 3`). -/
   same_window   : R.K_steps = su2.K_steps

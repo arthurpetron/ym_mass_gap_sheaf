@@ -1,29 +1,37 @@
 /-
-Track B / R2 — a CONCRETE inhabitant of the volume-uniform cluster bound, turning
-the thermodynamic-limit reduction from "conditional on the cluster bound" into
-"the cluster bound is inhabited at strong coupling", and firing the end-to-end
-continuum-mass chain on it with NO remaining hypothesis.
+Track B / R2 — a DEGENERATE PLACEHOLDER inhabitant of the volume-uniform cluster
+bound.  It inhabits the TYPE via a constant, volume-independent margin family
+(`sep = 1/2`, `tailConst = 0`), NOT via cluster-expansion physics.  It shows the
+reduction's interface is inhabitable and lets the end-to-end chain typecheck; it
+does NOT derive the strong-coupling cluster bound.
+
+# HONEST STATUS — read this first
+
+⚠ DEGENERATE PLACEHOLDER.  The inhabitant `degenerateConstClusterBound` below
+satisfies `UniformClusterBound` ONLY with a degenerate constant-margin family
+(`sep = 1/2`, `tailConst = 0`).  The genuine strong-coupling cluster-EXPANSION
+instance — a volume-dependent margin sequence whose decay is controlled by an
+actual Kotecký–Preiss / polymer bound — is **OPEN**.  Nothing here proves
+cluster physics: a constant sequence trivially has a vanishing "tail", so the
+type is inhabited for free.  The physics claim must NOT be read off this witness.
 
 # What this module is
 
 The continuum gap-persistence reduction collapses the whole thermodynamic Λ→∞
 limit (convergence of the per-volume gap margins AND persistence of a uniform
 positive floor) to a SINGLE `Type`-level input: the volume-uniform cluster bound.
-Up to now that input was an abstract interface with no concrete inhabitant — the
-reduction fired only on a hypothetical witness.
-
-This module CONSTRUCTS a genuine, non-vacuous inhabitant grounded in the proven
-strong-coupling located-gap datum: the constant finite-volume family at the
-proven `sep = 1/2` located gap.  Every per-volume gap margin is the genuine
-strict mass-gap margin `1 − 1/2 = 1/2 > 0` of the compact finite transfer
-operator, so:
+This module exhibits a DEGENERATE inhabitant of that input — the constant
+finite-volume family at the proven `sep = 1/2` located gap.  Every per-volume gap
+margin is the genuine strict mass-gap margin `1 − 1/2 = 1/2 > 0` of the compact
+finite transfer operator, so:
 
   * `floorRate := 1/2` is exactly that proven margin; `uniform_floor` holds with
     equality (the constant family meets the floor at every volume);
-  * `tailConst := 0` — the strong-coupling cluster tail of a CONSTANT
-    (volume-independent) margin sequence vanishes; the single-step geometric
-    bounds `incr_up` / `incr_lo` then read `m ≤ m + geoIncr 0 Λ`, true because
-    `geoIncr 0 Λ ≥ 0` and consecutive margins are EQUAL (the family is constant);
+  * `tailConst := 0` — the cluster tail of a CONSTANT (volume-independent) margin
+    sequence vanishes TRIVIALLY (this is the degeneracy, NOT a derived
+    strong-coupling estimate); the single-step geometric bounds `incr_up` /
+    `incr_lo` then read `m ≤ m + geoIncr 0 Λ`, true because `geoIncr 0 Λ ≥ 0` and
+    consecutive margins are EQUAL (the family is constant);
   * `modulus` is the project's division-free product modulus at `B = 2·0`.
 
 The floor is grounded in the genuine finite-volume located mass gap (the
@@ -35,8 +43,10 @@ of a positive gap floor; the precise numerical √-bridge `m ≥ √σ̂_∞` is
 in here, so the rational floor `1/2` is the proven eigenvalue-gap margin rather
 than a σ̂-derived number — stated honestly.
 
-From this inhabitant the reduction's capstone — a strictly-positive continuum
-mass — fires end to end with no remaining hypothesis.
+The capstone below — a strictly-positive continuum mass — therefore fires only
+on this DEGENERATE inhabitant: it is a typechecking demonstration that the
+reduction's interface composes, not a derivation of the continuum mass gap from
+cluster physics (which remains OPEN).
 
 # Axiom-gate
 
@@ -78,23 +88,29 @@ every volume: `(constGappedLocated Λ).gapMargin = 1 − 1/2`.  This is `rfl`. -
 theorem constGapped_margin_eq (Λ : Nat) :
     (constGappedLocated Λ).gapMargin = 1 - Q'.mkPos 1 2 (by decide) := rfl
 
-/-! ## The concrete cluster bound at strong coupling
+/-! ## The DEGENERATE constant-margin cluster bound (placeholder)
 
-All fields discharged from the proven `sep = 1/2` located gap:
+All fields discharged from the proven `sep = 1/2` located gap, BUT with a
+constant (volume-independent) margin family — so the cluster tail vanishes
+trivially rather than by any cluster-expansion estimate:
 
   * `gaps` / `located` — the constant `sep = 1/2` finite-volume family;
   * `floorRate` — the proven margin `1/2`, met with EQUALITY by `uniform_floor`;
-  * `tailConst := 0` — the vanishing cluster tail of a constant margin sequence;
+  * `tailConst := 0` — the cluster tail of a constant margin sequence vanishes
+    TRIVIALLY (the degeneracy: no genuine tail estimate is made);
   * `incr_up` / `incr_lo` — `m ≤ m + geoIncr 0 Λ` (`geoIncr 0 Λ ≥ 0`, margins
     constant), via `add_le_self_of_nonneg`;
   * `modulus` — the division-free product modulus at `B = 2·0`. -/
 
-/-- **The volume-uniform cluster bound at strong coupling, CONSTRUCTED.**  A
-genuine inhabitant of `UniformClusterBound` built from the proven `sep = 1/2`
-located gap: a constant gap-margin family at the strong-coupling floor `1/2` with
-vanishing cluster tail.  Non-vacuous — every field carries real located-gap
-data, not a placeholder. -/
-def strongCouplingClusterBound : UniformClusterBound where
+/-- **DEGENERATE PLACEHOLDER inhabitant of `UniformClusterBound`.**  ⚠ This
+inhabits the type via a CONSTANT (volume-independent) margin family at
+`sep = 1/2`, `tailConst = 0`.  It satisfies the type because a constant sequence
+trivially has a vanishing "tail" — it does **not** derive the strong-coupling
+cluster bound, and the genuine cluster-EXPANSION instance (a volume-dependent
+margin with a real Kotecký–Preiss decay) is **OPEN**.  Every field is a real
+`Q'`/located-gap term, but the physics claim must NOT be read off this
+degenerate witness. -/
+def degenerateConstClusterBound : UniformClusterBound where
   gaps := constGappedFamily
   located := constGappedLocated
   floorRate := strongCouplingFloor
@@ -113,12 +129,12 @@ def strongCouplingClusterBound : UniformClusterBound where
       (Q'.mul_nonneg _ _ (by decide) (Q'.le_refl' 0)) hε
 
 /-- The constructed cluster bound's clustering floor is `1/2`. -/
-theorem strongCouplingClusterBound_floor :
-    strongCouplingClusterBound.floorRate = strongCouplingFloor := rfl
+theorem degenerateConstClusterBound_floor :
+    degenerateConstClusterBound.floorRate = strongCouplingFloor := rfl
 
 /-- The constructed cluster bound's cluster tail constant vanishes. -/
-theorem strongCouplingClusterBound_tailConst :
-    strongCouplingClusterBound.tailConst = 0 := rfl
+theorem degenerateConstClusterBound_tailConst :
+    degenerateConstClusterBound.tailConst = 0 := rfl
 
 /-! ## The continuum rate of the concrete inhabitant
 
@@ -128,34 +144,38 @@ Feeding the inhabitant through the reduction's `continuumRate` yields a genuine
 /-- The continuum gap rate of the strong-coupling inhabitant — the `CReal` limit
 of the (constant) `sep = 1/2` margin sequence. -/
 def strongCouplingContinuumRate : CReal :=
-  continuumRate strongCouplingClusterBound
+  continuumRate degenerateConstClusterBound
 
 /-- Every approximation of the strong-coupling continuum rate is the proven gap
 margin `1 − 1/2` — the limit is fed by the genuine located gap, not a stub. -/
 @[simp] theorem strongCouplingContinuumRate_approx (Λ : Nat) :
     strongCouplingContinuumRate.approx Λ = 1 - Q'.mkPos 1 2 (by decide) := rfl
 
-/-! ## Capstone: a concrete strictly-positive continuum mass, no hypotheses
+/-! ## Capstone: the chain typechecks on the DEGENERATE inhabitant
 
-Instantiating the reduction's positivity capstone at the concrete inhabitant
-gives a `CReal.IsPositive` certificate for the continuum mass with NO remaining
-free parameter — the end-to-end chain
-finite-volume located gaps ⟹ uniform cluster bound ⟹ positive continuum mass
-now fires on a genuine object. -/
+Instantiating the reduction's positivity capstone at the degenerate inhabitant
+gives a `CReal.IsPositive` certificate for the continuum mass.  ⚠ This is a
+TYPECHECKING demonstration that the chain
+finite-volume located gaps ⟹ (degenerate) cluster bound ⟹ positive continuum
+mass composes — NOT a derivation of the continuum mass gap, because the cluster
+bound used is the degenerate constant-margin placeholder (the genuine
+strong-coupling cluster-expansion instance is OPEN). -/
 
-/-- **Capstone (positivity, unconditional).**  The continuum mass built from the
-strong-coupling cluster inhabitant is a strictly-positive constructive real.
-This is `clusterBound_continuum_mass_isPositive` at the concrete inhabitant — no
-hypothesis remains: the cluster bound is inhabited, and the chain fires. -/
+/-- **Capstone (positivity on the degenerate inhabitant).**  ⚠ The continuum
+"mass" built from `degenerateConstClusterBound` is a strictly-positive
+constructive real.  This is `clusterBound_continuum_mass_isPositive` at the
+DEGENERATE inhabitant — it shows the chain composes, NOT that the continuum gap
+is derived; the genuine cluster-expansion cluster bound is OPEN. -/
 theorem strongCoupling_continuum_mass_isPositive :
     CReal.IsPositive strongCouplingContinuumRate :=
-  clusterBound_continuum_mass_isPositive strongCouplingClusterBound
+  clusterBound_continuum_mass_isPositive degenerateConstClusterBound
 
-/-- **Capstone (packaged).**  The concrete continuum mass as `Type`-level data
-with its positivity proof, fed end-to-end by the strong-coupling cluster bound —
-the strictly-positive continuum mass gap, unconditionally inhabited. -/
+/-- **Capstone (packaged).**  The degenerate-inhabitant continuum "mass" as
+`Type`-level data with its positivity proof — a typechecking witness of the
+chain, fed by the DEGENERATE constant-margin cluster bound (the genuine instance
+is OPEN). -/
 def strongCoupling_continuum_gap_bridge : Σ' m : CReal, CReal.IsPositive m :=
-  clusterBound_continuum_gap_bridge strongCouplingClusterBound
+  clusterBound_continuum_gap_bridge degenerateConstClusterBound
 
 /-- The packaged mass is exactly the strong-coupling continuum rate. -/
 theorem strongCoupling_bridge_fst :
@@ -165,7 +185,7 @@ theorem strongCoupling_bridge_fst :
 cluster bound — the reduction's `ContinuumGapPersistence` with all fields, both
 formerly-open ones included, supplied by the concrete inhabitant. -/
 def strongCouplingPersistence : ContinuumGapPersistence :=
-  continuumGapPersistence_of_clusterBound strongCouplingClusterBound
+  continuumGapPersistence_of_clusterBound degenerateConstClusterBound
 
 /-- The persistence datum's continuum rate is the strong-coupling continuum
 rate. -/
@@ -178,9 +198,9 @@ end YMGap.Continuum.ClusterBoundInstance
 
 #print axioms YMGap.Continuum.ClusterBoundInstance.strongCouplingFloor_pos
 #print axioms YMGap.Continuum.ClusterBoundInstance.constGapped_margin_eq
-#print axioms YMGap.Continuum.ClusterBoundInstance.strongCouplingClusterBound
-#print axioms YMGap.Continuum.ClusterBoundInstance.strongCouplingClusterBound_floor
-#print axioms YMGap.Continuum.ClusterBoundInstance.strongCouplingClusterBound_tailConst
+#print axioms YMGap.Continuum.ClusterBoundInstance.degenerateConstClusterBound
+#print axioms YMGap.Continuum.ClusterBoundInstance.degenerateConstClusterBound_floor
+#print axioms YMGap.Continuum.ClusterBoundInstance.degenerateConstClusterBound_tailConst
 #print axioms YMGap.Continuum.ClusterBoundInstance.strongCouplingContinuumRate
 #print axioms YMGap.Continuum.ClusterBoundInstance.strongCouplingContinuumRate_approx
 #print axioms YMGap.Continuum.ClusterBoundInstance.strongCoupling_continuum_mass_isPositive
