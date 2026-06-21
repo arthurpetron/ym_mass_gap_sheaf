@@ -63,7 +63,8 @@ THE `k = 1` CROSS-CHECK (proved):
   * `finSum_prod_eq` / `csum_prod_eq` — the `Q'` and `CReal` finite product-of-sums
     EQUALITIES `(∑f)(∑g) ≃ ∑_a ∑_b f a·g b` (the SEPARATION step; `csum_prod_eq` is
     approx-wise from `finSum_prod_eq` via `csum_approx`).
-  * `csum_congr` / `csum_add` / `csum_const_mul` — `CReal` finite-sum algebra.
+  * the `CReal` finite-sum algebra (`csum_congr` / `csum_add` / `csum_const_mul`) is the
+    shared canonical helper layer (`CRealContinuumAlg` / `CRealAlg`), reused here.
   * `rdSep_bridge` — the product form `R₂D₀ − R₀D₂` EQUALS the merged `(r,d)` double
     sum `rdSepSum` (the "split distributing across `R₂D₀ − R₀D₂`" half of the reindex).
 
@@ -120,6 +121,7 @@ import YMGap.Constructive.Sqrt
 import YMGap.Constructive.FinSumAlg
 import YMGap.Constructive.SumOfSquares
 import YMGap.Constructive.CRealAlg
+import YMGap.Continuum.CRealContinuumAlg
 import YMGap.Continuum.Pivot2Moments
 
 namespace YMGap.Continuum.FusionRDFactor
@@ -127,6 +129,7 @@ namespace YMGap.Continuum.FusionRDFactor
 open YMGap.Constructive
 open YMGap.Constructive.QPoly
 open YMGap.Constructive.CRealAlg
+open YMGap.Continuum.CRealContinuumAlg
 open YMGap.Continuum
 open YMGap.Continuum.RGTransport
 open YMGap.Continuum.HeatKernelGap
@@ -403,14 +406,9 @@ move past `σ = √w` reduces to the corresponding `Q'` identity via
 (`sigmaFrom_sq`), handled by `Pivot2.mul_congr`.  Together they give the bridge
 `cpow σ (2n) ≃ ofQ'(w^n)`. -/
 
--- CReal ring rearrangements (`cmul_assoc`, `cmul_comm`, `cofQ'_mul`) are the shared
--- canonical pointwise helpers from `CRealAlg` (opened above); `cofQ'_mul` is the
--- multiplicative-`ofQ'` law there named `ofQ'_mul`, aliased below for local use.
-
-/-- `ofQ' (a·b) ≃ ofQ' a · ofQ' b` (the canonical `CRealAlg.ofQ'_mul`). -/
-theorem cofQ'_mul (a b : Q') :
-    CReal.Equiv (CReal.ofQ' (a * b)) (CReal.mul (CReal.ofQ' a) (CReal.ofQ' b)) :=
-  CRealAlg.ofQ'_mul a b
+-- CReal ring rearrangements (`cmul_assoc`, `cmul_comm`) are the shared canonical
+-- pointwise helpers from `CRealAlg`; the multiplicative-`ofQ'` law `cofQ'_mul` is the
+-- shared `CRealContinuumAlg.cofQ'_mul` (both opened above), used below by short name.
 
 /-- **The `σ² = w` power bridge.**  `cpow σ (2·n) ≃ ofQ'(w^n)` for `σ = √w`.
 Each pair of `σ` factors collapses to `w` via `sigmaFrom_sq`; the `Q'` powers
@@ -521,37 +519,10 @@ theorem csum_prod_eq (A B : Nat → CReal) (M L : Nat) :
   rw [he]
   exact Q'.eqv_refl _
 
-/-- **`csum` termwise congruence** (pointwise via `finSum_eqv_congr`). -/
-theorem csum_congr {A B : Nat → CReal} (h : ∀ i, CReal.Equiv (A i) (B i)) (n : Nat) :
-    CReal.Equiv (CReal.csum A n) (CReal.csum B n) := by
-  induction n with
-  | zero => exact Pivot2.equiv_refl _
-  | succ m ih =>
-      show CReal.Equiv (CReal.add (CReal.csum A m) (A m)) (CReal.add (CReal.csum B m) (B m))
-      exact Pivot2.add_congr ih (h m)
-
--- `csum` additivity (`csum_add`) is the shared canonical `CRealAlg.csum_add`
--- (opened above); used below by its short name.
-
-/-- **`csum` pulls a `CReal` constant on the left**: `∑(c·A) ≃ c·∑A`. -/
-theorem csum_const_mul (c : CReal) (A : Nat → CReal) (n : Nat) :
-    CReal.Equiv (CReal.csum (fun i => CReal.mul c (A i)) n)
-      (CReal.mul c (CReal.csum A n)) := by
-  induction n with
-  | zero =>
-      -- ∑_{<0}(c·A) = czero ≃ c·czero
-      refine SumOfSquares.Equiv_of_approx_eqv (fun p => ?_)
-      show (0 : Q').eqv (c.approx p * (0 : Q'))
-      exact Q'.eqv_symm (Q'.mul_zero_eqv (c.approx p))
-  | succ m ih =>
-      show CReal.Equiv (CReal.add (CReal.csum (fun i => CReal.mul c (A i)) m) (CReal.mul c (A m)))
-        (CReal.mul c (CReal.add (CReal.csum A m) (A m)))
-      refine Pivot2.equiv_trans (Pivot2.add_congr ih (Pivot2.equiv_refl _)) ?_
-      -- c·(∑A) + c·(A m) ≃ c·(∑A + A m)  : left-distributivity, pointwise
-      refine SumOfSquares.Equiv_of_approx_eqv (fun p => ?_)
-      show (c.approx p * (CReal.csum A m).approx p + c.approx p * (A m).approx p).eqv
-        (c.approx p * ((CReal.csum A m).approx p + (A m).approx p))
-      exact Q'.eqv_symm (Q'.mul_add_eqv (c.approx p) ((CReal.csum A m).approx p) ((A m).approx p))
+-- `csum` termwise congruence (`csum_congr`), the left-constant pull (`csum_const_mul`),
+-- and `csum` additivity (`csum_add`) are the shared canonical helpers
+-- `CRealContinuumAlg.csum_congr` / `CRealContinuumAlg.csum_const_mul` / `CRealAlg.csum_add`
+-- (opened above); used below by their short names.
 
 /-! ## 6. The assembled separated factorization — the NAMED open obligation
 
@@ -866,16 +837,16 @@ PROVED (axiom-clean):
     collapse), confirming the factorization SHAPE on the exactly-closing channel.
 
 PROVED — THE SEPARATION LEVER (this wave, axiom-clean):
-  * `cofQ'_mul` — the multiplicative-`ofQ'` law (shared canonical `CReal` ring
-    rearrangement, pointwise via `SumOfSquares.Equiv_of_approx_eqv`).
   * `cpow_two_mul_eqv` — the `σ² = w` POWER BRIDGE: `cpow σ (2n) ≃ ofQ'(w^n)` (the only
     non-pointwise step, `σ·σ ≃ w` via `sigmaFrom_sq` + `Pivot2.mul_congr`).
   * `finSum_prod_eq` — the `Q'` finite product-of-sums EQUALITY
     `(∑f)(∑g) ≃ ∑_a ∑_b f a·g b` (not the `leRat` bound of `TonelliFactor`).
   * `csum_prod_eq` — the `CReal` product-of-sums (Tonelli) EQUALITY
     `(∑A)(∑B) ≃ ∑_a ∑_b A a·B b`, approx-wise from `finSum_prod_eq` and `csum_approx`;
-    `Rsum_eq_csum` / `Dsum_eq_csum` identify the theta sums as `csum`s.
-  * `csum_congr` / `csum_add` / `csum_const_mul` — the `CReal` finite-sum algebra.
+    `Rsum_eq_csum` / `Dsum_eq_csum` identify the theta sums as `csum`s.  The `CReal`
+    finite-sum algebra it consumes (`csum_congr` / `csum_add` / `csum_const_mul` and the
+    multiplicative-`ofQ'` law `cofQ'_mul`) is the shared canonical helper layer
+    (`CRealContinuumAlg` / `CRealAlg`).
   * `rdSep_bridge` — THE SEPARATION BRIDGE: the product form `R₂(k)·D₀(k) − R₀(k)·D₂(k)`
     EQUALS the merged `(r,d)` double sum `rdSepSum` (the "split distributing across
     `R₂D₀ − R₀D₂`" half of the reindex), via `csum_prod_eq` + the `csum` algebra.
@@ -953,12 +924,9 @@ end YMGap.Continuum.FusionRDFactor
 #print axioms YMGap.Continuum.FusionRDFactor.g0_rd_check
 #print axioms YMGap.Continuum.FusionRDFactor.coeffW_sq_rd
 #print axioms YMGap.Continuum.FusionRDFactor.rdFactorization_identity
-#print axioms YMGap.Continuum.FusionRDFactor.cofQ'_mul
 #print axioms YMGap.Continuum.FusionRDFactor.cpow_two_mul_eqv
 #print axioms YMGap.Continuum.FusionRDFactor.finSum_prod_eq
 #print axioms YMGap.Continuum.FusionRDFactor.csum_prod_eq
-#print axioms YMGap.Continuum.FusionRDFactor.csum_congr
-#print axioms YMGap.Continuum.FusionRDFactor.csum_const_mul
 #print axioms YMGap.Continuum.FusionRDFactor.Rsum_eq_csum
 #print axioms YMGap.Continuum.FusionRDFactor.Dsum_eq_csum
 #print axioms YMGap.Continuum.FusionRDFactor.rdSep_bridge

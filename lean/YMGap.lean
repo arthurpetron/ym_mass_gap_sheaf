@@ -208,6 +208,7 @@ import YMGap.Continuum.FusionResidualBound
 import YMGap.Continuum.AFTrajectoryCertificate
 import YMGap.Continuum.ContinuumYMStack
 import YMGap.Continuum.FusionQuotientCollapse
+import YMGap.Continuum.CRealContinuumAlg
 import YMGap.Continuum.FusionRDFactor
 import YMGap.Continuum.MatchedRetune
 import YMGap.Continuum.MatchedRetuneBridge

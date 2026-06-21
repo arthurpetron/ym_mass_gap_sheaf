@@ -46,8 +46,8 @@ order-algebra layer.
   * `exists_matchedRetuneP2` — the carrier inhabitant (the cube-root glue).
   * `rhoLo` / `rhoHi` — rational brackets with `rhoLo³ ≤ R ≤ rhoHi³`, `0 < rhoLo`,
     and the `CReal` order facts `geRat ρ rhoLo`, `leRat ρ rhoHi`.
-  * the `crealPowNat` exponent laws (`crealPowNat_add`, `crealPowNat_mul3`) and
-    `rho_pow_decompose` — the rational/irrational split of `ρ^{C₄(s)}`.
+  * `rho_pow_decompose` — the rational/irrational split of `ρ^{C₄(s)}` (built on the
+    shared `crealPowNat` exponent laws `crealPowNat_add` / `crealPowNat_mul3`).
   * `coeffMatched` (the genuine `CReal` matched coefficient) and
     `coeffMatched_brackets` (its explicit `Q'` lower/upper bounds).
   * `stepRatioBracket` — the `Q'`-bound interface for the matched per-step quotient:
@@ -86,42 +86,24 @@ open YMGap.Continuum
 open YMGap.Continuum.RGTransport
 open YMGap.Continuum.BondMovingStep
 open YMGap.Continuum.MatchedRetune
+open YMGap.Continuum.CRealContinuumAlg
 
-/-! ## 0. Pointwise `CReal`-multiplication `Equiv` helpers
+/-! ## 0. `CReal`-multiplication `Equiv` helpers and the `crealPowNat` laws
 
-`CReal.mul` acts approx-wise (`(mul a b).approx n = a.approx n · b.approx n`), so every
-`CReal`-product identity reduces to the corresponding `Q'.eqv` at each `n` via
-`SumOfSquares.Equiv_of_approx_eqv`.  This gives us exactly the congruence / `cone`-unit
-laws we need with NO new `CReal` algebra file. -/
-
-/-- `CReal.mul` is right-`Equiv`-congruent (pointwise). -/
-theorem cmul_congr_right {A B B' : CReal} (h : CReal.Equiv B B') :
-    CReal.Equiv (CReal.mul A B) (CReal.mul A B') :=
-  Pivot2.mul_congr_right h
-
-/-- `CReal.mul` is left-`Equiv`-congruent (pointwise). -/
-theorem cmul_congr_left {A A' B : CReal} (h : CReal.Equiv A A') :
-    CReal.Equiv (CReal.mul A B) (CReal.mul A' B) :=
-  Pivot2.mul_congr_left h
-
--- `cone_mul` (left unit) and the multiplicative-`ofQ'` law are the shared canonical
--- `CRealAlg.cone_mul` / `CRealAlg.ofQ'_mul` (opened above); used below by short name.
+The pointwise `CReal`-multiplication congruences (`cmul_congr_left`/`_right`), the
+multiplicative-`ofQ'` law (`cofQ'_mul`), the `cone`/unit laws, and the `crealPowNat`
+`Nat`-power with its exponent laws (`crealPowNat_three_equiv`, `crealPowNat_add`,
+`crealPowNat_mul3`) are the shared canonical `Continuum`-level helpers in
+`CRealContinuumAlg` (opened above); the pointwise unit/associativity/`ofQ'` laws come
+from `CRealAlg`.  All are used below by their short names. -/
 
 /-! ## 1. Inhabiting the matched-retune carrier (the cube-root glue)
 
 The carrier's `rho_cube` field demands `crealPowNat ρ 3 ≃ ofQ' R`, where
 `crealPowNat ρ 3 = ((1·ρ)·ρ)·ρ` (a leading `cone` factor from the `crealPowNat`
 recursion's base `cone`).  The cube-root identity `cbrtFrom_cube_equiv` delivers
-`(ρ·ρ)·ρ ≃ ofQ' R`; we re-shape `((1·ρ)·ρ)·ρ ≃ (ρ·ρ)·ρ` by dropping the leading
-`cone` (left unit), composing two left-congruences with `cone_mul`. -/
-
-/-- `crealPowNat x 3 ≃ (x·x)·x` (drop the `crealPowNat` base `cone`). -/
-theorem crealPowNat_three_equiv (x : CReal) :
-    CReal.Equiv (crealPowNat x 3) (CReal.mul (CReal.mul x x) x) := by
-  -- crealPowNat x 3 = (((cone·x)·x)·x); strip the leading `cone·x ≃ x`.
-  show CReal.Equiv (CReal.mul (CReal.mul (CReal.mul CReal.cone x) x) x)
-      (CReal.mul (CReal.mul x x) x)
-  exact cmul_congr_left (cmul_congr_left (cone_mul x))
+`(ρ·ρ)·ρ ≃ ofQ' R`; the shared `crealPowNat_three_equiv` re-shapes `((1·ρ)·ρ)·ρ ≃
+(ρ·ρ)·ρ` by dropping the leading `cone`. -/
 
 /-- The cube identity in the carrier's shape: `crealPowNat (∛R) 3 ≃ ofQ' R`. -/
 theorem cbrt_crealPowNat_cube (R : Q') (hR : (0 : Q') < R) :
@@ -387,51 +369,10 @@ theorem geRat_mul {A C : CReal} {a c Ba Bc : Q'}
 
 isolating the only irrational factor `ρ^{c%3}`. -/
 
--- `cmul_cone` (right unit) and `cmul_assoc` (associativity) are the shared canonical
--- `CRealAlg.cmul_cone` / `CRealAlg.cmul_assoc` (opened above); used below by short name.
-
-/-- **`crealPowNat` additive exponent law** `x^{a+b} ≃ x^a · x^b`. -/
-theorem crealPowNat_add (x : CReal) (a : Nat) :
-    ∀ b, CReal.Equiv (crealPowNat x (a + b))
-      (CReal.mul (crealPowNat x a) (crealPowNat x b))
-  | 0 => by
-      -- x^{a+0} = x^a ≃ x^a·1 = x^a·x^0
-      show CReal.Equiv (crealPowNat x a)
-        (CReal.mul (crealPowNat x a) CReal.cone)
-      exact CReal.Equiv.symm (cmul_cone (crealPowNat x a))
-  | b + 1 => by
-      -- x^{a+(b+1)} = x^{(a+b)+1} = x^{a+b}·x ≃ (x^a·x^b)·x ≃ x^a·(x^b·x) = x^a·x^{b+1}
-      show CReal.Equiv (CReal.mul (crealPowNat x (a + b)) x)
-        (CReal.mul (crealPowNat x a) (CReal.mul (crealPowNat x b) x))
-      refine CReal.Equiv.trans (cmul_congr_left (crealPowNat_add x a b)) ?_
-      exact cmul_assoc (crealPowNat x a) (crealPowNat x b) x
-
-/-- **`crealPowNat` triple-exponent collapse** `x^{3m} ≃ ofQ'(Rᵐ)`, given the cube
-identity `x³ ≃ ofQ' R`.  Induction on `m`: `x^{3(m+1)} = x^{3m+3} ≃ x^{3m}·x³ ≃
-ofQ'(Rᵐ)·ofQ' R ≃ ofQ'(Rᵐ·R) = ofQ'(R^{m+1})`. -/
-theorem crealPowNat_mul3 (x : CReal) (R : Q') (hcube : CReal.Equiv (crealPowNat x 3) (CReal.ofQ' R)) :
-    ∀ m, CReal.Equiv (crealPowNat x (3 * m)) (CReal.ofQ' (qpow R m))
-  | 0 => by
-      -- x^0 = cone = ofQ' 1 = ofQ'(R^0)
-      show CReal.Equiv (crealPowNat x (3 * 0)) (CReal.ofQ' (qpow R 0))
-      rw [Nat.mul_zero, qpow_zero]
-      exact SumOfSquares.Equiv_of_approx_eqv (fun _ => Q'.eqv_refl _)
-  | m + 1 => by
-      -- x^{3(m+1)} = x^{3m + 3}
-      have hsplit : 3 * (m + 1) = 3 * m + 3 := by omega
-      rw [hsplit]
-      -- x^{3m+3} ≃ x^{3m}·x^3
-      refine CReal.Equiv.trans (crealPowNat_add x (3 * m) 3) ?_
-      -- x^{3m}·x^3 ≃ ofQ'(R^m)·ofQ' R
-      refine CReal.Equiv.trans
-        (Pivot2.mul_congr (crealPowNat_mul3 x R hcube m) hcube) ?_
-      -- ofQ'(R^m)·ofQ' R ≃ ofQ'(R^m · R) = ofQ'(R^{m+1})
-      show CReal.Equiv (CReal.mul (CReal.ofQ' (qpow R m)) (CReal.ofQ' R))
-        (CReal.ofQ' (qpow R (m + 1)))
-      refine CReal.Equiv.symm ?_
-      show CReal.Equiv (CReal.ofQ' (qpow R m * R))
-        (CReal.mul (CReal.ofQ' (qpow R m)) (CReal.ofQ' R))
-      exact ofQ'_mul (qpow R m) R
+-- The `crealPowNat` exponent laws (`crealPowNat_add`, `crealPowNat_mul3`), the
+-- `cmul_cone` (right unit) and `cmul_assoc` (associativity) laws are the shared
+-- canonical `CRealContinuumAlg.*` / `CRealAlg.*` helpers (opened above); used below by
+-- their short names.
 
 /-- **The rational/irrational split** `ρ^c ≃ ofQ'(R^{c/3}) · ρ^{c%3}`, given the cube
 identity `ρ³ ≃ ofQ' R`.  The factor `ofQ'(R^{c/3})` is rational and `ρ^{c%3}` is the
@@ -596,7 +537,6 @@ end YMGap.Continuum.MatchedRetuneBridge
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
 
-#print axioms YMGap.Continuum.MatchedRetuneBridge.cmul_congr_right
 #print axioms YMGap.Continuum.MatchedRetuneBridge.exists_matchedRetuneP2
 #print axioms YMGap.Continuum.MatchedRetuneBridge.cbrtFrom_geRat_of_cube
 #print axioms YMGap.Continuum.MatchedRetuneBridge.rhoLo_pos
@@ -604,8 +544,6 @@ end YMGap.Continuum.MatchedRetuneBridge
 #print axioms YMGap.Continuum.MatchedRetuneBridge.R_le_rhoHi_cube
 #print axioms YMGap.Continuum.MatchedRetuneBridge.geRat_rho_rhoLo
 #print axioms YMGap.Continuum.MatchedRetuneBridge.leRat_rho_rhoHi
-#print axioms YMGap.Continuum.MatchedRetuneBridge.crealPowNat_add
-#print axioms YMGap.Continuum.MatchedRetuneBridge.crealPowNat_mul3
 #print axioms YMGap.Continuum.MatchedRetuneBridge.rho_pow_decompose
 #print axioms YMGap.Continuum.MatchedRetuneBridge.geRat_mul
 #print axioms YMGap.Continuum.MatchedRetuneBridge.crealPowNat_brackets

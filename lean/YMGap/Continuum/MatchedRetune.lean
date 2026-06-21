@@ -84,6 +84,7 @@ witnesses are `Type`-level data.
 
 import YMGap.Continuum.FusionQuotientCollapse
 import YMGap.Continuum.ProductFloor
+import YMGap.Continuum.CRealContinuumAlg
 
 namespace YMGap.Continuum.MatchedRetune
 
@@ -99,22 +100,15 @@ open YMGap.Continuum.BondMovingScaledNorm
 open YMGap.Continuum.FusionResidualBound
 open YMGap.Continuum.FusionQuotientCollapse
 open YMGap.Continuum.ProductFloor
+open YMGap.Continuum.CRealContinuumAlg
 
-/-! ## 0. `CReal`-to-`Nat` power (pointwise)
+/-! ## 0. `CReal`-to-`Nat` power
 
 The matched full-mode coefficient is `ĉ_s = (s+1)·ρ^{C₄(s)}`, so the carrier needs a
-`Nat` power of the `CReal` base `ρ`.  We define it pointwise via `CReal.mul`, with
-`crealPowNat x 0 = 1` and `crealPowNat x (n+1) = (crealPowNat x n)·x`. -/
-
-/-- The `Nat` power of a constructive real, `x^n`, defined by `x^0 = 1`,
-`x^(n+1) = x^n · x` (pointwise via `CReal.mul`). -/
-def crealPowNat (x : CReal) : Nat → CReal
-  | 0 => CReal.cone
-  | n + 1 => CReal.mul (crealPowNat x n) x
-
-@[simp] theorem crealPowNat_zero (x : CReal) : crealPowNat x 0 = CReal.cone := rfl
-@[simp] theorem crealPowNat_succ (x : CReal) (n : Nat) :
-    crealPowNat x (n + 1) = CReal.mul (crealPowNat x n) x := rfl
+`Nat` power of the `CReal` base `ρ`.  That power (`crealPowNat`, with `crealPowNat x 0
+= 1` and `crealPowNat x (n+1) = (crealPowNat x n)·x`) and its exponent laws are the
+shared `Continuum`-level `CRealContinuumAlg.crealPowNat` (opened above); used below by
+its short name. -/
 
 /-! ## 1. The matched-retune carrier (carry `ρ` abstractly; do NOT inhabit)
 
@@ -725,7 +719,6 @@ end YMGap.Continuum.MatchedRetune
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
 
-#print axioms YMGap.Continuum.MatchedRetune.crealPowNat
 #print axioms YMGap.Continuum.MatchedRetune.cubeRatio
 #print axioms YMGap.Continuum.MatchedRetune.matchedDenom_zero_pos
 #print axioms YMGap.Continuum.MatchedRetune.matchedDenom_one_pos
