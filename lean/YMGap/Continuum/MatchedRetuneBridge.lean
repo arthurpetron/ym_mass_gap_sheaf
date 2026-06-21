@@ -34,33 +34,39 @@ Because `ρ³ = R` is RATIONAL, the only IRRATIONAL data in the whole matched to
               =  R^{⌊C₄(s)/3⌋} · ρ^{C₄(s) mod 3},
 
 where `R^{⌊C₄(s)/3⌋}` is rational and the residual exponent is one of `0,1,2`.  So a
-single pair of RATIONAL brackets `rhoLo ≤ ρ ≤ rhoHi` (extracted from the bisection
-bracket, validated by `rhoLo³ ≤ R ≤ rhoHi³`) brackets the entire irrational residual:
-`ρ^0 = 1`, `ρ^1 ∈ [rhoLo, rhoHi]`, `ρ^2 ∈ [rhoLo², rhoHi²]`.  Multiplying by the
-rational `R^{⌊C₄(s)/3⌋}` gives explicit `Q'` lower/upper bounds on the genuine `CReal`
+single pair of RATIONAL brackets `rhoLo ≤ ρ ≤ rhoHi` at a chosen bisection DEPTH `D`
+(extracted from the bisection bracket, validated by `rhoLo³ ≤ R ≤ rhoHi³`) brackets the
+entire irrational residual: `ρ^0 = 1`, `ρ^1 ∈ [rhoLo, rhoHi]`, `ρ^2 ∈ [rhoLo², rhoHi²]`.
+Multiplying ONLY the residual `ρ^{C₄(s)%3}` (the bracketed part) by the EXACT rational
+`R^{⌊C₄(s)/3⌋}` (the bulk) gives explicit `Q'` lower/upper bounds on the genuine `CReal`
 matched coefficient `coeffMatched R s` — `coeffMatched_brackets` — with NO `CReal`
-order-algebra layer.
+order-algebra layer.  Because the bulk is carried EXACTLY, the multiplicative slack is
+`≤ (rhoHi/rhoLo)²` (BOUNDED, controlled by `D`); the NAIVE bracket `(rhoHi/rhoLo)^{C₄(s)}`
+would EXPLODE (and made the bracketed box inequalities false-as-stated).
 
 ## What this module builds (and what it deliberately does NOT)
 
   * `exists_matchedRetuneP2` — the carrier inhabitant (the cube-root glue).
-  * `rhoLo` / `rhoHi` — rational brackets with `rhoLo³ ≤ R ≤ rhoHi³`, `0 < rhoLo`,
-    and the `CReal` order facts `geRat ρ rhoLo`, `leRat ρ rhoHi`.
+  * `rhoLo` / `rhoHi` — DEPTH-parametrized rational brackets `rhoLo R hR D ≤ ρ ≤ rhoHi R hR
+    D` with `rhoLo³ ≤ R ≤ rhoHi³`, `0 < rhoLo`, and the order facts `geRat`/`leRat`.
   * `rho_pow_decompose` — the rational/irrational split of `ρ^{C₄(s)}` (built on the
     shared `crealPowNat` exponent laws `crealPowNat_add` / `crealPowNat_mul3`).
-  * `coeffMatched` (the genuine `CReal` matched coefficient) and
-    `coeffMatched_brackets` (its explicit `Q'` lower/upper bounds).
-  * `stepRatioBracket` — the `Q'`-bound interface for the matched per-step quotient:
-    the matched coefficient ratio is bracketed by explicit `Q'` expressions in the
-    bond-moved coefficient ratio and the `rhoLo/rhoHi` powers, the object Wave-2b will
-    bound by `Cu²·(y_{k+1} − y_k)`.
+  * `coeffMatched` (the genuine `CReal` matched coefficient), the DECOMPOSED brackets
+    `coeffMatchedLo/Hi R hR D s = dimQ s · R^{⌊C₄ s/3⌋} · (rhoLo/rhoHi)^{C₄ s%3}`, and
+    `coeffMatched_brackets` (its explicit `Q'` lower/upper bounds; BOUNDED slack).
+  * `coeffRatio_brackets` — the `Q'`-bound interface for the matched per-step quotient.
+  * `ExactCRealDominance` — the EXACT-`CReal` dominance datum (separating rationals on the
+    genuine `CReal` `ĉ`, NO bracket slack — the vanishing-margin local CLT), with the proved
+    EXACT base `matched_base_exact` (`g_0·ĉ_1 ≃ g_1·ĉ_0`) and the bridge `exact_cross_le`.
 
 ## Honest verdict and scope
 
-This is carrier-inhabitation plus the `Q'`↔`CReal` bracket bridge infrastructure.  It
-does NOT prove `δ_k ≥ 0`, the cumulative/derivative bound, or anything Wave-2b; it does
-NOT prove `0 < R` or `R < 1` (clean named hypotheses).  It is NOT a 4D Yang–Mills mass
-gap.
+This is carrier-inhabitation, the FIXED `Q'`↔`CReal` decomposed+depth bracket bridge
+(the naive `(rhoHi/rhoLo)^{C₄}` explosion is removed), and the EXACT-`CReal` dominance
+STATEMENT + base + bridge.  It does NOT inhabit the all-`k` derivative magnitude bound
+(`BoxRatioDerivative`, named in the frontier) nor the general-mode dominance separators
+(`ExactCRealDominance`, named here); it does NOT prove `0 < R` or `R < 1` (clean named
+hypotheses).  It is NOT a 4D Yang–Mills mass gap.
 
 # Axiom-gate (AGENTS.md Rule 1 / Rule 8)
 
@@ -193,20 +199,23 @@ theorem cbrtFrom_geRat_of_cube (R : Q') (hR : (0 : Q') < R)
   exact Q'.add_le_add_left (CReal.cbrtLo R (Q'.min' R 1) (R + 1) m)
     (CReal.cbrtWidth R (Q'.min' R 1) (R + 1) m) ε hwm
 
-/-! ### Canonical brackets `rhoLo, rhoHi`
+/-! ### Canonical brackets `rhoLo, rhoHi` — DEPTH-PARAMETRIZED
 
 A concrete rational bracket pair for `ρ = ∛R`, taken from the bisection bracket at a
-chosen stage and validated by the located cube invariant `rhoLo³ ≤ R ≤ rhoHi³`.  We
-fix the stage `1` (one bisection step from `[L₀, U₀]`); any stage works.  These supply
+chosen DEPTH `D` and validated by the located cube invariant `rhoLo³ ≤ R ≤ rhoHi³`.
+The bisection-width halves each step, so the bracket ratio `rhoHi/rhoLo → 1` as
+`D → ∞`; a `w`-dependent (growing) depth `D` keeps the BOUNDED decomposed-bracket
+slack below the box-inequality margins on the active window.  (Any depth `D` works
+for the bracket facts; the bound on the slack is what `D` controls.)  These supply
 the `Q'` brackets the §3 power decomposition needs. -/
 
-/-- The canonical rational LOWER bracket for `∛R`: the lower endpoint after one
-bisection step. -/
-def rhoLo (R : Q') (_hR : (0 : Q') < R) : Q' := CReal.cbrtLo R (Q'.min' R 1) (R + 1) 1
+/-- The rational LOWER bracket for `∛R` at bisection depth `D`: the lower endpoint
+after `D` bisection steps. -/
+def rhoLo (R : Q') (_hR : (0 : Q') < R) (D : Nat) : Q' := CReal.cbrtLo R (Q'.min' R 1) (R + 1) D
 
-/-- The canonical rational UPPER bracket for `∛R`: the upper endpoint after one
-bisection step. -/
-def rhoHi (R : Q') (_hR : (0 : Q') < R) : Q' := CReal.cbrtHi R (Q'.min' R 1) (R + 1) 1
+/-- The rational UPPER bracket for `∛R` at bisection depth `D`: the upper endpoint
+after `D` bisection steps. -/
+def rhoHi (R : Q') (_hR : (0 : Q') < R) (D : Nat) : Q' := CReal.cbrtHi R (Q'.min' R 1) (R + 1) D
 
 /-- `a < b → b ≤ c → a < c` on `Q'` (companion of `Q'.lt_of_le_of_lt`). -/
 theorem q_lt_of_lt_of_le {a b c : Q'} (h1 : a < b) (h2 : b ≤ c) : a < c := by
@@ -236,39 +245,39 @@ theorem q_lt_of_lt_of_le {a b c : Q'} (h1 : a < b) (h2 : b ≤ c) : a < c := by
   exact Int.lt_of_mul_lt_mul_right schain (by exact_mod_cast Nat.zero_le _)
 
 /-- `0 < rhoLo` (the lower endpoints stay `≥ L₀ = min'(R,1) > 0`). -/
-theorem rhoLo_pos (R : Q') (hR : (0 : Q') < R) : (0 : Q') < rhoLo R hR := by
+theorem rhoLo_pos (R : Q') (hR : (0 : Q') < R) (D : Nat) : (0 : Q') < rhoLo R hR D := by
   have hinit := CReal.cbrtInit_canonical hR
-  exact q_lt_of_lt_of_le hinit.loPos (CReal.cbrtLo_ge_L₀ R (Q'.min' R 1) (R + 1) hinit 1)
+  exact q_lt_of_lt_of_le hinit.loPos (CReal.cbrtLo_ge_L₀ R (Q'.min' R 1) (R + 1) hinit D)
 
 /-- `0 ≤ rhoHi`. -/
-theorem rhoHi_nonneg (R : Q') (hR : (0 : Q') < R) : (0 : Q') ≤ rhoHi R hR := by
+theorem rhoHi_nonneg (R : Q') (hR : (0 : Q') < R) (D : Nat) : (0 : Q') ≤ rhoHi R hR D := by
   have hinit := CReal.cbrtInit_canonical hR
-  exact Q'.le_trans' _ _ _ (CReal.cbrtLo_nonneg R (Q'.min' R 1) (R + 1) hinit 1)
-    (CReal.cbrtLo_le_cbrtHi R (Q'.min' R 1) (R + 1) hinit 1)
+  exact Q'.le_trans' _ _ _ (CReal.cbrtLo_nonneg R (Q'.min' R 1) (R + 1) hinit D)
+    (CReal.cbrtLo_le_cbrtHi R (Q'.min' R 1) (R + 1) hinit D)
 
 /-- `rhoLo³ ≤ R` (located invariant). -/
-theorem rhoLo_cube_le (R : Q') (hR : (0 : Q') < R) :
-    rhoLo R hR * rhoLo R hR * rhoLo R hR ≤ R :=
-  CReal.cbrtLo_cube_le R (Q'.min' R 1) (R + 1) (CReal.cbrtInit_canonical hR) 1
+theorem rhoLo_cube_le (R : Q') (hR : (0 : Q') < R) (D : Nat) :
+    rhoLo R hR D * rhoLo R hR D * rhoLo R hR D ≤ R :=
+  CReal.cbrtLo_cube_le R (Q'.min' R 1) (R + 1) (CReal.cbrtInit_canonical hR) D
 
 /-- `R ≤ rhoHi³` (located invariant). -/
-theorem R_le_rhoHi_cube (R : Q') (hR : (0 : Q') < R) :
-    R ≤ rhoHi R hR * rhoHi R hR * rhoHi R hR :=
-  CReal.R_le_cbrtHi_cube R (Q'.min' R 1) (R + 1) (CReal.cbrtInit_canonical hR) 1
+theorem R_le_rhoHi_cube (R : Q') (hR : (0 : Q') < R) (D : Nat) :
+    R ≤ rhoHi R hR D * rhoHi R hR D * rhoHi R hR D :=
+  CReal.R_le_cbrtHi_cube R (Q'.min' R 1) (R + 1) (CReal.cbrtInit_canonical hR) D
 
 /-- `rhoLo ≤ rhoHi`. -/
-theorem rhoLo_le_rhoHi (R : Q') (hR : (0 : Q') < R) : rhoLo R hR ≤ rhoHi R hR :=
-  CReal.cbrtLo_le_cbrtHi R (Q'.min' R 1) (R + 1) (CReal.cbrtInit_canonical hR) 1
+theorem rhoLo_le_rhoHi (R : Q') (hR : (0 : Q') < R) (D : Nat) : rhoLo R hR D ≤ rhoHi R hR D :=
+  CReal.cbrtLo_le_cbrtHi R (Q'.min' R 1) (R + 1) (CReal.cbrtInit_canonical hR) D
 
 /-- **`rhoLo ≤ ρ`** as `geRat (∛R) rhoLo` (from `rhoLo³ ≤ R`). -/
-theorem geRat_rho_rhoLo (R : Q') (hR : (0 : Q') < R) :
-    ExpPos.geRat (CReal.cbrtFrom R hR) (rhoLo R hR) :=
-  cbrtFrom_geRat_of_cube R hR (rhoLo R hR) (Q'.le_of_lt (rhoLo_pos R hR)) (rhoLo_cube_le R hR)
+theorem geRat_rho_rhoLo (R : Q') (hR : (0 : Q') < R) (D : Nat) :
+    ExpPos.geRat (CReal.cbrtFrom R hR) (rhoLo R hR D) :=
+  cbrtFrom_geRat_of_cube R hR (rhoLo R hR D) (Q'.le_of_lt (rhoLo_pos R hR D)) (rhoLo_cube_le R hR D)
 
 /-- **`ρ ≤ rhoHi`** as `leRat (∛R) rhoHi` (from `R ≤ rhoHi³`). -/
-theorem leRat_rho_rhoHi (R : Q') (hR : (0 : Q') < R) :
-    CReal.leRat (CReal.cbrtFrom R hR) (rhoHi R hR) :=
-  CReal.cbrtFrom_leRat_of_cube R hR (rhoHi R hR) (rhoHi_nonneg R hR) (R_le_rhoHi_cube R hR)
+theorem leRat_rho_rhoHi (R : Q') (hR : (0 : Q') < R) (D : Nat) :
+    CReal.leRat (CReal.cbrtFrom R hR) (rhoHi R hR D) :=
+  CReal.cbrtFrom_leRat_of_cube R hR (rhoHi R hR D) (rhoHi_nonneg R hR D) (R_le_rhoHi_cube R hR D)
 
 /-! ### A product LOWER bound `geRat_mul` (dual of `CReal.leRat_mul`)
 
@@ -461,36 +470,79 @@ irrational; the brackets below remove `ρ` in favor of the rational `R`-powers a
 def coeffMatched (ρ : CReal) (s : Nat) : CReal :=
   CReal.mul (CReal.ofQ' (dimQ s)) (crealPowNat ρ (c4 s))
 
-/-- The explicit `Q'` UPPER bound for `coeffMatched`: `(s+1)·rhoHi^{C₄(s)}`. -/
-def coeffMatchedHi (R : Q') (hR : (0 : Q') < R) (s : Nat) : Q' :=
-  dimQ s * qpow (rhoHi R hR) (c4 s)
+/-! ### DECOMPOSED brackets (the fix)
 
-/-- The explicit `Q'` LOWER bound for `coeffMatched`: `(s+1)·rhoLo^{C₄(s)}`. -/
-def coeffMatchedLo (R : Q') (hR : (0 : Q') < R) (s : Nat) : Q' :=
-  dimQ s * qpow (rhoLo R hR) (c4 s)
+The NAIVE bracket `dimQ s · qpow (rhoHi/rhoLo) (c4 s)` raises the loose rational
+`ρ`-bracket to `C₄(s) ≈ s²`, so the bracket ratio `(rhoHi/rhoLo)^{C₄(s)}` EXPLODES and
+the bracketed box inequalities become FALSE-as-stated.  Since `ρ³ = R` is RATIONAL
+(exact), we instead carry the bulk by the EXACT rational `R`-power
+`R^{⌊C₄(s)/3⌋}` and bracket ONLY the residual `ρ^{C₄(s)%3} ∈ {1, ρ, ρ²}` — so the
+multiplicative slack is `≤ (rhoHi/rhoLo)²` (BOUNDED, not exploding).  Both bounds are
+parametrized by the bisection DEPTH `D` (the residual brackets `rhoLo/rhoHi R hR D`). -/
 
-/-- **`coeffMatched_brackets`.**  For `ρ = ∛R`, the genuine `CReal` matched coefficient
-is bracketed by the explicit `Q'` bounds `coeffMatchedLo ≤ coeffMatched ≤ coeffMatchedHi`,
-where both bounds are built from `dimQ s` and powers of the rational brackets `rhoLo`,
-`rhoHi`.  PROOF: `coeffMatched ρ s = dimQ s · ρ^{C₄(s)}`; bracket `ρ^{C₄(s)}` by
-`crealPowNat_brackets` (with the `ρ`-brackets `geRat_rho_rhoLo` / `leRat_rho_rhoHi`),
-then scale by the nonnegative rational `dimQ s` (`leRat_smul_nonneg`, and `geRat` by the
-same scaling). -/
-theorem coeffMatched_brackets (R : Q') (hR : (0 : Q') < R) (s : Nat) :
-    ExpPos.geRat (coeffMatched (CReal.cbrtFrom R hR) s) (coeffMatchedLo R hR s)
-      ∧ CReal.leRat (coeffMatched (CReal.cbrtFrom R hR) s) (coeffMatchedHi R hR s) := by
-  obtain ⟨hg, hl⟩ := crealPowNat_brackets (CReal.cbrtFrom R hR)
-    (geRat_rho_rhoLo R hR) (leRat_rho_rhoHi R hR)
-    (Q'.le_of_lt (rhoLo_pos R hR)) (rhoHi_nonneg R hR) (c4 s)
+/-- **DECOMPOSED `Q'` UPPER bound for `coeffMatched`** at bisection depth `D`:
+`(s+1)·R^{⌊C₄(s)/3⌋}·rhoHi^{C₄(s)%3}`.  The exact rational `R`-power carries the bulk;
+only the residual `ρ^{C₄(s)%3}` is bracketed. -/
+def coeffMatchedHi (R : Q') (hR : (0 : Q') < R) (D : Nat) (s : Nat) : Q' :=
+  dimQ s * qpow R (c4 s / 3) * qpow (rhoHi R hR D) (c4 s % 3)
+
+/-- **DECOMPOSED `Q'` LOWER bound for `coeffMatched`** at bisection depth `D`:
+`(s+1)·R^{⌊C₄(s)/3⌋}·rhoLo^{C₄(s)%3}`. -/
+def coeffMatchedLo (R : Q') (hR : (0 : Q') < R) (D : Nat) (s : Nat) : Q' :=
+  dimQ s * qpow R (c4 s / 3) * qpow (rhoLo R hR D) (c4 s % 3)
+
+/-- **`coeffMatched_brackets` (decomposed + depth).**  For `ρ = ∛R`, the genuine `CReal`
+matched coefficient is bracketed by the explicit DECOMPOSED `Q'` bounds
+`coeffMatchedLo ≤ coeffMatched ≤ coeffMatchedHi`, where the bulk is the EXACT rational
+`R`-power `R^{⌊C₄(s)/3⌋}` and only the residual `ρ^{C₄(s)%3}` is bracketed by the
+depth-`D` brackets `rhoLo/rhoHi`.  PROOF: `coeffMatched ρ s = dimQ s · ρ^{C₄(s)}`;
+decompose `ρ^{C₄(s)} ≃ R^{⌊C₄(s)/3⌋}·ρ^{C₄(s)%3}` (`rho_pow_decompose` + the cube
+identity), bracket the residual `ρ^{C₄(s)%3}` by `crealPowNat_brackets`, then scale by
+the nonnegative rationals `R^{⌊C₄(s)/3⌋}` and `dimQ s`. -/
+theorem coeffMatched_brackets (R : Q') (hR : (0 : Q') < R) (D : Nat) (s : Nat) :
+    ExpPos.geRat (coeffMatched (CReal.cbrtFrom R hR) s) (coeffMatchedLo R hR D s)
+      ∧ CReal.leRat (coeffMatched (CReal.cbrtFrom R hR) s) (coeffMatchedHi R hR D s) := by
+  -- residual brackets ρ^{c4 s % 3} ∈ [rhoLo^{%3}, rhoHi^{%3}]
+  obtain ⟨hgRes, hlRes⟩ := crealPowNat_brackets (CReal.cbrtFrom R hR)
+    (geRat_rho_rhoLo R hR D) (leRat_rho_rhoHi R hR D)
+    (Q'.le_of_lt (rhoLo_pos R hR D)) (rhoHi_nonneg R hR D) (c4 s % 3)
   have hdim : (0 : Q') ≤ dimQ s := dimQ_nonneg s
+  have hRpow : (0 : Q') ≤ qpow R (c4 s / 3) := qpow_nonneg R (Q'.le_of_lt hR) (c4 s / 3)
+  -- the decomposition equivalence ρ^{c4 s} ≃ R^{⌊⌋}·ρ^{%3}
+  have hcube : CReal.Equiv (crealPowNat (CReal.cbrtFrom R hR) 3) (CReal.ofQ' R) :=
+    cbrt_crealPowNat_cube R hR
+  have hdec : CReal.Equiv (crealPowNat (CReal.cbrtFrom R hR) (c4 s))
+      (CReal.mul (CReal.ofQ' (qpow R (c4 s / 3))) (crealPowNat (CReal.cbrtFrom R hR) (c4 s % 3))) :=
+    rho_pow_decompose (CReal.cbrtFrom R hR) R hcube (c4 s)
+  -- scale residual by R^{⌊⌋}: geRat/leRat (R^{⌊⌋}·ρ^{%3})
+  have hgScaled : ExpPos.geRat
+      (CReal.mul (CReal.ofQ' (qpow R (c4 s / 3))) (crealPowNat (CReal.cbrtFrom R hR) (c4 s % 3)))
+      (qpow R (c4 s / 3) * qpow (rhoLo R hR D) (c4 s % 3)) :=
+    geRat_smul_nonneg hRpow hgRes
+  have hlScaled : CReal.leRat
+      (CReal.mul (CReal.ofQ' (qpow R (c4 s / 3))) (crealPowNat (CReal.cbrtFrom R hR) (c4 s % 3)))
+      (qpow R (c4 s / 3) * qpow (rhoHi R hR D) (c4 s % 3)) :=
+    CReal.leRat_smul_nonneg hRpow hlRes
+  -- transport the scaled brackets across hdec to ρ^{c4 s}
+  have hgPow : ExpPos.geRat (crealPowNat (CReal.cbrtFrom R hR) (c4 s))
+      (qpow R (c4 s / 3) * qpow (rhoLo R hR D) (c4 s % 3)) :=
+    SU3CharFactor.geRat_of_equiv hdec hgScaled
+  have hlPow : CReal.leRat (crealPowNat (CReal.cbrtFrom R hR) (c4 s))
+      (qpow R (c4 s / 3) * qpow (rhoHi R hR D) (c4 s % 3)) :=
+    CReal.leRat_of_equiv hdec hlScaled
   refine ⟨?_, ?_⟩
-  · -- geRat (dimQ s · ρ^{c4 s}) (dimQ s · rhoLo^{c4 s})
+  · -- geRat (dimQ s · ρ^{c4 s}) (dimQ s · (R^{⌊⌋}·rhoLo^{%3}))
     show ExpPos.geRat (CReal.mul (CReal.ofQ' (dimQ s)) (crealPowNat (CReal.cbrtFrom R hR) (c4 s)))
-      (dimQ s * qpow (rhoLo R hR) (c4 s))
-    exact geRat_smul_nonneg hdim hg
+      (dimQ s * qpow R (c4 s / 3) * qpow (rhoLo R hR D) (c4 s % 3))
+    have := geRat_smul_nonneg hdim hgPow
+    -- value: dimQ s * (R^{⌊⌋}*rhoLo^{%3}) ≃ dimQ s * R^{⌊⌋} * rhoLo^{%3}
+    refine ExpPos.geRat_mono this ?_
+    exact Q'.le_of_eqv (Q'.mul_assoc_eqv (dimQ s) (qpow R (c4 s / 3)) (qpow (rhoLo R hR D) (c4 s % 3)))
   · show CReal.leRat (CReal.mul (CReal.ofQ' (dimQ s)) (crealPowNat (CReal.cbrtFrom R hR) (c4 s)))
-      (dimQ s * qpow (rhoHi R hR) (c4 s))
-    exact CReal.leRat_smul_nonneg hdim hl
+      (dimQ s * qpow R (c4 s / 3) * qpow (rhoHi R hR D) (c4 s % 3))
+    have := CReal.leRat_smul_nonneg hdim hlPow
+    refine CReal.leRat_mono this ?_
+    exact Q'.ge_of_eqv (Q'.mul_assoc_eqv (dimQ s) (qpow R (c4 s / 3)) (qpow (rhoHi R hR D) (c4 s % 3)))
 
 /-! ## 5. The `δ_k` / `Qfrac` `Q'`-bound interface
 
@@ -501,20 +553,33 @@ the quotient — and hence the per-step increment `δ_k` Wave-2b must control by
 coefficient ratio and the `rhoLo/rhoHi` powers.  We expose the cleanest such object: the
 matched coefficient ratio `ĉ_{k+1}/ĉ_k`, `Q'`-bracketed via `coeffMatched_brackets`. -/
 
+/-- `0 < coeffMatchedLo R hR D k` (the decomposed lower bracket is strictly positive:
+`dimQ k > 0`, `R^{⌊⌋} > 0`, `rhoLo^{%3} > 0`). -/
+theorem coeffMatchedLo_pos (R : Q') (hR : (0 : Q') < R) (D k : Nat) :
+    (0 : Q') < coeffMatchedLo R hR D k :=
+  Q'.mul_pos
+    (Q'.mul_pos (Q'.ofNat_succ_pos k) (BondMovingScaledNorm.qpow_pos hR (c4 k / 3)))
+    (BondMovingScaledNorm.qpow_pos (rhoLo_pos R hR D) (c4 k % 3))
+
+/-- `0 < coeffMatchedHi R hR D k` (the decomposed upper bracket is strictly positive). -/
+theorem coeffMatchedHi_pos (R : Q') (hR : (0 : Q') < R) (D k : Nat) :
+    (0 : Q') < coeffMatchedHi R hR D k :=
+  Q'.mul_pos
+    (Q'.mul_pos (Q'.ofNat_succ_pos k) (BondMovingScaledNorm.qpow_pos hR (c4 k / 3)))
+    (BondMovingScaledNorm.qpow_pos (q_lt_of_lt_of_le (rhoLo_pos R hR D) (rhoLo_le_rhoHi R hR D)) (c4 k % 3))
+
 /-- The `Q'` UPPER bracket for the matched coefficient ratio `ĉ_{k+1}/ĉ_k`:
 `coeffMatchedHi (k+1) / coeffMatchedLo k` (the largest numerator over the smallest
-denominator).  Positivity of the denominator from `0 < rhoLo` and `0 < dimQ`. -/
-def coeffRatioHi (R : Q') (hR : (0 : Q') < R) (k : Nat) : Q' :=
-  Q'.divPos (coeffMatchedHi R hR (k + 1)) (coeffMatchedLo R hR k)
-    (Q'.mul_pos (Q'.ofNat_succ_pos k)
-      (BondMovingScaledNorm.qpow_pos (rhoLo_pos R hR) (c4 k)))
+denominator), at bisection depth `D`. -/
+def coeffRatioHi (R : Q') (hR : (0 : Q') < R) (D : Nat) (k : Nat) : Q' :=
+  Q'.divPos (coeffMatchedHi R hR D (k + 1)) (coeffMatchedLo R hR D k)
+    (coeffMatchedLo_pos R hR D k)
 
 /-- The `Q'` LOWER bracket for the matched coefficient ratio `ĉ_{k+1}/ĉ_k`:
-`coeffMatchedLo (k+1) / coeffMatchedHi k`. -/
-def coeffRatioLo (R : Q') (hR : (0 : Q') < R) (k : Nat) : Q' :=
-  Q'.divPos (coeffMatchedLo R hR (k + 1)) (coeffMatchedHi R hR k)
-    (Q'.mul_pos (Q'.ofNat_succ_pos k)
-      (BondMovingScaledNorm.qpow_pos (q_lt_of_lt_of_le (rhoLo_pos R hR) (rhoLo_le_rhoHi R hR)) (c4 k)))
+`coeffMatchedLo (k+1) / coeffMatchedHi k`, at bisection depth `D`. -/
+def coeffRatioLo (R : Q') (hR : (0 : Q') < R) (D : Nat) (k : Nat) : Q' :=
+  Q'.divPos (coeffMatchedLo R hR D (k + 1)) (coeffMatchedHi R hR D k)
+    (coeffMatchedHi_pos R hR D k)
 
 /-- **The `δ_k` / `Qfrac` `Q'`-bound interface.**  The matched coefficient ratio
 `ĉ_{k+1}/ĉ_k` (the genuine `CReal` object underlying the per-step increment `δ_k`) is
@@ -526,12 +591,112 @@ We record it as the pair of bracket facts on `coeffMatched`; the ratio brackets
 `coeffRatioLo/Hi` are their `divPos` combinations.  (We do not assert the `CReal` ratio
 here — only the numerator/denominator brackets that define it — keeping the interface
 purely `Q'` and honest about what is established.) -/
-theorem coeffRatio_brackets (R : Q') (hR : (0 : Q') < R) (k : Nat) :
-    (ExpPos.geRat (coeffMatched (CReal.cbrtFrom R hR) (k + 1)) (coeffMatchedLo R hR (k + 1))
-      ∧ CReal.leRat (coeffMatched (CReal.cbrtFrom R hR) (k + 1)) (coeffMatchedHi R hR (k + 1)))
-    ∧ (ExpPos.geRat (coeffMatched (CReal.cbrtFrom R hR) k) (coeffMatchedLo R hR k)
-      ∧ CReal.leRat (coeffMatched (CReal.cbrtFrom R hR) k) (coeffMatchedHi R hR k)) :=
-  ⟨coeffMatched_brackets R hR (k + 1), coeffMatched_brackets R hR k⟩
+theorem coeffRatio_brackets (R : Q') (hR : (0 : Q') < R) (D : Nat) (k : Nat) :
+    (ExpPos.geRat (coeffMatched (CReal.cbrtFrom R hR) (k + 1)) (coeffMatchedLo R hR D (k + 1))
+      ∧ CReal.leRat (coeffMatched (CReal.cbrtFrom R hR) (k + 1)) (coeffMatchedHi R hR D (k + 1)))
+    ∧ (ExpPos.geRat (coeffMatched (CReal.cbrtFrom R hR) k) (coeffMatchedLo R hR D k)
+      ∧ CReal.leRat (coeffMatched (CReal.cbrtFrom R hR) k) (coeffMatchedHi R hR D k)) :=
+  ⟨coeffMatched_brackets R hR D (k + 1), coeffMatched_brackets R hR D k⟩
+
+/-! ## 6. The EXACT-`CReal` dominance (the vanishing-margin local CLT)
+
+The bracketed dominance `g_k·ĉ_{k+1}^{hi} ≤ g_{k+1}·ĉ_k^{lo}` is FALSE-as-stated:
+the sign margin `δ_1 ~ τ³ → 0` vanishes faster than any fixed-depth bracket slack, so
+NO finite depth `D` works uniformly as `w → 1`.  The dominance is genuinely an EXACT
+inequality on the genuine `CReal` matched coefficient `ĉ_s = coeffMatched ρ s`
+(`ρ = ∛R`), with NO bracket slack.
+
+We state it as the constructive `≤` between the two genuine `CReal` products — the
+existence of a SEPARATING rational `B`:
+
+    g_k · ĉ_{k+1}  ≤  B  ≤  g_{k+1} · ĉ_k
+
+(`leRat` of the smaller, `geRat` of the larger).  This is the MLTT-valid constructive
+form of `g_k·ĉ_{k+1} ≤ g_{k+1}·ĉ_k` (the one-slack `CReal.le` is non-transitive, so a
+separating rational is the correct witness).  The deflated `h_s = g_s/ĉ_s` being
+non-decreasing IS this family of separators.  We carry it as a `Type`-level datum and
+PROVE the bridge back to the engine's `δ_k ≥ 0`; the separators themselves (the genuine
+local-CLT content) are NAMED, not inhabited here. -/
+
+/-- The genuine `CReal` cross products `g_s · ĉ_t` (rational `g_s` times the `CReal`
+matched coefficient `ĉ_t = coeffMatched ρ t`). -/
+def crossProd (g : Q') (ρ : CReal) (t : Nat) : CReal :=
+  CReal.mul (CReal.ofQ' g) (coeffMatched ρ t)
+
+/-- **The EXACT-`CReal` dominance datum.**  For the matched kernel `ρ = ∛R` and the
+self-fusion coefficients `g_s = bondMovedCoeff N w 2 s`, a SEPARATING rational `B k`
+for each active mode `1 ≤ k`, witnessing the genuine (bracket-free) cross dominance
+`g_k·ĉ_{k+1} ≤ B k ≤ g_{k+1}·ĉ_k` on the genuine `CReal` coefficients `ĉ = coeffMatched
+ρ`.  This is the vanishing-margin local CLT: the deflated `h_s = g_s/ĉ_s` is
+non-decreasing.  NAMED (the separators are the open analytic content), NOT inhabited. -/
+structure ExactCRealDominance (N : Nat) (w : Q') (R : Q') (hR : (0 : Q') < R) : Type where
+  /-- The separating rational per active mode. -/
+  B : Nat → Q'
+  /-- The smaller product's limit is `≤ B k`: `g_k · ĉ_{k+1} ≤ B k`. -/
+  sep_lo : ∀ k, 1 ≤ k →
+    CReal.leRat (crossProd (bondMovedCoeff N w 2 k) (CReal.cbrtFrom R hR) (k + 1)) (B k)
+  /-- The larger product's limit is `≥ B k`: `B k ≤ g_{k+1} · ĉ_k`. -/
+  sep_hi : ∀ k, 1 ≤ k →
+    ExpPos.geRat (crossProd (bondMovedCoeff N w 2 (k + 1)) (CReal.cbrtFrom R hR) k) (B k)
+
+/-! ### The bridge `ExactCRealDominance ⟹ Q'` cross dominance on the brackets
+
+From the separating rational `B k` and the bracket facts, the genuine cross dominance
+`g_k·ĉ_{k+1} ≤ g_{k+1}·ĉ_k` transfers to the BRACKETED `Q'` cross inequality
+`g_k·ĉ_{k+1}^{lo} ≤ g_{k+1}·ĉ_k^{hi}` — BUT that is the WEAK direction (lower vs upper)
+and does NOT feed `step_nonneg` (which needs `g_k·ĉ_{k+1}^{hi} ≤ g_{k+1}·ĉ_k^{lo}`).
+The CORRECT bridge keeps the comparison at the `CReal` level: the genuine cross
+products satisfy `g_k·ĉ_{k+1} ≤ g_{k+1}·ĉ_k` (a constructive `≤`, via the separator),
+and this is the EXACT statement `stepDelta ≥ 0` reduces to when the per-step quotient is
+formed against the genuine `CReal` ĉ (no brackets).  We expose that constructive `≤`. -/
+
+/-- **The genuine constructive cross `≤` from the separator.**  `g_k·ĉ_{k+1} ≤
+g_{k+1}·ĉ_k` as the constructive comparison: there is a rational `B` with `leRat (smaller)
+B` and `geRat (larger) B`.  This re-exposes the `ExactCRealDominance` content per mode —
+the genuine bracket-free dominance the engine's `step_nonneg` requires (against the exact
+`CReal` reference). -/
+def exact_cross_le (N : Nat) {w : Q'} (R : Q') (hR : (0 : Q') < R)
+    (dom : ExactCRealDominance N w R hR) (k : Nat) (hk : 1 ≤ k) :
+    Σ' B : Q',
+      CReal.leRat (crossProd (bondMovedCoeff N w 2 k) (CReal.cbrtFrom R hR) (k + 1)) B
+        ∧ ExpPos.geRat (crossProd (bondMovedCoeff N w 2 (k + 1)) (CReal.cbrtFrom R hR) k) B :=
+  ⟨dom.B k, dom.sep_lo k hk, dom.sep_hi k hk⟩
+
+/-- **The `δ_0 = 0` exact match as the base of the deflated comparison.**  The matched
+retune is built so that `ĉ_1 = 2·ρ³ = g_1/g_0` (`cubeRatio`), i.e. the deflated ratio
+`h_1 = g_1/ĉ_1 = g_0/ĉ_0 = h_0` exactly — the `s = 1` marginal is killed by
+construction.  Concretely `g_0 · ĉ_1 ≃ g_1 · ĉ_0` at the rational (`C₄ ∈ {0,3}`) modes,
+where `ĉ_0 = 1` and `ĉ_1 = 2·R` with `R = cubeRatio` and `g_0·(2·R) ≃ g_1` by definition
+of `cubeRatio`.  This is the EXACT base case (`δ_0 = 0`), proved at the `Q'` level (as an
+`eqv`, since the cancellation `divPos·q ≃ p` is value-level not definitional). -/
+theorem matched_base_exact (N : Nat) {w : Q'} (hw : (0 : Q') < w) :
+    (bondMovedCoeff N w 2 0 * (Q'.ofNat 2 * cubeRatio N w hw)).eqv
+      (bondMovedCoeff N w 2 1 * (1 : Q')) := by
+  have hden : (0 : Q') < Q'.ofNat 2 * bondMovedCoeff N w 2 0 :=
+    Q'.mul_pos (by decide : (0 : Q') < Q'.ofNat 2)
+      (YMGap.Continuum.FusionResidualBound.bondMovedCoeff_zero_pos N hw 2)
+  -- cubeRatio = divPos g1 (2·g0); the cancellation divPos·(2·g0) ≃ g1
+  have hcancel : (cubeRatio N w hw * (Q'.ofNat 2 * bondMovedCoeff N w 2 0)).eqv
+      (bondMovedCoeff N w 2 1) :=
+    Q'.divPos_mul_eqv (bondMovedCoeff N w 2 1) (Q'.ofNat 2 * bondMovedCoeff N w 2 0) hden
+  -- g0·(2·R) ≃ R·(2·g0) ≃ g1 ≃ g1·1
+  have hrearr : (bondMovedCoeff N w 2 0 * (Q'.ofNat 2 * cubeRatio N w hw)).eqv
+      (cubeRatio N w hw * (Q'.ofNat 2 * bondMovedCoeff N w 2 0)) := by
+    -- g0·(2·R) ≃ g0·(R·2) ≃ (g0·R)·2 ≃ (R·g0)·2 ≃ R·(g0·2) ≃ R·(2·g0)
+    refine Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_left (bondMovedCoeff N w 2 0) _ _
+        (Q'.mul_comm_eqv (Q'.ofNat 2) (cubeRatio N w hw))) ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.eqv_symm (Q'.mul_assoc_eqv (bondMovedCoeff N w 2 0) (cubeRatio N w hw) (Q'.ofNat 2))) ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_right _ _ (Q'.ofNat 2)
+        (Q'.mul_comm_eqv (bondMovedCoeff N w 2 0) (cubeRatio N w hw))) ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.mul_assoc_eqv (cubeRatio N w hw) (bondMovedCoeff N w 2 0) (Q'.ofNat 2)) ?_
+    exact Q'.mul_eqv_congr_left (cubeRatio N w hw) _ _
+      (Q'.mul_comm_eqv (bondMovedCoeff N w 2 0) (Q'.ofNat 2))
+  refine Q'.eqv_trans _ _ _ hrearr (Q'.eqv_trans _ _ _ hcancel ?_)
+  exact Q'.eqv_symm (Q'.mul_one_eqv (bondMovedCoeff N w 2 1))
 
 end YMGap.Continuum.MatchedRetuneBridge
 
@@ -549,3 +714,7 @@ end YMGap.Continuum.MatchedRetuneBridge
 #print axioms YMGap.Continuum.MatchedRetuneBridge.crealPowNat_brackets
 #print axioms YMGap.Continuum.MatchedRetuneBridge.coeffMatched_brackets
 #print axioms YMGap.Continuum.MatchedRetuneBridge.coeffRatio_brackets
+#print axioms YMGap.Continuum.MatchedRetuneBridge.coeffMatchedLo_pos
+#print axioms YMGap.Continuum.MatchedRetuneBridge.coeffMatchedHi_pos
+#print axioms YMGap.Continuum.MatchedRetuneBridge.exact_cross_le
+#print axioms YMGap.Continuum.MatchedRetuneBridge.matched_base_exact
