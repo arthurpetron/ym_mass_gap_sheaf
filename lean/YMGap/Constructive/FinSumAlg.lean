@@ -112,6 +112,27 @@ theorem finSum_add (f g : QSeq) :
         exact Q'.eqv_trans _ _ _ (Q'.eqv_symm a1) (Q'.eqv_trans _ _ _ a2 a3)
       exact lhs
 
+/-- **Double-sum index swap on `finSum`.**
+`Σ_{a<m} Σ_{b<n} g a b ≃ Σ_{b<n} Σ_{a<m} g a b`.  Induction on the outer index `m`,
+peeling the outer index and folding it into each inner sum via `finSum_add`. -/
+theorem finSum_swap (g : Nat → Nat → Q') :
+    ∀ m n, (finSum (fun a => finSum (fun b => g a b) n) m).eqv
+        (finSum (fun b => finSum (fun a => g a b) m) n)
+  | 0, n => by
+      show (0 : Q').eqv (finSum (fun b => finSum (fun a => g a b) 0) n)
+      refine Q'.eqv_symm ?_
+      refine Q'.eqv_trans _ _ _
+        (finSum_eqv_congr _ (fun _ => 0) (fun _ => Q'.eqv_refl 0) n) ?_
+      rw [finSum_zero_seq n]
+      exact Q'.eqv_refl 0
+  | m + 1, n => by
+      show (finSum (fun a => finSum (fun b => g a b) n) m + finSum (fun b => g m b) n).eqv
+          (finSum (fun b => finSum (fun a => g a b) (m + 1)) n)
+      -- RHS inner (m+1)-sum splits: Σ_{a<m+1} g a b = Σ_{a<m} g a b + g m b.
+      refine Q'.eqv_trans _ _ _ ?_
+        (Q'.eqv_symm (finSum_add (fun b => finSum (fun a => g a b) m) (fun b => g m b) n))
+      exact Q'.add_eqv_congr_right _ _ (finSum (fun b => g m b) n) (finSum_swap g m n)
+
 end RationalTail
 
 end YMGap.Constructive
@@ -123,3 +144,4 @@ end YMGap.Constructive
 #print axioms YMGap.Constructive.RationalTail.finSum_mul_const
 #print axioms YMGap.Constructive.RationalTail.const_mul_finSum
 #print axioms YMGap.Constructive.RationalTail.finSum_add
+#print axioms YMGap.Constructive.RationalTail.finSum_swap

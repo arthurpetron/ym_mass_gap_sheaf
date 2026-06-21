@@ -119,12 +119,14 @@ import YMGap.Continuum.FusionQuotientCollapse
 import YMGap.Constructive.Sqrt
 import YMGap.Constructive.FinSumAlg
 import YMGap.Constructive.SumOfSquares
+import YMGap.Constructive.CRealAlg
 import YMGap.Continuum.Pivot2Moments
 
 namespace YMGap.Continuum.FusionRDFactor
 
 open YMGap.Constructive
 open YMGap.Constructive.QPoly
+open YMGap.Constructive.CRealAlg
 open YMGap.Continuum
 open YMGap.Continuum.RGTransport
 open YMGap.Continuum.HeatKernelGap
@@ -256,7 +258,7 @@ We state it in the EXACT cleared shape (`(r²−d²)/4 = i·j`, `((r²+d²)/2)�
 `ofNat(i·j) · qpow w (C₄(a)+C₄(b))`.  This is the `w`-power diagonalization: the
 self-fusion weight depends only on `i²+j²` and the coefficient only on `i·j`,
 both functions of `(r,d)`. -/
-theorem coeffW_mul_rd {w : Q'} {a b : Nat} (hba : b ≤ a) :
+theorem coeffW_mul_rd {w : Q'} {a b : Nat} (_hba : b ≤ a) :
     (coeffW w a * coeffW w b).eqv
       (Q'.ofNat ((a + 1) * (b + 1)) * qpow w (c4 a + c4 b)) := by
   -- coeffW w a = ofNat(a+1)·w^{C₄ a}, coeffW w b = ofNat(b+1)·w^{C₄ b}
@@ -401,22 +403,14 @@ move past `σ = √w` reduces to the corresponding `Q'` identity via
 (`sigmaFrom_sq`), handled by `Pivot2.mul_congr`.  Together they give the bridge
 `cpow σ (2n) ≃ ofQ'(w^n)`. -/
 
-/-- CReal multiplication associates (pointwise). -/
-theorem cmul_assoc (A B C : CReal) :
-    CReal.Equiv (CReal.mul (CReal.mul A B) C) (CReal.mul A (CReal.mul B C)) :=
-  SumOfSquares.Equiv_of_approx_eqv (fun n =>
-    Q'.mul_assoc_eqv (A.approx n) (B.approx n) (C.approx n))
+-- CReal ring rearrangements (`cmul_assoc`, `cmul_comm`, `cofQ'_mul`) are the shared
+-- canonical pointwise helpers from `CRealAlg` (opened above); `cofQ'_mul` is the
+-- multiplicative-`ofQ'` law there named `ofQ'_mul`, aliased below for local use.
 
-/-- CReal multiplication commutes (pointwise). -/
-theorem cmul_comm (A B : CReal) :
-    CReal.Equiv (CReal.mul A B) (CReal.mul B A) :=
-  SumOfSquares.Equiv_of_approx_eqv (fun n =>
-    Q'.mul_comm_eqv (A.approx n) (B.approx n))
-
-/-- `ofQ' (a·b) ≃ ofQ' a · ofQ' b` (pointwise; in fact definitionally approx-equal). -/
+/-- `ofQ' (a·b) ≃ ofQ' a · ofQ' b` (the canonical `CRealAlg.ofQ'_mul`). -/
 theorem cofQ'_mul (a b : Q') :
     CReal.Equiv (CReal.ofQ' (a * b)) (CReal.mul (CReal.ofQ' a) (CReal.ofQ' b)) :=
-  SumOfSquares.Equiv_of_approx_eqv (fun _ => Q'.eqv_refl _)
+  CRealAlg.ofQ'_mul a b
 
 /-- **The `σ² = w` power bridge.**  `cpow σ (2·n) ≃ ofQ'(w^n)` for `σ = √w`.
 Each pair of `σ` factors collapses to `w` via `sigmaFrom_sq`; the `Q'` powers
@@ -536,16 +530,8 @@ theorem csum_congr {A B : Nat → CReal} (h : ∀ i, CReal.Equiv (A i) (B i)) (n
       show CReal.Equiv (CReal.add (CReal.csum A m) (A m)) (CReal.add (CReal.csum B m) (B m))
       exact Pivot2.add_congr ih (h m)
 
-/-- **`csum` is additive**: `∑(A + B) ≃ ∑A + ∑B` (pointwise via `finSum_add`). -/
-theorem csum_add (A B : Nat → CReal) (n : Nat) :
-    CReal.Equiv (CReal.csum (fun i => CReal.add (A i) (B i)) n)
-      (CReal.add (CReal.csum A n) (CReal.csum B n)) := by
-  refine SumOfSquares.Equiv_of_approx_eqv (fun p => ?_)
-  rw [CReal.csum_approx (fun i => CReal.add (A i) (B i)) n p]
-  show (RationalTail.finSum (fun i => (A i).approx p + (B i).approx p) n).eqv
-    ((CReal.csum A n).approx p + (CReal.csum B n).approx p)
-  rw [CReal.csum_approx A n p, CReal.csum_approx B n p]
-  exact RationalTail.finSum_add (fun i => (A i).approx p) (fun i => (B i).approx p) n
+-- `csum` additivity (`csum_add`) is the shared canonical `CRealAlg.csum_add`
+-- (opened above); used below by its short name.
 
 /-- **`csum` pulls a `CReal` constant on the left**: `∑(c·A) ≃ c·∑A`. -/
 theorem csum_const_mul (c : CReal) (A : Nat → CReal) (n : Nat) :
@@ -880,8 +866,8 @@ PROVED (axiom-clean):
     collapse), confirming the factorization SHAPE on the exactly-closing channel.
 
 PROVED — THE SEPARATION LEVER (this wave, axiom-clean):
-  * `cmul_assoc` / `cmul_comm` / `cofQ'_mul` — `CReal` ring rearrangements (pointwise
-    via `SumOfSquares.Equiv_of_approx_eqv`, since `CReal.mul`/`add` act approx-wise).
+  * `cofQ'_mul` — the multiplicative-`ofQ'` law (shared canonical `CReal` ring
+    rearrangement, pointwise via `SumOfSquares.Equiv_of_approx_eqv`).
   * `cpow_two_mul_eqv` — the `σ² = w` POWER BRIDGE: `cpow σ (2n) ≃ ofQ'(w^n)` (the only
     non-pointwise step, `σ·σ ≃ w` via `sigmaFrom_sq` + `Pivot2.mul_congr`).
   * `finSum_prod_eq` — the `Q'` finite product-of-sums EQUALITY
@@ -967,14 +953,11 @@ end YMGap.Continuum.FusionRDFactor
 #print axioms YMGap.Continuum.FusionRDFactor.g0_rd_check
 #print axioms YMGap.Continuum.FusionRDFactor.coeffW_sq_rd
 #print axioms YMGap.Continuum.FusionRDFactor.rdFactorization_identity
-#print axioms YMGap.Continuum.FusionRDFactor.cmul_assoc
-#print axioms YMGap.Continuum.FusionRDFactor.cmul_comm
 #print axioms YMGap.Continuum.FusionRDFactor.cofQ'_mul
 #print axioms YMGap.Continuum.FusionRDFactor.cpow_two_mul_eqv
 #print axioms YMGap.Continuum.FusionRDFactor.finSum_prod_eq
 #print axioms YMGap.Continuum.FusionRDFactor.csum_prod_eq
 #print axioms YMGap.Continuum.FusionRDFactor.csum_congr
-#print axioms YMGap.Continuum.FusionRDFactor.csum_add
 #print axioms YMGap.Continuum.FusionRDFactor.csum_const_mul
 #print axioms YMGap.Continuum.FusionRDFactor.Rsum_eq_csum
 #print axioms YMGap.Continuum.FusionRDFactor.Dsum_eq_csum
