@@ -70,3 +70,30 @@ This is reconnaissance, not proof: it establishes that `BoxRatioDominance` and
 `BoxRatioDerivative` are TRUE with margin and explicit constants, so the matched-retune chain's
 sole remaining analytic content is a correctly-stated (hard) discrete local CLT — NOT a false
 target, NOT a 4D Yang–Mills mass gap.
+
+## ADDENDUM (2026-06-21) — the bracketed targets are FALSE-as-stated; fix fork
+
+Before launching proofs, a second reconnaissance on the EXACT Lean structures
+(`BoxRatioDominance`/`BoxRatioDerivative`, which use `coeffMatchedLo/Hi`) found they are
+FALSE as currently defined. `coeffMatchedHi/Lo R s = (s+1)·qpow (rhoHi/rhoLo) (c4 s)` — the
+NAIVE bracket — raises the loose rational `ρ`-bracket to `C₄(s) ≈ s²`, so the bracket ratio
+`(rhoHi/rhoLo)^{C₄(s)}` EXPLODES. With `rhoLo/rhoHi` taken at the FIXED bisection stage 1
+(width ≈ ½), the bracketed inequalities fail immediately (even `k=1`).
+
+NUMERICS (decomposed brackets `R^{⌊C₄/3⌋}·ρ^{C₄%3}`, `R=ρ³=g₁/2g₀` exact, only the residual
+`ρ^{C₄%3}∈{1,ρ,ρ²}` bracketed ⇒ slack `≤(rhoHi/rhoLo)²` bounded; vs bisection depth):
+- DERIVATIVE (C=½): becomes TRUE at depth `~const·log(1/u)` (d12 at τ=.1, d16 at τ=.025,
+  d24 at τ=.0062) — the explicit `Cu³(2k+3)` slack absorbs the bounded bracket error. Q'-fixable.
+- DOMINANCE (sign, `δ_k≥0`): margin `δ_1 ~ τ³ → 0`, so NO fixed depth works uniformly as
+  `w→1`; even decomposed brackets fail at τ≤.025 up to depth 24. Needs the EXACT `ρ` (CReal),
+  where `δ_k>0` holds with no bracket slack.
+
+CONSEQUENCE: `coeffMatchedLo/Hi` (naive) must be replaced by DECOMPOSED brackets, and
+`rhoLo/rhoHi` by a `w`-dependent (growing) bisection depth. The DERIVATIVE then closes in Q';
+the DOMINANCE needs the exact-`ρ` CReal reference (vanishing margin). The EXACT inequalities
+remain TRUE with margin (the main recon above) — only the bracketed Q' surrogates were broken.
+
+FIX FORK: (A) Q' decomposed brackets + `w`-growing depth — works for derivative, awkward for
+the vanishing-margin dominance; (B) restate both against exact `CReal` `ĉ_s=(s+1)ρ^{C₄(s)}`
+(no slack; uses the new `CRealAlg`/`CRealContinuumAlg` layer) — cleaner for dominance, needs
+CReal inequality machinery. Likely: (A) for derivative, (B) for dominance.
