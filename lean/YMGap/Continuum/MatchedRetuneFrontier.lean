@@ -54,16 +54,20 @@ THE ENGINE WIRING (proved):
     `δ_k ≤ C·u²·(c4(k+1) − c4(k))` (and `δ_k ≥ 0`), the cumulative sum telescopes to
     `∑_{k<s} δ_k ≤ C·u²·c4(s) = C·u·yArg w s`, the literal `∑(y_{k+1}−y_k) = y_s − y_0`.
 
-# NAMED OPEN — the genuine discrete-local-CLT residuals (precise `Q'` box inequalities)
+# NAMED OPEN — the genuine discrete-local-CLT residuals (corrected statements)
 
-  * `BoxRatioDominance` — the dominance frontier as a pure `Q'` box-sum inequality:
-    `g_k·ĉ_{k+1}^{lo} ≤ g_{k+1}·ĉ_k^{lo}` (heavier-tail comparison, with `g_s` in the
-    proved closed `(r,d)` box form `bondMovedCoeff_p2_rd` and `ĉ` via the `rhoLo/rhoHi`
-    brackets).  NOT a `C₄²` envelope, NOT the false folded 1-D `R₂D₀ − R₀D₂` product.
-  * `BoxRatioDerivative` — the derivative frontier as a pure `Q'` box inequality:
-    `g_{k+1}·ĉ_k^{up} ≤ (1 + C·u³·(2k+3))·(g_k·ĉ_{k+1}^{lo})` with the explicit `C`.
-    The `u²` gain is supplied by `secondOrder_qpow` on the `ρ^{2k+3}` power increment;
-    the `(2k+3)` factor by `cInc_eq`.
+  * `BoxRatioDerivative` — the derivative (magnitude) frontier as a pure `Q'` box
+    inequality `g_{k+1}·ĉ_k^{up} ≤ (1 + C·u³·(2k+3))·(g_k·ĉ_{k+1}^{lo})` with explicit
+    `C`, using the DECOMPOSED+DEPTH brackets `coeffMatchedLo/Hi R hR D` (the naive
+    `(rhoHi/rhoLo)^{C₄}` explosion is REMOVED — the slack is now bounded `≤ (rhoHi/rhoLo)²`).
+    The `u²` gain is supplied by `secondOrder_qpow` on the `ρ^{2k+3}` power increment; the
+    `(2k+3)` factor by `cInc_eq`.  Correctly stated, NAMED, not inhabited; NOT a `C₄²`
+    envelope.
+  * `BoxRatioDominance` (bracketed) — RESTATED with the decomposed+depth brackets, but the
+    sign margin `δ_1 ~ τ³ → 0` beats ANY fixed depth, so the bracketed surrogate is NOT
+    uniformly inhabitable.  The genuine dominance is carried EXACT-`CReal` by
+    `MatchedRetuneBridge.ExactCRealDominance` (separating rationals on the genuine `CReal`
+    `ĉ`, NO bracket slack) — see §7b: PROVED base `δ_0 = 0` and bridge, NAMED separators.
 
 `δ_0 = 0` is EXACT (the matching identity), so the active window starts at `k ≥ 1`.
 
@@ -392,26 +396,33 @@ def frontier_quotientCert (N : Nat) (w : Q') (hw : (0 : Q') < w)
 
 The two facts the carrier `MatchedStepData` leaves abstract are the dominance and the
 derivative bound.  Through the reductions §2–4 they reduce to PURE `Q'` BOX inequalities
-on the proved closed `(r,d)` box form of `g_s` (`bondMovedCoeff_p2_rd`) and the proved
-rational `rhoLo/rhoHi` brackets of the matched kernel `ĉ_s = coeffMatched ρ s`.  We name
-them precisely as `Type`-level obligations — `Q'` finite-sum inequalities, NOT oracles,
-NOT `C₄²` envelopes, NOT the false folded 1-D `R₂D₀ − R₀D₂` product. -/
+on the proved closed `(r,d)` box form of `g_s` (`bondMovedCoeff_p2_rd`) and the FIXED
+DECOMPOSED+DEPTH `coeffMatchedLo/Hi R hR D` brackets of the matched kernel `ĉ_s =
+coeffMatched ρ s` (bounded slack — the naive `(rhoHi/rhoLo)^{C₄}` explosion removed).  We
+name them precisely as `Type`-level obligations — `Q'` finite-sum inequalities, NOT
+oracles, NOT `C₄²` envelopes, NOT the false folded 1-D `R₂D₀ − R₀D₂` product.
 
-/-- **THE DOMINANCE BOX RESIDUAL.**  For the matched kernel `R = cubeRatio N w hw`
-(`ρ = ∛R`, brackets `coeffMatchedLo/Hi R hR`), the heavier-tail box dominance
+The DOMINANCE (sign) bracketed surrogate `BoxRatioDominance` is, however, FALSE-as-stated
+as `w → 1` (the margin `δ_1 ~ τ³ → 0` beats any fixed depth `D`); the genuine dominance is
+the EXACT-`CReal` `ExactCRealDominance` of the bridge module (see §7b).  The DERIVATIVE
+(magnitude) `BoxRatioDerivative` is correctly stated on the decomposed brackets. -/
 
-    g_k · coeffMatchedHi R hR (k+1)  ≤  g_{k+1} · coeffMatchedLo R hR k,
+/-- **THE DOMINANCE BOX RESIDUAL (bracketed surrogate — FALSE-as-stated as `w → 1`).**
+For the matched kernel `R = cubeRatio N w hw` (`ρ = ∛R`, decomposed+depth brackets
+`coeffMatchedLo/Hi R hR D`), the heavier-tail box dominance
 
-with `g_s = bondMovedCoeff N w 2 s` in its proved closed `(r,d)` box form
-(`bondMovedCoeff_p2_rd`).  Each side is a finite `Q'` double sum times a rational power
-of the brackets.  Combined with `coeffMatched_brackets` and `stepDelta_nonneg_of_bracket`
-it gives `δ_k ≥ 0`.  NOT inhabited here. -/
+    g_k · coeffMatchedHi R hR D (k+1)  ≤  g_{k+1} · coeffMatchedLo R hR D k.
+
+The dominance sign margin `δ_1 ~ τ³` vanishes faster than ANY fixed-depth bracket slack,
+so this bracketed surrogate is NOT uniformly inhabitable — the genuine dominance is
+EXACT-`CReal` (`MatchedRetuneBridge.ExactCRealDominance`, §7b).  Kept for the conditional
+`perstep_nonneg_of_box` reduction.  NOT inhabited here. -/
 structure BoxRatioDominance (N : Nat) (w : Q') (hw : (0 : Q') < w)
-    (R : Q') (hR : (0 : Q') < R) : Type where
+    (R : Q') (hR : (0 : Q') < R) (D : Nat) : Type where
   /-- The box dominance inequality on the active modes `1 ≤ k`. -/
   dominance : ∀ k, 1 ≤ k →
-    bondMovedCoeff N w 2 k * coeffMatchedHi R hR (k + 1)
-      ≤ bondMovedCoeff N w 2 (k + 1) * coeffMatchedLo R hR k
+    bondMovedCoeff N w 2 k * coeffMatchedHi R hR D (k + 1)
+      ≤ bondMovedCoeff N w 2 (k + 1) * coeffMatchedLo R hR D k
 
 /-- **THE DERIVATIVE BOX RESIDUAL.**  With the explicit constant `C : Q'` and the
 target deviation `D_k = C·u³·(2k+3)` (`u = 1 − w`), the box numerator inequality
@@ -424,13 +435,13 @@ the `secondOrder_qpow` quadratic Taylor on the `ρ^{2k+3}` power increment; the 
 factor is `cInc_eq`.  Combined with `coeffMatched_brackets` and `stepDelta_le_of_bracket`
 it gives `δ_k ≤ C·u³·(2k+3)`.  NOT a `C₄²` envelope.  NOT inhabited here. -/
 structure BoxRatioDerivative (N : Nat) (w : Q') (hw : (0 : Q') < w)
-    (R : Q') (hR : (0 : Q') < R) (C : Q') : Type where
+    (R : Q') (hR : (0 : Q') < R) (D : Nat) (C : Q') : Type where
   /-- The box derivative inequality on the active modes `1 ≤ k`. -/
   derivative : ∀ k, 1 ≤ k →
-    bondMovedCoeff N w 2 (k + 1) * coeffMatchedHi R hR k
+    bondMovedCoeff N w 2 (k + 1) * coeffMatchedHi R hR D k
       ≤ ((1 : Q') + C * (((1 : Q') - w) * ((1 : Q') - w) * ((1 : Q') - w))
           * Q'.ofNat (2 * k + 3))
-        * (bondMovedCoeff N w 2 k * coeffMatchedLo R hR (k + 1))
+        * (bondMovedCoeff N w 2 k * coeffMatchedLo R hR D (k + 1))
 
 /-! ## 7. The conditional crossover — δ_k facts from the named box residuals
 
@@ -446,27 +457,27 @@ bracket facts (from `coeffMatched_brackets`), the matched increment against the 
 sandwiched by the brackets `coeffMatchedLo ≤ chat ≤ coeffMatchedHi` (the rational image
 of the genuine `CReal` `ĉ`). -/
 theorem perstep_nonneg_of_box (N : Nat) {w : Q'} (hw : (0 : Q') < w)
-    (R : Q') (hR : (0 : Q') < R)
+    (R : Q') (hR : (0 : Q') < R) (D : Nat)
     (chat : Nat → Q')
-    (hchatLo : ∀ s, coeffMatchedLo R hR s ≤ chat s)
-    (hchatHi : ∀ s, chat s ≤ coeffMatchedHi R hR s)
-    (box : BoxRatioDominance N w hw R hR)
+    (hchatLo : ∀ s, coeffMatchedLo R hR D s ≤ chat s)
+    (hchatHi : ∀ s, chat s ≤ coeffMatchedHi R hR D s)
+    (box : BoxRatioDominance N w hw R hR D)
     (k : Nat) (hk : 1 ≤ k)
     (hden : (0 : Q') < bondMovedCoeff N w 2 k * chat (k + 1)) :
     (0 : Q') ≤ stepDeltaQ' N w chat k hden :=
   stepDelta_nonneg_of_bracket N (Q'.le_of_lt hw) chat
-    (coeffMatchedLo R hR) (coeffMatchedHi R hR) k hden
+    (coeffMatchedLo R hR D) (coeffMatchedHi R hR D) k hden
     (hchatLo k) (hchatHi (k + 1)) (box.dominance k hk)
 
 /-- **Per-step derivative bound from the box residual.**  Given `BoxRatioDerivative` (with
 constant `C`, `C·u³·(2k+3) ≥ 0`) and the bracket facts, the matched increment is bounded
 by `C·u³·(2k+3)` on `1 ≤ k`. -/
 theorem perstep_le_of_box (N : Nat) {w : Q'} (hw : (0 : Q') < w) (hw1 : w ≤ (1 : Q'))
-    (R : Q') (hR : (0 : Q') < R) (C : Q') (hC : (0 : Q') ≤ C)
+    (R : Q') (hR : (0 : Q') < R) (D : Nat) (C : Q') (hC : (0 : Q') ≤ C)
     (chat : Nat → Q')
-    (hchatLo : ∀ s, coeffMatchedLo R hR s ≤ chat s)
-    (hchatHi : ∀ s, chat s ≤ coeffMatchedHi R hR s)
-    (box : BoxRatioDerivative N w hw R hR C)
+    (hchatLo : ∀ s, coeffMatchedLo R hR D s ≤ chat s)
+    (hchatHi : ∀ s, chat s ≤ coeffMatchedHi R hR D s)
+    (box : BoxRatioDerivative N w hw R hR D C)
     (k : Nat) (hk : 1 ≤ k)
     (hden : (0 : Q') < bondMovedCoeff N w 2 k * chat (k + 1)) :
     stepDeltaQ' N w chat k hden
@@ -479,8 +490,44 @@ theorem perstep_le_of_box (N : Nat) {w : Q'} (hw : (0 : Q') < w) (hw1 : w ≤ (1
       * Q'.ofNat (2 * k + 3) :=
     Q'.mul_nonneg _ _ (Q'.mul_nonneg _ _ hC hu3_nn) hk3_nn
   exact stepDelta_le_of_bracket N (Q'.le_of_lt hw) chat
-    (coeffMatchedLo R hR) (coeffMatchedHi R hR) k hD_nn hden
+    (coeffMatchedLo R hR D) (coeffMatchedHi R hR D) k hD_nn hden
     (hchatHi k) (hchatLo (k + 1)) (box.derivative k hk)
+
+/-! ## 7b. The EXACT-`CReal` dominance crossover (the corrected dominance path)
+
+The bracketed `BoxRatioDominance` (§6) is FALSE-as-stated: the dominance sign margin
+`δ_1 ~ τ³ → 0` vanishes faster than ANY fixed-depth bracket slack, so `perstep_nonneg_of_box`
+above CANNOT be fired uniformly (its hypothesis `box : BoxRatioDominance` is not inhabitable
+as `w → 1`).  The genuine dominance lives on the EXACT `CReal` matched coefficient
+`ĉ_s = coeffMatched ρ s` with NO bracket slack — carried by `ExactCRealDominance` (the
+bridge module), whose separating rationals `B k` witness `g_k·ĉ_{k+1} ≤ B k ≤ g_{k+1}·ĉ_k`.
+
+`exact_dominance_cross` re-exposes that per-mode constructive `≤` (the genuine
+`step_nonneg` content against the exact `CReal` reference).  `matched_base_exact_cross`
+records the EXACT `δ_0 = 0` base (`g_0·ĉ_1 ≃ g_1·ĉ_0`).  Wiring these into the engine's
+`Q'`-valued `MatchedStepData.step_nonneg` requires a `CReal`-valued per-step quotient
+(the `Q'` brackets break the vanishing margin) — NAMED here as the remaining wiring. -/
+
+/-- **The EXACT-`CReal` dominance per mode (the corrected `step_nonneg` content).**  From
+`ExactCRealDominance` (genuine `CReal` `ĉ`, NO bracket slack), the active-mode cross
+dominance `g_k·ĉ_{k+1} ≤ g_{k+1}·ĉ_k` holds as the constructive `≤` (separating rational
+`B k`).  This is the vanishing-margin local CLT, exposed without the (false) fixed-depth
+brackets. -/
+def exact_dominance_cross (N : Nat) {w : Q'} (R : Q') (hR : (0 : Q') < R)
+    (dom : MatchedRetuneBridge.ExactCRealDominance N w R hR) (k : Nat) (hk : 1 ≤ k) :
+    Σ' B : Q',
+      CReal.leRat
+        (MatchedRetuneBridge.crossProd (bondMovedCoeff N w 2 k) (CReal.cbrtFrom R hR) (k + 1)) B
+        ∧ ExpPos.geRat
+          (MatchedRetuneBridge.crossProd (bondMovedCoeff N w 2 (k + 1)) (CReal.cbrtFrom R hR) k) B :=
+  MatchedRetuneBridge.exact_cross_le N R hR dom k hk
+
+/-- **The EXACT `δ_0 = 0` base** `g_0·ĉ_1 ≃ g_1·ĉ_0` (the `s = 1` marginal killed by the
+matched retune).  Re-exposed from the bridge's `matched_base_exact`. -/
+theorem matched_base_exact_cross (N : Nat) {w : Q'} (hw : (0 : Q') < w) :
+    (bondMovedCoeff N w 2 0 * (Q'.ofNat 2 * MatchedRetune.cubeRatio N w hw)).eqv
+      (bondMovedCoeff N w 2 1 * (1 : Q')) :=
+  MatchedRetuneBridge.matched_base_exact N hw
 
 /-! ## 8. Doc-section — PROVED vs. NAMED-open (CRITICAL honesty)
 
@@ -500,25 +547,33 @@ PROVED (axiom-clean, pure `Q'`/`Nat` + reductions):
     named box residuals plus the proved brackets, the per-step `δ_k ≥ 0` and
     `δ_k ≤ C·u³·(2k+3)` on the active window `1 ≤ k`.
 
-NAMED OPEN (NOT inhabited) — the genuine discrete local CLT, as PURE `Q'` BOX
-inequalities (NOT oracles, NOT `C₄²`, NOT the false folded 1-D product):
-  * `BoxRatioDominance` — `g_k·ĉ_{k+1}^{hi} ≤ g_{k+1}·ĉ_k^{lo}` (heavier-tail dominance),
-    `g_s` in the proved closed `(r,d)` box form `bondMovedCoeff_p2_rd`, `ĉ` via the proved
-    `rhoLo/rhoHi` brackets.  Supplies `step_nonneg` via `perstep_nonneg_of_box`.
-  * `BoxRatioDerivative` — `g_{k+1}·ĉ_k^{hi} ≤ (1 + C·u³·(2k+3))·(g_k·ĉ_{k+1}^{lo})` with
-    the EXPLICIT constant `C`, the `u²` gain from `secondOrder_qpow` and the `(2k+3)` from
-    `cInc_eq`.  Supplies the per-step derivative bound via `perstep_le_of_box`.
+  * `exact_dominance_cross` / `matched_base_exact_cross` — the EXACT-`CReal` dominance
+    crossover (§7b): the per-mode constructive `≤` `g_k·ĉ_{k+1} ≤ g_{k+1}·ĉ_k` on the
+    genuine `CReal` `ĉ` (separating rational, NO bracket slack), and the PROVED EXACT base
+    `δ_0 = 0` (`g_0·ĉ_1 ≃ g_1·ĉ_0`).
 
-`δ_0 = 0` is EXACT (the matching identity `QfracQ_one`), so the active window is `k ≥ 1`.
+NAMED OPEN (NOT inhabited) — the genuine discrete local CLT:
+  * `BoxRatioDerivative` — `g_{k+1}·ĉ_k^{hi} ≤ (1 + C·u³·(2k+3))·(g_k·ĉ_{k+1}^{lo})` with
+    the EXPLICIT constant `C`, on the DECOMPOSED+DEPTH brackets (bounded slack — the naive
+    explosion is fixed), the `u²` gain from `secondOrder_qpow` and the `(2k+3)` from
+    `cInc_eq`.  Correctly stated; supplies the per-step derivative bound via
+    `perstep_le_of_box` once inhabited.
+  * `MatchedRetuneBridge.ExactCRealDominance` — the dominance separators on the genuine
+    `CReal` `ĉ` (the vanishing-margin local CLT; the bracketed `BoxRatioDominance` is
+    false-as-stated as `w → 1`).  Plus the wiring of the exact-`CReal` comparison into the
+    engine's `Q'`-valued `step_nonneg` (needs a `CReal`-valued per-step quotient).
+
+`δ_0 = 0` is EXACT (`matched_base_exact`), so the active window is `k ≥ 1`.
 
 HONEST VERDICT.  The cross-multiplication DOMINANCE reduction (`δ_k ≥ 0 ⟺` a `Q'` box
 inequality), the DERIVATIVE reduction (`δ_k ≤ D ⟸` a `Q'` numerator inequality), the
-exact Casimir increment `2k+3`, the literal `yArg`/`Nat` telescoping, and the full ENGINE
-WIRING (`MatchedStepData ⇒ QuotientActiveWindowCertMatched`) are GENUINELY PROVED,
-axiom-clean.  The two genuine discrete-local-CLT facts are NAMED precisely as `Q'` box
-inequalities built from the PROVED closed `(r,d)` box form and the PROVED `ρ`-brackets;
-they are NOT inhabited.  This is the technical crossover lever exposing the local-CLT /
-τ/2 structure — NOT a 4D Yang–Mills mass gap. -/
+exact Casimir increment `2k+3`, the literal `yArg`/`Nat` telescoping, the full ENGINE
+WIRING (`MatchedStepData ⇒ QuotientActiveWindowCertMatched`), the FIXED decomposed+depth
+brackets (the false `(rhoHi/rhoLo)^{C₄}` explosion removed), and the EXACT-`CReal`
+dominance base + bridge are GENUINELY PROVED, axiom-clean.  The corrected derivative
+magnitude bound and the dominance separators are NAMED precisely; they are NOT inhabited.
+This is the technical crossover lever exposing the local-CLT / τ/2 structure — NOT a 4D
+Yang–Mills mass gap. -/
 
 end YMGap.Continuum.MatchedRetuneFrontier
 
@@ -536,3 +591,5 @@ end YMGap.Continuum.MatchedRetuneFrontier
 #print axioms YMGap.Continuum.MatchedRetuneFrontier.frontier_quotientCert
 #print axioms YMGap.Continuum.MatchedRetuneFrontier.perstep_nonneg_of_box
 #print axioms YMGap.Continuum.MatchedRetuneFrontier.perstep_le_of_box
+#print axioms YMGap.Continuum.MatchedRetuneFrontier.exact_dominance_cross
+#print axioms YMGap.Continuum.MatchedRetuneFrontier.matched_base_exact_cross

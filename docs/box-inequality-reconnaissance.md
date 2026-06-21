@@ -97,3 +97,45 @@ FIX FORK: (A) Q' decomposed brackets + `w`-growing depth — works for derivativ
 the vanishing-margin dominance; (B) restate both against exact `CReal` `ĉ_s=(s+1)ρ^{C₄(s)}`
 (no slack; uses the new `CRealAlg`/`CRealContinuumAlg` layer) — cleaner for dominance, needs
 CReal inequality machinery. Likely: (A) for derivative, (B) for dominance.
+
+## STATUS NOTE (fix landed) — brackets decomposed + depth; dominance restated exact-CReal
+
+The bracket explosion is FIXED in the Lean bridge/frontier.  Concretely:
+
+- **Decomposed + depth brackets (DONE, axiom-clean).**  `coeffMatchedLo/Hi R hR D s` is now
+  `dimQ s · qpow R (c4 s / 3) · qpow (rhoLo/rhoHi R hR D) (c4 s % 3)` — the EXACT rational
+  `R`-power `R^{⌊C₄/3⌋}` carries the bulk, only the residual `ρ^{C₄%3}∈{1,ρ,ρ²}` is bracketed,
+  so the multiplicative slack is `≤ (rhoHi/rhoLo)²` (BOUNDED, not exploding).  `rhoLo/rhoHi`
+  are now parametrized by a bisection DEPTH `D` (was fixed stage 1); a `w`-growing `D` keeps
+  the bounded slack below the box margins on the active window.  `coeffMatched_brackets`
+  (`coeffMatchedLo ≤ coeffMatched ≤ coeffMatchedHi`) is RE-PROVED for the new defs via
+  `rho_pow_decompose` + `crealPowNat_brackets` (the residual) scaled by the rational
+  `dimQ s · R^{⌊⌋}`.  The `coeffRatio_brackets` interface and the frontier reductions
+  (`stepDelta_*_of_bracket`, `perstep_*_of_box`) all thread `D` and still build.
+
+- **`BoxRatioDerivative` (magnitude): RESTATED correctly, NOT inhabited.**  The structure
+  now carries the decomposed+depth brackets, so the FALSE-as-stated `(rhoHi/rhoLo)^{C₄}`
+  explosion is gone.  The all-`k` symbolic-`w` magnitude inequality (the `u²` Taylor gain on
+  the `ρ`-power increment + bounded decomposed-bracket slack) is the genuine hard local-CLT
+  bound; it is NAMED precisely (`BoxRatioDerivative`, fed to `perstep_le_of_box`), not
+  inhabited.  Honest verdict: the false target is fixed and the corrected target is named —
+  the magnitude proof is not closed here.
+
+- **`BoxRatioDominance` (sign): RESTATED exact-`CReal`.**  Because the margin `δ_1 ~ τ³ → 0`
+  beats any fixed depth, the dominance is carried at the EXACT `CReal` level by
+  `ExactCRealDominance` (a separating rational `B k` per active mode with
+  `g_k·ĉ_{k+1} ≤ B k ≤ g_{k+1}·ĉ_k`, `ĉ = coeffMatched ρ` genuine `CReal`, NO bracket slack).
+  PROVED: the EXACT `δ_0 = 0` base `matched_base_exact` (`g_0·ĉ_1 ≃ g_1·ĉ_0`, the `s=1`
+  marginal killed by the `cubeRatio` retune), and the bridge `exact_cross_le` /
+  `exact_dominance_cross` re-exposing the per-mode constructive `≤`.  NAMED: the separators
+  themselves (the genuine vanishing-margin local CLT), and the wiring of the exact-`CReal`
+  comparison into the engine's `Q'`-valued `step_nonneg` (the `Q'` brackets break the
+  vanishing margin, so this needs a `CReal`-valued per-step quotient — explicitly named, not
+  faked).
+
+- **Engine still fires.**  `frontier_quotientCert` continues to produce
+  `QuotientActiveWindowCertMatched` from a `MatchedStepData` carrier through the corrected
+  brackets; the build is green and axiom-clean (`propext`/`Quot.sound`).
+
+This fixes the FALSE bracketed surrogates and attacks the corrected ones; the dominance is the
+genuine vanishing-margin local CLT (honest partial).  It is NOT a 4D Yang–Mills mass gap.
