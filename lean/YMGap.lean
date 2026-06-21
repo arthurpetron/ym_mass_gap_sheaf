@@ -211,6 +211,7 @@ import YMGap.Continuum.FusionRDFactor
 import YMGap.Continuum.MatchedRetune
 import YMGap.Continuum.MatchedRetuneBridge
 import YMGap.Continuum.MatchedRetuneFrontier
+import YMGap.Continuum.CubeRatioBounds
 -- NOTE: `YMGap.PolyAtlas` and `YMGap.ModuliAlgebra` are non-load-bearing
 -- expository/design-closure scaffolding (their own headers state "NOT
 -- load-bearing"); no other module imports them and nothing references their
