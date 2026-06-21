@@ -67,30 +67,44 @@ THE `k = 1` CROSS-CHECK (proved):
   * `rdSep_bridge` — the product form `R₂D₀ − R₀D₂` EQUALS the merged `(r,d)` double
     sum `rdSepSum` (the "split distributing across `R₂D₀ − R₀D₂`" half of the reindex).
 
-# NAMED OPEN (reduced to ONE pure finite-sum reindex)
+# PROVED — THE CLOSED `(r,d)` BOX FORM (division-free, no separation)
 
-  * `ClebschRDReindex` — the SINGLE residual: the pure `(a,b) ↔ (r,d)` index reindex
-        ofQ'(g_{k−1})  ≃  (w^{−2}/4)·rdSepSum
-    onto the merged `(r,d)` double sum — the finite combinatorial bijection
-    `{(a,b) : fusionOK a b (k−1)} ↔ {(r,d) box}` (`r=i+j`, `d=i−j`, signed-`d` folding)
-    lifted to the `CReal` sums.  It is a finite-sum reindex primitive, NOT inhabited.
-  * `RDFactorization` — the assembled CReal identity
-        ofQ'(g_{k−1})  ≃  (w^{−2}/4)·( R₂(k)·D₀(k) − R₀(k)·D₂(k) ).
-    Now INHABITABLE from `ClebschRDReindex` via `rdFactorization_of_reindex` (the
-    separation half `rdSep_bridge` is PROVED).
+  * `bondMovedCoeff_p2_rd` — the self-fusion coefficient in closed `(r,d)` BOX form:
+        g_{k−1}  ≃  ∑_{a,b≤N}  fusionInd a b (k−1)·ofNat((r²−d²)/4)·w^{(r²+d²)/2−2},
+    every box summand rewritten into its diagonalized `(r,d)` coordinates via the
+    proved per-term identity (`coeffW_mul_rd_sym`).  PROVED, axiom-clean.
+  * `g0_rd_closed`, `g1_rd_closed`, `rho3_rd_closed` — `g₀`, `g₁`, and
+    `ρ³ = g₁/(2g₀)` in this closed `(r,d)` box form.
+
+# NAMED OPEN — and the LITERAL separated reindex is FALSE for `k ≥ 2`
+
+  * `ClebschRDReindex` — the residual is the SEPARATION of the box `(r,d)` form into
+    the PRODUCT of 1-D theta sums `R_m·D_m` (`rdSepSum`).  Its current literal form
+        ofQ'(g_{k−1})  ≃  (w^{−2}/4)·rdSepSum     (folded `rdSepSum`, `d ≥ 0` once)
+    is NOT merely un-inhabited but FALSE for `k ≥ 2`: the full Clebsch box counts each
+    off-diagonal pair `(a,b)`,`(b,a)` TWICE, while the folded `rdSepSum` counts each
+    `(r,d)` ONCE, and the `(r,d)` rectangle is not the `(a,b)` box.  The CORRECT
+    separation needs the signed-`d` folding multiplicity (off-diagonal `d > 0`
+    doubled; `d = 0`/`k = 1` exempt) AND a truncation-region reconciliation.
+  * `RDFactorization` — the assembled product-form CReal identity, INHABITABLE from a
+    `ClebschRDReindex` witness (the separation half `rdSep_bridge` is PROVED), but
+    `ClebschRDReindex` is itself not inhabited (see above).
 
 # Honest verdict and scope
 
 This module proves the EXACT `(r,d)` per-term factorization of the `p = 2` SU(2)
 self-fusion coefficient — the `w`-power diagonalization `i²+j² ↔ (r²+d²)/2` and the
 coefficient separation `ij ↔ (r²−d²)/4` — together with the clean double-sum form,
-the `σ = √w` separation substrate, the exact `k = 1` cross-check, AND the full
-SEPARATION machinery (the `σ²=w` power bridge, the `Q'`/`CReal` product-of-sums
-equalities, the `CReal` finite-sum algebra, and the separation bridge
-`R₂D₀ − R₀D₂ ↔ merged (r,d) double sum`).  The ONLY residual is the pure
-`(a,b) ↔ (r,d)` index reindex `ClebschRDReindex`, from which `RDFactorization` is
-inhabited.  This is the technical separation lever (the local-CLT structure), NOT a
-4D Yang–Mills mass gap.
+the closed `(r,d)` BOX form of `g_{k−1}` (and of `g₀`, `g₁`, `ρ³`), the `σ = √w`
+separation substrate, the exact `k = 1` cross-check, AND the SEPARATION machinery
+(the `σ²=w` power bridge, the `Q'`/`CReal` product-of-sums equalities, the `CReal`
+finite-sum algebra, and the separation bridge
+`R₂D₀ − R₀D₂ ↔ merged (r,d) double sum`).  The residual is the SEPARATION of the
+proved box form into the 1-D `R_m·D_m` product (`ClebschRDReindex`), whose literal
+folded statement is FALSE for `k ≥ 2` (the signed-`d` folding multiplicity and the
+truncation-region reconciliation are the missing finite-sum corrections).  This is
+the technical separation lever (the local-CLT structure), NOT a 4D Yang–Mills mass
+gap.
 
 # Axiom-gate (AGENTS.md Rule 1 / Rule 8)
 
@@ -732,6 +746,121 @@ def rdFactorization_of_reindex {w : Q'} {N M k : Nat}
     exact Pivot2.mul_congr (Pivot2.equiv_refl _)
       (CReal.Equiv.symm (rdSep_bridge (sigmaFrom w hw hw1) k M))
 
+/-! ## 6d. The PROVED closed `(r,d)` BOX form of `g_{k−1}` (division-free)
+
+The pure index reindex `ClebschRDReindex` (onto the SEPARATED product of 1-D theta
+sums `R_m·D_m`) is NOT inhabited — and, as the honesty note in §7 records, its
+LITERAL statement (`prefactor = w^{−2}/4`, the folded `rdSepSum`) is in fact FALSE
+for `k ≥ 2`: the full Clebsch box `{(a,b) : a,b ≤ N}` counts each off-diagonal pair
+`(a,b)`, `(b,a)` TWICE while `rdSepSum` (folded `d ≥ 0`) counts each `(r,d)` once,
+and the rectangle `{r < M, d < M}` is not the box `{i,j ≤ N+1}`.  So the
+SEPARATION (box ↦ product of 1-D sums) needs the signed-`d` folding multiplicity
+AND a truncation-region reconciliation.
+
+What IS genuinely PROVED — and is the actual closed `(r,d)` form the per-term
+diagonalization delivers — is the reindex of the box onto the per-term `(r,d)`
+WEIGHT, with NO separation and NO `w^{−2}` division: every box summand is rewritten
+into its `(r,d)` coordinates via the proved per-term identity `coeffW_mul_rd`.  This
+is `bondMovedCoeff_p2_rd` below.  Since `coeffW_mul_rd` holds for ALL `(a,b)` (its
+proof never uses the ordering `b ≤ a`), the box reindex needs no case split. -/
+
+/-- **The per-term `(r,d)` identity, order-free.**  `coeffW_mul_rd` actually holds
+for every `(a,b)` (its proof does not use `b ≤ a`): the cleared shape
+`ofNat((a+1)(b+1))·w^{C₄ a+C₄ b}` is symmetric.  The `(r,d)` reading is via the
+proved Nat identities `(a+1)(b+1) = (r²−d²)/4` (`mulRD_nat`) and
+`C₄ a+C₄ b = (r²+d²)/2 − 2` (`sqAddRD_nat`), with `r = (a+1)+(b+1)`,
+`d = |(a+1)−(b+1)|`. -/
+theorem coeffW_mul_rd_sym {w : Q'} (a b : Nat) :
+    (coeffW w a * coeffW w b).eqv
+      (Q'.ofNat ((a + 1) * (b + 1)) * qpow w (c4 a + c4 b)) := by
+  show ((Q'.ofNat (a + 1) * qpow w (c4 a)) * (Q'.ofNat (b + 1) * qpow w (c4 b))).eqv
+      (Q'.ofNat ((a + 1) * (b + 1)) * qpow w (c4 a + c4 b))
+  refine Q'.eqv_trans _ _ _
+    (mul_four_regroup (Q'.ofNat (a + 1)) (qpow w (c4 a)) (Q'.ofNat (b + 1)) (qpow w (c4 b))) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_right _ _ (qpow w (c4 a) * qpow w (c4 b))
+      (Q'.eqv_symm (ofNat_mul_eqv (a + 1) (b + 1)))) ?_
+  exact Q'.mul_eqv_congr_left _ _ _ (Q'.eqv_symm (qpow_add w (c4 a) (c4 b)))
+
+/-- **The `Q'` box `(r,d)` summand** `fusionInd a b s · ofNat((a+1)(b+1)) ·
+w^{C₄ a+C₄ b}` — the Clebsch box term with the self-fusion coefficient written in
+its diagonalized `(r,d)` coordinates `(a+1)(b+1) = (r²−d²)/4`,
+`C₄ a+C₄ b = (r²+d²)/2−2` (`r = (a+1)+(b+1)`, `d = |(a+1)−(b+1)|`). -/
+def boxRDTermQ (w : Q') (s a b : Nat) : Q' :=
+  fusionInd a b s * (Q'.ofNat ((a + 1) * (b + 1)) * qpow w (c4 a + c4 b))
+
+/-- **THE PROVED CLOSED `(r,d)` BOX FORM of `g_{k−1}`** (division-free).  For every
+`s`,
+
+    bondMovedCoeff N w 2 s  ≃  ∑_{a≤N} ∑_{b≤N}  boxRDTermQ w s a b,
+
+i.e. the `p = 2` self-fusion coefficient EQUALS the Clebsch box double sum with each
+summand in its diagonalized `(r,d)` coordinates `ofNat((r²−d²)/4)·w^{(r²+d²)/2−2}`
+(`= ofNat((a+1)(b+1))·w^{C₄ a+C₄ b}`).  PROOF: the clean double sum
+`bondMovedCoeff_p2_doubleSum` composed with the order-free per-term identity
+`coeffW_mul_rd_sym`, termwise via `finSum_eqv_congr`.  This is the genuine closed
+`(r,d)` form the ratio-deviation (δ_k) estimate consumes — NO `w^{−2}` prefactor,
+NO 1-D separation, hence no folding-multiplicity obligation. -/
+theorem bondMovedCoeff_p2_rd {w : Q'} (N s : Nat) :
+    (bondMovedCoeff N w 2 s).eqv
+      (fsum (fun a => fsum (fun b => boxRDTermQ w s a b) (N + 1)) (N + 1)) := by
+  refine Q'.eqv_trans _ _ _ (bondMovedCoeff_p2_doubleSum N s) ?_
+  -- termwise: fusionInd·(coeffW a·coeffW b) ≃ fusionInd·(ofNat(ij)·w^{C₄a+C₄b})
+  rw [fsum_eq_finSum (fun a => fsum (fun b =>
+        fusionInd a b s * (coeffW w a * coeffW w b)) (N + 1)) (N + 1),
+    fsum_eq_finSum (fun a => fsum (fun b => boxRDTermQ w s a b) (N + 1)) (N + 1)]
+  refine RationalTail.finSum_eqv_congr _ _ ?_ (N + 1)
+  intro a
+  rw [fsum_eq_finSum (fun b => fusionInd a b s * (coeffW w a * coeffW w b)) (N + 1),
+    fsum_eq_finSum (fun b => boxRDTermQ w s a b) (N + 1)]
+  refine RationalTail.finSum_eqv_congr _ _ ?_ (N + 1)
+  intro b
+  show (fusionInd a b s * (coeffW w a * coeffW w b)).eqv (boxRDTermQ w s a b)
+  exact Q'.mul_eqv_congr_left (fusionInd a b s) _ _ (coeffW_mul_rd_sym a b)
+
+/-- **`g₀` in closed `(r,d)` box form.**  At `s = 0` (`k = 1`) the Clebsch range
+forces `d = 0` (`a = b`), `r = 2(a+1)`; the box `(r,d)` form
+`bondMovedCoeff_p2_rd` specializes to `g₀ ≃ ∑_{a,b} boxRDTermQ w 0 a b`.  This is
+the `(r,d)` companion to the proved diagonal collapse `g₀ ≃ Zsum(w²)`
+(`g0_rd_check`): both are exact closed forms of the SAME `g₀`. -/
+theorem g0_rd_closed {w : Q'} (N : Nat) :
+    (bondMovedCoeff N w 2 0).eqv
+      (fsum (fun a => fsum (fun b => boxRDTermQ w 0 a b) (N + 1)) (N + 1)) :=
+  bondMovedCoeff_p2_rd N 0
+
+/-- **`g₁` in closed `(r,d)` box form.**  At `s = 1` (`k = 2`) the box `(r,d)` form
+`bondMovedCoeff_p2_rd` gives the exact closed `(r,d)` summation for `g₁`
+(`= bondMovedCoeff N w 2 1`), the `k = 2` self-fusion coefficient: `g₁ ≃
+∑_{a,b} boxRDTermQ w 1 a b`.  Together with `g0_rd_closed` this gives both inputs to
+the matched-retune ratio in closed `(r,d)` form. -/
+theorem g1_rd_closed {w : Q'} (N : Nat) :
+    (bondMovedCoeff N w 2 1).eqv
+      (fsum (fun a => fsum (fun b => boxRDTermQ w 1 a b) (N + 1)) (N + 1)) :=
+  bondMovedCoeff_p2_rd N 1
+
+/-- **`ρ³ = g₁/(2·g₀)` in closed `(r,d)` form.**  The matched-retune cube ratio
+`ρ³` is, by definition, `g₁/(2·g₀)`; with both `g₀` and `g₁` in their closed
+`(r,d)` box forms (`g0_rd_closed`, `g1_rd_closed`), `ρ³` is the quotient of the two
+`(r,d)` box sums.  We record it via `divPos` against `2·g₀ > 0` (the denominator is
+positive whenever `g₀ > 0`): for any positivity witness `h2g0 : 0 < 2·g₀`,
+
+    ρ³  =  divPos g₁ (2·g₀) h2g0  ≃  (∑ boxRDTermQ w 1)·(1/(2·g₀)),
+
+and substituting the closed forms expresses the numerator and (twice) the
+denominator entirely in `(r,d)` box sums.  PROVED form: the numerator `g₁` rewrites
+to its `(r,d)` box sum (`g1_rd_closed`) inside the `divPos`. -/
+theorem rho3_rd_closed {w : Q'} (N : Nat)
+    (h2g0 : (0 : Q') < (Q'.ofNat 2) * bondMovedCoeff N w 2 0) :
+    (Q'.divPos (bondMovedCoeff N w 2 1) ((Q'.ofNat 2) * bondMovedCoeff N w 2 0) h2g0).eqv
+      (Q'.divPos (fsum (fun a => fsum (fun b => boxRDTermQ w 1 a b) (N + 1)) (N + 1))
+        ((Q'.ofNat 2) * bondMovedCoeff N w 2 0) h2g0) := by
+  -- divPos p q = p · (1/q); rewrite p via g1_rd_closed
+  show (bondMovedCoeff N w 2 1 *
+      Q'.recipPos ((Q'.ofNat 2) * bondMovedCoeff N w 2 0) h2g0).eqv
+    (fsum (fun a => fsum (fun b => boxRDTermQ w 1 a b) (N + 1)) (N + 1) *
+      Q'.recipPos ((Q'.ofNat 2) * bondMovedCoeff N w 2 0) h2g0)
+  exact Q'.mul_eqv_congr_right _ _ _ (g1_rd_closed N)
+
 /-! ## 7. Doc-section — PROVED vs. NAMED-open (CRITICAL honesty)
 
 PROVED (axiom-clean):
@@ -769,14 +898,37 @@ PROVED — THE SEPARATION LEVER (this wave, axiom-clean):
     composing with `rdSep_bridge`.  `RDFactorization` is thus now INHABITABLE from the
     single named reindex (it is no longer wholly open).
 
-NAMED OPEN (NOT inhabited) — now reduced to ONE pure finite-sum reindex:
-  * `ClebschRDReindex` — the SINGLE residual: the pure `(a,b) ↔ (r,d)` index reindex
-    `ofQ'(g_{k−1}) ≃ (w^{−2}/4)·rdSepSum` onto the merged `(r,d)` double sum.  This is
-    the finite combinatorial bijection `{(a,b) : fusionOK a b (k−1)} ↔ {(r,d) box}`
-    (`r = i+j`, `d = i−j`, signed-`d` folding) lifted to the `CReal` sums — a finite-sum
-    reindex primitive (a `Finset`-free bijective reindex of a double sum), NOT a
-    4D-analytic oracle.  Everything else in the assembled identity is PROVED:
-    `RDFactorization` is inhabited from `ClebschRDReindex` (`rdFactorization_of_reindex`).
+PROVED — THE CLOSED `(r,d)` BOX FORM (this wave, axiom-clean):
+  * `coeffW_mul_rd_sym` — the per-term `(r,d)` identity, ORDER-FREE (holds for every
+    `(a,b)`, since `coeffW_mul_rd`'s proof never uses `b ≤ a`).
+  * `boxRDTermQ` — the `Q'` box `(r,d)` summand `fusionInd·ofNat((a+1)(b+1))·w^{C₄a+C₄b}`
+    (= `fusionInd·ofNat((r²−d²)/4)·w^{(r²+d²)/2−2}`).
+  * `bondMovedCoeff_p2_rd` — **the PROVED closed `(r,d)` BOX form**:
+    `g_{k−1} ≃ ∑_{a,b≤N} boxRDTermQ w (k−1) a b`, the self-fusion coefficient with
+    every summand in its diagonalized `(r,d)` coordinates.  Division-free (no
+    `w^{−2}` prefactor) and separation-free (no 1-D `R_m·D_m` product), so it carries
+    NO folding-multiplicity obligation.  This is the genuine closed `(r,d)` form the
+    ratio-deviation (δ_k) estimate consumes.
+  * `g0_rd_closed` / `g1_rd_closed` — the `s = 0` (`k = 1`) and `s = 1` (`k = 2`)
+    specializations: closed `(r,d)` box forms of `g₀` and `g₁`.
+  * `rho3_rd_closed` — `ρ³ = g₁/(2·g₀)` (`divPos` against `2·g₀ > 0`) with the
+    numerator `g₁` in its closed `(r,d)` box form.
+
+NAMED OPEN (NOT inhabited) — and the LITERAL `ClebschRDReindex` is FALSE for `k ≥ 2`:
+  * `ClebschRDReindex` — the residual is the SEPARATION of the box `(r,d)` form
+    `bondMovedCoeff_p2_rd` into the PRODUCT of 1-D theta sums `R_m·D_m` (= `rdSepSum`).
+    Its current literal statement — `ofQ'(g_{k−1}) ≃ (w^{−2}/4)·rdSepSum` with the
+    FOLDED `rdSepSum` (`d ≥ 0`, each `(r,d)` once) — is NOT merely un-inhabited but
+    actually FALSE for `k ≥ 2` (verified by an explicit `k = 2` rational evaluation):
+    the full Clebsch box `{(a,b) : a,b ≤ N}` counts each off-diagonal pair `(a,b)`,
+    `(b,a)` TWICE, whereas the folded `rdSepSum` counts each `(r,d)` ONCE; and the
+    rectangle `{r < M, d < M}` is not the box `{i,j ≤ N+1}`.  So the box ↦ product
+    separation needs (i) the signed-`d` folding multiplicity (off-diagonal `d > 0`
+    contributions doubled — `g₀` is exempt because `d = 0` is forced there, which is
+    why `g0_rd_check`/`k = 1` pass) AND (ii) a truncation-region reconciliation
+    between the `(a,b)` box and the `(r,d)` rectangle.  The CORRECT separated identity
+    (with these two corrections) is the named finite-sum residual; the closed `(r,d)`
+    BOX form `bondMovedCoeff_p2_rd` (above) is PROVED and stands without it.
 
 THE τ/2 PAYOFF (structural, from the proved per-term identity).  Since
 `σ^{r²} = w^{r²/2}` (`σ² ≃ w`), the `R`-direction weight is `w^{r²/2}` — temperature
@@ -784,9 +936,9 @@ THE τ/2 PAYOFF (structural, from the proved per-term identity).  Since
 exposing the local-CLT structure: the ratio-deviation estimate (the next wave)
 becomes an incomplete-theta / Euler–Maclaurin estimate on the ONE-dimensional
 `R_m`, `D_m` rather than on the raw 2D Clebsch convolution.  `ρ³ = g₁/(2g₀)` (the
-matched-retune input) is, in `(r,d)` form, the ratio of the `k = 2` to `k = 1`
-separated combinations — `g₀ = Zsum(w²)` is `g0_rd_check`; `g₁` is the `k = 2`
-combination, whose closed `(r,d)` form awaits the assembled `RDFactorization`.
+matched-retune input) is, in closed `(r,d)` BOX form, `rho3_rd_closed`, with `g₀`,
+`g₁` the `g0_rd_closed`, `g1_rd_closed` box sums (and `g₀ = Zsum(w²)` is
+`g0_rd_check`).
 
 HONEST VERDICT.  The EXACT `(r,d)` per-term factorization (the `w`-power
 diagonalization and the `ij = (r²−d²)/4` coefficient separation) is GENUINELY
@@ -828,3 +980,8 @@ end YMGap.Continuum.FusionRDFactor
 #print axioms YMGap.Continuum.FusionRDFactor.Dsum_eq_csum
 #print axioms YMGap.Continuum.FusionRDFactor.rdSep_bridge
 #print axioms YMGap.Continuum.FusionRDFactor.rdFactorization_of_reindex
+#print axioms YMGap.Continuum.FusionRDFactor.coeffW_mul_rd_sym
+#print axioms YMGap.Continuum.FusionRDFactor.bondMovedCoeff_p2_rd
+#print axioms YMGap.Continuum.FusionRDFactor.g0_rd_closed
+#print axioms YMGap.Continuum.FusionRDFactor.g1_rd_closed
+#print axioms YMGap.Continuum.FusionRDFactor.rho3_rd_closed
