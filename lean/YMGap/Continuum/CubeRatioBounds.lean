@@ -57,11 +57,13 @@ import YMGap.Continuum.BondMovingMoment
 import YMGap.Continuum.MovingCutoff
 import YMGap.Constructive.SumOfSquares
 import YMGap.Constructive.FinSumAlg
+import YMGap.Constructive.CRealAlg
 
 namespace YMGap.Continuum.CubeRatioBounds
 
 open YMGap.Constructive
 open YMGap.Constructive.CReal
+open YMGap.Constructive.CRealAlg
 open YMGap.Continuum
 open YMGap.Continuum.BondMovingStep
 open YMGap.Continuum.MatchedRetune
@@ -235,84 +237,28 @@ theorem fsum_zero_seq (n : Nat) : fsum (fun _ => (0 : Q')) n = 0 := by
   rw [fsum_eq_finSum (fun _ => (0 : Q')) n]; exact RationalTail.finSum_zero_seq n
 
 /-- **Double-sum index swap on `fsum`.**
-`Σ_{a<m} Σ_{b<n} g a b ≃ Σ_{b<n} Σ_{a<m} g a b`.  Induction on `m`, peeling the
-outer index and folding it into each inner sum via `fsum_add`. -/
-theorem fsum_swap (g : Nat → Nat → Q') :
-    ∀ m n, (fsum (fun a => fsum (fun b => g a b) n) m).eqv
-        (fsum (fun b => fsum (fun a => g a b) m) n)
-  | 0, n => by
-      show (0 : Q').eqv (fsum (fun b => fsum (fun a => g a b) 0) n)
-      refine Q'.eqv_symm ?_
-      refine Q'.eqv_trans _ _ _ (fsum_eqv_congr _ (fun _ => 0) (fun _ => Q'.eqv_refl 0) n) ?_
-      exact Q'.eqv_of_eq (fsum_zero_seq n)
-  | m + 1, n => by
-      show (fsum (fun a => fsum (fun b => g a b) n) m + fsum (fun b => g m b) n).eqv
-          (fsum (fun b => fsum (fun a => g a b) (m + 1)) n)
-      -- RHS inner (m+1)-sum splits: Σ_{a<m+1} g a b = Σ_{a<m} g a b + g m b.
-      refine Q'.eqv_trans _ _ _ ?_
-        (Q'.eqv_symm (fsum_add (fun b => fsum (fun a => g a b) m) (fun b => g m b) n))
-      exact Q'.add_eqv_congr_right _ _ (fsum (fun b => g m b) n) (fsum_swap g m n)
+`Σ_{a<m} Σ_{b<n} g a b ≃ Σ_{b<n} Σ_{a<m} g a b`.  A thin lift of the canonical
+generic `RationalTail.finSum_swap` along `fsum_eq_finSum` (both the inner and outer
+`fsum`s agree with `finSum`). -/
+theorem fsum_swap (g : Nat → Nat → Q') (m n : Nat) :
+    (fsum (fun a => fsum (fun b => g a b) n) m).eqv
+        (fsum (fun b => fsum (fun a => g a b) m) n) := by
+  -- Convert outer and inner `fsum`s to `finSum`, swap via the generic lemma.
+  have hL : fsum (fun a => fsum (fun b => g a b) n) m
+      = RationalTail.finSum (fun a => RationalTail.finSum (fun b => g a b) n) m := by
+    rw [fsum_eq_finSum]
+    exact congrArg (fun f => RationalTail.finSum f m)
+      (funext fun a => fsum_eq_finSum (fun b => g a b) n)
+  have hR : fsum (fun b => fsum (fun a => g a b) m) n
+      = RationalTail.finSum (fun b => RationalTail.finSum (fun a => g a b) m) n := by
+    rw [fsum_eq_finSum]
+    exact congrArg (fun f => RationalTail.finSum f n)
+      (funext fun b => fsum_eq_finSum (fun a => g a b) m)
+  rw [hL, hR]
+  exact RationalTail.finSum_swap g m n
 
-/-! ## 2. AM-GM at the `Q'` level -/
-
-/-- **AM-GM (cleared, summed form).**  `(x·y) + (x·y) ≤ x·x + y·y`, from
-`0 ≤ (x + -y)·(x + -y)`. -/
-theorem amgm_two (x y : Q') : (x * y) + (x * y) ≤ x * x + y * y := by
-  -- 0 ≤ (x-y)² = x·x + -(x·y) + (-(x·y) + y·y), rearranged.
-  have hsq : (0 : Q') ≤ (x + -y) * (x + -y) := SumOfSquares.q_mul_self_nonneg (x + -y)
-  -- Expand (x + -y)·(x + -y).
-  -- (x + -y)·(x + -y) = x·(x + -y) + (-y)·(x + -y)
-  have e1 : ((x + -y) * (x + -y)).eqv (x * (x + -y) + (-y) * (x + -y)) :=
-    Q'.add_mul_eqv x (-y) (x + -y)
-  -- x·(x + -y) = x·x + x·(-y)
-  have e2 : (x * (x + -y)).eqv (x * x + x * (-y)) := Q'.mul_add_eqv x x (-y)
-  -- (-y)·(x + -y) = (-y)·x + (-y)·(-y)
-  have e3 : ((-y) * (x + -y)).eqv ((-y) * x + (-y) * (-y)) := Q'.mul_add_eqv (-y) x (-y)
-  -- Identify the cross terms with -(x·y) and the square term with y·y.
-  -- x·(-y) ≃ -(x·y)
-  have hxny : (x * (-y)).eqv (-(x * y)) := by
-    refine Q'.eqv_trans _ _ _ (Q'.mul_comm_eqv x (-y)) ?_
-    refine Q'.eqv_trans _ _ _ (Q'.neg_mul_eqv y x) ?_
-    exact Q'.neg_eqv_congr _ _ (Q'.mul_comm_eqv y x)
-  -- (-y)·x ≃ -(x·y)
-  have hnyx : ((-y) * x).eqv (-(x * y)) := by
-    refine Q'.eqv_trans _ _ _ (Q'.neg_mul_eqv y x) ?_
-    exact Q'.neg_eqv_congr _ _ (Q'.mul_comm_eqv y x)
-  -- (-y)·(-y) ≃ y·y
-  have hnyny : ((-y) * (-y)).eqv (y * y) := by
-    refine Q'.eqv_trans _ _ _ (Q'.neg_mul_eqv y (-y)) ?_
-    refine Q'.eqv_trans _ _ _ (Q'.neg_eqv_congr _ _ (Q'.mul_comm_eqv y (-y))) ?_
-    refine Q'.eqv_trans _ _ _ (Q'.neg_eqv_congr _ _ (Q'.neg_mul_eqv y y)) ?_
-    exact Q'.neg_neg_eqv (y * y)
-  -- Assemble: (x-y)² ≃ (x·x + -(x·y)) + (-(x·y) + y·y)
-  have hexp : ((x + -y) * (x + -y)).eqv
-      ((x * x + -(x * y)) + (-(x * y) + y * y)) := by
-    refine Q'.eqv_trans _ _ _ e1 ?_
-    refine Q'.add_eqv_congr' ?_ ?_
-    · -- x·(x + -y) ≃ x·x + -(x·y)
-      refine Q'.eqv_trans _ _ _ e2 (Q'.add_eqv_congr_left (x * x) _ _ hxny)
-    · -- (-y)·(x + -y) ≃ -(x·y) + y·y
-      refine Q'.eqv_trans _ _ _ e3 ?_
-      exact Q'.add_eqv_congr' hnyx hnyny
-  -- So 0 ≤ (x·x + -(x·y)) + (-(x·y) + y·y), regroup to (x·y)+(x·y) ≤ x·x + y·y.
-  have hge : (0 : Q') ≤ (x * x + -(x * y)) + (-(x * y) + y * y) :=
-    Q'.le_trans' _ _ _ hsq (Q'.le_of_eqv hexp)
-  -- Add (x·y)+(x·y) to both sides and cancel.
-  -- (x·x + -(x·y)) + (-(x·y) + y·y) ≃ (x·x + y·y) + (-(x·y) + -(x·y))
-  have hregroup : ((x * x + -(x * y)) + (-(x * y) + y * y)).eqv
-      ((x * x + y * y) + (-(x * y) + -(x * y))) := by
-    -- (A + s) + (s + B) ≃ (A + s) + (B + s) ≃ (A + B) + (s + s) (A=x·x, B=y·y, s=-(x·y)).
-    refine Q'.eqv_trans _ _ _
-      (Q'.add_eqv_congr_left _ _ _ (Q'.add_comm_eqv (-(x * y)) (y * y))) ?_
-    exact Q'.eqv_symm (Q'.add_swap_inner (x * x) (y * y) (-(x * y)) (-(x * y)))
-  have hge2 : (0 : Q') ≤ (x * x + y * y) + (-(x * y) + -(x * y)) :=
-    Q'.le_trans' _ _ _ hge (Q'.le_of_eqv hregroup)
-  -- 0 ≤ (x·x+y·y) + -( (x·y)+(x·y) ).  Then (x·y)+(x·y) ≤ x·x+y·y.
-  have hneg : (-(x * y) + -(x * y)).eqv (-((x * y) + (x * y))) :=
-    Q'.eqv_symm (Q'.neg_add_eqv (x * y) (x * y))
-  have hge3 : (0 : Q') ≤ (x * x + y * y) + -((x * y) + (x * y)) :=
-    Q'.le_trans' _ _ _ hge2 (Q'.le_of_eqv (Q'.add_eqv_congr_left _ _ _ hneg))
-  exact Q'.le_of_sub_nonneg hge3
+-- The generic two-term AM-GM `(x·y)+(x·y) ≤ x·x+y·y` is the shared canonical
+-- `CRealAlg.amgm_two` (opened above); used below by its short name.
 
 /-! ## 3. Positivity of the cube target — `0 < g₁` and `0 < R` -/
 
@@ -876,7 +822,6 @@ end YMGap.Continuum.CubeRatioBounds
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
 
-#print axioms YMGap.Continuum.CubeRatioBounds.amgm_two
 #print axioms YMGap.Continuum.CubeRatioBounds.fsum_swap
 #print axioms YMGap.Continuum.CubeRatioBounds.lt_of_add_self_lt_add_self
 #print axioms YMGap.Continuum.CubeRatioBounds.sub_lt_self_of_pos

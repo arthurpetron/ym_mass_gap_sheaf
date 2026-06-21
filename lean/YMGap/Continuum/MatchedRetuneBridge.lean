@@ -74,12 +74,14 @@ import YMGap.Continuum.MatchedRetune
 import YMGap.Continuum.Pivot2Moments
 import YMGap.Constructive.CubeRoot
 import YMGap.Constructive.SumOfSquares
+import YMGap.Constructive.CRealAlg
 import YMGap.Constructive.ExpPos
 
 namespace YMGap.Continuum.MatchedRetuneBridge
 
 open YMGap.Constructive
 open YMGap.Constructive.CReal
+open YMGap.Constructive.CRealAlg
 open YMGap.Continuum
 open YMGap.Continuum.RGTransport
 open YMGap.Continuum.BondMovingStep
@@ -102,16 +104,8 @@ theorem cmul_congr_left {A A' B : CReal} (h : CReal.Equiv A A') :
     CReal.Equiv (CReal.mul A B) (CReal.mul A' B) :=
   Pivot2.mul_congr_left h
 
-/-- `cone · ρ ≃ ρ` (left unit), pointwise (`1·ρ_n ≃ ρ_n`). -/
-theorem cone_mul (x : CReal) : CReal.Equiv (CReal.mul CReal.cone x) x := by
-  refine SumOfSquares.Equiv_of_approx_eqv (fun n => ?_)
-  show ((1 : Q') * x.approx n).eqv (x.approx n)
-  exact Q'.one_mul_eqv (x.approx n)
-
-/-- `ofQ' (a · b) ≃ (ofQ' a) · (ofQ' b)`, pointwise (both sides are constant `a·b`). -/
-theorem ofQ'_mul_equiv (a b : Q') :
-    CReal.Equiv (CReal.ofQ' (a * b)) (CReal.mul (CReal.ofQ' a) (CReal.ofQ' b)) :=
-  SumOfSquares.Equiv_of_approx_eqv (fun _ => Q'.eqv_refl _)
+-- `cone_mul` (left unit) and the multiplicative-`ofQ'` law are the shared canonical
+-- `CRealAlg.cone_mul` / `CRealAlg.ofQ'_mul` (opened above); used below by short name.
 
 /-! ## 1. Inhabiting the matched-retune carrier (the cube-root glue)
 
@@ -226,11 +220,11 @@ the `Q'` brackets the §3 power decomposition needs. -/
 
 /-- The canonical rational LOWER bracket for `∛R`: the lower endpoint after one
 bisection step. -/
-def rhoLo (R : Q') (hR : (0 : Q') < R) : Q' := CReal.cbrtLo R (Q'.min' R 1) (R + 1) 1
+def rhoLo (R : Q') (_hR : (0 : Q') < R) : Q' := CReal.cbrtLo R (Q'.min' R 1) (R + 1) 1
 
 /-- The canonical rational UPPER bracket for `∛R`: the upper endpoint after one
 bisection step. -/
-def rhoHi (R : Q') (hR : (0 : Q') < R) : Q' := CReal.cbrtHi R (Q'.min' R 1) (R + 1) 1
+def rhoHi (R : Q') (_hR : (0 : Q') < R) : Q' := CReal.cbrtHi R (Q'.min' R 1) (R + 1) 1
 
 /-- `a < b → b ≤ c → a < c` on `Q'` (companion of `Q'.lt_of_le_of_lt`). -/
 theorem q_lt_of_lt_of_le {a b c : Q'} (h1 : a < b) (h2 : b ≤ c) : a < c := by
@@ -393,15 +387,8 @@ theorem geRat_mul {A C : CReal} {a c Ba Bc : Q'}
 
 isolating the only irrational factor `ρ^{c%3}`. -/
 
-/-- `mul A cone ≃ A` (right unit), pointwise. -/
-theorem cmul_cone (x : CReal) : CReal.Equiv (CReal.mul x CReal.cone) x :=
-  SumOfSquares.Equiv_of_approx_eqv (fun n => Q'.mul_one_eqv (x.approx n))
-
-/-- `CReal.mul` associativity, pointwise. -/
-theorem cmul_assoc (a b c : CReal) :
-    CReal.Equiv (CReal.mul (CReal.mul a b) c) (CReal.mul a (CReal.mul b c)) :=
-  SumOfSquares.Equiv_of_approx_eqv
-    (fun n => Q'.mul_assoc_eqv (a.approx n) (b.approx n) (c.approx n))
+-- `cmul_cone` (right unit) and `cmul_assoc` (associativity) are the shared canonical
+-- `CRealAlg.cmul_cone` / `CRealAlg.cmul_assoc` (opened above); used below by short name.
 
 /-- **`crealPowNat` additive exponent law** `x^{a+b} ≃ x^a · x^b`. -/
 theorem crealPowNat_add (x : CReal) (a : Nat) :
@@ -444,7 +431,7 @@ theorem crealPowNat_mul3 (x : CReal) (R : Q') (hcube : CReal.Equiv (crealPowNat 
       refine CReal.Equiv.symm ?_
       show CReal.Equiv (CReal.ofQ' (qpow R m * R))
         (CReal.mul (CReal.ofQ' (qpow R m)) (CReal.ofQ' R))
-      exact ofQ'_mul_equiv (qpow R m) R
+      exact ofQ'_mul (qpow R m) R
 
 /-- **The rational/irrational split** `ρ^c ≃ ofQ'(R^{c/3}) · ρ^{c%3}`, given the cube
 identity `ρ³ ≃ ofQ' R`.  The factor `ofQ'(R^{c/3})` is rational and `ρ^{c%3}` is the
@@ -610,8 +597,6 @@ end YMGap.Continuum.MatchedRetuneBridge
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
 
 #print axioms YMGap.Continuum.MatchedRetuneBridge.cmul_congr_right
-#print axioms YMGap.Continuum.MatchedRetuneBridge.cone_mul
-#print axioms YMGap.Continuum.MatchedRetuneBridge.ofQ'_mul_equiv
 #print axioms YMGap.Continuum.MatchedRetuneBridge.exists_matchedRetuneP2
 #print axioms YMGap.Continuum.MatchedRetuneBridge.cbrtFrom_geRat_of_cube
 #print axioms YMGap.Continuum.MatchedRetuneBridge.rhoLo_pos
