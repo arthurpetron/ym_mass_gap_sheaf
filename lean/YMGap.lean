@@ -67,6 +67,7 @@ import YMGap.RepTheory.RepData
 import YMGap.RepTheory.SimpleGroup
 import YMGap.RepTheory.CasimirData
 import YMGap.RepTheory.Spin4
+import YMGap.RepTheory.Spin4Reflection
 import YMGap.Sheaf.Site
 import YMGap.Sheaf.BoundWitness
 import YMGap.Sheaf.Summability
