@@ -146,6 +146,7 @@ import YMGap.Continuum.FiniteVolume
 import YMGap.Continuum.PNPaths
 import YMGap.Continuum.PNInduction
 import YMGap.Continuum.GramReduction3
+import YMGap.Continuum.MomentSquarePSD
 import YMGap.Continuum.PlaquetteReweight
 import YMGap.Continuum.KPLimit
 import YMGap.Continuum.RGTransport
@@ -229,6 +230,7 @@ import YMGap.Continuum.RDThetaTail
 import YMGap.Continuum.RDThetaCentered
 import YMGap.Continuum.PlaquetteActivity
 import YMGap.Continuum.PolymerModel
+import YMGap.Continuum.PolymerPartition
 import YMGap.Continuum.KPCriterion
 import YMGap.Continuum.ClusterCount
 import YMGap.Continuum.ClusteringImpliesGap
