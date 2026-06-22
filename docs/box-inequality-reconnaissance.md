@@ -170,3 +170,31 @@ bisection depth `D` (the bounded bracket slack absorbed by the `C·u³·(2k+3)` 
 inhabitable at a fixed `D` uniformly in `w` (addendum numerics).  The cubing trick's deliverable is
 that this residual is now PURE-`Q'` (the cube-root obstruction is eliminated) and BRIDGES to the
 `BoxRatioDerivative` obligation; the cubed local-CLT inequality is not closed.  NOT a 4D YM mass gap.
+
+## ADDENDUM 2 (2026-06-21) — recon of the CUBED inequality: it is the SHARP local CLT
+
+After the cubing trick reduced both box inequalities to pure-`Q'` rational inequalities
+(`CubedDominance`/`CubedDerivativeIneq`, ρ/CReal/bracket/depth eliminated), reconnaissance asked:
+are these provable by an elementary `w`-structural argument (log-concavity, per-term domination),
+or are they irreducibly the Gaussian/theta CLT? VERDICT: **the SHARP local CLT — not elementary.**
+
+Reduction: with `ℓ_k = log(g_{k+1}/g_k)`, `T_k = (2k+3)logρ + log((k+2)/(k+1))`, `δ_k = ℓ_k − T_k`
+(so DOM ⟺ `δ_k≥0`, DER ⟺ `δ_k ≤ ½u³(2k+3)`), telescoping from the matched equality `δ_0=0`:
+  **DOM ⟺ `(Δ²log g)_k ≥ 2logρ + log(1 − 1/(k+1)²)`  (k≥1)**;  DER telescopes to `∑δ_k ≤ ½u²·y_s`.
+
+Numerics (τ=0.1, 0.025):
+- `g_s` is LOG-CONCAVE (`Δ²log g < 0` everywhere) — a clean structural fact (likely provable; the
+  self-fusion of a log-concave heat-kernel sequence). But NECESSARY, not SUFFICIENT.
+- DOM is a SHARP comparison: at k=1, `Δ²log g ≈ 2logρ + log(1−1/(k+1)²)` to ~3 digits (near-equality),
+  margin `≈ +0.001` per step. Crude log-concavity (`Δ²log g < 0`) is nowhere near enough; DOM needs
+  the SHARP VALUE of `Δ²log g_k` matched to the geometric continuation.
+- `δ_1 ~ τ^{4.1}` (higher-order than `u³` at small k); `δ_k/(½u³(2k+3))` rises `0.002 → 0.44` across
+  the active window (DER has headroom at small k, tightening toward the edge).
+
+CONCLUSION: the cubing trick removed the FOUNDATIONAL obstruction (the obligation is now a clean
+pure-`Q'` rational inequality), but the rational inequality is STILL the sharp discrete local CLT —
+the self-fusion's log-second-difference matching the geometric continuation to `O(u³)`. Proving it
+requires the genuine Gaussian/theta asymptotics of the `(r,d)` box sum (the `R_m/D_m` incomplete-theta
+structure of `FusionRDFactor`, i.e. an Euler–Maclaurin / local-CLT estimate), NOT an elementary
+log-concavity or per-term argument. PROVABLE SUB-FACT worth having: `g_s` log-concavity. The sharp
+CLT itself is the genuine open frontier (one leaf of the `GenuineResidualBound` oracle). NOT a 4D YM gap.
