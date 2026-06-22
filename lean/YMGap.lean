@@ -217,6 +217,7 @@ import YMGap.Continuum.CubeRatioBounds
 import YMGap.Continuum.CubedDerivative
 import YMGap.Continuum.CubedDominance
 import YMGap.Continuum.SelfFusionLogConcave
+import YMGap.Continuum.RDThetaCentered
 -- NOTE: `YMGap.PolyAtlas` and `YMGap.ModuliAlgebra` are non-load-bearing
 -- expository/design-closure scaffolding (their own headers state "NOT
 -- load-bearing"); no other module imports them and nothing references their
