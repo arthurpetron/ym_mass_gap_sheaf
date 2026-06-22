@@ -45,14 +45,18 @@ THE CUBING BRIDGE (proved — the deliverable that always holds):
   * `le_of_qcube_le` — the pure-`Q'` cube-monotone step `x³ ≤ y³ ⟹ x ≤ y` (re-export of
     `le_of_cube_le_cube`); `qcube_mul` packages the cube on PRODUCTS.
   * `CubedDerivativeIneq` — the pure-`Q'` CUBED derivative residual on the proved box
-    form `g_s` and the DECOMPOSED+DEPTH brackets `coeffMatchedHi/Lo R hR D` of `ĉ`:
+    form `g_s` and the DECOMPOSED+DEPTH brackets `coeffMatchedHi/Lo R hR D` of `ĉ`,
+    WINDOWED to the active window `1 ≤ k ≤ S`:
 
-        [g_{k+1}·ĉ_k^{hi}]³  ≤  [(1 + C·u³·(2k+3))·(g_k·ĉ_{k+1}^{lo})]³   (k ≥ 1),
+        [g_{k+1}·ĉ_k^{hi}]³  ≤  [(1 + C·u³·(2k+3))·(g_k·ĉ_{k+1}^{lo})]³   (1 ≤ k ≤ S),
 
     NO `ρ`, NO `CReal` — a finite rational inequality about the self-fusion box sums.
+    Windowed because (exact arithmetic) `δ_k/(u³·(2k+3))` grows unbounded in the tail, so
+    the unwindowed `∀ k` form is false-as-stated.
   * `cubed_derivative_implies_box` — **THE BRIDGE**: a `CubedDerivativeIneq` witness
-    inhabits `BoxRatioDerivative N w hw R hR D C` (its `derivative` field), by cube
-    monotonicity per active mode.  The cubing has ELIMINATED `ρ`: the input is a pure-`Q'`
+    inhabits `BoxRatioDerivative N w hw R hR D C S` (its `derivative` field), by cube
+    monotonicity per active mode (threading `k ≤ S`).  The cubing has ELIMINATED `ρ`: the
+    input is a pure-`Q'`
     cubed inequality, the output is the genuine bracketed derivative obligation.
   * `boxRatioDerivative_of_cubed` — alias producing the `BoxRatioDerivative` carrier from
     the cubed residual; `frontier_quotientCert` then fires off the resulting per-step data.
@@ -60,14 +64,18 @@ THE CUBING BRIDGE (proved — the deliverable that always holds):
 # NAMED OPEN — the cubed local CLT (honest scope)
 
   * `CubedDerivativeIneq` is NOT inhabited here.  It is the genuine discrete-local-CLT
-    content, now PURE-`Q'` (the cubing trick removed the cube root).  Reconnaissance
-    (the box-inequality study) confirms the EXACT inequality `δ_k ≤ C·u³·(2k+3)` is TRUE
-    with `C = 1/2`; on the DECOMPOSED+DEPTH brackets it requires a `w`-growing bisection
-    depth `D` (the bounded bracket slack absorbed by the explicit `C·u³·(2k+3)` margin),
-    so it is NOT inhabitable at a fixed `D` uniformly in `w`.  We name the cubed `Q'`
-    inequality precisely and PROVE the bridge from it to `BoxRatioDerivative`; we do NOT
-    inhabit the cubed inequality.  This is the technical crossover lever — NOT a 4D
-    Yang–Mills mass gap.
+    content, now PURE-`Q'` (the cubing trick removed the cube root), and WINDOWED to the
+    active window `1 ≤ k ≤ S`.  Reconnaissance (the box-inequality study, exact
+    arithmetic) confirms the EXACT inequality `δ_k ≤ C·u³·(2k+3)` is TRUE with `C = 1/2`
+    only on the ACTIVE WINDOW `k ≤ S(τ)` (`S ≍ τ^{−1/2}`): in the TAIL `δ_k/(u³·(2k+3))`
+    grows unbounded (fails near `y ≈ 44`), so the unwindowed `∀ k` form is
+    false-as-stated — the field is windowed by `k ≤ S` to be the TRUE statement.  On the
+    DECOMPOSED+DEPTH brackets it further requires a `w`-growing bisection depth `D` (the
+    bounded bracket slack absorbed by the explicit `C·u³·(2k+3)` margin), so it is NOT
+    inhabitable at a fixed `D` uniformly in `w`.  We name the windowed cubed `Q'`
+    inequality precisely and PROVE the bridge from it to (the windowed)
+    `BoxRatioDerivative`; we do NOT inhabit the cubed inequality.  This is the technical
+    crossover lever — NOT a 4D Yang–Mills mass gap.
 
 # Axiom-gate (AGENTS.md Rule 1 / Rule 8)
 
@@ -267,20 +275,27 @@ With the cube-root eliminated, the derivative bound is a pure-`Q'` cubed inequal
 proved box form `g_s = bondMovedCoeff N w 2 s` and the DECOMPOSED+DEPTH brackets
 `coeffMatchedHi/Lo R hR D` of `ĉ`.  We carry it as a `Type`-level obligation. -/
 
-/-- **THE CUBED DERIVATIVE residual (pure `Q'`, ρ-free).**  With the explicit constant `C`,
-target deviation `D_k = C·u³·(2k+3)` (`u = 1 − w`), the CUBED box numerator inequality on
-the active modes `1 ≤ k`:
+/-- **THE CUBED DERIVATIVE residual (pure `Q'`, ρ-free) — WINDOWED to `k ≤ S`.**  With the
+explicit constant `C`, the moving cutoff `S : Nat`, and the target deviation
+`D_k = C·u³·(2k+3)` (`u = 1 − w`), the CUBED box numerator inequality on the active window
+`1 ≤ k ≤ S`:
 
     [g_{k+1}·ĉ_k^{hi}]³  ≤  [(1 + C·u³·(2k+3))·(g_k·ĉ_{k+1}^{lo})]³,
 
 `g_s` in closed `(r,d)` box form, `ĉ^{hi/lo} = coeffMatchedHi/Lo R hR D` the rational
 decomposed+depth brackets.  Equivalent (all quantities positive) to the LINEAR
 `BoxRatioDerivative.derivative` field — the cube is taken to render the matched coefficient
-RATIONAL (cube root eliminated).  NOT inhabited here (the cubed discrete local CLT). -/
+RATIONAL (cube root eliminated).
+
+WINDOWING (exact-arithmetic correction).  The per-step ratio `δ_k/(u³·(2k+3))` is bounded
+only on the ACTIVE WINDOW `k ≤ S(τ)` (`S ≍ τ^{−1/2}`, where `y_k ≲ O(1)`); in the TAIL it
+grows UNBOUNDED (it fails near `y ≈ 44`).  So the unwindowed `∀ k` form is FALSE-as-stated;
+the field is guarded by `k ≤ S`, which is the TRUE statement.  NOT inhabited here (the cubed
+discrete local CLT). -/
 structure CubedDerivativeIneq (N : Nat) (w : Q') (hw : (0 : Q') < w)
-    (R : Q') (hR : (0 : Q') < R) (D : Nat) (C : Q') : Type where
-  /-- The CUBED box derivative inequality on the active modes `1 ≤ k`. -/
-  cubed : ∀ k, 1 ≤ k →
+    (R : Q') (hR : (0 : Q') < R) (D : Nat) (C : Q') (S : Nat) : Type where
+  /-- The CUBED box derivative inequality on the active window `1 ≤ k ≤ S`. -/
+  cubed : ∀ k, 1 ≤ k → k ≤ S →
     qcube (bondMovedCoeff N w 2 (k + 1) * coeffMatchedHi R hR D k)
       ≤ qcube (((1 : Q') + C * (((1 : Q') - w) * ((1 : Q') - w) * ((1 : Q') - w))
           * Q'.ofNat (2 * k + 3))
@@ -329,11 +344,11 @@ suffices to prove the CUBED inequality — which is exactly the `cubed` field.  
 trick is what makes that cubed inequality pure-`Q'` (the matched coefficient cubes to the
 rational `(s+1)³·R^{C₄(s)}`; `ρ` is gone). -/
 def cubed_derivative_implies_box (N : Nat) (w : Q') (hw : (0 : Q') < w) (hw1 : w ≤ (1 : Q'))
-    (R : Q') (hR : (0 : Q') < R) (D : Nat) (C : Q') (hC : (0 : Q') ≤ C)
-    (ineq : CubedDerivativeIneq N w hw R hR D C) :
-    BoxRatioDerivative N w hw R hR D C where
+    (R : Q') (hR : (0 : Q') < R) (D : Nat) (C : Q') (hC : (0 : Q') ≤ C) (S : Nat)
+    (ineq : CubedDerivativeIneq N w hw R hR D C S) :
+    BoxRatioDerivative N w hw R hR D C S where
   derivative := by
-    intro k hk
+    intro k hk hkS
     have htau_nn : (0 : Q') ≤ (1 : Q') - w := Q'.sub_nonneg_of_le hw1
     have hu3_nn : (0 : Q') ≤ ((1 : Q') - w) * ((1 : Q') - w) * ((1 : Q') - w) :=
       Q'.mul_nonneg _ _ (Q'.mul_nonneg _ _ htau_nn htau_nn) htau_nn
@@ -344,16 +359,16 @@ def cubed_derivative_implies_box (N : Nat) (w : Q') (hw : (0 : Q') < w) (hw1 : w
     refine le_of_qcube_le
       (box_lhs_nonneg N (Q'.le_of_lt hw) R hR D k)
       (box_rhs_nonneg N (Q'.le_of_lt hw) R hR D k hslack) ?_
-    exact ineq.cubed k hk
+    exact ineq.cubed k hk hkS
 
 /-- **The carrier alias.**  Produce the `BoxRatioDerivative` carrier directly from the
 cubed residual; downstream `perstep_le_of_box` then supplies the per-step derivative bound
 `δ_k ≤ C·u³·(2k+3)` and `frontier_quotientCert` fires the engine. -/
 def boxRatioDerivative_of_cubed (N : Nat) (w : Q') (hw : (0 : Q') < w) (hw1 : w ≤ (1 : Q'))
-    (R : Q') (hR : (0 : Q') < R) (D : Nat) (C : Q') (hC : (0 : Q') ≤ C)
-    (ineq : CubedDerivativeIneq N w hw R hR D C) :
-    BoxRatioDerivative N w hw R hR D C :=
-  cubed_derivative_implies_box N w hw hw1 R hR D C hC ineq
+    (R : Q') (hR : (0 : Q') < R) (D : Nat) (C : Q') (hC : (0 : Q') ≤ C) (S : Nat)
+    (ineq : CubedDerivativeIneq N w hw R hR D C S) :
+    BoxRatioDerivative N w hw R hR D C S :=
+  cubed_derivative_implies_box N w hw hw1 R hR D C hC S ineq
 
 /-! ## 4. The conditional per-step derivative bound through the bridge
 
@@ -368,17 +383,17 @@ pure-`Q'` cubed inequality and a sequence `chat` sandwiched by the brackets
 `coeffMatchedLo ≤ chat ≤ coeffMatchedHi`, the matched increment is `≤ C·u³·(2k+3)` on
 `1 ≤ k`.  The cube root has been eliminated end-to-end. -/
 theorem perstep_le_of_cubed (N : Nat) {w : Q'} (hw : (0 : Q') < w) (hw1 : w ≤ (1 : Q'))
-    (R : Q') (hR : (0 : Q') < R) (D : Nat) (C : Q') (hC : (0 : Q') ≤ C)
+    (R : Q') (hR : (0 : Q') < R) (D : Nat) (C : Q') (hC : (0 : Q') ≤ C) (S : Nat)
     (chat : Nat → Q')
     (hchatLo : ∀ s, coeffMatchedLo R hR D s ≤ chat s)
     (hchatHi : ∀ s, chat s ≤ coeffMatchedHi R hR D s)
-    (ineq : CubedDerivativeIneq N w hw R hR D C)
-    (k : Nat) (hk : 1 ≤ k)
+    (ineq : CubedDerivativeIneq N w hw R hR D C S)
+    (k : Nat) (hk : 1 ≤ k) (hkS : k ≤ S)
     (hden : (0 : Q') < bondMovedCoeff N w 2 k * chat (k + 1)) :
     stepDeltaQ' N w chat k hden
       ≤ C * (((1 : Q') - w) * ((1 : Q') - w) * ((1 : Q') - w)) * Q'.ofNat (2 * k + 3) :=
-  perstep_le_of_box N hw hw1 R hR D C hC chat hchatLo hchatHi
-    (cubed_derivative_implies_box N w hw hw1 R hR D C hC ineq) k hk hden
+  perstep_le_of_box N hw hw1 R hR D C hC S chat hchatLo hchatHi
+    (cubed_derivative_implies_box N w hw hw1 R hR D C hC S ineq) k hk hkS hden
 
 /-! ## 5. Doc-section — PROVED vs. NAMED-open (CRITICAL honesty)
 
@@ -403,11 +418,15 @@ PROVED (axiom-clean):
 NAMED OPEN (NOT inhabited) — the cubed discrete local CLT:
   * `CubedDerivativeIneq` — the pure-`Q'` cubed inequality
     `[g_{k+1}·ĉ_k^{hi}]³ ≤ [(1 + C·u³·(2k+3))·(g_k·ĉ_{k+1}^{lo})]³` on the proved box form
-    and the decomposed+depth brackets.  Reconnaissance confirms the EXACT bound holds with
-    `C = 1/2`; on the brackets it needs a `w`-growing bisection depth `D` (the bounded
-    bracket slack absorbed by the `C·u³·(2k+3)` margin), so it is NOT inhabitable at a fixed
-    `D` uniformly in `w`.  The cubing trick has made the residual PURE-`Q'` (the cube-root
-    obstruction is removed) — that is what this module delivers; the cubed local-CLT
+    and the decomposed+depth brackets, WINDOWED to the active window `1 ≤ k ≤ S`.
+    Reconnaissance (exact arithmetic) confirms the EXACT bound holds with `C = 1/2` only on
+    the ACTIVE WINDOW `k ≤ S(τ)` (`S ≍ τ^{−1/2}`); in the tail `δ_k/(u³·(2k+3))` grows
+    unbounded (fails near `y ≈ 44`), so the unwindowed `∀ k` form is false-as-stated and the
+    field is windowed by `k ≤ S` to be TRUE.  On the brackets it further needs a `w`-growing
+    bisection depth `D` (the bounded bracket slack absorbed by the `C·u³·(2k+3)` margin), so
+    it is NOT inhabitable at a fixed `D` uniformly in `w`.  The cubing trick has made the
+    residual PURE-`Q'` (the cube-root obstruction is removed) — that is what this module
+    delivers; the cubed local-CLT
     inequality itself is the remaining content, NOT closed here.
 
 HONEST VERDICT.  The CUBING TRICK is realized: `coeffMatched_cube_rational` proves the

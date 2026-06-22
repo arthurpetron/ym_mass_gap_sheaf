@@ -58,11 +58,13 @@ THE ENGINE WIRING (proved):
 
   * `BoxRatioDerivative` — the derivative (magnitude) frontier as a pure `Q'` box
     inequality `g_{k+1}·ĉ_k^{up} ≤ (1 + C·u³·(2k+3))·(g_k·ĉ_{k+1}^{lo})` with explicit
-    `C`, using the DECOMPOSED+DEPTH brackets `coeffMatchedLo/Hi R hR D` (the naive
-    `(rhoHi/rhoLo)^{C₄}` explosion is REMOVED — the slack is now bounded `≤ (rhoHi/rhoLo)²`).
-    The `u²` gain is supplied by `secondOrder_qpow` on the `ρ^{2k+3}` power increment; the
-    `(2k+3)` factor by `cInc_eq`.  Correctly stated, NAMED, not inhabited; NOT a `C₄²`
-    envelope.
+    `C`, WINDOWED to the active window `1 ≤ k ≤ S` (cutoff `S ≍ τ^{−1/2}`), using the
+    DECOMPOSED+DEPTH brackets `coeffMatchedLo/Hi R hR D` (the naive `(rhoHi/rhoLo)^{C₄}`
+    explosion is REMOVED — the slack is now bounded `≤ (rhoHi/rhoLo)²`).  The `u²` gain is
+    supplied by `secondOrder_qpow` on the `ρ^{2k+3}` power increment; the `(2k+3)` factor
+    by `cInc_eq`.  WINDOWED because (exact arithmetic) `δ_k/(u³·(2k+3))` grows UNBOUNDED
+    in the tail (fails near `y ≈ 44`), so the unwindowed `∀ k` form is false-as-stated;
+    the windowed form is the TRUE one.  NAMED, not inhabited; NOT a `C₄²` envelope.
   * `BoxRatioDominance` (bracketed) — RESTATED with the decomposed+depth brackets, but the
     sign margin `δ_1 ~ τ³ → 0` beats ANY fixed depth, so the bracketed surrogate is NOT
     uniformly inhabitable.  The genuine dominance is carried EXACT-`CReal` by
@@ -424,8 +426,9 @@ structure BoxRatioDominance (N : Nat) (w : Q') (hw : (0 : Q') < w)
     bondMovedCoeff N w 2 k * coeffMatchedHi R hR D (k + 1)
       ≤ bondMovedCoeff N w 2 (k + 1) * coeffMatchedLo R hR D k
 
-/-- **THE DERIVATIVE BOX RESIDUAL.**  With the explicit constant `C : Q'` and the
-target deviation `D_k = C·u³·(2k+3)` (`u = 1 − w`), the box numerator inequality
+/-- **THE DERIVATIVE BOX RESIDUAL — WINDOWED to the active window `k ≤ S`.**  With the
+explicit constant `C : Q'`, the moving cutoff `S : Nat`, and the target deviation
+`D_k = C·u³·(2k+3)` (`u = 1 − w`), the box numerator inequality on `1 ≤ k ≤ S`
 
     g_{k+1} · coeffMatchedHi R hR k
       ≤  (1 + C·u³·(2k+3)) · (g_k · coeffMatchedLo R hR (k+1)),
@@ -433,11 +436,19 @@ target deviation `D_k = C·u³·(2k+3)` (`u = 1 − w`), the box numerator inequ
 with `g_s` in closed `(r,d)` box form.  The `u²` gain over the linear `u·(2k+3)` step is
 the `secondOrder_qpow` quadratic Taylor on the `ρ^{2k+3}` power increment; the `(2k+3)`
 factor is `cInc_eq`.  Combined with `coeffMatched_brackets` and `stepDelta_le_of_bracket`
-it gives `δ_k ≤ C·u³·(2k+3)`.  NOT a `C₄²` envelope.  NOT inhabited here. -/
+it gives `δ_k ≤ C·u³·(2k+3)` on the active window.
+
+WINDOWING (exact-arithmetic correction).  The per-step ratio
+`δ_k/(u³·(2k+3))` is bounded only on the ACTIVE WINDOW `k ≤ S(τ)` (with
+`S ≍ τ^{−1/2}`, where `y_k ≲ O(1)`); in the TAIL it grows UNBOUNDED (it fails near
+`y ≈ 44`).  So the unwindowed `∀ k` statement is FALSE-as-stated.  The field is
+therefore guarded by `k ≤ S`, which is the TRUE statement; the tail is handled by the
+separate tail-bound machinery (the engine only consults the active window, where the
+smallness `B ≤ 1/2` holds).  NOT a `C₄²` envelope.  NOT inhabited here. -/
 structure BoxRatioDerivative (N : Nat) (w : Q') (hw : (0 : Q') < w)
-    (R : Q') (hR : (0 : Q') < R) (D : Nat) (C : Q') : Type where
-  /-- The box derivative inequality on the active modes `1 ≤ k`. -/
-  derivative : ∀ k, 1 ≤ k →
+    (R : Q') (hR : (0 : Q') < R) (D : Nat) (C : Q') (S : Nat) : Type where
+  /-- The box derivative inequality on the active window `1 ≤ k ≤ S`. -/
+  derivative : ∀ k, 1 ≤ k → k ≤ S →
     bondMovedCoeff N w 2 (k + 1) * coeffMatchedHi R hR D k
       ≤ ((1 : Q') + C * (((1 : Q') - w) * ((1 : Q') - w) * ((1 : Q') - w))
           * Q'.ofNat (2 * k + 3))
@@ -469,16 +480,18 @@ theorem perstep_nonneg_of_box (N : Nat) {w : Q'} (hw : (0 : Q') < w)
     (coeffMatchedLo R hR D) (coeffMatchedHi R hR D) k hden
     (hchatLo k) (hchatHi (k + 1)) (box.dominance k hk)
 
-/-- **Per-step derivative bound from the box residual.**  Given `BoxRatioDerivative` (with
-constant `C`, `C·u³·(2k+3) ≥ 0`) and the bracket facts, the matched increment is bounded
-by `C·u³·(2k+3)` on `1 ≤ k`. -/
+/-- **Per-step derivative bound from the box residual — WINDOWED.**  Given
+`BoxRatioDerivative` (with constant `C`, cutoff `S`, `C·u³·(2k+3) ≥ 0`) and the bracket
+facts, the matched increment is bounded by `C·u³·(2k+3)` on the ACTIVE WINDOW
+`1 ≤ k ≤ S`.  The `k ≤ S` hypothesis is threaded to `box.derivative` (the windowed
+field): the bound is the TRUE windowed one, not the false `∀ k` form. -/
 theorem perstep_le_of_box (N : Nat) {w : Q'} (hw : (0 : Q') < w) (hw1 : w ≤ (1 : Q'))
-    (R : Q') (hR : (0 : Q') < R) (D : Nat) (C : Q') (hC : (0 : Q') ≤ C)
+    (R : Q') (hR : (0 : Q') < R) (D : Nat) (C : Q') (hC : (0 : Q') ≤ C) (S : Nat)
     (chat : Nat → Q')
     (hchatLo : ∀ s, coeffMatchedLo R hR D s ≤ chat s)
     (hchatHi : ∀ s, chat s ≤ coeffMatchedHi R hR D s)
-    (box : BoxRatioDerivative N w hw R hR D C)
-    (k : Nat) (hk : 1 ≤ k)
+    (box : BoxRatioDerivative N w hw R hR D C S)
+    (k : Nat) (hk : 1 ≤ k) (hkS : k ≤ S)
     (hden : (0 : Q') < bondMovedCoeff N w 2 k * chat (k + 1)) :
     stepDeltaQ' N w chat k hden
       ≤ C * (((1 : Q') - w) * ((1 : Q') - w) * ((1 : Q') - w)) * Q'.ofNat (2 * k + 3) := by
@@ -491,7 +504,7 @@ theorem perstep_le_of_box (N : Nat) {w : Q'} (hw : (0 : Q') < w) (hw1 : w ≤ (1
     Q'.mul_nonneg _ _ (Q'.mul_nonneg _ _ hC hu3_nn) hk3_nn
   exact stepDelta_le_of_bracket N (Q'.le_of_lt hw) chat
     (coeffMatchedLo R hR D) (coeffMatchedHi R hR D) k hD_nn hden
-    (hchatHi k) (hchatLo (k + 1)) (box.derivative k hk)
+    (hchatHi k) (hchatLo (k + 1)) (box.derivative k hk hkS)
 
 /-! ## 7b. The EXACT-`CReal` dominance crossover (the corrected dominance path)
 
@@ -554,10 +567,12 @@ PROVED (axiom-clean, pure `Q'`/`Nat` + reductions):
 
 NAMED OPEN (NOT inhabited) — the genuine discrete local CLT:
   * `BoxRatioDerivative` — `g_{k+1}·ĉ_k^{hi} ≤ (1 + C·u³·(2k+3))·(g_k·ĉ_{k+1}^{lo})` with
-    the EXPLICIT constant `C`, on the DECOMPOSED+DEPTH brackets (bounded slack — the naive
-    explosion is fixed), the `u²` gain from `secondOrder_qpow` and the `(2k+3)` from
-    `cInc_eq`.  Correctly stated; supplies the per-step derivative bound via
-    `perstep_le_of_box` once inhabited.
+    the EXPLICIT constant `C`, WINDOWED to the active window `1 ≤ k ≤ S`, on the
+    DECOMPOSED+DEPTH brackets (bounded slack — the naive explosion is fixed), the `u²`
+    gain from `secondOrder_qpow` and the `(2k+3)` from `cInc_eq`.  WINDOWED because
+    `δ_k/(u³·(2k+3))` grows unbounded in the tail (the unwindowed `∀ k` form is
+    false-as-stated); the windowed form is the TRUE statement.  Supplies the per-step
+    derivative bound via `perstep_le_of_box` (which threads `k ≤ S`) once inhabited.
   * `MatchedRetuneBridge.ExactCRealDominance` — the dominance separators on the genuine
     `CReal` `ĉ` (the vanishing-margin local CLT; the bracketed `BoxRatioDominance` is
     false-as-stated as `w → 1`).  Plus the wiring of the exact-`CReal` comparison into the
