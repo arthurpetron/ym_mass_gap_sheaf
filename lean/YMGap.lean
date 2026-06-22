@@ -98,6 +98,7 @@ import YMGap.Continuum.ObservableMeasure
 import YMGap.Continuum.WilsonFunctional
 import YMGap.Continuum.WilsonProbFunctional
 import YMGap.Continuum.WilsonConsistency
+import YMGap.Continuum.WilsonRGTower
 import YMGap.Continuum.ReflectionPositivity
 import YMGap.Continuum.Pivot2Defs
 import YMGap.Continuum.Pivot2Identity
@@ -169,6 +170,7 @@ import YMGap.Continuum.CarrierPrecursors
 import YMGap.Continuum.ContinuumGapLimit
 import YMGap.Continuum.ClusterGapReduction
 import YMGap.Continuum.UniformClusterFromKP
+import YMGap.Continuum.WilsonCorrelator
 import YMGap.Continuum.DimensionlessRatio
 import YMGap.Continuum.ContinuumFunctional
 import YMGap.Continuum.RegularFunctional
