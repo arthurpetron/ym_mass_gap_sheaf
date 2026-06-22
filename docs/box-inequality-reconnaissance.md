@@ -139,3 +139,34 @@ The bracket explosion is FIXED in the Lean bridge/frontier.  Concretely:
 
 This fixes the FALSE bracketed surrogates and attacks the corrected ones; the dominance is the
 genuine vanishing-margin local CLT (honest partial).  It is NOT a 4D Yang–Mills mass gap.
+
+## THE CUBING TRICK (2026-06-21) — the cube root eliminated; the derivative residual is pure-Q'
+
+The derivative magnitude frontier uses the matched coefficient `ĉ_s = (s+1)·ρ^{C₄(s)}`, and the
+ONLY irrational datum in the whole tower is the cube root `ρ = ∛R`, `R = g₁/(2g₀)` rational.
+Since the per-step numerator inequality `g_{k+1}·ĉ_k ≤ (1+C·u³·(2k+3))·g_k·ĉ_{k+1}` is between
+POSITIVE quantities, it is EQUIVALENT to its CUBE — and cubing the matched coefficient renders it
+RATIONAL: `(ĉ_s)³ = (s+1)³·(ρ³)^{C₄(s)} = (s+1)³·R^{C₄(s)}`.  Cubing therefore ELIMINATES `ρ`,
+turning the derivative obligation into a pure-`Q'` cubed inequality in the self-fusion box sums and
+the rational `R`.  This is the foundational obstruction removed.
+
+PROVED (new module, axiom-clean `propext`/`Quot.sound`):
+
+- **The ρ-elimination.**  `coeffMatched_cube_rational`: `(coeffMatched ρ s)³ ≃ ofQ'((s+1)³·R^{C₄(s)})`
+  (and `crealPowNat_cube_rational`: `(ρ^c)³ ≃ ofQ'(R^c)`).  The cube collapses the triple `ρ`-power
+  to a rational `R`-power; `ρ` is gone.  The cubed DECOMPOSED brackets are explicit rationals
+  `(s+1)³·R^{3⌊C₄ s/3⌋}·(rhoHi/rhoLo)^{3(C₄ s%3)}` (`qcube_coeffMatchedHi/Lo`).
+- **The cubing BRIDGE.**  `cubed_derivative_implies_box`: a pure-`Q'` CUBED inequality
+  `[g_{k+1}·ĉ_k^{hi}]³ ≤ [(1+C·u³·(2k+3))·(g_k·ĉ_{k+1}^{lo})]³` (the `CubedDerivativeIneq` datum,
+  ρ-free) inhabits the genuine `BoxRatioDerivative N w hw R hR D C` `derivative` field, by `Q'` cube
+  monotonicity (`le_of_qcube_le`) per active mode `k ≥ 1` (both sides nonnegative).  Sorry-free,
+  unconditional.  `perstep_le_of_cubed` then chains through `perstep_le_of_box` to the per-step
+  derivative bound `δ_k ≤ C·u³·(2k+3)`, so `frontier_quotientCert` fires once the cubed datum is
+  supplied.
+
+NAMED OPEN (NOT inhabited): `CubedDerivativeIneq` — the pure-`Q'` cubed inequality itself.  The
+EXACT bound holds with `C = 1/2` (main recon); on the decomposed+depth brackets it needs a `w`-growing
+bisection depth `D` (the bounded bracket slack absorbed by the `C·u³·(2k+3)` margin), so it is NOT
+inhabitable at a fixed `D` uniformly in `w` (addendum numerics).  The cubing trick's deliverable is
+that this residual is now PURE-`Q'` (the cube-root obstruction is eliminated) and BRIDGES to the
+`BoxRatioDerivative` obligation; the cubed local-CLT inequality is not closed.  NOT a 4D YM mass gap.
