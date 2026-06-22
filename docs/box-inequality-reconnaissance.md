@@ -198,3 +198,29 @@ requires the genuine Gaussian/theta asymptotics of the `(r,d)` box sum (the `R_m
 structure of `FusionRDFactor`, i.e. an Euler–Maclaurin / local-CLT estimate), NOT an elementary
 log-concavity or per-term argument. PROVABLE SUB-FACT worth having: `g_s` log-concavity. The sharp
 CLT itself is the genuine open frontier (one leaf of the `GenuineResidualBound` oracle). NOT a 4D YM gap.
+
+## ADDENDUM 3 (2026-06-21) — EXACT-arithmetic correction: DER is WINDOWED, not ∀k
+
+The exact-`Fraction` cubing check (no float error, larger window than the earlier float recon)
+found that **`DER cubed` with `C=½` is FALSE as a `∀k` statement** — it fails in the far tail.
+The earlier "DER true, C=½" recon was WINDOWED (`y≲20–30`) and missed this.
+
+EXACT findings:
+- **DOM cubed: TRUE for all k** (`w=9/10, 39/40, 159/160`) — the SIGN/dominance is robust everywhere.
+- **DER cubed (C=½): FALSE in the tail** — fails consistently around `y_k≈44` (`k=20` at `w=9/10`,
+  `k=41` at `39/40`, `k=84` at `159/160`).
+- **`δ_k/(u³(2k+3))` grows WITHOUT BOUND**: `→ 2.47` (τ=0.05, y≈1100), `→ 5.76` (τ=0.0125, y≈1140);
+  the sup grows as `τ→0`. So NO constant `C` bounds it for all `k`.
+
+WHY IT'S OK (the windowing): the moving cutoff is `S(τ)~τ^{-1/2}` at `y_S~O(1)` (`y_S≈1.0–1.2`).
+On the ACTIVE WINDOW (`k ≤ S`, `y_k ≲ O(1)`), `δ_k/(u³(2k+3)) ≪ 1` (`0.013–0.06`), so DER(C=½)
+holds with large headroom THERE. The failure at `y≈44` is FAR past the cutoff, in the `μ`-negligible
+tail, which the matched-retune engine bounds SEPARATELY (the tail bound, not the per-step δ_k).
+
+CONSEQUENCE (structural fix needed): `BoxRatioDerivative` / `CubedDerivativeIneq` (stated `∀k≥1`)
+are FALSE-as-stated and must be RESTRICTED to the active window `k ≤ S(τ)` (with `S` the moving
+cutoff), the tail handled by the existing tail-bound machinery. DOM needs no such restriction
+(true ∀k). Within the window, both remain the SHARP local CLT (addendum 2) — DER now with headroom
+(`δ_k/(½u³(2k+3)) → 0.44` at the window edge `y≈20`). This is the third windowing correction
+(after `renormW`-temperature and naive-brackets): per-step MAGNITUDE bounds hold on the active
+window and overreach into the tail. NOT a 4D YM gap.
