@@ -233,6 +233,7 @@ import YMGap.Continuum.RDThetaCentered
 import YMGap.Continuum.PlaquetteActivity
 import YMGap.Continuum.PolymerModel
 import YMGap.Continuum.PolymerPartition
+import YMGap.Continuum.MayerTwoPlaquette
 import YMGap.Continuum.KPCriterion
 import YMGap.Continuum.ClusterCount
 import YMGap.Continuum.ClusteringImpliesGap
