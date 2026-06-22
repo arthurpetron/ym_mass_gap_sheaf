@@ -222,6 +222,7 @@ import YMGap.Continuum.RDThetaCentered
 import YMGap.Continuum.PlaquetteActivity
 import YMGap.Continuum.PolymerModel
 import YMGap.Continuum.KPCriterion
+import YMGap.Continuum.ClusteringImpliesGap
 -- NOTE: `YMGap.PolyAtlas` and `YMGap.ModuliAlgebra` are non-load-bearing
 -- expository/design-closure scaffolding (their own headers state "NOT
 -- load-bearing"); no other module imports them and nothing references their
