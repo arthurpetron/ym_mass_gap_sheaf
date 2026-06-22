@@ -66,6 +66,7 @@ import YMGap.RepTheory.SU3
 import YMGap.RepTheory.RepData
 import YMGap.RepTheory.SimpleGroup
 import YMGap.RepTheory.CasimirData
+import YMGap.RepTheory.Spin4
 import YMGap.Sheaf.Site
 import YMGap.Sheaf.BoundWitness
 import YMGap.Sheaf.Summability
@@ -162,6 +163,7 @@ import YMGap.Continuum.FourDExistence
 import YMGap.Continuum.CarrierPrecursors
 import YMGap.Continuum.ContinuumGapLimit
 import YMGap.Continuum.ClusterGapReduction
+import YMGap.Continuum.DimensionlessRatio
 import YMGap.Continuum.ContinuumFunctional
 import YMGap.Continuum.RegularFunctional
 import YMGap.Continuum.ClusterBoundInstance
@@ -185,6 +187,7 @@ import YMGap.Categorical.Core
 import YMGap.Categorical.RGCategory
 import YMGap.Categorical.CodynCat
 import YMGap.Categorical.BudgetDomination
+import YMGap.Categorical.ScaleSheaf
 import YMGap.Continuum.ReflectionDagger
 import YMGap.Continuum.DynamicToStaticGap
 import YMGap.Continuum.BareAFDiagnostic
