@@ -159,6 +159,7 @@ import YMGap.Continuum.SpectralGapConverse
 import YMGap.Continuum.SpectralGapGrowth
 import YMGap.Continuum.LocatedSpectralGap
 import YMGap.Continuum.BakryEmery
+import YMGap.Continuum.HeatKernelCurvature
 import YMGap.Continuum.HeatKernelGap
 import YMGap.MassGap.SU2
 import YMGap.MassGap.SimpleGroup
@@ -226,6 +227,7 @@ import YMGap.Continuum.AFScaleCocycle
 import YMGap.Continuum.ContinuumYMStack
 import YMGap.Continuum.Nontriviality
 import YMGap.Continuum.ContinuumCertificate
+import YMGap.Continuum.UniformCurvatureBound
 import YMGap.Continuum.FusionQuotientCollapse
 import YMGap.Continuum.CRealContinuumAlg
 import YMGap.Continuum.FusionRDFactor
