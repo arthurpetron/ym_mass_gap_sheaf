@@ -86,6 +86,46 @@ news and the reason a continuum limit should exist at all. But the mass gap is a
 limit you must control the UV (where AF helps), the IR (where the gap lives), AND the crossover between
 them, UNIFORMLY in the cutoff. The two regimes are governed by opposite tools and opposite limits.
 
+### 4.1.1 What the categorical / homological work did — and did NOT do — about the UV/IR conflict
+A natural question: didn't the scale-sheaf Λ-cohomology and the AF/certificate apparatus make progress
+ON this conflict? Answer, precisely: it made genuine STRUCTURAL progress, but it did NOT cross the
+analytic bridge, and the distinction is the whole point.
+
+What the homological/categorical work GENUINELY contributed to the UV/IR story:
+  (a) **The correct structural home for dimensional transmutation.** `ScaleSheaf` proves Λ is a
+      locally-trivial / globally-nontrivial class (a Čech-1 cocycle on the scale category):
+      `localTrivialization` (telescoping coboundary), `Lambda` shift-invariance,
+      `globallyTrivial_collapses_Lambda`. This identifies the OBJECT the UV/IR bridge must produce — the
+      RG-invariant scale — as a cohomology class.
+  (b) **Discharging the QUALITATIVE piece.** `AFScaleCocycle.af_BetaNonzero` proves β>0 ⇒ the coupling
+      genuinely runs ⇒ the class is nontrivial. So "a scale IS generated" (running is real) is now a
+      THEOREM, not an assumption.
+  (c) **Re-shaping the analytic TARGET.** Routing through the PROVED AF schedule (`AFReciprocalRate`,
+      `afSchedule`) turned "control a continuous flow across an unbounded range of scales" into "bound
+      the per-step change of ONE dimensionless quantity along a discrete, proved schedule, geometrically"
+      (`UniformRatioVariation`: |Δratio| ≤ C·(1/2)^d). That is a genuinely better-shaped obligation.
+
+What it did NOT do, and the principled reason:
+  Cohomology and category theory capture STRUCTURE and the EXISTENCE of obstructions/invariants — not
+  quantitative analytic magnitudes, rates, or convergence. The UV/IR bridge is an ANALYTIC estimate: the
+  dimensionless gap ratio stays bounded below as the REAL Yang–Mills measure flows from strong to weak
+  coupling. A cohomology class can certify that a scale-invariant EXISTS and is RG-invariant; it cannot
+  certify that this invariant's continuum VALUE is finite and strictly positive. That magnitude is exactly
+  `LambdaPositiveLimit` / `UniformRatioVariation`, and it is untouched. Concretely: the homology proves the
+  scale class is nontrivial AT FIXED SPACING (a scale gets generated); the wall is the ANALYTIC statement
+  that this scale CONVERGES to a finite positive value as a→0 (dimensional transmutation actually
+  completes for the real dynamics). The former is algebra/topology; the latter is analysis, and it is the
+  open content. This is the same lesson flagged at the outset of the categorical campaign ("a topos
+  organizes structure, not analytic magnitudes; the value won't condense out of a universal property").
+
+  Caveat (honest, speculative): it is NOT a priori absurd that a DEEPER homological/spectral-sequence
+  treatment of the RG filtration could bear on the analytic bridge (Connes–Kreimer's Hopf-algebra /
+  cosmic-Galois structure and Costello–Gwilliam's factorization-algebra homotopy-limit picture are
+  genuine algebraic structures on renormalization). But in every existing such framework the homological
+  structure organizes the COMBINATORICS/SHAPE of the RG while the quantitative convergence and the
+  non-perturbative gap remain separate analysis — the hard part. No existing homological method supplies
+  the uniform-in-a bound, and there is principled reason to expect it cannot alone.
+
 ### 4.2 The two tools we have govern DISJOINT regions of coupling, and neither reaches the goal
 - The fixed-spacing gap (which IS proved here) comes from the convergent STRONG-coupling / cluster
   expansion — valid only for β below a finite threshold β_c (large lattice spacing).
