@@ -3,6 +3,23 @@ Route 2 — WAVE 2: the INTERACTING SU(2) character chain — the Wilson plaquet
 fusion coupling on a multi-mode chain, and the curvature-dimension bound
 `CD(K_S)` of the interacting Bakry–Émery generator at strong coupling.
 
+⚠ HONESTY CORRECTION (2026-06-23): this module's interacting generator `chainW β`
+is the OFF-DIAGONAL-ONLY Wilson coupling (`L := wilsonW β`); the free Casimir
+diagonal is DROPPED, not combined into `chainW`.  Consequently `chainW`'s real
+excited spectral gap is `2β`, and the named obligation `WilsonHessianSmall C β`
+(= `chainW.CD(3/4 − Cβ)`) forces `3/4 − Cβ ≤ 2β`, i.e. it is satisfiable ONLY for
+`β ≥ 3/(4(C+2))` — BOUNDED BELOW, the OPPOSITE of the small-β strong-coupling
+regime.  So `WilsonHessianSmall` is NOT the "O(β) Hessian smallness" it is billed
+as, and is FALSE at genuine strong coupling.  Any conditional gap built on it is
+vacuous there; Wave 3 was therefore NOT merged.  The free `CD(3/4)`
+(`charChainMode_free_CD_floor`) is genuine but lives on the SEPARATE diagonal
+chain.  A faithful SZZ surrogate needs the COMBINED generator (free Casimir
+diagonal + Wilson off-diagonal) with `CD(K_S)` proved ON it — the heavy
+multi-mode `Γ₂` step, still OPEN.  The theorems below are SOUND (honestly
+conditional); only the SZZ INTERPRETATION of `WilsonHessianSmall` is withdrawn.
+See `docs/szz-surrogate-correction-2026-06-23.md`.  The genuine banked result of
+this effort is WAVE 1 (`CharChainFree.charChain_free_CD`, the free anchor).
+
 # Why this module (the crux: the Wilson interaction + its Γ₂ smallness)
 
 Wave 1 builds the FREE anchor: each single-mode two-state character chain
