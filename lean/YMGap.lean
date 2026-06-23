@@ -119,6 +119,7 @@ import YMGap.Continuum.QHankel
 import YMGap.Continuum.FavardRec
 import YMGap.Continuum.CyclotomicPositivity
 import YMGap.Continuum.FavardUniform
+import YMGap.Continuum.TuranPositivity
 import YMGap.Continuum.LGVPositivity
 import YMGap.Continuum.HeatKernelPos
 import YMGap.Continuum.TrigAverage
@@ -252,6 +253,7 @@ import YMGap.Continuum.MayerTwoPlaquette
 import YMGap.Continuum.KPCriterion
 import YMGap.Continuum.ClusterCount
 import YMGap.Continuum.PinnedCluster
+import YMGap.Continuum.AbstractPolymerXi
 import YMGap.Continuum.ClusteringImpliesGap
 -- NOTE: `YMGap.PolyAtlas` and `YMGap.ModuliAlgebra` are non-load-bearing
 -- expository/design-closure scaffolding (their own headers state "NOT
