@@ -173,6 +173,7 @@ import YMGap.Continuum.UniformClusterFromKP
 import YMGap.Continuum.WilsonCorrelator
 import YMGap.Continuum.DimensionlessRatio
 import YMGap.Continuum.ContinuumGapModulus
+import YMGap.Continuum.O4RestorationAF
 import YMGap.Continuum.ContinuumFunctional
 import YMGap.Continuum.RegularFunctional
 import YMGap.Continuum.ClusterBoundInstance
@@ -220,6 +221,7 @@ import YMGap.Continuum.FusionResidualBound
 import YMGap.Continuum.AFTrajectoryCertificate
 import YMGap.Continuum.AFScaleCocycle
 import YMGap.Continuum.ContinuumYMStack
+import YMGap.Continuum.Nontriviality
 import YMGap.Continuum.FusionQuotientCollapse
 import YMGap.Continuum.CRealContinuumAlg
 import YMGap.Continuum.FusionRDFactor
