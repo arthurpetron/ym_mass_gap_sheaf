@@ -1,4 +1,5 @@
 # State of the formalization vs the Clay Yang–Mills requirements (full-tree audit, 2026-06-21)
+**STATUS:** Scope/plan dated 2026-06-22; see the canonical ledgers for the outcome (docs/where-the-wall-sits-2026-06-22.md, docs/stage1-completion-ledger-2026-06-22.md, docs/stage2-progress-ledger-2026-06-22.md, docs/continuum-wall-outstanding-2026-06-22.md).
 
 Four independent read-only audits of the entire Lean tree (204 `.lean` files, ~201 imported in
 `YMGap.lean`, ~2191 tracked theorems): (A) the mass-gap claim and its dependency closure; (B) the

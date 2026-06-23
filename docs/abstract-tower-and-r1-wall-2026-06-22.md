@@ -1,4 +1,5 @@
 # Consolidation: the complete abstract scaffold and the unified R1 wall (2026-06-22)
+**STATUS:** Scope/plan dated 2026-06-22; see the canonical ledgers for the outcome (docs/where-the-wall-sits-2026-06-22.md, docs/stage1-completion-ledger-2026-06-22.md, docs/stage2-progress-ledger-2026-06-22.md, docs/continuum-wall-outstanding-2026-06-22.md).
 
 Supersedes the post-audit picture of `docs/clay-requirements-audit-2026-06-21.md` with the work done
 since. Verdict unchanged at the top level — **Clay is OPEN; this is an axiom-clean conditional/abstract

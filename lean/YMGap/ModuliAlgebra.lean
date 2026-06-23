@@ -1,4 +1,6 @@
 /-
+NON-LOAD-BEARING expository closure (excluded from the YMGap.lean aggregator); builds on demand.
+
 The moduli vector — Lean realization of manuscript Ch. 1.5.
 
 Authorized 2026-05-26: collapse the 10 named moduli of

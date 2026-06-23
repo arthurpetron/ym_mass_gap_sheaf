@@ -1,4 +1,5 @@
 # Scope: the D₄/24-cell reduction of the rotation-restoration input (2026-06-22)
+**STATUS:** Scope/plan dated 2026-06-22; see the canonical ledgers for the outcome (docs/where-the-wall-sits-2026-06-22.md, docs/stage1-completion-ledger-2026-06-22.md, docs/stage2-progress-ledger-2026-06-22.md, docs/continuum-wall-outstanding-2026-06-22.md).
 
 Target: `RepTheory/Spin4Reflection.lean`'s `O4ConnectedInput.rotationRestored` — currently a bare named
 `Prop` ("continuum O(4)-rotation is restored"). Question: can the D₄/24-cell discretization turn it into a

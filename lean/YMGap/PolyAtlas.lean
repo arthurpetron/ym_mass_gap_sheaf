@@ -1,4 +1,6 @@
 /-
+NON-LOAD-BEARING expository closure (excluded from the YMGap.lean aggregator); builds on demand.
+
 The polymer atlas P_k as a concrete Q'-rational structure.
 
 Milestone 2.2-closure of `work_plan.md` (authorized 2026-05-26):

@@ -1,4 +1,5 @@
 # Scope: the R1 real-measure construction (the unified wall, 2026-06-22)
+**STATUS:** Scope/plan dated 2026-06-22; see the canonical ledgers for the outcome (docs/where-the-wall-sits-2026-06-22.md, docs/stage1-completion-ledger-2026-06-22.md, docs/stage2-progress-ledger-2026-06-22.md, docs/continuum-wall-outstanding-2026-06-22.md).
 
 Target named in the consolidation (`abstract-tower-and-r1-wall-2026-06-22.md`): **construct the actual
 4D SU(2) lattice gauge measure** and **connect the abstract structures** (`PolymerModel`, `corr`,

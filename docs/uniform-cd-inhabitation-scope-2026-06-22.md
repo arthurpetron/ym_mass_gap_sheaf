@@ -1,4 +1,5 @@
 # Scope: inhabiting `uniform_CD` via the SZZ / BBD toolkit (2026-06-22)
+**STATUS:** Scope/plan dated 2026-06-22; see the canonical ledgers for the outcome (docs/where-the-wall-sits-2026-06-22.md, docs/stage1-completion-ledger-2026-06-22.md, docs/stage2-progress-ledger-2026-06-22.md, docs/continuum-wall-outstanding-2026-06-22.md).
 
 `UniformCurvatureBound.uniform_CD` = a single K>0 with Bakry–Émery `CD(K,∞)` for the SU(N) lattice YM
 Langevin generator, uniform over the family. Can the Shen–Zhu–Zhu (SZZ) and Bauerschmidt–Bodineau–Dagallier

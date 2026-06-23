@@ -340,22 +340,27 @@ theorem ztMajorant_le_su2 {R : RepData} (m : ZtMajorant R) :
 /-! ## The `Z_t ↦ η_max` bridge and the `EtaGapMonotone` discharge
 
 `RepData.eta_max` is a free `Q'` field with no built-in tie to `C2_fund`
-or `Z_t`.  The honest fix: carry **one** structural bridge field that the
-paper-layer `Z_t ↦ K_lf ↦ η_max` chain supplies — that `eta_max(R)` is
-dominated by `su2.eta_max` *whenever* `Z_t(R) ≤ Z_t(su2)`.  Its monotone
-interior (`qOver1mq_mono`, `recip_antitone`) is already proven in
-`UniformBudget.lean`; only the end-to-end packaging stays named here. -/
+or `Z_t`.  The fix: carry **one** structural bridge field for the
+`Z_t ↦ K_lf ↦ η_max` chain — that `eta_max(R)` is dominated by
+`su2.eta_max` *whenever* `Z_t(R) ≤ Z_t(su2)`.  Its monotone interior
+(`qOver1mq_mono`, `recip_antitone`) is proven in `UniformBudget.lean`,
+and the end-to-end bridge implication is now a **proven theorem**
+(`eta_of_zt_of_model`, assembled from the `ZtEtaModel`/`etaModel`
+packaging in `EtaPackaging.lean`) — no longer a posit. -/
 
 /-- **The `Z_t ↦ η_max` bridge.**  `Type`-level data: a rank-general
-majorant for `R`, plus the (paper-layer) implication that `Z_t`-domination
-yields `η_max`-domination.  Carrying the majorant *inside* the bridge means
-`EtaGapMonotone R` follows with no extra hypothesis. -/
+majorant for `R`, plus the implication that `Z_t`-domination yields
+`η_max`-domination.  Carrying the majorant *inside* the bridge means
+`EtaGapMonotone R` follows with no extra hypothesis.  This implication is
+no longer a posit: `eta_of_zt_of_model` (in `EtaPackaging.lean`) proves it
+from the `ZtEtaModel`/`etaModel` packaging. -/
 structure EtaFromZt (R : RepData) where
   /-- The rank-general `Z_t` majorant pinning `Z_t(R) ≤ Z_t(su2)`. -/
   major     : ZtMajorant R
-  /-- The paper-layer `Z_t ↦ K_lf ↦ η_max` packaging: `Z_t(R) ≤ Z_t(su2)`
-  forces `eta_max(R) ≤ su2.eta_max`.  (Monotone interior proven in
-  `UniformBudget.lean`; this is its end-to-end wrapper.) -/
+  /-- The `Z_t ↦ K_lf ↦ η_max` packaging: `Z_t(R) ≤ Z_t(su2)` forces
+  `eta_max(R) ≤ su2.eta_max`.  Discharged by the proven
+  `eta_of_zt_of_model` (monotone interior proven in `UniformBudget.lean`;
+  the end-to-end bridge proven in `EtaPackaging.lean`). -/
   eta_of_zt : ztValue major.sR major.rank ≤ major.su2Zt → R.eta_max ≤ su2.eta_max
 
 /-- **`EtaGapMonotone R` from the `Z_t` bridge.**  The rank-general product

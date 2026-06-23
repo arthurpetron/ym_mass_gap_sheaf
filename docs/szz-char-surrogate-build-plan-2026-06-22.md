@@ -1,4 +1,6 @@
 # Build plan: the fixed-spacing SZZ character-surrogate (into waves, 2026-06-22)
+**STATUS:** Scope/plan dated 2026-06-22; see the canonical ledgers for the outcome (docs/where-the-wall-sits-2026-06-22.md, docs/stage1-completion-ledger-2026-06-22.md, docs/stage2-progress-ledger-2026-06-22.md, docs/continuum-wall-outstanding-2026-06-22.md).
+**CORRECTION:** This plan was ABORTED at Wave 3 — see docs/szz-surrogate-correction-2026-06-23.md (the Wave-2/3 interacting chain is inadequate; the named obligation is unsatisfiable at strong coupling).
 
 Goal: a NON-VACUOUS inhabitant of a FIXED-SPACING `UniformCurvatureBound` via the geometric route — a finite
 reversible CHARACTER-CHAIN surrogate of the SU(N) lattice YM Langevin generator that provably satisfies

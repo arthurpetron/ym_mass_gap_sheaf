@@ -1,4 +1,5 @@
 # Scope: proving the ℤ₂ reflection margin (splitting it off the O(4) named wall, 2026-06-22)
+**STATUS:** Scope/plan dated 2026-06-22; see the canonical ledgers for the outcome (docs/where-the-wall-sits-2026-06-22.md, docs/stage1-completion-ledger-2026-06-22.md, docs/stage2-progress-ledger-2026-06-22.md, docs/continuum-wall-outstanding-2026-06-22.md).
 
 Target: `RepTheory/Spin4.lean`'s `O4RestorationInput.reflectionMargin` / `reflectionMargin_ge` — currently
 a NAMED input ("the discrete parity/reflection sector, the chiral swap L↔R, preserves the gap"). Question:

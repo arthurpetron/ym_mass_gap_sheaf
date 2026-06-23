@@ -1,4 +1,5 @@
 # Scope: the homological probe (+ manifold-theory ideas), honestly (2026-06-22)
+**STATUS:** Scope/plan dated 2026-06-22; see the canonical ledgers for the outcome (docs/where-the-wall-sits-2026-06-22.md, docs/stage1-completion-ledger-2026-06-22.md, docs/stage2-progress-ledger-2026-06-22.md, docs/continuum-wall-outstanding-2026-06-22.md).
 
 Probe question: can the YM mass gap be expressed as, or bounded below by, a TOPOLOGICAL / HOMOLOGICAL /
 GEOMETRIC invariant — making the gap MAGNITUDE (or its persistence under the RG flow) a STRUCTURAL fact

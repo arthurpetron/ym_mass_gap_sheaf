@@ -16,7 +16,9 @@ long-root² = 2, the ÷2 sub-convention that sends `A₁ = su(2)` to
     attained only by `A₁ = su(2)`.
 
 `SimpleGroup.lean` proves the `A_{N-1} = SU(N)` family clears both floors
-(`suN_gap_lb`, `suN_hvee_lb`).  What it does *not* carry is the same fact
+(`suN_gap_lb`, `suN_hvee_lb`).  Precisely: every fundamental weight ω_i
+(1 ≤ i ≤ N−1) of all SU(N), N ≥ 2, clears the 3/4 gap floor (the worst
+case is i = 1, the defining representation, attaining 3/4 only at N = 2).  What it does *not* carry is the same fact
 for the other Cartan types — `B_n = SO(2n+1)`, `C_n = Sp(n)`,
 `D_n = SO(2n)`, and the five exceptionals `G₂, F₄, E₆, E₇, E₈`.  This
 module supplies those: the exact minimal nonzero `C₂_fund` and the dual

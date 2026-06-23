@@ -39,8 +39,12 @@ just a paper-level argument.
 
 Both pilot operating points of `formal/mass-gap-theorem.tex`:
 
-  * **canonical** at `g = 0.30`: ρ_sf = 50/9, ρ_lf ≈ 6947/1000,
-    K_sf ≈ 1099/1000, K_lf ≈ 16/1000.
+  * **canonical** at `g = 0.30`: ρ_sf = 25/3, ρ_lf = 6947/1000,
+    K_sf = 6/5, K_lf = 16/1000 (the current canonical `def` values
+    `rho_sf_canonical`, `rho_lf_canonical`, `K_sf_canonical`,
+    `K_lf_canonical`).  Note: the 2026-05-26 `c_λ = 3/4` Casimir-gap
+    derivation raised ρ_sf by a factor 3/2, from the earlier 50/9 to
+    the current 25/3.
   * **Wilson** at `g = 0.50`: ρ_sf = 8, ρ_lf ≈ 10613/1000,
     K_sf ≈ 101/100, K_lf ≈ 1/1000.
 
