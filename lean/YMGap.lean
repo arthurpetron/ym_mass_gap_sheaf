@@ -180,6 +180,7 @@ import YMGap.Continuum.ClusterGapReduction
 import YMGap.Continuum.UniformClusterFromKP
 import YMGap.Continuum.WilsonCorrelator
 import YMGap.Continuum.WilsonConnCorr
+import YMGap.Continuum.GenuineClusterBound
 import YMGap.Continuum.DimensionlessRatio
 import YMGap.Continuum.ContinuumGapModulus
 import YMGap.Continuum.GapStability
