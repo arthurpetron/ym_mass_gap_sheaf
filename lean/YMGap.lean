@@ -161,6 +161,7 @@ import YMGap.Continuum.LocatedSpectralGap
 import YMGap.Continuum.BakryEmery
 import YMGap.Continuum.HeatKernelCurvature
 import YMGap.Continuum.CharChainFree
+import YMGap.Continuum.CharChainWilson
 import YMGap.Continuum.HeatKernelGap
 import YMGap.MassGap.SU2
 import YMGap.MassGap.SimpleGroup
