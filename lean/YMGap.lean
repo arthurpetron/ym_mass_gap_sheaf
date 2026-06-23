@@ -99,6 +99,7 @@ import YMGap.Continuum.WilsonFunctional
 import YMGap.Continuum.WilsonProbFunctional
 import YMGap.Continuum.WilsonConsistency
 import YMGap.Continuum.WilsonRGTower
+import YMGap.Continuum.CenterSymmetry
 import YMGap.Continuum.ReflectionPositivity
 import YMGap.Continuum.Pivot2Defs
 import YMGap.Continuum.Pivot2Identity
@@ -157,6 +158,7 @@ import YMGap.Continuum.SpectralGap
 import YMGap.Continuum.SpectralGapConverse
 import YMGap.Continuum.SpectralGapGrowth
 import YMGap.Continuum.LocatedSpectralGap
+import YMGap.Continuum.BakryEmery
 import YMGap.Continuum.HeatKernelGap
 import YMGap.MassGap.SU2
 import YMGap.MassGap.SimpleGroup
@@ -173,6 +175,7 @@ import YMGap.Continuum.UniformClusterFromKP
 import YMGap.Continuum.WilsonCorrelator
 import YMGap.Continuum.DimensionlessRatio
 import YMGap.Continuum.ContinuumGapModulus
+import YMGap.Continuum.GapStability
 import YMGap.Continuum.O4RestorationAF
 import YMGap.Continuum.ContinuumFunctional
 import YMGap.Continuum.RegularFunctional
