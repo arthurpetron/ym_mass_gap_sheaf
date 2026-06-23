@@ -222,6 +222,7 @@ import YMGap.Continuum.AFTrajectoryCertificate
 import YMGap.Continuum.AFScaleCocycle
 import YMGap.Continuum.ContinuumYMStack
 import YMGap.Continuum.Nontriviality
+import YMGap.Continuum.ContinuumCertificate
 import YMGap.Continuum.FusionQuotientCollapse
 import YMGap.Continuum.CRealContinuumAlg
 import YMGap.Continuum.FusionRDFactor
