@@ -38,6 +38,7 @@ import YMGap.Constructive.SqrtSubadd
 import YMGap.Constructive.CubeRoot
 import YMGap.Constructive.CRealAbs
 import YMGap.Constructive.CRealComplete
+import YMGap.Constructive.CRealCompleteIdx
 import YMGap.Constructive.TrigBound
 import YMGap.Constructive.Trig
 import YMGap.Constructive.TrigAdd
@@ -160,6 +161,7 @@ import YMGap.Continuum.RiemannSOS
 import YMGap.Continuum.RiemannConverge
 import YMGap.Continuum.SemicircleIntegral
 import YMGap.Continuum.SemicircleConverge
+import YMGap.Continuum.SemicircleInnerModulus
 import YMGap.Continuum.RCoeffReproduction
 import YMGap.Continuum.ChebRoot
 import YMGap.Continuum.RCRealNode
