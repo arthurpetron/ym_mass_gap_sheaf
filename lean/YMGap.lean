@@ -159,6 +159,7 @@ import YMGap.Continuum.ChebRoot
 import YMGap.Continuum.RCRealNode
 import YMGap.Continuum.ChebOrthogonality
 import YMGap.Continuum.PowerSumCollapse
+import YMGap.Continuum.TPowerSum
 import YMGap.Continuum.PlaquetteReweight
 import YMGap.Continuum.KPLimit
 import YMGap.Continuum.RGTransport
