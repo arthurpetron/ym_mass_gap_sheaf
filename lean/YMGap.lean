@@ -162,6 +162,7 @@ import YMGap.Continuum.PowerSumCollapse
 import YMGap.Continuum.TPowerSum
 import YMGap.Continuum.RootPowerSumBridge
 import YMGap.Continuum.OffDiagShift
+import YMGap.Continuum.NewtonRecurrence
 import YMGap.Continuum.PlaquetteReweight
 import YMGap.Continuum.KPLimit
 import YMGap.Continuum.RGTransport
