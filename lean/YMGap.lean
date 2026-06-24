@@ -153,6 +153,7 @@ import YMGap.Continuum.PNPaths
 import YMGap.Continuum.PNInduction
 import YMGap.Continuum.GramReduction3
 import YMGap.Continuum.MomentSquarePSD
+import YMGap.Continuum.ChebyshevQuadPSD
 import YMGap.Continuum.PlaquetteReweight
 import YMGap.Continuum.KPLimit
 import YMGap.Continuum.RGTransport
@@ -182,6 +183,7 @@ import YMGap.Continuum.UniformClusterFromKP
 import YMGap.Continuum.WilsonCorrelator
 import YMGap.Continuum.WilsonConnCorr
 import YMGap.Continuum.GenuineClusterBound
+import YMGap.Continuum.TransferCorr
 import YMGap.Continuum.DimensionlessRatio
 import YMGap.Continuum.ContinuumGapModulus
 import YMGap.Continuum.GapStability
@@ -256,6 +258,7 @@ import YMGap.Continuum.KPCriterion
 import YMGap.Continuum.ClusterCount
 import YMGap.Continuum.PinnedCluster
 import YMGap.Continuum.AbstractPolymerXi
+import YMGap.Continuum.TreePartitionIdentity
 import YMGap.Continuum.ClusteringImpliesGap
 -- NOTE: `YMGap.PolyAtlas` and `YMGap.ModuliAlgebra` are non-load-bearing
 -- expository/design-closure scaffolding (their own headers state "NOT
