@@ -40,6 +40,7 @@ import YMGap.Constructive.CRealComplete
 import YMGap.Constructive.TrigBound
 import YMGap.Constructive.Trig
 import YMGap.Constructive.TrigAdd
+import YMGap.Constructive.Pi
 import YMGap.Constructive.CauchyConv
 import YMGap.Constructive.ExpAddConv
 import YMGap.Constructive.ProductDecomp
