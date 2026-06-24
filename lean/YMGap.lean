@@ -165,6 +165,7 @@ import YMGap.Continuum.SemicircleConverge
 import YMGap.Continuum.SemicircleInnerModulus
 import YMGap.Continuum.SemicircleLimit
 import YMGap.Continuum.SemicircleInterRes
+import YMGap.Continuum.SemicircleValueRes
 import YMGap.Continuum.RCoeffReproduction
 import YMGap.Continuum.ChebRoot
 import YMGap.Continuum.RCRealNode
