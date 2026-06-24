@@ -155,6 +155,9 @@ import YMGap.Continuum.GramReduction3
 import YMGap.Continuum.MomentSquarePSD
 import YMGap.Continuum.ChebyshevQuadPSD
 import YMGap.Continuum.RCoeffReproduction
+import YMGap.Continuum.ChebRoot
+import YMGap.Continuum.RCRealNode
+import YMGap.Continuum.ChebOrthogonality
 import YMGap.Continuum.PlaquetteReweight
 import YMGap.Continuum.KPLimit
 import YMGap.Continuum.RGTransport
