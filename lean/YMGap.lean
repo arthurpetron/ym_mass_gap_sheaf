@@ -120,6 +120,7 @@ import YMGap.Continuum.FavardRec
 import YMGap.Continuum.CyclotomicPositivity
 import YMGap.Continuum.FavardUniform
 import YMGap.Continuum.TuranPositivity
+import YMGap.Continuum.TuranBridge
 import YMGap.Continuum.LGVPositivity
 import YMGap.Continuum.HeatKernelPos
 import YMGap.Continuum.TrigAverage
