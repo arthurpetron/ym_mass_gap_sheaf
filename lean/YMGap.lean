@@ -154,6 +154,7 @@ import YMGap.Continuum.PNInduction
 import YMGap.Continuum.GramReduction3
 import YMGap.Continuum.MomentSquarePSD
 import YMGap.Continuum.ChebyshevQuadPSD
+import YMGap.Continuum.RiemannSOS
 import YMGap.Continuum.RCoeffReproduction
 import YMGap.Continuum.ChebRoot
 import YMGap.Continuum.RCRealNode
