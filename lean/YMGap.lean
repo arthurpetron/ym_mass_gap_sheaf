@@ -40,6 +40,7 @@ import YMGap.Constructive.CRealAbs
 import YMGap.Constructive.CRealComplete
 import YMGap.Constructive.CRealCompleteIdx
 import YMGap.Constructive.CRealCompleteCauchy
+import YMGap.Constructive.CRealCompleteRate
 import YMGap.Constructive.TrigBound
 import YMGap.Constructive.Trig
 import YMGap.Constructive.TrigAdd
@@ -167,6 +168,7 @@ import YMGap.Continuum.SemicircleLimit
 import YMGap.Continuum.SemicircleInterRes
 import YMGap.Continuum.SemicircleValueRes
 import YMGap.Continuum.SemicircleConvClosed
+import YMGap.Continuum.SemicircleRate
 import YMGap.Continuum.RCoeffReproduction
 import YMGap.Continuum.ChebRoot
 import YMGap.Continuum.RCRealNode
