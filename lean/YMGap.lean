@@ -154,6 +154,7 @@ import YMGap.Continuum.PNInduction
 import YMGap.Continuum.GramReduction3
 import YMGap.Continuum.MomentSquarePSD
 import YMGap.Continuum.ChebyshevQuadPSD
+import YMGap.Continuum.RCoeffReproduction
 import YMGap.Continuum.PlaquetteReweight
 import YMGap.Continuum.KPLimit
 import YMGap.Continuum.RGTransport
