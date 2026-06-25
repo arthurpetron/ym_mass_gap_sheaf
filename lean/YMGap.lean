@@ -185,6 +185,7 @@ import YMGap.Continuum.ChebOrthoMidpointCore
 import YMGap.Continuum.ChebOrthoCancel
 import YMGap.Continuum.ChebOrthoRemainder
 import YMGap.Continuum.ChebOrthoGraded
+import YMGap.Continuum.ChebOrthoGradedClose
 import YMGap.Continuum.ChebOrthoMatrix
 import YMGap.Continuum.MomentIntegralPSD
 import YMGap.Continuum.RCoeffReproduction
