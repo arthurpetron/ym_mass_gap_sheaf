@@ -178,6 +178,7 @@ import YMGap.Continuum.ChebOrthoWeightedFTC
 import YMGap.Continuum.ChebUDClosure
 import YMGap.Continuum.ChebOrthoFTCEstimate
 import YMGap.Continuum.ChebOrthoBudget
+import YMGap.Continuum.ChebOrthoBudgetClose
 import YMGap.Continuum.ChebOrthoMatrix
 import YMGap.Continuum.MomentIntegralPSD
 import YMGap.Continuum.RCoeffReproduction
