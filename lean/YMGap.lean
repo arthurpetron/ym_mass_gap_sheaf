@@ -194,6 +194,7 @@ import YMGap.Continuum.ChebOrthoSecondOrder
 import YMGap.Continuum.ChebOrthoTaylor
 import YMGap.Continuum.ChebOrthoLeadingModel
 import YMGap.Continuum.ChebOrthoSecondDiff
+import YMGap.Continuum.ChebOrthoRadSecondDiff
 import YMGap.Continuum.ChebOrthoMatrix
 import YMGap.Continuum.MomentIntegralPSD
 import YMGap.Continuum.RCoeffReproduction
