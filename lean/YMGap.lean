@@ -176,6 +176,7 @@ import YMGap.Continuum.ChebOrthoOffDiag
 import YMGap.Continuum.ChebOrthoEvenFTC
 import YMGap.Continuum.ChebOrthoWeightedFTC
 import YMGap.Continuum.ChebUDClosure
+import YMGap.Continuum.ChebOrthoFTCEstimate
 import YMGap.Continuum.RCoeffReproduction
 import YMGap.Continuum.ChebRoot
 import YMGap.Continuum.RCRealNode
@@ -270,6 +271,7 @@ import YMGap.Continuum.ContinuumYMStack
 import YMGap.Continuum.Nontriviality
 import YMGap.Continuum.ContinuumCertificate
 import YMGap.Continuum.UniformCurvatureBound
+import YMGap.Continuum.BakryEmeryGap
 import YMGap.Continuum.FusionQuotientCollapse
 import YMGap.Continuum.CRealContinuumAlg
 import YMGap.Continuum.FusionRDFactor
