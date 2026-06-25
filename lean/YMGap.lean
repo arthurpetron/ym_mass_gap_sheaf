@@ -170,6 +170,7 @@ import YMGap.Continuum.SemicircleValueRes
 import YMGap.Continuum.SemicircleConvClosed
 import YMGap.Continuum.SemicircleRate
 import YMGap.Continuum.SemicircleBoundClosed
+import YMGap.Continuum.SemicircleValue
 import YMGap.Continuum.RCoeffReproduction
 import YMGap.Continuum.ChebRoot
 import YMGap.Continuum.RCRealNode
