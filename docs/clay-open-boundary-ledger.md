@@ -356,3 +356,128 @@ equivariance constraint is non-vacuous. The continuum limit, the full-measure
 OS construction, and the interacting continuum Hamiltonian remain open
 research mathematics. This repository proves real finite facts and states the
 open problem honestly; it does not close it.
+
+## Addendum (2026-06-25): the π-free node-free Wall-1 reduction + Turok artifacts
+
+A focused campaign reduced the **all-order SU(2) heat-kernel character Gram
+PSD** ("Wall-1") to THREE named analytic atoms via a π-free, node-free route,
+and added two finite Turok-template scaffolds. This addendum records the result
+honestly. **Wall-1 is REDUCED, not closed.** The Clay problem remains open; the
+continuum (`a → 0`) frontier is untouched. A companion capstone is
+`wall1-reduction-campaign-2026-06-25.md`.
+
+### (a) Wall-1 reduced to three named atoms (the π-free node-free route)
+
+The all-order Gram PSD is the predicate `GramRed.MomentSquarePos M`:
+`momentSquare M c N ≥ 0` for EVERY order `N` and coefficient vector `c`. The
+campaign supplies a SECOND route to it (independent of the earlier
+`UniformGramSOS` / P_N-wall route in `MomentSquarePSD.lean`), going through the
+Chebyshev-`U` orthogonality matrix and the R-projection of the moment integral.
+
+- **CAPSTONE (CONDITIONAL).** `MomentIntegralPSD.wilson_momentSquare_nonneg`
+  (and its general form `momentSquare_nonneg`): `SOSIntegral M ⇒ MomentSquarePos
+  M`, specialized to the SU(2) heat-kernel moments `wilsonMoments t ht`. The
+  downstream PSD form is `MomentIntegralPSD.wilson_gramPSD_of_sosIntegral`.
+  Axiom-clean (`propext`/`Quot.sound`).
+
+- **The reduction is to EXACTLY these three named atoms** (all explicit
+  hypotheses, nothing hidden):
+  1. `ChebOrthoMatrix.OffDiagClosed` — the even off-diagonal √-weighted FTC
+     atom that closes the orthogonality matrix `∫U_cU_d√ = semiInt·δ_{cd}`. It
+     is a `Prop` (`∀ e ≥ 1, ConvergesTo (seqOrth e) czero`), derivable from
+     `ChebOrthoBudget.cellBoundExists` for even `e ≥ 2` (the summed
+     midpoint-quadrature error estimate; `cellBoundExists`/`BudgetExists` are
+     `Prop`-∃ obligations).
+  2. `MomentIntegralPSD.RProjection a` — the R-series sum-integral interchange
+     `∫U_e R √ = semiInt·r_e` per edge, carried as a **Type-level `structure`**
+     with the genuine per-edge integral `edgeIntegral : Nat → CReal` and its
+     value identification.
+  3. `MomentIntegralPSD.SOSIntegral M` (definitionally `=
+     MomentSquarePSD.UniformGramSOS M`, via `sosIntegral_eq_uniformGramSOS`) —
+     the SOS-integrand moment-integral identity plus the Riemann convergence of
+     the proved-nonnegative SOS sums, packaged as a **Type-level `×'`** uniform
+     nonnegative certificate.
+
+  All three are genuine analytic convergence/interchange obligations — the same
+  flavor as the proved semicircle convergence in (b). They are NOT proved.
+
+- **The supporting STRUCTURE is genuinely PROVED, axiom-clean** (the chain
+  around the atoms):
+  - `ChebOrthoMatrix.orthMatrix` — the orthogonality matrix `[∫U_cU_d√]_{cd} =
+    semiInt·I` (manifestly PSD via `orthMatrix_diag_nonneg : semiInt ≥ 0`),
+    CONDITIONAL only on `OffDiagClosed`; the pointwise fusion
+    (`chebU_fusion`, GENERAL `U_c·U_d = Ufusion c d`, proved here) and the
+    `ConvergesTo` linearity lemmas (`convergesTo_add`/`_csum`/`_congr_seq`,
+    built from scratch) are UNCONDITIONAL.
+  - `MomentIntegralPSD.momentIntegral_entry` — the per-entry identity
+    `∫U_pU_q R √ = (semiInt·2a)·gram(p,q)`, with the fusion / `r_e = 2a·m_e`
+    (`RCoeffReproduction.rCoeff_eq_two_a_moment`) / gram algebra UNCONDITIONAL,
+    CONDITIONAL only on the per-edge `RProjection`.
+  - `ChebOrthoOffDiag.orthInt_odd_converges` — the ODD off-diagonal vanishing,
+    **UNCONDITIONAL**.
+  - `ChebUDClosure.Bderiv_identity_uncond` — the polynomial antiderivative
+    identity feeding the FTC, **UNCONDITIONAL**.
+
+  Net: the ENTIRE orthogonality → moment-integral → PSD structure is proved;
+  only the three named analytic atoms remain open.
+
+### (b) The semicircle constructive Riemann integral (UNCONDITIONAL)
+
+`SemicircleBoundClosed.semiInt` is the integral `∫_{−1}^1 √(1−x²)` realized as a
+constructive real with a **hypothesis-free** convergence certificate
+(`semiInt_converges`) and the proved enclosure `0 ≤ semiInt ≤ 2`
+(`semiInt_nonneg`, `semiInt_leRat_two`) — the first fully-rigorous constructive
+Riemann integral in the library, built from the proved Cauchy rate
+(`semiRateB_mono`) and the two-sided refinement bound (`semiLeRatBound`).
+π-FREE: `semiInt` is used throughout as an abstract positive constant; its exact
+value π/2 is NOT proved (and is not needed — the Machin-π route is deliberately
+avoided). All axiom-clean.
+
+### (c) Two Turok-template artifacts (honest about scope)
+
+- **Krein–OS reconstruction scaffold** (`KreinOS.lean`). `krein_os_reconstruction`
+  packages an indefinite-metric (Krein/BRST) datum with Θκ-positivity +
+  compatibilities ⇒ a positive physical sector + (gap datum ⇒) a strictly
+  positive finite-volume gap; `kreinReconstructionExample` is a NON-VACUOUS
+  2-dimensional inhabitant (so the lemma is not vacuously true). This is
+  Stage-1 SCAFFOLDING / a structural generalization of the repo's GNS
+  reconstructions. **OUT OF SCOPE (named open):** the projection of *pure*
+  Yang–Mills onto this template. Note the positive-metric Wilson OS2 is already
+  unconditional (`ReflectionPositivity.lean`), so this Krein layer is off the
+  pure-YM critical path. Axiom-clean.
+
+- **Bakry–Émery 2nd-gap proof** (`BakryEmeryGap.lean`). `be_to_poincare`
+  derives the Poincaré/variance inequality from the slacked finite-regulator
+  Bakry–Émery hypothesis (the genuine BE chain at finite regulator); `be_gap`
+  gives the strictly-positive finite-volume gap `ρ` as an `IsPositive` witness;
+  `beDatumExample` is a non-vacuous inhabitant (symmetric two-state walk, ρ=2).
+  **HONEST SCOPE:** this is a SECOND, independent proof of the **fixed-spacing**
+  gap; the `a → 0` continuum use is explicitly NOT claimed (the carré-du-champ
+  functional is the wrong form in the continuum limit). Axiom-clean.
+
+### (d) Wall-2: m ≤ 3 done, m ≥ 4 6j open
+
+`LoopyLinkIntegral.lean` extends the abstract↔real partition identity beyond the
+tree geometry. The `m`-fold shared-link Haar integral is PROVED for `m = 2` (the
+orthogonality kernel δ) and `m = 3`
+(`tripleCharInt_eq_fusionInd : ∫χ_aχ_bχ_c = N_{abc}`, the single-6j fusion
+multiplicity), by Clebsch–Gordan-then-orthogonality. The general `m`-fold link
+integral for `m ≥ 4` (the genuine `(m−2)`-fold SU(2) 6j network) and the
+per-link `LinkCollapseData` it feeds remain NAMED-open. Closing it would upgrade
+the fixed-spacing gap from the tree geometry to the general loopy lattice with
+no change to the abstract Dobrushin/Kotecký–Preiss tail. Axiom-clean.
+
+### What is and is NOT closed
+
+PROVED unconditionally (real prior result, unchanged): the fixed-spacing
+tree-scoped infinite-volume mass gap
+`TreeFixedSpacingGap.tree_fixed_spacing_mass_gap` (axiom-clean,
+geometrically-restricted to ≤ 2-shared-link geometry; the continuum `a → 0`
+limit is NOT addressed).
+
+NOT closed by this campaign: Wall-1 is REDUCED to the three named atoms
+{`OffDiagClosed`, `RProjection`, `SOSIntegral`}, not proved; the Turok artifacts
+are honest-scope scaffolds (Krein-OS: pure-YM projection out of scope;
+Bakry–Émery: fixed-spacing only); Wall-2 `m ≥ 4` is open. The whole library
+builds clean (289 jobs) and every load-bearing declaration is axiom-clean
+(`propext`/`Quot.sound` only). The Clay problem remains OPEN.
