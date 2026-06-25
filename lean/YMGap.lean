@@ -181,6 +181,7 @@ import YMGap.Continuum.ChebOrthoBudget
 import YMGap.Continuum.ChebOrthoBudgetClose
 import YMGap.Continuum.ChebOrthoMidpoint
 import YMGap.Continuum.ChebOrthoMidpointEst
+import YMGap.Continuum.ChebOrthoMidpointCore
 import YMGap.Continuum.ChebOrthoMatrix
 import YMGap.Continuum.MomentIntegralPSD
 import YMGap.Continuum.RCoeffReproduction
