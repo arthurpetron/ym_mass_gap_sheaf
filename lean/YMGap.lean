@@ -177,6 +177,7 @@ import YMGap.Continuum.ChebOrthoEvenFTC
 import YMGap.Continuum.ChebOrthoWeightedFTC
 import YMGap.Continuum.ChebUDClosure
 import YMGap.Continuum.ChebOrthoFTCEstimate
+import YMGap.Continuum.ChebOrthoBudget
 import YMGap.Continuum.RCoeffReproduction
 import YMGap.Continuum.ChebRoot
 import YMGap.Continuum.RCRealNode
@@ -293,6 +294,7 @@ import YMGap.Continuum.ClusterCount
 import YMGap.Continuum.PinnedCluster
 import YMGap.Continuum.AbstractPolymerXi
 import YMGap.Continuum.TreePartitionIdentity
+import YMGap.Continuum.LoopyLinkIntegral
 import YMGap.Continuum.TreeFixedSpacingGap
 import YMGap.Continuum.ClusteringImpliesGap
 -- NOTE: `YMGap.PolyAtlas` and `YMGap.ModuliAlgebra` are non-load-bearing
