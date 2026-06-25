@@ -179,6 +179,7 @@ import YMGap.Continuum.ChebUDClosure
 import YMGap.Continuum.ChebOrthoFTCEstimate
 import YMGap.Continuum.ChebOrthoBudget
 import YMGap.Continuum.ChebOrthoMatrix
+import YMGap.Continuum.MomentIntegralPSD
 import YMGap.Continuum.RCoeffReproduction
 import YMGap.Continuum.ChebRoot
 import YMGap.Continuum.RCRealNode
