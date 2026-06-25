@@ -106,6 +106,7 @@ import YMGap.Continuum.WilsonConsistency
 import YMGap.Continuum.WilsonRGTower
 import YMGap.Continuum.CenterSymmetry
 import YMGap.Continuum.ReflectionPositivity
+import YMGap.Continuum.KreinOS
 import YMGap.Continuum.Pivot2Defs
 import YMGap.Continuum.Pivot2Identity
 import YMGap.Continuum.Pivot2Moments
@@ -174,6 +175,7 @@ import YMGap.Continuum.SemicircleValue
 import YMGap.Continuum.ChebOrthoOffDiag
 import YMGap.Continuum.ChebOrthoEvenFTC
 import YMGap.Continuum.ChebOrthoWeightedFTC
+import YMGap.Continuum.ChebUDClosure
 import YMGap.Continuum.RCoeffReproduction
 import YMGap.Continuum.ChebRoot
 import YMGap.Continuum.RCRealNode
