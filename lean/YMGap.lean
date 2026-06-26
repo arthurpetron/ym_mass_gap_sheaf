@@ -201,6 +201,7 @@ import YMGap.Continuum.ChebBracketTaylor
 import YMGap.Continuum.ChebMarkovModulus
 import YMGap.Continuum.ChebOrthoOffDiagClose
 import YMGap.Continuum.ChebOrthoTightModulus
+import YMGap.Continuum.ChebOrthoLegAssembly
 import YMGap.Continuum.ChebOrthoMatrix
 import YMGap.Continuum.MomentIntegralPSD
 import YMGap.Continuum.RCoeffReproduction
