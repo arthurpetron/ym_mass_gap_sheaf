@@ -205,6 +205,7 @@ import YMGap.Continuum.ChebOrthoLegAssembly
 import YMGap.Continuum.ChebOrthoLegProof
 import YMGap.Continuum.ChebOrthoRadLegProof
 import YMGap.Continuum.ChebOrthoBracketDecay
+import YMGap.Continuum.ChebOrthoOffDiagFinal
 import YMGap.Continuum.ChebOrthoMatrix
 import YMGap.Continuum.MomentIntegralPSD
 import YMGap.Continuum.RCoeffReproduction
