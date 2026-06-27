@@ -1,4 +1,19 @@
 /-
+⚠️ DEPRECATED ROUTE (2026-06-27) — NOT a live path to the mass gap. ⚠️
+The full-mode product-floor chain in this file (`genuine_fullMode_gap`, etc.) is
+CONDITIONAL on the per-mode relative-residual bound `hbound` (concretely
+`BondMovingRelResidual.FusionRelResidualBound`).  That bound was found FALSE: the
+bond-moving (pointwise-product `K_w^p`) relative residual is LINEAR `O(1−w)`, not
+quadratic `O((1−w)²)` — verified numerically, per-step defect `≈ 0.4374·(1−w)`,
+power 1.00.  Hence along the AF rate `Σ_k d_k ~ Σ 1/k` DIVERGES and the product
+floor → 0: NO positive gap.  The `d_quad` premise (`d_k ≤ M(1−w_k)²`) is false for
+the genuine defect.  Reason: the pointwise product of heat kernels is not a heat
+kernel (deviation `O(1−w)` per step); only the full Migdal–Kadanoff step (bond-move
++ DECIMATION) could be quadratic, and MK is uncontrolled in `d>1` anyway.  This
+chain is retained for its reusable `Q'`/`Nat` lemmas (the summation half, the
+moment machinery) ONLY; it does not establish a gap.  See
+`project_os2_critical_path_map` memory for the full diagnosis.
+
 Track B / R2 — the **genuine relative-residual** full-mode defect, replacing the
 divergent `C₄²` envelope with the `K_τ`-normalized residual.
 

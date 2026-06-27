@@ -1,4 +1,22 @@
 /-
+⚠️ DEPRECATED ROUTE (2026-06-27) — `FusionRelResidualBound` is FALSE. ⚠️
+This file reduces the bond-moving gap to the single obligation
+`FusionRelResidualBound` (`|rrelFix s| ≤ (1−w)²·Peval P (yArg w s)`).  That
+obligation is FALSE, for two independent reasons (verified by exact-arithmetic
+numerics):
+  (1) NORMALIZATION: `rrelFix` uses `KtauFix(0)=1`, but `bondMovedCoeff(0)` for
+      `p≥2` is `Σ_i coeffW(i)² = 1+4w⁶+… ≠ 1`, so `rrelFix(0)=bmc(0)−1 →` large
+      (157 at w=.99) ≫ `(1−w)²·P(0)`.  (Fixable by `÷bmc(0)`.)
+  (2) FUNDAMENTAL: even normalized, the per-step defect is LINEAR `O(1−w)` (not
+      `O((1−w)²)`) — the bulk modes `s ~ 1/√(1−w)` dominate with linear deviation;
+      the marginal→quadratic mechanism only helps low modes.  ⇒ divergent floor,
+      no gap.
+The structural lemmas here (`KtauFix_ge_coeffW`, `bmc_ge_identity`,
+`rrelFix_p1_zero`, `rrelFix_lower`) are TRUE and reusable; the reduction
+(`genuineResidualBound_of_fusionRel`, `fullModeGap_of_fusionRel`) is logically
+sound but rests on the FALSE `FusionRelResidualBound`, so it is NOT a live route
+to the gap.  See `project_os2_critical_path_map` memory.
+
 Track B / R2 — the CONCRETE bond-moving relative residual measured against the
 CORRECTED retuned heat-kernel coefficient `KtauFix`, the genuine provable
 structural one-sided bounds on it, and the PRECISE (now-satisfiable) reduction of

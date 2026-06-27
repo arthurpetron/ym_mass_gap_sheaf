@@ -1,4 +1,14 @@
 /-
+⚠️ DEPRECATED ROUTE (2026-06-27) — capstone rests on the FALSE `FusionRelResidualBound`. ⚠️
+The crude moment bound here is genuinely TRUE and reusable (it eliminates the
+unsatisfiable `UniformMomentCerts`).  BUT the capstone `fullModeGap_crude_of_fusionRel`
+is conditional on `BondMovingRelResidual.FusionRelResidualBound`, which is FALSE (the
+bond-moving relative residual is LINEAR `O(1−w)`, not quadratic — so the product floor
+diverges to 0, no gap).  The crude-bound lemmas (`Zsum_pos`, `momentTerm_le_cterm`,
+`momentSum_le_crudeSum`, `fullModeDefect_crude`) remain valid/reusable; the
+`…_of_fusionRel` capstone is NOT a live route to the gap.  See
+`project_os2_critical_path_map` memory.
+
 Track B / R2 — the **CRUDE w-INDEPENDENT moment bound** that ELIMINATES the
 fixed-cutoff moment certificates (`UniformMomentCerts`) from the OS2-critical-path
 full-mode gap.

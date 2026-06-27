@@ -481,3 +481,48 @@ are honest-scope scaffolds (Krein-OS: pure-YM projection out of scope;
 Bakry–Émery: fixed-spacing only); Wall-2 `m ≥ 4` is open. The whole library
 builds clean (289 jobs) and every load-bearing declaration is axiom-clean
 (`propext`/`Quot.sound` only). The Clay problem remains OPEN.
+
+---
+
+## Addendum 2026-06-27 — off-diagonal CLOSED; bond-moving route FALSIFIED; pivot to cluster expansion
+
+**New unconditional results (axiom-clean, build green, ~3432 theorems):**
+- **Off-diagonal Chebyshev orthogonality `∫U_e√(1−x²)=0` (∀e≥1) is now PROVED
+  unconditionally** (`ChebOrthoOffDiagFinal.offdiag_orthogonality_unconditional`),
+  cascading to the **unconditional orthogonality matrix
+  `∫U_cU_d√ = semiInt·δ_{cd}`** (`ChebOrthoMatrixUncond.orthMatrix_unconditional`).
+  This discharges Wall-1 atom (1) `OffDiagClosed`.
+- Wall-1 atoms (2)/(3) (`RProjection`/`SOSIntegral`) bottom out in
+  `JTPIdentity.DiffJTP` (the heat-kernel Chebyshev expansion κ=Σr_f U_f), a deep
+  theta-function wall — and Wall-1 is OFF the OS2 critical path anyway (OS2 is
+  proved unconditionally via `ReflectionPositivity`).
+
+**OS2-critical-path attempt (bond-moving RG) — FALSIFIED:**
+- The bond-moving full-mode defect chain (`GenuineResidualDefect`,
+  `BondMovingRelResidual`, `CrudeMomentBound`) aimed to inhabit the cluster bound
+  via the RG bond-move. Its load-bearing obligation `FusionRelResidualBound` was
+  found **FALSE**: (i) a normalization bug (`rrelFix(0)=bmc(0)−1→158` at w=.99),
+  and (ii) fundamentally the bond-moving (pointwise-product `K_w^p`) defect is
+  **linear `O(1−w)`, not quadratic** (per-step defect `≈0.4374·(1−w)`, power 1.00,
+  exact-arithmetic numerics) — so `Σ_k d_k ~ Σ1/k` diverges and the product floor
+  → 0: **no gap**. Root cause: pointwise product of heat kernels is not a heat
+  kernel (deviation `O(1−w)`); only the full Migdal–Kadanoff step (bond-move +
+  decimation) could be quadratic, and MK is uncontrolled in d>1. Those three files
+  carry ⚠️ DEPRECATED banners; their `Q'`-arithmetic lemmas remain reusable.
+
+**Still genuinely PROVED on the critical path (unchanged, valid):**
+OS2 reflection positivity (unconditional); `ClusteringImpliesGap` (clustering ⇒
+located finite-volume gap, division-free); `ClusterGapReduction` (cluster bound ⇒
+continuum mass m_∞>0); `FourDExistence.ym_mass_gap_of_existence` (the end
+implication). The single genuine missing input is an inhabited
+`ClusterGapReduction.UniformClusterBound` (an ORACLE).
+
+**Path forward (in progress):** inhabit `UniformClusterBound` via the STANDARD
+strong-coupling polymer / cluster expansion (Kotecký–Preiss / Mayer; literature:
+Osterwalder–Seiler, Shen–Zhu–Zhu), which yields the fixed-spacing exponential
+clustering with volume-independent constants — bypassing both DiffJTP and the dead
+bond-moving route, and feeding the proved `clustering ⇒ gap ⇒ continuum mass`
+chain. Scope: a Kotecký–Preiss convergence lemma + the activity-smallness input at
+strong coupling. This yields a genuine fixed-spacing strong-coupling gap (NOT the
+continuum Clay result — `a→0` + O(4) restoration remain the open frontier). The
+Clay problem remains OPEN.
