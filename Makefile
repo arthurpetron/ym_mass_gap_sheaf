@@ -1,5 +1,5 @@
 .PHONY: test lint typecheck figures svg-to-pdf paper clean help \
-        lean-build lean-audit lean-audit-strict lean-audit-update
+        lean-build lean-audit lean-audit-strict lean-audit-update lean-rubric
 
 help:
 	@echo "Targets:"
@@ -12,6 +12,7 @@ help:
 	@echo "  lean-audit         Check the Lean axiom-gate vs lean/AXIOM_AUDIT.md baseline."
 	@echo "  lean-audit-strict  Same, plus fail on new/missing theorems."
 	@echo "  lean-audit-update  Regenerate the baseline manifest from the current build."
+	@echo "  lean-rubric        Compile-check the Clay scorecard against the pinned external rubric."
 	@echo "  clean              Remove Python, mypy, ruff, pytest, and LaTeX build artifacts."
 
 test:
@@ -54,6 +55,17 @@ lean-audit-strict:
 
 lean-audit-update:
 	python3 scripts/lean_axiom_audit.py --update
+
+# Compile-check the Clay scorecard (constructive transcription of the external
+# Clay rubric) against its pinned source. Verifies the fixed-spacing rubric
+# clauses are genuinely MET (real proof terms typecheck) while the continuum
+# clauses stay OPEN (no inhabitant). See lean/YMGap/Rubric/ClayScorecard.lean and
+# reference/leanmillennium-pinned/.
+lean-rubric:
+	@test -f reference/leanmillennium-pinned/Millennium.lean.txt \
+	  || { echo "error: pinned rubric source missing (reference/leanmillennium-pinned/)"; exit 1; }
+	cd lean && lake build YMGap.Rubric.ClayScorecard
+	@echo "Clay scorecard compiled: fixed-spacing clauses MET, continuum clauses OPEN (Clay remains open)."
 
 clean:
 	rm -rf .pytest_cache .mypy_cache .ruff_cache build dist *.egg-info
