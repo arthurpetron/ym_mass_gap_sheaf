@@ -267,6 +267,7 @@ import YMGap.Continuum.RGGapPersistence
 import YMGap.Continuum.ContinuumClosureProgram
 import YMGap.Continuum.DominantModeRecursion
 import YMGap.Continuum.VacuumStability
+import YMGap.Continuum.NormExcitedDrift
 import YMGap.Continuum.ProductFloor
 import YMGap.Continuum.SummableInverseSquare
 import YMGap.Continuum.ExpProductFloor
