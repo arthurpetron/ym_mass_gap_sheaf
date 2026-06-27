@@ -345,6 +345,7 @@ import YMGap.Continuum.ClusteringImpliesGap
 import YMGap.Continuum.MayerClustering
 import YMGap.Continuum.RealCorrMass
 import YMGap.Continuum.MultiPlaquetteMayer
+import YMGap.Continuum.CycleMayer
 import YMGap.Continuum.RGLandingCertificate
 import YMGap.Continuum.UniformCouplingGap
 import YMGap.Rubric.ClayScorecard
