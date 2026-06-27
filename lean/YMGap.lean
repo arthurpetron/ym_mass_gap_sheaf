@@ -330,6 +330,7 @@ import YMGap.Continuum.MayerTwoPlaquette
 import YMGap.Continuum.KPCriterion
 import YMGap.Continuum.ClusterCount
 import YMGap.Continuum.BddLatticeAnimal
+import YMGap.Continuum.GenuineKP
 import YMGap.Continuum.DecodeComplete
 import YMGap.Continuum.DecodeTourSound
 import YMGap.Continuum.SpanningTreeBuild

@@ -7,7 +7,10 @@ So the pinned-cluster decay claims here inherit that unproven over-count gap.  T
 honest replacement is `BddLatticeAnimal.lean` (genuine DFS-decoder `animalCount`, with
 the over-count named as `DecodeComplete`).  Re-derive these bounds against
 `BddLatticeAnimal.clusterCountBound_of_bdd` once `DecodeComplete` is discharged.  See
-`project_os2_critical_path_map` memory.
+`project_os2_critical_path_map` memory.  A genuine KP polymer-sum bound resting on the
+real animal count already exists: `GenuineKP.genuineKP_sum_le_two` (the KP geometric
+sum `≤ 2` over `BddLatticeAnimal.zChainClusterCountBound` at strong coupling `w = 1/6`),
+the now-existing genuine instantiation of `KPCriterion.kp_criterion_of_count`.
 
 Wall-2 finite pieces — the combinatorial / geometric atoms that let the
 real Wilson connected-correlator decay be DERIVED rather than posited.
