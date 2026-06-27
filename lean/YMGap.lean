@@ -255,6 +255,7 @@ import YMGap.Continuum.DimensionlessRatio
 import YMGap.Continuum.ContinuumGapModulus
 import YMGap.Continuum.GapStability
 import YMGap.Continuum.O4RestorationAF
+import YMGap.Continuum.O4DecayFromMargin
 import YMGap.Continuum.ContinuumFunctional
 import YMGap.Continuum.RegularFunctional
 import YMGap.Continuum.ClusterBoundInstance
