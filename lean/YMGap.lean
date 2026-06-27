@@ -251,6 +251,7 @@ import YMGap.Continuum.WilsonCorrelator
 import YMGap.Continuum.WilsonConnCorr
 import YMGap.Continuum.GenuineClusterBound
 import YMGap.Continuum.TransferCorr
+import YMGap.Continuum.GenuineCorrLink
 import YMGap.Continuum.DimensionlessRatio
 import YMGap.Continuum.ContinuumGapModulus
 import YMGap.Continuum.GapStability
