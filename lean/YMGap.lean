@@ -299,6 +299,7 @@ import YMGap.Continuum.CasimirMoment
 import YMGap.Continuum.MovingCutoff
 import YMGap.Continuum.PartitionUpperBound
 import YMGap.Continuum.GenuineResidualDefect
+import YMGap.Continuum.BondMovingRelResidual
 import YMGap.Continuum.FusionResidualBound
 import YMGap.Continuum.AFTrajectoryCertificate
 import YMGap.Continuum.AFScaleCocycle
