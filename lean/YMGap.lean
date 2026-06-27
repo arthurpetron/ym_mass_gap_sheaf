@@ -345,6 +345,7 @@ import YMGap.Continuum.ClusteringImpliesGap
 import YMGap.Continuum.MayerClustering
 import YMGap.Continuum.RealCorrMass
 import YMGap.Continuum.MultiPlaquetteMayer
+import YMGap.Continuum.RGLandingCertificate
 import YMGap.Rubric.ClayScorecard
 -- NOTE: `YMGap.PolyAtlas` and `YMGap.ModuliAlgebra` are non-load-bearing
 -- expository/design-closure scaffolding (their own headers state "NOT
