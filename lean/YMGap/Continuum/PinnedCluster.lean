@@ -1,4 +1,14 @@
 /-
+⚠️ RESTS ON A FAKE (2026-06-27). ⚠️
+The cluster-sum bounds here use `animalCount` from `ClusterCount.lean`, whose
+`clusterCountBound` inhabitant is VACUOUS (`animalCount := deg^{2n}` is free data, not
+proven to bound the true polymer count — its `polymerToWalk` injection is a constant).
+So the pinned-cluster decay claims here inherit that unproven over-count gap.  The
+honest replacement is `BddLatticeAnimal.lean` (genuine DFS-decoder `animalCount`, with
+the over-count named as `DecodeComplete`).  Re-derive these bounds against
+`BddLatticeAnimal.clusterCountBound_of_bdd` once `DecodeComplete` is discharged.  See
+`project_os2_critical_path_map` memory.
+
 Wall-2 finite pieces — the combinatorial / geometric atoms that let the
 real Wilson connected-correlator decay be DERIVED rather than posited.
 

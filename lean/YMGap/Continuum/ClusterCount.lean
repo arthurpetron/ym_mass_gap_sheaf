@@ -1,4 +1,19 @@
 /-
+⚠️ FAKE INHABITANT (2026-06-27) — superseded by `BddLatticeAnimal.lean`. ⚠️
+The `clusterCountBound` inhabitant here is VACUOUS: its `polymerToWalk` is the
+CONSTANT `Walk.nil p` (it ignores its polymer argument), and `polymerToWalk_injective`
+only re-proves `[p]=[q] → p=q` — it is NOT a real polymer→walk injection.  So
+`animalCount n := deg^{2n}` is FREE DATA, NOT proven to bound the true count of
+size-`n` connected polymers through `p` (`animalCount := 0` would satisfy the interface
+equally).  The `count_le` (`deg^{2n} ≤ (deg²)^n`) is a true `Nat` identity about that
+free data, not the lattice-animal theorem.  USE `BddLatticeAnimal.lean` instead: there
+`animalCount = |enumPolys|` is the genuine code-count of a REAL DFS decoder, `count_le`
+is proved, and the true over-count is the honestly-NAMED residual `DecodeComplete` (the
+Euler-tour completeness).  The reusable combinatorics here (`choiceSeqs`,
+`choiceSeqs_length`, `walkCount_eq`) are genuine and are reused by `BddLatticeAnimal`;
+only the `clusterCountBound`/`polymerToWalk` inhabitant claim is the fake.  See
+`project_os2_critical_path_map` memory.
+
 The lattice-animal counting bound — the research-grade combinatorial crux
 that turns the Kotecký–Preiss criterion of `Continuum/KPCriterion.lean`
 UNCONDITIONAL.
