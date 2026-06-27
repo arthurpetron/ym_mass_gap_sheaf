@@ -526,3 +526,62 @@ chain. Scope: a Kotecký–Preiss convergence lemma + the activity-smallness inp
 strong coupling. This yields a genuine fixed-spacing strong-coupling gap (NOT the
 continuum Clay result — `a→0` + O(4) restoration remain the open frontier). The
 Clay problem remains OPEN.
+
+---
+
+## Addendum 2026-06-27 — the cluster-expansion path-forward, EXECUTED (fixed-spacing)
+
+The "path forward" above (inhabit `UniformClusterBound` via the standard
+strong-coupling polymer/cluster expansion) has now been carried out genuinely and
+axiom-clean (`[propext]`/`[Quot.sound]` only), as a sequence of merged loops.
+**The Clay problem remains OPEN** — what follows is the *fixed-spacing,
+strong-coupling* sub-result, not the continuum gap.
+
+**Now genuinely PROVED (unconditional, finite-volume / fixed-spacing):**
+1. **Combinatorial cluster count — UNCONDITIONAL.** The lattice-animal predicate is
+   the genuine one (`IsClusterThrough` = internally-connected, `Nodup` plaquette
+   set, `connectedIn`/`ChainIn`). The full chain `adjSpanningTreeInternal`
+   (constructive BFS spanning-tree build; boundary-crossing by `ChainIn` induction;
+   `insertUnder` preserving adjacency/`Nodup`) → `AdjSpanningTree` (choice-free
+   `reindex` to faithful `nbrs`-indices) → `SpanningTreeExists` → `decode_tour_sound`
+   → `DecodeComplete` → `overcount_of_complete` is HYPOTHESIS-FREE. `animalCount` is
+   the real `|enumPolys|` cardinality (not free data), `count_le : animalCount n ≤
+   ((D+1)²)^n` proved. (Files: `PolymerModel`, `BddLatticeAnimal`, `DecodeComplete`,
+   `DecodeTourSound`, `SpanningTreeBuild`, `AdjSpanningBuild`.) The old
+   `ClusterCount.toyClusterCountBound` (`deg^{2n}` free data) is retired off the path.
+2. **KP convergence on the genuine count.** `kp_criterion_of_count` (proved,
+   parametric) applied to the genuine `zChainClusterCountBound` at strong coupling
+   `w=1/6`: threshold `kpRatio = 16·(1/108)·3 = 4/9 ≤ 1/2` by real computation ⇒
+   `genuineKP_sum_le_two : Σ kpTerm ≤ 2`. (`GenuineKP.lean`.)
+3. **Mayer clustering ⇒ a located gap from the REAL correlator.**
+   `clusterSpanSum_decay : ≤ 2·ρ^d` (consumes `connected_spanning_size_ge`, the
+   spanning-size ≥ d engine). `reconTransfer_located_gap : LocatedSpectralGap` of the
+   ACTUAL reconstructed single-edge transfer operator, `sep = ρ = 2·(1/6)³`, with
+   `hcluster` = the real `wilsonG_decay` (character double-sum, via
+   `wilsonG ≃ corr(reconTransfer)`) and `hdead` = real Casimir monotonicity
+   (`coeffW_excited_le_one`). (`MayerClustering.lean`.)
+4. **Positive infinite-volume mass on the real gap.** `realCorrUniformClusterBound`
+   (an inhabited `UniformClusterBound` whose `located Λ` IS `reconTransfer_located_gap`
+   — `rfl`) ⇒ `realCorr_continuum_mass_isPositive : realContinuumRate.IsPositive`
+   (margin `107/108` for all Λ), via the proved `clusterBound_continuum_mass_isPositive`.
+   (`RealCorrMass.lean`.)
+5. Side result: the capstone's clustering tie was DE-CIRCULARIZED — `genuineCorrLink`
+   replaces the `eqv_refl` `wilsonCorr` with the real `wilsonG` (domination
+   `wilsonG w 2 n ≤ (sep Λ)^n`, honest `w ≤ 1/4`). (`GenuineCorrLink.lean`.)
+
+So `ClusterGapReduction.UniformClusterBound` (the single ORACLE flagged above) is
+now inhabited TWO ways — `genuineUniformClusterBound` (real geometric Λ-tail,
+synthetic closed-form margins) and `realCorrUniformClusterBound` (real
+Wilson-correlator margins, trivial Λ-tail) — COMPLEMENTARY, neither yet the full
+physical object.
+
+**Still OPEN (the honest frontier — unchanged in kind):**
+- **Multi-plaquette Mayer/Ursell.** `MayerUrsellIdentity` (connected correlator =
+  spanning-cluster sum) is DISCHARGED for the single-line chain only; the
+  multi-plaquette / loopy generalization is the wall (believed TRUE; standard for
+  convergent polymer expansions; constructive proof open). This is also what a
+  `UniformClusterBound` with BOTH real margins AND real Λ-variation needs.
+- **Uniform-in-`w`** (results are at the single weight `w=1/6`).
+- **Continuum `a→0`** (dimensional transmutation + O(4) restoration + Prokhorov
+  tightness) — the R2 frontier, untouched by the fixed-spacing cluster expansion.
+- 4D Yang–Mills mass gap = the Clay target: **OPEN.**
