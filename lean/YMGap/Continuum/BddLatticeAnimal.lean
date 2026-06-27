@@ -386,11 +386,33 @@ polymer".) -/
 def sameSupport {L : Lattice} (X Y : Polymer L) : Prop :=
   (∀ a, a ∈ X → a ∈ Y) ∧ (∀ a, a ∈ Y → a ∈ X)
 
-/-- A polymer is a **connected size-`n` polymer through `p`**: it has size `n`,
-contains `p`, and is `connected`. -/
+/-- A **connected size-`n` lattice animal through `p`** — the canonical cluster
+predicate of the count chain.  It has size `n`, contains `p`, is a genuine set
+of plaquettes (`Nodup`), and is **internally** connected (`connectedIn`: chains
+every node of which lies in `X`).
+
+This is exactly the object the cluster expansion sums over.  Two refinements of
+the naive "size `n`, contains `p`, `connected`" predicate are mathematically
+necessary for the spanning-tree count and are folded in here:
+
+  * connectivity is INTERNAL (`connectedIn`, chains staying in `X`) rather than
+    over the whole lattice — otherwise the support need not host adjacent tree
+    edges and a spanning tree on it is genuinely unprovable;
+  * `X` is a genuine set (`Nodup`) — a multiset with a repeated plaquette is not
+    an animal of that cardinality (`(nodes t).length = n` would be unattainable).
+
+The internal name `IsClusterThroughIn` is provided as a definitional synonym for
+files that prefer the explicit "internal" spelling. -/
 def IsClusterThrough (BL : BddLattice) (p : BL.toLattice.Plaquette)
     (n : Nat) (X : Polymer BL.toLattice) : Prop :=
-  Polymer.size X = n ∧ p ∈ X ∧ Nonempty (Polymer.connected X)
+  Polymer.size X = n ∧ p ∈ X ∧ X.Nodup ∧ Nonempty (connectedIn X)
+
+/-- `IsClusterThroughIn` — the explicit "internal lattice-animal" spelling of
+the canonical cluster predicate.  Definitionally equal to `IsClusterThrough`
+(which is itself now the internal animal predicate). -/
+def IsClusterThroughIn (BL : BddLattice) (p : BL.toLattice.Plaquette)
+    (n : Nat) (X : Polymer BL.toLattice) : Prop :=
+  IsClusterThrough BL p n X
 
 /-- **The named depth-first SPANNING completeness obligation.**
 

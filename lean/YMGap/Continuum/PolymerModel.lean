@@ -221,6 +221,45 @@ def connected_singleton (p : L.Plaquette) : connected ([p] : Polymer L) :=
 
 end Polymer
 
+/-! ### Internal connectivity (the genuine lattice-animal notion)
+
+`ChainConn`/`connected` above permit a connecting chain to pass through
+plaquettes OUTSIDE `X` (the chain is over the whole lattice).  The cluster
+expansion physically sums over **lattice animals** — sets of plaquettes that
+are connected *internally*, i.e. by chains every node of which lies in `X`.
+We make that notion explicit here as `ChainIn` / `connectedIn`, the canonical
+connectivity for the count chain.
+
+`ChainIn X p q` is a chain `p ⤳ q` every intermediate node of which lies in
+`X` (the source `p`'s membership is the caller's responsibility; each `step`
+records the next node `r ∈ X`).  These live at the `PolymerModel` top level
+(not inside `namespace Polymer`) so downstream count-chain files can use them
+unqualified. -/
+
+/-- A chain `p ⤳ q` internal to `X`: every intermediate node lies in `X`.
+`refl`: the trivial chain.  `step adj hr rest`: an adjacency `p — r` with the
+next node `r ∈ X`, followed by an internal chain `r ⤳ q`. -/
+inductive ChainIn (L : Lattice) (X : Polymer L) :
+    L.Plaquette → L.Plaquette → Type
+  | refl (p : L.Plaquette) : ChainIn L X p p
+  | step {p r q : L.Plaquette}
+      (adj : L.Adjacent p r) (hr : r ∈ X) (rest : ChainIn L X r q) :
+      ChainIn L X p q
+
+/-- `X` is *internally connected* if every two of its plaquettes are joined by
+a chain internal to `X` (the lattice-animal connectivity notion). -/
+def connectedIn {L : Lattice} (X : Polymer L) : Type :=
+  ∀ p q : L.Plaquette, p ∈ X → q ∈ X → ChainIn L X p q
+
+/-- A singleton polymer is internally connected (only `refl` is needed). -/
+def connectedIn_singleton {L : Lattice} (p : L.Plaquette) :
+    connectedIn ([p] : Polymer L) :=
+  fun a b ha hb => by
+    have hae : a = p := List.mem_singleton.mp ha
+    have hbe : b = p := List.mem_singleton.mp hb
+    rw [hae, hbe]
+    exact ChainIn.refl _
+
 /-! ## 3. The Haar-orthogonality link constraint (THE key predicate)
 
 A rep-labeling assigns to each plaquette an SU(2) spin index
@@ -439,6 +478,8 @@ DEFINED in this L0b structure module:
   * `Polymer`, `size` (+ `size_nonneg`, `size_nil`, `size_cons`,
     `size_append`), `mem`;
   * `ChainConn` (+ `trans`), `connected` (+ `connected_singleton`);
+    `ChainIn` / `connectedIn` (+ `connectedIn_singleton`) — the *internal*
+    (lattice-animal) connectivity: chains every node of which lies in `X`;
   * `Rep`, `fusesToTrivial` (+ `fusesToTrivial_iff_eq`,
     `fusesToTrivial_decidable`), `linkConstraint`;
   * `plaqWeight`, `activity` (+ `activity_nil`, `activity_cons`,
@@ -469,6 +510,7 @@ and NOT a 4D Yang–Mills mass gap. -/
 #print axioms Polymer.size_cons
 #print axioms Polymer.ChainConn.trans
 #print axioms Polymer.connected_singleton
+#print axioms connectedIn_singleton
 #print axioms fusesToTrivial_iff_eq
 #print axioms fusesToTrivial_decidable
 #print axioms activity_nonneg

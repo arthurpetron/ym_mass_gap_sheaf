@@ -7,20 +7,24 @@ constructive BFS tree build
 This file attacks `SpanningTreeBuild.AdjSpanningTree` — the entire remaining
 combinatorial content of the cluster-count over-count guarantee — from below.
 
-## The honest connectivity caveat (load-bearing)
+## The honest connectivity notion (load-bearing) — now CANONICAL
 
-`PolymerModel.connected X` says: for every two plaquettes `p q ∈ X`, there is a
-`ChainConn` chain joining them.  Crucially `ChainConn` is a chain over the
-**whole lattice** — its intermediate plaquettes need NOT lie in `X`.  Under that
-(weak) notion `AdjSpanningTree` is genuinely FALSE: take `X = [p, v]` with `p`,
-`v` not link-adjacent but joined only through an external plaquette `r ∉ X`;
-then `connected X` holds, yet any tree on the 2-element support `{p, v}` needs a
-single edge `p — v` carrying `Adjacent p v`, which does not exist.
+The naive `PolymerModel.connected X` says: for every two plaquettes `p q ∈ X`,
+there is a `ChainConn` chain joining them.  Crucially `ChainConn` is a chain
+over the **whole lattice** — its intermediate plaquettes need NOT lie in `X`.
+Under that (weak) notion a spanning tree is genuinely FALSE: take `X = [p, v]`
+with `p`, `v` not link-adjacent but joined only through an external plaquette
+`r ∉ X`; then `connected X` holds, yet any tree on the 2-element support
+`{p, v}` needs a single edge `p — v` carrying `Adjacent p v`, which does not
+exist.
 
 The correct combinatorial notion for a *lattice animal* (and what the cluster
-expansion actually sums over) is **internal** connectivity: chains every node of
-which lies in `X`.  We make that explicit as `ChainIn` / `connectedIn` and prove
-the genuine spanning-tree existence for it, FULLY:
+expansion actually sums over) is **internal** connectivity: chains every node
+of which lies in `X`.  This is `ChainIn` / `connectedIn` (now living upstream in
+`PolymerModel`), and the canonical cluster predicate `IsClusterThrough` =
+`IsClusterThroughIn` (in `BddLatticeAnimal`) is built from it (internal
+connectivity + `Nodup` support).  We prove the genuine spanning-tree existence
+for it, FULLY:
 
   * `boundaryCrossing` — THE mathematical heart: an internal chain from an
     in-`visited` source to an out-of-`visited` target must cross the boundary,
@@ -34,21 +38,20 @@ the genuine spanning-tree existence for it, FULLY:
   * `adjSpanningTreeInternal` — the full `AdjSpanningTree` statement, but with
     the *internal* cluster predicate `IsClusterThroughIn`.  PROVED.
 
-The only gap between this and the verbatim `AdjSpanningTree` is precisely the
-ambient-vs-internal connectivity mismatch, isolated as ONE crisp named Prop
-`InternalConnRefines` (every ambient cluster is an internal cluster).  We prove
-`AdjSpanningTree` FROM it.  Honest belief: `InternalConnRefines` is FALSE for
-the current weak `PolymerModel.connected`; the genuine fix is to strengthen that
-upstream definition to internal connectivity (a cross-file change), after which
-`InternalConnRefines` is `id` and `AdjSpanningTree` is unconditionally closed by
-`adjSpanningTreeInternal`.
+Because the canonical cluster predicate `IsClusterThrough` IS the internal
+animal predicate (`IsClusterThroughIn`), the former "ambient-vs-internal"
+refinement obligation collapses to the identity (`internalConnRefines`), and
+`AdjSpanningTree` is closed UNCONDITIONALLY by `adjSpanningTreeInternal`
+(`adjSpanningTree_unconditional`).  This yields the unconditional terminal
+`clusterCountBound_animal`: the genuine cluster-count bound plus the over-count
+guarantee over real lattice animals, with NO named-open obligation.
 
 ## Constructive contract (`lean/AGENTS.md`)
 
 Mathlib-free; only core `List`/`Nat`/`Fin`.  No `Classical.*`, no `sorry` /
 `admit` / new `axiom`.  Membership tests use the `BddLattice.decEq` instance
 (constructive `Decidable`), never `Classical.dec`.  Witnesses are Type-level
-data; the new residual `InternalConnRefines` is a precisely-named `Prop`.
+data.
 -/
 
 namespace YMGap.Continuum.AdjSpanningBuild
@@ -68,39 +71,22 @@ def adjacentSymm {L : Lattice} {p q : L.Plaquette} (a : L.Adjacent p q) :
   on_p := a.on_q
   on_q := a.on_p
 
-/-! ## 1. Internal connectivity (`ChainIn` / `connectedIn`)
+/-! ## 1. Internal connectivity (`ChainIn` / `connectedIn`) and the animal
+predicate `IsClusterThroughIn`
 
-`ChainIn X p q` is a chain `p ⤳ q` every node of which lies in `X` (the source
-`p`'s membership is the caller's responsibility; each `step` records the next
-node `r ∈ X`).  This is the lattice-animal notion of connectivity. -/
+The internal connectivity notions `ChainIn` / `connectedIn` and the canonical
+lattice-animal predicate `IsClusterThroughIn` (= `IsClusterThrough`, which is
+now itself the internal animal predicate) live UPSTREAM (`PolymerModel` and
+`BddLatticeAnimal` respectively); they are opened above.  Recall:
 
-/-- A chain `p ⤳ q` internal to `X`: every intermediate node lies in `X`.
-`refl`: the trivial chain.  `step adj hr rest`: an adjacency `p — r` with the
-next node `r ∈ X`, followed by an internal chain `r ⤳ q`. -/
-inductive ChainIn (L : Lattice) (X : Polymer L) :
-    L.Plaquette → L.Plaquette → Type
-  | refl (p : L.Plaquette) : ChainIn L X p p
-  | step {p r q : L.Plaquette}
-      (adj : L.Adjacent p r) (hr : r ∈ X) (rest : ChainIn L X r q) :
-      ChainIn L X p q
+  * `ChainIn L X p q` — a chain `p ⤳ q` every node of which lies in `X`;
+  * `connectedIn X := ∀ p q ∈ X, ChainIn L X p q` — internal connectivity;
+  * `IsClusterThroughIn BL p n X := size X = n ∧ p ∈ X ∧ X.Nodup ∧
+    Nonempty (connectedIn X)` — the genuine lattice-animal predicate.
 
-/-- `X` is *internally connected* if every two of its plaquettes are joined by
-a chain internal to `X`. -/
-def connectedIn {L : Lattice} (X : Polymer L) : Type :=
-  ∀ p q : L.Plaquette, p ∈ X → q ∈ X → ChainIn L X p q
-
-/-- A **connected size-`n` lattice animal through `p`**: size `n`, contains `p`,
-is a genuine set of plaquettes (`Nodup`), and is internally connected.  This is
-the precise lattice-animal predicate the spanning-tree count needs.  It refines
-the ambient `IsClusterThrough` in two honest ways: (i) connectivity is INTERNAL
-(`connectedIn`, chains staying in `X`) rather than over the whole lattice, and
-(ii) `X` is a genuine set (`Nodup`) — a multiset with a repeated plaquette is
-not an animal of that cardinality.  Both refinements are mathematically
-necessary: without (i) the support need not host adjacent edges; without (ii)
-`(nodes t).length = n` is unattainable. -/
-def IsClusterThroughIn (BL : BddLattice) (p : BL.toLattice.Plaquette)
-    (n : Nat) (X : Polymer BL.toLattice) : Prop :=
-  Polymer.size X = n ∧ p ∈ X ∧ X.Nodup ∧ Nonempty (connectedIn X)
+Because `IsClusterThrough` is now DEFINED to be this animal predicate, the
+entire upstream count/completeness chain is stated over real lattice animals,
+and the spanning-tree construction below closes it unconditionally. -/
 
 /-! ## 2. THE boundary-crossing lemma (the mathematical heart)
 
@@ -809,50 +795,62 @@ theorem adjSpanningTreeInternal (BL : BddLattice) (p : BL.toLattice.Plaquette)
 
 #print axioms adjSpanningTreeInternal
 
-/-! ## 8. The single named residual and `AdjSpanningTree`
+/-! ## 8. `AdjSpanningTree` UNCONDITIONALLY (the residual is now `id`)
 
-The only gap between `adjSpanningTreeInternal` and the verbatim
-`SpanningTreeBuild.AdjSpanningTree` is the connectivity/Nodup mismatch between
-the ambient cluster predicate `IsClusterThrough` and the honest lattice-animal
-predicate `IsClusterThroughIn`.  We isolate it as ONE crisp named Prop and prove
-`AdjSpanningTree` FROM it. -/
+In the prior shape, the only gap between `adjSpanningTreeInternal` and the
+verbatim `SpanningTreeBuild.AdjSpanningTree` was a connectivity/`Nodup`
+mismatch between an *ambient* cluster predicate and the honest lattice-animal
+predicate, isolated as a named Prop `InternalConnRefines`.  That predicate is
+now **definitionally trivial**: `IsClusterThrough` is DEFINED to be the internal
+animal predicate `IsClusterThroughIn`, so the "refinement" is the identity and
+`AdjSpanningTree` follows directly from the fully-proved
+`adjSpanningTreeInternal` — with NO open obligation. -/
 
-/-- **The named residual: ambient clusters refine to internal animals.**  Every
-ambient connected size-`n` cluster through `p` is an internally connected
-size-`n` lattice animal (internal connectivity + `Nodup` support).
+/-- **The former named residual, now PROVED as the identity.**  Every cluster
+satisfying `IsClusterThrough` is an internal lattice animal `IsClusterThroughIn`
+— because the two predicates are now definitionally equal.  Retained as a
+proved lemma (no longer a hypothesis) to document that the gap is closed. -/
+theorem internalConnRefines (BL : BddLattice) (p : BL.toLattice.Plaquette)
+    (n : Nat) :
+    ∀ X : Polymer BL.toLattice, IsClusterThrough BL p n X →
+      IsClusterThroughIn BL p n X :=
+  fun _X hX => hX
 
-Honest belief: this is **FALSE** for the *current* weak `PolymerModel.connected`
-(which permits chains wandering outside `X`) and for non-`Nodup` polymer lists.
-The genuine resolution is upstream: redefine `PolymerModel.connected` as internal
-connectivity (`connectedIn`) and let the cluster enumeration range over `Nodup`
-supports — after which `InternalConnRefines` becomes essentially `id` and
-`adjSpanningTreeInternal` closes `AdjSpanningTree` unconditionally.  It is NOT a
-vacuous restatement: it is strictly weaker than `AdjSpanningTree` (it asks only
-that the cluster predicate be the animal predicate, with NO tree construction),
-and everything else around it — the boundary-crossing heart, the BFS build, the
-node count, the adjacency annotation — is fully proved. -/
-def InternalConnRefines (BL : BddLattice) (p : BL.toLattice.Plaquette)
-    (n : Nat) : Prop :=
-  ∀ X : Polymer BL.toLattice, IsClusterThrough BL p n X →
-    IsClusterThroughIn BL p n X
-
-/-- **`AdjSpanningTree` from the named residual (PROVED reduction).**  Given that
-ambient clusters refine to internal lattice animals, the fully-proved
-`adjSpanningTreeInternal` discharges `AdjSpanningTree`. -/
-theorem adjSpanningTree_of_refines (BL : BddLattice)
-    (p : BL.toLattice.Plaquette) (n : Nat)
-    (h : InternalConnRefines BL p n) :
+/-- **`AdjSpanningTree` UNCONDITIONALLY (PROVED).**  Since the cluster predicate
+is the internal animal predicate, the fully-proved `adjSpanningTreeInternal`
+discharges `SpanningTreeBuild.AdjSpanningTree` directly, with no hypothesis. -/
+theorem adjSpanningTree_unconditional (BL : BddLattice)
+    (p : BL.toLattice.Plaquette) (n : Nat) :
     SpanningTreeBuild.AdjSpanningTree BL p n := by
   intro X hX
-  exact adjSpanningTreeInternal BL p n X (h X hX)
+  exact adjSpanningTreeInternal BL p n X (internalConnRefines BL p n X hX)
 
-/-! ## 9. Non-vacuity of the residual + the internal builder
+/-- **The terminal unconditional cluster-count bound over real lattice animals
+(PROVED).**  The genuine cluster-count bound `ClusterCountBound` together with
+the over-count guarantee — every connected size-`n` lattice animal through `p`
+is represented (up to support) in the decoded enumeration `enumPolys` — with NO
+named-open obligation: the spanning-tree existence is supplied unconditionally
+by `adjSpanningTree_unconditional`, anchored on the fully-proved
+`adjSpanningTreeInternal`.
 
-`InternalConnRefines` is satisfiable on a genuine instance: the concrete cluster
-`X = [0, 1]` on `zChain` (internally connected, `Nodup`, size 2) is an internal
-animal, and `adjSpanningTreeInternal` builds a real adjacent-edge spanning tree
-for it.  (This rules out the "unsatisfiable named obligation" failure mode: the
-internal predicate it targets is genuinely inhabited.) -/
+This supersedes the former obligation-carrying `clusterCountBound_of_adj` /
+`clusterCountBound_of_exists` / `clusterCountBound_genuine`: the spanning-tree
+hypothesis they took is now discharged. -/
+def clusterCountBound_animal (BL : BddLattice) (p : BL.toLattice.Plaquette) :
+    (cc : YMGap.Continuum.KPCriterion.ClusterCountBound BL.toLattice p) ×'
+      (∀ n X, IsClusterThroughIn BL p n X →
+        ∃ Y, Y ∈ enumPolys BL p n ∧ sameSupport X Y) :=
+  SpanningTreeBuild.clusterCountBound_of_adj BL p
+    (fun n => adjSpanningTree_unconditional BL p n)
+
+/-! ## 9. Non-vacuity of the animal predicate + the internal builder
+
+The canonical animal predicate is inhabited on a genuine instance: the concrete
+cluster `X = [0, 1]` on `zChain` (internally connected, `Nodup`, size 2) is an
+internal animal, and `adjSpanningTreeInternal` builds a real adjacent-edge
+spanning tree for it.  This guarantees the unconditional terminal
+`clusterCountBound_animal` is NOT vacuously over an empty class of animals: the
+over-count guarantee has at least this real cluster to represent. -/
 
 /-- The integer-chain internal chain `0 ⤳ 1` (one adjacency step, `1 ∈ X`). -/
 def zChainChainIn01 :
@@ -920,7 +918,9 @@ theorem zChain_adjSpanning_witness :
       Nonempty (AdjacentEdges t) :=
   adjSpanningTreeInternal zChain (0 : Nat) 2 _ zChainIsClusterIn
 
-#print axioms adjSpanningTree_of_refines
+#print axioms adjSpanningTree_unconditional
+#print axioms clusterCountBound_animal
+#print axioms internalConnRefines
 #print axioms boundaryCrossing
 #print axioms insertUnder_mem
 #print axioms insertUnder_adj
