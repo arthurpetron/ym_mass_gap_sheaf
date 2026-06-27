@@ -329,6 +329,7 @@ import YMGap.Continuum.MayerTwoPlaquette
 import YMGap.Continuum.KPCriterion
 import YMGap.Continuum.ClusterCount
 import YMGap.Continuum.BddLatticeAnimal
+import YMGap.Continuum.DecodeComplete
 import YMGap.Continuum.PinnedCluster
 import YMGap.Continuum.AbstractPolymerXi
 import YMGap.Continuum.TreePartitionIdentity
