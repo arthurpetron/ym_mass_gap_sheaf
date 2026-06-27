@@ -333,6 +333,7 @@ import YMGap.Continuum.BddLatticeAnimal
 import YMGap.Continuum.DecodeComplete
 import YMGap.Continuum.DecodeTourSound
 import YMGap.Continuum.SpanningTreeBuild
+import YMGap.Continuum.AdjSpanningBuild
 import YMGap.Continuum.PinnedCluster
 import YMGap.Continuum.AbstractPolymerXi
 import YMGap.Continuum.TreePartitionIdentity
