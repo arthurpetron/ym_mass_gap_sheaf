@@ -357,6 +357,7 @@ import YMGap.Continuum.UniformCouplingGap
 import YMGap.Continuum.TwoSidedGap
 import YMGap.Continuum.CharacterWindowCeiling
 import YMGap.Continuum.WeakRegionNoGo
+import YMGap.Continuum.CodynamicGap
 import YMGap.Rubric.ClayScorecard
 -- NOTE: `YMGap.PolyAtlas` and `YMGap.ModuliAlgebra` are non-load-bearing
 -- expository/design-closure scaffolding (their own headers state "NOT
