@@ -656,3 +656,14 @@ existential, UNINHABITED).
 All three are uninhabited; each is genuine research-open mathematics (Balaban-level RG control,
 exponentially-small dimensionally-transmuted gap). The fixed-spacing strong-coupling story is proved
 up to these doors; the doors are the continuum/4D problem. **Clay target: OPEN.**
+
+### The two-sided radius-overlap program (formalized 2026-06-28)
+`TwoSidedGap.lean` makes "the middle from both sides" precise. `CouplingWindow` = a clustering rate
+`ρ<1` with geometric decay for all `w` in an interval. `strongWindow : [0, 1/6]` is PROVED (gap field
+discharged from `uniform_rho_le_endpoint` + `uniform_cluster_decay`). `WeakWindow : [w_w, 1]` and
+`WindowOverlap (w_w ≤ 1/6)` are UNINHABITED. `twoSided_covers` (interval case-split) + 
+`twoSided_gap_all_couplings` PROVE: given the overlap, every coupling `w ∈ [0,1]` gets a clustering/gap
+bound — the strong branch fully proved, the weak branch consuming only `WeakWindow` + `WindowOverlap`.
+So the all-coupling (hence continuum, at the weak end) gap is reduced to the weak control reaching
+DOWN to `w_w ≤ 1/6` to meet the proved strong window — the intermediate "middle." No such weak window
+is known: that gap is `RGClusteringTransport` / `WeakClusteringBound`, the continuum wall.
