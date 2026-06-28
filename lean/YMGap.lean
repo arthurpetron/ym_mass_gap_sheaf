@@ -352,6 +352,7 @@ import YMGap.Continuum.RealCorrMass
 import YMGap.Continuum.MultiPlaquetteMayer
 import YMGap.Continuum.CycleMayer
 import YMGap.Continuum.RGLandingCertificate
+import YMGap.Continuum.WeakCouplingGap
 import YMGap.Continuum.UniformCouplingGap
 import YMGap.Rubric.ClayScorecard
 -- NOTE: `YMGap.PolyAtlas` and `YMGap.ModuliAlgebra` are non-load-bearing
