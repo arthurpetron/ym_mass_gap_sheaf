@@ -680,3 +680,15 @@ every `WilsonWindow` has `hi < 2^{−1/3} < 1` (`characterWindow_hi_lt_ceiling`)
 provably CANNOT close via the character mechanism — the strong radius is bounded at `2^{−1/3}`.** The
 region `[2^{−1/3}, 1]` (weak/continuum, incl. the middle) has no character clustering; a window there is
 the open continuum problem (`WeakClusteringBound`/`RGClusteringTransport`, uninhabited). Clay OPEN.
+
+### Weak-region boundary no-go (2026-06-28)
+`WeakRegionNoGo.lean` rigorously maps the open weak/continuum interval `[2^{−1/3}, 1]` (exactly
+`1/2 ≤ w³ ∧ w ≤ 1`). PROVED: the character rate `rho w = 2w³` is `≥ 1` throughout (monotone 1→2,
+real proof), so it never decays and no character `WilsonWindow` reaches the interval
+(`character_window_excludes_weak`); and the approximate fusion-RG margin is nonpositive at the
+in-interval witness `w=4/5` (`FusionMarginScope`). `weak_region_dichotomy` packages BOTH exclusions ⇒
+the weak gap is necessarily NON-PERTURBATIVE. `NonPerturbativeWeakGap` records the precise missing
+input (a clustering rate `μ < 1 ≤ rho w`), UNINHABITED. **The wall is now a theorem: the convergent
+machinery provably cannot reach the weak region.** Closing it = constructing the gauge-invariant
+spatial transfer operator's weak-coupling gap / Balaban-level RG control = the open continuum problem.
+Clay OPEN.
