@@ -667,3 +667,16 @@ bound — the strong branch fully proved, the weak branch consuming only `WeakWi
 So the all-coupling (hence continuum, at the weak end) gap is reduced to the weak control reaching
 DOWN to `w_w ≤ 1/6` to meet the proved strong window — the intermediate "middle." No such weak window
 is known: that gap is `RGClusteringTransport` / `WeakClusteringBound`, the continuum wall.
+
+### Pushing the windows together + the character ceiling (2026-06-28)
+`CharacterWindowCeiling.lean`. The strong/character clustering window is genuinely PUSHED up from
+`w ≤ 1/6` to `w ≤ 7/9 ≈ 0.778` (`rho_lt_one_ext`, `coeffW_excited_le_rho_ext` by genuine induction,
+`wilsonG_decay_ext`; `strongWilsonWindowExt : WilsonWindow` at `hi = 7/9`). Honest mechanism note: the
+KP `CouplingWindow` (TwoSidedGap) caps at `~0.17` (count overhead `K=16,e=3`); the sharper single-line
+`wilsonG` decay is the mechanism whose ceiling is `2^{−1/3}`, so the push uses a parallel `WilsonWindow`
+(no KP window faked). CEILING PROVED: for `w³ ≥ 1/2` (`w ≥ 2^{−1/3} ≈ 0.7937`) the rate `rho w = 2w³ ≥ 1`
+(`character_rate_ge_one_at_ceiling`, witness `rho(4/5) ≥ 1`), so the clustering bound does not decay;
+every `WilsonWindow` has `hi < 2^{−1/3} < 1` (`characterWindow_hi_lt_ceiling`). **The two-sided overlap
+provably CANNOT close via the character mechanism — the strong radius is bounded at `2^{−1/3}`.** The
+region `[2^{−1/3}, 1]` (weak/continuum, incl. the middle) has no character clustering; a window there is
+the open continuum problem (`WeakClusteringBound`/`RGClusteringTransport`, uninhabited). Clay OPEN.
