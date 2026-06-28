@@ -358,6 +358,7 @@ import YMGap.Continuum.TwoSidedGap
 import YMGap.Continuum.CharacterWindowCeiling
 import YMGap.Continuum.WeakRegionNoGo
 import YMGap.Continuum.CodynamicGap
+import YMGap.Continuum.CodynamicBondMoving
 import YMGap.Continuum.CodynamicHierarchical
 import YMGap.Rubric.ClayScorecard
 -- NOTE: `YMGap.PolyAtlas` and `YMGap.ModuliAlgebra` are non-load-bearing
