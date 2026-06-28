@@ -29,6 +29,7 @@ import YMGap.Constructive.CRealMul
 import YMGap.Constructive.FinSumAlg
 import YMGap.Constructive.ExpNeg
 import YMGap.Constructive.ExpPos
+import YMGap.Constructive.CRealLog
 import YMGap.Constructive.CRealAdd
 import YMGap.Constructive.CRealMulMono
 import YMGap.Constructive.SumOfSquares
