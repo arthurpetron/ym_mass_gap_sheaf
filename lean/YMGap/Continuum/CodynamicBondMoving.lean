@@ -35,21 +35,24 @@ flow budget).  Two ingredients make this a genuine reduction:
 
 This module EXTENDS the codynamic gap from the dominant mode to the FULL spin
 tower.  The full-mode per-scale defect is the `s`-tower sum
-`∑_s modeDefect(w_k, s)`.  The high modes carry the `w^{C₄(s)}` suppression
-(`C₄(s) = s(s+2)`), so this `s`-sum converges per scale — but that suppression is
-NOT carried by `quadEnvelope` (whose Casimir factor `dimQ s·C₄(s)²` GROWS with
-`s`).  Hence the per-scale `s`-tower convergence is isolated as the NAMED sub-fact
-`FullModeTowerSummable` (an honest `∀`-statement, belief TRUE via the `w^{C₄(s)}`
-suppression), and the rest — that the full flow budget is then summable and the
-codynamic gap survives it — is PROVED from it via FullModeQuadratic's quadratic
-envelope and the dominant-mode summability.
+`∑_s modeDefect(w_k, s)`.  ⚠️ An earlier draft asserted this `s`-sum converges via
+a `w^{C₄(s)}` high-mode suppression and isolated it as `FullModeTowerSummable`
+(belief TRUE).  That belief is now downgraded to **FALSE as stated** (see the §1
+correction): the `w^{C₄(s)}` factor only saturates `1 − w^{C₄(s)}` at `1`; the
+MARGINAL `C₄(s)·(1−w)` part of `modeDefect` is unsuppressed (unrenormalized for
+`s ≠ 1`), so `∑_s modeDefect` DIVERGES (`∑ s³`).  Only the DOMINANT mode genuinely
+closes (`CodynamicGap`); the full-mode budget needs a per-mode renormalization
+(see §1).  The conditional reductions below stay valid (conditional), but
+`FullModeTowerSummable` is FALSE under the `s = 1` scheme.
 
 # What this module delivers
 
   * `FullModeTowerSummable` — the named per-scale `s`-tower convergence: a
     tower constant `T` with `(per-scale full-mode defect) ≤ T · (dominant
     renDefect)` at every scale, plus the budget-fit `T · tailBudget < 3/4`.  A
-    genuine `∀`-statement (NOT `Prop := True`); honest belief TRUE.
+    genuine `∀`-statement (NOT `Prop := True`); belief **FALSE as stated** under the
+    `s = 1` scheme (§1: the marginal tower diverges) — a placeholder for the
+    per-mode-renormalized version, and a FREE-field record (gameable; do not inhabit).
   * `fullModeBondBudget (F)` — the FULL-MODE renormalized bond-moving budget as a
     `CodynCat.BudgetObj`: degradation = the full-mode per-scale defect, budget =
     `T · tailBudget` (proved summable from `F` + `renDefect_summable`), initial
@@ -72,10 +75,11 @@ envelope and the dominant-mode summability.
 
 This does NOT close the ℝ⁴ bond-moving wall.  It UPLIFTS it:
 
-  * The codynamic gap is PROVED to survive the RENORMALIZED full-mode budget,
-    GIVEN the per-scale tower fact `FullModeTowerSummable` (honest, believed TRUE
-    via `w^{C₄(s)}` suppression, NOT inhabited concretely here — it is the s-sum
-    convergence that `quadEnvelope` alone does not deliver).
+  * The codynamic gap is PROVED to survive the RENORMALIZED full-mode budget
+    GIVEN the per-scale tower fact `FullModeTowerSummable` — but that fact is FALSE
+    as stated under the `s = 1` renormalization (§1: the marginal `C₄(s)·(1−w)`
+    tower diverges; only the dominant mode closes via `CodynamicGap`).  The
+    conditional reduction is valid; the hypothesis needs the per-mode scheme (§1).
   * The RAW ℝ⁴ δ needs `RenormalizationCapturesRawError` (the MK-vs-exact /
     renormalization-captures-raw-error question, now in FLOW-BUDGET form), left
     UNINHABITED.  Better-positioned than "δ = 0 per step" (which is impossible on
@@ -141,28 +145,36 @@ theorem tailW_le_one (k : Nat) : tailW k ≤ (1 : Q') :=
 
 /-! ## 1. `FullModeTowerSummable` — the named per-scale `s`-tower convergence
 
-The per-scale full-mode defect is the `s`-tower sum `∑_s modeDefect(w_k, s)`.
-FullModeQuadratic bounds each term by `quadEnvelope`, but the Casimir factor
-`dimQ s·C₄(s)²` of `quadEnvelope` GROWS with `s` — the `s`-sum convergence comes
-from the SEPARATE `w^{C₄(s)}` high-mode suppression hidden inside `modeDefect`
-itself (`modeDefect` contains `1 − w^{C₄(s)}` whose `s`-tower converges for
-`w < 1`).  We name that convergence here.
+The per-scale full-mode defect is intended to be the `s`-tower sum
+`∑_s modeDefect(w_k, s)`.
 
-`FullModeTowerSummable` carries:
-  * `towerConst T` — the per-scale tower constant;
-  * `towerDefect` — the per-scale full-mode defect sequence (Type-level data);
-  * `tower_dominates` — the genuine `∀`-statement that the per-scale full-mode
-    defect is bounded by `T` times the dominant-mode `renDefect` at every scale
-    (this is where the `w^{C₄(s)}` `s`-suppression is used);
-  * `towerDefect_nonneg` — each per-scale defect is nonnegative;
-  * `tower_budget_fits` — the tower budget fits strictly under the `3/4` floor:
-    `T · tailBudget < 3/4`.
+⚠️ HONEST CORRECTION (belief downgraded to **FALSE as stated**, 2026-06-28).  An
+earlier draft claimed this tower converges via a `w^{C₄(s)}` high-mode
+suppression and bounded it by `T · renDefect` (the dominant `s = 1` mode).  That
+is WRONG.  `modeDefect(w, s) = dimQ s · ( C₄(s)·(1−w) − (1 − w^{C₄(s)}) )`.  The
+`w^{C₄(s)}` factor only makes `1 − w^{C₄(s)}` SATURATE at `1` for high modes; it
+does NOT suppress the MARGINAL linear part `C₄(s)·(1−w)`, which is unrenormalized
+for `s ≠ 1` (the retuning is `s = 1`-specific).  So for high modes
+`modeDefect(w, s) ∼ dimQ s · C₄(s) · (1−w)`, and `∑_s modeDefect(w_k, s)` DIVERGES
+(`∑_s dimQ s · C₄(s) ∼ ∑ s³`).  Hence `FullModeTowerSummable` is FALSE for its
+intended `towerDefect = ∑_s modeDefect`: the per-scale full-mode defect under the
+`s = 1` renormalization is not even finite.  (The structure's `towerDefect` is
+also a FREE field, so the record is additionally gameable — do NOT inhabit it
+trivially.)
 
-This is a genuine record of `∀`/`<` statements, NOT `Prop := True`.  Honest
-belief: TRUE — the dominant mode carries the bulk and the high-mode tower is
-geometrically suppressed by `w^{C₄(s)}`, so a finite scale-uniform `T` exists with
-`T · tailBudget` still below `3/4` (the dominant budget is already `72/145 < 3/4`,
-leaving room for a bounded tower inflation). -/
+CONSEQUENCE: the codynamic bond-moving budget genuinely closes only for the
+DOMINANT mode (`CodynamicGap`, `s = 1`, which IS renormalized → quadratic →
+summable).  The FULL-mode extension does NOT close with the `s = 1` scheme.  The
+genuine full-mode budget needs a PER-MODE renormalization (absorb the marginal
+`C₄(s)·(1−w)` for EVERY `s`, giving a per-mode quadratic `∼ C₄(s)²(1−w)²`) AND the
+`w^{C₄(s)}` factor RETAINED on the renormalized residual so that
+`∑_s C₄(s)²(1−w)²·w^{C₄(s)}` converges — a different, more involved scheme, OPEN.
+
+The fields below (`tower_dominates`, etc.) remain as a precise NAMED record of
+what a corrected per-mode scheme would have to supply; the conditional reductions
+that consume `FullModeTowerSummable` stay valid (conditional), but the hypothesis
+is FALSE under the current `s = 1` renormalization and must be replaced by the
+per-mode scheme. -/
 structure FullModeTowerSummable : Type where
   /-- The per-scale tower constant `T` (scale-uniform). -/
   towerConst : Q'
@@ -178,9 +190,10 @@ structure FullModeTowerSummable : Type where
 
       towerDefect k  ≤  T · renDefect afr pMult (k0 + k).
 
-  This is the per-scale `s`-sum convergence — the high-mode `w^{C₄(s)}`
-  suppression collapses the tower onto a bounded multiple of the dominant mode.
-  NOT inhabited concretely; honest belief TRUE. -/
+  This was claimed to follow from a high-mode `w^{C₄(s)}` suppression, but that is
+  FALSE (see the §1 correction): the marginal `C₄(s)·(1−w)` part is unsuppressed,
+  so `∑_s modeDefect` DIVERGES under the `s = 1` scheme.  NOT inhabited; belief
+  FALSE as stated — requires the per-mode renormalization described in §1. -/
   tower_dominates : ∀ k, towerDefect k ≤ towerConst * renDefect afr pMult (k0 + k)
   /-- **The tower budget fits under the floor.**  `T · tailBudget < 3/4`
   (`su2CasimirGap`).  Genuine: the dominant budget `tailBudget = 72/145` is
