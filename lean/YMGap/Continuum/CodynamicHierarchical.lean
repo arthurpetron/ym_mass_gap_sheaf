@@ -240,6 +240,17 @@ theorem physMultiplier_le_one (bb : Nat → Nat) (sep : Nat → Q')
     physMultiplier bb sep k ≤ (1 : Q') :=
   rhoDecimate_le_one (bb k) (hsep0 k) (hsep1 k)
 
+/-- The accumulated decimation product is strictly positive for sub-unit
+separators (each factor is positive; the empty product is `1`). -/
+theorem physMultiplierProduct_pos (bb : Nat → Nat) (sep : Nat → Q')
+    (hsep0 : ∀ k, (0 : Q') ≤ sep k) :
+    ∀ N, (0 : Q') < physMultiplierProduct bb sep N
+  | 0 => by show (0 : Q') < (1 : Q'); decide
+  | N + 1 => by
+      show (0 : Q') < physMultiplierProduct bb sep N * physMultiplier bb sep N
+      exact Q'.mul_pos (physMultiplierProduct_pos bb sep hsep0 N)
+        (physMultiplier_pos bb sep hsep0 N)
+
 /-- **D2 — `DimensionalTransmutation` (NAMED OPEN content, UNINHABITED).**
 
 The genuine asymptotic-freedom rate-matching that turns the dimensionless gap
@@ -274,6 +285,22 @@ structure DimensionalTransmutation : Type where
   aScaling : Nat → Q'
   /-- The spacing is positive. -/
   aScaling_pos : ∀ k, (0 : Q') < aScaling k
+  /-- **HARDENING (spacing is NOT free).**  The lattice spacing rescales by the
+  block factor `bb k + 1` at each RG step: `aScaling (k+1)·(bb k + 1) = aScaling k`.
+  This is the physical RG rescaling — one block step of factor `bb k + 1` coarsens
+  the spacing by that factor, so a single fine spacing fixes the entire spacing
+  sequence from the block factors.  Without this, `aScaling` could be tuned freely
+  against the margin (gaming the `rate_matched` inequality). -/
+  aScaling_step : ∀ k, (aScaling (k + 1) * Q'.ofNat (bb k + 1)).eqv (aScaling k)
+  /-- **HARDENING (the trajectory genuinely approaches the UV).**  The separators
+  increase monotonically toward `1`. -/
+  sep_mono : ∀ k, sep k ≤ sep (k + 1)
+  /-- **HARDENING (genuine continuum approach `sep → 1`).**  The dimensionless
+  margin `1 − sep k` is driven below every positive `ε`: the trajectory genuinely
+  approaches the continuum / UV separator `sep → 1`.  A CONSTANT separator
+  `sep k = s < 1` FAILS this (see `constSep_violates_sep_to_one`), which is what
+  excludes the trivial constant-`sep` pseudo-trajectory. -/
+  sep_to_one : ∀ ε : Q', (0 : Q') < ε → ∃ K : Nat, ∀ k : Nat, K ≤ k → (1 : Q') - sep k ≤ ε
   /-- The claimed continuum physical-gap floor. -/
   physFloor : Q'
   /-- The floor is strictly positive. -/
@@ -285,6 +312,213 @@ structure DimensionalTransmutation : Type where
   rate_matched : ∀ N : Nat,
     physFloor * aScaling N
       ≤ ((1 : Q') - sep N) * physMultiplierProduct bb sep N
+
+/-- **Non-vacuity (real content of `rate_matched`).**  Any inhabitant has a
+STRICTLY POSITIVE margin-product `0 < (1 − sep N)·∏ρ_dec` at every scale: the
+`rate_matched` field forces it (`0 < physFloor·aScaling N ≤ (1 − sep N)·∏`).  In
+particular the collapse `sep N = 1` (margin `0`) is EXCLUDED, so the structure is
+NOT vacuously inhabitable by a degenerate flow — it carries genuine content. -/
+theorem DimensionalTransmutation.marginProduct_pos (T : DimensionalTransmutation)
+    (N : Nat) :
+    (0 : Q') < ((1 : Q') - T.sep N) * physMultiplierProduct T.bb T.sep N :=
+  Q'.pos_of_lt_of_le (Q'.mul_pos T.physFloor_pos (T.aScaling_pos N)) (T.rate_matched N)
+
+/-! ### Anti-vacuity: the trivial constant-`sep` pseudo-trajectory is EXCLUDED
+
+Before the hardening, `DimensionalTransmutation` was GAMEABLE: with `sep k := s`
+(constant, `s < 1`), `bb k := 1`, `aScaling N := (ρ_dec 1 s)^N`, `physFloor := 1 − s`
+the `rate_matched` inequality held with EQUALITY — a fake constant-`sep`
+"trajectory" that is NOT a continuum approach.  The new field `sep_to_one` kills
+it: a constant `sep ≡ s` has constant margin `1 − s > 0`, which cannot be driven
+below `ε = half·(1 − s) < 1 − s`.  We prove this exclusion below. -/
+
+/-- `0 < b → a < a + b` on `Q'` (strict, proved at the `Int` cross-product level;
+mirrors `AFRateCalibration.lt_add_of_pos_right` to avoid an extra import). -/
+theorem q_lt_add_of_pos_right (a b : Q') (hb : (0 : Q') < b) : a < a + b := by
+  show a.num * ((a + b).den : Int) < (a + b).num * (a.den : Int)
+  -- (a+b).num = a.num·b.den + b.num·a.den ; (a+b).den = a.den·b.den.
+  have hbnum : (0 : Int) < b.num := Q'.num_pos_of_pos hb
+  show a.num * ((a.den * b.den : Nat) : Int)
+      < (a.num * (b.den : Int) + b.num * (a.den : Int)) * (a.den : Int)
+  have hcast : ((a.den * b.den : Nat) : Int) = (a.den : Int) * (b.den : Int) := by
+    push_cast; rfl
+  rw [hcast]
+  have hadenpos : (0 : Int) < (a.den : Int) := by exact_mod_cast a.den_pos
+  have hexpand : (a.num * (b.den : Int) + b.num * (a.den : Int)) * (a.den : Int)
+      = a.num * ((a.den : Int) * (b.den : Int))
+        + b.num * (a.den : Int) * (a.den : Int) := by
+    rw [Int.add_mul]
+    have e1 : a.num * (b.den : Int) * (a.den : Int)
+        = a.num * ((a.den : Int) * (b.den : Int)) := by
+      rw [Int.mul_assoc, Int.mul_comm (b.den : Int) (a.den : Int)]
+    rw [e1]
+  rw [hexpand]
+  have key : (0 : Int) < b.num * (a.den : Int) * (a.den : Int) :=
+    Int.mul_pos (Int.mul_pos hbnum hadenpos) hadenpos
+  omega
+
+/-- `half·y < y` for `0 < y` (the half is a strict contraction of a positive
+value): `half·y < half·y + half·y ≃ y`. -/
+theorem q_half_mul_lt_self {y : Q'} (hy : (0 : Q') < y) :
+    HalfPow.half * y < y := by
+  have hhy : (0 : Q') < HalfPow.half * y := YMGap.Constructive.ExpNeg.half_mul_pos y hy
+  have hstrict : HalfPow.half * y < HalfPow.half * y + HalfPow.half * y :=
+    q_lt_add_of_pos_right (HalfPow.half * y) (HalfPow.half * y) hhy
+  exact HeatKernelRGStep.lt_of_lt_of_le hstrict
+    (Q'.le_of_eqv (YMGap.Constructive.ExpNeg.two_halves y))
+
+/-- **Anti-vacuity lemma — a constant separator `sep ≡ s` with `s < 1` VIOLATES
+`sep_to_one`.**  If `sep k = s` for all `k` and `s < 1`, then the predicate
+`∀ ε > 0, ∃ K, ∀ k ≥ K, 1 − sep k ≤ ε` is FALSE: the constant margin `1 − s > 0`
+cannot be pushed below `ε = half·(1 − s) < 1 − s`.  Hence the trivial constant-
+`sep` pseudo-trajectory does NOT inhabit the hardened `DimensionalTransmutation`. -/
+theorem constSep_violates_sep_to_one (s : Q') (hs : s < (1 : Q'))
+    (sep : Nat → Q') (hconst : ∀ k, sep k = s) :
+    ¬ (∀ ε : Q', (0 : Q') < ε → ∃ K : Nat, ∀ k : Nat, K ≤ k → (1 : Q') - sep k ≤ ε) := by
+  intro hsto
+  -- margin m := 1 − s > 0
+  have hm : (0 : Q') < (1 : Q') - s := sub_pos_of_lt_one hs
+  -- ε := half·m, which is 0 < ε < m
+  have hεpos : (0 : Q') < HalfPow.half * ((1 : Q') - s) :=
+    YMGap.Constructive.ExpNeg.half_mul_pos ((1 : Q') - s) hm
+  have hεlt : HalfPow.half * ((1 : Q') - s) < (1 : Q') - s := q_half_mul_lt_self hm
+  obtain ⟨K, hK⟩ := hsto (HalfPow.half * ((1 : Q') - s)) hεpos
+  -- at k = K: 1 − sep K = 1 − s ≤ half·(1 − s) < 1 − s, contradiction
+  have hle : (1 : Q') - sep K ≤ HalfPow.half * ((1 : Q') - s) := hK K (Nat.le_refl K)
+  rw [hconst K] at hle
+  -- hεlt : half·m < m ; hle : m ≤ half·m  ⟹  half·m < half·m, contradiction
+  have hcontra : HalfPow.half * ((1 : Q') - s) < HalfPow.half * ((1 : Q') - s) :=
+    HeatKernelRGStep.lt_of_lt_of_le hεlt hle
+  have hInt : (HalfPow.half * ((1 : Q') - s)).num
+        * ((HalfPow.half * ((1 : Q') - s)).den : Int)
+      < (HalfPow.half * ((1 : Q') - s)).num
+        * ((HalfPow.half * ((1 : Q') - s)).den : Int) := hcontra
+  exact (Int.lt_irrefl _) hInt
+
+/-! ## 2b. JOB 2 — the GENUINE hierarchical dimensional-transmutation flow (REDUCED)
+
+On the hierarchical / diamond lattice with constant block factor `b` the continuum
+limit is fine-graining: the spacing flows `aScaling k = a₀ / b^k → 0` and the
+separator flows by `b`-th roots `sep_k = sep₀^{1/b^k} → 1`, giving the EXPLICIT
+physical gap
+
+    m_k = (1 − sep_k)/aScaling_k = (1 − sep₀^{1/b^k})·b^k/a₀  →  |ln sep₀|/a₀ > 0,
+
+via the elementary exp-limit `b^k·(1 − exp(ln sep₀ / b^k)) → −ln sep₀`.
+
+**The crux (honest).**  `DimensionalTransmutation.sep : Nat → Q'` is RATIONAL-valued,
+but the genuine `b`-th-root flow `sep₀^{1/b^k}` is IRRATIONAL.  Constructing it
+needs a constructive `b`-th root / `CReal.log`–`exp`; this repository has `CReal`
+`exp`/`expNeg` (`Constructive/ExpNeg.lean`, `ExpPos.lean`) but **no `CReal.log`**
+and no `Q'`-valued `b`-th root.  So the b-th-root flow and the exp-limit cannot be
+discharged here.  We therefore REDUCE: we package a continuum flow datum
+`HierarchicalTransmutationData` whose GENUINELY-DERIVABLE parts (constant block
+factor, the geometric spacing with its `aScaling_step`, positivity) are PROVED in
+the inhabitant construction, and whose IRREDUCIBLE ANALYTIC CORE — the rational
+separator flow approaching `1` (`sep_to_one`) AND the rate match against the
+spacing (`rate_matched`) — is named as the two hypothesis fields.  This is exactly
+the asymptotic-freedom content and is left as the NAMED open core. -/
+
+/-- **The explicit geometric spacing** `aGeom a₀ b k = a₀ / (b+1)^k` (the hierarchical
+fine-graining: one block step of factor `b+1` coarsens the spacing by `b+1`).
+Defined recursively so the per-step rescaling `aScaling_step` is an exact `Q'`
+`eqv` cancellation. -/
+def aGeom (a0 : Q') (b : Nat) : Nat → Q'
+  | 0 => a0
+  | k + 1 => Q'.divPos (aGeom a0 b k) (Q'.ofNat (b + 1)) (Q'.ofNat_succ_pos b)
+
+/-- The geometric spacing is positive at every scale (positive base, divided by
+positive `b+1`). -/
+theorem aGeom_pos {a0 : Q'} (ha0 : (0 : Q') < a0) (b : Nat) :
+    ∀ k, (0 : Q') < aGeom a0 b k
+  | 0 => ha0
+  | k + 1 =>
+      Q'.divPos_pos (aGeom a0 b k) (Q'.ofNat (b + 1)) (Q'.ofNat_succ_pos b)
+        (aGeom_pos ha0 b k)
+
+/-- **`aScaling_step` for the geometric spacing (GENUINELY PROVED).**  One block
+step of factor `b+1` rescales the spacing exactly: `aGeom(k+1)·(b+1) ≃ aGeom k`.
+This is the exact `divPos` cancellation — the spacing is the physical RG rescaling,
+NOT a free parameter. -/
+theorem aGeom_step (a0 : Q') (b : Nat) (k : Nat) :
+    (aGeom a0 b (k + 1) * Q'.ofNat (b + 1)).eqv (aGeom a0 b k) := by
+  show (Q'.divPos (aGeom a0 b k) (Q'.ofNat (b + 1)) (Q'.ofNat_succ_pos b)
+        * Q'.ofNat (b + 1)).eqv (aGeom a0 b k)
+  exact Q'.divPos_mul_eqv (aGeom a0 b k) (Q'.ofNat (b + 1)) (Q'.ofNat_succ_pos b)
+
+/-- **The hierarchical transmutation flow datum (the REDUCTION carrier).**
+
+Carries the GENUINE continuum flow on the hierarchical lattice with constant block
+factor `b+1` (so `bb k = b`) and the explicit geometric spacing `aGeom a0 (b)`.
+The GENUINELY-DERIVABLE parts (block factor, spacing, `aScaling_step`, positivity)
+are handled by `hierarchicalTransmutation`; this datum supplies ONLY the
+IRREDUCIBLE ANALYTIC CORE as its fields:
+
+  * `sepFlow` — the rational separator flow (the constructive surrogate of
+    `sep₀^{1/(b+1)^k}`), sub-unit and monotone increasing;
+  * `sepFlow_to_one` — **OPEN ANALYTIC CORE (i):** the flow genuinely approaches
+    the continuum separator (`sep → 1`).  A constant flow FAILS this
+    (`constSep_violates_sep_to_one`);
+  * `physFloor` `> 0` and `rate_matched_flow` — **OPEN ANALYTIC CORE (ii):** the
+    margin `1 − sepFlow k`, rescaled by `∏ρ_dec`, dominates `physFloor·aGeom k`
+    at every scale (the asymptotic-freedom rate match against the b-th-root
+    spacing).
+
+These two fields are precisely the exp-limit content `b^k(1 − sep₀^{1/b^k}) →
+−ln sep₀ > 0`, which is TRUE but not constructively discharged here (no
+`CReal.log` / `b`-th root). -/
+structure HierarchicalTransmutationData (a0 : Q') (b : Nat) : Type where
+  /-- The (rational) separator flow — surrogate of `sep₀^{1/(b+1)^k}`. -/
+  sepFlow : Nat → Q'
+  /-- Nonnegative. -/
+  sepFlow_nonneg : ∀ k, (0 : Q') ≤ sepFlow k
+  /-- Sub-unit. -/
+  sepFlow_le_one : ∀ k, sepFlow k ≤ (1 : Q')
+  /-- Monotone increasing toward the UV. -/
+  sepFlow_mono : ∀ k, sepFlow k ≤ sepFlow (k + 1)
+  /-- **OPEN ANALYTIC CORE (i)** — the flow approaches the continuum `sep → 1`. -/
+  sepFlow_to_one : ∀ ε : Q', (0 : Q') < ε →
+    ∃ K : Nat, ∀ k : Nat, K ≤ k → (1 : Q') - sepFlow k ≤ ε
+  /-- The claimed continuum physical-gap floor. -/
+  physFloor : Q'
+  /-- Strictly positive. -/
+  physFloor_pos : (0 : Q') < physFloor
+  /-- **OPEN ANALYTIC CORE (ii)** — the AF rate match: the margin, rescaled by the
+  decimation product, dominates `physFloor·(geometric spacing)` at every scale. -/
+  rate_matched_flow : ∀ N : Nat,
+    physFloor * aGeom a0 b N
+      ≤ ((1 : Q') - sepFlow N)
+          * physMultiplierProduct (fun _ => b) sepFlow N
+
+/-- **JOB 2 (REDUCED) — the genuine hierarchical `DimensionalTransmutation` from
+the flow datum.**  GIVEN a `HierarchicalTransmutationData a0 (b)` (whose two fields
+are the named open analytic core), this BUILDS a full hardened
+`DimensionalTransmutation`: the block factor `bb k = b` and the geometric spacing
+`aGeom a0 (b)` are concrete, `aScaling_step` is the PROVED exact `divPos`
+cancellation (`aGeom_step`), positivity is `aGeom_pos`, and `sep_to_one` /
+`rate_matched` are passed through from the datum's analytic-core fields.  No part of
+the spacing is free: it is fixed by the block factor via `aScaling_step`. -/
+def hierarchicalTransmutation {a0 : Q'} (ha0 : (0 : Q') < a0) {b : Nat}
+    (D : HierarchicalTransmutationData a0 b) : DimensionalTransmutation where
+  bb := fun _ => b
+  sep := D.sepFlow
+  sep_nonneg := D.sepFlow_nonneg
+  sep_le_one := D.sepFlow_le_one
+  aScaling := aGeom a0 b
+  aScaling_pos := aGeom_pos ha0 b
+  aScaling_step := fun k => aGeom_step a0 b k
+  sep_mono := D.sepFlow_mono
+  sep_to_one := D.sepFlow_to_one
+  physFloor := D.physFloor
+  physFloor_pos := D.physFloor_pos
+  rate_matched := D.rate_matched_flow
+
+/-- The physical-gap floor of the reduced hierarchical transmutation is strictly
+positive (it is the datum's `physFloor`, the explicit `|ln sep₀|/a₀` floor). -/
+theorem hierarchicalTransmutation_physFloor_pos {a0 : Q'} (ha0 : (0 : Q') < a0)
+    {b : Nat} (D : HierarchicalTransmutationData a0 b) :
+    (0 : Q') < (hierarchicalTransmutation ha0 D).physFloor :=
+  D.physFloor_pos
 
 /-! ## 3. D3 — the two residuals, cleanly separated (the honest map)
 
@@ -344,6 +578,26 @@ theorem PhysicalContinuumGapResidual.codynamicGap_pos
     (0 : Q') < P.codynamicGap.1 :=
   codynamic_gap_of_exact_pos P.bondMovingHalf
 
+/-- **JOB 2 (REDUCED) — the FULL physical continuum gap residual from the flow
+datum.**  Combining the CLOSED bond-moving half (`hierarchicalExactIdentification`,
+§1) with the reduced transmutation (§2b) gives a complete
+`PhysicalContinuumGapResidual` on the hierarchical SU(2) gauge theory — GIVEN the
+named open analytic core (`HierarchicalTransmutationData`).  Both residuals
+supplied: one PROVED (bond-moving, `δ = 0`) and one REDUCED to the exp-limit
+core. -/
+def hierarchicalPhysicalGap {a0 : Q'} (ha0 : (0 : Q') < a0) {b : Nat}
+    (D : HierarchicalTransmutationData a0 b) : PhysicalContinuumGapResidual where
+  bondMovingHalf := hierarchicalExactIdentification
+  transmutation := hierarchicalTransmutation ha0 D
+
+/-- **JOB 2 (REDUCED) — positivity of the physical floor of the assembled gap.**
+The continuum physical-gap floor of the full assembled residual is strictly
+positive (it is the datum's explicit `|ln sep₀|/a₀` floor). -/
+theorem hierarchicalPhysicalGap_pos {a0 : Q'} (ha0 : (0 : Q') < a0) {b : Nat}
+    (D : HierarchicalTransmutationData a0 b) :
+    (0 : Q') < (hierarchicalPhysicalGap ha0 D).transmutation.physFloor :=
+  D.physFloor_pos
+
 /-! ## 4. The honest ledger (English)
 
   1. The PHYSICAL gap of one RG block step factorizes into (A) the EXACT
@@ -392,3 +646,14 @@ end YMGap.Continuum.CodynamicHierarchical
 #print axioms YMGap.Continuum.CodynamicHierarchical.physMultiplier_pos
 #print axioms YMGap.Continuum.CodynamicHierarchical.physMultiplier_le_one
 #print axioms YMGap.Continuum.CodynamicHierarchical.PhysicalContinuumGapResidual.codynamicGap_pos
+#print axioms YMGap.Continuum.CodynamicHierarchical.physMultiplierProduct_pos
+#print axioms YMGap.Continuum.CodynamicHierarchical.DimensionalTransmutation.marginProduct_pos
+#print axioms YMGap.Continuum.CodynamicHierarchical.q_lt_add_of_pos_right
+#print axioms YMGap.Continuum.CodynamicHierarchical.q_half_mul_lt_self
+#print axioms YMGap.Continuum.CodynamicHierarchical.constSep_violates_sep_to_one
+#print axioms YMGap.Continuum.CodynamicHierarchical.aGeom_pos
+#print axioms YMGap.Continuum.CodynamicHierarchical.aGeom_step
+#print axioms YMGap.Continuum.CodynamicHierarchical.hierarchicalTransmutation
+#print axioms YMGap.Continuum.CodynamicHierarchical.hierarchicalTransmutation_physFloor_pos
+#print axioms YMGap.Continuum.CodynamicHierarchical.hierarchicalPhysicalGap
+#print axioms YMGap.Continuum.CodynamicHierarchical.hierarchicalPhysicalGap_pos
