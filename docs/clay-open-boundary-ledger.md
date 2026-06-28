@@ -585,3 +585,74 @@ physical object.
 - **Continuum `a→0`** (dimensional transmutation + O(4) restoration + Prokhorov
   tightness) — the R2 frontier, untouched by the fixed-spacing cluster expansion.
 - 4D Yang–Mills mass gap = the Clay target: **OPEN.**
+
+---
+
+## Addendum 2026-06-28 — scorecard, RG-landing, R1/R2/R3, vacuum-stability loop, weak-coupling object
+
+Continues the 2026-06-27 addendum. All work axiom-clean (`propext`/`Quot.sound` only), full build
+green, audit at 3666 theorems. **The Clay problem remains OPEN**; this records the sharpened
+proved-vs-open boundary.
+
+### The external rubric is now a compile-checked scorecard
+Pulled + AUDITED external formalizations (`docs/external-formalization-rubric.md`,
+`reference/leanmillennium-pinned/`): the canonical Clay-in-Lean (`lean-dojo/LeanMillenniumPrizeProblems`)
+is a STATEMENT (unproven `∃`, bounded-Hamiltonian proxy); the publicized "complete proof"
+(`Shariq81/yang-mills-mass-gap`, Coq) is an OVERCLAIM — its own frontier doc admits YM₄ is open at an
+admitted Balaban hypothesis (48 `Admitted`, 83 `Axiom`); HepLean/PhysLean is HEP math, not a gap
+proof. `lean/YMGap/Rubric/ClayScorecard.lean` transcribes each Clay clause constructively: the MET
+clauses (fixed-spacing gap, clustering, OS2, nontriviality, positive infinite-volume mass) are
+inhabited by REAL theorems (`reconTransfer_located_gap`, `wilsonG_decay`, `realCorr_continuum_mass_isPositive`,
+`reflectionPositiveSchwinger_holds`); `clay_fixed_spacing_met` is PROVED. `ClayTarget` (fixed-spacing
+∧ the three continuum obligations) is DELIBERATELY UNINHABITED — producing a term without
+sorry/axiom IS the open problem. `make lean-rubric` checks it every build. **OPEN-vs-CLOSED is now a
+compile-checked fact, not prose.**
+
+### Newly PROVED (fixed-spacing, strong-coupling)
+- **Cluster-count completeness UNCONDITIONAL** over the genuine lattice-animal predicate: the whole
+  chain (BFS spanning-tree build → AdjSpanningTree → decode-tour soundness → DecodeComplete →
+  over-count) is hypothesis-free; `animalCount` is the real `|enumPolys|` cardinality.
+- **KP convergence on the genuine count**, uniform on the strong-coupling INTERVAL `w ∈ [0, 1/6]`
+  (`UniformCouplingGap`, via genuine cube-monotonicity) — not just the single weight.
+- **Mayer clustering** extended from the single line to arbitrary **trees** (`treeWilsonG_decay`) AND
+  single **cycles** (`CycleMayer.cycleWilsonG_decay`) — the loops sub-case of the loopy wall, with
+  the honest finding that there is NO holonomy obstruction at the SU(2) character level.
+- **A located gap of the REAL reconstructed transfer operator** from the genuine `wilsonG` decay +
+  Casimir monotonicity (`reconTransfer_located_gap`), and **positive infinite-volume mass resting on
+  the real correlator gap** (`realCorr_continuum_mass_isPositive`).
+- The RG-landing target sharpened to a **dimensionless rational certificate** `q ≤ m/Λ_YM`
+  (`RGLandingCertificate`, `q := prodFloor`), and a **non-degenerate `DefectGapRecursion`** from the
+  real quadratic bond-moving defect with an unconditional product floor.
+
+### The decisive conceptual finding (the R2(B) vacuum-stability loop, 4 iterations)
+Attacking the physical-gap identification (does the survival-product margin equal the actual gap?):
+1. The feared **vacuum-eigenvalue shift is NOT the obstruction** — the RG fusion step's
+   normalization fixes the trivial-rep coefficient at 1 by construction (`VacuumStability`).
+2. But the dominant-mode **"gap = 1 − leading character coefficient" margin is STRONG-COUPLING-ONLY**:
+   `coeffW(w,1) = 2w³` is the SU(2) heat-kernel coefficient `2e^{−3t}`, which EXCEEDS the vacuum
+   coefficient 1 for `w > 2^{−1/3} ≈ 0.794`. The margin `(1−c₁)²/(1+c₁²)` crosses ZERO at `c₁=1`
+   (`NormExcitedDrift`), and this PERSISTS at N=2 (`FusionMarginScope`, machine-checked) — NOT a
+   truncation artifact. The zero-crossing sits in the **intermediate-coupling region** = the same
+   "middle" as the continuum problem.
+   ⇒ the physical weak-coupling gap is a DIFFERENT object (the gauge-invariant spatial transfer
+   operator's located gap / connected-correlator decay), and the character-coefficient margin cannot
+   be carried into the continuum region.
+
+### The weak-coupling gap object, reduced (not closed)
+`WeakCouplingGap.lean`: the single-link character object is PROVEN to fail (`sep ≥ 1` at weak
+coupling); the correct object `WeakClusteringBound` (spatial transfer operator + connected-correlator
+decay) yields a real located gap via `clustering_implies_located` (`weakSpectralGap`, `sep = μ < 1`),
+CONDITIONAL on the named clustering. Chain: **weak gap ⟸ weak clustering ⟸ strong clustering (PROVED,
+uniform `[0,1/6]`) + `RGClusteringTransport`** (RG-flow preservation through the middle, a genuine
+existential, UNINHABITED).
+
+### The open boundary, now precise (= the continuum problem, three named obligations)
+1. `WeakClusteringBound` — weak-coupling exponential clustering of the gauge-invariant spatial
+   transfer operator.
+2. `RGClusteringTransport` — carrying clustering from the proved strong window through the
+   intermediate-coupling **middle** to weak coupling (the radius-overlap wall).
+3. `RGLandingInput` — the dimensional-transmutation scale normalization `m/Λ_YM`.
+
+All three are uninhabited; each is genuine research-open mathematics (Balaban-level RG control,
+exponentially-small dimensionally-transmuted gap). The fixed-spacing strong-coupling story is proved
+up to these doors; the doors are the continuum/4D problem. **Clay target: OPEN.**
