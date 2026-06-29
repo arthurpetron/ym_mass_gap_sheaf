@@ -242,6 +242,7 @@ import YMGap.MassGap.SimpleGroup
 import YMGap.Continuum.SqrtBridge
 import YMGap.Continuum.FiniteVolumeGNS
 import YMGap.Continuum.OSContent
+import YMGap.Continuum.OSReconstructionProgress
 import YMGap.Continuum.CompactTransferGNS
 import YMGap.Continuum.LocatedReconstruction
 import YMGap.Continuum.FourDExistence
@@ -259,6 +260,7 @@ import YMGap.Continuum.ContinuumGapModulus
 import YMGap.Continuum.GapStability
 import YMGap.Continuum.O4RestorationAF
 import YMGap.Continuum.O4DecayFromMargin
+import YMGap.Continuum.O4RestorationProgress
 import YMGap.Continuum.ContinuumFunctional
 import YMGap.Continuum.RegularFunctional
 import YMGap.Continuum.ClusterBoundInstance
@@ -318,6 +320,7 @@ import YMGap.Continuum.ContinuumYMStack
 import YMGap.Continuum.Nontriviality
 import YMGap.Continuum.ContinuumCertificate
 import YMGap.Continuum.UniformCurvatureBound
+import YMGap.Continuum.SpacingUniformProgress
 import YMGap.Continuum.BakryEmeryGap
 import YMGap.Continuum.FusionQuotientCollapse
 import YMGap.Continuum.CRealContinuumAlg
@@ -364,6 +367,7 @@ import YMGap.Continuum.CodynamicBondMoving
 import YMGap.Continuum.CodynamicHierarchical
 import YMGap.Continuum.CodynamicTransmutation
 import YMGap.Rubric.ClayScorecard
+import YMGap.Constructive.SelfSimilarFlow
 -- NOTE: `YMGap.PolyAtlas` and `YMGap.ModuliAlgebra` are non-load-bearing
 -- expository/design-closure scaffolding (their own headers state "NOT
 -- load-bearing"); no other module imports them and nothing references their
