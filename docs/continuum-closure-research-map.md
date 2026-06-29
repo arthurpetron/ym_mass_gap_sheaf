@@ -245,3 +245,50 @@ axiom-clean (`[propext]` only, no `sorryAx`, no `Quot.sound`; full library build
 This module does NOT close any open problem. It isolates the entire R2c continuum
 closure into the single `recursion` field and proves everything downstream of it,
 so the next attack (Section 5) has a precise, falsifiable Lean target.
+
+## External strategy review — adopted refinements & pushbacks (2026-06-27)
+
+Reviewed an external "ℝ_c-as-base-field" strategy proposal (ladder C0–C10 + a residual-debt
+metric). VERDICT: strong INDEPENDENT CONVERGENT VALIDATION of the existing architecture, and a
+3rd independent confirmation that the **RG-landing certificate is THE central wall** (cf. the
+audited Coq repo's admitted Balaban hypothesis, and our own `DefectGapRecursion`). Most of the
+ladder already exists here, often more concretely — so the net is two refinements, not a pivot.
+
+ALREADY HAVE (map of the proposal's ladder onto our code):
+- C0 ℝ_c scalar base + axiom-audit invariant  = `CReal` + `make lean-audit` (propext/Quot.sound only).
+- C5 finite-lattice reflection positivity       = `ReflectionPositivity` (OS2 proved unconditionally).
+- C6 strong-coupling cluster expansion, rational β₀/m = `GenuineKP.genuineKP_sum_le_two`
+  (threshold 4/9 ≤ 1/2), `KPCriterion`, `PinnedCluster`, `MultiPlaquetteMayer` (tree clustering).
+- C7 transfer-operator gap as SEMIGROUP/power decay, NOT H = −a⁻¹log T = `LocatedSpectralGap` +
+  `reconTransfer_located_gap`. (The proposal's C7 instinct — avoid the operator log — CONFIRMS our
+  existing choice; we already never build H.)
+- C8 RG as certified contraction records        = `DefectGapRecursion` / `PerScaleContraction`.
+- C9 continuum limit as Cauchy data with moduli  = `ContinuumGapLimit` / `crealOfGeoIncrement`.
+
+ADOPT (refinements worth taking):
+1. **Sharpen the RG-landing TARGET SHAPE to a dimensionless RATIONAL certificate**
+   `Σ (q : ℚ_{>0}), ofRat q ≤ m / Λ_YM` — i.e. land the gap as a rational lower bound on the
+   dimensionless ratio m/Λ_YM, connecting `DefectGapRecursion.prodFloor` ↔ `DimensionlessRatio`
+   (Δ/√σ̂). Cleaner and more machine-checkable than a bare positive floor. STAYS OPEN (it is the wall).
+2. **Promote the two-layer scalar discipline ℚ ↪ ℝ_c to a STATED invariant**: `CReal` for semantic
+   objects (S_n, expectations, e^{−mr}, m), `Q'` for extracted certificates (q>0, ρ<1, β₀, floors).
+   We already practice this; make it explicit project policy and a scorecard expectation.
+
+PUSH BACK (do NOT adopt):
+A. **C1 full SU(N)-as-Σ-type matrix-group construction** — DIVERGES from our PROVED worst-case
+   reduction (`mass_gap_simple_group`: group-dependence already collapsed to SU(2)). Building
+   concrete matrix groups = more work for less generality. Keep the reduction.
+B. **C9/C10 "formalize the full continuum objects directly" (constructive Hilbert completion +
+   operator semigroup over ℝ_c)** — the proposal's premise OVERESTIMATES our `CReal` stack: we have
+   constructive arithmetic / elementary functions / completeness / series, but NO measure-theoretic
+   integration, normed-space, or operator/spectral framework. Our finite/located route (located
+   2nd-eigenvalue of the COMPACT finite transfer op; continuum as Cauchy data with moduli) is LEANER
+   and is a CONSIDERED verdict (R2 frontier: avoid Stone/unbounded). The operator-NORM gap form
+   ‖P_Ω⊥ T_t P_Ω⊥‖ ≤ C e^{−mt} belongs in the CLASSICAL EXPORT layer (which the proposal itself
+   concedes); our `ClayScorecard.RubricSpectralGap`/`RubricClustering` already carry the constructive
+   content. The residual-debt metric ε(r) is rhetorical, not actionable.
+
+BOTTOM LINE: no architectural change. Net adopted = (1) reshape the landing target to the
+dimensionless rational certificate q ≤ m/Λ_YM, (2) state the ℚ↪ℝ_c certificate discipline as an
+invariant. The wall is unchanged and now triply-confirmed: the asymptotically-free UV flow landing
+in a massive IR basin (`RGLandingCertificate`), to be named, isolated, and attacked directly.
