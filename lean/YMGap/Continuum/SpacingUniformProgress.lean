@@ -38,17 +38,42 @@ This module makes that observation a genuine, green reduction:
     `ModeCurvatureBound` already yields a strictly-positive continuum mass, via
     the same located-gap ⇒ uniform-cluster-bound ⇒ positivity pipeline.
 
+A SECOND sharpening (sections 1b, 10, 11) pushes the mode-curvature wall further
+to its scalar core:
+
+  * `curv_at_of_energy_floor` / `curv_at_iff_energy_floor` — on a genuine
+    eigenmode the proved Dirichlet/Bochner eigen-identities collapse the per-mode
+    Bochner inequality `K·E[Γ₁ f] ≤ E[Γ₂ f]` to the single SCALAR comparison
+    `K ≤ λ`.  Both directions are proved, so the mode-restricted curvature
+    obligation carries exactly the scalar spectral-gap content and nothing more.
+  * `ModeEnergyFloor` — the strictly-scalar residual: the per-mode Bochner field
+    replaced by `energy_floor : ∀ k i, K ≤ eigval k i`, a uniform spectral-energy
+    floor on the generator modes.  `toModeCurvatureBound` recovers the full
+    mode-curvature bound (hence the same positive continuum mass).
+  * `freeAnchor` / `freeAnchor_continuum_mass_isPositive` — NON-VACUITY: the
+    concrete two-state reversible chain `chain2` (difference mode `f2`, sharp
+    energy `2`, floor `2 ≤ 2`, step `s = ¼`) inhabits `ModeEnergyFloor` with NO
+    open input, so the whole pipeline fires end-to-end to a strictly-positive
+    continuum mass — the curved-positive free anchor realized constructively.
+
 # Honest assessment of the distance shrunk
 
-The reduction replaces an `∀ f` curvature obligation by an
-`∀ (spectral mode)` curvature obligation at each spacing.  That is a genuine
-weakening (the converse — reconstructing full `CD K` from the mode inequalities —
-is NOT provided and is not expected to be cheap, as it would require spectral
-completeness plus the off-mode curvature content).  It does NOT close the
-continuum limit: the spacing-uniform curvature ON THE MODES is still the open
-analytic input (Bakry–Émery in mechanism, Bałaban-class in difficulty).  What it
-buys is a strictly smaller target — one only needs the Bochner inequality on the
-finitely-many excited eigenmodes that carry the gap, not on every observable.
+The first reduction replaces an `∀ f` curvature obligation by an
+`∀ (spectral mode)` curvature obligation at each spacing — a genuine weakening
+(the converse, reconstructing full `CD K` from the mode inequalities, is NOT
+provided and is not expected to be cheap).  The second sharpening then shows that
+the mode-restricted obligation, written as a Bochner inequality, is EXACTLY (both
+directions proved) a uniform scalar spectral-energy floor on the generator: the
+"curvature on the modes" framing was overkill — the true residual is the per-scale
+statement that each generator energy clears `K`, uniformly in the spacing.
+
+This does NOT close the continuum limit.  That spacing-uniform spectral-energy
+floor is still the open analytic input (Bałaban / Shen–Zhu–Zhu class): the free
+anchor satisfies it (`chain2`), but a genuine YM `UniformCurvatureBound` would
+require it to persist for the INTERACTING lattice generator as `a → 0`.  What is
+bought is a transparent, strictly-scalar target — a uniform lower bound on the
+generator's spectral gap at every scale — and a proof that this target is
+satisfiable (the free anchor fires the whole pipeline with no open input).
 
 # Axiom-gate (AGENTS.md Rules 1, 6, 8)
 
@@ -109,6 +134,65 @@ theorem eigenvalue_ge_of_curv_at (G : BakryEmery.RevGen) {K lam : Q'}
   have hpos : (0 : Q') < lam * G.E (BakryEmery.RevGen.pmul f f) :=
     BakryEmery.mul_pos hlam hm
   exact BakryEmery.le_of_mul_le_mul_right_pos hpos hchain
+
+/-! ## 1b. The CONVERSE template — scalar energy floor ⇒ curvature at the mode
+
+`eigenvalue_ge_of_curv_at` shows the mode-curvature instance `K·E[Γ₁ f] ≤ E[Γ₂ f]`
+FORCES `K ≤ λ`.  The converse also holds, by the SAME proved eigen-identities run
+forward: from the scalar floor `K ≤ λ` at a genuine excited mode one recovers the
+Bochner inequality.  Together these say the mode Bochner inequality carries
+exactly the scalar spectral-gap content `K ≤ λ` — no extra curvature data. -/
+
+/-- **Scalar floor ⇒ mode curvature (the converse template).**  From the scalar
+energy floor `K ≤ λ` at a genuine excited eigenmode `f` (energy `λ > 0`, positive
+π-variance), the mode Bochner inequality `K·E[Γ₁ f] ≤ E[Γ₂ f]` follows: rewrite
+both sides by the Dirichlet/Bochner eigen-identities to `K·(λ·m)` and `λ·(λ·m)`,
+and use `K ≤ λ` against the nonnegative factor `λ·m`.  Exact converse of
+`eigenvalue_ge_of_curv_at`. -/
+theorem curv_at_of_energy_floor (G : BakryEmery.RevGen) {K lam : Q'}
+    (f : Nat → Q')
+    (hf : G.Eigen f lam)
+    (hKlam : K ≤ lam)
+    (hlam : (0 : Q') < lam)
+    (hm : (0 : Q') < G.E (BakryEmery.RevGen.pmul f f)) :
+    K * G.E (G.Gamma1 f) ≤ G.E (G.Gamma2 f) := by
+  -- E[Γ₁ f] ≃ λ·m,  E[Γ₂ f] ≃ λ²·m ≃ λ·(λ·m),  m := E[f²] ≥ 0.
+  have hD : (G.E (G.Gamma1 f)).eqv (lam * G.E (BakryEmery.RevGen.pmul f f)) :=
+    G.dirichlet_eigen f lam hf
+  have hB : (G.E (G.Gamma2 f)).eqv ((lam * lam) * G.E (BakryEmery.RevGen.pmul f f)) :=
+    G.bochner_eigen f lam hf
+  have hlm_nonneg : (0 : Q') ≤ lam * G.E (BakryEmery.RevGen.pmul f f) :=
+    Q'.le_of_lt (BakryEmery.mul_pos hlam hm)
+  -- K·E[Γ₁ f] ≃ K·(λ·m)
+  have hL : K * G.E (G.Gamma1 f) ≤ K * (lam * G.E (BakryEmery.RevGen.pmul f f)) :=
+    Q'.le_of_eqv (Q'.mul_eqv_congr_left K _ _ hD)
+  -- K·(λ·m) ≤ λ·(λ·m)  (K ≤ λ against the nonnegative factor)
+  have hmid : K * (lam * G.E (BakryEmery.RevGen.pmul f f))
+      ≤ lam * (lam * G.E (BakryEmery.RevGen.pmul f f)) :=
+    Q'.mul_le_mul_of_nonneg_right K lam (lam * G.E (BakryEmery.RevGen.pmul f f))
+      hKlam hlm_nonneg
+  -- λ·(λ·m) ≃ (λ·λ)·m ≃ E[Γ₂ f]
+  have hR : lam * (lam * G.E (BakryEmery.RevGen.pmul f f)) ≤ G.E (G.Gamma2 f) :=
+    Q'.le_trans' _ _ _
+      (Q'.le_of_eqv
+        (Q'.eqv_symm (Q'.mul_assoc_eqv lam lam (G.E (BakryEmery.RevGen.pmul f f)))))
+      (Q'.ge_of_eqv hB)
+  exact Q'.le_trans' _ _ _ hL (Q'.le_trans' _ _ _ hmid hR)
+
+/-- **The mode-curvature wall IS a scalar spectral-energy floor (per mode).**  At
+a genuine excited eigenmode the Bochner inequality `K·E[Γ₁ f] ≤ E[Γ₂ f]` is
+EQUIVALENT to the single scalar comparison `K ≤ λ`.  The `→` is
+`eigenvalue_ge_of_curv_at`, the `←` is `curv_at_of_energy_floor`.  So restricting
+the curvature obligation to the modes already drains it of curvature content: it
+is exactly the statement that the generator energy clears `K`. -/
+theorem curv_at_iff_energy_floor (G : BakryEmery.RevGen) {K lam : Q'}
+    (f : Nat → Q')
+    (hf : G.Eigen f lam)
+    (hlam : (0 : Q') < lam)
+    (hm : (0 : Q') < G.E (BakryEmery.RevGen.pmul f f)) :
+    (K * G.E (G.Gamma1 f) ≤ G.E (G.Gamma2 f)) ↔ (K ≤ lam) :=
+  ⟨fun hcurv => eigenvalue_ge_of_curv_at G f hcurv hf hlam hm,
+   fun hfloor => curv_at_of_energy_floor G f hf hfloor hlam hm⟩
 
 /-! ## 2. The sharper named residual — `ModeCurvatureBound`
 
@@ -327,11 +411,163 @@ theorem ofUniform_sep (B : UniformCurvatureBound.UniformCurvatureBound) :
 
 end ModeCurvatureBound
 
+/-! ## 10. SHARPENING THE WALL FURTHER — the scalar uniform spectral-energy floor
+
+`ModeCurvatureBound.curv_on_modes` is still written as a quadratic-form (Bochner)
+inequality at each spectral mode.  Section 1b showed that on a genuine eigenmode
+that inequality is EQUIVALENT to the scalar comparison `K ≤ λ`.  So the
+mode-curvature residual carries no curvature content beyond a SCALAR uniform
+spectral-energy floor: that each generator energy `eigval k i` clears `K`,
+uniformly in the spacing.
+
+This section names that strictly-scalar residual (`ModeEnergyFloor`) and proves
+`ModeEnergyFloor → ModeCurvatureBound` (hence the same strictly-positive
+continuum mass).  Because the forward direction `curv_at_of_energy_floor` is
+proved and the backward direction is `eigenvalue_ge_of_curv_at`, the two residuals
+are INTER-DERIVABLE through the spectral data already carried — i.e. this is an
+honest restatement that exposes the wall's true shape (a per-scale spectral-gap
+floor of the generator), not a logical weakening.  The non-vacuity is then
+witnessed concretely: the free anchor `chain2` inhabits `ModeEnergyFloor` with NO
+open input, so the whole pipeline fires end-to-end to a positive continuum mass. -/
+
+/-- **The mode ENERGY-FLOOR residual — the scalar form of the curvature wall.**
+Identical data to `ModeCurvatureBound` except the per-mode Bochner inequality
+`curv_on_modes` is replaced by the strictly-scalar `energy_floor : ∀ k i, K ≤
+eigval k i` — a uniform spectral-energy floor on the generator modes.  Carried as
+`Type`-level data (Rule 8).  The reduction `toModeCurvatureBound` recovers the
+full mode-curvature bound, so this is a faithful sharper restatement of the
+wall. -/
+structure ModeEnergyFloor : Type where
+  /-- A finite reversible heat-kernel generator at each spacing `k`. -/
+  gen : Nat → BakryEmery.RevGen
+  /-- The finite transfer spectral model at each spacing `k`. -/
+  spec : Nat → SpectralModel
+  /-- A SINGLE curvature/energy-floor constant `K`. -/
+  K : Q'
+  /-- The constant is strictly positive (the no-collapse magnitude). -/
+  K_pos : (0 : Q') < K
+  /-- A single strictly-positive transfer step `s` (`P = I − s·L`). -/
+  s : Q'
+  /-- The transfer step is strictly positive. -/
+  s_pos : (0 : Q') < s
+  /-- The margin `s·K` is strictly below `1`. -/
+  step_small : s * K < (1 : Q')
+  /-- The eigen-link: an eigenfunction of `gen k` for the `i`-th transfer mode. -/
+  eigf : Nat → Nat → (Nat → Q')
+  /-- The generator energy of the `i`-th transfer mode at spacing `k`. -/
+  eigval : Nat → Nat → Q'
+  /-- `eigf k i` is a genuine eigenfunction of `gen k` with energy `eigval k i`. -/
+  eigen : ∀ k i : Nat, (gen k).Eigen (eigf k i) (eigval k i)
+  /-- Each generator energy is strictly positive (an excited, non-vacuum mode). -/
+  eigval_pos : ∀ k i : Nat, (0 : Q') < eigval k i
+  /-- Each mode has strictly positive π-variance. -/
+  var_pos : ∀ k i : Nat,
+    (0 : Q') < (gen k).E (BakryEmery.RevGen.pmul (eigf k i) (eigf k i))
+  /-- **The named open input (the SCALAR form of the wall):** a uniform spectral
+  -energy floor — every generator energy clears `K`, at every spacing `k` and mode
+  `i`.  This is exactly the per-mode curvature inequality stripped to its scalar
+  content. -/
+  energy_floor : ∀ k i : Nat, K ≤ eigval k i
+  /-- **The eigen-link:** the `i`-th transfer eigenvalue is `1 − s·(eigval k i)`. -/
+  spec_lam_eq : ∀ k i : Nat, (spec k).lam i = (1 : Q') - s * eigval k i
+
+namespace ModeEnergyFloor
+
+variable (F : ModeEnergyFloor)
+
+/-- **The reduction (scalar floor ⇒ mode curvature).**  A `ModeEnergyFloor`
+yields a `ModeCurvatureBound`: the per-mode Bochner inequality `curv_on_modes` is
+discharged by the converse template `curv_at_of_energy_floor` fed the scalar floor
+at each mode.  Witnesses that the scalar residual is genuinely AT LEAST AS STRONG
+as the mode-curvature wall (and, by `eigenvalue_ge_of_curv_at`, no stronger). -/
+def toModeCurvatureBound : ModeCurvatureBound where
+  gen := F.gen
+  spec := F.spec
+  K := F.K
+  K_pos := F.K_pos
+  s := F.s
+  s_pos := F.s_pos
+  step_small := F.step_small
+  eigf := F.eigf
+  eigval := F.eigval
+  eigen := F.eigen
+  eigval_pos := F.eigval_pos
+  var_pos := F.var_pos
+  curv_on_modes := fun k i =>
+    curv_at_of_energy_floor (F.gen k) (F.eigf k i) (F.eigen k i) (F.energy_floor k i)
+      (F.eigval_pos k i) (F.var_pos k i)
+  spec_lam_eq := F.spec_lam_eq
+
+/-- **The capstone via the scalar floor.**  A `ModeEnergyFloor` — the uniform
+spectral-energy floor — already yields a strictly-positive continuum mass, through
+`toModeCurvatureBound` and the mode-curvature pipeline. -/
+theorem energy_floor_continuum_mass_isPositive :
+    CReal.IsPositive F.toModeCurvatureBound.continuumRate :=
+  F.toModeCurvatureBound.mode_curvature_continuum_mass_isPositive
+
+end ModeEnergyFloor
+
+/-! ## 11. NON-VACUITY — the free anchor inhabits the scalar residual
+
+The two-state reversible chain `chain2` (uniform `π = (½,½)`, symmetric rate-1
+generator) with its difference mode `f2` (sharp energy `λ = 2`) is a genuine
+inhabitant of `ModeEnergyFloor`: take it at every spacing, the energy floor
+`K = 2 ≤ 2` is reflexivity, transfer step `s = ¼` so the margin `s·K = ½ < 1` and
+the transfer eigenvalue is `1 − ¼·2 = ½`.  This discharges the sharper residual
+with NO open input, so the mode-curvature ⇒ positive-mass pipeline fires
+end-to-end on a real reversible chain — the curved-positive free anchor. -/
+
+/-- The free-anchor transfer step `s = ¼` (so `s·K = ½` with `K = 2`). -/
+def freeStep : Q' := Q'.mkPos 1 4 (by decide)
+
+/-- The free-anchor transfer model: one mode, weight `1`, eigenvalue
+`1 − ¼·2 = ½` (matching the eigen-link with `eigval = 2`). -/
+def freeSpec : SpectralModel where
+  k := 1
+  w := fun _ => (1 : Q')
+  lam := fun _ => (1 : Q') - freeStep * BakryEmery.two
+  w_nonneg := fun _ => by decide
+  lam_nonneg := fun _ => by decide
+
+/-- **The free anchor inhabits the scalar residual.**  `chain2` at every spacing,
+its difference mode `f2` carrying the sharp energy `2`, the scalar floor
+`2 ≤ 2` by reflexivity, transfer step `¼`.  A genuine `ModeEnergyFloor` with NO
+open input. -/
+def freeAnchor : ModeEnergyFloor where
+  gen := fun _ => BakryEmery.chain2
+  spec := fun _ => freeSpec
+  K := BakryEmery.two
+  K_pos := by decide
+  s := freeStep
+  s_pos := by decide
+  step_small := by decide
+  eigf := fun _ _ => BakryEmery.f2
+  eigval := fun _ _ => BakryEmery.two
+  eigen := fun _ _ => BakryEmery.f2_eigen
+  eigval_pos := fun _ _ => by decide
+  var_pos := fun _ _ => BakryEmery.chain2_variance_pos
+  energy_floor := fun _ _ => Q'.le_refl' BakryEmery.two
+  spec_lam_eq := fun _ _ => rfl
+
+/-- **THE CHAIN FIRES.**  The concrete free anchor produces a strictly-positive
+continuum mass with NO open input: the sharper scalar residual `ModeEnergyFloor`
+is genuinely satisfiable, and the whole mode-curvature ⇒ positive-mass pipeline
+runs end-to-end on a real reversible chain (the curved-positive free anchor). -/
+theorem freeAnchor_continuum_mass_isPositive :
+    CReal.IsPositive freeAnchor.toModeCurvatureBound.continuumRate :=
+  freeAnchor.energy_floor_continuum_mass_isPositive
+
 end YMGap.Continuum.SpacingUniformProgress
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
 
 #print axioms YMGap.Continuum.SpacingUniformProgress.eigenvalue_ge_of_curv_at
+#print axioms YMGap.Continuum.SpacingUniformProgress.curv_at_of_energy_floor
+#print axioms YMGap.Continuum.SpacingUniformProgress.curv_at_iff_energy_floor
+#print axioms YMGap.Continuum.SpacingUniformProgress.ModeEnergyFloor.toModeCurvatureBound
+#print axioms YMGap.Continuum.SpacingUniformProgress.ModeEnergyFloor.energy_floor_continuum_mass_isPositive
+#print axioms YMGap.Continuum.SpacingUniformProgress.freeAnchor
+#print axioms YMGap.Continuum.SpacingUniformProgress.freeAnchor_continuum_mass_isPositive
 #print axioms YMGap.Continuum.SpacingUniformProgress.ModeCurvatureBound.ofUniform
 #print axioms YMGap.Continuum.SpacingUniformProgress.ModeCurvatureBound.sep_lt_one
 #print axioms YMGap.Continuum.SpacingUniformProgress.ModeCurvatureBound.transfer_bound

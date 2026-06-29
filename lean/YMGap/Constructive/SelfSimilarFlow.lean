@@ -285,6 +285,156 @@ theorem selfSimilarCReal {b : Nat} (T : SelfSimilarTower b) (k : Nat) :
       (scaleData (T.w (k + 1)) (T.dw (k + 1)) (b + 1) (T.bnd k)) (T.dw k) (T.div k)
   exact (Equiv.trans hpow hcongr).symm
 
+/-! ## 8. A CONCRETE inhabitant of `SelfSimilarTower b`
+
+The conditional flow law `selfSimilarCReal` is discharged below by exhibiting a
+closed, unconditional tower for every `b`.  The construction is the exact
+rational-division `(b+1)`-th-root flow:
+
+  * exponents `w 0 = 1/2` (a rational seed in `[0,1]`), `w (k+1) = (1/(b+1))·w k`;
+  * each separator `sep k = e^{−w k}` is a genuine **irrational** CReal
+    (`expNegCD` of a positive exponent), and the flow `sep k ≈ (sep (k+1))^(b+1)`
+    is a non-trivial identity among irrational reals — precisely the law the
+    rational `polyFlow` of the separators could not inhabit.
+
+The exponent seed is taken rational because the natural Cauchy modulus `Mexp` of
+the irrational seed `e^{−1}` is **not antitone** over the unreduced `Q'`
+representation (so it does not directly satisfy the `ExpNegCData.hMwmono` field);
+a rational seed makes the modulus trivially antitone while keeping every separator
+irrational.  Two reusable assemblers do the work:
+
+  * **`ofQ'Data`** — `ExpNegCData` for a constant rational exponent `q ∈ [0,1]`
+    (trivial modulus `0`);
+  * **`scaleQData`** — scales any `ExpNegCData u` by a sub-unit rational `c`
+    (`0 ≤ c ≤ 1`), producing `ExpNegCData (c·u)` with the SAME modulus (since a
+    sub-unit scaling contracts differences: `c·|a−b| ≤ |a−b|`). -/
+
+/-- **`scaleN n u ≃ n · u` pointwise** — the `n`-fold CReal sum is, at every
+approximation index, the rational scalar `ofNat n` times `u`. -/
+theorem scaleN_approx (n : Nat) (u : CReal) (j : Nat) :
+    ((scaleN n u).approx j).eqv (Q'.ofNat n * u.approx j) := by
+  induction n with
+  | zero =>
+      show ((0 : Q')).eqv (Q'.ofNat 0 * u.approx j)
+      exact Q'.eqv_symm (Q'.eqv_trans _ _ _
+        (Q'.mul_eqv_congr_right (Q'.ofNat 0) 0 (u.approx j) (by decide))
+        (Q'.zero_mul_eqv (u.approx j)))
+  | succ n ih =>
+      show (((scaleN n u).approx j) + u.approx j).eqv (Q'.ofNat (n + 1) * u.approx j)
+      refine Q'.eqv_trans _ _ _
+        (Q'.add_eqv_congr_right _ _ (u.approx j) ih) ?_
+      have hstep : (Q'.ofNat n * u.approx j + u.approx j).eqv
+          ((Q'.ofNat n + 1) * u.approx j) := by
+        refine Q'.eqv_trans _ _ _
+          (Q'.add_eqv_congr_left _ _ _ (Q'.eqv_symm (Q'.one_mul_eqv (u.approx j)))) ?_
+        exact Q'.eqv_symm (Q'.add_mul_eqv (Q'.ofNat n) 1 (u.approx j))
+      refine Q'.eqv_trans _ _ _ hstep ?_
+      exact Q'.mul_eqv_congr_right (Q'.ofNat n + 1) (Q'.ofNat (n + 1)) (u.approx j)
+        (Q'.eqv_trans _ _ _ (Q'.add_comm_eqv (Q'.ofNat n) 1) (ExpNeg.one_add_ofNat n))
+
+/-- **`ExpNegCData` for a constant rational exponent** `q` with `0 ≤ q ≤ 1`.  The
+sequence is constant (`(ofQ' q).approx k = q`), so the Cauchy modulus is `0`. -/
+def ofQ'Data (q : Q') (h0 : (0 : Q') ≤ q) (h1 : q ≤ 1) :
+    ExpNegCData (CReal.ofQ' q) where
+  Mw := fun _ => 0
+  hpos := fun _ => by show (0 : Q') ≤ q; exact h0
+  hle1 := fun _ => by show q ≤ 1; exact h1
+  hMw := fun ε hε _ _ _ _ => by
+    refine ⟨?_, ?_⟩
+    · show q ≤ q + ε; exact Q'.add_le_self_of_nonneg q ε (Q'.le_of_lt hε)
+    · show q ≤ q + ε; exact Q'.add_le_self_of_nonneg q ε (Q'.le_of_lt hε)
+  hMwmono := fun _ _ _ _ => Nat.le_refl 0
+
+/-- **Sub-unit rational scaling of `ExpNegCData`.**  For `0 ≤ c ≤ 1`, scales
+`ExpNegCData u` to `ExpNegCData (c·u)` keeping the SAME Cauchy modulus: from
+`u_m ≤ u_n + ε` we get `c·u_m ≤ c·u_n + c·ε ≤ c·u_n + ε` (the sub-unit factor
+`c ≤ 1` contracts the tolerance, so no modulus inflation is needed). -/
+def scaleQData (c : Q') (hc0 : (0 : Q') ≤ c) (hc1 : c ≤ 1)
+    (u : CReal) (du : ExpNegCData u) :
+    ExpNegCData (CReal.mul (CReal.ofQ' c) u) where
+  Mw := du.Mw
+  hpos := fun k => by
+    show (0 : Q') ≤ c * u.approx k
+    exact Q'.mul_nonneg c (u.approx k) hc0 (du.hpos k)
+  hle1 := fun k => by
+    show c * u.approx k ≤ 1
+    refine Q'.le_trans' _ _ _
+      (Q'.mul_le_mul_of_nonneg_left (u.approx k) 1 c (du.hle1 k) hc0) ?_
+    exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.mul_one_eqv c)) hc1
+  hMw := fun ε hε m n hm hn => by
+    obtain ⟨h1, h2⟩ := du.hMw ε hε m n hm hn
+    have hcε : c * ε ≤ ε :=
+      Q'.le_trans' _ _ _ (Q'.mul_le_mul_of_nonneg_right c 1 ε hc1 (Q'.le_of_lt hε))
+        (Q'.le_of_eqv (Q'.one_mul_eqv ε))
+    have key : ∀ a d : Q', a ≤ d + ε → c * a ≤ c * d + ε := by
+      intro a d had
+      refine Q'.le_trans' _ _ _
+        (Q'.mul_le_mul_of_nonneg_left a (d + ε) c had hc0) ?_
+      refine Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.mul_add_eqv c d ε)) ?_
+      exact Q'.add_le_add_left (c * d) (c * ε) ε hcε
+    exact ⟨by show c * u.approx m ≤ c * u.approx n + ε; exact key _ _ h1,
+           by show c * u.approx n ≤ c * u.approx m + ε; exact key _ _ h2⟩
+  hMwmono := du.hMwmono
+
+/-- `1/(b+1) ≤ 1` (the per-level contraction factor is sub-unit). -/
+theorem invSucc_le_one (b : Nat) : Q'.invSucc b ≤ (1 : Q') :=
+  Q'.le_trans' _ _ _ (ExpNeg.invSucc_le_of_le (Nat.zero_le b))
+    (by decide : Q'.invSucc 0 ≤ (1 : Q'))
+
+/-- The concrete exponent tower: `w 0 = 1/2`, `w (k+1) = (1/(b+1))·w k`. -/
+def wTower (b : Nat) : Nat → CReal
+  | 0 => CReal.ofQ' (Q'.invSucc 1)
+  | (k + 1) => CReal.mul (CReal.ofQ' (Q'.invSucc b)) (wTower b k)
+
+/-- The modulus data for every level of `wTower` (base = `ofQ'Data`, descent =
+`scaleQData` with `c = 1/(b+1)`). -/
+def dwTower (b : Nat) : (k : Nat) → ExpNegCData (wTower b k)
+  | 0 => ofQ'Data (Q'.invSucc 1) (by decide) (by decide)
+  | (k + 1) =>
+      scaleQData (Q'.invSucc b) (Q'.invSucc_nonneg b) (invSucc_le_one b)
+        (wTower b k) (dwTower b k)
+
+/-- **The exact `(b+1)`-fold descent.**  `scaleN (b+1) (w (k+1)) ≃ w k` pointwise:
+the `(b+1)`-fold sum of `(1/(b+1))·w k` is `((b+1)·(1/(b+1)))·w k ≃ 1·w k ≃ w k`,
+the constructive `(b+1)`-th-root identity (`ofNat (b+1) · invSucc b ≃ 1`). -/
+theorem wTower_descent (b k j : Nat) :
+    ((scaleN (b + 1) (wTower b (k + 1))).approx j).eqv ((wTower b k).approx j) := by
+  refine Q'.eqv_trans _ _ _ (scaleN_approx (b + 1) (wTower b (k + 1)) j) ?_
+  show (Q'.ofNat (b + 1) * (Q'.invSucc b * (wTower b k).approx j)).eqv
+    ((wTower b k).approx j)
+  refine Q'.eqv_trans _ _ _
+    (Q'.eqv_symm (Q'.mul_assoc_eqv (Q'.ofNat (b + 1)) (Q'.invSucc b)
+      ((wTower b k).approx j))) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_right (Q'.ofNat (b + 1) * Q'.invSucc b) 1
+      ((wTower b k).approx j) (Q'.ofNat_succ_mul_invSucc b)) ?_
+  exact Q'.one_mul_eqv ((wTower b k).approx j)
+
+/-- The `(b+1)`-fold sub-unit bound at every level (via the descent + `hle1`). -/
+theorem wTower_bnd (b k j : Nat) :
+    (scaleN (b + 1) (wTower b (k + 1))).approx j ≤ 1 :=
+  Q'.le_trans' _ _ _ (Q'.le_of_eqv (wTower_descent b k j)) ((dwTower b k).hle1 j)
+
+/-- **THE CONCRETE TOWER.**  A closed, unconditional inhabitant of
+`SelfSimilarTower b` for every `b` — the exact rational-division `(b+1)`-th-root
+flow with irrational separators `e^{−w k}`. -/
+def concreteTower (b : Nat) : SelfSimilarTower b where
+  w := wTower b
+  dw := dwTower b
+  bnd := wTower_bnd b
+  div := wTower_descent b
+
+/-- **THE CLOSED, UNCONDITIONAL SELF-SIMILAR CReal FLOW.**  For every `b` and every
+scale `k`, the concrete separators satisfy `sep k ≈ (sep (k+1))^(b+1)` — the
+codynamic flow law discharged with NO open hypothesis.  This inhabits the law the
+rational `polyFlow` provably fails (`CodynamicTransmutation.polyFlow_not_selfSimilar`):
+the separators `sep (concreteTower b) k = e^{−w k}` are genuine irrational CReals,
+and the `(b+1)`-th-root descent is exact at every approximation index. -/
+theorem concreteSelfSimilarFlow (b k : Nat) :
+    CReal.Equiv (sep (concreteTower b) k)
+      (cpow (sep (concreteTower b) (k + 1)) (b + 1)) :=
+  selfSimilarCReal (concreteTower b) k
+
 end CReal
 
 end YMGap.Constructive
@@ -300,3 +450,10 @@ end YMGap.Constructive
 #print axioms YMGap.Constructive.CReal.expNegCD_powerLaw
 #print axioms YMGap.Constructive.CReal.expNegCD_pointwise_congr
 #print axioms YMGap.Constructive.CReal.selfSimilarCReal
+#print axioms YMGap.Constructive.CReal.scaleN_approx
+#print axioms YMGap.Constructive.CReal.ofQ'Data
+#print axioms YMGap.Constructive.CReal.scaleQData
+#print axioms YMGap.Constructive.CReal.wTower_descent
+#print axioms YMGap.Constructive.CReal.wTower_bnd
+#print axioms YMGap.Constructive.CReal.concreteTower
+#print axioms YMGap.Constructive.CReal.concreteSelfSimilarFlow
