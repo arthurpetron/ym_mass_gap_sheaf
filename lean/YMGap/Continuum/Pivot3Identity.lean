@@ -771,3 +771,63 @@ theorem m4_evalC (t : Q') (ht : (0 : Q') ≤ t) :
         (by decide)))
 
 end YMGap.Continuum.Pivot3
+
+/-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
+
+#print axioms YMGap.Continuum.Pivot3.add_interchange
+#print axioms YMGap.Continuum.Pivot3.add_self_two
+#print axioms YMGap.Continuum.Pivot3.addNF_append
+#print axioms YMGap.Continuum.Pivot3.addNF_fold_pairs
+#print axioms YMGap.Continuum.Pivot3.addNF_fold2
+#print axioms YMGap.Continuum.Pivot3.addNF_head
+#print axioms YMGap.Continuum.Pivot3.addNF_pair
+#print axioms YMGap.Continuum.Pivot3.addNF_perm
+#print axioms YMGap.Continuum.Pivot3.addNF_reorder
+#print axioms YMGap.Continuum.Pivot3.addNF_rot3
+#print axioms YMGap.Continuum.Pivot3.addNF_swap
+#print axioms YMGap.Continuum.Pivot3.addNF_tail
+#print axioms YMGap.Continuum.Pivot3.addNF_triR
+#print axioms YMGap.Continuum.Pivot3.C_evalC
+#print axioms YMGap.Continuum.Pivot3.cross_assoc
+#print axioms YMGap.Continuum.Pivot3.cross_assoc'
+#print axioms YMGap.Continuum.Pivot3.cross_pair
+#print axioms YMGap.Continuum.Pivot3.cross_pair2
+#print axioms YMGap.Continuum.Pivot3.evalC_add
+#print axioms YMGap.Continuum.Pivot3.evalC_approx
+#print axioms YMGap.Continuum.Pivot3.evalC_eqv
+#print axioms YMGap.Continuum.Pivot3.evalC_mul
+#print axioms YMGap.Continuum.Pivot3.form3_eq_qform
+#print axioms YMGap.Continuum.Pivot3.lin1_sq
+#print axioms YMGap.Continuum.Pivot3.lin2_sq
+#print axioms YMGap.Continuum.Pivot3.lin3_sq
+#print axioms YMGap.Continuum.Pivot3.m1_base
+#print axioms YMGap.Continuum.Pivot3.m1_evalC
+#print axioms YMGap.Continuum.Pivot3.m2_base
+#print axioms YMGap.Continuum.Pivot3.m2_evalC
+#print axioms YMGap.Continuum.Pivot3.m3_base
+#print axioms YMGap.Continuum.Pivot3.m3_evalC
+#print axioms YMGap.Continuum.Pivot3.m4_base
+#print axioms YMGap.Continuum.Pivot3.m4_evalC
+#print axioms YMGap.Continuum.Pivot3.moment_evalC
+#print axioms YMGap.Continuum.Pivot3.mul_add_equiv
+#print axioms YMGap.Continuum.Pivot3.mul_assoc_equiv
+#print axioms YMGap.Continuum.Pivot3.mul_C0_eqv
+#print axioms YMGap.Continuum.Pivot3.mul_ofQ'_swap
+#print axioms YMGap.Continuum.Pivot3.mul_one_symm
+#print axioms YMGap.Continuum.Pivot3.mul_zero_q
+#print axioms YMGap.Continuum.Pivot3.ofQ'_mul_add
+#print axioms YMGap.Continuum.Pivot3.prodsq
+#print axioms YMGap.Continuum.Pivot3.q_mul_congr
+#print axioms YMGap.Continuum.Pivot3.qform_add
+#print axioms YMGap.Continuum.Pivot3.qform_congr
+#print axioms YMGap.Continuum.Pivot3.qform_scale
+#print axioms YMGap.Continuum.Pivot3.rawPow_eval
+#print axioms YMGap.Continuum.Pivot3.rawPowC_approx
+#print axioms YMGap.Continuum.Pivot3.rawPowC_evalC
+#print axioms YMGap.Continuum.Pivot3.reassoc_to_T
+#print axioms YMGap.Continuum.Pivot3.smul_evalC
+#print axioms YMGap.Continuum.Pivot3.sq2_raw
+#print axioms YMGap.Continuum.Pivot3.sq3_collect
+#print axioms YMGap.Continuum.Pivot3.sq3_raw
+#print axioms YMGap.Continuum.Pivot3.tri_addNF
+#print axioms YMGap.Continuum.Pivot3.two_mul_eqv

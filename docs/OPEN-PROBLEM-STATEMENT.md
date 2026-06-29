@@ -309,7 +309,7 @@ RG fixed point**. The heat-kernel action is an *exact* fixed point of the block-
 recursion in 2D; in 4D it is only a *near*-fixed point, and *no rigorous error-bounded
 control of that deviation exists in the literature*. Equivalently (Route B language):
 the *non-abelian* analogue of the susceptibility/correlation-inequality step that makes
-the multiscale Bakry–Émery criterion close for scalar `φ⁴` has no known substitute for
+the multiscale Bakry–Émery criterion close for scalar `φ⁴` does not yet have an established substitute for
 `SU(2)` (there is no FKG/Griffiths monotonicity for non-abelian link variables; the
 Bakry–Émery `Γ₂` curvature is not uniformly bounded as the coupling runs). These two
 descriptions — "near-fixed-point deviation not bounded" (Route A) and "non-abelian

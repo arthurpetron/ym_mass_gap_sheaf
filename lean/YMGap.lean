@@ -59,6 +59,7 @@ import YMGap.Constructive.Soundness
 import YMGap.Constructive.ExpGeomMaj
 import YMGap.Constructive.CRealSum
 import YMGap.Constructive.CRealAlg
+import YMGap.Constructive.CRealExp
 import YMGap.Constructive.FinSumGeom
 import YMGap.Constructive.CharacterTail
 import YMGap.Constructive.ExpGeomBound
@@ -361,6 +362,7 @@ import YMGap.Continuum.WeakRegionNoGo
 import YMGap.Continuum.CodynamicGap
 import YMGap.Continuum.CodynamicBondMoving
 import YMGap.Continuum.CodynamicHierarchical
+import YMGap.Continuum.CodynamicTransmutation
 import YMGap.Rubric.ClayScorecard
 -- NOTE: `YMGap.PolyAtlas` and `YMGap.ModuliAlgebra` are non-load-bearing
 -- expository/design-closure scaffolding (their own headers state "NOT

@@ -30,7 +30,7 @@ constructed here:
 
   (ii) SCALING `a → 0` (lattice spacing to zero).  This needs a
        lattice-spacing-UNIFORM two-sided modulus.  Such a modulus is
-       known for scalar `φ⁴` in `d = 2, 3` but is NOT known for
+       known for scalar `φ⁴` in `d = 2, 3` but is currently OPEN for
        Yang–Mills in `d = 4`; it is the genuinely OPEN obligation.  It is
        isolated here as a single named `Type`-level interface
        (`ScalingLimitModulus`) and is NOT discharged — no fake closure.
@@ -369,7 +369,7 @@ Everything above is the INFINITE-VOLUME limit `Λ → ∞` at FIXED lattice
 spacing.  The continuum theory additionally requires the SCALING limit
 `a → 0`, which needs a lattice-spacing-UNIFORM two-sided modulus for the
 expectations as the spacing is refined.  Such a uniform modulus is known
-for scalar `φ⁴` in `d = 2, 3` but is NOT known for Yang–Mills in `d = 4`.
+for scalar `φ⁴` in `d = 2, 3` but is currently OPEN for Yang–Mills in `d = 4`.
 
 It is isolated as the single named obligation below.  No inhabitant is
 provided (none is known for YM); it is an HONEST open interface, not a

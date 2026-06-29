@@ -39,7 +39,7 @@ The chain it builds, all on `RegularCReal`:
   * **OPEN — DIMENSIONAL TRANSMUTATION, the modulus-FREE band as primary.**
     The scaling limit `a → 0` concerns the PHYSICAL gap `Δ(a) = m_lat(a)/a`,
     NOT the lattice-unit gap (which must VANISH like `a` as `a → 0`).  This is
-    NOT known for 4D Yang–Mills.  The PRIMARY honest obligation is the
+    an OPEN frontier for 4D Yang–Mills.  The PRIMARY honest obligation is the
     modulus-FREE two-sided band `RegScalingBand`: the spacings `a_j → 0`, the
     fixed-spacing cluster bounds, the derived physical gap, and the uniform
     two-sided BOUND `0 < physGapMin ≤ physGap j ≤ physGapMax` — NO convergence

@@ -274,3 +274,20 @@ theorem apow_eq_rawPow (t : Q') (ht : (0 : Q') ≤ t) :
         (quarter_exp_succ t k)
 
 end YMGap.Continuum.Pivot3
+
+/-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
+
+#print axioms YMGap.Continuum.Pivot3.add_congr
+#print axioms YMGap.Continuum.Pivot3.apow_eq_rawPow
+#print axioms YMGap.Continuum.Pivot3.equiv_refl
+#print axioms YMGap.Continuum.Pivot3.equiv_trans
+#print axioms YMGap.Continuum.Pivot3.expNeg_zero_equiv_one
+#print axioms YMGap.Continuum.Pivot3.le_add_of_diff_le
+#print axioms YMGap.Continuum.Pivot3.mul_comm_equiv
+#print axioms YMGap.Continuum.Pivot3.mul_congr
+#print axioms YMGap.Continuum.Pivot3.mul_congr_left
+#print axioms YMGap.Continuum.Pivot3.mul_congr_right
+#print axioms YMGap.Continuum.Pivot3.mul_diff_eqv
+#print axioms YMGap.Continuum.Pivot3.partialSum_zero_succ_eqv
+#print axioms YMGap.Continuum.Pivot3.quarter_exp_succ
+#print axioms YMGap.Continuum.Pivot3.term_zero_succ_eqv

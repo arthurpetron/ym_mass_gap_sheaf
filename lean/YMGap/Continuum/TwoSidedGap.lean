@@ -162,7 +162,7 @@ weak window, with `hi = 1`).  An inhabitant supplies, for every weight `w` in
 
 NO inhabitant is constructed: weak-coupling exponential clustering is the open
 continuum problem, and a `WeakWindow` whose `lo` reaches DOWN to the strong
-window (`lo ≤ 1/6`) is the "middle" that is not known. -/
+window (`lo ≤ 1/6`) is the "middle" that is currently open. -/
 structure WeakWindow (p : zChain.toLattice.Plaquette) : Type where
   /-- Lower endpoint of the weak window `w_w`. -/
   lo : Q'

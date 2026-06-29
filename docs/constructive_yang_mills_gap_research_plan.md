@@ -160,7 +160,7 @@ In two dimensions, Yang--Mills is rigorously controlled. Driver analyzed two-dim
 
 The arXiv entry `2506.00284`, which claimed a constructive proof for pure \(SU(3)\) Yang--Mills, is marked by arXiv as withdrawn by arXiv admin because it did not meet arXiv’s research-content quality standards. See [Arxiv2506].
 
-**Consequence:** do not use that claim as evidence. The official and refereed state remains: no known proof of the 4D non-abelian continuum mass gap.
+**Consequence:** do not use that claim as evidence. The official and refereed state remains: the 4D non-abelian continuum mass gap remains an open problem (no published proof yet).
 
 ---
 
