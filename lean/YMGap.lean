@@ -227,6 +227,7 @@ import YMGap.Continuum.PlaquetteReweight
 import YMGap.Continuum.KPLimit
 import YMGap.Continuum.RGTransport
 import YMGap.Continuum.OSAxioms
+import YMGap.Continuum.OSAxiomAudit
 import YMGap.Continuum.OSReconstruction
 import YMGap.Continuum.SpectralGap
 import YMGap.Continuum.SpectralGapConverse
@@ -373,7 +374,9 @@ import YMGap.Continuum.UniformCouplingGap
 import YMGap.Continuum.TwoSidedGap
 import YMGap.Continuum.CharacterWindowCeiling
 import YMGap.Continuum.S1Dominance
+import YMGap.Continuum.FusionGenFunction
 import YMGap.Continuum.FusionLogConcave
+import YMGap.Continuum.FusionCoreInduction
 import YMGap.Continuum.EigShiftOrder
 import YMGap.Continuum.GapIsEigenvalue
 import YMGap.Continuum.VacNormEigShift
