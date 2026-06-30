@@ -297,6 +297,154 @@ def gnsComplete : CompleteGNSHilbert D where
 
 end GNSData
 
+/-! ## Goal 1: UNCONDITIONAL (arbitrary-modulus) metric completeness
+
+`CompletionCauchy` carries the *regular* fixed rate `1/(min p q + 1)`.  A general
+Cauchy sequence in the completion comes with an arbitrary `Type`-level modulus
+`mod : Q′ → Nat`.  We close the gap by a **cofinal regular reindexing**: a
+strictly-increasing `φ : Nat → Nat` with `φ k ≥ mod (1/(k+1))`.  The reindexed
+sequence `p ↦ pt (φ p)` is regular-rate (`reindex : CompletionCauchy`), so it has
+the diagonal limit `diagCauchy`; and a Cauchy sequence converges to any limit of a
+cofinal subsequence (`converges`, the `Q′`-level lemma proved here from the
+quadratic triangle).  This yields UNCONDITIONAL completeness
+(`gnsComplete_general`). -/
+
+/-- The strictly-increasing reindexing modulus: `φ 0 = mod(1/1)`,
+`φ(k+1) = max (φ k + 1) (mod(1/(k+2)))`.  Strictly increasing AND
+`φ k ≥ mod(1/(k+1))`. -/
+def genPhiAux (mod : Q' → Nat) : Nat → Nat
+  | 0 => mod (Q'.invSucc 0)
+  | k + 1 => max (genPhiAux mod k + 1) (mod (Q'.invSucc (k + 1)))
+
+/-- A **general (arbitrary-modulus) Cauchy sequence in the metric completion**,
+presented `Type`-level by representatives `pt` with an arbitrary modulus `mod`
+(the honest eventual-rational reading of the completion-distance Cauchy
+condition, exactly as in `CompletionCauchy` but with no fixed rate). -/
+structure GeneralCompletionCauchy (D : GNSData) where
+  /-- A representative `CauchyGNS` for each completion point. -/
+  pt : Nat → CauchyGNS D
+  /-- The arbitrary `Type`-level Cauchy modulus. -/
+  mod : Q' → Nat
+  /-- Past `mod ε`, the representative squared distances are eventually `≤ ε`. -/
+  cauchy : ∀ ε : Q', (0 : Q') < ε → ∀ p q : Nat, mod ε ≤ p → mod ε ≤ q →
+    ∃ N : Nat, ∀ n : Nat, N ≤ n →
+      D.distSqQ ((pt p).seq n) ((pt q).seq n) ≤ ε
+
+namespace GeneralCompletionCauchy
+
+variable {D : GNSData} (X : GeneralCompletionCauchy D)
+
+/-- The cofinal regular reindexing `φ`. -/
+def phi (k : Nat) : Nat := genPhiAux X.mod k
+
+/-- `φ(k+1) = max (φ k + 1) (mod(1/(k+2)))`. -/
+theorem phi_succ_eq (k : Nat) :
+    X.phi (k + 1) = max (X.phi k + 1) (X.mod (Q'.invSucc (k + 1))) := rfl
+
+/-- `φ` is strictly increasing at successors. -/
+theorem phi_lt_succ (k : Nat) : X.phi k < X.phi (k + 1) := by
+  rw [X.phi_succ_eq k]
+  exact Nat.lt_of_lt_of_le (Nat.lt_succ_self _) (Nat.le_max_left _ _)
+
+/-- `φ` is monotone. -/
+theorem phi_mono {a b : Nat} (h : a ≤ b) : X.phi a ≤ X.phi b := by
+  induction b with
+  | zero => exact Nat.le_of_eq (by cases Nat.le_zero.mp h; rfl)
+  | succ b ih =>
+    rcases Nat.lt_or_ge a (b + 1) with hlt | hge
+    · exact Nat.le_trans (ih (Nat.lt_succ_iff.mp hlt)) (Nat.le_of_lt (X.phi_lt_succ b))
+    · exact Nat.le_of_eq (by cases Nat.le_antisymm h hge; rfl)
+
+/-- `φ` is cofinal: `k ≤ φ k`. -/
+theorem self_le_phi (k : Nat) : k ≤ X.phi k := by
+  induction k with
+  | zero => exact Nat.zero_le _
+  | succ k ih => exact Nat.succ_le_of_lt (Nat.lt_of_le_of_lt ih (X.phi_lt_succ k))
+
+/-- `φ k ≥ mod(1/(k+1))`: the reindex clears the modulus at rate `1/(k+1)`. -/
+theorem phi_ge_mod (k : Nat) : X.mod (Q'.invSucc k) ≤ X.phi k := by
+  cases k with
+  | zero => exact Nat.le_refl _
+  | succ k => rw [X.phi_succ_eq k]; exact Nat.le_max_right _ _
+
+/-- **The regular-rate cofinal reindexing** `p ↦ pt (φ p)` as a genuine
+`CompletionCauchy` (fixed rate `1/(min p q + 1)`). -/
+def reindex : CompletionCauchy D where
+  pt := fun k => X.pt (X.phi k)
+  reg := fun p q => by
+    have hmp : X.mod (Q'.invSucc (min p q)) ≤ X.phi p :=
+      Nat.le_trans (X.phi_ge_mod (min p q)) (X.phi_mono (Nat.min_le_left p q))
+    have hmq : X.mod (Q'.invSucc (min p q)) ≤ X.phi q :=
+      Nat.le_trans (X.phi_ge_mod (min p q)) (X.phi_mono (Nat.min_le_right p q))
+    exact X.cauchy (Q'.invSucc (min p q)) (Q'.invSucc_pos (min p q)) (X.phi p) (X.phi q) hmp hmq
+
+/-- The limit representative: the diagonal of the regular reindexing. -/
+def lim : CauchyGNS D := X.reindex.diagCauchy
+
+/-- **The original (arbitrary-modulus) sequence converges to `lim`.**  A Cauchy
+sequence converges to any limit of a cofinal subsequence: combine the Cauchy
+condition between `pt p` and the cofinal `pt (φ k)` with the subsequence's
+convergence (`reindex.diag_converges`) through the quadratic triangle. -/
+theorem converges :
+    ∀ ε : Q', (0 : Q') < ε → ∃ P : Nat, ∀ p : Nat, P ≤ p →
+      ∃ N : Nat, ∀ n : Nat, N ≤ n →
+        D.distSqQ ((X.pt p).seq n) (X.lim.seq n) ≤ ε := by
+  intro ε hε
+  let τ : Q' := HalfPow.half * (HalfPow.half * ε)
+  have hτpos : (0 : Q') < τ := ExpNeg.half_mul_pos _ (ExpNeg.half_mul_pos ε hε)
+  obtain ⟨Psub, hPsub⟩ := X.reindex.diag_converges τ hτpos
+  -- fix one cofinal index `k` that clears both the subsequence stage and `mod τ`
+  let k : Nat := max Psub (X.mod τ)
+  have hphik_modτ : X.mod τ ≤ X.phi k :=
+    Nat.le_trans (Nat.le_max_right _ _) (X.self_le_phi k)
+  obtain ⟨Nk, hNk⟩ := hPsub k (Nat.le_max_left _ _)
+  refine ⟨X.mod τ, fun p hp => ?_⟩
+  obtain ⟨Npk, hNpk⟩ := X.cauchy τ hτpos p (X.phi k) hp hphik_modτ
+  refine ⟨max Nk Npk, fun n hn => ?_⟩
+  have hn_k : Nk ≤ n := Nat.le_trans (Nat.le_max_left _ _) hn
+  have hn_pk : Npk ≤ n := Nat.le_trans (Nat.le_max_right _ _) hn
+  have ha : D.distSqQ ((X.pt p).seq n) ((X.pt (X.phi k)).seq n) ≤ τ := hNpk n hn_pk
+  have hb : D.distSqQ ((X.pt (X.phi k)).seq n) (X.lim.seq n) ≤ τ := hNk n hn_k
+  have htri := D.distSqQ_triangle ((X.pt p).seq n) ((X.pt (X.phi k)).seq n) (X.lim.seq n)
+  have hr := Q'.add_le_add (Q'.add_le_add ha ha) (Q'.add_le_add hb hb)
+  have heps : ((τ + τ) + (τ + τ)).eqv ε := by
+    have hqq : (τ + τ).eqv (HalfPow.half * ε) := ExpNeg.two_halves (HalfPow.half * ε)
+    exact Q'.eqv_trans _ _ _ (QPoly.q_add_congr hqq hqq) (ExpNeg.two_halves ε)
+  exact le_of_le_eqv (Q'.le_trans' _ _ _ htri hr) heps
+
+end GeneralCompletionCauchy
+
+/-! ## The UNCONDITIONAL complete constructive GNS Hilbert space -/
+
+/-- **The constructive COMPLETE GNS Hilbert space, UNCONDITIONALLY.**  Like
+`CompleteGNSHilbert` but the completeness field accepts every
+`GeneralCompletionCauchy` (arbitrary `Type`-level modulus), not only the
+regular-rate `CompletionCauchy`. -/
+structure CompleteGNSHilbertGeneral (D : GNSData) where
+  /-- The underlying GNS Hilbert space. -/
+  hilbert : D.GNSHilbertSpace
+  /-- **Unconditional completeness.**  Every arbitrary-modulus Cauchy sequence of
+  completion points has a limit representative it converges to. -/
+  complete : ∀ X : GeneralCompletionCauchy D,
+    ∃ z : CauchyGNS D,
+      ∀ ε : Q', (0 : Q') < ε → ∃ P : Nat, ∀ p : Nat, P ≤ p →
+        ∃ N : Nat, ∀ n : Nat, N ≤ n →
+          D.distSqQ ((X.pt p).seq n) (z.seq n) ≤ ε
+
+namespace GNSData
+
+variable (D : GNSData)
+
+/-- **CAPSTONE (Goal 1).**  The genuine constructive complete GNS Hilbert space
+with UNCONDITIONAL metric completeness — every arbitrary-modulus Cauchy sequence
+of completion points converges (cofinal regular reindexing + diagonal limit).
+This fully closes the constructive complete GNS Hilbert space. -/
+def gnsComplete_general : CompleteGNSHilbertGeneral D where
+  hilbert := D.gnsHilbertSpace
+  complete := fun X => ⟨X.lim, X.converges⟩
+
+end GNSData
+
 end YMGap.Continuum.GNSQuotient
 
 /-! ## The complete GNS Hilbert space of a finite-volume Wilson theory -/
@@ -312,6 +460,13 @@ pre-Hilbert quotient is metrically complete. -/
 def WilsonGNSData.completeGnsHilbert {A : ObservableMeasure.ObsAlg} (W : WilsonGNSData A) :
     CompleteGNSHilbert W.toGNSData :=
   W.toGNSData.gnsComplete
+
+/-- **UNCONDITIONAL completeness for the Wilson theory (Goal 1).**  The
+finite-volume Wilson GNS Hilbert space is metrically complete for arbitrary
+(non-regular-rate) Cauchy sequences. -/
+def WilsonGNSData.completeGnsHilbertGeneral {A : ObservableMeasure.ObsAlg}
+    (W : WilsonGNSData A) : CompleteGNSHilbertGeneral W.toGNSData :=
+  W.toGNSData.gnsComplete_general
 
 end YMGap.Continuum.WilsonGNS
 
@@ -329,5 +484,12 @@ namespace YMGap.Constructive
 #print axioms YMGap.Continuum.GNSQuotient.CompletionCauchy.diag_converges
 #print axioms YMGap.Continuum.GNSQuotient.GNSData.gnsComplete
 #print axioms YMGap.Continuum.WilsonGNS.WilsonGNSData.completeGnsHilbert
+#print axioms YMGap.Continuum.GNSQuotient.GeneralCompletionCauchy.phi_mono
+#print axioms YMGap.Continuum.GNSQuotient.GeneralCompletionCauchy.self_le_phi
+#print axioms YMGap.Continuum.GNSQuotient.GeneralCompletionCauchy.phi_ge_mod
+#print axioms YMGap.Continuum.GNSQuotient.GeneralCompletionCauchy.reindex
+#print axioms YMGap.Continuum.GNSQuotient.GeneralCompletionCauchy.converges
+#print axioms YMGap.Continuum.GNSQuotient.GNSData.gnsComplete_general
+#print axioms YMGap.Continuum.WilsonGNS.WilsonGNSData.completeGnsHilbertGeneral
 
 end YMGap.Constructive
