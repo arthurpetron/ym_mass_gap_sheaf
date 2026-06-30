@@ -322,6 +322,7 @@ import YMGap.Continuum.BondMovingRelResidual
 import YMGap.Continuum.BulkModeCrux
 import YMGap.Continuum.SpectralLocalizationCrux
 import YMGap.Continuum.GradedBondMovingBudget
+import YMGap.Continuum.EigenvalueShiftBridge
 import YMGap.Continuum.CrudeMomentBound
 import YMGap.Continuum.FusionResidualBound
 import YMGap.Continuum.AFTrajectoryCertificate
@@ -371,6 +372,7 @@ import YMGap.Continuum.WeakCouplingGap
 import YMGap.Continuum.UniformCouplingGap
 import YMGap.Continuum.TwoSidedGap
 import YMGap.Continuum.CharacterWindowCeiling
+import YMGap.Continuum.S1Dominance
 import YMGap.Continuum.WeakRegionNoGo
 import YMGap.Continuum.CodynamicGap
 import YMGap.Continuum.CodynamicBondMoving
