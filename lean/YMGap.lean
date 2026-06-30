@@ -378,6 +378,7 @@ import YMGap.Continuum.CharacterWindowCeiling
 import YMGap.Continuum.S1Dominance
 import YMGap.Continuum.FusionGenFunction
 import YMGap.Continuum.FusionLogConcave
+import YMGap.Continuum.FusionChannelIneq
 import YMGap.Continuum.FusionCoreInduction
 import YMGap.Continuum.EigShiftOrder
 import YMGap.Continuum.GapIsEigenvalue

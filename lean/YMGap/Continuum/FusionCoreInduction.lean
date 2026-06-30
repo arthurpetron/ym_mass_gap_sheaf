@@ -57,6 +57,7 @@ only.  No `Classical.*`, no `native_decide`, no `sorry`.  Witnesses are `Type`-l
 import YMGap.Continuum.SelfFusionLogConcave
 import YMGap.Continuum.FusionLogConcave
 import YMGap.Continuum.CubeRatioBounds
+import YMGap.Continuum.FusionChannelIneq
 
 namespace YMGap.Continuum.FusionCoreInduction
 
@@ -67,18 +68,13 @@ open YMGap.Continuum.BondMovingStep
 open YMGap.Continuum.FusionQuotientCollapse
 open YMGap.Continuum.SelfFusionLogConcave
 open YMGap.Continuum.CubeRatioBounds
+open YMGap.Continuum.FusionChannelIneq
 
-/-! ## 0. Local algebra helpers -/
+/-! ## 0. Local algebra helpers
 
-/-- `(a·b)·(a·b) ≃ (a·a)·(b·b)`. -/
-private theorem prodsq (a b : Q') : ((a * b) * (a * b)).eqv ((a * a) * (b * b)) := by
-  refine Q'.eqv_trans _ _ _ (Q'.mul_assoc_eqv a b (a * b)) ?_
-  have inner : (b * (a * b)).eqv (a * (b * b)) := by
-    refine Q'.eqv_trans _ _ _ (Q'.eqv_symm (Q'.mul_assoc_eqv b a b)) ?_
-    refine Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right (b * a) (a * b) b (Q'.mul_comm_eqv b a)) ?_
-    exact Q'.mul_assoc_eqv a b b
-  refine Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_left a _ _ inner) ?_
-  exact Q'.eqv_symm (Q'.mul_assoc_eqv a a (b * b))
+The three channel log-concavity inequalities `polyI0` (`s = 0`), `polyI1` (`s = 1`),
+`polyI2` (`s = 2`) — the pure-`Q'` polynomial inequalities in `(c₁,c₂)` — are proved in
+the sibling `FusionChannelIneq` module and consumed here. -/
 
 /-- `1 · (1 · x) ≃ x`. -/
 private theorem oo1 (x : Q') : ((1 : Q') * ((1 : Q') * x)).eqv x :=
@@ -299,47 +295,6 @@ theorem boxSum2_tail (w : Q') (k : Nat) :
     rw [hok]; rfl
   rw [hind]; exact Q'.zero_mul_eqv _
 
-/-! ## 2. The `s = 2` channel log-concavity (symbolic, strong coupling) -/
-
-/-- **`polyI2` — the `s = 2` box log-concavity (PROVED).**  In `x = c₁`, `y = c₂`:
-`((y+y)+(x²+y²))·y² ≤ (xy+xy)²` from `y ≤ x²` and `x² ≤ 1`.  (`B₂·B₄ ≤ B₃²`.) -/
-theorem polyI2 (x y : Q') (hx0 : (0 : Q') ≤ x) (hy0 : (0 : Q') ≤ y)
-    (hyx : y ≤ x * x) (hx1 : x * x ≤ (1 : Q')) :
-    ((y + y) + (x * x + y * y)) * (y * y)
-      ≤ (x * y + x * y) * (x * y + x * y) := by
-  have hxxnn : (0 : Q') ≤ x * x := Q'.mul_nonneg _ _ hx0 hx0
-  have hyynn : (0 : Q') ≤ y * y := Q'.mul_nonneg _ _ hy0 hy0
-  have hyyxx : y * y ≤ x * x := by
-    have a1 : y * y ≤ (x * x) * y := Q'.mul_le_mul_of_nonneg_right y (x * x) y hyx hy0
-    have a2 : (x * x) * y ≤ (x * x) * (x * x) :=
-      Q'.mul_le_mul_of_nonneg_left y (x * x) (x * x) hyx hxxnn
-    have a3 : (x * x) * (x * x) ≤ (x * x) * 1 :=
-      Q'.mul_le_mul_of_nonneg_left (x * x) 1 (x * x) hx1 hxxnn
-    exact Q'.le_trans' _ _ _ a1 (Q'.le_trans' _ _ _ a2
-      (Q'.le_trans' _ _ _ a3 (Q'.le_of_eqv (Q'.mul_one_eqv (x * x)))))
-  have hB2D : (y + y) + (x * x + y * y) ≤ (x * x + x * x) + (x * x + x * x) :=
-    Q'.add_le_add (Q'.add_le_add hyx hyx) (Q'.add_le_add (Q'.le_refl' (x * x)) hyyxx)
-  have hstep : ((y + y) + (x * x + y * y)) * (y * y)
-      ≤ ((x * x + x * x) + (x * x + x * x)) * (y * y) :=
-    Q'.mul_le_mul_of_nonneg_right _ _ (y * y) hB2D hyynn
-  have hDexp : (((x * x + x * x) + (x * x + x * x)) * (y * y)).eqv
-      ((((x * x) * (y * y)) + ((x * x) * (y * y)))
-        + (((x * x) * (y * y)) + ((x * x) * (y * y)))) :=
-    Q'.eqv_trans _ _ _ (Q'.add_mul_eqv (x * x + x * x) (x * x + x * x) (y * y))
-      (Q'.add_eqv_congr' (Q'.add_mul_eqv (x * x) (x * x) (y * y))
-        (Q'.add_mul_eqv (x * x) (x * x) (y * y)))
-  have hhalf : ((x * y) * (x * y + x * y)).eqv
-      (((x * x) * (y * y)) + ((x * x) * (y * y))) :=
-    Q'.eqv_trans _ _ _ (Q'.mul_add_eqv (x * y) (x * y) (x * y))
-      (Q'.add_eqv_congr' (prodsq x y) (prodsq x y))
-  have hRexp : ((x * y + x * y) * (x * y + x * y)).eqv
-      ((((x * x) * (y * y)) + ((x * x) * (y * y)))
-        + (((x * x) * (y * y)) + ((x * x) * (y * y)))) :=
-    Q'.eqv_trans _ _ _ (Q'.add_mul_eqv (x * y) (x * y) (x * y + x * y))
-      (Q'.add_eqv_congr' hhalf hhalf)
-  exact Q'.le_trans' _ _ _ hstep
-    (Q'.le_trans' _ _ _ (Q'.le_of_eqv hDexp) (Q'.ge_of_eqv hRexp))
-
 /-! ## 3. Strong-coupling hypothesis discharge + box-sum positivity -/
 
 /-- `c₂ ≤ c₁·c₁` (coeffW log-concavity at `s = 0`). -/
@@ -466,6 +421,32 @@ def fusionConvLogConcaveCore_N2_of_channels {w : Q'} (hw : (0 : Q') < w)
         (Q'.le_trans' _ _ _ (polyI2 (coeffW w 1) (coeffW w 2) hc1nn hc2nn hyx hx1)
           (Q'.ge_of_eqv hR))
     | (k + 3) => exact cauchyBinet_tail hw0 k
+
+/-- **`fusionConvLogConcaveCore_N2` — the SYMBOLIC `N = 2` core (PROVED for the whole
+strong-coupling family `0 < w ≤ 1/2`).**  Discharges the two channel inequalities of
+`fusionConvLogConcaveCore_N2_of_channels` with the proved `FusionChannelIneq.polyI0`
+(`s = 0`) and `FusionChannelIneq.polyI1` (`s = 1`).  This INHABITS the box-level core at
+`N = 2` symbolically — the genuine push past the `N = 1` inhabitant. -/
+def fusionConvLogConcaveCore_N2 {w : Q'} (hw : (0 : Q') < w)
+    (hw12 : w ≤ Q'.mkPos 1 2 (by decide)) :
+    FusionConvLogConcaveCore 2 w (Q'.le_of_lt hw)
+      (Q'.le_trans' w (Q'.mkPos 1 2 (by decide)) 1 hw12 (by decide)) :=
+  let hw0 : (0 : Q') ≤ w := Q'.le_of_lt hw
+  let hw1 : w ≤ (1 : Q') := Q'.le_trans' _ _ _ hw12 (by decide)
+  fusionConvLogConcaveCore_N2_of_channels hw hw12
+    (polyI0 (coeffW w 1) (coeffW w 2) (coeffW_nonneg hw0 1) (coeffW_nonneg hw0 2)
+      (coeffW2_le_sq hw0 hw1) (coeffW1_sq_le_one hw0 hw12))
+    (polyI1 (coeffW w 1) (coeffW w 2) (coeffW_nonneg hw0 1) (coeffW_nonneg hw0 2))
+
+/-- **`s1Dominance_N2` — `S1Dominance 2 w 2` for the symbolic strong-coupling family.**
+From the symbolic `N = 2` core and the first-excited edge `bmc 2 ≤ bmc 1` (the elementary
+companion input), for any `0 < w ≤ 1/2`. -/
+def s1Dominance_N2 {w : Q'} (hw : (0 : Q') < w)
+    (hw12 : w ≤ Q'.mkPos 1 2 (by decide))
+    (hedge : bondMovedCoeff 2 w 2 2 ≤ bondMovedCoeff 2 w 2 1) :
+    YMGap.Continuum.S1Dominance.S1Dominance 2 w 2 :=
+  YMGap.Continuum.FusionLogConcave.s1Dominance_of_p2 hw
+    (fusionConvLogConcaveCore_N2 hw hw12) hedge
 
 /-! ## 5. The `N`-induction: additive decomposition + the per-step `CoreStep` -/
 
@@ -612,18 +593,24 @@ PROVED (axiom-clean, `[propext]` / `[propext, Quot.sound]`):
     `fusionConvLogConcaveCore_succ_of_coreStep` — the additive decomposition and the
     PROVED inductive step `core N → CoreStep N → core (N+1)`.
 
+  * `fusionConvLogConcaveCore_N2` — the SYMBOLIC `N = 2` core for the WHOLE
+    strong-coupling family `0 < w ≤ 1/2`, discharging the two channel inequalities with
+    `FusionChannelIneq.polyI0` (`s = 0`) and `FusionChannelIneq.polyI1` (`s = 1`); and
+    `s1Dominance_N2` wiring it (with the edge input) to `S1Dominance 2 w 2`.
+
 NAMED OPEN:
-  * The symbolic `s = 0`/`s = 1` channel inequalities (`hI0`, `hI1`) — degree-8
-    pure-`Q'` inequalities in `(c₁,c₂)`, the analogues of the proved `polyI2`; they
-    HOLD (witnessed at `w = 1/2` by `core_N2_half`), only their symbolic proofs deferred.
   * `CoreStep N` for general `N` — the uniform per-step cross-term inequality, the
     sharp residual to which the whole `N`-induction is reduced.
+  * The core at general `N` (`N = 3, 4, …`) — each a finite computation; reachable via
+    the proved inductive step once `CoreStep N` is supplied.
 
-HONEST VERDICT.  The box core is now inhabited at `N = 2` (unconditionally at `w = 1/2`,
-and symbolically modulo two named channel inequalities), and the general-`N` induction
-is reduced — with a PROVED inductive step — to the single uniform finite inequality
-`CoreStep`.  This is a structural advance on one box-level log-concavity sub-fact; it is
-NOT a 4D Yang–Mills mass gap. -/
+HONEST VERDICT.  The box core is now inhabited at `N = 2` for the whole symbolic
+strong-coupling family `0 < w ≤ 1/2` (all three channels proved: `s = 0`/`s = 1` by
+`FusionChannelIneq.polyI0`/`polyI1`, `s = 2` by `polyI2`; the tail by `boxSum2_tail`),
+and the general-`N` induction is reduced — with a PROVED inductive step
+`core N → CoreStep N → core (N+1)` — to the single uniform finite inequality `CoreStep`.
+This is a structural advance on one box-level log-concavity sub-fact; it is NOT a 4D
+Yang–Mills mass gap. -/
 
 end YMGap.Continuum.FusionCoreInduction
 
@@ -635,13 +622,14 @@ end YMGap.Continuum.FusionCoreInduction
 #print axioms YMGap.Continuum.FusionCoreInduction.boxSum2_three
 #print axioms YMGap.Continuum.FusionCoreInduction.boxSum2_four
 #print axioms YMGap.Continuum.FusionCoreInduction.boxSum2_tail
-#print axioms YMGap.Continuum.FusionCoreInduction.polyI2
 #print axioms YMGap.Continuum.FusionCoreInduction.coeffW2_le_sq
 #print axioms YMGap.Continuum.FusionCoreInduction.coeffW1_sq_le_one
 #print axioms YMGap.Continuum.FusionCoreInduction.boxSum_nonneg
 #print axioms YMGap.Continuum.FusionCoreInduction.core_N2_half
 #print axioms YMGap.Continuum.FusionCoreInduction.s1Dom_N2_half
 #print axioms YMGap.Continuum.FusionCoreInduction.fusionConvLogConcaveCore_N2_of_channels
+#print axioms YMGap.Continuum.FusionCoreInduction.fusionConvLogConcaveCore_N2
+#print axioms YMGap.Continuum.FusionCoreInduction.s1Dominance_N2
 #print axioms YMGap.Continuum.FusionCoreInduction.boxSum_succ_decomp
 #print axioms YMGap.Continuum.FusionCoreInduction.boxSumDelta_nonneg
 #print axioms YMGap.Continuum.FusionCoreInduction.fusionConvLogConcaveCore_succ_of_coreStep

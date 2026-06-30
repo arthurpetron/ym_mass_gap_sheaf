@@ -1,7 +1,7 @@
 import YMGap.Continuum.SelfFusionLogConcave
 import YMGap.Constructive.SumOfSquares
 
-namespace YMGap.Continuum.ScratchPoly2
+namespace YMGap.Continuum.FusionChannelIneq
 
 open YMGap.Constructive
 open YMGap.Continuum
@@ -451,7 +451,87 @@ theorem polyI0 (x y : Q') (hx0 : (0 : Q') ≤ x) (hy0 : (0 : Q') ≤ y)
         ((x * x + (((x * x) * y + (x * x) * y) + ((x * x) * (y * y) + (x * x) * (y * y))))
           + (((x * x) * (x * x) + (y + y))
             + (y * y + (((y * y) * y + (y * y) * y) + (y * y) * (y * y)))))) := by
-    sorry
+    -- transform PB = ee + (x4 + t) into (ee + t) + x4
+    have hPB :
+        ((((x * x) * y + (x * x) * y) + ((x * x) * (x * x) + (x * x) * (y * y))).eqv
+          ((((x * x) * y + (x * x) * y) + (x * x) * (y * y)) + (x * x) * (x * x))) :=
+      Q'.eqv_trans _ _ _
+        (Q'.add_eqv_congr_left ((x * x) * y + (x * x) * y)
+          ((x * x) * (x * x) + (x * x) * (y * y)) ((x * x) * (y * y) + (x * x) * (x * x))
+          (Q'.add_comm_eqv ((x * x) * (x * x)) ((x * x) * (y * y))))
+        (Q'.eqv_symm (Q'.add_assoc_eqv ((x * x) * y + (x * x) * y) ((x * x) * (y * y))
+          ((x * x) * (x * x))))
+    -- transform PC = dd + (t + y4) into t + (y4 + dd)
+    have hPC :
+        ((((y * y) * y + (y * y) * y) + ((x * x) * (y * y) + (y * y) * (y * y))).eqv
+          ((x * x) * (y * y) + ((y * y) * (y * y) + ((y * y) * y + (y * y) * y)))) :=
+      Q'.eqv_trans _ _ _
+        (Q'.add_comm_eqv ((y * y) * y + (y * y) * y)
+          ((x * x) * (y * y) + (y * y) * (y * y)))
+        (Q'.add_assoc_eqv ((x * x) * (y * y)) ((y * y) * (y * y)) ((y * y) * y + (y * y) * y))
+    -- transform PB + PC into (ee + (t + t)) + (x4 + (y4 + dd))
+    have hPBPC :
+        (((((x * x) * y + (x * x) * y) + ((x * x) * (x * x) + (x * x) * (y * y)))
+            + (((y * y) * y + (y * y) * y) + ((x * x) * (y * y) + (y * y) * (y * y)))).eqv
+          ((((x * x) * y + (x * x) * y) + ((x * x) * (y * y) + (x * x) * (y * y)))
+            + ((x * x) * (x * x)
+              + ((y * y) * (y * y) + ((y * y) * y + (y * y) * y))))) :=
+      Q'.eqv_trans _ _ _
+        (Q'.add_eqv_congr' hPB hPC)
+        (Q'.eqv_trans _ _ _
+          (QPoly.q_interchange (((x * x) * y + (x * x) * y) + (x * x) * (y * y))
+            ((x * x) * (x * x)) ((x * x) * (y * y))
+            ((y * y) * (y * y) + ((y * y) * y + (y * y) * y)))
+          (Q'.add_eqv_congr_right
+            ((((x * x) * y + (x * x) * y) + (x * x) * (y * y)) + (x * x) * (y * y))
+            (((x * x) * y + (x * x) * y) + ((x * x) * (y * y) + (x * x) * (y * y)))
+            ((x * x) * (x * x) + ((y * y) * (y * y) + ((y * y) * y + (y * y) * y)))
+            (Q'.add_assoc_eqv ((x * x) * y + (x * x) * y) ((x * x) * (y * y))
+              ((x * x) * (y * y)))))
+    -- transform PA = yy + (x2 + y2) into x2 + (y2 + yy)
+    have hPA :
+        (((y + y) + (x * x + y * y)).eqv (x * x + (y * y + (y + y)))) :=
+      Q'.eqv_trans _ _ _
+        (Q'.add_comm_eqv (y + y) (x * x + y * y))
+        (Q'.add_assoc_eqv (x * x) (y * y) (y + y))
+    -- transform NEGcurrent = (y2 + yy) + (x4 + (y4 + dd)) into (x4 + yy) + (y2 + (dd + y4))
+    have hNEGc :
+        ((((y * y + (y + y)) + ((x * x) * (x * x)
+              + ((y * y) * (y * y) + ((y * y) * y + (y * y) * y)))).eqv
+          (((x * x) * (x * x) + (y + y))
+            + (y * y + (((y * y) * y + (y * y) * y) + (y * y) * (y * y)))))) :=
+      Q'.eqv_trans _ _ _
+        (Q'.add_eqv_congr_right (y * y + (y + y)) ((y + y) + y * y)
+          ((x * x) * (x * x) + ((y * y) * (y * y) + ((y * y) * y + (y * y) * y)))
+          (Q'.add_comm_eqv (y * y) (y + y)))
+        (Q'.eqv_trans _ _ _
+          (QPoly.q_interchange (y + y) (y * y) ((x * x) * (x * x))
+            ((y * y) * (y * y) + ((y * y) * y + (y * y) * y)))
+          (Q'.eqv_trans _ _ _
+            (Q'.add_eqv_congr_right ((y + y) + (x * x) * (x * x))
+              ((x * x) * (x * x) + (y + y))
+              (y * y + ((y * y) * (y * y) + ((y * y) * y + (y * y) * y)))
+              (Q'.add_comm_eqv (y + y) ((x * x) * (x * x))))
+            (Q'.add_eqv_congr_left ((x * x) * (x * x) + (y + y))
+              (y * y + ((y * y) * (y * y) + ((y * y) * y + (y * y) * y)))
+              (y * y + (((y * y) * y + (y * y) * y) + (y * y) * (y * y)))
+              (Q'.add_eqv_congr_left (y * y)
+                ((y * y) * (y * y) + ((y * y) * y + (y * y) * y))
+                (((y * y) * y + (y * y) * y) + (y * y) * (y * y))
+                (Q'.add_comm_eqv ((y * y) * (y * y)) ((y * y) * y + (y * y) * y))))))
+    -- assemble the regroup
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_assoc_eqv ((y + y) + (x * x + y * y))
+        (((x * x) * y + (x * x) * y) + ((x * x) * (x * x) + (x * x) * (y * y)))
+        (((y * y) * y + (y * y) * y) + ((x * x) * (y * y) + (y * y) * (y * y)))) ?_
+    refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr_left ((y + y) + (x * x + y * y)) _ _ hPBPC) ?_
+    refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr_right ((y + y) + (x * x + y * y)) _ _ hPA) ?_
+    refine Q'.eqv_trans _ _ _
+      (QPoly.q_interchange (x * x) (y * y + (y + y))
+        (((x * x) * y + (x * x) * y) + ((x * x) * (y * y) + (x * x) * (y * y)))
+        ((x * x) * (x * x) + ((y * y) * (y * y) + ((y * y) * y + (y * y) * y)))) ?_
+    exact Q'.add_eqv_congr_left
+      (x * x + (((x * x) * y + (x * x) * y) + ((x * x) * (y * y) + (x * x) * (y * y)))) _ _ hNEGc
   -- regroup E_RHS to S + POS
   have hregroupR :
       (((((x * x + x * x) + (x * x + x * x))
@@ -462,7 +542,62 @@ theorem polyI0 (x y : Q') (hx0 : (0 : Q') ≤ x) (hy0 : (0 : Q') ≤ y)
           + (((x * x) + ((x * x) + (x * x)))
             + ((((x * x) * y + (x * x) * y) + ((x * x) * y + (x * x) * y))
               + (((x * x) * y + (x * x) * y) + ((x * x) * (y * y) + (x * x) * (y * y))))))) := by
-    sorry
+    -- split A = (x2+x2)+(x2+x2) into x2 + (x2 + (x2+x2))
+    have hA :
+        ((((x * x + x * x) + (x * x + x * x))).eqv
+          (x * x + (x * x + (x * x + x * x)))) :=
+      Q'.add_assoc_eqv (x * x) (x * x) (x * x + x * x)
+    -- right block: B + ((EE+TT)+(EE+TT)) ≃ (EE+TT) + ((EE+TT) + B)
+    have hR3 :
+        ((((((x * x) * y + (x * x) * y) + ((x * x) * y + (x * x) * y))
+            + ((((x * x) * y + (x * x) * y) + ((x * x) * (y * y) + (x * x) * (y * y)))
+                + (((x * x) * y + (x * x) * y) + ((x * x) * (y * y) + (x * x) * (y * y))))).eqv
+          ((((x * x) * y + (x * x) * y) + ((x * x) * (y * y) + (x * x) * (y * y)))
+            + ((((x * x) * y + (x * x) * y) + ((x * x) * (y * y) + (x * x) * (y * y)))
+                + (((x * x) * y + (x * x) * y) + ((x * x) * y + (x * x) * y)))))) :=
+      Q'.eqv_trans _ _ _
+        (Q'.add_comm_eqv
+          (((x * x) * y + (x * x) * y) + ((x * x) * y + (x * x) * y))
+          ((((x * x) * y + (x * x) * y) + ((x * x) * (y * y) + (x * x) * (y * y)))
+            + (((x * x) * y + (x * x) * y) + ((x * x) * (y * y) + (x * x) * (y * y)))))
+        (Q'.add_assoc_eqv
+          (((x * x) * y + (x * x) * y) + ((x * x) * (y * y) + (x * x) * (y * y)))
+          (((x * x) * y + (x * x) * y) + ((x * x) * (y * y) + (x * x) * (y * y)))
+          (((x * x) * y + (x * x) * y) + ((x * x) * y + (x * x) * y)))
+    -- POScurrent right block: (EE+TT) + B ≃ B + (EE+TT)  [B = EE+EE]
+    have hPOSc :
+        ((((x * x) + ((x * x) + (x * x)))
+            + ((((x * x) * y + (x * x) * y) + ((x * x) * (y * y) + (x * x) * (y * y)))
+                + (((x * x) * y + (x * x) * y) + ((x * x) * y + (x * x) * y)))).eqv
+          (((x * x) + ((x * x) + (x * x)))
+            + ((((x * x) * y + (x * x) * y) + ((x * x) * y + (x * x) * y))
+                + (((x * x) * y + (x * x) * y) + ((x * x) * (y * y) + (x * x) * (y * y)))))) :=
+      Q'.add_eqv_congr_left ((x * x) + ((x * x) + (x * x))) _ _
+        (Q'.add_comm_eqv
+          (((x * x) * y + (x * x) * y) + ((x * x) * (y * y) + (x * x) * (y * y)))
+          (((x * x) * y + (x * x) * y) + ((x * x) * y + (x * x) * y)))
+    -- assemble
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_assoc_eqv ((x * x + x * x) + (x * x + x * x))
+        (((x * x) * y + (x * x) * y) + ((x * x) * y + (x * x) * y))
+        ((((x * x) * y + (x * x) * y) + ((x * x) * y + (x * x) * y))
+          + (((x * x) * (y * y) + (x * x) * (y * y)) + ((x * x) * (y * y) + (x * x) * (y * y))))) ?_
+    refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr_right _ _ _ hA) ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_left (x * x + (x * x + (x * x + x * x))) _ _
+        (Q'.add_eqv_congr_left
+          (((x * x) * y + (x * x) * y) + ((x * x) * y + (x * x) * y)) _ _
+          (QPoly.q_interchange ((x * x) * y + (x * x) * y) ((x * x) * y + (x * x) * y)
+            ((x * x) * (y * y) + (x * x) * (y * y)) ((x * x) * (y * y) + (x * x) * (y * y))))) ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_left (x * x + (x * x + (x * x + x * x))) _ _ hR3) ?_
+    refine Q'.eqv_trans _ _ _
+      (QPoly.q_interchange (x * x) (x * x + (x * x + x * x))
+        (((x * x) * y + (x * x) * y) + ((x * x) * (y * y) + (x * x) * (y * y)))
+        ((((x * x) * y + (x * x) * y) + ((x * x) * (y * y) + (x * x) * (y * y)))
+          + (((x * x) * y + (x * x) * y) + ((x * x) * y + (x * x) * y)))) ?_
+    exact Q'.add_eqv_congr_left
+      (x * x + (((x * x) * y + (x * x) * y) + ((x * x) * (y * y) + (x * x) * (y * y)))) _ _ hPOSc
   -- NEG ≤ POS
   have hNEG_le_NB :
       ((((x * x) * (x * x) + (y + y))
@@ -537,8 +672,12 @@ theorem polyI0 (x y : Q') (hx0 : (0 : Q') ≤ x) (hy0 : (0 : Q') ≤ y)
   exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hLHS)
     (Q'.le_trans' _ _ _ (Q'.add_le_add_left _ _ _ hNP) (Q'.ge_of_eqv hRHS))
 
-end YMGap.Continuum.ScratchPoly2
+end YMGap.Continuum.FusionChannelIneq
 
-#print axioms YMGap.Continuum.ScratchPoly2.polyI2
-#print axioms YMGap.Continuum.ScratchPoly2.polyI1
-#print axioms YMGap.Continuum.ScratchPoly2.polyI0
+#print axioms YMGap.Continuum.FusionChannelIneq.polyI2
+#print axioms YMGap.Continuum.FusionChannelIneq.polyI1
+#print axioms YMGap.Continuum.FusionChannelIneq.polyI0
+
+#print axioms YMGap.Continuum.FusionChannelIneq.polyI2
+#print axioms YMGap.Continuum.FusionChannelIneq.polyI1
+#print axioms YMGap.Continuum.FusionChannelIneq.polyI0
