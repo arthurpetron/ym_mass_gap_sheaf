@@ -238,6 +238,8 @@ import YMGap.Continuum.HeatKernelGaussNode
 import YMGap.Continuum.FusionCoreStepRoundC
 import YMGap.Continuum.ChebDiscreteOrtho
 import YMGap.Continuum.FusionCoreStepRoundD
+import YMGap.Continuum.ChebLocatedRoots
+import YMGap.Continuum.FusionCoreStepRoundE
 import YMGap.Continuum.OSReconstruction
 import YMGap.Continuum.SpectralGap
 import YMGap.Continuum.SpectralGapConverse
