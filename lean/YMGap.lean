@@ -234,6 +234,8 @@ import YMGap.Continuum.HeatKernelGramSOS
 import YMGap.Continuum.FusionCoreStepRoundA
 import YMGap.Continuum.HeatKernelNodeQuad
 import YMGap.Continuum.FusionCoreStepRoundB
+import YMGap.Continuum.HeatKernelGaussNode
+import YMGap.Continuum.FusionCoreStepRoundC
 import YMGap.Continuum.OSReconstruction
 import YMGap.Continuum.SpectralGap
 import YMGap.Continuum.SpectralGapConverse
