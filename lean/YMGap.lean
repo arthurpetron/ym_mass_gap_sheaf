@@ -379,10 +379,12 @@ import YMGap.Continuum.CodynamicPhysFloor
 import YMGap.Continuum.UnifiedContinuumFloor
 import YMGap.Continuum.RateMatchFloor
 import YMGap.Continuum.AFRateMatch
+import YMGap.Continuum.AFSpacingRatio
 import YMGap.Continuum.WindowedSpacingFloor
 import YMGap.Continuum.SharpContinuumObligation
 import YMGap.Continuum.ContinuumFrontierScorecard
 import YMGap.Continuum.TransmutationLimit
+import YMGap.Continuum.BlockSpinModel
 -- NOTE: `YMGap.PolyAtlas` and `YMGap.ModuliAlgebra` are non-load-bearing
 -- expository/design-closure scaffolding (their own headers state "NOT
 -- load-bearing"); no other module imports them and nothing references their
