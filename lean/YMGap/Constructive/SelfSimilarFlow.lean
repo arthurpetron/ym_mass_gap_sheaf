@@ -435,6 +435,298 @@ theorem concreteSelfSimilarFlow (b k : Nat) :
       (cpow (sep (concreteTower b) (k + 1)) (b + 1)) :=
   selfSimilarCReal (concreteTower b) k
 
+/-! ## 9. The IRRATIONAL `e^{−1}` exponent seed (Goal 1)
+
+§8 seeded the tower with a RATIONAL exponent `w 0 = 1/2` only because `ExpNeg.Mexp`
+(the natural Cauchy modulus of `e^{−1} = expNeg 1`) is **not antitone** over the
+unreduced `Q'` representation, so it cannot directly fill the `ExpNegCData.hMwmono`
+field for an `e^{−1}` seed.
+
+This section removes that restriction by building a genuinely **antitone** Cauchy
+modulus `accModE` for the seed sequence `partialSum 1` (the approximations of
+`expNeg 1 = e^{−1}`), and assembling a tower `wTowerSeed` seeded at `e^{−1}` whose
+separators have **irrational exponents**.
+
+### 9a. The dual `[0,1]` upper bracket `partialSum 1 k ≤ 1`
+
+The mirror of `ExpNeg.oneSub_le_partialSum` (the alternating-series *lower* bracket):
+for `0 ≤ x ≤ 1` every partial sum is `≤ 1`, because the odd-indexed (down-stepping)
+sums stay below the leading `partialSum x 1 = 1`. -/
+
+/-- **Consecutive-pair nonpositivity** (the DUAL of `ExpNeg.pair_nonneg`).  For
+`0 ≤ x ≤ 1`, `term x (2m+1) + term x (2m+2) ≤ 0`: the odd (negative) term dominates
+the next (positive) one.  Factor `term (2m+2) = term (2m+1)·((−x)·1/(2m+2))` and use
+`term (2m+1) ≤ 0`, `0 ≤ 1 + (−x)·1/(2m+2)`. -/
+theorem pair_nonpos {x : Q'} (hx0 : (0 : Q') ≤ x) (hx1 : x ≤ (1 : Q')) (m : Nat) :
+    ExpNeg.term x (2 * m + 1) + ExpNeg.term x (2 * m + 2) ≤ (0 : Q') := by
+  have hodd : ExpNeg.term x (2 * m + 1) ≤ (0 : Q') := (ExpNeg.term_sign hx0 m).2
+  have e2 : 2 * m + 2 = (2 * m + 1) + 1 := by omega
+  rw [e2, ExpNeg.term_succ]
+  have hmnn : (0 : Q') ≤ Q'.mkPos 1 ((2 * m + 1) + 1) (Nat.succ_pos _) := Q'.invSucc_nonneg _
+  have hmle1 : Q'.mkPos 1 ((2 * m + 1) + 1) (Nat.succ_pos _) ≤ (1 : Q') :=
+    Q'.le_trans' _ _ _ (ExpNeg.invSucc_le_of_le (Nat.zero_le (2 * m + 1))) (by decide)
+  have hxm : x * Q'.mkPos 1 ((2 * m + 1) + 1) (Nat.succ_pos _) ≤ (1 : Q') :=
+    Q'.le_trans' _ _ _ (Q'.mul_le_mul_of_nonneg_right x 1 _ hx1 hmnn)
+      (Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.one_mul_eqv _)) hmle1)
+  have hrfge : (0 : Q') ≤ (1 : Q') + (-x) * Q'.mkPos 1 ((2 * m + 1) + 1) (Nat.succ_pos _) :=
+    Q'.le_trans' _ _ _ (Q'.sub_nonneg_of_le hxm)
+      (Q'.le_of_eqv (Q'.add_eqv_congr_left 1 _ _ (Q'.eqv_symm (Q'.neg_mul_eqv x _))))
+  have hprod : ((1 : Q') + (-x) * Q'.mkPos 1 ((2 * m + 1) + 1) (Nat.succ_pos _))
+      * ExpNeg.term x (2 * m + 1) ≤ (0 : Q') :=
+    Q'.mul_nonpos_of_nonneg_nonpos hrfge hodd
+  refine Q'.le_trans' _ _ _ (Q'.le_of_eqv ?_) hprod
+  refine Q'.eqv_symm ?_
+  refine Q'.eqv_trans _ _ _
+    (ExpNeg.add_mul_eqv 1 ((-x) * Q'.mkPos 1 ((2 * m + 1) + 1) (Nat.succ_pos _))
+      (ExpNeg.term x (2 * m + 1))) ?_
+  exact ExpNeg.add_eqv_congr2 (Q'.one_mul_eqv _)
+    (Q'.mul_comm_eqv ((-x) * Q'.mkPos 1 ((2 * m + 1) + 1) (Nat.succ_pos _))
+      (ExpNeg.term x (2 * m + 1)))
+
+/-- **Odd-indexed partial sums are ≤ 1** (for `0 ≤ x ≤ 1`).  Induction: base
+`partialSum x 1 = 1`; step adds a nonpositive consecutive pair. -/
+theorem even_ub {x : Q'} (hx0 : (0 : Q') ≤ x) (hx1 : x ≤ (1 : Q')) :
+    ∀ m, ExpNeg.partialSum x (2 * m + 1) ≤ (1 : Q')
+  | 0 => by
+      show ExpNeg.partialSum x 1 ≤ (1 : Q')
+      rw [ExpNeg.partialSum_one]; exact Q'.le_refl' 1
+  | m + 1 => by
+      have IH := even_ub hx0 hx1 m
+      have hpair : ExpNeg.term x (2 * m + 1) + ExpNeg.term x ((2 * m + 1) + 1) ≤ (0 : Q') := by
+        have e : 2 * m + 2 = (2 * m + 1) + 1 := by omega
+        rw [← e]; exact pair_nonpos hx0 hx1 m
+      have eidx : 2 * (m + 1) + 1 = ((2 * m + 1) + 1) + 1 := by omega
+      rw [eidx, ExpNeg.partialSum_succ, ExpNeg.partialSum_succ]
+      refine Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.add_assoc_eqv _ _ _)) ?_
+      refine Q'.le_trans' _ _ _ (Q'.add_le_add_left _ _ 0 hpair) ?_
+      exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (QPoly.q_add_zero_eqv _)) IH
+
+/-- **Even-indexed partial sums are ≤ 1**: the preceding odd sum plus a nonpositive
+odd term. -/
+theorem odd_ub {x : Q'} (hx0 : (0 : Q') ≤ x) (hx1 : x ≤ (1 : Q')) (m : Nat) :
+    ExpNeg.partialSum x (2 * m + 2) ≤ (1 : Q') := by
+  have he := even_ub hx0 hx1 m
+  have hodd : ExpNeg.term x (2 * m + 1) ≤ (0 : Q') := (ExpNeg.term_sign hx0 m).2
+  have e : 2 * m + 2 = (2 * m + 1) + 1 := by omega
+  rw [e, ExpNeg.partialSum_succ]
+  refine Q'.le_trans' _ _ _ (Q'.add_le_add_left _ _ 0 hodd) ?_
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (QPoly.q_add_zero_eqv _)) he
+
+/-- **The alternating-series UPPER bracket.**  For `0 ≤ x ≤ 1` and every `n`,
+`partialSum x n ≤ 1`.  Splits on the parity of `n` (with `n = 0, 1` direct). -/
+theorem partialSum_le_one {x : Q'} (hx0 : (0 : Q') ≤ x) (hx1 : x ≤ (1 : Q')) :
+    ∀ n, ExpNeg.partialSum x n ≤ (1 : Q')
+  | 0 => by rw [ExpNeg.partialSum_zero]; decide
+  | 1 => by rw [ExpNeg.partialSum_one]; exact Q'.le_refl' 1
+  | (n + 2) => by
+      rcases (by omega : (n + 2) % 2 = 0 ∨ (n + 2) % 2 = 1) with h | h
+      · have e : n + 2 = 2 * ((n + 2) / 2 - 1) + 2 := by omega
+        rw [e]; exact odd_ub hx0 hx1 _
+      · have e : n + 2 = 2 * ((n + 2) / 2) + 1 := by omega
+        rw [e]; exact even_ub hx0 hx1 _
+
+/-- **The lower bracket `0 ≤ partialSum x n`** for `0 ≤ x ≤ 1` (every partial sum is
+`≥ 1 − x ≥ 0`).  Direct at `n = 0, 1`; `n ≥ 2` from `ExpNeg.oneSub_le_partialSum`. -/
+theorem zero_le_partialSum {x : Q'} (hx0 : (0 : Q') ≤ x) (hx1 : x ≤ (1 : Q')) :
+    ∀ n, (0 : Q') ≤ ExpNeg.partialSum x n
+  | 0 => by rw [ExpNeg.partialSum_zero]; exact Q'.le_refl' 0
+  | 1 => by rw [ExpNeg.partialSum_one]; decide
+  | (n + 2) => by
+      have hlb := ExpNeg.oneSub_le_partialSum hx0 hx1 (n + 2) (by omega)
+      exact Q'.le_trans' _ _ _ (Q'.sub_nonneg_of_le hx1) hlb
+
+/-! ### 9b. An ANTITONE Cauchy modulus `accModE` for the `e^{−1}` seed sequence
+
+`ExpNeg.Mexp 1 ε` depends on `ε` only through `ε.den` (the unreduced denominator),
+which is NOT antitone in the *value* of `ε`.  We monotonise it: pick the antitone
+"reciprocal level" `lv ε = least n with 1/(n+1) ≤ ε`, then take the running max of
+`Mexp 1 ∘ invSucc` up to that level.  The result `accModE` is antitone in the value
+of `ε` and still dominates a valid Cauchy threshold for tolerance `ε`. -/
+
+/-- Bounded linear minimisation: the least `m ≥ n` in the window `[n, n+fuel)` with
+`P m = true` (falling back to `n + fuel` if none). -/
+def leastFrom (P : Nat → Bool) : Nat → Nat → Nat
+  | 0, n => n
+  | (fuel + 1), n => match P n with
+                     | true => n
+                     | false => leastFrom P fuel (n + 1)
+
+/-- **Soundness**: a witness in the window makes `leastFrom` land on a true point. -/
+theorem leastFrom_sound (P : Nat → Bool) :
+    ∀ (fuel n w : Nat), n ≤ w → w < n + fuel → P w = true →
+      P (leastFrom P fuel n) = true
+  | 0, _, _, hnw, hwlt, _ => absurd hwlt (by omega)
+  | (fuel + 1), n, w, hnw, hwlt, hpw => by
+      simp only [leastFrom]
+      cases hpn : P n with
+      | true => simp only [hpn]
+      | false =>
+          have hne : w ≠ n := by
+            intro h; rw [h, hpn] at hpw; exact Bool.noConfusion hpw
+          exact leastFrom_sound P fuel (n + 1) w (by omega) (by omega) hpw
+
+/-- **Lower bound**: `leastFrom` never overshoots a true point `m ≥ n`. -/
+theorem leastFrom_lb (P : Nat → Bool) :
+    ∀ (fuel n m : Nat), n ≤ m → P m = true → leastFrom P fuel n ≤ m
+  | 0, _, _, hnm, _ => by simp only [leastFrom]; exact hnm
+  | (fuel + 1), n, m, hnm, hpm => by
+      simp only [leastFrom]
+      cases hpn : P n with
+      | true => exact hnm
+      | false =>
+          have hne : m ≠ n := by
+            intro h; rw [h, hpn] at hpm; exact Bool.noConfusion hpm
+          exact leastFrom_lb P fuel (n + 1) m (by omega) hpm
+
+/-- **The reciprocal level** `lv ε = least n with 1/(n+1) ≤ ε`.  Searches `[0, ε.den]`
+(which contains the witness `ε.den`, since `invSucc ε.den ≤ ε`). -/
+def lv (ε : Q') : Nat :=
+  leastFrom (fun n => decide (Q'.invSucc n ≤ ε)) (ε.den + 1) 0
+
+/-- `1/(lv ε + 1) ≤ ε` — the level certifies a unit fraction below `ε`. -/
+theorem invSucc_lv_le {ε : Q'} (hε : (0 : Q') < ε) : Q'.invSucc (lv ε) ≤ ε := by
+  have hwit : (fun n => decide (Q'.invSucc n ≤ ε)) ε.den = true :=
+    decide_eq_true (HalfPow.invSucc_den_le ε hε)
+  have hsound := leastFrom_sound (fun n => decide (Q'.invSucc n ≤ ε)) (ε.den + 1) 0 ε.den
+    (Nat.zero_le _) (by omega) hwit
+  exact of_decide_eq_true hsound
+
+/-- `lv` is a lower bound on the witnesses: `1/(n+1) ≤ ε → lv ε ≤ n`. -/
+theorem lv_lb {ε : Q'} {n : Nat} (h : Q'.invSucc n ≤ ε) : lv ε ≤ n :=
+  leastFrom_lb (fun k => decide (Q'.invSucc k ≤ ε)) (ε.den + 1) 0 n (Nat.zero_le _)
+    (decide_eq_true h)
+
+/-- **`lv` is value-antitone**: `δ ≤ ε ⇒ lv ε ≤ lv δ`.  Because `1/(lv δ+1) ≤ δ ≤ ε`,
+so `lv δ` is a witness for `ε`, hence `lv ε ≤ lv δ`. -/
+theorem lv_antitone {ε δ : Q'} (hδ : (0 : Q') < δ) (hδε : δ ≤ ε) : lv ε ≤ lv δ :=
+  lv_lb (Q'.le_trans' _ _ _ (invSucc_lv_le hδ) hδε)
+
+/-- Running max `Gmax f n = max (f 0) … (f n)`. -/
+def Gmax (f : Nat → Nat) : Nat → Nat
+  | 0 => f 0
+  | (n + 1) => max (Gmax f n) (f (n + 1))
+
+/-- Each rung is below its running max. -/
+theorem Gmax_ge (f : Nat → Nat) : ∀ n, f n ≤ Gmax f n
+  | 0 => Nat.le_refl _
+  | (_ + 1) => Nat.le_max_right _ _
+
+/-- One-step monotonicity of the running max. -/
+theorem Gmax_le_succ (f : Nat → Nat) (n : Nat) : Gmax f n ≤ Gmax f (n + 1) :=
+  Nat.le_max_left _ _
+
+/-- The running max is monotone increasing. -/
+theorem Gmax_mono (f : Nat → Nat) : ∀ m n : Nat, m ≤ n → Gmax f m ≤ Gmax f n := by
+  intro m n h
+  induction n with
+  | zero => have hm : m = 0 := Nat.le_zero.mp h; subst hm; exact Nat.le_refl _
+  | succ k ih =>
+      rcases Nat.lt_or_ge m (k + 1) with hlt | hge
+      · exact Nat.le_trans (ih (Nat.lt_succ_iff.mp hlt)) (Gmax_le_succ f k)
+      · have hmk : m = k + 1 := Nat.le_antisymm h hge
+        subst hmk; exact Nat.le_refl _
+
+/-- **The antitone Cauchy modulus for the `e^{−1}` seed sequence** `partialSum 1`:
+the running max of `Mexp 1 ∘ invSucc` up to the reciprocal level `lv ε`. -/
+def accModE (ε : Q') : Nat :=
+  Gmax (fun n => ExpNeg.Mexp 1 (Q'.invSucc n)) (lv ε)
+
+/-- **Antitonicity** of `accModE` (the `hMwmono` field): `δ ≤ ε ⇒ accModE ε ≤ accModE δ`
+(compose the antitone `lv` with the monotone running max). -/
+theorem accModE_antitone {ε δ : Q'} (hδ : (0 : Q') < δ) (hδε : δ ≤ ε) :
+    accModE ε ≤ accModE δ :=
+  Gmax_mono _ _ _ (lv_antitone hδ hδε)
+
+/-- **`accModE` is a valid Cauchy modulus for `partialSum 1`** (the `hMw` field):
+for `m, n ≥ accModE ε`, `partialSum 1 m` and `partialSum 1 n` agree to within `ε`.
+Because `accModE ε ≥ Mexp 1 (invSucc (lv ε))` and `invSucc (lv ε) ≤ ε`. -/
+theorem accModE_valid {ε : Q'} (hε : (0 : Q') < ε) (m n : Nat)
+    (hm : accModE ε ≤ m) (hn : accModE ε ≤ n) :
+    ExpNeg.partialSum 1 m ≤ ExpNeg.partialSum 1 n + ε ∧
+    ExpNeg.partialSum 1 n ≤ ExpNeg.partialSum 1 m + ε := by
+  have hge : ExpNeg.Mexp 1 (Q'.invSucc (lv ε)) ≤ accModE ε :=
+    Gmax_ge (fun k => ExpNeg.Mexp 1 (Q'.invSucc k)) (lv ε)
+  have hm' : ExpNeg.Mexp 1 (Q'.invSucc (lv ε)) ≤ m := Nat.le_trans hge hm
+  have hn' : ExpNeg.Mexp 1 (Q'.invSucc (lv ε)) ≤ n := Nat.le_trans hge hn
+  obtain ⟨h1, h2⟩ := ExpNeg.expNeg_cauchy_explicit 1 (by decide) (Q'.invSucc (lv ε))
+    (Q'.invSucc_pos _) m n hm' hn'
+  have hle : Q'.invSucc (lv ε) ≤ ε := invSucc_lv_le hε
+  exact ⟨Q'.le_trans' _ _ _ h1 (Q'.add_le_add_left _ _ _ hle),
+         Q'.le_trans' _ _ _ h2 (Q'.add_le_add_left _ _ _ hle)⟩
+
+/-! ### 9c. The `e^{−1}` seed data and the irrational-exponent tower -/
+
+/-- **`ExpNegCData` for the irrational seed `e^{−1} = expNeg 1`.**  Nonnegativity and
+the sub-unit bound are the two alternating-series brackets (`zero_le_partialSum`,
+`partialSum_le_one`); the modulus is the antitone `accModE` (valid + antitone above). -/
+def expNeg1Data : ExpNegCData (ExpNeg.expNeg 1 (by decide)) where
+  Mw := accModE
+  hpos := fun k => zero_le_partialSum (by decide) (by decide) k
+  hle1 := fun k => partialSum_le_one (by decide) (by decide) k
+  hMw := fun ε hε m n hm hn => accModE_valid hε m n hm hn
+  hMwmono := fun _ _ hδ hδε => accModE_antitone hδ hδε
+
+/-- A self-similar exponent tower seeded at an ARBITRARY `[0,1]` CReal exponent `w0`
+with modulus data `d0`: `w 0 = w0`, `w (k+1) = (1/(b+1))·w k`.  The descent and
+sub-unit bounds are seed-agnostic (they only use the `(1/(b+1))`-scaling recurrence),
+so the §8 proofs transfer verbatim. -/
+def wTowerSeed (w0 : CReal) (b : Nat) : Nat → CReal
+  | 0 => w0
+  | (k + 1) => CReal.mul (CReal.ofQ' (Q'.invSucc b)) (wTowerSeed w0 b k)
+
+/-- Modulus data for every level of `wTowerSeed` (base `d0`, descent `scaleQData`). -/
+def dwTowerSeed (w0 : CReal) (d0 : ExpNegCData w0) (b : Nat) :
+    (k : Nat) → ExpNegCData (wTowerSeed w0 b k)
+  | 0 => d0
+  | (k + 1) =>
+      scaleQData (Q'.invSucc b) (Q'.invSucc_nonneg b) (invSucc_le_one b)
+        (wTowerSeed w0 b k) (dwTowerSeed w0 d0 b k)
+
+/-- The exact `(b+1)`-fold descent for the seeded tower (seed-agnostic). -/
+theorem wTowerSeed_descent (w0 : CReal) (b k j : Nat) :
+    ((scaleN (b + 1) (wTowerSeed w0 b (k + 1))).approx j).eqv
+      ((wTowerSeed w0 b k).approx j) := by
+  refine Q'.eqv_trans _ _ _ (scaleN_approx (b + 1) (wTowerSeed w0 b (k + 1)) j) ?_
+  show (Q'.ofNat (b + 1) * (Q'.invSucc b * (wTowerSeed w0 b k).approx j)).eqv
+    ((wTowerSeed w0 b k).approx j)
+  refine Q'.eqv_trans _ _ _
+    (Q'.eqv_symm (Q'.mul_assoc_eqv (Q'.ofNat (b + 1)) (Q'.invSucc b)
+      ((wTowerSeed w0 b k).approx j))) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_right (Q'.ofNat (b + 1) * Q'.invSucc b) 1
+      ((wTowerSeed w0 b k).approx j) (Q'.ofNat_succ_mul_invSucc b)) ?_
+  exact Q'.one_mul_eqv ((wTowerSeed w0 b k).approx j)
+
+/-- The `(b+1)`-fold sub-unit bound for the seeded tower. -/
+theorem wTowerSeed_bnd (w0 : CReal) (d0 : ExpNegCData w0) (b k j : Nat) :
+    (scaleN (b + 1) (wTowerSeed w0 b (k + 1))).approx j ≤ 1 :=
+  Q'.le_trans' _ _ _ (Q'.le_of_eqv (wTowerSeed_descent w0 b k j))
+    ((dwTowerSeed w0 d0 b k).hle1 j)
+
+/-- **A self-similar tower from any seeded `[0,1]` exponent.** -/
+def concreteTowerSeed (w0 : CReal) (d0 : ExpNegCData w0) (b : Nat) :
+    SelfSimilarTower b where
+  w := wTowerSeed w0 b
+  dw := dwTowerSeed w0 d0 b
+  bnd := wTowerSeed_bnd w0 d0 b
+  div := wTowerSeed_descent w0 b
+
+/-- **THE IRRATIONAL-EXPONENT TOWER.**  Seeded at `e^{−1}` (an irrational CReal
+exponent in `[0,1]`), with the antitone modulus `accModE`.  Every exponent
+`wTowerSeed (e^{−1}) b k = e^{−1}/(b+1)^k` is irrational. -/
+def concreteTowerE (b : Nat) : SelfSimilarTower b :=
+  concreteTowerSeed (ExpNeg.expNeg 1 (by decide)) expNeg1Data b
+
+/-- **THE CLOSED SELF-SIMILAR CReal FLOW WITH IRRATIONAL EXPONENTS.**  For every `b`
+and scale `k`, the separators `sep (concreteTowerE b) k = e^{−(e^{−1}/(b+1)^k)}` of the
+`e^{−1}`-seeded tower satisfy the codynamic flow law `sep k ≈ (sep (k+1))^(b+1)`.
+This upgrades `concreteSelfSimilarFlow` from a rational exponent seed (`1/2`) to a
+genuinely IRRATIONAL exponent seed (`1/e`). -/
+theorem concreteSelfSimilarFlowE (b k : Nat) :
+    CReal.Equiv (sep (concreteTowerE b) k)
+      (cpow (sep (concreteTowerE b) (k + 1)) (b + 1)) :=
+  selfSimilarCReal (concreteTowerE b) k
+
 end CReal
 
 end YMGap.Constructive
@@ -457,3 +749,16 @@ end YMGap.Constructive
 #print axioms YMGap.Constructive.CReal.wTower_bnd
 #print axioms YMGap.Constructive.CReal.concreteTower
 #print axioms YMGap.Constructive.CReal.concreteSelfSimilarFlow
+#print axioms YMGap.Constructive.CReal.pair_nonpos
+#print axioms YMGap.Constructive.CReal.partialSum_le_one
+#print axioms YMGap.Constructive.CReal.zero_le_partialSum
+#print axioms YMGap.Constructive.CReal.leastFrom_sound
+#print axioms YMGap.Constructive.CReal.leastFrom_lb
+#print axioms YMGap.Constructive.CReal.invSucc_lv_le
+#print axioms YMGap.Constructive.CReal.lv_antitone
+#print axioms YMGap.Constructive.CReal.Gmax_mono
+#print axioms YMGap.Constructive.CReal.accModE_antitone
+#print axioms YMGap.Constructive.CReal.accModE_valid
+#print axioms YMGap.Constructive.CReal.expNeg1Data
+#print axioms YMGap.Constructive.CReal.concreteTowerE
+#print axioms YMGap.Constructive.CReal.concreteSelfSimilarFlowE
