@@ -376,6 +376,8 @@ import YMGap.Continuum.S1Dominance
 import YMGap.Continuum.EigShiftOrder
 import YMGap.Continuum.GapIsEigenvalue
 import YMGap.Continuum.VacNormEigShift
+import YMGap.Continuum.RefinedRetune
+import YMGap.Continuum.CumulativeBulkShift
 import YMGap.Continuum.WeakRegionNoGo
 import YMGap.Continuum.CodynamicGap
 import YMGap.Continuum.CodynamicBondMoving
