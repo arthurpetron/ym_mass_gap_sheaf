@@ -246,6 +246,7 @@ import YMGap.Continuum.OSReconstructionProgress
 import YMGap.Continuum.GNSQuotient
 import YMGap.Continuum.GNSCompletion
 import YMGap.Continuum.WilsonGNS
+import YMGap.Continuum.GNSHilbertSpace
 import YMGap.Continuum.CompactTransferGNS
 import YMGap.Continuum.LocatedReconstruction
 import YMGap.Continuum.FourDExistence
@@ -372,6 +373,7 @@ import YMGap.Continuum.CodynamicTransmutation
 import YMGap.Rubric.ClayScorecard
 import YMGap.Constructive.SelfSimilarFlow
 import YMGap.Continuum.CodynamicCRealFlow
+import YMGap.Continuum.CodynamicPhysFloor
 -- NOTE: `YMGap.PolyAtlas` and `YMGap.ModuliAlgebra` are non-load-bearing
 -- expository/design-closure scaffolding (their own headers state "NOT
 -- load-bearing"); no other module imports them and nothing references their
