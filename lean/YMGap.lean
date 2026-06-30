@@ -377,6 +377,9 @@ import YMGap.Constructive.SelfSimilarFlow
 import YMGap.Continuum.CodynamicCRealFlow
 import YMGap.Continuum.CodynamicPhysFloor
 import YMGap.Continuum.UnifiedContinuumFloor
+import YMGap.Continuum.RateMatchFloor
+import YMGap.Continuum.WindowedSpacingFloor
+import YMGap.Continuum.SharpContinuumObligation
 import YMGap.Continuum.ContinuumFrontierScorecard
 -- NOTE: `YMGap.PolyAtlas` and `YMGap.ModuliAlgebra` are non-load-bearing
 -- expository/design-closure scaffolding (their own headers state "NOT
