@@ -375,6 +375,7 @@ import YMGap.Continuum.CharacterWindowCeiling
 import YMGap.Continuum.S1Dominance
 import YMGap.Continuum.EigShiftOrder
 import YMGap.Continuum.GapIsEigenvalue
+import YMGap.Continuum.VacNormEigShift
 import YMGap.Continuum.WeakRegionNoGo
 import YMGap.Continuum.CodynamicGap
 import YMGap.Continuum.CodynamicBondMoving
@@ -395,6 +396,7 @@ import YMGap.Continuum.ContinuumFrontierScorecard
 import YMGap.Continuum.TransmutationLimit
 import YMGap.Continuum.BlockSpinModel
 import YMGap.Continuum.BlockingStepFrontier
+import YMGap.Continuum.DeltaFrontierLedger
 -- NOTE: `YMGap.PolyAtlas` and `YMGap.ModuliAlgebra` are non-load-bearing
 -- expository/design-closure scaffolding (their own headers state "NOT
 -- load-bearing"); no other module imports them and nothing references their
