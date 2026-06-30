@@ -47,11 +47,17 @@ data.  Each load-bearing declaration is gated with `#print axioms` (permitted:
 
 import YMGap.Constructive.SelfSimilarFlow
 import YMGap.Continuum.CodynamicTransmutation
+import YMGap.Continuum.TuranPositivity
+import YMGap.Constructive.Soundness
+import YMGap.Constructive.CRealMulMono
 
 namespace YMGap.Continuum.CodynamicCRealFlow
 
 open YMGap.Constructive
 open YMGap.Constructive.CReal
+open YMGap.Constructive.CRealAlg
+open YMGap.Continuum.HeatKernelRGStep
+open YMGap.Continuum.TuranPositivity
 
 /-! ## 1. The CReal self-similarity predicate -/
 
@@ -133,6 +139,263 @@ theorem marginBudget_pos_along_selfSimilar {b : Nat} {seq : Nat → Q'}
     (0 : Q') < ((1 : Q') - seq N) * CodynamicTransmutation.marginProductTail b seq N :=
   CodynamicTransmutation.marginBudget_pos hss h0 N
 
+/-! ## 4. The CReal finite geometric sum and the exact `1 − xⁿ` factorization
+
+The rational `CodynamicTransmutation.oneSub_pow_factor` is the engine of the
+margin telescoping.  We lift it to `CReal`.  Because `CReal.mul`, `CReal.add`,
+`CReal.neg` are all *approx-wise definitional* and `cpow x m` has approximation
+`qpow (x.approx n) m`, the CReal geometric sum has approximation `geomSum (x.approx
+n) m`, so the CReal factorization reduces — index by index — to the existing `Q'`
+factorization `oneSub_pow_factor`. -/
+
+/-- **The CReal finite geometric sum** `geomSumC x m = ∑_{i<m} xⁱ` (fold, highest
+term on the right) — the constructive-real analogue of `geomSum`. -/
+def geomSumC (x : CReal) : Nat → CReal
+  | 0 => CReal.czero
+  | n + 1 => CReal.add (geomSumC x n) (CReal.cpow x n)
+
+/-- `cpow x m` has approximation `qpow (x.approx n) m` (both are the same `Nat`-power
+fold; `CReal.mul` is approx-wise). -/
+theorem cpow_approx (x : CReal) :
+    ∀ (m n : Nat), (CReal.cpow x m).approx n = RGTransport.qpow (x.approx n) m
+  | 0, _ => rfl
+  | m + 1, n => by
+      show (CReal.cpow x m).approx n * x.approx n
+        = RGTransport.qpow (x.approx n) m * x.approx n
+      rw [cpow_approx x m n]
+
+/-- `geomSumC x m` has approximation `geomSum (x.approx n) m` (the `CReal` sum is
+approx-wise; `cpow_approx` handles the term). -/
+theorem geomSumC_approx (x : CReal) :
+    ∀ (m n : Nat), (geomSumC x m).approx n = geomSum (x.approx n) m
+  | 0, _ => rfl
+  | m + 1, n => by
+      show (geomSumC x m).approx n + (CReal.cpow x m).approx n
+        = geomSum (x.approx n) m + RGTransport.qpow (x.approx n) m
+      rw [geomSumC_approx x m n, cpow_approx x m n]
+
+/-- **THE CReal FINITE GEOMETRIC FACTORIZATION** `1 − x^(b+1) ≃ (1 − x)·∑_{i<b+1} xⁱ`
+at the `CReal` level — the lift of `oneSub_pow_factor`.  Proved index-wise: every
+approximation reduces (via `cpow_approx` / `geomSumC_approx`) to the rational
+identity `oneSub_pow_factor (x.approx n) (b+1)`. -/
+theorem oneSub_pow_factorC (x : CReal) (b : Nat) :
+    CReal.Equiv (CReal.sub CReal.cone (CReal.cpow x (b + 1)))
+      (CReal.mul (CReal.sub CReal.cone x) (geomSumC x (b + 1))) := by
+  refine SumOfSquares.Equiv_of_approx_eqv (fun n => ?_)
+  show ((1 : Q') + -(CReal.cpow x (b + 1)).approx n).eqv
+      (((1 : Q') + -(x.approx n)) * (geomSumC x (b + 1)).approx n)
+  rw [cpow_approx x (b + 1) n, geomSumC_approx x (b + 1) n]
+  exact oneSub_pow_factor (x.approx n) (b + 1)
+
+/-! ## 5. The conserved-margin invariant, lifted to `CReal`
+
+The rational `marginInvariant` is a telescoping induction over `margin_step`,
+`mul_swap_right`, and the `Q'` multiplicative congruences.  Every ingredient has a
+`CReal` counterpart (`oneSub_pow_factorC`, the `CRealAlg` ring lemmas, the
+`CReal.*_congr` congruences), so the proof mirrors the rational one verbatim. -/
+
+/-- `Equiv` congruence for `mul` on the right (from `mul_congr_left` + `cmul_comm`). -/
+theorem mul_congr_rightC {A B B' : CReal} (h : CReal.Equiv B B') :
+    CReal.Equiv (CReal.mul A B) (CReal.mul A B') :=
+  CReal.Equiv.trans (cmul_comm A B)
+    (CReal.Equiv.trans (CReal.mul_congr_left h) (cmul_comm B' A))
+
+/-- `x·(y·z) ≃ (x·z)·y` (the CReal swap used to peel the top geomSum factor). -/
+theorem mul_swap_rightC (x y z : CReal) :
+    CReal.Equiv (CReal.mul x (CReal.mul y z)) (CReal.mul (CReal.mul x z) y) :=
+  CReal.Equiv.trans (mul_congr_rightC (cmul_comm y z))
+    (CReal.Equiv.symm (cmul_assoc x z y))
+
+/-- **The per-step CReal margin recurrence.**  Under the CReal flow law,
+`1 − s k ≃ (1 − s (k+1))·geomSumC (s (k+1)) (b+1)` — the lift of `margin_step`. -/
+theorem margin_stepC {b : Nat} {s : Nat → CReal} (hss : selfSimilarC b s) (k : Nat) :
+    CReal.Equiv (CReal.sub CReal.cone (s k))
+      (CReal.mul (CReal.sub CReal.cone (s (k + 1))) (geomSumC (s (k + 1)) (b + 1))) :=
+  CReal.Equiv.trans (CReal.sub_congr_right (hss k)) (oneSub_pow_factorC (s (k + 1)) b)
+
+/-- The CReal margin-product tail `∏_{j=1}^{N} g j` (top factor on the right) — the
+constructive-real analogue of `marginProductTail`. -/
+def cprodTail (g : Nat → CReal) : Nat → CReal
+  | 0 => CReal.cone
+  | N + 1 => CReal.mul (cprodTail g N) (g (N + 1))
+
+/-- **THE CONSERVED-MARGIN INVARIANT, LIFTED TO `CReal`.**  Under the CReal flow law
+the geometrically-rescaled margin is a flow invariant:
+
+    (1 − s N) · ∏_{j=1}^{N} geomSumC (s j) (b+1) ≃ 1 − s 0,
+
+for every scale `N` — the constructive-real `marginInvariant`.  Proof: induction on
+`N` via `margin_stepC` + `mul_swap_rightC`, mirroring the rational telescoping.  This
+is the codynamic "summable budget" made exact along a genuine *irrational*
+constructive-real self-similar flow (where no rational flow exists). -/
+theorem marginInvariantC {b : Nat} {s : Nat → CReal} (hss : selfSimilarC b s) :
+    ∀ N, CReal.Equiv
+      (CReal.mul (CReal.sub CReal.cone (s N))
+        (cprodTail (fun j => geomSumC (s j) (b + 1)) N))
+      (CReal.sub CReal.cone (s 0))
+  | 0 => cmul_cone (CReal.sub CReal.cone (s 0))
+  | N + 1 => by
+      refine CReal.Equiv.trans
+        (mul_swap_rightC (CReal.sub CReal.cone (s (N + 1)))
+          (cprodTail (fun j => geomSumC (s j) (b + 1)) N)
+          (geomSumC (s (N + 1)) (b + 1))) ?_
+      have hstep : CReal.Equiv
+          (CReal.mul (CReal.sub CReal.cone (s (N + 1))) (geomSumC (s (N + 1)) (b + 1)))
+          (CReal.sub CReal.cone (s N)) :=
+        CReal.Equiv.symm (margin_stepC hss N)
+      exact CReal.Equiv.trans (CReal.mul_congr_left hstep) (marginInvariantC hss N)
+
+/-! ## 6. The budget is strictly positive (Equiv-stable `PosEv`)
+
+The rational `marginBudget_pos` is conditional on a genuine UV margin (`sep 0 < 1`).
+Its faithful `CReal` lift is conditional on the eventual strict positivity of the
+*base* margin `1 − s 0` (the `Equiv`-stable `TuranPositivity.PosEv`, which — unlike
+the one-slack `IsPositive` — transports across `Equiv`).  Given that single base
+positivity, the rescaled margin at EVERY scale is strictly positive, because it
+equals the fixed positive `1 − s 0` by `marginInvariantC`. -/
+
+/-- **THE CReal BUDGET IS BOUNDED BELOW AWAY FROM ZERO.**  Given the eventual strict
+positivity of the base margin `1 − s 0` (the genuine UV margin, the `CReal` analogue
+of `sep 0 < 1`), the rescaled margin `(1 − s N)·∏geomSumC` is strictly positive
+(`PosEv`) at every scale — it transports the fixed positive `1 − s 0` across the
+conserved invariant.  The constructive-real `marginBudget_pos`. -/
+theorem marginBudget_posC {b : Nat} {s : Nat → CReal} (hss : selfSimilarC b s)
+    (h0 : PosEv (CReal.sub CReal.cone (s 0))) (N : Nat) :
+    PosEv (CReal.mul (CReal.sub CReal.cone (s N))
+      (cprodTail (fun j => geomSumC (s j) (b + 1)) N)) :=
+  posEv_of_equiv h0 (CReal.Equiv.symm (marginInvariantC hss N))
+
+/-! ## 6b. Discharging the base UV margin for a rational-seed exponent
+
+For the rational-seed flow `concreteCRealFlow`, the base separator is
+`sep 0 = e^{−(1/2)}` (an `expNegCD` of a *constant rational* exponent `1/2`).  We
+discharge the base UV-margin hypothesis `PosEv (1 − sep 0)` UNCONDITIONALLY: bridge
+the constant-exponent `expNegCD` to the rational-argument `ExpNeg.expNeg`, then use
+the sound bound `e^{−c} ≤ 1/(1+c) < 1`. -/
+
+/-- **The constant-exponent bridge** `expNegCD (ofQ' c) ≈ e^{−c}`.  The defining
+sequence of `expNegCD (ofQ' c)` is the CONSTANT sequence `e^{−c}` (since
+`(ofQ' c).approx k = c`), so both are limits of that constant sequence. -/
+theorem expNegCD_ofQ'_equiv (c : Q') (h0 : (0 : Q') ≤ c) (d : ExpNegCData (CReal.ofQ' c)) :
+    CReal.Equiv (expNegCD (CReal.ofQ' c) d) (ExpNeg.expNeg c h0) :=
+  CReal.Equiv_of_limit_of_equal
+    (fun k => expNeg_eqv_congr (d.hpos k) h0 (Q'.eqv_refl _))
+    (expNegCD_converges (CReal.ofQ' c) d)
+    (fun ε hε => ⟨0, fun _ _ => ⟨0, fun n _ =>
+      ⟨Q'.add_le_self_of_nonneg ((ExpNeg.expNeg c h0).approx n) ε (Q'.le_of_lt hε),
+       Q'.add_le_self_of_nonneg ((ExpNeg.expNeg c h0).approx n) ε (Q'.le_of_lt hε)⟩⟩⟩)
+
+/-- `geRat (r − x) 0` from `leRat x r`: an eventual upper bound `x ≤ r` gives the
+nonnegativity of the rational margin `r − x`. -/
+theorem geRat_sub_ofQ'_of_leRat {x : CReal} {r : Q'} (h : CReal.leRat x r) :
+    ExpPos.geRat (CReal.sub (CReal.ofQ' r) x) 0 := by
+  intro ε hε
+  obtain ⟨N, hN⟩ := h ε hε
+  refine ⟨N, fun n hn => ?_⟩
+  show (0 : Q') ≤ (r + -(x.approx n)) + ε
+  have hnn : (0 : Q') ≤ (r + ε) + -(x.approx n) :=
+    Q'.sub_nonneg_of_le (hN n hn)
+  refine Q'.le_trans' _ _ _ hnn (Q'.le_of_eqv ?_)
+  refine Q'.eqv_trans _ _ _ (Q'.add_assoc_eqv r ε (-(x.approx n))) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr_left r _ _ (Q'.add_comm_eqv ε (-(x.approx n)))) ?_
+  exact Q'.eqv_symm (Q'.add_assoc_eqv r (-(x.approx n)) ε)
+
+/-- The split `1 − x ≃ (1 − r) + (r − x)` (approx-wise `Q'` regrouping). -/
+theorem sub_cone_split (x : CReal) (r : Q') :
+    CReal.Equiv (CReal.sub CReal.cone x)
+      (CReal.add (CReal.sub CReal.cone (CReal.ofQ' r)) (CReal.sub (CReal.ofQ' r) x)) := by
+  refine SumOfSquares.Equiv_of_approx_eqv (fun n => ?_)
+  show ((1 : Q') + -(x.approx n)).eqv
+      (((1 : Q') + -r) + (r + -(x.approx n)))
+  refine Q'.eqv_symm ?_
+  refine Q'.eqv_trans _ _ _ (Q'.add_assoc_eqv 1 (-r) (r + -(x.approx n))) ?_
+  refine Q'.add_eqv_congr_left 1 _ _ ?_
+  refine Q'.eqv_trans _ _ _ (Q'.eqv_symm (Q'.add_assoc_eqv (-r) r (-(x.approx n)))) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr_right _ _ (-(x.approx n)) (Q'.neg_add_self_eqv r)) ?_
+  exact QPoly.q_zero_add_eqv (-(x.approx n))
+
+/-- **`PosEv (1 − e^{−c})` for a positive rational `c`** (eventual strict
+positivity of the UV margin): `e^{−c} ≤ 1/(1+c)` gives a fixed positive floor
+`1 − 1/(1+c)`. -/
+theorem posEv_oneSub_expNeg {c : Q'} (h0 : (0 : Q') ≤ c)
+    (hfloor : (0 : Q') < (1 : Q') + -(ExpUBInstance.oneOver1p c)) :
+    PosEv (CReal.sub CReal.cone (ExpNeg.expNeg c h0)) := by
+  have hPosR : PosEv (CReal.sub CReal.cone (CReal.ofQ' (ExpUBInstance.oneOver1p c))) := by
+    refine posEv_of_eventually (ε := (1 : Q') + -(ExpUBInstance.oneOver1p c)) hfloor
+      ⟨0, fun n _ => ?_⟩
+    show (1 : Q') + -(ExpUBInstance.oneOver1p c) ≤ (1 : Q') + -(ExpUBInstance.oneOver1p c)
+    exact Q'.le_refl' _
+  have hgeR : ExpPos.geRat
+      (CReal.sub (CReal.ofQ' (ExpUBInstance.oneOver1p c)) (ExpNeg.expNeg c h0)) 0 :=
+    geRat_sub_ofQ'_of_leRat (expNeg_le_oneOver1p c h0)
+  exact posEv_of_equiv (posEv_add_geRat hPosR hgeR)
+    (CReal.Equiv.symm (sub_cone_split (ExpNeg.expNeg c h0) (ExpUBInstance.oneOver1p c)))
+
+/-- **THE BASE UV MARGIN, DISCHARGED (rational `1/2` seed).**  For the rational-seed
+flow the base margin `1 − sep 0 = 1 − e^{−(1/2)}` is eventually strictly positive
+(`PosEv`), with the explicit floor `1 − 1/(1+1/2) = 1/3`. -/
+theorem baseMargin_posC_concrete :
+    PosEv (CReal.sub CReal.cone ((concreteCRealFlow 1).s 0)) := by
+  have h0 : (0 : Q') ≤ Q'.invSucc 1 := Q'.invSucc_nonneg 1
+  have hbridge : CReal.Equiv ((concreteCRealFlow 1).s 0)
+      (ExpNeg.expNeg (Q'.invSucc 1) h0) :=
+    expNegCD_ofQ'_equiv (Q'.invSucc 1) h0 _
+  have hexp : PosEv (CReal.sub CReal.cone (ExpNeg.expNeg (Q'.invSucc 1) h0)) :=
+    posEv_oneSub_expNeg h0 (by decide)
+  exact posEv_of_equiv hexp (CReal.sub_congr_right (CReal.Equiv.symm hbridge))
+
+/-! ## 7. Capstone: the budget along the genuine irrational constructive-real flow
+
+`marginInvariantC` instantiated on `concreteCRealFlowE` is UNCONDITIONAL — the
+conserved-margin telescoping holds verbatim along the irrational `e^{−1}`-seeded
+self-similar flow, the flow that no rational separator family inhabits
+(`rational_flow_law_empty`).  The positivity capstone `marginBudget_posC_concreteE`
+is conditional on the single base UV margin `PosEv (1 − sep 0)` — faithfully
+mirroring the rational `marginBudget_pos`, which is likewise conditional on
+`sep 0 < 1`. -/
+
+/-- **THE CONSERVED-MARGIN INVARIANT ALONG THE IRRATIONAL `e^{−1}`-SEED FLOW
+(UNCONDITIONAL).**  For the irrational-exponent flow `concreteCRealFlowE 1`, the
+rescaled margin `(1 − s N)·∏geomSumC ≃ 1 − s 0` at every scale — the codynamic
+summable budget made exact along a self-similar flow with genuinely irrational
+separators, where the rational `polyFlow` provably fails the flow law. -/
+theorem marginInvariantC_concreteE (N : Nat) :
+    CReal.Equiv
+      (CReal.mul (CReal.sub CReal.cone ((concreteCRealFlowE 1).s N))
+        (cprodTail (fun j => geomSumC ((concreteCRealFlowE 1).s j) (1 + 1)) N))
+      (CReal.sub CReal.cone ((concreteCRealFlowE 1).s 0)) :=
+  marginInvariantC (concreteCRealFlowE 1).ss N
+
+/-- **THE CODYNAMIC BUDGET IS POSITIVE ALONG THE IRRATIONAL `e^{−1}`-SEED FLOW.**
+Given the base UV margin `PosEv (1 − sep 0)` for the irrational flow, the rescaled
+margin stays strictly positive (`PosEv`) at every scale — a genuine constructive-real
+self-similar flow (irrational separators) carrying a strictly-positive conserved
+codynamic budget.  This is the carrier the rational `polyFlow` could not provide
+(`rational_flow_law_empty`): no rational flow inhabits the flow law at all, so the
+rational conserved-margin budget is vacuous, whereas here it is INHABITED and
+positive. -/
+theorem marginBudget_posC_concreteE
+    (h0 : PosEv (CReal.sub CReal.cone ((concreteCRealFlowE 1).s 0))) (N : Nat) :
+    PosEv (CReal.mul (CReal.sub CReal.cone ((concreteCRealFlowE 1).s N))
+      (cprodTail (fun j => geomSumC ((concreteCRealFlowE 1).s j) (1 + 1)) N)) :=
+  marginBudget_posC (concreteCRealFlowE 1).ss h0 N
+
+/-- **THE CODYNAMIC BUDGET IS POSITIVE ALONG THE RATIONAL-SEED FLOW
+(UNCONDITIONAL).**  Combining `marginBudget_posC` with the discharged base UV margin
+`baseMargin_posC_concrete`, the rescaled margin
+`(1 − sep N)·∏geomSumC ≃ 1 − sep 0` is strictly positive (`PosEv`) at EVERY scale
+along the `1/2`-seeded self-similar flow — with NO open hypothesis.  The separators
+`sep k = e^{−(1/2)/2^k}` are genuine irrational constructive reals, and the
+conserved codynamic budget never vanishes: a strictly-positive summable budget on a
+self-similar CReal flow, the carrier the rational `polyFlow` provably cannot
+provide. -/
+theorem marginBudget_posC_concrete (N : Nat) :
+    PosEv (CReal.mul (CReal.sub CReal.cone ((concreteCRealFlow 1).s N))
+      (cprodTail (fun j => geomSumC ((concreteCRealFlow 1).s j) (1 + 1)) N)) :=
+  marginBudget_posC (concreteCRealFlow 1).ss baseMargin_posC_concrete N
+
 end YMGap.Continuum.CodynamicCRealFlow
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
@@ -142,3 +405,11 @@ end YMGap.Continuum.CodynamicCRealFlow
 #print axioms YMGap.Continuum.CodynamicCRealFlow.rational_flow_law_empty
 #print axioms YMGap.Continuum.CodynamicCRealFlow.flow_law_rational_empty_but_creal_inhabited
 #print axioms YMGap.Continuum.CodynamicCRealFlow.marginBudget_pos_along_selfSimilar
+#print axioms YMGap.Continuum.CodynamicCRealFlow.oneSub_pow_factorC
+#print axioms YMGap.Continuum.CodynamicCRealFlow.marginInvariantC
+#print axioms YMGap.Continuum.CodynamicCRealFlow.marginBudget_posC
+#print axioms YMGap.Continuum.CodynamicCRealFlow.marginInvariantC_concreteE
+#print axioms YMGap.Continuum.CodynamicCRealFlow.marginBudget_posC_concreteE
+#print axioms YMGap.Continuum.CodynamicCRealFlow.expNegCD_ofQ'_equiv
+#print axioms YMGap.Continuum.CodynamicCRealFlow.baseMargin_posC_concrete
+#print axioms YMGap.Continuum.CodynamicCRealFlow.marginBudget_posC_concrete

@@ -476,6 +476,150 @@ theorem qInner_posdef (q : D.QuotSpace) :
     have hr : D.rad a D.zero := Quotient.exact h
     exact Quotient.sound ((D.rad_zero_iff a).mp hr)
 
+/-! ### Descending the vector-space structure onto the quotient
+
+The quotient `QuotSpace = V/Radical` is not merely a set with a positive-
+definite form: the abelian-group/scalar structure of `V` descends to it
+(`qAdd`, `qNeg`, `qSub`), making it a genuine `Q′`-pre-Hilbert space, and the
+squared seminorm `‖[a]‖² = ⟨[a],[a]⟩` and squared distance descend as well —
+the metric data the completion is taken with respect to.  The descent of the
+group operations needs that the radical relation is a *congruence* for `add`
+and `neg`, proved here. -/
+
+/-- Uniqueness of additive inverses: `x + y ≃ 0 ⇒ −x ≃ y`. -/
+theorem neg_unique {x y : D.V} (h : D.veq (D.add x y) D.zero) :
+    D.veq (D.neg x) y :=
+  D.veq_trans (D.veq_symm (D.add_zero (D.neg x)))
+    (D.veq_trans (D.add_congr (D.veq_refl (D.neg x)) (D.veq_symm h))
+      (D.veq_trans (D.veq_symm (D.add_assoc (D.neg x) x y))
+        (D.veq_trans (D.add_congr (D.neg_add x) (D.veq_refl y)) (D.zero_add y))))
+
+/-- Double negation `−(−a) ≃ a`. -/
+theorem neg_neg (a : D.V) : D.veq (D.neg (D.neg a)) a :=
+  D.neg_unique (D.neg_add a)
+
+/-- `a + (−a) ≃ 0` (right inverse). -/
+theorem add_neg_self (a : D.V) : D.veq (D.add a (D.neg a)) D.zero :=
+  D.veq_trans (D.add_comm a (D.neg a)) (D.neg_add a)
+
+/-- Negation distributes over addition `−(a+b) ≃ (−a)+(−b)`. -/
+theorem neg_add_distrib (a b : D.V) :
+    D.veq (D.neg (D.add a b)) (D.add (D.neg a) (D.neg b)) := by
+  apply D.neg_unique
+  have h1 : D.veq (D.add (D.add a b) (D.neg a)) b :=
+    D.veq_trans (D.add_congr (D.add_comm a b) (D.veq_refl (D.neg a)))
+      (D.veq_trans (D.add_assoc b a (D.neg a))
+        (D.veq_trans (D.add_congr (D.veq_refl b) (D.add_neg_self a)) (D.add_zero b)))
+  refine D.veq_trans (D.veq_symm (D.add_assoc (D.add a b) (D.neg a) (D.neg b))) ?_
+  exact D.veq_trans (D.add_congr h1 (D.veq_refl (D.neg b))) (D.add_neg_self b)
+
+/-- Middle-four interchange `(a+b)+(c+d) ≃ (a+c)+(b+d)`. -/
+theorem add_add_add_comm (a b c d : D.V) :
+    D.veq (D.add (D.add a b) (D.add c d)) (D.add (D.add a c) (D.add b d)) :=
+  D.veq_trans (D.add_assoc a b (D.add c d))
+    (D.veq_trans (D.add_congr (D.veq_refl a) (D.veq_symm (D.add_assoc b c d)))
+      (D.veq_trans (D.add_congr (D.veq_refl a)
+          (D.add_congr (D.add_comm b c) (D.veq_refl d)))
+        (D.veq_trans (D.add_congr (D.veq_refl a) (D.add_assoc c b d))
+          (D.veq_symm (D.add_assoc a c (D.add b d))))))
+
+/-- Subtraction distributes over addition
+`(a+b) − (a'+b') ≃ (a−a') + (b−b')`. -/
+theorem sub_sub_distrib (a b a' b' : D.V) :
+    D.veq (D.sub (D.add a b) (D.add a' b')) (D.add (D.sub a a') (D.sub b b')) := by
+  show D.veq (D.add (D.add a b) (D.neg (D.add a' b')))
+    (D.add (D.add a (D.neg a')) (D.add b (D.neg b')))
+  refine D.veq_trans (D.add_congr (D.veq_refl (D.add a b)) (D.neg_add_distrib a' b')) ?_
+  exact D.add_add_add_comm a b (D.neg a') (D.neg b')
+
+/-- **The radical relation is a congruence for `add`.**  Same parallelogram
+expansion as `rad_trans`, with `x = a−a'`, `y = b−b'`. -/
+theorem rad_add {a a' b b' : D.V} (ha : D.rad a a') (hb : D.rad b b') :
+    D.rad (D.add a b) (D.add a' b') := by
+  have hx0 : (D.B (D.sub a a') (D.sub a a')).eqv 0 := ha
+  have hy0 : (D.B (D.sub b b') (D.sub b b')).eqv 0 := hb
+  have hxy0 : (D.B (D.sub a a') (D.sub b b')).eqv 0 :=
+    D.radical_form_zero (D.sub a a') (D.sub b b') hx0
+  have hyx0 : (D.B (D.sub b b') (D.sub a a')).eqv 0 :=
+    Q'.eqv_trans _ _ _ (D.B_symm (D.sub b b') (D.sub a a')) hxy0
+  have eexp : (D.B (D.add (D.sub a a') (D.sub b b')) (D.add (D.sub a a') (D.sub b b'))).eqv
+      ((D.B (D.sub a a') (D.sub a a') + D.B (D.sub a a') (D.sub b b'))
+        + (D.B (D.sub b b') (D.sub a a') + D.B (D.sub b b') (D.sub b b'))) :=
+    Q'.eqv_trans _ _ _ (D.B_add_left (D.sub a a') (D.sub b b') (D.add (D.sub a a') (D.sub b b')))
+      (QPoly.q_add_congr (D.B_add_right (D.sub a a') (D.sub a a') (D.sub b b'))
+        (D.B_add_right (D.sub b b') (D.sub a a') (D.sub b b')))
+  have ez : ((D.B (D.sub a a') (D.sub a a') + D.B (D.sub a a') (D.sub b b'))
+        + (D.B (D.sub b b') (D.sub a a') + D.B (D.sub b b') (D.sub b b'))).eqv 0 :=
+    Q'.eqv_trans _ _ _
+      (QPoly.q_add_congr (QPoly.q_add_congr hx0 hxy0) (QPoly.q_add_congr hyx0 hy0))
+      (Q'.eqv_trans _ _ _
+        (QPoly.q_add_congr (QPoly.q_add_zero_eqv 0) (QPoly.q_add_zero_eqv 0))
+        (QPoly.q_add_zero_eqv 0))
+  have ev : D.veq (D.sub (D.add a b) (D.add a' b')) (D.add (D.sub a a') (D.sub b b')) :=
+    D.sub_sub_distrib a b a' b'
+  show (D.B (D.sub (D.add a b) (D.add a' b')) (D.sub (D.add a b) (D.add a' b'))).eqv 0
+  exact Q'.eqv_trans _ _ _ (D.B_diag_congr ev) (Q'.eqv_trans _ _ _ eexp ez)
+
+/-- **The radical relation is a congruence for `neg`.**  `(−a)−(−a') ≃ a'−a`,
+and `rad a' a` by symmetry. -/
+theorem rad_neg {a a' : D.V} (ha : D.rad a a') : D.rad (D.neg a) (D.neg a') := by
+  have hv : D.veq (D.sub (D.neg a) (D.neg a')) (D.sub a' a) :=
+    D.veq_trans (D.add_congr (D.veq_refl (D.neg a)) (D.neg_neg a'))
+      (D.add_comm (D.neg a) a')
+  show (D.B (D.sub (D.neg a) (D.neg a')) (D.sub (D.neg a) (D.neg a'))).eqv 0
+  exact Q'.eqv_trans _ _ _ (D.B_diag_congr hv) (D.rad_symm ha)
+
+/-- **Quotient addition** `[a] + [b] = [a+b]`. -/
+def qAdd : D.QuotSpace → D.QuotSpace → D.QuotSpace :=
+  Quotient.lift₂ (fun a b => D.qmk (D.add a b))
+    (fun _ _ _ _ ha hb => Quotient.sound (D.rad_add ha hb))
+
+/-- **Quotient negation** `−[a] = [−a]`. -/
+def qNeg : D.QuotSpace → D.QuotSpace :=
+  Quotient.lift (fun a => D.qmk (D.neg a))
+    (fun _ _ ha => Quotient.sound (D.rad_neg ha))
+
+/-- **Quotient subtraction** `[a] − [b] = [a−b]`. -/
+def qSub (p q : D.QuotSpace) : D.QuotSpace := D.qAdd p (D.qNeg q)
+
+theorem qAdd_mk (a b : D.V) : D.qAdd (D.qmk a) (D.qmk b) = D.qmk (D.add a b) := rfl
+theorem qNeg_mk (a : D.V) : D.qNeg (D.qmk a) = D.qmk (D.neg a) := rfl
+theorem qSub_mk (a b : D.V) : D.qSub (D.qmk a) (D.qmk b) = D.qmk (D.sub a b) := rfl
+
+/-- **The squared seminorm** `‖[a]‖² = ⟨[a],[a]⟩`, valued in `QR`.  Descends by
+`B_welldef` (with the same class on both arguments). -/
+def qNormSq : D.QuotSpace → QR :=
+  Quotient.lift (fun a => Quotient.mk qSetoid (D.B a a))
+    (fun _ _ ha => Quotient.sound (D.B_welldef ha ha))
+
+theorem qNormSq_mk (a : D.V) : D.qNormSq (D.qmk a) = Quotient.mk qSetoid (D.B a a) := rfl
+
+/-- The squared seminorm is the diagonal inner product `⟨q,q⟩`. -/
+theorem qNormSq_eq_qInner (q : D.QuotSpace) : D.qNormSq q = D.qInner q q := by
+  refine Quotient.inductionOn q ?_; intro a; rfl
+
+/-- **The squared distance** `d²([a],[b]) = ‖[a]−[b]‖²`, valued in `QR`.  The
+metric the completion is taken with respect to. -/
+def qDistSq (p q : D.QuotSpace) : QR := D.qNormSq (D.qSub p q)
+
+theorem qDistSq_mk (a b : D.V) :
+    D.qDistSq (D.qmk a) (D.qmk b) = Quotient.mk qSetoid (D.B (D.sub a b) (D.sub a b)) := rfl
+
+/-- **`d²([a],[b]) = 0 ⇔ [a] = [b]`**: the squared distance separates points of
+the quotient — the metric is a genuine (definite) metric, the pre-Hilbert
+completion's starting point. -/
+theorem qDistSq_zero_iff (p q : D.QuotSpace) :
+    D.qDistSq p q = QR.zero ↔ p = q := by
+  refine Quotient.inductionOn₂ p q ?_
+  intro a b
+  constructor
+  · intro h
+    have he : (D.B (D.sub a b) (D.sub a b)).eqv 0 := Quotient.exact h
+    exact Quotient.sound he
+  · intro h
+    have hr : D.rad a b := Quotient.exact h
+    exact Quotient.sound hr
+
 end GNSData
 
 /-! ## A concrete non-degenerate inhabitant: the weighted form on `Q′` -/
@@ -532,10 +676,20 @@ theorem qWeightGNS_posdef (w : Q') (hw : (0 : Q') ≤ w) (q : (qWeightGNS w hw).
 /-! ## The completion interface (honest Type-level boundary)
 
 The metric completion of the positive-definite quotient `(QuotSpace, qInner)`
-to a full Hilbert space is the remaining constructive build-out.  It is stated
-as a Type-level structure taking the proved quotient as input; the trivial
-inhabitant (completion = itself) is genuine for the located / finite-dimensional
-case, and the general constructive Cauchy-completion carrier is the residual. -/
+to a full Hilbert space is the remaining constructive build-out.  With the
+vector-space descent above (`qAdd`/`qNeg`/`qSub`) and the squared seminorm /
+distance (`qNormSq`/`qDistSq`), `QuotSpace` is now a genuine `Q′`-pre-Hilbert
+space whose squared distance is *definite* (`qDistSq_zero_iff`) — a genuine
+metric space, the precise object the completion acts on.
+
+The completion is stated as a Type-level structure taking the proved quotient as
+input; the trivial inhabitant (completion = itself) is genuine exactly when
+`QuotSpace` is already `qDistSq`-complete (located / finite-dimensional).  The
+residual for the general case is the limit-existence of `qDistSq`-Cauchy
+sequences.  Note the *natural* completed inner product is `CReal`-valued (the
+limit `lim B(aₙ,bₙ)` of the rational form lives in the completion of `Q′`, not
+in `QR`): the bridge is `FiniteVolumeGNS.cInner = ofQ' ∘ inner`.  Lifting the
+whole `GNSData` to a `CReal`-valued form is the sharp next brick. -/
 
 /-- A **completion datum** for a GNS quotient: a carrier with an embedding of
 the (positive-definite) quotient and an inner product extending `qInner`. -/
@@ -571,6 +725,16 @@ end YMGap.Continuum.GNSQuotient
 #print axioms YMGap.Continuum.GNSQuotient.GNSData.B_welldef
 #print axioms YMGap.Continuum.GNSQuotient.GNSData.qInner
 #print axioms YMGap.Continuum.GNSQuotient.GNSData.qInner_posdef
+#print axioms YMGap.Continuum.GNSQuotient.GNSData.neg_add_distrib
+#print axioms YMGap.Continuum.GNSQuotient.GNSData.rad_add
+#print axioms YMGap.Continuum.GNSQuotient.GNSData.rad_neg
+#print axioms YMGap.Continuum.GNSQuotient.GNSData.qAdd
+#print axioms YMGap.Continuum.GNSQuotient.GNSData.qNeg
+#print axioms YMGap.Continuum.GNSQuotient.GNSData.qSub
+#print axioms YMGap.Continuum.GNSQuotient.GNSData.qNormSq
+#print axioms YMGap.Continuum.GNSQuotient.GNSData.qNormSq_eq_qInner
+#print axioms YMGap.Continuum.GNSQuotient.GNSData.qDistSq
+#print axioms YMGap.Continuum.GNSQuotient.GNSData.qDistSq_zero_iff
 #print axioms YMGap.Continuum.GNSQuotient.qWeightGNS
 #print axioms YMGap.Continuum.GNSQuotient.qWeightGNS_cauchy_schwarz
 #print axioms YMGap.Continuum.GNSQuotient.qWeightGNS_posdef
