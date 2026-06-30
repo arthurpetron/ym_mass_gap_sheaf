@@ -232,6 +232,8 @@ import YMGap.Continuum.OSAxiomAudit
 import YMGap.Continuum.SchurHadamardTransfer
 import YMGap.Continuum.HeatKernelGramSOS
 import YMGap.Continuum.FusionCoreStepRoundA
+import YMGap.Continuum.HeatKernelNodeQuad
+import YMGap.Continuum.FusionCoreStepRoundB
 import YMGap.Continuum.OSReconstruction
 import YMGap.Continuum.SpectralGap
 import YMGap.Continuum.SpectralGapConverse
