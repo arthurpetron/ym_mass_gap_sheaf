@@ -244,6 +244,7 @@ import YMGap.Continuum.FiniteVolumeGNS
 import YMGap.Continuum.OSContent
 import YMGap.Continuum.OSReconstructionProgress
 import YMGap.Continuum.GNSQuotient
+import YMGap.Continuum.GNSCompletion
 import YMGap.Continuum.WilsonGNS
 import YMGap.Continuum.CompactTransferGNS
 import YMGap.Continuum.LocatedReconstruction

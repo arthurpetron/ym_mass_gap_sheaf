@@ -316,22 +316,30 @@ theorem sub_cone_split (x : CReal) (r : Q') :
     (Q'.add_eqv_congr_right _ _ (-(x.approx n)) (Q'.neg_add_self_eqv r)) ?_
   exact QPoly.q_zero_add_eqv (-(x.approx n))
 
+/-- **`PosEv (1 − x)` from a sound upper bound `x ≤ r < 1`** (the generic UV-margin
+positivity engine).  Given a strictly-positive floor `0 < 1 − r` and a sound
+rational upper bound `leRat x r`, the margin `1 − x` is eventually strictly
+positive (`PosEv`).  The split `1 − x ≃ (1 − r) + (r − x)` adds the fixed positive
+`1 − r` to the nonnegative `r − x`. -/
+theorem posEv_oneSub_of_leRat {x : CReal} {r : Q'}
+    (hfloor : (0 : Q') < (1 : Q') + -r) (hle : CReal.leRat x r) :
+    PosEv (CReal.sub CReal.cone x) := by
+  have hPosR : PosEv (CReal.sub CReal.cone (CReal.ofQ' r)) := by
+    refine posEv_of_eventually (ε := (1 : Q') + -r) hfloor ⟨0, fun n _ => ?_⟩
+    show (1 : Q') + -r ≤ (1 : Q') + -r
+    exact Q'.le_refl' _
+  have hgeR : ExpPos.geRat (CReal.sub (CReal.ofQ' r) x) 0 :=
+    geRat_sub_ofQ'_of_leRat hle
+  exact posEv_of_equiv (posEv_add_geRat hPosR hgeR)
+    (CReal.Equiv.symm (sub_cone_split x r))
+
 /-- **`PosEv (1 − e^{−c})` for a positive rational `c`** (eventual strict
 positivity of the UV margin): `e^{−c} ≤ 1/(1+c)` gives a fixed positive floor
 `1 − 1/(1+c)`. -/
 theorem posEv_oneSub_expNeg {c : Q'} (h0 : (0 : Q') ≤ c)
     (hfloor : (0 : Q') < (1 : Q') + -(ExpUBInstance.oneOver1p c)) :
-    PosEv (CReal.sub CReal.cone (ExpNeg.expNeg c h0)) := by
-  have hPosR : PosEv (CReal.sub CReal.cone (CReal.ofQ' (ExpUBInstance.oneOver1p c))) := by
-    refine posEv_of_eventually (ε := (1 : Q') + -(ExpUBInstance.oneOver1p c)) hfloor
-      ⟨0, fun n _ => ?_⟩
-    show (1 : Q') + -(ExpUBInstance.oneOver1p c) ≤ (1 : Q') + -(ExpUBInstance.oneOver1p c)
-    exact Q'.le_refl' _
-  have hgeR : ExpPos.geRat
-      (CReal.sub (CReal.ofQ' (ExpUBInstance.oneOver1p c)) (ExpNeg.expNeg c h0)) 0 :=
-    geRat_sub_ofQ'_of_leRat (expNeg_le_oneOver1p c h0)
-  exact posEv_of_equiv (posEv_add_geRat hPosR hgeR)
-    (CReal.Equiv.symm (sub_cone_split (ExpNeg.expNeg c h0) (ExpUBInstance.oneOver1p c)))
+    PosEv (CReal.sub CReal.cone (ExpNeg.expNeg c h0)) :=
+  posEv_oneSub_of_leRat hfloor (expNeg_le_oneOver1p c h0)
 
 /-- **THE BASE UV MARGIN, DISCHARGED (rational `1/2` seed).**  For the rational-seed
 flow the base margin `1 − sep 0 = 1 − e^{−(1/2)}` is eventually strictly positive
@@ -346,15 +354,149 @@ theorem baseMargin_posC_concrete :
     posEv_oneSub_expNeg h0 (by decide)
   exact posEv_of_equiv hexp (CReal.sub_congr_right (CReal.Equiv.symm hbridge))
 
+/-! ## 6c. The general base UV margin: `e^{−x} < 1` for ANY strictly-positive
+`CReal` exponent `x`
+
+The §6b discharge bridged `expNegCD` of a *constant rational* exponent to the
+rational-argument `ExpNeg.expNeg`, so it only covers rational seeds.  Here we close
+the irrational-exponent case directly: for ANY `CReal` exponent `x` with `x > 0`
+(`PosEv x`), the base margin `1 − e^{−x}` is strictly positive.  The route is the
+genuine CReal-argument analogue of `e^{−c} ≤ 1/(1+c)`: from an eventual rational
+floor `ε ≤ x.approx k` (extracted from `PosEv x`) each sequence term satisfies
+`e^{−x.approx k} ≤ 1/(1+ε)`, so the limit `expNegCD x d ≤ 1/(1+ε) < 1`. -/
+
+/-- **A sound rational upper bound transfers from the converging sequence to its
+limit.**  If `ConvergesTo s L` and the terms `s K` are eventually (`K ≥ M`)
+uniformly `≤ r` (`leRat (s K) r`), then the limit is `≤ r` (`leRat L r`).  Proof:
+pick `K = max(Nstage, M)`; the limit's approx is `ε/2`-close to `(s K)`'s, which is
+`ε/2`-close to `r`. -/
+theorem leRat_limit_of_eventually {s : Nat → CReal} {L : CReal} {r : Q'}
+    (hconv : ConvergesTo s L)
+    (hev : ∃ M : Nat, ∀ K : Nat, M ≤ K → CReal.leRat (s K) r) :
+    CReal.leRat L r := by
+  intro ε hε
+  obtain ⟨M, hM⟩ := hev
+  have hhε : (0 : Q') < HalfPow.half * ε := ExpNeg.half_mul_pos ε hε
+  obtain ⟨Nstage, hstage⟩ := hconv (HalfPow.half * ε) hhε
+  have hKstage : Nstage ≤ max Nstage M := Nat.le_max_left _ _
+  have hKM : M ≤ max Nstage M := Nat.le_max_right _ _
+  obtain ⟨Napx, hNapx⟩ := hstage (max Nstage M) hKstage
+  obtain ⟨N', hN'⟩ := hM (max Nstage M) hKM (HalfPow.half * ε) hhε
+  refine ⟨max Napx N', fun n hn => ?_⟩
+  have hn1 : Napx ≤ n := Nat.le_trans (Nat.le_max_left _ _) hn
+  have hn2 : N' ≤ n := Nat.le_trans (Nat.le_max_right _ _) hn
+  have hLs : L.approx n ≤ (s (max Nstage M)).approx n + HalfPow.half * ε := (hNapx n hn1).2
+  have hsr : (s (max Nstage M)).approx n ≤ r + HalfPow.half * ε := hN' n hn2
+  have hcomb : L.approx n ≤ (r + HalfPow.half * ε) + HalfPow.half * ε :=
+    Q'.le_trans' _ _ _ hLs
+      (Q'.add_le_add_right _ _ (HalfPow.half * ε) hsr)
+  refine Q'.le_trans' _ _ _ hcomb (Q'.le_of_eqv ?_)
+  refine Q'.eqv_trans _ _ _ (Q'.add_assoc_eqv r (HalfPow.half * ε) (HalfPow.half * ε)) ?_
+  exact Q'.add_eqv_congr_left r _ _ (ExpNeg.two_halves ε)
+
+/-- **`1/(1+x) < 1` for `x > 0`.**  At the `Q'` level: `oneOver1p x` has numerator
+`x.den` and denominator `x.num⁺ + x.den`; for `x > 0` (so `x.num > 0`) the
+denominator strictly exceeds the numerator. -/
+theorem oneOver1p_lt_one {x : Q'} (hx : (0 : Q') < x) :
+    ExpUBInstance.oneOver1p x < (1 : Q') := by
+  have hxn : (0 : Int) < x.num := by
+    have h : (0 : Int) * (x.den : Int) < x.num * (1 : Int) := hx
+    rw [Int.zero_mul, Int.mul_one] at h; exact h
+  show (ExpUBInstance.oneOver1p x).num * ((1 : Q').den : Int)
+      < (1 : Q').num * ((ExpUBInstance.oneOver1p x).den : Int)
+  rw [ExpUBInstance.oneOver1p_num, ExpUBInstance.oneOver1p_den]
+  have e1 : (1 : Q').num = 1 := rfl
+  have e2 : ((1 : Q').den : Int) = 1 := rfl
+  rw [e1, e2, Int.mul_one, Int.one_mul]
+  have htn : (1 : Int) ≤ (x.num.toNat : Int) := by omega
+  have hcast : ((x.num.toNat + x.den : Nat) : Int) = (x.num.toNat : Int) + (x.den : Int) := by
+    push_cast; rfl
+  rw [hcast]; omega
+
+/-- `c < d → 0 < d + (−c)` over `Q'` (the strict-margin form needed by the floor;
+a local copy to avoid a heavy import). -/
+theorem qsub_pos_of_lt {c d : Q'} (h : c < d) : (0 : Q') < d + (-c) := by
+  have hc : c.num * (d.den : Int) < d.num * (c.den : Int) := h
+  show (0 : Int) * ((d + (-c)).den : Int) < (d + (-c)).num * ((0 : Q').den : Int)
+  have hnum : (d + (-c)).num = d.num * (c.den : Int) + (-c.num) * (d.den : Int) := rfl
+  rw [hnum]
+  have hden1 : ((0 : Q').den : Int) = 1 := rfl
+  rw [hden1, Int.zero_mul, Int.mul_one]
+  have hpos : (0 : Int) < d.num * (c.den : Int) - c.num * (d.den : Int) := Int.sub_pos.mpr hc
+  have heq : d.num * (c.den : Int) + (-c.num) * (d.den : Int)
+      = d.num * (c.den : Int) - c.num * (d.den : Int) := by rw [Int.neg_mul]; rfl
+  rw [heq]; exact hpos
+
+/-- **`e^{−x} < 1` FOR ANY STRICTLY-POSITIVE `CReal` EXPONENT `x`.**  Given
+`PosEv x` (`x > 0`), the base margin `1 − e^{−x}` is eventually strictly positive
+(`PosEv`).  This is the general, irrational-exponent-capable replacement for the
+rational `expNegCD_ofQ'_equiv`-bridged §6b discharge: a positive rational floor
+`ε ≤ x.approx k` (from `PosEv x`) bounds every sequence term `e^{−x.approx k} ≤
+1/(1+ε)`, hence the limit `expNegCD x d ≤ 1/(1+ε) < 1`. -/
+theorem expNegCD_lt_one {x : CReal} (d : ExpNegCData x) (hx : PosEv x) :
+    PosEv (CReal.sub CReal.cone (expNegCD x d)) := by
+  obtain ⟨εlo, hεlo, M, hM⟩ := eventually_ge_of_posEv hx
+  have hle : CReal.leRat (expNegCD x d) (ExpUBInstance.oneOver1p εlo) := by
+    refine leRat_limit_of_eventually (expNegCD_converges x d) ⟨M, fun K hK => ?_⟩
+    exact CReal.leRat_mono (expNeg_le_oneOver1p (x.approx K) (d.hpos K))
+      (ExpUBInstance.oneOver1p_antitone εlo (x.approx K) (hM K hK))
+  exact posEv_oneSub_of_leRat (qsub_pos_of_lt (oneOver1p_lt_one hεlo)) hle
+
+/-! ## 6d. The strictly-positive UV exponent seed `e^{−1} > 0`
+
+`concreteCRealFlowE` is seeded at the irrational exponent `e^{−1}`.  To feed the
+general `expNegCD_lt_one` we need its strict positivity `PosEv (e^{−1})`.  This is
+proved multiplicatively — `e^{−1} ≃ e^{−1/2}·e^{−1/2}` — with each factor bounded
+below by the alternating-series lower bound `e^{−1/2} ≥ 1 − 1/2 = 1/2 > 0`. -/
+
+/-- **`e^{−1} > 0`** (`PosEv`).  The irrational UV exponent seed of the
+`concreteTowerE` flow is strictly positive: `e^{−1} = e^{−1/2}·e^{−1/2}` with
+`e^{−1/2} ≥ 1/2` (the alternating-series partial-sum lower bound
+`1 − t ≤ partialSum t n`, `n ≥ 2`), so `e^{−1} ≥ 1/4 > 0`. -/
+theorem posEv_expNeg_one : PosEv (ExpNeg.expNeg 1 (by decide)) := by
+  have hh : (0 : Q') ≤ Q'.invSucc 1 := Q'.invSucc_nonneg 1
+  have hhalf : PosEv (ExpNeg.expNeg (Q'.invSucc 1) hh) := by
+    refine posEv_of_eventually (ε := (1 : Q') - Q'.invSucc 1) (by decide) ⟨2, fun n hn => ?_⟩
+    show (1 : Q') - Q'.invSucc 1 ≤ ExpNeg.partialSum (Q'.invSucc 1) n
+    exact ExpNeg.oneSub_le_partialSum hh (invSucc_le_one 1) n hn
+  have hadd : CReal.Equiv
+      (CReal.mul (ExpNeg.expNeg (Q'.invSucc 1) hh) (ExpNeg.expNeg (Q'.invSucc 1) hh))
+      (ExpNeg.expNeg 1 (by decide)) :=
+    CReal.Equiv.trans
+      (expNeg_add_equiv (Q'.invSucc 1) (Q'.invSucc 1) hh hh)
+      (expNeg_eqv_congr (Q'.zero_le_add _ _ hh hh) (by decide) (by decide))
+  exact posEv_of_equiv (posEv_mul hhalf hhalf) hadd
+
 /-! ## 7. Capstone: the budget along the genuine irrational constructive-real flow
 
 `marginInvariantC` instantiated on `concreteCRealFlowE` is UNCONDITIONAL — the
 conserved-margin telescoping holds verbatim along the irrational `e^{−1}`-seeded
 self-similar flow, the flow that no rational separator family inhabits
-(`rational_flow_law_empty`).  The positivity capstone `marginBudget_posC_concreteE`
-is conditional on the single base UV margin `PosEv (1 − sep 0)` — faithfully
-mirroring the rational `marginBudget_pos`, which is likewise conditional on
-`sep 0 < 1`. -/
+(`rational_flow_law_empty`).  With the general base UV margin `expNegCD_lt_one`
+discharged from the strictly-positive exponent seed `posEv_expNeg_one`, the
+positivity capstone `marginBudget_posC_concreteE` is now also UNCONDITIONAL. -/
+
+/-- **THE CODYNAMIC BUDGET IS POSITIVE ALONG ANY TOWER WITH A POSITIVE UV EXPONENT
+SEED (the clean general capstone).**  For any `SelfSimilarTower b` whose UV exponent
+`T.w 0` is strictly positive (`PosEv (T.w 0)`), the rescaled margin
+`(1 − sep N)·∏geomSumC` is strictly positive (`PosEv`) at EVERY scale `N`.  The base
+UV margin is discharged uniformly by `expNegCD_lt_one` (`e^{−x} < 1` for `x > 0`) and
+propagated by the conserved invariant `marginBudget_posC`.  This subsumes both the
+rational `1/2` seed and the genuinely-irrational `e^{−1}` seed. -/
+theorem marginBudget_posC_tower {b : Nat} (T : SelfSimilarTower b)
+    (hx : PosEv (T.w 0)) (N : Nat) :
+    PosEv (CReal.mul (CReal.sub CReal.cone (sep T N))
+      (cprodTail (fun j => geomSumC (sep T j) (b + 1)) N)) :=
+  marginBudget_posC (fun k => selfSimilarCReal T k) (expNegCD_lt_one (T.dw 0) hx) N
+
+/-- **THE BASE UV MARGIN, DISCHARGED (irrational `e^{−1}` seed) — UNCONDITIONAL.**
+For the irrational-exponent flow the base margin `1 − sep 0 = 1 − e^{−(e^{−1})}` is
+eventually strictly positive (`PosEv`): the exponent seed `e^{−1}` is strictly
+positive (`posEv_expNeg_one`), so `e^{−(e^{−1})} < 1` by `expNegCD_lt_one`.  No open
+hypothesis — the irrational-exponent analogue of `baseMargin_posC_concrete`. -/
+theorem baseMargin_posC_concreteE :
+    PosEv (CReal.sub CReal.cone ((concreteCRealFlowE 1).s 0)) :=
+  expNegCD_lt_one ((concreteTowerE 1).dw 0) posEv_expNeg_one
 
 /-- **THE CONSERVED-MARGIN INVARIANT ALONG THE IRRATIONAL `e^{−1}`-SEED FLOW
 (UNCONDITIONAL).**  For the irrational-exponent flow `concreteCRealFlowE 1`, the
@@ -368,19 +510,19 @@ theorem marginInvariantC_concreteE (N : Nat) :
       (CReal.sub CReal.cone ((concreteCRealFlowE 1).s 0)) :=
   marginInvariantC (concreteCRealFlowE 1).ss N
 
-/-- **THE CODYNAMIC BUDGET IS POSITIVE ALONG THE IRRATIONAL `e^{−1}`-SEED FLOW.**
-Given the base UV margin `PosEv (1 − sep 0)` for the irrational flow, the rescaled
-margin stays strictly positive (`PosEv`) at every scale — a genuine constructive-real
-self-similar flow (irrational separators) carrying a strictly-positive conserved
-codynamic budget.  This is the carrier the rational `polyFlow` could not provide
-(`rational_flow_law_empty`): no rational flow inhabits the flow law at all, so the
-rational conserved-margin budget is vacuous, whereas here it is INHABITED and
-positive. -/
-theorem marginBudget_posC_concreteE
-    (h0 : PosEv (CReal.sub CReal.cone ((concreteCRealFlowE 1).s 0))) (N : Nat) :
+/-- **THE CODYNAMIC BUDGET IS POSITIVE ALONG THE IRRATIONAL `e^{−1}`-SEED FLOW
+(UNCONDITIONAL).**  Combining `marginBudget_posC` with the discharged base UV margin
+`baseMargin_posC_concreteE`, the rescaled margin stays strictly positive (`PosEv`) at
+EVERY scale — a genuine constructive-real self-similar flow with genuinely IRRATIONAL
+exponents `e^{−(e^{−1})/2^k}`, carrying a strictly-positive conserved codynamic
+budget, with NO open hypothesis.  This is the carrier the rational `polyFlow` could
+not provide (`rational_flow_law_empty`): no rational flow inhabits the flow law at
+all, so the rational conserved-margin budget is vacuous, whereas here it is INHABITED
+and positive — and, unlike the `1/2` seed, with no rational flow anywhere in sight. -/
+theorem marginBudget_posC_concreteE (N : Nat) :
     PosEv (CReal.mul (CReal.sub CReal.cone ((concreteCRealFlowE 1).s N))
       (cprodTail (fun j => geomSumC ((concreteCRealFlowE 1).s j) (1 + 1)) N)) :=
-  marginBudget_posC (concreteCRealFlowE 1).ss h0 N
+  marginBudget_posC (concreteCRealFlowE 1).ss baseMargin_posC_concreteE N
 
 /-- **THE CODYNAMIC BUDGET IS POSITIVE ALONG THE RATIONAL-SEED FLOW
 (UNCONDITIONAL).**  Combining `marginBudget_posC` with the discharged base UV margin
@@ -413,3 +555,11 @@ end YMGap.Continuum.CodynamicCRealFlow
 #print axioms YMGap.Continuum.CodynamicCRealFlow.expNegCD_ofQ'_equiv
 #print axioms YMGap.Continuum.CodynamicCRealFlow.baseMargin_posC_concrete
 #print axioms YMGap.Continuum.CodynamicCRealFlow.marginBudget_posC_concrete
+#print axioms YMGap.Continuum.CodynamicCRealFlow.posEv_oneSub_of_leRat
+#print axioms YMGap.Continuum.CodynamicCRealFlow.leRat_limit_of_eventually
+#print axioms YMGap.Continuum.CodynamicCRealFlow.oneOver1p_lt_one
+#print axioms YMGap.Continuum.CodynamicCRealFlow.qsub_pos_of_lt
+#print axioms YMGap.Continuum.CodynamicCRealFlow.expNegCD_lt_one
+#print axioms YMGap.Continuum.CodynamicCRealFlow.posEv_expNeg_one
+#print axioms YMGap.Continuum.CodynamicCRealFlow.marginBudget_posC_tower
+#print axioms YMGap.Continuum.CodynamicCRealFlow.baseMargin_posC_concreteE
