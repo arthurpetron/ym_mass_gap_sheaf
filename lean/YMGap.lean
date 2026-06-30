@@ -242,6 +242,7 @@ import YMGap.Continuum.ChebLocatedRoots
 import YMGap.Continuum.FusionCoreStepRoundE
 import YMGap.Continuum.ChebGeneralOrtho
 import YMGap.Continuum.FusionCoreStepRoundF
+import YMGap.Continuum.MomentMatrixPSD
 import YMGap.Continuum.OSReconstruction
 import YMGap.Continuum.SpectralGap
 import YMGap.Continuum.SpectralGapConverse
