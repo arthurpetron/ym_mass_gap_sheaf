@@ -302,6 +302,8 @@ import YMGap.Continuum.WilsonAreaLaw
 import YMGap.Continuum.SpectralEffectiveMass
 import YMGap.Continuum.EffMassConvergence
 import YMGap.Continuum.ConstructiveShellBridge
+import YMGap.Continuum.CosNodeFamilyClose
+import YMGap.Continuum.CosIntegralReduction
 import YMGap.Continuum.OSReconstruction
 import YMGap.Continuum.SpectralGap
 import YMGap.Continuum.SpectralGapConverse
