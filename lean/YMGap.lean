@@ -296,6 +296,8 @@ import YMGap.Rubric.ReconstructionScorecardFinal
 import YMGap.Continuum.HaarClassIntegral
 import YMGap.Continuum.BoundedTransferCalculus
 import YMGap.Continuum.DiscreteLaplaceMargin
+import YMGap.Continuum.UniformCorrelationDecay
+import YMGap.Continuum.WilsonAreaLaw
 import YMGap.Continuum.OSReconstruction
 import YMGap.Continuum.SpectralGap
 import YMGap.Continuum.SpectralGapConverse
