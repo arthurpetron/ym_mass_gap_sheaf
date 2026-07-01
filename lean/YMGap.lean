@@ -293,6 +293,9 @@ import YMGap.Rubric.ReconstructionScorecard
 import YMGap.Continuum.O4BetaSign
 import YMGap.Continuum.DDIdentity
 import YMGap.Rubric.ReconstructionScorecardFinal
+import YMGap.Continuum.HaarClassIntegral
+import YMGap.Continuum.BoundedTransferCalculus
+import YMGap.Continuum.DiscreteLaplaceMargin
 import YMGap.Continuum.OSReconstruction
 import YMGap.Continuum.SpectralGap
 import YMGap.Continuum.SpectralGapConverse
