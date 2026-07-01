@@ -251,6 +251,11 @@ import YMGap.Continuum.FusionCoreStepRoundI
 import YMGap.Continuum.ChebUniformOrtho
 import YMGap.Continuum.FusionCoreStepRoundJ
 import YMGap.Continuum.ChebRotationPair
+import YMGap.Constructive.CRealSqrtCReal
+import YMGap.Continuum.O4RestorationH4
+import YMGap.Continuum.PhysicalRGSelfSimilar
+import YMGap.Continuum.LocalCLTSteepestDescent
+import YMGap.Continuum.GNSHamiltonian
 import YMGap.Continuum.OSReconstruction
 import YMGap.Continuum.SpectralGap
 import YMGap.Continuum.SpectralGapConverse
