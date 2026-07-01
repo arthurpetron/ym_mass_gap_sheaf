@@ -286,6 +286,11 @@ import YMGap.Continuum.CosNodeBracket
 import YMGap.Continuum.ArtanhMonotone
 import YMGap.Continuum.LoopyCorrelatorBound
 import YMGap.Continuum.ReconstructionCapstone
+import YMGap.Continuum.CosPiEnclosure
+import YMGap.Continuum.FPClusterIdentity
+import YMGap.Continuum.WilsonCharBridge
+import YMGap.Rubric.ReconstructionScorecard
+import YMGap.Continuum.O4BetaSign
 import YMGap.Continuum.OSReconstruction
 import YMGap.Continuum.SpectralGap
 import YMGap.Continuum.SpectralGapConverse
