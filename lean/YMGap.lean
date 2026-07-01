@@ -61,6 +61,7 @@ import YMGap.Constructive.CRealSum
 import YMGap.Constructive.CRealAlg
 import YMGap.Constructive.CRealExp
 import YMGap.Constructive.CRealTrig
+import YMGap.Constructive.CRealTrigFull
 import YMGap.Constructive.FinSumGeom
 import YMGap.Constructive.CharacterTail
 import YMGap.Constructive.ExpGeomBound
@@ -304,6 +305,7 @@ import YMGap.Continuum.EffMassConvergence
 import YMGap.Continuum.ConstructiveShellBridge
 import YMGap.Continuum.CosNodeFamilyClose
 import YMGap.Continuum.CosIntegralReduction
+import YMGap.Continuum.ArctanTanInversion
 import YMGap.Continuum.OSReconstruction
 import YMGap.Continuum.SpectralGap
 import YMGap.Continuum.SpectralGapConverse
