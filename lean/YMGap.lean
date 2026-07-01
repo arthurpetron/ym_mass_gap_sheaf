@@ -281,6 +281,11 @@ import YMGap.Continuum.RootEnclosureGen
 import YMGap.Continuum.UniformCouplingFromAF
 import YMGap.Continuum.LoopyCorrelatorProgress
 import YMGap.Continuum.HamiltonianSpectrumInf
+import YMGap.Continuum.WilsonSchurIdentities
+import YMGap.Continuum.CosNodeBracket
+import YMGap.Continuum.ArtanhMonotone
+import YMGap.Continuum.LoopyCorrelatorBound
+import YMGap.Continuum.ReconstructionCapstone
 import YMGap.Continuum.OSReconstruction
 import YMGap.Continuum.SpectralGap
 import YMGap.Continuum.SpectralGapConverse
