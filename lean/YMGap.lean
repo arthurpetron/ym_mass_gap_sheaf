@@ -307,6 +307,7 @@ import YMGap.Continuum.CosNodeFamilyClose
 import YMGap.Continuum.CosIntegralReduction
 import YMGap.Continuum.ArctanTanInversion
 import YMGap.Continuum.SinPiDoubleAngle
+import YMGap.Continuum.TanArctan
 import YMGap.Continuum.OSReconstruction
 import YMGap.Continuum.SpectralGap
 import YMGap.Continuum.SpectralGapConverse
