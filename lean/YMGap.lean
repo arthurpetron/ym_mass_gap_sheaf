@@ -271,6 +271,11 @@ import YMGap.Continuum.O4ClauseStrength
 import YMGap.Continuum.SpectralMarginBridge
 import YMGap.Continuum.LeakGeoDecay
 import YMGap.Continuum.HamiltonianScalar
+import YMGap.Continuum.LocatedBracketGen
+import YMGap.Continuum.H4RotationAuto
+import YMGap.Continuum.AcNReserveAnalytic
+import YMGap.Continuum.WilsonSpectralBridge
+import YMGap.Continuum.RCScaleClose
 import YMGap.Continuum.OSReconstruction
 import YMGap.Continuum.SpectralGap
 import YMGap.Continuum.SpectralGapConverse
