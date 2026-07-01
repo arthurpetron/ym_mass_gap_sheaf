@@ -266,6 +266,11 @@ import YMGap.Continuum.AFCertificateModel
 import YMGap.Continuum.AsymptoticSpectralLoc
 import YMGap.Continuum.SymMinorGershgorinProof
 import YMGap.Continuum.SelfAdjointHamiltonian
+import YMGap.Continuum.LocatedNodeDataGen
+import YMGap.Continuum.O4ClauseStrength
+import YMGap.Continuum.SpectralMarginBridge
+import YMGap.Continuum.LeakGeoDecay
+import YMGap.Continuum.HamiltonianScalar
 import YMGap.Continuum.OSReconstruction
 import YMGap.Continuum.SpectralGap
 import YMGap.Continuum.SpectralGapConverse
