@@ -60,6 +60,7 @@ import YMGap.Constructive.ExpGeomMaj
 import YMGap.Constructive.CRealSum
 import YMGap.Constructive.CRealAlg
 import YMGap.Constructive.CRealExp
+import YMGap.Constructive.CRealTrig
 import YMGap.Constructive.FinSumGeom
 import YMGap.Constructive.CharacterTail
 import YMGap.Constructive.ExpGeomBound
