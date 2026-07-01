@@ -256,6 +256,11 @@ import YMGap.Continuum.O4RestorationH4
 import YMGap.Continuum.PhysicalRGSelfSimilar
 import YMGap.Continuum.LocalCLTSteepestDescent
 import YMGap.Continuum.GNSHamiltonian
+import YMGap.Continuum.ChebLocatedNodesGen
+import YMGap.Continuum.O4H4Homomorphism
+import YMGap.Continuum.AFDeltaDecay
+import YMGap.Continuum.AutoconvGershgorin
+import YMGap.Continuum.HamiltonianAllSep
 import YMGap.Continuum.OSReconstruction
 import YMGap.Continuum.SpectralGap
 import YMGap.Continuum.SpectralGapConverse
