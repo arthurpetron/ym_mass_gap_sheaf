@@ -299,6 +299,7 @@ import YMGap.Continuum.DiscreteLaplaceMargin
 import YMGap.Continuum.UniformCorrelationDecay
 import YMGap.Continuum.WilsonAreaLaw
 import YMGap.Continuum.SpectralEffectiveMass
+import YMGap.Continuum.EffMassConvergence
 import YMGap.Continuum.OSReconstruction
 import YMGap.Continuum.SpectralGap
 import YMGap.Continuum.SpectralGapConverse
