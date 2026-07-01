@@ -276,6 +276,11 @@ import YMGap.Continuum.H4RotationAuto
 import YMGap.Continuum.AcNReserveAnalytic
 import YMGap.Continuum.WilsonSpectralBridge
 import YMGap.Continuum.RCScaleClose
+import YMGap.Continuum.CharacterDiagResolutionProof
+import YMGap.Continuum.RootEnclosureGen
+import YMGap.Continuum.UniformCouplingFromAF
+import YMGap.Continuum.LoopyCorrelatorProgress
+import YMGap.Continuum.HamiltonianSpectrumInf
 import YMGap.Continuum.OSReconstruction
 import YMGap.Continuum.SpectralGap
 import YMGap.Continuum.SpectralGapConverse
