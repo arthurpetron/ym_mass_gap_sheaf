@@ -261,6 +261,11 @@ import YMGap.Continuum.O4H4Homomorphism
 import YMGap.Continuum.AFDeltaDecay
 import YMGap.Continuum.AutoconvGershgorin
 import YMGap.Continuum.HamiltonianAllSep
+import YMGap.Continuum.DeMoivreHalfGen
+import YMGap.Continuum.AFCertificateModel
+import YMGap.Continuum.AsymptoticSpectralLoc
+import YMGap.Continuum.SymMinorGershgorinProof
+import YMGap.Continuum.SelfAdjointHamiltonian
 import YMGap.Continuum.OSReconstruction
 import YMGap.Continuum.SpectralGap
 import YMGap.Continuum.SpectralGapConverse
