@@ -300,6 +300,12 @@ import YMGap.Continuum.BoundedTransferCalculus
 import YMGap.Continuum.ContinuousTransferCalculus
 import YMGap.Continuum.ContinuousFunctionalCalculusForm
 import YMGap.Continuum.ContinuousFCCarrierLimit
+import YMGap.Continuum.LaplaceMarginDeep
+import YMGap.Continuum.SeriesComposition
+import YMGap.Constructive.TrigAddCReal
+import YMGap.Continuum.BernsteinVariance
+import YMGap.Continuum.RCCauchySchwarz
+import YMGap.Continuum.LinearTransferOperator
 import YMGap.Continuum.DiscreteLaplaceMargin
 import YMGap.Continuum.UniformCorrelationDecay
 import YMGap.Continuum.WilsonAreaLaw
