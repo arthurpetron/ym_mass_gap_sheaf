@@ -305,6 +305,12 @@ import YMGap.Constructive.TrigSineAddCReal
 import YMGap.Continuum.WindowedGaussianEnvelope
 import YMGap.Continuum.WHAllSMarginTail
 import YMGap.Continuum.WHMarginTailClose
+import YMGap.Continuum.AdjacentMLR
+import YMGap.Continuum.WHTailCeilingsClose
+import YMGap.Continuum.ArctanTrigConvergesProof
+import YMGap.Constructive.TrigSignedAddFull
+import YMGap.Continuum.BernsteinSequenceWrap
+import YMGap.Continuum.FCLimitContinuity
 import YMGap.Continuum.ArrayMLR
 import YMGap.Constructive.TrigSignedAdd
 import YMGap.Continuum.ArctanTrigConverges
