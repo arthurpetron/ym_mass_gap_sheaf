@@ -35,14 +35,18 @@ degenerate all-zero coefficient sequence satisfies every REC recurrence and both
 convergence witnesses, so the reduction is real (a satisfiable obligation, not a
 disguised falsehood).
 
-## The single named residual
+## The remaining construction (discharged downstream)
 
-The ONLY thing not discharged here is the construction of a `SeriesData` for the
-*actual* arctan coefficients `pc/qc` (the artanh-style geometric-majorant series
-build + the solved recurrence `p_{n+2} = (q_{n+1} − n·pₙ)/(n+2)`, `q_{n+2} =
-(−p_{n+1} − n·qₙ)/(n+2)`).  That build needs `Q'` division (absent in the current
-rational layer) and is left as the honest residual `SeriesData` — a `Type`-level
-obligation, never a `sorry`.
+The one thing not discharged *here* is the construction of a `SeriesData` for the
+*actual* arctan coefficients `pc/qc` (the geometric-majorant series build + the
+solved recurrence `p_{n+2} = (q_{n+1} − n·pₙ)/(n+2)`, `q_{n+2} =
+(−p_{n+1} − n·qₙ)/(n+2)`).  That build uses division by a positive rational
+denominator (`Q'.divPos`, `divPos_mul_eqv`), which is axiom-clean; the earlier
+note that the rational layer lacked division was stale.  The concrete
+`SeriesData (1/5)` — coefficient recursion, the `|pₙ|,|qₙ| ≤ 1` bound, the
+`(1/2)ⁿ` geometric Cauchy modulus for the two `CReal` limits — is built downstream
+(`YMGap.Constructive.QDivArctanSeries`) and fed to `tanLink_of_data`, all
+`Type`-level, never a `sorry`.
 
 ## Axiom gate (AGENTS.md Rule 1 / Rule 8)
 

@@ -301,6 +301,12 @@ import YMGap.Continuum.ContinuousTransferCalculus
 import YMGap.Continuum.ContinuousFunctionalCalculusForm
 import YMGap.Continuum.ContinuousFCCarrierLimit
 import YMGap.Continuum.LaplaceMarginDeep
+import YMGap.Constructive.TrigSineAddCReal
+import YMGap.Continuum.WindowedGaussianEnvelope
+import YMGap.Continuum.FiniteSMarginWorstcase
+import YMGap.Constructive.QDivArctanSeries
+import YMGap.Continuum.BinomialTheorem
+import YMGap.Continuum.WilsonLinearFC
 import YMGap.Continuum.SeriesComposition
 import YMGap.Constructive.TrigAddCReal
 import YMGap.Continuum.BernsteinVariance
