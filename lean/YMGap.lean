@@ -299,6 +299,7 @@ import YMGap.Continuum.HaarClassIntegral
 import YMGap.Continuum.BoundedTransferCalculus
 import YMGap.Continuum.ContinuousTransferCalculus
 import YMGap.Continuum.ContinuousFunctionalCalculusForm
+import YMGap.Continuum.ContinuousFCCarrierLimit
 import YMGap.Continuum.DiscreteLaplaceMargin
 import YMGap.Continuum.UniformCorrelationDecay
 import YMGap.Continuum.WilsonAreaLaw
