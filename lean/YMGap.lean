@@ -306,6 +306,12 @@ import YMGap.Continuum.WindowedGaussianEnvelope
 import YMGap.Continuum.WHAllSMarginTail
 import YMGap.Continuum.WHMarginTailClose
 import YMGap.Continuum.AdjacentMLR
+import YMGap.Continuum.WilsonParsevalExt
+import YMGap.Continuum.SaddleFloor
+import YMGap.Continuum.ArctanValueIdentity
+import YMGap.Constructive.PythFull
+import YMGap.Continuum.BernsteinModulusClose
+import YMGap.Continuum.FCNormBoundLimit
 import YMGap.Continuum.WHTailCeilingsClose
 import YMGap.Continuum.ArctanTrigConvergesProof
 import YMGap.Constructive.TrigSignedAddFull
