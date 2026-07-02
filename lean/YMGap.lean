@@ -303,6 +303,12 @@ import YMGap.Continuum.ContinuousFCCarrierLimit
 import YMGap.Continuum.LaplaceMarginDeep
 import YMGap.Constructive.TrigSineAddCReal
 import YMGap.Continuum.WindowedGaussianEnvelope
+import YMGap.Continuum.WHAllSMarginTail
+import YMGap.Continuum.CrossRatioMonotone
+import YMGap.Continuum.ArctanSeriesTrigBridge
+import YMGap.Constructive.SinAddNonneg
+import YMGap.Continuum.BernsteinVarianceClose
+import YMGap.Continuum.RCDistBridge
 import YMGap.Continuum.FiniteSMarginWorstcase
 import YMGap.Constructive.QDivArctanSeries
 import YMGap.Continuum.BinomialTheorem
