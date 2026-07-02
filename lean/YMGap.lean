@@ -308,6 +308,12 @@ import YMGap.Continuum.WHMarginTailClose
 import YMGap.Continuum.AdjacentMLR
 import YMGap.Continuum.WilsonParsevalExt
 import YMGap.Continuum.FiniteSMarginWorstcaseProof
+import YMGap.Continuum.ThetaExponentConvexity
+import YMGap.Continuum.ArctanCompositionIdentity
+import YMGap.Continuum.MooreOsgoodB2
+import YMGap.Continuum.BoundedFCRetired
+import YMGap.Continuum.FinEuclCompletionCoordsClose
+import YMGap.Continuum.PolyImageDistCertClose
 import YMGap.Continuum.ArctanCompositionTail
 import YMGap.Continuum.CircleModelAssembly
 import YMGap.Continuum.SymbolTypedParsevalClose
