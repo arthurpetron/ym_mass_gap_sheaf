@@ -304,6 +304,12 @@ import YMGap.Continuum.LaplaceMarginDeep
 import YMGap.Constructive.TrigSineAddCReal
 import YMGap.Continuum.WindowedGaussianEnvelope
 import YMGap.Continuum.WHAllSMarginTail
+import YMGap.Continuum.WHMarginTailClose
+import YMGap.Continuum.ArrayMLR
+import YMGap.Constructive.TrigSignedAdd
+import YMGap.Continuum.ArctanTrigConverges
+import YMGap.Continuum.BernsteinUniformConvergence
+import YMGap.Continuum.WilsonContinuousFC
 import YMGap.Continuum.CrossRatioMonotone
 import YMGap.Continuum.ArctanSeriesTrigBridge
 import YMGap.Constructive.SinAddNonneg
