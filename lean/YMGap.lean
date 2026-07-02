@@ -307,6 +307,12 @@ import YMGap.Continuum.WHAllSMarginTail
 import YMGap.Continuum.WHMarginTailClose
 import YMGap.Continuum.AdjacentMLR
 import YMGap.Continuum.WilsonParsevalExt
+import YMGap.Continuum.FiniteSMarginWorstcaseProof
+import YMGap.Continuum.ArctanCompositionTail
+import YMGap.Continuum.CircleModelAssembly
+import YMGap.Continuum.SymbolTypedParsevalClose
+import YMGap.Continuum.BernsteinStageData
+import YMGap.Continuum.PolyImageCauchySupplier
 import YMGap.Continuum.SaddleFloor
 import YMGap.Continuum.ArctanValueIdentity
 import YMGap.Constructive.PythFull
