@@ -157,6 +157,12 @@ import YMGap.Continuum.DiffJTPAssembly
 import YMGap.Continuum.DiffJTPClose
 import YMGap.Continuum.DiffJTPFinal
 import YMGap.Continuum.HdconvReroute
+import YMGap.Continuum.DiffJTPClosed
+import YMGap.Continuum.TotalMajorantClose
+import YMGap.Continuum.ChebTFwdRatioClose
+import YMGap.Continuum.RcAlgResidualClose
+import YMGap.Continuum.LProductFactorClose
+import YMGap.Continuum.CoeffHalfIdentityClose
 import YMGap.Continuum.DkProducerClose
 import YMGap.Continuum.ProdSecondDiffClose
 import YMGap.Continuum.RcSDResidualClose
