@@ -610,3 +610,9 @@ import YMGap.Continuum.Ursell4DProgress
 import YMGap.Continuum.MeanExpConvexProgress
 import YMGap.Continuum.MeanToCrossRatioClose
 import YMGap.Continuum.ScaledBulkShiftClose
+import YMGap.Continuum.SepLatticeZ4Close
+import YMGap.Continuum.TreeGraphBoundProgress
+import YMGap.Continuum.PentagonRelation
+import YMGap.Continuum.XMeanSecondDiffProgress
+import YMGap.Continuum.PinnedBridgeProgress
+import YMGap.Continuum.Tier0Scorecard
