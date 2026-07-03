@@ -603,7 +603,6 @@ import YMGap.Continuum.SixJRecouplingProgress
 import YMGap.Continuum.Stage2ConvergesToMargin
 import YMGap.Continuum.FusionMarginMonotone
 import YMGap.Continuum.Stage1LoopyReduction
-import YMGap.Continuum.Tier0ReductionCapstone
 import YMGap.Continuum.Tier0FrontierCorrected
 import YMGap.Continuum.RacahInhabit
 import YMGap.Continuum.Ursell4DProgress

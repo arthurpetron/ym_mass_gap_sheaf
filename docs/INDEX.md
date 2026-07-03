@@ -4,6 +4,7 @@ A map of the `docs/` tree: the canonical state to read first, critical correctio
 
 ## Canonical state (read first)
 
+- [continuum-map.md](continuum-map.md) — **navigation map** for `lean/YMGap/Continuum/` (~487 files): the read-first canonical capstones, the four live reduction chains (`FusionCoreStepRound[A–J]`, DiffJTP `*Close`, reconstruction, Tier-0), the frontier leaves, the guarded frontier types, and the archive. Read this before touching the Continuum tree — the round/Close/Progress families are *live chains*, not dead iterations.
 - [PARALLEL-LOOP-FLOOR-2026-07-03.md](PARALLEL-LOOP-FLOOR-2026-07-03.md) — **newest capstone.** The floor reached by the 9-round parallel loop: ④ bounded continuous FC retired; the loop-localized frontier (Core A arctan / Core B fusion local-CLT). Read together with the continuum-limit frontier below — the genuinely Clay-hard wall is the `a→0` continuum limit (`UniformPhysicalCorrelationDecay`), *not* the two loop cores.
 - [STATE-AND-PATH-FORWARD-2026-07-02.md](STATE-AND-PATH-FORWARD-2026-07-02.md) — prose companion capstone: full rubric, the five open cores incl. the `a→0` continuum physics as core #2.
 - [STATE-AND-PATH-FORWARD-2026-06-23.md](STATE-AND-PATH-FORWARD-2026-06-23.md) — earlier capstone synthesis + forward plan (still-accurate geography of the two walls).

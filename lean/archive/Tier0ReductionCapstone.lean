@@ -1,4 +1,12 @@
 /-
+ARCHIVED (2026-07-03) — superseded r2 Tier-0 capstone. Excluded from the Lake build
+(not under the `YMGap` glob) and kept for provenance only; do NOT import.
+Superseded by `YMGap/Continuum/Tier0FrontierCorrected.lean` (r3, inhabitable atoms)
+and `YMGap/Continuum/Tier0Scorecard.lean` (r4, the 6-atom frontier scorecard),
+which re-prove its half-payoffs on the corrected atoms. See docs/continuum-map.md.
+-/
+
+/-
 The **Tier-0 reduction capstone**: the whole open frontier of the constructive
 Yang–Mills mass-gap development, bundled as EXACTLY THREE named Type-level atoms
 (plus one orthogonal, separately-listed measure-existence caveat), with the two
