@@ -309,6 +309,12 @@ import YMGap.Continuum.AdjacentMLR
 import YMGap.Continuum.WilsonParsevalExt
 import YMGap.Continuum.FiniteSMarginWorstcaseProof
 import YMGap.Continuum.ThetaExponentConvexity
+import YMGap.Rubric.LoopScorecard
+import YMGap.Continuum.WilsonFCHead
+import YMGap.Continuum.ArctanTangentLink
+import YMGap.Continuum.LineSumLogConcave
+import YMGap.Continuum.MovingWindowEdgeClose
+import YMGap.Continuum.SpectralDiffBoundClose
 import YMGap.Continuum.ArctanCompositionIdentity
 import YMGap.Continuum.MooreOsgoodB2
 import YMGap.Continuum.BoundedFCRetired
