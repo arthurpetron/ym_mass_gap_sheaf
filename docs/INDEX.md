@@ -4,13 +4,18 @@ A map of the `docs/` tree: the canonical state to read first, critical correctio
 
 ## Canonical state (read first)
 
-- [where-the-wall-sits-2026-06-22.md](where-the-wall-sits-2026-06-22.md) — the current bottom line: exactly where the open wall in the proof now sits.
-- [stage1-completion-ledger-2026-06-22.md](stage1-completion-ledger-2026-06-22.md) — proved-vs-open ledger for Stage 1 (the finite-volume / fixed-spacing layer).
-- [stage2-progress-ledger-2026-06-22.md](stage2-progress-ledger-2026-06-22.md) — proved-vs-open ledger for Stage 2 (the continuum / scaling progress).
+- [PARALLEL-LOOP-FLOOR-2026-07-03.md](PARALLEL-LOOP-FLOOR-2026-07-03.md) — **newest capstone.** The floor reached by the 9-round parallel loop: ④ bounded continuous FC retired; the loop-localized frontier (Core A arctan / Core B fusion local-CLT). Read together with the continuum-limit frontier below — the genuinely Clay-hard wall is the `a→0` continuum limit (`UniformPhysicalCorrelationDecay`), *not* the two loop cores.
+- [STATE-AND-PATH-FORWARD-2026-07-02.md](STATE-AND-PATH-FORWARD-2026-07-02.md) — prose companion capstone: full rubric, the five open cores incl. the `a→0` continuum physics as core #2.
+- [STATE-AND-PATH-FORWARD-2026-06-23.md](STATE-AND-PATH-FORWARD-2026-06-23.md) — earlier capstone synthesis + forward plan (still-accurate geography of the two walls).
+- [clay-open-boundary-ledger.md](clay-open-boundary-ledger.md) — the canonical honest accounting of proved vs open against the Clay boundary; read to the bottom (later dated addenda supersede earlier ones — e.g. `UniformClusterBound` now inhabited at fixed spacing, `OffDiagClosed` proved).
+- [where-the-wall-sits-2026-06-22.md](where-the-wall-sits-2026-06-22.md) — the two-wall geography (high-level still accurate; specific Stage-1 `UniformClusterBound` "open" claim superseded by the ledger addenda).
+- [stage1-completion-ledger-2026-06-22.md](stage1-completion-ledger-2026-06-22.md) — proved-vs-open ledger for Stage 1 (finite-volume / fixed-spacing).
+- [stage2-progress-ledger-2026-06-22.md](stage2-progress-ledger-2026-06-22.md) — proved-vs-open ledger for Stage 2 (continuum / scaling).
 - [continuum-wall-outstanding-2026-06-22.md](continuum-wall-outstanding-2026-06-22.md) — the outstanding continuum-limit obligations stated precisely.
-- [clay-open-boundary-ledger.md](clay-open-boundary-ledger.md) — the canonical honest accounting of what is proved vs open against the Clay problem boundary.
 - [publishable-results-audit-2026-06-22.md](publishable-results-audit-2026-06-22.md) — audit of which standalone results are publishable independently of full closure.
-- [homological-geometric-probe-results-2026-06-22.md](homological-geometric-probe-results-2026-06-22.md) — results of the homological/geometric probe (the outcome of the probe scope).
+- [homological-geometric-probe-results-2026-06-22.md](homological-geometric-probe-results-2026-06-22.md) — results of the homological/geometric probe.
+
+Machine-checked mirror of the frontier: `lean/YMGap/Rubric/LoopScorecard.lean` (`loop_proved_line` + the uninhabited `LoopOpenFrontier`) and `ClayScorecard.lean` (`ClayTarget` uninhabited, `ClayFixedSpacingMet` proved).
 
 ## Critical corrections
 
