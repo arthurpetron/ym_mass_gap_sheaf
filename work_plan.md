@@ -2209,8 +2209,45 @@ than a structural demo.
 > be inhabited (or the named hypothesis that must be discharged) — not
 > the route. If a better route inhabits the same type, take it and
 > record the deviation in the milestone's closure note.
+>
+> **Composition update (2026-07-03, from the external GPT review
+> `docs/GPT/030726_YM_GPT_Review.md`).** Two structural findings are
+> folded into this phase:
+>
+> 1. **There are TWO machine-checked frontier enumerations, not one.**
+>    Alongside `Tier0Scorecard`'s eight atoms (the measure/RG side),
+>    `Rubric/ReconstructionScorecardFinal.lean` names five open
+>    operator/OS-side tokens: `OpenNode1FiniteSMargin` (finite-s
+>    theta-floor saddle margin), `OpenTrueMargin`
+>    (`UniformCouplingFromAF.TrueMarginRecursion` — the genuine
+>    dimensionless `Δ_k = m_lat(a_k)/a_k`, DISTINCT from the proved
+>    survival-product surrogate), `OpenPhysicalWilsonBridge`
+>    (`WilsonSpectralBridge.CharacterDiagResolution`),
+>    `OpenBoundedHamiltonian`
+>    (`BoundedFunctionalCalculusResidual`, `e^{−H} = T`), and
+>    `OpenContinuumMinlos`. These overlap the Tier-0 atoms (Minlos
+>    verbatim; the `DeltaFrontierLedger` residual `bulkCtrl` is the
+>    `hlocalize` content; `OpenTrueMargin` vs `UniformSpacingFloor`)
+>    but are not identical — bridging or unifying them is now
+>    Milestone 11.14, and 11.0's audit covers BOTH lists.
+> 2. **The pinning principle.** Several rubric clauses are inhabitable
+>    only because their statements are still weak enough to admit
+>    surrogate/model witnesses (the survival-product floor inside
+>    `ReconstructionProvedLine` is the confirmed example; existential
+>    defect schedules in O(4) clauses are the pattern). Strengthening
+>    the top-level target so that all fields are pinned to the SAME
+>    physical objects (same `G`, same continuum measure, same
+>    observable algebra, same Hamiltonian) — so that the only way to
+>    inhabit it is to solve the problem — is now Milestone 11.13, and
+>    surrogate-green clauses must be labeled `MET-surrogate` per the
+>    Rule 9 update. Milestones 11.13–11.17 below carry the
+>    composition; 11.13/11.14 are architecture-tier (schedule with
+>    11.0), 11.15 gates the heavy 11.8 investment, 11.16 is
+>    mechanizable-tier, 11.17 is statement-layer Clay coverage.
 
 ### Milestone 11.0 — Frontier re-audit and scorecard synchronization
+
+**Status.** DONE (2026-07-03) — `scripts/frontier_status.py` + `make frontier-status` + `docs/frontier-status.md` (304 lines, OPEN-by-design ledger; `--lake`/`--stdout`/`--from-file` flags), walking the 7 frontier bundles.
 
 **Goal.** A single generated document in which every open atom of
 `Tier0Scorecard` / `ClayTarget` / `FourDExistence.ContinuumYMExistence`
@@ -2248,9 +2285,37 @@ and de-risks every subsequent one.
 frontier bundle acquires an inhabitant (the guard is scoped as
 Milestone 12.2; this milestone may deliver it early if convenient).
 
+**Composition update (2026-07-03).** Scope extended per the GPT-review
+composition:
+- The audit walks **both** enumerations — the eight Tier-0 atoms AND
+  the five `ReconstructionScorecardFinal` tokens — plus the
+  `DeltaFrontierLedger` residual (`bulkCtrl`), and records suspected
+  cross-list identifications for 11.14 to prove or refute.
+- Add an **unimported-file audit**: list every `.lean` under `YMGap/`
+  absent from `YMGap.lean`, each either imported or annotated with the
+  documented-exclusion rationale (`PolyAtlas`/`ModuliAlgebra` pattern).
+  Verified 2026-07-03: 602 files vs 600 root imports, so the current
+  delta is tiny — keep it that way. (The external review flagged a
+  `PenroseDomPartition.lean` as unimported; that file exists in
+  neither the live tree nor the zip snapshot — the real object is
+  `PenroseDomInduction.lean`, which IS imported. The *general* check
+  is still worth automating; the specific claim was wrong.)
+- Add a **`noncomputable` ledger**: the 9 `noncomputable` declarations
+  (currently in `NormExcitedDrift`, `DominantModeRecursion`,
+  `UniformCouplingFromAF`) each get a one-line classification —
+  constructive extraction behind a Σ projection / convenience pending
+  computable replacement / non-load-bearing helper — in a short
+  section of `AXIOM_AUDIT.md` or a sibling ledger, per the AGENTS.md
+  Rule 1 addendum.
+- Record which rubric clauses are **MET-surrogate** vs MET-physical
+  (the survival-product uniform-coupling floor is the known instance),
+  feeding 11.13/11.15.
+
 ---
 
 ### Milestone 11.1 — (D2) separation metric: tightening decision and discharge
+
+**Status.** DONE (2026-07-03) — `notes/d2-metric-sufficiency.md`, verdict (i): the L¹ `z4Sep` witness SUFFICES for every wired Sub-wall A consumer (only `PinnedCluster.connected_spanning_size_ge`, via `dist_self`/`dist_adj_le`/`dist_triangle`; raw dist never evaluated). L∞ needed only if `clusterSpanSum_decay` is re-routed through spanning-length (latent `PhysicalPairSepSupply`, off every wired path).
 
 **Goal.** The `SubWallA.d2Sep` slot is discharged by a metric whose
 strength is *matched to what the downstream Ursell decay actually
@@ -2285,6 +2350,8 @@ for the 11.2/11.3 authors.
 ---
 
 ### Milestone 11.2 — (T′) tree-graph inequality: close the three legs
+
+**Status.** CURRENTLY IN PROGRESS (2026-07-03) — leg (A) `CubicEulerBound` PROVED (`Continuum/CubicEulerBound.lean`, (n+1)ⁿ≤3nⁿ, Nat Bernoulli, axiom-clean) → leg (A) DONE. Leg (C) `cayleyMax` PARTIAL (`Continuum/CayleyMaxBound.lean`): FINDING — the unconditional target is FALSE for multigraphs (treeCount = edge-SUBSET count; needs `SimpleEdges`), and deletion-contraction is INSUFFICIENT for Cayley; reduced to `CayleyCountBound` (simple-graph Prüfer) + a `CayleyPin`. Leg (P) `penroseDom` stays under `PenroseDomInduction.lean`.
 
 **Goal.** `Ursell4DProgress.TreeGraphBound` is inhabited for the
 pinned truncated-Ursell `phiT` — i.e. the per-cluster bound
@@ -2425,6 +2492,8 @@ demand it).
 
 ### Milestone 11.5 — Sub-wall B: discharge `hadd` (the units dictionary)
 
+**Status.** DONE (2026-07-03) — `Continuum/HaddDischarge.lean`: `spectralMarginInput_of_edgeLocalization` installs the PROVED `hadd` (`hadd_is_installed` by rfl) + `continuum_floor_pos_of_edgeLocalization` (0<physGapMin end-to-end). Sub-wall B drops 3→2 atoms {hbridge, hlocalize}; hadd is now a theorem of the strictly-sharper {hEdge, hFR, bulk_shift}. Axiom-clean, guard-safe.
+
 **Goal.** The `hadd` field of
 `AsymptoticSpectralLoc.SpectralMarginInput` — the located-second-
 eigenvalue ↔ physical-margin dictionary — is discharged by a theorem,
@@ -2522,6 +2591,36 @@ its final consumable form). Parallel with 11.8.
 milestone deliberately does not fix the proof technique; it fixes only
 the *statement* (the existing Lean field) and the honesty protocol.
 
+**Composition update (2026-07-03).** The GPT review supplies a
+concrete lemma ladder for the first tranche, and the
+`DeltaFrontierLedger` chain pins the target object; both are adopted:
+- **Target identification.** The `hlocalize` content is the
+  vacuum-normalized bulk eigenvalue-shift control `bulkCtrl`
+  (`SpectralLocalizationCrux.SpectralLocalization`, `bulk_shift ≤
+  1/12`), trivially inhabited at `p = 1`, open for `p ≥ 2` — the
+  fusion local-CLT is the route to it, and the prose campaign should
+  target exactly that field's statement.
+- **Lemma ladder** (statement-level Lean may land early; proofs follow
+  the prose per Rule 5):
+  1. the vacuum-normalized p-fold fusion kernel
+     `K_{w,p}(s) = [χ_s](K_w^{*p}) / [χ_0](K_w^{*p})` as a `Q'`-level
+     definition;
+  2. log-concavity / total positivity of the fusion coefficients
+     (extending `FusionLogConcave`/`SelfFusionLogConcave`);
+  3. the saddle / local-CLT estimate **with explicit rational error**,
+     `log K_{w,p}(s) = −A_p(w)·C₂(s) + R_p(s,w)`,
+     `|R_p(s,w)| ≤ η_p(w)·C₂(s)²`, moduli as data (Rule 8.3);
+  4. wiring into the existing `DeltaToBlockPower` / `bulkCtrl`
+     interface so the estimate discharges the ledger residual, not a
+     parallel statement.
+- The hierarchical-model prose proof of 3. remains the research heart;
+  1., 2., and the statement of 3.–4. are first-tranche deliverables
+  alongside the prose.
+- `OpenNode1FiniteSMargin` (the `AcNReserveAnalytic.FiniteSMargin`
+  steepest-descent remainder) is the same saddle-analysis family;
+  assign it to this campaign's second tranche unless 11.14's bridge
+  work shows it discharges from the same estimate.
+
 ---
 
 ### Milestone 11.8 — `UniformSpacingFloor`: hierarchical-model closure **[research]**
@@ -2566,9 +2665,23 @@ quantitative content to genuine ℤ⁴ (expected: technique and
 interfaces transfer; constants do not). The milestone's value stands
 either way.
 
+**Composition update (2026-07-03) — target-adequacy gate.** Before
+heavy investment here, complete Milestone 11.15's reconciliation:
+the GPT review argues (and `ReconstructionScorecardFinal` confirms a
+surrogate-vs-physical split exists) that a floor interface can be
+inhabitable by survival-product/model data while the Clay-relevant
+quantity is the dimensionless physical margin `Δ_k = m_lat(a_k)/a_k`.
+The 11.15 adequacy lemma (`TrueMarginRecursionPhysical →
+UniformSpacingFloor`, or the retargeting if it fails) decides whether
+this milestone's checkable predicate stays `UniformSpacingFloor` or
+moves to the pinned physical margin. Do not close this milestone
+against a floor the adequacy lemma has shown to be surrogate-weak.
+
 ---
 
 ### Milestone 11.9 — Continuum measure: the Minlos decision (Rule 4)
+
+**Status.** DONE (2026-07-03, route i) — `lean/YMGap/Classical/MinlosQuarantine.lean` (interface-only re-export of `CitedMinlosLift`, AXIOM-CLEAN — no raw axiom, deliberately uninhabited) + first `lean/CLASSICAL_LEDGER.md` entry + `docs/continuum-measure-attack-surface.md` §status note.
 
 **Goal.** The `CitedMinlosLift` atom is resolved by an explicit,
 logged decision — currently `CLASSICAL_LEDGER.md` has **zero entries**
@@ -2600,6 +2713,25 @@ updated `docs/continuum-measure-attack-surface.md` §status.
 Bishop sense suffices for the OS-reconstruction consumers or whether a
 full profinite-limit integration theory is needed — scope this in the
 attack-surface doc before committing.
+
+**Composition update (2026-07-03).** The GPT review concretizes route
+(ii) as a **pinned tightness/projective tower** — adopt it as the
+named shape of the constructive route: a structure over the physical
+volume/spacing tower carrying `finiteMeasures`, projective
+`consistency`, an **explicit tightness modulus**, **explicit
+cylinder-convergence moduli**, and survival fields for reflection
+positivity, gauge invariance, and (interfacing 11.10) O(4)
+restoration — followed by a theorem
+`continuumMeasure_from_tightTower : TightTower → Σ μ, OSMeasureProperties μ`.
+Constructive corrections to the sketch: all moduli are `Type`-level
+data (Rule 8.3), the conclusion is `Σ` not `∃` (Rule 2), and
+"summable" claims carry rate data. Under this framing, route (i)'s
+quarantined Minlos becomes the *classical comparison point* the tower
+theorem eventually retires — which is exactly Rule 4's intended
+lifecycle. The recommendation stands: quarantine now (honest ledger),
+build the tower as the replacement path, and let 11.14's FrontierDAG
+carry `continuumMinlos` as one node with both routes recorded against
+it.
 
 ---
 
@@ -2635,6 +2767,21 @@ constructively (a modulus on the H₄-to-O(4) defect of the Schwinger
 moments is the leading candidate; leave room for a correlator-level
 alternative).
 
+**Composition update (2026-07-03) — pin the anisotropy.** The GPT
+review sharpens the named-input requirement: the decay field must not
+be an *existential defect schedule* (which weak witnesses can satisfy
+vacuously). Adopt its pinning: the structure carries an
+`anisotropy : Nat → Q'` together with a field asserting it is
+**extracted from the physical Wilson action / transfer tower** (an
+equation to a named extraction function, not a free choice), a
+geometric decay bound `anisotropy k ≤ C·ρ^k` with `(C, ρ)` as data,
+and the O(4)-invariant-limit conclusion phrased against the SAME
+continuum measure as 11.13's pinned target. Note the repo already has
+the non-posited pattern to imitate:
+`O4BetaSign.o4_restored_of_tauModel` fires from the reciprocal AF
+trajectory with no posited `betaDrop` — the milestone extends that
+discipline from the β-coefficient to the full restoration input.
+
 ---
 
 ### Milestone 11.11 — OS reconstruction: construct the generator
@@ -2667,6 +2814,24 @@ spectrum vs. semigroup-generator): prefer whichever the existing
 `BoundedTransferCalculus`/`ContinuousFunctionalCalculusForm` modules
 already support; do not build a general constructive spectral theorem
 if the compact-transfer special case suffices.
+
+**Composition update (2026-07-03) — stage it, and name the token.**
+This milestone is the discharge path for the reconstruction frontier's
+`OpenBoundedHamiltonian` token (`BoundedFunctionalCalculusResidual`),
+and the GPT review's staging is adopted:
+- **Stage (a) — finite volume, bounded.** Construct the bounded
+  self-adjoint additive `H` with `e^{−H} = T` for the finite-volume
+  transfer operator, via the constructive spectral-mapping step
+  `λ(T) ≤ μ < 1 ⇒ −log λ(T) ≥ −log μ > 0` (the `CRealLog`
+  machinery exists; the located-gap transport is `Q'`/`CReal`
+  algebra). Deliver `spectrum_nonneg`, `vacuum_zero`, and the
+  `NoSpectrumIn H 0 Δ` gap clause as data-carrying fields.
+- **Stage (b) — the completion generator.** Only after (a): transport
+  through `completeGnsHilbert` as originally scoped, so
+  `reconstructed_gap_ge_uniform_floor` consumes a constructed object.
+Stage (a) alone retires `OpenBoundedHamiltonian` at fixed volume and
+is the tractable 80% of the operator-theoretic node the scorecard
+calls "the single irreducibly hard" one.
 
 ---
 
@@ -2703,6 +2868,264 @@ Weyl data permits.
 abstract `RepData`-with-verified-axioms class (cleanest) or an
 explicit 19-case enumeration (most checkable); the audit script should
 accept either.
+
+**Composition update (2026-07-03).** The GPT review adds the missing
+second half of this obligation: beyond *realizing* the per-group data,
+Clay-readiness requires showing the `RepData`/`SimpleGroup`
+abstraction is **equivalent to actual compact simple gauge groups**,
+not merely parameterized by admissible data — i.e. a
+classification-facing layer (compact simple types ⇒ verified `RepData`
+instance, with the Casimir floor, heat-kernel tail, and Peter–Weyl
+data as theorems per type). Add that faithfulness theorem to this
+milestone's definition of done, so `mass_gap_simple_group` quantifies
+over the groups themselves and not over an interface that might admit
+non-group inhabitants.
+
+---
+
+### Milestone 11.13 — `ClayTargetPinned`: the surrogate-proof top-level target
+
+**Status.** DONE (2026-07-03, statement-layer) — `lean/YMGap/Rubric/ClayTargetPinned.lean`: `ClayTargetPinned μ_inf` pins every clause to ONE shared physical stack (OSAxiomBundle + OSReconstruction + GNS over the SAME μ_∞), + `toClayTarget` coarsening; deliberately UNINHABITED (guard-protected), axiom-clean. Honest hardening: `GNSDataOfBundle` needs a `WilsonGNSData` param.
+
+**Goal.** A new headline target structure that **cannot be inhabited
+by surrogate, model, or existential data**, because every field is
+pinned to the same physical construction: one `G`-indexed bundle
+carrying the lattice approximation tower, the finite-volume measures,
+THE continuum measure, THE gauge-invariant local observable algebra
+(with Wilson-loop and curvature-polynomial field systems), THE OS data
+and reconstruction, and THE Hamiltonian — with nontriviality,
+local-field correspondence (11.17), asymptotic-freedom short-distance
+behavior, axioms-at-least-OS/Wightman, and the mass gap all stated
+**about those same objects**. The mass-gap clause returns its `Δ` as
+`Σ` data with a `CReal.IsPositive` witness (Rule 2/8.3 corrections to
+the review's `∃`-sketch). Checkable predicate: the module elaborates;
+`ClayTargetPinned` is deliberately uninhabited; the OLD `ClayTarget`
+is re-derived as a **proved coarsening** of the pinned target (a
+`toClayTarget` projection in the `toFrontierC` supersession pattern),
+recorded as the compatibility wrapper rather than the headline.
+
+**Route notes.** Most referenced component types do not exist yet —
+this is a *statement-layer* milestone (Rule 5: formalize the
+statement; leave witnesses to their owning milestones). Reuse existing
+carriers wherever they are already content-bearing (`OSAxiomBundle`,
+`ContinuumMeasure`, `OSReconstruction`, `GNSComplete`); introduce new
+interface types only where the pinning demands identity of objects
+that today live in separate structures. The pinning is what makes
+Rule 9(1) *mechanical*: a surrogate witness for one clause fails to
+typecheck against the shared parameters instead of needing a human to
+notice.
+
+**Deliverables.**
+- `lean/YMGap/Rubric/ClayTargetPinned.lean`: the structure, the
+  `toClayTarget` coarsening, PROVED/OPEN docstring sections, axiom
+  gates.
+- Rubric relabeling pass: every clause currently green via a surrogate
+  (the survival-product uniform-coupling floor is the known case) is
+  labeled `MET-surrogate` with a pointer to the pinned clause that
+  supersedes it.
+- `FRONTIER` list update (12.2) adding `ClayTargetPinned`.
+
+**Dependencies.** 11.0 (the MET-surrogate inventory). Schedule with
+11.14 — they are the two architecture PRs.
+
+**Open questions.** Whether `allCompactSimple : ∀ G, PhysicalYMData G`
+should be a `Π`-field of one structure or a per-`G` family with a
+separate universal statement — pick whichever lets 11.12's
+faithfulness theorem plug in without re-plumbing.
+
+---
+
+### Milestone 11.14 — `FrontierDAG`: unify the enumerations, prove the bridges
+
+**Status.** DONE (2026-07-03, item 1) — `lean/YMGap/Rubric/FrontierDAG.lean`: 11-atom deliberately-uninhabited DAG (typed by existing repo types) + `toSubWallA` coarsening + `minlosAsContinuum`/`trueMarginAtom`/`o4Atom`/`boundedHAtom` bridges; guard retargeted (now protects 5 frontier types). Residual: `CoreBBridge` named uninhabited. Items 2/3 (full bridges + anti-proliferation) follow.
+
+**Goal.** ONE canonical audit surface for the open problem, replacing
+the current situation of two overlapping enumerations plus scattered
+ledger residuals. Checkable predicates, in increasing strength:
+1. `lean/YMGap/Rubric/FrontierDAG.lean` exists: a single deliberately
+   uninhabited structure whose fields are exactly the canonical open
+   atoms — initially: the fusion local-CLT/`bulkCtrl` node, the
+   Sub-wall A geometry nodes ((T′)-residue, (D1), pentagon; (D2) per
+   its 11.1 status), `hbridge`-residue, the true physical margin, the
+   physical Wilson bridge, the bounded Hamiltonian, the
+   tightness/Minlos node, physical O(4) restoration, the
+   all-compact-simple faithfulness node, the finite-s saddle margin,
+   and the local-fields/OPE node (11.17) — each field typed by the
+   EXISTING repo type it stands for (never a new abstraction when a
+   named one exists).
+2. **Bridge theorems** (the genuinely new content this composition
+   elicited): proved mappings between the enumerations — e.g.
+   `FrontierDAG → Tier0Scorecard`-inputs and
+   `FrontierDAG → ReconstructionOpenFrontier`-inputs coarsenings in
+   the `toFrontierC` pattern; and, for each *suspected* cross-list
+   identification (Minlos ≡ Minlos; `bulkCtrl` ↔ `hlocalize`;
+   `OpenTrueMargin` ↔ `UniformSpacingFloor` via 11.15), either a
+   proved equivalence/implication or a documented refutation. Either
+   outcome is knowledge: dedup collapses the frontier count;
+   refutation exposes that the measure/RG and operator/OS sides need
+   genuinely different inputs.
+3. **Anti-proliferation regime active** (Rule 9 update): from this
+   milestone on, a new frontier enumeration may only enter the tree
+   together with a proved coarsening/refinement bridge to
+   `FrontierDAG`; contributions close atoms by *deleting or weakening
+   a DAG field via proof*, never by adding parallel scorecards.
+
+**Deliverables.** The module; the bridge theorems; `docs/frontier-status.md`
+regenerated to walk the DAG as its master list; the 12.2 guard
+retargeted at the DAG.
+
+**Dependencies.** 11.0 (the cross-list identification inventory);
+11.13 (the DAG's target-side consumer). Bridge item for
+`OpenTrueMargin` depends on 11.15.
+
+**Open questions.** Granularity — whether DAG nodes are the coarse
+tokens or the finest current residues (recommend: finest current
+residue, with the coarse tokens derived, matching how
+`Tier0Scorecard` refined `Tier0FrontierC`); whether edges
+(dependencies between atoms) should be encoded as types or left to
+the generated doc (start with the doc).
+
+---
+
+### Milestone 11.15 — `TrueMarginRecursionPhysical` and the target-adequacy lemma
+
+**Goal.** The uniform-in-coupling clause on the Clay-facing path is
+the **true dimensionless physical margin**, and the relationship
+between the two existing candidates is settled by proof. Two parts:
+1. **State the pinned recursion.** Building on the existing
+   `UniformCouplingFromAF.TrueMarginRecursion` token: a structure over
+   the physical transfer tower carrying `margin k = massLat k /
+   spacing k` (definitional field), per-step control
+   `margin (k+1) ≥ (1 − δ_k)·margin k − ε_k` with the defect
+   schedules as data, a summability **modulus** for `Σ(δ_k + ε_k)`
+   (data, not a bare `Summable` — Rule 8.3), and the positive-limit
+   conclusion as `Σ' Δ, CReal.IsPositive Δ × EventuallyLowerBound`.
+2. **The adequacy lemma (the gate for 11.8).** Prove
+   `TrueMarginRecursionPhysical → UniformSpacingFloor` (the physical
+   margin supplies the shared scalar floor all three routes consume)
+   — in which case 11.8's target stands and the pinned recursion
+   becomes its front door — OR establish that `UniformSpacingFloor`
+   admits inhabitants the physical margin does not license (a
+   surrogate-weakness witness), in which case the scorecard clause and
+   11.8's predicate are retargeted at the pinned recursion and the
+   floor is relabeled `MET-surrogate`-track.
+
+**Deliverables.** The Lean structure + adequacy lemma (or refutation
+record); replacement of the survival-product clause on the Clay-facing
+path (the surrogate is retained, relabeled, as non-headline); scorecard
+and DAG updates.
+
+**Dependencies.** 11.0; feeds 11.8 (gate) and 11.14 (bridge node).
+The analytic *discharge* of the recursion is 11.8-class research —
+out of scope here; this milestone is statement + adequacy.
+
+**Open questions.** The right constructive rendering of
+`spacing → 0` (a modulus-carrying null sequence) and of
+`EventuallyLowerBound` (reuse `CReal.leEv`); whether `δ_k` should be
+identified with the graded bond-moving defect `≤ (1−w_k)²` from the
+δ-loop chain (likely — record the identification in the DAG).
+
+---
+
+### Milestone 11.16 — The physical Wilson / Peter–Weyl bridge
+
+**Goal.** Retire `OpenPhysicalWilsonBridge`: prove the Peter–Weyl /
+Schur diagonalization **inside the actual physical inner product** —
+link variables in `G^{E(Λ)}`, gauge action at vertices, the
+invariant subalgebra, Haar integration, the Wilson plaquette weight —
+rather than in the character-diagonal representation. The repo's own
+honesty notes identify this as the standing `Q'`/CReal representation
+boundary: the char-diagonal instance is discharged
+(`WilsonSchurIdentities.wilsonSchurFormGap`), but the interacting
+finite-volume moment functional is not that instance; and the OS2
+closure's docstring concedes the diagonalized-basis *representation*
+is the citable analytic input. This milestone converts that citation
+into a theorem.
+
+**Checkable predicate.** A theorem (shape:
+`physicalWilsonPeterWeylDiagonalization`) establishing that the
+reflection/spectral forms computed in the physical finite-volume inner
+product (`cinner` over the `FiniteVolume.ReferenceWeight`
+construction) coincide with (or are dominated by, where equality is
+the wrong statement) the character-diagonal forms already proved —
+discharging `WilsonSpectralBridge.CharacterDiagResolution` — so every
+spectral-gap statement imports the physical bridge rather than the
+surrogate.
+
+**Route notes.** Ingredients exist: double-Haar Schur orthogonality is
+finite representation theory (per-irrep exact `Q'` where matrix
+coefficients are rational-representable; `CReal` where not);
+`E2ProductFunctional`/`HaarClassIntegral` carry the product-Haar
+functional; the cross-plane tensor factorization is already the
+per-bond reduction pattern. The honest hard part is the interacting
+weight insertion (the Boltzmann factor between characters) — the
+character-expansion of the weight is the same machinery as the KP
+activity bounds; start at one bond, one plaquette weight, then the
+product assembly.
+
+**Deliverables.** `lean/YMGap/Continuum/PhysicalWilsonBridge.lean`;
+the retargeting of OS2/gap consumers; DAG/scorecard updates;
+`notes/physical-wilson-bridge.md` recording exactly which prior
+results were char-diagonal-conditional and are now unconditional.
+
+**Dependencies.** 11.0. Independent of Sub-wall A; strengthens the
+foundations under 11.5/11.6/11.11.
+
+**Open questions.** Whether equality or two-sided domination is the
+right bridge statement for the interacting functional (domination
+suffices for every current gap consumer — prefer it if equality
+forces irrational normalizations into `Q'` positions).
+
+---
+
+### Milestone 11.17 — The Clay local-field layer: curvature polynomials, stress tensor, OPE, short-distance AF
+
+**Goal.** The archive's Clay coverage gap — identified by the external
+review and genuinely absent from both the repo and the earlier plan —
+is closed at the *statement* layer: the Jaffe–Witten requirement is
+not only measure + gap, but local quantum field operators
+corresponding to gauge-invariant polynomials in the curvature and its
+covariant derivatives, with short-distance behavior matching
+asymptotic freedom / perturbative renormalization, including
+stress-tensor and OPE expectations. Today the repo carries this as two
+bare `Prop` fields (`gauge_content`, `uv_asymptotic_freedom` in
+`FourDExistence`). Checkable predicate: content-bearing interface
+structures — a curvature-polynomial–to–local-operator correspondence
+(with gauge/Euclidean covariance and locality fields), an OPE-control
+structure (coefficients, prescribed AF singularity bounds, explicit
+remainder modulus as data), a stress-tensor slot, and a
+short-distance-AF structure — wired into `ClayTargetPinned` so the
+pinned target **cannot be inhabited without them**, replacing the two
+bare `Prop`s.
+
+**Route notes.** Statement-layer only (Rule 5): no analytic discharge
+is scoped here, and the structures must be faithful and non-vacuous
+(Rule 9(1)) — the OPE remainder is a modulus, the singularity bounds
+name exponents, the correspondence quantifies over a concrete
+polynomial grammar (a finite inductive type of invariant
+curvature/covariant-derivative words), never `Prop := True`. Where the
+lattice already has proxies (Wilson loops ≈ curvature holonomy;
+`AFRateCalibration` ≈ the running-coupling data), record the intended
+identification in docstrings so the eventual discharge has its
+landing sites.
+
+**Deliverables.**
+`lean/YMGap/Continuum/LocalCurvatureFields.lean`,
+`.../StressTensor.lean`, `.../OPE.lean`,
+`.../AsymptoticFreedomShortDistance.lean`; the `FourDExistence` /
+`ClayTargetPinned` rewiring; a `formal/` note mapping each structure
+to the corresponding sentence of the official problem statement (this
+becomes part of 12.1's faithfulness section).
+
+**Dependencies.** 11.13 (the consumer). Independent of everything
+else; good parallel statement-layer work.
+
+**Open questions.** The right constructive home for "perturbative
+renormalization agreement" (an asymptotic-expansion-with-modulus
+statement vs. a bounds-only rendering — scope in the formal note
+before committing the Lean type); whether the stress tensor deserves
+its own correspondence instance or is one entry of the polynomial
+grammar (start as one entry).
 
 ---
 
@@ -2745,6 +3168,8 @@ to include the hierarchical-floor result if 11.8 lands in time.
 
 ### Milestone 12.2 — CI frontier guard
 
+**Status.** DONE (2026-07-03) — realized as `lean/YMGapGuard.lean`, a Lean-reflection guard (a separate lib root run every `lake build`, fail-on-error CI step + `make lean-frontier-guard`). Fails the build if `Tier0Scorecard`/`UniformSpacingFloor`/`ClayTarget` acquires an UNCONDITIONAL inhabitant; conditional reductions pass; independent of `AXIOM_AUDIT.md`. `frontierTypeNames` is the extensible declared list; `frontierAllowlist` is the human-reviewed two-key hatch. Verified both directions (fire-tested on a real inhabitant). Variant note: implemented in Lean rather than as `scripts/frontier_guard.py`; the DAG-retarget (12.2 composition) lands with 11.14.
+
 **Goal.** It is mechanically impossible for the repository to
 *silently* claim more than it has proved. Checkable predicate: CI
 fails if any declared frontier bundle (`Tier0Scorecard`,
@@ -2771,9 +3196,20 @@ field to something trivially inhabitable) — a type-hash of the
 frontier structures in the baseline is the cheap version; include if
 low-cost.
 
+**Composition update (2026-07-03).** Two refinements from the
+composed reviews: (a) the guard's declared frontier list IS the
+`FrontierDAG` (11.14) — one source of truth, walked by both the
+status generator and the guard; (b) the type-hash protection is
+promoted from optional to required for `ClayTargetPinned` and the DAG
+itself, since the pinning (11.13) is load-bearing: silently loosening
+a shared parameter is exactly the vacuous-weakening attack the pinned
+target exists to prevent.
+
 ---
 
 ### Milestone 12.3 — `Continuum/` consolidation
+
+**Status.** DONE (2026-07-03) — `docs/continuum-map.md` (the curated import spine: capstones, the four live chains, frontier leaves, guarded types, archive) + `docs/INDEX.md` pointer; `Tier0ReductionCapstone` archived to `lean/archive/` (superseded r2) + import removed; `AXIOM_AUDIT.md` regenerated (was stale: 2252 loop-era theorems untracked; now 6010 tracked, `make lean-audit-strict` PASS). KEY FINDING: the round/`*Close`/`*Progress` families are LIVE cumulative dependency chains, NOT superseded — mass-`Attic/` archival is not available without breaking the build; the map is the drift-reduction tool. `FusionCoreStepRound[A–J]`→1-file merge documented as a risk-flagged follow-up.
 
 **Goal.** The ~470-file `Continuum/` directory is navigable by a fresh
 reviewer: superseded iteration files (e.g.
@@ -2824,4 +3260,31 @@ that the community-acceptance process runs through publication, not
 direct submission; the dossier should follow the published rules for
 the Millennium Prizes (qualifying outlet, waiting period, general
 acceptance) and say nothing that presumes closure.
+
+---
+
+### Suggested near-term sequencing (composed queue, 2026-07-03)
+
+Merging this plan's ordering with the external review's PR queue; each
+item is small enough to be one reviewable change:
+
+1. **11.0** frontier re-audit + unimported-file audit + `noncomputable`
+   ledger + MET-surrogate inventory (architecture; fast).
+2. **11.13 + 11.14(1)** `ClayTargetPinned` + `FrontierDAG` statement
+   modules, with the `toClayTarget` coarsening (architecture; fast).
+3. **11.1** the (D2) sufficiency note / L∞ tightening decision.
+4. **11.15** `TrueMarginRecursionPhysical` + the adequacy lemma —
+   gates 11.8 before heavy spend.
+5. **11.2(A)+(C)** `CubicEulerBound` and the Prüfer/Cayley count — note
+   the (P) leg is under active reduction in `PenroseDomInduction.lean`
+   (modified 2026-07-03); coordinate rather than duplicate.
+6. **11.5** discharge `hadd`; then **11.6** `hbridge` inputs.
+7. **11.16** physical Wilson bridge, single-bond first.
+8. **11.11(a)** finite-volume bounded `H = −log T`.
+9. **11.7 first tranche** fusion-CLT ladder items 1–2 + the
+   hierarchical prose campaign; **11.9(i)** Minlos quarantine in
+   parallel.
+10. **11.17** local-field/OPE statement layer; **12.1** paper draft
+    begins as soon as 11.0/11.13/11.14 land (they are its status and
+    faithfulness sections).
 

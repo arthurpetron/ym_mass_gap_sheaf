@@ -32,6 +32,21 @@ The current Lean μ_∞ is a tier-(S) shell with the existence content
 *absent*: see §1. The construction work is almost entirely in tier (S),
 terminating against the tier-(P) conjectures at the RG-transport step.
 
+### 0.1 Status — cited-classical Input B is now quarantine-indexed (interface-only)
+
+The cited-classical Minlos σ-additive lift (Input B of
+`Rubric/ContinuumScorecard.ContinuumTargetReduction`) now has a single auditable
+home: `lean/YMGap/Classical/MinlosQuarantine.lean` re-exports `CitedMinlosLift`
+under a quarantine namespace, and `lean/CLASSICAL_LEDGER.md` entry **[P0.1]**
+records it. This changes **nothing** about the mathematics: the module is
+deliberately UNINHABITED, introduces no Lean classical axiom and no raw `axiom`
+(Rule 1 clean), and re-exports only *conditional* projections. It is bookkeeping,
+not progress — Input B remains tier-(C) Clay-open (Bochner–Minlos +
+Daniell–Kolmogorov, not transferable to this substrate). The distinction from a
+Rule-4 `Classical.choice` quarantine is explicit in both the module docstring and
+the ledger: this is a *cited-external-classical interface*, a second ledger
+category, not a discharged constructive obligation.
+
 ---
 
 ## 1. What exists in Lean, and where existence is absent

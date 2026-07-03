@@ -1,0 +1,304 @@
+# Frontier status
+
+> **Auto-generated** by `scripts/frontier_status.py` on 2026-07-03.
+> Axiom-gate source: `lean/AXIOM_AUDIT.md` (6010 recorded decls).
+> Read-only report — no Lean source is edited. Every bundle below is OPEN
+> by design; this only records the current partial closes and the residual
+> open fields, parsed mechanically from the sources + the axiom baseline.
+
+The Clay Yang–Mills mass-gap problem remains **OPEN**. This document is a
+status ledger, not a claim of closure.
+
+## Summary
+
+| Frontier bundle | Lean type | # partial closes | # open fields |
+|---|---|---|---|
+| Tier0Scorecard atoms | `Tier0Scorecard` | 6 | 3 |
+| ReconstructionScorecardFinal tokens | `ReconstructionOpenFrontier` | 2 | 10 |
+| UniformSpacingFloor | `UniformSpacingFloor` | 5 | 0 |
+| SpectralMarginInput fields | `SpectralMarginInput` | 3 | 0 |
+| SixJPentagon | `SixJPentagon` | 3 | 1 |
+| ClayTarget | `ClayTarget` | 1 | 3 |
+| ContinuumYMExistence | `ContinuumYMExistence` | 1 | 0 |
+
+## Tier0Scorecard atoms
+
+**(a) Lean type** — `YMGap.Continuum.Tier0Scorecard.Tier0Scorecard`  
+module `lean/YMGap/Continuum/Tier0Scorecard.lean`
+
+```lean
+structure Tier0Scorecard (p : z4Chain.toLattice.Plaquette) (w : Q') (b : Nat) (afr : AFRateModulus) (N₀ : Nat) : Type 1
+```
+
+**(b) Best partial close(s)** — module + decl + (d) axiom gate:
+
+| decl | module | axiom gate |
+|---|---|---|
+| `fixedSpacing_met` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | Quot.sound, propext |
+| `subA_offCorr_decompose` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | Quot.sound, propext |
+| `subA_tree_graph` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | Quot.sound, propext |
+| `subB_prodFloor_pos` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | Quot.sound, propext |
+| `subB_physGap_pos` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | Quot.sound, propext |
+| `toFrontierC` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | Quot.sound, propext |
+
+**(c) Fields that remain OPEN:**
+
+- `subA` — OPEN ×4 — Sub-wall A ((T′), (D1), (D2), pentagon).
+- `subB` — OPEN ×3 — Sub-wall B (`hlocalize`, `hbridge`, `hadd`) in one input.
+- `minlos` — OPEN (ORTHOGONAL) — the cited-classical Minlos σ-additive measure lift.
+
+<details><summary>full field ledger (status by doc-marker)</summary>
+
+| field | status | doc |
+|---|---|---|
+| `fixedSpacing` | PROVED | PROVED — the fixed-spacing rubric line (`ClayFixedSpacingMet`). |
+| `subA` | OPEN | OPEN ×4 — Sub-wall A ((T′), (D1), (D2), pentagon). |
+| `subB` | OPEN | OPEN ×3 — Sub-wall B (`hlocalize`, `hbridge`, `hadd`) in one input. |
+| `minlos` | OPEN | OPEN (ORTHOGONAL) — the cited-classical Minlos σ-additive measure lift. |
+| `d2Sep` | — | **(D2)** — the plaquette-graph `SepLattice` metric refining `z4Chain`. |
+| `tTree` | — | **(T′)** — the per-cluster Penrose / Poghosyan–Ueltschi spanning-tree inequality, over the (D2) lattice `d2Sep.val` (the coupled atom). |
+| `d1Mayer` | PROVED | **(D1)** — the absolute Mayer–Ursell connecting-cluster expansion over the CLOSED 4D count `z4ClusterCountBound p`. |
+| `a2Pentagon` | — | **(A2)** — the nonlinear 6j Biedenharn–Elliott pentagon residual. |
+
+</details>
+
+## ReconstructionScorecardFinal tokens
+
+**(a) Lean type** — `YMGap.Rubric.ReconstructionScorecardFinal.ReconstructionOpenFrontier`  
+module `lean/YMGap/Rubric/ReconstructionScorecardFinal.lean`
+
+```lean
+structure ReconstructionOpenFrontier (D : SmulGNSData) (op : TransferOperator D.toGNSData.gnsComplete) (L : AdditiveTransferOperator D.toGNSData) (w : Q') (hw0 : (0 : Q') ≤ w) (hw1 : w < (1 : Q')) (hwpos : (0 : Q') < w) (N : Nat) : Type
+```
+
+**(b) Best partial close(s)** — module + decl + (d) axiom gate:
+
+| decl | module | axiom gate |
+|---|---|---|
+| `reconstruction_status` | `lean/YMGap/Rubric/ReconstructionScorecardFinal.lean` | Quot.sound, propext |
+| `all_fixed_spacing_reconstruction_proved` | `lean/YMGap/Rubric/ReconstructionScorecardFinal.lean` | not tracked in AXIOM_AUDIT.md |
+
+**(c) Fields that remain OPEN:**
+
+- `node1` — OPEN node ①.
+- `trueMargin` — OPEN: the genuine dimensionless physical margin.
+- `physicalWilsonBridge` — OPEN: the physical Wilson double-Haar bridge.
+- `boundedH` — OPEN: the bounded functional-calculus Hamiltonian `H = −log T`.
+- `continuumMinlos` — OPEN: the cited-classical continuum Minlos measure.
+- `OpenNode1FiniteSMargin` = `AcNReserveAnalytic.FiniteSMargin w`
+- `OpenTrueMargin` = `ReconstructionScorecard.OpenTrueMargin`
+- `OpenPhysicalWilsonBridge` = `WilsonSpectralBridge.CharacterDiagResolution op RCScaleClose.rcScaleResidualPlus w N`
+- `OpenBoundedHamiltonian` = `BoundedFunctionalCalculusResidual (excG op w hw0 hw1 N) L`
+- `OpenContinuumMinlos` = `ReconstructionScorecard.OpenContinuumMeasure`
+
+<details><summary>full field ledger (status by doc-marker)</summary>
+
+| field | status | doc |
+|---|---|---|
+| `status` | PROVED | the PROVED-UNCONDITIONAL status. |
+| `node1` | OPEN | OPEN node ①. |
+| `trueMargin` | OPEN | OPEN: the genuine dimensionless physical margin. |
+| `physicalWilsonBridge` | OPEN | OPEN: the physical Wilson double-Haar bridge. |
+| `boundedH` | OPEN | OPEN: the bounded functional-calculus Hamiltonian `H = −log T`. |
+| `continuumMinlos` | OPEN | OPEN: the cited-classical continuum Minlos measure. |
+
+</details>
+
+## UniformSpacingFloor
+
+**(a) Lean type** — `YMGap.Continuum.UnifiedContinuumFloor.UniformSpacingFloor`  
+module `lean/YMGap/Continuum/UnifiedContinuumFloor.lean`
+
+```lean
+structure UniformSpacingFloor {ι : Type} {α : Type} (le : Q' → α → Prop) (g : ι → α) : Type
+```
+
+**(b) Best partial close(s)** — module + decl + (d) axiom gate:
+
+| decl | module | axiom gate |
+|---|---|---|
+| `ofUniformPhysGapFloor` | `lean/YMGap/Continuum/UnifiedContinuumFloor.lean` | Quot.sound, propext |
+| `ofModeEnergyFloor` | `lean/YMGap/Continuum/UnifiedContinuumFloor.lean` | axiom-free |
+| `ofContinuumGapPersistence` | `lean/YMGap/Continuum/UnifiedContinuumFloor.lean` | propext |
+| `ofUniformRatioVariation` | `lean/YMGap/Continuum/UnifiedContinuumFloor.lean` | Quot.sound, propext |
+| `ofDimensionalTransmutation` | `lean/YMGap/Continuum/UnifiedContinuumFloor.lean` | Quot.sound, propext |
+
+**(c) Fields that remain OPEN:**
+
+- (no field flagged OPEN by doc-marker; see the full field ledger below)
+
+<details><summary>full field ledger (status by doc-marker)</summary>
+
+| field | status | doc |
+|---|---|---|
+| `floor` | — | The uniform positive floor. |
+| `floor_pos` | — | The floor is strictly positive. |
+| `bound` | — | The floor lies below the per-scale gap quantity at every scale at once. |
+
+</details>
+
+## SpectralMarginInput fields
+
+**(a) Lean type** — `YMGap.Continuum.AsymptoticSpectralLoc.SpectralMarginInput`  
+module `lean/YMGap/Continuum/AsymptoticSpectralLoc.lean`
+
+```lean
+structure SpectralMarginInput (b : Nat) (afr : AFRateModulus) (N₀ : Nat) : Type
+```
+
+**(b) Best partial close(s)** — module + decl + (d) axiom gate:
+
+| decl | module | axiom gate |
+|---|---|---|
+| `toAsymptotic` | `lean/YMGap/Continuum/AsymptoticSpectralLoc.lean` | Quot.sound, propext |
+| `uniform_floor` | `lean/YMGap/Continuum/AsymptoticSpectralLoc.lean` | Quot.sound, propext |
+| `continuum_floor_pos` | `lean/YMGap/Continuum/AsymptoticSpectralLoc.lean` | Quot.sound, propext |
+
+**(c) Fields that remain OPEN:**
+
+- (no field flagged OPEN by doc-marker; see the full field ledger below)
+
+<details><summary>full field ledger (status by doc-marker)</summary>
+
+| field | status | doc |
+|---|---|---|
+| `sl` | — | The graded spectral-localization datum (summable graded defect). |
+| `T` | — | The summable-defect exponent descent tower (supplies `ρ = 1−δ`, floor). |
+| `hδ` | — | **THE TAIL-SHIFT IDENTIFICATION** — the two product-floor stacks coincide: `T.δ k = sl.gapDefect (k + fmCutoff …)`. |
+| `spacing` | — | The lattice spacings `a_j > 0`. |
+| `spacing_pos` | — | Each spacing is strictly positive. |
+| `atSpacing` | — | The fixed-spacing infinite-volume cluster bounds. |
+| `ceilConst` | — | A uniform physical ceiling. |
+| `physCeil` | — | The physical gap is bounded above by the ceiling. |
+| `anchor` | — | The UV anchor floor `g0 > 0`. |
+| `anchor_pos` | — | The anchor is strictly positive. |
+| `anchor_le` | — | The anchor bound `g0 ≤ physGap_0`. |
+| `shift` | — | The per-mode eigenvalue-shift budget `shift_k = (loc k).shift`. |
+| `hadd` | — | **`hadd`** — the located-2nd-eigenvalue ↔ physical-margin dictionary. |
+| `hbridge` | — | **`hbridge`** — the shift is controlled by defect·margin (`= bulk_shift`, trajectory form). |
+
+</details>
+
+## SixJPentagon
+
+**(a) Lean type** — `YMGap.Continuum.Tier0Scorecard.SixJPentagon`  
+module `lean/YMGap/Continuum/Tier0Scorecard.lean`
+
+```lean
+structure SixJPentagon : Type
+```
+
+**(b) Best partial close(s)** — module + decl + (d) axiom gate:
+
+| decl | module | axiom gate |
+|---|---|---|
+| `a2_racah` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | Quot.sound, propext |
+| `a2_tetra_nonneg` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | Quot.sound, propext |
+| `pentagon_to_racah` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | axiom-free |
+
+**(c) Fields that remain OPEN:**
+
+- `pentagon` — **The Biedenharn–Elliott pentagon** — a guarded CUBIC closure of `P` (nonlinear in the kernel).
+
+<details><summary>full field ledger (status by doc-marker)</summary>
+
+| field | status | doc |
+|---|---|---|
+| `P` | — | The rational dim-absorbed 6j-square kernel underlying the pentagon. |
+| `pentagon` | OPEN | **The Biedenharn–Elliott pentagon** — a guarded CUBIC closure of `P` (nonlinear in the kernel). |
+
+</details>
+
+## ClayTarget
+
+**(a) Lean type** — `YMGap.Rubric.ClayScorecard.ClayTarget`  
+module `lean/YMGap/Rubric/ClayScorecard.lean`
+
+```lean
+structure ClayTarget : Type
+```
+
+**(b) Best partial close(s)** — module + decl + (d) axiom gate:
+
+| decl | module | axiom gate |
+|---|---|---|
+| `clay_fixed_spacing_met` | `lean/YMGap/Rubric/ClayScorecard.lean` | Quot.sound, propext |
+
+**(c) Fields that remain OPEN:**
+
+- `continuumExistence` — OPEN: the continuum (`a → 0`) measure existence + tightness.
+- `o4Restoration` — OPEN: full `O(4)` / Euclidean invariance restored in the continuum.
+- `uniformInCoupling` — OPEN: the gap uniform across coupling / the continuum.
+
+<details><summary>full field ledger (status by doc-marker)</summary>
+
+| field | status | doc |
+|---|---|---|
+| `fixedSpacing` | PROVED | The fixed-spacing clauses — PROVED (`clay_fixed_spacing_met`). |
+| `continuumExistence` | OPEN | OPEN: the continuum (`a → 0`) measure existence + tightness. |
+| `o4Restoration` | OPEN | OPEN: full `O(4)` / Euclidean invariance restored in the continuum. |
+| `uniformInCoupling` | OPEN | OPEN: the gap uniform across coupling / the continuum. |
+
+</details>
+
+## ContinuumYMExistence
+
+**(a) Lean type** — `YMGap.Continuum.FourDExistence.ContinuumYMExistence`  
+module `lean/YMGap/Continuum/FourDExistence.lean`
+
+```lean
+structure ContinuumYMExistence {M : Nat → Type} (μ_inf : ContinuumMeasure M) : Type 2
+```
+
+**(b) Best partial close(s)** — module + decl + (d) axiom gate:
+
+| decl | module | axiom gate |
+|---|---|---|
+| `ym_mass_gap_of_existence` | `lean/YMGap/Continuum/FourDExistence.lean` | Quot.sound, propext |
+
+**(c) Fields that remain OPEN:**
+
+- (no field flagged OPEN by doc-marker; see the full field ledger below)
+
+<details><summary>full field ledger (status by doc-marker)</summary>
+
+| field | status | doc |
+|---|---|---|
+| `os_axioms` | — | The bundled OS axioms OS0–OS4 (content-bearing, from `OSAxioms.lean`). |
+| `os1_o4_restoration` | — | **OS1, continuum:** full `O(4) ⋉ ℝ⁴` Euclidean invariance (rotation restoration beyond the lattice `H₄`). |
+| `gauge_content` | — | **Gauge:** Schwinger functions generated by gauge-invariant curvature invariants. |
+| `uv_asymptotic_freedom` | — | **UV:** short-distance asymptotic freedom. |
+| `nontrivial` | — | **Nontriviality:** the measure is interacting, not Gaussian. |
+
+</details>
+
+## Unimported-file audit
+
+Every `YMGap/*.lean` NOT reachable (transitively) from `YMGap.lean` — i.e.
+silently skipped by the default `lake build` and therefore un-audited.
+
+Reachable modules parsed from import closure; **2 of 607** `YMGap/*.lean` files are unreachable from `YMGap.lean`.
+
+- `lean/YMGap/ModuliAlgebra.lean`
+- `lean/YMGap/PolyAtlas.lean`
+
+## Noncomputable ledger
+
+Every `noncomputable def/abbrev/instance` in `YMGap/`. These do not compile
+to executable code (they rest on `Q'`/data that Lean cannot evaluate) but
+remain type-checked and axiom-gated.
+
+**9** noncomputable declaration(s).
+
+| module | line | decl |
+|---|---|---|
+| `lean/YMGap/Continuum/DominantModeRecursion.lean` | 210 | `floorData` |
+| `lean/YMGap/Continuum/DominantModeRecursion.lean` | 218 | `floorEps` |
+| `lean/YMGap/Continuum/DominantModeRecursion.lean` | 247 | `dominantModeRecursion` |
+| `lean/YMGap/Continuum/NormExcitedDrift.lean` | 472 | `prodFloorVal` |
+| `lean/YMGap/Continuum/NormExcitedDrift.lean` | 502 | `dominantRGCoeffStep` |
+| `lean/YMGap/Continuum/UniformCouplingFromAF.lean` | 148 | `afFloorData` |
+| `lean/YMGap/Continuum/UniformCouplingFromAF.lean` | 152 | `afFloorEps` |
+| `lean/YMGap/Continuum/UniformCouplingFromAF.lean` | 175 | `afDefectGapRecursion` |
+| `lean/YMGap/Continuum/UniformCouplingFromAF.lean` | 212 | `dominantModeRecursion_of_AFCertificate` |
+

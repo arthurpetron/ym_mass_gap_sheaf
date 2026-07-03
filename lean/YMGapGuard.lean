@@ -36,7 +36,11 @@ namespace YMGapFrontierGuard
 def frontierTypeNames : List Name :=
   [`YMGap.Continuum.Tier0Scorecard.Tier0Scorecard,
    `YMGap.Continuum.UnifiedContinuumFloor.UniformSpacingFloor,
-   `YMGap.Rubric.ClayScorecard.ClayTarget]
+   `YMGap.Rubric.ClayScorecard.ClayTarget,
+   -- Milestone 11.13/11.14: the pinned target and the unified frontier DAG
+   -- (both deliberately uninhabited; the guard now protects them too).
+   `YMGap.Rubric.ClayTargetPinned.ClayTargetPinned,
+   `YMGap.Rubric.FrontierDAG.FrontierDAG]
 
 /-- Human-reviewed allowlist of declarations permitted to have a frontier type
     in conclusion position.  EMPTY by design: the frontier is open.  Adding a

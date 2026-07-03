@@ -1,6 +1,6 @@
 .PHONY: test lint typecheck figures svg-to-pdf paper clean help \
         lean-build lean-audit lean-audit-strict lean-audit-update lean-rubric \
-        lean-frontier-guard
+        lean-frontier-guard frontier-status
 
 help:
 	@echo "Targets:"
@@ -15,6 +15,7 @@ help:
 	@echo "  lean-audit-update   Regenerate the baseline manifest from the current build."
 	@echo "  lean-rubric         Compile-check the Clay scorecard against the pinned external rubric."
 	@echo "  lean-frontier-guard Fail if a Clay-frontier type (Tier0Scorecard/ClayTarget/UniformSpacingFloor) is inhabited."
+	@echo "  frontier-status     Regenerate docs/frontier-status.md (partial-close + open-field ledger)."
 	@echo "  clean               Remove Python, mypy, ruff, pytest, and LaTeX build artifacts."
 
 test:
@@ -79,6 +80,15 @@ lean-rubric:
 	  || { echo "error: pinned rubric source missing (reference/leanmillennium-pinned/)"; exit 1; }
 	cd lean && lake build YMGap.Rubric.ClayScorecard
 	@echo "Clay scorecard compiled: fixed-spacing clauses MET, continuum clauses OPEN (Clay remains open)."
+
+# Regenerate the read-only frontier ledger docs/frontier-status.md: for each of
+# the declared Clay-frontier bundles it records the current partial closes (with
+# their axiom gate from lean/AXIOM_AUDIT.md) and the residual OPEN fields, parsed
+# mechanically from the Lean sources. Edits no Lean source; every bundle stays
+# OPEN by design. See scripts/frontier_status.py (--lake to layer a live build
+# log over the baseline gates).
+frontier-status:
+	python3 scripts/frontier_status.py
 
 clean:
 	rm -rf .pytest_cache .mypy_cache .ruff_cache build dist *.egg-info
