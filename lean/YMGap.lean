@@ -158,6 +158,12 @@ import YMGap.Continuum.DiffJTPClose
 import YMGap.Continuum.DiffJTPFinal
 import YMGap.Continuum.HdconvReroute
 import YMGap.Continuum.DiffJTPClosed
+import YMGap.Continuum.DiffJTPWireFinal
+import YMGap.Continuum.ProdSecondDiffInputsClose
+import YMGap.Continuum.ProductFormResidualClose
+import YMGap.Continuum.RcRingResidualClose
+import YMGap.Continuum.DerivStepPropClose
+import YMGap.Continuum.CoeffChebSineClose
 import YMGap.Continuum.TotalMajorantClose
 import YMGap.Continuum.ChebTFwdRatioClose
 import YMGap.Continuum.RcAlgResidualClose
