@@ -154,6 +154,12 @@ import YMGap.Continuum.JTPIdentity
 import YMGap.Continuum.JTPInstance
 import YMGap.Continuum.ThetaFDDerivAssembly
 import YMGap.Continuum.DiffJTPAssembly
+import YMGap.Continuum.DiffJTPClose
+import YMGap.Continuum.ThetaProdDprodClose
+import YMGap.Continuum.ThetaSeriesFieldsClose
+import YMGap.Continuum.ThetaDerivDriverClose
+import YMGap.Continuum.MulCombinatorClose
+import YMGap.Continuum.JacobiQuadResidualClose
 import YMGap.Continuum.ThetaSeriesFDDeriv
 import YMGap.Continuum.ThetaUnifDerivModulus
 import YMGap.Continuum.FiniteProductFDDeriv
