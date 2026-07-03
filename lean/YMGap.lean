@@ -592,3 +592,9 @@ import YMGap.Continuum.DeltaFrontierLedger
 -- contents.  They are intentionally EXCLUDED from the default build aggregator
 -- to keep the load-bearing / axiom-audit surface honest.  The files remain on
 -- disk and build on demand (`lake build YMGap.PolyAtlas YMGap.ModuliAlgebra`).
+import YMGap.Continuum.MultiComponentKPProgress
+import YMGap.Continuum.PartitionBeyondTree
+import YMGap.Continuum.ClusterCount4DProgress
+import YMGap.Continuum.BalabanExactProgress
+import YMGap.Continuum.DefectGapRecursionProgress
+import YMGap.Continuum.TransmutationAFProgress
