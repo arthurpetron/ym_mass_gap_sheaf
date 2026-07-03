@@ -1,19 +1,21 @@
 .PHONY: test lint typecheck figures svg-to-pdf paper clean help \
-        lean-build lean-audit lean-audit-strict lean-audit-update lean-rubric
+        lean-build lean-audit lean-audit-strict lean-audit-update lean-rubric \
+        lean-frontier-guard
 
 help:
 	@echo "Targets:"
-	@echo "  test               Run the pytest suite."
-	@echo "  lint               Run ruff and mypy (strict)."
-	@echo "  typecheck          Run mypy only."
-	@echo "  figures            Regenerate plots in visualizations/ (no-op until Phase 1)."
-	@echo "  paper              Build formal/main.tex to PDF via latexmk."
-	@echo "  lean-build         Run \`lake build\` in lean/."
-	@echo "  lean-audit         Check the Lean axiom-gate vs lean/AXIOM_AUDIT.md baseline."
-	@echo "  lean-audit-strict  Same, plus fail on new/missing theorems."
-	@echo "  lean-audit-update  Regenerate the baseline manifest from the current build."
-	@echo "  lean-rubric        Compile-check the Clay scorecard against the pinned external rubric."
-	@echo "  clean              Remove Python, mypy, ruff, pytest, and LaTeX build artifacts."
+	@echo "  test                Run the pytest suite."
+	@echo "  lint                Run ruff and mypy (strict)."
+	@echo "  typecheck           Run mypy only."
+	@echo "  figures             Regenerate plots in visualizations/ (no-op until Phase 1)."
+	@echo "  paper               Build formal/main.tex to PDF via latexmk."
+	@echo "  lean-build          Run \`lake build\` in lean/."
+	@echo "  lean-audit          Check the Lean axiom-gate vs lean/AXIOM_AUDIT.md baseline."
+	@echo "  lean-audit-strict   Same, plus fail on new/missing theorems."
+	@echo "  lean-audit-update   Regenerate the baseline manifest from the current build."
+	@echo "  lean-rubric         Compile-check the Clay scorecard against the pinned external rubric."
+	@echo "  lean-frontier-guard Fail if a Clay-frontier type (Tier0Scorecard/ClayTarget/UniformSpacingFloor) is inhabited."
+	@echo "  clean               Remove Python, mypy, ruff, pytest, and LaTeX build artifacts."
 
 test:
 	pytest
@@ -55,6 +57,17 @@ lean-audit-strict:
 
 lean-audit-update:
 	python3 scripts/lean_axiom_audit.py --update
+
+# Frontier uninhabitedness guard. Builds YMGapGuard, which reflects over the
+# YMGap.* environment and FAILS if any Clay-frontier type (Tier0Scorecard,
+# UniformSpacingFloor, ClayTarget) has an UNCONDITIONAL inhabitant. This catches
+# the exact failure mode AGENTS.md exists to prevent — an agent "accidentally"
+# closing the Clay problem with a vacuous/circular term that still passes the
+# axiom gate — applied at the frontier rather than the leaves. Independent of
+# AXIOM_AUDIT.md, so `make lean-audit-update` cannot silence it. See
+# lean/YMGapGuard.lean (`frontierAllowlist` is the human-reviewed escape hatch).
+lean-frontier-guard:
+	cd lean && lake build YMGapGuard
 
 # Compile-check the Clay scorecard (constructive transcription of the external
 # Clay rubric) against its pinned source. Verifies the fixed-spacing rubric

@@ -1,5 +1,5 @@
 name = "YMGap"
-defaultTargets = ["YMGap"]
+defaultTargets = ["YMGap", "YMGapGuard"]
 
 # Milestone 1.1 deliberately depends on nothing but Lean core: SU(2)
 # Casimirs are exact rationals, so `Nat`/`Rat` suffice and no
@@ -10,3 +10,9 @@ defaultTargets = ["YMGap"]
 
 [[lean_lib]]
 name = "YMGap"
+
+# Frontier uninhabitedness guard — a separate root that `import YMGap` and, at
+# elaboration time, fails the build if any Clay-frontier type (Tier0Scorecard /
+# UniformSpacingFloor / ClayTarget) becomes inhabited. See `YMGapGuard.lean`.
+[[lean_lib]]
+name = "YMGapGuard"

@@ -68,6 +68,17 @@ jobs:
       - name: Build Lean library
         run: make lean-build
 
+      # Frontier uninhabitedness guard — FAILS the build (not informational) if
+      # any Clay-frontier type (Tier0Scorecard / UniformSpacingFloor /
+      # ClayTarget) acquires an UNCONDITIONAL inhabitant. This is the exact
+      # failure mode AGENTS.md exists to prevent (an agent "accidentally"
+      # closing the Clay problem with a vacuous/circular term that still passes
+      # the axiom gate), applied at the frontier. Independent of AXIOM_AUDIT.md,
+      # so a routine `make lean-audit-update` cannot silence it. See
+      # lean/YMGapGuard.lean.
+      - name: Frontier uninhabitedness guard
+        run: make lean-frontier-guard
+
       - name: Run axiom-gate audit (non-strict — drift only)
         run: make lean-audit
 
