@@ -153,6 +153,12 @@ import YMGap.Continuum.DiffProduct
 import YMGap.Continuum.JTPIdentity
 import YMGap.Continuum.JTPInstance
 import YMGap.Continuum.ThetaFDDerivAssembly
+import YMGap.Continuum.DiffJTPAssembly
+import YMGap.Continuum.ThetaSeriesFDDeriv
+import YMGap.Continuum.ThetaUnifDerivModulus
+import YMGap.Continuum.FiniteProductFDDeriv
+import YMGap.Continuum.JacobiFactorFDDeriv
+import YMGap.Continuum.ThetaC1LimitEngine
 import YMGap.Continuum.ThetaLimit
 import YMGap.Continuum.ThetaParam
 import YMGap.Continuum.RealTheta
