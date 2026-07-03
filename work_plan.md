@@ -2180,3 +2180,648 @@ bounds. Do not open Phase 4 or Phase 5 as primary work until
 `K_lf`, $c_{\lambda}$ provenance, and the $\eta$ coupling have been
 made explicit enough that the pilot is a numerical experiment rather
 than a structural demo.
+
+---
+
+## Phase 11: Continuum frontier — the Tier-0 atom campaign
+
+> **Status note (2026-07-03).** This phase supersedes the 2026-05-25
+> "Suggested next milestone" note above as the current recommendation.
+> Phases 0–10 delivered: a sorry-free, `Classical.*`-free `YMGap`
+> library; the fixed-spacing Clay rubric line
+> (`Rubric.ClayScorecard.clay_fixed_spacing_met`) genuinely proved; and
+> the open continuum problem *machine-checked as an enumeration* —
+> `Continuum.Tier0Scorecard` (Sub-wall A: (T′), (D1), (D2), (A2);
+> Sub-wall B: `SpectralMarginInput` = `hlocalize` + `hbridge` + `hadd`;
+> orthogonal: `CitedMinlosLift`), with `ClayTarget` additionally naming
+> O(4) restoration, coupling-uniformity, gauge content, asymptotic
+> freedom, and nontriviality. Phase 11 is the campaign against those
+> atoms. Milestones are ordered by (leverage × tractability); 11.0–11.6
+> are largely mechanizable with current machinery, 11.7–11.8 are the
+> research core (the actual open mathematics), 11.9–11.12 are the
+> Clay-shape completions. Milestones marked **[research]** must be
+> prose-first (`formal/` + `notes/`) per AGENTS.md Rule 5: do not
+> invent Lean witnesses ahead of the analysis.
+>
+> **Standing anti-pigeonhole rule for this phase.** Every milestone
+> below names its *currently best-known route* in enough detail to
+> start work, but the checkable predicate is the Lean type that must
+> be inhabited (or the named hypothesis that must be discharged) — not
+> the route. If a better route inhabits the same type, take it and
+> record the deviation in the milestone's closure note.
+
+### Milestone 11.0 — Frontier re-audit and scorecard synchronization
+
+**Goal.** A single generated document in which every open atom of
+`Tier0Scorecard` / `ClayTarget` / `FourDExistence.ContinuumYMExistence`
+is listed with (a) its Lean type, (b) its current best partial close
+(module + declaration), (c) what field(s) remain genuinely open, and
+(d) the axiom gate of the partial close — regenerated from the build,
+not hand-maintained, and consistent with the module docstrings.
+
+**Why first.** The docstrings already lag the code: `Tier0Scorecard`
+lists (D2) as open while `SepLatticeZ4Close.SepLatticeZ4_witness`
+inhabits it (soundly, non-tightly); (T′) is reduced by
+`TreeGraphBoundProgress` to three named legs; `hbridge` has its wiring
+lemma in `PinnedBridgeProgress`; `lean/README.md` reports 493 tracked
+theorems while `AXIOM_AUDIT.md` tracks 3758. An agent or referee
+reading only the scorecards would mis-plan. This milestone is cheap
+and de-risks every subsequent one.
+
+**Deliverables.**
+- `scripts/frontier_status.py`: walks a declared list of frontier
+  bundle types, queries the build (via `lake env lean` elaboration or
+  parsing of `#print axioms` output) for inhabitants / partial closes,
+  and emits `docs/frontier-status.md`.
+- `docs/frontier-status.md` (generated): the per-atom table described
+  in the goal, dated.
+- Docstring updates to `Continuum/Tier0Scorecard.lean` (and any other
+  scorecard whose OPEN list has drifted) so PROVED/OPEN sections match
+  the code. Where an atom has a *sound but non-tight* inhabitant
+  (D2's L¹ metric), the docstring must say exactly that.
+- A `make frontier-status` target; wire into CI alongside
+  `lean-audit`.
+
+**Dependencies.** None.
+
+**Open questions.** Whether the generator should also *fail* CI when a
+frontier bundle acquires an inhabitant (the guard is scoped as
+Milestone 12.2; this milestone may deliver it early if convenient).
+
+---
+
+### Milestone 11.1 — (D2) separation metric: tightening decision and discharge
+
+**Goal.** The `SubWallA.d2Sep` slot is discharged by a metric whose
+strength is *matched to what the downstream Ursell decay actually
+consumes*, with the decision recorded. Checkable predicate: either
+(i) a note + Lean comment establishing that the existing L¹
+coordinate-sum `SepLatticeZ4_witness` suffices for every downstream
+consumer in Sub-wall A (currently only
+`PinnedCluster.connected_spanning_size_ge` via `dist_le_pathLen`), or
+(ii) a new inhabitant `SepLatticeZ4_linf` built from the
+per-coordinate L∞ metric `maxᵢ |vᵢ(p) − vᵢ(q)|` with the three
+`SepLattice` axioms proved (the triangle inequality is a 4-way
+`max`/`omega` case split, already sketched in
+`SepLatticeZ4Close.lean`'s "honest scope" section).
+
+**Deliverables.**
+- `notes/d2-metric-sufficiency.md`: for each Sub-wall A consumer of
+  `d2Sep.val`, which metric property it invokes; conclusion (i) or
+  (ii).
+- If (ii): `lean/YMGap/Continuum/SepLatticeZ4Linf.lean` with the L∞
+  inhabitant, axiom-gated, plus a domination lemma `z4dist ≤ linfDist`
+  relating the two.
+- `Tier0Scorecard` docstring updated to mark (D2) CLOSED (sound) or
+  CLOSED-tight accordingly.
+
+**Dependencies.** 11.0.
+
+**Open questions.** Whether the eventual (T′)/(D1) closures need
+*directional* separation (non-collapsing along constant-sum
+directions) — if yes, (ii) is forced; the note should pre-answer this
+for the 11.2/11.3 authors.
+
+---
+
+### Milestone 11.2 — (T′) tree-graph inequality: close the three legs
+
+**Goal.** `Ursell4DProgress.TreeGraphBound` is inhabited for the
+pinned truncated-Ursell `phiT` — i.e. the per-cluster bound
+`|φ^T(Y)| ≤ 3^{|Y|}` is a theorem, not a field. Per
+`TreeGraphBoundProgress`, this decomposes into three named legs;
+closing all three and composing is the milestone.
+
+**The three legs (current best route).**
+1. **(A) `CubicEulerBound`** — `(n+1)^n ≤ 3·n^n` over `Q'`/`Nat`
+   (the `e < 3` bound). Elementary; candidate proofs: binomial
+   expansion via the existing `Continuum/BinomialTheorem.lean`
+   (`(1+1/n)^n = Σ C(n,k)/n^k ≤ Σ 1/k! ≤ 3` at the rational level),
+   or direct strong induction. No new mathematics; this leg should
+   close first and unblocks everything downstream already proved in
+   `TreeGraphBoundProgress`.
+2. **(C) `cayleyMax`** — spanning-tree count `≤ n^{n-2}`. Candidate
+   constructive route: a Prüfer-sequence *encoding* (an injection
+   from spanning trees of any graph on `n` labeled vertices into
+   `Fin n ^ (n-2)` sequences, via the complete-graph maximizer) —
+   injectivity gives the count bound without needing the full Cayley
+   bijection. Moderate combinatorics, fully finitary.
+3. **(P) `penroseDom`** — the Penrose / BKAR forest-root sign
+   domination `n!·|φ^T(Y)| ≤ #spanningTrees(adjGraph Y)`. **This is
+   the sole genuinely new mathematics in (T′)** and is **[research]**:
+   write the Penrose-resummation proof in
+   `formal/tree-graph-bound.tex` first (Poghosyan–Ueltschi 2009 /
+   Friedli–Velenik §5.4 as the model), identify the finitary
+   induction (partition-scheme over rooted forests), then mechanize.
+
+**Deliverables.**
+- Lean: the three legs as theorems; the composite
+  `treeGraphBound_witness : TreeGraphBound d2 w4 gr` (over the 11.1
+  metric); axiom gates recorded in `AXIOM_AUDIT.md`.
+- `formal/tree-graph-bound.tex` (leg P prose proof).
+- Scorecard update: Sub-wall A drops from 4 atoms to 3 (then to 2 with
+  11.3).
+
+**Dependencies.** 11.0; 11.1 (for the metric the bound is phrased
+over). Legs (A) and (C) are independent of each other and of (P) —
+parallelize.
+
+**Open questions.** Whether `phiT` should be *defined* in Lean (the
+truncated Ursell coefficient as a finite signed sum over connected
+graphs) as part of this milestone or pinned by interface — defining it
+is strongly preferred (it is a finite rational object) and is what
+makes leg (P) a theorem rather than a model identification; budget for
+the combinatorial infrastructure (connected-graph enumeration over a
+finite polymer) accordingly.
+
+---
+
+### Milestone 11.3 — (D1) Mayer–Ursell bridge decomposition
+
+**Goal.** `Ursell4DProgress.BridgeDecomposition.decompose` is a
+theorem over the closed 4D cluster count `z4ClusterCountBound`: the
+off-diagonal connected correlator at separation `d` is dominated by
+its bridge-Ursell tail sum. Checkable predicate: an inhabitant
+`bridgeDecomposition_witness : BridgeDecomposition (z4ClusterCountBound p) w4 gr`
+with no open fields.
+
+**Current best route.** The absolute connecting-cluster expansion of
+Friedli–Velenik Ch. 5 (the same source already tracked for
+`KPIncrementData`): every connecting cluster contributing at
+separation `d` contains a bridge of length `≥ d`; resum by bridge
+length using the geometric machinery already in
+`Constructive/GeometricTail.lean` and the KP telescoping pattern of
+`Continuum/KPIncrement.lean`. This is bookkeeping-heavy but standard;
+the honest hard part is the same cluster-enumeration infrastructure as
+11.2's `phiT`, so **share that infrastructure** (build it once, in one
+module, consumed by both).
+
+**Deliverables.**
+- The shared finite-cluster enumeration module (if 11.2 hasn't already
+  landed it).
+- Lean: `bridgeDecomposition_witness`, axiom-gated.
+- `notes/mayer-bridge-decomposition.md` recording the exact resummation
+  and where it deviates (if anywhere) from Friedli–Velenik.
+
+**Dependencies.** 11.0; shares infrastructure with 11.2 but neither
+blocks the other's *statement* work.
+
+**Open questions.** Whether the `tailLen` schedule carried by the
+structure is the right one for the eventual Sub-wall A assembly, or
+whether it should be generalized to any summable schedule (prefer
+generalizing only if the assembly demands it).
+
+---
+
+### Milestone 11.4 — (A2) the pentagon: exact rational 6j program **[research-adjacent]**
+
+**Goal.** `Tier0Scorecard.SixJPentagon` is inhabited: a rational
+dim-absorbed 6j-square kernel that provably closes the guarded
+Biedenharn–Elliott cubic. Checkable predicate:
+`sixJPentagon_witness : SixJPentagon` with `pentagon` a theorem.
+
+**Current best route** (respecting the `PentagonRelation.lean`
+three-level analysis — the permutation surrogate `racahRP` is proved
+*insufficient*, so a faithful kernel is required):
+1. Implement the SU(2) Wigner 6j via the Racah single-sum formula in
+   exact arithmetic. Track the known rationality structure
+   explicitly: the triangle coefficients contribute square roots, so
+   represent the *signed square* `(2e+1)(2f+1)·{6j}²` (rational) plus
+   the sign function as separate data, exactly as `PentagonRelation`
+   already frames the `Q'`-legal statement.
+2. Gate with computation: verify the pentagon identity by `decide` /
+   kernel evaluation on a bounded rep window (all reps `< D` for small
+   `D` — e.g. all spins ≤ 2). This is the cheap falsifier for the
+   chosen index wiring (the file itself warns the wiring is
+   "structural shape, not the textbook assignment" — the bounded check
+   settles whether the shape is the true identity or needs
+   re-indexing; **budget for one re-indexing round**).
+3. Prove the general identity. Candidate: recoupling associativity —
+   both sides of the pentagon compute the same change-of-basis between
+   two parenthesizations of a 4-fold tensor product; at the
+   `Q'`-rational squared-kernel level this becomes a finite sum
+   identity per rep tuple, provable by induction on total spin, or by
+   the hypergeometric (Racah polynomial) contiguity relations.
+4. Inhabit `SixJPentagon` and thread `pentagon_to_racah` domination.
+
+**Deliverables.**
+- `computations/wigner_6j.py`: exact-rational 6j (squared) + sign,
+  with the pentagon verified numerically/symbolically over a sweep —
+  this is the Rule-5 pilot the Lean work mirrors.
+- Lean: the rational kernel definition; the bounded-window `decide`
+  theorem; the general pentagon theorem; the witness.
+- `formal/6j-pentagon.tex` if step 3 needs a prose proof first.
+
+**Dependencies.** 11.0. Independent of 11.1–11.3 — parallel track.
+
+**Open questions.** Whether the guarded form (`< D` largeness bound)
+is what the eventual Sub-wall A assembly consumes, or whether an
+unguarded identity is needed; whether SU(2)-specific 6j suffices for
+the Clay-general assembly or the milestone should leave a group
+parameter (default: SU(2) now, generalize when 11.12's interfaces
+demand it).
+
+---
+
+### Milestone 11.5 — Sub-wall B: discharge `hadd` (the units dictionary)
+
+**Goal.** The `hadd` field of
+`AsymptoticSpectralLoc.SpectralMarginInput` — the located-second-
+eigenvalue ↔ physical-margin dictionary — is discharged by a theorem,
+reducing Sub-wall B from three open atoms to two. Checkable predicate:
+a constructor `spectralMarginInput_of_… ` that no longer takes `hadd`
+as a field but *proves* it from the pinning already mechanized in
+`PinnedBridgeProgress` (`shift_k := divPos ((L k).shift 1) a`,
+`floorRate_k = heatKernelMargin w_k = 1 − w_k³`).
+
+**Current best route.** This is a translation lemma between two
+representations the library already owns (`LocatedSpectralGap.gapMargin`
+on one side, the `Stage2ConvergesToMargin` physical-margin family on
+the other), with the `1/a` units factor handled exactly as
+`hbridge_pinned_of_edge` handles it. Expected to be `Q'` algebra plus
+the existing `margin_cube_ge` factorization — no new analysis.
+
+**Deliverables.**
+- Lean: the discharging constructor + `#print axioms` gate; scorecard
+  and `SORRY_LEDGER.md`-style named-hypothesis bookkeeping updated.
+- One-paragraph note in `docs/frontier-status.md` regeneration.
+
+**Dependencies.** 11.0.
+
+**Open questions.** Whether the dictionary is cleanest stated at fixed
+`k` (per-scale) or uniformly; take whichever the Stage-2 collapse
+consumes without re-plumbing.
+
+---
+
+### Milestone 11.6 — Sub-wall B: discharge `hbridge` (pinned shift control)
+
+**Goal.** The `hbridge` field is discharged for the physical
+`g_k ≠ 1` trajectory. `PinnedBridgeProgress` already delivers the
+wiring lemma `edgeShift_le_gradedDefect` and the `1/a` lift
+`hbridge_pinned_of_edge`; what remains is supplying its two inputs as
+theorems rather than hypotheses: (a) the **model identification**
+`s ≤ bondMovingDeltaRen N p w` (the located edge shift is controlled
+by the quadratic bond-moving budget), and (b) the **near-continuum
+linear control** `bmConst p·(1 − w) ≤ δ` on the operating schedule.
+
+**Checkable predicate.** A constructor producing `hbridge` from the
+spacing schedule and the already-proved
+`BondMovingQuadratic.bondMovingDeltaRen_quadratic`, with (a) and (b)
+either proved or reduced to *strictly smaller* named inputs that are
+logged per AGENTS.md Rule 6 and enumerated in the regenerated
+scorecard.
+
+**Deliverables.**
+- Lean: the constructor; if (a) remains partially open, its residue
+  must be a sharper named field (never a regression to the opaque
+  `hbridge`).
+- `notes/hbridge-model-identification.md`: exactly what (a) asserts
+  physically and its literature anchor.
+
+**Dependencies.** 11.0, 11.5 (shares the pinning).
+
+**Open questions.** Whether (b) is a *choice* (pick the schedule so
+the linear control holds — likely, since `SpacingSchedule` is
+project-owned data) or a constraint to verify against the AF
+calibration files (`AFRateCalibration` etc.); prefer the choice route
+if it doesn't distort the AF matching.
+
+---
+
+### Milestone 11.7 — Sub-wall B: `hlocalize` (Core B local-CLT) **[research]**
+
+**Goal (long-horizon; this milestone is the *first tranche*).** The
+`sl.hlocalize` field — the p ≥ 2 SU(2)-fusion local-CLT spectral
+localization — discharged. First-tranche checkable predicate: a
+complete prose proof attempt in `formal/core-b-local-clt.tex` for the
+**hierarchical model**, with every estimate carrying explicit
+constants, plus a `computations/` pilot validating the constants
+numerically over the operating window. Lean mechanization is *not* in
+the first tranche (Rule 5: do not outrun the analysis).
+
+**Current best route.** The `LocalCLTSteepestDescent` /
+`FusionLogConcave` / `FusionCoreInduction` modules stake out the
+intended structure: log-concavity of the fusion weights + a
+steepest-descent local CLT gives the localization of the second
+eigenvalue. The hierarchical model removes the geometry and isolates
+the fusion analysis — exactly the setting where
+`HierarchicalGap`/`TreeFixedSpacingGap` already live.
+
+**Deliverables (first tranche).**
+- `formal/core-b-local-clt.tex`: the hierarchical-model proof attempt,
+  gap-flagged where incomplete.
+- `computations/core_b_pilot.py` + tests: constants, window sweep,
+  failure boundary.
+- A decision memo: mechanize now / iterate prose / route change.
+
+**Dependencies.** 11.5, 11.6 (so the localization statement lands in
+its final consumable form). Parallel with 11.8.
+
+**Open questions.** Everything — this is the open mathematics. The
+milestone deliberately does not fix the proof technique; it fixes only
+the *statement* (the existing Lean field) and the honesty protocol.
+
+---
+
+### Milestone 11.8 — `UniformSpacingFloor`: hierarchical-model closure **[research]**
+
+**Goal.** Inhabit `UnifiedContinuumFloor.UniformSpacingFloor` — the
+single scalar all three continuum routes converge on
+(`ContinuumFrontierScorecard.all_routes_converge_on_uniform_floor`) —
+for the **hierarchical** Yang–Mills model, end to end, constructively.
+This is the first point at which the project would produce *new closed
+physics* rather than a sharper enumeration, and a publishable result
+independent of full 4D.
+
+**Checkable predicate.** A Lean term
+`hierarchicalUniformFloor : UniformSpacingFloor …` (specialized to the
+hierarchical tower) with axiom gate `[propext]`/`[propext, Quot.sound]`,
+plus the composed positive continuum mass via
+`unified_continuum_gap`, for an explicit rational floor.
+
+**Current best route.** The Bakry–Émery curvature route
+(`BakryEmeryGap`, `UniformCurvatureBound`, `ModeEnergyFloor`): a
+curvature lower bound uniform along the hierarchical RG flow yields
+the per-scale mode-energy floor directly. Fallback route: the direct
+defect-gap recursion (`DefectGapRecursionProgress` +
+`Stage2ConvergesToMargin`) fed by 11.7's hierarchical local CLT.
+Pursue curvature first (fewer moving parts at fixed geometry); keep
+both statements against the same `UniformSpacingFloor` type so the
+routes stay interchangeable.
+
+**Deliverables.**
+- `formal/hierarchical-uniform-floor.tex` (prose first).
+- `computations/hierarchical_floor.py`: the explicit floor value and
+  its stability under the fiducial envelope (reuse the D-tornado
+  machinery).
+- Lean: the inhabitant + composition theorems, once prose closes.
+
+**Dependencies.** 11.7 first tranche informs but does not block the
+curvature route. 11.5/11.6 required for the OS-reconstruction route's
+consumption only.
+
+**Open questions.** Whether the hierarchical floor transfers any
+quantitative content to genuine ℤ⁴ (expected: technique and
+interfaces transfer; constants do not). The milestone's value stands
+either way.
+
+---
+
+### Milestone 11.9 — Continuum measure: the Minlos decision (Rule 4)
+
+**Goal.** The `CitedMinlosLift` atom is resolved by an explicit,
+logged decision — currently `CLASSICAL_LEDGER.md` has **zero entries**
+while a cited-classical input sits on the critical path, which
+understates the chain's classical content. Checkable predicate: one of
+(i) **quarantine route** — a module under `lean/YMGap/Classical/`
+carrying the Minlos/Kolmogorov σ-additive extension as a
+`CLASSICAL INPUT:`-docstringed axiom-or-import, re-exported through a
+constructive interface, with the first entry in `CLASSICAL_LEDGER.md`,
+and the Clay-facing chain re-verified against it; or (ii)
+**constructive route** — `PartitionPos.BishopFunctional` extended to a
+Daniell/Bishop–Cheng integral on the projective limit (the S2–S6
+stages built most of this scaffolding), making the measure object
+fully constructive and retiring `CitedMinlosLift`.
+
+**Recommendation (non-binding).** Do (i) now — it is a bookkeeping
+milestone that makes the Clay-facing chain honest and unconditional-
+modulo-analysis, since Clay does not require constructivity — and keep
+(ii) as the constructive upgrade with its own later milestone if the
+Bishop route proves tractable.
+
+**Deliverables.** Per the chosen route: the Classical/ module + ledger
+entry + re-export, or the Daniell extension module; either way an
+updated `docs/continuum-measure-attack-surface.md` §status.
+
+**Dependencies.** 11.0. Independent of 11.1–11.8.
+
+**Open questions.** For (ii): whether countable additivity in the
+Bishop sense suffices for the OS-reconstruction consumers or whether a
+full profinite-limit integration theory is needed — scope this in the
+attack-surface doc before committing.
+
+---
+
+### Milestone 11.10 — O(4) restoration: from bare Prop to reduction-with-named-input
+
+**Goal.** `RubricO4Restoration` / `os1_o4_restoration` moves from a
+bare uninhabited `Prop` to the project's standard
+reduction-with-named-hypothesis shape (the pattern that worked for
+`eta_dominated`): the H₄ (hypercubic) invariance at fixed spacing
+**proved** from the lattice symmetry `ObsHom`s (the
+`Spin4`/`Spin4Reflection`/`O4RestorationH4` groundwork), composed with
+a **single named analytic input** — the decay of the
+symmetry-breaking (irrelevant-operator) contributions along the
+continuum limit, Magnen–Rivasseau–Sénéor-class — such that
+`os1_o4_restoration` is a theorem *given* that one field.
+
+**Checkable predicate.** A structure `O4RestorationInput` with the
+irrelevant-decay field as `Type`-level data, and a theorem
+`o4_restoration_of_input : O4RestorationInput … → IsOS1Full …`, both
+axiom-gated; H₄ invariance itself carried as a proved theorem, not a
+field.
+
+**Deliverables.** The Lean module; `notes/o4-restoration-reduction.md`
+stating precisely what the named input asserts and its literature
+anchor; scorecard update.
+
+**Dependencies.** 11.0. The named input's *discharge* is downstream of
+11.8-class uniform control — out of scope here; this milestone is the
+reduction only.
+
+**Open questions.** The right formulation of "irrelevant decay"
+constructively (a modulus on the H₄-to-O(4) defect of the Schwinger
+moments is the leading candidate; leave room for a correlator-level
+alternative).
+
+---
+
+### Milestone 11.11 — OS reconstruction: construct the generator
+
+**Goal.** The time-translation generator (Hamiltonian) on the
+constructive complete GNS Hilbert space
+(`WilsonGNSData.completeGnsHilbert`) is **constructed**, so
+`OSReconstructedGap.genGap` is consumed from a built operator rather
+than carried as interface data, and the fixed-spacing located transfer
+gap is transported through the completion.
+
+**Checkable predicate.** A definition producing, from the
+finite-volume Wilson transfer data, a densely-defined nonnegative
+self-adjoint-in-the-constructive-sense generator on
+`completeGnsHilbert` (via the existing
+`SelfAdjointHamiltonian`/`GNSHamiltonian`/`GNSDynamics` scaffolding),
+together with a theorem that its per-scale spectral gap equals (or
+dominates) the `LocatedSpectralGap` margin — making
+`reconstructed_gap_ge_uniform_floor` consume a constructed object.
+
+**Deliverables.** The Lean construction + transport theorem, axiom
+gates; an update to the `Continuum/` README-status noting which
+interface fields of `OSReconstruction` are now content-bearing.
+
+**Dependencies.** 11.0; independent of Sub-walls A/B; strengthens the
+consumer side of 11.8.
+
+**Open questions.** Constructive self-adjointness formulation (located
+spectrum vs. semigroup-generator): prefer whichever the existing
+`BoundedTransferCalculus`/`ContinuousFunctionalCalculusForm` modules
+already support; do not build a general constructive spectral theorem
+if the compact-transfer special case suffices.
+
+---
+
+### Milestone 11.12 — All compact simple groups: realize the per-group data
+
+**Goal.** The Clay quantifier "any compact simple gauge group G" is
+covered at the lattice layer: the uniform reduction
+(`mass_gap_simple_group` via `uniformBudgetWitness_of_characterTail`)
+is instantiated for every compact simple type, not only SU(2)/SU(3).
+Checkable predicate: `WeylDimData` + `AxisFactorBound` (+ the
+`ZtEtaModel` equalities) realized for the classical families
+A_n/B_n/C_n/D_n at general rank and the five exceptionals — either by
+rank-general lemmas (preferred; `WeylDimGeneral.lean` and
+`RankCollapse.lean` are the seeds, and `rank_collapse` is already
+validated across all 19 types) or by per-type instantiation — such
+that `su3_uniform_witness`-style witnesses exist for a representative
+of every type, and the general-rank statement is a theorem where the
+Weyl data permits.
+
+**Deliverables.**
+- Lean: the per-family/rank-general data modules; witnesses; audit
+  entries.
+- `computations/` sweep extending the U.4 `Σ η(G) ≤ Σ η(su2)`
+  corroboration across the realized types.
+- A note on any type where the axis-factor bound needs a genuinely
+  different argument (expected candidates: G₂/F₄ short-root
+  normalizations — document the Killing-form convention per Rule-5
+  precedent from Milestone 1.1).
+
+**Dependencies.** 11.0. Independent track; good parallel work while
+11.7/11.8 mature.
+
+**Open questions.** Whether to state the final theorem over an
+abstract `RepData`-with-verified-axioms class (cleanest) or an
+explicit 19-case enumeration (most checkable); the audit script should
+accept either.
+
+---
+
+## Phase 12: Clay compliance, publication, and repository hygiene
+
+### Milestone 12.1 — The frontier-reduction paper
+
+**Goal.** A submission-ready manuscript: *"A machine-checked
+constructive reduction of the Yang–Mills mass gap: fixed-spacing
+closure and an eight-atom continuum frontier."* Contents: the
+fixed-spacing constructive results (the `ClayFixedSpacingMet` line,
+with the transcription argument for why the constructive predicates
+faithfully render the rubric clauses — this faithfulness argument is
+the paper's most attackable surface and must be a section, not a
+footnote); the uniform-group reduction; the Tier-0 enumeration theorem
+(`toFrontierC`, the routes-convergence theorem); and the honest status
+map from `docs/frontier-status.md`. Extends the Phase 5.1 draft.
+
+**Why now, not after closure.** It is independently publishable; it
+starts the community-scrutiny clock the Clay rules require
+(publication in a qualifying refereed outlet + waiting period +
+general acceptance); and it recruits exactly the reviewers —
+constructive-QFT (Bałaban-school) and Lean/Mathlib — who can attack
+Phase 11's research core.
+
+**Deliverables.** `formal/frontier-reduction-paper/` building to PDF;
+an artifact-evaluation appendix (pinned toolchain `v4.29.1`,
+zero-dependency `lake build`, audit reproduction instructions); arXiv
+preprint; venue shortlist memo (candidates: a mathematical-physics
+journal for the mathematics + an ITP/CPP-track companion for the
+mechanization — decide in the memo, not here).
+
+**Dependencies.** 11.0 (the status doc is a paper section). Benefits
+from, but must not wait for, 11.1–11.6.
+
+**Open questions.** One paper or two (math + mechanization); whether
+to include the hierarchical-floor result if 11.8 lands in time.
+
+---
+
+### Milestone 12.2 — CI frontier guard
+
+**Goal.** It is mechanically impossible for the repository to
+*silently* claim more than it has proved. Checkable predicate: CI
+fails if any declared frontier bundle (`Tier0Scorecard`,
+`ClayScorecard.ClayTarget`, `UniformSpacingFloor`,
+`SpectralMarginInput`, `SixJPentagon`, `ContinuumYMExistence`, plus a
+declared-in-one-place extensible list) acquires an inhabitant whose
+axiom set is not `∅`/`[propext]`/`[propext, Quot.sound]`, or whose
+proof term elaborates through `sorryAx` — while a *legitimate*
+inhabitant (axiom-clean, sorry-free) fails CI only until a human flips
+the atom's status in the frontier list (a deliberate two-key
+ceremony: closing a Clay atom must be an explicit act, mirroring
+Rule 6's sign-off requirement).
+
+**Deliverables.** `scripts/frontier_guard.py` (extends
+`lean_axiom_audit.py`); the declared frontier list as data
+(`lean/FRONTIER.md` or a `.toml`); CI wiring; documentation in
+`lean/AGENTS.md` (done as part of this phase's doc refresh).
+
+**Dependencies.** 11.0 (shares the bundle-walking machinery).
+
+**Open questions.** Whether the guard should also protect against
+*vacuous weakening* of a frontier type (e.g. a refactor that changes a
+field to something trivially inhabitable) — a type-hash of the
+frontier structures in the baseline is the cheap version; include if
+low-cost.
+
+---
+
+### Milestone 12.3 — `Continuum/` consolidation
+
+**Goal.** The ~470-file `Continuum/` directory is navigable by a fresh
+reviewer: superseded iteration files (e.g.
+`FusionCoreStepRound[A–J]`, retired `*Progress`/`*Close` drafts whose
+content has been absorbed) are moved to `Continuum/Attic/` (still
+building, still on disk, excluded from the default aggregator exactly
+as `PolyAtlas`/`ModuliAlgebra` already are), and a generated import-
+graph document maps the load-bearing spine from `Constructive/` to the
+scorecards.
+
+**Constraint.** Zero semantic changes: `lake build` output, the audit
+baseline, and every theorem statement are unchanged up to module
+paths; the axiom-audit script's tracked names are updated in the same
+commit; the move list is reviewed against `YMGap.lean`'s existing
+load-bearing/excluded annotation before anything moves.
+
+**Deliverables.** The `Attic/` move (mechanical, scripted, reviewed);
+`docs/lean-import-spine.md` (generated); updated `lean/README.md`
+folder map (done in this phase's doc refresh).
+
+**Dependencies.** 11.0 (its status table identifies what is
+superseded). Do **not** interleave with active Phase-11 Lean work on
+the same files — schedule as a quiet-window batch.
+
+**Open questions.** Whether git history preservation across moves
+matters for the paper's artifact evaluation (use `git mv`; note it in
+the artifact appendix).
+
+---
+
+### Milestone 12.4 — External review campaign
+
+**Goal.** At least two external experts — one constructive/rigorous
+QFT (Bałaban-school lineage), one Lean/ITP — have produced written
+feedback on (a) the faithfulness of the rubric transcription and (b)
+the axiom-gate methodology, and the feedback is triaged into issues.
+
+**Deliverables.** A reviewer dossier (the 12.1 preprint + a 10-page
+reading guide: "what to check and how to check it," including the
+one-command audit reproduction); an outreach shortlist; triaged
+feedback log in `notes/external-review-log.md`; any resulting
+statement-level fixes filed as Phase-11 amendments.
+
+**Dependencies.** 12.1 preprint.
+
+**Open questions.** Timing of Clay Institute contact — convention is
+that the community-acceptance process runs through publication, not
+direct submission; the dossier should follow the published rules for
+the Millennium Prizes (qualifying outlet, waiting period, general
+acceptance) and say nothing that presumes closure.
+

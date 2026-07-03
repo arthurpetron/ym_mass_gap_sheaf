@@ -17,6 +17,13 @@ Before adding or modifying any Lean file, read:
 3. `docs/outline.md` §0.2 (the constructive law) and §0.3 (the
    no-circularity law).
 4. This file in full.
+5. `lean/AXIOM_AUDIT.md` (the auto-maintained axiom-gate baseline your
+   change must not regress) and, before touching anything under
+   `YMGap/Continuum/` or `YMGap/Rubric/`, the PROVED/OPEN sections of
+   the relevant scorecard docstrings (`Rubric/ClayScorecard.lean`,
+   `Continuum/Tier0Scorecard.lean`,
+   `Continuum/ContinuumFrontierScorecard.lean`) — they define which
+   obligations are genuinely open (Rule 9).
 
 ---
 
@@ -153,6 +160,9 @@ Per-phase Lean targets:
 | 2 (sheaf) | $\mathcal{A}_k$ flabbiness and domination gluing are constructive. |
 | 2 (induction) | $\mathcal{I}_k$ validation is decidable; step signature typechecks. |
 | 3 (closure) | The three KP certificates are witness-bearing structures; the $\eta_k$ budget sum is a constructive inequality. |
+| 7–9 (continuum / OS / mass gap) | Finite-volume functionals, partition positivity, the KP increment engine, limits, and the GNS construction carry explicit `Q'`/`CReal` moduli as data; every genuinely open analytic input is a NAMED `Type`-level field (Rule 6a), never `Prop := True` or a `Unit` witness. |
+| 10–11 (uniform groups / frontier) | Per-group data (`WeylDimData`, `AxisFactorBound`, …) are decidable/computable; frontier bundles (`Tier0Scorecard`, `ClayTarget`, `UniformSpacingFloor`, …) obey Rule 9. |
+| rubric (all phases) | Every scorecard MET clause is discharged by a real, cited theorem about a specific YM object of this library; transcribed predicates are faithful and non-vacuous. |
 
 ---
 
@@ -170,6 +180,35 @@ An incomplete proof uses `sorry` and is logged. Never disguise a hole.
 
 Do not invent lemmas, constants, or citations to make a `sorry` go
 away. A correct `sorry` is infinitely better than an incorrect proof.
+
+### Rule 6a: The named-hypothesis pattern (the sanctioned alternative to `sorry`)
+
+When a genuinely open *analytic* input must be consumed by otherwise-
+complete constructive machinery, the established pattern (used by
+`domGlue_preserves_KP`, `eta_dominated`, `KPIncrementData`,
+`weighted_pos`, `SpectralMarginInput`, and the scorecard bundles) is:
+
+1. Carry the input as an **explicit, named structure field or
+   argument**, `Type`-level where it bears data (Rule 8.3), with a
+   docstring stating exactly what it asserts and its literature
+   anchor. The surrounding modules then contain **zero**
+   `sorry`/`sorryAx` and remain axiom-clean *given* the field.
+2. Never smuggle the conclusion into the hypothesis: the field must be
+   a genuine input (the theorem must be false for arbitrary data in
+   its place — cf. the `KPIncrementData` smallness note), and it must
+   not be trivially inhabitable.
+3. Log it: named-hypothesis obligations are tracked in
+   `SORRY_LEDGER.md` entries (as the closed-machinery/open-input
+   records already are) and surfaced in the relevant scorecard's OPEN
+   list.
+4. Discharging the field later obeys the same signs-off as closing a
+   constructive `sorry`: a classical discharge requires Rule 4
+   quarantine + explicit ledger sign-off, never a silent closure.
+5. When partial progress *reduces* a named field (e.g. an opaque
+   scalar replaced by structured per-group data, or one leg of three
+   proved), the residue must be a **strictly smaller named input** —
+   never a regression to the opaque original, and never a hidden
+   re-assumption of what was proved.
 
 ---
 
@@ -239,13 +278,62 @@ carry the missing witness as data (Rules 2, 8.3).
 
 ---
 
+## Rule 9: Frontier honesty — scorecards and uninhabited bundles
+
+The library now carries machine-checked *enumerations of what remains
+open* (`Rubric/ClayScorecard.ClayTarget`, `Continuum/Tier0Scorecard`,
+`UniformSpacingFloor`, `SpectralMarginInput`, `SixJPentagon`,
+`FourDExistence.ContinuumYMExistence`, and successors). These bundles
+are **deliberately uninhabited**: producing an inhabitant without
+`sorry`/`axiom`/vacuity *is* the open Clay problem (or a named part of
+it). They are the highest-stakes surface in the repository, so:
+
+1. **Never inhabit a frontier bundle with a vacuous or degenerate
+   term.** `Prop := True` laws, `Unit` witnesses, trivially-satisfiable
+   weakenings of a field's type, or surrogate objects that inhabit the
+   letter but not the content (cf. the `racahRP` permutation surrogate,
+   which is *documented* as insufficient for the pentagon) do not close
+   an atom. If a surrogate is useful, record it as a strictly-weaker
+   named object with its insufficiency stated, exactly as
+   `PentagonRelation.lean` does.
+2. **Do not weaken a frontier type to make it inhabitable.** Any change
+   to the *statement* of a frontier field (its type, its guards, its
+   quantifiers) requires the same explicit sign-off as closing a
+   constructive hole classically (Rule 6), recorded in the ledger and
+   the scorecard docstring, with the old statement preserved in the
+   docstring for the record.
+3. **Legitimately closing an atom is a two-key act.** A genuine
+   inhabitant must (a) pass the Rule-1 axiom gate, (b) be sorry-free,
+   (c) update the scorecard's PROVED/OPEN docstring sections in the
+   same change, and (d) be recorded as a dated closure entry in
+   `SORRY_LEDGER.md`. Where the CI frontier guard exists
+   (`work_plan.md` Milestone 12.2), its declared frontier list is
+   flipped in the same change — deliberately, by a human-reviewed
+   commit, never by the proof commit alone.
+4. **Scorecard docstrings are load-bearing documentation.** Their
+   PROVED vs OPEN sections must match the code. If your change closes,
+   reduces, or refines an atom, updating every scorecard that
+   enumerates it is part of the change, not a follow-up. (Known-drift
+   repair is `work_plan.md` Milestone 11.0.)
+5. **Every scorecard MET clause cites its discharging theorem** — a
+   real, existing declaration about a specific object of this library,
+   never an existential over arbitrary models. Underclaim by default:
+   the Clay Yang–Mills existence and mass gap problem is OPEN, and no
+   module may state or imply otherwise while any frontier bundle lacks
+   a legitimate inhabitant.
+
+---
+
 ## Summary
 
-The folder exists to make one promise checkable: *the constructive
-steps are actually constructive.* Classical Lean makes that promise
-trivial to break by accident. These rules — sigma-not-exists,
-constructive reals, the axiom gate, quarantine, honest holes, and the
-MLTT/HoTT substrate — are how the promise stays intact. The north star:
-everything typechecks and **computes** in MLTT/HoTT; witnesses are data,
-not erased `Prop` content. When a rule and a quick proof conflict, the
-rule wins.
+The folder exists to make two promises checkable: *the constructive
+steps are actually constructive*, and *the open steps are actually
+open*. Classical Lean makes the first promise trivial to break by
+accident; vacuous inhabitants make the second. These rules —
+sigma-not-exists, constructive reals, the axiom gate, quarantine,
+honest holes, the named-hypothesis pattern, the MLTT/HoTT substrate,
+and frontier honesty — are how both promises stay intact. The north
+star: everything typechecks and **computes** in MLTT/HoTT; witnesses
+are data, not erased `Prop` content; and the scorecards never claim
+more than the kernel has checked. When a rule and a quick proof
+conflict, the rule wins.
