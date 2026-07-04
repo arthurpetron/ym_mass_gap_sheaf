@@ -651,3 +651,4 @@ import YMGap.Continuum.MeanComplementClose
 import YMGap.Continuum.DiscreteLaplaceSaddle
 import YMGap.Continuum.CircleFourierPowerModel
 import YMGap.Continuum.ContinuumShadowFloor
+import YMGap.Continuum.EnvelopeClosure
