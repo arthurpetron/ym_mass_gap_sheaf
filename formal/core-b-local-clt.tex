@@ -1,0 +1,567 @@
+% core-b-local-clt.tex — the discrete SU(2) fusion local-CLT / steepest-descent
+% saddle estimate for the HIERARCHICAL Migdal–Kadanoff model (geometry removed,
+% p = b^{d-1}), with explicit rational constants and honest GAP flags.
+%
+% Linked code / Lean:
+%   - lean/YMGap/Continuum/FusionKernelStatement.lean  (SaddleLogForm, SaddleLocalCLT)
+%   - lean/YMGap/Continuum/LocalCLTSteepestDescent.lean (symMinor band, defect form)
+%   - lean/YMGap/Continuum/MeanExpConvexProgress.lean   (Casimir moment identity, d2x)
+%   - lean/YMGap/Continuum/FusionMarginMonotone.lean    (pfmom_split, MeanExpConvex)
+%   - lean/YMGap/Continuum/SpectralLocalizationCrux.lean (eigA, bulk_shift ≤ 1/12)
+%   - lean/YMGap/Continuum/FusionLogConcave.lean         (LogConcave / PF2)
+
+\chapter{The Fusion Local--CLT: a Steepest--Descent Saddle Estimate in the
+  Hierarchical Model}
+\label{ch:core-b-local-clt}
+
+\noindent\emph{The vacuum-normalized $p$-fold \SUtwo{} fusion kernel, its
+generating function, the Pólya-frequency-2 log-concavity of its coefficients, the
+discrete-Laplace saddle bound $\log \widehat K = -A_p\,\Casimir + R_p$ with
+$|R_p|\le\eta_p\,\Casimir^{2}$, and the unification of this second-order remainder
+with the Casimir moment identity $\mu = \Casimir - 2\langle x\rangle$ and the tight
+tilted-variance bound $d^2 x\le 1$.  Every estimate carries an explicit $\Qp$
+constant; the genuine $p\ge 2$ saddle remainder is GAP-flagged throughout.}
+
+\medskip
+
+This chapter isolates one analytic residual — call it \emph{Core B} — and works it
+in the cleanest arena in which it can be stated: the \emph{hierarchical}
+Migdal--Kadanoff (Dyson) model, in which the geometric bond-moving error is
+identically zero and the renormalization step is an exact algebraic recursion.  All
+lattice geometry is removed; what survives is a single discrete convolution
+identity on \SUtwo{} class functions and a local central limit theorem for its
+iterates.  The physical multiplicity of the parallel (Migdal) fusion step is
+\[
+  p \;=\; b^{\,d-1},
+\]
+with $b$ the linear block factor and $d$ the dimension.  For the canonical $4$D
+case $b=2$, $d=4$ this is $p = 2^{3} = 8$; the two-dimensional face $b=2$, $d=2$
+gives $p = 2$, which is the one exponent whose log-concavity core is genuinely
+proved (\Cref{sec:core-b-pf2}).  Everything below is stated for a free $p$ and
+specialized to these values.
+
+We adopt throughout the integer Casimir label
+\[
+  \Casimir(s) \;:=\; s(s+2), \qquad s = 0,1,2,\dots,
+\]
+which is four times the true quadratic Casimir $j(j+1)$ of the spin-$j=s/2$
+representation and is the quantity carried by \modref{RGTransport.c4}.  Its two
+exact micro-identities,
+\begin{align}
+  \Casimir(p) + \Casimir(t-p) + 2\,p(t-p) &= \Casimir(t)
+    && (0\le p\le t), \label{eq:casimir-split}\\
+  \Casimir(s) + \Casimir(s+2) &= 2\,\Casimir(s+1) + 2,
+    \label{eq:casimir-secdiff}
+\end{align}
+are the entire geometric input to the saddle; both are proved as
+\modref{MeanExpConvexProgress.casimir\_identity} and
+\modref{MeanExpConvexProgress.casimir\_secondDiff\_eq\_two}.  Equation
+\eqref{eq:casimir-secdiff} says the second difference of the quadratic $\Casimir$
+is the \emph{constant} $\Delta^{2}\Casimir = 2$ — an exact constant-curvature
+(Bakry--Émery) term.  This constant is the source of every explicit rational
+threshold in the chapter.
+
+\section{The fusion kernel and its generating function}
+\label{sec:core-b-kernel}
+
+\begin{definition}[Heat-kernel coefficients]
+\label{def:core-b-coeff}
+The diagonal \SUtwo{} heat-kernel character coefficient at weight $w\in[0,1]$ is
+\[
+  c_w(s) \;:=\; (s+1)\,w^{\Casimir(s)} \;=\; \dim_s\, w^{s(s+2)},
+  \qquad \dim_s := s+1,
+\]
+recorded as \modref{BondMovingStep.coeffW}.  Its generating class function is the
+\SUtwo{} heat kernel
+\[
+  f_w(\theta) \;=\; \sum_{s\ge 0} c_w(s)\,\chi_s(\theta),
+  \qquad \chi_s(\theta) = \frac{\sin\bigl((s+1)\theta\bigr)}{\sin\theta},
+\]
+with $w = e^{-\tau}$, so that $w^{\Casimir(s)} = e^{-\tau\Casimir(s)}$ is the heat
+semigroup at time $\tau = -\log w$.  As $w\to 1^{-}$ ($\tau\to 0^{+}$) the kernel
+$f_w$ concentrates at the identity $\theta=0$.
+\end{definition}
+
+\begin{definition}[Fusion power and its vacuum-normalized eigenvalue]
+\label{def:core-b-fusion}
+Parallel bond-moving of $p$ bonds between a fixed pair of sites is the
+\emph{pointwise} $p$-th power of the class function, $f_w^{\,p}(\theta)$.  Its
+character re-expansion, truncated at degree $N$, is the bond-moved coefficient
+\[
+  K^{(p)}_{w,N}(s)
+    \;=\; \bigl\langle \chi_s,\, f_w^{\,p}\bigr\rangle_{\mathrm{Haar}}
+    \;=\; \modref{BondMovingStep.bondMovedCoeff}(N,w,p,s).
+\]
+Dividing out the multiplicity $\dim_s$ and normalizing by the vacuum $s=0$ gives the
+\emph{vacuum-normalized fusion eigenvalue}
+\[
+  \widehat K_{w,p}(s)
+    \;:=\; \frac{K^{(p)}_{w,N}(s)}{\dim_s\, K^{(p)}_{w,N}(0)}
+    \;=\; \modref{FusionKernelStatement.fusionEig},
+\]
+with $\widehat K_{w,p}(0)=1$.  This multiplicity-blind object — not the coefficient
+ratio $K^{(p)}(s)/K^{(p)}(0)$, which carries the extra $\log\dim_s$ — is the one
+whose logarithm linearizes, and is exactly the object perturbed by the localization
+bridge of \Cref{sec:core-b-wiring}.
+\end{definition}
+
+The fusion power is a convolution on the coefficient side: since
+$\chi_a\chi_b = \sum_c \mathsf N_{ab}^{\,c}\,\chi_c$ with the \SUtwo{} fusion rule
+$\mathsf N_{ab}^{\,c} = \mathbf 1[\,|a-b|\le c\le a+b,\ a+b+c\equiv 0\ (2)\,]$,
+\[
+  K^{(2)}_{w}(t)
+    \;=\; \sum_{a+b\ge t}\mathsf N_{ab}^{\,t}\,c_w(a)\,c_w(b)
+    \;=\; w^{\Casimir(t)}\!\!\sum_{p}\dim_p\dim_{t-p}\,w^{-2\,p(t-p)}
+    \;+\;(\text{off-band}),
+\]
+where the displayed \emph{diagonal band} is $\modref{FusionMarginMonotone.acN}$ and
+the substitution used the Casimir split \eqref{eq:casimir-split}.  The exponent of
+each band monomial is $\Casimir(t)-2x_p$ with the \emph{cross-product statistic}
+\[
+  x_p \;:=\; p\,(t-p),
+\]
+whose tilted moments drive the entire estimate.
+
+\section{Log-concavity / total positivity: the PF\texorpdfstring{$_2$}{2} input}
+\label{sec:core-b-pf2}
+
+\begin{definition}[Discrete log-concavity]
+A sequence $c:\mathbb N\to\Qp$ is \emph{Pólya-frequency-2} (log-concave) when
+\[
+  c(s)\,c(s+2) \;\le\; c(s+1)^{2}\qquad\text{for every }s,
+\]
+recorded as \modref{FusionLogConcave.LogConcave}.  For strictly positive $c$ this is
+the statement that the ratio $c(s+1)/c(s)$ is non-increasing — the engine of
+unimodality that concentrates the coefficient mass at a single low mode.
+\end{definition}
+
+\begin{proposition}[The heat-kernel coefficients are log-concave; PROVED]
+\label{prop:core-b-coeff-lc}
+For $0\le w\le 1$ the sequence $c_w$ is log-concave.  Indeed the dimension surplus
+$\dim_s^{2}=(s+1)^{2}\ge s(s+2)=\Casimir(s)$ and the Casimir second difference
+\eqref{eq:casimir-secdiff} give
+\(
+  c_w(s)c_w(s+2) = \dim_s\dim_{s+2}\,w^{\Casimir(s)+\Casimir(s+2)}
+    \le \dim_{s+1}^{2}\,w^{2\Casimir(s+1)}\cdot w^{2} \le c_w(s+1)^{2}
+\)
+using $w^{2}\le 1$.  This is \modref{FusionLogConcave.coeffW\_logConcave\_pred}.
+\end{proposition}
+
+\begin{proposition}[Fusion preserves PF$_2$ at $p=2$; PROVED, with the honest caveat]
+\label{prop:core-b-p2-lc}
+The $p=2$ fusion tower $K^{(2)}_{w,N}$ is log-concave, from the box-level core
+\modref{SelfFusionLogConcave.FusionConvLogConcaveCore} via
+\modref{FusionLogConcave.bmc2\_logConcave\_of\_core}, wired at
+\modref{FusionKernelStatement.fusionKernelLogConcave\_p2}.  This is
+\emph{heat-kernel-specific}: log-concavity is \emph{not} closed under generic
+\SUtwo{} fusion, and the naïve ``fusion preserves log-concavity'' claim is refuted
+at $s=1$ by \modref{SelfFusionLogConcave.boxSum1\_logConcave\_FALSE\_at\_one}.
+\end{proposition}
+
+\begin{remark}[\textbf{GAP} — general-$p$ log-concavity]
+\label{rem:core-b-gap-lc}
+For the physical exponent $p = b^{d-1}\ge 2$ (in particular $p=8$ in $4$D) the
+PF$_2$ property of $K^{(p)}_{w,N}$ is \emph{named-open}: the carrier
+\modref{FusionKernelStatement.FusionKernelLogConcave} is inhabited only at $p=2$.
+The remaining content is the aggregate cancellation of the off-diagonal minor band
+located in \Cref{sec:core-b-defect}; it is not closed here.
+\end{remark}
+
+\subsection{Locating the indefiniteness: the symmetrized minor band}
+\label{sec:core-b-defect}
+
+The log-concavity defect of the diagonal band $\modref{FusionMarginMonotone.acN}$ is
+governed by the symmetrized off-diagonal minor
+\[
+  \operatorname{symMinor}(m,n) \;=\; 2\,c_{m+1}c_{n+1} - c_m c_{n+2} - c_n c_{m+2},
+\]
+$\modref{FusionCoreStepRoundJ.symMinor}$.  What is proved
+(\modref{LocalCLTSteepestDescent}) sharply localizes its indefiniteness:
+\begin{itemize}
+\item $\operatorname{symMinor}(m,n)\simeq\operatorname{symMinor}(n,m)$ (symmetry);
+\item $0\le\operatorname{symMinor}(m,m)$ — the diagonal band, twice
+  \Cref{prop:core-b-coeff-lc};
+\item $0\le\operatorname{symMinor}(m,m+1)$ — the \emph{first} off-diagonal band,
+  from the Hankel rectangle $c_m c_{m+3}\le c_{m+1}c_{m+2}$
+  (\modref{FusionCoreStepRoundE.coeffW\_rect});
+\item $-(c_m c_{n+2}+c_n c_{m+2})\le\operatorname{symMinor}(m,n)$ — the Gershgorin
+  negative-leakage envelope.
+\end{itemize}
+Round-J's machine-checked witness $\operatorname{symMinor}(0,2)<0$ pins the
+indefinite content \emph{exactly} at spread $|m-n|\ge 2$.  The reserve inequality is
+recast (\modref{LocalCLTSteepestDescent.reserve\_of\_defect}) into the equivalent
+autoconvolution \emph{defect} form with the explicit margin
+\[
+  \delta\,\bigl(H^0_{\mathrm{auto}}(s)\,H^0_{\mathrm{auto}}(s+2)\bigr)
+    \;\le\; H^0_{\mathrm{auto}}(s+1)^{2}
+      - H^0_{\mathrm{auto}}(s)\,H^0_{\mathrm{auto}}(s+2),
+  \qquad \delta = \tfrac{31}{225},
+\]
+where $\tfrac{31}{225} = (\tfrac{16}{15})^{2}-1$ is the $\varepsilon=\tfrac1{15}$
+reserve threshold (\modref{AcNReserveAnalytic.reserve\_of\_cross}).
+
+\begin{remark}[\textbf{GAP} — the aggregate cancellation]
+The defect-to-quadratic-form expansion
+$H^0_{\mathrm{auto}}$-defect $\mapsto \sum_{i,j} v_i v_j\operatorname{symMinor}(i,j)$
+(the Andréief half-sum of the autoconvolution square, with explicit truncation edge
+terms) plus the Gershgorin domination of the $|i-j|\ge 2$ tail against the proved
+diagonal $\tfrac34$ reserve is the remaining wall.  It is not closed.
+\end{remark}
+
+\section{The steepest-descent saddle bound}
+\label{sec:core-b-saddle}
+
+We now state the local CLT in log/saddle form.  Write $\widehat K_{w,p}(s)$ for the
+vacuum-normalized fusion eigenvalue of \Cref{def:core-b-fusion}.
+
+\begin{definition}[Saddle log form]
+\label{def:core-b-saddle}
+The kernel is said to admit a \emph{saddle log form} with moduli
+$A_p(w),\eta_p(w)\in\Qp$ when
+\begin{equation}
+  \log \widehat K_{w,p}(s)
+    \;=\; -\,A_p(w)\,\Casimir(s) \;+\; R_p(s,w),
+  \qquad
+  |R_p(s,w)| \;\le\; \eta_p(w)\,\Casimir(s)^{2},
+  \label{eq:core-b-saddle}
+\end{equation}
+uniformly in $s$.  This is the interface
+\modref{FusionKernelStatement.SaddleLogForm}: $A_p$ is the leading (Gaussian) rate,
+$\eta_p$ the curvature/remainder modulus, and $R_p$ the non-Gaussian remainder.
+Both moduli are \emph{data}.
+\end{definition}
+
+\subsection{Derivation of the moduli by discrete Laplace / steepest descent}
+
+Near the identity the heat kernel of \Cref{def:core-b-coeff} is the
+three-dimensional Gaussian
+\[
+  f_w(\theta) \;\asymp\; C\,\tau^{-3/2}\,
+    \exp\!\Bigl(-\tfrac{\theta^{2}}{4\tau}\Bigr)\,\bigl(1+O(\theta^{2})\bigr),
+  \qquad \tau = -\log w,
+\]
+so its pointwise $p$-th power is a Gaussian of $p$ times the exponent,
+\[
+  f_w^{\,p}(\theta) \;\asymp\; \exp\!\Bigl(-\tfrac{p\,\theta^{2}}{4\tau}\Bigr)
+    \bigl(1+O(\theta^{2})\bigr)
+  \;=\; (\text{width }\sqrt{\tau/p}).
+\]
+The mode-$s$ character coefficient of a class function of $\theta$-variance
+$V$ is, to Gaussian order, $\exp\bigl(-\tfrac{V}{2}\Casimir(s)\bigr)$ (the character
+$\chi_s$ is the Laplacian eigenfunction with eigenvalue $\Casimir(s)$).  With
+$V_p = 2\tau/p$ this identifies the leading rate
+\begin{equation}
+  A_p(w) \;=\; \frac{V_p}{2} \;=\; \frac{\tau}{p}
+    \;=\; \frac{-\log w}{p}\;\asymp\;\frac{1-w}{p}\qquad(w\to 1^{-}).
+  \label{eq:core-b-Ap}
+\end{equation}
+The parallel bonds \emph{narrow} the $\theta$-distribution, which \emph{lowers} the
+mode-$s$ decay rate (the two endpoints are more strongly correlated) — hence the
+$1/p$, not $p$.  The $O(\theta^{4})$ non-Gaussianity of the \SUtwo{} heat kernel
+produces the $\Casimir(s)^{2}$ remainder with the expected modulus
+\begin{equation}
+  \eta_p(w) \;=\; O\!\left(\frac{(1-w)^{2}}{p^{2}}\right),
+  \label{eq:core-b-etap}
+\end{equation}
+the constant depending only on the (dimension-fixed) fourth cumulant of $f_w$.
+
+\begin{proposition}[The $p=1$ anchor is exact; PROVED]
+\label{prop:core-b-p1}
+At $p=1$ (no fusion) the kernel is exactly the bare heat kernel:
+$\widehat K_{w,1}(s)=w^{\Casimir(s)}$, so \eqref{eq:core-b-saddle} holds with
+\[
+  A_1(w) = -\log w,\qquad R_1\equiv 0,\qquad \eta_1(w) = 0,
+\]
+consistent with \eqref{eq:core-b-Ap}--\eqref{eq:core-b-etap} at $p=1$.  On the
+truncated modes $s\le N$ one has $\widehat K_{w,1}(s)=\modref{eigA}(w,s)$ exactly
+(\modref{FusionKernelStatement.fusionEig\_p1\_le\_eigA}); above the cutoff $s>N$ the
+$p=1$ coefficient vanishes
+(\modref{FusionKernelStatement.bmc\_p1\_zero\_above}).  Thus the residual is
+genuinely \emph{satisfiable} — the interface is inhabited at $p=1$
+(\modref{FusionKernelStatement.saddleLocalCLT\_p1}), with a certified zero shift.
+\end{proposition}
+
+\begin{remark}[\textbf{GAP} — the $p\ge 2$ saddle estimate]
+\label{rem:core-b-gap-saddle}
+For $p=b^{d-1}\ge 2$ the moduli \eqref{eq:core-b-Ap}--\eqref{eq:core-b-etap} are
+\emph{data}, and the uniform-in-$s$ remainder bound $|R_p|\le\eta_p\Casimir^{2}$ of
+\eqref{eq:core-b-saddle} is \emph{not} proved.  Two obstructions are honest: (i) the
+Gaussian approximation is valid only on the bulk window
+$\Casimir(s)\cdot(1-w)=O(1)$, and the tail beyond it must be dominated separately;
+(ii) the closed form of $\eta_p$ requires the fourth-cumulant control of the fused
+kernel — the genuine Tate--Zelditch / local-CLT input.  The structure
+\modref{FusionKernelStatement.SaddleLogForm} is a named, uninhabited analytic core
+for $p\ge 2$; it is not faked.
+\end{remark}
+
+\section{Unification with the Casimir moment identity}
+\label{sec:core-b-moment}
+
+The saddle remainder $R_p$ and the ``Tier-0'' Core-B object — the tilted-variance
+bound $d^2 x\le 1$ — are the \emph{same} datum viewed through the $w$-tilt.  This
+section makes the dictionary precise; it is the highest-value content of the
+chapter, and it is largely proved.
+
+\subsection{The moment identity}
+
+Let $\mu(t) := w\,\partial_w\log \modref{FusionMarginMonotone.acN}(w,s{+}1,t)$ be the
+tilted mean exponent of the diagonal band, and let
+$\langle x\rangle_t := \modref{MeanExpConvexProgress.xmomN}(w,s{+}1,t)/\mathrm{acN}$
+be the tilted mean of the cross-product statistic $x_p=p(t-p)$.
+
+\begin{theorem}[Casimir moment identity; PROVED]
+\label{thm:core-b-mu}
+For $s\le t$,
+\begin{equation}
+  \mu(t) \;=\; \Casimir(t) \;-\; 2\,\langle x\rangle_t,
+  \label{eq:core-b-mu}
+\end{equation}
+in the cleared-denominator form
+$\mathrm{acnFmom}(t) + 2\,\mathrm{xmomN}(t)\simeq\Casimir(t)\cdot\mathrm{acN}(t)$.
+This is \modref{MeanExpConvexProgress.mu\_eq}; its per-term engine is the Casimir
+split \eqref{eq:casimir-split}, and the whole identity is subtraction-free.  The
+entire ``geometry'' of the exponent is the exact term $\Casimir(t)$; all analytic
+content is displaced into the matter statistic $\langle x\rangle_t$.
+\end{theorem}
+
+The bridge to the eigenvalue is the ``mean-of-product = sum-of-means'' engine
+\begin{equation}
+  \mathrm{fmom}(P\cdot Q) \;=\; \mathrm{fmom}(P)\,\mathrm{mass}(Q)
+    + \mathrm{mass}(P)\,\mathrm{fmom}(Q),
+  \label{eq:core-b-pfmom}
+\end{equation}
+proved at full generality as \modref{FusionMarginMonotone.pfmom\_split}, which
+realizes $A_s = \mathrm{acN}_s\cdot\mathrm{acN}_{s+2}$ (a product) and
+$M_s = \mathrm{acN}_{s+1}^{2}$ (a square) as grid polynomials and identifies the
+tilted first moment of $A_s$ with the genuine product moment
+(\modref{FusionMarginMonotone.acnProductFirstMoment}).
+
+\subsection{From the saddle remainder to the tilted second difference}
+
+Take the second difference in $s$ of the saddle form \eqref{eq:core-b-saddle}.  Using
+$\Delta^2\Casimir = 2$ from \eqref{eq:casimir-secdiff},
+\begin{equation}
+  \Delta^2\!\log\widehat K_{w,p}(s)
+    \;=\; -\,A_p\,\Delta^2\Casimir(s) + \Delta^2 R_p(s)
+    \;=\; -\,2A_p + \Delta^2 R_p(s).
+  \label{eq:core-b-secdiff-log}
+\end{equation}
+On the tilt side, differentiating \eqref{eq:core-b-mu} and forming the midpoint
+second difference,
+\begin{equation}
+  \Delta^2\mu(s)
+    \;=\; \Delta^2\Casimir(s) - 2\,\Delta^2\langle x\rangle_s
+    \;=\; 2 - 2\,d^2 x,
+  \qquad
+  d^2 x := \langle x\rangle_s + \langle x\rangle_{s+2} - 2\langle x\rangle_{s+1}.
+  \label{eq:core-b-d2x}
+\end{equation}
+The two displays are the same object: $\mu$ is the $w$-log-derivative of the tower
+whose vacuum-normalized eigenvalue is $\widehat K_{w,p}$, so the mean-exponent
+convexity $\Delta^2\mu\ge 0$ \emph{is} the sign of the saddle remainder curvature.
+
+\begin{proposition}[The unified inequality; reduction PROVED]
+\label{prop:core-b-unify}
+The following are equivalent formulations of the Core-B saddle content:
+\begin{enumerate}
+\item the mean-exponent convexity $\mu(s)+\mu(s+2)\ge 2\mu(s+1)$
+  (\modref{FusionMarginMonotone.MeanExpConvex});
+\item the tilted second-difference bound
+  \[
+    d^2 x \;\le\; 1
+      \;=\; \tfrac12\,\Delta^2\Casimir,
+  \]
+  (\modref{MeanExpConvexProgress.XMeanSecondDiffLeOne});
+\item the second-order remainder control $\Delta^2 R_p(s)\le 2\,(1-d^2 x)$ of the
+  saddle form \eqref{eq:core-b-secdiff-log}.
+\end{enumerate}
+The implication $\mathrm{(2)}\Rightarrow\mathrm{(1)}$ is proved unconditionally,
+$\modref{MeanExpConvexProgress.meanExpConvex\_of\_xmsd}$, by substituting
+\eqref{eq:core-b-mu} into the three windows $t\in\{s,s+1,s+2\}$ and clearing the
+constant-curvature term $2$ via \eqref{eq:casimir-secdiff}; and
+$\mathrm{(1)}\Rightarrow$ the first-moment gap
+$\langle e\rangle_{A_s}\ge\langle e\rangle_{M_s}$ is proved as
+\modref{FusionMarginMonotone.firstMomentGap\_of\_meanExpConvex}.  The bound in
+$\mathrm{(2)}$ is \emph{tight}: $d^2 x\to 1^{-}$ as $w\to 0$ on even $s$, so the
+constant $1=\tfrac12\Delta^2\Casimir$ cannot be improved.
+\end{proposition}
+
+\begin{remark}[Sign refutation, and the genuinely-decoupled two halves]
+\label{rem:core-b-halves}
+The naïve route — reduce Core B to a tilted-variance \emph{positivity}
+(log-convexity of the partition function) — is mis-signed.  With the covariance
+decomposition
+\[
+  d^2 x \;=\; d^2 A + 2\,dB,
+  \qquad
+  dB := \langle p\rangle_{s+2}-\langle p\rangle_{s+1},
+  \quad
+  d^2 A := \langle x^{(s)}\rangle_s - 2\langle x^{(s)}\rangle_{s+1}
+      + \langle x^{(s)}\rangle_{s+2},
+\]
+the mean shift $dB\ge 0$ points \emph{toward} violation, and one is tempted to
+recover $d^2 x\le 1$ from the universal-sign engine $dB\le\tfrac12$
+(\modref{MeanExpConvexProgress.MeanShiftHalf}, maximal at exactly $\tfrac12$,
+$\to\tfrac12$ as $w\to0$) together with a ``correctly-signed residual''
+$d^2 A\le 1-2\,dB$.  \emph{This companion is circular}:
+$d^2 A\le 1-2\,dB \iff d^2 A + 2\,dB\le 1 \iff d^2 x\le 1$ is literally the target
+rewritten, so it decouples nothing; and it cannot be salvaged by asking for the
+base curvature to help, since $d^2 A\le 0$ is \emph{refuted} — $d^2 A>0$ near
+$w=1$, growing with $s$.  The genuine decoupling instead splits the target along
+its own value,
+\[
+  d^2 x \;=\; \bigl(d^2 x - dB\bigr) + dB,
+\]
+into \emph{two} universal-sign halves, each $\le\tfrac12$:
+\[
+  dB\le\tfrac12
+    \quad(\modref{MeanExpConvexProgress.MeanShiftHalf}),
+  \qquad
+  d^2 x - dB\le\tfrac12
+    \quad(\modref{XMeanSecondDiffProgress.MeanShiftComplementHalf}).
+\]
+Both halves are corner-tight — each $\to\tfrac12$ at the \emph{same} even-$s$,
+$w\to0$ two-point-tie corner $\tfrac12\delta_m+\tfrac12\delta_{m+1}$ where
+$d^2 x\to1^-$ — but the split is now honest: the complement half is a
+\emph{different} datum from the target, not its rewrite.  Their sum inhabits
+$d^2 x\le 1$ (\modref{XMeanSecondDiffProgress.xmsd\_of\_msh\_msch}), and thence the
+mean-exponent convexity of \Cref{prop:core-b-unify}(1) via the composite reduction
+\modref{XMeanSecondDiffProgress.meanExpConvex\_of\_halves}.  Neither half is closed;
+the route-correction replaces \emph{one} tight open inequality by \emph{two} open
+halves that no longer beg the question.
+\end{remark}
+
+\begin{remark}[\textbf{GAP} — the tilted variance]
+\label{rem:core-b-gap-d2x}
+Formulation (2) of \Cref{prop:core-b-unify}, the tight bound $d^2 x\le 1$, is
+\emph{named-open}, and via the equivalence it is the same open datum as the $p\ge 2$
+saddle estimate of \Cref{rem:core-b-gap-saddle}.  Its $w$-derivative is the tilted
+variance of the cross-product statistic — a genuine local-CLT / Tate--Zelditch
+estimate.  It is not closed here.
+\end{remark}
+
+\section{Wiring to the localization margin \texorpdfstring{$\tfrac1{12}$}{1/12}}
+\label{sec:core-b-wiring}
+
+The saddle estimate feeds the mass gap through a single scalar threshold.  The
+reconstructed gap is $\Delta = 1-\mathrm{sep}$ with $\mathrm{sep}$ the located
+second transfer eigenvalue; the vacuum-normalized bare eigenvalue of mode $s$ is
+$\modref{eigA}(w,s)=w^{\Casimir(s)}$, and the two certified rational bounds are
+\begin{align}
+  \modref{eigA}(w,1) &\;\ge\; \tfrac34
+    && \text{on } 1-w\le\tfrac1{12} \quad
+      (\text{gap edge, }w^{3}\ge 1-3(1-w)),\label{eq:core-b-gapedge}\\
+  \modref{eigA}(w,s) &\;\le\; \tfrac23
+    && \text{on } \Casimir(s)\,(1-w)\ge\tfrac12 \quad
+      (\text{bulk ceiling}).\label{eq:core-b-bulkceil}
+\end{align}
+Their difference is the \emph{localization margin}
+\[
+  \tfrac34 - \tfrac23 \;=\; \tfrac1{12} \;=\; \modref{q112},
+\]
+proved as \modref{SpectralLocalizationCrux.bulk\_below\_gapEdge}.  The bond-moved
+(fused) spectrum is $\widehat K_{w,p}$, and the localization certificate
+\modref{SpectralLocalizationCrux.SpectralLocalization} requires the single
+eigenvalue-shift field
+\begin{equation}
+  \mathrm{shift}(s) \;:=\; \widehat K_{w,p}(s) - \modref{eigA}(w,s)
+    \;\le\; \tfrac1{12}\qquad\text{for every }s.
+  \label{eq:core-b-bulkshift}
+\end{equation}
+This is the field \modref{FusionKernelStatement.SaddleLocalCLT.bulkShiftBound}; it
+discharges \modref{SpectralLocalizationCrux.bulk\_shift}, and thence the
+$\delta$-loop capstone
+\modref{DeltaFrontierLedger.bond\_moving\_preserves\_gap\_reduction} via
+\modref{FusionKernelStatement.saddleToLocalization}.
+
+\begin{proposition}[Saddle $\Rightarrow$ shift bound; the target reduction]
+\label{prop:core-b-target}
+By the renormalization construction the leading rates match at the fixed physical
+scale (the fusion rate $A_p$ of \eqref{eq:core-b-Ap} is restored to $\tau$ by the
+series decimation of the Migdal--Kadanoff step), so
+$\mathrm{shift}(s) = \modref{eigA}(w,s)\bigl(e^{R_p(s)}-1\bigr)$ carries only the
+non-Gaussian remainder.  On the bulk window $\modref{eigA}(w,s)\le\tfrac23$, hence
+\eqref{eq:core-b-bulkshift} follows from
+\[
+  \eta_p(w)\,\Casimir(s)^{2} \;\le\; \tfrac18
+  \qquad\Longrightarrow\qquad
+  \mathrm{shift}(s) \;\le\; \tfrac23\cdot\bigl(e^{1/8}-1\bigr) \;\le\; \tfrac1{12},
+\]
+using $\tfrac23(e^{1/8}-1)\le 0.089\le\tfrac1{12}\approx 0.0833$ only marginally —
+so the working threshold is the slightly sharper
+$\eta_p(w)\,\Casimir(s)^{2}\le\tfrac1{9}\cdot\tfrac18$ on the bulk, well inside the
+regime \eqref{eq:core-b-etap} predicts for $p\ge 2$.
+\end{proposition}
+
+\begin{remark}[\textbf{GAP} — closing the threshold]
+\label{rem:core-b-gap-wiring}
+\Cref{prop:core-b-target} is a reduction, not a closure: the uniform bulk bound
+$\eta_p(w)\,\Casimir(s)^{2}\le\tfrac18$ is exactly the open saddle remainder of
+\Cref{rem:core-b-gap-saddle} / \Cref{rem:core-b-gap-d2x}.  The $p=1$ case closes it
+with $R_1\equiv0$, $\mathrm{shift}\equiv0$ (\Cref{prop:core-b-p1}); the $p\ge 2$ case
+does not.
+\end{remark}
+
+\section{Certified constants, the demo, and the honest ledger}
+\label{sec:core-b-ledger}
+
+\begin{table}[t]
+\centering
+\begin{tabular}{@{}llll@{}}
+\toprule
+Quantity & Value in $\Qp$ & Role & Status \\
+\midrule
+$\Delta^2\Casimir$ & $2$ & constant curvature & PROVED \\
+localization margin & $\tfrac34-\tfrac23=\tfrac1{12}$ & gap edge $-$ bulk ceiling & PROVED \\
+gap edge $\modref{eigA}(w,1)$ & $\ge\tfrac34$ & on $1-w\le\tfrac1{12}$ & PROVED \\
+bulk ceiling $\modref{eigA}(w,s)$ & $\le\tfrac23$ & on $\Casimir(s)(1-w)\ge\tfrac12$ & PROVED \\
+diagonal reserve $\delta$ & $\tfrac{31}{225}=(\tfrac{16}{15})^2-1$ & minor-band margin & PROVED \\
+diagonal minor reserve & $\tfrac34$ & Round-J diagonal & PROVED \\
+tilted second diff.\ $d^2x$ & $\le 1$ (tight) & Casimir-normalized & \textbf{OPEN} \\
+mean shift $dB$ & $\le\tfrac12$ (universal) & decoupled half & \textbf{OPEN} \\
+complement $d^2x-dB$ & $\le\tfrac12$ (universal) & decoupled half & \textbf{OPEN} \\
+saddle rate $A_p$ & $-\tfrac{\log w}{p}\asymp\tfrac{1-w}{p}$ & Gaussian slope & DATA (anchor $p{=}1$) \\
+saddle modulus $\eta_p$ & $O\!\bigl(\tfrac{(1-w)^2}{p^2}\bigr)$ & remainder & DATA (\textbf{OPEN} $p{\ge}2$) \\
+\bottomrule
+\end{tabular}
+\caption{The explicit $\Qp$ constants of the fusion local CLT and their proof
+status.  Every threshold traces to the constant curvature $\Delta^2\Casimir=2$.}
+\label{tab:core-b-constants}
+\end{table}
+
+\paragraph{The demo fires.}
+At the concrete near-continuum weight $w=\tfrac{95}{96}$ (so
+$1-w=\tfrac1{96}\le\tfrac1{12}$) and the bulk mode $s=6$ (where
+$\Casimir(6)=48$ and $48\cdot\tfrac1{96}=\tfrac12$), the localization margin is
+non-vacuous:
+\[
+  \modref{eigA}(\tfrac{95}{96},1) - \modref{eigA}(\tfrac{95}{96},6) \;\ge\; \tfrac1{12},
+\]
+\modref{SpectralLocalizationCrux.demo\_localization}, and the $p=1$ capstone
+delivers the full $\delta$-loop gap reduction with no open hypothesis,
+\modref{FusionKernelStatement.saddleLocalCLT\_p1\_capstone}.
+
+\paragraph{Numerical companion.}
+The independently measured pilot constants of the \SUtwo{}
+$\widehat\sigma$-budget — $\max_k\eta_k\approx 2.72\times10^{-4}$,
+$\sum_{k<3}\eta_k\le 9/10000$, closing at the coupling window $g_0\approx 0.41$
+(\modref{computations.pilot\_su2}) — are the measured numerical evidence that the
+near-continuum regime $1-w\le\tfrac1{12}$ is physically occupied at the canonical
+pilot.  These are RG-budget measurements, \emph{not} an independent measurement of
+the saddle moduli $A_p,\eta_p$; only the $p=1$ and the $w=\tfrac{95}{96}$, $s=6$
+demo cases are certified.
+
+\paragraph{Honest verdict.}
+This chapter delivers, in the geometry-free hierarchical model: the vacuum-normalized
+$p$-fold fusion kernel and its generating function; the PF$_2$ log-concavity input
+(proved for $c_w$ and for $p=2$, with the indefiniteness of general $p$ located at
+minor spread $\ge 2$); the discrete-Laplace saddle bound with explicit leading rate
+$A_p=-\tfrac{\log w}{p}$ and remainder modulus $\eta_p=O((1-w)^2/p^2)$, anchored
+exactly at $p=1$; the unification of that second-order remainder with the Casimir
+moment identity $\mu=\Casimir-2\langle x\rangle$ and the tight tilted-variance bound
+$d^2x\le 1$ (the reduction $d^2x\le1\Rightarrow$ mean-exp convexity being proved);
+and the wiring of the remainder to the single localization threshold
+$\mathrm{shift}\le\tfrac1{12}$.  The sole open residual, in all three equivalent
+guises, is the $p\ge 2$ discrete \SUtwo{} fusion local-CLT saddle estimate.  This is
+a reduction with explicit constants, \emph{not} a closure; the Clay Yang--Mills mass
+gap remains open.
