@@ -653,3 +653,4 @@ import YMGap.Continuum.CircleFourierPowerModel
 import YMGap.Continuum.ContinuumShadowFloor
 import YMGap.Continuum.EnvelopeClosure
 import YMGap.Continuum.CondMomentReduction
+import YMGap.Continuum.R1CaseSplit
