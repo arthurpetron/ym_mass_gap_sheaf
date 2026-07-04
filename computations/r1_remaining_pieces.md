@@ -109,7 +109,7 @@ and `12/7` elsewhere.
 | `w∈[½,1)`, `N=4..7` | exact rational base cases | ✓ `≥ 12/7` |
 | `w∈[½,1)`, `N≥8` | anchor `93/50` + two-region (θ / parabolic) split at `τ=1/50` | ✓ `≥ 12/7` |
 | `w∈(0,½]`, odd `N≥3` (binding) | `Δ²V+2 = L2 + Δ²(tail)`, `L2≥0` (φ), `Δ²tail≥0` (Task A) | ✓ `≥ 0` |
-| `w∈(0,½]`, even `N≥4` | same decomposition; even parity | ✓ larger margin |
+| `w∈(0,½]`, even `N≥4` | `Δ²V+2 ≥ 4−2V(N) ≥ 4−2G_e(w²) ≥ 4−2·141/100`; `V(odd nbr)≥1`, `V(even)≤G_e` (Chebyshev) | ✓ `≥ 59/50` (explicit certificate) |
 | even `N`, any `w` (margin) | even center ⟹ `N±1` odd near `1` | ✓ **min `= 12/7`** over all `w∈(0,1)` |
 
 Both parities and both `w`-regimes are covered. The **odd parity is the binding one** (even-`N`
