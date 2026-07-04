@@ -655,3 +655,4 @@ import YMGap.Continuum.EnvelopeClosure
 import YMGap.Continuum.CondMomentReduction
 import YMGap.Continuum.R1EvenCentreBound
 import YMGap.Continuum.R1CaseSplit
+import YMGap.Continuum.R1RegimeGE
