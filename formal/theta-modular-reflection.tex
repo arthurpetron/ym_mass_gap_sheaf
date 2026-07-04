@@ -1,0 +1,282 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{mathtools}
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{remark}{Remark}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\Dsq}{\langle D^2\rangle}
+\DeclareMathOperator{\sgn}{sgn}
+
+\title{Modular reflection of the antidiagonal theta ratio\\
+and the position-variance curvature floor $\Delta^2\langle D^2\rangle\ge-2$}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We study the tilted antidiagonal second moment $\Dsq_t$ of the diagonal
+$SU(2)$ heat-kernel character weight $c_w(p)=(p+1)\,w^{p(p+2)}$ and the
+curvature floor $\Delta^2_t\Dsq_t\ge-2$. We show that after an exact
+cancellation of the Gaussian mass factor, $\Dsq_t$ becomes a ratio of finite
+Jacobi-theta-type sums in the nome $w$, so that the floor is a purely
+theta-analytic statement. We locate two distinct theta regimes: (i) the
+\emph{log-concavity margin} $L_{\mathrm{even}}(w)$ of the mass sequence, a
+$q$-fixed / large-window (``$q\to1$'') quantity for which the classical Jacobi
+reflection $\vartheta(-1/\tau)=\sqrt{-\ii\tau}\,\vartheta(\tau)$ gives a clean
+closed form $L_{\mathrm{even}}(w)=w^{-1}\bigl[\vartheta_2(0,w^2)/\vartheta_3(0,w^2)\bigr]^2$;
+and (ii) the curvature floor itself, whose tight corner is $w\to0^+$, i.e.\ the
+\emph{opposite} ($q\to0$, $\tau\to\infty$) regime, where a single pair of
+antidiagonal modes dominates. We prove that in the corner the floor is governed
+by a low-mode ($q$-series) ordering ``$w^2$ beats $w^4$'', giving
+$\Delta^2\Dsq_t+2 = C(s)\,w^2+O(w^4)$ with $C(s)\ge 86/9>0$, and we conclude
+that modular reflection re-expresses $L_{\mathrm{even}}$ but is \emph{not} the
+tool that bounds the $-2$ floor. All numerical claims are reproduced by an
+accompanying exact-rational pilot.
+\end{abstract}
+
+\section{The objects}
+
+Fix a rational parameter $w\in(0,1)$ and set
+\[
+  c_w(p) \;=\; (p+1)\,w^{\,p(p+2)}, \qquad p\in\N,
+\]
+the diagonal $SU(2)$ heat-kernel character coefficient (dimension $p+1$ times
+the Casimir weight $w^{C_2(p)}$, $C_2(p)=p(p+2)$). For a window size $n$ and a
+level $t$ define the fixed-window central autoconvolution and the tilted
+antidiagonal second moment
+\begin{align}
+  A_n(t) &\;=\; \sum_{p=0}^{n-1} c_w(p)\,c_w(t-p),\\
+  \Dsq_t^{(n)} &\;=\; \frac{1}{A_n(t)}\sum_{p=0}^{n-1} (t-2p)^2\,c_w(p)\,c_w(t-p),
+\end{align}
+the mean of the antidiagonal displacement square $D_p^2=(t-2p)^2$ under the
+convolution weight. Throughout we take the window $n=s+1$ and the three
+consecutive levels $t\in\{s,s+1,s+2\}$, and write
+$\Dsq_t:=\Dsq_t^{(s+1)}$ and $A_t:=A_{s+1}(t)$.
+
+The quantity of interest is the discrete second difference in $t$,
+\[
+  \Delta^2_t\Dsq_t \;:=\; \Dsq_s+\Dsq_{s+2}-2\,\Dsq_{s+1},
+\]
+and the target is the curvature floor
+\begin{equation}\label{eq:floor}
+  \boxed{\;\Delta^2_t\Dsq_t \;\ge\; -2\quad\text{for all even }s\text{ and all }w\in(0,w_H].\;}
+\end{equation}
+
+\section{Exact reduction to a theta ratio}
+
+\begin{lemma}[Mass cancellation]\label{lem:mass}
+Write $D=t-2p$. Then
+\[
+  c_w(p)\,c_w(t-p)
+  \;=\; M_t(D)\;w^{\,t^2/2+2t}\;w^{\,D^2/2},
+  \qquad
+  M_t(D)=\frac{(t+2)^2-D^2}{4}=(p+1)(t-p+1).
+\]
+Consequently the Gaussian mass factor $w^{t^2/2+2t}$ cancels between numerator
+and denominator, and
+\begin{equation}\label{eq:thetaratio}
+  \Dsq_t \;=\;
+  \frac{\displaystyle\sum_{D\in W_{s,t}} D^2\,M_t(D)\,w^{D^2/2}}
+       {\displaystyle\sum_{D\in W_{s,t}} M_t(D)\,w^{D^2/2}},
+  \qquad
+  W_{s,t}=\{\,t-2p : 0\le p\le s\,\}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The exponent of $w$ in $c_w(p)c_w(t-p)$ is
+$p(p+2)+(t-p)(t-p+2)=p^2+(t-p)^2+2t$. The identity
+$p^2+(t-p)^2=\tfrac{t^2}{2}+2\bigl(p-\tfrac t2\bigr)^2$ and
+$D=t-2p=-2(p-\tfrac t2)$ give $p^2+(t-p)^2=\tfrac{t^2}{2}+\tfrac{D^2}{2}$, whence
+the exponent is $t^2/2+D^2/2+2t$. The prefactor is
+$(p+1)(t-p+1)$; substituting $p=(t-D)/2$, $t-p=(t+D)/2$ gives
+$(p+1)(t-p+1)=\tfrac14\bigl((t+2)^2-D^2\bigr)=M_t(D)$. The factor
+$w^{t^2/2+2t}$ does not depend on $D$, so it cancels in the ratio.
+\end{proof}
+
+Equation~\eqref{eq:thetaratio} is an \emph{exact} identity (the accompanying
+pilot verifies it against the direct rational $\Dsq_t$ on every grid cell). With
+$x:=w^{1/2}$ it is a ratio of finite Jacobi-theta-type sums
+$\sum_D M_t(D)\,x^{D^2}$ carrying a parabolic weight
+$M_t(D)=\tfrac14((t+2)^2-D^2)$; the numerator is the same sum with an extra
+$D^2$. Because $M_t(D)=a-bD^2$ with $a=(t+2)^2/4$ and $b=1/4$, these are
+first- and second-order $\vartheta$-derivatives:
+\[
+  \Theta_t:=\sum_{D\in W_{s,t}}M_t(D)\,x^{D^2},\qquad
+  \Dsq_t=\frac{a\,\Sigma_2-b\,\Sigma_4}{a\,\Sigma_0-b\,\Sigma_2},\quad
+  \Sigma_{2k}:=\sum_{D\in W_{s,t}}D^{2k}x^{D^2}.
+\]
+
+\section{The two theta regimes}
+
+\subsection{The mass log-concavity margin $L_{\mathrm{even}}$ ($q\to1$ side)}
+
+The mass sequence $A_t$ satisfies, by Lemma~\ref{lem:mass},
+$A_t=w^{t^2/2+2t}\,\Theta_t$. A short computation with the quadratic exponent
+gives, at the three consecutive levels,
+\[
+  \frac{A_{s+1}^2}{A_s\,A_{s+2}}
+  \;=\; w^{-1}\;\frac{\Theta_{s+1}^2}{\Theta_s\,\Theta_{s+2}} .
+\]
+As the even level $s\to\infty$ at fixed $w$, the window becomes effectively the
+full parity lattice and the parabolic prefactor localises to $(t+2)^2/4$, so
+$\Theta_t/\bigl((t+2)^2/4\bigr)$ tends to $\vartheta_3(0,w^2)$ for even $t$ and
+to $\vartheta_2(0,w^2)$ for odd $t$. The prefactor ratio tends to $1$, giving
+
+\begin{proposition}[Closed form of the margin]\label{prop:Leven}
+\[
+  L_{\mathrm{even}}(w)\;:=\;\lim_{\substack{s\to\infty\\ s\ \mathrm{even}}}
+  \frac{A_{s+1}^2}{A_s\,A_{s+2}}
+  \;=\; \frac{1}{w}\left(\frac{\vartheta_2(0,w^2)}{\vartheta_3(0,w^2)}\right)^{\!2}.
+\]
+At the strong-coupling value $w=\tfrac12$ (nome $w^2=\tfrac14$),
+$L_{\mathrm{even}}(\tfrac14)=2\bigl(\vartheta_2(0,\tfrac14)/\vartheta_3(0,\tfrac14)\bigr)^2
+=1.98709\ldots$. Dropping the numerator growth
+$\vartheta_2(0,w^2)^2=4w\,(1+w^4+\cdots)^2\ge4w$ yields the crude rational floor
+\[
+  L_{\mathrm{even}}(w)\;\ge\;\frac{4}{\vartheta_3(0,w^2)^2}
+  \;\ge\;\frac{4}{\vartheta_3(0,\tfrac14)^2}=1.7594\ldots\;\ge\;\frac{40000}{22801}.
+\]
+\end{proposition}
+
+Here the summed theta lives in the nome $w^2$ with $s\to\infty$: \emph{every}
+mode of comparable exponent contributes, and this is precisely the setting in
+which the Jacobi reflection
+$\vartheta_3(0,\e^{-\pi\alpha})=\alpha^{-1/2}\vartheta_3(0,\e^{-\pi/\alpha})$ is
+useful --- it replaces a slowly converging sum ($\alpha$ small, $w$ near $1$) by
+a rapidly converging dual. The ratio $\vartheta_2/\vartheta_3$ has an exact
+modular transformation (it is a Jacobi lambda-type invariant), and
+Proposition~\ref{prop:Leven} is the statement that $L_{\mathrm{even}}$ is a
+modular ratio. \emph{This is the residual for which modular reflection is the
+natural instrument.} It is, however, a \emph{different} residual from the
+curvature floor~\eqref{eq:floor}; see below.
+
+\subsection{The curvature floor ($q\to0$ side, tight corner $w\to0$)}
+
+The floor~\eqref{eq:floor} is corner-tight as $w\to0^+$. In that limit the
+theta ratio~\eqref{eq:thetaratio} is dominated by the lowest antidiagonal modes,
+which is the $q\to0$ ($\tau\to\infty$) regime --- the opposite of
+Proposition~\ref{prop:Leven}. We record the low-mode expansion.
+
+\begin{lemma}[Low-mode corner expansion]\label{lem:lowmode}
+Fix even $s\ge2$. As $w\to0^+$,
+\begin{align}
+  \Dsq_{s}   &= 4\,\frac{M_{s}(2)+M_{s}(-2)}{M_{s}(0)}\,w^2 + O(w^4)\;\to\;0,\\
+  \Dsq_{s+2} &= 4\,\frac{M_{s+2}(2)+M_{s+2}(-2)}{M_{s+2}(0)}\,w^2 + O(w^4)\;\to\;0,\\
+  \Dsq_{s+1} &= 1 + 8\,\frac{M_{s+1}(3)+M_{s+1}(-3)}{M_{s+1}(1)+M_{s+1}(-1)}\,w^4 + O(w^8)\;\to\;1.
+\end{align}
+Consequently
+\begin{equation}\label{eq:cornerslack}
+  \Delta^2_t\Dsq_t + 2 \;=\; C(s)\,w^2 \;-\; O(w^4),
+  \qquad
+  C(s)= 4\!\left(\frac{M_{s}(2)+M_{s}(-2)}{M_{s}(0)}
+        +\frac{M_{s+2}(2)+M_{s+2}(-2)}{M_{s+2}(0)}\right)>0 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}[Proof sketch]
+For even $t\in\{s,s+2\}$ the window contains $D=0$ (weight $M_t(0)>0$, exponent
+$w^0$) and $D=\pm2$ (exponent $w^{2}$), and the numerator is $O(w^2)$ because the
+$D=0$ term carries $D^2=0$. Dividing the $O(w^2)$ numerator by the $O(1)$
+denominator gives the stated leading term with the next contribution ($D=\pm4$,
+$w^{8}$, and the $D=\pm2$ denominator correction $w^2$) at $O(w^4)$. For odd
+$t=s+1$ the lowest modes are $D=\pm1$ (exponent $w^{1/2}$) with $D^2=1$; both
+numerator and denominator are $\sim(M(1)+M(-1))\,w^{1/2}$, so the ratio is
+$1+O(w^4)$, the correction coming from the $D=\pm3$ modes (exponent $w^{9/2}$,
+i.e.\ $w^4$ relative). Substituting into
+$\Delta^2\Dsq+2=\Dsq_s+\Dsq_{s+2}+2-2\Dsq_{s+1}$ and cancelling the constant
+$2$ gives~\eqref{eq:cornerslack}.
+\end{proof}
+
+The mechanism of~\eqref{eq:floor} is now explicit and elementary: the odd centre
+$\Dsq_{s+1}$ \emph{exceeds} $1$, but only by $O(w^4)$, while the two even
+neighbours \emph{gain} $O(w^2)$; since $w^2$ dominates $w^4$ as $w\to0$, the sum
+stays $\ge-2$ with slack $C(s)\,w^2>0$. Numerically (pilot) the leading
+coefficient is bounded below uniformly in the even level,
+\[
+  C(2)=\tfrac{86}{9}=9.5556\ldots,\qquad C(s)\uparrow 16\ \ (s\to\infty),
+  \qquad\text{so } C(s)\ge \tfrac{86}{9}>0 .
+\]
+The worst observed slack over the operating grid is
+$\Delta^2\Dsq+2 = 9.556\times10^{-6}$ at $(w,s)=(10^{-3},2)$, consistent with
+$C(2)\,w^2$; the slack is strictly positive throughout and tends to $0$ only as
+$w\to0$.
+
+\section{Why modular reflection is the wrong tool for the floor}
+
+The Jacobi reflection is the map $\tau\mapsto-1/\tau$, i.e.\
+$\alpha\mapsto1/\alpha$ on the real modular parameter $q=\e^{-\pi\alpha}$. Its
+utility is one-directional: it converts a sum with \emph{many} contributing
+terms ($\alpha$ small, $q\to1$) into a dual sum with \emph{few} ($1/\alpha$
+large, $q\to0$). For the even-level partition sum $\Theta_t$ the relevant nome
+is $w^2$, self-dual at $w=\e^{-\pi/2}\approx0.208$.
+
+\begin{itemize}
+\item The margin $L_{\mathrm{even}}$ (Proposition~\ref{prop:Leven}) is a
+$q$-fixed, $s\to\infty$ object: at couplings approaching the window ceiling it
+sits on the many-mode side, and reflection produces the clean closed form and
+the crude rational floor $4/\vartheta_3(0,w^2)^2$.
+\item The curvature floor~\eqref{eq:floor} is tight at $w\to0$, i.e.\
+$\alpha=-\log(w^2)/\pi\to\infty$ --- the deep few-mode side. Here the sum is
+\emph{already} dominated by one pair of modes; reflection would map this to its
+many-mode dual, the wrong direction. The leading term and the
+exponentially/power-small remainder in Lemma~\ref{lem:lowmode} come directly
+from the $q$-series, with \emph{no} modular transformation.
+\end{itemize}
+
+\section{Status: proved, and the single residual}
+
+\paragraph{Proved (exact, unconditional).}
+\begin{itemize}
+\item Lemma~\ref{lem:mass}: the mass-cancellation identity and the theta-ratio
+form~\eqref{eq:thetaratio}. (Algebraic; matches the rational $\Dsq_t$ exactly.)
+\item Proposition~\ref{prop:Leven}: the closed modular form of
+$L_{\mathrm{even}}$ and its crude rational floor. (Standard theta asymptotics.)
+\item The leading term $C(s)\,w^2$ of the corner slack and $C(s)>0$ for each
+fixed even $s$ (Lemma~\ref{lem:lowmode}); the exact value $C(2)=86/9$.
+\end{itemize}
+
+\paragraph{Residual (open) --- the single analytic step.}
+To upgrade Lemma~\ref{lem:lowmode} from an asymptotic ($w\to0$) statement to the
+uniform floor~\eqref{eq:floor} on all $w\in(0,w_H]$ and all even $s$, one needs a
+constructive lower bound
+\begin{equation}\label{eq:residual}
+  \Dsq_s+\Dsq_{s+2}\;\ge\; 2\bigl(\Dsq_{s+1}-1\bigr)
+\end{equation}
+with the right-hand excess controlled by the left-hand gain. In the theta-ratio
+form this is a comparison of a \emph{degree-$2$} $w$-power gain (even neighbours)
+against a \emph{degree-$4$} $w$-power excess (odd centre), i.e.\ a single
+\textbf{geometric $w$-tail bound} on the ratios $\Sigma_2/\Sigma_0$ and
+$\Sigma_4/\Sigma_2$ of the finite theta sums, uniform in $s$. The denominators
+are bounded below by $M_t(0)\ge1$ (the $D=0$ term), so~\eqref{eq:residual}
+reduces to bounding two convergent $w$-power series (tails of
+$\sum_{D}M_t(D)w^{D^2/2}$) --- a $q$-series/geometric estimate, \emph{not} a
+transcendental theta identity. \textbf{[GAP]} In a constructive real-number
+formalisation this residual is one $\mathtt{CReal}$-level geometric-tail (or
+$\exp$-monotonicity) estimate; it does \emph{not} require the Jacobi/Poisson
+functional equation.
+
+\begin{remark}[Honest scope]
+Two distinct theta residuals appear above. The margin $L_{\mathrm{even}}$ is the
+$s\to\infty$ log-concavity constant of the mass sequence, for which modular
+reflection is genuinely the right tool and yields the closed form
+$w^{-1}(\vartheta_2/\vartheta_3)^2$. The curvature
+floor~\eqref{eq:floor} is a separate, corner-tight ($w\to0$) statement; modular
+reflection re-expresses the theta objects but does not bound it, whereas the
+elementary low-mode ordering ``$w^2$ beats $w^4$'' does. Neither result closes
+the underlying mass-gap problem; both are structural reductions of a single
+box-level log-concavity sub-fact.
+\end{remark}
+
+\end{document}

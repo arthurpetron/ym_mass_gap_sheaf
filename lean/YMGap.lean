@@ -649,3 +649,4 @@ import YMGap.Continuum.RebasedBulkShift
 import YMGap.Continuum.FusionShiftMonotone
 import YMGap.Continuum.MeanComplementClose
 import YMGap.Continuum.DiscreteLaplaceSaddle
+import YMGap.Continuum.CircleFourierPowerModel
