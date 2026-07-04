@@ -2351,7 +2351,7 @@ for the 11.2/11.3 authors.
 
 ### Milestone 11.2 — (T′) tree-graph inequality: close the three legs
 
-**Status.** CURRENTLY IN PROGRESS (2026-07-03) — leg (A) `CubicEulerBound` PROVED (`Continuum/CubicEulerBound.lean`, (n+1)ⁿ≤3nⁿ, Nat Bernoulli, axiom-clean) → leg (A) DONE. Leg (C) `cayleyMax` PARTIAL (`Continuum/CayleyMaxBound.lean`): FINDING — the unconditional target is FALSE for multigraphs (treeCount = edge-SUBSET count; needs `SimpleEdges`), and deletion-contraction is INSUFFICIENT for Cayley; reduced to `CayleyCountBound` (simple-graph Prüfer) + a `CayleyPin`. Leg (P) `penroseDom` stays under `PenroseDomInduction.lean`.
+**Status.** CURRENTLY IN PROGRESS (2026-07-03) — leg (A) `CubicEulerBound` PROVED (`Continuum/CubicEulerBound.lean`, (n+1)ⁿ≤3nⁿ, Nat Bernoulli, axiom-clean) → leg (A) DONE. Leg (C) `cayleyMax` PARTIAL (`Continuum/CayleyMaxBound.lean`): FINDING — the unconditional target is FALSE for multigraphs (treeCount = edge-SUBSET count; needs `SimpleEdges`), and deletion-contraction is INSUFFICIENT for Cayley; reduced to `CayleyCountBound`. Leg (C) FURTHER reduced (`Continuum/CayleyPruferInjection.lean`): the CARDINALITY half of Cayley is PROVED (`count_le_of_inj` + finite pigeonhole + `allSeqs` length nⁿ⁻² + the leaf-stripping Prüfer encoder), so `CayleyCountBound` → the SOLE residual `CayleyInjectionData` (the Prüfer encoder's length/entries/INJECTIVITY on simple-graph spanning trees — `SimpleEdges` load-bearing). Leg (P) `penroseDom` stays under `PenroseDomInduction.lean`.
 
 **Goal.** `Ursell4DProgress.TreeGraphBound` is inhabited for the
 pinned truncated-Ursell `phiT` — i.e. the per-cluster bound
@@ -2405,7 +2405,7 @@ finite polymer) accordingly.
 
 ### Milestone 11.3 — (D1) Mayer–Ursell bridge decomposition
 
-**Status.** CURRENTLY IN PROGRESS (2026-07-03) — `Continuum/MayerBridgeDecomposition.lean`: `bridgeDecomposition_of_data : BridgeDecomposition (z4ClusterCountBound p) w4 gr` — a GENUINE off-diagonal-correlator reduction to ONE named residual `MayerUrsellIdentity_z4` (the z4 loopy/multi-plaquette analog of the DISCHARGED `MayerClustering.MayerUrsellIdentity`). Axiom-clean.
+**Status.** CURRENTLY IN PROGRESS (2026-07-03) — `Continuum/MayerBridgeDecomposition.lean` reduced (D1) to `MayerUrsellIdentity_z4`; then `Continuum/MayerUrsellZ4.lean` FINDING (`mu_z4_total_weight_le_zero`): the residual AS STATED is DEGENERATE — every inhabitant forces the connected correlator's total spectral weight ≤ 0 (trivial zero model), because `clusterSpanSum … 0 = 0` hard-codes a vanishing d=0 majorant. So the honest (D1) content is the real analytic atoms ((T') tree-graph + the absolute Mayer–Ursell expansion), and the residual must be RESTATED with a non-degenerate d=0 majorant.
 
 **Goal.** `Ursell4DProgress.BridgeDecomposition.decompose` is a
 theorem over the closed 4D cluster count `z4ClusterCountBound`: the
@@ -2443,6 +2443,8 @@ generalizing only if the assembly demands it).
 ---
 
 ### Milestone 11.4 — (A2) the pentagon: exact rational 6j program **[research-adjacent]**
+
+**Status.** DONE (2026-07-03, pilot + kernel) — `computations/wigner_6j.py` (+tests, 12 pass): exact-rational Racah 6j; pentagon & orthogonality sweeps exact (`Fraction(0)`); P=1/4 pin matches Lean. `Continuum/SixJKernel.lean`: `racahKernelCore : PentagonNumericCore` — a FAITHFUL varying rational dim·6j² kernel (P=0 off-triangle, P=1/4 at the smallest tetra) + a genuine orthogonality sum rule (by `decide`), axiom-clean. KEY FINDING: the signed 6j / Biedenharn–Elliott associator is IRRATIONAL (√-triangle coeffs) → B–E is NOT Q'-representable; the SQUARED kernel satisfies ORTHOGONALITY, not B–E. So full `SixJPentagon` via a rational B–E is impossible — the honest target is the orthogonality identity (`RacahOrthogonalityGeneral`, verified TRUE out-of-band).
 
 **Goal.** `Tier0Scorecard.SixJPentagon` is inhabited: a rational
 dim-absorbed 6j-square kernel that provably closes the guarded
@@ -2792,7 +2794,7 @@ discipline from the β-coefficient to the full restoration input.
 
 ### Milestone 11.11 — OS reconstruction: construct the generator
 
-**Status.** CURRENTLY IN PROGRESS (2026-07-03, stage a substantially done) — `Continuum/BoundedHamiltonianFiniteVol.lean`: `FiniteVolumeBoundedH` (bounded carrier `H:=T`, per-mode located energies `E_i=−log λ_i` as CReal DATA) with `spectrum_nonneg`, `vacuum_zero`, `Δ=−log sep>0` (`Δ_pos`), `selfAdjoint` all CLOSED; `mkFiniteVolumeBoundedH` inhabits it over the excited tower; `boundedH_mass_gap` reads off the 3 predicates. Residual: the `noSpectrumIn` FLOOR branch reduces to the PRE-EXISTING `YOfMonotone`/`ArtanhMonotoneWindow` (no NEW frontier opened) + per-mode window certificates.
+**Status.** DONE (2026-07-03, stages a+b) — stage (a) `Continuum/BoundedHamiltonianFiniteVol.lean` (`FiniteVolumeBoundedH`, spectrum_nonneg/vacuum_zero/Δ_pos/selfAdjoint closed; floor branch on the pre-existing `YOfMonotone`/`ArtanhMonotoneWindow`). stage (b) `Continuum/CompletionGenerator.lean`: `builtSpectralGapData` over the ACTUAL Wilson completion `completeGnsHilbert` — `genGap` CONSTRUCTED from built objects (not free params); physical CReal `Δ=−log sep` carried alongside the rational `genGap` surrogate (the Q'/CReal boundary residual). Retires `OpenBoundedHamiltonian` at fixed volume.
 
 **Goal.** The time-translation generator (Hamiltonian) on the
 constructive complete GNS Hilbert space
@@ -2844,6 +2846,8 @@ calls "the single irreducibly hard" one.
 ---
 
 ### Milestone 11.12 — All compact simple groups: realize the per-group data
+
+**Status.** CURRENTLY IN PROGRESS (2026-07-03, item 1 done) — `lean/YMGap/RG/WeylDimGeneralData.lean`: `cartanType_weylDimData_crude` — the crude squared-Weyl-dim `WeylDimData` for EVERY compact-simple Cartan type (A/B/C/D + G2/F4/E6/E7/E8) via `numPosRoots`, axiom-clean. Items 2–5 (per-type `AxisFactorBound`/`RepData`/witnesses feeding `mass_gap_simple_group` + the faithfulness lemma) live in load-bearing modules (RepData/SimpleGroup/EtaPackaging) — open follow-ups requiring edits there.
 
 **Goal.** The Clay quantifier "any compact simple gauge group G" is
 covered at the lattice layer: the uniform reduction
@@ -2945,7 +2949,7 @@ faithfulness theorem plug in without re-plumbing.
 
 ### Milestone 11.14 — `FrontierDAG`: unify the enumerations, prove the bridges
 
-**Status.** DONE (2026-07-03, item 1) — `lean/YMGap/Rubric/FrontierDAG.lean`: 11-atom deliberately-uninhabited DAG (typed by existing repo types) + `toSubWallA` coarsening + `minlosAsContinuum`/`trueMarginAtom`/`o4Atom`/`boundedHAtom` bridges; guard retargeted (now protects 5 frontier types). Residual: `CoreBBridge` named uninhabited. Items 2/3 (full bridges + anti-proliferation) follow.
+**Status.** DONE (2026-07-03, items 1+2) — item 1: `Rubric/FrontierDAG.lean` (11-atom uninhabited DAG + `toSubWallA` + guard retarget). item 2: `Rubric/FrontierDAGBridges.lean` — all 4 suspected cross-list identifications ADJUDICATED: (i) Minlos≡Minlos PROVED equivalence (rfl, node merge); (ii) bulkCtrl↔hlocalize DOCUMENTED REFUTATION (per-mode vs per-scale arity mismatch; real link = `hbridge_of_hlocalize`); (iii) `qFloor_of_openTrueMargin` PROVED (FrontierDAG.trueMargin → `QFloor`); (iv) `finiteSMargin_of_crossRatio` PROVED CONVERSE (forward `CoreBBridge` stays open). Item 3 (anti-proliferation) is a standing process rule.
 
 **Goal.** ONE canonical audit surface for the open problem, replacing
 the current situation of two overlapping enumerations plus scattered
