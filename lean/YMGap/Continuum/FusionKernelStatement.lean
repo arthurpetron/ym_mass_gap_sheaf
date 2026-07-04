@@ -186,7 +186,16 @@ vacuum-normalized eigenvalue-shift `fusionEig s − eigA w s` is below the local
 margin `1/12` for every mode.  This is the exp'd consequence of `SaddleLogForm.estimate`
 (the `eta·C₂²` remainder under the bulk margin) — the SAME single discrete SU(2)
 fusion local-CLT residual as `DeltaFrontierLedger.delta_frontier_ledger`.  `p = 1`
-inhabited (`saddleLocalCLT_p1`); `p ≥ 2` named-open. -/
+inhabited (`saddleLocalCLT_p1`); `p ≥ 2` named-open.
+
+⚠ **SUPERSEDED for `p ≥ 2`.** The `bulkShiftBound` field below compares `fusionEig`
+to the BARE `p = 1` heat rate `eigA w s`, which the pilot (`computations/core_b_pilot.py`)
+proved is FALSE for every `p ≥ 2` (the reference rate must be re-based to the aggregate
+`w_eff ≈ exp(−A_p)`).  Do NOT attempt to inhabit `bulkShiftBound` for `p ≥ 2` — it is
+unsatisfiable as stated.  The CORRECTED, satisfiable carrier is
+`Continuum.RebasedBulkShift.RebasedLocalCLT` (`rebasedBulkShift`, off `rateP w_eff`),
+whose `p ≥ 2` obligation is the single `ExpShiftBridge`.  This structure is retained only
+for the `p = 1` anchor and the historical wiring shape. -/
 structure SaddleLocalCLT (N : Nat) (w : Q') (p : Nat)
     (h0' : ∀ s, (0 : Q') < dimQ s * bondMovedCoeff N w p 0) : Type where
   /-- `A_p(w)` — leading exponent (data). -/
@@ -195,7 +204,9 @@ structure SaddleLocalCLT (N : Nat) (w : Q') (p : Nat)
   eta : Q'
   /-- **THE LOAD-BEARING OPEN FIELD** — the vacuum-normalized eigenvalue-shift stays
   below the localization margin: `fusionEig s − eigA w s ≤ 1/12` for every mode.
-  Discharges `SpectralLocalization.bulk_shift`. -/
+  Discharges `SpectralLocalization.bulk_shift`.
+  ⚠ KNOWN-FALSE for `p ≥ 2` (bare `p = 1` rate `eigA`); use
+  `RebasedBulkShift.RebasedLocalCLT.rebasedBulkShift` instead. -/
   bulkShiftBound : ∀ s, fusionEig N w p s (h0' s) - eigA w s ≤ q112
 
 /-! ## 4. Deliverable (4): the wiring into the δ-loop capstone -/
