@@ -28,11 +28,12 @@ the CENTRE `s+1`:
     (corner-tight).  This is the φ-chain / Task-A cell (`OddCentreCellLE`).
   * centre `s+1` EVEN (i.e. `s` ODD)  — the COMFORTABLE cell.  Here neighbours `s`, `s+2` are ODD, so
     `V(s) ≥ 1` and `V(s+2) ≥ 1` (the PROVED two-point tie `dmomNfull_ge_acNfull_odd`), while the centre
-    `V(s+1) = V(even)` is small, giving `Δ²V + 2 ≥ 4 − 2·V(s+1) ≥ 59/50 > 0`.  This is the cell PROVED
-    here (`EvenCentreCell`, from `CentreVarBound`).
+    `V(s+1) = V(even)` is bounded `≤ 3/2` (`centreVarBound`, PROVED), giving `Δ²V + 2 ≥ 4 − 2·(3/2) = 1
+    > 0`.  This is the cell PROVED here IN FULL (`evenCentreCell`, no named-open residual).
 
-The w-regime split is at `w = 1/2` (`half`): the even-centre certificate constant `141/100` rests on
-`G_e(1/4) ≤ 141/100`, valid on the lower half `w ≤ 1/2`; the upper half `1/2 ≤ w` is the
+The w-regime split is at `w = 1/2` (`half`): the even-centre bound `V(even) ≤ 3/2` (loose constant,
+margin `1`) is PROVED on the lower half `w ≤ 1/2` by `R1EvenCentreBound.centreBound` (ρ-graded
+super-log-concavity + a geometric theta tail closed at `3/2`); the upper half `1/2 ≤ w` is the
 parity-agnostic Task-B cell (`RegimeGECell`).  Since `w : Q'` is an EXACT rational with a DECIDABLE
 total order, the regime dichotomy `w ≤ 1/2 ∨ 1/2 ≤ w` is constructive (`q_le_total`, from
 `Int.le_total`) — no LEM.
@@ -42,34 +43,36 @@ total order, the regime dichotomy `w ≤ 1/2 ∨ 1/2 ≤ w` is constructive (`q_
   * `saddleVarianceFloor_of_cells` — the SCAFFOLD: the three cells inhabit R1
     (`SaddleVarianceFloor w`) by the decidable parity × regime split.  PROVED (axiom-clean modus
     ponens over the cells).
-  * `evenCentreCell_of_centreVarBound` — the EVEN-CENTRE cell PROVED, reduced to the single named
-    centre bound `CentreVarBound w` via the proved odd-neighbour two-point tie
-    `EnvelopeClosure.dmomNfull_ge_acNfull_odd` and the subtraction-free `Q'` algebra `evenCellAlg`.
-  * `evenCellAlg` — the cleared, subtraction-free `Q'` inequality of the even cell (the `4 − 2·(141/100)
-    = 59/50 ≥ 0` margin), genuinely PROVED (no `sorry`).
+  * `evenCentreCell` — the EVEN-CENTRE cell PROVED UNCONDITIONALLY (for `0 ≤ w`): composes the PROVED
+    residual `centreVarBound` (`V(even) ≤ 3/2`) with the reduction `evenCentreCell_of_centreVarBound`.
+    ONE of the three cells is now CLOSED — no named-open input remains in it.
+  * `centreVarBound` — the even-cell residual `V(even s+1) ≤ 3/2` PROVED, cleared as
+    `2·dmomNfull w (s+1) ≤ 3·acNfull w (s+1)` (odd `s`, `w ≤ 1/2`), via `R1EvenCentreBound.centreBound`.
+  * `evenCentreCell_of_centreVarBound` — the reduction of the even cell to the centre bound, via the
+    proved odd-neighbour two-point tie `EnvelopeClosure.dmomNfull_ge_acNfull_odd` and `evenCellAlg`.
+  * `evenCellAlg` — the cleared, subtraction-free `Q'` inequality of the even cell (margin `4 − 2·(3/2)
+    = 1 ≥ 0`), genuinely PROVED (no `sorry`).
 
-NAMED OPEN (Type-level structures, never `sorry`) — for Stages 2–4:
+NAMED OPEN (Type-level structures, never `sorry`) — the two remaining cells for Stages 3–4:
   * `OddCentreCellLE w` — the BINDING cell (`s` even / centre `s+1` odd, `w ≤ 1/2`): the φ-chain
     (`phi_certificate.md`) plus `Δ²(tail) ≥ 0` (Task A, `r1_remaining_pieces.md`).  The near-cancellation
     parity, needing the theta `V_inf` decomposition.
   * `RegimeGECell w` — the upper-half cell (`1/2 ≤ w`, both parities): Task B
     (`r1_remaining_pieces.md`), margin `Δ²V+2 ≥ 12/11` (corner) / `12/7` off-corner.
-  * `CentreVarBound w` — the residual of the even cell: `V(even s+1) ≤ 141/100` in cleared form
-    `dmomNfull w (s+1) ≤ (141/100)·acNfull w (s+1)` for odd `s` on `w ≤ 1/2`.  This is the theta-layer
-    residual `G_e(1/4) ≤ 141/100` (`even_centre_certificate.md`, block E-const/E-cheb/E-mono).
 
 # Axiom gate (AGENTS.md Rule 1 / Rule 8)
 
-Every load-bearing declaration below is axiom-checked at the file end.  The scaffold combinator and the
-even-cell reduction are pure modus ponens / subtraction-free `Q'` algebra over the reused `≤`/`Q'.eqv`
-machinery and the PROVED `dmomNfull_ge_acNfull_odd`; only `propext`/`Quot.sound` (via the `Q'` setoid)
-may appear.  No `Classical.*`, no `native_decide`, no `sorry`, no custom `axiom`.  The three
-named-open cells and `CentreVarBound` are `Type`-level structures (Rule 6a), never `Prop := True` or a
-`Unit` witness.
+Every load-bearing declaration below is axiom-checked at the file end.  The scaffold combinator, the
+even-cell reduction, and the proved centre bound are pure modus ponens / subtraction-free `Q'` algebra
+over the reused `≤`/`Q'.eqv` machinery, the PROVED `dmomNfull_ge_acNfull_odd`, and the PROVED
+`R1EvenCentreBound.centreBound`; only `propext`/`Quot.sound` (via the `Q'` setoid) may appear.  No
+`Classical.*`, no `native_decide`, no `sorry`, no custom `axiom`.  The two remaining named-open cells
+are `Type`-level structures (Rule 6a), never `Prop := True` or a `Unit` witness.
 -/
 
 import YMGap.Continuum.EnvelopeClosure
 import YMGap.Continuum.CondMomentReduction
+import YMGap.Continuum.R1EvenCentreBound
 
 namespace YMGap.Continuum.R1CaseSplit
 
@@ -84,9 +87,6 @@ open YMGap.Continuum.AcNReserveAnalytic
 /-- The regime threshold `1/2` as an exact `Q'`. -/
 def half : Q' := Q'.mkPos 1 2 (by decide)
 
-/-- The even-centre certificate constant `141/100` as an exact `Q'` (`= G_e(1/4)` upper bound). -/
-def q141 : Q' := Q'.mkPos 141 100 (by decide)
-
 /-- **`q_le_total`** — the DECIDABLE total order on the exact rationals `Q'` gives the regime
 dichotomy constructively (via `Int.le_total` on the cross-products; no LEM). -/
 theorem q_le_total (p q : Q') : p ≤ q ∨ q ≤ p := by
@@ -97,12 +97,13 @@ theorem q_le_total (p q : Q') : p ≤ q ∨ q ≤ p := by
 /-! ## 1. The subtraction-free `Q'` algebra of the even (comfortable) cell.
 
 The cell arithmetic is: with `a_i = acNfull ≥ 0`, `d_i = dmomNfull`, the two odd neighbours give
-`a0 ≤ d0`, `a2 ≤ d2`, and the centre bound gives `d1 ≤ (141/100)·a1`.  Then the cleared floor
+`a0 ≤ d0`, `a2 ≤ d2`, and the centre bound gives `2·d1 ≤ 3·a1` (i.e. `V(centre) ≤ 3/2`).  Then the
+cleared floor
 
     2·(d1·(a0·a2))  ≤  d0·(a1·a2) + d2·(a0·a1) + 2·(a0·(a1·a2))
 
-holds because LHS `≤ (2·141/100)·P = (282/100)·P` and RHS `≥ 4·P` with `P = a0·(a1·a2) ≥ 0`, and
-`282/100 ≤ 4` (margin `59/50`).  Everything is a MANIFEST nonnegative combination — no cancellation. -/
+holds because LHS `≤ 3·P` and RHS `≥ 4·P` with `P = a0·(a1·a2) ≥ 0`, and `3 ≤ 4` (margin `1`).
+Everything is a MANIFEST nonnegative combination — no cancellation. -/
 
 /-- `(a+b)·c ≃ a·c + b·c` (right distribution, from `mul_add` + `mul_comm`). -/
 theorem add_mul_local (a b c : Q') : ((a + b) * c).eqv (a * c + b * c) :=
@@ -132,11 +133,12 @@ theorem four_smul (P : Q') : ((P + P) + Q'.ofNat 2 * P).eqv (Q'.ofNat 4 * P) := 
   exact Q'.eqv_symm (Q'.eqv_trans _ _ _ e1 e2)
 
 /-- **`evenCellAlg`** — the cleared, subtraction-free even-cell inequality.  From the two odd-neighbour
-ties (`a0 ≤ d0`, `a2 ≤ d2`), the centre bound (`d1 ≤ (141/100)·a1`), and nonnegativity of the masses,
-the full-range floor's cleared form holds (margin `59/50`).  PROVED — no `sorry`. -/
+ties (`a0 ≤ d0`, `a2 ≤ d2`), the centre bound (`2·d1 ≤ 3·a1`, i.e. `V(centre) ≤ 3/2`), and
+nonnegativity of the masses, the full-range floor's cleared form holds (margin `1`: `4 − 2·(3/2) = 1`).
+PROVED — no `sorry`. -/
 theorem evenCellAlg {a0 a1 a2 d0 d1 d2 : Q'}
     (h0 : (0 : Q') ≤ a0) (h1 : (0 : Q') ≤ a1) (h2 : (0 : Q') ≤ a2)
-    (hN0 : a0 ≤ d0) (hN2 : a2 ≤ d2) (hC : d1 ≤ q141 * a1) :
+    (hN0 : a0 ≤ d0) (hN2 : a2 ≤ d2) (hC : Q'.ofNat 2 * d1 ≤ Q'.ofNat 3 * a1) :
     Q'.ofNat 2 * (d1 * (a0 * a2))
       ≤ d0 * (a1 * a2) + d2 * (a0 * a1) + Q'.ofNat 2 * (a0 * (a1 * a2)) := by
   -- nonnegativity atoms
@@ -145,19 +147,16 @@ theorem evenCellAlg {a0 a1 a2 d0 d1 d2 : Q'}
   have ha0a2 : (0 : Q') ≤ a0 * a2 := Q'.mul_nonneg _ _ h0 h2
   have ha1a2 : (0 : Q') ≤ a1 * a2 := Q'.mul_nonneg _ _ h1 h2
   have ha0a1 : (0 : Q') ≤ a0 * a1 := Q'.mul_nonneg _ _ h0 h1
-  -- (L1)  LHS ≤ (2·q141)·P                         [centre bound, then rearrange]
-  have hstep1 : d1 * (a0 * a2) ≤ (q141 * a1) * (a0 * a2) :=
-    Q'.mul_le_mul_of_nonneg_right d1 (q141 * a1) (a0 * a2) hC ha0a2
-  have hstep2 : Q'.ofNat 2 * (d1 * (a0 * a2)) ≤ Q'.ofNat 2 * ((q141 * a1) * (a0 * a2)) :=
-    Q'.mul_le_mul_of_nonneg_left (d1 * (a0 * a2)) ((q141 * a1) * (a0 * a2)) (Q'.ofNat 2)
-      hstep1 (by decide)
-  have hrearr : (Q'.ofNat 2 * ((q141 * a1) * (a0 * a2))).eqv
-      ((Q'.ofNat 2 * q141) * (a0 * (a1 * a2))) := by ring_qeqv
-  have hL1 : Q'.ofNat 2 * (d1 * (a0 * a2)) ≤ (Q'.ofNat 2 * q141) * (a0 * (a1 * a2)) :=
-    Q'.le_trans' _ _ _ hstep2 (Q'.le_of_eqv hrearr)
-  -- (L2)  (2·q141)·P ≤ 4·P                         [282/100 ≤ 4, P ≥ 0]
-  have hL2 : (Q'.ofNat 2 * q141) * (a0 * (a1 * a2)) ≤ Q'.ofNat 4 * (a0 * (a1 * a2)) :=
-    Q'.mul_le_mul_of_nonneg_right (Q'.ofNat 2 * q141) (Q'.ofNat 4) (a0 * (a1 * a2))
+  -- (L1)  LHS = 2·(d1·(a0·a2)) ≃ (2·d1)·(a0·a2) ≤ (3·a1)·(a0·a2) ≃ 3·P   [centre bound]
+  have hL1a : (Q'.ofNat 2 * (d1 * (a0 * a2))).eqv ((Q'.ofNat 2 * d1) * (a0 * a2)) := by ring_qeqv
+  have hL1b : (Q'.ofNat 2 * d1) * (a0 * a2) ≤ (Q'.ofNat 3 * a1) * (a0 * a2) :=
+    Q'.mul_le_mul_of_nonneg_right _ _ _ hC ha0a2
+  have hL1c : ((Q'.ofNat 3 * a1) * (a0 * a2)).eqv (Q'.ofNat 3 * (a0 * (a1 * a2))) := by ring_qeqv
+  have hL1 : Q'.ofNat 2 * (d1 * (a0 * a2)) ≤ Q'.ofNat 3 * (a0 * (a1 * a2)) :=
+    Q'.le_trans' _ _ _ (Q'.le_of_eqv hL1a) (Q'.le_trans' _ _ _ hL1b (Q'.le_of_eqv hL1c))
+  -- (L2)  3·P ≤ 4·P                                [3 ≤ 4, P ≥ 0]
+  have hL2 : Q'.ofNat 3 * (a0 * (a1 * a2)) ≤ Q'.ofNat 4 * (a0 * (a1 * a2)) :=
+    Q'.mul_le_mul_of_nonneg_right (Q'.ofNat 3) (Q'.ofNat 4) (a0 * (a1 * a2))
       (by decide) hP
   -- (L3)  4·P ≤ (P + P) + 2·P                      [coefficient collapse]
   have hL3 : Q'.ofNat 4 * (a0 * (a1 * a2))
@@ -199,20 +198,22 @@ Discharged in the paper proof by Task B (`r1_remaining_pieces.md`), margin `≥ 
 structure RegimeGECell (w : Q') : Type where
   cell : half ≤ w → ∀ s, FullRangeFloor w s
 
-/-- **`CentreVarBound w`** (residual of the even cell — NAMED OPEN).  The centre variance bound
-`V(even s+1) ≤ 141/100`, cleared/subtraction-free at the `acNfull` level: for odd `s` (centre `s+1`
-even) on the lower half `w ≤ 1/2`, `dmomNfull w (s+1) ≤ (141/100)·acNfull w (s+1)`.  This is the
-theta-layer residual `G_e(1/4) ≤ 141/100` (`even_centre_certificate.md`).  Stage 3 (theta layer). -/
+/-- **`CentreVarBound w`** (residual of the even cell — now PROVED, see `centreVarBound`).  The centre
+variance bound `V(even s+1) ≤ 3/2`, cleared/subtraction-free at the `acNfull` level: for odd `s`
+(centre `s+1` even) on the lower half `w ≤ 1/2`, `2·dmomNfull w (s+1) ≤ 3·acNfull w (s+1)`.  This is
+the theta-layer residual, discharged OUTRIGHT with the loose constant `3/2` (margin `1` in the cell
+algebra) by `R1EvenCentreBound.centreBound`. -/
 structure CentreVarBound (w : Q') : Type where
-  bound : w ≤ half → ∀ s, s % 2 = 1 → dmomNfull w (s + 1) ≤ q141 * acNfull w (s + 1)
+  bound : w ≤ half → ∀ s, s % 2 = 1 →
+    Q'.ofNat 2 * dmomNfull w (s + 1) ≤ Q'.ofNat 3 * acNfull w (s + 1)
 
 /-! ## 3. The even cell, PROVED from the residual centre bound. -/
 
 /-- **`evenCentreCell_of_centreVarBound`** — the COMFORTABLE cell PROVED.  Given `0 ≤ w` and the
-named centre bound `CentreVarBound w`, the even-centre cell holds: for odd `s`, the two ODD neighbours
+centre bound `CentreVarBound w`, the even-centre cell holds: for odd `s`, the two ODD neighbours
 `s`, `s+2` give `acNfull ≤ dmomNfull` (the PROVED two-point tie `dmomNfull_ge_acNfull_odd`), the centre
-bound gives `dmomNfull w (s+1) ≤ (141/100)·acNfull w (s+1)`, and `evenCellAlg` closes the cleared floor
-with margin `59/50`.  No `sorry`. -/
+bound gives `2·dmomNfull w (s+1) ≤ 3·acNfull w (s+1)`, and `evenCellAlg` closes the cleared floor
+with margin `1`.  No `sorry`. -/
 def evenCentreCell_of_centreVarBound {w : Q'} (hw : (0 : Q') ≤ w)
     (C : CentreVarBound w) : EvenCentreCell w where
   cell := fun hle s hs => by
@@ -222,8 +223,26 @@ def evenCentreCell_of_centreVarBound {w : Q'} (hw : (0 : Q') ≤ w)
     have h2 : (0 : Q') ≤ acNfull w (s + 2) := acN_nonneg hw (s + 3) (s + 2)
     have hN0 : acNfull w s ≤ dmomNfull w s := dmomNfull_ge_acNfull_odd hw hs
     have hN2 : acNfull w (s + 2) ≤ dmomNfull w (s + 2) := dmomNfull_ge_acNfull_odd hw hs2
-    have hC : dmomNfull w (s + 1) ≤ q141 * acNfull w (s + 1) := C.bound hle s hs
+    have hC : Q'.ofNat 2 * dmomNfull w (s + 1) ≤ Q'.ofNat 3 * acNfull w (s + 1) := C.bound hle s hs
     exact evenCellAlg h0 h1 h2 hN0 hN2 hC
+
+/-- **`centreVarBound`** — the even-cell residual `V(even) ≤ 3/2`, PROVED for every `0 ≤ w`.  For odd
+`s` on `w ≤ 1/2`, the centre `s+1 = 2·((s−1)/2 + 1)` is even, and `R1EvenCentreBound.centreBound`
+delivers `2·dmomNfull ≤ 3·acNfull` outright (ρ-graded super-log-concavity + a geometric theta tail
+closed at `3/2`).  The `w ≤ 1/2` premise supplies `w ≤ wH`; `0 ≤ w` is captured.  Axiom-clean. -/
+def centreVarBound {w : Q'} (hw : (0 : Q') ≤ w) : CentreVarBound w where
+  bound := fun hle s hs => by
+    -- s odd ⇒ s = 2k+1, centre s+1 = 2·(k+1)
+    obtain ⟨k, hk⟩ : ∃ k, s = 2 * k + 1 := ⟨s / 2, by omega⟩
+    have hcentre : s + 1 = 2 * (k + 1) := by omega
+    rw [hcentre]
+    exact R1EvenCentreBound.centreBound hw hle (k + 1) (by omega)
+
+/-- **`evenCentreCell`** — the COMFORTABLE even-centre cell of R1, PROVED UNCONDITIONALLY for every
+`0 ≤ w` (one of the three cells CLOSED).  Composes the PROVED residual `centreVarBound` with the cell
+reduction `evenCentreCell_of_centreVarBound`.  Axiom-clean; no named-open input remains in this cell. -/
+def evenCentreCell {w : Q'} (hw : (0 : Q') ≤ w) : EvenCentreCell w :=
+  evenCentreCell_of_centreVarBound hw (centreVarBound hw)
 
 /-! ## 4. THE SCAFFOLD — R1 from the three cells. -/
 
@@ -256,20 +275,20 @@ def saddleVarianceFloor_of_reduced {w : Q'} (hw : (0 : Q') ≤ w)
 PROVED (axiom-clean):
   * `q_le_total` — the constructive regime dichotomy on the exact rationals `Q'`.
   * `add_mul_local`, `two_smul`, `four_smul`, `evenCellAlg` — the subtraction-free `Q'` algebra of the
-    even (comfortable) cell (`4 − 2·(141/100) = 59/50 ≥ 0`).
-  * `evenCentreCell_of_centreVarBound` — the EVEN-CENTRE cell, reduced to `CentreVarBound` via the
-    PROVED odd-neighbour two-point tie `dmomNfull_ge_acNfull_odd`.
+    even (comfortable) cell (`4 − 2·(3/2) = 1 ≥ 0`).
+  * `centreVarBound` — the even-cell residual `V(even) ≤ 3/2` PROVED (via `R1EvenCentreBound.centreBound`).
+  * `evenCentreCell_of_centreVarBound` — the even-cell reduction, via the PROVED odd-neighbour
+    two-point tie `dmomNfull_ge_acNfull_odd`.
+  * `evenCentreCell` — the EVEN-CENTRE cell PROVED UNCONDITIONALLY (`0 ≤ w`); one of the three cells
+    CLOSED with no named-open residual.
   * `saddleVarianceFloor_of_cells` — the SCAFFOLD: the three cells inhabit R1 by the decidable
     parity × regime split.
   * `saddleVarianceFloor_of_reduced` — R1 from `CentreVarBound` + the two hard cells.
 
-NAMED OPEN (Type-level structures, never `sorry`) — Stage 2+:
+NAMED OPEN (Type-level structures, never `sorry`) — the TWO remaining cells (Stages 3–4):
   * `OddCentreCellLE w` — the BINDING cell (`s` even / centre `s+1` odd, `w ≤ 1/2`): φ-chain
     (`phi_certificate.md`) + Task A (`r1_remaining_pieces.md`).
   * `RegimeGECell w` — the upper-half cell (`1/2 ≤ w`): Task B (`r1_remaining_pieces.md`).
-  * `CentreVarBound w` — the residual of the even cell: `V(even s+1) ≤ 141/100` cleared
-    (`dmomNfull w (s+1) ≤ (141/100)·acNfull w (s+1)`, odd `s`, `w ≤ 1/2`); the theta-layer bound
-    `G_e(1/4) ≤ 141/100` (`even_centre_certificate.md`).
 -/
 
 end YMGap.Continuum.R1CaseSplit
@@ -282,5 +301,7 @@ end YMGap.Continuum.R1CaseSplit
 #print axioms YMGap.Continuum.R1CaseSplit.four_smul
 #print axioms YMGap.Continuum.R1CaseSplit.evenCellAlg
 #print axioms YMGap.Continuum.R1CaseSplit.evenCentreCell_of_centreVarBound
+#print axioms YMGap.Continuum.R1CaseSplit.centreVarBound
+#print axioms YMGap.Continuum.R1CaseSplit.evenCentreCell
 #print axioms YMGap.Continuum.R1CaseSplit.saddleVarianceFloor_of_cells
 #print axioms YMGap.Continuum.R1CaseSplit.saddleVarianceFloor_of_reduced
