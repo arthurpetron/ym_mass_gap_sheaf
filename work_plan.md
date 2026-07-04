@@ -2405,6 +2405,8 @@ finite polymer) accordingly.
 
 ### Milestone 11.3 — (D1) Mayer–Ursell bridge decomposition
 
+**Status.** CURRENTLY IN PROGRESS (2026-07-03) — `Continuum/MayerBridgeDecomposition.lean`: `bridgeDecomposition_of_data : BridgeDecomposition (z4ClusterCountBound p) w4 gr` — a GENUINE off-diagonal-correlator reduction to ONE named residual `MayerUrsellIdentity_z4` (the z4 loopy/multi-plaquette analog of the DISCHARGED `MayerClustering.MayerUrsellIdentity`). Axiom-clean.
+
 **Goal.** `Ursell4DProgress.BridgeDecomposition.decompose` is a
 theorem over the closed 4D cluster count `z4ClusterCountBound`: the
 off-diagonal connected correlator at separation `d` is dominated by
@@ -2524,6 +2526,8 @@ consumes without re-plumbing.
 ---
 
 ### Milestone 11.6 — Sub-wall B: discharge `hbridge` (pinned shift control)
+
+**Status.** CURRENTLY IN PROGRESS (2026-07-03) — `Continuum/HbridgeInputs.lean`: (b) hLin CLOSES as an owned schedule choice (`pinnedDelta := bmConst·(1−w_k)` makes the linear-control field reflexive; `HbridgeScheduleInput.hbridge` is then a THEOREM over the proved `bondMovingDeltaRen_quadratic`). Whole `hbridge` → SOLE residual (a) `hId` (node ① bulk_shift). FINDING (a theorem, not a hope): the summable-tower compatibility holds ONLY for a non-AF super-linear margin — the AF-marginal harmonic `1−w_k∼1/k` diverges (`lossSum_pinnedDelta_eqv`/`pinnedDelta_summable_of_marginSum`).
 
 **Goal.** The `hbridge` field is discharged for the physical
 `g_k ≠ 1` trajectory. `PinnedBridgeProgress` already delivers the
@@ -2737,6 +2741,8 @@ it.
 
 ### Milestone 11.10 — O(4) restoration: from bare Prop to reduction-with-named-input
 
+**Status.** DONE (2026-07-03, statement-layer reduction) — `Continuum/O4RestorationReduction.lean`: `o4_restoration_of_input` fires BOTH OS1 conjuncts (H₄ ∧ O(4)) from ONE pinned `O4RestorationInput`; H₄ proved from `ObsHom`s; non-vacuity capstone `isOS1Full_concrete` (concrete SU(2) heat-kernel `StrongO4Restoration` + isotropic `prodCharFunc` under `rot4`). Residual out-of-scope (11.8-class): the interacting `anisoDefect` AF decay for general ρ (pinned ρ=½ here).
+
 **Goal.** `RubricO4Restoration` / `os1_o4_restoration` moves from a
 bare uninhabited `Prop` to the project's standard
 reduction-with-named-hypothesis shape (the pattern that worked for
@@ -2785,6 +2791,8 @@ discipline from the β-coefficient to the full restoration input.
 ---
 
 ### Milestone 11.11 — OS reconstruction: construct the generator
+
+**Status.** CURRENTLY IN PROGRESS (2026-07-03, stage a substantially done) — `Continuum/BoundedHamiltonianFiniteVol.lean`: `FiniteVolumeBoundedH` (bounded carrier `H:=T`, per-mode located energies `E_i=−log λ_i` as CReal DATA) with `spectrum_nonneg`, `vacuum_zero`, `Δ=−log sep>0` (`Δ_pos`), `selfAdjoint` all CLOSED; `mkFiniteVolumeBoundedH` inhabits it over the excited tower; `boundedH_mass_gap` reads off the 3 predicates. Residual: the `noSpectrumIn` FLOOR branch reduces to the PRE-EXISTING `YOfMonotone`/`ArtanhMonotoneWindow` (no NEW frontier opened) + per-mode window certificates.
 
 **Goal.** The time-translation generator (Hamiltonian) on the
 constructive complete GNS Hilbert space
@@ -2989,6 +2997,8 @@ the generated doc (start with the doc).
 
 ### Milestone 11.15 — `TrueMarginRecursionPhysical` and the target-adequacy lemma
 
+**Status.** DONE (2026-07-03, statement+adequacy) — `Continuum/TrueMarginRecursionPhysical.lean`: the pinned additive-erosion recursion + `uniformSpacingFloor_of_trueMarginPhysical` (ADEQUACY GATE ANSWERED: the true physical margin SUPPLIES the shared `UniformSpacingFloor` floor). Axiom-clean. Residual (11.8-class): the `.step` inhabitant (ε_k erosion producer + anchor-dominates-budget); strictly sharper than the multiplicative-only `TrueMarginRecursion`.
+
 **Goal.** The uniform-in-coupling clause on the Clay-facing path is
 the **true dimensionless physical margin**, and the relationship
 between the two existing candidates is settled by proof. Two parts:
@@ -3028,6 +3038,8 @@ identified with the graded bond-moving defect `≤ (1−w_k)²` from the
 ---
 
 ### Milestone 11.16 — The physical Wilson / Peter–Weyl bridge
+
+**Status.** DONE (2026-07-03, single-bond + reduction) — `Continuum/PhysicalWilsonBridge.lean`: `physicalWilsonPeterWeyl` CLOSES the single bond (physical `cinner` = char-diagonal) modulo the sole primitive `AngleCosineIntegral` (∫cos kθ = πδ); the K-fold product assembly (`cprod_physPairing_diag/offdiag`) is proved; arbitrary-x `CharacterDiagResolution` REDUCED to (A) `PhysicalCharacterCoordinateMap` + (B) `HeatKernelReferenceWeight`. FINDING: the EQUALITY form is structurally UNSATISFIABLE (rational `E_Λ` vs irrational `reflWeight=e^{−tC₂}`) → DOMINATION is the right bridge.
 
 **Goal.** Retire `OpenPhysicalWilsonBridge`: prove the Peter–Weyl /
 Schur diagonalization **inside the actual physical inner product** —
@@ -3079,6 +3091,8 @@ forces irrational normalizations into `Q'` positions).
 ---
 
 ### Milestone 11.17 — The Clay local-field layer: curvature polynomials, stress tensor, OPE, short-distance AF
+
+**Status.** DONE (2026-07-03, statement-layer) — `Continuum/LocalCurvatureFields.lean` (one module; concrete curvature-word polynomial grammar + stress-tensor/OPE-with-remainder-modulus/AF-short-distance interfaces, all faithful/non-vacuous/uninhabited): `content_discharges` — the uninhabited `LocalOperatorContent` bundle discharges BOTH bare `FourDExistence` carriers `GaugeGeneratedContent ∧ UVAsymptoticFreedomContent` via `gaugeGenerated_of_localCurvatureFields`/`uvAF_of_afShortDistance`.
 
 **Goal.** The archive's Clay coverage gap — identified by the external
 review and genuinely absent from both the repo and the earlier plan —
