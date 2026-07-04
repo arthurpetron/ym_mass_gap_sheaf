@@ -66,6 +66,16 @@ If a goal seems to require classical reasoning, that is usually a sign
 the *statement* is wrong for this program — it should be restated with
 a constructive witness (Rule 2), not proved classically.
 
+**`noncomputable` addendum.** A `noncomputable` marker is a canonicity
+cost and gets the same scrutiny as `propext`/`Quot.sound`: every
+`noncomputable` declaration carries a docstring classifying it as (a)
+a constructive extraction hidden behind a Σ projection, (b) a
+convenience definition awaiting a computable replacement, or (c) a
+non-load-bearing helper — and appears in the `noncomputable` ledger
+section of the audit (see `work_plan.md` Milestone 11.0). An
+unclassified `noncomputable` in a load-bearing module is a review
+blocker.
+
 ---
 
 ## Rule 2: Existence means a witness
@@ -321,6 +331,30 @@ it). They are the highest-stakes surface in the repository, so:
    the Clay Yang–Mills existence and mass gap problem is OPEN, and no
    module may state or imply otherwise while any frontier bundle lacks
    a legitimate inhabitant.
+6. **Label surrogate discharges as such.** A clause whose inhabitant
+   is a surrogate — a model object, a weaker proxy quantity (e.g. a
+   survival-product floor standing in for the dimensionless physical
+   margin `Δ_k = m_lat(a_k)/a_k`), or a char-diagonal instance
+   standing in for the physical inner product — is marked
+   `MET-surrogate`, never plain MET, with a pointer to the pinned
+   clause that supersedes it. Surrogates are legitimate scaffolding;
+   presenting one as the physical discharge is the Rule-9(1) failure
+   in slow motion.
+7. **The pinning principle for Clay-facing targets.** Top-level target
+   structures (`ClayTargetPinned` and successors) must tie all fields
+   to the SAME physical objects — the same `G`, the same continuum
+   measure, the same observable algebra, the same Hamiltonian — so
+   that a surrogate witness for one clause fails to *typecheck*
+   against the shared parameters rather than needing a human to
+   notice. Free existential "model" objects in a Clay-facing target
+   are a statement bug, not a proof opportunity.
+8. **Anti-proliferation.** Once the canonical frontier structure
+   (`FrontierDAG`, `work_plan.md` Milestone 11.14) exists, a new
+   frontier enumeration may enter the tree only together with a
+   PROVED coarsening/refinement bridge to it (the `toFrontierC`
+   pattern). Contributions close atoms by deleting or weakening a
+   canonical field *via proof* — never by adding a parallel scorecard
+   whose relationship to the canonical one is prose.
 
 ---
 

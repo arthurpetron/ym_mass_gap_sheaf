@@ -211,17 +211,27 @@ with SU(2)/SU(3) discharged end-to-end).
 
 **Deliberately open — the machine-checked frontier.** The continuum
 (`a → 0`) Clay problem is carried as *uninhabited* bundles, never
-faked: `Continuum.Tier0Scorecard` enumerates the frontier as Sub-wall
-A (loopy geometry: (T′) tree-graph, (D1) Mayer–Ursell bridge, (D2)
-separation metric, (A2) 6j pentagon), Sub-wall B (Balaban RG: the
-`SpectralMarginInput` atoms `hlocalize` / `hbridge` / `hadd`), and the
-orthogonal `CitedMinlosLift` (σ-additive continuum measure — note:
-this cited-classical input is not yet processed through the Rule-4
+faked, in **two complementary enumerations** whose unification is
+planned (`work_plan.md` Milestone 11.14). On the measure/RG side,
+`Continuum.Tier0Scorecard` enumerates: Sub-wall A (loopy geometry:
+(T′) tree-graph, (D1) Mayer–Ursell bridge, (D2) separation metric,
+(A2) 6j pentagon), Sub-wall B (Balaban RG: the `SpectralMarginInput`
+atoms `hlocalize` / `hbridge` / `hadd`), and the orthogonal
+`CitedMinlosLift` (σ-additive continuum measure — note: this
+cited-classical input is not yet processed through the Rule-4
 quarantine, hence the empty classical ledger currently *understates*
 the continuum chain's classical content; resolving this is
-`work_plan.md` Milestone 11.9). `ClayScorecard.ClayTarget` additionally
-names O(4) restoration, coupling-uniformity, gauge content, asymptotic
-freedom, and nontriviality (`Continuum/FourDExistence.lean`).
+`work_plan.md` Milestone 11.9). On the operator/OS side,
+`Rubric.ReconstructionScorecardFinal` names five open tokens:
+`OpenNode1FiniteSMargin`, `OpenTrueMargin` (the genuine dimensionless
+physical margin `Δ_k = m_lat(a_k)/a_k`, distinct from the proved
+survival-product *surrogate* in the green line — see AGENTS.md
+Rule 9(6)), `OpenPhysicalWilsonBridge`, `OpenBoundedHamiltonian`, and
+`OpenContinuumMinlos`. `ClayScorecard.ClayTarget` additionally names
+O(4) restoration, coupling-uniformity, gauge content, asymptotic
+freedom, and nontriviality (`Continuum/FourDExistence.lean`); the
+Jaffe–Witten local-field/stress-tensor/OPE layer is currently only
+two bare `Prop` fields there and is scoped as Milestone 11.17.
 `ContinuumFrontierScorecard` proves that the codynamic, curvature, and
 OS-reconstruction continuum routes all converge on the single
 uninhabited scalar `UniformSpacingFloor`.
@@ -230,10 +240,17 @@ uninhabited scalar `UniformSpacingFloor`.
 Milestone 11.0 re-syncs them): (D2) has a sound, non-tight L¹
 inhabitant (`SepLatticeZ4Close.SepLatticeZ4_witness`); (T′) is reduced
 to three named legs, of which only the Penrose sign-domination is new
-mathematics (`TreeGraphBoundProgress`); the pentagon track has the
+mathematics (`TreeGraphBoundProgress`, with the (P) leg under further
+active reduction in `PenroseDomInduction`); the pentagon track has the
 Level-1/Level-2 analysis and a refutation of the permutation surrogate
 (`PentagonRelation`); `hbridge` has its wiring lemma
-(`PinnedBridgeProgress.edgeShift_le_gradedDefect`).
+(`PinnedBridgeProgress.edgeShift_le_gradedDefect`); and the δ-loop
+capstone (`DeltaFrontierLedger`) reduces the bond-moving obstruction to
+the single vacuum-normalized bulk-shift residual `bulkCtrl` (= the
+`hlocalize` content, open for `p ≥ 2`). Hygiene note: the library
+carries exactly 9 `noncomputable` declarations (in `NormExcitedDrift`,
+`DominantModeRecursion`, `UniformCouplingFromAF`), pending the
+classification ledger required by the AGENTS.md Rule 1 addendum.
 
 **Not claimed.** No inhabitant of `ClayTarget`, `Tier0Scorecard`, or
 `UniformSpacingFloor` exists in this library. The Clay Yang–Mills
