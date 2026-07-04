@@ -637,3 +637,9 @@ import YMGap.Rubric.FrontierDAGBridges
 import YMGap.Continuum.CayleyPruferInjection
 import YMGap.Continuum.CompletionGenerator
 import YMGap.Continuum.MayerUrsellZ4
+import YMGap.Continuum.CayleyInjection
+import YMGap.Continuum.MayerUrsellZ4Restated
+import YMGap.Continuum.RacahOrthogonalityGeneral
+import YMGap.Continuum.PhysicalCharCoordinateMap
+import YMGap.Continuum.FusionKernelStatement
+import YMGap.Continuum.CurvatureFloorStatement

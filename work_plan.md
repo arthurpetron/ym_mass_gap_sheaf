@@ -2351,7 +2351,7 @@ for the 11.2/11.3 authors.
 
 ### Milestone 11.2 — (T′) tree-graph inequality: close the three legs
 
-**Status.** CURRENTLY IN PROGRESS (2026-07-03) — leg (A) `CubicEulerBound` PROVED (`Continuum/CubicEulerBound.lean`, (n+1)ⁿ≤3nⁿ, Nat Bernoulli, axiom-clean) → leg (A) DONE. Leg (C) `cayleyMax` PARTIAL (`Continuum/CayleyMaxBound.lean`): FINDING — the unconditional target is FALSE for multigraphs (treeCount = edge-SUBSET count; needs `SimpleEdges`), and deletion-contraction is INSUFFICIENT for Cayley; reduced to `CayleyCountBound`. Leg (C) FURTHER reduced (`Continuum/CayleyPruferInjection.lean`): the CARDINALITY half of Cayley is PROVED (`count_le_of_inj` + finite pigeonhole + `allSeqs` length nⁿ⁻² + the leaf-stripping Prüfer encoder), so `CayleyCountBound` → the SOLE residual `CayleyInjectionData` (the Prüfer encoder's length/entries/INJECTIVITY on simple-graph spanning trees — `SimpleEdges` load-bearing). Leg (P) `penroseDom` stays under `PenroseDomInduction.lean`.
+**Status.** CURRENTLY IN PROGRESS (2026-07-03) — leg (A) `CubicEulerBound` PROVED (`Continuum/CubicEulerBound.lean`, (n+1)ⁿ≤3nⁿ, Nat Bernoulli, axiom-clean) → leg (A) DONE. Leg (C) `cayleyMax` PARTIAL (`Continuum/CayleyMaxBound.lean`): FINDING — the unconditional target is FALSE for multigraphs (treeCount = edge-SUBSET count; needs `SimpleEdges`), and deletion-contraction is INSUFFICIENT for Cayley; reduced to `CayleyCountBound`. Leg (C) FURTHER reduced (`CayleyPruferInjection.lean` → `CayleyInjection.lean`): cardinality half PROVED; `cayleyCountBound_of_memEqSpec` reduces the Prüfer LIST-injectivity to the strictly-weaker SET-membership form `PruferMemEqSpec` (via `sublists_eq_of_mem_iff`); the genuine leaf-determinacy content stays uninhabited. NOTE: off the mass-gap critical path (the `TreeGraphReduction` datum is itself uninhabited). Leg (P) `penroseDom` stays under `PenroseDomInduction.lean`.
 
 **Goal.** `Ursell4DProgress.TreeGraphBound` is inhabited for the
 pinned truncated-Ursell `phiT` — i.e. the per-cluster bound
@@ -2405,7 +2405,7 @@ finite polymer) accordingly.
 
 ### Milestone 11.3 — (D1) Mayer–Ursell bridge decomposition
 
-**Status.** CURRENTLY IN PROGRESS (2026-07-03) — `Continuum/MayerBridgeDecomposition.lean` reduced (D1) to `MayerUrsellIdentity_z4`; then `Continuum/MayerUrsellZ4.lean` FINDING (`mu_z4_total_weight_le_zero`): the residual AS STATED is DEGENERATE — every inhabitant forces the connected correlator's total spectral weight ≤ 0 (trivial zero model), because `clusterSpanSum … 0 = 0` hard-codes a vanishing d=0 majorant. So the honest (D1) content is the real analytic atoms ((T') tree-graph + the absolute Mayer–Ursell expansion), and the residual must be RESTATED with a non-degenerate d=0 majorant.
+**Status.** CURRENTLY IN PROGRESS (2026-07-03, degeneracy FIXED) — `Continuum/MayerUrsellZ4Restated.lean` `MayerUrsellIdentity_z4_v2` normalizes the d=0 diagonal against the positive vacuum activity (`kpTerm…0=1`) instead of the vanishing span (non-degeneracy certificate `diagModel`, w0=1/2, weight>0); `decompose_v2` PROVED, chains to `corr d ≤ 2·(15/32)^d`. The reduction now bottoms out CLEANLY on the SHARED Sub-wall A atoms (T') tree-graph + (D2) SepLattice — no forced-zero collapse. (Superseded the degenerate v1 finding `mu_z4_total_weight_le_zero`.)
 
 **Goal.** `Ursell4DProgress.BridgeDecomposition.decompose` is a
 theorem over the closed 4D cluster count `z4ClusterCountBound`: the
@@ -2444,7 +2444,7 @@ generalizing only if the assembly demands it).
 
 ### Milestone 11.4 — (A2) the pentagon: exact rational 6j program **[research-adjacent]**
 
-**Status.** DONE (2026-07-03, pilot + kernel) — `computations/wigner_6j.py` (+tests, 12 pass): exact-rational Racah 6j; pentagon & orthogonality sweeps exact (`Fraction(0)`); P=1/4 pin matches Lean. `Continuum/SixJKernel.lean`: `racahKernelCore : PentagonNumericCore` — a FAITHFUL varying rational dim·6j² kernel (P=0 off-triangle, P=1/4 at the smallest tetra) + a genuine orthogonality sum rule (by `decide`), axiom-clean. KEY FINDING: the signed 6j / Biedenharn–Elliott associator is IRRATIONAL (√-triangle coeffs) → B–E is NOT Q'-representable; the SQUARED kernel satisfies ORTHOGONALITY, not B–E. So full `SixJPentagon` via a rational B–E is impossible — the honest target is the orthogonality identity (`RacahOrthogonalityGeneral`, verified TRUE out-of-band).
+**Status.** DONE (2026-07-03, pilot + kernel) — `computations/wigner_6j.py` (+tests, 12 pass): exact-rational Racah 6j; pentagon & orthogonality sweeps exact (`Fraction(0)`); P=1/4 pin matches Lean. `Continuum/SixJKernel.lean`: `racahKernelCore : PentagonNumericCore` — a FAITHFUL varying rational dim·6j² kernel (P=0 off-triangle, P=1/4 at the smallest tetra) + a genuine orthogonality sum rule (by `decide`), axiom-clean. KEY FINDING: the signed 6j / Biedenharn–Elliott associator is IRRATIONAL (√-triangle coeffs) → B–E is NOT Q'-representable; the SQUARED kernel satisfies ORTHOGONALITY, not B–E. So full `SixJPentagon` via a rational B–E is impossible — the honest target is the orthogonality identity, now REDUCED (`Continuum/RacahOrthogonalityGeneral.lean`): the off-triangle half PROVED for ALL labels, the on-triangle half → the SOLE residual `DiagonalSixJNormalization` (Σ_x (2x+1)(2f+1){6j}²=1, the fractional 6j orthonormality — needs a 3j/Clebsch–Gordan layer, not in-tree).
 
 **Goal.** `Tier0Scorecard.SixJPentagon` is inhabited: a rational
 dim-absorbed 6j-square kernel that provably closes the guarded
@@ -2566,6 +2566,8 @@ if it doesn't distort the AF matching.
 
 ### Milestone 11.7 — Sub-wall B: `hlocalize` (Core B local-CLT) **[research]**
 
+**Status.** CURRENTLY IN PROGRESS (2026-07-03, first-tranche STATEMENT LAYER done) — `Continuum/FusionKernelStatement.lean`: `fusionKernelNorm`/`fusionEig` Q' defs + `SaddleLogForm.estimate` + `SaddleLocalCLT.bulkShiftBound` (∀s, fusionEig s − eigA w s ≤ 1/12) as NAMED residuals wired to the SAME `bulkCtrl`/DeltaFrontierLedger residual (not a parallel statement), axiom-clean. The general-p (p≥2) discrete SU(2) fusion local-CLT — the estimate proof — is the OPEN research core.
+
 **Goal (long-horizon; this milestone is the *first tranche*).** The
 `sl.hlocalize` field — the p ≥ 2 SU(2)-fusion local-CLT spectral
 localization — discharged. First-tranche checkable predicate: a
@@ -2630,6 +2632,8 @@ concrete lemma ladder for the first tranche, and the
 ---
 
 ### Milestone 11.8 — `UniformSpacingFloor`: hierarchical-model closure **[research]**
+
+**Status.** CURRENTLY IN PROGRESS (2026-07-03, STATEMENT LAYER done) — `Continuum/CurvatureFloorStatement.lean`: `toModeEnergyFloor` (UniformCurvatureBound ⟹ ModeEnergyFloor via `BakryEmery.eigenvalue_ge_of_CD`) + `curvatureFloor : CurvatureFloorInput → QFloor` — a SECOND route to `UniformSpacingFloor`, interchangeable with the DefectGapRecursion route. Reduced to the SOLE residual `UniformCurvatureBound.uniform_CD` (one curvature constant K>0 with Bakry–Émery CD(K) at every spacing — the Bałaban/SZZ interacting estimate, the research core).
 
 **Goal.** Inhabit `UnifiedContinuumFloor.UniformSpacingFloor` — the
 single scalar all three continuum routes converge on
@@ -2949,7 +2953,7 @@ faithfulness theorem plug in without re-plumbing.
 
 ### Milestone 11.14 — `FrontierDAG`: unify the enumerations, prove the bridges
 
-**Status.** DONE (2026-07-03, items 1+2) — item 1: `Rubric/FrontierDAG.lean` (11-atom uninhabited DAG + `toSubWallA` + guard retarget). item 2: `Rubric/FrontierDAGBridges.lean` — all 4 suspected cross-list identifications ADJUDICATED: (i) Minlos≡Minlos PROVED equivalence (rfl, node merge); (ii) bulkCtrl↔hlocalize DOCUMENTED REFUTATION (per-mode vs per-scale arity mismatch; real link = `hbridge_of_hlocalize`); (iii) `qFloor_of_openTrueMargin` PROVED (FrontierDAG.trueMargin → `QFloor`); (iv) `finiteSMargin_of_crossRatio` PROVED CONVERSE (forward `CoreBBridge` stays open). Item 3 (anti-proliferation) is a standing process rule.
+**Status.** DONE (2026-07-03, items 1+2) — item 1: `Rubric/FrontierDAG.lean` (11-atom uninhabited DAG + `toSubWallA` + guard retarget). item 2: `Rubric/FrontierDAGBridges.lean` — all 4 suspected cross-list identifications ADJUDICATED: (i) Minlos≡Minlos PROVED equivalence (rfl, node merge); (ii) bulkCtrl↔hlocalize DOCUMENTED REFUTATION (per-mode vs per-scale arity mismatch; real link = `hbridge_of_hlocalize`); (iii) `qFloor_of_openTrueMargin` PROVED (FrontierDAG.trueMargin → `QFloor`); (iv) `finiteSMargin_of_crossRatio` PROVED CONVERSE (forward `CoreBBridge` stays open). Item 3 (anti-proliferation) DONE: `scripts/frontier_dag_check.py` + `make frontier-dag-check` (9 enumerations, 0 unbridged; `--self-test` 9/9) — a NEW frontier enumeration must carry a proved bridge to `FrontierDAG`.
 
 **Goal.** ONE canonical audit surface for the open problem, replacing
 the current situation of two overlapping enumerations plus scattered

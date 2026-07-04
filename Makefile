@@ -1,6 +1,6 @@
 .PHONY: test lint typecheck figures svg-to-pdf paper clean help \
         lean-build lean-audit lean-audit-strict lean-audit-update lean-rubric \
-        lean-frontier-guard frontier-status
+        lean-frontier-guard frontier-status frontier-dag-check
 
 help:
 	@echo "Targets:"
@@ -16,6 +16,7 @@ help:
 	@echo "  lean-rubric         Compile-check the Clay scorecard against the pinned external rubric."
 	@echo "  lean-frontier-guard Fail if a Clay-frontier type (Tier0Scorecard/ClayTarget/UniformSpacingFloor) is inhabited."
 	@echo "  frontier-status     Regenerate docs/frontier-status.md (partial-close + open-field ledger)."
+	@echo "  frontier-dag-check  Fail if a new *Scorecard/*Frontier/*Target enumeration lacks a FrontierDAG bridge."
 	@echo "  clean               Remove Python, mypy, ruff, pytest, and LaTeX build artifacts."
 
 test:
@@ -89,6 +90,17 @@ lean-rubric:
 # log over the baseline gates).
 frontier-status:
 	python3 scripts/frontier_status.py
+
+# Static "no orphan scorecard" guard: fails the build if a new
+# *Scorecard/*Frontier/*Target/*DAG enumeration structure carrying OPEN residual
+# atoms is added without a bridge relating it to the unified FrontierDAG node (in
+# either direction). Grep-only (no lake); complements lean-frontier-guard (which
+# is build-time Lean, "no unconditional inhabitant of a frontier TYPE") with a
+# static "no new parallel enumeration without a BRIDGE". The single reviewed
+# blessing surfaces are frontier_status.FRONTIER / YMGapFrontierGuard.frontierAllowlist
+# / frontier_dag_check.SCRIPT_ALLOWLIST. See scripts/frontier_dag_check.py.
+frontier-dag-check:
+	python3 scripts/frontier_dag_check.py
 
 clean:
 	rm -rf .pytest_cache .mypy_cache .ruff_cache build dist *.egg-info
