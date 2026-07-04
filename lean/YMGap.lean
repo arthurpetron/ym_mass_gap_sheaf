@@ -644,3 +644,4 @@ import YMGap.Continuum.PhysicalCharCoordinateMap
 import YMGap.Continuum.FusionKernelStatement
 import YMGap.Continuum.CurvatureFloorStatement
 import YMGap.Continuum.FusionSaddleReduction
+import YMGap.MassGap.AllSimpleTypes
