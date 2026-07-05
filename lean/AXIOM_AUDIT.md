@@ -4552,6 +4552,7 @@ YMGap.Continuum.R1EvenCentreBound.majorant = Quot.sound, propext
 YMGap.Continuum.R1EvenCentreBound.reflect_sum = Quot.sound, propext
 YMGap.Continuum.R1EvenCentreBound.tailBound = Quot.sound, propext
 YMGap.Continuum.R1EvenCentreBound.termLb = Quot.sound, propext
+YMGap.Continuum.R1LocalCLT.fusionMeasure_logConcave = Quot.sound, propext
 YMGap.Continuum.R1OddDirect.coeffMul = Quot.sound, propext
 YMGap.Continuum.R1OddDirect.evenNeighborLB = Quot.sound, propext
 YMGap.Continuum.R1OddDirect.evenVarLower = Quot.sound, propext

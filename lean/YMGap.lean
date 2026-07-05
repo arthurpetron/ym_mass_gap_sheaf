@@ -661,3 +661,4 @@ import YMGap.Continuum.R1OddDirect
 import YMGap.Continuum.R1CurvatureEnvelope
 import YMGap.Continuum.R1CornerScaffold
 import YMGap.Continuum.R1CornerAtoms
+import YMGap.Continuum.R1LocalCLT
