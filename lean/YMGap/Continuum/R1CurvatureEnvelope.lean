@@ -400,6 +400,26 @@ theorem curvatureEnvelope_three {w : Q'} (hw0 : (0 : Q') ≤ w) (hw1 : w ≤ 1) 
     CurvatureEnvelope w 3 :=
   curvatureEnvelope_of_sqCert 3 50 14 envTerms3 hw0 hw1 (by decide) (by decide)
 
+/-- `w²`-Bernstein certificate for `G_4` (native degree `d = 20`, shift `k = 71`). -/
+def envTerms4 : List (Nat × Q') :=
+  [(0, Q'.mkPos 764736 25 (by decide)), (1, Q'.mkPos 15126528 25 (by decide)),
+   (2, Q'.mkPos 138692448 25 (by decide)), (3, Q'.mkPos 783875136 25 (by decide)),
+   (4, Q'.mkPos 3065433504 25 (by decide)), (5, Q'.mkPos 8837243904 25 (by decide)),
+   (6, Q'.mkPos 19588396896 25 (by decide)), (7, Q'.mkPos 34530457536 25 (by decide)),
+   (8, Q'.mkPos 10001441376 5 (by decide)), (9, Q'.mkPos 61529392512 25 (by decide)),
+   (10, Q'.mkPos 66287348928 25 (by decide)), (11, Q'.mkPos 63501587328 25 (by decide)),
+   (12, Q'.mkPos 10741873728 5 (by decide)), (13, Q'.mkPos 39146446848 25 (by decide)),
+   (14, Q'.mkPos 23922547008 25 (by decide)), (15, Q'.mkPos 12028824192 25 (by decide)),
+   (16, Q'.mkPos 4954842816 25 (by decide)), (17, Q'.mkPos 1680284928 25 (by decide)),
+   (18, Q'.mkPos 461010816 25 (by decide)), (19, Q'.mkPos 18402048 5 (by decide)),
+   (20, Q'.mkPos 395136 1 (by decide))]
+
+set_option maxRecDepth 20000 in
+/-- **`curvatureEnvelope_four`** — the envelope at `s = 4`, PROVED on `0 ≤ w ≤ 1`. -/
+theorem curvatureEnvelope_four {w : Q'} (hw0 : (0 : Q') ≤ w) (hw1 : w ≤ 1) :
+    CurvatureEnvelope w 4 :=
+  curvatureEnvelope_of_sqCert 4 71 20 envTerms4 hw0 hw1 (by decide) (by decide)
+
 /-! ## 4. Doc-section — PROVED vs NAMED-open (CRITICAL honesty)
 
 PROVED (axiom-clean):
