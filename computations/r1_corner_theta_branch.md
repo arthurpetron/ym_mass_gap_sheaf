@@ -206,3 +206,22 @@ self-contained, but are **not** reducible to the codebase's finite-truncation ma
 | **uniform floor** `LBθ ≥ 27/25` | exact `F` | `1.08 > 0`, all `s≥7` |
 
 Scripts: `/Users/darthur/.claude/jobs/1c30fec5/tmp/theta{1..7}_*.py`.
+
+---
+
+## Addendum (2026-07-05) — the modular-dual route for M1/M2 (visualized)
+
+The two analytic residuals **M1** `V_p^∞(1−u)≤2` and **M2** `Var_p(1−u)²≤8` are "not finitely
+truncatable" ONLY in the θ (`q`-series) basis, which diverges as `u→1`. This is a **basis artifact**:
+the Jacobi/Poisson **dual** series converges instantly there. Verified: at `u=0.98` the θ-series needs
+**31 terms** to tolerance 1e-9; the Poisson dual needs **1**. So the recommended attack is to
+re-express `V_p^∞, Var_p` via the modular transform (`ϑ₃(τ)=(−iτ)^{−1/2}ϑ₃(−1/τ)`, codebase
+`JTPIdentity`); near `u=1` M1/M2 become **leading terms of a convergent dual expansion**, provable
+finitely, with the free constants `2, 8` as the leading (continuum-Gaussian) values.
+
+Interactive visualization: `computations/r1_corner_localCLT_viz.html` (self-contained; generator
+`r1_corner_localCLT_viz_data.py`) — shows (i) the fusion measure's parabola→Gaussian collapse, (ii)
+the M1/M2 ceilings pressed against `2` and `8`, (iii) the θ-vs-dual term-count blow-up, (iv) Lemma C's
+tilted curvature touching its free maximum at `q=1`. Physics reading: every residual is one statement —
+the lattice theory is free-Gaussian at the free rate — read off at a different moment; the uniform-in-s
+wall is the algebraic basis, not the mathematics.
