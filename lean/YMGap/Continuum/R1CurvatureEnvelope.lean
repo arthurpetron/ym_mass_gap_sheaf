@@ -273,6 +273,133 @@ theorem curvatureEnvelope_zero {w : Q'} (hw0 : (0 : Q') ≤ w) : CurvatureEnvelo
     (Q'.add_le_add_left (floorLHS w 0) (envBound w 0) (eval (slackP 0) w) hle) ?_
   exact Q'.ge_of_eqv (hSlackEq w 0)
 
+/-! ## 3.5 Reduced-bracket Bernstein-in-`w²` certificate machinery (bounded windows `s ≥ 1`).
+
+The envelope gap `G_s = slackP s − envBoundPoly s` factors as `w^{k_s} · bracket_s(w²)` where
+`bracket_s` is a polynomial in `x = w²` that is Bernstein-nonnegative on `[0,1]` (`s ≥ 2` at native
+degree, `s = 1` after a small degree elevation).  So `G_s = w^{k} · Σ_i cᵢ · (w²)^i · (1−w²)^{d−i}`
+with `cᵢ ≥ 0` — a manifest certificate at MUCH lower degree than the raw slack.  This subsection
+formalizes that certificate over the `w²` Bernstein basis and gives the general consumer
+`curvatureEnvelope_of_sqCert`, discharging each bounded window by a single decidable coefficient
+identity. -/
+
+/-- `onemSqP` — the polynomial `1 − w²`. -/
+def onemSqP : Poly := [(1 : Q'), (0 : Q'), (-1 : Q')]
+
+/-- `bernBasisSqP n i = (w²)^i · (1 − w²)^{n−i}` — a `w²`-Bernstein basis element. -/
+def bernBasisSqP (n i : Nat) : Poly := shiftZ (2 * i) (ppow onemSqP (n - i))
+
+theorem eval_bernBasisSqP_nonneg {w : Q'} (hw0 : (0 : Q') ≤ w) (hw1 : w ≤ 1) (n i : Nat) :
+    (0 : Q') ≤ eval (bernBasisSqP n i) w := by
+  have hom : (0 : Q') ≤ eval onemSqP w :=
+    Q'.le_trans' _ _ _ (oneSubSq_nonneg hw0 hw1) (Q'.ge_of_eqv (eval_oneSubSqP w))
+  have hpp : (0 : Q') ≤ eval (ppow onemSqP (n - i)) w :=
+    Q'.le_trans' 0 (qpow (eval onemSqP w) (n - i)) _
+      (qpow_nonneg _ hom (n - i)) (Q'.ge_of_eqv (eval_ppow onemSqP w (n - i)))
+  exact Q'.le_trans' 0 (qpow w (2 * i) * eval (ppow onemSqP (n - i)) w) _
+    (Q'.mul_nonneg _ _ (qpow_nonneg w hw0 (2 * i)) hpp)
+    (Q'.ge_of_eqv (eval_shiftZ w (ppow onemSqP (n - i)) (2 * i)))
+
+/-- `bernTermsSqP n terms = Σ (i,c)∈terms  c · (w²)^i · (1−w²)^{n−i}` — the `w²`-Bernstein
+certificate polynomial (sparse `(index, nonneg coeff)` list). -/
+def bernTermsSqP (n : Nat) : List (Nat × Q') → Poly
+  | [] => ([] : Poly)
+  | ((i, a) :: rest) => padd (pscale a (bernBasisSqP n i)) (bernTermsSqP n rest)
+
+theorem eval_bernTermsSqP_nonneg {w : Q'} (hw0 : (0 : Q') ≤ w) (hw1 : w ≤ 1) (n : Nat) :
+    ∀ (terms : List (Nat × Q')), (∀ t ∈ terms, (0 : Q') ≤ t.2) →
+      (0 : Q') ≤ eval (bernTermsSqP n terms) w
+  | [], _ => Q'.le_refl' 0
+  | ((i, a) :: rest), h => by
+      show (0 : Q') ≤ eval (padd (pscale a (bernBasisSqP n i)) (bernTermsSqP n rest)) w
+      refine Q'.le_trans' 0 _ _ ?_
+        (Q'.ge_of_eqv (eval_padd (pscale a (bernBasisSqP n i)) (bernTermsSqP n rest) w))
+      refine Q'.zero_le_add _ _ ?_
+        (eval_bernTermsSqP_nonneg hw0 hw1 n rest (fun t ht => h t (List.mem_cons_of_mem _ ht)))
+      refine Q'.le_trans' 0 (a * eval (bernBasisSqP n i) w) _ ?_
+        (Q'.ge_of_eqv (eval_pscale a (bernBasisSqP n i) w))
+      exact Q'.mul_nonneg _ _ (h (i, a) List.mem_cons_self)
+        (eval_bernBasisSqP_nonneg hw0 hw1 n i)
+
+/-- **`curvatureEnvelope_of_sqCert`** — the general bounded-window consumer.  Given `0 ≤ w ≤ 1`, a
+`w²`-Bernstein term list with nonnegative coefficients, and the single decidable identity
+`slackP s = envBoundPoly s + w^k · bernTermsSqP d terms`, the envelope `CurvatureEnvelope w s`
+holds.  The whole transcendental content of window `s` collapses to the one `decide` on `hid`. -/
+theorem curvatureEnvelope_of_sqCert {w : Q'} (s k d : Nat) (terms : List (Nat × Q'))
+    (hw0 : (0 : Q') ≤ w) (hw1 : w ≤ 1)
+    (hnn : ∀ t ∈ terms, (0 : Q') ≤ t.2)
+    (hid : allZero (psub (slackP s)
+      (padd (envBoundPoly s) (shiftZ k (bernTermsSqP d terms))))) :
+    CurvatureEnvelope w s := by
+  show floorLHS w s + envBound w s ≤ floorRHS w s
+  have hcert_nn : (0 : Q') ≤ eval (shiftZ k (bernTermsSqP d terms)) w :=
+    Q'.le_trans' 0 (qpow w k * eval (bernTermsSqP d terms) w) _
+      (Q'.mul_nonneg _ _ (qpow_nonneg w hw0 k)
+        (eval_bernTermsSqP_nonneg hw0 hw1 d terms hnn))
+      (Q'.ge_of_eqv (eval_shiftZ w (bernTermsSqP d terms) k))
+  have hpoly : (eval (slackP s) w).eqv
+      (eval (envBoundPoly s) w + eval (shiftZ k (bernTermsSqP d terms)) w) :=
+    Q'.eqv_trans _ _ _
+      (poly_eqv (slackP s) (padd (envBoundPoly s) (shiftZ k (bernTermsSqP d terms))) w hid)
+      (eval_padd (envBoundPoly s) (shiftZ k (bernTermsSqP d terms)) w)
+  have hle : envBound w s ≤ eval (slackP s) w := by
+    refine Q'.le_trans' _ _ _ (Q'.le_of_eqv (hEnvBound w s)) ?_
+    refine Q'.le_trans' _ _ _
+      (Q'.add_le_self_of_nonneg (eval (envBoundPoly s) w)
+        (eval (shiftZ k (bernTermsSqP d terms)) w) hcert_nn) ?_
+    exact Q'.ge_of_eqv hpoly
+  refine Q'.le_trans' _ _ _
+    (Q'.add_le_add_left (floorLHS w s) (envBound w s) (eval (slackP s) w) hle) ?_
+  exact Q'.ge_of_eqv (hSlackEq w s)
+
+/-! ## 3.6 The bounded windows `s = 1, 2, 3`, PROVED via the `w²`-Bernstein certificate. -/
+
+/-- `w²`-Bernstein certificate for the envelope gap `G_1` (elevated degree `d = 11`, shift `k = 20`). -/
+def envTerms1 : List (Nat × Q') :=
+  [(0, Q'.mkPos 768 1 (by decide)), (1, Q'.mkPos 154752 25 (by decide)),
+   (2, Q'.mkPos 516096 25 (by decide)), (3, Q'.mkPos 891264 25 (by decide)),
+   (4, Q'.mkPos 155136 5 (by decide)), (5, Q'.mkPos 45312 5 (by decide)),
+   (6, Q'.mkPos 79872 25 (by decide)), (7, Q'.mkPos 627456 25 (by decide)),
+   (8, Q'.mkPos 1054464 25 (by decide)), (9, Q'.mkPos 160896 5 (by decide)),
+   (10, Q'.mkPos 12288 1 (by decide)), (11, Q'.mkPos 1920 1 (by decide))]
+
+set_option maxRecDepth 8000 in
+/-- **`curvatureEnvelope_one`** — the envelope at `s = 1`, PROVED on `0 ≤ w ≤ 1`. -/
+theorem curvatureEnvelope_one {w : Q'} (hw0 : (0 : Q') ≤ w) (hw1 : w ≤ 1) :
+    CurvatureEnvelope w 1 :=
+  curvatureEnvelope_of_sqCert 1 20 11 envTerms1 hw0 hw1 (by decide) (by decide)
+
+/-- `w²`-Bernstein certificate for `G_2` (native degree `d = 8`, shift `k = 35`). -/
+def envTerms2 : List (Nat × Q') :=
+  [(0, Q'.mkPos 79392 25 (by decide)), (1, Q'.mkPos 121728 5 (by decide)),
+   (2, Q'.mkPos 1750848 25 (by decide)), (3, Q'.mkPos 2279424 25 (by decide)),
+   (4, Q'.mkPos 1195584 25 (by decide)), (5, Q'.mkPos 44928 5 (by decide)),
+   (6, Q'.mkPos 27840 1 (by decide)), (7, Q'.mkPos 38400 1 (by decide)),
+   (8, Q'.mkPos 16800 1 (by decide))]
+
+set_option maxRecDepth 8000 in
+/-- **`curvatureEnvelope_two`** — the envelope at `s = 2`, PROVED on `0 ≤ w ≤ 1`. -/
+theorem curvatureEnvelope_two {w : Q'} (hw0 : (0 : Q') ≤ w) (hw1 : w ≤ 1) :
+    CurvatureEnvelope w 2 :=
+  curvatureEnvelope_of_sqCert 2 35 8 envTerms2 hw0 hw1 (by decide) (by decide)
+
+/-- `w²`-Bernstein certificate for `G_3` (native degree `d = 14`, shift `k = 50`). -/
+def envTerms3 : List (Nat × Q') :=
+  [(0, Q'.mkPos 10368 1 (by decide)), (1, Q'.mkPos 2794752 25 (by decide)),
+   (2, Q'.mkPos 13620672 25 (by decide)), (3, Q'.mkPos 40601088 25 (by decide)),
+   (4, Q'.mkPos 85756032 25 (by decide)), (5, Q'.mkPos 142860288 25 (by decide)),
+   (6, Q'.mkPos 201136896 25 (by decide)), (7, Q'.mkPos 240553728 25 (by decide)),
+   (8, Q'.mkPos 233933568 25 (by decide)), (9, Q'.mkPos 178757376 25 (by decide)),
+   (10, Q'.mkPos 4444608 1 (by decide)), (11, Q'.mkPos 62735616 25 (by decide)),
+   (12, Q'.mkPos 6526464 5 (by decide)), (13, Q'.mkPos 494592 1 (by decide)),
+   (14, Q'.mkPos 94080 1 (by decide))]
+
+set_option maxRecDepth 12000 in
+/-- **`curvatureEnvelope_three`** — the envelope at `s = 3`, PROVED on `0 ≤ w ≤ 1`. -/
+theorem curvatureEnvelope_three {w : Q'} (hw0 : (0 : Q') ≤ w) (hw1 : w ≤ 1) :
+    CurvatureEnvelope w 3 :=
+  curvatureEnvelope_of_sqCert 3 50 14 envTerms3 hw0 hw1 (by decide) (by decide)
+
 /-! ## 4. Doc-section — PROVED vs NAMED-open (CRITICAL honesty)
 
 PROVED (axiom-clean):
@@ -284,11 +411,17 @@ PROVED (axiom-clean):
     `R1RegimeGE.RegimeGETailBound`, wiring the envelope into the existing R1 upper-half assembly.
   * `curvatureEnvelope_zero` — the BINDING case `s = 0` PROVED via the exact perfect square
     `slack₀ − envBound = (96/25)w¹¹(1−6w²)²`.
+  * `curvatureEnvelope_of_sqCert` — the general bounded-window consumer: a `w²`-Bernstein
+    positivity certificate for `G_s = slackP s − envBoundPoly s` discharges `CurvatureEnvelope w s`.
+  * `curvatureEnvelope_one`, `curvatureEnvelope_two`, `curvatureEnvelope_three` — windows
+    `s = 1, 2, 3` PROVED via that certificate (reduced-bracket degrees `11, 8, 14` in `x = w²`).
 
 NAMED OPEN (Type-level structure, never `sorry`):
   * `UniformCurvatureEnvelope w` — the sharp uniform saddle inequality `Δ²V+2 ≥ (144/25)w²(1−w²)`
-    for ALL `s` (equivalently `s ≥ 1`; `s = 0` PROVED).  The honest remaining analytic core of R1,
-    strictly better-posed than the two-region `RegimeGETailBound`.
+    for ALL `s` (`s = 0, 1, 2, 3` PROVED; residual = the uniform large-`s` tail).  The honest
+    remaining analytic core of R1, strictly better-posed than the two-region `RegimeGETailBound`.
+    Each further bounded window is discharged mechanically by `curvatureEnvelope_of_sqCert`; the
+    genuine open content is a uniform-in-`s` tail bound (theta-moment saddle).
 -/
 
 end YMGap.Continuum.R1CurvatureEnvelope
@@ -300,3 +433,7 @@ end YMGap.Continuum.R1CurvatureEnvelope
 #print axioms YMGap.Continuum.R1CurvatureEnvelope.saddleVarianceFloor_of_curvatureEnvelope
 #print axioms YMGap.Continuum.R1CurvatureEnvelope.regimeGETailBound_of_envelopeTail
 #print axioms YMGap.Continuum.R1CurvatureEnvelope.curvatureEnvelope_zero
+#print axioms YMGap.Continuum.R1CurvatureEnvelope.curvatureEnvelope_of_sqCert
+#print axioms YMGap.Continuum.R1CurvatureEnvelope.curvatureEnvelope_one
+#print axioms YMGap.Continuum.R1CurvatureEnvelope.curvatureEnvelope_two
+#print axioms YMGap.Continuum.R1CurvatureEnvelope.curvatureEnvelope_three
