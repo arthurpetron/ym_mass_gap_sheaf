@@ -4530,6 +4530,7 @@ YMGap.Continuum.R1CaseSplit.q_le_total = propext
 YMGap.Continuum.R1CaseSplit.saddleVarianceFloor_of_cells = propext
 YMGap.Continuum.R1CaseSplit.saddleVarianceFloor_of_reduced = Quot.sound, propext
 YMGap.Continuum.R1CaseSplit.two_smul = propext
+YMGap.Continuum.R1CornerAtoms.oneSub_qpow_le = Quot.sound, propext
 YMGap.Continuum.R1CornerScaffold.regimeGETailBound_of_branches = propext
 YMGap.Continuum.R1CurvatureEnvelope.curvatureEnvelope_five = Quot.sound, propext
 YMGap.Continuum.R1CurvatureEnvelope.curvatureEnvelope_four = Quot.sound, propext
