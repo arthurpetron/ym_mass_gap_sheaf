@@ -420,6 +420,61 @@ theorem curvatureEnvelope_four {w : Q'} (hw0 : (0 : Q') ≤ w) (hw1 : w ≤ 1) :
     CurvatureEnvelope w 4 :=
   curvatureEnvelope_of_sqCert 4 71 20 envTerms4 hw0 hw1 (by decide) (by decide)
 
+/-- `w²`-Bernstein certificate for `G_5` (native degree `d = 29`, shift `k = 92`). -/
+def envTerms5 : List (Nat × Q') :=
+  [(0, Q'.mkPos 61440 1 (by decide)), (1, Q'.mkPos 7890432 5 (by decide)),
+   (2, Q'.mkPos 97419264 5 (by decide)), (3, Q'.mkPos 3856533504 25 (by decide)),
+   (4, Q'.mkPos 4409816064 5 (by decide)), (5, Q'.mkPos 19448750208 5 (by decide)),
+   (6, Q'.mkPos 13811799552 1 (by decide)), (7, Q'.mkPos 1017667527168 25 (by decide)),
+   (8, Q'.mkPos 2547145033728 25 (by decide)), (9, Q'.mkPos 5509837481472 25 (by decide)),
+   (10, Q'.mkPos 10436828732928 25 (by decide)), (11, Q'.mkPos 3495066077184 5 (by decide)),
+   (12, Q'.mkPos 26029553528832 25 (by decide)), (13, Q'.mkPos 34634726818176 25 (by decide)),
+   (14, Q'.mkPos 41289769414656 25 (by decide)), (15, Q'.mkPos 44204377818624 25 (by decide)),
+   (16, Q'.mkPos 42568716523008 25 (by decide)), (17, Q'.mkPos 36880032877824 25 (by decide)),
+   (18, Q'.mkPos 28673448446976 25 (by decide)), (19, Q'.mkPos 19883302768128 25 (by decide)),
+   (20, Q'.mkPos 12176252570112 25 (by decide)), (21, Q'.mkPos 6500859579648 25 (by decide)),
+   (22, Q'.mkPos 2982583683072 25 (by decide)), (23, Q'.mkPos 1159014813696 25 (by decide)),
+   (24, Q'.mkPos 376518610944 25 (by decide)), (25, Q'.mkPos 101155608576 25 (by decide)),
+   (26, Q'.mkPos 4442996736 5 (by decide)), (27, Q'.mkPos 3874977792 25 (by decide)),
+   (28, Q'.mkPos 97929216 5 (by decide)), (29, Q'.mkPos 1354752 1 (by decide))]
+
+set_option maxHeartbeats 4000000 in
+set_option maxRecDepth 40000 in
+/-- **`curvatureEnvelope_five`** — the envelope at `s = 5`, PROVED on `0 ≤ w ≤ 1`. -/
+theorem curvatureEnvelope_five {w : Q'} (hw0 : (0 : Q') ≤ w) (hw1 : w ≤ 1) :
+    CurvatureEnvelope w 5 :=
+  curvatureEnvelope_of_sqCert 5 92 29 envTerms5 hw0 hw1 (by decide) (by decide)
+
+/-- `w²`-Bernstein certificate for `G_6` (native degree `d = 38`, shift `k = 119`). -/
+def envTerms6 : List (Nat × Q') :=
+  [(0, Q'.mkPos 150720 1 (by decide)), (1, Q'.mkPos 28500864 5 (by decide)),
+   (2, Q'.mkPos 521147424 5 (by decide)), (3, Q'.mkPos 30697989888 25 (by decide)),
+   (4, Q'.mkPos 261980224512 25 (by decide)), (5, Q'.mkPos 1726593787008 25 (by decide)),
+   (6, Q'.mkPos 9149014965504 25 (by decide)), (7, Q'.mkPos 40073263702656 25 (by decide)),
+   (8, Q'.mkPos 148057415348928 25 (by decide)), (9, Q'.mkPos 468649311174912 25 (by decide)),
+   (10, Q'.mkPos 1286755891762272 25 (by decide)), (11, Q'.mkPos 619254077384832 5 (by decide)),
+   (12, Q'.mkPos 263489536111872 1 (by decide)), (13, Q'.mkPos 12487337538770688 25 (by decide)),
+   (14, Q'.mkPos 21241594720135296 25 (by decide)), (15, Q'.mkPos 32630434631818752 25 (by decide)),
+   (16, Q'.mkPos 45525248773884096 25 (by decide)), (17, Q'.mkPos 57968815574131584 25 (by decide)),
+   (18, Q'.mkPos 13525265236197216 5 (by decide)), (19, Q'.mkPos 72466343664478464 25 (by decide)),
+   (20, Q'.mkPos 71412293713549056 25 (by decide)), (21, Q'.mkPos 64706012341110144 25 (by decide)),
+   (22, Q'.mkPos 53831342120099328 25 (by decide)), (23, Q'.mkPos 41018978291709312 25 (by decide)),
+   (24, Q'.mkPos 5706888836283072 5 (by decide)), (25, Q'.mkPos 18048308660342784 25 (by decide)),
+   (26, Q'.mkPos 10329666208037856 25 (by decide)), (27, Q'.mkPos 5318724793557888 25 (by decide)),
+   (28, Q'.mkPos 2446770834980352 25 (by decide)), (29, Q'.mkPos 997392400091136 25 (by decide)),
+   (30, Q'.mkPos 356811204684672 25 (by decide)), (31, Q'.mkPos 110797766790912 25 (by decide)),
+   (32, Q'.mkPos 29502410761728 25 (by decide)), (33, Q'.mkPos 6648837149952 25 (by decide)),
+   (34, Q'.mkPos 1250368380864 25 (by decide)), (35, Q'.mkPos 192640363776 25 (by decide)),
+   (36, Q'.mkPos 4693987584 5 (by decide)), (37, Q'.mkPos 82570752 1 (by decide)),
+   (38, Q'.mkPos 3991680 1 (by decide))]
+
+set_option maxHeartbeats 8000000 in
+set_option maxRecDepth 60000 in
+/-- **`curvatureEnvelope_six`** — the envelope at `s = 6`, PROVED on `0 ≤ w ≤ 1`. -/
+theorem curvatureEnvelope_six {w : Q'} (hw0 : (0 : Q') ≤ w) (hw1 : w ≤ 1) :
+    CurvatureEnvelope w 6 :=
+  curvatureEnvelope_of_sqCert 6 119 38 envTerms6 hw0 hw1 (by decide) (by decide)
+
 /-! ## 4. Doc-section — PROVED vs NAMED-open (CRITICAL honesty)
 
 PROVED (axiom-clean):
