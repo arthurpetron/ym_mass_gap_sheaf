@@ -475,6 +475,34 @@ theorem curvatureEnvelope_six {w : Q'} (hw0 : (0 : Q') ≤ w) (hw1 : w ≤ 1) :
     CurvatureEnvelope w 6 :=
   curvatureEnvelope_of_sqCert 6 119 38 envTerms6 hw0 hw1 (by decide) (by decide)
 
+/-! ## 3.7 Assembly — the bounded windows `s = 0..6` (PROVED) + the tail `s ≥ 7`. -/
+
+/-- **`uniformCurvatureEnvelope_of_tail`** — the full uniform envelope from the PROVED bounded
+windows `s = 0..6` plus a tail hypothesis on `s ≥ 7`.  The dispatch on `s` is a decidable
+`Nat` case split; the seven base windows are the proved `curvatureEnvelope_zero..six`, and the
+large windows are supplied by `htail`.  So the sole remaining content of R1's uniform envelope is
+the tail `∀ s ≥ 7, CurvatureEnvelope w s`. -/
+def uniformCurvatureEnvelope_of_tail {w : Q'} (hw0 : (0 : Q') ≤ w) (hw1 : w ≤ 1)
+    (htail : ∀ s, 7 ≤ s → CurvatureEnvelope w s) : UniformCurvatureEnvelope w where
+  env := fun s => by
+    match s with
+    | 0 => exact curvatureEnvelope_zero hw0
+    | 1 => exact curvatureEnvelope_one hw0 hw1
+    | 2 => exact curvatureEnvelope_two hw0 hw1
+    | 3 => exact curvatureEnvelope_three hw0 hw1
+    | 4 => exact curvatureEnvelope_four hw0 hw1
+    | 5 => exact curvatureEnvelope_five hw0 hw1
+    | 6 => exact curvatureEnvelope_six hw0 hw1
+    | (n + 7) => exact htail (n + 7) (by omega)
+
+/-- **`saddleVarianceFloor_of_envelopeTail`** — R1 (`SaddleVarianceFloor w`) from the PROVED bounded
+windows `s = 0..6` plus the tail `∀ s ≥ 7, CurvatureEnvelope w s`.  This is the single remaining
+obligation for the whole of R1 via the uniform envelope. -/
+def saddleVarianceFloor_of_envelopeTail {w : Q'} (hw0 : (0 : Q') ≤ w) (hw1 : w ≤ 1)
+    (htail : ∀ s, 7 ≤ s → CurvatureEnvelope w s) : SaddleVarianceFloor w :=
+  saddleVarianceFloor_of_curvatureEnvelope hw0 hw1
+    (uniformCurvatureEnvelope_of_tail hw0 hw1 htail)
+
 /-! ## 4. Doc-section — PROVED vs NAMED-open (CRITICAL honesty)
 
 PROVED (axiom-clean):
@@ -512,3 +540,8 @@ end YMGap.Continuum.R1CurvatureEnvelope
 #print axioms YMGap.Continuum.R1CurvatureEnvelope.curvatureEnvelope_one
 #print axioms YMGap.Continuum.R1CurvatureEnvelope.curvatureEnvelope_two
 #print axioms YMGap.Continuum.R1CurvatureEnvelope.curvatureEnvelope_three
+#print axioms YMGap.Continuum.R1CurvatureEnvelope.curvatureEnvelope_four
+#print axioms YMGap.Continuum.R1CurvatureEnvelope.curvatureEnvelope_five
+#print axioms YMGap.Continuum.R1CurvatureEnvelope.curvatureEnvelope_six
+#print axioms YMGap.Continuum.R1CurvatureEnvelope.uniformCurvatureEnvelope_of_tail
+#print axioms YMGap.Continuum.R1CurvatureEnvelope.saddleVarianceFloor_of_envelopeTail
