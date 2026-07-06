@@ -629,6 +629,7 @@ import YMGap.Classical.MinlosQuarantine
 import YMGap.Rubric.ClayTargetPinned
 import YMGap.Rubric.FrontierDAG
 import YMGap.Continuum.TrueMarginRecursionPhysical
+import YMGap.Continuum.Phi4YMBridge
 import YMGap.Continuum.HbridgeInputs
 import YMGap.Continuum.PhysicalWilsonBridge
 import YMGap.Continuum.BoundedHamiltonianFiniteVol
