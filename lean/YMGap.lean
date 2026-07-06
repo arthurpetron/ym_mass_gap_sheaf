@@ -633,6 +633,11 @@ import YMGap.Continuum.PenroseDCContract
 import YMGap.Continuum.CubicEulerBound
 import YMGap.Continuum.CayleyMaxBound
 import YMGap.Continuum.CayleyLooseReduction
+import YMGap.Continuum.CayleyParentInj
+import YMGap.Continuum.SpansMinEdgesProof
+import YMGap.Continuum.TreeCountContractProof
+import YMGap.Continuum.PenroseWeightedRepair
+import YMGap.Continuum.SpansContractProof
 import YMGap.Continuum.HaddDischarge
 import YMGap.Classical.MinlosQuarantine
 import YMGap.Rubric.ClayTargetPinned
