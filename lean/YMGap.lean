@@ -454,6 +454,7 @@ import YMGap.Continuum.ClusterBoundInstance
 import YMGap.Continuum.SigmaGroundedFloor
 import YMGap.Continuum.NonSaturatedFloor
 import YMGap.Continuum.RegularContinuumPipeline
+import YMGap.Continuum.Phi4ScalingBand
 import YMGap.Continuum.RGGapPersistence
 import YMGap.Continuum.ContinuumClosureProgram
 import YMGap.Continuum.DominantModeRecursion
