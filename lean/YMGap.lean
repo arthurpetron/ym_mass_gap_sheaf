@@ -489,6 +489,7 @@ import YMGap.Continuum.BondMovingScaledNorm
 import YMGap.Continuum.BondMovingMoment
 import YMGap.Continuum.FusionPositivity
 import YMGap.Continuum.BondMovingQuadratic
+import YMGap.Continuum.RenDefectQuadFactor
 import YMGap.Continuum.FullModeQuadratic
 import YMGap.Continuum.BondMovingRetuneFix
 import YMGap.Continuum.AFRateCalibration
@@ -630,6 +631,7 @@ import YMGap.Rubric.ClayTargetPinned
 import YMGap.Rubric.FrontierDAG
 import YMGap.Continuum.TrueMarginRecursionPhysical
 import YMGap.Continuum.AdditiveErosionAdequacy
+import YMGap.Continuum.NetDriftInvSqBudget
 import YMGap.Continuum.Phi4YMBridge
 import YMGap.Continuum.HbridgeInputs
 import YMGap.Continuum.PhysicalWilsonBridge
