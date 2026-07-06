@@ -1,7 +1,7 @@
 /-
-**Track A2-pentagon — honest refutation of the `Tier0Scorecard.SixJPentagon`
-carrier: the `pentagon` field is a channel-mismatch BUG (contradicts its own
-`RacahProb.rowStoch`), so `SixJPentagon` is PROVABLY UNINHABITED.**
+**Track A2-pentagon — honest refutation of the STANDALONE `Tier0Scorecard.
+SixJPentagon` carrier: the `pentagon` field is a channel-mismatch BUG (contradicts
+its own `RacahProb.rowStoch`), so `SixJPentagon` is PROVABLY UNINHABITED.**
 
 `Tier0Scorecard.SixJPentagon` bundles a doubly-stochastic Racah kernel `P`
 (`SixJRecouplingProgress.RacahProb`) with a `pentagon` field advertised as "a
@@ -13,6 +13,14 @@ channels, so combined with the `RacahProb` structure it is self-contradictory �
 exactly the accidental "Defect-1"-style degeneracy that
 `SixJRecouplingProgress.sixjRecoupling_uninhabited` diagnosed for the earlier
 `SixJRecoupling` frontier (there it forced `1 ≃ 0` at `D = 0`).
+
+**Consequence of this refutation (already acted on):** `Tier0Scorecard.SubWallA`
+no longer carries a `SixJPentagon`.  Its A2 slot has been REPOINTED to the
+genuinely-specified `PentagonRelation.PentagonNumericCore` (the fractional
+associator), with a separate Level-1 `RacahProb` surrogate for the frontierC
+coarsening.  So this module now refutes ONLY the standalone buggy `SixJPentagon`
+structure — it does NOT refute `SubWallA` (which is genuinely, honestly open via
+its `tTree`/`d1Mayer` geometry atoms, NOT provably false).
 
 # The literal field (with `M e f := P.racahProb (mk6 a b c d e f)`, `a,b,c,d` fixed)
 
@@ -184,15 +192,17 @@ theorem sixJPentagon_uninhabited (S : SixJPentagon) : False := by
       (Q'.eqv_trans _ _ _ hpent hrhs_zero)
   exact absurd h_one_zero (by decide)
 
-/-- **Corollary.**  `SubWallA` bundles a `SixJPentagon` (`a2Pentagon`), so it
-too is uninhabited — but now for a DIFFERENT reason than "the continuum is open":
-the `pentagon` carrier is degenerate.  (This does not by itself reopen the honest
-open A-half; it flags that the A2 slot needs a corrected carrier — the genuine
-signed-6j associator `PentagonRelation.PentagonNumericCore`, whose true `Q'`
-recoupling relation is `SixJKernel.RacahOrthogonalityGeneral`.) -/
-theorem subWallA_uninhabited
-    {p : z4Chain.toLattice.Plaquette} {w : Q'} (A : SubWallA p w) : False :=
-  sixJPentagon_uninhabited A.a2Pentagon
+/-! ## 2. RETIRED — `subWallA_uninhabited`.
+
+Before the A2 repoint, `SubWallA` bundled a `SixJPentagon` (`a2Pentagon`), so a
+`subWallA_uninhabited : SubWallA → False` followed from `sixJPentagon_uninhabited`.
+That theorem has been RETIRED: `SubWallA.a2Pentagon` is now a
+`PentagonRelation.PentagonNumericCore` (inhabitable as a spec, physical associator
+open), NOT a `SixJPentagon`, so `sixJPentagon_uninhabited` no longer type-checks
+against it and `SubWallA` is no longer provably false.  `SubWallA` remains
+genuinely OPEN (uninhabited via its `tTree`/`d1Mayer` geometry atoms), exactly as
+a frontier bundle should be — no longer for the WRONG reason of a degenerate
+carrier.  This module now refutes only the standalone buggy `SixJPentagon`. -/
 
 end YMGap.Continuum.SixJPentagonRefutation
 
@@ -201,4 +211,3 @@ end YMGap.Continuum.SixJPentagonRefutation
 #print axioms YMGap.Continuum.SixJPentagonRefutation.finSum_all_zero
 #print axioms YMGap.Continuum.SixJPentagonRefutation.collapse3
 #print axioms YMGap.Continuum.SixJPentagonRefutation.sixJPentagon_uninhabited
-#print axioms YMGap.Continuum.SixJPentagonRefutation.subWallA_uninhabited

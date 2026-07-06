@@ -12,7 +12,11 @@ as the genuinely-nonlinear `SixJPentagon` residual, and refining its Core-B atom
     (T′)  `Ursell4DProgress.TreeGraphBound.tree_graph`  — spanning-tree inequality
     (D1)  `Ursell4DProgress.BridgeDecomposition.decompose` — Mayer–Ursell expansion
     (D2)  `Ursell4DProgress.SepLatticeZ4`  — the plaquette metric refining `z4Chain`
-    (A2)  `SixJPentagon`  — the Biedenharn–Elliott pentagon, NONLINEAR in the kernel
+    (A2)  `PentagonRelation.PentagonNumericCore` — the fractional-6j associator
+          (`SixJPentagon` was a channel-mismatch BUG, REFUTED; the genuine
+          Biedenharn–Elliott pentagon is LINEAR in the signed irrational `{6j}`,
+          not `Q'`-representable).  Carried alongside a Level-1 `RacahProb` coarse
+          surrogate used only for the frontierC coarsening.
 
   Sub-wall B (Balaban RG) — 3 OPEN atoms, all inside ONE
     `AsymptoticSpectralLoc.SpectralMarginInput b afr N₀`
@@ -31,18 +35,20 @@ as the genuinely-nonlinear `SixJPentagon` residual, and refining its Core-B atom
   * `subB_prodFloor_pos` / `subB_physGap_pos` — the assembled Stage-2 floor
     (the three-floor collapse `Stage2ConvergesToMargin.stage2_*` fired from the
     single `SpectralMarginInput`, `recursion` DISCHARGED not assumed).
-  * `a2_racah` / `a2_tetra_nonneg` — the A2 vacuity is CLOSED: `RacahInhabit.racahRP`
-    inhabits `RacahProb`, so the coarse a2 slot is genuinely non-empty and the
-    tetrahedron amplitude is concretely nonnegative.
-  * `pentagon_to_racah` — the atom-level DOMINATION: every `SixJPentagon` carries a
-    `RacahProb` (drop the pentagon), so the finer A2 atom refines the coarse one.
+  * `a2_racah` / `a2_tetra_nonneg` — the Level-1 A2 surrogate is non-empty:
+    `RacahInhabit.racahRP` inhabits `RacahProb` (the coarse `SubWallA.a2Racah`
+    slot) and the tetrahedron amplitude is concretely nonnegative.
+  * `pentagon_to_racah` — a retained (NO-LONGER-USED) fact about the REFUTED buggy
+    `SixJPentagon`: dropping its pentagon field yields a `RacahProb`.
   * `toFrontierC` — the supersession bridge: a `Tier0Scorecard` coarsens to a
-    `Tier0FrontierCorrected.Tier0FrontierC`, discharging its a2 slot from the
-    scorecard's OWN pentagon kernel.  It consumes the coarse `a1`/`b` as explicit
-    inputs precisely BECAUSE Sub-wall A refines `a1` into (T′)+(D1)+(D2) and
-    Sub-wall B refines `b` into the pinned `SpectralMarginInput` — the finer
-    enumeration does not hand back the coarse atoms for free.  This records the
-    strict refinement mechanically.
+    `Tier0FrontierCorrected.Tier0FrontierC`, discharging its coarse a2 slot from
+    the scorecard's OWN Level-1 `SubWallA.a2Racah` surrogate (the genuine Level-2
+    content `SubWallA.a2Pentagon : PentagonNumericCore` is non-stochastic — constant
+    `1/4` — so it admits NO total map to `RacahProb`).  It consumes the coarse
+    `a1`/`b` as explicit inputs precisely BECAUSE Sub-wall A refines `a1` into
+    (T′)+(D1)+(D2) and Sub-wall B refines `b` into the pinned `SpectralMarginInput`
+    — the finer enumeration does not hand back the coarse atoms for free.  This
+    records the strict refinement mechanically.
 
 # DELIBERATELY UNINHABITED bundle
 
@@ -69,6 +75,7 @@ import YMGap.Continuum.Tier0FrontierCorrected
 import YMGap.Continuum.Ursell4DProgress
 import YMGap.Continuum.RacahInhabit
 import YMGap.Continuum.Stage2ConvergesToMargin
+import YMGap.Continuum.PentagonRelation
 
 namespace YMGap.Continuum.Tier0Scorecard
 
@@ -87,22 +94,26 @@ open YMGap.Continuum.SixJRecouplingProgress
 open YMGap.Continuum.AFRateCalibration
 open YMGap.Rubric
 
-/-! ## 1. The ONE genuinely-new Type: the 6j pentagon residual (A2). -/
+/-! ## 1. The REFUTED buggy carrier `SixJPentagon` (retained for the record). -/
 
-/-- **`SixJPentagon` (NEW — the genuine A2 residual).**  Carries a rational Racah
-kernel `P : RacahProb` (dim-absorbed `(2e+1)(2f+1)·{6j}²`) that ADDITIONALLY closes
-a Biedenharn–Elliott-type pentagon relation — a CUBIC (nonlinear-in-the-kernel)
-identity, guarded by a largeness bound `< D` to avoid the `D = 0` truncation
-degeneracy that killed the buggy `SixJRecoupling`.
+/-- **`SixJPentagon` — the REFUTED buggy A2 carrier (retained, NO LONGER a field
+of `SubWallA`).**
 
-This is strictly stronger than `RacahProb`: the doubly-stochastic
-`RacahInhabit.racahRP` permutation surrogate inhabits `RacahProb` but is a 0/1
-matrix and does NOT close the cubic pentagon, so it does NOT lift to a
-`SixJPentagon`.  The faithful fractional Wigner-6j is what closes the pentagon, and
-extracting it from the squared kernel `P` is nonlinear — hence this is LEFT
-UNINHABITED, never proved.  (The wiring below is the pentagon's structural shape —
-a two-kernel product equal to an internal sum of three-kernel products — carrying
-the genuine nonlinearity, not an assertion of the textbook index assignment.) -/
+Originally advertised as "the genuine cubic A2 residual".  A close reading of the
+actual field shows this is FALSE: the `pentagon` field is a channel-mismatch BUG —
+its third internal factor `P.racahProb (mk6 a b c d x e)` puts the LEFT index `e`
+into the RIGHT (`f`) slot, which together with `RacahProb.rowStoch`/`support`
+forces `1 ≃ 0`.  So `SixJPentagon` is PROVABLY UNINHABITED for the WRONG reason (a
+bug, not open physics); see `SixJPentagonRefutation.sixJPentagon_uninhabited`.
+
+Moreover the genuine Biedenharn–Elliott pentagon is LINEAR in the SIGNED
+(irrational) Wigner `{6j}` (e.g. `{1 1 1; ½ ½ ½} = −1/3`), so it is NOT
+`Q'`-representable and this cubic squared field can never be corrected in place.
+The A2 slot of `SubWallA` is therefore REPOINTED to the correctly-specified
+`PentagonRelation.PentagonNumericCore` (the fractional associator, non-empty as a
+spec via `numericShapeWitness`, physical associator OPEN, refuted for every
+permutation surrogate).  This structure is kept ONLY so the refutation module has
+a standalone target; it is no longer used by `SubWallA`. -/
 structure SixJPentagon : Type where
   /-- The rational dim-absorbed 6j-square kernel underlying the pentagon. -/
   P : SixJRecouplingProgress.RacahProb
@@ -114,28 +125,50 @@ structure SixJPentagon : Type where
         P.racahProb (mk6 a b c d e x) *
           (P.racahProb (mk6 a b c d x f) * P.racahProb (mk6 a b c d x e))) D)
 
-/-! ## 2. Sub-wall A — the four loopy-geometry atoms (all OPEN; (T′) coupled to (D2)). -/
+/-! ## 2. Sub-wall A — the loopy-geometry atoms (OPEN; (T′) coupled to (D2)). -/
 
-/-- **`SubWallA` — the loopy-geometry sub-wall (4 OPEN atoms).**
+/-- **`SubWallA` — the loopy-geometry sub-wall.**
 
-  * `d2Sep`     — (D2) the `SepLattice` metric refining `z4Chain`;
+  * `d2Sep`     — (D2) the `SepLattice` metric refining `z4Chain` (inhabited DATA,
+                  carried only to type `tTree`);
   * `tTree`     — (T′) the spanning-tree inequality, phrased over `d2Sep.val`
-                  (the (T′)/(D2) coupling made explicit);
-  * `d1Mayer`   — (D1) the absolute Mayer–Ursell connecting-cluster expansion;
-  * `a2Pentagon`— (A2) the nonlinear 6j pentagon residual.
+                  (the (T′)/(D2) coupling made explicit) — GENUINELY OPEN;
+  * `d1Mayer`   — (D1) the absolute Mayer–Ursell connecting-cluster expansion —
+                  GENUINELY OPEN;
+  * `a2Racah`   — (A2, Level-1) the coarse doubly-stochastic Racah 6j² surrogate,
+                  carried only to discharge the coarse `Tier0FrontierC` a2 slot;
+  * `a2Pentagon`— (A2, Level-2) the genuine fractional-6j associator
+                  `PentagonRelation.PentagonNumericCore` (physical associator OPEN).
 
-LEFT UNINHABITED — supplying all four WITHOUT `sorry`/`axiom` is the open A-half. -/
+LEFT UNINHABITED.  The genuine open blockers are `tTree` and `d1Mayer` (and, at the
+scorecard level, `subB`); `d2Sep` is inhabited DATA and `a2Racah` is an inhabited
+Level-1 surrogate, while the `a2Pentagon` SPEC is inhabitable (`numericShapeWitness`
+/ `SixJKernel.racahKernelCore`) yet its PHYSICAL associator stays open.  Supplying
+every field as the genuine physical object WITHOUT `sorry`/`axiom` is the open
+A-half. -/
 structure SubWallA (p : z4Chain.toLattice.Plaquette) (w : Q') : Type 1 where
-  /-- **(D2)** — the plaquette-graph `SepLattice` metric refining `z4Chain`. -/
+  /-- **(D2)** — the plaquette-graph `SepLattice` metric refining `z4Chain`
+  (inhabited DATA, carried only to type `tTree`). -/
   d2Sep : Ursell4DProgress.SepLatticeZ4
   /-- **(T′)** — the per-cluster Penrose / Poghosyan–Ueltschi spanning-tree
-  inequality, over the (D2) lattice `d2Sep.val` (the coupled atom). -/
+  inequality, over the (D2) lattice `d2Sep.val` (the coupled atom).  GENUINELY OPEN. -/
   tTree : Ursell4DProgress.TreeGraphBound d2Sep.val w4 gr
   /-- **(D1)** — the absolute Mayer–Ursell connecting-cluster expansion over the
-  CLOSED 4D count `z4ClusterCountBound p`. -/
+  CLOSED 4D count `z4ClusterCountBound p`.  GENUINELY OPEN. -/
   d1Mayer : Ursell4DProgress.BridgeDecomposition (z4ClusterCountBound p) w4 gr
-  /-- **(A2)** — the nonlinear 6j Biedenharn–Elliott pentagon residual. -/
-  a2Pentagon : SixJPentagon
+  /-- **(A2, Level-1 coarse)** — the doubly-stochastic Racah 6j² kernel, a
+  permutation-satisfiable surrogate (`RacahInhabit.racahRP`), carried ONLY to
+  discharge the coarse `Tier0FrontierC` a2 slot via `toFrontierC`.  It is NOT what
+  keeps `SubWallA` open. -/
+  a2Racah : SixJRecouplingProgress.RacahProb
+  /-- **(A2, Level-2 genuine)** — the fractional-6j associator numeric core
+  `PentagonRelation.PentagonNumericCore`, pinned to `1/4` at the smallest
+  tetrahedron and refuted for every permutation surrogate.  Its minimal SPEC is
+  inhabitable (`numericShapeWitness` / `SixJKernel.racahKernelCore`); the PHYSICAL
+  associator (full nonlinear Biedenharn–Elliott pentagon + two-sided stochasticity)
+  is the genuine OPEN obligation.  REPOINTED here from the refuted buggy
+  `SixJPentagon`. -/
+  a2Pentagon : PentagonRelation.PentagonNumericCore
 
 /-! ## 3. The scorecard bundle (DELIBERATELY UNINHABITED). -/
 
@@ -204,12 +237,14 @@ theorem subB_physGap_pos {p : z4Chain.toLattice.Plaquette} {w : Q'}
     (0 : Q') < (Stage2ConvergesToMargin.toDefectGapRecursion F.subB).physGap k :=
   Stage2ConvergesToMargin.defectGap_physGap_pos F.subB k
 
-/-! ## 7. A2 vacuity CLOSED + atom-level domination. -/
+/-! ## 7. Level-1 A2 slot inhabited + retained refuted-carrier domination. -/
 
-/-- **A2 vacuity CLOSED (PROVED inhabitation).**  `RacahInhabit.racahRP` inhabits
-`RacahProb`, so the coarse A2 slot is genuinely non-empty (the buggy
-`SixJRecoupling` was provably empty; this is not).  The pentagon of `SixJPentagon`
-is the genuinely-stronger residual on TOP of this inhabited base. -/
+/-- **The Level-1 A2 surrogate is inhabited (PROVED inhabitation).**
+`RacahInhabit.racahRP` inhabits `RacahProb`, so the coarse Level-1 A2 surrogate
+(`SubWallA.a2Racah`, consumed by `toFrontierC`) is genuinely non-empty.  This is
+the permutation-satisfiable shadow; the genuine Level-2 content is the fractional
+`PentagonRelation.PentagonNumericCore` (`SubWallA.a2Pentagon`), refuted for every
+such permutation surrogate (`PentagonRelation.racahRP_fails_numeric`). -/
 def a2_racah : SixJRecouplingProgress.RacahProb := RacahInhabit.racahRP
 
 /-- **A2 tetrahedron amplitude nonnegative (PROVED).**  With the `racahRP` witness,
@@ -218,9 +253,12 @@ theorem a2_tetra_nonneg (D : Nat) (a b c d : Rep) :
     (0 : Q') ≤ SixJRecouplingProgress.tetraAmp RacahInhabit.racahRP D a b c d :=
   RacahInhabit.tetraAmp_racahRP_nonneg D a b c d
 
-/-- **Atom-level DOMINATION (PROVED).**  Every `SixJPentagon` yields a `RacahProb`
-by dropping the pentagon — so the finer A2 atom refines (mechanically dominates)
-the coarse `Tier0FrontierC` A2 atom `RacahProb`. -/
+/-- **Atom-level domination of the REFUTED carrier (retained, NO LONGER USED).**
+Every `SixJPentagon` yields a `RacahProb` by dropping its (buggy) pentagon field.
+Kept only for the record; `toFrontierC` now discharges the coarse `Tier0FrontierC`
+a2 slot directly from the Level-1 `SubWallA.a2Racah` surrogate, since the A2 slot
+is repointed to `PentagonRelation.PentagonNumericCore` (which — being
+non-stochastic, constant `1/4` — admits NO total map to `RacahProb`). -/
 def pentagon_to_racah (S : SixJPentagon) : SixJRecouplingProgress.RacahProb :=
   S.P
 
@@ -230,8 +268,10 @@ def pentagon_to_racah (S : SixJPentagon) : SixJRecouplingProgress.RacahProb :=
 `Tier0Scorecard` coarsens to a `Tier0FrontierCorrected.Tier0FrontierC`:
 
   * `fixedSpacing` / `minlos` transport verbatim;
-  * the coarse a2 slot is discharged from the scorecard's OWN pentagon kernel
-    (`F.subA.a2Pentagon.P`, via `pentagon_to_racah`);
+  * the coarse a2 slot is discharged from the scorecard's OWN Level-1 surrogate
+    `F.subA.a2Racah` (the genuine `F.subA.a2Pentagon : PentagonNumericCore` is
+    non-stochastic, constant `1/4`, and admits no total map to `RacahProb`, so the
+    coarse slot uses the Level-1 face);
   * the coarse `a1` and `b` are consumed as EXPLICIT inputs, precisely because
     Sub-wall A refines `a1` into (T′)+(D1)+(D2) and Sub-wall B refines `b` into the
     pinned `SpectralMarginInput` — the finer enumeration does not hand back the
@@ -248,7 +288,7 @@ def toFrontierC {p : z4Chain.toLattice.Plaquette} {w : Q'}
   fixedSpacing := F.fixedSpacing
   atoms :=
     { a1 := a1
-      a2 := pentagon_to_racah F.subA.a2Pentagon
+      a2 := F.subA.a2Racah
       b := bcr }
   minlos := F.minlos
 
@@ -265,13 +305,17 @@ PROVED here (axiom-clean):
   * `subA_offCorr_decompose` / `subA_tree_graph` — the (D1)/(T′) projections;
   * `subB_prodFloor_pos` / `subB_physGap_pos` — the Stage-2 three-floor collapse
     from ONE `SpectralMarginInput` (`recursion` DISCHARGED);
-  * `a2_racah` / `a2_tetra_nonneg` — A2 vacuity CLOSED via `racahRP`;
-  * `pentagon_to_racah` — atom-level domination of the coarse A2 atom;
-  * `toFrontierC` — the supersession coarsening onto `Tier0FrontierC`.
+  * `a2_racah` / `a2_tetra_nonneg` — the Level-1 A2 surrogate inhabited via `racahRP`;
+  * `pentagon_to_racah` — a retained fact about the REFUTED buggy `SixJPentagon`;
+  * `toFrontierC` — the supersession coarsening onto `Tier0FrontierC` (coarse a2
+    discharged from the Level-1 `a2Racah`).
 
-OPEN (NAMED, NO inhabitant — the sharpened 6-atom + orthogonal frontier):
+OPEN (NAMED, NO inhabitant — the sharpened frontier):
   Sub-wall A: (T′) `TreeGraphBound.tree_graph`, (D1) `BridgeDecomposition.decompose`,
-              (D2) `SepLatticeZ4`, (A2) `SixJPentagon` (nonlinear pentagon);
+              (D2) `SepLatticeZ4` (inhabited DATA), (A2)
+              `PentagonRelation.PentagonNumericCore` — the fractional-6j associator
+              (physical associator open; `SixJPentagon` was a refuted
+              channel-mismatch bug);
   Sub-wall B: `SpectralMarginInput` = `sl.hlocalize` (Core B) + `hbridge` + `hadd`;
   Orthogonal: `ContinuumScorecard.CitedMinlosLift`.
 

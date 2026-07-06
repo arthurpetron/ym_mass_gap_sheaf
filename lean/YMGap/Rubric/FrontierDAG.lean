@@ -35,6 +35,7 @@ Two honest reductions are recorded (NAMED, uninhabited — never faked):
 import YMGap.Continuum.SpectralLocalizationCrux
 import YMGap.Continuum.Ursell4DProgress
 import YMGap.Continuum.Tier0Scorecard
+import YMGap.Continuum.PentagonRelation
 import YMGap.Continuum.AcNReserveAnalytic
 import YMGap.Continuum.PinnedBridgeProgress
 import YMGap.Continuum.UniformCouplingFromAF
@@ -73,7 +74,7 @@ product open.
 Buckets:
 
 * **Bucket 1 — a→0 gap-survival / Tier-0 cluster:** `bulkCtrl`, `d2Sep`,
-  `tTree`, `d1Mayer`, `a2Pentagon`, `coreB`.
+  `tTree`, `d1Mayer`, `a2Racah`, `a2Pentagon`, `coreB`.
 * **Shared:** `minlos` (also appears in the reconstruction scorecard).
 * **Bucket 2 — reconstruction frontier:** `edgeShift`, `trueMargin`,
   `boundedH`, `o4`.
@@ -97,8 +98,14 @@ structure FrontierDAG
   /-- (D1) the absolute Mayer–Ursell connecting-cluster expansion over the CLOSED
   4D count `z4ClusterCountBound p`. -/
   d1Mayer : Ursell4DProgress.BridgeDecomposition (z4ClusterCountBound p) w4 gr
-  /-- (A2) the nonlinear 6j Biedenharn–Elliott pentagon residual. -/
-  a2Pentagon : Tier0Scorecard.SixJPentagon
+  /-- (A2, Level-1) the coarse doubly-stochastic Racah 6j² surrogate, carried only
+  to discharge the coarse `Tier0FrontierC` a2 slot; permutation-satisfiable
+  (`RacahInhabit.racahRP`). -/
+  a2Racah : SixJRecouplingProgress.RacahProb
+  /-- (A2, Level-2) the genuine fractional-6j associator numeric core
+  `PentagonRelation.PentagonNumericCore` (physical associator OPEN).  REPOINTED
+  from the refuted buggy `Tier0Scorecard.SixJPentagon`. -/
+  a2Pentagon : PentagonRelation.PentagonNumericCore
   /-- (Core B) the finite-`s` central-autoconvolution theta-floor margin. -/
   coreB : AcNReserveAnalytic.FiniteSMargin w
   -- ── SHARED cross-list node ──────────────────────────────────────────────
@@ -118,9 +125,9 @@ structure FrontierDAG
 /-! ## 2. Bucket-1 coarsening — TOTAL, PROVED (à la `Tier0Scorecard.toFrontierC`)
 
 A pure field re-bundle onto the loopy-geometry sub-wall.  Clean and total: the
-four sub-wall atoms `d2Sep`/`tTree`/`d1Mayer`/`a2Pentagon` are carried verbatim,
-and the dependent typing (`tTree` over `d2Sep.val`) transports because `d2Sep` is
-re-supplied first. -/
+sub-wall atoms `d2Sep`/`tTree`/`d1Mayer`/`a2Racah`/`a2Pentagon` are carried
+verbatim, and the dependent typing (`tTree` over `d2Sep.val`) transports because
+`d2Sep` is re-supplied first. -/
 
 /-- **`toSubWallA` — the clean Bucket-1 coarsening (PROVED, TOTAL).**  A
 `FrontierDAG` coarsens to the four-atom loopy-geometry sub-wall
@@ -135,6 +142,7 @@ def toSubWallA
   d2Sep := F.d2Sep
   tTree := F.tTree
   d1Mayer := F.d1Mayer
+  a2Racah := F.a2Racah
   a2Pentagon := F.a2Pentagon
 
 /-! ## 3. The SHARED cross-list identity — TOTAL, PROVED (definitional)

@@ -5070,7 +5070,6 @@ YMGap.Continuum.SixJKernel.triSq_nonneg = propext
 YMGap.Continuum.SixJPentagonRefutation.collapse3 = propext
 YMGap.Continuum.SixJPentagonRefutation.finSum_all_zero = propext
 YMGap.Continuum.SixJPentagonRefutation.sixJPentagon_uninhabited = propext
-YMGap.Continuum.SixJPentagonRefutation.subWallA_uninhabited = Quot.sound, propext
 YMGap.Continuum.SixJRecouplingProgress.guardedRow_satisfiable_at_zero = propext
 YMGap.Continuum.SixJRecouplingProgress.racahProb_not_allZero = Quot.sound, propext
 YMGap.Continuum.SixJRecouplingProgress.rowStoch_not_imply_colStoch = propext
