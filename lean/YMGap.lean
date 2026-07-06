@@ -309,6 +309,7 @@ import YMGap.Continuum.AutoconvGershgorin
 import YMGap.Continuum.FusionCoreStepRoundL
 import YMGap.Continuum.FusionCoreStepRoundM
 import YMGap.Continuum.FusionUTuranWFree
+import YMGap.Continuum.FusionUTuranEnvelope
 import YMGap.Continuum.HamiltonianAllSep
 import YMGap.Continuum.DeMoivreHalfGen
 import YMGap.Continuum.AFCertificateModel
