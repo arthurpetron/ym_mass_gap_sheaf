@@ -69,6 +69,10 @@ permitted output is `propext` / `Quot.sound` only.  No `Classical.*`, no
 import YMGap.Continuum.RegularContinuumPipeline
 import YMGap.Continuum.AFRateCalibration
 import YMGap.Constructive.ExpNeg
+import YMGap.Continuum.SemicircleConvClosed
+import YMGap.Continuum.BernsteinStageData
+import YMGap.Continuum.ArtanhMonotone
+import YMGap.Continuum.AFExpLift
 
 namespace YMGap.Continuum.Phi4ScalingBand
 
@@ -307,6 +311,212 @@ theorem phi4_latMargin_varies :
   show vSeq 1 < vSeq 0
   decide
 
+/-! ## 4. The CONVERGENCE-MODULUS extension `Phi4ScalingLimitModulus`
+
+`RegScalingLimitModulus` EXTENDS `RegScalingBand` (§3) with the SUPPLIED data of
+the STRONGER a→0 refinement (trichotomy (c)): an Archimedean spacing-vanishing
+witness, a bare-coupling record, and a spacing-uniform two-sided CONVERGENCE
+modulus on the physical-gap sequence.  Because `physGap j ≃ c_j = 1 + 1/(j+2)`
+CONVERGES to the continuum value `1` (the fixed physical mass), the modulus is a
+genuine `⌈1/ε⌉` Archimedean rate, NOT the trivial `M ε = 0`.  From it the
+pipeline builds the single continuum physical gap `scaling_continuum_physGap`
+with positivity PROVED.
+
+# HONESTY — this validates the CONVERGENCE PLUMBING, not YM physics
+
+  * The convergence `physGap j → 1` is a RATIONAL fact about the dialed-in
+    `c_j = 1 + 1/(j+2)`; the `1/(j+2)` approach rate is put in BY HAND.  It is NOT
+    dimensional transmutation / asymptotic-freedom running: YM has no mass
+    parameter to dial, and the EXISTENCE of a continuum limit for the YM physical
+    gap (let alone its rate) is exactly the open frontier.
+  * `Phi4ScalingLimitModulus` inhabits the GENERIC pipeline structure
+    `RegScalingLimitModulus`, which is NOT a guarded Clay-frontier bundle.  It is
+    deliberately NOT wired into `UniformSpacingFloor` / `ClayTarget` /
+    `Tier0Scorecard` / `ClayTargetPinned` / `FrontierDAG`; those stay UNINHABITED.
+  * What is genuinely exercised: the SUPPLIED-modulus machinery
+    (`completeLimit` of `j ↦ ofQ' (physGap j)`, positivity from the uniform
+    floor, the `ModCauchy` two-sided bound), i.e. the part of the pipeline that
+    most resembles the real continuum-limit obligation. -/
+
+/-! ### 4.1 An antitone Archimedean modulus `archMod ε = ⌈1/ε⌉`
+
+`archMod ε` is the rational ceiling of `1/ε` (`qCeilNat (recipPos ε)`), else `0`.
+For `ε > 0` and `j ≥ archMod ε` it forces `invSucc (j+1) ≤ ε` (`archMod_spec`),
+and it is antitone in `ε` (`archMod_antitone`).  This is the genuine
+Archimedean-null witness for `a_j = invSucc(j+1) → 0` AND the convergence rate for
+`c_j → 1`. -/
+
+/-- Antitone Archimedean modulus `⌈1/ε⌉` (`qCeilNat` of the positive reciprocal),
+`0` for `ε ≤ 0`. -/
+def archMod (ε : Q') : Nat :=
+  if h : (0 : Q') < ε then SemicircleConvClosed.qCeilNat (Q'.recipPos ε h) else 0
+
+theorem archMod_pos_eq (ε : Q') (h : (0 : Q') < ε) :
+    archMod ε = SemicircleConvClosed.qCeilNat (Q'.recipPos ε h) := by
+  unfold archMod; rw [dif_pos h]
+
+/-- **Archimedean spec:** for `ε > 0` and `j ≥ archMod ε`, `invSucc (j+1) ≤ ε`.
+Route: `recipPos ε ≤ ofNat (archMod ε) ≤ ofNat j` (`q_le_qCeilNat` + `ofNat`
+monotone), cross-multiplied through `recipPos_num`/`recipPos_den` to
+`ε.den ≤ j·ε.num`, then `ε.den ≤ ε.num·(j+2)`. -/
+theorem archMod_spec (ε : Q') (h : (0 : Q') < ε) (j : Nat) (hj : archMod ε ≤ j) :
+    Q'.invSucc (j + 1) ≤ ε := by
+  have hnum : 0 < ε.num := Q'.num_pos_of_pos h
+  have hle : Q'.recipPos ε h ≤ Q'.ofNat (archMod ε) := by
+    rw [archMod_pos_eq ε h]; exact SemicircleConvClosed.q_le_qCeilNat (Q'.recipPos ε h)
+  have hMj : Q'.ofNat (archMod ε) ≤ Q'.ofNat j := by
+    show (Q'.ofNat (archMod ε)).num * ((Q'.ofNat j).den : Int)
+        ≤ (Q'.ofNat j).num * ((Q'.ofNat (archMod ε)).den : Int)
+    have e1 : (Q'.ofNat (archMod ε)).num = (archMod ε : Int) := rfl
+    have e2 : (Q'.ofNat j).num = (j : Int) := rfl
+    have e3 : ((Q'.ofNat j).den : Int) = 1 := rfl
+    have e4 : ((Q'.ofNat (archMod ε)).den : Int) = 1 := rfl
+    rw [e1, e2, e3, e4, Int.mul_one, Int.mul_one]
+    exact_mod_cast hj
+  have hrecj : Q'.recipPos ε h ≤ Q'.ofNat j := Q'.le_trans' _ _ _ hle hMj
+  have hcm : (ε.den : Int) ≤ (j : Int) * ε.num := by
+    have h2 : (Q'.recipPos ε h).num * ((Q'.ofNat j).den : Int)
+        ≤ (Q'.ofNat j).num * ((Q'.recipPos ε h).den : Int) := hrecj
+    rw [Q'.recipPos_num ε h, Q'.recipPos_den ε h] at h2
+    have e2 : (Q'.ofNat j).num = (j : Int) := rfl
+    have e3 : ((Q'.ofNat j).den : Int) = 1 := rfl
+    rw [e2, e3, Int.mul_one] at h2
+    exact h2
+  show (Q'.invSucc (j + 1)).num * (ε.den : Int) ≤ ε.num * ((Q'.invSucc (j + 1)).den : Int)
+  rw [Q'.invSucc_num, Q'.invSucc_den, Int.one_mul]
+  have hjj : (j : Int) ≤ (((j + 1) + 1 : Nat) : Int) := by
+    exact_mod_cast (show j ≤ (j + 1) + 1 by omega)
+  have hnn : (0 : Int) ≤ ε.num := Int.le_of_lt hnum
+  have step : (j : Int) * ε.num ≤ (((j + 1) + 1 : Nat) : Int) * ε.num :=
+    Int.mul_le_mul_of_nonneg_right hjj hnn
+  have hfin : (ε.den : Int) ≤ (((j + 1) + 1 : Nat) : Int) * ε.num := Int.le_trans hcm step
+  rw [Int.mul_comm]
+  exact hfin
+
+/-- **`archMod` is antitone.**  `0 < δ`, `δ ≤ ε ⟹ archMod ε ≤ archMod δ`
+(a smaller tolerance needs a later stage).  Route: `recipPos_antitone` +
+`qCeilNat_mono`. -/
+theorem archMod_antitone : ∀ ε δ : Q', (0 : Q') < δ → δ ≤ ε → archMod ε ≤ archMod δ := by
+  intro ε δ hδ hδε
+  have hε : (0 : Q') < ε := AFExpLift.lt_of_lt_of_le hδ hδε
+  rw [archMod_pos_eq ε hε, archMod_pos_eq δ hδ]
+  exact BernsteinStageData.qCeilNat_mono (ArtanhMonotone.recipPos_antitone δ ε hδ hε hδε)
+
+/-! ### 4.2 The two-sided physical-gap convergence step
+
+The physical gap `physGap j ≃ c_j = 1 + invSucc(j+1)` converges to `1`.  For
+`i ≥ archMod ε` the excess `invSucc(i+1) ≤ ε`, and since every `c_j ≥ 1`:
+
+  `physGap i ≤ c_i = 1 + invSucc(i+1) ≤ 1 + ε ≤ c_j + ε ≤ physGap j + ε`.
+
+Symmetrising gives the two-sided `physBound`. -/
+
+/-- **One-sided convergence step.**  For `ε > 0` and `i ≥ archMod ε`, the physical
+gap at step `i` is within `ε` above the physical gap at ANY step `j`:
+`physGap i ≤ physGap j + ε`.  (Only the `i`-side Archimedean bound is used.) -/
+theorem phi4_physGap_le_add (ε : Q') (hε : (0 : Q') < ε) (i j : Nat)
+    (hi : archMod ε ≤ i) :
+    Q'.divPos (vSeq i) (aSeq i) (aSeq_pos i)
+      ≤ Q'.divPos (vSeq j) (aSeq j) (aSeq_pos j) + ε := by
+  have hpi : Q'.divPos (vSeq i) (aSeq i) (aSeq_pos i) ≤ cSeq i :=
+    Q'.divPos_le_of_le_mul (vSeq i) (aSeq i) (aSeq_pos i) (Q'.le_refl' (vSeq i))
+  have hpj : cSeq j ≤ Q'.divPos (vSeq j) (aSeq j) (aSeq_pos j) :=
+    Q'.le_divPos_of_mul_le (vSeq j) (aSeq j) (aSeq_pos j) (Q'.le_refl' (vSeq j))
+  have hinv : Q'.invSucc (i + 1) ≤ ε := archMod_spec ε hε i hi
+  have hci : cSeq i ≤ (1 : Q') + ε := Q'.add_le_add_left 1 (Q'.invSucc (i + 1)) ε hinv
+  have h1e : (1 : Q') + ε ≤ cSeq j + ε := Q'.add_le_add_right 1 (cSeq j) ε (cSeq_ge_one j)
+  have hpjε : cSeq j + ε ≤ Q'.divPos (vSeq j) (aSeq j) (aSeq_pos j) + ε :=
+    Q'.add_le_add_right (cSeq j) _ ε hpj
+  exact Q'.le_trans' _ _ _ hpi
+    (Q'.le_trans' _ _ _ hci (Q'.le_trans' _ _ _ h1e hpjε))
+
+/-! ### 4.3 The headline: `Phi4ScalingLimitModulus : RegScalingLimitModulus`
+
+Extends `phi4ScalingBand` with the Archimedean spacing-null witness (`archMod`),
+a bare-coupling record (`cSeq`, the dialed-in physical mass — data, NOT AF
+running), and the genuine two-sided physical-gap convergence modulus. -/
+
+/-- **THE φ⁴ CONVERGENCE-MODULUS INHABITANT.**  A concrete `RegScalingLimitModulus`
+extending `phi4ScalingBand`: the spacings `a_j = invSucc(j+1) → 0` are genuinely
+Archimedean-null (`spacing_to_zero` via `archMod`), and the physical gap
+`physGap j ≃ 1 + 1/(j+2)` CONVERGES to the continuum value `1` with the explicit
+antitone rate `archMod`.  The `bareCoupling` is the dialed-in physical mass
+`cSeq` (data, NOT asymptotic-freedom running).  This inhabits the GENERIC
+pipeline structure, NOT any guarded YM Clay-frontier type. -/
+def phi4ScalingLimitModulus : RegScalingLimitModulus where
+  toRegScalingBand := phi4ScalingBand
+  spacingMod := archMod
+  spacing_to_zero := fun ε hε j hj => archMod_spec ε hε j hj
+  bareCoupling := cSeq
+  physMod := archMod
+  physMod_mono := archMod_antitone
+  physBound := fun ε hε i j hi hj =>
+    ⟨phi4_physGap_le_add ε hε i j hi, phi4_physGap_le_add ε hε j i hj⟩
+
+/-! ### 4.4 The continuum (`a → 0`) physical gap, FIRED on φ⁴
+
+The pipeline's supplied-modulus continuum machinery, now discharged on a concrete
+genuinely-converging inhabitant: the single continuum physical gap is positive and
+sits in the physical band `[1, 3/2]`. -/
+
+/-- **The continuum (`a → 0`) physical gap of the φ⁴ model is strictly positive**
+— FIRED via `scaling_continuum_physGap_isPositive`.  (φ⁴: the survival is a
+dialed-in bare mass, NOT YM dimensional transmutation.) -/
+theorem phi4_scaling_continuum_isPositive :
+    RegularCReal.IsPositive
+      (scaling_continuum_physGap phi4ScalingLimitModulus) :=
+  scaling_continuum_physGap_isPositive phi4ScalingLimitModulus
+
+/-- The continuum physical gap dominates the physical floor `ofQ' 1` — FIRED. -/
+theorem phi4_scaling_continuum_ge_one :
+    RegularCReal.ofQ' phi4ScalingLimitModulus.physGapMin
+      ≤ scaling_continuum_physGap phi4ScalingLimitModulus :=
+  scaling_continuum_physGap_ge_floor phi4ScalingLimitModulus
+
+/-- The continuum physical gap is bounded above by the physical ceiling
+`ofQ' (3/2)` — FIRED.  The continuum gap sits in the band `[1, 3/2]`. -/
+theorem phi4_scaling_continuum_le_threehalves :
+    scaling_continuum_physGap phi4ScalingLimitModulus
+      ≤ RegularCReal.ofQ' phi4ScalingLimitModulus.physGapMax :=
+  scaling_continuum_physGap_le_ceiling phi4ScalingLimitModulus
+
+/-! ### 4.5 NON-VACUITY: the modulus is genuine and the gap really converges to 1
+
+The convergence rate is real (`archMod` fires at concrete tolerances), and the
+physical gap `physGap j ≃ 1 + 1/(j+2)` genuinely APPROACHES the continuum value
+`1` — exhibited at `j = 0, 1, 10` (`3/2, 4/3, 13/12`, strictly decreasing towards
+`1`). -/
+
+/-- The convergence modulus genuinely FIRES: for `ε = 1/10` and any `j ≥
+archMod (1/10)`, the physical gap is within `1/10` above `physGap` at every other
+step (two-sided).  A concrete witness that `physMod` is not the trivial `0`
+modulus. -/
+theorem phi4_physMod_fires (i j : Nat)
+    (hi : phi4ScalingLimitModulus.physMod (Q'.mkPos 1 10 (by decide)) ≤ i) :
+    Q'.divPos ((phi4ScalingLimitModulus.atSpacing i).floorRate)
+        (phi4ScalingLimitModulus.spacing i) (phi4ScalingLimitModulus.spacing_pos i)
+      ≤ Q'.divPos ((phi4ScalingLimitModulus.atSpacing j).floorRate)
+          (phi4ScalingLimitModulus.spacing j) (phi4ScalingLimitModulus.spacing_pos j)
+        + Q'.mkPos 1 10 (by decide) :=
+  phi4_physGap_le_add (Q'.mkPos 1 10 (by decide)) (by decide) i j hi
+
+/-- `physGap 10 ≃ 13/12` — the physical gap at spacing `a_10 = 1/12`, strictly
+closer to the continuum value `1` than `physGap 0 = 3/2` and `physGap 1 = 4/3`. -/
+theorem phi4_physGap_ten : (phi4ScalingBand.physGap 10).eqv (Q'.mkPos 13 12 (by decide)) :=
+  Q'.eqv_trans _ _ _ (phi4_physGap_eqv_c 10) (by decide)
+
+/-- **The physical gap genuinely APPROACHES `1`.**  The excess `physGap j − 1 ≃
+1/(j+2)` strictly decreases: `physGap 0 (3/2) > physGap 1 (4/3) > physGap 10
+(13/12)`, all `> 1`.  Together with `phi4_scaling_continuum_ge_one` /
+`phi4_scaling_continuum_le_threehalves`, the continuum limit is the genuine
+`a → 0` value the sequence converges DOWN to. -/
+theorem phi4_physGap_approaches_one :
+    (phi4ScalingBand.physGap 10).eqv (Q'.mkPos 13 12 (by decide)) ∧
+      Q'.mkPos 13 12 (by decide) < Q'.mkPos 4 3 (by decide) ∧
+      Q'.mkPos 4 3 (by decide) < Q'.mkPos 3 2 (by decide) ∧
+      (1 : Q') < Q'.mkPos 13 12 (by decide) :=
+  ⟨phi4_physGap_ten, by decide, by decide, by decide⟩
+
 end YMGap.Continuum.Phi4ScalingBand
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
@@ -328,3 +538,13 @@ end YMGap.Continuum.Phi4ScalingBand
 #print axioms YMGap.Continuum.Phi4ScalingBand.phi4_physGap_one
 #print axioms YMGap.Continuum.Phi4ScalingBand.phi4_physGap_varies
 #print axioms YMGap.Continuum.Phi4ScalingBand.phi4_latMargin_varies
+#print axioms YMGap.Continuum.Phi4ScalingBand.archMod_spec
+#print axioms YMGap.Continuum.Phi4ScalingBand.archMod_antitone
+#print axioms YMGap.Continuum.Phi4ScalingBand.phi4_physGap_le_add
+#print axioms YMGap.Continuum.Phi4ScalingBand.phi4ScalingLimitModulus
+#print axioms YMGap.Continuum.Phi4ScalingBand.phi4_scaling_continuum_isPositive
+#print axioms YMGap.Continuum.Phi4ScalingBand.phi4_scaling_continuum_ge_one
+#print axioms YMGap.Continuum.Phi4ScalingBand.phi4_scaling_continuum_le_threehalves
+#print axioms YMGap.Continuum.Phi4ScalingBand.phi4_physMod_fires
+#print axioms YMGap.Continuum.Phi4ScalingBand.phi4_physGap_ten
+#print axioms YMGap.Continuum.Phi4ScalingBand.phi4_physGap_approaches_one
