@@ -620,6 +620,7 @@ import YMGap.Continuum.Tier0Scorecard
 import YMGap.Continuum.MeanComplementCovariance
 import YMGap.Continuum.MeanComplementLogConcave
 import YMGap.Continuum.PenroseDomInduction
+import YMGap.Continuum.PenroseDCContract
 import YMGap.Continuum.CubicEulerBound
 import YMGap.Continuum.CayleyMaxBound
 import YMGap.Continuum.CayleyLooseReduction
@@ -642,6 +643,7 @@ import YMGap.Continuum.CayleyPruferInjection
 import YMGap.Continuum.CompletionGenerator
 import YMGap.Continuum.MayerUrsellZ4
 import YMGap.Continuum.CayleyInjection
+import YMGap.Continuum.CayleyLooseInjection
 import YMGap.Continuum.MayerUrsellZ4Restated
 import YMGap.Continuum.RacahOrthogonalityGeneral
 import YMGap.Continuum.PhysicalCharCoordinateMap
