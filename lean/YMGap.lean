@@ -636,6 +636,7 @@ import YMGap.Continuum.AFDeepUVSummability
 import YMGap.Continuum.NetDriftBudgetSplit
 import YMGap.Continuum.CrossoverAnchorFloor
 import YMGap.Continuum.CrossoverFlowContraction
+import YMGap.Continuum.CrossoverDefectUnification
 import YMGap.Continuum.AFEpsRideBudget
 import YMGap.Continuum.Phi4YMBridge
 import YMGap.Continuum.HbridgeInputs
