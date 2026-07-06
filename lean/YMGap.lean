@@ -326,6 +326,7 @@ import YMGap.Continuum.LocatedBracketGen
 import YMGap.Continuum.H4RotationAuto
 import YMGap.Continuum.AcNReserveAnalytic
 import YMGap.Continuum.FusionUTuranReindex
+import YMGap.Continuum.FusionUTuranFiniteS
 import YMGap.Continuum.WilsonSpectralBridge
 import YMGap.Continuum.RCScaleClose
 import YMGap.Continuum.CharacterDiagResolutionProof
