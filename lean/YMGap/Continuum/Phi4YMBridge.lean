@@ -253,6 +253,115 @@ theorem gap_survives_of_trueMarginPhysical
       ≤ RegularCReal.ofQ' ((scalingBand_of_trueMarginPhysical T E).physGap j) :=
   (scalingBand_of_trueMarginPhysical T E).band_gap_survives j
 
+/-! ## 5. TIGHTENING — the LOCATED carrier: bridge with NO separate envelope
+
+The bridge of §4 takes TWO arguments: the Clay-core carrier `T` and a separate
+`MarginBandEnvelope T`.  This section folds the envelope's two non-Clay facts
+into the carrier itself, so the tightened bridge depends on ONE object.
+
+**Honest verdict (adversarial), stated up front.**  The two envelope facts are
+NOT derivable from `TrueMarginRecursionPhysical` alone: `T` carries only a LOWER
+bound on the margin (`lowerBound`, `Δ ≤ margin k`), so neither the located
+ceiling `< 1` on `m_lat` nor the physical finiteness ceiling `C` follows from its
+fields.  Nor are they proved for the a→0 SEQUENCE by any repo result — the
+strong-coupling anchor (`RGGapPersistence.anchor_physGap_pos`) is a located gap
+at the SINGLE spacing `a_0 = 1`, not along the whole trajectory.  So route (a)
+("carrier alone") is impossible; this is route (b): the facts are folded in as
+GENUINELY NON-CLAY provenance fields of a refined LOCATED carrier, and the result
+is honestly "carrier-with-located-provenance", not "bare carrier alone".  What is
+achieved: the envelope is no longer a SEPARATE user obligation, and the two
+folded facts are exhibited as exactly the "located separator in `(0,1)`" half of
+a `LocatedSpectralGap` (`locatedSeparator_mem`) — an upper ceiling on the excited
+transfer spectrum, provably NOT the open positivity of the physical floor.  The
+Clay core (`step` + anchor-dominates-budget) is untouched and remains the SOLE
+open content. -/
+
+/-- **The LOCATED YM carrier.**  The Clay-core carrier `TrueMarginRecursionPhysical`
+augmented with the SAME two non-Clay pipeline facts that `MarginBandEnvelope`
+carried — now as inherited provenance fields rather than a separate obligation:
+
+  * `massLat_lt_one` — the lattice gap margin `m_lat(a_k) < 1` (a located
+    separator exists; the excited transfer spectrum sits at `≥ 0`);
+  * `ceilConst`/`physCeil` — a uniform physical ceiling (finiteness).
+
+Both are genuine but NON-Clay (a located margin lies in `(0,1)`; the physical gap
+is finite).  DELIBERATELY UNINHABITED here — it extends the uninhabited Clay-core
+carrier, adding only non-Clay ceilings, so producing an inhabitant is STILL
+exactly the open dimensional-transmutation `step`/anchor-dominates-budget problem
+of the base carrier. -/
+structure TrueMarginRecursionPhysicalLocated extends TrueMarginRecursionPhysical where
+  /-- The lattice gap margin is `< 1` at every scale (located separator exists). -/
+  massLat_lt_one : ∀ k, massLat k < (1 : Q')
+  /-- A uniform physical ceiling `C` (the finiteness half). -/
+  ceilConst : Q'
+  /-- The physical gap `m_lat(a_k)/a_k` is bounded above by `C`, uniformly. -/
+  physCeil : ∀ k,
+    Q'.divPos (massLat k) (spacing k) (spacing_pos k) ≤ ceilConst
+
+/-- The located carrier's two folded facts ARE a `MarginBandEnvelope` for its
+underlying Clay-core carrier — the envelope is now DERIVED, not a separate
+hypothesis. -/
+def TrueMarginRecursionPhysicalLocated.toEnvelope
+    (TL : TrueMarginRecursionPhysicalLocated) :
+    MarginBandEnvelope TL.toTrueMarginRecursionPhysical where
+  massLat_lt_one := TL.massLat_lt_one
+  ceilConst := TL.ceilConst
+  physCeil := TL.physCeil
+
+/-- **The located-separator provenance of the folded facts.**  For each scale the
+value `sep k := 1 − m_lat(a_k)` is a genuine located separator STRICTLY inside
+`(0,1)` — exactly a `LocatedSpectralGap.sep`:
+
+  * `0 < sep k` (i.e. `sep k` is a real gap below the vacuum eigenvalue `1`) comes
+    from the CARRIED `massLat_lt_one` — an UPPER ceiling on `m_lat`;
+  * `sep k < 1` is DERIVED from the base carrier alone (`massLat_pos`, itself
+    derived from `T`), NOT carried.
+
+So the carrier adds only the "excited transfer spectrum sits at `≥ 0`" ceiling
+half of a located gap — the direction OPPOSITE to the open positivity of the
+physical floor (which stays `floorWitness`, the Clay core).  This is the precise
+sense in which the folded field is a non-Clay located fact and not a disguised
+positivity. -/
+theorem locatedSeparator_mem (TL : TrueMarginRecursionPhysicalLocated) (k : Nat) :
+    (0 : Q') < 1 - TL.massLat k ∧ 1 - TL.massLat k < (1 : Q') :=
+  ⟨one_sub_pos_of_lt_one (TL.massLat_lt_one k),
+   Phi4ScalingBand.one_sub_lt_one (massLat_pos TL.toTrueMarginRecursionPhysical k)⟩
+
+/-- The `RegScalingBand` for the LOCATED YM carrier — the SAME φ⁴-validated
+pipeline as §4, now over one object (envelope derived). -/
+def scalingBand_of_trueMarginPhysicalLocated
+    (TL : TrueMarginRecursionPhysicalLocated) : RegScalingBand :=
+  scalingBand_of_trueMarginPhysical TL.toTrueMarginRecursionPhysical TL.toEnvelope
+
+/-- **THE TIGHTENED φ⁴ → YM BRIDGE.**  The YM continuum physical-gap floor
+`physGapMin` is strictly positive, GIVEN the single LOCATED carrier
+`TrueMarginRecursionPhysicalLocated` — NO separate `MarginBandEnvelope`
+hypothesis.  The envelope is derived from the carrier's folded non-Clay
+provenance (`toEnvelope`); the floor is still `floorWitness`, the genuine
+rational witness of the continuum-limit margin `Δ`.  The sole open content
+remains the (uninhabited) Clay-core `step`/anchor-dominates-budget of the base
+carrier. -/
+theorem physGapMin_pos_of_trueMarginPhysicalLocated
+    (TL : TrueMarginRecursionPhysicalLocated) :
+    (0 : Q') < (scalingBand_of_trueMarginPhysicalLocated TL).physGapMin :=
+  physGapMin_pos_of_trueMarginPhysical TL.toTrueMarginRecursionPhysical TL.toEnvelope
+
+/-- The tightened bridge's positive floor is `floorWitness` — the real rational
+witness of `Δ`, not a placeholder (non-vacuity of the one-argument bridge). -/
+@[simp] theorem scalingBand_physGapMin_located
+    (TL : TrueMarginRecursionPhysicalLocated) :
+    (scalingBand_of_trueMarginPhysicalLocated TL).physGapMin =
+      TL.toTrueMarginRecursionPhysical.floorWitness := rfl
+
+/-- **The YM continuum gap SURVIVES `a → 0`, from the single located carrier.**
+Every physical gap dominates the positive floor `ofQ' floorWitness`, uniformly in
+the spacing — the tightened one-argument form of `gap_survives_of_trueMarginPhysical`. -/
+theorem gap_survives_of_trueMarginPhysicalLocated
+    (TL : TrueMarginRecursionPhysicalLocated) (j : Nat) :
+    RegularCReal.ofQ' (scalingBand_of_trueMarginPhysicalLocated TL).physGapMin
+      ≤ RegularCReal.ofQ' ((scalingBand_of_trueMarginPhysicalLocated TL).physGap j) :=
+  (scalingBand_of_trueMarginPhysicalLocated TL).band_gap_survives j
+
 end YMGap.Continuum.Phi4YMBridge
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
@@ -268,3 +377,9 @@ end YMGap.Continuum.Phi4YMBridge
 #print axioms YMGap.Continuum.Phi4YMBridge.physGapMin_pos_of_trueMarginPhysical
 #print axioms YMGap.Continuum.Phi4YMBridge.scalingBand_physGapMin
 #print axioms YMGap.Continuum.Phi4YMBridge.gap_survives_of_trueMarginPhysical
+#print axioms YMGap.Continuum.Phi4YMBridge.TrueMarginRecursionPhysicalLocated.toEnvelope
+#print axioms YMGap.Continuum.Phi4YMBridge.locatedSeparator_mem
+#print axioms YMGap.Continuum.Phi4YMBridge.scalingBand_of_trueMarginPhysicalLocated
+#print axioms YMGap.Continuum.Phi4YMBridge.physGapMin_pos_of_trueMarginPhysicalLocated
+#print axioms YMGap.Continuum.Phi4YMBridge.scalingBand_physGapMin_located
+#print axioms YMGap.Continuum.Phi4YMBridge.gap_survives_of_trueMarginPhysicalLocated
