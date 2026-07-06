@@ -632,6 +632,7 @@ import YMGap.Continuum.O4RestorationReduction
 import YMGap.Continuum.LocalCurvatureFields
 import YMGap.Continuum.MayerBridgeDecomposition
 import YMGap.Continuum.SixJKernel
+import YMGap.Continuum.SixJPentagonRefutation
 import YMGap.RG.WeylDimGeneralData
 import YMGap.Rubric.FrontierDAGBridges
 import YMGap.Continuum.CayleyPruferInjection
