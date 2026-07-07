@@ -708,3 +708,4 @@ import YMGap.Continuum.BlockSpinMarginConstruction
 import YMGap.Continuum.AnchorDominanceEigenvalueShift
 import YMGap.Continuum.EigenvalueShiftBound
 import YMGap.Continuum.AFBetaStepCanonical
+import YMGap.Continuum.AnchorFixedSpacingDischarge
