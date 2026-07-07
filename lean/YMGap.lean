@@ -757,3 +757,4 @@ import YMGap.Continuum.UniformMFoldConcentration
 import YMGap.Continuum.MKBondMovingControl
 import YMGap.Continuum.BirkhoffContraction
 import YMGap.Continuum.VarianceMonotonicity
+import YMGap.Continuum.SingleStepDecompositionAdjudication

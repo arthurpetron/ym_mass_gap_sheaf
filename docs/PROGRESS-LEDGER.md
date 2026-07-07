@@ -40,6 +40,29 @@ but they did **not** move D and did **not** shrink the hard core.
 3. `singleStep` moved 1 → 2 (**decomposed**), and one piece (uniform-in-`m`) reduced to
    a single-functional statement `Var_m(cosθ) ≤ Var_2` that is genuinely strictly weaker.
 
+## ADJUDICATION (2026-07-07, `SingleStepDecompositionAdjudication.lean`): the decomposition was FAKE — **F = 1, atomic core**
+
+Machine-checked verdict (build 744, guard OK, axiom-clean; **no new alias — C accurate = 18**):
+- **`channel_feedback` = DEFINITIONAL ALIAS** of `singleStep` (`channelFeedback_iff_singleStep := Iff.rfl`).
+- **`real_defect_identification` = LOGICALLY EQUAL** (bi-implication proved; the model defect is
+  itself a legal witness, so it adds nothing).
+- **`uniform_in_m` = strictly weaker but proved NOT core-shrinking** — it is `afr`/fusion-only and
+  never mentions the free margin `tm`; `singleStep`'s truth varies with `tm` at fixed `afr`
+  (`singleStep_satisfiable_zero` / `singleStep_falsifiable`), so no `afr`-only statement implies it.
+- `decomposition_collapses_to_singleStep` derives `singleStep` using ONLY the alias conjunct.
+
+**Consequence:** `singleStep` is **atomic beyond `uniform_in_m`**. Honest **F = 1**. Closing
+`uniform_in_m` (which itself reduces to the open local-CLT wall `FusionConvLogConcaveCore`) is a
+genuine partial result that does **not** shrink the hard core. **No strictly-weaker reduction
+below `singleStep` is known** — every prior "tool" (MK, Birkhoff, Simon–Lieb, RG-flow, multiscale
+polymer, Wetterich, instanton, OPE, …) reduces *to* it (C = 18 aliases), never below.
+
+**The only honest remaining moves:** (a) prove atomic `singleStep` directly = construct/bound the
+real 4D block-spin per-step defect over the full RG recursion (the foundational constructive
+continuum-limit problem); or (b) discover a genuinely-new strictly-weaker reduction (none known).
+Both are legitimate under the anti-loop rule; **spawning any further tool that reduces to
+`singleStep` is now a provable loop and is forbidden.**
+
 ## Critical-path DAG (proved reductions ⇒, open leaves in **bold**)
 
 ```

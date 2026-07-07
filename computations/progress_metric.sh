@@ -19,9 +19,14 @@ echo "=================================================================="
 # --- C: CONFIRMATION / LOOP counter ------------------------------------------
 # Every  `X := SingleStepDefectBound`  alias is an attack that re-derived the
 # SAME core obligation. Growth of C with no change in F/D = a LOOP.
-C=$(grep -rl ":= *SingleStepDefect" YMGap/ 2>/dev/null | wc -l | tr -d ' ')
+# Robust: count `def X : Type := [...]SingleStepDefectBound` alias definitions
+# (continuation-aware; ignores prose/comments that merely mention the string).
+C=$(awk '/^[[:space:]]*def[[:space:]]+[A-Za-z0-9_]+[[:space:]]*:[[:space:]]*Type/{
+           if($0 ~ /SingleStepDefectBound/){c++; next}
+           getline nxt; if(nxt ~ /SingleStepDefectBound/) c++
+         } END{print c+0}' YMGap/Continuum/*.lean)
 echo
-echo "C  (confirmation aliases of singleStep; a LOOP counter)     : $C"
+echo "C  (confirmation aliases 'def X := SingleStepDefectBound'; LOOP counter): $C"
 echo "     ^ each is a distinct module that reduced to singleStep."
 echo "     Adding to C without moving F or D = a mathematical loop."
 
@@ -31,10 +36,14 @@ echo "     Adding to C without moving F or D = a mathematical loop."
 # Maintained by hand in the ledger (a type that is `:= SingleStepDefectBound`
 # does NOT count — it is the same obligation). Update FRONTIER below as the
 # decomposition changes.
+# ADJUDICATED (commit after 72f59ef): the 3-piece "decomposition" was FAKE.
+#   channel_feedback = DEFEQ alias of singleStep (Iff.rfl)
+#   real_defect_identification = LOGICALLY EQUAL (bi-implication proved)
+#   uniform_in_m = strictly weaker BUT proved NOT core-shrinking (afr-only; singleStep
+#                  varies with the free margin tm) -> closing it does not reduce the core.
+# => the core is ATOMIC. Honest F = 1.
 FRONTIER=(
-  "uniform_in_m_variance_monotonicity   # Var_m(cosθ) ≤ Var_2 ; single-functional, single-scale : STRICTLY WEAKER, attackable"
-  "channel_feedback                     # s≥2 remainder -> next-scale s=1 gap over the recursion : status UNKNOWN (may be = singleStep)"
-  "real_defect_identification           # real 4D block-spin defect = the fusion object          : status UNKNOWN (may be = singleStep)"
+  "singleStep_ATOMIC   # realδ_k ≤ 6(1−w_k)² over the full RG recursion on trueMargin ; NO known strictly-weaker reduction below it"
 )
 echo
 echo "F  (distinct open frontier obligations, NOT singleStep-aliases): ${#FRONTIER[@]}"
