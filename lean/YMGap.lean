@@ -722,5 +722,6 @@ import YMGap.Continuum.WickTreeDomination
 import YMGap.Continuum.IsserlisPenroseReduction
 import YMGap.Continuum.InteractingMeasureReduction
 import YMGap.Continuum.ZnCharacterSumFrontier
+import YMGap.Continuum.ZnWilsonConstruction
 import YMGap.Continuum.AFBetaStepCanonical
 import YMGap.Continuum.AnchorFixedSpacingDischarge
