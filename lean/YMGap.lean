@@ -703,3 +703,4 @@ import YMGap.Continuum.RouteFTransferIdentification
 import YMGap.Continuum.RouteIEigenvalueDefect
 import YMGap.Continuum.RouteGProductFloorAssembly
 import YMGap.Continuum.RenormalizedDefectCounterterm
+import YMGap.Continuum.BlockSpinMarginConstruction
