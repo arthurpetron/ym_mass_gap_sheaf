@@ -707,5 +707,6 @@ import YMGap.Continuum.RenormalizedDefectCounterterm
 import YMGap.Continuum.BlockSpinMarginConstruction
 import YMGap.Continuum.AnchorDominanceEigenvalueShift
 import YMGap.Continuum.EigenvalueShiftBound
+import YMGap.Continuum.FormPreservationCluster
 import YMGap.Continuum.AFBetaStepCanonical
 import YMGap.Continuum.AnchorFixedSpacingDischarge
