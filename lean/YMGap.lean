@@ -759,9 +759,11 @@ import YMGap.Continuum.BirkhoffContraction
 import YMGap.Continuum.VarianceMonotonicity
 import YMGap.Continuum.SingleStepDecompositionAdjudication
 import YMGap.Continuum.DirectSingleStepReconGap
+import YMGap.Continuum.PushedReconTransferGap
 import YMGap.Continuum.CodynamicReflectionUnitRecast
 import YMGap.Continuum.SITE1PerMoveDefect
 import YMGap.Continuum.DimensionalLiftCollapse
+import YMGap.Continuum.MinkowskiModularReflection
 
 -- Codynamic core: reusable error/defect + trajectory (Grönwall) tools,
 -- transposed from the machine-verified Agda `Codynamic.*` development.
