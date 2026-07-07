@@ -716,6 +716,7 @@ import YMGap.Continuum.FieldSpaceCluster
 import YMGap.Continuum.KPFieldAmplitude
 import YMGap.Continuum.SinglePolymerGaussian
 import YMGap.Continuum.ExactSinglePolymerActivity
+import YMGap.Continuum.NonpertActivityHeatKernel
 import YMGap.Continuum.FieldMeasureUrsell
 import YMGap.Continuum.ContinuumFieldMeasure
 import YMGap.Continuum.WickTreeDomination
