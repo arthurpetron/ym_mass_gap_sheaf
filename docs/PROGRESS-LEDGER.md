@@ -74,6 +74,26 @@ mass_gap  ⇐  rgFlow_gap_conditional ∧ MultiScalePolymerExpansion  (PROVED as
                  └─ **real_defect_identification** (real 4D block-spin defect = fusion object ; NOT YET shown strictly weaker)
 ```
 
+## DIRECT-CONSTRUCTION increment (2026-07-07, `PushedReconTransferGap.lean`)
+
+Front (a) — direct construction of the real defect — made genuine progress (deliverable
+class (ii)+(iii); build 753, guard OK, axiom-clean, C=18 unchanged, no alias):
+- **Proved range EXTENDED** `[0, 1/2] → [0, 2^{−1/3})`: `reconTransfer_located_gap_gen`
+  removes the `w ≤ 1/2` gate — the real reconstructed single-edge transfer margin
+  `reconMargin w = 1 − 2w³` (the genuine Wilson correlator gap, `wilsonG_eqv_reconTransfer_corr`,
+  not a model) has a located gap for every `w` with `rho w = 2w³ < 1`. Concrete witness
+  `w₀ = 0.793` (`reconMargin ≈ 0.00265 > 0`), within `7×10⁻⁴` of the character radius.
+- **Residual pinned SHARP** (`located_gap_window_sharp` + `no_located_gap_above_ceiling`):
+  the single-edge located-gap window is EXACTLY `[0, 2^{−1/3})`; for every `w ≥ 2^{−1/3}`
+  the reconstructed operator has **no** located gap (`rho ≥ 1`). The AF flow drives
+  `w_k → 1` across `w*`; the `[2^{−1/3}, 1)` window provably needs the interacting
+  **multi-plaquette block-spin effective action** (the unconstructed `a→0` object). A
+  physical ceiling (the character/strong radius), not a proof weakness.
+
+So the exact remaining obstruction is now: **construct a located transfer gap on
+`[2^{−1/3}, 1)` via the multi-plaquette effective action** — the sharpest statement yet
+of the atomic core's analytic content.
+
 ## Anti-loop rule (enforced before spawning any attack)
 
 Predict the attack's honest outcome. **If it is "produces another
