@@ -719,5 +719,6 @@ import YMGap.Continuum.ExactSinglePolymerActivity
 import YMGap.Continuum.FieldMeasureUrsell
 import YMGap.Continuum.WickTreeDomination
 import YMGap.Continuum.IsserlisPenroseReduction
+import YMGap.Continuum.ZnCharacterSumFrontier
 import YMGap.Continuum.AFBetaStepCanonical
 import YMGap.Continuum.AnchorFixedSpacingDischarge
