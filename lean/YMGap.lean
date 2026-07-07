@@ -720,6 +720,7 @@ import YMGap.Continuum.FieldMeasureUrsell
 import YMGap.Continuum.ContinuumFieldMeasure
 import YMGap.Continuum.WickTreeDomination
 import YMGap.Continuum.IsserlisPenroseReduction
+import YMGap.Continuum.InteractingMeasureReduction
 import YMGap.Continuum.ZnCharacterSumFrontier
 import YMGap.Continuum.AFBetaStepCanonical
 import YMGap.Continuum.AnchorFixedSpacingDischarge
