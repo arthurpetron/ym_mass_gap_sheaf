@@ -756,3 +756,4 @@ import YMGap.Continuum.InteractingMFoldDefect
 import YMGap.Continuum.UniformMFoldConcentration
 import YMGap.Continuum.MKBondMovingControl
 import YMGap.Continuum.BirkhoffContraction
+import YMGap.Continuum.VarianceMonotonicity

@@ -64,6 +64,17 @@ Only spawn an attack that would:
   (single-scale/finite vs all-scale/uniform/continuum), or
 - **(c)** REFUTE a genuinely-live candidate route (kills a branch, not a re-confirmation).
 
+## Dead routes (refuted — do not re-attempt)
+
+- **`Var_m(cosθ)` monotonicity → uniform-in-`m`** — REFUTED (`VarianceMonotonicity.lean`,
+  `varMono_insufficient_for_uniform`). `Var_m` monotone-decreasing is TRUE and its exact
+  identity is proved, but `Cdef = 4·Var + F(μ)` and the `F`-gap cancels the variance gap:
+  concrete counterexample `w=0.6`, `Var_3<Var_2` yet `Cdef_3>Cdef_2`. So variance
+  monotonicity does **not** yield `Cdef_m ≤ Cdef_2`. Also **corrects** the earlier
+  `sup_m Cdef_m = Cdef_2` claim (deep-UV-only; false at strong coupling — sup at `m=3` for
+  `w=0.6`). The uniform bound `Cdef_m ≤ 6(1−w)²` itself still holds with large margin, but
+  its rigorous proof remains the open local-CLT wall `FusionConvLogConcaveCore`.
+
 ## Re-oriented plan (only F-moving work)
 
 1. **Discharge uniform-in-`m`** (variance monotonicity `Var_m ≤ Var_2`). In flight. If
