@@ -744,3 +744,4 @@ import YMGap.Continuum.FieldSpaceRenormalized
 import YMGap.Continuum.ConfigSpaceMeasure
 import YMGap.Continuum.IRRegulatorAnalyticity
 import YMGap.Continuum.EffectiveActionMassFlow
+import YMGap.Continuum.InteractingSinglePolymerMeasure
