@@ -94,6 +94,31 @@ So the exact remaining obstruction is now: **construct a located transfer gap on
 `[2^{−1/3}, 1)` via the multi-plaquette effective action** — the sharpest statement yet
 of the atomic core's analytic content.
 
+## MULTI-PLAQUETTE increment (2026-07-07, `MultiPlaquetteEffectiveTransfer.lean`)
+
+Front (a) — the `[w*,1)` residual above — CONSTRUCTED (deliverable class (ii)+(iii);
+full build GREEN 754 jobs, guard OK at 5, axiom-clean `[propext(,Quot.sound)]`, C=18
+unchanged, NO alias):
+
+- **Multi-plaquette (block-spin renormalized) effective transfer BUILT** (`effTransfer`):
+  degeneracy `dimQ r` moved from the eigenvalue (`reconTransfer`'s `2w³`, degeneracy
+  compounding per link) into the **multiplicity/amplitude**, so the per-step rate is the
+  resummed heat-kernel ratio `w^{C₄(r)}` — leading `μ_1 = w³ = heatKernelSep w`, exactly
+  the codebase's documented "genuine gap" separator.
+- **Gap bounded on the ENTIRE `[w*,1)`** (`effTransfer_located_gap`, PROVED): for every
+  `0<w<1`, located gap with `sep = w³ < 1` (`heatKernelSep_lt_one`), margin `1−w³>0`.
+  Clustering `eff_corr_cluster` proved from scratch. Concrete PROVED witnesses at
+  `w = 4/5, 9/10, 99/100` (all ABOVE `w*`, where `reconTransfer` has NO gap): margins
+  `0.488, 0.271, 0.0297`.
+- **Crossover matched** (`resummation_is_the_residual`): `rho w = dimQ 1 · effLam 0 = 2w³`
+  exactly; single-edge closes at `w*` (`2w³=1`), resummed open (`w³=1/2`). Consistency
+  `eff_corr_le_recon_corr`: resummed is the lower correlator envelope.
+- **Residual pinned** (`fullWindow_gap_of_resummed_clustering`, conditional producer, NOT
+  a `singleStep` alias): the sole open identification is the **degeneracy-resummation** —
+  that the real block transfer clusters at rate `w^{C₄}` (once) vs `dimQ·w^{C₄}` (per link),
+  numerically the factor `dimQ 1 = 2` (`2w³` vs `w³`). This is the sharp, numerically-pinned
+  form of the atomic `singleStep` core. Deliverable: `job tmp/multiplaquette.md`.
+
 ## Anti-loop rule (enforced before spawning any attack)
 
 Predict the attack's honest outcome. **If it is "produces another

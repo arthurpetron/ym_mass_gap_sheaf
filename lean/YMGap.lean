@@ -760,6 +760,7 @@ import YMGap.Continuum.VarianceMonotonicity
 import YMGap.Continuum.SingleStepDecompositionAdjudication
 import YMGap.Continuum.DirectSingleStepReconGap
 import YMGap.Continuum.PushedReconTransferGap
+import YMGap.Continuum.MultiPlaquetteEffectiveTransfer
 import YMGap.Continuum.CodynamicReflectionUnitRecast
 import YMGap.Continuum.SITE1PerMoveDefect
 import YMGap.Continuum.DimensionalLiftCollapse
