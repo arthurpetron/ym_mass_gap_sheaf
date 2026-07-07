@@ -735,3 +735,4 @@ import YMGap.Continuum.AFBetaStepCanonical
 import YMGap.Continuum.AnchorFixedSpacingDischarge
 import YMGap.Continuum.RGFlowGapAssembly
 import YMGap.Continuum.OSConfinementAssessment
+import YMGap.Continuum.RGInvariantScaleScaffold
