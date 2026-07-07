@@ -742,3 +742,4 @@ import YMGap.Continuum.ReflectionCondensateBound
 import YMGap.Continuum.SimonLiebCorrelation
 import YMGap.Continuum.FieldSpaceRenormalized
 import YMGap.Continuum.ConfigSpaceMeasure
+import YMGap.Continuum.IRRegulatorAnalyticity
