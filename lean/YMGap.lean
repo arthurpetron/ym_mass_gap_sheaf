@@ -728,5 +728,6 @@ import YMGap.Continuum.CoupledContinuumWeight
 import YMGap.Continuum.IsserlisGaussianBase
 import YMGap.Continuum.TerminalResummationTest
 import YMGap.Continuum.ConnectedActivityAssembly
+import YMGap.Continuum.BorelRenormalonScaffold
 import YMGap.Continuum.AFBetaStepCanonical
 import YMGap.Continuum.AnchorFixedSpacingDischarge
