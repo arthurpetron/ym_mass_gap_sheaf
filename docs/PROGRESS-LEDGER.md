@@ -87,6 +87,39 @@ Only spawn an attack that would:
   (single-scale/finite vs all-scale/uniform/continuum), or
 - **(c)** REFUTE a genuinely-live candidate route (kills a branch, not a re-confirmation).
 
+## SITE-1 per-MOVE decomposition — machine-checked COLLAPSE (2026-07-07, `SITE1PerMoveDefect.lean`)
+
+The one ledger-legal codynamic move (`docs/codynamic-uplift-master-map-2026-07-07.md`
+SITE-1: derive the per-BLOCK `singleStep` defect as a free Grönwall fold of per-MOVE
+defects, one scale finer) is **adjudicated and COLLAPSES** (task criterion (iii);
+build green, guard OK at 5, axiom-clean; NOT a `:= SingleStepDefectBound` alias — a
+distinct multi-field structure, collapse *proved*).
+
+- **FREE fold PROVED:** `fold_margins` (axiom-free `blockProd` survival fold) +
+  `singleStep_of_perMove : PerMoveDefectBound → SingleStepDefectBound` — the intra-block
+  per-move recursions fold to the block estimate for free, at arbitrary `m`.
+- **COLLAPSE PROVED:** `perMove_of_singleStep : SingleStepDefectBound → PerMoveDefectBound`
+  — a genuine `m=2` per-move structure built from `singleStep` by the island-loaded
+  scheme (`CodynamicHierarchical.exactLoss=0`: one loaded move `σ=1−δ_block`, one free
+  move `σ=1`). Both maps ⟹ **equi-inhabitation** at the finer per-move scale.
+- **Concentration escape REFUTED:** `additive_perMove_insufficient` (axiom-free) — the
+  additive/union per-move fold of the raw seed `bondMovingDelta w 1 ≤ 6(1−w)` sums to
+  the **linear-in-m wall** `6m(1−w)` (semigroup `2−ρ^free_m=6mε`, not the concentrating
+  fusion), `24 > 3/2` at `w=1/2, m=8` — strictly too weak for the block quadratic
+  `6(1−w)²`. Plus `singleStep_falsifiable`/`_satisfiable_zero`: an `afr`-only per-move
+  envelope can't determine the `tm`-dependent `singleStep`.
+- **Dichotomy:** every per-move candidate is either too weak to imply `singleStep`
+  (additive/afr-only → linear wall) or equi-inhabiting (carries the block-assembly
+  product). No strictly-weaker-AND-implying per-move object exists. Concentration
+  `ρ_m < m·ρ_1` is real physics but supplies the SAME logical strength.
+
+**Consequence:** the finer per-move scale — the master map's "single place with a
+ledger-legal chance to move F below the core" — is a COLLAPSE, closing the last
+codynamic hope. `F` stays 1, `singleStep` atomic. Attacks on the per-move fold are now
+provably loops. The only honest attacks remain (a) direct atomic `singleStep` (the
+true-margin construction + real per-step recursion) or (b) a genuinely-new
+strictly-weaker reduction (none known).
+
 ## Dead routes (refuted — do not re-attempt)
 
 - **`Var_m(cosθ)` monotonicity → uniform-in-`m`** — REFUTED (`VarianceMonotonicity.lean`,
