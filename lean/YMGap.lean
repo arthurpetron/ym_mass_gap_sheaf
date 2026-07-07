@@ -710,6 +710,7 @@ import YMGap.Continuum.RouteGProductFloorAssembly
 import YMGap.Continuum.RenormalizedDefectCounterterm
 import YMGap.Continuum.BlockSpinMarginConstruction
 import YMGap.Continuum.AnchorDominanceEigenvalueShift
+import YMGap.Continuum.CondensateGeometricErosion
 import YMGap.Continuum.EigenvalueShiftBound
 import YMGap.Continuum.FormPreservationCluster
 import YMGap.Continuum.FieldSpaceCluster
