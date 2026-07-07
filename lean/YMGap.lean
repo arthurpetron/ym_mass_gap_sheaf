@@ -700,4 +700,6 @@ import YMGap.Continuum.HeatKernelSecondCumulant
 import YMGap.Continuum.RouteDHigherRepTail
 import YMGap.Continuum.LargeFieldSuppression
 import YMGap.Continuum.RouteFTransferIdentification
+import YMGap.Continuum.RouteIEigenvalueDefect
 import YMGap.Continuum.RouteGProductFloorAssembly
+import YMGap.Continuum.RenormalizedDefectCounterterm
