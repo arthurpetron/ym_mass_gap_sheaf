@@ -334,6 +334,7 @@ import YMGap.Continuum.RootEnclosureGen
 import YMGap.Continuum.UniformCouplingFromAF
 import YMGap.Continuum.LoopyCorrelatorProgress
 import YMGap.Continuum.MultiComponentFactorization
+import YMGap.Continuum.PeterWeylRealWeight
 import YMGap.Continuum.HamiltonianSpectrumInf
 import YMGap.Continuum.WilsonSchurIdentities
 import YMGap.Continuum.CosNodeBracket
