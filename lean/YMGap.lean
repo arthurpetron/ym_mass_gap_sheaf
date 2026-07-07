@@ -752,3 +752,4 @@ import YMGap.Continuum.InstantonDiluteGas
 import YMGap.Continuum.BalabanLargeFieldEntropy
 import YMGap.Continuum.MultiScalePolymerAssembly
 import YMGap.Continuum.CharFunCumulantDefect
+import YMGap.Continuum.InteractingMFoldDefect
