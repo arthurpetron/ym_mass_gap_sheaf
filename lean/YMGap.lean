@@ -713,5 +713,6 @@ import YMGap.Continuum.KPFieldAmplitude
 import YMGap.Continuum.SinglePolymerGaussian
 import YMGap.Continuum.ExactSinglePolymerActivity
 import YMGap.Continuum.FieldMeasureUrsell
+import YMGap.Continuum.WickTreeDomination
 import YMGap.Continuum.AFBetaStepCanonical
 import YMGap.Continuum.AnchorFixedSpacingDischarge
