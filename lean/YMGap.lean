@@ -531,6 +531,7 @@ import YMGap.Continuum.MatchedRetune
 import YMGap.Continuum.MatchedRetuneBridge
 import YMGap.Continuum.MatchedRetuneFrontier
 import YMGap.Continuum.CubeRatioBounds
+import YMGap.Continuum.MultiLinkFusionDefect
 import YMGap.Continuum.CubedDerivative
 import YMGap.Continuum.CubedDominance
 import YMGap.Continuum.SelfFusionLogConcave
