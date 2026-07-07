@@ -743,3 +743,4 @@ import YMGap.Continuum.SimonLiebCorrelation
 import YMGap.Continuum.FieldSpaceRenormalized
 import YMGap.Continuum.ConfigSpaceMeasure
 import YMGap.Continuum.IRRegulatorAnalyticity
+import YMGap.Continuum.EffectiveActionMassFlow
