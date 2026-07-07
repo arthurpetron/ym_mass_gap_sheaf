@@ -709,5 +709,6 @@ import YMGap.Continuum.AnchorDominanceEigenvalueShift
 import YMGap.Continuum.EigenvalueShiftBound
 import YMGap.Continuum.FormPreservationCluster
 import YMGap.Continuum.FieldSpaceCluster
+import YMGap.Continuum.KPFieldAmplitude
 import YMGap.Continuum.AFBetaStepCanonical
 import YMGap.Continuum.AnchorFixedSpacingDischarge
