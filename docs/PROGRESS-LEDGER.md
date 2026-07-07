@@ -146,6 +146,31 @@ numerically-pinned (factor `dimQ 1 = 2`) RE-FRAMING. It is neither a free/comput
 sub-obligation nor a core-bypassing parallel obligation. **`F = 1` stands**; the multi-plaquette construction did
 NOT move the core (it added a per-scale lattice-units construction increment). Deliverable: `job tmp/resummation_adjudication.md`.
 
+## PETER–WEYL RESUMMATION — PROVED (2026-07-07, `PeterWeylEigenvalueResummation.lean`)
+
+The user-pinned identity (real transfer resums the degeneracy: rate `w³`, not `2w³`) is **PROVED
+as a Peter–Weyl spectral fact** — outcome (A), a fixed-spacing construction increment + a
+correction (build 756, guard OK at 5, axiom-clean, C=18, no alias):
+- `pwChain_step_is_peterWeyl_orthogonality`: the genuine per-step transfer EIGENVALUE is
+  `w^{C₄(r)}` (= `coeffW · haarSubKernel`, the real `δ/dim` Schur orthogonality); `2w³ = coeffW w 1`
+  is the CHARACTER (`= dim × eigenvalue`, trace). `reconTransfer`'s `2w³` was a
+  character-vs-eigenvalue misidentification — it used the **bare Kronecker δ**, dropping the
+  Peter–Weyl `1/dim`, over-counting by `dim` per step (`connChain_eq_dimPow_pwChain`).
+- `peterWeyl_resummedClustering` + `peterWeyl_gap_of_physical`: the physical `δ/dim` transfer
+  **discharges `ResummedClustering` UNCONDITIONALLY** → `LocatedSpectralGap`, separator `w³`,
+  margin `1−w³ > 0`, for **every** `0 < w < 1` (concrete at `9/10, 99/100`). So the
+  `MultiPlaquetteEffectiveTransfer` gap is now UNCONDITIONAL on all `(0,1)` — the `w*` ceiling was
+  an artifact of the bare-δ.
+- **Correction to `ResummationAdjudication`:** its Point C (`reconTransfer` "non-free", `2w³ > w³`)
+  was a fixed-spacing misidentification (the genuine free transfer clusters at `w³`) — corrected.
+  Its Point D (`tm`-independence + non-uniform margin) **STANDS**: `fixedSpacing_margin_not_uniform`
+  proves `1−w³ → 0` as `w→1`, so the fixed-spacing lattice gaps do NOT give the uniform physical
+  floor.
+
+**Net:** fixed-spacing gap unconditional at every coupling; the CONTINUUM core `singleStep` (the
+`tm`-recursion summability, `1−w³→0`) stands — **F=1, D=0, guard=5** (fixed-spacing ≠ continuum;
+NOT Clay closure).
+
 ## Anti-loop rule (enforced before spawning any attack)
 
 Predict the attack's honest outcome. **If it is "produces another
