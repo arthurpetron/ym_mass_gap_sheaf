@@ -760,3 +760,9 @@ import YMGap.Continuum.VarianceMonotonicity
 import YMGap.Continuum.SingleStepDecompositionAdjudication
 import YMGap.Continuum.DirectSingleStepReconGap
 import YMGap.Continuum.CodynamicReflectionUnitRecast
+
+-- Codynamic core: reusable error/defect + trajectory (Grönwall) tools,
+-- transposed from the machine-verified Agda `Codynamic.*` development.
+import YMGap.CodynamicCore
+import YMGap.CodynamicCoreTest
+import YMGap.CodynamicCoreYMDemo
