@@ -755,3 +755,4 @@ import YMGap.Continuum.CharFunCumulantDefect
 import YMGap.Continuum.InteractingMFoldDefect
 import YMGap.Continuum.UniformMFoldConcentration
 import YMGap.Continuum.MKBondMovingControl
+import YMGap.Continuum.BirkhoffContraction
