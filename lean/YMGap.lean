@@ -627,6 +627,9 @@ import YMGap.Continuum.SepLatticeZ4Close
 import YMGap.Continuum.SepLatticeZ4Linf
 import YMGap.Continuum.TreeGraphBoundProgress
 import YMGap.Continuum.PentagonRelation
+import YMGap.Continuum.BinaryForms
+import YMGap.Continuum.TransvectantCG
+import YMGap.Continuum.PentagonFromUniqueness
 import YMGap.Continuum.XMeanSecondDiffProgress
 import YMGap.Continuum.PinnedBridgeProgress
 import YMGap.Continuum.Tier0Scorecard
@@ -672,6 +675,7 @@ import YMGap.Continuum.SixJKernel
 import YMGap.Continuum.SixJRacahCReal
 import YMGap.Continuum.QuadraticKernel
 import YMGap.Continuum.QuadraticKernelMerge
+import YMGap.Continuum.BiedenharnElliottGeneral
 import YMGap.Continuum.TemperleyLiebRecoupling
 import YMGap.Continuum.RecouplingInterface
 import YMGap.Continuum.SixJPentagonCReal
