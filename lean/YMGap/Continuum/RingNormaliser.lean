@@ -786,6 +786,60 @@ theorem vandermonde_deg2_explicit (m n : Q') :
   -- `eval` on both sides unfolds definitionally to the displayed `Q'` terms.
   simpa [eval, vdmLHS, vdmRHS, qpow] using h
 
+/-! ## 8. A DEGREE-3 Vandermonde/Saalschütz member — a genuine WZ-family building
+block sympy COMPUTES and the normaliser (not sympy) VERIFIES.
+
+The Chu–Vandermonde convolution, cleared to falling-factorial (integer-coefficient
+polynomial) form, is
+
+  `Σ_{k=0}^{p} C(p,k)·(m)_k·(n)_{p-k}  =  (m+n)_p`      (`(m)_k` the falling factorial)
+
+— exactly the "Vandermonde/Saalschütz convolution layer" named as *absent* in
+`BiedenharnElliottGeneral`.  The `p = 3` member is a genuine multivariate
+polynomial identity of degree 3 (beyond the degree-2 demo above): with binomials
+`C(3,·) = 1,3,3,1`,
+
+  `(n)_3 + 3·(m)_1(n)_2 + 3·(m)_2(n)_1 + (m)_3  =  (m+n)(m+n-1)(m+n-2)`.
+
+sympy (`computations/dougall_wz.py` / `vdm_gen.py`) COMPUTED the identity (residual
+`0`); the proof here is by the reflective normaliser — the certificate is trusted
+for NOTHING, the kernel decides `normalize LHS = normalize RHS`. -/
+
+/-- Falling factorial `(x_i)_k` as a `PolyExpr` (right-nested product
+`x·(x−1)·…·(x−k+1)`). -/
+def fallingExpr (i : Nat) : Nat → PolyExpr
+  | 0     => .const 1
+  | k + 1 => .mul (fallingExpr i k) (.add (.var i) (.const (-(k : Int))))
+
+/-- LHS syntax of the degree-3 Chu–Vandermonde (falling-factorial) convolution:
+`(n)_3 + 3·(m)_1(n)_2 + 3·(m)_2(n)_1 + (m)_3`  (`x₀ = m`, `x₁ = n`). -/
+def vdm3LHS : PolyExpr :=
+  .add
+    (.add
+      (.add
+        (fallingExpr 1 3)
+        (.mul (.const 3) (.mul (fallingExpr 0 1) (fallingExpr 1 2))))
+      (.mul (.const 3) (.mul (fallingExpr 0 2) (fallingExpr 1 1))))
+    (fallingExpr 0 3)
+
+/-- RHS syntax `(m+n)_3 = (m+n)(m+n-1)(m+n-2)`. -/
+def vdm3RHS : PolyExpr :=
+  .mul
+    (.mul (.add (.var 0) (.var 1))
+      (.add (.add (.var 0) (.var 1)) (.const (-1))))
+    (.add (.add (.var 0) (.var 1)) (.const (-2)))
+
+/-- The two sides share the SAME canonical normal form (kernel computation). -/
+theorem vdm3_normal_eq : normalize vdm3LHS = normalize vdm3RHS := by decide
+
+/-- **The degree-3 Chu–Vandermonde convolution identity** (∀ `m,n : Q'`), a
+genuine member of the Vandermonde/Saalschütz layer, proved by the reflective
+normaliser (sympy only computed it). -/
+theorem vandermonde_deg3 (m n : Q') :
+    (eval (fun i => if i = 0 then m else n) vdm3LHS).eqv
+      (eval (fun i => if i = 0 then m else n) vdm3RHS) :=
+  poly_identity_of_normal_eq vdm3LHS vdm3RHS vdm3_normal_eq _
+
 end YMGap.Continuum.RingNormaliser
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
@@ -798,3 +852,5 @@ end YMGap.Continuum.RingNormaliser
 #print axioms YMGap.Continuum.RingNormaliser.poly_identity_of_normal_eq
 #print axioms YMGap.Continuum.RingNormaliser.vdm_normal_eq
 #print axioms YMGap.Continuum.RingNormaliser.vandermonde_deg2
+#print axioms YMGap.Continuum.RingNormaliser.vdm3_normal_eq
+#print axioms YMGap.Continuum.RingNormaliser.vandermonde_deg3

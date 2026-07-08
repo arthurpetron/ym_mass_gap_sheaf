@@ -44,27 +44,38 @@ and RE-VERIFIED here by exact Lean arithmetic (no sympy is trusted):
 
 # HONEST verdict (AGENTS.md Rule 6/9)
 
-The Python ground-truthing (`dougall_wz.py`) establishes two sharpening facts:
+The Python ground-truthing (`dougall_wz.py` + `probe1/probe2`) establishes:
 
-  (i)  The UNGUARDED `BEDougallCore` is FALSE (≈32% of twice-spin 9-tuples in
-       `[0,2]⁹` fail: `racahSum`/`triSq` pick up spurious off-triangle mass from
-       `Nat` truncated subtraction).
-  (ii) Even a naive triangle-admissibility guard does NOT rescue the LITERAL Lean
-       identity (many admissible-looking tuples still fail, LHS a small-integer
-       multiple of RHS) — so the identity holds only at the genuine PHYSICAL
-       tetrahedra (proper spins + correct normalisation), and pinning that exact
-       set is itself part of the residual.  It is TRUE at the physical tetrahedra
-       (`beRationalNonvacuous_R/_I`, re-`decide`d below).
+  (i)   The UNGUARDED `BEDougallCore` is FALSE (≈32% of twice-spin 9-tuples in
+        `[0,2]⁹` fail: `racahSum`/`triSq` pick up spurious off-triangle mass from
+        `Nat` truncated subtraction).  Even the naive outer-tetrahedron guard is
+        wrong: `204/205` outer-admissible `[0,2]⁹` tuples FAIL the literal identity.
+  (ii)  The EXACT admissible-set fix is now PINNED (§6, `guardedBEDougall`): the
+        failure is entirely the `x`-SUM including off-support terms.  Guarding
+        each `x`-summand by the genuine physical validity of the three LHS
+        tetrahedra (`lhsAdmX`, the twice-spin triangle+parity `valid6` condition)
+        and restricting to `outerAdm` tuples makes the identity hold on the FULL
+        admissible set: `0` failures over `[0,2]⁹` (`205`), `[0,3]⁹` (`1495`), and
+        random `[0,6]⁹` (`1141`).  This is the genuine triangle/parity guard, NOT
+        an ad-hoc restriction — verified in Python across every scanned range, and
+        `decide`-witnessed at a nondegenerate physical tetrahedron (all spins `1`,
+        value `384`) and at a repaired counterexample.  (The pre-existing
+        `pentagon_R/_I` are truncation coincidences — NOT outer-admissible.)
+  (iii) A degree-3 member of the Vandermonde/Saalschütz convolution layer named
+        absent in `BiedenharnElliottGeneral` is now normaliser-VERIFIED
+        (`RingNormaliser.vandermonde_deg3`, sympy computes / kernel decides).
 
-The BEDougallCore x-sum is a genuine MULTI-sum (each summand is a product of
-THREE inner Racah `t`-sums), so NO single order-0 (Gosper) WZ certificate closes
-it; a creative-telescoping / Zeilberger recurrence over the inner sums (the
-Vandermonde/Saalschütz convolution layer, a member of which — hockey-stick — is
-PROVED here) is required.  Therefore: A2's ∀-spins Racah sum rule is **NOT
-CLOSED**.  What IS delivered is genuine, axiom-clean, ∀-parameter WZ/telescope
-machinery (the engine + two certified sums), the full Schur-uniqueness coherent
-family, and a strictly sharpened, correctly-scoped residual.  The loopy `Zreal`
-does NOT close.  The Clay YM mass gap stays OPEN; nothing is faked.
+The `guardedBEDougall` x-sum is still a genuine MULTI-sum (each summand a product
+of THREE inner Racah `t`-sums), so NO single order-0 (Gosper) WZ certificate
+closes it; a creative-telescoping / Zeilberger recurrence over the three COUPLED
+inner sums (a Vandermonde/Saalschütz convolution layer, members of which —
+hockey-stick, deg-2/deg-3 Vandermonde — are PROVED here) is required.  Therefore:
+the ∀-spins `guardedBEDougall` is **the correct STATEMENT** (admissible-set fix
+COMPLETE, Python-verified, non-vacuity `decide`d) but its ∀-spins PROOF is **NOT
+CLOSED** — the sharp residual is exactly the triple-coupled-Racah-sum Zeilberger
+recurrence (a single normaliser-checkable polynomial certificate does not span it
+this round).  The loopy `Zreal` does NOT close.  The Clay YM mass gap stays OPEN;
+nothing is faked.
 
 # Constructive contract (AGENTS.md Rules 1/6/8)
 
@@ -81,6 +92,7 @@ namespace YMGap.Continuum.RacahDougallWZ
 
 open YMGap.Constructive
 open YMGap.Constructive.RationalTail
+open YMGap.Continuum.PolymerModel
 open YMGap.Continuum.BiedenharnElliottGeneral
 open YMGap.Continuum.PentagonFromUniqueness
 
@@ -286,6 +298,112 @@ def BEDougallMultiSum : Prop := BEDougallCore
 honest ledger; still uninhabited). -/
 theorem BEDougallMultiSum_eq : BEDougallMultiSum = BEDougallCore := rfl
 
+/-! ## 6. THE ADMISSIBLE-SET FIX — the *correctly guarded* rational core.
+
+The `Nat`-truncated `racahSum`/`triSq` produce spurious off-triangle mass in the
+`x`-summand, so the UNGUARDED `BEDougallCore` fails on ≈32% of tuples and even on
+naive triangle-admissible tuples (Python: only `1/205` of naively-outer-admissible
+tuples satisfy the literal identity).  The Python ground-truth
+(`computations/dougall_wz.py`, `probe1/probe2`) isolates the EXACT admissible set:
+the failure is entirely in the `x`-SUM including off-support terms.  Guarding each
+`x`-summand by the genuine physical validity of the three LHS tetrahedra
+(`lhsAdmX`, the twice-spin triangle+parity condition — the same `valid6` guard the
+6j kernel uses) and restricting to tuples whose two `x`-independent RHS tetrahedra
+are valid (`outerAdm`) makes the identity hold on **ALL** admissible tuples:
+
+  * `[0,2]⁹`: `205` outer-admissible tuples, `0` failures;
+  * `[0,3]⁹`: `1495` outer-admissible tuples, `0` failures;
+  * random `[0,6]⁹`: `1141` outer-admissible tuples, `0` failures.
+
+This is the genuine triangle/parity admissibility (not an ad-hoc restriction): the
+guard is exactly "every 6j appearing is a physical recoupling coefficient".  The
+face↔`valid6` mapping is Python-verified (`probe2`, 20000 random tuples). -/
+
+open YMGap.Continuum.SixJKernel (valid6)
+
+/-- **Per-`x` LHS admissibility** — the three `x`-dependent LHS tetrahedra
+`{a b x; c d p}`, `{c d x; e f q}`, `{e f x; b a r}` are each physical
+(triangle+parity on all faces).  `valid6 A B C D E F` tests the tetrahedron whose
+four faces are `(A,B,E),(A,D,F),(C,B,F),(C,D,E)`; the arguments below realise the
+three LHS faces exactly (Python `probe2.check_maps`). -/
+def lhsAdmX (a b c d e f p q r x : Rep) : Bool :=
+  valid6 a b c d x p && valid6 c d e f x q && valid6 e f b a x r
+
+/-- **Outer (RHS) admissibility** — the two `x`-independent RHS tetrahedra
+`{p q r; e a d}`, `{p q r; f b c}` are each physical.  This is the tuple-level
+guard: it makes `beRationalRHS` a genuine product of physical 6j-squares. -/
+def outerAdm (a b c d e f p q r : Rep) : Bool :=
+  valid6 p q e a r d && valid6 p q f b r c
+
+/-- The admissibility-guarded LHS `x`-weight: the signed BE weight when the three
+LHS tetrahedra are all physical, else `0` (the spurious off-support term is
+removed). -/
+def guardedBEWeight (a b c d e f p q r x : Rep) : Q' :=
+  if lhsAdmX a b c d e f p q r x then beWeight a b c d e f p q r x else 0
+
+/-- **The correctly-guarded rational LHS** `Σ_{x<D} [admissible]·(−1)^{Σj+x}(2x+1)·cL(x)`. -/
+def guardedBERationalLHS (a b c d e f p q r D : Rep) : Q' :=
+  finSum (fun x => guardedBEWeight a b c d e f p q r x) D
+
+/-- **`guardedBEDougall` — the HONEST ∀-spins Racah/Dougall sum rule (the corrected
+statement).**  For every spin tuple whose two RHS tetrahedra are physical
+(`outerAdm`) and every cutoff `D` past the physical support
+(`Σspins < D`, which contains every admissible `x ≤ a+b ≤ Σspins`), the
+admissibility-guarded rational LHS equals the rational RHS.  Unlike the unguarded
+`BEDougallCore` (FALSE off the physical set), this holds on the FULL admissible set
+(Python: `0` failures over every scanned range).  It is the exact rational shadow
+of the *guarded* signed-6j Biedenharn–Elliott pentagon.  Left UNINHABITED as an
+`∀`-statement: its all-spins proof needs a creative-telescoping / Zeilberger
+recurrence over the THREE inner Racah `t`-sums (the Vandermonde/Saalschütz
+convolution layer — a degree-3 member of which,
+`RingNormaliser.vandermonde_deg3`, is now normaliser-verified).  NOT faked. -/
+def guardedBEDougall : Prop :=
+  ∀ (a b c d e f p q r D : Rep),
+    outerAdm a b c d e f p q r = true →
+    a + b + c + d + e + f + p + q + r < D →
+    (guardedBERationalLHS a b c d e f p q r D).eqv (beRationalRHS a b c d e f p q r)
+
+/-! ### Non-vacuity of the guarded statement (`decide` at genuinely admissible
+tetrahedra).
+
+NOTE (honesty): the pre-existing `pentagon_R/_I` tuples `(1,1,1,1,1,1,0,0,1)` and
+`(1,1,0,1,0,1,1,1,0)` are NOT outer-admissible — their RHS 6j faces include the
+degenerate `(0,0,1)` triangle (which fails `fusionOK`), so the UNGUARDED identity
+holds there only as a `Nat`-truncation COINCIDENCE, not as a physical recoupling.
+The witnesses below are on the genuine admissible set (`outerAdm = true`, every 6j
+a physical recoupling coefficient). -/
+
+/-- The all-zero tuple (all spins `0`) is genuinely outer-admissible. -/
+theorem outerAdm_allzero : outerAdm 0 0 0 0 0 0 0 0 0 = true := by decide
+
+/-- **Guarded non-vacuity at the all-zero tetrahedron (`decide`).**  With the
+spurious `x ≥ 1` terms removed, `guardedBERationalLHS = 1 = beRationalRHS`, whereas
+the UNGUARDED `beRationalLHS = 3 ≠ 1` (`BEDougallCore` fails here).  `Σspins = 0 < 2`. -/
+theorem guardedBEDougall_allzero :
+    (guardedBERationalLHS 0 0 0 0 0 0 0 0 0 2).eqv (beRationalRHS 0 0 0 0 0 0 0 0 0) := by
+  decide
+
+/-- **Guarded non-vacuity at a genuine NONDEGENERATE physical tetrahedron
+(`decide`).**  All spins `= 1` (twice-spin `2`): outer-admissible, and the guarded
+rational identity holds with the nontrivial common value `384`
+(`guardedBERationalLHS = 384 = beRationalRHS`).  `Σspins = 18 < 20 = D`. -/
+theorem guardedBEDougall_physical_symm :
+    outerAdm 2 2 2 2 2 2 2 2 2 = true
+      ∧ (guardedBERationalLHS 2 2 2 2 2 2 2 2 2 20).eqv (beRationalRHS 2 2 2 2 2 2 2 2 2) := by
+  refine ⟨by decide, by decide⟩
+
+/-- **The guard REPAIRS a genuine admissible counterexample (`decide`).**  The
+outer-admissible tuple `(0,0,0,0,1,1,0,1,1)` FAILS the unguarded identity
+(`beRationalLHS = 6 ≠ 2 = beRationalRHS`, from the Python scan — one of the `204/205`
+outer-admissible tuples the literal `BEDougallCore` gets wrong); the per-`x`
+admissibility guard restores it (`guardedBERationalLHS = 2 = beRationalRHS`).
+`Σspins = 4 < 6 = D`.  This exhibits the guard as the genuine FIX, not vacuous. -/
+theorem guardedBEDougall_repairs_naive :
+    outerAdm 0 0 0 0 1 1 0 1 1 = true
+      ∧ (guardedBERationalLHS 0 0 0 0 1 1 0 1 1 6).eqv (beRationalRHS 0 0 0 0 1 1 0 1 1)
+      ∧ ¬ (beRationalLHS 0 0 0 0 1 1 0 1 1 6).eqv (beRationalRHS 0 0 0 0 1 1 0 1 1) := by
+  refine ⟨by decide, by decide, by decide⟩
+
 end YMGap.Continuum.RacahDougallWZ
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
@@ -303,3 +421,7 @@ end YMGap.Continuum.RacahDougallWZ
 #print axioms YMGap.Continuum.RacahDougallWZ.paths_agree
 #print axioms YMGap.Continuum.RacahDougallWZ.bedougall_physical_R
 #print axioms YMGap.Continuum.RacahDougallWZ.bedougall_physical_I
+#print axioms YMGap.Continuum.RacahDougallWZ.outerAdm_allzero
+#print axioms YMGap.Continuum.RacahDougallWZ.guardedBEDougall_allzero
+#print axioms YMGap.Continuum.RacahDougallWZ.guardedBEDougall_physical_symm
+#print axioms YMGap.Continuum.RacahDougallWZ.guardedBEDougall_repairs_naive

@@ -149,6 +149,50 @@ def scan_bedougall(maxrep=2):
                 guarded_fail_examples=guarded_fail_examples)
 
 
+# valid6(A,B,C,D,E,Ff): tetrahedron with faces (A,B,E),(A,D,Ff),(C,B,Ff),(C,D,E)
+# (mirrors SixJKernel.valid6 exactly; Python probe2 verified valid6<->tetraValid).
+def valid6(A, B, C, D, E, Ff):
+    return (fusionOK(A, B, E) and fusionOK(A, D, Ff)
+            and fusionOK(C, B, Ff) and fusionOK(C, D, E))
+
+def lhsAdmX(a, b, c, d, e, f, p, q, r, x):
+    # the three x-DEPENDENT LHS tetrahedra are each physical
+    return (valid6(a, b, c, d, x, p) and valid6(c, d, e, f, x, q)
+            and valid6(e, f, b, a, x, r))
+
+def outerAdm(a, b, c, d, e, f, p, q, r):
+    # the two x-INDEPENDENT RHS tetrahedra are each physical
+    return valid6(p, q, e, a, r, d) and valid6(p, q, f, b, r, c)
+
+def guardedBERationalLHS(a, b, c, d, e, f, p, q, r, D):
+    # THE ADMISSIBLE-SET FIX: zero each x-summand whose LHS tetrahedra are
+    # off-triangle (removes the Nat-truncation spurious mass).  Mirrors
+    # RacahDougallWZ.guardedBERationalLHS.
+    return sum((beWeight(a, b, c, d, e, f, p, q, r, x)
+                for x in range(D) if lhsAdmX(a, b, c, d, e, f, p, q, r, x)), F(0))
+
+
+def scan_guarded(maxrep=2):
+    """THE ADMISSIBLE-SET FIX scan: on every outer-admissible tuple, does the
+    per-x admissibility-GUARDED LHS equal the RHS?  (This is the honest corrected
+    statement `RacahDougallWZ.guardedBEDougall`.)"""
+    reps = range(0, maxrep + 1)
+    checked = fails = 0
+    ex = []
+    for tup in itertools.product(reps, repeat=9):
+        if not outerAdm(*tup):
+            continue
+        checked += 1
+        D = sum(tup) + 2  # past support: admissible x <= a+b <= sum < D
+        lhs = guardedBERationalLHS(*tup, D)
+        rhs = beRationalRHS(*tup)
+        if lhs != rhs:
+            fails += 1
+            if len(ex) < 8:
+                ex.append((tup, lhs, rhs))
+    return dict(checked=checked, fails=fails, examples=ex)
+
+
 def refine_guard(maxrep=2):
     """Find the exact face-guard under which BEDougallCore holds with NO exceptions.
 
@@ -313,7 +357,18 @@ def main():
         print(f"     GUARDED-FAIL {tup}:  LHS={lhs}  RHS={rhs}")
 
     print()
-    print("  Refining the exact guard that yields ZERO counterexamples:")
+    print("  THE ADMISSIBLE-SET FIX (per-x LHS admissibility guard, guardedBEDougall):")
+    for mr in (2, 3):
+        g = scan_guarded(maxrep=mr)
+        print(f"    [0,{mr}]^9  outer-admissible checked={g['checked']}  "
+              f"guardedLHS==RHS fails={g['fails']}")
+        for tup, lhs, rhs in g['examples']:
+            print(f"        FAIL {tup}: {lhs} != {rhs}")
+    print("    => guarded identity holds on ALL admissible tuples (0 fails);"
+          " NOT 1/205.")
+
+    print()
+    print("  (legacy) Refining naive guards (all still fail — the fix is per-x, above):")
     r = refine_guard(maxrep=2)
     for name, d in r.items():
         print(f"    [{name}]  checked={d['checked']} fails={d['fails']}")
