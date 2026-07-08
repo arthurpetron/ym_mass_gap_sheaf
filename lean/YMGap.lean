@@ -493,6 +493,7 @@ import YMGap.Continuum.ReflectionDagger
 import YMGap.Continuum.DynamicToStaticGap
 import YMGap.Continuum.BareAFDiagnostic
 import YMGap.Continuum.HierarchicalGap
+import YMGap.Continuum.HierarchicalMassGap
 import YMGap.Continuum.NonAbelianGapChain
 import YMGap.Continuum.BondMovingStep
 import YMGap.Continuum.BondMovingScaledNorm
@@ -678,6 +679,7 @@ import YMGap.Continuum.QuadraticKernel
 import YMGap.Continuum.QuadraticKernelMerge
 import YMGap.Continuum.BiedenharnElliottGeneral
 import YMGap.Continuum.TemperleyLiebRecoupling
+import YMGap.Continuum.JWTowerInduction
 import YMGap.Continuum.RecouplingInterface
 import YMGap.Continuum.A2ApolarValue
 import YMGap.Continuum.A2RecouplingDischarge
@@ -714,6 +716,7 @@ import YMGap.Continuum.R1CurvatureEnvelope
 import YMGap.Continuum.R1CornerScaffold
 import YMGap.Continuum.R1CornerAtoms
 import YMGap.Continuum.R1LocalCLT
+import YMGap.Continuum.AbelianFusionCLT
 import YMGap.Continuum.O4RestorationH4Invariant
 import YMGap.Continuum.HeatKernelSecondCumulant
 import YMGap.Continuum.RouteDHigherRepTail
@@ -777,6 +780,7 @@ import YMGap.Continuum.MultiPlaquetteEffectiveTransfer
 import YMGap.Continuum.ResummationAdjudication
 import YMGap.Continuum.PeterWeylEigenvalueResummation
 import YMGap.Continuum.TempleSpectralStabilityDefect
+import YMGap.Continuum.DefectRecursionPrimary
 import YMGap.Continuum.OffDiagonalActivityBound
 import YMGap.Continuum.FieldSpaceRenormalonZ1
 import YMGap.Continuum.SubdominanceWindow
