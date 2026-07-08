@@ -650,6 +650,7 @@ import YMGap.Continuum.PenroseWeightedRepair
 import YMGap.Continuum.SpansContractProof
 import YMGap.Continuum.PenroseConstWeightDC
 import YMGap.Continuum.SpansContractInRange
+import YMGap.Continuum.PenroseConstInRange
 import YMGap.Continuum.HaddDischarge
 import YMGap.Classical.MinlosQuarantine
 import YMGap.Rubric.ClayTargetPinned
@@ -698,6 +699,7 @@ import YMGap.Continuum.MayerUrsellZ4Restated
 import YMGap.Continuum.RacahOrthogonalityGeneral
 import YMGap.Continuum.RacahDougallWZ
 import YMGap.Continuum.RingNormaliser
+import YMGap.Continuum.RacahSaalschutz
 import YMGap.Continuum.PhysicalCharCoordinateMap
 import YMGap.Continuum.FusionKernelStatement
 import YMGap.Continuum.CurvatureFloorStatement
