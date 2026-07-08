@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="420" viewBox="0 0 760 420" font-family="ui-sans-serif,system-ui,sans-serif">
+<style>.ax{stroke:#94a3b8;stroke-width:1}.gl{stroke:#e2e8f0;stroke-width:1}.lbl{fill:#475569;font-size:11px}.tt{fill:#0f172a;font-size:14px;font-weight:600}.sub{fill:#64748b;font-size:11px}@media(prefers-color-scheme:dark){.gl{stroke:#1e293b}.lbl{fill:#94a3b8}.tt{fill:#e2e8f0}.sub{fill:#94a3b8}.ax{stroke:#475569}}</style>
+<text class="tt" x="56" y="20">Frontier burn-down — new object-work vs meta-work files, and open-atom line</text>
+<text class="sub" x="56" y="34">Guard-verified discharged atoms: 0 (guard flat at 5 open types). Bars = new .lean files; line = cumulative frontier enumerations.</text>
+<line class="gl" x1="56" y1="356.0" x2="740" y2="356.0"/>
+<text class="lbl" x="48" y="359.0" text-anchor="end">0</text>
+<line class="gl" x1="56" y1="277.0" x2="740" y2="277.0"/>
+<text class="lbl" x="48" y="280.0" text-anchor="end">101</text>
+<line class="gl" x1="56" y1="198.0" x2="740" y2="198.0"/>
+<text class="lbl" x="48" y="201.0" text-anchor="end">202</text>
+<line class="gl" x1="56" y1="119.0" x2="740" y2="119.0"/>
+<text class="lbl" x="48" y="122.0" text-anchor="end">302</text>
+<line class="gl" x1="56" y1="40.0" x2="740" y2="40.0"/>
+<text class="lbl" x="48" y="43.0" text-anchor="end">403</text>
+<rect x="101.6" y="336.4" width="136.8" height="19.6" fill="#3b82f6" opacity="0.85"/>
+<rect x="101.6" y="336.4" width="136.8" height="0.0" fill="#f59e0b" opacity="0.9"/>
+<text class="lbl" x="170.0" y="372" text-anchor="middle">2026-05</text>
+<text class="lbl" x="170.0" y="386" text-anchor="middle">m/o 0.0</text>
+<rect x="329.6" y="59.6" width="136.8" height="296.4" fill="#3b82f6" opacity="0.85"/>
+<rect x="329.6" y="40.0" width="136.8" height="19.6" fill="#f59e0b" opacity="0.9"/>
+<text class="lbl" x="398.0" y="372" text-anchor="middle">2026-06</text>
+<text class="lbl" x="398.0" y="386" text-anchor="middle">m/o 0.1</text>
+<rect x="557.6" y="101.9" width="136.8" height="254.1" fill="#3b82f6" opacity="0.85"/>
+<rect x="557.6" y="73.7" width="136.8" height="28.2" fill="#f59e0b" opacity="0.9"/>
+<text class="lbl" x="626.0" y="372" text-anchor="middle">2026-07</text>
+<text class="lbl" x="626.0" y="386" text-anchor="middle">m/o 0.1</text>
+<path d="M170.0,356.0 L398.0,220.6 L626.0,40.0" fill="none" stroke="#dc2626" stroke-width="2.5"/>
+<circle cx="170.0" cy="356.0" r="3.5" fill="#dc2626"/>
+<circle cx="398.0" cy="220.6" r="3.5" fill="#dc2626"/>
+<circle cx="626.0" cy="40.0" r="3.5" fill="#dc2626"/>
+<line class="ax" x1="56" y1="40" x2="56" y2="356"/>
+<line class="ax" x1="56" y1="356" x2="740" y2="356"/>
+<rect x="60" y="46" width="11" height="11" fill="#3b82f6"/>
+<text class="lbl" x="76" y="56">object files</text>
+<rect x="152" y="46" width="11" height="11" fill="#f59e0b"/>
+<text class="lbl" x="168" y="56">meta files</text>
+<line x1="236" y1="52" x2="256" y2="52" stroke="#dc2626" stroke-width="2.5"/>
+<text class="lbl" x="260" y="56">cum. frontier enumerations</text>
+</svg>

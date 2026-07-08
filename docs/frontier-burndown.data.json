@@ -1,0 +1,118 @@
+{
+  "generated": "2026-07-08",
+  "guard": {
+    "frontierTypeNames": [
+      "YMGap.Continuum.Tier0Scorecard.Tier0Scorecard",
+      "YMGap.Continuum.UnifiedContinuumFloor.UniformSpacingFloor",
+      "YMGap.Rubric.ClayScorecard.ClayTarget",
+      "YMGap.Rubric.ClayTargetPinned.ClayTargetPinned",
+      "YMGap.Rubric.FrontierDAG.FrontierDAG"
+    ],
+    "frontierAllowlist": [],
+    "open_types": 5,
+    "discharged_atoms": 0
+  },
+  "frontierDAG_atoms": [
+    {
+      "name": "bulkCtrl",
+      "status": "OPEN"
+    },
+    {
+      "name": "d2Sep",
+      "status": "DATA"
+    },
+    {
+      "name": "tTree",
+      "status": "OPEN"
+    },
+    {
+      "name": "d1Mayer",
+      "status": "OPEN"
+    },
+    {
+      "name": "a2Racah",
+      "status": "OPEN"
+    },
+    {
+      "name": "a2Pentagon",
+      "status": "OPEN"
+    },
+    {
+      "name": "coreB",
+      "status": "OPEN"
+    },
+    {
+      "name": "edgeShift",
+      "status": "OPEN"
+    },
+    {
+      "name": "trueMargin",
+      "status": "OPEN"
+    },
+    {
+      "name": "boundedH",
+      "status": "OPEN"
+    },
+    {
+      "name": "o4",
+      "status": "OPEN"
+    }
+  ],
+  "named_open_bridges": [
+    "CoreBBridge",
+    "BulkCtrlToHlocalizeBridge"
+  ],
+  "months": [
+    {
+      "month": "2026-05",
+      "commits": 92,
+      "object_commits": 22,
+      "meta_commits": 70,
+      "meta_object_ratio": 3.182,
+      "opened_enumerations": 0,
+      "reduced_refuted": 0,
+      "closed_discharged_claimed": 0,
+      "proved_claimed": 0,
+      "new_lean_files": 25,
+      "new_object_files": 25,
+      "new_meta_files": 0,
+      "metric_D": null,
+      "metric_F": null,
+      "metric_C": null
+    },
+    {
+      "month": "2026-06",
+      "commits": 488,
+      "object_commits": 306,
+      "meta_commits": 182,
+      "meta_object_ratio": 0.595,
+      "opened_enumerations": 6,
+      "reduced_refuted": 28,
+      "closed_discharged_claimed": 37,
+      "proved_claimed": 48,
+      "new_lean_files": 403,
+      "new_object_files": 378,
+      "new_meta_files": 25,
+      "metric_D": null,
+      "metric_F": null,
+      "metric_C": 1
+    },
+    {
+      "month": "2026-07",
+      "commits": 246,
+      "object_commits": 151,
+      "meta_commits": 95,
+      "meta_object_ratio": 0.629,
+      "opened_enumerations": 8,
+      "reduced_refuted": 50,
+      "closed_discharged_claimed": 53,
+      "proved_claimed": 79,
+      "new_lean_files": 360,
+      "new_object_files": 324,
+      "new_meta_files": 36,
+      "metric_D": null,
+      "metric_F": 1,
+      "metric_C": 19
+    }
+  ]
+}
