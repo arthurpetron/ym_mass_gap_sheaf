@@ -764,6 +764,7 @@ import YMGap.Continuum.MultiPlaquetteEffectiveTransfer
 import YMGap.Continuum.ResummationAdjudication
 import YMGap.Continuum.PeterWeylEigenvalueResummation
 import YMGap.Continuum.TempleSpectralStabilityDefect
+import YMGap.Continuum.OffDiagonalActivityBound
 import YMGap.Continuum.CodynamicReflectionUnitRecast
 import YMGap.Continuum.SITE1PerMoveDefect
 import YMGap.Continuum.DimensionalLiftCollapse
