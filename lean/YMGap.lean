@@ -679,6 +679,8 @@ import YMGap.Continuum.QuadraticKernelMerge
 import YMGap.Continuum.BiedenharnElliottGeneral
 import YMGap.Continuum.TemperleyLiebRecoupling
 import YMGap.Continuum.RecouplingInterface
+import YMGap.Continuum.A2ApolarValue
+import YMGap.Continuum.A2RecouplingDischarge
 import YMGap.Continuum.SixJPentagonCReal
 import YMGap.Continuum.SixJPentagonRefutation
 import YMGap.RG.WeylDimGeneralData
