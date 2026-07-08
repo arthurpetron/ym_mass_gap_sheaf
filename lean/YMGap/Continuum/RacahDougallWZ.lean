@@ -69,13 +69,53 @@ The `guardedBEDougall` x-sum is still a genuine MULTI-sum (each summand a produc
 of THREE inner Racah `t`-sums), so NO single order-0 (Gosper) WZ certificate
 closes it; a creative-telescoping / Zeilberger recurrence over the three COUPLED
 inner sums (a Vandermonde/Saalschütz convolution layer, members of which —
-hockey-stick, deg-2/deg-3 Vandermonde — are PROVED here) is required.  Therefore:
-the ∀-spins `guardedBEDougall` is **the correct STATEMENT** (admissible-set fix
-COMPLETE, Python-verified, non-vacuity `decide`d) but its ∀-spins PROOF is **NOT
-CLOSED** — the sharp residual is exactly the triple-coupled-Racah-sum Zeilberger
-recurrence (a single normaliser-checkable polynomial certificate does not span it
-this round).  The loopy `Zreal` does NOT close.  The Clay YM mass gap stays OPEN;
-nothing is faked.
+hockey-stick, deg-2/deg-3/deg-4 Vandermonde — are PROVED here /
+`RingNormaliser`) is required.
+
+# SHARP diagnosis of the remaining coupled step (`computations/racah_coupled.py`)
+
+The coupled attack was run all the way to the point where the residual is
+*named exactly*, not vaguely:
+
+  * **Structure.**  `guardedBERationalLHS = Σ_x (−1)^{(Σj+x)/2}(x+1)·S₁(x)S₂(x)S₃(x)
+    ·Δ²(a,b,x)Δ²(c,d,x)Δ²(e,f,x)` is a genuine **4-fold nested sum** over
+    `(x; t₁,t₂,t₃)`: each inner Racah `t`-sum `Sᵢ(x)` couples to the OUTER index
+    `x` (and to two outer labels), and the three inner sums are mutually
+    independent *given `x`*.  The RHS is a 2-fold sum `S_R1·S_R2·Δ²(p,q,r)`.
+
+  * **The univariate-Zeilberger route is REFUTED (structural, not a failed
+    search).**  Every single spin variable has BOUNDED admissible support: the
+    triangle inequalities `|a−b| ≤ x ≤ a+b` (and their analogues for every
+    label) truncate every one-parameter slice to a short run — the longest
+    admissible run varying ANY one of the nine labels over `[0,3]⁹` bases is `4`
+    (≤ `6` over `[0,6]⁹`).  So there is **no infinite one-parameter holonomic
+    sequence** on which to run OR verify a classical (single-variable)
+    Zeilberger recurrence, and an exact rational nullspace search finds NO common
+    order‑≤4/deg‑≤5 recurrence within any admissible run (`racah_coupled.py §3`).
+    `guardedBEDougall` is a genuinely FINITE MULTIVARIATE identity, not a member
+    of a 1-parameter `P`-recursive family.
+
+  * **The EXACT remaining step** is therefore a **multivariate creative
+    telescoping** (Wegschaider/Apagodu–Zeilberger style) over the coupled
+    `(x; t₁,t₂,t₃)` summation simplex: a certificate `R` (a rational function of
+    all nine labels and the four summation indices) whose Δ-closure telescopes
+    the 4-fold summand to the RHS, plus the natural-boundary vanishing on the
+    triangle walls.  Cleared to integer-coefficient polynomial form this
+    certificate has factorial-scale degree in the nine labels — beyond the
+    kernel-`decide` reach of the current `RingNormaliser` (which decides small
+    fixed-degree polynomial identities; `vandermonde_deg2/3/4` are the largest
+    members it dispatches this round).  That normaliser-capacity gap for the
+    coupled certificate is the sole obstruction; it is carried below as
+    `CoupledCreativeTelescoping`.
+
+Therefore: the ∀-spins `guardedBEDougall` is **the correct STATEMENT**
+(admissible-set fix COMPLETE, Python-verified over `[0,3]⁹` exhaustively and
+random `[0,8]⁹`, non-vacuity `decide`d) but its ∀-spins PROOF is **NOT CLOSED** —
+the sharp residual is the multivariate `(x;t₁,t₂,t₃)` creative-telescoping
+certificate above (single-variable Zeilberger is structurally unavailable; a
+single normaliser-checkable polynomial certificate does not span the coupled
+certificate this round).  The loopy `Zreal` does NOT close.  The Clay YM mass gap
+stays OPEN; nothing is faked.
 
 # Constructive contract (AGENTS.md Rules 1/6/8)
 
@@ -363,6 +403,31 @@ def guardedBEDougall : Prop :=
     a + b + c + d + e + f + p + q + r < D →
     (guardedBERationalLHS a b c d e f p q r D).eqv (beRationalRHS a b c d e f p q r)
 
+/-- **`CoupledCreativeTelescoping` — the sharply-named remaining coupled step
+(NAMED RESIDUAL, definitionally `guardedBEDougall`; NOT faked, uninhabited).**
+
+This carries `guardedBEDougall` under the name of the EXACT mechanism its ∀-spins
+proof now requires, as pinned by `computations/racah_coupled.py`:
+
+  * the summand is a 4-fold coupled sum over `(x; t₁,t₂,t₃)` (each inner Racah
+    `t`-sum couples to the outer `x`);
+  * single-variable Zeilberger is STRUCTURALLY unavailable — every one-parameter
+    slice has bounded triangle support (longest admissible run `≤ 6`), so there is
+    no infinite `P`-recursive sequence to telescope;
+  * the residual is a MULTIVARIATE creative-telescoping certificate over the
+    coupled simplex, whose cleared polynomial form is beyond the current
+    `RingNormaliser` kernel-`decide` capacity (largest dispatched:
+    `vandermonde_deg4`).
+
+Left UNINHABITED.  Inhabiting it (the coupled certificate + its natural-boundary
+vanishing, verified through `RingNormaliser`) would discharge `guardedBEDougall`
+→ `general_be_of_rational` (guarded) → the A2 signed-6j pentagon. -/
+def CoupledCreativeTelescoping : Prop := guardedBEDougall
+
+/-- The named coupled residual is definitionally `guardedBEDougall` (honest ledger
+entry; still uninhabited). -/
+theorem CoupledCreativeTelescoping_eq : CoupledCreativeTelescoping = guardedBEDougall := rfl
+
 /-! ### Non-vacuity of the guarded statement (`decide` at genuinely admissible
 tetrahedra).
 
@@ -425,3 +490,4 @@ end YMGap.Continuum.RacahDougallWZ
 #print axioms YMGap.Continuum.RacahDougallWZ.guardedBEDougall_allzero
 #print axioms YMGap.Continuum.RacahDougallWZ.guardedBEDougall_physical_symm
 #print axioms YMGap.Continuum.RacahDougallWZ.guardedBEDougall_repairs_naive
+#print axioms YMGap.Continuum.RacahDougallWZ.CoupledCreativeTelescoping_eq

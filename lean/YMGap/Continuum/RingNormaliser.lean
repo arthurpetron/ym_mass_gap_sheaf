@@ -840,6 +840,55 @@ theorem vandermonde_deg3 (m n : Q') :
       (eval (fun i => if i = 0 then m else n) vdm3RHS) :=
   poly_identity_of_normal_eq vdm3LHS vdm3RHS vdm3_normal_eq _
 
+/-! ## 9. The DEGREE-4 Chu–Vandermonde member — the layer scales another degree.
+
+The `p = 4` member of the same falling-factorial convolution family
+(`C(4,·) = 1,4,6,4,1`):
+
+  `(n)_4 + 4·(m)_1(n)_3 + 6·(m)_2(n)_2 + 4·(m)_3(n)_1 + (m)_4
+      = (m+n)(m+n-1)(m+n-2)(m+n-3)`.
+
+sympy (`computations/racah_coupled.py` / `dougall_wz.py`) COMPUTED it (residual
+`0`, checked `m,n ∈ [-3,6]²`); the proof here is by the reflective normaliser —
+the certificate is trusted for NOTHING, the kernel decides
+`normalize LHS = normalize RHS`.  This certifies the normaliser scales one degree
+past `vandermonde_deg3`, a concrete new element of the very
+"Vandermonde/Saalschütz convolution layer" that `RacahDougallWZ.guardedBEDougall`
+names as the machinery its outer creative-telescoping step consumes. -/
+
+/-- LHS syntax of the degree-4 Chu–Vandermonde (falling-factorial) convolution:
+`(n)_4 + 4·(m)_1(n)_3 + 6·(m)_2(n)_2 + 4·(m)_3(n)_1 + (m)_4`  (`x₀ = m`, `x₁ = n`). -/
+def vdm4LHS : PolyExpr :=
+  .add
+    (.add
+      (.add
+        (.add
+          (fallingExpr 1 4)
+          (.mul (.const 4) (.mul (fallingExpr 0 1) (fallingExpr 1 3))))
+        (.mul (.const 6) (.mul (fallingExpr 0 2) (fallingExpr 1 2))))
+      (.mul (.const 4) (.mul (fallingExpr 0 3) (fallingExpr 1 1))))
+    (fallingExpr 0 4)
+
+/-- RHS syntax `(m+n)_4 = (m+n)(m+n-1)(m+n-2)(m+n-3)`. -/
+def vdm4RHS : PolyExpr :=
+  .mul
+    (.mul
+      (.mul (.add (.var 0) (.var 1))
+        (.add (.add (.var 0) (.var 1)) (.const (-1))))
+      (.add (.add (.var 0) (.var 1)) (.const (-2))))
+    (.add (.add (.var 0) (.var 1)) (.const (-3)))
+
+/-- The two sides share the SAME canonical normal form (kernel computation). -/
+theorem vdm4_normal_eq : normalize vdm4LHS = normalize vdm4RHS := by decide
+
+/-- **The degree-4 Chu–Vandermonde convolution identity** (∀ `m,n : Q'`), a
+genuine member of the Vandermonde/Saalschütz layer one degree past
+`vandermonde_deg3`, proved by the reflective normaliser (sympy only computed it). -/
+theorem vandermonde_deg4 (m n : Q') :
+    (eval (fun i => if i = 0 then m else n) vdm4LHS).eqv
+      (eval (fun i => if i = 0 then m else n) vdm4RHS) :=
+  poly_identity_of_normal_eq vdm4LHS vdm4RHS vdm4_normal_eq _
+
 end YMGap.Continuum.RingNormaliser
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
@@ -854,3 +903,5 @@ end YMGap.Continuum.RingNormaliser
 #print axioms YMGap.Continuum.RingNormaliser.vandermonde_deg2
 #print axioms YMGap.Continuum.RingNormaliser.vdm3_normal_eq
 #print axioms YMGap.Continuum.RingNormaliser.vandermonde_deg3
+#print axioms YMGap.Continuum.RingNormaliser.vdm4_normal_eq
+#print axioms YMGap.Continuum.RingNormaliser.vandermonde_deg4
