@@ -367,6 +367,142 @@ theorem thetaHalf_le_geom {q : Q'} (hq0 : (0 : Q') ≤ q) (hq1 : q ≤ 1) (N : N
     rw [this]; omega
   exact HKConvGen.pow_base_antitone hq0 hq1 hexp
 
+/-! ## 3c. MULTI-SCALE / DYADIC chord tightening of the sum-level lower bound.
+
+The single-scale counting bound `thetaHalf_ge_count` (`N·q^{N²} ≤ Σ_{n≤N} q^{n²}`) bounds
+EVERY term below by the SMALLEST term `q^{N²}`; optimising `N ∼ 1/√ε` recovers only the
+constant `e^{-1/2}/√2 ≈ 0.484` of the sharp Gaussian value `½√(π/ε)` — a factor `≈ 2` loose,
+OUTSIDE the `1.38×` envelope window.  This subsection tightens it by CONVEXITY (chord) domination:
+on a block `[N_lo, N_hi]` the parabola `n²` lies below its own chord,
+`n² ≤ N_lo² + (N_hi+N_lo)(n−N_lo)`, so `q^{n²} ≥ q^{N_lo²}·(q^{N_hi+N_lo})^{n−N_lo}` — a genuine
+GEOMETRIC minorant summable in closed form at the SUM LEVEL (no integration, no Poisson).  This
+is a Riemann-lower-sum of the Gaussian evaluated as a finite geometric series, NOT the integral.
+
+  * `chord_nat` / `pow_chord_block` — the reusable per-block chord domination.
+  * `thetaHalf_ge_geomChord` — the SINGLE-block geometric minorant
+    `Σ_{i<N} q^{(i+1)N} ≤ Σ_{n≤N} q^{n²}` (constant `≈ 0.720` of sharp — a `1.5×` improvement
+    over the count, but still just under the `0.7246` window threshold `1/1.38`).
+  * `geomChord_ge_count` — proves the chord bound DOMINATES the single-scale count TERM-BY-TERM
+    (`N·q^{N²} ≤ Σ_{i<N} q^{(i+1)N}`), so the improvement is genuine, not a reparametrisation.
+  * `thetaHalf_ge_twoBlock` — the TWO-block dyadic minorant
+    `Σ_{n≤M} q^{nM} + Σ_{n≤M} q^{M²+3Mn} ≤ Σ_{n≤2M} q^{n²}`; optimising `M ∼ 0.75/√ε` its
+    constant is `≈ 0.880` of sharp — INSIDE the `1.38×` window (`0.880 > 0.7246`).  Stacking `K`
+    dyadic blocks the constant `→ 1` (`K=3: 0.933`, `K=4: 0.957`); two blocks already clear it.
+-/
+
+/-- **`chord_nat`** — the CONVEXITY (chord) inequality for the discrete Gaussian exponent.
+For `N_lo ≤ n ≤ N_hi`, the parabola value `n²` lies below the chord of `x²` through the block
+endpoints: `n² ≤ N_lo² + (N_hi+N_lo)·(n−N_lo)`.  Pure `Nat` arithmetic (`d = n−N_lo ≤ N_hi−N_lo`
+gives `d² ≤ (N_hi−N_lo)·d`). -/
+theorem chord_nat {Nlo Nhi n : Nat} (hlo : Nlo ≤ n) (hhi : n ≤ Nhi) :
+    n * n ≤ Nlo * Nlo + (Nhi + Nlo) * (n - Nlo) := by
+  obtain ⟨d, rfl⟩ := Nat.le.dest hlo
+  rw [Nat.add_sub_cancel_left, Nat.add_mul, Nat.mul_add, Nat.mul_add]
+  have hd : d ≤ Nhi - Nlo := by omega
+  have hdd : d * d ≤ (Nhi - Nlo) * d := Nat.mul_le_mul hd (Nat.le_refl d)
+  have hcomm : d * Nlo = Nlo * d := Nat.mul_comm d Nlo
+  have hexp2 : (Nhi + Nlo) * d = Nhi * d + Nlo * d := Nat.add_mul Nhi Nlo d
+  have hsub2 : (Nhi - Nlo) * d + Nlo * d = Nhi * d := by
+    have hh : (Nhi - Nlo) + Nlo = Nhi := by omega
+    rw [← Nat.add_mul, hh]
+  omega
+
+/-- **`pow_chord_block`** — the reusable per-block GEOMETRIC minorant of the Gaussian kernel.
+For `0 ≤ q ≤ 1` and `N_lo ≤ n ≤ N_hi`, `q^{N_lo² + (N_hi+N_lo)(n−N_lo)} ≤ q^{n²}` (the chord
+exponent is `≥ n²`, so its power is `≤`, by `pow_base_antitone`).  The building block of any
+multi-scale / dyadic refinement. -/
+theorem pow_chord_block {q : Q'} (hq0 : (0 : Q') ≤ q) (hq1 : q ≤ 1)
+    {Nlo Nhi n : Nat} (hlo : Nlo ≤ n) (hhi : n ≤ Nhi) :
+    q ^ (Nlo * Nlo + (Nhi + Nlo) * (n - Nlo)) ≤ q ^ (n * n) :=
+  HKConvGen.pow_base_antitone hq0 hq1 (chord_nat hlo hhi)
+
+/-- **`thetaHalf_ge_geomChord` — THE SINGLE-BLOCK GEOMETRIC (chord) LOWER BOUND.**
+`Σ_{i<N} q^{(i+1)·N} ≤ Σ_{n=1}^{N} q^{n²}`: each term `q^{(i+1)²}` is bounded below by the chord
+value `q^{(i+1)·N}` (since `(i+1)² ≤ (i+1)·N` for `i+1 ≤ N`).  The left side is a genuine finite
+GEOMETRIC series `Σ_{n=1}^N (q^N)^n = q^N(1−q^{N²})/(1−q^N)`, summable in closed form; optimising
+`N ∼ 1/√(−ln q)` gives `≈ (1−e^{-A²})/A · 1/√ε ≈ 0.720/√ε` — a `1.5×` improvement over the
+counting bound `0.484/√ε`.  SUM-LEVEL only (chord + `pow_base_antitone`); NO integration. -/
+theorem thetaHalf_ge_geomChord {q : Q'} (hq0 : (0 : Q') ≤ q) (hq1 : q ≤ 1) (N : Nat) :
+    fsum (fun i => q ^ ((i + 1) * N)) N ≤ thetaHalf q N := by
+  refine YMGap.Continuum.CubeRatioBounds.fsum_mono_lt N (fun i hi => ?_)
+  have hexp : (i + 1) * (i + 1) ≤ (i + 1) * N := Nat.mul_le_mul (Nat.le_refl (i + 1)) (by omega)
+  exact HKConvGen.pow_base_antitone hq0 hq1 hexp
+
+/-- **`geomChord_ge_count`** — the chord bound STRICTLY DOMINATES the single-scale count,
+term by term: `N·q^{N²} ≤ Σ_{i<N} q^{(i+1)N}` (each chord term `q^{(i+1)N} ≥ q^{N²}` since
+`(i+1)N ≤ N²`).  So `thetaHalf_ge_geomChord` is a genuine tightening of `thetaHalf_ge_count`,
+not a reparametrisation. -/
+theorem geomChord_ge_count {q : Q'} (hq0 : (0 : Q') ≤ q) (hq1 : q ≤ 1) (N : Nat) :
+    Q'.ofNat N * q ^ (N * N) ≤ fsum (fun i => q ^ ((i + 1) * N)) N := by
+  have hterm : ∀ i, i < N → q ^ (N * N) ≤ q ^ ((i + 1) * N) := by
+    intro i hi
+    exact HKConvGen.pow_base_antitone hq0 hq1 (Nat.mul_le_mul (by omega) (Nat.le_refl N))
+  have hsum : fsum (fun _ => q ^ (N * N)) N ≤ fsum (fun i => q ^ ((i + 1) * N)) N :=
+    YMGap.Continuum.CubeRatioBounds.fsum_mono_lt N hterm
+  exact Q'.le_trans' _ _ _ (Q'.ge_of_eqv (fsum_const_val (q ^ (N * N)) N)) hsum
+
+/-- **`thetaPartial_ge_geomChord`** — the chord minorant lifted to the symmetric partial sum:
+`1 + 2·Σ_{i<N} q^{(i+1)N} ≤ θ_N`. -/
+theorem thetaPartial_ge_geomChord {q : Q'} (hq0 : (0 : Q') ≤ q) (hq1 : q ≤ 1) (N : Nat) :
+    (1 : Q') + Q'.ofNat 2 * fsum (fun i => q ^ ((i + 1) * N)) N ≤ thetaPartial q N := by
+  show (1 : Q') + Q'.ofNat 2 * fsum (fun i => q ^ ((i + 1) * N)) N
+      ≤ 1 + Q'.ofNat 2 * thetaHalf q N
+  refine Q'.add_le_add_left 1 _ _ ?_
+  exact Q'.mul_le_mul_of_nonneg_left _ _ (Q'.ofNat 2)
+    (thetaHalf_ge_geomChord hq0 hq1 N) (ofNatNonneg 2)
+
+/-- **`thetaS_geRat_geomChord` — THE TIGHTENED SUM-LEVEL DIVERGENCE LOWER BOUND.**  For every `N`,
+`ϑ₃(q) ≥ 1 + 2·Σ_{i<N} q^{(i+1)N}` — the geometric (chord) minorant, strictly tighter than
+`thetaS_geRat_count` (`geomChord_ge_count`).  Its optimised constant `≈ 0.720/√ε` is a `1.5×`
+improvement; the two-block refinement `thetaHalf_ge_twoBlock` pushes it to `≈ 0.880/√ε`, INSIDE
+the `1.38×` envelope window.  SUM-LEVEL (counting + chord); NO Poisson, NO integration. -/
+theorem thetaS_geRat_geomChord (q : Q') (hq0 : (0 : Q') < q) (hq1 : q < (1 : Q'))
+    (N : Nat) :
+    ExpPos.geRat (thetaS q hq0 hq1)
+      (1 + Q'.ofNat 2 * fsum (fun i => q ^ ((i + 1) * N)) N) :=
+  ExpPos.geRat_mono (thetaS_geRat_partial q hq0 hq1 N)
+    (thetaPartial_ge_geomChord (Q'.le_of_lt hq0) (Q'.le_of_lt hq1) N)
+
+/-- **`fsum_splitM`** — front/tail split `Σ_{k<a+b} f = Σ_{k<a} f + Σ_{r<b} f(a+r)` (local copy;
+clean induction on `b`).  Used to assemble the two-block minorant. -/
+theorem fsum_splitM (f : Nat → Q') (a b : Nat) :
+    (fsum f (a + b)).eqv (fsum f a + fsum (fun r => f (a + r)) b) := by
+  induction b with
+  | zero => exact Q'.eqv_symm (q_add_zero_eqv (fsum f a))
+  | succ b ih =>
+      show (fsum f (a + b) + f (a + b)).eqv
+          (fsum f a + (fsum (fun r => f (a + r)) b + f (a + b)))
+      refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr_right _ _ (f (a + b)) ih) ?_
+      exact Q'.add_assoc_eqv (fsum f a) (fsum (fun r => f (a + r)) b) (f (a + b))
+
+/-- **`thetaHalf_ge_twoBlock` — THE TWO-BLOCK DYADIC CHORD MINORANT.**  Splitting `[1,2M]` into the
+two blocks `[1,M]` and `[M+1,2M]` and chord-dominating each:
+
+    `Σ_{n=1}^{M} q^{nM}  +  Σ_{n=1}^{M} q^{M² + 3Mn}  ≤  Σ_{n=1}^{2M} q^{n²}` .
+
+Both left sums are finite GEOMETRIC series (closed-form); optimising `M ∼ 0.75/√ε` the total is
+`≈ 0.880/√ε`, i.e. `0.880` of the sharp `½√(π/ε)` — INSIDE the `1.38×` envelope window
+(`0.880 > 1/1.38 = 0.7246`), which the single block (`0.720`) narrowly misses.  Pure SUM-LEVEL
+chord domination (`chord_nat` on `[M,2M]`, `thetaHalf_ge_geomChord` on `[0,M]`); NO integration. -/
+theorem thetaHalf_ge_twoBlock {q : Q'} (hq0 : (0 : Q') ≤ q) (hq1 : q ≤ 1) (M : Nat) :
+    fsum (fun i => q ^ ((i + 1) * M)) M
+        + fsum (fun r => q ^ (M * M + (2 * M + M) * (r + 1))) M
+      ≤ thetaHalf q (M + M) := by
+  -- block2 ≤ part2 (chord on the upper block [M,2M])
+  have hb2 : fsum (fun r => q ^ (M * M + (2 * M + M) * (r + 1))) M
+      ≤ fsum (fun r => q ^ ((M + r + 1) * (M + r + 1))) M := by
+    refine YMGap.Continuum.CubeRatioBounds.fsum_mono_lt M (fun r hr => ?_)
+    have hlo : M ≤ M + r + 1 := by omega
+    have hhi : M + r + 1 ≤ 2 * M := by omega
+    have hcn := chord_nat hlo hhi
+    have hsub : (M + r + 1) - M = r + 1 := by omega
+    rw [hsub] at hcn
+    exact HKConvGen.pow_base_antitone hq0 hq1 hcn
+  -- assemble: block1 + block2 ≤ part1 + part2 ≃ thetaHalf q (M+M)
+  refine Q'.le_trans' _ _ _ ?_
+    (Q'.ge_of_eqv (fsum_splitM (fun i => q ^ ((i + 1) * (i + 1))) M M))
+  exact Q'.add_le_add (thetaHalf_ge_geomChord hq0 hq1 M) hb2
+
 /-! ## 4. Non-vacuity — `ϑ₃` is a genuine non-constant series.
 
 At `q = 1/2` the first symmetric partial sums already separate:
@@ -392,4 +528,12 @@ end YMGap.Continuum.JacobiModularCReal
 #print axioms YMGap.Continuum.JacobiModularCReal.thetaHalf_ge_count
 #print axioms YMGap.Continuum.JacobiModularCReal.thetaS_geRat_count
 #print axioms YMGap.Continuum.JacobiModularCReal.thetaHalf_le_geom
+#print axioms YMGap.Continuum.JacobiModularCReal.chord_nat
+#print axioms YMGap.Continuum.JacobiModularCReal.pow_chord_block
+#print axioms YMGap.Continuum.JacobiModularCReal.thetaHalf_ge_geomChord
+#print axioms YMGap.Continuum.JacobiModularCReal.geomChord_ge_count
+#print axioms YMGap.Continuum.JacobiModularCReal.thetaPartial_ge_geomChord
+#print axioms YMGap.Continuum.JacobiModularCReal.thetaS_geRat_geomChord
+#print axioms YMGap.Continuum.JacobiModularCReal.fsum_splitM
+#print axioms YMGap.Continuum.JacobiModularCReal.thetaHalf_ge_twoBlock
 #print axioms YMGap.Continuum.JacobiModularCReal.thetaPartial_nonconstant
