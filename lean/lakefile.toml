@@ -1,5 +1,5 @@
 name = "YMGap"
-defaultTargets = ["YMGap", "YMGapGuard"]
+defaultTargets = ["YMGap", "YMGapGuard", "YMGapStatementGuard"]
 
 # Milestone 1.1 deliberately depends on nothing but Lean core: SU(2)
 # Casimirs are exact rationals, so `Nat`/`Rat` suffice and no
@@ -16,3 +16,11 @@ name = "YMGap"
 # UniformSpacingFloor / ClayTarget) becomes inhabited. See `YMGapGuard.lean`.
 [[lean_lib]]
 name = "YMGapGuard"
+
+# Frontier STATEMENT-drift guard — a separate root that `import YMGap` and, at
+# elaboration time, fails the build if the STATEMENT (type signature + field
+# structure) of a Clay-frontier type or a shared parameter def is silently
+# WEAKENED. Complements YMGapGuard (inhabitation) with a structural hash pin.
+# See `YMGapStatementGuard.lean`.
+[[lean_lib]]
+name = "YMGapStatementGuard"

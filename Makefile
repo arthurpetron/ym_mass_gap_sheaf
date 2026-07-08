@@ -1,6 +1,6 @@
 .PHONY: test lint typecheck figures svg-to-pdf paper clean help \
         lean-build lean-audit lean-audit-strict lean-audit-update lean-rubric \
-        lean-frontier-guard frontier-status frontier-dag-check
+        lean-frontier-guard lean-statement-guard frontier-status frontier-dag-check
 
 help:
 	@echo "Targets:"
@@ -15,6 +15,7 @@ help:
 	@echo "  lean-audit-update   Regenerate the baseline manifest from the current build."
 	@echo "  lean-rubric         Compile-check the Clay scorecard against the pinned external rubric."
 	@echo "  lean-frontier-guard Fail if a Clay-frontier type (Tier0Scorecard/ClayTarget/UniformSpacingFloor) is inhabited."
+	@echo "  lean-statement-guard Fail if a Clay-frontier STATEMENT (type/field signature or shared param) is weakened."
 	@echo "  frontier-status     Regenerate docs/frontier-status.md (partial-close + open-field ledger)."
 	@echo "  frontier-dag-check  Fail if a new *Scorecard/*Frontier/*Target enumeration lacks a FrontierDAG bridge."
 	@echo "  clean               Remove Python, mypy, ruff, pytest, and LaTeX build artifacts."
@@ -70,6 +71,18 @@ lean-audit-update:
 # lean/YMGapGuard.lean (`frontierAllowlist` is the human-reviewed escape hatch).
 lean-frontier-guard:
 	cd lean && lake build YMGapGuard
+
+# Frontier STATEMENT-drift guard. Builds YMGapStatementGuard, which computes a
+# stable structural hash of each Clay-frontier type's STATEMENT (type signature +
+# field structure) and of the shared parameter defs they are built from, and
+# FAILS the build if any hash drifts from the pinned literal. Catches silent
+# WEAKENING of ClayTargetPinned / ClayTarget / FrontierDAG / Tier0Scorecard /
+# UniformSpacingFloor (or a shared param such as RubricO4Restoration := True) —
+# the exact attack the inhabitation guard (lean-frontier-guard) cannot see.
+# Independent of AXIOM_AUDIT.md. See lean/YMGapStatementGuard.lean
+# (`pinnedFrontierStatements` is the human-reviewed re-pin surface).
+lean-statement-guard:
+	cd lean && lake build YMGapStatementGuard
 
 # Compile-check the Clay scorecard (constructive transcription of the external
 # Clay rubric) against its pinned source. Verifies the fixed-spacing rubric
