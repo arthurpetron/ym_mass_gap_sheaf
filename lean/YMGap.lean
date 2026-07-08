@@ -783,6 +783,7 @@ import YMGap.Continuum.DefectRecursionPrimary
 import YMGap.Continuum.EpsilonSummability
 import YMGap.Continuum.IntervalArithmetic
 import YMGap.Continuum.TruncatedBlockSpinContraction
+import YMGap.Continuum.TruncationTailChannelBound
 import YMGap.Continuum.OffDiagonalActivityBound
 import YMGap.Continuum.FieldSpaceRenormalonZ1
 import YMGap.Continuum.SubdominanceWindow
