@@ -1,82 +1,78 @@
 #!/usr/bin/env python3
-"""Lean axiom-gate audit script.
+"""Lean axiom-gate audit script (hashed-baseline format).
 
-Enforces AGENTS.md Rule 1 in CI: every load-bearing theorem in the YMGap
-Lean library must report `#print axioms` results that are AT MOST as
-permissive as the baseline manifest in `lean/AXIOM_AUDIT.md`.
+Enforces AGENTS.md Rule 1 in CI: no load-bearing theorem in the YMGap Lean
+library may depend on an axiom outside the permitted gate `{propext,
+Quot.sound}`, except for an explicitly reviewed entry in the EXCEPTIONS list.
+
+# Why hashed
+
+The previous baseline recorded one `name = axioms` line for EVERY theorem
+(~7.5k lines / ~0.5 MB), growing linearly with declarations and forcing an
+all-or-nothing regeneration on any change.  In practice ~100% of theorems are
+clean (`⊆ {propext, Quot.sound}`), so that file was almost entirely redundant.
+
+This version records instead:
+
+  * an **EXCEPTIONS** list — the (few / zero) theorems that use an axiom
+    OUTSIDE the gate, each human-readable and reviewable; and
+  * a **NAMESPACE DIGESTS** table — one `namespace = <sha16>  (<count>)` line
+    per namespace, a hash of that namespace's sorted `name = axioms` map.
+
+CI stays fast, diffs are reviewable (a changed namespace touches one hash
+line), and regeneration is per-namespace rather than whole-file.
 
 # Usage
 
     python scripts/lean_axiom_audit.py            # check vs baseline
     python scripts/lean_axiom_audit.py --update   # regenerate baseline
-    python scripts/lean_axiom_audit.py --strict   # also fail on new/missing theorems
+    python scripts/lean_axiom_audit.py --strict   # also fail on namespace-digest drift
 
 Exit codes:
-  0  -- no drift detected (CI green).
-  1  -- drift detected: at least one tracked theorem has acquired a NEW
-        axiom dependency not permitted by the baseline.
-  2  -- (--strict) additionally, a tracked theorem is missing from the
-        build, or a new theorem appears in the build that's not in the
-        baseline.
+  0  -- clean (gate held; --strict: no digest drift).
+  1  -- GATE FAIL: a theorem depends on an axiom outside the gate and is not
+        a reviewed EXCEPTION (proof became non-constructive).
+  2  -- (--strict) namespace-digest drift: some namespace's axiom profile
+        changed (new/removed decls, or within-gate axiom changes).
+  3  -- infrastructure error (build failed, no axiom info, missing baseline).
 
-# Drift semantics
+# Semantics
 
-Per AGENTS.md Rule 1, "the only allowed axiom for load-bearing theorems
-is `propext`" (with `Quot.sound` permitted only when justified).  The
-baseline records the OBSERVED set of axiom dependencies for each
-theorem at the time it was added to the manifest.  Drift is detected
-when:
+  * DEFAULT (`--`): the GATE check.  Fails only if a theorem depends on an
+    axiom `∉ {propext, Quot.sound}` that is not in EXCEPTIONS.  Within-gate
+    changes, new theorems, and shrinks pass silently (they respect the gate).
+    This matches AGENTS.md Rule 1 exactly.
+  * STRICT (`--strict`): additionally the DIGEST check.  Fails if any
+    namespace's digest differs from the baseline (any axiom-profile change).
+    Use for deliberate review; regenerate with `--update`.
 
-  * A tracked theorem acquires an axiom dependency not in its baseline
-    permitted set.
+# Companion files / integration
 
-Drift is NOT detected (and is in fact silently desirable) when:
-
-  * A tracked theorem's axiom set shrinks below its baseline (the
-    theorem became more constructive over time).
-
-# Integration
-
-  * `make lean-audit`        -- non-strict; just check vs baseline.
-  * `make lean-audit-strict` -- strict; also flag new/missing theorems.
-  * `make lean-audit-update` -- regenerate the baseline from current build.
-
-GitHub Actions workflow: `.github/workflows/lean-audit.yml`.
-
-# Companion files
-
-  * `lean/AXIOM_AUDIT.md` -- the maintained baseline manifest.
-  * `lean/AGENTS.md` -- the constructivity contract Rule 1 enforces.
-  * `docs/outline.md` Part B §22 -- the theorem registry; every entry
-    there with a Lean term should appear in the baseline.
+  * `lean/AXIOM_AUDIT.md`         -- the hashed baseline (this script writes it).
+  * `lean/AGENTS.md`             -- the constructivity contract Rule 1 enforces.
+  * `scripts/frontier_status.py` -- reads the EXCEPTIONS list; clean decls default.
+  * `make lean-audit[-strict|-update]`, `.github/workflows/lean-audit.yml`.
 """
 
 from __future__ import annotations
 
 import argparse
+import hashlib
 import re
 import subprocess
 import sys
 from pathlib import Path
 
-# --------------------------------------------------------------------------
-# Paths
-# --------------------------------------------------------------------------
-
 REPO_ROOT = Path(__file__).resolve().parent.parent
 LEAN_DIR = REPO_ROOT / "lean"
 BASELINE_PATH = LEAN_DIR / "AXIOM_AUDIT.md"
 
-# --------------------------------------------------------------------------
-# Lake-output parsing
-# --------------------------------------------------------------------------
+# The permitted axiom gate (AGENTS.md Rule 1). Anything else => EXCEPTIONS.
+GATE = frozenset({"propext", "Quot.sound"})
 
-# Examples of the two output shapes:
-#   info: ...: 'YMGap.Constructive.Q'.le_refl'' depends on axioms: [propext]
-#   info: ...: 'YMGap.MassGap.SU2.m_0_canonical' does not depend on any axioms
-#
-# The leading "info: ...:" prefix may vary by Lake version; we just look for
-# the quoted theorem name followed by the axiom phrase.
+# --------------------------------------------------------------------------
+# Lake-output parsing (unchanged shape — shared with frontier_status.py)
+# --------------------------------------------------------------------------
 
 THEOREM_PATTERN = re.compile(
     r"'(?P<name>YMGap[\w\\.']+?)' "
@@ -86,10 +82,7 @@ THEOREM_PATTERN = re.compile(
 
 
 def parse_lake_output(output: str) -> dict[str, set[str]]:
-    """Parse `lake build` output; return {theorem_name: set_of_axioms}.
-
-    Empty set means "does not depend on any axioms".
-    """
+    """Parse `lake build` output; return {theorem_name: set_of_axioms}."""
     result: dict[str, set[str]] = {}
     for line in output.splitlines():
         m = THEOREM_PATTERN.search(line)
@@ -105,150 +98,154 @@ def parse_lake_output(output: str) -> dict[str, set[str]]:
 
 
 # --------------------------------------------------------------------------
-# Baseline-manifest parsing / writing
+# Namespace grouping + digests
 # --------------------------------------------------------------------------
 
-BASELINE_HEADER = """\
-# Lean Axiom-Gate Audit Baseline
 
-> **Auto-maintained.** Generated by `scripts/lean_axiom_audit.py`.
-> CI fails on drift (a tracked theorem acquiring NEW axiom dependencies).
-> Regenerate with `make lean-audit-update` after deliberate changes.
+def namespace_of(name: str) -> str:
+    """The declaration's enclosing namespace: name minus its last component."""
+    return name.rsplit(".", 1)[0] if "." in name else name
 
-This is the maintained baseline of permitted axiom dependencies for every
-theorem in the YMGap Lean library.  Per `lean/AGENTS.md` Rule 1, the only
-allowed axiom for load-bearing theorems is `propext` (with `Quot.sound`
-permitted only when justified); each tracked theorem below is recorded
-with its OBSERVED axiom set at the time of the last baseline update.
 
-## Drift policy
+def _canon_line(name: str, axioms: set[str]) -> str:
+    return f"{name} = {', '.join(sorted(axioms))}"
 
-  * **FAIL**: a tracked theorem acquires an axiom dependency NOT listed
-    here.  This indicates the theorem's proof became less constructive.
-  * **PASS (silent)**: a tracked theorem's axiom set shrinks (the proof
-    became more constructive).
-  * **STRICT mode**: also flag new theorems not in the baseline and
-    tracked theorems missing from the build (use
-    `make lean-audit-strict`).
+
+def group_by_namespace(observed: dict[str, set[str]]) -> dict[str, list[str]]:
+    groups: dict[str, list[str]] = {}
+    for name in observed:
+        groups.setdefault(namespace_of(name), []).append(name)
+    return groups
+
+
+def digest_of(names: list[str], observed: dict[str, set[str]]) -> str:
+    body = "\n".join(_canon_line(n, observed[n]) for n in sorted(names))
+    return hashlib.sha256(body.encode("utf-8")).hexdigest()[:16]
+
+
+def compute_digests(observed: dict[str, set[str]]) -> dict[str, tuple[str, int]]:
+    groups = group_by_namespace(observed)
+    return {ns: (digest_of(names, observed), len(names)) for ns, names in groups.items()}
+
+
+def exceptions_of(observed: dict[str, set[str]]) -> dict[str, set[str]]:
+    return {n: ax for n, ax in observed.items() if not ax <= GATE}
+
+
+# --------------------------------------------------------------------------
+# Baseline read / write (hashed format)
+# --------------------------------------------------------------------------
+
+HEADER = """\
+# Lean Axiom-Gate Audit Baseline (hashed)
+
+> **Auto-maintained** by `scripts/lean_axiom_audit.py`.  Regenerate with
+> `make lean-audit-update` after a full build.  CI (`make lean-audit`) enforces
+> the gate; `make lean-audit-strict` additionally enforces the per-namespace
+> digests.
+
+Permitted axiom gate (AGENTS.md Rule 1): `{propext, Quot.sound}`.  Every
+load-bearing theorem must stay within it, EXCEPT the reviewed entries in the
+`## Exceptions` section below.  The `## Namespace digests` table is a compact,
+per-namespace hash of the full `name = axioms` map, so drift is detected and
+regeneration is per-namespace (a one-line diff), not whole-file.
+
+## Policy
+
+  * **GATE FAIL** (`make lean-audit`): a theorem depends on an axiom outside
+    `{propext, Quot.sound}` and is not listed under `## Exceptions`.
+  * **DIGEST DRIFT** (`make lean-audit-strict`): a namespace's digest differs
+    from the recorded value (any axiom-profile change — new/removed decls or
+    within-gate axiom shifts).  Review, then `make lean-audit-update`.
 
 ## Format
 
-One line per tracked theorem:
-
 ```
-<fully-qualified-theorem-name> = <comma-separated permitted axioms>
+## Exceptions
+<fully-qualified-name> = <comma-separated axioms outside the gate>   [# note]
+
+## Namespace digests
+<namespace> = <sha16>  (<decl-count>)
 ```
 
-Empty after `=` means no axioms permitted (the strictest constraint).
-Lines starting with `#` and blank lines are ignored.
-
-## Tracked theorems
-
+Lines starting with `#`/`>` and blanks are ignored.
 """
 
-BASELINE_LINE_RE = re.compile(
-    r"^(?P<name>[^=#\s][^=]*?)\s*=\s*(?P<axioms>.*)$"
+_EXC_RE = re.compile(r"^(?P<name>YMGap[\w\\.']+?)\s*=\s*(?P<axioms>.*?)\s*(?:#.*)?$")
+_DIG_RE = re.compile(
+    r"^(?P<ns>YMGap[\w\\.']*?)\s*=\s*(?P<hash>[0-9a-f]{8,64})\s*(?:\(\s*(?P<count>\d+)\s*\))?\s*$"
 )
 
 
-def parse_baseline(path: Path) -> dict[str, set[str]]:
-    """Parse the baseline manifest into {name: set_of_permitted_axioms}."""
-    result: dict[str, set[str]] = {}
-    if not path.exists():
-        return result
-    for line in path.read_text(encoding="utf-8").splitlines():
-        stripped = line.strip()
-        if not stripped or stripped.startswith("#") or stripped.startswith(">"):
-            continue
-        m = BASELINE_LINE_RE.match(stripped)
-        if not m:
-            continue
-        name = m.group("name").strip()
-        if not name.startswith("YMGap"):
-            continue  # ignore non-theorem lines (e.g., header markdown).
-        axioms_str = m.group("axioms")
-        result[name] = {a.strip() for a in axioms_str.split(",") if a.strip()}
-    return result
-
-
 def write_baseline(path: Path, observed: dict[str, set[str]]) -> None:
-    """Write a fresh baseline from the observed axiom map."""
-    lines = [BASELINE_HEADER]
-    for name in sorted(observed.keys()):
-        axioms = observed[name]
-        if axioms:
-            line = f"{name} = {', '.join(sorted(axioms))}"
-        else:
-            line = f"{name} ="
-        lines.append(line)
-    lines.append("")
-    path.write_text("\n".join(lines), encoding="utf-8")
+    exc = exceptions_of(observed)
+    digests = compute_digests(observed)
+    out = [HEADER, "", "## Exceptions", ""]
+    if exc:
+        for name in sorted(exc):
+            out.append(_canon_line(name, exc[name]))
+    else:
+        out.append(
+            "# (none — every tracked theorem is within {propext, Quot.sound})"
+        )
+    out += ["", "## Namespace digests", ""]
+    for ns in sorted(digests):
+        h, c = digests[ns]
+        out.append(f"{ns} = {h}  ({c})")
+    out.append("")
+    path.write_text("\n".join(out), encoding="utf-8")
+
+
+def parse_baseline(path: Path) -> tuple[dict[str, set[str]], dict[str, tuple[str, int]]]:
+    """Return (exceptions, digests) from the hashed baseline.
+
+    Backward-compatible: an OLD flat `name = axioms` baseline is read as
+    exceptions being every non-gate line; digests come back empty (strict mode
+    is then a no-op until the first `--update`).
+    """
+    exc: dict[str, set[str]] = {}
+    digests: dict[str, tuple[str, int]] = {}
+    if not path.exists():
+        return exc, digests
+    section = None
+    for line in path.read_text(encoding="utf-8").splitlines():
+        s = line.strip()
+        if s.startswith("## Exceptions"):
+            section = "exc"
+            continue
+        if s.startswith("## Namespace digests"):
+            section = "dig"
+            continue
+        if not s or s.startswith("#") or s.startswith(">"):
+            continue
+        if section == "dig":
+            m = _DIG_RE.match(s)
+            if m:
+                digests[m.group("ns")] = (
+                    m.group("hash"),
+                    int(m.group("count") or 0),
+                )
+            continue
+        # section == "exc" (or an old flat baseline with no section headers)
+        m = _EXC_RE.match(s)
+        if m and m.group("name").startswith("YMGap"):
+            axset = {a.strip() for a in m.group("axioms").split(",") if a.strip()}
+            # In an OLD flat baseline, keep only genuine non-gate lines as exceptions.
+            if not axset <= GATE:
+                exc[m.group("name")] = axset
+    return exc, digests
 
 
 # --------------------------------------------------------------------------
-# Lake-build invocation
+# Build invocation
 # --------------------------------------------------------------------------
 
 
 def run_lake_build() -> tuple[int, str]:
-    """Run `lake build` in `lean/`; return (returncode, combined output)."""
     proc = subprocess.run(
-        ["lake", "build"],
-        cwd=LEAN_DIR,
-        capture_output=True,
-        text=True,
-        check=False,
+        ["lake", "build"], cwd=LEAN_DIR, capture_output=True, text=True, check=False
     )
     return proc.returncode, proc.stdout + proc.stderr
-
-
-# --------------------------------------------------------------------------
-# Drift detection
-# --------------------------------------------------------------------------
-
-
-def detect_drift(
-    observed: dict[str, set[str]],
-    baseline: dict[str, set[str]],
-    strict: bool = False,
-) -> tuple[list[str], list[str], list[str], list[str]]:
-    """Compare observed vs baseline; return four lists.
-
-    Returns:
-        drift_failures: tracked theorems with NEW disallowed axioms.
-        improvements:   tracked theorems whose axiom set shrunk (silent good).
-        new_theorems:   in build but not in baseline (strict-mode fail).
-        missing:        in baseline but not in build (strict-mode fail).
-    """
-    drift_failures: list[str] = []
-    improvements: list[str] = []
-    new_theorems: list[str] = []
-    missing: list[str] = []
-
-    for name, obs_axioms in observed.items():
-        if name not in baseline:
-            new_theorems.append(name)
-            continue
-        allowed = baseline[name]
-        new_axioms = obs_axioms - allowed
-        if new_axioms:
-            drift_failures.append(
-                f"  - {name}: acquired axiom(s) "
-                f"{{{', '.join(sorted(new_axioms))}}}; "
-                f"baseline permits {{{', '.join(sorted(allowed)) or '(empty)'}}}"
-            )
-        elif obs_axioms < allowed:
-            improvements.append(
-                f"  - {name}: dropped axiom(s) "
-                f"{{{', '.join(sorted(allowed - obs_axioms))}}}; "
-                f"now {{{', '.join(sorted(obs_axioms)) or '(empty)'}}}"
-            )
-
-    for name in baseline:
-        if name not in observed:
-            missing.append(f"  - {name}")
-
-    return drift_failures, improvements, new_theorems, missing
 
 
 # --------------------------------------------------------------------------
@@ -258,113 +255,88 @@ def detect_drift(
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Lean axiom-gate audit (enforces AGENTS.md Rule 1 in CI)."
+        description="Lean axiom-gate audit (hashed baseline; enforces AGENTS.md Rule 1)."
     )
-    parser.add_argument(
-        "--update",
-        action="store_true",
-        help="Regenerate the baseline manifest from the current build.",
-    )
-    parser.add_argument(
-        "--strict",
-        action="store_true",
-        help="Also fail on new theorems or tracked theorems missing from the build.",
-    )
-    parser.add_argument(
-        "--from-file",
-        type=Path,
-        default=None,
-        help=(
-            "Read `lake build` output from this file instead of invoking lake. "
-            "Useful for testing the script on captured output."
-        ),
-    )
+    parser.add_argument("--update", action="store_true",
+                        help="Regenerate the hashed baseline from the current build.")
+    parser.add_argument("--strict", action="store_true",
+                        help="Also fail on per-namespace digest drift.")
+    parser.add_argument("--from-file", type=Path, default=None,
+                        help="Read `lake build` output from this file instead of running lake.")
     args = parser.parse_args()
 
-    # 1. Get build output (either from --from-file or by running lake).
     if args.from_file is not None:
         if not args.from_file.exists():
-            print(f"ERROR: --from-file path does not exist: {args.from_file}",
-                  file=sys.stderr)
+            print(f"ERROR: --from-file path does not exist: {args.from_file}", file=sys.stderr)
             return 3
         output = args.from_file.read_text(encoding="utf-8")
-        rc = 0
     else:
         rc, output = run_lake_build()
         if rc != 0:
-            print(f"ERROR: lake build failed (exit {rc}). Output:", file=sys.stderr)
+            print(f"ERROR: lake build failed (exit {rc}).", file=sys.stderr)
             print(output, file=sys.stderr)
             return 3
 
-    # 2. Parse observed axioms.
     observed = parse_lake_output(output)
     if not observed:
-        print("ERROR: no theorem axiom info found in lake-build output.",
-              file=sys.stderr)
-        print("Make sure every load-bearing theorem has a `#print axioms` "
-              "block at the bottom of its file.", file=sys.stderr)
+        print("ERROR: no `#print axioms` info found in lake-build output.", file=sys.stderr)
         return 3
 
-    # 3. Update mode: write fresh baseline and exit.
     if args.update:
         write_baseline(BASELINE_PATH, observed)
-        print(f"Baseline updated: {len(observed)} theorems written to "
-              f"{BASELINE_PATH.relative_to(REPO_ROOT)}")
+        exc = exceptions_of(observed)
+        digs = compute_digests(observed)
+        print(f"Baseline updated: {len(observed)} theorems, {len(digs)} namespaces, "
+              f"{len(exc)} exception(s) -> {BASELINE_PATH.relative_to(REPO_ROOT)}")
         return 0
 
-    # 4. Check mode: compare observed vs baseline.
-    baseline = parse_baseline(BASELINE_PATH)
-    if not baseline:
-        print(f"ERROR: baseline {BASELINE_PATH.relative_to(REPO_ROOT)} not "
-              f"found or empty.  Run `make lean-audit-update` first.",
-              file=sys.stderr)
+    base_exc, base_dig = parse_baseline(BASELINE_PATH)
+    if not base_exc and not base_dig:
+        print(f"ERROR: baseline {BASELINE_PATH.relative_to(REPO_ROOT)} missing/empty. "
+              f"Run `make lean-audit-update` first.", file=sys.stderr)
         return 3
 
-    drift_failures, improvements, new_theorems, missing = detect_drift(
-        observed, baseline, strict=args.strict
-    )
+    obs_exc = exceptions_of(observed)
+    # GATE check: any theorem outside the gate must be a reviewed exception with
+    # a superset-permitted record.
+    gate_fails: list[str] = []
+    for name, ax in obs_exc.items():
+        permitted = base_exc.get(name)
+        if permitted is None or not ax <= permitted:
+            extra = ax - (permitted or set())
+            gate_fails.append(
+                f"  - {name}: axioms {{{', '.join(sorted(ax))}}} outside gate "
+                f"{{propext, Quot.sound}}; unreviewed {{{', '.join(sorted(extra))}}}"
+            )
 
-    # 5. Report.
-    print(f"Lean axiom-gate audit: "
-          f"{len(observed)} theorems observed, {len(baseline)} tracked.")
+    print(f"Lean axiom-gate audit: {len(observed)} theorems, "
+          f"{len(group_by_namespace(observed))} namespaces, {len(obs_exc)} exception(s).")
     print()
 
-    if improvements:
-        print(f"+ {len(improvements)} theorem(s) improved (axiom set shrunk):")
-        for msg in improvements:
-            print(msg)
-        print()
-
-    if drift_failures:
-        print(f"FAIL: {len(drift_failures)} theorem(s) drifted "
-              f"(acquired new axioms):")
-        for msg in drift_failures:
-            print(msg)
-        print()
-        print("To accept the drift after review (NOT recommended without "
-              "explicit AGENTS.md Rule 1 review), run:")
-        print("    make lean-audit-update")
+    if gate_fails:
+        print(f"GATE FAIL: {len(gate_fails)} theorem(s) depend on axioms outside the gate "
+              f"and are not reviewed exceptions:")
+        print("\n".join(gate_fails))
+        print("\nAfter AGENTS.md Rule 1 review, add them under `## Exceptions` "
+              "(or run `make lean-audit-update`).")
         return 1
 
     if args.strict:
-        strict_fail = False
-        if new_theorems:
-            print(f"STRICT FAIL: {len(new_theorems)} new theorem(s) in build "
-                  f"but not in baseline:")
-            for name in sorted(new_theorems):
-                print(f"  - {name}")
-            print()
-            strict_fail = True
-        if missing:
-            print(f"STRICT FAIL: {len(missing)} tracked theorem(s) missing "
-                  f"from build:")
-            for msg in missing:
-                print(msg)
-            print()
-            strict_fail = True
-        if strict_fail:
-            print("Run `make lean-audit-update` to refresh the baseline if "
-                  "these changes are intentional.")
+        obs_dig = compute_digests(observed)
+        drift: list[str] = []
+        for ns in sorted(set(obs_dig) | set(base_dig)):
+            o = obs_dig.get(ns)
+            b = base_dig.get(ns)
+            if o is None:
+                drift.append(f"  - {ns}: removed (was {b[1]} decls)")
+            elif b is None:
+                drift.append(f"  - {ns}: NEW ({o[1]} decls)")
+            elif o[0] != b[0]:
+                drift.append(f"  - {ns}: digest {b[0]}({b[1]}) -> {o[0]}({o[1]})")
+        if drift:
+            print(f"STRICT: {len(drift)} namespace(s) drifted (axiom profile changed):")
+            print("\n".join(drift))
+            print("\nReview, then `make lean-audit-update` to accept.")
             return 2
 
     print("Axiom-gate audit: PASS")

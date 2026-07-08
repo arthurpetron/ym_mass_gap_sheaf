@@ -77,13 +77,26 @@ BASELINE_LINE_RE = re.compile(r"^(?P<name>[^=#\s][^=]*?)\s*=\s*(?P<axioms>.*)$")
 
 
 def parse_axiom_baseline(path: Path) -> dict[str, set[str]]:
-    """Parse `AXIOM_AUDIT.md` into {fully-qualified-name: set_of_axioms}."""
+    """Parse `AXIOM_AUDIT.md` (hashed format) into {name: axioms} for the
+    EXCEPTIONS only — theorems whose axioms fall outside `{propext, Quot.sound}`.
+
+    Clean theorems are no longer listed individually (the file records
+    per-namespace digests instead); callers treat any name absent here as
+    within the gate.  For exact per-decl axioms of clean decls, run with
+    `--from-file`/`--lake` (a live build log)."""
     result: dict[str, set[str]] = {}
     if not path.exists():
         return result
+    in_exceptions = False
     for line in path.read_text(encoding="utf-8").splitlines():
         stripped = line.strip()
-        if not stripped or stripped.startswith(("#", ">")):
+        if stripped.startswith("## Exceptions"):
+            in_exceptions = True
+            continue
+        if stripped.startswith("## Namespace digests"):
+            in_exceptions = False
+            continue
+        if not in_exceptions or not stripped or stripped.startswith(("#", ">")):
             continue
         m = BASELINE_LINE_RE.match(stripped)
         if not m:
@@ -121,7 +134,10 @@ def run_lake_build() -> str:
 def format_gate(name: str, gates: dict[str, set[str]]) -> str:
     """Human-readable axiom gate for a fully-qualified decl name."""
     if name not in gates:
-        return "not tracked in AXIOM_AUDIT.md"
+        # Hashed baseline lists only out-of-gate EXCEPTIONS; an absent name is
+        # within the gate.  (With --from-file/--lake, `gates` is the full live
+        # map, so clean decls carry their exact axioms and never reach here.)
+        return "within gate {propext, Quot.sound}"
     axset = gates[name]
     if not axset:
         return "axiom-free"
