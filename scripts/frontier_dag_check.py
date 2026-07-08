@@ -105,6 +105,13 @@ SCRIPT_ALLOWLIST: set[str] = {
     "YMGap.Rubric.LoopScorecard.LoopOpenFrontier",
     "YMGap.Rubric.ContinuumScorecard.ContinuumTargetReduction",
     "YMGap.Rubric.ReconstructionScorecard.FullReconstructionTarget",
+    # Reviewed (2026-07-08): the measure-free FUNCTIONAL continuum-existence object
+    # that REPLACED the DAG's removed σ-additive Minlos node (FrontierDAG §3). It is
+    # bridged in spirit — its OS0/OS4 open surface (RubricO4Restoration /
+    # RubricUniformInCoupling) is the same continuum obligation the DAG's o4/trueMargin
+    # bucket drives toward, and the continuum-measure crosslist is recorded in
+    # FrontierDAGBridges.minlos_crosslist_identity. Not a silent parallel shard.
+    "YMGap.Continuum.FunctionalContinuumTarget.FunctionalContinuumTarget",
 }
 
 

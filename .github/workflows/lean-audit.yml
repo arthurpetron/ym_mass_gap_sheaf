@@ -25,11 +25,15 @@ on:
     paths:
       - "lean/**"
       - "scripts/lean_axiom_audit.py"
+      - "scripts/frontier_dag_check.py"
+      - "Makefile"
       - ".github/workflows/lean-audit.yml"
   pull_request:
     paths:
       - "lean/**"
       - "scripts/lean_axiom_audit.py"
+      - "scripts/frontier_dag_check.py"
+      - "Makefile"
       - ".github/workflows/lean-audit.yml"
 
 jobs:
@@ -78,6 +82,27 @@ jobs:
       # lean/YMGapGuard.lean.
       - name: Frontier uninhabitedness guard
         run: make lean-frontier-guard
+
+      # Statement-hash DRIFT guard — FAILS the build if a pinned frontier statement
+      # (ClayTargetPinned / ClayTarget / FrontierDAG / Tier0Scorecard /
+      # UniformSpacingFloor or a shared param they reference) is silently WEAKENED
+      # (a dropped field, loosened bound, ∀→∃). The inhabitation guard above cannot
+      # see statement drift; this closes that attack. See lean/YMGapStatementGuard.lean.
+      - name: Statement-hash drift guard
+        run: make lean-statement-guard
+
+      # Anti-proliferation (Rule 9.8) — FAILS if a new *Scorecard/*Frontier/*Target/*DAG
+      # enumeration carrying OPEN residual atoms is added WITHOUT a bridge relating it
+      # to the unified FrontierDAG (in either direction), forcing open atoms to be
+      # accounted through the single source of truth rather than a parallel shard.
+      # See scripts/frontier_dag_check.py.
+      - name: Frontier-DAG anti-proliferation check
+        run: make frontier-dag-check
+
+      # Clay scorecard — the fixed-spacing rubric clauses stay MET (real proof terms
+      # typecheck) while the continuum clauses stay OPEN. See ClayScorecard.lean.
+      - name: Clay scorecard (fixed-spacing MET, continuum OPEN)
+        run: make lean-rubric
 
       - name: Run axiom-gate audit (non-strict — drift only)
         run: make lean-audit
