@@ -341,7 +341,16 @@ whence M1-even is immediate from `R₁ = P₁ ≥ 0` and `(1−u) ≤ −ln u`, 
 close by a rational region split at `u = 3/4` (truncated θ-series on `[1/4,3/4]`, ε-dual rational
 inequality on `[3/4,1)`).  Every step is a FINITE rational inequality — EXCEPT the modular transform
 itself, which requires `√` of a general `w` and an infinite convergent theta series with `π`, absent
-from the present `Q'`/`CReal`-core substrate.  That single transcendental bridge is named here. -/
+from the present `Q'`/`CReal`-core substrate.  That single transcendental bridge is named here.
+
+**CONSUMER SCHEMA — bounds, not the exact identity (`docs/theta_inversion.md`).**  The true consumer
+is `R1CurvatureEnvelope.CurvatureEnvelope` / `AbelFullRangeFloor` (`Δ²V+2 ≥ (144/25)w²(1−w²)`), whose
+uniform tail `s ≥ 7` has a `≈ 1.38×` multiplicative margin (true inf ratio `≥ 7.96` vs required
+`5.76`).  So the EXACT modular identity is NOT required — TWO-SIDED bounds `ϑ₃(1/τ) ≍ √τ·ϑ₃(τ)` with
+looseness `< 1.38` suffice.  `JacobiModularCReal §3b` supplies the genuine SUM-LEVEL two-sided bracket
+(`thetaS_geRat_count` the `1/√(1−q)` divergence lower bound, `thetaHalf_le_geom` the upper leg) via
+counting / `pow_base_antitone` (no Poisson, no integration); its lower constant is a factor `≈ 2`
+loose, sharpening the residual to a near-sharp two-sided theta bound (constant within `1.38`). -/
 
 /-- **`MomentEnvelopePoissonDual w`** (NAMED-OPEN — the sharp M1/M2 residual).  The Poisson/Jacobi
 modular-dual moment envelope of the abelian tilted measure: the SHARP scaling bounds `V·(1−w) ≤ 2`

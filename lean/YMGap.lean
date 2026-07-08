@@ -648,6 +648,7 @@ import YMGap.Continuum.SpansMinEdgesProof
 import YMGap.Continuum.TreeCountContractProof
 import YMGap.Continuum.PenroseWeightedRepair
 import YMGap.Continuum.SpansContractProof
+import YMGap.Continuum.PenroseConstWeightDC
 import YMGap.Continuum.HaddDischarge
 import YMGap.Classical.MinlosQuarantine
 import YMGap.Rubric.ClayTargetPinned
@@ -694,6 +695,7 @@ import YMGap.Continuum.CayleyInjection
 import YMGap.Continuum.CayleyLooseInjection
 import YMGap.Continuum.MayerUrsellZ4Restated
 import YMGap.Continuum.RacahOrthogonalityGeneral
+import YMGap.Continuum.RacahDougallWZ
 import YMGap.Continuum.PhysicalCharCoordinateMap
 import YMGap.Continuum.FusionKernelStatement
 import YMGap.Continuum.CurvatureFloorStatement
