@@ -670,6 +670,7 @@ import YMGap.Continuum.MayerBridgeDecomposition
 import YMGap.Continuum.SixJKernel
 import YMGap.Continuum.SixJRacahCReal
 import YMGap.Continuum.QuadraticKernel
+import YMGap.Continuum.QuadraticKernelMerge
 import YMGap.Continuum.SixJPentagonCReal
 import YMGap.Continuum.SixJPentagonRefutation
 import YMGap.RG.WeylDimGeneralData
