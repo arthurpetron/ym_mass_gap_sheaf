@@ -649,6 +649,7 @@ import YMGap.Continuum.TreeCountContractProof
 import YMGap.Continuum.PenroseWeightedRepair
 import YMGap.Continuum.SpansContractProof
 import YMGap.Continuum.PenroseConstWeightDC
+import YMGap.Continuum.SpansContractInRange
 import YMGap.Continuum.HaddDischarge
 import YMGap.Classical.MinlosQuarantine
 import YMGap.Rubric.ClayTargetPinned

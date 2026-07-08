@@ -135,9 +135,17 @@ contractEdges a b A)`, at the exact BFS fuels `n` and `n-1`.
 This is the classical contraction-invariance of connectivity — a path in `G` maps
 under `relabelV a b` to a walk in `G/e` and back (the merged vertex `a` stands for
 both `a` and `b`, connected by the head edge `(a,b)`, which becomes the invisible
-self-loop `(a,a)`).  Weightless, TRUE (brute-force validated over all graphs on
-`n ≤ 4`), and — unlike the weighted `Csum` half or the mis-oriented `relabelV` —
-NOT refutable.  Left UNINHABITED: the single named residual. -/
+self-loop `(a,a)`).
+
+CORRECTION (`Continuum/SpansContractInRange.lean`): this def as written — with `A`
+UNRESTRICTED — is in fact FALSE (`reachTransport_unguarded_false`): the fixed-fuel
+BFS `reachClosure n` only saturates when every label of `A` is `< n`, and an
+out-of-range detour breaks the biconditional (counterexample `n=3,(a,b)=(0,1),
+A=[(0,3),(3,4),(2,4)]` at `i=2`).  The `n ≤ 4` validation used only in-range `A`.
+The genuinely-TRUE, machine-PROVED statement is the guarded
+`reachTransport_inRange` (adds `InRange n A` — every endpoint `< n`, the polymer
+regime, preserved by contraction).  This def is therefore left UNINHABITED because
+it is UNINHABITABLE; consumers must be re-pointed at `reachTransport_inRange`. -/
 def ReachTransport : Prop :=
   ∀ (n a b : Nat) (A : List Edge), a < b → b < n →
     ∀ i, i < n →
