@@ -697,6 +697,7 @@ import YMGap.Continuum.CayleyLooseInjection
 import YMGap.Continuum.MayerUrsellZ4Restated
 import YMGap.Continuum.RacahOrthogonalityGeneral
 import YMGap.Continuum.RacahDougallWZ
+import YMGap.Continuum.RingNormaliser
 import YMGap.Continuum.PhysicalCharCoordinateMap
 import YMGap.Continuum.FusionKernelStatement
 import YMGap.Continuum.CurvatureFloorStatement
