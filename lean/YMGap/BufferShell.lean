@@ -76,6 +76,7 @@ conjunction of all per-point checks, also `decide`-able.
 -/
 
 import YMGap.Constructive.Rationals
+import YMGap.BudgetConstants
 
 namespace YMGap.BufferShell
 
@@ -146,7 +147,7 @@ def gp1 : GridPoint :=
   { delta := Q'.mkPos 1 10 (by decide),
     g := Q'.mkPos 1 2 (by decide),
     uniform_lower := Q'.mkPos 4 10000 (by decide),
-    numerical_upper := Q'.mkPos 3 10000 (by decide) }
+    numerical_upper := YMGap.BudgetConstants.bcEtaMaxCanonical }
 
 /-- Grid point #2: δ = 0.1, g = 1.0.
 

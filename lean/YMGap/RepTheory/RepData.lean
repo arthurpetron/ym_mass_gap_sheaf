@@ -77,6 +77,7 @@ block at the end.
 -/
 
 import YMGap.Constructive.RationalTail
+import YMGap.BudgetConstants
 
 namespace YMGap.RepTheory
 
@@ -228,7 +229,7 @@ def su2 : RepData where
   g_sq    := Q'.mkPos 9 100 (by decide)
   conv    := 1
   rho_sf  := Q'.mkPos 25 3 (by decide)
-  eta_max := Q'.mkPos 3 10000 (by decide)
+  eta_max := YMGap.BudgetConstants.bcEtaMaxCanonical
   K_steps := 3
   sigma0  := 1
 
@@ -243,7 +244,7 @@ def su3 : RepData where
   g_sq    := Q'.mkPos 9 100 (by decide)
   conv    := 1
   rho_sf  := Q'.mkPos 400 27 (by decide)
-  eta_max := Q'.mkPos 13 1000000 (by decide)
+  eta_max := YMGap.BudgetConstants.bcEtaMaxSimple
   K_steps := 3
   sigma0  := 1
 

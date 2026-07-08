@@ -75,6 +75,7 @@ Every load-bearing theorem reports `[propext]` only (inherited from
 import YMGap.Constructive.RationalTail
 import YMGap.RG.SigmaHatPilot
 import YMGap.Continuum.SigmaHatLimit
+import YMGap.BudgetConstants
 
 namespace YMGap.Codynamic
 
@@ -188,7 +189,7 @@ open YMGap.RG.SigmaHatPilot
 /-- The SU(2) σ̂-budget closure gap at the canonical pilot
 (post-2026-05-26 c_λ Casimir-gap derivation):
 `ε = σ̂_0 - eta_total_pilot = 1 - 9/10000 = 9991/10000`. -/
-def su2_gap : Q' := Q'.mkPos 9991 10000 (by decide)
+def su2_gap : Q' := YMGap.BudgetConstants.bcSigmaHat
 
 /-- The gap is strictly positive: `0 < 9991/10000`. -/
 theorem su2_gap_positive : (0 : Q') < su2_gap := by decide

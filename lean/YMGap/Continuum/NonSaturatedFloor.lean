@@ -61,6 +61,7 @@ import YMGap.Continuum.SqrtBridge
 import YMGap.Continuum.KPLimit
 import YMGap.Constructive.Sqrt
 import YMGap.Constructive.CRealMul
+import YMGap.BudgetConstants
 
 namespace YMGap.Continuum.NonSaturatedFloor
 
@@ -81,7 +82,7 @@ the vacuum scale — so it yields a NON-DEGENERATE located gap, unlike the pilot
 
 /-- The strong-coupling SU(2) mass fiducial `mFiducial = 999/1000` — the
 project's constructive mass-gap bound, a genuine non-trivial rational in `(0,1)`. -/
-def mFiducial : Q' := Q'.mkPos 999 1000 (by decide)
+def mFiducial : Q' := YMGap.BudgetConstants.bcMargin
 
 /-- The fiducial mass is strictly positive. -/
 theorem mFiducial_pos : (0 : Q') < mFiducial := by decide

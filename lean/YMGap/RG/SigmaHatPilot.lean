@@ -44,6 +44,7 @@ end of the file.
 -/
 
 import YMGap.Constructive.RationalTail
+import YMGap.BudgetConstants
 
 namespace YMGap.RG.SigmaHatPilot
 
@@ -56,7 +57,7 @@ open YMGap.Constructive.RationalTail
 `g_0 = 0.30`: `3/10000 = 3e-4` (post-2026-05-26 c_λ Casimir-gap
 derivation; previously 11/10000 under c_λ = 1/2).  Dominates each of
 the three per-step η_k ≈ 2.7e-4 from above. -/
-def eta_max_pilot : Q' := Q'.mkPos 3 10000 (by decide)
+def eta_max_pilot : Q' := YMGap.BudgetConstants.bcEtaMaxCanonical
 
 /-- Total budget after K = 3 transitions: `9/10000` (post-c_λ-upgrade;
 previously 33/10000). -/
@@ -111,7 +112,7 @@ def eta_max_pilot_wilson : Q' := Q'.mkPos 1 10000 (by decide)
 
 /-- Wilson-pilot total bound: `3/10000` (post-c_λ-upgrade;
 previously 12/10000). -/
-def eta_total_pilot_wilson : Q' := Q'.mkPos 3 10000 (by decide)
+def eta_total_pilot_wilson : Q' := YMGap.BudgetConstants.bcEtaMaxCanonical
 
 /-- σ̂_0 for the Wilson wire-in: `(1 : Q')`. -/
 def sigma_hat_0_pilot_wilson : Q' := 1

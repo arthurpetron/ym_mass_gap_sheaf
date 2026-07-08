@@ -482,6 +482,7 @@ import YMGap.Continuum.HeatKernelRGStep
 import YMGap.Continuum.PerScaleContraction
 import YMGap.Continuum.PerScaleCompose
 import YMGap.BufferShell
+import YMGap.BudgetConstants
 import YMGap.Codynamic
 import YMGap.HigherCategorical
 import YMGap.Categorical.Core

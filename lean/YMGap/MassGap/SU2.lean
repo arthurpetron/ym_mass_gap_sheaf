@@ -60,6 +60,7 @@ the bottom.
 -/
 
 import YMGap.Continuum.OSReconstruction
+import YMGap.BudgetConstants
 
 namespace YMGap.MassGap.SU2
 
@@ -79,13 +80,13 @@ Matches `computations/mass_gap_bound.py::canonical_mass_gap_bound()`
 and `formal/mass-gap-theorem.tex` Proposition 3.1.  The tighter bound
 follows from the reduced `eta_total_pilot` (9/10000 vs previous
 33/10000) at the new c_λ = 3/4 = C_2(1/2). -/
-def m_0_canonical : Q' := Q'.mkPos 999 1000 (by decide)
+def m_0_canonical : Q' := YMGap.BudgetConstants.bcMargin
 
 /-- Wilson-pilot mass-gap lower bound: `m_0 := 999/1000`.
 
 Matches `computations/mass_gap_bound.py::wilson_mass_gap_bound()`
 and `formal/mass-gap-theorem.tex` Proposition 3.2. -/
-def m_0_wilson : Q' := Q'.mkPos 999 1000 (by decide)
+def m_0_wilson : Q' := YMGap.BudgetConstants.bcMargin
 
 /-- σ̂_∞ lower bound from the canonical pilot: `ε := 9991/10000`
 **(tightened 2026-05-26 from 9967/10000 by the c_λ Casimir-gap
@@ -95,7 +96,7 @@ Derived as `σ̂_0 - Σ η_k = 1 - 9/10000` where `9/10000` is the new
 Phase-3 canonical pilot's `eta_total_pilot` consumed across K = 3
 RG transitions at c_λ = 3/4.  Matches
 `YMGap.RG.SigmaHatPilot.eta_total_pilot` modulo subtraction. -/
-def sigma_hat_inf_lower_canonical : Q' := Q'.mkPos 9991 10000 (by decide)
+def sigma_hat_inf_lower_canonical : Q' := YMGap.BudgetConstants.bcSigmaHat
 
 /-- σ̂_∞ lower bound from the Wilson pilot: `ε := 9997/10000`
 **(tightened 2026-05-26 from 9988/10000 by the c_λ Casimir-gap

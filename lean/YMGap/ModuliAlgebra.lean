@@ -48,6 +48,7 @@ All load-bearing theorems report `[propext]` or empty.
 -/
 
 import YMGap.Constructive.Rationals
+import YMGap.BudgetConstants
 
 namespace YMGap.ModuliAlgebra
 
@@ -125,10 +126,10 @@ def canonical_pilot_moduli : ModuliVector :=
     eps_cap := Q'.mkPos 1 100 (by decide),
     eps_num := Q'.mkPos 1 100 (by decide),
     sigma_0 := 1,
-    sigma_hat_k := Q'.mkPos 9991 10000 (by decide),
-    sigma_phys := Q'.mkPos 9991 10000 (by decide),
-    m_0 := Q'.mkPos 999 1000 (by decide),
-    m_inf := Q'.mkPos 999 1000 (by decide) }
+    sigma_hat_k := YMGap.BudgetConstants.bcSigmaHat,
+    sigma_phys := YMGap.BudgetConstants.bcSigmaHat,
+    m_0 := YMGap.BudgetConstants.bcMargin,
+    m_inf := YMGap.BudgetConstants.bcMargin }
 
 /-- The Wilson-pilot moduli vector (g_0 = 1/2, K = 3, post-c_λ-Casimir-gap
 derivation).  σ̂_k = σ_phys = 9997/10000. -/
@@ -141,8 +142,8 @@ def wilson_pilot_moduli : ModuliVector :=
     sigma_0 := 1,
     sigma_hat_k := Q'.mkPos 9997 10000 (by decide),
     sigma_phys := Q'.mkPos 9997 10000 (by decide),
-    m_0 := Q'.mkPos 999 1000 (by decide),
-    m_inf := Q'.mkPos 999 1000 (by decide) }
+    m_0 := YMGap.BudgetConstants.bcMargin,
+    m_inf := YMGap.BudgetConstants.bcMargin }
 
 /-! ## Registry inequality at the pilots
 

@@ -71,6 +71,7 @@ no `sorryAx`, no custom axiom.  See the `#print axioms` block at the end.
 
 import YMGap.MassGap.SimpleGroup
 import YMGap.RG.WeylDimGeneralData
+import YMGap.BudgetConstants
 
 namespace YMGap.MassGap.AllSimpleTypes
 
@@ -99,7 +100,7 @@ def repOfCasimir (c2f c2a : Q') : RepData where
   g_sq    := 1
   conv    := 1
   rho_sf  := c2f
-  eta_max := Q'.mkPos 13 1000000 (by decide)
+  eta_max := YMGap.BudgetConstants.bcEtaMaxSimple
   K_steps := 3
   sigma0  := 1
 
