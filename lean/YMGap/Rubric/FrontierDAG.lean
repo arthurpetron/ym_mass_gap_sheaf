@@ -9,19 +9,22 @@ identity shared with the reconstruction scorecard.
 The point of the node is bookkeeping-with-teeth: it is a FAITHFUL Type-level
 inventory (no `Prop := True` slots, no `sorry`, no `axiom`) whose every field is a
 genuine named residual carried elsewhere in the development, and it is
-DELIBERATELY UNINHABITED — its `minlos` field is the guard-protected
-`ClayContinuumExistence`, so a total inhabitant of `FrontierDAG` would inhabit a
-Clay-frontier type and close the problem.
+DELIBERATELY UNINHABITED — its open atoms (`bulkCtrl`'s bond-moved `bulk_shift`,
+the `a2Pentagon` physical associator, `coreB`, `edgeShift`, `boundedH`, `o4`) are
+open Clay-frontier residuals, so a total inhabitant of `FrontierDAG` would close
+the problem.
 
-Two coarsenings are PROVED here:
+One coarsening is PROVED here:
 
   * `toSubWallA` — a clean, total re-bundle onto `Tier0Scorecard.SubWallA`
     (the Bucket-1 loopy-geometry four-atom sub-wall), analogous to
-    `Tier0Scorecard.toFrontierC`;
-  * `minlosAsContinuum` — the SHARED cross-list identity: the single `minlos`
-    value serves BOTH the Tier-0 scorecard's Minlos slot AND the reconstruction
-    scorecard's `OpenContinuumMeasure` slot (definitional; `CitedMinlosLift =
-    ClayContinuumExistence = OpenContinuumMeasure`).
+    `Tier0Scorecard.toFrontierC`.
+
+(The σ-additive Minlos measure lift is NO LONGER carried as a frontier node: the
+continuum target is now stated functionally — `Continuum/FunctionalContinuumTarget`
+— so `ContinuumScorecard.CitedMinlosLift` is an optional classical corollary, not a
+frontier atom.  The type-level identity with the reconstruction scorecard's
+`OpenContinuumMeasure` is still recorded in `FrontierDAGBridges`.)
 
 Two honest reductions are recorded (NAMED, uninhabited — never faked):
 
@@ -64,18 +67,17 @@ open YMGap.Rubric
 /-- **`FrontierDAG` — the whole open frontier as a single product node.**
 
 Every field is a genuine, elsewhere-named open residual of the continuum
-programme.  Uninhabited by design: the `minlos` field is
-`ContinuumScorecard.CitedMinlosLift = ClayContinuumExistence`, a guard-protected
-Clay-frontier type; a total inhabitant of `FrontierDAG` would inhabit it and
-close the mass-gap problem.  The single `d2Sep` slot is inhabited DATA (the
-`SepLatticeZ4` metric, needed only to *type* `tTree`); it is NOT what keeps the
-product open.
+programme.  Uninhabited by design: its open atoms (`bulkCtrl`'s bond-moved
+`bulk_shift`, the `a2Pentagon` physical associator, `coreB`, `edgeShift`,
+`boundedH`, `o4`) are open frontier residuals, so a total inhabitant of
+`FrontierDAG` would close the mass-gap problem.  The single `d2Sep` slot is
+inhabited DATA (the `SepLatticeZ4` metric, needed only to *type* `tTree`); it is
+NOT what keeps the product open.
 
 Buckets:
 
 * **Bucket 1 — a→0 gap-survival / Tier-0 cluster:** `bulkCtrl`, `d2Sep`,
   `tTree`, `d1Mayer`, `a2Racah`, `a2Pentagon`, `coreB`.
-* **Shared:** `minlos` (also appears in the reconstruction scorecard).
 * **Bucket 2 — reconstruction frontier:** `edgeShift`, `trueMargin`,
   `boundedH`, `o4`.
 
@@ -108,10 +110,6 @@ structure FrontierDAG
   a2Pentagon : PentagonRelation.PentagonNumericCore
   /-- (Core B) the finite-`s` central-autoconvolution theta-floor margin. -/
   coreB : AcNReserveAnalytic.FiniteSMargin w
-  -- ── SHARED cross-list node ──────────────────────────────────────────────
-  /-- The cited-classical Minlos σ-additive continuum-measure lift.  THE
-  guard-protected field: `= ClayContinuumExistence`. -/
-  minlos : ContinuumScorecard.CitedMinlosLift
   -- ── BUCKET 2 : reconstruction frontier ──────────────────────────────────
   /-- The pinned edge-shift residual (`hId`/`hLin`; open `bulk_shift` per scale). -/
   edgeShift : PinnedBridgeProgress.EdgeShiftResidual N pΓ
@@ -145,23 +143,15 @@ def toSubWallA
   a2Racah := F.a2Racah
   a2Pentagon := F.a2Pentagon
 
-/-! ## 3. The SHARED cross-list identity — TOTAL, PROVED (definitional)
+/-! ## 3. The Minlos node is REMOVED (functional restatement)
 
-`ContinuumScorecard.CitedMinlosLift = ClayContinuumExistence =
-ReconstructionScorecard.OpenContinuumMeasure`.  A single `minlos` value is the
-canonical node that appears in BOTH the Tier-0 scorecard and the reconstruction
-scorecard; no bridge proof is needed, only the recorded definitional identity. -/
-
-/-- **`minlosAsContinuum` — the shared-node identity (PROVED, definitional).**
-The `minlos` field of a `FrontierDAG` is, verbatim, the reconstruction
-scorecard's `OpenContinuumMeasure` slot. -/
-def minlosAsContinuum
-    {p : z4Chain.toLattice.Plaquette} {w : Q'}
-    {D : GNSData} {G : SpectralGapData D.gnsComplete}
-    {L : AdditiveTransferOperator D} {N pΓ : Nat}
-    (F : FrontierDAG p w G L N pΓ) :
-    ReconstructionScorecard.OpenContinuumMeasure :=
-  F.minlos
+The σ-additive Minlos continuum-measure lift is no longer a frontier node of the
+DAG: the continuum target is stated functionally
+(`Continuum/FunctionalContinuumTarget`), so `ContinuumScorecard.CitedMinlosLift`
+is an optional classical corollary, not a carried open atom.  The type-level
+identity `CitedMinlosLift = ReconstructionScorecard.OpenContinuumMeasure` (the two
+optional-measure slots are the same type) is still recorded, definitionally, in
+`FrontierDAGBridges.minlos_crosslist_identity`. -/
 
 /-! ## 4. Bucket-2 field projections (TOTAL, PROVED)
 
@@ -227,8 +217,10 @@ def coreBToCrossRatio
 
 /-! ## 6. Interface non-vacuity witnesses (the DATA slots are real)
 
-`FrontierDAG` is uninhabited as a WHOLE (its `minlos` field is guard-protected),
-but its interface is faithful: the data-carrying slots have genuine witnesses.
+`FrontierDAG` is uninhabited as a WHOLE (its open atoms — `bulkCtrl` `bulk_shift`,
+`a2Pentagon`, `coreB`, `edgeShift`, `boundedH`, `o4` — are open frontier
+residuals), but its interface is faithful: the data-carrying slots have genuine
+witnesses.
 These certify the product is non-vacuous as a type former (Rule: faithful +
 non-vacuous statement layer), NOT that the frontier itself is closed. -/
 
@@ -250,7 +242,6 @@ def bulkCtrl_interface_witness (w : Q')
 PROVED here (axiom-clean, `[propext, Quot.sound]`):
 
   * `toSubWallA` — the TOTAL Bucket-1 coarsening onto `Tier0Scorecard.SubWallA`;
-  * `minlosAsContinuum` — the shared Tier-0 ↔ reconstruction Minlos identity;
   * `trueMarginAtom` / `o4Atom` / `boundedHAtom` — the Bucket-2 field
     projections onto the reconstruction scorecard's OPEN abbreviations;
   * `coreBToCrossRatio` — the Core-B reduction, TOTAL in a `CoreBBridge`;
@@ -258,7 +249,9 @@ PROVED here (axiom-clean, `[propext, Quot.sound]`):
 
 OPEN (deliberately uninhabited — NO inhabitant provided, never `sorry`):
 
-  * `FrontierDAG` itself — guard-protected via `minlos = ClayContinuumExistence`;
+  * `FrontierDAG` itself — guard-protected via its open atoms (`bulkCtrl`
+    `bulk_shift`, `a2Pentagon` physical associator, `coreB`, `edgeShift`,
+    `boundedH`, `o4`);
   * `CoreBBridge` — the missing Core-B cross-list bridge lemma.
 
 DEMOTED (not carried as a field): the character-diagonalization node

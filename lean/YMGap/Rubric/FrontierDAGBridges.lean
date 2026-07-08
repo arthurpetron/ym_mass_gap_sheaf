@@ -77,9 +77,11 @@ open YMGap.Rubric
 `CitedMinlosLift := ClayContinuumExistence` (ContinuumScorecard) and
 `OpenContinuumMeasure := ClayScorecard.ClayContinuumExistence`
 (ReconstructionScorecard) are the SAME type.  Their equality is definitional; this
-is the only true node MERGE of the four suspected identifications, and it is
-exactly the defeq that already lets `FrontierDAG.minlosAsContinuum` transport the
-single `minlos` value between the two scorecards. -/
+is the only true node MERGE of the four suspected identifications: the two
+optional-measure slots are the same type.  (The Minlos node is no longer carried
+as a `FrontierDAG` field — the continuum target is stated functionally — so this
+records the surviving definitional identity between the two optional-corollary
+objects, not a transport of a carried frontier value.) -/
 
 /-- **The shared-Minlos node identity (PROVED, definitional).**  The Tier-0
 continuum scorecard's `CitedMinlosLift` slot and the reconstruction scorecard's
