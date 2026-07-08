@@ -718,6 +718,7 @@ import YMGap.Continuum.R1CornerAtoms
 import YMGap.Continuum.R1LocalCLT
 import YMGap.Continuum.AbelianFusionCLT
 import YMGap.Continuum.AbelianMomentEnvelope
+import YMGap.Continuum.JacobiModularCReal
 import YMGap.Continuum.O4RestorationH4Invariant
 import YMGap.Continuum.HeatKernelSecondCumulant
 import YMGap.Continuum.RouteDHigherRepTail
