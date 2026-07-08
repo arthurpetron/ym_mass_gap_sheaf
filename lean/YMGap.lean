@@ -642,6 +642,7 @@ import YMGap.Continuum.SpansContractProof
 import YMGap.Continuum.PenroseConstWeightDC
 import YMGap.Continuum.SpansContractInRange
 import YMGap.Continuum.PenroseConstInRange
+import YMGap.Continuum.UrsellPinComplete
 import YMGap.Continuum.HaddDischarge
 import YMGap.Classical.MinlosQuarantine
 import YMGap.Rubric.ClayTargetPinned
