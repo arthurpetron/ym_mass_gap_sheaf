@@ -503,6 +503,116 @@ def saddleVarianceFloor_of_envelopeTail {w : Q'} (hw0 : (0 : Q') ≤ w) (hw1 : w
   saddleVarianceFloor_of_curvatureEnvelope hw0 hw1
     (uniformCurvatureEnvelope_of_tail hw0 hw1 htail)
 
+/-! ## 3.8 Envelope-constant bound — the connective algebra between the boundary factor and a
+rational moment bracket (PROVED, axiom-clean).
+
+The envelope RHS carries the boundary factor `w²·(1−w²)`; its `144/25` multiple is bounded by the
+CLEAN rational constant `36/25` via the exact PERFECT SQUARE
+
+    36/25 − (144/25)·w²·(1−w²)  =  (36/25)·(1 − 2w²)²  ≥  0        (all `w`),
+
+i.e. `w²(1−w²) ≤ 1/4` (`(1−2w²)² ≥ 0`).  This is the exact ring step that converts the
+transcendental-looking boundary factor into a rational scalar a θ/moment magnitude bracket can be
+compared against — it pins the per-mass envelope slack `envBound` below `(36/25)·A₀A₁A₂`.
+
+**HONEST scope — this bound SHARPENS but does NOT close the `s ≥ 7` tail.**  Using it to reduce the
+envelope to the CONSTANT second-difference floor `Δ²V(s) ≥ −14/25` (`= 36/25 − 2`) is a DEAD route:
+that constant floor is FALSE at the even-`s`, `w → 0` corner, where the tilted measure concentrates
+at the antidiagonal centre by parity and `Δ²V(s) → −2` exactly (numerically certified: for even
+`s ≥ 8`, `inf_w (Δ²V(s)+2) → 0` as `w → 0`).  So the `w²(1−w²)` vanishing is genuinely load-bearing;
+`envConst_le`/`envBound_le_marginConst` are the honest rational INTERFACE to the tail, not a bypass.
+The sole open content stays the matched-vanishing saddle bound (`Δ²V(s)+2 ≥ (144/25)w²(1−w²)`, true
+infimum ratio `≥ 7.96` on `s ≥ 7`), which needs the theta-ratio second-difference control — an
+UPPER bound on the moment ratio `V` (M1/M2 / the θ magnitude bracket) provably cannot supply a
+LOWER bound on its second difference. -/
+
+/-- The clean rational envelope-constant cap `36/25` (`= (144/25)·(1/4)`). -/
+def c36over25 : Q' := Q'.mkPos 36 25 (by decide)
+
+/-- `envMarginP` — the perfect-square certificate `(36/25)·(1 − 2w²)²` for the constant cap. -/
+def envMarginP : Poly := pscale c36over25 (ppow [(1 : Q'), (0 : Q'), (-2 : Q')] 2)
+
+/-- `envConstP` — the boundary factor `(144/25)·w²·(1 − w²)` as a coefficient list. -/
+def envConstP : Poly := pscale c144over25 (pmul (monoP (1 : Q') 2) [(1 : Q'), (0 : Q'), (-1 : Q')])
+
+/-- `eval [c] w ≃ c` (the constant polynomial). -/
+theorem eval_singleton (c w : Q') : (eval ([c] : Poly) w).eqv c := by
+  show (c + w * (0 : Q')).eqv c
+  exact Q'.eqv_trans _ _ _ (Q'.add_eqv_congr_left c (w * 0) 0 (q_mul_zero w)) (q_add_zero_eqv c)
+
+/-- `envMarginP` evaluates `≥ 0` for `0 ≤ w` (a nonnegative scale of a square). -/
+theorem envMarginP_nonneg {w : Q'} : (0 : Q') ≤ eval envMarginP w := by
+  have hSq : (0 : Q') ≤ eval (ppow [(1 : Q'), (0 : Q'), (-2 : Q')] 2) w :=
+    Q'.le_trans' 0 (qpow (eval [(1 : Q'), (0 : Q'), (-2 : Q')] w) 2) _
+      (qpow_two_nonneg _)
+      (Q'.ge_of_eqv (eval_ppow [(1 : Q'), (0 : Q'), (-2 : Q')] w 2))
+  exact Q'.le_trans' 0 (c36over25 * eval (ppow [(1 : Q'), (0 : Q'), (-2 : Q')] 2) w) _
+    (Q'.mul_nonneg _ _ (by decide) hSq)
+    (Q'.ge_of_eqv (eval_pscale c36over25 (ppow [(1 : Q'), (0 : Q'), (-2 : Q')] 2) w))
+
+/-- `envConstP` evaluates to the boundary factor `(144/25)·w²·(1 − w²)`. -/
+theorem eval_envConstP (w : Q') :
+    (eval envConstP w).eqv (c144over25 * (qpow w 2 * (1 + -qpow w 2))) := by
+  refine Q'.eqv_trans _ _ _
+    (eval_pscale c144over25 (pmul (monoP (1 : Q') 2) [(1 : Q'), (0 : Q'), (-1 : Q')]) w) ?_
+  refine Q'.mul_eqv_congr_left c144over25 _ _ ?_
+  refine Q'.eqv_trans _ _ _
+    (eval_pmul (monoP (1 : Q') 2) [(1 : Q'), (0 : Q'), (-1 : Q')] w) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_right _ _ (eval [(1 : Q'), (0 : Q'), (-1 : Q')] w) (eval_monoP (1 : Q') w 2)) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_right _ _ (eval [(1 : Q'), (0 : Q'), (-1 : Q')] w) (Q'.one_mul_eqv (qpow w 2))) ?_
+  exact Q'.mul_eqv_congr_left (qpow w 2) _ _ (eval_oneSubSqP w)
+
+/-- **`envConst_le` — THE ENVELOPE-CONSTANT CAP (PROVED, UNCONDITIONAL).**  `(144/25)·w²·(1 − w²)
+≤ 36/25` for EVERY `w`, via the perfect square `36/25 − (144/25)w²(1−w²) = (36/25)(1 − 2w²)²`.  The
+exact ring step (a single `decide` on the coefficient identity `[36/25] = envConstP + envMarginP`)
+turning the boundary factor into a rational scalar. -/
+theorem envConst_le {w : Q'} :
+    c144over25 * (qpow w 2 * (1 + -qpow w 2)) ≤ c36over25 := by
+  have hid : (eval ([c36over25] : Poly) w).eqv (eval envConstP w + eval envMarginP w) :=
+    Q'.eqv_trans _ _ _
+      (poly_eqv [c36over25] (padd envConstP envMarginP) w (by decide))
+      (eval_padd envConstP envMarginP w)
+  have hstep : eval envConstP w ≤ eval ([c36over25] : Poly) w :=
+    Q'.le_trans' _ _ _
+      (Q'.add_le_self_of_nonneg (eval envConstP w) (eval envMarginP w) envMarginP_nonneg)
+      (Q'.ge_of_eqv hid)
+  refine Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.eqv_symm (eval_envConstP w))) ?_
+  exact Q'.le_trans' _ _ _ hstep (Q'.le_of_eqv (eval_singleton c36over25 w))
+
+/-- **`envBound_le_marginConst` — the per-mass envelope-slack cap (PROVED).**  The envelope slack is
+bounded by the rational-constant multiple of the mass product:
+`envBound w s ≤ (36/25)·(A_s·A_{s+1}·A_{s+2})` on `0 ≤ w ≤ 1`.  This is the genuine connective
+interface: it collapses the boundary factor `w²(1−w²)` of the envelope RHS into the rational scalar
+`36/25`, exposing the tail as a moment-ratio second-difference statement against a rational cap.
+(It does NOT close the tail — the reduced constant floor is refuted at the corner; see §3.8.) -/
+theorem envBound_le_marginConst {w : Q'} (hw0 : (0 : Q') ≤ w) (s : Nat) :
+    envBound w s
+      ≤ c36over25 * (acNfull w s * (acNfull w (s + 1) * acNfull w (s + 2))) := by
+  have hMnn : (0 : Q') ≤ acNfull w s * (acNfull w (s + 1) * acNfull w (s + 2)) :=
+    Q'.mul_nonneg _ _ (acNfull_nonneg hw0 s)
+      (Q'.mul_nonneg _ _ (acNfull_nonneg hw0 (s + 1)) (acNfull_nonneg hw0 (s + 2)))
+  -- envBound w s = c144·(w²·((1−w²)·M)) ≃ (c144·(w²·(1−w²)))·M
+  have hEB : (envBound w s).eqv
+      ((c144over25 * (qpow w 2 * (1 + -qpow w 2)))
+        * (acNfull w s * (acNfull w (s + 1) * acNfull w (s + 2)))) := by
+    show (c144over25 * (qpow w 2 * ((1 + -qpow w 2)
+        * (acNfull w s * (acNfull w (s + 1) * acNfull w (s + 2)))))).eqv
+      ((c144over25 * (qpow w 2 * (1 + -qpow w 2)))
+        * (acNfull w s * (acNfull w (s + 1) * acNfull w (s + 2))))
+    refine Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_left c144over25 _ _
+        (Q'.eqv_symm (Q'.mul_assoc_eqv (qpow w 2) (1 + -qpow w 2)
+          (acNfull w s * (acNfull w (s + 1) * acNfull w (s + 2)))))) ?_
+    exact Q'.eqv_symm (Q'.mul_assoc_eqv c144over25 (qpow w 2 * (1 + -qpow w 2))
+      (acNfull w s * (acNfull w (s + 1) * acNfull w (s + 2))))
+  have hmul : (c144over25 * (qpow w 2 * (1 + -qpow w 2)))
+        * (acNfull w s * (acNfull w (s + 1) * acNfull w (s + 2)))
+      ≤ c36over25 * (acNfull w s * (acNfull w (s + 1) * acNfull w (s + 2))) :=
+    Q'.mul_le_mul_of_nonneg_right _ _ _ envConst_le hMnn
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hEB) hmul
+
 /-! ## 4. Doc-section — PROVED vs NAMED-open (CRITICAL honesty)
 
 PROVED (axiom-clean):
@@ -545,3 +655,8 @@ end YMGap.Continuum.R1CurvatureEnvelope
 #print axioms YMGap.Continuum.R1CurvatureEnvelope.curvatureEnvelope_six
 #print axioms YMGap.Continuum.R1CurvatureEnvelope.uniformCurvatureEnvelope_of_tail
 #print axioms YMGap.Continuum.R1CurvatureEnvelope.saddleVarianceFloor_of_envelopeTail
+#print axioms YMGap.Continuum.R1CurvatureEnvelope.eval_singleton
+#print axioms YMGap.Continuum.R1CurvatureEnvelope.envMarginP_nonneg
+#print axioms YMGap.Continuum.R1CurvatureEnvelope.eval_envConstP
+#print axioms YMGap.Continuum.R1CurvatureEnvelope.envConst_le
+#print axioms YMGap.Continuum.R1CurvatureEnvelope.envBound_le_marginConst
