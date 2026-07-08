@@ -630,6 +630,7 @@ import YMGap.Continuum.PentagonRelation
 import YMGap.Continuum.XMeanSecondDiffProgress
 import YMGap.Continuum.PinnedBridgeProgress
 import YMGap.Continuum.Tier0Scorecard
+import YMGap.Continuum.FunctionalContinuumTarget
 import YMGap.Continuum.MeanComplementCovariance
 import YMGap.Continuum.MeanComplementLogConcave
 import YMGap.Continuum.PenroseDomInduction

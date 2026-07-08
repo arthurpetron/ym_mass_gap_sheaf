@@ -3,12 +3,29 @@ CLASSICAL INPUT (CITED, EXTERNAL — NOT a Lean `Classical.choice` quarantine).
 
 # What this module is
 
-A docstringed re-export *interface* for the one cited-classical continuum input
-of the development: the Bochner–Minlos + Daniell–Kolmogorov σ-additive lift that
-produces the `a → 0` continuum measure with tightness. That result is a classical
-theorem in the external Gaussian-free-field / constructive-QFT literature; it is
-NOT transferable to this Mathlib-free constructive substrate, and it is NOT
-re-proved here.
+A docstringed re-export *interface* for the OPTIONAL cited-classical continuum
+COROLLARY of the development: the Bochner–Minlos + Daniell–Kolmogorov σ-additive
+lift that produces the `a → 0` continuum MEASURE with tightness. That result is a
+classical theorem in the external Gaussian-free-field / constructive-QFT
+literature; it is NOT transferable to this Mathlib-free constructive substrate, and
+it is NOT re-proved here.
+
+# ARCHITECTURAL STATUS: this is NOT a frontier atom (it is optional packaging)
+
+The Jaffe–Witten / Osterwalder–Schrader requirement is a condition on the POSITIVE
+LINEAR FUNCTIONAL (the Schwinger functional), not on a σ-additive measure; that
+functional formulation is the continuum target
+(`Continuum.FunctionalContinuumTarget`: OS0–OS4 + GNS reconstruction, measure-free).
+`CitedMinlosLift`'s dynamical content (`defectRecursion`) is Sub-wall B's
+`DefectGapRecursion` and its correlator content (`loopyResidual`) is Sub-wall A's
+`LoopyCorrelatorResidual`, both already counted in the frontier; its ONLY
+genuinely-new datum is the σ-additive tightness modulus (`tightnessRate`), an
+OPTIONAL Bochner–Minlos packaging DOWNSTREAM of the functional target
+(`FunctionalContinuumTarget.minlos_is_optional_corollary`).  So `CitedMinlosLift`
+has been REMOVED as a required field of the continuum-target bundles
+(`ContinuumScorecard.ContinuumTargetReduction`, `Continuum.Tier0Scorecard`,
+`Tier0FrontierCorrected.Tier0FrontierC`); it is retained ONLY as this optional
+classical-corollary interface.
 
 # Why it lives under `YMGap/Classical/` even though it uses NO Lean classical axiom
 
@@ -42,11 +59,14 @@ open YMGap.Constructive
 open YMGap.Rubric.ClayScorecard (ClayContinuumExistence)
 open YMGap.Rubric.ContinuumScorecard (CitedMinlosLift)
 
-/-- **The quarantined cited-classical Minlos lift, re-exported by name.**
-Definitionally the continuum-existence structure `CitedMinlosLift`
-(= `ClayContinuumExistence`): the `a → 0` σ-additive measure existence with
-tightness, discharged classically *elsewhere* by Bochner–Minlos +
-Daniell–Kolmogorov and NOT reconstructed here. DELIBERATELY UNINHABITED. -/
+/-- **The quarantined cited-classical Minlos lift, re-exported by name (OPTIONAL
+corollary object, NOT a frontier atom).**  Definitionally the continuum-MEASURE
+structure `CitedMinlosLift` (= `ClayContinuumExistence`): the `a → 0` σ-additive
+measure existence with tightness, discharged classically *elsewhere* by
+Bochner–Minlos + Daniell–Kolmogorov and NOT reconstructed here.  It is an OPTIONAL
+packaging downstream of the functional continuum target
+(`Continuum.FunctionalContinuumTarget`), not a Jaffe–Witten input.  DELIBERATELY
+UNINHABITED. -/
 abbrev MinlosContinuumLift : Type := CitedMinlosLift
 
 /-- The re-export is the same object as the Clay continuum-existence structure —
@@ -69,8 +89,10 @@ theorem tightnessRateOf_nonneg (h : MinlosContinuumLift) :
   h.tightnessRate_nonneg
 
 -- NO inhabitant of `MinlosContinuumLift` is provided in this file, by design.
--- Constructing one without `sorry`/`axiom`/`Prop := True` is part of the OPEN
--- continuum Clay Yang–Mills mass-gap problem (Input B).
+-- It is an OPTIONAL classical corollary (σ-additive measure packaging) downstream
+-- of the functional continuum target, NOT a required Jaffe–Witten / OS input; the
+-- OPEN continuum obligation is the functional `a → 0` modulus
+-- (`Continuum.FunctionalContinuumTarget`), not this σ-additive lift.
 
 end YMGap.Classical.MinlosQuarantine
 

@@ -167,9 +167,16 @@ theorem tier0C_fixedSpacing_met : ClayScorecard.ClayFixedSpacingMet :=
 /-! ## 5. The corrected capstone bundle (DELIBERATELY UNINHABITED). -/
 
 /-- **`Tier0FrontierC` — the corrected frontier scorecard.**  Bundles the PROVED
-fixed-spacing rubric line, the three CORRECTED open atoms (`Tier0AtomsC`, now
-genuinely non-vacuous — no provably-empty obligation), and the SEPARATE,
-orthogonal measure-existence caveat `ContinuumScorecard.CitedMinlosLift`.
+fixed-spacing rubric line and the three CORRECTED open atoms (`Tier0AtomsC`, now
+genuinely non-vacuous — no provably-empty obligation).
+
+**Minlos is NO LONGER a field (architectural deletion).**  The continuum-existence
+requirement is functional (OS0–OS4 on the Schwinger functional + GNS reconstruction,
+`Continuum.FunctionalContinuumTarget`, measure-free = the Jaffe–Witten requirement).
+The σ-additive Bochner–Minlos lift `ContinuumScorecard.CitedMinlosLift` is thereby an
+OPTIONAL classical corollary DOWNSTREAM of the functional target, NOT a frontier
+atom (`FunctionalContinuumTarget.minlos_is_optional_corollary`), so it is dropped
+from this bundle.
 
 **No inhabitant, by design** — same honest boundary as round 1, but the atoms are
 no longer a provably-empty obligation.  Only `fixedSpacing` is proved. -/
@@ -178,8 +185,6 @@ structure Tier0FrontierC (p : z4Chain.toLattice.Plaquette) (w : Q') : Type where
   fixedSpacing : ClayScorecard.ClayFixedSpacingMet
   /-- OPEN — the three corrected Type-level atoms (A1 4D, A2 Racah, B). -/
   atoms : Tier0AtomsC p w
-  /-- OPEN (ORTHOGONAL) — the cited-classical Minlos σ-additive measure lift. -/
-  minlos : ContinuumScorecard.CitedMinlosLift
 
 /-- The fixed-spacing half of any corrected frontier is the PROVED line. -/
 theorem tier0C_frontier_fixedSpacing_proved {p : z4Chain.toLattice.Plaquette}

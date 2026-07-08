@@ -1,6 +1,6 @@
 /-
 The **Tier-0 scorecard** — the sharpened a→0 gap-survival frontier as a
-machine-checked **6-atom + orthogonal-Minlos** enumeration.  Supersedes the
+machine-checked **6-atom (functional-continuum)** enumeration.  Supersedes the
 3-atom `Tier0FrontierCorrected.Tier0FrontierC` by REFINING its single loopy atom
 `a1` into three geometry atoms (T′)+(D1)+(D2), keeping the closed-fusion 6j atom
 as the genuinely-nonlinear `SixJPentagon` residual, and refining its Core-B atom
@@ -24,7 +24,11 @@ as the genuinely-nonlinear `SixJPentagon` residual, and refining its Core-B atom
       · `hbridge`      = the pinned trajectory-shift control (`g_k ≠ 1`)
       · `hadd`         = the located-2nd-eigenvalue ↔ physical-margin dictionary
 
-  Orthogonal — `ContinuumScorecard.CitedMinlosLift` (= `ClayContinuumExistence`).
+  Continuum existence — FUNCTIONAL (`Continuum.FunctionalContinuumTarget`: OS0–OS4
+  on the Schwinger functional + GNS reconstruction, measure-free).  The σ-additive
+  `ContinuumScorecard.CitedMinlosLift` (= `ClayContinuumExistence`) is NO LONGER an
+  atom — an OPTIONAL classical corollary downstream of the functional target
+  (`FunctionalContinuumTarget.minlos_is_optional_corollary`).
 
 # What is PROVED here (each `#print axioms`-gated, permitted `propext`/`Quot.sound`)
 
@@ -54,8 +58,10 @@ as the genuinely-nonlinear `SixJPentagon` residual, and refining its Core-B atom
 
 `Tier0Scorecard` has NO inhabitant, by design (mirrors `Tier0FrontierC` /
 `ClayTarget` / `ContinuumScorecard.ContinuumTargetReduction`).  Only `fixedSpacing`
-is proved; supplying `subA` (four open atoms), `subB` (three open atoms), and
-`minlos` WITHOUT `sorry`/`axiom` is the open continuum Clay problem.
+is proved; supplying `subA` (four open atoms) and `subB` (three open atoms) —
+together with the open `a → 0` functional modulus of `FunctionalContinuumTarget` —
+WITHOUT `sorry`/`axiom` is the open continuum Clay problem.  (The σ-additive Minlos
+lift is NOT among these — it is an optional classical corollary, not an atom.)
 
 # Coupling note (Sub-wall A geometry atoms are coupled)
 
@@ -172,11 +178,22 @@ structure SubWallA (p : z4Chain.toLattice.Plaquette) (w : Q') : Type 1 where
 
 /-! ## 3. The scorecard bundle (DELIBERATELY UNINHABITED). -/
 
-/-- **`Tier0Scorecard` — the 6-atom + orthogonal-Minlos frontier.**  Bundles the
-PROVED fixed-spacing rubric line, Sub-wall A (four open loopy-geometry atoms),
+/-- **`Tier0Scorecard` — the 6-atom (functional-continuum) frontier.**  Bundles the
+PROVED fixed-spacing rubric line, Sub-wall A (four open loopy-geometry atoms), and
 Sub-wall B (the single `SpectralMarginInput` carrying the three Balaban-RG open
-atoms `sl.hlocalize`/`hbridge`/`hadd`), and the orthogonal cited-classical Minlos
-lift.
+atoms `sl.hlocalize`/`hbridge`/`hadd`).
+
+**Minlos is NO LONGER a field (architectural deletion).**  Continuum existence is
+now the FUNCTIONAL target (`Continuum.FunctionalContinuumTarget`: OS0–OS4 on the
+Schwinger functional + GNS reconstruction, measure-free = the Jaffe–Witten
+requirement).  The σ-additive Bochner–Minlos lift
+`ContinuumScorecard.CitedMinlosLift` is thereby an OPTIONAL classical corollary
+DOWNSTREAM of the functional target, NOT a frontier atom
+(`FunctionalContinuumTarget.minlos_is_optional_corollary`): its dynamical content is
+Sub-wall B's `DefectGapRecursion` and its correlator content is Sub-wall A's
+`LoopyCorrelatorResidual`, both already counted here, and its ONLY genuinely-new
+datum is the σ-additive `tightnessRate` — not an OS input.  It is dropped from this
+bundle.
 
 **No inhabitant, by design.**  Only `fixedSpacing` is proved. -/
 structure Tier0Scorecard (p : z4Chain.toLattice.Plaquette) (w : Q')
@@ -187,8 +204,6 @@ structure Tier0Scorecard (p : z4Chain.toLattice.Plaquette) (w : Q')
   subA : SubWallA p w
   /-- OPEN ×3 — Sub-wall B (`hlocalize`, `hbridge`, `hadd`) in one input. -/
   subB : AsymptoticSpectralLoc.SpectralMarginInput b afr N₀
-  /-- OPEN (ORTHOGONAL) — the cited-classical Minlos σ-additive measure lift. -/
-  minlos : ContinuumScorecard.CitedMinlosLift
 
 /-! ## 4. The PROVED fixed-spacing line (unconditional). -/
 
@@ -267,7 +282,8 @@ def pentagon_to_racah (S : SixJPentagon) : SixJRecouplingProgress.RacahProb :=
 /-- **`toFrontierC` — the supersession coarsening (PROVED, TOTAL in `F`).**  A
 `Tier0Scorecard` coarsens to a `Tier0FrontierCorrected.Tier0FrontierC`:
 
-  * `fixedSpacing` / `minlos` transport verbatim;
+  * `fixedSpacing` transports verbatim (neither bundle carries a `minlos` field
+    any longer — continuum existence is the functional target);
   * the coarse a2 slot is discharged from the scorecard's OWN Level-1 surrogate
     `F.subA.a2Racah` (the genuine `F.subA.a2Pentagon : PentagonNumericCore` is
     non-stochastic, constant `1/4`, and admits no total map to `RacahProb`, so the
@@ -290,7 +306,6 @@ def toFrontierC {p : z4Chain.toLattice.Plaquette} {w : Q'}
     { a1 := a1
       a2 := F.subA.a2Racah
       b := bcr }
-  minlos := F.minlos
 
 /-- The fixed-spacing half of any scorecard is the PROVED line. -/
 theorem scorecard_fixedSpacing_proved {p : z4Chain.toLattice.Plaquette} {w : Q'}
@@ -317,7 +332,9 @@ OPEN (NAMED, NO inhabitant — the sharpened frontier):
               (physical associator open; `SixJPentagon` was a refuted
               channel-mismatch bug);
   Sub-wall B: `SpectralMarginInput` = `sl.hlocalize` (Core B) + `hbridge` + `hadd`;
-  Orthogonal: `ContinuumScorecard.CitedMinlosLift`.
+  Continuum existence: FUNCTIONAL (`Continuum.FunctionalContinuumTarget`, OS0–OS4 +
+    GNS, measure-free) — the σ-additive `ContinuumScorecard.CitedMinlosLift` is an
+    OPTIONAL classical corollary, NOT an atom.
 
   ⟹ `Tier0Scorecard`  [DELIBERATELY UNINHABITED — the open continuum Clay problem].
 

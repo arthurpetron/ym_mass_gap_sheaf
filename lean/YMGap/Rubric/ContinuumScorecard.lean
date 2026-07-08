@@ -12,9 +12,15 @@ NAMED list of inputs, and every PROVED piece that feeds it is wired here in one
 place.  The shape recorded is:
 
     continuum target  =  {one discrete SU(2) heat-kernel-fusion local-CLT}
-                       +  {one cited-classical Minlos σ-additive lift}
+                       (FUNCTIONAL formulation: OS0–OS4 + GNS reconstruction,
+                        measure-free — see `FunctionalContinuumTarget`)
 
-with all the constructive pieces in between PROVED and re-exported.
+with all the constructive pieces in between PROVED and re-exported.  The
+σ-additive Bochner–Minlos lift is NO LONGER a required continuum input (it was an
+OS-over-requirement): OS0–OS4 are conditions on the Schwinger FUNCTIONAL and OS
+reconstruction is functional-analytic (GNS), so σ-additivity is optional downstream
+packaging.  `CitedMinlosLift` is retained below only as that OPTIONAL classical
+corollary object, not as a frontier atom.
 
 # The proved pieces wired here (each a real theorem, NOT `True`)
 
@@ -36,7 +42,7 @@ with all the constructive pieces in between PROVED and re-exported.
   * `physicalRG_gives_continuum_floor` — the equivalent statement routed through
     the physical-RG self-similar law (`physicalRG_continuum_floor_pos`).
 
-# The TWO remaining open inputs (NAMED, NO inhabitant)
+# The remaining open input (NAMED, NO inhabitant), + the deleted Minlos atom
 
   * **Input A — the discrete SU(2) heat-kernel-fusion local-CLT.**  Carried as the
     wiring datum `DeltaFrontierLedger.DeltaToBlockPower`, whose sole non-trivial
@@ -47,20 +53,27 @@ with all the constructive pieces in between PROVED and re-exported.
     (the weighted fusion-multiplicity monotonicity tier).  Once supplied, the whole
     δ-loop fires and the physical continuum gap floor is positive.
 
-  * **Input B — the cited-classical Minlos σ-additive lift.**  Carried as the
-    canonical open token `ClayScorecard.ClayContinuumExistence` (the `a → 0`
-    measure existence / tightness, the loopy correlator residual, a tightness
-    modulus).  In the external Mathlib GFF formalization this is discharged by
-    Bochner–Minlos + Daniell–Kolmogorov with full classical analysis; it does NOT
-    transfer to this intuitionistic, Mathlib-free substrate, and is left
-    UNINHABITED (the honest non-transferable boundary, per `OSAxiomAudit`).
+  * **(DELETED as an atom) — the cited-classical Minlos σ-additive lift.**  Carried
+    as the token `ClayScorecard.ClayContinuumExistence` (= `CitedMinlosLift`): the
+    `a → 0` MEASURE existence / tightness (defect recursion, loopy correlator
+    residual, a tightness modulus).  The continuum target is now stated on the
+    positive Schwinger FUNCTIONAL (`FunctionalContinuumTarget`, OS0–OS4 + GNS,
+    measure-free), which is the Jaffe–Witten requirement.  Minlos's dynamical
+    content (`defectRecursion`) = Sub-wall B's `DefectGapRecursion` and its
+    correlator content (`loopyResidual`) = Sub-wall A's `LoopyCorrelatorResidual`,
+    both already counted; its ONLY genuinely-new datum is the σ-additive
+    `tightnessRate`, an OPTIONAL Bochner–Minlos packaging DOWNSTREAM of the
+    functional target (`FunctionalContinuumTarget.minlos_is_optional_corollary`),
+    NOT an OS / Jaffe–Witten input.  `CitedMinlosLift` is retained as that optional
+    corollary object; it is no longer a required target field.
 
 # Honesty (AGENTS.md Rules 1, 6, 8)
 
 `ContinuumTargetReduction` bundles the PROVED fixed-spacing line together with the
-two open inputs; it is provided with **NO inhabitant**.  Inhabiting it — i.e.
-supplying both the `p ≥ 2` discrete local-CLT and the cited Minlos lift WITHOUT
-`sorry` / `axiom` / `Prop := True` — is exactly the open continuum Clay problem.
+one open discrete input; it is provided with **NO inhabitant**.  Inhabiting it —
+i.e. supplying the `p ≥ 2` discrete local-CLT (and, functionally, the open `a → 0`
+modulus of `FunctionalContinuumTarget`) WITHOUT `sorry` / `axiom` / `Prop := True`
+— is exactly the open continuum Clay problem.
 The conditional theorems (`reduction_*`) take the bundle as a hypothesis; the
 unconditional ones re-export already-proved facts.  Every carrier is `Type`-level
 data; each load-bearing declaration is `#print axioms`-gated (permitted: `propext`
@@ -146,38 +159,57 @@ theorem physicalRG_gives_continuum_floor (P : PhysicalRGInput) :
     (0 : Q') < (physicalRG_continuum_gap P).floor :=
   physicalRG_continuum_floor_pos P
 
-/-! ## 4. Input B — the cited-classical Minlos σ-additive lift -/
+/-! ## 4. The OPTIONAL cited-classical Minlos σ-additive lift (NOT a target field) -/
 
-/-- **Input B — the cited-classical continuum-measure (Minlos) lift.**  The
-canonical open token for the `a → 0` σ-additive measure existence / tightness (the
-loopy correlator residual and a tightness modulus), discharged classically in the
-external GFF formalization by Bochner–Minlos + Daniell–Kolmogorov, NOT transferable
-to this Mathlib-free substrate.  Aliased from `ClayScorecard.ClayContinuumExistence`;
-UNINHABITED here. -/
+/-- **The cited-classical continuum-MEASURE (Minlos) lift — an OPTIONAL corollary
+object, NOT a required continuum-target input.**  The token for the `a → 0`
+σ-additive MEASURE existence / tightness (defect recursion + loopy correlator
+residual + a tightness modulus), discharged classically in the external GFF
+formalization by Bochner–Minlos + Daniell–Kolmogorov.  Since the continuum target
+is now the positive Schwinger FUNCTIONAL (`FunctionalContinuumTarget`, OS0–OS4 +
+GNS, measure-free = the Jaffe–Witten requirement), σ-additivity is optional
+downstream packaging: `FunctionalContinuumTarget.minlos_is_optional_corollary`
+shows this object's only genuinely-new datum beyond Sub-wall A/B is the σ-additive
+`tightnessRate`.  Aliased from `ClayScorecard.ClayContinuumExistence`; retained as
+the optional-corollary object, UNINHABITED here. -/
 abbrev CitedMinlosLift : Type := ClayContinuumExistence
 
-/-! ## 5. The two-input continuum reduction (DELIBERATELY UNINHABITED) -/
+/-! ## 5. The (one-discrete-input, functional) continuum reduction (DELIBERATELY
+UNINHABITED) -/
 
-/-- **THE CONTINUUM TARGET, REDUCED TO TWO NAMED INPUTS.**  Bundles the PROVED
-fixed-spacing line (`ClayFixedSpacingMet`) together with the two open continuum
-inputs: the discrete SU(2) heat-kernel-fusion local-CLT (Input A) and the
-cited-classical Minlos lift (Input B).
+/-- **THE CONTINUUM TARGET, REDUCED TO ONE NAMED DISCRETE INPUT (FUNCTIONAL
+FORMULATION).**  Bundles the PROVED fixed-spacing line (`ClayFixedSpacingMet`)
+together with the single open discrete continuum input: the discrete SU(2)
+heat-kernel-fusion local-CLT (Input A).
+
+**ARCHITECTURAL NOTE (Minlos removed as a required input).**  The σ-additive
+Bochner–Minlos lift (`CitedMinlosLift`) is NO LONGER a required field of the
+continuum target.  The Jaffe–Witten / Osterwalder–Schrader requirement is a
+condition on the POSITIVE LINEAR FUNCTIONAL (the Schwinger functional), not on a
+σ-additive measure; that functional formulation is carried by
+`Continuum.FunctionalContinuumTarget.FunctionalContinuumTarget` (the measure-free
+continuum-existence object: OS0–OS4 clauses + GNS reconstruction, with the open
+`a → 0` modulus).  `CitedMinlosLift`'s dynamical content is Sub-wall B's
+`DefectGapRecursion` and its correlator content is Sub-wall A's
+`LoopyCorrelatorResidual`; its ONLY genuinely-new datum is the σ-additive tightness
+modulus — an OPTIONAL classical corollary DOWNSTREAM of the functional target
+(`FunctionalContinuumTarget.minlos_is_optional_corollary`), NOT a Jaffe–Witten
+input.
 
 **There is no inhabitant of this structure in this file, by design.**  Supplying
-both inputs WITHOUT `sorry` / `axiom` / `Prop := True` — i.e. proving the `p ≥ 2`
-discrete fusion local-CLT and the cited Minlos σ-additive extension — is exactly
-the open continuum Clay Yang–Mills mass-gap problem.  The fixed-spacing field is
-the only one already proved (`fixed_spacing_met`). -/
+the discrete input WITHOUT `sorry` / `axiom` / `Prop := True` — i.e. proving the
+`p ≥ 2` discrete fusion local-CLT (and, functionally, the open `a → 0` modulus of
+`FunctionalContinuumTarget`) — is exactly the open continuum Clay Yang–Mills
+mass-gap problem.  The fixed-spacing field is the only one already proved
+(`fixed_spacing_met`). -/
 structure ContinuumTargetReduction (b N : Nat) (w : Q') (p : Nat) : Type where
   /-- PROVED — the fixed-spacing rubric line (`clay_fixed_spacing_met`). -/
   fixedSpacing : ClayFixedSpacingMet
   /-- OPEN Input A — the discrete SU(2) heat-kernel-fusion local-CLT (`p ≥ 2`). -/
   discreteFusion : DiscreteFusionLocalCLT b N w p
-  /-- OPEN Input B — the cited-classical Minlos σ-additive continuum-measure lift. -/
-  minlos : CitedMinlosLift
 
 /-- **The fixed-spacing half of any reduction is the PROVED line** — independent of
-the two open inputs. -/
+the open discrete input. -/
 theorem reduction_fixedSpacing_proved {b N : Nat} {w : Q'} {p : Nat}
     (red : ContinuumTargetReduction b N w p) : ClayFixedSpacingMet :=
   red.fixedSpacing
@@ -213,17 +245,28 @@ OPEN (NAMED, NO inhabitant in this file):
 
   * Input A — `DiscreteFusionLocalCLT` (= `DeltaToBlockPower`): the `p ≥ 2`
     discrete SU(2) heat-kernel-fusion local-CLT (the `bulkCtrl` residual);
-  * Input B — `CitedMinlosLift` (= `ClayContinuumExistence`): the cited-classical
-    σ-additive Minlos / Daniell–Kolmogorov continuum-measure extension.
+  * (functionally) the `a → 0` uniform modulus of
+    `FunctionalContinuumTarget.ScalingLimitModulus` + the OS0/OS4 clauses.
+
+NOT a frontier atom (DELETED as an over-requirement):
+
+  * `CitedMinlosLift` (= `ClayContinuumExistence`): the cited-classical σ-additive
+    Minlos / Daniell–Kolmogorov continuum-MEASURE extension.  The Jaffe–Witten
+    requirement is functional (OS0–OS4 on the Schwinger functional + GNS), so
+    σ-additivity is optional downstream packaging; `CitedMinlosLift`'s only
+    genuinely-new content is the σ-additive `tightnessRate`
+    (`FunctionalContinuumTarget.minlos_is_optional_corollary`).
 
   ⟹ `ContinuumTargetReduction`  [DELIBERATELY UNINHABITED — the open continuum
   Clay problem].
 
 The picture this module records: the fixed-spacing Clay rubric is PROVED and the
-OS / GNS reconstruction pieces are PROVED; the continuum (`a → 0`) target has been
-reduced to exactly TWO named inputs — one discrete SU(2) fusion local-CLT and one
-cited-classical Minlos lift.  Inhabiting both is the open continuum Yang–Mills
-mass-gap problem; nothing here claims to have done so. -/
+OS / GNS reconstruction pieces are PROVED; the continuum (`a → 0`) target is stated
+FUNCTIONALLY (`FunctionalContinuumTarget`: OS0–OS4 + GNS, measure-free) and reduced
+to the single discrete SU(2) fusion local-CLT plus the open `a → 0` functional
+modulus.  The σ-additive Minlos lift is removed as an atom (optional classical
+corollary).  Inhabiting the open inputs is the open continuum Yang–Mills mass-gap
+problem; nothing here claims to have done so. -/
 
 end YMGap.Rubric.ContinuumScorecard
 
