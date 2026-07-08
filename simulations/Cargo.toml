@@ -28,6 +28,10 @@ path = "src/bin/polymer_sum.rs"
 name = "measure"
 path = "src/bin/measure.rs"
 
+[[bin]]
+name = "block_defect"
+path = "src/bin/block_defect.rs"
+
 # Deliberately dependency-free (std only): self-contained RNG, JSON, and
 # std::thread::scope parallelism, so `cargo build` needs no network access.
 

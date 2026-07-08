@@ -125,3 +125,37 @@ moments up to the Weyl `1/(s+2)²` perturbation; no new obstruction there.
   window. The sharp residual is now precisely **a near-sharp (`<1.38`) two-sided theta bound in the
   q→1 regime**, i.e. the `√(π/ε)` scale constant — strictly smaller than the exact-identity wall it
   replaces. Not faked: no `Prop:=True`, no assumed hypothesis passed as proof, no vacuous inhabitant.
+
+---
+
+## 6. UPDATE (same date) — MULTI-SCALE / DYADIC CHORD TIGHTENING reaches the window
+
+The `§3b` single-scale bracket has been tightened via CONVEXITY (chord) domination — `§3c` in
+`JacobiModularCReal.lean` (new decls `chord_nat`, `pow_chord_block`, `thetaHalf_ge_geomChord`,
+`geomChord_ge_count`, `thetaPartial_ge_geomChord`, `thetaS_geRat_geomChord`, `fsum_splitM`,
+`thetaHalf_ge_twoBlock`; all `#print axioms ⊆ {propext, Quot.sound}`, build green, guard 5).
+
+On a block `[N_lo,N_hi]` the parabola `n²` lies below its chord, so
+`q^{n²} ≥ q^{N_lo²}·(q^{N_hi+N_lo})^{n−N_lo}` — a finite GEOMETRIC series (closed form), summed at
+the SUM level (Riemann-lower-sum, NOT the integral; no Poisson, no exact modular identity).
+Optimised constants (numeric, exact Lean exponents, `÷` sharp `½√(π/ε)`):
+
+| bound | constant | vs window `1/1.38 = 0.7246` |
+|---|---|---|
+| single-scale count `§3b` (prior) | `0.484` | outside (`≈2×` loose) |
+| single geometric block `thetaHalf_ge_geomChord` | `0.720` | misses by `0.6%` |
+| **two-block dyadic `thetaHalf_ge_twoBlock`** | **`0.880`** | **INSIDE** (`0.880 > 0.7246`) |
+| K=3 / K=4 blocks | `0.933` / `0.957` | inside |
+
+So the two-block chord minorant **reaches the `1.38×` window** — superseding the `§3b` verdict that
+the sum-level bracket was outside it. `geomChord_ge_count` proves the chord bound beats the count
+term-by-term in Lean (genuine, not a reparametrisation).
+
+**CORRECTION to the honesty caveat:** the Lean object is the term-domination INEQUALITY
+(machine-checked); the constant `0.880` is verified NUMERICALLY, since extracting it needs the
+transcendental scale `M ∼ 0.75/√(−ln q)` (outside the `Q'`/`CReal` core).
+
+**Still does NOT close M1/M2/hlocalize.** The θ bounds have NO downstream consumer (grep-verified);
+`MomentEnvelopePoissonDual`/`CurvatureEnvelope`'s `s≥7` tail are wired to no θ bound. The reduction
+`θ two-sided bracket ⟹ Δ²V+2 ≥ (144/25)w²(1−w²) on s≥7 ⟹ M1/M2 ⟹ hlocalize` (a second-difference
+moment-ratio bound) is UNBUILT — that, not the constant, is the sharp residual. Clay YM gap OPEN.
