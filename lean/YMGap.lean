@@ -668,6 +668,7 @@ import YMGap.Continuum.Phi4YMBridge
 import YMGap.Continuum.HbridgeInputs
 import YMGap.Continuum.PhysicalWilsonBridge
 import YMGap.Continuum.BoundedHamiltonianFiniteVol
+import YMGap.Continuum.BoundedHFiniteVolClosed
 import YMGap.Continuum.O4RestorationReduction
 import YMGap.Continuum.LocalCurvatureFields
 import YMGap.Continuum.MayerBridgeDecomposition
