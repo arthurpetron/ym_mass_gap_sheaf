@@ -634,6 +634,7 @@ import YMGap.Continuum.FunctionalContinuumTarget
 import YMGap.Continuum.MeanComplementCovariance
 import YMGap.Continuum.MeanComplementLogConcave
 import YMGap.Continuum.PenroseDomInduction
+import YMGap.Continuum.BrydgesKennedyForest
 import YMGap.Continuum.PenroseDCContract
 import YMGap.Continuum.CubicEulerBound
 import YMGap.Continuum.CayleyMaxBound
