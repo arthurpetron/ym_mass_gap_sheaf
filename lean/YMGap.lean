@@ -672,6 +672,8 @@ import YMGap.Continuum.SixJKernel
 import YMGap.Continuum.SixJRacahCReal
 import YMGap.Continuum.QuadraticKernel
 import YMGap.Continuum.QuadraticKernelMerge
+import YMGap.Continuum.TemperleyLiebRecoupling
+import YMGap.Continuum.RecouplingInterface
 import YMGap.Continuum.SixJPentagonCReal
 import YMGap.Continuum.SixJPentagonRefutation
 import YMGap.RG.WeylDimGeneralData
