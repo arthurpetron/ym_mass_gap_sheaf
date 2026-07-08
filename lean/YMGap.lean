@@ -690,6 +690,7 @@ import YMGap.Continuum.CayleyLooseInjection
 import YMGap.Continuum.MayerUrsellZ4Restated
 import YMGap.Continuum.Ursell4DBridgePin
 import YMGap.Continuum.MayerUrsellZ4Physical
+import YMGap.Continuum.MayerUrsellZ4PhysicalClose
 import YMGap.Continuum.RacahOrthogonalityGeneral
 import YMGap.Continuum.RacahDougallWZ
 import YMGap.Continuum.RingNormaliser
