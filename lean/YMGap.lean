@@ -783,6 +783,7 @@ import YMGap.Continuum.ResummationAdjudication
 import YMGap.Continuum.PeterWeylEigenvalueResummation
 import YMGap.Continuum.TempleSpectralStabilityDefect
 import YMGap.Continuum.DefectRecursionPrimary
+import YMGap.Continuum.EpsilonSummability
 import YMGap.Continuum.OffDiagonalActivityBound
 import YMGap.Continuum.FieldSpaceRenormalonZ1
 import YMGap.Continuum.SubdominanceWindow
