@@ -769,6 +769,7 @@ import YMGap.Continuum.FieldSpaceRenormalonZ1
 import YMGap.Continuum.SubdominanceWindow
 import YMGap.Continuum.ConnectedSlackBound
 import YMGap.Continuum.RealDefectConstruction
+import YMGap.Continuum.ChannelFeedbackRecursion
 import YMGap.Continuum.CodynamicReflectionUnitRecast
 import YMGap.Continuum.SITE1PerMoveDefect
 import YMGap.Continuum.DimensionalLiftCollapse

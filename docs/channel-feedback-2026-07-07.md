@@ -1,21 +1,23 @@
 # CHANNEL FEEDBACK — the true-margin recursion, re-based and pinned
 
-> **STATUS — UNVERIFIED DESIGN (Lean NOT implemented).** The agent produced the
-> mathematical design below but the referenced file
-> `lean/YMGap/Continuum/ChannelFeedbackRecursion.lean` was **never written to the
-> tree**, and **none** of the lemmas named here (`SingleStepDefectBoundLoose`,
-> `looseMagnitude_satisfiable`, `defectRecursion_of_looseBound`,
-> `looseRecursion_on_surrogate`, `SurrogateDomination`, `looseRecursion_of_surrogateDomination`,
-> …) were compiled or checked. The main build is **unchanged at 762 jobs, guard 5**;
-> this increment added **zero** verified Lean. Everything below is a *proposed
-> construction* and an *analytical verdict*, NOT a machine-checked result. The one
-> genuinely load-bearing takeaway is the VERDICT in §"HONEST VERDICT": the true-margin
-> recursion is the irreducible interacting effective action, pinned to
-> `SurrogateDomination` (the located-2nd-eigenvalue Rayleigh domination) / the
-> backreaction block `B_k = ⟨s=1 | coarse-grained action | s≥2⟩`, with the next front
-> being Osterwalder–Seiler reflection positivity + min-max — not a per-scale estimate.
-> The re-basing (Move 1) and the recursion construction (Move 2) remain to be
-> implemented and verified in Lean before any of their claims count.
+> **STATUS — IMPLEMENTED + INDEPENDENTLY VERIFIED.** `lean/YMGap/Continuum/ChannelFeedbackRecursion.lean`
+> is in the tree and wired into `YMGap.lean`. Coordinator re-verification (not trusting
+> the sub-agent): full `lake build` = **763 jobs green**, frontier guard **OK at 5**
+> (no Clay-frontier type inhabited), the six load-bearing decls
+> (`looseMagnitude_satisfiable`, `defectRecursion_of_looseBound`, `fullFloor_of_looseBound`,
+> `looseRecursion_on_surrogate`, `looseRecursion_of_surrogateDomination`,
+> `perScale_not_recursion_reexport`) all `#print axioms` ⊆ `{propext, Quot.sound}`, and the
+> loop-counter **C = 18 unchanged** (no `:= SingleStepDefectBound` alias — a structural
+> move, not a re-derivation). `SingleStepDefectBoundLoose` is a NEW loose scaffold and is
+> **uninhabited** (its `recursion` field stays open), which is why the guard correctly does
+> not move. NOTE: this file landed on the agent's *second* pass — an earlier coordinator
+> snapshot saw the build still at 762 with the file not yet written; the state recorded here
+> is the re-verified final tree. The load-bearing takeaway is the VERDICT in §"HONEST VERDICT":
+> the true-margin recursion is the irreducible interacting effective action, pinned to
+> `SurrogateDomination` (the located-2nd-eigenvalue Rayleigh domination) / the backreaction
+> block `B_k = ⟨s=1 | coarse-grained action | s≥2⟩`; next front = Osterwalder–Seiler reflection
+> positivity + min-max, NOT a per-scale estimate (that route is now provably a loop). The 4D
+> YM mass gap remains OPEN — the `SurrogateDomination` field is not inhabited.
 
 Target: the now-isolated binding core of the 4D SU(N) YM continuum mass gap — the
 **true-margin RECURSION** `(1 − realδ_k)·tm_k ≤ tm_{k+1}`, the step-to-step degradation
@@ -182,22 +184,37 @@ route to it is Osterwalder–Seiler reflection positivity of the block-spin meas
 
 ---
 
-## What this increment actually contains (DESIGN — none of it is implemented/verified)
+## What this increment contains — IMPLEMENTED and VERIFIED
 
-**NOTHING in this section is machine-checked.** The items below are the *proposed* Lean
-constructions for a future implementation; the file was not written and the lemmas were not
-compiled. Listed as a design spec only:
+File `lean/YMGap/Continuum/ChannelFeedbackRecursion.lean` (new; one import line added to
+`lean/YMGap.lean`). 20 load-bearing declarations, all machine-checked:
 
-Re-basing (Move 1, PROPOSED): `SingleStepDefectBoundLoose` (magnitude on `6(1−w)²`, intended
-SATISFIABLE via `looseMagnitude_satisfiable`), the loose product floor (`looseFloorEps`,
-intended summable), the builder `defectRecursion_of_looseBound` and `fullFloor_of_looseBound`.
-Recursion (Move 2, PROPOSED): `looseRecursion_on_surrogate`, `SurrogateDomination` + the
-reduction `looseRecursion_of_surrogateDomination` (the pinned residual), and the refutation
-`perScale_not_recursion_reexport`.
+Re-basing (Move 1): `SingleStepDefectBoundLoose` (magnitude on `6(1−w)²`), the two-sided
+comparison `model_le_two_renDefect` / `renDefect_le_model`, the deeper cutoff
+`renDefect_le_quarter` → `model_le_half`, the loose summability `loose_lossSum_le`, the
+strictly-positive loose product floor `looseFloorData` / `looseFloorEps_le_prod`, the builder
+`defectRecursion_of_looseBound`, and `fullFloor_of_looseBound`. The magnitude piece is proved
+SATISFIABLE by `looseMagnitude_satisfiable` (the interacting `m=1` construction) — the decisive
+contrast with the tight model (`honest_realDefect_exceeds_tight`).
+Recursion (Move 2): `looseRecursion_on_surrogate` (constructed on the RG survival regime),
+`SurrogateDomination` (the pinned s≥2→s=1 object) + the genuine reduction
+`looseRecursion_of_surrogateDomination`, and the refutation `perScale_not_recursion_reexport`.
 
-Real state at this commit: main build **762 jobs green, guard 5, audit PASS** — i.e. exactly
-the pre-existing state (`e831760`), with **no new Lean**. The genuine deliverable is the
-analytical VERDICT above (recursion = irreducible interacting effective action, pinned to
-`SurrogateDomination` / the backreaction block `B_k`; next front = OS reflection positivity +
-min-max). Implementation + verification of Moves 1–2 is the outstanding work. The 4D YM mass
-gap remains OPEN; nothing is faked and nothing here is claimed as proved.
+### VERIFIED STATUS (independent audit)
+
+* `lake build` → exit 0, "Build completed successfully (763 jobs)".
+* Frontier guard → "frontier-guard OK: 5 Clay-frontier types unconditionally uninhabited"
+  (unchanged; no guarded type inhabited).
+* `#print axioms` on all 20 declarations → `[propext]` or `[propext, Quot.sound]` only;
+  no `sorryAx`/`Classical`/`Choice` anywhere.
+* No `sorry`/`admit`/`native_decide`/`ring`/`nlinarith`/`linarith`.
+* No `:= SingleStepDefectBound` alias (loop-counter C unchanged) — a structural frontier move
+  (magnitude unsatisfiable→satisfiable; recursion isolated and reduced to the named
+  `SurrogateDomination`), not a re-derivation of the same core.
+* `SingleStepDefectBoundLoose` is only CONSUMED (by `defectRecursion_of_looseBound`), never
+  constructed; its `recursion` field stays open. Every declaration is a genuine `Q'`/`CReal`
+  proof — non-vacuous.
+
+The 4D YM mass gap remains OPEN; the sole open residual is now the true-margin recursion,
+equivalently `SurrogateDomination` (the located-2nd-eigenvalue transfer-factor domination /
+the backreaction block `B_k`). Nothing committed. Nothing faked.
