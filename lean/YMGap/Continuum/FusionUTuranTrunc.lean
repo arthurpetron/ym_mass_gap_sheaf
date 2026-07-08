@@ -46,7 +46,7 @@ declaration is gated with `#print axioms`; permitted output is `propext`/`Quot.s
 -/
 
 import YMGap.Continuum.FusionUTuranEnvelope
-import YMGap.Continuum.FusionCoreStepRoundH
+import YMGap.Continuum.FusionCoreStep
 import YMGap.Continuum.BondMovingMoment
 
 namespace YMGap.Continuum.FusionUTuranTrunc

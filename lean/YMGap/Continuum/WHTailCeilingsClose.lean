@@ -49,7 +49,7 @@ gated with `#print axioms`; permitted output is `propext` / `Quot.sound` only.  
 
 import YMGap.Continuum.WHMarginTailClose
 import YMGap.Continuum.CubeRatioBounds
-import YMGap.Continuum.FusionCoreStepRoundH
+import YMGap.Continuum.FusionCoreStep
 import YMGap.Continuum.ChebOrthoOffDiag
 import YMGap.Constructive.CharacterTail
 

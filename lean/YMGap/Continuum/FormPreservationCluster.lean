@@ -77,7 +77,7 @@ Pure `Q'`/`Nat`.  Every load-bearing declaration is `#print axioms`-gated to
 closed decidable `Q'` facts), no `sorry`.  All witnesses `Type`-level.
 -/
 import YMGap.Continuum.EigenvalueShiftBound
-import YMGap.Continuum.FusionCoreStepRoundB
+import YMGap.Continuum.FusionCoreStep
 import YMGap.Continuum.PinnedCluster
 
 namespace YMGap.Continuum.FormPreservationCluster

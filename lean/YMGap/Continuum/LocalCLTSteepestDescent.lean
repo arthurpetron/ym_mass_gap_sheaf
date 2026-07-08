@@ -62,7 +62,7 @@ lemmas, and small `Q'`-algebra congruences.  Every load-bearing declaration is g
 `native_decide`, no `sorry`.  All witnesses are `Type`-level data.
 -/
 
-import YMGap.Continuum.FusionCoreStepRoundJ
+import YMGap.Continuum.FusionCoreStep
 
 namespace YMGap.Continuum.LocalCLTSteepestDescent
 

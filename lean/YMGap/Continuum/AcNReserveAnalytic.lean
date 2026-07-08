@@ -74,7 +74,7 @@ are `Type`-level data.
 -/
 
 import YMGap.Continuum.LeakGeoDecay
-import YMGap.Continuum.FusionCoreStepRoundC
+import YMGap.Continuum.FusionCoreStep
 
 namespace YMGap.Continuum.AcNReserveAnalytic
 

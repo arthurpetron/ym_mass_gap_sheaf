@@ -61,7 +61,7 @@ import YMGap.Continuum.UnifiedContinuumFloor
 import YMGap.Continuum.FiniteSMarginWorstcase
 import YMGap.Continuum.AcNReserveAnalytic
 import YMGap.Continuum.LaplaceMarginDeep
-import YMGap.Continuum.FusionCoreStepRoundA
+import YMGap.Continuum.FusionCoreStep
 
 namespace YMGap.Rubric.FrontierDAGBridges
 

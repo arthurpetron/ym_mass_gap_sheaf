@@ -73,7 +73,7 @@ is `propext` / `Quot.sound` only.  No `Classical.*`, no `native_decide`, no `sor
 are `Type`-level data.
 -/
 
-import YMGap.Continuum.FusionCoreStepRoundF
+import YMGap.Continuum.FusionCoreStep
 import YMGap.Constructive.SumOfSquares
 
 namespace YMGap.Continuum.ThetaExponentConvexity

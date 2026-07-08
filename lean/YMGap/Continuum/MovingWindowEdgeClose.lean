@@ -55,7 +55,7 @@ load-bearing declaration is gated with `#print axioms`; permitted output is `pro
 `Type`-level data.
 -/
 
-import YMGap.Continuum.FusionCoreStepRoundI
+import YMGap.Continuum.FusionCoreStep
 import YMGap.Continuum.ThetaExponentConvexity
 
 namespace YMGap.Continuum.MovingWindowEdgeClose

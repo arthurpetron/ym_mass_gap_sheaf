@@ -75,7 +75,7 @@ witnesses are `Type`-level data.
 -/
 
 import YMGap.Continuum.AcNReserveAnalytic
-import YMGap.Continuum.FusionCoreStepRoundE
+import YMGap.Continuum.FusionCoreStep
 
 namespace YMGap.Continuum.DiscreteLaplaceMargin
 
