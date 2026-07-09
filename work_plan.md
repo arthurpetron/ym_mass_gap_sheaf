@@ -2407,6 +2407,8 @@ finite polymer) accordingly.
 
 **Status.** CURRENTLY IN PROGRESS (2026-07-03, degeneracy FIXED) — `Continuum/MayerUrsellZ4Restated.lean` `MayerUrsellIdentity_z4_v2` normalizes the d=0 diagonal against the positive vacuum activity (`kpTerm…0=1`) instead of the vanishing span (non-degeneracy certificate `diagModel`, w0=1/2, weight>0); `decompose_v2` PROVED, chains to `corr d ≤ 2·(15/32)^d`. The reduction now bottoms out CLEANLY on the SHARED Sub-wall A atoms (T') tree-graph + (D2) SepLattice — no forced-zero collapse. (Superseded the degenerate v1 finding `mu_z4_total_weight_le_zero`.)
 
+**Update (2026-07-09).** The 2026-07-08 campaign (commits `f05e270`, `d8c58b5`, `4c7c114`) discharged (D1) AS TYPED but QUALIFIED: the KP-assembly half is PROVED (`physical_to_v2`), both phantom traps are machine-proved and avoided, and `expansion_sep` is inhabited by the genuine strictly-positive `reconTransfer w4` — but that model is SINGLE-LINE, so the free-`model` typing leaves the loopy multi-plaquette physics uncaptured (the systematic under-constraint finding, `69f2e0f`). The honest residual is now the PINNED LOOPY form — `PenroseUrsellDatumG.penrose_ursell` with `offCorr` a genuine finite-volume multi-plaquette correlator — tracked as **Milestone 13.1** (in progress); this milestone's own statement work is complete.
+
 **Goal.** `Ursell4DProgress.BridgeDecomposition.decompose` is a
 theorem over the closed 4D cluster count `z4ClusterCountBound`: the
 off-diagonal connected correlator at separation `d` is dominated by
@@ -3309,4 +3311,246 @@ item is small enough to be one reviewable change:
 10. **11.17** local-field/OPE statement layer; **12.1** paper draft
     begins as soon as 11.0/11.13/11.14 land (they are its status and
     faithfulness sections).
+
+---
+
+## Phase 13: Wall-closure execution paths (2026-07-09 review)
+
+Written after a full review of the last ~25 commits, the capstone
+(`docs/CAPSTONE-2026-07-06.md`), the burn-down ledger
+(`docs/PROGRESS-LEDGER.md`), the routes adjudication
+(`docs/alternative-routes-to-singlestep.md`), and the D1 audit chain
+(`Ursell4DBridgePin` → `MayerUrsellZ4Physical` → `MayerUrsellZ4PhysicalClose`).
+State at review: F = 1 (`singleStep` atomic), D = 0, guard = 5, C = 18;
+fixed-spacing gap unconditional at every coupling (Peter–Weyl resummation);
+(T′) discharged; (D1) discharged-as-typed but under-constrained (single-line
+model); item 12 gated on finite-scale certification; `hlocalize` parked
+pending a constructive-integral layer; A2 gated on the refuted-in-substrate
+multivariate telescoping.
+
+Ordering rationale: 13.1 and 13.2 convert open walls into theorems with
+machinery already in-tree (highest discharge probability per unit work);
+13.3 is the only known candidate for a LEGAL strictly-weaker decomposition
+of the atomic core (ledger rule (b)); 13.4 hardens the primary bet (item
+12) and kills its two known soundness gaps; 13.5–13.6 are the remaining
+satellite atoms. Every item obeys the anti-loop rule: predicted outcomes
+are stated, and any attack whose honest prediction becomes "another
+`:= SingleStepDefectBound` alias" is aborted, recorded, not spawned again.
+
+### Milestone 13.1 — (D1-loopy) the pinned multi-plaquette Penrose–Ursell domination
+
+**Status.** CURRENTLY IN PROGRESS (2026-07-09) — branch `d1-loopy-penrose-ursell`.
+
+**Goal.** Inhabit `Stage1LoopyReduction.PenroseUrsellDatumG
+(z4ClusterCountBound p) w4 gr` with `offCorr` PINNED to a genuine
+finite-volume MULTI-PLAQUETTE (loopy) correlator — closing the
+under-constraint caveat of `4c7c114` (whose inhabitant is the single-line
+`reconTransfer`). Checkable predicate: an inhabitant whose `offCorr` is
+computed from a finite polymer partition function (the `Xi`/`Zreal` layer,
+or a finite-volume two-point ratio built from `enumPolys`), with a proved
+non-vacuity certificate (`offCorr` not identically zero off-diagonal, and
+provably ≠ any single-mode `reconTransfer` correlator), and
+`penrose_ursell` PROVED, not carried.
+
+**Current best route (finite-volume-first).** At finite volume every
+object is a FINITE `Q'` sum over `enumPolys`, so the Mayer–Ursell
+expansion is a polynomial identity — exactly the ring normaliser's
+payload (`13dcf3e`). Three proved ingredients compose: (i) the algebraic
+connecting-cluster expansion identity at finite volume (the genuinely new
+Lean content; prove for cluster size ≤ small `n` by `decide`/normaliser
+first, then the general induction); (ii) the per-cluster tree-graph
+majorant — (T′), DISCHARGED (`a56ae2f`); (iii) the size floor
+`connected_spanning_size_ge` — (D2), CLOSED. Note the previous inhabitant
+BYPASSED (D2) via the head-term route; the loopy statement is precisely
+where (D2) becomes load-bearing — stop bypassing it. Volume-uniformity is
+free: `connTailPartialG_decay` is uniform in the truncation length `N`,
+so the datum's `tailLen` absorbs the finite volume.
+
+**Deliverables.** `Continuum/LoopyCorrelatorPinned.lean` (the pinned
+finite-volume correlator + non-vacuity), the expansion-identity module,
+the inhabitant wired through `Stage1Loopy.decay`;
+`notes/d1-loopy-closure.md` recording where the Lean deviates from
+Friedli–Velenik Ch. 5 / Ueltschi 2004.
+
+**Dependencies.** (T′) done, (D2) done, ring normaliser done, 11.3
+statement work done.
+
+**Open questions.** Whether `offCorr` should be the `Xi`-ratio (needs a
+positive-denominator certificate at `w4`, available from `kpRatio =
+15/32 < 1`) or the subtracted two-point finite sum (no division; likely
+the constructive-friendly choice).
+
+### Milestone 13.2 — `hlocalize` discretized: fusion local-CLT via reflected lattice paths **[research]**
+
+**Status.** NOT STARTED.
+
+**Goal.** Discharge the `FusionConvLogConcaveCore` /
+`CurvatureEnvelope` wall WITHOUT the constructive-integral layer (the
+"largest single Lean lift" flagged in the 2026-07-05 plan, Track C).
+Reformulation: p-fold SU(2) fusion multiplicities ARE reflected
+ballot-path counts (the SU(2) Bratteli diagram is a walk on ℕ with a
+wall at 0), so the p ≥ 2 local-CLT/log-concavity claims become FINITE
+combinatorics in the spin endpoint — Lean-core-native.
+
+**Current best route.** Two independent attacks, adjudicate then commit:
+(i) TOTAL POSITIVITY — the one-step fusion kernel is TP₂;
+TP₂ composes (Cauchy–Binet) and TP₂ convolution preserves
+log-concavity (Karlin), so the p-fold kernel's log-concavity follows by
+induction from the elementary Jacobi/JW factorization (this is where the
+`a2_jwtower` scouting already points); TP₂ at each finite level is
+decide-checkable. (ii) DIRECT INJECTION — Lindström–Gessel–Viennot-style
+path-pair injection proving log-concavity of the reflected-walk counts
+bijectively. `CurvatureEnvelope`'s second-difference lower bound then
+becomes discrete convexity of these counts, with tails via the existing
+ϑ₃ engine. Predicted outcome: a genuine discharge of `uniform_in_m`'s
+open wall (a real partial result; per the adjudication it does NOT
+shrink the atomic core — say so in the commit).
+
+**Deliverables.** The path-count = fusion-multiplicity identity
+(decide-checked at low spins, then proved); the TP₂ or LGV log-concavity
+theorem; the wiring into `FusionConvLogConcaveCore`.
+
+**Dependencies.** None open (JW tower scouting docs; ϑ₃ engine).
+
+**Open questions.** Whether the reflection (wall at 0) breaks the plain
+LGV involution and TP₂ is the safer primary; whether `CurvatureEnvelope`
+needs strict log-concavity (path counts give non-strict at the boundary
+— check the consumer's tolerance).
+
+### Milestone 13.3 — ε-split adjudication: small-field/large-field decomposition of `singleStep` **[the one candidate legal F-split]**
+
+**Status.** NOT STARTED. **One session, adjudication-only** (ledger rule
+(b); the per-move, resummation, and variance routes all collapsed — this
+is the only known remaining candidate for a strictly-weaker
+decomposition).
+
+**Goal.** Adjudicate the split `ε_k = ε_k^pert + ε_k^np` with two named
+atoms: **`PerturbativeDefectOrder`** — the ≤ 2-loop part of the
+block-spin defect is O(g⁴) with explicit constant (the physics content
+of `EpsilonSummability`'s "ε_k quadratic ⟺ budget closes": one-loop
+defects cancel, g_k⁴ ~ 1/k² summable) — a FINITE-dimensional certified
+group-integral computation, exactly the Q'/normaliser substrate's
+strength; and **`LargeFieldSuppression`** — the non-perturbative
+remainder is ≤ C·e^{−c/g_k²} (super-summable), needing only CRUDE
+stability bounds (chessboard/reflection-positivity estimates held
+unconditionally in-tree + character positivity), NOT the sharp Balaban
+chain — the numerical safety factor 45 is the slack that makes crude
+constants admissible.
+
+**Checkable predicate.** PROVE `(PerturbativeDefectOrder ∧
+LargeFieldSuppression) → SingleStepDefectBound` AND certify at least one
+conjunct strictly weaker (the `tm`-independence test used in
+`ResummationAdjudication`/`SITE1PerMoveDefect`). If either direction
+forces equi-inhabitation: record the C++ verdict, close the milestone as
+REFUTED, do not campaign.
+
+**Dependencies.** `EpsilonSummability`; the RP/chessboard modules; the
+adjudication template.
+
+**Open questions.** Where to draw the small/large-field threshold so the
+two atoms stay independent (a `g_k`-dependent field cutoff is the
+standard Balaban choice); whether `PerturbativeDefectOrder` should be
+stated per-channel (composing with item 12's truncation) — prefer yes.
+
+### Milestone 13.4 — Item-12 hardening: Taylor models in `u = 1−w` + derived channel coefficients
+
+**Status.** NOT STARTED.
+
+**Goal.** Kill the two known soundness gaps of the primary bet
+(`IntervalArithmetic.lean` / `TruncatedBlockSpinContraction.lean`):
+(a) the pilot certifies ONE coupling (`w = 4/5`) but the obligation is
+uniform along `w_k → 1`; (b) the truncated map's coefficients are
+SUPPLIED, not derived (the FREE-coefficient instance of the `69f2e0f`
+under-constraint finding).
+
+**Current best route.** (a) Upgrade `QI` to TAYLOR MODELS in `u = 1−w`:
+polynomial enclosure + interval remainder, all operations rational —
+then the certification target becomes ONE decide-checked polynomial
+inequality `defect(u) ≤ 6u²` valid on `(0, u₀]`, replacing per-scale
+certification with a single certificate + the already-proved AF
+summability (`invRunningCoupling_strictMono` ⟹ Σ(1−w_k)² < ∞). This is
+the completed Koch–Wittwer proof shape (finite window + one
+parameterized certificate). (b) Derive the channel coefficients from the
+Peter–Weyl layer (`w^{C₄(r)}` + finite character-convolution rationals,
+enclosures via the ϑ₃ engine that proved `TruncationTailBound`) and
+re-type the truncated map so coefficients are THESE rationals — the
+enclosure is then a theorem, not an input.
+
+**Deliverables.** `Constructive/TaylorModel.lean` (sound ops +
+composition, gated); the re-typed truncated map; the single
+`defect(u) ≤ 6u²` certificate at the pilot truncation order.
+
+**Dependencies.** `IntervalArithmetic.lean` (done), `TruncationTailBound`
+(done), Peter–Weyl resummation modules (done).
+
+**Open questions.** The remainder-form choice (Lagrange vs geometric
+tail) for rational composability; `u₀` (take the certified
+strong-coupling window's edge — the crossover window then needs finitely
+many pointwise certificates, count them explicitly).
+
+### Milestone 13.5 — (A2) the pentagon diagrammatically: Kauffman–Lins recoupling + certificate CHECKING
+
+**Status.** NOT STARTED.
+
+**Goal.** Prove the Biedenharn–Elliott content of
+`SixJRecoupling.biedenharn_elliott` WITHOUT multivariate creative
+telescoping (structurally refuted in-substrate, `bcacea2`: factorial-
+degree Wegschaider certificates exceed decide capacity).
+
+**Current best route.** (i) PRIMARY — the pentagon is a FINITE
+Temperley–Lieb diagrammatic isotopy (Kauffman–Lins recoupling): prove it
+by structural induction over Jones–Wenzl idempotents, i.e. finite linear
+algebra over `Q'` at rational specializations — no hypergeometric
+summation anywhere; this is the natural continuation of the
+`a2-wenzl-tl`/`a2_jwtower` scouting. (ii) FALLBACK — certificate
+CHECKING, not finding: generate the Wegschaider certificate OFFLINE
+(HolonomicFunctions), import it as data, VERIFY with the ring normaliser
+(verification is polynomial-identity checking — the refuted part was
+in-substrate finding). Signs/irrationality handled as in the Tier-A
+squared-Racah artifact: `6j²` ∈ `Q'` + a finite sign character.
+
+**Deliverables.** The JW/TL pentagon module; or the certificate-import
+format + verifier run; the wiring into `PartitionBeyondTree`.
+
+**Dependencies.** Ring normaliser (done); JW tower docs.
+
+**Open questions.** Which rational specialization of the TL parameter
+the `Xi`/`Zreal` layer actually consumes (match it before proving);
+whether the fallback certificate's size fits the normaliser's proved
+capacity (measure on the smallest nontrivial pentagon first).
+
+### Milestone 13.6 — Full `H₄` invariance + the phantom-parameter guard
+
+**Status.** NOT STARTED.
+
+**Goal.** (a) Extend `o4_restoration_H4` (`c6b82b4`, one axis
+transposition) to the FULL hypercubic group (384 elements,
+decide-friendly): invariance of the Schwinger functionals under the
+generated group, and an explicit DAG note parking full O(4) restoration
+BEHIND `singleStep` (the continuum upgrade needs only equicontinuity of
+the convergence modulus over `H₄` orbits, which rides on the same
+cluster-expansion smoothness — it must never be attacked as an
+independent analytic wall). (b) MECHANIZE the `69f2e0f` under-constraint
+finding: extend the statement guard to FLAG phantom-parameter frontier
+structures — auto-attempt a `castBridge`-style transport for each
+guarded structure's parameters; if one elaborates, the type is
+under-constrained and the build fails (this is exactly the check that
+would have caught both (D1) traps and the item-12 free-coefficient gap
+mechanically).
+
+**Deliverables.** The `H₄` group module + invariance theorem; the
+phantom-parameter guard wired into CI next to the statement-hash guard
+(`bb82e0a`).
+
+**Dependencies.** (a) none; (b) the statement-guard machinery.
+
+**Open questions.** Whether the transport auto-attempt is cheap enough
+for every build (if not: run in the same CI tier as the dag-check).
+
+### Suggested sequencing (2026-07-09)
+
+13.1 (in progress, this session) → 13.2 (a real discharge available to
+finite combinatorics) → 13.3 (one-session adjudication; the only
+candidate legal F-split) → 13.4 (hardens the primary bet) → 13.5 → 13.6.
+13.6(b) is small and can be interleaved anywhere.
 
