@@ -693,6 +693,7 @@ import YMGap.Continuum.MayerUrsellZ4Physical
 import YMGap.Continuum.MayerUrsellZ4PhysicalClose
 import YMGap.Continuum.DecoderReachFloor
 import YMGap.Continuum.LoopyPinnedPenroseUrsell
+import YMGap.Continuum.XiPinnedBridge
 import YMGap.Continuum.RacahOrthogonalityGeneral
 import YMGap.Continuum.RacahDougallWZ
 import YMGap.Continuum.RingNormaliser
