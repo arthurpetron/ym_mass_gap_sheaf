@@ -3382,7 +3382,7 @@ the constructive-friendly choice).
 
 ### Milestone 13.2 — `hlocalize` discretized: fusion local-CLT via reflected lattice paths **[research]**
 
-**Status.** NOT STARTED.
+**Status.** CURRENTLY IN PROGRESS (2026-07-09, step 1 landed) — `Continuum/FusionBratteli.lean`: `fusionOK_iff_ladder` PROVED (the Clebsch–Gordan LADDER normal form of the in-repo fusion indicator — the exact interface both the TP₂ and LGV routes consume) + `pathCount j p s` (the p-fold reflected-walk count, the discrete carrier of the fusion multiplicity) + kernel-checked anchors: the `j = 1` return counts are the CATALAN numbers (1, 2, 5, axiom-FREE `decide`), and the `p = 4` endpoint profile `(2, 3, 1)` is already log-concave — the shape of the campaign claim. Next: the log-concavity of `pathCount` in the endpoint (TP₂/Karlin or LGV injection), then the weighted upgrade to `boxSum` and the discharge of `FusionConvLogConcaveCore.cauchyBinet`. Axiom-clean.
 
 **Goal.** Discharge the `FusionConvLogConcaveCore` /
 `CurvatureEnvelope` wall WITHOUT the constructive-integral layer (the
