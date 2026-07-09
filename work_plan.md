@@ -3339,7 +3339,7 @@ are stated, and any attack whose honest prediction becomes "another
 
 ### Milestone 13.1 — (D1-loopy) the pinned multi-plaquette Penrose–Ursell domination
 
-**Status.** CURRENTLY IN PROGRESS (2026-07-09) — branch `d1-loopy-penrose-ursell`.
+**Status.** CURRENTLY IN PROGRESS (2026-07-09, A1-side DISCHARGED at the pinned loopy instance) — branch `d1-loopy-penrose-ursell`, commits `1971221` + `6e50823`: `DecoderReachFloor` (the DFS-decoder distance invariant — (D2) `z4dist` LOAD-BEARING on the (D1) chain for the first time; `enum_reach_floor`: reach ≥ d ⟹ size ≥ d+1 for the REAL decoded enumeration) + `LoopyPinnedPenroseUrsell` (`loopyOffCorr` COMPUTED from the decoded animal enumeration, `loopy_penrose_ursell` PROVED via prefix-vanish + termwise KP domination; inhabits `PenroseUrsellDatumG` and `BridgeDecomposition`, decays at `ρ4 ≃ 15/32`, non-vacuous by an explicit decoded bridging animal; `stage1Loopy_pinned`: the A-side capstone now reduces to A2 ALONE). Residual sharply named (see `notes/d1-loopy-closure.md`): the Ursell-sign layer for the two-point `Xi`-ratio (finite-volume polynomial identity, ring-normaliser territory — next attack) + the shared R1 `AbstractRealPartitionIdentity`. Build 789 green, guard 5, statement guard no-drift, audit-strict PASS, axiom-clean.
 
 **Goal.** Inhabit `Stage1LoopyReduction.PenroseUrsellDatumG
 (z4ClusterCountBound p) w4 gr` with `offCorr` PINNED to a genuine

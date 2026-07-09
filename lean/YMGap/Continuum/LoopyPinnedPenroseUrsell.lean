@@ -350,7 +350,24 @@ theorem loopyOffCorr_pos : (0 : Q') < loopyOffCorr p0 1 1 := by
       (fun n => bridgeWeight_nonneg p0 1 n) 2 3 (by decide)
   exact lt_of_lt_of_le bridgeWeight_witness_pos hterm
 
-/-! ## 6. Documentation: PROVED vs the OPEN wall (AGENTS.md Rule 6)
+/-! ## 6. The A-side capstone reduces to A2 ALONE (at the pinned instance) -/
+
+/-- **`stage1Loopy_pinned` (PROVED — the A-side collapses to A2).**  With the
+pinned loopy datum filling the A1 slot, the whole `Stage1Loopy` capstone is
+inhabited GIVEN only A2 (`BeyondTreePartitionIdentity`, carrying the
+non-vacuous `SixJRecoupling`): the A-side of Sub-wall A now rests on exactly
+ONE named atom.  Its `.decay` is the 4D loopy correlator decay at
+`ρ4 ≃ 15/32 < 1` for the pinned bridging-cluster correlator. -/
+def stage1Loopy_pinned [DecidableEq z4Chain.toLattice.Plaquette]
+    (p : z4Chain.toLattice.Plaquette)
+    (label : z4Chain.toLattice.Plaquette → Rep) (Vol : Nat)
+    (bt : PartitionBeyondTree.BeyondTreePartitionIdentity
+      (L := z4Chain.toLattice) w4 label) :
+    Stage1Loopy p label where
+  ursell := loopyPinnedDatum p Vol
+  beyondTree := bt
+
+/-! ## 7. Documentation: PROVED vs the OPEN wall (AGENTS.md Rule 6)
 
 PROVED here (genuine, axiom-clean):
 
@@ -394,3 +411,4 @@ end YMGap.Continuum.LoopyPinnedPenroseUrsell
 #print axioms YMGap.Continuum.LoopyPinnedPenroseUrsell.witnessX_pred
 #print axioms YMGap.Continuum.LoopyPinnedPenroseUrsell.bridgeWeight_witness_pos
 #print axioms YMGap.Continuum.LoopyPinnedPenroseUrsell.loopyOffCorr_pos
+#print axioms YMGap.Continuum.LoopyPinnedPenroseUrsell.stage1Loopy_pinned
