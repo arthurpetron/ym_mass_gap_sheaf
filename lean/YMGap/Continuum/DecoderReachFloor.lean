@@ -274,7 +274,7 @@ This is the decoded-enumeration counterpart of (D2)'s
 `connected_spanning_size_ge`, with the `AdjPath` datum REPLACED by the
 decoder invariant — so it applies to the REAL animals of the (D1) loopy
 connecting-cluster sum, at every grade `n`. -/
-theorem enum_reach_floor (p : Z4Plaq) (n : Nat) (X : Polymer z4Lattice)
+theorem enum_reach_floor (p : Z4Plaq) (n : Nat) (X : Polymer z4Chain.toLattice)
     (hX : X ∈ enumPolys z4Chain p n) (q : Z4Plaq) (hq : q ∈ X)
     (d : Nat) (hsep : d ≤ z4dist p q) : d + 1 ≤ X.length := by
   obtain ⟨code, _, rfl⟩ := List.mem_map.mp hX
