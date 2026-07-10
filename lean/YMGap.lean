@@ -708,6 +708,7 @@ import YMGap.Continuum.TaylorModelStep2
 import YMGap.Continuum.HeatKernelChannelTM
 import YMGap.Continuum.OneSubPowTM
 import YMGap.Continuum.TMDefectCertOneSided
+import YMGap.Continuum.HKChannelList
 import YMGap.Continuum.RacahOrthogonalityGeneral
 import YMGap.Continuum.RacahDougallWZ
 import YMGap.Continuum.RingNormaliser
