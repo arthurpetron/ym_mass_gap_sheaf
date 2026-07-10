@@ -3539,6 +3539,23 @@ stated per-channel (composing with item 12's truncation) — prefer yes.
 
 ### Milestone 13.4 — Item-12 hardening: Taylor models in `u = 1−w` + derived channel coefficients
 
+**Literature note (2026-07-09, user-supplied).** *"Spectral-Gap
+Hypercontractivity Fails on S⁴"* (complementary note to Frank–Ivanisvili
+2021): the critical log-Sobolev inequality fails on S⁴ (explicit zonal
+Gegenbauer `C^{(3/2)}` test function, exact rational spectral ledger),
+settling the case Frank–Ivanisvili left open (`n ≤ 3` sharp, high `n`
+false). Relevance: (a) BANKED as further evidence for the item-15
+adjudication (`docs/alternative-routes-to-singlestep.md`) — LSI/
+hypercontractivity routes to `singleStep` are DIMENSION-FRAGILE at exactly
+the borderline; SU(2) ≅ S³ sits on the sharp side (`n = 3`), so any future
+LSI-flavored attempt must be S³-specific — treat critical-constant LSI
+arguments near `n = 4` as presumptively dead. (b) METHOD reference for
+13.2's weighted interlacing: exact zonal/ultraspherical computations
+(rational `N_d` norms, generating-function coefficient extraction) are the
+same exact-rational spectral-ledger style as the `coeffW`/ϑ₃ machinery;
+SU(2) characters are the `C^{(1)}` (Chebyshev-U) column of the same
+Gegenbauer family. Not load-bearing for 13.4.
+
 **Status.** CURRENTLY IN PROGRESS (2026-07-09, session 6 — step 1 landed) —
 `Continuum/TaylorModel.lean`: the Taylor-model layer over the certified `QI`
 kernel, all `[propext]`-only. Horner `evalPoly` (no `pow`) with
@@ -3558,6 +3575,29 @@ the FREE-coefficient under-constraint), enclose the truncation tail into the
 remainder via the ϑ₃ engine, and inhabit `TMDefectCertificate` on an
 explicit `[0, u₀]`. Requires `tmMul` (nonneg-coefficient case suffices for
 the heat-kernel expansion) — queued.
+
+**Update (2026-07-09, session 7 — step 2 first half landed).**
+`Continuum/TaylorModelStep2.lean` (all `[propext]`; certificate axiom-FREE):
+`mulC`/`evalPoly_mulC` (Horner convolution product, `eqv`-sound);
+`evalPoly_mono_u` + `rangeNonneg`/`contains_rangeNonneg` (nonneg-coefficient
+range enclosure `[0, p(u₀)]`); **`tmMulN`/`models_mulN`** — sound
+Taylor-model multiplication (`(P+r)(Q+r') = PQ + [P·r' + Q·r + r·r']`, cross
+terms through the range intervals) — the arithmetic the derived channel
+polynomials compose with. **`pilot_defect_uniform`** — the pilot
+certification UNIFORMIZED: for any channel coefficient functions
+nonnegative and under the pilot upper enclosures uniformly on `[0, u₀]`,
+the truncated defect `(Σ c_j(u))·u² ≤ 6u²` at EVERY `u` at once, certificate
+= ONE kernel `decide` (`pilot_hi_sum_cert`: `Σ hi_j = 39/10 ≤ 6`) — the
+whole tail `w ∈ [1−u₀, 1]` replacing the single `w = 4/5` point. DESIGN
+FINDING recorded: constant-enclosure channels lose `u²`-locality through
+`tmMul` (all content lands in the remainder), so the pilot uniformization
+uses the ONE-SIDED assembly; two-sided TMs are for the polynomial
+Peter–Weyl channels. REMAINING (step 2 second half): derive the channel
+polynomials `(1−u)^{C₄(r)}` (signed binomials — exact TMs with zero
+remainder; the leading channel `heatKernelSep(1−u) = (1−u)³ ↦ [1,−3,3,−1]`
+first), prove the uniform enclosures from them (discharging
+`pilot_defect_uniform`'s hypothesis), ϑ₃ tail into the remainder, inhabit
+`TMDefectCertificate`.
 
 **Goal.** Kill the two known soundness gaps of the primary bet
 (`IntervalArithmetic.lean` / `TruncatedBlockSpinContraction.lean`):
