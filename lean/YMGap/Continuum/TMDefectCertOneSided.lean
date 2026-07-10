@@ -35,6 +35,7 @@ Mathlib-free; pure `Q'` / `Nat` core.  No `Classical.*`, no `Real`, no
 -/
 
 import YMGap.Continuum.OneSubPowTM
+import YMGap.Continuum.SubdominanceWindow
 
 namespace YMGap.Continuum.TMDefectCertOneSided
 
