@@ -3599,6 +3599,24 @@ first), prove the uniform enclosures from them (discharging
 `pilot_defect_uniform`'s hypothesis), ϑ₃ tail into the remainder, inhabit
 `TMDefectCertificate`.
 
+**Update (2026-07-09, session 8 — step 2 second half, part 1: the channel
+enclosures DERIVED).** `Continuum/HeatKernelChannelTM.lean` (first-try
+green, all `[propext]`): the uniform channel enclosures are now PROVED for
+the exact Peter–Weyl channel form — `hk_channel_le`: `d·(1−u)^n ≤ d`
+uniformly on `u ∈ [0,1]` (via `one_sub_nonneg`/`one_sub_le_one`, the
+`le_add_cancel_right` window lemmas, and `qpow_le_one` on the shrunken
+coupling); **`hk_defect_uniform`** — the PARAMETRIC certificate: any four
+exact heat-kernel channels `d_j·(1−u)^{n_j}` with `Σd_j ≤ 6` (one kernel
+`decide`) give the truncated defect `≤ 6u²` at EVERY `u ∈ [0,1]`;
+`pilot_hk_defect_uniform` — the concrete instantiation at the pilot's
+certified amplitudes (`Σ = 39/10`) and the GENUINE Casimir exponents
+`C₄(j) = j(j+2)` — the channel `u`-dependence is now the real heat-kernel
+decay, not a constant enclosure. REMAINING (named): the AMPLITUDE
+IDENTIFICATION — that the true fused block-spin coefficients are dominated
+by exact heat-kernel channels at these amplitudes (the item-9 fusion
+normalization) — plus the ϑ₃ truncation tail into the remainder and the
+`TMDefectCertificate` assembly.
+
 **Goal.** Kill the two known soundness gaps of the primary bet
 (`IntervalArithmetic.lean` / `TruncatedBlockSpinContraction.lean`):
 (a) the pilot certifies ONE coupling (`w = 4/5`) but the obligation is

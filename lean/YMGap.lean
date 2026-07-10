@@ -705,6 +705,7 @@ import YMGap.Continuum.BoxSumTailGeneral
 import YMGap.Continuum.EpsSplitAdjudication
 import YMGap.Continuum.TaylorModel
 import YMGap.Continuum.TaylorModelStep2
+import YMGap.Continuum.HeatKernelChannelTM
 import YMGap.Continuum.RacahOrthogonalityGeneral
 import YMGap.Continuum.RacahDougallWZ
 import YMGap.Continuum.RingNormaliser
