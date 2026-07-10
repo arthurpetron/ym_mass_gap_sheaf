@@ -3410,6 +3410,20 @@ the constructive-friendly choice).
 
 ### Milestone 13.2 — `hlocalize` discretized: fusion local-CLT via reflected lattice paths **[research]**
 
+**Update (2026-07-09, session 5 — step 4, ALL-p PARITY-TP₂ + a route
+adjudication).** `Continuum/KpowParityTP2.lean`: the p-step `j = 1` fusion
+kernel is parity-TP₂ for EVERY `p` (`kpow_TP2_j1` — CB₂ iterated through
+the kernel-generic `pair_exchange_row_j1`, with parity propagation
+`kpow_parity`; odd intermediate shifts vanish by row parity). ADJUDICATION
+BANKED: the "extract row log-concavity via kernel symmetry" hope is
+CORRECTED — TP₂ of a kernel does NOT yield log-concavity of a single row
+(a row is not a 2×2 minor; propagation needs higher-order TP or the
+convolution/PF₂ setting). The honest routes to the all-`p` row statement
+(`pathCount` log-concavity): (i) the explicit ballot-number formula layer,
+or (ii) an LGV path-pair injection — both finite combinatorics, both open.
+`kpow_TP2_j1` is the two-row comparison payload the weighted
+`strongCoupling` interlacing consumes. First-try green, axiom-clean.
+
 **Update (2026-07-09, session 5 — step 3, CB₂ LANDED).**
 `Continuum/KernelCB2.lean`: the 2×2 Cauchy–Binet/Karlin composition brick
 PROVED in subtraction-free exchange form over `Nat` — `comp_TP2` (pair the
