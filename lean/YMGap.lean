@@ -695,6 +695,7 @@ import YMGap.Continuum.DecoderReachFloor
 import YMGap.Continuum.LoopyPinnedPenroseUrsell
 import YMGap.Continuum.XiPinnedBridge
 import YMGap.Continuum.FusionBratteli
+import YMGap.Continuum.FusionParityTP2
 import YMGap.Continuum.RacahOrthogonalityGeneral
 import YMGap.Continuum.RacahDougallWZ
 import YMGap.Continuum.RingNormaliser
