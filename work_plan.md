@@ -3617,6 +3617,30 @@ by exact heat-kernel channels at these amplitudes (the item-9 fusion
 normalization) — plus the ϑ₃ truncation tail into the remainder and the
 `TMDefectCertificate` assembly.
 
+**Update (2026-07-09, session 9 — step 2 second half COMPLETE as reduction;
+branch PUSHED to origin).** Parts 2–3: `Continuum/OneSubPowTM.lean` — the
+exact channel polynomials `(1−u)^n` DERIVED by recursion
+(`evalPoly_oneSubPow`, zero remainder), the exact-model layer
+(`ModelsExact` with closed add/scale/mul), the exact pilot defect
+polynomial CONSTRUCTED (`modelsExact_pilotDefect`, degree-17 concrete
+rationals) — and the ADJUDICATION machine-refuted (`exact_cert_fails`,
+axiom-FREE): the coefficientwise two-sided certificate of
+`TMDefectCertificate` is UNSATISFIABLE on the exact alternating expansion
+(positive coefficients above degree 3). `Continuum/TMDefectCertOneSided.lean`
+— the CORRECTED interface forced by the refutation:
+`TMDefectCertificateOS` carries amplitudes/exponents/nonnegativity, the
+single kernel certificate `Σd ≤ 6`, and ONE correctly-typed open field —
+`dominate`, the AMPLITUDE IDENTIFICATION (true fused defect ≤ exact
+heat-kernel form on the window; the ϑ₃ tail enters by enlarging
+amplitudes); producer `defect_le_sixUsq_of_certOS` PROVED (uniform `6u²`
+on `[0, u₀]` for `u₀ ≤ 1`); non-vacuity self-inhabitation wired
+(`certOS_hk_selfdom`). NET 13.4 STATE: the Koch–Wittwer uniformization
+pipeline is COMPLETE AS A REDUCTION — per-scale certification eliminated,
+channel u-dependence genuine, coefficients derived; the whole primary bet
+now rests on inhabiting `dominate` for the real truncated block-spin
+defect (the fused normalization = the interacting physics, where the
+campaign's front (a) construction continues).
+
 **Goal.** Kill the two known soundness gaps of the primary bet
 (`IntervalArithmetic.lean` / `TruncatedBlockSpinContraction.lean`):
 (a) the pilot certifies ONE coupling (`w = 4/5`) but the obligation is
