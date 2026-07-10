@@ -3339,6 +3339,18 @@ are stated, and any attack whose honest prediction becomes "another
 
 ### Milestone 13.1 — (D1-loopy) the pinned multi-plaquette Penrose–Ursell domination
 
+**Update (2026-07-09, session 4 — step 6, THE SIGN LAYER OPENED).**
+`Continuum/XiSignLayer.lean`: the truncated two-point correlator's Ursell-sign
+content is now an EXACT SUBTRACTION-FREE IDENTITY — `two_point_mayer`:
+`XiB2·Ξ + Av(b₁)·Av(b₂) ≃ XiB(b₁)·XiB(b₂) + A₁₂·Ξ` (four-cell avoidance
+partition of the compatible families + the 4-variable degree-2 polynomial core
+`cell_expand`, PROVED BY THE REFLECTIVE RING NORMALISER — its first live
+payload on the (D1) chain). Corollary `XiB2_mul_le`: the truncated numerator
+is dominated by the product term + the double-avoidance term. The whole
+remaining sign content is thereby ISOLATED in ONE inequality: the
+avoidance-correlation bound (`A₁₂·Ξ` vs `Av(b₁)·Av(b₂)` + chains) — the
+genuine connected-chain content, named in the module docstring. Axiom-clean.
+
 **Update (2026-07-09, session 3).** Steps 4–5 landed: `XiPinnedBridge` (`8278654`) — the ONE-POLYMER-BRIDGE Mayer bound `XiB ≤ actSum(bridges)·XiR` PROVED (axioms `[propext]` only); `XiChainBound` — the TWO-MARKER raw-pair domination `XiB2 ≤ actSum(br₁∧br₂)·XiR + actSum(br₁)·XiB(br₂) + actSum(br₂)·XiB(br₁)` PROVED (`XiB2_le_chain`/`XiB2_le_product`/`XiPair_le`, `[propext]` only) — the upper envelope of `⟨1_p1_q⟩·Ξ` by diagonal + cross products. Remaining on this front: the TRUNCATED-correlator subtraction (the genuine Ursell-SIGN layer — verified along the way that hard-core gases are NOT negatively correlated, so the chain term is real physics, not bookkeeping) + the shared R1 identity.
 
 **Status.** CURRENTLY IN PROGRESS (2026-07-09, A1-side DISCHARGED at the pinned loopy instance) — branch `d1-loopy-penrose-ursell`, commits `1971221` + `6e50823`: `DecoderReachFloor` (the DFS-decoder distance invariant — (D2) `z4dist` LOAD-BEARING on the (D1) chain for the first time; `enum_reach_floor`: reach ≥ d ⟹ size ≥ d+1 for the REAL decoded enumeration) + `LoopyPinnedPenroseUrsell` (`loopyOffCorr` COMPUTED from the decoded animal enumeration, `loopy_penrose_ursell` PROVED via prefix-vanish + termwise KP domination; inhabits `PenroseUrsellDatumG` and `BridgeDecomposition`, decays at `ρ4 ≃ 15/32`, non-vacuous by an explicit decoded bridging animal; `stage1Loopy_pinned`: the A-side capstone now reduces to A2 ALONE). Residual sharply named (see `notes/d1-loopy-closure.md`): the Ursell-sign layer for the two-point `Xi`-ratio (finite-volume polynomial identity, ring-normaliser territory — next attack) + the shared R1 `AbstractRealPartitionIdentity`. Build 789 green, guard 5, statement guard no-drift, audit-strict PASS, axiom-clean.
@@ -3383,6 +3395,14 @@ positive-denominator certificate at `w4`, available from `kpRatio =
 the constructive-friendly choice).
 
 ### Milestone 13.2 — `hlocalize` discretized: fusion local-CLT via reflected lattice paths **[research]**
+
+**Next brick (queued, 2026-07-09 session 4).** The Karlin composition of the
+corner-aware parity-TP₂ kernel — the 2×2 Cauchy–Binet composition identity
+(`det₂(K₁∘K₂) = Σ_{m<m'} det₂K₁·det₂K₂`, over `Q'` with the eqv-toolkit or
+over `Int`) — is what upgrades the anchors to all-`p` same-parity
+log-concavity of `pathCount`; then the weighted cross-parity interlacing
+under `strongCoupling` (at `N = 1` exactly `c₁² ≤ 3c₀²`) closes toward
+`cauchyBinet`. Not yet started; the corner-aware brick (below) is its input.
 
 **Update (2026-07-09, session 3 — step 2, the TP₂ route adjudicated).** `Continuum/FusionParityTP2.lean`: TWO machine refutations banked — the raw fusion kernel is NOT TP₂ (parity interlacing, axiom-FREE), and parity-consistent TP₂ ALSO fails for `j ≥ 2` (the REFLECTION CORNER `a+s ≥ j` is load-bearing; a false pen-and-paper lemma caught by the failing kernel check). The corrected brick PROVED: corner-aware parity-TP₂ (`fusionOK_TP2_step`/`stepN_TP2`), with the `j = 1` fundamental kernel unconditionally parity-TP₂ (`stepN_TP2_j1`). Consequence for the campaign: no unweighted TP₂/Karlin composition reaches `cauchyBinet`'s mixed-parity index — the cross-parity comparison must come from the `strongCoupling` weights (at `N = 1` the claim is exactly `c₁² ≤ 3c₀²`). Next: same-parity log-concavity via Karlin composition of the corner-aware brick (or LGV), then the weighted interlacing.
 

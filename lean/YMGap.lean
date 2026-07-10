@@ -697,6 +697,7 @@ import YMGap.Continuum.XiPinnedBridge
 import YMGap.Continuum.FusionBratteli
 import YMGap.Continuum.FusionParityTP2
 import YMGap.Continuum.XiChainBound
+import YMGap.Continuum.XiSignLayer
 import YMGap.Continuum.RacahOrthogonalityGeneral
 import YMGap.Continuum.RacahDougallWZ
 import YMGap.Continuum.RingNormaliser
