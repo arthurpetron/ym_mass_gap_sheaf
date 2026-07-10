@@ -3339,6 +3339,20 @@ are stated, and any attack whose honest prediction becomes "another
 
 ### Milestone 13.1 — (D1-loopy) the pinned multi-plaquette Penrose–Ursell domination
 
+**Update (2026-07-09, session 5 — step 7, THE SIGN LAYER CLOSED AS
+IDENTITIES).** `Continuum/XiAvoidanceCorrelation.lean`: the avoidance-
+correlation inequality PROVED — `A₁₂·Ξ ≤ Av(b₁)·Av(b₂) + A₁₂·XiB2`
+(`avoidance_correlation`, from the exact normaliser identity
+`avoidance_mayer`: `A₁₂·Ξ + E·D ≃ Av₁·Av₂ + A₁₂·B`). BONUS: the truncated
+two-point numerator pinned to its EXACT four-cell normal form
+`T·Ξ² = A·B − E·D` (`truncated_numerator_mayer`) and the grand corollary
+`truncated_numerator_le_chain`: `XiB2·Ξ ≤ XiB₁·XiB₂ + Ξ·(two-marker chain
+majorant)` — the first PROVED upper bound on the truncated two-point
+numerator, its diagonal exactly the (D2)-floored bridging sum. The residual
+is now a SHARPNESS question (the connectedness cancellation `A·B` vs `E·D`
+— extracting the separation-DECAYING envelope for the difference), not a
+sign question. First-try green, axiom-clean.
+
 **Update (2026-07-09, session 4 — step 6, THE SIGN LAYER OPENED).**
 `Continuum/XiSignLayer.lean`: the truncated two-point correlator's Ursell-sign
 content is now an EXACT SUBTRACTION-FREE IDENTITY — `two_point_mayer`:
@@ -3396,13 +3410,19 @@ the constructive-friendly choice).
 
 ### Milestone 13.2 — `hlocalize` discretized: fusion local-CLT via reflected lattice paths **[research]**
 
-**Next brick (queued, 2026-07-09 session 4).** The Karlin composition of the
-corner-aware parity-TP₂ kernel — the 2×2 Cauchy–Binet composition identity
-(`det₂(K₁∘K₂) = Σ_{m<m'} det₂K₁·det₂K₂`, over `Q'` with the eqv-toolkit or
-over `Int`) — is what upgrades the anchors to all-`p` same-parity
-log-concavity of `pathCount`; then the weighted cross-parity interlacing
-under `strongCoupling` (at `N = 1` exactly `c₁² ≤ 3c₀²`) closes toward
-`cauchyBinet`. Not yet started; the corner-aware brick (below) is its input.
+**Update (2026-07-09, session 5 — step 3, CB₂ LANDED).**
+`Continuum/KernelCB2.lean`: the 2×2 Cauchy–Binet/Karlin composition brick
+PROVED in subtraction-free exchange form over `Nat` — `comp_TP2` (pair the
+double-sum terms `(m,n)/(n,m)`; scalar core `cross_mul_le`:
+`y≤x → v≤u → xv+yu ≤ xu+yv`; square-border decomposition `nsum2_succ`;
+pair-exchange `nsum2_exchange`; `nsum_mul_nsum`). Payoff: the TWO-STEP
+`j = 1` fusion kernel is parity-TP₂ (`compStep_TP2_j1`) — the odd
+intermediate shifts vanish by parity forcing (`stepN_parity`), so the
+exchange hypothesis holds for ALL pairs. First-try green, axiom-clean.
+NEXT: iterate to the p-step kernel (all-`p` parity-TP₂ by induction on
+`comp`), extract row log-concavity via kernel symmetry
+(`fusionOK a j s = fusionOK s j a`), then the weighted `strongCoupling`
+cross-parity interlacing toward `cauchyBinet`.
 
 **Update (2026-07-09, session 3 — step 2, the TP₂ route adjudicated).** `Continuum/FusionParityTP2.lean`: TWO machine refutations banked — the raw fusion kernel is NOT TP₂ (parity interlacing, axiom-FREE), and parity-consistent TP₂ ALSO fails for `j ≥ 2` (the REFLECTION CORNER `a+s ≥ j` is load-bearing; a false pen-and-paper lemma caught by the failing kernel check). The corrected brick PROVED: corner-aware parity-TP₂ (`fusionOK_TP2_step`/`stepN_TP2`), with the `j = 1` fundamental kernel unconditionally parity-TP₂ (`stepN_TP2_j1`). Consequence for the campaign: no unweighted TP₂/Karlin composition reaches `cauchyBinet`'s mixed-parity index — the cross-parity comparison must come from the `strongCoupling` weights (at `N = 1` the claim is exactly `c₁² ≤ 3c₀²`). Next: same-parity log-concavity via Karlin composition of the corner-aware brick (or LGV), then the weighted interlacing.
 
