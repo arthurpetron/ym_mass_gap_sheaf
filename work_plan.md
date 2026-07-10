@@ -3492,10 +3492,22 @@ needs strict log-concavity (path counts give non-strict at the boundary
 
 ### Milestone 13.3 — ε-split adjudication: small-field/large-field decomposition of `singleStep` **[the one candidate legal F-split]**
 
-**Status.** NOT STARTED. **One session, adjudication-only** (ledger rule
-(b); the per-move, resummation, and variance routes all collapsed — this
-is the only known remaining candidate for a strictly-weaker
-decomposition).
+**Status.** DONE (2026-07-09, session 6) — **ADJUDICATED: EQUI-INHABITS
+(C++); the split is NOT a strictly-weaker independent decomposition.**
+`Continuum/EpsSplitAdjudication.lean` (all axiom-clean): PRODUCER
+`singleStepProp_of_split` ((i)∧(ii) → `SingleStepProp` at the coarse rate,
+via the new `Q'` order-cancellation `le_add_cancel_right`); CONVERSE
+`split_of_singleStepProp` (the core inhabits BOTH conjuncts at zero loss —
+the pair equi-inhabits); VACUITY `pertStep_vacuous` (conjunct (i) alone is
+satisfiable for every rate/margin by the loss that swallows the step — no
+content); LOAD TRANSFER `absorb_forces_nonpos` (against the vacuous loss,
+conjunct (ii) forces the coarse step nonpositive — refuted on every
+positive-margin instance: the whole `singleStep` load lives in (ii)).
+**The last named candidate F-split is dead; F = 1 (atomic `singleStep`) is
+STRENGTHENED.** Surviving content is a CONSTRUCTION task, not a
+decomposition: pin the loss to a constructed finite-volume large-field
+functional (chessboard/RP) and prove `AbsorbProp` for it — front (a),
+where item 12 / Milestone 13.4 continues. Do NOT re-attack this split.
 
 **Goal.** Adjudicate the split `ε_k = ε_k^pert + ε_k^np` with two named
 atoms: **`PerturbativeDefectOrder`** — the ≤ 2-loop part of the
