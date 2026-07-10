@@ -3539,7 +3539,25 @@ stated per-channel (composing with item 12's truncation) — prefer yes.
 
 ### Milestone 13.4 — Item-12 hardening: Taylor models in `u = 1−w` + derived channel coefficients
 
-**Status.** NOT STARTED.
+**Status.** CURRENTLY IN PROGRESS (2026-07-09, session 6 — step 1 landed) —
+`Continuum/TaylorModel.lean`: the Taylor-model layer over the certified `QI`
+kernel, all `[propext]`-only. Horner `evalPoly` (no `pow`) with
+`eqv`-sound coefficient add/scale; **THE UNIFORMIZATION MECHANISM PROVED**:
+`evalPoly_le_of_coeffLeB` — one kernel-`decide`-checkable coefficientwise
+certificate implies the pointwise polynomial inequality for EVERY `u ≥ 0` —
+and `models_le_of_cert` — one coefficient `decide` + one remainder-endpoint
+`decide` bound `f ≤ g` on the whole `[0, u₀]` (replacing per-scale interval
+certification along the `w_k → 1` tail; `coeffLeB` restructured structural-
+on-first so the kernel reduces it under `decide` — axiom-FREE demo
+certificate checked). Step-2 target NAMED (`TMDefectCertificate`, deliberately
+uninhabited) with its producer PROVED (`defect_le_sixUsq_of_cert`: a
+certificate yields the uniform `defect(u) ≤ 6u²` on the whole domain, the
+`singleStep`-shaped quadratic decay). NEXT (step 2): derive the pilot's TM
+coefficients from the Peter–Weyl channel expansion at `w = 1 − u` (killing
+the FREE-coefficient under-constraint), enclose the truncation tail into the
+remainder via the ϑ₃ engine, and inhabit `TMDefectCertificate` on an
+explicit `[0, u₀]`. Requires `tmMul` (nonneg-coefficient case suffices for
+the heat-kernel expansion) — queued.
 
 **Goal.** Kill the two known soundness gaps of the primary bet
 (`IntervalArithmetic.lean` / `TruncatedBlockSpinContraction.lean`):
