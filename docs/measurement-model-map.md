@@ -1,7 +1,39 @@
 # The measurement-model map — how the Lean structure mirrors the real-world
 # measurement of the mass gap (living document; refine every session)
 
-**Status: v1 (2026-07-09).** The purpose of this document is to keep the
+**Status: v2 (2026-07-09).** v2 adds §0 (why the gap exists — the model's
+two reality-facts) and CORRECTS §6: the matching stage is a DERIVATION,
+not an empirical import — the proof is constructive, not computational.
+
+## 0. Why the gap exists — the two structural facts of the model
+
+The measurements come out gapped because of two facts about the modeled
+system, BOTH already internal to the Wilson-measure model (no empirical
+input):
+
+  * **COMPACTNESS.** The field is compact-group-valued. The Laplacian on
+    SU(2) has a discrete spectrum gapped by the first Casimir, so the
+    single-plaquette transfer kernel is gapped; every gauge-invariant
+    excitation is a CLOSED FLUX STRUCTURE (Elitzur: no Goldstone route;
+    a free gluon is not gauge-invariant), so correlation over distance
+    `d` must be carried by a structure of size ≥ `d` — formalized as the
+    (D2) size floor (`enum_reach_floor`), a THEOREM in-repo. At strong
+    coupling "action cost beats entropy" for flux structures — the
+    fixed-spacing gap, PROVED.
+  * **SELF-CHARGE (non-abelian sign).** The field carries its own charge;
+    the vacuum ANTI-screens; the coupling GROWS under coarse-graining.
+    This is why the gap PERSISTS to the continuum: blocking any physical
+    scale far enough lands in the provably gapped compact strong-coupling
+    regime. Dimensional transmutation is this statement, and `singleStep`
+    (the margin recursion) is its exact quantitative form: "the flow runs
+    toward the provable regime fast enough."
+
+Model of the thing (Wilson measure) + model of the measurement (the
+correlator pipeline, §§1–5) + these two facts ⟹ the gap, constructively.
+The whole Clay problem is that the SECOND fact must be made uniform-in-
+scale as a theorem. There is no missing third ingredient.
+
+The purpose of this document is to keep the
 formal development honest about WHAT PHYSICAL PROCEDURE each Lean object
 formalizes. The mass gap is "measured in reality" by lattice Monte Carlo
 glueball spectroscopy (pure SU(N): m(0⁺⁺) ≈ 3.7√σ; in full QCD its shadow
@@ -100,11 +132,17 @@ lattice spacings; the item-9 Python scouting MEASURED the fused channel
 amplitudes (the pilot enclosures `[c_j^lo, c_j^hi]`).
 
 Lean counterpart: `TMDefectCertificateOS.dominate` — the amplitude
-identification: that the true fused block-spin defect is dominated by the
-exact heat-kernel channel form at the certified amplitudes. This is the
-formal counterpart of an MCRG matching computation WITH PROVED error
-control — the single point where the measured numbers must become a
-theorem. Everything else in the pipeline is already proved around it.
+identification. **v2 CORRECTION (constructive, not computational):** the
+fused channel amplitudes are NOT empirical quantities to be matched — one
+RG block step on a compact group is a FINITE Haar integral = a finite
+character sum = an EXACT RATIONAL already representable in-substrate
+(`bondMovedCoeff`/`boxSum` ARE these objects). `dominate` must be
+inhabited by DERIVATION from the Wilson measure (character/Clebsch
+calculus of one block step, then channel-wise domination by the
+heat-kernel form); the item-9 MCMC was Lakatos SCOUTING ONLY — it told
+us which scheme and truncation to build the derivation around, and its
+numbers never enter the proof. The reason we know the derivation is
+there to be found is §0's second fact.
 
 ## The model in one sentence
 
