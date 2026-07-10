@@ -114,9 +114,33 @@ def certOS_hk_selfdom :
   dominate := fun u _ _ => Q'.le_refl' _
   cert := by decide
 
+/-! ## The wiring into the `singleStep` carrier -/
+
+/-- **`magnitude_of_certOS` (PROVED — the pipeline wired to the core's
+carrier).**  A one-sided certificate yields, at EVERY coupling
+`w ∈ [0, 1]` simultaneously, exactly the `magnitude`-field shape of
+`SingleStepDefectBoundLoose`:
+
+    defect (1 − w)  ≤  modelExpr w  ( = 6·(1−w)² ).
+
+This is the formal content of the uniformization: one kernel `decide`
+supplies the loose magnitude bound at ALL scales `w_k` of any AF
+trajectory at once — the per-scale certification of the pilot is gone.
+The sole remaining input is the certificate's `dominate` field (the
+amplitude identification). -/
+theorem magnitude_of_certOS {defect : Q' → Q'}
+    (C : TMDefectCertificateOS 1 defect)
+    {w : Q'} (hw0 : (0 : Q') ≤ w) (hw1 : w ≤ (1 : Q')) :
+    defect ((1 : Q') - w) ≤ SubdominanceWindow.modelExpr w := by
+  have h := defect_le_sixUsq_of_certOS C (Q'.le_refl' 1)
+    ((1 : Q') - w) (one_sub_nonneg hw1) (one_sub_le_one hw0)
+  refine Q'.le_trans' _ _ _ h ?_
+  exact Q'.le_of_eqv (evalPoly_c2 (Q'.ofNat 6) ((1 : Q') - w))
+
 end YMGap.Continuum.TMDefectCertOneSided
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
 
 #print axioms YMGap.Continuum.TMDefectCertOneSided.defect_le_sixUsq_of_certOS
 #print axioms YMGap.Continuum.TMDefectCertOneSided.certOS_hk_selfdom
+#print axioms YMGap.Continuum.TMDefectCertOneSided.magnitude_of_certOS
