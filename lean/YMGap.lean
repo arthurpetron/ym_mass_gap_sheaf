@@ -701,6 +701,7 @@ import YMGap.Continuum.XiSignLayer
 import YMGap.Continuum.XiAvoidanceCorrelation
 import YMGap.Continuum.KernelCB2
 import YMGap.Continuum.KpowParityTP2
+import YMGap.Continuum.BoxSumTailGeneral
 import YMGap.Continuum.RacahOrthogonalityGeneral
 import YMGap.Continuum.RacahDougallWZ
 import YMGap.Continuum.RingNormaliser

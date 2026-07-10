@@ -3410,6 +3410,21 @@ the constructive-friendly choice).
 
 ### Milestone 13.2 — `hlocalize` discretized: fusion local-CLT via reflected lattice paths **[research]**
 
+**Update (2026-07-09, session 5 — step 5, general-`N` tail + a pointer
+correction).** `Continuum/BoxSumTailGeneral.lean`: the general-`N` mode tail
+`2N < s → boxSum w N s ≃ 0` (`boxSum_tail`) + `boxSum_cross_tail_le`
+(the Cauchy–Binet cross product is trivial for `2N ≤ s`), replacing the
+per-`N` tail lemmas — every future pointwise push of the box core owes only
+the FINITE window `s < 2N`. POINTER CORRECTION for this milestone's
+"weighted `strongCoupling` interlacing" front: the in-repo state is further
+along than this file's earlier notes implied — `CoreStep` is already
+machine-REFUTED for `N ≥ 2` (`FusionCoreStep`, round A), the box core is
+inhabited pointwise at `N ≤ 4` (`w = 1/2`), and the honest uniform residual
+is `UniformBoxLogConcave w` (the all-`N` direct box Cauchy–Binet = the
+heat-kernel local-CLT content). The 13.2 discrete layer (ladder, parity-TP₂,
+CB₂, `kpow_TP2_j1`) plus the ballot-formula/LGV row wall are the routes INTO
+that residual; do NOT re-attack `CoreStep`.
+
 **Update (2026-07-09, session 5 — step 4, ALL-p PARITY-TP₂ + a route
 adjudication).** `Continuum/KpowParityTP2.lean`: the p-step `j = 1` fusion
 kernel is parity-TP₂ for EVERY `p` (`kpow_TP2_j1` — CB₂ iterated through
