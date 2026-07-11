@@ -3811,6 +3811,35 @@ and the residual defect inherits `intAmp`'s amplitudes at `w⁶` decay; then
 the `Σ ≤ 6` budget check against the DERIVED `intAmp` values (close or
 bank the refutation).
 
+**Update (2026-07-11, session 11 — 14.2 second half PROVED: naive ratio
+REFUTED, correct ratio sandwich constructed).** `IntAmpAnchors`
+(axiom-FREE kernel facts): the derived interacting ledger `intAmp 3 0 =
+29`, `intAmp 3 1 = 36`, and **`naive_ratio_mismatch`** — the raw
+channel/vacuum ratio provably does NOT reproduce the free ratio at
+`w = 1` (`fusedAmp 3 1 = 40 ≠ 60 = dimQ 1 · fusedAmp 3 0`; the naive
+ratio → `4/3 ≠ 2`), so a defect defined from the raw fusion ratio is
+`O(1)` at the continuum end and can NEVER meet the `6(1−w)²` budget —
+the naive normalization is machine-refuted BEFORE construction (Lakatos
+bank). `FusedEnvelope` — the CORRECT object, division-free: the vacuum
+split **`boxSum_vacuum_split`** (`boxSum w N 0 ≃ 1 + intBlock w N 0`;
+the `(0,0)` pair is the free vacuum, everything else has both spins
+≥ 1), the ENVELOPE (`vacuum_ge_one`, `vacuum_le`, `boxSum_ge_free`,
+`boxSum_le_free_plus`: `2·c_s ≤ boxSum(s) ≤ 2·c_s + intAmp·w⁶` and
+`1 ≤ boxSum(0) ≤ 1 + intAmp N 0·w⁶`), and the headline **ratio
+sandwich** (`boxSum_ratio_upper` / `boxSum_ratio_lower`, cross-
+multiplied): `2·c_s·boxSum(0) ≤ boxSum(s)·(1 + intAmp N 0·w⁶)` and
+`boxSum(s) ≤ (2·c_s + intAmp N s·w⁶)·boxSum(0)` — the normalized
+blocked channel lies in an `intAmp·w⁶` corridor around the free `2·c_s`.
+STRUCTURAL FINDING (honest window): the corridor is relatively tight
+exactly at STRONG coupling (`s = 1`, `N = 3`: relative width `≤ 9·w³`) —
+the anchor regime of reality-fact one — and `O(1)` near `w = 1` (the
+refuted naive regime). So the budget is consumed at the anchor side and
+must be PROPAGATED by the recursion, not evaluated at the continuum end.
+REMAINING (feeds 14.3): the corridor → per-step margin arithmetic — turn
+the `9·w³`-type relative width at the anchor scale into the `δ_k` of
+`(1−δ_k)·tm k ≤ tm (k+1)` via the perturbed-operator comparison. All
+green: EXIT=0, zero sorryAx, both guards OK, audit 7860 theorems.
+
 ### Milestone 14.3 — Gap stability under the defect (the recursion field)
 
 **Goal.** The OTHER half of the loose carrier: `recursion` — the true
