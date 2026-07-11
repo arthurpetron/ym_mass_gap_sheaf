@@ -716,6 +716,7 @@ import YMGap.Continuum.FusedAmpAnchors
 import YMGap.Continuum.FusedFreeSplit
 import YMGap.Continuum.IntAmpAnchors
 import YMGap.Continuum.FusedEnvelope
+import YMGap.Continuum.MarginErosionBrick
 import YMGap.Continuum.RacahOrthogonalityGeneral
 import YMGap.Continuum.RacahDougallWZ
 import YMGap.Continuum.RingNormaliser

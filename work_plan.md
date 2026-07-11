@@ -3857,6 +3857,20 @@ the new content is the PERTURBED-operator comparison lemma.
 **Checkable predicate.** `recursion_of_blocked_gap` +
 14.2 ⟹ `SingleStepDefectBoundLoose` inhabited.
 
+**Update (2026-07-11, session 11 — 14.3 OPENED: the conversion brick
+PROVED).** `MarginErosionBrick.margin_recursion_of_corridor` (propext
+only): from `m ≃ 1 − λ`, `m' ≃ 1 − λ'`, an additive eigenvalue corridor
+`λ' ≤ λ + ε` (exactly what `FusedEnvelope`'s sandwich delivers), and the
+width-vs-margin comparison `ε ≤ δ·m`, the consumer's multiplicative form
+follows: `(1 − δ)·m ≤ m'`. The remaining 14.3 content is now sharply
+localized to TWO identifications: (i) instantiate `λ, λ'` with the
+per-scale normalized transfer data (the cross-multiplied sandwich pair of
+`FusedEnvelope` at scale k vs k+1), and (ii) prove `ε_k ≤ δ_k·m_k` at the
+anchor scale — the `9·w³`-type relative corridor width against the
+strong-coupling anchor margin (reality-fact one's regime, where the
+corridor is provably tight). Then `recursion` is inhabited and 14.4's
+assembly arrows (all PROVED) fire.
+
 ### Milestone 14.4 — Assemble `singleStep` and the continuum floor
 
 **Goal.** 14.2 + 14.3 inhabit `SingleStepDefectBoundLoose` →
