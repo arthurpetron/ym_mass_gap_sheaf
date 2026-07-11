@@ -3739,3 +3739,117 @@ finite combinatorics) → 13.3 (one-session adjudication; the only
 candidate legal F-split) → 13.4 (hardens the primary bet) → 13.5 → 13.6.
 13.6(b) is small and can be interleaved anywhere.
 
+---
+
+## Phase 14: THE CRITICAL PATH to the mass-gap proof (2026-07-09, complete from current context)
+
+Everything below is justified by the current machine-checked state: the
+fixed-spacing physics is proved; F = 1 with `singleStep` atomic (every
+decomposition machine-refuted: per-move, resummation, variance, ε-split);
+the certified uniformization pipeline (13.4) is complete as a reduction
+with ONE open field; and the measurement-model map §0 identifies the two
+reality-facts the proof must realize: COMPACTNESS (done — the provable
+strong-coupling anchor + the D2 size floor) and SELF-CHARGE (open — the
+flow toward the provable regime, uniformly in scale = `singleStep`).
+The spine below is the ONLY load-bearing chain; everything else feeds
+sharpness or satellite Clay clauses. Constructive discipline throughout:
+one RG block step on a compact group is a finite character sum — an exact
+rational in-substrate — so NO empirical number may or need enter.
+
+### Milestone 14.1 — One-block character calculus (the derived blocked action)
+
+**Status.** CURRENTLY IN PROGRESS (2026-07-09; first channel this session).
+
+**Goal.** The blocked (one-RG-step) channel coefficients as EXACT rational
+character sums derived from the Wilson measure — `boxSum`/`bondMovedCoeff`
+generalized from the p = 2 pilot to the transverse-MK block step, with the
+FUSED exponents: for each retained channel `s`, exhibit
+`boxSum w N s ≤ fusedAmp(N,s) · w^{fusedExp(s)}` with DERIVED rational
+amplitude and exponent. KEY STRUCTURAL FACT (this session's finding): the
+fused exponent is the MINIMUM of `C₄(a)+C₄(b)` over fusing pairs — NOT the
+free `C₄(s)` — fusion enhances high channels (the interacting physics made
+explicit). First deliverable: channel `s = 1` (`fusedExp = 3`, minimal pair
+`(0,1)`), then the general-`s` minimal-pair lemma.
+
+**Checkable predicate.** `FusedDominatedByHK N s` inhabited with derived
+data for every retained channel of the pilot truncation.
+
+### Milestone 14.2 — The defect identity (blocked-vs-free difference)
+
+**Goal.** The real truncated defect IS the deviation of the blocked
+coefficients from the free flow: express `truncDefect(w)` as an exact
+finite combination of the 14.1 fused coefficients and the free
+counterterms (`dfreeExpr`/`SubdominanceWindow` layer), so that
+`TMDefectCertificateOS.dominate` becomes a THEOREM of 14.1's bounds plus
+the ϑ₃ tail (`hk_defect_uniform_tail`, already proved). This step is
+finite exact algebra (normaliser + interval bricks); its risk is that the
+derived amplitudes exceed the `Σ ≤ 6` budget at the pilot truncation — if
+so, that is a REFUTATION to bank and the truncation/scheme iterates
+(enlarge N, re-run the SAME machinery; the anchor-dominance slack factor
+45 is the honest reserve).
+
+**Checkable predicate.** `TMDefectCertificateOS u₀ realTruncDefect`
+inhabited with derived amplitudes ⟹ `magnitude_of_certOS` gives the loose
+magnitude bound at every scale (PROVED producer).
+
+### Milestone 14.3 — Gap stability under the defect (the recursion field)
+
+**Goal.** The OTHER half of the loose carrier: `recursion` — the true
+margin degrades per blocking by at most the real defect:
+`(1 − realδ_k)·tm k ≤ tm (k+1)`. Content: spectral stability of the
+located gap of the blocked transfer operator under the (now magnitude-
+bounded) defect perturbation — over the constructive located-gap framework
+(`LocatedSpectralGap`, `GapIsEigenvalue`, Birkhoff contraction, the
+Peter–Weyl resummed `effTransfer`). This is second-order perturbation
+theory made constructive: located gap at scale k + defect ≤ δ ⟹ located
+gap ≥ (1−δ)·previous at scale k+1. The pilot's per-scale version exists in
+fragments (`reconTransfer_located_gap_gen`, `effTransfer_located_gap`);
+the new content is the PERTURBED-operator comparison lemma.
+
+**Checkable predicate.** `recursion_of_blocked_gap` +
+14.2 ⟹ `SingleStepDefectBoundLoose` inhabited.
+
+### Milestone 14.4 — Assemble `singleStep` and the continuum floor
+
+**Goal.** 14.2 + 14.3 inhabit `SingleStepDefectBoundLoose` →
+(`defectRecursion_of_looseBound`, PROVED) `DefectGapRecursion` →
+(`additiveErosion_uniform_floor`, PROVED) the uniform positive floor →
+`TrueMarginRecursionPhysical` → the φ⁴-validated bridge
+(`physGapMin_pos_of_trueMarginPhysicalLocated`, PROVED) →
+`UniformSpacingFloor` inhabitant. ALL arrows on this line are already
+machine-checked; 14.4 is assembly + the two-key guard ceremony for the
+first frontier type (human review, `frontierAllowlist`).
+
+### Milestone 14.5 — The remaining Clay clauses (parallel, non-blocking)
+
+(a) **O(4) restoration:** full `H₄` invariance now (13.6(a)); the
+continuum upgrade needs only equicontinuity of the convergence modulus
+over `H₄` orbits — rides on the SAME modulus as 14.4 (never an
+independent analytic wall). (b) **Continuum measure / OS reconstruction:**
+Schwinger functions as located limits of the convergent expansions
+(11.9 route (i), 11.11) — the modulus again from 14.4. (c) **Group
+uniformity:** the SU(2) worst-case reduction is PROVED; per-group data per
+11.12. (d) **`ClayTarget` assembly + guard ceremony.**
+
+### Milestone 14.6 — Sharpness/satellite walls (feed, do not block)
+
+13.1 remaining (the `A·B − E·D` decaying envelope → the physical Wilson
+bridge 11.16); 13.2 remaining (ballot/LGV row wall +
+`UniformBoxLogConcave` → `hlocalize`, Sub-wall B second-order inputs);
+13.5 (A2 diagrammatic); 13.6(b) (phantom guard — hygiene). These improve
+constants and close Tier-0 satellites; per the adjudications NONE of them
+shrinks or replaces the 14.1–14.3 spine.
+
+### Honest risk register
+
+14.1–14.2 risk: derived amplitudes may violate the budget at small `N`
+(bank the refutation, iterate the truncation — machinery is
+truncation-generic via `HKChannelList`). 14.3 risk: the constructive
+spectral-perturbation lemma may need a sharper located-gap calculus
+(the GNS/located machinery exists; expect real work, not a wall of a new
+kind). The path contains NO step that requires a non-constructive
+principle, an empirical input, or a decomposition of `singleStep` (all
+machine-refuted); the two research cores are exactly the two halves of
+reality-fact two: the flow (14.1–14.2) and its spectral consequence
+(14.3).
+
