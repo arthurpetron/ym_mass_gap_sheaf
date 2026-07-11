@@ -3871,6 +3871,30 @@ strong-coupling anchor margin (reality-fact one's regime, where the
 corridor is provably tight). Then `recursion` is inhabited and 14.4's
 assembly arrows (all PROVED) fire.
 
+**Update (2026-07-11, session 11 cont. — identifications (i)+(ii) DONE at
+the pilot anchor: FIRST GENUINE RECURSION INSTANCE, kernel-checked).**
+`FusedRatioCorridor`: (a) `pos_of_one_le` + **`div_le_of_le_mul`** — the
+division brick (`X ≤ B·V`, `0 < V` ⟹ `X·(1/V) ≤ B`; first use of the
+exact reciprocal `Q'.recip` on the critical path — the substrate is
+rationals, division is EXACT, no analysis smuggled in); (b) **`lamB w N s
+:= boxSum(s)·recip(boxSum(0))`** — the normalized blocked eigenvalue as
+an exact rational (the object the refuted naive ratio failed to be); (c)
+**`lamB_corridor`** (identification (i) PROVED): `lamB w N s ≤ 2·c_s +
+intAmp N s·w⁶` on `1 ≤ s ≤ N`, `w ∈ [0,1]` — exactly `hcorr` of the
+conversion brick with `λ = 2·c_s`, `ε = intAmp·w⁶`; (d)
+`anchor_width_le_margin` (identification (ii) at the anchor, kernel
+`decide`): at `w₀ = 1/8`, `δ₀ = 1/5000`: `36·w₀⁶ ≤ δ₀·(1 − 4·w₀³)`
+(`1.37×10⁻⁴ ≤ 1.98×10⁻⁴` in exact rationals); (e)
+**`pilot_anchor_recursion`** — the assembled instance: `(1 − δ₀)·(1 −
+λ_free(w₀)) ≤ 1 − lamB w₀ 3 1` — `SingleStepDefectBoundLoose.recursion`'s
+exact shape at scale 0, PROVED from derived objects end to end (no
+measured number anywhere). REMAINING (the k-uniform front): the same
+corridor at every scale of the AF flow — `ε(w) ≤ δ(w)·m(w)` as a THEOREM
+in `w` on the flow window (the algebra is `36·w⁶ ≤ δ(w)·(1 − 4·w³)`,
+polynomial, `coeffLeB`-certifiable), with `Σδ_k` summable against the
+anchor (the `w_k` geometric decay does the work); then `recursion` is
+inhabited for the pilot channel and 14.4 assembles.
+
 ### Milestone 14.4 — Assemble `singleStep` and the continuum floor
 
 **Goal.** 14.2 + 14.3 inhabit `SingleStepDefectBoundLoose` →
