@@ -710,6 +710,7 @@ import YMGap.Continuum.OneSubPowTM
 import YMGap.Continuum.TMDefectCertOneSided
 import YMGap.Continuum.HKChannelList
 import YMGap.Continuum.FusedAmplitudeDerivation
+import YMGap.Continuum.FusedChannelOne
 import YMGap.Continuum.RacahOrthogonalityGeneral
 import YMGap.Continuum.RacahDougallWZ
 import YMGap.Continuum.RingNormaliser
