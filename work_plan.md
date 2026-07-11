@@ -3895,6 +3895,27 @@ polynomial, `coeffLeB`-certifiable), with `Σδ_k` summable against the
 anchor (the `w_k` geometric decay does the work); then `recursion` is
 inhabited for the pilot channel and 14.4 assembles.
 
+**Update (2026-07-11, session 11 cont. — k-uniform front: window theorem
+PROVED, same-scale proxy machine-REFUTED on the AF tail).**
+`UniformWidthMargin`: (a) **`uniform_width_le_margin`** — identification
+(ii) as a THEOREM in `w` on the strong-coupling window `[0, 1/2]` with
+`δ(w) = 41·w³`: `intAmp 3 1·w⁶ ≤ (41·w³)·(1 − 2·coeffW w 1)` (on the
+window `w³ ≤ 1/8`: LHS `≤ (9/2)w³`, RHS `≥ (41/2)w³`); (b)
+**`window_recursion`** — the assembled margin recursion at EVERY window
+scale: `(1 − 41·w³)·(1 − 2·c₁(w)) ≤ 1 − lamB w 3 1` (the pilot point
+`w₀ = 1/8` is now a corollary; `δ(w) = 41·w³` is geometrically summable
+wherever the flow's weights decay). (c) THE ADJUDICATION
+(`naive_margin_negative_at_tail`, kernel `decide`): `AFRateModulus`
+drives `w_k → 1`, and at `w = 9/10` the same-scale proxy `1 − 2·c₁(w)` is
+NEGATIVE (`4·(9/10)³ = 729/250 > 1`) while `trueMargin_nonneg` demands
+`≥ 0` — so the k-uniform inhabitation CANNOT take `trueMargin k :=
+1 − 2·c₁(w_k)` on the tail. The margin must be read in the per-scale
+RESCALED normalization: wire the corridor through the renormalized-weight
+flow (`renormWFix` / `effTransfer` located-gap layer), expressing scale
+`k+1`'s free part at the RENORMALIZED weight rather than `w_k`. That
+wiring is the sole remaining 14.3 identification (THE live front). All
+green: EXIT=0, zero sorryAx, guards OK, audit 7870.
+
 ### Milestone 14.4 — Assemble `singleStep` and the continuum floor
 
 **Goal.** 14.2 + 14.3 inhabit `SingleStepDefectBoundLoose` →
