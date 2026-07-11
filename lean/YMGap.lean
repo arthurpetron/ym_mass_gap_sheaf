@@ -713,6 +713,7 @@ import YMGap.Continuum.FusedAmplitudeDerivation
 import YMGap.Continuum.FusedChannelOne
 import YMGap.Continuum.FusedChannelAll
 import YMGap.Continuum.FusedAmpAnchors
+import YMGap.Continuum.FusedFreeSplit
 import YMGap.Continuum.RacahOrthogonalityGeneral
 import YMGap.Continuum.RacahDougallWZ
 import YMGap.Continuum.RingNormaliser

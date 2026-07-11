@@ -3792,6 +3792,25 @@ so, that is a REFUTATION to bank and the truncation/scheme iterates
 inhabited with derived amplitudes ⟹ `magnitude_of_certOS` gives the loose
 magnitude bound at every scale (PROVED producer).
 
+**Update (2026-07-09, session 10 — 14.1 DONE at valid exponents; 14.2 first
+half PROVED).** `FusedChannelAll`: `FusedDominatedByHK N s` inhabited with
+derived data for EVERY `N, s` (amplitude = exact character sum, valid
+exponent `s`). `FusedAmpAnchors` (axiom-FREE): `fusedAmp 3 0 = 30`,
+`fusedAmp 3 1 = 40`, and `raw_budget_fails` — the RAW amplitudes provably
+violate `Σ ≤ 6`, so the free-counterterm subtraction is machine-checked
+mandatory (~5× budget in channel 0). `FusedFreeSplit` — **the EXACT
+free/interacting split PROVED** (`boxSum_free_split`): for `1 ≤ s ≤ N`,
+`boxSum w N s ≃ 2·coeffW w s + intBlock w N s` (the two vacuum pairings
+are the free part; the interacting block sums pairs with both spins ≥ 1)
+with **`intBlock_le`**: `intBlock ≤ intAmp N s · w⁶` — three orders of
+decay beyond the leading weight (sum plumbing: `fsum_peel`, `delta_fsum`,
+`fsum_add'`; vacuum rows `fusionInd_zero_left/right` from the ladder).
+REMAINING (14.2 second half): the RATIO normalization — blocked channel
+over blocked vacuum vs the free ratio, where the `2·c_s` free parts cancel
+and the residual defect inherits `intAmp`'s amplitudes at `w⁶` decay; then
+the `Σ ≤ 6` budget check against the DERIVED `intAmp` values (close or
+bank the refutation).
+
 ### Milestone 14.3 — Gap stability under the defect (the recursion field)
 
 **Goal.** The OTHER half of the loose carrier: `recursion` — the true
