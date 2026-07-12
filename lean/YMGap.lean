@@ -724,6 +724,7 @@ import YMGap.Continuum.FusedRatioCorridor
 import YMGap.Continuum.UniformWidthMargin
 import YMGap.Continuum.FusedPeterWeylNormalization
 import YMGap.Continuum.FusedSpectralCarrierBridge
+import YMGap.Continuum.FusedNextScaleRetune
 import YMGap.Continuum.RacahOrthogonalityGeneral
 import YMGap.Continuum.RacahDougallWZ
 import YMGap.Continuum.RingNormaliser
@@ -738,6 +739,7 @@ import YMGap.Continuum.FusionShiftMonotone
 import YMGap.Continuum.MeanComplementClose
 import YMGap.Continuum.DiscreteLaplaceSaddle
 import YMGap.Continuum.CircleFourierPowerModel
+import YMGap.Continuum.ArbitraryTruncationRetuneCorr
 import YMGap.Continuum.ContinuumShadowFloor
 import YMGap.Continuum.EnvelopeClosure
 import YMGap.Continuum.CondMomentReduction

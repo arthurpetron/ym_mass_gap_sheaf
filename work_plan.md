@@ -3994,6 +3994,28 @@ OPEN remains exactly those physical spectrum/spacing pins plus a summable
 uniform bound for `normEigShift`; no underconstrained legacy recursion atom is
 used.
 
+**Arbitrary-truncation strong-window theorem (2026-07-12).**
+`ArbitraryTruncationRetuneCorr` proves the fundamental retune comparison for
+every cutoff `N` on `0 ≤ w ≤ 1/2`, independently of the finite `N=3` pilot.
+Writing `c_a=(a+1)w^{a(a+2)}`, the fused eigenvalue numerator is the adjacent
+correlation `A_N=Σ_{a<N}c_a c_{a+1}` and its vacuum denominator is
+`D_N=Σ_{a≤N}c_a²`.  The proved PF2 ratio bound gives
+`A_N ≤ c_1 D_N`, while exact rational scale algebra gives
+`c_1=2w³ ≤ ((1+w)/2)³`; hence `A_N ≤ retuneCube(w)·D_N` uniformly in `N`.
+This removes truncation growth from the strong-coupling half.  OPEN on the AF
+tail remains the refined `normEigShift`/local-CLT control and the physical
+spectrum/spacing pin, not a finite-cutoff calculation.
+
+**Whole-window rescaled margin with the exact defect (2026-07-12).**
+`FusedNextScaleRetune` proves the scale arithmetic on all `0 ≤ w ≤ 1`:
+`1-w³ ≤ 2·(1-renormWFix(2,w)³)`.  Composed with the exact spectral carrier
+bridge, this yields for every truncation and excited channel
+`1-w³ ≤ 2·((1-lamPW)+normEigShift)`.  Hence truncation growth is not an
+additional assumption in the defect-inclusive next-scale comparison.  The
+remaining content is exactly to control/remove `normEigShift` with the refined
+local-CLT/Edgeworth mechanism and to pin the algebraic factor two to the actual
+spacing-halving `massLat/spacing` flow; neither is assumed here.
+
 ### Milestone 14.4 — Assemble `singleStep` and the continuum floor
 
 **Goal.** 14.2 + 14.3 inhabit `SingleStepDefectBoundLoose` →
