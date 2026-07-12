@@ -2957,6 +2957,22 @@ faithfulness theorem plug in without re-plumbing.
 
 **Status.** DONE (2026-07-03, items 1+2) — item 1: `Rubric/FrontierDAG.lean` (11-atom uninhabited DAG + `toSubWallA` + guard retarget). item 2: `Rubric/FrontierDAGBridges.lean` — all 4 suspected cross-list identifications ADJUDICATED: (i) Minlos≡Minlos PROVED equivalence (rfl, node merge); (ii) bulkCtrl↔hlocalize DOCUMENTED REFUTATION (per-mode vs per-scale arity mismatch; real link = `hbridge_of_hlocalize`); (iii) `qFloor_of_openTrueMargin` PROVED (FrontierDAG.trueMargin → `QFloor`); (iv) `finiteSMargin_of_crossRatio` PROVED CONVERSE (forward `CoreBBridge` stays open). Item 3 (anti-proliferation) DONE: `scripts/frontier_dag_check.py` + `make frontier-dag-check` (9 enumerations, 0 unbridged; `--self-test` 9/9) — a NEW frontier enumeration must carry a proved bridge to `FrontierDAG`.
 
+**Adversarial correction (2026-07-12).**  `Continuum/FrontierStatementBugFence.lean`
+machine-refutes the claimed strength of two Bucket-2 atom types without changing
+the DAG.  First, `BoundedFunctionalCalculusResidual G L` is generically inhabited
+by `L.T`: its fields state neither boundedness/domain data nor `exp (-H) = T`, and
+its `gapWitness` is already `G.hamiltonianGapReal_pos`.  Second, the legacy
+`UniformCouplingFromAF.TrueMarginRecursion` is inhabited by every
+`DefectGapRecursion` by setting `trueMargin := D.physGap`; in particular the
+already-proved dominant-mode survival product gives an unconditional inhabitant.
+It carries no `massLat`, `spacing`, or mass/spacing equation.  The stricter
+`TrueMarginRecursionPhysical.margin_def` does carry that missing pin, and the audit
+module places the two statements side by side.  Therefore the current DAG's
+`boundedH` and `trueMargin` fields are **statement-underconstrained, not closed
+physics**; both statement types and the statement/inhabitation guards must be
+repaired in a human-reviewed pinned-target change.  No `FrontierDAG` inhabitant is
+constructed and no Clay closure is claimed.
+
 **Goal.** ONE canonical audit surface for the open problem, replacing
 the current situation of two overlapping enumerations plus scattered
 ledger residuals. Checkable predicates, in increasing strength:
@@ -3756,6 +3772,35 @@ sharpness or satellite Clay clauses. Constructive discipline throughout:
 one RG block step on a compact group is a finite character sum — an exact
 rational in-substrate — so NO empirical number may or need enter.
 
+### Phase 14 approach-family registry (mechanism, not wording)
+
+- **Block spin / character fusion / Peter–Weyl:** ACTIVE critical path.
+  The exact fused free/interacting split and vacuum ratio are proved.  The
+  2026-07-12 audit `FusedPeterWeylNormalization` removes the representation
+  dimension from the eigenvalue slot, improves the strong-window erosion
+  coefficient from `41` to `3`, and machine-refutes the old `lamB` as a UV
+  eigenvalue.  OPEN: next-scale retuning/truncation growth on the AF tail.
+- **Reflection positivity / transfer spectrum / located functional calculus:**
+  ACTIVE independent route.  Fixed-spacing Peter–Weyl gaps are proved; the
+  physical spacing-uniform comparison is open.  The 2026-07-12 statement audit
+  found the legacy `boundedH` and `trueMargin` DAG atoms underconstrained; their
+  generic surrogate inhabitants are banked as fences and are NOT Clay closures.
+- **Polymer / Penrose–Ursell / tree graph:** ACTIVE satellite route.
+  `UrsellCompleteGraphFence` refutes a size-only complete-graph pin already at
+  three vertices and supplies a graph-sensitive exact repair.  OPEN: identify
+  the supplied edge lists with the physical incompatibility graph and feed the
+  resulting bound into the pinned multi-plaquette correlator.
+- **TP2 / total positivity / correlation inequalities:** BLOCKED pending a new
+  invariant.  Raw and parity-consistent fusion TP2 were machine-refuted; only
+  the corner-aware brick survives, and cross-parity control still requires the
+  strong-coupling weights.
+- **6j / recoupling / dual spin-foam calculus:** BLOCKED at the strictly named
+  `DiagonalSixJNormalization`; the rational squared kernel proves orthogonality
+  but cannot encode the irrational signed Biedenharn–Elliott associator.
+- **Duality and stochastic-quantization formulations:** EXPLORATORY, kept
+  independent of the fusion spine; no theorem-strength bridge to an unchanged
+  canonical frontier atom has yet survived audit.
+
 ### Milestone 14.1 — One-block character calculus (the derived blocked action)
 
 **Status.** CURRENTLY IN PROGRESS (2026-07-09; first channel this session).
@@ -3916,6 +3961,20 @@ flow (`renormWFix` / `effTransfer` located-gap layer), expressing scale
 wiring is the sole remaining 14.3 identification (THE live front). All
 green: EXIT=0, zero sorryAx, guards OK, audit 7870.
 
+**Adversarial correction (2026-07-12 — Peter–Weyl normalization installed).**
+`FusedPeterWeylNormalization` proves that `lamB = boxSum(s)/boxSum(0)` is still
+the vacuum-normalized CHARACTER coefficient, not a transfer eigenvalue:
+`lamB = dim_s · lamPW`, where `lamPW := lamB · haarSubKernel(s,s)`.  The omission
+is machine-visible on the UV tail (`lamB(9/10,3,1) > 1`).  After the mandatory
+`1/dim_s` factor, the generic fused corridor is centered at the two genuine
+Peter–Weyl free pairings, the channel-1 interacting amplitude is exactly
+`36/2 = 18`, and the strong-window recursion improves from `δ(w)=41w³` to
+`δ(w)=3w³`.  Two fences prevent overclaiming: `18 > 6` still violates the old
+raw amplitude budget, and the retained two-pair same-scale margin is still
+negative at `w=9/10`.  Thus the live 14.3 residual remains the retuned
+next-scale/truncation-growth comparison; the normalization error is closed,
+not the continuum recursion.
+
 ### Milestone 14.4 — Assemble `singleStep` and the continuum floor
 
 **Goal.** 14.2 + 14.3 inhabit `SingleStepDefectBoundLoose` →
@@ -3959,4 +4018,3 @@ principle, an empirical input, or a decomposition of `singleStep` (all
 machine-refuted); the two research cores are exactly the two halves of
 reality-fact two: the flow (14.1–14.2) and its spectral consequence
 (14.3).
-
