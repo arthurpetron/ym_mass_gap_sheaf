@@ -3798,8 +3798,11 @@ rational in-substrate — so NO empirical number may or need enter.
   `DiagonalSixJNormalization`; the rational squared kernel proves orthogonality
   but cannot encode the irrational signed Biedenharn–Elliott associator.
 - **Duality and stochastic-quantization formulations:** EXPLORATORY, kept
-  independent of the fusion spine; no theorem-strength bridge to an unchanged
-  canonical frontier atom has yet survived audit.
+  independent of the fusion spine.  `StochasticWilsonReducibilityFence`
+  machine-refutes the existing off-diagonal-only three-channel generator as a
+  positive-gap route: it has a nonconstant centered zero mode for every coupling,
+  so no positive Poincare constant is possible.  A viable route must construct
+  physically identified transitions joining all character sectors.
 
 ### Milestone 14.1 — One-block character calculus (the derived blocked action)
 
@@ -3974,6 +3977,22 @@ raw amplitude budget, and the retained two-pair same-scale margin is still
 negative at `w=9/10`.  Thus the live 14.3 residual remains the retuned
 next-scale/truncation-growth comparison; the normalization error is closed,
 not the continuum recursion.
+
+**Spectral-carrier bridge (2026-07-12).**
+`FusedSpectralCarrierBridge` identifies the corrected rate exactly with the
+existing genuine spectral object:
+`lamPW(w,N,k+1) ≃ vacNorm(N,2,w,k+1)`.  Hence the already-defined
+vacuum-normalized defect gives the axiom-clean additive comparison
+`(1-retEig)-normEigShift ≤ 1-lamPW`, and the comparator is the eigenvalue of
+the constructed `effTransfer` at the `p=2` retuned weight, whose located gap is
+now re-exported explicitly.  A closed-rational fence proves that the bare
+same-weight `effTransfer` eigenvalue does not even upper-bound `lamPW` at
+`w₀=1/8`; the retune/defect is mandatory, not cosmetic.  Two explicit spectral
+pins transport the inequality to `TrueMarginRecursionPhysical.massLat`, while
+the margin theorem retains division by the carrier's actual positive spacing.
+OPEN remains exactly those physical spectrum/spacing pins plus a summable
+uniform bound for `normEigShift`; no underconstrained legacy recursion atom is
+used.
 
 ### Milestone 14.4 — Assemble `singleStep` and the continuum floor
 

@@ -416,6 +416,7 @@ import YMGap.Continuum.BakryEmery
 import YMGap.Continuum.HeatKernelCurvature
 import YMGap.Continuum.CharChainFree
 import YMGap.Continuum.CharChainWilson
+import YMGap.Continuum.StochasticWilsonReducibilityFence
 import YMGap.Continuum.HeatKernelGap
 import YMGap.MassGap.SU2
 import YMGap.MassGap.SimpleGroup
@@ -722,6 +723,7 @@ import YMGap.Continuum.MarginErosionBrick
 import YMGap.Continuum.FusedRatioCorridor
 import YMGap.Continuum.UniformWidthMargin
 import YMGap.Continuum.FusedPeterWeylNormalization
+import YMGap.Continuum.FusedSpectralCarrierBridge
 import YMGap.Continuum.RacahOrthogonalityGeneral
 import YMGap.Continuum.RacahDougallWZ
 import YMGap.Continuum.RingNormaliser
