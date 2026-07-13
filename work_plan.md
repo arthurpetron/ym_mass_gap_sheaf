@@ -4326,6 +4326,24 @@ through the rotated shell and closes the Schur/coupled-operator prefix through
 `k≤19`.  OPEN at the next operator step is a mass floor at `k=21`, requiring
 a ninth anchor or a genuinely uniform growing-anchor theorem.
 
+`HarmonicFixedNinePrefix` supplies that next exact layer.  Its generic
+nine-head/PF2-tail assembler closes the retune quotient and mass floor at
+`k=21,22,23,24`, while `fixed_nine_head_k25_fails` kernel-banks the precise
+endpoint.  The corresponding upper/lower mass cache gives exact ratios at
+`k=20,21,22,23`; `HarmonicSchurRotationK2023` transports them through the
+shell/rotation bridge, so the coupled-operator prefix now reaches `k≤23`.
+OPEN at `k=24` is the next mass floor (`k=25`), requiring a tenth head or the
+uniform growing-head theta certificate; the existing growing-anchor PF2
+theorem handles the tail, not this remaining head inequality.
+
+`HarmonicFixedTenPrefix` continues the exact finite ladder at `k=25,26,27,28`
+and kernel-refutes the same ten-head claim first at `k=29`.  Exact mass ratios
+at `k=24,25,26,27` feed `HarmonicSchurRotationK2427`, extending the cumulative
+coupled-operator spacing theorem through `k≤27`.  The next finite residual is
+the mass floor at `k=29`; the structural all-scale residual remains the
+growing-anchor retained-head/theta inequality rather than its already-closed
+PF2 tail.
+
 **Cleared theta-polynomial audit (2026-07-12).**
 `ThetaResidualBernsteinPilot` gives exact positive Bernstein decompositions of
 the cleared retune residual at cutoffs one and two (degrees 11 and 23).  It also
@@ -4416,9 +4434,12 @@ The degree-three normalization now has a division-free candidate polynomial
 `startThreePoly5` whose finite-difference law is kernel-closed.  Independently,
 two repeated-Pascal theorems prove the complete `b₀`-versus-off payment
 `2·C(2m+4,r)≤C(4m+2,r)` for `m≥2`, `4≤r≤2m+4`; this is the first
-uniform half of the through-`b₃` induction remainder.  OPEN is the terminal
-pair identifying the exact minimal `b₃`, then the adjacent-binomial payment
-of the two negative boundary terms by `b₃` and the final elevation.
+uniform half of the through-`b₃` induction remainder.  The terminal cubic
+pair is now exact as well: `topThree_terminal_pair` identifies five times the
+third-deficit diagonal/off-diagonal boundary with the finite difference of
+`startThreePoly5`, using separated cubic/quadratic/linear/constant integer
+blocks.  OPEN is the resulting adjacent-binomial payment of the two negative
+boundary terms by `b₃`, followed by the final signed elevation.
 
 **Off-diagonal shell necessity (2026-07-12).**
 `FusedOffDiagonalCompression` strengthens the rank-one fence: any positive
@@ -4580,10 +4601,14 @@ once, from negative to nonnegative.  A generic constructive theorem converts
 that one-crossing law plus `T₀≤T_L` into every terminal carrier gap; exact
 anchors close this at `k=0,1,2`.  Adversarial exact-rational scouting then finds
 that the total premise itself changes sign at `k=17` (positive through `k=16`,
-negative thereafter), so it cannot be the all-scale closure.  OPEN is to bank
-that failure in the kernel and exploit cancellation in the *weighted* chord/
-geometric sum directly; termwise nonnegative carrier gaps are no longer an
-admissible global target.
+negative thereafter), so it cannot be the all-scale closure.
+`HarmonicCarrierGapK17Fence` now banks that failure constructively without a
+361-coordinate reduction: an exact short head plus PF2 controls the full
+quotient, a harmonic-block power estimate controls the terminal coefficient,
+and an endpoint-slack identity yields
+`terminal_carrier_total_gap_fails_k17`.  OPEN is therefore cancellation in the
+*weighted* chord/geometric sum directly; termwise nonnegative carrier gaps are
+no longer an admissible global target.
 
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their

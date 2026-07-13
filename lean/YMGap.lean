@@ -747,6 +747,7 @@ import YMGap.Continuum.HarmonicWeightDriftFence
 import YMGap.Continuum.HarmonicDriftAntisymmetry
 import YMGap.Continuum.HarmonicHalfEdgeDominance
 import YMGap.Continuum.HarmonicWeightedAbelReserve
+import YMGap.Continuum.HarmonicCarrierGapK17Fence
 import YMGap.Continuum.HarmonicK3Retune
 import YMGap.Continuum.ThreeAnchorWindowRetune
 import YMGap.Continuum.FourAnchorWindowRetune
@@ -758,6 +759,8 @@ import YMGap.Continuum.HarmonicSchurRotationK101112
 import YMGap.Continuum.SevenAnchorWindowRetune
 import YMGap.Continuum.HarmonicSchurRotationK1316
 import YMGap.Continuum.HarmonicSchurRotationK1719
+import YMGap.Continuum.HarmonicSchurRotationK2023
+import YMGap.Continuum.HarmonicSchurRotationK2427
 import YMGap.Continuum.ThetaResidualBernsteinPilot
 import YMGap.Continuum.ThetaResidualPascalTelescope
 import YMGap.Continuum.AllWindowHardyFence

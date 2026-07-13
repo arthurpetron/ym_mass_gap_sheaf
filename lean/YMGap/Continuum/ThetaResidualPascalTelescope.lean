@@ -1841,6 +1841,474 @@ private theorem iPow_sub_twice_add_two_cube (d A : Int) :
   simp only [hk',h4da,h8da,h24da,h4dA2,h12dA2]
   omega
 
+private theorem topThreeDiagInt_generic (d A : Int) :
+    A*(8*iPow (d-2*A+2) 3-60*iPow (d-2*A+2) 2+160*(d-2*A+2)-150)=
+      8*iPow d 3*A+iPow d 2*(-48*iPow A 2-12*A)+
+        d*(96*iPow A 3+48*iPow A 2+16*A)-
+          64*iPow A 4-48*iPow A 3-32*iPow A 2-6*A := by
+  rw [iPow_sub_twice_add_two_cube,iPow_sub_twice_add_two_square]
+  simp only [Int.sub_mul,Int.mul_sub,Int.add_mul,Int.mul_add,Int.mul_one,
+    Int.one_mul,Int.mul_assoc]
+  let b1:=iPow d 3*A
+  let b2:=iPow d 2*iPow A 2
+  let b3:=iPow d 2*A
+  let b4:=d*iPow A 3
+  let b5:=d*iPow A 2
+  let b6:=d*A
+  let b7:=iPow A 4
+  let b8:=iPow A 3
+  let b9:=iPow A 2
+  have hb1 : iPow d 3*A=b1 := by rfl
+  have hb2 : iPow d 2*iPow A 2=b2 := by rfl
+  have hb3 : iPow d 2*A=b3 := by rfl
+  have hb4 : d*iPow A 3=b4 := by rfl
+  have hb5 : d*iPow A 2=b5 := by rfl
+  have hb6 : d*A=b6 := by rfl
+  have hb7 : iPow A 4=b7 := by rfl
+  have hb8 : iPow A 3=b8 := by rfl
+  have hb9 : iPow A 2=b9 := by rfl
+  have hk : A*(8*iPow d 3)=8*b1 := by dsimp [b1]; ac_rfl
+  have hl : A*(8*(6*(iPow d 2*A)))=48*b2 := by
+    dsimp [b2,iPow]; rw [show (48:Int)=8*6 by decide]; ac_rfl
+  have hm : A*(8*(6*iPow d 2))=48*b3 := by
+    dsimp [b3]; rw [show (48:Int)=8*6 by decide]; ac_rfl
+  have hn : A*(8*(12*(d*iPow A 2)))=96*b4 := by
+    dsimp [b4,iPow]; rw [show (96:Int)=8*12 by decide]; ac_rfl
+  have ho : A*(8*(24*(d*A)))=192*b5 := by
+    dsimp [b5,iPow]; rw [show (192:Int)=8*24 by decide]; ac_rfl
+  have hp : A*(8*(12*d))=96*b6 := by
+    dsimp [b6]; rw [show (96:Int)=8*12 by decide]; ac_rfl
+  have hq : A*(8*(8*iPow A 3))=64*b7 := by
+    dsimp [b7,iPow]; rw [show (64:Int)=8*8 by decide]; ac_rfl
+  have hr : A*(8*(24*iPow A 2))=192*b8 := by
+    dsimp [b8,iPow]; rw [show (192:Int)=8*24 by decide]; ac_rfl
+  have hs : A*(8*(24*A))=192*b9 := by
+    dsimp [b9,iPow]; rw [show (192:Int)=8*24 by decide]; ac_rfl
+  have ht : A*(60*iPow d 2)=60*b3 := by dsimp [b3]; ac_rfl
+  have hu : A*(60*(4*(d*A)))=240*b5 := by
+    dsimp [b5,iPow]; rw [show (240:Int)=60*4 by decide]; ac_rfl
+  have hv : A*(60*(4*d))=240*b6 := by
+    dsimp [b6]; rw [show (240:Int)=60*4 by decide]; ac_rfl
+  have hw : A*(60*(4*iPow A 2))=240*b8 := by
+    dsimp [b8,iPow]; rw [show (240:Int)=60*4 by decide]; ac_rfl
+  have hx : A*(60*(8*A))=480*b9 := by
+    dsimp [b9,iPow]; rw [show (480:Int)=60*8 by decide]; ac_rfl
+  have hy : A*(160*d)=160*b6 := by dsimp [b6]; ac_rfl
+  have hz : A*(160*(2*A))=320*b9 := by
+    dsimp [b9,iPow]; rw [show (320:Int)=160*2 by decide]; ac_rfl
+  rw [hk,hl,hm,hn,ho,hp,hq,hr,hs,ht,hu,hv,hw,hx,hy,hz]
+  have hneg48 : iPow d 2*(-48*iPow A 2)=-48*b2 := by
+    dsimp [b2]; ac_rfl
+  have h12 : iPow d 2*(12*A)=12*b3 := by dsimp [b3]; ac_rfl
+  have h96 : d*(96*iPow A 3)=96*b4 := by dsimp [b4]; ac_rfl
+  have h48 : d*(48*iPow A 2)=48*b5 := by dsimp [b5]; ac_rfl
+  have h16 : d*(16*A)=16*b6 := by dsimp [b6]; ac_rfl
+  rw [hneg48,h12,h96,h48,h16]
+  simp only [hb1,hb2,hb3,hb4,hb5,hb6,hb7,hb8,hb9]
+  omega
+
+private theorem iPow_sub_twice_add_one_square (d A : Int) :
+    iPow (d-2*A+1) 2=iPow d 2-4*d*A+2*d+4*iPow A 2-4*A+1 := by
+  dsimp [iPow]
+  simp only [Int.sub_mul,Int.mul_sub,Int.add_mul,Int.mul_add,Int.mul_one]
+  have hdd : d*d=iPow d 2 := by dsimp [iPow]; rw [Int.mul_one]
+  have hda : d*(2*A)=2*d*A := by ac_rfl
+  have had : (2*A)*d=2*d*A := by ac_rfl
+  have haa : (2*A)*(2*A)=4*iPow A 2 := by dsimp [iPow]; ac_rfl
+  rw [hdd,hda,had,haa]
+  have h2ad : 2*A*d=2*(d*A) := by ac_rfl
+  have h4da : 4*d*A=4*(d*A) := by ac_rfl
+  have hAA : A*A=iPow A 2 := by dsimp [iPow]; rw [Int.mul_one]
+  simp only [h2ad,h4da,hAA,Int.one_mul]
+  omega
+
+private theorem iPow_sub_twice_add_one_cube (d A : Int) :
+    iPow (d-2*A+1) 3=
+      iPow d 3-6*iPow d 2*A+3*iPow d 2+12*d*iPow A 2-
+        12*d*A+3*d-8*iPow A 3+12*iPow A 2-6*A+1 := by
+  change (d-2*A+1)*iPow (d-2*A+1) 2=_
+  rw [iPow_sub_twice_add_one_square]
+  simp only [Int.sub_mul,Int.mul_sub,Int.add_mul,Int.mul_add,Int.mul_one,
+    Int.one_mul,Int.mul_assoc]
+  have hi : d*iPow d 2=iPow d 3 := by dsimp [iPow]
+  have hj : A*iPow d 2=iPow d 2*A := by ac_rfl
+  have hk : d*(4*(d*A))=4*iPow d 2*A := by dsimp [iPow]; ac_rfl
+  have hl : A*(4*(d*A))=4*d*iPow A 2 := by dsimp [iPow]; ac_rfl
+  have hm : d*(2*d)=2*iPow d 2 := by dsimp [iPow]; ac_rfl
+  have hn : A*(2*d)=2*d*A := by ac_rfl
+  have ho : d*(4*iPow A 2)=4*d*iPow A 2 := by ac_rfl
+  have hp : A*(4*iPow A 2)=4*iPow A 3 := by dsimp [iPow]; ac_rfl
+  have hq : d*(4*A)=4*d*A := by ac_rfl
+  have hr : A*(4*A)=4*iPow A 2 := by dsimp [iPow]; ac_rfl
+  rw [hi,hj,hk,hl,hm,hn,ho,hp,hq,hr]
+  have hk' : 4*iPow d 2*A=4*(iPow d 2*A) := by ac_rfl
+  have h2d2A : 2*iPow d 2*A=2*(iPow d 2*A) := by ac_rfl
+  have h2da : 2*d*A=2*(d*A) := by ac_rfl
+  have h4da : 4*d*A=4*(d*A) := by ac_rfl
+  have h12da : 12*d*A=12*(d*A) := by ac_rfl
+  have h4dA2 : 4*d*iPow A 2=4*(d*iPow A 2) := by ac_rfl
+  have h12dA2 : 12*d*iPow A 2=12*(d*iPow A 2) := by ac_rfl
+  simp only [hk',h2d2A,h2da,h4da,h12da,h4dA2,h12dA2]
+  omega
+
+private theorem topThreeOffInt_generic (d A : Int) :
+    8*A*intFallThree (d-2*A+1)=
+      8*iPow d 3*A-48*iPow d 2*iPow A 2+
+        d*(96*iPow A 3-8*A)-64*iPow A 4+16*iPow A 2 := by
+  rw [intFallThree_expanded,iPow_sub_twice_add_one_cube,
+    iPow_sub_twice_add_one_square]
+  simp only [Int.sub_mul,Int.mul_sub,Int.add_mul,Int.mul_add,Int.mul_one,
+    Int.one_mul,Int.mul_assoc]
+  let b1:=iPow d 3*A
+  let b2:=iPow d 2*iPow A 2
+  let b3:=d*iPow A 3
+  let b4:=d*A
+  let b5:=iPow A 4
+  let b6:=iPow A 2
+  let b7:=d*iPow A 2
+  let b8:=iPow A 3
+  have hh : A*iPow d 3=b1 := by dsimp [b1]; ac_rfl
+  have hi : A*(6*(iPow d 2*A))=6*b2 := by
+    dsimp [b2,iPow]; ac_rfl
+  have hj : A*(12*(d*iPow A 2))=12*b3 := by
+    dsimp [b3,iPow]; ac_rfl
+  have hk : A*(12*(d*A))=12*b7 := by dsimp [b7,iPow]; ac_rfl
+  have hl : A*(3*d)=3*b4 := by dsimp [b4]; ac_rfl
+  have hm : A*(8*iPow A 3)=8*b5 := by dsimp [b5,iPow]; ac_rfl
+  have hn : A*(12*iPow A 2)=12*b8 := by dsimp [b8,iPow]; ac_rfl
+  have ho : A*(6*A)=6*b6 := by dsimp [b6,iPow]; ac_rfl
+  have hp : A*(3*(4*(d*A)))=12*b7 := by
+    dsimp [b7,iPow]; rw [show (12:Int)=3*4 by decide]; ac_rfl
+  have hq : A*(3*(2*d))=6*b4 := by
+    dsimp [b4]; rw [show (6:Int)=3*2 by decide]; ac_rfl
+  have hr : A*(3*(4*iPow A 2))=12*b8 := by
+    dsimp [b8,iPow]; rw [show (12:Int)=3*4 by decide]; ac_rfl
+  have hs : A*(3*(4*A))=12*b6 := by
+    dsimp [b6,iPow]; rw [show (12:Int)=3*4 by decide]; ac_rfl
+  have ht : A*(2*d)=2*b4 := by dsimp [b4]; ac_rfl
+  have hu : A*(2*(2*A))=4*b6 := by
+    dsimp [b6,iPow]; rw [show (4:Int)=2*2 by decide]; ac_rfl
+  rw [hh,hi,hj,hk,hl,hm,hn,ho,hp,hq,hr,hs,ht,hu]
+  have hc : d*(96*iPow A 3)=96*b3 := by dsimp [b3]; ac_rfl
+  have he : d*(8*A)=8*b4 := by dsimp [b4]; ac_rfl
+  have hb1 : iPow d 3*A=b1 := by rfl
+  have hb2 : iPow d 2*iPow A 2=b2 := by rfl
+  have hb5 : 64*iPow A 4=64*b5 := by rfl
+  have hb6 : 16*iPow A 2=16*b6 := by rfl
+  rw [hc,he]
+  rw [hb1,hb2,hb5,hb6]
+  omega
+
+private theorem topThreeDiagInt_expanded (d y : Int) :
+    topThreeDiagInt d y=
+      8*iPow d 3*iPow y 2+
+      iPow d 2*(-48*iPow y 4-12*iPow y 2)+
+      d*(96*iPow y 6+48*iPow y 4+16*iPow y 2)-
+      64*iPow y 8-48*iPow y 6-32*iPow y 4-6*iPow y 2 := by
+  unfold topThreeDiagInt
+  dsimp
+  rw [intFallThree_binomial_three]
+  have hy : y*y=iPow y 2 := by dsimp [iPow]; rw [Int.mul_one]
+  simp only [hy]
+  have h2y : 2*y*y=2*iPow y 2 := by
+    rw [show 2*y*y=2*(y*y) by ac_rfl,hy]
+  rw [h2y]
+  rw [topThreeDiagInt_generic]
+  have h2 : iPow (iPow y 2) 2=iPow y 4 := by dsimp [iPow]; ac_rfl
+  have h3 : iPow (iPow y 2) 3=iPow y 6 := by dsimp [iPow]; ac_rfl
+  have h4 : iPow (iPow y 2) 4=iPow y 8 := by dsimp [iPow]; ac_rfl
+  rw [h2,h3,h4]
+
+private theorem topThreeOffInt_expanded_A (d x : Int) :
+    let A:=x*(x+1)
+    topThreeOffInt d x=
+      8*iPow d 3*A-48*iPow d 2*iPow A 2+
+      d*(96*iPow A 3-8*A)-64*iPow A 4+16*iPow A 2 := by
+  dsimp
+  unfold topThreeOffInt
+  let A:=x*(x+1)
+  have h8 : 8*x*(x+1)=8*A := by dsimp [A]; ac_rfl
+  have h2 : 2*x*(x+1)=2*A := by dsimp [A]; ac_rfl
+  rw [h8,h2]
+  exact topThreeOffInt_generic d A
+
+private theorem crossPow_two (x : Int) :
+    iPow (x*(x+1)) 2=iPow x 4+2*iPow x 3+iPow x 2 := by
+  dsimp [iPow]
+  simp only [Int.mul_add,Int.add_mul,Int.mul_one]
+  have h4 : x*x*(x*x)=iPow x 4 := by dsimp [iPow]; ac_rfl
+  have h3a : x*x*x=iPow x 3 := by dsimp [iPow]; ac_rfl
+  have h3b : x*(x*x)=iPow x 3 := by dsimp [iPow]; ac_rfl
+  have h2 : x*x=iPow x 2 := by dsimp [iPow]; rw [Int.mul_one]
+  have h4c : x*iPow x 3=iPow x 4 := by dsimp [iPow]
+  rw [h4,h3a,h3b,h2,h4c]
+  omega
+
+private theorem crossPow_three (x : Int) :
+    iPow (x*(x+1)) 3=
+      iPow x 6+3*iPow x 5+3*iPow x 4+iPow x 3 := by
+  change (x*(x+1))*iPow (x*(x+1)) 2=_
+  rw [crossPow_two]
+  simp only [Int.mul_add,Int.add_mul,Int.mul_one]
+  have h6 : x*x*iPow x 4=iPow x 6 := by dsimp [iPow]; ac_rfl
+  have h5a : x*x*(2*iPow x 3)=2*iPow x 5 := by dsimp [iPow]; ac_rfl
+  have h4a : x*x*iPow x 2=iPow x 4 := by dsimp [iPow]; ac_rfl
+  have h5b : x*iPow x 4=iPow x 5 := by dsimp [iPow]
+  have h4b : x*(2*iPow x 3)=2*iPow x 4 := by dsimp [iPow]; ac_rfl
+  have h3 : x*iPow x 2=iPow x 3 := by dsimp [iPow]
+  rw [h6,h5a,h4a,h5b,h4b,h3]
+  omega
+
+private theorem crossPow_four (x : Int) :
+    iPow (x*(x+1)) 4=
+      iPow x 8+4*iPow x 7+6*iPow x 6+4*iPow x 5+iPow x 4 := by
+  change (x*(x+1))*iPow (x*(x+1)) 3=_
+  rw [crossPow_three]
+  simp only [Int.mul_add,Int.add_mul,Int.mul_one]
+  have h8 : x*x*iPow x 6=iPow x 8 := by dsimp [iPow]; ac_rfl
+  have h7a : x*x*(3*iPow x 5)=3*iPow x 7 := by dsimp [iPow]; ac_rfl
+  have h6a : x*x*(3*iPow x 4)=3*iPow x 6 := by dsimp [iPow]; ac_rfl
+  have h5a : x*x*iPow x 3=iPow x 5 := by dsimp [iPow]; ac_rfl
+  have h7b : x*iPow x 6=iPow x 7 := by dsimp [iPow]
+  have h6b : x*(3*iPow x 5)=3*iPow x 6 := by dsimp [iPow]; ac_rfl
+  have h5b : x*(3*iPow x 4)=3*iPow x 5 := by dsimp [iPow]; ac_rfl
+  have h4 : x*iPow x 3=iPow x 4 := by dsimp [iPow]
+  rw [h8,h7a,h6a,h5a,h7b,h6b,h5b,h4]
+  omega
+
+private def topThreeDiagBlock3 (y : Int) : Int := 8*iPow y 2
+private def topThreeDiagBlock2 (y : Int) : Int :=
+  -48*iPow y 4-12*iPow y 2
+private def topThreeDiagBlock1 (y : Int) : Int :=
+  96*iPow y 6+48*iPow y 4+16*iPow y 2
+private def topThreeDiagBlock0 (y : Int) : Int :=
+  -64*iPow y 8-48*iPow y 6-32*iPow y 4-6*iPow y 2
+
+private def topThreeOffBlock3 (x : Int) : Int := 8*(x*(x+1))
+private def topThreeOffBlock2 (x : Int) : Int :=
+  -48*iPow (x*(x+1)) 2
+private def topThreeOffBlock1 (x : Int) : Int :=
+  96*iPow (x*(x+1)) 3-8*(x*(x+1))
+private def topThreeOffBlock0 (x : Int) : Int :=
+  -64*iPow (x*(x+1)) 4+16*iPow (x*(x+1)) 2
+
+private theorem topThreeBlock3_payment (x : Int) :
+    5*(topThreeDiagBlock3 (x+1)-topThreeOffBlock3 x)=40*x+40 := by
+  unfold topThreeDiagBlock3 topThreeOffBlock3
+  rw [iPow_add_one_two,iPow_one]
+  simp only [Int.mul_add,Int.add_mul,Int.mul_one]
+  rw [show x*x=iPow x 2 by dsimp [iPow]; rw [Int.mul_one]]
+  omega
+
+private theorem topThreeBlock2_payment (x : Int) :
+    5*(topThreeDiagBlock2 (x+1)-topThreeOffBlock2 x)=
+      startThreeBDelta x := by
+  unfold topThreeDiagBlock2 topThreeOffBlock2 startThreeBDelta
+  rw [iPow_add_one_two,iPow_add_one_four,crossPow_two,iPow_one]
+  simp only [Int.mul_add,Int.add_mul]
+  omega
+
+private theorem topThreeBlock1_payment (x : Int) :
+    5*(topThreeDiagBlock1 (x+1)-topThreeOffBlock1 x)=
+      startThreeCDelta x := by
+  unfold topThreeDiagBlock1 topThreeOffBlock1 startThreeCDelta
+  rw [iPow_add_one_two,iPow_add_one_four,iPow_add_one_six,
+    crossPow_three,iPow_one]
+  simp only [Int.mul_add,Int.add_mul,Int.mul_one]
+  rw [show x*x=iPow x 2 by dsimp [iPow]; rw [Int.mul_one]]
+  omega
+
+private theorem topThreeBlock0_payment (x : Int) :
+    5*(topThreeDiagBlock0 (x+1)-topThreeOffBlock0 x)=
+      startThreeEDelta x := by
+  unfold topThreeDiagBlock0 topThreeOffBlock0 startThreeEDelta
+  rw [iPow_add_one_two,iPow_add_one_four,iPow_add_one_six,
+    iPow_add_one_eight,crossPow_two,crossPow_four,iPow_one]
+  simp only [Int.mul_add,Int.add_mul]
+  omega
+
+private theorem topThreeDiagInt_blocks (d y : Int) :
+    topThreeDiagInt d y=
+      iPow d 3*topThreeDiagBlock3 y+iPow d 2*topThreeDiagBlock2 y+
+        d*topThreeDiagBlock1 y+topThreeDiagBlock0 y := by
+  rw [topThreeDiagInt_expanded]
+  unfold topThreeDiagBlock3 topThreeDiagBlock2 topThreeDiagBlock1
+    topThreeDiagBlock0
+  have h3 : 8*iPow d 3*iPow y 2=iPow d 3*(8*iPow y 2) := by ac_rfl
+  rw [h3]
+  omega
+
+private theorem topThreeOffInt_blocks (d x : Int) :
+    topThreeOffInt d x=
+      iPow d 3*topThreeOffBlock3 x+iPow d 2*topThreeOffBlock2 x+
+        d*topThreeOffBlock1 x+topThreeOffBlock0 x := by
+  rw [topThreeOffInt_expanded_A]
+  unfold topThreeOffBlock3 topThreeOffBlock2 topThreeOffBlock1
+    topThreeOffBlock0
+  have h3 : 8*iPow d 3*(x*(x+1))=iPow d 3*(8*(x*(x+1))) := by ac_rfl
+  have h2 : -48*iPow d 2*iPow (x*(x+1)) 2=
+      iPow d 2*(-48*iPow (x*(x+1)) 2) := by ac_rfl
+  rw [h3]
+  have h2pos : 48*iPow d 2*iPow (x*(x+1)) 2=
+      -(iPow d 2*(-48*iPow (x*(x+1)) 2)) := by
+    rw [show (-48:Int)=-(48:Int) by decide]
+    rw [Int.neg_mul,Int.mul_neg,Int.neg_neg]
+    ac_rfl
+  rw [h2pos]
+  omega
+
+private theorem fourBlock_payment (q3 q2 q1 a3 a2 a1 a0 b3 b2 b1 b0 : Int) :
+    5*((q3*a3+q2*a2+q1*a1+a0)-(q3*b3+q2*b2+q1*b1+b0))=
+      q3*(5*(a3-b3))+q2*(5*(a2-b2))+q1*(5*(a1-b1))+5*(a0-b0) := by
+  simp only [Int.mul_add,Int.mul_sub,Int.add_mul,Int.sub_mul,
+    Int.sub_eq_add_neg,Int.mul_neg,Int.neg_mul]
+  have ha3 : q3*(5*a3)=5*(q3*a3) := by ac_rfl
+  have hb3 : q3*(5*b3)=5*(q3*b3) := by ac_rfl
+  have ha2 : q2*(5*a2)=5*(q2*a2) := by ac_rfl
+  have hb2 : q2*(5*b2)=5*(q2*b2) := by ac_rfl
+  have ha1 : q1*(5*a1)=5*(q1*a1) := by ac_rfl
+  have hb1 : q1*(5*b1)=5*(q1*b1) := by ac_rfl
+  rw [ha3,hb3,ha2,hb2,ha1,hb1]
+  omega
+
+private theorem five_topThree_terminal_pair_int (d x : Int) :
+    5*(topThreeDiagInt d (x+1)-topThreeOffInt d x)=startThreeDelta5 d x := by
+  rw [topThreeDiagInt_blocks,topThreeOffInt_blocks]
+  rw [fourBlock_payment]
+  rw [topThreeBlock3_payment,topThreeBlock2_payment,
+    topThreeBlock1_payment,topThreeBlock0_payment]
+  unfold startThreeDelta5
+  have h3 : iPow d 3=d*d*d := by dsimp [iPow]; ac_rfl
+  have h2 : iPow d 2=d*d := by dsimp [iPow]; rw [Int.mul_one]
+  rw [h3,h2]
+  simp only [Int.mul_add]
+  have hx : d*d*d*(40*x)=40*d*d*d*x := by ac_rfl
+  have h1 : d*d*d*40=40*d*d*d := by ac_rfl
+  rw [hx,h1]
+
+private theorem topThreeMonoClosed_cast_le {D e : Nat} (he : e≤D) :
+    topThreeMonoClosed D e=intFallThree ((D:Int)-(e:Int)) := by
+  by_cases h2 : e+2≤D
+  · exact topThreeMonoClosed_cast h2
+  · have hs : D-e≤1 := by omega
+    cases hz : D-e with
+    | zero =>
+        unfold topThreeMonoClosed intFallThree
+        simp only [hz,Int.ofNat_eq_natCast,Int.natCast_mul]
+        have hde : (D:Int)-(e:Int)=0 := by
+          rw [← Int.natCast_sub he,hz]
+          rfl
+        rw [hde]
+        decide
+    | succ q =>
+        have hq : q=0 := by omega
+        subst q
+        unfold topThreeMonoClosed intFallThree
+        simp only [hz,Int.ofNat_eq_natCast,Int.natCast_mul]
+        have hde : (D:Int)-(e:Int)=1 := by
+          rw [← Int.natCast_sub he,hz]
+          rfl
+        rw [hde]
+        decide
+
+private theorem topThreeDiagClosed_eq_int (D n : Nat) (hn : 0<n)
+    (hD : 2*n*n+1≤D) :
+    topThreeDiagClosed D n=topThreeDiagInt (D:Int) (n:Int) := by
+  have h0 : 2*n*n-2≤D := by omega
+  have h1 : 2*n*n-1≤D := by omega
+  have h2 : 2*n*n≤D := by omega
+  have hm0:=topThreeMonoClosed_cast_le h0
+  have hm1:=topThreeMonoClosed_cast_le h1
+  have hm2:=topThreeMonoClosed_cast_le h2
+  have hm3:=topThreeMonoClosed_cast_le hD
+  have hbase : 2≤2*n*n := by
+    have hs : 1≤n*n := Nat.mul_le_mul hn hn
+    calc
+      2 = 2*1 := by rfl
+      _ ≤ 2*(n*n) := Nat.mul_le_mul_left 2 hs
+      _ = 2*n*n := by ac_rfl
+  have he0 : ((2*n*n-2:Nat):Int)=2*(n:Int)*(n:Int)-2 := by
+    rw [Int.natCast_sub hbase]
+    simp only [Int.natCast_mul]
+    rfl
+  have he1 : ((2*n*n-1:Nat):Int)=2*(n:Int)*(n:Int)-1 := by
+    rw [Int.natCast_sub (by omega : 1≤2*n*n)]
+    simp only [Int.natCast_mul]
+    rfl
+  have he3 : ((2*n*n+1:Nat):Int)=2*(n:Int)*(n:Int)+1 := by
+    simp only [Int.natCast_add,Int.natCast_mul]
+    rfl
+  unfold topThreeDiagClosed topThreeDiagInt
+  rw [hm0,hm1,hm2,hm3]
+  simp only [Int.ofNat_eq_natCast,Int.natCast_mul]
+  rw [he0,he1,he3]
+  have htwo : ((2:Nat):Int)=(2:Int) := rfl
+  rw [htwo]
+  have hz0 : (D:Int)-(2*(n:Int)*(n:Int)-2)=
+      (D:Int)-2*(n:Int)*(n:Int)+2 := by omega
+  have hz1 : (D:Int)-(2*(n:Int)*(n:Int)-1)=
+      (D:Int)-2*(n:Int)*(n:Int)+2-1 := by omega
+  have hz2 : (D:Int)-2*(n:Int)*(n:Int)=
+      (D:Int)-2*(n:Int)*(n:Int)+2-2 := by omega
+  have hz3 : (D:Int)-(2*(n:Int)*(n:Int)+1)=
+      (D:Int)-2*(n:Int)*(n:Int)+2-3 := by omega
+  rw [hz0,hz1,hz2,hz3]
+  have hc2 : (D:Int)-2*(n:Int)*(n:Int)+2-2+2-2=
+      (D:Int)-2*(n:Int)*(n:Int)+2-2 := by omega
+  rw [hc2]
+  congr 4 <;> omega
+
+private theorem topThreeOffClosed_eq_int (D n : Nat) (hn : 0<n)
+    (hD : 2*n*(n+1)-1≤D) :
+    topThreeOffClosed D n=topThreeOffInt (D:Int) (n:Int) := by
+  have hm:=topThreeMonoClosed_cast_le hD
+  have hbase : 1≤2*n*(n+1) := by
+    have hp : 1≤n*(n+1) := Nat.mul_pos hn (by omega)
+    have h:=Nat.mul_le_mul_left 2 hp
+    have h2 : 2≤2*n*(n+1) := by
+      simpa only [Nat.mul_assoc] using h
+    exact Nat.le_trans (by decide : 1≤2) h2
+  have he : ((2*n*(n+1)-1:Nat):Int)=
+      2*(n:Int)*((n:Int)+1)-1 := by
+    rw [Int.natCast_sub hbase]
+    simp only [Int.natCast_mul,Int.natCast_add]
+    rfl
+  unfold topThreeOffClosed topThreeOffInt
+  rw [hm]
+  simp only [Int.ofNat_eq_natCast,Int.natCast_mul,Int.natCast_add]
+  rw [he]
+  have h8 : ((8:Nat):Int)=(8:Int) := rfl
+  have h1 : ((1:Nat):Int)=(1:Int) := rfl
+  rw [h8,h1]
+  have hz : (D:Int)-(2*(n:Int)*((n:Int)+1)-1)=
+      (D:Int)-2*(n:Int)*((n:Int)+1)+1 := by omega
+  rw [hz]
+
+/-- The cleared third-deficit diagonal/off-diagonal terminal pair is exactly
+the finite difference of the canonical start-one polynomial. -/
+theorem topThree_terminal_pair (D m : Nat) (hm : 0<m)
+    (hD : 2*(m+1)*(m+1)+1≤D) :
+    5*(topThreeDiagClosed D (m+1)-topThreeOffClosed D m)=
+      startThreePoly5 (D:Int) ((m:Int)+1)-startThreePoly5 (D:Int) (m:Int) := by
+  have hd := topThreeDiagClosed_eq_int D (m+1) (by omega) hD
+  have ho : topThreeOffClosed D m=topThreeOffInt (D:Int) (m:Int) := by
+    apply topThreeOffClosed_eq_int D m hm
+    have hs : m*(m+1)≤(m+1)*(m+1) := Nat.mul_le_mul_right (m+1) (by omega)
+    have hs2 := Nat.mul_le_mul_left 2 hs
+    have hscale : 2*m*(m+1)≤2*(m+1)*(m+1) := by
+      simpa only [Nat.mul_assoc] using hs2
+    have htop : 2*(m+1)*(m+1)≤D := by omega
+    exact Nat.le_trans (Nat.sub_le _ _) (Nat.le_trans hscale htop)
+  rw [hd,ho]
+  rw [startThreePoly5_step]
+  have hp:=five_topThree_terminal_pair_int (D:Int) (m:Int)
+  have hc : ((m+1:Nat):Int)=(m:Int)+1 := by
+    simp only [Int.natCast_add]
+    rfl
+  rw [hc]
+  rw [hp]
+  omega
+
 private def topTwoDiagInt (d x : Int) : Int :=
   4*iPow x 2*(d-2*iPow x 2)*(d-2*iPow x 2)+2*iPow x 2
 
@@ -2199,5 +2667,6 @@ end YMGap.Continuum.ThetaResidualPascalTelescope
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.choose_top_add_mono
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.choose_top_add_linear
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.startThreePoly5_step
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.topThree_terminal_pair
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.choose_adjacent_cross
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.choose_remainder_off_double

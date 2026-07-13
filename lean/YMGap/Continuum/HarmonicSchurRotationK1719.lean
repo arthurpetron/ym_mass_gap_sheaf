@@ -38,7 +38,7 @@ private theorem rotated_shell_scale_eqv (a b scale ca cb : Q')
     refine Q'.eqv_trans _ _ _ (Q'.eqv_symm (Q'.mul_assoc_eqv _ scale b)) ?_
     exact Q'.mul_eqv_congr_right _ _ b hb
 
-private theorem shell_spacing_stage_of_ratio
+theorem shell_spacing_stage_of_ratio
     (k : Nat) (p q old total shellScale C : Q')
     (hcoeff : old + p ≈ total)
     (hnext : harmonicSpacing (k + 1) * C ≈ total)
@@ -166,6 +166,7 @@ theorem harmonic_operator_spacing_initial_twenty {k : Nat} (hk : k ≤ 19) :
 
 end YMGap.Continuum.HarmonicSchurRotationK1719
 
+#print axioms YMGap.Continuum.HarmonicSchurRotationK1719.shell_spacing_stage_of_ratio
 #print axioms YMGap.Continuum.HarmonicSchurRotationK1719.harmonicMass_shell_spacing_stage_k17
 #print axioms YMGap.Continuum.HarmonicSchurRotationK1719.harmonicMass_shell_spacing_stage_k18
 #print axioms YMGap.Continuum.HarmonicSchurRotationK1719.harmonicMass_shell_spacing_stage_k19
