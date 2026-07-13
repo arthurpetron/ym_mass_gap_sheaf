@@ -365,6 +365,35 @@ private theorem choose_self : ∀ n : Nat, PNPaths.choose n n = 1
       rw [choose_self n]
       rw [choose_zero_of_lt n (n + 1) (by omega)]
 
+/-- Raising the top entry of a binomial coefficient preserves order. -/
+theorem choose_top_add_mono (T d r : Nat) :
+    PNPaths.choose T r ≤ PNPaths.choose (T+d) r := by
+  induction d with
+  | zero => simp
+  | succ d ih =>
+      have hadd : T+(d+1)=(T+d)+1 := by omega
+      rw [hadd]
+      cases r with
+      | zero => simp [PNPaths.choose]
+      | succ r =>
+          simp only [PNPaths.choose]
+          omega
+
+/-- First-order Pascal accumulation: after `d` degree elevations, the
+starting coefficient and `d` copies of its left neighbor are present. -/
+theorem choose_top_add_linear (T d q : Nat) :
+    PNPaths.choose T (q+1)+d*PNPaths.choose T q ≤
+      PNPaths.choose (T+d) (q+1) := by
+  induction d with
+  | zero => simp
+  | succ d ih =>
+      have hadd : T+(d+1)=(T+d)+1 := by omega
+      rw [hadd]
+      simp only [PNPaths.choose]
+      have hm := choose_top_add_mono T d q
+      simp only [Nat.add_mul]
+      omega
+
 private theorem monoCoeff_top {D e : Nat} (h : e ≤ D) :
     monoCoeff D e D = 1 := by
   simp [monoCoeff, h, choose_self]
@@ -565,6 +594,81 @@ private theorem choose_pred : ∀ n : Nat, PNPaths.choose (n + 1) n = n + 1
       simp only [PNPaths.choose]
       rw [choose_pred n, choose_self]
       rw [choose_zero_of_lt n (n + 1) (by omega)]
+
+private theorem choose_zero : ∀ n : Nat, PNPaths.choose n 0=1
+  | 0 => rfl
+  | _+1 => rfl
+
+private theorem choose_one : ∀ n : Nat, PNPaths.choose n 1=n
+  | 0 => rfl
+  | n+1 => by
+      simp only [PNPaths.choose,choose_one n,choose_zero n]
+      omega
+
+/-- Adjacent-binomial cross identity, in a subtraction-free range form. -/
+theorem choose_adjacent_cross : ∀ T q : Nat, q<T →
+    (q+1)*PNPaths.choose T (q+1)=(T-q)*PNPaths.choose T q
+  | 0, q, h => by omega
+  | T+1, 0, _ => by rw [choose_one,choose_zero]; omega
+  | T+1, q+1, h => by
+      by_cases hlt : q+1<T
+      · simp only [PNPaths.choose]
+        have h1:=choose_adjacent_cross T q (by omega)
+        have h2:=choose_adjacent_cross T (q+1) hlt
+        have htop:T+1-(q+1)=T-q:=by omega
+        rw [htop]
+        have hs:T-q=(T-(q+1))+1:=by omega
+        rw [hs] at h1 ⊢
+        rw [Nat.mul_add,Nat.mul_add]
+        rw [h2]
+        have hqa : (q+1+1)*PNPaths.choose T (q+1) =
+            (q+1)*PNPaths.choose T (q+1)+PNPaths.choose T (q+1) := by
+          rw [Nat.add_mul]
+          simp
+        rw [hqa,h1]
+        simp only [Nat.add_mul,Nat.one_mul]
+        omega
+      · have heq:q+1=T:=by omega
+        subst T
+        rw [choose_self,choose_pred (q+1)]
+        have hs:q+1+1-(q+1)=1:=by omega
+        rw [hs]
+        omega
+
+/-- The degree gap in the through-`b₃` induction doubles the smaller
+off-diagonal binomial coefficient. -/
+theorem choose_remainder_off_double (m r : Nat) (hm : 2≤m)
+    (hr : 4≤r) (hrT : r≤2*m+4) :
+    2*PNPaths.choose (2*m+4) r≤PNPaths.choose (4*m+2) r := by
+  let T:=2*m+4
+  let d:=2*m-2
+  have hTd : T+d=4*m+2 := by dsimp [T,d]; omega
+  have hrpos : 0<r := by omega
+  have hrpred : r-1<T := by dsimp [T]; omega
+  have hadj := choose_adjacent_cross T (r-1) hrpred
+  have hrback : r-1+1=r := by omega
+  have hTback : T-(r-1)=T-r+1 := by omega
+  rw [hrback,hTback] at hadj
+  have hcoef : T-r+1≤d*r := by
+    have hfour : T-r+1≤4*d := by dsimp [T,d]; omega
+    have hdr : 4*d≤r*d := Nat.mul_le_mul_right d hr
+    have hcomm : d*r=r*d := by ac_rfl
+    rw [hcomm]
+    exact Nat.le_trans hfour hdr
+  have hscaled : r*PNPaths.choose T r≤r*(d*PNPaths.choose T (r-1)) := by
+    calc
+      r*PNPaths.choose T r = (T-r+1)*PNPaths.choose T (r-1) := hadj
+      _ ≤ (d*r)*PNPaths.choose T (r-1) := Nat.mul_le_mul_right _ hcoef
+      _ = r*(d*PNPaths.choose T (r-1)) := by ac_rfl
+  have hpay : PNPaths.choose T r≤d*PNPaths.choose T (r-1) :=
+    Nat.le_of_mul_le_mul_left hscaled hrpos
+  have hlin := choose_top_add_linear T d (r-1)
+  rw [hrback,hTd] at hlin
+  calc
+    2*PNPaths.choose T r = PNPaths.choose T r+PNPaths.choose T r := by omega
+    _ ≤ PNPaths.choose T r+d*PNPaths.choose T (r-1) :=
+      Nat.add_le_add_left hpay _
+    _ ≤ PNPaths.choose (4*m+2) r := hlin
 
 private theorem monoCoeff_top_one {D e : Nat} (hDpos : 0 < D) (heD : e ≤ D) :
     monoCoeff D e (D - 1) = Int.ofNat (D - e) := by
@@ -1426,6 +1530,15 @@ private theorem x_mul_iPow (x k : Int) (j : Nat) :
   change x * (k * iPow x j) = k * (x * iPow x j)
   ac_rfl
 
+private theorem iPow_mul (x : Int) : ∀ a b : Nat,
+    iPow x a*iPow x b=iPow x (a+b)
+  | 0, b => by simp [iPow]
+  | a+1, b => by
+      change (x*iPow x a)*iPow x b=iPow x (a+1+b)
+      rw [show a+1+b=(a+b)+1 by omega]
+      change (x*iPow x a)*iPow x b=x*iPow x (a+b)
+      rw [Int.mul_assoc,iPow_mul x a b]
+
 private theorem iPow_add_one_two (x : Int) :
     iPow (x + 1) 2 = iPow x 2 + 2 * iPow x 1 + 1 := by
   change (x + 1) * iPow (x + 1) 1 = x * iPow x 1 + 2 * iPow x 1 + 1
@@ -1482,6 +1595,34 @@ private theorem iPow_add_one_six (x : Int) :
     show 2 + 1 = 3 by rfl, show 1 + 1 = 2 by rfl]
   omega
 
+private theorem iPow_add_one_seven (x : Int) :
+    iPow (x+1) 7=iPow x 7+7*iPow x 6+21*iPow x 5+35*iPow x 4+
+      35*iPow x 3+21*iPow x 2+7*iPow x 1+1 := by
+  change (x+1)*iPow (x+1) 6 =
+    x*iPow x 6+7*iPow x 6+21*iPow x 5+35*iPow x 4+35*iPow x 3+
+      21*iPow x 2+7*iPow x 1+1
+  rw [iPow_add_one_six]
+  simp only [Int.mul_add,Int.add_mul]
+  rw [x_mul_iPow x 6 5,x_mul_iPow x 15 4,x_mul_iPow x 20 3,
+    x_mul_iPow x 15 2,x_mul_iPow x 6 1,iPow_one]
+  rw [show 5+1=6 by rfl,show 4+1=5 by rfl,show 3+1=4 by rfl,
+    show 2+1=3 by rfl,show 1+1=2 by rfl]
+  omega
+
+private theorem iPow_add_one_eight (x : Int) :
+    iPow (x+1) 8=iPow x 8+8*iPow x 7+28*iPow x 6+56*iPow x 5+
+      70*iPow x 4+56*iPow x 3+28*iPow x 2+8*iPow x 1+1 := by
+  change (x+1)*iPow (x+1) 7 =
+    x*iPow x 7+8*iPow x 7+28*iPow x 6+56*iPow x 5+70*iPow x 4+
+      56*iPow x 3+28*iPow x 2+8*iPow x 1+1
+  rw [iPow_add_one_seven]
+  simp only [Int.mul_add,Int.add_mul]
+  rw [x_mul_iPow x 7 6,x_mul_iPow x 21 5,x_mul_iPow x 35 4,
+    x_mul_iPow x 35 3,x_mul_iPow x 21 2,x_mul_iPow x 7 1,iPow_one]
+  rw [show 6+1=7 by rfl,show 5+1=6 by rfl,show 4+1=5 by rfl,
+    show 3+1=4 by rfl,show 2+1=3 by rfl,show 1+1=2 by rfl]
+  omega
+
 /-- Start-one doubled deficit-two polynomial in canonical powers. -/
 def startTwoPoly (d x : Int) : Int :=
   2*d*d*iPow x 2 + 2*d*d*x - 8*d*iPow x 4 - 12*d*iPow x 3 + 4*d*x +
@@ -1513,6 +1654,87 @@ theorem startTwoPoly_step (d x : Int) :
     rw [show (68:Int)=8*4+12*3 by decide]
     simp only [Int.add_mul]; ac_rfl
   omega
+
+private def startThreeA (x : Int) : Int := iPow x 2+x
+private def startThreeB (x : Int) : Int :=
+  -120*iPow x 4-180*iPow x 3-30*iPow x 2+30*x
+private def startThreeC (x : Int) : Int :=
+  240*iPow x 6+480*iPow x 5+120*iPow x 4-120*iPow x 3+
+    40*iPow x 2+40*x
+private def startThreeE (x : Int) : Int :=
+  -160*iPow x 8-400*iPow x 7-120*iPow x 6+216*iPow x 5-
+  80*iPow x 4-210*iPow x 3-15*iPow x 2+19*x
+
+/-- Five times the cleared start-one third-deficit polynomial.  Since the
+cleared suffix itself is six times the coefficient, this normalization gives
+the division-free factor `30*b₃`. -/
+def startThreePoly5 (d x : Int) : Int :=
+  20*d*d*d*startThreeA x+d*d*startThreeB x+d*startThreeC x+startThreeE x
+
+private def startThreeBDelta (x : Int) : Int :=
+  -480*iPow x 3-1260*iPow x 2-1080*x-300
+private def startThreeCDelta (x : Int) : Int :=
+  1440*iPow x 5+6000*iPow x 4+10080*iPow x 3+
+    8760*iPow x 2+4040*x+800
+private def startThreeEDelta (x : Int) : Int :=
+  -1280*iPow x 7-7280*iPow x 6-18080*iPow x 5-25920*iPow x 4-
+    23520*iPow x 3-13630*iPow x 2-4700*x-750
+
+private def startThreeDelta5 (d x : Int) : Int :=
+  40*d*d*d*x+40*d*d*d+d*d*startThreeBDelta x+
+    d*startThreeCDelta x+startThreeEDelta x
+
+private theorem startThreeA_step (x : Int) :
+    startThreeA (x+1)=startThreeA x+2*x+2 := by
+  unfold startThreeA
+  rw [iPow_add_one_two,iPow_one]
+  omega
+
+private theorem startThreeB_step (x : Int) :
+    startThreeB (x+1)=startThreeB x+startThreeBDelta x := by
+  unfold startThreeB startThreeBDelta
+  rw [iPow_add_one_two,iPow_add_one_three,iPow_add_one_four,iPow_one]
+  simp only [Int.mul_add]
+  omega
+
+private theorem startThreeC_step (x : Int) :
+    startThreeC (x+1)=startThreeC x+startThreeCDelta x := by
+  unfold startThreeC startThreeCDelta
+  rw [iPow_add_one_two,iPow_add_one_three,iPow_add_one_four,
+    iPow_add_one_five,iPow_add_one_six,iPow_one]
+  simp only [Int.mul_add]
+  omega
+
+private theorem startThreeE_step (x : Int) :
+    startThreeE (x+1)=startThreeE x+startThreeEDelta x := by
+  unfold startThreeE startThreeEDelta
+  rw [iPow_add_one_two,iPow_add_one_three,iPow_add_one_four,
+    iPow_add_one_five,iPow_add_one_six,iPow_add_one_seven,
+    iPow_add_one_eight,iPow_one]
+  simp only [Int.mul_add]
+  omega
+
+/-- Exact finite difference of the start-one third-deficit polynomial. -/
+theorem startThreePoly5_step (d x : Int) :
+    startThreePoly5 d (x+1)=startThreePoly5 d x+startThreeDelta5 d x := by
+  unfold startThreePoly5 startThreeDelta5
+  rw [startThreeA_step,startThreeB_step,startThreeC_step,startThreeE_step]
+  simp only [Int.mul_add]
+  have hx : 20*d*d*d*(2*x)=40*d*d*d*x := by
+    rw [show (40:Int)=20*2 by decide]
+    ac_rfl
+  have h1 : 20*d*d*d*2=40*d*d*d := by
+    rw [show (40:Int)=20*2 by decide]
+    ac_rfl
+  omega
+
+private def topThreeDiagInt (d x : Int) : Int :=
+  let z:=d-2*x*x+2
+  x*x*(intFallThree z+3*intFallThree (z-1)+
+    3*intFallThree (z-2)+intFallThree (z-3))
+
+private def topThreeOffInt (d x : Int) : Int :=
+  8*x*(x+1)*intFallThree (d-2*x*(x+1)+1)
 
 private def topTwoDiagInt (d x : Int) : Int :=
   4*iPow x 2*(d-2*iPow x 2)*(d-2*iPow x 2)+2*iPow x 2
@@ -1869,3 +2091,8 @@ end YMGap.Continuum.ThetaResidualPascalTelescope
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.reverseTopThreeClosed_append
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.firstCellThreeDrift_eq
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.firstCellThreeDrift_negative
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.choose_top_add_mono
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.choose_top_add_linear
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.startThreePoly5_step
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.choose_adjacent_cross
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.choose_remainder_off_double

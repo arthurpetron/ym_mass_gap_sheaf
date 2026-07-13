@@ -4305,6 +4305,16 @@ native-degree law `2a²+2a-1` (for `a≥4`), exposing the structure required by 
 future symbolic growing-anchor certificate.  The Schur/operator prefix remains
 `k≤12` until the four new D/A crosses are transported.
 
+`HarmonicSchurRotationK1316` closes that lag without reducing the enormous
+full D/A determinants.  Cutoff-quotient monotonicity transports exact
+five-/six-mode upper mass bounds to the quadratic cutoffs, while the existing
+seven-anchor floors supply the next-scale lower bounds through `k=15`.  At the
+last step, `HarmonicFixedSixFloorK17` proves the exact fixed-point floor
+`1/15≤harmonicMass 17` from six head coordinates and a symbolic PF2 tail.
+The resulting four direct mass ratios feed the same rotation/spacing bridge,
+so the Schur and coupled-operator prefix now also reaches `k≤16`; its first
+residual again agrees with the correlation residual at `k=17`.
+
 **Cleared theta-polynomial audit (2026-07-12).**
 `ThetaResidualBernsteinPilot` gives exact positive Bernstein decompositions of
 the cleared retune residual at cutoffs one and two (degrees 11 and 23).  It also
@@ -4390,6 +4400,14 @@ shifted value `-(8u³+132u²+592u+378)` at `D=11+u`; hence the required
 positivity cannot be cellwise and must spend genuine reverse-suffix reserve.
 OPEN is the exact start-one third-deficit specialization, followed by the
 `r≥4` suffix bulk and its quantitative signed elevation.
+
+The degree-three normalization now has a division-free candidate polynomial
+`startThreePoly5` whose finite-difference law is kernel-closed.  Independently,
+two repeated-Pascal theorems prove the complete `b₀`-versus-off payment
+`2·C(2m+4,r)≤C(4m+2,r)` for `m≥2`, `4≤r≤2m+4`; this is the first
+uniform half of the through-`b₃` induction remainder.  OPEN is the terminal
+pair identifying the exact minimal `b₃`, then the adjacent-binomial payment
+of the two negative boundary terms by `b₃` and the final elevation.
 
 **Off-diagonal shell necessity (2026-07-12).**
 `FusedOffDiagonalCompression` strengthens the rank-one fence: any positive
@@ -4535,6 +4553,15 @@ envelope has therefore been replaced by the exact identity
 representation.  OPEN is its all-scale terminal comparison; finite anchors
 `k=0,1,2` and a separate large-`k` envelope remain compatible, but no
 linearized estimate is being substituted for the sharp smallest scale.
+
+A sharper exact geometric bound now keeps the unit term separate:
+`geomSum(r,n+1)≤1+n·r^(n+1)` for `r≥1`, with a corresponding sharp
+drift-increment estimate; its symmetric endpoint/chord form is also
+kernel-checked.  Carrier-gap positivity is proved at `k=0`, while demanding
+every individual successor coefficient be nonnegative is kernel-refuted at
+`k=3,i=1`.  OPEN is therefore a genuine reverse-suffix proof of the terminal
+carrier gaps for all `k`, followed by summation of these sharp lossless cells
+(with small-scale anchors separated from the large-`k` branch).
 
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their

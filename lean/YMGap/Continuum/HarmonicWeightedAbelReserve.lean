@@ -372,6 +372,248 @@ theorem driftSqFactor_increment_geom_eqv (k p : Nat) :
   exact Q'.mul_eqv_congr_left _ _ _
     (qpow_driftRatio_sub_one_eqv k (4 * p + 6))
 
+/-- Sharper geometric upper bound for bases above one.  The unit term is kept
+exact and only the remaining `n` terms are bounded by the last power. -/
+theorem geomSum_succ_le_one_add_last {r : Q'} (hr : (1 : Q') ≤ r) : ∀ n,
+    HeatKernelRGStep.geomSum r (n + 1) ≤
+      (1 : Q') + Q'.ofNat n * qpow r (n + 1)
+  | 0 => by
+      unfold HeatKernelRGStep.geomSum
+      have hz : Q'.ofNat 0 * qpow r 1 ≈ (0 : Q') := by
+        refine Q'.eqv_trans _ _ _
+          (Q'.mul_eqv_congr_right _ _ _ Q'.ofNat_zero_eqv)
+          (Q'.zero_mul_eqv _)
+      exact Q'.le_of_eqv (Q'.eqv_trans _ _ _ (q_zero_add_eqv _)
+        (Q'.eqv_symm (Q'.eqv_trans _ _ _
+          (Q'.add_eqv_congr_left (1 : Q') _ _ hz) (q_add_zero_eqv _))))
+  | n + 1 => by
+      have ih := geomSum_succ_le_one_add_last hr n
+      have hadd := Q'.add_le_add_right _ _ (qpow r (n + 1)) ih
+      have hnum : Q'.ofNat (n + 1) ≈ Q'.ofNat n + (1 : Q') := by
+        exact Q'.eqv_trans _ _ _ (Q'.ofNat_add_eqv n 1)
+          (Q'.add_eqv_congr_left _ _ _ (by decide))
+      have hmid :
+          ((1 : Q') + Q'.ofNat n * qpow r (n + 1)) + qpow r (n + 1) ≈
+            (1 : Q') + Q'.ofNat (n + 1) * qpow r (n + 1) := by
+        apply Q'.eqv_symm
+        refine Q'.eqv_trans _ _ _
+          (Q'.add_eqv_congr_left (1 : Q') _ _
+            (Q'.mul_eqv_congr_right _ _ _ hnum)) ?_
+        refine Q'.eqv_trans _ _ _
+          (Q'.add_eqv_congr_left (1 : Q') _ _
+            (Q'.add_mul_eqv _ _ _)) ?_
+        refine Q'.eqv_trans _ _ _
+          (Q'.add_eqv_congr_left (1 : Q') _ _
+            (Q'.add_eqv_congr_left _ _ _ (Q'.one_mul_eqv _))) ?_
+        exact Q'.eqv_symm (Q'.add_assoc_eqv _ _ _)
+      have hr0 : (0 : Q') ≤ r := Q'.le_trans' _ _ _ (by decide) hr
+      have hp : qpow r (n + 1) ≤ qpow r (n + 1 + 1) := by
+        have h0 := qpow_nonneg r hr0 (n + 1)
+        have hm := Q'.mul_le_mul_of_nonneg_left _ _ (qpow r (n + 1)) hr h0
+        exact Q'.le_trans' _ _ _
+          (Q'.ge_of_eqv (Q'.mul_one_eqv _)) hm
+      have hs := Q'.mul_le_mul_of_nonneg_left _ _ (Q'.ofNat (n + 1)) hp
+        (ExpNeg.ofNat_nonneg' (n + 1))
+      have hlast := Q'.add_le_add_left (1 : Q') _ _ hs
+      change HeatKernelRGStep.geomSum r (n + 1 + 1) ≤
+        (1 : Q') + Q'.ofNat (n + 1) * qpow r (n + 1 + 1)
+      exact Q'.le_trans' _ _ _ hadd
+        (Q'.le_trans' _ _ _ (Q'.le_of_eqv hmid) hlast)
+
+theorem driftRatio_geomSum_sharp_le (k n : Nat) :
+    HeatKernelRGStep.geomSum (driftRatio k) (n + 1) ≤
+      (1 : Q') + Q'.ofNat n * qpow (driftRatio k) (n + 1) :=
+  geomSum_succ_le_one_add_last (one_le_driftRatio k) n
+
+private theorem one_add_sub_one_eqv (r : Q') :
+    (1 : Q') + (r + (-(1 : Q'))) ≈ r := by
+  refine Q'.eqv_trans _ _ _ (Q'.eqv_symm (Q'.add_assoc_eqv _ _ _)) ?_
+  refine Q'.eqv_trans _ (r + ((1 : Q') + (-(1 : Q')))) _
+    (by ring_qeqv) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr_left r _ _ (Q'.add_neg_self_eqv (1 : Q'))) ?_
+  exact q_add_zero_eqv r
+
+private theorem sub_mul_add_eqv (r P : Q') :
+    (r + (-(1 : Q'))) * P + P ≈ r * P := by
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr_right _ _ P (Q'.add_mul_eqv _ _ _)) ?_
+  have hn : (-(1 : Q')) * P ≈ -P := by
+    refine Q'.eqv_trans _ _ _ (Q'.neg_mul_eqv (1 : Q') P) ?_
+    exact Q'.neg_eqv_congr _ _ (Q'.one_mul_eqv P)
+  refine Q'.eqv_trans _ (r * P + ((-(1 : Q')) * P + P)) _
+    (Q'.add_assoc_eqv _ _ _) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr_left (r * P) _ _
+      (Q'.add_eqv_congr_right _ _ P hn)) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr_left (r * P) _ _
+      (Q'.eqv_trans _ _ _ (Q'.add_comm_eqv _ _)
+        (Q'.add_neg_self_eqv P))) ?_
+  exact q_add_zero_eqv _
+
+/-- Weighted chord inequality for powers above one. -/
+theorem weighted_power_chord {r : Q'} (hr : (1 : Q') ≤ r) (m : Nat) :
+    Q'.ofNat (m + 1) * qpow r m ≤
+      (1 : Q') + Q'.ofNat m * qpow r (m + 1) := by
+  let u := r + (-(1 : Q'))
+  let P := qpow r m
+  have hu0 : (0 : Q') ≤ u := Q'.sub_nonneg_of_le hr
+  have hru : r ≈ (1 : Q') + u :=
+    Q'.eqv_symm (one_add_sub_one_eqv r)
+  have hg := qpow_one_add_growth hu0 hru m
+  have hadd := Q'.add_le_add_right _ _ (Q'.ofNat m * P) hg
+  have hnum : Q'.ofNat (m + 1) ≈ Q'.ofNat m + (1 : Q') := by
+    exact Q'.eqv_trans _ _ _ (Q'.ofNat_add_eqv m 1)
+      (Q'.add_eqv_congr_left _ _ _ (by decide))
+  have hL : P + Q'.ofNat m * P ≈ Q'.ofNat (m + 1) * P := by
+    apply Q'.eqv_symm
+    refine Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_right _ _ P hnum) ?_
+    refine Q'.eqv_trans _ _ _ (Q'.add_mul_eqv _ _ _) ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_left _ _ _ (Q'.one_mul_eqv P)) ?_
+    exact Q'.add_comm_eqv _ _
+  have hR : ((1 : Q') + Q'.ofNat m * u * P) + Q'.ofNat m * P ≈
+      (1 : Q') + Q'.ofNat m * (P * r) := by
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_assoc_eqv _ _ _) ?_
+    refine Q'.add_eqv_congr_left (1 : Q') _ _ ?_
+    refine Q'.eqv_trans _
+      (Q'.ofNat m * (u * P) + Q'.ofNat m * P) _
+      (Q'.add_eqv_congr_right _ _ _ (Q'.mul_assoc_eqv _ _ _)) ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.eqv_symm (Q'.mul_add_eqv (Q'.ofNat m) (u * P) P)) ?_
+    refine Q'.mul_eqv_congr_left (Q'.ofNat m) _ _ ?_
+    unfold u
+    exact Q'.eqv_trans _ _ _ (sub_mul_add_eqv r P)
+      (Q'.mul_comm_eqv r P)
+  change P ≤ (1 : Q') + Q'.ofNat m * u * P at hg
+  exact Q'.le_trans' _ _ _ (Q'.ge_of_eqv hL)
+    (Q'.le_trans' _ _ _ hadd (Q'.le_of_eqv hR))
+
+/-- Symmetric endpoint bound for a geometric sum above one.  Keeping the
+last *actual* power, rather than the next power, is what makes the induction
+lossless at the first cell. -/
+theorem geomSum_succ_twice_le_chord {r : Q'} (hr : (1 : Q') ≤ r) : ∀ n,
+    HeatKernelRGStep.geomSum r (n + 1) +
+        HeatKernelRGStep.geomSum r (n + 1) ≤
+      Q'.ofNat (n + 1) * ((1 : Q') + qpow r n)
+  | 0 => by
+      change ((0 : Q') + 1) + ((0 : Q') + 1) ≤
+        Q'.ofNat 1 * ((1 : Q') + 1)
+      exact Q'.le_of_eqv (by decide)
+  | n + 1 => by
+      let S := HeatKernelRGStep.geomSum r (n + 1)
+      let P := qpow r (n + 1)
+      let P₀ := qpow r n
+      let N := Q'.ofNat (n + 1)
+      let M := Q'.ofNat n
+      have ih := geomSum_succ_twice_le_chord hr n
+      have hchord := weighted_power_chord hr n
+      change S + S ≤ N * ((1 : Q') + P₀) at ih
+      change N * P₀ ≤ (1 : Q') + M * P at hchord
+      have hadd := Q'.add_le_add ih (Q'.le_refl' (P + P))
+      have hchord' := Q'.add_le_add
+        (Q'.add_le_add (Q'.le_refl' N) hchord)
+        (Q'.le_refl' (P + P))
+      have hL : (S + P) + (S + P) ≈ (S + S) + (P + P) := by
+        ring_qeqv
+      have hmid : N * ((1 : Q') + P₀) + (P + P) ≈
+          (N + N * P₀) + (P + P) := by
+        refine Q'.add_eqv_congr_right _ _ _ ?_
+        refine Q'.eqv_trans _ _ _ (Q'.mul_add_eqv _ _ _) ?_
+        exact Q'.add_eqv_congr_right _ _ _ (Q'.mul_one_eqv N)
+      have hN : N ≈ M + (1 : Q') := by
+        unfold N M
+        exact Q'.eqv_trans _ _ _ (Q'.ofNat_add_eqv n 1)
+          (Q'.add_eqv_congr_left _ _ _ (by decide))
+      have hN₂ : Q'.ofNat (n + 1 + 1) ≈ N + (1 : Q') := by
+        unfold N
+        exact Q'.eqv_trans _ _ _ (Q'.ofNat_add_eqv (n + 1) 1)
+          (Q'.add_eqv_congr_left _ _ _ (by decide))
+      have hR : (N + ((1 : Q') + M * P)) + (P + P) ≈
+          Q'.ofNat (n + 1 + 1) * ((1 : Q') + P) := by
+        refine Q'.eqv_trans _
+          ((M + (1 : Q')) + ((1 : Q') + M * P) + (P + P)) _
+          (Q'.add_eqv_congr_right _ _ (P + P)
+            (Q'.add_eqv_congr_right _ _ ((1 : Q') + M * P) hN)) ?_
+        refine Q'.eqv_trans _
+          (((M + (1 : Q')) + (1 : Q')) * ((1 : Q') + P)) _
+          (by ring_qeqv) ?_
+        refine Q'.eqv_trans _
+          ((N + (1 : Q')) * ((1 : Q') + P)) _
+          (Q'.mul_eqv_congr_right _ _ _
+            (Q'.add_eqv_congr_right _ _ (1 : Q') (Q'.eqv_symm hN))) ?_
+        exact Q'.mul_eqv_congr_right _ _ _ (Q'.eqv_symm hN₂)
+      change (S + P) + (S + P) ≤
+        Q'.ofNat (n + 1 + 1) * ((1 : Q') + P)
+      exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hL)
+        (Q'.le_trans' _ _ _ hadd
+          (Q'.le_trans' _ _ _ (Q'.le_of_eqv hmid)
+            (Q'.le_trans' _ _ _ hchord' (Q'.le_of_eqv hR))))
+
+#print axioms weighted_power_chord
+#print axioms geomSum_succ_twice_le_chord
+
+/-- The exact harmonic drift cell obeys the symmetric endpoint envelope.
+The factor two is retained on the left, so no division or rounding enters the
+constructive estimate. -/
+theorem driftSqFactor_increment_twice_le_chord (k p : Nat) :
+    (driftSqFactor k (p + 1) + -(driftSqFactor k p)) +
+        (driftSqFactor k (p + 1) + -(driftSqFactor k p)) ≤
+      driftSqFactor k p *
+        (unit (driftDen k) (driftDen_pos k) *
+          (Q'.ofNat ((4 * p + 5) + 1) *
+            ((1 : Q') + qpow (driftRatio k) (4 * p + 5)))) := by
+  let D := driftSqFactor k (p + 1) + -(driftSqFactor k p)
+  let G := driftSqFactor k p
+  let u := unit (driftDen k) (driftDen_pos k)
+  let S := HeatKernelRGStep.geomSum (driftRatio k) ((4 * p + 5) + 1)
+  have hgeom := geomSum_succ_twice_le_chord
+    (one_le_driftRatio k) (4 * p + 5)
+  change S + S ≤ Q'.ofNat ((4 * p + 5) + 1) *
+    ((1 : Q') + qpow (driftRatio k) (4 * p + 5)) at hgeom
+  have hu0 : (0 : Q') ≤ u := unit_nonneg _ _
+  have hG0 : (0 : Q') ≤ G := by
+    unfold G driftSqFactor
+    exact Q'.mul_nonneg _ _
+      (qpow_nonneg _ (Q'.le_of_lt (driftRatio_pos k)) _)
+      (qpow_nonneg _ (Q'.le_of_lt (driftRatio_pos k)) _)
+  have hu := Q'.mul_le_mul_of_nonneg_left _ _ u hgeom hu0
+  have hGu := Q'.mul_le_mul_of_nonneg_left _ _ G hu hG0
+  have hD : D ≈ G * (u * S) := by
+    unfold D G u S
+    exact driftSqFactor_increment_geom_eqv k p
+  have hL : D + D ≈ G * (u * (S + S)) := by
+    refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr' hD hD) ?_
+    ring_qeqv
+  change D + D ≤ G *
+    (u * (Q'.ofNat ((4 * p + 5) + 1) *
+      ((1 : Q') + qpow (driftRatio k) (4 * p + 5))))
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hL) hGu
+
+#print axioms driftSqFactor_increment_twice_le_chord
+
+theorem driftSqFactor_increment_sharp_le (k p : Nat) :
+    driftSqFactor k (p + 1) + -(driftSqFactor k p) ≤
+      driftSqFactor k p *
+        (unit (driftDen k) (driftDen_pos k) *
+          ((1 : Q') + Q'.ofNat (4 * p + 5) *
+            qpow (driftRatio k) (4 * p + 6))) := by
+  have hg := driftRatio_geomSum_sharp_le k (4 * p + 5)
+  have hu0 : (0 : Q') ≤ unit (driftDen k) (driftDen_pos k) := unit_nonneg _ _
+  have hu := Q'.mul_le_mul_of_nonneg_left _ _
+    (unit (driftDen k) (driftDen_pos k)) hg hu0
+  have hG0 : (0 : Q') ≤ driftSqFactor k p := by
+    unfold driftSqFactor
+    exact Q'.mul_nonneg _ _
+      (qpow_nonneg _ (Q'.le_of_lt (driftRatio_pos k)) _)
+      (qpow_nonneg _ (Q'.le_of_lt (driftRatio_pos k)) _)
+  have hm := Q'.mul_le_mul_of_nonneg_left _ _ (driftSqFactor k p) hu hG0
+  exact Q'.le_trans' _ _ _
+    (Q'.le_of_eqv (driftSqFactor_increment_geom_eqv k p)) hm
+
 def compensatedGeomCell (k L p : Nat) : Q' :=
   (trapezoidNodeCumulative k L + -(trapezoidNodeCumulative k p)) *
     (driftSqFactor k p *
@@ -380,6 +622,16 @@ def compensatedGeomCell (k L p : Nat) : Q' :=
 
 def compensatedGeomSum (k L : Nat) : Q' :=
   fsum (compensatedGeomCell k L) L
+
+def compensatedChordCell (k L p : Nat) : Q' :=
+  (trapezoidNodeCumulative k L + -(trapezoidNodeCumulative k p)) *
+    (driftSqFactor k p *
+      (unit (driftDen k) (driftDen_pos k) *
+        (Q'.ofNat ((4 * p + 5) + 1) *
+          ((1 : Q') + qpow (driftRatio k) (4 * p + 5)))))
+
+def compensatedChordSum (k L : Nat) : Q' :=
+  fsum (compensatedChordCell k L) L
 
 /-- Exact mode-cell form of the compensated defect.  Unlike the linearized
 envelope, this loses no small-scale reserve. -/
@@ -401,6 +653,48 @@ theorem compensatedAbelDefect_eq_geomSum (k L : Nat) :
     (Q'.mul_eqv_congr_right _ _ _ hC) ?_
   exact Q'.mul_eqv_congr_left _ _ _
     (driftSqFactor_increment_geom_eqv k p)
+
+/-- The doubled compensated defect is controlled by the symmetric endpoint
+envelope whenever the terminal carrier dominates each earlier prefix. -/
+theorem compensatedAbelDefect_twice_le_chord (k L : Nat)
+    (hgap : ∀ p, p < L →
+      (0 : Q') ≤ trapezoidNodeCumulative k L +
+        -(trapezoidNodeCumulative k p)) :
+    compensatedAbelDefect (trapezoidNodeCoeff k) (driftSqFactor k) L +
+        compensatedAbelDefect (trapezoidNodeCoeff k) (driftSqFactor k) L ≤
+      compensatedChordSum k L := by
+  let f := fun p =>
+    (abelPrefix (trapezoidNodeCoeff k) L +
+      -(abelPrefix (trapezoidNodeCoeff k) p)) *
+        (driftSqFactor k (p + 1) + -(driftSqFactor k p))
+  have hsplit := CubeRatioBounds.fsum_add f f L
+  have hsum : fsum (fun p => f p + f p) L ≤ compensatedChordSum k L := by
+    unfold compensatedChordSum
+    apply CubeRatioBounds.fsum_mono_lt
+    intro p hp
+    let C := trapezoidNodeCumulative k L +
+      -(trapezoidNodeCumulative k p)
+    let d := driftSqFactor k (p + 1) + -(driftSqFactor k p)
+    have hC : abelPrefix (trapezoidNodeCoeff k) L +
+        -(abelPrefix (trapezoidNodeCoeff k) p) ≈ C :=
+      Q'.add_eqv_congr'
+        (abelPrefix_trapezoidNodeCoeff k L)
+        (Q'.neg_eqv_congr _ _ (abelPrefix_trapezoidNodeCoeff k p))
+    have hm := Q'.mul_le_mul_of_nonneg_left _ _ C
+      (driftSqFactor_increment_twice_le_chord k p) (hgap p hp)
+    have hL : f p + f p ≈ C * (d + d) := by
+      unfold f d
+      refine Q'.eqv_trans _ _ _
+        (Q'.add_eqv_congr'
+          (Q'.mul_eqv_congr_right _ _ _ hC)
+          (Q'.mul_eqv_congr_right _ _ _ hC)) ?_
+      ring_qeqv
+    unfold compensatedChordCell
+    exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hL) hm
+  unfold compensatedAbelDefect
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.eqv_symm hsplit)) hsum
+
+#print axioms compensatedAbelDefect_twice_le_chord
 
 def compensatedCellEnvelope (k L p : Nat) : Q' :=
   (trapezoidNodeCumulative k L + -(trapezoidNodeCumulative k p)) *
@@ -596,6 +890,53 @@ def weightedTrapezoidResidual (k : Nat) : Q' :=
   fsum (fun i => trapezoidNodeCoeff k i * driftSqFactor k i) (Ncut k) +
     trapezoidTerminalCorrection k
 
+/-- A doubled symmetric-chord budget implies the quantitative reserve.  The
+positive factor two is cancelled only after all estimates have been made. -/
+theorem compensated_reserve_twentyFourTwentyFive_of_chord (k : Nat)
+    (hgap : ∀ p, p < Ncut k - 1 →
+      (0 : Q') ≤ trapezoidNodeCumulative k (Ncut k - 1) +
+        -(trapezoidNodeCumulative k p))
+    (hchord : compensatedChordSum k (Ncut k - 1) +
+          (trapezoidTerminalCorrection k + trapezoidTerminalCorrection k) ≤
+        (Q'.mkPos 24 25 (by decide) *
+            (-(trapezoidNodeCumulative k (Ncut k - 1) *
+              driftSqFactor k 0))) +
+          (Q'.mkPos 24 25 (by decide) *
+            (-(trapezoidNodeCumulative k (Ncut k - 1) *
+              driftSqFactor k 0)))) :
+    compensatedAbelDefect (trapezoidNodeCoeff k) (driftSqFactor k)
+          (Ncut k - 1) + trapezoidTerminalCorrection k ≤
+      Q'.mkPos 24 25 (by decide) *
+        (-(trapezoidNodeCumulative k (Ncut k - 1) * driftSqFactor k 0)) := by
+  let a := compensatedAbelDefect (trapezoidNodeCoeff k) (driftSqFactor k)
+    (Ncut k - 1) + trapezoidTerminalCorrection k
+  let b := Q'.mkPos 24 25 (by decide) *
+    (-(trapezoidNodeCumulative k (Ncut k - 1) * driftSqFactor k 0))
+  have hdef := compensatedAbelDefect_twice_le_chord k (Ncut k - 1) hgap
+  have hadd := Q'.add_le_add hdef
+    (Q'.le_refl' (trapezoidTerminalCorrection k + trapezoidTerminalCorrection k))
+  have hrearr :
+      (compensatedAbelDefect (trapezoidNodeCoeff k) (driftSqFactor k)
+            (Ncut k - 1) +
+          compensatedAbelDefect (trapezoidNodeCoeff k) (driftSqFactor k)
+            (Ncut k - 1)) +
+        (trapezoidTerminalCorrection k + trapezoidTerminalCorrection k) ≈
+      a + a := by
+    unfold a
+    ring_qeqv
+  have haa : a + a ≤ b + b :=
+    Q'.le_trans' _ _ _ (Q'.ge_of_eqv hrearr)
+      (Q'.le_trans' _ _ _ hadd hchord)
+  have htwo : Q'.ofNat 2 * a ≤ Q'.ofNat 2 * b :=
+    Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (CubeRatioBounds.ofNat_two_mul_eqv a))
+      (Q'.le_trans' _ _ _ haa
+        (Q'.ge_of_eqv (CubeRatioBounds.ofNat_two_mul_eqv b)))
+  exact FusionQuotientCollapse.le_of_mul_le_mul_left_pos
+    (show (0 : Q') < Q'.ofNat 2 by decide) htwo
+
+#print axioms compensated_reserve_twentyFourTwentyFive_of_chord
+
 /-- A quantitative envelope budget implies the proposed all-scale `24/25`
 reserve.  The remaining mathematical target is now an explicit positive-cell
 sum with the exact harmonic unit denominator. -/
@@ -629,6 +970,28 @@ theorem compensatedEnvelope_twentyFourTwentyFive_fails_k0 :
     harmW harmU ReciprocalBernoulliUpper.oneSub unit invSqTerm coeffW dimQ c4
     Q'.divPos Q'.recipPos qpow Ncut fsum
   decide
+
+/-- Carrier-gap positivity cannot be proved by demanding every successor node
+coefficient be nonnegative: the first successor coefficient is negative at
+`k=3`.  Positive later suffix mass is essential. -/
+theorem trapezoidNodeCoeff_nonneg_fails_k3_i1 :
+    not ((0 : Q') ≤ trapezoidNodeCoeff 3 1) := by
+  unfold trapezoidNodeCoeff harmonicD harmonicA twoInvSq oldAdj oldDiag
+    coordNormSq adjCorr harmW harmU ReciprocalBernoulliUpper.oneSub unit
+    invSqTerm coeffW dimQ c4 qpow Ncut fsum
+  decide
+
+/-- Exact smallest-scale carrier-gap anchor. -/
+theorem terminal_carrier_gap_nonneg_k0 {p : Nat} (hp : p < Ncut 0 - 1) :
+    (0 : Q') ≤ trapezoidNodeCumulative 0 (Ncut 0 - 1) +
+      -(trapezoidNodeCumulative 0 p) := by
+  have hp' : p = 0 ∨ p = 1 ∨ p = 2 := by
+    unfold Ncut at hp
+    omega
+  rcases hp' with rfl | rfl | rfl <;>
+    unfold trapezoidNodeCumulative harmonicD harmonicA twoInvSq oldAdj
+      coordNormSq adjCorr harmW harmU ReciprocalBernoulliUpper.oneSub unit
+      invSqTerm coeffW dimQ c4 qpow Ncut fsum <;> decide
 
 private theorem weightedNode_terminal_eq (k : Nat) : ∀ n,
     fsum (fun i => trapezoidNodeCoeff k i * driftSqFactor k i) (n + 1) +
@@ -796,6 +1159,9 @@ end YMGap.Continuum.HarmonicWeightedAbelReserve
 #print axioms YMGap.Continuum.HarmonicWeightedAbelReserve.qpow_driftRatio_sub_one_eqv
 #print axioms YMGap.Continuum.HarmonicWeightedAbelReserve.driftSqFactor_increment_geom_eqv
 #print axioms YMGap.Continuum.HarmonicWeightedAbelReserve.compensatedAbelDefect_eq_geomSum
+#print axioms YMGap.Continuum.HarmonicWeightedAbelReserve.geomSum_succ_le_one_add_last
+#print axioms YMGap.Continuum.HarmonicWeightedAbelReserve.driftRatio_geomSum_sharp_le
+#print axioms YMGap.Continuum.HarmonicWeightedAbelReserve.driftSqFactor_increment_sharp_le
 #print axioms YMGap.Continuum.HarmonicWeightedAbelReserve.compensatedAbelDefect_le_envelope
 #print axioms YMGap.Continuum.HarmonicWeightedAbelReserve.start_add_forwardIncrementSum
 #print axioms YMGap.Continuum.HarmonicWeightedAbelReserve.finite_abel_compensated
@@ -803,6 +1169,8 @@ end YMGap.Continuum.HarmonicWeightedAbelReserve
 #print axioms YMGap.Continuum.HarmonicWeightedAbelReserve.weightedTrapezoidResidual_eq_compensated
 #print axioms YMGap.Continuum.HarmonicWeightedAbelReserve.compensated_reserve_twentyFourTwentyFive_of_envelope
 #print axioms YMGap.Continuum.HarmonicWeightedAbelReserve.compensatedEnvelope_twentyFourTwentyFive_fails_k0
+#print axioms YMGap.Continuum.HarmonicWeightedAbelReserve.trapezoidNodeCoeff_nonneg_fails_k3_i1
+#print axioms YMGap.Continuum.HarmonicWeightedAbelReserve.terminal_carrier_gap_nonneg_k0
 #print axioms YMGap.Continuum.HarmonicWeightedAbelReserve.weightedTrapezoidResidual_nonpos_of_reserve
 #print axioms YMGap.Continuum.HarmonicWeightedAbelReserve.compensated_reserve_k0
 #print axioms YMGap.Continuum.HarmonicWeightedAbelReserve.compensated_reserve_twentyFourTwentyFive_k0
