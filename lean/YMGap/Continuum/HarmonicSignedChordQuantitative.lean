@@ -290,6 +290,170 @@ def harmonicChordWeight (k p : Nat) : Q' :=
       (Q'.ofNat ((4 * p + 5) + 1) *
         ((1 : Q') + qpow (driftRatio k) (4 * p + 5))))
 
+def harmonicChordGrowthFactor (k p : Nat) : Q' :=
+  Q'.ofNat 2 +
+    Q'.ofNat (4 * p + 6) * unit (driftDen k) (driftDen_pos k)
+
+def harmonicChordCumulativeMajorant (k s n : Nat) : Q' :=
+  harmonicChordGrowthFactor k (s + n) *
+    (driftSqFactor k (s + n) + -(driftSqFactor k s))
+
+private theorem one_le_qpow_here {r : Q'} (hr : (1 : Q') ≤ r) : ∀ n,
+    (1 : Q') ≤ qpow r n
+  | 0 => Q'.le_refl' 1
+  | n + 1 => by
+      have hp0 : (0 : Q') ≤ qpow r n :=
+        qpow_nonneg r (Q'.le_trans' _ _ _ (by decide) hr) n
+      have hm := Q'.mul_le_mul_of_nonneg_left _ _ (qpow r n) hr hp0
+      exact Q'.le_trans' _ _ _ (one_le_qpow_here hr n)
+        (Q'.le_trans' _ _ _ (Q'.ge_of_eqv (Q'.mul_one_eqv _)) hm)
+
+private theorem ofNat_le_geomSum_of_one_le {r : Q'} (hr : (1 : Q') ≤ r) :
+    ∀ n, Q'.ofNat n ≤ HeatKernelRGStep.geomSum r n
+  | 0 => by
+      exact Q'.le_of_eqv (Q'.eqv_trans _ _ _ Q'.ofNat_zero_eqv
+        (Q'.eqv_refl _))
+  | n + 1 => by
+      have hadd := Q'.add_le_add
+        (ofNat_le_geomSum_of_one_le hr n) (one_le_qpow_here hr n)
+      have hleft : Q'.ofNat (n + 1) ≈ Q'.ofNat n + (1 : Q') := by
+        exact Q'.eqv_trans _ _ _ (Q'.ofNat_add_eqv n 1)
+          (Q'.add_eqv_congr_left _ _ _ (by decide))
+      exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hleft) hadd
+
+private theorem qpow_driftRatio_eqv_one_add_geom (k n : Nat) :
+    qpow (driftRatio k) n ≈
+      (1 : Q') + unit (driftDen k) (driftDen_pos k) *
+        HeatKernelRGStep.geomSum (driftRatio k) n := by
+  have h := qpow_driftRatio_sub_one_eqv k n
+  refine Q'.eqv_trans _
+    ((qpow (driftRatio k) n + (-(1 : Q'))) + (1 : Q')) _ ?_ ?_
+  · have hc : -(1 : Q') + (1 : Q') ≈ (0 : Q') := by
+      exact Q'.eqv_trans _ _ _ (Q'.add_comm_eqv _ _)
+        (Q'.add_neg_self_eqv (1 : Q'))
+    apply Q'.eqv_symm
+    refine Q'.eqv_trans _ _ _ (Q'.add_assoc_eqv _ _ _) ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_left _ _ _ hc) (q_add_zero_eqv _)
+  · exact Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_right _ _ (1 : Q') h)
+      (Q'.add_comm_eqv _ _)
+
+private theorem qpow_pred_le_qpow_driftRatio (k n : Nat) :
+    qpow (driftRatio k) (n - 1) ≤ qpow (driftRatio k) n := by
+  cases n with
+  | zero => exact Q'.le_refl' _
+  | succ n =>
+      have hp0 : (0 : Q') ≤ qpow (driftRatio k) n :=
+        qpow_nonneg _ (Q'.le_of_lt (driftRatio_pos k)) n
+      have hm := Q'.mul_le_mul_of_nonneg_left _ _
+        (qpow (driftRatio k) n) (one_le_driftRatio k) hp0
+      exact Q'.le_trans' _ _ _ (Q'.ge_of_eqv (Q'.mul_one_eqv _)) hm
+
+private theorem chord_endpoint_le_growth_geom (k n : Nat) :
+    Q'.ofNat n *
+        ((1 : Q') + qpow (driftRatio k) (n - 1)) ≤
+      (Q'.ofNat 2 +
+          Q'.ofNat n * unit (driftDen k) (driftDen_pos k)) *
+        HeatKernelRGStep.geomSum (driftRatio k) n := by
+  let N := Q'.ofNat n
+  let u := unit (driftDen k) (driftDen_pos k)
+  let S := HeatKernelRGStep.geomSum (driftRatio k) n
+  let P := qpow (driftRatio k) (n - 1)
+  have hNS : N ≤ S := ofNat_le_geomSum_of_one_le (one_le_driftRatio k) n
+  have hPpow := qpow_pred_le_qpow_driftRatio k n
+  have hpow : qpow (driftRatio k) n ≈ (1 : Q') + u * S := by
+    unfold u S
+    exact qpow_driftRatio_eqv_one_add_geom k n
+  have hP : P ≤ (1 : Q') + u * S :=
+    Q'.le_trans' _ _ _ hPpow (Q'.le_of_eqv hpow)
+  have hN0 : (0 : Q') ≤ N := ExpNeg.ofNat_nonneg' n
+  have hNP := Q'.mul_le_mul_of_nonneg_left _ _ N hP hN0
+  have hadd := Q'.add_le_add hNS hNP
+  have hleft : N * ((1 : Q') + P) ≈ N + N * P := by
+    refine Q'.eqv_trans _ _ _ (Q'.mul_add_eqv _ _ _) ?_
+    exact Q'.add_eqv_congr_right _ _ _ (Q'.mul_one_eqv N)
+  have hSN : S + N ≤ S + S := Q'.add_le_add_left S _ _ hNS
+  have hNS' := Q'.add_le_add_right _ _ (N * (u * S)) hSN
+  have hexpand : S + N * ((1 : Q') + u * S) ≈
+      (S + N) + N * (u * S) := by
+    refine Q'.eqv_trans _
+      (S + (N * (1 : Q') + N * (u * S))) _
+      (Q'.add_eqv_congr_left S _ _ (Q'.mul_add_eqv _ _ _)) ?_
+    refine Q'.eqv_trans _ (S + (N + N * (u * S))) _
+      (Q'.add_eqv_congr_left S _ _
+        (Q'.add_eqv_congr_right _ _ _ (Q'.mul_one_eqv N))) ?_
+    exact Q'.eqv_symm (Q'.add_assoc_eqv _ _ _)
+  have hmid : S + N * ((1 : Q') + u * S) ≤
+      (S + S) + N * (u * S) :=
+    Q'.le_trans' _ _ _ (Q'.le_of_eqv hexpand) hNS'
+  have hright : (S + S) + N * (u * S) ≈
+      (Q'.ofNat 2 + N * u) * S := by
+    have htwo : Q'.ofNat 2 ≈ (1 : Q') + (1 : Q') := by decide
+    have htwoS : S + S ≈ Q'.ofNat 2 * S := by
+      refine Q'.eqv_trans _ ((1 : Q') * S + (1 : Q') * S) _ ?_ ?_
+      · exact Q'.add_eqv_congr'
+          (Q'.eqv_symm (Q'.one_mul_eqv S))
+          (Q'.eqv_symm (Q'.one_mul_eqv S))
+      · refine Q'.eqv_trans _ (((1 : Q') + (1 : Q')) * S) _
+          (Q'.eqv_symm (Q'.add_mul_eqv _ _ _)) ?_
+        exact Q'.mul_eqv_congr_right _ _ S (Q'.eqv_symm htwo)
+    have hNu : N * (u * S) ≈ (N * u) * S :=
+      Q'.eqv_symm (Q'.mul_assoc_eqv _ _ _)
+    refine Q'.eqv_trans _ (Q'.ofNat 2 * S + (N * u) * S) _
+      (Q'.add_eqv_congr' htwoS hNu) ?_
+    exact Q'.eqv_symm (Q'.add_mul_eqv _ _ _)
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hleft)
+    (Q'.le_trans' _ _ _ hadd
+      (Q'.le_trans' _ _ _ hmid (Q'.le_of_eqv hright)))
+
+/-- The symmetric endpoint chord is at most a factor
+`2+(4p+6)/((k+2)^2-1)` times the exact adjacent drift increment.  Unlike the
+older next-cell bound, this factor tends to two in the active harmonic bulk. -/
+theorem harmonicChordWeight_le_growthIncrement (k p : Nat) :
+    harmonicChordWeight k p ≤
+      harmonicChordGrowthFactor k p *
+        (driftSqFactor k (p + 1) + -(driftSqFactor k p)) := by
+  let G := driftSqFactor k p
+  let u := unit (driftDen k) (driftDen_pos k)
+  let n := 4 * p + 6
+  let S := HeatKernelRGStep.geomSum (driftRatio k) n
+  have hcore := chord_endpoint_le_growth_geom k n
+  have hu0 : (0 : Q') ≤ u := unit_nonneg _ _
+  have hG0 : (0 : Q') ≤ G := by
+    unfold G driftSqFactor
+    exact Q'.mul_nonneg _ _
+      (qpow_nonneg _ (Q'.le_of_lt (driftRatio_pos k)) _)
+      (qpow_nonneg _ (Q'.le_of_lt (driftRatio_pos k)) _)
+  have hu := Q'.mul_le_mul_of_nonneg_left _ _ u hcore hu0
+  have hGu := Q'.mul_le_mul_of_nonneg_left _ _ G hu hG0
+  have hleft : harmonicChordWeight k p ≈
+      G * (u * (Q'.ofNat n *
+        ((1 : Q') + qpow (driftRatio k) (n - 1)))) := by
+    unfold harmonicChordWeight G u n
+    rw [show 4 * p + 5 = 4 * p + 6 - 1 by omega]
+    exact Q'.eqv_refl _
+  have hright :
+      G * (u * ((Q'.ofNat 2 + Q'.ofNat n * u) * S)) ≈
+        harmonicChordGrowthFactor k p *
+          (driftSqFactor k (p + 1) + -(driftSqFactor k p)) := by
+    have hinc := driftSqFactor_increment_geom_eqv k p
+    have hrearr :
+        G * (u * ((Q'.ofNat 2 + Q'.ofNat n * u) * S)) ≈
+          (Q'.ofNat 2 + Q'.ofNat n * u) * (G * (u * S)) := by
+      ring_qeqv
+    have hfac : harmonicChordGrowthFactor k p ≈
+        Q'.ofNat 2 + Q'.ofNat n * u := by
+      unfold harmonicChordGrowthFactor n u
+      exact Q'.eqv_refl _
+    refine Q'.eqv_trans _ _ _ hrearr ?_
+    refine Q'.eqv_trans _
+      (harmonicChordGrowthFactor k p * (G * (u * S))) _
+      (Q'.mul_eqv_congr_right _ _ _ (Q'.eqv_symm hfac)) ?_
+    exact Q'.mul_eqv_congr_left _ _ _ (Q'.eqv_symm hinc)
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hleft)
+    (Q'.le_trans' _ _ _ hGu (Q'.le_of_eqv hright))
+
 def signedChordNodeMoment (k s n : Nat) : Q' :=
   fsum (fun j =>
     trapezoidNodeCoeff k (s + j + 1) *
@@ -670,6 +834,7 @@ theorem weightedTrapezoidResidual_nonpos_k4 :
 
 #print axioms signedChord_twentyFourTwentyFive_fails_k0
 #print axioms signedChordSum_eq_nodeMoment
+#print axioms harmonicChordWeight_le_growthIncrement
 #print axioms terminalCoefficientTwoFloor_le_terminalReserve
 #print axioms nine_harmonicD_le_ten_terminalDiagonalPrefix
 #print axioms signedChordMomentCore_le_terminalCoefficientTwoFloor

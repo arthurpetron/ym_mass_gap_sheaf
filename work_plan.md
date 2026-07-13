@@ -4391,7 +4391,12 @@ normalizer, proves uniformly that
 `harmU k ≤ 1-retuneCube(harmW k)`.  Therefore the sole theta-head premise now
 implies the concrete physical bound `1/(k+2)=harmU k ≤ harmonicMass k` at
 every `k≥1`; no numerical lower-floor table is needed after the uniform theta
-certificate.
+certificate.  The sharper identity
+`1-retuneCube(harmW k) ≃ b(3-3b+b²)`, `b=harmU k/2`, is also kernel-closed,
+retaining the exact asymptotic coefficient for the consecutive-mass/spacing
+attack rather than discarding it in the coarse unit lower bound.  Dropping
+only the positive `b³` term gives the public sharp quadratic floor
+`b(3-3b)≤harmonicMass k` under the same theta premise.
 
 `HarmonicFixedTwelvePrefix` instantiates that symbolic interface at `b=11`.
 It closes retune, `lamPW`, and mass floors for `k=34,35,36,37,38`, then proves
@@ -4434,6 +4439,17 @@ cell, and hence a same-index termwise comparison is impossible.  The proof is
 symbolic and uniform, not a finite check.  Any successful certificate must
 move reserve between distinct theta modes, exactly as the nonlocal Pascal
 program anticipates.
+
+That nonlocal move is now constructive at the first two cutoffs.
+`first_transport_scaled_identity` and `second_transport_scaled_identity`
+identify the exact scaled surpluses with the already-positive Bernstein
+residuals `thetaResidualOneP` and `thetaResidualTwoP`; the generic
+`scaled_theta_remainder_pays` consumer removes the factor eight.  Consequently
+the first two integer modes pay the first half-integer cell, and the first
+three integer modes jointly pay the first two half-integer cells, uniformly
+for every `0≤w≤1` and hence along the full harmonic trajectory.  OPEN is to
+extend this cumulative reserve transport from cutoffs one and two to the
+variable growing anchor.
 
 The first natural Gosper ansatz is now excluded uniformly: the preceding-edge
 monomial reserve `R_j=4j(j-1)M(D,2j(j-1)-1)` leaves coefficient exactly `-8`
@@ -4538,7 +4554,12 @@ diagonal vanishes, identifies the appended off-cell by binomial symmetry, and
 leaves precisely `m(m+1)·throughThreeRemainder30`.  Since that remainder is
 already nonnegative on the proved range, OPEN is now the base/all-range bulk
 nonnegativity induction and its final specialization—not the recurrence or
-the boundary-band accounting.
+the boundary-band accounting.  The three coefficient positions beyond the
+previous `r≤4m+2` range are now factored exactly around `m=2`; their residual
+polynomials have manifestly positive coefficients and positive constants
+`305`, `2960`, and `25770`.  OPEN is the short endpoint-binomial substitution
+turning these factorizations into all-range remainder nonnegativity, followed
+by the scale induction.
 
 **Off-diagonal shell necessity (2026-07-12).**
 `FusedOffDiagonalCompression` strengthens the rank-one fence: any positive
@@ -4745,6 +4766,15 @@ now closed: at `k=4` the first-crossing condition forces `s=0`, an exact
 rational node-moment computation fits the symbolic cap, and the existing
 bridge yields `weightedTrapezoidResidual 4≤0`.  OPEN is the genuinely uniform
 positive-tail moment bound for `k≥5`, not the finite prefix through four.
+
+The first symbolic ingredient of that uniform bound is now exact.
+`harmonicChordWeight_le_growthIncrement` controls every chord weight by the
+adjacent drift-square increment with factor
+`2+(4p+6)/((k+2)²-1)`.  Its proof uses the lossless geometric-sum identity
+`r^n-1=u·geomSum(r,n)` and keeps the factor asymptotic to two, avoiding the
+earlier lossy next-cell envelope.  OPEN is to telescope this increment bound
+against the node coefficients and fit the resulting cumulative expression
+inside `signedChordMomentCap`.
 
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their

@@ -4156,6 +4156,101 @@ theorem minimalScaled_bulk_recurrence (m r : Nat) (hm : 0 < m)
   rw [hneg]
   ac_rfl
 
+/-! ### The three far-edge coordinates of the through-`b₃` payment -/
+
+private def farThreeLHS : RingNormaliser.PolyExpr :=
+  let m := RingNormaliser.PolyExpr.var 0
+  certAdd (certScale 96 (.pow m 3))
+    (certAdd (certScale (-96) (.pow m 2))
+      (certAdd (certScale (-94) m) (certConst 109)))
+
+private def farThreeRHS : RingNormaliser.PolyExpr :=
+  let m := RingNormaliser.PolyExpr.var 0
+  certAdd
+    (certMul (certSub m (certConst 2))
+      (certAdd (certScale 96 (.pow m 2))
+        (certAdd (certScale 96 m) (certConst 98))))
+    (certConst 305)
+
+private theorem farThree_normal :
+    RingNormaliser.normalize farThreeLHS =
+      RingNormaliser.normalize farThreeRHS := by decide
+
+private theorem farThree_factor_identity (m : Int) :
+    96*(m*m*m)+((-96)*(m*m)+((-94)*m+109)) =
+      (m-2)*(96*(m*m)+(96*m+98))+305 := by
+  have h := cert_int_poly_identity farThreeLHS farThreeRHS farThree_normal
+    (fun _ => m)
+  simpa [farThreeLHS, farThreeRHS, certAdd, certMul, certNeg, certSub,
+    certConst, certScale, certIntEval, certIntPow, Int.sub_eq_add_neg] using h
+
+private def farTwoLHS : RingNormaliser.PolyExpr :=
+  let m := RingNormaliser.PolyExpr.var 0
+  let S := certAdd (certScale 4 m) (certConst 2)
+  let B := certAdd (certScale (-6) m) (certConst 9)
+  let P := farThreeLHS
+  certAdd (certScale 30 B) (certMul P S)
+
+private def farTwoRHS : RingNormaliser.PolyExpr :=
+  let m := RingNormaliser.PolyExpr.var 0
+  certAdd
+    (certMul (certSub m (certConst 2))
+      (certAdd (certScale 384 (.pow m 3))
+        (certAdd (certScale 576 (.pow m 2))
+          (certAdd (certScale 584 m) (certConst 1236)))))
+    (certConst 2960)
+
+private theorem farTwo_normal :
+    RingNormaliser.normalize farTwoLHS =
+      RingNormaliser.normalize farTwoRHS := by decide
+
+private theorem farTwo_factor_identity (m : Int) :
+    30*((-6)*m+9)+
+      (96*(m*m*m)+((-96)*(m*m)+((-94)*m+109)))*(4*m+2) =
+    (m-2)*(384*(m*m*m)+(576*(m*m)+(584*m+1236)))+2960 := by
+  have h := cert_int_poly_identity farTwoLHS farTwoRHS farTwo_normal
+    (fun _ => m)
+  simpa [farTwoLHS, farTwoRHS, farThreeLHS, certAdd, certMul, certNeg,
+    certSub, certConst, certScale, certIntEval, certIntPow,
+    Int.sub_eq_add_neg] using h
+
+private def farOneDoubledLHS : RingNormaliser.PolyExpr :=
+  let m := RingNormaliser.PolyExpr.var 0
+  let S := certAdd (certScale 4 m) (certConst 2)
+  let A := certAdd (certScale (-4) m) (certConst 10)
+  let B := certAdd (certScale (-6) m) (certConst 9)
+  let P := farThreeLHS
+  certAdd (certScale 60 A)
+    (certAdd (certScale 60 (certMul B S))
+      (certMul P (certMul S (certSub S (certConst 1)))))
+
+private def farOneDoubledRHS : RingNormaliser.PolyExpr :=
+  let m := RingNormaliser.PolyExpr.var 0
+  certAdd
+    (certMul (certSub m (certConst 2))
+      (certAdd (certScale 1536 (.pow m 4))
+        (certAdd (certScale 2688 (.pow m 3))
+          (certAdd (certScale 2912 (.pow m 2))
+            (certAdd (certScale 4808 m) (certConst 11936))))))
+    (certConst 25770)
+
+private theorem farOneDoubled_normal :
+    RingNormaliser.normalize farOneDoubledLHS =
+      RingNormaliser.normalize farOneDoubledRHS := by decide
+
+private theorem farOneDoubled_factor_identity (m : Int) :
+    60*((-4)*m+10)+
+      (60*(((-6)*m+9)*(4*m+2))+
+        (96*(m*m*m)+((-96)*(m*m)+((-94)*m+109)))*
+          ((4*m+2)*(4*m+2-1))) =
+    (m-2)*(1536*(m*m*m*m)+(2688*(m*m*m)+(2912*(m*m)+
+      (4808*m+11936))))+25770 := by
+  have h := cert_int_poly_identity farOneDoubledLHS farOneDoubledRHS
+    farOneDoubled_normal (fun _ => m)
+  simpa [farOneDoubledLHS, farOneDoubledRHS, farThreeLHS, certAdd,
+    certMul, certNeg, certSub, certConst, certScale, certIntEval,
+    certIntPow, Int.sub_eq_add_neg] using h
+
 end YMGap.Continuum.ThetaResidualPascalTelescope
 
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.bernMon_left_extract
