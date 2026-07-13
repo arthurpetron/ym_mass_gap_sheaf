@@ -4874,6 +4874,16 @@ hypotheses force `s=0` at those scales.  The remaining analytic statement is
 therefore the single uniform proposition `UniformQuadraticNodeCap` for all
 `k≥5`, not another downstream Abel or Schur lemma.
 
+`HarmonicQuadraticCapAll` reduces that uniform proposition further to two
+seed carriers.  If the node-one terminal gap is nonnegative, suffix
+monotonicity controls every crossing `s≥1` by the `s=1` carrier, leaving only
+the `s=0,1` caps.  A cleared normalized barrier
+`6 + 3/(2(k+2)) ≤ 864/125` implies each raw cap; exact certificates close both
+seeds at `k=5,6`.  A kernel fence shows the normalized `s=1` carrier increases
+from `k=5` to `k=6`, so naive antitonicity is false.  This lane now asks for the
+all-scale node-one boundary and preservation of the two cleared barrier
+certificates, not all possible crossings independently.
+
 `HarmonicSchurRotationAll` records the complete conditional payoff without
 hiding the moving-cutoff cost.  `UniformQuadraticNodeCap` implies the all-scale
 weighted residual and the coefficient-two fixed-cutoff weight determinant.
@@ -4884,6 +4894,25 @@ cover `k<38`.  Consequently the same single cap implies the all-scale
 mass/shell, Schur, and coupled-operator spacing laws.  This also fences a
 normalization error: the fixed-cutoff coefficient-two estimate alone does not
 control the positive shifted shell.
+
+`HarmonicMovingDeterminantDirect` now preserves the shifted shell instead of
+paying for it separately.  It proves an exact iff between the original
+shell/spacing step and one division-free full moving determinant, then expands
+that determinant as `spacing payment + diagonal reserve - positive demand`.
+The diagonal shifted-shell reserve is proved nonnegative and retained with its
+favorable sign.  The coupled comparison is exactly equivalent to the target,
+not a stronger surrogate, and the existing exact anchors discharge it through
+`k=37`.  The independent direct lane's remaining all-scale statement is the
+explicit coupled inequality `movingPositiveDemand ≤ movingSpacingPayment +
+movingDiagonalReserve` for `k≥38`.
+
+`HarmonicMovingDeterminantTail` fences the first asymptotic termwise attack on
+that residual.  Scaling the natural oriented covariance allocation by `25/9`
+spends exactly the full leading `50/9·(k+2)^{-2}` product budget, but a closed
+`k=38`, `(i,j)=(0,0)` calculation proves that even this generous symmetrized
+pointwise envelope fails strictly.  The tail proof must therefore transport
+negative off-diagonal reserve globally, or use an equivalent cross-scale
+recurrence; it cannot close by bounding each moving-kernel cell independently.
 
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their
@@ -4914,6 +4943,42 @@ the coefficient-two physical harmonic mass-drop estimate; the absorption and
 canonical-tail wiring are no longer open.  The relaxed `13/2` Schur lane above
 is independent and can close operator spacing without first proving that sharp
 additive constant.
+
+`HarmonicPolymerBudgetBridge` removes a separate apparent obligation on the
+polymer lane.  It proves exactly that shifting into `afDefectSeq` changes only
+the starting index of the finite tail sum, imports the already-proved
+inverse-square bound at the derived canonical cutoff `144`, and kernel-checks
+that the resulting closed rational budget is `< 1`.  Therefore any
+`HarmonicTrueMarginDrop` now yields the existing positive multiscale
+true-margin/polymer floor with no additional summability hypothesis.  This is
+not an inhabitant of the drop: it proves that the model-budget side of the
+polymer assembly is closed and leaves only the same cross-scale physical
+estimate.
+
+`HarmonicTransferOperatorIdentification` resolves the honest operator-level
+scope of the harmonic mass.  The existing reflection-positive GNS character
+transfer has an invariant fundamental line with eigenvalue `harmW k ^ 3`, while
+the fused harmonic line has eigenvalue `lamPW`; the two are kernel-proved
+unequal at `k=0`, and a positive exact rank-one intertwiner is therefore
+impossible.  The compatible bridge is separator domination
+`harmW k ^ 3 ≤ lamPW`, proved at `k=0,1` and isolated as
+`HarmonicTransferSectorDomination`.  Given only this explicit scalar family,
+the fused eigenvalue becomes a located separator for the actual GNS transfer,
+with gap margin definitionally equal to `harmonicMass`, and the operator-form
+gap follows.  The live transfer residual is now this all-scale rational sector
+comparison, not an invalid equality of distinct operators.
+
+`HarmonicTransferSectorDominationAll` closes that comparison structurally at
+every scale.  The zeroth-prefix specialization of the proved full half-edge
+dominance is exactly `D_N·(2w³) ≤ (2A_N)·1`; exact endpoint normalization
+and positive-factor cancellation give `w³D_N ≤ A_N`, hence
+`w³ ≤ A_N/D_N = lamPW`.  Consequently the located character-spectrum gap,
+the spectral-gap datum on the established reflection-positive GNS transfer,
+and its operator-form gap are now unconditional, with margin definitionally
+equal to `harmonicMass`.  Operator identification is therefore closed for the
+finite-character harmonic model; the remaining cross-scale work is the
+spacing/mass recursion and, beyond it, identification of this constructed
+character model with the full four-dimensional interacting continuum tower.
 
 ### Milestone 14.4 — Assemble `singleStep` and the continuum floor
 

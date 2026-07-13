@@ -778,9 +778,15 @@ import YMGap.Continuum.HarmonicThetaPascalClosure
 import YMGap.Continuum.HarmonicSchurRotationK2832
 import YMGap.Continuum.HarmonicSchurRotationK3337
 import YMGap.Continuum.HarmonicSignedChordQuadraticCap
+import YMGap.Continuum.HarmonicQuadraticCapAll
 import YMGap.Continuum.HarmonicSchurRotationAll
+import YMGap.Continuum.HarmonicMovingDeterminantDirect
+import YMGap.Continuum.HarmonicMovingDeterminantTail
 import YMGap.Continuum.HarmonicTrueMarginStep
 import YMGap.Continuum.HarmonicTrueMarginAbsorption
+import YMGap.Continuum.HarmonicPolymerBudgetBridge
+import YMGap.Continuum.HarmonicTransferOperatorIdentification
+import YMGap.Continuum.HarmonicTransferSectorDominationAll
 import YMGap.Continuum.ThetaResidualBernsteinPilot
 import YMGap.Continuum.ThetaResidualPascalTelescope
 import YMGap.Continuum.AllWindowHardyFence
