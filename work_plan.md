@@ -4048,6 +4048,22 @@ two-parameter estimate away from `w=1`: refined Edgeworth remainder plus this
 cutoff tail, and its operator-level identification with the physical transfer
 spectrum.
 
+**Corrected refined carrier and all-window Dirichlet invariant (2026-07-12).**
+`CutoffTailRefinedCarrier` replaces the endpoint-inconsistent pure carrier by
+the one-field analytic statement
+`normEigShift2 ≤ Cq(1-w)^2 + endpointTail(N)`.  The p=2 spectral range is
+derived rather than carried; the bound transports with coefficient one to the
+actual `lamPW` margin, is constructively inhabited at every endpoint with
+`Cq=0`, and at `Ncut(k)` has the exact combined window modulus
+`(Aq+3)·pot(2,N)` once the quadratic analytic term has its inverse-square
+majorant.  Independently, `AllWindowCorrDirichlet` proves for every `w,N` the
+exact SOS identity
+`2(D_N-A_N)=c_0^2+c_N^2+Σ_{a<N}(c_a-c_{a+1})^2` and hence `A_N≤D_N`.
+The sharp defect-free all-window correlation residual is now the concrete
+weighted discrete Poincaré inequality
+`2(1-retuneCube)D_N ≤ boundary+DirichletEnergy`; it remains OPEN and is not
+relabelled as an assumption in the critical path.
+
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their
 dimensionless additive step both at fixed spacing and for any contracting
