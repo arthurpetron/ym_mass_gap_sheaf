@@ -5231,6 +5231,19 @@ sequence to `CReal.czero`, and `breakCoeffLimit ≃ czero`.  Downstream O(4)
 claims must consume this zero-limit result (and then the observable anisotropy
 bound), not bare coefficient Cauchy convergence.
 
+`O4ObservableSymmetryBridge` now performs that next consumption without an
+opaque limiting step.  A `DecayControlledSymmetryResponse` states the precise
+uniform interacting estimate
+`|E_j(g·o)-E_j(o)| ≤ response(o)·breakCoeff_j`.  Nonnegativity of the response
+and the proved AF geometric envelope synthesize
+`LinearGeometricSymmetryFamily` with amplitude
+`response(o)·breakCoeff_0`, so the continuum functional is exactly invariant.
+The moving-plane validation has a nonzero defect at every finite stage and
+reaches exact flip invariance through this coefficient-response route.  The
+remaining physical O(4) input is now the observable response inequality for
+the actual rotation action and Wilson functional; both scalar zero decay and
+the passage from that inequality to exact continuum invariance are proved.
+
 ### Milestone 14.6 — Sharpness/satellite walls (feed, do not block)
 
 13.1 remaining (the `A·B − E·D` decaying envelope → the physical Wilson

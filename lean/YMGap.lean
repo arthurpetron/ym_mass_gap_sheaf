@@ -455,6 +455,7 @@ import YMGap.Continuum.RegularLinearSymmetryLimit
 import YMGap.Continuum.RegularLinearGeometricModulus
 import YMGap.Continuum.RegularLinearGeometricSymmetry
 import YMGap.Continuum.O4RestorationZero
+import YMGap.Continuum.O4ObservableSymmetryBridge
 import YMGap.Continuum.ClusterBoundInstance
 import YMGap.Continuum.SigmaGroundedFloor
 import YMGap.Continuum.NonSaturatedFloor
