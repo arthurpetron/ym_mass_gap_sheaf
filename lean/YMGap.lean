@@ -780,6 +780,7 @@ import YMGap.Continuum.HarmonicSchurRotationK3337
 import YMGap.Continuum.HarmonicSignedChordQuadraticCap
 import YMGap.Continuum.HarmonicQuadraticCapAll
 import YMGap.Continuum.HarmonicQuadraticBoundaryAll
+import YMGap.Continuum.HarmonicDynamicFirstCrossingCap
 import YMGap.Continuum.HarmonicSchurRotationAll
 import YMGap.Continuum.HarmonicMovingDeterminantDirect
 import YMGap.Continuum.HarmonicMovingDeterminantTail

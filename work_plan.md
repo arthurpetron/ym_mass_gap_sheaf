@@ -4896,6 +4896,17 @@ Thus the two-fixed-seed reduction is permanently fenced; the live quadratic
 route must use the dynamically supplied first-crossing hypotheses (or prove a
 genuine all-scale bound on their index) and control its normalized carrier.
 
+`HarmonicDynamicFirstCrossingCap` rules out the latter shortcut as well: at
+the exact finite scale `k=999998`, a constructive theta lower bound and sharp
+retune upper bound prove the seed-two terminal gap is negative, then the
+existing finite crossing search extracts an actual first crossing with `s>2`.
+No fixed bound by the first two seeds is therefore valid.  More importantly,
+the file proves the dynamic local invariant available at every nonzero first
+crossing: its node coefficient is nonpositive and its terminal-gap overshoot
+is at most the magnitude of that coefficient.  The active quadratic proof now
+feeds this local overshoot payment into the positive-tail moment directly,
+with no fixed-seed premise remaining.
+
 `HarmonicSchurRotationAll` records the complete conditional payoff without
 hiding the moving-cutoff cost.  `UniformQuadraticNodeCap` implies the all-scale
 weighted residual and the coefficient-two fixed-cutoff weight determinant.
