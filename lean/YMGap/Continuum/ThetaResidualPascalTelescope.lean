@@ -2309,6 +2309,197 @@ theorem topThree_terminal_pair (D m : Nat) (hm : 0<m)
   rw [hp]
   omega
 
+private theorem five_topThreeDiagInt_one (d : Int) :
+    5*topThreeDiagInt d 1=startThreePoly5 d 1 := by
+  rw [topThreeDiagInt_expanded]
+  unfold startThreePoly5 startThreeA startThreeB startThreeC startThreeE
+  simp [iPow]
+  have hd3 : d*(d*d)=d*d*d := by ac_rfl
+  rw [hd3]
+  have h20 : 20*d*d*d=20*(d*d*d) := by ac_rfl
+  rw [h20]
+  omega
+
+/-- Every supported start-one cleared third-deficit suffix is five times the
+canonical polynomial at its terminal index. -/
+theorem five_reverseTopThreeClosed_start_one (D c : Nat)
+    (hD : 2*(c+1)*(c+1)+1≤D) :
+    5*reverseTopThreeClosed D 1 c=
+      startThreePoly5 (D:Int) ((c:Int)+1) := by
+  induction c with
+  | zero =>
+      simp only [reverseTopThreeClosed]
+      have hd:=topThreeDiagClosed_eq_int D 1 (by decide)
+        (by simpa using hD)
+      rw [hd]
+      simp only [Int.natCast_zero,Int.natCast_one,Int.zero_add]
+      rw [five_topThreeDiagInt_one]
+  | succ c ih =>
+      rw [reverseTopThreeClosed_append]
+      have hprev : 2*(c+1)*(c+1)+1≤D := by
+        have hs : (c+1)*(c+1)≤(c+1+1)*(c+1+1) :=
+          Nat.mul_le_mul (by omega) (by omega)
+        have hs2:=Nat.mul_le_mul_left 2 hs
+        have hs2' : 2*(c+1)*(c+1)≤2*(c+1+1)*(c+1+1) := by
+          simpa only [Nat.mul_assoc] using hs2
+        omega
+      rw [Int.mul_add,Int.mul_sub]
+      rw [ih hprev]
+      have hp:=topThree_terminal_pair D (c+1) (by omega) (by
+        simpa [Nat.add_assoc,Nat.add_left_comm,Nat.add_comm] using hD)
+      simp only [Nat.one_add,Int.natCast_add] at hp ⊢
+      have h1 : ((1:Nat):Int)=(1:Int) := rfl
+      rw [h1] at hp ⊢
+      simp only [Nat.succ_eq_add_one] at hp ⊢
+      rw [Int.mul_sub] at hp
+      omega
+
+private theorem startThreePoly5_minimal_int (x : Int) :
+    startThreePoly5 (2*iPow x 2+1) x=
+      x*(x+1)*(96*iPow x 3-96*iPow x 2-94*x+109) := by
+  have hd2 : (2*iPow x 2+1)*(2*iPow x 2+1)=
+      4*iPow x 4+4*iPow x 2+1 := by
+    simp only [Int.mul_add,Int.add_mul,Int.mul_one,Int.one_mul]
+    have h4 : (2*iPow x 2)*(2*iPow x 2)=4*iPow x 4 := by
+      rw [show (4:Int)=2*2 by decide]; dsimp [iPow]; ac_rfl
+    rw [h4]
+    omega
+  have hd3 : (2*iPow x 2+1)*(2*iPow x 2+1)*(2*iPow x 2+1)=
+      8*iPow x 6+12*iPow x 4+6*iPow x 2+1 := by
+    rw [hd2]
+    simp only [Int.mul_add,Int.add_mul,Int.mul_one,Int.one_mul]
+    have h6 : 4*iPow x 4*(2*iPow x 2)=8*iPow x 6 := by
+      rw [show (8:Int)=4*2 by decide]; dsimp [iPow]; ac_rfl
+    have h4 : 4*iPow x 2*(2*iPow x 2)=8*iPow x 4 := by
+      rw [show (8:Int)=4*2 by decide]; dsimp [iPow]; ac_rfl
+    rw [h6,h4]
+    omega
+  unfold startThreePoly5 startThreeA startThreeB startThreeC startThreeE
+  have h20d3 : 20*(2*iPow x 2+1)*(2*iPow x 2+1)*(2*iPow x 2+1)=
+      20*((2*iPow x 2+1)*(2*iPow x 2+1)*(2*iPow x 2+1)) := by ac_rfl
+  rw [h20d3,hd3,hd2]
+  have hA : 20*(8*iPow x 6+12*iPow x 4+6*iPow x 2+1)*(iPow x 2+x)=
+      160*iPow x 8+160*iPow x 7+240*iPow x 6+240*iPow x 5+
+      120*iPow x 4+120*iPow x 3+20*iPow x 2+20*x := by
+    simp only [Int.mul_add,Int.add_mul]
+    have t1 : 20*(8*iPow x 6)*iPow x 2=160*iPow x 8 := by
+      rw [show (160:Int)=20*8 by decide]; dsimp [iPow]; ac_rfl
+    have t2 : 20*(12*iPow x 4)*iPow x 2=240*iPow x 6 := by
+      rw [show (240:Int)=20*12 by decide]; dsimp [iPow]; ac_rfl
+    have t3 : 20*(6*iPow x 2)*iPow x 2=120*iPow x 4 := by
+      rw [show (120:Int)=20*6 by decide]; dsimp [iPow]; ac_rfl
+    have t4 : 20*1*iPow x 2=20*iPow x 2 := by ac_rfl
+    have t5 : 20*(8*iPow x 6)*x=160*iPow x 7 := by
+      rw [show (160:Int)=20*8 by decide]; dsimp [iPow]; ac_rfl
+    have t6 : 20*(12*iPow x 4)*x=240*iPow x 5 := by
+      rw [show (240:Int)=20*12 by decide]; dsimp [iPow]; ac_rfl
+    have t7 : 20*(6*iPow x 2)*x=120*iPow x 3 := by
+      rw [show (120:Int)=20*6 by decide]; dsimp [iPow]; ac_rfl
+    have t8 : 20*1*x=20*x := by ac_rfl
+    rw [t1,t2,t3,t4,t5,t6,t7,t8]
+    omega
+  have hB : (4*iPow x 4+4*iPow x 2+1)*
+      (-120*iPow x 4-180*iPow x 3-30*iPow x 2+30*x)=
+      -480*iPow x 8-720*iPow x 7-600*iPow x 6-600*iPow x 5-
+      240*iPow x 4-60*iPow x 3-30*iPow x 2+30*x := by
+    simp only [Int.mul_add,Int.add_mul,Int.mul_sub]
+    have t1 : 4*iPow x 4*(120*iPow x 4)=480*iPow x 8 := by
+      rw [show (480:Int)=4*120 by decide]; dsimp [iPow]; ac_rfl
+    have t2 : 4*iPow x 4*(180*iPow x 3)=720*iPow x 7 := by
+      rw [show (720:Int)=4*180 by decide]; dsimp [iPow]; ac_rfl
+    have t3 : 4*iPow x 4*(30*iPow x 2)=120*iPow x 6 := by
+      rw [show (120:Int)=4*30 by decide]; dsimp [iPow]; ac_rfl
+    have t4 : 4*iPow x 4*(30*x)=120*iPow x 5 := by
+      rw [show (120:Int)=4*30 by decide]; dsimp [iPow]; ac_rfl
+    have t5 : 4*iPow x 2*(120*iPow x 4)=480*iPow x 6 := by
+      rw [show (480:Int)=4*120 by decide]; dsimp [iPow]; ac_rfl
+    have t6 : 4*iPow x 2*(180*iPow x 3)=720*iPow x 5 := by
+      rw [show (720:Int)=4*180 by decide]; dsimp [iPow]; ac_rfl
+    have t7 : 4*iPow x 2*(30*iPow x 2)=120*iPow x 4 := by
+      rw [show (120:Int)=4*30 by decide]; dsimp [iPow]; ac_rfl
+    have t8 : 4*iPow x 2*(30*x)=120*iPow x 3 := by
+      rw [show (120:Int)=4*30 by decide]; dsimp [iPow]; ac_rfl
+    have tn1 : 4*iPow x 4*(-120*iPow x 4)=-480*iPow x 8 := by
+      rw [show (-480:Int)=4*(-120) by decide]; dsimp [iPow]; ac_rfl
+    have tn5 : 4*iPow x 2*(-120*iPow x 4)=-480*iPow x 6 := by
+      rw [show (-480:Int)=4*(-120) by decide]; dsimp [iPow]; ac_rfl
+    simp only [Int.mul_neg,Int.one_mul]
+    rw [tn1,tn5,t2,t3,t4,t6,t7,t8]
+    omega
+  have hC : (2*iPow x 2+1)*
+      (240*iPow x 6+480*iPow x 5+120*iPow x 4-120*iPow x 3+
+        40*iPow x 2+40*x)=
+      480*iPow x 8+960*iPow x 7+480*iPow x 6+240*iPow x 5+
+      200*iPow x 4-40*iPow x 3+40*iPow x 2+40*x := by
+    simp only [Int.mul_add,Int.add_mul,Int.mul_sub]
+    have t1 : 2*iPow x 2*(240*iPow x 6)=480*iPow x 8 := by
+      rw [show (480:Int)=2*240 by decide]; dsimp [iPow]; ac_rfl
+    have t2 : 2*iPow x 2*(480*iPow x 5)=960*iPow x 7 := by
+      rw [show (960:Int)=2*480 by decide]; dsimp [iPow]; ac_rfl
+    have t3 : 2*iPow x 2*(120*iPow x 4)=240*iPow x 6 := by
+      rw [show (240:Int)=2*120 by decide]; dsimp [iPow]; ac_rfl
+    have t4 : 2*iPow x 2*(120*iPow x 3)=240*iPow x 5 := by
+      rw [show (240:Int)=2*120 by decide]; dsimp [iPow]; ac_rfl
+    have t5 : 2*iPow x 2*(40*iPow x 2)=80*iPow x 4 := by
+      rw [show (80:Int)=2*40 by decide]; dsimp [iPow]; ac_rfl
+    have t6 : 2*iPow x 2*(40*x)=80*iPow x 3 := by
+      rw [show (80:Int)=2*40 by decide]; dsimp [iPow]; ac_rfl
+    rw [t1,t2,t3,t4,t5,t6]
+    omega
+  have hR : x*(x+1)*(96*iPow x 3-96*iPow x 2-94*x+109)=
+      96*iPow x 5-190*iPow x 3+15*iPow x 2+109*x := by
+    simp only [Int.mul_add,Int.add_mul,Int.mul_sub,Int.mul_one]
+    have t1 : x*x*(96*iPow x 3)=96*iPow x 5 := by dsimp [iPow]; ac_rfl
+    have t2 : x*x*(96*iPow x 2)=96*iPow x 4 := by dsimp [iPow]; ac_rfl
+    have t3 : x*x*(94*x)=94*iPow x 3 := by dsimp [iPow]; ac_rfl
+    have t4 : x*x*109=109*iPow x 2 := by dsimp [iPow]; ac_rfl
+    have t5 : x*(96*iPow x 3)=96*iPow x 4 := by dsimp [iPow]; ac_rfl
+    have t6 : x*(96*iPow x 2)=96*iPow x 3 := by dsimp [iPow]; ac_rfl
+    have t7 : x*(94*x)=94*iPow x 2 := by dsimp [iPow]; ac_rfl
+    rw [t1,t2,t3,t4,t5,t6,t7]
+    omega
+  rw [hA,hB,hC,hR]
+  omega
+
+/-- Exact division-free third-deficit coefficient of the minimal start-one
+tail.  This is the identity `30 b₃ = m(m+1)P(m)`. -/
+theorem minimalBase_deficit_three (m : Nat) (hm : 0<m) :
+    30*reverseTailCoeff (2*m*m+1) 1 (2*m*m-2) (m-1)=
+      (m:Int)*((m:Int)+1)*
+        (96*iPow (m:Int) 3-96*iPow (m:Int) 2-94*(m:Int)+109) := by
+  have hend : 1+(m-1)=m := by omega
+  have hD : 2*(1+(m-1))*(1+(m-1))+1≤2*m*m+1 := by
+    rw [hend]
+    exact Nat.le_refl _
+  have ht:=six_mul_reverseTailCoeff_top_three (2*m*m+1) 1 (m-1)
+    (by decide) hD
+  have h5:=five_reverseTopThreeClosed_start_one (2*m*m+1) (m-1) (by
+    have hc : m-1+1=m := by omega
+    rw [hc]
+    exact Nat.le_refl _)
+  have hc : (((m-1):Nat):Int)+1=(m:Int) := by
+    have hn : m-1+1=m := by omega
+    have hi:=congrArg Int.ofNat hn
+    simpa only [Int.natCast_add] using hi
+  rw [hc] at h5
+  have hd : ((2*m*m+1:Nat):Int)=2*iPow (m:Int) 2+1 := by
+    simp only [Int.natCast_add,Int.natCast_mul]
+    have h1 : ((1:Nat):Int)=(1:Int) := rfl
+    have h2 : ((2:Nat):Int)=(2:Int) := rfl
+    rw [h1,h2]
+    dsimp [iPow]
+    ac_rfl
+  rw [hd,startThreePoly5_minimal_int] at h5
+  have hidx : 2*m*m+1-3=2*m*m-2 := by omega
+  rw [hidx] at ht
+  calc
+    30*reverseTailCoeff (2*m*m+1) 1 (2*m*m-2) (m-1) =
+        5*(6*reverseTailCoeff (2*m*m+1) 1 (2*m*m-2) (m-1)) := by
+          rw [show (30:Int)=5*6 by decide]
+          ac_rfl
+    _ = 5*reverseTopThreeClosed (2*m*m+1) 1 (m-1) := by rw [ht]
+    _ = _ := h5
+
 private def topTwoDiagInt (d x : Int) : Int :=
   4*iPow x 2*(d-2*iPow x 2)*(d-2*iPow x 2)+2*iPow x 2
 
@@ -2668,5 +2859,7 @@ end YMGap.Continuum.ThetaResidualPascalTelescope
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.choose_top_add_linear
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.startThreePoly5_step
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.topThree_terminal_pair
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.five_reverseTopThreeClosed_start_one
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.minimalBase_deficit_three
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.choose_adjacent_cross
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.choose_remainder_off_double

@@ -4344,6 +4344,23 @@ the mass floor at `k=29`; the structural all-scale residual remains the
 growing-anchor retained-head/theta inequality rather than its already-closed
 PF2 tail.
 
+`HarmonicFixedElevenPrefix` advances the exact retune, `lamPW`, and mass-floor
+ladder through `k=29,30,31,32,33`; its eleven-head inequality first fails at
+`k=34`.  In particular the checked pass at `k=33` refutes the extrapolated
+four-scale endpoint law `4a-11` at `a=11`, so that finite pattern is not a
+valid symbolic replacement for the growing-anchor head theorem.  Exact mass
+ratios at `k=28,29,30,31,32` feed `HarmonicSchurRotationK2832`, extending the
+cumulative Schur/coupled-operator spacing theorem through `k≤32`.  OPEN at
+`k=33` is the next mass floor (`k=34`), while the all-scale residual remains
+the uniform retained-head inequality along a derived variable-anchor schedule.
+
+`HarmonicSymbolicAnchorRatio` removes one artificial source of finite-module
+growth.  For every symbolic anchor `b` it proves the exact division-free law
+`(b+1)c_(b+1) ≃ ((b+2)w^(2b+3))c_b`; a cross-multiplied scalar bound now
+implies the next-mode PF2 step without generating a new coefficient polynomial
+for each `b`.  OPEN is the uniform retained-head inequality and its scalar
+ratio bound along a derived variable anchor schedule.
+
 **Cleared theta-polynomial audit (2026-07-12).**
 `ThetaResidualBernsteinPilot` gives exact positive Bernstein decompositions of
 the cleared retune residual at cutoffs one and two (degrees 11 and 23).  It also
@@ -4438,8 +4455,11 @@ uniform half of the through-`b₃` induction remainder.  The terminal cubic
 pair is now exact as well: `topThree_terminal_pair` identifies five times the
 third-deficit diagonal/off-diagonal boundary with the finite difference of
 `startThreePoly5`, using separated cubic/quadratic/linear/constant integer
-blocks.  OPEN is the resulting adjacent-binomial payment of the two negative
-boundary terms by `b₃`, followed by the final signed elevation.
+blocks.  The complete minimal-base third deficit is now collapsed exactly to
+`30 R = m(m+1)(96m³-96m²-94m+109)`, replacing that reverse suffix by an
+explicit positive polynomial.  OPEN is the adjacent-binomial payment of the
+two negative boundary terms by `b₃`, the `r=4,5` boundary remainder, and then
+the final through-`b₃` signed elevation.
 
 **Off-diagonal shell necessity (2026-07-12).**
 `FusedOffDiagonalCompression` strengthens the rank-one fence: any positive
@@ -4609,6 +4629,15 @@ and an endpoint-slack identity yields
 `terminal_carrier_total_gap_fails_k17`.  OPEN is therefore cancellation in the
 *weighted* chord/geometric sum directly; termwise nonnegative carrier gaps are
 no longer an admissible global target.
+
+`HarmonicSignedChordAbsorption` now supplies the correct signed replacement.
+A constructive first-nonnegative search selects a crossing index `s`; exact
+one-crossing propagation proves all earlier terminal gaps nonpositive and all
+later gaps nonnegative.  Early products with the positive drift increment can
+therefore be discarded with their true sign, while the chord envelope is used
+only on the positive tail.  This proves existence of an exact signed-chord
+envelope for every `k,L` even when `T_L<T₀`.  OPEN is solely the quantitative
+upper bound on the resulting `signedChordSum` by the target defect budget.
 
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their
