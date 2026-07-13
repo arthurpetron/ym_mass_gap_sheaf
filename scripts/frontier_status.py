@@ -111,10 +111,9 @@ def parse_axiom_baseline(path: Path) -> dict[str, set[str]]:
 def parse_lake_output(output: str) -> dict[str, set[str]]:
     """Parse a `lake build` log into {name: axioms} (empty set = axiom-free)."""
     result: dict[str, set[str]] = {}
-    for line in output.splitlines():
-        m = THEOREM_PATTERN.search(line)
-        if not m:
-            continue
+    # `#print axioms` output for long names may wrap inside the axiom list.
+    # Match over the whole log so `[propext,\n Quot.sound]` remains visible.
+    for m in THEOREM_PATTERN.finditer(output):
         axioms_str = m.group("axioms")
         result[m.group("name")] = (
             set() if axioms_str is None

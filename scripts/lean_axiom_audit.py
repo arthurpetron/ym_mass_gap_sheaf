@@ -84,10 +84,11 @@ THEOREM_PATTERN = re.compile(
 def parse_lake_output(output: str) -> dict[str, set[str]]:
     """Parse `lake build` output; return {theorem_name: set_of_axioms}."""
     result: dict[str, set[str]] = {}
-    for line in output.splitlines():
-        m = THEOREM_PATTERN.search(line)
-        if not m:
-            continue
+    # Lean's formatter may wrap a long `#print axioms` declaration between
+    # comma-separated axioms, for example `[propext,\n Quot.sound]`.  Search
+    # the complete output instead of one physical line at a time so those
+    # load-bearing declarations are not silently omitted from the audit.
+    for m in THEOREM_PATTERN.finditer(output):
         name = m.group("name")
         axioms_str = m.group("axioms")
         if axioms_str is None:

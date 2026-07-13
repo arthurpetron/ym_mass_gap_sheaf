@@ -4865,6 +4865,26 @@ OPEN is the uniform quadratic-node cap for all admissible first crossings at
 `k≥5`; this is strictly sharper than the refuted linear endpoint pull and is
 already compatible with the tight first scale.
 
+`HarmonicSignedChordQuadraticCap` now exposes that carrier losslessly as an
+explicit positive-tail sum.  Every quadratic carrier weight is nonnegative,
+and a suffix-monotonicity theorem proves that moving an admissible crossing to
+the right can only decrease the carrier.  Exact kernel reductions close the
+full admissible-crossing cap at both `k=5` and `k=6`; the first-crossing
+hypotheses force `s=0` at those scales.  The remaining analytic statement is
+therefore the single uniform proposition `UniformQuadraticNodeCap` for all
+`k≥5`, not another downstream Abel or Schur lemma.
+
+`HarmonicSchurRotationAll` records the complete conditional payoff without
+hiding the moving-cutoff cost.  `UniformQuadraticNodeCap` implies the all-scale
+weighted residual and the coefficient-two fixed-cutoff weight determinant.
+The added adjacent shell is separately bounded by `9/2·(k+2)⁻²`, yielding the
+honest total mass-drop coefficient `13/2`.  The already-proved quadratic mass
+floor absorbs that relaxed coefficient from `k≥38`; exact rational anchors
+cover `k<38`.  Consequently the same single cap implies the all-scale
+mass/shell, Schur, and coupled-operator spacing laws.  This also fences a
+normalization error: the fixed-cutoff coefficient-two estimate alone does not
+control the positive shifted shell.
+
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their
 dimensionless additive step both at fixed spacing and for any contracting
@@ -4876,6 +4896,24 @@ spacings 1 and 2 gives different margins, and another records that the pinned
 legacy `FrontierDAG.trueMargin` field is type-independent of its `G/L` indices.
 The remaining physical bridge is operator-level transfer-spectrum
 identification along the actual spacing schedule, not a scalar equality field.
+
+`HarmonicTrueMarginStep` now instantiates the concrete finite-character margin
+as `harmonicMass/harmonicSpacing`, aligns the canonical AF tail exactly with the
+harmonic trajectory (the derived cutoff is `144`), supplies its positive anchor
+and quadratic floor, and converts an exact harmonic step into the existing
+`SingleStepDefectBound` carrier.  A closed `k=5` counterexample proves that the
+two pointwise mass floors alone cannot imply this recursion.
+
+`HarmonicTrueMarginAbsorption` closes all scalar arithmetic after a sharp
+coefficient-two additive mass drop.  The exact renormalized defect retains a
+`4·harmU²` payment; together with reciprocal-quadratic spacing contraction and
+the harmonic mass floor this absorbs the full additive erosion.  Constructive
+cross-multiplied quotient algebra then proves the required multiplicative
+dimensionless-margin step.  Thus the sharp lane's remaining input is precisely
+the coefficient-two physical harmonic mass-drop estimate; the absorption and
+canonical-tail wiring are no longer open.  The relaxed `13/2` Schur lane above
+is independent and can close operator spacing without first proving that sharp
+additive constant.
 
 ### Milestone 14.4 — Assemble `singleStep` and the continuum floor
 
