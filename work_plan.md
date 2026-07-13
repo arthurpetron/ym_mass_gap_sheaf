@@ -4926,6 +4926,19 @@ pointwise envelope fails strictly.  The tail proof must therefore transport
 negative off-diagonal reserve globally, or use an equivalent cross-scale
 recurrence; it cannot close by bounding each moving-kernel cell independently.
 
+`HarmonicMovingDeterminantRecurrence` implements that global alternative.  It
+keeps the full antisymmetric residual rectangle, reconstructs twice the moving
+mass determinant exactly, and defines a cutoff-normalized slack satisfying the
+conservation law `slack + totalDemand ≈ payment`.  The adjacent-scale balance
+is proved equivalent to monotonicity of this global slack, so no cellwise sign
+or pointwise envelope is reintroduced.  A derived dyadic tail modulus plus
+finite exact heads gives certified rational intervals for `D_k`, the mass, and
+`D_k-A_k` at `k=37,38,39`, and exact positive-product boundary forms for the
+last banked slack and first tail slack.  These bounds leave a strict rational
+margin for the `37→38` transition; the final order composition is being proved
+in the next leaf, after which the same recurrence needs an all-tail
+preservation mechanism rather than another finite computation.
+
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their
 dimensionless additive step both at fixed spacing and for any contracting
