@@ -367,7 +367,7 @@ theorem coordNormSq_ge_one {w : Q'} (hw0 : (0 : Q') ≤ w) (N : Nat) :
   exact Q'.le_trans' _ _ _ hv
     (Q'.le_of_eqv (Q'.eqv_trans _ _ _ (Q'.eqv_symm hb) hd))
 
-private theorem vacNorm_fundamental_eq_ratio {w : Q'}
+theorem vacNorm_fundamental_eq_ratio {w : Q'}
     (hw0 : (0 : Q') ≤ w) (hw1 : w ≤ (1 : Q')) (N : Nat) :
     vacNorm N 2 (by decide) hw0 hw1 1 ≈
       Q'.divPos (adjCorr w N) (coordNormSq w N)

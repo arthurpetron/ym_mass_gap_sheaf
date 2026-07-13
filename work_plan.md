@@ -4077,6 +4077,37 @@ finite-sum Lipschitz continuity cannot close the budget; the live mechanism
 must exploit the refined Edgeworth cancellation or the sharp Dirichlet
 Poincaré inequality.
 
+**Operator realization and spacing fence (2026-07-12).**
+`CorrectedCarrierOperatorBridge` realizes `lamPW` as the diagonal eigenvalue
+of an explicit finite self-adjoint transfer operator, transports the corrected
+quadratic-plus-tail bound into a located spectral gap, and lifts the moving
+defect window modulus to that genuine operator spectrum.  Fixed-spacing mass
+transport is proved without scalar pins.  Two exact fences prevent a false
+physical closure: same-scale `lamPW=retEig2` fails already at `N=3,w=1`, and
+a stationary positive operator mass does not satisfy an arbitrary change of
+spacing.  The remaining physical theorem is therefore an RG operator
+intertwiner with the actual spacing cross-multiplication law.
+
+**Hardy localization adjudication (2026-07-12).**
+`AllWindowHardyFence` machine-refutes the natural cutoff-independent endpoint
+weights `K₀=0,K₁=1/4` at `w=9/10`: the first local step misses by exactly
+`1081/15625`.  At the same point the global `N=1` retune residual remains
+strictly positive and the Poincaré slack is exactly twice it.  Thus the global
+target survives, while termwise endpoint-weight localization is BLOCKED.  A
+successful proof must use `w`-dependent/index-coupled weights or a nonlocal
+theta/Abel summation mechanism.
+
+**Refined endpoint-Taylor fence (2026-07-12).**
+`RefinedEndpointQuadraticFence` proves exact cutoff-one bounds
+`2/5 ≤ vacNorm ≤ 1/2` on `3/4≤w≤1` and shows that subtracting the derived
+endpoint tail still leaves an unavoidable linear scale.  A closed rational
+instance refutes a quadratic envelope even with coefficient `10^6` at
+`w=1-10^-7`, and the exposed harmonic linear scale has unbounded partial
+sums.  Thus the refined base correction alone does not manufacture a
+fixed-cutoff quadratic remainder; the viable route must couple cutoff and
+weight inside a genuine local-CLT/Edgeworth cancellation, rather than Taylor
+expand at fixed `N`.
+
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their
 dimensionless additive step both at fixed spacing and for any contracting
