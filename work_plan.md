@@ -5206,6 +5206,18 @@ Yang--Mills input on this branch is consequently the uniform local anisotropy
 estimate for the physically selected approximating rotation; the transport
 from that estimate to exact continuum symmetry is closed.
 
+`O4RestorationZero` repairs a semantic overstatement in the earlier AF lane.
+The old internal predicate `O4RestorationAF.RotationRestored` is definitionally
+only the Cauchy property of the rotation-breaking coefficient; a closed
+constant-one schedule is now proved Cauchy but not vanishing, so Cauchy
+convergence cannot itself mean restoration.  The actual
+`ScalingDimensionDecay` hypothesis is strong enough: its geometric envelope,
+combined with the least-cutoff tail bound, proves the sharper
+`RotationBreakingVanishes` statement, convergence of the lifted coefficient
+sequence to `CReal.czero`, and `breakCoeffLimit ≃ czero`.  Downstream O(4)
+claims must consume this zero-limit result (and then the observable anisotropy
+bound), not bare coefficient Cauchy convergence.
+
 ### Milestone 14.6 — Sharpness/satellite walls (feed, do not block)
 
 13.1 remaining (the `A·B − E·D` decaying envelope → the physical Wilson
