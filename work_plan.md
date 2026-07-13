@@ -4288,8 +4288,13 @@ with the correlation residual at `k=10`.
 certificates, and tail ratio `(7/6)w^13` close the PF2 tail without cutoff
 enumeration.  The quotient, `lamPW`, and harmonic mass-floor prefix therefore
 reach `k≤12`; the first correlation residual is `k=13` (`w=14/15`).  The
-Schur/operator prefix remains `k≤9` pending the corresponding three exact D/A
-cross transports.
+Schur/operator prefix initially remained `k≤9`.
+
+`HarmonicSchurRotationK101112` discharges the three corresponding
+division-free D/A crosses and factors their exact ratio-to-spacing arithmetic
+through one reusable normalizer lemma.  The Schur and coupled-operator prefix
+therefore also reaches `k≤12`; all finite-prefix layers again have first
+residual `k=13`.
 
 **Cleared theta-polynomial audit (2026-07-12).**
 `ThetaResidualBernsteinPilot` gives exact positive Bernstein decompositions of
