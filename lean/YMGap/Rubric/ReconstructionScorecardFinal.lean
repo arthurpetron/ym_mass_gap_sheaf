@@ -26,9 +26,10 @@ handful of deliberately-uninhabited `Type`-level tokens.
   * `rcScaleClosed` — the `RC`-by-`Q'` scaling residual is CLOSED
     (`RCScaleClose.rcScaleResidualPlus`): `RCscale s = ofQ' s · (·)` with
     nonnegative-scalar monotonicity and the scale-over-finite-sum law.
-  * `o4Restored` — the physical-model `O(4)` rotation-breaking coefficient
-    genuinely CONVERGES to `0` (`O4BetaSign.o4_restored_of_tauModel`), fired from
+  * `o4Restored` — the reciprocal-model rotation-breaking coefficient satisfies
+    the legacy Cauchy predicate (`O4BetaSign.o4_restored_of_tauModel`), fired from
     the reciprocal asymptotic-freedom trajectory with NO posited `betaDrop`.
+    This field does not state a zero limit or observable O(4) covariance.
   * `betaDropDerived` — the `CouplingRunning` whose `betaDrop` is DERIVED from
     trajectory antitonicity via `couplingRunningOfTrajectory` (the posited sign
     field replaced by a proved consequence).
@@ -205,8 +206,9 @@ theorem statusW_pos : (0 : Q') < statusW := by decide
 /-- **CAPSTONE — the reconstruction/OS status is INHABITED, unconditionally.**
 A fully concrete `ReconstructionStatus` over the weighted GNS completion at
 `w = gw`, bundling only the PROVED-UNCONDITIONAL fields (mass gap `Δ = −log sep`,
-GNS scalar action, located spectrum-inf, invertible `O(4)` automorphism + physical
-`O(4)` convergence with derived `betaDrop`, uniform-in-coupling surrogate, closed
+GNS scalar action, located spectrum-inf, an invertible order-four model
+automorphism plus the legacy anisotropy-Cauchy predicate with derived `betaDrop`,
+uniform-in-coupling surrogate, closed
 `RC`-scaling, real-line loopy decay).  No open token is consumed. -/
 def all_fixed_spacing_reconstruction_proved :
     ReconstructionStatus (qSmulGNS statusW statusW_nonneg)

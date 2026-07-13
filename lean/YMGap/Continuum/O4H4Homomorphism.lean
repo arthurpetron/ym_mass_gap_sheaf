@@ -9,7 +9,7 @@ from the PROVED two-loop trajectory certificate.
 to a single per-step SIGN condition `betaDrop_nonneg : ∀ k, 0 ≤ betaDrop k` — the
 asymptotic-freedom statement that the dimensionless rotation-breaking coupling
 runs downhill under blocking (`β ≤ 0`).  Downstream, `rubricO4Restoration_of_coupling`
-turns any `CouplingRunning` into the open Clay clause `RubricO4Restoration`.
+turns any `CouplingRunning` into the weak legacy slot `RubricO4Restoration`.
 
 Separately, `AFTrajectoryCertificate` packages the NAMED two-loop physics — the
 recurrence WITH an explicit cubic remainder `E`
@@ -34,13 +34,14 @@ assumption.  Composing with `rubricO4Restoration_of_coupling` yields
 
 # Honest scope / what stays open
 
-This does NOT discharge O(4) restoration.  It RELOCATES the single open residual
-from the bare per-step sign `betaDrop_nonneg` to the certificate field
+This does NOT discharge O(4) restoration.  It derives a physically motivated
+scalar-decay witness from the certificate field
 `recurrence` — the NAMED two-loop lattice-perturbation input (Lüscher–Weisz
 shape) with its explicit cubic remainder constant `E`.  Inhabiting the certificate
 with the true 4D interacting rotation-breaking coupling's remainder constant
-remains the physics obligation.  This is a genuine SHARPENING of the reduction
-(bare sign ⟶ named recurrence-with-remainder), not a closure.
+remains a physics obligation for the scalar model.  Since the destination
+predicate is independently trivially inhabitable, this is not a sharpening of
+the Clay statement itself and supplies no observable covariance.
 
 # Axiom-gate (AGENTS.md Rules 1, 8)
 
@@ -134,18 +135,17 @@ def couplingRunning_of_AFCertificate
     exact Q'.sub_nonneg_of_le hle
   run_step := fun k => reconstruct_eqv (C.τ (C.k0 + k)) (C.τ (C.k0 + k + 1))
 
-/-! ## 2. The composition — certificate ⇒ the open Clay clause
+/-! ## 2. The composition — certificate ⇒ the weak legacy slot
 
 Composing the bridge with the downstream wiring
-`rubricO4Restoration_of_coupling` fires the open O(4)-restoration Clay clause
-from the two-loop trajectory certificate.  The single open residual is now the
-certificate's `recurrence` field (the named remainder-bounded two-loop running),
-strictly deeper than the bare per-step sign. -/
+`rubricO4Restoration_of_coupling` fires the weak scalar slot from the two-loop
+trajectory certificate.  This records provenance for one witness, but the slot
+does not require that provenance and is not full O4 restoration. -/
 
-/-- **The composition.**  The open O(4)-restoration Clay clause fires from an
-`AFTrajectoryCertificate`: the physical content is the certificate's
+/-- **The composition.**  The weak legacy slot fires from an
+`AFTrajectoryCertificate`: the scalar content is the certificate's
 `recurrence` (the named two-loop lattice-perturbation running with explicit cubic
-remainder `E`), NOT the bare per-step sign `betaDrop_nonneg`. -/
+remainder `E`), but no same-action observable covariance follows. -/
 theorem rubricO4Restoration_of_AFCertificate
     (C : AFTrajectoryCertificate.AFTrajectoryCertificate) :
     YMGap.Rubric.ClayScorecard.RubricO4Restoration :=

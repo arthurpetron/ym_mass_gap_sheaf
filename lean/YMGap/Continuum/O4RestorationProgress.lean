@@ -1,5 +1,5 @@
 /-
-Track B+RepTheory / R2 — **deepening the O(4)-restoration residual: from a posited
+Track B+RepTheory / R2 — **deepening the scalar anisotropy residual: from a posited
 per-step coefficient decay to the asymptotic-freedom MONOTONE FLOW of the
 DIMENSIONLESS coupling plus an EXACT geometric spacing recursion.**
 
@@ -10,7 +10,7 @@ The O(4)-rotation-restoration obligation is routed as
       DimensionlessFlow   (this module — the deepest residual)
         ⟶  O4DecayFromMargin.DimensionalScaling   (per-step dimensional scaling)
         ⟶  O4RestorationAF.ScalingDimensionDecay  (single-step ρ=1/2 contraction)
-        ⟶  O4RestorationAF.RotationRestored       (proved CReal convergence).
+        ⟶  O4RestorationAF.RotationRestored       (legacy Cauchy predicate).
 
 `O4DecayFromMargin` had already reduced `ScalingDimensionDecay` to a single named
 analytic input `scale_step`:
@@ -66,9 +66,9 @@ PROVED here (`[propext]` / `[propext, Quot.sound]` only):
   * `dimensionalScaling_of_flow` — packages a `DimensionlessFlow` as an
     `O4DecayFromMargin.DimensionalScaling` (the `scale_step` field is the proved
     reduction), so the whole downstream chain (`ScalingDimensionDecay`,
-    `RotationRestored`) is inherited.
-  * `o4_restored_of_flow` — O(4) restored (the proved CReal convergence) obtained
-    DIRECTLY from a `DimensionlessFlow`.
+    legacy `RotationRestored` Cauchy predicate) is inherited.
+  * `o4_restored_of_flow` — the anisotropy-Cauchy predicate obtained DIRECTLY
+    from a `DimensionlessFlow`; this theorem type does not state full O(4).
   * `exampleFlow` / `example_o4_restored` — a CONCRETE inhabitant (constant
     dimensionless coupling, `blockRatio = 1/2`, `spacing = (1/2)^k`, `m = 2`),
     witnessing that `DimensionlessFlow` is NON-VACUOUS and the whole pipeline fires.
@@ -78,8 +78,8 @@ PROVED here (`[propext]` / `[propext, Quot.sound]` only):
     bare monotonicity is reduced to a single per-step sign condition.
   * `flowOfCoupling` / `o4_restored_of_coupling` — a `CouplingRunning` supplies the
     residual half of a `DimensionlessFlow` (`dimless := g`, `dimless_antitone :=
-    coupling_antitone`) over the canonical proved blocking geometry; the whole O(4)
-    pipeline then fires from {RG recursion, AF beta-sign} alone.
+    coupling_antitone`) over the canonical proved blocking geometry; the scalar
+    Cauchy pipeline then fires from {RG recursion, AF beta-sign} alone.
   * `constCoupling`, `geoCoupling` / `geoFlow` / `geo_o4_restored` — two inhabitants
     of the beta-sign residual: the Gaussian fixed point (`δ ≡ 0`) and a genuinely
     STRICTLY-DECREASING coupling `g k = 1/2 + (1/2)^k` with strictly-positive drop
@@ -98,7 +98,9 @@ interacting coupling.
 
 We prove "{exact blocking spacing recursion, discrete coupling RG recursion,
 asymptotic-freedom one-step beta-sign `β ≤ 0`} ⇒ dimensionless coupling
-non-increasing ⇒ per-step coefficient decay ⇒ O(4) restored".  We do NOT prove that
+non-increasing ⇒ per-step coefficient decay ⇒ anisotropy Cauchy".  Strict zero
+decay is supplied downstream by the zero-limit modules, and full O(4) still needs
+the observable response/action bridge.  We do NOT prove that
 the TRUE interacting beta function is genuinely non-positive under the real
 Yang–Mills RG (`betaDrop_nonneg`) — that is the remaining asymptotic-freedom
 residual, now isolated as a single per-step SIGN condition (strictly sharper than
@@ -306,8 +308,8 @@ theorem scale_step (F : DimensionlessFlow) (k : Nat) :
 
 A `DimensionlessFlow` yields an `O4DecayFromMargin.DimensionalScaling` whose
 `scale_step` is the proved reduction; the existing `O4DecayFromMargin` /
-`O4RestorationAF` machinery then delivers `ScalingDimensionDecay` and the proved
-`RotationRestored` convergence. -/
+`O4RestorationAF` machinery then delivers `ScalingDimensionDecay` and the legacy
+`RotationRestored` Cauchy predicate. -/
 
 /-- **The packaging.**  A `DimensionlessFlow` packaged as an
 `O4DecayFromMargin.DimensionalScaling`: the `scale_step` field is the proved
@@ -340,11 +342,12 @@ def scalingDimensionDecay_of_flow (F : DimensionlessFlow) :
   O4DecayFromMargin.scalingDimensionDecay_of_dimensionalScaling
     (dimensionalScaling_of_flow F)
 
-/-- **O(4) RESTORED FROM THE DIMENSIONLESS FLOW.**  The rotation-breaking
-coefficient converges (with explicit two-sided modulus) — continuous O(4) is
-restored as `a → 0` — derived DIRECTLY from a `DimensionlessFlow`.  The only
+/-- **ANISOTROPY CAUCHY FROM THE DIMENSIONLESS FLOW.**  The rotation-breaking
+coefficient is Cauchy with an explicit two-sided modulus, derived directly from
+a `DimensionlessFlow`.  The only
 remaining analytic input is the asymptotic-freedom monotonicity `dimless_antitone`;
-the engineering-dimension weight and the contraction ratio are proved. -/
+the engineering-dimension weight and the contraction ratio are proved.  Use the
+strict zero-limit and observable-response modules for restoration claims. -/
 theorem o4_restored_of_flow (F : DimensionlessFlow) :
     O4RestorationAF.RotationRestored (scalingDimensionDecay_of_flow F) :=
   O4DecayFromMargin.o4_restored_of_dimensionalScaling (dimensionalScaling_of_flow F)
@@ -414,8 +417,8 @@ theorem coupling_antitone (R : CouplingRunning) (k : Nat) : R.g (k + 1) ≤ R.g 
 genuine residual half (`dimless := g`, `dimless_antitone := coupling_antitone`); the
 geometric half is the canonical proved blocking geometry (`blockRatio = 1/2`,
 `spacing = (1/2)^k`, degree margin `2`).  So a `DimensionlessFlow` — and hence the
-whole O(4)-restoration pipeline — is obtained from {RG recursion, AF beta-sign}
-alone. -/
+legacy scalar Cauchy pipeline — is obtained from {RG recursion, AF beta-sign}
+alone.  Strict vanishing and observable covariance are supplied downstream. -/
 def flowOfCoupling (R : CouplingRunning) : DimensionlessFlow where
   spacing := fun k => RGTransport.qpow HalfPow.half k
   spacing_nonneg := fun k =>
@@ -433,8 +436,8 @@ def flowOfCoupling (R : CouplingRunning) : DimensionlessFlow where
   degreeMargin := 2
   degreeMargin_ge_two := by decide
 
-/-- **O(4) RESTORED FROM A RUNNING COUPLING.**  The rotation-breaking coefficient
-converges — continuous O(4) is restored as `a → 0` — derived from a
+/-- **ANISOTROPY CAUCHY FROM A RUNNING COUPLING.**  The rotation-breaking coefficient
+is Cauchy, derived from a
 `CouplingRunning`, i.e. from {the discrete RG recursion, the AF beta-sign
 `β ≤ 0`}.  The only remaining analytic input is the single per-step sign
 `beta_nonpos` on the true interacting coupling. -/
@@ -447,7 +450,7 @@ theorem o4_restored_of_coupling (R : CouplingRunning) :
 To show the deepened residual is SATISFIABLE (not a vacuous wall), we exhibit a
 concrete flow: the free / fixed-point case with a CONSTANT dimensionless coupling
 (`dimless ≡ 1`), blocking ratio `1/2`, spacing `(1/2)^k`, and degree margin `2`.
-The whole pipeline then fires, producing the proved O(4)-restoration convergence.
+The scalar pipeline then fires, producing the legacy Cauchy predicate.
 
 (The open content is the SAME monotonicity `dimless_antitone` for the genuine
 INTERACTING dimensionless coupling, which the constant case does not supply.) -/
@@ -473,10 +476,9 @@ def exampleFlow : DimensionlessFlow where
   degreeMargin := 2
   degreeMargin_ge_two := by decide
 
-/-- **The pipeline fires on the concrete inhabitant.**  O(4) restoration (the
-proved CReal convergence of the rotation-breaking coefficient) holds for
-`exampleFlow` — demonstrating the deepened residual is non-vacuous and the whole
-chain is connected. -/
+/-- **The pipeline fires on the concrete inhabitant.**  The anisotropy-Cauchy
+predicate holds for `exampleFlow`, demonstrating that the deepened residual is
+inhabited. -/
 theorem example_o4_restored :
     O4RestorationAF.RotationRestored (scalingDimensionDecay_of_flow exampleFlow) :=
   o4_restored_of_flow exampleFlow
@@ -552,9 +554,9 @@ def geoCoupling : CouplingRunning where
 `DimensionlessFlow` whose dimensionless coupling genuinely runs downhill. -/
 def geoFlow : DimensionlessFlow := flowOfCoupling geoCoupling
 
-/-- **The pipeline fires on the STRICTLY-DECREASING inhabitant.**  O(4) restoration
-holds for `geoFlow`, whose dimensionless coupling strictly decreases with a
-strictly-negative beta increment — the chain fires beyond the constant case. -/
+/-- **The pipeline fires on the STRICTLY-DECREASING inhabitant.**  The legacy
+anisotropy-Cauchy predicate holds for `geoFlow`, whose dimensionless coupling
+strictly decreases with a negative beta increment. -/
 theorem geo_o4_restored :
     O4RestorationAF.RotationRestored (scalingDimensionDecay_of_flow geoFlow) :=
   o4_restored_of_coupling geoCoupling

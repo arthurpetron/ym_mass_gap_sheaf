@@ -3,15 +3,15 @@ Track B / E3 — the **multi-edge, non-stationary** Wilson RG tower and its
 Kolmogorov-consistent inverse limit.
 
 The prior wave built the *stationary single-edge* Wilson inverse limit: a
-constant tower whose every scale is the one-edge SU(2) character algebra
+constant tower whose every scale is the one-edge SU(2) spin-label carrier
 `charAlg` and whose coarse→fine map is the identity inclusion (a coarse
 Wilson character IS the same fine Wilson character).  Honest as far as it
 went, that tower's carrier does NOT grow with the scale — it carries no
 genuine volume dependence — and its inclusion moves no variable.
 
-This module takes the genuine next step toward the interacting block-spin
+This module takes a type-level next step toward an interacting block-spin
 RG tower at fixed spacing: a tower whose per-scale observable algebra is
-the Wilson/character algebra on a **growing number of edges** (scale `k`
+the lowest-channel spin carrier on a **growing number of edges** (scale `k`
 carries `k+1` edges), with a real coarse→fine **block-spin embedding** that
 adjoins one fine edge in the vacuum character, and whose per-scale
 functionals are the genuine multi-edge heat-kernel moments.  Kolmogorov
@@ -46,9 +46,10 @@ moment level.
   * `EdgeVec n` — a length-indexed snoc-vector of edge spin indices: the
     carrier of the multi-edge character algebra, which genuinely grows with
     the scale.  `vacVec n` is the all-vacuum (trivial-character) vector.
-  * `edgeAlg n` — the multi-edge Wilson/character *-algebra on `n` edges:
+  * `edgeAlg n` — the multi-edge lowest-channel carrier on `n` edges:
     `one = vacVec`, pointwise Clebsch–Gordan lowest-weight product
-    (`mulVec`), `star = id` (real SU(2) characters).
+    (`mulVec`), `star = id`.  Since the one-edge operation is not associative,
+    neither is this a Wilson/character algebra.
   * `inclVacHom` — the genuine coarse→fine block-spin embedding
     `edgeAlg n → edgeAlg (n+1)`, adjoining the new fine edge in the vacuum
     character (`v ↦ v ⊕ χ_0`).  A real unital *-hom (`map_one`/`map_mul`/
@@ -137,14 +138,15 @@ def mulVec : {n : Nat} → EdgeVec n → EdgeVec n → EdgeVec n
 /-- The involution: SU(2) characters are real, so `star = id` on each edge. -/
 def starVec {n : Nat} (v : EdgeVec n) : EdgeVec n := v
 
-/-! ## 2. The multi-edge Wilson/character *-algebra
+/-! ## 2. The multi-edge lowest-channel carrier
 
-`edgeAlg n` is the Wilson/character *-algebra on `n` edges: carrier
+`edgeAlg n` is a pointwise lowest-channel carrier on `n` edges: carrier
 `EdgeVec n`, unit the all-vacuum vector, product the pointwise lowest-weight
-fusion, involution the identity.  A genuine multi-variable observable
-algebra, superseding the single-edge `charAlg`. -/
+projection, involution the identity.  It genuinely has multiple variables,
+but its product inherits the one-edge nonassociativity and therefore is not
+the SU(2) observable algebra. -/
 
-/-- The multi-edge Wilson/character *-algebra on `n` edges. -/
+/-- The multi-edge lowest-channel spin carrier on `n` edges. -/
 def edgeAlg (n : Nat) : ObsAlg where
   carrier := EdgeVec n
   one := vacVec n
@@ -153,7 +155,7 @@ def edgeAlg (n : Nat) : ObsAlg where
 
 @[simp] theorem edgeAlg_carrier (n : Nat) : (edgeAlg n).carrier = EdgeVec n := rfl
 
-/-- The multi-edge Wilson algebra at scale `k` (= `k+1` edges) genuinely has
+/-- The multi-edge carrier at scale `k` (= `k+1` edges) genuinely has
 the GROWING carrier `EdgeVec (k+1)` — not the fixed single-edge spin index
 `Nat` of the stationary tower. -/
 theorem edgeAlg_carrier_grows (k : Nat) : (edgeAlg (k + 1)).carrier = EdgeVec (k + 1) := rfl

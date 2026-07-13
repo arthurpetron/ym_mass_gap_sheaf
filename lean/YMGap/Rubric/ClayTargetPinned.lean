@@ -1,6 +1,8 @@
 /-
-The **pinned Clay target** — `ClayTarget` with every clause tied to ONE shared
-physical stack, closing the "surrogate hole" of the 4-field `ClayScorecard.ClayTarget`.
+The **shared-stack pinned legacy target** — `ClayTarget` with its carrier data
+tied to one stack.  It closes the object-identity surrogate hole, but retains
+the coarse scorecard's weak O4 slot; exact same-action O4 covariance is an
+additional obligation.
 
 # The hole this closes (read first)
 
@@ -12,7 +14,7 @@ completion, and continuum limits the other clauses talk about.  A term of
 `ClayTarget` could, in principle, discharge each clause with an UNRELATED object.
 That is the surrogate hole.
 
-`ClayTargetPinned` removes it.  It carries ONE OS-axiom bundle `bundle`
+`ClayTargetPinned` removes that object-identity hole.  It carries ONE OS-axiom bundle `bundle`
 (fixing the observable algebra `A` and probability functional `E`), ONE OS
 reconstruction `recon` over the SAME `μ_∞` (fixing the Hilbert space and
 Hamiltonian), ONE GNS datum + completed GNS Hilbert space, and then a set of
@@ -39,20 +41,19 @@ PROVED (real terms in this module):
     projecting the shared limit data onto the coarse `o4Restoration` slot and
     transporting the other three clauses verbatim.
 
-OPEN (carried as fields with NO inhabitant — the honest continuum frontier):
+OPEN (carried as fields with NO inhabitant — the legacy continuum frontier):
   * `continuumExistence : ClayScorecard.ClayContinuumExistence`;
-  * `limitData`'s `cluster` / `continuumModulus` / reflection-positivity /
-    Euclidean-invariance obligations;
+  * `limitData`'s `cluster` / `continuumModulus` / reflection-positivity fields;
+    its Euclidean-invariance parameter is only the weak legacy O4 slot;
   * `uniformInCoupling : ClayScorecard.RubricUniformInCoupling`.
 
 # DELIBERATELY UNINHABITED
 
 `ClayTargetPinned` is a bare `structure … : Type _` with **no term**.  Producing
-one WITHOUT `sorry` / `axiom` / `Prop := True` — genuinely inhabiting the shared
-stack AND every open continuum obligation, all pinned to that one stack — is
-strictly HARDER than inhabiting `ClayTarget` (it additionally forbids the
-surrogate).  `toClayTarget` therefore produces no `ClayTarget` term either; the
-Clay problem stays OPEN, and this module only records "pinned ⇒ coarse rubric".
+one forbids the shared-object surrogate, but it still would not by itself prove
+full O4 covariance because `limitData.euclideanInvariance` is instantiated with
+the weak legacy rubric.  The exact same-action O4 result must be supplied in
+addition.  `toClayTarget` records only "pinned ⇒ coarse legacy rubric".
 
 # Axiom-gate (AGENTS.md Rule 1)
 
@@ -116,7 +117,7 @@ theorem reconGapCReal_isPositive {M : Nat → Type} {μ_inf : ContinuumMeasure M
     (YMGap.Continuum.one_sub_pos_of_lt_one rec.gapBound_lt_one)
     (fun _ => Q'.le_refl' (1 - rec.gapBound))
 
-/-! ## The pinned Clay target (DELIBERATELY UNINHABITED) -/
+/-! ## The shared-stack pinned legacy target (DELIBERATELY UNINHABITED) -/
 
 /-- **`ClayTargetPinned` — the Clay target with ALL clauses pinned to ONE shared
 physical stack.**
@@ -170,7 +171,8 @@ structure ClayTargetPinned {M : Nat → Type} (μ_inf : ContinuumMeasure M) : Ty
   -- === OPEN continuum obligations, now over the SHARED stack ===========
   /-- OPEN: continuum measure existence + tightness. -/
   continuumExistence : ClayScorecard.ClayContinuumExistence
-  /-- OPEN: the Λ→∞ / a→0 limits + reflection positivity + O(4) invariance,
+  /-- OPEN: the Λ→∞ / a→0 limits + reflection positivity, together with the
+  legacy weak O4 slot,
   carried on the shared masses as genuine `ContinuumLimitData` whose reflection
   positivity is the bundle's OS2 predicate and whose Euclidean-invariance Prop is
   the coarse rubric `RubricO4Restoration`. -/
@@ -237,8 +239,9 @@ OPEN (NAMED fields with NO inhabitant):
     pin identity, AND the continuum obligations `continuumExistence`,
     `limitData` (cluster / modulus / RP / O(4)), `uniformInCoupling`.
 
-  ⟹ `ClayTargetPinned`  [DELIBERATELY UNINHABITED — the open Clay problem, with
-     the surrogate hole additionally closed].
+  ⟹ `ClayTargetPinned`  [DELIBERATELY UNINHABITED legacy frontier, with the
+     shared-object surrogate hole closed].  Full Clay closure additionally
+     requires the corrected same-action O4 covariance theorem.
 
 This module records a genuine REFINEMENT (a pinned, surrogate-free target that
 coarsens to the rubric `ClayTarget`), NOT a closure.  The Clay Yang–Mills mass

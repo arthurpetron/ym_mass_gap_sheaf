@@ -4,8 +4,8 @@ consequence of the PROVED 24-cell degree margin.**
 
 # What this module sharpens
 
-`O4RestorationAF.lean` discharges the opaque "O(4) is restored" `Prop` by routing
-it through a single-step geometric contraction `breakCoeff (k+1) ≤ ρ · breakCoeff k`
+`O4RestorationAF.lean` replaces a legacy scalar-Cauchy placeholder by routing it
+through a single-step geometric contraction `breakCoeff (k+1) ≤ ρ · breakCoeff k`
 with the ratio HARDCODED at `ρ = 1/2` (its `decay` field).  The proved degree margin
 `d − 4 ≥ 2` (24-cell / `LatticeAnisotropy.breakDegree_gt_four`) only *motivated*
 that `1/2`; it did not derive it.

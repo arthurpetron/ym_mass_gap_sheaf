@@ -6,7 +6,7 @@ the resulting UNCONDITIONAL non-vacuity of the O(4)-restoration bridge.
 
 `AFTrajectoryCertificate` (see `AFTrajectoryCertificate.lean`) packages the named
 two-loop asymptotic-freedom running as a `Type`-level record; the total bridge
-`rubricO4Restoration_of_AFCertificate` fires the open O(4)-restoration Clay clause
+`rubricO4Restoration_of_AFCertificate` fires the weak legacy O4 scorecard slot
 from ANY inhabitant of that record.  This module exhibits one such inhabitant
 built from a fully decidable, one-loop **reciprocal trajectory**
 
@@ -331,16 +331,17 @@ def O4Model : AFTrajectoryCertificate where
       exact Q'.add_le_add_left (Q'.ofNat d) 2 _ hBc2
     exact recipAnti (harmDen_pos (by decide) (0 + d)) _ hle
 
-/-! ## 3. The unconditional firing of the O(4)-restoration Clay clause
+/-! ## 3. The unconditional firing of the weak legacy O4 slot
 
 The total bridge `rubricO4Restoration_of_AFCertificate` consumes the concrete
-certificate to inhabit the open O(4)-restoration clause.  This is UNCONDITIONAL:
-no hypothesis, no physics oracle.  It exhibits that the O(4) clause, as wired,
+certificate to inhabit the legacy scalar slot.  This is UNCONDITIONAL: no
+hypothesis, no physics oracle.  It exhibits that the slot, as wired,
 carries no analytic content beyond "some reciprocal AF trajectory exists"; the
 genuine physics is the certificate `recurrence` for the TRUE lattice coupling. -/
 
-/-- **The concrete O(4)-restoration witness.**  `RubricO4Restoration` is inhabited
-unconditionally by firing the total bridge on the reciprocal model. -/
+/-- **A concrete witness of the weak scorecard slot.**
+`RubricO4Restoration` is inhabited unconditionally by firing the total bridge on
+the reciprocal model; no same-action O4 covariance follows. -/
 def o4Restoration_witness : YMGap.Rubric.ClayScorecard.RubricO4Restoration :=
   O4H4Homomorphism.rubricO4Restoration_of_AFCertificate O4Model
 

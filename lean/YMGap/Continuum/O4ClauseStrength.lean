@@ -1,10 +1,10 @@
 /-
-Track B+RepTheory / R2 — **strengthening the O(4)-restoration Clay clause from an
-anonymous `∃ defect` to a NAMED, provably-non-trivial anisotropy defect.**
+Track B+RepTheory / R2 — **supplying a named, provably-non-trivial anisotropy
+schedule to the weak legacy O4 slot.**
 
 # The two weaknesses this module closes simultaneously
 
-The open Clay clause `RubricO4Restoration` (`ClayScorecard.lean`) is stated with an
+The weak legacy slot `RubricO4Restoration` (`ClayScorecard.lean`) is stated with an
 existential inner `∃ defect : Nat → Q'`, so ANY geometric schedule fires it
 (`O4RestorationH4.rubricO4Restoration_of_decay`).  On the carrier side,
 `CarrierPrecursors.o4_restoration_on_charAlg` witnesses functional equivariance only
@@ -17,7 +17,7 @@ heat-kernel functional, a NON-TRIVIAL rotation `*`-hom `r` (moves some observabl
 the exact content the identity witness lacks), a designated L=4 first-cubic-harmonic
 generator `g`, an AF decay schedule whose step-0 coefficient IS the named anisotropy
 `|E(r·g) − E(g)|`, and a genuine positivity witness that this anisotropy is nonzero.
-`rubricO4Restoration_of_strong` fires the open clause from it, reusing the proved
+`rubricO4Restoration_of_strong` fires the legacy slot from it, reusing the proved
 decay-to-zero `O4RestorationH4.breakCoeff_vanishes` verbatim.
 
 The concrete inhabitant `strongO4_charAlg` runs on genuine SU(2) heat-kernel data:
@@ -104,12 +104,13 @@ structure StrongO4Restoration : Type 1 where
       `E` at the L=4 channel, so the discharged defect is not a vacuous zero. -/
   aniso_pos    : (0 : Q') < anisoDefect E r g
 
-/-! ## 2. `StrongO4Restoration ⟹ RubricO4Restoration` (with content exposed) -/
+/-! ## 2. `StrongO4Restoration ⟹` the weak slot (with content exposed) -/
 
-/-- **The strengthened wiring.**  The open Clay clause fires from a strong
+/-- **Provenance-bearing legacy wiring.**  The weak slot fires from a strong
 certificate; the discharged `defect` family is the anisotropy schedule
 `breakCoeff D` of a genuinely non-trivial rotation, and `breakCoeff_vanishes`
-proves it decays below every tolerance (limit = 0). -/
+proves it decays below every tolerance (limit = 0).  Full same-action O4
+covariance is not a consequence of this target predicate. -/
 theorem rubricO4Restoration_of_strong (S : StrongO4Restoration) :
     YMGap.Rubric.ClayScorecard.RubricO4Restoration :=
   O4RestorationH4.rubricO4Restoration_of_decay S.D

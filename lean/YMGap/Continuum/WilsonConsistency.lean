@@ -18,8 +18,10 @@ framework the consistency was witnessed only on the one-point algebra
 names this as the open piece: that the *real Wilson family* is
 Kolmogorov-consistent.
 
-This module discharges that on a GENUINE Wilson character system, with the
-real heat-kernel moments, and assembles the resulting `ContinuumMeasure`.
+This module discharges that on a nonconstant SU(2) spin-label moment system
+and assembles the resulting `ContinuumMeasure`.  The stored multiplication is
+only the nonassociative lowest-channel projection, so this is not yet a Wilson
+observable algebra (see `CharacterAlgebraAssociativityFence`).
 
 # What this object IS and is NOT (read this first)
 
@@ -40,12 +42,12 @@ real heat-kernel moments, and assembles the resulting `ContinuumMeasure`.
 
 # What is genuine here (constructed / proved)
 
-  * `wilsonSystem` — the REAL Wilson `ObsSystem`: the SU(2) character
-    *-algebra `charAlg` (carrier = spin index `Nat`, `star = id` for the
-    real SU(2) characters, the Clebsch–Gordan product) at every scale, with
+  * `wilsonSystem` — the SU(2) spin-label `ObsSystem`: the carrier
+    `charAlg` (spin index `Nat`, `star = id`, lowest-channel projection) at
+    every scale, with
     the faithful single-edge coarse→fine inclusion (a coarse Wilson
-    character IS the same fine Wilson character).  This is a real character
-    algebra carrying genuine moments — NOT the one-point placeholder.
+    character IS the same fine label).  It carries genuine nonconstant moments
+    but not the full fusion-sum algebra — and is not the one-point placeholder.
   * `wilsonFunc` — the per-scale REAL heat-kernel Wilson functional whose
     expectation is the closed-form character moment
     `E χ_s = dim(s) · w^{C₄(s)}`, `w = e^{−t/4}` discretized to `Q'`.  It is
@@ -94,18 +96,20 @@ open YMGap.Continuum.ContinuumMeasure
 open YMGap.Continuum.RGTransport
 open YMGap.Continuum.WilsonFunctional
 
-/-! ## 1. The real Wilson observable system
+/-! ## 1. The spin-label moment system
 
-The per-scale observable algebra is the SU(2) character *-algebra `charAlg`
+The per-scale carrier is the SU(2) spin-label object `charAlg`
 (carrier = spin index `Nat`, `one = χ_0`, `star = id` since SU(2)
-characters are real, `mul` the Clebsch–Gordan lowest weight) — a genuine
-Wilson character algebra, not the one-point placeholder.  The coarse→fine
+characters are real, `mul` the Clebsch–Gordan lowest-channel projection).
+That multiplication is not associative, so this is not the Wilson character
+algebra; it is nevertheless a nontrivial moment carrier rather than the
+one-point placeholder.  The coarse→fine
 embedding is the faithful single-edge inclusion: a coarse Wilson character
 `χ_s` is the very same fine Wilson character `χ_s` (the identity *-hom).
 This is the simplest faithful real Wilson tower. -/
 
-/-- **The real Wilson `ObsSystem`.**  Every scale is the SU(2) character
-*-algebra `charAlg`; the coarse→fine embedding is the faithful identity
+/-- **The spin-label `ObsSystem`.**  Every scale is the SU(2) carrier
+`charAlg`; the coarse→fine embedding is the identity
 inclusion (a coarse Wilson character IS the same fine Wilson character). -/
 def wilsonSystem : ObsSystem := stationaryTower charAlg
 
@@ -114,8 +118,8 @@ def wilsonSystem : ObsSystem := stationaryTower charAlg
 @[simp] theorem wilsonSystem_incl (k : Nat) :
     wilsonSystem.incl k = ObsHom.idHom charAlg := rfl
 
-/-- The Wilson observable algebra is the REAL character algebra (carrier
-`Nat`, the spin index), not the one-point placeholder. -/
+/-- The carrier is the genuine spin-index type `Nat`, not the one-point
+placeholder; no associative-algebra claim is made. -/
 theorem wilsonSystem_obs_carrier (k : Nat) : (wilsonSystem.Obs k).carrier = Nat := rfl
 
 /-! ## 2. The per-scale real heat-kernel Wilson functional

@@ -404,7 +404,8 @@ theorem length_padd : ∀ (p q : Poly), (padd p q).length = max p.length q.lengt
       simp only [padd, List.length_cons]
       rw [length_padd p q]; omega
 
-theorem length_pmul_le : ∀ (p q : Poly), (pmul p q).length ≤ p.length + q.length - 1
+theorem length_pmul_le : ∀ (p q : Poly),
+    (pmul p q).length ≤ p.length + q.length
   | [], q => by simp [pmul]
   | (a :: p), q => by
       have ih := length_pmul_le p q
@@ -415,6 +416,50 @@ theorem length_pmul_le : ∀ (p q : Poly), (pmul p q).length ≤ p.length + q.le
       simp only [List.length_cons]
       exact Nat.max_le.mpr ⟨by omega, by omega⟩
 
+/-- The usual sharp product-length bound when both coefficient lists are
+nonempty.  The nonemptiness hypotheses are necessary because `pmul p []`
+retains a zero spine of length `p.length`. -/
+theorem length_pmul_le_of_pos : ∀ (p q : Poly),
+    0 < p.length → 0 < q.length →
+      (pmul p q).length ≤ p.length + q.length - 1
+  | [], _, hp, _ => by simp at hp
+  | (a :: p), q, _, hq => by
+      have hpadd : (pmul (a :: p) q).length =
+          max q.length ((pmul p q).length + 1) := by
+        show (padd (pscale a q) (0 :: pmul p q)).length =
+          max q.length ((pmul p q).length + 1)
+        rw [length_padd, length_pscale]
+        rfl
+      rw [hpadd]
+      simp only [List.length_cons]
+      apply Nat.max_le.mpr
+      constructor
+      · omega
+      · by_cases hp : 0 < p.length
+        · have ih := length_pmul_le_of_pos p q hp hq
+          omega
+        · have hp0 : p = [] := by
+            cases p with
+            | nil => rfl
+            | cons b bs => simp at hp
+          subst p
+          simp [pmul]
+          omega
+
+/-- Multiplying two nonempty coefficient lists remains nonempty. -/
+theorem length_pmul_pos : ∀ (p q : Poly),
+    0 < p.length → 0 < q.length → 0 < (pmul p q).length
+  | [], _, hp, _ => by simp at hp
+  | (a :: p), q, _, hq => by
+      have hpadd : (pmul (a :: p) q).length =
+          max q.length ((pmul p q).length + 1) := by
+        show (padd (pscale a q) (0 :: pmul p q)).length =
+          max q.length ((pmul p q).length + 1)
+        rw [length_padd, length_pscale]
+        rfl
+      rw [hpadd]
+      exact Nat.lt_of_lt_of_le hq (Nat.le_max_left _ _)
+
 theorem length_ppow_le (p : Poly) : ∀ (n : Nat), (ppow p n).length ≤ n * p.length + 1
   | 0 => by simp [ppow]
   | n + 1 => by
@@ -423,6 +468,34 @@ theorem length_ppow_le (p : Poly) : ∀ (n : Nat), (ppow p n).length ≤ n * p.l
       have ih := length_ppow_le p n
       have hexp : (n + 1) * p.length = n * p.length + p.length := Nat.succ_mul n p.length
       omega
+
+theorem length_ppow_pos (p : Poly) (hp : 0 < p.length) : ∀ n,
+    0 < (ppow p n).length
+  | 0 => by simp [ppow]
+  | n + 1 => length_pmul_pos (ppow p n) p (length_ppow_pos p hp n) hp
+
+/-- Every streamed coefficient polynomial is represented by a nonempty
+coefficient list. -/
+theorem length_coeffAt_pos (v : Nat) : ∀
+    (e : RingNormaliser.PolyExpr) (rho : Nat → Q'),
+    0 < (coeffAt v e rho).length
+  | .const _, _ => by simp [coeffAt]
+  | .var i, _ => by
+      by_cases h : i = v <;> simp [coeffAt, h]
+  | .add a b, rho => by
+      show 0 < (padd (coeffAt v a rho) (coeffAt v b rho)).length
+      rw [length_padd]
+      exact Nat.lt_of_lt_of_le (length_coeffAt_pos v a rho)
+        (Nat.le_max_left _ _)
+  | .mul a b, rho =>
+      length_pmul_pos _ _ (length_coeffAt_pos v a rho)
+        (length_coeffAt_pos v b rho)
+  | .neg a, rho => by
+      show 0 < (pneg (coeffAt v a rho)).length
+      rw [length_pneg]
+      exact length_coeffAt_pos v a rho
+  | .pow a n, rho =>
+      length_ppow_pos _ (length_coeffAt_pos v a rho) n
 
 /-- `coeffAt` has length `≤ degBound e + 1` (the per-variable degree bound). -/
 theorem length_coeffAt_le (v : Nat) : ∀ (e : RingNormaliser.PolyExpr) (ρ : Nat → Q'),
@@ -442,7 +515,8 @@ theorem length_coeffAt_le (v : Nat) : ∀ (e : RingNormaliser.PolyExpr) (ρ : Na
   | .mul a b, ρ => by
       have ha := length_coeffAt_le v a ρ
       have hb := length_coeffAt_le v b ρ
-      have hm := length_pmul_le (coeffAt v a ρ) (coeffAt v b ρ)
+      have hm := length_pmul_le_of_pos (coeffAt v a ρ) (coeffAt v b ρ)
+        (length_coeffAt_pos v a ρ) (length_coeffAt_pos v b ρ)
       show (pmul (coeffAt v a ρ) (coeffAt v b ρ)).length ≤ (degBound a + degBound b) + 1
       omega
   | .neg a, ρ => by
@@ -636,6 +710,11 @@ end YMGap.Continuum.RingNormaliserStream
 #print axioms YMGap.Continuum.RingNormaliserStream.sub_ne_zero_of_ne
 #print axioms YMGap.Continuum.RingNormaliserStream.roots_zero
 #print axioms YMGap.Continuum.RingNormaliserStream.eval_coeffAt
+#print axioms YMGap.Continuum.RingNormaliserStream.length_pmul_le
+#print axioms YMGap.Continuum.RingNormaliserStream.length_pmul_le_of_pos
+#print axioms YMGap.Continuum.RingNormaliserStream.length_pmul_pos
+#print axioms YMGap.Continuum.RingNormaliserStream.length_ppow_pos
+#print axioms YMGap.Continuum.RingNormaliserStream.length_coeffAt_pos
 #print axioms YMGap.Continuum.RingNormaliserStream.length_coeffAt_le
 #print axioms YMGap.Continuum.RingNormaliserStream.poly_identity_of_grid2
 #print axioms YMGap.Continuum.RingNormaliserStream.grid_of_check

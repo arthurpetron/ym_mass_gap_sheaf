@@ -130,8 +130,8 @@ Fields:
     coefficient contracts geometrically across one AF step,
     `coeff (k+1) ≤ (1/2) · coeff k`.  The factor `1/2` is the canonical AF
     spacing-decrement contraction of the irrelevant weight `a^{d−4}` with
-    `d − 4 ≥ 2`.  This single transparent estimate REPLACES the opaque
-    "O(4) is restored" `Prop`. -/
+    `d − 4 ≥ 2`.  This single transparent estimate replaces the opaque scalar
+    precursor; it does not itself quantify over an O(4) action. -/
 structure ScalingDimensionDecay : Type where
   /-- The leading rotation-breaking operator's coefficient magnitude at AF step `k`. -/
   coeff : Nat → Q'
@@ -296,8 +296,8 @@ single named single-step decay (along the proved AF schedule). -/
 convergence of the rotation-breaking coefficient with an EXPLICIT two-sided
 modulus: for every positive `ε` there is a step `N` past which every pair of
 AF-step coefficients (at steps `≥ N`) agrees within `ε`.  This is the constructive
-Cauchy modulus of `breakCoeffLimit`; the opaque "O(4) is restored" `Prop` is now a
-CONSEQUENCE of the single-step decay along the proved AF schedule. -/
+Cauchy modulus of `breakCoeffLimit`; the legacy scalar-Cauchy predicate is now a
+consequence of the single-step decay along the proved AF schedule. -/
 theorem breakCoeff_converges (D : ScalingDimensionDecay) :
     ∀ ε : Q', (0 : Q') < ε → ∃ N : Nat, ∀ m n : Nat, N ≤ m → N ≤ n →
       breakCoeff D m ≤ breakCoeff D n + ε ∧ breakCoeff D n ≤ breakCoeff D m + ε := by

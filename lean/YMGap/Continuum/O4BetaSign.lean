@@ -282,16 +282,16 @@ theorem anisoDecayAF_coeff0
 
 Instantiating `anisoDecayAF` at `v = 1`, `τ = tauModel`, `γ̂ = 1` gives a genuine
 `ScalingDimensionDecay` whose running is `½^k·(τ_k)^1` (the physical `a²·[ḡ²]^{γ̂}`
-shape, not a bare `½`), and the proved decay bridge fires the open O(4) clause. -/
+shape, not a bare `½`), and the proved decay bridge fires the weak legacy O4 slot. -/
 
 /-- The Husung–Nada–Sommer schedule on the reciprocal AF model (`v = 1`, `γ̂ = 1`). -/
 def anisoDecayAF_tauModel : O4RestorationAF.ScalingDimensionDecay :=
   anisoDecayAF 1 (by decide) AFCertificateModel.tauModel
     (fun k => Q'.le_of_lt (tauModel_pos k)) tauModel_antitone 1
 
-/-- **Non-vacuity.**  The open O(4)-restoration Clay clause fires from the
+/-- **Model provenance.**  The weak legacy O4 slot fires from the
 Husung–Nada–Sommer schedule `½^k·(τ_k)^{γ̂}` on the reciprocal AF model, via the
-proved decay bridge. -/
+proved decay bridge; no observable covariance follows. -/
 theorem rubricO4Restoration_anisoDecayAF :
     YMGap.Rubric.ClayScorecard.RubricO4Restoration :=
   O4RestorationH4.rubricO4Restoration_of_decay anisoDecayAF_tauModel

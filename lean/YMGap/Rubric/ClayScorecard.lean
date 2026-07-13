@@ -1,8 +1,8 @@
 /-
-The CLAY SCORECARD — a machine-checked, constructive TRANSCRIPTION of the
-external classical Clay Millennium "Yang–Mills existence and mass gap" rubric
-into THIS development's constructive vocabulary, wired into the standard
-`lake build` so every compile re-verifies the honest line.
+The legacy CLAY SCORECARD — a machine-checked constructive scorecard inspired by
+the external Clay rubric.  Its O4 slot is weaker than full Euclidean covariance;
+the standard build preserves this pinned interface while sharper modules state
+the missing same-action obligation.
 
 # What this module is (read first)
 
@@ -39,22 +39,20 @@ continuum (`a → 0`) limit.
     nontriviality, OS2 reflection positivity, infinite-volume positive mass) is
     genuinely inhabited by a real, already-proved theorem of this library.
 
-  * `ClayTarget` — the FULL Clay requirement (fixed-spacing clauses TOGETHER
-    WITH continuum measure existence, full `O(4)` restoration, and a
-    coupling/continuum-uniform gap) — is provided with **NO inhabitant**.  Its
-    continuum components (`ClayContinuumExistence`, `RubricO4Restoration`,
-    `RubricUniformInCoupling`) are deliberately uninhabited here.  Producing a
-    `ClayTarget` term WITHOUT `sorry` / `axiom` / `Prop := True` is exactly the
-    open Clay problem; this build contains a proof of `ClayFixedSpacingMet` but
-    NOT of `ClayTarget`, and nothing in this file claims otherwise.
+  * `ClayTarget` is provided with **NO inhabitant**.  Its continuum-existence
+    and uniform-gap fields remain open, while `RubricO4Restoration` is a weak
+    legacy slot with model inhabitants.  Even an inhabitant of `ClayTarget`
+    would need the sharper same-action O4 theorem before it represented the
+    full external requirement.
 
 # Honesty contract (AGENTS.md Rules 1, 6, 8)
 
 Mathlib-free; pure `Q'` / `Nat` / `CReal`.  Every MET clause is inhabited by a
 REAL existing theorem (cited at each `met` proof), NEVER by `Prop := True`, a
 vacuous predicate, `sorry`, or a new axiom.  Every OPEN obligation is a
-`Type`-level structure / `Prop` with NO inhabitant in this file and is NOT
-trivially provable.  The transcribed predicates are FAITHFUL: `RubricSpectralGap`
+`Type`-level structure / `Prop` with no inhabitant in this file; the exception
+is the explicitly labelled weak O4 compatibility slot.  The spectral predicates
+remain faithful: `RubricSpectralGap`
 genuinely says "a positive gap above the vacuum eigenvalue 1", `RubricClustering`
 genuinely says "geometric decay `≤ C·μ^n` with `μ < 1`", etc.  Underclaim:
 Clay remains OPEN.
@@ -243,10 +241,10 @@ theorem rubric_infinite_volume_mass_met :
     RubricInfiniteVolumeMass realContinuumRate :=
   realCorr_continuum_mass_isPositive
 
-/-! ## 3. OPEN clauses — NAMED, with NO inhabitant (the honest continuum frontier).
+/-! ## 3. Continuum clauses — two open frontiers and one weak legacy O4 slot.
 
-These are the rubric components that remain genuinely OPEN in the continuum
-(`a → 0`) limit.  None is inhabited in this file; none is trivially provable. -/
+The existence and uniform-gap components remain genuinely open in the continuum
+limit.  The O4 component below is retained only as a weak compatibility slot. -/
 
 /-- **OPEN: the continuum measure existence (the `a → 0` limit / tightness).**
 `Type`-level data a genuine continuum-limit construction must supply: the
@@ -271,28 +269,26 @@ structure ClayContinuumExistence : Type where
   /-- The tightness rate is genuinely controlling (each value nonnegative). -/
   tightnessRate_nonneg : ∀ n : Nat, (0 : Q') ≤ tightnessRate n
 
-/-- **OPEN: full `O(4)` / Euclidean rotational invariance restored in the
-continuum limit.**  The classical rubric requires the continuum theory to carry
-full `O(4)` Euclidean invariance (broken by the lattice, restored only as
-`a → 0`).  This is a `Prop` with NO inhabitant here.
+/-- **Legacy weak O(4)-restoration slot.**  The classical rubric requires full
+continuum `O(4)` covariance, but the historical formalization below does not
+state it: the defect family is existential inside each scale and is not tied to
+an observable action.  It has unconditional model inhabitants elsewhere and
+must not be used as the full Euclidean-invariance theorem.
 
 Note: `Continuum/O4DecayFromMargin.lean` provides a PRECURSOR only (a margin-fed
 decay bound feeding rotational restoration), NOT full `O(4)` restoration; the
 honest frontier (per the open-boundary ledger) is the absence of a non-trivial
 `O(4)`-restoration precursor, with an `H₄ *-homomorphism` the best next target.
-Deliberately uninhabited; NOT trivially provable. -/
+The declaration is statement-guard pinned for compatibility; the corrected
+same-action obligation lives in the sharp O4/observable-symmetry modules. -/
 def RubricO4Restoration : Prop :=
-  -- The full hypercubic-to-O(4) restoration statement, transcribed as: for every
-  -- continuum tolerance ε > 0 there is a spacing index beyond which the
-  -- rotational-anisotropy defect is below ε.  No inhabitant is provided.
+  -- Weak scalar eventuality: because `defect` is chosen inside `∀ k`, this does
+  -- not identify one anisotropy schedule or an observable action.
   ∀ ε : Q', (0 : Q') < ε →
     ∃ N : Nat, ∀ k : Nat, N ≤ k →
-      -- the (open) continuum rotational-anisotropy defect at scale k is < ε.
-      -- Abstracted as the existence of a defect family meeting the tolerance;
-      -- left with NO witness — this is the open O(4) restoration content.
+      -- An existential defect family meeting the tolerance at this scale.
       ∃ defect : Nat → Q', defect k < ε ∧ (0 : Q') ≤ defect k ∧
-        -- non-vacuity guard: the defect must actually be the anisotropy at k,
-        -- pinned to a genuine positive baseline so the predicate is not free.
+        -- A positive upper baseline; this does not pin physical provenance.
         (∃ base : Q', (0 : Q') < base ∧ defect k ≤ base)
 
 /-- **OPEN: gap uniform across coupling / the continuum.**  The classical rubric
@@ -317,13 +313,13 @@ def RubricUniformInCoupling : Prop :=
     (∃ defect : Nat → Q', (∀ k, (0 : Q') ≤ defect k) ∧
       ∀ k, (1 - defect k) * physGap k ≤ physGap (k + 1))
 
-/-! ## 4. The top-level scorecard.
+/-! ## 4. The legacy top-level scorecard.
 
 `ClayFixedSpacingMet` is the conjunction of the CONCRETE MET clauses (each about
-a SPECIFIC named YM object, NO existential over models), PROVED.  `ClayTarget` is
-the FULL Clay requirement = the MET
-fixed-spacing clauses TOGETHER WITH the OPEN continuum clauses; it is provided
-with NO inhabitant. -/
+a SPECIFIC named YM object, NO existential over models), PROVED.  `ClayTarget`
+bundles those clauses with two open continuum clauses and the weak O4 slot; it
+is provided with no inhabitant, but its type is not the complete external Clay
+requirement because it lacks same-action Euclidean covariance. -/
 
 /-- **The fixed-spacing scorecard line.**  Every fixed-spacing rubric clause is a
 CONCRETE statement about a SPECIFIC Yang–Mills object — NO existential over
@@ -354,26 +350,25 @@ theorem clay_fixed_spacing_met : ClayFixedSpacingMet :=
    rubric_os2_met,
    rubric_infinite_volume_mass_met⟩
 
-/-- **The FULL Clay target — DELIBERATELY UNINHABITED.**
+/-- **The legacy aggregate target — DELIBERATELY UNINHABITED.**
 
-`ClayTarget` bundles the fixed-spacing MET clauses TOGETHER WITH the three OPEN
-continuum obligations: continuum measure existence (`ClayContinuumExistence`),
-full `O(4)` restoration (`RubricO4Restoration`), and a coupling/continuum-uniform
-gap (`RubricUniformInCoupling`).
+`ClayTarget` bundles the fixed-spacing MET clauses with continuum existence,
+the legacy weak O4 slot, and a coupling/continuum-uniform gap.  It remains
+uninhabited because of the other frontier fields, but its O4 field alone is not
+the full Euclidean-covariance requirement.
 
 **There is no inhabitant of this structure in this file, by design.**  The build
 contains a proof of `ClayFixedSpacingMet` (`clay_fixed_spacing_met`) but NOT a
 proof / term of `ClayTarget`.  Producing a `ClayTarget` term WITHOUT
 `sorry` / `admit` / a new `axiom` / `Prop := True` — i.e. genuinely inhabiting
-`ClayContinuumExistence`, `RubricO4Restoration`, and `RubricUniformInCoupling` —
-is EXACTLY the open Clay Millennium Yang–Mills mass-gap problem.  Nothing in this
-file claims to have done so; the Clay problem remains OPEN. -/
+`ClayContinuumExistence` and `RubricUniformInCoupling` — while separately adding
+the corrected same-action O4 theorem — is required for the Clay problem. -/
 structure ClayTarget : Type where
   /-- The fixed-spacing clauses — PROVED (`clay_fixed_spacing_met`). -/
   fixedSpacing : ClayFixedSpacingMet
   /-- OPEN: the continuum (`a → 0`) measure existence + tightness. -/
   continuumExistence : ClayContinuumExistence
-  /-- OPEN: full `O(4)` / Euclidean invariance restored in the continuum. -/
+  /-- Legacy weak O4 slot; full same-action covariance is stronger. -/
   o4Restoration : RubricO4Restoration
   /-- OPEN: the gap uniform across coupling / the continuum. -/
   uniformInCoupling : RubricUniformInCoupling
@@ -404,17 +399,17 @@ OPEN (NAMED, NO inhabitant in this file):
   * `ClayContinuumExistence`  — the `a → 0` continuum measure existence /
     tightness (references the open `DefectGapRecursion.recursion` and the open
     `LoopyCorrelatorResidual`);
-  * `RubricO4Restoration`     — full `O(4)` restoration in the limit (only a
-    precursor exists in `O4DecayFromMargin`);
+  * `RubricO4Restoration`     — legacy weak scalar slot (unconditionally
+    inhabitable; not full O(4));
   * `RubricUniformInCoupling` — gap uniform across coupling / the continuum
     (provable only CONDITIONAL on an unproved-for-4D `DefectGapRecursion`).
 
-  ⟹ `ClayTarget`  [DELIBERATELY UNINHABITED — the open Clay problem].
+  ⟹ `ClayTarget`  [DELIBERATELY UNINHABITED legacy aggregate; insufficient
+     by itself for the external Clay problem because its O4 slot is weak].
 
-This module is a constructive TRANSCRIPTION of the external classical rubric
-(`lean-dojo/LeanMillenniumPrizeProblems`), NOT an import.  Fixed-spacing clauses
-MET; continuum clauses OPEN; the Clay Yang–Mills mass-gap problem remains
-OPEN. -/
+This module is a legacy constructive scorecard, not an exact transcription of
+the full external O4 clause.  The statement-guard preserves it for compatibility;
+the sharp same-action continuum target must be proved in addition. -/
 
 end YMGap.Rubric.ClayScorecard
 

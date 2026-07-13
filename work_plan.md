@@ -2747,26 +2747,26 @@ it.
 
 ---
 
-### Milestone 11.10 — O(4) restoration: from bare Prop to reduction-with-named-input
+### Milestone 11.10 — legacy scalar O(4) slot: audited reduction packaging
 
-**Status.** DONE (2026-07-03, statement-layer reduction) — `Continuum/O4RestorationReduction.lean`: `o4_restoration_of_input` fires BOTH OS1 conjuncts (H₄ ∧ O(4)) from ONE pinned `O4RestorationInput`; H₄ proved from `ObsHom`s; non-vacuity capstone `isOS1Full_concrete` (concrete SU(2) heat-kernel `StrongO4Restoration` + isotropic `prodCharFunc` under `rot4`). Residual out-of-scope (11.8-class): the interacting `anisoDefect` AF decay for general ρ (pinned ρ=½ here).
+**Status.** AUDITED (2026-07-13) — the historical statement-layer theorem in
+`Continuum/O4RestorationReduction.lean` pairs H₄ invariance with the weak
+existential `RubricO4Restoration` scalar slot.  The concrete inhabitant proves
+that legacy conjunction is consistent; it does not prove full OS1/O(4), because
+the scalar schedule and observable action need not share an algebra.  No pinned
+type or theorem was changed.  The corrected live route is the same-action
+response theorem in `O4ObservableSymmetryBridge`, followed by quantification
+over the required physical rotations.
 
-**Goal.** `RubricO4Restoration` / `os1_o4_restoration` moves from a
-bare uninhabited `Prop` to the project's standard
-reduction-with-named-hypothesis shape (the pattern that worked for
-`eta_dominated`): the H₄ (hypercubic) invariance at fixed spacing
-**proved** from the lattice symmetry `ObsHom`s (the
-`Spin4`/`Spin4Reflection`/`O4RestorationH4` groundwork), composed with
-a **single named analytic input** — the decay of the
-symmetry-breaking (irrelevant-operator) contributions along the
-continuum limit, Magnen–Rivasseau–Sénéor-class — such that
-`os1_o4_restoration` is a theorem *given* that one field.
+**Goal.** Preserve the guarded legacy interface while making its actual strength
+explicit.  Full restoration is a separate stronger target: H₄ invariance at
+fixed spacing plus a physically pinned action on the same observable algebra
+and a uniform response estimate whose defect vanishes in the continuum.
 
-**Checkable predicate.** A structure `O4RestorationInput` with the
-irrelevant-decay field as `Type`-level data, and a theorem
-`o4_restoration_of_input : O4RestorationInput … → IsOS1Full …`, both
-axiom-gated; H₄ invariance itself carried as a proved theorem, not a
-field.
+**Checkable predicate.** The legacy structure and reduction remain axiom-gated,
+with documentation stating that `IsOS1Full` is only the historical conjunction.
+The sharp target consumes `DecayControlledSymmetryResponse` for the same action
+and proves exact continuum-functional invariance.
 
 **Deliverables.** The Lean module; `notes/o4-restoration-reduction.md`
 stating precisely what the named input asserts and its literature
@@ -2901,11 +2901,16 @@ non-group inhabitants.
 
 ---
 
-### Milestone 11.13 — `ClayTargetPinned`: the surrogate-proof top-level target
+### Milestone 11.13 — `ClayTargetPinned`: shared-stack legacy target
 
-**Status.** DONE (2026-07-03, statement-layer) — `lean/YMGap/Rubric/ClayTargetPinned.lean`: `ClayTargetPinned μ_inf` pins every clause to ONE shared physical stack (OSAxiomBundle + OSReconstruction + GNS over the SAME μ_∞), + `toClayTarget` coarsening; deliberately UNINHABITED (guard-protected), axiom-clean. Honest hardening: `GNSDataOfBundle` needs a `WilsonGNSData` param.
+**Status.** DONE as an object-identity hardening, but AUDITED as insufficient for
+the exact external target (2026-07-13).  `ClayTargetPinned μ_inf` pins its
+carriers to one shared stack and is deliberately uninhabited/guard-protected;
+however its `limitData.euclideanInvariance` parameter is the weak legacy
+`RubricO4Restoration`.  Therefore even a term would additionally require the
+stronger same-action O4 covariance theorem before constituting Clay closure.
 
-**Goal.** A new headline target structure that **cannot be inhabited
+**Goal.** A shared-stack structure that **cannot be inhabited
 by surrogate, model, or existential data**, because every field is
 pinned to the same physical construction: one `G`-indexed bundle
 carrying the lattice approximation tower, the finite-volume measures,
@@ -2920,7 +2925,8 @@ the review's `∃`-sketch). Checkable predicate: the module elaborates;
 `ClayTargetPinned` is deliberately uninhabited; the OLD `ClayTarget`
 is re-derived as a **proved coarsening** of the pinned target (a
 `toClayTarget` projection in the `toFrontierC` supersession pattern),
-recorded as the compatibility wrapper rather than the headline.
+recorded as a compatibility wrapper.  It is not the final headline target until
+the stronger O4 field is represented on the same stack.
 
 **Route notes.** Most referenced component types do not exist yet —
 this is a *statement-layer* milestone (Rule 5: formalize the
@@ -3354,6 +3360,304 @@ are stated, and any attack whose honest prediction becomes "another
 `:= SingleStepDefectBound` alias" is aborted, recorded, not spawned again.
 
 ### Milestone 13.1 — (D1-loopy) the pinned multi-plaquette Penrose–Ursell domination
+
+**Update (2026-07-13 — exact avoidance-chain induction carrier).**
+`XiAvoidanceChainBound` rewrites single and double avoidance sums as exact
+restricted `XiR` partition functions and proves constructive cons splits for
+both.  The smallest positive indirect three-polymer path gives a permanent
+fence against the bare shared-polymer envelope: the double-avoidance product is
+exactly `10`, the two single-avoidance product is `9`, and the bare direct term
+is `0`.  Retaining the compatible-background partition factor and the two-edge
+incompatibility chain supplies exactly the missing `1` on that instance.  A
+subtraction-free fuel-bounded all-length walk majorant and its nonnegativity are
+now formalized, together with the theorem that any resulting avoidance bound
+feeds the exact Mayer identity.  OPEN is the global all-list domination by this
+majorant (or a repaired visited-list variant if cons induction exposes
+over/under-counting); only after that theorem may the chain be advertised as a
+uniform truncated-numerator estimate.
+
+`XiAvoidanceChainDomination` verifies that the repeated-walk carrier is monotone
+in its fuel, so increasing the cons-induction depth does not lose chains.  It
+also isolates the next obstruction exactly: the naïve mixed-restriction branch
+created by an unmarked head asks for `5 ≤ 4` on the endpoint/head path, while
+the head-mediated two-edge activity restores the true inequality `5 ≤ 4+1`.
+Thus a two-ended covariance invariant alone cannot close the induction.  The
+next proof must carry a one-ended influence/mixed-restriction invariant whose
+head concatenation lands in the all-walk carrier; the global all-list theorem
+and its Mayer consumption remain open.
+
+`XiOneEndedInfluence` now supplies the exact one-ended state needed by that
+branch: restricted partition functions have a uniform cons split, the two
+mixed products have explicit four-term expansions, and both orientations are
+constructively nonnegative.  The first indirect path permanently refutes a
+direct-head envelope (`4 > 3+0`), while the head-rooted all-walk carrier repairs
+it exactly.  OPEN is the global two-sided absolute mixed-determinant bound.  A
+cons step produces the signed cross combination
+`D(r,s∩c)+D(s,r∩c)-D(r∩s,c)`, so the next proof must give an explicit
+pair-switching/reachability injection into the walk carrier; mere termwise
+nonnegativity is insufficient.
+
+`XiPairSwitching` constructs the required finite disagreement component with
+an explicit Warshall closure and an inductive alternating-walk witness.  It
+proves exact compatibility and weight preservation for component switching,
+and upgrades the list switch to an ambient-order occurrence-mask involution
+that is pair-injective and selects genuine members of `sublists`.  Every
+nonexceptional pair therefore maps to the opposite one-ended product with the
+right predicates.  A checked singleton fence shows that rerunning the same
+forward orientation after the switch is false; reversing the sides recovers
+the component there.  OPEN are generic reverse-oriented recovery and the
+injective encoding of exceptional reached components into the head-rooted
+walk carrier; those two steps, followed by summation, are the remaining path
+to the global two-sided influence bound.
+
+`XiReverseComponentRecovery` closes the first of those two steps on ambient
+occurrence masks.  For compatible left and right masks with the original right
+family head-good, it proves that switching the forward bad-left disagreement
+component leaves the untagged conflict graph invariant and that the
+reverse-oriented bad-right search recovers the original cut pointwise.  The
+proof includes exact Boolean graph/root invariance and cut-closure lemmas; it
+does not assume a recovery oracle.  OPEN is now only the exceptional branch:
+extract a simple bounded path from a reached marked endpoint, reverse it from
+the mark to a head-bad endpoint, show its activity/background weight occurs in
+`connectingChainMajorant`, and sum using the recovered-cut injection.
+
+`XiExceptionalPathExtraction` closes the path-extraction and generic carrier
+parts of that exceptional branch.  It converts the Warshall disagreement walk
+to a chronological cons walk, reverses it constructively, erases loops while
+preserving endpoints, and strips the artificial root.  A reached occurrence
+therefore yields an actual forward seed and a reversed simple occurrence path
+of length at most the ambient list bound.  Its activity/background term is
+then bounded by `connectingChainMajorant` without a choice principle.  OPEN is
+the recovered-cut exceptional specialization and injective summation of those
+termwise bounds; no global one-ended influence estimate is claimed yet.
+
+`XiExceptionalMaskCarrier` maps occurrence indices back to actual ambient
+polymers, propagates maskwise admissibility along a recovered simple path, and
+places the resulting path/background activity in `connectingChainMajorant`.
+Adversarial specialization found that its initial occurrence conflict `incAt`
+also marks the diagonal: a polymer is incompatible with itself, although a
+family conflict graph must not compare an occurrence with itself.  Consequently
+that first mask carrier is retained only as generic termwise machinery; it
+cannot soundly be composed with the reverse-recovery same-side guard.
+
+`XiExceptionalRecoveredBackground` banks the defect as an exact singleton
+no-go and defines the corrected diagonal-free relation `incAtDistinct`.  Its
+diagonal is proved false and every corrected disagreement edge still maps to a
+genuine polymer incompatibility.  Independently, a closed disagreement
+component is proved compatible with every occupied exterior occurrence under
+the two internal-compatibility guards, including the outside-left/right and
+path-in-component lemmas needed for a background family.  OPEN is to rerun the
+mask-to-path carrier with `incAtDistinct`, construct/account the exterior
+background from the recovered cut, and prove the finite weighted
+injection/summation.  The global influence bound is still not claimed.
+
+`XiExceptionalDistinctInjection` reruns the exceptional construction on the
+corrected diagonal-free graph.  It extracts the actual polymer path, constructs
+the outside-left background from the recovered cut, proves the path compatible
+with that background, and places the resulting activity term in the existing
+connecting-chain majorant.  Reverse recovery now specializes non-vacuously to
+`incAtDistinct`, and the source-dependent switch is proved injective because
+its cut can be recomputed from the output pair.  OPEN is the remaining global
+weight accounting for the non-path vertices of a branched exceptional
+component and the final finite summation into `carrier * XiR`.
+
+`XiExceptionalWeightedInjection` closes the abstract finite summation step.
+For duplicate-free finite sources, an injective target code with target
+membership, pointwise weight domination, and nonnegative target weights gives
+the global rational weighted-sum bound.  The proof constructively erases each
+used image and requires neither choice nor a classical finite-set API.  OPEN is
+now concrete: construct a branch-preserving target code whose target weight is
+represented by `connectingChainMajorant * XiR`; a merely termwise path bound
+without this duplicate-free injective accounting is not enough.
+
+`XiExceptionalCarrierCode` discharges the codomain and enumeration half of
+that residual.  Its finite recursive codes record every chain choice and
+terminal background, then pair the carrier code with the external admissible
+`XiR` family.  All code weights are nonnegative and their total is proved
+exactly `connectingChainMajorant * XiR`; composing with the weighted-injection
+theorem yields the desired global bound for any occurrence-Nodup injective
+pointwise-dominating encoder.  OPEN is solely the concrete exceptional
+source-to-code encoder, including the branched off-path component bits.
+
+`XiExceptionalOccurrenceCodes` makes that encoder's domain and codomain
+genuinely occurrence-distinct even when the ambient polymer list contains
+duplicate values.  Length-indexed Boolean masks are complete and duplicate
+free, reproduce `sublists` with exactly its old multiplicities, and lift the
+chain/carrier/Xi codes to ambient occurrence indices.  Erasing occurrences
+recovers the frozen value-level enumeration, so the total target weight
+remains exactly `connectingChainMajorant * XiR` and stays nonnegative.  OPEN
+is now to filter the canonical exceptional mask-pair sources, choose the
+marked occurrence, and build the branch-preserving injective map into
+`OccCarrierXiCodeAt`; discarding off-path component bits is explicitly not
+injective.
+
+`XiExceptionalSourceCodes` closes the source and branch-preservation halves of
+that encoder.  It filters a duplicate-free list of exactly the admissible
+exceptional occurrence-mask pairs, chooses a canonical reached marked
+occurrence by bounded Boolean search, extracts all predicate and internal
+compatibility guards, and records the complete switched left/right pair as two
+finite bit vectors.  Reverse cut recovery followed by the fixed-cut involution
+proves this switched-pair payload injective on the source, including every
+off-path branch bit.  `XiExceptionalPathEncoder` independently converts the
+canonical bounded exceptional walk and its two recovered exterior masks into
+an actual member of `occurrenceCarrierXiCodes`.  OPEN is now the joint packing
+step: embed the separately injective switched-pair payload into degrees of
+freedom of this target member while retaining target membership and the exact
+source-weight domination.  Neither component alone is yet the weighted
+injection required for the global two-sided influence bound.
+
+`XiExceptionalSourceWeight` closes the source side of that domination
+calculation.  Summing the occurrence-mask pair weight over every complete mask
+pair is proved exactly equal to the product of the two restricted `XiR`
+factors, and every filtered exceptional source member has pair weight exactly
+equal to the original two-family activity.  OPEN remains the same single joint
+packing theorem: an injective target member that retains the switched branch
+payload and whose occurrence carrier/Xi weight dominates this exact source
+activity.
+
+`XiExceptionalBranchPacking` now closes the joint structural packing half.
+The canonical exceptional path stores the full first switched branch mask as
+its recoverable terminal background and the second as the external family;
+the resulting code is an actual `occurrenceCarrierXiCodes` member, and terminal
+recovery plus switched-branch injectivity proves source-subtype injectivity.
+`XiExceptionalBranchPackingFence` then decides the weight question negatively:
+whenever the marked polymer is nonempty, the full switched-left terminal mask
+contains that marked occurrence, while the terminal background is required to
+be compatible with the path start; self-compatibility therefore fails and the
+packed target weight is exactly zero.  This unpruned packing cannot support the
+pointwise weighted injection when the source has positive weight.  The sole
+residual is now either a recoverable path-compatible pruning which stores all
+displaced bits elsewhere, or a fiberwise/summed domination that uses the exact
+source and target enumerations without termwise domination.
+
+`XiExceptionalFiberwiseInjection` installs the constructive summed replacement.
+Its theorem `qListSum_le_of_fibers` permits a noninjective encoder from a source
+list (duplicates allowed) into a duplicate-free target whenever every complete
+source fiber has total weight at most its target weight.  The proof recursively
+partitions by target codes and uses only finite filter sums.  The remaining Xi
+residual is now concrete: map to the already-green safe canonical path carrier
+and sum all off-path branch configurations in each fiber below that carrier
+term, preferably by an exact factorization or a within-fiber injection.
+
+`XiExceptionalTargetNodup` discharges the target-side side condition for that
+mechanism: terminal, chain, carrier, and carrier-Xi occurrence-code
+enumerations are all proved duplicate free.  The live step is therefore only
+the safe path encoder and its per-target source-fiber weight bound.
+
+`XiExceptionalSafeCarrierWeight` closes the target-weight calculation for
+that encoder.  Its exact factorization is canonical-path activity times the
+outside-left family activity times the outside-right family activity; no
+off-path branch factor is hidden in the target.  Thus the only remaining Xi
+question is sharply numerical/combinatorial: prove the complete off-path
+source-fiber sum fits this exposed budget, or bank a counterexample and enrich
+the safe target carrier.
+
+`XiExceptionalSafeFiberFence` resolves that question negatively with a
+three-polymer exact witness.  Two exceptional sources, of weights one and one,
+collide under the safe path carrier whose target weight is one; hence the
+complete safe fiber violates the required bound (`2 <= 1` is kernel-refuted).
+The fiberwise theorem remains valid, but the safe encoder is too coarse.
+`XiExceptionalMarkedPrunedPacking` next proves that clearing the redundant
+marked terminal bit preserves target membership and full injectivity, while
+removing the original self-incompatibility zero.  Finally,
+`XiExceptionalMarkedPrunedFence` proves this repair is still insufficient:
+any retained terminal branch incompatible with any canonical path vertex
+forces zero target weight, and the same three-polymer branch supplies such a
+concrete zero.  OPEN is now sharply to move every path-incompatible background
+branch into external/split positive target structure while retaining recovery.
+
+`XiExceptionalTargetBlocks` supplies the constructive replacement for a
+single overloaded carrier: each source may own a duplicate-free block of
+target codes, distinct sources' blocks are pairwise disjoint, and the flattened
+allocation embeds injectively in the explicit target enumeration.  A source
+weight need only be bounded by the sum of its block, after which global weighted
+domination follows without double counting.  OPEN is now the concrete
+branch-sensitive allocation of on-path and off-path masks into such positive
+blocks.
+
+`XiExceptionalCustomCarrier` opens exactly the two mask slots that allocation
+needs.  Arbitrary background and external occurrence masks produce an
+enumerated target code; when the background is admissible and path-compatible
+and the external mask is admissible, its weight is proved exactly equal to
+`(path activity * background familyActivity) * external familyActivity`.
+Thus a branch conflicting with the canonical path can be moved out of the
+zero-producing background slot without assuming an amplitude.  OPEN is to
+instantiate this API for every branch pattern and prove the resulting blocks
+disjoint and source-dominating.
+
+`XiExceptionalBranchMovedExample` verifies the entire repair on the minimal
+three-polymer obstruction.  The bare source and the source containing the
+path-incompatible branch receive distinct target codes; moving `C` from the
+background mask to the external mask gives both codes exact derived weight
+one.  Their singleton blocks are disjoint and their two source weights embed
+in the full occurrence target enumeration.  OPEN is the general mask
+partition and recovery proof, not the viability or normalization of the
+branch-moving mechanism.
+
+`XiExceptionalBranchRouter` generalizes that example to a recoverable
+occurrence-wise router.  Safe left bits remain in terminal background, unsafe
+left bits move to external, and right bits remain external.  If every right
+bit is at a safe occurrence, equality of routed carrier codes recovers the
+complete exceptional source; target membership and injectivity are proved.
+The right-safe condition is sharp: a one-bit unsafe-left source and unsafe-right
+source are distinct but collide when it is dropped.
+`XiExceptionalPathMaskAlgebra` now proves the exact multiplicative identity
+behind that router: an exclusively occupied selected path factors out of the
+two occurrence masks, and on the right-safe region routing is literally a
+residual mask swap, preserving the full family-activity product.  No carrier
+normalization is assumed.  `XiExceptionalPathBitWeight` supplies the remaining
+constructive ordering bridge: the ambient-order path-occurrence mask weight is
+exactly the extracted `CWalk` activity.  Its proof uses an explicit
+append-of-membership permutation witness, avoiding the classical choice hidden
+in a tempting erase lemma.  OPEN is to combine these identities with the
+custom-carrier theorem to obtain routed target-weight domination and to cover
+unsafe-right cases by an additional disjoint target-block family.
+
+`XiExceptionalRoutedExactWeight` now completes that weighted identity on the
+right-safe region: after clearing the selected path, the routed custom target
+carrier has weight exactly equal to the full source occurrence-pair weight.
+The derivation passes through original and switched masks, exclusive path
+factorization, the routed residual swap, and the custom-carrier theorem; it
+assumes no numerical amplitude.  `XiExceptionalPathSideDecoder` adds the
+combinatorial decoder needed after that routing step: the occurrence vertices
+are recovered in chain order, every disagreement edge alternates its two side
+bits, and the exceptional switched path starts on the left.  This pins the
+side parity that can recover path bits cleared by the router.
+`XiExceptionalResidualRoutedInjection` combines those facts into a genuine
+injectivity theorem: equality of routed codes recovers the ordered path,
+alternating cleared side bits, the off-path residual pair, the full switched
+pair, and finally the original exceptional source entry.
+`XiExceptionalRightSafeSummation` globalizes this on every duplicate-free
+finite right-safe source list: singleton routed target blocks are injective in
+the full occurrence-carrier enumeration, their weights are exactly the source
+weights, and the total source weight is bounded by the derived target sum.
+`XiExceptionalUnsafeRightCapacityFence` proves that a second block cannot be
+obtained by merely swapping left/right mask orientation: both orientations
+coincide on the unsafe sources, and the forced two-slot collision is universal.
+`XiExceptionalSwitchedCompatibility` then proves that switched-left and
+switched-right occurrence families remain same-side compatible: a mixed-cut
+conflict would create a disagreement edge crossing the closed component.  This
+opens a sharper escape from the capacity fence.  `XiExceptionalUnsafeSideExclusion`
+now proves it: two admissible exceptional entries with the same decoded path
+cannot carry left-residual versus right-residual occupancy at any path-unsafe
+occurrence.  Thus the universal capacity collision is explicitly unreachable
+on the source domain.  `XiExceptionalPathSafeInjection` uses this exclusion to
+construct a fully unconditional carrier injection: equality of carriers
+decodes the common path, recovers residual masks without `rightSafe`, and uses
+the alternating path decoder to recover the cleared bits.
+`XiExceptionalPathSafeExactWeight` proves that this router is exactly the mask
+swap with cut `unsafe ∧ left`; admissibility-derived unsafe exclusivity removes
+the only bad state, so its target weight equals the full source weight with no
+`rightSafe` premise.  `XiExceptionalPathSafeSummation` completes the
+duplicate-free global bound: unconditional singleton-code injection, target
+membership, exact derived weight, and domination by the full target sum, with
+no unsafe-right remainder.  `XiExceptionalFullSourceBound` identifies the full
+attached exceptional subtype list with the filtered `exceptionalSourceCodes`
+and proves the entire exceptional occurrence sum bounded by the upstream
+connecting-chain carrier, conditional only on the five explicit
+`PathSafeRoutedFacts` target-validity checks.  OPEN is the complementary
+nonexceptional/exceptional mask-pair partition and the resulting one-ended Xi
+inequality.
 
 **Update (2026-07-09, session 5 — step 7, THE SIGN LAYER CLOSED AS
 IDENTITIES).** `Continuum/XiAvoidanceCorrelation.lean`: the avoidance-
@@ -4920,6 +5224,30 @@ resulting residual is neither nonpositive nor summably absorbable.  The live
 dynamic route must retain the exact `A_k/D_k` crossing amplitude in the
 centered cancellation; no local-diagonal upper substitution is admissible.
 
+`HarmonicExactAmplitudeCarrier` now retains that exact amplitude symbolically.
+For every scale, crossing, and forward cell it proves that
+`B_k=2(A_k+λ_kD_k)`, the centered adjacent/diagonal term, the preceding terminal
+deficit, and the intervening coefficient window all remain under the same
+local drift weight.  Summing these exact cells is proved equivalent to the
+existing quadratic node moment, and an exact-amplitude certificate is wired
+soundly into `UniformQuadraticNodeCap`; closed checks at `k=5,6` validate the
+normalization.  This is an exact carrier, not a frontier discharge: the next
+analytic step is a joint bound on the centered `B_k` term plus the preceding
+deficit at arbitrary genuine crossings, with no retune substitution and no
+global replication of the overshoot.
+
+`HarmonicExactAmplitudeJointBound` now identifies the first obstruction inside
+that local carrier and replaces it by a phase-local Abel formulation.  At the
+genuine `k=17,i=0` crossing, exact rational half-edge tests prove the next node
+coefficient is negative and the following one positive; hence the tempting
+one-cell dominance statement is false, and the exact-amplitude gap peaks one
+cell later.  PF2 sign propagation proves every later gap decreases, while an
+exact Fubini/Abel identity rewrites the remaining tail using local cumulative
+quadratic weights rather than a peak times the full drift cumulative.  This is
+a kernel-checked strategy correction, not the uniform joint bound: OPEN is a
+uniform sign-exit locator and a phase-Abel cap that pays the exact crossing
+amplitude at every genuine crossing.
+
 `HarmonicSchurRotationAll` records the complete conditional payoff without
 hiding the moving-cutoff cost.  `UniformQuadraticNodeCap` implies the all-scale
 weighted residual and the coefficient-two fixed-cutoff weight determinant.
@@ -4989,6 +5317,177 @@ slack to the single finite retained-core cross
 `w_k^2 w_(k+1)^2 2^(-(2(k+2)+5)) ≤ growingHeadThetaCore k`.
 The entire quadratic-cutoff tail is now closed; this displayed finite-theta
 inequality is the sole residual of the route.
+
+`HarmonicMovingDeterminantThetaCross` separates that retained-core cross into
+an exact scalar reserve and two Pascal remainders.  Uniformly for `k≥38`, the
+main scalar contributes at least `16·harmU(k)^2`; symbolic first-term and dyadic
+bounds close every downstream step once the adverse old-scale remainder is
+bounded by `8·harmU(k)^2` times the integer theta head.  The module proves that
+single premise implies the finite-theta cross, nonnegative normalized global
+slack, the full moving determinant, and the final harmonic shell/spacing law.
+It also fences two false strengthenings: raw cellwise eight-unit domination
+fails at `(k,n)=(38,5)`, and the fully coefficientwise Bernstein comparison has
+exact first coefficient `-20,630,200` at `k=38`.  OPEN is now exactly the
+projectively weighted cumulative Pascal inequality
+`normalizedDemandCoeff k * growingPascalResidual k ≤
+8*harmU(k)^2*integerThetaSum ...` for every `k≥38`; neither refuted
+coefficientwise route may be substituted for it.
+
+The first structural step toward that cumulative inequality is now green:
+the exact adjacent edge ratio is antitone across the crossing, and the
+corresponding residual-cell slope has a single-crossing propagation law
+(nonnegative slopes persist forward; nonpositive slopes persist backward).
+This rules out arbitrary sign oscillation.
+
+`HarmonicMovingDeterminantThetaAbel` now rewrites the physical Pascal residual
+as the exact finite sum of those signed cells, defines the stronger seven-unit
+cumulative gap, and proves that its nonnegativity implies the frozen eight-unit
+premise.  A generic constructive finite Abel theorem pays a weighted sum from
+nonnegative prefixes and antitone weights.  The maximal globally monotone
+linear preload is factored exactly into the physical cell gap, so its failure
+is decisive rather than an artefact: at `k=38` its terminal prefix is negative,
+and raw seven-unit pointwise domination already fails at cell five, although
+the full seven-unit cumulative gap is nonnegative at that scale.  The module
+also exposes the exact root/Dirichlet identity expressing adjacent half-theta
+mass as a trapezoid minus a discrete square.  OPEN is an all-`k≥38`
+crossing-adapted cumulative/Dirichlet payment; the refuted pointwise and maximal
+linear-prefix carriers are permanently excluded.
+
+`HarmonicMovingDeterminantThetaDirichlet` makes that remaining payment problem
+exact.  The seven-unit residual gap is reduced to a Dirichlet core consisting
+of a positive bulk multiple of the half-theta mass, an endpoint difference,
+and the negative adjacent-root square energy.  The core is proved exactly at
+the anchor `k=38`, and its nonnegativity is proved sufficient for the physical
+seven-unit gap at every scale.  A closed `k=38,n=1` counterexample rules out
+pointwise allocation of the Dirichlet profile.  OPEN is the all-`k>=38`,
+endpoint-free discrete Poincare estimate; the active route pays it with a
+moving central window and two tails rather than the refuted pointwise profile.
+
+`HarmonicMovingDeterminantThetaWindow` implements that moving-window route on
+the natural square-root scale.  It factors every central Dirichlet cell and
+core increment by the exact adjacent-cell slope, proves the corresponding
+sign rule, and splits the full core exactly into a left loss, central reserve,
+and right loss.  A sufficient window-payment theorem and the exact `k=38`
+payment are green.  OPEN is the uniform central-window slope estimate, using
+the Bernoulli lower bound on the nonnegative side and its reciprocal upper
+bound on the nonpositive side, followed by uniform payment of the two tails.
+
+`HarmonicMovingDeterminantThetaWindowCentral` narrows the proof window exactly
+to `[floor(c/2), c]`, where `c=floor(sqrt(thetaWindowLength k))`.  It proves the
+corresponding left-loss/central-reserve/right-loss repartition of the full
+Dirichlet core and the payment-to-core implication.  This is the window on
+which first-order Bernoulli remains strong enough on the nonnegative-slope
+branch; the discarded cells are retained exactly in the right tail.  OPEN is
+the two-sided sign-split estimate on this reserve and uniform control of its
+two explicit losses.
+
+`HarmonicMovingDeterminantThetaWindowSign` machine-refutes the attempted
+pointwise completion of that plan.  At the threshold scale the exact center is
+`9`, yet `thetaCoreIncrement 38 9 < 0`; moreover the squared first-order
+Bernoulli carrier already exceeds the available profile at that endpoint.
+Thus the narrower repartition remains useful, but summing pointwise
+nonnegative central cells is impossible.  OPEN is a cumulative Abel/Dirichlet
+estimate which retains cancellation across the central reserve, followed by
+payment of the two explicit losses.
+
+`HarmonicMovingDeterminantThetaWindowCumulative` installs that corrected
+mechanism.  Each central increment is factored exactly into an unweighted
+signed carrier and a nonnegative decreasing Gaussian weight; finite Abel
+summation therefore turns nonnegative carrier prefixes into a nonnegative
+central reserve.  All prefixes through the full window are checked at `k=38`,
+including those containing the negative endpoint cell, and the resulting
+reserve pays both explicit losses at that scale.  OPEN is the uniform
+all-scale carrier-prefix bound together with the uniform comparison against
+the two losses.
+
+`HarmonicMovingDeterminantThetaWindowCubic` supplies the first uniform
+all-scale estimate for those prefixes after the first-order route was
+refuted.  Splitting `2n+1=n+n+1` proves the exact constructive lower bound
+`(1-n(1-w))^2*w <= w^(2n+1)` whenever the linear factor is nonnegative.  That
+factor is proved nonnegative throughout the entire moving proof window, so
+the root slope has a cubic rational upper carrier at every `k>=38`; its
+six-cell cumulative threshold prefix is exactly nonnegative.  OPEN is to sum
+the explicit cubic carrier over arbitrary prefixes, prove the resulting
+polynomial lower total uniformly nonnegative, and then pay both weighted
+tails (including reciprocal control of the possibly nonpositive first slope).
+
+`HarmonicMovingDeterminantThetaWindowCubicFirstBand` closes that arbitrary-
+prefix estimate on the complete first center band `38 <= k <= 47`, where the
+window center is exactly nine and its left endpoint exactly four.  Every cubic
+Abel prefix is nonnegative there; a conditional cubic-to-exact prefix bridge
+then gives every exact Abel prefix and the exact central reserve.  A checked
+`k=42` left-cell counterexample proves that pointwise cubic-to-exact transport
+is false, so cumulative cancellation remains essential.  OPEN is the symbolic
+center-dependent prefix estimate for `k >= 48`, followed by the physical
+left/right tail payment (which remains open even on the first band).
+
+`HarmonicMovingDeterminantThetaWindowCubicCrossing` supplies the all-scale
+algebraic invariant for that symbolic estimate.  After exact clearing by the
+positive harmonic denominator cube, consecutive normalized cubic slopes obey
+an identity whose remainder is
+`(D-1)(D^2 + 2N(N+1)(D-N-1))`, nonnegative on the natural window.  The module
+proves the resulting cleared-slope monotonicity and the exact bridge back to
+`thetaCubicRightCarrier`.  OPEN is to turn this one-crossing law into
+nonnegative sums for every moving-window prefix, then pay the two physical
+tails.
+
+`HarmonicMovingDeterminantThetaWindowCubicCarrierMonotone` performs that
+transport and positive-denominator cancellation, yielding the actual
+division-free all-scale invariant
+`(n+1) * carrier(k,n) <= n * carrier(k,n+1)` whenever `n+1 <= k+2`.
+`HarmonicMovingDeterminantThetaWindowCubicCarrierSuffix` then proves slope
+nonnegativity propagation, normalized-square monotonicity, and strict
+negativity propagation for consecutive mode cells on the nonnegative-slope
+branch.  Hence adverse cells form a terminal suffix after the crossing.  The
+prefix residual is now reduced to the first/full endpoint sums; the full
+endpoint still needs an even/odd center-band coefficient certificate before
+the two physical tails can be paid.
+
+`HarmonicMovingDeterminantThetaWindowCubicFullEndpoint` supplies the exact
+degree-seven discrete antiderivative, arbitrary block telescoping, and
+nonnegative even/odd center-band coefficient certificates.
+`HarmonicMovingDeterminantThetaWindowCubicFullEndpointRaw` stages the formerly
+explosive substitution by keeping the harmonic denominator `D` independent
+and proving exact even/odd endpoint formulas as degree-six polynomials in
+`D`.  OPEN is now only the staged substitution
+`D = 2m^2+r` / `D = 2m(m+1)+r` into the positive certificates; it should be
+proved by a center-half reparameterization or a Horner/binomial translation,
+not the refuted monolithic normalization.  After that, all cubic prefixes and
+the two physical tail payments remain.
+
+`HarmonicMovingDeterminantThetaWindowCubicFullEndpointSubstitution` completes
+the first half of that staging: six independently checked binomial-power
+identities and an independent-power carrier prove
+`raw(2m^2+r,m) = centered(m,r)` without the monolithic normalization that
+exceeded 2.4 million heartbeats.
+`HarmonicMovingDeterminantThetaWindowCubicFullEndpointEvenShift` closes the
+Horner translation `centered(M+5,r) = evenCertificate(M,r)`, including the
+constructive `ofNat`/`ofInt` bridge.
+`HarmonicMovingDeterminantThetaWindowCubicFullEndpointOddSubstitution` and
+`...OddShift` now close the analogous normalization
+`D=2m(m+1)+r` and its Horner translation to the manifestly positive odd
+certificate.  `...FullEndpointClosure` composes both certificates through the
+raw and primitive endpoint formulas and proves every full cleared block
+nonnegative.  `...FullEndpointPhysical` now proves the exact physical bridge:
+profile times `D^3` is the cleared numerator, mode cell times `D^6` is the
+cleared cell, and the physical mode block times `D^6` is the cleared block.
+`...CubicCenterBands` now gives every `k >= 48` an exact constructive even/odd
+center representation together with precisely the endpoint-certificate
+remainder bounds.  `...CubicFullPhysicalClosure` combines these data with the
+`D^6` bridge and proves the actual physical full mode block nonnegative for
+every `k >= 48`.  `...CubicTerminalPrefix` proves the generic finite
+terminal-suffix combinator: a nonnegative total plus strict forward propagation
+of negativity forces every prefix to be nonnegative.  OPEN is the physical
+bridge showing that any negative cubic mode cell lies on the nonnegative-slope
+branch where the existing successor-negativity theorem applies, followed by
+the actual prefix/tail instantiation.  `...CubicNegativeBranch` now closes that
+bridge via exact coarse denominator/profile bounds: every negative physical
+cell has nonnegative right carrier.  `...CubicAllPrefixes` instantiates the
+terminal-suffix theorem, proves every physical cubic mode prefix nonnegative
+for `k >= 48`, bridges it exactly to the central Abel carrier, and combines the
+first-band audit with the symbolic closure to obtain Abel-prefix nonnegativity
+for every `k >= 38`.  OPEN is only the two explicit tail-payment obligations
+and the upstream harmonic moving-determinant connection.
 
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their
@@ -5156,6 +5655,432 @@ Euclidean transfer by introducing a positive-time observable submodule,
 reflection into the negative half, and a compression/conditional expectation
 whose transfer is a contraction rather than the ambient isometry.
 
+`PositiveTimeCompressedTransfer` implements that repair constructively.  It
+separates an ambient isometric time/reflection automorphism from a positive-time
+GNS carrier and derives self-adjointness, positivity, and contraction of the
+compressed transfer from exact weighted-Gram and orthogonal-decomposition
+identities before descending it to the existing completion.  Its swap model
+has a nonzero excited vector killed by compression, which is a useful
+nonidentity check but corresponds to a zero-eigenvalue/infinite-energy
+artifact.  `PositiveTimeCompressedTransferHalf` removes that artifact with an
+exact signed-swap dilation: the vacuum is fixed, a provably nonzero and
+non-vacuum excitation has eigenvalue `1/2`, and `0 < 1/2 < 1` is kernel-checked.
+`PositiveTimeCompressedSpectralGapHalf` then machine-refutes a packaging trap:
+the legacy `SpectralGapData` has no operator/model compatibility field, so even
+the identity operator accepts this same nominal half-gap model.  Its corrected
+`DenseTwoModeSpectralCompatibility` requires nonzero distinct orthogonal modes,
+rational dense span, and both operator eigen-equations; the signed-swap model
+inhabits that strengthening exactly and its connected correlator decays at
+ratio `1/2`.  This validates the compression mechanism and a finite positive
+spectral scale; it is not yet the physical Yang--Mills transfer.  OPEN is the interacting
+Wilson/reflection-positive realization and an operator-compatible located
+spectrum along the uniform continuum schedule; arbitrary spectral-model
+packaging is not accepted as that bridge.
+
+`KleinCharacterWilsonCompression` supplies a same-state finite-algebra
+mechanism in which that bridge is genuinely nontrivial.  The exact rational
+group algebra of the Klein four group carries coefficient-at-identity Haar,
+the non-unit weight `delta_e + (1/2) delta_c` has a derived four-square
+positivity certificate, and the state-preserving automorphism exchanging the
+two transverse generators compresses on `span{delta_e,delta_a}` to the exact
+diagonal transfer `diag(1,1/2)`.  The retained Gram determinant is one, the
+excited quotient vector is nonzero, and the completed transfer is proved
+nonidentity with eigenvalue `1/2`.  This is an interacting finite mechanism
+pilot, not the SU(2) plaquette theory.  OPEN is to reproduce the construction
+inside a finite SU(2) Peter--Weyl/matrix-coefficient block and then establish
+volume-uniform and continuum control.
+
+`WilsonPositiveTimeCompressionBridge` tests that open bridge on the actual
+non-unit `halfReferenceWeight 2`, without adjoining an unrelated sector.  The
+period-two Wilson swap, its exact one-character Gram law, and a raw
+nonidentity transfer do produce a `PositiveTimeCompression`; nevertheless the
+swap is carrier-equivalent to identity, so the completed compressed transfer
+is proved exactly `id`.  A new `CarrierCompatibleProjection` law prevents a
+projection from distinguishing carrier-equivalent ambient representatives,
+and under that minimal honesty law every compression of this two-slice action
+is equivalence-trivial.  The unit-norm, nonzero Wilson character mode is
+explicitly refuted as a `1/2` eigenmode.  Therefore the next physical attempt
+must enlarge the actual Wilson character/half-space carrier so ambient time is
+not already quotient-trivial; changing the projection alone cannot work.
+
+`MultiSliceWilsonPositiveTimePilot` tests that enlargement on an actual
+non-unit `halfReferenceWeight 3`.  Its cyclic time shift genuinely moves the
+retained ordered adjacent-pair coordinate, and an exact one-character Gram
+resolution proves reflection positivity.  Two kernel-checked fences then
+exclude this formulation: the tempting pointwise expectation is not additive,
+so it cannot define the required GNS module, while every module compatible
+with the pure-product Wilson form has rank one and makes cyclic time radical-
+trivial.  Extra equivalence coordinates on pure tensors therefore do not
+produce an interacting transfer eigenmode.
+
+`CharacterTensorSpanPositiveTimePilot` then tests the first suggested linear
+span using two raw-distinct cyclic character tensors on that same actual
+three-slice weight.  Under the repository's Wilson-carrier laws their exact
+Gram matrix is `[[1,1],[1,1]]`, its determinant is zero, and the cyclic modes
+are equal in the GNS quotient; the strict `1/2` eigen-equation is therefore
+machine-refuted.  This is a universal conditional obstruction, not an
+existence theorem for the carrier.  The next route must introduce observables
+whose exact Haar/character algebra retains more than the total-character
+coordinate (for example genuine finite character sums/matrix coefficients),
+not merely a larger span of the same pure-product representatives.
+
+`SU2HaarTwoModePositiveTimePilot` audits the repository's legacy `physPairing`
+route.  `CosIntegralFamily` is underconstrained, not uninhabited: it stores only
+the desired values, and the module constructs the trivial table `I_0=π`,
+`I_{k+1}=0` without any integral.  The resulting diagonal legacy pairing must
+therefore not be called Haar integration.  Independently, the standalone
+character transfer still has exact eigenvalues `1/8` and `1/256`, but
+`charHilbert` is attached to a zero-image `charGNS`, and neither mode is a
+reconstructed GNS state.
+
+`SU2FiniteHaarRiemannTwoMode` supplies the faithful replacement.  Its record is
+pinned to the actual rational midpoint sequences `seqOrth2`, and the existing
+fusion/FTC recurrence proves unconditionally that the raw two-mode Gram is
+`semiInt·I`; normalized off-diagonal entries are exactly zero.  Diagonal
+normalization is precisely the genuine remaining value theorem
+`SemiConvergesToHalfPi`.  Adding even base Riemann provenance to any legacy
+`CosIntegralFamily` is proved equivalent to that residual, so the trivial table
+cannot fake it.  OPEN is the constructive semicircle normalization and the
+same-state interacting Wilson identification built from this
+provenance-bearing pairing.
+
+`SU2FaithfulTwoModeGNSConnector` removes the independent zero-image defect.  It
+constructs an explicit orthogonal two-line rational GNS datum, proves both
+character basis classes nonzero and distinct in its quotient, and shows that,
+assuming only `SemiConvergesToHalfPi`, every faithful normalized Riemann moment
+is the `CReal` lift of its exact identity Gram matrix.  On the dense carrier the
+two established character modes satisfy the exact `1/8` and `1/256`
+eigen-equations, and the diagonal evolution is proved self-adjoint, positive,
+and contractive for that form.  This is a genuine finite-mode positive GNS
+connector, not yet the physical Wilson connector.
+
+`SU2FaithfulTwoModeCompletedTransfer` closes the purely analytic extension
+half of that last sentence.  The dense diagonal map contracts squared
+distances, hence acts termwise on Cauchy representatives and descends to the
+canonical constructive GNS completion.  Its completed self-adjointness,
+positivity, contraction, and both nonzero exact eigenmodes are derived from the
+rational carrier identities.  The generic `TransferOperator` adapter uses the
+additive zero only as its structural distinguished vector, so it makes no
+vacuum claim.  OPEN on this lane is now solely the physical fidelity step:
+identify this form and evolution with the same interacting finite-volume
+`E_Λ` Wilson state (including its nonzero vacuum), rather than with an
+independent weight-one character model.
+
+`SemicircleMachinBridgeBounds` tightens the genuine value side without adding a
+new residual.  An exact alternating-energy telescope proves the uniform Machin
+bounds `π.approx n ≤ 22/7` and `halfPi.approx n ≤ 11/7`, hence the corresponding
+constructive `leRat` statements.  The actual first semicircle midpoint sequence
+has the independent lower witness `geRat 2`; therefore its fixed coarse sum is
+kernel-refuted as a representative of `halfPi`.  The remaining
+`SemiConvergesToHalfPi` proof must identify the refining midpoint limit with the
+Machin value through a geometric/common-refinement construction, not by freezing
+a finite quadrature.
+
+`SemicircleRationalPolygonBridge` supplies the first genuine common-refinement
+leg.  The rational unit-circle parametrization is proved exactly, and each
+left Riemann cell for `2/(1+t²)` splits into an inscribed-polygon cross cell plus
+a nonnegative sector defect.  Summation gives the exact finite identity and the
+two-sided bracket
+`polygonSemiQ ≤ atanRiemannQ ≤ polygonSemiQ + 2/n`; a constructive cutoff then
+proves an actual `CReal.ConvergesTo` transfer from the arctangent Riemann
+sequence to the polygon sequence with the same limit.  OPEN are the two
+identifications not hidden by that transfer: arctangent Riemann sums to the
+existing Machin `halfPi`, and the rational polygon partition to the actual
+`seqSemi` midpoint sequence.
+
+`SemicircleAtanDarboux` removes the existence half of the first identification.
+Left and right rational Darboux sums refine monotonically, their gap is exactly
+`1/n`, and an explicit modulus constructs `atanIntegral`; both the arctangent
+Riemann sequence and the rational polygon sequence converge to that same
+constructive real unconditionally.  OPEN are now the value theorem
+`atanIntegral ≃ halfPi` and the independent common-refinement comparison from
+the rational polygon sequence to the actual `seqSemi` midpoint sequence.
+
+`SemicircleAtanMachinPath` supplies the exact branch-safe finite algebra for the
+first of those two residuals.  Reordering the Machin increments keeps every
+successive tangent slope strictly inside `(0,1)`:
+`117/598`, `1183/2873`, `4394/6591`, then exactly `1`; all positive-denominator
+guards and tangent recurrences are kernel checked.  A generic cleared
+Möbius/Jacobian identity is also proved for rational tangent addition.  OPEN is
+the analytic change-of-variables/series-value lift from this exact path to
+`atanIntegral ≃ halfPi`; the module does not assume an angle-addition law.
+
+`SemicircleAtanRationalEndpoint` supplies the constructive analytic carrier for
+that lift.  For every rational endpoint `A/B` with positive denominator it
+constructs the canonical Darboux integral of `2/(1+x^2)` with an explicit
+Riemann modulus, and proves that the unit-endpoint specialization is exactly
+`atanIntegral`.  OPEN is now the rational Mobius change-of-variables/addition
+theorem along the four certified Machin slopes, followed by composition of the
+resulting exact endpoint identities.
+
+`SemicircleAtanMobiusKernel` closes the pointwise algebra of that change of
+variables.  For `phi_r(x)=(r+x)/(1-rx)` it proves the exact divided difference
+and both cleared left/right rectangle substitution formulas for
+`2/(1+x^2)`, using reflective rational polynomial certificates and positive
+cancellation.  OPEN is to lift these identities to induced finite Darboux
+partitions, control the rational mesh distortion, and obtain
+`I(tanAdd r t) ≃ I(r)+I(t)`; the endpoint series identifications at `1/5`
+and `1/239` are a separate residual.
+
+`SemicircleAtanInducedPartition` supplies that partition geometry.  Uniform
+rational source nodes are monotone with exact adjacent mesh; the sole branch
+inequality proves every Mobius denominator positive, the induced nodes remain
+monotone, and the endpoint denominator is a reserve below every cell
+denominator.  Consequently each transformed cell has the explicit bound
+`delta phi <= (1+r^2)*mesh/reserve^2`.  OPEN is the finite transformed
+left/right Darboux-sum squeeze using the kernel's rectangle identities, then
+the limiting addition theorem and the two endpoint-series identifications.
+
+`SemicircleAtanTransformedSqueeze` closes the finite substitution squeeze.
+The transformed left rectangles dominate the source left rectangles, the
+transformed right rectangles are dominated by the source right rectangles,
+and both inequalities sum over the induced Mobius partition.  The source sums
+are identified exactly with the endpoint module's scaled left and right
+Darboux sums.  OPEN is the quantitative induced right-minus-left gap estimate,
+its convergence/common-refinement passage to the endpoint integral, and the
+resulting limiting addition theorem; the endpoint series values at `1/5` and
+`1/239` remain independent residuals.
+
+`SemicircleAtanTransformedGap` proves the reusable finite Abel engine for that
+quantitative estimate.  Adjacent kernel drops telescope exactly, and if every
+cell width is at most a nonnegative mesh while the sampled kernel is
+antitone, then the transformed left sum is at most the transformed right sum
+plus `mesh * firstValue`.  OPEN on this branch is now the concrete
+specialization to the induced Mobius nodes, the explicit `firstValue <= 2`
+bound and convergence modulus, followed by interval additivity.
+
+`SemicircleAtanInducedGap` closes that concrete finite specialization.  The
+actual induced nodes are nonnegative and monotone, the kernel value is
+antitone and at most two, and both transformed grid sums are identified with
+the weighted Abel form.  Hence the induced left sum is at most the induced
+right sum plus exactly twice the explicit transformed mesh bound.  OPEN is
+now the rational mesh-to-zero modulus and common-refinement/limit transport
+that converts this finite squeeze into endpoint interval additivity.
+
+`SemicircleAtanMachinMesh` closes the required mesh factorization on every
+branch-safe Machin segment.  The endpoint reserve is proved independent of
+the partition, the induced mesh is exactly a fixed rational coefficient times
+`1/n`, and each of the four closed coefficients is kernel-checked to be at
+most one.  Therefore all four transformed gaps have the common `2/n` envelope.
+OPEN is only to package that envelope as a `CReal.ConvergesTo`/common-refinement
+argument and derive the four endpoint addition identities.
+
+`SemicircleAtanEndpointSeriesKernel` independently closes the finite algebra
+on the two endpoint-value series.  The paired geometric kernel satisfies the
+exact remainder identity `(1+x^2)P_N+(x^4)^N=1`, its quotient form retains an
+explicit remainder, and formal termwise integration of the first `2N`
+alternating monomials is exactly `2*Pi.cPart k N`, including the concrete
+`k=5` and `k=239` sequences.  OPEN is the actual analysis: factor the endpoint
+`scaledCell` through this normalized kernel and prove the uniform monomial
+power-sum/Riemann limit before passing the explicit geometric remainder.
+
+`SemicircleAtanEndpointCellFactor` closes the exact interface named in that
+residual.  At every endpoint `1/k` and every rational grid cell, the existing
+`scaledCell` is exactly `scaledMesh * unitKernel(endpointNode)`, proved by
+clearing the positive kernel denominator.  `SemicircleAtanEndpointSeriesSum`
+then splits every finite endpoint Darboux sum exactly into the paired Machin
+polynomial and a nonnegative remainder, and bounds that remainder uniformly
+in the mesh by `(2/k) * ((1/k)^4)^N`.  For every `k >= 2` it further proves the
+explicit modulus `N = epsilon.den`, so the remainder is at most `epsilon` at
+every positive mesh resolution.  The geometric limit is therefore closed.
+The geometric remainder is closed.  The finite signed-pair assembly and the
+constructive two-cutoff limit packaging are now also closed in
+`SemicircleAtanEndpointSeriesConvergence`: the paired kernel sum is identified
+with the finite monomial family, every signed monomial sequence converges, the
+limit is exactly `2*Pi.cPart`, and the uniform geometric remainder completes
+the endpoint identities at arbitrary rational reciprocal arguments.  In
+particular, the Darboux integrals at `1/5` and `1/239` are exactly twice
+`Pi.at5` and `Pi.at239`.  OPEN on this branch is the independent induced
+Möbius-partition common-refinement passage needed for the four branch-safe
+rational atan addition identities.
+
+`SemicircleAtanEndpointMonomialRiemann` proves the binomial-free local engine
+for that convergence.  Its mixed power cofactor factors
+`y^(p+1)-x^(p+1)` exactly and is bounded between `(p+1)x^p` and
+`(p+1)y^p`; consequently the exact monomial antiderivative increment on every
+nonnegative cell lies between the left and right rectangles.  Finite summation,
+exact endpoint telescoping, a mesh-independent formal integral, the explicit
+right-minus-left mesh envelope, and `CReal.ConvergesTo` with stage
+`2*epsilon.den` are all closed.  At even degree `2m` the limit is proved exactly
+equal to `2*Pi.bMag k hk m`.  OPEN is only to distribute the finite paired
+kernel into these monomial sequences, use finite convergence linearity, and
+identify the limit with `2*Pi.cPart`.
+
+`CharacterAlgebraAssociativityFence` corrects a separate semantic issue on the
+physical-fidelity lane.  The legacy `RGTransport.charAlg` multiplication keeps
+only the lowest Clebsch--Gordan channel `|a-b|`; the closed witness
+`(1⋆1)⋆2 = 2 ≠ 0 = 1⋆(1⋆2)` proves it is nonassociative.  It is therefore a
+spin-label/moment carrier, not the SU(2) character algebra.  The dependent
+`WilsonConsistency`, `WilsonRGTower`, `CarrierPrecursors`, and H4 comments now
+state that limitation explicitly.  OPEN is to replace it on the physical path
+by a linear fusion-sum (equivalently polynomial/class-function) algebra with
+the derived Haar state and the same interacting time evolution.
+
+`SU2ClassPolynomialAlgebra` installs the associative algebraic replacement on
+the constructive rational `QPoly` substrate.  Extensional evaluation is a
+proved congruence for addition and multiplication; associativity,
+commutativity, distributivity, unit, zero, and the identity star are all
+derived.  The exact low-mode identities recover both fusion channels and the
+modes are noncollapsed.  More generally, a recursive coefficient polynomial
+is proved to evaluate to every `U_n`, and multiplication of arbitrary modes is
+proved equal to the complete finite Clebsch--Gordan fusion polynomial by the
+existing general pointwise fusion theorem.  Thus OPEN is no longer either the
+algebra law or its full fusion normalization: it is the derived Haar/Wilson
+functional on this carrier and identification of its evolution with the same
+interacting finite-volume `E_Λ` transfer operator.
+
+`SU2ClassPolynomialTwoNodeHaar` adds an exact normalized positive functional
+directly on that associative polynomial carrier.  The symmetric nodes
+`+/-1/2` give the identity Gram matrix on `chi0,chi1`, respect the carrier's
+extensional equality, and agree unconditionally with the nondegenerate
+rational two-mode GNS form; after the genuine semicircle normalization they
+also agree with the midpoint-Riemann Gram.  This is deliberately only a
+finite-sector quadrature: the exact fence `H2(U4) = -1` proves it is not the
+full Haar state.  OPEN remains the all-mode derived Haar functional and its
+same-state interacting Wilson-transfer identification.
+
+`SU2ClassPolynomialFiveNodeHaar` extends that exact positive sector by a
+rational rule supported at `0`, plus-or-minus `1/2`, and plus-or-minus `1`,
+with positive weights `1/4`, `1/3`, and `1/24`.  It is normalized, linear,
+extensional, and nonnegative on every polynomial square, and its Gram matrix
+on `chi0,chi1,chi2` is exactly the identity because it matches the normalized
+semicircle moments through degree four.  The exact fence `H5(U6)=1` proves
+that this too is finite-sector quadrature.  OPEN remains an all-mode Haar
+functional—most naturally the vacuum coefficient after a proved finite
+Chebyshev-basis expansion—and its same-state Wilson-transfer identification.
+
+`SU2CharacterVacuumHaar` constructs that vacuum functional uniformly at every
+mode cutoff on explicit finite character-coefficient packets.  Packet
+synthesis is an actual `QPoly`, pure packets synthesize to the genuine
+Chebyshev characters, the functional is normalized and linear, and the full
+Clebsch--Gordan fusion product has exact diagonal vacuum coefficient.
+Consequently every finite character square has nonnegative Haar value and
+the Gram matrix is the identity for arbitrary mode labels.  OPEN is narrower:
+prove a constructive Chebyshev-`U` expansion extraction and uniqueness
+algorithm so the functional descends from coefficient-bearing packets to
+bare arbitrary `QPoly`; the interacting same-state Wilson evolution remains
+a separate physical residual.
+
+`SU2ClassPolynomialExtensionalReflection` proves the uniqueness hinge for that
+descent without coefficient normalization or choice.  A division-free
+deflation identity, finite root-count induction, and explicit distinct
+positive rational grids show that a `QPoly` vanishing at every rational point
+has every raw coefficient semantically zero.  Hence extensional equality is
+equivalent to the reflective coefficient test
+`PolyEqv p q <-> QPoly.allZero (QPoly.psub p q)`.  OPEN is now constructive
+existence rather than uniqueness.  `SU2ClassPolynomialChebExtraction` closes
+that existence half: its tridiagonal `xLift` implements multiplication by the
+polynomial variable in the Chebyshev basis, a Horner recursion computes
+`chebExtract`, and `chebExtract_expands` proves that synthesizing the extracted
+finite list is extensionally equal to every arbitrary bare `QPoly`.  OPEN is
+now narrowed further by `SU2ClassPolynomialChebUniqueness`: the reflective
+coefficient setoid is compatible with tail, scale, addition, and `xLift`;
+`chebExtract_unique` proves canonical extraction uniqueness under `PolyEqv`;
+and the bare vacuum functional descends extensionally.  OPEN is packet
+conversion with synthesis/vacuum agreement and identification of polynomial
+products with the already-proved packet fusion diagonal, which will transfer
+the exact sum-of-squares positivity to arbitrary bare polynomials.
+
+`SU2ClassPolynomialPacketDescent` closes the concrete packet-conversion and
+positivity half.  Finite coefficient lists are zero-extended into actual
+`CharacterPacket`s; packet synthesis agrees extensionally with Chebyshev-list
+synthesis, and every bare polynomial therefore has a common-cutoff packet
+whose synthesis is the original polynomial and whose vacuum agrees with
+`bareVacuumHaar`.  The existing full fusion packet then gives the exact
+diagonal vacuum formula and nonnegative square vacuum for every bare
+polynomial.  OPEN is now solely the semantic multiplication bridge
+`synthesis (fusionPacket P Q) ~= pmul (synthesis P) (synthesis Q)`, a finite
+fusion-sum interchange/reindexing theorem.  Once proved, the descended
+positivity applies directly to ordinary bare-polynomial products.
+
+`SU2CharacterFusionSynthesis` closes that multiplication bridge.  It
+constructively reindexes each finite indicator row onto the ascending
+Clebsch--Gordan ladder, proves it equals the existing `Ufusion` sum, interchanges
+the three finite sums, and derives
+`synthesis_fusionPacket_product`.  Consequently the arbitrary bare-polynomial
+fusion carrier is extensionally exactly `QPoly.pmul`, not a positive surrogate.
+The immediate remaining descent step is to identify the extracted bare vacuum
+of a synthesized packet with its packet vacuum, yielding
+`0 <= bareVacuumHaar (pmul p p)` directly; after that, the all-mode Haar
+positivity construction is algebraically complete, while same-state physical
+Wilson evolution remains the separate transfer residual.
+
+`SU2ClassPolynomialHaarDescent` closes that final descent step.  It proves
+extractor additivity and scaling, computes extraction on every individual
+Chebyshev character, identifies `bareVacuumHaar` after arbitrary packet
+synthesis with packet vacuum, and derives the literal all-mode theorem
+`0 <= bareVacuumHaar (pmul p p)` for every bare `QPoly`.  Thus the constructive
+all-mode SU(2) Haar algebra and positivity lane is complete.  The next physical
+front is no longer Haar existence: it is to use this same state in an
+interacting finite-volume Wilson transfer with reflection positivity and an
+operator-compatible located gap.
+
+`SU2PeterWeylWilsonBlock` gives the first genuine instance of that successor.
+Using the completed bare Haar functional, the non-unit positive weight
+`K = 1 + (1/4) chi_1` at `w=1/2` has exact reflected Gram
+`diag(1,1/8)`, positive determinant, and a nonzero fundamental quotient class.
+The same state on two links yields the derived compressed transfer
+`diag(1,1/8)`, proved linear, self-adjoint, positive, contractive, nonidentity,
+and with strict excited eigenvalue `1/8`.
+`SU2PeterWeylPlaquetteTensorBlock` derives the corresponding five-dimensional
+one-plaquette matrix-coefficient block: one vacuum plus four `D_ab` channels,
+all four with eigenvalue `1/8`, with the trace normalization independently
+matching the character block.  `SU2PeterWeylVolumeTensor` proves the uniform
+pure-tensor contraction, and `SU2PeterWeylVolumeGNS` upgrades it to arbitrary
+vacuum-orthogonal superpositions in the recursive `5^V` coefficient space,
+giving the exact squared-norm factor `1/64` independently of volume.
+`SU2SharedLinkFactorizationObstruction` then checks the first physical fence:
+two fundamental occurrences on one shared link have Wilson moment `1`, while
+the disjoint-product value is `1/16`, a mismatch of `15/16`.  Thus the tensor
+state cannot be silently identified with overlapping 4D plaquettes.  OPEN is
+`SU2SharedLinkFusionBlock` constructs the genuine two-plaquette shared-link
+block instead.  Its derived Haar Gram matrix is positive as three exact
+squares; the fused quotient sectors have convolution eigenvalues
+`1`, `1/8`, and `1/256`, while the redundant coordinate matrix necessarily
+mixes `255/256` into the vacuum.  It also proves that the antisymmetric tensor
+branch enters the shared radical and that the double excitation does not
+intertwine even modulo that radical.  `SU2SharedLinkFusionQuotientSpectrum`
+then supplies an orthonormal radical quotient with the exact spectrum, proves
+that eliminating either pair first in a three-occurrence shared link gives the
+same irrep coefficients, derives `chi1^3 = 2*chi1 + chi3` and the spin-three
+eigenvalue `1/32768`, and gives arbitrary finite nonvacuum fused packets the
+uniform squared-norm contraction `(1/8)^2 = 1/64`, independently of cutoff and
+fusion depth.  OPEN is the globally compatible gluing of full plaquette
+complexes across several shared links (including cycle compatibility), then
+the interacting 4D continuum state.  `SU2FiniteSharedLinkFusionNetwork` now
+closes the finite ordered-tree part: its explicit link eliminator is invariant
+under permutations and fusion association, and every nonempty product network
+whose fused packet is vacuum-free at each eliminated link contracts uniformly
+by `1/64`.  It also machine-refutes extending that local condition unchanged
+through cycles: the two-plaquette/two-link bigon fuses locally to `chi0+chi2`
+at both links, has exact global vacuum coefficient `1` and norm `4`, and hence
+regenerates vacuum.  OPEN is therefore the genuine global vacuum projection or
+gauge-compatible spin-network quotient for cyclic plaquette complexes.
+`SU2GlobalVacuumCycleQuotient` now supplies exactly that quotient for every
+bivalent cycle: a single common irrep label survives, collapse and transfer are
+order-independent, the global vacuum projector is idempotent and commutes with
+transfer, and every nonempty projected cycle contracts uniformly by `1/64`.
+The bigon quotient is exactly `(1,0,1)` and projects to `(0,0,1)`, resolving the
+previous cyclic obstruction.  OPEN begins at trivalent and higher-valence
+vertices, where intertwiner multiplicities and recoupling/F-move data replace
+the unique common label.  `SU2TrivalentThetaRecoupling` closes the first such
+block: trivalent multiplicities are exactly `0/1`; the signed rational
+four-fundamental F-move `[[-1/2,3/2],[1/2,1/2]]` satisfies `F^2=I` and preserves
+the Gram matrix `diag(1,3)`; its derived squared Racah kernel is
+`[[1/4,3/4],[3/4,1/4]]`; and the theta-graph quotient has an idempotent
+gauge/vacuum projector, order-independent transfer, and uniform `1/64`
+contraction.  OPEN is composition of local F-moves on general finite
+trivalent graphs, beginning with pentagon/coherence for arbitrary label blocks.
+`SU2FundamentalPentagonFiniteGraph` machine-refutes the constant-block shortcut:
+using the same fundamental `2x2` F matrix on every pentagon edge gives
+`F^2(1,0)=(1,0)` on the short path but
+`F^3(1,0)=(-1/2,1/2)` on the long path.  It separately closes coordinate
+gauge/nonvacuum projectors, transfer commutation, elimination-order
+independence, and `1/64` contraction on any fixed finite trivalent incidence
+graph, including a nontrivial tetrahedral example.  OPEN is the genuinely
+label-dependent dimension-rescaled SU(2) F-family, its fusion-space embeddings,
+and the label-wired pentagon.
+
 ### Milestone 14.4 — Assemble `singleStep` and the continuum floor
 
 **Goal.** 14.2 + 14.3 inhabit `SingleStepDefectBoundLoose` →
@@ -5265,6 +6190,25 @@ explicitly supplied observable action and its `DecayControlledSymmetryResponse`.
 This package deliberately does not claim full O(4): construction of the
 physical action and the interacting response estimate remain the open input.
 
+The downstream statement audit also corrects the historical
+`O4RestorationReduction.IsOS1Full` presentation.  Its type is only a conjunction
+of H4 invariance for one functional and the weak existential
+`RubricO4Restoration` scalar clause; the scalar certificate and H4 action are not
+required to live on the same algebra.  The existing inhabitant therefore checks
+legacy-package consistency, not full OS1 or O(4) covariance.  No pinned type was
+changed.  Full restoration must instead use the same-action observable response
+bridge above (and ultimately quantify over the required physical rotations).
+
+The audit reaches the guard-pinned scorecard itself as well.
+`ClayScorecard.RubricO4Restoration` chooses a fresh defect family inside each
+scale and has unconditional model inhabitants; it neither names a physical
+anisotropy schedule nor an observable action.  Consequently
+`ClayTargetPinned` closes a shared-object identity hole but its Euclidean slot
+is still this weak predicate.  The guarded declarations and hashes remain
+unchanged.  Exact campaign closure additionally requires full same-action O4
+covariance on the shared continuum limit; discharging only the legacy pinned
+aggregate will not be accepted as the external statement.
+
 ### Milestone 14.6 — Sharpness/satellite walls (feed, do not block)
 
 13.1 remaining (the `A·B − E·D` decaying envelope → the physical Wilson
@@ -5286,3 +6230,606 @@ principle, an empirical input, or a decomposition of `singleStep` (all
 machine-refuted); the two research cores are exactly the two halves of
 reality-fact two: the flow (14.1–14.2) and its spectral consequence
 (14.3).
+
+## Active mechanism registry (2026-07-13)
+
+The ordering is proof holes, semantic correctness, analytic frontier, then
+Clay-facing assembly.  Source scanning currently finds no `sorry` or `admit`;
+the aggregate, both statement guards, and the strict axiom audit are green.
+
+### Running independent lanes
+
+1. **Theta/Dirichlet route.**  Prove every central Abel carrier prefix
+   nonnegative for `k >= 38`, then show its weighted reserve pays the explicit
+   left and right losses.  Prefix nonnegativity is closed on the full first
+   center band `38 <= k <= 47`; the active residual is a center-dependent
+   symbolic estimate for `k >= 48`.  Its exact positive-reserve crossing
+   identity and the actual division-free carrier monotonicity are closed; the
+   terminal-suffix negativity mechanism, exact antiderivative, positive
+   even/odd endpoint certificates, all staged substitutions and shifts, full
+   cleared-block positivity, and the exact physical `D^6` bridge are closed.
+   The center parity/remainder decomposition and actual physical full-window
+   block nonnegativity for every `k >= 48` and the generic terminal-suffix
+   all-prefix combinator are now closed.  The negative-cell to
+   nonnegative-slope bridge and its physical prefix instantiation are also
+   closed for every `k >= 38`.  The exact combined frozen payment
+   `thetaLeftLoss + thetaProofRightLoss <= thetaProofCentralReserve` is now
+   closed throughout the finite first band `38 <= k <= 47` and propagated
+   through the seven-mode core gap, unit residual, Pascal-eight budget, and
+   earliest physical shell-spacing consumer.  The sole live theta residual is
+   the same combined payment uniformly for `k >= 48`, followed by composition
+   of the two ranges.  Prefix control is cumulative rather than a false
+   pointwise cubic-to-exact comparison.
+   The new seven-way Pascal/Bernstein mechanism now has exact degree-elevation,
+   cell, scale, prefix, and scaled-bulk recurrences.  The terminal correction
+   is tracked explicitly: the core equals the seven-unit residual gap for all
+   deficit coordinates `r >= 4`.  On the corrected boundary the common-scale-
+   630 six-coordinate bracket factors as `2(t+2)P(t)`, where every coefficient
+   of `P` is a positive integer.  The exact coordinate bridge proves, for every
+   `1 ≤ m` and `r ≤ 6`,
+   `5670 * sevenGapDeficit m r = sevenBoundaryScaledFormula r (m:Int)`.
+   Repeated adjacent-binomial clearing identifies the full boundary
+   convolution and the appended-cell cancellation
+   `sevenBoundaryPayment_eq_weight`.  The six output endpoints beyond `4m+2`,
+   the far-zero tail, elevation/splitting of the old bulk, and the full Pascal
+   induction are now closed uniformly: `sevenGapDeficit_bulk_nonnegative`
+   proves every bulk deficit for `m >= 4`, and the final consumer
+   `sevenCore_projectiveDeficit_nonnegative` discharges the physical core sign.
+   The tempting `m=3` anchor is permanently refuted at deficits 8 and 9; the
+   valid `m=4` anchor is exactly the physical `m=2t+4` base.  This seven-way
+   mechanism and its physical splice are therefore closed.  The audited
+   substitution `t=k+1` identifies `m=2t+4` with `growingAnchor(k+2)` and the
+   projective coordinate with `k+1`.  It proves the missing combined window
+   payment already for every `k >= 38`, propagates through the seven-unit
+   residual and old Pascal-eight budget, and closes the earliest physical
+   consumer `harmonicMass_shell_spacing_pascal`.  No unverified index or scale
+   conversion remains on this theta sublane.  The hypothesis-free result is
+   now propagated through the two remaining local consumers as
+   `harmonicSchur_spacing_pascal_all` and the top
+   `harmonic_operator_spacing_pascal_all`; repo-wide search finds no later
+   consumer.  `UniformQuadraticNodeCap` remains an independent sufficient
+   premise elsewhere, but this entire spacing chain no longer depends on it.
+   Pointwise central positivity and the maximal linear preload are permanently
+   refuted and are not fallback routes.
+2. **Exceptional-component injection route.**  Encode every exceptional
+   recovered mask pair into `CarrierXiCode`.  The source enumeration, complete
+   switched-branch payload, canonical target path, exact source-weight identity,
+   actual target membership, and injectivity are closed.  The sole residual is
+   a branch-sensitive positive target assignment.  Generic fiberwise summation
+   is closed, but safe-code fiber domination is concretely refuted (`2` source
+   weight versus target `1`).  Mark-only pruning stays injective but is also
+   refuted because an off-path incompatible branch makes the target zero.  The
+   active encoder must move every path-incompatible branch into external or
+   split target terms while preserving recoverability and positivity.
+   Disjoint target-block summation is now proved, so the concrete assignment
+   may use several positive target codes per source without double counting;
+   the custom-carrier API now exposes background/external masks with exact
+   factorized weights.  The minimal obstructing branch is now repaired all the
+   way through a global target bound; the live step is the general
+   branch-pattern assignment and its disjointness/recovery proof.  A general
+   router is injective on the right-safe region; a checked one-bit collision
+   shows unsafe-right states require a second block family rather than the
+   same two-slot code.  Exact path-mask factorization and residual-product
+   preservation are now closed without a right-safe hypothesis, as are the
+   unconditional exceptional global bound and the exact full product split
+   into exceptional and nonexceptional admissible sources.  The
+   nonexceptional occurrence switch is injective, exact-weight, and globally
+   summed.  The resulting one-ended influence estimate is reduced only to the
+   unchanged `PathSafeRoutedFacts` package; four of its five fields are now
+   discharged unconditionally.  The fifth, external compatibility, is
+   machine-refuted for the path-local router by a closed A--B--C--D source with
+   off-path external branch `[C,D]`.  That router is therefore blocked.  The
+   materially new component router is now closed on the `componentRightSafe`
+   branch: it transports the entire residual disagreement component, proves
+   compatibility and path validity, preserves exact activity, recovers the
+   source by reverse components, is injective, and supplies the finite weighted
+   summation bound.  This fixes the checked A--B--C--D collision because `D`
+   travels with `C`'s component.  Simple orientation reversal is now permanently
+   fenced on the complementary class: an explicit physical six-cycle has a
+   canonical path whose residual opposite arc contains an unsafe occurrence on
+   both switched sides, so neither left-rooted nor right-rooted whole-component
+   transport leaves a safe terminal background.  OPEN is therefore a genuinely
+   different carrier-chain mechanism.  Its first nontrivial local instance is
+   now closed: on the mixed six-cycle, two genuine repeated-edge ear codes are
+   valid, distinct and `Nodup`, have exact weights `C*A^2` and `C*B^2`, and
+   dominate the source weight `C*A*B` by the constructive inequality
+   `A*B ≤ A^2+B^2`.  OPEN is the general ear/multicode allocator for every
+   mixed exceptional component, with controlled target multiplicity.  A minimal
+   bipartite three-leaf star now fences the tempting Hamiltonian shortcut:
+   every simple leaf-to-leaf carrier is exactly one two-edge path and omits the
+   third leaf.  Thus the positive construction must combine pair-bounce square
+   encodings on open ears with an explicit block-cut branch layer.  The abstract
+   pair-bounce layer is now closed for every odd paired path: the symmetric
+   two-edge bounce has exact length/fuel, squares every interior activity, and
+   supplies the two-arm weight bound.  Its occurrence-carrier lift is also
+   closed: every generic pair-bounced ear is a member of the actual enumerated
+   `occurrenceCarrierXiCodes`, its target is `Nodup`, and its exact
+   `2 + 4*pairCount` fuel and vertex bounds are proved.  The additive block-cut
+   fuel invariant is now closed by structural induction as well: repeated-edge
+   cost and occurrence reserve add over children, local fits imply the global
+   budget, and the theorem is sharp.  In particular both complementary square
+   codes fit exactly in the balanced case (total selected pairs equal total
+   reserve pairs).  The unequal-arm obstruction is now fenced at the actual
+   enumerator: in the 3-edge-versus-1-edge four-occurrence block the long bounce
+   has length 6, exceeds fuel 4, and its full carrier code is absent from
+   `occurrenceCarrierXiCodes`.  A positive multiblock repair is now proved at
+   the profile level: orienting two equal unequal-arm profiles oppositely makes
+   the aggregate selected/reserve totals equal, both cross codes fit the global
+   occurrence budget, and
+   `(A₁B₁)(A₂B₂) ≤ (A₁B₂)²+(B₁A₂)²` pays the two-block source with explicit
+   factor-2 local fiber multiplicity.  This repair is now lifted to actual
+   appended occurrence walks: vertex lengths add minus the shared articulation,
+   the exact fuel is `3+4(k₁+k₂)`, the two block codes are distinct and `Nodup`,
+   prefix activity counts the joint once, and the scaled two-code weight bound
+   carries all three spine vertices exactly once.  Structural induction now
+   extends this from two blocks to every nonempty consecutive paired spine:
+   actual bounce length is `blockCount+1+4*pairCount`, the global occurrence
+   target is in the enumerator under that exact fuel, and shared articulations
+   are counted once in the exact activity.  Parallel block-cut children are the
+   remaining obstruction.  Naive depth-first leave/return concatenation is
+   permanently fenced: at articulation activity `1/2` its repeated joint turns
+   source weight `1/2` into target weight `1/4`.  OPEN is therefore a separate
+   multicode branch allocator preserving once-counted articulation activity.
+   A non-returning version is now closed, first on a concrete two-child fan and
+   then for an arbitrary compatible external-child family: it moves the child
+   mask into the occurrence code without traversing the branch, proves exact
+   main-path-times-external activity with the articulation once, derives
+   injectivity from a constructive external decoder, gives `Nodup`/singleton
+   fibers, and closes arbitrary finite source lists globally.  On the actual
+   source side, occurrence-submasks now yield duplicate-safe selected-list
+   sublists; compatibility and q-admissibility are inherited for either
+   exceptional side, and every external submask has an actual target with exact
+   articulation-once factorization.  Exact Boolean enumeration now packages all
+   such submasks into a finite multicode block: iff completeness, `Nodup`, actual
+   target membership, code recovery of the submask (singleton fibers), exact
+   weights, and the finite global target bound are closed.  The semantic
+   residual block now clears every canonical-path occurrence bit before that
+   enumeration; hence every external occurrence provably avoids the main path,
+   while right-side inheritance, `Nodup`, target membership, singleton fibers,
+   exact factorization and finite domination persist.  OPEN is identification
+   of the one-attached block-cut residual children with this cleared residual
+   mask, then construction from the general exceptional component and the
+   one-ended consumer splice.  The multicode cost is now exact: a residual mask
+   with `k` occurrence bits emits exactly `2^k` distinct external masks and
+   target codes.  Direct identification with the existing switched-component
+   residual is permanently fenced by a four-occurrence star: the original
+   cleared residual is exactly `{2,3}` while the switched residual is empty.
+   The replacement now factors the original-source residual directly.  It
+   identifies the graph-selected one-attached children with that residual,
+   proves the exact `2^k` multicode length and maximal-right weight, and gives
+   the duplicate-free exceptional global bound.  The public one-ended
+   restriction-product and influence inequalities are spliced to this
+   original-source consumer.  A constructive endpoint/path decoder further
+   proves that the original-right-residual carrier is automatically injective
+   whenever the original left cleared residual is empty.  That universal
+   premise is now permanently refuted by a checked disconnected compatible
+   left occurrence.  A symmetric left-residual multicode block and its source
+   decoder handle the opposite one-sided region, and the full exceptional sum
+   splits exactly into empty-left, nonempty-left/empty-right, and both-nonempty
+   sources.  Each one-sided region has an axiom-clean global bound.  Their
+   naive union is permanently fenced: opposite orientations can emit exactly
+   the same maximal carrier code.  For the both-nonempty region, a new
+   two-sided original-residual carrier is exact-weight and injective whenever
+   the left residual is compatible with every canonical-path vertex.  OPEN is
+   now the path-unsafe-left part of `mixedResidualSource`, plus a tagged or
+   grouped allocation that keeps the two one-sided regions disjoint.  Literal
+   path reversal is permanently fenced as that tag: every reversed chain ends
+   at the marked start with `b2 = false`, so its carrier weight is exactly zero
+   for arbitrary payloads.  A positive symmetric two-sided replacement now
+   covers the unsafe-left/right-path-safe region: it swaps original residuals
+   between terminal background and external payload, preserves the exact
+   weight and target predicate, and is unconditionally injective via a
+   constructive transpose into the canonical two-sided code.  Cross-
+   orientation disjointness is now closed for the branch rule using the
+   canonical carrier when left is path-safe and the symmetric carrier when
+   left is unsafe but right is safe.  Equality of the two oriented codes would
+   force a recovered unsafe occurrence onto a compatible path side, a checked
+   contradiction.  The dependent oriented source is globally injected with
+   exact weights.  The exact residual split is now closed: computable left and
+   right path-safety booleans partition the full source sum into the covered
+   oriented carrier and a sharply isolated both-sides-path-unsafe residual,
+   with exact weight identities and explicit unsafe witnesses on both sides.
+   The first-conflict detour is now constructive and exact.  A computable first
+   unsafe index exposes both directed conflict edges; factorization at that
+   index reconstructs the original walk, and splicing the two-edge detour
+   preserves both indexed endpoints with exactly two additional vertices.  Its
+   activity is identified without estimates as the original activity times the
+   conflict-vertex activity and the unsafe-occurrence activity.  The interface
+   is now constructive at the source-entry level as well: a finite Boolean
+   first-true scan returns the unsafe occurrence as `Type`-valued data, proves
+   its bound/residual/conflict specification, and feeds it directly to the
+   splice without eliminating a `Prop` existential.  Repetition now has exact
+   constructive fuel: the splice state clears the selected residual bit,
+   decreases residual cardinality by exactly one, increases walk length by
+   exactly two, bounds the initial potential by `Gamma.length`, and conserves
+   `walkLength + 2*potential`.  The fueled recursion is now constructed and
+   terminates with every remaining residual bit path-safe.  Activity accounting
+   is exact: the cleared unsafe-occurrence factor refunds one detour factor, so
+   total activity gains only the conflict-vertex factor.  Unconditional local
+   compensation without controlling that factor is kernel-refuted, while in
+   the derived strong-coupling window `0 <= w <= 1/2`, every character
+   coefficient and arbitrary-polymer activity is at most one; hence the entire
+   exhausted walk has no larger total activity.  Reversibility is now closed
+   as well: a minimal frame records each pivot/detour factorization and cleared
+   residual, the decoder rejoins the path and restores the selected bit, and
+   the traced exhaust is injective with a proved left inverse.  Its final state
+   equals the simple exhaust, is path-safe on all remaining residual bits, has
+   exact initial activity times the recorded conflict-multiplier product, and
+   is activity-nonincreasing at strong coupling.  OPEN is the adapter from this
+   traced normalization into the global both-sides-unsafe source carrier and
+   the resulting disjoint target-code allocation.  A finite bookkeeping
+   adapter is now closed, but it is deliberately only a tagged identity
+   extension: its carrier is the old covered occurrence codes disjoint-unioned
+   with the original unsafe source entries, each retained with its original
+   weight and an auxiliary computed trace.  Source injectivity is projection
+   from that stored entry; trace decoding recovers only the initial
+   `SpliceState`, not the exceptional entry.  The carrier has `Nodup`, exact
+   weight splitting, and bounds the complete exceptional source, but the trace
+   activity theorems do not pay for or compress its unsafe summand.  The
+   available fuel fence is likewise only conditional and chain-level: if a
+   particular traced final walk overflows, its `OccChainCode` is absent from
+   `occurrenceChainCodes Gamma Gamma.length`; neither overflow existence nor
+   full `occurrenceCarrierXiCodes` nonmembership is proved.  Trace-only source
+   recovery is now permanently fenced by a closed three-polymer collision:
+   two distinct exceptional source entries have exactly the same packaged
+   traced normalization, so no decoder can recover both.  The omitted datum is
+   isolated exactly as the off-path right residual.  Adding that single mask,
+   without retaining the source entry, reconstructs the existing two-sided
+   original carrier code and restores injectivity; its two values explicitly
+   separate the collision.  This is structural only and supplies no unsafe
+   weight payment.  OPEN remains the
+   entire genuine fuel/reverse-weight compensation or equivalent
+   target-preserving compression into the original carrier interface.
+3. **All-mode character/Haar route.**  Finite Chebyshev `U_n` expansion,
+   extensional coefficient uniqueness, and the descended bare vacuum
+   functional on `QPoly` are closed.  Packet conversion, synthesis/vacuum
+   agreement, the exact fusion diagonal, and fusion-packet square positivity
+   are also closed.  The full finite semantic multiplication bridge between
+   synthesized fusion packets and `QPoly.pmul`, arbitrary packet-vacuum
+   agreement, and the literal bare-polynomial square positivity theorem are
+   now closed.  This algebraic lane is complete; its successor is the
+   same-state interacting Wilson-transfer construction in lane 5.  Finite
+   rational quadratures remain useful sector checks but are exactly refuted as
+   full Haar states.
+
+### Next slot queue
+
+4. **Möbius--Darboux route.**  Bound the induced right-minus-left sum by its
+   uniform transformed mesh and pass the finite squeeze to the endpoint
+   constructive integral to prove rational atan addition.  The induced gap,
+   common `2/n` Machin mesh envelope, endpoint kernel factorization, and
+   uniform geometric remainder modulus are closed.  The endpoint-series
+   monomial Riemann convergence, finite signed-pair distribution, exact finite
+   limit identity with `formalEndpointPartial = 2*Pi.cPart`, and the full
+   two-cutoff argument are closed.  Consequently the rational Darboux
+   integrals at `1/5` and `1/239` are proved exactly equal to twice `Pi.at5`
+   and `Pi.at239`.
+   The finite squeeze plus the `1/n` Machin mesh bounds now prove constructively
+   that every one of the four induced left-sum sequences converges to its
+   source rational endpoint integral.  The remaining addition half is to
+   identify that same induced limit with the difference of its transformed
+   endpoint integrals by a constructive common-refinement/additivity passage.
+   The local common-refinement atom is now closed: inserting any rational node
+   into a nonnegative cell decreases the left Darboux contribution and
+   increases the right contribution.  The finite `CellRefines` closure now
+   lifts that move through arbitrary cell positions and transitive insertion
+   chains, proving the corresponding whole-partition left/right inequalities;
+   `common_refinement_bracket` packages the exact cross-partition Darboux
+   bracket whenever a valid common refinement is supplied.
+   Ordered rational cut lists now refine their enclosing cell; `insertCut`
+   constructively preserves order and supplies the exact cell-refinement
+   witness, while `mergeCuts` iterates it and proves the result refines its
+   base partition.  Full adjacent-insertion coherence is proved over arbitrary
+   bases.  Its permutation lift now makes every finite insertion history
+   order-independent up to pointwise `Q'.eqv`; replay of an ordered list,
+   symmetric merge, and the generic two-partition common bracket are closed
+   without normalizing rational representatives.  `SemicircleAtanFiniteMeshBridge`
+   identifies both the induced Mobius quadratures and ordinary endpoint
+   quadratures with the left/right sums of their explicit ordered cut-list
+   partitions.  The joined interval partition is now closed: concatenating
+   the `[0,r]` endpoint mesh and `[r,tanAdd r a]` induced mesh yields both exact
+   cross-brackets against every direct target mesh.  `SemicircleAtanAddition`
+   passes this squeeze through explicit constructive convergence moduli,
+   proves the generic rational atan addition theorem, and instantiates all four
+   branch-safe Machin steps.  Their exact composition, the reciprocal endpoint
+   series values, and pointwise expansion of the project Machin definition now
+   prove the axiom-clean value theorem `atanIntegral ≃ Pi.halfPi`.  Thus the
+   full Möbius--Darboux/Machin residual is CLOSED.  OPEN on the semicircle lane
+   is the final limit identification with the actual `seqSemi` midpoint
+   sequence.  The rational polygon is now exactly its nonuniform trapezoid
+   rule, its x-mesh is at most `2/n`, and its lower/upper endpoint envelopes
+   differ by at most `4/n`; both envelopes converge to `halfPi`.  Explicit
+   ordered polygon and uniform cut lists plus semantic CReal refinement prove
+   the sound all-resolution cross-brackets (polygon right ≤ uniform left and
+   uniform right ≤ polygon left).  The endpoint identifications are now exact:
+   polygon partition right/left sums equal `polygonLowerSeq`/`polygonUpperSeq`,
+   and all-index comparisons `polygonLower ≤ unitLeft` and
+   `unitRight ≤ polygonUpper` are proved.  The exact uniform endpoint gap is now
+   closed by finite telescoping:
+   `unitLeftSeq M ≃ unitRightSeq M + 2/(M+1)`.  Its explicit zero modulus and
+   the earlier upper-endpoint convergence prove that both uniform endpoint
+   sequences converge to `halfPi`.  The exact even-resolution pairing is also
+   closed: positive/reflected square roots identify the full even midpoint sum
+   with its quadrant sum, and the honest same-uniform-mesh bracket proves
+   `unitRightSeq M ≤ evenMidSeq M ≤ unitLeftSeq M` without a false polygon
+   same-index comparison.  The resulting squeeze
+   `evenMidSeq → halfPi`, its subsequence identification inside
+   `seqSemi → semiInt`, limit uniqueness `semiInt ≃ halfPi`, and retargeting the
+   full `seqSemi` consumer.  These steps are now CLOSED: both even-sequence
+   limits are proved, uniqueness gives the unconditional value theorem
+   `semiInt ≃ Pi.halfPi`, and `seqSemi` converges unconditionally to
+   `Pi.halfPi`.  The semicircle value lane is closed.  Its finite-Haar consumer
+   now supplies unconditional named convergence, normalized diagonal, and base
+   Riemann provenance; the faithful two-mode GNS connector likewise identifies
+   every normalized moment with its nondegenerate rational Gram without a
+   semicircle hypothesis.  The tempting same-state identification is now
+   machine-refuted: the Gram carrier is indexed by `χ₀,χ₁`, but its imported
+   excited eigenvalues are those of `χ₁,χ₂`; the natural forms and transfers
+   disagree, and no setoid-linear vacuum-preserving intertwiner exists.  The
+   correctly reindexed successor is now closed: explicit vacuum/fundamental
+   modes have Gram table `diag(1,1/8)` and transfer eigenvalues `1,1/8`; the map
+   descends to the constructive completion and is self-adjoint, positive,
+   contractive, fixes a nonzero physical vacuum, and has a nonzero fundamental
+   eigenmode.  The old no-intertwiner fence remains valid for the misindexed
+   carrier.  The first two physical embeddings are now closed: the trace map
+   into the five-channel plaquette block is an exact Gram isometry and
+   completed transfer intertwiner, and the genuinely correlated shared-link
+   fusion quotient has a completed orthonormal `χ₀,χ₁,χ₂` GNS with exact
+   spectrum `1,1/8,1/256`.  Its fusion section is a shared-Gram isometry and
+   intertwines raw and quotient time evolution.  The global bivalent bigon is
+   now completed too: diagonal common-label collapse, vacuum projection, and
+   squared eigenvalues `1,(1/8)^2,(1/256)^2` are exact; the false product-norm
+   identification is fenced.  The trivalent class-fusion completion similarly
+   gives `χ₀..χ₃`, spectrum `1,1/8,1/256,1/32768`, associative triple fusion,
+   and the exact packet `2χ₁+χ₃`, while fencing the naive disjoint norm.  The
+   first genuine higher-valence multiplicity space is now closed as well: the
+   three four-fundamental invariant contractions satisfy the exact relation
+   `C + A = B`, the two-dimensional Gram matrix is `[[4,2],[2,4]]`, rational
+   orthogonal multiplicity coordinates have Gram `diag(3,1)`, and the completed
+   four-link transfer has exact excited eigenvalue `(1/8)^4 = 1/4096`.  Its
+   first nontrivial completed recoupling is also closed: the rational chart
+   change `R(s,d)=((s-d)/2,(3s+d)/2)` preserves the exact GNS norm and distance,
+   descends to the completion, and sends the two pairing basis modes to their
+   correct new-chart coordinates.  A mixed-label completed recoupling is now
+   closed too for `(2,2,1) -> 1`: the exact invariant source Gram is
+   `diag(96,192)`, the physical target Gram is `diag(72,576)`, and the rational
+   coefficient block `[-2/3,1/3;4/3,1/3]` is correctly fenced as non-Euclidean.
+   In the denominator-free target chart the GNS Gram is `diag(8,64)` and the
+   integral map `(-2x+4y,x+y)` preserves norm and distance exactly, hence
+   descends to a completed GNS isometry.  The full mixed `(2,2,1,1)` five-tree
+   pentagon is now closed in completed GNS spaces: all five path forms use the
+   correct channel-dependent chart ratios (including `1/4`, `1/6`, and
+   `1/12`), every dense edge is an exact isometry, the heterogeneous descent is
+   reusable, and the completed long and short routes agree.  The all-label
+   invariant Gram layer is now also closed as an exact normalized finite sum:
+   arbitrary-label diagonal weights expose all three binomial factors, output
+   monomial norm, and coefficient square; factorial reciprocal norm and
+   nonnegativity are proved uniformly.  `TriMapEqv` now induces equality of
+   those weights, dense GNS isometries, and completed local F-moves with no
+   separately assumed metric compatibility.  OPEN is coefficient-side:
+   constructive rising Chu--Vandermonde and its exact `Q'` lift are now closed,
+   including the shifted transvectant convolution.  The actual highest-weight
+   Cayley row is reduced to its unique supported summand with the exact signed
+   falling-factorial coefficient.  Its input-binomial-weighted coefficient
+   square is now factored exactly, the Cayley sign is removed after squaring,
+   and Chu--Vandermonde closes the actual highest-row norm as
+   `(m)_k*(n)_k*k!*(m+n-k+1)_k`.  The row-to-full engine now has exact
+   adjacent-binomial adjointness, one-step and all-order Cayley lowering
+   covariance on the physical box, and the weighted antidiagonal Euler
+   identity.  Physical bidegree support is now closed for total lowering,
+   Cayley contraction, arbitrary Cayley iterates, and pure tensor monomials;
+   it globalizes lowering covariance outside the residual rectangle and proves
+   the all-order supported transvectant intertwining
+   `transvect(F2 c) ≈ Fop(transvect c)`.  Raising covariance is now closed too:
+   the corner and both zero-index edges are proved separately, assembled into
+   global one-step and arbitrary-order `OmegaK`/`E2` commutation, and extended
+   outside the physical rectangle by support.  Diagonalization now transports
+   that supported covariance to the output as well:
+   `transvect(E2 c) ≈ Eop(transvect c)`, with the support hypothesis explicitly
+   fencing false Nat-subtraction identities outside the physical rectangle.
+   The tensor-basis row recurrence is now closed as well: pure tensor
+   monomials have exact two-branch lowering and raising decompositions,
+   including all zero and top-edge truncations, and the two supported
+   covariance theorems transport them to arbitrary admissible transvectant
+   output rows.  The two-dimensional binomial adjoint is now closed, and it
+   yields the exact raw output-row recurrence
+   `(s+1)*N_(s+1) = (m+n-2k-s)*N_s` for every admissible order.  The next
+   residual is the constructive binomial normalization/telescoping that turns
+   this raw recurrence and the proved highest-row value into normalized
+   output-row constancy, which yields the
+   full-binary Gram multiplier, followed by a uniform rational
+   all-admissible-label F-matrix/`TriMapEqv` certificate, then prove
+   multi-channel direct-sum and arbitrary-tree coherence.
+5. **Positive-time Wilson transfer route.**  Build a same-state interacting
+   half-space algebra from genuine finite character sums or matrix
+   coefficients, derive reflection positivity as an exact Haar/character Gram
+   identity, and construct the compressed transfer with operator-compatible
+   located spectrum.  The one-plaquette five-channel block and the disjoint
+   `5^V` GNS contraction with uniform squared factor `1/64` are closed.  Naive
+   shared-link factorization is exactly refuted by the `15/16` moment mismatch.
+   The genuine two-plaquette shared fusion quotient is now derived, with
+   eigenvalues `1, 1/8, 1/256`; the tensor intertwiner is itself refuted.  The
+   associative three-occurrence gluing, arbitrary finite-packet contraction,
+   and finite link-elimination order/association independence are closed.
+   The bigon exactly refutes naïve local vacuum removal, while the common-label
+   global quotient now closes every bivalent cycle with the same `1/64`
+   contraction.  Exact trivalent multiplicities, the fundamental signed
+   rational F-move, and the theta-graph projector/contraction are also closed.
+   Fixed finite trivalent incidence graphs and a tetrahedral example are
+   closed, while the constant-F pentagon is exactly refuted.  The first
+   non-fundamental all-spin-one block is now derived from the cutoff-5 Racah
+   transform: its exact 3x3 matrix on channels `0,2,4` squares to the identity
+   and preserves Gram weights `1,3,5`.  A genuinely nontrivial scalar
+   Biedenharn--Elliott coordinate with three F edges versus two is closed;
+   both dimension-rescaled routes equal `3/4`, the raw signed-six-j routes
+   equal `1/36`, and the factor `27` is checked exactly.  The active target is
+   equality of the full five fusion-tree maps.  A Q'-only unnormalized
+   transvectant basis avoids the square roots introduced by mixed-label Wigner
+   normalization.  `SU2TransvectantMixedPentagon` now derives the exact mixed
+   `(2,2,1,1)` associator blocks and a full five-tree pentagon whose long and
+   short routes both equal `diag(1,1/2)`.  This closes the finite mixed-label
+   increment.  The structural all-label target has also been corrected from a
+   scalar tree-to-tree carrier to a genuine multi-channel coordinate carrier:
+   synthesis/coordinate round trips now prove the full pointwise matrix
+   pentagon for tree-dependent channel types, with a nontrivial two-channel
+   witness.  A concrete mixed `(2,2,1)` separating cell also permanently
+   refutes scalar collapse: the `e=0` source coefficient is `4` where the
+   `f=1` target coefficient is zero (the omitted `f=3` coefficient is `12`),
+   so no rational scalar on one channel can encode the physical F-move.  OPEN
+   The concrete all-label expansion has begun without cutoff enumeration:
+   arbitrary-degree monomial formulas for the zeroth and first Cayley
+   transvectants are now proved from exact one-hot finite sums, including the
+   signed coefficient `i(n-j) - (m-i)j` on the degree-lowered shell.  A symbolic
+   layer invariant also proves for every order `k` that all coefficients off
+   `s+k=i+j` vanish.  The factorial carrier is now connected symbolically at
+   orders zero and one: positivity, zero/one falling-factorial identities, the
+   complete signed factorial coefficients, and equality with the actual
+   transvectants on shell are all proved for arbitrary labels.  The exact
+   order-two factorial coefficient is also closed symbolically, including the
+   Pascal multiplicity `2` on the signed middle contraction.  The Cayley
+   operator, every `OmegaK` iterate, diagonal restriction, and arbitrary-order
+   transvectant are now proved pointwise linear under addition and rational
+   scaling, supplying the algebraic transport needed by the induction.  One
+   Cayley contraction of an arbitrary monomial tensor is now decomposed exactly
+   into its two derivative branches, including all zero-index boundaries; this
+   yields the all-order two-branch recurrence at reduced bidegree `(m-1,n-1)`.
+   At the first nonlinear step, reflective `Q'` normalization now proves that
+   the two mixed branches combine with Pascal multiplicity `2`.  The actual
+   order-two transvectant agrees with the factorial coefficient for every pair
+   of natural monomial indices: the interior, both zero-index boundaries, and
+   all three below-order inputs are handled symbolically.  The arbitrary-order
+   coefficient algebra is now active as well: the leading-label falling shift,
+   both binomial edges, a general cleared `r!·C(n,r)=(n)_r` theorem, equality of
+   the factorial-ratio binomial with the recursive Pascal carrier at every
+   in-range and out-of-range index, and the exact `Q'` Pascal recurrence are
+   closed.  The universal phase flip, simultaneous two-factor falling shift,
+   finite-sum congruence/additivity, and successor-index peeling are closed as
+   well.  Exact positive/negative branch term shifts, Pascal term combination,
+   zero-cell extension, shifted finite sums, and the complete interior
+   factorial-coefficient recurrence are now closed for every contraction order.
+   Both zero-index boundary recurrences and the `(0,0)` corner are now closed,
+   yielding the universal factorial successor recurrence.  Structural
+   induction then proves, for every order and every natural label, that the
+   actual on-shell Cayley transvectant equals the alternating falling-factorial
+   coefficient; combined with the support theorem this gives the full
+   all-output formula, including every off-shell zero.  Thus the arbitrary-
+   order coefficient algebra is CLOSED.  The first basis-existence layer is
+   now also constructive: the fusion guard proves that the contraction order
+   lies inside both input degrees, an explicit positive-branch coefficient is
+   semantically nonzero, and every output monomial in every admissible channel
+   has explicit input monomial indices whose transvectant is exactly that
+   nonzero scalar times the selected monomial and zero elsewhere.  The positive
+   reciprocal and finite assembly are now closed constructively as well: an
+   explicit `admissibleSynth` is a right inverse on the complete degree-`c`
+   window, and every guarded trivalent channel is packaged with
+   synthesis/coordinate round trips modulo that one transvectant's kernel.  A
+   smallest spin-half fence now proves the local scalar section leaks into the
+   order-zero symmetric channel, so independent channel sections cannot yet be
+   concatenated into a Clebsch--Gordan direct sum.  The corrected spin-half
+   pilot is now complete: the symmetric middle vector and antisymmetric scalar
+   vector give a leakage-free `3+1` channel table, and exact reconstruction of
+   all four source monomials proves this is the full bidegree-(1,1) coordinate
+   basis.  The next mixed label is closed too: exact thirds produce a
+   leakage-free `4+2` split for `V_(1/2) tensor V_1`, with all six source
+   monomials reconstructed.  This finite pattern is now generalized along one
+   full infinite-label axis: every interior shell of
+   `V_(1/2) tensor V_(n/2)` has the exact actual transvectant map
+   `(left,right) -> (left+right,(n+1-s)right-s left)`, whose division-free Hahn
+   adjugate reconstructs both source coefficients up to the positive
+   determinant `n+1`.  Boundary-shell packaging and the full all-`n` direct-sum
+   table are now closed as well.  On every interior shell the explicit upper
+   vector maps to `(n+1)mono(s)` in order zero and exactly zero in order one;
+   the lower vector has the complementary table, mapping to
+   `(n+1)mono(s-1)` in order one.  The lowest and highest one-dimensional
+   shells map only to their order-zero endpoints.  The arbitrary-order shell
+   matrix is now identified exactly as well: every entry is the proved
+   alternating falling-factorial coefficient, every column is supported on
+   the unique monomial `t-k`, and rows zero, one, and two are exposed as the
+   constant, affine, and quadratic Hahn rows.  The physical source columns and
+   physical contraction rows are constructively enumerated by the same finite
+   interval `0..shellWidth`; both directions of both enumerations are proved.
+   At the first genuinely multi-order size, the symbolic spin-one central
+   `3x3` matrix is now proved by reflective exact algebra to have determinant
+   `2*N*(N+1)*(N+2)`, independent of the shell coordinate.  This is a uniform
+   identity, not finite-label sampling.  The physical bridge is now closed on
+   every central shell `2 <= t <= n`: all nine derived entries
+   `hahnEntry 2 n t r i`, `r,i<3`, are proved exactly equal to the symbolic
+   matrix, including the natural-subtraction/cast boundaries.  Its explicit
+   division-free inverse is now closed too: a general constructive `3x3`
+   adjugate theorem proves both `A*adj(A)=det(A)I` and
+   `adj(A)*A=det(A)I`, and the physical Hahn matrix satisfies both identities
+   with the explicit scale `2*n*(n+1)*(n+2)`.  Named strict positivity now
+   feeds that derived scale to `Q'.recipPos`; scaling the same adjugate gives a
+   genuine constructive left and right inverse of the physical matrix.  The
+   prospective general
+   determinant scale `product_{k=1}^m k!*(n+m-k+1)_k` is now defined exactly
+   and proved positive for `m <= n`; its `m=1` and `m=2` specializations are
+   proved equal to the established spin-half and spin-one factors.  The first
+   two nonconstant column-elimination pivots are now closed uniformly as well:
+   exact symbolic `Q'` identities and boundary-complete bridges to the actual
+   factorial carrier prove the adjacent differences for Hahn rows one and two,
+   with reduced parameters `(m-1,n-1,t-1)` and exact factors `m+n` and
+   `2*(m+n-1)`.  The adjacent-difference theorem is now closed at arbitrary
+   contraction order as well.  Constructive induction through the universal
+   factorial recurrence, including all zero-coordinate boundary branches,
+   proves the actual coefficient law with exact factor
+   `k*(m+n-k+1)` and reduced labels `(m-1,n-1,k-1)`; the physical shell
+   `hahnEntry` corollary follows uniformly.  The general determinant identity
+   has now been reduced constructively to a determinant-interface induction:
+   on every central shell the physical enumeration is exactly `0,...,m`, the
+   forward column difference turns the top row into `(1,0,...,0)`, and the
+   lower-right block is the reduced central Hahn matrix with exact row pivots
+   `(k+1)*(m+n-k)`.  Their full product times the reduced prospective
+   determinant scale is proved equal to the larger scale.  OPEN is defining
+   the general finite Leibniz determinant in this substrate, proving forward
+   column subtraction preserves it and block-triangular expansion multiplies
+   by those row pivots; the determinant identity and hence general-size Hahn
+   nonsingularity then follow by induction.  This is followed by nested fusion trees, the
+   guarded Dougall identity, and the same-state interacting Wilson realization.
+   The older `PartitionBeyondTree.SixJRecoupling` carrier is now permanently
+   fenced: its unguarded `∀ D` recoupling field is contradictory at `D=0` and
+   all-zero labels (`1 ≃ 0`).  It may not be used as a shortcut.  Any successor
+   must carry an explicit support/cutoff hypothesis, matching the guarded
+   Dougall statement.
+   Ambient isometries and pure-product character spans are machine-refuted
+   because they collapse in the GNS quotient.
+6. **Exact polymer/RG amplitude route.**  Combine the Xi influence estimate,
+   derived finite Haar character sums, phase-cell/block-spin control, and
+   Penrose--Ursell resummation into the physical per-scale defect amplitudes.
+   Candidate submechanisms remain Bałaban phase-cell gauges, bond-moving
+   envelopes used only with a proved comparison, transverse defects, and
+   correlation/TP2 inequalities.  Any route ending in an assumed global
+   compatibility or measured constant is blocked by definition.
+7. **Constructive spectral perturbation route.**  Transfer the exact
+   interacting finite-volume character-sector contraction to a located
+   Hamiltonian gap, with multiplicative and additive errors matching
+   `singleStep`.  Nominal `SpectralGapData` without operator compatibility is
+   machine-refuted and may not be reused.
+8. **Uniform continuum/OS route.**  Derive per-observable geometric increments
+   for the interacting functional, obtain the already-defined constructive
+   scaling modulus, pass OS positivity/locality and the uniform gap to
+   `R^4`, and prove finite positive mass rather than only a lower floor.
+9. **O(4) route.**  Construct the physical approximating rotation action and
+   prove the same-state observable response estimate controlled by the
+   vanishing anisotropy coefficient.  Bare coefficient Cauchy convergence and
+   the weak legacy scalar rubric are fenced as insufficient.
+10. **Local-field/nontriviality route.**  Construct curvature-polynomial local
+    fields on the shared continuum Hilbert space and derive their short-distance
+    asymptotic-freedom normalization, stress tensor, and prescribed OPE
+    singularities.  This lane must share the state, action, and reconstruction
+    used by the gap proof; an independent model does not discharge the Clay
+    statement.
+
+### Exploratory alternatives retained but not promoted
+
+- A dual or spin-foam transformation is admissible only if its inverse,
+  positivity, and continuum uniformity are proved constructively.
+- Stochastic quantization is admissible only with a derived invariant measure,
+  reflection positivity, and uniform spectral control; formal Langevin
+  convergence alone is a new open front.
+- Direct transfer-operator localization, total-positivity inequalities, or a
+  sharpened cluster expansion may replace parts of lanes 5--7 if they produce
+  the same exact finite-volume state and uniform constants.
+- Migdal--Kadanoff or other bond-moving recursions are envelopes, not identities;
+  they enter the critical path only after a proved comparison in the correct
+  direction.

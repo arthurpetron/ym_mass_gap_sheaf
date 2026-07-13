@@ -1,6 +1,6 @@
 /-
-Track 11.10-o4 / R2 — **O(4)-restoration statement-layer reduction: both OS1
-conjuncts fired from ONE structured input.**
+Track 11.10-o4 / R2 — **legacy O(4) statement-layer packaging: an H4 invariant
+functional paired with a separately sourced scalar decay certificate.**
 
 # What this module supplies
 
@@ -8,11 +8,11 @@ The OS1 axiom carries TWO pieces of content on the observable algebra:
 
   * **H₄ (hypercubic) invariance** — `IsOS1HypercubicH4 E ψ`, functional
     equivariance `E(ψ a) = E a` under a genuine hypercubic-rotation `*`-hom `ψ`;
-  * the **open O(4)-restoration clause** `RubricO4Restoration` — the continuum
-    statement that the rotational-anisotropy defect vanishes as `a → 0`.
+  * the legacy `RubricO4Restoration` clause, whose inner defect family is
+    existential and is not tied by its type to this observable action.
 
-This module bundles the honest hypotheses for both into a single
-`O4RestorationInput` and fires `IsOS1Full` (their conjunction) from it, with:
+This module bundles those two historical hypotheses into one
+`O4RestorationInput` and fires the legacy `IsOS1Full` conjunction, with:
 
   * the H₄ conjunct discharged as a genuine **theorem**
     (`prodCharFunc_isotropic_H4_equivariant`), NOT a posited field — the
@@ -23,20 +23,23 @@ This module bundles the honest hypotheses for both into a single
     from `Int`/`Nat` multiplication commutativity+associativity.  Isotropy
     (`wx = wy = w`) is essential — the anisotropic case is exactly where
     equivariance FAILS (`H4RotationAuto.prodAniso_pos`);
-  * the open O(4) clause discharged verbatim from the proved AF decay-to-zero
+  * the weak scalar clause discharged verbatim from the proved AF decay-to-zero
     pipeline `O4ClauseStrength.rubricO4Restoration_of_strong`, with the explicit
     geometric certificate `(C, ρ)` surfaced (`ρ = ½`, `C = breakCoeff D 0`,
     envelope `breakCoeff_le_geo`).
 
 # Honest scope (frontier UNCHANGED — do not overclaim)
 
-The reduction adds NO new analytic content: it fires the open clause from a
-STRUCTURED hypothesis (a pinned geometric schedule + a proved H₄ equivariance),
+The reduction adds no analytic content connecting the two halves: it fires the
+weak clause from a structured scalar hypothesis and pairs it with H4 equivariance,
 exactly as `O4BetaSign.o4_restored_of_tauModel` fires from a proven trajectory.
 The out-of-scope (11.8-class) discharge is that the TRUE interacting Wilson
 `anisoDefect` obeys this geometric decay for the physical AF `ρ`
 (`O4RestorationProgress.CouplingRunning.betaDrop_nonneg`, `β ≤ 0`) — untouched.
 
+The scalar certificate and H4 functional may live on different algebras.  Thus
+this legacy package is not full OS1/O(4) covariance.  The corrected route is the
+same-algebra observable response/action bridge in `O4ObservableSymmetryBridge`.
 Distinct from `RepTheory.Spin4.O4RestorationInput` (the gap-margin object); this
 one lives in `YMGap.Continuum`.
 
@@ -129,13 +132,15 @@ theorem prodCharFunc_isotropic_H4_equivariant (w : Q') (hw : (0 : Q') ≤ w) :
 
 /-! ## 2. The pinned-anisotropy + geometric-decay input (Continuum namespace) -/
 
-/-- **O(4)-restoration input.**  Bundles (a) the anisotropy PROVENANCE and its
+/-- **Legacy scalar-decay/H4 packaging input.**  Bundles (a) the anisotropy provenance and its
 pinned AF schedule (a `StrongO4Restoration`: non-trivial rotation, L=4 generator,
 step-0 coeff pinned to the extractor `anisoDefect`, strict positivity), (b) the
 EXPLICIT geometric-decay certificate `(C, ρ)` with `ρ < 1` and the closed
 envelope `breakCoeff k ≤ C·ρ^k`, and (c) the H₄ rotation slot `ψ` on the
 isotropic functional `H4E` together with its equivariance witness (discharged by
-the theorem above in the smart constructor).  Distinct from
+the theorem above in the smart constructor).  These data are not tied to one
+observable action, so this structure does not state full O(4) restoration.
+Distinct from
 `RepTheory.Spin4.O4RestorationInput` (gap-margin object). -/
 structure O4RestorationInput : Type 1 where
   /-- Anisotropy provenance + pinned AF decay schedule. -/
@@ -158,18 +163,17 @@ structure O4RestorationInput : Type 1 where
   /-- H₄ invariance of the isotropic functional (a THEOREM in the inhabitant). -/
   h4_inv       : IsOS1HypercubicH4 H4E ψ
 
-/-- **Full OS1 predicate**: proved H₄ invariance ∧ the open O(4)-restoration
-clause. -/
+/-- **Legacy OS1 packaging predicate.**  This is the conjunction of H4
+invariance with the weak existential scalar clause; it does not link their
+algebras or actions and must not be read as full continuum O(4) covariance. -/
 def IsOS1Full {A : ObsAlg} (E : ProbFunctional A) (ψ : ObsHom A A) : Prop :=
   IsOS1HypercubicH4 E ψ ∧ YMGap.Rubric.ClayScorecard.RubricO4Restoration
 
 /-! ## 3. THE REDUCTION -/
 
-/-- **Statement-layer reduction.**  From an `O4RestorationInput`, both OS1
-conjuncts fire: the H₄ conjunct from the input's proved equivariance witness, the
-open O(4)-restoration clause from `rubricO4Restoration_of_strong` (decay-to-zero
-of the pinned anisotropy).  Fires from structured data (a pinned schedule +
-geometric certificate), not a posited defect. -/
+/-- **Legacy statement-layer reduction.**  The H4 conjunct comes from the
+input's equivariance witness and the separate weak scalar clause comes from
+`rubricO4Restoration_of_strong`.  No same-action observable covariance follows. -/
 theorem o4_restoration_of_input (inp : O4RestorationInput) :
     IsOS1Full inp.H4E inp.ψ :=
   ⟨inp.h4_inv, rubricO4Restoration_of_strong inp.strong⟩
@@ -195,9 +199,9 @@ def o4Input_isotropic (S : StrongO4Restoration) (w : Q') (hw : (0 : Q') ≤ w) :
   ψ_nontrivial := rot4_nontrivial
   h4_inv       := prodCharFunc_isotropic_H4_equivariant w hw
 
-/-- **Non-vacuity capstone**: full OS1 fired from the concrete SU(2) heat-kernel
-strong certificate + the isotropic H₄ functional — genuine non-trivial `ψ = rot4`,
-genuine positive extracted anisotropy, genuine geometric decay. -/
+/-- **Legacy-package inhabitant.**  This pairs a concrete SU(2) scalar decay
+certificate with an isotropic H4 functional.  It validates the conjunction's
+inhabitation but not full OS1, because the two actions are not linked. -/
 theorem isOS1Full_concrete :
     IsOS1Full (prodCharFunc wX wX hwX hwX) rot4 :=
   o4_restoration_of_input

@@ -1,9 +1,9 @@
 /-
-Genuine lattice-level precursors for the four 4D Yang–Mills existence
-carriers, wired against the repository's REAL constructive objects (the
-SU(2) heat-kernel Wilson functional, the character / class-function
-algebra, and the SU(2) Casimir spectrum) rather than the trivial one-point
-algebra.
+Lattice-level precursors for the four 4D Yang–Mills existence carriers,
+wired against nonconstant SU(2) spin/Casimir data rather than the trivial
+one-point carrier.  The legacy `charAlg` multiplication retains only the
+lowest fusion channel and is nonassociative; it is not the class-function
+algebra (`CharacterAlgebraAssociativityFence`).
 
 # What this module adds, and what it deliberately does NOT claim
 
@@ -20,15 +20,14 @@ The four carriers correspond to genuinely-open Clay-level analysis; nothing
 here closes any of them.  What is proved here is finite / lattice-level and
 true.  Specifically:
 
-  * **Gauge generation (genuine upgrade).**  Characters are exactly the
-    class functions = gauge-invariant observables; the SU(2) character
-    algebra `RGTransport.charAlg` together with the diagonal heat-kernel
-    functional `RGTransport.charFunc` is a genuine (non-`PUnit`),
-    genuinely-non-constant gauge-invariant datum.  We prove the
+  * **Gauge-generation carrier upgrade.**  `RGTransport.charAlg` retains
+    genuine character labels and the diagonal heat-kernel functional is
+    nonconstant, but its lowest-channel multiplication is not an associative
+    character algebra.  We prove only that the weak carrier predicate's
     gauge-averaging factorization holds for it with the identity projection
-    (the character algebra already IS the gauge-invariant subalgebra), so
-    `GaugeGeneratedContent` is witnessed on REAL heat-kernel data, not on
-    `trivAlg`.  OPEN: the continuum gauge-invariant observable algebra and
+    identity-projection clause holds, so `GaugeGeneratedContent` is witnessed
+    on nonconstant heat-kernel data, not on `trivAlg`.  OPEN: a genuine linear
+    fusion-sum/class-function algebra, the continuum observable algebra, and
     its gauge-group action (open research mathematics).
 
   * **Nontriviality (genuine upgrade).**  The non-Gaussian Wick-law
@@ -41,11 +40,11 @@ true.  Specifically:
   * **O(4) restoration (HONEST: no genuine non-trivial precursor).**  The
     only functional equivariance proved in the repository is under the
     identity symmetry.  We make the boundary visible by proving the bar is
-    real: a genuine non-identity `*`-hom on the character algebra
+    real at the weak-carrier level: a non-identity `ObsHom` on `charAlg`
     (`RGTransport.collapseHom`, the vacuum projection) does NOT leave the
     genuine heat-kernel functional invariant.  So the equivariance content
     is not trivially satisfied by every map.  We still witness the carrier
-    on the genuine character algebra under the identity rotation, and state
+    on the nonconstant spin-label carrier under the identity rotation, and state
     plainly that the genuine non-trivial discrete H₄ rotation action — let
     alone the continuum O(4) restoration — is open.
 
@@ -72,23 +71,20 @@ open YMGap.Continuum.OSAxioms
 open YMGap.Continuum.FourDExistence
 open YMGap.Continuum.RGTransport
 
-/-! ## Gauge generation on the REAL character (class-function) algebra
+/-! ## Gauge generation on the spin-label carrier
 
-`RGTransport.charAlg` is the SU(2) character `*`-algebra (carrier = spin
+`RGTransport.charAlg` stores an SU(2) character label (carrier = spin
 index `Nat`, `star = id` since SU(2) characters are real, product = the
-Clebsch–Gordan lowest weight).  Its elements are characters, i.e. *class
-functions*, i.e. exactly the **gauge-invariant** observables: a class
-function is constant on conjugacy classes, which is precisely invariance
-under the (adjoint) gauge action.  `RGTransport.charFunc w` is the diagonal
+Clebsch–Gordan lowest channel).  The labels name class functions, but the
+stored binary operation is not their fusion-sum product and is not
+associative.  `RGTransport.charFunc w` is the diagonal
 heat-kernel functional `E χ_s = dim(s)·w^{C₄(s)}` — a genuine, non-constant
 `Q'`-valued Wilson datum (`RGTransport.charFunc_nonconstant`).
 
-So the gauge-averaging factorization that `GaugeGeneratedContent` asks for
-holds here with the identity projection: the character algebra already *is*
-the image of gauge averaging onto class functions, so averaging is the
-identity on it and the functional factors through it trivially-but-
-genuinely.  This replaces the `trivAlg` witness with one carried by real
-SU(2) heat-kernel data. -/
+The very weak gauge-averaging factorization that `GaugeGeneratedContent` asks
+for holds with the identity projection on this carrier.  This replaces the
+`trivAlg` witness with nonconstant SU(2) heat-kernel data, but does not supply
+the missing linear class-function algebra. -/
 
 /-- The heat-kernel weight `w` used to anchor the genuine witnesses
 (`w = 1/2`, a representative sub-critical heat-kernel weight `e^{−t/4}`). -/
@@ -96,18 +92,17 @@ def heatWeight : Q' := Q'.mkPos 1 2 (by decide)
 
 theorem heatWeight_nonneg : (0 : Q') ≤ heatWeight := by decide
 
-/-- **Gauge-generation carrier on the genuine character algebra.**  The
+/-- **Gauge-generation carrier on nonconstant character-label data.**  The
 gauge-averaging factorization (idempotent projection `P` with `E(P a) = E a`)
-holds for the SU(2) character algebra `charAlg` and the genuine heat-kernel
-functional `charFunc heatWeight`, with `P = id`: the character algebra IS the
-gauge-invariant (class-function) subalgebra, so gauge averaging is the
-identity on it.  This witnesses `GaugeGeneratedContent` on REAL SU(2)
-heat-kernel data, not on the trivial one-point algebra.
+holds for `charAlg` and the nonconstant heat-kernel functional
+`charFunc heatWeight`, with `P = id`.  This witnesses the weak
+`GaugeGeneratedContent` predicate off the trivial one-point algebra; it does
+not prove that `charAlg` is the gauge-invariant observable algebra.
 
 OPEN (research mathematics): the continuum gauge-invariant observable
 algebra of Wilson loops on `SU(2)^{E}` and the action of the continuum gauge
-group on it — `charAlg` is the single-edge character lattice model, not the
-continuum gauge orbit space. -/
+group on it — including replacement of `charAlg` by the associative linear
+fusion-sum algebra. -/
 theorem gauge_generated_on_charAlg {M : Nat → Type} (μ_inf : ContinuumMeasure M) :
     GaugeGeneratedContent μ_inf :=
   ⟨charAlg, charFunc heatWeight heatWeight_nonneg, ObsHom.idHom _,
@@ -175,7 +170,7 @@ invariant.  So `FunctionalEquivariant` carries real content — a genuine
 discrete rotation would have to satisfy a real constraint, which most maps
 fail.
 
-We then witness `O4RestorationContent` on the genuine character algebra
+We then witness `O4RestorationContent` on the nonconstant character-label carrier
 under the identity rotation (the always-present element of the rotation
 group), upgrading the carrier off the trivial one-point algebra while NOT
 pretending a non-trivial rotation action has been constructed. -/
@@ -199,9 +194,9 @@ theorem heatKernel_not_equivariant_under_collapse :
   rw [show collapseHom.map (2 : Nat) = (0 : Nat) from rfl] at hcol
   exact hne (hcol ▸ charFunc_nonconstant.1)
 
-/-- **O(4)-restoration carrier on the genuine character algebra.**  The
+/-- **O(4)-restoration carrier on the nonconstant spin-label carrier.**  The
 equivariance property `E(r a) = E a` holds for the genuine SU(2) character
-algebra `charAlg` and heat-kernel functional `charFunc heatWeight` under the
+labels `charAlg` and heat-kernel functional `charFunc heatWeight` under the
 identity rotation `r = id` — witnessing `O4RestorationContent` on REAL
 heat-kernel data rather than on the trivial one-point algebra.  The identity
 is the always-present element of the rotation group; by

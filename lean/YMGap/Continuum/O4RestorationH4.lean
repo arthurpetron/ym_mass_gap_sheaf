@@ -1,19 +1,18 @@
 /-
-Track B+RepTheory / R2 — **strengthening the O(4)-restoration precursor from
-Cauchy-convergence to genuine decay-to-zero, and WIRING it to the open Clay
-scorecard clause.**
+Track B+RepTheory / R2 — **strengthening the scalar anisotropy precursor from
+Cauchy-convergence to genuine decay-to-zero, and wiring it to the weak legacy
+scorecard slot.**
 
 # The wiring hole this module closes
 
 The asymptotic-freedom (AF) decay pipeline terminates in
 `O4RestorationAF.RotationRestored`, a **Cauchy-convergence** statement: for every
 `ε` there is `N` past which any two AF-step coefficients agree within `ε`.  But a
-Cauchy sequence need not tend to `0`, so `RotationRestored` does NOT by itself
-inhabit the open scorecard clause `RubricO4Restoration`, which demands the
-rotational-anisotropy defect drop **below every tolerance** (limit `= 0`).  Until
-now there was no wiring between the entire
-`O4RestorationAF → O4DecayFromMargin → O4RestorationProgress` chain and the actual
-open clause.
+Cauchy sequence need not tend to `0`.  The historical
+`RubricO4Restoration` slot asks for an existential scalar below every tolerance,
+yet does not pin a schedule or action.  This module supplies the genuine
+`breakCoeff` schedule to that weak slot while separately proving its strict
+zero-decay content.
 
 The stronger fact is ALREADY implicit in the pipeline: the geometric envelope
 `breakCoeff_le_geo : breakCoeff k ≤ breakCoeff 0 · (1/2)^k` together with the
@@ -30,10 +29,10 @@ explicit Archimedean modulus `HalfPow.pow_half_le : (1/2)^δ.den ≤ δ` give de
     tolerance, `∀ ε>0, ∃ N, ∀ k≥N, breakCoeff k < ε` (a genuine limit `= 0`, with
     strict `<`, not mere Cauchy-ness).  The strictness comes from the `+1` rescaling
     `δ = ε/(breakCoeff 0 + 1)` (same pattern as `decay_modulus`).
-  * `rubricO4Restoration_of_decay` — **THE WIRING**: instantiates the open Clay
-    clause `RubricO4Restoration` with `defect := breakCoeff D` and `base :=
+  * `rubricO4Restoration_of_decay` — **legacy wiring**: instantiates the weak
+    slot `RubricO4Restoration` with `defect := breakCoeff D` and `base :=
     breakCoeff D 0 + 1`.  This is the first term that connects the AF-decay pipeline
-    to the genuine open scorecard clause.
+    to that legacy scorecard slot.
   * `rubricO4Restoration_of_flow` / `rubricO4Restoration_of_coupling` — the same
     wiring routed through a `DimensionlessFlow` / `CouplingRunning`, so the clause
     fires from the RG-flow data (the physical content being the AF monotonicity /
@@ -52,9 +51,9 @@ non-trivial IR fixed point (Hasenbusch–Vicari, arXiv 1108.0491).  The decay `s
 this is the JUSTIFICATION for the shape, NOT a proof.  Therefore the single
 genuinely-open physical residual remains the asymptotic-freedom beta-function SIGN
 `O4RestorationProgress.CouplingRunning.betaDrop_nonneg` (`β ≤ 0`) on the TRUE 4D
-interacting rotation-breaking coupling; it is NOT discharged here.  With the wiring
-of this module in place, the entire O(4)-restoration clause of the scorecard
-reduces (for the physical flow) to that one per-step sign.
+interacting rotation-breaking coupling; it is NOT discharged here.  Even after
+that scalar sign is supplied, full O4 restoration still requires a physical
+observable action and a uniform response bound on the same continuum functional.
 
 Note also (honesty): the scorecard clause `RubricO4Restoration` is stated with an
 EXISTENTIAL `∃ defect` inside `∀ k`, so it is weakly-constraining — the point of
@@ -66,12 +65,14 @@ residual, not the physical interacting theory.
 # The alternative (H4 *-homomorphism interface)
 
 The genuinely-new open content of the discrete-carrier route is a non-trivial
-`H₄`-rotation `*`-hom on the SU(2) character algebra (`CarrierPrecursors` currently
-carries only the identity-rotation witness `o4_restoration_on_charAlg` plus the
-boundary `heatKernel_not_equivariant_under_collapse`).  Its ANALYTIC half —
+`H₄` action on a genuine associative SU(2) observable algebra.  The legacy
+`charAlg` only has a nonassociative lowest-channel operation;
+`CarrierPrecursors` carries only the identity-rotation witness
+`o4_restoration_on_charAlg` plus the
+boundary `heatKernel_not_equivariant_under_collapse`.  Its ANALYTIC half —
 "coefficients on the defect subspace vanish as `a → 0`" — is exactly
-`breakCoeff_vanishes` here, so that route's only fresh obligation is the discrete
-non-trivial `*`-hom (engineering-open) plus the same `betaDrop_nonneg`.
+`breakCoeff_vanishes` here.  That route still needs the associative fusion-sum
+carrier, its discrete non-trivial action, and the same `betaDrop_nonneg`.
 
 # Axiom-gate (AGENTS.md Rules 1, 8)
 
@@ -228,7 +229,7 @@ theorem breakCoeff_vanishes (D : ScalingDimensionDecay) :
     exact Q'.lt_of_le_of_lt (Q'.le_of_eqv (Q'.mul_comm_eqv (breakCoeff D 0) δ)) hlt2
   exact Q'.lt_of_le_of_lt hchain hstrict
 
-/-! ## 4. THE WIRING — inhabiting the open Clay scorecard clause
+/-! ## 4. Legacy wiring — inhabiting the weak scorecard slot
 
 Instantiate `RubricO4Restoration` with the GENUINE AF coefficient `breakCoeff D` as
 the rotational-anisotropy defect, and `breakCoeff D 0 + 1` as the positive baseline.
@@ -236,9 +237,8 @@ The `defect k < ε` is the strengthening `breakCoeff_vanishes`; `0 ≤ defect k`
 `breakCoeff_nonneg`; the baseline is positive by `breakCoeff_zero_add_one_pos` and
 bounds `defect k` via multi-step antitonicity down from step `0`. -/
 
-/-- **THE WIRING.**  The open Clay scorecard clause `RubricO4Restoration` is
-inhabited using `defect := breakCoeff D` (the genuine AF rotation-breaking
-coefficient) — connecting the entire AF-decay pipeline to the actual open clause.
+/-- **Legacy wiring.**  The weak scorecard slot `RubricO4Restoration` is inhabited
+using `defect := breakCoeff D` (the derived AF rotation-breaking coefficient).
 The strictness `defect k < ε` is the decay-to-zero `breakCoeff_vanishes`, upgrading
 the Cauchy-only `RotationRestored`. -/
 theorem rubricO4Restoration_of_decay (D : ScalingDimensionDecay) :
@@ -253,7 +253,7 @@ theorem rubricO4Restoration_of_decay (D : ScalingDimensionDecay) :
     (Q'.add_le_self_of_nonneg (breakCoeff D 0) 1 (by decide))
 
 /-- **The wiring routed through a `DimensionlessFlow`.**  For any dimensionless RG
-flow, the open Clay clause fires with `defect` the flow's engineering-dimension
+flow, the weak legacy slot fires with `defect` the flow's engineering-dimension
 coefficient.  The physical content carried by the flow is the AF monotonicity
 `dimless_antitone`. -/
 theorem rubricO4Restoration_of_flow
@@ -262,7 +262,7 @@ theorem rubricO4Restoration_of_flow
   rubricO4Restoration_of_decay (O4RestorationProgress.scalingDimensionDecay_of_flow F)
 
 /-- **The wiring routed through a `CouplingRunning`.**  For any running coupling,
-the open Clay clause fires; the physical content is the one-step asymptotic-freedom
+the weak legacy slot fires; the scalar content is the one-step asymptotic-freedom
 beta-sign `betaDrop_nonneg` on the TRUE interacting coupling — the sole remaining
 open residual, NOT discharged here. -/
 theorem rubricO4Restoration_of_coupling
@@ -272,9 +272,8 @@ theorem rubricO4Restoration_of_coupling
 
 /-- **Non-vacuity capstone.**  The wired clause fires on the concrete
 STRICTLY-decreasing model flow `geoFlow` (`g k = 1/2 + (1/2)^k`, `β < 0`),
-demonstrating the wiring is not vacuous.  This is a MODEL inhabitant of the
-beta-sign residual, not the physical interacting theory — the physical clause still
-reduces to `betaDrop_nonneg` on the true coupling. -/
+demonstrating this provenance-bearing witness.  It is not the physical
+interacting theory and does not establish observable O4 covariance. -/
 theorem rubricO4Restoration_geoFlow :
     YMGap.Rubric.ClayScorecard.RubricO4Restoration :=
   rubricO4Restoration_of_flow O4RestorationProgress.geoFlow

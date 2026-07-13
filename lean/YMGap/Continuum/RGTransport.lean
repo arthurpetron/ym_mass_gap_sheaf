@@ -163,13 +163,16 @@ def stationaryContinuumMeasure (A : ObsAlg) (μ : ProbFunctional A) :
     ContinuumMeasure (fun k => ProbFunctional ((stationaryTower A).Obs k)) :=
   continuumMeasure (stationaryTower A) (fun _ => μ) (stationaryConsistent A μ)
 
-/-! ### The genuine SU(2)-character algebra and diagonal heat-kernel functional
+/-! ### The SU(2) spin-label carrier and diagonal heat-kernel functional
 
-`charAlg` is the SU(2) character algebra: carrier `Nat` is the spin index
+`charAlg` is a single-channel SU(2) character *carrier*: `Nat` is the spin index
 `s = 2j`, the unit is the trivial character `χ_0`, `star = id` (SU(2) characters
 are real-valued / self-conjugate), and the product is the Clebsch–Gordan
-**lowest weight** `χ_a · χ_b ↦ χ_{|a−b|}` (a genuine, associative, unital binary
-operation — `ObsAlg` asks only for carrier/one/mul/star, no algebra laws).
+**lowest-channel projection** `χ_a · χ_b ↦ χ_{|a−b|}`.  This is not the
+representation-ring product, which is a sum of all admissible channels, and it
+is not associative (`CharacterAlgebraAssociativityFence`).  The minimal
+`ObsAlg` interface asks only for carrier/one/mul/star and does not enforce the
+missing algebra laws.
 
 `charFunc w` is the **diagonal heat-kernel functional**: in `Q'`,
 
@@ -206,9 +209,9 @@ theorem qpow_nonneg (w : Q') (hw : (0 : Q') ≤ w) : ∀ n, (0 : Q') ≤ qpow w 
   | 0 => by show (0 : Q') ≤ (1 : Q'); decide
   | n + 1 => Q'.mul_nonneg _ _ (qpow_nonneg w hw n) hw
 
-/-- The SU(2)-character observable *-algebra: carrier = spin index `Nat`,
+/-- The SU(2) single-channel character carrier: carrier = spin index `Nat`,
 `one = χ_0`, `star = id` (real characters), `mul = ` Clebsch–Gordan lowest
-weight `χ_a·χ_b ↦ χ_{|a−b|}`. -/
+channel `χ_a·χ_b ↦ χ_{|a−b|}`.  It is not an associative character algebra. -/
 def charAlg : ObsAlg where
   carrier := Nat
   one := 0

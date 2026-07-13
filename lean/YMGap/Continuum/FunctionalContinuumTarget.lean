@@ -99,8 +99,8 @@ NO σ-additive measure anywhere.  Fields:
     `GJ_OS1_Regularity` (suppliable UNCONDITIONALLY via `gj_os1_holds`);
   * `os2` — PROVED OS2 (= Glimm–Jaffe OS3, reflection positivity), typed by
     `GJ_OS3_ReflectionPositivity` (suppliable UNCONDITIONALLY via `gj_os3_holds`);
-  * `os0Euclidean` — the OPEN OS0 / Euclidean-`O(4)`-invariance restoration clause
-    (`RubricO4Restoration`; named honest field, no YM inhabitant);
+  * `os0Euclidean` — the weak legacy scalar slot `RubricO4Restoration`; it is
+    unconditionally inhabitable and does not state OS0/Euclidean covariance;
   * `os4Clustering` — the OPEN OS4 spacing-uniform clustering clause
     (`RubricUniformInCoupling`; named honest field, no YM inhabitant);
   * `gnsData` / `gnsHilbert` / `gnsGap` — the GNS reconstruction datum: a
@@ -108,10 +108,10 @@ NO σ-additive measure anywhere.  Fields:
     `mass_gap_of_spectralGap` extracts the positive mass gap + geometric decay —
     functional-analytic, MEASURE-FREE.
 
-This is the continuum-existence object WITHOUT σ-additivity: exactly the
-Osterwalder–Schrader / Jaffe–Witten requirement, and nothing more.  It is
-DELIBERATELY not inhabited for YM (the `scaling` / `os0Euclidean` /
-`os4Clustering` fields are the open frontier); it is measure-free by design. -/
+This is a legacy measure-free packaging object, not exactly the
+Osterwalder–Schrader/Jaffe–Witten requirement because its Euclidean field is too
+weak.  The scaling, clustering, and physical GNS fields remain substantive;
+full same-action OS0 covariance must be added separately. -/
 structure FunctionalContinuumTarget (A : ObsAlg) (t : Q') (ht : (0 : Q') ≤ t) : Type 1 where
   /-- OPEN — the `a → 0` lattice-spacing-uniform two-sided modulus on the
   continuum functional (measure-free). -/
@@ -120,7 +120,7 @@ structure FunctionalContinuumTarget (A : ObsAlg) (t : Q') (ht : (0 : Q') ≤ t) 
   os1 : GJ_OS1_Regularity t ht
   /-- PROVED — OS2 reflection positivity (suppliable via `gj_os3_holds`). -/
   os2 : GJ_OS3_ReflectionPositivity t ht
-  /-- OPEN — OS0 / `O(4)`-Euclidean invariance restored in the limit. -/
+  /-- Weak legacy scalar slot; not OS0 / O4 observable covariance. -/
   os0Euclidean : RubricO4Restoration
   /-- OPEN — OS4 spacing-uniform clustering (gap uniform to the continuum). -/
   os4Clustering : RubricUniformInCoupling
@@ -132,13 +132,13 @@ structure FunctionalContinuumTarget (A : ObsAlg) (t : Q') (ht : (0 : Q') ≤ t) 
   Hilbert space (functional-analytic, measure-free). -/
   gnsGap : SpectralGapData gnsHilbert
 
-/-- **The smart constructor.**  Builds a `FunctionalContinuumTarget` from ONLY the
-genuinely-open inputs — the `a → 0` functional modulus, the OS0 / OS4 clauses, and
+/-- **The smart constructor.**  Builds a `FunctionalContinuumTarget` from its
+remaining inputs — the `a → 0` functional modulus, the weak O4 slot, OS4, and
 the GNS reconstruction datum — while filling the OS1 and OS2 clauses
 UNCONDITIONALLY from the proved theorems `gj_os1_holds` / `gj_os3_holds`.  This is
 the mechanical statement that OS1/OS2 are NOT open: they are supplied by real
-proved theorems, so the target's open surface is exactly {`a → 0` modulus, OS0,
-OS4, the physical GNS gap datum}. -/
+proved theorems.  A separate same-action OS0 theorem is required because the
+`os0Euclidean` parameter below is underconstrained. -/
 def functionalTarget_of_openInputs {A : ObsAlg} (t : Q') (ht : (0 : Q') ≤ t)
     (scaling : ScalingLimitModulus A)
     (os0Euclidean : RubricO4Restoration)
@@ -338,21 +338,22 @@ PROVED (axiom-clean, measure-free):
   * `minlos_eq_parts` / `minlos_is_optional_corollary` — Minlos = Sub-wall-A/B
     content × σ-additive `tightnessRate`; the σ-additive part is the sole residual.
 
-OPEN (NAMED, NO YM inhabitant — carried as honest fields of
-`FunctionalContinuumTarget`, unchanged frontier):
+REMAINING/WEAK fields of `FunctionalContinuumTarget`:
 
   * `scaling : ScalingLimitModulus A` — the `a → 0` lattice-spacing-uniform
     modulus (measure-free);
-  * `os0Euclidean : RubricO4Restoration` — OS0 / `O(4)` restoration;
+  * `os0Euclidean : RubricO4Restoration` — weak scalar slot, already inhabitable;
+    it must not be counted as OS0 / `O(4)` restoration;
   * `os4Clustering : RubricUniformInCoupling` — OS4 spacing-uniform clustering;
   * `gnsGap : SpectralGapData` — the physical spacing-uniform GNS gap datum.
 
-The architectural net effect: the continuum target is now stated on a positive
+The architectural net effect: the legacy continuum package is stated on a positive
 linear FUNCTIONAL with an explicit modulus and GNS reconstruction — the OS /
-Jaffe–Witten requirement, MEASURE-FREE.  The σ-additive Bochner–Minlos lift
+measure-free functional carrier.  The σ-additive Bochner–Minlos lift
 (`CitedMinlosLift`) is thereby an OPTIONAL downstream corollary, NOT a frontier
-atom.  The `a → 0` modulus, OS0, and OS4 remain OPEN; the Clay Yang–Mills mass
-gap remains OPEN. -/
+atom.  The `a → 0` modulus and OS4 remain open, while OS0 is absent from this
+type and must be supplied by a stronger same-action target; the Clay problem
+remains open. -/
 
 end YMGap.Continuum.FunctionalContinuumTarget
 

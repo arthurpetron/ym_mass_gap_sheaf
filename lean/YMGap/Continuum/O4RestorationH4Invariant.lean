@@ -1,5 +1,5 @@
 /-
-Track A1 — **a genuine non-identity H₄ rotation `*`-automorphism under which the
+Track A1 — **a non-identity H₄ axis permutation under which the
 heat-kernel Schwinger functional is INVARIANT**, upgrading the O(4)-restoration
 carrier off the identity rotation.
 
@@ -19,13 +19,14 @@ the trivial one.  The fix is to give the observable algebra ≥ 2 lattice DIRECT
 
 This module builds the smallest honest model that carries a genuine H₄ action:
 
-  * `dirAlg4` — the observable `*`-algebra of the **four lattice axes** at a site
+  * `dirAlg4` — the spin-label carrier of the **four lattice axes** at a site
     (carrier `Nat × Nat × Nat × Nat`, one SU(2) spin index per axis, unit = the
-    all-trivial character, componentwise Clebsch–Gordan product, `star = id`).
+    all-trivial character, componentwise lowest-channel projection, `star = id`).
+    The product is nonassociative, so this is not the character algebra.
   * `axisSwap12 : (a,b,c,d) ↦ (b,a,c,d)` — the **transposition of two lattice axes**,
     a genuine order-2 element of the hypercubic group `H₄ = B₄` (signed axis
     permutations), realized as a **non-identity, self-inverse, order-2 unital
-    `*`-automorphism** (`axisSwap12_selfInv`, `axisSwap12_order2`,
+    operation-preserving automorphism** (`axisSwap12_selfInv`, `axisSwap12_order2`,
     `axisSwap12_nontrivial`).  All hom laws are `rfl`.
   * `isoFunc w` — the **isotropic** product heat-kernel functional: EVERY axis
     carries the SAME weight `w` (each factor `dimQ s · w^{C₄(s)}`, the genuine SU(2)
@@ -52,22 +53,22 @@ is a **genuine `Eq`-level** statement, discharged by one structural commutativit
 # What is proved vs. what stays OPEN (honest banner)
 
 PROVED (here, axiom-clean): a non-identity order-2 element of the hypercubic group
-`H₄`, realized as a genuine `*`-automorphism of a 4-axis lattice observable algebra,
+`H₄`, realized as an operation-preserving automorphism of a 4-axis spin carrier,
 under which the genuine (non-constant) heat-kernel Schwinger functional is exactly
 invariant at the `Eq` level.
 
 OPEN (research mathematics, UNCHANGED):
   * the FULL continuum `O(4) ⋉ ℝ⁴` Euclidean rotation restoration in the `a → 0`
-    limit (Magnen–Rivasseau–Sénéor) — this is `RubricO4Restoration`, a *decay-to-zero*
-    of the anisotropy defect, a strictly harder and separate object (the anisotropic
+    limit (Magnen–Rivasseau–Sénéor).  The legacy `RubricO4Restoration` does not
+    state this; it is only a weak scalar precursor.  The anisotropic
     complement is handled, as a *model schedule*, in `H4RotationAuto.lean`);
   * whether `dirAlg4` is the REAL continuum gauge-invariant Wilson observable algebra
     — it is a FAITHFUL FINITE SUB-MODEL (the 4-axis single-site character algebra),
     not the continuum orbit space.  The genuine full continuum `H₄`-action and its
     restoration to `O(4)` are not constructed here.
 
-This is a genuine SHARPENING of the O(4)-restoration precursor (identity ⟶ a real
-non-identity `H₄` `*`-automorphism with proved invariance), NOT a closure of the
+This sharpens the weak O(4)-restoration precursor (identity ⟶ a real
+non-identity `H₄` axis permutation with proved invariance), NOT a closure of the
 Clay clause.
 
 # Axiom-gate (AGENTS.md Rules 1, 8)
@@ -110,12 +111,13 @@ theorem qmul_comm (a b : Q') : a * b = b * a := by
   · exact Int.mul_comm a.num b.num
   · exact congrArg (fun n => n - 1) (Nat.mul_comm a.den b.den)
 
-/-! ## 1. The 4-axis lattice observable algebra -/
+/-! ## 1. The 4-axis spin-label carrier -/
 
-/-- The observable `*`-algebra of the **four lattice axes** at a site: carrier
+/-- The spin-label carrier of the **four lattice axes** at a site: carrier
 `Nat × Nat × Nat × Nat` (one SU(2) spin index per axis), unit = the all-trivial
 character `(χ₀,χ₀,χ₀,χ₀)`, componentwise Clebsch–Gordan lowest-weight product, and
-`star = id` (real SU(2) characters, componentwise). -/
+`star = id` (real SU(2) labels, componentwise).  The component operation is
+the nonassociative lowest-channel projection, not the fusion-sum algebra. -/
 def dirAlg4 : ObsAlg where
   carrier := Nat × Nat × Nat × Nat
   one     := (0, 0, 0, 0)
@@ -265,7 +267,7 @@ non-constant (`isoFunc_nonconstant`), and the rotation genuinely moves observabl
 functional distinguishes (`swap_moves_excitation`).
 
 OPEN (research mathematics): the full continuum `O(4) ⋉ ℝ⁴` restoration
-(`RubricO4Restoration`, Magnen–Rivasseau–Sénéor), and whether `dirAlg4` is the real
+(strictly stronger than `RubricO4Restoration`), and whether `dirAlg4` is the real
 continuum gauge-invariant Wilson algebra (it is a faithful finite sub-model). No
 continuum rotation action is constructed here. -/
 theorem o4_restoration_H4 {M : Nat → Type} (_μ_inf : ContinuumMeasure M) :
