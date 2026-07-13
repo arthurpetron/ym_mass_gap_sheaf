@@ -4016,6 +4016,34 @@ remaining content is exactly to control/remove `normEigShift` with the refined
 local-CLT/Edgeworth mechanism and to pin the algebraic factor two to the actual
 spacing-halving `massLat/spacing` flow; neither is assumed here.
 
+**Refined-spectrum transport and fixed-cutoff endpoint adjudication
+(2026-07-12).** `FusedRefinedSpectralBridge` proves that the refined defect is
+attached to the corrected fused spectrum, not merely to an auxiliary norm:
+`(1-retEig2)-normEigShift2 ≤ 1-lamPW`; any valid quadratic Edgeworth estimate
+therefore gives the actual fused margin a quadratic erosion.  It also derives
+`0 ≤ retEig2 ≤ 1` for the exact p=2 coefficient `7/24`, removing those range
+fields from the analytic uncertainty.  However, `CutoffEndpointDefect`
+machine-refutes the previously advertised pure fixed-cutoff estimate on the
+closed endpoint: at `N=3,w=1,s=1`, `vacNorm=2/3`, while `retEig2=1` for every
+correction coefficient, so `normEigShift2=1/3` and no finite
+`Cq·(1-w)²` bound can hold.  Both `RefinedBulkRemainderQuadratic` and
+`RefinedFactorization` are consequently uninhabited there.  The live analytic
+statement must contain a derived cutoff-tail term or use a coupled
+`N(w)→∞` schedule whose tail is summable; the pure factorization route is
+BLOCKED until corrected accordingly.
+
+**Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
+incoming retuned and outgoing fused spectral masses and proves their
+dimensionless additive step both at fixed spacing and for any contracting
+spacing schedule, with incoming-mass positivity derived from the located
+spectrum.  This removes the two scalar pin hypotheses for the constructed
+finite-character model.  It does not identify that model with the physical
+Yang--Mills Hamiltonian: a kernel fence records that the same spectral mass at
+spacings 1 and 2 gives different margins, and another records that the pinned
+legacy `FrontierDAG.trueMargin` field is type-independent of its `G/L` indices.
+The remaining physical bridge is operator-level transfer-spectrum
+identification along the actual spacing schedule, not a scalar equality field.
+
 ### Milestone 14.4 — Assemble `singleStep` and the continuum floor
 
 **Goal.** 14.2 + 14.3 inhabit `SingleStepDefectBoundLoose` →

@@ -724,6 +724,9 @@ import YMGap.Continuum.FusedRatioCorridor
 import YMGap.Continuum.UniformWidthMargin
 import YMGap.Continuum.FusedPeterWeylNormalization
 import YMGap.Continuum.FusedSpectralCarrierBridge
+import YMGap.Continuum.FusedRefinedSpectralBridge
+import YMGap.Continuum.CutoffEndpointDefect
+import YMGap.Continuum.FusedSpacingStepBridge
 import YMGap.Continuum.FusedNextScaleRetune
 import YMGap.Continuum.RacahOrthogonalityGeneral
 import YMGap.Continuum.RacahDougallWZ
