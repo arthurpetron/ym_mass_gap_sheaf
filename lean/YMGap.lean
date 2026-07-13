@@ -753,6 +753,7 @@ import YMGap.Continuum.FiveAnchorWindowRetune
 import YMGap.Continuum.HarmonicSchurRotationK89
 import YMGap.Continuum.SixAnchorWindowRetune
 import YMGap.Continuum.HarmonicSchurRotationK101112
+import YMGap.Continuum.SevenAnchorWindowRetune
 import YMGap.Continuum.ThetaResidualBernsteinPilot
 import YMGap.Continuum.ThetaResidualPascalTelescope
 import YMGap.Continuum.AllWindowHardyFence

@@ -4296,6 +4296,15 @@ through one reusable normalizer lemma.  The Schur and coupled-operator prefix
 therefore also reaches `k≤12`; all finite-prefix layers again have first
 residual `k=13`.
 
+`SevenAnchorWindowRetune` certifies the larger interval `0≤w≤17/18` with an
+exact degree-111 head, five short-window certificates, and tail ratio
+`(8/7)w^15`.  The symbolic PF2 assembly closes every finite cutoff and extends
+the quotient, `lamPW`, and mass-floor prefix through `k≤16`; its first residual
+is `k=17` (`w=18/19`).  It also records the certified anchor data and the
+native-degree law `2a²+2a-1` (for `a≥4`), exposing the structure required by a
+future symbolic growing-anchor certificate.  The Schur/operator prefix remains
+`k≤12` until the four new D/A crosses are transported.
+
 **Cleared theta-polynomial audit (2026-07-12).**
 `ThetaResidualBernsteinPilot` gives exact positive Bernstein decompositions of
 the cleared retune residual at cutoffs one and two (degrees 11 and 23).  It also
@@ -4355,6 +4364,13 @@ exactly `-2m(m+1)(2m-5)`, hence strictly negative for `m≥3`.  This permanently
 fences a nonnegative minimal base row.  OPEN is the analogous deficit-two
 formula, the nonnegative `r≥3` bulk base, and their signed propagation to the
 target degree.
+
+The deficit-two cell is now evaluated exactly in doubled, division-free form,
+and `two_mul_reverseTailCoeff_top_two` propagates that closed recurrence over
+an arbitrary supported reverse tail.  This removes all binomial-coefficient
+and cell-summation ambiguity from the second exceptional coordinate.  OPEN is
+its start-one polynomial collapse and minimal specialization
+`-3m(m+1)(2m-3)`, followed by the `r≥3` bulk and signed degree elevation.
 
 **Off-diagonal shell necessity (2026-07-12).**
 `FusedOffDiagonalCompression` strengthens the rank-one fence: any positive

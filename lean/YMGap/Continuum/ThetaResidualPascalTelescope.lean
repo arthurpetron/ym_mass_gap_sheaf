@@ -844,6 +844,282 @@ theorem minimalBase_deficit_one_negative (m : Nat) (hm : 3 ≤ m) :
     Int.mul_pos h2m1 hf
   omega
 
+/-! The second boundary coordinate is handled in doubled form, avoiding any
+division in the constructive substrate. -/
+
+private theorem two_choose_pred_pred : ∀ q : Nat,
+    2 * Int.ofNat (PNPaths.choose (q + 2) q) =
+      Int.ofNat ((q + 2) * (q + 1))
+  | 0 => by decide
+  | q + 1 => by
+      change 2 * Int.ofNat (PNPaths.choose ((q + 2) + 1) (q + 1)) =
+        Int.ofNat (((q + 1) + 2) * ((q + 1) + 1))
+      rw [PNPaths.choose]
+      simp only [Int.ofNat_eq_natCast, Int.natCast_add, Int.natCast_mul]
+      rw [Int.mul_add]
+      have hi := two_choose_pred_pred q
+      simp only [Int.ofNat_eq_natCast] at hi
+      rw [hi, choose_pred (q + 1)]
+      have hnat : (q + 2) * (q + 1) + 2 * (q + 2) =
+          (q + 3) * (q + 2) := by
+        simp only [Nat.mul_add, Nat.add_mul]
+        omega
+      have hint := congrArg Int.ofNat hnat
+      simp only [Int.ofNat_eq_natCast, Int.natCast_add, Int.natCast_mul] at hint
+      simpa only [Nat.add_assoc] using hint
+
+private theorem two_mul_monoCoeff_top_two {D e : Nat} (hD2 : 2 ≤ D)
+    (heD : e ≤ D) :
+    2 * monoCoeff D e (D - 2) =
+      Int.ofNat ((D - e) * (D - e - 1)) := by
+  by_cases he : e ≤ D - 2
+  · simp only [monoCoeff, if_pos he]
+    have harg : D - 2 - e = (D - e) - 2 := by omega
+    rw [harg]
+    cases hq : D - e with
+    | zero => omega
+    | succ q =>
+        cases q with
+        | zero => omega
+        | succ q =>
+            have hqsub : q + 1 + 1 - 2 = q := by omega
+            rw [hqsub, two_choose_pred_pred q]
+            congr 1
+  · simp only [monoCoeff, if_neg he]
+    have hsmall : D - e ≤ 1 := by omega
+    by_cases hz : D - e = 0
+    · simp [hz]
+    · have ho : D - e = 1 := by omega
+      simp [ho]
+
+private theorem top_two_diag_algebra (x y : Int) :
+    x*x*((y+2)*(y+1)+3*((y+1)*y)+3*(y*(y-1))+(y-1)*(y-2)) =
+      2*(4*x*x*y*y+2*x*x) := by
+  simp only [Int.mul_add, Int.add_mul, Int.sub_eq_add_neg, Int.neg_add,
+    Int.mul_neg]
+  simp only [Int.one_mul, Int.mul_one, Int.neg_mul]
+  let z := x*x*y*y
+  let u := x*x
+  have h1 : x*x*(y*y) = z := by dsimp [z]; ac_rfl
+  have h2 : x*x*(2*y) = 2*(x*x*y) := by ac_rfl
+  have h2b : x*x*(y*2) = 2*(x*x*y) := by ac_rfl
+  have hn : x*x*(-y) = -(x*x*y) := by rw [Int.mul_neg]
+  have h3 : x*x*(3*(y*y)) = 3*z := by dsimp [z]; ac_rfl
+  have h4 : x*x*(3*y) = 3*(x*x*y) := by ac_rfl
+  have h5 : x*x*2 = 2*u := by dsimp [u]; ac_rfl
+  have h6 : 2*(4*x*x*y*y) = 8*z := by dsimp [z]; ac_rfl
+  have h7 : 2*(2*x*x) = 4*u := by dsimp [u]; ac_rfl
+  omega
+
+private theorem pred_pred_product_cast (y : Nat) (hy : 1 ≤ y) :
+    Int.ofNat ((y-1)*(y-1-1)) = ((y:Int)-1)*((y:Int)-2) := by
+  by_cases hyEqOne : y = 1
+  · subst y
+    decide
+  · have hyTwo : 2 ≤ y := by omega
+    have hsub : y-1-1=y-2 := by omega
+    rw [hsub]
+    simp only [Int.ofNat_eq_natCast, Int.natCast_mul]
+    rw [Int.natCast_sub (by omega : 1 ≤ y),
+      Int.natCast_sub (by omega : 2 ≤ y)]
+    have h1c : ((1 : Nat) : Int) = (1 : Int) := rfl
+    have h2c : ((2 : Nat) : Int) = (2 : Int) := rfl
+    rw [h1c, h2c]
+
+private theorem pred_product_cast (z : Nat) :
+    Int.ofNat (z*(z-1)) = (z:Int)*((z:Int)-1) := by
+  cases z with
+  | zero => decide
+  | succ q =>
+      simp only [Nat.add_sub_cancel, Int.ofNat_eq_natCast, Int.natCast_mul,
+        Int.natCast_add]
+      have h1 : ((1 : Nat) : Int) = (1 : Int) := rfl
+      rw [h1]
+      have hs : (q : Int) + 1 - 1 = (q : Int) := by omega
+      rw [hs]
+
+private theorem two_mul_diagCoeff_top_two {D n : Nat} (hnpos : 0 < n)
+    (hD : 2 * n * n + 1 ≤ D) :
+    2 * diagCoeff D n (D - 2) =
+      2 * (4 * (n : Int) * (n : Int) *
+          ((D : Int) - 2 * (n : Int) * (n : Int)) *
+          ((D : Int) - 2 * (n : Int) * (n : Int)) +
+        2 * (n : Int) * (n : Int)) := by
+  have hsquare : 1 ≤ n * n := Nat.mul_le_mul hnpos hnpos
+  have hD2 : 2 ≤ D := by
+    simp only [Nat.mul_assoc] at hD ⊢
+    omega
+  have h0 : 2 * n * n - 2 ≤ D := by omega
+  have h1 : 2 * n * n - 1 ≤ D := by omega
+  have h2 : 2 * n * n ≤ D := by omega
+  have hm0 := two_mul_monoCoeff_top_two hD2 h0
+  have hm1 := two_mul_monoCoeff_top_two hD2 h1
+  have hm2 := two_mul_monoCoeff_top_two hD2 h2
+  have hm3 := two_mul_monoCoeff_top_two hD2 hD
+  have hrearr :
+      2 * diagCoeff D n (D - 2) =
+        (n : Int) * (n : Int) *
+          (2 * monoCoeff D (2*n*n-2) (D-2) +
+            3 * (2 * monoCoeff D (2*n*n-1) (D-2)) +
+            3 * (2 * monoCoeff D (2*n*n) (D-2)) +
+            2 * monoCoeff D (2*n*n+1) (D-2)) := by
+    unfold diagCoeff
+    simp only [Int.ofNat_eq_natCast, Int.natCast_mul, Int.mul_add]
+    ac_rfl
+  rw [hrearr, hm0, hm1, hm2, hm3]
+  let y := D - 2*n*n
+  have hy0 : D - (2*n*n-2) = y+2 := by
+    dsimp [y]
+    simp only [Nat.mul_assoc] at hD ⊢
+    omega
+  have hy1 : D - (2*n*n-1) = y+1 := by dsimp [y]; omega
+  have hy2 : D - 2*n*n = y := by rfl
+  have hy3 : D - (2*n*n+1) = y-1 := by dsimp [y]; omega
+  rw [hy0, hy1, hy2, hy3]
+  have hypos : 1 ≤ y := by dsimp [y]; omega
+  have h1c : ((1 : Nat) : Int) = (1 : Int) := rfl
+  have h2c : ((2 : Nat) : Int) = (2 : Int) := rfl
+  have hp0 : Int.ofNat ((y+2)*(y+2-1)) =
+      ((y:Int)+2)*((y:Int)+1) := by
+    have : y+2-1=y+1 := by omega
+    rw [this]
+    simp only [Int.ofNat_eq_natCast, Int.natCast_mul, Int.natCast_add]
+    rfl
+  have hp1 : Int.ofNat ((y+1)*(y+1-1)) =
+      ((y:Int)+1)*(y:Int) := by
+    have : y+1-1=y := by omega
+    rw [this]
+    simp only [Int.ofNat_eq_natCast, Int.natCast_mul, Int.natCast_add]
+    rfl
+  have hp2 : Int.ofNat (y*(y-1)) =
+      (y:Int)*((y:Int)-1) := by
+    simp only [Int.ofNat_eq_natCast, Int.natCast_mul]
+    rw [Int.natCast_sub hypos]
+    rw [h1c]
+  have hp3 := pred_pred_product_cast y hypos
+  rw [hp0, hp1, hp2, hp3]
+  have hycast : (y : Int) = (D : Int) - 2*(n : Int)*(n : Int) := by
+    dsimp [y]
+    rw [Int.natCast_sub (by omega : 2*n*n ≤ D)]
+    simp only [Int.natCast_mul]
+    rfl
+  rw [← hycast]
+  exact top_two_diag_algebra (n : Int) (y : Int)
+
+private theorem two_mul_offCoeff_top_two {D n : Nat} (hnpos : 0 < n)
+    (hD2 : 2 ≤ D) (hD : 2 * n * (n + 1) - 1 ≤ D) :
+    2 * offCoeff D n (D - 2) =
+      2 * (4 * (n : Int) * ((n : Int) + 1) *
+        ((D : Int) - (2 * (n : Int) * ((n : Int) + 1) - 1)) *
+        ((D : Int) - (2 * (n : Int) * ((n : Int) + 1) - 1) - 1)) := by
+  have hm := two_mul_monoCoeff_top_two hD2 hD
+  have hrearr : 2 * offCoeff D n (D - 2) =
+      8 * (n : Int) * ((n : Int) + 1) *
+        (2 * monoCoeff D (2*n*(n+1)-1) (D-2)) := by
+    unfold offCoeff
+    simp only [Int.ofNat_eq_natCast, Int.natCast_mul, Int.natCast_add,
+      Int.mul_add]
+    have h1 : ((1 : Nat) : Int) = (1 : Int) := rfl
+    have h8 : ((8 : Nat) : Int) = (8 : Int) := rfl
+    rw [h1, h8]
+    ac_rfl
+  rw [hrearr, hm]
+  let z := D - (2*n*(n+1)-1)
+  have hz : D - (2*n*(n+1)-1) = z := rfl
+  rw [hz]
+  have hzcast : (z : Int) =
+      (D : Int) - (2 * (n : Int) * ((n : Int) + 1) - 1) := by
+    dsimp [z]
+    rw [Int.natCast_sub hD]
+    have hexp : 1 ≤ 2*n*(n+1) := by
+      have hn1 : 1 ≤ n+1 := by omega
+      have hp : 1*1 ≤ n*(n+1) := Nat.mul_le_mul hnpos hn1
+      simp only [Nat.mul_assoc] at ⊢
+      omega
+    rw [Int.natCast_sub hexp]
+    simp only [Int.natCast_mul, Int.natCast_add]
+    have h1 : ((1 : Nat) : Int) = (1 : Int) := rfl
+    have h2 : ((2 : Nat) : Int) = (2 : Int) := rfl
+    rw [h1, h2]
+  simp only [Int.ofNat_eq_natCast]
+  have hp := pred_product_cast z
+  simp only [Int.ofNat_eq_natCast] at hp
+  rw [hp, hzcast]
+  rw [show (8 : Int) = 2 * 4 by decide]
+  ac_rfl
+
+/-- Exact doubled deficit-two drift of one cell, in division-free form. -/
+theorem two_mul_topTwo_cell_drift (D n : Nat) (hnpos : 0 < n)
+    (hdiag : 2 * n * n + 1 ≤ D)
+    (hoff : 2 * n * (n + 1) - 1 ≤ D) :
+    2 * (diagCoeff D n (D - 2) - offCoeff D n (D - 2)) =
+      2 * ((4 * (n : Int) * (n : Int) *
+          ((D : Int) - 2 * (n : Int) * (n : Int)) *
+          ((D : Int) - 2 * (n : Int) * (n : Int)) +
+        2 * (n : Int) * (n : Int)) -
+        (4 * (n : Int) * ((n : Int) + 1) *
+          ((D : Int) - (2 * (n : Int) * ((n : Int) + 1) - 1)) *
+          ((D : Int) - (2 * (n : Int) * ((n : Int) + 1) - 1) - 1))) := by
+  have hD2 : 2 ≤ D := by
+    have hsquare : 1 ≤ n*n := Nat.mul_le_mul hnpos hnpos
+    simp only [Nat.mul_assoc] at hdiag ⊢
+    omega
+  rw [Int.mul_sub]
+  rw [two_mul_diagCoeff_top_two hnpos hdiag]
+  rw [two_mul_offCoeff_top_two hnpos hD2 hoff]
+  rw [← Int.mul_sub]
+
+/-- Division-free closed diagonal at deficit two. -/
+def topTwoDiagClosed (D n : Nat) : Int :=
+  4 * (n : Int) * (n : Int) *
+      ((D : Int) - 2 * (n : Int) * (n : Int)) *
+      ((D : Int) - 2 * (n : Int) * (n : Int)) +
+    2 * (n : Int) * (n : Int)
+
+/-- Division-free closed off-diagonal at deficit two. -/
+def topTwoOffClosed (D n : Nat) : Int :=
+  4 * (n : Int) * ((n : Int) + 1) *
+    ((D : Int) - (2 * (n : Int) * ((n : Int) + 1) - 1)) *
+    ((D : Int) - (2 * (n : Int) * ((n : Int) + 1) - 1) - 1)
+
+/-- Closed polynomial recurrence for the deficit-two reverse tail. -/
+def reverseTopTwoClosed (D n : Nat) : Nat → Int
+  | 0 => topTwoDiagClosed D n
+  | c + 1 =>
+      topTwoDiagClosed D n - topTwoOffClosed D n +
+        reverseTopTwoClosed D (n + 1) c
+
+/-- Exact arbitrary-tail deficit-two formula, doubled to avoid division. -/
+theorem two_mul_reverseTailCoeff_top_two (D n c : Nat) (hnpos : 0 < n)
+    (hD : 2 * (n + c) * (n + c) + 1 ≤ D) :
+    2 * reverseTailCoeff D n (D - 2) c =
+      2 * reverseTopTwoClosed D n c := by
+  induction c generalizing n with
+  | zero =>
+      simp only [reverseTailCoeff, reverseTopTwoClosed, topTwoDiagClosed]
+      exact two_mul_diagCoeff_top_two hnpos (by simpa using hD)
+  | succ c ih =>
+      simp only [reverseTailCoeff, reverseTopTwoClosed]
+      have hnle : n ≤ n + (c + 1) := by omega
+      have hn1le : n + 1 ≤ n + (c + 1) := by omega
+      have hsquare : n * n ≤ (n + (c + 1)) * (n + (c + 1)) :=
+        Nat.mul_le_mul hnle hnle
+      have hrect : n * (n + 1) ≤ (n + (c + 1)) * (n + (c + 1)) :=
+        Nat.mul_le_mul hnle hn1le
+      have hn : 2 * n * n + 1 ≤ D := by
+        simp only [Nat.mul_assoc] at hD ⊢
+        omega
+      have hoff : 2 * n * (n + 1) - 1 ≤ D := by
+        simp only [Nat.mul_assoc] at hD ⊢
+        omega
+      rw [Int.mul_add]
+      rw [two_mul_topTwo_cell_drift D n hnpos hn hoff]
+      rw [ih (n + 1) (by omega) (by
+        simpa [Nat.add_assoc, Nat.add_left_comm, Nat.add_comm] using hD)]
+      rw [← Int.mul_add]
+      unfold topTwoDiagClosed topTwoOffClosed
+      rfl
+
 end YMGap.Continuum.ThetaResidualPascalTelescope
 
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.bernMon_left_extract
@@ -866,3 +1142,5 @@ end YMGap.Continuum.ThetaResidualPascalTelescope
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.reverseTailCoeff_top_one
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.minimalBase_deficit_one
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.minimalBase_deficit_one_negative
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.two_mul_topTwo_cell_drift
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.two_mul_reverseTailCoeff_top_two
