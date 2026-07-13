@@ -4955,6 +4955,16 @@ unconditionally at the first formerly uncovered scale `k=38`.  The live
 determinant residual is now a symbolic all-tail preservation theorem for this
 same global slack at every `k≥38`, not another finite prefix computation.
 
+`HarmonicMovingDeterminantAllTail` now exposes that arbitrary-scale carrier
+without finite evaluation.  It gives the cutoff-normalized spacing gain in the
+closed form `(2(k+2)+1)/(k+3)^2`, proves the diagonal normalizer `D_k` is
+monotone, and rewrites the global slack exactly as a doubled three-scale theta
+boundary form.  Monotonicity of that form transports directly back to the
+full moving determinant recurrence.  The remaining tail residual is therefore
+the retained-window three-scale theta inequality itself; post-cutoff bounds
+alone do not control it, so the active proof splits at a growing retained-core
+anchor and pays the complementary tail by a derived modulus.
+
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their
 dimensionless additive step both at fixed spacing and for any contracting
