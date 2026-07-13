@@ -4247,6 +4247,14 @@ the fundamental `lamPW`, a positive harmonic mass floor, and the full
 Schur/operator spacing cross law at `k=3`.  The exact correlation and operator
 prefix is therefore now `k≤3`; the first residual scale is `k=4` (`w=5/6`).
 
+`ThreeAnchorWindowRetune` extends the strengthened three-anchor certificate to
+the whole rational interval `0≤w≤5/6` by an exact degree-26 Bernstein
+decomposition.  The exact anchor ratio `(4/3)w^7`, together with PF2, pays
+every later edge from disjoint left squares.  This closes all finite cutoffs
+at `k=4` and propagates through the quotient, `lamPW`, mass floor, and the
+Schur/operator spacing laws.  The exact prefix is now `k≤4`; the first
+residual scale is `k=5` (`w=6/7`).
+
 **Cleared theta-polynomial audit (2026-07-12).**
 `ThetaResidualBernsteinPilot` gives exact positive Bernstein decompositions of
 the cleared retune residual at cutoffs one and two (degrees 11 and 23).  It also
@@ -4261,6 +4269,14 @@ underlying every neighboring integer pair after the Bernstein substitution.
 This supplies an exact reusable square carrier for such nonlocal transfers;
 OPEN is a telescoping reserve allocation across all mode cells, not merely the
 algebraic completion of an individual cell.
+
+`ThetaResidualPascalTelescope` lifts that carrier to arbitrary Bernstein
+degree and symmetric exponent triple.  It extracts the common Pascal
+monomial exactly and factors the weighted left/mid/right cell as
+`t^e(1+t)^(D-e-2a)·[n(1+t)^a-(n+1)t^a]^2`, with constructive
+nonnegativity for `t≥0`.  The actual theta cell is the specialization
+`e=2n²-2`, `a=2n+1`; OPEN is to allocate the retune prefactor's remaining
+Pascal reserve across these positive square atoms uniformly in the cutoff.
 
 **Off-diagonal shell necessity (2026-07-12).**
 `FusedOffDiagonalCompression` strengthens the rank-one fence: any positive
@@ -4317,6 +4333,13 @@ termwise drift orders are kernel-refuted at `k=3`, so the live coefficient-two
 inverse-square bound must antisymmetrize this covariance double sum (or supply
 an equivalent nonlocal rearrangement); a one-direction per-mode comparison is
 blocked.
+
+`HarmonicDriftAntisymmetry` opens that covariance as an exact rectangular
+double sum, separates its square core from the terminal column, and rewrites
+twice the core as a symmetrized pair sum with a common coefficient factor.
+The most direct coefficient-two pairwise budget is itself kernel-refuted at
+`k=3,i=j=0`; OPEN is therefore an off-diagonal reserve transfer across
+distinct pairs, together with control of the terminal column.
 
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their

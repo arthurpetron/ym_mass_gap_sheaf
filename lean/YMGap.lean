@@ -744,8 +744,11 @@ import YMGap.Continuum.HarmonicThetaRatioExtension
 import YMGap.Continuum.HarmonicGrowingAnchorPF2
 import YMGap.Continuum.HarmonicThetaRepresentation
 import YMGap.Continuum.HarmonicWeightDriftFence
+import YMGap.Continuum.HarmonicDriftAntisymmetry
 import YMGap.Continuum.HarmonicK3Retune
+import YMGap.Continuum.ThreeAnchorWindowRetune
 import YMGap.Continuum.ThetaResidualBernsteinPilot
+import YMGap.Continuum.ThetaResidualPascalTelescope
 import YMGap.Continuum.AllWindowHardyFence
 import YMGap.Continuum.CorrectedCarrierOperatorBridge
 import YMGap.Continuum.FusedOperatorIntertwinerFence
