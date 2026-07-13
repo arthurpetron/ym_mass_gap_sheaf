@@ -4108,6 +4108,68 @@ fixed-cutoff quadratic remainder; the viable route must couple cutoff and
 weight inside a genuine local-CLT/Edgeworth cancellation, rather than Taylor
 expand at fixed `N`.
 
+**Extended arbitrary-cutoff correlation window (2026-07-12).**
+`ExtendedWindowCorrPoincare` replaces the earlier loose comparison
+`2w^3 <= w/2` by a direct cleared cubic certificate.  It proves
+`16w^3 <= (1+w)^3` throughout `0 <= w <= 25/38`, with exact endpoint
+reserve `47/54872`, and therefore derives both
+`A_N <= retuneCube(w) D_N` and the equivalent weighted Poincare inequality
+for every cutoff `N` on that strictly larger window.  The remaining interval
+`25/38 < w <= 1` is still OPEN; the anchor comparison crosses there, so a
+further extension must use cutoff-sensitive/nonlocal theta structure rather
+than the same uniform head coefficient.
+
+**Rank-one RG intertwiner fence and shell enrichment (2026-07-12).**
+`FusedOperatorIntertwinerFence` proves that a nonzero positive rank-one
+intertwiner between diagonal fused carriers forces equality of their
+eigenvalues, then kernel-refutes that equality for the consecutive endpoint
+cutoffs `Ncut(0)=4` and `Ncut(1)=9`.  Thus the missing RG map cannot be a
+rank-one scalar rescaling.  The module constructs the minimal two-mode
+diagonal enrichment explicitly: its head mode retains the incoming fused
+eigenvalue, its shell mode carries the outgoing one, and those endpoint modes
+are proved distinct.  OPEN is a genuine compression/Schur-complement estimate
+that controls the shell mode together with the physical spacing law.
+
+**Cutoff-correlation monotonicity (2026-07-12).**
+`CutoffCorrelationMonotone` proves from the exact coefficient step law that
+`c_a c_(N+1) <= c_(a+1)c_N` for `a<N`, then sums this injection to obtain
+`A_N c_(N+1) <= c_N D_N`.  Consequently the finite fused quotient is monotone
+in the cutoff in division-free form,
+`A_N D_(N+1) <= A_(N+1) D_N`, and iteration gives
+`A_N D_(N+k) <= A_(N+k) D_N` for every finite tail length.  This supplies the
+finite half of the theta-limit comparison without assuming an infinite sum.
+OPEN is a uniform upper estimate on the resulting large-cutoff theta ratio.
+
+**Derived summable coupled schedule and cancellation fence (2026-07-12).**
+`DerivedCoupledCutoffSchedule` chooses the exact margin
+`u_k=(1/2)^k/(vacLip(Ncut k)+5/2)` and proves directly, without an analytic
+carrier, that the actual refined fundamental defect is bounded by
+`endpointTail(Ncut k)+(1/2)^k`.  It also proves the refined-retune displacement
+is at most `1-w`.  This is a genuine coupled summable construction, but its
+margin decays much faster than the physical harmonic AF rate.  A closed
+`Ncut(0)` fence additionally refutes quadratic first-order cancellation of the
+raw correlation residual, so the AF route still requires a nonuniform
+large-cutoff/theta cancellation rather than fixed-cutoff Taylor expansion.
+
+**Reciprocal Bernoulli localization engine (2026-07-12).**
+`ReciprocalBernoulliUpper` proves constructively for `0<=u<=1` the exact
+cleared inequality `(1-u)^n(1+n u)<=1`, and hence
+`(1-u)^n<=1/(1+n u)`.  This supplies the missing polynomial Gaussian-tail
+upper bound without logarithms or exponentials.  Its next consumer is the
+physical harmonic schedule `u_k=1/(k+2)`, where `Ncut(k)=(k+2)^2` should force
+the moving boundary coefficient itself into an inverse-square-summable
+envelope.
+
+**Off-diagonal shell necessity (2026-07-12).**
+`FusedOffDiagonalCompression` strengthens the rank-one fence: any positive
+diagonal shell compression again forces equality of the consecutive fused
+eigenvalues and is refuted at the endpoint.  It constructs instead an exact
+symmetric two-mode operator using the rational 3-4-5 rotation, proves the old
+and new mixed eigenvectors coordinatewise, and kernel-proves its off-diagonal
+entry is nonzero.  Thus the physical RG carrier must retain a genuinely
+coupled shell.  OPEN is the quantitative Schur-complement/spacing estimate for
+that coupled operator.
+
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their
 dimensionless additive step both at fixed spacing and for any contracting

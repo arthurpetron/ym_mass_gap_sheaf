@@ -448,7 +448,7 @@ theorem vacNorm_fundamental_endpoint_continuity {w : Q'}
     (Q'.le_of_eqv (absQ_eqv_congr harg))
     (Q'.le_trans' _ _ _ hratio (Q'.le_of_eqv hB))
 
-private def q32 : Q' := Q'.mkPos 3 2 (by decide)
+def q32 : Q' := Q'.mkPos 3 2 (by decide)
 
 /-- The retuned fundamental eigenvalue differs from its endpoint by at most
 `(3/2)(1-w)`. -/

@@ -731,10 +731,16 @@ import YMGap.Continuum.EndpointCutoffTailFormula
 import YMGap.Continuum.EndpointCutoffTailClose
 import YMGap.Continuum.EndpointCutoffTwoParameter
 import YMGap.Continuum.RefinedEndpointQuadraticFence
+import YMGap.Continuum.DerivedCoupledCutoffSchedule
 import YMGap.Continuum.CutoffTailRefinedCarrier
 import YMGap.Continuum.AllWindowCorrDirichlet
+import YMGap.Continuum.ExtendedWindowCorrPoincare
+import YMGap.Continuum.CutoffCorrelationMonotone
+import YMGap.Continuum.ReciprocalBernoulliUpper
 import YMGap.Continuum.AllWindowHardyFence
 import YMGap.Continuum.CorrectedCarrierOperatorBridge
+import YMGap.Continuum.FusedOperatorIntertwinerFence
+import YMGap.Continuum.FusedOffDiagonalCompression
 import YMGap.Continuum.FusedSpacingStepBridge
 import YMGap.Continuum.FusedNextScaleRetune
 import YMGap.Continuum.RacahOrthogonalityGeneral
