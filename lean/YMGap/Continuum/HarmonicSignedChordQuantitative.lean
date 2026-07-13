@@ -1,0 +1,454 @@
+/-
+Quantitative checkpoints for the signed harmonic chord budget.
+
+The symmetric chord is intentionally not used at the sharp base scale: its
+24/25 budget is false at k=0 although the exact compensated reserve holds.
+The next scale is closed here in the exact downstream bridge signature.
+-/
+
+import YMGap.Continuum.HarmonicSignedChordBudgetBridge
+
+namespace YMGap.Continuum.HarmonicSignedChordQuantitative
+
+set_option maxHeartbeats 1200000
+set_option maxRecDepth 20000
+
+open YMGap.Constructive
+open YMGap.Constructive.QPoly
+open YMGap.Continuum
+open YMGap.Continuum.ArbitraryTruncationRetuneCorr
+open YMGap.Continuum.EndpointCutoffTwoParameter
+open YMGap.Continuum.BondMovingStep
+open YMGap.Continuum.RGTransport
+open YMGap.Continuum.HarmonicCutoffBoundary
+open YMGap.Continuum.HarmonicDriftAntisymmetry
+open YMGap.Continuum.HarmonicFusedSchurObstruction
+open YMGap.Continuum.HarmonicHalfEdgeDominance
+open YMGap.Continuum.HarmonicSignedChordAbsorption
+open YMGap.Continuum.HarmonicSignedChordBudgetBridge
+open YMGap.Continuum.HarmonicWeightDriftFence
+open YMGap.Continuum.HarmonicWeightedAbelReserve
+open YMGap.Continuum.QuadraticCutoffSchedule
+open YMGap.Continuum.ReciprocalBernoulliUpper
+open YMGap.Continuum.SummableInverseSquare
+
+local infix:50 " ≈ " => Q'.eqv
+private theorem neg_num_cast (a : Q') : (-a).num = -(a.num) := rfl
+local macro "ring_qeqv" : tactic =>
+  `(tactic| (show _ * (_ : Int) = _ * (_ : Int);
+             simp only [Q'.add_num_cast, Q'.add_den_cast, Q'.mul_num_cast,
+               Q'.mul_den_cast, Q'.neg_den, neg_num_cast, Int.add_mul, Int.mul_add,
+               Int.neg_mul, Int.mul_neg, Int.neg_add, Int.neg_neg, Int.one_mul,
+               Int.mul_one]; ac_rfl))
+
+def terminalDiagonalPrefix (k : Nat) : Q' :=
+  coordNormSq (harmW k) (Ncut k - 1)
+
+def terminalCoefficientTwoFloor (k : Nat) : Q' :=
+  (twoInvSq k + twoInvSq k) *
+    (harmonicD k * terminalDiagonalPrefix k)
+
+/-- The terminal carrier pays at least the full coefficient-two diagonal
+budget `4/(k+2)^2 · D · D_L`.  This is an unconditional quantitative
+consequence of the proved harmonic half-edge dominance. -/
+theorem terminalCoefficientTwoFloor_le_terminalReserve (k : Nat) :
+    terminalCoefficientTwoFloor k ≤
+      -(trapezoidNodeCumulative k (Ncut k - 1)) := by
+  let L := Ncut k - 1
+  let c := coeffW (harmW k)
+  let D := harmonicD k
+  let A := harmonicA k
+  let DL := terminalDiagonalPrefix k
+  let lam := twoInvSq k
+  let X := adjCorr (harmW k) L + adjCorr (harmW k) L + oldAdj k L
+  let F := (lam + lam) * (D * DL)
+  have hN : 1 ≤ Ncut k := by
+    unfold Ncut
+    exact Nat.mul_pos (by omega) (by omega)
+  have hLN : L + 1 = Ncut k := Nat.sub_add_cancel hN
+  have hh := harmonic_halfEdge_full k (p := L) (Nat.le_refl L)
+  have hcore : D * X ≤ (A + A) * DL := by
+    dsimp [L] at hh
+    simpa [profileD, profileA, halfEdgeNum, D, A, DL, X,
+      terminalDiagonalPrefix, harmonicD, harmonicA, oldAdj, hLN] using hh
+  have hadd := Q'.add_le_add_right _ _
+    (-(((A + lam * D) + (A + lam * D)) * DL)) hcore
+  have hleft :
+      D * X + -(((A + lam * D) + (A + lam * D)) * DL) ≈
+        trapezoidNodeCumulative k L := by
+    unfold D A DL lam X L terminalDiagonalPrefix trapezoidNodeCumulative
+    exact Q'.eqv_refl _
+  have hright :
+      (A + A) * DL + -(((A + lam * D) + (A + lam * D)) * DL) ≈
+        -F := by
+    let U := (A + A) * DL
+    let V := (lam * D + lam * D) * DL
+    have hB : ((A + lam * D) + (A + lam * D)) * DL ≈ U + V := by
+      unfold U V
+      ring_qeqv
+    have hVF : V ≈ F := by
+      unfold V F
+      ring_qeqv
+    refine Q'.eqv_trans _ (U + -(U + V)) _
+      (Q'.add_eqv_congr_left U _ _ (Q'.neg_eqv_congr _ _ hB)) ?_
+    refine Q'.eqv_trans _ (U + (-U + -V)) _
+      (Q'.add_eqv_congr_left U _ _ (Q'.neg_add_eqv U V)) ?_
+    refine Q'.eqv_trans _ ((U + -U) + -V) _
+      (Q'.eqv_symm (Q'.add_assoc_eqv U (-U) (-V))) ?_
+    refine Q'.eqv_trans _ ((0 : Q') + -V) _
+      (Q'.add_eqv_congr_right _ _ (-V) (Q'.add_neg_self_eqv U)) ?_
+    refine Q'.eqv_trans _ (-V) _ (q_zero_add_eqv (-V)) ?_
+    exact Q'.neg_eqv_congr _ _ hVF
+  have hTF : trapezoidNodeCumulative k L ≤ -F :=
+    Q'.le_trans' _ _ _ (Q'.ge_of_eqv hleft)
+      (Q'.le_trans' _ _ _ hadd (Q'.le_of_eqv hright))
+  have hneg := Q'.neg_le_neg hTF
+  have hnn : -(-F) ≈ F := Q'.neg_neg_eqv F
+  change F ≤ -(trapezoidNodeCumulative k L)
+  exact Q'.le_trans' _ _ _ (Q'.ge_of_eqv hnn) hneg
+
+private theorem invSqTerm_le_oneNinth {k : Nat} (hk : 1 ≤ k) :
+    invSqTerm 2 (by decide) k ≤ Q'.mkPos 1 9 (by decide) := by
+  have h3 : 3 ≤ k + 2 := by omega
+  have h9 : 9 ≤ (k + 2) * (k + 2) := by
+    exact Nat.mul_le_mul h3 h3
+  unfold invSqTerm unit
+  show (Q'.mkPos 1 ((k + 2) * (k + 2)) (by omega)).num *
+      ((Q'.mkPos 1 9 (by decide)).den : Int) ≤
+    (Q'.mkPos 1 9 (by decide)).num *
+      ((Q'.mkPos 1 ((k + 2) * (k + 2)) (by omega)).den : Int)
+  simp only [Q'.mkPos_num, Q'.mkPos_den, Int.one_mul]
+  exact_mod_cast h9
+
+/-- From scale one onward, the missing terminal diagonal is at most one
+ninth of the retained diagonal prefix.  Thus the retained prefix carries at
+least nine tenths of the full harmonic norm. -/
+theorem nine_harmonicD_le_ten_terminalDiagonalPrefix
+    (k : Nat) (hk : 1 ≤ k) :
+    Q'.ofNat 9 * harmonicD k ≤
+      Q'.ofNat 10 * terminalDiagonalPrefix k := by
+  let L := Ncut k - 1
+  let e := coeffW (harmW k) (Ncut k) * coeffW (harmW k) (Ncut k)
+  let DL := terminalDiagonalPrefix k
+  have hN : 1 ≤ Ncut k := by
+    unfold Ncut
+    exact Nat.mul_pos (by omega) (by omega)
+  have hLN : L + 1 = Ncut k := Nat.sub_add_cancel hN
+  have hD : harmonicD k ≈ DL + e := by
+    unfold harmonicD DL terminalDiagonalPrefix e
+    rw [← hLN]
+    exact AllWindowCorrDirichlet.coordNormSq_succ (harmW k) L
+  have heU : e ≤ invSqTerm 2 (by decide) k := by
+    unfold e
+    exact coeffW_Ncut_sq_le_invSq k
+  have hU9 := invSqTerm_le_oneNinth hk
+  have he9 : e ≤ Q'.mkPos 1 9 (by decide) :=
+    Q'.le_trans' _ _ _ heU hU9
+  have hn9 : (0 : Q') ≤ Q'.ofNat 9 := by decide
+  have h9e := Q'.mul_le_mul_of_nonneg_left _ _ (Q'.ofNat 9) he9 hn9
+  have h9unit : Q'.ofNat 9 * Q'.mkPos 1 9 (by decide) ≈ (1 : Q') := by
+    unfold Q'.ofNat
+    show _ * (_ : Int) = _ * (_ : Int)
+    decide
+  have h9e1 : Q'.ofNat 9 * e ≤ (1 : Q') :=
+    Q'.le_trans' _ _ _ h9e (Q'.le_of_eqv h9unit)
+  have h1DL : (1 : Q') ≤ DL := by
+    unfold DL terminalDiagonalPrefix
+    exact coordNormSq_ge_one (harmW_nonneg k) (Ncut k - 1)
+  have h9eDL : Q'.ofNat 9 * e ≤ DL :=
+    Q'.le_trans' _ _ _ h9e1 h1DL
+  have hadd := Q'.add_le_add_left (Q'.ofNat 9 * DL)
+    (Q'.ofNat 9 * e) DL h9eDL
+  have hleft : Q'.ofNat 9 * harmonicD k ≈
+      Q'.ofNat 9 * DL + Q'.ofNat 9 * e := by
+    refine Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_left (Q'.ofNat 9) _ _ hD) ?_
+    exact Q'.mul_add_eqv _ _ _
+  have hright : Q'.ofNat 9 * DL + DL ≈ Q'.ofNat 10 * DL := by
+    have hnum : Q'.ofNat 10 ≈ Q'.ofNat 9 + (1 : Q') := by
+      exact Q'.eqv_trans _ _ _ (Q'.ofNat_add_eqv 9 1)
+        (Q'.add_eqv_congr_left _ _ _ (by decide))
+    apply Q'.eqv_symm
+    refine Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_right _ _ DL hnum) ?_
+    refine Q'.eqv_trans _ _ _ (Q'.add_mul_eqv _ _ _) ?_
+    exact Q'.add_eqv_congr_left _ _ _ (Q'.one_mul_eqv DL)
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hleft)
+    (Q'.le_trans' _ _ _ hadd (Q'.le_of_eqv hright))
+
+def signedChordMomentCore (k : Nat) : Q' :=
+  Q'.mkPos 18 5 (by decide) *
+    (invSqTerm 2 (by decide) k * (harmonicD k * harmonicD k))
+
+def signedChordMomentCap (k : Nat) : Q' :=
+  (Q'.mkPos 24 25 (by decide) * signedChordMomentCore k) +
+    (Q'.mkPos 24 25 (by decide) * signedChordMomentCore k)
+
+/-- The normalized moment core `18/5·D²/(k+2)²` fits inside the
+terminal coefficient-two payment from every non-base scale onward. -/
+theorem signedChordMomentCore_le_terminalCoefficientTwoFloor
+    (k : Nat) (hk : 1 ≤ k) :
+    signedChordMomentCore k ≤ terminalCoefficientTwoFloor k := by
+  let D := harmonicD k
+  let DL := terminalDiagonalPrefix k
+  let u := invSqTerm 2 (by decide) k
+  let scale := Q'.mkPos 2 5 (by decide) * u
+  have h9 := nine_harmonicD_le_ten_terminalDiagonalPrefix k hk
+  have hD0 : (0 : Q') ≤ D := Q'.le_of_lt (harmonicD_pos k)
+  have hprod := Q'.mul_le_mul_of_nonneg_left _ _ D h9 hD0
+  have hscale0 : (0 : Q') ≤ scale := by
+    unfold scale
+    exact Q'.mul_nonneg _ _ (by decide) (invSqTerm_nonneg 2 (by decide) k)
+  have hscaled := Q'.mul_le_mul_of_nonneg_left _ _ scale hprod hscale0
+  have hleft : scale * (D * (Q'.ofNat 9 * D)) ≈ signedChordMomentCore k := by
+    have hc : Q'.mkPos 2 5 (by decide) * Q'.ofNat 9 ≈
+        Q'.mkPos 18 5 (by decide) := by decide
+    refine Q'.eqv_trans _
+      ((Q'.mkPos 2 5 (by decide) * Q'.ofNat 9) *
+        (u * (D * D))) _ ?_ ?_
+    · unfold scale
+      ring_qeqv
+    · unfold signedChordMomentCore D u
+      exact Q'.mul_eqv_congr_right _ _ _ hc
+  have hright : scale * (D * (Q'.ofNat 10 * DL)) ≈
+      terminalCoefficientTwoFloor k := by
+    have hc : Q'.mkPos 2 5 (by decide) * Q'.ofNat 10 ≈
+        Q'.ofNat 4 := by decide
+    have hfour : Q'.ofNat 4 ≈ Q'.ofNat 2 + Q'.ofNat 2 := by decide
+    refine Q'.eqv_trans _
+      ((Q'.mkPos 2 5 (by decide) * Q'.ofNat 10) *
+        (u * (D * DL))) _ ?_ ?_
+    · unfold scale
+      ring_qeqv
+    · refine Q'.eqv_trans _ (Q'.ofNat 4 * (u * (D * DL))) _
+        (Q'.mul_eqv_congr_right _ _ _ hc) ?_
+      refine Q'.eqv_trans _ ((Q'.ofNat 4 * u) * (D * DL)) _
+        (Q'.eqv_symm (Q'.mul_assoc_eqv _ _ _)) ?_
+      refine Q'.eqv_trans _
+        (((Q'.ofNat 2 + Q'.ofNat 2) * u) * (D * DL)) _
+        (Q'.mul_eqv_congr_right _ _ _
+          (Q'.mul_eqv_congr_right _ _ u hfour)) ?_
+      refine Q'.eqv_trans _
+        ((Q'.ofNat 2 * u + Q'.ofNat 2 * u) * (D * DL)) _
+        (Q'.mul_eqv_congr_right _ _ _ (Q'.add_mul_eqv _ _ _)) ?_
+      unfold terminalCoefficientTwoFloor twoInvSq D DL u
+      exact Q'.eqv_refl _
+  exact Q'.le_trans' _ _ _ (Q'.ge_of_eqv hleft)
+    (Q'.le_trans' _ _ _ hscaled (Q'.le_of_eqv hright))
+
+/-- The concrete moment cap is below the exact `24/25` signed-chord target.
+Thus after the base-scale split the sole remaining estimate is the direct
+upper bound of the signed chord plus two terminal corrections by
+`signedChordMomentCap`. -/
+theorem signedChordMomentCap_le_target (k : Nat) (hk : 1 ≤ k) :
+    signedChordMomentCap k ≤
+      (Q'.mkPos 24 25 (by decide) *
+          (-(trapezoidNodeCumulative k (Ncut k - 1) *
+            driftSqFactor k 0))) +
+        (Q'.mkPos 24 25 (by decide) *
+          (-(trapezoidNodeCumulative k (Ncut k - 1) *
+            driftSqFactor k 0))) := by
+  have hcore := signedChordMomentCore_le_terminalCoefficientTwoFloor k hk
+  have hfloor := terminalCoefficientTwoFloor_le_terminalReserve k
+  have hct : signedChordMomentCore k ≤
+      -(trapezoidNodeCumulative k (Ncut k - 1)) :=
+    Q'.le_trans' _ _ _ hcore hfloor
+  have hc0 : (0 : Q') ≤ Q'.mkPos 24 25 (by decide) := by decide
+  have hscaled := Q'.mul_le_mul_of_nonneg_left _ _
+    (Q'.mkPos 24 25 (by decide)) hct hc0
+  have hadd := Q'.add_le_add hscaled hscaled
+  have hG0 := driftSqFactor_zero_eqv k
+  have htarget :
+      (Q'.mkPos 24 25 (by decide) *
+          (-(trapezoidNodeCumulative k (Ncut k - 1)))) +
+        (Q'.mkPos 24 25 (by decide) *
+          (-(trapezoidNodeCumulative k (Ncut k - 1)))) ≈
+      (Q'.mkPos 24 25 (by decide) *
+          (-(trapezoidNodeCumulative k (Ncut k - 1) *
+            driftSqFactor k 0))) +
+        (Q'.mkPos 24 25 (by decide) *
+          (-(trapezoidNodeCumulative k (Ncut k - 1) *
+            driftSqFactor k 0))) := by
+    have hm : trapezoidNodeCumulative k (Ncut k - 1) *
+        driftSqFactor k 0 ≈ trapezoidNodeCumulative k (Ncut k - 1) :=
+      Q'.eqv_trans _ _ _
+        (Q'.mul_eqv_congr_left _ _ _ hG0) (Q'.mul_one_eqv _)
+    exact Q'.add_eqv_congr'
+      (Q'.mul_eqv_congr_left _ _ _ (Q'.neg_eqv_congr _ _ (Q'.eqv_symm hm)))
+      (Q'.mul_eqv_congr_left _ _ _ (Q'.neg_eqv_congr _ _ (Q'.eqv_symm hm)))
+  unfold signedChordMomentCap
+  exact Q'.le_trans' _ _ _ hadd (Q'.le_of_eqv htarget)
+
+/-- The all-scale symmetric signed-chord budget is genuinely false at the
+base scale.  This is why the exact theorem `compensated_reserve_k0`, rather
+than the chord envelope, must start the induction. -/
+theorem signedChord_twentyFourTwentyFive_fails_k0 :
+    ¬ (
+      signedChordSum 0 (Ncut 0 - 1) 0 +
+          (trapezoidTerminalCorrection 0 + trapezoidTerminalCorrection 0) ≤
+        (Q'.mkPos 24 25 (by decide) *
+            (-(trapezoidNodeCumulative 0 (Ncut 0 - 1) *
+              driftSqFactor 0 0))) +
+          (Q'.mkPos 24 25 (by decide) *
+            (-(trapezoidNodeCumulative 0 (Ncut 0 - 1) *
+              driftSqFactor 0 0)))) := by
+  unfold signedChordSum signedChordCell compensatedChordCell
+    trapezoidTerminalCorrection trapezoidNodeCumulative harmonicD harmonicA
+    twoInvSq oldAdj coordNormSq adjCorr driftSqFactor driftRatio driftDen
+    harmW harmU oneSub unit invSqTerm coeffW dimQ c4
+    Q'.divPos Q'.recipPos qpow Ncut fsum
+  decide
+
+/-- At the first nontrivial scale the initial terminal gap is strictly
+positive, so any admissible first-crossing index is definitionally zero. -/
+theorem terminal_gap_k1_p0_not_nonpos :
+    ¬ (
+      trapezoidNodeCumulative 1 (Ncut 1 - 1) +
+        -(trapezoidNodeCumulative 1 0) ≤ (0 : Q')) := by
+  unfold trapezoidNodeCumulative harmonicD harmonicA twoInvSq oldAdj
+    coordNormSq adjCorr harmW harmU oneSub unit invSqTerm coeffW dimQ c4
+    qpow Ncut fsum
+  decide
+
+/-- Exact `k=1` quantitative budget in the downstream signed-crossing
+signature.  No measured constant enters: after the crossing is forced to
+`s=0`, the claim is a closed rational computation. -/
+theorem signedChord_twentyFourTwentyFive_k1
+    (s : Nat) (hsL : s ≤ Ncut 1 - 1)
+    (hfirst : ∀ p, p < s →
+      trapezoidNodeCumulative 1 (Ncut 1 - 1) +
+        -(trapezoidNodeCumulative 1 p) ≤ (0 : Q'))
+    (_hboundary : (0 : Q') ≤
+      trapezoidNodeCumulative 1 (Ncut 1 - 1) +
+        -(trapezoidNodeCumulative 1 s)) :
+    signedChordSum 1 (Ncut 1 - 1) s +
+          (trapezoidTerminalCorrection 1 + trapezoidTerminalCorrection 1) ≤
+        (Q'.mkPos 24 25 (by decide) *
+            (-(trapezoidNodeCumulative 1 (Ncut 1 - 1) *
+              driftSqFactor 1 0))) +
+          (Q'.mkPos 24 25 (by decide) *
+            (-(trapezoidNodeCumulative 1 (Ncut 1 - 1) *
+              driftSqFactor 1 0))) := by
+  have hs0 : s = 0 := by
+    by_cases hzero : s = 0
+    · exact hzero
+    · have hpos : 0 < s := Nat.pos_of_ne_zero hzero
+      have hf : False := terminal_gap_k1_p0_not_nonpos (hfirst 0 hpos)
+      exact False.elim hf
+  subst s
+  unfold signedChordSum signedChordCell compensatedChordCell
+    trapezoidTerminalCorrection trapezoidNodeCumulative harmonicD harmonicA
+    twoInvSq oldAdj coordNormSq adjCorr driftSqFactor driftRatio driftDen
+    harmW harmU oneSub unit invSqTerm coeffW dimQ c4
+    Q'.divPos Q'.recipPos qpow Ncut fsum
+  decide
+
+theorem terminal_gap_k2_p0_not_nonpos :
+    ¬ (
+      trapezoidNodeCumulative 2 (Ncut 2 - 1) +
+        -(trapezoidNodeCumulative 2 0) ≤ (0 : Q')) := by
+  unfold trapezoidNodeCumulative harmonicD harmonicA twoInvSq oldAdj
+    coordNormSq adjCorr harmW harmU oneSub unit invSqTerm coeffW dimQ c4
+    qpow Ncut fsum
+  decide
+
+theorem signedChord_twentyFourTwentyFive_k2
+    (s : Nat) (hsL : s ≤ Ncut 2 - 1)
+    (hfirst : ∀ p, p < s →
+      trapezoidNodeCumulative 2 (Ncut 2 - 1) +
+        -(trapezoidNodeCumulative 2 p) ≤ (0 : Q'))
+    (_hboundary : (0 : Q') ≤
+      trapezoidNodeCumulative 2 (Ncut 2 - 1) +
+        -(trapezoidNodeCumulative 2 s)) :
+    signedChordSum 2 (Ncut 2 - 1) s +
+          (trapezoidTerminalCorrection 2 + trapezoidTerminalCorrection 2) ≤
+        (Q'.mkPos 24 25 (by decide) *
+            (-(trapezoidNodeCumulative 2 (Ncut 2 - 1) *
+              driftSqFactor 2 0))) +
+          (Q'.mkPos 24 25 (by decide) *
+            (-(trapezoidNodeCumulative 2 (Ncut 2 - 1) *
+              driftSqFactor 2 0))) := by
+  have hs0 : s = 0 := by
+    by_cases hzero : s = 0
+    · exact hzero
+    · have hpos : 0 < s := Nat.pos_of_ne_zero hzero
+      have hf : False := terminal_gap_k2_p0_not_nonpos (hfirst 0 hpos)
+      exact False.elim hf
+  subst s
+  unfold signedChordSum signedChordCell compensatedChordCell
+    trapezoidTerminalCorrection trapezoidNodeCumulative harmonicD harmonicA
+    twoInvSq oldAdj coordNormSq adjCorr driftSqFactor driftRatio driftDen
+    harmW harmU oneSub unit invSqTerm coeffW dimQ c4
+    Q'.divPos Q'.recipPos qpow Ncut fsum
+  decide
+
+theorem weightedTrapezoidResidual_nonpos_k1 :
+    weightedTrapezoidResidual 1 ≤ (0 : Q') :=
+  weightedTrapezoidResidual_nonpos_of_signed_crossing_budget 1
+    signedChord_twentyFourTwentyFive_k1
+
+theorem weightedTrapezoidResidual_nonpos_k2 :
+    weightedTrapezoidResidual 2 ≤ (0 : Q') :=
+  weightedTrapezoidResidual_nonpos_of_signed_crossing_budget 2
+    signedChord_twentyFourTwentyFive_k2
+
+theorem terminal_gap_k3_p0_not_nonpos :
+    ¬ (
+      trapezoidNodeCumulative 3 (Ncut 3 - 1) +
+        -(trapezoidNodeCumulative 3 0) ≤ (0 : Q')) := by
+  unfold trapezoidNodeCumulative harmonicD harmonicA twoInvSq oldAdj
+    coordNormSq adjCorr harmW harmU oneSub unit invSqTerm coeffW dimQ c4
+    qpow Ncut fsum
+  decide
+
+theorem signedChord_twentyFourTwentyFive_k3
+    (s : Nat) (hsL : s ≤ Ncut 3 - 1)
+    (hfirst : ∀ p, p < s →
+      trapezoidNodeCumulative 3 (Ncut 3 - 1) +
+        -(trapezoidNodeCumulative 3 p) ≤ (0 : Q'))
+    (_hboundary : (0 : Q') ≤
+      trapezoidNodeCumulative 3 (Ncut 3 - 1) +
+        -(trapezoidNodeCumulative 3 s)) :
+    signedChordSum 3 (Ncut 3 - 1) s +
+          (trapezoidTerminalCorrection 3 + trapezoidTerminalCorrection 3) ≤
+        (Q'.mkPos 24 25 (by decide) *
+            (-(trapezoidNodeCumulative 3 (Ncut 3 - 1) *
+              driftSqFactor 3 0))) +
+          (Q'.mkPos 24 25 (by decide) *
+            (-(trapezoidNodeCumulative 3 (Ncut 3 - 1) *
+              driftSqFactor 3 0))) := by
+  have hs0 : s = 0 := by
+    by_cases hzero : s = 0
+    · exact hzero
+    · have hpos : 0 < s := Nat.pos_of_ne_zero hzero
+      have hf : False := terminal_gap_k3_p0_not_nonpos (hfirst 0 hpos)
+      exact False.elim hf
+  subst s
+  unfold signedChordSum signedChordCell compensatedChordCell
+    trapezoidTerminalCorrection trapezoidNodeCumulative harmonicD harmonicA
+    twoInvSq oldAdj coordNormSq adjCorr driftSqFactor driftRatio driftDen
+    harmW harmU oneSub unit invSqTerm coeffW dimQ c4
+    Q'.divPos Q'.recipPos qpow Ncut fsum
+  decide
+
+theorem weightedTrapezoidResidual_nonpos_k3 :
+    weightedTrapezoidResidual 3 ≤ (0 : Q') :=
+  weightedTrapezoidResidual_nonpos_of_signed_crossing_budget 3
+    signedChord_twentyFourTwentyFive_k3
+
+#print axioms signedChord_twentyFourTwentyFive_fails_k0
+#print axioms terminalCoefficientTwoFloor_le_terminalReserve
+#print axioms nine_harmonicD_le_ten_terminalDiagonalPrefix
+#print axioms signedChordMomentCore_le_terminalCoefficientTwoFloor
+#print axioms signedChordMomentCap_le_target
+#print axioms terminal_gap_k1_p0_not_nonpos
+#print axioms signedChord_twentyFourTwentyFive_k1
+#print axioms terminal_gap_k2_p0_not_nonpos
+#print axioms signedChord_twentyFourTwentyFive_k2
+#print axioms weightedTrapezoidResidual_nonpos_k1
+#print axioms weightedTrapezoidResidual_nonpos_k2
+#print axioms terminal_gap_k3_p0_not_nonpos
+#print axioms signedChord_twentyFourTwentyFive_k3
+#print axioms weightedTrapezoidResidual_nonpos_k3
+
+end YMGap.Continuum.HarmonicSignedChordQuantitative

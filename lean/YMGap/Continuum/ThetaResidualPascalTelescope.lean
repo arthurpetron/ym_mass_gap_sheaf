@@ -18,6 +18,7 @@ for the full cleared theta residual.
 -/
 
 import YMGap.Continuum.ThetaResidualBernsteinPilot
+import YMGap.Continuum.RingNormaliser
 
 namespace YMGap.Continuum.ThetaResidualPascalTelescope
 
@@ -2821,6 +2822,811 @@ theorem minimalBase_deficit_two_negative (m : Nat) (hm : 2 ≤ m) :
     Int.mul_pos h3m1 hf
   omega
 
+/-! ## Through-`b₃` adjacent-binomial payment
+
+The long-range payment is a two-variable polynomial inequality after the
+shifts `m=u+2`, `r=a+6`.  We reflect its exact positive-coefficient slack
+through the constructive `Q'` ring normaliser, then transport the resulting
+identity back to `Int`.  No untrusted polynomial tactic is used. -/
+
+private def certIntPow (x : Int) : Nat → Int
+  | 0 => 1
+  | n + 1 => certIntPow x n * x
+
+private def certIntEval (rho : Nat → Int) :
+    RingNormaliser.PolyExpr → Int
+  | .const c => c
+  | .var i => rho i
+  | .add x y => certIntEval rho x + certIntEval rho y
+  | .mul x y => certIntEval rho x * certIntEval rho y
+  | .neg x => -(certIntEval rho x)
+  | .pow x n => certIntPow (certIntEval rho x) n
+
+private theorem cert_ofInt_neg (x : Int) :
+    (-(Q'.ofInt x)).eqv (Q'.ofInt (-x)) := by
+  rfl
+
+private theorem cert_qpow_ofInt (x : Int) : ∀ n,
+    (RingNormaliser.qpow (Q'.ofInt x) n).eqv
+      (Q'.ofInt (certIntPow x n))
+  | 0 => by exact Q'.eqv_refl _
+  | n + 1 => by
+      exact Q'.eqv_trans _ (Q'.ofInt (certIntPow x n) * Q'.ofInt x) _
+        (Q'.mul_eqv_congr_right _ _ _ (cert_qpow_ofInt x n))
+        (Q'.eqv_symm (RingNormaliser.ofInt_mul (certIntPow x n) x))
+
+private theorem cert_eval_ofInt (rho : Nat → Int) : ∀ e,
+    (RingNormaliser.eval (fun i => Q'.ofInt (rho i)) e).eqv
+      (Q'.ofInt (certIntEval rho e))
+  | .const _ => Q'.eqv_refl _
+  | .var _ => Q'.eqv_refl _
+  | .add x y => by
+      exact Q'.eqv_trans _
+        (Q'.ofInt (certIntEval rho x) +
+          RingNormaliser.eval (fun i => Q'.ofInt (rho i)) y) _
+        (Q'.add_eqv_congr_right _ _ _ (cert_eval_ofInt rho x))
+        (Q'.eqv_trans _
+          (Q'.ofInt (certIntEval rho x) + Q'.ofInt (certIntEval rho y)) _
+          (Q'.add_eqv_congr_left _ _ _ (cert_eval_ofInt rho y))
+          (Q'.eqv_symm (RingNormaliser.ofInt_add _ _)))
+  | .mul x y => by
+      exact Q'.eqv_trans _
+        (Q'.ofInt (certIntEval rho x) *
+          RingNormaliser.eval (fun i => Q'.ofInt (rho i)) y) _
+        (Q'.mul_eqv_congr_right _ _ _ (cert_eval_ofInt rho x))
+        (Q'.eqv_trans _
+          (Q'.ofInt (certIntEval rho x) * Q'.ofInt (certIntEval rho y)) _
+          (Q'.mul_eqv_congr_left _ _ _ (cert_eval_ofInt rho y))
+          (Q'.eqv_symm (RingNormaliser.ofInt_mul _ _)))
+  | .neg x => by
+      exact Q'.eqv_trans _ (-(Q'.ofInt (certIntEval rho x))) _
+        (Q'.neg_eqv_congr _ _ (cert_eval_ofInt rho x))
+        (cert_ofInt_neg _)
+  | .pow x n => by
+      exact Q'.eqv_trans _
+        (RingNormaliser.qpow (Q'.ofInt (certIntEval rho x)) n) _
+        (RingNormaliser.qpow_eqv_congr (cert_eval_ofInt rho x) n)
+        (cert_qpow_ofInt _ n)
+
+private theorem cert_int_poly_identity
+    (e₁ e₂ : RingNormaliser.PolyExpr)
+    (hn : RingNormaliser.normalize e₁ = RingNormaliser.normalize e₂)
+    (rho : Nat → Int) : certIntEval rho e₁ = certIntEval rho e₂ := by
+  have h := RingNormaliser.poly_identity_of_normal_eq e₁ e₂ hn
+    (fun i => Q'.ofInt (rho i))
+  have hl := cert_eval_ofInt rho e₁
+  have hr := cert_eval_ofInt rho e₂
+  have hi := Q'.eqv_trans _ _ _ (Q'.eqv_symm hl)
+    (Q'.eqv_trans _ _ _ h hr)
+  unfold Q'.eqv at hi
+  change certIntEval rho e₁ * 1 = certIntEval rho e₂ * 1 at hi
+  simpa using hi
+
+private def certAdd (x y : RingNormaliser.PolyExpr) :
+    RingNormaliser.PolyExpr := .add x y
+private def certMul (x y : RingNormaliser.PolyExpr) :
+    RingNormaliser.PolyExpr := .mul x y
+private def certNeg (x : RingNormaliser.PolyExpr) :
+    RingNormaliser.PolyExpr := .neg x
+private def certSub (x y : RingNormaliser.PolyExpr) :
+    RingNormaliser.PolyExpr := certAdd x (certNeg y)
+private def certConst (z : Int) : RingNormaliser.PolyExpr := .const z
+private def certScale (z : Int) (x : RingNormaliser.PolyExpr) :
+    RingNormaliser.PolyExpr := certMul (certConst z) x
+
+private def adjacentScalarLHS : RingNormaliser.PolyExpr :=
+  let u := RingNormaliser.PolyExpr.var 0
+  let a := RingNormaliser.PolyExpr.var 1
+  let m := certAdd u (certConst 2)
+  let q := certSub (certAdd (certScale 4 u) (certConst 4)) a
+  let p := certAdd (certScale 96 (.pow m 3))
+    (certAdd (certScale (-96) (.pow m 2))
+      (certAdd (certScale (-94) m) (certConst 109)))
+  certSub
+    (certMul (certMul (certAdd a (certConst 5))
+      (certAdd a (certConst 4))) p)
+    (certScale 30
+      (certAdd
+        (certMul (certMul (certAdd (certScale 4 m) (certConst (-10)))
+          (certAdd q (certConst 3))) (certAdd q (certConst 2)))
+        (certMul (certMul (certAdd (certScale 6 m) (certConst (-9)))
+          (certAdd q (certConst 3))) (certAdd a (certConst 5)))))
+
+private def adjacentScalarRHS : RingNormaliser.PolyExpr :=
+  let u := RingNormaliser.PolyExpr.var 0
+  let a := RingNormaliser.PolyExpr.var 1
+  certAdd (certScale 96 (certMul (.pow u 3) (.pow a 2)))
+  (certAdd (certScale 864 (certMul (.pow u 3) a))
+  (certAdd (certScale 480 (certMul (.pow u 2) (.pow a 2)))
+  (certAdd (certScale 4560 (certMul (.pow u 2) a))
+  (certAdd (certScale 720 (.pow u 2))
+  (certAdd (certScale 734 (certMul u (.pow a 2)))
+  (certAdd (certScale 6426 (certMul u a))
+  (certAdd (certScale 3460 u)
+  (certAdd (certScale 455 (.pow a 2))
+  (certAdd (certScale 1785 a) (certConst 5470))))))))))
+
+private theorem adjacentScalar_normal :
+    RingNormaliser.normalize adjacentScalarLHS =
+      RingNormaliser.normalize adjacentScalarRHS := by
+  decide
+
+private theorem adjacentScalar_expansion (u a : Int) :
+    (a+5)*(a+4)*(96*((u+2)*(u+2)*(u+2))+
+      ((-96)*((u+2)*(u+2))+((-94)*(u+2)+109)))
+      + -(30*((4*(u+2)+(-10))*(4*u+4+(-a)+3)*(4*u+4+(-a)+2)
+        +(6*(u+2)+(-9))*(4*u+4+(-a)+3)*(a+5))) =
+    96*(u*u*u*(a*a))+
+      (864*(u*u*u*a)+
+      (480*(u*u*(a*a))+
+      (4560*(u*u*a)+
+      (720*(u*u)+
+      (734*(u*(a*a))+
+        (6426*(u*a)+(3460*u+(455*(a*a)+(1785*a+5470))))))))) := by
+  have h := cert_int_poly_identity adjacentScalarLHS adjacentScalarRHS
+    adjacentScalar_normal (fun i => if i = 0 then u else a)
+  simpa [adjacentScalarLHS, adjacentScalarRHS, certAdd, certMul, certNeg,
+    certSub, certConst, certScale, certIntEval, certIntPow,
+    Int.sub_eq_add_neg] using h
+
+/-- Positive scalar certificate that pays both negative adjacent coordinates
+after the `b₃` term, valid throughout the long boundary range `r≥6`. -/
+theorem throughThree_adjacent_scalar_payment (m r q : Nat)
+    (hm : 2 ≤ m) (hr : 6 ≤ r) (hqr : q + r = 4*m+2) :
+    30*((4*(m:Int)+(-10))*((q:Int)+3)*((q:Int)+2)+
+      (6*(m:Int)+(-9))*((q:Int)+3)*((r:Int)-1)) ≤
+    ((r:Int)-1)*((r:Int)-2)*
+      (96*((m:Int)*(m:Int)*(m:Int))+
+        ((-96)*((m:Int)*(m:Int))+((-94)*(m:Int)+109))) := by
+  let u := m-2
+  let a := r-6
+  have hum : u+2=m := by dsimp [u]; omega
+  have har : a+6=r := by dsimp [a]; omega
+  have hui : (u:Int)+2=(m:Int) := by
+    have h := congrArg Int.ofNat hum
+    simpa only [Int.ofNat_eq_natCast, Int.natCast_add] using h
+  have hai : (a:Int)+6=(r:Int) := by
+    have h := congrArg Int.ofNat har
+    simpa only [Int.ofNat_eq_natCast, Int.natCast_add] using h
+  have hqri : (q:Int)+(r:Int)=4*(m:Int)+2 := by
+    have h := congrArg Int.ofNat hqr
+    simpa only [Int.ofNat_eq_natCast, Int.natCast_add, Int.natCast_mul] using h
+  have hqi : 4*(u:Int)+4+(-(a:Int))=(q:Int) := by omega
+  have ha5 : (a:Int)+5=(r:Int)-1 := by omega
+  have ha4 : (a:Int)+4=(r:Int)-2 := by omega
+  have he := adjacentScalar_expansion (u:Int) (a:Int)
+  rw [hui, hqi, ha5, ha4] at he
+  let N : Nat :=
+    96*(u*u*u*(a*a))+
+      (864*(u*u*u*a)+
+      (480*(u*u*(a*a))+
+      (4560*(u*u*a)+
+      (720*(u*u)+
+      (734*(u*(a*a))+
+        (6426*(u*a)+(3460*u+(455*(a*a)+(1785*a+5470)))))))))
+  have hcast :
+      96*((u:Int)*(u:Int)*(u:Int)*((a:Int)*(a:Int)))+
+        (864*((u:Int)*(u:Int)*(u:Int)*(a:Int))+
+        (480*((u:Int)*(u:Int)*((a:Int)*(a:Int)))+
+        (4560*((u:Int)*(u:Int)*(a:Int))+
+        (720*((u:Int)*(u:Int))+
+        (734*((u:Int)*((a:Int)*(a:Int)))+
+          (6426*((u:Int)*(a:Int))+
+            (3460*(u:Int)+(455*((a:Int)*(a:Int))+(1785*(a:Int)+5470)))))))))
+        = Int.ofNat N := by
+    dsimp [N]
+  have hnonneg : (0:Int) ≤
+      96*((u:Int)*(u:Int)*(u:Int)*((a:Int)*(a:Int)))+
+        (864*((u:Int)*(u:Int)*(u:Int)*(a:Int))+
+        (480*((u:Int)*(u:Int)*((a:Int)*(a:Int)))+
+        (4560*((u:Int)*(u:Int)*(a:Int))+
+        (720*((u:Int)*(u:Int))+
+        (734*((u:Int)*((a:Int)*(a:Int)))+
+          (6426*((u:Int)*(a:Int))+
+            (3460*(u:Int)+(455*((a:Int)*(a:Int))+(1785*(a:Int)+5470))))))))) := by
+    rw [hcast]
+    exact Int.natCast_nonneg N
+  omega
+
+/-- The exact adjacent-binomial payment supplied by `b₃`.  The two negative
+coordinates `b₁,b₂` are paid simultaneously; the proof clears the two
+adjacent-binomial denominators and cancels the positive factor
+`(r-1)(r-2)`. -/
+theorem throughThree_adjacent_binomial_payment (m r : Nat)
+    (hm : 2 ≤ m) (hr : 6 ≤ r) (hrS : r ≤ 4*m+2) :
+    30*((4*(m:Int)+(-10))*
+          (PNPaths.choose (4*m+2) (r-1):Int)+
+        (6*(m:Int)+(-9))*
+          (PNPaths.choose (4*m+2) (r-2):Int)) ≤
+      (96*((m:Int)*(m:Int)*(m:Int))+
+        ((-96)*((m:Int)*(m:Int))+((-94)*(m:Int)+109)))*
+          (PNPaths.choose (4*m+2) (r-3):Int) := by
+  let S := 4*m+2
+  let q := S-r
+  have hqr : q+r=4*m+2 := by dsimp [q,S]; omega
+  have hs := throughThree_adjacent_scalar_payment m r q hm hr hqr
+  have h23 := choose_adjacent_cross S (r-3) (by dsimp [S]; omega)
+  have h12 := choose_adjacent_cross S (r-2) (by dsimp [S]; omega)
+  have hr3 : r-3+1=r-2 := by omega
+  have hr2 : r-2+1=r-1 := by omega
+  have hS3 : S-(r-3)=q+3 := by dsimp [q]; omega
+  have hS2 : S-(r-2)=q+2 := by dsimp [q]; omega
+  rw [hr3,hS3] at h23
+  rw [hr2,hS2] at h12
+  have h23i := congrArg Int.ofNat h23
+  have h12i := congrArg Int.ofNat h12
+  simp only [Int.ofNat_eq_natCast, Int.natCast_mul, Int.natCast_add] at h23i h12i
+  let C₁ : Int := PNPaths.choose S (r-1)
+  let C₂ : Int := PNPaths.choose S (r-2)
+  let C₃ : Int := PNPaths.choose S (r-3)
+  have h23' : ((r:Int)-2)*C₂=((q:Int)+3)*C₃ := by
+    dsimp [C₂,C₃]
+    have hr2i : ((r-2:Nat):Int)=(r:Int)-2 := by omega
+    rw [← hr2i]
+    exact h23i
+  have h12' : ((r:Int)-1)*C₁=((q:Int)+2)*C₂ := by
+    dsimp [C₁,C₂]
+    have hr1i : ((r-1:Nat):Int)=(r:Int)-1 := by omega
+    rw [← hr1i]
+    exact h12i
+  have hC₁ :
+      (((r:Int)-1)*((r:Int)-2))*C₁=
+        (((q:Int)+3)*((q:Int)+2))*C₃ := by
+    calc
+      (((r:Int)-1)*((r:Int)-2))*C₁ =
+          ((r:Int)-2)*(((r:Int)-1)*C₁) := by ac_rfl
+      _ = ((r:Int)-2)*(((q:Int)+2)*C₂) := by rw [h12']
+      _ = ((q:Int)+2)*(((r:Int)-2)*C₂) := by ac_rfl
+      _ = ((q:Int)+2)*(((q:Int)+3)*C₃) := by rw [h23']
+      _ = (((q:Int)+3)*((q:Int)+2))*C₃ := by ac_rfl
+  have hC₂ :
+      (((r:Int)-1)*((r:Int)-2))*C₂=
+        (((q:Int)+3)*((r:Int)-1))*C₃ := by
+    calc
+      (((r:Int)-1)*((r:Int)-2))*C₂ =
+          ((r:Int)-1)*(((r:Int)-2)*C₂) := by ac_rfl
+      _ = ((r:Int)-1)*(((q:Int)+3)*C₃) := by rw [h23']
+      _ = (((q:Int)+3)*((r:Int)-1))*C₃ := by ac_rfl
+  let A : Int := 4*(m:Int)+(-10)
+  let B : Int := 6*(m:Int)+(-9)
+  let P : Int := 96*((m:Int)*(m:Int)*(m:Int))+
+    ((-96)*((m:Int)*(m:Int))+((-94)*(m:Int)+109))
+  let K : Int := ((r:Int)-1)*((r:Int)-2)
+  have hleft : K*(30*(A*C₁+B*C₂))=
+      (30*(A*((q:Int)+3)*((q:Int)+2)+
+        B*((q:Int)+3)*((r:Int)-1)))*C₃ := by
+    calc
+      K*(30*(A*C₁+B*C₂))=
+          30*(A*(K*C₁)+B*(K*C₂)) := by
+            dsimp [K]
+            simp only [Int.mul_add]
+            ac_rfl
+      _ = 30*(A*((((q:Int)+3)*((q:Int)+2))*C₃)+
+          B*((((q:Int)+3)*((r:Int)-1))*C₃)) := by rw [hC₁,hC₂]
+      _ = 30*((A*((q:Int)+3)*((q:Int)+2))*C₃+
+          (B*((q:Int)+3)*((r:Int)-1))*C₃) := by
+            congr 2 <;> ac_rfl
+      _ = (30*(A*((q:Int)+3)*((q:Int)+2)+
+          B*((q:Int)+3)*((r:Int)-1)))*C₃ := by
+            rw [← Int.add_mul]
+            ac_rfl
+  have hright : K*(P*C₃)=(K*P)*C₃ := by ac_rfl
+  have hC₃nonneg : (0:Int) ≤ C₃ := by
+    dsimp [C₃]
+    exact Int.natCast_nonneg _
+  have hmul := Int.mul_le_mul_of_nonneg_right hs hC₃nonneg
+  have hscaled : K*(30*(A*C₁+B*C₂)) ≤ K*(P*C₃) := by
+    rw [hleft,hright]
+    exact hmul
+  have hKpos : (0:Int)<K := by
+    dsimp [K]
+    exact Int.mul_pos (by omega) (by omega)
+  have hcancel := Int.le_of_mul_le_mul_left hscaled hKpos
+  dsimp [A,B,P,C₁,C₂,C₃,S] at hcancel
+  exact hcancel
+
+/-! ## The exceptional boundary coordinates `r=4,5` -/
+
+private theorem two_choose_two (n : Nat) (hn : 2 ≤ n) :
+    2*PNPaths.choose n 2=n*(n-1) := by
+  have h := choose_adjacent_cross n 1 (by omega)
+  rw [show 1+1=2 by decide, choose_one] at h
+  calc
+    2*PNPaths.choose n 2=(n-1)*n := h
+    _=n*(n-1) := by ac_rfl
+
+private theorem six_choose_three (n : Nat) (hn : 3 ≤ n) :
+    6*PNPaths.choose n 3=n*(n-1)*(n-2) := by
+  have h := choose_adjacent_cross n 2 (by omega)
+  rw [show 2+1=3 by decide] at h
+  calc
+    6*PNPaths.choose n 3=2*(3*PNPaths.choose n 3) := by
+      rw [show 6=2*3 by decide]
+      ac_rfl
+    _=2*((n-2)*PNPaths.choose n 2) := by rw [h]
+    _=(n-2)*(2*PNPaths.choose n 2) := by ac_rfl
+    _=(n-2)*(n*(n-1)) := by rw [two_choose_two n (by omega)]
+    _=n*(n-1)*(n-2) := by ac_rfl
+
+private theorem twentyFour_choose_four (n : Nat) (hn : 4 ≤ n) :
+    24*PNPaths.choose n 4=n*(n-1)*(n-2)*(n-3) := by
+  have h := choose_adjacent_cross n 3 (by omega)
+  rw [show 3+1=4 by decide] at h
+  calc
+    24*PNPaths.choose n 4=6*(4*PNPaths.choose n 4) := by
+      rw [show 24=6*4 by decide]
+      ac_rfl
+    _=6*((n-3)*PNPaths.choose n 3) := by rw [h]
+    _=(n-3)*(6*PNPaths.choose n 3) := by ac_rfl
+    _=(n-3)*(n*(n-1)*(n-2)) := by
+      rw [six_choose_three n (by omega)]
+    _=n*(n-1)*(n-2)*(n-3) := by ac_rfl
+
+private theorem oneTwenty_choose_five (n : Nat) (hn : 5 ≤ n) :
+    120*PNPaths.choose n 5=n*(n-1)*(n-2)*(n-3)*(n-4) := by
+  have h := choose_adjacent_cross n 4 (by omega)
+  rw [show 4+1=5 by decide] at h
+  calc
+    120*PNPaths.choose n 5=24*(5*PNPaths.choose n 5) := by
+      rw [show 120=24*5 by decide]
+      ac_rfl
+    _=24*((n-4)*PNPaths.choose n 4) := by rw [h]
+    _=(n-4)*(24*PNPaths.choose n 4) := by ac_rfl
+    _=(n-4)*(n*(n-1)*(n-2)*(n-3)) := by
+      rw [twentyFour_choose_four n (by omega)]
+    _=n*(n-1)*(n-2)*(n-3)*(n-4) := by ac_rfl
+
+/-- Cleared through-`b₃` Pascal remainder at boundary coordinate `r`.
+All coefficients are exact integers; in particular the factor `30` clears
+the third-deficit coefficient from `minimalBase_deficit_three`. -/
+def throughThreeRemainder30 (m r : Nat) : Int :=
+  120*(PNPaths.choose (4*m+2) r:Int)+
+  30*((-4)*(m:Int)+10)*(PNPaths.choose (4*m+2) (r-1):Int)+
+  30*((-6)*(m:Int)+9)*(PNPaths.choose (4*m+2) (r-2):Int)+
+  (96*((m:Int)*(m:Int)*(m:Int))+
+    ((-96)*((m:Int)*(m:Int))+((-94)*(m:Int)+109)))*
+      (PNPaths.choose (4*m+2) (r-3):Int)+
+  (-240)*(PNPaths.choose (2*m+4) r:Int)
+
+private def certFalling (x : RingNormaliser.PolyExpr) :
+    Nat → RingNormaliser.PolyExpr
+  | 0 => certConst 1
+  | k + 1 => certMul (certFalling x k) (certAdd x (certConst (-(k:Int))))
+
+private def boundaryFourLHS : RingNormaliser.PolyExpr :=
+  let m := RingNormaliser.PolyExpr.var 0
+  let S := certAdd (certScale 4 m) (certConst 2)
+  let T := certAdd (certScale 2 m) (certConst 4)
+  let A := certAdd (certScale (-4) m) (certConst 10)
+  let B := certAdd (certScale (-6) m) (certConst 9)
+  let P := certAdd (certScale 96 (.pow m 3))
+    (certAdd (certScale (-96) (.pow m 2))
+      (certAdd (certScale (-94) m) (certConst 109)))
+  certAdd (certScale 5 (certFalling S 4))
+  (certAdd (certScale 5 (certMul A (certFalling S 3)))
+  (certAdd (certScale 15 (certMul B (certFalling S 2)))
+  (certAdd (certMul P S) (certScale (-10) (certFalling T 4)))))
+
+private def boundaryFourRHS : RingNormaliser.PolyExpr :=
+  let m := RingNormaliser.PolyExpr.var 0
+  certScale 8 (certMul (.pow (certAdd (certScale 2 m) (certConst 1)) 2)
+    (certAdd (certScale 7 (.pow m 2))
+      (certAdd (certScale 7 m) (certConst 31))))
+
+private theorem boundaryFour_normal :
+    RingNormaliser.normalize boundaryFourLHS =
+      RingNormaliser.normalize boundaryFourRHS := by
+  set_option maxRecDepth 10000 in
+    decide
+
+private theorem boundaryFour_factor_identity (m : Int) :
+    5*((4*m+2)*(4*m+2-1)*(4*m+2-2)*(4*m+2-3))+
+    (5*(((-4)*m+10)*((4*m+2)*(4*m+2-1)*(4*m+2-2)))+
+    (15*(((-6)*m+9)*((4*m+2)*(4*m+2-1)))+
+    ((96*(m*m*m)+((-96)*(m*m)+((-94)*m+109)))*(4*m+2)+
+    (-10)*((2*m+4)*(2*m+4-1)*(2*m+4-2)*(2*m+4-3))))) =
+      8*((2*m+1)*(2*m+1)*(7*(m*m)+(7*m+31))) := by
+  have h := cert_int_poly_identity boundaryFourLHS boundaryFourRHS
+    boundaryFour_normal (fun _ => m)
+  simpa [boundaryFourLHS, boundaryFourRHS, certFalling, certAdd, certMul,
+    certNeg, certSub, certConst, certScale, certIntEval, certIntPow,
+    Int.sub_eq_add_neg] using h
+
+private def boundaryFiveScaledLHS : RingNormaliser.PolyExpr :=
+  let m := RingNormaliser.PolyExpr.var 0
+  let S := certAdd (certScale 4 m) (certConst 2)
+  let T := certAdd (certScale 2 m) (certConst 4)
+  let A := certAdd (certScale (-4) m) (certConst 10)
+  let B := certAdd (certScale (-6) m) (certConst 9)
+  let P := certAdd (certScale 96 (.pow m 3))
+    (certAdd (certScale (-96) (.pow m 2))
+      (certAdd (certScale (-94) m) (certConst 109)))
+  certAdd (certScale 4 (certFalling S 5))
+  (certAdd (certScale 5 (certMul A (certFalling S 4)))
+  (certAdd (certScale 20 (certMul B (certFalling S 3)))
+  (certAdd (certScale 2 (certMul P (certFalling S 2)))
+    (certScale (-8) (certFalling T 5)))))
+
+private def boundaryFiveScaledRHS : RingNormaliser.PolyExpr :=
+  let m := RingNormaliser.PolyExpr.var 0
+  certScale 4 (certMul (.pow (certAdd (certScale 2 m) (certConst 1)) 2)
+    (certAdd (certScale 112 (.pow m 3))
+      (certAdd (certScale (-80) (.pow m 2))
+        (certAdd (certScale 304 m) (certConst 109)))))
+
+private theorem boundaryFiveScaled_normal :
+    RingNormaliser.normalize boundaryFiveScaledLHS =
+      RingNormaliser.normalize boundaryFiveScaledRHS := by
+  set_option maxRecDepth 10000 in
+    decide
+
+private theorem boundaryFive_scaled_factor_identity (m : Int) :
+    4*((4*m+2)*(4*m+2-1)*(4*m+2-2)*(4*m+2-3)*(4*m+2-4))+
+    (5*(((-4)*m+10)*((4*m+2)*(4*m+2-1)*(4*m+2-2)*(4*m+2-3)))+
+    (20*(((-6)*m+9)*((4*m+2)*(4*m+2-1)*(4*m+2-2)))+
+    (2*((96*(m*m*m)+((-96)*(m*m)+((-94)*m+109)))*
+      ((4*m+2)*(4*m+2-1)))+
+    (-8)*((2*m+4)*(2*m+4-1)*(2*m+4-2)*(2*m+4-3)*(2*m+4-4))))) =
+      4*((2*m+1)*(2*m+1)*
+        (112*(m*m*m)+((-80)*(m*m)+(304*m+109)))) := by
+  have h := cert_int_poly_identity boundaryFiveScaledLHS boundaryFiveScaledRHS
+    boundaryFiveScaled_normal (fun _ => m)
+  simpa [boundaryFiveScaledLHS, boundaryFiveScaledRHS, certFalling, certAdd,
+    certMul, certNeg, certSub, certConst, certScale, certIntEval, certIntPow,
+    Int.sub_eq_add_neg] using h
+
+private theorem two_choose_two_int (n : Nat) (hn : 2 ≤ n) :
+    2*(PNPaths.choose n 2:Int)=
+      (n:Int)*((n:Int)-1) := by
+  have h := congrArg Int.ofNat (two_choose_two n hn)
+  simp only [Int.ofNat_eq_natCast, Int.natCast_mul] at h
+  have hn1 : ((n-1:Nat):Int)=(n:Int)-1 := by omega
+  rw [hn1] at h
+  exact h
+
+private theorem six_choose_three_int (n : Nat) (hn : 3 ≤ n) :
+    6*(PNPaths.choose n 3:Int)=
+      (n:Int)*((n:Int)-1)*((n:Int)-2) := by
+  have h := congrArg Int.ofNat (six_choose_three n hn)
+  simp only [Int.ofNat_eq_natCast, Int.natCast_mul] at h
+  have hn1 : ((n-1:Nat):Int)=(n:Int)-1 := by omega
+  have hn2 : ((n-2:Nat):Int)=(n:Int)-2 := by omega
+  rw [hn1,hn2] at h
+  exact h
+
+private theorem twentyFour_choose_four_int (n : Nat) (hn : 4 ≤ n) :
+    24*(PNPaths.choose n 4:Int)=
+      (n:Int)*((n:Int)-1)*((n:Int)-2)*((n:Int)-3) := by
+  have h := congrArg Int.ofNat (twentyFour_choose_four n hn)
+  simp only [Int.ofNat_eq_natCast, Int.natCast_mul] at h
+  have hn1 : ((n-1:Nat):Int)=(n:Int)-1 := by omega
+  have hn2 : ((n-2:Nat):Int)=(n:Int)-2 := by omega
+  have hn3 : ((n-3:Nat):Int)=(n:Int)-3 := by omega
+  rw [hn1,hn2,hn3] at h
+  exact h
+
+private theorem oneTwenty_choose_five_int (n : Nat) (hn : 5 ≤ n) :
+    120*(PNPaths.choose n 5:Int)=
+      (n:Int)*((n:Int)-1)*((n:Int)-2)*((n:Int)-3)*((n:Int)-4) := by
+  have h := congrArg Int.ofNat (oneTwenty_choose_five n hn)
+  simp only [Int.ofNat_eq_natCast, Int.natCast_mul] at h
+  have hn1 : ((n-1:Nat):Int)=(n:Int)-1 := by omega
+  have hn2 : ((n-2:Nat):Int)=(n:Int)-2 := by omega
+  have hn3 : ((n-3:Nat):Int)=(n:Int)-3 := by omega
+  have hn4 : ((n-4:Nat):Int)=(n:Int)-4 := by omega
+  rw [hn1,hn2,hn3,hn4] at h
+  exact h
+
+/-- Exact first exceptional boundary remainder.  This retains the positive
+`b₀` surplus which is essential at `r=4`. -/
+theorem throughThreeRemainder30_four (m : Nat) (hm : 2 ≤ m) :
+    throughThreeRemainder30 m 4=
+      8*((2*(m:Int)+1)*(2*(m:Int)+1))*
+        (7*((m:Int)*(m:Int))+7*(m:Int)+31) := by
+  let S := 4*m+2
+  let T := 2*m+4
+  have hS2 := two_choose_two_int S (by dsimp [S]; omega)
+  have hS3 := six_choose_three_int S (by dsimp [S]; omega)
+  have hS4 := twentyFour_choose_four_int S (by dsimp [S]; omega)
+  have hT4 := twentyFour_choose_four_int T (by dsimp [T]; omega)
+  have hSi : (S:Int)=4*(m:Int)+2 := by
+    dsimp [S]
+  have hTi : (T:Int)=2*(m:Int)+4 := by
+    dsimp [T]
+  rw [hSi] at hS2 hS3 hS4
+  rw [hTi] at hT4
+  let A : Int := (-4)*(m:Int)+10
+  let B : Int := (-6)*(m:Int)+9
+  let P : Int := 96*((m:Int)*(m:Int)*(m:Int))+
+    ((-96)*((m:Int)*(m:Int))+((-94)*(m:Int)+109))
+  have e0 : 120*(PNPaths.choose S 4:Int)=
+      5*((4*(m:Int)+2)*(4*(m:Int)+2-1)*(4*(m:Int)+2-2)*
+        (4*(m:Int)+2-3)) := by
+    calc
+      120*(PNPaths.choose S 4:Int)=
+          5*(24*(PNPaths.choose S 4:Int)) := by
+            rw [show (120:Int)=5*24 by decide]
+            ac_rfl
+      _=_ := by rw [hS4]
+  have e1 : 30*A*(PNPaths.choose S 3:Int)=
+      5*(A*((4*(m:Int)+2)*(4*(m:Int)+2-1)*(4*(m:Int)+2-2))) := by
+    calc
+      30*A*(PNPaths.choose S 3:Int)=
+          5*(A*(6*(PNPaths.choose S 3:Int))) := by
+            rw [show (30:Int)=5*6 by decide]
+            ac_rfl
+      _=_ := by rw [hS3]
+  have e2 : 30*B*(PNPaths.choose S 2:Int)=
+      15*(B*((4*(m:Int)+2)*(4*(m:Int)+2-1))) := by
+    calc
+      30*B*(PNPaths.choose S 2:Int)=
+          15*(B*(2*(PNPaths.choose S 2:Int))) := by
+            rw [show (30:Int)=15*2 by decide]
+            ac_rfl
+      _=_ := by rw [hS2]
+  have e3 : P*(PNPaths.choose S 1:Int)=P*(4*(m:Int)+2) := by
+    rw [choose_one]
+    exact congrArg (fun z : Int => P*z) hSi
+  have e4 : (-240)*(PNPaths.choose T 4:Int)=
+      (-10)*((2*(m:Int)+4)*(2*(m:Int)+4-1)*(2*(m:Int)+4-2)*
+        (2*(m:Int)+4-3)) := by
+    calc
+      (-240)*(PNPaths.choose T 4:Int)=
+          (-10)*(24*(PNPaths.choose T 4:Int)) := by
+            rw [show (-240:Int)=(-10)*24 by decide]
+            ac_rfl
+      _=_ := by rw [hT4]
+  have hidx1 : 4-1=3 := by decide
+  have hidx2 : 4-2=2 := by decide
+  have hidx3 : 4-3=1 := by decide
+  calc
+    throughThreeRemainder30 m 4=
+        120*(PNPaths.choose S 4:Int)+
+        30*A*(PNPaths.choose S 3:Int)+
+        30*B*(PNPaths.choose S 2:Int)+
+        P*(PNPaths.choose S 1:Int)+
+        (-240)*(PNPaths.choose T 4:Int) := by
+          unfold throughThreeRemainder30
+          rw [hidx1,hidx2,hidx3]
+    _ = 5*((4*(m:Int)+2)*(4*(m:Int)+2-1)*(4*(m:Int)+2-2)*
+          (4*(m:Int)+2-3))+
+        (5*(A*((4*(m:Int)+2)*(4*(m:Int)+2-1)*(4*(m:Int)+2-2)))+
+        (15*(B*((4*(m:Int)+2)*(4*(m:Int)+2-1)))+
+        (P*(4*(m:Int)+2)+
+        (-10)*((2*(m:Int)+4)*(2*(m:Int)+4-1)*(2*(m:Int)+4-2)*
+          (2*(m:Int)+4-3))))) := by
+            rw [e0,e1,e2,e3,e4]
+            ac_rfl
+    _ = 8*((2*(m:Int)+1)*(2*(m:Int)+1)*
+          (7*((m:Int)*(m:Int))+(7*(m:Int)+31))) := by
+            dsimp [A,B,P]
+            exact boundaryFour_factor_identity (m:Int)
+    _ = _ := by
+      ac_rfl
+
+private theorem four_mul_five_sum (x₀ x₁ x₂ x₃ x₄ : Int) :
+    4*(x₀+x₁+x₂+x₃+x₄)=
+      4*x₀+4*x₁+4*x₂+4*x₃+4*x₄ := by
+  simp only [Int.mul_add]
+
+/-- Exact second exceptional boundary remainder.  The proof works in a
+fourfold clearing so the `C(S,4)` contribution remains division-free, then
+cancels the positive integer `4`. -/
+theorem throughThreeRemainder30_five (m : Nat) (hm : 2 ≤ m) :
+    throughThreeRemainder30 m 5=
+      ((2*(m:Int)+1)*(2*(m:Int)+1))*
+        (112*((m:Int)*(m:Int)*(m:Int))+
+          (-80)*((m:Int)*(m:Int))+304*(m:Int)+109) := by
+  let S := 4*m+2
+  let T := 2*m+4
+  have hS2 := two_choose_two_int S (by dsimp [S]; omega)
+  have hS3 := six_choose_three_int S (by dsimp [S]; omega)
+  have hS4 := twentyFour_choose_four_int S (by dsimp [S]; omega)
+  have hS5 := oneTwenty_choose_five_int S (by dsimp [S]; omega)
+  have hT5 := oneTwenty_choose_five_int T (by dsimp [T]; omega)
+  have hSi : (S:Int)=4*(m:Int)+2 := by dsimp [S]
+  have hTi : (T:Int)=2*(m:Int)+4 := by dsimp [T]
+  rw [hSi] at hS2 hS3 hS4 hS5
+  rw [hTi] at hT5
+  let A : Int := (-4)*(m:Int)+10
+  let B : Int := (-6)*(m:Int)+9
+  let P : Int := 96*((m:Int)*(m:Int)*(m:Int))+
+    ((-96)*((m:Int)*(m:Int))+((-94)*(m:Int)+109))
+  let x₀ : Int := 120*(PNPaths.choose S 5:Int)
+  let x₁ : Int := 30*A*(PNPaths.choose S 4:Int)
+  let x₂ : Int := 30*B*(PNPaths.choose S 3:Int)
+  let x₃ : Int := P*(PNPaths.choose S 2:Int)
+  let x₄ : Int := (-240)*(PNPaths.choose T 5:Int)
+  have e0 : 4*x₀=
+      4*((4*(m:Int)+2)*(4*(m:Int)+2-1)*(4*(m:Int)+2-2)*
+        (4*(m:Int)+2-3)*(4*(m:Int)+2-4)) := by
+    dsimp [x₀]
+    rw [hS5]
+  have e1 : 4*x₁=
+      5*(A*((4*(m:Int)+2)*(4*(m:Int)+2-1)*(4*(m:Int)+2-2)*
+        (4*(m:Int)+2-3))) := by
+    dsimp [x₁]
+    calc
+      4*(30*A*(PNPaths.choose S 4:Int))=
+          5*(A*(24*(PNPaths.choose S 4:Int))) := by
+            rw [show (30:Int)=5*6 by decide, show (24:Int)=4*6 by decide]
+            ac_rfl
+      _=_ := by rw [hS4]
+  have e2 : 4*x₂=
+      20*(B*((4*(m:Int)+2)*(4*(m:Int)+2-1)*(4*(m:Int)+2-2))) := by
+    dsimp [x₂]
+    calc
+      4*(30*B*(PNPaths.choose S 3:Int))=
+          20*(B*(6*(PNPaths.choose S 3:Int))) := by
+            rw [show (30:Int)=5*6 by decide, show (20:Int)=4*5 by decide]
+            ac_rfl
+      _=_ := by rw [hS3]
+  have e3 : 4*x₃=
+      2*(P*((4*(m:Int)+2)*(4*(m:Int)+2-1))) := by
+    dsimp [x₃]
+    calc
+      4*(P*(PNPaths.choose S 2:Int))=
+          2*(P*(2*(PNPaths.choose S 2:Int))) := by ac_rfl
+      _=_ := by rw [hS2]
+  have e4 : 4*x₄=
+      (-8)*((2*(m:Int)+4)*(2*(m:Int)+4-1)*(2*(m:Int)+4-2)*
+        (2*(m:Int)+4-3)*(2*(m:Int)+4-4)) := by
+    dsimp [x₄]
+    calc
+      4*((-240)*(PNPaths.choose T 5:Int))=
+          (-8)*(120*(PNPaths.choose T 5:Int)) := by
+            rw [show (-240:Int)=(-2)*120 by decide,
+              show (-8:Int)=4*(-2) by decide]
+            ac_rfl
+      _=_ := by rw [hT5]
+  have hidx1 : 5-1=4 := by decide
+  have hidx2 : 5-2=3 := by decide
+  have hidx3 : 5-3=2 := by decide
+  have hscaled : 4*throughThreeRemainder30 m 5=
+      4*(((2*(m:Int)+1)*(2*(m:Int)+1))*
+        (112*((m:Int)*(m:Int)*(m:Int))+
+          (-80)*((m:Int)*(m:Int))+304*(m:Int)+109)) := by
+    calc
+      4*throughThreeRemainder30 m 5=4*(x₀+x₁+x₂+x₃+x₄) := by
+        unfold throughThreeRemainder30
+        rw [hidx1,hidx2,hidx3]
+      _=4*x₀+4*x₁+4*x₂+4*x₃+4*x₄ :=
+        four_mul_five_sum x₀ x₁ x₂ x₃ x₄
+      _=4*((4*(m:Int)+2)*(4*(m:Int)+2-1)*(4*(m:Int)+2-2)*
+          (4*(m:Int)+2-3)*(4*(m:Int)+2-4))+
+        (5*(A*((4*(m:Int)+2)*(4*(m:Int)+2-1)*(4*(m:Int)+2-2)*
+          (4*(m:Int)+2-3)))+
+        (20*(B*((4*(m:Int)+2)*(4*(m:Int)+2-1)*(4*(m:Int)+2-2)))+
+        (2*(P*((4*(m:Int)+2)*(4*(m:Int)+2-1)))+
+        (-8)*((2*(m:Int)+4)*(2*(m:Int)+4-1)*(2*(m:Int)+4-2)*
+          (2*(m:Int)+4-3)*(2*(m:Int)+4-4))))) := by
+            rw [e0,e1,e2,e3,e4]
+            ac_rfl
+      _=4*((2*(m:Int)+1)*(2*(m:Int)+1)*
+          (112*((m:Int)*(m:Int)*(m:Int))+
+            ((-80)*((m:Int)*(m:Int))+(304*(m:Int)+109)))) := by
+              dsimp [A,B,P]
+              exact boundaryFive_scaled_factor_identity (m:Int)
+      _=_ := by ac_rfl
+  have hle := Int.le_of_mul_le_mul_left (Int.le_of_eq hscaled) (by decide)
+  have hge := Int.le_of_mul_le_mul_left (Int.le_of_eq hscaled.symm) (by decide)
+  exact Int.le_antisymm hle hge
+
+/-- The through-`b₃` signed Pascal elevation is nonnegative on its entire
+boundary range.  Coordinates four and five use their exact retained-`b₀`
+factorisations; all later coordinates split into the off-diagonal doubling
+surplus and the simultaneous adjacent-binomial payment. -/
+theorem throughThreeRemainder30_nonnegative (m r : Nat)
+    (hm : 2 ≤ m) (hr : 4 ≤ r) (hrS : r ≤ 4*m+2) :
+    (0:Int) ≤ throughThreeRemainder30 m r := by
+  by_cases h4 : r=4
+  · subst r
+    rw [throughThreeRemainder30_four m hm]
+    have hm0 : (0:Int) ≤ (m:Int) := Int.natCast_nonneg _
+    have hs : (0:Int) ≤ (2*(m:Int)+1)*(2*(m:Int)+1) :=
+      Int.mul_nonneg (by omega) (by omega)
+    have hmm : (0:Int) ≤ (m:Int)*(m:Int) := Int.mul_nonneg hm0 hm0
+    have hp : (0:Int) ≤
+        7*((m:Int)*(m:Int))+7*(m:Int)+31 := by
+      have h7mm := Int.mul_nonneg (by decide : (0:Int)≤7) hmm
+      have h7m := Int.mul_nonneg (by decide : (0:Int)≤7) hm0
+      omega
+    exact Int.mul_nonneg (Int.mul_nonneg (by decide) hs) hp
+  · by_cases h5 : r=5
+    · subst r
+      rw [throughThreeRemainder30_five m hm]
+      have hm0 : (0:Int) ≤ (m:Int) := Int.natCast_nonneg _
+      have hm2 : (2:Int) ≤ (m:Int) := Int.ofNat_le.mpr hm
+      have hs : (0:Int) ≤ (2*(m:Int)+1)*(2*(m:Int)+1) :=
+        Int.mul_nonneg (by omega) (by omega)
+      have hmm : (0:Int) ≤ (m:Int)*(m:Int) := Int.mul_nonneg hm0 hm0
+      have hlin : (0:Int) ≤ 112*(m:Int)-80 := by omega
+      have hlead : (0:Int) ≤
+          ((m:Int)*(m:Int))*(112*(m:Int)-80) :=
+        Int.mul_nonneg hmm hlin
+      have hid :
+          112*((m:Int)*(m:Int)*(m:Int))+(-80)*((m:Int)*(m:Int))=
+            ((m:Int)*(m:Int))*(112*(m:Int)-80) := by
+        rw [Int.mul_sub,Int.sub_eq_add_neg]
+        simp only [Int.mul_neg,Int.neg_mul]
+        ac_rfl
+      have h304 : (0:Int) ≤ 304*(m:Int) :=
+        Int.mul_nonneg (by decide) hm0
+      have hp : (0:Int) ≤
+          112*((m:Int)*(m:Int)*(m:Int))+(-80)*((m:Int)*(m:Int))+
+            304*(m:Int)+109 := by
+        rw [hid]
+        omega
+      exact Int.mul_nonneg hs hp
+    · have hr6 : 6≤r := by omega
+      let S := 4*m+2
+      let T := 2*m+4
+      let C₀ : Int := PNPaths.choose S r
+      let C₁ : Int := PNPaths.choose S (r-1)
+      let C₂ : Int := PNPaths.choose S (r-2)
+      let C₃ : Int := PNPaths.choose S (r-3)
+      let E₀ : Int := PNPaths.choose T r
+      let P : Int := 96*((m:Int)*(m:Int)*(m:Int))+
+        ((-96)*((m:Int)*(m:Int))+((-94)*(m:Int)+109))
+      have hadj := throughThree_adjacent_binomial_payment m r hm hr6 hrS
+      have hadj' :
+          30*((4*(m:Int)+(-10))*C₁+(6*(m:Int)+(-9))*C₂)≤
+            P*C₃ := by
+        dsimp [C₁,C₂,C₃,P,S]
+        exact hadj
+      have hA : (-4)*(m:Int)+10=-(4*(m:Int)+(-10)) := by omega
+      have hB : (-6)*(m:Int)+9=-(6*(m:Int)+(-9)) := by omega
+      let Apos : Int := 4*(m:Int)+(-10)
+      let Bpos : Int := 6*(m:Int)+(-9)
+      have hn1 : 30*(-Apos)*C₁=-(30*(Apos*C₁)) := by
+        rw [Int.mul_neg,Int.neg_mul]
+        ac_rfl
+      have hn2 : 30*(-Bpos)*C₂=-(30*(Bpos*C₂)) := by
+        rw [Int.mul_neg,Int.neg_mul]
+        ac_rfl
+      have hd : 30*(Apos*C₁+Bpos*C₂)=30*(Apos*C₁)+30*(Bpos*C₂) :=
+        Int.mul_add _ _ _
+      have hband :
+          30*((-4)*(m:Int)+10)*C₁+
+            30*((-6)*(m:Int)+9)*C₂+P*C₃=
+          P*C₃-30*((4*(m:Int)+(-10))*C₁+
+            (6*(m:Int)+(-9))*C₂) := by
+        rw [hA,hB]
+        change 30*(-Apos)*C₁+30*(-Bpos)*C₂+P*C₃=
+          P*C₃-30*(Apos*C₁+Bpos*C₂)
+        rw [hn1,hn2,hd,Int.sub_eq_add_neg,Int.neg_add]
+        ac_rfl
+      have hband0 : (0:Int)≤
+          30*((-4)*(m:Int)+10)*C₁+
+            30*((-6)*(m:Int)+9)*C₂+P*C₃ := by
+        rw [hband]
+        omega
+      have hoff0 : (0:Int)≤120*C₀+(-240)*E₀ := by
+        by_cases hrT : r≤T
+        · have hoff := choose_remainder_off_double m r hm hr hrT
+          have hoffI := Int.ofNat_le.mpr hoff
+          have hoffI' : 2*E₀≤C₀ := by
+            dsimp [E₀,C₀,S,T]
+            simpa only [Int.ofNat_eq_natCast,Int.natCast_mul] using hoffI
+          omega
+        · have hz : PNPaths.choose T r=0 :=
+            choose_zero_of_lt T r (by omega)
+          dsimp [E₀,C₀]
+          rw [hz]
+          have hC : (0:Int)≤(PNPaths.choose S r:Int) := Int.natCast_nonneg _
+          have h120 : (0:Int)≤120*(PNPaths.choose S r:Int) :=
+            Int.mul_nonneg (by decide : (0:Int)≤120) hC
+          omega
+      have hsplit : throughThreeRemainder30 m r=
+          (120*C₀+(-240)*E₀)+
+          (30*((-4)*(m:Int)+10)*C₁+
+            30*((-6)*(m:Int)+9)*C₂+P*C₃) := by
+        unfold throughThreeRemainder30
+        dsimp [C₀,C₁,C₂,C₃,E₀,P,S,T]
+        ac_rfl
+      rw [hsplit]
+      exact Int.add_nonneg hoff0 hband0
+
 end YMGap.Continuum.ThetaResidualPascalTelescope
 
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.bernMon_left_extract
@@ -2863,3 +3669,8 @@ end YMGap.Continuum.ThetaResidualPascalTelescope
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.minimalBase_deficit_three
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.choose_adjacent_cross
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.choose_remainder_off_double
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.throughThree_adjacent_scalar_payment
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.throughThree_adjacent_binomial_payment
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.throughThreeRemainder30_four
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.throughThreeRemainder30_five
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.throughThreeRemainder30_nonnegative

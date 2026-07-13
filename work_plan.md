@@ -4358,8 +4358,27 @@ the uniform retained-head inequality along a derived variable-anchor schedule.
 growth.  For every symbolic anchor `b` it proves the exact division-free law
 `(b+1)c_(b+1) ≃ ((b+2)w^(2b+3))c_b`; a cross-multiplied scalar bound now
 implies the next-mode PF2 step without generating a new coefficient polynomial
-for each `b`.  OPEN is the uniform retained-head inequality and its scalar
-ratio bound along a derived variable anchor schedule.
+for each `b`.
+
+`HarmonicVariableAnchorRetune` completes the symbolic tail interface.  A
+single dimension-aware scalar cross at any variable anchor now propagates by
+PF2 to every later edge and combines with one retained-head inequality to
+close every larger cutoff.  For the explicit existing schedule
+`growingAnchor k=2(k+2)`, the scalar cross is proved uniformly from the exact
+harmonic block-power estimate.  Thus the schedule's only remaining all-scale
+input is precisely the retained-head inequality; no tail-ratio hypothesis or
+per-anchor polynomial remains.
+
+`HarmonicFixedTwelvePrefix` instantiates that symbolic interface at `b=11`.
+It closes retune, `lamPW`, and mass floors for `k=34,35,36,37,38`, then proves
+that at `k=39` the retained head fails while the exact scalar tail cross still
+passes.  This machine-separates the genuine head residual from the already
+uniform tail mechanism and supplies no unsupported endpoint extrapolation.
+The resulting five mass ratios feed `HarmonicSchurRotationK3337`, extending
+the cumulative Schur/coupled-operator spacing theorem through `k≤37`.  OPEN
+is the uniform growing-anchor retained-head inequality; the next finite floor
+at `k=39` would require a thirteen-head certificate but is not a substitute
+for that structural theorem.
 
 **Cleared theta-polynomial audit (2026-07-12).**
 `ThetaResidualBernsteinPilot` gives exact positive Bernstein decompositions of
@@ -4460,6 +4479,22 @@ blocks.  The complete minimal-base third deficit is now collapsed exactly to
 explicit positive polynomial.  OPEN is the adjacent-binomial payment of the
 two negative boundary terms by `b₃`, the `r=4,5` boundary remainder, and then
 the final through-`b₃` signed elevation.
+
+The complete through-`b₃` payment is now kernel-closed.  After the shifts
+`m=u+2`, `r=a+6`, a constructive reflected-ring certificate expands the
+cleared adjacent-payment slack as an eleven-term polynomial with strictly
+positive coefficients; two exact adjacent-binomial cross identities then
+pay both negative coordinates simultaneously, with only the positive factor
+`(r-1)(r-2)` cancelled.  The exceptional coordinates retain essential
+`b₀` surplus and are evaluated exactly:
+`R₄=8(2m+1)²(7m²+7m+31)` and
+`R₅=(2m+1)²(112m³-80m²+304m+109)`.  Finally
+`throughThreeRemainder30_nonnegative` combines those two factorizations with
+the repeated-Pascal off-diagonal payment and the adjacent payment, proving the
+cleared signed elevation remainder nonnegative for every
+`m≥2`, `4≤r≤4m+2`.  OPEN is now the genuinely new next layer: prove the
+minimal reverse-suffix bulk coefficients from deficit four onward and splice
+that bulk induction to this closed four-coordinate signed boundary band.
 
 **Off-diagonal shell necessity (2026-07-12).**
 `FusedOffDiagonalCompression` strengthens the rank-one fence: any positive
@@ -4636,8 +4671,23 @@ one-crossing propagation proves all earlier terminal gaps nonpositive and all
 later gaps nonnegative.  Early products with the positive drift increment can
 therefore be discarded with their true sign, while the chord envelope is used
 only on the positive tail.  This proves existence of an exact signed-chord
-envelope for every `k,L` even when `T_L<T₀`.  OPEN is solely the quantitative
-upper bound on the resulting `signedChordSum` by the target defect budget.
+envelope for every `k,L` even when `T_L<T₀`.
+`HarmonicSignedChordBudgetBridge` consumes a quantitative bound at that exact
+constructive crossing, proves nonnegativity of the retained chord and terminal
+correction, and transports the doubled `24/25` estimate all the way to
+`weightedTrapezoidResidual k ≤ 0`, with no global carrier-sign premise.
+`HarmonicSignedChordQuantitative` kernel-refutes that chord budget at `k=0`
+(so the already-proved exact base reserve is essential), closes the bridge
+exactly at `k=1,2,3`, and proves the scale-uniform terminal normalization
+`4/(k+2)^2·D·D_L ≤ -T_L`.  For `k≥1`, the terminal coefficient bound gives
+`9D≤10D_L`; consequently the explicit cap
+`2·(24/25)·(18/5)·D²/(k+2)^2` is already below the exact doubled
+`24/25` target.  OPEN after the base split is now precisely the direct
+positive-tail moment inequality
+`signedChordSum k L s + 2·terminalCorrection k ≤ signedChordMomentCap k`
+for every admissible first crossing (`k≥4` suffices after the exact anchors).
+This is an upper bound on an explicit rational sum, not a carrier-sign or
+downstream reserve hypothesis.
 
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their
