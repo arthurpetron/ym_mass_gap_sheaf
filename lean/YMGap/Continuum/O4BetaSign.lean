@@ -151,21 +151,22 @@ theorem tauModel_antitone (k : Nat) :
     (harmDen_pos (by decide) k) (harmDen_pos (by decide) (k + 1))
     (harmDen_mono 2 (Nat.le_succ k))
 
-/-! ## Capstone — the whole O(4) chain from the reciprocal AF trajectory
+/-! ## Capstone — the legacy scalar chain from the reciprocal AF trajectory
 
 Composing Targets 1 and 2: `couplingRunningOfTrajectory tauModel …` supplies the
 `CouplingRunning`, and `O4RestorationProgress.o4_restored_of_coupling` fires the
-entire O(4)-restoration pipeline — with NO posited `betaDrop`. -/
+legacy anisotropy-Cauchy pipeline — with NO posited `betaDrop`. -/
 
 /-- The `CouplingRunning` built from the reciprocal AF trajectory `tauModel`, with
 `betaDrop` fully derived (no posited sign). -/
 def tauModelRunning : O4RestorationProgress.CouplingRunning :=
   couplingRunningOfTrajectory AFCertificateModel.tauModel tauModel_pos tauModel_antitone
 
-/-- **CAPSTONE.**  O(4) restored (the proved CReal convergence of the
-rotation-breaking coefficient) fired from the reciprocal AF trajectory `tauModel`,
+/-- **CAPSTONE.**  The legacy anisotropy-Cauchy predicate fired from the reciprocal
+AF trajectory `tauModel`,
 with the whole `betaDrop` chain DERIVED — the only remaining named physics is that
-the true lattice coupling obeys the contracting recurrence, i.e. `b₀ > 0`. -/
+the true lattice coupling obeys the contracting recurrence, i.e. `b₀ > 0`.
+This theorem type does not state a zero limit or full O(4) invariance. -/
 theorem o4_restored_of_tauModel :
     O4RestorationAF.RotationRestored
       (O4RestorationProgress.scalingDimensionDecay_of_flow

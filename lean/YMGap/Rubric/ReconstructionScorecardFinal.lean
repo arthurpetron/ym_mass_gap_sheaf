@@ -105,8 +105,9 @@ structure ReconstructionStatus
   provedLine : ReconstructionScorecard.ReconstructionProvedLine D op w hw0 hw1 hwpos N
   /-- (7) the `RC`-by-`Q'` scaling residual, CLOSED (`rcScaleResidualPlus`). -/
   rcScaleClosed : RCScaleResidualPlus
-  /-- (8) the physical-model `O(4)` rotation-breaking coefficient CONVERGES to 0,
-  fired from the reciprocal AF trajectory with no posited `betaDrop`. -/
+  /-- (8) the legacy Cauchy predicate for the model rotation-breaking
+  coefficient, fired from the reciprocal AF trajectory with no posited
+  `betaDrop`.  This field alone does not identify the limit with zero. -/
   o4Restored :
     O4RestorationAF.RotationRestored
       (O4RestorationProgress.scalingDimensionDecay_of_flow

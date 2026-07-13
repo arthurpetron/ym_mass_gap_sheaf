@@ -1,8 +1,10 @@
 /-
-Track B+RepTheory / R2 — **routing the O(4)-rotation-restoration input through
+Track B+RepTheory / R2 — **routing the scalar anisotropy precursor through
 the proved asymptotic-freedom (AF) schedule**: the rotation-breaking operator's
-coefficient decays geometrically along the AF flow, and that decay DISCHARGES the
-opaque "O(4) is restored" `Prop` as a proved convergence.
+coefficient decays geometrically along the AF flow.  This legacy module packages
+the resulting Cauchy property under the historical name `RotationRestored`.
+That predicate alone is not a zero-limit or full-O(4) statement; the strict
+conclusion is proved in `O4RestorationH4` / `O4RestorationZero`.
 
 # What this module sharpens
 
@@ -41,13 +43,12 @@ PROVED here (genuine theorems, `[propext]` / `[propext, Quot.sound]` only):
     unpacked into the form the geometric `CReal` limit engine consumes.
   * `breakCoeffLimit` — the coefficient limit CONSTRUCTED as a `CReal` via the
     geometric Kotecký–Preiss engine `crealOfGeoIncrement`.
-  * `breakCoeff_converges` — **the reduction theorem**: the coefficient converges
-    with an EXPLICIT two-sided modulus (its `CReal` Cauchy modulus).  This is
-    "geometric decay ⇒ the coefficient → 0 (a Cauchy limit)" PROVED from the one
-    single-step bound.
-  * `RotationRestored` / `rotationRestored_of_decay` — the discharged statement:
-    the named `irrelevant` content is now the PROVED convergence of `breakCoeff`,
-    not an opaque `Prop`.
+  * `breakCoeff_converges` — **the legacy reduction theorem**: the coefficient is
+    Cauchy with an EXPLICIT two-sided modulus.  Cauchy data alone does not identify
+    the limit with zero.
+  * `RotationRestored` / `rotationRestored_of_decay` — the historical name for
+    that Cauchy predicate, retained for compatibility rather than presented as
+    full rotation restoration.
   * `rotationRestorationFromDecay` — a `LatticeAnisotropy.RotationRestorationInput`
     for the degree-6 `cell24` case whose `irrelevant` field is DISCHARGED by the
     proved convergence (`breakDegree_gt_four` is the proved `4 < 6` margin).
@@ -62,8 +63,10 @@ along the proved AF schedule, and the convergence/restoration is now DERIVED.
 
 # Honest scope / what stays open
 
-We prove "scaling decay ⇒ O(4) restored (the coefficient converges to a limit
-with an explicit modulus)".  We do NOT prove the SCALING LAW itself — that the
+We prove "scaling decay ⇒ the coefficient is Cauchy with an explicit modulus".
+The same decay also implies a zero limit, but that sharper theorem is exported
+by `O4RestorationH4` / `O4RestorationZero`, not by `RotationRestored`.  We do NOT
+prove the SCALING LAW itself — that the
 degree-`d` operator's coefficient genuinely obeys `a^{d−4}` decay under the true
 RG (the RG-irrelevance theorem) — which remains the named analytic content
 `ScalingDimensionDecay`, now sharp and AF-routed.  The degree margin `d − 4 ≥ 2`
@@ -302,26 +305,22 @@ theorem breakCoeff_converges (D : ScalingDimensionDecay) :
   obtain ⟨N, hN⟩ := (breakCoeffLimit D).cauchy ε hε
   exact ⟨N, fun m n hm hn => hN m n hm hn⟩
 
-/-! ## 6. THE PAYOFF — discharging `irrelevant` / `rotationRestored`
+/-! ## 6. The legacy `irrelevant` / `rotationRestored` adapter
 
-The named "O(4) is restored" content is now the PROVED convergence statement.  We
-expose it as a single `Prop` `RotationRestored D` and prove it from the
-single-step decay; this is the `irrelevant` Prop fed into
-`LatticeAnisotropy.RotationRestorationInput`, no longer opaque. -/
+The historical adapter exposes the proved Cauchy statement as a single `Prop`
+`RotationRestored D` and feeds it into the older
+`LatticeAnisotropy.RotationRestorationInput`.  The name predates the zero-limit
+audit and must not be read as full O(4) invariance. -/
 
-/-- **The rotation-restoration statement, made transparent.**  "Continuous `O(4)`
-is restored as `a → 0`" is identified with the PROVED convergence of the
-rotation-breaking coefficient along the AF schedule: the coefficient has a Cauchy
-limit with an explicit two-sided modulus.  This is the `irrelevant` content,
-DISCHARGED from the single named single-step decay. -/
+/-- **Legacy scalar precursor.**  The rotation-breaking coefficient is Cauchy
+along the AF schedule with an explicit two-sided modulus.  This definition does
+not assert that its limit is zero and does not quantify over an O(4) action. -/
 def RotationRestored (D : ScalingDimensionDecay) : Prop :=
   ∀ ε : Q', (0 : Q') < ε → ∃ N : Nat, ∀ m n : Nat, N ≤ m → N ≤ n →
     breakCoeff D m ≤ breakCoeff D n + ε ∧ breakCoeff D n ≤ breakCoeff D m + ε
 
-/-- **`RotationRestored` DISCHARGED.**  The rotation-restoration statement holds,
-PROVED directly from the single-step geometric decay (via `breakCoeff_converges`).
-No opaque `Prop` is assumed — restoration is the AF-routed coefficient
-convergence. -/
+/-- The legacy `RotationRestored` Cauchy predicate follows directly from the
+single-step geometric decay. -/
 theorem rotationRestored_of_decay (D : ScalingDimensionDecay) : RotationRestored D :=
   breakCoeff_converges D
 

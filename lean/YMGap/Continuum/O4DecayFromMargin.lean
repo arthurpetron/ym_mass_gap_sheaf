@@ -1,5 +1,5 @@
 /-
-Track B+RepTheory / R2 — **the O(4)-restoration decay RATE as an EARNED
+Track B+RepTheory / R2 — **the scalar anisotropy decay RATE as an EARNED
 consequence of the PROVED 24-cell degree margin.**
 
 # What this module sharpens
@@ -40,9 +40,9 @@ PROVED here (genuine theorems, `[propext]` / `[propext, Quot.sound]` only):
     structure's `decay` field (`coeff (k+1) ≤ (1/2)·coeff k`) is DERIVED from the
     transparent per-step dimensional-scaling law `scale_step` plus the earned
     `derivedRho_le_half` and nonnegativity.
-  * `o4_restored_of_dimensionalScaling` — the O(4)-restoration conclusion
-    (`O4RestorationAF.RotationRestored`) obtained DIRECTLY from `DimensionalScaling`
-    by composing the reduction with the existing `rotationRestored_of_decay`.
+  * `o4_restored_of_dimensionalScaling` — the legacy anisotropy-Cauchy conclusion
+    (`O4RestorationAF.RotationRestored`) obtained DIRECTLY from `DimensionalScaling`.
+    Despite its historical name, this theorem type alone is not full O(4).
 
 NAMED (the sharper single wall, `Type`-level, Rule 8): `DimensionalScaling` — the
 transparent per-step dimensional-scaling law `breakCoeff (k+1) ≤
@@ -55,7 +55,9 @@ is only the single transparent dimensional-scaling estimate.
 # Honest scope / what stays open
 
 We prove "per-step dimensional scaling + blockRatio ≤ 1/2 ⇒ the contraction ratio
-is ≤ 1/4 (earned from the proved margin) ⇒ O(4) is restored".  We do NOT prove the
+is ≤ 1/4 (earned from the proved margin) ⇒ the anisotropy schedule is Cauchy".
+Strict convergence to zero is supplied by the later zero-limit modules; full O(4)
+still requires the observable action/response bridge.  We do NOT prove the
 dimensional-scaling law `scale_step` itself — that the degree-`d` operator's
 coefficient genuinely scales by `blockRatio^{d−4}` under one true RG blocking step.
 That single transparent estimate (standard RG-irrelevance content) is the remaining
@@ -242,20 +244,19 @@ re-label the sequence). -/
     (scalingDimensionDecay_of_dimensionalScaling D).degreeMargin = D.degreeMargin :=
   rfl
 
-/-! ## 4. THE PAYOFF — O(4) restored directly from `DimensionalScaling`
+/-! ## 4. Legacy scalar Cauchy payoff from `DimensionalScaling`
 
 Composing the reduction with the existing `O4RestorationAF.rotationRestored_of_decay`
-concludes `RotationRestored` (the rotation-breaking coefficient converges to its
-limit with an explicit two-sided modulus) DIRECTLY from `DimensionalScaling`.  So
-the O(4) restoration now follows from {per-step dimensional scaling,
-`blockRatio ≤ 1/2`}, with the decay RATE earned from the PROVED 24-cell margin. -/
+concludes `RotationRestored`, the historical name for the rotation-breaking
+coefficient's Cauchy predicate, DIRECTLY from `DimensionalScaling`. -/
 
-/-- **O(4) RESTORED FROM THE DIMENSIONAL-SCALING LAW.**  The rotation-breaking
-coefficient converges (with explicit two-sided modulus) — i.e. continuous O(4) is
-restored as `a → 0` — derived DIRECTLY from a `DimensionalScaling`.  The decay rate
+/-- **ANISOTROPY CAUCHY FROM THE DIMENSIONAL-SCALING LAW.**  The rotation-breaking
+coefficient is Cauchy with an explicit two-sided modulus, derived directly from a
+`DimensionalScaling`.  The decay rate
 `blockRatio^{degreeMargin} ≤ 1/4` is EARNED from the proved 24-cell degree margin
 (`degreeMargin ≥ 2`) and the blocking ratio (`blockRatio ≤ 1/2`); the only remaining
-named input is the transparent per-step dimensional-scaling law `scale_step`. -/
+named input is the transparent per-step dimensional-scaling law `scale_step`.
+Use the strict zero-limit and observable-response modules for restoration claims. -/
 theorem o4_restored_of_dimensionalScaling (D : DimensionalScaling) :
     O4RestorationAF.RotationRestored
       (scalingDimensionDecay_of_dimensionalScaling D) :=
