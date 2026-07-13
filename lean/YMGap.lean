@@ -747,6 +747,7 @@ import YMGap.Continuum.FusedOperatorIntertwinerFence
 import YMGap.Continuum.FusedOffDiagonalCompression
 import YMGap.Continuum.FusedSchurSpacingBridge
 import YMGap.Continuum.FusedSchurAllK
+import YMGap.Continuum.HarmonicFusedSchurObstruction
 import YMGap.Continuum.FusedSpacingStepBridge
 import YMGap.Continuum.FusedNextScaleRetune
 import YMGap.Continuum.RacahOrthogonalityGeneral

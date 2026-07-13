@@ -247,16 +247,14 @@ theorem first_scale_ratio_bound (M : Nat) :
 `k≤2 → harmW k≤3/4`. -/
 theorem harmW_le_blockCap_of_le_two {k : Nat} (hk : k ≤ 2) :
     harmW k ≤ blockCap := by
-  show (harmW k).num * ((blockCap).den : Int) ≤
-    blockCap.num * ((harmW k).den : Int)
-  unfold harmW harmU ReciprocalBernoulliUpper.oneSub unit blockCap
-  simp only [Q'.add_num_cast, Q'.add_den_cast, Q'.neg_den,
-    Q'.mkPos_num, Q'.mkPos_den]
-  have h1n : (1 : Q').num = 1 := rfl
-  have h1d : ((1 : Q').den : Int) = 1 := rfl
-  rw [h1n, h1d]
-  push_cast
-  omega
+  have cases : k = 0 ∨ k = 1 ∨ k = 2 := by omega
+  rcases cases with rfl | rfl | rfl
+  · unfold harmW harmU ReciprocalBernoulliUpper.oneSub unit blockCap
+    decide
+  · unfold harmW harmU ReciprocalBernoulliUpper.oneSub unit blockCap
+    decide
+  · unfold harmW harmU ReciprocalBernoulliUpper.oneSub unit blockCap
+    decide
 
 /-- **Unconditional retained harmonic quotient for `k=0,1,2`.**  No leakage
 term is needed: the new all-`N` two-anchor certificate applies directly at the

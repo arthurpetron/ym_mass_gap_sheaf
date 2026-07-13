@@ -4227,6 +4227,18 @@ additive-margin step are unconditional.  The endpoint operator-spacing route
 is therefore closed at every quadratic cutoff.  OPEN is its extension from
 `w=1` to the harmonic AF weights, using the newly proved theta-tail moduli.
 
+**Actual harmonic Schur block and weight-drift fence (2026-07-12).**
+`HarmonicFusedSchurObstruction` identifies the actual finite-cutoff harmonic
+mass exactly as `(D-A)/D`, proves its nonnegativity and the nonnegativity of
+every consecutive rotated shell, and closes the first genuinely off-endpoint
+Schur/spacing operator step at `k=0`.  It also translates the bulk theta bound
+into same-weight normalizer stability by `2/(k+2)^2`.  The tempting
+inter-scale replacement is kernel-refuted already from `k=1` to `k=2`: the
+change of harmonic weight exceeds the complete cutoff-tail allowance.  This
+permanently separates cutoff leakage from weight drift.  OPEN is a derived
+inter-scale weight-drift estimate for the actual mass (or an equivalent
+growing-block spectral comparison), not another use of the same-weight tail.
+
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their
 dimensionless additive step both at fixed spacing and for any contracting
