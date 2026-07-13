@@ -5105,6 +5105,21 @@ neither connector.  The live analytic target is consequently the actual
 finite-volume `reflected_factor` or `reflected_character_resolution` identity
 for the interacting `ReferenceWeight`; external OS2 alone cannot discharge it.
 
+`TwoSliceCharacterReflection` now supplies the first concrete interacting
+inhabitant of both connectors on the actual non-unit `halfReferenceWeight 2`.
+For a period-two coordinate swap and a one-character observable module, an
+exact product-character identity gives the finite rational Gram resolution,
+the Markov-square law, the derived half-space law, and the completed transfer
+extension.  The construction is nondegenerate at the reference-weight level
+(the weight and normalized partition differ from one, and the selected
+character has unit Wilson norm), but it also banks the exact limitation: the
+raw swap is nonidentity while its difference lies in the Wilson radical, so
+the induced quotient transfer is identity.  Thus this is a machine-checked
+connector anchor, not a mass-gap spectrum.  The live next target is a
+multi-mode rational character carrier and interacting reference functional
+whose time action survives the quotient, followed by identification with the
+normalized SU(2) character sectors.
+
 ### Milestone 14.4 — Assemble `singleStep` and the continuum floor
 
 **Goal.** 14.2 + 14.3 inhabit `SingleStepDefectBoundLoose` →
@@ -5153,6 +5168,20 @@ the scope restriction: transporting a selected hypercubic action does not by
 itself manufacture full O(4) invariance.  The interacting task is therefore to
 derive the vanishing defect for the actual approximating O(4) action, not to
 postulate invariance after the limit.
+
+`RegularLinearGeometricModulus` removes another opaque field from this lane.
+A two-sided local estimate
+`|E_{j+1}(o)-E_j(o)| ≤ C(o)·(1/2)^j` is telescoped through the existing KP
+tail engine into the exact `ModCauchy` required by
+`LinearScalingLimitModulus`.  The construction includes a choice-free bounded
+search for the *least* half-power cutoff; unlike the raw rational denominator
+bound, this cutoff is provably antitone in the tolerance.  A genuinely moving
+plane family of normalized positive linear functionals (its second-coordinate
+expectation follows the nonconstant geometric polymer partial sum) exercises
+the whole chain through a positive linear continuum functional.  For the
+interacting theory, the remaining input is now the local per-observable
+geometric increment bound output by the polymer/RG analysis, rather than an
+assumed global Cauchy modulus.
 
 ### Milestone 14.6 — Sharpness/satellite walls (feed, do not block)
 
