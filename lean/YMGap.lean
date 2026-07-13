@@ -453,6 +453,7 @@ import YMGap.Continuum.RegularFunctional
 import YMGap.Continuum.RegularLinearScalingLimit
 import YMGap.Continuum.RegularLinearSymmetryLimit
 import YMGap.Continuum.RegularLinearGeometricModulus
+import YMGap.Continuum.RegularLinearGeometricSymmetry
 import YMGap.Continuum.ClusterBoundInstance
 import YMGap.Continuum.SigmaGroundedFloor
 import YMGap.Continuum.NonSaturatedFloor
@@ -802,6 +803,7 @@ import YMGap.Continuum.ReferenceWeightTimeGeometry
 import YMGap.Continuum.ReferenceWeightTransferConstruction
 import YMGap.Continuum.InteractingReflectionTimeLaw
 import YMGap.Continuum.TwoSliceCharacterReflection
+import YMGap.Continuum.PositiveIsometricTimeNoGo
 import YMGap.Continuum.ThetaResidualBernsteinPilot
 import YMGap.Continuum.ThetaResidualPascalTelescope
 import YMGap.Continuum.AllWindowHardyFence

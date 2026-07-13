@@ -5115,10 +5115,21 @@ extension.  The construction is nondegenerate at the reference-weight level
 character has unit Wilson norm), but it also banks the exact limitation: the
 raw swap is nonidentity while its difference lies in the Wilson radical, so
 the induced quotient transfer is identity.  Thus this is a machine-checked
-connector anchor, not a mass-gap spectrum.  The live next target is a
-multi-mode rational character carrier and interacting reference functional
-whose time action survives the quotient, followed by identification with the
-normalized SU(2) character sectors.
+connector anchor, not a mass-gap spectrum.
+
+`PositiveIsometricTimeNoGo` proves that the quotient collapse is structural,
+not a one-mode accident.  For every `GeometryEnrichedReferenceWeight`, the
+combination of full-state time invariance (hence isometry), reflected symmetry,
+and `TimeHalfspaceLaw` positivity forces `τa-a` into the Wilson radical for
+every observable.  Consequently the selected quotient shift, its completed
+extension, and every supplied `TransferExtension` on embedded quotient vectors
+are identity; in particular no unit character can carry a reflected form
+different from one, regardless of how many exact modes are added.  This
+machine-refutes the multi-mode route under the present interface.  The next
+GNS construction must separate the ambient time automorphism from the
+Euclidean transfer by introducing a positive-time observable submodule,
+reflection into the negative half, and a compression/conditional expectation
+whose transfer is a contraction rather than the ambient isometry.
 
 ### Milestone 14.4 — Assemble `singleStep` and the continuum floor
 
@@ -5182,6 +5193,18 @@ the whole chain through a positive linear continuum functional.  For the
 interacting theory, the remaining input is now the local per-observable
 geometric increment bound output by the polymer/RG analysis, rather than an
 assumed global Cauchy modulus.
+
+`RegularLinearGeometricSymmetry` applies the same least-cutoff engine to the
+OS4 defect itself.  A two-sided stage estimate
+`|E_j(g·o)-E_j(o)| ≤ C(o)·(1/2)^j` now constructs the exact
+`ScalingSymmetryDefect` eventuality and therefore exact invariance of the
+continuum functional; no separate modulus or choice is accepted.  A moving
+plane family validates the strength of the statement: the sign flip is
+provably not an exact symmetry at any finite stage, while its geometric defect
+vanishes and the continuum functional is exactly flip-invariant.  The live
+Yang--Mills input on this branch is consequently the uniform local anisotropy
+estimate for the physically selected approximating rotation; the transport
+from that estimate to exact continuum symmetry is closed.
 
 ### Milestone 14.6 — Sharpness/satellite walls (feed, do not block)
 
