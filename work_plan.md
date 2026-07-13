@@ -5047,6 +5047,20 @@ normalized character `SpectralGapData` and actual transfer-form gap.  The live
 physical task is to construct those pins from lattice time translation and the
 interacting Wilson state, not to reuse the static GNS bundle as dynamics.
 
+`ReferenceWeightTimeGeometry` proves the same underdetermination persists one
+substrate layer earlier: `ReferenceWeight` and `ObsAlg` contain no sites,
+directions, or time action.  On the identical `halfReferenceWeight 2` and
+carrier module, identity and coordinate-swap are distinct unital
+state-preserving star-actions, and the swap is proved invariant for the actual
+interacting expectation `E_Λ`.  `GeometryEnrichedReferenceWeight` adds the
+minimal selected periodic action and module compatibility; from it the Wilson
+form invariance, radical preservation, and quotient time shift are derived.
+The exact next analytic field is `TransferExtension`: extend that quotient
+isometry to the completion and prove the positive self-adjoint contraction
+laws.  Once supplied, `CharacterTransferExtension` connects the selected
+dynamics to the normalized character form gap.  This route is now attacking
+the extension theorem from reflection/time-halfspace laws, not assuming it.
+
 ### Milestone 14.4 — Assemble `singleStep` and the continuum floor
 
 **Goal.** 14.2 + 14.3 inhabit `SingleStepDefectBoundLoose` →
