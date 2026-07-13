@@ -4934,10 +4934,15 @@ is proved equivalent to monotonicity of this global slack, so no cellwise sign
 or pointwise envelope is reintroduced.  A derived dyadic tail modulus plus
 finite exact heads gives certified rational intervals for `D_k`, the mass, and
 `D_k-A_k` at `k=37,38,39`, and exact positive-product boundary forms for the
-last banked slack and first tail slack.  These bounds leave a strict rational
-margin for the `37→38` transition; the final order composition is being proved
-in the next leaf, after which the same recurrence needs an all-tail
-preservation mechanism rather than another finite computation.
+last banked slack and first tail slack.
+
+`HarmonicMovingDeterminantK38` composes those signed intervals with an exact
+strictly separated rational enclosure.  It proves the global slack is
+nondecreasing from `37` to `38`, discharges the balanced transition, and hence
+proves the full moving determinant and harmonic mass/shell spacing inequality
+unconditionally at the first formerly uncovered scale `k=38`.  The live
+determinant residual is now a symbolic all-tail preservation theorem for this
+same global slack at every `k≥38`, not another finite prefix computation.
 
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their
