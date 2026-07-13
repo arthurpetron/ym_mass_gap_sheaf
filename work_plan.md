@@ -4208,6 +4208,13 @@ bound.  This turns the retained problem into a precise integer versus
 half-integer theta second-moment comparison, ready for a Jacobi/modular or
 finite summation attack.  OPEN is that retained-head comparison for all `k`.
 
+The theta representation now also proves the genuine symbolic factor-one
+comparison `harmW(k)*HalfTheta≤IntegerTheta` for every finite cutoff by writing
+the two sectors as adjacent products of the unsquared profile and summing exact
+AM--GM with both endpoint squares.  This reaches the universal Rayleigh factor
+one; the remaining quantitative content is precisely the modular/product
+correction improving one to `retuneCube(harmW(k))`.
+
 The Hardy audit also banks two fences: pointwise Dirichlet-density domination
 already fails at `k=3`, and the endpoint-derived cutoff-independent flux fails
 at `k=8`.  A successful Hardy proof must redistribute nonlocally with weights
@@ -4223,6 +4230,12 @@ additive target survives the first four closed transitions but is recorded
 only as scouting.  The all-scale operator attack must therefore exploit
 normalizer/numerator quotient cancellation (or prove a sharper additive
 coefficient-two law), not a summable relative bound on raw masses.
+
+The quotient cancellation has also been made exact: the harmonic mass drop is
+`(A_(k+1) D_k - A_k D_(k+1))/(D_k D_(k+1))`.  A single division-free
+determinant bound with coefficient `2/(k+2)^2` therefore implies the desired
+summable additive drift.  This replaces the failed separate-normalizer route
+by its cancellation-preserving target; OPEN is that determinant estimate.
 
 **Off-diagonal shell necessity (2026-07-12).**
 `FusedOffDiagonalCompression` strengthens the rank-one fence: any positive

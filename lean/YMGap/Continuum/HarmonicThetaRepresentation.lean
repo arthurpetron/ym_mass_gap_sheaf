@@ -318,6 +318,145 @@ theorem integerTheta_cutoff_extension_le (k M : Nat) :
   exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hre)
     (Q'.add_le_add_left _ _ _ htail)
 
+/-! ## First symbolic integer-vs-half-integer comparison -/
+
+/-- Unsquared integer-theta profile `x_n=n·w^{n²}`. -/
+def thetaProfile (w : Q') (n : Nat) : Q' :=
+  Q'.ofNat n * qpow w (n * n)
+
+theorem thetaProfile_sq_eqv_integer (w : Q') (n : Nat) :
+    thetaProfile w n * thetaProfile w n ≈ integerThetaTerm w n := by
+  unfold thetaProfile integerThetaTerm
+  have hpow : qpow w (n * n) * qpow w (n * n) ≈
+      qpow (w * w) (n * n) := Q'.eqv_symm (qpow_mul_self w (n * n))
+  have hre :
+      (Q'.ofNat n * qpow w (n * n)) *
+          (Q'.ofNat n * qpow w (n * n)) ≈
+        (Q'.ofNat n * Q'.ofNat n) *
+          (qpow w (n * n) * qpow w (n * n)) := by
+    ring_mul_qeqv
+  refine Q'.eqv_trans _ _ _ hre ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_right _ _ _ (ofNat_sq_eqv n)) ?_
+  exact Q'.mul_eqv_congr_left (Q'.ofNat (n * n)) _ _ hpow
+
+theorem thetaProfile_adj_eqv_half (w : Q') (n : Nat) :
+    thetaProfile w n * thetaProfile w (n + 1) ≈
+      w * halfThetaTerm w n := by
+  unfold thetaProfile halfThetaTerm
+  have hexp : n * n + (n + 1) * (n + 1) =
+      1 + ((n * (n + 1)) + (n * (n + 1))) := by
+    simp only [Nat.add_mul, Nat.mul_add]
+    omega
+  have hp : qpow w (n * n) * qpow w ((n + 1) * (n + 1)) ≈
+      w * qpow (w * w) (n * (n + 1)) := by
+    refine Q'.eqv_trans _ _ _
+      (Q'.eqv_symm (qpow_add w (n * n) ((n + 1) * (n + 1)))) ?_
+    rw [hexp]
+    refine Q'.eqv_trans _ _ _ (qpow_add w 1 _) ?_
+    have hw1 : qpow w 1 ≈ w := by
+      change (1 : Q') * w ≈ w
+      exact Q'.one_mul_eqv w
+    refine Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_right _ _ _ hw1) ?_
+    exact Q'.mul_eqv_congr_left w _ _
+      (Q'.eqv_symm (qpow_sqbase_eq_double w (n * (n + 1))))
+  have hre :
+      (Q'.ofNat n * qpow w (n * n)) *
+          (Q'.ofNat (n + 1) * qpow w ((n + 1) * (n + 1))) ≈
+        (Q'.ofNat n * Q'.ofNat (n + 1)) *
+          (qpow w (n * n) * qpow w ((n + 1) * (n + 1))) := by
+    ring_mul_qeqv
+  refine Q'.eqv_trans _ _ _ hre ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_right _ _ _ (ofNat_adj_eqv n)) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_left (Q'.ofNat (n * (n + 1))) _ _ hp) ?_
+  ring_mul_qeqv
+
+/-- **Genuine symbolic theta comparison.**  For every finite cutoff and every
+nonnegative `w`, the half-integer derivative sector is bounded by the integer
+sector:
+
+`w·Σ n(n+1)(w²)^{n(n+1)} ≤ Σ n²(w²)^{n²}`.
+
+The proof is the exact adjacent-profile AM--GM inequality, summed with both
+endpoint squares retained.  This is strictly stronger than the previously
+available representation identities, though the sharper retune factor still
+requires the modular/product correction. -/
+theorem halfTheta_le_integerTheta {w : Q'} (hw0 : (0 : Q') ≤ w) (N : Nat) :
+    w * halfThetaSum w N ≤ integerThetaSum w N := by
+  let x := fun j => thetaProfile w (j + 1)
+  let lhs := fun j => (x j * x (j + 1)) + (x j * x (j + 1))
+  let rhs := fun j => x j * x j + x (j + 1) * x (j + 1)
+  have hterm : ∀ j, lhs j ≤ rhs j := fun j => CRealAlg.amgm_two (x j) (x (j + 1))
+  have hsum := CharacterTail.finSum_le_termwise lhs rhs hterm N
+  have hx0 : ∀ j, (0 : Q') ≤ x j * x j := by
+    intro j
+    exact Q'.mul_nonneg _ _
+      (Q'.mul_nonneg _ _ (by
+        rw [Q'.zero_le_iff_num_nonneg]
+        exact Int.natCast_nonneg _) (qpow_nonneg w hw0 _))
+      (Q'.mul_nonneg _ _ (by
+        rw [Q'.zero_le_iff_num_nonneg]
+        exact Int.natCast_nonneg _) (qpow_nonneg w hw0 _))
+  have hfirst : finSum (fun j => x j * x j) N ≤ integerThetaSum w N := by
+    have hmono := finSum_monotone_of_nonneg (fun j => x j * x j) hx0 N (N + 1) (by omega)
+    exact Q'.le_trans' _ _ _ hmono (Q'.le_of_eqv
+      (finSum_eqv_congr _ _ (fun j => thetaProfile_sq_eqv_integer w (j + 1)) (N + 1)))
+  have hsecond : finSum (fun j => x (j + 1) * x (j + 1)) N ≤ integerThetaSum w N := by
+    let f := fun j => x j * x j
+    have hs := YMGap.Constructive.finSum_split f 1 N
+    have hhead : (0 : Q') ≤ finSum f 1 := by
+      show (0 : Q') ≤ (0 : Q') + f 0
+      exact Q'.zero_le_add _ _ (Q'.le_refl' 0) (hx0 0)
+    have hle : finSum (fun j => f (1 + j)) N ≤ finSum f (1 + N) := by
+      have h1 := Q'.add_le_self_of_nonneg
+        (finSum (fun j => f (1 + j)) N) (finSum f 1) hhead
+      exact Q'.le_trans' _ _ _ h1
+        (Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.add_comm_eqv _ _))
+          (Q'.ge_of_eqv hs))
+    refine Q'.le_trans' _ _ _ ?_ (Q'.le_trans' _ _ _ hle ?_)
+    · exact Q'.le_of_eqv (finSum_eqv_congr _ _ (fun j => by
+        unfold f x
+        rw [show j + 1 + 1 = 1 + j + 1 by omega]
+        exact Q'.eqv_refl _) N)
+    · exact Q'.le_of_eqv
+        (by
+          unfold integerThetaSum
+          rw [show 1 + N = N + 1 by omega]
+          exact finSum_eqv_congr _ _
+            (fun j => thetaProfile_sq_eqv_integer w (j + 1)) (N + 1))
+  have hrhs : finSum rhs N ≤ integerThetaSum w N + integerThetaSum w N := by
+    refine Q'.le_trans' _ _ _ (Q'.le_of_eqv (RationalTail.finSum_add _ _ N)) ?_
+    exact AFRateCalibration.q_add_le_add hfirst hsecond
+  have hlhs :
+      Q'.ofNat 2 * (w * halfThetaSum w N) ≈ finSum lhs N := by
+    unfold halfThetaSum lhs x
+    have hpull := CubeRatioBounds.fsum_const_mul (Q'.ofNat 2 * w)
+      (fun j => halfThetaTerm w (j + 1)) N
+    rw [MovingCutoff.fsum_eq_finSum, MovingCutoff.fsum_eq_finSum] at hpull
+    refine Q'.eqv_trans _ _ _ ?_ (Q'.eqv_trans _ _ _ hpull ?_)
+    · ring_mul_qeqv
+    · exact finSum_eqv_congr _ _ (fun j => by
+        refine Q'.eqv_trans _ _ _
+          (Q'.mul_assoc_eqv (Q'.ofNat 2) w (halfThetaTerm w (j + 1))) ?_
+        refine Q'.eqv_trans _ _ _
+          (BakryEmery.two_mul_eqv (w * halfThetaTerm w (j + 1))) ?_
+        exact
+          (Q'.add_eqv_congr'
+            (Q'.eqv_symm (thetaProfile_adj_eqv_half w (j + 1)))
+            (Q'.eqv_symm (thetaProfile_adj_eqv_half w (j + 1))))) N
+  have htwoR : integerThetaSum w N + integerThetaSum w N ≈
+      Q'.ofNat 2 * integerThetaSum w N :=
+    Q'.eqv_symm (BakryEmery.two_mul_eqv _)
+  have hscaled : Q'.ofNat 2 * (w * halfThetaSum w N) ≤
+      Q'.ofNat 2 * integerThetaSum w N :=
+    Q'.le_trans' _ _ _ (Q'.le_of_eqv hlhs)
+      (Q'.le_trans' _ _ _ hsum
+        (Q'.le_trans' _ _ _ hrhs (Q'.le_of_eqv htwoR)))
+  exact Q'.le_of_mul_le_mul_left hscaled (by decide)
+
 end YMGap.Continuum.HarmonicThetaRepresentation
 
 #print axioms YMGap.Continuum.HarmonicThetaRepresentation.diagonal_term_theta_eqv
@@ -328,3 +467,6 @@ end YMGap.Continuum.HarmonicThetaRepresentation
 #print axioms YMGap.Continuum.HarmonicThetaRepresentation.halfTheta_cutoff_extension_le
 #print axioms YMGap.Continuum.HarmonicThetaRepresentation.diagTailWindow_le_two_invSq
 #print axioms YMGap.Continuum.HarmonicThetaRepresentation.integerTheta_cutoff_extension_le
+#print axioms YMGap.Continuum.HarmonicThetaRepresentation.thetaProfile_sq_eqv_integer
+#print axioms YMGap.Continuum.HarmonicThetaRepresentation.thetaProfile_adj_eqv_half
+#print axioms YMGap.Continuum.HarmonicThetaRepresentation.halfTheta_le_integerTheta

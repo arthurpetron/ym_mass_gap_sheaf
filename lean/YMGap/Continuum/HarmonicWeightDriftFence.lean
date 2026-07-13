@@ -281,7 +281,123 @@ theorem harmonic_operator_spacing_initial_three {k : Nat} (hk : k <= 2) :
     (harmonicCoupling_size_all k)
     (harmonicSchur_spacing_initial_three hk)
 
-/-! ## 3. Kernel fences for over-strong summable drift claims -/
+/-! ## 3. Exact quotient-cancellation recurrence -/
+
+def harmonicD (k : Nat) : Q' := coordNormSq (harmW k) (Ncut k)
+def harmonicA (k : Nat) : Q' := adjCorr (harmW k) (Ncut k)
+
+theorem harmonicD_pos (k : Nat) : (0 : Q') < harmonicD k :=
+  coordNormSq_pos (harmW_nonneg k) (Ncut k)
+
+/-- The division-free numerator of the consecutive mass drop. -/
+def harmonicMassCross (k : Nat) : Q' :=
+  harmonicA (k + 1) * harmonicD k - harmonicA k * harmonicD (k + 1)
+
+theorem harmonicMass_eq_DA (k : Nat) :
+    harmonicMass k ≈ Q'.divPos (harmonicD k - harmonicA k)
+      (harmonicD k) (harmonicD_pos k) := by
+  exact harmonicMass_eq_ratio k
+
+private theorem harmonicMass_mul_D (k : Nat) :
+    harmonicMass k * harmonicD k ≈ harmonicD k - harmonicA k := by
+  exact Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_right _ _ (harmonicD k) (harmonicMass_eq_DA k))
+    (Q'.divPos_mul_eqv _ _ _)
+
+private theorem quotient_cross_cancel (D0 A0 D1 A1 : Q') :
+    (D0 - A0) * D1 + -((D1 - A1) * D0) ≈
+      A1 * D0 + -(A0 * D1) := by
+  have hleft : (D0 - A0) * D1 ≈ D0 * D1 + -(A0 * D1) := by
+    refine Q'.eqv_trans _ _ _ (Q'.add_mul_eqv D0 (-A0) D1) ?_
+    exact Q'.add_eqv_congr_left _ _ _ (Q'.neg_mul_eqv A0 D1)
+  have hright : -((D1 - A1) * D0) ≈ -(D1 * D0) + A1 * D0 := by
+    refine Q'.eqv_trans _ _ _
+      (Q'.neg_eqv_congr _ _ (Q'.add_mul_eqv D1 (-A1) D0)) ?_
+    refine Q'.eqv_trans _ _ _ (Q'.neg_add_eqv (D1 * D0) ((-A1) * D0)) ?_
+    refine Q'.add_eqv_congr_left (-(D1 * D0)) _ _ ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.neg_eqv_congr _ _ (Q'.neg_mul_eqv A1 D0)) ?_
+    exact Q'.neg_neg_eqv (A1 * D0)
+  refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr' hleft hright) ?_
+  refine Q'.eqv_trans _ _ _
+    (q_interchange (D0 * D1) (-(A0 * D1)) (-(D1 * D0)) (A1 * D0)) ?_
+  have hcancel : D0 * D1 + -(D1 * D0) ≈ (0 : Q') := by
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_left (D0 * D1) _ _
+        (Q'.neg_eqv_congr _ _ (Q'.mul_comm_eqv D1 D0))) ?_
+    exact Q'.add_neg_self_eqv (D0 * D1)
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr_right _ _ _ hcancel) ?_
+  refine Q'.eqv_trans _ _ _ (q_zero_add_eqv _) ?_
+  exact Q'.add_comm_eqv (-(A0 * D1)) (A1 * D0)
+
+/-- **Exact inter-scale recurrence.**  The full harmonic mass drop is the
+cross determinant `A_{k+1}D_k-A_kD_{k+1}` divided by the two positive
+normalizers.  Both weight drift and cutoff drift occur only inside this
+single numerator, where their leading normalizer growth can cancel. -/
+theorem harmonicMass_drop_eq_cross (k : Nat) :
+    harmonicMass k - harmonicMass (k + 1) ≈
+      Q'.divPos (harmonicMassCross k)
+        (harmonicD k * harmonicD (k + 1))
+        (Q'.mul_pos (harmonicD_pos k) (harmonicD_pos (k + 1))) := by
+  let x := harmonicMass k - harmonicMass (k + 1)
+  let den := harmonicD k * harmonicD (k + 1)
+  let cross := harmonicMassCross k
+  have hden : (0 : Q') < den := Q'.mul_pos (harmonicD_pos k) (harmonicD_pos (k + 1))
+  have h0 := harmonicMass_mul_D k
+  have h1 := harmonicMass_mul_D (k + 1)
+  have hx : x * den ≈ cross := by
+    unfold x den cross harmonicMassCross
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_mul_eqv (harmonicMass k) (-(harmonicMass (k + 1)))
+        (harmonicD k * harmonicD (k + 1))) ?_
+    have hx0 : harmonicMass k * (harmonicD k * harmonicD (k + 1)) ≈
+        (harmonicD k - harmonicA k) * harmonicD (k + 1) := by
+      refine Q'.eqv_trans _ _ _
+        (Q'.eqv_symm (Q'.mul_assoc_eqv
+          (harmonicMass k) (harmonicD k) (harmonicD (k + 1)))) ?_
+      exact Q'.mul_eqv_congr_right _ _ (harmonicD (k + 1)) h0
+    have hx1 : -(harmonicMass (k + 1)) *
+          (harmonicD k * harmonicD (k + 1)) ≈
+        -((harmonicD (k + 1) - harmonicA (k + 1)) * harmonicD k) := by
+      refine Q'.eqv_trans _ _ _
+        (Q'.neg_mul_eqv (harmonicMass (k + 1))
+          (harmonicD k * harmonicD (k + 1))) ?_
+      apply Q'.neg_eqv_congr
+      refine Q'.eqv_trans _ _ _
+        (Q'.mul_eqv_congr_left (harmonicMass (k + 1)) _ _
+          (Q'.mul_comm_eqv (harmonicD k) (harmonicD (k + 1)))) ?_
+      refine Q'.eqv_trans _ _ _
+        (Q'.eqv_symm (Q'.mul_assoc_eqv
+          (harmonicMass (k + 1)) (harmonicD (k + 1)) (harmonicD k))) ?_
+      exact Q'.mul_eqv_congr_right _ _ (harmonicD k) h1
+    refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr' hx0 hx1) ?_
+    exact quotient_cross_cancel
+      (harmonicD k) (harmonicA k) (harmonicD (k + 1)) (harmonicA (k + 1))
+  have hy : (Q'.divPos cross den hden) * den ≈ cross :=
+    Q'.divPos_mul_eqv cross den hden
+  apply Q'.mul_left_cancel_of_pos hden
+  refine Q'.eqv_trans _ _ _ (Q'.mul_comm_eqv den x) ?_
+  refine Q'.eqv_trans _ _ _ hx ?_
+  exact Q'.eqv_symm (Q'.eqv_trans _ _ _
+    (Q'.mul_comm_eqv den (Q'.divPos cross den hden)) hy)
+
+/-- A division-free determinant estimate with coefficient two is exactly
+enough for the desired summable additive mass drift. -/
+theorem harmonicMass_drop_le_two_invSq_of_cross (k : Nat)
+    (hcross : harmonicMassCross k <=
+      (Q'.ofNat 2 * invSqTerm 2 (by decide) k) *
+        (harmonicD k * harmonicD (k + 1))) :
+    harmonicMass k - harmonicMass (k + 1) <=
+      Q'.ofNat 2 * invSqTerm 2 (by decide) k := by
+  have hq := Q'.divPos_le_of_le_mul
+    (harmonicMassCross k)
+    (harmonicD k * harmonicD (k + 1))
+    (Q'.mul_pos (harmonicD_pos k) (harmonicD_pos (k + 1))) hcross
+  exact Q'.le_trans' _ _ _
+    (Q'.le_of_eqv (harmonicMass_drop_eq_cross k)) hq
+
+/-! ## 4. Kernel fences for over-strong summable drift claims -/
 
 /-- **Relative inverse-square drift is false.**  Already at the first actual
 harmonic pair, retaining the factor `1-1/(k+2)^2` is too optimistic.  The
@@ -336,6 +452,8 @@ end YMGap.Continuum.HarmonicWeightDriftFence
 #print axioms YMGap.Continuum.HarmonicWeightDriftFence.harmonicCoupling_size_all
 #print axioms YMGap.Continuum.HarmonicWeightDriftFence.harmonicSchur_spacing_initial_three
 #print axioms YMGap.Continuum.HarmonicWeightDriftFence.harmonic_operator_spacing_initial_three
+#print axioms YMGap.Continuum.HarmonicWeightDriftFence.harmonicMass_drop_eq_cross
+#print axioms YMGap.Continuum.HarmonicWeightDriftFence.harmonicMass_drop_le_two_invSq_of_cross
 #print axioms YMGap.Continuum.HarmonicWeightDriftFence.inverse_square_relative_mass_drift_fails_at_zero
 #print axioms YMGap.Continuum.HarmonicWeightDriftFence.inverse_square_relative_mass_drift_fails_at_one
 #print axioms YMGap.Continuum.HarmonicWeightDriftFence.unit_inverse_square_additive_mass_drift_fails_at_two
