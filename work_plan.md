@@ -6477,7 +6477,17 @@ the aggregate, both statement guards, and the strict axiom audit are green.
    without retaining the source entry, reconstructs the existing two-sided
    original carrier code and restores injectivity; its two values explicitly
    separate the collision.  This is structural only and supplies no unsafe
-   weight payment.  OPEN remains the
+   weight payment.  The finite-carrier fuel interface is now sharp rather
+   than off by one: an encoded chain belongs exactly when its step count is
+   within fuel, equivalently a traced walk of length at most `fuel+1` fits.
+   Endpoint detours preserve vertex bounds, while the reversible exhaustion
+   has exact frame/potential and walk-length accounting and conserves
+   `walkLength + 2*potential`.  Thus the source-free final trace-plus-right
+   carrier is proved to lie in the original occurrence carrier whenever the
+   derived initial budget
+   `initialWalkLength + 2*initialPotential <= Gamma.length+1` holds.  All
+   structural entry side conditions are discharged; that budget itself and
+   the unsafe weight payment remain open.  OPEN remains the
    entire genuine fuel/reverse-weight compensation or equivalent
    target-preserving compression into the original carrier interface.
 3. **All-mode character/Haar route.**  Finite Chebyshev `U_n` expansion,
@@ -6634,10 +6644,13 @@ the aggregate, both statement guards, and the strict axiom audit are green.
    output rows.  The two-dimensional binomial adjoint is now closed, and it
    yields the exact raw output-row recurrence
    `(s+1)*N_(s+1) = (m+n-2k-s)*N_s` for every admissible order.  The next
-   residual is the constructive binomial normalization/telescoping that turns
-   this raw recurrence and the proved highest-row value into normalized
-   output-row constancy, which yields the
-   full-binary Gram multiplier, followed by a uniform rational
+   binomial normalization is now closed too: the reciprocal monomial norms
+   obey the matching adjacent cross identity, positive cancellation proves
+   every normalized output row equals the terminal row, and the complete
+   binary Gram is exactly `(m+n-2k+1)` times that terminal normalized norm.
+   The next residual is identifying the terminal raw row with the already
+   closed highest-row finite sum and substituting its factorial product,
+   followed by a uniform rational
    all-admissible-label F-matrix/`TriMapEqv` certificate, then prove
    multi-channel direct-sum and arbitrary-tree coherence.
 5. **Positive-time Wilson transfer route.**  Build a same-state interacting
@@ -6780,11 +6793,18 @@ the aggregate, both statement guards, and the strict axiom audit are green.
    forward column difference turns the top row into `(1,0,...,0)`, and the
    lower-right block is the reduced central Hahn matrix with exact row pivots
    `(k+1)*(m+n-k)`.  Their full product times the reduced prospective
-   determinant scale is proved equal to the larger scale.  OPEN is defining
-   the general finite Leibniz determinant in this substrate, proving forward
-   column subtraction preserves it and block-triangular expansion multiplies
-   by those row pivots; the determinant identity and hence general-size Hahn
-   nonsingularity then follow by induction.  This is followed by nested fusion trees, the
+   determinant scale is proved equal to the larger scale.  General-size Hahn
+   nonsingularity is now closed without waiting for a determinant interface:
+   a finite suffix-coordinate transform is proved inverse to adjacent
+   differences on the active window and transports every actual Hahn row to
+   the forward-column form.  Direct induction then forces the head cumulative
+   coordinate from row zero, cancels every strictly positive lower-block
+   pivot, applies the reduced central Hahn kernel theorem, and reconstructs
+   every original coordinate.  Thus the actual `(m+1)`-row central Hahn
+   action has trivial kernel for every exact shell guard `m <= t <= n`.
+   OPEN is packaging this nonsingularity as the explicit data-valued
+   all-label coordinate inverse/synthesis required downstream (the optional
+   general Leibniz determinant identity is still not formalized).  This is followed by nested fusion trees, the
    guarded Dougall identity, and the same-state interacting Wilson realization.
    The older `PartitionBeyondTree.SixJRecoupling` carrier is now permanently
    fenced: its unguarded `∀ D` recoupling field is contradictory at `D=0` and

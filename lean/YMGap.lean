@@ -695,6 +695,8 @@ import YMGap.Continuum.SU2GeneralShellHahnMatrix
 import YMGap.Continuum.SU2GeneralHahnAdjacentDifference
 import YMGap.Continuum.SU2GeneralHahnAdjacentDifferenceAllOrder
 import YMGap.Continuum.SU2GeneralHahnColumnElimination
+import YMGap.Continuum.SU2GeneralHahnCumulativeTransform
+import YMGap.Continuum.SU2GeneralHahnKernelTrivial
 import YMGap.Continuum.SU2SpinOneCentralHahnDeterminant
 import YMGap.Continuum.SU2SpinOneCentralHahnPhysicalBridge
 import YMGap.Continuum.SU2ThreeByThreeAdjugate
@@ -869,6 +871,7 @@ import YMGap.Continuum.XiExceptionalFirstConflictActivity
 import YMGap.Continuum.XiExceptionalTracedNormalization
 import YMGap.Continuum.XiExceptionalTracedUnsafeAdapter
 import YMGap.Continuum.XiExceptionalTraceRightInvariant
+import YMGap.Continuum.XiExceptionalTraceFuelSharp
 import YMGap.Continuum.XiAvoidanceCorrelation
 import YMGap.Continuum.KernelCB2
 import YMGap.Continuum.KpowParityTP2
@@ -1028,6 +1031,7 @@ import YMGap.Continuum.SU2TransvectantRaisingCovariance
 import YMGap.Continuum.SU2TransvectantOutputRowInvariant
 import YMGap.Continuum.SU2TransvectantRowNormRecurrence
 import YMGap.Continuum.SU2TransvectantRowNormConstancy
+import YMGap.Continuum.SU2TransvectantNormalizedRows
 import YMGap.Continuum.HarmonicTrueMarginStep
 import YMGap.Continuum.HarmonicTrueMarginAbsorption
 import YMGap.Continuum.HarmonicPolymerBudgetBridge
