@@ -3659,6 +3659,503 @@ private theorem choose_symm : ∀ n k : Nat, k ≤ n →
         rw [← hsucc]
         exact Nat.add_comm _ _
 
+/-- Iterated Pascal elevation of an integer sequence in deficit coordinates. -/
+private def pascalElevate : Nat → (Nat → Int) → Nat → Int
+  | 0, b, r => b r
+  | d + 1, b, 0 => pascalElevate d b 0
+  | d + 1, b, r + 1 =>
+      pascalElevate d b (r + 1) + pascalElevate d b r
+
+private theorem pascalElevate_congr (d : Nat) {a b : Nat → Int}
+    (h : ∀ r, a r = b r) (r : Nat) :
+    pascalElevate d a r = pascalElevate d b r := by
+  induction d generalizing r with
+  | zero => exact h r
+  | succ d ih =>
+      cases r with
+      | zero => exact ih 0
+      | succ r => simp only [pascalElevate, ih]
+
+private theorem pascalElevate_add (d : Nat) (a b : Nat → Int) (r : Nat) :
+    pascalElevate d (fun j => a j + b j) r =
+      pascalElevate d a r + pascalElevate d b r := by
+  induction d generalizing r with
+  | zero => rfl
+  | succ d ih =>
+      cases r with
+      | zero => exact ih 0
+      | succ r =>
+          simp only [pascalElevate, ih]
+          ac_rfl
+
+private theorem pascalElevate_scale (d : Nat) (x : Int)
+    (a : Nat → Int) (r : Nat) :
+    pascalElevate d (fun j => x * a j) r = x * pascalElevate d a r := by
+  induction d generalizing r with
+  | zero => rfl
+  | succ d ih =>
+      cases r with
+      | zero => exact ih 0
+      | succ r =>
+          simp only [pascalElevate, ih, Int.mul_add]
+
+private theorem pascalElevate_nonnegative (d : Nat) (a : Nat → Int)
+    (ha : ∀ r, (0 : Int) ≤ a r) (r : Nat) :
+    (0 : Int) ≤ pascalElevate d a r := by
+  induction d generalizing r with
+  | zero => exact ha r
+  | succ d ih =>
+      cases r with
+      | zero => exact ih 0
+      | succ r =>
+          simp only [pascalElevate]
+          exact Int.add_nonneg (ih (r + 1)) (ih r)
+
+private def pointSeq (j : Nat) (x : Int) : Nat → Int :=
+  fun r => if r = j then x else 0
+
+private theorem pascalElevate_point (d j r : Nat) (x : Int) :
+    pascalElevate d (pointSeq j x) r =
+      if j ≤ r then (PNPaths.choose d (r - j) : Int) * x else 0 := by
+  induction d generalizing r with
+  | zero =>
+      by_cases heq : r = j
+      · subst r
+        simp [pascalElevate, pointSeq, choose_zero]
+      · by_cases hjr : j ≤ r
+        · have hlt : j < r := by omega
+          have hz := choose_zero_of_lt 0 (r - j) (by omega)
+          simp [pascalElevate, pointSeq, heq, hjr, hz]
+        · simp [pascalElevate, pointSeq, heq, hjr]
+  | succ d ih =>
+      cases r with
+      | zero =>
+          by_cases hj : j = 0
+          · subst j
+            have h0 := ih 0
+            simpa [choose_zero] using h0
+          · have hj0 : ¬ j ≤ 0 := by omega
+            simp [pascalElevate, ih, hj0]
+      | succ r =>
+          simp only [pascalElevate, ih]
+          by_cases hjr : j ≤ r
+          · have hjr1 : j ≤ r + 1 := by omega
+            have hd : r + 1 - j = (r - j) + 1 := by omega
+            simp only [if_pos hjr, if_pos hjr1, hd, PNPaths.choose,
+              Int.ofNat_eq_natCast, Int.natCast_add, Int.add_mul]
+            ac_rfl
+          · by_cases heq : j = r + 1
+            · subst j
+              rw [if_neg hjr]
+              simp [choose_zero]
+            · have hjr1 : ¬ j ≤ r + 1 := by omega
+              simp [hjr, hjr1]
+
+/-- A reverse-tail row extended by zero beyond its Bernstein degree. -/
+private def reverseDeficit (D n c r : Nat) : Int :=
+  if r ≤ D then reverseTailCoeff D n (D - r) c else 0
+
+private theorem monoCoeff_degree_bottom (D e : Nat) :
+    monoCoeff (D + 1) e 0 = monoCoeff D e 0 := by
+  cases e with
+  | zero => simp [monoCoeff, choose_zero]
+  | succ e => simp [monoCoeff]
+
+private theorem diagCoeff_degree_bottom (D n : Nat) :
+    diagCoeff (D + 1) n 0 = diagCoeff D n 0 := by
+  simp only [diagCoeff, monoCoeff_degree_bottom]
+
+private theorem offCoeff_degree_bottom (D n : Nat) :
+    offCoeff (D + 1) n 0 = offCoeff D n 0 := by
+  simp only [offCoeff, monoCoeff_degree_bottom]
+
+private theorem reverseTailCoeff_degree_bottom (D n c : Nat) :
+    reverseTailCoeff (D + 1) n 0 c = reverseTailCoeff D n 0 c := by
+  induction c generalizing n with
+  | zero => simp only [reverseTailCoeff, diagCoeff_degree_bottom]
+  | succ c ih =>
+      simp only [reverseTailCoeff, diagCoeff_degree_bottom,
+        offCoeff_degree_bottom, ih]
+
+/-- One degree elevation is exactly one Pascal step, including the top and
+bottom boundary and the zero extension outside the old row. -/
+private theorem reverseDeficit_step (D n c r : Nat)
+    (hD : 2 * (n + c) * (n + c) + 1 ≤ D) :
+    reverseDeficit (D + 1) n c r =
+      reverseDeficit D n c r +
+        (if r = 0 then 0 else reverseDeficit D n c (r - 1)) := by
+  cases r with
+  | zero =>
+      simp only [reverseDeficit, Nat.zero_le, if_pos, Nat.sub_zero]
+      rw [reverseTailCoeff_top (D + 1) n c (by omega)]
+      rw [reverseTailCoeff_top D n c hD]
+      simp
+  | succ r =>
+      have hne : r + 1 ≠ 0 := by omega
+      simp only [hne, if_false, Nat.add_sub_cancel]
+      by_cases hr : r < D
+      · have hr1D : r + 1 ≤ D := by omega
+        have hrD : r ≤ D := by omega
+        have hr1D1 : r + 1 ≤ D + 1 := by omega
+        simp only [reverseDeficit, if_pos hr1D1, if_pos hr1D, if_pos hrD]
+        exact reverseTailCoeff_deficit_step D n c r hr hD
+      · by_cases heq : r = D
+        · subst r
+          have hDle : D ≤ D := Nat.le_refl _
+          have hD1le : D + 1 ≤ D + 1 := Nat.le_refl _
+          have hnle : ¬ D + 1 ≤ D := by omega
+          simp only [reverseDeficit, if_pos hD1le, if_neg hnle, if_pos hDle,
+            Nat.sub_self, Int.zero_add]
+          exact reverseTailCoeff_degree_bottom D n c
+        · have hlarge : D < r := by omega
+          have hn0 : ¬ r + 1 ≤ D + 1 := by omega
+          have hn1 : ¬ r + 1 ≤ D := by omega
+          have hn2 : ¬ r ≤ D := by omega
+          simp [reverseDeficit, hn0, hn1, hn2]
+
+private theorem reverseDeficit_elevate (D n c d r : Nat)
+    (hD : 2 * (n + c) * (n + c) + 1 ≤ D) :
+    reverseDeficit (D + d) n c r =
+      pascalElevate d (reverseDeficit D n c) r := by
+  induction d generalizing r with
+  | zero => simp [pascalElevate]
+  | succ d ih =>
+      have hsupp : 2 * (n + c) * (n + c) + 1 ≤ D + d := by omega
+      rw [show D + (d + 1) = (D + d) + 1 by omega]
+      rw [reverseDeficit_step (D + d) n c r hsupp]
+      cases r with
+      | zero => simp only [if_pos, ih, pascalElevate, Int.add_zero]
+      | succ r =>
+          have hne : r + 1 ≠ 0 := by omega
+          simp only [hne, if_false, Nat.add_sub_cancel, ih, pascalElevate]
+
+private theorem reverseTailCoeff_append (D n k c : Nat) :
+    reverseTailCoeff D n k (c + 1) =
+      reverseTailCoeff D n k c - offCoeff D (n + c) k +
+        diagCoeff D (n + c + 1) k := by
+  induction c generalizing n with
+  | zero => simp [reverseTailCoeff]
+  | succ c ih =>
+      change
+        diagCoeff D n k - offCoeff D n k +
+            reverseTailCoeff D (n + 1) k (c + 1) =
+          (diagCoeff D n k - offCoeff D n k +
+              reverseTailCoeff D (n + 1) k c) -
+            offCoeff D (n + (c + 1)) k +
+              diagCoeff D (n + (c + 1) + 1) k
+      rw [ih (n + 1)]
+      have hnc : n + 1 + c = n + (c + 1) := by omega
+      rw [hnc]
+      simp only [Int.sub_eq_add_neg]
+      ac_rfl
+
+private theorem terminalDiag_deficit_zero (m r : Nat) (hm : 0 < m)
+    (hr : 4 ≤ r) :
+    diagCoeff (2 * (m + 1) * (m + 1) + 1) (m + 1)
+      ((2 * (m + 1) * (m + 1) + 1) - r) = 0 := by
+  let D := 2 * (m + 1) * (m + 1) + 1
+  let k := D - r
+  have hm2 : 2 ≤ m + 1 := by omega
+  have hsq : 4 ≤ (m + 1) * (m + 1) := by
+    exact Nat.mul_le_mul hm2 hm2
+  have hA : 4 ≤ 2 * (m + 1) * (m + 1) := by
+    have h := Nat.mul_le_mul_left 2 hsq
+    exact Nat.le_trans (show 4 ≤ 8 by decide) (by
+      simpa only [Nat.mul_assoc, Nat.mul_one] using h)
+  have h0 : ¬ 2 * (m + 1) * (m + 1) - 2 ≤ k := by
+    dsimp [D, k]
+    omega
+  have h1 : ¬ 2 * (m + 1) * (m + 1) - 1 ≤ k := by
+    dsimp [D, k]
+    omega
+  have h2 : ¬ 2 * (m + 1) * (m + 1) ≤ k := by
+    dsimp [D, k]
+    omega
+  have h3 : ¬ 2 * (m + 1) * (m + 1) + 1 ≤ k := by
+    dsimp [D, k]
+    omega
+  change diagCoeff D (m + 1) k = 0
+  simp [diagCoeff, monoCoeff, h0, h1, h2, h3]
+
+private theorem terminalOff_deficit (m r : Nat) (hm : 0 < m) :
+    offCoeff (2 * (m + 1) * (m + 1) + 1) m
+      ((2 * (m + 1) * (m + 1) + 1) - r) =
+        Int.ofNat (8 * m * (m + 1)) *
+          (PNPaths.choose (2 * m + 4) r : Int) := by
+  let D := 2 * (m + 1) * (m + 1) + 1
+  let e := 2 * m * (m + 1) - 1
+  let T := 2 * m + 4
+  have hepos : 0 < 2 * m * (m + 1) := by
+    have hm1 : 0 < m + 1 := by omega
+    exact Nat.mul_pos (Nat.mul_pos (by decide) hm) hm1
+  have hsplit : D = e + T := by
+    dsimp [D, e, T]
+    simp only [Nat.mul_add, Nat.add_mul]
+    omega
+  have he0 : 0 < e := by
+    have hm1 : 0 < m + 1 := by omega
+    have hprod : 1 ≤ m * (m + 1) := Nat.mul_pos hm hm1
+    have htwo : 2 ≤ 2 * m * (m + 1) := by
+      have h := Nat.mul_le_mul_left 2 hprod
+      simpa only [Nat.mul_assoc, Nat.mul_one] using h
+    dsimp [e]
+    omega
+  change Int.ofNat (8 * m * (m + 1)) *
+      monoCoeff D e (D - r) =
+        Int.ofNat (8 * m * (m + 1)) * (PNPaths.choose T r : Int)
+  rw [hsplit]
+  by_cases hrT : r ≤ T
+  · have he : e ≤ e + T - r := by omega
+    have hDe : e + T - e = T := by omega
+    have hke : e + T - r - e = T - r := by omega
+    simp only [monoCoeff, if_pos he, hDe, hke]
+    rw [choose_symm T r hrT]
+    simp only [Int.ofNat_eq_natCast]
+  · have hnot : ¬ e ≤ e + T - r := by omega
+    have hz := choose_zero_of_lt T r (by omega)
+    simp [monoCoeff, hnot, hz]
+
+private def minimalScaled (m r : Nat) : Int :=
+  30 * reverseDeficit (2 * m * m + 1) 1 (m - 1) r
+
+private def minimalBulkScaled (m r : Nat) : Int :=
+  if 4 ≤ r then minimalScaled m r else 0
+
+private theorem four_point_bulk (b : Nat → Int) (r : Nat) :
+    b r = pointSeq 0 (b 0) r + pointSeq 1 (b 1) r +
+      pointSeq 2 (b 2) r + pointSeq 3 (b 3) r +
+        (if 4 ≤ r then b r else 0) := by
+  by_cases h0 : r = 0
+  · subst r
+    simp [pointSeq]
+  · by_cases h1 : r = 1
+    · subst r
+      simp [pointSeq]
+    · by_cases h2 : r = 2
+      · subst r
+        simp [pointSeq]
+      · by_cases h3 : r = 3
+        · subst r
+          simp [pointSeq]
+        · have hr : 4 ≤ r := by omega
+          simp [pointSeq, h0, h1, h2, h3, hr]
+
+private theorem pascalElevate_four_point_bulk (d : Nat) (b : Nat → Int)
+    (r : Nat) :
+    pascalElevate d b r =
+      pascalElevate d (pointSeq 0 (b 0)) r +
+      pascalElevate d (pointSeq 1 (b 1)) r +
+      pascalElevate d (pointSeq 2 (b 2)) r +
+      pascalElevate d (pointSeq 3 (b 3)) r +
+      pascalElevate d (fun j => if 4 ≤ j then b j else 0) r := by
+  rw [pascalElevate_congr d (four_point_bulk b) r]
+  simp only [pascalElevate_add]
+
+private theorem minimalScaled_zero (m : Nat) (hm : 0 < m) :
+    minimalScaled m 0 = (m : Int) * ((m : Int) + 1) * 120 := by
+  have hend : 1 + (m - 1) = m := by omega
+  have hD : 2 * (1 + (m - 1)) * (1 + (m - 1)) + 1 ≤
+      2 * m * m + 1 := by
+    rw [hend]
+    exact Nat.le_refl _
+  unfold minimalScaled reverseDeficit
+  simp only [Nat.zero_le, if_pos, Nat.sub_zero]
+  rw [reverseTailCoeff_top (2 * m * m + 1) 1 (m - 1) hD]
+  unfold reverseTopFluxNat
+  rw [hend]
+  simp only [Int.ofNat_eq_natCast, Int.natCast_add, Int.natCast_mul]
+  have hmcast' : (((m - 1 : Nat) : Int) = (m : Int) - 1) := by omega
+  rw [hmcast']
+  have hcast1 : (((1 : Nat) : Int) = (1 : Int)) := rfl
+  rw [hcast1]
+  have hx : (m : Int) - 1 + 1 = (m : Int) := by omega
+  rw [hx]
+  change 30 * (4 * (2 * 1 * ((m : Int)) +
+    ((m : Int) - 1) * ((m : Int)))) = (m : Int) * ((m : Int) + 1) * 120
+  simp only [Int.mul_one]
+  let x : Int := (m : Int)
+  change 30 * (4 * (2 * x + (x - 1) * x)) = x * (x + 1) * 120
+  simp only [Int.mul_add, Int.add_mul, Int.sub_eq_add_neg, Int.neg_mul]
+  rw [show (120 : Int) = 30 * 4 by decide]
+  omega
+
+private theorem minimalScaled_one (m : Nat) (hm : 0 < m) :
+    minimalScaled m 1 =
+      (m : Int) * ((m : Int) + 1) * (30 * ((-4) * (m : Int) + 10)) := by
+  have h1 : 1 ≤ 2 * m * m + 1 := by omega
+  unfold minimalScaled reverseDeficit
+  rw [if_pos h1]
+  have hidx : 2 * m * m + 1 - 1 = 2 * m * m := by omega
+  rw [hidx, minimalBase_deficit_one m hm]
+  let x : Int := (m : Int)
+  have hfac : -(2*x*(x+1)*(2*x-5)) = x*(x+1)*(-(2*(2*x-5))) := by
+    have hL : -(2*x*(x+1)*(2*x-5)) =
+        (-1)*(2*x*(x+1)*(2*x-5)) := by omega
+    have hR : -(2*(2*x-5)) = (-1)*(2*(2*x-5)) := by omega
+    rw [hL, hR]
+    ac_rfl
+  rw [hfac]
+  calc
+    30 * (x * (x + 1) * (-(2 * (2*x-5)))) =
+        x * (x + 1) * (30 * (-(2 * (2*x-5)))) := by ac_rfl
+    _ = x * (x + 1) * (30 * ((-4)*x+10)) := by
+      congr 1
+      omega
+
+private theorem minimalScaled_two (m : Nat) (hm : 0 < m) :
+    minimalScaled m 2 =
+      (m : Int) * ((m : Int) + 1) * (30 * ((-6) * (m : Int) + 9)) := by
+  have h2 : 2 ≤ 2 * m * m + 1 := by
+    have hm1 : 1 ≤ m := by omega
+    have hsq : 1 ≤ m * m := Nat.mul_pos hm hm
+    have htwo : 2 ≤ 2 * m * m := by
+      have h := Nat.mul_le_mul_left 2 hsq
+      simpa only [Nat.mul_assoc, Nat.mul_one] using h
+    omega
+  unfold minimalScaled reverseDeficit
+  rw [if_pos h2]
+  have hidx : 2 * m * m + 1 - 2 = 2 * m * m - 1 := by omega
+  rw [hidx, minimalBase_deficit_two m hm]
+  let x : Int := (m : Int)
+  have hfac : -(3*x*(x+1)*(2*x-3)) = x*(x+1)*(-(3*(2*x-3))) := by
+    have hL : -(3*x*(x+1)*(2*x-3)) =
+        (-1)*(3*x*(x+1)*(2*x-3)) := by omega
+    have hR : -(3*(2*x-3)) = (-1)*(3*(2*x-3)) := by omega
+    rw [hL, hR]
+    ac_rfl
+  rw [hfac]
+  calc
+    30 * (x * (x + 1) * (-(3 * (2*x-3)))) =
+        x * (x + 1) * (30 * (-(3 * (2*x-3)))) := by ac_rfl
+    _ = x * (x + 1) * (30 * ((-6)*x+9)) := by
+      congr 1
+      omega
+
+private theorem minimalScaled_three (m : Nat) (hm : 0 < m) :
+    minimalScaled m 3 =
+      (m : Int) * ((m : Int) + 1) *
+        (96 * ((m : Int) * (m : Int) * (m : Int)) +
+          ((-96) * ((m : Int) * (m : Int)) + ((-94) * (m : Int) + 109))) := by
+  have h3 : 3 ≤ 2 * m * m + 1 := by
+    have hm1 : 1 ≤ m := by omega
+    have hsq : 1 ≤ m * m := Nat.mul_pos hm hm
+    have htwo : 2 ≤ 2 * m * m := by
+      have h := Nat.mul_le_mul_left 2 hsq
+      simpa only [Nat.mul_assoc, Nat.mul_one] using h
+    omega
+  unfold minimalScaled reverseDeficit
+  rw [if_pos h3]
+  have hidx : 2 * m * m + 1 - 3 = 2 * m * m - 2 := by omega
+  rw [hidx, minimalBase_deficit_three m hm]
+  dsimp [iPow]
+  simp only [Int.sub_eq_add_neg, Int.neg_mul]
+  ac_rfl
+
+private def throughThreeBand30 (m r : Nat) : Int :=
+  120 * (PNPaths.choose (4*m+2) r : Int) +
+  30 * ((-4)*(m:Int)+10) * (PNPaths.choose (4*m+2) (r-1) : Int) +
+  30 * ((-6)*(m:Int)+9) * (PNPaths.choose (4*m+2) (r-2) : Int) +
+  (96*((m:Int)*(m:Int)*(m:Int))+
+    ((-96)*((m:Int)*(m:Int))+((-94)*(m:Int)+109))) *
+      (PNPaths.choose (4*m+2) (r-3) : Int)
+
+private theorem minimalScaled_old_elevate (m r : Nat) (hm : 0 < m) :
+    30 * reverseDeficit (2 * (m + 1) * (m + 1) + 1) 1 (m - 1) r =
+      pascalElevate (4*m+2) (minimalScaled m) r := by
+  let D := 2*m*m+1
+  let S := 4*m+2
+  have hend : 1 + (m - 1) = m := by omega
+  have hD : 2 * (1 + (m - 1)) * (1 + (m - 1)) + 1 ≤ D := by
+    dsimp [D]
+    rw [hend]
+    exact Nat.le_refl _
+  have hdeg : D + S = 2 * (m + 1) * (m + 1) + 1 := by
+    dsimp [D, S]
+    simp only [Nat.mul_add, Nat.add_mul]
+    omega
+  have he := reverseDeficit_elevate D 1 (m - 1) S r hD
+  rw [← hdeg]
+  rw [he]
+  unfold minimalScaled
+  rw [pascalElevate_scale]
+
+private theorem pascalElevate_minimal_split (m r : Nat) (hm : 0 < m)
+    (hr : 4 ≤ r) :
+    pascalElevate (4*m+2) (minimalScaled m) r =
+      (m:Int)*((m:Int)+1)*throughThreeBand30 m r +
+        pascalElevate (4*m+2) (minimalBulkScaled m) r := by
+  rw [pascalElevate_four_point_bulk]
+  rw [pascalElevate_point, pascalElevate_point, pascalElevate_point,
+    pascalElevate_point]
+  simp only [if_pos (show 0 ≤ r by omega), if_pos (show 1 ≤ r by omega),
+    if_pos (show 2 ≤ r by omega), if_pos (show 3 ≤ r by omega),
+    Nat.sub_zero]
+  rw [minimalScaled_zero m hm, minimalScaled_one m hm,
+    minimalScaled_two m hm, minimalScaled_three m hm]
+  unfold minimalBulkScaled throughThreeBand30
+  simp only [Int.mul_add, Int.add_mul]
+  ac_rfl
+
+/-- Exact one-scale recurrence after removing the four signed boundary
+coordinates.  The remaining old suffix is Pascal-elevated coefficientwise;
+the appended cell is paid by the already factored through-`b₃` remainder. -/
+theorem minimalScaled_bulk_recurrence (m r : Nat) (hm : 0 < m)
+    (hr : 4 ≤ r) (hrD : r ≤ 2 * (m + 1) * (m + 1) + 1) :
+    minimalScaled (m + 1) r =
+      pascalElevate (4*m+2) (minimalBulkScaled m) r +
+        (m:Int)*((m:Int)+1)*throughThreeRemainder30 m r := by
+  let D := 2 * (m + 1) * (m + 1) + 1
+  have htail : (m + 1) - 1 = m := by omega
+  have hold : 1 + (m - 1) = m := by omega
+  have hc : (m - 1) + 1 = m := by omega
+  unfold minimalScaled reverseDeficit
+  rw [if_pos hrD, htail]
+  change 30 * reverseTailCoeff D 1 (D-r) m = _
+  have happ := reverseTailCoeff_append D 1 (D-r) (m-1)
+  rw [hc] at happ
+  rw [happ]
+  rw [hold]
+  rw [terminalDiag_deficit_zero m r hm hr]
+  rw [terminalOff_deficit m r hm]
+  have helev := minimalScaled_old_elevate m r hm
+  have helevD : 30 * reverseDeficit D 1 (m-1) r =
+      pascalElevate (4*m+2) (minimalScaled m) r := by
+    simpa only [D] using helev
+  have hrDef : reverseDeficit D 1 (m-1) r =
+      reverseTailCoeff D 1 (D-r) (m-1) := by
+    unfold reverseDeficit
+    rw [if_pos hrD]
+  rw [← hrDef]
+  rw [Int.mul_add, Int.mul_sub]
+  rw [helevD]
+  rw [pascalElevate_minimal_split m r hm hr]
+  let E : Int := PNPaths.choose (2*m+4) r
+  have hoff : 30 * (Int.ofNat (8*m*(m+1)) * E) =
+      (m:Int)*((m:Int)+1)*(240*E) := by
+    simp only [Int.ofNat_eq_natCast, Int.natCast_mul, Int.natCast_add]
+    have h8 : (((8:Nat):Int) = (8:Int)) := rfl
+    rw [h8, show (240:Int)=30*8 by decide]
+    ac_rfl
+  have hrem : throughThreeRemainder30 m r =
+      throughThreeBand30 m r + (-240)*E := by
+    unfold throughThreeRemainder30 throughThreeBand30
+    dsimp [E]
+  rw [hoff, hrem]
+  have hdist :
+      (m:Int)*((m:Int)+1)*(throughThreeBand30 m r+(-240)*E) =
+        (m:Int)*((m:Int)+1)*throughThreeBand30 m r+
+          (m:Int)*((m:Int)+1)*((-240)*E) := by
+    rw [Int.mul_add]
+  rw [hdist]
+  simp only [Int.mul_zero, Int.add_zero, Int.sub_eq_add_neg]
+  have hneg :
+      -((m:Int)*((m:Int)+1)*(240*E)) =
+        (m:Int)*((m:Int)+1)*((-240)*E) := by
+    rw [show (-240:Int)=-(240:Int) by decide]
+    simp only [Int.neg_mul, Int.mul_neg]
+  rw [hneg]
+  ac_rfl
+
 end YMGap.Continuum.ThetaResidualPascalTelescope
 
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.bernMon_left_extract
@@ -3706,3 +4203,4 @@ end YMGap.Continuum.ThetaResidualPascalTelescope
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.throughThreeRemainder30_four
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.throughThreeRemainder30_five
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.throughThreeRemainder30_nonnegative
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.minimalScaled_bulk_recurrence

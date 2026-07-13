@@ -767,6 +767,8 @@ import YMGap.Continuum.HarmonicSchurRotationK2427
 import YMGap.Continuum.HarmonicSymbolicAnchorRatio
 import YMGap.Continuum.HarmonicVariableAnchorRetune
 import YMGap.Continuum.HarmonicVariableAnchorThetaBridge
+import YMGap.Continuum.HarmonicRetuneFloor
+import YMGap.Continuum.HarmonicThetaTermwiseFence
 import YMGap.Continuum.HarmonicSchurRotationK2832
 import YMGap.Continuum.HarmonicSchurRotationK3337
 import YMGap.Continuum.ThetaResidualBernsteinPilot

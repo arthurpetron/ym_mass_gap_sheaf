@@ -592,6 +592,82 @@ theorem weightedTrapezoidResidual_nonpos_k3 :
   weightedTrapezoidResidual_nonpos_of_signed_crossing_budget 3
     signedChord_twentyFourTwentyFive_k3
 
+/-! ## First direct positive-tail moment checkpoint -/
+
+theorem terminal_gap_k4_p0_not_nonpos :
+    ¬ (
+      trapezoidNodeCumulative 4 (Ncut 4 - 1) +
+        -(trapezoidNodeCumulative 4 0) ≤ (0 : Q')) := by
+  unfold trapezoidNodeCumulative harmonicD harmonicA twoInvSq oldAdj
+    coordNormSq adjCorr harmW harmU oneSub unit invSqTerm coeffW dimQ c4
+    qpow Ncut fsum
+  decide
+
+/-- At the first scale beyond the earlier closed prefix, the lossless
+Fubini node moment, including both terminal half-edge corrections, fits
+directly inside the symbolic all-scale moment cap. -/
+theorem signedChordNodeMoment_le_cap_k4
+    (s : Nat) (hsL : s ≤ Ncut 4 - 1)
+    (hfirst : ∀ p, p < s →
+      trapezoidNodeCumulative 4 (Ncut 4 - 1) +
+        -(trapezoidNodeCumulative 4 p) ≤ (0 : Q'))
+    (_hboundary : (0 : Q') ≤
+      trapezoidNodeCumulative 4 (Ncut 4 - 1) +
+        -(trapezoidNodeCumulative 4 s)) :
+    signedChordNodeMoment 4 s (Ncut 4 - 1 - s) +
+        (trapezoidTerminalCorrection 4 +
+          trapezoidTerminalCorrection 4) ≤
+      signedChordMomentCap 4 := by
+  have hs0 : s = 0 := by
+    by_cases hzero : s = 0
+    · exact hzero
+    · have hpos : 0 < s := Nat.pos_of_ne_zero hzero
+      have hf : False := terminal_gap_k4_p0_not_nonpos (hfirst 0 hpos)
+      exact False.elim hf
+  subst s
+  unfold signedChordNodeMoment intervalSum harmonicChordWeight
+    signedChordMomentCap signedChordMomentCore trapezoidTerminalCorrection
+    trapezoidNodeCoeff harmonicD harmonicA twoInvSq oldAdj oldDiag
+    coordNormSq adjCorr driftSqFactor driftRatio driftDen
+    harmW harmU oneSub unit invSqTerm coeffW dimQ c4
+    Q'.divPos Q'.recipPos qpow Ncut fsum
+  decide
+
+/-- The exact `k=4` node-moment checkpoint feeds the signed crossing bridge
+without re-expanding the original chord sum. -/
+theorem signedChord_twentyFourTwentyFive_k4
+    (s : Nat) (hsL : s ≤ Ncut 4 - 1)
+    (hfirst : ∀ p, p < s →
+      trapezoidNodeCumulative 4 (Ncut 4 - 1) +
+        -(trapezoidNodeCumulative 4 p) ≤ (0 : Q'))
+    (hboundary : (0 : Q') ≤
+      trapezoidNodeCumulative 4 (Ncut 4 - 1) +
+        -(trapezoidNodeCumulative 4 s)) :
+    signedChordSum 4 (Ncut 4 - 1) s +
+          (trapezoidTerminalCorrection 4 + trapezoidTerminalCorrection 4) ≤
+        (Q'.mkPos 24 25 (by decide) *
+            (-(trapezoidNodeCumulative 4 (Ncut 4 - 1) *
+              driftSqFactor 4 0))) +
+          (Q'.mkPos 24 25 (by decide) *
+            (-(trapezoidNodeCumulative 4 (Ncut 4 - 1) *
+              driftSqFactor 4 0))) := by
+  have hm := signedChordNodeMoment_le_cap_k4 s hsL hfirst hboundary
+  have he := signedChordSum_eq_nodeMoment 4 (Ncut 4 - 1) s hsL
+  have headd :
+      signedChordSum 4 (Ncut 4 - 1) s +
+          (trapezoidTerminalCorrection 4 + trapezoidTerminalCorrection 4) ≈
+        signedChordNodeMoment 4 s (Ncut 4 - 1 - s) +
+          (trapezoidTerminalCorrection 4 + trapezoidTerminalCorrection 4) :=
+    Q'.add_eqv_congr_right _ _ _ he
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv headd)
+    (Q'.le_trans' _ _ _ hm
+      (signedChordMomentCap_le_target 4 (by decide)))
+
+theorem weightedTrapezoidResidual_nonpos_k4 :
+    weightedTrapezoidResidual 4 ≤ (0 : Q') :=
+  weightedTrapezoidResidual_nonpos_of_signed_crossing_budget 4
+    signedChord_twentyFourTwentyFive_k4
+
 #print axioms signedChord_twentyFourTwentyFive_fails_k0
 #print axioms signedChordSum_eq_nodeMoment
 #print axioms terminalCoefficientTwoFloor_le_terminalReserve
@@ -607,5 +683,9 @@ theorem weightedTrapezoidResidual_nonpos_k3 :
 #print axioms terminal_gap_k3_p0_not_nonpos
 #print axioms signedChord_twentyFourTwentyFive_k3
 #print axioms weightedTrapezoidResidual_nonpos_k3
+#print axioms terminal_gap_k4_p0_not_nonpos
+#print axioms signedChordNodeMoment_le_cap_k4
+#print axioms signedChord_twentyFourTwentyFive_k4
+#print axioms weightedTrapezoidResidual_nonpos_k4
 
 end YMGap.Continuum.HarmonicSignedChordQuantitative

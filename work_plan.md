@@ -4385,6 +4385,14 @@ normalized fundamental `lamPW` bound, and the rational `harmonicMass` floor
 used by the coupled-shell spacing construction, without any further interface
 hypothesis.
 
+`HarmonicRetuneFloor` makes that downstream floor explicit.  The exact
+factorization `1-(1-b)^3-2b=b(1-3b+b²)`, certified by the constructive ring
+normalizer, proves uniformly that
+`harmU k ≤ 1-retuneCube(harmW k)`.  Therefore the sole theta-head premise now
+implies the concrete physical bound `1/(k+2)=harmU k ≤ harmonicMass k` at
+every `k≥1`; no numerical lower-floor table is needed after the uniform theta
+certificate.
+
 `HarmonicFixedTwelvePrefix` instantiates that symbolic interface at `b=11`.
 It closes retune, `lamPW`, and mass floors for `k=34,35,36,37,38`, then proves
 that at `k=39` the retained head fails while the exact scalar tail cross still
@@ -4418,6 +4426,14 @@ monomial exactly and factors the weighted left/mid/right cell as
 nonnegativity for `t≥0`.  The actual theta cell is the specialization
 `e=2n²-2`, `a=2n+1`; OPEN is to allocate the retune prefactor's remaining
 Pascal reserve across these positive square atoms uniformly in the cutoff.
+
+`HarmonicThetaTermwiseFence` independently excludes the simplest possible
+allocation of that reserve.  For every `k≥1`, the first half-integer theta
+cell is strictly larger than the entire retune budget of the first integer
+cell, and hence a same-index termwise comparison is impossible.  The proof is
+symbolic and uniform, not a finite check.  Any successful certificate must
+move reserve between distinct theta modes, exactly as the nonlocal Pascal
+program anticipates.
 
 The first natural Gosper ansatz is now excluded uniformly: the preceding-edge
 monomial reserve `R_j=4j(j-1)M(D,2j(j-1)-1)` leaves coefficient exactly `-8`
@@ -4514,8 +4530,15 @@ that bulk induction to this closed four-coordinate signed boundary band.
 The bulk lane now also has a constructive proof of the symmetry
 `choose(n,r)=choose(n,n-r)` for the local subtraction-free Pascal recursion;
 this permits switching between deficit and ordinary coefficient coordinates
-without importing a classical binomial library.  The bulk sign theorem and
-splice remain OPEN.
+without importing a classical binomial library.  `minimalScaled_bulk_recurrence`
+then performs the full one-scale splice exactly: it zero-extends the old row,
+proves degree elevation is Pascal convolution including both boundaries,
+extracts the first four signed coordinates, shows the appended terminal
+diagonal vanishes, identifies the appended off-cell by binomial symmetry, and
+leaves precisely `m(m+1)·throughThreeRemainder30`.  Since that remainder is
+already nonnegative on the proved range, OPEN is now the base/all-range bulk
+nonnegativity induction and its final specialization—not the recurrence or
+the boundary-band accounting.
 
 **Off-diagonal shell necessity (2026-07-12).**
 `FusedOffDiagonalCompression` strengthens the rank-one fence: any positive
@@ -4717,7 +4740,11 @@ weight from the first crossing through that node.  No sign is discarded and
 no pointwise carrier estimate is inserted.  Thus the remaining quantitative
 attack can work directly on positive cumulative weights in
 `signedChordNodeMoment`, then add the already-explicit terminal correction and
-compare with `signedChordMomentCap`.
+compare with `signedChordMomentCap`.  The first previously uncovered scale is
+now closed: at `k=4` the first-crossing condition forces `s=0`, an exact
+rational node-moment computation fits the symbolic cap, and the existing
+bridge yields `weightedTrapezoidResidual 4≤0`.  OPEN is the genuinely uniform
+positive-tail moment bound for `k≥5`, not the finite prefix through four.
 
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their
