@@ -747,6 +747,7 @@ import YMGap.Continuum.HarmonicWeightDriftFence
 import YMGap.Continuum.HarmonicDriftAntisymmetry
 import YMGap.Continuum.HarmonicK3Retune
 import YMGap.Continuum.ThreeAnchorWindowRetune
+import YMGap.Continuum.FourAnchorWindowRetune
 import YMGap.Continuum.ThetaResidualBernsteinPilot
 import YMGap.Continuum.ThetaResidualPascalTelescope
 import YMGap.Continuum.AllWindowHardyFence

@@ -173,6 +173,55 @@ theorem bernMon_weighted_midpoint_nonneg {D e a n : Nat}
   exact Q'.le_trans' _ _ _ (Q'.mul_nonneg _ _ hC hsq)
     (Q'.le_of_eqv (Q'.eqv_symm (bernMon_weighted_midpoint_square h t)))
 
+/-! ## Obstruction to a one-monomial Gosper reserve
+
+The endpoint values at `t=1` suggest the reserve
+
+  R_j = 4 j(j-1) M(D, 2j(j-1)-1).
+
+This puts `R_j` at the preceding half-edge exponent.  It cannot work:
+at local cell `n=2`, Bernstein coefficient `k=3`, the physical diagonal and
+off-diagonal terms have not started yet, but `R_2` contributes `8`.  Thus
+`diag_2-off_2-R_2+R_3` has coefficient exactly `-8`, for every degree `D>=3`.
+-/
+
+private def monoCoeff (D e k : Nat) : Int :=
+  if e ≤ k then Int.ofNat (PNPaths.choose (D - e) (k - e)) else 0
+
+private def diagCoeff (D n k : Nat) : Int :=
+  Int.ofNat (n * n) *
+    (monoCoeff D (2 * n * n - 2) k +
+      3 * monoCoeff D (2 * n * n - 1) k +
+      3 * monoCoeff D (2 * n * n) k +
+      monoCoeff D (2 * n * n + 1) k)
+
+private def offCoeff (D n k : Nat) : Int :=
+  Int.ofNat (8 * n * (n + 1)) *
+    monoCoeff D (2 * n * (n + 1) - 1) k
+
+/-- Coefficient of the natural preceding-edge monomial reserve. -/
+private def prevEdgeReserveCoeff (D j k : Nat) : Int :=
+  if j = 0 then 0 else
+    Int.ofNat (4 * j * (j - 1)) *
+      monoCoeff D (2 * j * (j - 1) - 1) k
+
+private def prevEdgeLocalCoeff (D n k : Nat) : Int :=
+  diagCoeff D n k - offCoeff D n k - prevEdgeReserveCoeff D n k +
+    prevEdgeReserveCoeff D (n + 1) k
+
+/-- **Uniform kernel refutation.**  The preceding-half-edge one-monomial
+Gosper family fails at the same coefficient for every cutoff degree. -/
+theorem prevEdge_one_monomial_obstructed (D : Nat) :
+    prevEdgeLocalCoeff D 2 3 = (-8 : Int) := by
+  simp [prevEdgeLocalCoeff, diagCoeff, offCoeff, prevEdgeReserveCoeff,
+    monoCoeff, PNPaths.choose]
+
+/-- Consequently that local remainder is not coefficientwise nonnegative. -/
+theorem prevEdge_one_monomial_not_nonnegative (D : Nat) :
+    ¬ ((0 : Int) ≤ prevEdgeLocalCoeff D 2 3) := by
+  rw [prevEdge_one_monomial_obstructed D]
+  decide
+
 end YMGap.Continuum.ThetaResidualPascalTelescope
 
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.bernMon_left_extract
@@ -180,3 +229,5 @@ end YMGap.Continuum.ThetaResidualPascalTelescope
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.bernMon_mid_extract
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.bernMon_weighted_midpoint_square
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.bernMon_weighted_midpoint_nonneg
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.prevEdge_one_monomial_obstructed
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.prevEdge_one_monomial_not_nonnegative

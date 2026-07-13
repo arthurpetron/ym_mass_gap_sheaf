@@ -41,7 +41,7 @@ open YMGap.Continuum.QuadraticCutoffSchedule
 
 local infix:50 " ≈ " => Q'.eqv
 
-private theorem mul_eqv_both {a a' b b' : Q'}
+theorem mul_eqv_both {a a' b b' : Q'}
     (ha : a ≈ a') (hb : b ≈ b') : a * b ≈ a' * b' :=
   Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ _ b ha)
     (Q'.mul_eqv_congr_left a' _ _ hb)
@@ -53,14 +53,14 @@ private def fourThirds : Q' := Q'.mkPos 4 3 (by decide)
 /-- The exact PF2 anchor ratio `c_3/c_2`. -/
 def tailRatio3 (w : Q') : Q' := fourThirds * qpow w 7
 
-private def retuneP : Poly :=
+def retuneP : Poly :=
   [Q'.mkPos 1 8 (by decide), Q'.mkPos 3 8 (by decide),
    Q'.mkPos 3 8 (by decide), Q'.mkPos 1 8 (by decide)]
 
-private def prefixAP (N : Nat) : Poly :=
+def prefixAP (N : Nat) : Poly :=
   fsumP (fun a => pmul (coeffPoly a) (coeffPoly (a + 1))) N
 
-private def prefixDP (N : Nat) : Poly :=
+def prefixDP (N : Nat) : Poly :=
   fsumP (fun a => pmul (coeffPoly a) (coeffPoly a)) (N + 1)
 
 private def headSlackP : Poly :=
@@ -73,11 +73,11 @@ private def ratio3P : Poly := monoP fourThirds 7
 private def ratioSlackP : Poly := psub retuneP ratio3P
 
 /-- Scale the variable of a coefficient-list polynomial. -/
-private def scaleVar (k : Q') : Poly → Poly
+def scaleVar (k : Q') : Poly → Poly
   | [] => []
   | a :: p => a :: pscale k (scaleVar k p)
 
-private theorem eval_scaleVar (k x : Q') : ∀ p : Poly,
+theorem eval_scaleVar (k x : Q') : ∀ p : Poly,
     eval (scaleVar k p) x ≈ eval p (k * x)
   | [] => Q'.eqv_refl 0
   | a :: p => by
@@ -93,7 +93,7 @@ private theorem eval_scaleVar (k x : Q') : ∀ p : Poly,
         (Q'.eqv_symm (Q'.mul_assoc_eqv x k (eval p (k * x)))) ?_
       exact Q'.mul_eqv_congr_right _ _ _ (Q'.mul_comm_eqv x k)
 
-private theorem eval_eqv_arg {x y : Q'} (hxy : x ≈ y) : ∀ p : Poly,
+theorem eval_eqv_arg {x y : Q'} (hxy : x ≈ y) : ∀ p : Poly,
     eval p x ≈ eval p y
   | [] => Q'.eqv_refl 0
   | a :: p => by
@@ -192,7 +192,7 @@ private theorem ratio_bernstein_identity :
     allZero (psub (scaleVar threeAnchorCap ratioSlackP)
       (bernTermsP 7 ratioBern)) := by decide
 
-private theorem prefixA_eval (w : Q') (N : Nat) :
+theorem prefixA_eval (w : Q') (N : Nat) :
     adjCorr w N ≈ eval (prefixAP N) w := by
   unfold adjCorr prefixAP
   exact fsum_eval
@@ -200,7 +200,7 @@ private theorem prefixA_eval (w : Q') (N : Nat) :
     (fun a => pmul (coeffPoly a) (coeffPoly (a + 1)))
     (fun a => hEvalMul (hcoeff w a) (hcoeff w (a + 1))) N
 
-private theorem prefixD_eval (w : Q') (N : Nat) :
+theorem prefixD_eval (w : Q') (N : Nat) :
     coordNormSq w N ≈ eval (prefixDP N) w := by
   unfold coordNormSq prefixDP
   exact fsum_eval
@@ -208,7 +208,7 @@ private theorem prefixD_eval (w : Q') (N : Nat) :
     (fun a => pmul (coeffPoly a) (coeffPoly a))
     (fun a => hEvalMul (hcoeff w a) (hcoeff w a)) (N + 1)
 
-private theorem retune_eval (w : Q') : retuneCube w ≈ eval retuneP w := by
+theorem retune_eval (w : Q') : retuneCube w ≈ eval retuneP w := by
   unfold retuneCube retuneBase retuneP
   change qpow (Q'.mkPos 1 2 (by decide) * ((1 : Q') + w)) 3 ≈ _
   have hpow : qpow (Q'.mkPos 1 2 (by decide) * ((1 : Q') + w)) 3 ≈
@@ -241,7 +241,7 @@ private theorem retune_eval (w : Q') : retuneCube w ≈ eval retuneP w := by
     [Q'.mkPos 1 8 (by decide), Q'.mkPos 3 8 (by decide),
      Q'.mkPos 3 8 (by decide), Q'.mkPos 1 8 (by decide)] w (by decide)
 
-private theorem slack_nonneg_to_bound (w : Q') (A D : Q')
+theorem slack_nonneg_to_bound (w : Q') (A D : Q')
     (pA pD slack : Poly)
     (hA : A ≈ eval pA w) (hD : D ≈ eval pD w)
     (hslackDef : slack = psub (pmul retuneP pD) pA)

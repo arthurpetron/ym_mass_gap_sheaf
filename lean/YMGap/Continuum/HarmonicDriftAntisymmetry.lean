@@ -24,6 +24,7 @@ open YMGap.Continuum.RGTransport
 open YMGap.Continuum.BondMovingStep
 open YMGap.Continuum.ArbitraryTruncationRetuneCorr
 open YMGap.Continuum.FusionQuotientCollapse
+open YMGap.Continuum.HeatKernelRGStep
 open YMGap.Continuum.HarmonicCutoffBoundary
 open YMGap.Continuum.HarmonicFusedSchurObstruction
 open YMGap.Continuum.HarmonicWeightDriftFence
@@ -222,6 +223,255 @@ theorem coefficient_two_pairwise_fails_k3_i0 :
     Q'.divPos Q'.recipPos qpow
   decide
 
+/-! ## Terminal-column control -/
+
+theorem harmW_mono_step (k : Nat) : harmW k ≤ harmW (k + 1) := by
+  have hu : harmU (k + 1) ≤ harmU k := by
+    unfold harmU
+    exact unit_antitone (by omega) (by omega) (by omega)
+  unfold harmW ReciprocalBernoulliUpper.oneSub
+  exact Q'.add_le_add_left (1 : Q') _ _ (Q'.neg_le_neg hu)
+
+theorem one_le_driftRatio (k : Nat) : (1 : Q') ≤ driftRatio k := by
+  have hmul : harmW k * (1 : Q') ≤ harmW k * driftRatio k := by
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (Q'.mul_one_eqv (harmW k)))
+      (Q'.le_trans' _ _ _ (harmW_mono_step k)
+        (Q'.le_of_eqv (harmW_step_eqv k)))
+  exact Q'.le_of_mul_le_mul_left hmul (harmW_pos k)
+
+private theorem one_le_qpow_local {q : Q'} (hq : (1 : Q') ≤ q) :
+    ∀ n, (1 : Q') ≤ qpow q n
+  | 0 => Q'.le_refl' 1
+  | n + 1 => by
+      have hq0 : (0 : Q') ≤ q := Q'.le_trans' _ _ _ (by decide) hq
+      have hi0 : (0 : Q') ≤ qpow q n := qpow_nonneg q hq0 n
+      have hs : qpow q n * (1 : Q') ≤ qpow q n * q :=
+        Q'.mul_le_mul_of_nonneg_left _ _ _ hq hi0
+      exact Q'.le_trans' _ _ _ (one_le_qpow_local hq n)
+        (Q'.le_trans' _ _ _
+          (Q'.le_of_eqv (Q'.eqv_symm (Q'.mul_one_eqv _))) hs)
+
+private theorem qpow_exp_mono_one_le {q : Q'} (hq : (1 : Q') ≤ q)
+    {a b : Nat} (hab : a ≤ b) : qpow q a ≤ qpow q b := by
+  obtain ⟨d, rfl⟩ := Nat.le.dest hab
+  have hq0 : (0 : Q') ≤ q := Q'.le_trans' _ _ _ (by decide) hq
+  have hp0 : (0 : Q') ≤ qpow q a := qpow_nonneg q hq0 a
+  have hone : (1 : Q') ≤ qpow q d := one_le_qpow_local hq d
+  have hs : qpow q a * (1 : Q') ≤ qpow q a * qpow q d :=
+    Q'.mul_le_mul_of_nonneg_left _ _ _ hone hp0
+  exact Q'.le_trans' _ _ _
+    (Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (Q'.eqv_symm (Q'.mul_one_eqv _))) hs)
+    (Q'.le_of_eqv (Q'.eqv_symm (qpow_add q a d)))
+
+private theorem c4_mono_local {i j : Nat} (h : i ≤ j) : c4 i ≤ c4 j := by
+  unfold c4
+  exact Nat.mul_le_mul h (by omega)
+
+private theorem driftAdjFactor_eq_pow (k i : Nat) :
+    driftAdjFactor k i ≈
+      qpow (driftRatio k) (c4 i + c4 (i + 1)) := by
+  unfold driftAdjFactor
+  exact Q'.eqv_symm (qpow_add (driftRatio k) (c4 i) (c4 (i + 1)))
+
+private theorem driftSqFactor_eq_pow (k i : Nat) :
+    driftSqFactor k i ≈ qpow (driftRatio k) (c4 i + c4 i) := by
+  unfold driftSqFactor
+  exact Q'.eqv_symm (qpow_add (driftRatio k) (c4 i) (c4 i))
+
+theorem driftAdjFactor_le_terminalSq {k i : Nat} (hi : i < Ncut k) :
+    driftAdjFactor k i ≤ driftSqFactor k (Ncut k) := by
+  have hiN : i ≤ Ncut k := Nat.le_of_lt hi
+  have hi1N : i + 1 ≤ Ncut k := hi
+  have he : c4 i + c4 (i + 1) ≤ c4 (Ncut k) + c4 (Ncut k) :=
+    Nat.add_le_add (c4_mono_local hiN) (c4_mono_local hi1N)
+  have hp := qpow_exp_mono_one_le (one_le_driftRatio k) he
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (driftAdjFactor_eq_pow k i))
+    (Q'.le_trans' _ _ _ hp (Q'.ge_of_eqv (driftSqFactor_eq_pow k (Ncut k))))
+
+theorem driftKernel_terminal_nonpos {k i : Nat} (hi : i < Ncut k) :
+    driftKernel k i (Ncut k) ≤ (0 : Q') := by
+  have hdiff : driftAdjFactor k i - driftSqFactor k (Ncut k) ≤ (0 : Q') :=
+    FusionCoreStepRoundE.q_add_neg_nonpos (driftAdjFactor_le_terminalSq hi)
+  have hcoef : (0 : Q') ≤ oldAdj k i * oldDiag k (Ncut k) := by
+    exact Q'.mul_nonneg _ _
+      (Q'.mul_nonneg _ _
+        (coeffW_nonneg (harmW_nonneg k) i)
+        (coeffW_nonneg (harmW_nonneg k) (i + 1)))
+      (Q'.mul_nonneg _ _
+        (coeffW_nonneg (harmW_nonneg k) (Ncut k))
+        (coeffW_nonneg (harmW_nonneg k) (Ncut k)))
+  unfold driftKernel
+  exact Q'.mul_nonpos_of_nonneg_nonpos hcoef hdiff
+
+private theorem fsum_nonpos_upto (f : Nat → Q') : ∀ n,
+    (∀ i, i < n → f i ≤ (0 : Q')) → fsum f n ≤ (0 : Q')
+  | 0, _ => Q'.le_refl' 0
+  | n + 1, hf => by
+      have hprev := fsum_nonpos_upto f n (fun i hi => hf i (by omega))
+      have h := Q'.add_le_add hprev (hf n (by omega))
+      exact Q'.le_trans' _ _ _ h (Q'.le_of_eqv (QPoly.q_zero_add_eqv 0))
+
+theorem driftBoundary_nonpos (k : Nat) : driftBoundary k ≤ (0 : Q') := by
+  unfold driftBoundary
+  exact fsum_nonpos_upto _ (Ncut k)
+    (fun i hi => driftKernel_terminal_nonpos hi)
+
+/-- The entire terminal column is favorable and may be discarded in an upper
+bound.  This is exact cutoff control, with no `+2/+4` leakage payment. -/
+theorem harmonicWeightCross_le_core (k : Nat) :
+    harmonicWeightCross k ≤ driftCore k := by
+  have hsum : driftCore k + driftBoundary k ≤ driftCore k + (0 : Q') :=
+    Q'.add_le_add_left (driftCore k) _ _ (driftBoundary_nonpos k)
+  exact Q'.le_trans' _ _ _
+    (Q'.le_of_eqv (harmonicWeightCross_eq_core_add_boundary k))
+    (Q'.le_trans' _ _ _ hsum (Q'.le_of_eqv (QPoly.q_add_zero_eqv _)))
+
+/-! ## The local geometric-midpoint identity and a reserve fence -/
+
+/-- Consecutive diagonal drift factors have the adjacent factor as their
+exact geometric midpoint. -/
+theorem driftAdjFactor_sq_eq_neighbors (k i : Nat) :
+    driftAdjFactor k i * driftAdjFactor k i ≈
+      driftSqFactor k i * driftSqFactor k (i + 1) := by
+  unfold driftAdjFactor driftSqFactor
+  ring_qeqv
+
+def driftPairBudget (k i j : Nat) : Q' :=
+  driftBudgetKernel k i j + driftBudgetKernel k j i
+
+def driftPairResidual (k i j : Nat) : Q' :=
+  driftPairKernel k i j - driftPairBudget k i j
+
+/-- A nearest-neighbor reserve transfer is not uniform.  At `k=8`, the
+positive diagonal excess at mode one and both ordered `(1,2)` cells still
+have positive total residual.  Any telescoping flux must reach beyond the
+adjacent band. -/
+theorem nearest_neighbor_reserve_fails_k8_i1 :
+    not (driftPairResidual 8 1 1 +
+        driftPairResidual 8 1 2 + driftPairResidual 8 2 1 ≤ (0 : Q')) := by
+  unfold driftPairResidual driftPairBudget driftPairKernel driftKernel
+    driftBudgetKernel twoInvSq oldAdj oldDiag driftAdjFactor driftSqFactor
+    driftRatio harmW harmU ReciprocalBernoulliUpper.oneSub unit invSqTerm
+    coeffW dimQ c4 Q'.divPos Q'.recipPos qpow
+  decide
+
+/-! ## Global reserve-transfer identity -/
+
+def driftPairBudgetSum (k : Nat) : Q' :=
+  fsum (fun i => fsum (fun j => driftPairBudget k i j) (Ncut k)) (Ncut k)
+
+def driftPairResidualSum (k : Nat) : Q' :=
+  fsum (fun i => fsum (fun j => driftPairResidual k i j) (Ncut k)) (Ncut k)
+
+def driftBudgetSum (k : Nat) : Q' :=
+  fsum (fun i => fsum (fun j => driftBudgetKernel k i j) (Ncut k)) (Ncut k)
+
+/-- Symmetrizing the oriented product budget exactly doubles its total. -/
+theorem driftPairBudgetSum_eq_twice (k : Nat) :
+    driftPairBudgetSum k ≈ driftBudgetSum k + driftBudgetSum k := by
+  have hswap := CubeRatioBounds.fsum_swap
+    (fun i j => driftBudgetKernel k i j) (Ncut k) (Ncut k)
+  unfold driftPairBudgetSum driftPairBudget driftBudgetSum
+  refine Q'.eqv_trans _ _ _ (Q'.eqv_symm
+    (rect_add_eq
+      (fun i j => driftBudgetKernel k i j)
+      (fun i j => driftBudgetKernel k j i) (Ncut k))) ?_
+  exact Q'.add_eqv_congr_left _ _ _ (Q'.eqv_symm hswap)
+
+/-- **Exact global reserve transfer.**  The unpaid coefficient-two core is
+the total symmetrized residual: every positive diagonal excess and every
+negative distinct-pair reserve occur in this one equality.  Together with
+`harmonicWeightCross_le_core`, proving this residual nonpositive is sufficient
+without paying the favorable terminal column. -/
+theorem core_twice_sub_pairBudget_eq_residual (k : Nat) :
+    (driftCore k + driftCore k) - driftPairBudgetSum k ≈
+      driftPairResidualSum k := by
+  have hpairs := driftCore_twice_eq_pairSum k
+  have hrect := rect_sub_eq
+    (fun i j => driftPairKernel k i j)
+    (fun i j => driftPairBudget k i j) (Ncut k) (Ncut k)
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr_right _ _ (-(driftPairBudgetSum k)) hpairs) ?_
+  unfold driftPairBudgetSum driftPairResidualSum driftPairResidual
+  exact hrect
+
+def oldDiagPrefix (k : Nat) : Q' := fsum (fun i => oldDiag k i) (Ncut k)
+
+def driftDiagPrefix (k : Nat) : Q' :=
+  fsum (fun j => oldDiag k j * driftSqFactor k j) (Ncut k)
+
+/-- The oriented coefficient-two budget is exactly the product of the two
+diagonal prefixes. -/
+theorem driftBudgetSum_eq_prefixProduct (k : Nat) :
+    driftBudgetSum k ≈
+      twoInvSq k * (oldDiagPrefix k * driftDiagPrefix k) := by
+  let H := fun i j => oldDiag k i * (oldDiag k j * driftSqFactor k j)
+  have hprod := FusionCoreStepRoundB.fsum_mul_fsum
+    (fun i => oldDiag k i)
+    (fun j => oldDiag k j * driftSqFactor k j) (Ncut k) (Ncut k)
+  have hscaled : twoInvSq k * (oldDiagPrefix k * driftDiagPrefix k) ≈
+      twoInvSq k * fsum (fun i => fsum (H i) (Ncut k)) (Ncut k) := by
+    exact Q'.mul_eqv_congr_left (twoInvSq k) _ _ (by
+      unfold oldDiagPrefix driftDiagPrefix H
+      exact hprod)
+  have hpull : twoInvSq k * fsum (fun i => fsum (H i) (Ncut k)) (Ncut k) ≈
+      fsum (fun i => fsum (fun j => twoInvSq k * H i j) (Ncut k))
+        (Ncut k) := by
+    refine Q'.eqv_trans _ _ _
+      (CubeRatioBounds.fsum_const_mul (twoInvSq k)
+        (fun i => fsum (H i) (Ncut k)) (Ncut k)) ?_
+    exact CubeRatioBounds.fsum_eqv_congr _ _ (fun i =>
+      CubeRatioBounds.fsum_const_mul (twoInvSq k) (H i) (Ncut k)) (Ncut k)
+  refine Q'.eqv_symm (Q'.eqv_trans _ _ _ hscaled ?_)
+  refine Q'.eqv_trans _ _ _ hpull ?_
+  unfold driftBudgetSum driftBudgetKernel H
+  exact Q'.eqv_refl _
+
+theorem driftBudgetSum_le_fullProduct (k : Nat) :
+    driftBudgetSum k ≤ twoInvSq k * (harmonicD k * harmonicMidD k) := by
+  have hOld0 : (0 : Q') ≤ oldDiagPrefix k := by
+    unfold oldDiagPrefix oldDiag
+    exact fsum_nonneg (fun i => Q'.mul_nonneg _ _
+      (coeffW_nonneg (harmW_nonneg k) i)
+      (coeffW_nonneg (harmW_nonneg k) i)) (Ncut k)
+  have hDrift0 : (0 : Q') ≤ driftDiagPrefix k := by
+    unfold driftDiagPrefix oldDiag driftSqFactor
+    exact fsum_nonneg (fun i => Q'.mul_nonneg _ _
+      (Q'.mul_nonneg _ _
+        (coeffW_nonneg (harmW_nonneg k) i)
+        (coeffW_nonneg (harmW_nonneg k) i))
+      (Q'.mul_nonneg _ _
+        (qpow_nonneg _ (Q'.le_of_lt (driftRatio_pos k)) _)
+        (qpow_nonneg _ (Q'.le_of_lt (driftRatio_pos k)) _))) (Ncut k)
+  have hOld : oldDiagPrefix k ≤ harmonicD k := by
+    unfold oldDiagPrefix harmonicD coordNormSq oldDiag
+    exact AFRateCalibration.fsum_le_of_le
+      (fun i => Q'.mul_nonneg _ _
+        (coeffW_nonneg (harmW_nonneg k) i)
+        (coeffW_nonneg (harmW_nonneg k) i)) (by omega)
+  have hDrift : driftDiagPrefix k ≤ harmonicMidD k := by
+    have hpre : driftDiagPrefix k ≤ harmonicDriftD k := by
+      unfold driftDiagPrefix harmonicDriftD oldDiag driftSqFactor
+      exact AFRateCalibration.fsum_le_of_le
+        (fun i => Q'.mul_nonneg _ _
+          (Q'.mul_nonneg _ _
+            (coeffW_nonneg (harmW_nonneg k) i)
+            (coeffW_nonneg (harmW_nonneg k) i))
+          (Q'.mul_nonneg _ _
+            (qpow_nonneg _ (Q'.le_of_lt (driftRatio_pos k)) _)
+            (qpow_nonneg _ (Q'.le_of_lt (driftRatio_pos k)) _))) (by omega)
+    exact Q'.le_trans' _ _ _ hpre
+      (Q'.le_of_eqv (Q'.eqv_symm (harmonicMidD_eq_driftSum k)))
+  have hprod : oldDiagPrefix k * driftDiagPrefix k ≤ harmonicD k * harmonicMidD k :=
+    Q'.mul_le_mul_of_nonneg hOld hDrift
+      (Q'.le_of_lt (harmonicD_pos k)) hDrift0
+  have hscale := Q'.mul_le_mul_of_nonneg_left _ _ (twoInvSq k) hprod (by
+    unfold twoInvSq
+    exact Q'.mul_nonneg _ _ (by decide) (invSqTerm_nonneg 2 (by decide) k))
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (driftBudgetSum_eq_prefixProduct k)) hscale
+
 end YMGap.Continuum.HarmonicDriftAntisymmetry
 
 #print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.harmonicWeightCross_eq_kernelSum
@@ -229,3 +479,15 @@ end YMGap.Continuum.HarmonicDriftAntisymmetry
 #print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.driftCore_twice_eq_pairSum
 #print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.driftPairKernel_eq_factored
 #print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.coefficient_two_pairwise_fails_k3_i0
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.harmW_mono_step
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.one_le_driftRatio
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.driftAdjFactor_le_terminalSq
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.driftKernel_terminal_nonpos
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.driftBoundary_nonpos
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.harmonicWeightCross_le_core
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.driftAdjFactor_sq_eq_neighbors
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.nearest_neighbor_reserve_fails_k8_i1
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.driftPairBudgetSum_eq_twice
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.core_twice_sub_pairBudget_eq_residual
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.driftBudgetSum_eq_prefixProduct
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.driftBudgetSum_le_fullProduct

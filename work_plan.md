@@ -4255,6 +4255,13 @@ at `k=4` and propagates through the quotient, `lamPW`, mass floor, and the
 Schur/operator spacing laws.  The exact prefix is now `k≤4`; the first
 residual scale is `k=5` (`w=6/7`).
 
+`FourAnchorWindowRetune` proves the next interval certificate
+`A₄≤retuneCube(w)·D₃` on `0≤w≤6/7` by exact degree-39 Bernstein data.  The
+derived ratio `(5/4)w^9` and PF2 control every remaining edge without cutoff
+enumeration.  Quotient, `lamPW`, mass-floor, Schur, and operator consequences
+close `k=5`, so the exact prefix is now `k≤5`; the first residual scale is
+`k=6` (`w=7/8`).
+
 **Cleared theta-polynomial audit (2026-07-12).**
 `ThetaResidualBernsteinPilot` gives exact positive Bernstein decompositions of
 the cleared retune residual at cutoffs one and two (degrees 11 and 23).  It also
@@ -4277,6 +4284,12 @@ monomial exactly and factors the weighted left/mid/right cell as
 nonnegativity for `t≥0`.  The actual theta cell is the specialization
 `e=2n²-2`, `a=2n+1`; OPEN is to allocate the retune prefactor's remaining
 Pascal reserve across these positive square atoms uniformly in the cutoff.
+
+The first natural Gosper ansatz is now excluded uniformly: the preceding-edge
+monomial reserve `R_j=4j(j-1)M(D,2j(j-1)-1)` leaves coefficient exactly `-8`
+at cell `n=2`, coefficient index `3`, for every degree `D`.  Any viable Pascal
+telescope must therefore use multiple monomials or transfer reserve across
+more than one neighboring cell.
 
 **Off-diagonal shell necessity (2026-07-12).**
 `FusedOffDiagonalCompression` strengthens the rank-one fence: any positive
@@ -4340,6 +4353,15 @@ twice the core as a symmetrized pair sum with a common coefficient factor.
 The most direct coefficient-two pairwise budget is itself kernel-refuted at
 `k=3,i=j=0`; OPEN is therefore an off-diagonal reserve transfer across
 distinct pairs, together with control of the terminal column.
+
+The terminal column is now proved termwise nonpositive from exact exponent
+monotonicity of the derived drift ratio, so it costs no leakage budget and the
+weight determinant is bounded by the square core alone.  The complete
+coefficient-two prefix budget is identified exactly with its normalizer
+product and bounded by the full old/intermediate product.  Subtracting that
+budget from twice the core is exactly the sum of pair residuals.  A further
+kernel fence shows that even nearest-neighbor reserve transfer fails at
+`k=8`; the remaining flux must be genuinely long-range across mode pairs.
 
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their
