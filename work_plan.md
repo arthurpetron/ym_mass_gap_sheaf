@@ -5219,17 +5219,17 @@ Yang--Mills input on this branch is consequently the uniform local anisotropy
 estimate for the physically selected approximating rotation; the transport
 from that estimate to exact continuum symmetry is closed.
 
-`O4RestorationZero` repairs a semantic overstatement in the earlier AF lane.
-The old internal predicate `O4RestorationAF.RotationRestored` is definitionally
-only the Cauchy property of the rotation-breaking coefficient; a closed
-constant-one schedule is now proved Cauchy but not vanishing, so Cauchy
-convergence cannot itself mean restoration.  The actual
-`ScalingDimensionDecay` hypothesis is strong enough: its geometric envelope,
-combined with the least-cutoff tail bound, proves the sharper
-`RotationBreakingVanishes` statement, convergence of the lifted coefficient
-sequence to `CReal.czero`, and `breakCoeffLimit ≃ czero`.  Downstream O(4)
-claims must consume this zero-limit result (and then the observable anisotropy
-bound), not bare coefficient Cauchy convergence.
+`O4RestorationH4` had already strengthened the earlier AF lane by proving the
+strict rational vanishing statement `breakCoeff_vanishes`; the older internal
+predicate `O4RestorationAF.RotationRestored` nevertheless remains
+definitionally only the Cauchy property of the rotation-breaking coefficient.
+`O4RestorationZero` makes that distinction independently kernel-checkable: a
+closed constant-one schedule is Cauchy but not vanishing, while the actual
+`ScalingDimensionDecay` hypothesis gives an explicit least-cutoff zero bound,
+convergence of the lifted coefficient sequence to `CReal.czero`, and the new
+identification `breakCoeffLimit ≃ czero`.  Downstream O(4) claims must consume
+one of the strict zero conclusions (and then the observable anisotropy bound),
+not bare coefficient Cauchy convergence.
 
 `O4ObservableSymmetryBridge` now performs that next consumption without an
 opaque limiting step.  A `DecayControlledSymmetryResponse` states the precise
@@ -5243,6 +5243,15 @@ reaches exact flip invariance through this coefficient-response route.  The
 remaining physical O(4) input is now the observable response inequality for
 the actual rotation action and Wilson functional; both scalar zero decay and
 the passage from that inequality to exact continuum invariance are proved.
+
+`ContinuumCertificateSharpO4` corrects the downstream packaging without
+changing any legacy or pinned type.  The old conditional
+`ContinuumYMGap.o4_restored` field is retained for compatibility but is only
+Cauchy data.  Its sharp successor carries `RotationBreakingVanishes` and
+`breakCoeffLimit ≃ CReal.czero`; a second package adds exact invariance for one
+explicitly supplied observable action and its `DecayControlledSymmetryResponse`.
+This package deliberately does not claim full O(4): construction of the
+physical action and the interacting response estimate remain the open input.
 
 ### Milestone 14.6 — Sharpness/satellite walls (feed, do not block)
 

@@ -521,6 +521,7 @@ import YMGap.Continuum.AFScaleCocycle
 import YMGap.Continuum.ContinuumYMStack
 import YMGap.Continuum.Nontriviality
 import YMGap.Continuum.ContinuumCertificate
+import YMGap.Continuum.ContinuumCertificateSharpO4
 import YMGap.Continuum.UniformCurvatureBound
 import YMGap.Continuum.SpacingUniformProgress
 import YMGap.Continuum.BakryEmeryGap
