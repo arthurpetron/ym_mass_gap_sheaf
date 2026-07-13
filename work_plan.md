@@ -4980,6 +4980,15 @@ finite-character harmonic model; the remaining cross-scale work is the
 spacing/mass recursion and, beyond it, identification of this constructed
 character model with the full four-dimensional interacting continuum tower.
 
+`HarmonicGNSMarginRecursion` carries that unconditional operator result through
+the physical spacing quotient: the located GNS gap margin divided by
+`harmonicSpacing` is definitionally the existing `harmonicTrueMargin`.  It then
+composes the exact scalar absorption and polymer-budget theorems directly from
+the original coefficient-two division-free cross determinant, with no new
+named residual and no free margin/operator pin.  Thus a proof of
+`harmonicMassCross k ≤ 2(k+2)^{-2}D_kD_{k+1}` for every `k` now reaches the
+actual GNS margin recursion and positive multiscale floor in one checked chain.
+
 ### Milestone 14.4 — Assemble `singleStep` and the continuum floor
 
 **Goal.** 14.2 + 14.3 inhabit `SingleStepDefectBoundLoose` →
