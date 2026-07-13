@@ -4335,6 +4335,14 @@ range and the target degree repairs the two exceptional deficits.  OPEN is a
 signed two-deficit boundary band plus a symbolic nonnegative bulk base, not a
 naive all-positive Pascal descent.
 
+The first signed boundary coordinate is now symbolic rather than scouted.
+`reverseTailCoeff_top_one` evaluates deficit one for every supported reverse
+tail by a closed integer polynomial; at the minimal start-one degree it is
+exactly `-2m(m+1)(2m-5)`, hence strictly negative for `m≥3`.  This permanently
+fences a nonnegative minimal base row.  OPEN is the analogous deficit-two
+formula, the nonnegative `r≥3` bulk base, and their signed propagation to the
+target degree.
+
 **Off-diagonal shell necessity (2026-07-12).**
 `FusedOffDiagonalCompression` strengthens the rank-one fence: any positive
 diagonal shell compression again forces equality of the consecutive fused
@@ -4435,6 +4443,15 @@ full-tail half-edge dominance
 `D_full·(2A_p+a_p)≤2A_full·D_p`.  Replacing the full tail by one cutoff step is
 kernel-refuted at `k=3,p=0`; the sole analytic residual is therefore a genuine
 quantitative future-tail theorem for the PF2 harmonic profile.
+
+A generic quotient mechanism now isolates that future-tail theorem further:
+monotonicity of the half-edge prefix quotients plus one terminal full-tail
+comparison implies every required prefix inequality.  The exact local
+cross-step sufficient condition is exposed separately.  Ordinary PF2/log
+concavity alone is kernel-refuted by an explicit three-term rational profile,
+so the harmonic instantiation must spend its stronger Casimir ratio drop and
+quadratic-cutoff boundary reserve.  OPEN is precisely those two derived
+harmonic inputs, not the finite quotient iteration or cross multiplication.
 
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their

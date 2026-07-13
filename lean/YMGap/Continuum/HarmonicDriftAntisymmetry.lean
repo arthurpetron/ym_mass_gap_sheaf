@@ -1153,6 +1153,158 @@ theorem trapezoidNode_finite_abel (k n : Nat) :
     (Q'.mul_eqv_congr_right _ _ (driftSqFactor k n)
       (abelPrefix_trapezoidNodeCoeff k n))
 
+/-! ## Generic half-edge PF2 profile theorem -/
+
+def profileD (c : Nat → Q') (p : Nat) : Q' :=
+  fsum (fun i => c i * c i) (p + 1)
+
+def profileA (c : Nat → Q') (p : Nat) : Q' :=
+  fsum (fun i => c i * c (i + 1)) p
+
+def halfEdgeNum (c : Nat → Q') (p : Nat) : Q' :=
+  profileA c p + profileA c p + c p * c (p + 1)
+
+private theorem cross_of_divPos_le_divPos (a b c d : Q')
+    (hb : (0 : Q') < b) (hd : (0 : Q') < d)
+    (h : Q'.divPos a b hb ≤ Q'.divPos c d hd) :
+    a * d ≤ c * b := by
+  have hscale0 : (0 : Q') ≤ b * d :=
+    Q'.mul_nonneg _ _ (Q'.le_of_lt hb) (Q'.le_of_lt hd)
+  have hm := Q'.mul_le_mul_of_nonneg_right _ _ (b * d) h hscale0
+  have hL : Q'.divPos a b hb * (b * d) ≈ a * d := by
+    unfold Q'.divPos
+    refine Q'.eqv_trans _ _ _ (Q'.mul_assoc_eqv a (Q'.recipPos b hb) (b * d)) ?_
+    have hinner : Q'.recipPos b hb * (b * d) ≈ d := by
+      have hrecip : Q'.recipPos b hb * b ≈ (1 : Q') := by
+        exact Q'.eqv_trans _ _ _ (Q'.mul_comm_eqv _ _)
+          (Q'.mul_recipPos_eqv b hb)
+      refine Q'.eqv_trans _ _ _
+        (Q'.eqv_symm (Q'.mul_assoc_eqv (Q'.recipPos b hb) b d)) ?_
+      refine Q'.eqv_trans _ _ _
+        (Q'.mul_eqv_congr_right (Q'.recipPos b hb * b) (1 : Q') d hrecip) ?_
+      exact Q'.one_mul_eqv d
+    exact Q'.mul_eqv_congr_left a _ _ hinner
+  have hR : Q'.divPos c d hd * (b * d) ≈ c * b := by
+    unfold Q'.divPos
+    refine Q'.eqv_trans _ _ _ (Q'.mul_assoc_eqv c (Q'.recipPos d hd) (b * d)) ?_
+    have hinner : Q'.recipPos d hd * (b * d) ≈ b := by
+      have hrecip : Q'.recipPos d hd * d ≈ (1 : Q') := by
+        exact Q'.eqv_trans _ _ _ (Q'.mul_comm_eqv _ _)
+          (Q'.mul_recipPos_eqv d hd)
+      refine Q'.eqv_trans _ _ _
+        (Q'.mul_eqv_congr_left (Q'.recipPos d hd) _ _
+          (Q'.mul_comm_eqv b d)) ?_
+      refine Q'.eqv_trans _ _ _
+        (Q'.eqv_symm (Q'.mul_assoc_eqv (Q'.recipPos d hd) d b)) ?_
+      refine Q'.eqv_trans _ _ _
+        (Q'.mul_eqv_congr_right (Q'.recipPos d hd * d) (1 : Q') b hrecip) ?_
+      exact Q'.one_mul_eqv b
+    exact Q'.mul_eqv_congr_left c _ _ hinner
+  exact Q'.le_trans' _ _ _ (Q'.ge_of_eqv hL)
+    (Q'.le_trans' _ _ _ hm (Q'.le_of_eqv hR))
+
+/-- A sharp generic finite-profile mechanism.  Shifted PF2 comparisons make
+the half-edge prefix quotients monotone; one complete-tail comparison at the
+last half-edge then dominates every prefix by the full adjacent quotient. -/
+theorem halfEdge_full_of_shiftedPF2 (c : Nat → Q') (L : Nat)
+    (hD : ∀ i, (0 : Q') < profileD c i)
+    (hstep : ∀ i, i < L →
+      halfEdgeNum c i * profileD c (i + 1) ≤
+        halfEdgeNum c (i + 1) * profileD c i)
+    (htail : halfEdgeNum c L * profileD c (L + 1) ≤
+      (profileA c (L + 1) + profileA c (L + 1)) * profileD c L)
+    {p : Nat} (hp : p ≤ L) :
+    profileD c (L + 1) * halfEdgeNum c p ≤
+      (profileA c (L + 1) + profileA c (L + 1)) * profileD c p := by
+  let R := fun i => Q'.divPos (halfEdgeNum c i) (profileD c i)
+    (hD i)
+  have hRstep : ∀ i, i < L → R i ≤ R (i + 1) := by
+    intro i hi
+    exact FusionMarginMono.divPos_le_divPos_of_cross
+      (halfEdgeNum c i) (profileD c i)
+      (halfEdgeNum c (i + 1)) (profileD c (i + 1))
+      (hD i) (hD (i + 1)) (hstep i hi)
+  have hreach : ∀ d, p + d ≤ L → R p ≤ R (p + d) := by
+    intro d hd
+    induction d with
+    | zero => exact Q'.le_refl' _
+    | succ d ih =>
+        exact Q'.le_trans' _ _ _ (ih (by omega))
+          (hRstep (p + d) (by omega))
+  have hpL : p + (L - p) = L := Nat.add_sub_of_le hp
+  have htoL : R p ≤ R L := by
+    rw [← hpL]
+    exact hreach (L - p) (by omega)
+  have htailR : R L ≤
+      Q'.divPos (profileA c (L + 1) + profileA c (L + 1))
+        (profileD c (L + 1)) (hD (L + 1)) := by
+    exact FusionMarginMono.divPos_le_divPos_of_cross
+      (halfEdgeNum c L) (profileD c L)
+      (profileA c (L + 1) + profileA c (L + 1)) (profileD c (L + 1))
+      (hD L) (hD (L + 1)) htail
+  have hquot := Q'.le_trans' _ _ _ htoL htailR
+  have hcross := cross_of_divPos_le_divPos
+    (halfEdgeNum c p) (profileD c p)
+    (profileA c (L + 1) + profileA c (L + 1)) (profileD c (L + 1))
+    (hD p) (hD (L + 1)) hquot
+  exact Q'.le_trans' _ _ _
+    (Q'.le_of_eqv (Q'.mul_comm_eqv _ _)) hcross
+
+/-- The cross-step is exactly a shifted local PF2 inequality after the common
+prefix product is restored on both sides. -/
+theorem halfEdge_step_of_shifted_local (c : Nat → Q') (i : Nat)
+    (hlocal :
+      halfEdgeNum c i * (c (i + 1) * c (i + 1)) ≤
+        profileD c i *
+          (c i * c (i + 1) + c (i + 1) * c (i + 2))) :
+    halfEdgeNum c i * profileD c (i + 1) ≤
+      halfEdgeNum c (i + 1) * profileD c i := by
+  have hadd := Q'.add_le_add_left
+    (halfEdgeNum c i * profileD c i) _ _ hlocal
+  have hL : halfEdgeNum c i * profileD c (i + 1) ≈
+      halfEdgeNum c i * profileD c i +
+        halfEdgeNum c i * (c (i + 1) * c (i + 1)) := by
+    unfold profileD
+    exact Q'.mul_add_eqv _ _ _
+  have hR : halfEdgeNum c (i + 1) * profileD c i ≈
+      halfEdgeNum c i * profileD c i +
+        profileD c i *
+          (c i * c (i + 1) + c (i + 1) * c (i + 2)) := by
+    unfold halfEdgeNum profileA
+    simp only [fsum_succ]
+    rw [show i + 1 + 1 = i + 2 by omega]
+    ring_qeqv
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hL)
+    (Q'.le_trans' _ _ _ hadd (Q'.ge_of_eqv hR))
+
+def pf2FenceCoeff : Nat → Q'
+  | 0 => 1
+  | 1 => Q'.mkPos 6 5 (by decide)
+  | 2 => Q'.mkPos 6 25 (by decide)
+  | _ => 0
+
+/-- Log-concavity/PF2 alone does not force half-edge quotient monotonicity. -/
+theorem pf2FenceCoeff_logConcave (i : Nat) :
+    pf2FenceCoeff i * pf2FenceCoeff (i + 2) ≤
+      pf2FenceCoeff (i + 1) * pf2FenceCoeff (i + 1) := by
+  cases i with
+  | zero => decide
+  | succ i =>
+      cases i with
+      | zero => decide
+      | succ i =>
+          cases i with
+          | zero => decide
+          | succ i =>
+              change (0 : Q') * 0 ≤ 0 * 0
+              decide
+
+theorem pf2Alone_halfEdgeStep_fails :
+    not (halfEdgeNum pf2FenceCoeff 0 * profileD pf2FenceCoeff 1 ≤
+      halfEdgeNum pf2FenceCoeff 1 * profileD pf2FenceCoeff 0) := by
+  unfold halfEdgeNum profileD profileA pf2FenceCoeff fsum
+  decide
+
 def driftSqExp (i : Nat) : Nat := c4 i + c4 i
 def driftAdjExp (i : Nat) : Nat := c4 i + c4 (i + 1)
 def driftHalfGap (i : Nat) : Nat := 2 * i + 3
@@ -1284,6 +1436,10 @@ end YMGap.Continuum.HarmonicDriftAntisymmetry
 #print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.trapezoidNodeCumulative_succ_eq
 #print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.abelPrefix_trapezoidNodeCoeff
 #print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.trapezoidNode_finite_abel
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.halfEdge_full_of_shiftedPF2
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.halfEdge_step_of_shifted_local
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.pf2FenceCoeff_logConcave
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.pf2Alone_halfEdgeStep_fails
 #print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.driftSqExp_add_halfGap
 #print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.driftAdjExp_add_halfGap
 #print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.driftAdjFactor_twice_le_neighbors
