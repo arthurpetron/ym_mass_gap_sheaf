@@ -37,7 +37,8 @@ local infix:50 " ≈ " => Q'.eqv
 private theorem neg_num_cast (a : Q') : (-a).num = -(a.num) := rfl
 
 local macro "ring_qeqv" : tactic =>
-  `(tactic| (show _ * (_ : Int) = _ * (_ : Int);
+  `(tactic| (try unfold Q'.sub;
+             show _ * (_ : Int) = _ * (_ : Int);
              simp only [Q'.add_num_cast, Q'.add_den_cast, Q'.mul_num_cast,
                Q'.mul_den_cast, Q'.neg_den, neg_num_cast, Int.add_mul, Int.mul_add,
                Int.neg_mul, Int.mul_neg, Int.neg_add, Int.neg_neg, Int.one_mul,
@@ -807,9 +808,9 @@ theorem harmonicWeightCross_le_twoInvSq_of_crossFlux (k : Nat)
 At this point the adjacent nodes `f_0,...,f_{p-1}` and diagonal nodes
 `g_0,...,g_p` have entered the interlaced exponent grid. -/
 def gNodeCumulative (k p : Nat) : Q' :=
-  harmonicD k * adjCorr (harmW k) p -
-    (harmonicA k + twoInvSq k * harmonicD k) *
-      coordNormSq (harmW k) p
+  harmonicD k * adjCorr (harmW k) p +
+    -((harmonicA k + twoInvSq k * harmonicD k) *
+      coordNormSq (harmW k) p)
 
 /-- Every diagonal-node cumulative has the favorable sign.  The proof is
 exact finite-cutoff quotient monotonicity; the coefficient-two term supplies
@@ -846,9 +847,9 @@ theorem gNodeCumulative_nonpos {k p : Nat} (hp : p ≤ Ncut k) :
 /-- Signed coefficient cumulative immediately after the intervening adjacent
 node `f_p` but before `g_{p+1}`. -/
 def fNodeCumulative (k p : Nat) : Q' :=
-  harmonicD k * adjCorr (harmW k) (p + 1) -
-    (harmonicA k + twoInvSq k * harmonicD k) *
-      coordNormSq (harmW k) p
+  harmonicD k * adjCorr (harmW k) (p + 1) +
+    -((harmonicA k + twoInvSq k * harmonicD k) *
+      coordNormSq (harmW k) p)
 
 /-- The intervening-node sign is not uniformly favorable: already `f_0` at
 `k=3` is positive.  A valid Abel proof must use the exact midpoint spacing
@@ -860,6 +861,121 @@ theorem fNodeCumulative_nonpos_fails_k3_p0 :
     harmW harmU ReciprocalBernoulliUpper.oneSub unit invSqTerm coeffW dimQ
     c4 qpow Ncut fsum
   decide
+
+/-! ## Trapezoid carrier at the favorable diagonal nodes -/
+
+/-- Cumulative coefficient obtained after replacing each intervening drift
+node by the arithmetic mean of its two neighboring diagonal nodes.  The
+boundary convention leaves the outgoing edge `p` visible. -/
+def trapezoidNodeCumulative (k p : Nat) : Q' :=
+  harmonicD k *
+      (adjCorr (harmW k) p + adjCorr (harmW k) p + oldAdj k p) +
+    -(((harmonicA k + twoInvSq k * harmonicD k) +
+        (harmonicA k + twoInvSq k * harmonicD k)) *
+      coordNormSq (harmW k) p)
+
+/-- The exact remaining midpoint excursion is one outgoing edge on top of
+twice the favorable `g`-node cumulative. -/
+theorem trapezoidNodeCumulative_eq_two_g_add_edge (k p : Nat) :
+    trapezoidNodeCumulative k p ≈
+      (gNodeCumulative k p + gNodeCumulative k p) +
+        harmonicD k * oldAdj k p := by
+  unfold trapezoidNodeCumulative gNodeCumulative
+  ring_qeqv
+
+/-- Consecutive favorable carriers differ by precisely the intervening edge
+coefficient and the newly entered diagonal coefficient. -/
+theorem gNodeCumulative_succ (k p : Nat) :
+    gNodeCumulative k (p + 1) ≈
+      (gNodeCumulative k p + harmonicD k * oldAdj k p) +
+        -((harmonicA k + twoInvSq k * harmonicD k) * oldDiag k (p + 1)) := by
+  have hA : adjCorr (harmW k) (p + 1) ≈
+      adjCorr (harmW k) p + oldAdj k p := by
+    unfold oldAdj
+    exact AllWindowCorrDirichlet.adjCorr_succ (harmW k) p
+  have hD : coordNormSq (harmW k) (p + 1) ≈
+      coordNormSq (harmW k) p + oldDiag k (p + 1) := by
+    unfold oldDiag
+    exact AllWindowCorrDirichlet.coordNormSq_succ (harmW k) p
+  have hrewrite : gNodeCumulative k (p + 1) ≈
+      harmonicD k * (adjCorr (harmW k) p + oldAdj k p) +
+        -((harmonicA k + twoInvSq k * harmonicD k) *
+          (coordNormSq (harmW k) p + oldDiag k (p + 1))) := by
+    unfold gNodeCumulative
+    exact Q'.add_eqv_congr'
+      (Q'.mul_eqv_congr_left (harmonicD k) _ _ hA)
+      (Q'.neg_eqv_congr _ _
+        (Q'.mul_eqv_congr_left
+          (harmonicA k + twoInvSq k * harmonicD k) _ _ hD))
+  refine Q'.eqv_trans _ _ _ hrewrite ?_
+  unfold gNodeCumulative
+  have hleft := Q'.mul_add_eqv (harmonicD k)
+    (adjCorr (harmW k) p) (oldAdj k p)
+  have hright :
+      -((harmonicA k + twoInvSq k * harmonicD k) *
+          (coordNormSq (harmW k) p + oldDiag k (p + 1))) ≈
+        -((harmonicA k + twoInvSq k * harmonicD k) *
+            coordNormSq (harmW k) p) +
+          -((harmonicA k + twoInvSq k * harmonicD k) *
+            oldDiag k (p + 1)) := by
+    refine Q'.eqv_trans _ _ _
+      (Q'.neg_eqv_congr _ _
+        (Q'.mul_add_eqv
+          (harmonicA k + twoInvSq k * harmonicD k)
+          (coordNormSq (harmW k) p) (oldDiag k (p + 1)))) ?_
+    exact Q'.neg_add_eqv_split _ _
+  refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr' hleft hright) ?_
+  ring_qeqv
+
+private theorem add_add_neg_cancel (a b c : Q') :
+    (a + ((a + b) + -c)) + c ≈ (a + a) + b := by
+  have hregroup : (a + ((a + b) + -c)) + c ≈
+      ((a + a) + b) + (-c + c) := by
+    ring_qeqv
+  have hcancel : -c + c ≈ (0 : Q') := by
+    exact Q'.eqv_trans _ _ _ (Q'.add_comm_eqv (-c) c)
+      (Q'.add_neg_self_eqv c)
+  refine Q'.eqv_trans _ _ _ hregroup ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr_left ((a + a) + b) _ _ hcancel) ?_
+  exact QPoly.q_add_zero_eqv _
+
+/-- Endpoint form of the same carrier: the midpoint edge has disappeared,
+leaving two neighboring favorable cumulatives and one shifted diagonal
+charge.  This is the exact quantitative strengthening needed beyond the
+individual signs `gNodeCumulative_nonpos`. -/
+theorem trapezoidNodeCumulative_eq_endpoints (k p : Nat) :
+    trapezoidNodeCumulative k p ≈
+      (gNodeCumulative k p + gNodeCumulative k (p + 1)) +
+        (harmonicA k + twoInvSq k * harmonicD k) * oldDiag k (p + 1) := by
+  refine Q'.eqv_trans _ _ _
+    (trapezoidNodeCumulative_eq_two_g_add_edge k p) ?_
+  have hs := gNodeCumulative_succ k p
+  apply Q'.eqv_symm
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr_right _ _
+      ((harmonicA k + twoInvSq k * harmonicD k) * oldDiag k (p + 1))
+      (Q'.add_eqv_congr_left (gNodeCumulative k p) _ _ hs)) ?_
+  exact add_add_neg_cancel
+    (gNodeCumulative k p) (harmonicD k * oldAdj k p)
+    ((harmonicA k + twoInvSq k * harmonicD k) * oldDiag k (p + 1))
+
+/-- A shifted diagonal charge bounded by the combined neighboring endpoint
+slack absorbs the entire midpoint excursion. -/
+theorem trapezoidNodeCumulative_nonpos_of_endpoint_slack (k p : Nat)
+    (hslack :
+      (harmonicA k + twoInvSq k * harmonicD k) * oldDiag k (p + 1) ≤
+        -(gNodeCumulative k p + gNodeCumulative k (p + 1))) :
+    trapezoidNodeCumulative k p ≤ (0 : Q') := by
+  have hadd := Q'.add_le_add_left
+    (gNodeCumulative k p + gNodeCumulative k (p + 1)) _ _ hslack
+  have hzero :
+      (gNodeCumulative k p + gNodeCumulative k (p + 1)) +
+          -(gNodeCumulative k p + gNodeCumulative k (p + 1)) ≈ (0 : Q') :=
+    Q'.add_neg_self_eqv _
+  exact Q'.le_trans' _ _ _
+    (Q'.le_of_eqv (trapezoidNodeCumulative_eq_endpoints k p))
+    (Q'.le_trans' _ _ _ hadd (Q'.le_of_eqv hzero))
 
 def driftSqExp (i : Nat) : Nat := c4 i + c4 i
 def driftAdjExp (i : Nat) : Nat := c4 i + c4 (i + 1)
@@ -878,6 +994,71 @@ theorem driftAdjExp_add_halfGap (i : Nat) :
   unfold driftSqExp driftAdjExp driftHalfGap
   rw [BondMovingScaledNorm.c4_succ]
   omega
+
+/-! ## Constructive midpoint interpolation -/
+
+def trapezoidDriftA (k : Nat) : Q' :=
+  fsum (fun i => oldAdj k i *
+    (driftSqFactor k i + driftSqFactor k (i + 1))) (Ncut k)
+
+/-- The exact geometric midpoint admits the sharp arithmetic interpolation
+`2F_i ≤ G_i+G_{i+1}`. -/
+theorem driftAdjFactor_twice_le_neighbors (k i : Nat) :
+    driftAdjFactor k i + driftAdjFactor k i ≤
+      driftSqFactor k i + driftSqFactor k (i + 1) := by
+  let x := qpow (driftRatio k) (c4 i)
+  let y := qpow (driftRatio k) (c4 (i + 1))
+  exact CRealAlg.amgm_two x y
+
+/-- **Global constructive midpoint interpolation.**  The whole new adjacent
+sum is bounded by the old edge weights against the trapezoidal average of the
+neighboring diagonal drift factors. -/
+theorem harmonicDriftA_twice_le_trapezoid (k : Nat) :
+    harmonicDriftA k + harmonicDriftA k ≤ trapezoidDriftA k := by
+  have hterm : ∀ i,
+      (oldAdj k i * driftAdjFactor k i) +
+          (oldAdj k i * driftAdjFactor k i) ≤
+        oldAdj k i * (driftSqFactor k i + driftSqFactor k (i + 1)) := by
+    intro i
+    have ha0 : (0 : Q') ≤ oldAdj k i := by
+      unfold oldAdj
+      exact Q'.mul_nonneg _ _
+        (coeffW_nonneg (harmW_nonneg k) i)
+        (coeffW_nonneg (harmW_nonneg k) (i + 1))
+    have hs := Q'.mul_le_mul_of_nonneg_left _ _ (oldAdj k i)
+      (driftAdjFactor_twice_le_neighbors k i) ha0
+    exact Q'.le_trans' _ _ _ (Q'.le_of_eqv
+      (Q'.eqv_symm (Q'.mul_add_eqv (oldAdj k i)
+        (driftAdjFactor k i) (driftAdjFactor k i)))) hs
+  have hsum := CubeRatioBounds.fsum_mono_lt (Ncut k)
+    (fun i _ => hterm i)
+  have hleft :
+      fsum (fun i =>
+        oldAdj k i * driftAdjFactor k i +
+          oldAdj k i * driftAdjFactor k i) (Ncut k) ≈
+        harmonicDriftA k + harmonicDriftA k := by
+    exact Q'.eqv_trans _ _ _
+      (CubeRatioBounds.fsum_add
+        (fun i => oldAdj k i * driftAdjFactor k i)
+        (fun i => oldAdj k i * driftAdjFactor k i) (Ncut k))
+      (by unfold harmonicDriftA oldAdj; exact Q'.eqv_refl _)
+  exact Q'.le_trans' _ _ _ (Q'.ge_of_eqv hleft) hsum
+
+/-- Pointwise trapezoid capacity is still too strong: at `k=3`, mode two
+cannot be paid solely by its own new diagonal node, even after the exact
+coefficient-two slack.  The valid midpoint proof must therefore sum the
+trapezoid coefficients cumulatively. -/
+theorem pointwise_trapezoid_capacity_fails_k3_i2 :
+    not (harmonicD 3 *
+        ((oldAdj 3 1 + oldAdj 3 2) * driftSqFactor 3 2) ≤
+      ((harmonicA 3 + twoInvSq 3 * harmonicD 3) +
+          (harmonicA 3 + twoInvSq 3 * harmonicD 3)) *
+        (oldDiag 3 2 * driftSqFactor 3 2)) := by
+  unfold harmonicD harmonicA oldAdj oldDiag driftSqFactor driftRatio
+    twoInvSq harmW harmU ReciprocalBernoulliUpper.oneSub
+    unit invSqTerm coordNormSq adjCorr coeffW dimQ c4 Q'.divPos Q'.recipPos qpow
+    Ncut fsum
+  decide
 
 end YMGap.Continuum.HarmonicDriftAntisymmetry
 
@@ -917,5 +1098,12 @@ end YMGap.Continuum.HarmonicDriftAntisymmetry
 #print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.harmonicWeightCross_le_twoInvSq_of_crossFlux
 #print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.gNodeCumulative_nonpos
 #print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.fNodeCumulative_nonpos_fails_k3_p0
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.trapezoidNodeCumulative_eq_two_g_add_edge
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.gNodeCumulative_succ
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.trapezoidNodeCumulative_eq_endpoints
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.trapezoidNodeCumulative_nonpos_of_endpoint_slack
 #print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.driftSqExp_add_halfGap
 #print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.driftAdjExp_add_halfGap
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.driftAdjFactor_twice_le_neighbors
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.harmonicDriftA_twice_le_trapezoid
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.pointwise_trapezoid_capacity_fails_k3_i2

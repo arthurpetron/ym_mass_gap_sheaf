@@ -4262,9 +4262,14 @@ derived ratio `(5/4)w^9` and PF2 control every remaining edge without cutoff
 enumeration.  Quotient, `lamPW`, mass-floor, Schur, and operator consequences
 close `k=5`, while the widened all-cutoff quotient and mass-floor consequences
 also close `k=6,7`.  Thus the exact correlation/mass prefix is now `k≤7`; the
-first correlation residual is `k=8` (`w=9/10`).  The Schur/operator prefix
-remains `k≤5`: direct closed-rational reduction of the `k=6,7` Schur statements
-is a compile bottleneck and is not counted as proved.
+first correlation residual is `k=8` (`w=9/10`).
+
+`HarmonicSchurRotationIdentity` removes the former `k=6,7` compilation
+bottleneck constructively.  The exact 3-4-5 rotation determinant and Schur
+quotient reduce both steps to small division-free D/A cross inequalities,
+which kernel-check directly and are transported back through positive
+normalizers and explicit spacing scalings.  The Schur/operator prefix now also
+reaches `k≤7`; its first residual is `k=8`.
 
 **Cleared theta-polynomial audit (2026-07-12).**
 `ThetaResidualBernsteinPilot` gives exact positive Bernstein decompositions of
@@ -4301,6 +4306,13 @@ weights cannot use cancellation: simultaneous reserve/local nonnegativity
 again forces both weights to zero, after which the actual cutoff-two cell has
 coefficient exactly `-80`.  The surviving Pascal route must use at least three
 shifts, cutoff-dependent support, or a genuinely multi-cell signed flux.
+
+The first genuine multi-cell mechanism is now exact: the reverse-tail top
+coefficient satisfies the symbolic recurrence
+`F(n,c+1)+8n=F(n+1,c)` and closes to
+`4·(2n(n+c)+c(c+1))≥0` under the natural degree-support bound.  This is
+uniform in the starting cell, tail length, and cutoff degree.  OPEN is to
+propagate this favorable top flux through every lower Bernstein coefficient.
 
 **Off-diagonal shell necessity (2026-07-12).**
 `FusedOffDiagonalCompression` strengthens the rank-one fence: any positive
@@ -4385,6 +4397,15 @@ can fail at the intervening adjacent node.  The exponent grid is exactly
 interlaced with equal half-gaps `2i+3`, so OPEN is an Abel/midpoint-convexity
 control of those intervening excursions between favorable diagonal
 boundaries—not another two-dimensional determinant estimate.
+
+The midpoint carrier is now quantitative: exact geometric interpolation gives
+`2F_i≤G_i+G_(i+1)` and lifts to a global trapezoid bound for the drifted
+adjacent sum.  Its cumulative node coefficient is exactly
+`2·g_p+D·oldAdj_p`, equivalently
+`g_p+g_(p+1)+(A+λD)·oldDiag_(p+1)`.  A pointwise node-capacity claim is
+kernel-refuted at `k=3`; the precise remaining estimate is the shifted
+endpoint slack
+`(A+λD)·oldDiag_(p+1)≤-(g_p+g_(p+1))`, followed by finite Abel assembly.
 
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their

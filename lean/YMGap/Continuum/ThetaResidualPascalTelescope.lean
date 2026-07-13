@@ -336,6 +336,129 @@ theorem shiftedTwo_signed_cutoff_two_obstructed (p q : Int) :
   rw [signed_local_two_top_zero] at h
   omega
 
+/-! ## Reverse-cumulative multi-cell flux at the top coefficient
+
+The failed fixed-shape reserves motivate using the actual reverse cumulative
+coefficient as the flux.  The top Bernstein coefficient is the first place
+where this multi-cell mechanism has a closed form: every transformed
+monomial contributes one.  A tail with `c` off-diagonal cells, beginning at
+cell `n`, therefore has value
+
+  4 (2 n (n+c) + c(c+1)).
+
+The formula is strictly cutoff-uniform and exposes the exact recurrence: the
+new left cell changes the reverse flux by `-8n`, while the positive terminal
+diagonal supplies the boundary value. -/
+
+private theorem choose_zero_of_lt : ∀ n k : Nat, n < k → PNPaths.choose n k = 0
+  | _, 0, h => by omega
+  | 0, _ + 1, _ => rfl
+  | n + 1, k + 1, h => by
+      simp only [PNPaths.choose]
+      rw [choose_zero_of_lt n k (by omega)]
+      rw [choose_zero_of_lt n (k + 1) (by omega)]
+
+private theorem choose_self : ∀ n : Nat, PNPaths.choose n n = 1
+  | 0 => rfl
+  | n + 1 => by
+      simp only [PNPaths.choose]
+      rw [choose_self n]
+      rw [choose_zero_of_lt n (n + 1) (by omega)]
+
+private theorem monoCoeff_top {D e : Nat} (h : e ≤ D) :
+    monoCoeff D e D = 1 := by
+  simp [monoCoeff, h, choose_self]
+
+private theorem diagCoeff_top {D n : Nat} (h : 2 * n * n + 1 ≤ D) :
+    diagCoeff D n D = Int.ofNat (n * n) * 8 := by
+  have h0 : 2 * n * n - 2 ≤ D := by omega
+  have h1 : 2 * n * n - 1 ≤ D := by omega
+  have h2 : 2 * n * n ≤ D := by omega
+  simp [diagCoeff, monoCoeff_top h0, monoCoeff_top h1,
+    monoCoeff_top h2, monoCoeff_top h]
+
+private theorem offCoeff_top {D n : Nat}
+    (h : 2 * n * (n + 1) - 1 ≤ D) :
+    offCoeff D n D = Int.ofNat (8 * n * (n + 1)) := by
+  simp [offCoeff, monoCoeff_top h]
+
+/-- Exact reverse-cumulative Bernstein coefficient: `c=0` is the terminal
+diagonal, and each successor prepends one diagonal-minus-off cell. -/
+def reverseTailCoeff (D n k : Nat) : Nat → Int
+  | 0 => diagCoeff D n k
+  | c + 1 =>
+      diagCoeff D n k - offCoeff D n k +
+        reverseTailCoeff D (n + 1) k c
+
+/-- Closed nonnegative numerator of the top reverse flux. -/
+def reverseTopFluxNat (n c : Nat) : Nat :=
+  4 * (2 * n * (n + c) + c * (c + 1))
+
+theorem reverseTopFluxNat_step (n c : Nat) :
+    reverseTopFluxNat n (c + 1) + 8 * n =
+      reverseTopFluxNat (n + 1) c := by
+  simp only [reverseTopFluxNat, Nat.mul_add, Nat.add_mul]
+  omega
+
+private theorem top_cell_drift (n : Nat) :
+    Int.ofNat (n * n) * 8 - Int.ofNat (8 * n * (n + 1)) =
+      -(8 * Int.ofNat n) := by
+  rw [Int.mul_comm 8 (Int.ofNat n)]
+  simp only [Int.ofNat_eq_natCast, Int.natCast_mul, Int.natCast_add,
+    Int.mul_add, Int.sub_eq_add_neg, Int.neg_add]
+  have h8 : ((8 : Nat) : Int) = (8 : Int) := rfl
+  rw [h8]
+  have hsq : (n : Int) * (n : Int) * 8 = 8 * (n : Int) * (n : Int) := by
+    ac_rfl
+  have hlin : 8 * (n : Int) * ((1 : Nat) : Int) = (n : Int) * 8 := by
+    change 8 * (n : Int) * 1 = (n : Int) * 8
+    ac_rfl
+  rw [hsq, hlin]
+  omega
+
+/-- The generic top-coefficient reverse flux is the stated positive natural
+number.  This is an exact multi-cell recurrence for arbitrary start cell and
+tail length, not a finite-cutoff computation. -/
+theorem reverseTailCoeff_top (D n c : Nat)
+    (hD : 2 * (n + c) * (n + c) + 1 ≤ D) :
+    reverseTailCoeff D n D c = Int.ofNat (reverseTopFluxNat n c) := by
+  induction c generalizing n with
+  | zero =>
+      rw [reverseTailCoeff]
+      rw [diagCoeff_top (by simpa using hD)]
+      simp [reverseTopFluxNat]
+      rw [show (8 : Int) = 4 * 2 by decide]
+      ac_rfl
+  | succ c ih =>
+      rw [reverseTailCoeff]
+      have hnle : n ≤ n + (c + 1) := by omega
+      have hn1le : n + 1 ≤ n + (c + 1) := by omega
+      have hsquare : n * n ≤ (n + (c + 1)) * (n + (c + 1)) :=
+        Nat.mul_le_mul hnle hnle
+      have hrect : n * (n + 1) ≤ (n + (c + 1)) * (n + (c + 1)) :=
+        Nat.mul_le_mul hnle hn1le
+      have hn : 2 * n * n + 1 ≤ D := by
+        simp only [Nat.mul_assoc] at hD ⊢
+        omega
+      have hoff : 2 * n * (n + 1) - 1 ≤ D := by
+        simp only [Nat.mul_assoc] at hD ⊢
+        omega
+      rw [diagCoeff_top hn, offCoeff_top hoff]
+      rw [top_cell_drift n]
+      rw [ih (n + 1) (by
+        simpa [Nat.add_assoc, Nat.add_left_comm, Nat.add_comm] using hD)]
+      have hstep := reverseTopFluxNat_step n c
+      have hstepI := congrArg Int.ofNat hstep
+      simp only [Int.ofNat_eq_natCast, Int.natCast_add, Int.natCast_mul]
+        at ⊢ hstepI
+      omega
+
+theorem reverseTailCoeff_top_nonnegative (D n c : Nat)
+    (hD : 2 * (n + c) * (n + c) + 1 ≤ D) :
+    (0 : Int) ≤ reverseTailCoeff D n D c := by
+  rw [reverseTailCoeff_top D n c hD]
+  exact Int.natCast_nonneg _
+
 end YMGap.Continuum.ThetaResidualPascalTelescope
 
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.bernMon_left_extract
@@ -349,3 +472,6 @@ end YMGap.Continuum.ThetaResidualPascalTelescope
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.shiftedTwo_local_five_of_first_zero
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.shiftedTwo_nonnegative_obstructed
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.shiftedTwo_signed_cutoff_two_obstructed
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.reverseTopFluxNat_step
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.reverseTailCoeff_top
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.reverseTailCoeff_top_nonnegative

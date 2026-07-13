@@ -28,6 +28,17 @@ open YMGap.Continuum.QuadraticCutoffSchedule
 
 local infix:50 " ≈ " => Q'.eqv
 
+private theorem neg_num_cast (a : Q') : (-a).num = -(a.num) := rfl
+
+local macro "ring_qeqv" : tactic =>
+  `(tactic| (show _ * (_ : Int) = _ * (_ : Int);
+             simp only [Q'.add_num_cast, Q'.add_den_cast, Q'.mul_num_cast,
+               Q'.mul_den_cast, Q'.mkPos_num, Q'.mkPos_den,
+               Q'.neg_den, neg_num_cast, Int.add_mul, Int.mul_add,
+               Int.neg_mul, Int.mul_neg, Int.neg_add, Int.neg_neg, Int.one_mul,
+               Int.mul_one];
+             ac_rfl))
+
 /-! ## 1. Positive diagonal compression is forced to ignore the shell -/
 
 /-- Convex diagonal compression of an old and a new eigenmode. -/
@@ -88,6 +99,56 @@ def rot11 (lamOld lamNew : Q') : Q' :=
 /-- The minimal off-diagonal shell coupling. -/
 def rot01 (lamOld lamNew : Q') : Q' :=
   (q35 * q45) * lamOld + -((q35 * q45) * lamNew)
+
+/-- The exact 3-4-5 rotation preserves the two-by-two determinant. -/
+theorem rotated_det (lamOld lamNew : Q') :
+    rot00 lamOld lamNew * rot11 lamOld lamNew +
+        -(rot01 lamOld lamNew * rot01 lamOld lamNew) ≈
+      lamOld * lamNew := by
+  let x2 := q35 * q35
+  let y2 := q45 * q45
+  let xy := q35 * q45
+  let Taa := (x2 * y2) * (lamOld * lamOld)
+  let Tbb := (x2 * y2) * (lamNew * lamNew)
+  let Txx := (x2 * x2) * (lamOld * lamNew)
+  let Tyy := (y2 * y2) * (lamOld * lamNew)
+  let Txy := (xy * xy) * (lamOld * lamNew)
+  let core := ((Txx + Tyy) + Txy) + Txy
+  have hexpand :
+      rot00 lamOld lamNew * rot11 lamOld lamNew +
+          -(rot01 lamOld lamNew * rot01 lamOld lamNew) ≈
+        ((Taa + (-Taa)) + (Tbb + (-Tbb))) + core := by
+    unfold rot00 rot11 rot01 core
+    unfold Taa Tbb Txx Tyy Txy x2 y2 xy
+    ring_qeqv
+  have hcancel :
+      ((Taa + (-Taa)) + (Tbb + (-Tbb))) + core ≈ core := by
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_right _ _ core
+        (Q'.add_eqv_congr'
+          (Q'.add_neg_self_eqv Taa) (Q'.add_neg_self_eqv Tbb))) ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_right _ _ core (QPoly.q_zero_add_eqv (0 : Q'))) ?_
+    exact QPoly.q_zero_add_eqv core
+  have hfactor :
+      core ≈
+        ((q35 * q35 + q45 * q45) * (q35 * q35 + q45 * q45)) *
+          (lamOld * lamNew) := by
+    unfold core
+    unfold Txx Tyy Txy x2 y2 xy
+    ring_qeqv
+  refine Q'.eqv_trans _ _ _ hexpand ?_
+  refine Q'.eqv_trans _ _ _ hcancel ?_
+  refine Q'.eqv_trans _ _ _ hfactor ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_right _ _ (lamOld * lamNew)
+      (Q'.mul_eqv_congr_right _ _ _ rotation_norm)) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_right _ _ (lamOld * lamNew)
+      (Q'.one_mul_eqv (q35 * q35 + q45 * q45))) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_right _ _ (lamOld * lamNew) rotation_norm) ?_
+  exact Q'.one_mul_eqv _
 
 /-- The rotated head entry is at most the old eigenvalue whenever the new
 eigenvalue is nonnegative and no larger than the old one. -/
@@ -204,6 +265,8 @@ theorem endpoint_coupled_shell_mode_zero :
   endpoint_rotated_shell_eigen_zero
 
 end YMGap.Continuum.FusedOffDiagonalCompression
+
+#print axioms YMGap.Continuum.FusedOffDiagonalCompression.rotated_det
 
 #print axioms YMGap.Continuum.FusedOffDiagonalCompression.positive_diagonal_compression_forces_eigen_eq
 #print axioms YMGap.Continuum.FusedOffDiagonalCompression.no_positive_endpoint_diagonal_compression
