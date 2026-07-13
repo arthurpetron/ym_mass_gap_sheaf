@@ -741,6 +741,9 @@ import YMGap.Continuum.HarmonicCutoffBoundary
 import YMGap.Continuum.HarmonicBulkThetaTail
 import YMGap.Continuum.TwoAnchorBlockCorrBound
 import YMGap.Continuum.HarmonicThetaRatioExtension
+import YMGap.Continuum.HarmonicGrowingAnchorPF2
+import YMGap.Continuum.HarmonicThetaRepresentation
+import YMGap.Continuum.HarmonicWeightDriftFence
 import YMGap.Continuum.AllWindowHardyFence
 import YMGap.Continuum.CorrectedCarrierOperatorBridge
 import YMGap.Continuum.FusedOperatorIntertwinerFence

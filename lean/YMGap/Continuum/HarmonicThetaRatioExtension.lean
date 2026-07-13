@@ -21,6 +21,7 @@ open YMGap.Continuum
 open YMGap.Continuum.RGTransport
 open YMGap.Continuum.BondMovingStep
 open YMGap.Continuum.ArbitraryTruncationRetuneCorr
+open YMGap.Continuum.AllWindowCorrDirichlet
 open YMGap.Continuum.QuadraticCutoffSchedule
 open YMGap.Continuum.HarmonicCutoffBoundary
 open YMGap.Continuum.HarmonicBulkThetaTail
@@ -304,6 +305,47 @@ theorem fixed_three_anchor_not_uniform : ¬ threeAnchorTailStep 18 := by
     coeffW dimQ c4 retuneCube retuneBase
   decide
 
+/-! ## Discrete Hardy/Poincare fences on the retained harmonic profile -/
+
+/-- The pointwise Rayleigh-density residual at the first edge of the first
+uncovered harmonic scale.  A purely pointwise localization would require this
+quantity to be nonpositive. -/
+def localRayleighResidualK3 : Q' :=
+  Q'.ofNat 2 * ((1 : Q') - retuneCube (harmW 3)) *
+      (coeffW (harmW 3) 0 * coeffW (harmW 3) 0) -
+    dirichletTerm (coeffW (harmW 3) 0) (coeffW (harmW 3) 1)
+
+/-- Exact positive failure `33839/62500` of pointwise Dirichlet-density
+domination at `k=3`, `a=0`. -/
+theorem localRayleighResidualK3_exact :
+    localRayleighResidualK3 ≈ Q'.mkPos 33839 62500 (by decide) := by
+  unfold localRayleighResidualK3 harmW harmU
+    ReciprocalBernoulliUpper.oneSub unit retuneCube retuneBase coeffW dimQ c4
+    dirichletTerm
+  decide
+
+theorem pointwise_harmonic_poincare_fails_k3 :
+    ¬ (Q'.ofNat 2 * ((1 : Q') - retuneCube (harmW 3)) *
+          (coeffW (harmW 3) 0 * coeffW (harmW 3) 0) ≤
+        dirichletTerm (coeffW (harmW 3) 0) (coeffW (harmW 3) 1)) := by
+  unfold harmW harmU ReciprocalBernoulliUpper.oneSub unit retuneCube retuneBase
+    coeffW dimQ c4 dirichletTerm
+  decide
+
+/-- The more serious endpoint-derived Hardy flux `K₀=0,K₁=1/4` also fails on
+the actual harmonic schedule, at `k=8` where `harmW 8=9/10`.  Thus the retained
+block cannot be closed by either pointwise density or a cutoff-independent
+endpoint flux; a successful Hardy weight must depend jointly on `k` and `a`. -/
+theorem endpoint_flux_harmonic_k8_fails :
+    ¬ (coeffW (harmW 8) 0 * coeffW (harmW 8) 1 ≤
+        retuneCube (harmW 8) *
+            (coeffW (harmW 8) 0 * coeffW (harmW 8) 0) +
+          Q'.mkPos 1 4 (by decide) *
+            (coeffW (harmW 8) 1 * coeffW (harmW 8) 1)) := by
+  unfold harmW harmU ReciprocalBernoulliUpper.oneSub unit retuneCube retuneBase
+    coeffW dimQ c4
+  decide
+
 /-- The exact two-anchor theorem closes the first three harmonic scales with
 no inverse-square defect: `harmW k ≤ 3/4` for `k≤2`. -/
 theorem first_three_scales_exact {k : Nat} (hk : k ≤ 2) (M : Nat) :
@@ -340,4 +382,7 @@ end YMGap.Continuum.HarmonicThetaRatioExtension
 #print axioms YMGap.Continuum.HarmonicThetaRatioExtension.threeAnchorTailStep_k3
 #print axioms YMGap.Continuum.HarmonicThetaRatioExtension.threeAnchorHead_k3
 #print axioms YMGap.Continuum.HarmonicThetaRatioExtension.fixed_three_anchor_not_uniform
+#print axioms YMGap.Continuum.HarmonicThetaRatioExtension.localRayleighResidualK3_exact
+#print axioms YMGap.Continuum.HarmonicThetaRatioExtension.pointwise_harmonic_poincare_fails_k3
+#print axioms YMGap.Continuum.HarmonicThetaRatioExtension.endpoint_flux_harmonic_k8_fails
 #print axioms YMGap.Continuum.HarmonicThetaRatioExtension.first_three_scales_exact

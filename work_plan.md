@@ -4194,6 +4194,36 @@ cutoffs with an explicit summable defect.  OPEN is now only the retained
 quadratic block for harmonic `k≥3`, rather than either infinite-tail control
 or small-scale correlation.
 
+**Growing PF2 localization and half-integer theta normal form (2026-07-12).**
+`HarmonicGrowingAnchorPF2` replaces the refuted fixed-anchor strategy by the
+derived scale-dependent anchor `S(k)=2(k+2)`, proves `S(k)≤Ncut(k)`, and shows
+every omitted coefficient ratio is at most the harmonic retune cube (in fact
+through an explicit `1/8` multiplier).  The uncontrolled correlation is now a
+linear-size retained head, not the quadratic cutoff.  Independently,
+`HarmonicThetaRepresentation` proves the exact finite identities
+`w² c_a²=(a+1)²(w²)^((a+1)²)` and
+`w c_a c_(a+1)=(a+1)(a+2)(w²)^((a+1)(a+2))`, including the summed residual
+comparison and a positive-cancellation theorem returning to the Rayleigh
+bound.  This turns the retained problem into a precise integer versus
+half-integer theta second-moment comparison, ready for a Jacobi/modular or
+finite summation attack.  OPEN is that retained-head comparison for all `k`.
+
+The Hardy audit also banks two fences: pointwise Dirichlet-density domination
+already fails at `k=3`, and the endpoint-derived cutoff-independent flux fails
+at `k=8`.  A successful Hardy proof must redistribute nonlocally with weights
+depending on both the scale and the site.
+
+**Exact harmonic weight drift and failed scalar targets (2026-07-12).**
+`HarmonicWeightDriftFence` proves the exact adjacent-scale identity
+`harmW(k+1)*((k+3)^2-1) ≃ harmW(k)*(k+3)^2`, then lifts it to exact
+per-character and coefficient-square drift through a derived `driftRatio`.
+It kernel-refutes inverse-square relative mass drift at the first two scales
+and unit-constant additive inverse-square drift at `k=2`; the coefficient-two
+additive target survives the first four closed transitions but is recorded
+only as scouting.  The all-scale operator attack must therefore exploit
+normalizer/numerator quotient cancellation (or prove a sharper additive
+coefficient-two law), not a summable relative bound on raw masses.
+
 **Off-diagonal shell necessity (2026-07-12).**
 `FusedOffDiagonalCompression` strengthens the rank-one fence: any positive
 diagonal shell compression again forces equality of the consecutive fused
