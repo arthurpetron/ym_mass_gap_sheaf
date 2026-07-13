@@ -4881,8 +4881,20 @@ the `s=0,1` caps.  A cleared normalized barrier
 `6 + 3/(2(k+2)) ≤ 864/125` implies each raw cap; exact certificates close both
 seeds at `k=5,6`.  A kernel fence shows the normalized `s=1` carrier increases
 from `k=5` to `k=6`, so naive antitonicity is false.  This lane now asks for the
-all-scale node-one boundary and preservation of the two cleared barrier
-certificates, not all possible crossings independently.
+all-scale first-crossing control and preservation of cleared barrier
+certificates, not all possible crossings independently.  The initially
+proposed fixed node-one version of that control is refuted below.
+
+`HarmonicQuadraticBoundaryAll` machine-refutes the fixed node-one premise at
+the first scouted bad scale `k=551`.  A 62-coordinate exact head, PF2 ratio
+transport, geometric far-tail bounds, and exact interval bounds on `D_551` and
+the mass prove
+`¬(0 ≤ T_551(Ncut 551-1)-T_551(1))`.  The file then proves the corrected
+first boundary at that same scale is exactly seed two,
+`0 ≤ T_551(Ncut 551-1)-T_551(2)`, via a separate positive slack certificate.
+Thus the two-fixed-seed reduction is permanently fenced; the live quadratic
+route must use the dynamically supplied first-crossing hypotheses (or prove a
+genuine all-scale bound on their index) and control its normalized carrier.
 
 `HarmonicSchurRotationAll` records the complete conditional payoff without
 hiding the moving-cutoff cost.  `UniformQuadraticNodeCap` implies the all-scale
