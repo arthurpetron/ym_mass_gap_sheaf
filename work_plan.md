@@ -4989,6 +4989,19 @@ named residual and no free margin/operator pin.  Thus a proof of
 `harmonicMassCross k ≤ 2(k+2)^{-2}D_kD_{k+1}` for every `k` now reaches the
 actual GNS margin recursion and positive multiscale floor in one checked chain.
 
+`HarmonicWilsonTransferBridge` identifies the exact normalization separating
+the existing Wilson correlator reconstruction from the finite character
+operator.  The raw reconstructed eigenvalue factors as Peter--Weyl dimension
+times character eigenvalue; cancelling that dimension by the exact rational
+`invSucc` factor yields an all-vector, all-coordinate finite-operator
+intertwining and transfers the unconditional harmonic located gap with margin
+definitionally `harmonicMass`.  Kernel-checked fences show the normalization is
+load-bearing: the raw head already exceeds the harmonic separator at `k=0`,
+and at `k=3` every nonempty raw reconstruction has no located spectral gap.
+This closes the finite Wilson-correlator/character normalization question but
+not the next boundary: `WilsonGNSData` still supplies no constructed transfer
+operator on its quotient, so that construction is now under direct attack.
+
 ### Milestone 14.4 — Assemble `singleStep` and the continuum floor
 
 **Goal.** 14.2 + 14.3 inhabit `SingleStepDefectBoundLoose` →
