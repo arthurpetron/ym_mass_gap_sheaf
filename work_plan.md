@@ -4369,6 +4369,22 @@ harmonic block-power estimate.  Thus the schedule's only remaining all-scale
 input is precisely the retained-head inequality; no tail-ratio hypothesis or
 per-anchor polynomial remains.
 
+`HarmonicVariableAnchorThetaBridge` now removes the last representation and
+cutoff mismatch around that input.  It proves exactly that
+`w·halfThetaSum w (b+1) ≤ R·integerThetaSum w b` implies the required
+retained-head correlation inequality with adjacent cutoff `b+1` and diagonal
+cutoff `b`.  At `b=growingAnchor k`, the already-proved PF2 engine then
+propagates to every later cutoff; for `k≥1` a constructive arithmetic lemma
+places `b+1` inside `Ncut k` and the bridge specializes directly to the
+physical quadratic cutoff.  Consequently the sole all-scale scalar residual
+is now the explicit theta inequality
+`harmW k·halfThetaSum (harmW k) (growingAnchor k+1) ≤
+retuneCube (harmW k)·integerThetaSum (harmW k) (growingAnchor k)`; proving
+this for `k≥1` closes the variable-anchor retune theorem at `Ncut k`, the
+normalized fundamental `lamPW` bound, and the rational `harmonicMass` floor
+used by the coupled-shell spacing construction, without any further interface
+hypothesis.
+
 `HarmonicFixedTwelvePrefix` instantiates that symbolic interface at `b=11`.
 It closes retune, `lamPW`, and mass floors for `k=34,35,36,37,38`, then proves
 that at `k=39` the retained head fails while the exact scalar tail cross still
@@ -4495,6 +4511,11 @@ cleared signed elevation remainder nonnegative for every
 `m≥2`, `4≤r≤4m+2`.  OPEN is now the genuinely new next layer: prove the
 minimal reverse-suffix bulk coefficients from deficit four onward and splice
 that bulk induction to this closed four-coordinate signed boundary band.
+The bulk lane now also has a constructive proof of the symmetry
+`choose(n,r)=choose(n,n-r)` for the local subtraction-free Pascal recursion;
+this permits switching between deficit and ordinary coefficient coordinates
+without importing a classical binomial library.  The bulk sign theorem and
+splice remain OPEN.
 
 **Off-diagonal shell necessity (2026-07-12).**
 `FusedOffDiagonalCompression` strengthens the rank-one fence: any positive
@@ -4688,6 +4709,15 @@ positive-tail moment inequality
 for every admissible first crossing (`k≥4` suffices after the exact anchors).
 This is an upper bound on an explicit rational sum, not a carrier-sign or
 downstream reserve hypothesis.
+
+The positive-tail sum now has a lossless triangular moment form.
+`signedChordSum_eq_nodeMoment` performs the finite Fubini/telescope exactly:
+each trapezoid-node increment is multiplied by the cumulative harmonic chord
+weight from the first crossing through that node.  No sign is discarded and
+no pointwise carrier estimate is inserted.  Thus the remaining quantitative
+attack can work directly on positive cumulative weights in
+`signedChordNodeMoment`, then add the already-explicit terminal correction and
+compare with `signedChordMomentCap`.
 
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their

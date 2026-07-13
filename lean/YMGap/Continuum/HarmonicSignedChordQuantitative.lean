@@ -279,6 +279,162 @@ theorem signedChordMomentCap_le_target (k : Nat) (hk : 1 ≤ k) :
   unfold signedChordMomentCap
   exact Q'.le_trans' _ _ _ hadd (Q'.le_of_eqv htarget)
 
+/-! ## Lossless positive-tail moment form -/
+
+def intervalSum (f : Nat → Q') (s n : Nat) : Q' :=
+  fsum (fun j => f (s + j)) n
+
+def harmonicChordWeight (k p : Nat) : Q' :=
+  driftSqFactor k p *
+    (unit (driftDen k) (driftDen_pos k) *
+      (Q'.ofNat ((4 * p + 5) + 1) *
+        ((1 : Q') + qpow (driftRatio k) (4 * p + 5))))
+
+def signedChordNodeMoment (k s n : Nat) : Q' :=
+  fsum (fun j =>
+    trapezoidNodeCoeff k (s + j + 1) *
+      intervalSum (harmonicChordWeight k) s (j + 1)) n
+
+private theorem fsum_mask_ge_eq_interval (f : Nat → Q') (s : Nat) : ∀ L,
+    fsum (fun p => if s ≤ p then f p else (0 : Q')) L =
+      intervalSum f s (L - s)
+  | 0 => by
+      simp [intervalSum, fsum]
+  | L + 1 => by
+      rw [fsum_succ, fsum_mask_ge_eq_interval f s L]
+      by_cases hsL : s ≤ L
+      · rw [if_pos hsL]
+        have hsub : L + 1 - s = (L - s) + 1 := by omega
+        rw [hsub]
+        simp only [intervalSum, fsum_succ]
+        have hi : s + (L - s) = L := by omega
+        rw [hi]
+      · rw [if_neg hsL]
+        have hz : L - s = 0 := by omega
+        have hz' : L + 1 - s = 0 := by omega
+        simp only [hz, hz', intervalSum, fsum_zero, Q'.zero_add']
+
+private theorem terminal_gap_weight_fubini
+    (T q W : Nat → Q')
+    (hstep : ∀ i, T (i + 1) ≈ T i + q (i + 1))
+    (s : Nat) : ∀ n,
+    intervalSum (fun p => (T (s + n) + -(T p)) * W p) s n ≈
+      fsum (fun j => q (s + j + 1) * intervalSum W s (j + 1)) n
+  | 0 => by
+      exact Q'.eqv_refl _
+  | n + 1 => by
+      let L := s + n
+      let qn := q (L + 1)
+      let old := fun p => (T L + -(T p)) * W p
+      let add := fun p => qn * W p
+      have hterm : ∀ j,
+          (T (s + (n + 1)) + -(T (s + j))) * W (s + j) ≈
+            old (s + j) + add (s + j) := by
+        intro j
+        have hsuc : s + (n + 1) = L + 1 := by
+          unfold L
+          omega
+        rw [hsuc]
+        have hg : T (L + 1) + -(T (s + j)) ≈
+            (T L + -(T (s + j))) + qn := by
+          refine Q'.eqv_trans _ _ _
+            (Q'.add_eqv_congr_right _ _ _ (hstep L)) ?_
+          unfold qn
+          ring_qeqv
+        refine Q'.eqv_trans _ _ _
+          (Q'.mul_eqv_congr_right _ _ _ hg) ?_
+        unfold old add
+        exact Q'.add_mul_eqv _ _ _
+      have hfirst :
+          intervalSum
+              (fun p => (T (s + (n + 1)) + -(T p)) * W p) s n ≈
+            intervalSum (fun p => old p + add p) s n := by
+        unfold intervalSum
+        exact CubeRatioBounds.fsum_eqv_congr _ _ hterm n
+      have hsplit : intervalSum (fun p => old p + add p) s n ≈
+          intervalSum old s n + intervalSum add s n := by
+        unfold intervalSum
+        exact CubeRatioBounds.fsum_add
+          (fun j => old (s + j)) (fun j => add (s + j)) n
+      have haddsum : intervalSum add s n ≈
+          qn * intervalSum W s n := by
+        unfold intervalSum add
+        exact Q'.eqv_symm
+          (CubeRatioBounds.fsum_const_mul qn (fun j => W (s + j)) n)
+      have hlastgap : T (s + (n + 1)) + -(T (s + n)) ≈ qn := by
+        have hsuc : s + (n + 1) = L + 1 := by
+          unfold L
+          omega
+        have hbase : s + n = L := rfl
+        rw [hsuc, hbase]
+        refine Q'.eqv_trans _ _ _
+          (Q'.add_eqv_congr_right _ _ _ (hstep L)) ?_
+        unfold qn
+        have hc : T L + -(T L) ≈ (0 : Q') := Q'.add_neg_self_eqv _
+        refine Q'.eqv_trans _ ((T L + -(T L)) + q (L + 1)) _
+          (by ring_qeqv) ?_
+        refine Q'.eqv_trans _ ((0 : Q') + q (L + 1)) _
+          (Q'.add_eqv_congr_right _ _ _ hc) ?_
+        exact q_zero_add_eqv _
+      have hlast :
+          (T (s + (n + 1)) + -(T (s + n))) * W (s + n) ≈
+            qn * W (s + n) :=
+        Q'.mul_eqv_congr_right _ _ _ hlastgap
+      have ih := terminal_gap_weight_fubini T q W hstep s n
+      have hprefixSucc : intervalSum W s (n + 1) =
+          intervalSum W s n + W (s + n) := by
+        rfl
+      rw [show
+        intervalSum
+            (fun p => (T (s + (n + 1)) + -(T p)) * W p) s (n + 1) =
+          intervalSum
+              (fun p => (T (s + (n + 1)) + -(T p)) * W p) s n +
+            (T (s + (n + 1)) + -(T (s + n))) * W (s + n) by rfl]
+      rw [fsum_succ]
+      refine Q'.eqv_trans _
+        (intervalSum (fun p => old p + add p) s n +
+          qn * W (s + n)) _
+        (Q'.add_eqv_congr' hfirst hlast) ?_
+      refine Q'.eqv_trans _
+        ((intervalSum old s n + intervalSum add s n) +
+          qn * W (s + n)) _
+        (Q'.add_eqv_congr_right _ _ _ hsplit) ?_
+      refine Q'.eqv_trans _
+        ((intervalSum old s n + qn * intervalSum W s n) +
+          qn * W (s + n)) _
+        (Q'.add_eqv_congr_right _ _ _
+          (Q'.add_eqv_congr_left _ _ _ haddsum)) ?_
+      refine Q'.eqv_trans _
+        (intervalSum old s n +
+          qn * intervalSum W s (n + 1)) _ (by
+            rw [hprefixSucc]
+            exact Q'.eqv_trans _ _ _ (Q'.add_assoc_eqv _ _ _)
+              (Q'.add_eqv_congr_left _ _ _
+                (Q'.eqv_symm (Q'.mul_add_eqv _ _ _)))) ?_
+      refine Q'.add_eqv_congr' ?_ (Q'.eqv_refl _)
+      unfold old
+      simpa using ih
+
+/-- Exact triangular Fubini form of the signed chord.  It retains the global
+normalization cancellation: node increments are paired with cumulative chord
+weights, with no pointwise carrier or reserve hypothesis. -/
+theorem signedChordSum_eq_nodeMoment (k L s : Nat) (hsL : s ≤ L) :
+    signedChordSum k L s ≈ signedChordNodeMoment k s (L - s) := by
+  let T := trapezoidNodeCumulative k
+  let q := trapezoidNodeCoeff k
+  let W := harmonicChordWeight k
+  have hmask : signedChordSum k L s =
+      intervalSum (fun p => (T L + -(T p)) * W p) s (L - s) := by
+    unfold signedChordSum signedChordCell compensatedChordCell
+    unfold T W harmonicChordWeight
+    exact fsum_mask_ge_eq_interval _ s L
+  have hSL : s + (L - s) = L := by omega
+  have hf := terminal_gap_weight_fubini T q W
+    (fun i => trapezoidNodeCumulative_succ_eq k i) s (L - s)
+  rw [hSL] at hf
+  rw [hmask]
+  exact hf
+
 /-- The all-scale symmetric signed-chord budget is genuinely false at the
 base scale.  This is why the exact theorem `compensated_reserve_k0`, rather
 than the chord envelope, must start the induction. -/
@@ -437,6 +593,7 @@ theorem weightedTrapezoidResidual_nonpos_k3 :
     signedChord_twentyFourTwentyFive_k3
 
 #print axioms signedChord_twentyFourTwentyFive_fails_k0
+#print axioms signedChordSum_eq_nodeMoment
 #print axioms terminalCoefficientTwoFloor_le_terminalReserve
 #print axioms nine_harmonicD_le_ten_terminalDiagonalPrefix
 #print axioms signedChordMomentCore_le_terminalCoefficientTwoFloor

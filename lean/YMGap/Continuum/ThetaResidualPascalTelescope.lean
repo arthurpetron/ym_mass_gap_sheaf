@@ -3627,6 +3627,38 @@ theorem throughThreeRemainder30_nonnegative (m r : Nat)
       rw [hsplit]
       exact Int.add_nonneg hoff0 hband0
 
+/-! ## Minimal reverse-suffix bulk from deficit four onward -/
+
+/-- Symmetry of the local Pascal coefficient.  The proof is internal to the
+same subtraction-free recursion used by `PNPaths.choose`. -/
+private theorem choose_symm : ∀ n k : Nat, k ≤ n →
+    PNPaths.choose n k = PNPaths.choose n (n-k)
+  | 0, 0, _ => rfl
+  | 0, _+1, h => by omega
+  | n+1, 0, _ => by
+      rw [choose_zero]
+      have hs : n+1-0=n+1 := by omega
+      rw [hs,choose_self]
+  | n+1, k+1, h => by
+      by_cases heq : k=n
+      · subst n
+        rw [choose_self]
+        have hs : k+1-(k+1)=0 := by omega
+        rw [hs,choose_zero]
+      · have hk : k<n := by omega
+        have hk1 : k+1≤n := by omega
+        have hs : n+1-(k+1)=n-k := by omega
+        have hspos : 0<n-k := by omega
+        have hsucc : n-k=(n-k-1)+1 := by omega
+        rw [hs,hsucc,PNPaths.choose,PNPaths.choose]
+        have h0 := choose_symm n k (by omega)
+        have h1 := choose_symm n (k+1) hk1
+        have harg : n-(k+1)=n-k-1 := by omega
+        rw [harg] at h1
+        rw [h0,h1]
+        rw [← hsucc]
+        exact Nat.add_comm _ _
+
 end YMGap.Continuum.ThetaResidualPascalTelescope
 
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.bernMon_left_extract
