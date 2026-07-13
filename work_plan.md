@@ -4283,6 +4283,14 @@ shell/spacing stages, and applies the generic Schur bridge.  Hence the
 Schur/operator prefix now also reaches `k≤9`, and its first residual agrees
 with the correlation residual at `k=10`.
 
+`SixAnchorWindowRetune` extends the same all-cutoff mechanism to
+`0≤w≤13/14`.  Its exact degree-83 six-anchor head, four exact short-window
+certificates, and tail ratio `(7/6)w^13` close the PF2 tail without cutoff
+enumeration.  The quotient, `lamPW`, and harmonic mass-floor prefix therefore
+reach `k≤12`; the first correlation residual is `k=13` (`w=14/15`).  The
+Schur/operator prefix remains `k≤9` pending the corresponding three exact D/A
+cross transports.
+
 **Cleared theta-polynomial audit (2026-07-12).**
 `ThetaResidualBernsteinPilot` gives exact positive Bernstein decompositions of
 the cleared retune residual at cutoffs one and two (degrees 11 and 23).  It also
