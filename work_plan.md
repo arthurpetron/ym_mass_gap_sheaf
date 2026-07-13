@@ -4907,6 +4907,19 @@ is at most the magnitude of that coefficient.  The active quadratic proof now
 feeds this local overshoot payment into the positive-tail moment directly,
 with no fixed-seed premise remaining.
 
+`HarmonicDynamicQuadraticCarrier` carries out that substitution losslessly at
+first: every later terminal gap is the exact crossing overshoot minus the
+intervening node-coefficient window, and the crossing amplitude plus centered
+window are exposed inside the quadratic carrier.  It also identifies a genuine
+dynamic first crossing at `k=17,s=1` by exact bounds on `D₁₇`, the mass, and
+`A₁₇`: node zero fails while node one is nonnegative.  At this actual crossing,
+the commonly proposed retune-local diagonal replacement is now
+machine-refuted.  Even after centered edge/diagonal cancellation, the
+admissible cell `p=10` exceeds the entire normalized barrier, proving the
+resulting residual is neither nonpositive nor summably absorbable.  The live
+dynamic route must retain the exact `A_k/D_k` crossing amplitude in the
+centered cancellation; no local-diagonal upper substitution is admissible.
+
 `HarmonicSchurRotationAll` records the complete conditional payoff without
 hiding the moving-cutoff cost.  `UniformQuadraticNodeCap` implies the all-scale
 weighted residual and the coefficient-two fixed-cutoff weight determinant.
