@@ -696,6 +696,255 @@ theorem compensatedAbelDefect_twice_le_chord (k L : Nat)
 
 #print axioms compensatedAbelDefect_twice_le_chord
 
+/-! ## One-crossing terminal-carrier engine -/
+
+private theorem carrier_le_start_of_nonpos_steps
+    (T q : Nat → Q') (hstep : ∀ i, T (i + 1) ≈ T i + q (i + 1)) :
+    ∀ p, (∀ i, i < p → q (i + 1) ≤ (0 : Q')) → T p ≤ T 0
+  | 0, _ => Q'.le_refl' _
+  | p + 1, hq => by
+      have ih := carrier_le_start_of_nonpos_steps T q hstep p
+        (fun i hi => hq i (by omega))
+      have hlast : T (p + 1) ≤ T p := by
+        have ha := Q'.add_le_add_left (T p) (q (p + 1)) (0 : Q')
+          (hq p (by omega))
+        exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (hstep p))
+          (Q'.le_trans' _ _ _ ha (Q'.le_of_eqv (q_add_zero_eqv _)))
+      exact Q'.le_trans' _ _ _ hlast ih
+
+private theorem carrier_tail_mono_of_nonneg_steps
+    (T q : Nat → Q') (hstep : ∀ i, T (i + 1) ≈ T i + q (i + 1))
+    (p : Nat) : ∀ L, p ≤ L →
+      (∀ i, p < i → i ≤ L → (0 : Q') ≤ q i) → T p ≤ T L
+  | 0, hp, _ => by
+      have : p = 0 := by omega
+      subst p
+      exact Q'.le_refl' _
+  | L + 1, hp, hq => by
+      by_cases heq : p = L + 1
+      · subst p
+        exact Q'.le_refl' _
+      · have hpL : p ≤ L := by omega
+        have ih := carrier_tail_mono_of_nonneg_steps T q hstep p L hpL
+          (fun i hpi hiL => hq i hpi (by omega))
+        have hlast : T L ≤ T (L + 1) := by
+          have ha := Q'.add_le_self_of_nonneg (T L) (q (L + 1))
+            (hq (L + 1) (by omega) (by omega))
+          exact Q'.le_trans' _ _ _ ha (Q'.ge_of_eqv (hstep L))
+        exact Q'.le_trans' _ _ _ ih hlast
+
+private theorem nonpos_of_not_nonneg {a : Q'} (h : ¬ ((0 : Q') ≤ a)) :
+    a ≤ (0 : Q') := by
+  have hlt : a < (0 : Q') := by
+    have hh : ¬ ((0 : Q').num * (a.den : Int) ≤
+        a.num * (((0 : Q').den) : Int)) := h
+    exact Int.not_le.mp hh
+  exact Q'.le_of_lt hlt
+
+/-- If the signs of consecutive carrier increments can cross zero only once,
+from negative to nonnegative, then a nonnegative total gain forces every
+proper prefix below the terminal carrier. -/
+theorem terminal_dominates_of_sign_monotone
+    (T q : Nat → Q') (L : Nat)
+    (hstep : ∀ i, T (i + 1) ≈ T i + q (i + 1))
+    (hsign : ∀ i j, 1 ≤ i → i ≤ j →
+      (0 : Q') ≤ q i → (0 : Q') ≤ q j)
+    (htotal : T 0 ≤ T L) :
+    ∀ p, p ≤ L → T p ≤ T L := by
+  intro p hp
+  by_cases hqp : (0 : Q') ≤ q (p + 1)
+  · exact carrier_tail_mono_of_nonneg_steps T q hstep p L hp
+      (fun i hpi _ => hsign (p + 1) i (by omega) (by omega) hqp)
+  · have hhead : T p ≤ T 0 := by
+      apply carrier_le_start_of_nonpos_steps T q hstep p
+      intro i hi
+      have hn : ¬ ((0 : Q') ≤ q (i + 1)) := by
+        intro hqi
+        exact hqp (hsign (i + 1) (p + 1) (by omega) (by omega) hqi)
+      exact nonpos_of_not_nonneg hn
+    exact Q'.le_trans' _ _ _ hhead htotal
+
+/-- Positive weights preserve the one-crossing sign order of an increasing
+centered ratio. -/
+theorem weighted_centered_sign_monotone
+    (d r : Nat → Q') (C : Q')
+    (hd : ∀ i, (0 : Q') < d i)
+    (hr : ∀ i j, i ≤ j → r i ≤ r j) :
+    ∀ i j, i ≤ j →
+      (0 : Q') ≤ d i * (r i + (-C)) →
+      (0 : Q') ≤ d j * (r j + (-C)) := by
+  intro i j hij hi
+  have hdi0 : (0 : Q') ≤ d i := Q'.le_of_lt (hd i)
+  have hleft : d i * (0 : Q') ≤ d i * (r i + (-C)) :=
+    Q'.le_trans' _ _ _ (Q'.le_of_eqv (q_mul_zero (d i))) hi
+  have hcenter : (0 : Q') ≤ r i + (-C) :=
+    FusionQuotientCollapse.le_of_mul_le_mul_left_pos (hd i) hleft
+  have hshift : r i + (-C) ≤ r j + (-C) :=
+    Q'.add_le_add_right _ _ (-C) (hr i j hij)
+  have hjcenter : (0 : Q') ≤ r j + (-C) :=
+    Q'.le_trans' _ _ _ hcenter hshift
+  exact Q'.mul_nonneg _ _ (Q'.le_of_lt (hd j)) hjcenter
+
+/-- Reciprocal Bernoulli with an abstract balanced pair of coefficients.
+The sole arithmetic input is `P + A = B`. -/
+theorem bernCarrier_of_coeff_balance {t : Q'}
+    (ht0 : (0 : Q') ≤ t) (ht1 : t ≤ (1 : Q'))
+    (P A B : Nat) (hPA : P + A = B) :
+    qpow t P *
+        ((1 : Q') + Q'.ofNat B * ((1 : Q') - t)) ≤
+      (1 : Q') + Q'.ofNat A * ((1 : Q') - t) := by
+  let d := (1 : Q') - t
+  have hd0 : (0 : Q') ≤ d := Q'.sub_nonneg_of_le ht1
+  have hbern := HarmonicHalfEdgeDominance.base_pow_mul_bernDen_oneSub_le
+    ht0 ht1 P
+  have hpow := HeatKernelGap.qpow_le_one ht0 ht1 P
+  have hAd0 : (0 : Q') ≤ Q'.ofNat A * d :=
+    Q'.mul_nonneg _ _ (ExpNeg.ofNat_nonneg' A) hd0
+  have hscaled := Q'.mul_le_mul_of_nonneg_right _ _
+    (Q'.ofNat A * d) hpow hAd0
+  have hadd := Q'.add_le_add hbern hscaled
+  have hcoef : Q'.ofNat P + Q'.ofNat A ≈ Q'.ofNat B := by
+    exact Q'.eqv_trans _ _ _ (Q'.eqv_symm (Q'.ofNat_add_eqv P A))
+      (Q'.eqv_of_eq (congrArg Q'.ofNat hPA))
+  have hL : qpow t P * bernDen d P +
+      qpow t P * (Q'.ofNat A * d) ≈
+      qpow t P * ((1 : Q') + Q'.ofNat B * d) := by
+    unfold bernDen
+    refine Q'.eqv_trans _
+      (qpow t P * ((1 : Q') +
+        (Q'.ofNat P + Q'.ofNat A) * d)) _ (by ring_qeqv) ?_
+    exact Q'.mul_eqv_congr_left (qpow t P) _ _
+      (Q'.add_eqv_congr_left (1 : Q') _ _
+        (Q'.mul_eqv_congr_right _ _ d hcoef))
+  have hR : (1 : Q') + (1 : Q') * (Q'.ofNat A * d) ≈
+      (1 : Q') + Q'.ofNat A * d :=
+    Q'.add_eqv_congr_left (1 : Q') _ _ (Q'.one_mul_eqv _)
+  change qpow t P * ((1 : Q') + Q'.ofNat B * d) ≤
+    (1 : Q') + Q'.ofNat A * d
+  exact Q'.le_trans' _ _ _ (Q'.ge_of_eqv hL)
+    (Q'.le_trans' _ _ _ hadd (Q'.le_of_eqv hR))
+
+/-- Exact Bernoulli inequality left after clearing the difference of adjacent
+harmonic node ratios. -/
+theorem harmonicNodeRatio_bernCarrier {t : Q'}
+    (ht0 : (0 : Q') ≤ t) (ht1 : t ≤ (1 : Q')) (i : Nat) :
+    qpow t (2 * i + 3) *
+        ((1 : Q') + Q'.ofNat ((i + 1) * (i + 3)) *
+          ((1 : Q') - t)) ≤
+      (1 : Q') + Q'.ofNat (i * (i + 2)) * ((1 : Q') - t) := by
+  apply bernCarrier_of_coeff_balance ht0 ht1
+  simp only [Nat.add_mul, Nat.mul_add, Nat.one_mul]
+  omega
+
+private def nodeCenter (k i : Nat) : Q' :=
+  let c := coeffW (harmW k)
+  let B := (harmonicA k + twoInvSq k * harmonicD k) +
+    (harmonicA k + twoInvSq k * harmonicD k)
+  harmonicD k * (c i + c (i + 2)) + -(B * c (i + 1))
+
+/-- A successor node coefficient is its positive central character weight
+times the centered adjacent-character ratio numerator. -/
+theorem trapezoidNodeCoeff_succ_factor_eqv (k i : Nat) :
+    trapezoidNodeCoeff k (i + 1) ≈
+      coeffW (harmW k) (i + 1) * nodeCenter k i := by
+  unfold trapezoidNodeCoeff nodeCenter oldAdj oldDiag
+  ring_qeqv
+
+/-- The sign of successor node coefficients can cross zero only from negative
+to nonnegative.  This is the division-free form of adjacent node-ratio
+monotonicity. -/
+theorem trapezoidNodeCoeff_sign_succ (k i : Nat)
+    (hi : (0 : Q') ≤ trapezoidNodeCoeff k (i + 1)) :
+    (0 : Q') ≤ trapezoidNodeCoeff k (i + 2) := by
+  let c := coeffW (harmW k)
+  let D := harmonicD k
+  let B := (harmonicA k + twoInvSq k * harmonicD k) +
+    (harmonicA k + twoInvSq k * harmonicD k)
+  let X := c i + c (i + 2)
+  let Y := c (i + 1) + c (i + 3)
+  have hc1 : (0 : Q') < c (i + 1) :=
+    FusionResidualBound.coeffW_pos (harmW_pos k) (i + 1)
+  have hc2 : (0 : Q') < c (i + 2) :=
+    FusionResidualBound.coeffW_pos (harmW_pos k) (i + 2)
+  have hfac := trapezoidNodeCoeff_succ_factor_eqv k i
+  have hprod : (0 : Q') ≤ c (i + 1) * nodeCenter k i :=
+    Q'.le_trans' _ _ _ hi (Q'.le_of_eqv hfac)
+  have hmul0 : c (i + 1) * (0 : Q') ≤
+      c (i + 1) * nodeCenter k i :=
+    Q'.le_trans' _ _ _ (Q'.le_of_eqv (q_mul_zero (c (i + 1)))) hprod
+  have hcent0 : (0 : Q') ≤ nodeCenter k i :=
+    FusionQuotientCollapse.le_of_mul_le_mul_left_pos hc1 hmul0
+  have hBX : B * c (i + 1) ≤ D * X := by
+    unfold nodeCenter at hcent0
+    exact Q'.le_of_sub_nonneg hcent0
+  have htimes := Q'.mul_le_mul_of_nonneg_right _ _ (c (i + 2)) hBX
+    (Q'.le_of_lt hc2)
+  have hcap := HarmonicHalfEdgeDominance.harmonic_smooth_cap k i
+  change X * c (i + 2) ≤ Y * c (i + 1) at hcap
+  have hD0 : (0 : Q') ≤ D := Q'.le_of_lt (harmonicD_pos k)
+  have hscaled := Q'.mul_le_mul_of_nonneg_left _ _ D hcap hD0
+  have hchain : B * c (i + 1) * c (i + 2) ≤
+      D * (Y * c (i + 1)) :=
+    Q'.le_trans' _ _ _ htimes
+      (Q'.le_trans' _ _ _
+        (Q'.le_of_eqv (Q'.mul_assoc_eqv D X (c (i + 2)))) hscaled)
+  have hrearr : c (i + 1) * (B * c (i + 2)) ≤
+      c (i + 1) * (D * Y) :=
+    Q'.le_trans' _ _ _
+      (Q'.ge_of_eqv (by ring_qeqv))
+      (Q'.le_trans' _ _ _ hchain (Q'.le_of_eqv (by ring_qeqv)))
+  have hnext : B * c (i + 2) ≤ D * Y :=
+    FusionQuotientCollapse.le_of_mul_le_mul_left_pos hc1 hrearr
+  have hn0 : (0 : Q') ≤ nodeCenter k (i + 1) := by
+    unfold nodeCenter
+    change (0 : Q') ≤ D * Y + -(B * c (i + 2))
+    exact Q'.sub_nonneg_of_le hnext
+  have hpnext : (0 : Q') ≤ c (i + 2) * nodeCenter k (i + 1) :=
+    Q'.mul_nonneg _ _ (Q'.le_of_lt hc2) hn0
+  exact Q'.le_trans' _ _ _ hpnext
+    (Q'.ge_of_eqv (trapezoidNodeCoeff_succ_factor_eqv k (i + 1)))
+
+theorem trapezoidNodeCoeff_sign_forward (k i : Nat) : ∀ d,
+    (0 : Q') ≤ trapezoidNodeCoeff k (i + 1) →
+      (0 : Q') ≤ trapezoidNodeCoeff k (i + 1 + d)
+  | 0, hi => by
+      simpa using hi
+  | d + 1, hi => by
+      have ih := trapezoidNodeCoeff_sign_forward k i d hi
+      have hs := trapezoidNodeCoeff_sign_succ k (i + d) (by
+        simpa [Nat.add_assoc, Nat.add_comm, Nat.add_left_comm] using ih)
+      simpa [Nat.add_assoc, Nat.add_comm, Nat.add_left_comm] using hs
+
+/-- All terminal carrier gaps reduce to the single total gap from node zero.
+The local input is the proved one-crossing sign law above. -/
+theorem terminal_carrier_gap_nonneg_of_total (k : Nat)
+    (htotal : trapezoidNodeCumulative k 0 ≤
+      trapezoidNodeCumulative k (Ncut k - 1))
+    {p : Nat} (hp : p < Ncut k - 1) :
+    (0 : Q') ≤ trapezoidNodeCumulative k (Ncut k - 1) +
+      -(trapezoidNodeCumulative k p) := by
+  let T := trapezoidNodeCumulative k
+  let q := trapezoidNodeCoeff k
+  let L := Ncut k - 1
+  have hsign : ∀ i j, 1 ≤ i → i ≤ j →
+      (0 : Q') ≤ q i → (0 : Q') ≤ q j := by
+    intro i j hi1 hij hqi
+    obtain ⟨a, rfl⟩ : ∃ a, i = a + 1 := ⟨i - 1, by omega⟩
+    obtain ⟨d, rfl⟩ : ∃ d, j = a + 1 + d := ⟨j - (a + 1), by omega⟩
+    exact trapezoidNodeCoeff_sign_forward k a d hqi
+  have hdom := terminal_dominates_of_sign_monotone T q L
+    (fun i => trapezoidNodeCumulative_succ_eq k i) hsign htotal p (by omega)
+  exact Q'.sub_nonneg_of_le hdom
+
+#print axioms terminal_dominates_of_sign_monotone
+#print axioms weighted_centered_sign_monotone
+#print axioms bernCarrier_of_coeff_balance
+#print axioms harmonicNodeRatio_bernCarrier
+#print axioms trapezoidNodeCoeff_succ_factor_eqv
+#print axioms trapezoidNodeCoeff_sign_succ
+#print axioms trapezoidNodeCoeff_sign_forward
+#print axioms terminal_carrier_gap_nonneg_of_total
+
 def compensatedCellEnvelope (k L p : Nat) : Q' :=
   (trapezoidNodeCumulative k L + -(trapezoidNodeCumulative k p)) *
     (driftSqFactor k p *
@@ -992,6 +1241,37 @@ theorem terminal_carrier_gap_nonneg_k0 {p : Nat} (hp : p < Ncut 0 - 1) :
     unfold trapezoidNodeCumulative harmonicD harmonicA twoInvSq oldAdj
       coordNormSq adjCorr harmW harmU ReciprocalBernoulliUpper.oneSub unit
       invSqTerm coeffW dimQ c4 qpow Ncut fsum <;> decide
+
+/-- Exact second-scale carrier-gap anchor. -/
+theorem terminal_carrier_gap_nonneg_k1 {p : Nat} (hp : p < Ncut 1 - 1) :
+    (0 : Q') ≤ trapezoidNodeCumulative 1 (Ncut 1 - 1) +
+      -(trapezoidNodeCumulative 1 p) := by
+  have hp' : p = 0 ∨ p = 1 ∨ p = 2 ∨ p = 3 ∨ p = 4 ∨ p = 5 ∨
+      p = 6 ∨ p = 7 := by
+    unfold Ncut at hp
+    omega
+  rcases hp' with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl <;>
+    unfold trapezoidNodeCumulative harmonicD harmonicA twoInvSq oldAdj
+      coordNormSq adjCorr harmW harmU ReciprocalBernoulliUpper.oneSub unit
+      invSqTerm coeffW dimQ c4 qpow Ncut fsum <;> decide
+
+/-- Exact third-scale carrier-gap anchor. -/
+theorem terminal_carrier_gap_nonneg_k2 {p : Nat} (hp : p < Ncut 2 - 1) :
+    (0 : Q') ≤ trapezoidNodeCumulative 2 (Ncut 2 - 1) +
+      -(trapezoidNodeCumulative 2 p) := by
+  have hp' : p = 0 ∨ p = 1 ∨ p = 2 ∨ p = 3 ∨ p = 4 ∨ p = 5 ∨
+      p = 6 ∨ p = 7 ∨ p = 8 ∨ p = 9 ∨ p = 10 ∨ p = 11 ∨
+      p = 12 ∨ p = 13 ∨ p = 14 := by
+    unfold Ncut at hp
+    omega
+  rcases hp' with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl |
+      rfl | rfl | rfl | rfl | rfl | rfl | rfl <;>
+    unfold trapezoidNodeCumulative harmonicD harmonicA twoInvSq oldAdj
+      coordNormSq adjCorr harmW harmU ReciprocalBernoulliUpper.oneSub unit
+      invSqTerm coeffW dimQ c4 qpow Ncut fsum <;> decide
+
+#print axioms terminal_carrier_gap_nonneg_k1
+#print axioms terminal_carrier_gap_nonneg_k2
 
 private theorem weightedNode_terminal_eq (k : Nat) : ∀ n,
     fsum (fun i => trapezoidNodeCoeff k i * driftSqFactor k i) (n + 1) +

@@ -1736,6 +1736,111 @@ private def topThreeDiagInt (d x : Int) : Int :=
 private def topThreeOffInt (d x : Int) : Int :=
   8*x*(x+1)*intFallThree (d-2*x*(x+1)+1)
 
+private theorem intFallThree_expanded (z : Int) :
+    intFallThree z=iPow z 3-3*iPow z 2+2*z := by
+  unfold intFallThree
+  simp only [Int.sub_mul,Int.mul_sub,Int.add_mul,Int.mul_add,Int.mul_one,
+    Int.mul_assoc]
+  have hz2 : z*2=2*z := by ac_rfl
+  have hsq : z*z=iPow z 2 := by dsimp [iPow]; rw [Int.mul_one]
+  have hcu : z*(z*z)=iPow z 3 := by dsimp [iPow]; ac_rfl
+  have h2z : z*(2*z)=2*iPow z 2 := by dsimp [iPow]; ac_rfl
+  rw [hcu,hsq,hz2,h2z]
+  omega
+
+private theorem intFallThree_shift_one (z : Int) :
+    intFallThree (z-1)=iPow z 3-6*iPow z 2+11*z-6 := by
+  unfold intFallThree
+  simp only [Int.sub_mul,Int.mul_sub,Int.add_mul,Int.mul_add,Int.mul_one,
+    Int.mul_assoc]
+  have hz2 : z*2=2*z := by ac_rfl
+  have hsq : z*z=iPow z 2 := by dsimp [iPow]; rw [Int.mul_one]
+  have hcu : z*(z*z)=iPow z 3 := by dsimp [iPow]; ac_rfl
+  have h2z : z*(2*z)=2*iPow z 2 := by dsimp [iPow]; ac_rfl
+  rw [hcu,hsq,hz2,h2z]
+  simp only [Int.one_mul]
+  omega
+
+private theorem intFallThree_shift_two (z : Int) :
+    intFallThree (z-2)=iPow z 3-9*iPow z 2+26*z-24 := by
+  unfold intFallThree
+  simp only [Int.sub_mul,Int.mul_sub,Int.add_mul,Int.mul_add,Int.mul_one,
+    Int.mul_assoc]
+  have hz2 : z*2=2*z := by ac_rfl
+  have hsq : z*z=iPow z 2 := by dsimp [iPow]; rw [Int.mul_one]
+  have hcu : z*(z*z)=iPow z 3 := by dsimp [iPow]; ac_rfl
+  have h2z : z*(2*z)=2*iPow z 2 := by dsimp [iPow]; ac_rfl
+  rw [hcu,hsq,hz2,h2z]
+  omega
+
+private theorem intFallThree_shift_three (z : Int) :
+    intFallThree (z-3)=iPow z 3-12*iPow z 2+47*z-60 := by
+  unfold intFallThree
+  simp only [Int.sub_mul,Int.mul_sub,Int.add_mul,Int.mul_add,Int.mul_one,
+    Int.mul_assoc]
+  have hz2 : z*2=2*z := by ac_rfl
+  have hz3 : z*3=3*z := by ac_rfl
+  have hsq : z*z=iPow z 2 := by dsimp [iPow]; rw [Int.mul_one]
+  have hcu : z*(z*z)=iPow z 3 := by dsimp [iPow]; ac_rfl
+  have h2z : z*(2*z)=2*iPow z 2 := by dsimp [iPow]; ac_rfl
+  have h3z : z*(3*z)=3*iPow z 2 := by dsimp [iPow]; ac_rfl
+  rw [hcu,hsq,hz2,hz3,h2z,h3z]
+  omega
+
+private theorem intFallThree_binomial_three (z : Int) :
+    intFallThree z+3*intFallThree (z-1)+3*intFallThree (z-2)+
+        intFallThree (z-3)=8*iPow z 3-60*iPow z 2+160*z-150 := by
+  rw [intFallThree_expanded,intFallThree_shift_one,
+    intFallThree_shift_two,intFallThree_shift_three]
+  omega
+
+private theorem iPow_sub_twice_add_two_square (d A : Int) :
+    iPow (d-2*A+2) 2=iPow d 2-4*d*A+4*d+4*iPow A 2-8*A+4 := by
+  dsimp [iPow]
+  simp only [Int.sub_mul,Int.mul_sub,Int.add_mul,Int.mul_add,Int.mul_one]
+  have hdd : d*d=iPow d 2 := by dsimp [iPow]; rw [Int.mul_one]
+  have hda : d*(2*A)=2*d*A := by ac_rfl
+  have had : (2*A)*d=2*d*A := by ac_rfl
+  have haa : (2*A)*(2*A)=4*iPow A 2 := by dsimp [iPow]; ac_rfl
+  have hd2 : d*2=2*d := by ac_rfl
+  have ha2 : (2*A)*2=4*A := by ac_rfl
+  have h2a : 2*(2*A)=4*A := by ac_rfl
+  have h22 : (2:Int)*2=4 := by decide
+  rw [hdd,hda,had,haa,hd2,ha2,h2a,h22]
+  have h2ad : 2*A*d=2*(d*A) := by ac_rfl
+  have h4da : 4*d*A=4*(d*A) := by ac_rfl
+  have hAA : A*A=iPow A 2 := by dsimp [iPow]; rw [Int.mul_one]
+  simp only [h2ad,h4da,hAA]
+  omega
+
+private theorem iPow_sub_twice_add_two_cube (d A : Int) :
+    iPow (d-2*A+2) 3=
+      iPow d 3-6*iPow d 2*A+6*iPow d 2+12*d*iPow A 2-
+        24*d*A+12*d-8*iPow A 3+24*iPow A 2-24*A+8 := by
+  change (d-2*A+2)*iPow (d-2*A+2) 2=_
+  rw [iPow_sub_twice_add_two_square]
+  simp only [Int.sub_mul,Int.mul_sub,Int.add_mul,Int.mul_add,Int.mul_one,
+    Int.one_mul,Int.mul_assoc]
+  have hi : d*iPow d 2=iPow d 3 := by dsimp [iPow]
+  have hj : A*iPow d 2=iPow d 2*A := by ac_rfl
+  have hk : d*(4*(d*A))=4*iPow d 2*A := by dsimp [iPow]; ac_rfl
+  have hl : A*(4*(d*A))=4*d*iPow A 2 := by dsimp [iPow]; ac_rfl
+  have hm : d*(4*d)=4*iPow d 2 := by dsimp [iPow]; ac_rfl
+  have hn : A*(4*d)=4*d*A := by ac_rfl
+  have ho : d*(4*iPow A 2)=4*d*iPow A 2 := by ac_rfl
+  have hp : A*(4*iPow A 2)=4*iPow A 3 := by dsimp [iPow]; ac_rfl
+  have hq : d*(8*A)=8*d*A := by ac_rfl
+  have hr : A*(8*A)=8*iPow A 2 := by dsimp [iPow]; ac_rfl
+  rw [hi,hj,hk,hl,hm,hn,ho,hp,hq,hr]
+  have hk' : 4*iPow d 2*A=4*(iPow d 2*A) := by ac_rfl
+  have h4da : 4*d*A=4*(d*A) := by ac_rfl
+  have h8da : 8*d*A=8*(d*A) := by ac_rfl
+  have h24da : 24*d*A=24*(d*A) := by ac_rfl
+  have h4dA2 : 4*d*iPow A 2=4*(d*iPow A 2) := by ac_rfl
+  have h12dA2 : 12*d*iPow A 2=12*(d*iPow A 2) := by ac_rfl
+  simp only [hk',h4da,h8da,h24da,h4dA2,h12dA2]
+  omega
+
 private def topTwoDiagInt (d x : Int) : Int :=
   4*iPow x 2*(d-2*iPow x 2)*(d-2*iPow x 2)+2*iPow x 2
 

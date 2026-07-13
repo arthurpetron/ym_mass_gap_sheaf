@@ -4315,6 +4315,17 @@ The resulting four direct mass ratios feed the same rotation/spacing bridge,
 so the Schur and coupled-operator prefix now also reaches `k≤16`; its first
 residual again agrees with the correlation residual at `k=17`.
 
+`HarmonicFixedEightPrefix` advances the next finite layer without a giant
+degree-143 interval certificate.  One generic eight-head/PF2-tail assembler
+is instantiated by closed rational checks at `k=17,18,19,20`, yielding exact
+retune, `lamPW`, and mass-floor theorems through `k≤20`.  The same eight-head
+claim is kernel-refuted at `k=21`, so this fixed mechanism has a precise
+boundary.  Prefix upper bounds and the new floors give the spacing-compatible
+mass ratios at `k=17,18,19`; `HarmonicSchurRotationK1719` transports them
+through the rotated shell and closes the Schur/coupled-operator prefix through
+`k≤19`.  OPEN at the next operator step is a mass floor at `k=21`, requiring
+a ninth anchor or a genuinely uniform growing-anchor theorem.
+
 **Cleared theta-polynomial audit (2026-07-12).**
 `ThetaResidualBernsteinPilot` gives exact positive Bernstein decompositions of
 the cleared retune residual at cutoffs one and two (degrees 11 and 23).  It also
@@ -4562,6 +4573,17 @@ every individual successor coefficient be nonnegative is kernel-refuted at
 `k=3,i=1`.  OPEN is therefore a genuine reverse-suffix proof of the terminal
 carrier gaps for all `k`, followed by summation of these sharp lossless cells
 (with small-scale anchors separated from the large-`k` branch).
+
+The successor coefficients now have an exact positive-weight factorization,
+and the harmonic smooth-cap theorem proves their signs can cross zero only
+once, from negative to nonnegative.  A generic constructive theorem converts
+that one-crossing law plus `T₀≤T_L` into every terminal carrier gap; exact
+anchors close this at `k=0,1,2`.  Adversarial exact-rational scouting then finds
+that the total premise itself changes sign at `k=17` (positive through `k=16`,
+negative thereafter), so it cannot be the all-scale closure.  OPEN is to bank
+that failure in the kernel and exploit cancellation in the *weighted* chord/
+geometric sum directly; termwise nonnegative carrier gaps are no longer an
+admissible global target.
 
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their
