@@ -454,6 +454,260 @@ theorem harmonicChordWeight_le_growthIncrement (k p : Nat) :
   exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hleft)
     (Q'.le_trans' _ _ _ hGu (Q'.le_of_eqv hright))
 
+private theorem harmonicChordGrowthFactor_mono {k a b : Nat} (hab : a ≤ b) :
+    harmonicChordGrowthFactor k a ≤ harmonicChordGrowthFactor k b := by
+  have hn : 4 * a + 6 ≤ 4 * b + 6 := by omega
+  have hq : Q'.ofNat (4 * a + 6) ≤ Q'.ofNat (4 * b + 6) :=
+    MovingCutoff.ofNat_le_ofNat' hn
+  have hu0 : (0 : Q') ≤ unit (driftDen k) (driftDen_pos k) :=
+    unit_nonneg _ _
+  have hm := Q'.mul_le_mul_of_nonneg_right _ _
+    (unit (driftDen k) (driftDen_pos k)) hq hu0
+  exact Q'.add_le_add_left (Q'.ofNat 2) _ _ hm
+
+private theorem sub_add_sub_cancel (a b c : Q') :
+    (a + -b) + (c + -a) ≈ c + -b := by
+  refine Q'.eqv_trans _ (a + (-b + (c + -a))) _
+    (Q'.add_assoc_eqv _ _ _) ?_
+  refine Q'.eqv_trans _ (a + ((-b + c) + -a)) _
+    (Q'.add_eqv_congr_left a _ _
+      (Q'.eqv_symm (Q'.add_assoc_eqv _ _ _))) ?_
+  refine Q'.eqv_trans _ (a + ((c + -b) + -a)) _
+    (Q'.add_eqv_congr_left a _ _
+      (Q'.add_eqv_congr_right _ _ (-a) (Q'.add_comm_eqv _ _))) ?_
+  refine Q'.eqv_trans _ ((a + (c + -b)) + -a) _
+    (Q'.eqv_symm (Q'.add_assoc_eqv _ _ _)) ?_
+  refine Q'.eqv_trans _ (((c + -b) + a) + -a) _
+    (Q'.add_eqv_congr_right _ _ (-a) (Q'.add_comm_eqv _ _)) ?_
+  refine Q'.eqv_trans _ ((c + -b) + (a + -a)) _
+    (Q'.add_assoc_eqv _ _ _) ?_
+  refine Q'.eqv_trans _ ((c + -b) + (0 : Q')) _
+    (Q'.add_eqv_congr_left (c + -b) _ _ (Q'.add_neg_self_eqv a)) ?_
+  exact q_add_zero_eqv _
+
+private theorem interval_drift_increment_telescope (k s : Nat) : ∀ n,
+    intervalSum
+        (fun p => driftSqFactor k (p + 1) + -(driftSqFactor k p)) s n ≈
+      driftSqFactor k (s + n) + -(driftSqFactor k s)
+  | 0 => by
+      unfold intervalSum
+      simp only [fsum_zero, Nat.add_zero]
+      exact Q'.eqv_symm (Q'.add_neg_self_eqv _)
+  | n + 1 => by
+      have ih := interval_drift_increment_telescope k s n
+      have hidx : s + (n + 1) = (s + n) + 1 := by omega
+      unfold intervalSum
+      rw [fsum_succ]
+      change
+        intervalSum
+            (fun p => driftSqFactor k (p + 1) + -(driftSqFactor k p)) s n +
+            (driftSqFactor k (s + n + 1) + -(driftSqFactor k (s + n))) ≈
+          driftSqFactor k (s + (n + 1)) + -(driftSqFactor k s)
+      rw [hidx]
+      refine Q'.eqv_trans _
+        ((driftSqFactor k (s + n) + -(driftSqFactor k s)) +
+          (driftSqFactor k (s + n + 1) +
+            -(driftSqFactor k (s + n)))) _
+        (Q'.add_eqv_congr_right _ _ _ ih) ?_
+      exact sub_add_sub_cancel
+        (driftSqFactor k (s + n))
+        (driftSqFactor k s)
+        (driftSqFactor k (s + n + 1))
+
+/-- The whole chord-weight prefix is controlled by one terminal growth
+factor times the exact telescoped drift increment.  This retains the
+bulk-asymptotic factor two and avoids the much coarser next-cell envelope. -/
+theorem harmonicChordCumulative_le_majorant (k s n : Nat) :
+    intervalSum (harmonicChordWeight k) s n ≤
+      harmonicChordCumulativeMajorant k s n := by
+  let M := harmonicChordGrowthFactor k (s + n)
+  let d := fun p => driftSqFactor k (p + 1) + -(driftSqFactor k p)
+  have hterm : ∀ j, j < n →
+      harmonicChordWeight k (s + j) ≤ M * d (s + j) := by
+    intro j hj
+    have hw := harmonicChordWeight_le_growthIncrement k (s + j)
+    have hfac : harmonicChordGrowthFactor k (s + j) ≤ M := by
+      unfold M
+      exact harmonicChordGrowthFactor_mono (by omega)
+    have hd0 : (0 : Q') ≤ d (s + j) := by
+      unfold d
+      exact driftSqFactor_increment_nonneg k (s + j)
+    have hm := Q'.mul_le_mul_of_nonneg_right _ _ (d (s + j)) hfac hd0
+    exact Q'.le_trans' _ _ _ hw hm
+  have hsum := CubeRatioBounds.fsum_mono_lt n hterm
+  have hpull :
+      fsum (fun j => M * d (s + j)) n ≈ M * intervalSum d s n := by
+    unfold intervalSum
+    exact Q'.eqv_symm
+      (CubeRatioBounds.fsum_const_mul M (fun j => d (s + j)) n)
+  have htel := interval_drift_increment_telescope k s n
+  have hM0 : (0 : Q') ≤ M := by
+    unfold M harmonicChordGrowthFactor
+    exact Q'.zero_le_add _ _ (ExpNeg.ofNat_nonneg' 2)
+      (Q'.mul_nonneg _ _ (ExpNeg.ofNat_nonneg' _)
+        (unit_nonneg _ _))
+  have hscaled : M * intervalSum d s n ≤
+      M * (driftSqFactor k (s + n) + -(driftSqFactor k s)) :=
+    Q'.mul_le_mul_of_nonneg_left _ _ M (Q'.le_of_eqv htel) hM0
+  unfold intervalSum at hsum
+  unfold harmonicChordCumulativeMajorant
+  exact Q'.le_trans' _ _ _ hsum
+    (Q'.le_trans' _ _ _ (Q'.le_of_eqv hpull) hscaled)
+
+/-- The node moment obtained by replacing every cumulative chord prefix by
+its single-endpoint majorant.  It is intentionally kept separate from the
+sharper varying-factor growth moment below: the endpoint pull can spend too
+much of the quantitative reserve. -/
+def signedChordEndpointGrowthMoment (k s n : Nat) : Q' :=
+  fsum (fun j =>
+    trapezoidNodeCoeff k (s + j + 1) *
+      harmonicChordCumulativeMajorant k s (j + 1)) n
+
+/-- Exact fence: at the first requested uniform scale, the tempting
+nodewise endpoint-majorant budget already exceeds the symbolic cap.  Thus
+the varying growth factor must remain inside the cumulative sum; merely
+combining `harmonicChordCumulative_le_majorant` termwise with node
+coefficients cannot close the all-scale estimate. -/
+theorem endpointGrowthMoment_cap_fails_k5 :
+    ¬ (signedChordEndpointGrowthMoment 5 0 (Ncut 5 - 1) +
+          (trapezoidTerminalCorrection 5 +
+            trapezoidTerminalCorrection 5) ≤
+        signedChordMomentCap 5) := by
+  unfold signedChordEndpointGrowthMoment harmonicChordCumulativeMajorant
+    harmonicChordGrowthFactor signedChordMomentCap signedChordMomentCore
+    trapezoidTerminalCorrection trapezoidNodeCoeff harmonicD harmonicA
+    twoInvSq oldAdj oldDiag coordNormSq adjCorr driftSqFactor driftRatio
+    driftDen harmW harmU oneSub unit invSqTerm coeffW dimQ c4
+    Q'.divPos Q'.recipPos qpow Ncut fsum
+  decide
+
+def harmonicChordGrowthWeight (k p : Nat) : Q' :=
+  harmonicChordGrowthFactor k p *
+    (driftSqFactor k (p + 1) + -(driftSqFactor k p))
+
+def harmonicChordGrowthCumulative (k s n : Nat) : Q' :=
+  intervalSum (harmonicChordGrowthWeight k) s n
+
+def harmonicChordRamp (k s n : Nat) : Q' :=
+  intervalSum
+    (fun p => driftSqFactor k (p + 1) + -(driftSqFactor k s)) s n
+
+def signedChordGrowthNodeMoment (k s n : Nat) : Q' :=
+  fsum (fun j =>
+    trapezoidNodeCoeff k (s + j + 1) *
+      harmonicChordGrowthCumulative k s (j + 1)) n
+
+def signedChordRampNodeMoment (k s n : Nat) : Q' :=
+  fsum (fun j =>
+    trapezoidNodeCoeff k (s + j + 1) * harmonicChordRamp k s (j + 1)) n
+
+private theorem harmonicChordGrowthFactor_succ (k p : Nat) :
+    harmonicChordGrowthFactor k (p + 1) ≈
+      harmonicChordGrowthFactor k p +
+        Q'.ofNat 4 * unit (driftDen k) (driftDen_pos k) := by
+  have hn : 4 * (p + 1) + 6 = (4 * p + 6) + 4 := by omega
+  unfold harmonicChordGrowthFactor
+  rw [hn]
+  refine Q'.eqv_trans _
+    (Q'.ofNat 2 +
+      (Q'.ofNat (4 * p + 6) + Q'.ofNat 4) *
+        unit (driftDen k) (driftDen_pos k)) _ ?_ ?_
+  · exact Q'.add_eqv_congr_left _ _ _
+      (Q'.mul_eqv_congr_right _ _ _ (Q'.ofNat_add_eqv _ _))
+  · refine Q'.eqv_trans _
+      (Q'.ofNat 2 +
+        (Q'.ofNat (4 * p + 6) * unit (driftDen k) (driftDen_pos k) +
+          Q'.ofNat 4 * unit (driftDen k) (driftDen_pos k))) _
+      (Q'.add_eqv_congr_left _ _ _ (Q'.add_mul_eqv _ _ _)) ?_
+    exact Q'.eqv_symm (Q'.add_assoc_eqv _ _ _)
+
+private theorem weighted_ramp_step
+    (H R a b X Y Z : Q')
+    (h : H + b * R ≈ a * (X + -Y)) :
+    (H + a * (Z + -X)) + b * (R + (Z + -Y)) ≈
+      (a + b) * (Z + -Y) := by
+  have hb : b * (R + (Z + -Y)) ≈ b * R + b * (Z + -Y) :=
+    Q'.mul_add_eqv _ _ _
+  refine Q'.eqv_trans _
+    ((H + b * R) + (a * (Z + -X) + b * (Z + -Y))) _ ?_ ?_
+  · refine Q'.eqv_trans _
+      ((H + a * (Z + -X)) + (b * R + b * (Z + -Y))) _
+      (Q'.add_eqv_congr_left _ _ _ hb) ?_
+    ring_qeqv
+  · refine Q'.eqv_trans _
+      (a * (X + -Y) + (a * (Z + -X) + b * (Z + -Y))) _
+      (Q'.add_eqv_congr_right _ _ _ h) ?_
+    refine Q'.eqv_trans _
+      ((a * (X + -Y) + a * (Z + -X)) + b * (Z + -Y)) _
+      (Q'.eqv_symm (Q'.add_assoc_eqv _ _ _)) ?_
+    have hcollapse :
+        a * (X + -Y) + a * (Z + -X) ≈ a * (Z + -Y) := by
+      refine Q'.eqv_trans _ (a * ((X + -Y) + (Z + -X))) _
+        (Q'.eqv_symm (Q'.mul_add_eqv _ _ _)) ?_
+      exact Q'.mul_eqv_congr_left a _ _ (sub_add_sub_cancel X Y Z)
+    refine Q'.eqv_trans _
+      (a * (Z + -Y) + b * (Z + -Y)) _
+      (Q'.add_eqv_congr_right _ _ _ hcollapse) ?_
+    exact Q'.eqv_symm (Q'.add_mul_eqv _ _ _)
+
+/-- Exact summation-by-parts identity for the varying growth factor.  The
+single-endpoint majorant equals the sharp varying-factor cumulative weight
+plus the positive ramp generated by the constant factor increment `4u`.
+The k=5 fence above shows that this ramp cannot be discarded. -/
+theorem harmonicChordGrowthCumulative_add_ramp (k s : Nat) : ∀ n,
+    harmonicChordGrowthCumulative k s n +
+        (Q'.ofNat 4 * unit (driftDen k) (driftDen_pos k)) *
+          harmonicChordRamp k s n ≈
+      harmonicChordCumulativeMajorant k s n
+  | 0 => by
+      unfold harmonicChordGrowthCumulative harmonicChordRamp
+        harmonicChordCumulativeMajorant intervalSum
+      simp only [fsum_zero, Nat.add_zero]
+      have hz : driftSqFactor k s + -(driftSqFactor k s) ≈ (0 : Q') :=
+        Q'.add_neg_self_eqv _
+      refine Q'.eqv_trans _ ((0 : Q') + (0 : Q')) _ ?_ ?_
+      · exact Q'.add_eqv_congr'
+          (Q'.eqv_refl _)
+          (Q'.eqv_trans _ _ _ (Q'.mul_zero_eqv _)
+            (Q'.eqv_refl _))
+      · refine Q'.eqv_trans _ (0 : Q') _ (by decide) ?_
+        exact Q'.eqv_symm
+          (Q'.eqv_trans _ _ _
+            (Q'.mul_eqv_congr_left _ _ _ hz) (Q'.mul_zero_eqv _))
+  | n + 1 => by
+      let p := s + n
+      let a := harmonicChordGrowthFactor k p
+      let b := Q'.ofNat 4 * unit (driftDen k) (driftDen_pos k)
+      let X := driftSqFactor k p
+      let Y := driftSqFactor k s
+      let Z := driftSqFactor k (p + 1)
+      have ih := harmonicChordGrowthCumulative_add_ramp k s n
+      change
+        (harmonicChordGrowthCumulative k s n +
+            harmonicChordGrowthWeight k p) +
+          b * (harmonicChordRamp k s n + (Z + -Y)) ≈
+        harmonicChordGrowthFactor k (p + 1) * (Z + -Y)
+      have hi : harmonicChordGrowthCumulative k s n +
+          b * harmonicChordRamp k s n ≈ a * (X + -Y) := by
+        unfold a X Y b p
+        exact ih
+      have hs := weighted_ramp_step
+        (harmonicChordGrowthCumulative k s n)
+        (harmonicChordRamp k s n) a b X Y Z hi
+      have hw : harmonicChordGrowthWeight k p ≈ a * (Z + -X) := by
+        unfold harmonicChordGrowthWeight a X Z
+        exact Q'.eqv_refl _
+      refine Q'.eqv_trans _
+        ((harmonicChordGrowthCumulative k s n + a * (Z + -X)) +
+          b * (harmonicChordRamp k s n + (Z + -Y))) _
+        (Q'.add_eqv_congr_right _ _ _
+          (Q'.add_eqv_congr_left _ _ _ hw)) ?_
+      refine Q'.eqv_trans _ ((a + b) * (Z + -Y)) _ hs ?_
+      exact Q'.mul_eqv_congr_right _ _ _
+        (Q'.eqv_symm (by
+          unfold a b p
+          exact harmonicChordGrowthFactor_succ k (s + n)))
+
 def signedChordNodeMoment (k s n : Nat) : Q' :=
   fsum (fun j =>
     trapezoidNodeCoeff k (s + j + 1) *
@@ -835,6 +1089,9 @@ theorem weightedTrapezoidResidual_nonpos_k4 :
 #print axioms signedChord_twentyFourTwentyFive_fails_k0
 #print axioms signedChordSum_eq_nodeMoment
 #print axioms harmonicChordWeight_le_growthIncrement
+#print axioms harmonicChordCumulative_le_majorant
+#print axioms endpointGrowthMoment_cap_fails_k5
+#print axioms harmonicChordGrowthCumulative_add_ramp
 #print axioms terminalCoefficientTwoFloor_le_terminalReserve
 #print axioms nine_harmonicD_le_ten_terminalDiagonalPrefix
 #print axioms signedChordMomentCore_le_terminalCoefficientTwoFloor

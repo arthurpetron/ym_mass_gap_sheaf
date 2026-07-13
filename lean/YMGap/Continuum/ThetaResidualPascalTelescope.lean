@@ -4251,6 +4251,253 @@ private theorem farOneDoubled_factor_identity (m : Int) :
     certMul, certNeg, certSub, certConst, certScale, certIntEval,
     certIntPow, Int.sub_eq_add_neg] using h
 
+private def boundaryP (m : Nat) : Int :=
+  96*((m:Int)*(m:Int)*(m:Int))+
+    ((-96)*((m:Int)*(m:Int))+((-94)*(m:Int)+109))
+
+private theorem choose_pred_endpoint (S : Nat) (hS : 0 < S) :
+    PNPaths.choose S (S-1) = S := by
+  have hform : (S-1)+1=S := by omega
+  have h := choose_pred (S-1)
+  simpa only [hform] using h
+
+private theorem throughThree_far_three (m : Nat) (hm : 2 ≤ m) :
+    throughThreeRemainder30 m ((4*m+2)+3) = boundaryP m := by
+  let S := 4*m+2
+  let T := 2*m+4
+  have hT : T < S+3 := by dsimp [S,T]; omega
+  have hzT := choose_zero_of_lt T (S+3) hT
+  have hz0 := choose_zero_of_lt S (S+3) (by omega)
+  have hz1 := choose_zero_of_lt S (S+2) (by omega)
+  have hz2 := choose_zero_of_lt S (S+1) (by omega)
+  have hs1 : S+3-1=S+2 := by omega
+  have hs2 : S+3-2=S+1 := by omega
+  have hs3 : S+3-3=S := by omega
+  unfold throughThreeRemainder30
+  change 120*(PNPaths.choose S (S+3):Int)+
+      30*((-4)*(m:Int)+10)*(PNPaths.choose S (S+3-1):Int)+
+      30*((-6)*(m:Int)+9)*(PNPaths.choose S (S+3-2):Int)+
+      boundaryP m*(PNPaths.choose S (S+3-3):Int)+
+      (-240)*(PNPaths.choose T (S+3):Int)=boundaryP m
+  rw [hs1,hs2,hs3,hz0,hz1,hz2,choose_self,hzT]
+  simp
+
+private theorem throughThree_far_two (m : Nat) (hm : 2 ≤ m) :
+    throughThreeRemainder30 m ((4*m+2)+2) =
+      30*((-6)*(m:Int)+9)+boundaryP m*(4*(m:Int)+2) := by
+  let S := 4*m+2
+  let T := 2*m+4
+  have hS : 0<S := by dsimp [S]; omega
+  have hT : T < S+2 := by dsimp [S,T]; omega
+  have hzT := choose_zero_of_lt T (S+2) hT
+  have hz0 := choose_zero_of_lt S (S+2) (by omega)
+  have hz1 := choose_zero_of_lt S (S+1) (by omega)
+  have hs1 : S+2-1=S+1 := by omega
+  have hs2 : S+2-2=S := by omega
+  have hs3 : S+2-3=S-1 := by omega
+  have hpred := choose_pred_endpoint S hS
+  have hScast : (S:Int)=4*(m:Int)+2 := by
+    dsimp [S]
+  unfold throughThreeRemainder30
+  change 120*(PNPaths.choose S (S+2):Int)+
+      30*((-4)*(m:Int)+10)*(PNPaths.choose S (S+2-1):Int)+
+      30*((-6)*(m:Int)+9)*(PNPaths.choose S (S+2-2):Int)+
+      boundaryP m*(PNPaths.choose S (S+2-3):Int)+
+      (-240)*(PNPaths.choose T (S+2):Int)=
+        30*((-6)*(m:Int)+9)+boundaryP m*(4*(m:Int)+2)
+  rw [hs1,hs2,hs3,hz0,hz1,choose_self,hpred,hzT]
+  simp only [Int.ofNat_zero,Int.zero_mul,Int.mul_zero,Int.zero_add]
+  rw [hScast]
+  ac_rfl
+
+private theorem throughThree_far_one_doubled (m : Nat) (hm : 2 ≤ m) :
+    2*throughThreeRemainder30 m ((4*m+2)+1) =
+      60*((-4)*(m:Int)+10)+
+        (60*(((-6)*(m:Int)+9)*(4*(m:Int)+2))+
+          boundaryP m*((4*(m:Int)+2)*(4*(m:Int)+2-1))) := by
+  let S := 4*m+2
+  let T := 2*m+4
+  have hS : 2≤S := by dsimp [S]; omega
+  have hT : T < S+1 := by dsimp [S,T]; omega
+  have hzT := choose_zero_of_lt T (S+1) hT
+  have hz0 := choose_zero_of_lt S (S+1) (by omega)
+  have hs1 : S+1-1=S := by omega
+  have hs2 : S+1-2=S-1 := by omega
+  have hs3 : S+1-3=S-2 := by omega
+  have hpred := choose_pred_endpoint S (by omega)
+  have hsymm : PNPaths.choose S (S-2)=PNPaths.choose S 2 := by
+    exact (choose_symm S 2 hS).symm
+  have hchoose := two_choose_two_int S hS
+  have hScast : (S:Int)=4*(m:Int)+2 := by
+    dsimp [S]
+  unfold throughThreeRemainder30
+  change 2*(120*(PNPaths.choose S (S+1):Int)+
+      30*((-4)*(m:Int)+10)*(PNPaths.choose S (S+1-1):Int)+
+      30*((-6)*(m:Int)+9)*(PNPaths.choose S (S+1-2):Int)+
+      boundaryP m*(PNPaths.choose S (S+1-3):Int)+
+      (-240)*(PNPaths.choose T (S+1):Int)) = _
+  rw [hs1,hs2,hs3,hz0,choose_self,hpred,hsymm,hzT]
+  simp only [Int.ofNat_zero,Int.ofNat_one,Int.zero_mul,Int.mul_zero,
+    Int.zero_add,Int.add_zero,Int.mul_one]
+  rw [Int.mul_add,Int.mul_add]
+  have hPC : 2*(boundaryP m*(PNPaths.choose S 2:Int))=
+      boundaryP m*(2*(PNPaths.choose S 2:Int)) := by ac_rfl
+  rw [hPC]
+  rw [hchoose,hScast]
+  simp only [Int.mul_add,Int.add_mul]
+  ac_rfl
+
+private theorem boundaryP_nonnegative (m : Nat) (hm : 2 ≤ m) :
+    (0:Int) ≤ boundaryP m := by
+  unfold boundaryP
+  rw [farThree_factor_identity (m:Int)]
+  have hm0 : (0:Int)≤(m:Int) := Int.natCast_nonneg _
+  have hm2 : (2:Int)≤(m:Int) := Int.ofNat_le.mpr hm
+  have hq : (0:Int)≤(m:Int)-2 := by omega
+  have hs : (0:Int)≤(m:Int)*(m:Int) := Int.mul_nonneg hm0 hm0
+  have h96s : (0:Int)≤96*((m:Int)*(m:Int)) :=
+    Int.mul_nonneg (by decide) hs
+  have h96m : (0:Int)≤96*(m:Int) := Int.mul_nonneg (by decide) hm0
+  have hpoly : (0:Int)≤96*((m:Int)*(m:Int))+(96*(m:Int)+98) := by omega
+  exact Int.add_nonneg (Int.mul_nonneg hq hpoly) (by decide)
+
+private theorem throughThree_far_two_nonnegative (m : Nat) (hm : 2 ≤ m) :
+    (0:Int)≤throughThreeRemainder30 m ((4*m+2)+2) := by
+  rw [throughThree_far_two m hm]
+  unfold boundaryP
+  rw [farTwo_factor_identity (m:Int)]
+  have hm0 : (0:Int)≤(m:Int) := Int.natCast_nonneg _
+  have hm2 : (2:Int)≤(m:Int) := Int.ofNat_le.mpr hm
+  have hq : (0:Int)≤(m:Int)-2 := by omega
+  have hs : (0:Int)≤(m:Int)*(m:Int) := Int.mul_nonneg hm0 hm0
+  have hc : (0:Int)≤(m:Int)*(m:Int)*(m:Int) := Int.mul_nonneg hs hm0
+  have h384 : (0:Int)≤384*((m:Int)*(m:Int)*(m:Int)) :=
+    Int.mul_nonneg (by decide) hc
+  have h576 : (0:Int)≤576*((m:Int)*(m:Int)) :=
+    Int.mul_nonneg (by decide) hs
+  have h584 : (0:Int)≤584*(m:Int) := Int.mul_nonneg (by decide) hm0
+  have hpoly : (0:Int)≤384*((m:Int)*(m:Int)*(m:Int))+
+      (576*((m:Int)*(m:Int))+(584*(m:Int)+1236)) := by omega
+  exact Int.add_nonneg (Int.mul_nonneg hq hpoly) (by decide)
+
+private theorem throughThree_far_one_nonnegative (m : Nat) (hm : 2 ≤ m) :
+    (0:Int)≤throughThreeRemainder30 m ((4*m+2)+1) := by
+  have hscaled : (0:Int)≤2*throughThreeRemainder30 m ((4*m+2)+1) := by
+    rw [throughThree_far_one_doubled m hm]
+    unfold boundaryP
+    rw [farOneDoubled_factor_identity (m:Int)]
+    have hm0 : (0:Int)≤(m:Int) := Int.natCast_nonneg _
+    have hm2 : (2:Int)≤(m:Int) := Int.ofNat_le.mpr hm
+    have hq : (0:Int)≤(m:Int)-2 := by omega
+    have hs : (0:Int)≤(m:Int)*(m:Int) := Int.mul_nonneg hm0 hm0
+    have hc : (0:Int)≤(m:Int)*(m:Int)*(m:Int) := Int.mul_nonneg hs hm0
+    have hf : (0:Int)≤(m:Int)*(m:Int)*(m:Int)*(m:Int) :=
+      Int.mul_nonneg hc hm0
+    have h1536 : (0:Int)≤1536*((m:Int)*(m:Int)*(m:Int)*(m:Int)) :=
+      Int.mul_nonneg (by decide) hf
+    have h2688 : (0:Int)≤2688*((m:Int)*(m:Int)*(m:Int)) :=
+      Int.mul_nonneg (by decide) hc
+    have h2912 : (0:Int)≤2912*((m:Int)*(m:Int)) :=
+      Int.mul_nonneg (by decide) hs
+    have h4808 : (0:Int)≤4808*(m:Int) := Int.mul_nonneg (by decide) hm0
+    have hpoly : (0:Int)≤1536*((m:Int)*(m:Int)*(m:Int)*(m:Int))+
+        (2688*((m:Int)*(m:Int)*(m:Int))+
+          (2912*((m:Int)*(m:Int))+(4808*(m:Int)+11936))) := by omega
+    exact Int.add_nonneg (Int.mul_nonneg hq hpoly) (by decide)
+  exact Int.le_of_mul_le_mul_left hscaled (by decide)
+
+private theorem throughThree_far_zero (m r : Nat) (hm : 2 ≤ m)
+    (hr : 4*m+2+4 ≤ r) : throughThreeRemainder30 m r = 0 := by
+  have hz0 := choose_zero_of_lt (4*m+2) r (by omega)
+  have hz1 := choose_zero_of_lt (4*m+2) (r-1) (by omega)
+  have hz2 := choose_zero_of_lt (4*m+2) (r-2) (by omega)
+  have hz3 := choose_zero_of_lt (4*m+2) (r-3) (by omega)
+  have hzT := choose_zero_of_lt (2*m+4) r (by omega)
+  unfold throughThreeRemainder30
+  rw [hz0,hz1,hz2,hz3,hzT]
+  simp
+
+/-- Full-support version of the through-`b₃` payment.  Beyond the range of
+the adjacent-binomial argument there are exactly three nonzero endpoint
+coordinates; the reflective factorizations above prove each nonnegative. -/
+theorem throughThreeRemainder30_nonnegative_all (m r : Nat)
+    (hm : 2 ≤ m) (hr : 4 ≤ r) :
+    (0:Int) ≤ throughThreeRemainder30 m r := by
+  by_cases hmain : r ≤ 4*m+2
+  · exact throughThreeRemainder30_nonnegative m r hm hr hmain
+  · by_cases h1 : r=4*m+2+1
+    · subst r
+      exact throughThree_far_one_nonnegative m hm
+    · by_cases h2 : r=4*m+2+2
+      · subst r
+        exact throughThree_far_two_nonnegative m hm
+      · by_cases h3 : r=4*m+2+3
+        · subst r
+          rw [throughThree_far_three m hm]
+          exact boundaryP_nonnegative m hm
+        · have hfar : 4*m+2+4≤r := by omega
+          rw [throughThree_far_zero m r hm hfar]
+          decide
+
+/-- Every supported deficit from four onward in the minimal start-one row is
+nonnegative after the harmless positive clearing factor `30`.  The induction
+uses the exact one-scale recurrence and no global positivity hypothesis. -/
+theorem minimalScaled_bulk_nonnegative (m r : Nat)
+    (hm : 2 ≤ m) (hr : 4 ≤ r) (hrD : r ≤ 2*m*m+1) :
+    (0:Int) ≤ minimalScaled m r := by
+  obtain ⟨q, hmq⟩ := Nat.exists_eq_add_of_le hm
+  subst m
+  induction q generalizing r with
+  | zero =>
+      have hcases : r=4 ∨ r=5 ∨ r=6 ∨ r=7 ∨ r=8 ∨ r=9 := by omega
+      rcases hcases with h4 | h5 | h6 | h7 | h8 | h9
+      · subst r; decide
+      · subst r; decide
+      · subst r; decide
+      · subst r; decide
+      · subst r; decide
+      · subst r; decide
+  | succ q ih =>
+      let p := 2+q
+      have hp2 : 2≤p := by dsimp [p]; omega
+      have hp0 : 0<p := by omega
+      have hnext : 2+(q+1)=p+1 := by dsimp [p]; omega
+      rw [hnext]
+      rw [minimalScaled_bulk_recurrence p r hp0 hr (by simpa [hnext] using hrD)]
+      apply Int.add_nonneg
+      · apply pascalElevate_nonnegative
+        intro j
+        unfold minimalBulkScaled
+        by_cases hj4 : 4≤j
+        · rw [if_pos hj4]
+          by_cases hjD : j≤2*p*p+1
+          · exact ih j hj4 (by omega) (by simpa [p] using hjD)
+          · have hz : minimalScaled p j=0 := by
+              unfold minimalScaled reverseDeficit
+              rw [if_neg hjD]
+              decide
+            rw [hz]
+            decide
+        · rw [if_neg hj4]
+          decide
+      · have hpI : (0:Int)≤(p:Int) := Int.natCast_nonneg _
+        have hp1I : (0:Int)≤(p:Int)+1 := by omega
+        have hfac : (0:Int)≤(p:Int)*((p:Int)+1) :=
+          Int.mul_nonneg hpI hp1I
+        exact Int.mul_nonneg hfac
+          (throughThreeRemainder30_nonnegative_all p r hp2 hr)
+
+/-- Concrete unscaled minimal theta-residual suffix: for every terminal cell
+`m≥2`, all Bernstein coefficients at deficit at least four are nonnegative. -/
+theorem minimalBase_bulk_nonnegative (m r : Nat)
+    (hm : 2 ≤ m) (hr : 4 ≤ r) (hrD : r ≤ 2*m*m+1) :
+    (0:Int) ≤
+      reverseTailCoeff (2*m*m+1) 1 ((2*m*m+1)-r) (m-1) := by
+  have hs := minimalScaled_bulk_nonnegative m r hm hr hrD
+  unfold minimalScaled reverseDeficit at hs
+  rw [if_pos hrD] at hs
+  exact Int.le_of_mul_le_mul_left hs (by decide)
+
 end YMGap.Continuum.ThetaResidualPascalTelescope
 
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.bernMon_left_extract
@@ -4299,3 +4546,6 @@ end YMGap.Continuum.ThetaResidualPascalTelescope
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.throughThreeRemainder30_five
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.throughThreeRemainder30_nonnegative
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.minimalScaled_bulk_recurrence
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.throughThreeRemainder30_nonnegative_all
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.minimalScaled_bulk_nonnegative
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.minimalBase_bulk_nonnegative

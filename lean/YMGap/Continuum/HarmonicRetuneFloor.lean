@@ -58,6 +58,23 @@ private def cubicComplementRHS : PolyExpr :=
 private theorem cubicComplement_normal :
     normalize cubicComplementLHS = normalize cubicComplementRHS := by decide
 
+private def clearedComplementLHS : PolyExpr :=
+  let b := PolyExpr.var 0
+  .mul (.const 8)
+    (.mul b
+      (.add (.add (.const 3) (.neg (.mul (.const 3) b)))
+        (.mul b b)))
+
+private def clearedComplementRHS : PolyExpr :=
+  let b := PolyExpr.var 0
+  let u := PolyExpr.add b b
+  .mul u
+    (.add (.add (.const 12) (.neg (.mul (.const 6) u)))
+      (.mul u u))
+
+private theorem clearedComplement_normal :
+    normalize clearedComplementLHS = normalize clearedComplementRHS := by decide
+
 private theorem cubic_floor_factor (b : Q') :
     (((1 : Q') - RGTransport.qpow ((1 : Q') + -b) 3) + -(b + b)) ≈
       b * (((1 : Q') + -(Q'.ofNat 3 * b)) + b * b) := by
@@ -73,6 +90,36 @@ private theorem cubic_complement_factor (b : Q') :
     cubicComplement_normal (fun _ => b)
   simpa [RingNormaliser.eval, cubicComplementLHS, cubicComplementRHS,
     RingNormaliser.qpow, RGTransport.qpow] using h
+
+private def clearedProfile (u : Q') : Q' :=
+  u * ((Q'.ofNat 12 + -(Q'.ofNat 6 * u)) + u * u)
+
+private theorem cleared_complement_double_half (b : Q') :
+    Q'.ofNat 8 *
+        (b * ((Q'.ofNat 3 + -(Q'.ofNat 3 * b)) + b * b)) ≈
+      clearedProfile (b + b) := by
+  have h := poly_identity_of_normal_eq clearedComplementLHS clearedComplementRHS
+    clearedComplement_normal (fun _ => b)
+  simpa [RingNormaliser.eval, clearedComplementLHS, clearedComplementRHS,
+    RingNormaliser.qpow, clearedProfile] using h
+
+private theorem mul_eqv_both {a a' b b' : Q'}
+    (ha : a ≈ a') (hb : b ≈ b') : a * b ≈ a' * b' :=
+  Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_right _ _ _ ha)
+    (Q'.mul_eqv_congr_left _ _ _ hb)
+
+private theorem clearedProfile_eqv {u v : Q'} (huv : u ≈ v) :
+    clearedProfile u ≈ clearedProfile v := by
+  unfold clearedProfile
+  apply mul_eqv_both
+  · exact huv
+  · apply Q'.add_eqv_congr'
+    · apply Q'.add_eqv_congr'
+      · exact Q'.eqv_refl _
+      · exact Q'.neg_eqv_congr _ _
+          (Q'.mul_eqv_congr_left (Q'.ofNat 6) _ _ huv)
+    · exact mul_eqv_both huv huv
 
 /-- Every harmonic unit lies below one half. -/
 theorem harmU_le_half (k : Nat) :
@@ -101,6 +148,21 @@ theorem harmonic_retuneBase_eqv (k : Nat) :
       (by decide)
       (Q'.mul_neg_eqv (Q'.mkPos 1 2 (by decide)) (harmU k))
 
+/-- `u_k` is exactly the sum of its two half-units. -/
+theorem harmU_eqv_double_half (k : Nat) :
+    harmU k ≈
+      Q'.mkPos 1 2 (by decide) * harmU k +
+        Q'.mkPos 1 2 (by decide) * harmU k := by
+  apply Q'.eqv_symm
+  refine Q'.eqv_trans _ _ _
+    (Q'.eqv_symm (Q'.add_mul_eqv
+      (Q'.mkPos 1 2 (by decide)) (Q'.mkPos 1 2 (by decide)) (harmU k))) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_right _ _ (harmU k)
+      (by decide : Q'.mkPos 1 2 (by decide) + Q'.mkPos 1 2 (by decide) ≈
+        (1 : Q'))) ?_
+  exact Q'.one_mul_eqv (harmU k)
+
 /-- Exact sharp factorization of the harmonic retune complement. -/
 theorem harmonic_retune_floor_factor (k : Nat) :
     (1 : Q') - retuneCube (harmW k) ≈
@@ -121,6 +183,83 @@ theorem harmonic_retune_floor_factor (k : Nat) :
   · exact Q'.add_eqv_congr'
       (Q'.eqv_refl 1) (Q'.neg_eqv_congr _ _ hcube)
   · simpa [b] using cubic_complement_factor b
+
+/-- Denominator-cleared exact polynomial form:
+`8(1-R_k)=u_k(12-6u_k+u_k²)`. -/
+theorem harmonic_retune_floor_cleared (k : Nat) :
+    Q'.ofNat 8 * ((1 : Q') - retuneCube (harmW k)) ≈
+      harmU k *
+        ((Q'.ofNat 12 + -(Q'.ofNat 6 * harmU k)) +
+          harmU k * harmU k) := by
+  let b : Q' := Q'.mkPos 1 2 (by decide) * harmU k
+  refine Q'.eqv_trans _
+    (Q'.ofNat 8 *
+      (b * ((Q'.ofNat 3 + -(Q'.ofNat 3 * b)) + b * b))) _ ?_ ?_
+  · exact Q'.mul_eqv_congr_left (Q'.ofNat 8) _ _
+      (by simpa [b] using harmonic_retune_floor_factor k)
+  · refine Q'.eqv_trans _ (clearedProfile (b + b)) _
+      (cleared_complement_double_half b) ?_
+    have hbu : b + b ≈ harmU k := by
+      exact Q'.eqv_symm (by simpa [b] using harmU_eqv_double_half k)
+    simpa [clearedProfile] using clearedProfile_eqv hbu
+
+/-- The exact cubic complement is at most its tangent at the ultraviolet
+endpoint: `1-R_k ≤ 3u_k/2`. -/
+theorem harmonic_retune_complement_le_linear (k : Nat) :
+    (1 : Q') - retuneCube (harmW k) ≤
+      Q'.ofNat 3 * (Q'.mkPos 1 2 (by decide) * harmU k) := by
+  let b : Q' := Q'.mkPos 1 2 (by decide) * harmU k
+  let threeB : Q' := Q'.ofNat 3 * b
+  have hb0 : (0 : Q') ≤ b :=
+    Q'.mul_nonneg _ _ (by decide) (harmU_nonneg k)
+  have hb_le_u : b ≤ harmU k := by
+    have hmul := Q'.mul_le_mul_of_nonneg_right _ _ (harmU k)
+      (by decide : Q'.mkPos 1 2 (by decide) ≤ (1 : Q'))
+      (harmU_nonneg k)
+    exact Q'.le_trans' _ _ _ hmul
+      (Q'.le_of_eqv (Q'.one_mul_eqv (harmU k)))
+  have hb3 : b ≤ Q'.ofNat 3 :=
+    Q'.le_trans' _ _ _ hb_le_u
+      (Q'.le_trans' _ _ _ (harmU_le_half k) (by decide))
+  have hsq : b * b ≤ threeB := by
+    unfold threeB
+    exact Q'.mul_le_mul_of_nonneg_right _ _ b hb3 hb0
+  have hsq' : b * b ≤ threeB + (0 : Q') :=
+    Q'.le_trans' _ _ _ hsq
+      (Q'.le_of_eqv (Q'.eqv_symm (QPoly.q_add_zero_eqv threeB)))
+  have hdiff : b * b + -threeB ≤ (0 : Q') :=
+    Q'.sub_le_of_le_add hsq'
+  have hdiff' : -threeB + b * b ≤ (0 : Q') :=
+    Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.add_comm_eqv _ _)) hdiff
+  have hinterior :
+      (Q'.ofNat 3 + -threeB) + b * b ≤ Q'.ofNat 3 := by
+    have hadd := Q'.add_le_add_left (Q'.ofNat 3)
+      (-threeB + b * b) 0 hdiff'
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (Q'.add_assoc_eqv _ _ _))
+      (Q'.le_trans' _ _ _ hadd (Q'.le_of_eqv (QPoly.q_add_zero_eqv _)))
+  have hmul := Q'.mul_le_mul_of_nonneg_left _ _ b hinterior hb0
+  refine Q'.le_trans' _
+    (b * ((Q'.ofNat 3 + -threeB) + b * b)) _
+    (Q'.le_of_eqv (by simpa [b, threeB] using
+      harmonic_retune_floor_factor k)) ?_
+  exact Q'.le_trans' _ _ _ hmul
+    (Q'.le_of_eqv (Q'.mul_comm_eqv b (Q'.ofNat 3)))
+
+/-- Linear lower envelope for the retune cube itself. -/
+theorem harmonic_retune_linear_lower (k : Nat) :
+    (1 : Q') +
+        -(Q'.ofNat 3 * (Q'.mkPos 1 2 (by decide) * harmU k)) ≤
+      retuneCube (harmW k) := by
+  let c : Q' := Q'.ofNat 3 *
+    (Q'.mkPos 1 2 (by decide) * harmU k)
+  have hcomp : (1 : Q') + -retuneCube (harmW k) ≤ c := by
+    simpa [c] using harmonic_retune_complement_le_linear k
+  have hone : (1 : Q') ≤ retuneCube (harmW k) + c :=
+    Q'.le_add_of_sub_le hcomp
+  have hone' : (1 : Q') ≤ c + retuneCube (harmW k) :=
+    Q'.le_trans' _ _ _ hone (Q'.le_of_eqv (Q'.add_comm_eqv _ _))
+  simpa [c] using Q'.sub_le_of_le_add hone'
 
 /-- A sharp quadratic lower envelope, retaining the leading `3u_k/2`
 coefficient and dropping only the positive cubic term. -/
@@ -247,7 +386,11 @@ theorem harmonicMass_quadratic_floor_of_theta_head {k : Nat} (hk : 1 ≤ k)
 
 #print axioms harmU_le_half
 #print axioms harmonic_retuneBase_eqv
+#print axioms harmU_eqv_double_half
 #print axioms harmonic_retune_floor_factor
+#print axioms harmonic_retune_floor_cleared
+#print axioms harmonic_retune_complement_le_linear
+#print axioms harmonic_retune_linear_lower
 #print axioms harmonic_retune_floor_quadratic_lower
 #print axioms harmU_le_retune_floor
 #print axioms harmU_le_harmonicMass_of_theta_head
