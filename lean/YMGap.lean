@@ -737,10 +737,16 @@ import YMGap.Continuum.AllWindowCorrDirichlet
 import YMGap.Continuum.ExtendedWindowCorrPoincare
 import YMGap.Continuum.CutoffCorrelationMonotone
 import YMGap.Continuum.ReciprocalBernoulliUpper
+import YMGap.Continuum.HarmonicCutoffBoundary
+import YMGap.Continuum.HarmonicBulkThetaTail
+import YMGap.Continuum.TwoAnchorBlockCorrBound
+import YMGap.Continuum.HarmonicThetaRatioExtension
 import YMGap.Continuum.AllWindowHardyFence
 import YMGap.Continuum.CorrectedCarrierOperatorBridge
 import YMGap.Continuum.FusedOperatorIntertwinerFence
 import YMGap.Continuum.FusedOffDiagonalCompression
+import YMGap.Continuum.FusedSchurSpacingBridge
+import YMGap.Continuum.FusedSchurAllK
 import YMGap.Continuum.FusedSpacingStepBridge
 import YMGap.Continuum.FusedNextScaleRetune
 import YMGap.Continuum.RacahOrthogonalityGeneral

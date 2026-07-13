@@ -68,6 +68,9 @@ theorem no_positive_endpoint_diagonal_compression
 private def q35 : Q' := Q'.mkPos 3 5 (by decide)
 private def q45 : Q' := Q'.mkPos 4 5 (by decide)
 
+private theorem rotation_norm : q35 * q35 + q45 * q45 ≈ (1 : Q') := by
+  decide
+
 /-- Old-mode unit eigenvector of the rational rotation. -/
 def oldVec : QSeq := fun i => if i = 0 then q35 else if i = 1 then q45 else 0
 
@@ -85,6 +88,28 @@ def rot11 (lamOld lamNew : Q') : Q' :=
 /-- The minimal off-diagonal shell coupling. -/
 def rot01 (lamOld lamNew : Q') : Q' :=
   (q35 * q45) * lamOld + -((q35 * q45) * lamNew)
+
+/-- The rotated head entry is at most the old eigenvalue whenever the new
+eigenvalue is nonnegative and no larger than the old one. -/
+theorem rot00_le_left {lamOld lamNew : Q'}
+    (hnewOld : lamNew <= lamOld) :
+    rot00 lamOld lamNew <= lamOld := by
+  have hq0 : (0 : Q') <= q45 * q45 :=
+    Q'.mul_nonneg _ _ (Q'.le_of_lt (by decide)) (Q'.le_of_lt (by decide))
+  have hscaled : (q45 * q45) * lamNew <= (q45 * q45) * lamOld :=
+    Q'.mul_le_mul_of_nonneg_left _ _ _ hnewOld hq0
+  have hadd :
+      (q35 * q35) * lamOld + (q45 * q45) * lamNew <=
+        (q35 * q35) * lamOld + (q45 * q45) * lamOld :=
+    Q'.add_le_add_left _ _ _ hscaled
+  have hcollapse :
+      (q35 * q35) * lamOld + (q45 * q45) * lamOld ≈ lamOld := by
+    refine Q'.eqv_trans _ _ _
+      (Q'.eqv_symm (Q'.add_mul_eqv (q35 * q35) (q45 * q45) lamOld)) ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_right _ _ lamOld rotation_norm) ?_
+    exact Q'.one_mul_eqv _
+  exact Q'.le_trans' _ _ _ hadd (Q'.le_of_eqv hcollapse)
 
 /-- Symmetric entry function for the rationally rotated two-mode operator. -/
 def rotatedEntry (lamOld lamNew : Q') (i j : Nat) : Q' :=
@@ -182,6 +207,7 @@ end YMGap.Continuum.FusedOffDiagonalCompression
 
 #print axioms YMGap.Continuum.FusedOffDiagonalCompression.positive_diagonal_compression_forces_eigen_eq
 #print axioms YMGap.Continuum.FusedOffDiagonalCompression.no_positive_endpoint_diagonal_compression
+#print axioms YMGap.Continuum.FusedOffDiagonalCompression.rot00_le_left
 #print axioms YMGap.Continuum.FusedOffDiagonalCompression.rotatedEntry_symm
 #print axioms YMGap.Continuum.FusedOffDiagonalCompression.endpoint_rotated_old_eigen_zero
 #print axioms YMGap.Continuum.FusedOffDiagonalCompression.endpoint_rotated_old_eigen_one

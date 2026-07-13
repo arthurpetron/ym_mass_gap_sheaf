@@ -4160,6 +4160,40 @@ physical harmonic schedule `u_k=1/(k+2)`, where `Ncut(k)=(k+2)^2` should force
 the moving boundary coefficient itself into an inverse-square-summable
 envelope.
 
+**Physical harmonic cutoff boundary (2026-07-12).**
+`HarmonicCutoffBoundary` carries the reciprocal Bernoulli engine through that
+consumer.  For the physical harmonic margin `u_k=1/(k+2)`, weight `w_k=1-u_k`,
+and quadratic character cutoff `Ncut(k)=(k+2)^2`, it proves the actual terminal
+coefficient bound `coeffW(w_k,Ncut(k))<=u_k`.  Consequently the boundary square
+is dominated by `invSqTerm(2,k)`, with the explicit window modulus
+`tailSum(boundarySq,N,M)<=pot(2,N)`.  Thus the moving terminal term in the exact
+Dirichlet identity is now summable on a harmonic AF-shaped schedule.  OPEN is
+the bulk theta/Poincare contribution on the same schedule.
+
+**Harmonic bulk theta-tail modulus (2026-07-12).**
+`HarmonicBulkThetaTail` upgrades the terminal estimate to the complete omitted
+coefficient-square tail.  Reciprocal Bernoulli at the doubled tail exponent
+proves the derived ratio
+`4*(harmW(k)^2)^(2*Ncut(k)+3)<=1/2`; the actual `coeffW^2` terms are identified
+exactly with that Casimir tail.  Hence every finite post-cutoff character
+window is bounded by `2*invSqTerm(2,k)`, and arbitrary scale-dependent window
+lengths satisfy the explicit modulus `2*pot(2,N)`.  The moving-cutoff tail is
+therefore fully summable on the harmonic schedule.  The remaining bulk issue
+is the retained theta ratio/Poincare estimate, not truncation leakage.
+
+**Two-anchor correlation window and harmonic leakage bridge (2026-07-12).**
+`TwoAnchorBlockCorrBound` isolates the vacuum and first excited coordinates,
+uses PF2 for every later edge, and certifies the remaining degree-eleven
+polynomial by exact Bernstein coefficients.  It closes the correlation and
+weighted Poincare inequalities for every cutoff throughout `0≤w≤3/4`,
+strictly extending the previous `25/38` window.  On the harmonic schedule this
+settles `k=0,1,2` exactly.  `HarmonicThetaRatioExtension` separately proves
+that all adjacent numerator leakage past `Ncut(k)` costs at most
+`4/(k+2)^2`, so any retained-block estimate propagates to arbitrary larger
+cutoffs with an explicit summable defect.  OPEN is now only the retained
+quadratic block for harmonic `k≥3`, rather than either infinite-tail control
+or small-scale correlation.
+
 **Off-diagonal shell necessity (2026-07-12).**
 `FusedOffDiagonalCompression` strengthens the rank-one fence: any positive
 diagonal shell compression again forces equality of the consecutive fused
@@ -4169,6 +4203,29 @@ and new mixed eigenvectors coordinatewise, and kernel-proves its off-diagonal
 entry is nonzero.  Thus the physical RG carrier must retain a genuinely
 coupled shell.  OPEN is the quantitative Schur-complement/spacing estimate for
 that coupled operator.
+
+**Constructed Schur/spacing bridge (2026-07-12).**
+`FusedSchurSpacingBridge` defines the exact shell loss `g^2/d` and Schur mass
+`h-g^2/d`, proves generically that `g^2<=eps*d` yields loss at most `eps`, and
+derives the varying-spacing cross law from a contracting spacing and a
+Schur-level cross estimate.  On the exact 3-4-5 rotated endpoint operator for
+`Ncut(0)->Ncut(1)`, with independently defined reciprocal-cutoff spacings, the
+kernel discharges shell positivity, coupling size, spacing contraction, and
+the Schur cross inequality.  The resulting operator mass cross inequality and
+physical additive-margin step are fully constructed.  This is one exact RG
+step, not yet the uniform all-scale law; the live residual is to derive the
+same shell/spacing estimates for every `k` and along the AF weights.
+
+**All-scale endpoint Schur reduction (2026-07-12).**
+`FusedSchurAllK` proves for every cutoff step that the actual endpoint fused
+mass equals `tailCut(k)`, the rotated shell mass is strictly positive, the
+exact Schur erosion is nonnegative and satisfies the coupling-size law, and
+reciprocal-cutoff spacing contracts.  The exact tail/spacing arithmetic,
+Schur-to-head comparison, and tail antitonicity then constructively inhabit
+`SchurCrossAllK`; consequently the all-`k` operator mass cross law and physical
+additive-margin step are unconditional.  The endpoint operator-spacing route
+is therefore closed at every quadratic cutoff.  OPEN is its extension from
+`w=1` to the harmonic AF weights, using the newly proved theta-tail moduli.
 
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their
