@@ -1120,6 +1120,127 @@ theorem two_mul_reverseTailCoeff_top_two (D n c : Nat) (hnpos : 0 < n)
       unfold topTwoDiagClosed topTwoOffClosed
       rfl
 
+/-- Append one terminal cell to the closed deficit-two reverse tail. -/
+theorem reverseTopTwoClosed_append (D n c : Nat) :
+    reverseTopTwoClosed D n (c + 1) =
+      reverseTopTwoClosed D n c - topTwoOffClosed D (n + c) +
+        topTwoDiagClosed D (n + c + 1) := by
+  induction c generalizing n with
+  | zero =>
+      simp [reverseTopTwoClosed]
+  | succ c ih =>
+      change
+        topTwoDiagClosed D n - topTwoOffClosed D n +
+            reverseTopTwoClosed D (n + 1) (c + 1) =
+          (topTwoDiagClosed D n - topTwoOffClosed D n +
+            reverseTopTwoClosed D (n + 1) c) -
+            topTwoOffClosed D (n + (c + 1)) +
+              topTwoDiagClosed D (n + (c + 1) + 1)
+      rw [ih (n + 1)]
+      simp only [Int.sub_eq_add_neg]
+      ac_rfl
+
+/-! Canonical power normalization for the start-one collapse. -/
+
+private def iPow (x : Int) : Nat → Int
+  | 0 => 1
+  | k + 1 => x * iPow x k
+
+private theorem iPow_one (x : Int) : iPow x 1 = x := by simp [iPow]
+
+private theorem x_mul_iPow (x k : Int) (j : Nat) :
+    x * (k * iPow x j) = k * iPow x (j + 1) := by
+  change x * (k * iPow x j) = k * (x * iPow x j)
+  ac_rfl
+
+private theorem iPow_add_one_two (x : Int) :
+    iPow (x + 1) 2 = iPow x 2 + 2 * iPow x 1 + 1 := by
+  change (x + 1) * iPow (x + 1) 1 = x * iPow x 1 + 2 * iPow x 1 + 1
+  rw [iPow_one]
+  simp only [Int.mul_add, Int.add_mul]
+  rw [iPow_one]
+  omega
+
+private theorem iPow_add_one_three (x : Int) :
+    iPow (x + 1) 3 = iPow x 3 + 3 * iPow x 2 + 3 * iPow x 1 + 1 := by
+  change (x + 1) * iPow (x + 1) 2 =
+    x * iPow x 2 + 3 * iPow x 2 + 3 * iPow x 1 + 1
+  rw [iPow_add_one_two]
+  simp only [Int.mul_add, Int.add_mul]
+  rw [x_mul_iPow x 2 1, iPow_one]
+  rw [show 1 + 1 = 2 by rfl]
+  omega
+
+private theorem iPow_add_one_four (x : Int) :
+    iPow (x + 1) 4 = iPow x 4 + 4 * iPow x 3 + 6 * iPow x 2 +
+      4 * iPow x 1 + 1 := by
+  change (x + 1) * iPow (x + 1) 3 =
+    x * iPow x 3 + 4 * iPow x 3 + 6 * iPow x 2 + 4 * iPow x 1 + 1
+  rw [iPow_add_one_three]
+  simp only [Int.mul_add, Int.add_mul]
+  rw [x_mul_iPow x 3 2, x_mul_iPow x 3 1, iPow_one]
+  rw [show 2 + 1 = 3 by rfl, show 1 + 1 = 2 by rfl]
+  omega
+
+private theorem iPow_add_one_five (x : Int) :
+    iPow (x + 1) 5 = iPow x 5 + 5 * iPow x 4 + 10 * iPow x 3 +
+      10 * iPow x 2 + 5 * iPow x 1 + 1 := by
+  change (x + 1) * iPow (x + 1) 4 =
+    x * iPow x 4 + 5 * iPow x 4 + 10 * iPow x 3 + 10 * iPow x 2 +
+      5 * iPow x 1 + 1
+  rw [iPow_add_one_four]
+  simp only [Int.mul_add, Int.add_mul]
+  rw [x_mul_iPow x 4 3, x_mul_iPow x 6 2, x_mul_iPow x 4 1, iPow_one]
+  rw [show 3 + 1 = 4 by rfl, show 2 + 1 = 3 by rfl,
+    show 1 + 1 = 2 by rfl]
+  omega
+
+private theorem iPow_add_one_six (x : Int) :
+    iPow (x + 1) 6 = iPow x 6 + 6 * iPow x 5 + 15 * iPow x 4 +
+      20 * iPow x 3 + 15 * iPow x 2 + 6 * iPow x 1 + 1 := by
+  change (x + 1) * iPow (x + 1) 5 =
+    x * iPow x 5 + 6 * iPow x 5 + 15 * iPow x 4 + 20 * iPow x 3 +
+      15 * iPow x 2 + 6 * iPow x 1 + 1
+  rw [iPow_add_one_five]
+  simp only [Int.mul_add, Int.add_mul]
+  rw [x_mul_iPow x 5 4, x_mul_iPow x 10 3, x_mul_iPow x 10 2,
+    x_mul_iPow x 5 1, iPow_one]
+  rw [show 4 + 1 = 5 by rfl, show 3 + 1 = 4 by rfl,
+    show 2 + 1 = 3 by rfl, show 1 + 1 = 2 by rfl]
+  omega
+
+/-- Start-one doubled deficit-two polynomial in canonical powers. -/
+def startTwoPoly (d x : Int) : Int :=
+  2*d*d*iPow x 2 + 2*d*d*x - 8*d*iPow x 4 - 12*d*iPow x 3 + 4*d*x +
+    8*iPow x 6 + 16*iPow x 5 - 10*iPow x 3 + iPow x 2 + 3*x
+
+private def startTwoDelta (d x : Int) : Int :=
+  4*d*d*x + 4*d*d - 32*d*iPow x 3 - 84*d*iPow x 2 - 68*d*x - 16*d +
+    48*iPow x 5 + 200*iPow x 4 + 320*iPow x 3 + 250*iPow x 2 + 100*x + 18
+
+/-- The proposed start-one closed polynomial has the exact terminal-step
+finite difference. -/
+theorem startTwoPoly_step (d x : Int) :
+    startTwoPoly d (x + 1) = startTwoPoly d x + startTwoDelta d x := by
+  unfold startTwoPoly startTwoDelta
+  rw [iPow_add_one_two, iPow_add_one_three, iPow_add_one_four,
+    iPow_add_one_five, iPow_add_one_six]
+  simp only [Int.mul_add]
+  rw [iPow_one]
+  have hg : 2*d*d*(2*x)=4*d*d*x := by
+    rw [show (4:Int)=2*2 by decide]; ac_rfl
+  have hh : 4*d*d=2*(2*d*d) := by
+    rw [show (4:Int)=2*2 by decide]; ac_rfl
+  have hi : 8*d*(4*iPow x 3)=32*d*iPow x 3 := by
+    rw [show (32:Int)=8*4 by decide]; ac_rfl
+  have he : 8*d*(6*iPow x 2)+12*d*(3*iPow x 2)=84*d*iPow x 2 := by
+    rw [show (84:Int)=8*6+12*3 by decide]
+    simp only [Int.add_mul]; ac_rfl
+  have hf : 8*d*(4*x)+12*d*(3*x)=68*d*x := by
+    rw [show (68:Int)=8*4+12*3 by decide]
+    simp only [Int.add_mul]; ac_rfl
+  omega
+
 end YMGap.Continuum.ThetaResidualPascalTelescope
 
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.bernMon_left_extract
@@ -1144,3 +1265,5 @@ end YMGap.Continuum.ThetaResidualPascalTelescope
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.minimalBase_deficit_one_negative
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.two_mul_topTwo_cell_drift
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.two_mul_reverseTailCoeff_top_two
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.reverseTopTwoClosed_append
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.startTwoPoly_step

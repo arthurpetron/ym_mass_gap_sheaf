@@ -4479,8 +4479,19 @@ comparison implies every required prefix inequality.  The exact local
 cross-step sufficient condition is exposed separately.  Ordinary PF2/log
 concavity alone is kernel-refuted by an explicit three-term rational profile,
 so the harmonic instantiation must spend its stronger Casimir ratio drop and
-quadratic-cutoff boundary reserve.  OPEN is precisely those two derived
-harmonic inputs, not the finite quotient iteration or cross multiplication.
+quadratic-cutoff boundary reserve.
+
+`HarmonicHalfEdgeDominance` now spends exactly those resources.  A
+subtraction-free four-coefficient cap follows from reciprocal Bernoulli and
+the identity `(2i+5)+(i+1)(i+3)=(i+2)(i+4)`; its factored base case starts an
+induction proving every half-edge quotient step.  At the terminal cutoff the
+growing-anchor estimate supplies an exact `1/8` ratio.  Consequently the
+λ-free full-tail half-edge dominance, and hence every shifted endpoint slack,
+holds for all harmonic scales and prefixes.  The remaining Abel residual is
+strictly quantitative: the diagonal drift factors increase, so nonpositive
+prefix carriers make the ordinary Abel increment have the wrong sign.  OPEN
+is a terminal-versus-increment reserve bound (or a reverse/suffix carrier),
+not the half-edge comparison and not a sign-only summation claim.
 
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their

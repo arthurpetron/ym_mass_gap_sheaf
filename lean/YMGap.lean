@@ -745,6 +745,7 @@ import YMGap.Continuum.HarmonicGrowingAnchorPF2
 import YMGap.Continuum.HarmonicThetaRepresentation
 import YMGap.Continuum.HarmonicWeightDriftFence
 import YMGap.Continuum.HarmonicDriftAntisymmetry
+import YMGap.Continuum.HarmonicHalfEdgeDominance
 import YMGap.Continuum.HarmonicK3Retune
 import YMGap.Continuum.ThreeAnchorWindowRetune
 import YMGap.Continuum.FourAnchorWindowRetune
