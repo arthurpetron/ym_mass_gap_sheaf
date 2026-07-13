@@ -5076,11 +5076,20 @@ state-preserving star-actions, and the swap is proved invariant for the actual
 interacting expectation `E_Λ`.  `GeometryEnrichedReferenceWeight` adds the
 minimal selected periodic action and module compatibility; from it the Wilson
 form invariance, radical preservation, and quotient time shift are derived.
-The exact next analytic field is `TransferExtension`: extend that quotient
-isometry to the completion and prove the positive self-adjoint contraction
-laws.  Once supplied, `CharacterTransferExtension` connects the selected
-dynamics to the normalized character form gap.  This route is now attacking
-the extension theorem from reflection/time-halfspace laws, not assuming it.
+`ReferenceWeightTransferConstruction` now closes that extension theorem.  The
+geometry-derived quotient isometry is lifted through same-modulus Cauchy
+representatives, proved null-compatible, and descended to the completed GNS
+space; it agrees with the selected shift on the dense quotient and is an exact
+completed isometry, hence a contraction.  A minimal `TimeHalfspaceLaw` supplies
+representative reflected symmetry and positivity, which pass constructively to
+completed self-adjointness and positivity and assemble the actual
+`TransferExtension`.  This premise is provably load-bearing: on one fixed,
+nondegenerate plane state, identity and sign-flip geometries are both exact
+isometries, but the flip has a unit-norm vector with transfer form exactly
+`-1`, so it admits no `TimeHalfspaceLaw`.  The live physical residual is now to
+derive that half-space law for the interacting Wilson state and identify its
+character-sector action; `CharacterTransferExtension` then connects the
+selected dynamics to the normalized character form gap.
 
 ### Milestone 14.4 — Assemble `singleStep` and the continuum floor
 
