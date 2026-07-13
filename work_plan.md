@@ -4381,6 +4381,16 @@ fully explicit.  OPEN is the nonnegative reverse-suffix bulk for `r≥3` and
 the final signed Pascal elevation that uses the target degree to repair these
 two known negative coordinates.
 
+The next boundary layer is now opened without any hidden division.  Cleared
+falling-factorial formulas evaluate the third deficit of each monomial,
+diagonal cell, off-diagonal cell, and arbitrary reverse suffix, and an append
+law isolates its terminal pair.  A uniform kernel fence proves that the first
+individual cell is strictly negative for every degree `D≥11`, with exact
+shifted value `-(8u³+132u²+592u+378)` at `D=11+u`; hence the required
+positivity cannot be cellwise and must spend genuine reverse-suffix reserve.
+OPEN is the exact start-one third-deficit specialization, followed by the
+`r≥4` suffix bulk and its quantitative signed elevation.
+
 **Off-diagonal shell necessity (2026-07-12).**
 `FusedOffDiagonalCompression` strengthens the rank-one fence: any positive
 diagonal shell compression again forces equality of the consecutive fused
@@ -4513,6 +4523,18 @@ constant initial envelope are each kernel-refuted at `k=0`, preventing those
 qualitative shortcuts.  OPEN is the all-scale quantitative compensated
 reserve, now a single explicit rational inequality derived from the harmonic
 coefficient ratios.
+
+The drift increment is now exact at the ratio level:
+`r_k ≈ 1+1/((k+2)²-1)`, and drift-weighted old diagonal/adjacent modes
+transport to the next harmonic scale.  A constructive binomial envelope gives
+a linearized cell bound, but its proposed `24/25` global closure is
+kernel-refuted already at `k=0`; the true reserve still passes `24/25`, while
+the stronger `19/20` true reserve is also exactly refuted there.  The lossy
+envelope has therefore been replaced by the exact identity
+`r^n-1 = unit(d)·geomSum(r,n)` and a lossless global `compensatedGeomSum`
+representation.  OPEN is its all-scale terminal comparison; finite anchors
+`k=0,1,2` and a separate large-`k` envelope remain compatible, but no
+linearized estimate is being substituted for the sharp smallest scale.
 
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their

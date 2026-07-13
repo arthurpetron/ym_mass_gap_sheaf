@@ -868,6 +868,44 @@ private theorem two_choose_pred_pred : ∀ q : Nat,
       simp only [Int.ofNat_eq_natCast, Int.natCast_add, Int.natCast_mul] at hint
       simpa only [Nat.add_assoc] using hint
 
+private theorem six_choose_pred_pred_pred : ∀ q : Nat,
+    6 * Int.ofNat (PNPaths.choose (q + 3) q) =
+      Int.ofNat ((q + 3) * (q + 2) * (q + 1))
+  | 0 => by decide
+  | q + 1 => by
+      change 6 * Int.ofNat (PNPaths.choose ((q + 3) + 1) (q + 1)) =
+        Int.ofNat (((q + 1) + 3) * ((q + 1) + 2) * ((q + 1) + 1))
+      rw [PNPaths.choose]
+      simp only [Int.ofNat_eq_natCast, Int.natCast_add, Int.natCast_mul]
+      rw [Int.mul_add]
+      have hi := six_choose_pred_pred_pred q
+      simp only [Int.ofNat_eq_natCast] at hi
+      rw [hi]
+      have htwo := two_choose_pred_pred (q + 1)
+      simp only [Int.ofNat_eq_natCast] at htwo
+      have hq3 : q+1+2=q+3 := by omega
+      have hq2 : q+1+1=q+2 := by omega
+      rw [hq3,hq2] at htwo
+      have hsix : 6 * (PNPaths.choose (q + 3) (q + 1):Int) =
+          3 * (((q + 3) * (q + 2):Nat):Int) := by
+        have h := congrArg (fun z : Int => 3 * z) htwo
+        rw [show (6:Int)=3*2 by decide]
+        simpa only [Int.mul_assoc] using h
+      rw [hsix]
+      have hnat : (q+3)*(q+2)*(q+1)+3*((q+3)*(q+2)) =
+          (q+4)*(q+3)*(q+2) := by
+        calc
+          (q+3)*(q+2)*(q+1)+3*((q+3)*(q+2)) =
+              ((q+3)*(q+2))*(q+1)+((q+3)*(q+2))*3 := by ac_rfl
+          _ = ((q+3)*(q+2))*((q+1)+3) := by
+            exact (Nat.mul_add _ _ _).symm
+          _ = (q+4)*(q+3)*(q+2) := by
+            rw [show q+4=(q+1)+3 by omega]
+            ac_rfl
+      have hint := congrArg Int.ofNat hnat
+      simp only [Int.ofNat_eq_natCast, Int.natCast_add, Int.natCast_mul] at hint
+      simpa only [Nat.add_assoc] using hint
+
 private theorem two_mul_monoCoeff_top_two {D e : Nat} (hD2 : 2 ≤ D)
     (heD : e ≤ D) :
     2 * monoCoeff D e (D - 2) =
@@ -891,6 +929,241 @@ private theorem two_mul_monoCoeff_top_two {D e : Nat} (hD2 : 2 ≤ D)
     · simp [hz]
     · have ho : D - e = 1 := by omega
       simp [ho]
+
+/-- Cleared exact third-deficit coefficient of one Bernstein monomial. -/
+private theorem six_mul_monoCoeff_top_three {D e : Nat} (hD3 : 3 ≤ D)
+    (heD : e ≤ D) :
+    6 * monoCoeff D e (D - 3) =
+      Int.ofNat ((D-e)*(D-e-1)*(D-e-2)) := by
+  by_cases he : e ≤ D-3
+  · simp only [monoCoeff, if_pos he]
+    have harg : D-3-e=(D-e)-3 := by omega
+    rw [harg]
+    cases hq : D-e with
+    | zero => omega
+    | succ q =>
+        cases q with
+        | zero => omega
+        | succ q =>
+            cases q with
+            | zero => omega
+            | succ q =>
+                have hqsub : q+1+1+1-3=q := by omega
+                rw [hqsub,six_choose_pred_pred_pred q]
+                congr 1
+  · simp only [monoCoeff, if_neg he]
+    have hsmall : D-e≤2 := by omega
+    by_cases hz : D-e=0
+    · simp [hz]
+    · by_cases ho : D-e=1
+      · simp [ho]
+      · have ht : D-e=2 := by omega
+        simp [ht]
+
+/-- Cleared cubic falling-factorial atom for the third deficit. -/
+def topThreeMonoClosed (D e : Nat) : Int :=
+  Int.ofNat ((D-e)*(D-e-1)*(D-e-2))
+
+/-- Cleared diagonal contribution at deficit three. -/
+def topThreeDiagClosed (D n : Nat) : Int :=
+  Int.ofNat (n*n) *
+    (topThreeMonoClosed D (2*n*n-2) +
+      3*topThreeMonoClosed D (2*n*n-1) +
+      3*topThreeMonoClosed D (2*n*n) +
+      topThreeMonoClosed D (2*n*n+1))
+
+/-- Cleared off-diagonal contribution at deficit three. -/
+def topThreeOffClosed (D n : Nat) : Int :=
+  Int.ofNat (8*n*(n+1))*topThreeMonoClosed D (2*n*(n+1)-1)
+
+/-- Cleared arbitrary reverse suffix at deficit three. -/
+def reverseTopThreeClosed (D n : Nat) : Nat → Int
+  | 0 => topThreeDiagClosed D n
+  | c+1 => topThreeDiagClosed D n-topThreeOffClosed D n+
+      reverseTopThreeClosed D (n+1) c
+
+private theorem six_mul_diagCoeff_top_three (D n : Nat)
+    (hD3 : 3≤D) (hdiag : 2*n*n+1≤D) :
+    6*diagCoeff D n (D-3)=topThreeDiagClosed D n := by
+  unfold diagCoeff topThreeDiagClosed topThreeMonoClosed
+  have h0 : 2*n*n-2≤D := by omega
+  have h1 : 2*n*n-1≤D := by omega
+  have h2 : 2*n*n≤D := by omega
+  have hm0 := six_mul_monoCoeff_top_three hD3 h0
+  have hm1 := six_mul_monoCoeff_top_three hD3 h1
+  have hm2 := six_mul_monoCoeff_top_three hD3 h2
+  have hm3 := six_mul_monoCoeff_top_three hD3 hdiag
+  simp only [Int.ofNat_eq_natCast] at hm0 hm1 hm2 hm3 ⊢
+  simp only [Int.mul_add]
+  have t0 : 6*(((n*n:Nat):Int)*monoCoeff D (2*n*n-2) (D-3)) =
+      ((n*n:Nat):Int)*(((D-(2*n*n-2))*(D-(2*n*n-2)-1)*
+        (D-(2*n*n-2)-2):Nat):Int) := by
+    rw [show 6*(((n*n:Nat):Int)*monoCoeff D (2*n*n-2) (D-3)) =
+      ((n*n:Nat):Int)*(6*monoCoeff D (2*n*n-2) (D-3)) by ac_rfl,hm0]
+  have t1 : 6*(((n*n:Nat):Int)*(3*monoCoeff D (2*n*n-1) (D-3))) =
+      ((n*n:Nat):Int)*(3*(((D-(2*n*n-1))*(D-(2*n*n-1)-1)*
+        (D-(2*n*n-1)-2):Nat):Int)) := by
+    rw [show 6*(((n*n:Nat):Int)*(3*monoCoeff D (2*n*n-1) (D-3))) =
+      ((n*n:Nat):Int)*(3*(6*monoCoeff D (2*n*n-1) (D-3))) by ac_rfl,hm1]
+  have t2 : 6*(((n*n:Nat):Int)*(3*monoCoeff D (2*n*n) (D-3))) =
+      ((n*n:Nat):Int)*(3*(((D-2*n*n)*(D-2*n*n-1)*
+        (D-2*n*n-2):Nat):Int)) := by
+    rw [show 6*(((n*n:Nat):Int)*(3*monoCoeff D (2*n*n) (D-3))) =
+      ((n*n:Nat):Int)*(3*(6*monoCoeff D (2*n*n) (D-3))) by ac_rfl,hm2]
+  have t3 : 6*(((n*n:Nat):Int)*monoCoeff D (2*n*n+1) (D-3)) =
+      ((n*n:Nat):Int)*(((D-(2*n*n+1))*(D-(2*n*n+1)-1)*
+        (D-(2*n*n+1)-2):Nat):Int) := by
+    rw [show 6*(((n*n:Nat):Int)*monoCoeff D (2*n*n+1) (D-3)) =
+      ((n*n:Nat):Int)*(6*monoCoeff D (2*n*n+1) (D-3)) by ac_rfl,hm3]
+  rw [t0,t1,t2,t3]
+
+private theorem six_mul_offCoeff_top_three (D n : Nat)
+    (hD3 : 3≤D) (hoff : 2*n*(n+1)-1≤D) :
+    6*offCoeff D n (D-3)=topThreeOffClosed D n := by
+  unfold offCoeff topThreeOffClosed topThreeMonoClosed
+  have hm := six_mul_monoCoeff_top_three hD3 hoff
+  simp only [Int.ofNat_eq_natCast] at hm ⊢
+  rw [show 6*(((8*n*(n+1):Nat):Int)*
+      monoCoeff D (2*n*(n+1)-1) (D-3)) =
+    ((8*n*(n+1):Nat):Int)*(6*monoCoeff D (2*n*(n+1)-1) (D-3)) by ac_rfl]
+  rw [hm]
+
+/-- Exact arbitrary reverse-suffix formula at deficit three, cleared by six. -/
+theorem six_mul_reverseTailCoeff_top_three (D n c : Nat) (hnpos : 0<n)
+    (hD : 2*(n+c)*(n+c)+1≤D) :
+    6*reverseTailCoeff D n (D-3) c=reverseTopThreeClosed D n c := by
+  have hD3 : 3≤D := by
+    have hp : 1≤n+c := by omega
+    have hs : 1≤(n+c)*(n+c) := Nat.mul_le_mul hp hp
+    simp only [Nat.mul_assoc] at hD ⊢
+    omega
+  induction c generalizing n with
+  | zero =>
+      simp only [reverseTailCoeff,reverseTopThreeClosed]
+      exact six_mul_diagCoeff_top_three D n hD3 (by simpa using hD)
+  | succ c ih =>
+      simp only [reverseTailCoeff,reverseTopThreeClosed]
+      have hnle : n≤n+(c+1) := by omega
+      have hn1le : n+1≤n+(c+1) := by omega
+      have hsquare : n*n≤(n+(c+1))*(n+(c+1)) := Nat.mul_le_mul hnle hnle
+      have hrect : n*(n+1)≤(n+(c+1))*(n+(c+1)) := Nat.mul_le_mul hnle hn1le
+      have hd : 2*n*n+1≤D := by
+        simp only [Nat.mul_assoc] at hD ⊢
+        omega
+      have ho : 2*n*(n+1)-1≤D := by
+        simp only [Nat.mul_assoc] at hD ⊢
+        omega
+      rw [Int.mul_add,Int.mul_sub]
+      rw [six_mul_diagCoeff_top_three D n hD3 hd,
+        six_mul_offCoeff_top_three D n hD3 ho]
+      rw [ih (n+1) (by omega) (by
+        simpa [Nat.add_assoc,Nat.add_left_comm,Nat.add_comm] using hD)]
+
+/-- Append one terminal cell to the cleared third-deficit reverse suffix. -/
+theorem reverseTopThreeClosed_append (D n c : Nat) :
+    reverseTopThreeClosed D n (c+1) =
+      reverseTopThreeClosed D n c-topThreeOffClosed D (n+c)+
+        topThreeDiagClosed D (n+c+1) := by
+  induction c generalizing n with
+  | zero => simp [reverseTopThreeClosed]
+  | succ c ih =>
+      change topThreeDiagClosed D n-topThreeOffClosed D n+
+          reverseTopThreeClosed D (n+1) (c+1) =
+        (topThreeDiagClosed D n-topThreeOffClosed D n+
+          reverseTopThreeClosed D (n+1) c)-topThreeOffClosed D (n+(c+1))+
+            topThreeDiagClosed D (n+(c+1)+1)
+      rw [ih (n+1)]
+      simp only [Int.sub_eq_add_neg]
+      ac_rfl
+
+private def intFallThree (z : Int) : Int := z*(z-1)*(z-2)
+
+private theorem topThreeMonoClosed_cast {D e : Nat} (he : e+2≤D) :
+    topThreeMonoClosed D e=intFallThree ((D:Int)-(e:Int)) := by
+  unfold topThreeMonoClosed intFallThree
+  simp only [Int.ofNat_eq_natCast,Int.natCast_mul]
+  rw [Int.natCast_sub (by omega : e≤D)]
+  rw [Int.natCast_sub (by omega : 1≤D-e)]
+  rw [Int.natCast_sub (by omega : 2≤D-e)]
+  have h1 : ((1:Nat):Int)=(1:Int) := rfl
+  have h2 : ((2:Nat):Int)=(2:Int) := rfl
+  rw [h1,h2]
+  have hde : ((D-e:Nat):Int)=(D:Int)-(e:Int) :=
+    Int.natCast_sub (by omega)
+  rw [hde]
+
+/-- Cleared third-deficit drift of the first individual cell. -/
+def firstCellThreeDrift (D : Nat) : Int :=
+  topThreeDiagClosed D 1-topThreeOffClosed D 1
+
+private theorem first_cell_three_algebra (d : Int) :
+    intFallThree d+3*intFallThree (d-1)+3*intFallThree (d-2)-
+        15*intFallThree (d-3) =
+      -8*d*d*d+132*d*d-592*d+810 := by
+  unfold intFallThree
+  simp only [Int.sub_mul,Int.mul_sub,Int.add_mul,Int.mul_add]
+  simp only [Int.mul_assoc]
+  have h1:d*(1*d)=d*d:=by ac_rfl
+  have h2:d*(d*2)=2*(d*d):=by ac_rfl
+  have h3:d*(d*1)=d*d:=by ac_rfl
+  have h4:d*(2*d)=2*(d*d):=by ac_rfl
+  have h5:d*(3*d)=3*(d*d):=by ac_rfl
+  have h6:d*(d*3)=3*(d*d):=by ac_rfl
+  rw[h1,h2,h3,h4,h5,h6]
+  omega
+
+/-- Exact parametric fence: the first cell's cleared third-deficit drift is
+already negative once the degree reaches eleven. -/
+theorem firstCellThreeDrift_eq (D : Nat) (hD : 11≤D) :
+    firstCellThreeDrift D =
+      -8*(D:Int)*(D:Int)*(D:Int)+132*(D:Int)*(D:Int)-592*(D:Int)+810 := by
+  unfold firstCellThreeDrift topThreeDiagClosed topThreeOffClosed
+  simp only [Nat.one_mul,Nat.mul_one,Nat.one_add]
+  rw [show 2-2=0 by decide,show 2-1=1 by decide,
+    show 2+1=3 by decide,show 8*Nat.succ 1=16 by decide,
+    show 2*Nat.succ 1-1=3 by decide]
+  simp only [Int.ofNat_eq_natCast]
+  have h1 : ((1:Nat):Int)=(1:Int) := rfl
+  have h0 : ((0:Nat):Int)=(0:Int) := rfl
+  have h2 : ((2:Nat):Int)=(2:Int) := rfl
+  have h3 : ((3:Nat):Int)=(3:Int) := rfl
+  have h16 : ((16:Nat):Int)=(16:Int) := rfl
+  rw [h1,h16]
+  simp only [Int.one_mul]
+  rw [topThreeMonoClosed_cast (D:=D) (e:=0) (by omega),
+    topThreeMonoClosed_cast (D:=D) (e:=1) (by omega),
+    topThreeMonoClosed_cast (D:=D) (e:=2) (by omega),
+    topThreeMonoClosed_cast (D:=D) (e:=3) (by omega)]
+  rw [h0,h1,h2,h3]
+  rw [Int.sub_zero]
+  have ha := first_cell_three_algebra (D:Int)
+  omega
+
+/-- Thus no proof of the target third-deficit suffix can proceed by requiring
+each paired cell drift to be nonnegative. -/
+theorem firstCellThreeDrift_negative (D : Nat) (hD : 11≤D) :
+    firstCellThreeDrift D<0 := by
+  rw [firstCellThreeDrift_eq D hD]
+  let u : Int := (D:Int)-11
+  have hu : 0≤u := by
+    dsimp [u]
+    have hc : (11:Int)≤(D:Int) := Int.ofNat_le.mpr hD
+    omega
+  have hd : (D:Int)=u+11 := by dsimp [u]; omega
+  rw [hd]
+  have hu2 : 0≤u*u := Int.mul_nonneg hu hu
+  have hu3 : 0≤u*u*u := Int.mul_nonneg hu2 hu
+  have hexpand : -8*(u+11)*(u+11)*(u+11)+132*(u+11)*(u+11)-
+      592*(u+11)+810 = -8*(u*u*u)-132*(u*u)-592*u-378 := by
+    simp only [Int.mul_add,Int.add_mul]
+    simp only [Int.mul_assoc]
+    have h1:u*(11*u)=11*(u*u):=by ac_rfl
+    have h2:u*(u*11)=11*(u*u):=by ac_rfl
+    have h3:u*(u*u)=u*u*u:=by ac_rfl
+    rw [h1,h2,h3]
+    omega
+  rw [hexpand]
+  omega
 
 private theorem top_two_diag_algebra (x y : Int) :
     x*x*((y+2)*(y+1)+3*((y+1)*y)+3*(y*(y-1))+(y-1)*(y-2)) =
@@ -1592,3 +1865,7 @@ end YMGap.Continuum.ThetaResidualPascalTelescope
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.reverseTopTwoClosed_start_one
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.minimalBase_deficit_two
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.minimalBase_deficit_two_negative
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.six_mul_reverseTailCoeff_top_three
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.reverseTopThreeClosed_append
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.firstCellThreeDrift_eq
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.firstCellThreeDrift_negative
