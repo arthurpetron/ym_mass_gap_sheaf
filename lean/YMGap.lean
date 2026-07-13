@@ -450,6 +450,7 @@ import YMGap.Continuum.O4DecayFromMargin
 import YMGap.Continuum.O4RestorationProgress
 import YMGap.Continuum.ContinuumFunctional
 import YMGap.Continuum.RegularFunctional
+import YMGap.Continuum.RegularLinearScalingLimit
 import YMGap.Continuum.ClusterBoundInstance
 import YMGap.Continuum.SigmaGroundedFloor
 import YMGap.Continuum.NonSaturatedFloor

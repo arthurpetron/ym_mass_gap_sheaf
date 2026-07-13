@@ -5104,6 +5104,21 @@ Schwinger functions as located limits of the convergent expansions
 uniformity:** the SU(2) worst-case reduction is PROVED; per-group data per
 11.12. (d) **`ClayTarget` assembly + guard ceremony.**
 
+`RegularLinearScalingLimit` repairs an architectural gap on this lane.  The
+older `FunctionalContinuumTarget` is based on `ObsAlg`, which has no addition
+or rational scalar action, so linearity of its purported Schwinger functional
+cannot be stated there.  On the existing `LinearObsAlg`/`RegularCReal`
+substrate, the new module proves that addition and arbitrary signed rational
+scaling preserve constructive convergence, then uses limit uniqueness to show
+that an explicitly modulus-Cauchy family of finite `Q'` positive linear
+functionals has a normalized, positive, additive, homogeneous spacing limit.
+The family is tied definitionally to its finite-stage expectations, and a
+nondegenerate rational constant tower demonstrates inhabitation.  For Yang--
+Mills the remaining input is now the concrete `LinearScalingLimitModulus` for
+the interacting finite-volume functional, plus the existing OS0/OS2/OS4 and
+operator-spectrum pins; linearity of the resulting limit is no longer an
+additional assumption.
+
 ### Milestone 14.6 — Sharpness/satellite walls (feed, do not block)
 
 13.1 remaining (the `A·B − E·D` decaying envelope → the physical Wilson

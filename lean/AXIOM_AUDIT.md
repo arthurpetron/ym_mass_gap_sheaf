@@ -783,6 +783,7 @@ YMGap.Continuum.RegularContinuumPipeline.RegScalingLimitEdges = 5108af1bf8d94bfd
 YMGap.Continuum.RegularContinuumPipeline.RegScalingLimitModulus = 3b697faa5a75e7d0  (2)
 YMGap.Continuum.RegularFunctional = 1100d5a1c53831b1  (8)
 YMGap.Continuum.RegularFunctional.RegObservableModulus = b3c2a96c530800cb  (2)
+YMGap.Continuum.RegularLinearScalingLimit = 5fcfccdd1e853d1f  (14)
 YMGap.Continuum.RenDefectQuadFactor = d0f0637a4fb24fdb  (11)
 YMGap.Continuum.RenormPerSBudget = 380c73cf417a4964  (10)
 YMGap.Continuum.RenormalizedContinuumZ1 = 2cf2058d5e21521b  (12)
