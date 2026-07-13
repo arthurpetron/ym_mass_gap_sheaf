@@ -1241,6 +1241,327 @@ theorem startTwoPoly_step (d x : Int) :
     simp only [Int.add_mul]; ac_rfl
   omega
 
+private def topTwoDiagInt (d x : Int) : Int :=
+  4*iPow x 2*(d-2*iPow x 2)*(d-2*iPow x 2)+2*iPow x 2
+
+private def topTwoOffInt (d x : Int) : Int :=
+  4*x*(x+1)*(d-(2*x*(x+1)-1))*(d-(2*x*(x+1)-1)-1)
+
+private theorem topTwoDiagInt_generic (d A : Int) :
+    4*A*(d-2*A)*(d-2*A)+2*A =
+      4*d*d*A-16*d*A*A+16*A*A*A+2*A := by
+  simp only [Int.mul_add,Int.add_mul,Int.sub_eq_add_neg,Int.neg_add,Int.mul_neg]
+  let z1:=d*d*A
+  let z2:=d*A*A
+  let z3:=A*A*A
+  have h1:4*A*d*d=4*z1 := by dsimp[z1]; ac_rfl
+  have h2:4*A*d*(2*A)=8*z2 := by
+    dsimp[z2]; rw[show (8:Int)=4*2 by decide]; ac_rfl
+  have h3:4*A*(2*A)*d=8*z2 := by
+    dsimp[z2]; rw[show (8:Int)=4*2 by decide]; ac_rfl
+  have h4:4*A*(2*A)*(2*A)=16*z3 := by
+    dsimp[z3]; rw[show (16:Int)=4*2*2 by decide]; ac_rfl
+  have h5:4*d*d*A=4*z1 := by dsimp[z1]; ac_rfl
+  have h6:16*d*A*A=16*z2 := by dsimp[z2]; ac_rfl
+  have h7:16*A*A*A=16*z3 := by dsimp[z3]; ac_rfl
+  have hc:(4*A*(2*A))*d=8*d*A*A := by
+    rw[show (8:Int)=4*2 by decide]; ac_rfl
+  have he:(4*A*(2*A))*(2*A)=16*A*A*A := by
+    rw[show (16:Int)=4*2*2 by decide]; ac_rfl
+  have hcn:-(4*A*(2*A))*d=-(8*d*A*A) := by rw[Int.neg_mul,hc]
+  have hen:-(4*A*(2*A))*(2*A)=-(16*A*A*A) := by rw[Int.neg_mul,he]
+  omega
+
+private theorem topTwoDiagInt_expanded (d x : Int) :
+    topTwoDiagInt d (x+1) =
+      4*d*d*iPow x 2+8*d*d*x+4*d*d
+      -16*d*iPow x 4-64*d*iPow x 3-96*d*iPow x 2-64*d*x-16*d
+      +16*iPow x 6+96*iPow x 5+240*iPow x 4+320*iPow x 3+
+        242*iPow x 2+100*x+18 := by
+  unfold topTwoDiagInt
+  let A:=iPow (x+1) 2
+  change 4*A*(d-2*A)*(d-2*A)+2*A=_
+  rw [topTwoDiagInt_generic]
+  dsimp [A]
+  have hd4 : 16*d*iPow (x+1) 2*iPow (x+1) 2 = 16*d*iPow (x+1) 4 := by
+    dsimp [iPow]; ac_rfl
+  have h6 : 16*iPow (x+1) 2*iPow (x+1) 2*iPow (x+1) 2 =
+      16*iPow (x+1) 6 := by
+    dsimp [iPow]; ac_rfl
+  rw [hd4,h6,iPow_add_one_two,iPow_add_one_four,iPow_add_one_six,iPow_one]
+  simp only [Int.mul_add]
+  have ha : 4*d*d*(2*x)=8*d*d*x := by
+    rw[show (8:Int)=4*2 by decide]; ac_rfl
+  have hb : 16*d*(4*iPow x 3)=64*d*iPow x 3 := by
+    rw[show (64:Int)=16*4 by decide]; ac_rfl
+  have hc : 16*d*(6*iPow x 2)=96*d*iPow x 2 := by
+    rw[show (96:Int)=16*6 by decide]; ac_rfl
+  have he : 16*d*(4*x)=64*d*x := by
+    rw[show (64:Int)=16*4 by decide]; ac_rfl
+  omega
+
+private theorem topTwoOffInt_generic (d X : Int) :
+    4*X*(d-2*X+1)*(d-2*X)=
+      4*d*d*X-16*d*X*X+16*X*X*X+4*d*X-8*X*X := by
+  simp only [Int.mul_add,Int.add_mul,Int.sub_eq_add_neg,Int.neg_add,
+    Int.mul_neg,Int.mul_one]
+  let z1:=d*d*X
+  let z2:=d*X*X
+  let z3:=X*X*X
+  have h1:4*X*d*d=4*z1 := by dsimp[z1]; ac_rfl
+  have h2:4*X*d*(2*X)=8*z2 := by
+    dsimp[z2]; rw[show (8:Int)=4*2 by decide]; ac_rfl
+  have h3:4*X*(2*X)*d=8*z2 := by
+    dsimp[z2]; rw[show (8:Int)=4*2 by decide]; ac_rfl
+  have h4:4*X*(2*X)*(2*X)=16*z3 := by
+    dsimp[z3]; rw[show (16:Int)=4*2*2 by decide]; ac_rfl
+  have h5:4*d*d*X=4*z1 := by dsimp[z1]; ac_rfl
+  have h6:16*d*X*X=16*z2 := by dsimp[z2]; ac_rfl
+  have h7:16*X*X*X=16*z3 := by dsimp[z3]; ac_rfl
+  have hc:(4*X*(2*X))*d=8*d*X*X := by
+    rw[show (8:Int)=4*2 by decide]; ac_rfl
+  have he:(4*X*(2*X))*(2*X)=16*X*X*X := by
+    rw[show (16:Int)=4*2*2 by decide]; ac_rfl
+  have hi:4*X*(2*X)=8*X*X := by
+    rw[show (8:Int)=4*2 by decide]; ac_rfl
+  have hcn:-(4*X*(2*X))*d=-(8*d*X*X) := by rw[Int.neg_mul,hc]
+  have hen:-(4*X*(2*X))*(2*X)=-(16*X*X*X) := by rw[Int.neg_mul,he]
+  have hdx:4*X*d=4*d*X := by ac_rfl
+  omega
+
+private theorem topTwoOffInt_expanded (d x : Int) :
+    topTwoOffInt d x =
+      4*d*d*iPow x 2+4*d*d*x
+      -16*d*iPow x 4-32*d*iPow x 3-12*d*iPow x 2+4*d*x
+      +16*iPow x 6+48*iPow x 5+40*iPow x 4-8*iPow x 2 := by
+  unfold topTwoOffInt
+  let X:=x*(x+1)
+  have hX : X=iPow x 2+x := by
+    dsimp [X,iPow]
+    simp only [Int.mul_add,Int.mul_one]
+  have hleft : 4*x*(x+1)=4*X := by dsimp [X]; ac_rfl
+  have hp : 2*x*(x+1)=2*X := by dsimp [X]; ac_rfl
+  rw [hleft,hp]
+  change 4*X*(d-(2*X-1))*(d-(2*X-1)-1)=_
+  have hs1 : d-(2*X-1)=d-2*X+1 := by omega
+  have hs2 : d-2*X+1-1=d-2*X := by omega
+  rw [hs1,hs2,topTwoOffInt_generic]
+  have hX2 : X*X=iPow x 4+2*iPow x 3+iPow x 2 := by
+    rw [hX]
+    simp only [Int.mul_add,Int.add_mul]
+    have h4 : iPow x 2*iPow x 2=iPow x 4 := by dsimp [iPow]; ac_rfl
+    have h3a : iPow x 2*x=iPow x 3 := by dsimp [iPow]; ac_rfl
+    have h3b : x*iPow x 2=iPow x 3 := by dsimp [iPow]
+    have hx2 : x*x=iPow x 2 := by dsimp [iPow]; rw [Int.mul_one]
+    rw [h4,h3a,h3b,hx2]
+    omega
+  have hX3 : X*X*X=iPow x 6+3*iPow x 5+3*iPow x 4+iPow x 3 := by
+    rw [hX2,hX]
+    simp only [Int.mul_add,Int.add_mul]
+    have h42 : iPow x 4*iPow x 2=iPow x 6 := by dsimp [iPow]; ac_rfl
+    have h32 : iPow x 3*iPow x 2=iPow x 5 := by dsimp [iPow]; ac_rfl
+    have h22 : iPow x 2*iPow x 2=iPow x 4 := by dsimp [iPow]; ac_rfl
+    have h4x : iPow x 4*x=iPow x 5 := by dsimp [iPow]; ac_rfl
+    have h3x : iPow x 3*x=iPow x 4 := by dsimp [iPow]; ac_rfl
+    have h2x : iPow x 2*x=iPow x 3 := by dsimp [iPow]; ac_rfl
+    have h32c : 2*iPow x 3*iPow x 2=2*iPow x 5 := by dsimp [iPow]; ac_rfl
+    have h3xc : 2*iPow x 3*x=2*iPow x 4 := by dsimp [iPow]; ac_rfl
+    omega
+  have hdX2 : -16*d*X*X=-16*d*(iPow x 4+2*iPow x 3+iPow x 2) := by
+    have h:=congrArg (fun z:Int=>-16*d*z) hX2
+    simpa only [Int.mul_assoc] using h
+  have h16X3 : 16*X*X*X=16*(iPow x 6+3*iPow x 5+3*iPow x 4+iPow x 3) := by
+    have h:=congrArg (fun z:Int=>16*z) hX3
+    simpa only [Int.mul_assoc] using h
+  have hm8X2 : -8*X*X=-8*(iPow x 4+2*iPow x 3+iPow x 2) := by
+    have h:=congrArg (fun z:Int=>-8*z) hX2
+    simpa only [Int.mul_assoc] using h
+  have hDlin : 4*d*d*X=4*d*d*(iPow x 2+x) := by rw [hX]
+  have hdlin : 4*d*X=4*d*(iPow x 2+x) := by rw [hX]
+  have hp16 : 16*d*X*X=16*d*(iPow x 4+2*iPow x 3+iPow x 2) := by
+    have h:=congrArg (fun z:Int=>16*d*z) hX2
+    simpa only [Int.mul_assoc] using h
+  have hp8 : 8*X*X=8*(iPow x 4+2*iPow x 3+iPow x 2) := by
+    have h:=congrArg (fun z:Int=>8*z) hX2
+    simpa only [Int.mul_assoc] using h
+  simp only [Int.mul_add] at hDlin hdlin hdX2 h16X3 hm8X2
+  simp only [Int.mul_add] at hp16 hp8
+  have hc32 : 16*d*(2*iPow x 3)=32*d*iPow x 3 := by
+    rw [show (32:Int)=16*2 by decide]
+    ac_rfl
+  have hc16 : 4*d*iPow x 2+12*d*iPow x 2=16*d*iPow x 2 := by
+    have h:(16:Int)*d=4*d+12*d := by omega
+    rw [h,Int.add_mul]
+  omega
+
+private theorem topTwo_terminal_pair_int (d x : Int) :
+    topTwoDiagInt d (x+1)-topTwoOffInt d x=startTwoDelta d x := by
+  rw [topTwoDiagInt_expanded, topTwoOffInt_expanded]
+  unfold startTwoDelta
+  simp only [Int.mul_assoc]
+  omega
+
+/-- The compact terminal diagonal/off-diagonal pair is exactly the increment
+of the start-one deficit-two polynomial. -/
+theorem topTwo_terminal_pair (D m : Nat) :
+    topTwoDiagClosed D (m+1)-topTwoOffClosed D m =
+      startTwoPoly (D:Int) ((m:Int)+1)-startTwoPoly (D:Int) (m:Int) := by
+  have hp := topTwo_terminal_pair_int (D:Int) (m:Int)
+  have hd : topTwoDiagClosed D (m+1) =
+      topTwoDiagInt (D:Int) ((m:Int)+1) := by
+    unfold topTwoDiagClosed topTwoDiagInt
+    simp only [Int.natCast_add]
+    have h1 : ((1:Nat):Int)=(1:Int) := rfl
+    rw [h1]
+    dsimp [iPow]
+    ac_rfl
+  have ho : topTwoOffClosed D m = topTwoOffInt (D:Int) (m:Int) := by
+    unfold topTwoOffClosed topTwoOffInt
+    dsimp [iPow]
+  rw [hd,ho]
+  rw [startTwoPoly_step]
+  omega
+
+/-- Every start-one deficit-two closed tail is the canonical polynomial at
+its terminal index. -/
+theorem reverseTopTwoClosed_start_one (D c : Nat) :
+    reverseTopTwoClosed D 1 c = startTwoPoly (D:Int) ((c:Int)+1) := by
+  induction c with
+  | zero =>
+      simp [reverseTopTwoClosed, topTwoDiagClosed, startTwoPoly, iPow]
+      have hs : ((D:Int)-2)*((D:Int)-2) =
+          (D:Int)*(D:Int)-4*(D:Int)+4 := by
+        simp only [Int.sub_mul,Int.mul_sub]
+        omega
+      have hfour : 4*((D:Int)-2)*((D:Int)-2) =
+          4*(((D:Int)-2)*((D:Int)-2)) := by ac_rfl
+      rw [hfour]
+      rw [hs]
+      simp only [Int.mul_assoc]
+      omega
+  | succ c ih =>
+      rw [reverseTopTwoClosed_append]
+      rw [ih]
+      simp only [Nat.one_add]
+      have hp := topTwo_terminal_pair D (c+1)
+      simp only [Int.natCast_add] at hp ⊢
+      have h1 : ((1:Nat):Int)=(1:Int) := rfl
+      rw [h1] at hp ⊢
+      simp only [Nat.succ_eq_add_one] at hp ⊢
+      omega
+
+private theorem startTwoPoly_minimal_int (x : Int) :
+    startTwoPoly (2*iPow x 2+1) x = -3*x*(x+1)*(2*x-3) := by
+  unfold startTwoPoly
+  have hA : 2*(2*iPow x 2+1)*(2*iPow x 2+1)*iPow x 2 =
+      8*iPow x 6+8*iPow x 4+2*iPow x 2 := by
+    simp only [Int.mul_add,Int.add_mul]
+    have t1:2*(2*iPow x 2)*(2*iPow x 2)*iPow x 2=8*iPow x 6:=by
+      rw[show (8:Int)=2*2*2 by decide];dsimp[iPow];ac_rfl
+    have t2:2*1*(2*iPow x 2)*iPow x 2=4*iPow x 4:=by
+      rw[show (4:Int)=2*2 by decide];dsimp[iPow];ac_rfl
+    have t3:2*(2*iPow x 2)*1*iPow x 2=4*iPow x 4:=by
+      rw[show (4:Int)=2*2 by decide];dsimp[iPow];ac_rfl
+    have t4:2*1*1*iPow x 2=2*iPow x 2:=by ac_rfl
+    rw[t1,t2,t3,t4];omega
+  have hB : 2*(2*iPow x 2+1)*(2*iPow x 2+1)*x =
+      8*iPow x 5+8*iPow x 3+2*x := by
+    simp only [Int.mul_add,Int.add_mul]
+    have t1:2*(2*iPow x 2)*(2*iPow x 2)*x=8*iPow x 5:=by
+      rw[show (8:Int)=2*2*2 by decide];dsimp[iPow];ac_rfl
+    have t2:2*1*(2*iPow x 2)*x=4*iPow x 3:=by
+      rw[show (4:Int)=2*2 by decide];dsimp[iPow];ac_rfl
+    have t3:2*(2*iPow x 2)*1*x=4*iPow x 3:=by
+      rw[show (4:Int)=2*2 by decide];dsimp[iPow];ac_rfl
+    have t4:2*1*1*x=2*x:=by ac_rfl
+    rw[t1,t2,t3,t4];omega
+  have hC : 8*(2*iPow x 2+1)*iPow x 4=16*iPow x 6+8*iPow x 4 := by
+    simp only[Int.mul_add]
+    simp only[Int.add_mul]
+    have t:8*(2*iPow x 2)*iPow x 4=16*iPow x 6:=by
+      rw[show (16:Int)=8*2 by decide];dsimp[iPow];ac_rfl
+    rw[t];omega
+  have hD : 12*(2*iPow x 2+1)*iPow x 3=24*iPow x 5+12*iPow x 3 := by
+    simp only[Int.mul_add]
+    simp only[Int.add_mul]
+    have t:12*(2*iPow x 2)*iPow x 3=24*iPow x 5:=by
+      rw[show (24:Int)=12*2 by decide];dsimp[iPow];ac_rfl
+    rw[t];omega
+  have hE : 4*(2*iPow x 2+1)*x=8*iPow x 3+4*x := by
+    simp only[Int.mul_add]
+    simp only[Int.add_mul]
+    have t:4*(2*iPow x 2)*x=8*iPow x 3:=by
+      rw[show (8:Int)=4*2 by decide];dsimp[iPow];ac_rfl
+    rw[t];omega
+  rw[hA,hB,hC,hD,hE]
+  have hR : -3*x*(x+1)*(2*x-3)=-6*iPow x 3+3*iPow x 2+9*x := by
+    simp only[Int.mul_add,Int.mul_sub]
+    simp only[Int.add_mul]
+    dsimp[iPow]
+    simp only[Int.mul_one,Int.mul_assoc]
+    have h6:-3*(x*(x*(2*x)))=-6*(x*(x*x)):=by
+      rw[show (-6:Int)=(-3)*2 by decide];ac_rfl
+    have hq:-3*(x*(2*x))=-6*(x*x):=by
+      rw[show (-6:Int)=(-3)*2 by decide];ac_rfl
+    have hq3:-3*(x*(x*3))=-9*(x*x):=by
+      rw[show (-9:Int)=(-3)*3 by decide];ac_rfl
+    have hx3:-3*(x*3)=-9*x:=by
+      rw[show (-9:Int)=(-3)*3 by decide];ac_rfl
+    rw[h6,hq,hq3,hx3]
+    omega
+  rw[hR]
+  omega
+
+/-- The deficit-two coefficient of the minimal start-one tail has its exact
+negative closed form. -/
+theorem minimalBase_deficit_two (m : Nat) (hm : 0 < m) :
+    reverseTailCoeff (2*m*m+1) 1 (2*m*m-1) (m-1) =
+      -(3*(m:Int)*((m:Int)+1)*(2*(m:Int)-3)) := by
+  have hend : 1+(m-1)=m := by omega
+  have hD : 2*(1+(m-1))*(1+(m-1))+1 ≤ 2*m*m+1 := by
+    rw [hend]
+    exact Nat.le_refl _
+  have ht := two_mul_reverseTailCoeff_top_two (2*m*m+1) 1 (m-1)
+    (by decide) hD
+  rw [reverseTopTwoClosed_start_one] at ht
+  have hc : (((m-1):Nat):Int)+1=(m:Int) := by
+    have hn : m-1+1=m := by omega
+    have hi := congrArg Int.ofNat hn
+    simpa only [Int.natCast_add] using hi
+  rw [hc] at ht
+  have hd : ((2*m*m+1:Nat):Int)=2*iPow (m:Int) 2+1 := by
+    simp only [Int.natCast_add,Int.natCast_mul]
+    have h1 : ((1:Nat):Int)=(1:Int) := rfl
+    have h2 : ((2:Nat):Int)=(2:Int) := rfl
+    rw [h1,h2]
+    dsimp [iPow]
+    ac_rfl
+  rw [hd,startTwoPoly_minimal_int] at ht
+  have hidx : 2*m*m+1-2=2*m*m-1 := by omega
+  rw [← hidx]
+  have hneg : -(3*(m:Int)*((m:Int)+1)*(2*(m:Int)-3)) =
+      -3*(m:Int)*((m:Int)+1)*(2*(m:Int)-3) := by
+    rw [show (-3:Int)=-(3:Int) by decide]
+    rw [Int.neg_mul,Int.neg_mul,Int.neg_mul]
+  rw [hneg]
+  omega
+
+/-- The minimal deficit-two base is strictly negative from terminal cell two
+onward. -/
+theorem minimalBase_deficit_two_negative (m : Nat) (hm : 2 ≤ m) :
+    reverseTailCoeff (2*m*m+1) 1 (2*m*m-1) (m-1) < 0 := by
+  rw [minimalBase_deficit_two m (by omega)]
+  have hx2 : (2:Int) ≤ (m:Int) := Int.ofNat_le.mpr hm
+  have h3 : (0:Int) < 3 := by decide
+  have hm0 : (0:Int) < (m:Int) := by omega
+  have hm1 : (0:Int) < (m:Int)+1 := by omega
+  have hf : (0:Int) < 2*(m:Int)-3 := by omega
+  have h3m : (0:Int) < 3*(m:Int) := Int.mul_pos h3 hm0
+  have h3m1 : (0:Int) < 3*(m:Int)*((m:Int)+1) := Int.mul_pos h3m hm1
+  have hp : (0:Int) < 3*(m:Int)*((m:Int)+1)*(2*(m:Int)-3) :=
+    Int.mul_pos h3m1 hf
+  omega
+
 end YMGap.Continuum.ThetaResidualPascalTelescope
 
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.bernMon_left_extract
@@ -1267,3 +1588,7 @@ end YMGap.Continuum.ThetaResidualPascalTelescope
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.two_mul_reverseTailCoeff_top_two
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.reverseTopTwoClosed_append
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.startTwoPoly_step
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.topTwo_terminal_pair
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.reverseTopTwoClosed_start_one
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.minimalBase_deficit_two
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.minimalBase_deficit_two_negative

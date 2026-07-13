@@ -4372,6 +4372,15 @@ and cell-summation ambiguity from the second exceptional coordinate.  OPEN is
 its start-one polynomial collapse and minimal specialization
 `-3m(m+1)(2m-3)`, followed by the `r≥3` bulk and signed degree elevation.
 
+The start-one collapse is now kernel-closed as well.  The compact terminal
+diagonal/off-diagonal pair is exactly the increment of `startTwoPoly`, so the
+arbitrary tail telescopes to one degree-six integer polynomial.  At the
+minimal degree this is exactly `-3m(m+1)(2m-3)`, and strict negativity is
+proved for `m≥2`.  Both exceptional boundary coordinates are therefore
+fully explicit.  OPEN is the nonnegative reverse-suffix bulk for `r≥3` and
+the final signed Pascal elevation that uses the target degree to repair these
+two known negative coordinates.
+
 **Off-diagonal shell necessity (2026-07-12).**
 `FusedOffDiagonalCompression` strengthens the rank-one fence: any positive
 diagonal shell compression again forces equality of the consecutive fused
@@ -4492,6 +4501,18 @@ strictly quantitative: the diagonal drift factors increase, so nonpositive
 prefix carriers make the ordinary Abel increment have the wrong sign.  OPEN
 is a terminal-versus-increment reserve bound (or a reverse/suffix carrier),
 not the half-edge comparison and not a sign-only summation claim.
+
+`HarmonicWeightedAbelReserve` replaces that unstable form by an exact
+compensated identity with baseline `T_L·G_0` and defect
+`Σ(T_L-T_p)(G_(p+1)-G_p)`, including the missing terminal half-edge.  It
+expands the same terminal-corrected residual independently as the harmonic
+trapezoid energy, supplies the precise reserve-to-nonpositivity consumer, and
+kernel-closes the smallest scale; the stronger `24/25` reserve has exact
+slack at `k=0`.  Reverse-suffix signs, a two-cell telescope, and the least
+constant initial envelope are each kernel-refuted at `k=0`, preventing those
+qualitative shortcuts.  OPEN is the all-scale quantitative compensated
+reserve, now a single explicit rational inequality derived from the harmonic
+coefficient ratios.
 
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their
