@@ -1,9 +1,11 @@
 /-
-Stage-2 SYNTHESIS CAPSTONE / R2+R3+O(4) — **the single continuum certificate**:
+Stage-2 SYNTHESIS CAPSTONE / R2+R3+anisotropy — **the single continuum certificate**:
 ONE named structure bundling the three sharp, asymptotic-freedom-routed continuum
 inputs, from which the entire a→0 continuum Yang–Mills package — a strictly
-positive continuum mass gap, nontriviality, and O(4) rotation restoration — is
-PROVED at once.
+positive continuum mass gap, nontriviality, and the legacy scalar anisotropy
+Cauchy conclusion — is PROVED at once.  The Cauchy conclusion is not by itself
+full O(4) restoration; `ContinuumCertificateSharpO4` exports the genuine
+zero-anisotropy result and the selected-observable response bridge.
 
 # What this module IS
 
@@ -32,9 +34,10 @@ reductions; no new analytic content is smuggled in.
   * `continuum_gap_positive` — the continuum gap (the constructed dimensionless
     ratio limit) is `CReal.IsPositive`, via `continuum_ratio_isPositive` applied
     to the certificate's `UniformRatioVariation` field.
-  * `continuum_o4_restored` — the O(4) rotation-breaking coefficient converges
-    (restoration), via `rotationRestored_of_decay` applied to the certificate's
-    `ScalingDimensionDecay` field.
+  * `continuum_o4_restored` — the legacy Cauchy predicate for the O(4)
+    rotation-breaking coefficient, via `rotationRestored_of_decay` applied to
+    the certificate's `ScalingDimensionDecay` field.  Despite its historical
+    name, this declaration alone is not a zero-limit or full-O(4) theorem.
   * `continuum_nontrivial` — `IsNontrivial`, via
     `isNontrivial_of_lambdaPositiveLimit` applied to the certificate's
     `LambdaPositiveLimit` field.
@@ -42,8 +45,8 @@ reductions; no new analytic content is smuggled in.
   * `ContinuumYMGap` / `continuumYMGap_of_certificate` — THE PACKAGED CONCLUSION:
     a single `Type`-level structure carrying the strictly-positive continuum mass
     (the located gap `CReal` + its positivity), the nontriviality witness, and
-    the O(4)-restoration witness TOGETHER, produced from the ONE certificate by
-    composing the three reductions.
+    the legacy anisotropy-Cauchy witness TOGETHER, produced from the ONE
+    certificate by composing the three reductions.
 
   * `osCarrier_of_certificate` — the capstone supersedes the older opaque oracle:
     GIVEN the abstract OS-reconstruction objects, the certificate's
@@ -60,12 +63,14 @@ single-step bounds carried by `ContinuumCertificate`:
   |------------------------------|---------------------------------|-----------------------|
   | R3 strictly-positive gap     | `UniformRatioVariation`         | `continuum_ratio_isPositive` |
   | R2 nontriviality             | `LambdaPositiveLimit`           | `isNontrivial_of_lambdaPositiveLimit` |
-  | O(4) rotation restoration    | `ScalingDimensionDecay`         | `rotationRestored_of_decay`  |
+  | scalar anisotropy Cauchy precursor | `ScalingDimensionDecay`    | `rotationRestored_of_decay`  |
 
 The AF SCHEDULE / reciprocal rate half is already PROVED (the certificate's
 trajectory supplies it), and the running-obstruction `af_BetaNonzero` is
 discharged unconditionally upstream.  The capstone proves the three named inputs
-JOINTLY deliver the Clay continuum requirements (R2 + R3 + O(4)).
+JOINTLY deliver R2, R3, and the legacy scalar Cauchy precursor.  The sharp
+zero-limit and observable-level consequence are exported downstream by
+`ContinuumCertificateSharpO4`; neither module alone constructs full O(4).
 
 This does NOT close the continuum limit.  The three fields of
 `ContinuumCertificate` are the genuine open analytic core (Bałaban-class
@@ -149,11 +154,11 @@ theorem continuum_gap_positive (cert : ContinuumCertificate) :
     CReal.IsPositive (continuumRatioLimit cert.traj cert.ratioVar) :=
   continuum_ratio_isPositive cert.traj cert.ratioVar
 
-/-- **Capstone (O(4) restoration).**  The leading rotation-breaking operator's
-coefficient converges along the AF schedule (with an explicit two-sided modulus):
-continuous O(4) rotation symmetry is restored as a→0.  This is
-`rotationRestored_of_decay` applied to the certificate's `ScalingDimensionDecay`
-field. -/
+/-- **Legacy anisotropy-Cauchy capstone.**  The leading rotation-breaking
+operator's coefficient is Cauchy along the AF schedule.  The historical result
+type `RotationRestored` is definitionally only this Cauchy predicate; use
+`ContinuumCertificateSharpO4.continuum_o4_breakCoeff_vanishes` for the strict
+zero statement and its response bridge for selected observable invariance. -/
 theorem continuum_o4_restored (cert : ContinuumCertificate) :
     RotationRestored cert.scalingDecay :=
   rotationRestored_of_decay cert.scalingDecay
@@ -173,7 +178,7 @@ def continuum_nontrivial (cert : ContinuumCertificate) :
 `continuumYMGap_of_certificate` produces it from the ONE certificate by composing
 the three capstone theorems above. -/
 
-/-- **The full continuum Yang–Mills gap package.**
+/-- **The legacy conditional continuum gap package.**
 
 `Type`-level data carrying, TOGETHER, the three continuum requirements delivered
 by a `ContinuumCertificate`:
@@ -183,7 +188,7 @@ by a `ContinuumCertificate`:
   * `gap_positive` — the gap is strictly positive (R3);
   * `nontrivial` — the dimensional-transmutation nontriviality witness for the
     certificate's scale schedule (R2);
-  * `o4_restored` — the proved O(4) rotation-restoration convergence. -/
+  * `o4_restored` — the historical scalar anisotropy-Cauchy field. -/
 structure ContinuumYMGap (cert : ContinuumCertificate) : Type where
   /-- The continuum gap (the constructed dimensionless ratio limit). -/
   gap : CReal
@@ -191,14 +196,13 @@ structure ContinuumYMGap (cert : ContinuumCertificate) : Type where
   gap_positive : CReal.IsPositive gap
   /-- **R2:** the continuum theory is nontrivial (dimensional transmutation). -/
   nontrivial : IsNontrivial cert.lambdaLimit.schedule
-  /-- **O(4):** continuous rotation symmetry is restored (coefficient converges). -/
+  /-- **Legacy O(4) precursor:** the scalar coefficient is Cauchy. -/
   o4_restored : RotationRestored cert.scalingDecay
 
-/-- **THE CAPSTONE.**  From a single `ContinuumCertificate`, the full continuum
-Yang–Mills gap package is delivered — a strictly-positive continuum mass gap (R3),
-nontriviality (R2), and O(4) rotation restoration — by composing the three
-already-proved reductions.  No new analytic content: each conclusion is the
-matching capstone theorem read off the certificate's field. -/
+/-- **THE LEGACY CAPSTONE.**  From a single `ContinuumCertificate`, package a
+strictly-positive continuum mass gap (R3), nontriviality (R2), and the historical
+scalar anisotropy-Cauchy precursor.  `ContinuumCertificateSharpO4` is the sharp
+successor for zero anisotropy and selected observable invariance. -/
 def continuumYMGap_of_certificate (cert : ContinuumCertificate) :
     ContinuumYMGap cert where
   gap := continuumRatioLimit cert.traj cert.ratioVar
@@ -260,10 +264,10 @@ capstone results — the open content is exactly the three named fields of
 `ContinuumCertificate`. -/
 
 /-- **The certificate ledger.**  From a single `ContinuumCertificate`, the three
-continuum requirements hold together: the continuum gap is strictly positive (R3),
-the theory is nontrivial (R2), and O(4) rotation symmetry is restored.  The proof
-bundles the three capstone results; the open content lives ENTIRELY in the three
-named fields of `ContinuumCertificate`. -/
+conditional conclusions hold together: the continuum gap is strictly positive
+(R3), the theory is nontrivial (R2), and the anisotropy coefficient is Cauchy.
+The proof bundles the three legacy capstone results; this final component is not
+presented as full O(4) restoration. -/
 def certificate_ledger (cert : ContinuumCertificate) :
     PProd (CReal.IsPositive (continuumRatioLimit cert.traj cert.ratioVar))
       (PProd (IsNontrivial cert.lambdaLimit.schedule)

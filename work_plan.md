@@ -4978,6 +4978,18 @@ the retained-window three-scale theta inequality itself; post-cutoff bounds
 alone do not control it, so the active proof splits at a growing retained-core
 anchor and pays the complementary tail by a derived modulus.
 
+`HarmonicMovingDeterminantGrowingTail` executes that split at the symbolic
+anchor `2(k+2)`.  Harmonic block powers and the proved `1/8` PF2 tail step give
+exact decompositions and a scale-sensitive bound for every omitted diagonal,
+adjacent, and adverse boundary contribution.  After absorbing the polynomial
+normalizers, the full adverse tail is at most
+`2^(-(2(k+2)+5))` for every `k≥38`; this is an all-scale theorem, not a finite
+enumeration.  Exact theta rescaling reduces nonnegativity of the global moving
+slack to the single finite retained-core cross
+`w_k^2 w_(k+1)^2 2^(-(2(k+2)+5)) ≤ growingHeadThetaCore k`.
+The entire quadratic-cutoff tail is now closed; this displayed finite-theta
+inequality is the sole residual of the route.
+
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their
 dimensionless additive step both at fixed spacing and for any contracting

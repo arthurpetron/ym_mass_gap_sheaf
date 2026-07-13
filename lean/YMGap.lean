@@ -795,6 +795,7 @@ import YMGap.Continuum.HarmonicMovingDeterminantTail
 import YMGap.Continuum.HarmonicMovingDeterminantRecurrence
 import YMGap.Continuum.HarmonicMovingDeterminantK38
 import YMGap.Continuum.HarmonicMovingDeterminantAllTail
+import YMGap.Continuum.HarmonicMovingDeterminantGrowingTail
 import YMGap.Continuum.HarmonicTrueMarginStep
 import YMGap.Continuum.HarmonicTrueMarginAbsorption
 import YMGap.Continuum.HarmonicPolymerBudgetBridge
