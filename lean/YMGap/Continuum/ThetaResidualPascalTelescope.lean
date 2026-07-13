@@ -459,6 +459,103 @@ theorem reverseTailCoeff_top_nonnegative (D n c : Nat)
   rw [reverseTailCoeff_top D n c hD]
   exact Int.natCast_nonneg _
 
+/-! ## Two-parameter Pascal descent
+
+Degree elevation acts locally on every Bernstein monomial coefficient.  In
+ordinary coefficient coordinates this is
+
+  B(D+1,k+1) = B(D,k) + B(D,k+1).
+
+For the deficit coordinate `r=D-k`, the same identity says that the
+`(D+1,r+1)` reverse-tail flux is the sum of the `(D,r+1)` and `(D,r)`
+fluxes.  Hence nonnegativity propagates monotonically through the entire
+Pascal triangle once a lower-degree row is controlled. -/
+
+private theorem monoCoeff_degree_step {D e k : Nat} (heD : e ≤ D) :
+    monoCoeff (D + 1) e (k + 1) =
+      monoCoeff D e k + monoCoeff D e (k + 1) := by
+  by_cases hek : e ≤ k
+  · have hek1 : e ≤ k + 1 := by omega
+    have hDe : D + 1 - e = (D - e) + 1 := by omega
+    have hke : k + 1 - e = (k - e) + 1 := by omega
+    simp only [monoCoeff, if_pos hek, if_pos hek1]
+    rw [hDe, hke, PNPaths.choose]
+    simp only [Int.ofNat_eq_natCast, Int.natCast_add]
+  · by_cases hek1 : e ≤ k + 1
+    · have heq : e = k + 1 := by omega
+      subst e
+      simp [monoCoeff, PNPaths.choose, hek]
+    · simp [monoCoeff, hek, hek1]
+
+private theorem diagCoeff_degree_step {D n k : Nat}
+    (hD : 2 * n * n + 1 ≤ D) :
+    diagCoeff (D + 1) n (k + 1) =
+      diagCoeff D n k + diagCoeff D n (k + 1) := by
+  have h0 : 2 * n * n - 2 ≤ D := by omega
+  have h1 : 2 * n * n - 1 ≤ D := by omega
+  have h2 : 2 * n * n ≤ D := by omega
+  simp only [diagCoeff, monoCoeff_degree_step h0, monoCoeff_degree_step h1,
+    monoCoeff_degree_step h2, monoCoeff_degree_step hD, Int.mul_add]
+  ac_rfl
+
+private theorem offCoeff_degree_step {D n k : Nat}
+    (hD : 2 * n * (n + 1) - 1 ≤ D) :
+    offCoeff (D + 1) n (k + 1) =
+      offCoeff D n k + offCoeff D n (k + 1) := by
+  simp only [offCoeff, monoCoeff_degree_step hD, Int.mul_add]
+
+/-- **Generic two-parameter reverse-flux recurrence.**  Elevating the degree
+by one replaces a reverse-tail coefficient by the sum of its two Pascal
+parents. -/
+theorem reverseTailCoeff_degree_step (D n k c : Nat)
+    (hD : 2 * (n + c) * (n + c) + 1 ≤ D) :
+    reverseTailCoeff (D + 1) n (k + 1) c =
+      reverseTailCoeff D n k c + reverseTailCoeff D n (k + 1) c := by
+  induction c generalizing n with
+  | zero =>
+      simp only [reverseTailCoeff]
+      exact diagCoeff_degree_step (by simpa using hD)
+  | succ c ih =>
+      simp only [reverseTailCoeff]
+      have hnle : n ≤ n + (c + 1) := by omega
+      have hn1le : n + 1 ≤ n + (c + 1) := by omega
+      have hsquare : n * n ≤ (n + (c + 1)) * (n + (c + 1)) :=
+        Nat.mul_le_mul hnle hnle
+      have hrect : n * (n + 1) ≤ (n + (c + 1)) * (n + (c + 1)) :=
+        Nat.mul_le_mul hnle hn1le
+      have hn : 2 * n * n + 1 ≤ D := by
+        simp only [Nat.mul_assoc] at hD ⊢
+        omega
+      have hoff : 2 * n * (n + 1) - 1 ≤ D := by
+        simp only [Nat.mul_assoc] at hD ⊢
+        omega
+      rw [diagCoeff_degree_step hn, offCoeff_degree_step hoff]
+      rw [ih (n + 1) (by
+        simpa [Nat.add_assoc, Nat.add_left_comm, Nat.add_comm] using hD)]
+      simp only [Int.sub_eq_add_neg, Int.neg_add]
+      ac_rfl
+
+/-- Deficit-coordinate form of `reverseTailCoeff_degree_step`. -/
+theorem reverseTailCoeff_deficit_step (D n c r : Nat) (hr : r < D)
+    (hD : 2 * (n + c) * (n + c) + 1 ≤ D) :
+    reverseTailCoeff (D + 1) n ((D + 1) - (r + 1)) c =
+      reverseTailCoeff D n (D - (r + 1)) c +
+        reverseTailCoeff D n (D - r) c := by
+  have hk : D - (r + 1) + 1 = D - r := by omega
+  have hk' : (D + 1) - (r + 1) = D - r := by omega
+  simpa [hk, hk'] using
+    (reverseTailCoeff_degree_step D n (D - (r + 1)) c hD)
+
+/-- The deficit descent preserves nonnegativity. -/
+theorem reverseTailCoeff_deficit_nonnegative (D n c r : Nat) (hr : r < D)
+    (hD : 2 * (n + c) * (n + c) + 1 ≤ D)
+    (hnext : (0 : Int) ≤ reverseTailCoeff D n (D - (r + 1)) c)
+    (hcur : (0 : Int) ≤ reverseTailCoeff D n (D - r) c) :
+    (0 : Int) ≤
+      reverseTailCoeff (D + 1) n ((D + 1) - (r + 1)) c := by
+  rw [reverseTailCoeff_deficit_step D n c r hr hD]
+  omega
+
 end YMGap.Continuum.ThetaResidualPascalTelescope
 
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.bernMon_left_extract
@@ -475,3 +572,6 @@ end YMGap.Continuum.ThetaResidualPascalTelescope
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.reverseTopFluxNat_step
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.reverseTailCoeff_top
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.reverseTailCoeff_top_nonnegative
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.reverseTailCoeff_degree_step
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.reverseTailCoeff_deficit_step
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.reverseTailCoeff_deficit_nonnegative

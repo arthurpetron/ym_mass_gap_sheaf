@@ -4271,6 +4271,14 @@ which kernel-check directly and are transported back through positive
 normalizers and explicit spacing scalings.  The Schur/operator prefix now also
 reaches `k≤7`; its first residual is `k=8`.
 
+`FiveAnchorWindowRetune` extends the interval mechanism to `0≤w≤10/11` with
+an exact degree-59 strengthened head, short-window certificates of degrees
+9, 20, and 33, and the exact tail ratio `(6/5)w^11`.  PF2 again makes the
+tail symbolic in the cutoff.  The all-cutoff quotient, `lamPW`, and mass-floor
+prefix now reach `k≤9`; the first correlation residual is `k=10` (`w=11/12`).
+The Schur/operator prefix remains `k≤7`; its `k=8,9` D/A cross checks are
+known kernel-green in isolation but are not yet integrated theorems.
+
 **Cleared theta-polynomial audit (2026-07-12).**
 `ThetaResidualBernsteinPilot` gives exact positive Bernstein decompositions of
 the cleared retune residual at cutoffs one and two (degrees 11 and 23).  It also
@@ -4313,6 +4321,15 @@ coefficient satisfies the symbolic recurrence
 `4·(2n(n+c)+c(c+1))≥0` under the natural degree-support bound.  This is
 uniform in the starting cell, tail length, and cutoff degree.  OPEN is to
 propagate this favorable top flux through every lower Bernstein coefficient.
+
+The propagation law is now exact at every lower index:
+`R_(D+1)(k+1)=R_D(k)+R_D(k+1)`, or in deficit coordinates
+`R(D+1,r+1)=R(D,r+1)+R(D,r)`, with constructive nonnegativity preservation.
+The minimal base row is not wholly positive: exact scouting gives negative
+deficits one and two, while deficits at least three are positive in the tested
+range and the target degree repairs the two exceptional deficits.  OPEN is a
+signed two-deficit boundary band plus a symbolic nonnegative bulk base, not a
+naive all-positive Pascal descent.
 
 **Off-diagonal shell necessity (2026-07-12).**
 `FusedOffDiagonalCompression` strengthens the rank-one fence: any positive
@@ -4406,6 +4423,14 @@ adjacent sum.  Its cumulative node coefficient is exactly
 kernel-refuted at `k=3`; the precise remaining estimate is the shifted
 endpoint slack
 `(A+λD)·oldDiag_(p+1)≤-(g_p+g_(p+1))`, followed by finite Abel assembly.
+
+That bookkeeping is now complete: a generic constructive finite-Abel theorem,
+the trapezoid coefficient recurrence, and its specialized carrier identity are
+kernel-checked.  The endpoint slack is exactly reduced to the λ-free
+full-tail half-edge dominance
+`D_full·(2A_p+a_p)≤2A_full·D_p`.  Replacing the full tail by one cutoff step is
+kernel-refuted at `k=3,p=0`; the sole analytic residual is therefore a genuine
+quantitative future-tail theorem for the PF2 harmonic profile.
 
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their

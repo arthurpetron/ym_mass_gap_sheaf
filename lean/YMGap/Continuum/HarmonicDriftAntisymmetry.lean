@@ -977,6 +977,182 @@ theorem trapezoidNodeCumulative_nonpos_of_endpoint_slack (k p : Nat)
     (Q'.le_of_eqv (trapezoidNodeCumulative_eq_endpoints k p))
     (Q'.le_trans' _ _ _ hadd (Q'.le_of_eqv hzero))
 
+/-- The sharp prefix input has no coefficient-two term: the full-cutoff
+adjacent quotient must dominate the prefix quotient with half of its outgoing
+edge.  The known coefficient-two budget then only strengthens the right-hand
+side. -/
+theorem trapezoidNodeCumulative_nonpos_of_halfEdgeCutoff (k p : Nat)
+    (hhalf :
+      harmonicD k *
+          (adjCorr (harmW k) p + adjCorr (harmW k) p + oldAdj k p) ≤
+        (harmonicA k + harmonicA k) * coordNormSq (harmW k) p) :
+    trapezoidNodeCumulative k p ≤ (0 : Q') := by
+  have hlambda0 : (0 : Q') ≤ twoInvSq k * harmonicD k := by
+    exact Q'.mul_nonneg _ _
+      (by
+        unfold twoInvSq
+        exact Q'.mul_nonneg _ _ (by decide)
+          (invSqTerm_nonneg 2 (by decide) k))
+      (Q'.le_of_lt (harmonicD_pos k))
+  have hAB : harmonicA k ≤ harmonicA k + twoInvSq k * harmonicD k :=
+    Q'.add_le_self_of_nonneg _ _ hlambda0
+  have htwo : harmonicA k + harmonicA k ≤
+      (harmonicA k + twoInvSq k * harmonicD k) +
+        (harmonicA k + twoInvSq k * harmonicD k) :=
+    Q'.add_le_add hAB hAB
+  have hright := Q'.mul_le_mul_of_nonneg_right _ _ _ htwo
+    (coordNormSq_nonneg (harmW_nonneg k) p)
+  unfold trapezoidNodeCumulative
+  exact FusionCoreStepRoundE.q_add_neg_nonpos
+    (Q'.le_trans' _ _ _ hhalf hright)
+
+/-- Ordinary one-step cutoff monotonicity cannot prove the half-edge target.
+At `k=3,p=0`, replacing the full terminal cutoff by the immediately following
+cutoff is already false.  Quantitative reserve from the complete future tail
+is therefore essential. -/
+theorem oneStep_halfEdgeCutoff_fails_k3_p0 :
+    not (coordNormSq (harmW 3) 1 *
+        (adjCorr (harmW 3) 0 + adjCorr (harmW 3) 0 + oldAdj 3 0) ≤
+      (adjCorr (harmW 3) 1 + adjCorr (harmW 3) 1) *
+        coordNormSq (harmW 3) 0) := by
+  unfold coordNormSq adjCorr oldAdj harmW harmU
+    ReciprocalBernoulliUpper.oneSub unit coeffW dimQ c4 qpow fsum
+  decide
+
+/-! ## Exact finite Abel engine -/
+
+def abelPrefix (c : Nat → Q') (p : Nat) : Q' := fsum c (p + 1)
+
+def abelIncrementSum (c x : Nat → Q') (n : Nat) : Q' :=
+  fsum (fun p => abelPrefix c p * (x p + -(x (p + 1)))) n
+
+private theorem abel_step (C c u v S : Q') :
+    (C * u + S) + c * v ≈
+      (C + c) * v + (S + C * (u + -v)) := by
+  have hmul1 : (C + c) * v ≈ C * v + c * v :=
+    Q'.add_mul_eqv C c v
+  have hmul2 : C * (u + -v) ≈ C * u + -(C * v) := by
+    refine Q'.eqv_trans _ _ _ (Q'.mul_add_eqv C u (-v)) ?_
+    exact Q'.add_eqv_congr_left (C * u) _ _ (Q'.mul_neg_eqv C v)
+  have hexpand :
+      (C + c) * v + (S + C * (u + -v)) ≈
+        ((C * u + S) + c * v) + (C * v + -(C * v)) := by
+    refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr' hmul1
+      (Q'.add_eqv_congr_left S _ _ hmul2)) ?_
+    ring_qeqv
+  have hcancel : C * v + -(C * v) ≈ (0 : Q') :=
+    Q'.add_neg_self_eqv _
+  apply Q'.eqv_symm
+  refine Q'.eqv_trans _ _ _ hexpand ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr_left ((C * u + S) + c * v) _ _ hcancel) ?_
+  exact QPoly.q_add_zero_eqv _
+
+/-- Constructive finite summation by parts.  It exposes the terminal carrier
+and every weighted prefix excursion with no order or sign assumptions. -/
+theorem finite_abel (c x : Nat → Q') : ∀ n : Nat,
+    fsum (fun i => c i * x i) (n + 1) ≈
+      abelPrefix c n * x n + abelIncrementSum c x n
+  | 0 => by
+      simp only [abelPrefix, abelIncrementSum, fsum_succ, fsum_zero,
+        Q'.zero_add']
+      exact Q'.eqv_symm (QPoly.q_add_zero_eqv _)
+  | n + 1 => by
+      have ih := finite_abel c x n
+      have hstart :
+          fsum (fun i => c i * x i) (n + 1 + 1) ≈
+            (abelPrefix c n * x n + abelIncrementSum c x n) +
+              c (n + 1) * x (n + 1) := by
+        exact Q'.add_eqv_congr_right _ _ (c (n + 1) * x (n + 1)) ih
+      refine Q'.eqv_trans _ _ _ hstart ?_
+      have hs := abel_step (abelPrefix c n) (c (n + 1))
+        (x n) (x (n + 1)) (abelIncrementSum c x n)
+      simpa [abelPrefix, abelIncrementSum, fsum, Nat.add_assoc] using hs
+
+/-- Diagonal-node coefficient after midpoint interpolation.  At a successor
+node it receives the incoming and outgoing half-edges; the terminal correction
+is handled separately after node `Ncut k - 1`. -/
+def trapezoidNodeCoeff (k : Nat) : Nat → Q'
+  | 0 => harmonicD k * oldAdj k 0 +
+      -(((harmonicA k + twoInvSq k * harmonicD k) +
+          (harmonicA k + twoInvSq k * harmonicD k)) * oldDiag k 0)
+  | p + 1 => harmonicD k * (oldAdj k p + oldAdj k (p + 1)) +
+      -(((harmonicA k + twoInvSq k * harmonicD k) +
+          (harmonicA k + twoInvSq k * harmonicD k)) * oldDiag k (p + 1))
+
+theorem trapezoidNodeCumulative_succ_eq (k p : Nat) :
+    trapezoidNodeCumulative k (p + 1) ≈
+      trapezoidNodeCumulative k p + trapezoidNodeCoeff k (p + 1) := by
+  have hA : adjCorr (harmW k) (p + 1) ≈
+      adjCorr (harmW k) p + oldAdj k p := by
+    unfold oldAdj
+    exact AllWindowCorrDirichlet.adjCorr_succ (harmW k) p
+  have hD : coordNormSq (harmW k) (p + 1) ≈
+      coordNormSq (harmW k) p + oldDiag k (p + 1) := by
+    unfold oldDiag
+    exact AllWindowCorrDirichlet.coordNormSq_succ (harmW k) p
+  let B := (harmonicA k + twoInvSq k * harmonicD k) +
+    (harmonicA k + twoInvSq k * harmonicD k)
+  have hrewrite : trapezoidNodeCumulative k (p + 1) ≈
+      harmonicD k *
+          ((adjCorr (harmW k) p + oldAdj k p) +
+            (adjCorr (harmW k) p + oldAdj k p) + oldAdj k (p + 1)) +
+        -(B * (coordNormSq (harmW k) p + oldDiag k (p + 1))) := by
+    unfold trapezoidNodeCumulative
+    exact Q'.add_eqv_congr'
+      (Q'.mul_eqv_congr_left (harmonicD k) _ _
+        (Q'.add_eqv_congr'
+          (Q'.add_eqv_congr' hA hA) (Q'.eqv_refl _)))
+      (Q'.neg_eqv_congr _ _ (Q'.mul_eqv_congr_left B _ _ hD))
+  refine Q'.eqv_trans _ _ _ hrewrite ?_
+  unfold trapezoidNodeCumulative trapezoidNodeCoeff B
+  have hneg :
+      -(((harmonicA k + twoInvSq k * harmonicD k) +
+          (harmonicA k + twoInvSq k * harmonicD k)) *
+        (coordNormSq (harmW k) p + oldDiag k (p + 1))) ≈
+      -(((harmonicA k + twoInvSq k * harmonicD k) +
+          (harmonicA k + twoInvSq k * harmonicD k)) *
+        coordNormSq (harmW k) p) +
+      -(((harmonicA k + twoInvSq k * harmonicD k) +
+          (harmonicA k + twoInvSq k * harmonicD k)) *
+        oldDiag k (p + 1)) := by
+    refine Q'.eqv_trans _ _ _ (Q'.neg_eqv_congr _ _
+      (Q'.mul_add_eqv _ _ _)) ?_
+    exact Q'.neg_add_eqv_split _ _
+  refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr_left _ _ _ hneg) ?_
+  ring_qeqv
+
+/-- The expanded carrier is genuinely the prefix sum of the interpolated
+diagonal-node coefficients. -/
+theorem abelPrefix_trapezoidNodeCoeff (k p : Nat) :
+    abelPrefix (trapezoidNodeCoeff k) p ≈ trapezoidNodeCumulative k p := by
+  induction p with
+  | zero =>
+      simp only [abelPrefix, trapezoidNodeCoeff, trapezoidNodeCumulative,
+        adjCorr, coordNormSq, fsum_succ, fsum_zero, Q'.zero_add']
+      exact Q'.eqv_refl _
+  | succ p ih =>
+      have hsum : abelPrefix (trapezoidNodeCoeff k) (p + 1) ≈
+          abelPrefix (trapezoidNodeCoeff k) p +
+            trapezoidNodeCoeff k (p + 1) := Q'.eqv_refl _
+      exact Q'.eqv_trans _ _ _ hsum
+        (Q'.eqv_trans _ _ _
+          (Q'.add_eqv_congr_right _ _ _ ih)
+          (Q'.eqv_symm (trapezoidNodeCumulative_succ_eq k p)))
+
+/-- Specialized Abel decomposition for the interpolated drift nodes.  The
+only nonlocal quantities left are the explicit carrier and its weighted
+increments. -/
+theorem trapezoidNode_finite_abel (k n : Nat) :
+    fsum (fun i => trapezoidNodeCoeff k i * driftSqFactor k i) (n + 1) ≈
+      trapezoidNodeCumulative k n * driftSqFactor k n +
+        abelIncrementSum (trapezoidNodeCoeff k) (driftSqFactor k) n := by
+  refine Q'.eqv_trans _ _ _
+    (finite_abel (trapezoidNodeCoeff k) (driftSqFactor k) n) ?_
+  exact Q'.add_eqv_congr_right _ _ _
+    (Q'.mul_eqv_congr_right _ _ (driftSqFactor k n)
+      (abelPrefix_trapezoidNodeCoeff k n))
+
 def driftSqExp (i : Nat) : Nat := c4 i + c4 i
 def driftAdjExp (i : Nat) : Nat := c4 i + c4 (i + 1)
 def driftHalfGap (i : Nat) : Nat := 2 * i + 3
@@ -1102,6 +1278,12 @@ end YMGap.Continuum.HarmonicDriftAntisymmetry
 #print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.gNodeCumulative_succ
 #print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.trapezoidNodeCumulative_eq_endpoints
 #print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.trapezoidNodeCumulative_nonpos_of_endpoint_slack
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.trapezoidNodeCumulative_nonpos_of_halfEdgeCutoff
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.oneStep_halfEdgeCutoff_fails_k3_p0
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.finite_abel
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.trapezoidNodeCumulative_succ_eq
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.abelPrefix_trapezoidNodeCoeff
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.trapezoidNode_finite_abel
 #print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.driftSqExp_add_halfGap
 #print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.driftAdjExp_add_halfGap
 #print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.driftAdjFactor_twice_le_neighbors
