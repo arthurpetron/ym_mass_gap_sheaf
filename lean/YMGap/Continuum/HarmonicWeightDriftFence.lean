@@ -518,7 +518,160 @@ theorem harmonicCutoffCross_le_adjShell_mul_D (k : Nat) :
   change X + -Y ≤ X
   exact Q'.le_trans' _ _ _ hadd (Q'.le_of_eqv (QPoly.q_add_zero_eqv _))
 
-/-! ## 5. Kernel fences for over-strong summable drift claims -/
+/-- The genuine same-weight cutoff determinant, comparing the old and new
+cutoffs after the weight has already been changed. -/
+def harmonicPureCutoffCross (k : Nat) : Q' :=
+  harmonicA (k + 1) * harmonicMidD k -
+    harmonicMidA k * harmonicD (k + 1)
+
+private theorem determinant_cocycle
+    (D0 A0 Dm Am D1 A1 : Q') :
+    (A1 * D0 + -(A0 * D1)) * Dm ≈
+      (Am * D0 + -(A0 * Dm)) * D1 +
+        (A1 * Dm + -(Am * D1)) * D0 := by
+  let U := (A1 * D0) * Dm
+  let V := (A0 * D1) * Dm
+  let W := (Am * D0) * D1
+  have swap_last (a b c : Q') : (a * b) * c ≈ (a * c) * b := by
+    refine Q'.eqv_trans _ _ _ (Q'.mul_assoc_eqv a b c) ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_left a _ _ (Q'.mul_comm_eqv b c)) ?_
+    exact Q'.eqv_symm (Q'.mul_assoc_eqv a c b)
+  have hL : (A1 * D0 + -(A0 * D1)) * Dm ≈ U + -V := by
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_mul_eqv (A1 * D0) (-(A0 * D1)) Dm) ?_
+    exact Q'.add_eqv_congr_left U _ _ (Q'.neg_mul_eqv (A0 * D1) Dm)
+  have hR0 : (Am * D0 + -(A0 * Dm)) * D1 ≈ W + -V := by
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_mul_eqv (Am * D0) (-(A0 * Dm)) D1) ?_
+    refine Q'.add_eqv_congr_left W _ _ ?_
+    refine Q'.eqv_trans _ _ _ (Q'.neg_mul_eqv (A0 * Dm) D1) ?_
+    apply Q'.neg_eqv_congr
+    exact swap_last A0 Dm D1
+  have hR1 : (A1 * Dm + -(Am * D1)) * D0 ≈ U + -W := by
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_mul_eqv (A1 * Dm) (-(Am * D1)) D0) ?_
+    refine Q'.add_eqv_congr' ?_ ?_
+    · exact swap_last A1 Dm D0
+    · refine Q'.eqv_trans _ _ _ (Q'.neg_mul_eqv (Am * D1) D0) ?_
+      apply Q'.neg_eqv_congr
+      exact swap_last Am D1 D0
+  have hcancel : (W + -V) + (U + -W) ≈ U + -V := by
+    have hreorder : (W + -V) + (U + -W) ≈
+        (W + -W) + (U + -V) := by
+      ring_qeqv
+    refine Q'.eqv_trans _ _ _ hreorder ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_right _ _ (U + -V) (Q'.add_neg_self_eqv W)) ?_
+    exact QPoly.q_zero_add_eqv (U + -V)
+  refine Q'.eqv_trans _ _ _ hL ?_
+  refine Q'.eqv_symm (Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr' hR0 hR1) hcancel)
+
+/-- **Cancellation-preserving barycentric recurrence.**  Multiplication by
+the positive intermediate normalizer produces an exact sum of two genuine
+two-point determinants: one from changing the weight at fixed cutoff, and one
+from changing the cutoff at fixed new weight.  No numerator or denominator
+growth is bounded separately. -/
+theorem harmonicMassCross_mul_midD_eq (k : Nat) :
+    harmonicMassCross k * harmonicMidD k ≈
+      harmonicWeightCross k * harmonicD (k + 1) +
+        harmonicPureCutoffCross k * harmonicD k := by
+  unfold harmonicMassCross harmonicWeightCross harmonicPureCutoffCross
+  exact determinant_cocycle
+    (harmonicD k) (harmonicA k) (harmonicMidD k) (harmonicMidA k)
+    (harmonicD (k + 1)) (harmonicA (k + 1))
+
+/-- The pure cutoff determinant has the favorable sign: at a fixed positive
+weight, enlarging the retained block increases `A/D`. -/
+theorem harmonicPureCutoffCross_nonneg (k : Nat) :
+    (0 : Q') ≤ harmonicPureCutoffCross k := by
+  have hN : Ncut k ≤ Ncut (k + 1) := by
+    unfold Ncut
+    exact Nat.mul_le_mul (by omega) (by omega)
+  let M := Ncut (k + 1) - Ncut k
+  have hNM : Ncut k + M = Ncut (k + 1) := Nat.add_sub_of_le hN
+  have h := finite_cutoff_tail_compare
+    (harmW_nonneg (k + 1)) (harmW_le_one (k + 1))
+    (harmW_pos (k + 1)) (Ncut k) M
+  rw [hNM] at h
+  unfold harmonicPureCutoffCross harmonicMidA harmonicMidD harmonicA harmonicD
+  exact Q'.sub_nonneg_of_le h
+
+/-! ## 5. The exact weight-drift covariance -/
+
+def driftSqFactor (k s : Nat) : Q' :=
+  qpow (driftRatio k) (c4 s) * qpow (driftRatio k) (c4 s)
+
+def driftAdjFactor (k s : Nat) : Q' :=
+  qpow (driftRatio k) (c4 s) * qpow (driftRatio k) (c4 (s + 1))
+
+def harmonicDriftD (k : Nat) : Q' :=
+  fsum (fun s =>
+    (coeffW (harmW k) s * coeffW (harmW k) s) * driftSqFactor k s)
+    (Ncut k + 1)
+
+def harmonicDriftA (k : Nat) : Q' :=
+  fsum (fun s =>
+    (coeffW (harmW k) s * coeffW (harmW k) (s + 1)) *
+      driftAdjFactor k s) (Ncut k)
+
+theorem harmonicMidD_eq_driftSum (k : Nat) :
+    harmonicMidD k ≈ harmonicDriftD k := by
+  unfold harmonicMidD harmonicDriftD coordNormSq
+  exact CubeRatioBounds.fsum_eqv_congr _ _
+    (fun s => coeffSq_harmonic_step k s) (Ncut k + 1)
+
+private theorem coeffAdj_harmonic_step (k s : Nat) :
+    coeffW (harmW (k + 1)) s * coeffW (harmW (k + 1)) (s + 1) ≈
+      (coeffW (harmW k) s * coeffW (harmW k) (s + 1)) *
+        driftAdjFactor k s := by
+  have h0 := coeffW_harmonic_step k s
+  have h1 := coeffW_harmonic_step k (s + 1)
+  refine Q'.eqv_trans _ _ _
+    (Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_right _ _ _ h0)
+      (Q'.mul_eqv_congr_left _ _ _ h1)) ?_
+  unfold driftAdjFactor
+  ring_qeqv
+
+theorem harmonicMidA_eq_driftSum (k : Nat) :
+    harmonicMidA k ≈ harmonicDriftA k := by
+  unfold harmonicMidA harmonicDriftA adjCorr
+  exact CubeRatioBounds.fsum_eqv_congr _ _
+    (fun s => coeffAdj_harmonic_step k s) (Ncut k)
+
+/-- The fixed-cutoff determinant is exactly a covariance between adjacent and
+diagonal modes under two different Casimir drift factors. -/
+theorem harmonicWeightCross_eq_driftCovariance (k : Nat) :
+    harmonicWeightCross k ≈
+      harmonicDriftA k * harmonicD k - harmonicA k * harmonicDriftD k := by
+  unfold harmonicWeightCross
+  exact Q'.add_eqv_congr'
+    (Q'.mul_eqv_congr_right _ _ (harmonicD k) (harmonicMidA_eq_driftSum k))
+    (Q'.neg_eqv_congr _ _
+      (Q'.mul_eqv_congr_left (harmonicA k) _ _ (harmonicMidD_eq_driftSum k)))
+
+/-- The covariance cannot be bounded by a uniform termwise ordering: at the
+first uncovered scale, the adjacent drift of mode one exceeds the diagonal
+drift of mode zero. -/
+theorem no_adj_le_sq_drift_order_at_k3 :
+    not (driftAdjFactor 3 1 ≤ driftSqFactor 3 0) := by
+  unfold driftAdjFactor driftSqFactor driftRatio harmW harmU
+    ReciprocalBernoulliUpper.oneSub unit c4 Q'.divPos Q'.recipPos qpow
+  decide
+
+/-- The opposite uniform ordering fails simultaneously: the diagonal drift
+of mode one exceeds the adjacent drift of mode zero.  Hence a valid proof of
+the coefficient-two determinant bound must antisymmetrize the double sum; no
+one-direction per-mode comparison can close it. -/
+theorem no_sq_le_adj_drift_order_at_k3 :
+    not (driftSqFactor 3 1 ≤ driftAdjFactor 3 0) := by
+  unfold driftAdjFactor driftSqFactor driftRatio harmW harmU
+    ReciprocalBernoulliUpper.oneSub unit c4 Q'.divPos Q'.recipPos qpow
+  decide
+
+/-! ## 6. Kernel fences for over-strong summable drift claims -/
 
 /-- **Relative inverse-square drift is false.**  Already at the first actual
 harmonic pair, retaining the factor `1-1/(k+2)^2` is too optimistic.  The
@@ -579,6 +732,13 @@ end YMGap.Continuum.HarmonicWeightDriftFence
 #print axioms YMGap.Continuum.HarmonicWeightDriftFence.harmonicMidD_le_next
 #print axioms YMGap.Continuum.HarmonicWeightDriftFence.harmonicMidA_le_next
 #print axioms YMGap.Continuum.HarmonicWeightDriftFence.harmonicCutoffCross_le_adjShell_mul_D
+#print axioms YMGap.Continuum.HarmonicWeightDriftFence.harmonicMassCross_mul_midD_eq
+#print axioms YMGap.Continuum.HarmonicWeightDriftFence.harmonicPureCutoffCross_nonneg
+#print axioms YMGap.Continuum.HarmonicWeightDriftFence.harmonicMidD_eq_driftSum
+#print axioms YMGap.Continuum.HarmonicWeightDriftFence.harmonicMidA_eq_driftSum
+#print axioms YMGap.Continuum.HarmonicWeightDriftFence.harmonicWeightCross_eq_driftCovariance
+#print axioms YMGap.Continuum.HarmonicWeightDriftFence.no_adj_le_sq_drift_order_at_k3
+#print axioms YMGap.Continuum.HarmonicWeightDriftFence.no_sq_le_adj_drift_order_at_k3
 #print axioms YMGap.Continuum.HarmonicWeightDriftFence.inverse_square_relative_mass_drift_fails_at_zero
 #print axioms YMGap.Continuum.HarmonicWeightDriftFence.inverse_square_relative_mass_drift_fails_at_one
 #print axioms YMGap.Continuum.HarmonicWeightDriftFence.unit_inverse_square_additive_mass_drift_fails_at_two

@@ -23,8 +23,39 @@ open YMGap.Constructive
 open YMGap.Constructive.QPoly
 open YMGap.Continuum
 open YMGap.Continuum.CircleFourierPowerModel
+open YMGap.Continuum.RingNormaliser
 
 local infix:50 " ≈ " => Q'.eqv
+
+private def weightedMidL : PolyExpr :=
+  .add
+    (.add (.mul (.mul (.var 0) (.var 0)) (.mul (.var 1) (.var 1)))
+      (.mul (.mul (.var 2) (.var 2)) (.mul (.var 3) (.var 3))))
+    (.neg (.mul (.const 2)
+      (.mul (.mul (.var 0) (.var 2)) (.mul (.var 1) (.var 3)))))
+
+private def weightedMidR : PolyExpr :=
+  .mul
+    (.add (.mul (.var 0) (.var 1)) (.neg (.mul (.var 2) (.var 3))))
+    (.add (.mul (.var 0) (.var 1)) (.neg (.mul (.var 2) (.var 3))))
+
+private theorem weightedMid_normal :
+    normalize weightedMidL = normalize weightedMidR := by decide
+
+/-- Generic weighted-midpoint square behind every neighboring integer pair
+after the Bernstein substitution.  Instantiating `X=(1+t)^(2n+1)` and
+`Y=t^(2n+1)` gives the exact square forced by the symmetric exponent gaps. -/
+theorem weighted_midpoint_square (n : Nat) (X Y : Q') :
+    (Q'.ofNat n * Q'.ofNat n) * (X * X) +
+        (Q'.ofNat (n + 1) * Q'.ofNat (n + 1)) * (Y * Y) +
+        (-(Q'.ofNat 2 *
+          ((Q'.ofNat n * Q'.ofNat (n + 1)) * (X * Y)))) ≈
+      (Q'.ofNat n * X + -(Q'.ofNat (n + 1) * Y)) *
+        (Q'.ofNat n * X + -(Q'.ofNat (n + 1) * Y)) := by
+  have h := poly_identity_of_normal_eq weightedMidL weightedMidR weightedMid_normal
+    (fun i => if i = 0 then Q'.ofNat n else if i = 1 then X else
+      if i = 2 then Q'.ofNat (n + 1) else Y)
+  simpa [RingNormaliser.eval, weightedMidL, weightedMidR] using h
 
 /-- The cutoff-one cleared integer/half-integer theta residual after dividing
 the common `w^2` factor. -/
@@ -138,6 +169,7 @@ theorem tangent_remainder_one_negative :
 end YMGap.Continuum.ThetaResidualBernsteinPilot
 
 #print axioms YMGap.Continuum.ThetaResidualBernsteinPilot.thetaResidualOne_bernstein_identity
+#print axioms YMGap.Continuum.ThetaResidualBernsteinPilot.weighted_midpoint_square
 #print axioms YMGap.Continuum.ThetaResidualBernsteinPilot.thetaResidualOne_nonneg
 #print axioms YMGap.Continuum.ThetaResidualBernsteinPilot.thetaResidualTwo_bernstein_identity
 #print axioms YMGap.Continuum.ThetaResidualBernsteinPilot.thetaResidualTwo_nonneg

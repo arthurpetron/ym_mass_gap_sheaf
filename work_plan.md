@@ -4256,6 +4256,12 @@ half-allocation coefficient is exactly `-560482` at cutoff two.  Thus a general
 Bernstein/SOS proof must transfer reserve nonlocally across mode cells rather
 than certify each adjacent cell or a fixed tangent remainder independently.
 
+The pilot now also proves the generic weighted-midpoint square identity
+underlying every neighboring integer pair after the Bernstein substitution.
+This supplies an exact reusable square carrier for such nonlocal transfers;
+OPEN is a telescoping reserve allocation across all mode cells, not merely the
+algebraic completion of an individual cell.
+
 **Off-diagonal shell necessity (2026-07-12).**
 `FusedOffDiagonalCompression` strengthens the rank-one fence: any positive
 diagonal shell compression again forces equality of the consecutive fused
@@ -4300,6 +4306,17 @@ change of harmonic weight exceeds the complete cutoff-tail allowance.  This
 permanently separates cutoff leakage from weight drift.  OPEN is a derived
 inter-scale weight-drift estimate for the actual mass (or an equivalent
 growing-block spectral comparison), not another use of the same-weight tail.
+
+The exact mass determinant is now split by a cancellation-preserving
+barycentric cocycle: after multiplication by the positive intermediate
+normalizer it is the sum of a fixed-cutoff weight determinant and a genuine
+same-weight cutoff determinant.  The cutoff determinant is nonnegative.  The
+weight determinant is represented exactly as a covariance between adjacent
+and diagonal modes with derived Casimir drift factors.  Both possible uniform
+termwise drift orders are kernel-refuted at `k=3`, so the live coefficient-two
+inverse-square bound must antisymmetrize this covariance double sum (or supply
+an equivalent nonlocal rearrangement); a one-direction per-mode comparison is
+blocked.
 
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their
