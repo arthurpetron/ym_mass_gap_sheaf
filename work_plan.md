@@ -4032,6 +4032,22 @@ statement must contain a derived cutoff-tail term or use a coupled
 `N(w)→∞` schedule whose tail is summable; the pure factorization route is
 BLOCKED until corrected accordingly.
 
+**Moving-cutoff endpoint repair (2026-07-12).** The corrected statement is now
+proved exactly at the endpoint, for every cutoff rather than by finite-case
+enumeration. `EndpointCutoffTailFormula` derives from the Clebsch sums
+`boxSum(1,N,1)=2A_N`, `3A_N=N(N+1)(N+2)`, and
+`6D_N=(N+1)(N+2)(2N+3)`. `EndpointCutoffTailClose` performs the positive
+quotient cancellation and proves
+`vacNorm(N,2,1,1)=2N/(2N+3)` and
+`normEigShift(N,2,1,1)=3/(2N+3)`. Independently,
+`QuadraticCutoffSchedule` chooses `Ncut(k)=(k+2)^2` and proves this exact tail
+is bounded by `3·invSqTerm(2,k)`, with every finite tail window bounded by
+`3·pot(2,N)` and an explicit dyadic modulus. The endpoint cutoff obstruction
+is therefore summable on a derived moving cutoff. OPEN is the uniform
+two-parameter estimate away from `w=1`: refined Edgeworth remainder plus this
+cutoff tail, and its operator-level identification with the physical transfer
+spectrum.
+
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their
 dimensionless additive step both at fixed spacing and for any contracting
