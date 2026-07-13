@@ -729,6 +729,7 @@ import YMGap.Continuum.CutoffEndpointDefect
 import YMGap.Continuum.QuadraticCutoffSchedule
 import YMGap.Continuum.EndpointCutoffTailFormula
 import YMGap.Continuum.EndpointCutoffTailClose
+import YMGap.Continuum.EndpointCutoffTwoParameter
 import YMGap.Continuum.CutoffTailRefinedCarrier
 import YMGap.Continuum.AllWindowCorrDirichlet
 import YMGap.Continuum.FusedSpacingStepBridge

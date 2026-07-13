@@ -4064,6 +4064,19 @@ weighted discrete Poincaré inequality
 `2(1-retuneCube)D_N ≤ boundary+DirichletEnergy`; it remains OPEN and is not
 relabelled as an assumption in the critical path.
 
+**Two-parameter continuity diagnostic (2026-07-12).**
+`EndpointCutoffTwoParameter` derives explicit finite-character sums
+`adjLip(N)`, `diagLip(N)`, and `vacLip(N)` and proves the unconditional bound
+`normEigShift(N,2,w,1) ≤ endpointTail(N) + (vacLip(N)+3/2)(1-w)`.
+This is the first all-`w,N` cutoff-tail estimate with no analytic hypothesis.
+It is intentionally diagnosed rather than oversold: `vacLip(N) ≥ 6` for every
+nonzero cutoff, so inserting the quadratic schedule together with a harmonic
+AF margin produces a bound with unbounded partial sums.  The theorem
+`naiveContinuity_partial_unbounded` banks that failure exactly.  Thus plain
+finite-sum Lipschitz continuity cannot close the budget; the live mechanism
+must exploit the refined Edgeworth cancellation or the sharp Dirichlet
+Poincaré inequality.
+
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their
 dimensionless additive step both at fixed spacing and for any contracting
