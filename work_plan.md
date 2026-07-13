@@ -5091,6 +5091,20 @@ derive that half-space law for the interacting Wilson state and identify its
 character-sector action; `CharacterTransferExtension` then connects the
 selected dynamics to the normalized character form gap.
 
+`InteractingReflectionTimeLaw` supplies two non-circular ways to derive the
+remaining half-space premise.  An `InteractingMarkovSquareLaw` identifies the
+actual reflected interacting form with one ordinary Wilson Gram form after a
+common half-time map (`T = S†S`), so symmetry and positivity follow from the
+already-proved Wilson form laws.  Alternatively, a
+`FiniteCharacterGramLaw` identifies it with an exact finite rational
+character/Haar Gram sum, whose symmetry and diagonal positivity are proved
+termwise.  A nondegenerate separation inhabitant shows that the existing
+external heat-kernel OS2 theorem can coexist with a unit-norm, exactly
+isometric interacting action that has negative transfer form and admits
+neither connector.  The live analytic target is consequently the actual
+finite-volume `reflected_factor` or `reflected_character_resolution` identity
+for the interacting `ReferenceWeight`; external OS2 alone cannot discharge it.
+
 ### Milestone 14.4 — Assemble `singleStep` and the continuum floor
 
 **Goal.** 14.2 + 14.3 inhabit `SingleStepDefectBoundLoose` →
@@ -5127,6 +5141,18 @@ Mills the remaining input is now the concrete `LinearScalingLimitModulus` for
 the interacting finite-volume functional, plus the existing OS0/OS2/OS4 and
 operator-spectrum pins; linearity of the resulting limit is no longer an
 additional assumption.
+
+`RegularLinearSymmetryLimit` adds the corresponding constructive OS4 transport
+principle.  If a selected observable action has two-sided finite-spacing
+expectation defect eventually below every rational tolerance, a half-tolerance
+triangle estimate and limit uniqueness prove exact invariance of the continuum
+functional; exact invariance at every spacing is a corollary.  A nontrivial
+plane sign-flip inhabitant verifies the theorem is not identity-only, while an
+exact coordinate-swap counterexample on the same continuum functional proves
+the scope restriction: transporting a selected hypercubic action does not by
+itself manufacture full O(4) invariance.  The interacting task is therefore to
+derive the vanishing defect for the actual approximating O(4) action, not to
+postulate invariance after the limit.
 
 ### Milestone 14.6 — Sharpness/satellite walls (feed, do not block)
 

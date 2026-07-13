@@ -451,6 +451,7 @@ import YMGap.Continuum.O4RestorationProgress
 import YMGap.Continuum.ContinuumFunctional
 import YMGap.Continuum.RegularFunctional
 import YMGap.Continuum.RegularLinearScalingLimit
+import YMGap.Continuum.RegularLinearSymmetryLimit
 import YMGap.Continuum.ClusterBoundInstance
 import YMGap.Continuum.SigmaGroundedFloor
 import YMGap.Continuum.NonSaturatedFloor
@@ -798,6 +799,7 @@ import YMGap.Continuum.HarmonicWilsonTransferBridge
 import YMGap.Continuum.WilsonGNSTransferUnderdetermination
 import YMGap.Continuum.ReferenceWeightTimeGeometry
 import YMGap.Continuum.ReferenceWeightTransferConstruction
+import YMGap.Continuum.InteractingReflectionTimeLaw
 import YMGap.Continuum.ThetaResidualBernsteinPilot
 import YMGap.Continuum.ThetaResidualPascalTelescope
 import YMGap.Continuum.AllWindowHardyFence
