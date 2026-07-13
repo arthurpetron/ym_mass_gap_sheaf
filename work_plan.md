@@ -4276,8 +4276,12 @@ an exact degree-59 strengthened head, short-window certificates of degrees
 9, 20, and 33, and the exact tail ratio `(6/5)w^11`.  PF2 again makes the
 tail symbolic in the cutoff.  The all-cutoff quotient, `lamPW`, and mass-floor
 prefix now reach `k≤9`; the first correlation residual is `k=10` (`w=11/12`).
-The Schur/operator prefix remains `k≤7`; its `k=8,9` D/A cross checks are
-known kernel-green in isolation but are not yet integrated theorems.
+
+`HarmonicSchurRotationK89` caches the remaining `k=8,9` division-free D/A
+cross checks, transports them through exact integer normalizers to the
+shell/spacing stages, and applies the generic Schur bridge.  Hence the
+Schur/operator prefix now also reaches `k≤9`, and its first residual agrees
+with the correlation residual at `k=10`.
 
 **Cleared theta-polynomial audit (2026-07-12).**
 `ThetaResidualBernsteinPilot` gives exact positive Bernstein decompositions of
