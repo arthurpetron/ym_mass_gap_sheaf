@@ -113,11 +113,11 @@ private theorem member_le_qListSum_of_nonnegative
           (Q'.le_trans' _ _ _ hadd
             (Q'.le_of_eqv (Q'.add_comm_eqv (qListSum id ys) y)))
 
-/-- If a nonnegative `x` to the number of factors equals their product, one
-factor is at least `x`. -/
+/-- If a power of `x` equals a product of nonnegative factors, one factor is
+at least `x`.  For nonpositive `x` this follows immediately; the positive
+case is the constructive finite-max argument. -/
 theorem exists_factor_ge_of_pow_eqv_qProd
     (x : Q') (xs : List Q')
-    (hx : (0 : Q') ≤ x)
     (hnonneg : ∀ y, y ∈ xs → (0 : Q') ≤ y)
     (hne : xs ≠ [])
     (hprod : x ^ xs.length ≈ qProd xs) :
@@ -145,13 +145,12 @@ theorem exists_factor_ge_of_pow_eqv_qProd
 /-- The witnessed factor belongs to the unweighted sum. -/
 theorem le_sum_of_pow_eqv_qProd
     (x : Q') (xs : List Q')
-    (hx : (0 : Q') ≤ x)
     (hnonneg : ∀ y, y ∈ xs → (0 : Q') ≤ y)
     (hne : xs ≠ [])
     (hprod : x ^ xs.length ≈ qProd xs) :
     x ≤ qListSum id xs := by
   obtain ⟨y, hy, hxy⟩ := exists_factor_ge_of_pow_eqv_qProd
-    x xs hx hnonneg hne hprod
+    x xs hnonneg hne hprod
   exact Q'.le_trans' _ _ _ hxy
     (member_le_qListSum_of_nonnegative y xs hy hnonneg)
 
@@ -326,9 +325,6 @@ theorem augmentedPayers_pay
     exact Q'.mul_nonneg _ _ hlong
       (pairedSeven_nonnegative x4 x5 x6 x7 x8 x9 x10
         h4 h5 h6 h7 h8 h9 h10)
-  have hsource : (0 : Q') ≤ source := by
-    unfold source sourceInterior
-    exact Q'.mul_nonneg _ _ (Q'.mul_nonneg _ _ ha1 ha2) hlong
   have hfactors : ∀ y, y ∈ factors → (0 : Q') ≤ y := by
     intro y hy
     simp [factors, augmentedFactors] at hy
@@ -341,7 +337,7 @@ theorem augmentedPayers_pay
       qProd (augmentedFactors a1 a2 x4 x5 x6 x7 x8 x9 x10 x11)
     exact augmented_exponent_identity a1 a2 x4 x5 x6 x7 x8 x9 x10 x11
   obtain ⟨y, hy, hsourceY⟩ := exists_factor_ge_of_pow_eqv_qProd
-    source factors hsource hfactors hnonempty hpower
+    source factors hfactors hnonempty hpower
   have hypayer : y ∈
       augmentedPayers a1 a2 x4 x5 x6 x7 x8 x9 x10 x11 := by
     simpa [factors, augmentedFactors, augmentedPayers] using hy
