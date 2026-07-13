@@ -16,11 +16,11 @@ has an exact four-component / three-component recurrence.  Expanding its
 endpoint-scaled determinant gives twelve literal two-function minors: one
 inherited window minor and eleven boundary or mixed minors.
 
-The decomposition is an identity, but the hoped-for termwise TP2 sign is
-false.  At the exact scout point `s=6`, `w=1/4`, `h=wH=1/2`, the pure-boundary
-minor `(E_1 E_3, E_2^2)` has the wrong sign.  Thus this recurrence does not by
-itself propagate the endpoint inequality via termwise total positivity; any
-successful propagation must aggregate cancellations among the twelve minors.
+The decomposition is an identity, but no uniform termwise sign is available.
+At the exact scout point `s=6`, `w=1/4`, `h=wH=1/2`, some mixed minors are
+positive and some are negative.  Thus propagation requires aggregation rather
+than a common-sign TP2 argument.  The residual is also identified exactly as
+the one-step difference of a shifted-offset determinant potential.
 
 All algebra is constructive `Q'` algebra.  The finite-sum determinant identity
 uses only `fsum_mul_fsum`, `fsum_swap`, and the additive congruence lemmas; the
@@ -69,6 +69,20 @@ def crossA (w : Q') (s : Nat) : Q' :=
 def crossM (w : Q') (s : Nat) : Q' :=
   modeWindow w s 2 * modeWindow w s 2
 
+/-- The same numerator product at an arbitrary offset `r`. -/
+def offsetA (w : Q') (s r : Nat) : Q' :=
+  modeWindow w s r * modeWindow w s (r + 2)
+
+/-- The same midpoint square at an arbitrary offset `r`. -/
+def offsetM (w : Q') (s r : Nat) : Q' :=
+  modeWindow w s (r + 1) * modeWindow w s (r + 1)
+
+theorem crossA_eq_offsetA (w : Q') (s : Nat) : crossA w s = offsetA w s 1 := by
+  rfl
+
+theorem crossM_eq_offsetM (w : Q') (s : Nat) : crossM w s = offsetM w s 1 := by
+  rfl
+
 /-- Growing an arbitrary `acN` range appends exactly its last summand. -/
 theorem acN_range_succ_eq (w : Q') (n t : Nat) :
     acN w (n + 1) t =
@@ -101,6 +115,22 @@ def mComponent (w : Q') (s j : Nat) : Q' :=
   | 1 => modeWindow w s 3 * boundaryTerm w s 2
       + modeWindow w s 3 * boundaryTerm w s 2
   | _ => boundaryTerm w s 2 * boundaryTerm w s 2
+
+/-- Four numerator components for the arbitrary-offset recurrence. -/
+def aComponentAt (w : Q') (s r i : Nat) : Q' :=
+  match i with
+  | 0 => modeWindow w s (r + 1) * modeWindow w s (r + 3)
+  | 1 => modeWindow w s (r + 1) * boundaryTerm w s (r + 2)
+  | 2 => boundaryTerm w s r * modeWindow w s (r + 3)
+  | _ => boundaryTerm w s r * boundaryTerm w s (r + 2)
+
+/-- Three midpoint components for the arbitrary-offset recurrence. -/
+def mComponentAt (w : Q') (s r j : Nat) : Q' :=
+  match j with
+  | 0 => modeWindow w s (r + 2) * modeWindow w s (r + 2)
+  | 1 => modeWindow w s (r + 2) * boundaryTerm w s (r + 1)
+      + modeWindow w s (r + 2) * boundaryTerm w s (r + 1)
+  | _ => boundaryTerm w s (r + 1) * boundaryTerm w s (r + 1)
 
 private def add3E (a b c : RingNormaliser.PolyExpr) : RingNormaliser.PolyExpr :=
   .add (.add a b) c
@@ -173,6 +203,29 @@ theorem crossM_succ_components (w : Q') (s : Nat) :
   simp only [fsum_succ, fsum_zero, mComponent]
   exact Q'.eqv_symm (zero_add_three _ _ _)
 
+/-- Arbitrary-offset numerator recurrence as four components. -/
+theorem offsetA_succ_components (w : Q') (s r : Nat) :
+    offsetA w (s + 1) r ≈ fsum (aComponentAt w s r) 4 := by
+  unfold offsetA
+  simp only [modeWindow_succ_eq]
+  rw [show r + 2 + 1 = r + 3 by omega]
+  refine Q'.eqv_trans _ _ _
+    (mul_two_by_two (modeWindow w s (r + 1)) (boundaryTerm w s r)
+      (modeWindow w s (r + 3)) (boundaryTerm w s (r + 2))) ?_
+  simp only [fsum_succ, fsum_zero, aComponentAt]
+  exact Q'.eqv_symm (zero_add_four _ _ _ _)
+
+/-- Arbitrary-offset midpoint recurrence as three components. -/
+theorem offsetM_succ_components (w : Q') (s r : Nat) :
+    offsetM w (s + 1) r ≈ fsum (mComponentAt w s r) 3 := by
+  unfold offsetM
+  simp only [modeWindow_succ_eq]
+  rw [show r + 1 + 1 = r + 2 by omega]
+  refine Q'.eqv_trans _ _ _
+    (sq_two (modeWindow w s (r + 2)) (boundaryTerm w s (r + 1))) ?_
+  simp only [fsum_succ, fsum_zero, mComponentAt]
+  exact Q'.eqv_symm (zero_add_three _ _ _)
+
 /-! ## 3. Endpoint determinant as twelve exact mixed minors -/
 
 /-- Oriented determinant `A(w)M(h)-M(w)A(h)`. -/
@@ -183,6 +236,14 @@ def determinant (Aw Ah Mw Mh : Q') : Q' :=
 def crossDelta (w h : Q') (s : Nat) : Q' :=
   determinant (crossA w s) (crossA h s) (crossM w s) (crossM h s)
 
+/-- The endpoint determinant at arbitrary offset `r`. -/
+def offsetDelta (w h : Q') (s r : Nat) : Q' :=
+  determinant (offsetA w s r) (offsetA h s r) (offsetM w s r) (offsetM h s r)
+
+theorem crossDelta_eq_offsetDelta (w h : Q') (s : Nat) :
+    crossDelta w h s = offsetDelta w h s 1 := by
+  rfl
+
 /-- The `(i,j)` minor between numerator component `i` and midpoint component
 `j`, evaluated in the two coupling variables `w,h`. -/
 def mixedMinor (w h : Q') (s i j : Nat) : Q' :=
@@ -192,6 +253,15 @@ def mixedMinor (w h : Q') (s i j : Nat) : Q' :=
 /-- All four-by-three component minors. -/
 def mixedMinorSum (w h : Q') (s : Nat) : Q' :=
   fsum (fun i => fsum (fun j => mixedMinor w h s i j) 3) 4
+
+/-- Arbitrary-offset component minor. -/
+def mixedMinorAt (w h : Q') (s r i j : Nat) : Q' :=
+  determinant (aComponentAt w s r i) (aComponentAt h s r i)
+    (mComponentAt w s r j) (mComponentAt h s r j)
+
+/-- The four-by-three minor sum at arbitrary offset. -/
+def mixedMinorSumAt (w h : Q') (s r : Nat) : Q' :=
+  fsum (fun i => fsum (fun j => mixedMinorAt w h s r i j) 3) 4
 
 private theorem qmn_add (F G : Nat → Nat → Q') (m n : Nat) :
     (fsum (fun i => fsum (F i) n) m + fsum (fun i => fsum (G i) n) m) ≈
@@ -248,6 +318,25 @@ theorem crossDelta_succ_mixedMinorSum (w h : Q') (s : Nat) :
       (Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ _ _ hMw)
         (Q'.mul_eqv_congr_left _ _ _ hAh)))
 
+/-- Arbitrary-offset version of the twelve-minor determinant recurrence. -/
+theorem offsetDelta_succ_mixedMinorSumAt (w h : Q') (s r : Nat) :
+    offsetDelta w h (s + 1) r ≈ mixedMinorSumAt w h s r := by
+  unfold offsetDelta mixedMinorSumAt mixedMinorAt
+  have hAw := offsetA_succ_components w s r
+  have hAh := offsetA_succ_components h s r
+  have hMw := offsetM_succ_components w s r
+  have hMh := offsetM_succ_components h s r
+  refine Q'.eqv_trans _ _ _ ?_
+    (determinant_fsum (aComponentAt w s r) (aComponentAt h s r)
+      (mComponentAt w s r) (mComponentAt h s r) 4 3)
+  unfold determinant
+  exact Q'.add_eqv_congr'
+    (Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ _ _ hAw)
+      (Q'.mul_eqv_congr_left _ _ _ hMh))
+    (Q'.neg_eqv_congr _ _
+      (Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ _ _ hMw)
+        (Q'.mul_eqv_congr_left _ _ _ hAh)))
+
 /-! ## 4. Inherited minor plus the eleven-term residual -/
 
 /-- The leading `W_s(2)W_s(4)` versus `W_s(3)^2` minor. -/
@@ -260,6 +349,15 @@ def boundaryResidual (w h : Q') (s : Nat) : Q' :=
     + mixedMinor w h s 1 0 + mixedMinor w h s 1 1 + mixedMinor w h s 1 2
     + mixedMinor w h s 2 0 + mixedMinor w h s 2 1 + mixedMinor w h s 2 2
     + mixedMinor w h s 3 0 + mixedMinor w h s 3 1 + mixedMinor w h s 3 2
+
+/-- The eleven-term residual at arbitrary offset. -/
+def boundaryResidualAt (w h : Q') (s r : Nat) : Q' :=
+  mixedMinorAt w h s r 0 1 + mixedMinorAt w h s r 0 2
+    + mixedMinorAt w h s r 1 0 + mixedMinorAt w h s r 1 1
+    + mixedMinorAt w h s r 1 2 + mixedMinorAt w h s r 2 0
+    + mixedMinorAt w h s r 2 1 + mixedMinorAt w h s r 2 2
+    + mixedMinorAt w h s r 3 0 + mixedMinorAt w h s r 3 1
+    + mixedMinorAt w h s r 3 2
 
 private def add11E (a b c d e f g h i j k : RingNormaliser.PolyExpr) :
     RingNormaliser.PolyExpr :=
@@ -310,35 +408,208 @@ theorem mixedMinorSum_eq_inherited_add_residual (w h : Q') (s : Nat) :
     (mixedMinor w h s 2 0) (mixedMinor w h s 2 1) (mixedMinor w h s 2 2)
     (mixedMinor w h s 3 0) (mixedMinor w h s 3 1) (mixedMinor w h s 3 2)
 
+/-- Arbitrary-offset split into its first minor and eleven-term residual. -/
+theorem mixedMinorSumAt_eq_first_add_residual (w h : Q') (s r : Nat) :
+    mixedMinorSumAt w h s r ≈
+      mixedMinorAt w h s r 0 0 + boundaryResidualAt w h s r := by
+  unfold mixedMinorSumAt boundaryResidualAt
+  simp only [fsum_succ, fsum_zero]
+  exact split_twelve
+    (mixedMinorAt w h s r 0 0) (mixedMinorAt w h s r 0 1)
+    (mixedMinorAt w h s r 0 2) (mixedMinorAt w h s r 1 0)
+    (mixedMinorAt w h s r 1 1) (mixedMinorAt w h s r 1 2)
+    (mixedMinorAt w h s r 2 0) (mixedMinorAt w h s r 2 1)
+    (mixedMinorAt w h s r 2 2) (mixedMinorAt w h s r 3 0)
+    (mixedMinorAt w h s r 3 1) (mixedMinorAt w h s r 3 2)
+
+/-- The first component minor is exactly the determinant potential at the next
+offset. -/
+theorem mixedMinorAt_zero_zero_eq_shifted (w h : Q') (s r : Nat) :
+    mixedMinorAt w h s r 0 0 = offsetDelta w h s (r + 1) := by
+  unfold mixedMinorAt aComponentAt mComponentAt offsetDelta offsetA offsetM
+  rw [show r + 3 = r + 1 + 2 by omega]
+
 /-- The endpoint determinant recurrence with its inherited term isolated. -/
 theorem crossDelta_succ_eq_inherited_add_residual (w h : Q') (s : Nat) :
     crossDelta w h (s + 1) ≈ inheritedMinor w h s + boundaryResidual w h s :=
   Q'.eqv_trans _ _ _ (crossDelta_succ_mixedMinorSum w h s)
     (mixedMinorSum_eq_inherited_add_residual w h s)
 
-/-! ## 5. Exact `s=6` fence against termwise TP2 propagation -/
+/-- **Shifted-potential recurrence.**  The next range/offset determinant is the
+next-offset potential plus the eleven-minor residual. -/
+theorem offsetDelta_succ_eq_shifted_add_residual (w h : Q') (s r : Nat) :
+    offsetDelta w h (s + 1) r ≈
+      offsetDelta w h s (r + 1) + boundaryResidualAt w h s r := by
+  refine Q'.eqv_trans _ _ _ (offsetDelta_succ_mixedMinorSumAt w h s r) ?_
+  refine Q'.eqv_trans _ _ _ (mixedMinorSumAt_eq_first_add_residual w h s r) ?_
+  exact Q'.add_eqv_congr_right _ _ _
+    (by rw [mixedMinorAt_zero_zero_eq_shifted]; exact Q'.eqv_refl _)
+
+private def cancelPotentialL : RingNormaliser.PolyExpr :=
+  .add (.add (.var 0) (.var 1)) (.neg (.var 0))
+
+private theorem cancelPotential_normal : RingNormaliser.normalize cancelPotentialL =
+    RingNormaliser.normalize (.var 1) := by decide
+
+private theorem cancel_potential (a b : Q') : (a + b) + -a ≈ b := by
+  have hn := RingNormaliser.poly_identity_of_normal_eq cancelPotentialL (.var 1)
+    cancelPotential_normal (fun n => if n = 0 then a else b)
+  simpa [RingNormaliser.eval, cancelPotentialL] using hn
+
+/-- **Exact one-step potential difference.**  The eleven-minor residual is
+precisely `D_(s+1,r) - D_(s,r+1)` modulo rational equivalence. -/
+theorem boundaryResidualAt_eq_potential_difference (w h : Q') (s r : Nat) :
+    boundaryResidualAt w h s r ≈
+      offsetDelta w h (s + 1) r + -(offsetDelta w h s (r + 1)) := by
+  let D := offsetDelta w h (s + 1) r
+  let P := offsetDelta w h s (r + 1)
+  let R := boundaryResidualAt w h s r
+  have hrec : D ≈ P + R := offsetDelta_succ_eq_shifted_add_residual w h s r
+  have hsub : D + -P ≈ (P + R) + -P :=
+    Q'.add_eqv_congr_right _ _ (-P) hrec
+  exact Q'.eqv_symm (Q'.eqv_trans _ _ _ hsub (cancel_potential P R))
+
+/-- Residuals accumulated along the diagonal path
+`(s+n,r) → (s+n-1,r+1) → ⋯ → (s,r+n)`. -/
+def cumulativeResidual (w h : Q') (s r : Nat) : Nat → Q'
+  | 0 => 0
+  | n + 1 => cumulativeResidual w h s (r + 1) n
+      + boundaryResidualAt w h (s + n) r
+
+/-- **Finite diagonal telescope.**  Every range shift is exactly a terminal
+offset potential plus the cumulative boundary residual along the diagonal. -/
+theorem offsetDelta_diagonal_telescope (w h : Q') (s r : Nat) : ∀ n,
+    offsetDelta w h (s + n) r ≈
+      offsetDelta w h s (r + n) + cumulativeResidual w h s r n
+  | 0 => Q'.eqv_symm (q_add_zero_eqv (offsetDelta w h s r))
+  | n + 1 => by
+      rw [show s + (n + 1) = (s + n) + 1 by omega]
+      rw [show r + (n + 1) = (r + 1) + n by omega]
+      simp only [cumulativeResidual]
+      have hrec := offsetDelta_succ_eq_shifted_add_residual w h (s + n) r
+      have ih := offsetDelta_diagonal_telescope w h s (r + 1) n
+      refine Q'.eqv_trans _ _ _ hrec ?_
+      refine Q'.eqv_trans _ _ _
+        (Q'.add_eqv_congr_right _ _ (boundaryResidualAt w h (s + n) r) ih) ?_
+      exact Q'.add_assoc_eqv _ _ _
+
+/-! ## 5. A cancellation pairing and exact `s=6` scout -/
+
+/-- A pairing of the five positive-at-the-scout candidates with five adverse
+components, leaving the pure boundary minor as the sixth group. -/
+def pairedBoundaryResidual (w h : Q') (s : Nat) : Q' :=
+  (mixedMinor w h s 0 1 + mixedMinor w h s 1 0)
+    + (mixedMinor w h s 0 2 + mixedMinor w h s 2 0)
+    + (mixedMinor w h s 1 1 + mixedMinor w h s 3 0)
+    + (mixedMinor w h s 1 2 + mixedMinor w h s 2 1)
+    + (mixedMinor w h s 2 2 + mixedMinor w h s 3 1)
+    + mixedMinor w h s 3 2
+
+private def add6E (a b c d e f : RingNormaliser.PolyExpr) : RingNormaliser.PolyExpr :=
+  .add (.add (.add (.add (.add a b) c) d) e) f
+
+private def pair11L : RingNormaliser.PolyExpr :=
+  add11E (.var 0) (.var 1) (.var 2) (.var 3) (.var 4) (.var 5)
+    (.var 6) (.var 7) (.var 8) (.var 9) (.var 10)
+
+private def pair11R : RingNormaliser.PolyExpr :=
+  add6E (.add (.var 0) (.var 2)) (.add (.var 1) (.var 5))
+    (.add (.var 3) (.var 8)) (.add (.var 4) (.var 6))
+    (.add (.var 7) (.var 9)) (.var 10)
+
+private theorem pair11_normal : RingNormaliser.normalize pair11L =
+    RingNormaliser.normalize pair11R := by decide
+
+/-- The pairing is a pure reassociation of the exact eleven-term residual. -/
+theorem boundaryResidual_eq_paired (w h : Q') (s : Nat) :
+    boundaryResidual w h s ≈ pairedBoundaryResidual w h s := by
+  have hn := RingNormaliser.poly_identity_of_normal_eq pair11L pair11R pair11_normal
+    (fun n => match n with
+      | 0 => mixedMinor w h s 0 1 | 1 => mixedMinor w h s 0 2
+      | 2 => mixedMinor w h s 1 0 | 3 => mixedMinor w h s 1 1
+      | 4 => mixedMinor w h s 1 2 | 5 => mixedMinor w h s 2 0
+      | 6 => mixedMinor w h s 2 1 | 7 => mixedMinor w h s 2 2
+      | 8 => mixedMinor w h s 3 0 | 9 => mixedMinor w h s 3 1
+      | _ => mixedMinor w h s 3 2)
+  simpa [RingNormaliser.eval, pair11L, pair11R, add6E, add11E,
+    boundaryResidual, pairedBoundaryResidual] using hn
 
 /-- An exact interior scout point, strictly below `wH`. -/
 def wQuarter : Q' := Q'.mkPos 1 4 (by decide)
 
-/-- **TP2 fence.**  The pure-boundary residual minor
+/-- A second exact interior point used to test whether the scout pairing is
+uniform in the coupling. -/
+def wThird : Q' := Q'.mkPos 1 3 (by decide)
+
+/-- The pure-boundary residual minor
 
 `det(E_1 E_3, E_2^2)`
 
-is strictly adverse at `s=6`, `w=1/4`, `h=1/2`.  This is component `(3,2)`,
-one of the eleven terms in `boundaryResidual`, so the residual cannot be
-proved nonnegative term-by-term in the desired determinant orientation. -/
+is strictly negative at `s=6`, `w=1/4`, `h=1/2`. -/
 theorem s6_pure_boundary_minor_negative :
     ¬ ((0 : Q') ≤ mixedMinor wQuarter wH 6 3 2) := by
+  set_option maxRecDepth 100000 in
+    decide
+
+/-- **Common-sign fence.**  In the endpoint-inequality orientation the desired
+sign is nonpositive, but component `(1,2)` is strictly positive at the same
+exact scout point. -/
+theorem s6_mixed_minor_positive :
+    ¬ (mixedMinor wQuarter wH 6 1 2 ≤ (0 : Q')) := by
+  set_option maxRecDepth 100000 in
+    decide
+
+/-- All six proposed cancellation groups are nonpositive at the exact scout. -/
+theorem s6_pairing_certificate :
+    (mixedMinor wQuarter wH 6 0 1 + mixedMinor wQuarter wH 6 1 0 ≤ (0 : Q')) ∧
+    (mixedMinor wQuarter wH 6 0 2 + mixedMinor wQuarter wH 6 2 0 ≤ (0 : Q')) ∧
+    (mixedMinor wQuarter wH 6 1 1 + mixedMinor wQuarter wH 6 3 0 ≤ (0 : Q')) ∧
+    (mixedMinor wQuarter wH 6 1 2 + mixedMinor wQuarter wH 6 2 1 ≤ (0 : Q')) ∧
+    (mixedMinor wQuarter wH 6 2 2 + mixedMinor wQuarter wH 6 3 1 ≤ (0 : Q')) ∧
+    (mixedMinor wQuarter wH 6 3 2 ≤ (0 : Q')) := by
+  set_option maxRecDepth 100000 in
+    decide
+
+private theorem add_nonpos {a b : Q'} (ha : a ≤ (0 : Q')) (hb : b ≤ (0 : Q')) :
+    a + b ≤ (0 : Q') :=
+  Q'.le_trans' _ _ _ (Q'.add_le_add ha hb) (by decide)
+
+/-- The paired cancellation proves the full eleven-minor residual nonpositive
+at the scout; unlike a direct closed calculation, this records the aggregate
+mechanism being tested. -/
+theorem s6_boundaryResidual_nonpos :
+    boundaryResidual wQuarter wH 6 ≤ (0 : Q') := by
+  rcases s6_pairing_certificate with ⟨h1, h2, h3, h4, h5, h6⟩
+  have hp : pairedBoundaryResidual wQuarter wH 6 ≤ (0 : Q') :=
+    add_nonpos (add_nonpos (add_nonpos (add_nonpos (add_nonpos h1 h2) h3) h4) h5) h6
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (boundaryResidual_eq_paired wQuarter wH 6)) hp
+
+/-- **Pairing fence.**  The six-group pairing is not uniform even at fixed
+`s=6`: at `w=1/3`, its third group `(1,1)+(3,0)` is strictly positive.  Thus
+the pairing is useful as a cancellation scout at `w=1/4`, but cannot serve as
+the all-`w` proof without a different regrouping. -/
+theorem s6_pairing_not_uniform :
+    ¬ (mixedMinor wThird wH 6 1 1 + mixedMinor wThird wH 6 3 0 ≤ (0 : Q')) := by
   set_option maxRecDepth 100000 in
     decide
 
 #print axioms modeWindow_succ_eq
 #print axioms crossA_succ_components
 #print axioms crossM_succ_components
+#print axioms offsetA_succ_components
+#print axioms offsetM_succ_components
 #print axioms determinant_fsum
 #print axioms crossDelta_succ_mixedMinorSum
+#print axioms offsetDelta_succ_mixedMinorSumAt
 #print axioms crossDelta_succ_eq_inherited_add_residual
+#print axioms offsetDelta_succ_eq_shifted_add_residual
+#print axioms boundaryResidualAt_eq_potential_difference
+#print axioms offsetDelta_diagonal_telescope
+#print axioms boundaryResidual_eq_paired
 #print axioms s6_pure_boundary_minor_negative
+#print axioms s6_mixed_minor_positive
+#print axioms s6_pairing_certificate
+#print axioms s6_boundaryResidual_nonpos
+#print axioms s6_pairing_not_uniform
 
 end YMGap.Continuum.CoreBStructuralRecurrence
