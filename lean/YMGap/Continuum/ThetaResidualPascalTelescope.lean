@@ -2501,6 +2501,17 @@ theorem minimalBase_deficit_three (m : Nat) (hm : 0<m) :
     _ = 5*reverseTopThreeClosed (2*m*m+1) 1 (m-1) := by rw [ht]
     _ = _ := h5
 
+/-- Public multiplication-only form of `minimalBase_deficit_three`.  This
+removes the private integer-power implementation from downstream boundary
+payment arguments. -/
+theorem minimalBase_deficit_three_mul (m : Nat) (hm : 0 < m) :
+    30 * reverseTailCoeff (2 * m * m + 1) 1 (2 * m * m - 2) (m - 1) =
+      (m : Int) * ((m : Int) + 1) *
+        (96 * ((m : Int) * (m : Int) * (m : Int)) -
+          96 * ((m : Int) * (m : Int)) - 94 * (m : Int) + 109) := by
+  have h := minimalBase_deficit_three m hm
+  simpa [iPow, Int.mul_assoc] using h
+
 private def topTwoDiagInt (d x : Int) : Int :=
   4*iPow x 2*(d-2*iPow x 2)*(d-2*iPow x 2)+2*iPow x 2
 
@@ -4538,6 +4549,7 @@ end YMGap.Continuum.ThetaResidualPascalTelescope
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.topThree_terminal_pair
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.five_reverseTopThreeClosed_start_one
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.minimalBase_deficit_three
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.minimalBase_deficit_three_mul
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.choose_adjacent_cross
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.choose_remainder_off_double
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.throughThree_adjacent_scalar_payment
