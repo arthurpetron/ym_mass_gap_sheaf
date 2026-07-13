@@ -397,7 +397,128 @@ theorem harmonicMass_drop_le_two_invSq_of_cross (k : Nat)
   exact Q'.le_trans' _ _ _
     (Q'.le_of_eqv (harmonicMass_drop_eq_cross k)) hq
 
-/-! ## 4. Kernel fences for over-strong summable drift claims -/
+/-! ## 4. Exact separation of weight drift and cutoff drift -/
+
+/-- The intermediate diagonal normalizer after changing the harmonic weight,
+but before enlarging the quadratic cutoff. -/
+def harmonicMidD (k : Nat) : Q' :=
+  coordNormSq (harmW (k + 1)) (Ncut k)
+
+/-- The corresponding intermediate adjacent numerator. -/
+def harmonicMidA (k : Nat) : Q' :=
+  adjCorr (harmW (k + 1)) (Ncut k)
+
+/-- The determinant contribution of the exact per-mode weight drift at the
+old cutoff. -/
+def harmonicWeightCross (k : Nat) : Q' :=
+  harmonicMidA k * harmonicD k - harmonicA k * harmonicMidD k
+
+/-- The remaining determinant contribution from adding the shell
+`Ncut k < s ≤ Ncut (k+1)` at the new weight.  The diagonal shell enters with
+the favorable negative sign and must not be discarded until after the
+weight-drift cancellation has been exposed. -/
+def harmonicCutoffCross (k : Nat) : Q' :=
+  (harmonicA (k + 1) - harmonicMidA k) * harmonicD k -
+    harmonicA k * (harmonicD (k + 1) - harmonicMidD k)
+
+private theorem cross_weight_cutoff_split
+    (D0 A0 Dm Am D1 A1 : Q') :
+    A1 * D0 + -(A0 * D1) ≈
+      (Am * D0 + -(A0 * Dm)) +
+        ((A1 + -Am) * D0 + -(A0 * (D1 + -Dm))) := by
+  let X := Am * D0
+  let Y := A0 * Dm
+  let U := A1 * D0
+  let V := A0 * D1
+  have hcutL : (A1 + -Am) * D0 ≈ U + -X := by
+    refine Q'.eqv_trans _ _ _ (Q'.add_mul_eqv A1 (-Am) D0) ?_
+    exact Q'.add_eqv_congr_left U _ _ (Q'.neg_mul_eqv Am D0)
+  have hcutR : -(A0 * (D1 + -Dm)) ≈ -V + Y := by
+    refine Q'.eqv_trans _ _ _
+      (Q'.neg_eqv_congr _ _ (Q'.mul_add_eqv A0 D1 (-Dm))) ?_
+    refine Q'.eqv_trans _ _ _ (Q'.neg_add_eqv V (A0 * (-Dm))) ?_
+    refine Q'.add_eqv_congr_left (-V) _ _ ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.neg_eqv_congr _ _ (Q'.mul_neg_eqv A0 Dm)) ?_
+    exact Q'.neg_neg_eqv Y
+  have hadd (X Y U V : Q') :
+      U + -V ≈ (X + -Y) + ((U + -X) + (-V + Y)) := by
+    have hreorder :
+        (X + -Y) + ((U + -X) + (-V + Y)) ≈
+          (X + -X) + ((-Y + Y) + (U + -V)) := by
+      ring_qeqv
+    refine Q'.eqv_symm (Q'.eqv_trans _ _ _ hreorder ?_)
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr'
+        (Q'.add_neg_self_eqv X)
+        (Q'.add_eqv_congr_left (-Y + Y) _ _ (Q'.eqv_refl _))) ?_
+    refine Q'.eqv_trans _ _ _ (QPoly.q_zero_add_eqv _) ?_
+    have hy : -Y + Y ≈ (0 : Q') := by
+      refine Q'.eqv_trans _ _ _ (Q'.add_comm_eqv (-Y) Y) ?_
+      exact Q'.add_neg_self_eqv Y
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_right _ _ (U + -V) hy) ?_
+    exact QPoly.q_zero_add_eqv (U + -V)
+  refine Q'.eqv_trans _ _ _ (hadd X Y U V) ?_
+  exact Q'.add_eqv_congr_left (X + -Y) _ _
+    (Q'.add_eqv_congr' (Q'.eqv_symm hcutL) (Q'.eqv_symm hcutR))
+
+/-- **Exact two-stage determinant recurrence.**  This is the cancellation-
+preserving form of the consecutive harmonic mass numerator: first drift every
+retained mode by its exact `driftRatio`, then add the new cutoff shell. -/
+theorem harmonicMassCross_eq_weight_add_cutoff (k : Nat) :
+    harmonicMassCross k ≈ harmonicWeightCross k + harmonicCutoffCross k := by
+  unfold harmonicMassCross harmonicWeightCross harmonicCutoffCross
+  exact cross_weight_cutoff_split
+    (harmonicD k) (harmonicA k) (harmonicMidD k) (harmonicMidA k)
+    (harmonicD (k + 1)) (harmonicA (k + 1))
+
+theorem harmonicMidD_le_next (k : Nat) :
+    harmonicMidD k ≤ harmonicD (k + 1) := by
+  have hN : Ncut k + 1 ≤ Ncut (k + 1) + 1 := by
+    apply Nat.add_le_add_right
+    unfold Ncut
+    exact Nat.mul_le_mul (by omega) (by omega)
+  unfold harmonicMidD harmonicD coordNormSq
+  exact AFRateCalibration.fsum_le_of_le
+    (fun i => Q'.mul_nonneg _ _
+      (coeffW_nonneg (harmW_nonneg (k + 1)) i)
+      (coeffW_nonneg (harmW_nonneg (k + 1)) i)) hN
+
+theorem harmonicMidA_le_next (k : Nat) :
+    harmonicMidA k ≤ harmonicA (k + 1) := by
+  have hN : Ncut k ≤ Ncut (k + 1) := by
+    unfold Ncut
+    exact Nat.mul_le_mul (by omega) (by omega)
+  unfold harmonicMidA harmonicA adjCorr
+  exact AFRateCalibration.fsum_le_of_le
+    (fun i => Q'.mul_nonneg _ _
+      (coeffW_nonneg (harmW_nonneg (k + 1)) i)
+      (coeffW_nonneg (harmW_nonneg (k + 1)) (i + 1))) hN
+
+/-- Once the exact split has been made, only the cutoff part may be bounded
+one-sidedly: its diagonal-shell term is nonpositive.  This leaves the difficult
+weight covariance intact instead of separately bounding numerator and
+denominator growth. -/
+theorem harmonicCutoffCross_le_adjShell_mul_D (k : Nat) :
+    harmonicCutoffCross k ≤
+      (harmonicA (k + 1) - harmonicMidA k) * harmonicD k := by
+  let X := (harmonicA (k + 1) - harmonicMidA k) * harmonicD k
+  let Y := harmonicA k * (harmonicD (k + 1) - harmonicMidD k)
+  have hY : (0 : Q') ≤ Y := by
+    unfold Y
+    exact Q'.mul_nonneg _ _
+      (adjCorr_nonneg (harmW_nonneg k) (Ncut k))
+      (Q'.sub_nonneg_of_le (harmonicMidD_le_next k))
+  have hneg : -Y ≤ (0 : Q') := by
+    have h := FusionCoreStepRoundE.q_add_neg_nonpos hY
+    exact Q'.le_trans' _ _ _
+      (Q'.ge_of_eqv (QPoly.q_zero_add_eqv (-Y))) h
+  have hadd := Q'.add_le_add_left X (-Y) 0 hneg
+  change X + -Y ≤ X
+  exact Q'.le_trans' _ _ _ hadd (Q'.le_of_eqv (QPoly.q_add_zero_eqv _))
+
+/-! ## 5. Kernel fences for over-strong summable drift claims -/
 
 /-- **Relative inverse-square drift is false.**  Already at the first actual
 harmonic pair, retaining the factor `1-1/(k+2)^2` is too optimistic.  The
@@ -454,6 +575,10 @@ end YMGap.Continuum.HarmonicWeightDriftFence
 #print axioms YMGap.Continuum.HarmonicWeightDriftFence.harmonic_operator_spacing_initial_three
 #print axioms YMGap.Continuum.HarmonicWeightDriftFence.harmonicMass_drop_eq_cross
 #print axioms YMGap.Continuum.HarmonicWeightDriftFence.harmonicMass_drop_le_two_invSq_of_cross
+#print axioms YMGap.Continuum.HarmonicWeightDriftFence.harmonicMassCross_eq_weight_add_cutoff
+#print axioms YMGap.Continuum.HarmonicWeightDriftFence.harmonicMidD_le_next
+#print axioms YMGap.Continuum.HarmonicWeightDriftFence.harmonicMidA_le_next
+#print axioms YMGap.Continuum.HarmonicWeightDriftFence.harmonicCutoffCross_le_adjShell_mul_D
 #print axioms YMGap.Continuum.HarmonicWeightDriftFence.inverse_square_relative_mass_drift_fails_at_zero
 #print axioms YMGap.Continuum.HarmonicWeightDriftFence.inverse_square_relative_mass_drift_fails_at_one
 #print axioms YMGap.Continuum.HarmonicWeightDriftFence.unit_inverse_square_additive_mass_drift_fails_at_two

@@ -4237,6 +4237,25 @@ determinant bound with coefficient `2/(k+2)^2` therefore implies the desired
 summable additive drift.  This replaces the failed separate-normalizer route
 by its cancellation-preserving target; OPEN is that determinant estimate.
 
+**First post-window harmonic scale closed (2026-07-12).**
+`HarmonicK3Retune` proves the exact correlation/retune inequality at `k=3`
+(`w=4/5`) for every finite cutoff, not by enumerating cutoffs.  A strengthened
+three-anchor head pays all first three edges using only modes `0,1,2`; a
+symbolic ratio inequality pays every later edge with its disjoint left square,
+leaving the terminal square unused.  The theorem propagates to the quotient,
+the fundamental `lamPW`, a positive harmonic mass floor, and the full
+Schur/operator spacing cross law at `k=3`.  The exact correlation and operator
+prefix is therefore now `k≤3`; the first residual scale is `k=4` (`w=5/6`).
+
+**Cleared theta-polynomial audit (2026-07-12).**
+`ThetaResidualBernsteinPilot` gives exact positive Bernstein decompositions of
+the cleared retune residual at cutoffs one and two (degrees 11 and 23).  It also
+kernel-refutes two tempting uniform decompositions: the tangent-boundary
+remainder is negative already at cutoff one, and a local adjacent-cell
+half-allocation coefficient is exactly `-560482` at cutoff two.  Thus a general
+Bernstein/SOS proof must transfer reserve nonlocally across mode cells rather
+than certify each adjacent cell or a fixed tangent remainder independently.
+
 **Off-diagonal shell necessity (2026-07-12).**
 `FusedOffDiagonalCompression` strengthens the rank-one fence: any positive
 diagonal shell compression again forces equality of the consecutive fused
