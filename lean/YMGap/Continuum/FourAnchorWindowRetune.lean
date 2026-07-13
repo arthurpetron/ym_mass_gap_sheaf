@@ -1,5 +1,5 @@
 /-
-Exact four-anchor correlation window through `w = 6/7`.
+Exact four-anchor correlation window through `w = 8/9`.
 
 The three-anchor strengthened residual is negative at this endpoint, so the
 minimal next localization retains four adjacent edges.  Its Bernstein-certified
@@ -41,8 +41,8 @@ open YMGap.Continuum.ThreeAnchorWindowRetune
 
 local infix:50 " ≈ " => Q'.eqv
 
-def fourAnchorCap : Q' := Q'.mkPos 6 7 (by decide)
-private def capInv : Q' := Q'.mkPos 7 6 (by decide)
+def fourAnchorCap : Q' := Q'.mkPos 8 9 (by decide)
+private def capInv : Q' := Q'.mkPos 9 8 (by decide)
 private def fiveFourths : Q' := Q'.mkPos 5 4 (by decide)
 
 /-- Exact anchor ratio `c_4/c_3`. -/
@@ -88,46 +88,46 @@ private theorem scaled_bernstein_nonneg
 
 private def head4Bern : List (Nat × Q') :=
   [(0, Q'.mkPos 1 8 (by decide)),
-   (1, Q'.mkPos 291 56 (by decide)),
-   (2, Q'.mkPos 41205 392 (by decide)),
-   (3, Q'.mkPos 3779455 2744 (by decide)),
-   (4, Q'.mkPos 36039501 2744 (by decide)),
-   (5, Q'.mkPos 38060343 392 (by decide)),
-   (6, Q'.mkPos 544886197503 941192 (by decide)),
-   (7, Q'.mkPos 18846138853341 6588344 (by decide)),
-   (8, Q'.mkPos 137691882095337 11529602 (by decide)),
-   (9, Q'.mkPos 3449939305876699 80707214 (by decide)),
-   (10, Q'.mkPos 10706291032244043 80707214 (by decide)),
-   (11, Q'.mkPos 1423947659111317191 3954653486 (by decide)),
-   (12, Q'.mkPos 486296075948379199 564950498 (by decide)),
-   (13, Q'.mkPos 1029551852032842555 564950498 (by decide)),
-   (14, Q'.mkPos 1938831149709398835 564950498 (by decide)),
-   (15, Q'.mkPos 3258891390931860735 564950498 (by decide)),
-   (16, Q'.mkPos 1153468631373808794218847 132931722278404 (by decide)),
-   (17, Q'.mkPos 10890851074851707728478973 930522055948828 (by decide)),
-   (18, Q'.mkPos 92331339318768609501099339 6513654391641796 (by decide)),
-   (19, Q'.mkPos 703435441091100072362531649 45595580741492572 (by decide)),
-   (20, Q'.mkPos 688227953067705254063090715 45595580741492572 (by decide)),
-   (21, Q'.mkPos 605226523901531930490353799 45595580741492572 (by decide)),
-   (22, Q'.mkPos 478128137816545410297024783 45595580741492572 (by decide)),
-   (23, Q'.mkPos 813940621673771115436781170539 109474989360323665372 (by decide)),
-   (24, Q'.mkPos 258623940668545066493406287619 54737494680161832686 (by decide)),
-   (25, Q'.mkPos 147051944417635230571636173327 54737494680161832686 (by decide)),
-   (26, Q'.mkPos 10664089337782516715336684457 7819642097165976098 (by decide)),
-   (27, Q'.mkPos 4819880461940276792338551373 7819642097165976098 (by decide)),
-   (28, Q'.mkPos 1932821362043509571440842171 7819642097165976098 (by decide)),
-   (29, Q'.mkPos 684525006602555088675950247 7819642097165976098 (by decide)),
-   (30, Q'.mkPos 1226610616976685094914004403525791 45078680581384516175726498 (by decide)),
-   (31, Q'.mkPos 2322586455920445010968170048250045 315550764069691613230085486 (by decide)),
-   (32, Q'.mkPos 15132530274950885876017828199208009 8835421393951365170442393608 (by decide)),
-   (33, Q'.mkPos 20880338145935152884095342275233531 61847949757659556193096755256 (by decide)),
-   (34, Q'.mkPos 3417117874629889431530568562867899 61847949757659556193096755256 (by decide)),
-   (35, Q'.mkPos 451719883424020874120630213663655 61847949757659556193096755256 (by decide)),
-   (36, Q'.mkPos 46262342346534464688947584123573 61847949757659556193096755256 (by decide)),
-   (37, Q'.mkPos 3425259727777054547243167835529 61847949757659556193096755256 (by decide)),
-   (38, Q'.mkPos 169701548610613832634640553121 61847949757659556193096755256 (by decide)),
-   (39, Q'.mkPos 381805460268496533042707843429365
-      7276349441038889126561640159113144 (by decide))]
+   (1, Q'.mkPos 125 24 (by decide)),
+   (2, Q'.mkPos 22807 216 (by decide)),
+   (3, Q'.mkPos 2695073 1944 (by decide)),
+   (4, Q'.mkPos 2860553 216 (by decide)),
+   (5, Q'.mkPos 21178199 216 (by decide)),
+   (6, Q'.mkPos 2488455652351 4251528 (by decide)),
+   (7, Q'.mkPos 36917342629043 12754584 (by decide)),
+   (8, Q'.mkPos 346949307058627 28697814 (by decide)),
+   (9, Q'.mkPos 33533383662607535 774840978 (by decide)),
+   (10, Q'.mkPos 34678163725935047 258280326 (by decide)),
+   (11, Q'.mkPos 7618926629417496889 20920706406 (by decide)),
+   (12, Q'.mkPos 18192981218374297741 20920706406 (by decide)),
+   (13, Q'.mkPos 1424271878707525481 774840978 (by decide)),
+   (14, Q'.mkPos 8029679003806994161 2324522934 (by decide)),
+   (15, Q'.mkPos 13461479989636379455 2324522934 (by decide)),
+   (16, Q'.mkPos 7151484065913876547671143 823564528378596 (by decide)),
+   (17, Q'.mkPos 28829649742679439340998091 2470693585135788 (by decide)),
+   (18, Q'.mkPos 312869846106948302984210657 22236242266222092 (by decide)),
+   (19, Q'.mkPos 9147792450892148635207591669 600378541187996484 (by decide)),
+   (20, Q'.mkPos 8899247057657223515950990205 600378541187996484 (by decide)),
+   (21, Q'.mkPos 7776689674621998446710639843 600378541187996484 (by decide)),
+   (22, Q'.mkPos 2033809226654566971528373139 200126180395998828 (by decide)),
+   (23, Q'.mkPos 84527073214887521737046695382341 11817250826203334794572 (by decide)),
+   (24, Q'.mkPos 26654955853296810722993736181103 5908625413101667397286 (by decide)),
+   (25, Q'.mkPos 5013849947684998344997363693979 1969541804367222465762 (by decide)),
+   (26, Q'.mkPos 7580699426599423240569639700363 5908625413101667397286 (by decide)),
+   (27, Q'.mkPos 3404056068421164865759089394789 5908625413101667397286 (by decide)),
+   (28, Q'.mkPos 452521338039436447379718231275 1969541804367222465762 (by decide)),
+   (29, Q'.mkPos 478661000195060217934232113631 5908625413101667397286 (by decide)),
+   (30, Q'.mkPos 2127070135219649352577751479762022719 84782316550432407028588866402 (by decide)),
+   (31, Q'.mkPos 1719888875608877138081966750280700979 254346949651297221085766599206 (by decide)),
+   (32, Q'.mkPos 14344159275386704633333250712214615363 9156490187446699959087597571416 (by decide)),
+   (33, Q'.mkPos 75919925798264303439315847936514187887 247225235061060898895365134428232 (by decide)),
+   (34, Q'.mkPos 4116627512278459155655887356970444823 82408411687020299631788378142744 (by decide)),
+   (35, Q'.mkPos 540913534749730753129857491420640985 82408411687020299631788378142744 (by decide)),
+   (36, Q'.mkPos 164238942687377703871361758839367339 247225235061060898895365134428232 (by decide)),
+   (37, Q'.mkPos 3949631083915531657424697144647719 82408411687020299631788378142744 (by decide)),
+   (38, Q'.mkPos 220632153626632553221809028315621 82408411687020299631788378142744 (by decide)),
+   (39, Q'.mkPos 166286325765229056193140822782379985
+      131385626146085265169851742405674042312 (by decide))]
 
 private theorem head4_bernstein_identity :
     allZero (psub (scaleVar fourAnchorCap headSlack4P)
@@ -135,15 +135,15 @@ private theorem head4_bernstein_identity :
 
 private def one4Bern : List (Nat × Q') :=
   [(0, Q'.mkPos 1 8 (by decide)),
-   (1, Q'.mkPos 81 56 (by decide)),
-   (2, Q'.mkPos 360 49 (by decide)),
-   (3, Q'.mkPos 6945 343 (by decide)),
-   (4, Q'.mkPos 44523 1372 (by decide)),
-   (5, Q'.mkPos 41409 1372 (by decide)),
-   (6, Q'.mkPos 1732497 117649 (by decide)),
-   (7, Q'.mkPos 2206332 823543 (by decide)),
-   (8, Q'.mkPos 27306333 46118408 (by decide)),
-   (9, Q'.mkPos 261892837 322828856 (by decide))]
+   (1, Q'.mkPos 35 24 (by decide)),
+   (2, Q'.mkPos 403 54 (by decide)),
+   (3, Q'.mkPos 10007 486 (by decide)),
+   (4, Q'.mkPos 10607 324 (by decide)),
+   (5, Q'.mkPos 9623 324 (by decide)),
+   (6, Q'.mkPos 14291749 1062882 (by decide)),
+   (7, Q'.mkPos 5420915 3188646 (by decide)),
+   (8, Q'.mkPos 69381571 114791256 (by decide)),
+   (9, Q'.mkPos 3409058849 3099363912 (by decide))]
 
 private theorem one4_bernstein_identity :
     allZero (psub (scaleVar fourAnchorCap oneSlack4P)
@@ -151,25 +151,25 @@ private theorem one4_bernstein_identity :
 
 private def two4Bern : List (Nat × Q') :=
   [(0, Q'.mkPos 1 8 (by decide)),
-   (1, Q'.mkPos 151 56 (by decide)),
-   (2, Q'.mkPos 10755 392 (by decide)),
-   (3, Q'.mkPos 476925 2744 (by decide)),
-   (4, Q'.mkPos 525039 686 (by decide)),
-   (5, Q'.mkPos 1703151 686 (by decide)),
-   (6, Q'.mkPos 1444773975 235298 (by decide)),
-   (7, Q'.mkPos 19475910969 1647086 (by decide)),
-   (8, Q'.mkPos 413937566559 23059204 (by decide)),
-   (9, Q'.mkPos 3488202449065 161414428 (by decide)),
-   (10, Q'.mkPos 3332258854723 161414428 (by decide)),
-   (11, Q'.mkPos 123371967860235 7909306972 (by decide)),
-   (12, Q'.mkPos 36669010714467 3954653486 (by decide)),
-   (13, Q'.mkPos 2441373377253 564950498 (by decide)),
-   (14, Q'.mkPos 895756055283 564950498 (by decide)),
-   (15, Q'.mkPos 261205301211 564950498 (by decide)),
-   (16, Q'.mkPos 27638307982678857 265863444556808 (by decide)),
-   (17, Q'.mkPos 27568813948665039 1861044111897656 (by decide)),
-   (18, Q'.mkPos 11538167183771563 13027308783283592 (by decide)),
-   (19, Q'.mkPos 29370314644177813 91191161482985144 (by decide))]
+   (1, Q'.mkPos 65 24 (by decide)),
+   (2, Q'.mkPos 5977 216 (by decide)),
+   (3, Q'.mkPos 341843 1944 (by decide)),
+   (4, Q'.mkPos 377003 486 (by decide)),
+   (5, Q'.mkPos 407747 162 (by decide)),
+   (6, Q'.mkPos 6606325279 1062882 (by decide)),
+   (7, Q'.mkPos 38031419639 3188646 (by decide)),
+   (8, Q'.mkPos 1033025377205 57395628 (by decide)),
+   (9, Q'.mkPos 33272687227453 1549681956 (by decide)),
+   (10, Q'.mkPos 31376072480101 1549681956 (by decide)),
+   (11, Q'.mkPos 629050358118437 41841412812 (by decide)),
+   (12, Q'.mkPos 183025630672943 20920706406 (by decide)),
+   (13, Q'.mkPos 83523108343765 20920706406 (by decide)),
+   (14, Q'.mkPos 30355240825169 20920706406 (by decide)),
+   (15, Q'.mkPos 8979435089587 20920706406 (by decide)),
+   (16, Q'.mkPos 161145016996701889 1647129056757192 (by decide)),
+   (17, Q'.mkPos 60395884587610433 4941387170271576 (by decide)),
+   (18, Q'.mkPos 13063235275163017 44472484532444184 (by decide)),
+   (19, Q'.mkPos 731527045341754985 1200757082375992968 (by decide))]
 
 private theorem two4_bernstein_identity :
     allZero (psub (scaleVar fourAnchorCap twoSlack4P)
@@ -177,15 +177,15 @@ private theorem two4_bernstein_identity :
 
 private def ratio4Bern : List (Nat × Q') :=
   [(0, Q'.mkPos 1 8 (by decide)),
-   (1, Q'.mkPos 81 56 (by decide)),
-   (2, Q'.mkPos 360 49 (by decide)),
-   (3, Q'.mkPos 7377 343 (by decide)),
-   (4, Q'.mkPos 54891 1372 (by decide)),
-   (5, Q'.mkPos 67329 1372 (by decide)),
-   (6, Q'.mkPos 13623 343 (by decide)),
-   (7, Q'.mkPos 7020 343 (by decide)),
-   (8, Q'.mkPos 16731 2744 (by decide)),
-   (9, Q'.mkPos 157697893 322828856 (by decide))]
+   (1, Q'.mkPos 35 24 (by decide)),
+   (2, Q'.mkPos 403 54 (by decide)),
+   (3, Q'.mkPos 32069 1458 (by decide)),
+   (4, Q'.mkPos 40013 972 (by decide)),
+   (5, Q'.mkPos 49349 972 (by decide)),
+   (6, Q'.mkPos 60205 1458 (by decide)),
+   (7, Q'.mkPos 10387 486 (by decide)),
+   (8, Q'.mkPos 12427 1944 (by decide)),
+   (9, Q'.mkPos 1268792353 3099363912 (by decide))]
 
 private theorem ratio4_bernstein_identity :
     allZero (psub (scaleVar fourAnchorCap ratioSlack4P)
@@ -312,7 +312,7 @@ private theorem tail_sum_le {w : Q'} (hw0 : (0 : Q') ≤ w)
     exact const_mul_finSum (squareTail w) (retuneCube w) M
   exact Q'.le_trans' _ _ _ hsum (Q'.ge_of_eqv hfactor)
 
-/-- Uniform all-cutoff theorem on the exact window `0 <= w <= 6/7`. -/
+/-- Uniform all-cutoff theorem on the exact window `0 <= w <= 8/9`. -/
 theorem four_anchor_retune_all_cutoffs {w : Q'}
     (hw0 : (0 : Q') ≤ w) (hwc : w ≤ fourAnchorCap) (N : Nat) :
     adjCorr w N ≤ retuneCube w * coordNormSq w N := by
@@ -483,6 +483,44 @@ theorem harmonic_operator_spacing_initial_six {k : Nat} (hk : k ≤ 5) :
     (harmonicCoupling_size_all k)
     (harmonicSchur_spacing_initial_six hk)
 
+/-! ## The two new harmonic scales in the widened window -/
+
+theorem harmW_six_mem_window : harmW 6 ≤ fourAnchorCap := by
+  unfold harmW harmU ReciprocalBernoulliUpper.oneSub
+    SummableInverseSquare.unit fourAnchorCap
+  decide
+
+theorem harmW_seven_mem_window : harmW 7 ≤ fourAnchorCap := by
+  unfold harmW harmU ReciprocalBernoulliUpper.oneSub
+    SummableInverseSquare.unit fourAnchorCap
+  decide
+
+theorem harmonicMass_k6_retune_floor :
+    (1 : Q') - retuneCube (harmW 6) ≤ harmonicMass 6 := by
+  unfold harmonicMass
+  exact Q'.add_le_add_left 1 _ _
+    (Q'.neg_le_neg (four_anchor_lamPW_le_retune
+      (harmW_nonneg 6) harmW_six_mem_window (Ncut 6)))
+
+theorem harmonicMass_k7_retune_floor :
+    (1 : Q') - retuneCube (harmW 7) ≤ harmonicMass 7 := by
+  unfold harmonicMass
+  exact Q'.add_le_add_left 1 _ _
+    (Q'.neg_le_neg (four_anchor_lamPW_le_retune
+      (harmW_nonneg 7) harmW_seven_mem_window (Ncut 7)))
+
+theorem initial_eight_retune {k : Nat} (hk : k ≤ 7) :
+    adjCorr (harmW k) (Ncut k) ≤
+      retuneCube (harmW k) * coordNormSq (harmW k) (Ncut k) := by
+  by_cases hk5 : k ≤ 5
+  · exact initial_six_retune hk5
+  · have cases : k = 6 ∨ k = 7 := by omega
+    rcases cases with rfl | rfl
+    · exact four_anchor_retune_all_cutoffs
+        (harmW_nonneg 6) harmW_six_mem_window (Ncut 6)
+    · exact four_anchor_retune_all_cutoffs
+        (harmW_nonneg 7) harmW_seven_mem_window (Ncut 7)
+
 end YMGap.Continuum.FourAnchorWindowRetune
 
 #print axioms YMGap.Continuum.FourAnchorWindowRetune.strengthened_four_anchor_head
@@ -500,3 +538,8 @@ end YMGap.Continuum.FourAnchorWindowRetune
 #print axioms YMGap.Continuum.FourAnchorWindowRetune.harmonicSchur_spacing_initial_six
 #print axioms YMGap.Continuum.FourAnchorWindowRetune.harmonic_operator_spacing_k5
 #print axioms YMGap.Continuum.FourAnchorWindowRetune.harmonic_operator_spacing_initial_six
+#print axioms YMGap.Continuum.FourAnchorWindowRetune.harmW_six_mem_window
+#print axioms YMGap.Continuum.FourAnchorWindowRetune.harmW_seven_mem_window
+#print axioms YMGap.Continuum.FourAnchorWindowRetune.harmonicMass_k6_retune_floor
+#print axioms YMGap.Continuum.FourAnchorWindowRetune.harmonicMass_k7_retune_floor
+#print axioms YMGap.Continuum.FourAnchorWindowRetune.initial_eight_retune

@@ -4256,11 +4256,15 @@ Schur/operator spacing laws.  The exact prefix is now `k≤4`; the first
 residual scale is `k=5` (`w=6/7`).
 
 `FourAnchorWindowRetune` proves the next interval certificate
-`A₄≤retuneCube(w)·D₃` on `0≤w≤6/7` by exact degree-39 Bernstein data.  The
+`A₄≤retuneCube(w)·D₃` on the widened window `0≤w≤8/9` by exact degree-39
+Bernstein data.  The
 derived ratio `(5/4)w^9` and PF2 control every remaining edge without cutoff
 enumeration.  Quotient, `lamPW`, mass-floor, Schur, and operator consequences
-close `k=5`, so the exact prefix is now `k≤5`; the first residual scale is
-`k=6` (`w=7/8`).
+close `k=5`, while the widened all-cutoff quotient and mass-floor consequences
+also close `k=6,7`.  Thus the exact correlation/mass prefix is now `k≤7`; the
+first correlation residual is `k=8` (`w=9/10`).  The Schur/operator prefix
+remains `k≤5`: direct closed-rational reduction of the `k=6,7` Schur statements
+is a compile bottleneck and is not counted as proved.
 
 **Cleared theta-polynomial audit (2026-07-12).**
 `ThetaResidualBernsteinPilot` gives exact positive Bernstein decompositions of
@@ -4290,6 +4294,13 @@ monomial reserve `R_j=4j(j-1)M(D,2j(j-1)-1)` leaves coefficient exactly `-8`
 at cell `n=2`, coefficient index `3`, for every degree `D`.  Any viable Pascal
 telescope must therefore use multiple monomials or transfer reserve across
 more than one neighboring cell.
+
+Both fixed two-shift variants are now fenced as well.  For nonnegative weights,
+coefficients four and five force both weights to vanish.  Even arbitrary signed
+weights cannot use cancellation: simultaneous reserve/local nonnegativity
+again forces both weights to zero, after which the actual cutoff-two cell has
+coefficient exactly `-80`.  The surviving Pascal route must use at least three
+shifts, cutoff-dependent support, or a genuinely multi-cell signed flux.
 
 **Off-diagonal shell necessity (2026-07-12).**
 `FusedOffDiagonalCompression` strengthens the rank-one fence: any positive
@@ -4362,6 +4373,18 @@ product and bounded by the full old/intermediate product.  Subtracting that
 budget from twice the core is exactly the sum of pair residuals.  A further
 kernel fence shows that even nearest-neighbor reserve transfer fails at
 `k=8`; the remaining flux must be genuinely long-range across mode pairs.
+
+Exact prefix-rectangle recurrences, raw-kernel sign sectors, and oriented row
+summation now collapse the two-dimensional residual to one one-dimensional
+boundary:
+`driftAdjPartial·D - oldAdjPartial·DF - budgetDiagPartial·DF`.
+That corrected staggered-theta cross-flux implies the full coefficient-two
+weight bound; the ordinary unbudgeted MLR inequality is kernel-refuted at
+`k=3`.  Cumulative signs are favorable at every diagonal exponent node but
+can fail at the intervening adjacent node.  The exponent grid is exactly
+interlaced with equal half-gaps `2i+3`, so OPEN is an Abel/midpoint-convexity
+control of those intervening excursions between favorable diagonal
+boundaries—not another two-dimensional determinant estimate.
 
 **Constructed spacing step (2026-07-12).** `FusedSpacingStepBridge` defines the
 incoming retuned and outgoing fused spectral masses and proves their

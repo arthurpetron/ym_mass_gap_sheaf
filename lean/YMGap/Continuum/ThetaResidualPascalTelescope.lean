@@ -222,6 +222,120 @@ theorem prevEdge_one_monomial_not_nonnegative (D : Nat) :
   rw [prevEdge_one_monomial_obstructed D]
   decide
 
+/-! ## Obstruction to the first two-monomial shift
+
+Moving the preceding-edge reserve one or two Pascal steps to the right does
+not repair the problem, even if the two weights are allowed to vary with the
+cutoff.  Write
+
+  R_j = 4 j(j-1) (p M(D,2j(j-1)) + q M(D,2j(j-1)+1)).
+
+At cell `n=2` the physical diagonal starts only at exponent six.  The
+coefficient at four therefore sees just `-8p`.  If that coefficient is
+nonnegative then `p=0`; the coefficient at five then sees just `-8q`.
+Thus no nonzero pair of nonnegative weights can make even these two
+coefficients nonnegative.  This is uniform in `D` and does not assume a
+normalization such as `p+q=1`.
+-/
+
+private def shiftedTwoReserveCoeff (D p q j k : Nat) : Int :=
+  if j = 0 then 0 else
+    Int.ofNat (4 * j * (j - 1)) *
+      ((p : Int) * monoCoeff D (2 * j * (j - 1)) k +
+        (q : Int) * monoCoeff D (2 * j * (j - 1) + 1) k)
+
+private def shiftedTwoLocalCoeff (D p q n k : Nat) : Int :=
+  diagCoeff D n k - offCoeff D n k - shiftedTwoReserveCoeff D p q n k +
+    shiftedTwoReserveCoeff D p q (n + 1) k
+
+/-- The first exposed coefficient of the shifted two-monomial reserve. -/
+theorem shiftedTwo_local_four (D p q : Nat) :
+    shiftedTwoLocalCoeff D p q 2 4 = -(8 * (p : Int)) := by
+  simp [shiftedTwoLocalCoeff, shiftedTwoReserveCoeff, diagCoeff, offCoeff,
+    monoCoeff, PNPaths.choose]
+
+/-- Once the first weight vanishes, the next coefficient exposes the second
+weight, independently of the cutoff degree. -/
+theorem shiftedTwo_local_five_of_first_zero (D q : Nat) :
+    shiftedTwoLocalCoeff D 0 q 2 5 = -(8 * (q : Int)) := by
+  simp [shiftedTwoLocalCoeff, shiftedTwoReserveCoeff, diagCoeff, offCoeff,
+    monoCoeff, PNPaths.choose]
+
+/-- **Uniform two-cell obstruction.**  No nonzero nonnegative pair of
+weights in the first two shifted Pascal monomials gives a coefficientwise
+nonnegative local remainder. -/
+theorem shiftedTwo_nonnegative_obstructed (D p q : Nat) (hpq : 0 < p + q) :
+    ¬ ((0 : Int) ≤ shiftedTwoLocalCoeff D p q 2 4 ∧
+      (0 : Int) ≤ shiftedTwoLocalCoeff D p q 2 5) := by
+  intro h
+  have hp : p = 0 := by
+    rw [shiftedTwo_local_four D p q] at h
+    omega
+  subst p
+  rw [shiftedTwo_local_five_of_first_zero D q] at h
+  omega
+
+/-! Allowing cancellation between signed monomial weights does not open a
+loophole.  If the flux itself is required to have nonnegative Bernstein
+coefficients, its coefficients at four and five, together with those of the
+local remainder, force both weights to vanish.  At cutoff two the unreserved
+local coefficient at twenty-two is then `-80`. -/
+
+private def signedShiftedTwoReserveCoeff (D j k : Nat) (p q : Int) : Int :=
+  if j = 0 then 0 else
+    Int.ofNat (4 * j * (j - 1)) *
+      (p * monoCoeff D (2 * j * (j - 1)) k +
+        q * monoCoeff D (2 * j * (j - 1) + 1) k)
+
+private def signedShiftedTwoLocalCoeff (D n k : Nat) (p q : Int) : Int :=
+  diagCoeff D n k - offCoeff D n k -
+      signedShiftedTwoReserveCoeff D n k p q +
+    signedShiftedTwoReserveCoeff D (n + 1) k p q
+
+private theorem signed_reserve_two_four (p q : Int) :
+    signedShiftedTwoReserveCoeff 23 2 4 p q = 8 * p := by
+  simp [signedShiftedTwoReserveCoeff, monoCoeff, PNPaths.choose]
+
+private theorem signed_local_two_four (p q : Int) :
+    signedShiftedTwoLocalCoeff 23 2 4 p q = -(8 * p) := by
+  simp [signedShiftedTwoLocalCoeff, signedShiftedTwoReserveCoeff, diagCoeff,
+    offCoeff, monoCoeff, PNPaths.choose]
+
+private theorem signed_reserve_two_five_of_first_zero (q : Int) :
+    signedShiftedTwoReserveCoeff 23 2 5 0 q = 8 * q := by
+  simp [signedShiftedTwoReserveCoeff, monoCoeff, PNPaths.choose]
+
+private theorem signed_local_two_five_of_first_zero (q : Int) :
+    signedShiftedTwoLocalCoeff 23 2 5 0 q = -(8 * q) := by
+  simp [signedShiftedTwoLocalCoeff, signedShiftedTwoReserveCoeff, diagCoeff,
+    offCoeff, monoCoeff, PNPaths.choose]
+
+private theorem signed_local_two_top_zero :
+    signedShiftedTwoLocalCoeff 23 2 22 0 0 = (-80 : Int) := by decide
+
+/-- **Signed-family obstruction at the first nontrivial cutoff.**  No signed
+two-term shift can simultaneously keep the reserve and the local remainder
+coefficientwise nonnegative. -/
+theorem shiftedTwo_signed_cutoff_two_obstructed (p q : Int) :
+    ¬ ((0 : Int) ≤ signedShiftedTwoReserveCoeff 23 2 4 p q ∧
+      (0 : Int) ≤ signedShiftedTwoLocalCoeff 23 2 4 p q ∧
+      (0 : Int) ≤ signedShiftedTwoReserveCoeff 23 2 5 p q ∧
+      (0 : Int) ≤ signedShiftedTwoLocalCoeff 23 2 5 p q ∧
+      (0 : Int) ≤ signedShiftedTwoLocalCoeff 23 2 22 p q) := by
+  intro h
+  have hp : p = 0 := by
+    rw [signed_reserve_two_four p q] at h
+    rw [signed_local_two_four p q] at h
+    omega
+  subst p
+  have hq : q = 0 := by
+    rw [signed_reserve_two_five_of_first_zero q] at h
+    rw [signed_local_two_five_of_first_zero q] at h
+    omega
+  subst q
+  rw [signed_local_two_top_zero] at h
+  omega
+
 end YMGap.Continuum.ThetaResidualPascalTelescope
 
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.bernMon_left_extract
@@ -231,3 +345,7 @@ end YMGap.Continuum.ThetaResidualPascalTelescope
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.bernMon_weighted_midpoint_nonneg
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.prevEdge_one_monomial_obstructed
 #print axioms YMGap.Continuum.ThetaResidualPascalTelescope.prevEdge_one_monomial_not_nonnegative
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.shiftedTwo_local_four
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.shiftedTwo_local_five_of_first_zero
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.shiftedTwo_nonnegative_obstructed
+#print axioms YMGap.Continuum.ThetaResidualPascalTelescope.shiftedTwo_signed_cutoff_two_obstructed

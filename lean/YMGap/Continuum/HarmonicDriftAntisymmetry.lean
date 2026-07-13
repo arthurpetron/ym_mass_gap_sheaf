@@ -23,6 +23,7 @@ open YMGap.Continuum
 open YMGap.Continuum.RGTransport
 open YMGap.Continuum.BondMovingStep
 open YMGap.Continuum.ArbitraryTruncationRetuneCorr
+open YMGap.Continuum.CutoffCorrelationMonotone
 open YMGap.Continuum.FusionQuotientCollapse
 open YMGap.Continuum.HeatKernelRGStep
 open YMGap.Continuum.HarmonicCutoffBoundary
@@ -472,6 +473,412 @@ theorem driftBudgetSum_le_fullProduct (k : Nat) :
     exact Q'.mul_nonneg _ _ (by decide) (invSqTerm_nonneg 2 (by decide) k))
   exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (driftBudgetSum_eq_prefixProduct k)) hscale
 
+/-! ## Cumulative-rectangle flux and exact kernel sign sectors -/
+
+def residualRect (k a b : Nat) : Q' :=
+  fsum (fun i => fsum (fun j => driftPairResidual k i j) b) a
+
+def residualRowPrefix (k i b : Nat) : Q' :=
+  fsum (fun j => driftPairResidual k i j) b
+
+def residualColPrefix (k j a : Nat) : Q' :=
+  fsum (fun i => driftPairResidual k i j) a
+
+theorem residualRect_succ_right (k a b : Nat) :
+    residualRect k a (b + 1) ≈
+      residualRect k a b + residualColPrefix k b a := by
+  unfold residualRect residualColPrefix
+  have hsplit :
+      fsum (fun i => fsum (fun j => driftPairResidual k i j) (b + 1)) a ≈
+        fsum (fun i =>
+          fsum (fun j => driftPairResidual k i j) b +
+            driftPairResidual k i b) a :=
+    CubeRatioBounds.fsum_eqv_congr _ _ (fun _ => Q'.eqv_refl _) a
+  exact Q'.eqv_trans _ _ _ hsplit
+    (CubeRatioBounds.fsum_add
+      (fun i => fsum (fun j => driftPairResidual k i j) b)
+      (fun i => driftPairResidual k i b) a)
+
+theorem residualRect_succ_down (k a b : Nat) :
+    residualRect k (a + 1) b ≈
+      residualRect k a b + residualRowPrefix k a b := by
+  unfold residualRect residualRowPrefix
+  exact Q'.eqv_refl _
+
+/-- **Two-dimensional cumulative flux.**  Enlarging a prefix rectangle by
+one row and one column adds exactly the old row boundary, old column boundary,
+and the new corner. -/
+theorem residualRect_succ_succ (k a b : Nat) :
+    residualRect k (a + 1) (b + 1) ≈
+      (residualRect k a b + residualRowPrefix k a b) +
+        (residualColPrefix k b a + driftPairResidual k a b) := by
+  refine Q'.eqv_trans _ _ _ (residualRect_succ_right k (a + 1) b) ?_
+  exact Q'.add_eqv_congr'
+    (residualRect_succ_down k a b)
+    (by
+      unfold residualColPrefix
+      exact Q'.eqv_refl _)
+
+theorem residualRect_full (k : Nat) :
+    residualRect k (Ncut k) (Ncut k) = driftPairResidualSum k := rfl
+
+theorem driftSqFactor_le_adj {k i j : Nat} (hji : j ≤ i) :
+    driftSqFactor k j ≤ driftAdjFactor k i := by
+  have he : c4 j + c4 j ≤ c4 i + c4 (i + 1) :=
+    Nat.add_le_add (c4_mono_local hji)
+      (c4_mono_local (Nat.le_trans hji (by omega)))
+  have hp := qpow_exp_mono_one_le (one_le_driftRatio k) he
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (driftSqFactor_eq_pow k j))
+    (Q'.le_trans' _ _ _ hp (Q'.ge_of_eqv (driftAdjFactor_eq_pow k i)))
+
+theorem driftAdjFactor_le_sq {k i j : Nat} (hij : i + 1 ≤ j) :
+    driftAdjFactor k i ≤ driftSqFactor k j := by
+  have he : c4 i + c4 (i + 1) ≤ c4 j + c4 j :=
+    Nat.add_le_add (c4_mono_local (by omega)) (c4_mono_local hij)
+  have hp := qpow_exp_mono_one_le (one_le_driftRatio k) he
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (driftAdjFactor_eq_pow k i))
+    (Q'.le_trans' _ _ _ hp (Q'.ge_of_eqv (driftSqFactor_eq_pow k j)))
+
+theorem driftKernel_lower_nonneg {k i j : Nat} (hji : j ≤ i) :
+    (0 : Q') ≤ driftKernel k i j := by
+  have hdiff : (0 : Q') ≤ driftAdjFactor k i - driftSqFactor k j :=
+    Q'.sub_nonneg_of_le (driftSqFactor_le_adj hji)
+  unfold driftKernel oldAdj oldDiag
+  exact Q'.mul_nonneg _ _
+    (Q'.mul_nonneg _ _
+      (Q'.mul_nonneg _ _
+        (coeffW_nonneg (harmW_nonneg k) i)
+        (coeffW_nonneg (harmW_nonneg k) (i + 1)))
+      (Q'.mul_nonneg _ _
+        (coeffW_nonneg (harmW_nonneg k) j)
+        (coeffW_nonneg (harmW_nonneg k) j))) hdiff
+
+theorem driftKernel_upper_nonpos {k i j : Nat} (hij : i + 1 ≤ j) :
+    driftKernel k i j ≤ (0 : Q') := by
+  have hdiff : driftAdjFactor k i - driftSqFactor k j ≤ (0 : Q') :=
+    FusionCoreStepRoundE.q_add_neg_nonpos (driftAdjFactor_le_sq hij)
+  have hcoef : (0 : Q') ≤ oldAdj k i * oldDiag k j := by
+    unfold oldAdj oldDiag
+    exact Q'.mul_nonneg _ _
+      (Q'.mul_nonneg _ _
+        (coeffW_nonneg (harmW_nonneg k) i)
+        (coeffW_nonneg (harmW_nonneg k) (i + 1)))
+      (Q'.mul_nonneg _ _
+        (coeffW_nonneg (harmW_nonneg k) j)
+        (coeffW_nonneg (harmW_nonneg k) j))
+  unfold driftKernel
+  exact Q'.mul_nonpos_of_nonneg_nonpos hcoef hdiff
+
+def rawUpperTail (k i M : Nat) : Q' :=
+  fsum (fun t => driftKernel k i (i + 1 + t)) M
+
+/-- Every cumulative raw-kernel tail strictly above the diagonal is
+nonpositive.  This is the signed long-range reserve sector used by any valid
+transport; no finite adjacent band captures all of it. -/
+theorem rawUpperTail_nonpos (k i M : Nat) : rawUpperTail k i M ≤ (0 : Q') := by
+  unfold rawUpperTail
+  exact fsum_nonpos_upto _ M (fun t _ => driftKernel_upper_nonpos (by omega))
+
+/-- A naive cumulative-prefix boundary sign is false beyond the single-cell
+fence: the leading `2×2` residual rectangle is still positive at `k=3`.
+Therefore the rectangle flux must be closed by a two-tail boundary, not by
+asserting every leading square is nonpositive. -/
+theorem leading_two_rectangle_nonpos_fails_k3 :
+    not (residualRect 3 2 2 ≤ (0 : Q')) := by
+  unfold residualRect driftPairResidual driftPairBudget driftPairKernel
+    driftKernel driftBudgetKernel twoInvSq oldAdj oldDiag driftAdjFactor
+    driftSqFactor driftRatio harmW harmU ReciprocalBernoulliUpper.oneSub
+    unit invSqTerm coeffW dimQ c4 Q'.divPos Q'.recipPos qpow fsum
+  decide
+
+/-! ## Oriented long-range row flux -/
+
+def orientedResidual (k i j : Nat) : Q' :=
+  driftKernel k i j - driftBudgetKernel k i j
+
+def orientedRow (k i : Nat) : Q' :=
+  fsum (fun j => orientedResidual k i j) (Ncut k)
+
+def orientedPrefix (k p : Nat) : Q' :=
+  fsum (fun i => orientedRow k i) p
+
+private theorem rowKernel_sum_eq (k i : Nat) :
+    fsum (fun j => driftKernel k i j) (Ncut k) ≈
+      (oldAdj k i * driftAdjFactor k i) * oldDiagPrefix k +
+        -(oldAdj k i * driftDiagPrefix k) := by
+  let a := oldAdj k i
+  let F := driftAdjFactor k i
+  let d := fun j => oldDiag k j
+  let G := fun j => driftSqFactor k j
+  have hterm : ∀ j, driftKernel k i j ≈
+      (a * F) * d j + -(a * (d j * G j)) := by
+    intro j
+    unfold driftKernel
+    exact Q'.eqv_symm (product_diff_factor a (d j) F (G j))
+  refine Q'.eqv_trans _ _ _
+    (CubeRatioBounds.fsum_eqv_congr _ _ hterm (Ncut k)) ?_
+  refine Q'.eqv_trans _ _ _
+    (CubeRatioBounds.fsum_add
+      (fun j => (a * F) * d j)
+      (fun j => -(a * (d j * G j))) (Ncut k)) ?_
+  have hfirst : fsum (fun j => (a * F) * d j) (Ncut k) ≈
+      (a * F) * oldDiagPrefix k := by
+    unfold oldDiagPrefix d
+    exact Q'.eqv_symm
+      (CubeRatioBounds.fsum_const_mul (a * F) (fun j => oldDiag k j) (Ncut k))
+  have hsecond : fsum (fun j => -(a * (d j * G j))) (Ncut k) ≈
+      -(a * driftDiagPrefix k) := by
+    refine Q'.eqv_trans _ _ _
+      (CubeRatioBounds.fsum_neg (fun j => a * (d j * G j)) (Ncut k)) ?_
+    apply Q'.neg_eqv_congr
+    unfold driftDiagPrefix d G
+    exact Q'.eqv_symm
+      (CubeRatioBounds.fsum_const_mul a
+        (fun j => oldDiag k j * driftSqFactor k j) (Ncut k))
+  exact Q'.add_eqv_congr' hfirst hsecond
+
+private theorem rowBudget_sum_eq (k i : Nat) :
+    fsum (fun j => driftBudgetKernel k i j) (Ncut k) ≈
+      (twoInvSq k * oldDiag k i) * driftDiagPrefix k := by
+  have hterm : ∀ j, driftBudgetKernel k i j ≈
+      (twoInvSq k * oldDiag k i) *
+        (oldDiag k j * driftSqFactor k j) := by
+    intro j
+    unfold driftBudgetKernel
+    ring_qeqv
+  refine Q'.eqv_trans _ _ _
+    (CubeRatioBounds.fsum_eqv_congr _ _ hterm (Ncut k)) ?_
+  unfold driftDiagPrefix
+  exact Q'.eqv_symm
+    (CubeRatioBounds.fsum_const_mul (twoInvSq k * oldDiag k i)
+      (fun j => oldDiag k j * driftSqFactor k j) (Ncut k))
+
+/-- **Exact oriented row transport.**  The full positive lower band and
+negative long upper tail in row `i` collapse to a three-term boundary flux.
+This is the cumulative cross-ratio form that remains after the false local
+pair allocations have been removed. -/
+theorem orientedRow_eq_flux (k i : Nat) :
+    orientedRow k i ≈
+      ((oldAdj k i * driftAdjFactor k i) * oldDiagPrefix k +
+        -(oldAdj k i * driftDiagPrefix k)) +
+      -((twoInvSq k * oldDiag k i) * driftDiagPrefix k) := by
+  unfold orientedRow orientedResidual
+  refine Q'.eqv_trans _ _ _
+    (CubeRatioBounds.fsum_add
+      (fun j => driftKernel k i j)
+      (fun j => -(driftBudgetKernel k i j)) (Ncut k)) ?_
+  exact Q'.add_eqv_congr'
+    (rowKernel_sum_eq k i)
+    (Q'.eqv_trans _ _ _
+      (CubeRatioBounds.fsum_neg (fun j => driftBudgetKernel k i j) (Ncut k))
+      (Q'.neg_eqv_congr _ _ (rowBudget_sum_eq k i)))
+
+theorem orientedPrefix_succ (k p : Nat) :
+    orientedPrefix k (p + 1) ≈ orientedPrefix k p + orientedRow k p := by
+  unfold orientedPrefix
+  exact Q'.eqv_refl _
+
+/-- The terminal oriented prefix is exactly the unsymmetrized global core
+residual.  Thus the global coefficient-two covariance sign is a terminal
+one-dimensional row-flux sign, while every row already contains its complete
+nonpositive long upper tail. -/
+theorem orientedPrefix_full_eq (k : Nat) :
+    orientedPrefix k (Ncut k) ≈ driftCore k - driftBudgetSum k := by
+  unfold orientedPrefix orientedRow orientedResidual driftCore driftBudgetSum
+  exact Q'.eqv_symm (rect_sub_eq
+    (fun i j => driftKernel k i j)
+    (fun i j => driftBudgetKernel k i j) (Ncut k) (Ncut k))
+
+def oldAdjPartial (k p : Nat) : Q' := fsum (fun i => oldAdj k i) p
+
+def driftAdjPartial (k p : Nat) : Q' :=
+  fsum (fun i => oldAdj k i * driftAdjFactor k i) p
+
+def budgetDiagPartial (k p : Nat) : Q' :=
+  fsum (fun i => twoInvSq k * oldDiag k i) p
+
+/-- **One-dimensional cumulative cross-ratio boundary.**  After every row has
+absorbed its complete long upper tail, the prefix residual is exactly one
+staggered-theta cross product plus the coefficient-two diagonal budget. -/
+theorem orientedPrefix_eq_crossFlux (k p : Nat) :
+    orientedPrefix k p ≈
+      (driftAdjPartial k p * oldDiagPrefix k +
+        -(oldAdjPartial k p * driftDiagPrefix k)) +
+      -(budgetDiagPartial k p * driftDiagPrefix k) := by
+  have hrow := CubeRatioBounds.fsum_eqv_congr
+    (fun i => orientedRow k i)
+    (fun i =>
+      ((oldAdj k i * driftAdjFactor k i) * oldDiagPrefix k +
+        -(oldAdj k i * driftDiagPrefix k)) +
+      -((twoInvSq k * oldDiag k i) * driftDiagPrefix k))
+    (fun i => orientedRow_eq_flux k i) p
+  refine Q'.eqv_trans _ _ _ hrow ?_
+  refine Q'.eqv_trans _ _ _
+    (CubeRatioBounds.fsum_add
+      (fun i =>
+        (oldAdj k i * driftAdjFactor k i) * oldDiagPrefix k +
+          -(oldAdj k i * driftDiagPrefix k))
+      (fun i => -((twoInvSq k * oldDiag k i) * driftDiagPrefix k)) p) ?_
+  refine Q'.add_eqv_congr' ?_ ?_
+  · refine Q'.eqv_trans _ _ _
+      (CubeRatioBounds.fsum_add
+        (fun i => (oldAdj k i * driftAdjFactor k i) * oldDiagPrefix k)
+        (fun i => -(oldAdj k i * driftDiagPrefix k)) p) ?_
+    exact Q'.add_eqv_congr'
+      (by
+        unfold driftAdjPartial
+        exact Q'.eqv_symm
+          (CubeRatioBounds.fsum_mul_const
+            (fun i => oldAdj k i * driftAdjFactor k i) (oldDiagPrefix k) p))
+      (by
+        refine Q'.eqv_trans _ _ _
+          (CubeRatioBounds.fsum_neg
+            (fun i => oldAdj k i * driftDiagPrefix k) p) ?_
+        apply Q'.neg_eqv_congr
+        unfold oldAdjPartial
+        exact Q'.eqv_symm
+          (CubeRatioBounds.fsum_mul_const
+            (fun i => oldAdj k i) (driftDiagPrefix k) p))
+  · refine Q'.eqv_trans _ _ _
+      (CubeRatioBounds.fsum_neg
+        (fun i => (twoInvSq k * oldDiag k i) * driftDiagPrefix k) p) ?_
+    apply Q'.neg_eqv_congr
+    unfold budgetDiagPartial
+    exact Q'.eqv_symm
+      (CubeRatioBounds.fsum_mul_const
+        (fun i => twoInvSq k * oldDiag k i) (driftDiagPrefix k) p)
+
+/-- Consumer for the precise remaining one-dimensional inequality. -/
+theorem orientedPrefix_nonpos_of_crossFlux (k p : Nat)
+    (hcross :
+      (driftAdjPartial k p * oldDiagPrefix k +
+        -(oldAdjPartial k p * driftDiagPrefix k)) +
+        -(budgetDiagPartial k p * driftDiagPrefix k) ≤ (0 : Q')) :
+    orientedPrefix k p ≤ (0 : Q') :=
+  Q'.le_trans' _ _ _ (Q'.le_of_eqv (orientedPrefix_eq_crossFlux k p)) hcross
+
+/-- The unbudgeted TP2/cross-ratio target is genuinely false at the first
+uncovered scale.  Hence `CrossRatioMonotone.crossTP2` cannot be applied by
+simply dropping the coefficient-two diagonal correction. -/
+theorem unbudgeted_crossRatio_fails_k3 :
+    not (driftAdjPartial 3 (Ncut 3) * oldDiagPrefix 3 ≤
+      oldAdjPartial 3 (Ncut 3) * driftDiagPrefix 3) := by
+  unfold driftAdjPartial oldDiagPrefix oldAdjPartial driftDiagPrefix oldAdj
+    oldDiag driftAdjFactor driftSqFactor driftRatio harmW harmU
+    ReciprocalBernoulliUpper.oneSub unit coeffW dimQ c4 Q'.divPos
+    Q'.recipPos qpow Ncut fsum
+  decide
+
+private theorem le_of_sub_nonpos {a b : Q'} (h : a - b ≤ (0 : Q')) : a ≤ b := by
+  have hadd := Q'.add_le_add_right (a - b) 0 b h
+  have hL : (a - b) + b ≈ a := by
+    have hb : -b + b ≈ (0 : Q') := by
+      refine Q'.eqv_trans _ _ _ (Q'.add_comm_eqv (-b) b) ?_
+      exact Q'.add_neg_self_eqv b
+    refine Q'.eqv_trans _ _ _ (Q'.add_assoc_eqv a (-b) b) ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_left a _ _ hb) ?_
+    exact QPoly.q_add_zero_eqv a
+  exact Q'.le_trans' _ _ _ (Q'.ge_of_eqv hL)
+    (Q'.le_trans' _ _ _ hadd (Q'.le_of_eqv (QPoly.q_zero_add_eqv b)))
+
+/-- The precise one-dimensional boundary inequality closes the complete
+fixed-cutoff coefficient-two covariance bound.  All two-dimensional transport,
+terminal-column, and normalizer bookkeeping is discharged here. -/
+theorem harmonicWeightCross_le_twoInvSq_of_crossFlux (k : Nat)
+    (hcross :
+      (driftAdjPartial k (Ncut k) * oldDiagPrefix k +
+        -(oldAdjPartial k (Ncut k) * driftDiagPrefix k)) +
+        -(budgetDiagPartial k (Ncut k) * driftDiagPrefix k) ≤ (0 : Q')) :
+    harmonicWeightCross k ≤
+      twoInvSq k * (harmonicD k * harmonicMidD k) := by
+  have hpref : orientedPrefix k (Ncut k) ≤ (0 : Q') :=
+    orientedPrefix_nonpos_of_crossFlux k (Ncut k) hcross
+  have hsub : driftCore k - driftBudgetSum k ≤ (0 : Q') :=
+    Q'.le_trans' _ _ _
+      (Q'.ge_of_eqv (orientedPrefix_full_eq k)) hpref
+  have hcore : driftCore k ≤ driftBudgetSum k := le_of_sub_nonpos hsub
+  exact Q'.le_trans' _ _ _ (harmonicWeightCross_le_core k)
+    (Q'.le_trans' _ _ _ hcore (driftBudgetSum_le_fullProduct k))
+
+/-! ## Interlaced-node Abel boundaries -/
+
+/-- Signed coefficient cumulative immediately after the diagonal node `g_p`.
+At this point the adjacent nodes `f_0,...,f_{p-1}` and diagonal nodes
+`g_0,...,g_p` have entered the interlaced exponent grid. -/
+def gNodeCumulative (k p : Nat) : Q' :=
+  harmonicD k * adjCorr (harmW k) p -
+    (harmonicA k + twoInvSq k * harmonicD k) *
+      coordNormSq (harmW k) p
+
+/-- Every diagonal-node cumulative has the favorable sign.  The proof is
+exact finite-cutoff quotient monotonicity; the coefficient-two term supplies
+additional negative slack. -/
+theorem gNodeCumulative_nonpos {k p : Nat} (hp : p ≤ Ncut k) :
+    gNodeCumulative k p ≤ (0 : Q') := by
+  let M := Ncut k - p
+  have hpM : p + M = Ncut k := Nat.add_sub_of_le hp
+  have hcut := finite_cutoff_tail_compare
+    (harmW_nonneg k) (harmW_le_one k) (harmW_pos k) p M
+  rw [hpM] at hcut
+  have hbase : harmonicD k * adjCorr (harmW k) p ≤
+      harmonicA k * coordNormSq (harmW k) p := by
+    unfold harmonicD harmonicA
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (Q'.mul_comm_eqv _ _)) hcut
+  have hslack0 : (0 : Q') ≤ twoInvSq k * harmonicD k := by
+    exact Q'.mul_nonneg _ _
+      (by
+        unfold twoInvSq
+        exact Q'.mul_nonneg _ _ (by decide) (invSqTerm_nonneg 2 (by decide) k))
+      (Q'.le_of_lt (harmonicD_pos k))
+  have hright : harmonicA k * coordNormSq (harmW k) p ≤
+      (harmonicA k + twoInvSq k * harmonicD k) *
+        coordNormSq (harmW k) p := by
+    have hadd := Q'.add_le_self_of_nonneg (harmonicA k)
+      (twoInvSq k * harmonicD k) hslack0
+    exact Q'.mul_le_mul_of_nonneg_right _ _ _ hadd
+      (coordNormSq_nonneg (harmW_nonneg k) p)
+  unfold gNodeCumulative
+  exact FusionCoreStepRoundE.q_add_neg_nonpos
+    (Q'.le_trans' _ _ _ hbase hright)
+
+/-- Signed coefficient cumulative immediately after the intervening adjacent
+node `f_p` but before `g_{p+1}`. -/
+def fNodeCumulative (k p : Nat) : Q' :=
+  harmonicD k * adjCorr (harmW k) (p + 1) -
+    (harmonicA k + twoInvSq k * harmonicD k) *
+      coordNormSq (harmW k) p
+
+/-- The intervening-node sign is not uniformly favorable: already `f_0` at
+`k=3` is positive.  A valid Abel proof must use the exact midpoint spacing
+between the two favorable `g` boundaries rather than demand all node
+cumulatives be nonpositive. -/
+theorem fNodeCumulative_nonpos_fails_k3_p0 :
+    not (fNodeCumulative 3 0 ≤ (0 : Q')) := by
+  unfold fNodeCumulative harmonicD harmonicA twoInvSq adjCorr coordNormSq
+    harmW harmU ReciprocalBernoulliUpper.oneSub unit invSqTerm coeffW dimQ
+    c4 qpow Ncut fsum
+  decide
+
+def driftSqExp (i : Nat) : Nat := c4 i + c4 i
+def driftAdjExp (i : Nat) : Nat := c4 i + c4 (i + 1)
+def driftHalfGap (i : Nat) : Nat := 2 * i + 3
+
+/-- The adjacent node is exactly centered between consecutive diagonal nodes
+on the Casimir exponent grid. -/
+theorem driftSqExp_add_halfGap (i : Nat) :
+    driftSqExp i + driftHalfGap i = driftAdjExp i := by
+  unfold driftSqExp driftAdjExp driftHalfGap
+  rw [BondMovingScaledNorm.c4_succ]
+  omega
+
+theorem driftAdjExp_add_halfGap (i : Nat) :
+    driftAdjExp i + driftHalfGap i = driftSqExp (i + 1) := by
+  unfold driftSqExp driftAdjExp driftHalfGap
+  rw [BondMovingScaledNorm.c4_succ]
+  omega
+
 end YMGap.Continuum.HarmonicDriftAntisymmetry
 
 #print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.harmonicWeightCross_eq_kernelSum
@@ -491,3 +898,24 @@ end YMGap.Continuum.HarmonicDriftAntisymmetry
 #print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.core_twice_sub_pairBudget_eq_residual
 #print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.driftBudgetSum_eq_prefixProduct
 #print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.driftBudgetSum_le_fullProduct
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.residualRect_succ_right
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.residualRect_succ_down
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.residualRect_succ_succ
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.residualRect_full
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.driftSqFactor_le_adj
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.driftAdjFactor_le_sq
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.driftKernel_lower_nonneg
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.driftKernel_upper_nonpos
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.rawUpperTail_nonpos
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.leading_two_rectangle_nonpos_fails_k3
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.orientedRow_eq_flux
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.orientedPrefix_succ
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.orientedPrefix_full_eq
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.orientedPrefix_eq_crossFlux
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.orientedPrefix_nonpos_of_crossFlux
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.unbudgeted_crossRatio_fails_k3
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.harmonicWeightCross_le_twoInvSq_of_crossFlux
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.gNodeCumulative_nonpos
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.fNodeCumulative_nonpos_fails_k3_p0
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.driftSqExp_add_halfGap
+#print axioms YMGap.Continuum.HarmonicDriftAntisymmetry.driftAdjExp_add_halfGap
