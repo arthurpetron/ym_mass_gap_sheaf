@@ -5002,6 +5002,21 @@ This closes the finite Wilson-correlator/character normalization question but
 not the next boundary: `WilsonGNSData` still supplies no constructed transfer
 operator on its quotient, so that construction is now under direct attack.
 
+`WilsonGNSTransferUnderdetermination` proves that this boundary is forced by
+the current data, rather than a missing convenience lemma.  On one identical,
+nondegenerate `qWilsonGNS 1` static datum it constructs distinct identity and
+zero positive self-adjoint contractions; the same nonzero dense head has exact
+eigenvalue one versus zero, the unit one-mode spectrum has no located gap, and
+the zero spectrum has a realized located and operator-form gap.  The resulting
+`IncompatibleWilsonTimeSpectra` inhabitant is a permanent no-go fence against
+deriving physical dynamics from `WilsonGNSData` alone.  The minimal honest
+repair is now typed as `WilsonTimeTranslationPin` (observable shift, completed
+operator, dense intertwining; radical preservation proved) followed by
+`WilsonCharacterSpectrumPin`, whose Schur coordinate identities yield the
+normalized character `SpectralGapData` and actual transfer-form gap.  The live
+physical task is to construct those pins from lattice time translation and the
+interacting Wilson state, not to reuse the static GNS bundle as dynamics.
+
 ### Milestone 14.4 — Assemble `singleStep` and the continuum floor
 
 **Goal.** 14.2 + 14.3 inhabit `SingleStepDefectBoundLoose` →
