@@ -302,6 +302,36 @@ theorem growingResidualLowerSix_below_thirty_eight {k : Nat}
   growingResidualLowerSix_of_dirichletPayment
     (lowerSix_dirichletPayment_below_thirty_eight hk0 hk1)
 
+/-- Exact transition band before the symbolic square-root bands stabilize. -/
+theorem lowerSix_dirichletPayment_firstBand {k : Nat}
+    (hk0 : 38 ≤ k) (hk1 : k ≤ 47) :
+    Q'.ofNat 4 *
+        integerThetaTerm (harmW k) (growingAnchor k + 2) ≤
+      lowerSixDirichletSum k +
+        Q'.ofNat 4 * integerThetaTerm (harmW k) 1 := by
+  have hcases : k = 38 ∨ k = 39 ∨ k = 40 ∨ k = 41 ∨ k = 42 ∨
+      k = 43 ∨ k = 44 ∨ k = 45 ∨ k = 46 ∨ k = 47 := by
+    omega
+  rcases hcases with
+      rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl <;>
+    unfold lowerSixDirichletSum lowerSixDirichletIncrement
+      lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+      integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow <;>
+    decide
+
+theorem growingResidualLowerSix_firstBand {k : Nat}
+    (hk0 : 38 ≤ k) (hk1 : k ≤ 47) : GrowingResidualLowerSix k :=
+  growingResidualLowerSix_of_dirichletPayment
+    (lowerSix_dirichletPayment_firstBand hk0 hk1)
+
+/-- Complete exact prefix consumed by the all-scale residual.  Only the
+generic `k ≥ 48` boundary-aware Abel payment remains. -/
+theorem growingResidualLowerSix_below_forty_eight {k : Nat}
+    (hk0 : 10 ≤ k) (hk1 : k < 48) : GrowingResidualLowerSix k := by
+  by_cases hk38 : k < 38
+  · exact growingResidualLowerSix_below_thirty_eight hk0 hk38
+  · exact growingResidualLowerSix_firstBand (by omega) (by omega)
+
 #print axioms lowerSixDirichletSum_eqv
 #print axioms growingLowerSixGap_eqv_dirichlet
 #print axioms growingResidualLowerSix_of_dirichletPayment
@@ -310,5 +340,8 @@ theorem growingResidualLowerSix_below_thirty_eight {k : Nat}
 #print axioms growingResidualLowerSix_k10
 #print axioms lowerSix_dirichletPayment_below_thirty_eight
 #print axioms growingResidualLowerSix_below_thirty_eight
+#print axioms lowerSix_dirichletPayment_firstBand
+#print axioms growingResidualLowerSix_firstBand
+#print axioms growingResidualLowerSix_below_forty_eight
 
 end YMGap.Continuum.HarmonicMassCrossLowerSixDirichlet
