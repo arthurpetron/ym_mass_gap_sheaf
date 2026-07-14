@@ -679,6 +679,7 @@ import YMGap.Continuum.ClusterCount4DProgress
 import YMGap.Continuum.Z4FiniteBoxExhaustion
 import YMGap.Continuum.Z4FiniteBoxTrivalentResolution
 import YMGap.Continuum.Z4FiniteBoxPacketState
+import YMGap.Continuum.Z4FiniteBoxHeatKernelPacketState
 import YMGap.Continuum.BalabanExactProgress
 import YMGap.Continuum.DefectGapRecursionProgress
 import YMGap.Continuum.TransmutationAFProgress
