@@ -3330,9 +3330,29 @@ computationally owned family: the source test reconstructs each entry from its
 three left-mask tag bits, the target owner decodes the same bits from the genuine
 external occurrence mask, and the exact singleton certificate supplies the
 payment.  Consequently pairwise block disjointness and a global allocator for
-all eight sources are derived rather than assumed.  OPEN is extending this source-tagging
-classification beyond the short-ear-compatible chart to every C12 ear geometry
-and then to arbitrary ambient long-arm sources.
+all eight sources are derived rather than assumed.
+`XiExceptionalGeneralLongArmC12RootTaggedEarOwned` adds the next genuinely
+different class: the left `V11` root ear cross-attached to marked `V0`.  It
+machine-rejects this geometry from the old three-bit chart, then uses occurrence
+bit 11 to derive exact singleton payment, injectivity, canonical-block
+disjointness, pairwise disjointness, and one computational owned/global allocator
+for all sixteen old-plus-root sources.
+`XiExceptionalGeneralLongArmC12BadEndTaggedEarOwned` adds eight genuinely new
+sources with `V4` attached across the bad endpoint and `V5` absent.  The old
+root-tag chart is machine-proved to reject them; their genuine external masks
+give exact singleton payments, injective tags, pairwise/canonical/old-chart
+disjointness, and one owned/global allocator covering all twenty-four accepted
+patterns.  The simultaneous `V4,V5` collision is deliberately rejected rather
+than hidden in this family.
+`XiExceptionalGeneralLongArmC12AdjacentTagCollisionFence` resolves whether that
+first omitted collision can be paid by widening the decoder.  The combined
+external code has identically zero weight, and even the complete natural block
+of its four external submasks fails exactly at the derived unit-weight test:
+source weight `4096` exceeds block weight `2304`.  Hence no paid residual block
+with that natural carrier exists.  This permanently blocks decoder widening
+and naïve external-submask summation.  OPEN is a materially different chain or
+resummation carrier, then the remaining C12 ear geometries and arbitrary
+ambient long-arm sources.
 
 **Adversarial correction (2026-07-12).**  `Continuum/FrontierStatementBugFence.lean`
 machine-refutes the claimed strength of two Bucket-2 atom types without changing
@@ -6037,6 +6057,17 @@ termwise payment at the exact initial scale (`n=3` paired with `n=13` is still
 negative), and derives the endpoint-aware complement identity showing that a
 seven-core lower bound has the wrong direction.  The live cumulative/Pascal
 attack must instead upper-bound the seven-core together with the terminal mode.
+`HarmonicMassCrossLowerSixSuffixActual` transports the cleared raw suffix slack
+into the actual lower-six Dirichlet cells and proves every suffix and far-tail
+increment nonnegative for all `k >= 48`.  Thus the reserve/deficit consumer has
+no remaining sign premise; only quantitative recovery payment is open.
+`HarmonicMassCrossLowerSixRecoveryBootstrap` proves that payment by kernel
+reduction on the exact rational band `48 <= k < 148`, and
+`HarmonicMassCrossLowerSixRecoveryBootstrapClosure` combines it with the prior
+base to prove `GrowingResidualLowerSix k` for every `10 <= k < 148`.  This is a
+constructive finite anchor, not a global two-center bound: the far reserve is
+essential.  OPEN is the uniform quantitative payment using the full far suffix
+beyond this anchor.
 
 `HarmonicWilsonTransferBridge` identifies the exact normalization separating
 the existing Wilson correlator reconstruction from the finite character
@@ -6694,6 +6725,19 @@ transports the Wilson SOS theorem to every canonical polynomial, proves the
 partition exactly one, and constructs an unconditional nonconstant canonical
 `ReferenceWeight`.  OPEN is construction of its reflection-positive time
 geometry and interacting shared-link transfer.
+`SU2QuaternionCanonicalEightTimeAction` already combines strict boundary swap,
+exact Haar invariance, and literal Wilson-weight invariance into a selected
+state-preserving period-two action on that datum.
+`SU2QuaternionCanonicalEightModule` supplies the non-vacuous additive/scalar
+GNS carrier: equivalence is equality under every rational polynomial
+environment, and all module/algebra laws are derived through exact evaluation.
+`SU2QuaternionCanonicalEightTimeGeometry` proves the exact environment-swap
+intertwiner, so raw boundary exchange respects that semantic equality and its
+additive, negative, and scalar operations.  It packages the nonconstant
+reference weight, semantic module, and state-preserving strict involution into
+the full period-two geometry interface.  OPEN at this narrowed interface is
+deriving interacting expectation linearity and conjugate symmetry for the
+Wilson GNS constructor, followed by the shared-link transfer realization.
 `SU2PeterWeylPlaquetteTensorBlock` derives the corresponding five-dimensional
 one-plaquette matrix-coefficient block: one vacuum plus four `D_ab` channels,
 all four with eigenvalue `1/8`, with the trace normalization independently
@@ -8328,6 +8372,23 @@ are integrated.
    finite uniqueness from a common endpoint value.  OPEN is proving that the
    reconstructed coefficient sequence and signed factorial candidate satisfy
    that interior Casimir equation; the consumer itself is no longer missing.
+   `SU2OrderedLeftCasimirEigen` proves on the complete physical monomial box that
+   every proof-carrying left channel is an exact first-pair exchange eigenvector,
+   including boundaries and below-support coordinates.
+   `SU2OrderedLeftCasimirPairing` regroups the invariant contraction into
+   first-pair slices, proves self-adjointness of pair exchange, and lifts the
+   eigen law to an exact pairing statement against every arbitrary right
+   factor.  Thus the left-eigen/self-adjoint half of the interior recurrence is
+   closed.  OPEN is now specifically the right-basis tridiagonal expansion of
+   first-pair exchange; once derived, these pairing laws feed the actual Schur
+   coefficients into the finite Jacobi consumer.
+   `SU2OrderedRacahInteriorReducedEndpointCoefficient` supplies the first
+   all-label coefficient mechanism for that expansion.  For every adjacent
+   physical right-channel pair, the raw interior forward coefficient is
+   identified division-free with the proved endpoint coefficient on the labels
+   after removing their common inner contractions, multiplied by the exact
+   inner-row normalization ratio.  OPEN is lifting this reduced-label identity
+   from the coefficient to the full right-basis action and its diagonal term.
    `SU2OrderedRacahEndpointReconstructedSection` now applies the finite-box
    transpose of `pairExchange` to the actual reconstructed section coefficient
    in the fundamental and mixed `(2,2,1,1)` blocks, proving both exact Gram-
