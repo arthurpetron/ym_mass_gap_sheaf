@@ -378,25 +378,34 @@ theorem eval_nonneg_of_fast_coefficients {rho : Nat → Q'}
 
 private def simplexTotalDegree (m : List Nat) : Nat := m.foldl Nat.add 0
 
-/-- Every monomial has exactly the two variables `(w,h)` and degree at most
-`M`.  This structural predicate is closed and kernel-decidable for a concrete
-normal form. -/
+/-- Every monomial uses at most the two variables `(w,h)` and has degree at
+most `M`.  Trailing zero exponents are canonically omitted by the ring
+normalizer, so constants and pure `w` powers appear as `[]` and `[ew]` rather
+than `[0,0]` and `[ew,0]`.  This structural predicate accepts all three
+canonical shapes and is kernel-decidable for a concrete normal form. -/
 def TwoVariableDegreeBound (M : Nat) : RingNormaliser.RawPoly → Prop
   | [] => True
+  | (([], _)) :: p => TwoVariableDegreeBound M p
+  | (([ew], _)) :: p => ew ≤ M ∧ TwoVariableDegreeBound M p
   | (([ew, eh], _)) :: p => ew + eh ≤ M ∧ TwoVariableDegreeBound M p
   | _ :: _ => False
 
 private def twoVariableDegreeBoundDecidable (M : Nat) : ∀ p,
     Decidable (TwoVariableDegreeBound M p)
   | [] => isTrue trivial
+  | ([], _) :: p => twoVariableDegreeBoundDecidable M p
+  | ([ew], _) :: p =>
+      if hd : ew ≤ M then
+        match twoVariableDegreeBoundDecidable M p with
+        | isTrue hp => isTrue ⟨hd, hp⟩
+        | isFalse hp => isFalse (fun h => hp h.2)
+      else isFalse (fun h => hd h.1)
   | ([ew, eh], _) :: p =>
       if hd : ew + eh ≤ M then
         match twoVariableDegreeBoundDecidable M p with
         | isTrue hp => isTrue ⟨hd, hp⟩
         | isFalse hp => isFalse (fun h => hp h.2)
       else isFalse (fun h => hd h.1)
-  | ([], _) :: _ => isFalse (fun h => h)
-  | ([_], _) :: _ => isFalse (fun h => h)
   | (_ :: _ :: _ :: _, _) :: _ => isFalse (fun h => h)
 
 private instance (M : Nat) (p : RingNormaliser.RawPoly) :
@@ -572,11 +581,43 @@ private theorem eval_simplexTerm_eq_scaled_mono
       (RingNormaliser.qpow (4 : Q') eh) (RingNormaliser.qpow h eh)) ?_
   exact mul_eqv_congr₂ hscale (Q'.eqv_refl _)
 
+private theorem eval_simplexTerm_nil_eq_scaled_mono
+    (w h : Q') (M : Nat) (c : Int) :
+    RingNormaliser.eval (simplexPoint w h) (simplexTerm M ([], c)) ≈
+      RingNormaliser.qpow (4 : Q') M *
+        (Q'.ofInt c * RingNormaliser.evalMono (whEnv w h) []) := by
+  simpa [simplexTerm, simplexTotalDegree, exp0, exp1,
+    RingNormaliser.evalMono, RingNormaliser.evalMonoFrom] using
+      (eval_simplexTerm_eq_scaled_mono w h M 0 0 c (by omega))
+
+private theorem eval_simplexTerm_singleton_eq_scaled_mono
+    (w h : Q') (M ew : Nat) (c : Int) (hdeg : ew ≤ M) :
+    RingNormaliser.eval (simplexPoint w h) (simplexTerm M ([ew], c)) ≈
+      RingNormaliser.qpow (4 : Q') M *
+        (Q'.ofInt c * RingNormaliser.evalMono (whEnv w h) [ew]) := by
+  simpa [simplexTerm, simplexTotalDegree, exp0, exp1,
+    RingNormaliser.evalMono, RingNormaliser.evalMonoFrom] using
+      (eval_simplexTerm_eq_scaled_mono w h M ew 0 c (by omega))
+
 private theorem eval_simplexSum_eq_scaledRaw (w h : Q') (M : Nat) : ∀ p,
     TwoVariableDegreeBound M p →
     RingNormaliser.eval (simplexPoint w h) (sumTermExpr (simplexTerm M) p) ≈
       RingNormaliser.qpow (4 : Q') M * RingNormaliser.evalRaw (whEnv w h) p
   | [], _ => Q'.eqv_symm (Q'.mul_zero_eqv _)
+  | ([], c) :: p, hp => by
+      have ht := eval_simplexTerm_nil_eq_scaled_mono w h M c
+      have ih := eval_simplexSum_eq_scaledRaw w h M p hp
+      refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr' ht ih) ?_
+      exact Q'.eqv_symm (Q'.mul_add_eqv (RingNormaliser.qpow (4 : Q') M)
+        (Q'.ofInt c * RingNormaliser.evalMono (whEnv w h) [])
+        (RingNormaliser.evalRaw (whEnv w h) p))
+  | ([ew], c) :: p, hp => by
+      have ht := eval_simplexTerm_singleton_eq_scaled_mono w h M ew c hp.1
+      have ih := eval_simplexSum_eq_scaledRaw w h M p hp.2
+      refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr' ht ih) ?_
+      exact Q'.eqv_symm (Q'.mul_add_eqv (RingNormaliser.qpow (4 : Q') M)
+        (Q'.ofInt c * RingNormaliser.evalMono (whEnv w h) [ew])
+        (RingNormaliser.evalRaw (whEnv w h) p))
   | ([ew, eh], c) :: p, hp => by
       have ht := eval_simplexTerm_eq_scaled_mono w h M ew eh c hp.1
       have ih := eval_simplexSum_eq_scaledRaw w h M p hp.2
@@ -584,8 +625,6 @@ private theorem eval_simplexSum_eq_scaledRaw (w h : Q') (M : Nat) : ∀ p,
       exact Q'.eqv_symm (Q'.mul_add_eqv (RingNormaliser.qpow (4 : Q') M)
         (Q'.ofInt c * RingNormaliser.evalMono (whEnv w h) [ew, eh])
         (RingNormaliser.evalRaw (whEnv w h) p))
-  | ([], _) :: _, hp => False.elim hp
-  | ([_], _) :: _, hp => False.elim hp
   | (_ :: _ :: _ :: _, _) :: _, hp => False.elim hp
 
 private theorem simplexPoint_nonneg {w h : Q'}
@@ -618,38 +657,57 @@ private theorem scale_pos (M : Nat) :
   rw [hk]
   exact Q'.ofNat_succ_pos k
 
+/-- **Reusable reduced-simplex consumer.**  A two-variable polynomial `q`
+whose degree-`M` physical-simplex elevation has nonnegative coefficients is
+nonnegative at every `0 <= h <= w`, `4w <= 1`.
+
+Unlike `quotient_nonneg_of_simplexCertificate`, this theorem is not tied to a
+whole residual quotient.  It is designed for factor-aware certificates: first
+remove a manifestly nonnegative common monomial from a large quotient, then
+run the reflective simplex check only on the much smaller reduced polynomial.
+This avoids the exponential intermediate table that defeated the monolithic
+`(0,1)` certificate and is reusable at later offsets. -/
+theorem eval_wh_nonneg_of_simplexData {w h : Q'}
+    (hh0 : (0 : Q') ≤ h) (hhw : h ≤ w)
+    (hwcap : (4 : Q') * w ≤ (1 : Q'))
+    {q : RingNormaliser.PolyExpr} {M : Nat}
+    (hcoeff : RawCoefficientsNonnegative
+      (fastNormalize (simplexHomogenize q M)) = true)
+    (hdegree : TwoVariableDegreeBound M (RingNormaliser.normalize q)) :
+    (0 : Q') ≤
+      RingNormaliser.eval (fun i => if i = 0 then w else h) q := by
+  let H := simplexHomogenize q M
+  have hH : (0 : Q') ≤ RingNormaliser.eval (simplexPoint w h) H :=
+    eval_nonneg_of_fast_coefficients (simplexPoint_nonneg hh0 hhw hwcap) hcoeff
+  have hraw := eval_simplexSum_eq_scaledRaw w h M
+    (RingNormaliser.normalize q) hdegree
+  have hn := RingNormaliser.normalize_eval (whEnv w h) q
+  have hscaledEval :
+      RingNormaliser.qpow (4 : Q') M * RingNormaliser.eval (whEnv w h) q ≈
+        RingNormaliser.qpow (4 : Q') M *
+          RingNormaliser.evalRaw (whEnv w h) (RingNormaliser.normalize q) :=
+    Q'.mul_eqv_congr_left _ _ _ hn
+  have hHscale : RingNormaliser.eval (simplexPoint w h) H ≈
+      RingNormaliser.qpow (4 : Q') M * RingNormaliser.eval (whEnv w h) q :=
+    Q'.eqv_trans _ _ _ hraw (Q'.eqv_symm hscaledEval)
+  have hs0 : (0 : Q') ≤
+      RingNormaliser.qpow (4 : Q') M * RingNormaliser.eval (whEnv w h) q :=
+    Q'.le_trans' _ _ _ hH (Q'.le_of_eqv hHscale)
+  have hmul : RingNormaliser.qpow (4 : Q') M * (0 : Q') ≤
+      RingNormaliser.qpow (4 : Q') M * RingNormaliser.eval (whEnv w h) q :=
+    Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (Q'.mul_zero_eqv (RingNormaliser.qpow (4 : Q') M))) hs0
+  exact Q'.le_of_mul_le_mul_left hmul
+    (rnqpow_pos (4 : Q') (by decide) M)
+
 theorem quotient_nonneg_of_simplexCertificate {w h : Q'} {s r : Nat}
     (hh0 : (0 : Q') ≤ h) (hhw : h ≤ w)
     (hwcap : (4 : Q') * w ≤ (1 : Q'))
     (C : SimplexSquareCertificate s r) :
     (0 : Q') ≤
       RingNormaliser.eval (whEnv w h) (residualQuotientExpr s r) := by
-  let q := residualQuotientExpr s r
-  let H := simplexHomogenize q C.degree
-  have hH : (0 : Q') ≤ RingNormaliser.eval (simplexPoint w h) H :=
-    eval_nonneg_of_fast_coefficients (simplexPoint_nonneg hh0 hhw hwcap)
-      C.coefficients_nonnegative
-  have hraw := eval_simplexSum_eq_scaledRaw w h C.degree
-    (RingNormaliser.normalize q) C.degree_bound
-  have hn := RingNormaliser.normalize_eval (whEnv w h) q
-  have hscaledEval :
-      RingNormaliser.qpow (4 : Q') C.degree * RingNormaliser.eval (whEnv w h) q ≈
-        RingNormaliser.qpow (4 : Q') C.degree *
-          RingNormaliser.evalRaw (whEnv w h) (RingNormaliser.normalize q) :=
-    Q'.mul_eqv_congr_left _ _ _ hn
-  have hHscale : RingNormaliser.eval (simplexPoint w h) H ≈
-      RingNormaliser.qpow (4 : Q') C.degree *
-        RingNormaliser.eval (whEnv w h) q :=
-    Q'.eqv_trans _ _ _ hraw (Q'.eqv_symm hscaledEval)
-  have hs0 : (0 : Q') ≤
-      RingNormaliser.qpow (4 : Q') C.degree * RingNormaliser.eval (whEnv w h) q :=
-    Q'.le_trans' _ _ _ hH (Q'.le_of_eqv hHscale)
-  have hmul : RingNormaliser.qpow (4 : Q') C.degree * (0 : Q') ≤
-      RingNormaliser.qpow (4 : Q') C.degree * RingNormaliser.eval (whEnv w h) q :=
-    Q'.le_trans' _ _ _
-      (Q'.le_of_eqv (Q'.mul_zero_eqv (RingNormaliser.qpow (4 : Q') C.degree))) hs0
-  exact Q'.le_of_mul_le_mul_left hmul
-    (rnqpow_pos (4 : Q') (by decide) C.degree)
+  exact eval_wh_nonneg_of_simplexData hh0 hhw hwcap
+    C.coefficients_nonnegative C.degree_bound
 
 theorem residual_factor_of_simplexCertificate (w h : Q') {s r : Nat}
     (C : SimplexSquareCertificate s r) :
@@ -737,6 +795,7 @@ theorem boundaryResidualAt_zero_one_factor (w h : Q') :
 #print axioms eval_nonneg_of_coefficients
 #print axioms evalRaw_fastNormalize
 #print axioms eval_nonneg_of_fast_coefficients
+#print axioms eval_wh_nonneg_of_simplexData
 #print axioms quotient_nonneg_of_simplexCertificate
 #print axioms residual_factor_of_simplexCertificate
 #print axioms residual_nonneg_of_simplexCertificate
