@@ -6025,7 +6025,12 @@ endpoint as well: a modulo-four large-center proof covers every `k >= 646`,
 while kernel `decide` verifies the exact derived rational band
 `48 <= k < 646`.  Combining that endpoint with the successor theorem proves
 every cleared raw slack on the full nominal right suffix is nonnegative.
-OPEN is the genuinely quantitative reserve-versus-prefix-deficit bound; mere
+`HarmonicMassCrossLowerSixSuffixReserveDeficit` now identifies the adverse
+prefix exactly with its weighted Abel-carrier sum and splits the full suffix
+reserve exactly into the recovery block through mode `2c` plus its far tail.
+It proves that far-tail nonnegativity and the single sharp inequality
+`-lowerSixWindowPrefix <= lowerSixRecoveryReserve` close the interior residual.
+OPEN is that genuinely quantitative recovery-versus-prefix bound; mere
 cellwise reserve nonnegativity is deliberately not conflated with payment.
 
 `HarmonicWilsonTransferBridge` identifies the exact normalization separating
@@ -8282,18 +8287,21 @@ are integrated.
    support, convolution, and normalized-row factorization rather than an
    assumed normalization.  `SU2ClosedBinaryGramIdentification` then proves the
    uniform physical-channel identity between each analytic normalized-row Gram
-   and the independently introduced closed factorial Gram.  OPEN at this
-   junction is only their concrete combination with the arbitrary-label
-   endpoint balance into the actual channel-weight Gram-dual equation.
+   and the independently introduced closed factorial Gram.
+   `SU2OrderedRacahEndpointActualGramTranspose` combines these results and
+   constructively cancels the two positive intermediate-dimension factors,
+   proving the literal `triRightChannelWeight` Gram-transpose equation for every
+   physical endpoint label.  No abstract or closed Gram remains in its
+   statement.
    `SU2OrderedRacahEndpointReconstructedSection` now applies the finite-box
    transpose of `pairExchange` to the actual reconstructed section coefficient
    in the fundamental and mixed `(2,2,1,1)` blocks, proving both exact Gram-
    transpose and endpoint candidate packages.  A normalization fence shows the
    raw mixed operator gives `5/6`, not the section coefficient `1/3`, while the
    transpose gives `1/3`; this is not a boundary truncation artifact.  OPEN is
-   the all-label theorem that the explicit reconstructed section satisfies the
-   same Gram-dual equation, then extension of the raw action and dual recurrence
-   through every interior order.
+   the all-label identification of the explicit reconstructed section with the
+   now-concrete endpoint equation, then extension of the raw action and dual
+   recurrence through every interior order.
    The same-state
    interacting Wilson realization remains separately open.
    The older `PartitionBeyondTree.SixJRecoupling` carrier is now permanently
