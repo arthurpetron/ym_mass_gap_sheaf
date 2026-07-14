@@ -978,6 +978,7 @@ YMGap.Continuum.SU2FiniteSpinNetworkSpectralEnvelopeTheta = e306537b2b4cdef9  (7
 YMGap.Continuum.SU2FiniteTripleCarrier = 9ca2bfe34f1e156f  (3)
 YMGap.Continuum.SU2FiniteTrivalentPacketGraphActualOperator = 1fd8babeeb454abf  (14)
 YMGap.Continuum.SU2FiniteTrivalentPacketGraphAllTimeCutoffInvariance = 7b80783583866514  (9)
+YMGap.Continuum.SU2FiniteTrivalentPacketGraphCanonicalRefinementTower = 69b6fe25ce02d03f  (6)
 YMGap.Continuum.SU2FiniteTrivalentPacketGraphColimitTransferShift = e25693b7b205d56e  (6)
 YMGap.Continuum.SU2FiniteTrivalentPacketGraphCompensatedRefinementPath.CompensatedRefinementPath = ed972dd1b3c0247b  (2)
 YMGap.Continuum.SU2FiniteTrivalentPacketGraphCompensatedRefinementPath.IdentityRefinementMove = d54aa5b6496bcbe4  (1)
