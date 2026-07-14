@@ -515,6 +515,7 @@ YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftCarrier = 99b9b8c3bf51d
 YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftPayment = d1597110b0b9deb0  (8)
 YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftQuadraticRecovery = 4c2f038550982bd4  (8)
 YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftQuadraticTaylorFlux = 2ae66dc019948ee7  (24)
+YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftQuadraticTaylorFluxEnvelope = 4d87b57ac6dc27c8  (3)
 YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftRemainderPayment = 5f4a4ad3938d0088  (6)
 YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftScaleStep = b759e35322dea1eb  (13)
 YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftSuffix = 37e721140036652d  (18)
