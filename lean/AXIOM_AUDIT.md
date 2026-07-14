@@ -1419,6 +1419,7 @@ YMGap.Continuum.XiExceptionalGeneralLongArmC12RootTaggedEarOwned = 2c10a778e1abe
 YMGap.Continuum.XiExceptionalGeneralLongArmC12TaggedEarFamily = 52d225acc4210c85  (6)
 YMGap.Continuum.XiExceptionalGeneralLongArmC12TaggedEarOwned = 9c2be2c6133047aa  (7)
 YMGap.Continuum.XiExceptionalGeneralLongArmC12ThreeSourceOwned = fbd6d47156c54077  (7)
+YMGap.Continuum.XiExceptionalGeneralLongArmC12Through8WithCanonicalOwned = 7bd8d2e6001d0e12  (4)
 YMGap.Continuum.XiExceptionalGeneralLongArmC12TwoSourceOwned = 5a30746a863a2f46  (11)
 YMGap.Continuum.XiExceptionalGeneralLongArmCarriers = 85710eb79efbc1de  (20)
 YMGap.Continuum.XiExceptionalGeneralLongArmGeometry.CanonicalEarWordGeometry = 1b1a2f9c827b9f03  (2)
