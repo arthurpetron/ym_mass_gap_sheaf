@@ -3350,9 +3350,17 @@ external code has identically zero weight, and even the complete natural block
 of its four external submasks fails exactly at the derived unit-weight test:
 source weight `4096` exceeds block weight `2304`.  Hence no paid residual block
 with that natural carrier exists.  This permanently blocks decoder widening
-and naïve external-submask summation.  OPEN is a materially different chain or
-resummation carrier, then the remaining C12 ear geometries and arbitrary
-ambient long-arm sources.
+and naïve external-submask summation.
+`XiExceptionalGeneralLongArmC12AdjacentTagSplitOwned` supplies the materially
+different repair: put `V5,V7,V9` in the terminal chain background and
+`V4,V11` in the independent external factor.  This produces exact singleton
+payment and one owned/global allocator for all thirty-two five-bit local ear
+patterns.  `XiExceptionalGeneralLongArmC12Outward6BipartiteOwned` extends the
+same bipartite invariant to `V6`, assigning the odd optional occurrences to
+the terminal layer and `V4,V6,V11` to the mutually compatible external layer.
+The exact decoder, owner, injectivity, exclusion, and payment theorems now
+cover all sixty-four six-bit C12 ear patterns.  OPEN is the next outward ear
+geometry and then arbitrary ambient long-arm sources.
 
 **Adversarial correction (2026-07-12).**  `Continuum/FrontierStatementBugFence.lean`
 machine-refutes the claimed strength of two Bucket-2 atom types without changing
@@ -6735,9 +6743,17 @@ environment, and all module/algebra laws are derived through exact evaluation.
 intertwiner, so raw boundary exchange respects that semantic equality and its
 additive, negative, and scalar operations.  It packages the nonconstant
 reference weight, semantic module, and state-preserving strict involution into
-the full period-two geometry interface.  OPEN at this narrowed interface is
-deriving interacting expectation linearity and conjugate symmetry for the
-Wilson GNS constructor, followed by the shared-link transfer realization.
+the full period-two geometry interface.
+`SU2QuaternionCanonicalEightHaarLinearity` transports the exact additive,
+homogeneous, commutative, and associative Haar pairing laws to the strict
+carrier.  `SU2QuaternionCanonicalEightHaarPairModule` uses equality against
+every Haar polynomial test as a non-vacuous multiplicatively stable quotient.
+`SU2QuaternionCanonicalEightWilsonGNS` proves boundary swap descends through
+that quotient, derives interacting expectation congruence, additivity,
+homogeneity, and conjugate symmetry, and constructs an unconditional
+`WilsonGNSData` on the full canonical polynomial algebra.  OPEN at this
+narrowed interface is the actual shared-link/compressed transfer extension,
+not construction of the state or its GNS laws.
 `SU2PeterWeylPlaquetteTensorBlock` derives the corresponding five-dimensional
 one-plaquette matrix-coefficient block: one vacuum plus four `D_ab` channels,
 all four with eigenvalue `1/8`, with the trace normalization independently
@@ -8389,6 +8405,15 @@ are integrated.
    after removing their common inner contractions, multiplied by the exact
    inner-row normalization ratio.  OPEN is lifting this reduced-label identity
    from the coefficient to the full right-basis action and its diagonal term.
+   `SU2OrderedRacahInnerContractionReduction` constructs the physical reduced
+   `(b-1,c-1,p-1)` channel and proves the exact two-branch Cayley-contraction
+   recurrence for every coordinate of a positive-order right channel.
+   `SU2OrderedRacahOmegaExchangeCommutator` verifies by the constructive
+   polynomial normalizer the exact first-pair-exchange/one-Omega commutator,
+   including its explicit four-term correction.  These give the structural
+   induction skeleton.  OPEN is boundary-aware substitution and identification
+   of that correction with the adjacent right-channel carrier, followed by the
+   diagonal action term.
    `SU2OrderedRacahEndpointReconstructedSection` now applies the finite-box
    transpose of `pairExchange` to the actual reconstructed section coefficient
    in the fundamental and mixed `(2,2,1,1)` blocks, proving both exact Gram-
