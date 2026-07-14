@@ -681,6 +681,7 @@ import YMGap.Continuum.Z4FiniteBoxTrivalentResolution
 import YMGap.Continuum.Z4FiniteBoxPacketState
 import YMGap.Continuum.Z4FiniteBoxHeatKernelPacketState
 import YMGap.Continuum.Z4FiniteBoxHeatKernelCutoffPersistence
+import YMGap.Continuum.Z4UnitCubeSurfaceGeometry
 import YMGap.Continuum.BalabanExactProgress
 import YMGap.Continuum.DefectGapRecursionProgress
 import YMGap.Continuum.TransmutationAFProgress
