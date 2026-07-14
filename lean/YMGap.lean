@@ -697,6 +697,7 @@ import YMGap.Continuum.SU2GeneralHahnAdjacentDifferenceAllOrder
 import YMGap.Continuum.SU2GeneralHahnColumnElimination
 import YMGap.Continuum.SU2GeneralHahnCumulativeTransform
 import YMGap.Continuum.SU2GeneralHahnKernelTrivial
+import YMGap.Continuum.SU2GeneralHahnRecursiveSolver
 import YMGap.Continuum.SU2SpinOneCentralHahnDeterminant
 import YMGap.Continuum.SU2SpinOneCentralHahnPhysicalBridge
 import YMGap.Continuum.SU2ThreeByThreeAdjugate

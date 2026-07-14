@@ -6802,9 +6802,14 @@ the aggregate, both statement guards, and the strict axiom audit are green.
    pivot, applies the reduced central Hahn kernel theorem, and reconstructs
    every original coordinate.  Thus the actual `(m+1)`-row central Hahn
    action has trivial kernel for every exact shell guard `m <= t <= n`.
-   OPEN is packaging this nonsingularity as the explicit data-valued
-   all-label coordinate inverse/synthesis required downstream (the optional
-   general Leibniz determinant identity is still not formalized).  This is followed by nested fusion trees, the
+   The data-valued synthesis is now closed as well: a choice-free structural
+   recursion solves every simultaneous channel target, dividing only by the
+   proved-positive row pivots, and the resulting source is an exact right
+   inverse to the central Hahn action on every active row.  Together with
+   kernel triviality this gives constructive existence and uniqueness of the
+   central-shell coordinates (an explicit left-inverse equality is being
+   packaged separately; the optional general Leibniz determinant identity is
+   still not formalized).  OPEN has moved to nested fusion trees, the
    guarded Dougall identity, and the same-state interacting Wilson realization.
    The older `PartitionBeyondTree.SixJRecoupling` carrier is now permanently
    fenced: its unguarded `∀ D` recoupling field is contradictory at `D=0` and
