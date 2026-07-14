@@ -57,6 +57,57 @@ def pderiv : Poly → Poly
   | [] => []
   | _ :: cs => scaleFrom 1 cs
 
+/-- Exact additivity of the shifted Gaussian moment functional. -/
+theorem gaussianExpectationFrom_padd : ∀ (n : Nat) (p q : Poly),
+    gaussianExpectationFrom n (padd p q) ≈
+      gaussianExpectationFrom n p + gaussianExpectationFrom n q
+  | _, [], q => Q'.eqv_symm (QPoly.q_zero_add_eqv _)
+  | _, _ :: _, [] => Q'.eqv_symm (QPoly.q_add_zero_eqv _)
+  | n, c :: cs, d :: ds => by
+      have hhead :
+          (c + d) * gaussianMoment1 n ≈
+            c * gaussianMoment1 n + d * gaussianMoment1 n :=
+        QPoly.q_add_mul c d (gaussianMoment1 n)
+      have htail := gaussianExpectationFrom_padd (n + 1) cs ds
+      refine Q'.eqv_trans _
+        ((c * gaussianMoment1 n + d * gaussianMoment1 n) +
+          (gaussianExpectationFrom (n + 1) cs +
+            gaussianExpectationFrom (n + 1) ds)) _
+        (QPoly.q_add_congr hhead htail) ?_
+      exact QPoly.q_interchange
+        (c * gaussianMoment1 n) (d * gaussianMoment1 n)
+        (gaussianExpectationFrom (n + 1) cs)
+        (gaussianExpectationFrom (n + 1) ds)
+
+/-- Exact rational homogeneity of the shifted Gaussian moment functional. -/
+theorem gaussianExpectationFrom_pscale (a : Q') : ∀ (n : Nat) (p : Poly),
+    gaussianExpectationFrom n (pscale a p) ≈
+      a * gaussianExpectationFrom n p
+  | _, [] => Q'.eqv_symm (QPoly.q_mul_zero a)
+  | n, c :: cs => by
+      have hhead :
+          (a * c) * gaussianMoment1 n ≈
+            a * (c * gaussianMoment1 n) :=
+        Q'.mul_assoc_eqv a c (gaussianMoment1 n)
+      have htail := gaussianExpectationFrom_pscale a (n + 1) cs
+      refine Q'.eqv_trans _
+        (a * (c * gaussianMoment1 n) +
+          a * gaussianExpectationFrom (n + 1) cs) _
+        (QPoly.q_add_congr hhead htail) ?_
+      exact Q'.eqv_symm
+        (Q'.mul_add_eqv a (c * gaussianMoment1 n)
+          (gaussianExpectationFrom (n + 1) cs))
+
+theorem gaussianExpectation_padd (p q : Poly) :
+    gaussianExpectation (padd p q) ≈
+      gaussianExpectation p + gaussianExpectation q :=
+  gaussianExpectationFrom_padd 0 p q
+
+theorem gaussianExpectation_pscale (a : Q') (p : Poly) :
+    gaussianExpectation (pscale a p) ≈
+      a * gaussianExpectation p :=
+  gaussianExpectationFrom_pscale a 0 p
+
 /-- The coefficientwise lift of the monomial moment recurrence. -/
 theorem gaussianExpectationFrom_shift : ∀ (s : Nat) (p : Poly),
     gaussianExpectationFrom (s + 2) p ≈
@@ -117,3 +168,5 @@ end YMGap.Continuum.SU2QuaternionGaussianPolynomialIBP
 
 #print axioms YMGap.Continuum.SU2QuaternionGaussianPolynomialIBP.gaussianExpectationFrom_shift
 #print axioms YMGap.Continuum.SU2QuaternionGaussianPolynomialIBP.gaussianExpectation_mulX_eq_deriv
+#print axioms YMGap.Continuum.SU2QuaternionGaussianPolynomialIBP.gaussianExpectation_padd
+#print axioms YMGap.Continuum.SU2QuaternionGaussianPolynomialIBP.gaussianExpectation_pscale
