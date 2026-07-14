@@ -6657,8 +6657,12 @@ problem: the earlier dense-list boundary swap pads exponent lists to length
 eight, so it fails literal unit preservation and cannot be installed as the
 strict `ObsHom` required by time geometry.  `SU2QuaternionCanonicalEightCarrier`
 repairs the representation with monomials `Fin 8 -> Nat`; boundary exchange is
-then a strict unital multiplicative involution on the full carrier.  OPEN is
-transporting the exact bare and Wilson-weighted Haar positivity to this
+then a strict unital multiplicative involution on the full carrier.
+`SU2QuaternionCanonicalEightHaar` embeds this strict carrier into the derived
+dense moment model, proves literal preservation of multiplication and automatic
+eight-coordinate support, and transports the arbitrary-polynomial Haar square
+theorem into a concrete normalized positive functional on the canonical
+algebra.  OPEN is transporting the Wilson-weighted positivity to this
 canonical algebra, then constructing its reflection-positive time geometry
 and interacting shared-link transfer.
 `SU2PeterWeylPlaquetteTensorBlock` derives the corresponding five-dimensional
