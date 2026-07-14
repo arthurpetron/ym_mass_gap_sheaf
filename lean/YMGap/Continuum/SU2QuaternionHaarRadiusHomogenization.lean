@@ -275,7 +275,10 @@ private theorem haarTriple_swap_last : ∀ p q r : RatPoly,
       QPoly.q_add_congr
         (haarTripleMiddle_swap a q r) (haarTriple_swap_last p q r)
 
-private theorem productHaar_polyMul_middle_comm (p q r : RatPoly) :
+/-- The last two factors of a triple product may be exchanged under the exact
+product-Haar functional.  This is the public permutation API used by the
+Wilson-weighted sum-of-squares consumer. -/
+theorem productHaar_polyMul_middle_comm (p q r : RatPoly) :
     productHaar (polyMul p (polyMul q r)) ≈
       productHaar (polyMul p (polyMul r q)) := by
   refine Q'.eqv_trans _ (haarBilinear p (polyMul q r)) _
@@ -368,5 +371,6 @@ theorem productHaar_radiusIter_h_pair (p q : RatPoly) : ∀ n,
 end YMGap.Continuum.SU2QuaternionHaarRadiusHomogenization
 
 #print axioms YMGap.Continuum.SU2QuaternionHaarRadiusHomogenization.productHaar_polyMul_assoc
+#print axioms YMGap.Continuum.SU2QuaternionHaarRadiusHomogenization.productHaar_polyMul_middle_comm
 #print axioms YMGap.Continuum.SU2QuaternionHaarRadiusHomogenization.productHaar_radiusIter_g_pair
 #print axioms YMGap.Continuum.SU2QuaternionHaarRadiusHomogenization.productHaar_radiusIter_h_pair

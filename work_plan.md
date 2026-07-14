@@ -6657,6 +6657,13 @@ polynomial into its parity sectors, proves the complementary sector cross term
 vanishes exactly, and iterates the resulting Pythagorean identity to obtain
 `0 <= productHaar (p*p)` for every supported literal eight-variable rational
 polynomial.
+`SU2QuaternionWilsonReferenceWeight` derives the retained interacting analogue:
+the exact kernel `1 + (1/4) chi_1(g h^-1)` has, under product Haar, the same
+square pairing as the finite SOS kernel
+`1/2 + (1/4) sum_i (g_i+h_i)^2`.  Four applications of the arbitrary Haar
+square theorem therefore prove Wilson-weighted positivity for every supported
+eight-coordinate polynomial.  No sampled coefficient or positivity field is
+used.
 `SU2QuaternionBoundarySwapCarrierFence` catches the next strict-interface
 problem: the earlier dense-list boundary swap pads exponent lists to length
 eight, so it fails literal unit preservation and cannot be installed as the
@@ -6667,9 +6674,12 @@ then a strict unital multiplicative involution on the full carrier.
 dense moment model, proves literal preservation of multiplication and automatic
 eight-coordinate support, and transports the arbitrary-polynomial Haar square
 theorem into a concrete normalized positive functional on the canonical
-algebra.  OPEN is transporting the Wilson-weighted positivity to this
-canonical algebra, then constructing its reflection-positive time geometry
-and interacting shared-link transfer.
+algebra.  Its successor proves exact Haar invariance under the strict boundary
+swap.  `SU2QuaternionCanonicalEightWilsonWeight` constructs the nonconstant
+retained kernel intrinsically on the strict carrier and proves it is literally
+fixed by that swap.  OPEN is the final transport of the supported
+Wilson-weighted theorem to this canonical kernel, then construction of its
+reflection-positive time geometry and interacting shared-link transfer.
 `SU2PeterWeylPlaquetteTensorBlock` derives the corresponding five-dimensional
 one-plaquette matrix-coefficient block: one vacuum plus four `D_ab` channels,
 all four with eigenvalue `1/8`, with the trace normalization independently
