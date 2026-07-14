@@ -5961,6 +5961,13 @@ profile is at most three, and an exact square identity proves the final signed
 Dirichlet increment pays the complete terminal endpoint.  The remaining tail
 is the boundary-free inequality
 `0 <= lowerSixInteriorSum k + 4*integerThetaTerm ... 1` for every `k >= 48`.
+`HarmonicMassCrossLowerSixInteriorAbel` factors each remaining cell as an exact
+positive weight times a slope carrier, absorbs the left endpoint into the first
+carrier, and gives both the full weighted-sum identity and a constructive finite
+summation-by-parts formula.  It also permanently refutes the ordinary one-sided
+prefix route: the eighth Abel prefix is negative already at `k=48`.  The live
+mechanism must therefore use right-tail/two-sided compensation, not assert all
+prefixes nonnegative.
 
 `HarmonicWilsonTransferBridge` identifies the exact normalization separating
 the existing Wilson correlator reconstruction from the finite character
@@ -6554,8 +6561,11 @@ the derived constructive factorial `hermiteFactorial n`.
 `SU2QuaternionGaussianHermiteSOS` further defines finite Hermite
 synthesis, proves the exact diagonal pairing
 `sum_n c_n*d_n*hermiteFactorial n`, and derives an explicit nonnegative square
-energy.  OPEN is constructive triangular surjectivity of this synthesis onto
-every finite `QPoly`, tensorization, and return through the sphere radial factors.
+energy.  `SU2QuaternionGaussianHermiteTriangular` now constructs
+an explicit Horner-compatible transform `hermiteExpand` and proves that its
+Hermite synthesis is setoid-equal to every input polynomial.  OPEN is the
+immediate arbitrary-univariate-square consumer, tensorization, and return
+through the sphere radial factors.
 `SU2PeterWeylPlaquetteTensorBlock` derives the corresponding five-dimensional
 one-plaquette matrix-coefficient block: one vacuum plus four `D_ab` channels,
 all four with eigenvalue `1/8`, with the trace normalization independently
