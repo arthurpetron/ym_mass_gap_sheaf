@@ -16,6 +16,10 @@ time because the Gram equality is derived from the coefficient identity.
 
 Honest scope: a caller must still construct the exact all-label recoupling
 certificate, and global coherence of overlapping local moves remains open.
+Moreover `L` and `q` below are unrestricted: for an identically zero channel
+map or `q = 0`, all spectral weights vanish and the displayed margin is only
+the diagonal operator envelope.  Using it as a nontrivial physical excitation
+also requires a positive channel norm and a nonzero state witness.
 -/
 
 import YMGap.Continuum.SU2TransvectantAllLabelGNSIsometryCompleted
@@ -188,7 +192,7 @@ theorem allLabelChannelTransferredGNS_eq_corr_one (a b c d : Nat)
             allLabelChannelEigen a b c d) * 1)
   ring_qeqv
 
-/-! ## Uniform local gap whenever an external edge is excited -/
+/-! ## Uniform local operator envelope whenever an external edge is excited -/
 
 theorem allLabelSquaredEigen_le_sep {a b c d : Nat}
     (h : SomeExternalExcited a b c d) (i : Nat) :

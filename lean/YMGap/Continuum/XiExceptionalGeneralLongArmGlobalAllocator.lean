@@ -1,11 +1,14 @@
 /-
 # Global paid-block allocation and the constant-block collision fence
 
-Local long-arm normalization supplies one paid block per source.  A global
-mixed-repair allocator additionally needs those blocks to be disjoint across
-distinct accepted sources.  This file isolates that exact invariant, builds
-the genuinely multi-source allocator from it, and proves that the canonical
-fixed-index block cannot satisfy it for two different source entries.
+Given local long-arm normalizations, one obtains one paid block per selected
+source.  A global mixed-repair allocator additionally needs those blocks to
+be disjoint across distinct accepted sources.  This file isolates that exact
+invariant, builds the corresponding disjoint allocator from it, and proves
+that the canonical fixed-index block cannot satisfy it for two different
+source entries.  The structures below do not themselves require `test` to
+accept any source; coverage and multi-source non-vacuity remain separate
+obligations for each concrete instance.
 -/
 
 import YMGap.Continuum.XiExceptionalGeneralLongArmUnderdetermination
@@ -48,8 +51,9 @@ def GlobalPaidResidualFamily.block
   if h : family.test entry = true then family.cert ⟨entry, h⟩ |>.block
   else []
 
-/-- A global family is already precisely the missing data needed for a
-genuine multi-source fourth-branch allocator. -/
+/-- A global family supplies the disjoint paid-block data needed by the
+fourth-branch allocator on every source accepted by its test.  This
+construction does not assert that the accepted region is nonempty. -/
 def GlobalPaidResidualFamily.allocator
     {qP b1 b2 : Polymer L → Bool} {Gamma : List (Polymer L)}
     (family : GlobalPaidResidualFamily qP b1 b2 Gamma) :
@@ -106,8 +110,9 @@ def OwnedPaidResidualFamily.toGlobal
     have hb := family.block_owner b code hcb
     exact hab (Eq.trans ha.symm hb)
 
-/-- A source-owned paid family therefore constructs a genuinely global
-allocator without a separate disjointness hypothesis. -/
+/-- A source-owned paid family therefore constructs a globally disjoint
+allocator on its tested region without a separate disjointness hypothesis.
+Nonempty or multi-source coverage is not implied by this definition. -/
 def OwnedPaidResidualFamily.allocator
     {qP b1 b2 : Polymer L → Bool} {Gamma : List (Polymer L)}
     (family : OwnedPaidResidualFamily qP b1 b2 Gamma) :
