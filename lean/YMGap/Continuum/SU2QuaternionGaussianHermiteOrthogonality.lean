@@ -210,7 +210,83 @@ theorem gaussianPair_hermite_succ (n : Nat) (q : Poly) :
         (Q'.add_eqv_congr_left Y _ _ (Q'.add_neg_self_eqv (a * X)))
         (QPoly.q_add_zero_eqv Y)
 
+theorem gaussianPair_hermite_derivative_right (p : Poly) (n : Nat) :
+    gaussianPair p (formalDerivative (hermite (n + 1))) ≈
+      Q'.ofNat (n + 1) * gaussianPair p (hermite n) := by
+  refine Q'.eqv_trans _
+    (gaussianPair (formalDerivative (hermite (n + 1))) p) _
+    (gaussianPair_symm _ _) ?_
+  refine Q'.eqv_trans _
+    (Q'.ofNat (n + 1) * gaussianPair (hermite n) p) _
+    (gaussianPair_hermite_derivative n p) ?_
+  exact Q'.mul_eqv_congr_left _ _ _ (gaussianPair_symm (hermite n) p)
+
+private theorem formalDerivative_hermite_zero :
+    formalDerivative (hermite 0) = [] := rfl
+
+/-- Distinct Hermite modes have exactly zero Gaussian pairing. -/
+theorem hermite_cross_zero : ∀ (n m : Nat), n ≠ m →
+    gaussianPair (hermite n) (hermite m) ≈ 0
+  | 0, 0, h => absurd rfl h
+  | 0, m + 1, _ => by
+      refine Q'.eqv_trans _ (gaussianPair (hermite (m + 1)) (hermite 0)) _
+        (gaussianPair_symm _ _) ?_
+      refine Q'.eqv_trans _
+        (gaussianPair (hermite m) (formalDerivative (hermite 0))) _
+        (gaussianPair_hermite_succ m (hermite 0)) ?_
+      rw [formalDerivative_hermite_zero]
+      exact gaussianPair_zero_right _
+  | n + 1, 0, _ => by
+      refine Q'.eqv_trans _
+        (gaussianPair (hermite n) (formalDerivative (hermite 0))) _
+        (gaussianPair_hermite_succ n (hermite 0)) ?_
+      rw [formalDerivative_hermite_zero]
+      exact gaussianPair_zero_right _
+  | n + 1, m + 1, hne => by
+      have hnm : n ≠ m := by
+        intro h
+        apply hne
+        omega
+      refine Q'.eqv_trans _
+        (gaussianPair (hermite n)
+          (formalDerivative (hermite (m + 1)))) _
+        (gaussianPair_hermite_succ n (hermite (m + 1))) ?_
+      refine Q'.eqv_trans _
+        (Q'.ofNat (m + 1) * gaussianPair (hermite n) (hermite m)) _
+        (gaussianPair_hermite_derivative_right (hermite n) m) ?_
+      refine Q'.eqv_trans _ (Q'.ofNat (m + 1) * 0) _
+        (Q'.mul_eqv_congr_left _ _ _ (hermite_cross_zero n m hnm)) ?_
+      exact QPoly.q_mul_zero _
+
+/-- Constructive factorial used for the exact Hermite norms. -/
+def hermiteFactorial : Nat → Nat
+  | 0 => 1
+  | n + 1 => (n + 1) * hermiteFactorial n
+
+/-- Each Hermite mode has its exact positive factorial norm. -/
+theorem hermite_norm_factorial : ∀ n : Nat,
+    gaussianPair (hermite n) (hermite n) ≈ Q'.ofNat (hermiteFactorial n)
+  | 0 => by decide
+  | n + 1 => by
+      refine Q'.eqv_trans _
+        (gaussianPair (hermite n)
+          (formalDerivative (hermite (n + 1)))) _
+        (gaussianPair_hermite_succ n (hermite (n + 1))) ?_
+      refine Q'.eqv_trans _
+        (Q'.ofNat (n + 1) * gaussianPair (hermite n) (hermite n)) _
+        (gaussianPair_hermite_derivative_right (hermite n) n) ?_
+      refine Q'.eqv_trans _
+        (Q'.ofNat (n + 1) * Q'.ofNat (hermiteFactorial n)) _
+        (Q'.mul_eqv_congr_left _ _ _ (hermite_norm_factorial n)) ?_
+      refine Q'.eqv_trans _
+        (Q'.ofNat ((n + 1) * hermiteFactorial n)) _
+        (YMGap.Constructive.SU3CharFactor.ofNat_mul_eqv
+          (n + 1) (hermiteFactorial n)) ?_
+      exact Q'.eqv_refl _
+
 end YMGap.Continuum.SU2QuaternionGaussianHermiteOrthogonality
 
 #print axioms YMGap.Continuum.SU2QuaternionGaussianHermiteOrthogonality.gaussianPair_hermite_derivative
 #print axioms YMGap.Continuum.SU2QuaternionGaussianHermiteOrthogonality.gaussianPair_hermite_succ
+#print axioms YMGap.Continuum.SU2QuaternionGaussianHermiteOrthogonality.hermite_cross_zero
+#print axioms YMGap.Continuum.SU2QuaternionGaussianHermiteOrthogonality.hermite_norm_factorial
