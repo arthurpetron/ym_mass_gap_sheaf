@@ -116,7 +116,7 @@ private theorem verticesAdmissibleB_congr_on
       rw [hv.1, hv.2.1, hv.2.2,
         verticesAdmissibleB_congr_on a b rest hrest]
 
-private theorem identityRefinedLabel_eq_on_old_edges
+theorem identityRefinedLabel_eq_on_old_edges
     (oldEdge newEdge vacuumEdge : Nat) (label : EdgeLabelling)
     {edges : List Nat}
     (hnew : newEdge ∉ edges) (hvac : vacuumEdge ∉ edges) :
@@ -277,5 +277,6 @@ theorem graphEigen_identity_refinement
 end YMGap.Continuum.SU2FiniteTrivalentPacketGraphIdentityRefinement
 
 #print axioms YMGap.Continuum.SU2FiniteTrivalentPacketGraphIdentityRefinement.identityRefinedVertex_admissible
+#print axioms YMGap.Continuum.SU2FiniteTrivalentPacketGraphIdentityRefinement.identityRefinedLabel_eq_on_old_edges
 #print axioms YMGap.Continuum.SU2FiniteTrivalentPacketGraphIdentityRefinement.graphPhysicalB_identity_refinement
 #print axioms YMGap.Continuum.SU2FiniteTrivalentPacketGraphIdentityRefinement.graphEigen_identity_refinement
