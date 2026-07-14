@@ -684,6 +684,7 @@ import YMGap.Continuum.Z4FiniteBoxHeatKernelCutoffPersistence
 import YMGap.Continuum.Z4UnitCubeSurfaceGeometry
 import YMGap.Continuum.Z4UnitCubeIncidenceParity
 import YMGap.Continuum.Z4UnitCubeEnumerationParity
+import YMGap.Continuum.Z4UnitCubeFullPrefixParity
 import YMGap.Continuum.BalabanExactProgress
 import YMGap.Continuum.DefectGapRecursionProgress
 import YMGap.Continuum.TransmutationAFProgress
