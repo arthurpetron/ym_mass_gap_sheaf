@@ -6570,6 +6570,11 @@ for every literal finite `QPoly p`, its exact Gaussian expectation satisfies
 factorial sum of squares.  OPEN is coordinate-by-coordinate tensorization onto
 the eight-variable polynomial carrier and return through the sphere radial
 factors.
+`SU2QuaternionProductGaussianTensor` now proves the exact monomial factorization
+needed for that tensorization: `gaussianMoment4` is the product of four
+one-variable moments, and `productGaussianMono` is the corresponding eightfold
+product.  OPEN is the finite multivariate Hermite transform, arbitrary
+eight-variable square positivity, and the constant-bidegree radial return.
 `SU2PeterWeylPlaquetteTensorBlock` derives the corresponding five-dimensional
 one-plaquette matrix-coefficient block: one vacuum plus four `D_ab` channels,
 all four with eigenvalue `1/8`, with the trace normalization independently
