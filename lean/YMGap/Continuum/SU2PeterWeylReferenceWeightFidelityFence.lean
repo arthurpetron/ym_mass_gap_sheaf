@@ -26,11 +26,11 @@ physical transfer must instead be a positive-time compression.
 
 Finally `TwoBoundaryReferenceWeightPositiveTimeRealization` states the minimal
 corrected target.  It requires (1) an actual interacting `ReferenceWeight`
-Wilson form on a two-boundary observable carrier, (2) a form-preserving
-realization of the exact two-mode block in that form, and (3) a separate
-`PositiveTimeCompression` whose transfer intertwines the same two modes.  It
-does not manufacture an independent two-mode GNS and does not confuse the
-ambient invariant action with its positive-time compression.
+Wilson form as the ambient Euclidean form, (2) an explicit two-boundary
+reflection whose positive-time compression realizes the exact two-mode block,
+and (3) a compressed transfer intertwining the same two modes.  It does not
+manufacture an independent two-mode GNS and does not confuse the ambient
+invariant action with its positive-time compression.
 
 All calculations are exact rationals, with no proof placeholder,
 nonconstructive choice, native evaluator, measured constant, or custom axiom.
@@ -142,13 +142,14 @@ abbrev referenceWilsonData
 
 /-- Minimal fidelity interface for the missing physical bridge.
 
-Here `A` must be the intended two-boundary/double-Haar observable algebra
-(with its reflection encoded by `star`), not the one-variable polynomial
-algebra fenced above.  `boundaryObservable` embeds the retained vacuum and
-fundamental modes into the *actual interacting* `ReferenceWeight` Wilson
-form.  `state` realizes those same modes in a positive-time carrier, and
-`compression_intertwines` identifies the physical compressed transfer with
-the exact rational `sameStateTransfer`.
+Here `A` must be the intended two-boundary/double-Haar observable algebra, not
+the one-variable polynomial algebra fenced above.  Its ordinary interacting
+Wilson form `E_Lambda(a* b)` is embedded into the ambient Euclidean space by
+`ambientObservable`/`ambient_reference_form`.  Reflection remains the separate
+map `ambient.theta`: `positive_reflected_form` and `reflected_schur_form` say
+that reflecting the boundary observable and compressing gives exactly the
+retained Schur block.  `compression_intertwines` then identifies the physical
+compressed transfer with the exact rational `sameStateTransfer`.
 
 The interface deliberately keeps ambient Euclidean time in
 `PositiveTimeCompression.ambient` and the physical transfer in
@@ -164,17 +165,26 @@ structure TwoBoundaryReferenceWeightPositiveTimeRealization
         (R.E_Λ (A.mul (A.star b) a))) : Type 2 where
   ambient : PositiveTimeCompressedTransfer.AmbientTimeReflection
   compression : PositiveTimeCompressedTransfer.PositiveTimeCompression ambient
+  ambientObservable : A.carrier → ambient.space.V
   boundaryObservable : ModeVec → A.carrier
   state : ModeVec → compression.positive.V
   vacuum_is_unit : boundaryObservable vacuumMode = A.one
-  observable_form : ∀ a b,
-    (referenceWilsonData R M elin_congr elin_add elin_smul hconj).B
-        (boundaryObservable a) (boundaryObservable b) ≈
-      wilsonModeGNS.B a b
-  state_form : ∀ a b,
-    compression.positive.B (state a) (state b) ≈
+  ambient_reference_form : ∀ x y,
+    ambient.space.B (ambientObservable x) (ambientObservable y) ≈
       (referenceWilsonData R M elin_congr elin_add elin_smul hconj).B
-        (boundaryObservable a) (boundaryObservable b)
+        x y
+  state_embeds : ∀ a, ambient.space.veq (compression.embed (state a))
+    (ambientObservable (boundaryObservable a))
+  positive_reflected_form : ∀ a b,
+    compression.positive.B (state a) (state b) ≈
+      ambient.space.B
+        (ambient.theta (ambientObservable (boundaryObservable a)))
+        (ambientObservable (boundaryObservable b))
+  reflected_schur_form : ∀ a b,
+    ambient.space.B
+        (ambient.theta (ambientObservable (boundaryObservable a)))
+        (ambientObservable (boundaryObservable b)) ≈
+      wilsonModeGNS.B a b
   state_map_veq : ∀ {a b}, modeEqv a b →
     compression.positive.veq (state a) (state b)
   state_map_smul : ∀ s a,
@@ -204,9 +214,9 @@ theorem vacuum_state_form_nonzero :
   intro hzero
   have hmode : wilsonModeGNS.B vacuumMode vacuumMode ≈ 0 :=
     Q'.eqv_trans _ _ _
-      (Q'.eqv_symm (X.observable_form vacuumMode vacuumMode))
+      (Q'.eqv_symm (X.reflected_schur_form vacuumMode vacuumMode))
       (Q'.eqv_trans _ _ _
-        (Q'.eqv_symm (X.state_form vacuumMode vacuumMode)) hzero)
+        (Q'.eqv_symm (X.positive_reflected_form vacuumMode vacuumMode)) hzero)
   exact (by decide : ¬ (wilsonModeGNS.B vacuumMode vacuumMode ≈ 0)) hmode
 
 /-- Any corrected realization supplies a nonzero fundamental state, again
@@ -217,9 +227,11 @@ theorem fundamental_state_form_nonzero :
   intro hzero
   have hmode : wilsonModeGNS.B fundamentalMode fundamentalMode ≈ 0 :=
     Q'.eqv_trans _ _ _
-      (Q'.eqv_symm (X.observable_form fundamentalMode fundamentalMode))
+      (Q'.eqv_symm
+        (X.reflected_schur_form fundamentalMode fundamentalMode))
       (Q'.eqv_trans _ _ _
-        (Q'.eqv_symm (X.state_form fundamentalMode fundamentalMode)) hzero)
+        (Q'.eqv_symm
+          (X.positive_reflected_form fundamentalMode fundamentalMode)) hzero)
   exact (by decide :
     ¬ (wilsonModeGNS.B fundamentalMode fundamentalMode ≈ 0)) hmode
 
