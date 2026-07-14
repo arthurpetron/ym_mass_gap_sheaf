@@ -5968,6 +5968,14 @@ summation-by-parts formula.  It also permanently refutes the ordinary one-sided
 prefix route: the eighth Abel prefix is negative already at `k=48`.  The live
 mechanism must therefore use right-tail/two-sided compensation, not assert all
 prefixes nonnegative.
+`HarmonicMassCrossLowerSixTwoSidedWindow` implements that correction exactly.
+It splits at `thetaWindowRight` into the adverse-band prefix and compensating
+right reserve, supplies a direct payment consumer, and reduces every suffix
+cell to an explicit division-free denominator-cube-cleared integer polynomial
+certificate.  The remaining uniform obligations are now concrete: prove those
+suffix certificates for every `n >= thetaWindowRight+1`, then prove the
+quantitative reserve dominates the exact prefix deficit (mere reserve
+nonnegativity is deliberately not conflated with payment).
 
 `HarmonicWilsonTransferBridge` identifies the exact normalization separating
 the existing Wilson correlator reconstruction from the finite character
