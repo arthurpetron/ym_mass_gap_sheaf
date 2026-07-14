@@ -257,7 +257,9 @@ private theorem mem_remOne {a : Type} [DecidableEq a] (x : a) :
           exact List.mem_cons_self
         · exact List.mem_cons_of_mem _ (mem_remOne x zs y h hyx)
 
-private theorem nodup_subset_length_le {a : Type} [DecidableEq a] :
+/-- A duplicate-free finite list embedded into another list is no longer than
+that list, proved by constructive one-occurrence deletion. -/
+theorem nodup_subset_length_le {a : Type} [DecidableEq a] :
     ∀ (xs ys : List a), xs.Nodup →
       (∀ x, x ∈ xs → x ∈ ys) → xs.length ≤ ys.length
   | [], _, _, _ => Nat.zero_le _
@@ -346,6 +348,7 @@ theorem selectedIncidentIds_even {n : Nat} (hn : 2 ≤ n) (ell : Z4Link) :
 #print axioms enumerate_index_unique
 #print axioms mem_unitCubeSurfaceIds_iff_of_enumerate
 #print axioms selectedIncidentIds_length_eq_selectedBoxFaces
+#print axioms nodup_subset_length_le
 #print axioms selectedBoxFaces_length_eq_faceIncidenceCount
 #print axioms selectedIncidentIds_even
 
