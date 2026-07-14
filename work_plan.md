@@ -6563,9 +6563,13 @@ synthesis, proves the exact diagonal pairing
 `sum_n c_n*d_n*hermiteFactorial n`, and derives an explicit nonnegative square
 energy.  `SU2QuaternionGaussianHermiteTriangular` now constructs
 an explicit Horner-compatible transform `hermiteExpand` and proves that its
-Hermite synthesis is setoid-equal to every input polynomial.  OPEN is the
-immediate arbitrary-univariate-square consumer, tensorization, and return
-through the sphere radial factors.
+Hermite synthesis is setoid-equal to every input polynomial.
+`SU2QuaternionGaussianPolynomialPositivity` now closes that consumer directly:
+for every literal finite `QPoly p`, its exact Gaussian expectation satisfies
+`0 <= E[p^2]`, using the concrete `hermiteExpand` witness and the derived
+factorial sum of squares.  OPEN is coordinate-by-coordinate tensorization onto
+the eight-variable polynomial carrier and return through the sphere radial
+factors.
 `SU2PeterWeylPlaquetteTensorBlock` derives the corresponding five-dimensional
 one-plaquette matrix-coefficient block: one vacuum plus four `D_ab` channels,
 all four with eigenvalue `1/8`, with the trace normalization independently
@@ -8151,6 +8155,15 @@ are integrated.
    sign conjecture.  OPEN remains the all-label derivation of this tridiagonal
    action from the actual left Casimir on the right-channel Hahn basis, followed
    by candidate/physical recurrence uniqueness.
+   `SU2OrderedRacahEndpointCasimirAction` establishes the first arbitrary-label
+   operator fragment: on the strict `p=0` raw right Hahn carrier, the
+   denominator-cleared first-pair exchange factors symbolically for every outer
+   order, with the complete `q=1` family closed.  It also catches a load-bearing
+   transpose normalization: raw coordinate functionals carry the transposed
+   Jacobi action (`3/2` rather than `1/2` in the fundamental forward slot, and
+   `8/3` in the mixed block).  The section recurrence must therefore be derived
+   by dual reconstruction/Gram transpose.  OPEN is the all-order contiguous
+   endpoint identity and that dualization, then the remaining interior action.
    The same-state
    interacting Wilson realization remains separately open.
    The older `PartitionBeyondTree.SixJRecoupling` carrier is now permanently
