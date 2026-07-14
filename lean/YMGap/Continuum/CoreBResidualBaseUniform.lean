@@ -22,6 +22,7 @@ open YMGap.Continuum.HeatKernelGap
 open YMGap.Continuum.HeatKernelRGStep
 open YMGap.Continuum.BondMovingStep
 open YMGap.Continuum.CubeRatioBounds
+open YMGap.Continuum.AutoconvGershgorin
 open YMGap.Continuum.CoreBStructuralRecurrence
 open YMGap.Continuum.CoreBResidualPotential
 
@@ -933,11 +934,543 @@ theorem reducedPart_nonneg {x y : Q'} (hx0 : (0 : Q') ≤ x)
       (adversePart_le_anchor hx0 hy0 hyx h2x h3x r))
     (positiveTail_nonneg hx0 hy0 r)
 
+/-! ## Concrete base-row bridge -/
+
+def lPoly (x : Q') (k : Nat) : Q' :=
+  (2 : Q') * (rq k + 1) + (rq k + 2) * qpow x k
+
+private theorem dimQ_eq_rq_add_one (k : Nat) : dimQ k ≈ rq k + 1 := by
+  simpa [dimQ, rq] using Q'.ofNat_add_eqv k 1
+
+private theorem dimQ_succ_eq_rq_add_two (k : Nat) : dimQ (k + 1) ≈ rq k + 2 := by
+  exact Q'.eqv_trans _ _ _ (dimQ_eq_rq_add_one (k + 1))
+    (Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_right _ _ 1 (Q'.ofNat_add_eqv k 1))
+      (Q'.add_assoc_eqv (rq k) 1 1))
+
+private theorem qpow_square_iterate (w : Q') (k : Nat) :
+    qpow (qpow w 2) k ≈ qpow w (2 * k) :=
+  qpow_qpow w 2 k
+
+private theorem window_head_term (w : Q') (k : Nat) :
+    coeffW w 0 * coeffW w (k + 1) ≈
+      qpow w (c4 k + 3) * ((rq k + 2) * qpow (qpow w 2) k) := by
+  rw [coeffW_zero]
+  refine Q'.eqv_trans _ _ _ (Q'.one_mul_eqv (coeffW w (k + 1))) ?_
+  unfold coeffW
+  have hdim := dimQ_succ_eq_rq_add_two k
+  have hpow0 : qpow w (c4 (k + 1)) ≈
+      qpow w (c4 k + 3) * qpow w (2 * k) := by
+    rw [show c4 (k + 1) = (c4 k + 3) + 2 * k by
+      unfold c4
+      simp only [Nat.add_mul, Nat.mul_add]
+      omega]
+    exact qpow_add w (c4 k + 3) (2 * k)
+  have hpow : qpow w (c4 (k + 1)) ≈
+      qpow w (c4 k + 3) * qpow (qpow w 2) k :=
+    Q'.eqv_trans _ _ _ hpow0
+      (Q'.mul_eqv_congr_left (qpow w (c4 k + 3)) _ _
+        (Q'.eqv_symm (qpow_square_iterate w k)))
+  refine Q'.eqv_trans _ _ _ (mul_eqv_congr' hdim hpow) ?_
+  exact Q'.eqv_trans _ _ _
+    (coeff_factor_pos (rq k + 2) (qpow w (c4 k + 3))
+      (qpow (qpow w 2) k))
+    (Q'.eqv_refl _)
+
+private theorem window_boundary_term (w : Q') (k : Nat) :
+    coeffW w 1 * coeffW w k ≈
+      qpow w (c4 k + 3) * ((2 : Q') * (rq k + 1)) := by
+  unfold coeffW
+  refine Q'.eqv_trans _ _ _
+    (FusionResidualBound.mul_four_regroup (dimQ 1) (qpow w (c4 1))
+      (dimQ k) (qpow w (c4 k))) ?_
+  have hcoeff : dimQ 1 * dimQ k ≈ (2 : Q') * (rq k + 1) :=
+    mul_eqv_congr' (by decide : dimQ 1 ≈ (2 : Q'))
+      (dimQ_eq_rq_add_one k)
+  have hpow : qpow w (c4 1) * qpow w (c4 k) ≈
+      qpow w (c4 k + 3) := by
+    exact Q'.eqv_trans _ _ _
+      (Q'.eqv_symm (qpow_add w (c4 1) (c4 k)))
+      (by
+        rw [show c4 1 + c4 k = c4 k + 3 by unfold c4; omega]
+        exact Q'.eqv_refl _)
+  refine Q'.eqv_trans _ _ _ (mul_eqv_congr' hcoeff hpow) ?_
+  exact Q'.mul_comm_eqv _ _
+
+/-- The range-two window is a common monomial times a two-term polynomial in
+`x=w²`, uniformly in its offset. -/
+theorem modeWindow_one_formula (w : Q') (k : Nat) :
+    modeWindow w 1 k ≈ qpow w (c4 k + 3) * lPoly (qpow w 2) k := by
+  unfold modeWindow acN
+  simp only [fsum_succ, fsum_zero, Nat.sub_zero]
+  rw [show 1 + k = k + 1 by omega, show k + 1 - 1 = k by omega]
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr_left _ _ _ (window_boundary_term w k)) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr_right _ _ _
+      (Q'.eqv_trans _ _ _
+        (Q'.eqv_of_eq (Q'.zero_add' (coeffW w 0 * coeffW w (k + 1))))
+        (window_head_term w k))) ?_
+  unfold lPoly
+  exact Q'.eqv_trans _ _ _ (Q'.add_comm_eqv _ _)
+    (Q'.eqv_symm (Q'.mul_add_eqv (qpow w (c4 k + 3))
+      ((2 : Q') * (rq k + 1)) ((rq k + 2) * qpow (qpow w 2) k)))
+
+private theorem rq_shift_add (r n c : Nat) :
+    rq (r + n) + Q'.ofNat c ≈ rq r + Q'.ofNat (n + c) := by
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr_right _ _ (Q'.ofNat c) (Q'.ofNat_add_eqv r n)) ?_
+  exact Q'.eqv_trans _ _ _ (Q'.add_assoc_eqv (rq r) (Q'.ofNat n) (Q'.ofNat c))
+    (Q'.add_eqv_congr_left (rq r) _ _
+      (Q'.eqv_symm (Q'.ofNat_add_eqv n c)))
+
+private def aExpandL : RingNormaliser.PolyExpr :=
+  let z := RingNormaliser.PolyExpr.var 0
+  let X := RingNormaliser.PolyExpr.var 1
+  let Y := RingNormaliser.PolyExpr.var 2
+  .mul
+    (.add (.mul (.const 2) (.add z (.const 1))) (.mul (.add z (.const 2)) X))
+    (.add (.mul (.const 2) (.add z (.const 3))) (.mul (.add z (.const 4)) Y))
+
+private def aExpandR : RingNormaliser.PolyExpr :=
+  let z := RingNormaliser.PolyExpr.var 0
+  let X := RingNormaliser.PolyExpr.var 1
+  let Y := RingNormaliser.PolyExpr.var 2
+  .add (.add (.add
+    (.mul (.mul (.const 4) (.add z (.const 1))) (.add z (.const 3)))
+    (.mul (.mul (.mul (.const 2) (.add z (.const 2))) (.add z (.const 3))) X))
+    (.mul (.mul (.mul (.const 2) (.add z (.const 1))) (.add z (.const 4))) Y))
+    (.mul (.mul (.add z (.const 2)) (.add z (.const 4))) (.mul X Y))
+
+private theorem aExpand_normal : RingNormaliser.normalize aExpandL =
+    RingNormaliser.normalize aExpandR := by
+  decide
+
+private def mExpandL : RingNormaliser.PolyExpr :=
+  let z := RingNormaliser.PolyExpr.var 0
+  let X := RingNormaliser.PolyExpr.var 1
+  .mul
+    (.add (.mul (.const 2) (.add z (.const 2))) (.mul (.add z (.const 3)) X))
+    (.add (.mul (.const 2) (.add z (.const 2))) (.mul (.add z (.const 3)) X))
+
+private def mExpandR : RingNormaliser.PolyExpr :=
+  let z := RingNormaliser.PolyExpr.var 0
+  let X := RingNormaliser.PolyExpr.var 1
+  .add (.add
+    (.mul (.mul (.const 4) (.add z (.const 2))) (.add z (.const 2)))
+    (.mul (.mul (.mul (.const 4) (.add z (.const 2))) (.add z (.const 3))) X))
+    (.mul (.mul (.add z (.const 3)) (.add z (.const 3))) (.mul X X))
+
+private theorem mExpand_normal : RingNormaliser.normalize mExpandL =
+    RingNormaliser.normalize mExpandR := by
+  decide
+
+theorem lPoly_offset_product (x : Q') (r : Nat) :
+    lPoly x r * lPoly x (r + 2) ≈ aPoly x r := by
+  let X := qpow x r
+  let Y := qpow x (r + 2)
+  have hL2 : lPoly x (r + 2) ≈
+      (2 : Q') * (rq r + 3) + (rq r + 4) * Y := by
+    unfold lPoly
+    exact Q'.add_eqv_congr'
+      (Q'.mul_eqv_congr_left 2 _ _
+        (by simpa only using rq_shift_add r 2 1))
+      (Q'.mul_eqv_congr_right _ _ Y
+        (by simpa only using rq_shift_add r 2 2))
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_left (lPoly x r) _ _ hL2) ?_
+  have hn := RingNormaliser.poly_identity_of_normal_eq _ _ aExpand_normal
+    (fun i => match i with | 0 => rq r | 1 => X | _ => Y)
+  have hexpand :
+      lPoly x r * ((2 : Q') * (rq r + 3) + (rq r + 4) * Y) ≈
+        a0 r + a1 r * X + a2 r * Y + a3 r * (X * Y) := by
+    simpa [aExpandL, aExpandR, lPoly, a0, a1, a2, a3,
+      RingNormaliser.eval, X, Y] using hn
+  refine Q'.eqv_trans _ _ _ hexpand ?_
+  unfold aPoly
+  exact Q'.add_eqv_congr_left _ _ _
+    (Q'.mul_eqv_congr_left (a3 r) _ _
+      (Q'.eqv_symm (by
+        simpa only [show r + (r + 2) = 2 * r + 2 by omega] using
+          qpow_add x r (r + 2))))
+
+theorem lPoly_mid_square (x : Q') (r : Nat) :
+    lPoly x (r + 1) * lPoly x (r + 1) ≈ mPoly x r := by
+  let X := qpow x (r + 1)
+  have hL1 : lPoly x (r + 1) ≈
+      (2 : Q') * (rq r + 2) + (rq r + 3) * X := by
+    unfold lPoly
+    exact Q'.add_eqv_congr'
+      (Q'.mul_eqv_congr_left 2 _ _
+        (by simpa only using rq_shift_add r 1 1))
+      (Q'.mul_eqv_congr_right _ _ X
+        (by simpa only using rq_shift_add r 1 2))
+  refine Q'.eqv_trans _ _ _ (mul_eqv_congr' hL1 hL1) ?_
+  have hn := RingNormaliser.poly_identity_of_normal_eq _ _ mExpand_normal
+    (fun i => if i = 0 then rq r else X)
+  have hexpand :
+      ((2 : Q') * (rq r + 2) + (rq r + 3) * X) *
+        ((2 : Q') * (rq r + 2) + (rq r + 3) * X) ≈
+      m0 r + m1 r * X + m2 r * (X * X) := by
+    simpa [mExpandL, mExpandR, m0, m1, m2, RingNormaliser.eval, X] using hn
+  refine Q'.eqv_trans _ _ _ hexpand ?_
+  unfold mPoly
+  exact Q'.add_eqv_congr_left _ _ _
+    (Q'.mul_eqv_congr_left (m2 r) _ _
+      (Q'.eqv_symm (by
+        simpa only [show (r + 1) + (r + 1) = 2 * r + 2 by omega] using
+          qpow_add x (r + 1) (r + 1))))
+
+def commonExp (r : Nat) : Nat := 2 * c4 (r + 1) + 6
+
+theorem offsetA_one_formula (w : Q') (r : Nat) :
+    offsetA w 1 r ≈
+      (qpow w (commonExp r) * qpow w 2) * aPoly (qpow w 2) r := by
+  unfold offsetA
+  refine Q'.eqv_trans _ _ _
+    (mul_eqv_congr' (modeWindow_one_formula w r)
+      (modeWindow_one_formula w (r + 2))) ?_
+  refine Q'.eqv_trans _ _ _
+    (FusionResidualBound.mul_four_regroup
+      (qpow w (c4 r + 3)) (lPoly (qpow w 2) r)
+      (qpow w (c4 (r + 2) + 3)) (lPoly (qpow w 2) (r + 2))) ?_
+  have hp : qpow w (c4 r + 3) * qpow w (c4 (r + 2) + 3) ≈
+      qpow w (commonExp r) * qpow w 2 := by
+    refine Q'.eqv_trans _ _ _
+      (Q'.eqv_symm (qpow_add w (c4 r + 3) (c4 (r + 2) + 3))) ?_
+    rw [show (c4 r + 3) + (c4 (r + 2) + 3) = commonExp r + 2 by
+      unfold commonExp
+      have hc := MeanExpConvexProgress.casimir_secondDiff_eq_two r
+      omega]
+    exact qpow_add w (commonExp r) 2
+  exact mul_eqv_congr' hp (lPoly_offset_product (qpow w 2) r)
+
+theorem offsetM_one_formula (w : Q') (r : Nat) :
+    offsetM w 1 r ≈ qpow w (commonExp r) * mPoly (qpow w 2) r := by
+  unfold offsetM
+  refine Q'.eqv_trans _ _ _
+    (mul_eqv_congr' (modeWindow_one_formula w (r + 1))
+      (modeWindow_one_formula w (r + 1))) ?_
+  refine Q'.eqv_trans _ _ _
+    (FusionResidualBound.mul_four_regroup
+      (qpow w (c4 (r + 1) + 3)) (lPoly (qpow w 2) (r + 1))
+      (qpow w (c4 (r + 1) + 3)) (lPoly (qpow w 2) (r + 1))) ?_
+  have hp : qpow w (c4 (r + 1) + 3) * qpow w (c4 (r + 1) + 3) ≈
+      qpow w (commonExp r) := by
+    refine Q'.eqv_trans _ _ _
+      (Q'.eqv_symm (qpow_add w (c4 (r + 1) + 3) (c4 (r + 1) + 3))) ?_
+    rw [show (c4 (r + 1) + 3) + (c4 (r + 1) + 3) = commonExp r by
+      unfold commonExp; omega]
+    exact Q'.eqv_refl _
+  exact mul_eqv_congr' hp (lPoly_mid_square (qpow w 2) r)
+
+private def detCommonL : RingNormaliser.PolyExpr :=
+  let W := RingNormaliser.PolyExpr.var 0
+  let H := RingNormaliser.PolyExpr.var 1
+  let x := RingNormaliser.PolyExpr.var 2
+  let y := RingNormaliser.PolyExpr.var 3
+  let Ax := RingNormaliser.PolyExpr.var 4
+  let Ay := RingNormaliser.PolyExpr.var 5
+  let Mx := RingNormaliser.PolyExpr.var 6
+  let My := RingNormaliser.PolyExpr.var 7
+  .add (.mul (.mul (.mul W x) Ax) (.mul H My))
+    (.neg (.mul (.mul W Mx) (.mul (.mul H y) Ay)))
+
+private def detCommonR : RingNormaliser.PolyExpr :=
+  let W := RingNormaliser.PolyExpr.var 0
+  let H := RingNormaliser.PolyExpr.var 1
+  let x := RingNormaliser.PolyExpr.var 2
+  let y := RingNormaliser.PolyExpr.var 3
+  let Ax := RingNormaliser.PolyExpr.var 4
+  let Ay := RingNormaliser.PolyExpr.var 5
+  let Mx := RingNormaliser.PolyExpr.var 6
+  let My := RingNormaliser.PolyExpr.var 7
+  .mul (.mul W H)
+    (.add (.mul (.mul x Ax) My) (.neg (.mul (.mul y Mx) Ay)))
+
+private theorem detCommon_normal : RingNormaliser.normalize detCommonL =
+    RingNormaliser.normalize detCommonR := by
+  decide
+
+private theorem det_common (W H x y Ax Ay Mx My : Q') :
+    (((W*x)*Ax)*(H*My)) + -((W*Mx)*((H*y)*Ay)) ≈
+      (W*H) * (x*Ax*My + -(y*Mx*Ay)) := by
+  have hn := RingNormaliser.poly_identity_of_normal_eq _ _ detCommon_normal
+    (fun i => match i with
+      | 0 => W | 1 => H | 2 => x | 3 => y | 4 => Ax | 5 => Ay | 6 => Mx | _ => My)
+  simpa [detCommonL, detCommonR, RingNormaliser.eval] using hn
+
+theorem offsetDelta_one_formula (w h : Q') (r : Nat) :
+    offsetDelta w h 1 r ≈
+      (qpow w (commonExp r) * qpow h (commonExp r)) *
+        (qpow w 2 * aPoly (qpow w 2) r * mPoly (qpow h 2) r +
+          -(qpow h 2 * mPoly (qpow w 2) r * aPoly (qpow h 2) r)) := by
+  unfold offsetDelta determinant
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr'
+      (mul_eqv_congr' (offsetA_one_formula w r) (offsetM_one_formula h r))
+      (Q'.neg_eqv_congr _ _
+        (mul_eqv_congr' (offsetM_one_formula w r) (offsetA_one_formula h r)))) ?_
+  exact det_common (qpow w (commonExp r)) (qpow h (commonExp r))
+    (qpow w 2) (qpow h 2) (aPoly (qpow w 2) r) (aPoly (qpow h 2) r)
+    (mPoly (qpow w 2) r) (mPoly (qpow h 2) r)
+
+private theorem dimQ_shift (r n : Nat) :
+    dimQ (r + n) ≈ rq r + Q'.ofNat (n + 1) := by
+  exact Q'.eqv_trans _ _ _ (dimQ_eq_rq_add_one (r + n))
+    (by simpa only using rq_shift_add r n 1)
+
+private theorem offsetA_zero_shape (w : Q') (r : Nat) :
+    offsetA w 0 (r + 1) ≈
+      (qpow w (commonExp r) * qpow (qpow w 2) (2 * r + 3)) * a3 r := by
+  refine Q'.eqv_trans _ _ _ (offsetA_zero_monomial w (r + 1)) ?_
+  have hc : dimQ (r + 1) * dimQ (r + 1 + 2) ≈ a3 r := by
+    unfold a3
+    exact mul_eqv_congr'
+      (by simpa only using dimQ_shift r 1)
+      (by simpa only [show r + 1 + 2 = r + 3 by omega] using dimQ_shift r 3)
+  have hp : qpow w (c4 (r + 1) + c4 (r + 1 + 2)) ≈
+      qpow w (commonExp r) * qpow (qpow w 2) (2 * r + 3) := by
+    rw [show c4 (r + 1) + c4 (r + 1 + 2) =
+        commonExp r + 2 * (2 * r + 3) by
+      unfold commonExp c4
+      simp only [Nat.add_mul, Nat.mul_add]
+      omega]
+    exact Q'.eqv_trans _ _ _ (qpow_add w (commonExp r) (2 * (2 * r + 3)))
+      (Q'.mul_eqv_congr_left (qpow w (commonExp r)) _ _
+        (Q'.eqv_symm (qpow_square_iterate w (2 * r + 3))))
+  exact Q'.eqv_trans _ _ _ (mul_eqv_congr' hc hp) (Q'.mul_comm_eqv _ _)
+
+private theorem offsetM_zero_shape (w : Q') (r : Nat) :
+    offsetM w 0 (r + 1) ≈
+      (qpow w (commonExp r) * qpow (qpow w 2) (2 * r + 2)) * m2 r := by
+  refine Q'.eqv_trans _ _ _ (offsetM_zero_monomial w (r + 1)) ?_
+  have hc : dimQ (r + 1 + 1) * dimQ (r + 1 + 1) ≈ m2 r := by
+    unfold m2
+    exact mul_eqv_congr'
+      (by simpa only [show r + 1 + 1 = r + 2 by omega] using dimQ_shift r 2)
+      (by simpa only [show r + 1 + 1 = r + 2 by omega] using dimQ_shift r 2)
+  have hp : qpow w (2 * c4 (r + 1 + 1)) ≈
+      qpow w (commonExp r) * qpow (qpow w 2) (2 * r + 2) := by
+    rw [show 2 * c4 (r + 1 + 1) = commonExp r + 2 * (2 * r + 2) by
+      unfold commonExp c4
+      simp only [Nat.add_mul, Nat.mul_add]
+      omega]
+    exact Q'.eqv_trans _ _ _ (qpow_add w (commonExp r) (2 * (2 * r + 2)))
+      (Q'.mul_eqv_congr_left (qpow w (commonExp r)) _ _
+        (Q'.eqv_symm (qpow_square_iterate w (2 * r + 2))))
+  exact Q'.eqv_trans _ _ _ (mul_eqv_congr' hc hp) (Q'.mul_comm_eqv _ _)
+
+private def terminalDetL : RingNormaliser.PolyExpr :=
+  let a := RingNormaliser.PolyExpr.var 0
+  let m := RingNormaliser.PolyExpr.var 1
+  let X1 := RingNormaliser.PolyExpr.var 2
+  let X0 := RingNormaliser.PolyExpr.var 3
+  let Y1 := RingNormaliser.PolyExpr.var 4
+  let Y0 := RingNormaliser.PolyExpr.var 5
+  .add (.mul (.mul X1 a) (.mul Y0 m))
+    (.neg (.mul (.mul X0 m) (.mul Y1 a)))
+
+private def terminalDetR : RingNormaliser.PolyExpr :=
+  let a := RingNormaliser.PolyExpr.var 0
+  let m := RingNormaliser.PolyExpr.var 1
+  let X1 := RingNormaliser.PolyExpr.var 2
+  let X0 := RingNormaliser.PolyExpr.var 3
+  let Y1 := RingNormaliser.PolyExpr.var 4
+  let Y0 := RingNormaliser.PolyExpr.var 5
+  .mul (.mul a m) (.add (.mul X1 Y0) (.neg (.mul X0 Y1)))
+
+private theorem terminalDet_normal : RingNormaliser.normalize terminalDetL =
+    RingNormaliser.normalize terminalDetR := by
+  decide
+
+private theorem terminal_det (a m X1 X0 Y1 Y0 : Q') :
+    (X1*a)*(Y0*m) + -((X0*m)*(Y1*a)) ≈
+      (a*m)*(X1*Y0 + -(X0*Y1)) := by
+  have hn := RingNormaliser.poly_identity_of_normal_eq _ _ terminalDet_normal
+    (fun i => match i with
+      | 0 => a | 1 => m | 2 => X1 | 3 => X0 | 4 => Y1 | _ => Y0)
+  simpa [terminalDetL, terminalDetR, RingNormaliser.eval] using hn
+
+private theorem terminal_inner_factor (x y : Q') (r : Nat) :
+    (qpow x (2 * r + 3) * a3 r) * (qpow y (2 * r + 2) * m2 r) +
+      -((qpow x (2 * r + 2) * m2 r) * (qpow y (2 * r + 3) * a3 r)) ≈
+      (x + -y) * terminalPart x y r := by
+  refine Q'.eqv_trans _ _ _
+    (terminal_det (a3 r) (m2 r) (qpow x (2 * r + 3))
+      (qpow x (2 * r + 2)) (qpow y (2 * r + 3)) (qpow y (2 * r + 2))) ?_
+  have hcross : qpow x (2 * r + 3) * qpow y (2 * r + 2) +
+      -(qpow x (2 * r + 2) * qpow y (2 * r + 3)) ≈
+      (x + -y) * homChain x y (2 * r + 2) 1 := by
+    simpa only [show 2 * r + 2 + 1 = 2 * r + 3 by omega] using
+      crossPair_factor x y (2 * r + 2) 1
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_left (a3 r * m2 r) _ _ hcross) ?_
+  unfold terminalPart
+  exact coeff_factor_pos (a3 r * m2 r) (x + -y)
+    (homChain x y (2 * r + 2) 1)
+
+private def terminalCommonL : RingNormaliser.PolyExpr :=
+  let W := RingNormaliser.PolyExpr.var 0
+  let H := RingNormaliser.PolyExpr.var 1
+  let a := RingNormaliser.PolyExpr.var 2
+  let m := RingNormaliser.PolyExpr.var 3
+  let X1 := RingNormaliser.PolyExpr.var 4
+  let X0 := RingNormaliser.PolyExpr.var 5
+  let Y1 := RingNormaliser.PolyExpr.var 6
+  let Y0 := RingNormaliser.PolyExpr.var 7
+  .add (.mul (.mul (.mul W X1) a) (.mul (.mul H Y0) m))
+    (.neg (.mul (.mul (.mul W X0) m) (.mul (.mul H Y1) a)))
+
+private def terminalCommonR : RingNormaliser.PolyExpr :=
+  let W := RingNormaliser.PolyExpr.var 0
+  let H := RingNormaliser.PolyExpr.var 1
+  let a := RingNormaliser.PolyExpr.var 2
+  let m := RingNormaliser.PolyExpr.var 3
+  let X1 := RingNormaliser.PolyExpr.var 4
+  let X0 := RingNormaliser.PolyExpr.var 5
+  let Y1 := RingNormaliser.PolyExpr.var 6
+  let Y0 := RingNormaliser.PolyExpr.var 7
+  .mul (.mul W H)
+    (.add (.mul (.mul X1 a) (.mul Y0 m))
+      (.neg (.mul (.mul X0 m) (.mul Y1 a))))
+
+private theorem terminalCommon_normal : RingNormaliser.normalize terminalCommonL =
+    RingNormaliser.normalize terminalCommonR := by
+  decide
+
+private theorem terminal_common (W H a m X1 X0 Y1 Y0 : Q') :
+    (((W*X1)*a)*((H*Y0)*m)) + -(((W*X0)*m)*((H*Y1)*a)) ≈
+      (W*H) * ((X1*a)*(Y0*m) + -((X0*m)*(Y1*a))) := by
+  have hn := RingNormaliser.poly_identity_of_normal_eq _ _ terminalCommon_normal
+    (fun i => match i with
+      | 0 => W | 1 => H | 2 => a | 3 => m | 4 => X1 | 5 => X0 | 6 => Y1 | _ => Y0)
+  simpa [terminalCommonL, terminalCommonR, RingNormaliser.eval] using hn
+
+theorem offsetDelta_zero_terminal_formula (w h : Q') (r : Nat) :
+    offsetDelta w h 0 (r + 1) ≈
+      (qpow w (commonExp r) * qpow h (commonExp r)) *
+        ((qpow w 2 + -(qpow h 2)) * terminalPart (qpow w 2) (qpow h 2) r) := by
+  unfold offsetDelta determinant
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr'
+      (mul_eqv_congr' (offsetA_zero_shape w r) (offsetM_zero_shape h r))
+      (Q'.neg_eqv_congr _ _
+        (mul_eqv_congr' (offsetM_zero_shape w r) (offsetA_zero_shape h r)))) ?_
+  let W := qpow w (commonExp r)
+  let H := qpow h (commonExp r)
+  let x := qpow w 2
+  let y := qpow h 2
+  refine Q'.eqv_trans _ _ _
+    (terminal_common W H (a3 r) (m2 r)
+      (qpow x (2 * r + 3)) (qpow x (2 * r + 2))
+      (qpow y (2 * r + 3)) (qpow y (2 * r + 2))) ?_
+  exact Q'.mul_eqv_congr_left (W * H) _ _ (terminal_inner_factor x y r)
+
+private def cancelTerminalL : RingNormaliser.PolyExpr :=
+  let C := RingNormaliser.PolyExpr.var 0
+  let d := RingNormaliser.PolyExpr.var 1
+  let R := RingNormaliser.PolyExpr.var 2
+  let T := RingNormaliser.PolyExpr.var 3
+  .add (.mul C (.mul d (.add R T))) (.neg (.mul C (.mul d T)))
+
+private def cancelTerminalR : RingNormaliser.PolyExpr :=
+  let C := RingNormaliser.PolyExpr.var 0
+  let d := RingNormaliser.PolyExpr.var 1
+  let R := RingNormaliser.PolyExpr.var 2
+  .mul C (.mul d R)
+
+private theorem cancelTerminal_normal : RingNormaliser.normalize cancelTerminalL =
+    RingNormaliser.normalize cancelTerminalR := by
+  decide
+
+private theorem cancel_terminal (C d R T : Q') :
+    C * (d * (R + T)) + -(C * (d * T)) ≈ C * (d * R) := by
+  have hn := RingNormaliser.poly_identity_of_normal_eq _ _ cancelTerminal_normal
+    (fun i => match i with | 0 => C | 1 => d | 2 => R | _ => T)
+  simpa [cancelTerminalL, cancelTerminalR, RingNormaliser.eval] using hn
+
+/-- Exact concrete factorization of every positive-offset base-row residual. -/
+theorem boundaryResidualAt_zero_factor {w h : Q'} {r : Nat} (hr : 1 ≤ r) :
+    boundaryResidualAt w h 0 r ≈
+      (qpow w (commonExp r) * qpow h (commonExp r)) *
+        ((qpow w 2 + -(qpow h 2)) * reducedPart (qpow w 2) (qpow h 2) r) := by
+  refine Q'.eqv_trans _ _ _
+    (boundaryResidualAt_eq_potential_difference w h 0 r) ?_
+  simp only [Nat.zero_add]
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr'
+      (offsetDelta_one_formula w h r)
+      (Q'.neg_eqv_congr _ _ (offsetDelta_zero_terminal_formula w h r))) ?_
+  let C := qpow w (commonExp r) * qpow h (commonExp r)
+  let x := qpow w 2
+  let y := qpow h 2
+  have hpoly := polyResidual_factor (x := x) (y := y) hr
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr_right _ _ _
+      (Q'.mul_eqv_congr_left C _ _ hpoly)) ?_
+  exact cancel_terminal C (x + -y) (reducedPart x y r) (terminalPart x y r)
+
+private theorem square_cap_data {w h : Q'} (hh0 : (0 : Q') ≤ h)
+    (hhw : h ≤ w) (hwcap : (4 : Q') * w ≤ (1 : Q')) :
+    let x := qpow w 2
+    let y := qpow h 2
+    (0 : Q') ≤ x ∧ (0 : Q') ≤ y ∧ y ≤ x ∧
+      (2 : Q') * x ≤ (1 : Q') ∧ (3 : Q') * x ≤ (1 : Q') := by
+  let x := qpow w 2
+  let y := qpow h 2
+  have hw0 : (0 : Q') ≤ w := Q'.le_trans' _ _ _ hh0 hhw
+  have hx0 : (0 : Q') ≤ x := qpow_nonneg w hw0 2
+  have hy0 : (0 : Q') ≤ y := qpow_nonneg h hh0 2
+  have hyx : y ≤ x := qpow_mono hh0 hhw 2
+  have hw4 : w ≤ (4 : Q') * w :=
+    Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.eqv_symm (Q'.one_mul_eqv w)))
+      (Q'.mul_le_mul_of_nonneg_right 1 4 w (by decide) hw0)
+  have hw1 : w ≤ (1 : Q') := Q'.le_trans' _ _ _ hw4 hwcap
+  have hxw : x ≤ w := by
+    simpa only [show 1 + 1 = 2 by omega] using qpow_succ_le_self hw0 hw1 1
+  have h3x3w : (3 : Q') * x ≤ (3 : Q') * w :=
+    Q'.mul_le_mul_of_nonneg_left _ _ 3 hxw (by decide)
+  have h3w4w : (3 : Q') * w ≤ (4 : Q') * w :=
+    Q'.mul_le_mul_of_nonneg_right 3 4 w (by decide) hw0
+  have h3x : (3 : Q') * x ≤ (1 : Q') :=
+    Q'.le_trans' _ _ _ h3x3w (Q'.le_trans' _ _ _ h3w4w hwcap)
+  have h2x3x : (2 : Q') * x ≤ (3 : Q') * x :=
+    Q'.mul_le_mul_of_nonneg_right 2 3 x (by decide) hx0
+  exact ⟨hx0, hy0, hyx, Q'.le_trans' _ _ _ h2x3x h3x, h3x⟩
+
+/-- **Uniform base-row theorem.** Every offset residual at `s=0` is
+nonnegative on the physical simplex, with no finite offset enumeration. -/
+theorem boundaryResidualAt_zero_nonneg {w h : Q'} (hh0 : (0 : Q') ≤ h)
+    (hhw : h ≤ w) (hwcap : (4 : Q') * w ≤ (1 : Q')) (r : Nat) :
+    (0 : Q') ≤ boundaryResidualAt w h 0 r := by
+  cases r with
+  | zero => exact CoreBResidualAbel.boundaryResidualAt_zero_zero_nonneg hh0 hhw
+  | succ r =>
+      let x := qpow w 2
+      let y := qpow h 2
+      obtain ⟨hx0, hy0, hyx, h2x, h3x⟩ := square_cap_data hh0 hhw hwcap
+      have hred : (0 : Q') ≤ reducedPart x y (r + 1) :=
+        reducedPart_nonneg hx0 hy0 hyx h2x h3x (r + 1)
+      have hdiff : (0 : Q') ≤ x + -y := Q'.sub_nonneg_of_le hyx
+      have hcommon : (0 : Q') ≤
+          qpow w (commonExp (r + 1)) * qpow h (commonExp (r + 1)) :=
+        Q'.mul_nonneg _ _
+          (qpow_nonneg w (Q'.le_trans' _ _ _ hh0 hhw) _)
+          (qpow_nonneg h hh0 _)
+      have hfact := boundaryResidualAt_zero_factor (w := w) (h := h)
+        (r := r + 1) (by omega)
+      exact Q'.le_trans' _ _ _
+        (Q'.mul_nonneg _ _ hcommon (Q'.mul_nonneg _ _ hdiff hred))
+        (Q'.ge_of_eqv hfact)
+
 #print axioms homChain_nonneg
 #print axioms homChain_le_x
 #print axioms adverseCoefficientMass_le
 #print axioms adversePart_le_anchor
 #print axioms reducedPart_nonneg
 #print axioms polyResidual_factor
+#print axioms boundaryResidualAt_zero_factor
+#print axioms boundaryResidualAt_zero_nonneg
 
 end YMGap.Continuum.CoreBResidualBaseUniform
