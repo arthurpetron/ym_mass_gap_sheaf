@@ -1464,6 +1464,25 @@ theorem boundaryResidualAt_zero_nonneg {w h : Q'} (hh0 : (0 : Q') ≤ h)
         (Q'.mul_nonneg _ _ hcommon (Q'.mul_nonneg _ _ hdiff hred))
         (Q'.ge_of_eqv hfact)
 
+/-! ## All-`s` propagation audit -/
+
+/-- Exact physical scout used to test shifted residual propagation. -/
+def hEighth : Q' := Q'.mkPos 1 8 (by decide)
+
+theorem hEighth_physical :
+    (0 : Q') ≤ hEighth ∧ hEighth ≤ wQuarter ∧
+      (4 : Q') * wQuarter ≤ (1 : Q') := by
+  decide
+
+/-- The tempting diagonal monotonicity
+`R_(s+1,r) ≥ R_(s,r+1)` does not propagate the base row: it already fails at
+`(s,r)=(1,0)` inside the physical simplex. -/
+theorem shifted_residual_monotonicity_counterexample :
+    ¬ (boundaryResidualAt wQuarter hEighth 1 1 ≤
+      boundaryResidualAt wQuarter hEighth 2 0) := by
+  set_option maxRecDepth 100000 in
+    decide
+
 #print axioms homChain_nonneg
 #print axioms homChain_le_x
 #print axioms adverseCoefficientMass_le
@@ -1472,5 +1491,6 @@ theorem boundaryResidualAt_zero_nonneg {w h : Q'} (hh0 : (0 : Q') ≤ h)
 #print axioms polyResidual_factor
 #print axioms boundaryResidualAt_zero_factor
 #print axioms boundaryResidualAt_zero_nonneg
+#print axioms shifted_residual_monotonicity_counterexample
 
 end YMGap.Continuum.CoreBResidualBaseUniform
