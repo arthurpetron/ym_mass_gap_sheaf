@@ -30,6 +30,13 @@ open YMGap.Continuum.SU2FiniteCharacterPacketColimitCompletedTransfer
 open YMGap.Continuum.SU2FiniteCharacterPacketColimitVacuumProjection
 open YMGap.Continuum.SU2FiniteCharacterPacketCompletedCycleTransfer
 
+private theorem RCscale_eq_of_eqv {a b : Q'} (hab : a.eqv b)
+    (x : CReal.RC) : CReal.RCscale a x = CReal.RCscale b x := by
+  refine Quotient.inductionOn x ?_
+  intro X
+  apply Quotient.sound
+  exact CReal.mul_congr_left (CReal.ofQ'_equiv_of_eqv hab)
+
 /-- Arbitrarily many completed physical packet transfers remain
 nonexpansive. -/
 theorem completedPacketCycleTransfer_contraction (order : List Nat)
@@ -129,9 +136,30 @@ theorem completedPacketCycleTransfer_projected_uniform_squared_sep
   rw [← completed_eighth_smul_norm]
   exact completedPacketCycleTransfer_projected_uniform_edge l rest x
 
+/-- Numerically explicit form of the same uniform gap: the completed squared
+norm is bounded by exactly `1/64` of the original projected squared norm. -/
+theorem completedPacketCycleTransfer_projected_uniform_one_over_64
+    (l : Nat) (rest : List Nat)
+    (x : GNSCompletionSpace packetColimitGNS) :
+    CReal.RCle
+      (packetColimitGNS.cinnerCompl
+        (completedPacketCycleTransfer (l :: rest)
+          (completedRemoveVacuum x))
+        (completedPacketCycleTransfer (l :: rest)
+          (completedRemoveVacuum x)))
+      (CReal.RCscale (Q'.mkPos 1 64 (by decide))
+        (packetColimitGNS.cinnerCompl
+          (completedRemoveVacuum x) (completedRemoveVacuum x))) := by
+  rw [← RCscale_eq_of_eqv
+    (show (SU2PeterWeylWilsonBlock.eighth *
+      SU2PeterWeylWilsonBlock.eighth).eqv
+        (Q'.mkPos 1 64 (by decide)) by decide)]
+  exact completedPacketCycleTransfer_projected_uniform_squared_sep l rest x
+
 end YMGap.Continuum.SU2FiniteCharacterPacketCompletedCycleUniformGap
 
 #print axioms YMGap.Continuum.SU2FiniteCharacterPacketCompletedCycleUniformGap.completedPacketCycleTransfer_contraction
 #print axioms YMGap.Continuum.SU2FiniteCharacterPacketCompletedCycleUniformGap.completed_eighth_smul_norm
 #print axioms YMGap.Continuum.SU2FiniteCharacterPacketCompletedCycleUniformGap.completedPacketCycleTransfer_projected_uniform_edge
 #print axioms YMGap.Continuum.SU2FiniteCharacterPacketCompletedCycleUniformGap.completedPacketCycleTransfer_projected_uniform_squared_sep
+#print axioms YMGap.Continuum.SU2FiniteCharacterPacketCompletedCycleUniformGap.completedPacketCycleTransfer_projected_uniform_one_over_64
