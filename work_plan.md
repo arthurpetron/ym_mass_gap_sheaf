@@ -5945,6 +5945,16 @@ lower-six row is `-5`.  Consequently raw coefficientwise positivity cannot
 establish `GrowingResidualLowerSix`; the live mechanism must pay the adverse
 head by projective-prefix/Abel dominance (or replace the lower envelope by a
 provably stronger structural comparison).
+`HarmonicMassCrossLowerSixDirichlet` supplies the cancellation-preserving
+replacement.  The lower-six gap is exactly a finite discrete Dirichlet sum
+with profile `u(12+u^2)`, plus the positive first endpoint and minus the remote
+terminal endpoint.  A boundary-aware payment of that explicit sum implies
+`GrowingResidualLowerSix`.  Pointwise cell payment is machine-refuted already
+at `k=10,n=3`, while the full payment is exact at `k=10`; a derived finite
+prefix and exact transition band now close every
+`10 <= k < 48`.  The open symbolic tail is therefore `k >= 48`, to be
+attacked by a windowed Abel/discrete-uncertainty payment that
+retains the central adverse band and both compensating tails.
 
 `HarmonicWilsonTransferBridge` identifies the exact normalization separating
 the existing Wilson correlator reconstruction from the finite character
@@ -6503,6 +6513,37 @@ are orthogonal.  The remaining positivity work is therefore sectorwise:
 construct the canonical 256-sector decomposition, bihomogenize each sector
 using the two proved radius relations, and diagonalize its Gaussian moment form
 constructively.
+`SU2QuaternionHaarGaussianRadialFactor` now identifies the diagonal form after
+that homogenization.  A four-coordinate sphere moment times the explicit
+positive radial denominator is exactly the corresponding product-Gaussian
+moment, and the two-boundary identity holds for every supported eight-variable
+monomial.  Thus the remaining sector proof has a precise algebraic target:
+make the two half-degrees constant within each bihomogeneous block, cancel the
+common positive radial factors, and prove product-Gaussian square positivity by
+a constructive Hermite triangular basis.
+The Gaussian integration-by-parts recurrences are now exact in all four
+coordinates: raising coordinate `i` by two multiplies `gaussianMoment4` by
+`e_i+1`, uniformly across the even and odd cases.  They are derived from the
+odd double-factorial formula together with exact coordinate swaps, and supply
+the lowering rules for the planned Hermite transform.  OPEN is the finite
+triangular transform with diagonal factorial norms, product-Gaussian square
+positivity, and its lift back through the common radial factors.
+`SU2QuaternionGaussianPolynomialIBP` lifts those scalar recurrences to a
+literal finite univariate polynomial functional.  With a constructive formal
+derivative and coefficientwise shifted moment fold it proves the exact
+integration-by-parts law `E[x p] = E[p']`; additivity and exact rational
+homogeneity now hold for both the shifted and ordinary expectation folds.
+Compatibility with reflected polynomial equivalence and the exact product rule
+are also closed, giving `E[x p q] = E[p' q] + E[p q']` on the literal carrier.
+`SU2QuaternionGaussianHermite` now defines the all-order probabilists' Hermite
+family on that carrier and proves the exact Appell law
+`H'_(n+1) = (n+1) H_n`.  The next algebraic layer is repeated-IBP
+orthogonality.  `SU2QuaternionGaussianHermiteOrthogonality` now supplies its
+load-bearing lowering identity
+`<H_(n+1),q> = <H_n,q'>` for every finite polynomial `q`, derived from exact
+product integration by parts.  OPEN is the resulting short induction for
+off-diagonal orthogonality and positive factorial norms, followed by triangular
+square expansion, tensorization, and return through the sphere radial factors.
 `SU2PeterWeylPlaquetteTensorBlock` derives the corresponding five-dimensional
 one-plaquette matrix-coefficient block: one vacuum plus four `D_ab` channels,
 all four with eigenvalue `1/8`, with the trace normalization independently
@@ -8070,10 +8111,16 @@ are integrated.
    zero-leg, fundamental, and mixed `(2,2,1,1)` audits fix the unsquared
    orientation across several blocks (`1`; `-1/2,1/2,3/2,1/2`; and
    `-2/3,1/3,4/3,1/3`), so the sign is not extrapolated from a single example.
-   OPEN is proving this candidate and the physical inverse Schur coefficient
-   obey the same finite Casimir recurrence and boundary, and deriving the
-   remaining binary-Gram/triangle factorial cancellation needed to turn the
-   candidate-square formula into the corrected Racah bridge.
+   `SU2SignedRacahSquareNormalization` now closes the formerly separate
+   binary-Gram/triangle factorial cancellation for every valid label.  After a
+   timeout exposed the monolithic proof as unacceptable, it was refactored into
+   local channel residual cancellations and genuine triangle symmetries; the
+   real direct and named builds now exit green.  The resulting exact identity is
+   `(e+1) G_right candidate^2 = (f+1) G_left racahKernel6`.  Thus the only
+   arbitrary-label normalization step still open is the *signed* identification:
+   prove the candidate and physical inverse Schur coefficient obey the same
+   finite Casimir recurrence and boundary, invoke uniqueness, and then compose
+   with this now-proved square law.
    The same-state
    interacting Wilson realization remains separately open.
    The older `PartitionBeyondTree.SixJRecoupling` carrier is now permanently
