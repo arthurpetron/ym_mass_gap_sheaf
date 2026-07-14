@@ -3324,7 +3324,13 @@ off-path occurrences `V5,V7,V9` enlarges the short ear to an actual exceptional
 source, and storing the same subset in the genuine external occurrence mask
 gives an exact singleton payment.  The carrier map is injective in all three
 bits, distinct singleton blocks are pairwise disjoint, and every one is disjoint
-from the canonical long-arm block.  OPEN is extending this source-tagging
+from the canonical long-arm block.
+`XiExceptionalGeneralLongArmC12TaggedEarOwned` turns that chart into one
+computationally owned family: the source test reconstructs each entry from its
+three left-mask tag bits, the target owner decodes the same bits from the genuine
+external occurrence mask, and the exact singleton certificate supplies the
+payment.  Consequently pairwise block disjointness and a global allocator for
+all eight sources are derived rather than assumed.  OPEN is extending this source-tagging
 classification beyond the short-ear-compatible chart to every C12 ear geometry
 and then to arbitrary ambient long-arm sources.
 
@@ -6630,9 +6636,13 @@ by its exact radius polynomial preserves product-Haar pairings.
 `SU2QuaternionHaarParityHomogenization` uses computable target degrees and those
 identities to homogenize every supported fixed-parity polynomial, and therefore
 proves product-Haar square nonnegativity for arbitrary mixed degrees within one
-parity sector.  OPEN is constructive decomposition of an arbitrary polynomial
-into its finitely many parity sectors, orthogonality of distinct sectors, and
-then the Wilson-weighted reference-functional consumer.
+parity sector.
+`SU2QuaternionHaarPolynomialPositivity` constructively decomposes every finite
+polynomial into its parity sectors, proves the complementary sector cross term
+vanishes exactly, and iterates the resulting Pythagorean identity to obtain
+`0 <= productHaar (p*p)` for every supported literal eight-variable rational
+polynomial.  OPEN is the Wilson-weighted reference-functional consumer and its
+reflection-positive transfer interpretation on interacting shared-link blocks.
 `SU2PeterWeylPlaquetteTensorBlock` derives the corresponding five-dimensional
 one-plaquette matrix-coefficient block: one vacuum plus four `D_ab` channels,
 all four with eigenvalue `1/8`, with the trace normalization independently
