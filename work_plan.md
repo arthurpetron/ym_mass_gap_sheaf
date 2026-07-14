@@ -6019,11 +6019,14 @@ nonnegativity from the two explicit shape inequalities.
 `HarmonicMassCrossLowerSixSuffixEndpoint` then proves by a modulo-four analysis
 that the cell immediately after the right window satisfies both shape bounds,
 and propagates the rational monotonicity theorem to every subsequent suffix
-cell.  Thus the entire post-window suffix reserve is nonnegative.  OPEN is the
-floor-sensitive first nominal endpoint cell (requiring a uniform large-center
-certificate plus exact finite bootstrap), followed by the genuinely
-quantitative reserve-versus-prefix-deficit bound; mere reserve nonnegativity is
-deliberately not conflated with payment.
+cell.
+`HarmonicMassCrossLowerSixSuffixFirstCell` closes the floor-sensitive nominal
+endpoint as well: a modulo-four large-center proof covers every `k >= 646`,
+while kernel `decide` verifies the exact derived rational band
+`48 <= k < 646`.  Combining that endpoint with the successor theorem proves
+every cleared raw slack on the full nominal right suffix is nonnegative.
+OPEN is the genuinely quantitative reserve-versus-prefix-deficit bound; mere
+cellwise reserve nonnegativity is deliberately not conflated with payment.
 
 `HarmonicWilsonTransferBridge` identifies the exact normalization separating
 the existing Wilson correlator reconstruction from the finite character
@@ -6648,8 +6651,16 @@ parity sector.
 polynomial into its parity sectors, proves the complementary sector cross term
 vanishes exactly, and iterates the resulting Pythagorean identity to obtain
 `0 <= productHaar (p*p)` for every supported literal eight-variable rational
-polynomial.  OPEN is the Wilson-weighted reference-functional consumer and its
-reflection-positive transfer interpretation on interacting shared-link blocks.
+polynomial.
+`SU2QuaternionBoundarySwapCarrierFence` catches the next strict-interface
+problem: the earlier dense-list boundary swap pads exponent lists to length
+eight, so it fails literal unit preservation and cannot be installed as the
+strict `ObsHom` required by time geometry.  `SU2QuaternionCanonicalEightCarrier`
+repairs the representation with monomials `Fin 8 -> Nat`; boundary exchange is
+then a strict unital multiplicative involution on the full carrier.  OPEN is
+transporting the exact bare and Wilson-weighted Haar positivity to this
+canonical algebra, then constructing its reflection-positive time geometry
+and interacting shared-link transfer.
 `SU2PeterWeylPlaquetteTensorBlock` derives the corresponding five-dimensional
 one-plaquette matrix-coefficient block: one vacuum plus four `D_ab` channels,
 all four with eigenvalue `1/8`, with the trace normalization independently
