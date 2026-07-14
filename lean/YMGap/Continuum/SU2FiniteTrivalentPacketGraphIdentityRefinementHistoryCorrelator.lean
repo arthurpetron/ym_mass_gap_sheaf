@@ -87,14 +87,34 @@ theorem historyGraphSquaredEigen_nonneg {K : Nat} (copiedEdges : List Nat)
   unfold historyGraphSquaredEigen
   exact YMGap.Constructive.SumOfSquares.q_mul_self_nonneg _
 
+/-- The physical packet weight, extended by exact zero outside the finite
+mode range.  This makes all total spectral statements insensitive to the
+default label returned by `supportLabel` beyond the retained list. -/
+def historyPacketGraphModeWeight {K : Nat} (edges : List Nat)
+    (vertices : List TrivalentVertex) (packet : Nat → CharacterPacket K)
+    (i : Nat) : Q' :=
+  if i < (physicalEdgeLabellings K edges vertices).length then
+    packetGraphModeWeight edges vertices packet i else 0
+
+theorem historyPacketGraphModeWeight_nonneg {K : Nat} (edges : List Nat)
+    (vertices : List TrivalentVertex) (packet : Nat → CharacterPacket K)
+    (i : Nat) :
+    (0 : Q') ≤ historyPacketGraphModeWeight edges vertices packet i := by
+  unfold historyPacketGraphModeWeight
+  by_cases hi : i < (physicalEdgeLabellings K edges vertices).length
+  · rw [if_pos hi]
+    exact packetGraphModeWeight_nonneg edges vertices packet i
+  · rw [if_neg hi]
+    exact Q'.le_refl' 0
+
 def historyPacketGraphSpectralModel {K : Nat} (copiedEdges : List Nat)
     (edges : List Nat) (vertices : List TrivalentVertex)
     (packet : Nat → CharacterPacket K) : SpectralModel :=
   diagOp.toSpectralModel
     (historyGraphSquaredEigen (K := K) copiedEdges edges vertices)
-    (packetGraphModeWeight edges vertices packet)
+    (historyPacketGraphModeWeight edges vertices packet)
     (physicalEdgeLabellings K edges vertices).length
-    (packetGraphModeWeight_nonneg edges vertices packet)
+    (historyPacketGraphModeWeight_nonneg edges vertices packet)
     (historyGraphSquaredEigen_nonneg copiedEdges edges vertices)
 
 theorem historyProjectedCorrTerm_zero_of_unphysical {K : Nat}
@@ -156,7 +176,13 @@ theorem historyPacketGraph_corr_eq_full {K : Nat}
       CompactTransferGNS.diagOp.toSpectralModel
     rw [← YMGap.Continuum.MovingCutoff.fsum_eq_finSum]
     apply YMGap.Continuum.CubeRatioBounds.fsum_eqv_congr_lt
-    intro i _
+    intro i hi
+    have hi' : i < (physicalEdgeLabellings K edges vertices).length := hi
+    change (if i < (physicalEdgeLabellings K edges vertices).length then
+        packetGraphModeWeight edges vertices packet i else 0) *
+        (historyGraphSquaredEigen copiedEdges edges vertices i) ^ n ≈
+      term (supportLabel support i)
+    rw [if_pos hi']
     unfold term historyProjectedCorrTerm packetGraphModeWeight
       historyGraphSquaredEigen physicalModeLabel projectedSquare
     exact Q'.eqv_refl _
