@@ -3359,8 +3359,13 @@ patterns.  `XiExceptionalGeneralLongArmC12Outward6BipartiteOwned` extends the
 same bipartite invariant to `V6`, assigning the odd optional occurrences to
 the terminal layer and `V4,V6,V11` to the mutually compatible external layer.
 The exact decoder, owner, injectivity, exclusion, and payment theorems now
-cover all sixty-four six-bit C12 ear patterns.  OPEN is the next outward ear
-geometry and then arbitrary ambient long-arm sources.
+cover all sixty-four six-bit C12 ear patterns.
+`XiExceptionalGeneralLongArmC12Outward8BipartiteOwned` adds `V8` to the same
+external compatible family, proves the predecessor rejects every new source,
+and extends exact singleton payment and computational ownership to all 128
+seven-bit patterns.  OPEN is the `V10`/full-cycle boundary—where `V10`
+conflicts with the forced-external `V11`—and then arbitrary ambient long-arm
+sources.
 
 **Adversarial correction (2026-07-12).**  `Continuum/FrontierStatementBugFence.lean`
 machine-refutes the claimed strength of two Bucket-2 atom types without changing
@@ -6754,6 +6759,13 @@ homogeneity, and conjugate symmetry, and constructs an unconditional
 `WilsonGNSData` on the full canonical polynomial algebra.  OPEN at this
 narrowed interface is the actual shared-link/compressed transfer extension,
 not construction of the state or its GNS laws.
+`SU2QuaternionCanonicalEightSwapTransferFence` then tests the raw period-two
+action inside that actual GNS state.  The antisymmetric coordinate `g0-h0` has
+exact interacting norm `7/16`, but its one-swap reflected form is `-7/16`.
+Consequently the full boundary automorphism cannot inhabit `TimeHalfspaceLaw`.
+This permanently directs the transfer attack toward a halfspace compression
+or conditional expectation rather than misidentifying full-state translation
+with a positive transfer.
 `SU2PeterWeylPlaquetteTensorBlock` derives the corresponding five-dimensional
 one-plaquette matrix-coefficient block: one vacuum plus four `D_ab` channels,
 all four with eigenvalue `1/8`, with the trace normalization independently
