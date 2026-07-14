@@ -3318,6 +3318,15 @@ machine-checked disjoint from both previous blocks, and the generic extension
 therefore produces a three-source owned family.  This validates source-tagged
 growth on real carrier geometry, but finite examples still do not replace the
 open uniform synthesis for every arbitrary-ear source.
+`XiExceptionalGeneralLongArmC12TaggedEarFamily` replaces that isolated successor
+by a uniform eight-source chart.  Any subset of the three mutually compatible
+off-path occurrences `V5,V7,V9` enlarges the short ear to an actual exceptional
+source, and storing the same subset in the genuine external occurrence mask
+gives an exact singleton payment.  The carrier map is injective in all three
+bits, distinct singleton blocks are pairwise disjoint, and every one is disjoint
+from the canonical long-arm block.  OPEN is extending this source-tagging
+classification beyond the short-ear-compatible chart to every C12 ear geometry
+and then to arbitrary ambient long-arm sources.
 
 **Adversarial correction (2026-07-12).**  `Continuum/FrontierStatementBugFence.lean`
 machine-refutes the claimed strength of two Bucket-2 atom types without changing
@@ -6615,10 +6624,15 @@ eight-variable polynomial, with no analytic positivity axiom.
 `SU2QuaternionHaarBihomogeneousPositivity` now performs the exact radial return
 on every supported fixed-parity, fixed-bidegree block: its Haar square times the
 derived positive two-boundary radial factor equals the product-Gaussian square,
-so the block Haar square is nonnegative constructively.  OPEN is mixed-degree
-homogenization through the sphere ideal/radius identities, then assembly of
-arbitrary product-Haar square positivity and the Wilson-weighted reference
-functional consumer.
+so the block Haar square is nonnegative constructively.
+`SU2QuaternionHaarRadiusHomogenization` proves that multiplying either boundary
+by its exact radius polynomial preserves product-Haar pairings.
+`SU2QuaternionHaarParityHomogenization` uses computable target degrees and those
+identities to homogenize every supported fixed-parity polynomial, and therefore
+proves product-Haar square nonnegativity for arbitrary mixed degrees within one
+parity sector.  OPEN is constructive decomposition of an arbitrary polynomial
+into its finitely many parity sectors, orthogonality of distinct sectors, and
+then the Wilson-weighted reference-functional consumer.
 `SU2PeterWeylPlaquetteTensorBlock` derives the corresponding five-dimensional
 one-plaquette matrix-coefficient block: one vacuum plus four `D_ab` channels,
 all four with eigenvalue `1/8`, with the trace normalization independently
