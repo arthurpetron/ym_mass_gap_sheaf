@@ -13,6 +13,7 @@ No representing measure, limits, or choice principles enter the proof.
 
 import YMGap.Continuum.SU2QuaternionGaussianMomentRecurrence
 import YMGap.Constructive.QPoly
+import YMGap.Continuum.SU2ClassPolynomialExtensionalReflection
 
 namespace YMGap.Continuum.SU2QuaternionGaussianPolynomialIBP
 
@@ -20,6 +21,8 @@ open YMGap.Constructive
 open YMGap.Constructive.QPoly
 open YMGap.Continuum.SU2QuaternionHaarGaussianRadialFactor
 open YMGap.Continuum.SU2QuaternionGaussianMomentRecurrence
+open YMGap.Continuum.SU2ClassPolynomialAlgebra
+open YMGap.Continuum.SU2ClassPolynomialExtensionalReflection
 
 local infix:50 " ≈ " => Q'.eqv
 
@@ -108,6 +111,58 @@ theorem gaussianExpectation_pscale (a : Q') (p : Poly) :
       a * gaussianExpectation p :=
   gaussianExpectationFrom_pscale a 0 p
 
+/-- A coefficient list that is reflectively zero has zero shifted Gaussian
+expectation. -/
+theorem gaussianExpectationFrom_allZero : ∀ (n : Nat) (p : Poly),
+    allZero p → gaussianExpectationFrom n p ≈ 0
+  | _, [], _ => Q'.eqv_refl 0
+  | n, c :: cs, h => by
+      have hb : decide (c ≈ 0) = true ∧ allZeroB cs = true := by
+        have h' := h
+        rw [allZero, allZeroB, Bool.and_eq_true] at h'
+        exact h'
+      have hc : c ≈ 0 := of_decide_eq_true hb.1
+      have hhead : c * gaussianMoment1 n ≈ 0 :=
+        Q'.eqv_trans _ (0 * gaussianMoment1 n) _
+          (Q'.mul_eqv_congr_right _ _ _ hc)
+          (QPoly.q_zero_mul _)
+      have htail : gaussianExpectationFrom (n + 1) cs ≈ 0 :=
+        gaussianExpectationFrom_allZero (n + 1) cs hb.2
+      exact Q'.eqv_trans _ (0 + 0) _
+        (QPoly.q_add_congr hhead htail)
+        (QPoly.q_zero_add_eqv 0)
+
+theorem gaussianExpectation_allZero {p : Poly} (h : allZero p) :
+    gaussianExpectation p ≈ 0 :=
+  gaussianExpectationFrom_allZero 0 p h
+
+/-- The Gaussian functional respects the repository's reflected polynomial
+setoid, including unnormalized and trailing zero coefficients. -/
+theorem gaussianExpectation_congr {p q : Poly}
+    (h : allZero (psub p q)) :
+    gaussianExpectation p ≈ gaussianExpectation q := by
+  have hz : gaussianExpectation (psub p q) ≈ 0 :=
+    gaussianExpectation_allZero h
+  have hneg : gaussianExpectation (pneg q) ≈ -(gaussianExpectation q) := by
+    refine Q'.eqv_trans _ ((-1 : Q') * gaussianExpectation q) _
+      (gaussianExpectation_pscale (-1) q) ?_
+    exact Q'.eqv_trans _ (-(1 * gaussianExpectation q)) _
+      (Q'.neg_mul_eqv 1 (gaussianExpectation q))
+      (Q'.neg_eqv_congr _ _ (Q'.one_mul_eqv (gaussianExpectation q)))
+  have hsub : gaussianExpectation (psub p q) ≈
+      gaussianExpectation p + -(gaussianExpectation q) :=
+    Q'.eqv_trans _
+      (gaussianExpectation p + gaussianExpectation (pneg q)) _
+      (gaussianExpectation_padd p (pneg q))
+      (Q'.add_eqv_congr_left _ _ _ hneg)
+  exact QPoly.q_eqv_of_sub_zero
+    (Q'.eqv_trans _ (gaussianExpectation (psub p q)) _
+      (Q'.eqv_symm hsub) hz)
+
+theorem gaussianExpectation_polyEqv {p q : Poly} (h : PolyEqv p q) :
+    gaussianExpectation p ≈ gaussianExpectation q :=
+  gaussianExpectation_congr (allZero_psub_of_polyEqv h)
+
 /-- The coefficientwise lift of the monomial moment recurrence. -/
 theorem gaussianExpectationFrom_shift : ∀ (s : Nat) (p : Poly),
     gaussianExpectationFrom (s + 2) p ≈
@@ -170,3 +225,4 @@ end YMGap.Continuum.SU2QuaternionGaussianPolynomialIBP
 #print axioms YMGap.Continuum.SU2QuaternionGaussianPolynomialIBP.gaussianExpectation_mulX_eq_deriv
 #print axioms YMGap.Continuum.SU2QuaternionGaussianPolynomialIBP.gaussianExpectation_padd
 #print axioms YMGap.Continuum.SU2QuaternionGaussianPolynomialIBP.gaussianExpectation_pscale
+#print axioms YMGap.Continuum.SU2QuaternionGaussianPolynomialIBP.gaussianExpectation_polyEqv
