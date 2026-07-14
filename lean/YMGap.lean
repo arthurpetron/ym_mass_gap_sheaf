@@ -812,6 +812,7 @@ import YMGap.Continuum.SU2OrderedRacahHeightOneCoordinateFamily
 import YMGap.Continuum.SU2OrderedRacahHigherHeightRecurrenceFence
 import YMGap.Continuum.SU2OrderedRacahOuterShiftedChannelFamily
 import YMGap.Continuum.SU2OrderedRacahCorrectionConverse
+import YMGap.Continuum.SU2OrderedRacahMutualMeasureInvariant
 import YMGap.Continuum.SU2OrderedRacahCasimirCapstone
 import YMGap.Continuum.SU2OrderedRacahStretchedSquare
 import YMGap.Continuum.SU2OrderedRacahNearStretchedTwoTerm
