@@ -1483,6 +1483,43 @@ theorem shifted_residual_monotonicity_counterexample :
   set_option maxRecDepth 100000 in
     decide
 
+/-! ## Exact diagonal-cumulative audit -/
+
+/-- The diagonal cumulative is exactly the endpoint potential gain.  This is
+the subtraction form of `offsetDelta_diagonal_telescope`; it makes explicit
+that a cumulative sign is an all-range determinant comparison, not a
+consequence of the base row alone. -/
+theorem cumulativeResidual_eq_potential_gain (w h : Q') (s r n : Nat) :
+    cumulativeResidual w h s r n ≈
+      offsetDelta w h (s + n) r + -(offsetDelta w h s (r + n)) := by
+  let D := offsetDelta w h (s + n) r
+  let P := offsetDelta w h s (r + n)
+  let C := cumulativeResidual w h s r n
+  have htel : D ≈ P + C := offsetDelta_diagonal_telescope w h s r n
+  have hsub : D + -P ≈ (P + C) + -P :=
+    Q'.add_eqv_congr_right _ _ (-P) htel
+  have hcancel : (P + C) + -P ≈ C := by
+    refine Q'.eqv_trans _ _ _ (Q'.add_assoc_eqv P C (-P)) ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_left P _ _ (Q'.add_comm_eqv C (-P))) ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.eqv_symm (Q'.add_assoc_eqv P (-P) C)) ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_right _ _ C (Q'.add_neg_self_eqv P)) ?_
+    exact Q'.eqv_of_eq (Q'.zero_add' C)
+  exact Q'.eqv_symm (Q'.eqv_trans _ _ _ hsub hcancel)
+
+/-- The first genuinely shifted cumulative already contains a row-one term:
+`C_(0,r,2) = R_(0,r+1) + R_(1,r)`.  Hence uniform control of every
+`R_(0,*)` pays only one of its two summands. -/
+theorem cumulativeResidual_zero_two (w h : Q') (r : Nat) :
+    cumulativeResidual w h 0 r 2 ≈
+      boundaryResidualAt w h 0 (r + 1) +
+        boundaryResidualAt w h 1 r := by
+  simp only [cumulativeResidual, Nat.zero_add, Nat.add_zero]
+  exact Q'.add_eqv_congr_right _ _ _
+    (Q'.eqv_of_eq (Q'.zero_add' (boundaryResidualAt w h 0 (r + 1))))
+
 #print axioms homChain_nonneg
 #print axioms homChain_le_x
 #print axioms adverseCoefficientMass_le
@@ -1492,5 +1529,7 @@ theorem shifted_residual_monotonicity_counterexample :
 #print axioms boundaryResidualAt_zero_factor
 #print axioms boundaryResidualAt_zero_nonneg
 #print axioms shifted_residual_monotonicity_counterexample
+#print axioms cumulativeResidual_eq_potential_gain
+#print axioms cumulativeResidual_zero_two
 
 end YMGap.Continuum.CoreBResidualBaseUniform
