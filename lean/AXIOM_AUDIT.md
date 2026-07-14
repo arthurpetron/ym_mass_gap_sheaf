@@ -917,6 +917,7 @@ YMGap.Continuum.SU2ArbitraryPacketBigonCycleCompatibility = 23754f31a3b783c1  (1
 YMGap.Continuum.SU2ArbitraryPacketBigonGlobalVacuumGap = e12dc5ffee6e0788  (9)
 YMGap.Continuum.SU2ArbitraryPacketSharedLinkFusionBridge = 1acb93bde0e710cf  (10)
 YMGap.Continuum.SU2ArbitraryPacketTrivalentVertexCompatibility = 044ee2ca3e3d4e24  (23)
+YMGap.Continuum.SU2ArbitraryPacketTwoTrivalentVertexGluing = 6ebf1d50c6562ebf  (11)
 YMGap.Continuum.SU2BigonGlobalVacuumGNSCompleted = 8c49f2fc4d3ae7fb  (10)
 YMGap.Continuum.SU2BivalentCycleO4Response = 6dbac8c7bd8a6582  (9)
 YMGap.Continuum.SU2CentralHahnDeterminantScale = a3a88ff73aa7569d  (5)
