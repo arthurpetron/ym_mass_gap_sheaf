@@ -3087,6 +3087,20 @@ the physical cap `4w <= 1`.  This closes the entire `s=0` row, not the all-mode
 square-Abel certificate.  OPEN is a genuine propagation in `s`, most sharply
 through the structural diagonal telescope and a proved cumulative
 potential/Abel payment; no sign of the individual shifted minors is assumed.
+The first such pointwise lift is now permanently fenced: at the exact physical
+point `w=1/4`, `h=1/8`, one has
+`not (boundaryResidualAt w h 1 1 <= boundaryResidualAt w h 2 0)`.  Hence the
+tempting shifted monotonicity `R_(s+1,r) >= R_(s,r+1)` cannot propagate the
+base row.  The live route is the diagonal *cumulative* potential sum, where
+adverse shifted cells may cancel before a sign is asserted.
+The cumulative algebra is now exact at arbitrary indices:
+`C(s,r,n) = offsetDelta(s+n,r) - offsetDelta(s,r+n)`, and its first nontrivial
+length satisfies `C(0,r,2) = R(0,r+1)+R(1,r)`.  The uniform base-row theorem
+pays the first summand only; the shifted `R(1,r)` is the first honest residual.
+Exact rational scouting across several physical weights and small index
+rectangles found no negative residual or cumulative sum, but no sampled value
+enters a theorem.  OPEN remains a symbolic all-`s` cumulative payment, not a
+counterexample and not the already-refuted pointwise shift monotonicity.
 
 **Xi canonical-carrier update (2026-07-13).**  The strict source-side
 compatibility cover is now retained as an explicit pair of occurrence masks.
@@ -6471,11 +6485,24 @@ for arbitrary exponent lists including the smart-zero tail convention, and
 the concrete functional is proved extensionally equal to an ordinary linear
 fold.  Consequently, for every finite polynomial `p`, multiplication by
 either radius-square polynomial leaves `productHaar p` unchanged.  These are
-all-degree ideal identities, not finite checks.  OPEN is literal annihilation
-of `(r_g^2-1)` and `(r_h^2-1)`, then parity-sector bihomogenization and an
-explicit Gaussian/Hermite Gram decomposition proving arbitrary-square
-positivity; the Wilson-weighted result follows only after that unweighted
-theorem is established.
+all-degree ideal identities, not finite checks.
+`SU2QuaternionHaarSphereIdealAnnihilation` performs the required subtraction
+inside the literal polynomial carrier: `productHaar` kills every polynomial
+multiple of `(r_g^2-1)` and `(r_h^2-1)`.  Thus descent to the two-sphere
+quotient is genuinely proved, rather than inferred from pointwise evaluation.
+OPEN is parity-sector bihomogenization and an explicit Gaussian/Hermite Gram
+decomposition proving arbitrary-square positivity; the Wilson-weighted result
+follows only after that unweighted theorem is established.
+`SU2QuaternionHaarParitySectors` closes the orthogonality input for that split:
+an exact eight-coordinate parity vector is defined for arbitrary exponent
+lists, and monomials in distinct parity sectors have zero product-Haar cross
+moment, including the smart-zero tail cases.  The result is now lifted through
+the actual finite polynomial product: termwise parity mismatch annihilates the
+whole cross moment, and polynomials supported in two distinct explicit sectors
+are orthogonal.  The remaining positivity work is therefore sectorwise:
+construct the canonical 256-sector decomposition, bihomogenize each sector
+using the two proved radius relations, and diagonalize its Gaussian moment form
+constructively.
 `SU2PeterWeylPlaquetteTensorBlock` derives the corresponding five-dimensional
 one-plaquette matrix-coefficient block: one vacuum plus four `D_ab` channels,
 all four with eigenvalue `1/8`, with the trace normalization independently
