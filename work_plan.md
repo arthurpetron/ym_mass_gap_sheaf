@@ -3297,9 +3297,18 @@ proved to belong to the unchanged target enumeration and to have exactly the
 source weight for every scale and label.  It is absent from the canonical
 block, so a computational owner and dependent certificate yield a genuinely
 nonvacuous two-source `OwnedPaidResidualFamily` with explicit disjointness.
-OPEN is now uniform source-dependent rewiring for every arbitrary-ear source,
-including a proof that the selected genuine target blocks remain disjoint and
-pay the complete source family; two sources do not yet supply that extraction.
+`XiExceptionalOwnedFamilyExtension` now factors the constructive bookkeeping
+step needed for induction over sources: a fresh paid block, together with its
+checked disjointness from every old block, extends any owned family, accepts
+the fresh source, preserves every old certificate, and reconstructs the owner
+and global pairwise disjointness.  `XiExceptionalGeneralLongArmC12OwnedExtension`
+uses that operation to reconstruct the genuine two-source C12 family from the
+canonical native chart plus the short-ear chart.  This closes the dependent
+ownership/extension mechanism, not the physical source extraction.  OPEN is
+uniform source-dependent synthesis of a paid block disjoint from the blocks
+already selected for every arbitrary-ear source; once such fresh blocks are
+constructed, the global family induction is now available without an assumed
+compatibility theorem.
 
 **Adversarial correction (2026-07-12).**  `Continuum/FrontierStatementBugFence.lean`
 machine-refutes the claimed strength of two Bucket-2 atom types without changing
@@ -5972,10 +5981,14 @@ prefixes nonnegative.
 It splits at `thetaWindowRight` into the adverse-band prefix and compensating
 right reserve, supplies a direct payment consumer, and reduces every suffix
 cell to an explicit division-free denominator-cube-cleared integer polynomial
-certificate.  The remaining uniform obligations are now concrete: prove those
-suffix certificates for every `n >= thetaWindowRight+1`, then prove the
-quantitative reserve dominates the exact prefix deficit (mere reserve
-nonnegativity is deliberately not conflated with payment).
+certificate.  `HarmonicMassCrossLowerSixSuffixMonotone` proves an exact forward-
+difference identity for the cleared right-cell slack and rewrites it, under
+`D=50+x`, `N=13+t`, and `N²=3D+z`, into manifestly nonnegative coefficient
+polynomials.  Hence each suffix certificate is monotone once the theta indices
+are connected to those coordinates.  OPEN is the Nat/rational bridge and the
+single endpoint certificate at `thetaWindowRight+1`, followed by the genuinely
+quantitative reserve-versus-prefix-deficit bound (mere reserve nonnegativity is
+deliberately not conflated with payment).
 
 `HarmonicWilsonTransferBridge` identifies the exact normalization separating
 the existing Wilson correlator reconstruction from the finite character
@@ -6581,8 +6594,18 @@ factors.
 `SU2QuaternionProductGaussianTensor` now proves the exact monomial factorization
 needed for that tensorization: `gaussianMoment4` is the product of four
 one-variable moments, and `productGaussianMono` is the corresponding eightfold
-product.  OPEN is the finite multivariate Hermite transform, arbitrary
-eight-variable square positivity, and the constant-bidegree radial return.
+product.  `SU2QuaternionProductGaussianHermiteGram` constructs the finite
+coordinate-by-coordinate Hermite Gram representation on the full eight-variable
+carrier.  `SU2QuaternionProductGaussianPositivity` uses it to prove exact
+nonnegativity of the product-Gaussian functional on the square of every literal
+eight-variable polynomial, with no analytic positivity axiom.
+`SU2QuaternionHaarBihomogeneousPositivity` now performs the exact radial return
+on every supported fixed-parity, fixed-bidegree block: its Haar square times the
+derived positive two-boundary radial factor equals the product-Gaussian square,
+so the block Haar square is nonnegative constructively.  OPEN is mixed-degree
+homogenization through the sphere ideal/radius identities, then assembly of
+arbitrary product-Haar square positivity and the Wilson-weighted reference
+functional consumer.
 `SU2PeterWeylPlaquetteTensorBlock` derives the corresponding five-dimensional
 one-plaquette matrix-coefficient block: one vacuum plus four `D_ab` channels,
 all four with eigenvalue `1/8`, with the trace normalization independently
@@ -8181,9 +8204,14 @@ are integrated.
    `SU2OrderedRacahEndpointCasimirAllOrder` uses it to close the strict-coordinate
    endpoint carrier for every physical boundary/order.  The raw `p=0 -> p=1`
    numerator is now explicit for arbitrary labels, while exact fundamental and
-   mixed fences record that it is not the dual section coefficient.  OPEN is
-   therefore precisely the Gram-transpose dual reconstruction and its extension
-   from the endpoint to all interior orders.
+   mixed fences record that it is not the dual section coefficient.
+   `SU2OrderedRacahEndpointGramTranspose` now proves the abstract positive-Gram
+   transpose/uniqueness consumer, identifies the raw endpoint coefficient with
+   the backward Jacobi coefficient at `p=1`, and checks the required Gram ratios
+   and candidate endpoint packages in the fundamental and mixed blocks.  OPEN
+   is no longer the transpose algebra itself: it is proving that the actual
+   reconstructed all-label section satisfies that Gram-dual equation, then
+   extending the raw action and dual recurrence through every interior order.
    The same-state
    interacting Wilson realization remains separately open.
    The older `PartitionBeyondTree.SixJRecoupling` carrier is now permanently
