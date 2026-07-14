@@ -8167,8 +8167,15 @@ are integrated.
    transpose normalization: raw coordinate functionals carry the transposed
    Jacobi action (`3/2` rather than `1/2` in the fundamental forward slot, and
    `8/3` in the mixed block).  The section recurrence must therefore be derived
-   by dual reconstruction/Gram transpose.  OPEN is the all-order contiguous
-   endpoint identity and that dualization, then the remaining interior action.
+   by dual reconstruction/Gram transpose.
+   `SU2HahnFirstLabelContiguous` now proves the required all-order neighboring-
+   label Hahn identity by contraction-order induction, and
+   `SU2OrderedRacahEndpointCasimirAllOrder` uses it to close the strict-coordinate
+   endpoint carrier for every physical boundary/order.  The raw `p=0 -> p=1`
+   numerator is now explicit for arbitrary labels, while exact fundamental and
+   mixed fences record that it is not the dual section coefficient.  OPEN is
+   therefore precisely the Gram-transpose dual reconstruction and its extension
+   from the endpoint to all interior orders.
    The same-state
    interacting Wilson realization remains separately open.
    The older `PartitionBeyondTree.SixJRecoupling` carrier is now permanently
