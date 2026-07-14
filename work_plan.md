@@ -8280,10 +8280,11 @@ are integrated.
    `triRightChannelWeight` by the intermediate dimension equals the product of
    the two actual binary transvectant Grams.  The proof uses exact monomial
    support, convolution, and normalized-row factorization rather than an
-   assumed normalization.  OPEN at this junction is the uniform
-   `binaryTransvectantGram`-to-`closedBinaryGram` identity, after which the two
-   arbitrary-label endpoint results combine into the concrete Gram-dual
-   equation.
+   assumed normalization.  `SU2ClosedBinaryGramIdentification` then proves the
+   uniform physical-channel identity between each analytic normalized-row Gram
+   and the independently introduced closed factorial Gram.  OPEN at this
+   junction is only their concrete combination with the arbitrary-label
+   endpoint balance into the actual channel-weight Gram-dual equation.
    `SU2OrderedRacahEndpointReconstructedSection` now applies the finite-box
    transpose of `pairExchange` to the actual reconstructed section coefficient
    in the fundamental and mixed `(2,2,1,1)` blocks, proving both exact Gram-
