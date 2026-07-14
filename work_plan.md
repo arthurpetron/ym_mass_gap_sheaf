@@ -5955,6 +5955,12 @@ prefix and exact transition band now close every
 `10 <= k < 48`.  The open symbolic tail is therefore `k >= 48`, to be
 attacked by a windowed Abel/discrete-uncertainty payment that
 retains the central adverse band and both compensating tails.
+`HarmonicMassCrossLowerSixTerminalPayment` removes the moving right loss
+uniformly: the last theta root is at most one eighth of its predecessor, the
+profile is at most three, and an exact square identity proves the final signed
+Dirichlet increment pays the complete terminal endpoint.  The remaining tail
+is the boundary-free inequality
+`0 <= lowerSixInteriorSum k + 4*integerThetaTerm ... 1` for every `k >= 48`.
 
 `HarmonicWilsonTransferBridge` identifies the exact normalization separating
 the existing Wilson correlator reconstruction from the finite character
@@ -6541,9 +6547,15 @@ family on that carrier and proves the exact Appell law
 orthogonality.  `SU2QuaternionGaussianHermiteOrthogonality` now supplies its
 load-bearing lowering identity
 `<H_(n+1),q> = <H_n,q'>` for every finite polynomial `q`, derived from exact
-product integration by parts.  OPEN is the resulting short induction for
-off-diagonal orthogonality and positive factorial norms, followed by triangular
-square expansion, tensorization, and return through the sphere radial factors.
+product integration by parts.  The resulting short induction for
+off-diagonal orthogonality and positive factorial norms is now
+closed as well: distinct Hermite modes pair to zero, and the diagonal norm is
+the derived constructive factorial `hermiteFactorial n`.
+`SU2QuaternionGaussianHermiteSOS` further defines finite Hermite
+synthesis, proves the exact diagonal pairing
+`sum_n c_n*d_n*hermiteFactorial n`, and derives an explicit nonnegative square
+energy.  OPEN is constructive triangular surjectivity of this synthesis onto
+every finite `QPoly`, tensorization, and return through the sphere radial factors.
 `SU2PeterWeylPlaquetteTensorBlock` derives the corresponding five-dimensional
 one-plaquette matrix-coefficient block: one vacuum plus four `D_ab` channels,
 all four with eigenvalue `1/8`, with the trace normalization independently
@@ -8121,6 +8133,14 @@ are integrated.
    prove the candidate and physical inverse Schur coefficient obey the same
    finite Casimir recurrence and boundary, invoke uniqueness, and then compose
    with this now-proved square law.
+   `SU2OrderedRacahTridiagonalCoefficients` now fixes the exact oriented
+   forward, backward, and diagonal Jacobi coefficients, including guarded
+   endpoints and the removable zero-channel case.  Fundamental and asymmetric
+   mixed `(2,2,1,1)` blocks kernel-check both the coefficients and every signed
+   candidate endpoint equation, so the Gram-gauge orientation is no longer a
+   sign conjecture.  OPEN remains the all-label derivation of this tridiagonal
+   action from the actual left Casimir on the right-channel Hahn basis, followed
+   by candidate/physical recurrence uniqueness.
    The same-state
    interacting Wilson realization remains separately open.
    The older `PartitionBeyondTree.SixJRecoupling` carrier is now permanently
