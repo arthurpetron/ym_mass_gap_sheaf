@@ -508,6 +508,7 @@ YMGap.Continuum.HarmonicMassCrossLowerSixCoefficientFence = 4449eec3a207a82b  (2
 YMGap.Continuum.HarmonicMassCrossLowerSixDirichlet = 9eabdf94aaac4e86  (11)
 YMGap.Continuum.HarmonicMassCrossLowerSixInteriorAbel = 7f80e52f1984475c  (5)
 YMGap.Continuum.HarmonicMassCrossLowerSixTerminalPayment = f69259daf9a5826b  (4)
+YMGap.Continuum.HarmonicMassCrossLowerSixTwoSidedWindow = ed243f60559448f4  (6)
 YMGap.Continuum.HarmonicMassCrossPascalReduction = 72e118786fdf36ba  (11)
 YMGap.Continuum.HarmonicMassCrossResidualSandwich = 04b956e4ef67c20c  (25)
 YMGap.Continuum.HarmonicMassRatioK13 = faf232a2b52122b1  (1)
