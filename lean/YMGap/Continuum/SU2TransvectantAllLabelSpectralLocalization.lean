@@ -100,10 +100,25 @@ theorem allLabelChannelEigen_le_eighth {a b c d : Nat}
   networkEigen_excited_le_eighth (fourExternalLabels a b c d)
     fourExternalOrder (fourExternal_excitedSupport h)
 
+/-- Normalization cross-check: four fundamental external legs give exactly
+the independently derived four-valent intertwiner eigenvalue `(1/8)^4`. -/
+theorem fundamental_external_eigen_eq_fourLeg :
+    allLabelChannelEigen 1 1 1 1 ≈
+      YMGap.Continuum.SU2FourValentIntertwinerGNSCompleted.fourLegEigen := by
+  decide
+
 /-! ## Actual channel GNS as a one-mode squared spectrum -/
 
 def allLabelSquaredEigen (a b c d : Nat) (_i : Nat) : Q' :=
   allLabelChannelEigen a b c d * allLabelChannelEigen a b c d
+
+/-- The squared arbitrary-label channel eigenvalue agrees with the exact edge
+of the dedicated two-channel four-fundamental construction. -/
+theorem fundamental_squared_eigen_eq_fourValent_edge :
+    allLabelSquaredEigen 1 1 1 1 0 ≈
+      YMGap.Continuum.SU2FourValentIntertwinerGNSCompleted.fourLegEigen *
+        YMGap.Continuum.SU2FourValentIntertwinerGNSCompleted.fourLegEigen := by
+  decide
 
 theorem allLabelSquaredEigen_nonneg (a b c d i : Nat) :
     (0 : Q') ≤ allLabelSquaredEigen a b c d i :=
@@ -256,6 +271,8 @@ theorem equivalentTriMap_transfer_commutes (a b c d : Nat)
 end YMGap.Continuum.SU2TransvectantAllLabelSpectralLocalization
 
 #print axioms YMGap.Continuum.SU2TransvectantAllLabelSpectralLocalization.allLabelChannelEigen_le_eighth
+#print axioms YMGap.Continuum.SU2TransvectantAllLabelSpectralLocalization.fundamental_external_eigen_eq_fourLeg
+#print axioms YMGap.Continuum.SU2TransvectantAllLabelSpectralLocalization.fundamental_squared_eigen_eq_fourValent_edge
 #print axioms YMGap.Continuum.SU2TransvectantAllLabelSpectralLocalization.allLabelChannel_lam_is_operator_eigen
 #print axioms YMGap.Continuum.SU2TransvectantAllLabelSpectralLocalization.allLabelChannelGNS_eq_corr_zero
 #print axioms YMGap.Continuum.SU2TransvectantAllLabelSpectralLocalization.allLabelChannelTransferredGNS_eq_corr_one
