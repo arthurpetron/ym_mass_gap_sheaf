@@ -8269,8 +8269,17 @@ are integrated.
    closed binary Grams: at endpoint channels `f` and `f-2`, the two dimension
    factors convert the section-side Jacobi coefficient exactly into the raw
    endpoint coefficient.  This removes the numerical normalization guess; the
-   remaining bridge is the constructive factorization of the concrete nested
-   `triRightChannelWeight` by that closed Gram product and its dimension factor.
+   remaining bridge is its identification with the concrete nested channel
+   metric.
+   `SU2OrderedRightNestedGramFactorization` now derives that metric directly
+   from the proof-carrying `FixedRightCGChannel`: multiplying
+   `triRightChannelWeight` by the intermediate dimension equals the product of
+   the two actual binary transvectant Grams.  The proof uses exact monomial
+   support, convolution, and normalized-row factorization rather than an
+   assumed normalization.  OPEN at this junction is the uniform
+   `binaryTransvectantGram`-to-`closedBinaryGram` identity, after which the two
+   arbitrary-label endpoint results combine into the concrete Gram-dual
+   equation.
    `SU2OrderedRacahEndpointReconstructedSection` now applies the finite-box
    transpose of `pairExchange` to the actual reconstructed section coefficient
    in the fundamental and mixed `(2,2,1,1)` blocks, proving both exact Gram-
