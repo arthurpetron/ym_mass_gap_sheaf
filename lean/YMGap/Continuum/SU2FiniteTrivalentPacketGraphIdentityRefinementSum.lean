@@ -44,6 +44,13 @@ private theorem q_mul_congr {a a' b b' : Q'}
   Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ _ _ ha)
     (Q'.mul_eqv_congr_left _ _ _ hb)
 
+private theorem q_pow_congr {a b : Q'} (h : a ≈ b) : ∀ n : Nat,
+    a ^ n ≈ b ^ n
+  | 0 => Q'.eqv_refl _
+  | n + 1 => by
+      rw [Q'.pow_succ, Q'.pow_succ]
+      exact q_mul_congr h (q_pow_congr h n)
+
 private theorem eliminateLinks_zero_of_head
     (f : Nat → Q') (edge : Nat) (rest : List Nat)
     (hz : f edge ≈ 0) : eliminateLinks f (edge :: rest) ≈ 0 := by
@@ -123,12 +130,12 @@ private theorem setEdgeLabel_current (label : EdgeLabelling) (edge : Nat) :
 private theorem projectedCorrTerm_vacuum_spin_ne_zero {K : Nat}
     (oldEdge newEdge vacuumEdge : Nat) (edges : List Nat)
     (vertices : List TrivalentVertex) (P : Nat → CharacterPacket K)
-    (tail : EdgeLabelling) (newSpin vacuumSpin : Nat)
+    (n : Nat) (tail : EdgeLabelling) (newSpin vacuumSpin : Nat)
     (hvacSpin : vacuumSpin ≠ 0) :
     projectedCorrTerm
         (identityRefinedEdges newEdge vacuumEdge edges)
         (identityRefinedVertices oldEdge newEdge vacuumEdge vertices)
-        (identityRefinedPacket newEdge vacuumEdge P) 0
+        (identityRefinedPacket newEdge vacuumEdge P) n
         (setEdgeLabel
           (setEdgeLabel tail newEdge newSpin) vacuumEdge vacuumSpin) ≈ 0 := by
   let label := setEdgeLabel
@@ -153,8 +160,11 @@ private theorem projectedCorrTerm_vacuum_spin_ne_zero {K : Nat}
       (identityRefinedEdges newEdge vacuumEdge edges)
       (identityRefinedVertices oldEdge newEdge vacuumEdge vertices) label
   · rw [if_pos hp]
-    exact Q'.eqv_trans _ ((0 * 0) * 1) _
-      (q_mul_congr (q_mul_congr hbare hbare) (Q'.eqv_refl 1))
+    exact Q'.eqv_trans _
+      ((0 * 0) *
+        (graphEigen (identityRefinedEdges newEdge vacuumEdge edges) label *
+          graphEigen (identityRefinedEdges newEdge vacuumEdge edges) label) ^ n) _
+      (q_mul_congr (q_mul_congr hbare hbare) (Q'.eqv_refl _))
       (Q'.zero_mul_eqv _)
   · rw [if_neg hp]
     exact Q'.zero_mul_eqv _
@@ -190,14 +200,14 @@ private theorem refinedGenerated_unphysical_of_new_ne
 private theorem projectedCorrTerm_new_spin_ne {K : Nat}
     (oldEdge newEdge vacuumEdge : Nat) (edges : List Nat)
     (vertices : List TrivalentVertex) (P : Nat → CharacterPacket K)
-    (tail : EdgeLabelling) (spin : Nat)
+    (n : Nat) (tail : EdgeLabelling) (spin : Nat)
     (hspin : spin ≠ tail oldEdge)
     (hno : newEdge ≠ oldEdge) (hvo : vacuumEdge ≠ oldEdge)
     (hnv : newEdge ≠ vacuumEdge) :
     projectedCorrTerm
         (identityRefinedEdges newEdge vacuumEdge edges)
         (identityRefinedVertices oldEdge newEdge vacuumEdge vertices)
-        (identityRefinedPacket newEdge vacuumEdge P) 0
+        (identityRefinedPacket newEdge vacuumEdge P) n
         (setEdgeLabel (setEdgeLabel tail newEdge spin) vacuumEdge 0) ≈ 0 := by
   apply projectedCorrTerm_zero_of_unphysical
   exact refinedGenerated_unphysical_of_new_ne
@@ -233,7 +243,7 @@ theorem identity_new_segment_slice {K : Nat}
     apply YMGap.Continuum.FusionQuotientCollapse.fsum_collapse
     intro spin hspin
     exact projectedCorrTerm_new_spin_ne oldEdge newEdge vacuumEdge
-      edges vertices P tail spin hspin hno hvo hnv
+      edges vertices P 0 tail spin hspin hno hvo hnv
     exact hbound
   exact Q'.eqv_trans _ (slice (tail oldEdge)) _ hcollapse
     (projectedCorrTerm_identity_refinement_zero oldEdge newEdge vacuumEdge
@@ -269,7 +279,7 @@ theorem packetGraph_corr_identity_refinement_zero {K : Nat}
     apply listQSum_zero
     intro label
     have hz := projectedCorrTerm_vacuum_spin_ne_zero
-      oldEdge newEdge vacuumEdge edges vertices P label
+      oldEdge newEdge vacuumEdge edges vertices P 0 label
         (label newEdge) vacuumSpin hspin
     rw [setEdgeLabel_current label newEdge] at hz
     exact hz
@@ -323,8 +333,173 @@ theorem packetGraph_corr_identity_refinement_zero {K : Nat}
               (Q'.eqv_symm
                 (packetGraph_corr_eq_full edges vertices P 0)))))))
 
+/-! ## Exact positive-time reweighting -/
+
+/-- The old-graph summand with the one extra copied-edge eigenvalue inserted.
+This is the exact spectral effect of the local subdivision. -/
+def identityRefinementReweightedTerm {K : Nat} (oldEdge : Nat)
+    (edges : List Nat) (vertices : List TrivalentVertex)
+    (P : Nat → CharacterPacket K) (n : Nat)
+    (label : EdgeLabelling) : Q' :=
+  projectedSquare edges vertices P label *
+    ((eigA SU2PeterWeylWilsonBlock.coupling (label oldEdge) *
+        graphEigen edges label) *
+      (eigA SU2PeterWeylWilsonBlock.coupling (label oldEdge) *
+        graphEigen edges label)) ^ n
+
+/-- On the fusion-selected label, the all-time refined summand is exactly the
+old summand reweighted by one copied-edge eigenvalue on each transfer side. -/
+theorem projectedCorrTerm_identity_refinement_selected {K : Nat}
+    (oldEdge newEdge vacuumEdge : Nat) (edges : List Nat)
+    (vertices : List TrivalentVertex) (P : Nat → CharacterPacket K)
+    (n : Nat) (label : EdgeLabelling) (hold : oldEdge ∈ edges)
+    (holdBound : label oldEdge < K + 1)
+    (hnew : newEdge ∉ edges) (hvac : vacuumEdge ∉ edges)
+    (hno : newEdge ≠ oldEdge) (hvo : vacuumEdge ≠ oldEdge)
+    (hnv : newEdge ≠ vacuumEdge)
+    (hnewV : VerticesAvoid newEdge vertices)
+    (hvacV : VerticesAvoid vacuumEdge vertices) :
+    projectedCorrTerm
+        (identityRefinedEdges newEdge vacuumEdge edges)
+        (identityRefinedVertices oldEdge newEdge vacuumEdge vertices)
+        (identityRefinedPacket newEdge vacuumEdge P) n
+        (identityRefinedLabel oldEdge newEdge vacuumEdge label) ≈
+      identityRefinementReweightedTerm oldEdge edges vertices P n label := by
+  have ha := packetGraphProjectedAmplitude_identity_refinement
+    oldEdge newEdge vacuumEdge edges vertices P label hold holdBound
+      hnew hvac hno hvo hnv hnewV hvacV
+  have he := graphEigen_identity_refinement
+    oldEdge newEdge vacuumEdge edges label hnew hvac hnv
+  unfold projectedCorrTerm identityRefinementReweightedTerm projectedSquare
+  exact q_mul_congr (q_mul_congr ha ha)
+    (q_pow_congr (q_mul_congr he he) n)
+
+/-- For a fixed old labelling, the copied-segment sum collapses at every
+integer time to the explicitly reweighted old summand. -/
+theorem identity_new_segment_slice_all_time {K : Nat}
+    (oldEdge newEdge vacuumEdge : Nat) (edges : List Nat)
+    (vertices : List TrivalentVertex) (P : Nat → CharacterPacket K)
+    (n : Nat) (tail : EdgeLabelling) (hold : oldEdge ∈ edges)
+    (htail : tail ∈ boundedEdgeLabellings K edges)
+    (hnew : newEdge ∉ edges) (hvac : vacuumEdge ∉ edges)
+    (hno : newEdge ≠ oldEdge) (hvo : vacuumEdge ≠ oldEdge)
+    (hnv : newEdge ≠ vacuumEdge)
+    (hnewV : VerticesAvoid newEdge vertices)
+    (hvacV : VerticesAvoid vacuumEdge vertices) :
+    fsum (fun spin => projectedCorrTerm
+        (identityRefinedEdges newEdge vacuumEdge edges)
+        (identityRefinedVertices oldEdge newEdge vacuumEdge vertices)
+        (identityRefinedPacket newEdge vacuumEdge P) n
+        (setEdgeLabel (setEdgeLabel tail newEdge spin) vacuumEdge 0))
+        (K + 1) ≈
+      identityRefinementReweightedTerm oldEdge edges vertices P n tail := by
+  let slice : Nat → Q' := fun spin => projectedCorrTerm
+    (identityRefinedEdges newEdge vacuumEdge edges)
+    (identityRefinedVertices oldEdge newEdge vacuumEdge vertices)
+    (identityRefinedPacket newEdge vacuumEdge P) n
+    (setEdgeLabel (setEdgeLabel tail newEdge spin) vacuumEdge 0)
+  have hbound : tail oldEdge < K + 1 :=
+    (boundedEdgeLabellings_sound K edges tail htail).1 oldEdge hold
+  have hcollapse : fsum slice (K + 1) ≈ slice (tail oldEdge) := by
+    apply YMGap.Continuum.FusionQuotientCollapse.fsum_collapse
+    intro spin hspin
+    exact projectedCorrTerm_new_spin_ne oldEdge newEdge vacuumEdge
+      edges vertices P n tail spin hspin hno hvo hnv
+    exact hbound
+  exact Q'.eqv_trans _ (slice (tail oldEdge)) _ hcollapse
+    (projectedCorrTerm_identity_refinement_selected
+      oldEdge newEdge vacuumEdge edges vertices P n tail hold hbound
+        hnew hvac hno hvo hnv hnewV hvacV)
+
+/-- The full refined correlator at every integer time is an exact old-label
+sum with the copied-edge spectral factor displayed.  Thus time zero is
+cylinder-consistent, while positive time records the precise local
+time/coupling rescaling still required by continuum refinement. -/
+theorem packetGraph_corr_identity_refinement_all_time {K : Nat}
+    (oldEdge newEdge vacuumEdge : Nat) (edges : List Nat)
+    (vertices : List TrivalentVertex) (P : Nat → CharacterPacket K)
+    (n : Nat) (hold : oldEdge ∈ edges)
+    (hnew : newEdge ∉ edges) (hvac : vacuumEdge ∉ edges)
+    (hno : newEdge ≠ oldEdge) (hvo : vacuumEdge ≠ oldEdge)
+    (hnv : newEdge ≠ vacuumEdge)
+    (hnewV : VerticesAvoid newEdge vertices)
+    (hvacV : VerticesAvoid vacuumEdge vertices) :
+    corr (packetGraphSpectralModel
+        (identityRefinedEdges newEdge vacuumEdge edges)
+        (identityRefinedVertices oldEdge newEdge vacuumEdge vertices)
+        (identityRefinedPacket newEdge vacuumEdge P)) n ≈
+      listQSum
+        (identityRefinementReweightedTerm oldEdge edges vertices P n)
+        (boundedEdgeLabellings K edges) := by
+  let refinedTerm : EdgeLabelling → Q' := projectedCorrTerm
+    (identityRefinedEdges newEdge vacuumEdge edges)
+    (identityRefinedVertices oldEdge newEdge vacuumEdge vertices)
+    (identityRefinedPacket newEdge vacuumEdge P) n
+  let vacuumSlice : Nat → Q' := fun vacuumSpin =>
+    listQSum
+      (fun label => refinedTerm (setEdgeLabel label vacuumEdge vacuumSpin))
+      (boundedEdgeLabellings K (newEdge :: edges))
+  have hvacCollapse : fsum vacuumSlice (K + 1) ≈ vacuumSlice 0 := by
+    apply YMGap.Continuum.FusionQuotientCollapse.fsum_collapse
+    intro vacuumSpin hspin
+    apply listQSum_zero
+    intro label
+    have hz := projectedCorrTerm_vacuum_spin_ne_zero
+      oldEdge newEdge vacuumEdge edges vertices P n label
+        (label newEdge) vacuumSpin hspin
+    rw [setEdgeLabel_current label newEdge] at hz
+    exact hz
+    exact Nat.succ_pos K
+  have hnewExpand : vacuumSlice 0 ≈
+      fsum (fun spin => listQSum
+        (fun tail => refinedTerm
+          (setEdgeLabel (setEdgeLabel tail newEdge spin) vacuumEdge 0))
+        (boundedEdgeLabellings K edges)) (K + 1) := by
+    exact listQSum_bounded_cons K newEdge edges
+      (fun label => refinedTerm (setEdgeLabel label vacuumEdge 0))
+  have hswap :
+      fsum (fun spin => listQSum
+        (fun tail => refinedTerm
+          (setEdgeLabel (setEdgeLabel tail newEdge spin) vacuumEdge 0))
+        (boundedEdgeLabellings K edges)) (K + 1) ≈
+      listQSum (fun tail => fsum (fun spin => refinedTerm
+          (setEdgeLabel (setEdgeLabel tail newEdge spin) vacuumEdge 0))
+        (K + 1)) (boundedEdgeLabellings K edges) :=
+    fsum_listQSum_swap
+      (fun spin tail => refinedTerm
+        (setEdgeLabel (setEdgeLabel tail newEdge spin) vacuumEdge 0))
+      (boundedEdgeLabellings K edges) (K + 1)
+  have hsliceCollapse :
+      listQSum (fun tail => fsum (fun spin => refinedTerm
+          (setEdgeLabel (setEdgeLabel tail newEdge spin) vacuumEdge 0))
+        (K + 1)) (boundedEdgeLabellings K edges) ≈
+      listQSum
+        (identityRefinementReweightedTerm oldEdge edges vertices P n)
+        (boundedEdgeLabellings K edges) := by
+    apply listQSum_congr_mem
+    intro tail htail
+    exact identity_new_segment_slice_all_time oldEdge newEdge vacuumEdge
+      edges vertices P n tail hold htail hnew hvac hno hvo hnv
+        hnewV hvacV
+  exact Q'.eqv_trans _
+    (listQSum refinedTerm
+      (boundedEdgeLabellings K
+        (identityRefinedEdges newEdge vacuumEdge edges))) _
+    (packetGraph_corr_eq_full
+      (identityRefinedEdges newEdge vacuumEdge edges)
+      (identityRefinedVertices oldEdge newEdge vacuumEdge vertices)
+      (identityRefinedPacket newEdge vacuumEdge P) n)
+    (Q'.eqv_trans _ (fsum vacuumSlice (K + 1)) _
+      (listQSum_bounded_cons K vacuumEdge (newEdge :: edges) refinedTerm)
+      (Q'.eqv_trans _ (vacuumSlice 0) _ hvacCollapse
+        (Q'.eqv_trans _ _ _ hnewExpand
+          (Q'.eqv_trans _ _ _ hswap hsliceCollapse))))
+
 end YMGap.Continuum.SU2FiniteTrivalentPacketGraphIdentityRefinementSum
 
 #print axioms YMGap.Continuum.SU2FiniteTrivalentPacketGraphIdentityRefinementSum.fsum_listQSum_swap
 #print axioms YMGap.Continuum.SU2FiniteTrivalentPacketGraphIdentityRefinementSum.identity_new_segment_slice
 #print axioms YMGap.Continuum.SU2FiniteTrivalentPacketGraphIdentityRefinementSum.packetGraph_corr_identity_refinement_zero
+#print axioms YMGap.Continuum.SU2FiniteTrivalentPacketGraphIdentityRefinementSum.projectedCorrTerm_identity_refinement_selected
+#print axioms YMGap.Continuum.SU2FiniteTrivalentPacketGraphIdentityRefinementSum.identity_new_segment_slice_all_time
+#print axioms YMGap.Continuum.SU2FiniteTrivalentPacketGraphIdentityRefinementSum.packetGraph_corr_identity_refinement_all_time
