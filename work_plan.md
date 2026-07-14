@@ -3309,6 +3309,15 @@ uniform source-dependent synthesis of a paid block disjoint from the blocks
 already selected for every arbitrary-ear source; once such fresh blocks are
 constructed, the global family induction is now available without an assumed
 compatibility theorem.
+`XiExceptionalGeneralLongArmC12ThreeSourceOwned` supplies the first nontrivial
+successor to that two-source base.  It enlarges the short ear by one compatible
+off-path polymer and represents the resulting source monomial exactly by the
+same genuine occurrence path plus the genuine external occurrence mask selecting
+that polymer.  The external bit is a recoverable source tag, the singleton is
+machine-checked disjoint from both previous blocks, and the generic extension
+therefore produces a three-source owned family.  This validates source-tagged
+growth on real carrier geometry, but finite examples still do not replace the
+open uniform synthesis for every arbitrary-ear source.
 
 **Adversarial correction (2026-07-12).**  `Continuum/FrontierStatementBugFence.lean`
 machine-refutes the claimed strength of two Bucket-2 atom types without changing
@@ -5984,11 +5993,15 @@ cell to an explicit division-free denominator-cube-cleared integer polynomial
 certificate.  `HarmonicMassCrossLowerSixSuffixMonotone` proves an exact forward-
 difference identity for the cleared right-cell slack and rewrites it, under
 `D=50+x`, `N=13+t`, and `N²=3D+z`, into manifestly nonnegative coefficient
-polynomials.  Hence each suffix certificate is monotone once the theta indices
-are connected to those coordinates.  OPEN is the Nat/rational bridge and the
-single endpoint certificate at `thetaWindowRight+1`, followed by the genuinely
-quantitative reserve-versus-prefix-deficit bound (mere reserve nonnegativity is
-deliberately not conflated with payment).
+polynomials.  `HarmonicMassCrossLowerSixSuffixMonotoneRational` supplies the
+nonlinear-safe bridge that the first Nat/`omega` attempt could not: exact
+`Q'` translation identities for `x=D-50`, `t=N-13`, and `z=N²-3D` transport the
+polynomial engine to monotonicity under `D≥50`, `N≥13`, `N²≥3D` without asking a
+linear arithmetic tactic to solve the square relation.  OPEN is instantiating
+those hypotheses on the actual theta suffix and proving the single endpoint
+certificate at `thetaWindowRight+1`, followed by the genuinely quantitative
+reserve-versus-prefix-deficit bound (mere reserve nonnegativity is deliberately
+not conflated with payment).
 
 `HarmonicWilsonTransferBridge` identifies the exact normalization separating
 the existing Wilson correlator reconstruction from the finite character
@@ -8208,10 +8221,16 @@ are integrated.
    `SU2OrderedRacahEndpointGramTranspose` now proves the abstract positive-Gram
    transpose/uniqueness consumer, identifies the raw endpoint coefficient with
    the backward Jacobi coefficient at `p=1`, and checks the required Gram ratios
-   and candidate endpoint packages in the fundamental and mixed blocks.  OPEN
-   is no longer the transpose algebra itself: it is proving that the actual
-   reconstructed all-label section satisfies that Gram-dual equation, then
-   extending the raw action and dual recurrence through every interior order.
+   and candidate endpoint packages in the fundamental and mixed blocks.
+   `SU2OrderedRacahEndpointReconstructedSection` now applies the finite-box
+   transpose of `pairExchange` to the actual reconstructed section coefficient
+   in the fundamental and mixed `(2,2,1,1)` blocks, proving both exact Gram-
+   transpose and endpoint candidate packages.  A normalization fence shows the
+   raw mixed operator gives `5/6`, not the section coefficient `1/3`, while the
+   transpose gives `1/3`; this is not a boundary truncation artifact.  OPEN is
+   the all-label theorem that the explicit reconstructed section satisfies the
+   same Gram-dual equation, then extension of the raw action and dual recurrence
+   through every interior order.
    The same-state
    interacting Wilson realization remains separately open.
    The older `PartitionBeyondTree.SixJRecoupling` carrier is now permanently
