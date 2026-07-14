@@ -1084,6 +1084,7 @@ YMGap.Continuum.SU2OrderedRacahHeightOneBulkCancellationFence = de47da00b6662e8e
 YMGap.Continuum.SU2OrderedRacahHeightOneCarrier = f8835cbbeed571dd  (3)
 YMGap.Continuum.SU2OrderedRacahHeightOneCarrierScalarPolynomial = 96561caae4ac5b4d  (10)
 YMGap.Continuum.SU2OrderedRacahHeightOneExactResidualPolynomial = 6fe8aee30acfb977  (3)
+YMGap.Continuum.SU2OrderedRacahHeightOneIntegralResidualCancellation = 77d54b0e35b79974  (1)
 YMGap.Continuum.SU2OrderedRacahHeightOneIntegralResidualCertificate = 8f41c525fc413818  (1)
 YMGap.Continuum.SU2OrderedRacahHeightOneIntegralResidualTransport = 995997376c75f715  (3)
 YMGap.Continuum.SU2OrderedRacahHeightOneLegacyCancellation = b1a923af234cf0f7  (5)
