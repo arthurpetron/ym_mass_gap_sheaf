@@ -8246,6 +8246,13 @@ are integrated.
    transpose/uniqueness consumer, identifies the raw endpoint coefficient with
    the backward Jacobi coefficient at `p=1`, and checks the required Gram ratios
    and candidate endpoint packages in the fundamental and mixed blocks.
+   `SU2OrderedRacahEndpointClosedGramRatio` derives the arbitrary-label
+   factorial detailed-balance identity for the product of the inner and outer
+   closed binary Grams: at endpoint channels `f` and `f-2`, the two dimension
+   factors convert the section-side Jacobi coefficient exactly into the raw
+   endpoint coefficient.  This removes the numerical normalization guess; the
+   remaining bridge is the constructive factorization of the concrete nested
+   `triRightChannelWeight` by that closed Gram product and its dimension factor.
    `SU2OrderedRacahEndpointReconstructedSection` now applies the finite-box
    transpose of `pairExchange` to the actual reconstructed section coefficient
    in the fundamental and mixed `(2,2,1,1)` blocks, proving both exact Gram-
