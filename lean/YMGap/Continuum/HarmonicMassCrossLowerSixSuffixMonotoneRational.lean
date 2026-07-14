@@ -110,7 +110,8 @@ private theorem lowerSixRightRawNum_eqv_congr
       (mul_eqv_congr'
         (Q'.add_eqv_congr' hN (Q'.eqv_refl 1)) hD))
 
-private theorem lowerSixRightRawSlack_eqv_congr
+/-- The cleared raw slack respects semantic equality in both variables. -/
+theorem lowerSixRightRawSlack_eqv_congr
     {D D' N N' : Q'} (hD : D ≈ D') (hN : N ≈ N') :
     lowerSixRightRawSlack D N ≈ lowerSixRightRawSlack D' N' := by
   have hden := lowerSixRightRawDen_eqv_congr hD hN
@@ -178,6 +179,7 @@ theorem lowerSixRightRawSlack_monotone_rational
 #print axioms lowerSixSquareSlack_eqv
 #print axioms lowerSixRightRawSlack_translated_eqv
 #print axioms lowerSixRightRawSlack_translated_succ_eqv
+#print axioms lowerSixRightRawSlack_eqv_congr
 #print axioms lowerSixRightRawSlack_monotone_rational
 
 end YMGap.Continuum.HarmonicMassCrossLowerSixSuffixMonotoneRational

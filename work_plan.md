@@ -6012,11 +6012,18 @@ polynomials.  `HarmonicMassCrossLowerSixSuffixMonotoneRational` supplies the
 nonlinear-safe bridge that the first Nat/`omega` attempt could not: exact
 `Q'` translation identities for `x=D-50`, `t=N-13`, and `z=N²-3D` transport the
 polynomial engine to monotonicity under `D≥50`, `N≥13`, `N²≥3D` without asking a
-linear arithmetic tactic to solve the square relation.  OPEN is instantiating
-those hypotheses on the actual theta suffix and proving the single endpoint
-certificate at `thetaWindowRight+1`, followed by the genuinely quantitative
-reserve-versus-prefix-deficit bound (mere reserve nonnegativity is deliberately
-not conflated with payment).
+linear arithmetic tactic to solve the square relation.
+`HarmonicMassCrossLowerSixSuffixShapeCertificate` derives an exact 225-scaled
+four-term factorization of the cleared cell slack and proves its
+nonnegativity from the two explicit shape inequalities.
+`HarmonicMassCrossLowerSixSuffixEndpoint` then proves by a modulo-four analysis
+that the cell immediately after the right window satisfies both shape bounds,
+and propagates the rational monotonicity theorem to every subsequent suffix
+cell.  Thus the entire post-window suffix reserve is nonnegative.  OPEN is the
+floor-sensitive first nominal endpoint cell (requiring a uniform large-center
+certificate plus exact finite bootstrap), followed by the genuinely
+quantitative reserve-versus-prefix-deficit bound; mere reserve nonnegativity is
+deliberately not conflated with payment.
 
 `HarmonicWilsonTransferBridge` identifies the exact normalization separating
 the existing Wilson correlator reconstruction from the finite character
