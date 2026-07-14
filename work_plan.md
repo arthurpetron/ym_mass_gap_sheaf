@@ -6032,6 +6032,11 @@ It proves that far-tail nonnegativity and the single sharp inequality
 `-lowerSixWindowPrefix <= lowerSixRecoveryReserve` close the interior residual.
 OPEN is that genuinely quantitative recovery-versus-prefix bound; mere
 cellwise reserve nonnegativity is deliberately not conflated with payment.
+`HarmonicMassCrossLowerSixRecoveryPairingFence` rules out the first tempting
+termwise payment at the exact initial scale (`n=3` paired with `n=13` is still
+negative), and derives the endpoint-aware complement identity showing that a
+seven-core lower bound has the wrong direction.  The live cumulative/Pascal
+attack must instead upper-bound the seven-core together with the terminal mode.
 
 `HarmonicWilsonTransferBridge` identifies the exact normalization separating
 the existing Wilson correlator reconstruction from the finite character
@@ -6664,6 +6669,12 @@ square pairing as the finite SOS kernel
 square theorem therefore prove Wilson-weighted positivity for every supported
 eight-coordinate polynomial.  No sampled coefficient or positivity field is
 used.
+`SU2QuaternionHaarSupportProjection` then proves that every exponent above the
+eight quaternion coordinates contributes identically zero and may be projected
+away before either factor of a weighted square.  This discharges the unchanged
+full-carrier frontiers `ProductHaarAllDegreePositive` and
+`RetainedWeightedAllDegreePositive` and constructs the previously conditional
+nonconstant dense-carrier `ReferenceWeight` with no hypotheses.
 `SU2QuaternionBoundarySwapCarrierFence` catches the next strict-interface
 problem: the earlier dense-list boundary swap pads exponent lists to length
 eight, so it fails literal unit preservation and cannot be installed as the
@@ -6677,9 +6688,12 @@ theorem into a concrete normalized positive functional on the canonical
 algebra.  Its successor proves exact Haar invariance under the strict boundary
 swap.  `SU2QuaternionCanonicalEightWilsonWeight` constructs the nonconstant
 retained kernel intrinsically on the strict carrier and proves it is literally
-fixed by that swap.  OPEN is the final transport of the supported
-Wilson-weighted theorem to this canonical kernel, then construction of its
-reflection-positive time geometry and interacting shared-link transfer.
+fixed by that swap.  `SU2QuaternionCanonicalEightWilsonPositivity` resolves the
+remaining trailing-zero representation bridge at the exact linear moment fold,
+transports the Wilson SOS theorem to every canonical polynomial, proves the
+partition exactly one, and constructs an unconditional nonconstant canonical
+`ReferenceWeight`.  OPEN is construction of its reflection-positive time
+geometry and interacting shared-link transfer.
 `SU2PeterWeylPlaquetteTensorBlock` derives the corresponding five-dimensional
 one-plaquette matrix-coefficient block: one vacuum plus four `D_ab` channels,
 all four with eigenvalue `1/8`, with the trace normalization independently
@@ -8302,7 +8316,18 @@ are integrated.
    constructively cancels the two positive intermediate-dimension factors,
    proving the literal `triRightChannelWeight` Gram-transpose equation for every
    physical endpoint label.  No abstract or closed Gram remains in its
-   statement.
+   statement.  `SU2OrderedRacahInteriorActualGramTranspose` extends the same
+   calculation through every adjacent pair of proof-carrying physical right
+   channels: the exact forward and backward Jacobi coefficients satisfy
+   detailed balance in the literal finite-box `triRightChannelWeight` metric.
+   Thus endpoint and interior Gram self-adjointness are now both all-label
+   theorems.
+   `SU2OrderedRacahFiniteJacobiConsumer` converts the pointwise Casimir equation
+   into the existing division-free forward recurrence, proves every actual
+   proof-carrying adjacent pivot strictly positive, and supplies constructive
+   finite uniqueness from a common endpoint value.  OPEN is proving that the
+   reconstructed coefficient sequence and signed factorial candidate satisfy
+   that interior Casimir equation; the consumer itself is no longer missing.
    `SU2OrderedRacahEndpointReconstructedSection` now applies the finite-box
    transpose of `pairExchange` to the actual reconstructed section coefficient
    in the fundamental and mixed `(2,2,1,1)` blocks, proving both exact Gram-
