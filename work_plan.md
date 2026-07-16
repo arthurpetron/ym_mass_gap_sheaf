@@ -7584,9 +7584,10 @@ component sub-support law, the exact denominator-cleared rising-prefix splice,
 the constructive-real mixed-OS Young recurrence, and the even-incidence
 canonical-activity positivity engine, followed by the exact cylinder-base
 cofinal transport and the adjacent-cube cancellation fence, the integrated
-root package is green at 2,359 jobs.  The refreshed strict axiom inventory
-covers 18,529 theorems in 2,234 namespaces with zero forbidden exceptions.
-Both pinned-statement guards pass at 2,360
+root package, now also including additive-error midpoint doubling, is green at
+2,360 jobs.  The refreshed strict axiom inventory covers 18,533 theorems in
+2,235 namespaces with zero forbidden exceptions.  Both pinned-statement guards
+pass at 2,361
 jobs.  The
 five Clay-frontier types remain genuinely uninhabited and all ten guarded
 statements retain their pinned hashes.
@@ -10748,6 +10749,15 @@ statements retain their pinned hashes.
    `t+1` along the dyadic orbit and contradicts the cap via the rational
    Archimedean theorem.  Its direct compile is green and all four gates stay in
    `{propext, Quot.sound}`.
+   `BoundedMidpointDoublingError` proves the stable additive-defect consumer:
+   a uniformly upper-bounded sequence satisfying
+   `2*a(n) <= a(0)+a(2*n)+eta`, with `0 <= eta`, obeys
+   `a(n) <= a(0)+eta`.  The proof subtracts both anchor and error, obtains a
+   homogeneous doubling recurrence, and constructively rules out every
+   positive shifted excess by the same dyadic Archimedean contradiction.  All
+   four printed gates are axiom-clean.  This permits an explicit finite-stage
+   transport error to be retained honestly; the reflection lane must still
+   derive its vanishing/CReal passage and uniform cap.
    `...DoubledTimeMixedOSYoung` now derives the model-specific constructive-real
    recurrence up to its honest common-box source.  The exact finite Gram
    identity `2*B(left,right)+Q(left-right)=Q(left)+Q(right)` gives normalized
