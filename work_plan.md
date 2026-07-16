@@ -7632,15 +7632,15 @@ the constructive-real mixed-OS Young recurrence, and the even-incidence
 canonical-activity positivity engine, followed by the exact cylinder-base
 cofinal transport and the adjacent-cube cancellation fence, the integrated
 root package, now also including additive-error and constructive-real midpoint
-doubling, is green at 2,386 jobs after the constructive-real cylinder-base
+doubling, is green at 2,390 jobs after the constructive-real cylinder-base
 transport lift, the
 literal doubled-time recurrence, the harmonic physical three-band splice, and
 the outward three-cube carrier family, together with the derived translated
 quadratic cap, the strict translated-form contraction and action, the harmonic
 physical-carrier block-cancellation interface, and the coarse/fine outward
 three-cube pattern carriers, now including the complete fine Boolean law.  The
-refreshed strict axiom inventory covers 18,741 theorems in 2,261 namespaces
-with zero forbidden exceptions.  Both pinned-statement guards pass at 2,387
+refreshed strict axiom inventory covers 18,783 theorems in 2,267 namespaces
+with zero forbidden exceptions.  Both pinned-statement guards pass at 2,391
 jobs.  The
 five Clay-frontier types remain genuinely uninhabited and all ten guarded
 statements retain their pinned hashes.
@@ -10896,6 +10896,25 @@ statements retain their pinned hashes.
    presentations, descend this CReal-valued nonexpansive action through its
    metric quotient and completion, and separately prove bilinear
    self-adjointness before any spectral-gap conclusion.
+   `...CylinderBaseTransportBilinear` now polarizes the base-transport
+   quadratic identity: transport is additive and rational-linear, commutes
+   with time translation, composes and reflects correctly, and is an isometry
+   for the full two-vector limiting reflection form.  `CRealSeminormCompletion`
+   constructs, without choice, the radical quotient and explicit-modulus
+   Cauchy completion of any constructive-real squared seminorm, and descends
+   every nonexpansive map or semigroup.  The strict-model
+   `...CRealRadicalDescent` proves stagewise sharp Cauchy--Schwarz, passes the
+   radical estimate to the limiting form, establishes endpoint replacement
+   and the sqrt-free triangle law, and therefore supplies a fully discharged
+   fixed-base `strictJointCylinderSquaredSeminorm`.  The exact two-dimensional
+   `ContractivePositiveSemigroupSelfAdjointnessFence` proves that semigroup,
+   norm/distance contraction, and nonnegative diagonal transfer form still do
+   not imply self-adjointness.  All forty-two gates in this tranche are empty
+   or lie within `{propext, Quot.sound}`.  OPEN is to assemble the base-indexed
+   isometries
+   into the fixed direct carrier, instantiate its nonexpansive time semigroup
+   on the completion, and derive the missing mixed off-diagonal covariance
+   from the signed-cylinder reflection geometry before spectral localization.
    Ordinary affine time-shift covariance still cannot be substituted for that
    compression step.  Full state-preserving isometry, global norm invariance,
    and Hilbert-space semigroup conclusions remain fenced until the comparison
