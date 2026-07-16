@@ -7583,9 +7583,10 @@ the bounded midpoint-doubling contraction core, the corrected physical
 component sub-support law, the exact denominator-cleared rising-prefix splice,
 the constructive-real mixed-OS Young recurrence, and the even-incidence
 canonical-activity positivity engine, followed by the exact cylinder-base
-cofinal transport, the integrated root package is green at 2,358 jobs.  The
-refreshed strict axiom inventory covers 18,521 theorems in 2,233 namespaces
-with zero forbidden exceptions.  Both pinned-statement guards pass at 2,359
+cofinal transport and the adjacent-cube cancellation fence, the integrated
+root package is green at 2,359 jobs.  The refreshed strict axiom inventory
+covers 18,529 theorems in 2,234 namespaces with zero forbidden exceptions.
+Both pinned-statement guards pass at 2,360
 jobs.  The
 five Clay-frontier types remain genuinely uninhabited and all ten guarded
 statements retain their pinned hashes.
@@ -10928,6 +10929,17 @@ statements retain their pinned hashes.
    the finite connected-carrier geometry and the corrected query truth table.
    This is still a cutoff-one SU(2)/Z4 mechanism, not the arbitrary-group
    interacting block transformation required by the Clay statement.
+   `Z4AdjacentCubeCancellationCarrier` now banks the first exact geometric
+   fork.  The ordinary zero/x adjacent-cube union has eleven faces and a
+   displayed interface-boundary link of incidence three, so it is not gauge
+   closed.  Symmetric-difference cancellation produces the literal ten-face
+   rectangular boundary, proves even incidence at every link, and therefore
+   receives strictly positive canonical activity from the preceding engine.
+   However, cancellation removes exactly the shared interface face used by
+   the current left subsupport query.  Hence this pair can never witness a
+   left-true pattern: retaining the query is unphysical, while closing the
+   carrier erases it.  The live all-eight geometry has consequently moved to
+   outward x/y/z cubes meeting only along links, with an exterior third query.
    A global refresh may not be called a local block kernel.  Meanwhile the
    reflection-positive route
    is constructing an actual adjacent-time joint cylinder law rather than an
