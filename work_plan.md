@@ -7596,11 +7596,12 @@ the constructive-real mixed-OS Young recurrence, and the even-incidence
 canonical-activity positivity engine, followed by the exact cylinder-base
 cofinal transport and the adjacent-cube cancellation fence, the integrated
 root package, now also including additive-error midpoint doubling, is green at
-2,364 jobs after the constructive-real cylinder-base transport lift, the
+2,365 jobs after the constructive-real cylinder-base transport lift, the
 literal doubled-time recurrence, the harmonic physical three-band splice, and
-the outward three-cube carrier family.  The refreshed strict axiom inventory
-covers 18,560 theorems in 2,239 namespaces with zero forbidden exceptions.
-Both pinned-statement guards pass at 2,365
+the outward three-cube carrier family, together with the derived translated
+quadratic cap.  The refreshed strict axiom inventory covers 18,564 theorems in
+2,240 namespaces with zero forbidden exceptions.  Both pinned-statement guards
+pass at 2,366
 jobs.  The
 five Clay-frontier types remain genuinely uninhabited and all ten guarded
 statements retain their pinned hashes.
@@ -10809,6 +10810,16 @@ statements retain their pinned hashes.
    `CReal.leEv` theorem for every vector and time shift.  Its sole gate is
    axiom-clean.  No common-box presentation remains in the recurrence; the cap
    and the constructive-real Archimedean contraction are the exact residual.
+   `...DoubledTimeOSUniformCap` now derives the cap rather than adding it as an
+   interface.  Normalized centered probabilities are at most one; the explicit
+   dyadic Gram comparison gives the stage-independent entry bound
+   `1+conditionalCoefficient`; finite `L1`-square stability then bounds every
+   rational approximation of every literal time translate by the same
+   coefficient/root-count expression.  The corresponding `CReal.leEv` cap is
+   also proved.  Its direct and named builds are green and all four gates use
+   only `{propext, Quot.sound}`.  OPEN is now the finite-orbit synchronization
+   of index-dependent `leEv` cutoffs and the final constructive Archimedean
+   contraction theorem.
    Ordinary affine time-shift covariance still cannot be substituted for that
    compression step.  Full state-preserving isometry, global norm invariance,
    and Hilbert-space semigroup conclusions remain fenced until the comparison
