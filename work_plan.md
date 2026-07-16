@@ -6414,9 +6414,18 @@ carrier drop itself now factors through a positive preload and a weight-free
 slope-drop carrier.  Kernel checks fence the range sharply: positivity fails
 at `(k,j)=(48,10)` but holds at the post-bootstrap far edge
 `(k,j)=(648,71)`.  Its 498-job named build is green and all sixteen gates are
-exactly `[propext, Quot.sound]`.  OPEN is to prove uniform nonnegativity of the
-preloaded carrier drop on the post-bootstrap cells and then pay the remaining
-one-crossing drift debt cumulatively; no algebraic or indexing split remains.
+exactly `[propext, Quot.sound]`.
+`HarmonicMassCrossLowerSixRecoveryLinearAbelPostBootstrap` now discharges the
+first of those two analytic obligations throughout the physical
+post-bootstrap region.  Exact cubic secants, the old odd-power floor `31/40`,
+the preload ceiling `65/64`, and the closed comparison
+`6*(65/64)^2*(9/5) <= 62/5` prove every weight-free slope-drop carrier,
+preloaded carrier drop, and complete favorable scale reserve nonnegative for
+`k >= 648`.  Its 519-job named build and direct compile are green; all sixteen
+printed load-bearing gates use exactly `{propext, Quot.sound}`.  OPEN is now
+strictly the cumulative complementary-weight drift and adverse terminal-mode
+payment into that proved reserve, followed by the endpoint consumers and
+`RecoveryRawClosure`; pointwise carrier positivity is no longer an assumption.
 `HarmonicMassCrossLowerSixRecoveryEndpointCarrier` now separates the two
 alternating endpoint families from that within-cell analysis without another
 global polynomial expansion.  Arbitrary one-step fixed-center drops telescope
@@ -7504,11 +7513,13 @@ frontier discharge.
 ## Active mechanism registry (2026-07-14)
 
 The ordering is proof holes, semantic correctness, analytic frontier, then
-Clay-facing assembly.  Source scanning currently finds no executable `sorry`
-or `admit`; after the signed-OS, physical three-cube leakage, kernel-symmetry,
-and bipushforward imports the integrated root package is green at 2,337 jobs.  The refreshed
-strict axiom inventory covers 18,309 theorems in 2,212 namespaces with zero
-forbidden exceptions.  Both pinned-statement guards pass at 2,338 jobs.  The
+Clay-facing assembly.  Source scanning currently finds no executable `sorry`,
+`admit`, `native_decide`, or standalone `Classical.*`; after the signed-OS,
+physical three-cube leakage, finite-entry/conditional-event, and post-bootstrap
+Linear--Abel imports the integrated root package is green at 2,340 jobs.  The
+refreshed strict axiom inventory covers 18,331 theorems in 2,215 namespaces
+with zero forbidden exceptions.  Both pinned-statement guards pass at 2,341
+jobs.  The
 five Clay-frontier types remain genuinely uninhabited and all ten guarded
 statements retain their pinned hashes.
 
@@ -10611,6 +10622,21 @@ statements retain their pinned hashes.
    entrywise strict-OS-schedule versus receding signed-presentation schedule
    identification after this bipushforward; no polarization or orientation
    ambiguity remains.
+   `...DoubledTimeMixedOSFiniteEntries` now performs the complete specialization:
+   every direct mixed-OS approximant is exactly the finite quadratic over its
+   oriented two-code normalized support-law entries.  Its 805-job named build is
+   green and all three gates are allowed.  Thus the remaining OS identity is
+   literally entrywise schedule descent between those support-law entries and
+   the already constructed receding mixed signed entries.
+   `...DoubledTimeMixedOSBipairConditional` now identifies each such normalized
+   entry with the corrected-slab conditional probability of the literal
+   lower-source/reflected-upper-target family event.  Its 806-job named build,
+   direct compile, and aggregate import are green; all four printed gates use
+   exactly `{propext, Quot.sound}`.  OPEN is therefore the final geometric
+   specialization of that event to the doubled-time mixed cylinder roots and
+   its corrected-slab-to-ambient/cutoff cofinal signed schedule descent; no
+   finite polarization, pushforward, normalization, or event-identification
+   algebra remains.
    Ordinary affine time-shift covariance still cannot be substituted for that
    compression step.  Full state-preserving isometry, global norm invariance,
    and Hilbert-space semigroup conclusions remain fenced until the comparison
