@@ -7581,10 +7581,11 @@ Linear--Abel imports, followed by the mixed-OS entry-event and joint-recoding
 interfaces, followed by the cumulative-payment and joint-centered bridges,
 the bounded midpoint-doubling contraction core, the corrected physical
 component sub-support law, the exact denominator-cleared rising-prefix splice,
-and the constructive-real mixed-OS Young recurrence, the integrated root
-package is green at 2,356 jobs.  The refreshed strict axiom inventory covers
-18,505 theorems in 2,231 namespaces with zero forbidden exceptions.  Both
-pinned-statement guards pass at 2,357
+the constructive-real mixed-OS Young recurrence, and the even-incidence
+canonical-activity positivity engine, the integrated root package is green at
+2,357 jobs.  The refreshed strict axiom inventory covers 18,513 theorems in
+2,232 namespaces with zero forbidden exceptions.  Both pinned-statement guards
+pass at 2,358
 jobs.  The
 five Clay-frontier types remain genuinely uninhabited and all ten guarded
 statements retain their pinned hashes.
@@ -10904,6 +10905,18 @@ statements retain their pinned hashes.
    support for this corrected observable, then the genuinely local
    fine-to-coarse character/fusion comparison and a summable cross-pattern
    leakage bound under iteration.
+   `Z4EvenIncidenceCanonicalActivityPositive` removes the amplitude part of
+   that first residual for every cutoff-one carrier satisfying the actual
+   even-incidence equations.  It identifies geometric incidence with the
+   local filter length, derives the sharp four-dimensional bound of six,
+   checks the exact positive fundamental multiplicities at incidences
+   `0,2,4,6`, and lifts their product together with the positive face factor
+   to `canonicalSurfaceActivity_pos_of_evenIncidence` at every positive
+   rational coupling.  Thus an XOR/cancellation-compatible all-eight witness
+   no longer needs a new positivity assumption: its remaining obligations are
+   the finite connected-carrier geometry and the corrected query truth table.
+   This is still a cutoff-one SU(2)/Z4 mechanism, not the arbitrary-group
+   interacting block transformation required by the Clay statement.
    A global refresh may not be called a local block kernel.  Meanwhile the
    reflection-positive route
    is constructing an actual adjacent-time joint cylinder law rather than an
