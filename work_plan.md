@@ -6472,6 +6472,21 @@ the shortcut that uses one crossing index for both.  Its 523-job named build
 and direct compile are green; all eleven gates are exactly
 `{propext, Quot.sound}`.  OPEN is the quantitative estimate for that finite
 middle band, its splice into the exact Abel identity, and terminal payment.
+`HarmonicMassCrossLowerSixRecoveryLinearAbelRisingSplice` now closes the exact
+splice and exposes the remaining inequality in a sharp denominator-cleared
+coordinate.  Two constructive finite geometric identities evaluate the
+quadratic moments in the linear carrier; every next-scale carrier prefix times
+the strictly positive cubic denominator is thereby an explicit combination of
+their numerators.  The full complement debt times that denominator is exactly
+the terminal prefix numerator plus the complete prefix-variation sum, and
+`lowerSixRecoveryLinearPayment_of_clearedAbelPayment` cancels the denominator
+to pay the original drift debt.  A closed first-cell fence proves the falling
+suffix variation at `(648,25)` is strictly positive, so terminal-only
+truncation is invalid.  Its 524-job named build and independent direct compile
+are green; all twelve gates are exactly `{propext, Quot.sound}`.  OPEN is now
+the uniform post-bootstrap inequality between this explicit cleared Abel debt
+and the already-positive reserve, followed by the endpoint consumers and
+`RecoveryRawClosure`.
 `HarmonicMassCrossLowerSixRecoveryEndpointCarrier` now separates the two
 alternating endpoint families from that within-cell analysis without another
 global polynomial expansion.  Arbitrary one-step fixed-center drops telescope
@@ -7564,11 +7579,11 @@ Clay-facing assembly.  Source scanning currently finds no executable `sorry`,
 physical three-cube leakage, finite-entry/conditional-event, and post-bootstrap
 Linear--Abel imports, followed by the mixed-OS entry-event and joint-recoding
 interfaces, followed by the cumulative-payment and joint-centered bridges,
-the bounded midpoint-doubling contraction core, and the corrected physical
-component sub-support law, the integrated root package is green at 2,354 jobs.
-The refreshed strict axiom inventory covers 18,487 theorems in 2,229
-namespaces with zero forbidden exceptions.  Both pinned-statement guards pass
-at 2,355
+the bounded midpoint-doubling contraction core, the corrected physical
+component sub-support law, and the exact denominator-cleared rising-prefix
+splice, the integrated root package is green at 2,355 jobs.  The refreshed
+strict axiom inventory covers 18,499 theorems in 2,230 namespaces with zero
+forbidden exceptions.  Both pinned-statement guards pass at 2,356
 jobs.  The
 five Clay-frontier types remain genuinely uninhabited and all ten guarded
 statements retain their pinned hashes.

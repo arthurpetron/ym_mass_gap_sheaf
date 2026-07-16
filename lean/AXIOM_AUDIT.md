@@ -650,6 +650,7 @@ YMGap.Continuum.HarmonicMassCrossLowerSixRecoveryLinearAbelFluxLocation = 413c1c
 YMGap.Continuum.HarmonicMassCrossLowerSixRecoveryLinearAbelFluxUnimodality = b1d584b0393780d9  (9)
 YMGap.Continuum.HarmonicMassCrossLowerSixRecoveryLinearAbelPostBootstrap = ce50965f55245895  (15)
 YMGap.Continuum.HarmonicMassCrossLowerSixRecoveryLinearAbelPrefixVariation = 17e9e85ffa29512c  (11)
+YMGap.Continuum.HarmonicMassCrossLowerSixRecoveryLinearAbelRisingSplice = 2cb9b73b50379eef  (12)
 YMGap.Continuum.HarmonicMassCrossLowerSixRecoveryPairingFence = c5683936b2c802e9  (2)
 YMGap.Continuum.HarmonicMassCrossLowerSixRecoveryRawClosure = 5cf927696b834151  (8)
 YMGap.Continuum.HarmonicMassCrossLowerSixRecoveryTerminal8189 = 91730666984034c2  (5)
