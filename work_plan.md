@@ -7582,10 +7582,10 @@ interfaces, followed by the cumulative-payment and joint-centered bridges,
 the bounded midpoint-doubling contraction core, the corrected physical
 component sub-support law, the exact denominator-cleared rising-prefix splice,
 the constructive-real mixed-OS Young recurrence, and the even-incidence
-canonical-activity positivity engine, the integrated root package is green at
-2,357 jobs.  The refreshed strict axiom inventory covers 18,513 theorems in
-2,232 namespaces with zero forbidden exceptions.  Both pinned-statement guards
-pass at 2,358
+canonical-activity positivity engine, followed by the exact cylinder-base
+cofinal transport, the integrated root package is green at 2,358 jobs.  The
+refreshed strict axiom inventory covers 18,521 theorems in 2,233 namespaces
+with zero forbidden exceptions.  Both pinned-statement guards pass at 2,359
 jobs.  The
 five Clay-frontier types remain genuinely uninhabited and all ten guarded
 statements retain their pinned hashes.
@@ -10759,6 +10759,17 @@ statements retain their pinned hashes.
    equivalence of `Q(boxTransport v)` with the base quadratic, followed by a
    shift-uniform coefficient/normalization cap and the constructive-real
    Archimedean passage.
+   `...CylinderBaseTransport` now supplies the entrywise cofinal core of the
+   first comparison without assuming translation covariance.  It proves exact
+   canonical transport for the strict upper query and the complete lower query
+   code, identifies the radius-aligned lower/upper centered roots and joint
+   event, and refines both schedules to their existing common cutoff.  The
+   resulting explicit rational estimate is
+   `|centeredSeq_(base+p,transport roots,n) -
+   centeredSeq_(base,roots,n+p)| <= 2^-n + 2^-n`.  Its direct and named builds
+   are green and all eight gates remain in `{propext, Quot.sound}`.  OPEN is to
+   lift this entry estimate through the finite quadratic and `CReal` limit,
+   then derive—not postulate—the shift-uniform cap needed by midpoint doubling.
    Ordinary affine time-shift covariance still cannot be substituted for that
    compression step.  Full state-preserving isometry, global norm invariance,
    and Hilbert-space semigroup conclusions remain fenced until the comparison
