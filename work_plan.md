@@ -7632,15 +7632,15 @@ the constructive-real mixed-OS Young recurrence, and the even-incidence
 canonical-activity positivity engine, followed by the exact cylinder-base
 cofinal transport and the adjacent-cube cancellation fence, the integrated
 root package, now also including additive-error and constructive-real midpoint
-doubling, is green at 2,394 jobs after the constructive-real cylinder-base
+doubling, is green at 2,395 jobs after the constructive-real cylinder-base
 transport lift, the
 literal doubled-time recurrence, the harmonic physical three-band splice, and
 the outward three-cube carrier family, together with the derived translated
 quadratic cap, the strict translated-form contraction and action, the harmonic
 physical-carrier block-cancellation interface, and the coarse/fine outward
 three-cube pattern carriers, now including the complete fine Boolean law.  The
-refreshed strict axiom inventory covers 18,816 theorems in 2,272 namespaces
-with zero forbidden exceptions.  Both pinned-statement guards pass at 2,395
+refreshed strict axiom inventory covers 18,825 theorems in 2,273 namespaces
+with zero forbidden exceptions.  Both pinned-statement guards pass at 2,396
 jobs.  The
 five Clay-frontier types remain genuinely uninhabited and all ten guarded
 statements retain their pinned hashes.
@@ -11176,6 +11176,16 @@ statements retain their pinned hashes.
    on those eight fine/coarse numerator cross-differences from the local
    character/fusion blocking map, then prove the bound summable under
    iteration.  No such estimate is assumed by this algebraic layer.
+   `Z4OutwardFineCoarseCharacterNumeratorAdapter` now expands the independently
+   normalized physical coarse/fine event numerators and partitions into the
+   literal cutoff-one character/fusion sums, proves their denominator strictly
+   positive, and identifies the physical cross-difference with the resulting
+   local rational expression.  Its conditional consumer accepts exactly the
+   remaining eight-pattern inequality
+   `absQ localCrossDiff <= bound * localDenominator`; no retuned law or hidden
+   normalization premise occurs.  All nine gates use only the permitted
+   axioms.  OPEN is to derive those eight inequalities and a bound summable
+   along a genuinely iteratable physical blocking trajectory.
    A global refresh may not be called a local block kernel.  Meanwhile the
    reflection-positive route
    is constructing an actual adjacent-time joint cylinder law rather than an
