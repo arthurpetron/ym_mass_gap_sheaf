@@ -7482,9 +7482,9 @@ measure invested formalization and audit surface,
 not proximity to the Clay theorem; the unsolved physical interfaces below
 remain theorem-strength regardless of corpus size.
 
-The active 2026-07-14 working snapshot has since grown to 2,253 Lean source
-modules and 706,956 source lines under `YMGap/Continuum`, and 2,377 modules and
-750,812 lines under all of `YMGap`.  This larger number includes the current
+The active 2026-07-14 working snapshot has since grown to 2,261 Lean source
+modules and 710,341 source lines under `YMGap/Continuum`, and 2,385 modules and
+754,197 lines under all of `YMGap`.  This larger number includes the current
 unintegrated certificate shards and research-route modules, so it is a measure
 of work attempted and review surface, not a green-build claim.  In particular,
 the exact lower-six production certificate now being assembled is one
@@ -7505,9 +7505,10 @@ frontier discharge.
 
 The ordering is proof holes, semantic correctness, analytic frontier, then
 Clay-facing assembly.  Source scanning currently finds no executable `sorry`
-or `admit`; the integrated root package is green at 2,328 jobs.  The refreshed
-strict axiom inventory covers 18,247 theorems in 2,203 namespaces with zero
-forbidden exceptions.  Both pinned-statement guards pass at 2,329 jobs.  The
+or `admit`; after the signed-OS, physical three-cube leakage, kernel-symmetry,
+and bipushforward imports the integrated root package is green at 2,337 jobs.  The refreshed
+strict axiom inventory covers 18,309 theorems in 2,212 namespaces with zero
+forbidden exceptions.  Both pinned-statement guards pass at 2,338 jobs.  The
 five Clay-frontier types remain genuinely uninhabited and all ten guarded
 statements retain their pinned hashes.
 
@@ -10575,10 +10576,41 @@ statements retain their pinned hashes.
    and doubled-time mixed signed presentations have the same constructive-real
    value, without a global law-covariance premise.  The descent's 796-job named
    build is green, its gate is exactly `[propext, Quot.sound]`, and the full
-   root build imports it.  This discharges the compatible-law presentation
-   residual, but not the final OS contraction: OPEN is to recode this value
-   equality through the OS bilinear definitions and combine it with the
-   mixed-form estimate to prove the norm comparison on the directed quotient.
+   root build imports it.  The subsequent
+   `...DoubledTimeMixedSignedOSRecoding` supplies the cofinal bridge back to the
+   strict centered Gram schedule.  Its terminal theorem identifies the
+   translated strict-joint centered limit with the signed target presentation,
+   using derived cross-volume and cutoff moduli rather than a covariance
+   premise.  The 798-job named build is green and all eleven gates remain in
+   `{propext, Quot.sound}`.  The one-theorem
+   `...DoubledTimeMixedSignedOSDescent` composition is also green and lands the
+   actual translated strict Gram limit directly in the doubled-time mixed
+   signed value, with gate `[propext, Quot.sound]`.  This discharges the
+   translated-diagonal schedule residual.  The subsequent
+   `...DoubledTimeMixedSignedOSGramEntry` specializes that descent to every
+   literal strict Gram entry, and `...DoubledTimeMixedSignedOSQuadratic`
+   performs both finite coefficient sums.  Its terminal theorem identifies the
+   translated reflection quadratic with one explicit oriented mixed signed
+   quadratic.  Their 799- and 802-job named builds are green, every printed
+   gate remains inside `{propext, Quot.sound}`, and the aggregate root imports
+   both.  OPEN is now one direction only: expand the direct polarized
+   `strictJointDoubledTimeMixedOSBilinear` into the same finite entry sum and
+   prove its cofinal schedule comparison with the signed mixed quadratic.
+   `...DoubledTimeMixedOSKernelSymmetry` has already removed the orientation
+   ambiguity in that expansion: the finite physical kernel, complete-support
+   kernel, and normalized pair law are all symmetric by the exact weighted-Gram
+   factorization.  Its 803-job named build and aggregate import are green and
+   its three gates stay inside `{propext, Quot.sound}`.  Composing the remaining
+   two-code pushforward/cofinal equality with the existing mixed-form estimate
+   must then prove the norm comparison on the directed quotient.
+   `...DoubledTimeMixedOSBipushforward` has now closed the two finite algebra
+   steps: symmetric-kernel polarization is exactly one oriented cross form, and
+   a general two-code deterministic pushforward turns that cross form into the
+   corresponding finite quadratic.  Its 804-job named build is green and all
+   three gates are allowed.  The sole remaining equality is therefore the
+   entrywise strict-OS-schedule versus receding signed-presentation schedule
+   identification after this bipushforward; no polarization or orientation
+   ambiguity remains.
    Ordinary affine time-shift covariance still cannot be substituted for that
    compression step.  Full state-preserving isometry, global norm invariance,
    and Hilbert-space semigroup conclusions remain fenced until the comparison
@@ -10666,12 +10698,35 @@ statements retain their pinned hashes.
    positive coupling; a separate theorem proves that its rows are genuinely
    source-dependent.  The uniform three-bit law concretely inhabits the match
    package and the source-dependence hypotheses.  Its 742-job named build is
-   green and all twelve gates lie inside `{propext, Quot.sound}`.  OPEN is now
-   a sharp physical choice: prove
-   eight-cell matching for the actual fine/coarse gauge laws on each shared
-   boundary fiber, or replace strict pattern preservation by a bounded-
-   neighborhood locality notion and derive an explicit summable leakage bound.
-   A global refresh may not be called a local block kernel.  Meanwhile the
+   green and all twelve gates lie inside `{propext, Quot.sound}`.
+   `Z4ThreeBlockPatternLeakageDecision` now formalizes the bounded-locality
+   branch rather than leaving it as prose.  For every positive exact coupling,
+   each pattern obeys the exact conservation identity “target mass + outgoing
+   leakage = source mass + incoming leakage.”  Its converters turn an explicit
+   per-pattern leakage budget into two-sided bounds on all eight cell-law
+   defects.  Both regimes are nonvacuous: the matched-fiber coupling has zero
+   leakage, while an exact uniform-to-left-biased three-bit coupling changes
+   the `000` cell from `1/8` to `1/16` and has strictly positive required
+   leakage.  Its 743-job named build is green and all sixteen gates remain in
+   `{propext, Quot.sound}`.
+   `Z4ThreeBlockPhysicalCubeLeakage` now instantiates the abstraction on three
+   literal pairwise-incident faces of the normalized projected cube.  Exact
+   character/fusion weights give the two surviving `000` and `111` states mass
+   `1/2`; their independent physical-row coupling has outgoing/incoming leakage
+   exactly `1/4 < 1`.  This is a derived rational amplitude, not a measurement.
+   The same module permanently fences the one-cube shortcut because its mixed
+   `001` mass is exactly zero.  It then bridges the actual global fine and
+   activity-matched coarse laws to exact event-numerator/physical-partition
+   ratios, types genuine dyadically related three-root geometry with pairwise
+   production-link overlap, and proves that one positive explicit mixed-cell
+   physical summand on each side yields both normalized mixed-cell
+   positivities.  Its 759-job named build and aggregate import are green; all
+   nineteen printed gates remain in `{propext, Quot.sound}`.  OPEN is now the
+   smallest numerical-free physical amplitude theorem: construct those two
+   positive mixed-pattern summands from the actual overlapping multi-cube
+   character/fusion law, then derive a summable leakage bound (or all eight
+   exact fiber matches) under iteration.  A global refresh may not be called a
+   local block kernel.  Meanwhile the
    reflection-positive route
    is constructing an actual adjacent-time joint cylinder law rather than an
    arbitrary spectral completion.  `Z4UnitCubeBareCouplingCorridor` now checks
