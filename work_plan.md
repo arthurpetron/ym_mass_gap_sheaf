@@ -7596,11 +7596,11 @@ the constructive-real mixed-OS Young recurrence, and the even-incidence
 canonical-activity positivity engine, followed by the exact cylinder-base
 cofinal transport and the adjacent-cube cancellation fence, the integrated
 root package, now also including additive-error midpoint doubling, is green at
-2,363 jobs after the constructive-real cylinder-base transport lift, the
-literal doubled-time recurrence, and the harmonic physical three-band splice.
-The refreshed strict axiom inventory covers 18,547 theorems in 2,238
-namespaces with zero forbidden exceptions.  Both pinned-statement guards pass
-at 2,364
+2,364 jobs after the constructive-real cylinder-base transport lift, the
+literal doubled-time recurrence, the harmonic physical three-band splice, and
+the outward three-cube carrier family.  The refreshed strict axiom inventory
+covers 18,560 theorems in 2,239 namespaces with zero forbidden exceptions.
+Both pinned-statement guards pass at 2,365
 jobs.  The
 five Clay-frontier types remain genuinely uninhabited and all ten guarded
 statements retain their pinned hashes.
@@ -10978,6 +10978,17 @@ statements retain their pinned hashes.
    left-true pattern: retaining the query is unphysical, while closing the
    carrier erases it.  The live all-eight geometry has consequently moved to
    outward x/y/z cubes meeting only along links, with an exterior third query.
+   `Z4OutwardThreeCubeLinkCarrier` now closes the parity, connectivity, and
+   amplitude half of that replacement.  Positive-coordinate translation and
+   duplicate-free append preserve even incidence; the x/y/z cube boundaries
+   are pairwise face-disjoint, touch through explicit physical links, and form
+   a connected three-cube union.  Exact geometric-support encoding then puts
+   all seven nonempty Boolean unions in the canonical family, and every one
+   has strictly positive derived activity for every positive coupling.  Its
+   820-job named build and direct compile are green; all thirteen printed gates
+   are empty or in `{propext, Quot.sound}`.  OPEN is the exterior-query truth
+   table and normalized fine/coarse all-eight mass theorem, followed by an
+   actual local blocking comparison and summable iterative leakage.
    A global refresh may not be called a local block kernel.  Meanwhile the
    reflection-positive route
    is constructing an actual adjacent-time joint cylinder law rather than an
