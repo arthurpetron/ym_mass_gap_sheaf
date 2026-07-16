@@ -7618,15 +7618,15 @@ the constructive-real mixed-OS Young recurrence, and the even-incidence
 canonical-activity positivity engine, followed by the exact cylinder-base
 cofinal transport and the adjacent-cube cancellation fence, the integrated
 root package, now also including additive-error and constructive-real midpoint
-doubling, is green at 2,376 jobs after the constructive-real cylinder-base
+doubling, is green at 2,377 jobs after the constructive-real cylinder-base
 transport lift, the
 literal doubled-time recurrence, the harmonic physical three-band splice, and
 the outward three-cube carrier family, together with the derived translated
 quadratic cap, the strict translated-form contraction and action, the harmonic
 physical-carrier block-cancellation interface, and the coarse/fine outward
 three-cube pattern carriers.  The refreshed strict axiom inventory covers
-18,650 theorems in 2,251 namespaces with zero forbidden exceptions.  Both
-pinned-statement guards pass at 2,377
+18,662 theorems in 2,252 namespaces with zero forbidden exceptions.  Both
+pinned-statement guards pass at 2,378
 jobs.  The
 five Clay-frontier types remain genuinely uninhabited and all ten guarded
 statements retain their pinned hashes.
@@ -11081,6 +11081,17 @@ statements retain their pinned hashes.
    normalized fine mass, then a quantitative local fine-to-coarse pattern
    comparison with a summable defect under iteration.  Positivity at both
    scales alone is not such a comparison.
+   `Z4ThreeBlockPatternRetunedLaw` gives an exact algebraic benchmark for that
+   comparison.  From any positive source eight-cell law it constructs the
+   target law with the same pattern masses, preserves all three one-bit
+   marginals, and builds a pattern-local joint coupling with identically zero
+   leakage; the outward coarse law supplies a fully derived positive source.
+   Its direct and named builds are green and all twelve gates use exactly the
+   permitted axioms.  This is intentionally not called the physical block
+   kernel: the retuned target is defined from the source pattern masses.  OPEN
+   is an explicit pointwise formula comparing this benchmark to the
+   independently derived fine law, with the resulting mismatch bounded rather
+   than definitionally erased.
    A global refresh may not be called a local block kernel.  Meanwhile the
    reflection-positive route
    is constructing an actual adjacent-time joint cylinder law rather than an

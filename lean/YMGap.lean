@@ -929,6 +929,7 @@ import YMGap.Continuum.Z4EvenIncidenceCanonicalActivityPositive
 import YMGap.Continuum.Z4AdjacentCubeCancellationCarrier
 import YMGap.Continuum.Z4OutwardThreeCubeLinkCarrier
 import YMGap.Continuum.Z4OutwardThreeCubeSubsupportPatterns
+import YMGap.Continuum.Z4ThreeBlockPatternRetunedLaw
 import YMGap.Continuum.Z4OutwardThreeCubeFineCarrier
 import YMGap.Continuum.FiniteCompatibilityPairOccurrence
 import YMGap.Continuum.Z4DyadicDeterministicSupportKernel
