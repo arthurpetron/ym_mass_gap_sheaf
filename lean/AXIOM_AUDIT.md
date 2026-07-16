@@ -2131,6 +2131,7 @@ YMGap.Continuum.Z4HalfTimeReflectionStrictJointEvenTimeOSPositive = 5a0a92bdba11
 YMGap.Continuum.Z4HalfTimeReflectionStrictJointGramLimitPositivity = 3bf34efabd5f2a6c  (9)
 YMGap.Continuum.Z4HalfTimeReflectionStrictJointMarkedCylinder = 1f71bc4568406f78  (13)
 YMGap.Continuum.Z4HalfTimeReflectionStrictJointOSDistanceContraction = 3ceb559c423994b8  (4)
+YMGap.Continuum.Z4HalfTimeReflectionStrictJointPolarizedDoubledTimeIdentity = d7796ed8f9e2d4e6  (2)
 YMGap.Continuum.Z4HalfTimeReflectionStrictJointRadiusIndexedTimeTranslation = 53bb070977385212  (17)
 YMGap.Continuum.Z4HalfTimeReflectionStrictJointRadiusIndexedTimeTranslationAction = 20f39f9557420945  (7)
 YMGap.Continuum.Z4HalfTimeReflectionStrictJointTimeTranslationQueryTransport = 277560876738c004  (14)

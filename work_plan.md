@@ -7632,15 +7632,15 @@ the constructive-real mixed-OS Young recurrence, and the even-incidence
 canonical-activity positivity engine, followed by the exact cylinder-base
 cofinal transport and the adjacent-cube cancellation fence, the integrated
 root package, now also including additive-error and constructive-real midpoint
-doubling, is green at 2,390 jobs after the constructive-real cylinder-base
+doubling, is green at 2,391 jobs after the constructive-real cylinder-base
 transport lift, the
 literal doubled-time recurrence, the harmonic physical three-band splice, and
 the outward three-cube carrier family, together with the derived translated
 quadratic cap, the strict translated-form contraction and action, the harmonic
 physical-carrier block-cancellation interface, and the coarse/fine outward
 three-cube pattern carriers, now including the complete fine Boolean law.  The
-refreshed strict axiom inventory covers 18,783 theorems in 2,267 namespaces
-with zero forbidden exceptions.  Both pinned-statement guards pass at 2,391
+refreshed strict axiom inventory covers 18,785 theorems in 2,268 namespaces
+with zero forbidden exceptions.  Both pinned-statement guards pass at 2,392
 jobs.  The
 five Clay-frontier types remain genuinely uninhabited and all ten guarded
 statements retain their pinned hashes.
@@ -10911,10 +10911,18 @@ statements retain their pinned hashes.
    norm/distance contraction, and nonnegative diagonal transfer form still do
    not imply self-adjointness.  All forty-two gates in this tranche are empty
    or lie within `{propext, Quot.sound}`.  OPEN is to assemble the base-indexed
-   isometries
-   into the fixed direct carrier, instantiate its nonexpansive time semigroup
+   isometries into the fixed direct carrier, instantiate its nonexpansive time
+   semigroup
    on the completion, and derive the missing mixed off-diagonal covariance
    from the signed-cylinder reflection geometry before spectral localization.
+   `...PolarizedDoubledTimeIdentity` now derives the strongest off-diagonal
+   consequence of the known doubled-time diagonal law: the translated
+   bilinear form is the exact half-sum of the two oppositely oriented one-sided
+   time crosses.  It packages the orientation-symmetry statement separately
+   and proves that this single antisymmetric residual is precisely what
+   remains before mixed covariance; both gates use exactly the allowed axioms.
+   OPEN on that sublane is an oriented two-presentation signed-cylinder
+   recoding/comparison proving the two one-sided crosses equivalent.
    Ordinary affine time-shift covariance still cannot be substituted for that
    compression step.  Full state-preserving isometry, global norm invariance,
    and Hilbert-space semigroup conclusions remain fenced until the comparison
