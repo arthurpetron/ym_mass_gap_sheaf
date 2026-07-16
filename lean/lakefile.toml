@@ -1,6 +1,12 @@
 name = "YMGap"
 defaultTargets = ["YMGap", "YMGapGuard", "YMGapStatementGuard"]
 
+# The generated exact-rational certificate rows can require more C++ thread
+# stack while Lean compares their fully normalized expressions.  This is a
+# weak argument: it changes only the compiler process stack reservation and
+# does not invalidate or alter theorem artifacts.
+weakLeanArgs = ["-s", "65536"]
+
 # Milestone 1.1 deliberately depends on nothing but Lean core: SU(2)
 # Casimirs are exact rationals, so `Nat`/`Rat` suffice and no
 # real-number infrastructure is needed. Later phases that touch

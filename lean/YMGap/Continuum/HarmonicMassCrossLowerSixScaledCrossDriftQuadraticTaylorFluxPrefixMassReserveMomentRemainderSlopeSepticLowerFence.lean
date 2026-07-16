@@ -1,0 +1,47 @@
+/-
+Kernel-checked fence for the independent septic square enclosure.
+
+The exact remainder is positive in the production regime, but independently
+paying the old and next slope-square errors loses the cross-scale
+cancellation.  The resulting explicit lower polynomial is already negative
+at the first positive mode of the first production scale.  Hence this lower
+polynomial cannot be the final pointwise positivity certificate.
+-/
+
+import YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftQuadraticTaylorFluxPrefixMassReserveMomentRemainderSlopeSepticLower
+
+namespace YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftQuadraticTaylorFluxPrefixMassReserveMomentRemainderSlopeSepticLowerFence
+
+open YMGap.Constructive
+open YMGap.Continuum
+open YMGap.Continuum.HarmonicCutoffBoundary
+open YMGap.Continuum.HarmonicWeightDriftFence
+open YMGap.Continuum.HarmonicMassCrossLowerSixDirichlet
+open YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftPayment
+open YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftRemainderPayment
+open YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftQuadraticTaylorFlux
+open YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftQuadraticTaylorFluxPrefixCubicEnvelope
+open YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftQuadraticTaylorFluxPrefixMassReserveMomentRemainderOneSubTaylor
+open YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftQuadraticTaylorFluxPrefixMassReserveMomentRemainderOneSubTaylorFive
+open YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftQuadraticTaylorFluxPrefixMassReserveMomentRemainderOneSubTaylorSeven
+open YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftQuadraticTaylorFluxPrefixMassReserveMomentRemainderSlopeSeptic
+open YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftQuadraticTaylorFluxPrefixMassReserveMomentRemainderSlopeSepticLower
+open YMGap.Continuum.SummableInverseSquare
+
+/-- Independent old/next septic square payments are too expensive even at
+the first positive mode of the production range. -/
+theorem lowerSixHermiteRemainderTaylor6LowerPolynomial_not_nonnegative_k8189_n1 :
+    not ((0 : Q') ≤
+      lowerSixHermiteRemainderTaylor6LowerPolynomial 8189 1) := by
+  unfold lowerSixHermiteRemainderTaylor6LowerPolynomial
+    lowerSixSlopeInvCube rootSlopeTaylor6 oneSubTaylor6 oneSubTaylor5
+    oneSubTaylor4 oneSubTaylor3 oneSubTaylor2 lowerSixQuadraticTaylorFactor
+    lowerSixWeightDriftFloor lowerSixWeightDriftQuadratic
+    lowerSixDriftExcess lowerSixDirichletProfile harmU unit driftDen
+    lowerSixDiscreteHermiteFluxPoly sexticCoeff quinticCoeff quarticCoeff
+    cubicCoeff lowerSixQuadraticCoeff
+  decide
+
+#print axioms lowerSixHermiteRemainderTaylor6LowerPolynomial_not_nonnegative_k8189_n1
+
+end YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftQuadraticTaylorFluxPrefixMassReserveMomentRemainderSlopeSepticLowerFence

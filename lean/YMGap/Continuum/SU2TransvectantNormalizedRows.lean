@@ -71,7 +71,7 @@ theorem symMonomialNormSq_adjacent_cross (d s : Nat) (hs : s < d) :
     Q'.ofNat_den_cast, Q'.ofNat_den_cast]
   simp only [Q'.mkN, Int.mul_one]
   have hint := congrArg Int.ofNat hnat
-  simp only [Int.natCast_mul, Int.natCast_add, Int.natCast_one] at hint ⊢
+  simp only [Int.natCast_add, Int.natCast_one] at hint ⊢
   exact congrArg (fun z : Int => z * (tvFact d : Int)) hint
 
 /-- The invariantly normalized squared norm of output row `s`. -/

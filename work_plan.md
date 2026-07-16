@@ -5013,6 +5013,17 @@ native-degree law `2a²+2a-1` (for `a≥4`), exposing the structure required by 
 future symbolic growing-anchor certificate.  The Schur/operator prefix remains
 `k≤12` until the four new D/A crosses are transported.
 
+`EightAnchorWindowRetune` extends that genuinely cutoff-uniform interval to
+`0≤w≤21/22`.  Its degree-143 eight-anchor head, all six shorter heads, and
+the tail-ratio comparison `(9/8)w^17 ≤ retuneCube(w)` are generated and
+checked as exact rational Bernstein certificates inside Lean.  PF2 then proves
+`adjCorr(w,N) ≤ retuneCube(w)·coordNormSq(w,N)` for every finite cutoff `N`,
+and the quotient, `lamPW`, and harmonic mass-floor consequences reach `k≤20`.
+This is a larger uniform character corridor, not the missing all-scale
+anti-screening theorem: the unresolved coupling interval remains
+`21/22 < w ≤ 1`, where a growing-anchor or genuinely index-coupled mechanism
+must replace finite anchor extension.
+
 `HarmonicSchurRotationK1316` closes that lag without reducing the enormous
 full D/A determinants.  Cutoff-quotient monotonicity transports exact
 five-/six-mode upper mass bounds to the quadratic cutoffs, while the existing
@@ -5332,6 +5343,76 @@ fundamental `lamPW` retune bound, and yields both
 uniform growing-head theta residual is CLOSED; the next live interface is its
 use in the consecutive physical mass/spacing step, not another coefficient
 or semantic-identification lemma.
+
+`CutoffRetuneBackwardPropagation` removes a separate cutoff-locality gap.
+PF2 quotient monotonicity and cancellation by the strictly positive diagonal
+normalizer prove that any correlation bound at a later cutoff propagates to
+every earlier cutoff.  Combining this with the closed growing-head theorem
+gives, for every harmonic scale `k` and every finite cutoff `N`, the exact
+retune inequality and its normalized fundamental `lamPW` form.  This covers
+the complete prescribed harmonic schedule as it approaches `w=1`; it does not
+interpolate arbitrary rational couplings between schedule points and does not
+by itself construct the physical RG/anti-screening evolution that would make
+that schedule a Yang--Mills trajectory.
+
+`RationalProjectiveThetaCorridor` then removes the integer-ray restriction
+from the retained-head certificate itself.  For every nonnegative rational
+projective coordinate `x`, it chooses the explicit integer ceiling carrier
+`t=x.num.toNat`, proves the three nonconstant exceptional boundary
+coefficients nonpositive, and uses their antitonicity on `0≤x≤t` to transport
+the exact harmonic boundary payment down to `x`; the existing Pascal theorem
+pays every bulk coefficient.  Hence the complete growing-head projective
+deficit is nonnegative for arbitrary rational `x`.  The remaining character
+interface is now semantic rather than another sampled interval: clear an
+arbitrary `0<w<1` to `x=w/(1-w)`, prove that the resulting computable anchor
+has a retune-safe PF2 tail, and combine it with backward propagation.  Even
+that all-coupling spectral inequality would still need identification with an
+iteratable physical block/RG flow before it could serve as self-charge.
+
+`RationalProjectiveThetaHead` completes the first semantic interface for every
+rational `0≤w<1`.  It constructs `den=1/(1-w)`, `x=w/(1-w)`, and the
+computable head `b=2*x.num.toNat+2`; exact projective clearing and cancellation
+of the strictly positive denominator transport the corridor certificate to
+the physical growing theta residual.  Consequently the integer/half-integer
+theta premise and the mismatched retained-head inequality
+`adjCorr(w,b+1) ≤ retuneCube(w)·coordNormSq(w,b)` are now proved for arbitrary
+rational coupling below one, including the former `21/22<w<1` interval.  The
+sole remaining scalar character step is the adjacent coefficient at this
+computed anchor and its PF2 tail; once that is paid, backward propagation
+will give every finite cutoff.  This remains a coefficient-flow theorem, not
+yet a physical blocking transformation.
+
+`RationalProjectiveThetaTail` pays that computed tail exactly.  Clearing
+`x≤t` yields `1≤(t+1)(1-w)`; reciprocal Bernoulli gives
+`w^(t+1)≤1/2`, four such blocks force the first omitted multiplier below
+`1/8`, and nonnegativity gives `1/8≤retuneCube(w)`.  The exact heat-kernel
+successor ratio closes the first coefficient step, and PF2 propagates it to
+every later representation.  Thus only the final head-plus-tail summation,
+backward-cutoff propagation, and endpoint split remain before the scalar
+all-rational/all-cutoff retune inequality is closed.
+
+`RationalProjectiveRetuneAllCutoffs` performs that final assembly.  For every
+exact rational `0≤w≤1` and every finite Peter--Weyl cutoff `N`, it proves
+`adjCorr(w,N) ≤ retuneCube(w)·coordNormSq(w,N)` and the normalized fundamental
+bound `lamPW(w,N,1)≤retuneCube(w)`.  The interior uses the arbitrary rational
+projective head, the computed PF2 tail, and backward cutoff propagation;
+`w=0` is discharged by the existing strong window and `w=1` by the universal
+Dirichlet bound with exact `retuneCube≥1`.  No density argument, finite set of
+sampled couplings, or measured constant remains in this scalar character
+inequality.  This closes the cutoff-uniform coefficient corridor.  It does
+not yet prove that `retuneCube` is the coupling coordinate of an actual
+gauge-covariant lattice block transformation, nor that its iteration controls
+the full interacting spin-foam/continuum theory; that physical identification
+is now the live character-route residual.
+
+`FusedFundamentalDefectFreeRetune` records the strongest honest consumer of
+that scalar closure.  The retune cube is exactly the corrected `p=2` free
+fundamental eigenvalue, so the arbitrary-cutoff `lamPW` lies below it without
+the additive `normEigShift` erosion required by the general-channel bridge.
+Exact retune arithmetic then gives the uniform fundamental margin comparison
+`1-w^3 ≤ 2·(1-lamPW(w,N,1))`.  This is a defect-free spectral inequality in
+the fundamental Peter--Weyl channel; it is not called a physical RG step until
+an actual source-dependent lattice block kernel realizes the retuned weight.
 
 **Off-diagonal shell necessity (2026-07-12).**
 `FusedOffDiagonalCompression` strengthens the rank-one fence: any positive
@@ -6081,6 +6162,273 @@ base to prove `GrowingResidualLowerSix k` for every `10 <= k < 148`.  This is a
 constructive finite anchor, not a global two-center bound: the far reserve is
 essential.  OPEN is the uniform quantitative payment using the full far suffix
 beyond this anchor.
+
+`HarmonicLowerSixExactCertificate` now supplies a second, independent symbolic
+tail mechanism.  It proves the semantic bridge from the generated falling-
+factorial certificate to the production rational expressions and derives the
+pointwise exact Hermite-remainder lower bound for every `k >= 8189` through the
+moving left square-root window.  No sampled coefficient enters the theorem.
+`HarmonicLowerSixExactHead` lifts that pointwise certificate to a nonnegative
+finite head, proves an exact unchanged-definition head/tail splice of
+`lowerSixHermiteRemainderSum`, and shows that paying the remaining tail pays the
+full signed remainder.  `HarmonicLowerSixJointEndpointPayment` and
+`HarmonicLowerSixTailPaymentAssembly` now identify the joint endpoint
+polynomial semantically with the negative weight-free second Hermite flux at
+the first unresolved mode and complete the global payment algebra.  A finite
+forward-difference sum telescopes every pointwise local second-flux bound to
+that endpoint plus an exact Gaussian bulk.  The square-root-block tail, sharp
+first-block Bernoulli estimate, and joint endpoint reserve then pay the bulk;
+the strictly positive block and second-clearing factors cancel
+constructively.  `HarmonicLowerSixTailLocalWeightReduction` additionally
+factors both sides of every production local inequality by the same strictly
+positive old Gaussian weight and proves an exact iff with its weight-free
+bracket.  `HarmonicLowerSixTailCorridor` exposes the exact domain of that
+bracket: after the moving left window, `k+2 <= 2n^2`; before the production
+anchor, `n <= 2(k+2)`.  It also supplies the nonnegative exact rational
+coordinate `X = 2n^2-(k+2)` and its subtraction identity, with no added
+hypothesis.  `HarmonicLowerSixTailSlopeReduction` then clears the remaining
+strictly positive `(n+1)^2` denominator and proves an exact iff with the
+existing adjacent-root-slope polynomial, so the analytic target is now a
+literal polynomial/Taylor sandwich on that corridor.  Consequently the one
+production-level predicate
+`LowerSixTailSecondFluxLocalBound` over the unresolved suffix implies both the
+exact tail payment and the complete signed-remainder payment.  OPEN is proving
+that exact weight-free pointwise bracket itself; it is a direct inequality on
+existing production quantities, not a newly postulated frontier package.
+The active `HarmonicLowerSixTailSecondFluxLocalBound` assembly now proves the
+eighth/ninth alternating Taylor enclosures, the exact and approximate slope
+orderings, the one-sided carrier lower bound, envelope-base comparison, both
+sign-directed `E8`/`E9` step sandwiches, the high-base branch, and the final
+actual-slack-to-weight-free implication.  The formerly monolithic source has
+been split: the Taylor-prefix and slope-floor physical bridge is independently
+source-green, and the final `HarmonicLowerSixTailSecondFluxLocalBound` target
+build now exits green with only `propext` and `Quot.sound`.  `L1` and `T9` are
+therefore discharged internally.  Its remaining exact inputs are just `Base`,
+`E8`, and `E9` envelope positivity on the projective corridor charts.
+`computations/lower_six_tail_second_flux_certificate.py` derives all eight
+tables using exact `Fraction` arithmetic (including the corrected rational
+coefficient conversion), and all tables recompute nonnegative.  The imported
+`TensorBernsteinHomogeneousCertificate` is the axiom-clean kernel consumer for
+those data: it checks signs in four independent nonnegative homogeneous
+coordinates and checks each substituted physical identity with the proved
+eager ring normalizer.  The exact `T9` table is now emitted, kernel-checked,
+and consumed by the production theorem
+`lowerSixTailOldPowerLower_nonnegative_of_le_den`; its bridge uses the ten
+signed factorial terms and cancels the derived positive `9! * D^9` scale.
+The exact `L1` slope-floor certificate is also green on both projective
+charts.  Its sixteen two-row identity modules compile independently with
+empty axiom lists; the assembled chart theorems depend only on `propext` and
+`Quot.sound`, and the transparent cleared polynomial is axiom-free.  The
+monolithic and large-block normalizer routes are now machine-fenced by actual
+stack/runtime failures, so the reusable
+`TensorBernsteinSeparableReconstruction` coefficient-level Pascal mechanism is
+under active construction for `Base`, `E8`, and `E9`.
+`TensorBernsteinQuadraticProjectiveReconstruction` now proves the generic
+quadratic clearing from tensor power coordinates to raw monomials
+`D^i*n^(M-u-2i)`.  The complete generated E8 and E9 chart-A coefficient
+certificates replay green (respectively 70 and 73 jobs), and the physical
+consumers `tailEnvelopeE8ChartARawEval_nonnegative` and
+`tailEnvelopeE9ChartARawEval_nonnegative` transport their exact nonnegative
+Bernstein tables to the two scaled raw numerators on
+`64 <= n`, `n^2 <= D <= 2n^2`; all public gates use only `propext` and
+`Quot.sound`.  These are numerator signs, not yet production envelope signs.
+The monolithic raw-to-production normalizer is also fenced by stack/runtime
+failure, so its replacement is a staged evaluator proof using exact raw
+append/multiplication semantics and separately checked Base/Taylor factors.
+The E8 and E9 chart-B global coefficient builds and both affine physical
+consumers are now green.  The heaviest E9 slices replay independently, the
+named physical target exits successfully, and every completed gate lies inside
+`{propext, Quot.sound}`.  `HarmonicLowerSixTailEnvelopeChartBScaling` now
+bridges both chart-B raw numerators to the production denominator, and
+`HarmonicLowerSixTailEnvelopePhysicalChartDispatch` combines chart A/B signs;
+both named targets are green with the same allowed axiom bound.
+The staged raw-to-production route has also been made concrete.  A
+trailing-zero monomial normalization error (`[2]` versus `[2,0]`) was isolated
+and repaired in `QuadraticRawGridSemanticTransport`; independent exact
+diagnostics then check all 28 E8 rows and all 28 E9 rows.  The generic
+`RawGridRowConvolution` layer proves append, scalar, convolution, and
+pointwise-row-to-global evaluation semantics constructively, with no use of
+choice.  The production E8/E9 row families, their exact length 28, their
+finite-support bounds, and their evaluator semantics are source- and
+target-green.  Fifty-six one-row Boolean certificate modules have been
+generated because a four-row normalization exceeded the practical replay
+window while one-row checks close reliably.  All 28 E8 rows now replay green
+individually, all 28 E9 rows now also replay green individually, and every row
+gate uses only `propext`.  E9 row 9 exposed a compiler-thread stack limit rather
+than a proof failure; the package now passes the weak compiler argument
+`-s 65536`, its retained Lake trace records that argument, and the ordinary
+named row target exits green.  The named scaled-row semantics target and
+`HarmonicLowerSixTailEnvelopeScaledRawIdentity` are green: both all-row checks
+use `[propext]`, and the evaluator/global production identities use exactly
+`[propext, Quot.sound]`.
+The common production denominator is now proved strictly positive, the exact
+integer recombination scale is kernel-checked, and positive-factor cancellation
+back to the actual envelopes is target-green with gates inside
+`{propext, Quot.sound}`.  In parallel, the Base semantic bridge has cleared its
+raw polynomial and first structured pieces.  Its oversized U0 bucket comparison
+hit a deterministic expression-equality stack limit, and chunking the consumer
+still unfolded the same 682-term producer.  The materially different replacement
+buckets only the 201-term U0-square raw and applies the D-only factors rowwise.
+The isolated expensive 23-row relation is now green with gate `[propext]`.
+Its lightweight U0 semantics, total-row semantics, structured evaluator, and
+cleared-expression bridge are also green inside `{propext, Quot.sound}`.
+`HarmonicLowerSixTailBasePhysicalFactors` is now green: all thirteen public
+factor/Core gates lie inside `{propext, Quot.sound}` (the L1 evaluator needs
+only `propext`), the denominator evaluator is axiom-free, and no `sorryAx`
+remains.  The stable semantic-to-physical endpoint
+`HarmonicLowerSixTailBaseSemanticPhysical` is also now green.  Its structured
+evaluator, complete row evaluator, and dense cleared endpoint all use exactly
+`{propext, Quot.sound}`; the four staged power/profile clearings include the
+exact scale check `178605*60*48 = 514382400` without re-expanding the dense
+certificate.  `HarmonicLowerSixTailEnvelopeProductionClosure` now composes the
+complete Base/E8/E9 semantic identities, chart signs, and positive-factor
+cancellation.  It proves the actual pointwise second-flux bound and complete
+Hermite remainder payment for every `k >= 8189`; all six gates lie inside
+`{propext, Quot.sound}`.  `HarmonicLowerSixTailEnvelopeProductionStep` is also
+green: it supplies the nonlinear quadratic payment, the actual
+`LowerSixScaledWindowStep k`, its iterated scaled-payment monotonicity, and the
+production growing residual from a scale-8189 anchor, again with only the two
+allowed axioms.  Thus the generated certificate has reached its pinned
+downstream consumer and is no longer an isolated polynomial inequality.
+The remaining exact
+residual is the finite bridge from the existing scale-247 anchor to the symbolic
+production tail.  A first monolithic three-case full-step kernel scout was
+killed by resource exhaustion, but the cumulative recovery criterion is much
+smaller: `HarmonicMassCrossLowerSixRecoveryBootstrapThird` checks the exact
+band `248 <= k < 348`, and
+`HarmonicMassCrossLowerSixRecoveryBootstrapFourth` now checks
+`348 <= k < 448`; both compose to `GrowingResidualLowerSix`, build green, and
+keep every gate inside `{propext, Quot.sound}` (191 and 280 seconds in their
+respective named replays).  The fifth `448 <= k < 548` tranche is also green:
+its 491-job named replay completed in 383 seconds and all four public gates use
+exactly `[propext, Quot.sound]`.  The sixth `548 <= k < 648` tranche is now
+green too: two replay-sized `Fin 50` decisions are reassembled constructively
+into the full `Fin 100` band, and composition with the earlier tranches makes
+`GrowingResidualLowerSix k` unconditional for every `10 <= k < 648`.
+`HarmonicMassCrossLowerSixRecoveryBootstrapSixthClosure` records the physical
+content rather than leaving it as a certificate table: the sharp physical
+Pascal cross, coefficient-two harmonic mass cross, and located character-GNS
+`singleStep` are unconditional for every `k < 647`.  Its 572-job replay is
+green and all three closure gates use exactly `[propext, Quot.sound]`.
+`HarmonicMassCrossLowerSixRecoveryCellCompression` is green and gives a more
+promising symbolic intermediate route: the payment slack is exactly the left
+endpoint plus the uninterrupted Dirichlet block through
+`2 * thetaWindowCenter k`, so `thetaWindowRight` cancels entirely.  It also
+banks the exact counterexample at the first `c=10` to `c=11` crossing, fencing
+the false claim that every raw center-crossing jump is nonnegative.  OPEN is to
+prove antitonicity within each fixed-center cell and antitonicity of the
+right-endpoint slack across cells; those two facts would reduce the entire
+intermediate interval to one exact terminal check at `k=8189`.  This endpoint
+is load-bearing: the production induction starts from the sign of
+`lowerSixInteriorPayment 8189`, and `k=8189` is the right endpoint of the
+center-127 cell.  The sharded
+exact bridge remains the fallback if this finite-difference mechanism stalls.
+`HarmonicMassCrossLowerSixRecoveryFiniteDifference` is now green as the sparse
+symbolic substrate: it reconstructs the fixed-center slack from one integer
+theta mass, one half-integer theta mass, and the terminal integer mode, and
+names the within-cell and alternating right-endpoint drops without sampling a
+constant.  It also exposes denominator-cleared polynomial coordinates for the
+within-cell drop, both endpoint families, and the exact terminal pair
+`D=8191,c=127`; the 485-job target exits green and its reconstruction gate is
+exactly `[propext, Quot.sound]`.  OPEN is positivity of those cleared targets
+on their physical domains and constructive cancellation of the positive
+denominators back to the recovery slack.
+`HarmonicMassCrossLowerSixRecoveryClearing` now supplies the exact harmonic
+coordinate identities `uD=1`, `wD=D-1`, arbitrary reciprocal/weight power
+clearing, the cubic numerator identity, and strict positivity of every natural
+clearing factor.  Its named target is green and every public gate is exactly
+`[propext, Quot.sound]`.  The isolated closed-rational terminal check at
+`k=8189` is also green: it proves the exact recovery payment and the
+load-bearing sign of `lowerSixInteriorPayment 8189`, with the center calculation
+axiom-free and all transported gates exactly `[propext, Quot.sound]`.
+`HarmonicLowerSixTailEnvelopeProductionAnchorClosure` now feeds that exact sign
+into the generated adjacent-scale induction.  Consequently
+`GrowingResidualLowerSix k` is unconditional for every `k >= 8189`, the sharp
+physical Pascal cross is unconditional for every `k >= 8188`, and the actual
+coefficient-two `harmonicMassCross` bound reaches the same high-scale tail.  The
+same capstone now passes that bound through the true-margin absorption theorem,
+so the exact harmonic GNS-margin `singleStep` inequality is unconditional for
+every `k >= 8188` as well.  Its 976-job replay is green and all four public
+gates use exactly the allowed two axioms.  The only lower-six residual is now
+the finite band
+`548 <= k < 8189` (with all earlier scales already checked), not the production
+anchor or any later scale.  `HarmonicMassCrossLowerSixRecoveryTraversal` now
+removes the combinatorial part of that residual symbolically.  It proves exact
+monotonicity of the square-root center, identifies every even and odd cell
+endpoint, telescopes both alternating endpoint families back from the exact
+`(k,c)=(8189,127)` terminal sign, and transports every scale inside a cell to
+its right endpoint.  The complete conditional consumer is green in a 500-job
+named replay: three denominator-cleared sign families (within-cell, even-to-odd
+endpoint, and odd-to-even endpoint) imply the recovery slack, exact recovery
+payment, and `GrowingResidualLowerSix k` for every `48 <= k <= 8189`.  All
+seventeen public traversal/consumer gates use exactly
+`{propext, Quot.sound}`.  Thus no finite enumeration remains on the symbolic
+route; the live analytic debt is precisely the constructive positivity of
+those three physical-domain polynomial families.  The normalized energy route
+has already proved exact raw-sign cancellation and is now banking base
+representatives before attacking propagation of the normalized signs rather
+than extending the fallback table.
+`HarmonicMassCrossLowerSixRecoveryTraversalClosure` verifies that this is a
+load-bearing analytic frontier: the same three signs imply the growing
+lower-six residual at every scale, the all-scale physical Pascal cross, the
+coefficient-two harmonic mass-cross bound, every harmonic character-GNS
+`singleStep`, and its positive multiscale floor.  Its 979-job named replay is
+green and all five closure gates use exactly `{propext, Quot.sound}`.  This is
+an exact all-scale harmonic-model consequence, not yet a construction of the
+four-dimensional Yang--Mills continuum theory.  After importing the closure
+into the main spine, the current integrated `lake build YMGap` checkpoint is
+green at 2328 jobs; the frontier
+guard is green with all five Clay-frontier types still unconditionally
+uninhabited, and the statement guard is green with all ten pinned hashes
+unchanged.
+`HarmonicMassCrossLowerSixRecoveryRawClosure` now closes the coordinate
+mismatch between that traversal and the independent energy attack.  Exact
+multiplication by the two strictly positive denominator powers transports each
+raw within-cell or endpoint sign to its cleared polynomial sign; consequently
+the three raw families directly imply the all-scale physical cross, every GNS
+step, and the positive multiscale floor.  Its 980-job replay is green and all
+eight gates are exactly `[propext, Quot.sound]`.  The analytic target is
+therefore invariant under the two available coordinates: proving the raw
+energy signs is sufficient, and no second clearing proof remains afterward.
+`HarmonicMassCrossLowerSixRecoveryDropCarrier` supplies the current exact
+one-crossing substrate.  It decomposes every raw fixed-center drop into a
+finite sum of explicit positive old-scale weights times signed carriers plus
+the exact adverse terminal drop; it proves
+`n * modeDrop = integerTheta * carrier`, the drift-factor recurrence,
+bidirectional sign cancellation, and kernel-checked fences showing a genuine
+mode sign change (`n=6` nonnegative and `n=7` negative at the first physical
+cell) together with a negative terminal contribution.  Thus termwise
+positivity is permanently excluded.  The active proof is a compensated
+Abel/one-crossing argument establishing the three generic raw sign families,
+which would plug directly into `RecoveryRawClosure`.
+`HarmonicMassCrossLowerSixRecoveryLinearAbel` now makes that compensated route
+exact.  It extracts the maximal linear preload from every Gaussian mode and
+splits each sparse cross-scale drop into a favorable carrier-scale reserve plus
+an explicit complementary-weight drift.  The complement is positive,
+mode-antitone, and scale-monotone; its drift is therefore universally
+nonpositive, while the preloaded carrier retains the proved one-crossing
+property.  At sum level the full within-cell drop is exactly
+`linearScaleReserve + linearDriftDebt`, including the adverse terminal mode,
+and the final consumer asks only that the reserve pay the negated debt.  The
+carrier drop itself now factors through a positive preload and a weight-free
+slope-drop carrier.  Kernel checks fence the range sharply: positivity fails
+at `(k,j)=(48,10)` but holds at the post-bootstrap far edge
+`(k,j)=(648,71)`.  Its 498-job named build is green and all sixteen gates are
+exactly `[propext, Quot.sound]`.  OPEN is to prove uniform nonnegativity of the
+preloaded carrier drop on the post-bootstrap cells and then pay the remaining
+one-crossing drift debt cumulatively; no algebraic or indexing split remains.
+`HarmonicMassCrossLowerSixRecoveryEndpointCarrier` now separates the two
+alternating endpoint families from that within-cell analysis without another
+global polynomial expansion.  Arbitrary one-step fixed-center drops telescope
+exactly; advancing to the next center adds exactly two sparse modes and moves
+the terminal mode by two.  Hence each endpoint drop is the sum of precisely
+`2m+2` within-center drops minus one explicit center-expansion debt.  The debt
+itself is green both as a two-mode formula and in the same positive-weight,
+one-crossing slope coordinates used by `RecoveryDropCarrier`.  Both endpoint
+signs now have exact cumulative-payment consumers.  The 498-job named build
+and direct compile are green; all nine public gates use exactly
+`[propext, Quot.sound]`.  OPEN is the analytic payment inequality, not any
+remaining index or center-parity bookkeeping.
 
 `HarmonicWilsonTransferBridge` identifies the exact normalization separating
 the existing Wilson correlator reconstruction from the finite character
@@ -7110,6 +7458,40 @@ infinite-volume/zero-spacing OS limit with the required local field content,
 or transports a nonzero mass floor through that limit.  Raw theorem or module
 counts must therefore not be converted into a completion percentage.
 
+The 2026-07-14 source snapshot gives the scale of the formal effort without
+claiming mathematical completion: `YMGap/Continuum` contains 1,853 Lean
+modules and 636,915 source lines; all of `YMGap` contains 1,977 modules and
+680,771 source lines.  The aggregate build after the present uniform-shift,
+finite-`K` reflection, and character-kernel tranche replayed 1,935 jobs
+successfully; after the centered bridge, shared-link fence, and exhaustive
+support-cylinder imports the aggregate replayed 1,939 jobs; after the signed
+centered finite-colimit descent, receding centered cube activity, six-face
+closure fence, and normalized cube-kernel tranche it replayed 1,947 jobs; the
+centered positive-occurrence theorem raises the aggregate replay to 1,948;
+the translated complement, physical-summand audit, and harmonic tail-payment
+assembly raise it to 1,952; the fine-support projector and centered
+reflection-positivity bridge tranche raise it to 1,958; the exact local weight
+reduction and projected two-cube composition raise it to 1,960; the exact
+lower-six tail corridor and positive slope clearing raise the current
+aggregate replay to 1,962; the translated finite-family kernel, adjacent
+reflection chart, exact coefficient pushforwards, many-time-slice positive
+family, and homogeneous Bernstein certificate kernel raise the current
+aggregate replay to 1,973.
+These counts
+measure invested formalization and audit surface,
+not proximity to the Clay theorem; the unsolved physical interfaces below
+remain theorem-strength regardless of corpus size.
+
+The active 2026-07-14 working snapshot has since grown to 2,253 Lean source
+modules and 706,956 source lines under `YMGap/Continuum`, and 2,377 modules and
+750,812 lines under all of `YMGap`.  This larger number includes the current
+unintegrated certificate shards and research-route modules, so it is a measure
+of work attempted and review surface, not a green-build claim.  In particular,
+the exact lower-six production certificate now being assembled is one
+load-bearing finite-scale inequality; even its successful closure will not by
+itself settle arbitrary-group RG flow, continuum OS reconstruction, local-field
+content, or uniform passage of the spectral gap.
+
 This calibration changes prioritization.  Exact local lanes remain active only
 when they feed a pinned critical consumer or eliminate a concrete false route.
 At least one lane in each round must attack physical identification or uniform
@@ -7119,14 +7501,15 @@ compatibility, or the OS/local-field continuum limit.  A local model gap or an
 abstract conditional allocator is banked honestly but never counted as a Clay
 frontier discharge.
 
-## Active mechanism registry (2026-07-13)
+## Active mechanism registry (2026-07-14)
 
 The ordering is proof holes, semantic correctness, analytic frontier, then
-Clay-facing assembly.  Source scanning currently finds no `sorry` or `admit`;
-the aggregate and both statement guards are green.  The strict axiom scan has
-zero forbidden exceptions but currently reports the expected namespace/theorem
-baseline drift from this tranche; refresh and re-run it after the active modules
-are integrated.
+Clay-facing assembly.  Source scanning currently finds no executable `sorry`
+or `admit`; the integrated root package is green at 2,328 jobs.  The refreshed
+strict axiom inventory covers 18,247 theorems in 2,203 namespaces with zero
+forbidden exceptions.  Both pinned-statement guards pass at 2,329 jobs.  The
+five Clay-frontier types remain genuinely uninhabited and all ten guarded
+statements retain their pinned hashes.
 
 ### Running independent lanes
 
@@ -8435,6 +8818,279 @@ are integrated.
    the all-label identification of the explicit reconstructed section with the
    now-concrete endpoint equation, then extension of the raw action and dual
    recurrence through every interior order.
+   The next recurrence layer is now explicit rather than schematic.
+   `SU2OrderedRacahOmegaCorrectionOuterShiftTransport` derives the four-term
+   outer-shift transport with its exact positive bulk magnitudes, and
+   `SU2OrderedRacahOmegaCorrectionOuterShiftCoefficientRemainder` isolates the
+   denominator-cleared lower, diagonal, and two directional coefficient
+   remainders.  OPEN is the shell-commutator cancellation that turns those
+   remainders into the full right-basis action; no recurrence uniqueness claim
+   is made before that identity is proved.
+   On the finite graph side, the corrected auxiliary cutoff `6K`, exact vacuum
+   completion, duplicate-free production edge enumeration, unit vacuum floor,
+   and positive normalized vertex-Cartesian denominator are all kernel-checked.
+   Actual-to-canonical identifier transport is complete.  Unused reserved
+   coordinates are deleted by normalized-vacuum finite Fubini with no hidden
+   cardinality factor.  The literal resolver Cartesian sum is now identified
+   with the exact local Haar moment in every geometric valence `0` through `6`:
+   the two- and three-valent cases use a generic trivalent contraction, the
+   four-valent case uses the existing two-pair diagonal, and the new seven- and
+   nine-fold shared-channel factorizations close valences five and six.
+   These cases are packaged into a uniform theorem for every actual finite-box
+   link.  The reduced coordinate list is also transported directly to each
+   actually enumerated production link; its packet agrees pointwise with the
+   fusion-complete heat-kernel packet, internal channels cannot alias any
+   vacuum base, and every reduced identifier belongs to `usedResolutionEdges`.
+   The first overlapping-cell/global assembly layer is now closed in the
+   correct conditional order.  A constructive finite-Fubini theorem splits
+   `usedResolutionEdges = physical ++ auxiliary` through an explicit overlay
+   labelling, so one fixed physical plaquette assignment is shared across all
+   link resolvers.  The global vertex guard factors exactly over the flattened
+   link blocks, while the packet product contributes every physical face
+   coefficient exactly once.  The resulting finite-box partition is proved
+   equal to a counted spin-foam sum: its conditional auxiliary factor is the
+   constructive-rational embedding of the exact natural cardinality of
+   admissible bounded channel labellings (vacuum terminators forced to zero,
+   internal carriers of coefficient one).  This machine-checks the global
+   physical/auxiliary character expansion without the invalid multiplication
+   of already-summed local Haar moments.  The next assembly layer is also
+   closed: the deduplicated auxiliary identifiers are proved permutation-equal
+   to disjoint private eight-slot blocks indexed by the enumerated links; the
+   global Boolean admissibility guard factors over those blocks; constructive
+   finite Fubini then identifies the conditional cardinality with the exact
+   product of per-link invariant multiplicity counts.  Consequently the full
+   finite-box vertex-Cartesian sum has an exact link-factorized spin-foam
+   formula, with one heat-kernel coefficient per physical face and one local
+   fusion-basis count per actual link.  The abstract local count is now also
+   eliminated.  A constructive identifier transport preserves every fixed
+   external plaquette spin and identifies the actual natural cardinality with
+   the consecutive left-associated resolver.  Its seven geometric valences
+   are unfolded into literal formulas: Boolean multiplicities at valences
+   zero through three (with the open-link vacuum terminator explicit), then
+   one-, two-, and three-channel SU(2) fusion-path counts at valences four,
+   five, and six.  The sharp prefix bounds are `2K`, `3K`, and `4K`; hence the
+   production `6K` window is proved exactly cutoff-independent under every
+   larger auxiliary window for cutoff-`K` external spins.  Substitution back
+   into the global product gives a fully explicit finite-box spin-foam
+   identity containing only the face heat-kernel coefficients and these
+   literal local path cardinalities.  The apparent physical-face enumeration
+   through `6K` is also removed exactly: every rejected face labelling has an
+   explicit coefficient above packet support, so its whole summand is zero;
+   filtering the duplicate-free Cartesian product leaves precisely cutoff
+   `K`, while `6K` remains only on internal channels.  OPEN is now analytic
+   rather than bookkeeping.  The first analytic scaffold is now substantially
+   sharper.  Every literal face factor, link multiplicity product,
+   configuration summand, and finite spin-foam sum is constructively
+   nonnegative; the all-zero summand is exactly one; and the partition is
+   exactly one plus a nonnegative excited sum.  Untouched links delete exactly,
+   the touched-link list has length at most four times the excited-face count,
+   and the face product decays by one fundamental coefficient per excited
+   face.  The crude maximize-each-link route is permanently refuted at cutoff
+   one: its exact per-face base is `13841287201/4 > 1`.  A second exact
+   selection rule proves that every nonzero cutoff-one configuration is a
+   mod-two closed plaquette surface (odd incident spin annihilates the local
+   Haar factor).  Two interface audits also fence false shortcuts: the old
+   abstract `Xi` compatibility admits adjacent singleton plaquettes because it
+   checks shared faces rather than shared links, and the exact spin-foam chain
+   had coupling `1/2` while the prior Z4 KP anchor used `1/20`.
+
+   The first repaired strong-coupling envelope is now kernel-checked in
+   `Z4StrongCouplingParametricAnchor`.  At physical cutoff one every actual
+   local fusion multiplicity is at most `8`; at the derived coupling
+   `w = 1/400`, the fundamental face coefficient is exactly
+   `1/32000000`.  Hence every localized configuration of support size `s` is
+   bounded by `(16/125000)^s`.  Against the genuine degree-24 Z4 animal
+   constant `625` and `eSurrogate = 3`, the exact effective ratio is
+   `6/25 < 1/2`.  This is a real finite-cutoff, very-strong-coupling analytic
+   anchor, not a continuum result.  The anchor is now attached to the actual
+   finite packet graph rather than a detached envelope: the complete
+   vertex-Cartesian graph identity is parameterized by arbitrary rational
+   `w`, reduced exactly to physical cutoff one, split as vacuum `1` plus a
+   nonnegative excited sum, and specialized termwise to the `w = 1/400`
+   bound.  The corrected polymer multiplication law is also exact: for two
+   binary physical supports that are face-disjoint and share no physical
+   link, their union remains physical and its full (equivalently localized)
+   spin-foam weight is the product of the two weights.  That binary law is now
+   lifted to arbitrary recursively separated finite families.  A constructive
+   union-on-bridge component algorithm then decomposes every duplicate-free
+   Boolean support, carrying Type-level internal paths and proving exact cover,
+   pairwise link separation, pairwise disjointness, and duplicate-free output.
+   Its specialization to the actual finite-box plaquette/link incidence
+   reconstructs every cutoff-one physical labelling exactly from physical
+   component indicators and proves, term by term, that the original localized
+   spin-foam weight is the product of the component weights.  Component
+   uniqueness is now kernel-checked at the invariant level actually needed by
+   a gas reindexing: any nonempty, internally link-connected, pairwise-separated
+   cover has exactly the same component supports, independently of vertex and
+   family list order.  At cutoff one the Cartesian physical-labelling list is
+   now proved literally equal to the duplicate-free power-set list mapped to
+   binary support indicators.  The whole localized spin-foam partition is
+   therefore reindexed, with no permutation or multiplicity correction, as a
+   finite support sum whose summands are products of canonical component
+   weights.  That support sum is now also presented as an exact,
+   duplicate-free connected-surface gas: every component is canonically ordered,
+   nonempty, internally connected by Type-valued paths, and distinct components
+   are face-disjoint and share no actual physical link.  The gas partition is
+   exactly the parametric localized spin-foam partition, and every component
+   activity at the anchor is bounded by `(16/125000)^|gamma|`.  The ambient
+   connected-polymer list, corrected Boolean shared-link compatibility, and
+   converse range theorem are now all kernel-checked: every compatible ambient
+   family is exactly the component family of its union support.  Constructive
+   duplicate/permutation control therefore identifies the actual finite
+   cutoff-one spin-foam partition exactly with the corrected polymer partition
+   over all and only compatible families.  The numerical-to-geometric counting
+   interface and the pinned KP estimate are now closed as well.  Every canonical
+   numerical polymer decodes injectively on physical faces to a duplicate-free,
+   internally connected Z4 plaquette animal of the same size.  At each pinned
+   face and size, constructive unique-representation counting injects the
+   canonical list into the unconditional degree-625 DFS enumeration.  Combining
+   this with the exact activity envelope proves that every truncated pinned sum
+   of the actual derived activities, including the `eSurrogate^|gamma|` weight,
+   is at most `2`, uniformly in box size, pinned face, and truncation.  The
+   shifted size tail is at most `2 * (6/25)^s`, again uniformly.  This control
+   is now spatial rather than merely combinatorial.  The actual Z4 plaquette
+   adjacency moves a non-collapsing coordinatewise L-infinity metric by at
+   most one; decoded animals are duplicate-free; and support equality therefore
+   transfers the decoder reach floor to the canonical numerical polymers.
+   Thus a pinned canonical polymer reaching L-infinity distance `d` has at
+   least `d + 1` plaquettes.  Filtering the exact derived activity list by that
+   reach condition gives an axiom-clean boundary tail
+   `2 * (6/25)^(d+1)`, uniformly in box size, pinned face, and truncation depth.
+   The first compatible cross-volume specification layer is now also closed.
+   Canonical geometric face supports have deterministic numerical encodings in
+   every larger box; Type-valued internal chains, nonemptiness, and canonical
+   connected-polymer membership survive this transport.  Pairwise face
+   disjointness and actual shared-link separation survive as well, so every
+   compatible smaller-box family canonically embeds as a literal member of the
+   larger compatible-family enumeration.  Complete localized activities are
+   exactly invariant under the transport, the family map is injective, and the
+   full smaller partition is exactly the weight of a genuine positive
+   subensemble of the larger gas.  Consequently the exact cutoff-one anchor
+   partition is constructively monotone under box inclusion.
+
+   The compatibility-correct finite-gas and first switching layers are now
+   closed as well.  `FiniteCompatibilityGas` treats an arbitrary Boolean
+   compatibility relation and exact rational activity, proves the literal
+   restriction identity and the exact add-one/deletion recurrence, and is
+   instantiated by the corrected canonical shared-face/shared-link gas.
+   Geometric containment is now equivalent to membership in the transported
+   subensemble in both directions.  The larger partition and every decidable
+   event numerator split exactly into embedded and boundary cells; for a local
+   polymer-occurrence event the embedded numerator is exactly the smaller-box
+   numerator.  The normalized cross-volume difference has been reduced, with
+   no division, to the opposite-cell determinant
+   `boundary-event * embedded-complement - embedded-event * boundary-complement`.
+
+   The first genuine cancellation mechanism is also kernel-checked.  False
+   corrected compatibility exposes a same-face or shared-link contact, and
+   every side-tagged Warshall connection extracts an actual canonical
+   incompatibility path whose repeated surface cost pays endpoint L-infinity
+   separation.  The boundary-pair decision tests *all* exiting polymers (not
+   merely one witness), yielding either a connected path to the boundary or a
+   component separated from every exiting polymer.  On the separated branch,
+   an ambient-order disagreement-component switch preserves exact pair
+   activity and corrected compatibility, moves the local event to the opposite
+   replica, keeps the embedded replica geometrically inside, and keeps the
+   boundary replica genuinely outside.  It therefore lands in the exact
+   opposite four-cell product.  For any fixed Boolean cut the switch is now a
+   literal involution and injection on the duplicate-free ambient subfamily
+   enumeration.  All of these statements are kernel-checked with dependencies
+   contained in `{propext, Quot.sound}`.
+
+   The source-dependent recovery obstruction is now closed.  For an arbitrary
+   finite hard-core gas, the exclusive-occurrence disagreement graph is
+   invariant under switching a closed component, including the subtle
+   self-incompatible atom case.  Reverse reachability reconstructs the exact
+   source cut, so both occupation masks and literal ambient-order families are
+   globally injective without a fixed-cut hypothesis.  A direct-root variant
+   exposes an ordinary atom-to-atom Warshall walk.  Its canonical SU(2)
+   specialization preserves corrected compatibility and exact rational pair
+   activity, lands the separated boundary/event pair in the opposite four-cell
+   product, and is injective back to the literal polymer families.  The same
+   recoverable component extracts a genuine canonical incompatibility path and
+   retains the proved `distance + 2` boundary surface-cost floor.  All these
+   theorems are kernel-checked with dependencies contained in
+   `{propext, Quot.sound}`.
+
+   The finite weighted summation step is now closed.  A generic constructive
+   Cartesian-list theorem sums any nonnegative weight-preserving injection by
+   recursive target erasure, without cardinality or choice.  Its canonical
+   specialization enumerates the proof-carrying
+   boundary-event/embedded-complement source cell, filters it by the decidable
+   recovered-component reach test, injects every separated entry into the
+   opposite boundary-complement/embedded-event cell, preserves exact rational
+   pair activity, and partitions the full source sum exactly.  Consequently
+   `boundaryEvent_embeddedComplement_le_opposite_add_connected` bounds the
+   whole source opposite cell by the target opposite cell plus precisely the
+   connected source entries.  The theorem and its summation substrate are
+   kernel-checked with dependencies contained in `{propext, Quot.sound}`.
+
+	   The connected residue and its normalization are now closed in both
+	   orientations.  A canonical colored carrier injects each connected source
+	   pair into a pinned connected support together with two compatible
+	   backgrounds.  Exact fixed-size summation and the shifted animal tail give
+	   `2 * (6/25)^(distance+2)` with precisely the large and embedded-small
+	   partition factors needed for cancellation.  The mirrored right-rooted
+	   switch, recovery, carrier, and tail prove the reverse inequality.  Hence
+	   every canonical cutoff-one polymer contained `distance` layers inside the
+	   smaller box has the axiom-clean two-sided estimate
+	   `|Pr_large(transport gamma) - Pr_small(gamma)| <=
+	   2 * (6/25)^(distance+2)`.
+
+	   `Z4CanonicalOccurrenceCofinal` now proves literal transitivity of canonical
+	   transport, converts that estimate to the standard dyadic modulus, and
+	   constructs an actual `CReal` thermodynamic-volume limit for every fixed
+	   local occurrence.  The construction is also lifted to every finite signed
+	   rational linear combination, with the exact coefficient `l1` norm as its
+	   only prefactor and with an explicit rescaled tolerance modulus.  Thus the
+	   cutoff-one SU(2) local-occurrence algebra has a genuine constructive
+	   finite-volume Cauchy layer rather than only a reduction to a connected
+	   residue.  This is a substantial exact finite-volume result, but it remains
+	   a narrow strong-coupling/cutoff-one foothold: it is not evidence that the
+	   cutoff-removal, continuum, reconstruction, or physical-gap fronts are
+	   nearly closed.
+
+	   The joint finite-cylinder layer is now closed at the same cutoff-one anchor.
+	   `FiniteMarkedRootSwitch` replaces the artificial coordinate interpolation
+	   by the simultaneous switch of the union of all marked rooted disagreement
+	   components.  The union is closed, recovers from the switched pair, is
+	   globally injective, preserves exact pair activity, and swaps the complete
+	   finite occurrence fingerprint.  Its canonical adapter preserves corrected
+	   compatibility and literal ambient-order families.  A decidable geometric
+	   separation theorem sends the non-reaching branch into the opposite four-
+	   cell product; the reaching branch selects an oriented exclusive marked root
+	   and embeds the unchanged pair into either the existing forward singleton
+	   connected list or the mirrored right-root list.
+
+	   `Z4CanonicalCylinderSwitchSummation` carries out the duplicate-free
+	   subtraction-free four-cell cancellation for an arbitrary Boolean function
+	   of the fingerprint.  `Z4CanonicalCylinderConnectedTail` injects the entire
+	   connected residue into the union over marked roots and proves the explicit
+	   bound
+	   `(# roots) * (forward carrier tail + mirrored carrier tail)`.
+	   `Z4CanonicalCylinderStability` cancels the exact partition factors,
+	   complements the Boolean predicate to obtain the reverse inequality, and
+	   proves an axiom-clean absolute finite-volume modulus.  Canonical transport
+	   composes coordinatewise, so `Z4CanonicalCylinderCofinal` constructs a
+	   `CReal` thermodynamic-volume limit for every finite cylinder event.
+	   Finally, `Z4CanonicalCylinderFunctional` proves normalization,
+	   nonnegativity, complement consistency, finite additivity on disjoint
+	   predicates, and projective consistency when extra ignored coordinates are
+	   appended.  Every dependency gate for this cylinder chain is contained in
+	   `{propext, Quot.sound}`.
+
+	   This closes the finite-volume/local-probability residual at fixed cutoff
+	   and the derived strong-coupling anchor.  It does not remove the
+	   representation cutoff, approach the continuum, construct OS/Wightman local
+	   fields, or prove the physical spectral gap.
+
+	   The next
+	   scale front is then to make the same constants uniform along a derived
+	   growing-cutoff/RG schedule, rather than merely along increasing volume at
+	   fixed cutoff and very strong coupling.  Only after that can the program
+	   construct the physical infinite-volume state and transfer spectrum, pass
+	   OS positivity/locality through cutoff and continuum limits, and feed a
+	   derived uniform gap into the mass-gap spine.
    The same-state
    interacting Wilson realization remains separately open.
    The older `PartitionBeyondTree.SixJRecoupling` carrier is now permanently
@@ -8447,10 +9103,1592 @@ are integrated.
 6. **Exact polymer/RG amplitude route.**  Combine the Xi influence estimate,
    derived finite Haar character sums, phase-cell/block-spin control, and
    Penrose--Ursell resummation into the physical per-scale defect amplitudes.
+   The growing-cutoff truncation layer now has a volume-compensated dyadic tail
+   and a constructive finite-product perturbation theorem: every further local
+   cutoff extension changes the full plaquette sup-envelope product by at most
+   `2 * (1/2)^stage`, uniformly in extension depth.  Together with the concrete
+   positive fusion-complete vertex partition above, this removes summability
+   and denominator positivity as the immediate obstruction.  The exact
+   relative-normalization transport is also closed: because the production
+   partition is at least one, any additive cutoff/volume modulus becomes a
+   relative quotient modulus with the same error and no volume-dependent
+   denominator loss.  The graph fusion/assembly bridge named in the previous
+   version of this plan is no longer open: the exact global Haar/spin-foam and
+   compatible-polymer identities above discharge it.  The first actual
+   partition-cutoff bridge is now kernel-checked in
+   `Z4PhysicalCutoffPartitionMonotonicity`.  For `K <= L`, every retained
+   physical spin-foam summand is exactly cutoff-stable (including all local
+   fusion multiplicities), and the interacting production partition satisfies
+   the exact decomposition
+   `Z_L = Z_K + cutoffIncrement(K,L)`.  The increment is a literal finite sum
+   over precisely the new physical labellings, is constructively nonnegative,
+   equals the absolute additive partition error, and bounds the relative
+   quotient error through the derived unit vacuum floor.  Thus cutoff
+   monotonicity and normalization are no longer residuals.
+
+   The concrete interacting estimate is now also kernel-checked.
+   `Z4AdjacentCutoffIncrementBound` extracts an actual plaquette carrying the
+   new maximal label in every adjacent new sector, bounds all remaining face
+   factors by one, pays the exact number of physical labellings, and controls
+   every local fusion count by the derived cubic multiplicity envelope.  The
+   deduplicated production-link count is proved at most four times the exact
+   plaquette count.  Hence the literal interacting increment from `K` to
+   `K+1` is bounded by
+   `(K+2)^P * coeffW(1/2,K+1) * M(K+1)^(4P)`, with no detached amplitude or
+   assumed global compatibility statement.
+
+   `Z4AdjacentCutoffDyadicSchedule` then pays that complete natural prefactor
+   from the quadratic Casimir reserve.  For the explicit schedule
+   `K(stage,n) = 100 * (plaquetteEdgeCount n + 1) + stage`, the actual
+   interacting adjacent increment is at most `(1/2)^stage`.
+   `Z4InteractingCutoffCofinal` proves exact additivity of new-label sectors,
+   telescopes every finite extension depth, and obtains both absolute and
+   relative partition errors at most `2 * (1/2)^stage`, uniformly in the
+   extension depth.  For every fixed finite box it packages the scheduled
+   fusion-complete partitions as a genuine constructive-real representation-
+   cutoff limit.  Every theorem in this chain has dependencies contained in
+   `{propext, Quot.sound}`.
+
+   The coupling mismatch and the arbitrary-cutoff graph interface are now
+   closed as finite-box representation-cutoff statements.
+   `Z4ParametricPhysicalCutoffPartition` places every cutoff in one rational
+   formula `Z_K(w)`.  For `0 <= w <= 1/2`, coefficient monotonicity dominates
+   every new-label summand by the checked `w = 1/2` summand.  The same explicit
+   schedule therefore gives the anchor `w = 1/400` absolute and relative tail
+   bound `2 * (1/2)^stage`, uniformly in extension depth, and packages a
+   constructive-real cutoff limit for every fixed finite box.  At cutoff one
+   this partition is exactly the previously proved graph/polymer anchor.
+
+   `Z4ParametricArbitraryCutoffSpinFoamIdentity` then constructs the literal
+   fusion-complete packet graph for arbitrary `w` and arbitrary physical
+   cutoff `K`.  It proves that changing `w` leaves every auxiliary packet,
+   vertex guard, and local fusion multiplicity exactly unchanged, reuses the
+   all-`K` auxiliary elimination, and identifies the full Cartesian graph sum
+   with `Z_K(w)`.  The construction specializes definitionally both to the
+   existing `w = 1/2` production graph for every `K` and to the parameterized
+   cutoff-one graph for every `w`.  The entire chain has dependencies contained
+   in `{propext, Quot.sound}`.
+
+   The fixed-box observable layer is now closed at the same arbitrary cutoff.
+   `Z4ParametricCutoffEventCofinal` treats an arbitrary predicate on physical
+   face labellings, proves exact cutoff decomposition and domination of its
+   numerator by the partition increment, constructs both the numerator and
+   normalized-probability `CReal` cutoff limits, and derives an explicit
+   fixed-box dyadic modulus.  `Z4CutoffOneEventBridge` proves that lifting an
+   arbitrary corrected-polymer-family event to physical labellings gives
+   exactly the established cutoff-one numerator and normalized probability.
+   Thus event normalization and event-language compatibility are no longer
+   residuals at fixed volume.
+
+   The exact connected-component algebra has also been lifted off cutoff one.
+   `Z4AllSpinLinkSeparatedFactorization` and
+   `Z4AllSpinLinkSeparatedFamilyFactorization` prove, for every `K`, that
+   disjoint nonzero face support plus actual-link separation makes the literal
+   heat-kernel/fusion term multiply exactly.  No binary approximation is used.
+   `Z4AllSpinSurfaceComponentLabels` restricts each physical spin labelling to
+   its constructively generated maximal support components, retains every spin
+   decoration, proves same-cutoff physicality and link separation, reconstructs
+   the original labelling pointwise, and factors the whole finite-box
+   partition.  `Z4BoundedEdgeLabellingNodup` proves the arbitrary-`K`
+   Cartesian physical enumeration duplicate-free without `Classical.choice`.
+   Finally, `Z4CanonicalDecoratedConnectedSurfaceGas` packages the result as a
+   duplicate-free finite gas of nonempty connected spin-decorated polymers and
+   proves its activity partition exactly equal to `Z_K(w)`.  All new gates are
+   contained in `{propext, Quot.sound}`.
+
+   This is still only fixed-finite-box representation-cutoff convergence.  Its
+   starting cutoff grows with the plaquette count, so it is not a
+   volume-uniform cutoff theorem and it does not by itself control normalized
+   local observables while cutoff and volume grow together.  The immediate
+   OPEN theorem is now sharply analytic rather than algebraic: retain the
+   spin-dependent heat-kernel decay while summing all internal decorations of
+   a connected support, prove a cutoff-uniform Kotecky--Preiss/pinned-animal
+   activity bound for the decorated gas, and transport the existing cylinder
+   switching argument through that bound.  A cutoff-cardinality maximum is
+   permanently unusable (`Z4ExplicitSupportMajorantFence`); the live route is
+   a local fusion-path count bounded by incident spin polynomials, paid face by
+   face by the exact `w = 1/400` Casimir decay.  This bound would yield the
+   simultaneous cutoff/volume compatibility of the strong-coupling cylinder
+   functional.  It is followed by the derived RG trajectory to the anchor,
+   continuum/OS reconstruction, and transfer of a uniform physical spectral
+   gap.
    Candidate submechanisms remain Bałaban phase-cell gauges, bond-moving
    envelopes used only with a proved comparison, transverse defects, and
    correlation/TP2 inequalities.  Any route ending in an assumed global
    compatibility or measured constant is blocked by definition.
+
+   The first two analytic steps of that residual are now discharged.
+   `Z4SpinDependentLocalMultiplicityBound` bounds every valence-zero-through-
+   six fusion multiplicity by the cube of the product of `(spin+1)` over its
+   incident physical faces, independently of the auxiliary cutoff.
+   `Z4SpinDependentIncidenceProductBound` proves a finite multiplicative
+   Fubini theorem on the actual box geometry, proves that every box plaquette
+   occurs at exactly four distinct physical links, and consequently bounds
+   the complete literal link-multiplicity product by exactly one
+   `(spin+1)^12` factor per face, with neither a cutoff factor nor a volume
+   factor.  `Z4SpinSummedFaceActivityBound` absorbs the heat-kernel dimension
+   into the degree-thirteen Casimir tail, derives the closed rational
+   cutoff-uniform one-face sum `<= 1/7500` at `w = 1/400`, and proves the
+   resulting degree-625 animal/KP ratio is exactly `1/4`.  An explicit
+   positive-spin Cartesian injection then proves every fixed support has total
+   arbitrary-cutoff activity at most `(1/7500)^|support|`; reusing the
+   canonical connected-support animal injection gives a pinned KP partial sum
+   `<= 2`, uniformly in representation cutoff, box volume, pinned face, and
+   truncation.  The corresponding shifted KP sum now has its explicit
+   geometric tail as well.  `Z4SpinSummedSupportPartition` then partitions the
+   duplicate-free arbitrary-cutoff physical enumeration by its unique excited
+   support, proves the flattened support fibers are themselves duplicate-free,
+   and reindexes the full physical spin-foam partition exactly as the sum of
+   the support activities.  Thus the support denominator is the actual
+   arbitrary-cutoff physical partition, is at least one, and gives normalized
+   exact support-event probabilities in `[0,1]`; it is not an auxiliary
+   majorant.  `Z4SpinSummedSupportBoundaryTail` combines the geometric reach
+   floor with the new shifted KP bound and proves uniform reach and finite-box
+   exit tails with base `anchorDecoratedEffectiveRatio = 1/4`, independently of
+   representation cutoff, ambient volume, root, and size truncation.  Every
+   new critical theorem is contained in `{propext, Quot.sound}`.
+
+   The component-family bridge and the finite switching layer are now
+   discharged.  `Z4SpinSummedSupportComponentUpper` and
+   `Z4SpinSummedSupportComponentLower` give both weighted injections and hence
+   exact factorization of every support activity over its canonical
+   link-connected components, including injective decorated-component
+   recombination.  `Z4SpinSummedCompatibleGas` reindexes the actual
+   arbitrary-cutoff physical partition as the corrected compatible support
+   gas.  `Z4SpinSummedMarkedRootSwitch` and
+   `Z4SpinSummedCylinderSwitchSummation` then instantiate the existing
+   two-replica marked switch at every representation cutoff and prove exact
+   cancellation of all separated pairs, leaving only the explicit connected
+   cylinder residue.  These additions are package-built and their critical
+   dependency gates remain exactly `{propext, Quot.sound}`.
+
+   The first of the two formerly open locality obligations is now discharged.
+   `Z4SpinSummedColoredSupportWeight` converts the exact color/animal count and
+   the `1/7500` face envelope into the effective ratio `1/4`.
+   `Z4SpinSummedConnectedCarrierWeight`,
+   `Z4SpinSummedConnectedCarrierFixedSize`, and
+   `Z4SpinSummedConnectedCarrierTail` rebuild both oriented carrier
+   summations with the exact compatible-target and embedded-target background
+   factors.  `Z4SpinSummedCylinderConnectedTail` then bounds the complete
+   marked connected residue, uniformly in cutoff and target volume.
+
+   `Z4SpinSummedTargetCylinderRatio` keeps three algebraically distinct
+   objects separate: the full-target cross numerator, the boundary-partition
+   determinant, and its opposite four-cell determinant.  Exact finite
+   partition splitting proves the two required equivalences before the marked
+   switch is applied; this closes a semantic gap that cannot be repaired by
+   definitional unfolding.  `Z4SpinSummedTargetCylinderStability` cancels the
+   positive partition factors, uses complement symmetry for the reverse
+   inequality, and proves the cutoff-uniform same-volume modulus
+   `|Pr_target(event) - Pr_embedded-target(event)|` with boundary base `1/4`
+   for every finite Boolean cylinder predicate.  The complete chain is in the
+   root package build; the global axiom audit reports zero exceptions, and
+   both Clay frontier guards remain unchanged and passing.
+
+   The genuine cross-volume locality layer is now discharged exactly.
+   `Z4NestedBoxEnumeration` proves that the lexicographic vertex, plaquette,
+   and fixed-link incident-plaquette lists of a smaller box occur as ordered
+   sublists in every larger box.  `Z4FusionPathZeroInsertion` replaces the
+   first rejected well-founded implementation (whose axiom audit exposed
+   `Classical.choice`) by a structurally fuelled fusion-path counter, proves
+   agreement with the production valence-zero-through-six formulas, and
+   proves invariance under arbitrary ordered insertion of zero spins.
+   `Z4SpinDecoratedCrossVolumeLocality` then defines the literal geometric
+   zero extension of every physical face labelling, proves boundedness,
+   injectivity, exact excited-support transport, duplicate-free support-fibre
+   embedding, and equality of every local fusion multiplicity at arbitrary
+   cutoff and arbitrary private block bases.
+
+   `Z4SpinDecoratedCrossVolumeWeights` globalizes that local theorem.  It
+   rewrites the numerical face product as a geometric plaquette product and
+   proves that box enlargement inserts only vacuum coefficients.  It rewrites
+   every indexed link factor as a canonical geometric-link factor, splits the
+   larger distinct-link set into inherited and genuinely new links, proves
+   inherited factors equal and new factors exactly one, and therefore proves
+   the complete physical spin-foam term invariant.  Restriction is then
+   proved inverse to zero extension on every valid transported support;
+   because physical labellings are functions, a new constructive
+   nodup-membership permutation theorem is used instead of assuming a global
+   decidable equality.  Consequently the entire larger exact-support fibre is
+   the transported smaller fibre up to permutation, and
+   `parametricKSupportActivity_cross_volume` proves exact equality of the
+   fully spin-summed support activities for every representation cutoff.
+   No boundary error, measured constant, or general fusion-tree permutation
+   premise is used.
+
+   The cross-volume probability layer and the simultaneous cutoff/volume limit
+   are now discharged.  `Z4SpinSummedCrossVolumeCylinder` transports complete
+   compatible families, partitions, cylinder numerators, and normalized laws;
+   the exact smaller-box law is the embedded conditional law in the larger box.
+   Composing this identity with the uniform same-volume boundary estimate gives
+   a literal cross-volume modulus at every representation cutoff.
+
+   `Z4SpinSummedCylinderCofinal` turns that modulus into a constructive
+   thermodynamic `CReal` for every fixed cutoff, with a convergence rate
+   independent of the cutoff.  `Z4SpinSummedCutoffEventBridge` proves at every
+   cutoff (not merely cutoff one) that the physical-labelling cylinder
+   probability is exactly the compatible-family probability.
+   `Z4SpinSummedCutoffTail` telescopes the fixed-box physical cutoff law and
+   chooses an explicit coefficient-paying cutoff schedule.  Finally,
+   `Z4SpinSummedCylinderJointCofinal` compares two diagonal stages through a
+   common cutoff and proves a single simultaneous representation-cutoff and
+   thermodynamic-volume `CReal` limit for every finite canonical cylinder
+   event.  This is a direct Cauchy construction, not weak compactness.
+
+   `Z4SpinSummedCylinderJointFunctional` packages those eventwise limits as a
+   positive normalized finitely additive cylinder functional.  It proves exact
+   complement consistency, disjoint Boolean additivity, ignored-coordinate
+   refinement consistency, and independence (up to constructive-real
+   equivalence) of the finite containing box used to present a local event.
+   Thus the arbitrary presentation and projective-consistency leftovers of the
+   strong-coupling infinite-lattice cylinder state are closed.
+
+   Integration audit (2026-07-14): `lake build YMGap` succeeds with 1800 jobs;
+   the strict axiom manifest contains 15459 theorems in 1883 namespaces and
+   zero exceptions.  Every new critical theorem uses only
+   `{propext, Quot.sound}`.  The frontier guard still reports all five Clay
+   frontier types unconditionally uninhabited, and the statement guard keeps
+   all ten pinned statements unchanged.
+
+   Effort calibration: this is a substantial machine-checked constructive
+   finite-lattice milestone.  It resolves a long chain of exact enumeration,
+   fusion, polymer, locality, normalization, cutoff, and thermodynamic-limit
+   obligations that a complete proof would need.  It is nevertheless not a
+   defensible numerical fraction of the Clay problem: it remains a fixed-
+   spacing, very-strong-coupling SU(2) cylinder state and does not yet contain
+   the continuum ultraviolet construction, the physical RG trajectory, a
+   uniform Hamiltonian gap, OS/Wightman reconstruction, stress tensor/OPE and
+   asymptotic-freedom singularities, or the extension to every compact simple
+   group.
+
+   Uniform local non-triviality increment (2026-07-14): the previously open
+   finite-volume occurrence floor is now discharged for one explicit
+   interacting excitation.  `FiniteCompatibilityMarkedBound` and
+   `FiniteCompatibilityLayerDeletion` prove that deleting any finite list of
+   marked atom layers costs at most `2^N` when each exact marked activity is at
+   most one half.  `Z4CanonicalPinnedLayerDeletion` derives that half bound
+   uniformly for every canonical face from the checked KP sum.
+   `Z4CanonicalContactLayerDeletion` constructs a literal contact cover for a
+   root polymer; for the transported 24-face dyadic cube the cover has at most
+   600 entries, so the full partition is at most `2^600` times the
+   root-compatible deleted partition in every containing box.
+
+   `FiniteCompatibilityRootInsertion` then gives a constructive,
+   weight-preserving injection from every compatible deleted family into the
+   root-occurrence event.  Combining numerator insertion with denominator
+   deletion, `Z4DyadicUnitCubeUniformOccurrenceFloor` proves for every
+   `n >= 4` that the normalized cube occurrence is bounded below by the same
+   exact positive rational
+   `canonicalSurfaceActivity(anchorCoupling, cube) / 2^600`.
+   `Z4DyadicUnitCubeInfiniteVolumeNontriviality` passes that floor through the
+   existing cofinal Cauchy construction and proves `CReal.IsPositive` for the
+   actual infinite-volume cube-occurrence limit.  This is a genuine
+   volume-uniform, infinite-volume non-vacuity theorem at fixed lattice spacing
+   and the derived strong-coupling anchor; it is not yet continuum
+   non-triviality, an RG step, or a spectral gap.
+
+   Arbitrary-cutoff non-triviality update (2026-07-14): the same local floor
+   now survives the simultaneous representation-cutoff and volume limit, not
+   only the cutoff-one thermodynamic limit.  `Z4SpinSummedPinnedLayerDeletion`
+   derives the marked-layer half bound from the cutoff-uniform decorated KP
+   tail.  `Z4SpinSummedDyadicUnitCubeUniformOccurrenceFloor` reindexes the
+   exact spin-summed compatible gas into the generic finite deletion/insertion
+   calculus and proves, for every cutoff at least one and every containing
+   volume, the same positive rational lower bound
+   `canonicalSurfaceActivity(anchorCoupling, cube) / 2^600`.
+   `Z4SpinSummedDyadicUnitCubeJointNontriviality` passes it through the actual
+   diagonal cutoff/volume `CReal` and proves constructive strict positivity of
+   that cylinder coordinate.  Thus the full strong-coupling cylinder state is
+   now provably non-vacuous on an explicit interacting observable.  This still
+   says nothing about its zero-spacing limit.
+
+   First RG-facing block interface (2026-07-14):
+   `Z4CoarseUnitCubeBlockGeometry` promotes the unrefined six-face cube from an
+   older graph-mode witness to a canonical connected polymer, proves exact
+   two-face incidence at every one of its twelve boundary links, and identifies
+   the existing 24-face root as the dyadic refinement of that same geometric
+   carrier.  `Z4CoarseUnitCubeActivity` proves the exact coarse Haar
+   normalization and activity formula
+   `A_coarse(w) ≃ coeffW(w,1)^6`; together with the refined formula this gives
+   the machine-checked bare block identity `A_fine(w) ≃ A_coarse(w)^4`.
+   `Z4DyadicUnitCubeBlockCylinderIntertwining` puts the transported coarse root
+   and refined root into one two-coordinate strong-coupling cylinder law and
+   proves that its two marginals are exactly the previously constructed coarse
+   and refined singleton laws.  It exposes their finite-cutoff, finite-volume
+   same-coupling discrepancy as the derived rational
+   `anchorSameCouplingUnitCubeBlockDefect`; only nonnegativity is claimed so
+   far.  This is an exact observable-level intertwining and normalization
+   interface, not yet a finite block kernel or a coupling-shifted RG estimate.
+
+   Coupling-shifted finite-law increment (2026-07-14):
+   `Z4UnitCubeBareCouplingShift` derives the exact rational bare map
+   `w_coarse = 2*w_fine^4` from the fundamental character coefficient and
+   proves that the transported six-face coarse root and 24-face refined root
+   have identical activity.  `Z4CouplingParametricFiniteCylinderLaw` replaces
+   the anchor-only presentation by the actual normalized finite physical law
+   at every nonnegative rational coupling and defines the first exact
+   activity-matched two-coupling block defect.  This is a genuine shifted law,
+   not a renamed same-coupling discrepancy.
+
+   `Z4CouplingParametricMonotonicity` proves coefficient-product, physical-term,
+   partition, and Boolean-event-numerator monotonicity between arbitrary
+   nonnegative couplings; in particular the complete shifted-anchor partition
+   and every shifted-anchor numerator are bounded by their checked anchor
+   counterparts.  `Z4ParametricCanonicalRootOccurrence` constructs the literal
+   component-labelling witness at arbitrary coupling and cutoff, proving that
+   positive canonical activity gives strictly positive normalized finite-volume
+   occurrence.  `Z4ActivityMatchedUnitCubeOccurrence` transports both roots
+   through every containing box, proves both shifted block coordinates strictly
+   positive, and improves the universal defect fence from `delta <= 1` to the
+   strict theorem `delta < 1`.  All derived amplitudes remain exact rationals;
+   the new target builds report only `{propext, Quot.sound}`.
+
+   Coupling-parametric deletion and first quantitative block margin
+   (2026-07-14): `Z4NormalizedOccurrenceMonotonicityFence` permanently rules
+   out the tempting shortcut from termwise weight/numerator/partition growth to
+   normalized occurrence monotonicity.  Its exact three-state hard-core gas has
+   every unnormalized quantity increasing while the normalized root
+   probability strictly decreases, and the corresponding MLR minor fails.
+   Therefore normalized control must use deletion/insertion, a genuine TP2/MLR
+   theorem, or a block-boundary cluster argument.
+
+   `Z4CouplingParametricContactOccurrenceFloor` takes the deletion route.  It
+   proves cutoff-one canonical activities monotone throughout
+   `0 <= w <= anchorCoupling`, transports the checked pinned-layer half bound,
+   replays contact deletion and root insertion, and proves that the shifted
+   coarse cube has the volume-independent physical-law floor
+   `canonicalSurfaceActivity(anchorCoupling, refinedCube) / 2^150`.
+   The same module proves the exact arbitrary-coupling cutoff-one bridge from
+   the physical spin-labelling normalization to the canonical support gas.
+
+   `Z4CutoffOneActivityMatchedDefectFloor` combines that shifted coarse floor
+   with the existing refined floor.  Their constructive rational minimum
+   `epsilon_block` is strictly positive and lower-bounds both block
+   coordinates in every volume `n >= 4`.  The elementary checked inequality
+   `epsilon <= p,q <= 1 -> |p-q| <= 1-epsilon` now yields the first explicit
+   volume-uniform activity-matched block estimate
+   `delta_block <= 1 - epsilon_block < 1`.  This closes the earlier qualitative
+   margin residual at cutoff one.  It is still a fixed-spacing, one-block
+   contraction fence, not a small or summable multiscale RG defect.
+
+   The arbitrary-cutoff lift is now complete for this finite-cylinder
+   occurrence/defect statement.
+   `Z4CouplingParametricSpinSummedPinnedLayer` defines the complete spin-summed
+   support activity at arbitrary nonnegative coupling, proves coupling
+   monotonicity, and derives the uniform pinned-layer bound `<= 1/2` for every
+   cutoff, volume, face, and `w <= anchorCoupling`.
+   `Z4CouplingParametricSpinSummedSupportFactorization` proves exact
+   coupling-parametric component factorization and carries it through the
+   support fibres, connected gas, ambient ordering, and compatible-family
+   permutation.  Consequently the arbitrary-coupling physical partition is
+   exactly the corresponding compatible-gas partition.
+   `Z4CouplingParametricSpinSummedEventBridge` performs the matching event-fibre,
+   masked-support, ambient, and compatible-family reindex, so arbitrary-coupling
+   physical event probabilities are now exactly the compatible-gas ratios as
+   well.  `Z4CouplingParametricSpinSummedCoarseOccurrenceFloor` then replays
+   contact deletion and root insertion at every cutoff `K >= 1`; the literal
+   fundamental decoration supplies the same shifted coarse-cube floor uniformly
+   in `K` and volume.  `Z4AllCutoffActivityMatchedDefectFloor` combines it with
+   the existing all-cutoff refined floor and proves, for every `K >= 1` and
+   `n >= 4`, the production estimate
+   `delta_block <= 1 - epsilon_block < 1`, with one derived positive exact
+   rational `epsilon_block` independent of cutoff and volume.  This is the
+   first cutoff-and-volume-uniform quantitative activity-matched block margin;
+   it remains a fixed-spacing one-coordinate estimate, not an RG iterate or a
+   spectral gap.
+
+   `Z4FiniteObservableBlockKernel` isolates what that estimate already buys at
+   the probabilistic level.  It constructs an exact positive row-stochastic
+   Boolean kernel pushing the shifted coarse cylinder law to the refined law,
+   and an exact positive maximal coupling whose two marginals are the physical
+   block coordinates and whose mismatch mass is `delta_block`.  Its proved
+   source independence is an honesty fence: this is a coupling of one
+   observable, not a spatially local source-dependent map on gauge/spin
+   configurations.  `Z4UnitCubeLocalDefectSpectralFence` closes the analogous
+   spectral shortcut.  The same genuine positive strict-defect coordinate
+   admits both a reflection-positive completion with separator zero and a
+   persistent eigenvalue-one completion with no located gap.  Hence neither
+   the local defect nor its observable coupling selects the physical transfer
+   operator; a two-time Schwinger/time-shift identification is indispensable.
+
+   `Z4ActivityMatchedFiniteConfigurationKernel` lifts that probabilistic
+   interface from one Boolean observable to the complete finite physical
+   face-labelling laws.  A constructive rational centered-event copula gives
+   separately named coarse-to-fine refinement and fine-to-coarse blocking
+   kernels.  Both are pointwise nonnegative and row-normalized, push the full
+   normalized source law exactly to the full normalized target law, recover the
+   exact unit-cube cylinder marginal, and have explicit source-dependent row
+   witnesses whose canonical root and vacuum labellings are proved to lie in
+   the physical carriers for cutoff at least one and volume at least four.  The
+   739-job named build is green; the direct forbidden-token audit is clean and
+   every printed gate lies inside `{propext, Quot.sound}`.  This is still a
+   global complete-law coupling: each row consults the complete target law and
+   no spatial block-locality or conditional factorization has been proved.  The
+   same module now formalizes a minimal carrier-restricted cylinder-locality
+   predicate and proves that this copula violates it through a strictly positive
+   refined-root-to-vacuum transition with both endpoints physical.
+   `Z4BlockLocalityTensorObstruction` then constructs the genuine adjacent-time
+   two-factor tensor candidate and computes its two exact defects.  Its row sum
+   is `1` plus a source-coordinate product times the target physical centered
+   cross moment; its pushed target law is the target mass times `1` plus the
+   target-coordinate product times the source cross moment.  Conditional
+   cross-zero closure is green, but cross-zero is not assumed.  The 740-job
+   named replay exits green and every printed gate lies inside
+   `{propext, Quot.sound}`.  Tensorization has therefore exposed an interacting
+   covariance obstruction rather than a bookkeeping gap.  The active attack is
+   to derive its value from a physical symmetry/sign identity, or machine-refute
+   vanishing on the smallest admissible law and redesign the local kernel with
+   an explicit covariance correction.
+
+   The coupling-parametric cutoff/volume limit for every finite cylinder is now
+   constructive.  `Z4CouplingParametricCutoffEventCofinal` removes the
+   representation cutoff at fixed volume, without compactness or choice, and
+   passes the shifted coarse-cube floor to that `CReal` limit throughout
+   `0 <= w <= anchorCoupling`.  `Z4CouplingParametricCrossVolumeCylinder`
+   proves exact zero-extension locality for support activities, compatible
+   family weights, and embedded conditional cylinder laws.
+
+   `Z4CouplingParametricCylinderWeights` and
+   `Z4CouplingParametricConnectedCarrierTail` supply the sub-anchor switching
+   engine and sum the connected boundary carriers uniformly in cutoff.
+   `Z4CouplingParametricTargetCylinderRatio` identifies the exact normalized
+   cross-difference residue, while
+   `Z4CouplingParametricTargetCylinderStability` divides by the derived
+   positive partitions and proves the same-volume absolute modulus.
+   `Z4CouplingParametricCrossVolumeStability` transports it to two genuine box
+   laws.  `Z4CouplingParametricCylinderCofinal` therefore constructs the
+   fixed-cutoff thermodynamic cylinder `CReal` and proves it lies in `[0,1]`.
+   Finally `Z4CouplingParametricCutoffTail` gives the common-cutoff extension
+   modulus and `Z4CouplingParametricCylinderJointCofinal` constructs a direct
+   simultaneous cutoff/volume `CReal`, again in `[0,1]`.  No limit interchange
+   axiom is used.  `Z4CouplingParametricShiftedCoarseThermodynamic` specializes
+   both constructions to the shifted coarse cube and passes the same derived
+   positive rational floor to the fixed-cutoff thermodynamic limit and the
+   simultaneous cutoff/volume limit, proving `CReal.IsPositive` in both cases.
+   `Z4CouplingParametricCylinderJointBaseTransport` then proves an explicit
+   coefficient-times-dyadic modulus between simultaneous approximants formed
+   from two finite presentations of the same transported cylinder event.  This
+   removes base-box choice at the approximation level without compactness or
+   choice.  `Z4CouplingParametricCylinderJointFunctional` passes this modulus
+   to `CReal.Equiv` of the limits and proves normalization, the empty event,
+   complement, disjoint finite additivity, and ignored-coordinate refinement.
+   Thus the simultaneous limits now form a coherent positive finite-cylinder
+   state system.  `Z4FiniteCylinderPresentationColimit` defines a quotient-free
+   finite-chart interface and an explicitly witnessed common-refinement
+   equivalence; base transport and ignored-coordinate extension are refinements,
+   and the relation is constructively reflexive, symmetric, and transitive.
+   `Z4CouplingParametricCylinderColimitState` packages the coupling-parametric
+   evaluation as one normalized positive finitely additive state respecting
+   that relation; transport and ignored-coordinate invariance are exported.
+   `Z4FiniteCylinderTimeTranslation` constructs the honest action currently
+   available on the corner-anchored geometry: a nonnegative Euclidean-time
+   semigroup that translates and canonically re-encodes every root in an
+   enlarged box.  It proves canonicality, length preservation, injectivity,
+   and exact zero/composition laws for charts and presentations.  It is not an
+   arbitrary `Z^4` action.  `Z4FiniteCylinderTimeTranslationColimit` now proves
+   that this semigroup preserves common-refinement equivalence and hence that
+   shifted evaluation descends independently of the chosen presentation.
+   This is well-defined action, not state covariance.
+   `Z4CornerTimeTranslationObstruction` proves the reason exact finite-box
+   reindexing cannot close that residual: every positive time shift misses the
+   corner vertex, is nonsurjective, has no right inverse, and does not permute
+   the enlarged corner box.  A centered/bilateral exhaustion with receding
+   boundaries, or a derived lower-boundary comparison, is therefore required;
+   the current Nat action cannot honestly be relabelled as `Z^4`.
+   `Z4SignedCenteredExhaustion` now constructs the missing geometric carrier:
+   arbitrary signed `Int^4` translations have explicit inverses, act by exact
+   bijections between translated centered finite vertex/plaquette/link slabs,
+   preserve incidence, and the zero-centered boxes are cofinal for every signed
+   cell.  Existing Nat-canonical root supports embed into this geometry and
+   their nonnegative time shifts agree supportwise with signed translation.
+   `Z4SignedCenteredCornerBridge` then identifies every existing corner
+   `Nat^4` box of side `2r+1` with an arbitrary-center signed box by explicit
+   coordinate inverses, incidence-preserving plaquette/link maps, and literal
+   heterogeneous finite-list reindexings.  It proves cofinality for every
+   signed cell and embeds each existing canonical root support into the
+   zero-centered pulled-back physical box at a concrete radius.  This transports
+   the already derived finite cell law into the signed geometry; it does not
+   compare the normalized local marginals belonging to different centers.
+   `Z4SignedCenteredCylinderRecedingBoundary` defines the corresponding
+   signed-centered cylinder charts, pulled-back arbitrary-cutoff finite physical
+   value, and simultaneous cutoff/volume `CReal` value.  Translating the box and
+   observable together by any `Int^4` shift preserves both values definitionally,
+   and every finite value remains in `[0,1]`.  It also permanently fences the
+   tempting shortcut: even a one-plaquette time recentering cannot equal the
+   existing zero-extension `transportPolymer` at any larger target radius.
+   Hence the current cross-volume stability theorem cannot instantiate to the
+   fixed-observable receding-boundary comparison; a shifted-subbox or translated
+   connected-carrier-tail estimate is genuinely required.
+   `Z4ShiftedSubboxCarrierTail` now supplies that translated tail uniformly:
+   for an arbitrary lower corner, a canonical connected support pinned in the
+   protected core and escaping the outer shifted box must contain at least
+   `distance + 2` faces, and its exact truncated pinned KP sum is bounded by
+   `2 * (6/25)^(distance+2)`.  The theorem is independent of the translation
+   and recovers the old corner estimate at lower corner zero.  This closes the
+   geometric carrier-tail half only.  `Z4TimeShiftedPhysicalTransport` supplies
+   the matching affine configuration-level reindex for nonnegative Euclidean
+   time shifts: it reads a source labelling on the literally translated
+   plaquette list, zero-extends it in the enlarged box, proves cutoff boundedness
+   and injectivity on the physical enumeration, and identifies its excited
+   support exactly with `timeShiftCanonicalRoot`.  Exact-support fibres map into
+   their translated fibres.  This is not the old identical-coordinate
+   `transportPhysical`.  `Z4TimeShiftedPhysicalWeights` then reindexes both the
+   translated plaquette and link sets, proves the active incident-spin list is a
+   permutation of the source list and a zero extension inside the target list,
+   and uses fusion-complete zero insertion to show every new target link has
+   vacuum factor one.  Thus the complete arbitrary-cutoff SU(2) spin-foam
+   summand, not merely its support or face factor, is exactly invariant under
+   affine time transport.  `Z4TimeShiftedSupportActivity` constructs the exact
+   pullback, proves the transport/pullback roundtrip on every translated
+   cutoff-one support fibre, and upgrades the embedding to a literal fibre
+   permutation.  Summing the term identity therefore proves exact support-
+   activity covariance for every rational coupling and representation cutoff.
+   `Z4TimeShiftedEmbeddedCylinder` lifts this pointwise statement through the
+   hard-core gas.  It proves that affine translation preserves disjointness and
+   actual-link separation, embeds and injectively reorders every compatible
+   source family into the target gas, preserves complete family activity, and
+   transports arbitrary finite Boolean occurrence fingerprints.  Source
+   partitions, event numerators, and normalized cylinder probabilities are
+   consequently exactly equal to those of the translated embedded target cell.
+   `Z4TimeShiftedEmbeddedRegion` makes that cell intrinsic rather than merely
+   an image list.  It constructively unshifts any target canonical root whose
+   plaquettes lie in the translated source region, proves canonicality and the
+   exact shift/unshift roundtrip, and characterizes embedded compatible target
+   families exactly by the atomwise region predicate.  This is the literal
+   restriction needed by the existing marked-component switching argument.
+   `Z4TimeShiftedCylinderSwitchSummation` now performs that marked-component
+   switch on the affine cell.  It partitions full target families into the
+   embedded and boundary cells, proves the separated switch stays in the
+   correct cells, preserves the exact product weight, swaps arbitrary cylinder
+   fingerprints, and is injectively recoverable.  Summation reduces the entire
+   unnormalized covariance discrepancy to a literal connected source-pair
+   list.  `Z4TimeShiftedConnectedCarrier` constructs a deterministic marked
+   root-to-outside path for each such pair, removes it from the two backgrounds,
+   and encodes it injectively as a colored connected support.  Its support
+   starts at the marked root, exits the translated region, and obeys the exact
+   shifted-shell size floor.  `Z4TimeShiftedConnectedCarrierTail` then factors
+   the source weight into path and two background activities, injects every
+   fixed-size source into the decorated carrier gas, and bounds the fixed-size
+   sum by `anchorDecoratedEffectiveRatio^size` times the full ambient and affine
+   embedded partitions.  `Z4TimeShiftedConnectedCarrierBoundaryTail` sums those
+   shells under explicit protected-core and translated-exit hypotheses.  The
+   complete connected residue is at most the number of marked roots times the
+   full-target/affine-target partition product and
+   `2·anchorDecoratedEffectiveRatio^(distance+2)`.
+   `Z4TimeShiftedTargetCylinderStability` now performs the remaining exact
+   cross-ratio algebra.  It decomposes the full partition into affine-embedded
+   and boundary cells, identifies the event determinant with the four switch
+   cells, inserts the connected-carrier tail, and cancels the two strictly
+   positive partition functions.  Complement symmetry supplies the reverse
+   inequality, yielding an absolute normalized bound with the derived epsilon
+   `roots.length * 2 * anchorDecoratedEffectiveRatio^(distance+2)` under the
+   explicit protected-core and translated-exit geometry.
+   `Z4TimeShiftedCenteredApproximationBridge` connects that target estimate to
+   the exact source finite law: it gives a coordinate-level characterization
+   of the translated cell, constructs canonical marked target atoms, and proves
+   `abs(full shifted target probability - source probability)` is bounded by
+   the same derived boundary epsilon under an explicit four-coordinate core
+   hypothesis.  It also machine-checks the obstruction that a fixed root in
+   the existing corner chart cannot satisfy this hypothesis for unbounded
+   distance.  This is a finite approximation bridge only, not a `CReal` state
+   or a covariance theorem.
+   `Z4UniformShiftPhysicalTransport` now supplies the configuration/support
+   geometry needed to make that distance grow in all four coordinates.  It
+   embeds a source box of side `base` at uniform offset `padding` inside the
+   box of side `base + 2*padding`, preserving incidence, connectedness,
+   canonical root encoding, cutoff boundedness, injectivity, and the exact
+   excited support.  `Z4UniformShiftPhysicalWeights` continues through both
+   physical factors: translated face lists and actual-link incidence lists are
+   reindexed exactly, all target cells outside the embedded region carry the
+   vacuum factor one, and the complete arbitrary-cutoff spin-foam summand is
+   invariant.  `Z4UniformShiftSupportActivity` constructs the exact pullback
+   on every uniformly translated support fibre, proves the transport/pullback
+   roundtrip, upgrades the embedding to a literal fibre permutation, and hence
+   proves covariance of the complete arbitrary-cutoff support activity at
+   every rational coupling.  The remaining full-affine layer is compatible-
+   family/cylinder transport and the normalized shifted-subbox probability
+   estimate; that law may not be assumed by the centered state until proved.
+   `Z4UniformShiftEmbeddedCylinder` now lifts the exact activity equality
+   through disjoint, link-separated compatible families and arbitrary Boolean
+   occurrence fingerprints.  Source partition functions, event numerators,
+   and normalized cylinder laws are therefore exactly the laws of the
+   uniformly embedded target cell.  `Z4UniformShiftEmbeddedRegion` supplies
+   the constructive four-coordinate inverse and characterizes that cell
+   intrinsically: a target root belongs exactly when every geometric
+   plaquette lies in the uniformly shifted source region, and a compatible
+   target family belongs exactly when this holds atomwise.  The remaining
+   affine layer is comparison of this embedded cell with the full padded gas
+   by the connected-carrier tail.  `Z4UniformShiftCylinderSwitchSummation`
+   now performs the exact marked-component switch between the embedded and
+   boundary cells, preserves complete family activity and arbitrary cylinder
+   fingerprints, and reduces the unnormalized discrepancy to the literal
+   connected source-pair residue.  The live uniform residual is its
+   deterministic carrier encoding, geometric tail, and normalized
+   cancellation.  `Z4UniformShiftConnectedCarrier` now chooses the outside
+   atom and marked root constructively, loop-erases the disagreement path,
+   splits it into two colors, and records the exact two backgrounds in an
+   injective carrier.  Its union support is internally connected and obeys the
+   general shifted-subbox floor `distance + 2`.  The live uniform residual is
+   the pointwise weight envelope, fixed-size Cartesian injection, all-size
+   tail, and normalized cancellation.  `Z4UniformShiftConnectedCarrierTail`
+   now bounds the two colored path activities by the derived decorated
+   envelope while retaining both exact backgrounds, injects every fixed-size
+   source into the Cartesian carrier gas, factors its target as the full padded
+   partition times the literal uniform-embedded partition, and supplies the
+   finite geometric shell estimate.  The live uniform residual is the
+   protected-core all-size boundary summation and normalized cancellation.
+   `Z4UniformShiftConnectedCarrierBoundaryTail` now performs that shell
+   summation under the explicit root-core and outer-exit hypotheses.  It
+   preserves the exact full-padded-partition × embedded-partition factor and
+   yields the derived boundary factor
+   `roots.length * 2 * anchorDecoratedEffectiveRatio^(distance+2)`.  The live
+   uniform residual is exact cross-ratio cancellation, complement symmetry,
+   and specialization to the centered receding stages.
+   `Z4UniformShiftTargetCylinderStability` now performs both cancellation
+   steps using only the constructively positive finite partitions.  Under the
+   explicit root-core and outer-exit geometry it proves the full padded
+   cylinder probability differs in absolute value from the uniform-embedded
+   probability by exactly the derived boundary epsilon, uniformly in cutoff,
+   padded volume, and `0 ≤ coupling ≤ anchorCoupling`.  The live centered
+   bridge had to discharge those geometry hypotheses for the receding stage
+   family, identify the embedded probability with the earlier stage law, and
+   convert the geometric ratio into the diagonal's dyadic modulus.
+   `Z4SignedCenteredFixedObservableRecoding` now canonically re-encodes every
+   fixed finite root list at centered radius `base + stage`.  It proves that
+   the pulled-back signed support is literally stage-independent, that any two
+   stages are related by the exact uniform-shift carrier above, and that the
+   earlier stage is an explicit protected core whose boundary distance is the
+   earlier stage.  Thus the receding-boundary geometry and its growing modulus
+   parameter are now fully constructive.  No finite-law comparison, Cauchy
+   modulus, `CReal` state, or translation covariance is inferred from this
+   geometric recoding.
+   `Z4SignedCenteredRecedingDiagonal` aligns a concrete rational stage law
+   with that recoding and the existing joint cutoff schedule.  It isolates the
+   exact missing physical statement as `CenteredRecedingVolumeModulus`, proves
+   the common-cutoff three-term Cauchy algebra, and conditionally constructs a
+   normalized Bishop `CReal` in `[0,1]`.
+   `Z4SignedCenteredRecedingPresentation` lifts this conditional construction
+   to the signed cylinder-chart interface.  It identifies chart supports with
+   the diagonal through an explicit signed origin, proves exact ignored-
+   coordinate refinement, isolates a separate stagewise presentation-
+   comparison modulus, and derives conditional `CReal` descent and full
+   `Int^4` covariance because translated rational stage laws are termwise
+   equal.  `Z4UniformShiftCenteredRecedingBridge` now discharges the complete
+   receding-stage geometry, outer-exit, marked-root, and protected-core
+   obligations and specializes the normalized target-cylinder estimate to the
+   diagonal schedule.  It gives an unconditional inhabitant of
+   `CenteredRecedingVolumeModulus` throughout the derived strong-coupling
+   window, hence unconditional normalized Bishop `CReal` cylinder values in
+   `[0,1]` and unconditional full `Int^4` covariance for every canonical
+   Boolean signed presentation.  This is a genuine infinite-volume state
+   value and covariance result at fixed lattice spacing, not an OS theory.
+   Arbitrary semantically equivalent presentations still require the separate
+   comparison/descent modulus; normalization, complement, and finite
+   additivity must be packaged on the resulting presentation-independent
+   cylinder algebra.  Richer local fields and continuity/countable-additivity
+   for OS reconstruction remain open.  The old corner-colimit charts still do
+   not acquire translation invariance: their fixed lower boundary is the
+   machine-checked reason the centered exhaustion was necessary.
+   `Z4SignedCenteredCylinderStateLaws` now packages these unconditional values
+   on every fixed canonical root chart as a positive normalized finitely
+   additive Boolean cylinder functional.  Normalization, the empty event,
+   complement, and disjoint union are inherited termwise from the exact finite
+   compatible-gas law and therefore hold as Bishop-`CReal` equivalences.  This
+   closes the state-algebra laws before quotienting presentations; it does not
+   supply arbitrary common-refinement descent, countable additivity, or an OS
+   measure.
+   `Z4SignedCenteredPresentationCommonRefinement` now supplies the first exact
+   presentation-independent descent relation.  Two signed presentations are
+   aligned when an explicit common absolute diagonal base makes every later
+   receding Boolean event literally equal.  This is constructively an
+   equivalence relation, includes signed translations and ignored-coordinate
+   refinements, and its one-cutoff comparison discharges the previously
+   isolated presentation modulus.  Hence the unconditional centered Bishop
+   values descend to an aligned-evaluation bundle without choice.  A checked
+   empty-chart counterexample shows why equality of the displayed finite chart
+   alone cannot imply this stronger event alignment.
+   `Z4SignedCenteredFiniteColimitDescent` now closes the connection to the
+   historical finite-presentation colimit.  It constructs marked preimages for
+   shared root re-encodings, proves centered canonical encoding commutes
+   literally with zero-extension through an intermediate box, embeds every
+   signed presentation into `FiniteCylinderPresentation`, and turns any old
+   refinement witness into exact equality of every sufficiently outer centered
+   event.  Consequently old `CylinderPresentationEquivalent` implies aligned
+   equivalence and the unconditional anchor-window value respects that
+   colimit, with a quotient-free evaluation bundle.  A second checked empty-
+   chart fence shows even identical chart supports do not imply the old
+   equivalence when predicates differ.  Finite presentation descent is thus
+   closed; broader semantic equality not carrying constructive re-encoding
+   witnesses, countable additivity, and an OS measure remain open.
+   `Z4CenteredCoarseUnitCubeActivity` fixes an explicit nonempty local carrier
+   inside the centered exhaustion: the six faces of the elementary cube,
+   shifted one unit into the box of side three.  The encoded root is canonical
+   and connected, every touched link has incidence exactly two, its complete
+   production-link factor is one, and its cutoff-one activity is exactly
+   `(coeffW coupling 1)^6`, strictly positive at positive coupling.
+   `Z4CenteredCoarseUnitCubeStateNontriviality` now carries this exact root
+   through the actual centered exhaustion.  Its contact cover has at most
+   `6 * 25 = 150` entries, deletion plus fundamental-root insertion yields the
+   same derived activity-matched rational floor divided by `2^150` at every
+   containing radius and every representation cutoff at least one, and the
+   scheduled cutoff is proved to satisfy that lower bound.  The floor passes
+   through `couplingParametricCenteredCylinderFunctionalAtAnchor`, giving the
+   unconditional axiom-clean certificate
+   `centeredCoarseUnitCubeStateOccurrence_pos`.  Thus an explicit local
+   observable is genuinely positive in the centered fixed-spacing anchor
+   state.  `Z4SignedCenteredCoarseUnitCubeTranslationNontriviality` packages
+   it as a genuine signed presentation and proves that every `Int^4`
+   translate has the pointwise-translated six-face support, identical centered
+   approximants, the same rational floor, and hence a positive state value.
+   Translation covariance therefore applies to a concrete nonzero observable,
+   not just to an abstract event carrier.
+   `Z4SignedCenteredCoarseUnitCubeComplementNontriviality` now proves that
+   this observable is genuinely nonconstant.  Compatible families in the
+   contact-deleted gas inject constructively into root absence, the vacuum
+   gives deleted partition at least one, and the same exact contact budget
+   yields the rational absence floor `1/2^150`.  At every signed `Int^4`
+   translate both occurrence and complement are positive Bishop reals and
+   their sum is exactly equivalent to one.  This is the witness-bearing
+   constructive strict-below-one certificate; it uses neither excluded
+   middle nor an undecidable bare real inequality.  This is not continuum
+   nontriviality: transporting this observable
+   along a derived physical RG trajectory and identifying its continuum local
+   field/OPE normalization remain open.
+
+   `Z4DyadicDeterministicSupportKernel` supplies the first genuinely
+   source-dependent local support map: four-child incidence determines a
+   canonical coarse support, and its exact `Q'` Dirac kernel is positive and
+   row-stochastic.  It recovers canonical coarse supports from literal dyadic
+   refinements and sends the 24-face refined cube to the six-face coarse cube.
+   The same module also prevents this useful combinatorial map from being
+   mistaken for the physical RG transformation.  A closed fine unit-cube
+   surface coarsens under the naive OR rule to a support with incidence exactly
+   one at an explicit link, so arbitrary gauge closure is not preserved;
+   closure is proved only on literal refinements.  This checked counterexample
+   redirects the physical block-kernel route toward a genuine cellular
+   mod-two pushforward or a link-holonomy/gauge-covariant construction.
+
+   `Z4DyadicModTwoCellularKernel` now supplies that cellular repair at the
+   support-parity level.  It defines the exact dyadic face pushforward over
+   `F_2`, proves that cellular boundary commutes with coarsening, and identifies
+   its global `ModTwoClosed` predicate with the pre-existing finite-support
+   `EvenFaceIncidence` condition.  Consequently every box-supported closed
+   support is sent to a closed coarse support.  The induced source-dependent
+   exact `Q'` Dirac kernel is nonnegative, row-normalized, and gives nonzero
+   mass only to closed targets.  This is a genuine closure-preserving local
+   configuration map, but only for mod-two support data: it does not yet push
+   forward SU(2) spin labels, Haar amplitudes, or the physical measure, and it
+   supplies no iterative defect estimate.
+   `Z4DyadicSlabReflectionParityKernel` now proves that this local parity map
+   can be made exactly compatible with the corrected half-time reflection.
+   The forced fine maximum time is `2*extent+1`: at that affine extent every
+   four-face dyadic fibre is reflection-permuted, the XOR pushforward commutes
+   pointwise with reflection, and the induced source-dependent deterministic
+   slab kernel is nonnegative, row-normalized, four-face local, and exactly
+   reflection-equivariant.  A concrete theorem refutes the naive even fine
+   extent.  This removes the configuration-geometric RP obstruction only; it
+   is still not an interacting-weight or Gibbs-law pushforward.
+   `Z4DyadicSlabMultiCharacterPacketKernel` now lifts this corrected-slab map
+   from one parity bit to the ordered packet of all four bounded SU(2)
+   twice-spin labels in each nondegenerate fine-face fibre.  Its finite packet
+   state space is constructively duplicate-free, the packet parity is exactly
+   the preceding cellular XOR, spatial reflection exchanges the two time-layer
+   halves while temporal packets are fixed, and the induced exact-rational
+   Dirac kernel is nonnegative, row-normalized, and reflection-equivariant.
+   This retains the local character data but does not yet contract it with
+   Haar/fusion amplitudes or identify an interacting physical pushforward.
+   `Z4DyadicSlabCharacterFusionConditionalKernel` performs the first literal
+   amplitude contraction.  Its target retains the two reflected pair channels
+   and final coarse character; the raw row is the exact coefficient times the
+   three SU(2) fusion multiplicities.  A stretched channel proves the finite
+   denominator positive, yielding a nonnegative exactly normalized rational
+   kernel whose denominator and rows intertwine corrected-slab reflection.
+   A concrete vacuum-versus-fundamental witness proves genuine source
+   dependence.  The residual is shared-link/gluing compatibility with the
+   production link multiplicities and the full block Gibbs law; local row
+   construction and reflection geometry are no longer the missing pieces.
+   `Z4DyadicSlabTwoFaceSharedLinkKernel` performs the smallest literal gluing
+   audit.  The production degree-two shared-link multiplicity is exactly the
+   vacuum fusion guard on the two coarse outputs, and multiplying it into two
+   face rows preserves nonnegativity and corrected-slab reflection.  It also
+   banks a decisive normalization fence: a vacuum packet row and a
+   one-fundamental packet row are each normalized, yet their production-glued
+   target mass is identically zero because their only coarse spins cannot fuse
+   to vacuum.  Independent per-face normalization is therefore refuted as a
+   physical Gibbs kernel.  The live route must assemble all shared-link
+   factors into a coupled block weight first and normalize only the complete
+   compatible component.
+   `Z4DyadicSlabTwoFaceCoupledConditionalKernel` implements that repair on the
+   first nonvacuous carrier: two bounded face packets with equal derived total
+   twice-spin share a stretched compatible coarse channel.  Its duplicate-free
+   joint target is weighted by both exact face factors and the literal
+   production degree-two link multiplicity, the common stretched target proves
+   the coupled denominator positive, and one post-gluing normalization is
+   nonnegative, row-stochastic, and reflection-intertwining even when the two
+   face planes differ.  Vacuum/vacuum and fundamental/fundamental give distinct
+   inhabited sources.  Equal stretched totals are only a sufficient source
+   class, and the two-face component has unaccounted dangling links; the next
+   physical object must assemble and normalize a minimal closed plaquette
+   component with every production link factor present.
+   `Z4DyadicSlabTwoFaceClosureObstruction` makes that warning exact.  The
+   intended shared edge has incidence two, but an explicit outer edge has
+   incidence one, so the adjacent pair is not an even-incidence physical
+   carrier.  Moreover, among the six displayed faces of the elementary cube,
+   even incidence forces all six selection bits to agree: any closed subpacket
+   containing the bottom/front pair is the entire six-face boundary.  Thus the
+   next coupled normalization is forced onto the complete cube in this local
+   geometry; stopping at a sequence of independently normalized face pairs is
+   now permanently fenced off.
+   `Z4DyadicSlabCubeCoupledConditionalKernel` completes that forced local
+   assembly.  Its duplicate-free target carries all six face channels; twelve
+   recorded incidences are definitionally the twelve boundary links of the
+   cube and each is attached to its actual pair of incident faces.  The raw
+   weight is the product of all six derived face weights and all twelve literal
+   degree-two production factors.  One common stretched target makes every
+   link factor one and proves the single post-gluing denominator positive, so
+   the resulting exact-rational kernel is nonnegative, row-normalized, and
+   intertwines arbitrary per-face corrected-slab reflection (including the
+   geometric plane permutation).  This is the first normalized closed local
+   component.  `Z4DyadicSlabCubePhysicalSummandBridge` now performs the exact
+   production audit.  The alternating lower-slot-one/upper-slot-zero source is
+   literally the already-audited odd fine unit cube: its six packets arise
+   from one common fine spin field, every touched fine link has incidence two,
+   its production summand is positive, and its cube raw weight equals that
+   summand with no scalar renormalization.  The audit also finds the decisive
+   obstruction.  The distinct all-slot-zero source has the same stretched
+   target and the same positive cube raw mass, but its represented fine faces
+   have an explicit incidence-one link and hence exact production weight zero.
+   Thus the present row space mixes physical and nonphysical fibres that its
+   target cannot distinguish.  OPEN is a global fine-support/recoupling
+   projector on the six packet-slot choices, followed by normalization and a
+   composition theorem over interacting cube blocks; another scalar factor
+   cannot repair the kernel.
+   `Z4DyadicSlabCubeFineSupportProjectedKernel` now constructs that projector
+   in the one-fundamental-per-face sector.  Its duplicate-free state space
+   enumerates all `4^6 = 4096` slot assignments, tests literal touched-link
+   incidence, and kernel-classifies the projected carrier as exactly the odd
+   fine cube at time zero and its corrected-slab reflected copy at time one.
+   Both survivors have inducing fine spin fields and closed support; the
+   all-slot-zero source is rejected, consistently with its incidence-one
+   fence.  Their derived raw weights give a strictly positive projected
+   partition and an exact nonnegative row-normalized rational law.  The cheap
+   boundary-matching predicate is proved sound for literal closure and exactly
+   classified on this finite sector; no converse classification of every
+   conceivable incidence-closed assignment is claimed.
+   `Z4DyadicSlabCubeKernelProductComposition` composes two projected carriers
+   as an exact duplicate-free four-state Cartesian product, proves strict
+   positivity, row normalization, corrected-slab reflection invariance, and
+   the identity of every compatible one-fundamental raw slot weight with
+   `(coeffW w 1)^6`.  Under the existing `FaceDisjoint` and `LinkSeparated`
+   hypotheses it identifies the product of two projected bridged raw masses
+   with the actual union production summand.
+   `Z4DyadicSlabCubeTranslatedProjectedComposition` now inhabits those
+   hypotheses geometrically: it zero-extends the odd survivor and genuinely
+   time-shifts its reflected survivor into a common cutoff-five box, proves
+   their face and actual-link separation, bridges both raw masses to transported
+   production summands, and obtains an unconditional concrete reflected-pair
+   union theorem.  It also supplies an arbitrary finite recursively separated
+   bridge-family product theorem and banks the exact overlap fence
+   `not FaceDisjoint 4 oddPhysical oddPhysical`.
+   `Z4DyadicSlabCubeManyTimeSliceProjectedFamily` now performs the uniform
+   finite-horizon parameterization: all `h+1` true time shifts live in one
+   common zero-extended box, distinct time indices are pairwise face-disjoint
+   and link-separated, every `Nodup` index list lifts recursively to the exact
+   separated-family interface, and the alternating projected raw product is
+   the actual physical-union production summand.  The companion
+   `Z4DyadicSlabCubeManyTimeSlicePositiveWeight` identifies that summand as
+   `(coeffW w 1)^(6*(h+1))` and proves it strictly positive for `w>0`.  This is
+   an unnormalized finite-horizon production path, not a normalized cylinder
+   probability or transfer eigenvalue.  OPEN is treating genuinely
+   overlapping cubes with shared fine links, extending beyond the
+   one-fundamental slot sector to arbitrary bounded spin packets, and proving
+   the actual normalized Gibbs pushforward/defect theorem.
+   `Z4DyadicSU2ParitySpinKernel` now
+   identifies the exact all-cutoff SU(2) shadow: the incidence parity of faces
+   carrying odd twice-spin equals the production incident-spin sum, so every
+   nonzero finite spin-foam weight has a globally even-incidence odd-spin
+   support.  Cellular coarsening preserves it and yields a literal cutoff-one
+   coarse physical labelling together with a nonnegative row-normalized
+   deterministic coefficient kernel.  Exact cutoff-two witnesses prove that
+   parity neither determines a fusion guard nor distinguishes all bounded fine
+   spin states.  Thus this kernel is not the physical pushforward.
+   `FiniteDeterministicKernelPushforward` now provides the shared constructive
+   finite algebra for the next step: arbitrary deterministic zero-one kernels
+   are nonnegative and row-normalized on a complete duplicate-free target list,
+   matrix pushforward equals exact fiber summation, and the full partition sum
+   is preserved.  This theorem is deliberately amplitude-agnostic.
+   `Z4DyadicSU2ParityGlobalPushforward` builds an injectively keyed complete
+   cutoff-one target enumeration and one global source-dependent zero-one
+   kernel on physical face labellings.  Its pushforward is exactly the finite
+   fine fibre sum, is nonnegative, and preserves the full finite partition
+   total.  An explicit distinct fine pair in one fibre checks information loss.
+   `Z4DyadicSU2ParityPhysicalWeightFence` then refutes the naive universal
+   same-coupling identification: at fine cutoff zero the canonical nonempty
+   coarse cube receives pushed weight zero while its actual cutoff-one coarse
+   spin-foam weight is strictly positive.  This does not rule out a
+   nontrivial-cutoff, coupling-renormalized comparison.
+   `Z4DyadicSU2ParityActivityMatchedDefect` supplies the first such exact
+   comparison.  The literal 24-face refined unit-cube state maps to the six-face
+   coarse cube, its cutoff-one term equals the coarse term at the derived
+   coordinate `w' = 2*w^4`, and the complete parity fibre dominates that coarse
+   physical term.  The remainder is defined as an exact nonnegative additive
+   fibre defect; at production `w = 1/2`, the coordinate is exactly `1/8`.
+   This is one-sided and single-block, not an effective-law equality.  The
+   next exact fibre audit, `Z4DyadicSU2ParityMinimalLiftFence`, shows why that
+   extra term cannot be treated as a small correction to this scalar match.
+   A distinct six-face fine unit-cube boundary maps to the same coarse cube as
+   the 24-face literal refinement; its complete link multiplicity product is
+   one and its physical term is exactly `coeffW(w,1)^6`.  For every `w >= 0`,
+   that sixth-order contribution is a proved lower bound on the supposedly
+   matched fibre defect.  The 24th-order scalar coordinate therefore aliases a
+   parametrically lower-order physical state and is not a credible iteratable
+   effective law.  This route is fenced pending a richer multi-coordinate or
+   holonomy/character block kernel; the active independent flow attack moves
+   to the cutoff-uniform character-retuning inequality rather than further
+   optimization of the parity shadow.
+   `Z4OldBoxReflectionKernelFence` now records a separate geometric
+   obstruction at the intended kernel interface: any exact facewise
+   reflection-intertwining kernel on the old full-box coordinates would need a
+   deterministic geometric face reindex, but that reindex is provably
+   nonexistent in every nonempty box because a reflected boundary partner is
+   omitted.  An RP-compatible construction must therefore use the corrected
+   boundary-complete slab coordinates.
+   `Z4RetunedParityPhysicalMixtureKernel` supplies a nontrivial multi-coordinate
+   finite-state scaffold.  It mixes the exact cellular-parity Dirac pushforward
+   with the normalized cutoff-one coarse physical law using the derived factor
+   `retuneCube w`; the result is positive, row-normalized, and has an inhabited
+   source-dependence witness.  For every normalized fine law its pushforward
+   remainder is pointwise exactly `retuneCube w` times the deterministic-parity
+   remainder, with a corresponding finite `L1` bound.  This is not yet the
+   physical RG step: the refresh rows are machine-checked to be identical and
+   hence globally source-independent, so the kernel is not spatially local or
+   iteratable and cannot supply SELF-CHARGE.  The live fork is to localize the
+   refresh through slab/block conditional laws or replace it by a genuinely
+   local multi-character/holonomy kernel, then prove RP intertwining and a
+   summable physical remainder.
+
+   `Z4AdjacentTimeUnitCubeCylinder` has replaced the abstract two-state
+   completion by a genuine two-time observable in the arbitrary-coupling
+   physical law.  The refined cube and its one-step `x3` translate are proved
+   canonical in a common box, lie at time coordinates zero and one, share no
+   lattice link, and remain distinct compatible roots in every volume
+   `n >= 5`.  Their four exact rational atoms have the correct marginals and
+   total mass one, and the ordinary outcome-square form is nonnegative.
+   `Z4AdjacentTimeUnitCubeActivity`, `FiniteCompatibilityPairOccurrence`, and
+   `Z4AdjacentTimeJointPositivity` additionally derive strict positivity of the
+   actual `(true,true)` physical atom at every positive coupling and cutoff
+   containing the fundamental label.  This proves temporal non-vacuity, not
+   positive correlation.  An exact normalized symmetric anti-diagonal law
+   still has a negative reflection quadratic form, so those properties cannot
+   be promoted to OS positivity.
+
+   The half-time route has now exposed and repaired a geometric obstruction.
+   `Z4HalfTimeReflectionGeometry` proves that the current `boxPlaquettes`
+   enumeration is not reflection-closed: its missing top spatial slice makes
+   every proposed face reindex impossible.  It then constructs a
+   boundary-complete slab, proves reflection permutations of its cells and
+   links, and exchanges the centered adjacent cube roots.
+   `Z4HalfTimeReflectionFaceReindex` gives a computable involutive face-ID
+   permutation, reflected bounded labellings, and exact invariance of the full
+   derived heat-kernel face coefficient product.
+   `Z4HalfTimeReflectionIncidenceReindex` transports incident face IDs and
+   proves that each reflected link sees a permutation of the original spin
+   list.  `Z4FusionMultiplicityPermutationFence` proves that arbitrary-cutoff
+   permutation invariance is genuinely false, even for bounded external spins,
+   so the production fusion-complete cutoff may not be erased from the claim.
+   `Z4FusionMultiplicityPermutation` supplies the first constructive repair:
+   the Racah channel shift is an explicit permutation of the two four-leg
+   channel lists, proving associativity whenever both relevant pair sums fit
+   inside the auxiliary cutoff.  `Z4FusionMultiplicityPermutationLift` lifts
+   that identity through weighted suffixes and arbitrary prefixes, derives the
+   exact `6*K` channel budget, and proves full `List.Perm` invariance of both the
+   vacuum-ending fusion-path count and `explicitValenceMultiplicity` for every
+   bounded external-spin list of length at most six.
+   `Z4HalfTimeReflectionLinkMultiplicity` specializes that theorem to the
+   actual corrected-slab incident-spin permutation, proves every reflected
+   production link multiplicity equal, multiplies these identities over the
+   reflection-permuted link list, and combines them with the face-factor result
+   to prove exact invariance of a complete corrected-slab physical spin-foam
+   summand.  `Z4HalfTimeReflectionPartition` repairs the off-support coordinate
+   pitfall with a zero-extended involution, proves a literal permutation of the
+   bounded labelling enumeration, and derives exact partition invariance in two
+   independent ways together with reflected-event numerator equality.  These
+   are symmetry statements only.  `Z4FusionChannelConvolution` proves the
+   load-bearing local factorization before positivity: a vacuum multiplicity
+   for `left ++ reflectedRight` is exactly the finite channel sum of the two
+   half-path amplitudes, with the right path reversed.  A checked cutoff-two
+   counterexample shows the same-order formula is false, so reversal cannot be
+   suppressed by a normalization convention.  `FiniteWeightedGramSOS` supplies
+   the generic constructive assembly: every finite nonnegatively weighted
+   channel convolution has an exact list-level quadratic-form identity as a
+   weighted sum of rational squares, hence is nonnegative.
+   `Z4HalfTimeReflectionCrossPlaneGeometry` partitions the literal corrected-
+   slab face IDs and actual links into lower, fixed-interface, and upper lists,
+   proves the full-list permutations and reflection side flip, and proves
+   exhaustive incidence locality: lower links see no upper faces, fixed links
+   see only fixed cross-plane faces, and upper links see no lower faces.
+   `Z4HalfTimeReflectionCrossPlaneFactorization` uses those literal list
+   permutations to factor every complete corrected-slab physical summand as
+   `lower * (fixed * upper)`, with exact `ofNat` normalization, and proves the
+   fixed interface factor nonnegative for nonnegative coupling.  The geometry
+   also adjudicates the earlier channel guess: fixed `x3` links see only
+   individually fixed temporal plaquettes, so the boundary contribution is a
+   nonnegative label weight rather than a lower/upper incident-list
+   convolution at those links.
+   `Z4HalfTimeReflectionCrossPlaneLabellings` constructs the literal production
+   labelling from a lower state, fixed boundary channel, and reflected second
+   lower state; proves its cutoff boundedness and full-enumeration membership;
+   proves reflection swaps the two inputs; and proves the lower, fixed, and
+   upper factors depend only on their intended coordinates.
+   `Z4HalfTimeReflectionCrossPlaneReflectedFactor` filters the full reflection
+   permutations to literal upper-to-lower face and link permutations, proves
+   every bounded physical upper factor equals the lower factor of its reflected
+   labelling, and specializes this to the common lower-half amplitude of the
+   assembled state pair.  `Z4HalfTimeReflectionPhysicalGram` then defines the
+   boundary-summed assembled reflected kernel, proves each assembled complete
+   spin-foam summand is boundary weight times the two half amplitudes, identifies
+   the arbitrary-rational-coefficient quadratic form exactly with
+   `weightedGramQuadratic`, and derives constructive finite OS positivity.
+   `Z4HalfTimeReflectionPhysicalReindex` closes the remaining finite
+   combinatorial guard.  It defines the lower, fixed, and reflected-upper
+   restrictions of an independently enumerated full slab labelling; proves both
+   assembly roundtrips; proves the Cartesian triple list duplicate-free and its
+   assembly injective; and proves a literal `List.Perm` from the assembled list
+   to `boundedEdgeLabellings` on every physical slab face.  Consequently the
+   Cartesian partition equals the independently defined corrected-slab physical
+   partition, and the assembled Gram quadratic equals an independently defined
+   full-slab reflection numerator.  The latter is constructively nonnegative
+   for every rational test coefficient.  Finite corrected-slab OS positivity is
+   therefore coverage-certified rather than positivity of a redefined kernel.
+   `Z4HalfTimeReflectionNormalizedPhysicalGram` completes its finite
+   normalization: every nonnegative-coupling slab summand is nonnegative, the
+   exact vacuum summand is one, the independent slab partition is at least one
+   and hence strictly positive, and positive-denominator division preserves the
+   full OS quadratic's nonnegativity.  The constant-one observable evaluates
+   exactly to one, fencing both vacuum and multiplicity normalization errors.
+   `Z4HalfTimeReflectionSlabAmbientWeights` gives the first exact bridge toward
+   the existing cylinder exhaustion without inventing a second polymer model.
+   The corrected slab plaquette list is an ordered filter of the corner box of
+   side `extent+1`; zero-extending a bounded slab labelling into that box
+   preserves the complete arbitrary-cutoff physical term.  The proof includes
+   face vacuum insertion, every incident-spin zero extension and fusion
+   multiplicity, the slab-to-ambient link reindex, and vacuum factor one on all
+   new ambient links.  `Z4HalfTimeReflectionSlabAmbientImage` proves the exact
+   image statement omitted there.  Slab zero extension is injective on the
+   bounded physical enumeration; an explicit ambient restriction is its
+   inverse precisely on ambient labellings vanishing on omitted faces; and the
+   mapped slab list literally permutes the filtered ambient list with that
+   support condition.  Equivalently, every excited ambient plaquette belongs
+   to the corrected slab.  Thus the slab partition is now identified with an
+   exact conditional subensemble of the ambient box, not with the full ambient
+   partition.  `Z4HalfTimeReflectionSlabAmbientPartition` sums the pointwise
+   bridge over that literal image: restriction is proved to be a left inverse
+   on bounded slab labellings, the complete slab partition equals the supported
+   ambient conditional partition, and every slab-weighted observable (including
+   the independently defined full OS numerator) equals its explicit ambient
+   conditional sum.  No ambient-complement term has been discarded.  That
+   complement still has to be bounded uniformly and then removed from
+   normalized observables.  `Z4HalfTimeReflectionSlabAmbientComplement` makes
+   this residual algebraically explicit: the full ambient partition is exactly
+   the supported conditional partition plus a nonnegative complement mass, and
+   the same exact split holds for every observable pulled back by slab
+   restriction.  Combining it with the slab bridge gives `slab + complement =
+   ambient` for both partitions and arbitrary weighted sums.
+   `Z4HalfTimeReflectionTopBoundaryTail` supplies the
+   first quantitative half of that removal.  It proves that every omitted
+   ambient face lies on the top time layer, while the two central reflected
+   roots lie respectively `half+1` and `half` steps below it.  Any canonical
+   polymer connecting either root to the complement therefore enters the
+   existing reach filter, and its exact truncated pinned KP sum is bounded by
+   `2 * anchorEffectiveRatio^(half+1)`.  Converting an arbitrary conditional-
+   versus-full cylinder discrepancy into such a complement-hitting connected
+   carrier, and then dividing by the positive partitions, remains open.
+   `Z4HalfTimeReflectionSlabCanonicalEvent` now supplies the cutoff-one anchor
+   event bridge needed for that conversion: the atomwise canonical-family slab
+   predicate is pointwise equivalent to `ambientSlabSupportedB` under the
+   physical connected-component map, and both the pure support numerator and
+   its intersection with an arbitrary canonical event are exactly the existing
+   anchor compatible-gas numerators.  The normalized conditional switching
+   estimate itself is still the open step.  The algebraic normalization is now
+   closed by `Z4HalfTimeReflectionSlabConditionalLaw`: the literal slab
+   partition, the ambient physical support numerator, and the canonical
+   support numerator are exactly equivalent; both denominators are strictly
+   positive; and the physical and canonical support-conditioned probabilities
+   agree for every canonical event, with the true event exactly one.  What
+   remained was the quantitative comparison of this conditioned law with the
+   unconditioned ambient cylinder law.
+   `Z4HalfTimeReflectionSlabBoundarySwitch` now supplies its exact
+   configuration-level switching input.  It partitions the complete canonical
+   gas into supported and boundary cells, proves that boundary means a literal
+   omitted-top-face hit, and gives a marked-root reach dichotomy.  In the
+   separated branch the recoverable component switch preserves those two
+   cells, swaps an arbitrary marked cylinder fingerprint, preserves product
+   weight exactly, and remains injectively decodable.  Thus no boundary term is
+   hidden or discarded.  The remaining finite step is to sum the resulting
+   four cells, isolate the connected root-to-complement pair contribution,
+   inject it into the proved top-boundary pinned carrier tail, and divide by the
+   already positive denominators.
+   `Z4HalfTimeReflectionSlabBoundarySwitchSummation` completes the first of
+   those operations.  It constructs the four literal event/complement cells,
+   partitions source pairs into separated and connected branches, and sums the
+   injective weight-preserving separated switch.  The resulting exact
+   cross-product estimate bounds
+   `boundary-event * supported-complement` by the swapped product plus one
+   literal connected-pair residue.  The active residual is now sharply the
+   carrier injection and its `Z_ambient * Z_slab` background factor, followed
+   by positive-denominator normalization; no further combinatorial four-cell
+   cancellation is being assumed.
+   `Z4HalfTimeReflectionSlabConditionalStabilityAlgebra` completes that
+   normalization independently of the geometric estimate.  It rewrites the
+   ambient-versus-supported probability difference as the exact four-cell
+   cross difference, bounds it by the literal connected residue, proves the
+   product of the two actual denominators strictly positive, and divides to
+   obtain `anchorAmbientProbability_sub_givenSlab_le_normalizedResidue`.
+   Therefore the sole remaining same-volume reflection boundary problem is to
+   inject this residue into a custom top-boundary carrier whose background sum
+   factors as the actual ambient partition times the supported/slab partition;
+   after cancellation its modulus must decay with the slab half-width.
+   `Z4HalfTimeReflectionSlabConnectedPathCarrier` supplies the load-bearing
+   path decomposition for that injection.  It deterministically selects the
+   marked root and an omitted-face endpoint, constructs a simple disagreement
+   path, proves exact colored-path/two-background weight factorization, and
+   makes the carrier injectively recoverable.  Crucially, deleting the path
+   leaves the right background in the literal slab-supported family list, so
+   its eventual Cartesian sum is the required ambient partition times the
+   actual supported/slab partition, not an overlarge `Z²`.  The remaining work
+   was the connected support animal, fixed-size injection, and geometric tail
+   summation.  `Z4HalfTimeReflectionSlabConnectedCarrierAnimal` now closes the
+   first of those steps: the literal union of the two colored path families is
+   a rooted internally connected canonical face animal, contains the selected
+   marked-root face, actually reaches an omitted slab plaquette, and satisfies
+   a general L-infinity distance-to-cardinality floor.  The live finite-volume
+   residual was the weight envelope, fixed-size Cartesian injection with the
+   exact ambient-times-supported background, and the resulting geometric tail
+   cancellation.  `Z4HalfTimeReflectionSlabConnectedCarrierWeight` now closes
+   the pointwise envelope: each exact connected source-pair weight is bounded
+   by `anchorPerFaceEnvelope ^ carrierSize` times the exact product of the two
+   path-deleted background activities.  The fixed-size Cartesian injection and
+   its literal ambient-times-supported partition factor were the next step.
+   `Z4HalfTimeReflectionSlabConnectedCarrierFixedSize` now injects every
+   fixed-size source into a root-tagged colored carrier and the Cartesian
+   product of the full ambient family list with the literal slab-supported
+   family list.  Its exact target sum factors as the colored pinned sum times
+   `anchorCanonicalPartition * anchorEventNumerator(slabSupport)`; summing root
+   tags costs only `roots.length`.  `Z4HalfTimeReflectionSlabConnectedCarrierTail`
+   now shifts fixed sizes by an arbitrary floor and sums the finite geometric
+   series.  For the literal two central reflected roots, complement-hit
+   geometry gives carrier size at least `half+1`, and the complete connected
+   residue is at most
+   `4 * anchorEffectiveRatio^(half+1) * (slabSupportedPartition * ambientZ)`.
+   Exact denominator cancellation and complement symmetry remain live.  This
+   result is presently the cutoff-one anchor law; connecting finite corrected-
+   slab Gram positivity to the spin-summed/arbitrary-cutoff centered state is
+   a separate required bridge.
+   `Z4HalfTimeReflectionSlabConditionalStability` now performs the exact
+   denominator cancellation and closes the cutoff-one comparison in both
+   directions.  It proves complement normalization separately for the ambient
+   and slab-conditioned laws, applies the same connected-carrier bound to the
+   Boolean complement, and obtains an absolute normalized probability modulus
+   bounded by `4 * anchorEffectiveRatio^(half+1)`.  This is an honest
+   finite-volume cutoff-one anchor theorem; it does not identify the canonical
+   gas with the arbitrary-cutoff spin-summed physical state.  The live bridge
+   is therefore uniform finite-cutoff corrected-slab Gram compatibility and
+   passage to the centered state, not further cutoff-one normalization.
+   `Z4HalfTimeReflectionSlabCouplingSwitchSummation` has opened that bridge at
+   arbitrary finite character cutoff without reusing the cutoff-one law.  The
+   literal coupling-parametric spin-summed family activity is invariant under
+   the corrected-slab separated switch, the separated cell injects into the
+   opposite cell, and the four-cell cross mass is reduced exactly to its
+   connected residue.  `Z4HalfTimeReflectionSlabCouplingCarrierWeight` then
+   factors each literal finite-cutoff two-replica source weight into selected
+   paths and exact path-deleted backgrounds, bounding only the path factor by
+   the derived decorated-face envelope.  The backgrounds are not replaced by
+   a surrogate.  `Z4HalfTimeReflectionSlabCouplingCarrierFixedSize` injects
+   each fixed carrier size into the corresponding decorated carrier and sums
+   those backgrounds to exactly the full finite-cutoff compatible partition
+   times the literal slab-supported event numerator.  The active finite-cutoff
+   residual was the all-size geometric tail and central `half+1` floor.
+   `Z4HalfTimeReflectionSlabCouplingCarrierTail` now sums all carrier sizes
+   with the derived `anchorDecoratedEffectiveRatio`, preserving that literal
+   partition-times-event-numerator factor, and proves the uniform central tail
+   from the exact floor `half+1`.  The active finite-cutoff residual is
+   denominator algebra and a normalized physical conditional-law bridge.
+   `Z4HalfTimeReflectionSlabFiniteKConditionalLaw` now supplies the latter:
+   at every finite character cutoff it identifies the corrected physical slab
+   ensemble with the literal compatible support gas conditioned on slab
+   support, proves the conditioning denominator strictly positive, and
+   identifies arbitrary restricted-event probabilities exactly.  The active
+   residual was the normalized four-cell denominator algebra.
+   `Z4HalfTimeReflectionSlabFiniteKConditionalStabilityAlgebra` now performs
+   that exact cancellation, identifies every cell with the literal compatible-
+   gas numerator, proves positivity of the actual support-partition product,
+   and reduces the one-sided ambient-minus-conditioned probability difference
+   to the normalized connected residue.  The active finite-volume residual is
+   insertion of the central carrier tail plus complement symmetry for the
+   two-sided physical modulus.
+   `Z4HalfTimeReflectionSlabFiniteKConditionalStability` now closes that
+   residual uniformly in the finite character cutoff and every
+   `0 ≤ coupling ≤ anchorCoupling`: the literal physical ambient law and
+   literal corrected-slab physical conditional law differ in absolute value
+   by `2 * (anchorDecoratedEffectiveRatio^(half+1) * 2)`.  The remaining
+   reflection task is to identify corrected-slab Gram stages with the centered
+   simultaneous cutoff/volume state through this explicit modulus and pass
+   positivity to the limit.
+   The open analytic/physical step is now to compare these corrected-slab
+   normalized forms with the simultaneous cutoff/volume cylinder approximants
+   (the old corner boxes are not exactly reflection closed), and then transport
+   positivity through that limit for the full positive-time cylinder algebra.
+   `FiniteWeightedGramCRealLimit` closes the
+   generic analytic passage: stage-varying finite weighted-Gram approximations
+   imply both one-slack `CReal` nonnegativity and the sound eventual lower bound
+   `ExpPos.geRat _ 0`; its stronger convergence theorem transports sound
+   nonnegativity through a genuine `CReal.ConvergesTo` witness, so the finite
+   rational stages need not be definitionally the target's approximations.
+   It does not supply that convergence modulus or the physical identification.
+   `Z4FiniteCylinderQuadraticStability` supplies the quantitative finite-
+   polynomial consumer: a uniform error `epsilon` on finitely many joint
+   cylinder values gives quadratic error at most
+   `(Σ|c_i|)^2 * epsilon`, and reference reflection positivity yields the
+   corresponding explicit approximate lower bound.  This result is carrier-
+   independent and does not solve the remaining exact physical-Gram versus
+   support-cylinder identification.  `Z4CanonicalExhaustiveCylinder` closes
+   the support half of that identification at every finite volume: the
+   occurrence fingerprint against the complete ordered canonical-polymer list
+   literally reconstructs each compatible family, is injective there, and
+   every Boolean or exact-rational support observable factors through it.
+   Thus finite support events are genuine cylinder events.  The surviving
+   obstruction is specifically spin decoration: arbitrary coefficients on
+   physical edge labellings at cutoff greater than one need not factor through
+   the support fingerprint.  The next reflection bridge must either sum those
+   decorations into support-measurable coefficients or carry a richer finite
+   spin-labelled cylinder algebra through the centered limit.
+   `Z4HalfTimeReflectionSupportPushforwardGram` now closes the first and
+   stronger alternative.  It deterministically pushes the complete pair
+   kernel through fixed lower-half support fibres, retaining every decoration
+   cross term and fixed interface channel.  Pulling any coefficient back from
+   support gives a support quadratic exactly equal to the original corrected-
+   slab spin quadratic, before and after division by the literal physical
+   partition.  The exhaustive Boolean support fingerprint form is therefore
+   exactly the normalized full corrected-slab quadratic and is constructively
+   nonnegative.  The live reflection residual is no longer spin-decoration
+   factorization: it is to identify these exhaustive support-fingerprint Gram
+   entries with simultaneous centered cylinder approximants, apply the uniform
+   slab-boundary modulus, and pass the quadratic nonnegativity to the `CReal`
+   limit.
+   `Z4HalfTimeReflectionSlabFiniteKConditionalStabilityGeneral` extends the
+   uniform conditional-law comparison to every supported root chart carrying
+   explicit forward and complementary carrier floors.
+   `Z4CanonicalFamilyFaceSupportDecoder` proves that flattening a canonical
+   compatible family recovers its occupied face support exactly and supplies
+   the exhaustive support-chart decoder.
+   `Z4HalfTimeReflectionSupportPairConditionalLaw` then identifies every
+   support-pushed Gram entry with one corrected-slab exhaustive cylinder
+   probability and identifies the complete normalized support quadratic with
+   the finite joint-cylinder quadratic.
+   `Z4HalfTimeReflectionAmbientQuadraticStability` lifts the pointwise
+   conditional comparison to the exact polynomial modulus
+   `(Σ|c_i|)^2 * epsilon`, hence an ambient lower bound by its negative.
+   Finally `Z4HalfTimeReflectionCenteredCRealBridge` builds the corresponding
+   centered finite joint-cylinder quadratic as a Bishop `CReal` and proves
+   sound `ExpPos.geRat _ 0` whenever the explicitly displayed chart,
+   coefficient-reindex, carrier-floor, and vanishing-modulus schedules are
+   supplied.  It also banks the parity correction: the central half-time
+   ambient side is always even while `centeredRecedingStageBase` is odd, so
+   same-volume equality is impossible; the exact relation is central ambient
+   equals centered base plus one.  `Z4CanonicalPolymerFaceQueryDecoder` now
+   gives the required fixed query exactly: occurrence is equivalent to every
+   polymer face being occupied and the complete one-link exterior shell being
+   empty, with source/face/support fingerprint equalities.
+   `Z4HalfTimeReflectionLocalFaceQueryChart` directly re-encodes the centered
+   odd query in the adjacent even ambient box, proves its slab support and
+   explicit non-slab/carrier floors, keeps the atom count equal to the fixed
+   root-list length, and derives the normalized conditional-law error at
+   stage `stage+3`.  Thus unconditional centered reflection positivity is
+   still OPEN, but the local decoder/floor obstruction is closed.
+   `Z4HalfTimeReflectionAdjacentVolumeComparison` now proves that the direct
+   even local event is the transported odd centered event and that both the
+   compatible and literal physical adjacent-volume errors have the same
+   explicit stage-`stage+1` boundary modulus.  `FiniteCoefficientZeroExtension`
+   supplies multiplicity-preserving fiber aggregation, literal zero off the
+   image, and exact finite joint-quadratic reindexing; the concrete
+   `Z4HalfTimeReflectionCoefficientEmbedding` discharges the former abstract
+   coefficient-embedding premise from the existing chart.
+   `FiniteJointKernelPushforward` and
+   `Z4HalfTimeReflectionLocalSupportPushforward` correct the remaining support
+   semantics: the complete lower-support pair law is pushed to the attained
+   finite Boolean fingerprint space, so every unqueried support coordinate is
+   summed over its fiber rather than incorrectly forced empty.  The resulting
+   local joint-law quadratic is exactly the normalized support quadratic with
+   pulled-back coefficients and is nonnegative.  The live residual is the
+   physical decoder identifying lower/reflected-upper support fingerprints
+   with the ambient canonical-family occurrence fingerprints and hence with
+   the conditional physical cylinders consumed by the stage-`stage+3` floor.
+   `Z4HalfTimeReflectionStrictQueryGeometry` now supplies the required uniform
+   geometry with an explicit three-layer pre-shift: marked roots and their
+   complete one-link exterior shells lie strictly on the correct sides, the
+   reflected roots retain two lower layers, and the lower restriction decodes
+   exactly to the concrete family-occurrence fingerprint.  Two layers are
+   recorded as tight rather than silently assumed sufficient.
+   `Z4HalfTimeReflectionLocalPairConditionalLaw` then proves the exact
+   fiber-summed entrywise identity between every pushed local support-pair law
+   and the corrected-slab physical conditional joint event, retaining all
+   unobserved complete-support fibers.
+   `Z4HalfTimeReflectionUpperSupportLocalQuery` closes the symmetric decoder:
+   the right Gram coordinate's strict reflected-upper support fingerprint is
+   exactly the same concrete lower query code applied to the reflected root
+   family, including a bijection of the complete exterior shell rather than
+   only its internal support bits.
+   `Z4HalfTimeReflectionStrictJointMarkedCylinder` now identifies every local
+   Gram entry with one fixed-cardinality cylinder on the concatenated lower
+   and reflected-upper roots (cardinality `k+k`) and applies the existing
+   conditional stability theorem to obtain the literal ambient-versus-slab
+   error at stage `stage+3`.
+   `Z4HalfTimeReflectionStrictJointCenteredRecoding` then places the full
+   lower--upper event in one odd centered box: both direct root lists are exact
+   transports of uniform-shifted fixed centered roots, the complete joint
+   event transports literally, its protected-core distance is exactly the
+   stage, and both compatible and literal odd/even errors have the existing
+   `spinSummedCylinderBoundaryEpsilon (k+k) stage` bound.
+   `Z4HalfTimeReflectionStrictJointCenteredLimit` now completes that limit
+   step constructively.  It combines the conditional and adjacent-volume
+   estimates into an explicit half-power modulus with literal root count
+   `roots.length + roots.length`, constructs both centered and actual
+   corrected-slab Cauchy sequences and their `CReal` limits, and proves their
+   equivalence.  It also identifies the literal normalized local Gram entries
+   with those limits, proves their nonnegativity (including an `ExpPos.geRat`
+   witness), and retains arbitrary-coefficient finite-stage Gram quadratic
+   nonnegativity.  `Z4HalfTimeReflectionStrictJointGramLimitPositivity` then
+   supplies a stage-independent exhaustive, duplicate-free Boolean
+   fingerprint space, identifies its fixed-space quadratic exactly with the
+   normalized support Gram, proves an explicit L1-squared half-power Cauchy
+   modulus, constructs the limiting quadratic `CReal`, and proves limiting
+   reflection positivity in both the standard order and `ExpPos.geRat` form.
+   Both target builds are green and every public gate uses only `propext` and
+   `Quot.sound`.  `Z4HalfTimeReflectionStrictJointCylinderPresentation` now
+   proves exact fingerprint-recoding covariance, permutation invariance,
+   adjacent duplicate insertion/elimination, and an explicit common-refinement
+   theorem for arbitrary canonical root presentations, at both finite stage and
+   `CReal` level.  `Z4HalfTimeReflectionStrictJointCylinderSeminorm` packages
+   roots and exact coefficients as a quotient-free cylinder-vector interface,
+   proves semantic equivalence is an equivalence relation, makes both the
+   finite and limiting reflection quadratics descend, and proves addition and
+   scalar multiplication respect that relation.  The resulting
+   `StrictJointCylinderReflectionPositive` is unconditionally inhabited
+   throughout the derived anchor window, with the limiting seminorm
+   nonnegative in `ExpPos.geRat` form.  Both new target builds are green and
+   their public gates remain within `{propext, Quot.sound}`.  OPEN is exact
+   polarization into a presentation-independent bilinear form, compatible
+   positive-time translation covariance, and then a transfer-semigroup/GNS
+   bridge; no such spectral interpretation is inferred from the seminorm
+   alone.  The exhaustive
+   all-slab-root decoder remains an exact fence: it cannot itself provide a
+   growing carrier floor because it includes boundary-local roots.
+   The polarization and cylinder time-translation algebra has since been
+   constructed, and the geometric transport obligation has been sharpened by
+   a kernel counterexample: shifting a strict lower query while keeping the
+   same support radius is false already at radius five and shift one.  The
+   corrected covariance enlarges radius `r` to `r+s`; it transports the
+   reflected lower query by the corresponding spatial shift.  The active
+   support proof now has constructive spatial shift/unshift maps, physicality
+   and injectivity, exact membership transport for every strict lower root,
+   two-layer interior margins in all four coordinates, and a bijection of the
+   complete one-link exterior shell.  These facts already transport the
+   simultaneous lower query event and its cylinder fingerprint using one
+   shared ambient pullback.  The final reconstruction in the enlarged fixed
+   lower-support space is now green as
+   `centralStrictLocalQueryCode_timeShift_completeLowerSupport`: one
+   constructively defined `centralSpatialPullbackLowerSupport`, certified to
+   lie in `centralHalfSupportSpace radius`, reproduces the complete simultaneous
+   Boolean query code for every shifted root.  The direct source audit is clean
+   and its critical gates remain within `{propext, Quot.sound}`.
+   `Z4HalfTimeReflectionStrictJointTimeTranslationSemanticDescent` now completes
+   the first semantic descent from that code intertwiner: synchronized translated
+   coefficients, finite bilinear approximants, their `CReal` limits, and the
+   diagonal reflection quadratic are presentation-independent after the required
+   radius enlargement.  Its named 774-job build is green and every new public
+   gate uses only `{propext, Quot.sound}`.  This proves neither equality with the
+   unshifted form nor norm preservation.
+   `Z4HalfTimeReflectionStrictJointRadiusIndexedTimeTranslation` packages the
+   honest `(base,radius) -> (base+shift,radius+shift)` setoid morphism and proves
+   exact finite bilinear/quadratic presentation independence, positivity, and
+   add/scalar covariance.  The subsequent `...TimeTranslationAction` proves the
+   zero/identity law and addition/composition law after explicit reindexing of
+   both base and radius.  Both named builds are green; every printed gate is
+   exactly `[propext, Quot.sound]`.  This is an algebraic directed-system action,
+   not yet a bounded operator on one completed quotient.  OPEN is the first
+   physical comparison `(T_s v,T_s v) <= (v,v)`, whose honest proof requires
+   translation covariance of the normalized state together with half-space
+   compression.  The active attack starts with exact finite-volume numerator
+   and partition covariance under shifted-box recoding.
+   `Z4TimeShiftedFiniteNormalizedCovarianceRemainder` identifies both shifted
+   quantities as embedded-source plus nonnegative boundary sums and rewrites
+   the normalized probability discrepancy as the exact boundary cross-residual
+   divided by the two positive partitions; exact covariance is equivalent to
+   vanishing of that residual.  Its 704-job build is green and all eight public
+   gates are exactly `[propext, Quot.sound]`.
+   `Z4HalfTimeReflectionStrictJointFiniteCovarianceFence` connects each
+   translated Gram entry to its literal corrected-slab conditional
+   marked-cylinder probability and proves that the positive spatial shift is
+   not the affine time shift; its four gates are green inside
+   `{propext, Quot.sound}`.  The finer geometry is asymmetric: the reflected
+   lower block is a pure spatial shift, while the upper block also acquires
+   temporal displacement `2*shift`.
+   `Z4HalfTimeReflectionStrictJointCorrectedSlabCovarianceRemainder` is now green:
+   it gives the exact target/source conditional cross determinant and its
+   entrywise local-Gram specialization, with four gates inside
+   `{propext, Quot.sound}`.  No sign of that residual is asserted.  The next
+   source attack sums those entries against cylinder coefficients to isolate the
+   single boundary/compression quadratic whose nonpositivity would imply
+   contraction.  `Z4HalfTimeReflectionStrictJointCorrectedSlabQuadraticRemainder`
+   now completes that sum: its named 788-job build is green, its ten public
+   gates lie inside `{propext, Quot.sound}`, and it proves the exact equivalence
+   between translated quadratic contraction, finite compression cross sign,
+   and nonpositivity of the aggregate corrected-slab quadratic remainder.  It
+   also gives the exact normalized translated-minus-source identity.  No sign
+   is asserted: the existing reflection-positivity lemmas control individual
+   nonnegative forms, not this comparison.  A promising independent limit route
+   is therefore to align the cofinal source/translated schedules, identify the
+   translated diagonal with a doubled-time mixed OS bilinear, apply constructive
+   Cauchy--Schwarz/chessboard iteration with a uniform cylinder bound, and send
+   the explicit cutoff errors to zero.  The first geometric/algebraic half of
+   that route is now checked.  The schedule-alignment, doubled-time mixed
+   geometry, mixed OS bilinear, literal event recoding, and signed-support
+   recoding modules all have successful named builds; every printed theorem is
+   within `{propext, Quot.sound}`, and a direct forbidden-token audit is clean.
+   They prove the exact common cutoffs and dyadic tails, the asymmetric spatial
+   plus doubled-time upper transport, the conditional mixed-OS identity, and
+   the exact signed-support recoding.  The earlier conditional comparison
+   modulus has now been replaced by a direct signed-spatial construction.
+   `Z4HalfTimeReflectionStrictJointDoubledTimeMixedSignedLawFrontier` makes this
+   separation explicit in a 781-job green replay: it constructs the exact
+   finite-stage support/event recoding, proves that literal presentation
+   translation is not the required operation, and gives the conditional
+   `CReal` law-covariance closures without inhabiting the covariance premise.
+   All seven gates use exactly `{propext, Quot.sound}`.  The subsequent
+   `...SignedSpatialLaw`, `...SignedSpatialModulusGeometry`,
+   `...SignedSpatialStageRecoding`, `...SignedSpatialFiniteBounds`, and
+   `...SignedSpatialComparison` modules derive the common-box spatial/time
+   finite-law equality, protected-core/origin-box recodings, and explicit
+   boundary estimates needed for an unconditional presentation comparison
+   modulus.  `...SignedSpatialDescent` then proves
+   `strictJointDoubledTime_signedSpatialValue_equiv`: the translated diagonal
+   and doubled-time mixed signed presentations have the same constructive-real
+   value, without a global law-covariance premise.  The descent's 796-job named
+   build is green, its gate is exactly `[propext, Quot.sound]`, and the full
+   root build imports it.  This discharges the compatible-law presentation
+   residual, but not the final OS contraction: OPEN is to recode this value
+   equality through the OS bilinear definitions and combine it with the
+   mixed-form estimate to prove the norm comparison on the directed quotient.
+   Ordinary affine time-shift covariance still cannot be substituted for that
+   compression step.  Full state-preserving isometry, global norm invariance,
+   and Hilbert-space semigroup conclusions remain fenced until the comparison
+   is transported to the completed form.  The same-radius statement is
+   permanently fenced and may not be reintroduced as a convenience assumption.
+
+   `Z4StrongCouplingSubWallAAssembly` also closes the historical formal
+   `Tier0Scorecard.SubWallA` carrier from the subsequently proved Z4 separation,
+   hard-core tree-graph, reconstructed Mayer--Ursell, Racah-probability, and
+   exact rational SU(2) 6j-squared witnesses.  This is not physical pentagon
+   closure.  The carrier's `a2Pentagon` field asks only for a nonnegative kernel
+   with one pinned value; a second exact inhabitant using the constant shape
+   witness is proved to fail even the naively transcribed nonlinear pentagon
+   equation at the all-zero labels.  Any physical scorecard must separately
+   carry correctly normalized nonlinear Biedenharn--Elliott/coherence data.
+   The same assembly now gives an exact constructor
+   `tier0ScorecardOfSpectralMarginInput` and the definitional projection
+   retraction in the other direction.  Consequently the historical formal
+   `Tier0Scorecard` carrier is equi-inhabited with its sole remaining
+   `SpectralMarginInput`.  This is frontier compression, not an inhabitant:
+   that input still packages the physical scale-localization, RG-trajectory,
+   bridge, and additive spectral-margin data that have not been derived.
+
+   The immediate OPEN residual has therefore moved to cylinder-algebra
+   compatibility, reflection positivity, and the physical
+   configuration/iteration levels.  Construct
+   an actual source-dependent positive finite block kernel (or equivalently an
+   explicit gauge-covariant pushforward) that preserves the closed physical
+   state space, promote the proved cylinder limits to one finitely additive
+   state, identify its two-time/reflection-positive action, prove that its connected
+   interaction norm is stable under iteration, and replace the isolated bound
+   below one by a coupling-dependent summable defect along a derived
+   asymptotically-free spacing trajectory.  Merely postulating such a kernel,
+   assigning a measured defect, promoting the source-independent Boolean
+   resampler, or restating `singleStep` remains blocked.  The prioritized
+   mechanisms are kept independent:
+
+   * **phase-cell/block-spin route:** define a finite local block kernel,
+     preserve gauge-invariant cylinder observables and reflection positivity,
+     and derive its large-field and boundary defects from exact character sums;
+   * **character/TP2 route:** prove the anti-screening direction and a
+     cutoff-uniform coefficient corridor that reaches the checked anchor,
+     supplying the actual self-charge input rather than an assumed flow;
+   * **polymer/RG route:** transport the present pinned-animal modulus through
+     one blocking step and prove that the new effective interactions retain a
+     summable connected norm;
+   * **transfer/spectral route:** once reflection-positive scale compatibility
+     is available, turn uniform Euclidean clustering into a located transfer-
+     operator/Hamiltonian gap and prove its survival in the spacing limit.
+
+   The block-kernel route is now extending the checked fine/coarse cube geometry
+   to a source-dependent configuration map.  The first full-law product
+   coupling is green, but an exact physical root-to-vacuum example proves that
+   its tensor product is not local: the row and pushforward defects are the
+   corresponding cross moments.  `Z4BlockLocalityTensorObstruction` now repairs
+   both defects by a correlation-aware counterterm density
+   `(1+εa₁b₁)(1+εa₂b₂) - ε²a₁a₂Cq
+   - ε²Cp(b₁b₂-Cq)`.  With the actual complete fine/coarse laws
+   supplying `Cp,Cq`, both marginals are exactly one, and positivity is derived
+   uniformly at the exact rational `ε=1/4` from the lower bound `3/8`.
+   Its 740-job target and direct compile are green; the physical kernel's
+   nonnegativity, row normalization, and pushforward gates remain inside
+   `{propext, Quot.sound}`.  A symmetric two-bit law with cross moment `1/4`
+   permanently fences the shortcut that symmetry alone kills the correction.
+   `Z4ThreeBlockOverlapCumulantKernel` now performs that exact overlap audit.
+   Pairwise corrections alone are incompatible in general: the minimal
+   even-parity three-bit law has all three centered pair moments zero but third
+   moment `-1/8`, and its pairwise-only row total is kernel-checked not to equal
+   one.  Adding the forced centered third-cumulant counterterm repairs both the
+   row and pushforward identities.  At the derived exact coupling `ε=1/8`, the
+   density has the uniform lower budget `55/128`, giving a positive normalized
+   joint law with both complete marginals.  Its 741-job named build is green;
+   all fourteen critical gates lie inside `{propext, Quot.sound}` and its
+   forbidden-token audit is clean.  The separate
+   `Z4ThreeBlockOverlapCumulantKernelNonvacuity` audit instantiates every law
+   field with the correlated even-parity measure and constructs the resulting
+   positive coupling, so the generic theorem is not vacuous; all five gates
+   remain inside the allowed axiom set.
+   `Z4ThreeBlockFiberConditionalKernel` now isolates the genuinely local step.
+   It proves that strict preservation of the complete three-bit support
+   pattern, exact row normalization, and exact pushforward force equality of
+   all eight source/target pattern masses.  Conversely, when those masses
+   match and the target fibers have derived positive mass, exact `Q'.divPos`
+   conditioning constructs a nonnegative, row-normalized, pushforward-exact
+   positive coupling; a separate theorem proves that its rows are genuinely
+   source-dependent.  The uniform three-bit law concretely inhabits the match
+   package and the source-dependence hypotheses.  Its 742-job named build is
+   green and all twelve gates lie inside `{propext, Quot.sound}`.  OPEN is now
+   a sharp physical choice: prove
+   eight-cell matching for the actual fine/coarse gauge laws on each shared
+   boundary fiber, or replace strict pattern preservation by a bounded-
+   neighborhood locality notion and derive an explicit summable leakage bound.
+   A global refresh may not be called a local block kernel.  Meanwhile the
+   reflection-positive route
+   is constructing an actual adjacent-time joint cylinder law rather than an
+   arbitrary spectral completion.  `Z4UnitCubeBareCouplingCorridor` now checks
+   the independent character lane: `B(w)=2w^4` is nonnegative and monotone,
+   and two coarse iterations send every `0 <= w <= 1/2` below the actual
+   anchor.  Every later bare iterate remains in that corridor, transporting
+   coefficient, physical partition/event-numerator, support-activity, and
+   pinned-layer bounds.  Its checked fences show both
+   that normalized probability monotonicity does not follow and that
+   `B(anchor) < anchor`.  `Z4UnitCubeBareInverseTrajectoryFence` sharpens this
+   to an all-scale obstruction: throughout `0 <= w <= 1/2`, `4*B(w) <= w`, so
+   any exact inverse chain grows by at least four per fine step, and four steps
+   from `1/400` already exceed `1/2`.  Thus this is a coarse bare corridor, not
+   the missing physical anti-screening inverse/fine trajectory; the latter must
+   introduce a genuinely renormalized interaction/coupling coordinate.  Every
+   candidate must be audited for normalization, locality, positivity,
+   non-vacuity, and absence of circular gap assumptions.
 7. **Constructive spectral perturbation route.**  Transfer the exact
    interacting finite-volume character-sector contraction to a located
    Hamiltonian gap, with multiplicative and additive errors matching
