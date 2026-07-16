@@ -622,6 +622,7 @@ import YMGap.Continuum.TreePartitionIdentity
 import YMGap.Continuum.LoopyLinkIntegral
 import YMGap.Continuum.TreeFixedSpacingGap
 import YMGap.Continuum.ClusteringImpliesGap
+import YMGap.Continuum.BoundedMidpointDoubling
 import YMGap.Continuum.MayerClustering
 import YMGap.Continuum.RealCorrMass
 import YMGap.Continuum.MultiPlaquetteMayer

@@ -7564,9 +7564,10 @@ Clay-facing assembly.  Source scanning currently finds no executable `sorry`,
 physical three-cube leakage, finite-entry/conditional-event, and post-bootstrap
 Linear--Abel imports, followed by the mixed-OS entry-event and joint-recoding
 interfaces, followed by the cumulative-payment and joint-centered bridges,
-the integrated root package is green at 2,352 jobs.  The refreshed strict
-axiom inventory covers 18,442 theorems in 2,227 namespaces
-with zero forbidden exceptions.  Both pinned-statement guards pass at 2,353
+and now the bounded midpoint-doubling contraction core, the integrated root
+package is green at 2,353 jobs.  The refreshed strict axiom inventory covers
+18,446 theorems in 2,228 namespaces with zero forbidden exceptions.  Both
+pinned-statement guards pass at 2,354
 jobs.  The
 five Clay-frontier types remain genuinely uninhabited and all ten guarded
 statements retain their pinned hashes.
@@ -10721,6 +10722,15 @@ statements retain their pinned hashes.
    orientation algebra remains.  OPEN on this lane is the completed-form
    contraction/transfer consequence and, beyond it, physical scale
    compatibility; this finite Z4 identity is not a continuum OS construction.
+   `BoundedMidpointDoubling` supplies a new generic constructive core for that
+   contraction step.  For an exactly rational sequence with a uniform upper
+   bound, the midpoint recurrence `2*a(n) <= a(0)+a(2*n)` forces
+   `a(n) <= a(0)`: any positive excess grows by the arbitrary integer factor
+   `t+1` along the dyadic orbit and contradicts the cap via the rational
+   Archimedean theorem.  Its direct compile is green and all four gates stay in
+   `{propext, Quot.sound}`.  The active model-specific residual is to identify
+   transported source/target quadratics with this recurrence and derive a
+   shift-uniform cap before passing through the constructive-real order.
    Ordinary affine time-shift covariance still cannot be substituted for that
    compression step.  Full state-preserving isometry, global norm invariance,
    and Hilbert-space semigroup conclusions remain fenced until the comparison
