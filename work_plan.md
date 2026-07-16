@@ -7580,10 +7580,11 @@ physical three-cube leakage, finite-entry/conditional-event, and post-bootstrap
 Linear--Abel imports, followed by the mixed-OS entry-event and joint-recoding
 interfaces, followed by the cumulative-payment and joint-centered bridges,
 the bounded midpoint-doubling contraction core, the corrected physical
-component sub-support law, and the exact denominator-cleared rising-prefix
-splice, the integrated root package is green at 2,355 jobs.  The refreshed
-strict axiom inventory covers 18,499 theorems in 2,230 namespaces with zero
-forbidden exceptions.  Both pinned-statement guards pass at 2,356
+component sub-support law, the exact denominator-cleared rising-prefix splice,
+and the constructive-real mixed-OS Young recurrence, the integrated root
+package is green at 2,356 jobs.  The refreshed strict axiom inventory covers
+18,505 theorems in 2,231 namespaces with zero forbidden exceptions.  Both
+pinned-statement guards pass at 2,357
 jobs.  The
 five Clay-frontier types remain genuinely uninhabited and all ten guarded
 statements retain their pinned hashes.
@@ -10744,9 +10745,19 @@ statements retain their pinned hashes.
    `a(n) <= a(0)`: any positive excess grows by the arbitrary integer factor
    `t+1` along the dyadic orbit and contradicts the cap via the rational
    Archimedean theorem.  Its direct compile is green and all four gates stay in
-   `{propext, Quot.sound}`.  The active model-specific residual is to identify
-   transported source/target quadratics with this recurrence and derive a
-   shift-uniform cap before passing through the constructive-real order.
+   `{propext, Quot.sound}`.
+   `...DoubledTimeMixedOSYoung` now derives the model-specific constructive-real
+   recurrence up to its honest common-box source.  The exact finite Gram
+   identity `2*B(left,right)+Q(left-right)=Q(left)+Q(right)` gives normalized
+   rational Young, then every common approximant and the `CReal.leEv` limit.
+   Composing with the derived doubled-time OS identity proves
+   `2*Q(T_shift v) <= Q(boxTransport v)+Q(T_2shift v)`.  Its 813-job named
+   build and independent direct compile are green; all six gates remain in
+   `{propext, Quot.sound}`.  It asserts neither source-box invariance nor a
+   uniform cap.  The active model-specific residual is exactly aligned-stage
+   equivalence of `Q(boxTransport v)` with the base quadratic, followed by a
+   shift-uniform coefficient/normalization cap and the constructive-real
+   Archimedean passage.
    Ordinary affine time-shift covariance still cannot be substituted for that
    compression step.  Full state-preserving isometry, global norm invariance,
    and Hilbert-space semigroup conclusions remain fenced until the comparison
