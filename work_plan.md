@@ -6509,6 +6509,17 @@ all nine gates use exactly `{propext, Quot.sound}`.  OPEN is the single explicit
 three-band payment inequality (dropping the middle band is known false at the
 first post-bootstrap cell), together with constructive crossing localization
 or a block-cancellation argument that avoids choosing one.
+`HarmonicMassCrossLowerSixRecoveryLinearAbelPhysicalBlockCancellation` now
+recombines the middle and tail exactly into one crossing-independent suffix
+block and identifies the cleared physical payment residual with the original
+fixed-center drop times the positive prefix denominator.  Thus the displayed
+three-band payment is equivalent to the true fixed-center sign, not a weakened
+surrogate.  An exact same-center witness proves the full payment while the
+no-middle strengthening fails and the omitted middle is strictly negative.
+Its direct and named builds are green; all eleven gates are axiom-free or use
+exactly `{propext, Quot.sound}`.  OPEN is a genuinely new uniform lower bound
+for this coupled suffix residual, followed by the endpoint cumulative payments
+and `RecoveryRawClosure`.
 `HarmonicMassCrossLowerSixRecoveryEndpointCarrier` now separates the two
 alternating endpoint families from that within-cell analysis without another
 global polynomial expansion.  Arbitrary one-step fixed-center drops telescope
@@ -7607,14 +7618,15 @@ the constructive-real mixed-OS Young recurrence, and the even-incidence
 canonical-activity positivity engine, followed by the exact cylinder-base
 cofinal transport and the adjacent-cube cancellation fence, the integrated
 root package, now also including additive-error and constructive-real midpoint
-doubling, is green at 2,368 jobs after the constructive-real cylinder-base
+doubling, is green at 2,376 jobs after the constructive-real cylinder-base
 transport lift, the
 literal doubled-time recurrence, the harmonic physical three-band splice, and
 the outward three-cube carrier family, together with the derived translated
-quadratic cap, the strict translated-form contraction, and the harmonic
-physical-carrier payment interface.  The refreshed strict axiom inventory
-covers 18,577 theorems in 2,243 namespaces with zero forbidden exceptions.
-Both pinned-statement guards pass at 2,369
+quadratic cap, the strict translated-form contraction and action, the harmonic
+physical-carrier block-cancellation interface, and the coarse/fine outward
+three-cube pattern carriers.  The refreshed strict axiom inventory covers
+18,650 theorems in 2,251 namespaces with zero forbidden exceptions.  Both
+pinned-statement guards pass at 2,377
 jobs.  The
 five Clay-frontier types remain genuinely uninhabited and all ten guarded
 statements retain their pinned hashes.
@@ -10856,6 +10868,20 @@ statements retain their pinned hashes.
    OPEN is to derive a genuine iterated transfer/semigroup action on the
    completed quotient and then a strict spectral decay estimate; this theorem
    is nonexpansiveness only, not a positive mass gap.
+   `...DoubledTimeOSContractiveAction` supplies the exact indexed semigroup
+   step on strict-cylinder presentations: rebasing preserves the form and
+   `Q(T_(r+s)v) <= Q(T_r v)`, hence also contraction back to the source.  The
+   three gates use exactly `{propext, Quot.sound}`.  `...EvenTimeOSPositive`
+   derives `0 <= <T^(2s)v,v>` from the doubled-time mixed OS identity rather
+   than inferring symmetry from positivity.  Its two gates are axiom-clean.
+   `...OSDistanceContraction` then defines the presentation difference and
+   CReal-valued squared OS distance, proves translation commutes with that
+   difference, and derives both source and semigroup-step pairwise
+   nonexpansiveness.  Its four gates use exactly the permitted axioms.  OPEN is
+   now explicit: construct one fixed carrier/direct limit from the base-indexed
+   presentations, descend this CReal-valued nonexpansive action through its
+   metric quotient and completion, and separately prove bilinear
+   self-adjointness before any spectral-gap conclusion.
    Ordinary affine time-shift covariance still cannot be substituted for that
    compression step.  Full state-preserving isometry, global norm invariance,
    and Hilbert-space semigroup conclusions remain fenced until the comparison
@@ -11036,6 +11062,25 @@ statements retain their pinned hashes.
    are empty or in `{propext, Quot.sound}`.  OPEN is the exterior-query truth
    table and normalized fine/coarse all-eight mass theorem, followed by an
    actual local blocking comparison and summable iterative leakage.
+   `Z4OutwardThreeCubeSubsupportPatterns` now closes the coarse half of that
+   residual.  It proves the exact three-query membership matrix, constructs
+   canonical component-label witnesses for all seven nonzero Boolean cells,
+   derives positive normalized mass for each from exact physical activity, and
+   uses the empty canonical family as a positive `000` witness.  Therefore all
+   eight cells of the normalized cutoff-one volume-six coarse subsupport law
+   have strictly positive mass at every positive rational coupling.  Its direct
+   and named builds are green; all twenty-two printed gates are within
+   `{propext, Quot.sound}`.
+   `Z4OutwardThreeCubeFineCarrier` constructs the complementary fine geometry.
+   All seven translated refined supports are duplicate-free, even-incidence,
+   link-connected canonical polymers with strictly positive exact activities;
+   moreover every encoded fine root is proved to be the literal dyadic
+   refinement of the corresponding coarse root in the same box.  Its direct
+   and integrated builds are green and all seven audit gates use only the
+   permitted axioms.  OPEN is the fine exterior-query truth table and all-eight
+   normalized fine mass, then a quantitative local fine-to-coarse pattern
+   comparison with a summable defect under iteration.  Positivity at both
+   scales alone is not such a comparison.
    A global refresh may not be called a local block kernel.  Meanwhile the
    reflection-positive route
    is constructing an actual adjacent-time joint cylinder law rather than an
