@@ -6487,6 +6487,17 @@ are green; all twelve gates are exactly `{propext, Quot.sound}`.  OPEN is now
 the uniform post-bootstrap inequality between this explicit cleared Abel debt
 and the already-positive reserve, followed by the endpoint consumers and
 `RecoveryRawClosure`.
+`HarmonicMassCrossLowerSixRecoveryLinearAbelPhysicalSplice` now installs the
+actual center-dependent geometry in that cleared coordinate.  The physical
+peak `floor(c/2)+2` is proved beyond the exact descent threshold; the complete
+variation sum splits identically into rising head, middle band, and falling
+tail; numerator sign transports back to carrier-prefix sign; the middle band
+is nonpositive before the prefix crossing; and the entire post-crossing tail
+is nonnegative.  Its 525-job named build and direct compile are green, and all
+seven gates use exactly `{propext, Quot.sound}`.  OPEN is now quantitative:
+bound the finite rising carrier/prefix contribution and terminal term by the
+available reserve uniformly in every post-bootstrap cell, then apply the
+cleared-payment consumer and close `RecoveryRawClosure`.
 `HarmonicMassCrossLowerSixRecoveryEndpointCarrier` now separates the two
 alternating endpoint families from that within-cell analysis without another
 global polynomial expansion.  Arbitrary one-step fixed-center drops telescope
@@ -7585,10 +7596,11 @@ the constructive-real mixed-OS Young recurrence, and the even-incidence
 canonical-activity positivity engine, followed by the exact cylinder-base
 cofinal transport and the adjacent-cube cancellation fence, the integrated
 root package, now also including additive-error midpoint doubling, is green at
-2,362 jobs after the constructive-real cylinder-base transport lift and the
-literal doubled-time recurrence.  The refreshed strict axiom inventory covers
-18,540 theorems in 2,237 namespaces with zero forbidden exceptions.  Both
-pinned-statement guards pass at 2,363
+2,363 jobs after the constructive-real cylinder-base transport lift, the
+literal doubled-time recurrence, and the harmonic physical three-band splice.
+The refreshed strict axiom inventory covers 18,547 theorems in 2,238
+namespaces with zero forbidden exceptions.  Both pinned-statement guards pass
+at 2,364
 jobs.  The
 five Clay-frontier types remain genuinely uninhabited and all ten guarded
 statements retain their pinned hashes.
