@@ -7585,9 +7585,9 @@ the constructive-real mixed-OS Young recurrence, and the even-incidence
 canonical-activity positivity engine, followed by the exact cylinder-base
 cofinal transport and the adjacent-cube cancellation fence, the integrated
 root package, now also including additive-error midpoint doubling, is green at
-2,360 jobs.  The refreshed strict axiom inventory covers 18,533 theorems in
-2,235 namespaces with zero forbidden exceptions.  Both pinned-statement guards
-pass at 2,361
+2,361 jobs after the constructive-real cylinder-base transport lift.  The
+refreshed strict axiom inventory covers 18,539 theorems in 2,236 namespaces
+with zero forbidden exceptions.  Both pinned-statement guards pass at 2,362
 jobs.  The
 five Clay-frontier types remain genuinely uninhabited and all ten guarded
 statements retain their pinned hashes.
@@ -10781,6 +10781,17 @@ statements retain their pinned hashes.
    are green and all eight gates remain in `{propext, Quot.sound}`.  OPEN is to
    lift this entry estimate through the finite quadratic and `CReal` limit,
    then derive—not postulate—the shift-uniform cap needed by midpoint doubling.
+   `...CylinderBaseTransportLimit` now completes that lift.  It propagates an
+   explicit same-index dyadic modulus from centered entries to the literal
+   Gram matrix, multiplies it by the finite coefficient `L1` quadratic, and
+   performs the constructive-real epsilon argument.  The terminal theorem
+   derives
+   `Q(boxTransport v) ≃ Q(v)` for every strict cylinder vector and padding,
+   with no covariance premise.  Its direct and named builds are green and all
+   six gates use only `{propext, Quot.sound}`.  The Young inequality can
+   therefore be rewritten as the genuine midpoint recurrence
+   `2*Q(T_s v) <= Q(v)+Q(T_2s v)`; the remaining analytic obstruction is a
+   derived shift-uniform cap strong enough for constructive midpoint doubling.
    Ordinary affine time-shift covariance still cannot be substituted for that
    compression step.  Full state-preserving isometry, global norm invariance,
    and Hilbert-space semigroup conclusions remain fenced until the comparison
