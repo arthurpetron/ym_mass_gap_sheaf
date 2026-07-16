@@ -7632,15 +7632,15 @@ the constructive-real mixed-OS Young recurrence, and the even-incidence
 canonical-activity positivity engine, followed by the exact cylinder-base
 cofinal transport and the adjacent-cube cancellation fence, the integrated
 root package, now also including additive-error and constructive-real midpoint
-doubling, is green at 2,392 jobs after the constructive-real cylinder-base
+doubling, is green at 2,393 jobs after the constructive-real cylinder-base
 transport lift, the
 literal doubled-time recurrence, the harmonic physical three-band splice, and
 the outward three-cube carrier family, together with the derived translated
 quadratic cap, the strict translated-form contraction and action, the harmonic
 physical-carrier block-cancellation interface, and the coarse/fine outward
 three-cube pattern carriers, now including the complete fine Boolean law.  The
-refreshed strict axiom inventory covers 18,792 theorems in 2,270 namespaces
-with zero forbidden exceptions.  Both pinned-statement guards pass at 2,393
+refreshed strict axiom inventory covers 18,803 theorems in 2,271 namespaces
+with zero forbidden exceptions.  Both pinned-statement guards pass at 2,394
 jobs.  The
 five Clay-frontier types remain genuinely uninhabited and all ten guarded
 statements retain their pinned hashes.
@@ -10913,11 +10913,17 @@ statements retain their pinned hashes.
    fixed-base `strictJointCylinderSquaredSeminorm`.  The exact two-dimensional
    `ContractivePositiveSemigroupSelfAdjointnessFence` proves that semigroup,
    norm/distance contraction, and nonnegative diagonal transfer form still do
-   not imply self-adjointness.  All forty-nine gates in this tranche are empty
-   or lie within `{propext, Quot.sound}`.  OPEN is to descend the squared
-   seminorm to the fixed direct carrier, instantiate its nonexpansive time
-   semigroup on the completion, and derive the missing mixed off-diagonal covariance
-   from the signed-cylinder reflection geometry before spectral localization.
+   not imply self-adjointness.  `...CRealDirectLimitSeminorm` now computes the
+   staged distance in the pair's maximum box, proves independence from every
+   larger common box, discharges all squared-seminorm laws, places canonical
+   base transport in the radical, and instantiates the actual nonexpansive
+   time semigroup on the explicit-modulus completion with exact zero/add laws.
+   All sixty gates in this tranche are empty or lie within
+   `{propext, Quot.sound}`.  This is a completed metric-semigroup carrier, not
+   yet a completed linear inner-product space or a self-adjoint transfer.
+   OPEN is to derive the missing mixed off-diagonal covariance from the
+   signed-cylinder reflection geometry, descend the bilinear/linear structure,
+   and only then perform spectral localization.
    `...PolarizedDoubledTimeIdentity` now derives the strongest off-diagonal
    consequence of the known doubled-time diagonal law: the translated
    bilinear form is the exact half-sum of the two oppositely oriented one-sided

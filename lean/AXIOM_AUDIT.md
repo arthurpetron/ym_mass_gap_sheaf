@@ -2086,6 +2086,7 @@ YMGap.Continuum.Z4HalfTimeReflectionSlabFiniteKConditionalLaw = 98f5f2dce77f69fe
 YMGap.Continuum.Z4HalfTimeReflectionSlabFiniteKConditionalStability = 565de38a70ab36a2  (7)
 YMGap.Continuum.Z4HalfTimeReflectionSlabFiniteKConditionalStabilityAlgebra = 80bc7b1ce90e28dd  (8)
 YMGap.Continuum.Z4HalfTimeReflectionSlabFiniteKConditionalStabilityGeneral = 073fb9f64dd2ea3d  (7)
+YMGap.Continuum.Z4HalfTimeReflectionStrictJointCRealDirectLimitSeminorm = d3da020233ed7ac1  (11)
 YMGap.Continuum.Z4HalfTimeReflectionStrictJointCRealRadicalDescent = 61be21094752b571  (20)
 YMGap.Continuum.Z4HalfTimeReflectionStrictJointCenteredLimit = e95d8648089770fa  (21)
 YMGap.Continuum.Z4HalfTimeReflectionStrictJointCenteredRecoding = c51010a316d39604  (19)
