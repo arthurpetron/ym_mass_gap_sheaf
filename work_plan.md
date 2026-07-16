@@ -6459,6 +6459,19 @@ for the full later suffix.  Its 522-job named build and direct compile are
 green; all five gates are exactly `{propext, Quot.sound}`.  OPEN is now the
 carrier-prefix estimate on the finite rising region, its splice to this
 certified falling suffix, and the terminal boundary payment.
+`HarmonicMassCrossLowerSixRecoveryLinearAbelPrefixVariation` now proves the
+corresponding exact sign geometry for Abel summation.  The linear carrier has
+arbitrary-distance one-crossing laws; its prefix has an exact step identity,
+is nonpositive before the carrier crossing, and is monotone after it.  The
+complement variation and prefix-variation products therefore have certified
+favorable signs on the rising carrier head and the post-prefix-crossing
+falling suffix, isolating the only adverse middle band.  A closed rational
+counterexample at `(k,j)=(648,17)` shows that the carrier is already
+nonnegative while its prefix remains strictly negative, permanently fencing
+the shortcut that uses one crossing index for both.  Its 523-job named build
+and direct compile are green; all eleven gates are exactly
+`{propext, Quot.sound}`.  OPEN is the quantitative estimate for that finite
+middle band, its splice into the exact Abel identity, and terminal payment.
 `HarmonicMassCrossLowerSixRecoveryEndpointCarrier` now separates the two
 alternating endpoint families from that within-cell analysis without another
 global polynomial expansion.  Arbitrary one-step fixed-center drops telescope
@@ -7551,9 +7564,9 @@ Clay-facing assembly.  Source scanning currently finds no executable `sorry`,
 physical three-cube leakage, finite-entry/conditional-event, and post-bootstrap
 Linear--Abel imports, followed by the mixed-OS entry-event and joint-recoding
 interfaces, followed by the cumulative-payment and joint-centered bridges,
-the integrated root package is green at 2,349 jobs.  The refreshed strict
-axiom inventory covers 18,394 theorems in 2,224 namespaces
-with zero forbidden exceptions.  Both pinned-statement guards pass at 2,350
+the integrated root package is green at 2,352 jobs.  The refreshed strict
+axiom inventory covers 18,442 theorems in 2,227 namespaces
+with zero forbidden exceptions.  Both pinned-statement guards pass at 2,353
 jobs.  The
 five Clay-frontier types remain genuinely uninhabited and all ten guarded
 statements retain their pinned hashes.
@@ -10694,11 +10707,20 @@ statements retain their pinned hashes.
    the existing mixed signed presentation entry.  The rational receding events
    are equal stage by stage, so this step adds no estimate.  Its 811-job named
    build and direct compile are green; all four gates use exactly the allowed
-   axioms.  OPEN is therefore only the finite fingerprint-sum/constructive-real
-   quadratic assembly; no finite
+   axioms.  `...DoubledTimeMixedOSIdentity` now performs the finite quadratic
+   assembly itself.  A derived coefficient-pair norm multiplies the entrywise
+   half-power modulus, giving a uniform rational approximation bound; the
+   constructive-real limit then identifies the direct OS bilinear with the
+   joint-centered quadratic, finite sum congruence identifies that quadratic
+   with the mixed signed one, and composition constructs
+   `StrictJointDoubledTimeMixedOSIdentity` with no comparison premise.  Its
+   812-job named build and direct compile are green; all seven gates use exactly
+   `{propext, Quot.sound}`.  Thus no finite
    polarization, pushforward, normalization, event identification, geometric
    root concatenation, schedule comparison, fixed-stage event recoding, or
-   orientation algebra remains.
+   orientation algebra remains.  OPEN on this lane is the completed-form
+   contraction/transfer consequence and, beyond it, physical scale
+   compatibility; this finite Z4 identity is not a continuum OS construction.
    Ordinary affine time-shift covariance still cannot be substituted for that
    compression step.  Full state-preserving isometry, global norm invariance,
    and Hilbert-space semigroup conclusions remain fenced until the comparison
@@ -10820,9 +10842,22 @@ statements retain their pinned hashes.
    weight, hence both actual normalized `001` cell masses are strictly
    positive.  Its 760-job named build and direct compile are green; all twenty
    gates stay within `{propext, Quot.sound}`.  This closes the smallest
-   numerical-free mixed-amplitude theorem.  OPEN is now the genuinely local
-   fine-to-coarse character/fusion fibre comparison and a summable bound on
-   cross-pattern leakage (or all eight exact fibre matches) under iteration.
+   numerical-free mixed-amplitude theorem.
+   `Z4OverlappingCanonicalRootOccurrenceFence` now determines the actual
+   support of this exact-component law.  Distinct canonical roots sharing a
+   production link cannot coexist in one compatible family; the three axis
+   roots overlap pairwise at both scales, so every fine and coarse state is in
+   exactly one of `000,100,010,001`, and every `110,101,011,111` mass is
+   exactly zero.  The generic theorem
+   `normalizedPhysical_linkOverlapping_no_patternMatch` therefore
+   machine-refutes the previous all-eight-positive fibre premise.  Its
+   815-job named build and direct compile are green; all thirty gates remain
+   within `{propext, Quot.sound}`.  This is a semantic correction, not a
+   leakage estimate: exact whole-component occurrence is the wrong observable
+   for overlapping multi-true cells.  OPEN is now a replacement using
+   face/sub-support queries within connected components, followed by the
+   genuinely local fine-to-coarse character/fusion comparison and a summable
+   cross-pattern leakage bound under iteration.
    A global refresh may not be called a local block kernel.  Meanwhile the
    reflection-positive route
    is constructing an actual adjacent-time joint cylinder law rather than an
