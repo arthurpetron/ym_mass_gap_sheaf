@@ -6426,6 +6426,19 @@ printed load-bearing gates use exactly `{propext, Quot.sound}`.  OPEN is now
 strictly the cumulative complementary-weight drift and adverse terminal-mode
 payment into that proved reserve, followed by the endpoint consumers and
 `RecoveryRawClosure`; pointwise carrier positivity is no longer an assumption.
+`HarmonicMassCrossLowerSixRecoveryLinearAbelCumulativePayment` now fixes that
+payment problem in its exact finite-sum coordinates.  It proves that the
+negated drift debt is the next-carrier/complement-increment pairing minus the
+terminal drop, gives the exact `finSum` Abel identity and its concrete
+carrier-prefix specialization, and identifies successive complement
+increments with an explicit old/new power-flux comparison.  The theorem
+`lowerSixRecoveryPointwiseComplementPayment_648_25_fails` kernel-refutes the
+tempting pointwise reserve payment in the first post-bootstrap cell, so a
+cumulative argument is logically required.  Its 520-job named build and direct
+compile are green; all eleven printed gates are exactly
+`{propext, Quot.sound}`.  OPEN is now the explicit flux-peak location, the two
+signed Abel-region bounds, and the terminal boundary payment; after those,
+the endpoint consumers and `RecoveryRawClosure` remain.
 `HarmonicMassCrossLowerSixRecoveryEndpointCarrier` now separates the two
 alternating endpoint families from that within-cell analysis without another
 global polynomial expansion.  Arbitrary one-step fixed-center drops telescope
@@ -7516,9 +7529,11 @@ The ordering is proof holes, semantic correctness, analytic frontier, then
 Clay-facing assembly.  Source scanning currently finds no executable `sorry`,
 `admit`, `native_decide`, or standalone `Classical.*`; after the signed-OS,
 physical three-cube leakage, finite-entry/conditional-event, and post-bootstrap
-Linear--Abel imports the integrated root package is green at 2,340 jobs.  The
-refreshed strict axiom inventory covers 18,331 theorems in 2,215 namespaces
-with zero forbidden exceptions.  Both pinned-statement guards pass at 2,341
+Linear--Abel imports, followed by the mixed-OS entry-event and joint-recoding
+interfaces, followed by the cumulative-payment and joint-centered bridges,
+the integrated root package is green at 2,344 jobs.  The refreshed strict
+axiom inventory covers 18,351 theorems in 2,219 namespaces
+with zero forbidden exceptions.  Both pinned-statement guards pass at 2,345
 jobs.  The
 five Clay-frontier types remain genuinely uninhabited and all ten guarded
 statements retain their pinned hashes.
@@ -10632,11 +10647,25 @@ statements retain their pinned hashes.
    entry with the corrected-slab conditional probability of the literal
    lower-source/reflected-upper-target family event.  Its 806-job named build,
    direct compile, and aggregate import are green; all four printed gates use
-   exactly `{propext, Quot.sound}`.  OPEN is therefore the final geometric
-   specialization of that event to the doubled-time mixed cylinder roots and
-   its corrected-slab-to-ambient/cutoff cofinal signed schedule descent; no
-   finite polarization, pushforward, normalization, or event-identification
-   algebra remains.
+   exactly `{propext, Quot.sound}`.
+   `...DoubledTimeMixedOSEntryEvent` now performs the geometric specialization:
+   every oriented direct OS entry is the corrected-slab probability of the
+   literal common-box mixed cylinder.  Its 807-job named build is green and all
+   three printed gates use exactly `{propext, Quot.sound}`.
+   `...DoubledTimeMixedOSJointRecoding` then concatenates the source and target
+   roots into the ordinary strict-joint chart and proves that the resulting
+   four-block projection predicate is literally the same two-block common
+   cylinder.  Its 808-job named build is green and both gates use exactly the
+   allowed axioms.  `...DoubledTimeMixedOSJointCenteredBridge` next proves the
+   corrected-slab comparison for an arbitrary Boolean predicate and specializes
+   it to an explicit half-power bound from every direct oriented OS entry
+   sequence to the concatenated-root centered sequence.  Its 809-job named
+   build is green and all four gates use exactly the allowed axioms.  The
+   aggregate root imports all three modules.  OPEN is therefore only the
+   fixed-stage centered-root/event equivalence to the mixed signed presentation
+   and the resulting constructive-real finite-quadratic assembly; no finite
+   polarization, pushforward, normalization, event identification, geometric
+   root concatenation, schedule comparison, or orientation algebra remains.
    Ordinary affine time-shift covariance still cannot be substituted for that
    compression step.  Full state-preserving isometry, global norm invariance,
    and Hilbert-space semigroup conclusions remain fenced until the comparison
