@@ -7595,13 +7595,14 @@ component sub-support law, the exact denominator-cleared rising-prefix splice,
 the constructive-real mixed-OS Young recurrence, and the even-incidence
 canonical-activity positivity engine, followed by the exact cylinder-base
 cofinal transport and the adjacent-cube cancellation fence, the integrated
-root package, now also including additive-error midpoint doubling, is green at
-2,365 jobs after the constructive-real cylinder-base transport lift, the
+root package, now also including additive-error and constructive-real midpoint
+doubling, is green at 2,366 jobs after the constructive-real cylinder-base
+transport lift, the
 literal doubled-time recurrence, the harmonic physical three-band splice, and
 the outward three-cube carrier family, together with the derived translated
-quadratic cap.  The refreshed strict axiom inventory covers 18,564 theorems in
-2,240 namespaces with zero forbidden exceptions.  Both pinned-statement guards
-pass at 2,366
+quadratic cap.  The refreshed strict axiom inventory covers 18,567 theorems in
+2,241 namespaces with zero forbidden exceptions.  Both pinned-statement guards
+pass at 2,367
 jobs.  The
 five Clay-frontier types remain genuinely uninhabited and all ten guarded
 statements retain their pinned hashes.
@@ -10820,6 +10821,19 @@ statements retain their pinned hashes.
    only `{propext, Quot.sound}`.  OPEN is now the finite-orbit synchronization
    of index-dependent `leEv` cutoffs and the final constructive Archimedean
    contraction theorem.
+   `BoundedMidpointDoublingCReal` closes that generic analytic residual without
+   selecting an invalid universal approximation stage.  For each requested
+   Archimedean contradiction it takes the maximum of the finitely many `leEv`
+   cutoffs on the required dyadic prefix, proves the homogeneous arbitrary-
+   integer growth bound on exactly that prefix, and combines a pointwise
+   rational cap, a nonnegative anchor, and the midpoint recurrence to derive
+   `CReal.leEv (a n) (a 0)`.  Its direct compile and integrated build are green;
+   all three gates use exactly `{propext, Quot.sound}`.  OPEN on the strict Z4
+   lane is now the model-specific composition supplying Gram nonnegativity,
+   the translated cap, and the doubled-time recurrence to this consumer, then
+   interpreting the resulting form contraction spectrally.  This finite-model
+   contraction still does not supply the arbitrary-group physical RG or the
+   continuum Osterwalder--Schrader construction.
    Ordinary affine time-shift covariance still cannot be substituted for that
    compression step.  Full state-preserving isometry, global norm invariance,
    and Hilbert-space semigroup conclusions remain fenced until the comparison
