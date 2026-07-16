@@ -6498,6 +6498,17 @@ seven gates use exactly `{propext, Quot.sound}`.  OPEN is now quantitative:
 bound the finite rising carrier/prefix contribution and terminal term by the
 available reserve uniformly in every post-bootstrap cell, then apply the
 cleared-payment consumer and close `RecoveryRawClosure`.
+`HarmonicMassCrossLowerSixRecoveryLinearAbelPhysicalCarrier` now proves that,
+for every post-bootstrap within-center cell, the next-scale linear carrier is
+already nonnegative at the physical complement peak.  The proof derives the
+needed reciprocal-Bernoulli estimate from a subtraction-free natural-number
+budget, records the exact lossless physical three-band debt, and provides a
+consumer that retains the favorable negative middle band while certifying the
+middle/tail signs at a prefix crossing.  Its direct and named builds are green;
+all nine gates use exactly `{propext, Quot.sound}`.  OPEN is the single explicit
+three-band payment inequality (dropping the middle band is known false at the
+first post-bootstrap cell), together with constructive crossing localization
+or a block-cancellation argument that avoids choosing one.
 `HarmonicMassCrossLowerSixRecoveryEndpointCarrier` now separates the two
 alternating endpoint families from that within-cell analysis without another
 global polynomial expansion.  Arbitrary one-step fixed-center drops telescope
@@ -7596,13 +7607,14 @@ the constructive-real mixed-OS Young recurrence, and the even-incidence
 canonical-activity positivity engine, followed by the exact cylinder-base
 cofinal transport and the adjacent-cube cancellation fence, the integrated
 root package, now also including additive-error and constructive-real midpoint
-doubling, is green at 2,366 jobs after the constructive-real cylinder-base
+doubling, is green at 2,368 jobs after the constructive-real cylinder-base
 transport lift, the
 literal doubled-time recurrence, the harmonic physical three-band splice, and
 the outward three-cube carrier family, together with the derived translated
-quadratic cap.  The refreshed strict axiom inventory covers 18,567 theorems in
-2,241 namespaces with zero forbidden exceptions.  Both pinned-statement guards
-pass at 2,367
+quadratic cap, the strict translated-form contraction, and the harmonic
+physical-carrier payment interface.  The refreshed strict axiom inventory
+covers 18,577 theorems in 2,243 namespaces with zero forbidden exceptions.
+Both pinned-statement guards pass at 2,369
 jobs.  The
 five Clay-frontier types remain genuinely uninhabited and all ten guarded
 statements retain their pinned hashes.
@@ -10834,6 +10846,16 @@ statements retain their pinned hashes.
    interpreting the resulting form contraction spectrally.  This finite-model
    contraction still does not supply the arbitrary-group physical RG or the
    continuum Osterwalder--Schrader construction.
+   `...DoubledTimeOSContraction` performs the strict-model composition.  Gram
+   positivity supplies the nonnegative anchor, normalized-probability bounds
+   supply the pointwise cap, and the literal doubled-time recurrence supplies
+   the finite-prefix growth hypothesis; consequently every translated strict
+   reflection quadratic is `CReal.leEv`-bounded by its source quadratic.  The
+   direct and named builds are green and its terminal gate uses exactly
+   `{propext, Quot.sound}`.  No covariance or contraction premise is assumed.
+   OPEN is to derive a genuine iterated transfer/semigroup action on the
+   completed quotient and then a strict spectral decay estimate; this theorem
+   is nonexpansiveness only, not a positive mass gap.
    Ordinary affine time-shift covariance still cannot be substituted for that
    compression step.  Full state-preserving isometry, global norm invariance,
    and Hilbert-space semigroup conclusions remain fenced until the comparison
