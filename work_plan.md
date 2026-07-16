@@ -7564,10 +7564,11 @@ Clay-facing assembly.  Source scanning currently finds no executable `sorry`,
 physical three-cube leakage, finite-entry/conditional-event, and post-bootstrap
 Linear--Abel imports, followed by the mixed-OS entry-event and joint-recoding
 interfaces, followed by the cumulative-payment and joint-centered bridges,
-and now the bounded midpoint-doubling contraction core, the integrated root
-package is green at 2,353 jobs.  The refreshed strict axiom inventory covers
-18,446 theorems in 2,228 namespaces with zero forbidden exceptions.  Both
-pinned-statement guards pass at 2,354
+the bounded midpoint-doubling contraction core, and the corrected physical
+component sub-support law, the integrated root package is green at 2,354 jobs.
+The refreshed strict axiom inventory covers 18,487 theorems in 2,229
+namespaces with zero forbidden exceptions.  Both pinned-statement guards pass
+at 2,355
 jobs.  The
 five Clay-frontier types remain genuinely uninhabited and all ten guarded
 statements retain their pinned hashes.
@@ -10864,10 +10865,19 @@ statements retain their pinned hashes.
    815-job named build and direct compile are green; all thirty gates remain
    within `{propext, Quot.sound}`.  This is a semantic correction, not a
    leakage estimate: exact whole-component occurrence is the wrong observable
-   for overlapping multi-true cells.  OPEN is now a replacement using
-   face/sub-support queries within connected components, followed by the
-   genuinely local fine-to-coarse character/fusion comparison and a summable
-   cross-pattern leakage bound under iteration.
+   for overlapping multi-true cells.  `Z4ThreeCubeComponentSubsupportObservable`
+   now supplies the replacement decoder.  It asks whether a nonempty finite
+   face query is contained in one decoded connected component, identifies two
+   queries with the x/zero and y/zero interface faces, and places all three
+   queries inside the literal zero-axis cube component at both scales.  That
+   component label has derived positive character/fusion weight, so for every
+   positive fine coupling the actual normalized fine law and its
+   activity-matched coarse law both assign strictly positive mass to `111`.
+   Its 817-job named build and independent direct compile are green; all
+   forty-one gates remain in `{propext, Quot.sound}`.  OPEN is all-eight
+   support for this corrected observable, then the genuinely local
+   fine-to-coarse character/fusion comparison and a summable cross-pattern
+   leakage bound under iteration.
    A global refresh may not be called a local block kernel.  Meanwhile the
    reflection-positive route
    is constructing an actual adjacent-time joint cylinder law rather than an
