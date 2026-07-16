@@ -7618,15 +7618,15 @@ the constructive-real mixed-OS Young recurrence, and the even-incidence
 canonical-activity positivity engine, followed by the exact cylinder-base
 cofinal transport and the adjacent-cube cancellation fence, the integrated
 root package, now also including additive-error and constructive-real midpoint
-doubling, is green at 2,377 jobs after the constructive-real cylinder-base
+doubling, is green at 2,378 jobs after the constructive-real cylinder-base
 transport lift, the
 literal doubled-time recurrence, the harmonic physical three-band splice, and
 the outward three-cube carrier family, together with the derived translated
 quadratic cap, the strict translated-form contraction and action, the harmonic
 physical-carrier block-cancellation interface, and the coarse/fine outward
-three-cube pattern carriers.  The refreshed strict axiom inventory covers
-18,662 theorems in 2,252 namespaces with zero forbidden exceptions.  Both
-pinned-statement guards pass at 2,378
+three-cube pattern carriers, now including the complete fine Boolean law.  The
+refreshed strict axiom inventory covers 18,677 theorems in 2,253 namespaces
+with zero forbidden exceptions.  Both pinned-statement guards pass at 2,379
 jobs.  The
 five Clay-frontier types remain genuinely uninhabited and all ten guarded
 statements retain their pinned hashes.
@@ -11081,6 +11081,18 @@ statements retain their pinned hashes.
    normalized fine mass, then a quantitative local fine-to-coarse pattern
    comparison with a summable defect under iteration.  Positivity at both
    scales alone is not such a comparison.
+   `Z4OutwardThreeCubeFineSubsupportPatterns` now closes that finite support
+   residual.  An opaque certified-query package prevents repeated kernel
+   normalization of the large encoded finite-box face lists while retaining
+   checked equalities to the literal dyadic queries.  The exact membership
+   matrix gives canonical witnesses for all seven nonzero Boolean cells, and
+   the exact vacuum term supplies `000`; consequently every cell of the
+   normalized cutoff-one volume-six fine law has strictly positive derived
+   rational mass at every positive coupling.  The direct and integrated builds
+   are green and all fifteen printed gates are within `{propext, Quot.sound}`.
+   OPEN is the actual fine/coarse character cross-ratio estimate and a
+   scale-iterable summable defect.  All-eight positivity only licenses exact
+   division; it does not make the two physical laws close.
    `Z4ThreeBlockPatternRetunedLaw` gives an exact algebraic benchmark for that
    comparison.  From any positive source eight-cell law it constructs the
    target law with the same pattern masses, preserves all three one-bit
