@@ -6439,6 +6439,26 @@ compile are green; all eleven printed gates are exactly
 `{propext, Quot.sound}`.  OPEN is now the explicit flux-peak location, the two
 signed Abel-region bounds, and the terminal boundary payment; after those,
 the endpoint consumers and `RecoveryRawClosure` remain.
+`HarmonicMassCrossLowerSixRecoveryLinearAbelFluxUnimodality` now proves the
+structural peak theorem without selecting a numerical peak.  For adjacent
+ordered bases in `[0,1]`, descent of the power increment persists, and this
+property survives restriction to the strictly increasing quadratic-exponent
+subsequence used by the complement.  Consequently one certified descent mode
+makes the entire later complement-increment suffix antitone.  Its 521-job
+named build and direct compile are green; all nine gates stay within
+`{propext, Quot.sound}`.  OPEN is now an exact rational sufficient descent
+threshold, the carrier-prefix estimates on the rising and falling regions,
+and the terminal payment.
+`HarmonicMassCrossLowerSixRecoveryLinearAbelFluxLocation` now supplies that
+threshold in exact rational form.  The harmonic ratio is rewritten through
+the inverse-square factor, reciprocal Bernoulli proves that the old power flux
+is no larger than the new one whenever the exponent is at least `k+2`, and the
+production exponent specialization yields
+`k+2 <= 2*j*(j-1)+2 -> X_(j+1) <= X_j`, together with an antitone certificate
+for the full later suffix.  Its 522-job named build and direct compile are
+green; all five gates are exactly `{propext, Quot.sound}`.  OPEN is now the
+carrier-prefix estimate on the finite rising region, its splice to this
+certified falling suffix, and the terminal boundary payment.
 `HarmonicMassCrossLowerSixRecoveryEndpointCarrier` now separates the two
 alternating endpoint families from that within-cell analysis without another
 global polynomial expansion.  Arbitrary one-step fixed-center drops telescope
@@ -7531,9 +7551,9 @@ Clay-facing assembly.  Source scanning currently finds no executable `sorry`,
 physical three-cube leakage, finite-entry/conditional-event, and post-bootstrap
 Linear--Abel imports, followed by the mixed-OS entry-event and joint-recoding
 interfaces, followed by the cumulative-payment and joint-centered bridges,
-the integrated root package is green at 2,344 jobs.  The refreshed strict
-axiom inventory covers 18,351 theorems in 2,219 namespaces
-with zero forbidden exceptions.  Both pinned-statement guards pass at 2,345
+the integrated root package is green at 2,349 jobs.  The refreshed strict
+axiom inventory covers 18,394 theorems in 2,224 namespaces
+with zero forbidden exceptions.  Both pinned-statement guards pass at 2,350
 jobs.  The
 five Clay-frontier types remain genuinely uninhabited and all ten guarded
 statements retain their pinned hashes.
@@ -10661,11 +10681,24 @@ statements retain their pinned hashes.
    it to an explicit half-power bound from every direct oriented OS entry
    sequence to the concatenated-root centered sequence.  Its 809-job named
    build is green and all four gates use exactly the allowed axioms.  The
-   aggregate root imports all three modules.  OPEN is therefore only the
-   fixed-stage centered-root/event equivalence to the mixed signed presentation
-   and the resulting constructive-real finite-quadratic assembly; no finite
+   aggregate root imports all three modules.
+   `...DoubledTimeMixedOSJointFixedStageRecoding` now proves the remaining
+   fixed-stage equality: after subtracting the doubled shift from the ordinary
+   centered stage, canonical transport injectivity identifies the selected
+   lower/upper roots with the existing mixed signed roots, and the four-block
+   projection event is literally the two-block signed event.  Its 810-job
+   named build and direct compile are green; all five gates use exactly the
+   allowed axioms.  `...DoubledTimeMixedOSJointSignedEntry` then transports
+   the fixed-stage equality through every common receding re-encoding and
+   proves that each concatenated-root centered `CReal` limit is equivalent to
+   the existing mixed signed presentation entry.  The rational receding events
+   are equal stage by stage, so this step adds no estimate.  Its 811-job named
+   build and direct compile are green; all four gates use exactly the allowed
+   axioms.  OPEN is therefore only the finite fingerprint-sum/constructive-real
+   quadratic assembly; no finite
    polarization, pushforward, normalization, event identification, geometric
-   root concatenation, schedule comparison, or orientation algebra remains.
+   root concatenation, schedule comparison, fixed-stage event recoding, or
+   orientation algebra remains.
    Ordinary affine time-shift covariance still cannot be substituted for that
    compression step.  Full state-preserving isometry, global norm invariance,
    and Hilbert-space semigroup conclusions remain fenced until the comparison
@@ -10776,12 +10809,21 @@ statements retain their pinned hashes.
    production-link overlap, and proves that one positive explicit mixed-cell
    physical summand on each side yields both normalized mixed-cell
    positivities.  Its 759-job named build and aggregate import are green; all
-   nineteen printed gates remain in `{propext, Quot.sound}`.  OPEN is now the
-   smallest numerical-free physical amplitude theorem: construct those two
-   positive mixed-pattern summands from the actual overlapping multi-cube
-   character/fusion law, then derive a summable leakage bound (or all eight
-   exact fiber matches) under iteration.  A global refresh may not be called a
-   local block kernel.  Meanwhile the
+   nineteen printed gates remain in `{propext, Quot.sound}`.
+   `Z4ThreeCubeAxisOverlapPhysicalSummand` now constructs the missing summands
+   rather than assuming them.  In volume six it places unit-cube roots at the
+   x-shifted, y-shifted, and zero origins, proves their dyadic refinements and
+   three literal pairwise production-link overlaps, and decodes the unshifted
+   component label as exactly the mixed pattern `001`.  For every strictly
+   positive rational fine coupling at cutoff one, both that fine label and its
+   activity-matched coarse analogue have derived positive character/fusion
+   weight, hence both actual normalized `001` cell masses are strictly
+   positive.  Its 760-job named build and direct compile are green; all twenty
+   gates stay within `{propext, Quot.sound}`.  This closes the smallest
+   numerical-free mixed-amplitude theorem.  OPEN is now the genuinely local
+   fine-to-coarse character/fusion fibre comparison and a summable bound on
+   cross-pattern leakage (or all eight exact fibre matches) under iteration.
+   A global refresh may not be called a local block kernel.  Meanwhile the
    reflection-positive route
    is constructing an actual adjacent-time joint cylinder law rather than an
    arbitrary spectral completion.  `Z4UnitCubeBareCouplingCorridor` now checks
