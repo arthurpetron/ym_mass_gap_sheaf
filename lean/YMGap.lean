@@ -937,6 +937,7 @@ import YMGap.Continuum.Z4ThreeBlockPatternRetuneCylinderExact
 import YMGap.Continuum.Z4ThreeBlockPatternRetuneCharacterCrossRatio
 import YMGap.Continuum.Z4OutwardThreeCubeFineCarrier
 import YMGap.Continuum.Z4OutwardThreeCubeFineSubsupportPatterns
+import YMGap.Continuum.Z4OutwardThreeCubeFullRootQueries
 import YMGap.Continuum.FiniteCompatibilityPairOccurrence
 import YMGap.Continuum.Z4DyadicDeterministicSupportKernel
 import YMGap.Continuum.Z4DyadicModTwoCellularKernel

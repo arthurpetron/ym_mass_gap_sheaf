@@ -7632,15 +7632,15 @@ the constructive-real mixed-OS Young recurrence, and the even-incidence
 canonical-activity positivity engine, followed by the exact cylinder-base
 cofinal transport and the adjacent-cube cancellation fence, the integrated
 root package, now also including additive-error and constructive-real midpoint
-doubling, is green at 2,393 jobs after the constructive-real cylinder-base
+doubling, is green at 2,394 jobs after the constructive-real cylinder-base
 transport lift, the
 literal doubled-time recurrence, the harmonic physical three-band splice, and
 the outward three-cube carrier family, together with the derived translated
 quadratic cap, the strict translated-form contraction and action, the harmonic
 physical-carrier block-cancellation interface, and the coarse/fine outward
 three-cube pattern carriers, now including the complete fine Boolean law.  The
-refreshed strict axiom inventory covers 18,803 theorems in 2,271 namespaces
-with zero forbidden exceptions.  Both pinned-statement guards pass at 2,394
+refreshed strict axiom inventory covers 18,816 theorems in 2,272 namespaces
+with zero forbidden exceptions.  Both pinned-statement guards pass at 2,395
 jobs.  The
 five Clay-frontier types remain genuinely uninhabited and all ten guarded
 statements retain their pinned hashes.
@@ -11140,6 +11140,13 @@ statements retain their pinned hashes.
    normalized cutoff-one volume-six fine law has strictly positive derived
    rational mass at every positive coupling.  The direct and integrated builds
    are green and all fifteen printed gates are within `{propext, Quot.sound}`.
+   `Z4OutwardThreeCubeFullRootQueries` separately checks all forty-two entries
+   of the coarse/fine whole-root event tables, the exact six-versus-twenty-four
+   face counts, and the generic event-to-pattern conversion.  Its explicit
+   smaller fine child carrier makes the distinguished child query true while
+   all three whole-root events are false, permanently fencing any
+   identification of child-query positivity with complete-root occurrence.
+   All thirteen gates remain within the permitted axiom set.
    OPEN is the actual fine/coarse character cross-ratio estimate and a
    scale-iterable summable defect.  All-eight positivity only licenses exact
    division; it does not make the two physical laws close.
