@@ -7632,15 +7632,15 @@ the constructive-real mixed-OS Young recurrence, and the even-incidence
 canonical-activity positivity engine, followed by the exact cylinder-base
 cofinal transport and the adjacent-cube cancellation fence, the integrated
 root package, now also including additive-error and constructive-real midpoint
-doubling, is green at 2,395 jobs after the constructive-real cylinder-base
+doubling, is green at 2,398 jobs after the constructive-real cylinder-base
 transport lift, the
 literal doubled-time recurrence, the harmonic physical three-band splice, and
 the outward three-cube carrier family, together with the derived translated
 quadratic cap, the strict translated-form contraction and action, the harmonic
 physical-carrier block-cancellation interface, and the coarse/fine outward
 three-cube pattern carriers, now including the complete fine Boolean law.  The
-refreshed strict axiom inventory covers 18,825 theorems in 2,273 namespaces
-with zero forbidden exceptions.  Both pinned-statement guards pass at 2,396
+refreshed strict axiom inventory covers 18,837 theorems in 2,277 namespaces
+with zero forbidden exceptions.  Both pinned-statement guards pass at 2,399
 jobs.  The
 five Clay-frontier types remain genuinely uninhabited and all ten guarded
 statements retain their pinned hashes.
@@ -10932,6 +10932,18 @@ statements retain their pinned hashes.
    remains before mixed covariance; both gates use exactly the allowed axioms.
    OPEN on that sublane is an oriented two-presentation signed-cylinder
    recoding/comparison proving the two one-sided crosses equivalent.
+   `...DirectLimitBilinear` now evaluates the limiting reflection form in a
+   pair's maximum box, proves representative independence, and descends it as
+   an `RC`-valued pairing on the algebraic direct limit; all four gates use the
+   permitted axioms.  `...OrientedSignedSpatialComparison` removes the old
+   same-root diagonal wrapper and derives the signed spatial comparison for
+   heterogeneous lower/upper presentations, while
+   `...HeterogeneousBipushforward` proves the corresponding finite exact
+   two-code assembly with different root counts and coefficient tables.  Their
+   eight gates are axiom-clean.  OPEN is the fixed-stage identification of each
+   mixed bilinear entry with that signed value and its finite summation; this
+   can yield even-shift oriented covariance.  Odd-shift/one-step
+   self-adjointness remains a separate geometric residual.
    Ordinary affine time-shift covariance still cannot be substituted for that
    compression step.  Full state-preserving isometry, global norm invariance,
    and Hilbert-space semigroup conclusions remain fenced until the comparison
