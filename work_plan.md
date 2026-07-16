@@ -7618,15 +7618,15 @@ the constructive-real mixed-OS Young recurrence, and the even-incidence
 canonical-activity positivity engine, followed by the exact cylinder-base
 cofinal transport and the adjacent-cube cancellation fence, the integrated
 root package, now also including additive-error and constructive-real midpoint
-doubling, is green at 2,378 jobs after the constructive-real cylinder-base
+doubling, is green at 2,383 jobs after the constructive-real cylinder-base
 transport lift, the
 literal doubled-time recurrence, the harmonic physical three-band splice, and
 the outward three-cube carrier family, together with the derived translated
 quadratic cap, the strict translated-form contraction and action, the harmonic
 physical-carrier block-cancellation interface, and the coarse/fine outward
 three-cube pattern carriers, now including the complete fine Boolean law.  The
-refreshed strict axiom inventory covers 18,677 theorems in 2,253 namespaces
-with zero forbidden exceptions.  Both pinned-statement guards pass at 2,379
+refreshed strict axiom inventory covers 18,726 theorems in 2,258 namespaces
+with zero forbidden exceptions.  Both pinned-statement guards pass at 2,384
 jobs.  The
 five Clay-frontier types remain genuinely uninhabited and all ten guarded
 statements retain their pinned hashes.
@@ -11104,6 +11104,21 @@ statements retain their pinned hashes.
    is an explicit pointwise formula comparing this benchmark to the
    independently derived fine law, with the resulting mismatch bounded rather
    than definitionally erased.
+   The five-module `Z4ThreeBlockPatternRetuneRatio` chain now supplies that
+   exact comparison calculus.  It defines the Radon--Nikodym pattern ratio,
+   proves its source/target mass identity and exact-one characterization,
+   takes the maximum of the eight relative errors as a derived defect, and
+   transports the resulting two-sided bounds from cells to arbitrary Boolean
+   events and complete three-bit cylinder tests.  The terminal character
+   cross-ratio module clears all divisions: a bound on
+   `|Ns*Zt - Nt*Zs|` relative to the positive denominator implies the ratio and
+   all-event defect bounds, and the physical subsupport laws provide exact
+   numerator/partition quotient representations.  Both terminal named builds
+   are green and every printed gate is within `{propext, Quot.sound}`.  The
+   genuinely physical residual is now a concrete one: derive a uniform bound
+   on those eight fine/coarse numerator cross-differences from the local
+   character/fusion blocking map, then prove the bound summable under
+   iteration.  No such estimate is assumed by this algebraic layer.
    A global refresh may not be called a local block kernel.  Meanwhile the
    reflection-positive route
    is constructing an actual adjacent-time joint cylinder law rather than an
