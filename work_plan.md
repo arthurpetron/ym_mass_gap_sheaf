@@ -6527,11 +6527,13 @@ selected-value signs, specializes to every post-bootstrap physical cell, and
 feeds the lossless three-band payment consumer without choice.  The companion
 `...PhysicalTerminalPrefix` proves the exact fourth-order terminal cell-slack
 block nonnegative uniformly from `36 <= c` and `0 <= X <= 2c`, using only the
-genuine slacks `c-36` and `2c-X`.  Their aggregate build is green and all eight
-printed gates lie within `{propext, Quot.sound}`.  OPEN is the bridge from that
-terminal block to the complete terminal prefix numerator and the termwise
-summation proving the next-carrier prefix nonnegative, then the coupled suffix
-payment, endpoint consumers, and `RecoveryRawClosure`.
+genuine slacks `c-36` and `2c-X`.  `...PhysicalTerminalTaylor` now supplies the
+exact 5040-scaled finite-sum identity, bounds each Taylor mode by the physical
+carrier, proves the complete terminal prefix numerator nonnegative, and removes
+that terminal hypothesis from the post-bootstrap crossing theorem.  Their
+aggregate builds are green and all fifteen printed gates lie within
+`{propext, Quot.sound}`.  OPEN is now the coupled three-band suffix payment,
+followed by the endpoint cumulative consumers and `RecoveryRawClosure`.
 `HarmonicMassCrossLowerSixRecoveryEndpointCarrier` now separates the two
 alternating endpoint families from that within-cell analysis without another
 global polynomial expansion.  Arbitrary one-step fixed-center drops telescope
@@ -7630,15 +7632,15 @@ the constructive-real mixed-OS Young recurrence, and the even-incidence
 canonical-activity positivity engine, followed by the exact cylinder-base
 cofinal transport and the adjacent-cube cancellation fence, the integrated
 root package, now also including additive-error and constructive-real midpoint
-doubling, is green at 2,385 jobs after the constructive-real cylinder-base
+doubling, is green at 2,386 jobs after the constructive-real cylinder-base
 transport lift, the
 literal doubled-time recurrence, the harmonic physical three-band splice, and
 the outward three-cube carrier family, together with the derived translated
 quadratic cap, the strict translated-form contraction and action, the harmonic
 physical-carrier block-cancellation interface, and the coarse/fine outward
 three-cube pattern carriers, now including the complete fine Boolean law.  The
-refreshed strict axiom inventory covers 18,734 theorems in 2,260 namespaces
-with zero forbidden exceptions.  Both pinned-statement guards pass at 2,386
+refreshed strict axiom inventory covers 18,741 theorems in 2,261 namespaces
+with zero forbidden exceptions.  Both pinned-statement guards pass at 2,387
 jobs.  The
 five Clay-frontier types remain genuinely uninhabited and all ten guarded
 statements retain their pinned hashes.

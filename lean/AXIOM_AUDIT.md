@@ -655,6 +655,7 @@ YMGap.Continuum.HarmonicMassCrossLowerSixRecoveryLinearAbelPhysicalCarrier = de6
 YMGap.Continuum.HarmonicMassCrossLowerSixRecoveryLinearAbelPhysicalPrefixCrossing = d4c626ab84c65761  (7)
 YMGap.Continuum.HarmonicMassCrossLowerSixRecoveryLinearAbelPhysicalSplice = e81c152c53b8f5a7  (7)
 YMGap.Continuum.HarmonicMassCrossLowerSixRecoveryLinearAbelPhysicalTerminalPrefix = b0f6cbadc4e88bb7  (1)
+YMGap.Continuum.HarmonicMassCrossLowerSixRecoveryLinearAbelPhysicalTerminalTaylor = 0dbd488e52e61d6a  (7)
 YMGap.Continuum.HarmonicMassCrossLowerSixRecoveryLinearAbelPostBootstrap = ce50965f55245895  (15)
 YMGap.Continuum.HarmonicMassCrossLowerSixRecoveryLinearAbelPrefixVariation = 17e9e85ffa29512c  (11)
 YMGap.Continuum.HarmonicMassCrossLowerSixRecoveryLinearAbelRisingSplice = 2cb9b73b50379eef  (12)
