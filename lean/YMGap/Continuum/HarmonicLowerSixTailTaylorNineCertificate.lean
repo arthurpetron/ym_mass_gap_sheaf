@@ -6,14 +6,14 @@ Taylor truncation of `(1 - 1/D)^(2n+1)`.  The transparent integer polynomial
 `tailTaylor9Cleared` below is exactly `9! * L9NUM`, expanded into 46 integer
 power terms.
 
-For `8191 <= D` and `n <= D`, use the two projective interval coordinates
+For `392 <= D` and `n <= D`, use the two projective interval coordinates
 
-  `(8191, D - 8191)` and `(n, D - n)`.
+  `(392, D - 392)` and `(n, D - n)`.
 
 The exact 9 by 10 tensor-Bernstein table has nonnegative integer entries.
 After substitution its homogeneous polynomial is literally
 
-  `(1470 * 8191^8) * D^8 * tailTaylor9Cleared(D,n)`.
+  `(1470 * 392^8) * D^8 * tailTaylor9Cleared(D,n)`.
 
 Both the coefficient signs and this polynomial identity are kernel-reduced by
 the eager normalizer.  The positive chart factor and `D^8` are then cancelled
@@ -121,10 +121,10 @@ def tailTaylor9BernsteinExpr : RingNormaliser.PolyExpr :=
   homogeneousTensorExpr 8 9 tailTaylor9BernsteinRows
 
 /-- Substitute the homogeneous chart coordinates
-`8191`, `D-8191`, `n`, and `D-n`. -/
+`392`, `D-392`, `n`, and `D-n`. -/
 def tailTaylor9ChartSubstitution : Nat → RingNormaliser.PolyExpr
-  | 0 => .const 8191
-  | 1 => .add (.var 0) (.const (-8191))
+  | 0 => .const (Int.ofNat tailTaylor9ChartBase)
+  | 1 => .add (.var 0) (.const (-(Int.ofNat tailTaylor9ChartBase)))
   | 2 => .var 1
   | 3 => .add (.var 0) (.neg (.var 1))
   | _ => .const 0
@@ -184,17 +184,18 @@ private theorem ofNat_nonnegative_local (a : Nat) :
   exact ofNat_le_local (Nat.zero_le a)
 
 private theorem chart_coordinates_nonnegative
-    (D n : Nat) (hD : 8191 ≤ D) (hn : n ≤ D) :
+    (D n : Nat) (hD : tailTaylor9ChartBase ≤ D) (hn : n ≤ D) :
     ∀ i,
       (0 : Q') ≤ RingNormaliser.eval
         (tailTaylor9Rho (Q'.ofNat D) (Q'.ofNat n))
         (tailTaylor9ChartSubstitution i) := by
   intro i
   rcases i with _ | i
-  · change (0 : Q') ≤ Q'.ofInt 8191
-    decide
+  · change (0 : Q') ≤ Q'.ofNat tailTaylor9ChartBase
+    exact ofNat_nonnegative_local _
   · rcases i with _ | i
-    · change (0 : Q') ≤ Q'.ofNat D + -(Q'.ofNat 8191)
+    · change (0 : Q') ≤
+        Q'.ofNat D + -(Q'.ofNat tailTaylor9ChartBase)
       exact Q'.sub_nonneg_of_le (ofNat_le_local hD)
     · rcases i with _ | i
       · change (0 : Q') ≤ Q'.ofNat n
@@ -215,10 +216,10 @@ private theorem tailTaylor9Physical_eval
           tailTaylor9Cleared (Q'.ofNat D) (Q'.ofNat n)) := rfl
 
 /-- **Exact T9 sign certificate.**  On the full low-step chart
-`8191 <= D`, `0 <= n <= D`, the cleared ninth Taylor numerator is
+`392 <= D`, `0 <= n <= D`, the cleared ninth Taylor numerator is
 nonnegative. -/
 theorem tailTaylor9Cleared_nonnegative
-    (D n : Nat) (hD : 8191 ≤ D) (hn : n ≤ D) :
+    (D n : Nat) (hD : tailTaylor9ChartBase ≤ D) (hn : n ≤ D) :
     (0 : Q') ≤
       tailTaylor9Cleared (Q'.ofNat D) (Q'.ofNat n) := by
   let rho := tailTaylor9Rho (Q'.ofNat D) (Q'.ofNat n)
@@ -235,6 +236,8 @@ theorem tailTaylor9Cleared_nonnegative
         (RingNormaliser.qpow (Q'.ofNat D) 8 *
           tailTaylor9Cleared (Q'.ofNat D) (Q'.ofNat n)) at hphysical
   have hDpos : (0 : Q') < Q'.ofNat D := by
+    have hDposNat : 0 < D :=
+      Nat.lt_of_lt_of_le (by decide : 0 < tailTaylor9ChartBase) hD
     have hshape : D = (D - 1) + 1 := by omega
     rw [hshape]
     exact Q'.ofNat_succ_pos (D - 1)

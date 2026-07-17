@@ -76,10 +76,12 @@ def block_physical_terms(source, rows, chart: str, start: int, stop: int):
     degree_x, degree_y = 15, 8
     D, n = source.D, source.n
     if chart == "A":
-        x0, x1 = sp.Integer(64), n - 64
+        x0 = sp.Integer(source.MODE_CHART_BASE)
+        x1 = n - source.MODE_CHART_BASE
         y0, y1 = D - n**2, 2 * n**2 - D
     elif chart == "B":
-        x0, x1 = sp.Integer(91), n - 91
+        x0 = sp.Integer(source.MODE_CHART_BASE)
+        x1 = n - source.MODE_CHART_BASE
         y0, y1 = n * (2 * D - n), 2 * n * (n**2 - D)
     else:
         raise ValueError(chart)
@@ -256,11 +258,11 @@ def lowerSixTailSlopeFloorChartAExpr : PE :=
 def lowerSixTailSlopeFloorChartAScale : Int := {scale_a}
 def lowerSixTailSlopeFloorChartAQuotient : Int := {quotient_a}
 
-/-- Chart A homogeneous coordinates: `64`, `N-64`, `D-N^2`,
+/-- Chart A homogeneous coordinates: `{source.MODE_CHART_BASE}`, `N-{source.MODE_CHART_BASE}`, `D-N^2`,
 `2*N^2-D`. -/
 def lowerSixTailSlopeFloorChartASubstitution : Nat → PE
-  | 0 => .const 64
-  | 1 => .add (.var 1) (.neg (.const 64))
+  | 0 => .const {source.MODE_CHART_BASE}
+  | 1 => .add (.var 1) (.neg (.const {source.MODE_CHART_BASE}))
   | 2 => .add (.var 0) (.neg (.mul (.var 1) (.var 1)))
   | 3 => .add
       (.mul (.const 2) (.mul (.var 1) (.var 1)))
@@ -282,11 +284,11 @@ def lowerSixTailSlopeFloorChartBExpr : PE :=
 def lowerSixTailSlopeFloorChartBScale : Int := {scale_b}
 def lowerSixTailSlopeFloorChartBQuotient : Int := {quotient_b}
 
-/-- Chart B homogeneous coordinates: `91`, `N-91`,
+/-- Chart B homogeneous coordinates: `{source.MODE_CHART_BASE}`, `N-{source.MODE_CHART_BASE}`,
 `N*(2D-N)`, `2N*(N^2-D)`. -/
 def lowerSixTailSlopeFloorChartBSubstitution : Nat → PE
-  | 0 => .const 91
-  | 1 => .add (.var 1) (.neg (.const 91))
+  | 0 => .const {source.MODE_CHART_BASE}
+  | 1 => .add (.var 1) (.neg (.const {source.MODE_CHART_BASE}))
   | 2 => .mul (.var 1)
       (.add (.mul (.const 2) (.var 0)) (.neg (.var 1)))
   | 3 => .mul (.mul (.const 2) (.var 1))

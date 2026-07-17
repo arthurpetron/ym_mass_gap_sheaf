@@ -115,11 +115,11 @@ theorem lowerSixHermiteRemainderTaylor6LowerPolynomial_le_actual
   have hnextSq : T1 * T1 + -(Q'.ofNat 4 * E1) ≤ S1 * S1 := by
     dsimp only [T1, E1, S1, lowerSixSlopeInvCube]
     exact lowerSixTaylor6Next_square_sub_four_invCube_le_ThetaRootSlope_square
-      hk hn
+      (show 390 ≤ k by omega) hn
   have holdSq : S0 * S0 ≤ T0 * T0 + Q'.ofNat 3 * E0 := by
     dsimp only [S0, T0, E0, lowerSixSlopeInvCube]
     exact lowerSixThetaRootSlope_square_le_Taylor6_square_add_three_invCube
-      hk hn
+      (show 390 ≤ k by omega) hn
   have hfluxSq : (N + -S0) * (N + -S0) ≤
       (N + -T0) * (N + -T0) := by
     dsimp only [N, S0, T0]
@@ -189,7 +189,8 @@ theorem lowerSixHermiteRemainderTaylor6LowerPolynomial_le_actual
     Q'.mul_le_mul_of_nonneg_left _ _ _ hinner hA0
   have hJ0 : (0 : Q') ≤ J (n + 1) := by
     dsimp only [J, D]
-    exact lowerSixDiscreteHermiteFluxPoly_next_nonnegative_large hk hn
+    exact lowerSixDiscreteHermiteFluxPoly_next_nonnegative_large
+      (show 390 ≤ k by omega) hn
   have hfluxMul : ((N + -S0) * (N + -S0)) * J (n + 1) ≤
       ((N + -T0) * (N + -T0)) * J (n + 1) :=
     Q'.mul_le_mul_of_nonneg_right _ _ _ hfluxSq hJ0

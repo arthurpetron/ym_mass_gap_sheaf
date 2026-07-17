@@ -52,7 +52,7 @@ theorem tailEnvelopeE9ChartA_raw_slice2 :
     GridRelationSlice 14 7 45
       (fun localRow i =>
         gridCoeff tailEnvelopeE9ChartAPreChartRows2 localRow i *
-          Int.ofNat (64 ^ (14 + localRow)))
+          Int.ofNat (14 ^ (14 + localRow)))
       (quadraticRawExpected 89 tailEnvelopeE9ChartAChartQuotient
         tailEnvelopeE9ClearedRows) = true := by
   rfl

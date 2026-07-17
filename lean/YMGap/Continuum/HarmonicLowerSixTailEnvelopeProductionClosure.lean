@@ -30,6 +30,7 @@ open YMGap.Continuum.HarmonicLowerSixTailEnvelopePhysicalChartDispatch
 open YMGap.Continuum.HarmonicLowerSixTailEnvelopePositiveScale
 open YMGap.Continuum.HarmonicLowerSixTailBaseSemanticRows
 open YMGap.Continuum.HarmonicLowerSixTailBaseSemanticBridge
+open YMGap.Continuum.HarmonicLowerSixTailBaseCertificateRows
 open YMGap.Continuum.HarmonicLowerSixTailBaseCertificate
 open YMGap.Continuum.HarmonicLowerSixTailSecondFluxLocalBound
 open YMGap.Continuum.HarmonicLowerSixTailPaymentAssembly
@@ -186,8 +187,8 @@ theorem tailEnvelopeE9Cleared_production_identity
     (Q'.eqv_trans _ _ _ hparts
       (Q'.eqv_trans _ _ _ hrecombine hfinal))
 
-theorem tailEnvelopeE8E9_nonnegative
-    {k n : Nat} (hk : 8189 ≤ k)
+private theorem tailEnvelopeE8E9_nonnegative_390
+    {k n : Nat} (hk : 390 ≤ k)
     (hleft : thetaWindowLeft k + 1 ≤ n)
     (hnright : n ≤ growingAnchor k) :
     (0 : Q') ≤ lowerSixTailEnvelope8 k n ∧
@@ -224,12 +225,22 @@ theorem tailEnvelopeE8E9_nonnegative
     envelope_nonnegative_of_production_product hden hE8product,
     envelope_nonnegative_of_production_product hden hE9product⟩
 
-theorem lowerSixTailEnvelopeBase_nonnegative
-    {k n : Nat} (hk : 8189 ≤ k) (hDn : k + 2 ≤ n)
+theorem tailEnvelopeE8E9_nonnegative
+    {k n : Nat} (hk : 390 ≤ k)
+    (hleft : thetaWindowLeft k + 1 ≤ n)
+    (hnright : n ≤ growingAnchor k) :
+    (0 : Q') ≤ lowerSixTailEnvelope8 k n ∧
+      (0 : Q') ≤ lowerSixTailEnvelope9 k n :=
+  tailEnvelopeE8E9_nonnegative_390 hk hleft hnright
+
+private theorem lowerSixTailEnvelopeBase_nonnegative_390
+    {k n : Nat} (hk : 390 ≤ k) (hDn : k + 2 ≤ n)
     (hnright : n ≤ growingAnchor k) :
     (0 : Q') ≤ lowerSixTailEnvelopeBase k n := by
   have hn4 : 4 ≤ n := by omega
-  have hD : 8191 ≤ k + 2 := by omega
+  have hD : tailBaseChartBase ≤ k + 2 := by
+    unfold tailBaseChartBase
+    omega
   have hn2 : n ≤ 2 * (k + 2) := by
     simpa [growingAnchor] using hnright
   have hcleared := tailBaseCleared_nonnegative
@@ -250,14 +261,18 @@ theorem lowerSixTailEnvelopeBase_nonnegative
       (envelopeSemanticDenominatorValue_pos hk)
   exact Q'.nonneg_of_mul_pos hscale hproduct
 
-/-- Hypothesis-free pointwise lower-six tail certificate on the production
-suffix. -/
-theorem lowerSixTailSecondFluxLocalBound_production
-    {k n : Nat} (hk : 8189 ≤ k)
+theorem lowerSixTailEnvelopeBase_nonnegative
+    {k n : Nat} (hk : 390 ≤ k) (hDn : k + 2 ≤ n)
+    (hnright : n ≤ growingAnchor k) :
+    (0 : Q') ≤ lowerSixTailEnvelopeBase k n :=
+  lowerSixTailEnvelopeBase_nonnegative_390 hk hDn hnright
+
+private theorem lowerSixTailSecondFluxLocalBound_production_390
+    {k n : Nat} (hk : 390 ≤ k)
     (hleft : thetaWindowLeft k + 1 ≤ n)
     (hnright : n ≤ growingAnchor k) :
     LowerSixTailSecondFluxLocalBound k n := by
-  have henv := tailEnvelopeE8E9_nonnegative hk hleft hnright
+  have henv := tailEnvelopeE8E9_nonnegative_390 hk hleft hnright
   exact lowerSixTailSecondFluxLocalBound_of_envelope_certificates
     hleft
     (lowerSixTailNextSlopeFloor_nonnegative hk hleft hnright)
@@ -265,17 +280,33 @@ theorem lowerSixTailSecondFluxLocalBound_production
     (fun hnD =>
       lowerSixTailOldPowerLower_nonnegative_of_le_den hk hleft hnD)
     (fun hDn =>
-      lowerSixTailEnvelopeBase_nonnegative hk hDn hnright)
+      lowerSixTailEnvelopeBase_nonnegative_390 hk hDn hnright)
 
-/-- The checked local certificate discharges the complete exact Hermite
-remainder payment on every production scale. -/
-theorem lowerSixFullRemainderPayment_production
-    {k : Nat} (hk : 8189 ≤ k) :
+/-- Hypothesis-free pointwise lower-six tail certificate on the production
+suffix. -/
+theorem lowerSixTailSecondFluxLocalBound_production
+    {k n : Nat} (hk : 390 ≤ k)
+    (hleft : thetaWindowLeft k + 1 ≤ n)
+    (hnright : n ≤ growingAnchor k) :
+    LowerSixTailSecondFluxLocalBound k n :=
+  lowerSixTailSecondFluxLocalBound_production_390
+    hk hleft hnright
+
+private theorem lowerSixFullRemainderPayment_production_390
+    {k : Nat} (hk : 390 ≤ k) :
     -(Q'.ofNat 4 * lowerSixHermiteRemainderSum k) ≤
       lowerSixHermiteLinearHeadMassFloor k :=
   lowerSixFullRemainderPayment_of_pointwise hk
     (fun _ hleft hnright =>
-      lowerSixTailSecondFluxLocalBound_production hk hleft hnright)
+      lowerSixTailSecondFluxLocalBound_production_390 hk hleft hnright)
+
+/-- The checked local certificate discharges the complete exact Hermite
+remainder payment on every production scale. -/
+theorem lowerSixFullRemainderPayment_production
+    {k : Nat} (hk : 390 ≤ k) :
+    -(Q'.ofNat 4 * lowerSixHermiteRemainderSum k) ≤
+      lowerSixHermiteLinearHeadMassFloor k :=
+  lowerSixFullRemainderPayment_production_390 hk
 
 #print axioms tailEnvelopeE8Cleared_production_identity
 #print axioms tailEnvelopeE9Cleared_production_identity

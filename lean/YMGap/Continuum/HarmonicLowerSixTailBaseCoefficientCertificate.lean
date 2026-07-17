@@ -43,7 +43,7 @@ def tailBaseScaledRawDiagCoeff (a j : Nat) : Int :=
   tailBaseChartQuotient * tailBaseClearedDiagCoeff a j
 
 def tailBaseChartScaledPowerCoeff (a b : Nat) : Int :=
-  tailBaseScaledPowerCoeff a b * Int.ofNat (8191 ^ a)
+  tailBaseScaledPowerCoeff a b * Int.ofNat (tailBaseChartBase ^ a)
 
 theorem tailBaseScaledPowerRows_length :
     tailBaseScaledPowerRows.length = 42 := by

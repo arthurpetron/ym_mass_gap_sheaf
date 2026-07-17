@@ -17,8 +17,10 @@ open YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftQuadraticTaylorFlu
 open YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftQuadraticTaylorFluxPrefixMassReserveMomentRemainderOneSubTaylorSeven
 open YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftRemainderPayment
 open YMGap.Continuum.HarmonicLowerSixTailTaylorNineCertificate
+open YMGap.Continuum.HarmonicLowerSixTailTaylorNineCertificateRows
 open YMGap.Continuum.HarmonicLowerSixTailSlopeFloorCertificate
 open YMGap.Continuum.HarmonicLowerSixTailSlopeFloorCertificateData
+open YMGap.Continuum.HarmonicLowerSixTailEnvelopeCoefficientKernel
 open YMGap.Continuum.HarmonicThetaPascalEvaluation
 open YMGap.Continuum.HarmonicLowerSixExactCertificate
 open YMGap.Continuum.RGTransport
@@ -976,7 +978,7 @@ private theorem local_rnqpow_pos {value : Q'}
       Q'.mul_pos (local_rnqpow_pos hvalue exponent) hvalue
 
 private theorem lowerSixTailOldPowerLower_explicit_nonnegative_of_le_den
-    {k n : Nat} (hk : 8189 ≤ k)
+    {k n : Nat} (hk : 390 ≤ k)
     (hleft : HarmonicMovingDeterminantThetaWindow.thetaWindowLeft k + 1 ≤ n)
     (hn : n ≤ k + 2) :
     (0 : Q') ≤ oneSubTaylor9 (HarmonicCutoffBoundary.harmU k) (2 * n + 1) := by
@@ -986,7 +988,9 @@ private theorem lowerSixTailOldPowerLower_explicit_nonnegative_of_le_den
   have hn4 : 4 ≤ n := by
     unfold HarmonicMovingDeterminantThetaWindow.thetaWindowLeft at hleft
     omega
-  have hD : 8191 ≤ k + 2 := by omega
+  have hD : tailTaylor9ChartBase ≤ k + 2 := by
+    unfold tailTaylor9ChartBase
+    omega
   have hcert := tailTaylor9Cleared_nonnegative (k + 2) n hD hn
   have hbridge := tailTaylor9Cleared_physical_bridge
     (local_harmDen_mul_harmU k) n hn4
@@ -1009,7 +1013,7 @@ private theorem lowerSixTailOldPowerLower_explicit_nonnegative_of_le_den
 /-- On the low-step branch `n ≤ k+2`, the exact ninth-order homogeneous
 certificate supplies positivity of the old-power lower enclosure. -/
 theorem lowerSixTailOldPowerLower_nonnegative_of_le_den
-    {k n : Nat} (hk : 8189 ≤ k)
+    {k n : Nat} (hk : 390 ≤ k)
     (hleft : HarmonicMovingDeterminantThetaWindow.thetaWindowLeft k + 1 ≤ n)
     (hn : n ≤ k + 2) :
     (0 : Q') ≤ lowerSixTailOldPowerLower k n := by
@@ -1115,7 +1119,7 @@ theorem slopeFloorCleared_physical_bridge {D u : Q'}
     lowerSixTailNextSlopeFloorCleared, rho, RingNormaliser.eval] using hfull
 
 private theorem lowerSixTailNextSlopeFloor_explicit_nonnegative
-    {k n : Nat} (hk : 8189 ≤ k)
+    {k n : Nat} (hk : 390 ≤ k)
     (hleft : HarmonicMovingDeterminantThetaWindow.thetaWindowLeft k + 1 ≤ n)
     (hnright : n ≤ HarmonicGrowingAnchorPF2.growingAnchor k) :
     (0 : Q') ≤
@@ -1125,20 +1129,24 @@ private theorem lowerSixTailNextSlopeFloor_explicit_nonnegative
             (2 * n + 1)) := by
   let D := Q'.ofNat (k + 2)
   let N := Q'.ofNat n
-  have hc : 127 ≤
+  have hc : 2 * tailEnvelopeModeChartBase ≤
       HarmonicMovingDeterminantThetaWindow.thetaWindowCenter k := by
     unfold HarmonicMovingDeterminantThetaWindow.thetaWindowCenter
       HarmonicMovingDeterminantThetaWindow.thetaWindowLength
     apply ChebOrthoMidpointEst.isqrt_ge
+    unfold tailEnvelopeModeChartBase
     omega
-  have h64Nat : 64 ≤ n := by
+  have h64Nat : tailEnvelopeModeChartBase ≤ n := by
     unfold HarmonicMovingDeterminantThetaWindow.thetaWindowLeft at hleft
+    omega
+  have hn4 : 4 ≤ n := by
+    unfold tailEnvelopeModeChartBase at h64Nat
     omega
   have hNpos : (0 : Q') < N := by
     dsimp only [N]
     rw [show n = (n - 1) + 1 by omega]
     exact Q'.ofNat_succ_pos (n - 1)
-  have h64 : Q'.ofNat 64 ≤ N := by
+  have h64 : Q'.ofNat tailEnvelopeModeChartBase ≤ N := by
     dsimp only [N]
     exact CReal.ofNat_le_ofNat h64Nat
   have hsq : Q'.ofNat (n * n) ≈ N * N := by
@@ -1169,13 +1177,8 @@ private theorem lowerSixTailNextSlopeFloor_explicit_nonnegative
       exact lowerSixTailNextSlopeFloorCleared_nonnegative_chartA
         hNpos h64 hN2D hD2N2
     · have hDN2Nat : k + 2 ≤ n * n := by omega
-      have h91Nat : 91 ≤ n := by
-        have hcases : 91 ≤ n ∨ n ≤ 90 := by omega
-        rcases hcases with hlarge | hn90
-        · exact hlarge
-        · have hsquare : n * n ≤ 90 * 90 := Nat.mul_le_mul hn90 hn90
-          omega
-      have h91 : Q'.ofNat 91 ≤ N := by
+      have h91Nat : tailEnvelopeModeChartBase ≤ n := h64Nat
+      have h91 : Q'.ofNat tailEnvelopeModeChartBase ≤ N := by
         dsimp only [N]
         exact CReal.ofNat_le_ofNat h91Nat
       have hDN2 : D ≤ N * N :=
@@ -1197,10 +1200,10 @@ private theorem lowerSixTailNextSlopeFloor_explicit_nonnegative
             exact CReal.ofNat_le_ofNat hnTwoDNat)
           (Q'.le_of_eqv htwoD)
       have hmul91 :
-          Q'.ofNat 2 * Q'.ofNat 91 ≤ Q'.ofNat 2 * N :=
+          Q'.ofNat 2 * Q'.ofNat tailEnvelopeModeChartBase ≤ Q'.ofNat 2 * N :=
         Q'.mul_le_mul_of_nonneg_left _ _ (Q'.ofNat 2) h91 (by decide)
       have hsub91 := Q'.add_le_add_right
-        (Q'.ofNat 2 * Q'.ofNat 91) (Q'.ofNat 2 * N)
+        (Q'.ofNat 2 * Q'.ofNat tailEnvelopeModeChartBase) (Q'.ofNat 2 * N)
         (-(1 : Q')) hmul91
       have hTwoNOnePos :
           (0 : Q') < Q'.ofNat 2 * N + -(1 : Q') :=
@@ -1220,7 +1223,7 @@ private theorem lowerSixTailNextSlopeFloor_explicit_nonnegative
       (by
         simpa [show k + 1 + 2 = k + 3 by omega] using
           local_harmDen_mul_harmU (k + 1))
-  have hbridge := slopeFloorCleared_physical_bridge hDu n (by omega)
+  have hbridge := slopeFloorCleared_physical_bridge hDu n hn4
   have hDpos : (0 : Q') < D := by
     dsimp only [D]
     rw [show k + 2 = (k + 1) + 1 by omega]
@@ -1250,7 +1253,7 @@ private theorem lowerSixTailNextSlopeFloor_explicit_nonnegative
 /-- The certified next-scale slope floor is nonnegative throughout the
 physical lower-six tail corridor. -/
 theorem lowerSixTailNextSlopeFloor_nonnegative
-    {k n : Nat} (hk : 8189 ≤ k)
+    {k n : Nat} (hk : 390 ≤ k)
     (hleft : HarmonicMovingDeterminantThetaWindow.thetaWindowLeft k + 1 ≤ n)
     (hnright : n ≤ HarmonicGrowingAnchorPF2.growingAnchor k) :
     (0 : Q') ≤ lowerSixTailNextSlopeFloor k n := by

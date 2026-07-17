@@ -193,7 +193,7 @@ private theorem ten_center_le_harmonicDen
     · omega
 
 private theorem odd_left_exponent_sq_le_three_den
-    {k n : Nat} (hk : 8189 ≤ k) (hn : n ≤ thetaWindowLeft k) :
+    {k n : Nat} (hk : 390 ≤ k) (hn : n ≤ thetaWindowLeft k) :
     (2 * n + 1) * (2 * n + 1) ≤ 3 * (k + 2) := by
   let c := thetaWindowCenter k
   let D := k + 2
@@ -221,7 +221,7 @@ private theorem odd_left_exponent_sq_le_three_den
   simpa only [m, D] using Nat.le_trans hsquare hright
 
 private theorem rootSlopeTaylor6_error_numerator_bound
-    {k n : Nat} (hk : 8189 ≤ k) (hn : n ≤ thetaWindowLeft k) :
+    {k n : Nat} (hk : 390 ≤ k) (hn : n ≤ thetaWindowLeft k) :
     (n + 1) * septicCoeff (2 * n + 1) ≤
       (k + 2) * ((k + 2) * ((k + 2) * (k + 2))) := by
   let m := 2 * n + 1
@@ -265,7 +265,7 @@ private theorem rootSlopeTaylor6_error_numerator_bound
 /-- On the physical left prefix, the seventh-order root-slope error is at
 most `1/(k+2)^3`. -/
 theorem lowerSixRootSlopeTaylor6Error_le_invDenCube_large
-    {k n : Nat} (hk : 8189 ≤ k) (hn : n ≤ thetaWindowLeft k) :
+    {k n : Nat} (hk : 390 ≤ k) (hn : n ≤ thetaWindowLeft k) :
     rootSlopeTaylor6Error (harmU k) n ≤
       Q'.mkPos 1 ((k + 2) * ((k + 2) * (k + 2)))
         (Nat.mul_pos (by omega) (Nat.mul_pos (by omega) (by omega))) := by
@@ -297,7 +297,7 @@ theorem lowerSixRootSlopeTaylor6Error_le_invDenCube_large
 /-- Production-window upper enclosure with the symbolic seventh-order error
 replaced by the harmonic inverse cube. -/
 theorem lowerSixThetaRootSlope_le_Taylor6_add_invDenCube_large
-    {k n : Nat} (hk : 8189 ≤ k) (hn : n ≤ thetaWindowLeft k) :
+    {k n : Nat} (hk : 390 ≤ k) (hn : n ≤ thetaWindowLeft k) :
     thetaRootSlope k n ≤
       rootSlopeTaylor6 (harmU k) n +
         Q'.mkPos 1 ((k + 2) * ((k + 2) * (k + 2)))

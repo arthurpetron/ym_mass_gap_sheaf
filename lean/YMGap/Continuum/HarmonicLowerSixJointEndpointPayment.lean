@@ -1600,10 +1600,10 @@ theorem lowerSixJointOddCore_nonnegative
   exact Q'.le_trans' _ _ _ hband (Q'.ge_of_eqv htarget)
 
 /-- The parity-band certificate instantiated at the actual square-root
-window.  The production threshold is much larger than the shift threshold
-`m ≥ 14`, so no finite bootstrap is needed here. -/
+window.  At `k = 390` the center reaches `28`, exactly the shift threshold
+needed to write the left endpoint as `m = (M - 9) + 14`. -/
 theorem lowerSixJointCorePolynomial_nonnegative_large
-    {k : Nat} (hk : 8189 ≤ k) :
+    {k : Nat} (hk : 390 ≤ k) :
     (0 : Q') ≤ RingNormaliser.eval
       (fun | 0 => Q'.ofNat (k + 2)
            | _ => Q'.ofNat (thetaWindowLeft k))
@@ -1999,7 +1999,7 @@ private theorem jointCore_shape_order
     (Q'.le_trans' _ _ _ hnonneg (Q'.le_of_eqv hgroup))
 
 private theorem lowerSixJointCoreShapeEndpoint_le_positive_large
-    {k : Nat} (hk : 8189 ≤ k) :
+    {k : Nat} (hk : 390 ≤ k) :
     lowerSixJointCoreShapeEndpoint k ≤
       lowerSixJointCoreShapePositive k := by
   let D := Q'.ofNat (k + 2)
@@ -2090,7 +2090,7 @@ private theorem lowerSixJointCoreShapeEndpoint_eqv (k : Nat) :
   exact Q'.eqv_trans _ _ _ hcomponents (Q'.eqv_symm hZ)
 
 theorem lowerSixJointEndpointBlock_le_reserve_cleared_large
-    {k : Nat} (hk : 8189 ≤ k) :
+    {k : Nat} (hk : 390 ≤ k) :
     RingNormaliser.qpow (Q'.ofNat (k + 2)) 2 *
         lowerSixJointEndpointBlock k ≤
       lowerSixJointClearedBernoulli k *
@@ -2599,7 +2599,7 @@ theorem lowerSixJointReservePolynomial_nonnegative (k : Nat) :
 /-- The center-band certificate, quadratic Bernoulli cancellation, and exact
 reserve factorization pay the endpoint block with its actual Gaussian weight. -/
 theorem lowerSixJointEndpointBlock_weight_le_reserve_large
-    {k : Nat} (hk : 8189 ≤ k) :
+    {k : Nat} (hk : 390 ≤ k) :
     let K := thetaWindowLeft k + 1
     lowerSixModeWeight k K * lowerSixJointEndpointBlock k ≤
       lowerSixJointReservePolynomial k := by

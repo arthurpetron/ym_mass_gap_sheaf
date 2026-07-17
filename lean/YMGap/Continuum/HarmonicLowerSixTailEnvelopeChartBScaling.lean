@@ -16,6 +16,7 @@ namespace YMGap.Continuum.HarmonicLowerSixTailEnvelopeChartBScaling
 open YMGap.Constructive
 open YMGap.Constructive.RationalTail
 open YMGap.Continuum.HarmonicLowerSixTailEnvelopeCertificateRows
+open YMGap.Continuum.HarmonicLowerSixTailEnvelopeCoefficientKernel
 open YMGap.Continuum.HarmonicLowerSixTailEnvelopeRawScaling
 open YMGap.Continuum.HarmonicLowerSixTailEnvelopeCertificateE8ChartAPhysical
 open YMGap.Continuum.HarmonicLowerSixTailEnvelopeCertificateE9ChartAPhysical
@@ -136,7 +137,7 @@ private theorem cleared_nonnegative_of_positive_scale
   exact Q'.nonneg_of_mul_pos hscale hproduct'
 
 theorem tailEnvelopeE8ClearedEval_nonnegative_chartA
-    (D n : Nat) (hn : 64 ≤ n)
+    (D n : Nat) (hn : tailEnvelopeModeChartBase ≤ n)
     (hDlow : n * n ≤ D) (hDhigh : D ≤ 2 * (n * n)) :
     (0 : Q') ≤ tailEnvelopeE8ClearedEval (Q'.ofNat D) (Q'.ofNat n) := by
   let scale := Q'.ofInt (Int.ofNat tailEnvelopeE8ChartAChartQuotient)
@@ -149,7 +150,7 @@ theorem tailEnvelopeE8ClearedEval_nonnegative_chartA
       (Q'.ofNat D) (Q'.ofNat n)) hscale
 
 theorem tailEnvelopeE9ClearedEval_nonnegative_chartA
-    (D n : Nat) (hn : 64 ≤ n)
+    (D n : Nat) (hn : tailEnvelopeModeChartBase ≤ n)
     (hDlow : n * n ≤ D) (hDhigh : D ≤ 2 * (n * n)) :
     (0 : Q') ≤ tailEnvelopeE9ClearedEval (Q'.ofNat D) (Q'.ofNat n) := by
   let scale := Q'.ofInt (Int.ofNat tailEnvelopeE9ChartAChartQuotient)
@@ -162,7 +163,7 @@ theorem tailEnvelopeE9ClearedEval_nonnegative_chartA
       (Q'.ofNat D) (Q'.ofNat n)) hscale
 
 theorem tailEnvelopeE8ClearedEval_nonnegative_chartB
-    (D n : Nat) (hn : 91 ≤ n)
+    (D n : Nat) (hn : tailEnvelopeModeChartBase ≤ n)
     (hn2D : n ≤ 2 * D) (hDhigh : D ≤ n * n) :
     (0 : Q') ≤ tailEnvelopeE8ClearedEval (Q'.ofNat D) (Q'.ofNat n) := by
   let scale := Q'.ofInt (Int.ofNat tailEnvelopeE8ChartBChartQuotient)
@@ -175,7 +176,7 @@ theorem tailEnvelopeE8ClearedEval_nonnegative_chartB
       (Q'.ofNat D) (Q'.ofNat n)) hscale
 
 theorem tailEnvelopeE9ClearedEval_nonnegative_chartB
-    (D n : Nat) (hn : 91 ≤ n)
+    (D n : Nat) (hn : tailEnvelopeModeChartBase ≤ n)
     (hn2D : n ≤ 2 * D) (hDhigh : D ≤ n * n) :
     (0 : Q') ≤ tailEnvelopeE9ClearedEval (Q'.ofNat D) (Q'.ofNat n) := by
   let scale := Q'.ofInt (Int.ofNat tailEnvelopeE9ChartBChartQuotient)

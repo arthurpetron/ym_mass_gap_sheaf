@@ -10,7 +10,9 @@ the least common denominator of its native tensor-Bernstein coefficients.
 from __future__ import annotations
 
 import argparse
+from contextlib import redirect_stdout
 from fractions import Fraction
+from io import StringIO
 from math import comb, lcm
 from pathlib import Path
 import sys
@@ -20,6 +22,7 @@ import lower_six_tail_second_flux_certificate as source  # noqa: E402
 
 
 CLEAR_SCALE = 178605
+CHART_BASE = source.DENOMINATOR_CHART_BASE
 ROW_SHARD_SIZE = 7
 TERM_SHARD_SIZE = 100
 BLOCK_ROW_SIZE = 7
@@ -118,7 +121,7 @@ def block_physical_terms(
     """Expand one consecutive Bernstein row block after chart substitution.
 
     The four homogeneous coordinates are exactly
-    ``8191, D - 8191, n - D, 2*D - n``.  Expansion is performed directly
+    ``392, D - 392, n - D, 2*D - n``.  Expansion is performed directly
     with integer binomial identities; no floating-point arithmetic enters.
     """
     degree_x = len(rows) - 1
@@ -132,12 +135,12 @@ def block_physical_terms(
         for j, coefficient in enumerate(rows[i]):
             y1_degree = degree_y - j
             prefactor = coefficient * comb(degree_x, i) * comb(degree_y, j)
-            prefactor *= 8191**i
+            prefactor *= CHART_BASE**i
             for d_from_x1 in range(x1_degree + 1):
                 x_value = (
                     prefactor
                     * comb(x1_degree, d_from_x1)
-                    * (-8191) ** (x1_degree - d_from_x1)
+                    * (-CHART_BASE) ** (x1_degree - d_from_x1)
                 )
                 for n_from_y0 in range(j + 1):
                     y0_value = (
@@ -218,7 +221,7 @@ def separable_rows(
                     * cleared_rows[degree_d][j]
                     * comb(j, b)
                 )
-            assert scaled_power[a][b] * 8191**a == raw_shift
+            assert scaled_power[a][b] * CHART_BASE**a == raw_shift
 
     return scaled_power, x_pascal
 
@@ -365,13 +368,74 @@ def main() -> None:
     parser.add_argument("--block-file", type=int)
     parser.add_argument("--separable-rows-file", type=int)
     parser.add_argument("--cleared-rows-file", type=int)
+    parser.add_argument("--write-all", action="store_true")
     args = parser.parse_args()
     table_scale, chart_quotient, rows, terms = exact_data(
         args.rows is None and args.terms is None and args.block_file is None
         and args.separable_rows_file is None
         and args.cleared_rows_file is None
     )
-    if args.block_file is not None:
+    if args.write_all:
+        root = Path(__file__).resolve().parents[1]
+        continuum = root / "lean/YMGap/Continuum"
+        for shard in range((len(rows) + ROW_SHARD_SIZE - 1) // ROW_SHARD_SIZE):
+            buffer = StringIO()
+            with redirect_stdout(buffer):
+                print_rows(rows, shard)
+            row_text = buffer.getvalue().rstrip()
+            row_path = continuum / f"HarmonicLowerSixTailBaseCertificateRows{shard}.lean"
+            row_path.write_text(f'''/- Exact generated row shard {shard} for the lower-six high-Base certificate. -/
+
+import YMGap.Continuum.TensorBernsteinHomogeneousCertificate
+
+namespace YMGap.Continuum.HarmonicLowerSixTailBaseCertificateRows
+
+{row_text}
+
+end YMGap.Continuum.HarmonicLowerSixTailBaseCertificateRows
+''')
+            buffer = StringIO()
+            with redirect_stdout(buffer):
+                print_separable_rows_file(table_scale, rows, shard)
+            separable_path = continuum / (
+                f"HarmonicLowerSixTailBaseCertificateSeparableRows{shard}.lean"
+            )
+            separable_path.write_text(buffer.getvalue())
+        aggregate_path = continuum / "HarmonicLowerSixTailBaseCertificateRows.lean"
+        aggregate_path.write_text(f'''/-
+# Aggregated exact Bernstein rows for the high-branch Base certificate
+
+The six imported shards contain the 42 by 23 dense nonnegative table emitted
+by `computations/HarmonicLowerSixTailBaseCertificate_generate.py`.
+-/
+
+import YMGap.Continuum.HarmonicLowerSixTailBaseCertificateRows0
+import YMGap.Continuum.HarmonicLowerSixTailBaseCertificateRows1
+import YMGap.Continuum.HarmonicLowerSixTailBaseCertificateRows2
+import YMGap.Continuum.HarmonicLowerSixTailBaseCertificateRows3
+import YMGap.Continuum.HarmonicLowerSixTailBaseCertificateRows4
+import YMGap.Continuum.HarmonicLowerSixTailBaseCertificateRows5
+
+namespace YMGap.Continuum.HarmonicLowerSixTailBaseCertificateRows
+
+def tailBaseChartBase : Nat :=
+  {CHART_BASE}
+
+def tailBaseTableScale : Int :=
+  {table_scale}
+
+def tailBaseChartQuotient : Int :=
+  {chart_quotient}
+
+def tailBaseBernsteinRows : List (List Int) :=
+  tailBaseBernsteinRows0 ++ tailBaseBernsteinRows1 ++
+    tailBaseBernsteinRows2 ++ tailBaseBernsteinRows3 ++
+      tailBaseBernsteinRows4 ++ tailBaseBernsteinRows5
+
+end YMGap.Continuum.HarmonicLowerSixTailBaseCertificateRows
+''')
+        print(f"wrote Base rows and separable rows under {continuum}")
+    elif args.block_file is not None:
         print_block_file(rows, args.block_file)
     elif args.separable_rows_file is not None:
         print_separable_rows_file(table_scale, rows, args.separable_rows_file)

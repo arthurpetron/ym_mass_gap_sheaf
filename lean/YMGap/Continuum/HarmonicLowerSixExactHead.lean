@@ -62,7 +62,7 @@ private theorem finSum_add_block (f : Nat → Q') (a : Nat) : ∀ t,
       exact Q'.add_assoc_eqv _ _ _
 
 private theorem thetaWindowLeft_le_growingAnchor_large
-    {k : Nat} (hk : 8189 ≤ k) :
+    {k : Nat} (hk : 390 ≤ k) :
     thetaWindowLeft k ≤ growingAnchor k := by
   have hc := thetaWindowCenter_le_harmonicDen
     (k := k) (show 38 ≤ k by omega)
@@ -72,7 +72,7 @@ private theorem thetaWindowLeft_le_growingAnchor_large
 
 /-- Every term in the retained square-root head is nonnegative. -/
 theorem lowerSixHermiteRemainderHeadSum_nonnegative
-    {k : Nat} (hk : 8189 ≤ k) :
+    {k : Nat} (hk : 390 ≤ k) :
     (0 : Q') ≤ lowerSixHermiteRemainderHeadSum k := by
   unfold lowerSixHermiteRemainderHeadSum
   apply finSum_nonnegative
@@ -82,7 +82,7 @@ theorem lowerSixHermiteRemainderHeadSum_nonnegative
 
 /-- Exact unchanged-definition split of the production remainder sum. -/
 theorem lowerSixHermiteRemainderSum_eqv_head_add_tail
-    {k : Nat} (hk : 8189 ≤ k) :
+    {k : Nat} (hk : 390 ≤ k) :
     lowerSixHermiteRemainderSum k ≈
       lowerSixHermiteRemainderHeadSum k +
         lowerSixHermiteRemainderTailSum k := by
@@ -123,7 +123,7 @@ theorem lowerSixHermiteRemainderSum_eqv_head_add_tail
 /-- The nonnegative certified head means the full sum is bounded below by
 its unresolved tail. -/
 theorem lowerSixHermiteRemainderTailSum_le_full
-    {k : Nat} (hk : 8189 ≤ k) :
+    {k : Nat} (hk : 390 ≤ k) :
     lowerSixHermiteRemainderTailSum k ≤
       lowerSixHermiteRemainderSum k := by
   let H := lowerSixHermiteRemainderHeadSum k
@@ -143,7 +143,7 @@ theorem lowerSixHermiteRemainderTailSum_le_full
 /-- Any upper payment of the negative tail is already an upper payment of
 the negative complete remainder sum. -/
 theorem lowerSixFullRemainderPayment_of_tailPayment
-    {k : Nat} (hk : 8189 ≤ k) {B : Q'}
+    {k : Nat} (hk : 390 ≤ k) {B : Q'}
     (htail :
       -(Q'.ofNat 4 * lowerSixHermiteRemainderTailSum k) ≤ B) :
     -(Q'.ofNat 4 * lowerSixHermiteRemainderSum k) ≤ B := by

@@ -27,7 +27,7 @@ theorem lowerSixQuadraticPayment_production
     -YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftScaleStep.lowerSixScaledLinearCrossPaymentResidual k ≤
       lowerSixScaledQuadraticCrossWindowSuffix k :=
   lowerSixQuadraticPayment_large_of_remainder hk
-    (lowerSixFullRemainderPayment_production hk)
+    (lowerSixFullRemainderPayment_production (show 390 ≤ k by omega))
 
 /-- First physical consumer of the generated envelope tables: an actual
 adjacent-scale lower-six window step, with no certificate hypothesis left. -/

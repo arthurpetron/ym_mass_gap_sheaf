@@ -19,7 +19,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import lower_six_tail_second_flux_certificate as source  # noqa: E402
 
 
-CHART_BASE = 8191
+CHART_BASE = source.DENOMINATOR_CHART_BASE
 FACTORIAL_NINE = factorial(9)
 CHART_QUOTIENT = 1470 * CHART_BASE**8
 TABLE_SCALE = FACTORIAL_NINE * CHART_QUOTIENT
@@ -81,12 +81,51 @@ def main() -> None:
         homogeneous - CHART_QUOTIENT * source.D**8 * cleared
     ) == 0
 
-    print(f"-- table scale = {TABLE_SCALE}")
-    print(f"-- chart quotient = {CHART_QUOTIENT}")
-    print("def tailTaylor9BernsteinRows : List (List Int) := [")
+    body = ["def tailTaylor9BernsteinRows : List (List Int) := ["]
     for row in rows:
-        print("  [" + ", ".join(str(value) for value in row) + "],")
-    print("]")
+        body.append("  [" + ", ".join(str(value) for value in row) + "],")
+    body.append("]")
+    if "--write" not in sys.argv:
+        print(f"-- table scale = {TABLE_SCALE}")
+        print(f"-- chart quotient = {CHART_QUOTIENT}")
+        print("\n".join(body))
+        return
+    output = (
+        Path(__file__).resolve().parents[1]
+        / "lean/YMGap/Continuum/HarmonicLowerSixTailTaylorNineCertificateRows.lean"
+    )
+    body_text = "\n".join(body)
+    output.write_text(f'''/-
+# Exact dense Bernstein rows for the lower-six T9 certificate
+
+These 9 by 10 nonnegative integers are generated exactly by
+`computations/HarmonicLowerSixTailTaylorNineCertificate_generate.py` from the
+authoritative symbolic `L9NUM`.  The scale is
+
+  `9! * 1470 * {CHART_BASE}^8`.
+
+The binomial factors of the tensor Bernstein basis are supplied by
+`homogeneousTensorExpr`, not duplicated in these entries.
+-/
+
+import YMGap.Continuum.TensorBernsteinHomogeneousCertificate
+
+namespace YMGap.Continuum.HarmonicLowerSixTailTaylorNineCertificateRows
+
+def tailTaylor9ChartBase : Nat :=
+  {CHART_BASE}
+
+def tailTaylor9TableScale : Int :=
+  {TABLE_SCALE}
+
+def tailTaylor9ChartQuotient : Int :=
+  {CHART_QUOTIENT}
+
+{body_text}
+
+end YMGap.Continuum.HarmonicLowerSixTailTaylorNineCertificateRows
+''')
+    print(f"wrote {output}")
 
 
 if __name__ == "__main__":

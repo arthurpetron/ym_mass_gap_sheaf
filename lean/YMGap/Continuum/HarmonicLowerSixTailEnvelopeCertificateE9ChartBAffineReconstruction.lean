@@ -205,13 +205,13 @@ theorem tailEnvelopeE9ChartB_triangular_at
 degrees. -/
 theorem tailEnvelopeE9ChartB_affine_reconstruction
     (x z r : Q')
-    (hr : Q'.ofNat 182 * r ≈
-      Q'.ofNat 182 * z + x * ((1 : Q') + -z)) :
+    (hr : Q'.ofNat 28 * r ≈
+      Q'.ofNat 28 * z + x * ((1 : Q') + -z)) :
     tensorPowerEval 87 44
         (affineChartBClearedCoeff 44 tailEnvelopeE9ChartBPreChartRows) x z ≈
       tensorPowerEval 87 44
           (gridCoeff tailEnvelopeE9ChartBPreChartRows) x r *
-        Q'.ofNat (182 ^ 44) := by
+        Q'.ofNat (28 ^ 44) := by
   exact tensorPowerEval_affineChartBClearedCoeff_triangular
     87 44 tailEnvelopeE9ChartBPreChartRows x z r
     tailEnvelopeE9ChartB_preChart_length

@@ -1,6 +1,6 @@
 import YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftQuadraticTaylorFluxPrefixMassReserveMomentRemainderSlopeSepticExactLowerCoefficientCertificate
-import YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftQuadraticTaylorFluxPrefixMassReserveMomentRemainderSlopeSepticExactLowerLowEvaluation
 import YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftQuadraticTaylorFluxPrefixMassReserveMomentRemainderSlopeSepticExactLowerHighDenseCertificate
+import YMGap.Continuum.HarmonicLowerSixExactLow390Evaluation
 import YMGap.Constructive.Soundness
 
 namespace YMGap.Continuum.HarmonicLowerSixExactCertificate
@@ -26,9 +26,10 @@ open YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftQuadraticTaylorFlu
 open YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftQuadraticTaylorFluxPrefixMassReserveMomentRemainderSlopeSepticWindow
 open YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftQuadraticTaylorFluxPrefixMassReserveMomentRemainderSlopeSepticExactLower
 open YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftQuadraticTaylorFluxPrefixMassReserveMomentRemainderSlopeSepticExactLowerCoefficientCertificate
-open YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftQuadraticTaylorFluxPrefixMassReserveMomentRemainderSlopeSepticExactLowerLowEvaluation
 open YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftQuadraticTaylorFluxPrefixMassReserveMomentRemainderSlopeSepticExactLowerHighRows
 open YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftQuadraticTaylorFluxPrefixMassReserveMomentRemainderSlopeSepticExactLowerHighDenseCertificate
+open YMGap.Continuum.HarmonicLowerSixExactLow390CoefficientCertificate
+open YMGap.Continuum.HarmonicLowerSixExactLow390Evaluation
 open YMGap.Continuum.HarmonicMovingDeterminantThetaWindow
 open YMGap.Continuum.SummableInverseSquare
 
@@ -1938,9 +1939,9 @@ private theorem qExactLowerNumerator_congr
     · rw [if_neg hi1, if_neg hi1]
       exact Q'.eqv_refl _
 
-private theorem eval_pExactLowerLow_eq (X : Q') (n : Nat) :
-    RingNormaliser.eval (lowEnvironment X) (pExactLowerLow n) =
-      qExactLowerNumerator (qadd (qc 8191) X) (Q'.ofNat n) := by
+private theorem eval_pExactLowerLow390_eq (X : Q') (n : Nat) :
+    RingNormaliser.eval (low390Environment X) (pExactLowerLow390 n) =
+      qExactLowerNumerator (qadd (qc 392) X) (Q'.ofNat n) := by
   rfl
 
 private theorem eval_pExactLowerHigh_eq (M Z : Q') :
@@ -1951,24 +1952,24 @@ private theorem eval_pExactLowerHigh_eq (M Z : Q') :
   rfl
 
 private theorem qExactLowerNumerator_nonnegative_low
-    {k n : Nat} (hk : 8189 ≤ k) (hn : n ≤ 7) :
+    {k n : Nat} (hk : 390 ≤ k) (hn : n ≤ 7) :
     (0 : Q') ≤ qExactLowerNumerator (Q'.ofNat (k + 2)) (Q'.ofNat n) := by
-  let xNat := k - 8189
+  let xNat := k - 390
   let X := Q'.ofNat xNat
   have hX : (0 : Q') ≤ X := by
     dsimp only [X]
     exact HeatKernelRGStep.zero_le_ofNat _
-  have hcert := pExactLowerLow_eval_nonnegative hn X hX
-  rw [eval_pExactLowerLow_eq] at hcert
-  have hNat : 8191 + xNat = k + 2 := by
+  have hcert := pExactLowerLow390_eval_nonnegative hn X hX
+  rw [eval_pExactLowerLow390_eq] at hcert
+  have hNat : 392 + xNat = k + 2 := by
     dsimp only [xNat]
     omega
-  have hD : qadd (qc 8191) X = Q'.ofNat (k + 2) := by
-    have hadd := (ofNat_add_eq_exact 8191 xNat).symm
+  have hD : qadd (qc 392) X = Q'.ofNat (k + 2) := by
+    have hadd := (ofNat_add_eq_exact 392 xNat).symm
     rw [hNat] at hadd
     simpa only [qc, X] using hadd
   have hnum :
-      qExactLowerNumerator (qadd (qc 8191) X) (Q'.ofNat n) ≈
+      qExactLowerNumerator (qadd (qc 392) X) (Q'.ofNat n) ≈
         qExactLowerNumerator (Q'.ofNat (k + 2)) (Q'.ofNat n) :=
     qExactLowerNumerator_congr (Q'.eqv_of_eq hD) (Q'.eqv_refl _)
   exact Q'.le_trans' _ _ _ hcert (Q'.le_of_eqv hnum)
@@ -2076,14 +2077,14 @@ private theorem physicalCommonDen_pos (k : Nat) :
     (rnqpow_pos_local _ hD1 11)
 
 private theorem qExactLowerNumerator_nonnegative
-    {k n : Nat} (hk : 8189 ≤ k) (hn : n ≤ thetaWindowLeft k) :
+    {k n : Nat} (hk : 390 ≤ k) (hn : n ≤ thetaWindowLeft k) :
     (0 : Q') ≤ qExactLowerNumerator (Q'.ofNat (k + 2)) (Q'.ofNat n) := by
   by_cases hn7 : n ≤ 7
   · exact qExactLowerNumerator_nonnegative_low hk hn7
   · exact qExactLowerNumerator_nonnegative_high (by omega) hn
 
 theorem lowerSixHermiteRemainderTaylor6ExactErrorLowerPolynomial_nonnegative_large
-    {k n : Nat} (hk : 8189 ≤ k) (hn : n ≤ thetaWindowLeft k) :
+    {k n : Nat} (hk : 390 ≤ k) (hn : n ≤ thetaWindowLeft k) :
     (0 : Q') ≤
       lowerSixHermiteRemainderTaylor6ExactErrorLowerPolynomial k n := by
   have hnum := qExactLowerNumerator_nonnegative hk hn
@@ -2095,7 +2096,7 @@ theorem lowerSixHermiteRemainderTaylor6ExactErrorLowerPolynomial_nonnegative_lar
   exact Q'.nonneg_of_mul_pos (physicalCommonDen_pos k) hproduct
 
 theorem lowerSixDiscreteHermiteRemainder_nonnegative_exact_large
-    {k n : Nat} (hk : 8189 ≤ k) (hn : n ≤ thetaWindowLeft k) :
+    {k n : Nat} (hk : 390 ≤ k) (hn : n ≤ thetaWindowLeft k) :
     (0 : Q') ≤ lowerSixDiscreteHermiteRemainder k n :=
   lowerSixDiscreteHermiteRemainder_nonnegative_of_Taylor6ExactErrorLower
     hk hn

@@ -35,11 +35,11 @@ slope-square envelope described by ``low_carrier_numerator``.
 
 Two exact projective charts cover the natural corridor:
 
-* chart A: ``n >= 64`` and ``n^2 <= D <= 2*n^2``.  Set
-  ``s=1/n``, ``r=(D-n^2)/n^2``, ``x=64*s``.  Thus ``x,r in [0,1]``.
-* chart B: ``n >= 91`` and ``n/2 <= D <= n^2``.  Set
+* chart A: ``n >= 14`` and ``n^2 <= D <= 2*n^2``.  Set
+  ``s=1/n``, ``r=(D-n^2)/n^2``, ``x=14*s``.  Thus ``x,r in [0,1]``.
+* chart B: ``n >= 14`` and ``n/2 <= D <= n^2``.  Set
   ``s=1/n``, ``r=D/n^2`` and
-  ``r=z+(s/2)*(1-z)``, ``x=91*s``.  Thus ``x,z in [0,1]``.
+  ``r=z+(s/2)*(1-z)``, ``x=14*s``.  Thus ``x,z in [0,1]``.
 
 After multiplying by ``s^89``, the transformed numerators have
 nonnegative tensor-product Bernstein coefficients at the native degrees:
@@ -49,10 +49,10 @@ nonnegative tensor-product Bernstein coefficients at the native degrees:
 
 The sign-safe step split uses two further exact certificates:
 
-* for ``D >= 8191`` and ``0 <= n <= D``, ``T9(D,n) >= 0``;
-  the chart ``h=x/8191``, ``t=n/D=z`` has Bernstein degree ``(8,9)``;
-* for ``D >= 8191`` and ``D <= n <= 2D``, ``Base >= 0``;
-  the chart ``h=x/8191``, ``t=n/D=1+z`` has degree ``(41,22)``.
+* for ``D >= 392`` and ``0 <= n <= D``, ``T9(D,n) >= 0``;
+  the chart ``h=x/392``, ``t=n/D=z`` has Bernstein degree ``(8,9)``;
+* for ``D >= 392`` and ``D <= n <= 2D``, ``Base >= 0``;
+  the chart ``h=x/392``, ``t=n/D=1+z`` has degree ``(41,22)``.
 
 Finally, the next-slope Taylor floor ``L1`` is nonnegative on both
 corridor charts: degree ``(15,8)`` and homogeneous clearing exponent 16.
@@ -71,6 +71,9 @@ import sympy as sp
 
 D, n = sp.symbols("D n")
 m = 2 * n + 1
+
+MODE_CHART_BASE = 14
+DENOMINATOR_CHART_BASE = 392
 
 
 def falling_binomial(j: int) -> sp.Expr:
@@ -190,7 +193,7 @@ def exact_fraction(c: sp.Expr) -> Fraction:
 
 
 def chart_a_power_coefficients(poly: sp.Poly) -> tuple[dict[tuple[int, int], Fraction], int]:
-    """Coefficients after D=n^2(1+r), n=1/s, x=64s, times s^M."""
+    """Coefficients after D=n^2(1+r), n=1/s, x=14s, times s^M."""
     terms = [
         (ij, exact_fraction(c)) for ij, c in poly.terms()
     ]
@@ -201,13 +204,13 @@ def chart_a_power_coefficients(poly: sp.Poly) -> tuple[dict[tuple[int, int], Fra
         for rp in range(i + 1):
             key = (sx, rp)
             out[key] = out.get(key, Fraction(0)) + c * Fraction(
-                comb(i, rp), 64**sx
+                comb(i, rp), MODE_CHART_BASE**sx
             )
     return {key: value for key, value in out.items() if value}, M
 
 
 def chart_b_power_coefficients(poly: sp.Poly) -> tuple[dict[tuple[int, int], Fraction], int]:
-    """Coefficients after D=r/s^2, n=1/s and r=z+x/182*(1-z), x=91s."""
+    """Coefficients after D=r/s^2, n=1/s and r=z+x/28*(1-z), x=14s."""
     terms = [
         (ij, exact_fraction(c)) for ij, c in poly.terms()
     ]
@@ -215,10 +218,11 @@ def chart_b_power_coefficients(poly: sp.Poly) -> tuple[dict[tuple[int, int], Fra
     out: dict[tuple[int, int], Fraction] = {}
     for (i, j), c in terms:
         spow = M - (2 * i + j)
-        # r^i = sum_l C(i,l) z^(i-l) [x/182*(1-z)]^l.
+        # r^i = sum_l C(i,l) z^(i-l) [x/28*(1-z)]^l.
         for ell in range(i + 1):
             prefactor = c * Fraction(
-                comb(i, ell), 91**spow * 182**ell
+                comb(i, ell),
+                MODE_CHART_BASE**spow * (2 * MODE_CHART_BASE) ** ell,
             )
             xpow = spow + ell
             for q in range(ell + 1):
@@ -230,19 +234,21 @@ def chart_b_power_coefficients(poly: sp.Poly) -> tuple[dict[tuple[int, int], Fra
 
 
 def low_step_power_coefficients(poly: sp.Poly) -> tuple[dict[tuple[int, int], Fraction], int]:
-    """D=1/h, n=t/h, h=x/8191, t=z; used for T9 on n<=D."""
+    """D=1/h, n=t/h, h=x/392, t=z; used for T9 on n<=D."""
     terms = [(ij, exact_fraction(c)) for ij, c in poly.terms()]
     M = max(i + j for (i, j), _ in terms)
     out: dict[tuple[int, int], Fraction] = {}
     for (i, j), c in terms:
         xpow = M - i - j
         key = (xpow, j)
-        out[key] = out.get(key, Fraction(0)) + c * Fraction(1, 8191**xpow)
+        out[key] = out.get(key, Fraction(0)) + c * Fraction(
+            1, DENOMINATOR_CHART_BASE**xpow
+        )
     return {key: value for key, value in out.items() if value}, M
 
 
 def high_base_power_coefficients(poly: sp.Poly) -> tuple[dict[tuple[int, int], Fraction], int]:
-    """D=1/h, n=t/h, h=x/8191, t=1+z; used for Base on D<=n<=2D."""
+    """D=1/h, n=t/h, h=x/392, t=1+z; used for Base on D<=n<=2D."""
     terms = [(ij, exact_fraction(c)) for ij, c in poly.terms()]
     M = max(i + j for (i, j), _ in terms)
     out: dict[tuple[int, int], Fraction] = {}
@@ -251,7 +257,7 @@ def high_base_power_coefficients(poly: sp.Poly) -> tuple[dict[tuple[int, int], F
         for zpow in range(j + 1):
             key = (xpow, zpow)
             out[key] = out.get(key, Fraction(0)) + c * Fraction(
-                comb(j, zpow), 8191**xpow
+                comb(j, zpow), DENOMINATOR_CHART_BASE**xpow
             )
     return {key: value for key, value in out.items() if value}, M
 

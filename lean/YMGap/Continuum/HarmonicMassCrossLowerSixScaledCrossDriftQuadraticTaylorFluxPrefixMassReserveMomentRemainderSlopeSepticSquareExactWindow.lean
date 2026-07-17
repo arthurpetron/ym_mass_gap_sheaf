@@ -48,7 +48,7 @@ private theorem invDenCube_le_one (k : Nat) :
 
 /-- The exact mode-sensitive seventh-order error is at most one. -/
 theorem lowerSixRootSlopeTaylor6Error_le_one_large
-    {k n : Nat} (hk : 8189 ≤ k) (hn : n ≤ thetaWindowLeft k) :
+    {k n : Nat} (hk : 390 ≤ k) (hn : n ≤ thetaWindowLeft k) :
     rootSlopeTaylor6Error (harmU k) n ≤ (1 : Q') := by
   exact Q'.le_trans' _ _ _
     (lowerSixRootSlopeTaylor6Error_le_invDenCube_large hk hn)
@@ -56,7 +56,7 @@ theorem lowerSixRootSlopeTaylor6Error_le_one_large
 
 /-- Old-slope square upper bound retaining the exact mode-sensitive error. -/
 theorem lowerSixThetaRootSlope_square_le_Taylor6_square_add_three_exactError
-    {k n : Nat} (hk : 8189 ≤ k) (hn : n ≤ thetaWindowLeft k) :
+    {k n : Nat} (hk : 390 ≤ k) (hn : n ≤ thetaWindowLeft k) :
     thetaRootSlope k n * thetaRootSlope k n ≤
       rootSlopeTaylor6 (harmU k) n * rootSlopeTaylor6 (harmU k) n +
         Q'.ofNat 3 * rootSlopeTaylor6Error (harmU k) n := by
@@ -68,7 +68,7 @@ theorem lowerSixThetaRootSlope_square_le_Taylor6_square_add_three_exactError
 
 /-- Next-slope square lower bound retaining the exact mode-sensitive error. -/
 theorem lowerSixTaylor6Next_square_sub_four_exactError_le_ThetaRootSlope_square
-    {k n : Nat} (hk : 8189 ≤ k) (hn : n ≤ thetaWindowLeft k) :
+    {k n : Nat} (hk : 390 ≤ k) (hn : n ≤ thetaWindowLeft k) :
     rootSlopeTaylor6 (harmU (k + 1)) n *
           rootSlopeTaylor6 (harmU (k + 1)) n +
         -(Q'.ofNat 4 * rootSlopeTaylor6Error (harmU (k + 1)) n) ≤

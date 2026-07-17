@@ -1,0 +1,13 @@
+import YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftQuadraticTaylorFluxPrefixMassReserveMomentRemainderSlopeSepticExactLowerHighRows
+
+namespace YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftQuadraticTaylorFluxPrefixMassReserveMomentRemainderSlopeSepticExactLowerHighRows
+
+set_option maxHeartbeats 100000000
+set_option maxRecDepth 1000000
+
+theorem highRows_block1_row1 :
+    ((highRowsBlockTail 1 1).take 1).all highRowPred = true := by decide
+
+#print axioms highRows_block1_row1
+
+end YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftQuadraticTaylorFluxPrefixMassReserveMomentRemainderSlopeSepticExactLowerHighRows

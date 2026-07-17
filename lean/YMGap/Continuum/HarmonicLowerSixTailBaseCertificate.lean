@@ -8,9 +8,9 @@ four-variable expansion: two cached one-dimensional Pascal transforms
 identify the table with the scaled chart power coefficients.  A second
 upper-binomial coefficient check reconstructs the raw variables.
 
-At `8191 ≤ D ≤ n ≤ 2D`, the normalized chart coordinates are
+At `tailBaseChartBase ≤ D ≤ n ≤ 2D`, the normalized chart coordinates are
 
-  `x = 8191/D`,  `y = (n-D)/D`.
+  `x = tailBaseChartBase/D`,  `y = (n-D)/D`.
 
 Both lie in `[0,1]`.  Table positivity therefore makes the chart polynomial
 nonnegative.  Exact projective clearing by `D^50` gives a positive constant
@@ -89,18 +89,18 @@ private theorem ofNat_nonnegative (value : Nat) :
 
 private theorem normalized_chart_bounds
     (D n : Nat) (hDpos : 0 < D)
-    (hD : 8191 ≤ D) (hDn : D ≤ n) (hn2 : n ≤ 2 * D) :
-    let x := Q'.mkPos 8191 D hDpos
+    (hD : tailBaseChartBase ≤ D) (hDn : D ≤ n) (hn2 : n ≤ 2 * D) :
+    let x := Q'.mkPos tailBaseChartBase D hDpos
     let y := Q'.mkPos (Int.ofNat n - Int.ofNat D) D hDpos
     (0 : Q') ≤ x ∧ (0 : Q') ≤ 1 - x ∧
       (0 : Q') ≤ y ∧ (0 : Q') ≤ 1 - y := by
   dsimp only
-  have hx : (0 : Q') ≤ Q'.mkPos 8191 D hDpos := by
+  have hx : (0 : Q') ≤ Q'.mkPos tailBaseChartBase D hDpos := by
     rw [Q'.zero_le_iff_num_nonneg, Q'.mkPos_num]
     decide
-  have hxle : Q'.mkPos 8191 D hDpos ≤ (1 : Q') := by
-    show (Q'.mkPos 8191 D hDpos).num * ((1 : Q').den : Int) ≤
-      (1 : Q').num * ((Q'.mkPos 8191 D hDpos).den : Int)
+  have hxle : Q'.mkPos tailBaseChartBase D hDpos ≤ (1 : Q') := by
+    show (Q'.mkPos tailBaseChartBase D hDpos).num * ((1 : Q').den : Int) ≤
+      (1 : Q').num * ((Q'.mkPos tailBaseChartBase D hDpos).den : Int)
     rw [Q'.mkPos_num, Q'.mkPos_den]
     have honeNum : (1 : Q').num = 1 := rfl
     have honeDen : (1 : Q').den = 1 := rfl
@@ -145,10 +145,10 @@ private theorem raw_diag_support
 
 /-- **Exact high-branch Base sign certificate.** -/
 theorem tailBaseCleared_nonnegative
-    (D n : Nat) (hD : 8191 ≤ D) (hDn : D ≤ n) (hn2 : n ≤ 2 * D) :
+    (D n : Nat) (hD : tailBaseChartBase ≤ D) (hDn : D ≤ n) (hn2 : n ≤ 2 * D) :
     (0 : Q') ≤ tailBaseCleared (Q'.ofNat D) (Q'.ofNat n) := by
   have hDpos : 0 < D := Nat.lt_of_lt_of_le (by decide) hD
-  let x := Q'.mkPos 8191 D hDpos
+  let x := Q'.mkPos tailBaseChartBase D hDpos
   let y := Q'.mkPos (Int.ofNat n - Int.ofNat D) D hDpos
   let den := Q'.ofNat D
   let target := Q'.ofNat n
@@ -172,15 +172,15 @@ theorem tailBaseCleared_nonnegative
       (0 : Q') ≤ tensorPowerEval 41 22 tailBaseScaledPowerCoeff x y *
         den ^ 50 :=
     Q'.mul_nonneg _ _ hpower (Q'.pow_nonneg den hdenNonnegative 50)
-  have hxden : x * den ≈ Q'.ofNat 8191 := by
-    exact mkPos_mul_ofNat_eqv 8191 D hDpos
+  have hxden : x * den ≈ Q'.ofNat tailBaseChartBase := by
+    exact mkPos_mul_ofNat_eqv tailBaseChartBase D hDpos
   have hyden : (y + 1) * den ≈ target := by
     exact chart_y_mul_den_eqv D n hDpos
   have hprojective :
       tensorPowerEval 41 22 tailBaseScaledPowerCoeff x y * den ^ 50 ≈
         diagonalPowerEval 41 22 50 tailBaseScaledRawDiagCoeff den target :=
     tensorPowerEval_mul_den_pow_eqv_diagonal
-      41 22 50 8191 tailBaseScaledPowerCoeff tailBaseScaledRawDiagCoeff
+      41 22 50 tailBaseChartBase tailBaseScaledPowerCoeff tailBaseScaledRawDiagCoeff
       x y den target (by decide) hxden hyden
       (fun a ha b hb => tailBase_rawChart_relation_at ha hb)
       (fun a ha j hj hnonzero => raw_diag_support ha hj hnonzero)

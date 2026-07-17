@@ -3,7 +3,7 @@
 
 The chart-B certificate first changes
 
-  r = z + (x/182) * (1-z).
+  r = z + (x/affineChartBScale) * (1-z).
 
 This module proves the physical unit-square bounds and transports table
 positivity through the generated, coefficient-checked affine grid.  The
@@ -53,23 +53,23 @@ theorem chartBDenominator_pos {n : Nat} (hnpos : 0 < n) :
   omega
 
 /-- Exact chart-B coordinates lie in the unit square on the physical
-corridor `91 ≤ n`, `n ≤ 2D`, `D ≤ n²`. -/
+corridor `tailEnvelopeModeChartBase ≤ n`, `n ≤ 2D`, `D ≤ n²`. -/
 theorem normalized_chartB_bounds
-    (D n : Nat) (hnpos : 0 < n) (hn : 91 ≤ n)
+    (D n : Nat) (hnpos : 0 < n) (hn : tailEnvelopeModeChartBase ≤ n)
     (_hn2D : n ≤ 2 * D) (hDhigh : D ≤ n * n) :
     let zDen := chartBDenominator n
     let hzDenPos : 0 < zDen := chartBDenominator_pos hnpos
-    let x := Q'.mkPos 91 n hnpos
+    let x := Q'.mkPos tailEnvelopeModeChartBase n hnpos
     let z := Q'.mkPos (Int.ofNat (2 * D - n)) zDen hzDenPos
     (0 : Q') ≤ x ∧ (0 : Q') ≤ 1 - x ∧
       (0 : Q') ≤ z ∧ (0 : Q') ≤ 1 - z := by
   dsimp only
-  have hx : (0 : Q') ≤ Q'.mkPos 91 n hnpos := by
+  have hx : (0 : Q') ≤ Q'.mkPos tailEnvelopeModeChartBase n hnpos := by
     rw [Q'.zero_le_iff_num_nonneg, Q'.mkPos_num]
     decide
-  have hxle : Q'.mkPos 91 n hnpos ≤ (1 : Q') := by
-    show (Q'.mkPos 91 n hnpos).num * ((1 : Q').den : Int) ≤
-      (1 : Q').num * ((Q'.mkPos 91 n hnpos).den : Int)
+  have hxle : Q'.mkPos tailEnvelopeModeChartBase n hnpos ≤ (1 : Q') := by
+    show (Q'.mkPos tailEnvelopeModeChartBase n hnpos).num * ((1 : Q').den : Int) ≤
+      (1 : Q').num * ((Q'.mkPos tailEnvelopeModeChartBase n hnpos).den : Int)
     rw [Q'.mkPos_num, Q'.mkPos_den]
     have honeNum : (1 : Q').num = 1 := rfl
     have honeDen : (1 : Q').den = 1 := rfl
@@ -105,15 +105,15 @@ theorem normalized_chartB_bounds
     hz, Q'.sub_nonneg_of_le hzle⟩
 
 /-- The physical coordinates satisfy the exact affine chart relation
-`182*r = 182*z + x*(1-z)`, with `r = D/n²`. -/
+`affineChartBScale*r = affineChartBScale*z + x*(1-z)`, with `r = D/n²`. -/
 theorem normalized_chartB_affine_relation
     (D n : Nat) (hnpos : 0 < n) (hn2D : n ≤ 2 * D) :
-    Q'.ofNat 182 *
+    Q'.ofNat affineChartBScale *
         Q'.mkPos (Int.ofNat D) (n * n) (Nat.mul_pos hnpos hnpos) ≈
-      Q'.ofNat 182 *
+      Q'.ofNat affineChartBScale *
           Q'.mkPos (Int.ofNat (2 * D - n)) (chartBDenominator n)
             (chartBDenominator_pos hnpos) +
-        Q'.mkPos 91 n hnpos *
+        Q'.mkPos tailEnvelopeModeChartBase n hnpos *
           ((1 : Q') +
             -Q'.mkPos (Int.ofNat (2 * D - n)) (chartBDenominator n)
               (chartBDenominator_pos hnpos)) := by
@@ -136,7 +136,7 @@ theorem normalized_chartB_affine_relation
       ((2 * (n * n) : Nat) : Int) - (n : Int) :=
     Int.natCast_sub hnle
   rw [hnumCast, hdenCast]
-  have h182 : ((182 : Nat) : Int) = 2 * 91 := by decide
+  have h182 : ((affineChartBScale : Nat) : Int) = 2 * tailEnvelopeModeChartBase := by decide
   have htwo : ((2 : Nat) : Int) = 2 := by decide
   have honeNum : (1 : Q').num = 1 := rfl
   have honeDen : ((1 : Q').den : Int) = 1 := rfl
@@ -157,16 +157,16 @@ def tailEnvelopeE8ChartBAffineEval (x z : Q') : Q' :=
 /-- The physical affine grid is nonnegative.  This theorem consumes both the
 Bernstein sign table and the generated affine coefficient identities. -/
 theorem tailEnvelopeE8ChartBAffineEval_nonnegative
-    (D n : Nat) (hn : 91 ≤ n)
+    (D n : Nat) (hn : tailEnvelopeModeChartBase ≤ n)
     (hn2D : n ≤ 2 * D) (hDhigh : D ≤ n * n) :
     (0 : Q') ≤
       tailEnvelopeE8ChartBAffineEval
-        (Q'.mkPos 91 n (Nat.lt_of_lt_of_le (by decide) hn))
+        (Q'.mkPos tailEnvelopeModeChartBase n (Nat.lt_of_lt_of_le (by decide) hn))
         (Q'.mkPos (Int.ofNat (2 * D - n)) (chartBDenominator n)
           (chartBDenominator_pos
             (Nat.lt_of_lt_of_le (by decide) hn))) := by
   have hnpos : 0 < n := Nat.lt_of_lt_of_le (by decide) hn
-  let x := Q'.mkPos 91 n hnpos
+  let x := Q'.mkPos tailEnvelopeModeChartBase n hnpos
   let z := Q'.mkPos (Int.ofNat (2 * D - n)) (chartBDenominator n)
     (chartBDenominator_pos hnpos)
   have hbounds := normalized_chartB_bounds D n hnpos hn hn2D hDhigh
@@ -194,10 +194,10 @@ theorem tailEnvelopeE8ChartBAffineEval_nonnegative
       (0 : Q') ≤ tensorPowerEval 85 44
         (gridCoeff tailEnvelopeE8ChartBScaledPowerRows) x z :=
     Q'.le_trans' _ _ _ htable (Q'.le_of_eqv hreconstruction)
-  let scale : Int := Int.ofNat (182 ^ 44)
+  let scale : Int := Int.ofNat (affineChartBScale ^ 44)
   have hscaleNonnegative : (0 : Q') ≤ Q'.ofInt scale := by
     dsimp only [scale]
-    exact ofNat_nonnegative (182 ^ 44)
+    exact ofNat_nonnegative (affineChartBScale ^ 44)
   have hscaled :
       (0 : Q') ≤ tensorPowerEval 85 44
           (gridCoeff tailEnvelopeE8ChartBScaledPowerRows) x z *
@@ -241,25 +241,25 @@ def tailEnvelopeE8ChartBRawEval (D n : Q') : Q' :=
   quadraticPowerEval 85 44 89 tailEnvelopeE8ChartBScaledRaw D n
 
 /-- Exact physical affine scaling: the cleared affine table equals the
-original pre-chart table multiplied by `182^44`. -/
+original pre-chart table multiplied by `affineChartBScale^44`. -/
 theorem tailEnvelopeE8ChartB_physical_affine_scaling
-    (D n : Nat) (hn : 91 ≤ n) (hn2D : n ≤ 2 * D) :
+    (D n : Nat) (hn : tailEnvelopeModeChartBase ≤ n) (hn2D : n ≤ 2 * D) :
     tailEnvelopeE8ChartBAffineEval
-        (Q'.mkPos 91 n (Nat.lt_of_lt_of_le (by decide) hn))
+        (Q'.mkPos tailEnvelopeModeChartBase n (Nat.lt_of_lt_of_le (by decide) hn))
         (Q'.mkPos (Int.ofNat (2 * D - n)) (chartBDenominator n)
           (chartBDenominator_pos
             (Nat.lt_of_lt_of_le (by decide) hn))) ≈
       tailEnvelopeE8ChartBPreChartEval
-          (Q'.mkPos 91 n (Nat.lt_of_lt_of_le (by decide) hn))
+          (Q'.mkPos tailEnvelopeModeChartBase n (Nat.lt_of_lt_of_le (by decide) hn))
           (Q'.mkPos (Int.ofNat D) (n * n)
             (Nat.mul_pos
               (Nat.lt_of_lt_of_le (by decide) hn)
               (Nat.lt_of_lt_of_le (by decide) hn))) *
-        Q'.ofNat (182 ^ 44) := by
+        Q'.ofNat (affineChartBScale ^ 44) := by
   have hnpos : 0 < n := Nat.lt_of_lt_of_le (by decide) hn
   unfold tailEnvelopeE8ChartBAffineEval tailEnvelopeE8ChartBPreChartEval
   exact tailEnvelopeE8ChartB_affine_reconstruction
-    (Q'.mkPos 91 n hnpos)
+    (Q'.mkPos tailEnvelopeModeChartBase n hnpos)
     (Q'.mkPos (Int.ofNat (2 * D - n)) (chartBDenominator n)
       (chartBDenominator_pos hnpos))
     (Q'.mkPos (Int.ofNat D) (n * n) (Nat.mul_pos hnpos hnpos))
@@ -269,16 +269,16 @@ theorem tailEnvelopeE8ChartB_physical_affine_scaling
 theorem tailEnvelopeE8ChartB_preChart_projective
     (D n : Nat) (hnpos : 0 < n) :
     tailEnvelopeE8ChartBPreChartEval
-        (Q'.mkPos 91 n hnpos)
+        (Q'.mkPos tailEnvelopeModeChartBase n hnpos)
         (Q'.mkPos (Int.ofNat D) (n * n) (Nat.mul_pos hnpos hnpos)) *
       Q'.ofNat n ^ 89 ≈
         tailEnvelopeE8ChartBRawEval (Q'.ofNat D) (Q'.ofNat n) := by
-  let x := Q'.mkPos 91 n hnpos
+  let x := Q'.mkPos tailEnvelopeModeChartBase n hnpos
   let r := Q'.mkPos (Int.ofNat D) (n * n) (Nat.mul_pos hnpos hnpos)
   let den := Q'.ofNat n
   let targetD := Q'.ofNat D
-  have hxden : x * den ≈ Q'.ofNat 91 := by
-    exact mkPos_mul_ofNat_eqv 91 n hnpos
+  have hxden : x * den ≈ Q'.ofNat tailEnvelopeModeChartBase := by
+    exact mkPos_mul_ofNat_eqv tailEnvelopeModeChartBase n hnpos
   have hnSquare : den * den ≈ Q'.ofNat (n * n) := by
     exact
       YMGap.Continuum.HarmonicLowerSixTailEnvelopeCertificateE8ChartAPhysical.ofNat_mul_eqv
@@ -293,7 +293,7 @@ theorem tailEnvelopeE8ChartB_preChart_projective
     exact hrSquare
   unfold tailEnvelopeE8ChartBPreChartEval tailEnvelopeE8ChartBRawEval
   apply tensorPowerEval_mul_den_pow_eqv_quadratic_direct
-    85 44 89 91
+    85 44 89 tailEnvelopeModeChartBase
     (gridCoeff tailEnvelopeE8ChartBPreChartRows)
     tailEnvelopeE8ChartBScaledRaw x r den targetD
   · decide
@@ -308,22 +308,22 @@ theorem tailEnvelopeE8ChartB_preChart_projective
 /-- Exact physical scaling from the nonnegative affine polynomial to the
 projective raw numerator. -/
 theorem tailEnvelopeE8ChartB_affine_projective_scaling
-    (D n : Nat) (hn : 91 ≤ n) (hn2D : n ≤ 2 * D) :
+    (D n : Nat) (hn : tailEnvelopeModeChartBase ≤ n) (hn2D : n ≤ 2 * D) :
     tailEnvelopeE8ChartBAffineEval
-        (Q'.mkPos 91 n (Nat.lt_of_lt_of_le (by decide) hn))
+        (Q'.mkPos tailEnvelopeModeChartBase n (Nat.lt_of_lt_of_le (by decide) hn))
         (Q'.mkPos (Int.ofNat (2 * D - n)) (chartBDenominator n)
           (chartBDenominator_pos
             (Nat.lt_of_lt_of_le (by decide) hn))) *
       Q'.ofNat n ^ 89 ≈
         tailEnvelopeE8ChartBRawEval (Q'.ofNat D) (Q'.ofNat n) *
-          Q'.ofNat (182 ^ 44) := by
+          Q'.ofNat (affineChartBScale ^ 44) := by
   have hnpos : 0 < n := Nat.lt_of_lt_of_le (by decide) hn
-  let x := Q'.mkPos 91 n hnpos
+  let x := Q'.mkPos tailEnvelopeModeChartBase n hnpos
   let z := Q'.mkPos (Int.ofNat (2 * D - n)) (chartBDenominator n)
     (chartBDenominator_pos hnpos)
   let r := Q'.mkPos (Int.ofNat D) (n * n) (Nat.mul_pos hnpos hnpos)
   let pre := tailEnvelopeE8ChartBPreChartEval x r
-  let scale := Q'.ofNat (182 ^ 44)
+  let scale := Q'.ofNat (affineChartBScale ^ 44)
   let denPow := Q'.ofNat n ^ 89
   have haffine : tailEnvelopeE8ChartBAffineEval x z ≈ pre * scale := by
     exact tailEnvelopeE8ChartB_physical_affine_scaling D n hn hn2D
@@ -342,11 +342,11 @@ theorem tailEnvelopeE8ChartB_affine_projective_scaling
 /-- The exact scaled raw E8 chart-B numerator is nonnegative throughout the
 physical corridor. -/
 theorem tailEnvelopeE8ChartBRawEval_scaled_nonnegative
-    (D n : Nat) (hn : 91 ≤ n)
+    (D n : Nat) (hn : tailEnvelopeModeChartBase ≤ n)
     (hn2D : n ≤ 2 * D) (hDhigh : D ≤ n * n) :
     (0 : Q') ≤
       tailEnvelopeE8ChartBRawEval (Q'.ofNat D) (Q'.ofNat n) *
-        Q'.ofNat (182 ^ 44) := by
+        Q'.ofNat (affineChartBScale ^ 44) := by
   have haffine :=
     tailEnvelopeE8ChartBAffineEval_nonnegative D n hn hn2D hDhigh
   have hdenNonnegative : (0 : Q') ≤ Q'.ofNat n :=
@@ -354,7 +354,7 @@ theorem tailEnvelopeE8ChartBRawEval_scaled_nonnegative
   have hcleared :
       (0 : Q') ≤
         tailEnvelopeE8ChartBAffineEval
-            (Q'.mkPos 91 n (Nat.lt_of_lt_of_le (by decide) hn))
+            (Q'.mkPos tailEnvelopeModeChartBase n (Nat.lt_of_lt_of_le (by decide) hn))
             (Q'.mkPos (Int.ofNat (2 * D - n)) (chartBDenominator n)
               (chartBDenominator_pos
                 (Nat.lt_of_lt_of_le (by decide) hn))) *
@@ -366,14 +366,14 @@ theorem tailEnvelopeE8ChartBRawEval_scaled_nonnegative
       (tailEnvelopeE8ChartB_affine_projective_scaling D n hn hn2D))
 
 /-- The unscaled projective E8 chart-B numerator is nonnegative; the only
-cancelled factor is the explicitly positive exact integer `182^44`. -/
+cancelled factor is the explicitly positive exact integer `affineChartBScale^44`. -/
 theorem tailEnvelopeE8ChartBRawEval_nonnegative
-    (D n : Nat) (hn : 91 ≤ n)
+    (D n : Nat) (hn : tailEnvelopeModeChartBase ≤ n)
     (hn2D : n ≤ 2 * D) (hDhigh : D ≤ n * n) :
     (0 : Q') ≤
       tailEnvelopeE8ChartBRawEval (Q'.ofNat D) (Q'.ofNat n) := by
   let raw := tailEnvelopeE8ChartBRawEval (Q'.ofNat D) (Q'.ofNat n)
-  let scale := Q'.ofNat (182 ^ 44)
+  let scale := Q'.ofNat (affineChartBScale ^ 44)
   have hscaled : (0 : Q') ≤ raw * scale :=
     tailEnvelopeE8ChartBRawEval_scaled_nonnegative
       D n hn hn2D hDhigh
@@ -382,8 +382,8 @@ theorem tailEnvelopeE8ChartBRawEval_nonnegative
       (Q'.le_of_eqv (Q'.mul_comm_eqv raw scale))
   have hscalePos : (0 : Q') < scale := by
     dsimp only [scale]
-    exact ofNat_pos_of_pos (182 ^ 44)
-      (Nat.pow_pos (by decide : 0 < (182 : Nat)))
+    exact ofNat_pos_of_pos (affineChartBScale ^ 44)
+      (Nat.pow_pos (by decide : 0 < (affineChartBScale : Nat)))
   exact Q'.nonneg_of_mul_pos hscalePos hscaleFirst
 
 /-! ## Dependency gates -/
