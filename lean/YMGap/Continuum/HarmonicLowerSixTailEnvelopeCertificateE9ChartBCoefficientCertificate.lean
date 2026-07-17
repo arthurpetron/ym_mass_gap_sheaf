@@ -573,7 +573,7 @@ theorem tailEnvelopeE9ChartB_nonnegative_at {i j : Nat}
 theorem tailEnvelopeE9ChartB_affine_at {i j : Nat}
     (hi : i < 88) (hj : j < 45) :
     gridCoeff tailEnvelopeE9ChartBScaledPowerRows i j *
-        Int.ofNat (182 ^ 44) =
+        Int.ofNat (28 ^ 44) =
       affineChartBClearedCoeff 44 tailEnvelopeE9ChartBPreChartRows i j := by
   by_cases h0 : i < 7
   ·
@@ -587,7 +587,7 @@ theorem tailEnvelopeE9ChartB_affine_at {i j : Nat}
     rw [hindex] at hagg
     rw [hindex] at hlocal
     have hlift := congrArg (fun coefficient : Int =>
-      coefficient * Int.ofNat (182 ^ 44)) hagg
+      coefficient * Int.ofNat (28 ^ 44)) hagg
     exact Eq.trans (Eq.symm hlift) hlocal
   · by_cases h1 : i < 14
     ·
@@ -601,7 +601,7 @@ theorem tailEnvelopeE9ChartB_affine_at {i j : Nat}
       rw [hindex] at hagg
       rw [hindex] at hlocal
       have hlift := congrArg (fun coefficient : Int =>
-        coefficient * Int.ofNat (182 ^ 44)) hagg
+        coefficient * Int.ofNat (28 ^ 44)) hagg
       exact Eq.trans (Eq.symm hlift) hlocal
     · by_cases h2 : i < 21
       ·
@@ -615,7 +615,7 @@ theorem tailEnvelopeE9ChartB_affine_at {i j : Nat}
         rw [hindex] at hagg
         rw [hindex] at hlocal
         have hlift := congrArg (fun coefficient : Int =>
-          coefficient * Int.ofNat (182 ^ 44)) hagg
+          coefficient * Int.ofNat (28 ^ 44)) hagg
         exact Eq.trans (Eq.symm hlift) hlocal
       · by_cases h3 : i < 28
         ·
@@ -629,7 +629,7 @@ theorem tailEnvelopeE9ChartB_affine_at {i j : Nat}
           rw [hindex] at hagg
           rw [hindex] at hlocal
           have hlift := congrArg (fun coefficient : Int =>
-            coefficient * Int.ofNat (182 ^ 44)) hagg
+            coefficient * Int.ofNat (28 ^ 44)) hagg
           exact Eq.trans (Eq.symm hlift) hlocal
         · by_cases h4 : i < 35
           ·
@@ -643,7 +643,7 @@ theorem tailEnvelopeE9ChartB_affine_at {i j : Nat}
             rw [hindex] at hagg
             rw [hindex] at hlocal
             have hlift := congrArg (fun coefficient : Int =>
-              coefficient * Int.ofNat (182 ^ 44)) hagg
+              coefficient * Int.ofNat (28 ^ 44)) hagg
             exact Eq.trans (Eq.symm hlift) hlocal
           · by_cases h5 : i < 42
             ·
@@ -657,7 +657,7 @@ theorem tailEnvelopeE9ChartB_affine_at {i j : Nat}
               rw [hindex] at hagg
               rw [hindex] at hlocal
               have hlift := congrArg (fun coefficient : Int =>
-                coefficient * Int.ofNat (182 ^ 44)) hagg
+                coefficient * Int.ofNat (28 ^ 44)) hagg
               exact Eq.trans (Eq.symm hlift) hlocal
             · by_cases h6 : i < 49
               ·
@@ -671,7 +671,7 @@ theorem tailEnvelopeE9ChartB_affine_at {i j : Nat}
                 rw [hindex] at hagg
                 rw [hindex] at hlocal
                 have hlift := congrArg (fun coefficient : Int =>
-                  coefficient * Int.ofNat (182 ^ 44)) hagg
+                  coefficient * Int.ofNat (28 ^ 44)) hagg
                 exact Eq.trans (Eq.symm hlift) hlocal
               · by_cases h7 : i < 56
                 ·
@@ -685,7 +685,7 @@ theorem tailEnvelopeE9ChartB_affine_at {i j : Nat}
                   rw [hindex] at hagg
                   rw [hindex] at hlocal
                   have hlift := congrArg (fun coefficient : Int =>
-                    coefficient * Int.ofNat (182 ^ 44)) hagg
+                    coefficient * Int.ofNat (28 ^ 44)) hagg
                   exact Eq.trans (Eq.symm hlift) hlocal
                 · by_cases h8 : i < 63
                   ·
@@ -699,7 +699,7 @@ theorem tailEnvelopeE9ChartB_affine_at {i j : Nat}
                     rw [hindex] at hagg
                     rw [hindex] at hlocal
                     have hlift := congrArg (fun coefficient : Int =>
-                      coefficient * Int.ofNat (182 ^ 44)) hagg
+                      coefficient * Int.ofNat (28 ^ 44)) hagg
                     exact Eq.trans (Eq.symm hlift) hlocal
                   · by_cases h9 : i < 70
                     ·
@@ -713,7 +713,7 @@ theorem tailEnvelopeE9ChartB_affine_at {i j : Nat}
                       rw [hindex] at hagg
                       rw [hindex] at hlocal
                       have hlift := congrArg (fun coefficient : Int =>
-                        coefficient * Int.ofNat (182 ^ 44)) hagg
+                        coefficient * Int.ofNat (28 ^ 44)) hagg
                       exact Eq.trans (Eq.symm hlift) hlocal
                     · by_cases h10 : i < 77
                       ·
@@ -727,7 +727,7 @@ theorem tailEnvelopeE9ChartB_affine_at {i j : Nat}
                         rw [hindex] at hagg
                         rw [hindex] at hlocal
                         have hlift := congrArg (fun coefficient : Int =>
-                          coefficient * Int.ofNat (182 ^ 44)) hagg
+                          coefficient * Int.ofNat (28 ^ 44)) hagg
                         exact Eq.trans (Eq.symm hlift) hlocal
                       · by_cases h11 : i < 84
                         ·
@@ -741,7 +741,7 @@ theorem tailEnvelopeE9ChartB_affine_at {i j : Nat}
                           rw [hindex] at hagg
                           rw [hindex] at hlocal
                           have hlift := congrArg (fun coefficient : Int =>
-                            coefficient * Int.ofNat (182 ^ 44)) hagg
+                            coefficient * Int.ofNat (28 ^ 44)) hagg
                           exact Eq.trans (Eq.symm hlift) hlocal
                         · have h12 : i < 88 := hi
                           have hlocal := gridRelationSlice_true_at
@@ -754,12 +754,12 @@ theorem tailEnvelopeE9ChartB_affine_at {i j : Nat}
                           rw [hindex] at hagg
                           rw [hindex] at hlocal
                           have hlift := congrArg (fun coefficient : Int =>
-                            coefficient * Int.ofNat (182 ^ 44)) hagg
+                            coefficient * Int.ofNat (28 ^ 44)) hagg
                           exact Eq.trans (Eq.symm hlift) hlocal
 
 theorem tailEnvelopeE9ChartB_raw_at {i j : Nat}
     (hi : i < 88) (hj : j < 45) :
-    gridCoeff tailEnvelopeE9ChartBPreChartRows i j * Int.ofNat (91 ^ i) =
+    gridCoeff tailEnvelopeE9ChartBPreChartRows i j * Int.ofNat (14 ^ i) =
       quadraticRawExpected 89 tailEnvelopeE9ChartBChartQuotient
         tailEnvelopeE9ClearedRows i j := by
   by_cases h0 : i < 7
@@ -774,7 +774,7 @@ theorem tailEnvelopeE9ChartB_raw_at {i j : Nat}
     rw [hindex] at hagg
     rw [hindex] at hlocal
     have hlift := congrArg (fun coefficient : Int =>
-      coefficient * Int.ofNat (91 ^ i)) hagg
+      coefficient * Int.ofNat (14 ^ i)) hagg
     exact Eq.trans (Eq.symm hlift) hlocal
   · by_cases h1 : i < 14
     ·
@@ -788,7 +788,7 @@ theorem tailEnvelopeE9ChartB_raw_at {i j : Nat}
       rw [hindex] at hagg
       rw [hindex] at hlocal
       have hlift := congrArg (fun coefficient : Int =>
-        coefficient * Int.ofNat (91 ^ i)) hagg
+        coefficient * Int.ofNat (14 ^ i)) hagg
       exact Eq.trans (Eq.symm hlift) hlocal
     · by_cases h2 : i < 21
       ·
@@ -802,7 +802,7 @@ theorem tailEnvelopeE9ChartB_raw_at {i j : Nat}
         rw [hindex] at hagg
         rw [hindex] at hlocal
         have hlift := congrArg (fun coefficient : Int =>
-          coefficient * Int.ofNat (91 ^ i)) hagg
+          coefficient * Int.ofNat (14 ^ i)) hagg
         exact Eq.trans (Eq.symm hlift) hlocal
       · by_cases h3 : i < 28
         ·
@@ -816,7 +816,7 @@ theorem tailEnvelopeE9ChartB_raw_at {i j : Nat}
           rw [hindex] at hagg
           rw [hindex] at hlocal
           have hlift := congrArg (fun coefficient : Int =>
-            coefficient * Int.ofNat (91 ^ i)) hagg
+            coefficient * Int.ofNat (14 ^ i)) hagg
           exact Eq.trans (Eq.symm hlift) hlocal
         · by_cases h4 : i < 35
           ·
@@ -830,7 +830,7 @@ theorem tailEnvelopeE9ChartB_raw_at {i j : Nat}
             rw [hindex] at hagg
             rw [hindex] at hlocal
             have hlift := congrArg (fun coefficient : Int =>
-              coefficient * Int.ofNat (91 ^ i)) hagg
+              coefficient * Int.ofNat (14 ^ i)) hagg
             exact Eq.trans (Eq.symm hlift) hlocal
           · by_cases h5 : i < 42
             ·
@@ -844,7 +844,7 @@ theorem tailEnvelopeE9ChartB_raw_at {i j : Nat}
               rw [hindex] at hagg
               rw [hindex] at hlocal
               have hlift := congrArg (fun coefficient : Int =>
-                coefficient * Int.ofNat (91 ^ i)) hagg
+                coefficient * Int.ofNat (14 ^ i)) hagg
               exact Eq.trans (Eq.symm hlift) hlocal
             · by_cases h6 : i < 49
               ·
@@ -858,7 +858,7 @@ theorem tailEnvelopeE9ChartB_raw_at {i j : Nat}
                 rw [hindex] at hagg
                 rw [hindex] at hlocal
                 have hlift := congrArg (fun coefficient : Int =>
-                  coefficient * Int.ofNat (91 ^ i)) hagg
+                  coefficient * Int.ofNat (14 ^ i)) hagg
                 exact Eq.trans (Eq.symm hlift) hlocal
               · by_cases h7 : i < 56
                 ·
@@ -872,7 +872,7 @@ theorem tailEnvelopeE9ChartB_raw_at {i j : Nat}
                   rw [hindex] at hagg
                   rw [hindex] at hlocal
                   have hlift := congrArg (fun coefficient : Int =>
-                    coefficient * Int.ofNat (91 ^ i)) hagg
+                    coefficient * Int.ofNat (14 ^ i)) hagg
                   exact Eq.trans (Eq.symm hlift) hlocal
                 · by_cases h8 : i < 63
                   ·
@@ -886,7 +886,7 @@ theorem tailEnvelopeE9ChartB_raw_at {i j : Nat}
                     rw [hindex] at hagg
                     rw [hindex] at hlocal
                     have hlift := congrArg (fun coefficient : Int =>
-                      coefficient * Int.ofNat (91 ^ i)) hagg
+                      coefficient * Int.ofNat (14 ^ i)) hagg
                     exact Eq.trans (Eq.symm hlift) hlocal
                   · by_cases h9 : i < 70
                     ·
@@ -900,7 +900,7 @@ theorem tailEnvelopeE9ChartB_raw_at {i j : Nat}
                       rw [hindex] at hagg
                       rw [hindex] at hlocal
                       have hlift := congrArg (fun coefficient : Int =>
-                        coefficient * Int.ofNat (91 ^ i)) hagg
+                        coefficient * Int.ofNat (14 ^ i)) hagg
                       exact Eq.trans (Eq.symm hlift) hlocal
                     · by_cases h10 : i < 77
                       ·
@@ -914,7 +914,7 @@ theorem tailEnvelopeE9ChartB_raw_at {i j : Nat}
                         rw [hindex] at hagg
                         rw [hindex] at hlocal
                         have hlift := congrArg (fun coefficient : Int =>
-                          coefficient * Int.ofNat (91 ^ i)) hagg
+                          coefficient * Int.ofNat (14 ^ i)) hagg
                         exact Eq.trans (Eq.symm hlift) hlocal
                       · by_cases h11 : i < 84
                         ·
@@ -928,7 +928,7 @@ theorem tailEnvelopeE9ChartB_raw_at {i j : Nat}
                           rw [hindex] at hagg
                           rw [hindex] at hlocal
                           have hlift := congrArg (fun coefficient : Int =>
-                            coefficient * Int.ofNat (91 ^ i)) hagg
+                            coefficient * Int.ofNat (14 ^ i)) hagg
                           exact Eq.trans (Eq.symm hlift) hlocal
                         · have h12 : i < 88 := hi
                           have hlocal := gridRelationSlice_true_at
@@ -941,7 +941,7 @@ theorem tailEnvelopeE9ChartB_raw_at {i j : Nat}
                           rw [hindex] at hagg
                           rw [hindex] at hlocal
                           have hlift := congrArg (fun coefficient : Int =>
-                            coefficient * Int.ofNat (91 ^ i)) hagg
+                            coefficient * Int.ofNat (14 ^ i)) hagg
                           exact Eq.trans (Eq.symm hlift) hlocal
 
 theorem tailEnvelopeE9ChartB_scale_relation :

@@ -58,6 +58,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import os
 import re
 import subprocess
 import sys
@@ -243,8 +244,22 @@ def parse_baseline(path: Path) -> tuple[dict[str, set[str]], dict[str, tuple[str
 
 
 def run_lake_build() -> tuple[int, str]:
+    # Cap Lake's worker parallelism unless the caller already set it. Lake
+    # defaults to one worker per logical core; the generated exact-rational
+    # certificate modules can each peak at several GB during kernel checking
+    # (the Base semantic bridge near 15 GB), so an uncapped rebuild wave
+    # (16 workers on a 16-core/64 GB machine) exhausts physical memory.
+    # LEAN_NUM_THREADS is the only parallelism control this Lake version
+    # exposes (no `--jobs` flag). Keep in sync with LEAN_JOBS in Makefile.
+    env = os.environ.copy()
+    env.setdefault("LEAN_NUM_THREADS", "3")
     proc = subprocess.run(
-        ["lake", "build"], cwd=LEAN_DIR, capture_output=True, text=True, check=False
+        ["lake", "build"],
+        cwd=LEAN_DIR,
+        capture_output=True,
+        text=True,
+        check=False,
+        env=env,
     )
     return proc.returncode, proc.stdout + proc.stderr
 

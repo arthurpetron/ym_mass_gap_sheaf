@@ -5,13 +5,15 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from lower_six_tail_second_flux_certificate import MODE_CHART_BASE
+
 
 ROW_SHARD_SIZE = 7
 CASES = [
-    ("E8", "A", 83, 44, 64),
-    ("E9", "A", 87, 44, 64),
-    ("E8", "B", 85, 44, 91),
-    ("E9", "B", 87, 44, 91),
+    ("E8", "A", 83, 44, MODE_CHART_BASE),
+    ("E9", "A", 87, 44, MODE_CHART_BASE),
+    ("E8", "B", 85, 44, MODE_CHART_BASE),
+    ("E9", "B", 87, 44, MODE_CHART_BASE),
 ]
 
 
@@ -97,7 +99,7 @@ def render_relation_branches(
         elif kind == "affine":
             lines.extend([
                 f"{indent}have hlift := congrArg (fun coefficient : Int =>",
-                f"{indent}  coefficient * Int.ofNat (182 ^ {degree_y})) hagg",
+                f"{indent}  coefficient * Int.ofNat ({2 * MODE_CHART_BASE} ^ {degree_y})) hagg",
                 f"{indent}exact Eq.trans (Eq.symm hlift) hlocal",
             ])
         else:
@@ -187,7 +189,7 @@ def render(label: str, chart: str, degree_x: int, degree_y: int,
             f"theorem {stem}_affine_at {{i j : Nat}}",
             f"    (hi : i < {degree_x + 1}) (hj : j < {degree_y + 1}) :",
             f"    gridCoeff {stem}ScaledPowerRows i j *",
-            f"        Int.ofNat (182 ^ {degree_y}) =",
+            f"        Int.ofNat ({2 * MODE_CHART_BASE} ^ {degree_y}) =",
             f"      affineChartBClearedCoeff {degree_y} {stem}PreChartRows i j := by",
         ])
         lines.extend(render_relation_branches(

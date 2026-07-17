@@ -79,7 +79,7 @@ private theorem lowerSixQuadraticTaylorFactor_nonnegative (k n : Nat) :
 /-- The mode-sensitive explicit lower polynomial lies below the exact
 cleared slope polynomial on the physical left prefix. -/
 theorem lowerSixHermiteRemainderTaylor6ExactErrorLowerPolynomial_le_actual
-    {k n : Nat} (hk : 8189 ≤ k) (hn : n ≤ thetaWindowLeft k) :
+    {k n : Nat} (hk : 390 ≤ k) (hn : n ≤ thetaWindowLeft k) :
     lowerSixHermiteRemainderTaylor6ExactErrorLowerPolynomial k n ≤
       lowerSixHermiteRemainderSlopePolynomial k n
         (thetaRootSlope k n) (thetaRootSlope (k + 1) n) := by
@@ -196,7 +196,7 @@ theorem lowerSixHermiteRemainderTaylor6ExactErrorLowerPolynomial_le_actual
 /-- Positivity of the exact-error lower polynomial suffices for positivity
 of the actual discrete Hermite remainder. -/
 theorem lowerSixDiscreteHermiteRemainder_nonnegative_of_Taylor6ExactErrorLower
-    {k n : Nat} (hk : 8189 ≤ k) (hn : n ≤ thetaWindowLeft k)
+    {k n : Nat} (hk : 390 ≤ k) (hn : n ≤ thetaWindowLeft k)
     (hlower : (0 : Q') ≤
       lowerSixHermiteRemainderTaylor6ExactErrorLowerPolynomial k n) :
     (0 : Q') ≤ lowerSixDiscreteHermiteRemainder k n := by

@@ -53,7 +53,7 @@ private theorem denominator_square_sub_one_pos {D : Q'}
   exact Q'.pos_of_lt_of_le (by decide) h15
 
 theorem envelopeSemanticDenominatorValue_pos
-    {k : Nat} (hk : 8189 ≤ k) :
+    {k : Nat} (hk : 390 ≤ k) :
     (0 : Q') <
       envelopeSemanticDenominatorValue (Q'.ofNat (k + 2)) := by
   let D := Q'.ofNat (k + 2)

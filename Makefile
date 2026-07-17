@@ -2,6 +2,16 @@
         lean-build lean-audit lean-audit-strict lean-audit-update lean-rubric \
         lean-frontier-guard lean-statement-guard frontier-status frontier-dag-check
 
+# Cap Lake's build parallelism. Lake defaults to one worker per logical core
+# (16 here); the generated exact-rational certificate modules routinely peak
+# at 3-4 GB during kernel checking and the heaviest (the Base semantic
+# bridge) near 15 GB, so an uncapped rebuild wave exhausts a 64 GB machine.
+# This Lake version has no `--jobs` flag; LEAN_NUM_THREADS is the control
+# (verified: it caps concurrent lean workers). 3 workers under the 20 GB
+# per-process ceiling in lean/lakefile.toml keeps the worst case inside
+# physical memory. Override per run: make lean-build LEAN_JOBS=8
+LEAN_JOBS ?= 3
+
 help:
 	@echo "Targets:"
 	@echo "  test                Run the pytest suite."
@@ -50,16 +60,16 @@ paper: svg-to-pdf
 	cd formal && TEXINPUTS="../docs/arthur_tex_style/:../docs/arthur_tex_style/tex/:../docs/arthur_tex_style/assets/:$$TEXINPUTS" latexmk -pdf main.tex
 
 lean-build:
-	cd lean && lake build
+	cd lean && LEAN_NUM_THREADS=$(LEAN_JOBS) lake build
 
 lean-audit:
-	python3 scripts/lean_axiom_audit.py
+	LEAN_NUM_THREADS=$(LEAN_JOBS) python3 scripts/lean_axiom_audit.py
 
 lean-audit-strict:
-	python3 scripts/lean_axiom_audit.py --strict
+	LEAN_NUM_THREADS=$(LEAN_JOBS) python3 scripts/lean_axiom_audit.py --strict
 
 lean-audit-update:
-	python3 scripts/lean_axiom_audit.py --update
+	LEAN_NUM_THREADS=$(LEAN_JOBS) python3 scripts/lean_axiom_audit.py --update
 
 # Frontier uninhabitedness guard. Builds YMGapGuard, which reflects over the
 # YMGap.* environment and FAILS if any Clay-frontier type (Tier0Scorecard,
@@ -70,7 +80,7 @@ lean-audit-update:
 # AXIOM_AUDIT.md, so `make lean-audit-update` cannot silence it. See
 # lean/YMGapGuard.lean (`frontierAllowlist` is the human-reviewed escape hatch).
 lean-frontier-guard:
-	cd lean && lake build YMGapGuard
+	cd lean && LEAN_NUM_THREADS=$(LEAN_JOBS) lake build YMGapGuard
 
 # Frontier STATEMENT-drift guard. Builds YMGapStatementGuard, which computes a
 # stable structural hash of each Clay-frontier type's STATEMENT (type signature +
@@ -82,7 +92,7 @@ lean-frontier-guard:
 # Independent of AXIOM_AUDIT.md. See lean/YMGapStatementGuard.lean
 # (`pinnedFrontierStatements` is the human-reviewed re-pin surface).
 lean-statement-guard:
-	cd lean && lake build YMGapStatementGuard
+	cd lean && LEAN_NUM_THREADS=$(LEAN_JOBS) lake build YMGapStatementGuard
 
 # Compile-check the Clay scorecard (constructive transcription of the external
 # Clay rubric) against its pinned source. Verifies the fixed-spacing rubric
@@ -92,7 +102,7 @@ lean-statement-guard:
 lean-rubric:
 	@test -f reference/leanmillennium-pinned/Millennium.lean.txt \
 	  || { echo "error: pinned rubric source missing (reference/leanmillennium-pinned/)"; exit 1; }
-	cd lean && lake build YMGap.Rubric.ClayScorecard
+	cd lean && LEAN_NUM_THREADS=$(LEAN_JOBS) lake build YMGap.Rubric.ClayScorecard
 	@echo "Clay scorecard compiled: fixed-spacing clauses MET, continuum clauses OPEN (Clay remains open)."
 
 # Regenerate the read-only frontier ledger docs/frontier-status.md: for each of

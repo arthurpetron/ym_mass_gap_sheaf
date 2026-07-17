@@ -136,7 +136,7 @@ private theorem flux_positive_decomposition (D N : Q') :
       pFluxPositiveDecomposition_normal (fun | 0 => D | _ => N))
 
 private theorem next_index_sq_le_den
-    {k n : Nat} (hk : 8189 ≤ k) (hn : n ≤ thetaWindowLeft k) :
+    {k n : Nat} (hk : 390 ≤ k) (hn : n ≤ thetaWindowLeft k) :
     (n + 1) * (n + 1) ≤ k + 2 := by
   let c := thetaWindowCenter k
   let D := k + 2
@@ -176,7 +176,7 @@ private theorem next_index_sq_le_den
 /-- The outgoing first Hermite flux is nonnegative on the physical left
 prefix. -/
 theorem lowerSixDiscreteHermiteFluxPoly_next_nonnegative_large
-    {k n : Nat} (hk : 8189 ≤ k) (hn : n ≤ thetaWindowLeft k) :
+    {k n : Nat} (hk : 390 ≤ k) (hn : n ≤ thetaWindowLeft k) :
     (0 : Q') ≤ lowerSixDiscreteHermiteFluxPoly
       (Q'.ofNat (k + 2)) (Q'.ofNat (n + 1)) := by
   let D := Q'.ofNat (k + 2)

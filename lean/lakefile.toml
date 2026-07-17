@@ -5,7 +5,17 @@ defaultTargets = ["YMGap", "YMGapGuard", "YMGapStatementGuard"]
 # stack while Lean compares their fully normalized expressions.  This is a
 # weak argument: it changes only the compiler process stack reservation and
 # does not invalidate or alter theorem artifacts.
-weakLeanArgs = ["-s", "65536"]
+#
+# `-M 20480` caps each lean worker at 20 GB: a runaway kernel computation
+# then fails deterministically with "excessive memory consumption detected"
+# instead of driving the whole machine into swap.  The ceiling is sized for
+# the heaviest known module, HarmonicLowerSixTailBaseSemanticBridge, whose
+# staged piece reconciliation peaks near 15 GB (measured 2026-07-16).  Pair
+# with a worker cap when building (Lake spawns one worker per logical core
+# by default and this Lake has no `--jobs` flag): `LEAN_NUM_THREADS=3 lake
+# build`, or `make lean-build` which sets it.  Both are weak arguments and
+# do not invalidate cached artifacts.
+weakLeanArgs = ["-s", "65536", "-M", "20480"]
 
 # Milestone 1.1 deliberately depends on nothing but Lean core: SU(2)
 # Casimirs are exact rationals, so `Nat`/`Rat` suffice and no

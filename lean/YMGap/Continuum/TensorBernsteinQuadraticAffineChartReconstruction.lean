@@ -3,9 +3,9 @@
 
 The chart-B coefficient kernel clears the substitution
 
-  182 * r = 182 * z + x * (1 - z)
+  affineChartBScale * r = affineChartBScale * z + x * (1 - z)
 
-by `182^degreeY`.  This module proves the corresponding semantic identity
+by `affineChartBScale^degreeY`.  This module proves the corresponding semantic identity
 over the constructive rational substrate.  The proof is deliberately split
 into finite-sum, signed-binomial, and shifted-support lemmas; no large
 normalisation call is used.
@@ -471,7 +471,7 @@ def affineChartBInnerCoeff (degree : Nat)
     let q := b + ell - i
     gridCoeff preChart (a - ell) i *
         Int.ofNat
-          (binom i ell * binom ell q * 182 ^ (degree - ell)) *
+          (binom i ell * binom ell q * affineChartBScale ^ (degree - ell)) *
       alternatingIntSign q
   else
     0
@@ -483,7 +483,7 @@ theorem affineChartBInnerCoeff_factor
     (a ell i b : Nat) :
     affineChartBInnerCoeff degree preChart a ell i b =
       (gridCoeff preChart (a - ell) i *
-          Int.ofNat (binom i ell * 182 ^ (degree - ell))) *
+          Int.ofNat (binom i ell * affineChartBScale ^ (degree - ell))) *
         affineChartBSignedRow ell i b := by
   unfold affineChartBInnerCoeff affineChartBSignedRow
   by_cases hguard :
@@ -492,18 +492,18 @@ theorem affineChartBInnerCoeff_factor
     dsimp only
     have hnat :
         binom i ell * binom ell (b + ell - i) *
-            182 ^ (degree - ell) =
-          (binom i ell * 182 ^ (degree - ell)) *
+            affineChartBScale ^ (degree - ell) =
+          (binom i ell * affineChartBScale ^ (degree - ell)) *
             binom ell (b + ell - i) := by
       ac_rfl
     rw [hnat]
     change
       (gridCoeff preChart (a - ell) i *
-          (Int.ofNat (binom i ell * 182 ^ (degree - ell)) *
+          (Int.ofNat (binom i ell * affineChartBScale ^ (degree - ell)) *
             Int.ofNat (binom ell (b + ell - i)))) *
           alternatingIntSign (b + ell - i) =
         (gridCoeff preChart (a - ell) i *
-            Int.ofNat (binom i ell * 182 ^ (degree - ell))) *
+            Int.ofNat (binom i ell * affineChartBScale ^ (degree - ell))) *
           (Int.ofNat (binom ell (b + ell - i)) *
             alternatingIntSign (b + ell - i))
     ac_rfl
@@ -519,7 +519,7 @@ theorem signedPowerEval_affineChartBInnerCoeff_of_le
         (affineChartBInnerCoeff degree preChart a ell i) z ≈
       Q'.ofInt
           (gridCoeff preChart (a - ell) i *
-            Int.ofNat (binom i ell * 182 ^ (degree - ell))) *
+            Int.ofNat (binom i ell * affineChartBScale ^ (degree - ell))) *
         (z ^ (i - ell) * ((1 : Q') + -z) ^ ell) := by
   unfold signedPowerEval
   refine Q'.eqv_trans _ _ _
@@ -527,7 +527,7 @@ theorem signedPowerEval_affineChartBInnerCoeff_of_le
       (fun b =>
         Q'.ofInt
             (gridCoeff preChart (a - ell) i *
-              Int.ofNat (binom i ell * 182 ^ (degree - ell))) *
+              Int.ofNat (binom i ell * affineChartBScale ^ (degree - ell))) *
           (Q'.ofInt (affineChartBSignedRow ell i b) * z ^ b))
       (degree + 1) (fun b hb => ?_)) ?_
   · rw [affineChartBInnerCoeff_factor]
@@ -535,7 +535,7 @@ theorem signedPowerEval_affineChartBInnerCoeff_of_le
       (Q'.mul_eqv_congr_right _ _ (z ^ b)
         (YMGap.Continuum.RingNormaliser.ofInt_mul
           (gridCoeff preChart (a - ell) i *
-            Int.ofNat (binom i ell * 182 ^ (degree - ell)))
+            Int.ofNat (binom i ell * affineChartBScale ^ (degree - ell)))
           (affineChartBSignedRow ell i b))) ?_
     exact Q'.mul_assoc_eqv _ _ _
   · refine Q'.eqv_trans _ _ _
@@ -544,7 +544,7 @@ theorem signedPowerEval_affineChartBInnerCoeff_of_le
           (fun b => Q'.ofInt (affineChartBSignedRow ell i b) * z ^ b)
           (Q'.ofInt
             (gridCoeff preChart (a - ell) i *
-              Int.ofNat (binom i ell * 182 ^ (degree - ell))))
+              Int.ofNat (binom i ell * affineChartBScale ^ (degree - ell))))
           (degree + 1))) ?_
     exact Q'.mul_eqv_congr_left _ _ _
       (signedPowerEval_affineChartBSignedRow
@@ -642,7 +642,7 @@ def affineChartBFixedATerm (degree : Nat)
     if ell ≤ i then
       Q'.ofInt
           (gridCoeff preChart (a - ell) i *
-            Int.ofNat (binom i ell * 182 ^ (degree - ell))) *
+            Int.ofNat (binom i ell * affineChartBScale ^ (degree - ell))) *
         (z ^ (i - ell) * ((1 : Q') + -z) ^ ell)
     else
       0
@@ -731,7 +731,7 @@ theorem finSum_affineChartBTensorTerm_shift_of_le
     rw [if_pos hlea, if_pos helli, hzero]
     have hinner :
         Q'.ofInt
-            (0 * Int.ofNat (binom i ell * 182 ^ (degree - ell))) *
+            (0 * Int.ofNat (binom i ell * affineChartBScale ^ (degree - ell))) *
           (z ^ (i - ell) * ((1 : Q') + -z) ^ ell) ≈ 0 := by
       rw [Int.zero_mul]
       exact Q'.zero_mul_eqv _
@@ -882,7 +882,7 @@ theorem tensorPowerEval_affineChartBClearedCoeff_shifted
 def affineChartBBinomialTerm (degree : Nat)
     (preChart : List (List Int)) (a₀ i ell : Nat)
     (x z : Q') : Q' :=
-  let scale := Q'.ofNat 182
+  let scale := Q'.ofNat affineChartBScale
   let oneMinusZ := (1 : Q') + -z
   (Q'.ofInt (gridCoeff preChart a₀ i) * x ^ a₀) *
     (scale ^ (degree - i) *
@@ -898,7 +898,7 @@ theorem affineChartBTensorTerm_eqv_binomialTerm
     affineChartBTensorTerm degree preChart
         (ell + a₀) ell i x z ≈
       affineChartBBinomialTerm degree preChart a₀ i ell x z := by
-  let scale : Q' := Q'.ofNat 182
+  let scale : Q' := Q'.ofNat affineChartBScale
   let oneMinusZ : Q' := (1 : Q') + -z
   let X : Q' := x ^ ell
   let Xa : Q' := x ^ a₀
@@ -914,24 +914,24 @@ theorem affineChartBTensorTerm_eqv_binomialTerm
   have hxpow : x ^ (ell + a₀) ≈ X * Xa :=
     pow_add_eqv x ell a₀
   have hscaleCast :
-      Q'.ofNat (182 ^ (degree - ell)) ≈ scale ^ (degree - ell) := by
-    exact ofNat_pow_eqv 182 (degree - ell)
+      Q'.ofNat (affineChartBScale ^ (degree - ell)) ≈ scale ^ (degree - ell) := by
+    exact ofNat_pow_eqv affineChartBScale (degree - ell)
   have hcoeffCast :
       Q'.ofInt
           (gridCoeff preChart a₀ i *
-            Int.ofNat (binom i ell * 182 ^ (degree - ell))) ≈
+            Int.ofNat (binom i ell * affineChartBScale ^ (degree - ell))) ≈
         g * (C * scale ^ (degree - ell)) := by
     refine Q'.eqv_trans _ _ _
       (YMGap.Continuum.RingNormaliser.ofInt_mul
         (gridCoeff preChart a₀ i)
-        (Int.ofNat (binom i ell * 182 ^ (degree - ell)))) ?_
+        (Int.ofNat (binom i ell * affineChartBScale ^ (degree - ell)))) ?_
     change
       Q'.ofInt (gridCoeff preChart a₀ i) *
-          Q'.ofNat (binom i ell * 182 ^ (degree - ell)) ≈
+          Q'.ofNat (binom i ell * affineChartBScale ^ (degree - ell)) ≈
         g * (C * scale ^ (degree - ell))
     refine Q'.mul_eqv_congr_left g _ _ ?_
     refine Q'.eqv_trans _ _ _
-      (ofNat_mul_eqv (binom i ell) (182 ^ (degree - ell))) ?_
+      (ofNat_mul_eqv (binom i ell) (affineChartBScale ^ (degree - ell))) ?_
     exact Q'.mul_eqv_congr_left C _ _ hscaleCast
   have hscaleSplit : scale ^ (degree - ell) ≈ sp * sr := by
     rw [hscaleExp]
@@ -976,8 +976,8 @@ theorem finSum_affineChartBTensorTerm_binomial
         (ell + a₀) ell i x z)
       (degree + 1) ≈
     (Q'.ofInt (gridCoeff preChart a₀ i) * x ^ a₀) *
-      ((Q'.ofNat 182) ^ (degree - i) *
-        (x * ((1 : Q') + -z) + Q'.ofNat 182 * z) ^ i) := by
+      ((Q'.ofNat affineChartBScale) ^ (degree - i) *
+        (x * ((1 : Q') + -z) + Q'.ofNat affineChartBScale * z) ^ i) := by
   have hlength : degree + 1 =
       0 + (i + 1) + (degree - i) := by
     omega
@@ -1010,9 +1010,9 @@ theorem finSum_affineChartBTensorTerm_binomial
     exact Q'.mul_zero_eqv _
   · let K : Q' :=
       Q'.ofInt (gridCoeff preChart a₀ i) * x ^ a₀
-    let sp : Q' := (Q'.ofNat 182) ^ (degree - i)
+    let sp : Q' := (Q'.ofNat affineChartBScale) ^ (degree - i)
     let A : Q' := x * ((1 : Q') + -z)
-    let B : Q' := Q'.ofNat 182 * z
+    let B : Q' := Q'.ofNat affineChartBScale * z
     refine Q'.eqv_trans _ _ _
       (Q'.eqv_symm
         (const_mul_finSum
@@ -1032,12 +1032,12 @@ theorem finSum_affineChartBTensorTerm_binomial
 
 theorem affineChartB_scale_power_collapse
     (degree i : Nat) (x z r : Q') (hidegree : i ≤ degree)
-    (hr : Q'.ofNat 182 * r ≈
-      Q'.ofNat 182 * z + x * ((1 : Q') + -z)) :
-    (Q'.ofNat 182) ^ (degree - i) *
-        (x * ((1 : Q') + -z) + Q'.ofNat 182 * z) ^ i ≈
-      r ^ i * (Q'.ofNat 182) ^ degree := by
-  let scale : Q' := Q'.ofNat 182
+    (hr : Q'.ofNat affineChartBScale * r ≈
+      Q'.ofNat affineChartBScale * z + x * ((1 : Q') + -z)) :
+    (Q'.ofNat affineChartBScale) ^ (degree - i) *
+        (x * ((1 : Q') + -z) + Q'.ofNat affineChartBScale * z) ^ i ≈
+      r ^ i * (Q'.ofNat affineChartBScale) ^ degree := by
+  let scale : Q' := Q'.ofNat affineChartBScale
   let affine : Q' := x * ((1 : Q') + -z) + scale * z
   have haffine : affine ≈ scale * r := by
     refine Q'.eqv_trans _ _ _
@@ -1071,14 +1071,14 @@ monomial times the common clearing scale. -/
 theorem finSum_affineChartBTensorTerm_physical
     (degree : Nat) (preChart : List (List Int))
     (a₀ i : Nat) (x z r : Q') (hidegree : i ≤ degree)
-    (hr : Q'.ofNat 182 * r ≈
-      Q'.ofNat 182 * z + x * ((1 : Q') + -z)) :
+    (hr : Q'.ofNat affineChartBScale * r ≈
+      Q'.ofNat affineChartBScale * z + x * ((1 : Q') + -z)) :
     finSum (fun ell =>
       affineChartBTensorTerm degree preChart
         (ell + a₀) ell i x z)
       (degree + 1) ≈
     (Q'.ofInt (gridCoeff preChart a₀ i) * x ^ a₀) *
-      (r ^ i * (Q'.ofNat 182) ^ degree) := by
+      (r ^ i * (Q'.ofNat affineChartBScale) ^ degree) := by
   refine Q'.eqv_trans _ _ _
     (finSum_affineChartBTensorTerm_binomial
       degree preChart a₀ i x z hidegree) ?_
@@ -1088,20 +1088,20 @@ theorem finSum_affineChartBTensorTerm_physical
       degree i x z r hidegree hr)
 
 /-- **Generic exact chart-B reconstruction.**  Evaluation of the cleared
-coefficient table at `(x,z)` is `182^degree` times evaluation of the original
+coefficient table at `(x,z)` is `affineChartBScale^degree` times evaluation of the original
 table at `(x,r)`, under the constructive affine relation.  The only support
 hypothesis says that the finite input row table fits its declared `x` degree. -/
 theorem tensorPowerEval_affineChartBClearedCoeff
     (degreeX degree : Nat) (preChart : List (List Int))
     (x z r : Q')
     (hrows : preChart.length ≤ degreeX + 1)
-    (hr : Q'.ofNat 182 * r ≈
-      Q'.ofNat 182 * z + x * ((1 : Q') + -z)) :
+    (hr : Q'.ofNat affineChartBScale * r ≈
+      Q'.ofNat affineChartBScale * z + x * ((1 : Q') + -z)) :
     tensorPowerEval (degreeX + degree) degree
         (affineChartBClearedCoeff degree preChart) x z ≈
       tensorPowerEval degreeX degree (gridCoeff preChart) x r *
-        Q'.ofNat (182 ^ degree) := by
-  let scalePow : Q' := (Q'.ofNat 182) ^ degree
+        Q'.ofNat (affineChartBScale ^ degree) := by
+  let scalePow : Q' := (Q'.ofNat affineChartBScale) ^ degree
   refine Q'.eqv_trans _ _ _
     (tensorPowerEval_affineChartBClearedCoeff_shifted
       degreeX degree preChart x z hrows) ?_
@@ -1146,10 +1146,10 @@ theorem tensorPowerEval_affineChartBClearedCoeff
     tensorPowerEval degreeX degree (gridCoeff preChart) x r *
         scalePow ≈
       tensorPowerEval degreeX degree (gridCoeff preChart) x r *
-        Q'.ofNat (182 ^ degree)
+        Q'.ofNat (affineChartBScale ^ degree)
   exact Q'.mul_eqv_congr_left
     (tensorPowerEval degreeX degree (gridCoeff preChart) x r) _ _
-    (Q'.eqv_symm (ofNat_pow_eqv 182 degree))
+    (Q'.eqv_symm (ofNat_pow_eqv affineChartBScale degree))
 
 /-! ## Triangular-support truncation -/
 
@@ -1311,12 +1311,12 @@ theorem tensorPowerEval_affineChartBClearedCoeff_triangular
     (htriangular : ∀ a, a < degreeX + 1 →
       ∀ i, i < degree + 1 → degreeX < a + i →
         gridCoeff preChart a i = 0)
-    (hr : Q'.ofNat 182 * r ≈
-      Q'.ofNat 182 * z + x * ((1 : Q') + -z)) :
+    (hr : Q'.ofNat affineChartBScale * r ≈
+      Q'.ofNat affineChartBScale * z + x * ((1 : Q') + -z)) :
     tensorPowerEval degreeX degree
         (affineChartBClearedCoeff degree preChart) x z ≈
       tensorPowerEval degreeX degree (gridCoeff preChart) x r *
-        Q'.ofNat (182 ^ degree) := by
+        Q'.ofNat (affineChartBScale ^ degree) := by
   refine Q'.eqv_trans _ _ _
     (Q'.eqv_symm
       (tensorPowerEval_affineChartBClearedCoeff_truncate
@@ -1332,12 +1332,12 @@ theorem tensorPowerEval_affineChartBClearedCoeff_of_support_check
     (hrows : preChart.length ≤ degreeX + 1)
     (htriangular :
       GridTriangularSupport degreeX degree (gridCoeff preChart) = true)
-    (hr : Q'.ofNat 182 * r ≈
-      Q'.ofNat 182 * z + x * ((1 : Q') + -z)) :
+    (hr : Q'.ofNat affineChartBScale * r ≈
+      Q'.ofNat affineChartBScale * z + x * ((1 : Q') + -z)) :
     tensorPowerEval degreeX degree
         (affineChartBClearedCoeff degree preChart) x z ≈
       tensorPowerEval degreeX degree (gridCoeff preChart) x r *
-        Q'.ofNat (182 ^ degree) := by
+        Q'.ofNat (affineChartBScale ^ degree) := by
   exact tensorPowerEval_affineChartBClearedCoeff_triangular
     degreeX degree preChart x z r hrows
     (fun a ha i hi hdegree =>

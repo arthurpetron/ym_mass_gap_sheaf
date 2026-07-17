@@ -1,9 +1,9 @@
 /-
 # Physical chart-A consumer for the lower-six E8 envelope certificate
 
-On `64 ≤ n` and `n² ≤ D ≤ 2*n²`, the exact coordinates
+On `tailEnvelopeModeChartBase ≤ n` and `n² ≤ D ≤ 2*n²`, the exact coordinates
 
-  x = 64/n,        r = (D-n²)/n²
+  x = tailEnvelopeModeChartBase/n,        r = (D-n²)/n²
 
 belong to the unit square.  The closed E8 chart-A Bernstein table is
 therefore nonnegative, and the quadratic projective kernel carries that
@@ -85,21 +85,21 @@ theorem ofNat_nonnegative (value : Nat) :
   exact Int.natCast_nonneg value
 
 theorem normalized_chartA_bounds
-    (D n : Nat) (hnpos : 0 < n) (hn : 64 ≤ n)
+    (D n : Nat) (hnpos : 0 < n) (hn : tailEnvelopeModeChartBase ≤ n)
     (hDlow : n * n ≤ D) (hDhigh : D ≤ 2 * (n * n)) :
-    let x := Q'.mkPos 64 n hnpos
+    let x := Q'.mkPos tailEnvelopeModeChartBase n hnpos
     let n2 := n * n
     let hn2pos : 0 < n2 := Nat.mul_pos hnpos hnpos
     let r := Q'.mkPos (Int.ofNat D - Int.ofNat n2) n2 hn2pos
     (0 : Q') ≤ x ∧ (0 : Q') ≤ 1 - x ∧
       (0 : Q') ≤ r ∧ (0 : Q') ≤ 1 - r := by
   dsimp only
-  have hx : (0 : Q') ≤ Q'.mkPos 64 n hnpos := by
+  have hx : (0 : Q') ≤ Q'.mkPos tailEnvelopeModeChartBase n hnpos := by
     rw [Q'.zero_le_iff_num_nonneg, Q'.mkPos_num]
     decide
-  have hxle : Q'.mkPos 64 n hnpos ≤ (1 : Q') := by
-    show (Q'.mkPos 64 n hnpos).num * ((1 : Q').den : Int) ≤
-      (1 : Q').num * ((Q'.mkPos 64 n hnpos).den : Int)
+  have hxle : Q'.mkPos tailEnvelopeModeChartBase n hnpos ≤ (1 : Q') := by
+    show (Q'.mkPos tailEnvelopeModeChartBase n hnpos).num * ((1 : Q').den : Int) ≤
+      (1 : Q').num * ((Q'.mkPos tailEnvelopeModeChartBase n hnpos).den : Int)
     rw [Q'.mkPos_num, Q'.mkPos_den]
     have honeNum : (1 : Q').num = 1 := rfl
     have honeDen : (1 : Q').den = 1 := rfl
@@ -151,13 +151,13 @@ def tailEnvelopeE8ChartARawEval (D n : Q') : Q' :=
 
 /-- **Physical E8 chart-A sign certificate.** -/
 theorem tailEnvelopeE8ChartARawEval_nonnegative
-    (D n : Nat) (hn : 64 ≤ n)
+    (D n : Nat) (hn : tailEnvelopeModeChartBase ≤ n)
     (hDlow : n * n ≤ D) (hDhigh : D ≤ 2 * (n * n)) :
     (0 : Q') ≤
       tailEnvelopeE8ChartARawEval (Q'.ofNat D) (Q'.ofNat n) := by
   have hnpos : 0 < n := Nat.lt_of_lt_of_le (by decide) hn
   have hn2pos : 0 < n * n := Nat.mul_pos hnpos hnpos
-  let x := Q'.mkPos 64 n hnpos
+  let x := Q'.mkPos tailEnvelopeModeChartBase n hnpos
   let r := Q'.mkPos (Int.ofNat D - Int.ofNat (n * n))
     (n * n) hn2pos
   let den := Q'.ofNat n
@@ -192,8 +192,8 @@ theorem tailEnvelopeE8ChartARawEval_nonnegative
       (0 : Q') ≤ tensorPowerEval 83 44
           (gridCoeff tailEnvelopeE8ChartAScaledPowerRows) x r * den ^ 89 :=
     Q'.mul_nonneg _ _ hpower (Q'.pow_nonneg den hdenNonnegative 89)
-  have hxden : x * den ≈ Q'.ofNat 64 := by
-    exact mkPos_mul_ofNat_eqv 64 n hnpos
+  have hxden : x * den ≈ Q'.ofNat tailEnvelopeModeChartBase := by
+    exact mkPos_mul_ofNat_eqv tailEnvelopeModeChartBase n hnpos
   have hnSquare : den * den ≈ Q'.ofNat (n * n) := by
     exact ofNat_mul_eqv n n
   have hrSquare : (r + 1) * Q'.ofNat (n * n) ≈ targetD := by
@@ -209,7 +209,7 @@ theorem tailEnvelopeE8ChartARawEval_nonnegative
         tailEnvelopeE8ChartARawEval targetD den := by
     unfold tailEnvelopeE8ChartARawEval
     apply tensorPowerEval_mul_den_pow_eqv_quadratic
-      83 44 89 64
+      83 44 89 tailEnvelopeModeChartBase
       (gridCoeff tailEnvelopeE8ChartAScaledPowerRows)
       (gridCoeff tailEnvelopeE8ChartAPreChartRows)
       tailEnvelopeE8ChartAScaledRaw x r den targetD

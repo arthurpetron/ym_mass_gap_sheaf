@@ -11196,8 +11196,21 @@ statements retain their pinned hashes.
    remaining eight-pattern inequality
    `absQ localCrossDiff <= bound * localDenominator`; no retuned law or hidden
    normalization premise occurs.  All nine gates use only the permitted
-   axioms.  OPEN is to derive those eight inequalities and a bound summable
-   along a genuinely iteratable physical blocking trajectory.
+   axioms.  `Z4OutwardFineCoarseLocalCharacterQuotient` transports both physical
+   pattern masses to small exact local numerator/partition quotients and feeds
+   the same eight-cell residual directly to the actual retune-defect bound,
+   avoiding expansion of the large configuration structures; all eight gates
+   remain axiom-clean.  `...LocalEightCells` proves the universal residual
+   equivalent to the explicit conjunction of its `000` through `111` cells
+   and supplies a direct eight-hypothesis physical defect theorem.  The
+   `...SupportGasCrossDifference` reindex then identifies every local numerator,
+   partition, cross-difference, and denominator with exact compatible
+   connected-surface-family sums, replacing an infeasible raw `2^7776`
+   configuration enumeration by the established support-fibre bijection.
+   Their eleven gates remain within `{propext, Quot.sound}`.  OPEN is a uniform
+   relative cross-difference estimate for those support-gas event sums under
+   `beta -> 2*beta^4`, followed by summability along a genuinely iteratable
+   physical blocking trajectory.
    A global refresh may not be called a local block kernel.  Meanwhile the
    reflection-positive route
    is constructing an actual adjacent-time joint cylinder law rather than an
@@ -11288,3 +11301,871 @@ statements retain their pinned hashes.
 - Migdal--Kadanoff or other bond-moving recursions are envelopes, not identities;
   they enter the critical path only after a proved comparison in the correct
   direction.
+
+### Active integration checkpoint: chart regeneration and two independent physical fronts
+
+This checkpoint represents a large exact-rational formal research substrate and
+an increasingly adversarial collection of normalization, locality, and
+positivity fences.  It must not be interpreted as a percentage completion of
+the Clay problem: the strongest closed statements remain harmonic-model and
+finite cutoff-one SU(2)/Z4 statements, while arbitrary compact simple groups,
+the interacting four-dimensional continuum limit, the uniform physical gap,
+and the complete OS/Wightman and local-field conclusions remain open.
+
+- **Harmonic certificate normalization.**  The regenerated lower-six envelope
+  certificates use mode-chart base `14`, affine chart-B scale `28`, and
+  denominator-chart base `392`, with the intended physical splice at
+  `k >= 390`.  Root replay exposed two real semantic-coherence failures rather
+  than proof gaps: the Taylor-nine handwritten consumer retained `8191`, and
+  the generic affine reconstruction retained scale `182`.  Exported constants
+  `tailTaylor9ChartBase` and `affineChartBScale` now make those consumers share
+  the generated data, and their direct replays are green with gates inside
+  `{propext, Quot.sound}`.  Every tracked handwritten E8/E9 chart,
+  physical-dispatch, slope-floor, and base-certificate consumer has now been
+  migrated to the exported parameters.  The authoritative E8B replay is now
+  independently green, and exactly one E9B replay remains in flight.  The
+  exact low-mode head has also been recentered at `392 + X`: coefficient
+  nonnegativity for all eight low modes, semantic evaluation for `X >= 0`, the
+  exact-error chain, `ExactHead`, all four joint endpoint estimates, and the
+  complete head/tail payment assembly now replay at `k >= 390`; the root
+  direct TailPayment replay exits green with every gate inside the allowlist.
+  The distinct aggregate `head + tail` compensation route is dominated at
+  this splice: `ExactHead` proves the entire moving head nonnegative uniformly,
+  so there is no negative head debt for reserve surplus to absorb, while the
+  joint endpoint's exact center-`28` requirement already fixes the cutoff.
+  `ProductionClosure` has consequently been lowered to the same honest
+  threshold and awaits the authoritative E9 replay before its named build.
+  `ProductionStep` remains stated at `8189`; only compatibility plumbing from
+  that stronger hypothesis to `390 <= k` is permitted there.  Two
+  exact `k=390` shortcuts are independently replayed and fenced as false: the
+  old quarter-window bound fails at `j=34`, and the old cubic-debt moment
+  coefficient inequality fails.  Exact endpoint checks now sharpen the latter
+  route: the literal old coefficient is still false at `k=1329` and becomes
+  true at `k=1330`, with both facts kernel-checked.  The denominator-cleared
+  degree-ten polynomial recentered at `k=1330` is now also formal: kernel
+  normalization proves every coefficient nonnegative, and the constructive
+  evaluator proves the polynomial nonnegative for every recentering slack
+  `X>=0`.  The live step is the explicit positive-denominator bridge from this
+  polynomial to the physical coefficient, yielding a uniform `k>=1330`
+  theorem.  This would
+  replace the former `8189` cutoff while leaving the finite `648..1329` band
+  for either exact traversal or a sharper moment payment.
+
+- **Outward support-gas comparison.**  Exact event-difference splitting now
+  bounds `|N(E)-N(F)|` by the symmetric-difference numerator and feeds the
+  physical relative-defect consumer.  The pattern-`100` small-lift witness has
+  fine truth table `100` and coarse truth table `000`, so identity injection
+  forces any cellwise relative bound to be at least one.  Summing all eight
+  signed geometry cross-differences gives exactly zero, but an explicit pair
+  of positive eight-cell laws shows that this conservation alone is compatible
+  with a pattern-`100` relative defect at least `1/2`.  The live route is
+  therefore within-cell sign-reversing pairing or a short cancellation cycle,
+  stratified by the first differing root/component and preserving exact
+  activity; unsigned injection and a global zero-sum identity are permanently
+  rejected as small-defect mechanisms.  The first proposed opposite singleton
+  is now also machine-refuted: the outward-X cube is pattern `100` for both the
+  coarse and fine query systems, while the small-lift singleton is genuinely
+  fine-only.  The corrected green module banks this same-sign obstruction and
+  the search has moved to a central-cube two-step cycle.  That cycle is now
+  exact: at cutoff one the central cube and small lift each have the derived
+  activity `(coeffW coupling 1)^6`; their orientations are `111 -> 000` and
+  `000 -> 100`, so the intermediate `000` signed contribution cancels exactly.
+  The remaining endpoint profile is one positive `111` activity and one
+  negative `100` activity.  A conditional three-edge theorem records precisely
+  what would close it, but supplies no carrier.  OPEN is therefore an actual
+  derived equal-activity `100 -> 111` carrier, or a longer weighted cycle whose
+  endpoint profile cancels without assumed amplitudes.  A translated six-face
+  cube cannot be that carrier: the uniform axis-offset obstruction already
+  prevents it from containing both the distinguished x- and y-fine faces.  A
+  four-edge candidate cycle has now been found among literal seven-cube
+  polycube boundaries, each with 28 distinct faces and the cell orientations
+  `011 -> 100 -> 000 -> 111 -> 011`.  Exact incidence scouting corrected an
+  initially tempting bivalent interpretation: every carrier has 54 bivalent
+  touched links and one four-valent touched link.  The generic cutoff-one
+  theorem for that profile is independently green and gives the derived
+  activity `(coeffW coupling 1)^28 * 2`.  The four literal 28-face supports,
+  their exact query edges, nodup and six-box containment, finite connectivity
+  certificates, canonical roots, distinguished four-incidences, remaining
+  two-incidences, and equal canonical/singleton-family activities are now all
+  independently green.  The signed layer is now closed too: all eight physical
+  and all eight singleton-family coarse/fine truth-table instances replay, and
+  the four complete actual cutoff-one activities telescope pointwise to zero
+  in every cell for every coupling.  A separate axiom-free counterexample
+  shows why compatibility alone is not a sufficient switching guard: unequal
+  coarse/fine background patterns destroy the OR-shifted cycle.  This local
+  cycle is still only the seed of a gas estimate.  The live mechanism is
+  polymer switching against backgrounds that are compatible with all four
+  carriers and have matching query patterns (the first implementation uses
+  coarse=fine=`000`).  Those good backgrounds must cancel with an explicit
+  common activity factor; every collision or pre-existing query disagreement
+  must then be charged, by a derived first-witness map, to a touched link,
+  plaquette, or earlier differing component and paid by an additional activity
+  factor.
+
+- **Adjacent-even reflection interface.**  The corrected odd-time route sums
+  one shared fixed-face label across the four open link channels, with separate
+  face and channel cutoffs, instead of incorrectly resumming each link
+  independently.  The resulting joint four-channel face block has a degree-five
+  anchor tail, row mass at most `1/2`, an explicit Gram representation, and a
+  duplicate-free face-network Gram.  Concrete slab incidence now proves that
+  each fixed face has exactly four ordered edges and that its ID appears in the
+  corresponding literal incident-plaquette list; `fixedFaceFourChannels` reads
+  those four production channels in that exact order.  The finite Fubini
+  identity is now closed: one bounded label per nodup fixed face is exactly the
+  duplicate-free product of joint face blocks, an arbitrary-list reverse
+  enumeration identifies that product with `anchorJointFaceNetworkKernel`, and
+  a heterogeneous Gram representation specializes constructively to face
+  cutoff `K` and channel cutoff `linkAuxiliaryCutoff K = 6*K`.  OPEN is
+  the globally compatible incidence contraction and attachment of the lower
+  and reflected-upper amplitudes, without reintroducing independent shared-face
+  resummation.  The local multi-fixed-link part is now closed: an exact
+  `[1,1]` fence proves an intermediate channel is necessary, a generic
+  arbitrary-fixed-word factorization supplies lower / multi-fixed /
+  reflected-upper double-channel trajectories, and the rational specialization
+  identifies this contraction with every literal production
+  `slabExplicitLinkMultiplicity`.  Constructive endpoint Fubini now rewrites
+  the complete fixed-link multiplicity product as one finite sum over bounded
+  source/target channel assignments on the literal nodup fixed-link list.
+  A further per-link theorem makes every internal fixed word explicit: its
+  `fusionWalkMultiplicity` is exactly a finite sum over bounded post-face
+  channels indexed by the actual nodup incident fixed-face IDs.  Heterogeneous
+  product Fubini is now also closed: one global finite sum over a concrete
+  `Z4Link -> Nat -> Nat` trajectory state equals the product of all literal
+  fixed-link multi-face transition elements.  Finally, the literal link-major
+  incidence list `(fixed face ID, fixed link)` and the literal face-major list
+  obtained from the four ordered boundary links of every fixed face are proved
+  nodup and permutation-equivalent.  The pointwise predecessor-channel algebra
+  is now closed as well: every per-link fixed-word indicator splits exactly
+  into transition product times terminal delta; occurrence-stable incoming
+  channels make every transition a function of one literal incidence; the
+  permutation regroups those factors into each face's exact
+  `fourFusionIndicator`; and all endpoint deltas remain explicit outside the
+  face product.  The target-endpoint sum is now closed too: soundness of the
+  arbitrary-key and heterogeneous enumerators bounds every generated final
+  channel by `linkAuxiliaryCutoff K`; the terminal indicators are exact
+  Kronecker deltas; and summing every bounded target assignment collapses the
+  terminal product times reflected-upper product to the reflected-upper
+  amplitude at the trajectory's actual final channels.  The former link-only
+  typing mismatch is now removed.  A fixed-face channel field may vary
+  simultaneously with the face ID and the link; literal face-dependent
+  fixed-label Fubini is equal to the block product, and a recursive Gram
+  representation holds for arbitrary face-dependent incoming and post-channel
+  fields.  It specializes constructively to the production cutoffs and includes
+  a zero-state non-vacuity witness.  The literal fixed-link endpoint kernel is
+  now integrated globally as well: it is exactly the finite sum over bounded
+  source assignments and compatible internal trajectories of lower amplitude,
+  face-transition product, and reflected-upper amplitude evaluated at the
+  trajectory's final channels.  Thus both endpoint amplitudes and the source
+  sum are attached, not assumed.  The actual physical fixed-face coefficients
+  are now inserted exactly once and summed: the literal coefficient-times-
+  transition sum equals both the trajectory resummed kernel and the
+  duplicate-free joint-face block product.  Arbitrary common channel-field
+  pullbacks therefore have nonnegative quadratic form, and lower amplitudes can
+  be absorbed into the test vector without a sign hypothesis.  Two exact
+  fences reject the naïve remaining shortcut.  The directed predecessor/post
+  compatibility mask has a two-state quadratic form `-1`, and the obstruction
+  persists after the literal positive cutoff-one heat-kernel face coefficient
+  is summed along distinct incoming/outgoing maps.  OPEN is consequently a
+  genuinely palindromic/common-middle-boundary factorization of the entire
+  compatible slab (for example an explicit `T* T` contraction), or a literal
+  finite-slab counterexample forcing a different reflection-positive slicing;
+  mixed-map Gram pullback and bare Schur multiplication are blocked.  The
+  replacement algebra is now independently green: for an arbitrary finite
+  rational amplitude map `A`, every constructive Gram kernel `T` has a
+  constructive Gram sandwich `A T A^t`, with transformed features given by
+  the exact finite boundary sum and no square roots or choice.  The
+  model-specific endpoint identification is now independently green as well.
+  A bounded adjacent-even slab labelling is assembled from a left lower
+  coordinate, one fixed boundary, and a right lower coordinate; reflection
+  swaps the lower coordinates and fixes that same boundary.  An exact
+  sum-budget permutation theorem transports every literal upper incidence
+  word to its reflected lower word inside the production cutoff `6*K`, and the
+  complete reflected-upper amplitude product is therefore the identical lower
+  amplitude map on the right assembled coordinate.  Thus the endpoints really
+  are `A` and `A^t`.  The sole remaining palindromic residual on this lane is
+  to control the compatible, physical-face-summed fixed-interface endpoint
+  operator itself as the common middle kernel `T`.  That operator is now a
+  literal finite definition: one sum over bounded physical fixed-face labels
+  carrying the derived coefficient product, and inside it one sum over all
+  compatible fixed-incidence trajectories, indexed only by the common bounded
+  fixed-link endpoint assignments.  An exact cutoff-two, radius-zero fence
+  rejects blind sequential local-Gram composition: two actual fixed faces
+  sharing one literal link have a nonsymmetric `11 -> 12` boundary corner, so
+  their full `0,...,12` ordered product admits no `GramRep`.  This does not yet
+  refute the physical sandwich, and the reason is now uniformly proved rather
+  than guessed.  A fusion walk cannot finish above its start plus the sum of
+  its input spins; reflection pairs the lower and upper incidence subwords;
+  and the total four-dimensional incidence word has length at most six.
+  Consequently every lower half-word has length at most three, its spin sum is
+  at most `3*K`, and the literal lower amplitude is exactly zero on every
+  channel `3*K < channel <= 6*K`.  Thus the hard-boundary patch is outside the
+  image of `A` at every radius.  The required nonbinding argument is now also
+  exact in its correct coupled form, rather than the false independent
+  `3*K+3*K` estimate: lower-word plus fixed-word length is at most six, their
+  spin sums fit inside `6*K`, and a nonzero source endpoint is bounded by the
+  lower-word sum.  Inside that budget the fixed-word fusion multiplicity is
+  invariant under safe word permutation and symmetric under endpoint reversal.
+  OPEN is to lift these linkwise symmetric reachable transitions through the
+  shared physical-face labelling sum to a global common-middle Gram for the
+  compressed `T`; otherwise produce a counterexample inside this genuinely
+  reachable coupled domain and change the reflection-positive slicing.
+
+## 2026-07-16 (later): build-memory triage and full-tree green on the chart-392 wave
+
+- Root cause of the machine-crashing "checks": every check path ran bare
+  `lake build`, which spawns one worker per logical core (16 here) and this
+  Lake exposes no `--jobs` flag.  The uncommitted chart retuning
+  (Base chart `8191 -> 392`, `MODE_CHART_BASE = 14`, clearing `182 -> 28`)
+  invalidated ~264 modules and hence essentially the whole 2464-job tree.
+  Typical regenerated certificate modules peak at 3-4 GB in the kernel and
+  `HarmonicLowerSixTailBaseSemanticBridge` peaks near 15 GB (measured), so
+  16 concurrent workers exhausted the 64 GB machine.
+- Fix (infrastructure, three files): `LEAN_NUM_THREADS=3` wired into every
+  lake-invoking Makefile target via `LEAN_JOBS ?= 3` (verified empirically
+  to cap concurrent workers), the same default in
+  `scripts/lean_axiom_audit.py`, and `-M 20480` added to `weakLeanArgs` in
+  `lean/lakefile.toml` so any runaway worker fails deterministically with
+  "excessive memory consumption detected" instead of swap-crashing the
+  machine.  Weak args do not invalidate cached artifacts.  Override
+  parallelism per run with `make lean-build LEAN_JOBS=8` for light waves.
+- Fix (one-line Lean repair): the retuning strengthened
+  `lowerSixFullRemainderPayment_production` from `8189 <= k` to `390 <= k`;
+  the unchanged consumer `HarmonicLowerSixTailEnvelopeProductionStep` still
+  passed the old witness.  Repaired by threshold coercion
+  `(show 390 <= k by omega)` at the single call site, leaving all `8189`
+  statements and downstream signatures intact.
+- Verified: full `make lean-build` green (2464/2464), frontier-guard OK
+  (5 Clay-frontier types uninhabited), statement-guard OK (10 statements
+  pinned, no drift), axiom audit PASS (19245 theorems, 0 exceptions).
+  Peak memory during the capped rebuild stayed under ~20 GB total.
+- Banked follow-ups:
+  1. `HarmonicLowerSixTailBaseSemanticFactors.lean` (generated, committed
+     generator, currently imported by nothing) was clearly intended to
+     stage the Base bridge's expensive raw factors as literals; wiring it
+     into `HarmonicLowerSixTailBaseSemanticBridge` should cut the ~15 GB
+     kernel peak substantially.  The semantic-rows generator reproduces
+     `HarmonicLowerSixTailBaseSemanticRows.lean` byte-identically and its
+     `178605` factorization self-check still passes, so the bridge identity
+     is intact; this is purely a cost refactor.
+  2. Propagate the improved `390 <= k` production threshold through
+     `HarmonicLowerSixTailEnvelopeProductionStep` and its consumers
+     (currently anchored at `8189`); the coercion above is deliberately
+     conservative and leaves that strengthening unharvested.
+
+**Core-B row-one campaign opened (2026-07-16, session 2).**  The shifted row
+`R(1,r)` — the first honest residual of the cumulative diagonal payment
+`C(0,r,2) = R(0,r+1) + R(1,r)` — is now scouted, designed, and its first cell
+proved.  Exact-rational falsification found no negative value on a 972-point
+physical-simplex sweep (`r <= 8`), so the row is a proof target.  The
+constructive decomposition: at `s = 1` every window has exactly two coeff
+summands, so the eleven mixed minors expand into a FIXED 42-family table of
+elementary antisymmetric chains `C(r)(w^{e1}h^{e2}-w^{e2}h^{e1})` with
+exponents quadratic and coefficients quartic in `r`; every family delta is
+EVEN, so each chain individually divides by `w^2-h^2`.  For `r >= 4` all
+signs are definite: 20 favorable, 19 adverse, 1 zero, 2 favorable-from-mixed.
+FENCED: pure same-total-degree cumulative matching is INFEASIBLE (several
+adverse lines carry no favorable mass at all) — do not retry it.  The live
+mechanism is the pure-boundary ANCHOR payment: the `E*E`-vs-`E^2` family
+(`C_f = 81(r+1)(r+2)^2(r+3)`, single monomial `(wh)^{2r^2+8r+22}`, the
+lowest total-degree line `T_f = 4r^2+16r+44`) coordinatewise-dominates every
+adverse chain monomial (margins >= 0, per-family total-degree gaps
+`2r+2`/`4r+2`/`4r+6`/`6r`/`6r+4`-and-up), and the exact per-family discount
+inequality `sum_a C_a L_a 4^{-(T_a-T_f)} <= C_f` holds with ~1e16 slack at
+`r = 4` (verified exactly to `r = 200`; Lean-facing coarsening
+`sum_a C_a L_a <= 4^{2r+2} C_f` also verified).  Design-verification scouts
+banked at `computations/CoreBResidualRowOne_{sweep,anchor}_scout.py`.
+
+The first finite cell is PROVED and registered:
+`CoreBResidualRowOneCellZero.boundaryResidualAt_one_zero_nonneg` — the
+`(1,0)` quotient has content `(wh)^22`, nineteen monomials, and its single
+adverse `-6720 w^2 h^2` is paid by the constant `11232` via
+`6720(hw)^2 <= 1680 <= 11232` under `4w <= 1`; kernel-checked factorization
+and normal form, axiom gate `[propext, Quot.sound]`, build 2465 jobs green,
+audit 19250 theorems PASS.  OPEN, in order: (i) cells `(1,1)`, `(1,2)`,
+`(1,3)` in the same style (scouted quotients: 58/13-, 121/40-, 166/58-
+monomial tables with negatives — the compact adverse-grouping technique of
+`CoreBResidualOffsetTwo` applies); (ii) the uniform `r >= 4` anchor module:
+the 42-family decomposition identity of `boundaryResidualAt w h 1 r`
+symbolically in `r` (the algebra toolkit of `CoreBStructuralRecurrence`
+suffices; no reflection needed since `r` is symbolic), the chain upper bound
+`chain <= L * (wh)^{m_f} w^{p} h^{q}` from coordinatewise domination, and the
+single quintic-vs-`4^{2r+2}` induction; (iii) assemble
+`boundaryResidualAt_one_nonneg` for all `r` and feed the cumulative
+consumer; (iv) only then attempt row-`s` propagation through the structural
+recurrence — the anchor family exists at every `s` (pure `E*E` boundary), so
+the same design plausibly lifts, but that claim is unscouted and must not be
+assumed.
+
+**Row-one finite cells closed (2026-07-17).**  Cells `(1,1)`, `(1,2)`,
+`(1,3)` are proved and registered, completing the finite prefix of the
+row-one campaign:
+- `CoreBResidualRowOneCellOne{Factor,}`: `R(1,1) >= 0`.  Content `(wh)^32`,
+  reserve `11664`, 44-monomial tail, 13 adverse (mass `64188`); every
+  adverse monomial carries `w^2 h^2`, so the whole block is bounded by
+  `64188 (w*w)` and paid via `65536 (w*w) <= 4096 <= 11664`.
+- `CoreBResidualRowOneCellTwo{Factor,}` (generated): `R(1,2) >= 0`.
+  Content `(wh)^46`, reserve `19440`, 80-tail, 40 adverse (mass `253764`);
+  paid via `262144 (w*w) <= 16384 <= 19440`.
+- `CoreBResidualRowOneCellThree{Factor,}` (generated): `R(1,3) >= 0`.
+  Content `(wh)^64`, reserve `48600`, 107-tail, 58 adverse (mass
+  `1304856`); the one-shot `(w*w)` bound FAILS here (`mass/16 > reserve`),
+  so the sharper monomial bound `qpow w (nw+2) * qpow h (nh+2) <=
+  (w*w)*(h*h)` is used (via the verified defeq `qpow x (n+1) = qpow x n *
+  x`), and the block is paid via `1310720 (w*w)(h*h) <= 5120 <= 48600`.
+The four `(1,2)`/`(1,3)` modules are emitted by
+`computations/CoreBResidualRowOneCells_generate.py` (banked); the heavy
+`(1,3)` factor decides (degree ~182) compile solo under `-M 40960`.  All
+gates `[propext, Quot.sound]`; build 2471 jobs green; audit 19274 theorems
+PASS.  The `(1,3)` payment pattern (uniform `(w*w)(h*h)` bound + one
+power-of-4 cap) is exactly the shape the uniform `r >= 4` anchor module
+needs, so the finite prefix now matches the asymptotic design.  OPEN next:
+the uniform `r >= 4` anchor module per the banked plan; then assemble
+`boundaryResidualAt_one_nonneg` for all `r`; then the cumulative consumer.
+
+---
+
+**Strategic review and efficient-path plan (2026-07-17, session 3).**
+Full-state assessment against `docs/ym_mass_gap_prompt.md`, recorded as the
+standing attack ordering.  Facts first, then the ordered plan with the
+mathematical content of each front made explicit.
+
+*State census (verified this session).*  Build 2471 jobs green, checked
+exit; audit 19274 theorems, 2346 namespaces, 0 exceptions, every theorem
+`#print axioms` in {propext, Quot.sound}; statement guard 10 pinned
+statements OK; frontier guard 5 Clay-frontier types unconditionally
+uninhabited; `frontierAllowlist` empty.  Proved substrate: `singleStep`
+spine (per-scale `(1 - delta_k) m_k <= m_{k+1}` against the strong-coupling
+anchor, `(1 - sum delta) m_0 > sum eps`); dependency-free Bishop reals;
+constructive GNS + located transfer calculus (BishopFunctional);
+Kotecky-Preiss constructive; Penrose deletion-contraction; exact
+character/fusion calculus with kernel-checked Haar amplitudes; the
+refutation ledger (racahRP, EigShiftOrder, GapIsEigenvalue, OS2
+reflection-vs-product, RenormPerSBudget 1/128 floor -> graded-norm cure).
+Core-B campaign state: base row `R(0,r)` closed uniformly
+(`CoreBResidualBaseUniform`); shifted-row cells `R(1,0)`..`R(1,3)` closed
+(`CoreBResidualRowOneCell{Zero,One,Two,Three}{,Factor}`); uniform `r >= 4`
+anchor design verified exactly to `r = 200` with ~1e16 slack at `r = 4`;
+42-family chain decomposition banked with the same-line-matching
+infeasibility FENCED.
+
+*Frontier census with mathematical content.*  The whole problem is now the
+seven open atoms of `FrontierDAG` (plus completeness obligations listed at
+the end).  Stated without optimism:
+
+1. `coreB` / named-open `CoreBBridge w : FiniteSMargin w ->
+   CrossRatioMonotone w`.  Discharges `Tier0AtomsC.b` via the proved total
+   consumer `coreBToCrossRatio`.  `CrossRatioMonotone` is the all-`s`
+   cross-ratio inequality on the autoconvolutions `acN w n s =
+   sum_{p<n} coeffW(p) coeffW(s-p)`, `coeffW w p = (p+1) w^{p(p+2)}`, on
+   the physical simplex `0 <= h <= w`, `4w <= 1`.  Current live residual:
+   the uniform `r >= 4` row-1 theorem, then row-`s` propagation
+   (UNSCOUTED at `s >= 2`).
+2. `a2Pentagon` (Level-2).  The genuine fractional-6j associator numeric
+   core (`PentagonRelation.PentagonNumericCore`); the Level-1 doubly
+   stochastic Racah 6j^2 surrogate is carried, the PHYSICAL associator is
+   the open content.  Adjacent proved leverage: pentagon rigidity of
+   squared Racah coefficients (Tier A artifact), racahRP refutation.
+3. `bulk_shift` (single lemma behind BOTH `bulkCtrl` and `edgeShift`).
+   Bond-moved spectral localization: after a Migdal-Kadanoff bond-moving
+   step the transfer bulk spectrum shifts by a per-scale-controlled
+   amount, with the pinned `hId`/`hLin` edge-shift residual consuming it
+   per scale.  This is the mechanism-level hard core of the
+   block-spin route; one lemma, two atoms.
+4. `boundedH` (Residual B).  A bounded self-adjoint additive Hamiltonian
+   with `e^{-H} = T`.  Functional analysis over an already-constructed
+   `T`, not new physics: needs (i) locatedness of `spec T` with a positive
+   lower bound `T >= m > 0` (finite volume + strong-coupling anchor), (ii)
+   constructive `-log` on a located compact subset of `(0, M]` via
+   Bernstein/polynomial approximation with modulus, (iii) self-adjointness
+   from RP symmetry of `T`, (iv) the semigroup law `e^{-nH} = T^n`.
+   Substrate (located transfer calculus, BishopFunctional) already exists.
+5. `trueMargin`.  The genuine dimensionless recursion `Delta_k =
+   m_lat(a_k)/a_k`: the `singleStep` inequality re-expressed in physical
+   units, requiring the scale ratio `a_{k+1}/a_k` DERIVED per scale
+   consistently with asymptotic freedom.  Structurally downstream of 3.
+6. `o4`.  Physical O(4) isotropization (`betaDrop` sign / anisotropy
+   running) under blocking.  Structurally downstream of 3.
+7. Completeness obligations that must not silently narrow: all compact
+   simple `G` (current worst-case tails are SU(2)/SU(3); rank-uniform
+   constants are an open front), the full OS axiom list through
+   reconstruction, uniform gap through the infinite-volume limit
+   `T^4 -> R^4`, and non-triviality (OPE short-distance matching, stress
+   tensor).  These are tracked here so no route quietly proves less.
+
+Honest distance statement (stated once, then attacked): atoms 3, 5, 6
+jointly carry the classical hard core of the continuum-limit problem.  The
+DAG has localized and fenced the difficulty, not shrunk it.
+
+*THE IMMEDIATE HIGHEST-LEVERAGE MOVE: the s-uniformity scout.*  Before
+writing the uniform `r >= 4` module specialized to `s = 1`, run one exact
+scouting pass at `s = 2, 3` (and `s = 4` if cheap) answering, with exact
+rationals and no proofs:
+
+  (a) Window arity.  At `s = 1` every window `W(s, k)` has exactly two
+      coeff summands, which is what fixes the 42-family count.  At general
+      `s` the arity grows (`s+1` summands per window), so the family
+      count grows combinatorially: families are indexed by summand choices
+      in each of the 11 minor products.  Determine the exact family count
+      and index scheme at `s = 2, 3`.
+  (b) Parity.  Verify every elementary chain delta stays EVEN (each chain
+      individually divisible by `w^2 - h^2`).  A single odd delta at any
+      `s` refutes the per-chain factorization and forces a regrouping;
+      bank it as a refutation theorem if found.
+  (c) Sign stabilization.  Verify the favorable/adverse/zero sign
+      classification becomes definite for `r >= r_0(s)` and measure
+      `r_0(s)` (at `s = 1`, `r_0 = 4`).  If `r_0(s)` grows, the finite
+      cell prefix per row grows with it; measure the growth law.
+  (d) Anchor existence and domination.  The pure-boundary `E*E`-vs-`E^2`
+      family exists at every `s` by construction; verify it remains the
+      LOWEST total-degree line and coordinatewise-dominates every adverse
+      chain monomial, and compute the per-family discount inequality
+      `sum_a C_a L_a 4^{-(T_a - T_f)} <= C_f` margin as a function of
+      `(s, r)`.  At `s = 1` the anchor coefficient is
+      `C_f = 81 (r+1)(r+2)^2 (r+3)` at content `(wh)^{2r^2 + 8r + 22}`
+      with lowest line `T_f = 4r^2 + 16r + 44`; extract the analogous
+      closed forms in `(s, r)`.
+  (e) Cumulative structure.  Verify the payment identity generalizes as
+      `C(s, r, 2) = R(s, r+1) + R(s+1, r)` (proved shape at `s = 0`);
+      if the actual cumulative recursion differs, extract it exactly.
+  (f) Adverse mass vs reserve for finite cells.  For the finite prefix of
+      each scouted row, check whether the one-shot payments (`(w*w)` and
+      `(w*w)(h*h)` with power-of-4 caps) still suffice, or whether deeper
+      monomial content (e.g. `(wh)^3` blocks) is needed; the row-1 cells
+      established the escalation pattern.
+
+  Decision rule: if (a)-(e) confirm a stable `s`-parameterized scheme,
+  write the uniform module ONCE, symbolic in BOTH `s` and `r` (the
+  `CoreBStructuralRecurrence` toolkit is already symbolic in `s`), and
+  `CrossRatioMonotone` falls to a single double induction — this replaces
+  an infinite ladder of per-row campaigns.  If any of (a)-(e) refutes,
+  bank the obstruction as a kernel-checked theorem and re-plan the bridge
+  around the actual structure.  Either outcome is bankable; the scout
+  costs hours, mis-specializing the module costs weeks.
+
+*Ordered attack plan after the scout.*
+
+  (1) Finish `CoreBBridge`: uniform anchor module (s-generic if the scout
+      confirms, `s = 1` otherwise), assemble
+      `boundaryResidualAt_one_nonneg` for all `r`, feed the cumulative
+      consumer, close `CrossRatioMonotone`, inhabit `CoreBBridge`,
+      discharge `Tier0AtomsC.b`.
+  (2) In parallel, `boundedH`: cheapest genuine atom on the board because
+      it is functional analysis over existing substrate.  Sub-ledger:
+      located `spec T` lower bound; constructive log with modulus;
+      RP-symmetry to self-adjointness; semigroup law.  No new physics.
+  (3) `a2Pentagon` Level-2: attack with the demonstrated strength
+      (exact-rational decide sweeps over 6j^2 tables, pentagon identity as
+      kernel-checked rational identity), isolating the genuinely open
+      fractional/physical-associator step from the algebraic core.
+  (4) `bulk_shift` with FULL portfolio treatment (prompt-mandated
+      diversity; this lemma discharges two atoms and gates 5, 6).  Keep
+      at least four incompatible mechanisms alive until one survives
+      adversarial audit:
+        (alpha) majorization: bond-moving as a doubly stochastic map on
+        character weights, spectral dominance via constructive
+        Hardy-Littlewood-Polya;
+        (beta) total positivity: TP2 transfer kernels, eigenvalue
+        interlacing under bond perturbation;
+        (gamma) quadratic forms: Loewner-order comparison `T' <= T +
+        defect` with rank/trace control per scale;
+        (delta) cluster comparison: KP-norm bounds on resolvent
+        differences between moved and unmoved ensembles.
+      Standing adversarial checklist for all four: character-vs-eigenvalue
+      normalization (racahRP class), vacuum shift (EigShiftOrder class),
+      multiplicity blindness (GapIsEigenvalue class), no measured
+      constants.
+  (5) `trueMargin` and `o4` LAST, deliberately: both are stated through
+      the per-scale flow machinery that (4) supplies; attacking them
+      first means proving against a moving interface.
+  (6) Throughout: keep one genuinely independent gap route alive
+      (reflection-positivity / transfer-operator spectral localization
+      family) per the prompt's portfolio mandate, and continue the
+      general-`G` uniformity front (rank-dependent worst-case character
+      tails) so obligation 7 shrinks alongside the atoms.
+
+*Operational (load-bearing).*
+  - COMMIT DISCIPLINE: the chart-retuning wave, the memory-crash fixes
+    (Makefile `LEAN_JOBS`, audit-script thread cap, `-M 20480` weak args),
+    and the entire row-one campaign are uncommitted in a Dropbox working
+    tree.  Dropbox is not version control.  After human review: commit and
+    push, then resume the loop (research -> plan -> attack -> verify ->
+    merge -> commit -> push).
+  - Bookkeeping: codify the constructive-first protocol into `AGENTS.md`
+    Rule 5 notes (order-independence of the actual invariants); place the
+    nine `formal/sub_papers/` Outline.md files from the delivered tarball;
+    delete the stray `.outlines_transfer.b64` if present.
+  - Build hygiene reminders: bare `lake build` spawns 16 workers (no
+    `--jobs` flag in this Lake; `LEAN_NUM_THREADS` is the only cap);
+    certificate modules peak 3-4 GB, the semantic bridge ~15 GB; keep
+    `LEAN_JOBS <= 3` and the 20 GB weak-arg cap; heavy solo decides may
+    use `-M 40960` (the `(1,3)` factor decides at degree ~182 did).
+
+---
+
+## Canonical capstone-adequacy revision (2026-07-17, session 4)
+
+**STATUS: THIS SECTION SUPERSEDES THE FRONTIER CENSUS, PRIORITY ORDER, AND
+HEAVY-BUILD ADVICE IN THE PRECEDING SESSION-3 REVIEW.**  Earlier sections remain
+valuable as a historical ledger of proved lemmas, refuted routes, generated
+certificates, and empirical scouting, but they are not the current definition of
+the Clay-facing critical path.  In particular, the claims that the whole problem
+is exactly seven `FrontierDAG` atoms, that `PentagonNumericCore` is the physical
+pentagon, and that the bounded-Hamiltonian residual is a genuine continuum
+Hamiltonian obligation are withdrawn.  The source already contains constructive
+counter-witnesses and statement-bug fences showing otherwise.
+
+### 0. Host safety is a proof precondition
+
+Two uncapped verification runs exhausted the 64 GB host and crashed the MacBook
+Pro.  A proof campaign that destroys its checking host is not reproducible.
+The root `AGENTS.md`, `CLAUDE.md`, and `lean/AGENTS.md` now impose the following
+non-negotiable policy:
+
+1. Never run bare `lake build`, `lake env lean YMGap.lean`, `make test`, a full
+   `pytest` suite, or concurrent build/test commands.
+2. Inspect statically first.  The default Lean check is the smallest affected
+   target with `LEAN_NUM_THREADS=1`; the default Python check is one named test
+   file/node with every BLAS/OpenMP thread environment variable set to `1`.
+3. Before compiling, inspect active `lean`, `lake`, and `pytest` processes.  Do
+   not compete with or kill a user-owned process.
+4. Full-tree builds, audits, and guards require explicit user approval for the
+   particular run, after targeted checks pass, and run with `LEAN_JOBS=1`.
+   Three workers is an absolute ceiling, not a recommended default: three
+   20 GB workers can already consume about 60 GB before OS overhead.
+5. Keep the `-M 20480` per-process ceiling.  Raising or bypassing it, including
+   a solo `-M 40960` certificate check, requires explicit approval for that run.
+6. Stop on swapping, memory growth near the cap, thermal pressure, or a stall.
+   Record exactly what was and was not checked.  Never present a historical
+   green build as a current-session verification.
+
+This supersedes the preceding advice that heavy solo decisions may ordinarily
+use `-M 40960`.
+
+### 1. Exact mathematical target
+
+The controlling specification is `docs/ym_mass_gap_prompt.md`, not the current
+inhabitation shape of `FrontierDAG`, `ClayTarget`, or `ClayTargetPinned`.  The
+terminal theorem must quantify over every compact simple gauge group `G` and
+construct one coherent four-dimensional pure Yang--Mills theory on `R^4` with:
+
+1. a lattice regularization whose action, Haar data, character normalization,
+   Wilson measure, observables, boundary conditions, and scale parameters are
+   explicitly pinned rather than separately chosen in downstream structures;
+2. thermodynamic limits `T^4 -> R^4` and continuum limits `a -> 0`, with the
+   limit measure and all limiting Schwinger functions arising from that same
+   pinned family;
+3. Osterwalder--Schrader axioms strong enough for reconstruction: temperedness
+   or the selected constructive replacement, Euclidean covariance, permutation
+   symmetry, reflection positivity, clustering/ergodicity, regularity, and the
+   required growth bounds;
+4. a reconstructed Hilbert space, vacuum, local field algebra, strongly
+   continuous Euclidean/Poincare representation, spectrum condition, positive
+   energy, and vacuum unique up to phase;
+5. an unbounded positive self-adjoint Hamiltonian/semigroup generator `H`
+   attached to the reconstructed transfer semigroup, not an arbitrary bounded
+   operator, together with `H Omega = 0` and a finite strictly positive spectral
+   gap uniform through the volume and continuum limits;
+6. nontrivial gauge-invariant local operators corresponding to curvature
+   polynomials and their covariant derivatives, with nonzero/non-Gaussian
+   correlators where required to exclude the trivial theory;
+7. a stress tensor and an operator product expansion whose coefficients,
+   singular orders, remainder estimates, and anomalous dimensions are statements
+   about the actual reconstructed correlators;
+8. short-distance behavior agreeing with asymptotic freedom and perturbative
+   renormalization, with derived normalization and no measured constant;
+9. full `O(4)` Euclidean covariance before reconstruction and the corresponding
+   Poincare covariance after reconstruction;
+10. constructivity and kernel hygiene on the full critical path: no `sorry`, no
+    `Classical.*`, no `Real`, no `native_decide`, no vacuous frontier instance,
+    and `#print axioms` contained in `{propext, Quot.sound}`.
+
+Introduce a single canonical structure, provisionally
+`YMGap.Continuum.ClayResolutionTarget`, that contains exactly this coherent data.
+Every physical field must be indexed by, or definitionally/propositionally pinned
+to, the same `G`, lattice family, continuum measure, Schwinger functions,
+reconstruction, and transfer semigroup.  Avoid parallel fields that merely have
+compatible prose comments.  The terminal declaration should have the logical
+shape
+
+```lean
+def yangMillsExistenceAndMassGap :
+    (G : CompactSimpleGaugeGroup) -> ClayResolutionTarget G
+```
+
+with the repository's constructive group carrier substituted for the provisional
+name above.  If the existing group representation is not yet expressive enough
+for every compact simple group, that carrier is itself a named frontier item and
+must not be hidden by an `SU2` default.
+
+### 2. Why the seven-atom DAG is not yet the whole frontier
+
+The following are statement-adequacy defects, not merely missing proofs.
+Completing the current fields would not imply the target in Section 1.
+
+#### 2.1 `boundedH` is generically inhabited and mathematically misformulated
+
+`FrontierStatementBugFence.BoundedFunctionalCalculusResidual` does not require
+boundedness/domain data or `exp(-H) = T`; its generic witness takes `H := L.T`.
+Independently, `SelfAdjointHamiltonian.lean` correctly notes that `-log T` is not
+generally bounded when `0` belongs to the transfer spectrum.  The repaired
+obligation is therefore not a proof of the legacy residual.
+
+Replace it by a constructive semigroup-generator package carrying:
+
+- one pinned reflection-positive contraction semigroup `T(t)` on the same GNS
+  Hilbert space;
+- strong continuity on an explicitly dense domain;
+- a closed, densely defined, positive quadratic form or resolvent family;
+- a positive self-adjoint generator `H` obtained constructively from that
+  semigroup/form/resolvent;
+- the functional relation between `T(t)` and `H` in the constructive calculus;
+- the vacuum equation and a spectral-projection/form version of the gap.
+
+Yosida approximants, resolvents, or closed forms may supply the constructive
+route.  A bounded logarithm is admissible only for a finite-volume auxiliary
+operator with a separately proved positive spectral floor; it is not the
+continuum carrier.
+
+#### 2.2 legacy `trueMargin` omits the physical recursion
+
+The statement-bug fence supplies an unconditional surrogate because the legacy
+type has no equation tying the claimed margin to lattice masses, scale ratios,
+or the actual RG trajectory.  Replace it by data and a theorem relating
+
+```text
+Delta_k = m_lat(k) / a_k,
+```
+
+the pinned blocking map, the derived scale relation `a_{k+1}/a_k`, the
+`singleStep` defect budget, and the continuum limiting gap.  Positivity must be
+uniform in volume and survive both the thermodynamic and continuum limits.
+
+#### 2.3 `a2Pentagon` does not state the pentagon
+
+`PentagonNumericCore` asks only for a nonnegative kernel and one value equal to
+`1/4`; the constant `1/4` kernel is an unconditional inhabitant and is proved in
+the repository to fail even a naive pentagon equation.  It must not be counted as
+the physical Level-2 associator atom.
+
+The faithful residual should be one of the following equivalent constructive
+packages, with admissibility conditions explicit:
+
+- the signed Biedenharn--Elliott identity for the repository's exact rational or
+  constructive-real `6j` symbol;
+- an actual fusion-category associator whose matrix elements are those `6j`
+  coefficients and whose associator maps satisfy the pentagon;
+- a guarded rational Dougall/Saalschutz identity plus proved normalization and
+  equivalence to Biedenharn--Elliott.
+
+The present unguarded `BEDougallCore` is known to be false off admissible triangle
+data.  First define the guarded core; then attack it by factorial cancellation,
+terminating hypergeometric transformation, Chu--Vandermonde/Saalschutz, or a
+constructive associator-coherence argument.  Finite `6j^2` sweeps are scouting
+only and cannot prove this atom.
+
+#### 2.4 `bulkCtrl` is not pinned to the moved operator
+
+`SpectralLocalization` contains freely named post-move eigenvalues, shifts, and
+perturbations, and admits a trivial unperturbed localization witness.  Prose
+calling them bond-moved spectra does not establish that relation.  A repaired
+field must define the actual block-spin/bond-moving operator from the pinned
+measure or character coefficients and prove:
+
+- the spectral/eigenpair relation for both original and moved operators;
+- the vacuum normalization and multiplicity conventions;
+- a form, resolvent, or operator-norm comparison derived from the blocking map;
+- the required edge and bulk displacement inequalities as consequences;
+- compatibility with reflection positivity and the per-scale defect budget.
+
+Only this repaired comparison can legitimately be the common source of
+`bulkCtrl`, `edgeShift`, `trueMargin`, and anisotropy control.
+
+#### 2.5 local fields, stress tensor, OPE, and AF are toy-inhabitable
+
+The parameter `mu_inf` in `LocalCurvatureFields` is not used by the fields of the
+structure.  Trivial curvature, stress, zero-OPE, and `SU2` asymptotic-freedom
+witnesses construct `LocalOperatorContent` without establishing any fact about
+the measure.  Moreover `ClayTargetPinned` has no `LocalOperatorContent` field.
+
+Repair the layer by tying every local operator to the same reconstructed theory:
+
+- localization/support and gauge invariance;
+- covariance under the actual translation/rotation representation;
+- equality between operator vacuum expectations and the pinned Schwinger
+  functions;
+- curvature-polynomial labels and renormalization/mixing data;
+- a nontriviality witness excluding the zero/Gaussian surrogate;
+- stress-tensor Ward identities, conservation, symmetry, and generator relation;
+- OPE asymptotic equality for actual products, with a quantified remainder bound;
+- AF rates and anomalous dimensions derived for the same correlators.
+
+Toy inhabitants may remain in explicitly named example/surrogate namespaces but
+must not inhabit any Clay-facing type.
+
+#### 2.6 `FrontierDAG` has no capstone adequacy theorem
+
+The current DAG maps only into a partial SubWallA assembly and explicitly cannot
+map to the full reconstruction target.  It omits full local content, all-group
+uniformity, full OS/Wightman/Poincare data, the unique vacuum, and the complete
+`T^4 -> R^4` limit.  Therefore its inhabitance cannot close the prompt.
+
+After the repaired structures exist, prove a total theorem of the form
+
+```lean
+def revisedFrontierDAG_to_clayResolution
+    (d : RevisedFrontierDAG G) : ClayResolutionTarget G := ...
+```
+
+The theorem must be total, constructive, guarded, and free of extra untracked
+hypotheses.  Only missing fields that occur in this theorem are genuine frontier
+atoms.  Any additional assumption exposed while writing the theorem is added to
+the frontier immediately rather than hidden as a later “completeness obligation.”
+
+### 3. Canonical dependency order
+
+Work now proceeds in the following order.  This order replaces the preceding
+CoreB-first schedule because target adequacy determines whether CoreB is on the
+actual critical path.
+
+#### Phase A — capstone and statement adequacy
+
+1. Inventory the strongest existing group, lattice-family, measure-limit, OS,
+   GNS, semigroup, local-field, and gap carriers.
+2. Write `ClayResolutionTarget` using those carriers without proving new physics.
+3. Write `RevisedFrontierDAG` with faithful residual types for the genuinely open
+   arguments.
+4. Attempt `revisedFrontierDAG_to_clayResolution` immediately.  Every obstruction
+   becomes a named field with an exact consumer theorem.
+5. Add statement pins for the canonical target, revised DAG, adequacy theorem,
+   semigroup generator, physical margin, guarded pentagon, actual operator
+   comparison, and local-operator/OPE package.
+6. Preserve legacy types only as historical or compatibility layers.  Do not map
+   weak legacy witnesses into the new target.
+
+**Exit criterion:** the new target matches every item in Section 1, and a source
+review of the total adequacy theorem shows that no promise is carried only by a
+comment, phantom parameter, separately chosen object, or trivially inhabited
+`Prop`.
+
+#### Phase B — frontier census and tooling repair
+
+1. Make `frontier_status.py` master the revised DAG and canonical target.
+2. Parse the current hashed axiom-audit namespace counts; an empty exception map
+   means zero exceptions, not a missing audit.
+3. Require actual Lean bridge signatures in `frontier_dag_check.py`.  Remove
+   “bridged in spirit” and grandfathered exceptions, or label the checker
+   advisory and incapable of certifying closure.
+4. Add a static/Lean guard for phantom parameters in Clay-facing structures and
+   for unconditional inhabitants of direct frontier fields.
+5. Expand `YMGapStatementGuard` to every direct load-bearing statement, and make
+   `YMGapGuard` test the new aggregate only after the individual field audit.
+6. Regenerate the frontier report from current data.
+
+**Exit criterion:** the machine-readable frontier equals the hypotheses of the
+adequacy theorem, with zero exempt pseudo-bridges.
+
+#### Phase C — actual block-spin spectral comparison
+
+This is provisionally the dominant physics gate because it feeds the gap flow,
+physical margin, and isotropy.  Maintain genuinely distinct mechanisms:
+
+1. **Majorization:** derive the bond-moving map on character weights and seek a
+   constructive doubly-stochastic/majorization comparison with all vacuum and
+   multiplicity factors explicit.
+2. **Parity-resolved total positivity:** formulate TP2/PF properties only after
+   incorporating the repository's counterexamples to naive TP2.  Test block or
+   parity kernels and boundary corrections, not the refuted raw kernel.
+3. **Quadratic-form/Loewner comparison:** compare the actual transfer forms or
+   resolvents and derive a spectral-exclusion interval rather than identifying
+   the gap with a single eigenvalue.
+4. **Cluster/resolvent comparison:** use the constructive KP/polymer substrate to
+   bound the difference between moved and unmoved resolvents or semigroups.
+5. **Independent RP route:** preserve a transfer-operator/reflection-positivity
+   localization route that does not assume the bond-moving inequality.
+
+Reject any route that reintroduces character/eigenvalue confusion, vacuum-shift
+errors, multiplicity blindness, measured constants, or a circular gap premise.
+
+#### Phase D — bounded exact-algebra fronts
+
+These are valuable only when the Phase-A adequacy theorem confirms their
+consumers.
+
+1. **CoreB scout:** perform the exact `s = 2,3` scout already specified above,
+   with no Lean build.  Search for a stable parity-resolved convolution theorem,
+   cross-ratio/monotone-likelihood-ratio invariant, or discrete Sturm principle.
+   Continue the infinite row campaign only if a symbolic `s`-generic mechanism
+   exists.  Otherwise bank the obstruction and cap further per-row spending.
+2. **Guarded A2 identity:** define the admissible Dougall/Saalschutz core and prove
+   its equivalence to the signed pentagon before generating more finite tables.
+3. **Generator infrastructure:** develop constructive closed forms, resolvents,
+   spectral projections, and Yosida approximants against the already built GNS
+   and located-transfer substrate.
+
+#### Phase E — continuum physical closure
+
+1. Derive the physical dimensionless margin from the actual RG step and lattice
+   spacing relation.
+2. Prove anisotropy decay and full `O(4)` restoration from the same blocked
+   dynamics.
+3. Establish volume-uniform clustering/gap estimates and pass `T^4 -> R^4`.
+4. Pass `a -> 0` with OS axioms and the gap preserved.
+5. Construct the semigroup generator, Poincare representation, spectrum
+   condition, and unique vacuum.
+6. Construct and identify local curvature operators, stress tensor, and OPE;
+   prove short-distance AF and nontriviality for actual correlators.
+7. Prove uniformity for every compact simple `G`.  The statement “SU(2) is worst
+   case” is a theorem obligation for the physical heat-kernel/character tails,
+   not a scheduling assumption.  Short-root normalization for nonsimply-laced
+   types, including `G2` and `F4`, must enter the shared physical estimates.
+
+#### Phase F — terminal audit
+
+Only after targeted checks have passed and the user explicitly approves the
+high-load run:
+
+1. full build with `LEAN_JOBS=1` and the 20 GB process cap;
+2. critical-path `#print axioms` audit;
+3. forbidden-token scan;
+4. statement and frontier guards;
+5. proof that every revised frontier field is constructively inhabited through
+   the canonical adequacy theorem;
+6. generated-artifact reproducibility checks;
+7. update the historical ledger with exact commands, exit codes, peak resources,
+   and theorem/namespace counts.
+
+### 4. Immediate execution ledger
+
+The next concrete work item is **Phase A.1--A.4**:
+
+1. construct a field-by-field correspondence table from the prompt to existing
+   Lean carriers;
+2. introduce the canonical target without weakening any prompt clause;
+3. introduce faithful residual interfaces, initially without inhabitants;
+4. start the total adequacy theorem and let its type expose every missing bridge.
+
+No CoreB certificate generation, bounded-H proof, pentagon sweep, or broad build
+precedes this adequacy pass.  The first mathematical implementation decision is
+to represent the continuum Hamiltonian by an unbounded semigroup
+generator/closed form, while retaining bounded logarithms only as finite-volume
+auxiliary lemmas.  The first physics implementation decision is to pin every
+spectral-localization variable to an explicitly constructed blocked transfer
+operator.  The first QFT implementation decision is to make local fields and OPE
+statements equations about the canonical Schwinger functions rather than free
+data indexed by a phantom measure.
+
+### 5. Definition of progress from this point
+
+A new structure or reduction counts as progress only if at least one of the
+following holds:
+
+- it supplies data required by `ClayResolutionTarget`;
+- it discharges a hypothesis used by `revisedFrontierDAG_to_clayResolution`;
+- it proves that a proposed hypothesis is false or inadequate and records a
+  constructive fence preventing reuse;
+- it strengthens verification/statement guards so surrogate closure cannot be
+  mistaken for the prompt's conclusion.
+
+Generated finite certificates, numerical sweeps, and elegant reductions remain
+useful scouting artifacts, but they do not advance the completion percentage
+unless connected by a total constructive consumer to the canonical target.

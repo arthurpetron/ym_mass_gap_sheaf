@@ -311,7 +311,7 @@ private theorem finSum_secondFluxDebt_eqv
 /-- Summing the pointwise second-flux inequality leaves only the first
 unresolved endpoint and a Gaussian-weight bulk term. -/
 theorem lowerSixTailSecondFluxBulkBound_of_pointwise
-    {k : Nat} (hk : 8189 ≤ k)
+    {k : Nat} (hk : 390 ≤ k)
     (hlocal : ∀ n,
       thetaWindowLeft k + 1 ≤ n → n ≤ growingAnchor k →
       LowerSixTailSecondFluxLocalBound k n) :
@@ -418,7 +418,7 @@ block.  No measured constant enters: `15630`, `4/5`, and `128/127` are the
 exact coefficients already derived by the polynomial and geometric
 certificates. -/
 theorem lowerSixTailEndpointAndGaussianBulk_scaled_le_endpointBlock
-    {k : Nat} (hk : 8189 ≤ k) :
+    {k : Nat} (hk : 390 ≤ k) :
     let K := thetaWindowLeft k + 1
     let M := growingAnchor k - thetaWindowLeft k
     let a := lowerSixJointBlockFactor k
@@ -507,7 +507,7 @@ theorem lowerSixTailEndpointAndGaussianBulk_scaled_le_endpointBlock
 endpoint/tail machinery pays the production Hermite tail by the exact linear
 head reserve. -/
 theorem lowerSixHermiteRemainderTailPayment_of_pointwise
-    {k : Nat} (hk : 8189 ≤ k)
+    {k : Nat} (hk : 390 ≤ k)
     (hlocal : ∀ n,
       thetaWindowLeft k + 1 ≤ n → n ≤ growingAnchor k →
       LowerSixTailSecondFluxLocalBound k n) :
@@ -564,7 +564,7 @@ theorem lowerSixHermiteRemainderTailPayment_of_pointwise
 /-- The certified nonnegative head upgrades the tail payment to the complete
 production remainder sum. -/
 theorem lowerSixFullRemainderPayment_of_pointwise
-    {k : Nat} (hk : 8189 ≤ k)
+    {k : Nat} (hk : 390 ≤ k)
     (hlocal : ∀ n,
       thetaWindowLeft k + 1 ≤ n → n ≤ growingAnchor k →
       LowerSixTailSecondFluxLocalBound k n) :

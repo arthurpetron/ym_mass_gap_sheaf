@@ -44,7 +44,7 @@ theorem tailEnvelopeE8ChartB_affine_slice11 :
     GridRelationSlice 77 7 45
       (fun localRow b =>
         gridCoeff tailEnvelopeE8ChartBScaledPowerRows11 localRow b *
-          Int.ofNat (182 ^ 44))
+          Int.ofNat (28 ^ 44))
       (affineChartBClearedCoeff 44 tailEnvelopeE8ChartBPreChartRows) = true := by
   rfl
 
@@ -52,7 +52,7 @@ theorem tailEnvelopeE8ChartB_raw_slice11 :
     GridRelationSlice 77 7 45
       (fun localRow i =>
         gridCoeff tailEnvelopeE8ChartBPreChartRows11 localRow i *
-          Int.ofNat (91 ^ (77 + localRow)))
+          Int.ofNat (14 ^ (77 + localRow)))
       (quadraticRawExpected 89 tailEnvelopeE8ChartBChartQuotient
         tailEnvelopeE8ClearedRows) = true := by
   rfl

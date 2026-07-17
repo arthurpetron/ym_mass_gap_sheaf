@@ -1,7 +1,7 @@
 /-
 # Physical chart-A consumer for the lower-six E9 envelope certificate
 
-On `64 ≤ n` and `n² ≤ D ≤ 2*n²`, this is the ninth-order
+On `tailEnvelopeModeChartBase ≤ n` and `n² ≤ D ≤ 2*n²`, this is the ninth-order
 counterpart of the E8 chart-A consumer.  The exact nonnegative Bernstein
 table is transported through the quadratic projective coordinates to the
 generated raw `(D,n)` numerator.
@@ -34,13 +34,13 @@ def tailEnvelopeE9ChartARawEval (D n : Q') : Q' :=
 
 /-- **Physical E9 chart-A sign certificate.** -/
 theorem tailEnvelopeE9ChartARawEval_nonnegative
-    (D n : Nat) (hn : 64 ≤ n)
+    (D n : Nat) (hn : tailEnvelopeModeChartBase ≤ n)
     (hDlow : n * n ≤ D) (hDhigh : D ≤ 2 * (n * n)) :
     (0 : Q') ≤
       tailEnvelopeE9ChartARawEval (Q'.ofNat D) (Q'.ofNat n) := by
   have hnpos : 0 < n := Nat.lt_of_lt_of_le (by decide) hn
   have hn2pos : 0 < n * n := Nat.mul_pos hnpos hnpos
-  let x := Q'.mkPos 64 n hnpos
+  let x := Q'.mkPos tailEnvelopeModeChartBase n hnpos
   let r := Q'.mkPos (Int.ofNat D - Int.ofNat (n * n))
     (n * n) hn2pos
   let den := Q'.ofNat n
@@ -75,8 +75,8 @@ theorem tailEnvelopeE9ChartARawEval_nonnegative
       (0 : Q') ≤ tensorPowerEval 87 44
           (gridCoeff tailEnvelopeE9ChartAScaledPowerRows) x r * den ^ 89 :=
     Q'.mul_nonneg _ _ hpower (Q'.pow_nonneg den hdenNonnegative 89)
-  have hxden : x * den ≈ Q'.ofNat 64 := by
-    exact mkPos_mul_ofNat_eqv 64 n hnpos
+  have hxden : x * den ≈ Q'.ofNat tailEnvelopeModeChartBase := by
+    exact mkPos_mul_ofNat_eqv tailEnvelopeModeChartBase n hnpos
   have hnSquare : den * den ≈ Q'.ofNat (n * n) := by
     exact ofNat_mul_eqv n n
   have hrSquare : (r + 1) * Q'.ofNat (n * n) ≈ targetD := by
@@ -92,7 +92,7 @@ theorem tailEnvelopeE9ChartARawEval_nonnegative
         tailEnvelopeE9ChartARawEval targetD den := by
     unfold tailEnvelopeE9ChartARawEval
     apply tensorPowerEval_mul_den_pow_eqv_quadratic
-      87 44 89 64
+      87 44 89 tailEnvelopeModeChartBase
       (gridCoeff tailEnvelopeE9ChartAScaledPowerRows)
       (gridCoeff tailEnvelopeE9ChartAPreChartRows)
       tailEnvelopeE9ChartAScaledRaw x r den targetD

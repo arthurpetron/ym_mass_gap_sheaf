@@ -14,25 +14,28 @@ namespace YMGap.Continuum.HarmonicLowerSixTailEnvelopePhysicalChartDispatch
 open YMGap.Constructive
 open YMGap.Continuum.HarmonicLowerSixTailEnvelopeRawScaling
 open YMGap.Continuum.HarmonicLowerSixTailEnvelopeChartBScaling
+open YMGap.Continuum.HarmonicLowerSixTailEnvelopeCoefficientKernel
 open YMGap.Continuum.HarmonicMovingDeterminantThetaWindow
 open YMGap.Continuum.HarmonicGrowingAnchorPF2
 
 /-- The production lower-six corridor is covered by chart A (`n² ≤ D`) and
 chart B (`D ≤ n²`).  Both E8 and E9 signs are returned from the same split. -/
 theorem tailEnvelopeE8E9ClearedEval_nonnegative
-    {k n : Nat} (hk : 8189 ≤ k)
+    {k n : Nat} (hk : 390 ≤ k)
     (hleft : thetaWindowLeft k + 1 ≤ n)
     (hnright : n ≤ growingAnchor k) :
     (0 : Q') ≤
         tailEnvelopeE8ClearedEval (Q'.ofNat (k + 2)) (Q'.ofNat n) ∧
       (0 : Q') ≤
         tailEnvelopeE9ClearedEval (Q'.ofNat (k + 2)) (Q'.ofNat n) := by
-  have hcenter : 127 ≤ thetaWindowCenter k := by
+  have hcenter : 2 * tailEnvelopeModeChartBase ≤ thetaWindowCenter k := by
     unfold thetaWindowCenter thetaWindowLength
     apply ChebOrthoMidpointEst.isqrt_ge
+    unfold tailEnvelopeModeChartBase
     omega
-  have hn64 : 64 ≤ n := by
+  have hn64 : tailEnvelopeModeChartBase ≤ n := by
     unfold thetaWindowLeft at hleft
+    unfold tailEnvelopeModeChartBase at hcenter ⊢
     omega
   have hdenHigh : k + 2 ≤ 2 * (n * n) :=
     HarmonicLowerSixTailCorridor.lowerSixTail_den_le_two_sq_of_left_succ_le
@@ -44,12 +47,7 @@ theorem tailEnvelopeE8E9ClearedEval_nonnegative
       tailEnvelopeE9ClearedEval_nonnegative_chartA
         (k + 2) n hn64 hn2D hdenHigh⟩
   · have hDn2 : k + 2 ≤ n * n := by omega
-    have hn91 : 91 ≤ n := by
-      have hcases : 91 ≤ n ∨ n ≤ 90 := by omega
-      rcases hcases with hlarge | hn90
-      · exact hlarge
-      · have hsquare : n * n ≤ 90 * 90 := Nat.mul_le_mul hn90 hn90
-        omega
+    have hn91 : tailEnvelopeModeChartBase ≤ n := hn64
     have hn2D' : n ≤ 2 * (k + 2) := by
       simpa [growingAnchor] using hnright
     exact ⟨

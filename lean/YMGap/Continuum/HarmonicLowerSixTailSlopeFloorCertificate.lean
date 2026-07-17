@@ -8,6 +8,7 @@ polynomial identities are closed kernel computations.
 -/
 
 import YMGap.Continuum.HarmonicLowerSixTailSlopeFloorCertificateBlocks
+import YMGap.Continuum.HarmonicLowerSixTailEnvelopeCoefficientKernel
 import YMGap.Constructive.Sqrt
 
 namespace YMGap.Continuum.HarmonicLowerSixTailSlopeFloorCertificate
@@ -19,6 +20,7 @@ open YMGap.Constructive
 open YMGap.Continuum.CoreBResidualSimplex
 open YMGap.Continuum.HarmonicLowerSixTailSlopeFloorCertificateData
 open YMGap.Continuum.HarmonicLowerSixTailSlopeFloorCertificateBlocks
+open YMGap.Continuum.HarmonicLowerSixTailEnvelopeCoefficientKernel
 open YMGap.Continuum.TensorBernsteinHomogeneousCertificate
 
 local infix:50 " ≈ " => Q'.eqv
@@ -50,11 +52,11 @@ private theorem chartB_blocks_physical_identity :
       fastNormalize lowerSixTailSlopeFloorChartBPhysicalExpr := by
   rfl
 
-/-- Chart A certificate: `64 ≤ N` and `N² ≤ D ≤ 2N²`. -/
+/-- Chart A certificate: `tailEnvelopeModeChartBase ≤ N` and `N² ≤ D ≤ 2N²`. -/
 theorem lowerSixTailNextSlopeFloorCleared_nonnegative_chartA
     {D N : Q'}
     (hNpos : (0 : Q') < N)
-    (h64 : Q'.ofNat 64 ≤ N)
+    (h64 : Q'.ofNat tailEnvelopeModeChartBase ≤ N)
     (hN2D : N * N ≤ D)
     (hD2N2 : D ≤ Q'.ofNat 2 * (N * N)) :
     (0 : Q') ≤ lowerSixTailNextSlopeFloorCleared D N := by
@@ -64,10 +66,10 @@ theorem lowerSixTailNextSlopeFloorCleared_nonnegative_chartA
         (lowerSixTailSlopeFloorChartASubstitution i) := by
     intro i
     rcases i with _ | i
-    · change (0 : Q') ≤ Q'.ofInt 64
+    · change (0 : Q') ≤ Q'.ofInt tailEnvelopeModeChartBase
       decide
     · rcases i with _ | i
-      · change (0 : Q') ≤ N + -(Q'.ofInt 64)
+      · change (0 : Q') ≤ N + -(Q'.ofInt tailEnvelopeModeChartBase)
         exact Q'.sub_nonneg_of_le h64
       · rcases i with _ | i
         · change (0 : Q') ≤ D + -(N * N)
@@ -169,11 +171,11 @@ theorem lowerSixTailNextSlopeFloorCleared_nonnegative_chartA
     Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.mul_zero_eqv NP)) hinner
   exact Q'.le_of_mul_le_mul_left hNPcancel hNPpos
 
-/-- Chart B certificate: `91 ≤ N`, `N ≤ 2D`, and `D ≤ N²`. -/
+/-- Chart B certificate: `tailEnvelopeModeChartBase ≤ N`, `N ≤ 2D`, and `D ≤ N²`. -/
 theorem lowerSixTailNextSlopeFloorCleared_nonnegative_chartB
     {D N : Q'}
     (hNpos : (0 : Q') < N)
-    (h91 : Q'.ofNat 91 ≤ N)
+    (h91 : Q'.ofNat tailEnvelopeModeChartBase ≤ N)
     (hN2D : N ≤ Q'.ofNat 2 * D)
     (hDN2 : D ≤ N * N)
     (hTwoNOnePos :
@@ -188,10 +190,10 @@ theorem lowerSixTailNextSlopeFloorCleared_nonnegative_chartB
         (lowerSixTailSlopeFloorChartBSubstitution i) := by
     intro i
     rcases i with _ | i
-    · change (0 : Q') ≤ Q'.ofInt 91
+    · change (0 : Q') ≤ Q'.ofInt tailEnvelopeModeChartBase
       decide
     · rcases i with _ | i
-      · change (0 : Q') ≤ N + -(Q'.ofInt 91)
+      · change (0 : Q') ≤ N + -(Q'.ofInt tailEnvelopeModeChartBase)
         exact Q'.sub_nonneg_of_le h91
       · rcases i with _ | i
         · change (0 : Q') ≤ N * (Q'.ofInt 2 * D + -N)

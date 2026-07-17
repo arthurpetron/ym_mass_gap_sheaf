@@ -82,7 +82,7 @@ private theorem bernoulli_slope_algebra (A M u : Q') :
       (fun | 0 => A | 1 => M | _ => u))
 
 private theorem root_linear_numerator_le_two_den
-    {k n : Nat} (hk : 8189 ≤ k) (hn : n ≤ thetaWindowLeft k) :
+    {k n : Nat} (hk : 390 ≤ k) (hn : n ≤ thetaWindowLeft k) :
     (n + 1) * (2 * n + 1) ≤ 2 * (k + 2) := by
   let c := thetaWindowCenter k
   let D := k + 2
@@ -127,7 +127,7 @@ private theorem root_linear_numerator_le_two_den
   simpa only [A, m, D] using hcancel
 
 private theorem root_linear_fraction_le_two
-    {k n : Nat} (hk : 8189 ≤ k) (hn : n ≤ thetaWindowLeft k) :
+    {k n : Nat} (hk : 390 ≤ k) (hn : n ≤ thetaWindowLeft k) :
     (Q'.ofNat (n + 1) * Q'.ofNat (2 * n + 1)) * harmU k ≤
       Q'.ofNat 2 := by
   have hnat := root_linear_numerator_le_two_den hk hn
@@ -169,7 +169,7 @@ theorem lowerSixThetaRootSlope_ge_neg_one (k n : Nat) :
 
 /-- On the physical left prefix, the adjacent-root slope is at most `1`. -/
 theorem lowerSixThetaRootSlope_le_one_large
-    {k n : Nat} (hk : 8189 ≤ k) (hn : n ≤ thetaWindowLeft k) :
+    {k n : Nat} (hk : 390 ≤ k) (hn : n ≤ thetaWindowLeft k) :
     thetaRootSlope k n ≤ (1 : Q') := by
   let q := qpow (harmW k) (2 * n + 1)
   let A := Q'.ofNat (n + 1)
@@ -260,7 +260,7 @@ private theorem invDenCube_le_one (k : Nat) :
 
 /-- Old-slope square upper bound on the physical prefix. -/
 theorem lowerSixThetaRootSlope_square_le_Taylor6_square_add_three_invCube
-    {k n : Nat} (hk : 8189 ≤ k) (hn : n ≤ thetaWindowLeft k) :
+    {k n : Nat} (hk : 390 ≤ k) (hn : n ≤ thetaWindowLeft k) :
     thetaRootSlope k n * thetaRootSlope k n ≤
       rootSlopeTaylor6 (harmU k) n * rootSlopeTaylor6 (harmU k) n +
         Q'.ofNat 3 *
@@ -274,7 +274,7 @@ theorem lowerSixThetaRootSlope_square_le_Taylor6_square_add_three_invCube
 
 /-- Next-slope square lower bound on the same physical prefix. -/
 theorem lowerSixTaylor6Next_square_sub_four_invCube_le_ThetaRootSlope_square
-    {k n : Nat} (hk : 8189 ≤ k) (hn : n ≤ thetaWindowLeft k) :
+    {k n : Nat} (hk : 390 ≤ k) (hn : n ≤ thetaWindowLeft k) :
     rootSlopeTaylor6 (harmU (k + 1)) n *
           rootSlopeTaylor6 (harmU (k + 1)) n +
         -(Q'.ofNat 4 *

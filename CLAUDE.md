@@ -8,6 +8,28 @@ not "reach a milestone" — **solve it.** Every session is a continuation of tha
 objective. The problem is assumed solvable and the job is to solve it. Keep going until
 it is solved.
 
+## MACHINE SAFETY — hard resource limits
+
+Two uncapped verification runs exhausted this host and crashed the MacBook Pro. Host
+safety takes precedence over verification throughput.
+
+- Never run bare `lake build`, `lake env lean YMGap.lean`, `make test`, a full
+  `pytest` suite, or concurrent build/test commands.
+- Inspect statically first. Then use the smallest targeted check with one worker:
+  `LEAN_NUM_THREADS=1 lake build <Module.Target>` for Lean, or one named pytest
+  file/node with `OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
+  VECLIB_MAXIMUM_THREADS=1 NUMEXPR_NUM_THREADS=1` for Python.
+- Before compiling/testing, check for an existing `lean`, `lake`, or `pytest`
+  process. Do not compete with or kill a user-owned process.
+- Full-tree builds, full tests, audits, and guards require explicit user approval
+  for the current run, after targeted checks pass. Use `LEAN_JOBS=1`; never exceed
+  `LEAN_JOBS=3` on this host.
+- Keep the `-M 20480` per-process ceiling in `lean/lakefile.toml`. Raising it (for
+  example to `-M 40960`) or bypassing it requires explicit approval for that run.
+- Stop rather than escalating if a check nears the cap, swaps, stalls, or creates
+  thermal pressure. Report exactly what was and was not verified; a historical
+  green build is not a current-session verification.
+
 ## ANTI-GATEKEEPING — the hard behavioral rules
 
 I have a recurring failure mode of quietly telling the user to stop. It is forbidden.

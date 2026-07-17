@@ -13,7 +13,7 @@ For each of E8/E9 and chart A/B the emitted tables contain:
 * the pre-chart coefficients before the final shift/substitution.
 
 The chart-A pre-table is shifted by ``t = 1+r``.  The chart-B pre-table is
-substituted by ``r = z + x/182*(1-z)``.  These relations are recomputed and
+substituted by ``r = z + x/28*(1-z)``.  These relations are recomputed and
 asserted exactly before any Lean source is written.
 """
 
@@ -95,7 +95,7 @@ def case_data(label: str, chart: str) -> dict[str, object]:
 
     # Coefficients after D=r/s^2, n=1/s and x=constant*s, before
     # chart A's r=1+y shift or chart B's affine r substitution.
-    constant = 64 if chart == "A" else 91
+    constant = source.MODE_CHART_BASE
     pre_chart = zero_grid()
     for (i, j), coefficient_expr in polynomial.terms():
         coefficient = source.exact_fraction(coefficient_expr)
@@ -127,7 +127,7 @@ def case_data(label: str, chart: str) -> dict[str, object]:
                             * comb(i, ell)
                             * comb(ell, q)
                             * (-1) ** q,
-                            182**ell,
+                            (2 * source.MODE_CHART_BASE) ** ell,
                         )
                         reconstructed[key] = reconstructed.get(
                             key, Fraction(0)
@@ -274,7 +274,7 @@ def render_certificate_slice(data: dict[str, object], shard: int) -> str:
     start = shard * ROW_SHARD_SIZE
     height = min(ROW_SHARD_SIZE, degree_x + 1 - start)
     assert height > 0
-    constant = 64 if chart == "A" else 91
+    constant = source.MODE_CHART_BASE
     namespace = (
         "YMGap.Continuum."
         f"HarmonicLowerSixTailEnvelopeCertificate{label}Chart{chart}"
@@ -340,7 +340,7 @@ def render_certificate_slice(data: dict[str, object], shard: int) -> str:
             f"    GridRelationSlice {start} {height} {degree_y + 1}",
             "      (fun localRow b =>",
             f"        gridCoeff {stem}ScaledPowerRows{shard} localRow b *",
-            f"          Int.ofNat (182 ^ {degree_y}))",
+            f"          Int.ofNat ({2 * source.MODE_CHART_BASE} ^ {degree_y}))",
             f"      (affineChartBClearedCoeff {degree_y} {stem}PreChartRows) = true := by",
             "  rfl",
             "",

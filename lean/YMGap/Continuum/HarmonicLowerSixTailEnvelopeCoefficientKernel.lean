@@ -8,8 +8,8 @@ share the quadratic projective substitution
   x * n = constant,    r * n^2 = D.
 
 Chart A then uses `r = 1+y`.  Chart B uses
-`r = z + x/182*(1-z)`; `affineChartBClearedCoeff` clears the common
-`182^degreeY` coefficient denominator before checking that substitution.
+`r = z + x/28*(1-z)`; `affineChartBClearedCoeff` clears the common
+`28^degreeY` coefficient denominator before checking that substitution.
 -/
 
 import YMGap.Continuum.TensorBernsteinSeparableReconstruction
@@ -69,8 +69,15 @@ def intFinSum (f : Nat → Int) : Nat → Int
 def alternatingIntSign (exponent : Nat) : Int :=
   if exponent % 2 = 0 then 1 else -1
 
-/-- Coefficient of `x^a*z^b`, multiplied by `182^degreeY`, after the chart-B
-substitution `r = z + x/182*(1-z)` in a pre-chart tensor power table. -/
+/-- The authoritative lower mode in both projective envelope charts. -/
+def tailEnvelopeModeChartBase : Nat := 14
+
+/-- The authoritative denominator in the chart-B affine substitution. -/
+def affineChartBScale : Nat := 28
+
+/-- Coefficient of `x^a*z^b`, multiplied by
+`affineChartBScale^degreeY`, after the chart-B substitution
+`r = z + x/affineChartBScale*(1-z)` in a pre-chart tensor power table. -/
 def affineChartBClearedCoeff (degreeY : Nat)
     (preChart : List (List Int)) (a b : Nat) : Int :=
   intFinSum (fun ell =>
@@ -80,7 +87,8 @@ def affineChartBClearedCoeff (degreeY : Nat)
           let q := b + ell - i
           gridCoeff preChart (a - ell) i *
             Int.ofNat
-              (binom i ell * binom ell q * 182 ^ (degreeY - ell)) *
+              (binom i ell * binom ell q *
+                affineChartBScale ^ (degreeY - ell)) *
             alternatingIntSign q
         else
           0) (degreeY + 1)
@@ -94,6 +102,8 @@ def affineChartBClearedCoeff (degreeY : Nat)
 #print axioms xPascalExpected
 #print axioms yPascalExpected
 #print axioms quadraticRawExpected
+#print axioms tailEnvelopeModeChartBase
+#print axioms affineChartBScale
 #print axioms affineChartBClearedCoeff
 
 end YMGap.Continuum.HarmonicLowerSixTailEnvelopeCoefficientKernel
