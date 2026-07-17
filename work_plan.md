@@ -11345,11 +11345,13 @@ and the complete OS/Wightman and local-field conclusions remain open.
   degree-ten polynomial recentered at `k=1330` is now also formal: kernel
   normalization proves every coefficient nonnegative, and the constructive
   evaluator proves the polynomial nonnegative for every recentering slack
-  `X>=0`.  The live step is the explicit positive-denominator bridge from this
-  polynomial to the physical coefficient, yielding a uniform `k>=1330`
-  theorem.  This would
-  replace the former `8189` cutoff while leaving the finite `648..1329` band
-  for either exact traversal or a sharper moment payment.
+  `X>=0`.  The explicit positive-denominator bridge from this polynomial to
+  the physical coefficient is now closed: the literal coefficient inequality
+  holds uniformly for every `k>=1330`, and both the cleared-polynomial theorem
+  and the physical theorem replay with exactly `{propext, Quot.sound}`.  This
+  replaces the former `8189` cutoff for the literal coefficient route while
+  leaving the finite `648..1329` band for either exact traversal or a sharper
+  moment payment.
 
 - **Outward support-gas comparison.**  Exact event-difference splitting now
   bounds `|N(E)-N(F)|` by the symmetric-difference numerator and feeds the

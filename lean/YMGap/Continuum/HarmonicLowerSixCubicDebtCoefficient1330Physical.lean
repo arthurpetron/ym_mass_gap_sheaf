@@ -382,6 +382,7 @@ private theorem certificateDriftBase_eqv (k : Nat) :
         Q'.ofNat ((k + 2) * (k + 2)) := by
       refine Q'.eqv_trans _ (A * A) _ ?_ ?_
       · simp only [RingNormaliser.qpow_succ, RingNormaliser.qpow_zero]
+        exact Q'.mul_eqv_congr_right _ _ _ (Q'.one_mul_eqv A)
       · dsimp only [A]
         exact Q'.eqv_symm (HeatKernelRGStep.ofNat_mul_eqv _ _)
     have hnat : driftDen k + 1 = (k + 2) * (k + 2) := by
@@ -520,8 +521,33 @@ theorem lowerSixCubicDebt_momentCoefficient_le_massCoefficient_1330
           profileFactor * RingNormaliser.qpow driftBase 3 :=
       Q'.eqv_trans _ _ _ hinnerLeft
         (Q'.mul_eqv_congr_left _ _ _ hdrift)
-    exact Q'.mul_eqv_congr_left _ _ _
-      (Q'.mul_eqv_congr_left _ _ _ hinnerBoth)
+    have hwithA :
+        A *
+            ((RingNormaliser.qpow E 2 *
+                (E * lowerSixDirichletProfile (k + 1))) *
+              (RingNormaliser.qpow d 6 * RingNormaliser.qpow e 3)) ≈
+          A * (profileFactor * RingNormaliser.qpow driftBase 3) :=
+      Q'.mul_eqv_congr_left _ _ _ hinnerBoth
+    have hwithCoefficient :
+        Q'.ofNat 40320 *
+            (A *
+              ((RingNormaliser.qpow E 2 *
+                  (E * lowerSixDirichletProfile (k + 1))) *
+                (RingNormaliser.qpow d 6 * RingNormaliser.qpow e 3))) ≈
+          Q'.ofNat 40320 *
+            (A * (profileFactor * RingNormaliser.qpow driftBase 3)) :=
+      Q'.mul_eqv_congr_left _ _ _ hwithA
+    change
+      (RingNormaliser.qpow A 3 * RingNormaliser.qpow E 2) *
+          (Q'.ofNat 40320 *
+            (A *
+              ((RingNormaliser.qpow E 2 *
+                  (E * lowerSixDirichletProfile (k + 1))) *
+                (RingNormaliser.qpow d 6 * RingNormaliser.qpow e 3)))) ≈
+        (RingNormaliser.qpow A 3 * RingNormaliser.qpow E 2) *
+          (Q'.ofNat 40320 *
+            (A * (profileFactor * RingNormaliser.qpow driftBase 3)))
+    exact Q'.mul_eqv_congr_left _ _ _ hwithCoefficient
   have hrightEqv :
       (RingNormaliser.qpow A 3 * RingNormaliser.qpow E 2) * Cright ≈
         RingNormaliser.qpow d 6 *
