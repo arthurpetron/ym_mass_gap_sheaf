@@ -1319,6 +1319,7 @@ import YMGap.Continuum.UrsellCompleteGraphFence
 import YMGap.Continuum.HaddDischarge
 import YMGap.Classical.MinlosQuarantine
 import YMGap.Rubric.ClayTargetPinned
+import YMGap.Rubric.ClayResolutionRoot
 import YMGap.Rubric.FrontierDAG
 import YMGap.Continuum.TrueMarginRecursionPhysical
 import YMGap.Continuum.FrontierStatementBugFence

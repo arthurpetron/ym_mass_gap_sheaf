@@ -12169,3 +12169,49 @@ following holds:
 Generated finite certificates, numerical sweeps, and elegant reductions remain
 useful scouting artifacts, but they do not advance the completion percentage
 unless connected by a total constructive consumer to the canonical target.
+
+### 6. Phase A execution update (2026-07-17, session 4)
+
+**Phase A.1 — prompt-to-carrier inventory: COMPLETE.**  The exhaustive mapping
+is banked in `docs/clay_resolution_target_inventory.md`.  It records, for every
+prompt clause, the strongest present Lean carrier, its precise adequacy defect,
+and the semantic field required in the canonical target.  Two additional
+load-bearing findings emerged:
+
+1. `OSReconstruction` is presently an abstract `Unit`-backed carrier whose
+   `mu_inf` parameter is unused; its law propositions are selected by the
+   caller.  It cannot be the semantic root of the corrected target.
+2. `GNSDynamics.SpectralGapData` admits the identity transfer together with an
+   empty spectral model.  A physical spectral gap therefore requires a theorem
+   identifying the spectral/form data with the actual descended time
+   translation, not merely a `SpectralGapData` field.
+
+The strongest current semantic root is instead `WilsonGNSData.toGNSData` and its
+constructive completion `gnsComplete`, provided that the Wilson expectation is
+definitionally pinned to the canonical Schwinger functional.
+
+**Phase A.2 — object-identity root: STARTED, first increment GREEN.**
+`YMGap.Rubric.ClayResolutionRoot` now supplies:
+
+- `PinnedSimpleGroup T`, tying representation data to `repDataOf T`;
+- `CanonicalWilsonRoot mu_inf T`, carrying one OS bundle and one
+  `WilsonGNSData bundle.A` with `wilson.E = bundle.E.E`;
+- definitionally derived `gnsData`, completed `gnsHilbert`, and vacuum equal to
+  the dense GNS image of the unit observable;
+- `CanonicalTimeTranslations`, with a genuine `Nat`-semigroup action on the
+  same observable algebra, invariant expectation, a transfer operator on that
+  exact completion, and dense-action/vacuum pins.
+
+Targeted verification only, per machine-safety policy:
+
+```text
+env LEAN_NUM_THREADS=1 lake build YMGap.Rubric.ClayResolutionRoot
+Build completed successfully (103 jobs; dependencies replayed).
+New module checked in 266 ms.
+Axiom gates: [propext, Quot.sound].
+```
+
+No full build, full test, audit, or guard was run.  Next residual: define the
+strongly continuous semigroup/closed-form generator interface over this exact
+root, then define the spectral-representation pin that makes any gap a theorem
+about that generator rather than a freely selected finite model.
