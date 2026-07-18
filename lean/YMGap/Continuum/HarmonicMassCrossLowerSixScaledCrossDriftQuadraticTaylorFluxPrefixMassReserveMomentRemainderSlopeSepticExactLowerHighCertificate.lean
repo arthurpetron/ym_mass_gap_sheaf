@@ -18,6 +18,7 @@ private theorem all_of_take_five_and_drop {xs : List PE}
     (htail : (xs.drop 5).all highRowPred = true) :
     xs.all highRowPred = true := by
   rw [← List.take_append_drop 5 xs, List.all_append, hhead, htail]
+  rfl
 
 private theorem all_tail (n : Nat)
     (hhead : ((highRowsTail n).take 5).all highRowPred = true)

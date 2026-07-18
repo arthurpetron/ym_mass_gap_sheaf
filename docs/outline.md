@@ -2243,20 +2243,23 @@ section where each is introduced.
 theorem in §22 (the theorem registry), the corresponding Lean term
 name plus the output of `#print axioms`.  The audit is reproducible
 via `make lean-audit` and **enforced in CI** by
-`.github/workflows/lean-audit.yml`: every push/PR that touches
-`lean/`, `scripts/lean_axiom_audit.py`, or the workflow itself runs
+`.github/workflows/lean-audit.yml`: every Lean-relevant trusted push to
+`main`, plus a manual dispatch whose selected ref is `main`, runs
 `scripts/lean_axiom_audit.py` against the baseline manifest
-`lean/AXIOM_AUDIT.md`.  CI fails if any tracked theorem acquires a
-NEW axiom dependency not permitted by the baseline (e.g.
-`Classical.choice` appearing where only `propext` is permitted).
-Improvements (theorem's axiom set shrinking) are silent passes; new
-theorems and missing tracked theorems are flagged informationally in
-strict mode.  The manifest format is one line per theorem:
+`lean/AXIOM_AUDIT.md`.  Pull-request code is deliberately excluded from the
+reused personal runner.  CI fails if any tracked theorem acquires a NEW axiom
+dependency not permitted by the baseline (e.g. `Classical.choice` appearing
+where only `propext` is permitted), or if the full-build log omits or duplicates
+even one executable source-level `#print axioms` diagnostic.  Improvements
+(a theorem's axiom set shrinking) pass the mandatory gate; strict
+namespace-profile drift is reported informationally for review.  The manifest
+format is one line per theorem:
 `<fully-qualified-name> = <comma-separated-permitted-axioms>` (empty
 means no axioms permitted).  This converts Appendix B from a
-one-time submission snapshot to a maintained guarantee: every merged
-commit has a passing axiom-gate audit, and `lean/AXIOM_AUDIT.md` is
-the auditable reproducible record of the constructive discipline.
+one-time submission snapshot to a maintained guarantee: every Lean-relevant
+trusted-main checkpoint has a passing axiom-gate audit, and
+`lean/AXIOM_AUDIT.md` is the auditable reproducible record of the constructive
+discipline.
 
 **Appendix C — Python ↔ Lean lockstep tests.**  Enumeration of the
 regression tests that bind Python numerical pilots to their Lean
@@ -2739,5 +2742,3 @@ analytical refinements** that downstream work will tighten:
 
 Both are flagged as **non-blocking** for the existence claim of T17.1;
 they are precision refinements scoped to Phase 10 / future work.
-
-

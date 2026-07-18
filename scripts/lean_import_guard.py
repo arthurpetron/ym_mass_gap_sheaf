@@ -32,6 +32,8 @@ Exit codes:
 from __future__ import annotations
 
 import argparse
+import copy
+import json
 import os
 import re
 import subprocess
@@ -48,6 +50,7 @@ LEAN_DIR = REPO_ROOT / "lean"
 PACKAGE_DIR = LEAN_DIR / "YMGap"
 SEMANTIC_ROOT_PATH = LEAN_DIR / "YMGap.lean"
 LAKEFILE_PATH = LEAN_DIR / "lakefile.toml"
+LAKE_MANIFEST_PATH = LEAN_DIR / "lake-manifest.json"
 EXCLUSIONS_PATH = LEAN_DIR / "SEMANTIC_ROOT_EXCLUSIONS.txt"
 
 AGGREGATOR_PATHS = {
@@ -61,6 +64,21 @@ REQUIRED_DEFAULT_TARGETS = (
     "YMGapGuard",
     "YMGapStatementGuard",
 )
+REQUIRED_WEAK_LEAN_ARGS = ("-s", "65536", "-M", "20480")
+REQUIRED_PACKAGE_KEYS = frozenset(
+    {"name", "defaultTargets", "weakLeanArgs", "lean_lib"}
+)
+OPTIONAL_PACKAGE_KEYS = frozenset({"srcDir"})
+ALLOWED_LIBRARY_KEYS = frozenset(
+    {"name", "srcDir", "weakLeanArgs", "roots", "globs", "defaultFacets"}
+)
+EXPECTED_LAKE_MANIFEST = {
+    "version": "1.1.0",
+    "packagesDir": ".lake/packages",
+    "packages": [],
+    "name": "YMGap",
+    "lakeDir": ".lake",
+}
 
 FULL_BUILD_PATHS = frozenset(
     {
@@ -427,20 +445,54 @@ def is_current_directory(value: object) -> bool:
 
 
 def lake_coverage_from_data(data: dict[str, object]) -> tuple[LakeCoverage, list[str]]:
-    """Validate the Lake settings on which the repository build contract relies."""
+    """Validate the exact Lake shape defining this repository's full build.
+
+    Lake supplies defaults for library roots, globs, facets, and ``srcDir``.
+    We compare their *effective* values below, so an omitted default is treated
+    exactly like its explicit spelling.  Every other package/library key is
+    rejected: a newly introduced target, source selector, facet, argument, or
+    external dependency must first be inventoried here rather than silently
+    widening or changing what the saved full-build provenance means.
+    """
     issues: list[str] = []
+
+    package_keys = frozenset(data)
+    missing_package_keys = sorted(REQUIRED_PACKAGE_KEYS - package_keys)
+    unexpected_package_keys = sorted(
+        package_keys - REQUIRED_PACKAGE_KEYS - OPTIONAL_PACKAGE_KEYS
+    )
+    if missing_package_keys:
+        issues.append(
+            "Lake package is missing required setting(s): "
+            + ", ".join(missing_package_keys)
+        )
+    if unexpected_package_keys:
+        issues.append(
+            "Lake package has unreviewed setting(s): "
+            + ", ".join(unexpected_package_keys)
+        )
+    if data.get("name") != "YMGap":
+        issues.append("Lake package name must remain exactly 'YMGap'")
+
+    weak_lean_args, weak_arg_issues = decode_string_sequence(
+        data.get("weakLeanArgs", []), "Lake weakLeanArgs", allow_singleton=False
+    )
+    issues.extend(weak_arg_issues)
+    if weak_lean_args != REQUIRED_WEAK_LEAN_ARGS:
+        issues.append(
+            "Lake weakLeanArgs must remain exactly "
+            f"{list(REQUIRED_WEAK_LEAN_ARGS)!r}; these are reviewed resource-only "
+            "arguments excluded from Lake artifact hashes"
+        )
 
     default_targets, target_issues = decode_string_sequence(
         data.get("defaultTargets", []), "Lake defaultTargets", allow_singleton=False
     )
     issues.extend(target_issues)
-    missing_targets = tuple(
-        target for target in REQUIRED_DEFAULT_TARGETS if target not in default_targets
-    )
-    if missing_targets:
+    if default_targets != REQUIRED_DEFAULT_TARGETS:
         issues.append(
-            "Lake defaultTargets must include the production library and both audit guards; "
-            f"missing {', '.join(missing_targets)}"
+            "Lake defaultTargets must remain exactly, in declared order, "
+            f"{list(REQUIRED_DEFAULT_TARGETS)!r}; found {list(default_targets)!r}"
         )
 
     package_src_dir = data.get("srcDir", ".")
@@ -452,11 +504,32 @@ def lake_coverage_from_data(data: dict[str, object]) -> tuple[LakeCoverage, list
     raw_libraries = data.get("lean_lib", [])
     if isinstance(raw_libraries, list):
         libraries = raw_libraries
-    elif isinstance(raw_libraries, dict):
-        libraries = [raw_libraries]
     else:
         libraries = []
         issues.append("Lake lean_lib configuration must be an array of tables")
+
+    library_names = tuple(
+        library.get("name") if isinstance(library, dict) else None
+        for library in libraries
+    )
+    if library_names != REQUIRED_DEFAULT_TARGETS:
+        issues.append(
+            "Lake lean_lib entries must remain exactly, in declared order, "
+            f"{list(REQUIRED_DEFAULT_TARGETS)!r}; found {list(library_names)!r}"
+        )
+    for index, library in enumerate(libraries):
+        if not isinstance(library, dict):
+            issues.append(f"Lake lean_lib entry {index} must be a table")
+            continue
+        unexpected_library_keys = sorted(
+            frozenset(library) - ALLOWED_LIBRARY_KEYS
+        )
+        if unexpected_library_keys:
+            label = library.get("name", f"entry {index}")
+            issues.append(
+                f"{label} lean_lib has unreviewed setting(s): "
+                + ", ".join(unexpected_library_keys)
+            )
 
     main_globs: tuple[str, ...] = ()
     for target in REQUIRED_DEFAULT_TARGETS:
@@ -479,10 +552,27 @@ def lake_coverage_from_data(data: dict[str, object]) -> tuple[LakeCoverage, list
                 "enumerates lean/"
             )
 
+        library_weak_args, library_weak_arg_issues = decode_string_sequence(
+            library.get("weakLeanArgs", []),
+            f"{target} lean_lib weakLeanArgs",
+            allow_singleton=False,
+        )
+        issues.extend(library_weak_arg_issues)
+        if library_weak_args:
+            issues.append(
+                f"{target} lean_lib must not set per-library weakLeanArgs; "
+                "all effective weak arguments are pinned at package level"
+            )
+
         roots, root_issues = decode_string_sequence(
             library.get("roots", [target]), f"{target} lean_lib roots"
         )
         issues.extend(root_issues)
+        if roots != (target,):
+            issues.append(
+                f"{target} lean_lib roots must remain exactly [{target!r}]; "
+                f"found {list(roots)!r}"
+            )
         globs, glob_issues = decode_string_sequence(
             library.get("globs", list(roots)), f"{target} lean_lib globs"
         )
@@ -493,22 +583,23 @@ def lake_coverage_from_data(data: dict[str, object]) -> tuple[LakeCoverage, list
             f"{target} lean_lib defaultFacets",
         )
         issues.extend(facet_issues)
-        if "leanArts" not in default_facets:
+        if default_facets != ("leanArts",):
             issues.append(
-                f"{target} lean_lib defaultFacets must include 'leanArts' so a bare "
-                "library build compiles Lean artifacts"
+                f"{target} lean_lib defaultFacets must remain exactly ['leanArts']; "
+                f"found {list(default_facets)!r}"
             )
 
         if target == "YMGap":
             main_globs = globs
-            if "YMGap.*" not in globs:
+            if globs != ("YMGap.*",):
                 issues.append(
-                    "YMGap lean_lib must explicitly include globs = [\"YMGap.*\"] so "
-                    "every YMGap module is compiled independently"
+                    "YMGap lean_lib globs must remain exactly ['YMGap.*']; "
+                    f"found {list(globs)!r}"
                 )
-        elif not any(glob_matches(pattern, target) for pattern in globs):
+        elif globs != (target,):
             issues.append(
-                f"{target} lean_lib globs/roots do not select the {target} audit module"
+                f"{target} lean_lib globs must remain exactly [{target!r}]; "
+                f"found {list(globs)!r}"
             )
 
     return LakeCoverage(main_globs, default_targets), issues
@@ -518,7 +609,7 @@ def load_lake_coverage(path: Path = LAKEFILE_PATH) -> tuple[LakeCoverage, list[s
     """Load TOML and reject a higher-precedence ``lakefile.lean`` override."""
     issues: list[str] = []
     lean_override = path.with_suffix(".lean")
-    if lean_override.exists():
+    if lean_override.exists() or lean_override.is_symlink():
         issues.append(
             f"{lean_override.relative_to(REPO_ROOT)} overrides lakefile.toml; "
             "the import guard cannot verify a Lean-DSL Lake configuration"
@@ -535,6 +626,64 @@ def load_lake_coverage(path: Path = LAKEFILE_PATH) -> tuple[LakeCoverage, list[s
     coverage, coverage_issues = lake_coverage_from_data(data)
     issues.extend(coverage_issues)
     return coverage, issues
+
+
+def lake_manifest_issues_from_data(data: object) -> list[str]:
+    """Reject any manifest shape other than the reviewed dependency-free one."""
+    if not isinstance(data, dict):
+        return ["Lake manifest top level must be a JSON object"]
+
+    issues: list[str] = []
+    actual_keys = frozenset(data)
+    expected_keys = frozenset(EXPECTED_LAKE_MANIFEST)
+    missing_keys = sorted(expected_keys - actual_keys)
+    unexpected_keys = sorted(actual_keys - expected_keys)
+    if missing_keys:
+        issues.append("Lake manifest is missing key(s): " + ", ".join(missing_keys))
+    if unexpected_keys:
+        issues.append(
+            "Lake manifest has unreviewed key(s): " + ", ".join(unexpected_keys)
+        )
+
+    for key, expected in EXPECTED_LAKE_MANIFEST.items():
+        if key not in data:
+            continue
+        actual = data[key]
+        if actual != expected:
+            if key == "packages":
+                issues.append(
+                    "Lake manifest packages must remain exactly empty; "
+                    f"found {actual!r}"
+                )
+            else:
+                issues.append(
+                    f"Lake manifest {key} must remain exactly {expected!r}; "
+                    f"found {actual!r}"
+                )
+    return issues
+
+
+def _unique_json_object(pairs: list[tuple[str, object]]) -> dict[str, object]:
+    """JSON object hook that rejects duplicate keys instead of taking the last."""
+    result: dict[str, object] = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError(f"duplicate JSON key {key!r}")
+        result[key] = value
+    return result
+
+
+def load_lake_manifest(path: Path = LAKE_MANIFEST_PATH) -> list[str]:
+    """Load and validate the exact dependency-free Lake manifest."""
+    if not path.is_file():
+        return [f"missing Lake manifest: {path.relative_to(REPO_ROOT)}"]
+    try:
+        data = json.loads(
+            path.read_text(encoding="utf-8"), object_pairs_hook=_unique_json_object
+        )
+    except (OSError, UnicodeError, json.JSONDecodeError, ValueError) as exc:
+        return [f"invalid {path.relative_to(REPO_ROOT)}: {exc}"]
+    return lake_manifest_issues_from_data(data)
 
 
 def analyze_repository() -> Analysis:
@@ -577,6 +726,7 @@ def analyze_repository() -> Analysis:
 
     lake_coverage, lake_issues = load_lake_coverage()
     issues.extend(lake_issues)
+    issues.extend(load_lake_manifest())
     globs = lake_coverage.globs
     uncovered = tuple(
         sorted(
@@ -827,14 +977,19 @@ def message := "import YMGap.InString"
         },
     )
 
-    lake_data: dict[str, object] = {
-        "defaultTargets": list(REQUIRED_DEFAULT_TARGETS),
-        "lean_lib": [
-            {"name": "YMGap", "globs": ["YMGap.*"]},
-            {"name": "YMGapGuard"},
-            {"name": "YMGapStatementGuard"},
-        ],
-    }
+    def reviewed_lake_data() -> dict[str, object]:
+        return {
+            "name": "YMGap",
+            "defaultTargets": list(REQUIRED_DEFAULT_TARGETS),
+            "weakLeanArgs": list(REQUIRED_WEAK_LEAN_ARGS),
+            "lean_lib": [
+                {"name": "YMGap", "globs": ["YMGap.*"]},
+                {"name": "YMGapGuard"},
+                {"name": "YMGapStatementGuard"},
+            ],
+        }
+
+    lake_data = reviewed_lake_data()
     lake_coverage, lake_issues = lake_coverage_from_data(lake_data)
     check(
         "Lake coverage accepts the repository build contract",
@@ -842,24 +997,88 @@ def message := "import YMGap.InString"
         and lake_coverage.default_targets == REQUIRED_DEFAULT_TARGETS
         and not lake_issues,
     )
-    _, broken_lake_issues = lake_coverage_from_data(
-        {
-            "defaultTargets": ["YMGap"],
-            "srcDir": "src",
-            "lean_lib": [
-                {
-                    "name": "YMGap",
-                    "globs": ["YMGap"],
-                    "defaultFacets": [],
-                },
-                {"name": "YMGapGuard", "roots": ["Other"]},
-                {"name": "YMGapStatementGuard", "srcDir": "audit"},
-            ],
-        }
+    poisoned_weak_args = reviewed_lake_data()
+    poisoned_weak_args["lean_lib"][0]["weakLeanArgs"] = [  # type: ignore[index]
+        "-Dsemantic-escape=true"
+    ]
+    _, poisoned_weak_arg_issues = lake_coverage_from_data(poisoned_weak_args)
+    check(
+        "Lake coverage rejects per-library weak argument injection",
+        any(
+            "must not set per-library weakLeanArgs" in issue
+            for issue in poisoned_weak_arg_issues
+        ),
+    )
+    poisoned_package_weak_args = reviewed_lake_data()
+    poisoned_package_weak_args["weakLeanArgs"] = [
+        *REQUIRED_WEAK_LEAN_ARGS,
+        "-Dsemantic-escape=true",
+    ]
+    _, poisoned_package_weak_arg_issues = lake_coverage_from_data(
+        poisoned_package_weak_args
     )
     check(
-        "Lake coverage rejects omitted targets, shifted roots, and inert facets",
-        len(broken_lake_issues) == 6,
+        "Lake coverage rejects package weak argument injection",
+        any(
+            "Lake weakLeanArgs must remain exactly" in issue
+            for issue in poisoned_package_weak_arg_issues
+        ),
+    )
+    lake_mutations: list[tuple[str, dict[str, object], str]] = []
+
+    extra_target = reviewed_lake_data()
+    extra_target["defaultTargets"] = [*REQUIRED_DEFAULT_TARGETS, "Backdoor"]
+    lake_mutations.append(("extra default target", extra_target, "defaultTargets"))
+
+    extra_library = reviewed_lake_data()
+    extra_library["lean_lib"] = [
+        *extra_library["lean_lib"],  # type: ignore[list-item]
+        {"name": "Backdoor"},
+    ]
+    lake_mutations.append(("extra library", extra_library, "lean_lib entries"))
+
+    extra_glob = copy.deepcopy(reviewed_lake_data())
+    extra_glob["lean_lib"][0]["globs"].append("Other.*")  # type: ignore[index,union-attr]
+    lake_mutations.append(("extra glob", extra_glob, "globs must remain exactly"))
+
+    extra_root = copy.deepcopy(reviewed_lake_data())
+    extra_root["lean_lib"][1]["roots"] = ["Other"]  # type: ignore[index]
+    lake_mutations.append(("extra root", extra_root, "roots must remain exactly"))
+
+    extra_facet = copy.deepcopy(reviewed_lake_data())
+    extra_facet["lean_lib"][1]["defaultFacets"] = [  # type: ignore[index]
+        "leanArts",
+        "extraFacet",
+    ]
+    lake_mutations.append(
+        ("extra default facet", extra_facet, "defaultFacets must remain exactly")
+    )
+
+    external_package = reviewed_lake_data()
+    external_package["require"] = [{"name": "Backdoor"}]
+    lake_mutations.append(
+        ("external package setting", external_package, "unreviewed setting(s): require")
+    )
+
+    for mutation, mutated_data, expected_issue in lake_mutations:
+        _, mutation_issues = lake_coverage_from_data(mutated_data)
+        check(
+            f"Lake shape rejects {mutation}",
+            any(expected_issue in issue for issue in mutation_issues),
+        )
+
+    check(
+        "Lake manifest accepts the exact dependency-free shape",
+        not lake_manifest_issues_from_data(copy.deepcopy(EXPECTED_LAKE_MANIFEST)),
+    )
+    manifest_with_package = copy.deepcopy(EXPECTED_LAKE_MANIFEST)
+    manifest_with_package["packages"] = [{"name": "Backdoor"}]
+    check(
+        "Lake manifest rejects an extra package",
+        any(
+            "packages must remain exactly empty" in issue
+            for issue in lake_manifest_issues_from_data(manifest_with_package)
+        ),
     )
 
     encoded_paths = " lean/Leading.lean\0lean/Unicode-λ.lean\0".encode()

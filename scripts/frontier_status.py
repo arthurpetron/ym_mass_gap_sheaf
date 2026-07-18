@@ -30,12 +30,12 @@ The result is written to `docs/frontier-status.md` (dated).
 
 # Design (mirrors scripts/lean_axiom_audit.py)
 
-The axiom-gate source of truth is the same recorded `#print axioms` data the
-audit script maintains: `lean/AXIOM_AUDIT.md`.  Each partial-close declaration is
-looked up there by fully-qualified name.  With `--from-file` / `--lake` the gates
-are instead parsed live from a `lake build` log via the audit script's own
-`THEOREM_PATTERN`, and layered OVER the baseline.  No file is edited; this script
-is read-only w.r.t. the Lean sources.
+The baseline records reviewed out-of-gate exceptions and compact namespace
+digests, not exact per-declaration within-gate subsets.  Baseline-only reports
+say exactly that.  With `--from-file` / `--lake`, exact gates are parsed from the
+same complete, successful, current-provenance-fingerprinted full-build evidence as
+the axiom auditor; every registered partial close must occur live.  No file is
+edited; this script is read-only w.r.t. the Lean sources.
 
 This script does NOT prove anything and does NOT change the honest status: every
 bundle here is OPEN by design.  It only reports the current partial closes and the
@@ -52,6 +52,15 @@ import subprocess
 import sys
 from pathlib import Path
 
+from lean_axiom_audit import (
+    BaselineFormatError,
+    SourceInventoryError,
+    compare_reviewed_exceptions,
+    parse_baseline,
+    source_fingerprint_stamp,
+    validate_complete_axiom_log,
+)
+
 # --------------------------------------------------------------------------
 # Paths
 # --------------------------------------------------------------------------
@@ -62,89 +71,96 @@ YMGAP_ROOT = LEAN_DIR / "YMGap.lean"
 YMGAP_PKG = LEAN_DIR / "YMGap"
 BASELINE_PATH = LEAN_DIR / "AXIOM_AUDIT.md"
 OUTPUT_PATH = REPO_ROOT / "docs" / "frontier-status.md"
+SESSION_LOCK_RUN = REPO_ROOT / "scripts" / "with_lean_session_lock.sh"
 
 # --------------------------------------------------------------------------
 # Axiom-gate sources (shared shapes with lean_axiom_audit.py)
 # --------------------------------------------------------------------------
 
-# `#print axioms` build-log line shape (identical to lean_axiom_audit.py).
-THEOREM_PATTERN = re.compile(
-    r"'(?P<name>YMGap[\w\\.']+?)' "
-    r"(?:depends on axioms: \[(?P<axioms>[^\]]*)\]"
-    r"|does not depend on any axioms)"
-)
-
-# `lean/AXIOM_AUDIT.md` recorded-baseline line shape.
-BASELINE_LINE_RE = re.compile(r"^(?P<name>[^=#\s][^=]*?)\s*=\s*(?P<axioms>.*)$")
-
-
 def parse_axiom_baseline(path: Path) -> dict[str, set[str]]:
-    """Parse `AXIOM_AUDIT.md` (hashed format) into {name: axioms} for the
-    EXCEPTIONS only — theorems whose axioms fall outside `{propext, Quot.sound}`.
+    """Return reviewed outside-gate exceptions from a valid hashed baseline.
 
-    Clean theorems are no longer listed individually (the file records
-    per-namespace digests instead); callers treat any name absent here as
-    within the gate.  For exact per-decl axioms of clean decls, run with
-    `--from-file`/`--lake` (a live build log)."""
-    result: dict[str, set[str]] = {}
-    if not path.exists():
-        return result
-    in_exceptions = False
-    for line in path.read_text(encoding="utf-8").splitlines():
-        stripped = line.strip()
-        if stripped.startswith("## Exceptions"):
-            in_exceptions = True
-            continue
-        if stripped.startswith("## Namespace digests"):
-            in_exceptions = False
-            continue
-        if not in_exceptions or not stripped or stripped.startswith(("#", ">")):
-            continue
-        m = BASELINE_LINE_RE.match(stripped)
-        if not m:
-            continue
-        name = m.group("name").strip()
-        if not name.startswith("YMGap"):
-            continue
-        result[name] = {a.strip() for a in m.group("axioms").split(",") if a.strip()}
-    return result
+    The shared parser raises :class:`BaselineFormatError` on missing,
+    malformed, or duplicate hashed data; there is no permissive empty fallback.
+    """
+    exceptions, _digests = parse_baseline(path)
+    return exceptions
 
 
-def parse_lake_output(output: str) -> dict[str, set[str]]:
-    """Parse a `lake build` log into {name: axioms} (empty set = axiom-free)."""
-    result: dict[str, set[str]] = {}
-    # `#print axioms` output for long names may wrap inside the axiom list.
-    # Match over the whole log so `[propext,\n Quot.sound]` remains visible.
-    for m in THEOREM_PATTERN.finditer(output):
-        axioms_str = m.group("axioms")
-        result[m.group("name")] = (
-            set() if axioms_str is None
-            else {a.strip() for a in axioms_str.split(",") if a.strip()}
-        )
-    return result
+def checked_live_axioms(
+    output: str,
+    reviewed_exceptions: dict[str, set[str]],
+) -> tuple[dict[str, set[str]], tuple[str, ...]]:
+    """Validate full-build evidence, partial closes, and exception parity.
+
+    Complete-log validation is shared with the axiom auditor.  Its public
+    exception comparison then applies the same live-forbidden-axiom semantics
+    as the default audit and additionally rejects stale reviewed permissions,
+    since this report describes the exception baseline as validated.
+    """
+    required = tuple(
+        partial
+        for entry in FRONTIER
+        for partial in entry["partial_close"]
+    )
+    validated, issues = validate_complete_axiom_log(
+        output,
+        required_declarations=required,
+    )
+    if validated is None:
+        return {}, issues
+
+    unreviewed, stale = compare_reviewed_exceptions(
+        validated.axioms,
+        reviewed_exceptions,
+    )
+    exception_issues = [
+        f"unreviewed forbidden axiom(s) for {name}: "
+        f"{', '.join(sorted(axioms))}"
+        for name, axioms in sorted(unreviewed.items())
+    ]
+    exception_issues.extend(
+        f"stale reviewed exception axiom(s) for {name}: "
+        f"{', '.join(sorted(axioms))}"
+        for name, axioms in sorted(stale.items())
+    )
+    if exception_issues:
+        return {}, tuple(exception_issues)
+    return validated.axioms, ()
 
 
 def run_lake_build() -> tuple[int, str]:
+    try:
+        stamp = source_fingerprint_stamp()
+    except SourceInventoryError as exc:
+        return 3, f"ERROR: cannot fingerprint full-build provenance: {exc}\n"
     env = os.environ.copy()
-    env.setdefault("LEAN_NUM_THREADS", "1")
+    env["LEAN_NUM_THREADS"] = "1"
     proc = subprocess.run(
-        ["lake", "build"], cwd=LEAN_DIR,
+        [str(SESSION_LOCK_RUN), str(LEAN_DIR), "lake", "build"],
+        cwd=REPO_ROOT,
         capture_output=True, text=True, check=False, env=env,
     )
-    return proc.returncode, proc.stdout + proc.stderr
+    return proc.returncode, stamp + "\n" + proc.stdout + proc.stderr
 
 
-def format_gate(name: str, gates: dict[str, set[str]]) -> str:
+def format_gate(
+    name: str,
+    gates: dict[str, set[str]],
+    exact_live_names: frozenset[str],
+) -> str:
     """Human-readable axiom gate for a fully-qualified decl name."""
+    if name in exact_live_names:
+        axset = gates[name]
+        if not axset:
+            return "live exact: axiom-free"
+        return "live exact: " + ", ".join(sorted(axset))
     if name not in gates:
-        # Hashed baseline lists only out-of-gate EXCEPTIONS; an absent name is
-        # within the gate.  (With --from-file/--lake, `gates` is the full live
-        # map, so clean decls carry their exact axioms and never reach here.)
-        return "within gate {propext, Quot.sound}"
-    axset = gates[name]
-    if not axset:
-        return "axiom-free"
-    return ", ".join(sorted(axset))
+        return "baseline only: exact axiom subset not recorded; no listed exception"
+    return (
+        "baseline exception (outside gate only): "
+        + ", ".join(sorted(gates[name]))
+    )
 
 
 # --------------------------------------------------------------------------
@@ -529,7 +545,11 @@ def noncomputable_ledger() -> list[tuple[str, int, str]]:
 # --------------------------------------------------------------------------
 
 
-def emit_report(gates: dict[str, set[str]], gate_source: str) -> str:
+def emit_report(
+    gates: dict[str, set[str]],
+    gate_source: str,
+    exact_live_names: frozenset[str] = frozenset(),
+) -> str:
     today = datetime.date.today().isoformat()
     L: list[str] = []
     A = L.append
@@ -592,7 +612,7 @@ def emit_report(gates: dict[str, set[str]], gate_source: str) -> str:
         for pc in e["partial_close"]:
             short = pc.rsplit(".", 1)[-1]
             mod = module_of(pc)
-            gate = format_gate(pc, gates)
+            gate = format_gate(pc, gates, exact_live_names)
             A(f"| `{short}` | `lean/{mod}` | {gate} |")
         A("")
 
@@ -671,7 +691,7 @@ def emit_report(gates: dict[str, set[str]], gate_source: str) -> str:
 def main() -> int:
     ap = argparse.ArgumentParser(description="Generate docs/frontier-status.md.")
     ap.add_argument("--from-file", type=Path, default=None,
-                    help="Layer axiom gates from this `lake build` log over the baseline.")
+                    help="Use a complete provenance-bound `lake build` log for exact gates.")
     ap.add_argument("--lake", action="store_true",
                     help="Run a one-worker FULL `lake build` and layer its axiom gates; high-load.")
     ap.add_argument("--allow-full-build", action="store_true",
@@ -680,26 +700,36 @@ def main() -> int:
                     help="Print the report to stdout instead of writing the file.")
     args = ap.parse_args()
 
-    gates = parse_axiom_baseline(BASELINE_PATH)
-    baseline_text = (
-        BASELINE_PATH.read_text(encoding="utf-8") if BASELINE_PATH.exists() else ""
-    )
-    baseline_available = "## Namespace digests" in baseline_text
+    try:
+        gates = parse_axiom_baseline(BASELINE_PATH)
+    except BaselineFormatError as exc:
+        print(f"ERROR: invalid axiom baseline: {exc}", file=sys.stderr)
+        return 3
     gate_source = (
         f"`lean/AXIOM_AUDIT.md` ({len(gates)} reviewed exception(s); "
-        "all absent declarations are within the gate)"
+        "exact within-gate subsets are not recorded)"
     )
-    if not baseline_available:
-        print(f"WARNING: baseline {BASELINE_PATH} missing or malformed; "
-              "gates unavailable.", file=sys.stderr)
 
     live = None
     if args.from_file is not None:
         if not args.from_file.exists():
             print(f"ERROR: --from-file not found: {args.from_file}", file=sys.stderr)
             return 3
-        live = parse_lake_output(args.from_file.read_text(encoding="utf-8"))
-        gate_source = f"`{args.from_file}` build log (layered over AXIOM_AUDIT.md)"
+        try:
+            log_text = args.from_file.read_text(encoding="utf-8")
+        except (OSError, UnicodeError) as exc:
+            print(f"ERROR: cannot read --from-file log: {exc}", file=sys.stderr)
+            return 3
+        live, live_issues = checked_live_axioms(log_text, gates)
+        if live_issues:
+            print("ERROR: rejected live axiom log:", file=sys.stderr)
+            for issue in live_issues[:10]:
+                print(f"  - {issue}", file=sys.stderr)
+            return 3
+        gate_source = (
+            f"complete current-provenance build log `{args.from_file}` "
+            "(exact live gates; baseline exceptions also validated)"
+        )
     elif args.lake:
         if not args.allow_full_build:
             print("ERROR: --lake is a high-load full build; after explicit host-safety "
@@ -710,12 +740,21 @@ def main() -> int:
             print(f"ERROR: lake build failed (exit {rc}).", file=sys.stderr)
             print(output, file=sys.stderr)
             return 3
-        live = parse_lake_output(output)
-        gate_source = "fresh `lake build` log (layered over AXIOM_AUDIT.md)"
+        live, live_issues = checked_live_axioms(output, gates)
+        if live_issues:
+            print("ERROR: rejected fresh lake-build output:", file=sys.stderr)
+            for issue in live_issues[:10]:
+                print(f"  - {issue}", file=sys.stderr)
+            return 3
+        gate_source = (
+            "fresh complete current-provenance `lake build` log "
+            "(exact live gates; baseline exceptions also validated)"
+        )
+    exact_live_names = frozenset(live or ())
     if live:
         gates.update(live)
 
-    report = emit_report(gates, gate_source)
+    report = emit_report(gates, gate_source, exact_live_names)
 
     if args.stdout:
         sys.stdout.write(report)

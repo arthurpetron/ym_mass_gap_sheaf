@@ -23,6 +23,8 @@ expanded here; a smaller exact one-negative-monomial proof is supplied in
 
 import YMGap.Continuum.CoreBResidualAbel
 import YMGap.Constructive.Soundness
+import Lean.Elab.Command
+import Lean.LibrarySuggestions.SymbolFrequency
 
 namespace YMGap.Continuum.CoreBResidualSimplex
 
@@ -805,5 +807,19 @@ theorem boundaryResidualAt_zero_one_factor (w h : Q') :
 #print axioms factorNormal01
 #print axioms degreeBound01
 #print axioms boundaryResidualAt_zero_one_factor
+
+/- Lean's optional premise-selection metadata traverses every theorem type when
+this unusually large module is written.  Its default 200,000-heartbeat export
+context can time out after all proofs have succeeded, emit a panic, and still
+return a successful compiler status.  Populate the same metadata cache here,
+under an unbounded heartbeat scope, so module export only reuses the completed
+map.  This changes editor suggestions only; it does not participate in any
+definition, theorem, certificate, or axiom. -/
+set_option maxHeartbeats 0 in
+run_cmd
+  Lean.Elab.Command.liftTermElabM do
+    let _ ← Lean.LibrarySuggestions.localSymbolFrequency
+      ``boundaryResidualAt_zero_one_factor
+    pure ()
 
 end YMGap.Continuum.CoreBResidualSimplex

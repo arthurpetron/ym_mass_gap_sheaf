@@ -1,47 +1,54 @@
 /-
-Mass gap for *every* compact simple gauge group — the uniform
-(all-simple-groups) assembly, transported from the proven SU(2) result.
+Conditional scalar-budget and OS-reconstruction assembly.
 
 # What this module delivers
 
-`MassGap/SU2.lean` proves the SU(2) mass gap (`mass_gap_SU2_of_osReconstruction`) by pairing
-a Q'-rational lower bound `m_0 = 999/1000` (with `m_0² ≤ σ̂∞ = 9991/10000`)
-against the paper-supplied OS-reconstruction spectral-gap interface.  The
-σ̂∞ bound there is `1 − Σ η_k` at SU(2)'s budget.
+`MassGap/SU2.lean` exposes a legacy conditional signature that pairs the
+Q'-rational facts `m_0 = 999/1000 > 0` and
+`m_0² ≤ 9991/10000` with a separately supplied
+`OSReconstruction` already carrying `HasSpectralGap rec`.  That Q'-level
+signature does not bind `m_0` to the spectral gap.  The later CReal theorem
+`mass_gap_SU2_creal` has the relevant `HasSpectralGapAt` rate binding, under an
+explicit additional hypothesis.
 
-This module lifts that to an arbitrary admissible simple group `R` by the
-§1.3 reduction:
+This module transports the same scalar estimate to an arbitrary `RepData` row
+`R` satisfying two explicit input structures:
 
-  * `RepTheory/SimpleGroup.lean` — `AdmissibleSimpleGroup R`: every simple
-    group has `C₂_fund ≥ 3/4`, `C₂_adj ≥ 2`, minimised at SU(2).
+  * `RepTheory/SimpleGroup.lean` — `AdmissibleSimpleGroup R`, whose historical
+    name packages only two scalar inequalities plus a closure certificate; it
+    does not prove that `R` comes from a compact simple group or carries the
+    actual global-form spectral minimum.
   * `RG/UniformBudget.lean` — `monotone_budget`: with the per-step bound
     dominated by SU(2)'s (`UniformBudgetWitness.eta_dominated`, the named
     analytic input), `R`'s σ̂-budget is ≤ SU(2)'s at *every* truncation.
 
-Because `R`'s budget is dominated by SU(2)'s, the *same* conservative
-σ̂∞ floor `9991/10000` that closes SU(2) is a valid lower bound for `R`:
-`σ̂∞(R) = σ̂₀ − Σ η(R) ≥ σ̂₀ − Σ η(su2) ≥ 9991/10000`.  So the SU(2)
-mass-gap witness `m_0 = 999/1000` transports verbatim.
+The current theorem derives only the displayed all-truncations budget closure
+for `R`.  It also reuses the SU(2) constants verbatim, but does not prove in its
+conclusion that `9991/10000` is `R`'s σ̂∞ floor, nor that `m_0` bounds the
+spectral gap carried by `rec`.
 
 # Top theorems
 
-  * `budget_closes_uniform R hadm w` — the unconditional all-truncations
+  * `budget_closes_uniform R hadm w` — the witness-relative all-truncations
     σ̂-budget closure for `R`, derived (no per-group `decide`) from
     `monotone_budget` + the proven `su2_budget_closes`.
-  * `mass_gap_simple_group_of_osReconstruction R hadm w rec bundle` — the §0 target: an
-    explicit `m_0 : Q'` with `0 < m_0`, `m_0² ≤ ε` (the transported SU(2)
-    floor), and the OS spectral-gap conjunct `HasSpectralGap rec`.  Same
-    formal/paper boundary as `mass_gap_SU2_of_osReconstruction`.
-  * `mass_gap_SU3` — the near-free SU(3) corollary: SU(3) is admissible
-    (`su3_admissible`) and η-dominated (`su3_uniform_witness`, by `decide`:
-    `13e-6 ≤ 3e-4`), so the top theorem instantiates directly.
+  * `mass_gap_simple_group_of_osReconstruction R hadm w rec bundle` — a
+    legacy conjunction of an explicit `m_0 : Q'` with `0 < m_0`, the closed
+    inequality `m_0² ≤ 9991/10000`, the independently supplied OS
+    spectral-gap conjunct `HasSpectralGap rec`, and `R`'s budget closure.  No
+    conjunct binds these four facts into a group-specific gap lower bound.
+  * `mass_gap_SU3` — the legacy SU(3) scalar-row specialization: the stored
+    SU(3) row satisfies the historical scalar admissibility interface
+    (`su3_admissible`) and is η-dominated (`su3_uniform_witness`, by `decide`:
+    `13e-6 ≤ 3e-4`), so the top theorem instantiates directly.  This is not a
+    theorem about the physical SU(3) gauge theory.
 
 # The named analytic obligation (Rule 2 / Rule 6)
 
-Everything here is constructive and axiom-clean **modulo** the single
-named field `UniformBudgetWitness.eta_dominated` (`R.eta_max ≤ su2.eta_max`,
-the antitone-in-Δ heat-kernel input) and the OS-reconstruction interface
-Props inherited unchanged from `mass_gap_SU2_of_osReconstruction`.  For the SU(N) instances
+Everything here is constructive and axiom-clean **conditional on** the named
+field `UniformBudgetWitness.eta_dominated` (`R.eta_max ≤ su2.eta_max`) and the
+OS-reconstruction interface inputs inherited unchanged from
+`mass_gap_SU2_of_osReconstruction`.  For the SU(N) scalar instances
 (SU(2), SU(3)) the witness is discharged by `decide`; for the general
 group it is the paper-layer obligation.
 
@@ -73,21 +80,21 @@ open YMGap.Continuum.OSAxioms
 open YMGap.Continuum.OSReconstruction
 open YMGap.MassGap.SU2
 
-/-! ## The unconditional uniform budget closure -/
+/-! ## The witness-relative uniform budget closure -/
 
-/-- **`budget_closes_uniform`.**  For any admissible simple group `R`
-together with the named η-domination witness, the σ̂-budget closes at
+/-- **`budget_closes_uniform`.**  For any scalar row `R` together with the
+named η-domination witness, the σ̂-budget closes at
 *every* finite truncation under SU(2)'s `σ̂₀`:
 
     ∀ N, Σ_{k<N} η_k(R)  ≤  σ̂₀(su2) = 1.
 
-This is the §1.3 reduction realised: `monotone_budget` transports the
+This is the scalar §1.3 reduction: `monotone_budget` transports the
 proven SU(2) closure (`su2_budget_closes`) to `R`.  No per-group `decide`
 on `R`'s budget — the closure is *derived* from SU(2)'s via the
-monotonicity substrate.  The admissibility hypothesis `hadm` records that
-`R`'s invariants are those of a genuine simple group (and supplies the
-floors that justify the domination); the closure itself flows through
-`w`. -/
+monotonicity substrate.  The historical parameter `hadm` is retained for API
+compatibility but is logically unused by this proof; the displayed closure
+flows entirely through `w`.  In particular, neither the numeric floors nor
+`hadm.cert` are premises of this closure. -/
 theorem budget_closes_uniform (R : RepData)
     (hadm : AdmissibleSimpleGroup R) (w : UniformBudgetWitness R) :
     ∀ N, finSum (truncatedConst R.K_steps R.eta_max) N ≤ su2.sigma0 :=
@@ -101,19 +108,19 @@ theorem closureCertificate_of_admissible (R : RepData)
     (hadm : AdmissibleSimpleGroup R) : R.ClosureCertificate :=
   hadm.cert
 
-/-! ## The transported σ̂∞ floor
+/-! ## Reused SU(2) constants
 
-SU(2) closes with `σ̂∞ ≥ 9991/10000` and witness `m_0 = 999/1000`
-(`m_0² ≤ σ̂∞`).  Since any admissible η-dominated group's budget is ≤
-SU(2)'s, `9991/10000` is a *conservative* σ̂∞ floor for every such group,
-and `999/1000` is a valid mass-gap lower bound.  We reuse the SU(2)
-constants verbatim; the domination is what licenses the reuse. -/
+The following declarations reuse the two SU(2) rational constants and their
+closed inequality.  This module does not derive a theorem identifying the
+second constant with `R`'s σ̂∞ floor, and the Q'-level top theorem does not
+bind the first constant to `rec.gapBound`. -/
 
-/-- The uniform mass-gap lower bound (transported SU(2) witness). -/
+/-- The reused positive SU(2) rational constant.  This Q'-level module does
+not bind it to the spectral gap of an arbitrary reconstruction. -/
 def m_0_uniform : Q' := m_0_canonical
 
-/-- The uniform σ̂∞ floor (conservative; valid for any η-dominated
-admissible group because its budget is ≤ SU(2)'s). -/
+/-- The reused SU(2) σ̂∞-floor constant.  Its name is historical; no
+group-parametric floor theorem is packaged by this definition. -/
 def sigma_hat_inf_lower_uniform : Q' := sigma_hat_inf_lower_canonical
 
 /-- `0 < m_0_uniform`. -/
@@ -127,28 +134,31 @@ theorem m_0_uniform_squared_le :
 
 /-! ## The top theorem -/
 
-/-- **Mass gap for every compact simple gauge group.**
+/-- **Conditional mass-gap signature from scalar and OS inputs.**
 
-`formal/mass-gap-theorem.tex` Theorem 1.1, lifted from SU(2) to an
-arbitrary admissible simple group `R` via the uniform parametric budget
-bound.  Given:
+This theorem does not quantify over or construct a compact simple gauge group.
+It transports the SU(2) scalar budget to an arbitrary `RepData` row `R` after
+the following inputs are supplied:
 
-  * `hadm : AdmissibleSimpleGroup R` — `R`'s invariants are those of some
-    compact simple `G` (`C₂_fund ≥ 3/4`, `C₂_adj ≥ 2`, the family floors);
+  * `hadm : AdmissibleSimpleGroup R` — a signature-level compatibility
+    parameter carrying two numeric lower bounds and a closure certificate,
+    without group provenance; the base proof below does not inspect it;
   * `w : UniformBudgetWitness R` — the named analytic input pinning SU(2)
     as the worst case (`R.eta_max ≤ su2.eta_max`);
   * `rec`, `bundle` — the OS-reconstruction quintuple and OS-axiom witness
     (paper-supplied, exactly as in `mass_gap_SU2_of_osReconstruction`);
 
-we conclude there is an explicit `m_0 : Q'` with `0 < m_0`,
-`m_0² ≤ ε` (the transported σ̂∞ floor `9991/10000`), the OS spectral
-gap `HasSpectralGap rec`, AND the *derived* all-truncations σ̂-budget
-closure for `R` (`∀ N, Σ η_k(R) ≤ σ̂₀`).
+we conclude there is an explicit `m_0 : Q'` with `0 < m_0`, the closed
+SU(2)-constant inequality `m_0² ≤ 9991/10000`, the independent OS spectral
+gap `HasSpectralGap rec`, and the derived all-truncations σ̂-budget closure
+for `R` (`∀ N, Σ η_k(R) ≤ σ̂₀`).  The type contains no equation or
+inequality relating `m_0` to `rec.gapBound`.
 
-The novelty over `mass_gap_SU2_of_osReconstruction`: `R` ranges over *all* simple groups and
-the budget conjunct is **derived** (`budget_closes_uniform`), not
-re-`decide`d per group — `hadm`/`w` are genuinely load-bearing (the fourth
-conjunct consumes them).  Axiom-gate: `[propext]` / `[propext, Quot.sound]`
+Relative to `mass_gap_SU2_of_osReconstruction`, the budget conjunct is derived
+for any supplied scalar row (`budget_closes_uniform`), not
+re-`decide`d per group.  The witness `w` is load-bearing; `hadm` is not used by
+this base theorem, although several downstream witness constructors do use its
+numeric fields.  Axiom-gate: `[propext]` / `[propext, Quot.sound]`
 (Q'-rational `decide` facts + the budget-closure `[propext]` + the trivial
 OS bridge). -/
 theorem mass_gap_simple_group_of_osReconstruction
@@ -256,7 +266,7 @@ def ofWeylData (R : RepData) (hadm : AdmissibleSimpleGroup R)
 
 end MassGapInput
 
-/-! ## Mass gap from the gap → η monotonicity obligation
+/-! ## Legacy conditional signature from the gap → η obligation
 
 `mass_gap_simple_group_of_osReconstruction` consumes the raw η-domination witness
 `UniformBudgetWitness R` (whose load-bearing field is
@@ -268,7 +278,8 @@ engine — `e^{−tΔ}` non-increasing in Δ — is proven constructively there.
 This corollary threads that reduction: from an `AdmissibleSimpleGroup R`
 (supplying the floor `3/4 ≤ R.C2_fund`), the named `EtaGapMonotone R`,
 and the same-window fact, it builds the budget witness and delivers the
-mass gap.  The remaining obligation is then exactly `EtaGapMonotone R`
+legacy conjunction above.  The remaining budget obligation is
+`EtaGapMonotone R`
 (the antitone exponential's *assembly* into `eta_max` via the
 rank-general Weyl-dimension `Z_t` majorant), not the bare `eta_max`
 inequality. -/
@@ -284,7 +295,7 @@ theorem mass_gap_simple_group_of_gapMonotone
       (∀ N, finSum (truncatedConst R.K_steps R.eta_max) N ≤ su2.sigma0) :=
   mass_gap_simple_group_of_osReconstruction R hadm (MassGapInput.ofGapMonotone R hadm hmono hwin) rec bundle
 
-/-! ## Mass gap from the rank-general `Z_t` majorant (the honest unconditional path)
+/-! ## Legacy conditional signature from the rank-general `Z_t` majorant
 
 `mass_gap_simple_group_of_gapMonotone` consumes the named `EtaGapMonotone R`.
 `RG/CharacterTailMajorant.lean` discharges *that* through the rank-general
@@ -295,7 +306,7 @@ character-tail majorant `Z_t(R) = ∏_i S_i − 1 ≤ Z_t(su2)`
 both *concrete `decide` facts* for the SU(N) family.  This corollary threads
 that reduction end to end: from an `AdmissibleSimpleGroup R`, the
 `EtaFromZt R` bridge (carrying the majorant), and the same-window fact, it
-delivers the mass gap.  The remaining obligation is then exactly the rank-`r`
+delivers the same legacy conjunction.  The remaining budget obligation is the rank-`r`
 `Z_t` majorant of `R`, not the bare `eta_max` inequality. -/
 theorem mass_gap_simple_group_of_ztMajorant
     (R : RepData) (hadm : AdmissibleSimpleGroup R)
@@ -309,7 +320,7 @@ theorem mass_gap_simple_group_of_ztMajorant
       (∀ N, finSum (truncatedConst R.K_steps R.eta_max) N ≤ su2.sigma0) :=
   mass_gap_simple_group_of_osReconstruction R hadm (MassGapInput.ofZtMajorant R hadm bridge hwin) rec bundle
 
-/-! ## Mass gap with `rank_collapse` discharged from the scalar sum bound
+/-! ## Legacy signature with `rank_collapse` discharged from a scalar sum bound
 
 `mass_gap_simple_group_of_ztMajorant` still consumes a whole `EtaFromZt R`
 whose `major.rank_collapse` was a *posited* field.  `RG/RankCollapse.lean`
@@ -320,7 +331,7 @@ collapse `∏(1+sFloor)−1 ≤ Z_t(su2)` is proven over `Q'` (the scalar bound
 `∏(1+sᵢ)−1 ≤ 2·Σ sᵢ` plus the §3 uniform-domination cap).  This corollary
 takes that scalar data *directly* (no posited `rank_collapse`), builds the
 majorant, and — given only the `eta_of_zt` packaging (the `Z_t ↦ η` bridge,
-the explicitly out-of-scope residual) — delivers the mass gap.  The
+the explicitly out-of-scope residual) — delivers the legacy conjunction.  The
 `rank_collapse` obligation is thus removed from the named-obligation list. -/
 theorem mass_gap_simple_group_of_rankCollapseData
     (R : RepData) (hadm : AdmissibleSimpleGroup R)
@@ -348,7 +359,7 @@ theorem mass_gap_simple_group_of_rankCollapseData
     (MassGapInput.ofRankCollapseData R hadm r sR sFloor su2Zt
       hsR_nn hsR_le hFloor_nn hwin hcap eta_of_zt hKwin) rec bundle
 
-/-- **SU(2) mass gap via the rank-general `Z_t` majorant chain.**  Threads
+/-- **Legacy SU(2) signature via the rank-general `Z_t` majorant chain.**  Threads
 SU(2) through the rank-1 product majorant (`su2_etaFromZt`), exhibiting the
 full `Z_t ↦ η ↦ budget` path with no named obligation open at the boundary
 instance. -/
@@ -362,7 +373,7 @@ theorem mass_gap_SU2_via_ztMajorant
       (∀ N, finSum (truncatedConst su2.K_steps su2.eta_max) N ≤ su2.sigma0) :=
   mass_gap_simple_group_of_ztMajorant su2 su2_admissible su2_etaFromZt (by decide) rec bundle
 
-/-! ## Mass gap with BOTH residuals discharged from data
+/-! ## Legacy signature with both budget residuals discharged from data
 (`rank_collapse` from the scalar sum bound, `eta_of_zt` from the proven
 monotone `Z_t ↦ η` packaging)
 
@@ -403,8 +414,7 @@ theorem mass_gap_simple_group_of_modelData
     (MassGapInput.ofModelData R hadm r sR sFloor su2Zt
       hsR_nn hsR_le hFloor_nn hwin hcap m hZtR hZtsu2 hKwin) rec bundle
 
-/-! ## Mass gap from the Weyl-character STRUCTURAL data
-(the honest reduction of the assumed inequality to root-system data)
+/-! ## Legacy signature from supplied Weyl-character-shaped data
 
 `mass_gap_simple_group_of_modelData` consumed the per-axis floor excesses
 `sFloor`/`sR` as *bare `Q'` data* — the inequality `Z_t(R) ≤ Z_t(su2)` was
@@ -425,7 +435,7 @@ This corollary consumes the **structural** `AxisFactorBound R` (the per-axis
 character-tail factor data, whose excesses ARE the `sFloor`/`sR` of the old
 path — but now *named as the Weyl-character factors* they represent), builds
 the `ZtMajorant` through the proven `ztMajorant_of_axisData`, and delivers
-the mass gap.  The remaining honest content is exactly the two named
+the legacy conjunction.  The remaining content is the named
 per-group data items of `WeylCharacterBound.lean` — `WeylDimData` (Weyl
 squaring constants) and `AxisFactorBound` (polynomial-geometric tail) — plus
 the `Z_t ↦ η` model `ZtEtaModel`; no assumed inequality anywhere. -/
@@ -447,12 +457,12 @@ theorem mass_gap_simple_group_of_weylData
   mass_gap_simple_group_of_osReconstruction R hadm
     (MassGapInput.ofWeylData R hadm b su2Zt hwin hcap m hZtR hZtsu2 hKwin) rec bundle
 
-/-! ## SU(3) corollary — the near-free instance
+/-! ## SU(3) scalar-row corollary
 
 SU(3) is admissible (`su3_admissible`) and η-dominated: its per-step
 bound `13e-6` is ≤ SU(2)'s `3e-4` (`decide`), and both use the `K = 3`
-window.  So the top theorem instantiates directly, giving SU(3) per-group
-parity with SU(2) as a one-line corollary. -/
+window.  So the legacy conjunction instantiates directly at the SU(3) scalar
+row; this is not a realized-group or rate-bound mass-gap theorem. -/
 
 /-- SU(3) is η-dominated by SU(2): same `K = 3` window, and
 `su3.eta_max = 13/1000000 ≤ 3/10000 = su2.eta_max`. -/
@@ -460,9 +470,9 @@ theorem su3_uniform_witness : UniformBudgetWitness su3 where
   same_window   := by decide
   eta_dominated := by decide
 
-/-- **Mass gap for SU(3)** — a corollary of `mass_gap_simple_group_of_osReconstruction` at the
-admissible, η-dominated instance `su3`.  No new analysis: SU(3)'s
-admissibility floors and η-domination are both `decide`-able. -/
+/-- **Legacy conditional signature at the SU(3) scalar row.**  The numeric
+admissibility floors and η-domination are both decidable; the spectral gap is
+still supplied independently by `rec`. -/
 theorem mass_gap_SU3
     {M : Nat → Type} {μ_inf : ContinuumMeasure M}
     (rec : OSReconstruction μ_inf) (bundle : OSAxiomBundle μ_inf) :
@@ -473,7 +483,7 @@ theorem mass_gap_SU3
       (∀ N, finSum (truncatedConst su3.K_steps su3.eta_max) N ≤ su2.sigma0) :=
   mass_gap_simple_group_of_osReconstruction su3 su3_admissible su3_uniform_witness rec bundle
 
-/-- **Mass gap for SU(3) via the Weyl-character structural path.**
+/-- **Legacy SU(3) signature via supplied Weyl-character-shaped data.**
 
 A specialization of `mass_gap_simple_group_of_weylData` to `R := su3`
 (`su3_admissible`, `K = 3` window by `decide`).  The two Weyl-character
@@ -484,9 +494,9 @@ tail `AxisFactorBound` and the squared-Weyl-dimension majorization
 tail, `RG.su3_dimSq_le` / `RG.su3_weylDimData_at` for the squared dimension),
 so the only remaining input is the heat-kernel `Z_t ↦ η` packaging
 `ZtEtaModel su3` (the explicitly out-of-scope residual) plus the concrete
-window/cap rationals.  This makes explicit that the all-groups character-tail
-inequality `Z_t(su3) ≤ Z_t(su2)` is, for SU(3), a theorem of root-system data
-rather than a posited bound. -/
+window/cap rationals.  In this theorem `b : AxisFactorBound su3` remains an
+explicit input, so the result itself does not derive the character-tail data
+from a realized SU(3) group. -/
 theorem mass_gap_SU3_via_weylData
     (b : YMGap.RG.AxisFactorBound su3) (su2Zt : Q')
     (hwin : 2 * (sumExcess b.axisExcess b.rank) ≤ 1)
@@ -503,7 +513,7 @@ theorem mass_gap_SU3_via_weylData
   mass_gap_simple_group_of_weylData su3 su3_admissible b su2Zt hwin hcap m hZtR hZtsu2
     (by decide) rec bundle
 
-/-! ## The SU(N) family via the GENERIC crude squared-Weyl-dimension bound
+/-! ## Historical SU(N)-named adapter
 
 `mass_gap_SU3_via_weylData` discharged the squared-Weyl-dimension residual
 `WeylDimData` *per group* (`su3_dimSq_le`).  `RG/WeylDimGeneral.lean` discharges
@@ -518,15 +528,13 @@ for `SU(N)` with `m = suN_numPosRoots N` (`suN_weylDimData_crude`).  The uniform
 exponent `2m` is the SAME for every axis, so the per-axis polylog tail closes
 for each fixed `N` with NO per-group dimension case analysis.
 
-The following theorem threads any admissible SU(N)-family `RepData R` — the
-`A_{N−1}` invariants `C₂_fund = (N²−1)/(2N) ≥ 3/4`, `C₂_adj = N ≥ 2` satisfy
-admissibility for every `N ≥ 2` (`RepTheory.suN_gap_lb`/`suN_hvee_lb`) — through
-the Weyl-character structural path, carrying the crude `WeylDimData` as the
-squared-dim certificate.  The character-tail inequality `Z_t(R) ≤ Z_t(su2)` is
-thus, for the whole SU(N) family, a theorem of root-system data: the crude
-squared-dimension majorization (proven, generic) plus the per-axis
-polynomial-geometric tail `AxisFactorBound` (the `PolylogTail` engine) and the
-`Z_t ↦ η` model — no per-group dimension formula re-derivation. -/
+Despite its historical name, the following theorem does not assert that `R`
+is the SU(N) scalar row or connect `N`, `lab`, `fac`, and `dimVal` to `R`.
+The locally constructed `WeylDimData` proof is not consumed by the concluding
+`mass_gap_simple_group_of_weylData` call.  Its load-bearing inputs are instead
+`hadm`, the supplied `AxisFactorBound R`, its cap/window, the supplied
+`ZtEtaModel R`, and the OS interfaces.  A genuine SU(N) bridge must add group
+provenance and make the dimension certificate enter the witness construction. -/
 theorem mass_gap_suN
     (R : RepData) (hadm : AdmissibleSimpleGroup R)
     (N : Nat) {lab fac : Nat → Q'} {dimVal : Q'}
@@ -558,8 +566,8 @@ theorem su2_uniform_witness : UniformBudgetWitness su2 where
   same_window   := by decide
   eta_dominated := by decide
 
-/-- Sanity corollary: the uniform theorem reproduces the SU(2) mass gap at
-the boundary instance. -/
+/-- Sanity corollary: specialize the legacy conjunction to the SU(2) scalar
+row.  The Q'-constant and spectral-gap conjunct remain unbound. -/
 theorem mass_gap_SU2_via_uniform
     {M : Nat → Type} {μ_inf : ContinuumMeasure M}
     (rec : OSReconstruction μ_inf) (bundle : OSAxiomBundle μ_inf) :

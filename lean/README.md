@@ -188,9 +188,9 @@ the ones where a classical proof would be unacceptable. The
 make lean-import-guard
 make lean-affected LEAN_BASE=<base-ref>
 
-# Then build only the maximal reverse-dependent targets printed above.
-cd lean
-LEAN_NUM_THREADS=1 lake build +YMGap.Some.Printed.Target
+# Then, still from the repository root, build only the maximal
+# reverse-dependent targets printed above through the host-safety lock.
+scripts/with_lean_session_lock.sh lean env LEAN_NUM_THREADS=1 lake build +YMGap.Some.Printed.Target
 ```
 
 Start with the smallest directly affected module. The affected-target planner
@@ -217,10 +217,11 @@ make lean-build LEAN_JOBS=1
 Never run bare `lake build` or raise the local worker count to gain throughput.
 CI is the definitive all-module path selected by `YMGap.*`: it runs the
 semantic guards and audits the captured build log. It fails closed before
-starting Lean unless its Linux or macOS runner reports at least 24 GiB RAM.
-The repository variable `YMGAP_LEAN_RUNNER` routes the job to the private,
-manually started `ymgap-m4max` macOS ARM64 runner; there is deliberately no
-paid hosted fallback.  Trusted main builds retain `.lake` only on that runner,
+starting Lean unless its Linux or macOS runner reports at least 32 GiB of
+installed RAM and approximately 32 GiB available. The repository variable
+`YMGAP_LEAN_RUNNER` routes the job to the private `ymgap-m4max` macOS ARM64
+runner: a repository-scoped, one-job JIT runner deliberately started in the
+foreground; there is deliberately no paid hosted fallback. Trusted main builds retain `.lake` only on that runner,
 where Lake revalidates it, while manual `clean_build=true` dispatches delete
 the local cache. A commit has the full consistency guarantee only after that
 workflow exits zero. See `docs/self-hosted-ci.md` for the AC-power,
@@ -236,8 +237,10 @@ gate.
 **Ledger state.** The `YMGap` library builds sorry-free (`lake build`
 reports zero `declaration uses 'sorry'`; see `SORRY_LEDGER.md`, whose
 remaining entries are closure records and named-hypothesis
-bookkeeping, not open holes). `AXIOM_AUDIT.md` tracks ~3,758
-declarations, axiom-gated to `∅` / `[propext]` /
+bookkeeping, not open holes). `AXIOM_AUDIT.md` currently records namespace
+digests for more than 18,000 canonical audited declarations; every full build
+separately verifies exact current source-gate coverage. Those declarations are
+axiom-gated to `∅` / `[propext]` /
 `[propext, Quot.sound]` — no `Classical.*`, no `sorryAx`, no
 `native_decide`. `CLASSICAL_LEDGER.md` has zero entries (see the
 Minlos caveat below).

@@ -2,7 +2,7 @@
 # Exact coefficient certificate for the lower-six E8 envelope, chart A
 
 The generated integer tables encode the degree `(83,44)` tensor Bernstein
-certificate after `x=64/n` and `D=n^2*(1+r)`.  All large equalities below
+certificate after `x=14/n` and `D=n^2*(1+r)`.  All large equalities below
 are staged one-dimensional coefficient checks; no substituted multivariate
 polynomial is sent to the eager ring normalizer.
 -/
@@ -54,7 +54,7 @@ theorem tailEnvelopeE8ChartA_shift_relation :
 
 theorem tailEnvelopeE8ChartA_raw_relation :
     GridRelation 84 45
-      (fun u i => preChart u i * Int.ofNat (64 ^ u))
+      (fun u i => preChart u i * Int.ofNat (14 ^ u))
       (quadraticRawExpected 89 tailEnvelopeE8ChartAChartQuotient
         tailEnvelopeE8ClearedRows) = true := by
   rfl

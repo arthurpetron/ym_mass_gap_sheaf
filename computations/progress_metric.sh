@@ -10,7 +10,8 @@
 # discharged and the frontier guard BREAKS.
 
 set -uo pipefail
-cd "$(dirname "$0")/../lean" || exit 1
+REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)" || exit 1
+cd "$REPO_ROOT/lean" || exit 1
 
 echo "=================================================================="
 echo " YM MASS-GAP FORWARD-PROGRESS METRIC   ($(git -C .. rev-parse --short HEAD 2>/dev/null))"
@@ -51,11 +52,49 @@ for f in "${FRONTIER[@]}"; do echo "     - $f"; done
 
 # --- D: DISCHARGED critical-path obligations (TRUE NORTH) ---------------------
 # An obligation is DISCHARGED only if a load-bearing type is newly inhabited
-# axiom-clean AND the frontier guard reacts (drops below 5). Until then D=0.
-GUARD=$(lake build YMGapGuard 2>&1 | grep -oE "[0-9]+ Clay-frontier types" | grep -oE "^[0-9]+" || echo "?")
+# axiom-clean AND a successful frontier-guard build reports a numeric count
+# strictly below the registered total.  Build, parse, and range failures are
+# evidence gaps, never evidence of mathematical progress.
+readonly REGISTERED_FRONTIER_TOTAL=5
+guard_build_output=""
+guard_build_status=0
+if guard_build_output="$(
+  "$REPO_ROOT/scripts/with_lean_session_lock.sh" "$REPO_ROOT/lean" \
+    env LEAN_NUM_THREADS=1 lake build YMGapGuard 2>&1
+)"; then
+  guard_build_status=0
+else
+  guard_build_status=$?
+fi
+
+GUARD="UNKNOWN"
+D_RESULT="UNKNOWN (frontier-guard evidence is unavailable)"
+if [[ "$guard_build_status" -ne 0 ]]; then
+  D_RESULT="ERROR (frontier-guard build exited $guard_build_status)"
+else
+  guard_counts="$(
+    printf '%s\n' "$guard_build_output" |
+      sed -nE 's/.*frontier-guard OK: ([0-9]+) Clay-frontier types.*/\1/p'
+  )"
+  if [[ ! "$guard_counts" =~ ^(0|[1-9][0-9]*)$ ]]; then
+    D_RESULT="UNKNOWN (expected exactly one canonical numeric frontier-guard count)"
+  else
+    GUARD="$guard_counts"
+    if [[ "${#GUARD}" -gt 1 ]]; then
+      D_RESULT="ERROR (guard count $GUARD exceeds registered total $REGISTERED_FRONTIER_TOTAL)"
+    elif [[ "$GUARD" -gt "$REGISTERED_FRONTIER_TOTAL" ]]; then
+      D_RESULT="ERROR (guard count $GUARD exceeds registered total $REGISTERED_FRONTIER_TOTAL)"
+    elif [[ "$GUARD" -eq "$REGISTERED_FRONTIER_TOTAL" ]]; then
+      D_RESULT="0"
+    else
+      D_RESULT="$((REGISTERED_FRONTIER_TOTAL - GUARD))"
+    fi
+  fi
+fi
 echo
-echo "D  (critical-path obligations DISCHARGED; guard must break)  : $([ "$GUARD" = 5 ] && echo 0 || echo ">=1  (guard=$GUARD, CHECK!)")"
-echo "     frontier-guard uninhabited types = $GUARD   (5 = nothing discharged; <5 = something closed)"
+echo "D  (critical-path obligations DISCHARGED; guard must break)  : $D_RESULT"
+echo "     frontier-guard uninhabited types = $GUARD"
+echo "     $REGISTERED_FRONTIER_TOTAL = nothing discharged; only a successful numeric count below $REGISTERED_FRONTIER_TOTAL is discharge evidence"
 
 # --- STATUS LADDER for the top obligation (singleStep) ------------------------
 echo

@@ -1,7 +1,7 @@
 # Frontier status
 
-> **Auto-generated** by `scripts/frontier_status.py` on 2026-07-03.
-> Axiom-gate source: `lean/AXIOM_AUDIT.md` (6010 recorded decls).
+> **Auto-generated** by `scripts/frontier_status.py` on 2026-07-18.
+> Axiom-gate source: complete current-provenance build log `/tmp/ymgap-full-build-authoritative.log` (exact live gates; baseline exceptions also validated).
 > Read-only report — no Lean source is edited. Every bundle below is OPEN
 > by design; this only records the current partial closes and the residual
 > open fields, parsed mechanically from the sources + the axiom baseline.
@@ -14,11 +14,11 @@ status ledger, not a claim of closure.
 | Frontier bundle | Lean type | # partial closes | # open fields |
 |---|---|---|---|
 | Tier0Scorecard atoms | `Tier0Scorecard` | 6 | 3 |
-| ReconstructionScorecardFinal tokens | `ReconstructionOpenFrontier` | 2 | 10 |
+| ReconstructionScorecardFinal tokens | `ReconstructionOpenFrontier` | 2 | 6 |
 | UniformSpacingFloor | `UniformSpacingFloor` | 5 | 0 |
 | SpectralMarginInput fields | `SpectralMarginInput` | 3 | 0 |
 | SixJPentagon | `SixJPentagon` | 3 | 1 |
-| ClayTarget | `ClayTarget` | 1 | 3 |
+| ClayTarget | `ClayTarget` | 1 | 0 |
 | ContinuumYMExistence | `ContinuumYMExistence` | 1 | 0 |
 
 ## Tier0Scorecard atoms
@@ -34,31 +34,31 @@ structure Tier0Scorecard (p : z4Chain.toLattice.Plaquette) (w : Q') (b : Nat) (a
 
 | decl | module | axiom gate |
 |---|---|---|
-| `fixedSpacing_met` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | Quot.sound, propext |
-| `subA_offCorr_decompose` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | Quot.sound, propext |
-| `subA_tree_graph` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | Quot.sound, propext |
-| `subB_prodFloor_pos` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | Quot.sound, propext |
-| `subB_physGap_pos` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | Quot.sound, propext |
-| `toFrontierC` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | Quot.sound, propext |
+| `fixedSpacing_met` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | live exact: Quot.sound, propext |
+| `subA_offCorr_decompose` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | live exact: Quot.sound, propext |
+| `subA_tree_graph` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | live exact: Quot.sound, propext |
+| `subB_prodFloor_pos` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | live exact: Quot.sound, propext |
+| `subB_physGap_pos` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | live exact: Quot.sound, propext |
+| `toFrontierC` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | live exact: Quot.sound, propext |
 
 **(c) Fields that remain OPEN:**
 
-- `subA` — OPEN ×4 — Sub-wall A ((T′), (D1), (D2), pentagon).
-- `subB` — OPEN ×3 — Sub-wall B (`hlocalize`, `hbridge`, `hadd`) in one input.
-- `minlos` — OPEN (ORTHOGONAL) — the cited-classical Minlos σ-additive measure lift.
+- `tTree` — **(T′)** — the per-cluster Penrose / Poghosyan–Ueltschi spanning-tree inequality, over the (D2) lattice `d2Sep.val` (the coupled atom).
+- `d1Mayer` — **(D1)** — the absolute Mayer–Ursell connecting-cluster expansion over the CLOSED 4D count `z4ClusterCountBound p`.
+- `a2Racah` — **(A2, Level-1 coarse)** — the doubly-stochastic Racah 6j² kernel, a permutation-satisfiable surrogate (`RacahInhabit.racahRP`), carried ...
 
 <details><summary>full field ledger (status by doc-marker)</summary>
 
 | field | status | doc |
 |---|---|---|
-| `fixedSpacing` | PROVED | PROVED — the fixed-spacing rubric line (`ClayFixedSpacingMet`). |
-| `subA` | OPEN | OPEN ×4 — Sub-wall A ((T′), (D1), (D2), pentagon). |
-| `subB` | OPEN | OPEN ×3 — Sub-wall B (`hlocalize`, `hbridge`, `hadd`) in one input. |
-| `minlos` | OPEN | OPEN (ORTHOGONAL) — the cited-classical Minlos σ-additive measure lift. |
-| `d2Sep` | — | **(D2)** — the plaquette-graph `SepLattice` metric refining `z4Chain`. |
-| `tTree` | — | **(T′)** — the per-cluster Penrose / Poghosyan–Ueltschi spanning-tree inequality, over the (D2) lattice `d2Sep.val` (the coupled atom). |
-| `d1Mayer` | PROVED | **(D1)** — the absolute Mayer–Ursell connecting-cluster expansion over the CLOSED 4D count `z4ClusterCountBound p`. |
-| `a2Pentagon` | — | **(A2)** — the nonlinear 6j Biedenharn–Elliott pentagon residual. |
+| `fixedSpacing` | PROVED | PROVED — the legacy fixed-spacing surrogate conjunction. |
+| `subA` | — | Historical Sub-wall A; |
+| `subB` | — | Historical Sub-wall B package (`hlocalize`, `hbridge`, `hadd`). |
+| `d2Sep` | — | **(D2)** — the plaquette-graph `SepLattice` metric refining `z4Chain` (inhabited DATA, carried only to type `tTree`). |
+| `tTree` | OPEN | **(T′)** — the per-cluster Penrose / Poghosyan–Ueltschi spanning-tree inequality, over the (D2) lattice `d2Sep.val` (the coupled atom). |
+| `d1Mayer` | OPEN | **(D1)** — the absolute Mayer–Ursell connecting-cluster expansion over the CLOSED 4D count `z4ClusterCountBound p`. |
+| `a2Racah` | OPEN | **(A2, Level-1 coarse)** — the doubly-stochastic Racah 6j² kernel, a permutation-satisfiable surrogate (`RacahInhabit.racahRP`), carried ... |
+| `a2Pentagon` | — | **(A2, Level-2 numeric shape)** — a minimal fractional-6j numeric core `PentagonRelation.PentagonNumericCore`, pinned to `1/4` at the sma... |
 
 </details>
 
@@ -75,16 +75,12 @@ structure ReconstructionOpenFrontier (D : SmulGNSData) (op : TransferOperator D.
 
 | decl | module | axiom gate |
 |---|---|---|
-| `reconstruction_status` | `lean/YMGap/Rubric/ReconstructionScorecardFinal.lean` | Quot.sound, propext |
-| `all_fixed_spacing_reconstruction_proved` | `lean/YMGap/Rubric/ReconstructionScorecardFinal.lean` | not tracked in AXIOM_AUDIT.md |
+| `reconstruction_status` | `lean/YMGap/Rubric/ReconstructionScorecardFinal.lean` | live exact: Quot.sound, propext |
+| `all_fixed_spacing_reconstruction_proved` | `lean/YMGap/Rubric/ReconstructionScorecardFinal.lean` | live exact: Quot.sound, propext |
 
 **(c) Fields that remain OPEN:**
 
 - `node1` — OPEN node ①.
-- `trueMargin` — OPEN: the genuine dimensionless physical margin.
-- `physicalWilsonBridge` — OPEN: the physical Wilson double-Haar bridge.
-- `boundedH` — OPEN: the bounded functional-calculus Hamiltonian `H = −log T`.
-- `continuumMinlos` — OPEN: the cited-classical continuum Minlos measure.
 - `OpenNode1FiniteSMargin` = `AcNReserveAnalytic.FiniteSMargin w`
 - `OpenTrueMargin` = `ReconstructionScorecard.OpenTrueMargin`
 - `OpenPhysicalWilsonBridge` = `WilsonSpectralBridge.CharacterDiagResolution op RCScaleClose.rcScaleResidualPlus w N`
@@ -95,12 +91,12 @@ structure ReconstructionOpenFrontier (D : SmulGNSData) (op : TransferOperator D.
 
 | field | status | doc |
 |---|---|---|
-| `status` | PROVED | the PROVED-UNCONDITIONAL status. |
+| `status` | — | The proved legacy status record. |
 | `node1` | OPEN | OPEN node ①. |
-| `trueMargin` | OPEN | OPEN: the genuine dimensionless physical margin. |
-| `physicalWilsonBridge` | OPEN | OPEN: the physical Wilson double-Haar bridge. |
-| `boundedH` | OPEN | OPEN: the bounded functional-calculus Hamiltonian `H = −log T`. |
-| `continuumMinlos` | OPEN | OPEN: the cited-classical continuum Minlos measure. |
+| `trueMargin` | — | Historical dimensionless-margin token. |
+| `physicalWilsonBridge` | — | Historical Wilson character-diagonalization bridge token. |
+| `boundedH` | — | Legacy bounded-log auxiliary, not the canonical unbounded generator. |
+| `continuumMinlos` | — | Optional sigma-additive Minlos-style measure packaging. |
 
 </details>
 
@@ -117,11 +113,11 @@ structure UniformSpacingFloor {ι : Type} {α : Type} (le : Q' → α → Prop) 
 
 | decl | module | axiom gate |
 |---|---|---|
-| `ofUniformPhysGapFloor` | `lean/YMGap/Continuum/UnifiedContinuumFloor.lean` | Quot.sound, propext |
-| `ofModeEnergyFloor` | `lean/YMGap/Continuum/UnifiedContinuumFloor.lean` | axiom-free |
-| `ofContinuumGapPersistence` | `lean/YMGap/Continuum/UnifiedContinuumFloor.lean` | propext |
-| `ofUniformRatioVariation` | `lean/YMGap/Continuum/UnifiedContinuumFloor.lean` | Quot.sound, propext |
-| `ofDimensionalTransmutation` | `lean/YMGap/Continuum/UnifiedContinuumFloor.lean` | Quot.sound, propext |
+| `ofUniformPhysGapFloor` | `lean/YMGap/Continuum/UnifiedContinuumFloor.lean` | live exact: Quot.sound, propext |
+| `ofModeEnergyFloor` | `lean/YMGap/Continuum/UnifiedContinuumFloor.lean` | live exact: axiom-free |
+| `ofContinuumGapPersistence` | `lean/YMGap/Continuum/UnifiedContinuumFloor.lean` | live exact: propext |
+| `ofUniformRatioVariation` | `lean/YMGap/Continuum/UnifiedContinuumFloor.lean` | live exact: Quot.sound, propext |
+| `ofDimensionalTransmutation` | `lean/YMGap/Continuum/UnifiedContinuumFloor.lean` | live exact: Quot.sound, propext |
 
 **(c) Fields that remain OPEN:**
 
@@ -150,9 +146,9 @@ structure SpectralMarginInput (b : Nat) (afr : AFRateModulus) (N₀ : Nat) : Typ
 
 | decl | module | axiom gate |
 |---|---|---|
-| `toAsymptotic` | `lean/YMGap/Continuum/AsymptoticSpectralLoc.lean` | Quot.sound, propext |
-| `uniform_floor` | `lean/YMGap/Continuum/AsymptoticSpectralLoc.lean` | Quot.sound, propext |
-| `continuum_floor_pos` | `lean/YMGap/Continuum/AsymptoticSpectralLoc.lean` | Quot.sound, propext |
+| `toAsymptotic` | `lean/YMGap/Continuum/AsymptoticSpectralLoc.lean` | live exact: Quot.sound, propext |
+| `uniform_floor` | `lean/YMGap/Continuum/AsymptoticSpectralLoc.lean` | live exact: Quot.sound, propext |
+| `continuum_floor_pos` | `lean/YMGap/Continuum/AsymptoticSpectralLoc.lean` | live exact: Quot.sound, propext |
 
 **(c) Fields that remain OPEN:**
 
@@ -192,9 +188,9 @@ structure SixJPentagon : Type
 
 | decl | module | axiom gate |
 |---|---|---|
-| `a2_racah` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | Quot.sound, propext |
-| `a2_tetra_nonneg` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | Quot.sound, propext |
-| `pentagon_to_racah` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | axiom-free |
+| `a2_racah` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | live exact: Quot.sound, propext |
+| `a2_tetra_nonneg` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | live exact: Quot.sound, propext |
+| `pentagon_to_racah` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | live exact: axiom-free |
 
 **(c) Fields that remain OPEN:**
 
@@ -222,22 +218,20 @@ structure ClayTarget : Type
 
 | decl | module | axiom gate |
 |---|---|---|
-| `clay_fixed_spacing_met` | `lean/YMGap/Rubric/ClayScorecard.lean` | Quot.sound, propext |
+| `clay_fixed_spacing_met` | `lean/YMGap/Rubric/ClayScorecard.lean` | live exact: Quot.sound, propext |
 
 **(c) Fields that remain OPEN:**
 
-- `continuumExistence` — OPEN: the continuum (`a → 0`) measure existence + tightness.
-- `o4Restoration` — OPEN: full `O(4)` / Euclidean invariance restored in the continuum.
-- `uniformInCoupling` — OPEN: the gap uniform across coupling / the continuum.
+- (no field flagged OPEN by doc-marker; see the full field ledger below)
 
 <details><summary>full field ledger (status by doc-marker)</summary>
 
 | field | status | doc |
 |---|---|---|
 | `fixedSpacing` | PROVED | The fixed-spacing clauses — PROVED (`clay_fixed_spacing_met`). |
-| `continuumExistence` | OPEN | OPEN: the continuum (`a → 0`) measure existence + tightness. |
-| `o4Restoration` | OPEN | OPEN: full `O(4)` / Euclidean invariance restored in the continuum. |
-| `uniformInCoupling` | OPEN | OPEN: the gap uniform across coupling / the continuum. |
+| `continuumExistence` | — | Historical RG/loopy/tightness package; |
+| `o4Restoration` | — | Legacy weak O4 slot; |
+| `uniformInCoupling` | — | Weak existential schedule slot; |
 
 </details>
 
@@ -254,7 +248,7 @@ structure ContinuumYMExistence {M : Nat → Type} (μ_inf : ContinuumMeasure M) 
 
 | decl | module | axiom gate |
 |---|---|---|
-| `ym_mass_gap_of_existence` | `lean/YMGap/Continuum/FourDExistence.lean` | Quot.sound, propext |
+| `ym_mass_gap_of_existence` | `lean/YMGap/Continuum/FourDExistence.lean` | live exact: Quot.sound, propext |
 
 **(c) Fields that remain OPEN:**
 
@@ -272,13 +266,19 @@ structure ContinuumYMExistence {M : Nat → Type} (μ_inf : ContinuumMeasure M) 
 
 </details>
 
-## Unimported-file audit
+## Semantic-root exclusion audit
 
-Every `YMGap/*.lean` NOT reachable (transitively) from `YMGap.lean` — i.e.
-silently skipped by the default `lake build` and therefore un-audited.
+Every `YMGap/*.lean` not reachable (transitively) from the selective
+`YMGap.lean` semantic/audit root.  The `YMGap.*` Lake glob still compiles
+each of these modules independently; `scripts/lean_import_guard.py`
+requires every exclusion component to have a reviewed manifest root.
 
-Reachable modules parsed from import closure; **2 of 607** `YMGap/*.lean` files are unreachable from `YMGap.lean`.
+Reachable modules parsed from import closure; **6 of 2537** `YMGap/*.lean` files are unreachable from `YMGap.lean`.
 
+- `lean/YMGap/Continuum/HarmonicLowerSixTailBaseSemanticFactors.lean`
+- `lean/YMGap/Continuum/HarmonicLowerSixTailEnvelopeCertificateE8ChartA.lean`
+- `lean/YMGap/Continuum/HarmonicLowerSixTailEnvelopeCertificateE8ChartAXPascal.lean`
+- `lean/YMGap/Continuum/ScratchGraphFour.lean`
 - `lean/YMGap/ModuliAlgebra.lean`
 - `lean/YMGap/PolyAtlas.lean`
 
@@ -288,15 +288,27 @@ Every `noncomputable def/abbrev/instance` in `YMGap/`. These do not compile
 to executable code (they rest on `Q'`/data that Lean cannot evaluate) but
 remain type-checked and axiom-gated.
 
-**9** noncomputable declaration(s).
+**21** noncomputable declaration(s).
 
 | module | line | decl |
 |---|---|---|
+| `lean/YMGap/Continuum/BirkhoffContraction.lean` | 179 | `fullFloor_of_birkhoffTransfer` |
+| `lean/YMGap/Continuum/ChannelFeedbackRecursion.lean` | 295 | `looseFloorData` |
+| `lean/YMGap/Continuum/ChannelFeedbackRecursion.lean` | 344 | `looseFloorEps` |
+| `lean/YMGap/Continuum/ChannelFeedbackRecursion.lean` | 394 | `defectRecursion_of_looseBound` |
 | `lean/YMGap/Continuum/DominantModeRecursion.lean` | 210 | `floorData` |
 | `lean/YMGap/Continuum/DominantModeRecursion.lean` | 218 | `floorEps` |
 | `lean/YMGap/Continuum/DominantModeRecursion.lean` | 247 | `dominantModeRecursion` |
+| `lean/YMGap/Continuum/FrontierStatementBugFence.lean` | 115 | `legacyTrueMargin_surrogate_unconditional` |
 | `lean/YMGap/Continuum/NormExcitedDrift.lean` | 472 | `prodFloorVal` |
 | `lean/YMGap/Continuum/NormExcitedDrift.lean` | 502 | `dominantRGCoeffStep` |
+| `lean/YMGap/Continuum/QuadraticKernel.lean` | 290 | `sq` |
+| `lean/YMGap/Continuum/QuadraticKernel.lean` | 325 | `toCReal` |
+| `lean/YMGap/Continuum/RouteGProductFloorAssembly.lean` | 218 | `twoRegimeProductFloor` |
+| `lean/YMGap/Continuum/RouteGProductFloorAssembly.lean` | 261 | `twoRegimeDefectGapRecursion` |
+| `lean/YMGap/Continuum/SingleStepDefectReduction.lean` | 307 | `defectRecursion_of_singleStep` |
+| `lean/YMGap/Continuum/SingleStepDefectReduction.lean` | 347 | `trueMarginRecursion_of_singleStep` |
+| `lean/YMGap/Continuum/TempleSpectralStabilityDefect.lean` | 224 | `templeResidual_model` |
 | `lean/YMGap/Continuum/UniformCouplingFromAF.lean` | 148 | `afFloorData` |
 | `lean/YMGap/Continuum/UniformCouplingFromAF.lean` | 152 | `afFloorEps` |
 | `lean/YMGap/Continuum/UniformCouplingFromAF.lean` | 175 | `afDefectGapRecursion` |

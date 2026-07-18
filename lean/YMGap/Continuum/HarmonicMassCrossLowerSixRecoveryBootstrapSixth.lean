@@ -6,7 +6,16 @@ finite-difference proof is developed.  Its constants are exact closed
 rationals; no sampled value enters a theorem.
 -/
 
-import YMGap.Continuum.HarmonicMassCrossLowerSixRecoveryBootstrapFifth
+import YMGap.Continuum.HarmonicMassCrossLowerSixRecoveryBootstrapSixthBlock0
+import YMGap.Continuum.HarmonicMassCrossLowerSixRecoveryBootstrapSixthBlock1
+import YMGap.Continuum.HarmonicMassCrossLowerSixRecoveryBootstrapSixthBlock2
+import YMGap.Continuum.HarmonicMassCrossLowerSixRecoveryBootstrapSixthBlock3
+import YMGap.Continuum.HarmonicMassCrossLowerSixRecoveryBootstrapSixthBlock4
+import YMGap.Continuum.HarmonicMassCrossLowerSixRecoveryBootstrapSixthBlock5
+import YMGap.Continuum.HarmonicMassCrossLowerSixRecoveryBootstrapSixthBlock6
+import YMGap.Continuum.HarmonicMassCrossLowerSixRecoveryBootstrapSixthBlock7
+import YMGap.Continuum.HarmonicMassCrossLowerSixRecoveryBootstrapSixthBlock8
+import YMGap.Continuum.HarmonicMassCrossLowerSixRecoveryBootstrapSixthBlock9
 
 namespace YMGap.Continuum.HarmonicMassCrossLowerSixRecoveryBootstrapSixth
 
@@ -22,17 +31,63 @@ open YMGap.Continuum.HarmonicMassCrossLowerSixTerminalPayment
 open YMGap.Continuum.HarmonicMassCrossLowerSixTwoSidedWindow
 open YMGap.Continuum.HarmonicMassCrossResidualSandwich
 
-/-- First replay-sized half of the exact sixth fallback tranche. -/
+/-- First replay-sized half, assembled from five independently compiled
+ten-case decisions. -/
 theorem lowerSixRecoveryPayment_bootstrap_548_597 : ∀ i : Fin 50,
     -lowerSixWindowPrefix (i.val + 548) ≤
       lowerSixRecoveryReserve (i.val + 548) := by
-  decide
+  intro i
+  by_cases hi10 : i.val < 10
+  · let j : Fin 10 := ⟨i.val, hi10⟩
+    exact lowerSixRecoveryPayment_bootstrap_548_557 j
+  · by_cases hi20 : i.val < 20
+    · let j : Fin 10 := ⟨i.val - 10, by omega⟩
+      have h := lowerSixRecoveryPayment_bootstrap_558_567 j
+      have hidx : i.val - 10 + 558 = i.val + 548 := by omega
+      simpa only [j, hidx] using h
+    · by_cases hi30 : i.val < 30
+      · let j : Fin 10 := ⟨i.val - 20, by omega⟩
+        have h := lowerSixRecoveryPayment_bootstrap_568_577 j
+        have hidx : i.val - 20 + 568 = i.val + 548 := by omega
+        simpa only [j, hidx] using h
+      · by_cases hi40 : i.val < 40
+        · let j : Fin 10 := ⟨i.val - 30, by omega⟩
+          have h := lowerSixRecoveryPayment_bootstrap_578_587 j
+          have hidx : i.val - 30 + 578 = i.val + 548 := by omega
+          simpa only [j, hidx] using h
+        · let j : Fin 10 := ⟨i.val - 40, by omega⟩
+          have h := lowerSixRecoveryPayment_bootstrap_588_597 j
+          have hidx : i.val - 40 + 588 = i.val + 548 := by omega
+          simpa only [j, hidx] using h
 
-/-- Second replay-sized half of the exact sixth fallback tranche. -/
+/-- Second replay-sized half, assembled from five independently compiled
+ten-case decisions. -/
 theorem lowerSixRecoveryPayment_bootstrap_598_647 : ∀ i : Fin 50,
     -lowerSixWindowPrefix (i.val + 598) ≤
       lowerSixRecoveryReserve (i.val + 598) := by
-  decide
+  intro i
+  by_cases hi10 : i.val < 10
+  · let j : Fin 10 := ⟨i.val, hi10⟩
+    exact lowerSixRecoveryPayment_bootstrap_598_607 j
+  · by_cases hi20 : i.val < 20
+    · let j : Fin 10 := ⟨i.val - 10, by omega⟩
+      have h := lowerSixRecoveryPayment_bootstrap_608_617 j
+      have hidx : i.val - 10 + 608 = i.val + 598 := by omega
+      simpa only [j, hidx] using h
+    · by_cases hi30 : i.val < 30
+      · let j : Fin 10 := ⟨i.val - 20, by omega⟩
+        have h := lowerSixRecoveryPayment_bootstrap_618_627 j
+        have hidx : i.val - 20 + 618 = i.val + 598 := by omega
+        simpa only [j, hidx] using h
+      · by_cases hi40 : i.val < 40
+        · let j : Fin 10 := ⟨i.val - 30, by omega⟩
+          have h := lowerSixRecoveryPayment_bootstrap_628_637 j
+          have hidx : i.val - 30 + 628 = i.val + 598 := by omega
+          simpa only [j, hidx] using h
+        · let j : Fin 10 := ⟨i.val - 40, by omega⟩
+          have h := lowerSixRecoveryPayment_bootstrap_638_647 j
+          have hidx : i.val - 40 + 638 = i.val + 598 := by omega
+          simpa only [j, hidx] using h
 
 /-- Exact sixth fallback tranche, assembled without re-running one monolithic
 100-case kernel reduction. -/
@@ -46,7 +101,7 @@ theorem lowerSixRecoveryPayment_bootstrap_548_647 : ∀ i : Fin 100,
   · let j : Fin 50 := ⟨i.val - 50, by omega⟩
     have h := lowerSixRecoveryPayment_bootstrap_598_647 j
     have hidx : i.val - 50 + 598 = i.val + 548 := by omega
-    simpa [j, hidx] using h
+    simpa only [j, hidx] using h
 
 theorem lowerSixRecoveryPayment_548_647
     {k : Nat} (hk0 : 548 ≤ k) (hk1 : k < 648) :
@@ -54,7 +109,7 @@ theorem lowerSixRecoveryPayment_548_647
   let i : Fin 100 := ⟨k - 548, by omega⟩
   have h := lowerSixRecoveryPayment_bootstrap_548_647 i
   have hkidx : k - 548 + 548 = k := by omega
-  simpa [i, hkidx] using h
+  simpa only [i, hkidx] using h
 
 theorem growingResidualLowerSix_548_647
     {k : Nat} (hk0 : 548 ≤ k) (hk1 : k < 648) :

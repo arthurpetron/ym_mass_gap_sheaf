@@ -14,13 +14,23 @@ No rule below authorizes an unsafe verification run.
 - Never run bare `lake build` or `lake env lean YMGap.lean`. Never run Lean
   builds concurrently with each other or with a broad test suite.
 - Static inspection comes first. The default agent-initiated check is the
-  smallest relevant target with one worker:
-  `LEAN_NUM_THREADS=1 lake build <Module.Target>`.
-- Check for an existing `lean`/`lake`/`pytest` process before compiling. Do not
-  compete with or kill a user-owned process.
+  smallest relevant target with one worker, launched from the repository root
+  through the atomic session lock:
+  `scripts/with_lean_session_lock.sh lean env LEAN_NUM_THREADS=1 lake build <Module.Target>`.
+- Check for an existing GitHub runner supervisor/helper/listener/worker or
+  `lean`/`lake`/`pytest` process before compiling. Do not compete with or
+  kill a user-owned process.
+- Never bypass the lock wrapper or a locked repository Make target.  The lock
+  covers repository-managed entry points; the process check is still required
+  because no project script can prevent an arbitrary bare executable.
+- After Control-C, TERM, HUP, or an abrupt child failure, never remove a
+  retained lock until process inspection conclusively shows that no
+  GitHub runner supervisor/helper/listener/worker, Lean, Lake, or pytest
+  process survives.
 - A full build, audit, or guard run requires explicit user approval for that
   specific run after targeted checks pass. Use the repository Make target with
-  `LEAN_JOBS=1`; never exceed `LEAN_JOBS=3` on this host.
+  `LEAN_JOBS=1`. This one-worker setting is a hard repository invariant on this
+  host; do not raise or bypass it.
 - The `-M 20480` per-worker ceiling in `lakefile.toml` is mandatory. Raising or
   bypassing it, including a solo `-M 40960` check, requires explicit user
   approval for that run.
@@ -250,7 +260,8 @@ Verification is targeted-first and is always subject to the machine-safety
 precondition above:
 
 1. The smallest affected Lean target succeeds with
-   `LEAN_NUM_THREADS=1 lake build <Module.Target>` (or fails only on logged
+   `scripts/with_lean_session_lock.sh lean env LEAN_NUM_THREADS=1 lake build <Module.Target>`
+   (or fails only on logged
    `sorry`s). A full-tree build is a separate, explicitly-approved final audit;
    Rule 7 never authorizes bare `lake build`.
 2. Every new load-bearing theorem has a passing `#print axioms` check

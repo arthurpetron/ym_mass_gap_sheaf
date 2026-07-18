@@ -59,8 +59,7 @@ Then build the printed maximal reverse-dependent targets—not the whole tree—
 one worker, for example:
 
 ```sh
-cd lean
-LEAN_NUM_THREADS=1 lake build +YMGap.Continuum.SomePrintedTarget
+scripts/with_lean_session_lock.sh lean env LEAN_NUM_THREADS=1 lake build +YMGap.Continuum.SomePrintedTarget
 ```
 
 This checks every downstream consumer represented by the guard's accepted
@@ -78,10 +77,12 @@ make lean-build LEAN_JOBS=1
 Do not run a bare full build locally. CI is the definitive integration path: it
 builds the complete `YMGap.*` module glob with one worker, includes both
 semantic guard roots, and audits the captured build log. The workflow refuses
-to start Lean below 24 GiB RAM; repository variable `YMGAP_LEAN_RUNNER` must
-name the repository-scoped macOS ARM64 runner (normally `ymgap-m4max`).  It has
-no paid hosted fallback and accepts work only while deliberately started in a
-foreground terminal; see `docs/self-hosted-ci.md`. No commit has the definitive
+to start Lean unless the runner has at least 32 GiB of installed RAM and
+approximately 32 GiB available; repository variable `YMGAP_LEAN_RUNNER` must
+name the repository-scoped macOS ARM64 runner (normally `ymgap-m4max`). It is a
+one-job JIT runner with no paid hosted fallback and accepts work only while
+deliberately started in a foreground terminal; see `docs/self-hosted-ci.md`.
+No commit has the definitive
 guarantee until that workflow exits zero, and strict namespace-digest drift
 remains informational.
 

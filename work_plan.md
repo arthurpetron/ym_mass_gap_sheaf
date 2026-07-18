@@ -1940,39 +1940,44 @@ program, no proof at all.
 
 #### CI axiom-gate enforcement
 
-The constructive law above is enforced in CI by a per-theorem
-axiom-baseline audit:
+The constructive law above is enforced in CI by a complete source-site
+axiom-gate audit:
 
-- `scripts/lean_axiom_audit.py` parses `lake build` output and compares
-  each theorem's `#print axioms` result against `lean/AXIOM_AUDIT.md`
-  (the maintained baseline of permitted axioms per theorem).
-- **Drift detection** (CI fails, exit 1): a tracked theorem acquires
-  an axiom dependency NOT listed in the baseline (e.g. `Classical.choice`
-  appears where only `propext` is permitted).
-- **Improvement detection** (silent pass): a tracked theorem's axiom
-  set shrinks (the proof became more constructive).
-- **Strict mode** (`--strict`, exit 2): also flag new theorems not in
-  the baseline and tracked theorems missing from the build.  Used as
-  an informational warning in CI; the maintainer accepts new theorems
-  by running `make lean-audit-update` and committing the manifest.
+- `scripts/lean_axiom_audit.py` inventories every executable
+  `#print axioms` site in every source selected by the `YMGap.*` library,
+  then requires the completed `lake build` log to contain exactly those
+  diagnostics. Missing, stale, duplicate, truncated, and failed-build logs
+  are infrastructure failures rather than weaker evidence.
+- **Gate enforcement** (mandatory): every observed declaration must stay
+  within `{propext, Quot.sound}`, except for an explicitly reviewed
+  out-of-gate entry in `lean/AXIOM_AUDIT.md`. Repeated canonical names are
+  combined by union, so a clean colliding declaration cannot hide a forbidden
+  dependency from an independently compiled alternative.
+- **Improvement/new-clean detection** (silent pass): an axiom set may shrink
+  or a new declaration may remain inside the gate.
+- **Strict mode** (`--strict`, exit 2): additionally compares compact
+  per-namespace axiom-profile digests. It is informational in CI because
+  ordinary new axiom-clean declarations cause digest drift; deliberate
+  review and `make lean-audit-update` re-pin the manifest.
 
 Makefile targets:
 - `make lean-build`         — `lake build` in `lean/`.
-- `make lean-audit`         — non-strict drift check.
-- `make lean-audit-strict`  — also fail on new/missing theorems.
+- `make lean-audit`         — mandatory completeness + axiom-gate check.
+- `make lean-audit-strict`  — also fail on namespace-profile drift.
 - `make lean-audit-update`  — regenerate the baseline.
 
-GitHub Actions workflow: `.github/workflows/lean-audit.yml` runs
-`make lean-build` + `make lean-audit` on every push/PR that touches
-`lean/`, `scripts/lean_axiom_audit.py`, or the workflow itself.  The
-strict mode is run informationally (`continue-on-error: true`) and
-surfaces new/missing-theorem warnings without blocking the merge.
+GitHub Actions workflow: `.github/workflows/lean-audit.yml` runs the
+all-module build and mandatory audit only for Lean-relevant pushes to trusted
+`main`, plus explicit manual dispatches whose selected ref is also `main`.
+It has no pull-request trigger: PR code is deliberately excluded from the
+personal Mac. The strict digest comparison remains informational.
 
 This converts the manuscript's Appendix B (Lean axiom-gate audit, per
-`docs/outline.md` Part B §22) from a one-time snapshot to a
-maintained guarantee: every PR-merge commit has a passing axiom-gate
-audit, and the `lean/AXIOM_AUDIT.md` manifest is the auditable
-reproducible record.
+`docs/outline.md` Part B §22) from a one-time snapshot into a maintained
+mechanism. Only a green run whose `headSha` equals the intended trusted-main
+commit certifies that commit; neither a PR merge nor a queued/cancelled run is
+claimed as kernel evidence. The compact `lean/AXIOM_AUDIT.md` manifest and
+the exact source-site completeness check are the auditable record.
 
 ### Test discipline
 
@@ -6313,9 +6318,12 @@ keep every gate inside `{propext, Quot.sound}` (191 and 280 seconds in their
 respective named replays).  The fifth `448 <= k < 548` tranche is also green:
 its 491-job named replay completed in 383 seconds and all four public gates use
 exactly `[propext, Quot.sound]`.  The sixth `548 <= k < 648` tranche is now
-green too: two replay-sized `Fin 50` decisions are reassembled constructively
-into the full `Fin 100` band, and composition with the earlier tranches makes
-`GrowingResidualLowerSix k` unconditional for every `10 <= k < 648`.
+green too.  Ten independently compiled `Fin 10` decisions cover the exact,
+disjoint bands `548..557`, ..., `638..647`; lightweight constructive index
+glue reassembles the original two `Fin 50` declarations and the full `Fin 100`
+band without unfolding a certificate leaf.  Composition with the earlier
+tranches makes `GrowingResidualLowerSix k` unconditional for every
+`10 <= k < 648`.
 `HarmonicMassCrossLowerSixRecoveryBootstrapSixthClosure` records the physical
 content rather than leaving it as a certificate table: the sharp physical
 Pascal cross, coefficient-two harmonic mass cross, and located character-GNS
@@ -11841,8 +11849,10 @@ non-negotiable policy:
    not compete with or kill a user-owned process.
 4. Full-tree builds, audits, and guards require explicit user approval for the
    particular run, after targeted checks pass, and run with `LEAN_JOBS=1`.
-   Three workers is an absolute ceiling, not a recommended default: three
-   20 GB workers can already consume about 60 GB before OS overhead.
+   One worker is now a hard, override-resistant repository invariant, not a
+   tunable default or merely a recommendation.  This supersedes the earlier
+   three-worker ceiling: even three individually capped workers can consume
+   about 60 GB before operating-system overhead.
 5. Keep the `-M 20480` per-process ceiling.  Raising or bypassing it, including
    a solo `-M 40960` certificate check, requires explicit approval for that run.
 6. Stop on swapping, memory growth near the cap, thermal pressure, or a stall.
@@ -12514,7 +12524,7 @@ and foreign inputs must be unchanged unless separately escalated.
 4. A final all-module build must run once per Lean-relevant trusted-main state
    selected by CI's path filter, not once per local edit.  A manual dispatch
    supplies the same proof on demand.  Pull-request code is deliberately not
-   executed on the persistent self-hosted Mac; documentation-only states are
+   executed on the personal self-hosted Mac; documentation-only states are
    likewise outside the trigger.  A clean no-cache build is a separate
    periodic or toolchain/configuration-change proof.
 
@@ -12608,19 +12618,29 @@ The following are now load-bearing repository invariants:
 5. **Reverse-dependent planner.**  `make lean-affected LEAN_BASE=<git-ref>`
    includes tracked, staged, working-tree, deleted, renamed, and untracked Lean
    paths and prints the maximal reverse-dependent module targets.
-6. **Host-safe defaults.**  `LEAN_JOBS` defaults to one.  The Makefile rejects
-   any value other than `1`, `2`, or `3`; the repository-wide host ceiling is
-   three, while one is mandatory for ordinary work.  The per-process
-   `-M 20480` limit remains in `lakefile.toml`.  The axiom-audit and optional
-   frontier-status build paths also default to one worker, and the latter
-   requires an explicit `--allow-full-build` acknowledgement.
+6. **Host-safe single-worker invariant.**  `LEAN_JOBS` is exactly one.  The
+   Makefile rejects every caller-supplied value other than `1` and then uses an
+   override-resistant assignment, so command-line or inherited Make variables
+   cannot silently raise Lake parallelism.  The same invariant is stated in
+   `AGENTS.md`, `CLAUDE.md`, and `lean/AGENTS.md`.  The per-process `-M 20480`
+   limit remains in `lakefile.toml`. All build-capable audit routes and the
+   optional frontier-status `--lake --allow-full-build` route enter the same
+   canonical wrapper even when their Python CLIs are invoked directly;
+   log-only/report-only modes do not invoke Lake. The frontier route also
+   requires its explicit high-load acknowledgement. Repository
+   pytest entry points hold the same host lock and set the OpenMP, OpenBLAS,
+   MKL, vecLib, and NumExpr thread pools to one.
 7. **One full-library CI build invocation.**  For trusted-main states selected
    by its path filter (and manual dispatches), CI runs the static guard,
    performs one all-module build with
    `LEAN_JOBS=1` and a checked pipe exit code, preserves its log, and feeds that
-   same log to both axiom-audit modes rather than launching a second full
-   build.  Later frontier, statement, and rubric Lake invocations remain and
-   should normally be cache validations.  The trusted persistent runner keeps
+   same log first to the mandatory completeness/constructivity/internal-error
+   gate, before any further Lake target, and later to informational strict
+   mode rather than launching a second full build. Frontier, statement, and
+   rubric Lake invocations remain and
+   should normally be cache validations.  Each foreground session uses a
+   repository-scoped just-in-time runner registration which GitHub assigns at
+   most one job and then removes.  The Mac's sanitized work directory keeps
    only `lean/.lake` between ordinary jobs, avoiding paid remote cache storage;
    Lake revalidates source, dependency, option, and toolchain hashes.  A manual
    `workflow_dispatch` with `clean_build=true` deletes that cache before the
@@ -12632,10 +12652,11 @@ current selected build, but it is not an independent reproducibility test of
 the cache itself.  Periodic manual clean mode remains policy-required as an
 independent reproducibility check and is available rather than enforced as a
 required branch status.  Runner capacity is fail-closed: the workflow refuses
-to start Lean unless Linux or macOS reports at least 24 GiB RAM.  On macOS it
-also requires AC power and no active Lean/Lake/pytest process, uses one worker
-under the 20 GB Lean cap, lowers process priority, and keeps the machine awake
-only during the build.  `YMGAP_LEAN_RUNNER` is set to the private custom label
+to start Lean unless the host reports at least 32 GiB installed and
+approximately 32 GiB currently available.  On macOS it also requires AC power
+and no active runner/Lean/Lake/pytest process, uses one worker under the 20 GB
+Lean cap, lowers process priority, and keeps the machine awake only during the
+build.  `YMGAP_LEAN_RUNNER` is set to the private custom label
 `ymgap-m4max`; there is intentionally no GitHub-hosted fallback.  Runner
 provisioning and deliberate foreground startup remain operational
 prerequisites, and a scheduling/capacity failure must not be relabeled as a
@@ -12643,18 +12664,18 @@ proof failure or silently bypassed.
 
 The two axiom modes have different force.  The non-strict run is the required
 gate against observed declarations acquiring axioms outside the reviewed
-budget.  Strict namespace-digest drift is currently informational
-(`continue-on-error`).  Moreover, an incremental cache-reusing build log need
-contain `#print axioms` output only for modules that Lake actually rebuilt;
-unchanged cached declarations rely on the previously trusted artifact state.
-Thus CI exit zero does not presently assert that a complete current namespace
-digest was regenerated from that one log.  Making that stronger statement
-requires a required strict check fed by complete replayed/regenerated axiom
-output, not merely renaming the informational step a gate.
+budget; strict namespace-digest drift is informational (`continue-on-error`).
+Lake 4.29.1 replays a current cached module's saved info trace, including its
+`#print axioms` diagnostics.  The auditor now independently inventories every
+executable source gate and requires exact source-file/line multiplicity plus
+Lake's terminal success marker, rejecting missing, stale, duplicated, private,
+or malformed diagnostics.  Thus a cache-reusing all-module log supplies
+complete current gate evidence without requiring re-elaboration of every cache
+hit.  Section 8.13.18 records the exact replay and collision argument.
 
 The workflow is also branch- and path-filtered.  “Every CI state” below means
 every Lean-relevant trusted-main state selected by that filter, plus manual
-dispatch; persistent self-hosted execution of pull-request code is excluded on
+dispatch; self-hosted execution of pull-request code is excluded on
 security grounds.  The load-bearing path set now
 includes `reference/leanmillennium-pinned/**`, so a change to the pinned rubric
 transcription triggers the same workflow; documentation-only states remain
@@ -12702,8 +12723,8 @@ For a normal Lean edit, after the process-conflict check:
 ```text
 python3 scripts/lean_import_guard.py
 make lean-affected LEAN_BASE=HEAD
-cd lean
-LEAN_NUM_THREADS=1 lake build <each printed +Module.Target>
+scripts/with_lean_session_lock.sh lean env LEAN_NUM_THREADS=1 \
+  lake build <each printed +Module.Target>
 ```
 
 Run the smallest directly edited target first.  If a printed maximal target is
@@ -12980,28 +13001,39 @@ spending-limit lock.  Therefore that red run is neither a Lean failure nor a
 green full-build result; it supplies no kernel evidence at all.
 
 To remove hosted-compute cost without reviving uncontrolled local builds, the
-private repository now has a repository-scoped Apple-silicon runner registered
-under the custom label `ymgap-m4max`.  The pinned setup script verifies the
-official runner archive's SHA-256 digest before registration and stores no
-registration token in the repository.  It deliberately installs no service:
-the runner stays offline until `scripts/run_macos_ci_runner.sh` is started in a
-foreground terminal, and Control-C takes it offline.
+private repository uses the custom label `ymgap-m4max` for a
+repository-scoped Apple-silicon JIT runner.  The setup script pins the official
+runner to `v2.335.1`, verifies the archive's SHA-256 digest and the installed
+listener's reported version, reapplies owner-only mode `0700` to the runner
+root after archive extraction as well as on preexisting-install validation,
+installs no service, and creates no persistent registration.  Each invocation
+of `scripts/run_macos_ci_runner.sh` first reconciles any durable recovery/local
+registration in the same validated root, then revalidates that exact version
+before it requests a new JIT configuration, holds the canonical
+per-user atomic host session lock, runs in the foreground for a specifically
+known queued trusted-main run, and accepts at most one job by GitHub's own
+guarantee. The Listener starts only after a synced exact-ID/name visibility
+witness. Normal or trapped exit requests and verifies remote/local cleanup;
+successful cleanup deletes the credentials and owner-only recovery marker,
+while failure retains that evidence for a later conflict-free recovery and
+prevents a fresh JIT registration from guessing.
 
 The self-hosted workflow contract is stricter than the former fallback:
 
 1. only trusted Lean-relevant pushes to `main` and manual dispatches are
-   eligible; pull-request code never runs on the persistent personal machine;
+   eligible; pull-request code never runs on the personal machine;
 2. routing requires the complete `self-hosted`, `macOS`, `ARM64`, and custom
    label tuple; there is no GitHub-hosted fallback, so even a variable changed
    to `macos-latest` cannot spend hosted minutes;
-3. macOS requires at least 24 GiB installed RAM, approximately 24 GiB currently
+3. macOS requires at least 32 GiB installed RAM, approximately 32 GiB currently
    available by `memory_pressure`, AC power, and no concurrent Lean/Lake/pytest
    process before compilation;
 4. the full build remains one worker with Lean's 20 GB per-process ceiling,
    runs at positive niceness, and uses `caffeinate` only while that build runs;
-5. each foreground launcher accepts exactly one job; workflow concurrency
-   keeps only the newest all-module job current, and a
-   later preflight refuses to overlap a process left by cancellation;
+5. each foreground launcher uses GitHub's at-most-one-job JIT primitive;
+   workflow concurrency preserves the current running job and coalesces pending
+   checkpoints, while the launcher-held atomic lock, locked Make entry points,
+   and immediate pre-build process recheck prevent repository-managed overlap;
 6. the persistent checkout deletes every ignored/untracked path other than
    `lean/.lake`; Lake revalidates that local cache, avoiding remote cache
    storage, while manual `clean_build=true` deletes it for a reproducibility
@@ -13009,7 +13041,27 @@ The self-hosted workflow contract is stricter than the former fallback:
 7. a manual dispatch is rejected unless its selected ref is `main`; successful
    logs are not uploaded; a failing log is retained for only three
    days; and the workflow token is read-only with checkout credentials not
-   persisted.
+   persisted; and
+8. a newly queued job has a `480`-minute workflow timeout, long enough for the
+   measured one-worker cold path without weakening the worker or memory caps.
+
+The lock is one fixed `/tmp/ymgap-lean-session-$UID.lock` rendezvous rather
+than a caller-selectable path.  A top-level wrapper checks the process list
+both before and immediately after its atomic `mkdir`, closing the race with a
+bare executable that cannot honor the lock.  Cleanup removes the lock only
+after a conclusive post-command check; an orphaned Lean/Lake/pytest/runner
+process or a process-list inspection failure retains it for explicit operator
+recovery.  `Makefile`, `AGENTS.md`, `CLAUDE.md`, and `lean/AGENTS.md` all make
+`LEAN_JOBS=1` hard rather than advisory, and pytest additionally receives the
+five one-thread numerical-library caps.
+
+The four runner labels are routing selectors, not authorization.  A
+repository-scoped JIT registration can accept any queued job carrying those
+labels, so every actor and workflow able to queue a matching job is inside the
+trust boundary.  The foreground listener must therefore be launched only for
+a known queued run and taken offline afterward; stronger adversarial isolation
+requires a workflow-restricted organization runner group or a dedicated
+disposable account/host.
 
 Self-hosted Actions compute is free under GitHub's documented billing model,
 but the account must still be able to schedule Actions.  The current billing
@@ -13074,3 +13126,2290 @@ The immediate residual is now:
 5. only after genuine compact realization and Haar bi-invariance, prove the
    normalized Haar pushforward identity and advance to constructive complex
    coefficients, real Wilson actions, and Peter--Weyl realization.
+
+### 8.13 Located quotient and exact rational A1 execution route
+(2026-07-18, session 7)
+
+This checkpoint separates four statements that must not be conflated:
+
+1. full-tree consistency of one exact Git commit;
+2. a generic constructive finite-central-quotient presentation;
+3. a finite rational quaternion plumbing fixture; and
+4. the still-open realization of the full rational and compact A1 groups.
+
+#### 8.13.1 Self-hosted full-tree run: exact failed/cancelled result
+
+The first clean all-module job assigned to the private Apple-silicon runner was
+GitHub run `29638079535`, job `88063821580`, on commit `118172b`.  Checkout,
+sanitization, the static import guard, pinned-toolchain selection, the host
+preflight, and Lean-version verification passed.  The build then exposed eight
+real source/kernel failures.  After the last three formed a consecutive
+increasing-cost family of the same high-row kernel-cap failure, cancellation
+was requested: the job was already irrecoverably red, continuing would only
+spend host time, and the successfully produced local Lake cache was preserved.
+
+The exact GitHub record is:
+
+```text
+commit:                    118172b
+workflow run:              29638079535
+job:                       88063821580
+job start:                 2026-07-18 08:49:02Z
+job completion:            2026-07-18 13:28:14Z
+full-build step:           08:49:20Z--13:28:07Z (4h38m47s)
+last scheduler entry:      2117/2528 (cancelled Block3Row2)
+full-build result:         FAIL, then operator-cancelled
+required axiom audit:      NOT REACHED
+frontier guard:            NOT REACHED
+statement guard:           NOT REACHED
+frontier-DAG guard:        NOT REACHED
+rubric guard:              NOT REACHED
+strict drift report:       NOT REACHED
+failure artifact:          SKIPPED by the old workflow on cancellation
+local build log:           RETAINED on the Mac
+elapsed job time:          4h39m12s
+final GitHub conclusion:   CANCELLED
+```
+
+Accordingly, commit `118172b` is **not** certified as fully kernel-consistent,
+and none of the skipped guards or audits may be inferred from the partial log.
+This was not a scheduler or capacity failure: the one-worker `-M 20480` cap did
+its intended job and converted large reductions into recoverable module
+failures without crashing the host.  The earlier run `29637312899` remains a
+separate billing/scheduling rejection on which no workflow step executed and
+therefore supplies no kernel evidence.
+
+The skipped artifact exposed an observability defect in the old workflow: an
+explicit operator cancellation makes the job conclusion `cancelled`, while the
+upload step had selected only `failure()`.  The current working-tree source now
+names the step “after any mandatory failure or cancellation” and uses
+`if: failure() || cancelled()`.  The source repair is complete; workflow-level
+static re-audit, commit/push, and its first live failure-or-cancellation exercise
+remain pending.  This preserves diagnostic evidence only and cannot convert
+cancellation into a passing proof status.
+
+The eight failing modules observed before cancellation were exactly:
+
+1. `HarmonicLowerSixTailEnvelopeCertificateE8ChartA` at 166 seconds: an `rfl`
+   exposed the inconsistent raw substitution factor `64^u`;
+2. `EightAnchorWindowRetune` at 146 seconds: the monolithic 144-coefficient
+   Boolean identity exceeded the kernel memory cap;
+3. `HarmonicMassCrossLowerSixRecoveryBootstrapFourth` at 210 seconds: the
+   one-shot `Fin 100` decision exceeded the kernel memory cap;
+4. `HarmonicMassCrossLowerSixRecoveryTerminal8189` at 103 seconds: the direct
+   254-mode endpoint decision exceeded the kernel memory cap;
+5. `HarmonicLowerSixCubicDebtCoefficient1330Physical` at 5 seconds: several
+   definitional-equality, tactic, and nested congruence terms were ill-typed;
+6. `HarmonicMassCrossLowerSixScaledCrossDriftQuadraticTaylorFluxPrefixMassReserveMomentRemainderSlopeSepticExactLowerHighRowsBlock4Row0`
+   at 196 seconds: `highRowPred` exceeded the kernel memory cap;
+7. the corresponding `...HighRowsBlock3Row4` at 218 seconds: the same kernel
+   memory failure; and
+8. the corresponding `...HighRowsBlock3Row3` at 233 seconds: the same kernel
+   memory failure.
+
+Cancellation interrupted `...HighRowsBlock3Row2` after 76 seconds with process
+exit 137.  That row is cancellation collateral, not a ninth diagnosed
+certificate failure, and no mathematical conclusion is assigned to it.
+
+Five exact constructive source-level repair candidates are written.  The split
+BootstrapFourth repair now has a successful guarded targeted compilation;
+the corrected CubicDebt repair now does as well.  E8 chart A remains pending
+its first targeted check; Terminal8189's initial stack overflow is eliminated
+but its balanced rerun still has exponent-transport and chunk-memory failures;
+both guarded EightAnchor slicing attempts failed for the architectural reason
+described below.
+
+1. the E8 chart-A raw relation now uses the actual chart substitution
+   `x=14/n`, hence `14^u`, consistently in its prose and checked relation;
+2. the first degree-143 EightAnchor repair attempted four disjoint
+   36-coefficient `take`/`drop` slices and an empty tail, then reconstructed the
+   unchanged 144-coefficient `allZero` statement with `allZeroB_append` and
+   `List.take_append_drop`;
+3. the fourth bootstrap tranche checks the exact intervals `348--397` and
+   `398--447` as two `Fin 50` decisions, then reconstructs the original
+   `Fin 100` theorem by a decidable `i.val < 50` split and `omega` index
+   transport.  This item is target-compiled successfully;
+4. the terminal certificate splits the 254 interior modes into `202+52`, keeps
+   the endpoint term explicit, proves the two exact rational lower enclosures
+   `-7165730/1000000` and `7166567/1000000`, and reassembles them with
+   `finSum_split` and rational setoid algebra.  Their certified excess is the
+   strictly positive exact margin `837/1000000`; its balanced source proof
+   still requires explicit exponent transport and finer subdivision after the
+   failed rerun described below; and
+5. the cubic-debt physical proof replaces invalid definitional/ring shortcuts
+   by typed rational-setoid algebra: an explicit `2*a ≈ a+a` lemma, congruence
+   transport of the drift excess, constructive natural-factor positivity, and
+   named profile/drift intermediate equivalences before the final nested
+   multiplication transport.  This item is target-compiled successfully after
+   closing the two first-run gaps described below.
+
+The guarded one-worker EightAnchor target replayed its dependencies and then
+failed after 100 seconds.  The structural `allZero_of_take_and_drop` proof left
+the trivial Boolean goal `(true && true) = true` at source line 123, and the
+closed chunk declarations beginning at lines 134, 136, and 138 independently
+hit the kernel memory cap.  Thus `4 × 36` is proved too coarse on this host;
+the final Boolean simplification was then fixed and a cost-tapered 18-slice
+retry used widths
+
+```text
+12,12,12,12,10,10,10,10,8,8,8,8,6,6,4,4,2,2.
+```
+
+That guarded target also failed, after 184 seconds.  The first seven closed
+slice decisions, beginning at source lines 142, 144, 146, 148, 150, 152, and
+154 with starts `0,12,24,36,48,58,68`, each reached the kernel memory cap;
+source line 203 independently contains one unexpected extra `)`.  The common
+cause is now clear: every slice is defined as a `drop`/`take` of
+`head8IdentityDiff`, so eager reduction reconstructs the entire expensive
+degree-143 polynomial before discarding all but the requested range.  Smaller
+widths cannot reduce that shared peak, and repairing the parenthesis alone
+cannot fix it.
+
+The next architecture must compute a coefficient or bounded coefficient range
+directly, without calling `head8IdentityDiff` and then dropping it.  Prove a
+generic exact bridge from the pointwise/range computation to the corresponding
+coefficient of the original polynomial identity, cover indices `0,...,143` by
+disjoint bounded ranges, prove the residual tail empty, and reconstruct the
+same public `allZero` statement.  This must remain ordinary kernel-checked
+rational computation: no cap increase, statement weakening, `native_decide`,
+or opaque generated result.  The pointwise/range source design is in progress
+and uncompiled.
+
+By contrast, the guarded one-worker target
+`HarmonicMassCrossLowerSixRecoveryBootstrapFourth` completed successfully with
+exit 0:
+
+```text
+predecessor BootstrapSecond:  90s
+predecessor BootstrapThird:   151s
+final BootstrapFourth target: 121s
+Lake result:                  Build completed successfully (490 jobs)
+public axiom gates:           [propext, Quot.sound]
+```
+
+This is exact kernel evidence for the two `Fin 50` certificates, their
+constructive `Fin 100` recombination, and that target's dependency replay.  It
+is not an all-module build and does not replace the still-pending complete
+cached CI job.
+
+The first guarded `HarmonicMassCrossLowerSixRecoveryTerminal8189` target
+replayed its cached dependencies but its final leaf failed after `1.3s` with
+`Stack overflow detected. Aborting.`; Lean exited `134` and the guarded build
+exited `1` under the unchanged `-s 65536 -M 20480` limits.  Memory and host
+pressure remained safe.  A structural rewrite then replaced the deepest
+strict-fold power by a balanced exact product of four folds of approximately
+quarter depth and flattened the outer equivalence chain.
+
+The guarded balanced rerun lasted 182 seconds and eliminated the stack
+overflow, but it still failed.  At lines 80 and 92, the `qpow_add` bridge needs
+an explicit natural-number congruence transporting the normalized exponent
+`n / 2 + (n - n / 2)` back to `n`; the present rewrite does not make that
+equality definitional.  The closed obligations beginning at lines 164, 170,
+and 175 also reached the 20 GiB kernel cap.  Thus balancing the individual
+powers solves the stack-depth failure but the two `202+52` slice decisions and
+their large structural bridge still require finer subdivision.  The exact
+split and `837/1000000` margin remain unverified.  Add the explicit exponent
+transport, subdivide the large closed sums/equivalence proof further, and
+recheck under the same fixed limits; raising either cap is not an acceptable
+substitute.
+
+The guarded `HarmonicLowerSixCubicDebtCoefficient1330Physical` target built or
+replayed its dependencies and failed safely at the final leaf after `0.999s`.
+The two source-local proof defects are an unsolved
+`1 * A * A ≈ A * A` goal near line 395 and an invalid use of `rfl` near line
+414 for a `Q'` numerator equality involving
+`d = Q'.ofNat (driftDen k)`.  Lean's error recovery consequently printed the
+later public theorem with `sorryAx`; that diagnostic is not an admitted axiom
+budget and supplied no theorem evidence.  The patch closes the unit goal
+through `Q'.one_mul_eqv` and congruence, expands `2*(d+1)` through typed
+distributivity and associativity, and checks the remaining scalar identity
+constructively.  The guarded rerun then passed:
+
+```text
+final CubicDebt target: 1.0s
+Lake result:            Build completed successfully (528 jobs)
+process result:         exit 0
+public axiom gates:     [propext, Quot.sound]
+sorryAx:                absent
+```
+
+This is targeted kernel evidence for CubicDebt and its replayed dependency
+cone, not a replacement for the complete cached CI job.
+
+During that target's dependency phase,
+`CoreBResidualSimplex` also emitted a nonfatal `PANIC` from the
+library-suggestions `SymbolFrequency` heartbeat path while writing the module;
+Lake nevertheless marked the module built and continued.  This diagnostic is
+not established as harmless and did not cause the later CubicDebt source
+errors.  Before final certification, reproduce or clear it in a guarded
+one-worker check, determine whether its `.olean`/saved log is sound, and require
+the next complete build log to contain no unreviewed `PANIC` or internal-error
+diagnostic.  A zero module exit or `Built` label alone is insufficient evidence
+for this case.
+
+These first five changes preserve every public mathematical statement and
+introduce no `native_decide`, classical choice, or new axiom.  That is a source
+audit, not a compilation result.  A sixth shared source repair now addresses
+the three high-row failures.  After `zRows` extracts a `Z` coefficient, it
+represents the remaining one-variable `M` polynomial as a dense integer
+coefficient list,
+with exact recursive addition, scaling, shifting, convolution, negation, and
+power.  The predicate checks both `mOnly` syntactic support and
+coefficientwise integer nonnegativity; proved evaluator lemmas show that the
+dense computation equals the original `PolyExpr`, so the fast path cannot
+silently discard another variable or change the certified polynomial.
+
+The shared reconstruction theorem checks coefficient widths `6`, `10`, `14`,
+and `20`, followed by the tail after index `50`; the maximum row degree is
+`78`, so that final tail has at most `29` coefficients.  Repeated exact
+`take`/`drop` reconstruction yields the original singleton `highRowPred`
+statement.  All three observed failures--`...HighRowsBlock4Row0`,
+`...HighRowsBlock3Row4`, and `...HighRowsBlock3Row3`--are explicitly migrated
+to a support decision plus the five staged coefficient decisions and the
+shared reconstruction theorem.  Every other row leaf inherits the cheaper
+exact definition of `highRowPred` without a bespoke source edit.  The shared
+layer and all three migrated consumers remain uncompiled, so the repair cannot
+yet be called successful.
+
+There is one deliberate API-semantic compatibility choice.  The public name
+and type `highRowPred : PE -> Bool` are retained, but its definition is
+strengthened from sparse-normalizer coefficient nonnegativity to
+`mOnly row && denseMRowNonnegative (mDense row)`.  Therefore its behavior is
+not definitionally identical for an arbitrary external `PE` containing
+variables other than `M`: the new support guard rejects such an expression.
+Static consumer search finds no in-repository use that unfolds or applies this
+predicate outside the concrete extracted HighRows chain, and the exact dense
+evaluation bridge proves the nonnegativity result that the project endpoint
+needs.  What is preserved is the singleton/aggregate certificate theorem types
+and the final `pExactLowerHigh` semantic theorem, not unrestricted behavioral
+compatibility of the helper predicate.  Compilation must validate that claim
+before commit.
+
+The later rational-A1, CI, and one-step working tree is not part of commit
+`118172b`.  At the current post-shared-source **static inventory** checkpoint,
+the non-compiling import guard reports:
+
+```text
+production modules:       2528
+local import edges:       7868
+directed cycles:          0
+semantic-root reach:      2522
+reviewed exclusions:      6
+executable axiom gates:    19569 source lines
+changed Lean modules:     21
+reverse-affected modules: 1988
+affected-plan result:      FULL BUILD REQUIRED (configuration changed)
+RepTheory forbidden scan: 0 findings
+```
+
+The import graph has zero unexpected orphans and the split-module
+source/dependency audit passes.  The gate count is a current source inventory,
+not evidence that those gates were replayed: only a completed successful
+all-module log can establish that.  The stale raw-dot-product character
+overclaim was corrected, and the raw negation and conjugation congruence
+declarations have explicit axiom gates.  All working-tree targeted Lean checks
+other than BootstrapFourth and CubicDebt remain failed or pending and must
+proceed through the serialized repair sequence; full cached CI remains
+mandatory afterward.
+
+#### 8.13.2 Located finite-central quotients
+
+`RepTheory/LocatedCentralQuotient.lean` implements the missing constructive
+carrier-level quotient step.  For a constructive setoid group `G`, a finite
+central subgroup `iota : Gamma -> G`, and representatives `x,y : G`, its
+explicit witness type is
+
+```text
+CentralCosetWitness x y := Sigma' z : Gamma, x ~= y * iota(z).
+```
+
+This is the standard left-coset equation `x in y Gamma`; because `Gamma` is
+central, the left/right distinction disappears.  Declarations and prose use
+“central coset” rather than falsely classifying the displayed equation as a
+right coset.
+
+The semantic quotient relation is
+
+```text
+CentralCosetEquivalent x y := Nonempty (CentralCosetWitness x y).
+```
+
+This is an admissible, delimited use of propositional truncation.  It makes the
+witness-bearing equality proof-irrelevant enough to serve as a `Setoid`
+relation, but no required data is selected from it.  The independent locator
+
+```text
+Locator Gamma :=
+  (x y : G) -> WitnessOrRefutation (CentralCosetWitness x y)
+```
+
+recomputes an explicit witness whenever Type-level data is required.  In its
+negative branch the truncated semantic proof is eliminated only into `False`;
+the contradiction then eliminates into the unreachable witness type.  There
+is no canonical-representative selection or classical choice.
+
+The finite locator is complete relative to decidable ambient semantic
+equality:
+
+- `locateFin` returns either an enumerated successful slot or a refuter for
+  every slot;
+- `Locator.ofDecidableEquivalent` searches the finite presentation of
+  `Gamma`;
+- `finite.cover` transports an arbitrary alleged subgroup representative to
+  an enumerated slot;
+- repeated enumeration entries are harmless; and
+- no decidable structural equality on subgroup representatives is required.
+
+The explicit witness calculus proves reflexivity, symmetry, transitivity,
+multiplicative congruence, and inverse congruence.  Centrality is used exactly
+where an included central factor must pass an ambient representative.  The raw
+carrier of `G`, equipped with the coarser coset setoid and the original raw
+operations, becomes `locatedCentralQuotientGroup`; the identity function on
+representatives becomes the quotient homomorphism; and the locator supplies
+the Type-level exact-kernel witness in
+`locatedCentralQuotientPresentation`.
+
+The file currently imports `ConstructiveRepresentationDescent` solely to use
+`mul_right_cancel`.  It would be false to describe its present dependency as
+only `ConstructiveGroup`.  At the next foundational invalidation checkpoint,
+move generic cancellation calculus upstream into `ConstructiveGroup` (or a
+neutral group-calculus leaf), make both quotient and descent import that leaf,
+and then reduce the located quotient to its true algebraic dependencies.  This
+move belongs with the ring-normaliser promotion because both invalidate broad
+dependency cones and require a new full-tree CI result.
+
+The located quotient constructs none of the following:
+
+- a chosen or canonical coset representative;
+- a `Quot`-based carrier;
+- topology, a quotient metric, completeness, or compactness;
+- a Lie group or simply connected cover;
+- Haar integration; or
+- a proof that the selected finite central subgroup exhausts the full center.
+
+#### 8.13.3 Low-level rational quaternion split and the Q8 fence
+
+The rational A1 algebra is deliberately divided into three independent leaves:
+
+1. `RepTheory/RationalQuaternionAlgebra.lean` defines raw `Q'^4`,
+   coordinatewise semantic equality, scalar and basis quaternions, negation,
+   conjugation, Hamilton multiplication, squared norm, and the semantic
+   unit-norm subtype.  It proves semantic congruence of negation, conjugation,
+   multiplication, and squared norm.  It does not yet assert the global
+   Hamilton group laws.
+2. `RepTheory/QuaternionSign.lean` defines the complete two-element sign group
+   independently of quaternions, with explicit multiplication, inversion, and
+   finite enumeration.
+3. `RepTheory/RationalQuaternionQ8Fixture.lean` defines the eight signed basis
+   codes `+-1,+-I,+-J,+-K`, verifies their finite multiplication/inverse table,
+   realizes the table in raw rational Hamilton coordinates, includes the sign
+   group centrally, constructs the finite locator, and forms the exact located
+   quotient presentation.
+
+This split is load-bearing.  The raw algebra must remain upstream of quotient
+and continuum code; the sign group is shared by the finite fixture and the
+eventual full unit-quaternion group; and exhaustive `decide` proofs on eight
+codes must never replace general polynomial identities on arbitrary rational
+coordinates.
+
+Mathematically, the expected quotient of Q8 by its two scalar signs has four
+elements and is the Klein four group.  The current Lean fixture proves neither
+that cardinality statement nor a V4 isomorphism.  Neither theorem is needed for
+the present plumbing validation, so it must not be reported as formalized.
+The fixture also does not prove full rational-unit-quaternion closure,
+Hamilton associativity on `Q'^4`, full-center exhaustion, density, topology,
+compactness, Haar invariance, a character theorem, a Casimir value, SU(2), or
+SO(3).
+
+Its exact value is narrower: it exercises a nonabelian finite group, the sign
+inclusion, finite witness search, the coarser central-coset setoid, the exact
+quotient interface, and the constructive axiom gates.
+
+#### 8.13.4 Corrected coordinate, character, and Haar boundary
+
+The continuum quaternion-polynomial carrier historically identified a raw
+coordinate polynomial with a group character before it contained Hamilton
+multiplication, inversion, or a matrix-trace bridge.  The corrected reading is
+
+```text
+relativeDot
+  = the raw polynomial sum_i g_i h_i;
+
+relativeFundamentalCharacter
+  = the raw polynomial 2 sum_i g_i h_i, intended to become
+    chi_fund(g h^-1) only after the group-evaluation and trace bridge;
+
+retainedRelativeWeight
+  = 1 + (1/4)(2 sum_i g_i h_i), intended to become the retained
+    SU(2) Wilson kernel only after that same bridge.
+```
+
+The theorem with the historical name `relative_character_value` is presently
+only the definitional expansion of the four-coordinate dot product.  Its proof
+is reflexivity.  It establishes no unit norm, multiplication, inverse,
+`h^-1 = conjugate(h)`, representation, trace, or character identity.  Retain
+the name only as a documented compatibility theorem and add an honestly named
+form such as `twice_relativeDot_expansion` when the bridge is built.
+
+The eventual character statements are distinct:
+
+```text
+chi_fund(q)  = 2 scalar(q)       -- fundamental character on the cover
+chi_spin1(q) = 4 scalar(q)^2 - 1 -- sign-invariant descended character
+```
+
+The fundamental character changes sign under `q |-> -q`, so it does **not**
+descend through `{+-1}`.  The SU(2) fundamental Wilson observable is therefore
+not an SO(3) observable.  The spin-one trace is the first honest rational
+quotient-side character candidate.
+
+Likewise, an exact normalized `S^3` monomial formula, positivity of its square
+pairing, and boundary-exchange symmetry do not prove Haar bi-invariance.
+Until translations are constructed and proved invariant,
+`sphereMoment4`/`productHaar` are explicit normalized sphere-moment
+functionals intended to realize Haar, not formally established left-and-right
+Haar functionals.
+
+The surrounding legacy record names add no missing laws:
+`quaternionPairAlg : ObsAlg` does not by itself prove a lawful unital
+associative star algebra, and `productHaarProbFunctional` packages only the
+fields actually required by the current `ProbFunctional` record, not
+additivity, rational homogeneity, continuity, countable additivity, or group
+invariance.  Those properties must be supplied by named theorems before the
+packages are used as analytic or Haar data.
+
+#### 8.13.5 Foundational promotion of the constructive ring normaliser
+
+Hamilton associativity, norm multiplicativity, conjugation identities, the
+spin-one matrix formula, and the exact kernel equations are multivariate
+polynomial identities over `Q'`.  Hand-expanded reassociation chains would be
+large and fragile.  The repository already has a sound reflective `Q'` ring
+normaliser, but its physical location under `Continuum/` would reverse the
+intended dependency direction if imported by `RepTheory`.
+
+Promote its unique implementation to
+
+```text
+lean/YMGap/Constructive/RingNormaliser.lean
+```
+
+with `Constructive/RationalsMul` as its only project import.  Initially retain
+the existing public namespace to avoid a mathematically irrelevant repository-
+wide rename, and turn `Continuum/RingNormaliser.lean` into a compatibility shim
+that imports the promoted source.  There must be one implementation, not two
+copies whose soundness proofs can drift.
+
+For every quaternion identity:
+
+1. encode both coordinate expressions as `PolyExpr` data;
+2. normalize both expressions;
+3. kernel-check equality of normal forms by `rfl` or `decide`;
+4. instantiate `poly_identity_of_normal_eq` at the quaternion coordinates;
+5. transport the resulting `Q'.eqv` equalities into the quaternion setoid.
+
+This route proves polynomial equalities with integer coefficients, which is
+exactly the present algebraic need.  It does not decide inequalities,
+arbitrary rational-function identities, denominator nonvanishing, topology,
+or analysis.  All exported load-bearing identities retain explicit
+`#print axioms` gates.
+
+Combine this promotion with moving generic cancellation upstream from
+`ConstructiveRepresentationDescent`.  Because both changes alter foundational
+dependency cones, validate the smallest leaves and representative consumers
+locally, then require a clean self-hosted all-module checkpoint; do not attempt
+a broad local build.
+
+#### 8.13.6 Exact cycle-free rational A1 module DAG
+
+The dependency order is fixed as follows:
+
+```text
+Constructive/RationalsMul
+  |--> Constructive/RingNormaliser
+  `--> RepTheory/RationalQuaternionAlgebra
+
+RepTheory/ConstructiveGroup
+  |--> neutral cancellation calculus
+  |--> RepTheory/QuaternionSign
+  |--> RepTheory/LocatedCentralQuotient
+  |--> RepTheory/ConstructiveSetoidPermutation
+  `--> RepTheory/ConstructiveRepresentationDescent
+
+RationalQuaternionAlgebra
+  + Constructive/RingNormaliser
+  `--> RepTheory/RationalQuaternionPolynomialLaws
+        `--> RepTheory/RationalUnitQuaternionGroup
+
+RationalUnitQuaternionGroup
+  + QuaternionSign
+  `--> RepTheory/RationalUnitQuaternionCenter
+        + LocatedCentralQuotient
+        `--> RepTheory/RationalA1LocatedQuotient
+
+RationalUnitQuaternionGroup
+  + ConstructiveSetoidPermutation
+  + RationalUnitQuaternionCenter
+  `--> RepTheory/RationalUnitQuaternionSpinOne
+
+RationalA1LocatedQuotient
+  + RationalUnitQuaternionSpinOne
+  + ConstructiveRepresentationDescent
+  `--> RepTheory/RationalA1RepresentationDescent
+
+Constructive/RationalComplex
+  + RepTheory/FiniteMatrix
+  + RationalUnitQuaternionGroup
+  `--> RepTheory/RationalA1FundamentalMatrix
+
+RationalA1RepresentationDescent
+  + RationalA1FundamentalMatrix
+  + Continuum/SU2QuaternionPolynomialHaarCarrier
+  `--> Continuum/RationalA1CoordinateMomentBridge
+        `--> Continuum/RationalA1HaarBiInvariant
+              `--> Continuum/RationalA1HaarPushforward
+
+RationalUnitQuaternionGroup
+  `--> RepTheory/RationalUnitQuaternionMetric
+        + RepTheory/RationalUnitQuaternionNets
+        `--> RepTheory/CompactUnitQuaternionCompletion
+
+RationalA1LocatedQuotient
+  + RationalUnitQuaternionMetric
+  `--> RepTheory/RationalA1QuotientMetric
+        + RepTheory/RationalA1QuotientNets
+        `--> RepTheory/CompactRationalA1Quotient
+
+CompactUnitQuaternionCompletion
+  + CompactRationalA1Quotient
+  + RationalA1HaarPushforward
+  `--> Continuum/CompactA1HaarExtension
+        `--> RepTheory/ConstructiveCompactGaugeGroupA1
+```
+
+No new `RepTheory` leaf on this path may import `Continuum`.  Coordinate,
+moment, Wilson, and Haar adapters import the realized algebraic groups
+downstream.  The promoted normaliser and cancellation leaf are what make this
+orientation possible.
+
+#### 8.13.7 Full rational unit-quaternion obligations
+
+`RationalQuaternionPolynomialLaws.lean` must prove, at coordinatewise semantic
+equality:
+
+- Hamilton associativity;
+- left and right identity;
+- conjugation congruence and involutivity;
+- reversal of multiplication by conjugation;
+- `conjugate(q) * q ~= scalar(normSq(q))` and its right-handed analogue;
+- `normSq(q * r) ~= normSq(q) * normSq(r)`; and
+- preservation of squared norm by conjugation.
+
+`RationalUnitQuaternionGroup.lean` then closes the unit-norm subtype under
+multiplication and conjugation, uses conjugation as inverse, inherits the
+coordinatewise semantic setoid and its decision procedure, and packages the
+full group of rational points on the unit three-sphere as a
+`ConstructiveGroup`.
+
+This is a genuine full rational group, unlike Q8.  It is nevertheless
+countable and incomplete in the intended continuum metric.  Calling it compact
+SU(2) remains forbidden.
+
+#### 8.13.8 Type-level `{+-1}` center
+
+`RationalUnitQuaternionCenter.lean` must define the sign inclusion and first
+prove the weakest reusable Type-level extractor:
+
+```text
+(x commutes with I and J)
+  -> Sigma' s : QuaternionSign, x ~= includeSign(s).
+```
+
+This lemma is the efficient common core.  Full-center exhaustion is then the
+immediate corollary
+
+```text
+(x commutes with every rational unit quaternion)
+  -> Sigma' s : QuaternionSign, x ~= includeSign(s).
+```
+
+Commutation with `I` and `J` forces the three imaginary coordinates to vanish.
+Unit norm then gives `a^2 ~= 1`.  The scalar sign must be extracted by the
+following explicit constructive arithmetic route, rather than by classical
+factorization or an erased disjunction:
+
+1. unfold rational semantic equality to obtain equality of the raw numerator
+   square and denominator square;
+2. apply `congrArg Int.natAbs`;
+3. rewrite both sides with `Int.natAbs_mul`;
+4. use `Nat.mul_self_inj` to identify the absolute numerator with the positive
+   denominator;
+5. apply `Int.natAbs_eq_iff` to obtain the two possible signed numerator
+   equalities; and
+6. branch through the available `Decidable` equality and return the selected
+   `QuaternionSign` together with its coordinatewise equivalence proof.
+
+Both extractors live in `Type`.  A Prop-valued `Exists`, `Nonempty`, or bare
+`Iff` would erase the sign required by quotient-kernel and descent code.  The
+spin-one kernel proof should call the two-basis extractor directly rather than
+first manufacture the stronger all-elements centrality premise.
+
+Keep `QuaternionSign.lean` independent of `Q'`.  Define the downstream scalar
+realization
+
+```text
+signScalar : QuaternionSign -> Q'
+signScalar positive = 1
+signScalar negative = -1
+```
+
+inside the rational-quaternion center layer, together with the Type-valued
+`Sigma' s, a ~= signScalar s` witness.  The square-one proof needs only the
+existing core APIs `Q'.mul_den_cast`, `Int.natAbs_mul`,
+`Int.natAbs_natCast`, `Nat.mul_self_inj`, and `Int.natAbs_eq_iff`.
+`Int.natAbs_eq_iff`'s `Or` is eliminated only while proving the Prop-valued
+negative branch; the actual sign is selected in `Type` by decidable `a ~= 1`.
+
+The raw quaternion wrapper should require only
+
+```text
+mul x.val basisI ~= mul basisI x.val
+mul x.val basisJ ~= mul basisJ x.val
+```
+
+for `x : RationalQuaternion.UnitNorm`.  Four tiny normalizer certificates for
+left/right multiplication by `I` and `J` expose the coordinates.  A rational
+helper `a ~= -a -> a ~= 0` kills the three imaginary coordinates, and a scalar
+norm certificate reduces `x.unitNorm` to `x.r^2 ~= 1`.  Put that rational
+helper in the rational algebra/law layer, not in generic group cancellation;
+the latter has no dependency on `Q'`.
+
+`RationalA1LocatedQuotient.lean` then obtains its locator from decidable
+semantic equality and constructs the exact quotient presentation.  Its honest
+name remains “rational A1 sign quotient”; no topology or SO(3) identification
+is implied.
+
+#### 8.13.9 Constructive setoid permutations, spin one, and exact descent
+
+`ConstructiveSetoidPermutation.lean` should define a permutation by explicit
+forward and inverse maps, congruence for both maps, and pointwise inverse laws.
+Two permutations are semantically equivalent pointwise.  Composition and
+inverse then form a constructive group without function extensionality,
+representative selection, or classical choice.
+
+`RationalUnitQuaternionSpinOne.lean` acts on the pure-imaginary rational
+three-space by
+
+```text
+v |-> Im(q * (0,v) * conjugate(q)).
+```
+
+It must prove:
+
+- conjugation preserves the pure-imaginary subspace;
+- conjugation by `q^-1` is the inverse permutation;
+- quaternion multiplication maps to permutation composition;
+- the explicit rational `3 x 3` spin-one matrix formula agrees with
+  conjugation;
+- the rational dot product is preserved;
+- both included signs act trivially; and
+- every proof that the action is the identity computes a sign witness.
+
+The kernel-to-sign map evaluates pointwise identity at `I` and `J`, right
+multiplies the two conjugation equations by `q`, and invokes the shared
+two-basis Type-level extractor.  It must return the actual `PSigma` witness expected by
+`RepresentationKernelHasGammaWitness`; it must not pass through an erased
+Prop-level equivalence.
+
+`RationalA1RepresentationDescent.lean` then applies the generic descent theorem
+and proves
+
+```text
+spinOneCover = descendedSpinOne o quotientHom;
+kernel(spinOneCover) = {+-1}, with explicit witnesses;
+descendedSpinOne is faithful.
+```
+
+This closes exact rational algebraic descent.  It does not yet construct a
+compact group, Haar functional, Lie-group isomorphism, or SO(3).
+
+#### 8.13.10 Coordinate, trace, and moment bridge
+
+The word “character” requires trace data.  Define constructive rational
+complex scalars as explicit pairs of `Q'` values, finite matrices, conjugation,
+adjoint, and the `2 x 2` quaternion fundamental representation.  Prove
+multiplication, unitarity on unit quaternions, and
+
+```text
+trace(fundamental(q)) ~= 2 * scalar(q).
+```
+
+`RationalA1CoordinateMomentBridge.lean` must then prove that conversion between
+the rational quaternion structure and the historical four-tuple carrier
+preserves coordinates, semantic equality, norm, multiplication, and
+conjugation.  For unit quaternions `g,h`, prove
+
+```text
+h^-1 ~= conjugate(h);
+scalar(g * h^-1) ~= dot(g,h);
+chi_fund(g * h^-1) ~= 2 * dot(g,h);
+chi_spin1(g * h^-1) ~= 4 * dot(g,h)^2 - 1.
+```
+
+Only these theorems authorize promotion of the historical raw polynomial names
+to genuine character or Wilson identities.  The fundamental cover observable
+and sign-invariant quotient observable must remain separate.
+
+#### 8.13.11 Genuine Haar bi-invariance and quotient pushforward
+
+The exact sphere-moment functional becomes a rational Haar functional only
+after proving, for every rational unit quaternion `q` and polynomial
+observable `p`,
+
+```text
+H(p o L_q) ~= H(p);
+H(p o R_q) ~= H(p).
+```
+
+The efficient proof route reuses the existing Gaussian/radial infrastructure:
+
+1. define polynomial substitutions induced by the left and right quaternion
+   multiplication matrices;
+2. prove their evaluation/substitution equations;
+3. derive orthogonality of those matrices from `normSq(q) ~= 1`;
+4. lift the existing coordinate moment recurrences to multivariate polynomial
+   integration by parts, prove that normalization plus
+   `G(x_i p) ~= G(partial_i p)` uniquely determines the finite polynomial
+   Gaussian functional, and show an orthogonal substitution satisfies the same
+   recurrence by the finite chain rule and `A * A^T = I`; use an explicit
+   Wick-pairing contraction only as a fallback if the uniqueness interface is
+   more expensive than the finite pairing recursion;
+5. transport invariance through the established homogeneous radial-factor
+   relation from Gaussian moments to sphere moments;
+6. extend from monomials to arbitrary finite polynomials by exact linearity;
+   and
+7. prove the two-boundary product functional invariant independently in each
+   factor.
+
+Boundary exchange is only one involution and cannot replace any of the four
+left/right translation laws.
+
+For the sign quotient, define the quotient coefficient algebra as precisely
+the sign-invariant cover polynomials.  Construct its functional without a
+chosen representative and prove the normalized pushforward equation
+
+```text
+H_cover(f o quotientHom) ~= H_quotient(f)
+```
+
+for every quotient coefficient.  The fundamental character is excluded from
+that quotient algebra; the spin-one character belongs to it.
+
+#### 8.13.12 Compact completion boundary
+
+Compactness must be constructed rather than inferred from the unit-norm
+equation.
+
+`RationalUnitQuaternionMetric.lean` must give the rational unit group a
+separated bi-invariant constructive-real chordal metric, with explicit
+isometry moduli for left/right multiplication and inversion.
+`RationalUnitQuaternionNets.lean` must construct finite `2^-n` nets with
+coverage witnesses.  A finite rational stereographic atlas with denominators
+uniformly apart from zero supplies rational unit points without introducing
+irrational normalization.
+
+`CompactUnitQuaternionCompletion.lean` then forms the Cauchy completion,
+extends the group operations using their moduli, proves the laws by explicit
+density, and supplies the required total-boundedness/completeness data.
+
+For the quotient, use the projective metric
+
+```text
+d_pm([q],[r]) = min(d(q,r), d(q,-r)).
+```
+
+Prove separation and bi-invariance, descend the finite nets, and complete the
+rational quotient directly.  Extending the already faithful rational spin-one
+action is constructively safer than attempting to decide, for an arbitrary
+constructive-real unit quaternion, whether it is `+1` or `-1`.
+
+Only after proving that finite quotient and completion commute may the compact
+quotient be identified with an internal `SU(2)/{+-1}` construction.  Only after
+the completed spin-one map is proved a topological group equivalence onto the
+intended rotation group may the quotient be called SO(3) without
+qualification.
+
+Finally extend the rational bi-invariant moment functional to the completed
+coefficient algebra using explicit continuity moduli and dense approximation,
+and prove invariance under completed group elements by limits with moduli.
+Compactness alone does not construct Haar integration, and no classical Riesz,
+Hahn--Banach, or choice-based uniqueness argument is permitted.
+
+#### 8.13.13 Must-not-claim ledger
+
+Until their explicit exit predicates are met, the following claims are
+prohibited:
+
+- “the full current tree is green” from the completed/cancelled run
+  `29638079535` or from targeted successes; a post-repair complete cached JIT
+  job with every required step inspected is required;
+- “the current rational-A1 working tree was checked by that run” because the
+  job is pinned to earlier commit `118172b`;
+- “quotient type” or “canonical representatives” for the located same-carrier
+  setoid;
+- “full center” from centrality of the sign inclusion alone;
+- “Q8 quotient has four elements” or “is V4” as a Lean theorem before those
+  unneeded statements are formalized;
+- “rational SU(2) point” for an arbitrary raw `Q'^4` tuple;
+- “character” for `2 * dot` before the matrix-trace bridge;
+- “SO(3) Wilson observable” for the non-descending fundamental character;
+- “Haar” from normalization, positivity, moment formulas, or boundary swap
+  without left and right translation invariance;
+- “compact SU(2)” for the countable incomplete rational unit group;
+- “SO(3)” for the finite Q8 fixture or uncompleted rational sign quotient;
+- “compact central quotient” before quotient/completion compatibility;
+- “Peter--Weyl data” from character moments alone;
+- “compact simple group” or “actual group invariants” from the legacy
+  `AdmissibleSimpleGroup` scalar certificate;
+- “global-form Casimir minimum” for the legacy `CasimirData.C2_fund` rows, or
+  the assertion that a defining representation minimizes every simple type;
+- “actual `U(1)` central character” or “descended irreducible” for a finite
+  phase-exponent code before the semantic highest-weight catalogue;
+- a single Casimir eigenvalue for a faithful action that is reducible; its
+  constituent list must be carried explicitly;
+- “Clay-facing capstone” for the group-free legacy `FrontierDAG`, whose
+  `boundedH` and `trueMargin` fields have machine-checked weakness fences;
+- “completed positive-time OS root” while the canonical root is `Q'`-valued
+  and the faithful cylinder/Haar functional is only `CReal`-valued;
+- “global-form Casimir minimum” before the root/weight central-character
+  restriction is derived; or
+- any witness-bearing center/kernel theorem stated only through `Iff`,
+  `Exists`, or `Nonempty`.
+
+#### 8.13.14 Efficient verified commit sequence
+
+1. **Repair the exact cold-run failures before asking for another full job.**
+   Section 8.13.1 now records the final failed/cancelled result.  Sequentially
+   replace the twice-refuted EightAnchor slicing candidate by a direct
+   pointwise/range computation and recheck it, add the missing natural exponent
+   transports and finer closed-sum/bridge subdivision to Terminal8189, and
+   target-compile the still-unchecked E8 chart-A repair; retain the green
+   BootstrapFourth and CubicDebt target evidence and diagnose the
+   `CoreBResidualSimplex` suggestion-engine `PANIC`;
+   separately compile the source-written shared dense `highRowPred` layer,
+   compile the three explicitly staged observed rows, and only then compile
+   their aggregates.  Never infer success for the cancellation-interrupted
+   block-3 row 2.  Preserve the exact public statements and reject any
+   `native_decide`, cap increase, or axiom workaround.  Before the next long
+   job, include the source-complete
+   `failure() || cancelled()` log-upload condition in the workflow static audit
+   and commit.
+2. **Integrate the present algebraic and one-step source checkpoint.**  Compile
+   the four rational-A1 leaves, the directly edited continuum/API leaves, the
+   adjacent-even physical-kernel symmetry leaf, and the source-written
+   one-step query-geometry leaf sequentially with one worker; repair only
+   actual elaboration failures, wire verified leaves into `YMGap.lean`, and
+   rerun the static guard and affected-target *planner*.  Configuration changes
+   correctly make that planner report `FULL BUILD REQUIRED`; do not execute its
+   broad heavy consumer cone ad hoc.  Commit and push only after the targeted
+   sequence, then start one known queued cached JIT job in the foreground and
+   require the full build, frontier/statement/DAG/rubric guards, and mandatory
+   complete axiom replay all to pass.
+3. **Attack the nearest genuine Clay-facing residual, not more algebraic
+   plumbing.**  First prove generic strict-joint adjacent-even one-step
+   covariance from exact reflection symmetry, which does not need a Gram
+   theorem.  Then prove diagonal positivity at the anchor coupling from the
+   reachable physical Gram/SOS factorization; see Section 8.13.17.  Do not
+   advertise positivity over the general coupling interval until a new
+   coupling-parametric finite Gram argument exists: the current adjacent-even
+   fixed-face factors are specialized to `anchorCoupling`.  The even-shift
+   theorem is already proved and the odd-carrier route is machine-refuted, so
+   shift one is the exact missing transfer theorem.
+4. **Connect that theorem to its real OS consumer.**  Add the required
+   `CReal` canonical-root adapter (or a proved rational-specialization bridge),
+   then fill the dense self-adjointness and positivity fields that feed the
+   completed time-translation semigroup.  Do not count a `Q'`-valued surrogate
+   as the faithful heat-kernel construction.
+5. **Install truthful Clay-facing guardrails.**  Define the pinned
+   `ClayResolutionTarget`, `RevisedFrontierDAG`, and an adequacy theorem tying
+   the group, action, Haar data, lattice family, transfer operator, physical
+   margin, and OS reconstruction together.  The legacy `FrontierDAG` has known
+   weak fields and is not a capstone.
+6. **Resume the physical continuum attack.**  With the one-step transfer
+   theorem connected, attack the true block-spin cross-difference estimate and
+   its per-scale physical-margin recursion.  Scalar scorecard inhabitation is
+   not a replacement for this step.
+7. **Construct the finite exact `P/Q` and global-form Casimir layer.**  Follow
+   Section 8.13.16 through the code-level located highest-weight minimum.  Use
+   A1 parity as the first regression, but do not wait for rational/compact A1
+   Haar or completion.  Keep finite phase-character codes distinct from actual
+   `U(1)` characters and irreducible representations.
+8. **Install the verified fast-binomial certificate kernel before any broad
+   invalidation or new clean attestation.**  Add the checked Pascal table, its
+   generic soundness theorem, and the cached closed-certificate twins described
+   in Section 8.13.15.  Check the oracle first, then one worst E9 chart-B slice,
+   the affine bridge, the base certificate, and the global coefficient
+   certificate, all sequentially with one worker.  Commit this performance
+   checkpoint before touching `RingNormaliser`: that module feeds the tensor
+   reconstruction cone, so moving it first would invalidate the expensive
+   certificates while they still use the exponential Pascal reducer.
+9. **Resume the algebraic A1 track only against an explicit pinned consumer.**
+   Promote the ring normaliser and cancellation calculus, prove the quaternion
+   polynomial laws, package the full rational unit group, compute its
+   Type-level sign center, and construct the located quotient and faithful
+   spin-one descent.  Separate reflective certificates from group wrappers.
+10. **Construct the rational coordinate/trace/moment and genuine Haar layer.**
+    Build rational complex matrices, prove the `2*dot = trace` bridge, establish
+    left and right invariance, and only then push Haar through the quotient.
+11. **Construct metrics, explicit nets, completions, and compact A1 data.**
+    Complete the rational quotient directly, extend the faithful spin-one
+    action, prove quotient/completion compatibility, and instantiate compact
+    SU(2)/SO(3).  This analytic tail must not block the finite `P/Q` work.
+12. **Add actual highest-weight/irrep semantics and the global representation
+    bridge.**  Relate code-level labels to realized irreducibles and central
+    actions, distinguish the spectral minimum, adjoint value, and constituent
+    list of a faithful reducible Wilson action, and feed them through
+    `PinnedWilsonLatticeFamily` into the revised target.  Also prove that
+    global-form label restriction embeds into the cover labels and hence that
+    nonnegative quotient heat-kernel partial sums are bounded by the cover
+    partial sums.
+
+Every local Lean invocation remains the smallest named target with
+`LEAN_NUM_THREADS=1`, after the process-conflict check.  No item authorizes a
+bare local full build or concurrent Lean processes.  The foreground
+self-hosted runner should be started for one coherent checkpoint at a time;
+queue replacement/concurrency must not be used to create overlapping local
+compilations.
+
+#### 8.13.15 Clean-build cost audit and kernel-preserving optimization
+
+The first clean Mac run exposes a sharply localized performance defect rather
+than a reason to weaken verification.  For E9 chart B, the thirteen generated
+row-data modules each compiled in roughly `0.3--0.8 s` and the thirteen
+local-to-global aggregate modules in roughly `0.5--1.4 s`.  By contrast, the
+thirteen seven-row certificate slices consumed `4849 s` in total.  The central
+slices dominated: slice 5 took `1624 s`, slice 6 took `1244 s`, slice 4 took
+`649 s`, and slice 7 took `479 s`; outer slices fell to `15--110 s`.
+
+The cause is repeated kernel reduction of the direct Pascal-recursive
+`RG.binom`, especially near central coefficients such as `binom 87 43`.
+Each slice reduces five Boolean relations over `7 * 45 = 315` cells;
+`xPascalExpected` and `yPascalExpected` repeatedly recompute binomial values,
+while `affineChartBClearedCoeff` additionally performs nested 45-term sums with
+repeated binomial and power reduction.  Cheap aggregates show that balanced
+append wiring and source-table parsing are not the bottleneck.
+
+The same clean run exposed a second, smaller peak-memory defect in
+`EightAnchorWindowRetune`: one monolithic `by decide` attempted to kernel-check
+the full 144-coefficient degree-143 Bernstein identity and hit the mandatory
+20 GiB per-process ceiling after 146 seconds.  Later declarations elaborated
+only by treating the failed private constant as an axiom, so this is a required
+build failure, not a warning.  The working-tree repair preserves the exact
+identity and certificate but checks four disjoint 36-coefficient
+`take`/`drop` slices and recombines them constructively through
+`allZeroB_append` and `List.take_append_drop`.  It uses no `native_decide`, new
+axiom, or weakened predicate.  Its first guarded one-worker target check failed
+after 100 seconds: the structural recombination proof needs to close the final
+`true && true` simplification, while chunks 0, 1, and 2 each still reached the
+kernel memory cap.  Hence 36 is not a safe chunk width.  Refine to smaller
+exact slices was then tested, not merely proposed: the tapered 18-slice target
+failed after 184 seconds, with each of its first seven decisions reaching the
+same cap.  Because `head8IdentitySlice` performs `drop`/`take` only after
+constructing `head8IdentityDiff`, every slice repays the full polynomial cost;
+slice width is not the controlling resource.  Source line 203 also has an
+extra closing parenthesis, but that syntax repair cannot change the reduction
+architecture.  Replace the list-after-full-construction design by a direct
+pointwise or bounded-range coefficient computation with an exact generic
+bridge back to the original polynomial and a finite coverage/reconstruction
+proof.  Do not raise `-M 20480` or weaken the unchanged 144-coefficient
+identity.
+
+The Terminal8189 target now exhibits a different resource shape.  Its cached
+dependencies replayed safely, and the final leaf stopped after only `1.3s`
+with a stack overflow under `-s 65536`, without memory or host pressure.  The
+balanced four-fold power rewrite and flattened equivalence chain eliminated
+that stack overflow on the next 182-second run.  That rerun exposed the later
+issues the early failure had hidden: two `qpow_add` sites need explicit natural
+exponent transport, and the large obligations beginning at lines 164, 170, and
+175 still reached the memory cap.  Subdivide those closed sums and the semantic
+bridge more finely after repairing the exponent congruence, then retry under
+the same fixed stack and memory limits.  The exact margin is not yet
+kernel-verified.
+
+A later high-row family exposed the same structural lesson at a larger scale.
+Within block 4, rows 4 through 1 succeeded in respectively `95`, `118`, `146`,
+and `174` seconds, while row 0 hit the 20 GiB kernel cap at `196` seconds.
+Block-3 rows 4 and 3 then hit the same cap at `218` and `233` seconds.  After
+that third consecutive failure, the already-failed run was cancelled rather
+than paying for the rest of a monotone expensive family.  The next row was
+killed by cancellation and is not itself classified as a certificate defect.
+The shared source repair replaces the generic sparse re-normalization of each
+already-extracted `Z` row by an exact dense one-variable `M` convolution
+algebra.  A simultaneous `mOnly` support check prevents variable loss, semantic
+evaluation lemmas connect every dense operation back to the original
+`PolyExpr`, and coefficient nonnegativity is reconstructed from widths
+`6/10/14/20` plus the suffix after coefficient `50`.  This is cost-balanced
+because the `N=M+8` shift puts the arithmetically largest coefficients early;
+with maximum degree 78, the final suffix has at most 29 entries.  The shared
+layer is source-written, and block-4 row 0 plus block-3 rows 4 and 3 all use the
+staged theorem explicitly.  Every relevant target remains uncompiled.  The
+public singleton and aggregate certificate statements and final semantic
+endpoint remain unchanged, but the helper predicate's behavior on arbitrary
+non-`M`-only external expressions is intentionally strengthened by `mOnly`.
+No current in-repository consumer relies on that rejected behavior; do not call
+the helper change definitionally or behaviorally API-identical.
+
+The highest-payoff constructive repair is a kernel-verified fast binomial
+oracle specialized to closed certificates:
+
+1. keep authoritative `RG.binom` unchanged so existing semantic proofs do not
+   churn;
+2. generate a finite Pascal table through degree 89;
+3. kernel-check its base, boundary, and local Pascal recurrence at every cell;
+4. prove generically that lookup in any table with those certificates equals
+   `RG.binom` on the covered triangle;
+5. parameterize the closed coefficient-checking kernel by the verified lookup
+   and rewrite its result back to the existing semantic kernel; and
+6. cache powers such as `28^k` by an equally small checked recurrence.
+
+The generated literals are not trusted results: the recurrence certificate and
+the generic lookup theorem are checked by Lean.  This route introduces no
+`native_decide`, opaque binary artifact, Python axiom, or classical choice, and
+should remove the exponential duplication responsible for the central-row
+hump.
+
+The concrete minimal API is two cycle-free RG leaves:
+
+```text
+RG/PascalTable89Data.lean  -- generated transparent triangular literals only
+RG/PascalTable89.lean      -- hand-written checker and soundness theorem
+```
+
+Rows `0` through `89` contain `4095` values.  A total `List.getD` lookup treats
+entries above the triangle as zero.  The Boolean checker verifies the corner,
+zero row, unit first column, and every local Pascal recurrence over the bounded
+`90 x 90` square: `8100` small closed equations rather than repeated central
+recursion trees.  Nat induction on `(n,k)` then proves
+
+```text
+lookup89 n k = RG.binom n k       when n <= 89 and k <= 89.
+```
+
+Expose a total `binomCached89`: use verified lookup inside the square and
+canonical `RG.binom` outside.  Prove `binomCached89_eq_binom` for all naturals,
+but do **not** mark it as a simp theorem, because automatic rewriting inside a
+closed certificate would replace the cached operation by the expensive one.
+The table generator must have a deterministic `--check` mode; the generator is
+not trusted because Lean checks every local recurrence and the generic
+soundness theorem.
+
+Wire the cached total operation only into hot closed computations:
+`elevatedMonoCoeff`, `upperBinomialPrefix`, `weightedGrid`, generated slice
+weights, and `tailBaseWeightedCoeff`.  Preserve the public semantic statements
+by explicit uses of `binomCached89_eq_binom`.  Keep the generic chart-B
+`affineChartBClearedCoeff` unchanged; add a certificate-only cached twin and a
+generic finite-sum congruence theorem equating it to the semantic definition.
+This limits proof churn while accelerating both load-bearing and isolated
+legacy certificates.
+
+If cached binomial and power lookup is insufficient, replace chart B's dense
+closed affine formula by a proved sparse Horner recurrence.  Writing
+
+```text
+R = 28 z + x - x z,
+```
+
+multiplication of a coefficient grid by `R` has the three-neighbour update
+
+```text
+(R C)_(a,b) = 28 C_(a,b-1) + C_(a-1,b) - C_(a-1,b-1).
+```
+
+A generic reconstruction theorem plus locally checked generated stages avoids
+the present nested binomial sums while retaining a semantic proof of the same
+polynomial identity.  Try the verified lookup first because it is smaller and
+preserves the current certificate architecture.
+
+For ordinary incremental cost, isolate `allNat`, grid lookup/relation, and the
+fast closed arithmetic in a minimal stable computational leaf.  The expensive
+slices currently import a broad semantic reconstruction module, so an upstream
+semantic edit can invalidate all of them even when the closed arithmetic is
+unchanged.  The semantic layer should instead import and consume the stable
+computational leaf.
+
+The two mutually colliding, compile-only E8 chart-A alternatives should also be
+reviewed for archival outside the production glob.  Remove them only after
+proving that no load-bearing module consumes either alternative and that the
+tracked generator reproduces them.  Their current semantic-root exclusion does
+not prevent `YMGap.*` from paying to compile both independently.
+
+The immediate CI policy correction is already applied: manual dispatch now
+defaults `clean_build` to `false`.  Ordinary trusted-main and manual runs retain
+`lean/.lake`; a cache-independent run is reserved for toolchain, Lake,
+source-selection, or cache-contract changes, concrete dependency suspicion, or
+occasional milestone attestation.  Lake still recompiles every changed source
+and reverse dependency, while the static import guard proves production-source
+coverage.
+
+The following are not performance solutions: increasing workers recreates the
+Mac crash mode; changing seven-row shard size mainly trades peak memory against
+restart granularity; removing axiom gates saves negligible time; and vendored
+`.olean` files or `native_decide` would weaken reproducible kernel checking.
+Schedule the fast-binomial work before the next genuinely necessary clean
+attestation; do not repeat the cancelled cold run with the same exponential
+certificate kernel, but do not delay ordinary cached mathematical checkpoints
+after the observed failures are repaired.  Verify it with one
+worker in increasing cost order: table/checker leaf, one historically worst E9
+chart-B slice, the cached affine bridge, the tail-base certificate, the global
+coefficient certificate, and finally the guarded self-hosted full build.
+
+#### 8.13.16 Constructive `P/Q`, central characters, and the true global-form minimum
+
+The existing scalar layer is not a global-form representation theorem.
+`AdmissibleSimpleGroup R` stores only two inequalities and a closure
+certificate; it has no Cartan datum, group, quotient, representation, or
+provenance.  The legacy `CasimirData` rows likewise prove rational floor
+inequalities, not minima over descended irreducibles.  In particular:
+
+- for simply connected `B_n`, the spinor value
+  `n * (2*n+1) / 8` is below the vector value `n` at ranks 2 and 3;
+- in the long-root-square-two normalization the `D_n` vector and half-spin
+  values are `(2*n-1)/2` and `n*(2*n-1)/8`, so the stored legacy
+  `(2*n-1)/4` is neither; and
+- cover representations in `A_n`, `C_n`, `E6`, and `E7` can be rejected by a
+  nontrivial quotient.
+
+The current source comments are corrected to state this boundary.  Do not
+change the legacy numeric API by fiat; replace it downstream with the following
+cycle-free constructive derivation.
+
+1. `RepTheory/CasimirNormalization.lean` extracts only the normalization and
+   rational target floors `3/4` and `2`.  It must not import legacy
+   `RepData`, `SimpleGroup`, or `CasimirData`.
+2. `RepTheory/FiniteDynkinCoordinates.lean` defines `IntWeight T`,
+   `DominantWeight T`, the witness-bearing
+   `DominantWeight.Nontrivial lambda := Sigma i, 0 < lambda i`, basis weights,
+   bounded label lists, a coverage witness, and a finite rational `argminQ`.
+   Enumeration uses `List`, `Fin`, Boolean reflection, and `PSigma`; no
+   `Nat.find`, choice, `Exists`, or quotient supplies a label.
+3. `RepTheory/FiniteCenterCharacters.lean` distinguishes center points from
+   character codes and defines `PhaseExponent`, `centerPairing`, explicit
+   subgroup presentations, `CenterCharacterCode.TrivialOn Gamma`, and a
+   decidable `trivialOnBool` with its specification.  Cyclic subgroups are
+   enumerated by multiples of the recorded index; the Klein-four cases use the
+   three marked axes.  Self-duality of a finite center is a chosen perfect
+   pairing, never definitional equality.
+4. `RepTheory/CartanMatrix.lean` fixes source-level node numbering and defines
+   each finite Cartan matrix and the simple-root embedding `Q -> P`.  State
+   Bourbaki numbering explicitly for exceptional types so the E6/E7 charge
+   tables are not ambiguous.
+5. `RepTheory/WeightRootQuotient.lean` supplies a witness-bearing exact
+   presentation:
+
+   ```text
+   structure RootQuotientPresentation (T) where
+     classOf : IntWeight T -> CenterCharacterCode (simplyConnectedCenter T)
+     class_add : ...
+     class_root : ...
+     rootDifferenceOfClassEq :
+       classOf lambda = classOf mu ->
+         Sigma beta, lambda = mu + rootEmbed beta
+     classLift :
+       (q : CenterCharacterCode ...) -> Sigma lambda, classOf lambda = q
+   ```
+
+   Thus both directions of `[lambda]=[mu] iff lambda-mu in Q` are
+   constructive, and the reverse direction returns integer root coordinates.
+   Use direct classical-family formulas plus fixed kernel-checked integer
+   certificates for exceptionals; do not first build a general Smith normal
+   form algorithm.
+6. `RepTheory/GlobalFormCentralCharacter.lean` defines
+   `highestWeightCharacter`, `CodeDescends`, `GlobalHighestWeight`, and
+   `codeDescends_iff_trivialOnGamma`.  Required regression gates are A1 full
+   quotient parity, the A2 adjoint rule `p+2*q = 0 mod 3`, and B2 rejection of
+   the spinor with acceptance of the vector.  At this stage these are finite
+   phase exponents, not characters into `U(1)`.
+7. `RepTheory/NormalizedRootMetric.lean` stores the exact fundamental-weight
+   Gram matrix `G`, with `A^T G = D`, symmetry, entrywise nonnegativity,
+   positive diagonal, and a long-root pin `D_ii = 1`.  Classical families use
+   parametric formulas; exceptional literal matrices are accepted only through
+   generic checked matrix identities.
+8. `RepTheory/DominantWeightCasimir.lean` defines
+
+   ```text
+   C2(lambda) = (1/2) * sum_i,j lambda_i * (lambda_j + 2) * G_ij
+   ```
+
+   and proves `casimir_zero`, `casimir_add`, `casimir_mono_add`, the fundamental
+   values and floor, `casimir_floor_of_nontrivial`, an explicit adjoint label,
+   adjoint descent through every global form, and
+   `adjointCasimir_eq_dualCoxeter`.  The universal floor must follow from the
+   normalized metric, not from a literature scalar renamed `C2_fund`.
+9. `RepTheory/GlobalFormCasimirMinimum.lean` makes the infinite minimum a finite
+   located search.  If `M` is the exponent of `Gamma`, subtracting
+   `M * omega_i` from any coordinate above `M` preserves descent and cannot
+   increase Casimir.  Iteration reduces every allowed nonzero label to the
+   inhabited box `0 <= lambda_i <= M`.  Implement
+   `restriction_period`, `reduceAllowedToBox`, and
+
+   ```text
+   structure LocatedHighestWeightCasimirMinimum (code) where
+     label : DominantWeight code.cartan
+     nontrivial : label.Nontrivial
+     descends : CodeDescends code label
+     least : forall mu, mu.Nontrivial -> CodeDescends code mu ->
+       casimir label <= casimir mu
+   ```
+
+   with `locatedHighestWeightCasimirMinimum`, `globalFormMinimum_floor`, the two
+   A1 minima, and the correctly quantified uniqueness theorem for equality
+   with the floor.
+
+Items 1--9 are finite code-level mathematics and should begin without waiting
+for quaternion Haar, metrics, or compact completion.  The following semantic
+boundary remains separate:
+
+10. `RepTheory/HighestWeightDescentSemantics.lean` introduces an actual irrep
+    catalogue with both label/irrep round trips, the central-action pairing,
+    the Casimir formula, and triviality iff the label is zero.  Only this layer
+    may promote the located label minimum to a group spectral minimum.
+11. `MassGap/GlobalFormRepDataBridge.lean` carries three distinct data:
+    spectral minimum, adjoint/dual-Coxeter value, and the finite constituent
+    decomposition of the selected faithful Wilson action.  A reducible
+    faithful action has no single Casimir eigenvalue.  Projection to legacy
+    `RepData.C2_fund` requires a named compatibility theorem.
+12. Realized group/action/Haar/lattice data feed a pinned
+    `RevisedFrontierDAG` and `ClayResolutionTarget`.  Multiplying the legacy
+    group-free DAG by a decorative global-form code is forbidden.
+
+Finally prove
+
+```text
+globalLabels_embed_coverLabels
+globalHeatKernelPartialSum_le_coverPartialSum
+```
+
+because global-form restriction deletes nonnegative summands.  This transfers
+uniform cover tail estimates efficiently while retaining the exact
+quotient-specific spectral minimum.
+
+#### 8.13.17 Direct one-step reflection-transfer priority
+
+The nearest theorem with a real OS-reconstruction consumer is the missing
+strict-joint shift-one identity.  It is genuinely open: the existing
+`strictJointEvenOneSidedTimeCovariance_derived` only reaches `shift + shift`,
+and polarization determines only the symmetric average at doubled time.  Put
+the new theorems in downstream adjacent-even leaves, rather than making the
+doubled-time identity module depend backward on the adjacent-even physical
+kernel development.  Exact reflection symmetry is coupling-parametric, while
+the available fixed-face positive factors are anchor-specific.  The first
+honest public API therefore separates generic covariance from anchor-only
+positivity:
+
+```text
+theorem strictJointOneSidedTimeCovariance_one_derived
+    {coupling : Q'} (hcoupling : 0 <= coupling)
+    (hle : coupling <= anchorCoupling)
+    {base : Nat} (left right : StrictJointCylinderVector base) :
+    StrictJointOneSidedTimeCovariance hcoupling hle 1 left right
+
+theorem strictJointOneSidedTimeCross_one_anchor_nonnegative
+    {base : Nat} (v : StrictJointCylinderVector base) :
+    CReal.leEv CReal.czero
+      (strictJointOneSidedTimeCross
+        (coupling := anchorCoupling) (by decide)
+        (Q'.le_refl' anchorCoupling) 1 v v)
+```
+
+Every even shift is already supplied by
+`strictJointEvenOneSidedTimeCovariance_derived`.  The one-step parity fence
+proves that the odd carrier cannot establish the result, so the adjacent-even
+geometry is necessary rather than stylistic.
+
+**Covariance track (first, no Gram hypothesis).**
+
+1. Define the finite adjacent-even physical reflected kernel for arbitrary
+   `coupling` by summing the literal slab physical term over the enumerated
+   fixed-face labellings in
+   `Z4HalfTimeReflectionAdjacentEvenPhysicalKernelSymmetry.lean`.  Import the
+   reflected-boundary assembly plus `FiniteDeterministicKernelPushforward` and
+   define
+
+   ```text
+   adjacentEvenHalfStates K radius :=
+     boundedEdgeLabellings K (adjacentEvenLowerFaceIds radius)
+   adjacentEvenBoundaryChannels K radius :=
+     boundedEdgeLabellings K (adjacentEvenFixedFaceIds radius)
+   adjacentEvenPhysicalReflectedKernel coupling K radius left right :=
+     listQSum (fun boundary =>
+       slabParametricKPhysicalTerm coupling K
+         (adjacentEvenExtent radius)
+         (assembleAdjacentEvenReflectedSlabLabelling
+           radius left boundary right))
+       (adjacentEvenBoundaryChannels K radius)
+   ```
+
+   Here the displayed term must use `coupling`, not `anchorCoupling`; the
+   latter enters only the positivity track.
+2. For each fixed boundary, combine
+   `assembleAdjacentEvenReflectedSlabLabelling_reflection_swap`,
+   `assembleAdjacentEvenReflectedSlabLabelling_bounded`, and
+   `slabParametricKPhysicalTerm_supported_reflection`.  The resulting term
+   identity has the right/left orientation; take `Q'.eqv_symm` and lift it
+   through the finite boundary sum with `listQSum_congr_on`.  This proves exact
+   kernel symmetry without any PSD or Gram claim.
+3. **Source-written and statically audited; compilation pending:**
+   `Z4HalfTimeReflectionAdjacentEvenOneStepQueryGeometry.lean` now transports
+   and re-encodes the strict lower root and the time-shifted strict upper root
+   into ambient `adjacentEvenExtent radius + 1`; its intended theorems prove
+   canonicality, adjacent-even slab support, and the exact root/list reflection
+   exchange.
+   The raw seed is `adjacentEvenReflection_exchanges_raw_oneStep`, but raw
+   plaquette equality is not yet canonical-root or event equality.  Use the
+   existing one-way support identities
+   `centralStrictLowerCanonicalRoot_raw_sameSupport` and
+   `centralStrictUpperCanonicalRoot_raw_sameSupport_local` with their stated
+   orientations.
+
+   The common fit hypothesis must be
+
+   ```text
+   strictQueryBase (base + 1) <= radius,
+   ```
+
+   not merely `strictQueryBase base <= radius`: the shifted upper source is a
+   canonical root in box `base+1`.  Bank the definitional geometry
+
+   ```text
+   adjacentEvenAmbient radius := adjacentEvenExtent radius + 1
+   adjacentEvenExtent radius = centralAmbient radius
+   adjacentEvenExtent radius = oneStepReflectionExtent radius
+   ```
+
+   and define the two roots by transporting
+   `centralStrictLowerCanonicalRoot radius base root` and
+   `centralStrictUpperCanonicalRoot radius (base+1)
+   (timeShiftCanonicalRoot 1 base root)` from `centralAmbient radius` into
+   `adjacentEvenAmbient radius`.
+
+   Complete-query geometry includes the one-link exterior shell, not only the
+   root faces.  For each lower and upper root, prove canonicality, internal
+   slab support, exterior-face membership in
+   `boundaryCompleteSlabPlaquettes (adjacentEvenExtent radius)`, and the
+   lower/upper `adjacentEvenPlaquetteSide` identity for both internal and
+   exterior faces.  The useful time inequalities are the lower
+   `targetTime+2 <= radius` / `targetTime+1 <= radius` pair and the upper
+   `radius+3 <= targetTime` / `radius+2 <= targetTime` pair, together with the
+   upper ambient bound.  Without the exterior statements the later complete
+   occurrence predicate has an unproved zero-shell clause.
+
+   Reflection must also be encoded in the ambient face enumeration.  Define an
+   ambient `adjacentEvenAmbientFaceReflectId` using `boxPlaquetteAt`, prove its
+   physicality, involutivity, plaquette identity, and adjacency preservation,
+   and expose membership equivalences for both roots and exterior shells.  Do
+   **not** apply the slab-coordinate `slabFaceReflectId` to an ambient
+   canonical-root identifier: those are different finite enumerations.
+
+   Finally, literal source-order list exchange must pass through canonical
+   re-encoding
+
+   ```text
+   geometricSupportIds (adjacentEvenAmbient radius)
+     ((geometricPolymer ... lower).map
+       (timeReflectPlaquette (adjacentEvenExtent radius))),
+   ```
+
+   using `geometricSupportIds_sameSupport` and
+   `faceSupport_eq_of_geometric_sameSupport`.  A raw claim
+   `lower.map reflectId = upper` is unjustified because reflection may change
+   enumeration order.  Preserve source ordering and multiplicity by mapping
+   this per-root canonical exchange over the root collection; duplicate source
+   roots are harmless.  This leaf remains entirely finite and constructive:
+   no `Classical`, choice, `native_decide`, kernel positivity, or Gram import.
+
+   The current source contains the exact ambient/extent identities; lower and
+   shifted-upper transported canonical roots; canonicality and same-support
+   bridges; lower/upper internal-face time, slab-membership, support, and side
+   theorems; the corresponding one-link exterior-shell time,
+   boundary-complete-slab, and side theorems; same-support reflection of the
+   two roots; canonical `geometricSupportIds` re-encoding of the reflected
+   lower root as the upper root; an ambient `boxPlaquetteAt` reflection ID with
+   physicality, plaquette, involution, and adjacency theorems; internal and
+   exterior membership equivalences in both directions; and the order- and
+   multiplicity-preserving mapped-root-list exchange.  It carries 36 direct
+   source axiom gates.  Static review removed the unused
+   physical-kernel/Gram-chain import in favor of direct
+   `Z4HalfTimeReflectionAdjacentEvenCrossPlaneGeometry` and added the required
+   `Z4HalfTimeReflectionFaceReindex` import and namespace opening.  The import
+   guard accepts the resulting graph and the leaf contains none of `Classical`,
+   `noncomputable`, `native_decide`, or `Gram`.  None of those source facts is
+   a Lean elaboration result, an event-law theorem, a covariance theorem, or a
+   positivity theorem; all such claims remain pending Steps 4--8.
+4. Add `Z4HalfTimeReflectionAdjacentEvenOneStepEventLaw.lean`.  This leaf has
+   one necessary API bridge beyond canonical root-list reflection: a marked
+   polymer event is a predicate on ambient excited support, whereas
+   `slabEventNumerator_reflection` acts on slab `EdgeLabelling`s.  Implement
+   the bridge in the following finite, constructive order.
+
+   1. Define the joint source-ordered root chart as
+      `adjacentEvenStrictLowerCylinderRoots ... ++
+      adjacentEvenStrictUpperCylinderRoots ...`; prove its doubled length and
+      canonicality under `strictQueryBase (base + 1) <= radius`.  Define the
+      pair-family event with `sourceCylinderEvent` and
+      `centralStrictJointPairPredicate roots.length left right`.  Prove its
+      fingerprint formula by `familyOccurrenceFingerprint_append`,
+      `List.take_append_length`, and `List.drop_append_length`.  Do not impose
+      artificial length or nonemptiness hypotheses: malformed label lengths
+      correctly make the Boolean predicate false, and the empty family is a
+      legitimate event.
+   2. Form the marked atoms with `familyCanonicalAtoms`; expose their values,
+      length, and support, and prove that `slabMarkedCylinderEvent` for these
+      atoms is extensionally the raw family event.  The support proof splits
+      the joint list and uses the lower/upper canonical-root support lemmas.
+   3. Prove the missing physical reflection identity for zero extension:
+
+      ```text
+      slabToAmbientPhysical extent
+        (reflectSupportedSlabFaceLabelling extent physical) face
+      =
+      slabToAmbientPhysical extent physical
+        (adjacentEvenAmbientFaceReflectId radius face).
+      ```
+
+      Here `face` is an ambient physical face in the boundary-complete slab
+      and `extent = adjacentEvenExtent radius`.  The direct finite proof uses
+      `boxPlaquetteAt_mem_enumerate`, `slabToAmbientPhysical_eq_on_enumerate`,
+      `slabGeometricSpin_eq_of_enumerate`,
+      `reflectSupportedSlabFaceLabelling_eq_on_physical`,
+      `slabPlaquetteAt_slabFaceReflectId`, and the ambient-reflection
+      `boxPlaquetteAt` theorem.  Package the consequence as equality, or
+      membership equivalence, for `excitedPlaquetteIds`.
+   4. Lift that bridge to the complete component-occurrence query for each
+      source root.  Prove lower-on-reflected-support equals upper-on-support and
+      conversely, for both internal and one-link exterior faces, using all four
+      membership equivalences from the query-geometry leaf.  Canonicality and
+      the existing internal/exterior slab-membership lemmas supply every
+      physicality and support premise.  Reflection of occupied root faces alone
+      is insufficient: omitting the exterior zero shell would change the event.
+   5. Map the per-root identities over the source-ordered collection to exchange
+      the lower and upper support fingerprints.  Convert back to occurrence
+      fingerprints with
+      `familyOccurrenceFingerprint_eq_supportQueryFingerprint`,
+      `physicalCanonicalAmbientFamily_unionSupport`, and
+      `physicalCanonicalAmbientFamily_mem_compatible`; this preserves duplicate
+      source roots and order exactly.
+   6. Lift the family event to the slab by
+      `cutoffOneLiftedFamilyEvent (adjacentEvenAmbient radius) ...
+      (slabToAmbientPhysical (adjacentEvenExtent radius) physical)`.  Prove the
+      function equality
+
+      ```text
+      reflectSlabEvent (adjacentEvenExtent radius) eventLR = eventRL
+      ```
+
+      by the two fingerprint exchanges and Boolean conjunction commutativity,
+      then apply `slabEventNumerator_reflection` for every nonnegative
+      `coupling`.
+   7. In `Z4HalfTimeReflectionSlabFiniteKConditionalLaw.lean`, first add the
+      generic zero-extension numerator bridge between the preceding slab event
+      and the ambient event masked by `ambientSlabSupportedB`.  Derive it from
+      the existing one-list zero-extension permutation and
+      `slabWeightedPhysicalSum_eq_ambientSupported`; no lower/fixed/upper
+      inverse or triple Fubini is required.  Only after this bridge normalize
+      with `slabParametricKPhysicalPartition_pos hcoupling K
+      (adjacentEvenExtent radius)` and expose equality of the two conditional
+      probabilities.
+
+   Do not import
+   `Z4HalfTimeReflectionAdjacentEvenPhysicalKernelSymmetry` into the event leaf:
+   its boundary-summed kernel has no marked-event mask and belongs to the
+   separate positivity/kernel-reindex lane.  The exact conditional law needs
+   only nonnegative coupling, not an anchor upper bound, and remains finite and
+   intuitionistic: list maps, decidable Booleans, and involutions suffice; no
+   `Classical`, choice, `noncomputable`, `native_decide`, Gram theorem, or full
+   Fubini is licensed.  Expected public gates are `{propext, Quot.sound}`.
+   The minimal direct import boundary is the adjacent-even query-geometry leaf,
+   `Z4HalfTimeReflectionSlabFiniteKConditionalLaw`, and
+   `Z4HalfTimeReflectionStrictJointMarkedCylinder` (with the canonical query
+   decoder imported explicitly only if transitive availability is insufficient).
+
+   Then, in a distinct conditional-stability leaf, prove the
+   arbitrary-even-extent specialization of
+   `couplingPhysicalAmbient_givenSlabProbability_abs_sub_le_of_floors` for
+   these new atoms: establish even-slab support plus the internal and exterior
+   carrier floors. At
+   `radius = strictQueryBase (base + 1) + stage`, the explicit error is
+   bounded by
+   `couplingSlabConditionalBoundaryEpsilon (2 * roots.length) (stage + 4)`;
+   it is not zero at a finite stage. Prove that this bound vanishes only in the
+   subsequent limit. The
+   existing odd `couplingPhysicalStrictJointPredicate_givenSlab_abs_sub_le`
+   cannot be reused literally.  Do not divide by the existing odd-slab
+   denominator.
+5. Add `Z4HalfTimeReflectionAdjacentEvenOneStepVolumeComparison.lean`.  There
+   is an essential one-cell geometry mismatch which the current theorem does
+   not cover:
+
+   ```text
+   centralExtent r       = 2*r + 1
+   centralAmbient r      = 2*r + 2
+   adjacentEvenExtent r  = 2*r + 2
+   even slab ambient     = adjacentEvenExtent r + 1 = 2*r + 3.
+   ```
+
+   Hence neither `couplingPhysicalCentralFaceQuery_cross_centered_abs_sub_le`
+   nor the stricter existing
+   `couplingPhysicalStrictJoint_cross_centered_abs_sub_le` reaches the new
+   carrier literally.  Use the latter as the exact small-law pattern, import
+   `Z4HalfTimeReflectionStrictJointCenteredRecoding` and
+   `Z4CouplingParametricCrossVolumeStability`, and instantiate the shift-one
+   approximant at transformed base `base+1`.  Transport the same strict-joint
+   centered roots and marked atoms one additional ambient step, prove that
+   transported event is precisely the adjacent-even lower/one-step-upper
+   event, and apply
+   `couplingParametricKCompatibleCylinderProbability_cross_volume_abs_sub_le`
+   with `large := centralAmbient radius + 1` but the same small roots, inner
+   box, and protected distance `stage`.  Convert the compatible difference to
+   the physical difference with
+   `couplingPhysicalAdjacentDifference_eqv_compatible`.  Prove, rather than
+   assume, the resulting bound
+
+   ```text
+   spinSummedCylinderBoundaryEpsilon
+     (roots.length + roots.length) stage.
+   ```
+
+   Its orientation is the required large transported marked event minus the
+   small source event.
+6. Add `Z4HalfTimeReflectionStrictJointAdjacentEvenOneStepCovariance.lean`.
+   Recode each stage of `strictJointOneSidedTimeCross ... 1` as heterogeneous
+   fingerprint entries, compare the left/right and right/left forms with the
+   same symmetric even law using
+   `finiteHeterogeneousCrossBilinear_bipushforward_eqv_cross` and
+   `finiteHeterogeneousCrossBilinear_abs_sub_le_pairL1`, control coefficient
+   mass with `heterogeneousCoefficientPairL1_nonnegative`, dominate the error
+   by `spinSummedCylinderBoundaryEpsilon_le_coefficient_half_pow`, and close
+   with a public/extracted version of the private
+   `creal_equiv_of_abs_sub_le_half_pow`.  This yields the generic
+   `strictJointOneSidedTimeCovariance_one_derived` and its direct-limit
+   descent.
+
+The covariance leaf imports the polarized doubled-time module only for the
+public cross/covariance definitions.  It must not import the oriented
+doubled-time covariance leaf (which already imports polarization), derive
+cross symmetry from diagonal positivity, apply `reflectionBilinear_self` to a
+cross term, treat the raw plaquette exchange as an event identity, or use any
+adjacent fixed-interface Gram theorem.
+
+**Positivity track (second, anchor coupling).**
+
+1. First prove an adjacent-even analogue of
+   `slabParametricKPhysicalTerm_crossPlane_factorization` for the assembled
+   physical term, with the load-bearing public identity named
+   `adjacentEvenAssembledSlabNumerator_eqv_lower_interface_upper`.  The present
+   adjacent-even chain factors only the fixed-link
+   multiplicity product and sums fixed-face coefficients; it does **not** yet
+   attach the lower/upper face coefficient products, lower/upper nonfixed-link
+   multiplicities, normalization, or strict-cylinder query factors to the full
+   `ReferenceWeight`/slab numerator.
+2. Introduce the reachable restricted-interface kernel and prove its exact
+   symmetry in
+   `Z4HalfTimeReflectionAdjacentEvenReachableInterfaceSymmetry.lean`, importing
+   the reachable-support leaf.  Enumerate support points as pairs of a bounded
+   lower-state index and a bounded fixed-boundary-channel assignment, filtered
+   by the *pointwise* condition that every fixed-link
+   `fusionChannelAmplitude (6*K) lowerSpins endpoint` is nonzero.  Supply an
+   explicitly proved reachable vacuum fallback so every total `Nat` lookup is
+   supported.  For each link, nonzero amplitude gives
+   `endpoint <= lower-spin-sum`; combine this with
+   `adjacentEvenFixedLink_lower_add_fixed_sum_le_auxiliary`, apply
+   `fusionWalkMultiplicity_symmetric_of_endpoint_budgets`, lift through
+   `adjacentEvenGlobalFixedIncidenceTrajectoryKernel_eqv_transitionProduct`,
+   and finally through the physical-boundary sum defining
+   `adjacentEvenFixedInterfaceEndpointKernel`.  This removes the `11/12`
+   artificial endpoint fence but establishes symmetry only.
+3. Prove the support-compression identity before invoking any Gram theorem.
+   For a supported pair `q`, let `owner(q)` be its lower-state index and
+   `end(q)` its endpoint, and put
+
+   ```text
+   C(i,q) := if owner(q) = i then
+     adjacentEvenLowerAmplitudeProduct ... (lowerAt i) (end q)
+   else 0.
+   ```
+
+   Amplitude vanishing above `3*K` and the `6*K` lower-plus-fixed budget must
+   prove
+
+   ```text
+   finiteKernelSandwich T A fullBoundaryCount i j ≈
+     finiteKernelSandwich
+       (fun q q' => T (end q) (end q')) C supportCount i j.
+   ```
+4. The genuine open finite theorem is now explicit:
+
+   ```text
+   repT : GramRep (fun q q' => T (end q) (end q'))
+   ```
+
+   No current declaration constructs `repT`.  The facewise
+   `adjacentEvenGlobalDependentFixedFaceChannelGramRep` cannot simply be summed
+   along predecessor and post-channel trajectories because those are distinct
+   maps; the proved `twoStepDirectedCompatibility_not_gramRep` and mixed-face
+   fence block that Schur-pullback shortcut.  Raw physical fixed-face labels
+   cannot be promoted to nonnegative Gram ranks either:
+   `fundamentalFixedFaceKernel_not_positiveSemidefinite` supplies an explicit
+   negative quadratic, and the existing face `d` weights have already summed
+   the physical label, so multiplying them by physical coefficients would
+   double-count it.  Investigate either a new constructive Gram theorem for
+   the product of commuting reachable face operators (with explicit rational
+   LDL/common-square data and zero-pivot handling) or a direct common-middle
+   tensor-network SOS identity.  Do not record either route as complete until
+   the exact equality and nonnegative rational weights are proved.
+5. Once `repT` exists, apply `finiteKernelSandwichGramRep repT C supportCount`.
+   The final weights are exactly `repT.d`, with nonnegativity `repT.hd`, and
+
+   ```text
+   Phi k i := finSum (fun q => C i q * repT.v k q) supportCount
+   K1(i,j) ≈ finSum
+     (fun k => repT.d k * (Phi k i * Phi k j)) repT.r.
+   ```
+
+   This is a Gram representation of the *already-sandwiched physical
+   half-state kernel*, not of the unrestricted middle endpoint matrix.
+   Applying `finiteKernelSandwichGramRep` directly to the globally refuted
+   `adjacentEvenFixedInterfaceEndpointMatrix` would be circular.
+6. Identify that Gram kernel with the literal adjacent-even slab numerator
+   through the existing Fubini, trajectory-collapse, reflection-swap, and
+   terminal-delta theorems;
+7. Push the finite Gram statement through the adjacent half-state/support
+   encodings using `finiteHeterogeneousCrossBilinear_bipushforward_eqv_cross`
+   and control the comparison with
+   `finiteHeterogeneousCrossBilinear_abs_sub_le_pairL1`;
+8. Divide by the positive partition function, compare to the centered limit,
+   pass diagonal nonnegativity to `CReal`, and prove
+   `strictJointOneSidedTimeCross_one_anchor_nonnegative`; then descend through
+   the direct limit and completion.
+
+The principal existing ingredients are
+`adjacentEvenGlobalDependentFixedFaceChannelGramRep`,
+`adjacentEvenFixedFaceCoefficientTransitionSum_eqv_resummedKernel`,
+`adjacentEvenTrajectoryLinkProduct_eqv_faceProduct_mul_terminal`,
+`adjacentEvenSeparatedTerminalTargetSum_collapse`,
+`assembleAdjacentEvenReflectedSlabLabelling_reflection_swap`,
+`adjacentEvenAssembledUpperAmplitude_eqv_commonLower`,
+`adjacentEvenFixedLink_lower_add_fixed_sum_le_auxiliary`,
+`fusionWalkMultiplicity_symmetric_of_endpoint_budgets`,
+`adjacentEvenLowerLinkAmplitude_eq_zero_above_three_mul`, and
+`finiteKernelSandwichGramRep`.
+
+Neither `fusionWalkMultiplicity_symmetric_of_endpoint_budgets` nor
+entrywise nonnegativity proves positive semidefiniteness: a symmetric matrix
+with nonnegative entries can have a negative eigenvalue.  Likewise, the
+reachable-support theorems prove vanishing, budgets, and word reversal, not a
+`GramRep`.  The weighted SOS identity in the positivity track must therefore
+remain an explicit load-bearing theorem.
+
+Do not retry the refuted full `0,...,6*K` endpoint-window Gram factorization,
+independent shared-face resummation, mixed-map Schur pullback, or odd-carrier
+route.  First close generic covariance by reflection symmetry, then the exact
+anchor-coupling positivity theorem.  The current fixed-face Gram factors use
+`heatKernelPacket K anchorCoupling`, so interval-wide
+**positivity** is a later theorem requiring a genuinely coupling-parametric
+Gram construction.  This restriction does not apply to covariance, whose
+finite proof uses exact reflection invariance for arbitrary coupling.
+
+The final consumer must also resolve a codomain mismatch: `CanonicalOSRoot`
+currently uses the `Q'`-valued `ObservableMeasure.ProbFunctional`, whereas the
+faithful heat-kernel moments and strict cylinder completion are `CReal`-valued.
+Add a `CReal` canonical-root generalization or a proved rational-specialization
+bridge before claiming `PositiveTimeOSRoot`.  Once connected, the shift-one
+theorems supply the dense self-adjointness and positivity fields; contraction,
+nonexpansive stage maps, the direct-limit form, and the completed semigroup are
+already present.
+
+#### 8.13.18 Cached all-module consistency and fail-closed axiom replay
+
+An ordinary cached `lake build` is a full consistency check of the selected
+library even when unchanged modules are not re-elaborated.  The static import
+guard enumerates every current `lean/YMGap/**/*.lean`, checks imports and
+cycles, validates the semantic exclusions, and pins the `YMGap.*` glob plus
+the umbrella and both statement guards.  Lake traces include the Lean
+version/commit, source content, transitive imported artifacts, options, and
+module identity; a mismatch rebuilds the module.  When a trace is current,
+Lake replays its saved info log, including every `#print axioms` diagnostic,
+into the new `lean-build.log`.
+
+The axiom auditor is therefore hardened as follows:
+
+1. reuse the import guard's lexer to enumerate every executable source-level
+   `#print axioms` command outside nested comments, line comments, and strings;
+2. require one command per source line and exact `Counter` equality between
+   expected and observed `(file,line)` sites, rejecting missing, stale,
+   concatenated, or duplicated diagnostics;
+3. parse Lean-generated `_private.YMGap...` names and identifiers containing
+   `?`, reject every non-YMGap canonical name, and require Lake 4.29.1's
+   terminal `Build completed successfully` marker in every supplied log;
+4. fail with infrastructure exit 3 on any mismatch in normal, strict, or update
+   mode, so a partial, killed, failed, or stale log cannot pass the mandatory
+   non-strict gate or regenerate a baseline;
+5. store only axioms outside `{propext, Quot.sound}` in reviewed exceptions,
+   while unioning full axiom sets for repeated canonical names so independently
+   compiled colliding alternatives cannot overwrite and hide a forbidden
+   dependency; and
+6. pin the effective Lake `weakLeanArgs` contract: the package-level tuple is
+   exactly the resource-only `-s 65536 -M 20480`, and all three library-level
+   weak-argument lists are empty.  This prevents a future semantic weak flag,
+   which Lake deliberately excludes from artifact hashes, from reusing stale
+   proof artifacts.
+
+The log also carries one schema-versioned provenance fingerprint over the
+sorted repo-relative paths and bytes of every default-build `YMGap` source,
+the umbrella and both statement-guard roots, the Lean toolchain, Lake package
+and manifest inputs, the Make entry point, and the axiom/import audit scripts.
+Every listed input is required.  Thus a log from stale source selection,
+toolchain, Lake configuration, Make wiring, or audit code is rejected before
+its diagnostics can be treated as evidence.
+
+The log-integrity gap exposed by the targeted CubicDebt run is now closed.
+That run saw a nonfatal library-suggestions `SymbolFrequency` heartbeat
+`PANIC` while `CoreBResidualSimplex` was being written, even though Lake
+marked the module built and continued. The source now executes that metadata
+pass without the failing heartbeat limit, and guarded direct/cached target
+runs contain no `PANIC`. Independently, the mandatory auditor rejects every
+unreviewed `PANIC` or internal-error record even if Lake returns zero; no
+blanket allowlist was added. A green cached CI run must still exercise this
+new log-integrity gate before the full-tree state is certified.
+
+Lake source confirms the replay premise: current `SavedTrace` logs are replayed
+when the dependency hash is up to date, while module trace construction hashes
+the source, toolchain, ordinary options, imports, and setup.  The permitted
+weak arguments affect only stack and memory ceilings and are separately pinned
+by Step 6.
+
+The Mac runner is likewise fail-closed.  Post-cold-run foreground sessions use
+the checksum-pinned official runner `v2.335.1`, revalidate the executable's
+reported version after reconciling stale state and before any new registration,
+and use a fresh repository-scoped JIT configuration rather than deprecated persistent
+`--once`; GitHub assigns it at most one job.  The official `run.sh` supervisor
+provides its supported update/relaunch and signal-forwarding behavior.  The
+workflow then verifies the exact pinned `Runner.Listener` version as its final
+locked-host command block before Lean.  A runner self-update can therefore not
+silently compile: the job stops until the version, archive checksum, setup,
+launcher, and workflow pin are deliberately advanced together.  A one-job
+helper exit is never used as completion or absence evidence. Normal or trapped
+exit requests and verifies cleanup from a durable positive exact-ID visibility
+witness, retaining recovery state if verification fails. Archive
+extraction and every setup validation reapply owner-only mode `0700` to the
+runner root.  The listener is brought online only in the foreground for one
+known queued trusted-main job, and a workflow job has a `480`-minute timeout.
+
+That paragraph describes the current source contract, not completed live JIT
+evidence.  Run `29638079535` was accepted by the legacy foreground
+registration.  The first post-run launcher must remove that inactive legacy
+registration, create one JIT registration, claim the known queued cached job,
+and demonstrate verified remote/local cleanup before the migration is called
+operationally tested.
+
+One canonical per-user atomic host lock is held for the entire session and
+honored by every repository-managed Lean/Lake/pytest Make entry point.  The
+standalone wrapper samples the process list both before and after winning the
+`mkdir` race; cleanup retains the lock if any named runner
+supervisor/listener/worker, Lean, Lake, or pytest process survived, or if
+process enumeration failed.  Runner services, helpers, and both `_update.sh`
+and `update.sh` are conflicting high-load processes as well.  The workflow
+requires at least 32 GiB installed and approximately 32 GiB currently
+available, then performs another AC/RAM/process/version preflight immediately
+before the build.  A bounded static guard scans every tracked or untracked,
+non-ignored executable repository entry point and rejects an unwrapped or
+uncapped Lean/Lake/pytest route.  `LEAN_JOBS` is override-resistant and exactly
+one throughout `Makefile`, `AGENTS.md`, `CLAUDE.md`, and `lean/AGENTS.md`.
+`make test` and the documented named-test command additionally force the
+OpenMP, OpenBLAS, MKL, vecLib, and NumExpr thread pools to one thread.  Process
+discovery includes both a direct `pytest` executable and
+`python[version] -m pytest`; it distinguishes pgrep's “no match” status from
+process-enumeration failure and refuses the latter rather than running
+fail-open.  This serializes project-controlled commands; arbitrary bare
+operating-system processes remain an explicit operator boundary, and
+hostile-code isolation still requires a dedicated non-admin macOS account.
+
+Runner labels provide routing, not authorization.  Every actor or workflow
+able to queue a job with the complete matching label tuple is inside the trust
+boundary, because repository-scoped JIT registration is not intrinsically
+bound to this workflow or branch.  The known-queued-run foreground rule is
+therefore security-critical, not merely operational convenience.
+
+Interrupted JIT sessions require two cleanups. Before the registration POST,
+the launcher atomically writes an owner-only recovery record binding the
+repository and a unique runner name in the `pending` phase; after a complete
+response it atomically promotes that record to `registered:<id>`. Before
+starting the Listener, a bounded exact-ID GET must bind the same recorded name
+and ID and the launcher durably records `remote-visible:<id>`. Before a remote
+deletion it then writes `remote-delete-requested:<id>`; only verified remote
+absence advances it to `remote-removed:<id>`. Thus every accepted ID-specific
+404 is downstream of both a synced positive visibility witness and a
+contemporaneous successful, completely paginated repository-runner collection
+whose valid total and globally unique returned IDs prove that exact ID absent.
+An authorization-/repository-masked 404, malformed collection, incomplete or
+changing pagination, duplicate IDs, or a collection that still contains the ID
+retains `remote-delete-requested`; the official helper's normalized status is
+irrelevant.
+Every atomic promotion is followed by `/bin/sync`, and only verified remote and
+local cleanup removes the record. Legacy completion/deletion records from the
+old heuristic are conservatively treated as unconfirmed registrations and
+must regain exact visibility. Normal/trapped cleanup and the next
+conflict-free launcher therefore reconcile by exact name or ID even across a
+lost response, power failure, or untrappable `SIGKILL`. `--check` parses this
+state without mutation and fails rather than claiming readiness while any
+recovery remains. Stale-state reconciliation and safe legacy migration precede
+the exact version rejection; an operator must not switch installation roots
+while state or local credentials remain. The official local-only
+removal path is invoked when baseline or migrated settings survive;
+credentials-only partial state is deliberately preserved and rejected rather
+than erased. Because `SIGKILL` also leaves the atomic lock after it has been
+acquired, the operator first
+performs the documented no-process check and removes only that stale empty
+directory; recovery never guesses that a live lock is stale.  The build
+uses only the AC-conditional `caffeinate -s` assertion (plus disk-idle `-m`),
+so an unplugged Mac may sleep instead of being forced awake on battery.  AC is
+sampled at launch and immediately before Lean; it is not falsely described as
+a continuous watchdog.
+
+Namespace-digest drift remains informational because adding an axiom-clean
+theorem is normal.  Completeness and the forbidden-axiom gate are mandatory.
+At the current post-sharded-bootstrap **verified inventory** checkpoint, the
+wiring audit covers `2538` source modules, `7887` local import edges, zero
+cycles, `2532` semantic-root-reachable modules, and exactly the six reviewed
+exclusions.  The source inventory contains `19579` executable axiom-gate lines
+after the Q8, adjacent-even physical-kernel-symmetry, ten isolated Sixth
+bootstrap leaves, and one-step query-geometry gates were added.
+
+The cancelled `118172b` log is intentionally a negative test: it lacks the
+terminal success marker and the later source sites, so the hardened auditor
+must reject it rather than treating its many successful cold artifacts as
+complete evidence.  After the eight failures in Section 8.13.1 are repaired,
+verify the implementation against a completed cached all-module log, which
+must report exact complete replay, and then through the next trusted-main JIT
+job.  This closes the precise gap between “incremental build” and “full current
+axiom evidence” without requiring a clean rebuild on every commit.
+
+#### 8.13.19 Constructive-real OS transfer and provenance boundary
+
+The strict thermodynamic-limit reflection form is genuinely `CReal`-valued.
+There is no current theorem, and no general mathematical reason to expect one,
+that makes all of its values rational or eventually constant rational
+approximants.  Therefore the production OS path must not be routed through the
+legacy `Q'`-valued `PositiveTimeOSRoot`.  A rational specialization is permitted
+only as an optional regression adapter carrying an explicit realization proof
+
+```text
+structure RationalFormSpecialization (B : V -> V -> CReal) where
+  Bq : V -> V -> Q'
+  realizes : forall x y, CReal.Equiv (B x y) (CReal.ofQ' (Bq x y))
+```
+
+and it may never be inferred merely from the existence of rational
+approximants.
+
+Implement the faithful route in the following dependency order.
+
+1. Add `CRealTransferCore.lean` with a minimal
+   `CRealCompletedTransferCore` over the existing
+   `CRealSeminormCompletion.SquaredSeminorm`.  Its fields are only a completed
+   pairing, transfer map, self-adjointness, transfer positivity, and
+   contraction.  Do not advertise a Hilbert space until completed addition,
+   scalar multiplication, inner-product laws, and completeness have themselves
+   been constructed.
+2. Add `Z4HalfTimeReflectionStrictJointCompletedInner.lean`.  For completion
+   representatives `X,Y`, form the diagonal rational sequence
+   `n |-> (strictJointCylinderStageReflectionBilinear (X.seq n) (Y.seq n)).approx n`.
+   Prove its explicit `CReal.QCauchy` modulus from the representatives'
+   Type-valued moduli, sharp stagewise Cauchy--Schwarz, and local norm bounds;
+   then define the pairing with `CReal.ofQ'CauchySeq`, prove independence of
+   close representatives, descend it to the quotient, and prove the embedding
+   formula.  Do not try to extract computational moduli from arbitrary
+   Prop-valued `CReal` Cauchy witnesses.
+3. After the shift-one results in Section 8.13.17, add
+   `Z4HalfTimeReflectionStrictJointTimeOneTransfer.lean`.  Shift-one covariance
+   plus symmetry proves self-adjointness; diagonal shift-one cross
+   nonnegativity proves positivity; existing time-translation distance and
+   norm estimates prove contraction; the existing direct-limit time action and
+   completed semigroup supply the transfer map and semigroup law.  Package
+   exactly these results at `coupling := anchorCoupling` as the first
+   `CRealCompletedTransferCore` consumer.  A coupling-parametric core must wait
+   for the interval-wide positivity theorem; generic covariance alone is not
+   enough.
+4. Separately establish canonical provenance.  Choose
+   `ContinuumFunctional.CRealProbFunctional` as the minimal canonical
+   expectation interface and add a conversion from
+   `WilsonProbFunctional.ProbFunctionalC`.  For signed cylinder observables,
+   introduce a stronger `CRealLinearProbFunctional` carrying normalization,
+   positivity, addition, and rational homogeneity.
+5. Add `Z4SignedCylinderObservableAlgebra.lean`: signed simple-cylinder
+   presentations modulo common-chart/refinement equivalence, with unit,
+   addition, negation, rational scaling, pointwise multiplication, star, and
+   the induced `CReal` expectation.  Prove refinement invariance, normalization,
+   linearity, and positivity before consuming this algebra elsewhere.
+6. Add `Z4StrictJointReflectedFormPin.lean` and prove the load-bearing identity
+   `strictJointReflectionBilinear_eq_expectation_reflectedProduct`, together
+   with positive-time support, reflection and time maps, representatives, and
+   essential surjectivity.  This prevents an abstract positive form from being
+   silently substituted for the physical cylinder expectation.
+7. Only after Steps 1--6 add `CanonicalCRealOSRoot.lean`, composing distinct
+   functional/provenance, positive-time transfer, and completed-transfer roots.
+   Keep the spectral-gap package separate.
+
+The shift-one theorem and this adapter still do **not** furnish a normalized
+vacuum or probe, Rayleigh bounds, a strict transfer eigenvalue gap, a finite
+`SpectralModel`, a `LocatedSpectralGap`, identification with a Hamiltonian
+spectrum, or Hilbert completeness.  In particular,
+`PositiveTimeOSRoot.rayleighLower/rayleighUpper`,
+`FunctionalContinuumTarget.gnsGap`, and
+`ContinuumFrontierScorecard.OSReconstructedGap.genGap` remain supplied data;
+the last field has no proved generator/spectrum provenance and must remain
+quarantined from every completion or Clay-facing claim.
+
+#### 8.13.20 Guarded verification checkpoint and adequacy-preserving next move
+
+(2026-07-18, session 7, later checkpoint.)  This section supersedes only the
+provisional compile-status sentences above; it preserves the failed-run
+history and all mathematical must-not-claim boundaries.  Every target below
+was run serially through the canonical host lock, with one Lean worker and the
+unchanged `-s 65536 -M 20480` limits.  No clean build or raised resource cap
+was used.
+
+The following guarded target builds now exit zero:
+
+1. the original clean-run repairs:
+   `HarmonicLowerSixTailEnvelopeCertificateE8ChartA` (46 jobs, final target
+   166s), `HarmonicMassCrossLowerSixRecoveryBootstrapFourth` (490 jobs, final
+   target 121s), and
+   `HarmonicLowerSixCubicDebtCoefficient1330Physical` (528 jobs, final target
+   1.0s);
+2. the shared dense-univariate HighRows engine (547 jobs, final target 620ms)
+   and all three formerly failing consumers: `...HighRowsBlock4Row0`
+   (548 jobs, final target 47s), `...HighRowsBlock3Row4` (final target 51s),
+   and `...HighRowsBlock3Row3` (final target 55s);
+3. `CoreBResidualSimplex` (192 jobs, final target 32s), after explicitly
+   executing the symbol-frequency metadata pass without a heartbeat limit;
+   the successful direct run and later cached replay contain no `PANIC`, and
+   its public gates remain unchanged;
+4. `RepTheory/QuaternionSign` (3 jobs, final target 158ms),
+   `RepTheory/RationalQuaternionAlgebra` (4 jobs, final target 210ms),
+   `RepTheory/LocatedCentralQuotient`, and
+   `RepTheory/RationalQuaternionQ8Fixture` (9 jobs);
+5. `Continuum/EightAnchorWindowRetune` (319 jobs, final target 170s), using
+   the direct structural coefficient oracle rather than any eager
+   `drop`/`take` reconstruction of the full degree-143 polynomial;
+6. `Continuum/HarmonicMassCrossLowerSixRecoveryTerminal8189` (492 jobs,
+   final target 9.6s), after replacing the strict degree-65025 power fold by
+   the exact base-256 decomposition
+   `w^n ≈ (w^256)^(n/256) * w^(n%256)` and splitting the remaining semantic
+   transports into bounded opaque declarations;
+7. `Continuum/Z4HalfTimeReflectionAdjacentEvenPhysicalKernelSymmetry`
+   (698 jobs) and
+   `Continuum/Z4HalfTimeReflectionAdjacentEvenOneStepQueryGeometry`
+   (779 jobs), establishing the presently written exact Step-3 geometry and
+   reflection/exchange layer; and
+8. `RepTheory/SimpleGroup`, `RepTheory/CasimirData`,
+   `Continuum/SU2QuaternionPolynomialHaarCarrier` (384 jobs), and
+   `MassGap/SimpleGroup` (82 jobs).
+
+These are exact kernel checks of the named targets and their replayed
+dependency cones.  They are not a full-tree certificate.  In particular, the
+successful EightAnchor run validates the unchanged public 144-coefficient
+identity through its new pointwise coefficient bridges; it does not by itself
+validate the complete source inventory.
+
+There is now no known red target among the eight failures discovered by the
+cancelled clean run.  The final Terminal8189 repair preserves the exact
+18-block lower enclosure and its positive `830/1000000` margin, but changes
+how powers are kernel-evaluated: `Nat.div_add_mod`, `qpow_add`, and
+`qpow_qpow` justify a base-256 representation with at most 254 outer and 255
+residual folds instead of 65025 strict multiplications.  Explicit `Q'.eqv`
+algebra replaces the invalid raw-equality ring reconstruction.  The successful
+guarded build reports only `propext` and `Quot.sound` on all five exported
+Terminal8189 gates.  This is a targeted dependency-cone result; only the next
+complete cached build and mandatory source-site audit can establish current
+full-tree consistency.
+
+Four additional local scalar-capstone adequacy gaps exposed by this tranche
+are listed below, independent of compilation. They are not an exhaustive Clay
+frontier: the earlier census still records the canonical-provenance, CReal OS
+completion, generator/spectrum, continuum/volume-limit, local-field/OPE/AF,
+and all-group-realization residuals.
+
+1. `budget_closes_uniform` accepts `hadm` but its base theorem does not use
+   that hypothesis.  Thus the theorem presently closes an abstract numerical
+   budget, not a physical admissibility-dependent Yang--Mills recursion.
+2. No proved rate theorem binds the scale index `m0` to `gapBound`.  A positive
+   budget and a separately supplied gap bound therefore do not yet yield a
+   quantitative uniform mass scale.
+3. There is no representation-specific, constructively positive sigma floor
+   derived for each `R`.  A generic positivity field must not be advertised as
+   the Wilson-loop/string-tension lower bound for an arbitrary nontrivial
+   representation.
+4. `mass_gap_suN` does not tie its parameter `R` to `N`, does not realize
+   `SU(N)` or its chosen global form, and does not consume the available Weyl
+   data in the mass-gap derivation.  It is an abstract interface theorem, not
+   yet a theorem about every physical `SU(N)` Yang--Mills theory.
+
+Consequently the most efficient sound order is:
+
+1. run the static guards and obtain one successful cached all-module build;
+2. commit and push the entire current source/CI contract, including the
+   presently untracked canonical lock wrapper, then launch one foreground JIT
+   self-hosted job on exactly that commit and require the complete mandatory
+   axiom replay and every terminal guard to pass; and
+3. after full-build green, implement
+   `Z4HalfTimeReflectionAdjacentEvenOneStepEventLaw` as the highest-leverage
+   mathematical next leaf, followed immediately by the finite-volume
+   comparison/covariance transfer.  Keep the anchor-coupling positivity/Gram
+   lane explicit and separate.
+
+The current self-hosted wiring is therefore source-designed and partially
+target-verified, but **not certified complete**.  Certification requires the
+CI changes and lock wrapper to be tracked in a pushed commit and a green JIT
+run on that exact commit.  A local targeted pass, a static workflow reading,
+or the cancelled `118172b` run cannot substitute for that live evidence.
+
+#### 8.13.21 Complete current wiring, bounded Sixth repair, and Mac JIT CI
+
+(2026-07-18, session 8, authoritative local checkpoint.)  This section
+supersedes the compile-status and current-inventory sentences above, but not
+their failure history or any mathematical must-not-claim boundary.  Every
+Lean command in this checkpoint ran through the fixed per-user session lock,
+with one Lake worker, `-s 65536 -M 20480`, AC-aware `caffeinate -ms`, and
+positive nice value.  The memory ceiling was never raised.
+
+The first complete current-source discovery replay found exactly one red
+module after every independently buildable module had been checked:
+`HarmonicMassCrossLowerSixRecoveryBootstrapSixth`.  Both original `Fin 50`
+decisions reached the kernel memory ceiling.  This was a successful safety
+failure: Lean exited with `excessive memory consumption detected`, the wrapper
+released its lock only after a conclusive process scan, system memory remained
+approximately 90 percent available, and the host did not swap itself into a
+crash.  The generated E9 and E8 row families and the rest of the current
+reverse-affected tree completed in the same serialized discovery run; no
+second source failure appeared.
+
+A proportional in-file split did not solve the problem.  Three `Fin 25`
+quarters below `k=623` still reached the cap, and bisecting them into
+`Fin 12`/`Fin 13` declarations did likewise.  Controlled single-module probes
+then located the actual replay boundary: the exact `k=548` case, `Fin 6`,
+`Fin 10`, and `Fin 11` all pass under `-M 20480`, while `Fin 12` fails.  Thus
+the issue is bounded evaluator size, not falsity of the inequality, and a cap
+increase is neither necessary nor permitted.
+
+There is no already-proved symbolic shortcut for this finite tranche.  The
+relevant fixed-center cells are
+
+```text
+c = 33: 542 <= k <= 575
+c = 34: 576 <= k <= 609
+c = 35: 610 <= k <= 645
+c = 36: 646 <= k
+```
+
+Reducing `548..622` to three endpoint checks would first require 72 currently
+unproved within-cell drop signs: `548..574`, `576..608`, and `610..621`.
+`lowerSixFixedCenterSparseSlack_antitone_add` assumes those raw signs,
+`lowerSixFixedCenterDrop_nonnegative_of_cleared` assumes their cleared signs,
+and the global traversal assumes all three sign families.  The post-bootstrap
+odd-exponent budget also genuinely fails in these cells, for example
+`40*133 > 9*550`, `40*137 > 9*578`, and `40*141 > 9*612`.  Proving uniform
+drop nonnegativity here is a substantive analytic frontier, not a cheaper
+replacement for the exact finite certificate.
+
+The sound bounded fallback is therefore ten independent modules
+`BootstrapSixthBlock0` through `BootstrapSixthBlock9`, proving the disjoint
+`Fin 10` ranges
+
+```text
+548..557, 558..567, 568..577, 578..587, 588..597,
+598..607, 608..617, 618..627, 628..637, 638..647.
+```
+
+Each leaf imports only the existing Fifth bootstrap cone, uses ordinary
+kernel `decide`, and has its own axiom gate.  Separate modules are load-bearing:
+each leaf gets a fresh Lean process and OS-level memory reclamation boundary,
+and Lake caches every `.olean` independently.  The original six public Sixth
+theorem names and types are unchanged.  Their two `Fin 50` wrappers and
+`Fin 100`/physical/residual wrappers use only index case splits, `omega`, and
+`simpa only` with explicit index equalities, so future simp-set growth cannot
+unfold the expensive rational expressions accidentally.
+
+The named sharded replay is green:
+
+```text
+dependency-cone jobs:       502
+ten leaf times:             18--21 seconds each
+public assembly time:       376 ms after cache
+leaf/public axiom gates:    exactly [propext, Quot.sound]
+PANIC/internal diagnostics: none
+```
+
+The authoritative cached all-module replay then completed successfully.  Its
+source/configuration fingerprint and exact integrity census are:
+
+```text
+YMGAP_SOURCE_FINGERPRINT: d92eaeec27e4466aa2fcf4909dec6ea33e255f034c940f57b296166cee809f44
+Lake jobs:                2544, terminal success
+production modules:      2538
+local import edges:      7887
+directed import cycles:  0
+semantic-root reach:     2532
+reviewed exclusions:     6 of 6; unexpected exclusions 0
+executable axiom sites:  19579 of 19579 observed at exact current locations
+audited declarations:    19556
+audited namespaces:      2392
+forbidden exceptions:    0
+```
+
+The mandatory audit passed against that complete log; the reviewed baseline
+was regenerated, and strict namespace-digest mode then passed with zero drift.
+`docs/frontier-status.md` was regenerated from the same provenance-bound log
+and reproduced byte-for-byte in stdout validation.  The cached frontier
+uninhabitedness guard, ten-statement hash guard, and 129-job Clay scorecard all
+passed.  The static Frontier-DAG check reports 12 enumerations, 10
+registered/grandfathered, 2 reviewed exemptions, and 0 unbridged enumerations.
+The Clay-facing result remains exactly what it was: fixed-spacing clauses are
+kernel-proved while continuum existence and the Clay target remain OPEN.
+
+This checkpoint also establishes the incremental full-build contract.  A
+clean rebuild is not required at every checkpoint.  `make lean-build` always
+selects the complete default target set; Lake revalidates changed sources,
+options, toolchain inputs, and reverse dependencies, then replays saved module
+logs for unchanged artifacts.  The import guard independently proves exact
+source discovery, root reachability, exclusions, and acyclicity.  The log
+auditor requires one current fingerprint, every executable `#print axioms`
+source site with its exact multiplicity, no forbidden axiom, no PANIC/internal
+diagnostic, and terminal full-build success.  The fingerprint covers every
+production Lean source plus the guard roots, pinned toolchain, exact Lake
+configuration and dependency-free manifest, Make build contract, and both
+import/axiom auditors.  A clean build remains an explicit milestone operation
+for toolchain/build-selection changes, concrete cache-corruption evidence, or
+occasional independent attestation; it is not the ordinary consistency check.
+
+The personal-Mac CI route is now statically complete and independently
+re-audited.  The workflow has the conjunctive labels `self-hosted`, `macOS`,
+`ARM64`, and `ymgap-m4max`, with no hosted fallback: when the Mac is offline a
+job queues instead of consuming hosted compute.  It accepts only trusted-main
+pushes or manual dispatch on `main`, retains the local Lake cache, uploads no
+successful artifact or remote cache, and keeps only a three-day failure log.
+GitHub does not charge hosted compute minutes for this self-hosted execution;
+local electricity, network, wear, and any residual artifact storage remain
+operator costs.
+
+The official ARM64 runner is pinned to `2.335.1` and its published archive
+SHA-256.  Setup and launch share the same atomic owner-only host lock and full
+runner/Lean/Lake/pytest process fence.  Setup holds that lock through runner
+root mutation, checksum/version inspection, extraction, and repository-label
+configuration.  The foreground launcher creates one repository JIT runner for
+at most one job and uses the durable state sequence
+
+```text
+pending -> registered:<id> -> remote-visible:<id>
+        -> remote-delete-requested:<id> -> remote-removed:<id>.
+```
+
+Every state promotion explicitly guards chmod/rename, byte-compares the exact
+record including its final newline, and syncs before the next remote mutation.
+A failed DELETE can be accepted only when two independently acquired,
+complete, canonical runner-collection snapshots match and omit the exact ID,
+with exactly one well-formed exact-ID HTTP 404 bracketed between them.
+Authorization-masked, multiple-status, malformed, changing, incomplete, or
+target-containing responses retain recovery evidence.  `Runner.PluginHost` is
+inside the shared conflict fence.  Trapped signals use a bounded verified
+direct-child TERM/TERM/KILL protocol, never wait on an unconfirmed live PID,
+and unconditionally retain local/remote recovery state and the host lock
+because arbitrary action descendants cannot be exhaustively recognized.
+Pure checks now cover 236 executable entry points, 10 remote-state scenarios,
+and 4 bounded-shutdown scenarios; Bash 3.2 syntax and every workflow shell
+block pass.  No persistent runner service is installed.
+
+One operational certification step remains before this CI route may be called
+live-green: commit and push the exact reviewed tree, start one foreground JIT
+session only after confirming that exact SHA is queued, require the complete
+mandatory workflow to pass, and verify both remote runner removal and local
+lock/recovery cleanup.  Static design, a local green build, or a run on an
+older SHA is not a substitute.
+
+After that exact pushed-SHA CI pass, the highest-leverage constructive next
+move remains `Z4HalfTimeReflectionAdjacentEvenOneStepEventLaw`.  Implement it
+in this order:
+
+1. construct joint lower/upper root labelling and canonical pair atoms;
+2. prove the slab-to-ambient physical reflection identity, including the
+   one-link exterior zero shell;
+3. prove complete internal-plus-exterior query exchange and
+   support-to-occurrence fingerprints;
+4. define the lifted slab event, prove `reflectSlabEvent` equality, and derive
+   `slabEventNumerator_reflection`;
+5. add the generic zero-extension numerator bridge in
+   `SlabFiniteKConditionalLaw`, then normalize with the positive partition.
+
+Keep this leaf intuitionistic: minimal imports, explicit finite witnesses,
+ordinary decisions only, no `Classical`, choice, `noncomputable`,
+`native_decide`, Gram/Fubini overreach, or unproved physical identification.
+Then compose the finite-volume comparison/covariance transfer, followed by the
+constructive-real completed-transfer and canonical-provenance sequence in
+Sections 8.13.17 and 8.13.19.  The abstract scalar-capstone adequacy gaps in
+Section 8.13.20 remain quarantined and must not be advertised as Yang--Mills
+or Clay closure.
+
+#### 8.13.22 Standalone categorical spike: verified evidence, not critical path
+
+(2026-07-18, session 8, post-checkpoint addendum.)  The untracked
+`cat_structural_spike/` has now been reviewed as a deliberately separate Lake
+package rather than silently folded into the production module graph.  It
+uses the same Lean `4.29.1` pin, no package dependency, and the repository's
+`-s 65536 -M 20480` ceiling.  Its four source modules give concrete,
+proof-relevant versions of three structural ideas:
+
+1. `DomGrowth` makes witnessed domination compositional; `chain_bound` and
+   `gap_persists` expose telescoping and gap persistence as projections of a
+   composite morphism rather than repeated external inductions.
+2. `UniformGap` represents volume-uniformity by one positive apex and a cone
+   of unit-ratio legs.  `transport` and `ofCofinal` make comparison and
+   exhaustion reusable, while differing volume constants cannot inhabit the
+   record in the first place.
+3. `NaturalityGuard` turns a shifted-normalization defect into the proved
+   negation `square_fails_for_shifted_ledger`, alongside a positive control.
+   This is an exact kernel audit of the bookkeeping square, not a heuristic
+   numerical test.
+
+The package is constructively clean at its stated surrogate level: no
+`sorry`, `Classical`, `native_decide`, Mathlib, or new axiom; all ten
+executable gates report exactly `[propext]`.  In addition to its clean Linux
+container attestation, exact Mac parity is now green under
+
+```text
+caffeinate -ms nice -n 10 ./scripts/with_lean_session_lock.sh cat_structural_spike env LEAN_NUM_THREADS=1 lake build
+```
+
+Lake completed 7 jobs in 5.2 seconds wall-clock; the final process scan
+removed the canonical lock.  This result is deliberately separate from the
+production fingerprint
+`d92eaeec27e4466aa2fcf4909dec6ea33e255f034c940f57b296166cee809f44`:
+the spike has its own Lake root and is not imported by `YMGap`, so neither its
+success nor a future failure may be misreported as production-tree evidence.
+
+The mathematically efficient decision is **quarantine, not promotion, at this
+checkpoint**.  The spike organizes ledger bookkeeping but proves no new
+analytic sign, finite-volume reflection law, continuum measure, OS
+reconstruction, or physical mass gap.  Promoting it now would add an
+abstraction migration ahead of a known load-bearing missing theorem.  Complete
+`Z4HalfTimeReflectionAdjacentEvenOneStepEventLaw` and its finite-volume
+comparison/covariance transfer first.  Only afterwards reconsider, in order:
+
+1. instantiate `Dom` over the repository's `Q'` setoid (and eventually
+   constructive reals) while preserving witness-bearing homs;
+2. wire categorical composition to the actual per-scale `singleStep`
+   certificates and recover the existing anchor inequality by projection;
+3. promote `NaturalityGuard`-style exact squares into the adversarial audit
+   only where a real ledger comparison consumes them.
+
+No Clay-facing claim may cite the categorical vocabulary itself.  Promotion
+earns its place only if it removes duplicated proof obligations from at least
+two production consumers or supplies a transport/universal property actually
+used by the analytic spine.

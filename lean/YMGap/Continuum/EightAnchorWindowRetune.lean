@@ -97,9 +97,377 @@ private def short6Bern : List (Nat × Q') :=
 private def ratio8Bern : List (Nat × Q') :=
   generatedBernTerms eightAnchorCap ratioSlack8P 17
 
+/- `head8` has degree 143.  A `take`/`drop` of the fully materialised
+`bernTermsP` is not a genuine staging boundary: reducing even the first slice
+first constructs the entire 144-term polynomial.  The checker below instead
+extracts exactly one requested coefficient.  Its Bernstein fold skips every
+basis whose leading zero shift is past that coefficient, so a slice computes
+only the finite triangular prefix it certifies.
+
+The pointwise checker is connected back to the original `Poly` identity by
+proved coefficient homomorphism lemmas.  A structural length bound then turns
+the 144 point checks into the same exact `allZero` proposition consumed by the
+public proof.  Thus the computational representation changes, but neither the
+identity nor the constructive trust boundary does. -/
+
+/-- Coefficient lookup which is structural in the requested index. -/
+private def coeffQ : Poly → Nat → Q'
+  | [], _ => 0
+  | c :: _, 0 => c
+  | _ :: cs, r + 1 => coeffQ cs r
+
+private theorem coeffQ_padd : ∀ (p q : Poly) (r : Nat),
+    coeffQ (padd p q) r ≈ coeffQ p r + coeffQ q r
+  | [], q, r => Q'.eqv_symm (q_zero_add_eqv (coeffQ q r))
+  | a :: p, [], r => Q'.eqv_symm (q_add_zero_eqv (coeffQ (a :: p) r))
+  | a :: p, b :: q, 0 => Q'.eqv_refl (a + b)
+  | a :: p, b :: q, r + 1 => coeffQ_padd p q r
+
+private theorem coeffQ_pscale (k : Q') : ∀ (p : Poly) (r : Nat),
+    coeffQ (pscale k p) r ≈ k * coeffQ p r
+  | [], r => Q'.eqv_symm (q_mul_zero k)
+  | c :: cs, 0 => Q'.eqv_refl (k * c)
+  | c :: cs, r + 1 => coeffQ_pscale k cs r
+
+private theorem coeffQ_pneg (p : Poly) (r : Nat) :
+    coeffQ (pneg p) r ≈ -(coeffQ p r) := by
+  unfold pneg
+  refine Q'.eqv_trans _ _ _ (coeffQ_pscale (-1) p r) ?_
+  refine Q'.eqv_trans _ _ _ (Q'.neg_mul_eqv 1 (coeffQ p r)) ?_
+  exact Q'.neg_eqv_congr _ _ (Q'.one_mul_eqv (coeffQ p r))
+
+private theorem coeffQ_psub (p q : Poly) (r : Nat) :
+    coeffQ (psub p q) r ≈ coeffQ p r + -(coeffQ q r) := by
+  unfold psub
+  refine Q'.eqv_trans _ _ _ (coeffQ_padd p (pneg q) r) ?_
+  exact q_add_congr (Q'.eqv_refl _) (coeffQ_pneg q r)
+
+private theorem coeffQ_shiftZ_lt (p : Poly) :
+    ∀ (i r : Nat), r < i →
+      coeffQ (CircleFourierPowerModel.shiftZ i p) r ≈ 0
+  | 0, r, h => by omega
+  | i + 1, 0, _ => Q'.eqv_refl 0
+  | i + 1, r + 1, h => by
+      simp only [CircleFourierPowerModel.shiftZ, coeffQ]
+      exact coeffQ_shiftZ_lt p i r (by omega)
+
+/-- A coefficient-only fold of a Bernstein certificate.  The `r < i`
+branch deliberately does not inspect `a`; generated coefficients beyond the
+requested polynomial coordinate therefore remain unevaluated. -/
+private def bernTermsCoeff (n : Nat) : List (Nat × Q') → Nat → Q'
+  | [], _ => 0
+  | (i, a) :: rest, r =>
+      if r < i then bernTermsCoeff n rest r
+      else a * coeffQ (bernBasisP n i) r + bernTermsCoeff n rest r
+
+private theorem coeffQ_bernTermsP (n : Nat) :
+    ∀ (terms : List (Nat × Q')) (r : Nat),
+      coeffQ (bernTermsP n terms) r ≈ bernTermsCoeff n terms r
+  | [], r => Q'.eqv_refl 0
+  | (i, a) :: rest, r => by
+      refine Q'.eqv_trans _ _ _
+        (coeffQ_padd (pscale a (bernBasisP n i)) (bernTermsP n rest) r) ?_
+      by_cases hri : r < i
+      · simp only [bernTermsCoeff, hri, if_pos]
+        have hbasis : coeffQ (bernBasisP n i) r ≈ 0 := by
+          unfold bernBasisP
+          exact coeffQ_shiftZ_lt
+            (CircleFourierPowerModel.ppow onemP (n - i)) i r hri
+        have hscaled : coeffQ (pscale a (bernBasisP n i)) r ≈ 0 :=
+          Q'.eqv_trans _ _ _ (coeffQ_pscale a (bernBasisP n i) r)
+            (Q'.eqv_trans _ _ _
+              (Q'.mul_eqv_congr_left a _ _ hbasis) (q_mul_zero a))
+        refine Q'.eqv_trans _ _ _
+          (q_add_congr hscaled (coeffQ_bernTermsP n rest r)) ?_
+        exact q_zero_add_eqv _
+      · simp only [bernTermsCoeff, hri, if_neg]
+        exact q_add_congr (coeffQ_pscale a (bernBasisP n i) r)
+          (coeffQ_bernTermsP n rest r)
+
+private def head8IdentityDiff : Poly :=
+  psub (scaleVar eightAnchorCap headSlack8P) (bernTermsP 143 head8Bern)
+
+private def head8IdentityCoeff (r : Nat) : Q' :=
+  coeffQ (scaleVar eightAnchorCap headSlack8P) r +
+    -(bernTermsCoeff 143 head8Bern r)
+
+private theorem coeffQ_head8IdentityDiff (r : Nat) :
+    coeffQ head8IdentityDiff r ≈ head8IdentityCoeff r := by
+  unfold head8IdentityDiff head8IdentityCoeff
+  refine Q'.eqv_trans _ _ _
+    (coeffQ_psub (scaleVar eightAnchorCap headSlack8P)
+      (bernTermsP 143 head8Bern) r) ?_
+  exact q_add_congr (Q'.eqv_refl _)
+    (Q'.neg_eqv_congr _ _ (coeffQ_bernTermsP 143 head8Bern r))
+
+private def head8IdentityCoeffSlice (start count : Nat) : Poly :=
+  (List.range count).map (fun offset => head8IdentityCoeff (start + offset))
+
+private theorem coeff_eqv_zero_of_mem_allZero :
+    ∀ {p : Poly}, allZero p → ∀ {c : Q'}, c ∈ p → c ≈ 0
+  | [], _, c, hmem => by simp at hmem
+  | d :: ds, h, c, hmem => by
+      have h' := h
+      rw [allZero, allZeroB, Bool.and_eq_true] at h'
+      simp only [List.mem_cons] at hmem
+      rcases hmem with hcd | hmem
+      · subst c
+        exact of_decide_eq_true h'.1
+      · exact coeff_eqv_zero_of_mem_allZero h'.2 hmem
+
+private theorem head8IdentityCoeff_zero_of_slice
+    {start count i : Nat}
+    (h : allZero (head8IdentityCoeffSlice start count))
+    (hstart : start ≤ i) (hend : i < start + count) :
+    head8IdentityCoeff i ≈ 0 := by
+  apply coeff_eqv_zero_of_mem_allZero h
+  unfold head8IdentityCoeffSlice
+  apply List.mem_map.mpr
+  refine ⟨i - start, List.mem_range.mpr (by omega), ?_⟩
+  have hi : start + (i - start) = i := by omega
+  simp only [hi]
+
+/- Later coefficients carry larger exact rationals, so their independent
+kernel checks use progressively narrower slices.  Unlike the old list slices,
+each declaration below evaluates only the coordinates it names. -/
+private theorem head8_identity_chunk_0 :
+    allZero (head8IdentityCoeffSlice 0 12) := by decide
+private theorem head8_identity_chunk_12 :
+    allZero (head8IdentityCoeffSlice 12 12) := by decide
+private theorem head8_identity_chunk_24 :
+    allZero (head8IdentityCoeffSlice 24 12) := by decide
+private theorem head8_identity_chunk_36 :
+    allZero (head8IdentityCoeffSlice 36 12) := by decide
+private theorem head8_identity_chunk_48 :
+    allZero (head8IdentityCoeffSlice 48 10) := by decide
+private theorem head8_identity_chunk_58 :
+    allZero (head8IdentityCoeffSlice 58 10) := by decide
+private theorem head8_identity_chunk_68 :
+    allZero (head8IdentityCoeffSlice 68 10) := by decide
+private theorem head8_identity_chunk_78 :
+    allZero (head8IdentityCoeffSlice 78 10) := by decide
+private theorem head8_identity_chunk_88 :
+    allZero (head8IdentityCoeffSlice 88 8) := by decide
+private theorem head8_identity_chunk_96 :
+    allZero (head8IdentityCoeffSlice 96 8) := by decide
+private theorem head8_identity_chunk_104 :
+    allZero (head8IdentityCoeffSlice 104 8) := by decide
+private theorem head8_identity_chunk_112 :
+    allZero (head8IdentityCoeffSlice 112 8) := by decide
+private theorem head8_identity_chunk_120 :
+    allZero (head8IdentityCoeffSlice 120 6) := by decide
+private theorem head8_identity_chunk_126 :
+    allZero (head8IdentityCoeffSlice 126 6) := by decide
+private theorem head8_identity_chunk_132 :
+    allZero (head8IdentityCoeffSlice 132 4) := by decide
+private theorem head8_identity_chunk_136 :
+    allZero (head8IdentityCoeffSlice 136 4) := by decide
+private theorem head8_identity_chunk_140 :
+    allZero (head8IdentityCoeffSlice 140 2) := by decide
+private theorem head8_identity_chunk_142 :
+    allZero (head8IdentityCoeffSlice 142 2) := by decide
+
+private theorem head8IdentityCoeff_zero (i : Nat) (hi : i < 144) :
+    head8IdentityCoeff i ≈ 0 := by
+  by_cases h12 : i < 12
+  · exact head8IdentityCoeff_zero_of_slice head8_identity_chunk_0 (by omega) h12
+  by_cases h24 : i < 24
+  · exact head8IdentityCoeff_zero_of_slice head8_identity_chunk_12 (by omega) (by omega)
+  by_cases h36 : i < 36
+  · exact head8IdentityCoeff_zero_of_slice head8_identity_chunk_24 (by omega) (by omega)
+  by_cases h48 : i < 48
+  · exact head8IdentityCoeff_zero_of_slice head8_identity_chunk_36 (by omega) (by omega)
+  by_cases h58 : i < 58
+  · exact head8IdentityCoeff_zero_of_slice head8_identity_chunk_48 (by omega) (by omega)
+  by_cases h68 : i < 68
+  · exact head8IdentityCoeff_zero_of_slice head8_identity_chunk_58 (by omega) (by omega)
+  by_cases h78 : i < 78
+  · exact head8IdentityCoeff_zero_of_slice head8_identity_chunk_68 (by omega) (by omega)
+  by_cases h88 : i < 88
+  · exact head8IdentityCoeff_zero_of_slice head8_identity_chunk_78 (by omega) (by omega)
+  by_cases h96 : i < 96
+  · exact head8IdentityCoeff_zero_of_slice head8_identity_chunk_88 (by omega) (by omega)
+  by_cases h104 : i < 104
+  · exact head8IdentityCoeff_zero_of_slice head8_identity_chunk_96 (by omega) (by omega)
+  by_cases h112 : i < 112
+  · exact head8IdentityCoeff_zero_of_slice head8_identity_chunk_104 (by omega) (by omega)
+  by_cases h120 : i < 120
+  · exact head8IdentityCoeff_zero_of_slice head8_identity_chunk_112 (by omega) (by omega)
+  by_cases h126 : i < 126
+  · exact head8IdentityCoeff_zero_of_slice head8_identity_chunk_120 (by omega) (by omega)
+  by_cases h132 : i < 132
+  · exact head8IdentityCoeff_zero_of_slice head8_identity_chunk_126 (by omega) (by omega)
+  by_cases h136 : i < 136
+  · exact head8IdentityCoeff_zero_of_slice head8_identity_chunk_132 (by omega) (by omega)
+  by_cases h140 : i < 140
+  · exact head8IdentityCoeff_zero_of_slice head8_identity_chunk_136 (by omega) (by omega)
+  by_cases h142 : i < 142
+  · exact head8IdentityCoeff_zero_of_slice head8_identity_chunk_140 (by omega) (by omega)
+  exact head8IdentityCoeff_zero_of_slice head8_identity_chunk_142 (by omega) (by omega)
+
+/- Structural length facts used only in the proof bridge.  In particular,
+none of them reduces `bernTermsP 143 head8Bern`. -/
+private theorem length_pscale_local (k : Q') : ∀ p : Poly,
+    (pscale k p).length = p.length
+  | [] => rfl
+  | _ :: cs => by simp [pscale, length_pscale_local k cs]
+
+private theorem length_pneg_local (p : Poly) :
+    (pneg p).length = p.length := length_pscale_local _ p
+
+private theorem length_padd_local : ∀ p q : Poly,
+    (padd p q).length = max p.length q.length
+  | [], q => by simp [padd]
+  | _ :: _, [] => by simp [padd]
+  | a :: p, b :: q => by
+      simp only [padd, List.length_cons]
+      rw [length_padd_local p q]
+      omega
+
+private theorem length_pmul_le_of_pos_local : ∀ p q : Poly,
+    0 < p.length → 0 < q.length →
+      (pmul p q).length ≤ p.length + q.length - 1
+  | [], _, hp, _ => by simp at hp
+  | a :: p, q, _, hq => by
+      have hpadd : (pmul (a :: p) q).length =
+          max q.length ((pmul p q).length + 1) := by
+        show (padd (pscale a q) (0 :: pmul p q)).length =
+          max q.length ((pmul p q).length + 1)
+        rw [length_padd_local, length_pscale_local]
+        rfl
+      rw [hpadd]
+      simp only [List.length_cons]
+      apply Nat.max_le.mpr
+      constructor
+      · omega
+      · by_cases hp : 0 < p.length
+        · have ih := length_pmul_le_of_pos_local p q hp hq
+          omega
+        · have hp0 : p = [] := by
+            cases p with
+            | nil => rfl
+            | cons b bs => simp at hp
+          subst p
+          simp [pmul]
+          omega
+
+private theorem length_pmul_pos_local : ∀ p q : Poly,
+    0 < p.length → 0 < q.length → 0 < (pmul p q).length
+  | [], _, hp, _ => by simp at hp
+  | a :: p, q, _, hq => by
+      have hpadd : (pmul (a :: p) q).length =
+          max q.length ((pmul p q).length + 1) := by
+        show (padd (pscale a q) (0 :: pmul p q)).length =
+          max q.length ((pmul p q).length + 1)
+        rw [length_padd_local, length_pscale_local]
+        rfl
+      rw [hpadd]
+      exact Nat.lt_of_lt_of_le hq (Nat.le_max_left _ _)
+
+private theorem length_onemPow_pos : ∀ n : Nat,
+    0 < (CircleFourierPowerModel.ppow onemP n).length
+  | 0 => by simp [CircleFourierPowerModel.ppow]
+  | n + 1 => by
+      show 0 < (pmul onemP
+        (CircleFourierPowerModel.ppow onemP n)).length
+      exact length_pmul_pos_local _ _ (by decide) (length_onemPow_pos n)
+
+private theorem length_onemPow_le : ∀ n : Nat,
+    (CircleFourierPowerModel.ppow onemP n).length ≤ n + 1
+  | 0 => by simp [CircleFourierPowerModel.ppow]
+  | n + 1 => by
+      show (pmul onemP
+        (CircleFourierPowerModel.ppow onemP n)).length ≤ (n + 1) + 1
+      have hmul := length_pmul_le_of_pos_local onemP
+        (CircleFourierPowerModel.ppow onemP n)
+          (by decide) (length_onemPow_pos n)
+      have ih := length_onemPow_le n
+      have honem : onemP.length = 2 := rfl
+      rw [honem] at hmul
+      omega
+
+private theorem length_shiftZ_local (p : Poly) : ∀ i : Nat,
+    (CircleFourierPowerModel.shiftZ i p).length = i + p.length
+  | 0 => by simp [CircleFourierPowerModel.shiftZ]
+  | i + 1 => by
+      simp only [CircleFourierPowerModel.shiftZ, List.length_cons,
+        length_shiftZ_local p i]
+      omega
+
+private theorem length_bernBasisP_local {n i : Nat} (hi : i ≤ n) :
+    (bernBasisP n i).length ≤ n + 1 := by
+  unfold bernBasisP
+  rw [length_shiftZ_local]
+  have hp := length_onemPow_le (n - i)
+  omega
+
+private theorem length_bernTermsP_local (n : Nat) :
+    ∀ terms : List (Nat × Q'),
+      (∀ t ∈ terms, t.1 ≤ n) → (bernTermsP n terms).length ≤ n + 1
+  | [], _ => by simp [bernTermsP]
+  | (i, a) :: rest, h => by
+      rw [bernTermsP, length_padd_local, length_pscale_local]
+      apply Nat.max_le.mpr
+      constructor
+      · exact length_bernBasisP_local (h (i, a) List.mem_cons_self)
+      · apply length_bernTermsP_local n rest
+        intro t ht
+        exact h t (List.mem_cons_of_mem _ ht)
+
+private theorem length_scaleVar_local (k : Q') : ∀ p : Poly,
+    (scaleVar k p).length = p.length
+  | [] => rfl
+  | a :: p => by
+      simp only [scaleVar, List.length_cons, length_pscale_local]
+      rw [length_scaleVar_local k p]
+
+private theorem head8Bern_index_le :
+    ∀ t ∈ head8Bern, t.1 ≤ 143 := by
+  intro t ht
+  simp only [head8Bern, generatedBernTerms, List.mem_map] at ht
+  rcases ht with ⟨i, hi, rfl⟩
+  have hi' : i < 143 + 1 := List.mem_range.mp hi
+  simp only [Prod.fst]
+  omega
+
+private theorem headSlack8P_length_le : headSlack8P.length ≤ 144 := by decide
+
+private theorem head8IdentityDiff_length_le :
+    head8IdentityDiff.length ≤ 144 := by
+  unfold head8IdentityDiff psub
+  rw [length_padd_local, length_pneg_local]
+  apply Nat.max_le.mpr
+  constructor
+  · rw [length_scaleVar_local]
+    exact headSlack8P_length_le
+  · exact length_bernTermsP_local 143 head8Bern head8Bern_index_le
+
+private theorem allZero_of_coeffQ_bounded : ∀ (p : Poly) (bound : Nat),
+    p.length ≤ bound →
+    (∀ i, i < bound → coeffQ p i ≈ 0) → allZero p
+  | [], _, _, _ => rfl
+  | c :: cs, 0, hlen, _ => by simp at hlen
+  | c :: cs, bound + 1, hlen, hzero => by
+      unfold allZero
+      simp only [allZeroB, Bool.and_eq_true]
+      constructor
+      · apply decide_eq_true
+        simpa only [coeffQ] using hzero 0 (by omega)
+      · apply allZero_of_coeffQ_bounded cs bound
+        · simp only [List.length_cons] at hlen
+          omega
+        · intro i hi
+          simpa only [coeffQ] using hzero (i + 1) (by omega)
+
 private theorem head8_bernstein_identity :
     allZero (psub (scaleVar eightAnchorCap headSlack8P)
-      (bernTermsP 143 head8Bern)) := by decide
+      (bernTermsP 143 head8Bern)) := by
+  change allZero head8IdentityDiff
+  refine allZero_of_coeffQ_bounded head8IdentityDiff 144
+    head8IdentityDiff_length_le ?_
+  intro i hi
+  exact Q'.eqv_trans _ _ _ (coeffQ_head8IdentityDiff i)
+    (head8IdentityCoeff_zero i hi)
 private theorem head8_bernstein_nonnegative :
     ∀ t ∈ head8Bern, (0 : Q') ≤ t.2 := by decide
 private theorem short1_bernstein_identity :

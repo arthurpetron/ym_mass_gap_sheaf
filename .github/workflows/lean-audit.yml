@@ -2,10 +2,13 @@
 #
 # Runs on every Lean-relevant push to trusted `main`, plus explicit manual
 # dispatches.  The full job is deliberately not a pull-request job: it is
-# routed to a persistent self-hosted machine, where untrusted PR code must not
-# execute. Fails if an observed tracked theorem in the YMGap Lean library has
+# routed to a foreground JIT listener on a reused personal machine, where
+# untrusted PR code must not execute. Fails if an observed tracked theorem in
+# the YMGap Lean library has
 # acquired a NEW axiom dependency not permitted by `lean/AXIOM_AUDIT.md` (the
-# maintained baseline). Strict completeness/drift remains informational below.
+# maintained baseline), or if even one current source-level axiom diagnostic is
+# absent from the full-build log.  Only namespace-profile drift is
+# informational below.
 #
 # To accept new axiom dependencies after deliberate constructivity-budget
 # review:
@@ -15,8 +18,8 @@
 #
 # To run locally before pushing:
 #
-#     make lean-audit            # non-strict: drift only
-#     make lean-audit-strict     # strict: also new theorems / missing tracked theorems
+#     make lean-audit            # mandatory completeness + constructivity gate
+#     make lean-audit-strict     # additionally check namespace-profile drift
 #
 # See scripts/lean_axiom_audit.py for the full drift semantics.
 
@@ -25,27 +28,35 @@ name: lean-axiom-audit
 permissions:
   contents: read
 
-# Keep at most one expensive all-module job queued/running.  A replacement job
-# may cancel the old one; the process-conflict preflight below then refuses to
-# start if the runner has not finished cleaning up the prior Lean process.
+# Keep at most one expensive all-module job running.  Never cancel a running
+# cold build merely because a newer trusted-main checkpoint was pushed: that
+# wastes hours of local work and can interrupt Lake while it writes artifacts.
+# GitHub retains at most one pending run in the group, so newer pending pushes
+# coalesce while the one-shot foreground runner finishes its current job.
 concurrency:
   group: ymgap-lean-full
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 on:
   workflow_dispatch:
     inputs:
       clean_build:
-        description: "Ignore the Lake cache and prove a clean all-module build"
+        description: "Rare: delete the Lake cache for a cache-independent reproducibility build"
         required: true
         type: boolean
-        default: true
+        default: false
   push:
     branches: ["main"]
     paths:
       - "lean/**"
       - "scripts/lean_axiom_audit.py"
       - "scripts/lean_import_guard.py"
+      - "scripts/host_load_guard.py"
+      - "scripts/host_load_patterns.sh"
+      - "scripts/setup_macos_ci_runner.sh"
+      - "scripts/run_macos_ci_runner.sh"
+      - "scripts/test_macos_ci_runner_remote_state.sh"
+      - "scripts/with_lean_session_lock.sh"
       - "scripts/frontier_dag_check.py"
       - "reference/leanmillennium-pinned/**"
       - "Makefile"
@@ -53,7 +64,7 @@ on:
 jobs:
   axiom-audit:
     # A manual dispatcher may select an arbitrary ref in GitHub's UI.  Never
-    # execute that branch code on the persistent personal machine.
+    # execute that branch code on the personal machine's foreground JIT runner.
     if: github.ref == 'refs/heads/main'
     # Set YMGAP_LEAN_RUNNER to the private repository runner's custom label.
     # There is intentionally no GitHub-hosted fallback: an absent/mistyped label
@@ -63,17 +74,21 @@ jobs:
       - macOS
       - ARM64
       - ${{ vars.YMGAP_LEAN_RUNNER || 'ymgap-m4max' }}
-    timeout-minutes: 360
+    timeout-minutes: 480
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           # Preserve only the local Lake cache across trusted main builds.  The
           # next step deletes every other ignored/untracked path.
           clean: false
           persist-credentials: false
+          # The foreground runner and checkout are owned by the same account.
+          # Avoid actions/checkout's temporary global Git-config write: the
+          # launcher deliberately disables account-global Git configuration.
+          set-safe-directory: false
 
-      - name: Sanitize persistent checkout while retaining the local Lake cache
+      - name: Sanitize reused local worktree while retaining the Lake cache
         shell: bash
         env:
           CLEAN_BUILD: ${{ github.event_name == 'workflow_dispatch' && inputs.clean_build || false }}
@@ -84,12 +99,14 @@ jobs:
             git clean -ffdx -e lean/.lake/
           fi
           if ! git diff --quiet || ! git diff --cached --quiet; then
-            echo "::error::The persistent runner checkout is not at the requested clean commit."
+            echo "::error::The reused runner worktree is not at the requested clean commit."
             exit 1
           fi
 
-      - name: Static Lean import-graph guard
-        run: make lean-import-guard
+      - name: Static import graph and host-load wiring guards
+        run: |
+          make lean-import-guard
+          make host-load-guard
 
       - name: Read pinned Lean toolchain
         id: toolchain
@@ -99,7 +116,8 @@ jobs:
       - name: Fail closed on an unsafe build host
         shell: bash
         run: |
-          min_kib=$((24 * 1024 * 1024))
+          source scripts/host_load_patterns.sh
+          min_kib=$((32 * 1024 * 1024))
           case "$(uname -s)" in
             Darwin)
               total_bytes=$(/usr/sbin/sysctl -n hw.memsize)
@@ -131,24 +149,130 @@ jobs:
           esac
           if [[ -z "$total_kib" || -z "$available_kib" || \
                 "$total_kib" -lt "$min_kib" || "$available_kib" -lt "$min_kib" ]]; then
-            echo "::error::The all-module build requires at least 24 GiB installed and currently available RAM."
-            echo "::error::Configure YMGAP_LEAN_RUNNER with a >=24-GiB self-hosted runner label."
+            echo "::error::The all-module build requires at least 32 GiB installed and currently available RAM."
+            echo "::error::Configure YMGAP_LEAN_RUNNER with a >=32-GiB self-hosted runner label."
             exit 1
           fi
-          if pgrep -ifl '(^|/)(lean|lake|pytest)( |$)'; then
-            echo "::error::A Lean/Lake/pytest process is already active; refusing competing compilation."
-            exit 1
-          fi
+          process_status=0
+          pgrep -if "$YMGAP_HIGH_LOAD_PROCESS_PATTERN" \
+            >/dev/null 2>&1 || process_status=$?
+          case "$process_status" in
+            0)
+              echo "::error::A Lean/Lake/pytest process is already active; refusing competing compilation."
+              exit 1
+              ;;
+            1) ;;
+            *)
+              echo "::error::Could not inspect the host process list; refusing to run fail-open."
+              exit 1
+              ;;
+          esac
           echo "Runner RAM preflight passed: $((total_kib / 1024 / 1024)) GiB installed, approximately $((available_kib / 1024 / 1024)) GiB available."
 
-      - name: Install elan + Lean
+      - name: Select pinned Lean toolchain
         run: |
-          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh \
-            | sh -s -- -y --default-toolchain "${{ steps.toolchain.outputs.version }}"
+          if [[ ! -x "$HOME/.elan/bin/elan" ]]; then
+            echo "::error::Install elan on the Mac before starting the self-hosted runner."
+            echo "::error::CI will not execute a mutable remote bootstrap script on the personal machine."
+            exit 1
+          fi
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          "$HOME/.elan/bin/elan" toolchain install "${{ steps.toolchain.outputs.version }}"
 
-      - name: Verify Lean version
+      - name: Recheck the locked host immediately before Lean
+        shell: bash
         run: |
+          source scripts/host_load_patterns.sh
+          expected_lock_dir="/tmp/ymgap-lean-session-${UID}.lock"
+          if [[ "${YMGAP_LEAN_SESSION_LOCK_HELD:-}" != "1" ||
+                -z "${YMGAP_LEAN_LOCK_DIR:-}" ||
+                "$YMGAP_LEAN_LOCK_DIR" != "$expected_lock_dir" ||
+                ! -d "$YMGAP_LEAN_LOCK_DIR" ||
+                -L "$YMGAP_LEAN_LOCK_DIR" ||
+                ! -O "$YMGAP_LEAN_LOCK_DIR" ]]; then
+            echo "::error::Start this job only through scripts/run_macos_ci_runner.sh; the host session lock is absent."
+            exit 1
+          fi
+          pinned_runner_version="2.335.1"
+          runner_dir_value="${YMGAP_RUNNER_DIR:-}"
+          expected_runner_version="${YMGAP_EXPECTED_RUNNER_VERSION:-}"
+          if [[ "$runner_dir_value" != /* ||
+                ! "$runner_dir_value" =~ ^/[A-Za-z0-9._/-]+$ ||
+                "$runner_dir_value" == */ ||
+                "$runner_dir_value" == *//* ]]; then
+            echo "::error::The launcher did not provide an absolute, syntactically safe YMGAP_RUNNER_DIR."
+            exit 1
+          fi
+          case "/${runner_dir_value#/}/" in
+            */./*|*/../*)
+              echo "::error::YMGAP_RUNNER_DIR contains a forbidden '.' or '..' path component."
+              exit 1
+              ;;
+          esac
+          if [[ ! "$expected_runner_version" =~ ^[0-9]+[.][0-9]+[.][0-9]+$ ||
+                "$expected_runner_version" != "$pinned_runner_version" ]]; then
+            echo "::error::The launcher did not provide the workflow's pinned runner version."
+            exit 1
+          fi
+          if [[ ! -d "$runner_dir_value" || -L "$runner_dir_value" ||
+                ! -O "$runner_dir_value" ||
+                ! -x "$runner_dir_value/bin/Runner.Listener" ]]; then
+            echo "::error::YMGAP_RUNNER_DIR is not a real account-owned runner installation."
+            exit 1
+          fi
+          total_bytes=$(/usr/sbin/sysctl -n hw.memsize)
+          free_percent=$(
+            /usr/bin/memory_pressure -Q |
+              awk '/System-wide memory free percentage:/ {
+                gsub(/%/, "", $5); print $5
+              }'
+          )
+          min_available_bytes=$((32 * 1024 * 1024 * 1024))
+          if [[ -z "$free_percent" ||
+                $((total_bytes * free_percent / 100)) -lt "$min_available_bytes" ]]; then
+            echo "::error::Approximately 32 GiB RAM is no longer available; refusing to start Lean."
+            exit 1
+          fi
+          if ! /usr/bin/pmset -g batt | head -n 1 | grep -q "AC Power"; then
+            echo "::error::The Mac is no longer connected to AC power."
+            exit 1
+          fi
+          process_status=0
+          pgrep -if "$YMGAP_HIGH_LOAD_PROCESS_PATTERN" \
+            >/dev/null 2>&1 || process_status=$?
+          case "$process_status" in
+            0)
+              echo "::error::A competing Lean/Lake/pytest process appeared during setup."
+              exit 1
+              ;;
+            1) ;;
+            *)
+              echo "::error::Could not recheck the host process list; refusing to start Lean."
+              exit 1
+              ;;
+          esac
+          # Keep this equality check last, minimizing the interval in which a
+          # supported runner update could replace the pinned executable before
+          # the next step invokes Lean.
+          installed_runner_version=""
+          if ! installed_runner_version="$(
+            "$runner_dir_value/bin/Runner.Listener" --version 2>/dev/null
+          )"; then
+            echo "::error::Could not recheck the installed GitHub runner version."
+            exit 1
+          fi
+          installed_runner_version="$(
+            printf '%s' "$installed_runner_version" | tr -d '[:space:]'
+          )"
+          if [[ "$installed_runner_version" != "$expected_runner_version" ]]; then
+            echo "::error::The GitHub runner self-updated after launcher preflight; refusing to start Lean."
+            echo "::error::Expected $expected_runner_version but found $installed_runner_version."
+            exit 1
+          fi
+
+      - name: Verify pinned Lean version
+        run: |
+          cd lean
           lean --version
           lake --version
 
@@ -157,19 +281,17 @@ jobs:
         run: |
           set -o pipefail
           if [[ "$RUNNER_OS" == "macOS" ]]; then
-            caffeinate -dimsu nice -n 10 make lean-build LEAN_JOBS=1 2>&1 | tee lean-build.log
+            caffeinate -ms nice -n 10 make lean-build LEAN_JOBS=1 2>&1 | tee lean-build.log
           else
             nice -n 10 make lean-build LEAN_JOBS=1 2>&1 | tee lean-build.log
           fi
 
-      - name: Preserve the single full-build log
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: lean-build-log-${{ github.run_id }}
-          path: lean-build.log
-          if-no-files-found: warn
-          retention-days: 3
+      # Audit the single authoritative log before launching even cached guard
+      # targets. This fails closed on missing/stale source gates, forbidden
+      # axioms, truncated success evidence, and nonfatal PANIC/internal-error
+      # diagnostics which Lake might otherwise report with a zero exit status.
+      - name: Run complete axiom-log constructivity and integrity gate
+        run: python3 scripts/lean_axiom_audit.py --from-file lean-build.log
 
       # Frontier uninhabitedness guard — FAILS the build (not informational) if
       # any Clay-frontier type (Tier0Scorecard / UniformSpacingFloor /
@@ -203,18 +325,25 @@ jobs:
       - name: Clay scorecard (fixed-spacing MET, continuum OPEN)
         run: make lean-rubric
 
-      - name: Run axiom-gate audit (non-strict — drift only)
-        run: python3 scripts/lean_axiom_audit.py --from-file lean-build.log
-
-      # Strict mode is informational: it surfaces new theorems not yet in the
-      # baseline and tracked theorems missing from the build.  We do NOT fail
-      # the build on strict drift, because adding new theorems is normal in
-      # PR work; the workflow message reminds maintainers to run
-      # `make lean-audit-update` and review the manifest.
-      - name: Run axiom-gate audit (strict — new/missing theorems, informational)
+      # Strict mode is informational: mandatory completeness has already
+      # proved that every current source gate was observed, while strict mode
+      # additionally surfaces namespace-profile drift against the reviewed
+      # baseline.  Adding an axiom-clean theorem normally changes that digest.
+      - name: Run axiom-gate audit (strict namespace drift, informational)
         continue-on-error: true
         run: |
           if ! python3 scripts/lean_axiom_audit.py --strict --from-file lean-build.log; then
-            echo "::warning::Strict-mode audit surfaced new or missing theorems."
+            echo "::warning::Strict-mode audit surfaced namespace-profile drift."
             echo "::warning::After review, run 'make lean-audit-update' and commit lean/AXIOM_AUDIT.md."
           fi
+
+      # Best effort: a hard timeout, runner loss, or force-cancellation can stop
+      # the job before GitHub is able to schedule this final step.
+      - name: Attempt to preserve the full-build log after failure or cancellation
+        if: failure() || cancelled()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: lean-build-log-${{ github.run_id }}
+          path: lean-build.log
+          if-no-files-found: warn
+          retention-days: 3

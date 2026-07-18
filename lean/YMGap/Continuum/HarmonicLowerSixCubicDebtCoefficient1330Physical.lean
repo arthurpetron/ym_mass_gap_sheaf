@@ -44,6 +44,15 @@ local macro "physical_ring" : tactic =>
                Int.mul_zero, Int.one_mul, Int.mul_one];
              ac_rfl))
 
+private theorem physical_two_mul_eqv (a : Q') :
+    Q'.ofNat 2 * a ≈ a + a := by
+  refine Q'.eqv_trans _ ((Q'.ofNat 1 + Q'.ofNat 1) * a) _
+    (Q'.mul_eqv_congr_right _ _ _ (Q'.ofNat_add_eqv 1 1)) ?_
+  refine Q'.eqv_trans _
+    (Q'.ofNat 1 * a + Q'.ofNat 1 * a) _
+    (Q'.add_mul_eqv (Q'.ofNat 1) (Q'.ofNat 1) a) ?_
+  exact Q'.add_eqv_congr' (Q'.one_mul_eqv a) (Q'.one_mul_eqv a)
+
 private def coefficientAEnvironment (A : Q') (index : Nat) : Q' :=
   if index = 0 then A else 0
 
@@ -267,13 +276,21 @@ private theorem driftExcess_cleared (k : Nat) :
   have hdu : d * u ≈ (1 : Q') := by
     dsimp only [d, u]
     exact ofNat_mul_unit_eqv_one _ (driftDen_pos k)
+  have hexcess : lowerSixDriftExcess k ≈
+      Q'.ofNat 2 * u + u * u := by
+    unfold lowerSixDriftExcess
+    dsimp only [u]
+    exact Q'.add_eqv_congr_right _ _ _
+      (Q'.eqv_symm (physical_two_mul_eqv u))
   have hraw :
       RingNormaliser.qpow d 2 * lowerSixDriftExcess k ≈
         (d * u) * (Q'.ofNat 2 * d + d * u) := by
-    unfold lowerSixDriftExcess
-    dsimp only [u]
-    simp only [RingNormaliser.qpow_succ, RingNormaliser.qpow_zero]
-    physical_ring
+    refine Q'.eqv_trans _
+      (RingNormaliser.qpow d 2 *
+        (Q'.ofNat 2 * u + u * u)) _ ?_ ?_
+    · exact Q'.mul_eqv_congr_left _ _ _ hexcess
+    · simp only [RingNormaliser.qpow_succ, RingNormaliser.qpow_zero]
+      physical_ring
   refine Q'.eqv_trans _ _ _ hraw ?_
   have hinner : Q'.ofNat 2 * d + d * u ≈
       Q'.ofNat 2 * d + 1 := Q'.add_eqv_congr_left _ _ _ hdu
@@ -376,12 +393,14 @@ private theorem certificateDriftBase_eqv (k : Nat) :
         Q'.ofNat ((k + 2) * (k + 2)) := by
       refine Q'.eqv_trans _ (A * A) _ ?_ ?_
       · simp only [RingNormaliser.qpow_succ, RingNormaliser.qpow_zero]
-        physical_ring
+        exact Q'.mul_eqv_congr_right _ _ A (Q'.one_mul_eqv A)
       · dsimp only [A]
         exact Q'.eqv_symm (HeatKernelRGStep.ofNat_mul_eqv _ _)
     have hnat : driftDen k + 1 = (k + 2) * (k + 2) := by
       unfold driftDen
-      have hpos : 0 < (k + 2) * (k + 2) := by positivity
+      have hfactor : 0 < k + 2 := by omega
+      have hpos : 0 < (k + 2) * (k + 2) :=
+        Nat.mul_pos hfactor hfactor
       omega
     refine Q'.eqv_trans _ _ _ hsquare ?_
     refine Q'.eqv_trans _ (Q'.ofNat (driftDen k + 1)) _ ?_ ?_
@@ -393,7 +412,15 @@ private theorem certificateDriftBase_eqv (k : Nat) :
     (Q'.ofNat 2 * (d + 1) + -(1 : Q')) _ ?_ ?_
   · exact Q'.add_eqv_congr_right _ _ _
       (Q'.mul_eqv_congr_left _ _ _ hA2)
-  · physical_ring
+  · refine Q'.eqv_trans _
+      ((Q'.ofNat 2 * d + Q'.ofNat 2 * (1 : Q')) + -(1 : Q')) _ ?_ ?_
+    · exact Q'.add_eqv_congr_right _ _ _
+        (Q'.mul_add_eqv (Q'.ofNat 2) d (1 : Q'))
+    refine Q'.eqv_trans _
+      (Q'.ofNat 2 * d +
+        (Q'.ofNat 2 * (1 : Q') + -(1 : Q'))) _
+      (Q'.add_assoc_eqv _ _ _) ?_
+    exact Q'.add_eqv_congr_left _ _ _ (by decide)
 
 /-- The literal physical moment coefficient is valid uniformly from the
 sharp polynomial threshold `k = 1330`. -/
@@ -491,12 +518,27 @@ theorem lowerSixCubicDebt_momentCoefficient_le_massCoefficient_1330
               (RingNormaliser.qpow d 6 * RingNormaliser.qpow e 3))))) _ ?_ ?_
     · simp only [RingNormaliser.qpow_succ, RingNormaliser.qpow_zero]
       physical_ring
+    have hprofileStep :
+        (RingNormaliser.qpow E 2 *
+            (E * lowerSixDirichletProfile (k + 1))) *
+              (RingNormaliser.qpow d 6 * RingNormaliser.qpow e 3) ≈
+          profileFactor *
+            (RingNormaliser.qpow d 6 * RingNormaliser.qpow e 3) :=
+      Q'.mul_eqv_congr_right _ _ _ hprofile
+    have hdriftStep :
+        profileFactor *
+            (RingNormaliser.qpow d 6 * RingNormaliser.qpow e 3) ≈
+          profileFactor * RingNormaliser.qpow driftBase 3 :=
+      Q'.mul_eqv_congr_left _ _ _ hdrift
+    have hinner :
+        (RingNormaliser.qpow E 2 *
+            (E * lowerSixDirichletProfile (k + 1))) *
+              (RingNormaliser.qpow d 6 * RingNormaliser.qpow e 3) ≈
+          profileFactor * RingNormaliser.qpow driftBase 3 :=
+      Q'.eqv_trans _ _ _ hprofileStep hdriftStep
     exact Q'.mul_eqv_congr_left _ _ _
       (Q'.mul_eqv_congr_left _ _ _
-        (Q'.mul_eqv_congr_left _ _ _
-          (Q'.mul_eqv_congr_right _ _ _ hprofile)
-          |> fun h1 => Q'.eqv_trans _ _ _ h1
-            (Q'.mul_eqv_congr_left _ _ _ hdrift)))
+        (Q'.mul_eqv_congr_left _ _ _ hinner))
   have hrightEqv :
       (RingNormaliser.qpow A 3 * RingNormaliser.qpow E 2) * Cright ≈
         RingNormaliser.qpow d 6 *
