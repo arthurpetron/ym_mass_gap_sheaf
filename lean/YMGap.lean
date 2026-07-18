@@ -75,6 +75,7 @@ import YMGap.Constructive.ExpNegCongr
 import YMGap.Constructive.SU3CharFactor
 import YMGap.RepTheory.CartanType
 import YMGap.RepTheory.ConstructiveGroup
+import YMGap.RepTheory.ConstructiveRepresentationDescent
 import YMGap.RepTheory.CompactSimpleGlobalForm
 import YMGap.RepTheory.SU2
 import YMGap.RepTheory.SU3

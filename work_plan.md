@@ -12511,10 +12511,12 @@ and foreign inputs must be unchanged unless separately escalated.
 3. It is sufficient to build the maximal modules of that reverse-dependency
    closure, because building each maximal module recursively checks every
    changed dependency and every affected intermediate importer.
-4. A final all-module build must run once per Lean-relevant pushed/PR state
-   selected by CI's path filter, not once per local edit.  Documentation-only
-   states are presently outside that filter.  A clean no-cache build is a
-   separate periodic or toolchain/configuration-change proof.
+4. A final all-module build must run once per Lean-relevant trusted-main state
+   selected by CI's path filter, not once per local edit.  A manual dispatch
+   supplies the same proof on demand.  Pull-request code is deliberately not
+   executed on the persistent self-hosted Mac; documentation-only states are
+   likewise outside the trigger.  A clean no-cache build is a separate
+   periodic or toolchain/configuration-change proof.
 
 Thus the repository now has two complementary guarantees:
 
@@ -12527,9 +12529,8 @@ Thus the repository now has two complementary guarantees:
   the informational strict namespace-drift report.
 
 The second guarantee becomes an observed theorem about a commit only when its
-CI run exits zero.  Merely installing the workflow is not a claim that the
-present unpushed commit has passed it.  This session intentionally does not run
-a full build on the MacBook Pro.
+CI run exits zero.  Merely installing or routing the workflow is not a claim
+that a commit has passed it.
 
 #### 8.2 Dependency-cone argument
 
@@ -12613,31 +12614,32 @@ The following are now load-bearing repository invariants:
    `-M 20480` limit remains in `lakefile.toml`.  The axiom-audit and optional
    frontier-status build paths also default to one worker, and the latter
    requires an explicit `--allow-full-build` acknowledgement.
-7. **One full-library CI build invocation.**  For states selected by its path
-   filter, push/PR CI runs the static guard, performs one all-module build with
+7. **One full-library CI build invocation.**  For trusted-main states selected
+   by its path filter (and manual dispatches), CI runs the static guard,
+   performs one all-module build with
    `LEAN_JOBS=1` and a checked pipe exit code, preserves its log, and feeds that
    same log to both axiom-audit modes rather than launching a second full
    build.  Later frontier, statement, and rubric Lake invocations remain and
-   should normally be cache validations.  The cache key includes the
-   toolchain, Lake configuration/manifest, Makefile, workflow, and all Lean
-   sources.  Restore keys retain the same toolchain/build-model hash, so an
-   artifact cache from a different build model cannot be restored.  A manual
-   `workflow_dispatch` clean mode is also available and skips the Lake cache
-   entirely.
+   should normally be cache validations.  The trusted persistent runner keeps
+   only `lean/.lake` between ordinary jobs, avoiding paid remote cache storage;
+   Lake revalidates source, dependency, option, and toolchain hashes.  A manual
+   `workflow_dispatch` with `clean_build=true` deletes that cache before the
+   build.
 
-Normal CI cache reuse is sound only because Lake revalidates source,
+Normal CI local-cache reuse is sound only because Lake revalidates source,
 dependency, options, and toolchain hashes for selected targets.  It proves the
 current selected build, but it is not an independent reproducibility test of
-the cache itself.  A toolchain/build-model hash change is now automatically
-cache-isolated; periodic manual clean mode remains policy-required as an
+the cache itself.  Periodic manual clean mode remains policy-required as an
 independent reproducibility check and is available rather than enforced as a
 required branch status.  Runner capacity is fail-closed: the workflow refuses
-to start Lean unless Linux reports at least 24 GiB RAM, and repository variable
-`YMGAP_LEAN_RUNNER` can select a provisioned high-memory runner label.  The
-`ubuntu-latest` fallback will therefore stop before compilation when it is too
-small.  Runner provisioning remains an operational prerequisite, and a
-capacity preflight failure must not be relabeled as a proof failure or silently
-bypassed.
+to start Lean unless Linux or macOS reports at least 24 GiB RAM.  On macOS it
+also requires AC power and no active Lean/Lake/pytest process, uses one worker
+under the 20 GB Lean cap, lowers process priority, and keeps the machine awake
+only during the build.  `YMGAP_LEAN_RUNNER` is set to the private custom label
+`ymgap-m4max`; there is intentionally no GitHub-hosted fallback.  Runner
+provisioning and deliberate foreground startup remain operational
+prerequisites, and a scheduling/capacity failure must not be relabeled as a
+proof failure or silently bypassed.
 
 The two axiom modes have different force.  The non-strict run is the required
 gate against observed declarations acquiring axioms outside the reviewed
@@ -12650,8 +12652,10 @@ digest was regenerated from that one log.  Making that stronger statement
 requires a required strict check fed by complete replayed/regenerated axiom
 output, not merely renaming the informational step a gate.
 
-The workflow is also path-filtered.  “Every push/PR” below always means every
-Lean-relevant state selected by that filter.  The load-bearing path set now
+The workflow is also branch- and path-filtered.  “Every CI state” below means
+every Lean-relevant trusted-main state selected by that filter, plus manual
+dispatch; persistent self-hosted execution of pull-request code is excluded on
+security grounds.  The load-bearing path set now
 includes `reference/leanmillennium-pinned/**`, so a change to the pinned rubric
 transcription triggers the same workflow; documentation-only states remain
 outside it.
@@ -12959,16 +12963,114 @@ path.  The present build-contract changes also make the affected planner return
 `FULL BUILD REQUIRED`, as designed.
 
 No full build, full test, repository axiom audit, statement guard, or frontier
-guard has been claimed for the current repository state.  The immediate safe
-residual is:
+guard was claimed for that repository state.
 
-1. obtain a green high-memory CI all-module result after push/PR; do not infer
-   umbrella integration from the successful leaf/consumer checks;
-2. realize the algebraic A1 central quotient and prove the full SU(2)-to-SO(3)
-   kernel, lift, descent, faithful three-dimensional action, and normalized
-   Haar identities;
-3. construct the root/weight-lattice central-character calculation before
-   generalizing `descends` or repairing the global-form Casimir minimum;
-4. only after those pass, advance to constructive compactness, complex
-   coefficients, faithful real Wilson actions, and Haar/Peter--Weyl
-   realization.
+#### 8.11 Push, CI scheduling result, and private Mac runner
+
+Commit `97b9722` (`Guarantee Lean source coverage and start global forms`) was
+pushed to `origin/main` after the static graph/configuration audit.  The audit
+matched the tracked production filesystem exactly: 2,521 `YMGap.*` modules,
+7,845 local import edges, zero cycles, 2,515 modules in the semantic root, and
+six reviewed compile-only semantic exclusions.  The affected planner correctly
+required the all-module CI obligation for the build-contract changes.
+
+GitHub run `29637312899` did **not** execute any workflow step.  GitHub rejected
+the job before runner assignment because the account had a failed-payment or
+spending-limit lock.  Therefore that red run is neither a Lean failure nor a
+green full-build result; it supplies no kernel evidence at all.
+
+To remove hosted-compute cost without reviving uncontrolled local builds, the
+private repository now has a repository-scoped Apple-silicon runner registered
+under the custom label `ymgap-m4max`.  The pinned setup script verifies the
+official runner archive's SHA-256 digest before registration and stores no
+registration token in the repository.  It deliberately installs no service:
+the runner stays offline until `scripts/run_macos_ci_runner.sh` is started in a
+foreground terminal, and Control-C takes it offline.
+
+The self-hosted workflow contract is stricter than the former fallback:
+
+1. only trusted Lean-relevant pushes to `main` and manual dispatches are
+   eligible; pull-request code never runs on the persistent personal machine;
+2. routing requires the complete `self-hosted`, `macOS`, `ARM64`, and custom
+   label tuple; there is no GitHub-hosted fallback, so even a variable changed
+   to `macos-latest` cannot spend hosted minutes;
+3. macOS requires at least 24 GiB installed RAM, approximately 24 GiB currently
+   available by `memory_pressure`, AC power, and no concurrent Lean/Lake/pytest
+   process before compilation;
+4. the full build remains one worker with Lean's 20 GB per-process ceiling,
+   runs at positive niceness, and uses `caffeinate` only while that build runs;
+5. each foreground launcher accepts exactly one job; workflow concurrency
+   keeps only the newest all-module job current, and a
+   later preflight refuses to overlap a process left by cancellation;
+6. the persistent checkout deletes every ignored/untracked path other than
+   `lean/.lake`; Lake revalidates that local cache, avoiding remote cache
+   storage, while manual `clean_build=true` deletes it for a reproducibility
+   run;
+7. a manual dispatch is rejected unless its selected ref is `main`; successful
+   logs are not uploaded; a failing log is retained for only three
+   days; and the workflow token is read-only with checkout credentials not
+   persisted.
+
+Self-hosted Actions compute is free under GitHub's documented billing model,
+but the account must still be able to schedule Actions.  The current billing
+lock may therefore need repair or plan downgrade even though the runner itself
+is free.  Until a Mac-runner job actually exits zero, the full current commit
+remains statically and incrementally checked rather than fully CI-certified.
+
+#### 8.12 Constructive representation descent through an exact quotient
+
+`RepTheory/ConstructiveRepresentationDescent.lean` now closes the generic
+algebraic descent step needed by every faithful global-form action.  It imports
+only `ConstructiveGroup` and adds:
+
+- left/right cancellation and the `a⁻¹b = 1 -> a = b` setoid-group calculus;
+- homomorphism preservation of inverse and both directions relating equal
+  images to the image of `a⁻¹b`;
+- semantic `Hom.Faithful` and its kernel-trivial criterion;
+- `FiniteCentralSubgroup.IsKilledBy rho` and the theorem that an explicit
+  `gamma.WitnessFor` is killed;
+- a lift-based `descendRepresentation` constructed from
+  `CentralQuotientPresentation.surjective_lift`, with fiber independence and
+  the factorization equation along `quotient_hom`; and
+- the exact faithfulness criterion in its correct Martin-Löf form.
+
+The last point is intentionally **not** a Prop-level biconditional.  The reverse
+kernel statement computes a `PSigma` central witness and therefore lives in
+`Type`; erasing it into `Iff` would be ill-typed or would destroy the data
+needed downstream.  The API instead supplies two constructive maps:
+
+```text
+faithful descended action
+  -> (each cover-kernel proof computes a gamma witness),
+
+(each cover-kernel proof computes a gamma witness)
+  -> faithful descended action.
+```
+
+There is no `Classical`, choice, `Nonempty`, `Exists`, `Quot`, `noncomputable`,
+axiom, or `sorry` in the implementation.  A fresh host process check found no
+Lean/Lake/pytest process, and the smallest target then passed:
+
+```text
+env LEAN_NUM_THREADS=1 lake build \
+  YMGap.RepTheory.ConstructiveRepresentationDescent
+Build completed successfully (3 jobs; edited leaf 1.3 s).
+All twelve printed public theorems: axiom-free.
+```
+
+The immediate residual is now:
+
+1. obtain an actually dispatched, green self-hosted all-module CI result; do
+   not confuse registration, queueing, or the prior billing rejection with a
+   build result;
+2. construct a located finite-central-quotient carrier whose semantic coset
+   relation is propositionally truncated but whose locator recomputes explicit
+   kernel witnesses, then instantiate the rational A1 `+-1` quotient;
+3. use the descent theorem to construct the spin-one conjugation action and
+   prove its cover kernel is exactly `+-1`, hence its quotient action is
+   faithful; do not call the rational dense skeleton compact SU(2)/SO(3);
+4. construct the root/weight-lattice central-character calculation before
+   generalizing irrep descent or repairing the global-form Casimir minimum;
+5. only after genuine compact realization and Haar bi-invariance, prove the
+   normalized Haar pushforward identity and advance to constructive complex
+   coefficients, real Wilson actions, and Peter--Weyl realization.

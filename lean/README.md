@@ -217,13 +217,17 @@ make lean-build LEAN_JOBS=1
 Never run bare `lake build` or raise the local worker count to gain throughput.
 CI is the definitive all-module path selected by `YMGap.*`: it runs the
 semantic guards and audits the captured build log. It fails closed before
-starting Lean unless its Linux runner reports at least 24 GiB RAM; configure
-the repository variable `YMGAP_LEAN_RUNNER` with a provisioned high-memory
-runner label. Cache restore keys cannot cross a toolchain or build-model hash,
-and manual clean dispatch skips the cache. A commit has the full consistency
-guarantee only after that workflow exits zero. Refresh `AXIOM_AUDIT.md` only
-after deliberate constructivity-budget review; strict namespace-digest drift
-is currently informational, not a required exhaustive gate.
+starting Lean unless its Linux or macOS runner reports at least 24 GiB RAM.
+The repository variable `YMGAP_LEAN_RUNNER` routes the job to the private,
+manually started `ymgap-m4max` macOS ARM64 runner; there is deliberately no
+paid hosted fallback.  Trusted main builds retain `.lake` only on that runner,
+where Lake revalidates it, while manual `clean_build=true` dispatches delete
+the local cache. A commit has the full consistency guarantee only after that
+workflow exits zero. See `docs/self-hosted-ci.md` for the AC-power,
+process-conflict, foreground-runner, and security protocol. Refresh
+`AXIOM_AUDIT.md` only after deliberate constructivity-budget review; strict
+namespace-digest drift is currently informational, not a required exhaustive
+gate.
 
 ---
 

@@ -79,7 +79,9 @@ Do not run a bare full build locally. CI is the definitive integration path: it
 builds the complete `YMGap.*` module glob with one worker, includes both
 semantic guard roots, and audits the captured build log. The workflow refuses
 to start Lean below 24 GiB RAM; repository variable `YMGAP_LEAN_RUNNER` must
-name a provisioned high-memory Linux runner. No commit has the definitive
+name the repository-scoped macOS ARM64 runner (normally `ymgap-m4max`).  It has
+no paid hosted fallback and accepts work only while deliberately started in a
+foreground terminal; see `docs/self-hosted-ci.md`. No commit has the definitive
 guarantee until that workflow exits zero, and strict namespace-digest drift
 remains informational.
 

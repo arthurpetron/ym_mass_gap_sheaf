@@ -1,7 +1,9 @@
 # Lean axiom-gate audit — CI enforcement of AGENTS.md Rule 1.
 #
-# Runs on every Lean-relevant push and pull request selected by the path filters
-# below. Fails if an observed tracked theorem in the YMGap Lean library has
+# Runs on every Lean-relevant push to trusted `main`, plus explicit manual
+# dispatches.  The full job is deliberately not a pull-request job: it is
+# routed to a persistent self-hosted machine, where untrusted PR code must not
+# execute. Fails if an observed tracked theorem in the YMGap Lean library has
 # acquired a NEW axiom dependency not permitted by `lean/AXIOM_AUDIT.md` (the
 # maintained baseline). Strict completeness/drift remains informational below.
 #
@@ -20,6 +22,16 @@
 
 name: lean-axiom-audit
 
+permissions:
+  contents: read
+
+# Keep at most one expensive all-module job queued/running.  A replacement job
+# may cancel the old one; the process-conflict preflight below then refuses to
+# start if the runner has not finished cleaning up the prior Lean process.
+concurrency:
+  group: ymgap-lean-full
+  cancel-in-progress: true
+
 on:
   workflow_dispatch:
     inputs:
@@ -29,7 +41,7 @@ on:
         type: boolean
         default: true
   push:
-    branches: ["**"]
+    branches: ["main"]
     paths:
       - "lean/**"
       - "scripts/lean_axiom_audit.py"
@@ -38,27 +50,43 @@ on:
       - "reference/leanmillennium-pinned/**"
       - "Makefile"
       - ".github/workflows/lean-audit.yml"
-  pull_request:
-    paths:
-      - "lean/**"
-      - "scripts/lean_axiom_audit.py"
-      - "scripts/lean_import_guard.py"
-      - "scripts/frontier_dag_check.py"
-      - "reference/leanmillennium-pinned/**"
-      - "Makefile"
-      - ".github/workflows/lean-audit.yml"
-
 jobs:
   axiom-audit:
-    # Set the repository variable YMGAP_LEAN_RUNNER to a provisioned
-    # high-memory Linux GitHub/self-hosted runner label. The fallback remains useful
-    # for static checks, but the fail-closed RAM preflight below will refuse to
-    # start Lean when a standard runner is too small.
-    runs-on: ${{ vars.YMGAP_LEAN_RUNNER || 'ubuntu-latest' }}
+    # A manual dispatcher may select an arbitrary ref in GitHub's UI.  Never
+    # execute that branch code on the persistent personal machine.
+    if: github.ref == 'refs/heads/main'
+    # Set YMGAP_LEAN_RUNNER to the private repository runner's custom label.
+    # There is intentionally no GitHub-hosted fallback: an absent/mistyped label
+    # queues and times out rather than incurring hosted compute charges.
+    runs-on:
+      - self-hosted
+      - macOS
+      - ARM64
+      - ${{ vars.YMGAP_LEAN_RUNNER || 'ymgap-m4max' }}
     timeout-minutes: 360
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          # Preserve only the local Lake cache across trusted main builds.  The
+          # next step deletes every other ignored/untracked path.
+          clean: false
+          persist-credentials: false
+
+      - name: Sanitize persistent checkout while retaining the local Lake cache
+        shell: bash
+        env:
+          CLEAN_BUILD: ${{ github.event_name == 'workflow_dispatch' && inputs.clean_build || false }}
+        run: |
+          if [[ "$CLEAN_BUILD" == "true" ]]; then
+            git clean -ffdx
+          else
+            git clean -ffdx -e lean/.lake/
+          fi
+          if ! git diff --quiet || ! git diff --cached --quiet; then
+            echo "::error::The persistent runner checkout is not at the requested clean commit."
+            exit 1
+          fi
 
       - name: Static Lean import-graph guard
         run: make lean-import-guard
@@ -68,17 +96,50 @@ jobs:
         run: |
           echo "version=$(cat lean/lean-toolchain | tr -d '[:space:]')" >> "$GITHUB_OUTPUT"
 
-      - name: Fail closed on an undersized build runner
+      - name: Fail closed on an unsafe build host
         shell: bash
         run: |
           min_kib=$((24 * 1024 * 1024))
-          total_kib=$(awk '/^MemTotal:/ { print $2 }' /proc/meminfo)
-          if [[ -z "$total_kib" || "$total_kib" -lt "$min_kib" ]]; then
-            echo "::error::The all-module Lean build requires at least 24 GiB RAM."
-            echo "::error::Configure repository variable YMGAP_LEAN_RUNNER with a high-memory Linux runner label."
+          case "$(uname -s)" in
+            Darwin)
+              total_bytes=$(/usr/sbin/sysctl -n hw.memsize)
+              total_kib=$((total_bytes / 1024))
+              free_percent=$(
+                /usr/bin/memory_pressure -Q |
+                  awk '/System-wide memory free percentage:/ {
+                    gsub(/%/, "", $5); print $5
+                  }'
+              )
+              if [[ -z "$free_percent" ]]; then
+                echo "::error::Could not determine currently available Mac memory."
+                exit 1
+              fi
+              available_kib=$((total_kib * free_percent / 100))
+              if ! /usr/bin/pmset -g batt | head -n 1 | grep -q "AC Power"; then
+                echo "::error::The Mac runner must be connected to AC power."
+                exit 1
+              fi
+              ;;
+            Linux)
+              total_kib=$(awk '/^MemTotal:/ { print $2 }' /proc/meminfo)
+              available_kib=$(awk '/^MemAvailable:/ { print $2 }' /proc/meminfo)
+              ;;
+            *)
+              echo "::error::Unsupported build-runner operating system: $(uname -s)."
+              exit 1
+              ;;
+          esac
+          if [[ -z "$total_kib" || -z "$available_kib" || \
+                "$total_kib" -lt "$min_kib" || "$available_kib" -lt "$min_kib" ]]; then
+            echo "::error::The all-module build requires at least 24 GiB installed and currently available RAM."
+            echo "::error::Configure YMGAP_LEAN_RUNNER with a >=24-GiB self-hosted runner label."
             exit 1
           fi
-          echo "Runner RAM preflight passed: $((total_kib / 1024 / 1024)) GiB available."
+          if pgrep -ifl '(^|/)(lean|lake|pytest)( |$)'; then
+            echo "::error::A Lean/Lake/pytest process is already active; refusing competing compilation."
+            exit 1
+          fi
+          echo "Runner RAM preflight passed: $((total_kib / 1024 / 1024)) GiB installed, approximately $((available_kib / 1024 / 1024)) GiB available."
 
       - name: Install elan + Lean
         run: |
@@ -91,29 +152,24 @@ jobs:
           lean --version
           lake --version
 
-      - name: Cache Lake build artifacts
-        if: ${{ github.event_name != 'workflow_dispatch' || !inputs.clean_build }}
-        uses: actions/cache@v4
-        with:
-          path: lean/.lake
-          key: lake-${{ steps.toolchain.outputs.version }}-${{ hashFiles('lean/lakefile.toml', 'lean/lake-manifest.json', 'Makefile', '.github/workflows/lean-audit.yml') }}-${{ hashFiles('lean/**/*.lean') }}
-          restore-keys: |
-            lake-${{ steps.toolchain.outputs.version }}-${{ hashFiles('lean/lakefile.toml', 'lean/lake-manifest.json', 'Makefile', '.github/workflows/lean-audit.yml') }}-
-
       - name: Build full Lean library (all YMGap modules, one worker)
         shell: bash
         run: |
           set -o pipefail
-          make lean-build LEAN_JOBS=1 2>&1 | tee lean-build.log
+          if [[ "$RUNNER_OS" == "macOS" ]]; then
+            caffeinate -dimsu nice -n 10 make lean-build LEAN_JOBS=1 2>&1 | tee lean-build.log
+          else
+            nice -n 10 make lean-build LEAN_JOBS=1 2>&1 | tee lean-build.log
+          fi
 
       - name: Preserve the single full-build log
-        if: always()
+        if: failure()
         uses: actions/upload-artifact@v4
         with:
           name: lean-build-log-${{ github.run_id }}
           path: lean-build.log
           if-no-files-found: warn
-          retention-days: 14
+          retention-days: 3
 
       # Frontier uninhabitedness guard — FAILS the build (not informational) if
       # any Clay-frontier type (Tier0Scorecard / UniformSpacingFloor /
