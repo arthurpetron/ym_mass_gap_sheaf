@@ -12,7 +12,7 @@ defaultTargets = ["YMGap", "YMGapGuard", "YMGapStatementGuard"]
 # the heaviest known module, HarmonicLowerSixTailBaseSemanticBridge, whose
 # staged piece reconciliation peaks near 15 GB (measured 2026-07-16).  Pair
 # with a worker cap when building (Lake spawns one worker per logical core
-# by default and this Lake has no `--jobs` flag): `LEAN_NUM_THREADS=3 lake
+# by default and this Lake has no `--jobs` flag): `LEAN_NUM_THREADS=1 lake
 # build`, or `make lean-build` which sets it.  Both are weak arguments and
 # do not invalidate cached artifacts.
 weakLeanArgs = ["-s", "65536", "-M", "20480"]
@@ -26,6 +26,11 @@ weakLeanArgs = ["-s", "65536", "-M", "20480"]
 
 [[lean_lib]]
 name = "YMGap"
+# Compile every source module in the production namespace during a full library
+# build, including modules not yet reachable from the selective `YMGap.lean`
+# semantic/audit root. Targeted `lake build YMGap.Some.Module` checks remain
+# targeted; this glob only expands the `YMGap` library target itself.
+globs = ["YMGap.*"]
 
 # Frontier uninhabitedness guard — a separate root that `import YMGap` and, at
 # elaboration time, fails the build if any Clay-frontier type (Tier0Scorecard /

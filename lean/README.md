@@ -12,10 +12,10 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-> **Read `AGENTS.md` before contributing.** It contains the
-> non-negotiable constructivity rules. They are easy to violate by
-> accident in Lean, because Lean and Mathlib are classical by
-> default.
+> **Read `AGENTS.md` before contributing.** It contains both the
+> non-negotiable constructivity rules and the host-safety contract. They are
+> easy to violate accidentally; in particular, do not start a bare or broad
+> Lean build on the development host.
 
 ---
 
@@ -70,21 +70,21 @@ manifest has zero packages. Everything builds from Lean core
 
 ---
 
-## Folder structure (as of 2026-07-03)
+## Folder structure
 
 ```
 lean/
 ├── README.md                  # This file.
 ├── AGENTS.md                  # Constructivity contract — read first.
-├── AXIOM_AUDIT.md             # Auto-maintained axiom-gate baseline (~3.8k tracked decls).
+├── AXIOM_AUDIT.md             # Auto-maintained axiom-gate baseline.
 ├── SORRY_LEDGER.md            # Every sorry, logged. Currently: library is sorry-free.
 ├── CLASSICAL_LEDGER.md        # Every quarantined classical input (Rule 4). Currently empty.
 ├── lakefile.toml              # Lake build configuration (no external packages).
 ├── lean-toolchain             # Pinned Lean version (v4.29.1).
-├── YMGap.lean                 # Root import aggregator (annotates load-bearing vs excluded).
+├── YMGap.lean                 # Selective semantic/reflection-audit root.
 ├── docs/                      # Lean-local design notes (KP limit, RG transport, ...).
 └── YMGap/
-    ├── Constructive/          # Group-independent constructive substrate (~70 modules):
+    ├── Constructive/          # Group-independent constructive substrate:
     │                          #   Q' exact rationals; CReal with explicit moduli
     │                          #   (arithmetic, exp/log, sqrt/cbrt, trig, π, completion);
     │                          #   geometric/finite-sum machinery; SU(3) character-tail
@@ -106,7 +106,7 @@ lean/
     │                          #   budget functors and closure transports.
     ├── Codynamic.lean         # Codynamic transfer template (EKF ↔ YM signature port).
     ├── HigherCategorical.lean # 2-categorical RG-flow packaging.
-    ├── Continuum/             # The continuum campaign (~470 modules): finite-volume
+    ├── Continuum/             # The large continuum campaign: finite-volume
     │                          #   functionals and partition positivity (S2–S6), KP
     │                          #   increment engine, reflection positivity (OS2 via
     │                          #   Osterwalder–Seiler), OS axioms + reconstruction
@@ -124,17 +124,34 @@ lean/
     │                          #   ClayScorecard (fixed-spacing line PROVED; ClayTarget
     │                          #   deliberately uninhabited), ContinuumScorecard,
     │                          #   Loop/Reconstruction scorecards.
-    ├── PolyAtlas.lean         # Expository/design scaffolding — NOT load-bearing,
-    ├── ModuliAlgebra.lean     #   excluded from the default aggregator (see YMGap.lean).
+    ├── PolyAtlas.lean         # Compile-only expository/design scaffolding.
+    ├── ModuliAlgebra.lean     # Compile-only expository/design scaffolding.
     └── ...
 ```
 
-The dependency direction runs upward from `Constructive/` (depends on
-nothing but Lean core) through `RepTheory/`, the lattice layers
-(`Sheaf/`, `RG/`, `MassGap/`), into `Continuum/` and finally the
-`Rubric/` scorecards. `YMGap.lean` is annotated: it states which
-modules are load-bearing and which are deliberately excluded from the
-default build to keep the axiom-audit surface honest.
+The dependency direction runs upward from `Constructive/` (depends on nothing
+but Lean core) through `RepTheory/`, the lattice layers (`Sheaf/`, `RG/`,
+`MassGap/`), into `Continuum/` and finally the `Rubric/` scorecards. Compile
+coverage and semantic aggregation are deliberately separate:
+
+- `lakefile.toml` explicitly sets `globs = ["YMGap.*"]`, so a full `YMGap`
+  library build compiles every `YMGap/**/*.lean` module independently.
+- `YMGap.lean` imports the single coherent semantic environment inspected by
+  the axiom, frontier, and statement guards.
+- The only modules outside that semantic closure are classified by the
+  reviewed roots in `SEMANTIC_ROOT_EXCLUSIONS.txt`. At present those roots are
+  `YMGap.ModuliAlgebra`, `YMGap.PolyAtlas`,
+  `YMGap.Continuum.ScratchGraphFour`,
+  `YMGap.Continuum.HarmonicLowerSixTailBaseSemanticFactors`, and the mutually
+  incompatible alternative certificate modules
+  `YMGap.Continuum.HarmonicLowerSixTailEnvelopeCertificateE8ChartA` and
+  `YMGap.Continuum.HarmonicLowerSixTailEnvelopeCertificateE8ChartAXPascal`.
+
+The compile-only modules are still kernel-checked by the full library target;
+they are kept out of the shared semantic environment because they are
+non-load-bearing, dormant scratch/factor data, or declaration-colliding
+alternative certificates. Any change to this set requires a reasoned manifest
+change and review.
 
 ---
 
@@ -164,19 +181,49 @@ the ones where a classical proof would be unacceptable. The
 
 ---
 
-## Building
+## Safe local consistency checks
 
 ```sh
-lake build                 # build everything (no external packages to fetch)
-lake build YMGap.MassGap.SU2                    # just the SU(2) headline chain
-lake build YMGap.Continuum.Tier0Scorecard       # just the frontier scorecard
-lake build YMGap.PolyAtlas YMGap.ModuliAlgebra  # the excluded expository modules
+# From the repository root: pure static checks, no Lean process.
+make lean-import-guard
+make lean-affected LEAN_BASE=<base-ref>
+
+# Then build only the maximal reverse-dependent targets printed above.
+cd lean
+LEAN_NUM_THREADS=1 lake build +YMGap.Some.Printed.Target
 ```
 
-Every PR-equivalent change must pass `lake build` and the axiom check
-described in `AGENTS.md` (`make lean-audit` at the repo root; refresh
-the baseline with `make lean-audit-update` only for deliberate,
-reviewed changes).
+Start with the smallest directly affected module. The affected-target planner
+then computes the transitive reverse dependency closure (while ignoring the
+flat aggregator-only edges) and prints its maximal consumers; building those
+targets with one worker checks every downstream source represented by the
+guard's accepted local-import syntax and declared inputs, without compiling
+unrelated branches. Multiple printed targets may be supplied to the same
+one-worker command. Generated, foreign, or future import-command inputs outside
+that model require a separate check or build-model escalation.
+
+This targeted pass is the normal local workflow, not a substitute for final
+integration. A change to the pinned toolchain, Lake files/manifest, Makefile,
+CI workflow, or import guard changes the build contract and requires the full
+CI path. On the development host, any full build, axiom audit, or
+frontier/statement guard requires explicit approval for that particular run,
+after checking for active Lean/test processes:
+
+```sh
+# High-load: run only after explicit host approval.
+make lean-build LEAN_JOBS=1
+```
+
+Never run bare `lake build` or raise the local worker count to gain throughput.
+CI is the definitive all-module path selected by `YMGap.*`: it runs the
+semantic guards and audits the captured build log. It fails closed before
+starting Lean unless its Linux runner reports at least 24 GiB RAM; configure
+the repository variable `YMGAP_LEAN_RUNNER` with a provisioned high-memory
+runner label. Cache restore keys cannot cross a toolchain or build-model hash,
+and manual clean dispatch skips the cache. A commit has the full consistency
+guarantee only after that workflow exits zero. Refresh `AXIOM_AUDIT.md` only
+after deliberate constructivity-budget review; strict namespace-digest drift
+is currently informational, not a required exhaustive gate.
 
 ---
 

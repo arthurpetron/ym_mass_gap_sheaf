@@ -1,8 +1,9 @@
 # Lean axiom-gate audit — CI enforcement of AGENTS.md Rule 1.
 #
-# Runs on every push and pull_request. Fails if a tracked theorem in the YMGap
-# Lean library has acquired a NEW axiom dependency not permitted by
-# `lean/AXIOM_AUDIT.md` (the maintained baseline).
+# Runs on every Lean-relevant push and pull request selected by the path filters
+# below. Fails if an observed tracked theorem in the YMGap Lean library has
+# acquired a NEW axiom dependency not permitted by `lean/AXIOM_AUDIT.md` (the
+# maintained baseline). Strict completeness/drift remains informational below.
 #
 # To accept new axiom dependencies after deliberate constructivity-budget
 # review:
@@ -20,34 +21,64 @@
 name: lean-axiom-audit
 
 on:
+  workflow_dispatch:
+    inputs:
+      clean_build:
+        description: "Ignore the Lake cache and prove a clean all-module build"
+        required: true
+        type: boolean
+        default: true
   push:
     branches: ["**"]
     paths:
       - "lean/**"
       - "scripts/lean_axiom_audit.py"
+      - "scripts/lean_import_guard.py"
       - "scripts/frontier_dag_check.py"
+      - "reference/leanmillennium-pinned/**"
       - "Makefile"
       - ".github/workflows/lean-audit.yml"
   pull_request:
     paths:
       - "lean/**"
       - "scripts/lean_axiom_audit.py"
+      - "scripts/lean_import_guard.py"
       - "scripts/frontier_dag_check.py"
+      - "reference/leanmillennium-pinned/**"
       - "Makefile"
       - ".github/workflows/lean-audit.yml"
 
 jobs:
   axiom-audit:
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # Set the repository variable YMGAP_LEAN_RUNNER to a provisioned
+    # high-memory Linux GitHub/self-hosted runner label. The fallback remains useful
+    # for static checks, but the fail-closed RAM preflight below will refuse to
+    # start Lean when a standard runner is too small.
+    runs-on: ${{ vars.YMGAP_LEAN_RUNNER || 'ubuntu-latest' }}
+    timeout-minutes: 360
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+
+      - name: Static Lean import-graph guard
+        run: make lean-import-guard
 
       - name: Read pinned Lean toolchain
         id: toolchain
         run: |
           echo "version=$(cat lean/lean-toolchain | tr -d '[:space:]')" >> "$GITHUB_OUTPUT"
+
+      - name: Fail closed on an undersized build runner
+        shell: bash
+        run: |
+          min_kib=$((24 * 1024 * 1024))
+          total_kib=$(awk '/^MemTotal:/ { print $2 }' /proc/meminfo)
+          if [[ -z "$total_kib" || "$total_kib" -lt "$min_kib" ]]; then
+            echo "::error::The all-module Lean build requires at least 24 GiB RAM."
+            echo "::error::Configure repository variable YMGAP_LEAN_RUNNER with a high-memory Linux runner label."
+            exit 1
+          fi
+          echo "Runner RAM preflight passed: $((total_kib / 1024 / 1024)) GiB available."
 
       - name: Install elan + Lean
         run: |
@@ -61,16 +92,28 @@ jobs:
           lake --version
 
       - name: Cache Lake build artifacts
+        if: ${{ github.event_name != 'workflow_dispatch' || !inputs.clean_build }}
         uses: actions/cache@v4
         with:
           path: lean/.lake
-          key: lake-${{ steps.toolchain.outputs.version }}-${{ hashFiles('lean/lakefile.toml', 'lean/lake-manifest.json') }}-${{ hashFiles('lean/**/*.lean') }}
+          key: lake-${{ steps.toolchain.outputs.version }}-${{ hashFiles('lean/lakefile.toml', 'lean/lake-manifest.json', 'Makefile', '.github/workflows/lean-audit.yml') }}-${{ hashFiles('lean/**/*.lean') }}
           restore-keys: |
-            lake-${{ steps.toolchain.outputs.version }}-${{ hashFiles('lean/lakefile.toml', 'lean/lake-manifest.json') }}-
-            lake-${{ steps.toolchain.outputs.version }}-
+            lake-${{ steps.toolchain.outputs.version }}-${{ hashFiles('lean/lakefile.toml', 'lean/lake-manifest.json', 'Makefile', '.github/workflows/lean-audit.yml') }}-
 
-      - name: Build Lean library
-        run: make lean-build
+      - name: Build full Lean library (all YMGap modules, one worker)
+        shell: bash
+        run: |
+          set -o pipefail
+          make lean-build LEAN_JOBS=1 2>&1 | tee lean-build.log
+
+      - name: Preserve the single full-build log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lean-build-log-${{ github.run_id }}
+          path: lean-build.log
+          if-no-files-found: warn
+          retention-days: 14
 
       # Frontier uninhabitedness guard — FAILS the build (not informational) if
       # any Clay-frontier type (Tier0Scorecard / UniformSpacingFloor /
@@ -105,7 +148,7 @@ jobs:
         run: make lean-rubric
 
       - name: Run axiom-gate audit (non-strict — drift only)
-        run: make lean-audit
+        run: python3 scripts/lean_axiom_audit.py --from-file lean-build.log
 
       # Strict mode is informational: it surfaces new theorems not yet in the
       # baseline and tracked theorems missing from the build.  We do NOT fail
@@ -115,7 +158,7 @@ jobs:
       - name: Run axiom-gate audit (strict — new/missing theorems, informational)
         continue-on-error: true
         run: |
-          if ! make lean-audit-strict; then
+          if ! python3 scripts/lean_axiom_audit.py --strict --from-file lean-build.log; then
             echo "::warning::Strict-mode audit surfaced new or missing theorems."
             echo "::warning::After review, run 'make lean-audit-update' and commit lean/AXIOM_AUDIT.md."
           fi

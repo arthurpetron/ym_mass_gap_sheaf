@@ -14,8 +14,9 @@ each, reports:
 
 It also emits two whole-library audits:
 
-  * an UNIMPORTED-FILE audit — every `YMGap/*.lean` NOT reachable (transitively)
-    from `YMGap.lean`, i.e. silently skipped by the default build;
+  * a SEMANTIC-ROOT audit — every `YMGap/*.lean` NOT reachable (transitively)
+    from `YMGap.lean`; the full Lake library glob still compiles these modules
+    independently, while the separate import guard enforces their review;
   * a NONCOMPUTABLE ledger — every `noncomputable` declaration.
 
 The result is written to `docs/frontier-status.md` (dated).
@@ -24,7 +25,7 @@ The result is written to `docs/frontier-status.md` (dated).
 
     python scripts/frontier_status.py                 # use AXIOM_AUDIT.md gates
     python scripts/frontier_status.py --from-file LOG  # gates from a build log
-    python scripts/frontier_status.py --lake           # run `lake build` fresh
+    python scripts/frontier_status.py --lake --allow-full-build  # approved full build
     python scripts/frontier_status.py --stdout         # print, don't write file
 
 # Design (mirrors scripts/lean_axiom_audit.py)
@@ -45,6 +46,7 @@ from __future__ import annotations
 
 import argparse
 import datetime
+import os
 import re
 import subprocess
 import sys
@@ -122,12 +124,14 @@ def parse_lake_output(output: str) -> dict[str, set[str]]:
     return result
 
 
-def run_lake_build() -> str:
+def run_lake_build() -> tuple[int, str]:
+    env = os.environ.copy()
+    env.setdefault("LEAN_NUM_THREADS", "1")
     proc = subprocess.run(
         ["lake", "build"], cwd=LEAN_DIR,
-        capture_output=True, text=True, check=False,
+        capture_output=True, text=True, check=False, env=env,
     )
-    return proc.stdout + proc.stderr
+    return proc.returncode, proc.stdout + proc.stderr
 
 
 def format_gate(name: str, gates: dict[str, set[str]]) -> str:
@@ -617,11 +621,13 @@ def emit_report(gates: dict[str, set[str]], gate_source: str) -> str:
             A("</details>")
             A("")
 
-    # --- Unimported-file audit ---
-    A("## Unimported-file audit")
+    # --- Semantic-root audit ---
+    A("## Semantic-root exclusion audit")
     A("")
-    A("Every `YMGap/*.lean` NOT reachable (transitively) from `YMGap.lean` — i.e.")
-    A("silently skipped by the default `lake build` and therefore un-audited.")
+    A("Every `YMGap/*.lean` not reachable (transitively) from the selective")
+    A("`YMGap.lean` semantic/audit root.  The `YMGap.*` Lake glob still compiles")
+    A("each of these modules independently; `scripts/lean_import_guard.py`")
+    A("requires every exclusion component to have a reviewed manifest root.")
     A("")
     unimp = unimported_files()
     total = sum(1 for f in YMGAP_PKG.rglob("*.lean") if "/.lake/" not in str(f))
@@ -667,16 +673,25 @@ def main() -> int:
     ap.add_argument("--from-file", type=Path, default=None,
                     help="Layer axiom gates from this `lake build` log over the baseline.")
     ap.add_argument("--lake", action="store_true",
-                    help="Run `lake build` and layer its axiom gates over the baseline.")
+                    help="Run a one-worker FULL `lake build` and layer its axiom gates; high-load.")
+    ap.add_argument("--allow-full-build", action="store_true",
+                    help="Required acknowledgement for --lake after host-safety approval.")
     ap.add_argument("--stdout", action="store_true",
                     help="Print the report to stdout instead of writing the file.")
     args = ap.parse_args()
 
     gates = parse_axiom_baseline(BASELINE_PATH)
-    gate_source = f"`lean/AXIOM_AUDIT.md` ({len(gates)} recorded decls)"
-    if not gates:
-        print(f"WARNING: baseline {BASELINE_PATH} empty/missing; gates unavailable.",
-              file=sys.stderr)
+    baseline_text = (
+        BASELINE_PATH.read_text(encoding="utf-8") if BASELINE_PATH.exists() else ""
+    )
+    baseline_available = "## Namespace digests" in baseline_text
+    gate_source = (
+        f"`lean/AXIOM_AUDIT.md` ({len(gates)} reviewed exception(s); "
+        "all absent declarations are within the gate)"
+    )
+    if not baseline_available:
+        print(f"WARNING: baseline {BASELINE_PATH} missing or malformed; "
+              "gates unavailable.", file=sys.stderr)
 
     live = None
     if args.from_file is not None:
@@ -686,7 +701,16 @@ def main() -> int:
         live = parse_lake_output(args.from_file.read_text(encoding="utf-8"))
         gate_source = f"`{args.from_file}` build log (layered over AXIOM_AUDIT.md)"
     elif args.lake:
-        live = parse_lake_output(run_lake_build())
+        if not args.allow_full_build:
+            print("ERROR: --lake is a high-load full build; after explicit host-safety "
+                  "approval, repeat with --allow-full-build.", file=sys.stderr)
+            return 3
+        rc, output = run_lake_build()
+        if rc != 0:
+            print(f"ERROR: lake build failed (exit {rc}).", file=sys.stderr)
+            print(output, file=sys.stderr)
+            return 3
+        live = parse_lake_output(output)
         gate_source = "fresh `lake build` log (layered over AXIOM_AUDIT.md)"
     if live:
         gates.update(live)

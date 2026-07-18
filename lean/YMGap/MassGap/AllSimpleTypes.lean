@@ -1,32 +1,47 @@
 /-
-The all-compact-simple-type faithfulness + representative witnesses — the
-`CartanType`-indexed instantiation of the uniform mass-gap reduction.
+Legacy `CartanType`-indexed scalar representatives for the abstract uniform
+mass-gap reduction.
+
+# Mathematical-honesty quarantine
+
+`CartanType` is a raw family/rank code; new code should validate it with
+`IsCanonicalSimpleCode`.  The historical `IsSimpleRank` name used by the
+declarations below is only a compatibility alias for that canonical-code
+predicate, not a literal test of Lie simplicity.
+
+`repDataOf` and its field name `C₂_fund` are retained as a **legacy
+representative scalar table**.  This file constructs no compact group, global
+form `G_sc/Gamma`, faithful lattice action, representation descent, or Haar
+theory, and it does not prove that the stored representation is the smallest
+allowed nontrivial Casimir for a chosen global form.  The global-form/descent
+repair and the known `D_n` vector-Casimir normalization defect are tracked in
+`work_plan.md` §8.9.  Accordingly, the results below are scalar-interface
+compositions, not a faithful realization of all compact simple gauge groups.
 
 # What this module delivers (Milestone 11.12, items 2–5)
 
-`RG/WeylDimGeneralData.lean` (item 1) supplied the `CartanType` inductive
+`RepTheory/CartanType.lean` supplies the raw `CartanType` inductive
 (A/B/C/D + G₂/F₄/E₆/E₇/E₈) and the crude squared-Weyl-dimension `WeylDimData`
 per type.  This module consumes the *proven* per-type Casimir/dual-Coxeter
 floors (`RepTheory/CasimirData.lean`) and the *proven* uniform reduction
 (`MassGap/SimpleGroup.lean`) to realize:
 
-  * **`repDataOf T`** — a representative `RepData` for EVERY Cartan type,
-    carrying the *genuine per-type quadratic-Casimir invariants*
-    (`C₂_fund`, `C₂_adj = h^∨` from `CasimirData.lean`) at a conservative,
+  * **`repDataOf T`** — a legacy representative `RepData` row for every raw
+    code, copying the scalar entries named `C₂_fund` and `C₂_adj = h^∨` from
+    `CasimirData.lean` at a conservative,
     admissibility-respecting operating point (`g² = conv = 1`, `ρ_sf = C₂_fund`
     so the Bałaban tie is exact, `η_max = 13·10⁻⁶`, `K = 3`).
 
-  * **`admissible_of_cartanType` (item 5, FAITHFULNESS)** — every Cartan type
-    (at a genuine-simple rank) yields an
+  * **`admissible_of_cartanType` (item 5, scalar-interface admissibility)** —
+    every canonical code (expressed through the legacy alias) yields an
     `RepTheory.SimpleGroup.AdmissibleSimpleGroup (repDataOf T)`.  Both
     admissibility floors — the Casimir gap `C₂_fund ≥ 3/4` and the dual
-    Coxeter `h^∨ = C₂_adj ≥ 2`, each minimized *only* at A₁ = SU(2) — are the
-    per-type `CasimirData` lemmas, and the closure certificate is exact.  This
-    makes `mass_gap_simple_group` quantify over the actual compact-simple
-    Cartan types, not over an interface that might admit non-group inhabitants.
+    Coxeter `h^∨ = C₂_adj ≥ 2`, each minimized at A₁ inside this legacy table — are the
+    current `CasimirData` lemmas, and the closure certificate is exact inside
+    that scalar interface.  It does not realize a group or faithful action.
 
   * **`uniformBudgetWitness_of_cartanType` (item 4)** — a `UniformBudgetWitness
-    (repDataOf T)` for every type, assembled through the *genuine* character-
+    (repDataOf T)` for every code, assembled through the abstract character-
     tail capstone `RG.uniformBudgetWitness_of_characterTail` in the
     strict-monotone regime (following the PROVEN `su3_uniform_witness_via_tail`
     pattern: the rank-1 majorant carrying the per-axis excess `13/313`,
@@ -38,16 +53,10 @@ floors (`RepTheory/CasimirData.lean`) and the *proven* uniform reduction
     excess `13/313`; the `ZtEtaModel` model equalities are `decide`-facts.
 
   * **`mass_gap_of_cartanType` + per-type `mass_gap_A/B/C/D/G2/F4/E6/E7/E8`**
-    — the mass gap for a representative of every compact simple Cartan type,
-    plus `mass_gap_G2_via_weylData` exhibiting the Weyl-character structural
-    path end to end on a concrete exceptional.
+    — conditional scalar compositions with caller-supplied OS data, plus a
+    `G₂`-labelled demonstration of the abstract Weyl-data path.
 
-# What is genuine vs. what stays the named residual (HONEST)
-
-The FAITHFULNESS layer is genuine and type-specific: `repDataOf T` carries the
-*real* per-type Casimir invariants, so `admissible_of_cartanType` is a real
-statement about the compact-simple types (the floors are the `CasimirData`
-theorems, minimized only at SU(2)).
+# What the representative budget layer does and does not establish
 
 The BUDGET/η layer uses a *representative operating point*: `η_max = 13·10⁻⁶`
 is a conservative value (the proven-admissible SU(3) per-step bound), NOT the
@@ -57,9 +66,8 @@ non-simply-laced `G₂`/`F₄`, where the short-root Killing-form normalization
 enters (Milestone 1.1 precedent) — is exactly the SAME named analytic residual
 already isolated as `UniformBudget.UniformBudgetWitness.eta_dominated` (the
 antitone-in-Δ heat-kernel input, a `CReal` statement outside `Q'`).  It is NOT
-discharged here and NOT faked: the representatives demonstrate the reduction
-machinery on genuine per-type Casimirs; the physical character-tail analysis
-per type remains the paper-layer obligation.  See the honest verdict below.
+discharged here: the representatives exercise the abstract scalar reduction;
+the physical character-tail analysis per realized global group remains open.
 
 # Axiom-gate (AGENTS.md Rule 1)
 
@@ -69,6 +77,7 @@ order/`eqv` proof, or an assembly of the proven reduction; each reports
 no `sorryAx`, no custom axiom.  See the `#print axioms` block at the end.
 -/
 
+import YMGap.RepTheory.CartanType
 import YMGap.MassGap.SimpleGroup
 import YMGap.RG.WeylDimGeneralData
 import YMGap.BudgetConstants
@@ -84,16 +93,16 @@ open YMGap.Continuum.OSAxioms
 open YMGap.Continuum.OSReconstruction
 open YMGap.MassGap.SimpleGroup
 
-/-! ## The representative `RepData` from a pair of Casimirs
+/-! ## The legacy representative `RepData` from two stored scalars
 
-`repOfCasimir c2f c2a` packages the two genuine per-type invariants
+`repOfCasimir c2f c2a` packages the two legacy scalar fields
 `C₂_fund = c2f`, `C₂_adj = c2a` at a conservative operating point.  The
 Bałaban tie `ρ_sf·g² ≃ C₂_fund·conv` holds *exactly* by construction
 (`ρ_sf := c2f`, `g² := conv := 1`), so the closure certificate is real, and
 `η_max := 13·10⁻⁶` (the proven-admissible SU(3) per-step bound) with `K = 3`
 closes the budget and is dominated by SU(2)'s `3·10⁻⁴`. -/
 
-/-- The representative `RepData` carrying the genuine Casimirs `c2f`, `c2a`. -/
+/-- The representative `RepData` carrying the stored scalars `c2f`, `c2a`. -/
 def repOfCasimir (c2f c2a : Q') : RepData where
   C2_fund := c2f
   C2_adj  := c2a
@@ -129,34 +138,24 @@ theorem repOfCasimir_cert (c2f c2a : Q') : (repOfCasimir c2f c2a).ClosureCertifi
     rw [repOfCasimir_eta_max c2f c2a, repOfCasimir_K c2f c2a, repOfCasimir_sigma0 c2f c2a]
     decide
 
-/-! ## The genuine-simple rank predicate
+/-! ## The legacy canonical-code predicate name
 
-The four classical families are distinct simple types only above a rank
-threshold (`B₁≅A₁`, `C₁≅A₁`, `C₂≅B₂`, `D₂≅A₁×A₁`, `D₃≅A₃`); we require the
-faithful non-redundant lower bound per family (`A_n : n≥1`, `B_n : n≥2`,
-`C_n : n≥3`, `D_n : n≥4`), and `True` for the five exceptionals. -/
+`IsSimpleRank` now comes from the cycle-free
+`RepTheory/CartanType.lean` leaf and retains its original fully qualified name
+`YMGap.MassGap.AllSimpleTypes.IsSimpleRank`.  It removes low-rank Lie-type
+redundancies only; it does not choose a compact group's global form. -/
 
-/-- The genuine-simple rank condition per Cartan type. -/
-def IsSimpleRank : CartanType → Prop
-  | .A n => 1 ≤ n
-  | .B n => 2 ≤ n
-  | .C n => 3 ≤ n
-  | .D n => 4 ≤ n
-  | .G2 => True
-  | .F4 => True
-  | .E6 => True
-  | .E7 => True
-  | .E8 => True
+/-! ## The legacy representative row for every raw Cartan code
 
-/-! ## The representative `RepData` for every Cartan type
-
-`repDataOf T` plugs the per-type exact-ℚ Casimir/dual-Coxeter values
+`repDataOf T` plugs the table's exact-ℚ representation/dual-Coxeter scalars
 (`RepTheory/CasimirData.lean`, anchored to the repo normalization so
-`A₁ → C₂_fund = 3/4`, `h^∨ = 2`) into `repOfCasimir`.  The `A_n = SU(n+1)`
-family reuses the SU(N) formulas; `B/C/D` use `soOdd/sp/soEven`; the five
-exceptionals use their closed literals. -/
+`A₁ → C₂_fund = 3/4`, `h^∨ = 2`) into `repOfCasimir`.  Type A reuses the
+SU(N) formula; `B/C/D` use the legacy `soOdd/sp/soEven` rows; the five
+exceptionals use closed literals.  This does not select or realize a global
+form, and §8.9 of the work plan records why these rows are not yet a physical
+minimum-Casimir table. -/
 
-/-- The representative `RepData` for each compact-simple Cartan type. -/
+/-- The legacy representative `RepData` row for each raw Cartan code. -/
 def repDataOf : CartanType → RepData
   | .A n => repOfCasimir (suN_C2_fund (n + 1) (Nat.succ_pos n)) (suN_C2_adj (n + 1))
   | .B n => repOfCasimir (soOdd_C2_fund n) (soOdd_C2_adj n)
@@ -168,22 +167,19 @@ def repDataOf : CartanType → RepData
   | .E7 => repOfCasimir e7_C2_fund e7_C2_adj
   | .E8 => repOfCasimir e8_C2_fund e8_C2_adj
 
-/-! ## Item 5 — FAITHFULNESS: every Cartan type is an admissible simple group
+/-! ## Item 5 — scalar-interface admissibility for canonical codes
 
-The heart of the module: for every compact-simple Cartan type at a
-genuine-simple rank, the representative `RepData` is an
-`AdmissibleSimpleGroup`.  Both admissibility floors are the *per-type*
-`CasimirData` theorems (the Casimir gap `≥ 3/4` and dual Coxeter `≥ 2`, each
-attained only at A₁ = SU(2)); the closure certificate is `repOfCasimir_cert`.
-Thus `mass_gap_simple_group` genuinely quantifies over the compact-simple
-types. -/
+For every canonical nonredundant code, the legacy representative row satisfies
+the abstract structure `AdmissibleSimpleGroup`.  Both scalar floors come from
+the current `CasimirData` lemmas and the closure certificate is
+`repOfCasimir_cert`.  The structure's historical name does not turn this row
+into a realized group, faithful action, or global-form representation table. -/
 
-/-- **Every Cartan type yields an admissible simple group.**  The two
-admissibility floors are the proven per-type `CasimirData` lemmas
+/-- **Every canonical Cartan code yields an admissible legacy scalar row.**
+The two admissibility floors are the current `CasimirData` lemmas
 (`suN_/soOdd_/sp_/soEven_/g2_/…_gap_lb` and `_hvee_lb`), each minimized only at
-A₁ = SU(2); the closure certificate is exact.  This is the classification-
-facing faithfulness layer: `AdmissibleSimpleGroup` is *inhabited by a genuine
-compact-simple type's Casimir data*, not by an arbitrary interface value. -/
+A₁ inside this table; the closure certificate is exact.  This is an
+interface-admissibility theorem only. -/
 theorem admissible_of_cartanType (T : CartanType) (h : IsSimpleRank T) :
     AdmissibleSimpleGroup (repDataOf T) := by
   cases T with
@@ -209,7 +205,7 @@ theorem admissible_of_cartanType (T : CartanType) (h : IsSimpleRank T) :
   | E7 => exact ⟨e7_gap_lb, e7_hvee_lb, repOfCasimir_cert _ _⟩
   | E8 => exact ⟨e8_gap_lb, e8_hvee_lb, repOfCasimir_cert _ _⟩
 
-/-! ## Items 2–4 — the representative character-tail data + budget witness
+/-! ## Items 2–4 — abstract representative tail data + budget witness
 
 The `ZtMajorant`, `ZtEtaModel`, and `AxisFactorBound` for `repOfCasimir` are
 uniform in the Casimirs (they involve only the operating-point constants), so a
@@ -251,7 +247,7 @@ def repOfCasimir_axisFactorBound (c2f c2a : Q') : AxisFactorBound (repOfCasimir 
   axisExcess := fun _ => Q'.mkPos 13 313 (by decide)
   exc_nonneg := fun _ => by decide
 
-/-- **The representative budget witness through the genuine character-tail
+/-- **The representative budget witness through the abstract tail
 capstone.**  Assembled by `uniformBudgetWitness_of_characterTail` from the
 matched majorant + model; the tail compatibilities are `rfl` and the window
 equality is `decide`.  `η_max ≤ su2.η_max` is *derived* from the strict tail
@@ -264,22 +260,23 @@ theorem repOfCasimir_uniformWitness (c2f c2a : Q') :
     (repOfCasimir_ztEtaModel c2f c2a)
     rfl rfl rfl
 
-/-- **Item 4: a budget witness for a representative of every Cartan type.** -/
+/-- **Item 4: a budget witness for every raw Cartan-code row.** -/
 theorem uniformBudgetWitness_of_cartanType (T : CartanType) :
     UniformBudgetWitness (repDataOf T) := by
   cases T <;> exact repOfCasimir_uniformWitness _ _
 
-/-! ## Item 5 — the mass gap for a representative of every Cartan type
+/-! ## Item 5 — conditional mass-gap composition for each legacy row
 
-Combining the faithfulness lemma (`admissible_of_cartanType`) with the
+Combining scalar-interface admissibility (`admissible_of_cartanType`) with the
 representative budget witness (`uniformBudgetWitness_of_cartanType`) and the
 paper-supplied OS-reconstruction interface, `mass_gap_simple_group_of_osReconstruction`
-delivers the mass gap for every compact-simple type's representative. -/
+returns the existing conditional mass-gap conclusion for each row.  This does
+not construct the corresponding group, measure, or reconstruction input. -/
 
-/-- **Mass gap for a representative of every compact simple Cartan type.**
-A one-line evaluation of the uniform theorem
-`mass_gap_simple_group_of_osReconstruction` at `repDataOf T`, its genuine per-type
-admissibility (`admissible_of_cartanType`), and its budget witness. -/
+/-- **Conditional mass-gap composition for a validated Cartan code's legacy
+row.** A one-line evaluation of the uniform theorem at `repDataOf T`, its
+scalar-interface admissibility, its budget witness, and caller-supplied OS
+reconstruction data. -/
 theorem mass_gap_of_cartanType (T : CartanType) (h : IsSimpleRank T)
     {M : Nat → Type} {μ_inf : ContinuumMeasure M}
     (rec : OSReconstruction μ_inf) (bundle : OSAxiomBundle μ_inf) :
@@ -292,13 +289,13 @@ theorem mass_gap_of_cartanType (T : CartanType) (h : IsSimpleRank T)
   mass_gap_simple_group_of_osReconstruction (repDataOf T)
     (admissible_of_cartanType T h) (uniformBudgetWitness_of_cartanType T) rec bundle
 
-/-! ### Per-type mass-gap corollaries
+/-! ### Per-code conditional mass-gap corollaries
 
 Thin aliases of `mass_gap_of_cartanType` at each family/exceptional.  The
-classical families carry the genuine-simple rank hypothesis; the exceptionals
-none.  Each is the mass gap for that type's representative `RepData`. -/
+classical families carry the canonical-code hypothesis; the exceptionals need
+none.  Each remains conditional on the same caller-supplied OS data. -/
 
-/-- Mass gap for the `A_n = SU(n+1)` family representative (`n ≥ 1`). -/
+/-- Conditional result for the legacy `A_n` row (`n ≥ 1`). -/
 theorem mass_gap_A (n : Nat) (hn : 1 ≤ n)
     {M : Nat → Type} {μ_inf : ContinuumMeasure M}
     (rec : OSReconstruction μ_inf) (bundle : OSAxiomBundle μ_inf) :
@@ -310,7 +307,7 @@ theorem mass_gap_A (n : Nat) (hn : 1 ≤ n)
               ≤ su2.sigma0) :=
   mass_gap_of_cartanType (.A n) hn rec bundle
 
-/-- Mass gap for the `B_n = SO(2n+1)` family representative (`n ≥ 2`). -/
+/-- Conditional result for the legacy `B_n` row (`n ≥ 2`). -/
 theorem mass_gap_B (n : Nat) (hn : 2 ≤ n)
     {M : Nat → Type} {μ_inf : ContinuumMeasure M}
     (rec : OSReconstruction μ_inf) (bundle : OSAxiomBundle μ_inf) :
@@ -322,7 +319,7 @@ theorem mass_gap_B (n : Nat) (hn : 2 ≤ n)
               ≤ su2.sigma0) :=
   mass_gap_of_cartanType (.B n) hn rec bundle
 
-/-- Mass gap for the `C_n = Sp(n)` family representative (`n ≥ 3`). -/
+/-- Conditional result for the legacy `C_n` row (`n ≥ 3`). -/
 theorem mass_gap_C (n : Nat) (hn : 3 ≤ n)
     {M : Nat → Type} {μ_inf : ContinuumMeasure M}
     (rec : OSReconstruction μ_inf) (bundle : OSAxiomBundle μ_inf) :
@@ -334,7 +331,7 @@ theorem mass_gap_C (n : Nat) (hn : 3 ≤ n)
               ≤ su2.sigma0) :=
   mass_gap_of_cartanType (.C n) hn rec bundle
 
-/-- Mass gap for the `D_n = SO(2n)` family representative (`n ≥ 4`). -/
+/-- Conditional result for the legacy `D_n` row (`n ≥ 4`). -/
 theorem mass_gap_D (n : Nat) (hn : 4 ≤ n)
     {M : Nat → Type} {μ_inf : ContinuumMeasure M}
     (rec : OSReconstruction μ_inf) (bundle : OSAxiomBundle μ_inf) :

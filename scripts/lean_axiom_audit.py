@@ -252,7 +252,7 @@ def run_lake_build() -> tuple[int, str]:
     # LEAN_NUM_THREADS is the only parallelism control this Lake version
     # exposes (no `--jobs` flag). Keep in sync with LEAN_JOBS in Makefile.
     env = os.environ.copy()
-    env.setdefault("LEAN_NUM_THREADS", "3")
+    env.setdefault("LEAN_NUM_THREADS", "1")
     proc = subprocess.run(
         ["lake", "build"],
         cwd=LEAN_DIR,

@@ -1,16 +1,27 @@
 .PHONY: test lint typecheck figures svg-to-pdf paper clean help \
         lean-build lean-audit lean-audit-strict lean-audit-update lean-rubric \
-        lean-frontier-guard lean-statement-guard frontier-status frontier-dag-check
+        lean-frontier-guard lean-statement-guard lean-import-guard lean-affected \
+        frontier-status frontier-dag-check
 
 # Cap Lake's build parallelism. Lake defaults to one worker per logical core
 # (16 here); the generated exact-rational certificate modules routinely peak
 # at 3-4 GB during kernel checking and the heaviest (the Base semantic
 # bridge) near 15 GB, so an uncapped rebuild wave exhausts a 64 GB machine.
 # This Lake version has no `--jobs` flag; LEAN_NUM_THREADS is the control
-# (verified: it caps concurrent lean workers). 3 workers under the 20 GB
-# per-process ceiling in lean/lakefile.toml keeps the worst case inside
-# physical memory. Override per run: make lean-build LEAN_JOBS=8
-LEAN_JOBS ?= 3
+# (verified: it caps concurrent lean workers). One worker is the safe default;
+# two or three require deliberate operator judgment and three is the hard host
+# ceiling. The per-process ceiling remains mandatory in lean/lakefile.toml.
+LEAN_JOBS ?= 1
+LEAN_BASE ?= HEAD
+LEAN_AUDIT_LOG ?=
+LEAN_AUDIT_SOURCE = $(if $(strip $(LEAN_AUDIT_LOG)),--from-file "$(LEAN_AUDIT_LOG)",)
+
+ifneq ($(words $(LEAN_JOBS)),1)
+$(error LEAN_JOBS must be exactly one of 1, 2, or 3; got '$(LEAN_JOBS)')
+endif
+ifeq ($(filter 1 2 3,$(LEAN_JOBS)),)
+$(error LEAN_JOBS must be 1, 2, or 3; got '$(LEAN_JOBS)')
+endif
 
 help:
 	@echo "Targets:"
@@ -19,13 +30,15 @@ help:
 	@echo "  typecheck           Run mypy only."
 	@echo "  figures             Regenerate plots in visualizations/ (no-op until Phase 1)."
 	@echo "  paper               Build formal/main.tex to PDF via latexmk."
-	@echo "  lean-build          Run \`lake build\` in lean/."
-	@echo "  lean-audit          Check the Lean axiom-gate vs lean/AXIOM_AUDIT.md baseline."
+	@echo "  lean-build          HIGH-LOAD: full all-module build; explicit host approval required."
+	@echo "  lean-audit          Check the axiom gate; builds unless LEAN_AUDIT_LOG=<log>."
 	@echo "  lean-audit-strict   Same, plus fail on new/missing theorems."
 	@echo "  lean-audit-update   Regenerate the baseline manifest from the current build."
 	@echo "  lean-rubric         Compile-check the Clay scorecard against the pinned external rubric."
 	@echo "  lean-frontier-guard Fail if a Clay-frontier type (Tier0Scorecard/ClayTarget/UniformSpacingFloor) is inhabited."
 	@echo "  lean-statement-guard Fail if a Clay-frontier STATEMENT (type/field signature or shared param) is weakened."
+	@echo "  lean-import-guard   Fail on missing imports or unreviewed modules outside the YMGap semantic root."
+	@echo "  lean-affected       List reverse-dependency build targets (optionally LEAN_BASE=<git-ref>)."
 	@echo "  frontier-status     Regenerate docs/frontier-status.md (partial-close + open-field ledger)."
 	@echo "  frontier-dag-check  Fail if a new *Scorecard/*Frontier/*Target enumeration lacks a FrontierDAG bridge."
 	@echo "  clean               Remove Python, mypy, ruff, pytest, and LaTeX build artifacts."
@@ -63,13 +76,20 @@ lean-build:
 	cd lean && LEAN_NUM_THREADS=$(LEAN_JOBS) lake build
 
 lean-audit:
-	LEAN_NUM_THREADS=$(LEAN_JOBS) python3 scripts/lean_axiom_audit.py
+	LEAN_NUM_THREADS=$(LEAN_JOBS) python3 scripts/lean_axiom_audit.py $(LEAN_AUDIT_SOURCE)
 
 lean-audit-strict:
-	LEAN_NUM_THREADS=$(LEAN_JOBS) python3 scripts/lean_axiom_audit.py --strict
+	LEAN_NUM_THREADS=$(LEAN_JOBS) python3 scripts/lean_axiom_audit.py --strict $(LEAN_AUDIT_SOURCE)
 
 lean-audit-update:
-	LEAN_NUM_THREADS=$(LEAN_JOBS) python3 scripts/lean_axiom_audit.py --update
+	LEAN_NUM_THREADS=$(LEAN_JOBS) python3 scripts/lean_axiom_audit.py --update $(LEAN_AUDIT_SOURCE)
+
+# Static source/import-graph checks. These never invoke Lean or Lake.
+lean-import-guard:
+	python3 scripts/lean_import_guard.py
+
+lean-affected:
+	python3 scripts/lean_import_guard.py --affected $(LEAN_BASE)
 
 # Frontier uninhabitedness guard. Builds YMGapGuard, which reflects over the
 # YMGap.* environment and FAILS if any Clay-frontier type (Tier0Scorecard,

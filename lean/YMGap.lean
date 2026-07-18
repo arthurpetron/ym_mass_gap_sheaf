@@ -1,8 +1,11 @@
 /-
-Root aggregator for the `YMGap` Lean library.
+Semantic and reflection-audit root for the `YMGap` Lean library.
 
-Each phase's constructivity-critical modules are imported here so
-`lake build` covers the whole library.
+Each phase's constructivity-critical modules is imported here so the frontier
+and statement guards inspect one coherent environment.  Compile coverage is a
+separate invariant: `lakefile.toml` uses `globs = ["YMGap.*"]`, so a full
+`lake build YMGap` compiles every source module independently, including
+reviewed alternative certificates that cannot coexist in one environment.
 
 Currently populated:
 
@@ -70,6 +73,9 @@ import YMGap.Constructive.GeomBeatsLinear
 import YMGap.Constructive.CharacterTermBound
 import YMGap.Constructive.ExpNegCongr
 import YMGap.Constructive.SU3CharFactor
+import YMGap.RepTheory.CartanType
+import YMGap.RepTheory.ConstructiveGroup
+import YMGap.RepTheory.CompactSimpleGlobalForm
 import YMGap.RepTheory.SU2
 import YMGap.RepTheory.SU3
 import YMGap.RepTheory.RepData
@@ -679,10 +685,9 @@ import YMGap.Continuum.BlockingStepFrontier
 import YMGap.Continuum.DeltaFrontierLedger
 -- NOTE: `YMGap.PolyAtlas` and `YMGap.ModuliAlgebra` are non-load-bearing
 -- expository/design-closure scaffolding (their own headers state "NOT
--- load-bearing"); no other module imports them and nothing references their
--- contents.  They are intentionally EXCLUDED from the default build aggregator
--- to keep the load-bearing / axiom-audit surface honest.  The files remain on
--- disk and build on demand (`lake build YMGap.PolyAtlas YMGap.ModuliAlgebra`).
+-- load-bearing").  They are intentionally excluded from this SEMANTIC root,
+-- but the `YMGap.*` library glob still compiles them independently.  Every
+-- semantic exclusion is reviewed in `lean/SEMANTIC_ROOT_EXCLUSIONS.txt`.
 import YMGap.Continuum.MultiComponentKPProgress
 import YMGap.Continuum.PartitionBeyondTree
 import YMGap.Continuum.SixJRecouplingCutoffFence
@@ -2068,6 +2073,17 @@ import YMGap.Continuum.CodynamicReflectionUnitRecast
 import YMGap.Continuum.SITE1PerMoveDefect
 import YMGap.Continuum.DimensionalLiftCollapse
 import YMGap.Continuum.MinkowskiModularReflection
+
+-- Production leaves promoted by the import-coverage audit of 2026-07-17.
+-- Keeping these in the semantic root makes their declarations visible to the
+-- reflection and axiom-audit environment; the remaining compile-only roots are
+-- explicitly classified in `SEMANTIC_ROOT_EXCLUSIONS.txt`.
+import YMGap.Continuum.FiniteOccurrenceReverseRecovery
+import YMGap.Continuum.HarmonicLowerSixCubicDebtCoefficient1330Certificate
+import YMGap.Continuum.HarmonicLowerSixCubicDebtCoefficient1330Physical
+import YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftQuadraticTaylorFluxPrefixMassReserveMomentRemainderSlopeSepticExactLowerHighCertificate
+import YMGap.Continuum.Z4HalfTimeReflectionAdjacentEvenReachableEndpointCompression
+import YMGap.Continuum.Z4OutwardSevenCubeGoodBackgroundSwitching
 
 -- Codynamic core: reusable error/defect + trajectory (Grönwall) tools,
 -- transposed from the machine-verified Agda `Codynamic.*` development.

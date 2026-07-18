@@ -27,25 +27,25 @@ open YMGap.RG
 open YMGap.MassGap.AllSimpleTypes
 open YMGap.Continuum.CanonicalOSRoot
 
-/-! ## Compact-simple Lie-type classification pin -/
+/-! ## Canonically validated Lie-type classification pin -/
 
-/-- A compact-simple Cartan type together with the exact representative datum
-used by the existing all-simple-types reduction.
+/-- A raw Cartan code, its canonical nonredundancy proof, and the exact legacy
+representative datum used by the existing all-simple-types reduction.
 
 The equality `repPinned` forbids replacing the selected Cartan type by an
 unrelated convenient `RepData`.  This is only Lie-type classification data,
 not a specification of the global compact group or its faithful lattice action. -/
 structure PinnedSimpleLieType (T : CartanType) : Type where
-  simpleRank : IsSimpleRank T
+  canonicalCode : IsCanonicalSimpleCode T
   rep : RepData
   repPinned : rep = repDataOf T
   admissible : AdmissibleSimpleGroup rep
 
 /-- The classification data already proved in `AllSimpleTypes` gives the
-canonical pin for every genuine-simple Cartan type. -/
-def pinnedSimpleLieType (T : CartanType) (hT : IsSimpleRank T) :
+canonical pin for every validated nonredundant simple Cartan code. -/
+def pinnedSimpleLieType (T : CartanType) (hT : IsCanonicalSimpleCode T) :
     PinnedSimpleLieType T where
-  simpleRank := hT
+  canonicalCode := hT
   rep := repDataOf T
   repPinned := rfl
   admissible := admissible_of_cartanType T hT

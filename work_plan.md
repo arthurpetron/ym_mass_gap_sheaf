@@ -2853,12 +2853,23 @@ calls "the single irreducibly hard" one.
 
 ### Milestone 11.12 — All compact simple groups: realize the per-group data
 
-**Status.** DONE (2026-07-03, faithfulness + per-type machinery; physical η = shared residual) — item 1 `RG/WeylDimGeneralData.lean` (crude WeylDimData, all 9 types). items 2–5 `MassGap/AllSimpleTypes.lean` (new leaf, axiom-clean): `admissible_of_cartanType` — FAITHFULNESS: every `CartanType` at a genuine-simple rank yields `AdmissibleSimpleGroup (repDataOf T)` via the PROVEN per-type `CasimirData` gap/h∨ floors (minimized only at A₁=SU(2)); `repDataOf : CartanType → RepData` carries the real per-type quadratic Casimirs; `uniformBudgetWitness_of_cartanType` (per-type `UniformBudgetWitness` via `uniformBudgetWitness_of_characterTail`, strict-monotone 13/313<1/2 regime); `mass_gap_of_cartanType` + per-type `mass_gap_A/B/C/D/G2/F4/E6/E7/E8` + `mass_gap_G2_via_weylData` (through `ofWeylData`), all conditional on the SAME OS interface as `mass_gap_SU3`. HONEST SCOPE: the faithfulness layer is genuine + type-specific (all ranks + all 5 exceptionals); the budget/η layer uses an admissible REPRESENTATIVE operating point (η_max = SU(3)'s proven value), so the group's OWN physical heat-kernel η — esp. the G₂/F₄ short-root Killing-form normalization — stays the pre-existing SHARED `UniformBudget.eta_dominated` residual (the same gate SU(3) is under). NET: R1 (group dependence) is realized for ALL compact simple types at SU(3)'s standing.
+**Status.** PARTIAL, RECLASSIFIED 2026-07-17.  The 2026-07-03 entry called
+this milestone DONE and described `repDataOf` as faithful realized per-group
+data.  That was mathematically too strong.  What is actually complete is an
+axiom-controlled *scalar-interface* exercise: raw `CartanType` rows, crude Weyl
+majorants, abstract `AdmissibleSimpleGroup` inequalities, representative
+budget witnesses, and conclusions conditional on caller-supplied OS data.  It
+constructs no global group `G_sc/Gamma`, faithful action, representation
+descent, Haar theory, or group-pinned OS family.  The legacy Casimir rows also
+conflate three distinct notions and include the `D_n` vector normalization
+defect recorded in §8.9.  Therefore R1 is not realized for all compact simple
+groups; these modules are reusable legacy scaffolding pending the global-form,
+root-datum, and corrected-Casimir bridge of §§8.6–8.9.
 
-**Goal.** The Clay quantifier "any compact simple gauge group G" is
-covered at the lattice layer: the uniform reduction
+**Goal.** Cover the Clay quantifier "any compact simple gauge group G" at the
+lattice layer.  The current uniform reduction
 (`mass_gap_simple_group` via `uniformBudgetWitness_of_characterTail`)
-is instantiated for every compact simple type, not only SU(2)/SU(3).
+is instantiated only at legacy scalar rows, not yet at realized global groups.
 Checkable predicate: `WeylDimData` + `AxisFactorBound` (+ the
 `ZtEtaModel` equalities) realized for the classical families
 A_n/B_n/C_n/D_n at general rank and the five exceptionals — either by
@@ -12472,3 +12483,492 @@ The next work is NOT the unbounded generator.  Proceed in this order:
     uniqueness from clustering/ergodicity, pin curvature fields/OPE/stress
     tensor to the same Schwinger functions, and start the total adequacy theorem
     for `ClayResolutionTarget`.
+
+### 8. Build-consistency theorem and global-group launch
+(2026-07-17, session 6)
+
+This session answers a repository-level question that is part of the proof
+discipline rather than an optional engineering convenience: how can an
+increment be known to be compatible with the whole import graph without
+re-running the 2,500-module build after every edit, especially when an
+uncontrolled build can exhaust the host?
+
+#### 8.1 Exact answer within the declared dependency model
+
+No source-only checker can prove that arbitrary new Lean syntax elaborates or
+that the kernel accepts an arbitrary proof.  At least the changed code and all
+of its semantic consumers must eventually be validated by Lean.  What can be
+made exact is the affected cone *within the repository's declared dependency
+model*: local dependencies must be represented by the accepted import syntax,
+and the toolchain, build configuration, elaborator inputs, generated inputs,
+and foreign inputs must be unchanged unless separately escalated.
+
+1. Lake's dependency hashes validate unchanged imported artifacts.
+2. A changed module must be selected together with every transitive importer
+   whose elaboration environment can change.  Lake may validate a cached
+   importer without re-elaborating it when its relevant artifact hashes are
+   unchanged; the guarantee is validation, not compulsory recompilation.
+3. It is sufficient to build the maximal modules of that reverse-dependency
+   closure, because building each maximal module recursively checks every
+   changed dependency and every affected intermediate importer.
+4. A final all-module build must run once per Lean-relevant pushed/PR state
+   selected by CI's path filter, not once per local edit.  Documentation-only
+   states are presently outside that filter.  A clean no-cache build is a
+   separate periodic or toolchain/configuration-change proof.
+
+Thus the repository now has two complementary guarantees:
+
+- **local incremental consistency:** static graph validation followed by
+  one-worker builds of the maximal reverse-dependent targets printed by the
+  affected-target planner;
+- **repository-state consistency:** one one-worker CI build of every source
+  module selected independently by the `YMGap.*` library glob, followed by the
+  frontier, statement, DAG, rubric, and required non-strict axiom gates, plus
+  the informational strict namespace-drift report.
+
+The second guarantee becomes an observed theorem about a commit only when its
+CI run exits zero.  Merely installing the workflow is not a claim that the
+present unpushed commit has passed it.  This session intentionally does not run
+a full build on the MacBook Pro.
+
+#### 8.2 Dependency-cone argument
+
+Let `M` be the finite set of local Lean modules and put an edge `A -> B` when
+module `A` imports module `B`.  The static import guard checks that every edge
+target exists and that this graph has no directed cycle.  For a set `S` of
+changed modules, define
+
+```text
+R(S) = the least set containing S and every importer of an element of R(S),
+T(S) = { A in R(S) | A has no importer in R(S) }.
+```
+
+Because the graph is finite and acyclic, every `A in R(S)` lies on a directed
+import path beginning at some `t in T(S)` and ending at a changed module.
+Consequently, building every `t in T(S)` asks Lake to validate every member of
+`R(S)`; it does not assert that every valid cache hit is re-elaborated.
+Conversely, a module outside `R(S)` has no parsed import path to changed source
+and its elaboration environment is unchanged, provided the Lean toolchain,
+Lake configuration, compiler arguments, generated/elaborator inputs, and
+foreign inputs are unchanged.  This proves sufficiency, and minimality among
+target sets restricted to the parsed graph, for
+`scripts/lean_import_guard.py --affected`.
+
+The guard deliberately uses a tested lexical parser rather than Lean's own
+parser.  It covers the repository's ordinary, `public`, `meta`, and
+`import all` local-import forms, including multiline layout, while removing
+nested comments and strings.  Exotic syntax quotations or a future import
+command form are outside the theorem until the parser and its synthetic tests
+are extended.  Therefore “exact” never means that a regular expression has
+reconstructed arbitrary future Lean syntax.  Generated-script dependencies,
+ignored files, and other undeclared inputs likewise require a separate direct
+check or configuration escalation.
+
+The flat umbrella importers `YMGap`, `YMGapGuard`, and
+`YMGapStatementGuard` are omitted only while computing the *local compilation*
+cone; otherwise every edit would collapse the plan back to the whole semantic
+root.  They are not omitted from final CI.  If an umbrella itself changes, it
+is still emitted as a changed target.  Frontier/statement reflection remains a
+final CI obligation unless the user separately approves the corresponding
+local guard run.
+
+The graph argument is invalidated by any toolchain/build-contract change.  The
+planner therefore exits with `FULL BUILD REQUIRED` for changes to the pinned
+toolchain, Lake files/manifest, Makefile, CI workflow, or the import guard
+itself.  Source deletion is handled by the missing-import check; a new
+unimported source is its own maximal target and is also selected by the
+full-library glob.
+
+#### 8.3 Implemented build invariants
+
+The following are now load-bearing repository invariants:
+
+1. **Complete compile selection.**  The main `[[lean_lib]]` has
+   `globs = ["YMGap.*"]`.  `lake build YMGap` therefore selects the root and
+   every `lean/YMGap/**/*.lean` module independently.  This corrects the prior
+   false assumption that Lake's default glob included all submodules; without
+   the explicit glob, Lake 4.29 selected only `YMGap.lean` and its recursive
+   imports.
+2. **Selective semantic root.**  `lean/YMGap.lean` remains one coherent
+   reflection/axiom-audit environment.  It is no longer described as the
+   mechanism that makes every file compile.  This distinction is necessary
+   because independently generated alternative certificates can deliberately
+   declare the same fully-qualified theorem and cannot coexist in one Lean
+   environment.
+3. **Static source guard.**  `scripts/lean_import_guard.py` uses only the Python
+   standard library and never invokes Lean/Lake.  It validates local-import
+   resolution, acyclicity, the explicit all-module glob, semantic-root closure,
+   and the reviewed exclusion manifest.  Its synthetic parser/graph self-test
+   is independent of repository state.
+4. **Reviewed semantic exclusions.**  Every compile-only component is rooted
+   in `lean/SEMANTIC_ROOT_EXCLUSIONS.txt` with a nonempty reason.  The guard
+   rejects a missing root, a root that has become semantic, a redundant nested
+   root, and an unclassified orphan.
+5. **Reverse-dependent planner.**  `make lean-affected LEAN_BASE=<git-ref>`
+   includes tracked, staged, working-tree, deleted, renamed, and untracked Lean
+   paths and prints the maximal reverse-dependent module targets.
+6. **Host-safe defaults.**  `LEAN_JOBS` defaults to one.  The Makefile rejects
+   any value other than `1`, `2`, or `3`; the repository-wide host ceiling is
+   three, while one is mandatory for ordinary work.  The per-process
+   `-M 20480` limit remains in `lakefile.toml`.  The axiom-audit and optional
+   frontier-status build paths also default to one worker, and the latter
+   requires an explicit `--allow-full-build` acknowledgement.
+7. **One full-library CI build invocation.**  For states selected by its path
+   filter, push/PR CI runs the static guard, performs one all-module build with
+   `LEAN_JOBS=1` and a checked pipe exit code, preserves its log, and feeds that
+   same log to both axiom-audit modes rather than launching a second full
+   build.  Later frontier, statement, and rubric Lake invocations remain and
+   should normally be cache validations.  The cache key includes the
+   toolchain, Lake configuration/manifest, Makefile, workflow, and all Lean
+   sources.  Restore keys retain the same toolchain/build-model hash, so an
+   artifact cache from a different build model cannot be restored.  A manual
+   `workflow_dispatch` clean mode is also available and skips the Lake cache
+   entirely.
+
+Normal CI cache reuse is sound only because Lake revalidates source,
+dependency, options, and toolchain hashes for selected targets.  It proves the
+current selected build, but it is not an independent reproducibility test of
+the cache itself.  A toolchain/build-model hash change is now automatically
+cache-isolated; periodic manual clean mode remains policy-required as an
+independent reproducibility check and is available rather than enforced as a
+required branch status.  Runner capacity is fail-closed: the workflow refuses
+to start Lean unless Linux reports at least 24 GiB RAM, and repository variable
+`YMGAP_LEAN_RUNNER` can select a provisioned high-memory runner label.  The
+`ubuntu-latest` fallback will therefore stop before compilation when it is too
+small.  Runner provisioning remains an operational prerequisite, and a
+capacity preflight failure must not be relabeled as a proof failure or silently
+bypassed.
+
+The two axiom modes have different force.  The non-strict run is the required
+gate against observed declarations acquiring axioms outside the reviewed
+budget.  Strict namespace-digest drift is currently informational
+(`continue-on-error`).  Moreover, an incremental cache-reusing build log need
+contain `#print axioms` output only for modules that Lake actually rebuilt;
+unchanged cached declarations rely on the previously trusted artifact state.
+Thus CI exit zero does not presently assert that a complete current namespace
+digest was regenerated from that one log.  Making that stronger statement
+requires a required strict check fed by complete replayed/regenerated axiom
+output, not merely renaming the informational step a gate.
+
+The workflow is also path-filtered.  “Every push/PR” below always means every
+Lean-relevant state selected by that filter.  The load-bearing path set now
+includes `reference/leanmillennium-pinned/**`, so a change to the pinned rubric
+transcription triggers the same workflow; documentation-only states remain
+outside it.
+
+#### 8.4 Semantic-root classification found by the audit
+
+Before repair, 51 of 2,517 package modules were outside `YMGap.lean`'s closure.
+Six orphan roots/components, covering 45 modules, were promoted into the
+semantic root:
+
+- `FiniteOccurrenceReverseRecovery`;
+- `HarmonicLowerSixCubicDebtCoefficient1330Certificate`;
+- `HarmonicLowerSixCubicDebtCoefficient1330Physical`;
+- the 40-module
+  `HarmonicMassCross...SlopeSepticExactLowerHighCertificate` component;
+- `Z4HalfTimeReflectionAdjacentEvenReachableEndpointCompression`;
+- `Z4OutwardSevenCubeGoodBackgroundSwitching`.
+
+The residual six roots are intentionally compile-only:
+
+- `ModuliAlgebra` and `PolyAtlas`: explicitly non-load-bearing expository
+  modules;
+- `ScratchGraphFour`: a named scratch calculation without a consumer;
+- `HarmonicLowerSixTailBaseSemanticFactors`: a dormant generated table reserved
+  for a future refactor;
+- `HarmonicLowerSixTailEnvelopeCertificateE8ChartA` and
+  `...ChartAXPascal`: alternative generated certificate layouts that share a
+  namespace and the theorem `tailEnvelopeE8ChartA_xPascal_relation`.
+
+The last pair is the decisive reason not to force every source into one
+umbrella environment.  The library glob checks both independently, while the
+manifest makes their absence from the reflection environment explicit rather
+than accidental.
+
+Static verification in this session reported zero unresolved imports, zero
+cycles, zero unclassified semantic orphans, and complete `YMGap.*` selection.
+The affected planner correctly escalated the present `lakefile.toml` change to
+`FULL BUILD REQUIRED`.  That is a plan result, not a full-build result.
+
+#### 8.5 Mandatory local workflow
+
+For a normal Lean edit, after the process-conflict check:
+
+```text
+python3 scripts/lean_import_guard.py
+make lean-affected LEAN_BASE=HEAD
+cd lean
+LEAN_NUM_THREADS=1 lake build <each printed +Module.Target>
+```
+
+Run the smallest directly edited target first.  If a printed maximal target is
+known to be one of the high-memory certificate roots, stop and obtain explicit
+approval before that target.  Never parallelize the printed targets.  A
+configuration/toolchain escalation is not permission to run the full build on
+the host; it means local incremental proof is insufficient and the approved
+CI/manual full-build path is required.
+
+#### 8.6 Global compact group/action audit: exact mathematical correction
+
+The next mathematical dependency in Section 7.6 is now audited.  The repository
+previously had no reusable global group carrier:
+
+- `CartanType` is only a raw family/rank code; the canonically validated
+  subtype is still root-system/Lie-algebra classification data, not a group;
+- `RepData` is a tuple of scalar operating-point invariants;
+- `AdmissibleSimpleGroup` supplies two inequalities and a budget certificate;
+- the SU(N) center-charge fragment is not an embedded group quotient;
+- SU(2) quaternion/Haar files are one-group realizations, not a generic global
+  interface;
+- `ObsAlg` lacks the unital `*`-algebra laws, and `ProbFunctional` is not yet a
+  positive linear functional;
+- class coordinates cannot represent a general kernel `K(g h^{-1})`, so the
+  generic link calculus must retain matrix coefficients/tensor indices;
+- the existing rational SU(2) carrier does not provide the constructive complex
+  numbers needed for general SU(3) and Peter--Weyl matrix coefficients.
+
+The corrected hierarchy concerns connected compact groups with simple Lie
+algebra; disconnected extensions by outer automorphisms are a separate problem
+and are not classified by a central quotient of the connected simply
+connected cover.  Within that scope it must distinguish the following data,
+with no definitionally identified shortcuts:
+
+```text
+Cartan/root type T
+  -> simply-connected compact form G_sc(T)
+  -> finite central subgroup Gamma <= Z(G_sc(T))
+  -> actual global group G = G_sc(T)/Gamma
+  -> faithful finite-dimensional action rho_G of G
+  -> allowed irreps/matrix coefficients/Haar data for that same G
+  -> character chi_rho = trace(rho_G), then the real normalized Wilson
+     plaquette observable Re(chi_rho)/dim(rho)
+  -> the two-parameter 4D lattice/OS stage family.
+```
+
+A representation of the cover merely trivial on `Gamma` descends; it is
+faithful on the quotient only when its cover kernel is *exactly* `Gamma`.
+Similarly, irreps of the global form are precisely cover irreps whose central
+character is trivial on `Gamma`.  This restriction changes the allowed
+character sum and can change the smallest nonzero Casimir.  It must feed the
+Haar tail and Wilson action rather than being recorded as decorative metadata.
+For a complex representation such as the SU(3) fundamental, the raw character
+is complex and orientation reversal conjugates it.  The real Wilson action
+must therefore use `Re(trace)` (equivalently the character symmetrized with its
+dual), normally normalized by positive dimension; it may not identify the raw
+complex character with a real plaquette energy.
+
+#### 8.7 Cycle-free global-form module plan
+
+The dependency layers are now fixed as follows.
+
+1. **`RepTheory/CartanType.lean`.**  The extracted Lean-core leaf defines
+   `CartanType` as a *raw* family/rank code: values such as `A 0` and `D 0` are
+   representable and must not be called simple types.  The honest validation
+   predicate is `IsCanonicalSimpleCode`, with the nonredundant thresholds
+   `A≥1`, `B≥2`, `C≥3`, `D≥4`; `IsSimpleRank` is only a compatibility
+   alias.  The excluded `C₂≅B₂` and `D₃≅A₃` aliases are simple, which is
+   exactly why the old name was misleading.  Validated global-form code uses
+   `IsCanonicalSimpleCode`, while the historical public names of `CartanType`,
+   `rank`, and positive-root count remain cycle-free.
+2. **`RepTheory/ConstructiveGroup.lean`.**  Define a carrier with an explicit
+   setoid, identity/multiplication/inversion, congruence, associativity, units,
+   and inverse laws; homomorphisms; finite enumerations with constructive
+   `PSigma` coverage; finite central inclusions; and a central quotient with an
+   explicit surjective lift and both directions of exact-kernel witnesses.
+   The algebraic upstream parameter is `coverGroup`, not `simplyConnected`,
+   and its arbitrary finite central kernel is `gamma`, not `center`; topology
+   and full-center equality are not hidden in suggestive names.  No quotient
+   section or classical choice is permitted.
+3. **`RepTheory/CompactSimpleGlobalForm.lean`.**  Define a finite *marked*
+   global-form code from a canonically validated `CartanType` and a subgroup
+   code for the computed center shape.  The simply-connected centers are:
+
+   ```text
+   A_n: Z/(n+1),  B_n: Z/2,  C_n: Z/2,
+   D_n even: Z/2 x Z/2,  D_n odd: Z/4,
+   E6: Z/3, E7: Z/2, E8: 1, F4: 1, G2: 1.
+   ```
+
+   Low-rank aliases are excluded by `IsCanonicalSimpleCode`.  Cyclic `Gamma`
+   codes carry positive order/index and an explicit factorization of the
+   ambient order; Klein-four codes enumerate exactly the trivial, three
+   order-two, and full marked subgroups.  They are not free quotient labels,
+   but neither are they yet inclusions into a realized group.  For even `D_n`,
+   diagram automorphisms exchange marked order-two subgroups (all three under
+   `D₄` triality, the two spinorial axes in higher even rank).  Consequently
+   the code either remains explicitly marked or a later theorem must quotient
+   by root-datum automorphisms and prove completeness/nonduplication before it
+   is advertised as classification up to unmarked group isomorphism.  A code
+   alone constructs no topology.
+4. **`RepTheory/ConstructiveCompactGaugeGroup.lean`.**  Realize the code by an
+   actual cover and quotient `ConstructiveGroup`, the exact central quotient,
+   and a constructive compact-metric presentation.  If “compact” appears in a
+   *realized group* type name (rather than in the name of a finite
+   classification code), it must carry a separated bi-invariant
+   constructive-real metric, explicit finite `2^{-n}` nets with coverage, and
+   the required completion/total-boundedness data.  Until then the honest name
+   is `GlobalGaugeGroupRoot`, not `CompactGroup`.
+5. **Constructive complex and lawful coefficient algebra.**  Before generic
+   Peter--Weyl data, implement constructive complex scalars, conjugation,
+   modulus, finite matrices, adjoint, and a lawful unital `*`-algebra.  A
+   rational surrogate may be an explicitly realified test representation, but
+   may not be called the general character layer.
+6. **Root datum and `IrrepDescentData`.**  Construct the weight and root
+   lattices `P` and `Q`, compute the highest-weight central character through
+   `P/Q ≅ Hom(Z(G_sc), U(1))`, and restrict it to the coded `Gamma`.  Prove
+   `descends(lambda) ↔ chi_lambda|Gamma = 1`; only then define global labels
+   as exactly that decidable subtype.  Carry lift/descend inverse laws, equality
+   of pulled-back matrices and coefficients, and preservation of dimension and
+   Casimir.  A caller-supplied Boolean or proposition named `descends` is
+   insufficient.
+7. **`FaithfulLatticeAction`.**  Carry cover and global finite unitary (or
+   explicitly realified orthogonal) actions, positive dimension, the pullback
+   equation `rho_sc(x)=rho_G(q x)`, and
+   `rho_sc(x)=I` iff `x` has an explicit `Gamma` witness.  Derive faithfulness of
+   `rho_G` and `chi_rho = trace(rho_G)` rather than choosing a separate
+   character.  Then derive the real, orientation-invariant plaquette observable
+   `Re(chi_rho(g))/dim(rho)` and its unique identity maximum; do not use a raw
+   complex trace as the Wilson energy.
+8. **`HaarPeterWeylData`.**  On the same global group, supply a point-separating
+   matrix-coefficient `*`-algebra, evaluated left/right translations, normalized
+   positive linear Haar functional, bi-invariance, actual unitary matrix
+   coefficients, character-as-trace, Schur matrix-coefficient orthogonality,
+   fusion/product coefficients, and Casimir nonnegativity with the trivial-zero
+   pin.  Character orthogonality alone is not enough for link integration.
+9. **Bridges only after realization.**  `MassGap/GlobalGroupRepDataBridge.lean`
+   may compare realized group invariants to legacy `RepData`; it must not make
+   them definitionally equal.  `Continuum/PinnedWilsonLatticeFamily.lean` then
+   adapts the actual coefficient algebra/Haar/action to the corrected
+   `CanonicalOSRoot`.  `Rubric/ClayResolutionRoot` assembles these last, so no
+   RepTheory-to-Continuum/RG cycle is introduced.
+
+#### 8.8 Required SU(2) -> SO(3) validation
+
+Before the generic Haar layer grows, exercise every global-form distinction in
+the smallest nontrivial quotient.  Encode SU(2) irreps by doubled spin `ell`.
+The central element `-1` acts by `(-1)^ell`; therefore an irrep descends through
+`SU(2)/{+-1}` exactly when `ell` is even.  The validation must prove:
+
+- the quotient kernel is exactly the two-element center;
+- the spin-half label `ell=1` does not descend;
+- the spin-one label `ell=2` does descend;
+- all and only even labels form the SO(3) label carrier;
+- the descended three-dimensional action is faithful on SO(3);
+- its pullback to SU(2) has kernel exactly `{+-1}`;
+- for the quotient map `q : SU(2) -> SO(3)`, descended characters satisfy
+  `chi_desc ∘ q = chi_cover`, and normalized Haar functionals satisfy the
+  precise pushforward/integration identity
+  `H_SU2(f ∘ q) = H_SO3(f)` for every function in the realized coefficient
+  algebra.
+
+This test prevents a later implementation from silently treating Lie type A1
+as a unique global group or using the SU(2) fundamental Wilson action for SO(3).
+
+#### 8.9 Casimir provenance defects that must be repaired
+
+The legacy scalar table cannot be promoted unchanged:
+
+1. `repDataOf (.A n)` uses the SU(n+1) fundamental, which does not descend to
+   PSU(n+1).  The B/D comments similarly choose vector/SO conventions while the
+   same Cartan type also denotes Spin and intermediate quotients.  The smallest
+   allowed nontrivial Casimir is a function of `(T,Gamma)` only after fixing the
+   invariant-inner-product scale; throughout this repair that scale is long
+   roots squared `2`.  A dimensionful physical value also carries the chosen
+   coupling/metric convention.
+2. For simply-connected `B_n = Spin(2n+1)`, spinor representations are allowed
+   and have `C2 = n(2n+1)/8`; they beat the vector value `n` at least for
+   `n=2,3`.  Vector minimality is a quotient-dependent statement.
+3. With the repository's declared long-root-squared `2` convention and
+   `C2(SU2 fundamental)=3/4`, the `D_n` vector has
+   `C2=(2n-1)/2`, not the coded `(2n-1)/4`.  The current rational lower-bound
+   theorem about the coded scalar may remain formally true, but its “exact
+   physical Casimir” provenance is false until corrected.
+
+The replacement API must keep three quantities distinct:
+
+1. the smallest nonzero Casimir among all `Gamma`-descending irreps, which is
+   the spectral quantity used by the heat-kernel tail;
+2. the Casimir data of the chosen faithful Wilson action, which may be
+   reducible and need not attain that minimum; and
+3. the adjoint Casimir/dual Coxeter number.
+
+The legacy field name `C2_fund` conflates these roles and is not even honest
+terminology for `E8`, whose smallest representation is adjoint.  The repair
+order is: formalize the long-root-squared-`2` normalization from roots/weights,
+prove the cover table, restrict it by the computed global-form descent
+predicate, then derive the smallest allowed nontrivial Casimir and separately
+the chosen action's Casimir data.  No existing mass-gap theorem may cite the
+legacy table as a global-group fact before that bridge is complete.
+
+#### 8.10 Execution record and immediate residual
+
+Three cycle-free leaves now exist:
+
+- `ConstructiveGroup.lean` contains the setoid group, homomorphism, finite
+  presentation, finite central subgroup, explicit `gamma` witness, and exact
+  central-quotient interfaces.  Its neutral algebraic upstream name is
+  `coverGroup`; no field asserts topology or that `gamma` is the full center.
+- `CartanType.lean` contains raw family/rank codes and the honest
+  `IsCanonicalSimpleCode` predicate, with `IsSimpleRank` retained only as a
+  compatibility alias.
+- `CompactSimpleGlobalForm.lean` contains center-shape and honest marked
+  subgroup codes, simply-connected/adjoint constructors, and the A1 code-level
+  even-label test.  It is not yet an SU(2) or SO(3) group realization, and its
+  parity predicate is not yet derived from the general `P/Q` central-character
+  construction.
+
+After the final naming/domain audit, each edited target was checked afresh.
+Before every command the process table contained no Lean/Lake/pytest process;
+every command used one worker and inherited Lake's mandatory memory cap:
+
+```text
+env LEAN_NUM_THREADS=1 lake build YMGap.RepTheory.CartanType
+Build completed successfully (2 jobs; edited leaf 175 ms).
+
+env LEAN_NUM_THREADS=1 lake build YMGap.RepTheory.ConstructiveGroup
+Build completed successfully (2 jobs; edited leaf 188 ms).
+All eight printed public theorems: axiom-free.
+
+env LEAN_NUM_THREADS=1 lake build YMGap.RepTheory.CompactSimpleGlobalForm
+Build completed successfully (3 jobs; edited leaf 204 ms).
+All printed public theorems: axiom-free.
+
+env LEAN_NUM_THREADS=1 lake build YMGap.RG.WeylDimGeneralData
+Build completed successfully (56 jobs; edited leaf 257 ms).
+
+env LEAN_NUM_THREADS=1 lake build YMGap.MassGap.AllSimpleTypes
+Build completed successfully (85 jobs; edited leaf 372 ms).
+
+env LEAN_NUM_THREADS=1 lake build YMGap.Rubric.ClayResolutionRoot
+Build completed successfully (111 jobs; final affected consumer 153 ms).
+```
+
+One safety incident in this session must remain explicit.  A command
+`lake query YMGap` was mistakenly treated as read-only target inspection, but
+this Lake's `query` command invokes the build.  It selected 2,523 jobs and
+mostly replayed cached artifacts, then exited nonzero on sandbox write errors
+and the then-unrepaired global-form leaf.  It was not a successful full build,
+was outside the approved local protocol, and must not be repeated.  It did
+empirically confirm that the explicit library glob expands to the all-module
+target, but establishes no green integration result.
+
+The umbrella `YMGap.lean` still postdates its `.olean`; integration of the new
+imports and promoted semantic roots remains unverified until the approved CI
+path.  The present build-contract changes also make the affected planner return
+`FULL BUILD REQUIRED`, as designed.
+
+No full build, full test, repository axiom audit, statement guard, or frontier
+guard has been claimed for the current repository state.  The immediate safe
+residual is:
+
+1. obtain a green high-memory CI all-module result after push/PR; do not infer
+   umbrella integration from the successful leaf/consumer checks;
+2. realize the algebraic A1 central quotient and prove the full SU(2)-to-SO(3)
+   kernel, lift, descent, faithful three-dimensional action, and normalized
+   Haar identities;
+3. construct the root/weight-lattice central-character calculation before
+   generalizing `descends` or repairing the global-form Casimir minimum;
+4. only after those pass, advance to constructive compactness, complex
+   coefficients, faithful real Wilson actions, and Haar/Peter--Weyl
+   realization.
