@@ -177,7 +177,24 @@ jobs:
             exit 1
           fi
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
-          "$HOME/.elan/bin/elan" toolchain install "${{ steps.toolchain.outputs.version }}"
+          toolchain_version="${{ steps.toolchain.outputs.version }}"
+          installed_toolchains=""
+          if ! installed_toolchains="$("$HOME/.elan/bin/elan" toolchain list)"; then
+            echo "::error::Could not inspect the locally installed Lean toolchains."
+            exit 1
+          fi
+          toolchain_present=false
+          while read -r installed_name _; do
+            if [[ "$installed_name" == "$toolchain_version" ]]; then
+              toolchain_present=true
+              break
+            fi
+          done <<< "$installed_toolchains"
+          if [[ "$toolchain_present" == "true" ]]; then
+            echo "Pinned Lean toolchain is already installed: $toolchain_version"
+          else
+            "$HOME/.elan/bin/elan" toolchain install "$toolchain_version"
+          fi
 
       - name: Recheck the locked host immediately before Lean
         shell: bash

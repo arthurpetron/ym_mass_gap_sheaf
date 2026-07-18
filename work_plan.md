@@ -15413,3 +15413,35 @@ No Clay-facing claim may cite the categorical vocabulary itself.  Promotion
 earns its place only if it removes duplicated proof obligations from at least
 two production consumers or supplies a transport/universal property actually
 used by the analytic spine.
+
+#### 8.13.23 First exact-SHA JIT run: safe pre-build failure and idempotence repair
+
+(2026-07-18, session 8, live certification attempt.)  Commit `8647b65`
+(`Harden Mac CI and advance constructive YMGap fronts`) was pushed to `main`,
+and GitHub queued run `29661602621` for the exact full SHA
+`8647b653423c13587ebdf5eabde07e860decd0ab`.  The read-only host preflight,
+pinned runner `2.335.1` setup, legacy-registration removal, unique JIT
+registration, exact-job claim, and static import/host-wiring steps all passed.
+The run then failed before any Lean process began, in `Select pinned Lean
+toolchain`, because the host's `elan` reports an already-installed toolchain as
+an error when `elan toolchain install` is repeated:
+
+```text
+error: 'leanprover/lean4:v4.29.1' is already installed
+```
+
+This is an operational idempotence defect, not a source/build inconsistency.
+The safety boundary behaved correctly: no compilation or pytest process was
+started; the job ended in seconds; the JIT credentials and local registration
+were removed; the exact remote runner collection became empty; the recovery
+record and canonical lock disappeared after conclusive process checks; and no
+runner/Lean/test process remained.
+
+The workflow now captures `elan toolchain list`, fails closed if that
+inspection fails, parses its first whitespace-delimited field, and treats an
+exact match for the pinned toolchain as success.  It invokes `elan toolchain
+install` only when the exact pin is absent.  This supports both unannotated
+list lines and lines with trailing markers such as `(default)`, without
+weakening the subsequent `lean --version`/`lake --version` check.  The repaired
+workflow must be committed and pushed, and a fresh exact-SHA JIT run must pass
+all mandatory stages before live CI certification is complete.
