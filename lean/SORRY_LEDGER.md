@@ -487,6 +487,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 - **must not be closed classically**: per AGENTS.md Rule 6 — and
   isn't.  All 13 Lean exports are axiom-free.
 
+### [canonical-os-root] standard reflected positive-time prerequisite — **named hypotheses, NO `sorry`**
+
+- **milestone**: revised Phase A.2--A.4 (`work_plan.md` session 5 correction)
+- **files**: `lean/YMGap/Continuum/CanonicalOSRoot.lean`,
+  `lean/YMGap/Rubric/ClayResolutionRoot.lean`
+- **decl / named obligations**: `ReferenceWeightStageFamily`,
+  `CanonicalSchwingerLimit`, `WilsonAmbientTimeReflection`,
+  `PositiveTimeSupport`, and `PositiveTimeOSRoot`
+- **obligation**: construct the genuine group/action-pinned plaquette-coupled 4D
+  Wilson stage family, its two-parameter expectation/GNS convergence estimates,
+  observable-compatible Euclidean time/reflection, geometry-derived half-space
+  certificates, and the standard reflected positive-time OS datum with nonzero
+  physical vacuum and strict finite Rayleigh response.
+- **how it is carried**: explicit Type-level structures and dependent witnesses,
+  including independent volume/cutoff moduli, observable approximation errors,
+  Type-valued support certificates, positive-sector essential surjectivity,
+  equivalence-reflecting physical representatives, and rational Rayleigh bounds.
+  The physical form is pinned only to `E(star (Theta a) * b)`; the legacy
+  ordinary-norm equality and finite-mode certificate are deliberately excluded.
+  No `sorry`, `sorryAx`, `Classical.*`, `native_decide`, or custom axiom is used.
+- **status**: the generic obligation interface, completion descent, derived
+  unit normalization/invariance, and anti-zero/identity requirements are
+  typechecked; there is NO 4D Yang--Mills inhabitant.  In particular,
+  representative self-adjointness/positivity/contraction remain fields to be
+  derived from concrete OS/Markov geometry.  The structures do not inhabit or weaken
+  `ClayTarget`, `Tier0Scorecard`, or `UniformSpacingFloor`.
+- **constructive?**: yes.  All moduli, representatives, observables, and bounds
+  are retained as Type-level data; discharging them classically is forbidden.
+- **must not be closed classically**: per AGENTS.md Rules 4, 6a, and 9.
+
 ## How to add an entry
 
 ```markdown

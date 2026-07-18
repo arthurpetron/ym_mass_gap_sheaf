@@ -12186,11 +12186,13 @@ load-bearing findings emerged:
    identifying the spectral/form data with the actual descended time
    translation, not merely a `SpectralGapData` field.
 
-The strongest current semantic root is instead `WilsonGNSData.toGNSData` and its
-constructive completion `gnsComplete`, provided that the Wilson expectation is
-definitionally pinned to the canonical Schwinger functional.
+The strongest current ordinary-state root is `WilsonGNSData.toGNSData`, provided
+that its expectation is pinned to the canonical Schwinger functional.  Session 5
+below records the crucial correction: its completion is an AMBIENT state GNS
+space, not the physical positive-time OS Hilbert space.
 
-**Phase A.2 — object-identity root: STARTED, first increment GREEN.**
+**Phase A.2 — historical first increment: TYPECHECKED, PHYSICAL DESIGN
+RETRACTED.**
 `YMGap.Rubric.ClayResolutionRoot` now supplies:
 
 - `PinnedSimpleGroup T`, tying representation data to `repDataOf T`;
@@ -12215,3 +12217,258 @@ No full build, full test, audit, or guard was run.  Next residual: define the
 strongly continuous semigroup/closed-form generator interface over this exact
 root, then define the spectral-representation pin that makes any gap a theorem
 about that generator rather than a freely selected finite model.
+
+That proposed next step is superseded by the session-5 no-go audit below.  The
+historical targeted build remains a valid syntax/axiom record, but the ordinary
+state-GNS dynamics it checked must not be used as the physical transfer.
+
+### 7. Phase A architecture correction and standard reflected OS root
+(2026-07-17, session 5)
+
+#### 7.1 Decisive correction: the ordinary state GNS route is impossible
+
+`PositiveIsometricTimeNoGo` already proves constructively that a
+state-preserving observable time automorphism is isometric on
+
+```text
+B(a,b) = E(star a * b).
+```
+
+If this same operator is required to be the positive self-adjoint physical
+transfer, it is radical-equivalent to the identity on representatives and is
+the identity on the quotient and completion.  Therefore the session-4
+`CanonicalTimeTranslations` design could never yield the desired Hamiltonian or
+mass gap.  The correct Osterwalder--Schrader construction is:
+
+```text
+full Euclidean observable algebra and invariant state
+  -> positive-time observable carrier
+  -> reflected form E(star (Theta a) * b)
+  -> radical quotient and unconditional completion
+  -> positive-time action descended through the reflected radical
+  -> physical transfer.
+```
+
+This correction is a proved architectural fence, not a heuristic preference.
+No semigroup or generator work may again target the ordinary state completion
+unless an explicit physical isometry to the reflected positive-time completion
+has first been proved.
+
+#### 7.2 Additional P0 defects found by the adversarial review
+
+1. **Cartan type is not a global compact group.**  A root system does not
+   distinguish `SU(n)` from `PSU(n)` or `Spin(n)` from `SO(n)` and does not by
+   itself choose a faithful representation that descends to the global form.
+   `PinnedSimpleGroup` is therefore renamed `PinnedSimpleLieType`; a new
+   computable global-group/action datum must precede the Clay lattice family.
+2. **The old `mu_inf` was phantom.**  `OSAxiomBundle mu_inf` does not identify
+   its functional with the projections of `mu_inf`, while several of its legacy
+   clauses admit identity or empty-model inhabitants.  The canonical root must
+   be built from actual `ReferenceWeight.E_Λ` stages, stagewise probability
+   functionals exactly pinned to those weights, and an observable-by-observable
+   two-parameter limiting functional.  Bare exact marginal coherence must not
+   be assumed.
+3. **The old Wilson datum was underdetermined.**  `WilsonGNSData` adds module and
+   setoid data not determined by minimal `ObsAlg`; normalization of `[1]` does
+   not follow because `ObsAlg` omits the unital `*`-algebra laws.  The corrected
+   root explicitly pins the unit form and must later strengthen the observable
+   algebra sufficiently to derive representation, cyclicity, and null-ideal
+   stability.
+4. **A positive lower exclusion alone does not prove finite mass.**  The zero
+   Hamiltonian on a one-dimensional space vacuously excludes `(0,Delta)` for
+   every finite `Delta`.  The physical edge must be a located infimum on the
+   vacuum-orthogonal unit sphere with normalized finite-energy near-edge
+   witnesses, proving both `0 < m` and `m < infinity`.
+5. **The present completion is real/rational.**  Full Clay/Wightman
+   reconstruction still requires constructive complexification, a
+   sesquilinear Hilbert structure, common invariant domains, local commutativity,
+   operator-valued tempered distributions, and a strongly continuous complex
+   Poincare representation with forward-cone spectrum.
+
+#### 7.3 Second adversarial correction: reject the inherited compression
+
+The first session-5 draft reused `PositiveTimeCompression`.  Targeted review
+found that this was still not a valid generic continuum root:
+
+1. `PositiveTimeCompression` requires both
+   `B_ambient(embed a, embed b) = B_physical(a,b)` and
+   `B_ambient(Theta(embed a), embed b) = B_physical(a,b)`.  Standard OS
+   reconstruction asserts only the second identity.  The first is an extra
+   time-zero/Markov-boundary representation theorem and is generally false for
+   raw half-space observables.
+2. Its `transfer_weightedGram` factors `B(Ta,b)` through a finite `modeCount`, so
+   the induced operator is finite rank on the nondegenerate quotient.  The
+   infinite-dimensional Yang--Mills transfer cannot generically have this
+   property; a finite-time map of a positive self-adjoint `C0` semigroup is also
+   injective, while a finite-rank map on an infinite-dimensional Hilbert space
+   has kernel.
+3. An arbitrary `positiveObservable` type with `state := id` and
+   `toObservable := embed` made the proposed anti-toy-sector fence tautological.
+   A canonical carrier needs geometry-derived half-space support in the same
+   limiting algebra, closure/translation laws, and a state map pinned to that
+   carrier.
+4. Exact projective consistency plus unrelated spacing/volume schedules is not
+   a continuum-limit theorem.  Bare Wilson actions at different spacings are
+   not exact block marginals; blocking produces effective actions.  Convergence
+   must be expressed by observable-by-observable expectation and norm estimates
+   with two independent moduli, or exact RG effective measures must be
+   constructed and separately related to the bare Wilson family.
+5. `ReferenceWeight` permits `w = 1`, and positive variance excludes only a
+   one-point functional.  It does not justify the name "interacting" or exclude
+   Gaussian/product theories.  Interaction must later be pinned by the actual
+   plaquette action and a non-Wick connected cumulant for the same functional.
+
+The provisional compression-backed root was therefore not committed.  The
+finite compression modules remain valid exact cutoff/toy mathematics, but they
+are quarantined from the canonical Clay dependency path.
+
+#### 7.4 Implemented corrected standard reflected root
+
+`YMGap.Continuum.CanonicalOSRoot` now provides:
+
+- `WilsonFunctionalRoot A E`: one functional and ordinary Wilson datum,
+  explicitly AMBIENT, with a unit-form pin and arbitrary-modulus completion;
+- `ReferenceWeightStageFamily`: independent volume/cutoff indices, actual
+  `ReferenceWeight.E_Λ` functional pins, spacing/volume schedules, and
+  Type-valued stage half-space certificates.  It deliberately assumes no exact
+  marginal consistency and makes no interaction claim;
+- `CanonicalSchwingerLimit`: for every limiting observable, an explicit stage
+  discretization, a common rational error bounding both its squared ambient-GNS
+  seminorm `B(diff,diff)` and
+  expectation discrepancy, and separate thermodynamic/continuum moduli in
+  which that error tends to zero;
+- `CompatibleWilsonHom` and `WilsonAmbientTimeReflection`: actual observable
+  `*`-endomorphisms with module/setoid compatibility; ambient time isometry is
+  derived from state invariance;
+- `PositiveTimeSupport`: a Type-valued half-space certificate on the same limit
+  algebra, closed under the module operations and positive time translation,
+  and tied to the same two-parameter stage approximations;
+- `PositiveTimeOSRoot`: a physical `GNSData` pinned ONLY to the reflected form
+  `E(star (Theta a) * b)`, with no ordinary-norm equality, projection, or
+  finite-mode factorization;
+- a representative map that both preserves and reflects the carrier setoid,
+  plus essential surjectivity from certified half-space observables.  These
+  conditions block any nondegenerate adjoined summand, while the work plan
+  explicitly retains the need to construct the support certificates from real
+  lattice geometry rather than declaring them by name;
+- a one-step transfer pinned on every representative to the actual ambient time
+  translation, with linearity and explicit self-adjointness/positivity/
+  contraction theorem obligations.  These laws must be derived from the 4D OS
+  reflection/Markov estimates in a concrete inhabitant; this interface does not
+  claim that derivation;
+- a strict normalized vacuum-orthogonal Rayleigh bracket
+  `0 < lower <= B(T probe, probe) <= upper < 1`, excluding both zero and
+  identity transfer;
+- derived (not selected) unit normalization and unit invariance, a nonzero
+  completed vacuum, sound descent of transfer to the constructive completion,
+  completed self-adjointness/positivity/contraction, and a
+  `GeneralTransferFormLaws` over `gnsComplete_general` rather than the weaker
+  regular-rate wrapper.
+
+`YMGap.Rubric.ClayResolutionRoot` retains only `PinnedSimpleLieType`; the
+physically incorrect `CanonicalTimeTranslations` was removed.  Cartan data are
+explicitly only a Lie-type classifier, not the missing global compact group.
+
+The adjacent scorecards and boundary ledger were audited at the same time.
+Their declarations are preserved for compatibility, but their module comments
+now classify them as historical numerical, heat-kernel, finite-spectral, or
+correlator surrogates rather than an exhaustive Clay frontier.  In particular,
+the legacy `ClayTarget` aggregate is not the canonical target,
+`RubricUniformInCoupling` is a weak existential interface with inhabitants
+elsewhere in the repository, `SepLatticeZ4` is data rather than a theorem of
+four-dimensional separation, and `PentagonNumericCore` does not state the
+pentagon.  No declaration in those scorecards is promoted into the corrected
+dependency path without a total bridge to the eventual canonical target.
+
+#### 7.5 Safe targeted verification record
+
+Before each compilation, `pgrep -fl 'lean|lake|pytest'` showed no actual Lean,
+Lake, or pytest process (only unrelated macOS/CleanShot names containing the
+matched substrings).  Every Lean invocation used one worker and the repository's
+mandatory 20 GB process cap.
+
+The first corrected-root elaboration failed at one invalid dependent field
+notation; Lean temporarily reported downstream `sorryAx` because failed
+declarations are represented by synthetic sorry terms.  The notation was fixed,
+and the exact same smallest target then passed:
+
+```text
+env LEAN_NUM_THREADS=1 lake build YMGap.Continuum.CanonicalOSRoot
+Build completed successfully (77 jobs; dependencies replayed).
+New module checked in 613 ms.
+Axiom gates: [propext] or [propext, Quot.sound]; no sorryAx,
+Classical.*, native_decide, or custom axiom.
+
+env LEAN_NUM_THREADS=1 lake build YMGap.Rubric.ClayResolutionRoot
+Build completed successfully (110 jobs; dependencies replayed).
+Rubric export checked in 142 ms.
+Axiom gate: [propext, Quot.sound].
+```
+
+No full build, full test, full audit, statement guard, or frontier guard has
+been run; those remain forbidden without explicit user approval.
+
+#### 7.6 Correct next dependency order
+
+The next work is NOT the unbounded generator.  Proceed in this order:
+
+1. **Global group and action.** Define a computable compact global group/root
+   datum, center quotient/global form, Haar/character interfaces, and a chosen
+   faithful lattice action.  Prove that `CartanType` and `repDataOf` are derived
+   classification projections and that the action descends through the center.
+2. **Concrete 4D stage geometry.** Instantiate the two-parameter stage family
+   with oriented 4D cells, links, plaquettes, boundary conditions, volume and
+   spacing, the actual Wilson plaquette weight, normalized Haar functional, and
+   geometric positive-time support.  Prove reflection and positive-time shift
+   act on those same observables.
+3. **Thermodynamic/continuum convergence.** Construct the stage discretization
+   and both moduli in `CanonicalSchwingerLimit`.  If exact RG effective measures
+   are used, prove their origin/comparison with the bare Wilson action; never
+   assume bare exact marginal consistency.  Prove density in the ambient GNS
+   metric and convergence of all local correlators on bounded supports.
+4. **Continuum OS positivity and Markov laws.** Add actual stage reflection and
+   time actions, their covariance/support laws, finite-stage RP, and a modulus
+   for convergence of reflected quadratic forms.  Then transport finite-stage
+   reflection positivity through those estimates, construct the reflected
+   `GNSData`, prove representative equivalence reflection and support
+   essential-surjectivity, and derive the representative transfer's
+   self-adjointness, positivity, and contraction.  Do not reuse the older
+   ordinary-norm equality or finite weighted-Gram certificate.
+5. **Interaction/nontriviality fence.** On that same functional and local field
+   family, exhibit a nonzero separated connected higher cumulant and prove a
+   failure of Wick factorization.  Positive variance alone is insufficient.
+6. **Completion module and discrete semigroup.** First construct vector
+   operations on the unconditional completion, prove the dense embedding and
+   completed transfer are additive/scalar-linear, and bridge to the existing
+   `CRealSeminormCompletion` machinery where appropriate.  Then derive the exact
+   `Nat`-indexed semigroup from the
+   physical completed transfer, with zero/add/vacuum/dense-embedding laws and
+   `U(1)=completedTransfer`.  Establish the OS Markov identity required for
+   compressed translations to compose; do not call this strongly continuous.
+7. **Continuous semigroup.** Do not reconstruct it from the time-one map alone.
+   Construct a dense/full Euclidean time action, pin `U(t)` on observables for
+   every nonnegative rational/dyadic `t`, and prove composition, time-setoid
+   congruence, and a Type-level strong-continuity modulus before extending to
+   constructive-real time.  A rational eigenvalue such as `1/8` needs
+   constructive-real fractional powers; formal rational iteration is not
+   enough.  The zero-eigenvalue swap model cannot be a finite-time map of such a
+   semigroup.
+8. **Unbounded generator.** Build a dense-domain closed positive quadratic form,
+   resolvent/Yosida approximants, and positive self-adjoint generator.  Pin it
+   to semigroup difference quotients and prove the unit vacuum lies in the
+   domain and is annihilated.
+9. **Finite positive physical edge.** Define the mass as a located infimum of
+   the generator form on normalized vacuum-orthogonal domain vectors.  Carry
+   positive lower brackets and finite-energy near-edge witnesses so both
+   `0 < m` and `m < infinity` are proved; a free exclusion interval or empty
+   finite spectral model is forbidden.
+10. **Complex/Wightman reconstruction.** Construct complexification,
+    sesquilinear completion, cyclicity, common invariant operator domains,
+    local commutativity, operator-valued tempered distributions, full
+    Poincare covariance, and the forward-cone spectrum on the same physical
+    Hilbert space.
+11. **Uniform RG transport and Clay assembly.** Only after steps 1--10, identify
+    the generator edge with the uniform lattice/RG estimate, prove vacuum
+    uniqueness from clustering/ergodicity, pin curvature fields/OPE/stress
+    tensor to the same Schwinger functions, and start the total adequacy theorem
+    for `ClayResolutionTarget`.

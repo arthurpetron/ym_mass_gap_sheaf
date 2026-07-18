@@ -13,7 +13,18 @@ existence and the mass gap on ℝ⁴ is an open problem. Nothing in this
 repository closes it. What the repository contains is a body of genuine
 finite / lattice-level theorems, an explicit and content-bearing statement
 of the continuum existence hypothesis (assumed, never proved), and a
-crisp boundary marking exactly where the open analysis begins.
+current boundary marking where the open analysis begins.
+
+**Controlling correction (2026-07-17).** The R1--R3 sections, carrier summary,
+continuum-limit entry, and reconstruction entry below have been re-audited
+against `docs/clay_resolution_target_inventory.md` and
+`Continuum/CanonicalOSRoot.lean`.  They supersede stronger interpretations in
+the dated historical addenda.  In those addenda, words such as "actual",
+"physical", "continuum mass", and "frontier" describe only the literal legacy
+finite/scalar carrier unless an explicit bridge to the canonical two-parameter
+Wilson functional, reflected half-space reconstruction, full time semigroup,
+generator, and spectral pin is stated.  No older scorecard or fixed-spacing
+construction is an exhaustive Clay frontier.
 
 Axiom convention: "axiom-clean" below means the theorem's `#print axioms`
 reports at most `propext` and `Quot.sound` (both MLTT/HoTT-valid), with no
@@ -25,9 +36,9 @@ reports at most `propext` and `Quot.sound` (both MLTT/HoTT-valid), with no
 
 ### R1 — Mass gap for ALL compact simple gauge groups
 
-- **PROVED in Lean (CONDITIONAL on a supplied OS reconstruction).** The
-  reduction of all compact simple groups to the single worst case SU(2) is
-  assembled axiom-clean:
+- **PROVED precursor in Lean (CONDITIONAL on a supplied OS reconstruction).**
+  The Cartan-type / simple-Lie-algebra Casimir reduction to the A₁ floor is
+  assembled axiom-clean for the repository's representative `RepData`:
   `YMGap.MassGap.SimpleGroup.mass_gap_simple_group_of_osReconstruction`
   (renamed from `mass_gap_simple_group` per the 2026-06-21 audit so the name
   signals the OS-reconstruction hypothesis; the global minima `h∨ = 2`,
@@ -37,47 +48,56 @@ reports at most `propext` and `Quot.sound` (both MLTT/HoTT-valid), with no
   conjunct is genuine: the supplied `OSReconstruction` now carries
   `gapBound < 1` structurally (`gapBound_lt_one`), so `HasSpectralGap`
   entails a real geometric decay (`HasSpectralGap.clustering`), not a
-  vacuous `gapBound = 1`.
-- **GENUINELY OPEN.** Nothing at the R1 *level* is open as research
-  mathematics: R1 is a finite classification discharged by one worst-case
-  reduction. Its remaining dependency is the analytic content of R2/R3 for
-  the SU(2) worst case, not anything group-theoretic.
-- **Open-part character:** engineering / wiring (the per-group enumeration
-  SU(2), SU(3), … is explicitly NOT a path; R1 is structurally closed
-  modulo the uniform character-tail input, which is itself off the mass-gap
-  critical path).
+  vacuous `gapBound = 1`. This proves a conditional theorem about
+  Cartan/Lie-algebra Casimir representatives; it does **not** yet quantify over
+  fully specified compact gauge groups or their physical Wilson theories.
+- **GENUINELY OPEN.** Supply an actual compact simple group (including its
+  global form), a group action/Haar structure and lattice action
+  representation, prove that the representation used by the Wilson action
+  descends to that global form, and tie all of these data to the same canonical
+  lattice/continuum OS root. The physical heat-kernel/character-tail estimate
+  must then be proved for each group with the correct normalization (including
+  short-root effects for non-simply-laced types). A Cartan type alone does not
+  distinguish, for example, `SU(n)` from `PSU(n)` or `Spin(n)` from `SO(n)`,
+  and a fundamental representation need not descend to a quotient group.
+  Consequently the claim that the physical all-group problem is reduced to an
+  SU(2) worst case remains open until the group-specific tail and descent
+  theorems are proved.
+- **Open-part character:** open research mathematics plus substantial
+  foundational formalization; the existing finite Cartan/Casimir enumeration
+  is a precursor, not a closure of R1.
 
 ### R2 — Continuum existence on ℝ⁴ via OS reconstruction
 
-- **PROVED in Lean.** The OS-axiom interface is content-bearing, not a
-  `True` stub: `YMGap.Continuum.OSAxioms.OSAxiomBundle` bundles five genuine
-  predicates. OS2 reflection positivity is proved **unconditionally at all
-  orders** via the standard Osterwalder–Seiler / Schur-diagonalization route
-  (`YMGap.Continuum.ReflectionPositivity.reflectionPositiveSchwinger_holds`).
-  OS0 normalization (`WilsonFunctional.wilsonCharExp_unit`), OS4 finite-volume
-  clustering (`OSAxioms.clusterDecay_of_gap`), and the functional-equivariance
-  shape of OS1/OS3 are all genuine. The OS-reconstruction quintuple and the
-  continuum-existence hypothesis are stated explicitly in
+- **PROVED precursor in Lean.** The legacy OS-axiom interface is not literally
+  `True`, and exact finite heat-kernel/reflection-positivity theorems such as
+  `reflectionPositiveSchwinger_holds` are useful cutoff results.  However,
+  `OSAxiomBundle mu_inf` does not pin its predicates to `mu_inf` or to one
+  limiting Schwinger functional; its OS0/OS2 predicates are fixed heat-kernel
+  statements, OS1/OS3 admit identity maps, and OS4 uses detached finite spectral
+  data.  These are precursors, not the full continuum OS theorem.  The abstract
+  reconstruction quintuple and existence hypothesis are stated in
   `YMGap.Continuum.FourDExistence.ContinuumYMExistence` /
   `ContinuumYMWithGap`, consumed as a hypothesis by
   `ym_mass_gap_of_existence`.
-- **GENUINELY OPEN.** The construction of the full-measure 4D continuum
-  Yang–Mills measure `μ_∞` satisfying the OS axioms — equivalently, an
-  inhabitant of `ContinuumYMExistence` for the real Yang–Mills measure
-  (continuum limit of the lattice family, with the Daniell–Kolmogorov
-  extension and the four carriers below) — is unconstructed.
+- **GENUINELY OPEN.** Construct the two-parameter thermodynamic/continuum
+  Schwinger-functional limit of the actual group/action-pinned Wilson family,
+  prove the full OS axioms on that same functional, and build its reflected
+  positive-time quotient/completion.  A sigma-additive point-set measure is
+  optional downstream packaging; neither the functional limit nor the physical
+  OS reconstruction is currently constructed.
 - **Open-part character:** open research mathematics (this is the dominant
   open frontier; it is the Clay problem itself).
 
 ### R3 — Mass gap Δ_G > 0
 
-- **PROVED in Lean.** The finite-volume cluster ⇒ gap content is proved:
+- **PROVED precursor in Lean.** Finite-model gap ⇒ clustering content is proved:
   `YMGap.Continuum.SpectralGap.decay_of_spectralGap_corr0` (gap ⇒ geometric
   clustering) and the located finite transfer-operator gap
   (`LocatedSpectralGap.lean`); the √-bridge `m = √σ̂` and `σ̂∞ > 0`
-  machinery are in the continuum track. `ym_mass_gap_of_existence` exhibits
-  the positive gap as a transparent consequence of the (assumed) existence
-  hypothesis.
+  machinery are in the continuum track. `ym_mass_gap_of_existence` projects a
+  positive gap from an assumed existence-with-gap hypothesis; it does not
+  construct or spectrally identify that gap.
 - **GENUINELY OPEN.** Transporting the finite-volume / finite-transfer-operator
   spectral gap to a strictly positive gap of the continuum OS-reconstructed
   Hamiltonian requires the continuum spectral theorem for the reconstructed
@@ -141,22 +161,32 @@ finite / lattice-level fact now in Lean feeding that carrier. The
 
 ### Carrier 3 — Nontriviality / interacting (`NontrivialityContent`)
 
-- **PROVED in Lean (genuine upgrade onto real heat-kernel spectrum).**
+- **PROVED precursor in Lean (finite surrogate diagnostic only).**
   - `CarrierPrecursors.heatKernelSpectralModel` — a two-mode spectral model
     whose transfer eigenvalues are the ACTUAL SU(2) heat-kernel weights
     `λ_s = w^{C₄(s)}` at the genuine Casimir exponents `C₄(s) = s(s+2)`
     (`RGTransport.c4`, `= 4·C₂(s)`), with `w = 1/2`: `λ_0 = 1`, `λ_1 = 1/8`.
   - `CarrierPrecursors.nontrivial_from_heatKernel` — this model violates the
-    free-field Wick product law `G(n) = G(0)²` at `n = 1`:
-    `corr(1) = 1 + 1/8 = 9/8 ≠ 4 = corr(0)²`. A non-Gaussian certificate tied
-    to real heat-kernel/Casimir data, strengthening the earlier ad-hoc
-    `FourDExistence.nontrivModel` witness.
-  - **Honest flag:** this is a single-edge finite-mode certificate; it shows
-    the predicate is a real `≠` on genuine heat-kernel eigenvalues, not that
-    the full continuum measure is non-Gaussian.
-- **GENUINELY OPEN (continuum remainder):** the full-measure continuum
-  non-Gaussianity of the Yang–Mills measure — that the interacting continuum
-  theory is genuinely not a free field.
+    exact surrogate equality `G(1) = G(0)²`:
+    `corr(1) = 1 + 1/8 = 9/8 ≠ 4 = corr(0)²`.
+  - **Honest correction:** this is not a Wick-theorem test. A Gaussian
+    theory's two-point function need not satisfy `G(1) = G(0)²`; Wick's
+    theorem constrains higher-point functions by sums over pairings. Likewise,
+    a nonconstant reference weight or strictly positive variance is compatible
+    with a Gaussian theory and is insufficient for Clay-facing
+    nontriviality. These Lean results remain useful exact finite diagnostics,
+    but they do not certify interaction.
+- **GENUINELY OPEN (continuum remainder):** construct gauge-invariant local
+  observables in the **canonical** Schwinger limit and prove a nonzero connected
+  cumulant which violates Wick factorization for that same functional. A
+  suitable target is a centered local observable `O` and separated test
+  insertions for which the canonical connected four-point cumulant
+  `κ₄(O₁,O₂,O₃,O₄)` is apart from zero, where `κ₄` is the actual
+  four-point Schwinger functional minus the three two-point pairings (with the
+  lower-cumulant corrections included if the observables are not centered).
+  The witnesses, separation/support data, and nonzero modulus must all be tied
+  to the group/action-pinned continuum functional; a freely selected spectral
+  model, reference weight, or variance cannot discharge this field.
 - **Open-part character:** open research mathematics.
 
 ### Carrier 4 — O(4) rotation restoration (`O4RestorationContent`)
@@ -204,28 +234,45 @@ finite / lattice-level fact now in Lean feeding that carrier. The
   with `pushforward_limit_eq`, `RGTransport.charContinuumMeasure` on genuine
   SU(2)-character data, and `ObservableMeasure.expectation_stable` /
   `RGTransport.charExpectation_stable` (exact per-observable stabilization).
-- **GENUINELY OPEN.** That the *actual* RG-consistent family of Yang–Mills
-  lattice functionals (with the plaquette-coupled finite-volume measure and
-  its RG transport) is Kolmogorov-consistent and converges to a coherent
-  continuum functional — the consistency is currently an input hypothesis,
-  and the σ-additive Daniell–Kolmogorov *extension* to a point-set measure is
-  not built (only the functional inverse limit is).
+  These theorems validate the abstract machinery and stationary character
+  examples; they do not show exact projective consistency of the bare Wilson
+  family.
+- **GENUINELY OPEN.** Construct the canonical group/action-pinned Schwinger
+  functional by one of two honest routes:
+  1. use the bare Wilson functionals `E_{a,L}` and prove explicit
+     two-parameter approximation/Cauchy estimates (volume `L → ∞` and spacing
+     `a → 0`) for every bounded-support local observable, with moduli and a
+     common limiting functional; or
+  2. construct an exactly projective family of **effective RG measures/actions**
+     and separately prove that each effective object is the pushforward of, or
+     has a quantified approximation to, the corresponding bare Wilson theory.
+
+  Exact restriction consistency of bare Wilson measures across lattice
+  spacings is not a generally valid target: integrating out fine variables
+  generates additional interactions and does not normally return the same
+  bare Wilson action at the coarse scale. A stationary character tower or an
+  arbitrary consistent thread cannot substitute for the two physical limits.
+  A σ-additive point-set measure remains optional downstream packaging once
+  the canonical functional and all required OS/local-correlation properties
+  are constructed.
 - **Open-part character:** open research mathematics (the actual continuum
-  limit of the YM lattice family), with a thin layer of engineering for the
-  consistency wiring.
+  limit of the YM lattice family), with engineering only after the required
+  approximation or effective-RG theorems exist.
 
 ---
 
 ## The interacting-operator construction (OS reconstruction)
 
-- **PROVED in Lean.** The OS-reconstruction interface and its consumption are
-  in place: `YMGap.Continuum.OSReconstruction` (the abstract reconstruction
+- **PROVED interface precursor in Lean.** The abstract OS-reconstruction
+  interface and its conditional consumption are in place:
+  `YMGap.Continuum.OSReconstruction` (the abstract reconstruction
   quintuple `(H_∞, Ω_0, U(t), H_op)` with `H_op ≥ 0`, `H_op Ω_0 = 0`,
   `U(t) = exp(−t H_op)`), and
   `FourDExistence.ym_mass_gap_of_existence` (existence ⇒ positive spectral
   gap, a pure projection out of the hypothesis, axiom-clean). The
-  finite-volume GNS construction and the located reconstruction datum are in
-  `FiniteVolumeGNS.lean` / `LocatedReconstruction.lean`.
+  finite-volume ordinary GNS construction and located finite-model datum are in
+  `FiniteVolumeGNS.lean` / `LocatedReconstruction.lean`.  These do not yet
+  construct the standard reflected half-space Hilbert space.
 - **The four reconstruction laws are HONEST OBLIGATIONS, not `True`.** Per the
   2026-06-21 audit (`docs/clay-requirements-audit-2026-06-21.md`), the four
   reconstruction laws `VacuumNormalized`, `HamiltonianNonneg`,
@@ -235,13 +282,11 @@ finite / lattice-level fact now in Lean feeding that carrier. The
   `generation_law` fields). A caller of `os_reconstruct_su2` must SUPPLY a
   proof of each; nothing reads as `True`-content. These are the paper-level
   Pour-El–Richards boundary carried as explicit obligations.
-- **GENUINELY OPEN.** The genuine construction of the interacting continuum
-  Hamiltonian as a self-adjoint operator with the correct spectrum from the
-  reconstructed Hilbert space — i.e. inhabiting `OSReconstruction` for the
-  real continuum measure with the analytic spectral content, not as an
-  abstract Prop bundle — requires the continuum measure (R2) and constructive
-  spectral theory for the unbounded reconstructed Hamiltonian (R3), neither
-  of which is built.
+- **GENUINELY OPEN.** Construct geometry-derived half-space support and the
+  reflected form on the canonical Schwinger limit; derive the positive
+  contraction semigroup; construct its unbounded positive self-adjoint
+  generator; and identify its located finite positive spectral/form edge.
+  Merely inhabiting the abstract carrier/law bundle is insufficient.
 - **Open-part character:** open research mathematics, riding on R2 and R3.
 
 ---
@@ -250,15 +295,15 @@ finite / lattice-level fact now in Lean feeding that carrier. The
 
 | Item | Proved-in-Lean precursor (theorem) | Open remainder | Open-part character |
 |---|---|---|---|
-| R1 | `mass_gap_simple_group_of_osReconstruction` (conditional on supplied OS recon) | analytic content of SU(2) worst case (= R2/R3) | engineering/wiring |
-| R2 | `OSAxiomBundle`, `reflectionPositiveSchwinger_holds` | full-measure 4D continuum `μ_∞` satisfying OS | open research math |
+| R1 | Cartan/Lie-algebra Casimir precursor and `mass_gap_simple_group_of_osReconstruction` (conditional on supplied OS recon) | actual compact global group/action, representation descent, group-pinned Wilson/OS root, and physical group-specific character tails | open research math + foundational formalization |
+| R2 | legacy `OSAxiomBundle`, cutoff `reflectionPositiveSchwinger_holds` | canonical two-parameter Schwinger limit + full OS laws + reflected half-space reconstruction | open research math |
 | R3 | `decay_of_spectralGap_corr0`, located finite gap | continuum spectral theorem for `H_op` | open research math |
 | UV freedom | `betaZero_pos`, `invRunningCoupling_strictMono` | nonperturbative continuum running | open research math |
 | Gauge | `gauge_generated_on_charAlg` (+ nonconstant) | continuum gauge-invariant algebra + gauge action | open research math |
-| Nontriviality | `nontrivial_from_heatKernel` (real Casimir spectrum) | full-measure continuum non-Gaussianity | open research math |
+| Nontriviality | `nontrivial_from_heatKernel` (exact finite surrogate inequality; not a Wick test) | nonzero canonical connected higher cumulant for gauge-invariant local fields, excluding Wick factorization for the same Schwinger functional | open research math |
 | O(4) restoration | `o4_restoration_on_charAlg` (id only) + `heatKernel_not_equivariant_under_collapse` | (1) non-trivial `H₄` rotation `*`-hom; (2) continuum O(4) restoration | (1) engineering; (2) open research math |
-| Continuum-limit interface | `ProbFunctional.restrict`, `continuumMeasure`, `expectation_stable` | actual YM RG-consistent limit + σ-additive extension | open research math (+ wiring) |
-| Interacting-operator construction | `OSReconstruction`, `ym_mass_gap_of_existence` | construct continuum self-adjoint `H_op` with spectrum | open research math |
+| Continuum-limit interface | abstract `ProbFunctional.restrict`, `continuumMeasure`, `expectation_stable` machinery | two-parameter bare-Wilson approximation estimates, or exact effective-RG measures separately tied to the bare action; common canonical functional (sigma-additive extension optional) | open research math (+ later wiring) |
+| Interacting-operator construction | abstract `OSReconstruction`, conditional `ym_mass_gap_of_existence` | construct reflected carrier, `C0` semigroup, unbounded `H_op`, and located finite edge on the same limit | open research math |
 
 ## Addendum (2026-06-21): honesty-hardening of the four audited blemishes
 
@@ -300,10 +345,13 @@ content.
 
 ## Addendum (2026-06-17): the constructive `RegularCReal` continuum pipeline
 
-A full constructive substrate for the continuum limit was built (4 phases, all
-axiom-clean), recasting the continuum theory as a positive linear functional with
-real-number expectations and routing the gap through the compact transfer operator —
-never an unbounded spectral theorem (Brattka–Dillhage: compact ⇒ computable spectrum).
+A constructive substrate for continuum-limit bookkeeping was built (4 phases,
+all axiom-clean), recasting a supplied model as a positive linear functional
+with real-number expectations and routing its supplied finite-model gap through
+a compact transfer operator. The 2026-07-17 canonical-root audit supersedes the
+older interpretation that this was already the physical Yang–Mills continuum
+construction: it is an algebraic pipeline, not the reflected OS reconstruction
+of the bare Wilson family.
 
 - **`RegularCReal`** (`Constructive/RegularCReal.lean`) — a regular Bishop real with the
   Cauchy modulus carried as canonical Type-level DATA (choice-free; the existing one-slack
@@ -316,15 +364,16 @@ never an unbounded spectral theorem (Brattka–Dillhage: compact ⇒ computable 
   char inhabitant `regCharFunctional`); `RegLinearFunctional` on an enriched additive
   algebra with **additivity & homogeneity PROVED** (linearity is now a theorem, enabled by
   the new arithmetic).
-- **Capstone** (`Continuum/RegularContinuumPipeline.lean`) — `regContinuumGapRate` (the
-  Λ→∞ gap as a positive `RegularCReal`), `ConstructiveContinuumYM` (functional + positive
-  gap + clustering via the compact operator), and a CONCRETE **UNCONDITIONAL** inhabitant
-  `concreteContinuumYM` on `sep = 1/1000` SU(2) data with hypothesis-free, axiom-clean
-  `concreteContinuumYM_gap_pos`.
+- **Algebraic capstone** (`Continuum/RegularContinuumPipeline.lean`) —
+  `regContinuumGapRate`, `ConstructiveContinuumYM`, and the hypothesis-free,
+  axiom-clean model inhabitant `concreteContinuumYM` at the freely selected
+  separator `1/1000`. This is an unconditional inhabitant of the scaffold, not
+  an unconditional infinite-volume Wilson theory or a Clay-facing gap.
 
-**Unconditional vs conditional (honest boundary, corrected to the right shape 2026-06-18).**
-The infinite-volume (Λ→∞, fixed lattice spacing) positive gap + functional bundle is
-UNCONDITIONAL. The scaling limit (`a→0`) is the single named open obligation
+**Conditional boundary (corrected again by the 2026-07-17 audit).** The selected
+model's fixed-spacing positive gap + functional bundle is unconditional, but
+its identification with the infinite-volume bare Wilson theory is not. The
+scaling limit (`a→0`) includes the named obligation
 `RegScalingLimitModulus`, now in its physically-correct **dimensional-transmutation**
 form: the dimensionless lattice gap `m_lat(a_j)` is allowed (indeed must) vanish as the
 spacing `a_j→0`, while the PHYSICAL gap `Δ(a_j) = m_lat(a_j)/a_j` carries a two-sided
@@ -340,16 +389,21 @@ fixed-theory proof; the missing piece is a genuine spacing-uniform estimate, not
 obstruction. Also fixed: `HasSpectralGapAt rec m_0` now genuinely binds its rate
 (`SpectralGapBound ∧ m_0 ≤ ofQ'(1 − sep)`), no longer ignoring `m_0`; the rate-to-margin
 relation, where not internally derivable, is carried as an explicit OS4 obligation.
-**This does not close the Clay problem.** It builds the constructive pipeline so the
-continuum gap reduces to that one estimate, with everything else proved and axiom-clean.
+**This does not close the Clay problem.** Nor is that modulus the only remaining
+obligation: the same model must first be tied to the two-parameter bare-Wilson
+limit (or to exact effective-RG measures with a proved bare-action bridge), the
+canonical reflected half-space OS reconstruction, and its actual generator.
 The convergence-modulus half is provable for scalar φ⁴ in d=2,3 (Bauerschmidt–Dagallier) —
 the realistic proof-of-concept target (φ⁴ has a tunable bare mass, so it exercises the
 spacing-uniform convergence machinery but NOT YM's dimensional-transmutation gap
 generation, which is the genuinely open part).
 
-**Bottom line.** Three carriers (UV, gauge, nontriviality) now have genuine
-lattice-level precursors tied to real SU(2) heat-kernel / Casimir data, and
-the OS axioms (notably OS2 reflection positivity) carry real proved content.
+**Bottom line.** The UV and gauge carriers have exact finite precursors tied to
+SU(2) heat-kernel / Casimir data. The current nontriviality result is only a
+finite surrogate inequality, not a Wick test; Clay-facing interaction requires
+a nonzero canonical connected higher cumulant. Cutoff reflection-positivity
+theorems carry real proved content, but are not yet pinned to the canonical
+continuum Schwinger functional and reflected half-space Hilbert space.
 The O(4)-restoration carrier has **no genuine non-trivial precursor** — only
 the identity-rotation witness, with the boundary made explicit by proving the
 equivariance constraint is non-vacuous. The continuum limit, the full-measure
@@ -617,9 +671,10 @@ compile-checked fact, not prose.**
 - **Mayer clustering** extended from the single line to arbitrary **trees** (`treeWilsonG_decay`) AND
   single **cycles** (`CycleMayer.cycleWilsonG_decay`) — the loops sub-case of the loopy wall, with
   the honest finding that there is NO holonomy obstruction at the SU(2) character level.
-- **A located gap of the REAL reconstructed transfer operator** from the genuine `wilsonG` decay +
-  Casimir monotonicity (`reconTransfer_located_gap`), and **positive infinite-volume mass resting on
-  the real correlator gap** (`realCorr_continuum_mass_isPositive`).
+- **A located gap in the fixed-spacing reconstruction surrogate** from the genuine `wilsonG` decay +
+  Casimir monotonicity (`reconTransfer_located_gap`), and a positive correlator-mass precursor
+  (`realCorr_continuum_mass_isPositive`).  Neither is yet identified with the generator edge of the
+  canonical reflected continuum OS theory.
 - The RG-landing target sharpened to a **dimensionless rational certificate** `q ≤ m/Λ_YM`
   (`RGLandingCertificate`, `q := prodFloor`), and a **non-degenerate `DefectGapRecursion`** from the
   real quadratic bond-moving defect with an unconditional product floor.

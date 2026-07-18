@@ -499,6 +499,7 @@ import YMGap.Continuum.GNSHilbertSpace
 import YMGap.Continuum.GNSComplete
 import YMGap.Continuum.GNSDynamics
 import YMGap.Continuum.PositiveTimeCompressedTransfer
+import YMGap.Continuum.CanonicalOSRoot
 import YMGap.Continuum.PositiveTimeCompressedTransferHalf
 import YMGap.Continuum.PositiveTimeCompressedSpectralGapHalf
 import YMGap.Continuum.KleinCharacterWilsonCompression
