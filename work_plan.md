@@ -15934,3 +15934,148 @@ For a common half-power modulus, apply
 `spinSummedCylinderBoundaryEpsilon_le_coefficient_half_pow` at `stage`.  That
 composition is the shortest constructive route from the exact corrected-slab
 reflection law to a centered finite-stage covariance estimate.
+
+#### 8.13.28 Conditional-to-centered composition and quantitative swap symmetry
+
+(2026-07-18, session 8, completed and production-wired.)  The production leaf
+`Z4HalfTimeReflectionAdjacentEvenOneStepConditionalCenteredComparison.lean`
+now performs the composition identified in Section 8.13.27 and immediately
+uses the exact EventLaw to obtain a centered covariance estimate.  This closes
+the finite-stage analytic bridge from corrected-slab symmetry to the mixed
+centered chart; no event geometry is duplicated.
+
+The conditional carrier API requires a default canonical atom only to make
+finite root selection total.  Selecting the first marked atom would force an
+invalid nonemptiness hypothesis when `roots = []`.  Instead,
+`adjacentEvenCentralLowerCanonicalAtom radius hradius` transports the canonical
+central lower cube root from `centralAmbient radius` to
+`adjacentEvenAmbient radius`, using
+`transportPolymer_mem_canonicalSurfacePolymers`.  The specialization
+`adjacentEvenStrictJointDefaultRoot base stage` supplies the constructive proof
+that `1 <= strictQueryBase (base + 1) + stage`.  The carrier theorem still
+proves via `slabSourceRootAtom_spec` that every actual connected entry selects
+a marked root; hence this transported cube is a totality witness, not an
+additional marked observable and not a source of the size floor.
+
+For an arbitrary Boolean predicate, define the four rational quantities at
+radius `R := strictQueryBase (base + 1) + stage`:
+
+```text
+conditional       = P_large(event | corrected slab),
+ambient           = P_large(event),
+centeredPhysical  = P_small(mixed centered event),
+centeredCompatible= P_compatible,small(mixed centered event).
+```
+
+The conditional-stability leaf bounds `abs (ambient - conditional)` by
+
+```text
+couplingSlabConditionalBoundaryEpsilon
+  (2 * roots.length) (stage + 4).
+```
+
+Constructive symmetry of rational absolute subtraction reverses this to the
+orientation `abs (conditional - ambient)`.  The Step 5 volume theorem bounds
+`abs (ambient - centeredPhysical)` by
+
+```text
+spinSummedCylinderBoundaryEpsilon
+  (2 * roots.length) stage.
+```
+
+A finite rational triangle inequality, proved from associativity,
+`(-x)+x = 0`, and `abs_add_le`, gives the sum of these two errors.  Finally,
+`couplingKFamilyEventProbability_eqv_compatible` replaces
+`centeredPhysical` by `centeredCompatible` at exactly zero extra error.  The
+public theorem
+
+```text
+couplingPhysicalGivenSlabAdjacentEvenStrictJointPredicate_cross_centered_abs_sub_le
+```
+
+therefore states precisely
+
+```text
+abs (conditional - centeredCompatible) <=
+  couplingSlabConditionalBoundaryEpsilon
+      (2 * roots.length) (stage + 4)
+  +
+  spinSummedCylinderBoundaryEpsilon
+      (2 * roots.length) stage.
+```
+
+It is uniform in the finite character cutoff.  The companion pair theorem
+rewrites both endpoints to the raw adjacent-even `(left,right)` event and its
+named mixed centered recoding.  Neither statement assumes nonempty roots or
+fingerprint lengths.
+
+The half-power corollaries do not introduce a new estimate.  The conditional
+term is specialized through
+`couplingSlabConditionalBoundaryEpsilon_le_coefficient_half_pow` at parameter
+`stage + 1`, so its floor is definitionally normalized from
+`(stage + 1) + 3` to `stage + 4`.  Monotonicity of the constructive power of
+one half weakens `half^(stage + 1)` to the common `half^stage`.  The volume
+term uses `spinSummedCylinderBoundaryEpsilon_le_coefficient_half_pow` directly
+at `stage`.  Factoring the two identical coefficients yields
+
+```text
+strictJointConditionalCenteredCoefficient (2 * roots.length)
+  * half^stage.
+```
+
+This produces both predicate and pair versions of the conditional-to-centered
+modulus.
+
+The final theorem in the leaf uses the exact finite conditioned EventLaw in a
+load-bearing way.  Let `C_LR` and `C_RL` be the two compatible mixed centered
+pair probabilities, and let `S_LR` and `S_RL` be their corrected-slab
+approximants.  The EventLaw proves `S_LR ≈ S_RL` exactly at every cutoff.
+The two half-power comparison bounds and a second rational triangle inequality
+therefore give
+
+```text
+abs (C_LR - C_RL) <=
+  adjacentEvenOneStepCenteredSwapCoefficient (2 * roots.length)
+    * half^stage,
+```
+
+where
+
+```text
+adjacentEvenOneStepCenteredSwapCoefficient n :=
+  strictJointConditionalCenteredCoefficient n
+  + strictJointConditionalCenteredCoefficient n.
+```
+
+The coefficient is proved nonnegative.  Thus the exact one-step reflection
+symmetry has now descended to the actual centered finite-volume event with an
+explicit cutoff-uniform geometric defect tending constructively to zero.
+
+The entire leaf is finite and intuitionistic: transported canonical atoms,
+finite probabilities, exact rational equivalence, constructive absolute-value
+algebra, natural-power monotonicity, and previously proved carrier tails.  It
+contains no `Classical`, choice, `noncomputable`, `native_decide`, `sorry`, or
+new axiom.  Seven exported gates report exactly `[propext, Quot.sound]`; the
+coefficient-nonnegativity gate needs only `[propext]`.
+
+A capped direct Lean check completed in 927 milliseconds, and the locked,
+single-worker Lake target completed with 783 jobs and a 982-millisecond edited
+leaf.  The cached production root then completed successfully with 2,537 jobs
+and the edited `YMGap` root in 537 milliseconds.  Static import analysis now
+reports 2,542 source modules, 7,902 local edges, no cycle, 2,536 modules
+reachable from the semantic root, the same six reviewed exclusions, and zero
+unexpected orphan.  The exact current provenance is
+
+```text
+YMGAP_SOURCE_FINGERPRINT sha256:7ce46940c50c65ebf57ed86c462390eac0c18121b12f57824108355f9deeb4e6
+```
+
+The next highest-leverage step is no longer another finite-volume comparison.
+It is to package the mixed centered pair probabilities along the established
+cutoff/stage schedule and descend the displayed `half^stage` defect to exact
+swap equality of their constructive infinite-volume limits.  That theorem
+should reuse the existing centered Cauchy/limit machinery and the explicit
+nonnegative swap coefficient; it must not reopen the slab reflection,
+connected-carrier, or cross-volume arguments.  Once limit equality is
+available, the one-step time-translation/covariance consumer can use it as the
+finite-to-continuum symmetry input for the OS contraction route.
