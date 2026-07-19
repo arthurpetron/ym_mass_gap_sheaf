@@ -16226,3 +16226,105 @@ sums.  This is the missing odd-time/self-adjointness input.  It should not
 reopen the finite EventLaw or introduce an adjacent-even Gram/positivity
 premise; positivity and contraction remain subsequent, separately audited
 consumers.
+
+#### 8.13.30 Odd-carrier entry descent to the adjacent-even one-step centered limit
+
+(2026-07-18, session 9, completed and production-wired.)  The production leaf
+`Z4HalfTimeReflectionAdjacentEvenOneStepEntryCenteredBridge.lean` now proves
+the first analytic adapter needed by the shift-one covariance consumer.  The
+adapter keeps the parity distinction explicit.  A direct reflection-bilinear
+approximant is normalized in the existing odd corrected slab of extent
+`centralExtent radius`; the finite EventLaw that proves swap symmetry lives
+in the adjacent even slab of extent `centralExtent radius + 1`.  These finite
+carriers are not equal, and the new leaf never rewrites one into the other.
+
+Instead, both constructions meet at the already completed ordinary centered
+chart.  For roots canonical at source base `base`, the direct odd-carrier
+entry uses
+
+```text
+lower roots: transportedCylinderRoots base (base + 1) roots
+upper roots: roots.map (timeShiftCanonicalRoot 1 base).
+```
+
+At an arbitrary reflection radius the concatenation of those selected queries
+is `adjacentEvenOneStepCommonCylinderRoots`.  Expanding
+`centralStrictJointCylinderRoots` on
+`adjacentEvenOneStepProjectedRoots base roots` gives four blocks.  The
+existing first/fourth projection theorem proves the literal event identity
+`adjacentEvenOneStepProjectedJointEvent_eq_common`: the projected ordinary
+joint cylinder is exactly the selected lower-transported/upper-translated
+cylinder.  This theorem is finite syntax and Lean `Eq`; it uses no
+probability law, limit, positivity, bit-length premise, or nonemptiness
+assumption.
+
+The direct rational entry
+`adjacentEvenOneStepEntrySequence` is the normalized support bipair law in
+the ordinary odd corrected slab.  Canonicality of its two root blocks follows
+respectively from canonical base transport and canonical one-step time
+translation.  The theorem
+`adjacentEvenOneStepEntrySequence_eqv_cylinder` applies the existing
+support-bipushforward/conditional-law bridge and identifies this entry, up to
+`Q'.eqv`, with the corrected-slab probability of the selected cylinder.
+Its normalization remains visibly `centralExtent radius`; in particular it
+does not call the adjacent-even conditional comparison.
+
+Finally,
+`adjacentEvenOneStepEntrySequence_abs_sub_centeredPair_le` applies the
+generic odd-slab predicate descent to the full projected root list and then
+uses the exact event identity above.  It proves
+
+```text
+abs (directEntry u v stage - oneStepCenteredPairSequence u v stage) <=
+  strictJointConditionalCenteredCoefficient
+    (projectedRoots.length + projectedRoots.length) * half^stage.
+```
+
+Thus the direct reflection entry and the adjacent-even symmetry proof have an
+honest common limit without any finite odd/even carrier identification.  The
+exactness ledger is now:
+
+1. projected root and cylinder recodings are Lean `Eq`;
+2. support pushforward and corrected-slab entry identification are
+   `Q'.eqv`;
+3. odd-slab-to-centered comparison is an explicit rational
+   `half^stage` inequality;
+4. the already proved centered pair swap is `CReal.Equiv`.
+
+The remaining covariance work is finite assembly, not new geometry.  It is
+split deliberately into two low-risk leaves.  First, append
+`left.roots ++ right.roots` as a common source chart, lift the two
+coefficient tables through `take left.roots.length` and
+`drop left.roots.length`, and expand both LR and RL reflection approximants
+over the same common fingerprint space.  Apply the new entrywise estimate and
+the existing heterogeneous coefficient-pair L1 bound to obtain constructive
+real equivalences from each one-sided cross to its pair-limit assembly.
+Second, lift exact pair-limit swap through the two finite `listCRealSum`
+layers, use finite Fubini and rational coefficient commutativity, and conclude
+`strictJointOneSidedTimeCovariance_one_derived`.
+
+After that terminal vector theorem, descend it through staged common-box
+transport and the algebraic direct-limit quotient.  The immediate faithful
+consumer should state one-step self-adjointness for
+`StrictJointCylinderDirectLimit.reflectionBilinear` and
+`StrictJointCylinderDirectLimit.timeTranslate`.  Completed-carrier
+self-adjointness must wait for a genuine completed CReal inner product; the
+existing completed seminorm and action alone do not justify that statement.
+
+Verification stayed inside the mandatory Mac envelope: every Lean/Lake
+invocation was serialized by the canonical host lock, used
+`LEAN_NUM_THREADS=1`, and retained the fixed `-s 65536 -M 20480` weak
+arguments.  The direct production-file check completed in 488 milliseconds.
+The named target built successfully with 826 jobs and a 512-millisecond new
+leaf; the cached semantic root built successfully with 2,539 jobs and a
+1.2-second root.  All three exported gates report exactly
+`[propext, Quot.sound]`.  Static analysis now reports 2,544 source modules,
+7,909 local import edges, zero cycles, 2,538 modules reachable from `YMGap`,
+the same six reviewed exclusions, and zero unexpected orphans.  The host-load
+guard passes over 236 repository entry files; all ten mocked JIT remote-state
+and four bounded-supervisor scenarios pass; and the Frontier-DAG guard reports
+zero unbridged enumerations.  Current provenance is
+
+```text
+YMGAP_SOURCE_FINGERPRINT sha256:2d260aee05fd3bf268e3cb5487b5b4ebbc92af60265209b41f77a0c8ebb793c3
+```
