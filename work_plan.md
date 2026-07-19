@@ -19392,3 +19392,511 @@ zero unbridged.  The executable forbidden-token scan found zero hits, and
 `git diff --check` passed.  The separately targeted substitution, polynomial
 holonomy, and finite density leaves also passed with no axiom beyond the same
 accepted set.
+
+#### 8.13.48 Arbitrary finite-product Haar positivity, the direct boundary quadratic, and the recoupling correction
+
+This section records the constructive milestone completed after §8.13.47 and
+supersedes items 4--7 of that section's proposed order.  The arbitrary finite
+product-Haar positivity theorem and the direct active-link Haar quadratic are
+now proved.  The intended identification with the existing production
+fixed-interface kernel is *not* proved: a new local theorem shows that the
+literal cutoff-two two-face production patch cannot be a common-half
+product-Haar Gram.  The work plan is therefore corrected at the first point
+where orientation, Schur normalization, and recoupling data can enter, rather
+than transporting positivity across an unjustified scalar-kernel equality.
+
+All statements in this section are intuitionistic.  No new file uses
+`Classical`, choice, `sorry`/`admit`, `native_decide`, or a custom axiom.  The
+complete printed dependency gates of the promoted results are contained in
+`[propext, Quot.sound]`.
+
+##### 8.13.48.1 Common active-link polynomial carrier — ✓ COMPLETE
+
+The following production path is now present and root-wired:
+
+1. `Z4HalfTimeReflectionAdjacentEvenActiveLinkCarrier` gives the finite,
+   duplicate-free list of physical links needed by the adjacent-even fixed
+   slab, its exact list-index codec, four scalar coordinates per link, and the
+   corresponding coordinate count.  Every subsequent polynomial reads one
+   occurrence of a physical link from this common carrier; repeated face-edge
+   occurrences no longer acquire independent quaternion variables.
+2. `SU2QuaternionGlobalFaceRatPoly` substitutes the sixteen local quaternion
+   coordinates of a face feature into the four coordinates of each of its
+   four oriented physical edges.  Its evaluation theorem identifies the
+   substituted polynomial with the original face-holonomy class value on one
+   shared rational-unit-quaternion gauge field.
+3. `SU2QuaternionGlobalFaceRatPolySupport` proves closure of
+   `SupportedCoordinates` under zero, one, constants, variables, sums,
+   negation, scalar multiplication, multiplication, powers, and polynomial
+   substitution.  Via `supportedCoordinates_four_mul_iff`, these results give
+   the native `SupportedQuaternionBlocks` hypothesis required by the exact
+   finite-product Haar functional.
+4. `SU2QuaternionLazyGlobalSOS` keeps the fixed-face density as a lazy
+   finite weighted SOS packet.  Each feature is represented by a list of
+   factors with an exact evaluation theorem and a support certificate.  This
+   avoids expanding either the full density polynomial or the squares of its
+   features.
+5. `Z4HalfTimeReflectionAdjacentEvenLazySectorSplit` and
+   `Z4HalfTimeReflectionAdjacentEvenLazyEndpointScaleAssembly` split each
+   feature at the reflection plane and retain the endpoint deltas and exterior
+   physical scales symbolically.
+6. `SU2QuaternionLazyFactorProductBridge` supplies the opaque product of a
+   factor list, exact evaluation of that product, support closure, append
+   compatibility, and the identity between concatenated square-factor lists
+   and the raw product of two half-polynomials.  No production packet is
+   enumerated or normalized.
+
+The raw duplicate-preserving `RatPoly` products remain an implementation
+detail.  At nontrivial cutoff they must stay opaque: proofs are to use factor
+lists, evaluation theorems, support predicates, finite sums, and Haar
+linearity, never concrete `.length`, `#eval`, `#reduce`, or pretty-printing of
+the expanded polynomial.
+
+##### 8.13.48.2 Exact Haar on an arbitrary finite quaternion product — ✓ COMPLETE
+
+For a monomial `x^alpha` and a block count `N`, `finiteProductHaar N` is the
+exact rational functional obtained by multiplying the normalized `S^3`
+coordinate moments of blocks `0,...,N-1`.  The construction and positivity
+proof are decomposed as follows.
+
+* `SU2QuaternionFiniteProductHaarCarrier` defines
+  `quaternionBlockMoment`, `quaternionBlockMomentProduct`,
+  `finiteProductHaarMono`, and the linear polynomial functional
+  `finiteProductHaar`.  It proves permutation invariance of the finite block
+  product, exact linearity, and agreement at two blocks with the earlier
+  product-Haar carrier.
+* `SU2QuaternionFiniteProductHaarSphereIdeal` defines the block radius
+
+  ```text
+  R_b = x_(4b)^2 + x_(4b+1)^2 + x_(4b+2)^2 + x_(4b+3)^2
+  ```
+
+  and proves, for supported polynomials,
+
+  ```text
+  finiteProductHaar N (P * R_b) ≈ finiteProductHaar N P
+  ```
+
+  whenever `b < N`.  Thus multiplication by a block radius changes a raw
+  polynomial representative but not its restriction to the unit-quaternion
+  product.
+* `SU2QuaternionFiniteProductHaarFubini` defines exact integration of one
+  quaternion block by clearing its four exponents and multiplying by its
+  rational moment.  It proves support preservation, equality with the global
+  product functional, iteration over a list of blocks, and invariance under a
+  permutation of the integration order.
+* `SU2QuaternionFiniteProductGaussianPositivity` constructs the independent
+  finite-coordinate Gaussian moment kernel and an explicit finite Gram
+  representation, yielding constructive nonnegativity of the Gaussian
+  integral of every polynomial square.
+* `SU2QuaternionFiniteProductHaarGaussianRadialFactor` proves the exact
+  monomial relation between the product-Gaussian and product-sphere moments.
+  On a fixed quaternion-block degree vector, the conversion factor is a
+  strictly positive product of radial denominators.
+* `SU2QuaternionFiniteProductHaarMultihomogeneousPositivity` therefore proves
+  nonnegativity of `finiteProductHaar N (P * P)` when all monomials of `P`
+  have one common degree in each block and one common block-parity assignment.
+* `SU2QuaternionFiniteProductHaarParitySectors` proves exact orthogonality of
+  distinct block-parity sectors.  If two monomials differ in parity in any
+  quaternion block, their product has an odd exponent sum in that block and
+  its Haar moment vanishes.
+* `SU2QuaternionFiniteProductHaarPolynomialParityClosure` gives a computable
+  recursive split of a finite polynomial into one chosen parity sector and
+  its complement.  It proves support preservation, exact square splitting,
+  vanishing of the two cross terms, and induction from positivity in every
+  fixed parity sector to positivity for the whole polynomial.
+* `SU2QuaternionFiniteProductHaarParityHomogenization` closes the remaining
+  degree gap without choice.  For a fixed parity sector it computes a target
+  degree `D_b` for every block.  A monomial of block degree `d_b` is multiplied
+  by
+
+  ```text
+  R_b ^ ((D_b - d_b) / 2).
+  ```
+
+  Equality of parities makes the difference even.  Radius multiplication
+  raises the block degree by exactly two, preserves the parity assignment and
+  coordinate support, and preserves all Haar pairings by the sphere-ideal
+  theorem.  The transformed polynomial is multihomogeneous, so the preceding
+  Gaussian-radial theorem applies.  Orthogonal parity-sector recursion then
+  removes the fixed-parity hypothesis.
+* `SU2QuaternionFiniteProductHaarPolynomialPositivity` exposes the final
+  production theorem:
+
+  ```text
+  finiteProductHaar_square_nonneg
+      (blockCount : Nat) (polynomial : RatPoly)
+      (SupportedQuaternionBlocks blockCount polynomial) :
+    0 ≤ finiteProductHaar blockCount (polyMul polynomial polynomial).
+  ```
+
+This is an exact rational theorem at every finite block count and every finite
+raw polynomial.  It does not appeal to an analytic completion, excluded
+middle, spectral diagonalization, or a pre-existing positive Haar measure.
+
+##### 8.13.48.3 Lazy plane and weighted-density Haar positivity — ✓ COMPLETE
+
+`SU2QuaternionAdjacentEvenLazyPlaneHaarPositivity` applies the arbitrary
+polynomial theorem to the opaque lower/plane half polynomial supplied by the
+lazy factor bridge.  It proves the exact pointwise square evaluation and
+
+```text
+0 ≤ adjacentEvenLazyPlaneHaarSquareMoment cutoff radius term.
+```
+
+`SU2QuaternionLazyFiniteProductHaarSOSPositivity` then defines
+
+```text
+lazyFiniteProductHaarSOSValue packet blockCount
+  = sum_t packet.weight(t) *
+      finiteProductHaar blockCount (packetPolynomial(t)^2)
+```
+
+and proves it nonnegative from the packet's stored termwise weight
+certificate and the supported-polynomial square theorem.  Its production
+specialization proves nonnegativity of the full adjacent-even fixed-face lazy
+density packet.  This is a structural finite-sum proof: it neither generates
+all feature indices nor expands a feature product.
+
+##### 8.13.48.4 Endpoint boundary characters and arbitrary coefficients — ✓ COMPLETE
+
+`Z4HalfTimeReflectionAdjacentEvenEndpointBoundaryCharacterRatPoly` realizes
+the endpoint data in the same carrier.  For an endpoint assignment `s`, let
+
+```text
+B_s(U) = product over fixed links l of
+           Cheb.U (assignment_s(l)) (scalar(U_l)).
+```
+
+Each one-link Chebyshev factor is lifted by the existing `QPoly` Horner map at
+the scalar coordinate of its physical active link.  The canonical object is
+again a lazy factor list; its opaque product has exact common-field evaluation,
+active-coordinate support, and active-quaternion-block support.  The physical
+wrapper selects the endpoint assignment from a production half-state.  This
+file attaches no fusion, trajectory, or Haar/spin identity.
+
+`SU2QuaternionAdjacentEvenBoundaryCharacterHaarQuadratic` accepts an
+arbitrary rational coefficient sequence `c_s` and defines the requested
+finite polynomial
+
+```text
+C(U) = sum_s c_s * outerScale_s * B_s(U),
+```
+
+where the sum ranges over `adjacentEvenPhysicalHalfStateCount K radius`.
+The theorem `eval_adjacentEvenPhysicalBoundaryCoefficientPolynomial` is the
+exact common-field finite-sum evaluation, and the coordinate/block support
+theorems certify that `C` lies in the active product-Haar carrier.  Hence
+
+```text
+0 ≤ H(C^2)
+```
+
+for every coefficient sequence, with no sign restriction on the coefficients.
+
+For each lazy fixed-face density feature `p_t`, the same file defines the
+dressed polynomial `p_t * C`, proves its exact pointwise evaluation and block
+support, and obtains
+
+```text
+0 ≤ H((p_t * C)^2).
+```
+
+Finally it defines the direct boundary-character Haar quadratic
+
+```text
+Q_Haar(c) = sum_t w_t * H((p_t * C)^2)
+```
+
+and proves `adjacentEvenBoundaryCharacterDressedHaarQuadratic_nonnegative` by
+finite-sum induction from `w_t ≥ 0`.  This is presently the strongest honest
+Haar-side positivity statement: all density, plane, endpoint-character, and
+exterior-scale factors occur in one exact finite product-Haar square.
+
+It is essential not to rename this result “physical reflection positivity.”
+No current theorem identifies `Q_Haar` with
+`adjacentEvenPhysicalReflectionQuadratic_anchor`, the reachable scaled
+quadratic, the fusion trajectory kernel, or the existing scalar endpoint
+operator.  The parameters `cutoff` and `K` are intentionally independent in
+the positivity theorem; any later physical comparison must state their
+intended relation explicitly.  That comparison is the remaining local
+representation-theoretic obligation.
+
+##### 8.13.48.5 Certified obstruction to the old kernel identification — ✓ COMPLETE
+
+`SU2QuaternionAdjacentEvenTwoFaceProductHaarFence` uses the already proved
+nonsymmetric corner of the literal cutoff-two, radius-zero, two-face
+production patch.  For every block count and every proposed family of common
+half-polynomials, it proves
+
+```text
+¬ ∀ left right,
+    adjacentEvenTwoFaceProductionPatchMatrix left right
+      ≈ finiteProductHaar blockCount (half left * half right).
+```
+
+The proof is exact and short: commutativity of raw polynomial multiplication
+after `finiteProductHaar` makes the proposed right-hand side symmetric, while
+the production patch is not symmetric.  This rules out the previous
+entrywise common-half Gram target for the uncompressed two-face patch.  Its
+scope is precise: it does not rule out a corrected oriented/channel-resolved
+kernel, nor does it decide what happens after a separately proved physical
+reachable-state compression.
+
+The obstruction also explains why multiplying independent scalar face
+characters is insufficient.  Haar integration is linkwise, and shared links
+contract oriented matrix indices.  At valence two this introduces Schur
+normalization; at valence four it retains a nontrivial invariant-channel
+projector and Racah recoupling.  A scalar shared-link multiplicity does not in
+general contain this data.
+
+##### 8.13.48.6 Small closed diagnostics: certified facts versus targets
+
+The audited candidate for the smallest closed cutoff-one diagnostic is the
+elementary spatial cube at time one with the six fundamental faces
+
+```text
+{6, 7, 9, 21, 52, 144}
+```
+
+and vacuum elsewhere.  The audit finds twelve bivalent links, but this
+specific face list, link count, bivalent-incidence statement, and claim of
+minimality are not yet Lean theorems.  The existing abstract production
+theorem reduces any certified six-face incidence-two carrier of this form to
+
+```text
+(coeffW anchorCoupling 1)^6.
+```
+
+An oriented fundamental matrix-coefficient calculation is expected to
+produce one factor `1/2` from each of the twelve Schur contractions and one
+factor `2` from each of eight closed index loops, hence
+
+```text
+2^(8 - 12) = 1/16
+```
+
+times the face-coefficient product.  The local `haarMatrixKernel` and
+`contractedLinkEntry_diag` results already certify the individual `1/dim`
+Schur normalization; they do not yet compose the twelve links into a global
+cube theorem.  **The `1/16` value is currently an inferred target, not a
+repository theorem.**  The existing
+`cubeBoxHaarCharacterSector_exact` concerns a linkwise-character surrogate
+and explicitly does not prove the oriented six-face integral.
+
+The first evident closed recoupling candidate is the pair of face-disjoint
+fundamental cubes sharing one edge.  The audited fixed faces are
+
+```text
+{6, 7, 9, 21, 52, 66, 67, 69, 81, 112, 144, 204}.
+```
+
+The audit finds twenty-three links: one link has incidence four and the others
+are bivalent.  These concrete geometry facts and minimality are not yet Lean
+theorems.  Existing abstract production theorems collapse a certified unique
+four-valent link of this form to scalar multiplicity two.  By contrast, the
+invariant space of four
+fundamental SU(2) representations is two-dimensional.  The already certified
+ordered-Racah data include `fundamental_racahKernel_entries`, with entries
+
+```text
+1/4, 3/4,
+3/4, 1/4,
+```
+
+together with the exact fixed-`F` entries and Gram-weighted bridges.  These
+numbers are certified representation-theoretic data, but no theorem yet
+identifies them with the adjacent-even oriented RatPoly integral.  No
+6j/Racah amplitude occurs in the present scalar endpoint production path.
+
+The first corrected local bridge is now also certified in
+`SU2QuaternionOneLinkFundamentalSchur`.  Because the fundamental matrix
+coefficients are complex while `RatPoly` is rational-real, the file uses the
+honest complexification
+
+```text
+ComplexRatPoly = RatPoly × RatPoly
+```
+
+for real and imaginary parts.  For the scalar-first quaternion
+`q = r + i I + j J + k K`, it defines
+
+```text
+D(q) = [[r + i sqrt(-1),   j + k sqrt(-1)],
+        [-j + k sqrt(-1),  r - i sqrt(-1)]]
+```
+
+and defines the reverse-oriented coefficient by conjugate transpose.  A
+constructive case split over the sixteen Boolean index choices proves the
+exact componentwise identity
+
+```text
+H_1(D_ab(q) * conjugate(D_dc(q)))
+  = (1/2) * delta(a,d) * delta(b,c).
+```
+
+Thus the local Schur factor and index crossing are no longer inferred.  The
+same file proves the rational arithmetic identity
+
+```text
+2^8 * (1/2)^12 = 1/16.
+```
+
+This second theorem is deliberately conditional bookkeeping: the repository
+still lacks the theorem expanding the actual six oriented plaquette traces
+into twelve oppositely oriented link pairs and eight independent Boolean
+index loops.  It therefore does not yet prove the cube value.
+
+##### 8.13.48.7 Corrected shortest route to physical reflection positivity
+
+The next work is local and representation-theoretic, in this order:
+
+1. **Bank the two small geometries — pending.**  Prove the exact radius-zero membership,
+   distinct-link count, incidence-two cube facts, and the double-cube's unique
+   incidence-four edge with all other links bivalent.  These decisions are
+   small and finite; they must not evaluate the global density packet.
+2. **Oriented one-link coefficient carrier — ✓ COMPLETE locally.**  Express the fundamental
+   `2 × 2` SU(2) matrix entries and their orientation/conjugation in the
+   rational quaternion `RatPoly` carrier, using pairs of rational real
+   polynomials if necessary.  Prove evaluation against the existing rational
+   unit-quaternion field and exact active-block support.
+3. **Constructive Schur contraction — ✓ COMPLETE for one isolated block.**  Starting from the exact coordinate
+   moments
+
+   ```text
+   H(x_a * x_b) = delta(a,b) / 4,
+   ```
+
+   prove the oriented fundamental identity
+
+   ```text
+   integral U_ij * conjugate(U_kl) dU = (1/2) delta(i,k) delta(j,l)
+   ```
+
+   in the repository's rational encoding.  Package it as a local contraction
+   tensor and prove compatibility with link reversal.
+4. **Matrix semantics and linkwise product/Fubini bridge — pending.**  Prove
+   that the complexified matrix map respects Hamilton multiplication and
+   quaternion conjugation at `RatPoly` evaluation, then lift the local tensor through
+   `finiteProductHaar_integrateQuaternionBlocks`, proving that an oriented
+   plaquette network contracts one physical link at a time without expanding
+   the global face polynomial.
+5. **Closed cube normalization theorem.**  Apply the bivalent contraction at
+   the twelve links of the cutoff-one elementary cube, identify its eight
+   index loops constructively, and prove or refute the predicted `1/16`
+   normalization.  Only after this theorem may that factor be used to correct
+   a production activity.
+6. **Four-valent projector and Racah theorem.**  Retain the two invariant
+   channels at the common edge of the two-cube diagnostic.  Prove the exact
+   quaternion-Haar four-coefficient projector, identify its ordered basis
+   with the existing fixed-`F`/Gram-weighted carrier, and compare the result
+   with the certified `1/4, 3/4, 3/4, 1/4` Racah matrix.
+7. **Correct the finite spin kernel.**  Replace any scalar link multiplicity
+   that loses channel information by the derived oriented contraction or an
+   explicitly normalized invariant-channel sum.  Reprove symmetry and all
+   reachable/compression lemmas for the corrected object; do not retrofit a
+   Gram theorem onto the known nonsymmetric patch.
+8. **Prove the exact quadratic identity.**  Prefer the logically weaker and
+   structurally natural coefficient-level equality
+
+   ```text
+   adjacentEvenReachableScaledQuadratic K radius coefficient
+     ≈ adjacentEvenBoundaryCharacterDressedHaarQuadratic
+         cutoff K radius coefficient
+   ```
+
+   (with the corrected channel-resolved definitions) over an entrywise Gram
+   identity unless the latter follows at no extra cost.  This direct quadratic
+   route automatically combines all boundary states before squaring and is
+   insensitive to noncanonical choices of Gram feature basis.
+9. **Mechanical PSD transport.**  Once the exact equality is certified,
+   inhabit `AdjacentEvenActiveQuadraticSOSData` directly, or
+   `AdjacentEvenReachableKernelSOSData` if an entrywise theorem is genuinely
+   available, and invoke the existing transport to physical anchor PSD.
+10. **Only then resume the global route:** normalization and conditioning,
+   centered observables, staged time-one reflection-positive transfer,
+   representative-limit descent, constructive completion, and quotient
+   induction toward the Clay statement.
+
+This ordering is more efficient than adding further scalar endpoint lemmas:
+the one-link Schur theorem decides the normalization, and the first
+four-valent link decides whether the production state space carries enough
+recoupling information.  Both tests are finite, local, exact, and reusable
+for every later radius and cutoff.
+
+##### 8.13.48.8 Incremental full-build consistency without unsafe repetition
+
+The repository now uses a fail-closed incremental consistency discipline.  A
+full build need not be rerun after every leaf, provided all of the following
+certificates are refreshed:
+
+1. every new production leaf is explicitly imported by the semantic root
+   `lean/YMGap.lean`;
+2. `scripts/lean_import_guard.py` verifies the entire local import graph,
+   rejects cycles and unexpected semantic orphans, and proves reachability
+   from the registered roots;
+3. every changed leaf is compiled as a serialized single-threaded targeted
+   Lake target; Lake then validates its complete transitive dependency cone
+   and reuses artifacts only for unchanged modules;
+4. every new exposed end leaf is itself targeted, so a cached dependency
+   cannot hide a missing name or theorem at the new boundary;
+5. `scripts/lean_forbidden_token_scan.py`, `scripts/host_load_guard.py`, and
+   `git diff --check` pass before staging;
+6. staged-path inspection excludes the quarantined categorical spike and
+   verifies that every intended production file and root import is present;
+7. a serialized one-thread full incremental checkpoint is reserved for a
+   release/frontier milestone, toolchain or Lake configuration change, import
+   guard change, unexplained cache inconsistency, or failure of one of the
+   preceding certificates.  A clean or uncached full build is not an ordinary
+   validation step on this host.
+
+Thus “consistent without a full build every time” means a precise inductive
+argument: the last full checkpoint certifies the unchanged base; targeted
+Lake builds certify every changed transitive cone; and the static root/DAG
+audit certifies that those cones are exactly wired into the production graph.
+It does not mean skipping compilation of changed code, trusting timestamps,
+or claiming protection against external corruption of the toolchain/cache.
+
+The mandatory host-safety protocol remains unchanged: before every Lean,
+Lake, or test command, verify that no Lean/Lake/test or self-hosted runner
+process is active; run only one session under the repository lock,
+`caffeinate`, `nice -n 10`, `LEAN_NUM_THREADS=1`, and the configured memory
+ceiling; never run tests concurrently; never clean the Lake cache; and never
+materialize bounded state spaces, trajectories, or the large weighted SOS
+polynomials.
+
+##### 8.13.48.9 Verification ledger for this milestone
+
+The relevant serialized targeted builds completed as follows:
+
+```text
+SU2QuaternionLazyFactorProductBridge                         752 jobs
+SU2QuaternionFiniteProductHaarPolynomialParityClosure       418 jobs
+SU2QuaternionFiniteProductHaarParityHomogenization          417 jobs
+SU2QuaternionFiniteProductHaarPolynomialPositivity          420 jobs
+SU2QuaternionAdjacentEvenLazyPlaneHaarPositivity            781 jobs
+SU2QuaternionLazyFiniteProductHaarSOSPositivity             781 jobs
+Z4HalfTimeReflectionAdjacentEvenEndpointBoundaryCharacterRatPoly
+                                                               753 jobs
+SU2QuaternionAdjacentEvenBoundaryCharacterHaarQuadratic     782 jobs
+SU2QuaternionAdjacentEvenTwoFaceProductHaarFence            744 jobs
+SU2QuaternionOneLinkFundamentalSchur                        394 jobs
+```
+
+The final printed gates for arbitrary supported-polynomial Haar-square
+positivity, lazy weighted SOS positivity, endpoint/dressed boundary-quadratic
+positivity, and the two-face obstruction all report only
+`[propext, Quot.sound]`.  The official 2,598-job full incremental checkpoint
+from the end of §8.13.47 remains the certified unchanged base; it is not
+repeated for this import-only/root-wired incremental milestone.
+
+After the final root wiring, the incremental import audit found 2,615 source
+modules, 8,116 local import edges, zero cycles, 2,609 modules reachable from
+the semantic root, six reviewed/classified semantic orphans, and zero
+unexpected orphans.  The executable forbidden-token scan found zero hits,
+the host-load guard passed all 236 tracked or untracked non-ignored entry
+files, and `git diff --check` passed.
+
+The categorical spike remains quarantined and unimported.  It supplies none
+of the missing oriented Schur, cube-normalization, or Racah-identification
+theorems and is not part of this milestone.
