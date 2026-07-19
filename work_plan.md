@@ -20496,3 +20496,187 @@ six reviewed/classified semantic orphans, and zero unexpected orphans.  The
 executable forbidden-token scan found zero hits, the host-load guard passed
 all 236 tracked or untracked non-ignored entry files, and `git diff --check`
 passed.
+
+#### 8.13.52 Exact twenty-four-tag elementary-cube contraction schedule
+
+`SU2QuaternionElementaryCubeTaggedFundamentalContraction` now closes the
+geometry-to-Schur part of the honest elementary-cube calculation.  It is
+root-wired, but it deliberately remains pointwise in one opaque Boolean
+assignment: neither the depth-twenty-four trace network nor a global list of
+assignments is reduced or materialized.
+
+##### 8.13.52.1 Tagged boundary carrier and audited link pairing — ✓ COMPLETE
+
+The six outward face cycles are encoded exactly as
+
+```text
+[0,9,6,3], [1,4,15,12], [2,13,21,10],
+[14,16,18,22], [11,23,19,7], [5,8,20,17].
+```
+
+Their face-major flattening has length twenty four, is duplicate-free, and
+all tags are below twenty four.  Applying the cyclic-edge constructor gives
+twenty-four directed tag edges; zipping them with the already verified
+outward-oriented physical boundary occurrences has length twenty four, and
+forgetting the tags recovers that physical occurrence list definitionally.
+
+The exact opposite-orientation table is stored in the actual first-occurrence
+order of `radiusZeroElementaryCubeTouchedLinks`:
+
+```text
+physical link       (forward row,column; reverse row,column)
+x000                 ( 1, 4;  3, 0)
+y000                 ( 0, 9; 10, 2)
+x010                 ( 9, 6;  7,11)
+y100                 ( 5, 8;  6, 3)
+z000                 ( 2,13; 12, 1)
+x001                 (14,16; 15,12)
+z100                 ( 4,15; 17, 5)
+y001                 (13,21; 22,14)
+z010                 (11,23; 21,10)
+x011                 (23,19; 18,22)
+y101                 (16,18; 20,17)
+z110                 ( 8,20; 19, 7).
+```
+
+Mapping this table to physical links is exactly the audited duplicate-free
+twelve-link support.  Every displayed tag is in range.  More strongly, each
+row has a certified positive tagged occurrence with the displayed forward
+endpoints and a certified negative tagged occurrence with the displayed
+reverse endpoints.  Thus the table is not merely a hand-entered choice of
+indices: both orientations are checked against the production cube geometry.
+
+Two global incidence packages remain useful for the later face-product
+bridge, but are not hypotheses of the Schur theorem now proved:
+
+- certify that each tag's vertex-major number agrees with the geometric
+  endpoint of its tagged boundary occurrence; and
+- certify a permutation between the twenty-four face-major tagged
+  occurrences and the flattening of the twelve forward/reverse table rows.
+
+These should be added before reordering a six-face polynomial representative;
+they do not block the paired Haar network or the local delta calculation.
+
+##### 8.13.52.2 Assignment-dependent production schedule — ✓ COMPLETE
+
+For an opaque `assignment : List Bool`, `cubeTagValue assignment tag` reads
+only `assignment.getD tag false`.  Each table row is mapped to an
+`OrientedFundamentalContraction` whose block is the established production
+index `adjacentEvenActiveLinkIndex 0 physicalLink`.  The resulting schedule
+has length twelve, its block projection is exactly
+`radiusZeroElementaryCubeActiveLinkBlocks`, every block lies in the
+finite-product carrier, and the block list is duplicate-free.
+
+The Haar-facing polynomial is defined directly in the right-local order
+required by the distinct-block fold:
+
+```text
+radiusZeroElementaryCubePairedSummand assignment
+  := fundamentalContractionProduct
+       (radiusZeroElementaryCubeContractionSchedule assignment).
+```
+
+Its matching value is the identically ordered crossed-delta fold.  The main
+theorem applies the generic twelve-block result once:
+
+```text
+H_N^C(radiusZeroElementaryCubePairedSummand assignment)
+  ≃ radiusZeroElementaryCubeSchurDeltaValue assignment.
+```
+
+This is a raw-representative Haar theorem, not an appeal to pointwise
+polynomial evaluation, and it neither enumerates assignments nor claims that
+the paired representative already equals the six-face production product.
+
+##### 8.13.52.3 Exact delta graph and arithmetic target
+
+For one row `(r,c;s,t)`, Schur orthogonality contributes `1/2` precisely when
+`r=t` and `c=s`, and contributes zero otherwise.  In table order the twelve
+nonzero conditions are
+
+```text
+(1=0, 4=3),   (0=2, 9=10),  (9=11, 6=7),
+(5=3, 8=6),   (2=1,13=12),  (14=12,16=15),
+(4=5,15=17),  (13=14,21=22),(11=10,23=21),
+(23=22,19=18),(16=17,18=20),(8=7,20=19).
+```
+
+Regrouping only these Boolean equalities gives eight disjoint equality
+triangles:
+
+```text
+(0,1,2), (3,4,5), (6,7,8), (9,10,11),
+(12,13,14), (15,16,17), (18,19,20), (21,22,23).
+```
+
+Each triangle has exactly the two constant assignments.  Consequently the
+twenty-four-index sum has `2^8` surviving assignments, each with twelve
+factors of `1/2`, and the exact target is
+
+```text
+2^8 * (1/2)^12 = 1/16.
+```
+
+This counting paragraph is the specification for the next proof, not yet a
+Lean theorem.  The formal proof must factor the twelve scalar halves from the
+Boolean indicators and prove the local three-bit sum by its safe eight cases;
+it must not unfold, simplify, evaluate, or print the depth-twenty-four sum.
+
+##### 8.13.52.4 Updated shortest constructive route
+
+1. Define the opaque paired cube trace network as
+   `complexRatPolyBoolSum 24 radiusZeroElementaryCubePairedSummand` and use
+   the established Haar/sum commutation plus pointwise contraction theorem
+   to reduce it abstractly to the symbolic sum of Schur-delta values.
+2. Prove a one-row value lemma rewriting the oriented Schur delta as a
+   canonical `1/2` scalar times a Boolean equality indicator.  Lift it through
+   the twelve-row fold, keeping all rational-complex statements at `Eqv` level.
+3. Package one equality triangle and prove its depth-three Boolean sum is two
+   by the eight safe cases.  Prove a parametric consecutive-triple
+   factorization and instantiate it at eight vertices, so the proof structure
+   scales linearly and never exposes `2^24` branches.
+4. Combine the twelve halves, eight local sums, and the existing exact
+   post-Schur arithmetic certificate to prove the honest paired cube Haar
+   value `(1/16,0)`.
+5. Before identifying this paired network with the production cutoff-one
+   rank-one cube observable, add the endpoint/tag and global-permutation
+   certificates above and prove an explicit raw-representative or Haar-level
+   bridge.  Pointwise evaluation equivalence alone remains insufficient.
+6. Then bank the elementary-cube normalization discrepancy and proceed to the
+   edge-touching double-cube signed projector/F-move diagnostic before any
+   global kernel redesign.
+
+Every step remains intuitionistic: finite literal tables, Boolean case
+analysis of depth three only, structural induction, exact rational setoids,
+and explicit incidence certificates replace choice, excluded middle, native
+enumeration, and global assignment materialization.
+
+##### 8.13.52.5 Verification ledger
+
+The target build was serialized, session-locked, `nice`d, single-threaded,
+and preceded by the mandatory host-idle process check.  No clean/full build
+and no test suite was run:
+
+- `SU2QuaternionElementaryCubeTaggedFundamentalContraction`: 730 jobs.
+
+The displayed gates report no axioms for the tag uniqueness and physical-link
+projection theorems, `propext` for the concrete occurrence and block-map
+certificates, and only `propext` plus `Quot.sound` for the range, no-duplicate,
+and twelve-block Haar theorems.  No classical choice, `sorryAx`, custom axiom,
+or native decision procedure enters the leaf.
+
+An independent geometry/API audit checked all six oriented face paths, all
+twelve physical-link rows, all twenty-four matrix-index endpoints, the eight
+vertex equality triangles, the production block projection, and the exact
+scope of the fixed-assignment Haar theorem; it found no blocking defect.  Its
+precision recommendations are reflected above: uniqueness is not claimed by
+the existence certificate, the `< 24` theorem is described as a bound rather
+than list membership, and the missing endpoint/tag, triangle, coverage, and
+length-twenty-four access packages are explicit next obligations.
+
+After root wiring, the static audit found 2,626 source modules, 8,145 local
+import edges, zero cycles, 2,620 modules reachable from the semantic root,
+six reviewed/classified semantic orphans, and zero unexpected orphans.  The
+executable forbidden-token scan found zero hits, the host-load guard passed
+all 236 tracked or untracked non-ignored entry files, and `git diff --check`
+passed.
