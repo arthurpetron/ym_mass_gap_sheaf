@@ -17624,3 +17624,189 @@ enumerations.  Exact current provenance is
 ```text
 YMGAP_SOURCE_FINGERPRINT sha256:e1c4a0a4c9420f2bf0e8a351d9a24d98fd1e9abc8871a73c84c0e976c304d1e7
 ```
+
+#### 8.13.41 Completed pairing laws and shift-one self-adjointness
+
+(2026-07-18, session 20, completed and production-wired.)  The new
+production leaf
+`Z4HalfTimeReflectionStrictJointCRealCompletedPairingLaws.lean` supplies the
+first structural laws of the completed strict reflection pairing.  It proves
+dense compatibility as a validation theorem and proves the laws on arbitrary
+completed vectors by representative-level limit transfer followed by quotient
+induction.  In particular, no algebraic direct-limit representative is chosen
+for a general completed vector, and no unformalized density or continuity
+argument is used.
+
+Write
+
+```text
+D  = strictJointCylinderStageSquaredSeminorm hcoupling hle,
+T1 = strictJointCylinderStageTimeTranslateNonexpansive hcoupling hle 1.
+```
+
+The reusable engine is
+
+```text
+strictJointCylinderRepresentativePairingLimit_equiv_of_raw_sequence.
+```
+
+For Cauchy representatives `X,Y,X',Y'`, its hypothesis is the pointwise
+equivalence
+
+```text
+forall n,
+  Equiv (rawPairing X_n Y_n) (rawPairing X'_n Y'_n).
+```
+
+At every outer index it constructs exactly the chain
+
+```text
+canonical(X,Y,n)
+  ~ raw(X,Y,n)
+  ~ raw(X',Y',n)
+  ~ canonical(X',Y',n).
+```
+
+The first and last arrows are the canonical-to-raw equivalences established
+in 8.13.39, with the last one reversed.  Constructive uniqueness of limits,
+`CReal.Equiv_of_limit_of_equal`, then identifies the two representative
+limits using their already proved convergence witnesses.  This isolates all
+subsequent law lifting from the rational regularization details.
+
+For a staged vector `v`, `D.constant v` has constant raw pairing sequence.
+The local theorem `convergesTo_const` proves its convergence directly: for
+each positive `epsilon`, stage zero suffices, and after approximation index
+zero both required inequalities are instances of adding a nonnegative
+rational.  Consequently
+
+```text
+strictJointCylinderRepresentativePairingLimit_constant_equiv_stage
+```
+
+identifies the representative limit of the two constant sequences with the
+original staged reflection bilinear term.  Passing through the constructive
+real quotient gives the definitional user law
+
+```text
+strictJointCylinderCompletedPairing_embedRep :
+  B_completed (D.embedRep left) (D.embedRep right)
+    = [B_stage left right].
+```
+
+It is marked `[simp]`.  Quotient induction over the algebraic direct-limit
+carrier, together with the previously established computation of
+`StrictJointCylinderDirectLimit.toOSCompletion`, then proves
+
+```text
+StrictJointCylinderDirectLimit.toOSCompletion_pairing :
+  B_completed (toOSCompletion left) (toOSCompletion right)
+    = reflectionBilinear left right.
+```
+
+This theorem certifies that completion has not changed the previously
+constructed direct-limit form.  Its logical role is compatibility, not a
+surjectivity claim about `toOSCompletion`.
+
+Staged symmetry gives, at each representative index,
+
+```text
+rawPairing X_n Y_n ~ rawPairing Y_n X_n.
+```
+
+The generic transfer engine yields
+`strictJointCylinderRepresentativePairingLimit_symm`; quotient induction in
+both completed arguments and `Quotient.sound` yield the exact `CReal.RC`
+equality
+
+```text
+strictJointCylinderCompletedPairing_symm :
+  B_completed left right = B_completed right left.
+```
+
+For the time-one law, `T1.mapCauchy` is the nonexpansive map on explicit
+Cauchy representatives and its sequence is definitionally
+
+```text
+(T1.mapCauchy X).seq n = (X.seq n).timeTranslate 1.
+```
+
+The already derived staged one-sided covariance theorem therefore supplies
+the pointwise equivalence
+
+```text
+B_stage X_n (T1 Y_n) ~ B_stage Y_n (T1 X_n).
+```
+
+Limit transfer proves
+`strictJointCylinderRepresentativePairingLimit_oneSidedTimeCovariance_one`,
+and quotient induction proves on arbitrary completed vectors
+
+```text
+strictJointCylinderCompletedPairing_oneSidedTimeCovariance_one :
+  B_completed left (T1 right) = B_completed right (T1 left).
+```
+
+Completed symmetry followed by this one-sided covariance gives the exact
+self-adjointness equation
+
+```text
+strictJointCylinderCompletedTimeTranslate_one_selfAdjoint :
+  B_completed (T1 left) right = B_completed left (T1 right).
+```
+
+Thus the time-one map is now formally self-adjoint relative to the completed
+reflection pairing.  This statement is deliberately not advertised as a
+Hilbert-space operator theorem: vector operations, bilinearity over those
+operations, positive definiteness modulo the completed null relation, and
+the relevant completeness structure have not yet been assembled into such a
+package.
+
+The next analytic obstruction is direct time-one transfer positivity,
+
+```text
+0 <= B_completed (T1 x) x.
+```
+
+The existing even-time theorem controls diagonal forms of even powers, and
+the existing doubled-time contraction controls shifted quadratic forms, but
+self-adjointness together with positivity of `T1^2` does **not** imply
+positivity of `T1`.  The next proof must therefore locate or establish the
+actual adjacent-even/Markov reflection argument at the finite staged level,
+then transfer that pointwise theorem to Cauchy representatives and quotient
+induct it to the completed carrier.  No spectral square-root shortcut is
+sound at the present constructive abstraction level.  Once this positivity
+and the corresponding completed contraction statement are in place, the
+minimal `CRealCompletedTransferCore` should package only:
+
+1. the completed pairing;
+2. the completed time-one transfer;
+3. self-adjointness;
+4. transfer positivity; and
+5. contraction.
+
+That core must initially be instantiated at `coupling := anchorCoupling`.
+A coupling-parametric package remains conditional on the interval-wide
+positivity input.  Addition, scalar multiplication, pairing linearity, and
+the eventual inner-product/Hilbert completion interface should be proved in
+separate subsequent leaves rather than hidden as fields of this minimal
+transfer core.
+
+Verification stayed within the mandatory Mac safety envelope: every
+Lean/Lake command was serialized by the shared host lock, used
+`LEAN_NUM_THREADS=1`, and retained `-s 65536 -M 20480`.  The production leaf
+checked directly.  The cached named target completed with 860 jobs and a
+1.6-second new leaf; the cached semantic root completed with 2,553 jobs and a
+555-millisecond root.  All nine public axiom gates report exactly
+`[propext, Quot.sound]`, and the executable forbidden-token scan reports zero
+hits.
+
+Static analysis now reports 2,558 source modules, 7,953 local import edges,
+zero cycles, 2,552 modules reachable from `YMGap`, the same six reviewed
+exclusions, and zero unexpected orphans.  The host-load guard passes over 236
+repository entry files; all ten mocked JIT remote-state and four bounded
+supervisor cases pass; and the Frontier-DAG guard reports zero unbridged
+enumerations.  Exact current provenance is
+
+```text
+YMGAP_SOURCE_FINGERPRINT sha256:57b258aba83b672491563e0b4e178551ddc6114434786c7de6284c2e950d1675
+```
