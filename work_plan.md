@@ -18436,3 +18436,176 @@ enumerations.  Exact current provenance is
 ```text
 YMGAP_SOURCE_FINGERPRINT sha256:23043ee94d2bfca02af737621e70278af2eee813e545708c8324669da9dffecc
 ```
+
+#### 8.13.45 Exact outer locality, endpoint normal form, and reachable diagonal reduction
+
+(2026-07-18, session 24, completed and production-wired.)  The three new
+leaves `Z4HalfTimeReflectionAdjacentEvenOuterFactorLocality.lean`,
+`Z4HalfTimeReflectionAdjacentEvenEndpointTrajectoryNormalForm.lean`, and
+`Z4HalfTimeReflectionAdjacentEvenReachableSandwichReduction.lean` complete
+the entire outer reduction proposed in 8.13.44.  The literal zero-padded
+physical reflected matrix at the anchor coupling is now proved entrywise
+equivalent to a diagonal congruence of the reachable endpoint kernel.  Hence
+the physical positive-semidefiniteness target follows constructively from one
+and only one remaining datum: a Gram representation of that reachable
+kernel.  This is a reduction theorem, not a claim that the remaining datum is
+inhabited and not a claim of time-one reflection positivity.
+
+The first leaf strengthens adjacent-even side geometry to the exact local
+statements
+
+```text
+lower link + incident physical plaquette -> lower plaquette,
+upper link + incident physical plaquette -> upper plaquette.
+```
+
+Their numerical-ID wrappers transport the result through
+`slabIncidentPlaqIds`.  Consequently an assembled lower face factor and every
+lower-link multiplicity read only the left half state, giving the ordinary
+equality
+
+```text
+adjacentEvenLowerFactor w K radius
+    (assembleAdjacentEvenReflectedSlabLabelling radius left boundary right)
+  = adjacentEvenLowerFactor w K radius left.
+```
+
+The lower endpoint-amplitude product has the same exact locality.  On the
+upper side, explicit reflection permutations identify the complete upper
+face-ID list and upper-link list with their lower counterparts.  Face
+weights and link multiplicities are invariant under those permutations, so
+`adjacentEvenUpperFactor_reflection` and
+`adjacentEvenUpperFactor_assemble_only_right` identify the assembled upper
+factor with the canonical lower factor of the right half, up to `Q'.eqv`.
+Thus no boundary variable remains in either exterior factor.
+
+The second leaf exposes the endpoint kernel in the exact mixed-trajectory
+normal form
+
+```text
+sum trajectory,
+  adjacentEvenTrajectoryFixedFaceResummedKernel K radius source trajectory
+    * adjacentEvenLinkTerminalProduct radius source target trajectory.
+```
+
+The proof swaps the physical fixed-face-labelling sum with the trajectory
+sum, splits every link transition product into its fixed-face product and
+terminal delta, and invokes the production fixed-face resummation theorem.
+It is important that this is a *mixed* normal form: the resummed face kernel
+is evaluated on the incoming field determined by `(source, trajectory)` and
+the outgoing field determined by `trajectory`.  Existing directed and
+mixed-map counterexamples forbid silently replacing those two maps by one
+Gram feature map.
+
+The lower source assignment is then eliminated exactly and symbolically.
+`adjacentEvenLowerSourceTrajectorySum_eqv_endpoint` applies product Fubini to
+the bounded assignment list, uses the deterministic lower indicator link by
+link, and collapses each scalar delta sum at the canonical endpoint.  It does
+not construct the raw endpoint function as an enumerated bounded labelling;
+zero padding outside the fixed-link key list is handled algebraically.  The
+remaining assembly lemmas prove that the fixed-face transition product reads
+only the boundary labelling and that the reflected lower final amplitude is
+exactly the terminal delta to the right endpoint.  These identities yield
+
+```text
+assembled common-lower interface sum
+  ≈ endpoint trajectory product,
+
+sum over fixed boundaries of assembled interface
+  ≈ adjacentEvenFixedInterfaceEndpointKernel.
+```
+
+Combining those equalities with the exact exterior locality gives the
+load-bearing kernel factorization, for physical half states `left` and
+`right`,
+
+```text
+adjacentEvenPhysicalReflectedKernel anchorCoupling K radius left right
+  ≈ lowerFactor(left)
+      * (reachableEndpointKernel(endpoint(left), endpoint(right))
+          * lowerFactor(right)).
+```
+
+No endpoint rectangle, half-state list, boundary-channel list, or trajectory
+list is evaluated during the proof.
+
+The generic operator
+
+```text
+diagonalKernelScale kernel scale i j
+  = (scale i * scale j) * kernel i j
+```
+
+now has a constructive Gram transport `diagonalKernelScaleGramRep`.  An
+arbitrary rational scale is absorbed directly into every feature vector; no
+positivity premise and no square root are required.  The global theorem
+`adjacentEvenPhysicalReflectedMatrix_eqv_reachableDiagonal` combines the
+in-range factorization with the two zero-padded lookup theorems and proves
+the identity for all natural-number indices, including both out-of-range
+cases.  Therefore
+
+```text
+AdjacentEvenReachableFixedInterfaceGramWitness K radius
+  -> AdjacentEvenPhysicalAnchorGramWitness K radius
+  -> AdjacentEvenPhysicalAnchorPSD K radius
+```
+
+is now implemented by
+`adjacentEvenPhysicalAnchorGramWitness_of_reachable` and
+`adjacentEvenPhysicalAnchorPSD_of_reachable`.  This diagonal specialization
+is strictly leaner than introducing a second finite identity-amplitude
+sandwich carrier and proves the same mathematical congruence.
+
+For the remaining inner problem, the Type-valued structure
+`AdjacentEvenReachableCommonMiddleData` records a finite middle count, a
+bounded fixed-face channel field at every middle index, a half amplitude,
+and the exact factorization of the reachable matrix through the already
+proved production dependent fixed-face Gram.  Its method `toGramRep` is a
+fully constructive adapter using `finiteKernelSandwichGramRep`.  No instance
+of the structure is asserted.  The missing theorem is precisely a
+weight-preserving common-middle construction; hiding it behind symmetry,
+directed compatibility, or an unrestricted endpoint Gram would be invalid.
+
+The next proof search must therefore decide the inner obstruction before
+more infrastructure is built:
+
+1. audit the smallest symbolic reachable two-face patch with explicit
+   endpoint values `<= K`, never a materialized global carrier, and determine
+   whether the reachable endpoint kernel itself is positive semidefinite;
+2. if it is, construct a two-sided, weight-preserving trajectory gluing
+   equivalence whose middle retains enough fixed-incidence channel data (and,
+   if necessary, the local fixed-face Gram feature indices) for both legs to
+   use the same feature field;
+3. formalize that equivalence as an inhabitant of
+   `AdjacentEvenReachableCommonMiddleData`, then apply the now-mechanical
+   reachable-to-physical Gram and PSD chain;
+4. if the symbolic reachable patch is not PSD, abandon the stronger inner
+   witness immediately and derive a direct SOS identity for the fully
+   diagonally weighted physical quadratic, where exterior factors may remove
+   the offending directions; and
+5. only after `AdjacentEvenPhysicalAnchorPSD` is unconditional, resume the
+   existing normalization, conditioning/centering, staged time-one,
+   representative-limit, and quotient-induction lane.
+
+All verification remained inside the mandatory Mac safety envelope.  Every
+Lean/Lake command was serialized by the shared host lock, used
+`LEAN_NUM_THREADS=1`, and retained `-s 65536 -M 20480`; no clean or uncached
+full build and no enumerator evaluation was performed.  Each new leaf checks
+directly.  The cached named reachable-sandwich target completed all 709 jobs,
+and the fully wired cached semantic root completed all 2,560 jobs with a
+563-millisecond root.  The generic diagonal Gram gate reports `[propext]`;
+all other public gates in the three leaves report exactly
+`[propext, Quot.sound]`.  The executable forbidden-token scan reports zero
+hits.
+
+Static analysis now reports 2,565 source modules, 7,972 local import edges,
+zero cycles, 2,559 modules reachable from `YMGap`, the same six reviewed
+exclusions, and zero unexpected orphans.  The host-load guard passes over 236
+repository entry files; all ten mocked JIT remote-state and four bounded
+supervisor cases pass; and the Frontier-DAG guard reports 12 enumerations,
+ten registered/grandfathered, two exempt, and zero unbridged.  Exact current
+provenance is
+
+```text
+YMGAP_SOURCE_FINGERPRINT sha256:cda39a55a28bba9868829c4b668f75d2db95917b46aeda379ea7c125c329bbef
+```
