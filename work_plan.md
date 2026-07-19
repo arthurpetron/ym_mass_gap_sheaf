@@ -16079,3 +16079,150 @@ nonnegative swap coefficient; it must not reopen the slab reflection,
 connected-carrier, or cross-volume arguments.  Once limit equality is
 available, the one-step time-translation/covariance consumer can use it as the
 finite-to-continuum symmetry input for the OS contraction route.
+
+#### 8.13.29 Exact adjacent-even one-step centered-limit symmetry and categorical-spike adjudication
+
+(2026-07-18, session 8, completed and production-wired.)  The production leaf
+`Z4HalfTimeReflectionAdjacentEvenOneStepLimitSymmetry.lean` now turns the
+finite-stage estimate of Section 8.13.28 into exact constructive-real swap
+symmetry.  It does not construct a second Cauchy completion.  Instead it proves
+that the apparently heterogeneous mixed one-step chart is an exact projection
+of the already completed ordinary strict-joint centered chart at source base
+`base + 1`.
+
+The ordinary source list is
+
+```text
+adjacentEvenOneStepProjectedRoots base roots :=
+  transportedCylinderRoots base (base + 1) roots ++
+  roots.map (timeShiftCanonicalRoot 1 base).
+```
+
+Both blocks are canonical in `base + 1`, including for an empty root list and
+with duplicate roots retained.  Expanding the ordinary strict-joint centered
+chart on this append produces four ordered blocks:
+
+```text
+lower(transported roots), lower(time-shifted roots),
+upper(transported roots), upper(time-shifted roots).
+```
+
+The existing heterogeneous projection keeps the first and fourth blocks.  The
+load-bearing naturality identity is
+`centralStrictLowerCenteredStageRoot_transportBase_aligned` with
+`padding := 1`:
+
+```text
+lower_(base+1,stage)(transport_(base,base+1) root)
+  = lower_(base,stage+1)(root).
+```
+
+The selected fourth block is definitionally
+
+```text
+upper_(base+1,stage)(timeShift_1 root).
+```
+
+Consequently `adjacentEvenOneStepProjectedCylinderEvent_eq` proves literal
+function equality between the projected ordinary event and
+`adjacentEvenOneStepCenteredPairEvent`; there is no asymptotic recoding error,
+permutation, deduplication, nonempty-family hypothesis, or appeal to limit
+uniqueness.
+
+The named sequence
+
+```text
+couplingParametricAdjacentEvenOneStepCenteredPairSequence
+```
+
+is therefore the existing
+`couplingParametricStrictJointCenteredSequence` on the projected roots and
+four-block predicate.  At every stage it is exactly the adjacent-even mixed
+pair probability with cutoff
+`centralStrictJointCenteredStageCutoff (base + 1) stage`.  Its named limit
+`couplingParametricAdjacentEvenOneStepCenteredPairLimit` is literally the
+already proved `couplingParametricStrictJointCenteredLimit`; all of its Cauchy
+content, cutoff interpolation, and stage-to-stage uniform-shift modulus are
+reused rather than copied.
+
+Specializing the finite theorem from Section 8.13.28 at that diagonal cutoff
+gives
+
+```text
+abs (sequence left right stage - sequence right left stage) <=
+  adjacentEvenOneStepCenteredSwapCoefficient (2 * roots.length)
+    * half^stage.
+```
+
+The final theorem
+`couplingParametricAdjacentEvenOneStepCenteredPairLimit_swap` proves
+`CReal.Equiv` of the two swapped limits.  Given positive rational `epsilon`, it
+uses the explicit scale
+
+```text
+epsilon * invSucc(coefficient.num.toNat)
+```
+
+and threshold equal to that rational's denominator.  Monotonicity of
+`half^stage`, `HalfPow.pow_half_le`, coefficient nonnegativity, and
+`mul_le_of_mul_invSucc_toNat` reduce the finite geometric defect below
+`epsilon`; the rational absolute-value estimate then supplies both inequalities
+required by `CReal.Equiv`.  This is an intuitionistic epsilon proof, not
+structure equality of constructive reals and not a classical uniqueness
+principle.
+
+The user-supplied categorical spike was audited in parallel and used at the
+level where it actually helps: its proposed naturality/transport square led to
+the exact production transport/projection factorization above.  The referenced
+`cat_structural_spike.zip` is absent at the stated path, so the audit used the
+expanded twelve-module `cat_structural_spike/` working tree and left every one
+of those user-owned files untouched.  The package remains quarantined from
+`YMGap` for concrete mathematical reasons:
+
+1. `ThetaLedgerG` assumes a coherent all-scale trajectory and residual
+   positivity; it is not produced by the current identity/zero-budget
+   `BlockSpin.step_obligation_witness`, and it does not discharge the open
+   `SingleStepDefectBound.singleStep` inequality.
+2. `PilotWire` is a stabilized four-case rational surrogate, not an
+   infinite-scale Yang--Mills law or an OS Hamiltonian mass gap.
+3. The canonical `ratioHom` comparison makes the displayed square guard
+   automatic for arbitrary positive ledgers, so it cannot certify an
+   independently derived physical equivalence.
+4. `UniformGapG` packages pointwise lower bounds but has no volume-ledger
+   functor/naturality field and therefore is not yet a categorical cone in the
+   claimed production sense.
+5. No constructive-real substrate instance is supplied; positive
+   cancellation and strict-order transport are still genuine obligations.
+
+Promotion would therefore add abstraction before a second production consumer
+exists and could make a sigma/string-tension budget look like the Clay-facing
+spectral gap.  The reusable `GapSubstrate`/`DomGrowthOver` algebra may be
+reconsidered only after it is instantiated directly over production `Q'` and
+used by at least two real consumers; any future adapter must target the actual
+`singleStep`, and `SquareGuard` may be used only with independently derived
+maps.
+
+Verification remained within the Mac safety envelope.  A locked, capped,
+single-thread direct check completed in under one second.  The named Lake
+target completed successfully with 825 jobs and a 729-millisecond new leaf;
+the cached `+YMGap` semantic root completed with 2,538 jobs and a 1.2-second
+root.  All six exported gates report exactly `[propext, Quot.sound]`.  Static
+analysis reports 2,543 source modules, 7,906 local import edges, zero cycles,
+2,537 modules reachable from `YMGap`, the same six reviewed exclusions, and
+zero unexpected orphan.  The host-load and mocked JIT/supervisor guards and
+the Frontier-DAG check all pass.  The exact current provenance is
+
+```text
+YMGAP_SOURCE_FINGERPRINT sha256:8c20932288496283c8b43bfd1bf5ee76cf5aeea437b1d3ce697642b7e1e7c8d3
+```
+
+The next consumer is now precise: prove
+`strictJointOneSidedTimeCovariance_one_derived`.  For arbitrary left and right
+strict-cylinder presentations, co-present their transported and time-shifted
+root families in one append chart, identify every heterogeneous finite entry
+with the projected one-step pair limit above, use the exact limit swap entry by
+entry, and lift through the finite heterogeneous bipushforward and coefficient
+sums.  This is the missing odd-time/self-adjointness input.  It should not
+reopen the finite EventLaw or introduce an adjacent-even Gram/positivity
+premise; positivity and contraction remain subsequent, separately audited
+consumers.
