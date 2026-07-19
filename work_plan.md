@@ -16328,3 +16328,133 @@ zero unbridged enumerations.  Current provenance is
 ```text
 YMGAP_SOURCE_FINGERPRINT sha256:2d260aee05fd3bf268e3cb5487b5b4ebbc92af60265209b41f77a0c8ebb793c3
 ```
+
+#### 8.13.31 Common-chart assembly and derived shift-one covariance
+
+(2026-07-18, session 10, completed and production-wired.)  The two low-risk
+finite assembly leaves planned in the preceding section are now complete.
+Together they close the odd-time antisymmetric residual at the level of
+arbitrary strict-cylinder vectors.  No adjacent-even positivity premise,
+finite-volume odd/even identification, root-count equality, decidable
+reindexing, or classical choice is used.
+
+The production leaf
+`Z4HalfTimeReflectionAdjacentEvenOneStepCenteredAssembly.lean` first handles
+arbitrary presentations.  Given `left right : StrictJointCylinderVector base`,
+it fixes the ordered common source chart
+
+```text
+left.roots ++ right.roots
+```
+
+and proves this chart canonical.  Its left coefficient table reads a common
+fingerprint through `take left.roots.length`; its right table reads through
+`drop left.roots.length`.  The existing exact append recodings prove four
+presentation equivalences: transported-left to common-left,
+transported-right to common-right, translated-left to common-left, and
+translated-right to common-right.  Consequently unequal root counts never
+require a permutation or a rectangular swap: both orientations live on the
+same ordered square fingerprint space from the outset.
+
+For any canonical common roots and any two coefficient tables, the leaf
+defines `adjacentEvenOneStepCenteredBilinear`, the finite double
+`listCRealSum` of coefficient products against
+`couplingParametricAdjacentEvenOneStepCenteredPairLimit`.  At every rational
+stage, the direct common reflection cross expands, up to `Q'.eqv`, into the
+heterogeneous finite entry sum.  The preceding odd-carrier entry bridge and
+the existing heterogeneous coefficient-pair L1 estimate yield
+
+```text
+abs (commonCross.approx stage - centeredAssembly.approx stage) <=
+  adjacentEvenOneStepComparisonCoefficient * half^stage.
+```
+
+The comparison coefficient is the product of the fixed conditional-centered
+defect coefficient with the two finite coefficient L1 norms; it is proved
+nonnegative constructively.  An explicit `invSucc`/half-power cutoff then
+turns this bound into
+`adjacentEvenOneStepCommonCross_equiv_centeredBilinear`.  Composing with the
+four exact presentation adapters gives the public forward and reverse laws
+
+```text
+strictJointOneSidedTimeCross 1 left right
+  ≃ centeredAssembly appendLeftCoefficient appendRightCoefficient,
+
+strictJointOneSidedTimeCross 1 right left
+  ≃ centeredAssembly appendRightCoefficient appendLeftCoefficient.
+```
+
+The terminal production leaf
+`Z4HalfTimeReflectionAdjacentEvenOneStepCovariance.lean` proves symmetry of
+these assemblies with finite constructive algebra only.  A local finite
+Fubini theorem for `listCRealSum` is obtained stagewise from the exact
+rational `listQSum_swap`; a structural list congruence lifts entrywise
+`CReal.Equiv`.  After Fubini reverses the two finite sums, each term has the
+form
+
+```text
+(rightCoefficient right * leftCoefficient left) * PairLimit right left.
+```
+
+Rational commutativity identifies its scalar with the forward scalar, and
+`couplingParametricAdjacentEvenOneStepCenteredPairLimit_swap` identifies its
+second factor.  Constructive-real multiplication congruence and two nested
+finite list congruences therefore prove
+`adjacentEvenOneStepCenteredBilinear_swap`.
+
+The final chain is now machine checked:
+
+```text
+actual LR cross
+  ≃ common centered LR assembly
+  ≃ common centered RL assembly
+  ≃ actual RL cross.
+```
+
+It exports, for every admissible coupling, every source base, and every pair
+of strict-cylinder vectors,
+
+```text
+strictJointOneSidedTimeCovariance_one_derived :
+  StrictJointOneSidedTimeCovariance hcoupling hle 1 left right.
+```
+
+The exactness ledger is deliberately stratified.  Append-root and cylinder
+recodings are Lean `Eq`; finite support and rational pushforward expansions
+are `Q'.eqv`; odd-carrier entry descent is an explicit rational vanishing
+bound; limits, common-cross adapters, assembly swap, and terminal covariance
+are `CReal.Equiv`.  In particular, the proof never asserts literal equality
+of constructive-real representatives and never collapses the direct odd slab
+with the adjacent even carrier used to establish swap.
+
+The next most efficient consumer is algebraic direct-limit descent.  Co-present
+arbitrary stages at their maximum base, apply the theorem above to the two
+transported vectors, and descend through the existing quotient presentation.
+This should produce shift-one self-adjointness for
+`StrictJointCylinderDirectLimit.reflectionBilinear` and
+`StrictJointCylinderDirectLimit.timeTranslate`.  A completed-carrier
+self-adjointness theorem remains downstream of the still-missing completed
+`CReal` inner product and must not be inferred merely from the completed
+seminorm/action.
+
+Verification remained inside the mandatory Mac safety envelope: Lean/Lake
+commands were serialized by the canonical host lock, used
+`LEAN_NUM_THREADS=1`, and retained the fixed `-s 65536 -M 20480` weak
+arguments.  The direct covariance-file check completed in 518 milliseconds.
+The named assembly target built successfully with 832 jobs and a 1.1-second
+new leaf; the named covariance target built successfully with 833 jobs and a
+560-millisecond new leaf.  The cached semantic root then built successfully
+with 2,541 jobs and a 564-millisecond root.  Every exported gate in both new
+leaves reports exactly `[propext, Quot.sound]`; the executable forbidden-token
+scan reports zero hits.
+
+Static analysis now reports 2,546 source modules, 7,915 local import edges,
+zero cycles, 2,540 modules reachable from `YMGap`, the same six reviewed
+exclusions, and zero unexpected orphans.  The host-load guard passes over 236
+repository entry files; all ten mocked JIT remote-state and four bounded
+supervisor cases pass; and the Frontier-DAG guard reports zero unbridged
+enumerations.  Exact current provenance is
+
+```text
+YMGAP_SOURCE_FINGERPRINT sha256:94879043305c5ae5fc622db373caafd7935f979dcf985313fff40ccb0da9bc7f
+```
