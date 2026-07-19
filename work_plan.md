@@ -20148,3 +20148,127 @@ tracked or untracked non-ignored entry files, and `git diff --check` passed.
 
 The categorical spike remains quarantined, modified only by the user/other
 work, and absent from both the production root and the staged milestone.
+
+#### 8.13.50 Public complex algebra and finite distinct-block Schur fold
+
+The first two reusable layers of the symbolic trace-network route are now
+root-wired.  They deliberately stop before any cube-wide Boolean assignment
+family is formed: the purpose of this milestone is to make the local algebra
+and the sequential bivalent-link contraction available as small exact APIs.
+
+##### 8.13.50.1 Honest complex-polynomial algebra facade — ✓ COMPLETE
+
+`SU2QuaternionComplexRatPolyAlgebra` makes the previously scattered
+`RatPoly × RatPoly` operations usable without reopening private proof
+machinery.  It supplies:
+
+- canonical rational-complex and complex-polynomial zero and one;
+- finite tail-recursive products in both carriers;
+- public reflexivity, symmetry, transitivity, addition congruence, and
+  multiplication congruence for `RationalComplexEqv`;
+- exact evaluation laws for complex zero, one, addition, multiplication, and
+  an abstract finite product;
+- exact finite-product Haar laws for complex zero, one, and addition; and
+- a componentwise bridge from the multiplication named in
+  `SU2QuaternionGenericBlockPartialFundamentalSchur` to the identical formula
+  chosen canonically from `SU2QuaternionFundamentalMatrixSemantics`.
+
+The facade does **not** assert that Haar is multiplicative.  Nor does it
+transport pointwise `RatPolyEqv` through Haar, or identify differently
+parenthesized/reordered raw polynomial products.  Its finite product is safe
+as an opaque abstract fold or for one four-coefficient word; it must not be
+unfolded on the six-face network.
+
+##### 8.13.50.2 Arbitrary-base distinct-block contraction — ✓ COMPLETE
+
+`SU2QuaternionDistinctBlockFundamentalContractionProduct` packages one local
+pair as a natural block identifier and four Boolean matrix indices.  It then
+defines the right-local fold
+
+```text
+P(base, [])       = base,
+P(base, s :: ss)  = P(base, ss) · local(s),
+```
+
+together with the literally matching canonical rational-complex delta fold
+
+```text
+Delta(z, [])       = z,
+Delta(z, s :: ss)  = Delta(z, ss) · delta(s).
+```
+
+This parenthesization is load-bearing: the head is exactly the right factor
+required by the generic spectator theorem, so no raw associativity,
+commutativity, or factor reordering is used.  The file proves that the tail
+product is independent of the head block when the mapped block list is
+duplicate free, and establishes
+
+```text
+H_N^C(P(base, schedule))
+  ≃ Delta(H_N^C(base), schedule)
+```
+
+provided every scheduled block is in range, the block list is `Nodup`, and
+the external base is independent of every scheduled block.  Taking the base
+to be complex polynomial one yields the pure finite Schur-delta product.
+
+The arbitrary base is not cosmetic.  For the elementary cube it is one and
+all twelve bivalent links may be contracted.  For the edge-touching double
+cube it can retain the unresolved polynomial on the unique four-valent
+shared link while the other distinct bivalent blocks are eliminated.  A
+repeated block is intentionally rejected: its remaining local factor would
+not be a valid independent spectator, and its correct replacement is the
+later signed channel/Racah calculation.
+
+This theorem is per fixed trace-index summand.  It neither enumerates the
+`2^24` corner assignments nor licenses conversion of a face-ordered raw
+product into the paired fold through pointwise evaluation.  The eventual
+Haar-facing summand must be defined in the canonical paired order, with a
+separate exact physical evaluation theorem.
+
+##### 8.13.50.3 Updated shortest route
+
+The next sound finite steps are:
+
+1. define an opaque recursive Boolean sum and prove its evaluation and Haar
+   additivity laws from the new facade;
+2. define the four-index cyclic plaquette coefficient sum, with standard and
+   reversed orientations, and prove by matrix multiplication/trace semantics
+   that its evaluation is the fundamental plaquette character;
+3. attach all twenty-four face-corner tags to the already checked cube
+   occurrences and produce the twelve-step `Nodup`, in-range contraction
+   schedule without identifying corner indices prematurely;
+4. define each Haar-facing fixed-index cube summand directly in the
+   right-local paired order and use the new distinct-block theorem once,
+   rather than manually applying twelve Fubini contractions;
+5. prove that the resulting crossed deltas make one triangle among the three
+   face-corner copies at each geometric vertex, factor the symbolic sum into
+   eight local three-Boolean sums, and evaluate only the safe eight-case
+   identity `sum delta(a,b) delta(b,c) delta(c,a) = 2`;
+6. conclude the honest elementary-cube Haar value `1/16` and only then prove
+   the exact production normalization comparison.
+
+The four-valent double-cube route now branches cleanly after step 3: place
+the shared-link factor in the arbitrary base, contract the other bivalent
+blocks, and resolve the surviving two-dimensional invariant channel with a
+signed projector/F-move rather than squared Racah probabilities.
+
+##### 8.13.50.4 Verification ledger
+
+Both target builds were serialized, session-locked, `nice`d, single-threaded,
+and preceded by the host-idle process check.  No clean/full build and no test
+suite was run:
+
+- `SU2QuaternionComplexRatPolyAlgebra`: 401 jobs;
+- `SU2QuaternionDistinctBlockFundamentalContractionProduct`: 402 jobs.
+
+All displayed gates report only `propext` and, where the rational quotient
+algebra enters, `Quot.sound`; the multiplication-bridge theorem itself uses
+no axioms.  After root wiring, the static audit found 2,623 source modules,
+8,138 local import edges, zero cycles, 2,617 modules reachable from the
+semantic root, six reviewed/classified semantic orphans, and zero unexpected
+orphans.  The executable forbidden-token scan found zero hits, the host-load
+guard passed all 236 tracked or untracked non-ignored entry files, and
+`git diff --check` passed.
+
+The categorical spike remains quarantined and is not imported or staged.
