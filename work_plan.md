@@ -21096,3 +21096,202 @@ guard passed all 236 tracked or untracked non-ignored entry files, and
 `git diff --check` passed.  Together with the isolated green target build,
 root reachability certifies that this leaf participates in the current full
 build without rerunning that resource-intensive build.
+
+#### 8.13.55 Constructive finite-product Haar reordering — ✓ COMPLETE
+
+Modules:
+`YMGap.Continuum.SU2QuaternionFiniteProductHaarParityHomogenization` and
+`YMGap.Continuum.SU2QuaternionFiniteProductHaarComplexReordering`.
+
+This checkpoint supplies the algebraic order-independence facade required by
+the twenty-four-slot occurrence certificate of Section 8.13.54.  Every law is
+stated only after applying the exact finite-product Haar functional.  No raw
+polynomial associativity or commutativity is asserted, no concrete cube
+factor word is unfolded, and no Boolean assignments are enumerated.
+
+##### 8.13.55.1 Corrected logical dependency: the four-factor atom
+
+The pair and triple Haar laws are not, by themselves, sufficient for an
+induction on `List.Perm`.  In the `Perm.cons` case one must transport the
+induction hypothesis beneath a spectator.  After strengthening the theorem
+with that spectator, the `Perm.swap` case requires the genuinely contextual
+identity
+
+```text
+H ((a * b) * (c * d)) ≈ H ((a * c) * (b * d)).
+```
+
+This is not a formal consequence of binary commutativity, triple
+associativity, and last-two-factor exchange unless one illegitimately assumes
+that Haar equivalence is a congruence beneath raw multiplication.  It is not:
+the raw `RatPoly` carrier retains term order and duplicates, and the project
+intentionally has no theorem transporting arbitrary `RatPolyEqv` through
+Haar.
+
+The real parity-homogenization leaf now proves the missing theorem
+
+```text
+finiteProductHaar_polyMul_four_swap
+```
+
+for arbitrary block count and four arbitrary real raw polynomials.  Its
+private backend expands the exact finite-product Haar functional as a lazy
+four-linear fold over four term lists.  At each cell it uses literal
+associativity and commutativity of monomial exponent addition together with
+constructive rational setoid algebra; recursive row, bilinear, and
+four-linear folds then exchange the two middle lists.  The proof never
+normalizes a raw polynomial, never invokes a polynomial quotient, and never
+materializes a global product.
+
+##### 8.13.55.2 Scalar and complex Haar algebra — ✓ COMPLETE
+
+The new complex-reordering leaf first establishes the scalar functional laws
+needed to expand honest complex multiplication:
+
+- congruence of `polyAdd` and `polyNeg` under already proved Haar
+  equivalences;
+- additive commutativity and the canonical zero/one laws after Haar;
+- left and right distributivity of a raw product after Haar; and
+- extraction of a negated left or right raw factor.
+
+These lemmas are proved from the existing recursive Haar row and bilinear
+carriers.  They do not assert syntax-level ring laws.
+
+A common four-term real/imaginary triple expansion then proves exact
+finite-product-Haar associativity and exchange of the last two factors for
+`ComplexRatPoly`.  The binary complex exchange theorem is proved separately,
+including the necessary swap of the two imaginary cross terms.  Canonical
+complex left and right unit laws remove the explicit polynomial one without
+assuming definitional normalization of its raw coefficient lists.
+
+##### 8.13.55.3 Complex four-factor exchange — ✓ COMPLETE
+
+The real four-factor atom is lifted through an eight-term expansion of each
+complex component.  The construction reuses the verified triple normal form:
+it proves additivity and negation in the triple's final slot, substitutes the
+real and imaginary components of the fourth complex product, and applies the
+real four-factor theorem to each opaque scalar term.  Bounded constructive
+`Q'` setoid algebra reconciles the resulting eight-term orderings.
+
+The public endpoint is
+
+```text
+finiteProductHaarComplex_mul_four_swap
+```
+
+with exact shape
+
+```text
+Hᴄ ((a * b) * (c * d)) ≃ Hᴄ ((a * c) * (b * d)).
+```
+
+Only the displayed four abstract factors are expanded.  In particular, the
+twenty-four coefficient factors of the elementary cube remain opaque.
+
+##### 8.13.55.4 Spectator closure and arbitrary explicit permutations — ✓ COMPLETE
+
+Reassociation plus complex four-factor exchange gives the contextual
+adjacent transposition
+
+```text
+Hᴄ (s * (a * (b * t))) ≃ Hᴄ (s * (b * (a * t))).
+```
+
+The theorem
+
+```text
+finiteProductHaarComplex_mul_product_perm
+```
+
+is then proved by structural recursion on a supplied `List.Perm` witness,
+with an arbitrary spectator retained throughout:
+
+- `nil` is reflexivity;
+- `cons` reassociates into the enlarged spectator, applies the recursive
+  theorem, and reassociates back;
+- `swap` is the contextual adjacent-transposition theorem; and
+- `trans` is transitivity of `RationalComplexEqv`.
+
+Finally the complex left-unit law removes the spectator and yields
+
+```text
+finiteProductHaarComplex_product_perm
+    (blockCount : Nat) {left right : List ComplexRatPoly}
+    (hperm : left.Perm right) :
+  Hᴄ (complexRatPolyProduct left) ≃
+    Hᴄ (complexRatPolyProduct right).
+```
+
+The recursion consumes the explicit proof object.  It performs no
+permutation search, membership reconstruction, sorting, or decidable bulk
+reduction, and therefore introduces neither classical choice nor a large
+evaluation.
+
+##### 8.13.55.5 Scope fence and shortest next route
+
+This checkpoint makes the occurrence permutation from Section 8.13.54 usable
+at Haar level, but it does not yet identify either tail-first list product
+with `radiusZeroElementaryCubePairedSummand`.  The remaining mismatch is
+structural and explicit.  For a two-row schedule `[s₀,s₁]`, the established
+right-local contraction syntax is
+
+```text
+(one * (F₁ * R₁)) * (F₀ * R₀),
+```
+
+whereas the schedule-order flattened coefficient word is
+
+```text
+[F₀, R₀, F₁, R₁].
+```
+
+They are neither definitionally equal nor related merely by quoting a flat
+permutation.  The next highest-leverage leaf must therefore:
+
+1. prove, symbolically for an arbitrary schedule, the Haar-level bridge from
+   the right-local `contractionProductOver` fold to a tail-first product of
+   its paired forward/reverse factors, accounting for the explicit base one,
+   reverse row order, within-row grouping, and every reassociation;
+2. specialize that bridge to the radius-zero elementary-cube schedule and
+   compose it with
+   `radiusZeroElementaryCubePairedCoefficientPolynomials_eq_scheduleFactors`;
+3. apply the explicit occurrence permutation through
+   `finiteProductHaarComplex_product_perm`, still pointwise in an opaque
+   Boolean assignment;
+4. build the outward six-face fixed-assignment product from the already
+   certified orientation-specific plaquette coefficient terms and identify
+   each four-factor face chunk before lifting through the opaque Boolean sum;
+5. only afterward prove the separate production-orientation bridge to the
+   canonical-standard cube representative and compose the exact `1/16`
+   endpoint.
+
+The Boolean binder bridge remains structural and must never materialize the
+depth-twenty-four assignment space.  The outward representative must still
+not be called the production cube before its orientation bridge is proved.
+
+##### 8.13.55.6 Verification ledger
+
+The complex reordering leaf was built repeatedly only as its isolated Lake
+target, under the repository session lock with `caffeinate`, `nice -n 10`,
+and `LEAN_NUM_THREADS=1`, after the mandatory host-idle process check.  Its
+final target build completed successfully in 429 jobs and compiled the
+changed real four-linear dependency in the same transitive cone.  No clean or
+full build and no test suite was run.
+
+All new public axiom gates, including the real and complex four-factor laws,
+complex associativity and units, contextual adjacent exchange, spectator
+permutation theorem, and final list-product permutation theorem, report
+exactly `[propext, Quot.sound]`.  No gate exposes `Classical.choice` or
+`sorryAx`; the source contains no `Classical`, `sorry`/`admit`,
+`native_decide`, or custom axiom.
+
+The new complex leaf is imported by the semantic root immediately after the
+complex raw-polynomial algebra and before its first contraction-product
+consumer.  After root wiring, the static audit found 2,629 source modules,
+8,153 local import edges, zero cycles, 2,623 modules reachable from the
+semantic root, six reviewed/classified semantic orphans, and zero unexpected
+orphans.  The executable forbidden-token scan found zero hits, the host-load
+guard passed all 236 tracked or untracked non-ignored entry files, and
+`git diff --check` passed.  Together with the isolated green target build,
+root reachability certifies that this leaf participates in the current full
+build without an unsafe repetition of that full build.

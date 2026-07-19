@@ -496,6 +496,350 @@ theorem finiteProductHaar_polyMul_assoc
     (finiteProductHaar_polyMul_eq_bilinear
       blockCount first (polyMul middle target))
 
+/-! ## 1.1 Four-linear contextual exchange -/
+
+private theorem finiteMonoMul_four_swap
+    (first second third fourth : List Nat) :
+    monoMul (monoMul first second) (monoMul third fourth) =
+      monoMul (monoMul first third) (monoMul second fourth) := by
+  calc
+    monoMul (monoMul first second) (monoMul third fourth) =
+        monoMul first (monoMul second (monoMul third fourth)) :=
+      monoMul_assoc first second (monoMul third fourth)
+    _ = monoMul first (monoMul (monoMul second third) fourth) := by
+      rw [monoMul_assoc second third fourth]
+    _ = monoMul first (monoMul (monoMul third second) fourth) := by
+      rw [monoMul_comm second third]
+    _ = monoMul first (monoMul third (monoMul second fourth)) := by
+      rw [monoMul_assoc third second fourth]
+    _ = monoMul (monoMul first third) (monoMul second fourth) := by
+      rw [monoMul_assoc first third (monoMul second fourth)]
+
+private def finiteHaarTermMul (left right : RatTerm) : RatTerm :=
+  (monoMul left.1 right.1, left.2 * right.2)
+
+private def finiteHaarQuadCell
+    (blockCount : Nat) (first second third fourth : RatTerm) : Q' :=
+  ((first.2 * second.2) * (third.2 * fourth.2)) *
+    finiteProductHaarMono blockCount
+      (monoMul (monoMul first.1 second.1)
+        (monoMul third.1 fourth.1))
+
+private def finiteHaarQuadLast
+    (blockCount : Nat) (first second third : RatTerm) : RatPoly → Q'
+  | [] => 0
+  | fourth :: remainder =>
+      finiteHaarQuadCell blockCount first second third fourth +
+        finiteHaarQuadLast blockCount first second third remainder
+
+private def finiteHaarQuadThird
+    (blockCount : Nat) (first second : RatTerm) :
+    RatPoly → RatPoly → Q'
+  | [], _ => 0
+  | third :: polynomial, target =>
+      finiteHaarQuadLast blockCount first second third target +
+        finiteHaarQuadThird blockCount first second polynomial target
+
+private def finiteHaarQuadSecond
+    (blockCount : Nat) (first : RatTerm) :
+    RatPoly → RatPoly → RatPoly → Q'
+  | [], _, _ => 0
+  | second :: polynomial, middle, target =>
+      finiteHaarQuadThird blockCount first second middle target +
+        finiteHaarQuadSecond blockCount first polynomial middle target
+
+private def finiteHaarQuad
+    (blockCount : Nat) :
+    RatPoly → RatPoly → RatPoly → RatPoly → Q'
+  | [], _, _, _ => 0
+  | first :: polynomial, second, third, fourth =>
+      finiteHaarQuadSecond blockCount first second third fourth +
+        finiteHaarQuad blockCount polynomial second third fourth
+
+private theorem finiteHaarRow_single_polyMul_quad
+    (blockCount : Nat) (first second third : RatTerm) :
+    ∀ fourth : RatPoly,
+    finiteHaarRow blockCount (finiteHaarTermMul first second)
+        (polyMul [third] fourth) ≈
+      finiteHaarQuadLast blockCount first second third fourth
+  | [] => Q'.eqv_refl 0
+  | fourth :: remainder => by
+      change
+        finiteHaarQuadCell blockCount first second third fourth +
+            finiteHaarRow blockCount (finiteHaarTermMul first second)
+              (polyMul [third] remainder) ≈
+          finiteHaarQuadCell blockCount first second third fourth +
+            finiteHaarQuadLast blockCount first second third remainder
+      exact Q'.add_eqv_congr_left _ _ _
+        (finiteHaarRow_single_polyMul_quad
+          blockCount first second third remainder)
+
+private theorem finiteHaarRow_polyMul_quad
+    (blockCount : Nat) (first second : RatTerm) :
+    ∀ third fourth : RatPoly,
+    finiteHaarRow blockCount (finiteHaarTermMul first second)
+        (polyMul third fourth) ≈
+      finiteHaarQuadThird blockCount first second third fourth
+  | [], _ => Q'.eqv_refl 0
+  | third :: polynomial, fourth => by
+      have hmul :
+          polyMul (third :: polynomial) fourth =
+            polyMul [third] fourth ++ polyMul polynomial fourth := by
+        simp [polyMul]
+      rw [hmul]
+      refine Q'.eqv_trans _
+        (finiteHaarRow blockCount (finiteHaarTermMul first second)
+            (polyMul [third] fourth) +
+          finiteHaarRow blockCount (finiteHaarTermMul first second)
+            (polyMul polynomial fourth)) _
+        (finiteHaarRow_append blockCount _ _ _) ?_
+      exact QPoly.q_add_congr
+        (finiteHaarRow_single_polyMul_quad
+          blockCount first second third fourth)
+        (finiteHaarRow_polyMul_quad
+          blockCount first second polynomial fourth)
+
+private theorem finiteHaarBilinear_single_polyMul_quad
+    (blockCount : Nat) (first : RatTerm) :
+    ∀ second third fourth : RatPoly,
+    finiteHaarBilinear blockCount (polyMul [first] second)
+        (polyMul third fourth) ≈
+      finiteHaarQuadSecond blockCount first second third fourth
+  | [], _, _ => Q'.eqv_refl 0
+  | second :: polynomial, third, fourth => by
+      change
+        finiteHaarRow blockCount (finiteHaarTermMul first second)
+              (polyMul third fourth) +
+            finiteHaarBilinear blockCount (polyMul [first] polynomial)
+              (polyMul third fourth) ≈
+          finiteHaarQuadThird blockCount first second third fourth +
+            finiteHaarQuadSecond blockCount first polynomial third fourth
+      exact QPoly.q_add_congr
+        (finiteHaarRow_polyMul_quad
+          blockCount first second third fourth)
+        (finiteHaarBilinear_single_polyMul_quad
+          blockCount first polynomial third fourth)
+
+private theorem finiteHaarBilinear_polyMul_both_quad
+    (blockCount : Nat) : ∀ first second third fourth : RatPoly,
+    finiteHaarBilinear blockCount (polyMul first second)
+        (polyMul third fourth) ≈
+      finiteHaarQuad blockCount first second third fourth
+  | [], _, _, _ => Q'.eqv_refl 0
+  | first :: polynomial, second, third, fourth => by
+      have hmul :
+          polyMul (first :: polynomial) second =
+            polyMul [first] second ++ polyMul polynomial second := by
+        simp [polyMul]
+      rw [hmul]
+      refine Q'.eqv_trans _
+        (finiteHaarBilinear blockCount (polyMul [first] second)
+            (polyMul third fourth) +
+          finiteHaarBilinear blockCount (polyMul polynomial second)
+            (polyMul third fourth)) _
+        (finiteHaarBilinear_append_left blockCount _ _ _) ?_
+      exact QPoly.q_add_congr
+        (finiteHaarBilinear_single_polyMul_quad
+          blockCount first second third fourth)
+        (finiteHaarBilinear_polyMul_both_quad
+          blockCount polynomial second third fourth)
+
+private theorem finiteProductHaar_four_eq_quad
+    (blockCount : Nat) (first second third fourth : RatPoly) :
+    finiteProductHaar blockCount
+        (polyMul (polyMul first second) (polyMul third fourth)) ≈
+      finiteHaarQuad blockCount first second third fourth :=
+  Q'.eqv_trans _ _ _
+    (finiteProductHaar_polyMul_eq_bilinear blockCount
+      (polyMul first second) (polyMul third fourth))
+    (finiteHaarBilinear_polyMul_both_quad
+      blockCount first second third fourth)
+
+private theorem finiteHaarQuadCell_swap
+    (blockCount : Nat) (first second third fourth : RatTerm) :
+    finiteHaarQuadCell blockCount first second third fourth ≈
+      finiteHaarQuadCell blockCount first third second fourth := by
+  unfold finiteHaarQuadCell
+  rw [finiteMonoMul_four_swap
+    first.1 second.1 third.1 fourth.1]
+  exact Q'.mul_eqv_congr_right _ _ _
+    (q_mul4_swap first.2 second.2 third.2 fourth.2)
+
+private theorem finiteHaarQuadLast_swap
+    (blockCount : Nat) (first second third : RatTerm) :
+    ∀ fourth : RatPoly,
+    finiteHaarQuadLast blockCount first second third fourth ≈
+      finiteHaarQuadLast blockCount first third second fourth
+  | [] => Q'.eqv_refl 0
+  | fourth :: remainder =>
+      QPoly.q_add_congr
+        (finiteHaarQuadCell_swap
+          blockCount first second third fourth)
+        (finiteHaarQuadLast_swap
+          blockCount first second third remainder)
+
+private theorem finiteHaarQuadThird_single
+    (blockCount : Nat) (first second third : RatTerm)
+    (fourth : RatPoly) :
+    finiteHaarQuadThird blockCount first second [third] fourth ≈
+      finiteHaarQuadLast blockCount first second third fourth := by
+  change
+    finiteHaarQuadLast blockCount first second third fourth + 0 ≈
+      finiteHaarQuadLast blockCount first second third fourth
+  exact QPoly.q_add_zero_eqv _
+
+private theorem finiteHaarQuadThird_append
+    (blockCount : Nat) (first second : RatTerm) :
+    ∀ third third' fourth : RatPoly,
+    finiteHaarQuadThird blockCount first second
+        (third ++ third') fourth ≈
+      finiteHaarQuadThird blockCount first second third fourth +
+        finiteHaarQuadThird blockCount first second third' fourth
+  | [], third', fourth => Q'.eqv_symm (QPoly.q_zero_add_eqv _)
+  | third :: polynomial, third', fourth => by
+      change
+        finiteHaarQuadLast blockCount first second third fourth +
+            finiteHaarQuadThird blockCount first second
+              (polynomial ++ third') fourth ≈
+          (finiteHaarQuadLast blockCount first second third fourth +
+              finiteHaarQuadThird blockCount first second polynomial fourth) +
+            finiteHaarQuadThird blockCount first second third' fourth
+      refine Q'.eqv_trans _
+        (finiteHaarQuadLast blockCount first second third fourth +
+          (finiteHaarQuadThird blockCount first second polynomial fourth +
+            finiteHaarQuadThird blockCount first second third' fourth)) _
+        (Q'.add_eqv_congr_left _ _ _
+          (finiteHaarQuadThird_append blockCount first second
+            polynomial third' fourth)) ?_
+      exact Q'.eqv_symm (Q'.add_assoc_eqv _ _ _)
+
+private theorem finiteHaar_q_add4_swap (first second third fourth : Q') :
+    (first + second) + (third + fourth) ≈
+      (first + third) + (second + fourth) := by
+  refine Q'.eqv_trans _ (first + (second + (third + fourth))) _
+    (Q'.add_assoc_eqv first second (third + fourth)) ?_
+  refine Q'.eqv_trans _ (first + ((second + third) + fourth)) _
+    (Q'.add_eqv_congr_left _ _ _
+      (Q'.eqv_symm (Q'.add_assoc_eqv second third fourth))) ?_
+  refine Q'.eqv_trans _ (first + ((third + second) + fourth)) _
+    (Q'.add_eqv_congr_left _ _ _
+      (Q'.add_eqv_congr_right _ _ _
+        (Q'.add_comm_eqv second third))) ?_
+  refine Q'.eqv_trans _ (first + (third + (second + fourth))) _
+    (Q'.add_eqv_congr_left _ _ _
+      (Q'.add_assoc_eqv third second fourth)) ?_
+  exact Q'.eqv_symm
+    (Q'.add_assoc_eqv first third (second + fourth))
+
+private theorem finiteHaarQuadSecond_third_append
+    (blockCount : Nat) (first : RatTerm) :
+    ∀ second third third' fourth : RatPoly,
+    finiteHaarQuadSecond blockCount first second
+        (third ++ third') fourth ≈
+      finiteHaarQuadSecond blockCount first second third fourth +
+        finiteHaarQuadSecond blockCount first second third' fourth
+  | [], _, _, _ => Q'.eqv_symm (QPoly.q_zero_add_eqv _)
+  | second :: polynomial, third, third', fourth => by
+      refine Q'.eqv_trans _
+        ((finiteHaarQuadThird blockCount first second third fourth +
+            finiteHaarQuadThird blockCount first second third' fourth) +
+          (finiteHaarQuadSecond blockCount first polynomial third fourth +
+            finiteHaarQuadSecond blockCount first polynomial third' fourth)) _
+        (QPoly.q_add_congr
+          (finiteHaarQuadThird_append blockCount first second
+            third third' fourth)
+          (finiteHaarQuadSecond_third_append blockCount first
+            polynomial third third' fourth)) ?_
+      exact finiteHaar_q_add4_swap _ _ _ _
+
+private theorem finiteHaarQuadThird_swap_to_second
+    (blockCount : Nat) (first second : RatTerm) :
+    ∀ third fourth : RatPoly,
+    finiteHaarQuadThird blockCount first second third fourth ≈
+      finiteHaarQuadSecond blockCount first third [second] fourth
+  | [], _ => Q'.eqv_refl 0
+  | third :: polynomial, fourth => by
+      refine Q'.eqv_trans _
+        (finiteHaarQuadLast blockCount first third second fourth +
+          finiteHaarQuadSecond blockCount first polynomial [second] fourth) _
+        (QPoly.q_add_congr
+          (finiteHaarQuadLast_swap
+            blockCount first second third fourth)
+          (finiteHaarQuadThird_swap_to_second
+            blockCount first second polynomial fourth)) ?_
+      exact Q'.eqv_symm
+        (QPoly.q_add_congr
+          (finiteHaarQuadThird_single
+            blockCount first third second fourth)
+          (Q'.eqv_refl _))
+
+private theorem finiteHaarQuadSecond_third_nil
+    (blockCount : Nat) (first : RatTerm) :
+    ∀ third fourth : RatPoly,
+    finiteHaarQuadSecond blockCount first third [] fourth ≈ 0
+  | [], _ => Q'.eqv_refl 0
+  | third :: polynomial, fourth => by
+      change
+        0 + finiteHaarQuadSecond blockCount first polynomial [] fourth ≈ 0
+      refine Q'.eqv_trans _
+        (finiteHaarQuadSecond blockCount first polynomial [] fourth) _
+        (QPoly.q_zero_add_eqv _) ?_
+      exact finiteHaarQuadSecond_third_nil
+        blockCount first polynomial fourth
+
+private theorem finiteHaarQuadSecond_swap
+    (blockCount : Nat) (first : RatTerm) :
+    ∀ second third fourth : RatPoly,
+    finiteHaarQuadSecond blockCount first second third fourth ≈
+      finiteHaarQuadSecond blockCount first third second fourth
+  | [], third, fourth =>
+      Q'.eqv_symm
+        (finiteHaarQuadSecond_third_nil blockCount first third fourth)
+  | second :: polynomial, third, fourth => by
+      refine Q'.eqv_trans _
+        (finiteHaarQuadSecond blockCount first third [second] fourth +
+          finiteHaarQuadSecond blockCount first third polynomial fourth) _
+        (QPoly.q_add_congr
+          (finiteHaarQuadThird_swap_to_second
+            blockCount first second third fourth)
+          (finiteHaarQuadSecond_swap
+            blockCount first polynomial third fourth)) ?_
+      exact Q'.eqv_symm
+        (finiteHaarQuadSecond_third_append blockCount first
+          third [second] polynomial fourth)
+
+private theorem finiteHaarQuad_swap
+    (blockCount : Nat) : ∀ first second third fourth : RatPoly,
+    finiteHaarQuad blockCount first second third fourth ≈
+      finiteHaarQuad blockCount first third second fourth
+  | [], _, _, _ => Q'.eqv_refl 0
+  | first :: polynomial, second, third, fourth =>
+      QPoly.q_add_congr
+        (finiteHaarQuadSecond_swap
+          blockCount first second third fourth)
+        (finiteHaarQuad_swap
+          blockCount polynomial second third fourth)
+
+/-- **Four-factor exchange under arbitrary finite-product Haar.**  The two
+middle raw polynomial factors may be exchanged inside the displayed paired
+parenthesization.  This is the contextual atom that pair/triple Haar laws do
+not supply by themselves. -/
+theorem finiteProductHaar_polyMul_four_swap
+    (blockCount : Nat) (first second third fourth : RatPoly) :
+    finiteProductHaar blockCount
+        (polyMul (polyMul first second) (polyMul third fourth)) ≈
+      finiteProductHaar blockCount
+        (polyMul (polyMul first third) (polyMul second fourth)) :=
+  Q'.eqv_trans _ _ _
+    (finiteProductHaar_four_eq_quad
+      blockCount first second third fourth)
+    (Q'.eqv_trans _ _ _
+      (finiteHaarQuad_swap
+        blockCount first second third fourth)
+      (Q'.eqv_symm
+        (finiteProductHaar_four_eq_quad
+          blockCount first third second fourth)))
+
 /-! ## 2. Lazy one-block radius schedules and Haar invariance -/
 
 /-- Repeated right multiplication by the radius polynomial of one block.
@@ -1519,6 +1863,7 @@ theorem finiteProductHaar_square_nonneg_of_parity
 #print axioms finiteProductHaar_polyMul_comm
 #print axioms finiteProductHaar_polyMul_middle_comm
 #print axioms finiteProductHaar_polyMul_assoc
+#print axioms finiteProductHaar_polyMul_four_swap
 #print axioms finiteProductHaar_blockRadiusIter_pair
 #print axioms quaternionBlockRadiusPolynomial_supported
 #print axioms exponentAt_coordinateSquareMonomial_safe
