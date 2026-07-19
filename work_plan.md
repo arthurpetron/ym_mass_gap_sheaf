@@ -17172,3 +17172,94 @@ enumerations.  Exact current provenance is
 ```text
 YMGAP_SOURCE_FINGERPRINT sha256:616d273ececf695a64b3f2e42c27e3bc7c29cf7aed5ce73c108068ee27e4930a
 ```
+
+#### 8.13.38 Canonical constructive reciprocal index
+
+(2026-07-18, session 17, completed and production-wired.)  The abstract
+`ReciprocalIndexData` boundary from 8.13.36 is now inhabited by executable,
+Constructive-only arithmetic.  The new leaf
+`Constructive/CRealCanonicalReciprocalIndex.lean` defines
+
+```text
+canonicalReciprocalIndex epsilon = epsilon.den / epsilon.num.toNat.
+```
+
+For a positive rational this is the natural-number floor of `1/epsilon`.  It
+is value-based: unlike using `epsilon.den` alone, simultaneous rescaling of the
+numerator and denominator does not destroy the required order behavior.  The
+definition remains total for nonpositive inputs; its laws are required only on
+the positive tolerances consumed by `LeRatBound` and `MmonoPred`.
+
+The two proved laws are
+
+```text
+0 < epsilon
+  ==> invSucc (canonicalReciprocalIndex epsilon) <= epsilon,
+
+0 < delta /\ delta <= epsilon
+  ==> canonicalReciprocalIndex epsilon
+        <= canonicalReciprocalIndex delta.
+```
+
+For the first, positivity identifies `epsilon.num` with the cast of its
+positive `toNat`.  Euclidean division gives
+
+```text
+den <= numNat * (den / numNat + 1),
+```
+
+which is exactly the cross-multiplied reciprocal inequality.  For the second,
+`delta <= epsilon` becomes
+
+```text
+delta.numNat * epsilon.den
+  <= epsilon.numNat * delta.den.
+```
+
+A constructive floor-division lemma then yields the stated antitonicity.  All
+supporting positive-numerator and Nat-division arithmetic is private; the
+public package is
+
+```text
+CReal.canonicalReciprocalIndexData : CReal.ReciprocalIndexData.
+```
+
+The leaf imports only `CRealRateClosure`.  In particular, it does not reuse the
+historically earlier `ArctanTrigConverges.atMw` through a backwards
+Constructive-to-Continuum dependency.  The same arithmetic core is now
+available at its natural layer, with no choice, hidden Archimedean witness, or
+Prop-to-Type elimination.
+
+Consequently every raw outer bound now has a canonical closed form:
+
+```text
+closedRate CReal.canonicalReciprocalIndexData rawRate,
+```
+
+and 8.13.36 immediately supplies both its `MmonoPred` proof and the transferred
+`LeRatBound`.  The remaining pre-quotient construction is therefore the inner
+regular presentation: define the maximum-box staged direct-sequence limit,
+prove its uniform `RegPred` with modulus `epsilon.den`, transfer the raw outer
+bound pointwise across `CReal.Equiv`, and invoke
+`CReal.completeLimitFromRate`.
+
+Verification remained inside the mandatory Mac safety envelope: every
+Lean/Lake command was serialized by the canonical host lock, used
+`LEAN_NUM_THREADS=1`, and retained the fixed `-s 65536 -M 20480` weak
+arguments.  Both task-work and promoted direct checks succeeded.  The cached
+named target completed with 33 jobs and a 164-millisecond new leaf; the cached
+semantic root completed with 2,550 jobs and a 474-millisecond root.
+`canonicalReciprocalIndex_invSucc_le` reports `[propext]`; antitonicity and the
+assembled datum report exactly `[propext, Quot.sound]`.  The executable
+forbidden-token scan reports zero hits.
+
+Static analysis now reports 2,555 source modules, 7,943 local import edges,
+zero cycles, 2,549 modules reachable from `YMGap`, the same six reviewed
+exclusions, and zero unexpected orphans.  The host-load guard passes over 236
+repository entry files; all ten mocked JIT remote-state and four bounded
+supervisor cases pass; and the Frontier-DAG guard reports zero unbridged
+enumerations.  Exact current provenance is
+
+```text
+YMGAP_SOURCE_FINGERPRINT sha256:866316c49654f883e9f6c126299839dc317f1c6731389d90799b8e0dfff8891e
+```
