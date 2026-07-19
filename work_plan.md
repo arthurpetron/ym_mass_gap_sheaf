@@ -17046,3 +17046,129 @@ enumerations.  Exact current provenance is
 ```text
 YMGAP_SOURCE_FINGERPRINT sha256:35ce183da9b79bd7ae1c7d08105a36652d0fa9ed34855313d637d87e64f01e41
 ```
+
+#### 8.13.37 Explicit raw outer Cauchy rate for staged reflection pairings
+
+(2026-07-18, session 16, completed and production-wired.)  The raw
+representative-level outer estimate requested in 8.13.35--36 is now a fully
+explicit Type-level construction.  The production leaf
+`Z4HalfTimeReflectionStrictJointCRealPairingRawOuterRate.lean` first solves the
+positive rational budget problem uniformly for every requested tolerance,
+including arbitrarily large `epsilon`.
+
+For an integral common norm ceiling `C`, put
+
+```text
+h = half * epsilon,
+q = h * h,
+K = C + q.num.toNat + 1,
+t = q * invSucc (K - 1),
+delta = slack = half * t.
+```
+
+All of these are total data, not witnesses extracted from propositions.  When
+`epsilon > 0`, the square `q`, the core scale `t`, and hence `delta` are
+positive.  The extra `q.num.toNat` in `K` is essential: it gives
+
+```text
+q.num.toNat <= K - 1,
+t <= q * invSucc q.num.toNat <= 1,
+slack = half*t <= 1.
+```
+
+Thus
+
+```text
+ofNat C + slack <= ofNat (C+1) <= ofNat K,
+delta + slack ≃ t.
+```
+
+The already proved rational identity
+`invSucc (K-1) * ofNat K ≃ 1`, packaged by `Q'.budget_le`, then closes
+
+```text
+(delta + slack) * (ofNat C + slack)
+  <= t * ofNat K
+  <= q
+  = (half*epsilon) * (half*epsilon).
+```
+
+This formula corrects the tempting but invalid choice with `K = C`: for a
+large `epsilon`, its slack need not be at most one (or at most `C`), so the
+norm-factor absorption would fail.  The enlarged `K` makes the construction
+uniform without division, a square root, a minimum chosen by real comparison,
+or a bounded-tolerance assumption.
+
+For two explicit-modulus staged-seminorm Cauchy representatives `X` and `Y`,
+the file defines
+
+```text
+pairingSequence n = B(X.seq n, Y.seq n),
+C = max (normCeil X) (normCeil Y),
+delta epsilon = continuityScale C epsilon,
+
+pairingRawRate epsilon =
+  max (max (normBase X) (normBase Y))
+      (max (X.modulus (delta epsilon))
+           (Y.modulus (delta epsilon))).
+```
+
+Both `normBase` terms are intentionally retained.  Although `delta <= 1`, an
+arbitrary `SquaredSeminorm.Cauchy.modulus` has no antitonicity field, so neither
+`X.modulus delta` nor `Y.modulus delta` can subsume the corresponding
+modulus-at-one anchor threshold.  Conversely, there is no modulus-at-slack or
+inner approximation cutoff in the raw rate: those existential thresholds are
+synchronized locally inside the Prop-level four-stage `leRat` theorem.
+
+The main result is
+
+```text
+strictJointCylinderPairingSequence_raw_leRatBound :
+  CReal.LeRatBound pairingSequence pairingRawRate.
+```
+
+For indices `m,n` above the displayed maximum, `X.isCauchy` and `Y.isCauchy`
+give the two staged squared-distance bounds at `delta`.  The explicit anchor
+theorems bound `B(Y_m,Y_m)` and `B(X_n,X_n)` by their individual norm ceilings;
+both bounds are weakened to `ofNat C`.  Applying the four-stage theorem once,
+with
+
+```text
+(left,left',right,right') = (X_m,X_n,Y_m,Y_n),
+```
+
+returns both directed `leRat epsilon` conclusions required by
+`CReal.LeRatBound`.  No swapped second application is necessary, and the
+asymmetric undifferenced factors are exactly the ones controlled by the
+anchor estimates.
+
+The raw rate is deliberately not claimed antitone.  The next leaf must pass it
+through the closure of 8.13.36 using a concrete constructive
+`ReciprocalIndexData`, then supply the uniform inner regularity modulus for a
+canonical stage-level pairing presentation.  The preferred inner route is a
+parallel canonical staged pairing: co-transport both inputs to their maximum
+base, use the existing direct rational pairing-sequence limit, and bridge it by
+`CReal.Equiv` to the already established polarized staged pairing.  This gives
+the exact uniform inner modulus `epsilon.den` without extracting any datum from
+a Prop-valued `CReal.cauchy` proof.
+
+Verification remained inside the mandatory Mac safety envelope: every
+Lean/Lake command was serialized by the canonical host lock, used
+`LEAN_NUM_THREADS=1`, and retained the fixed `-s 65536 -M 20480` weak
+arguments.  After three local namespace/syntax elaboration corrections, the
+task-work and promoted direct checks succeeded.  The cached named target built
+with 835 jobs and a 499-millisecond new leaf; the cached semantic root built
+with 2,549 jobs and a 463-millisecond root.  Both load-bearing gates report
+exactly `[propext, Quot.sound]`, and the executable forbidden-token scan reports
+zero hits.
+
+Static analysis now reports 2,554 source modules, 7,941 local import edges,
+zero cycles, 2,548 modules reachable from `YMGap`, the same six reviewed
+exclusions, and zero unexpected orphans.  The host-load guard passes over 236
+repository entry files; all ten mocked JIT remote-state and four bounded
+supervisor cases pass; and the Frontier-DAG guard reports zero unbridged
+enumerations.  Exact current provenance is
+
+```text
+YMGAP_SOURCE_FINGERPRINT sha256:616d273ececf695a64b3f2e42c27e3bc7c29cf7aed5ce73c108068ee27e4930a
+```
