@@ -16458,3 +16458,113 @@ enumerations.  Exact current provenance is
 ```text
 YMGAP_SOURCE_FINGERPRINT sha256:94879043305c5ae5fc622db373caafd7935f979dcf985313fff40ccb0da9bc7f
 ```
+
+#### 8.13.32 Algebraic direct-limit descent and shift-one self-adjointness
+
+(2026-07-18, session 11, completed and production-wired.)  The finite-base
+one-step covariance theorem now has its first faithful operator-level
+consumer.  The production leaf
+`Z4HalfTimeReflectionStrictJointOneStepDirectLimitSelfAdjointness.lean`
+descends it through arbitrary staged presentations and the existing
+algebraic strict-cylinder direct limit.  The target pairing is the existing
+`CReal.RC`-valued `StrictJointCylinderDirectLimit.reflectionBilinear`, so
+constructive-real equivalence becomes literal equality only after passage to
+the constructive-real quotient.
+
+For staged vectors `left` and `right`, the proof fixes
+
+```text
+outer := max left.base right.base
+```
+
+and transports both vectors to `outer`.  Both one-sided pairings are then
+evaluated in the common box `outer + 1`.  On the unshifted argument,
+`boxTransportStrictJointCylinderVector_trans` identifies direct transport to
+`outer + 1` with transport to `outer` followed by one more box step.  On the
+shifted argument,
+`timeTranslate_boxTransportStrictJointCylinderVector` identifies transport
+of the shifted vector with shifting the vector already transported to
+`outer`.  These are literal vector equalities, not semantic presentation
+equivalences.
+
+The two common expressions are therefore exactly the LR and RL one-step
+crosses of the finite-base theorem at base `outer`.  Chaining the reverse of
+the first common-box adapter, the proved
+`strictJointOneSidedTimeCovariance_one_derived`, and the second common-box
+adapter yields
+
+```text
+strictJointCylinderStage_oneSidedTimeCovariance_one_derived :
+  StageBilinear left (timeTranslate 1 right)
+    ≃ StageBilinear right (timeTranslate 1 left).
+```
+
+No equality of original bases is assumed, and the construction does not
+choose an arbitrary common stage: `max` and the explicit order witnesses give
+canonical data intuitionistically.
+
+The leaf also supplies the companion staged symmetry theorem.  Both staged
+vectors are transported to their maximum common base, the existing strict
+vector reflection-bilinear symmetry is applied there, and the two
+`strictJointCylinderStageReflectionBilinear_at_common` adapters return to the
+canonical staged definitions.  Staged symmetry followed by the reverse of
+staged covariance also exports the representative-level law
+`strictJointCylinderStage_timeTranslate_one_selfAdjoint`; this is the exact
+pointwise input a future continuity/completion proof will need.  Quotient
+induction on two staged
+representatives and `Quotient.sound` then give the public `RC` equality
+
+```text
+StrictJointCylinderDirectLimit.reflectionBilinear_symm.
+```
+
+The same two-representative quotient induction descends staged covariance to
+
+```text
+StrictJointCylinderDirectLimit.oneSidedTimeCovariance_one_derived :
+  B(left, T₁ right) = B(right, T₁ left).
+```
+
+Finally, direct-limit reflection symmetry changes
+`B(T₁ left, right)` to `B(right, T₁ left)`, and the reverse of the
+descended covariance theorem gives the desired algebraic self-adjointness law
+
+```text
+StrictJointCylinderDirectLimit.timeTranslate_one_selfAdjoint :
+  B(T₁ left, right) = B(left, T₁ right).
+```
+
+The exactness boundary remains explicit.  Base-transport composition and the
+translation/transport square are Lean `Eq`; staged covariance and staged
+symmetry are `CReal.Equiv`; the direct-limit statements are Lean `Eq` in
+`CReal.RC`, justified by `Quotient.sound`.  There is no raw-representative
+equality and no completed-space theorem here.
+
+This completes the algebraic shift-one self-adjointness checkpoint.  The next
+sound step is to connect the algebraic direct limit to
+`StrictJointCylinderOSCompletion` and construct the completed `CReal` inner
+product (or an equivalent continuous extension of the `RC` pairing).  Only
+after that continuity/completion layer exists may self-adjointness be lifted
+to the completed carrier and used as an operator theorem in the OS
+contraction/positivity spine.  The existing completion seminorm and completed
+time action alone do not supply such an inner product.
+
+Verification remained inside the mandatory Mac safety envelope: every
+Lean/Lake command was serialized by the canonical host lock, used
+`LEAN_NUM_THREADS=1`, and retained the fixed `-s 65536 -M 20480` weak
+arguments.  The final direct leaf check completed in 1.07 seconds.  The named
+target built successfully with 838 jobs and a 1.1-second new leaf; the cached
+semantic root built successfully with 2,542 jobs and a 500-millisecond
+root.  All six exported gates report exactly `[propext, Quot.sound]`, and the
+executable forbidden-token scan reports zero hits.
+
+Static analysis now reports 2,547 source modules, 7,918 local import edges,
+zero cycles, 2,541 modules reachable from `YMGap`, the same six reviewed
+exclusions, and zero unexpected orphans.  The host-load guard passes over 236
+repository entry files; all ten mocked JIT remote-state and four bounded
+supervisor cases pass; and the Frontier-DAG guard reports zero unbridged
+enumerations.  Exact current provenance is
+
+```text
+YMGAP_SOURCE_FINGERPRINT sha256:93e8cd678301c781f147f5aa983f0af1ed6db7468d54d60296be7376532b7fec
+```
