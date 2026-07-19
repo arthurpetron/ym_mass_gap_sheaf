@@ -16827,3 +16827,103 @@ enumerations.  Exact current provenance is
 ```text
 YMGAP_SOURCE_FINGERPRINT sha256:f43b3bc0dad508a5e9abdc7685e0c60ddf167255bf70e413894f299bf6628e00
 ```
+
+#### 8.13.35 Four-stage outer continuity in the staged OS carrier
+
+(2026-07-18, session 14, completed and production-wired.)  The common-base
+estimate of 8.13.34 now has the arbitrary-stage form required by completion
+representatives.  The production leaf
+`Z4HalfTimeReflectionStrictJointCRealStagePairingContinuity.lean` exports
+
+```text
+strictJointCylinderStageReflectionBilinear_difference_leRat.
+```
+
+Its four vector inputs may have completely unrelated bases.  The proof uses
+the canonical common box
+
+```text
+max (max left.base left'.base) (max right.base right'.base)
+```
+
+and transports all four presentations there.  Existing common-box adapters
+transfer the two staged squared-distance hypotheses and the two staged
+self-pairing bounds to the corresponding finite-base quadratics.  No equality
+of original bases, arbitrary common-box choice, or representative equality is
+assumed.
+
+The theorem's quantitative interface retains an explicit positive `slack`:
+
+```text
+distSq(left,left')  <=Rat delta
+distSq(right,right') <=Rat delta
+B(right,right)       <=Rat bound
+B(left',left')       <=Rat bound
+
+(delta + slack) * (bound + slack) <= (epsilon/2)^2.
+```
+
+This is not cosmetic.  `CReal.leRat value cap` gives, at every positive test
+tolerance, an eventual approximation bound by `cap + tolerance`; it does not
+give pointwise `approx <= cap`.  The proof instantiates all four hypotheses at
+the same positive `slack`, takes the maximum of their four approximation
+thresholds, and only then invokes the common-base square-root-free estimate
+with `delta + slack` and `bound + slack`.  This makes the Prop-valued
+eventuality synchronization explicit and avoids an illicit exact-bound
+strengthening.
+
+The result is the conjunction
+
+```text
+(B(left,right) - B(left',right')) <=Rat epsilon
+(B(left',right') - B(left,right)) <=Rat epsilon.
+```
+
+Both orientations are exported because `leRat` is one-sided; together they
+are the constructive-real outer Cauchy estimate.  After the finite-box proof,
+the two common-box pairings are transported back to their staged definitions
+using `CReal.Equiv_add` and negation congruence.
+
+This discharges item 1 in the remaining route recorded in 8.13.34.  The next
+sound construction is now:
+
+1. Combine this theorem with the explicit norm ceilings of 8.13.34 and the two
+   completion-representative moduli to define a raw Type-level outer pairing
+   rate and prove `CReal.LeRatBound` for the diagonal staged-pairing sequence.
+   The chosen `delta` and `slack` must be positive rational functions of
+   `epsilon` and the finite norm ceiling whose product budget is proved by
+   rational arithmetic, not division or square roots.
+2. Pass that arbitrary raw rate through a running-max reciprocal-tolerance
+   hull.  Prove the closed rate satisfies `CReal.MmonoPred` and that the raw
+   `LeRatBound` transfers by applying it at a smaller canonical reciprocal
+   tolerance and weakening with `CReal.leRat_mono`; same-tolerance domination
+   of an arbitrary nonmonotone raw modulus is neither available nor needed.
+3. Feed the closed outer rate and the canonical inner rate from
+   `strictJointCylinderReflectionBilinearSequenceLimit` to
+   `CReal.completeLimitFromRate`, descend through completion closeness using
+   `CReal.Equiv_of_limit_of_close`, and only then lift to the `RC` quotient.
+
+Thus the remaining obstruction is no longer geometric transport or local
+pairing continuity.  It is the explicit assembly and monotone closure of the
+outer rate, followed by quotient descent.
+
+Verification remained inside the mandatory Mac safety envelope: every
+Lean/Lake command was serialized by the canonical host lock, used
+`LEAN_NUM_THREADS=1`, and retained the fixed `-s 65536 -M 20480` weak
+arguments.  The direct production check completed in 426 milliseconds.  The
+named target built successfully with 833 jobs and a 458-millisecond new leaf;
+the cached semantic root built successfully with 2,547 jobs and a
+469-millisecond root.  The exported theorem reports exactly
+`[propext, Quot.sound]`, and the executable forbidden-token scan reports zero
+hits.
+
+Static analysis now reports 2,552 source modules, 7,934 local import edges,
+zero cycles, 2,546 modules reachable from `YMGap`, the same six reviewed
+exclusions, and zero unexpected orphans.  The host-load guard passes over 236
+repository entry files; all ten mocked JIT remote-state and four bounded
+supervisor cases pass; and the Frontier-DAG guard reports zero unbridged
+enumerations.  Exact current provenance is
+
+```text
+YMGAP_SOURCE_FINGERPRINT sha256:20ebc922622553ffb9a63cd1f739912d7b2955f46019415b2c0560192c634229
+```
