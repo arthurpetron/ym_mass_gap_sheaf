@@ -23,6 +23,7 @@ set_option maxHeartbeats 5000000
 
 open YMGap.Constructive
 open YMGap.Continuum
+open YMGap.Continuum.FiniteDeterministicKernelPushforward
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphActualOperator
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
@@ -35,6 +36,7 @@ open YMGap.Continuum.Z4HalfTimeReflectionNormalizedPhysicalGram
 open YMGap.Continuum.Z4HalfTimeReflectionSlabAmbientImage
 open YMGap.Continuum.Z4HalfTimeReflectionSlabAmbientPartition
 open YMGap.Continuum.Z4HalfTimeReflectionSlabCanonicalEvent
+open YMGap.Continuum.Z4HalfTimeReflectionSlabAmbientWeights
 open YMGap.Continuum.Z4HalfTimeReflectionPartition
 open YMGap.Continuum.Z4ParametricCutoffEventCofinal
 open YMGap.Continuum.Z4ParametricPhysicalCutoffPartition
@@ -88,6 +90,106 @@ theorem slabParametricKPhysicalPartition_eqv_physicalSupportNumerator
       coupling cutoff extent)
     (ambientSlabSupportedPhysicalPartition_eqv_eventNumerator
       coupling cutoff extent)
+
+/-- Zero extension identifies an arbitrary corrected-slab event numerator
+with the same ambient event conjoined with the exact slab-support mask.
+
+This is purely a finite change of variables.  In particular, it requires no
+coupling sign, coefficient disintegration, or Fubini theorem. -/
+theorem slabEventNumerator_zeroExtension_eqv_ambientMasked
+    (coupling : Q') (cutoff extent : Nat)
+    (event : EdgeLabelling → Bool) :
+    slabEventNumerator coupling cutoff extent
+        (fun slab => event (slabToAmbientPhysical extent slab)) ≈
+      parametricKEventNumerator coupling cutoff (extent + 1)
+        (fun ambient =>
+          ambientSlabSupportedB extent ambient && event ambient) := by
+  let observable : EdgeLabelling → Q' := fun slab =>
+    if event (slabToAmbientPhysical extent slab) then 1 else 0
+  have hslab :
+      slabEventNumerator coupling cutoff extent
+          (fun slab => event (slabToAmbientPhysical extent slab)) ≈
+        slabWeightedPhysicalSum coupling cutoff extent observable := by
+    unfold slabEventNumerator slabWeightedPhysicalSum
+    apply listQSum_congr_on
+    intro slab _hslab
+    unfold observable
+    cases hevent : event (slabToAmbientPhysical extent slab) with
+    | false =>
+        simp only [hevent, Bool.false_eq_true, if_false]
+        exact Q'.eqv_symm (Q'.zero_mul_eqv _)
+    | true =>
+        simp only [hevent, if_true]
+        exact Q'.eqv_symm (Q'.one_mul_eqv _)
+  have hpullback :
+      ambientSlabSupportedWeightedSum coupling cutoff extent observable ≈
+        listQSum
+          (fun ambient =>
+            if event ambient then
+              parametricKPhysicalTerm coupling cutoff (extent + 1) ambient
+            else 0)
+          (ambientSlabSupportedLabellings cutoff extent) := by
+    unfold ambientSlabSupportedWeightedSum
+    apply listQSum_congr_on
+    intro ambient hambient
+    have hparts := List.mem_filter.mp hambient
+    have hroundtrip := slabToAmbientPhysical_ambientToSlab
+      hparts.1 hparts.2
+    unfold observable
+    rw [hroundtrip]
+    cases hevent : event ambient with
+    | false =>
+        exact Q'.zero_mul_eqv _
+    | true =>
+        exact Q'.one_mul_eqv _
+  have hmasked :
+      listQSum
+          (fun ambient =>
+            if event ambient then
+              parametricKPhysicalTerm coupling cutoff (extent + 1) ambient
+            else 0)
+          (ambientSlabSupportedLabellings cutoff extent) ≈
+        parametricKEventNumerator coupling cutoff (extent + 1)
+          (fun ambient =>
+            ambientSlabSupportedB extent ambient && event ambient) := by
+    unfold ambientSlabSupportedLabellings
+      parametricKEventNumerator parametricKEventTerm
+    let labels := boundedEdgeLabellings cutoff
+      (List.range (plaquetteEdgeCount (extent + 1)))
+    let weight := parametricKPhysicalTerm coupling cutoff (extent + 1)
+    let supported := ambientSlabSupportedB extent
+    have hfilters :
+        (labels.filter supported).filter event =
+          labels.filter (fun ambient =>
+            supported ambient && event ambient) := by
+      rw [List.filter_filter]
+      apply List.filter_congr
+      intro ambient _hambient
+      exact Bool.and_comm (event ambient) (supported ambient)
+    change
+      listQSum (fun ambient =>
+          if event ambient then weight ambient else 0)
+          (labels.filter supported) ≈
+        listQSum (fun ambient =>
+          if supported ambient && event ambient then weight ambient else 0)
+          labels
+    refine Q'.eqv_trans _
+      (listQSum weight ((labels.filter supported).filter event)) _
+      (listQSum_mask_eq_filter_local
+        weight event (labels.filter supported)) ?_
+    refine Q'.eqv_trans _
+      (listQSum weight
+        (labels.filter (fun ambient =>
+          supported ambient && event ambient))) _
+      (Q'.eqv_of_eq (congrArg (listQSum weight) hfilters)) ?_
+    exact Q'.eqv_symm
+      (listQSum_mask_eq_filter_local weight
+        (fun ambient => supported ambient && event ambient) labels)
+  exact Q'.eqv_trans _ _ _ hslab
+    (Q'.eqv_trans _ _ _
+      (slabWeightedPhysicalSum_eq_ambientSupported
+        coupling cutoff extent observable)
+      (Q'.eqv_trans _ _ _ hpullback hmasked))
 
 theorem couplingParametricKPhysicalSlabSupportNumerator_eqv_compatible
     {coupling : Q'} (hcoupling : (0 : Q') ≤ coupling)
@@ -212,6 +314,7 @@ theorem couplingParametricKPhysicalGivenSlabProbability_eqv_compatible
 
 #print axioms ambientSlabSupportedPhysicalPartition_eqv_eventNumerator
 #print axioms slabParametricKPhysicalPartition_eqv_physicalSupportNumerator
+#print axioms slabEventNumerator_zeroExtension_eqv_ambientMasked
 #print axioms slabParametricKPhysicalPartition_eqv_compatibleSlabSupport
 #print axioms couplingParametricKPhysicalSlabRestrictedNumerator_eqv_compatible
 #print axioms couplingParametricKCompatibleSlabSupportNumerator_pos

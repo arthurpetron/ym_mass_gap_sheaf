@@ -15445,3 +15445,176 @@ list lines and lines with trailing markers such as `(default)`, without
 weakening the subsequent `lean --version`/`lake --version` check.  The repaired
 workflow must be committed and pushed, and a fresh exact-SHA JIT run must pass
 all mandatory stages before live CI certification is complete.
+
+#### 8.13.24 Exact-SHA Mac CI certification: live green and self-cleaning
+
+(2026-07-18, session 8, completed live certification.)  The idempotence repair
+was committed as `deeba1e` (`Make self-hosted Lean toolchain selection
+idempotent`) and pushed to `main`.  GitHub run `29661761406`, job
+`88125528479`, claimed a unique foreground JIT runner and executed the exact
+full SHA `deeba1ebf4d9ff33617ccec18cbcbd037cfcc3d9`.  The canonical build
+reported
+
+```text
+YMGAP_SOURCE_FINGERPRINT sha256:d92eaeec27e4466aa2fcf4909dec6ea33e255f034c940f57b296166cee809f44
+Build completed successfully (2544 jobs).
+```
+
+The full build ran from 21:32:33Z to 00:23:51Z.  Every subsequent mandatory
+stage was green: the exact full-log integrity audit, reviewed namespace
+baseline, strict namespace digest, frontier-status regeneration and stdout
+reproduction, frontier-uninhabitedness guard, ten-statement hash guard,
+Frontier-DAG audit, and 129-job Clay scorecard.  The source-level repairs that
+had motivated conservative sharding were also exercised by this exact run:
+the ten Sixth-tranche blocks each completed in approximately 18--22 seconds,
+their public assembly in 390 milliseconds, the previously heavy HighRows
+consumers in 47--54 seconds, and the Fourth and Fifth bootstrap assemblies in
+116 and 126 seconds respectively.
+
+This is a genuine live certification, not a static inference or an older-SHA
+run.  Host sampling stayed approximately 90--92 percent memory-available.
+The largest observed Lean processes stayed flat below the hard 20 GiB address
+space cap (the semantic bridge and U0 factor rows were approximately 15 GiB;
+the dense certificate approximately 12.7 GiB; the EightAnchor leaf
+approximately 9.4 GiB), and memory was reclaimed after each serialized
+process.  Compilation remained single-process, single-threaded, nice-priority,
+AC-powered, caffeinated, session-locked, and guarded by the complete
+runner/Lean/Lake/pytest process fence.  The cap was not raised.
+
+Teardown was independently checked after the job: the repository runner
+collection was empty; no `.runner`, credentials, `.ymgap-jit*` recovery state,
+runner/listener/worker/plugin-host process, Lean/Lake/pytest process, or
+`/tmp/ymgap-lean-session-501.lock` remained.  Thus the foreground runner is
+not a persistent service and cannot silently consume future jobs.  A future
+push queues without hosted fallback whenever this Mac is offline.
+
+The cost conclusion is now operationally established.  This workflow uses no
+GitHub-hosted compute minutes because all four conjunctive labels select the
+self-hosted Mac.  Successful runs upload neither an artifact nor a remote
+cache; only a three-day failure log may consume GitHub storage.  Electricity,
+network traffic, and hardware wear remain local operator costs.  The exact
+full-build consistency guarantee described in Section 8.13.21 remains the
+ordinary checkpoint mechanism: Lake incrementality plus fingerprinted exact
+source/import/axiom audits makes a clean rebuild unnecessary on every edit,
+while this live run supplies the independent full-current attestation.
+
+With CI wiring certified, the critical path returns immediately to
+`Z4HalfTimeReflectionAdjacentEvenOneStepEventLaw`: first the generic
+zero-extension numerator bridge, then the complete internal-plus-exterior
+reflection event exchange, slab numerator symmetry, and normalized
+conditional-probability equality.  The separately edited categorical spike
+remains outside the production fingerprint and is not a substitute for this
+finite constructive reflection law.
+
+#### 8.13.25 Adjacent-even one-step EventLaw: exact finite conditional symmetry
+
+(2026-07-18, session 8, completed and production-wired.)  Step 4 of the
+adjacent-even one-step critical path is now closed.  The new generic theorem
+
+```text
+slabEventNumerator_zeroExtension_eqv_ambientMasked
+```
+
+in `Z4HalfTimeReflectionSlabFiniteKConditionalLaw.lean` identifies the
+numerator of every slab event pulled back along `slabToAmbientPhysical` with
+the ambient numerator of that event conjoined with the exact
+`ambientSlabSupportedB` mask.  Its proof is a finite indicator-observable
+change of variables through `slabWeightedPhysicalSum_eq_ambientSupported` and
+the exact supported zero-extension round trip.  It assumes neither coupling
+positivity nor a Gram/Fubini representation; no sign hypothesis is logically
+needed before normalization.
+
+The production leaf
+`Z4HalfTimeReflectionAdjacentEvenOneStepEventLaw.lean` is implemented and
+imported by `YMGap.lean`.  Its proof spine is the following exact chain.
+
+1. `adjacentEvenStrictJointCylinderRoots` is the source-ordered lower list
+   followed by the source-ordered upper list.  Its length is literally
+   `roots.length + roots.length`, and canonicality follows pointwise from the
+   strict query fit.  `adjacentEvenStrictJointPairFamilyEvent_eq` proves that
+   the associated source cylinder event is exactly the conjunction of the
+   lower fingerprint equalling `left` and the upper fingerprint equalling
+   `right`.  No label-length or nonemptiness premise is introduced.
+2. `adjacentEvenStrictJointCanonicalAtoms` packages precisely those roots as
+   canonical atoms.  The value list, doubled length, and complete slab support
+   are exposed, and `adjacentEvenStrictJointMarkedCylinderEvent_eq` identifies
+   the canonical marked-cylinder presentation with the raw family event
+   extensionally.
+3. `slabToAmbientPhysical_adjacentEven_reflection` proves pointwise that zero
+   extension intertwines supported slab reflection with the independently
+   defined ambient face-reflection identifier on every physical ambient face
+   in the boundary-complete slab.  The derived Boolean theorem
+   `memberB_adjacentEvenSlabAmbientSupport_reflection` transports exact
+   occupied-support membership.
+4. The lower-to-upper and upper-to-lower
+   `...SupportQueryEventB_reflection` theorems transport the *complete*
+   canonical component query.  Each direction handles both occupied internal
+   root faces and the one-link exterior zero shell.  The reverse theorem is
+   proved independently, so no unsupported assertion that an arbitrary whole
+   labelling is globally slab-supported is used.
+5. The two ordered support-query fingerprint theorems map these local facts
+   over the original source list.  `List.map_congr_left` preserves order and
+   duplicate roots exactly.  The two occurrence-fingerprint theorems then use
+   `familyOccurrenceFingerprint_eq_supportQueryFingerprint`,
+   `physicalCanonicalAmbientFamily_unionSupport`, and exact compatibility to
+   recover literal component occurrences.
+6. `adjacentEvenStrictJointPairSlabEvent` is the zero-extended lifted family
+   event, and `reflectSlabEvent_adjacentEvenStrictJointPair` proves the
+   function identity `reflectSlabEvent extent eventLR = eventRL` by the two
+   occurrence exchanges and constructive conjunction commutativity.
+7. `slabEventNumerator_adjacentEvenStrictJointPair_eqv` applies the general
+   finite reflection reindexing at every rational coupling and cutoff.
+   `adjacentEvenStrictJointPairSlabProbability_eqv` normalizes by the positive
+   `slabParametricKPhysicalPartition`; the only new analytic premise is the
+   necessary `0 <= coupling`.  The zero-extension bridge then yields
+   `parametricKEventNumerator_adjacentEvenStrictJointPair_masked_eqv`, and
+   `couplingParametricKPhysicalGivenSlab_adjacentEvenStrictJointPair_eqv`
+   states the final equality in the exact ambient physical law conditioned on
+   corrected-slab support.
+
+Thus for every finite cutoff, every nonnegative rational coupling, every root
+list satisfying the source canonicality condition, and arbitrary Boolean
+fingerprints `left` and `right`, the conditioned probability of the ordered
+lower/one-step-upper marked event `(left,right)` is semantically rationally
+equal to that of `(right,left)`.  The construction is entirely finite and
+intuitionistic: it uses list enumeration, decidable Boolean queries, exact
+involutions, finite sums, and positive rational division.  It introduces no
+`Classical`, choice, `noncomputable`, `native_decide`, `sorry`, new axiom,
+Gram argument, or full Fubini decomposition.  All 21 public dependency gates
+in the leaf report exactly `[propext, Quot.sound]`; the generic bridge reports
+the same gate.
+
+The capped target build completed successfully with 780 jobs and an edited
+leaf time below two seconds.  The protected cached full inspection refreshed
+the production `YMGap.olean` after the new root import.  The current exact
+source stamp is
+
+```text
+YMGAP_SOURCE_FINGERPRINT sha256:d2e9c0612bcd58a508763642e4a6367cd7695948ccd6f26555ea728cd93a0ee9
+```
+
+The static production inventory now has 2,539 source modules, 7,891 local
+import edges, no cycle, 2,533 modules reachable from `YMGap`, the same six
+reviewed exclusions, and zero unexpected orphan.  The strict axiom audit,
+Frontier-DAG guard, host-load guard, ten mocked JIT remote-state scenarios,
+and four bounded-supervisor shutdown scenarios pass.  Post-build inspection
+found no runner/Lean/Lake/pytest process or session lock, with 91 percent
+system memory available.
+
+The next highest-value dependency is the distinct adjacent-even conditional
+stability leaf prescribed immediately after Step 4 above.  It must specialize
+the arbitrary-even-extent conditional comparison to these atoms, prove both
+internal and exterior carrier floors, and expose the nonzero finite-stage
+error
+
+```text
+couplingSlabConditionalBoundaryEpsilon
+  (2 * roots.length) (stage + 4).
+```
+
+Only after that error is proved to vanish in the constructive limit should
+Step 5 transport the same marked event across the one-cell ambient mismatch;
+the generic one-step covariance descent then composes those two bounds.  This
+ordering avoids duplicating event reflection inside the volume-comparison
+proof and keeps exact finite symmetry separate from asymptotic boundary
+control.
