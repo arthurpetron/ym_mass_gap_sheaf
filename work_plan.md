@@ -19900,3 +19900,251 @@ files, and `git diff --check` passed.
 The categorical spike remains quarantined and unimported.  It supplies none
 of the missing oriented Schur, cube-normalization, or Racah-identification
 theorems and is not part of this milestone.
+
+#### 8.13.49 Exact cube orientation and generic linkwise Schur transport
+
+This milestone replaces the remaining informal geometry and isolated-link
+heuristics in the first closed-surface diagnostic by exact, root-wired Lean
+interfaces.  It still does **not** identify the production six-face
+polynomial with its fully contracted trace network; that last comparison is
+kept as an explicit next theorem rather than hidden in a normalization
+claim.
+
+##### 8.13.49.1 Literal radius-zero closed geometries — ✓ COMPLETE
+
+`Z4HalfTimeReflectionAdjacentEvenRadiusZeroClosedGeometryFence` now proves
+all of the finite geometry that was only audited in §8.13.48:
+
+- the elementary-cube identifiers are exactly
+  `{6, 7, 9, 21, 52, 144}` and decode to the six displayed fixed spatial
+  plaquettes;
+- all six identifiers/faces belong to the production radius-zero fixed-face
+  carrier;
+- their duplicate-free support has exactly twelve links, every supported
+  link is production-active, and every one has incidence two;
+- the edge-touching double-cube identifiers are exactly
+  `{6, 7, 9, 21, 52, 66, 67, 69, 81, 112, 144, 204}` and decode to twelve
+  distinct fixed faces;
+- their duplicate-free support has exactly twenty-three active links;
+- `((0,1,1,1), x0)` has incidence four, every other touched link has
+  incidence two, and it is the unique four-valent touched link.
+
+These are membership, cardinality, and incidence theorems only.  Neither
+carrier is claimed minimal among all closed surfaces, and no Haar value,
+spin amplitude, density polynomial, bounded labelling family, or trajectory
+is evaluated by this geometry leaf.
+
+##### 8.13.49.2 Honest matrix and trace semantics — ✓ COMPLETE
+
+`SU2QuaternionFundamentalMatrixSemantics` gives the complex-pair fundamental
+matrix an explicit `Bool × Bool` semantics and proves, componentwise in the
+constructive rational setoid,
+
+```text
+D(q r) ≃ D(q) D(r),
+D(conj q) ≃ D(q)*,
+```
+
+for raw rational quaternions.  The corresponding evaluation theorems hold
+for arbitrary polynomial quaternions and environments.  In particular, the
+previous syntactic reverse coefficient is now proved to evaluate as the
+matching entry of the conjugated matrix, and unit-norm inversion is proved
+to be conjugate transpose.
+
+`SU2QuaternionFundamentalTraceInversion` then defines the diagonal trace and
+proves
+
+```text
+tr D(q) ≃ (U_1(q.r), 0) ≃ (2 q.r, 0),
+tr D(conj q) ≃ tr D(q),
+tr D(q⁻¹) ≃ tr D(q)                 when q is unit norm.
+```
+
+The polynomial diagonal sum has the same evaluated Chebyshev character and
+is evaluation-invariant under polynomial quaternion conjugation.  These
+results justify reversing a whole oriented plaquette word semantically.  No
+global `RatPolyEqv ⇒ finiteProductHaar` congruence is inferred: the trace
+network still has to be related to the chosen raw polynomial representation
+by explicit algebraic/Fubini lemmas.
+
+##### 8.13.49.3 Outward cube orientation and resolved factor — ✓ COMPLETE
+
+The six production plaquette words are not coherently oriented as the
+boundary of a cube: the canonical `p01` and `p02` faces at the origin, for
+example, traverse their common `x0` link in the same direction.  The exact
+outward mask in production face order is now proved to be
+
+```text
+[reversed, standard, reversed, standard, reversed, standard].
+```
+
+`SU2QuaternionElementaryCubeOrientedTraceWiring` attaches that mask to the
+six decoded production faces and exposes twenty-four cyclic fundamental
+coefficient occurrences.  Every occurrence has endpoints coherent with its
+stored physical link and traversal direction.  For each of the twelve
+touched links, the occurrence list has length two with exactly one forward
+and one reverse traversal.  The deduplicated geometric endpoint carrier has
+eight vertices, and the twelve links map to twelve distinct in-range
+production active-link quaternion blocks with a checked lookup round trip.
+
+The leaf also proves the exact value of the explicitly named
+*post-Schur, delta-resolved* network:
+
+```text
+radiusZeroElementaryCubePostSchurResolvedFactor
+  = 2^8 (1/2)^12 ≃ 1/16.
+```
+
+This is now a theorem rather than the inferred arithmetic target of
+§8.13.48.  Its definition intentionally begins after all twelve Schur
+contractions and after the crossed deltas have been resolved to one Boolean
+index per geometric vertex.  It is therefore **not yet** a theorem that the
+production six-character Haar integral is `1/16`.
+
+##### 8.13.49.4 Spectator-stable blockwise Fubini — ✓ COMPLETE
+
+`SU2QuaternionOneLinkFundamentalSchurSpectatorFubini` supplies the locality
+interface needed to contract a link inside a larger trace term.  A raw
+polynomial is declared independent of a quaternion block when clearing that
+block fixes every monomial occurrence.  The file proves:
+
+- idempotence of block clearing and independence of a partially integrated
+  polynomial;
+- closure of scalar and honest-complex block independence under addition,
+  negation, scalar multiplication, conjugation, and multiplication;
+- distinct-block independence for every forward or reverse fundamental
+  coefficient and for a complete local forward/reverse contraction;
+- exact factorization of an independent spectator through one partial block
+  integral;
+- real- and complex-spectator finite-product Fubini theorems.
+
+Thus an uncontracted complex trace-network term can retain all factors from
+the other links while one selected in-range link is integrated.  The complex
+version is essential: a generic residual trace summand is not a real
+polynomial.
+
+##### 8.13.49.5 Generic-block partial Schur with trailing-zero aliases — ✓ COMPLETE
+
+`SU2QuaternionGenericBlockPartialFundamentalSchur` closes the remaining
+arbitrary-block normalization gap at the correct functional level.  The raw
+carrier preserves the lengths of exponent lists when a block is cleared, so
+the partial integral of a local contraction is a sum of zero-exponent
+aliases, duplicate terms, and possibly literal zero coefficients; it is not
+literally `polyConst delta`.
+
+The file therefore defines the raw coefficient sum and an
+`AllZeroExponentTerms` predicate, proves that multiplication by any such
+alias polynomial acts under `finiteProductHaar` by its coefficient sum, and
+derives arbitrary-block coordinate covariance from the exact normalized
+`S³` moment.  It computes the two coefficient sums of the partially
+integrated fundamental pair in all sixteen Boolean index cases and proves
+the load-bearing theorem
+
+```text
+genericBlock_oriented_fundamental_schur_with_complex_spectator:
+
+  H_Nᶜ(spectator · local_b(a,b,d,c))
+    ≃ H_Nᶜ(spectator) ·
+        [(1/2) delta(a,c) delta(b,d)]
+```
+
+whenever `b < N` and the honest-complex spectator is independent of block
+`b`.  The conclusion is `RationalComplexEqv` after the exact finite-product
+functional; no false raw-polynomial equality or extensional-Haar shortcut is
+used.
+
+The covariance proof is constructively isolated at natural component codes.
+In particular, its variable-exponent lemma now recurses directly through the
+raw `List.getD` representation with only the required cons-index reduction;
+it does not invoke the broad simplifier path that imported
+`Classical.choice`.  The natural `4 × 4` moment table, its transport to an
+arbitrary block, the integrated coefficient sum, and the final spectator
+theorem all pass explicit axiom gates with only `propext` and `Quot.sound`.
+
+##### 8.13.49.6 Consequence for the scalar production activity — still conditional
+
+The earlier scalar incidence theorem sends the six cutoff-one cube faces to
+
+```text
+(coeffW anchorCoupling 1)^6,
+```
+
+because it assigns scalar link multiplier one at every bivalent link.  The
+new orientation and generic Schur theorems show that an honest fundamental
+trace expansion, once connected to that same production carrier, must
+instead accumulate twelve factors `1/2` and eight surviving Boolean sums,
+hence the additional factor `1/16`.
+
+This exposes a precise likely factor-sixteen normalization defect, but the
+comparison remains a theorem target until the six physical traces have been
+expanded and contracted in Lean.  Neither `cubeBoxHaarCharacterSector_exact`
+(a link-character surrogate) nor the newly proved post-Schur scalar by
+itself supplies that missing identification.  Production definitions must
+not be changed on the basis of the conditional comparison alone.
+
+##### 8.13.49.7 Updated shortest route
+
+The next local steps are now sharply separated:
+
+1. **Tagged face-corner carrier.**  Introduce the twenty-four independent
+   corner indices of the six pre-contraction traces.  Do not identify them
+   prematurely with the eight geometric vertices.
+2. **Opaque finite Boolean sums.**  Express each trace and their product as
+   recursive Boolean sums of complex coefficient-factor lists.  Keep sums
+   and products symbolic; never enumerate a `2^24` assignment list or form
+   the expanded six-face `RatPoly` product.
+3. **Trace expansion bridge.**  Use the matrix multiplication and trace
+   semantics to prove that the symbolic four-coefficient cyclic sum is the
+   fundamental character of the corresponding standard or reversed
+   plaquette word.  Relate its blocks to the checked production active-link
+   codec.
+4. **Twelve sequential contractions.**  Apply the generic complex-spectator
+   Schur theorem in any checked distinct-block order.  Prove that the twelve
+   crossed deltas identify the three tagged face-corner copies at each cube
+   vertex and no corner copies at different vertices.
+5. **Symbolic delta resolution.**  Factor the remaining sum into eight
+   independent local Boolean sums, prove each equals two, and conclude that
+   the honest cube Haar character integral is exactly `1/16`.
+6. **Production comparison.**  Identify the cutoff-one selected character
+   coefficient in the physical fixed-face activity and prove the exact
+   factor-sixteen comparison.  Only then correct the scalar production
+   kernel and reprove its symmetry/PSD bridge.
+7. **Four-valent diagnostic.**  Repeat the oriented construction for the
+   edge-touching double cube, retain its two-dimensional invariant channel,
+   and identify the signed projector/F-move with the existing ordered
+   Gram-weighted Racah carrier.  Squared Racah probabilities alone are
+   insufficient because they erase signs and interference.
+8. **Physical quadratic identity and PSD transport.**  With the corrected
+   channel-resolved kernel, prove the coefficient-level boundary quadratic
+   equality and invoke the existing mechanical SOS/Gram transport.  Resume
+   normalization, conditioning, transfer, limits, completion, and quotient
+   descent only after that finite identity is closed.
+
+This route is fully intuitionistic: every finite choice is represented by a
+concrete list, Boolean, or recursive sum; no excluded-middle shortcut,
+choice principle, or opaque native decision procedure is introduced.
+
+##### 8.13.49.8 Verification ledger
+
+All Lean commands for this milestone were serialized, single-threaded,
+session-locked, `nice`d, and preceded by the mandatory host-idle check.  No
+full or clean build and no test suite was run.  The final target builds were:
+
+- `SU2QuaternionFundamentalMatrixSemantics`: 395 jobs;
+- `SU2QuaternionFundamentalTraceInversion`: 396 jobs;
+- `SU2QuaternionOneLinkFundamentalSchurSpectatorFubini`: 397 jobs;
+- `SU2QuaternionGenericBlockPartialFundamentalSchur`: 398 jobs;
+- `Z4HalfTimeReflectionAdjacentEvenRadiusZeroClosedGeometryFence`: 699 jobs;
+- `SU2QuaternionElementaryCubeOrientedTraceWiring`: 722 jobs.
+
+Every displayed axiom gate in these leaves reports only the permitted
+`propext` and, where quotient/setoid algebra is used, `Quot.sound`; the purely
+finite statements report no axioms when their dependencies permit it.  The
+final static audit found 2,621 source modules, 8,133 local import edges, zero
+cycles, 2,615 modules reachable from the semantic root, six reviewed and
+classified semantic orphans, and zero unexpected orphans.  The executable
+forbidden-token scan found zero hits, the host-load guard passed all 236
+tracked or untracked non-ignored entry files, and `git diff --check` passed.
+
+The categorical spike remains quarantined, modified only by the user/other
+work, and absent from both the production root and the staged milestone.
