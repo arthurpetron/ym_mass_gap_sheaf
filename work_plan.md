@@ -18050,3 +18050,172 @@ enumerations.  Exact current provenance is
 ```text
 YMGAP_SOURCE_FINGERPRINT sha256:0a51596c487ba0c8ab7c4c9e6b8d216a6e5f82b9dd43b91bf65fff5696690890
 ```
+
+#### 8.13.43 Exact finite physical PSD interface and constructive Gram reduction
+
+(2026-07-18, session 22, completed and production-wired.)  The new leaf
+`Z4HalfTimeReflectionAdjacentEvenPhysicalReflectionQuadratic.lean` turns the
+finite obstruction isolated in 8.13.42 into a precise, reusable Lean API.  It
+does not assert reflection positivity and does not manufacture a Gram
+witness.  It defines the exact finite physical matrix and quadratic that must
+be controlled, proves their support and symmetry facts, and reduces the
+desired inequality constructively to an explicit `GramRep` of that same
+already-sandwiched matrix.
+
+The actual half-state enumeration is indexed by
+
+```text
+adjacentEvenPhysicalHalfStateCount K radius
+  = (adjacentEvenHalfStates K radius).length,
+
+adjacentEvenPhysicalHalfStateAt K radius i
+  = (adjacentEvenHalfStates K radius).getD i zeroEdgeLabelling.
+```
+
+The private structural induction theorem `list_getD_mem_of_lt` proves that a
+bounded `getD` lookup belongs to its source list.  Hence
+
+```text
+adjacentEvenPhysicalHalfStateAt_mem :
+  i < adjacentEvenPhysicalHalfStateCount K radius ->
+  adjacentEvenPhysicalHalfStateAt K radius i
+    ∈ adjacentEvenHalfStates K radius.
+```
+
+This proof is constructive and avoids choosing an inverse to list membership
+or quotienting duplicate half-state labellings.  Duplicate list entries, if
+present, remain separate finite coordinates; this is harmless for the
+quadratic and is the correct representation for later deterministic
+pushforward arguments.
+
+The globally indexed matrix is
+
+```text
+adjacentEvenPhysicalReflectedMatrix w K radius i j
+  = if i < count then
+      if j < count then
+        adjacentEvenPhysicalReflectedKernel w K radius
+          (halfStateAt i) (halfStateAt j)
+      else 0
+    else 0.
+```
+
+Zero exterior padding is essential.  The repository's `GramRep` interface is
+stated for kernels on all natural-number indices, while the physical carrier
+is finite.  An arbitrary fallback matrix entry outside the enumeration would
+make a global Gram claim stronger than the physical problem and could destroy
+symmetry.  Zero padding instead admits the canonical zero Gram vector outside
+the finite carrier.  On bounded indices,
+`adjacentEvenPhysicalReflectedMatrix_eq_kernel` identifies the matrix with the
+literal physical reflected kernel.
+
+The theorem `adjacentEvenPhysicalReflectedMatrix_symm` proves global rational
+symmetry.  In the bounded/bounded case it invokes the existing literal
+physical-kernel reflection-swap theorem after supplying both
+enumeration-membership proofs.  The remaining three boundedness cases reduce
+both directed entries to zero.  This is symmetry of the exact target matrix,
+not an inference from entrywise nonnegativity and not a claim about the
+previously refuted unrestricted endpoint transition window.
+
+The precise finite quadratic is now named
+
+```text
+adjacentEvenPhysicalReflectionQuadratic w K radius coefficient
+  = gramQuadForm
+      (adjacentEvenPhysicalReflectedMatrix w K radius)
+      coefficient
+      (adjacentEvenPhysicalHalfStateCount K radius).
+```
+
+Its minimal anchor-coupling consumer proposition is
+
+```text
+AdjacentEvenPhysicalAnchorPSD K radius : Prop
+  := forall coefficient,
+       0 <= adjacentEvenPhysicalReflectionQuadratic
+              anchorCoupling K radius coefficient.
+```
+
+This proposition deliberately asks only for the finite quadratic inequality
+that the probability/centering lane consumes.  It does not force a particular
+proof representation.  In parallel, the stronger Type-valued sufficient
+substrate is
+
+```text
+AdjacentEvenPhysicalAnchorGramWitness K radius
+  := GramRep
+       (adjacentEvenPhysicalReflectedMatrix
+         anchorCoupling K radius).
+```
+
+Given such data,
+`adjacentEvenPhysicalReflectionQuadratic_anchor_nonnegative_of_gramRep`
+applies the repository's constructive finite Gram sum-of-squares theorem
+directly, and `adjacentEvenPhysicalAnchorPSD_of_gramRep` packages the result
+as the minimal proposition.  No excluded middle, spectral theorem,
+eigenvalue decomposition, square-root choice, or decidable search is used.
+The distinction between the Prop-valued consumer and Type-valued witness also
+keeps open a shorter direct tensor-network SOS proof: a future theorem may
+prove `AdjacentEvenPhysicalAnchorPSD` without first constructing a global
+natural-indexed Gram representation.
+
+This milestone does **not** close time-one positivity.  The residual theorem
+is now exact: for every `K` and `radius`, construct either
+
+```text
+AdjacentEvenPhysicalAnchorGramWitness K radius
+```
+
+or a direct proof of
+
+```text
+AdjacentEvenPhysicalAnchorPSD K radius.
+```
+
+The most efficient next attack is the reachable common-middle compression of
+the assembled factorization from 8.13.42.  It should proceed in this order:
+
+1. identify the finite common-middle states actually reached by the lower
+   endpoint amplitudes and fixed-face trajectories, without enumerating an
+   unrestricted `0,...,6*K` endpoint rectangle;
+2. prove an entrywise compression identity from the literal assembled
+   physical kernel to the reachable middle kernel, retaining all lower and
+   upper sandwich amplitudes;
+3. prove either a `GramRep` for that reachable middle kernel or a direct SOS
+   identity for the fully sandwiched quadratic;
+4. transport the witness through the zero-padded half-state enumeration and
+   discharge `AdjacentEvenPhysicalAnchorPSD`;
+5. only then push the finite inequality through the deterministic
+   occurrence-fingerprint map and the positive slab normalization;
+6. apply the existing conditioned/centered half-power estimate and finite
+   coefficient-L1 quadratic bound to obtain a lower error tending to zero;
+7. conclude staged one-step positivity, then representative-limit positivity,
+   and finally completed positivity by quotient induction.
+
+Before any bounded exact-rational reconnaissance, the size of the actual
+half-state and reachable-middle enumerations must be proved safe.  The list
+definitions can grow exponentially in `K` and `radius`; an exploratory
+computation that materializes large enumerations is forbidden by the Mac
+safety policy.  Any reconnaissance must use very small, explicitly bounded
+parameters, stay serialized, and test the already-sandwiched matrix rather
+than the known non-symmetric unrestricted transition patch.
+
+Verification stayed within the mandatory Mac safety envelope: every
+Lean/Lake command was serialized by the shared host lock, used
+`LEAN_NUM_THREADS=1`, and retained `-s 65536 -M 20480`.  The draft and
+production leaves checked directly.  The cached named target completed with
+701 jobs and a 396-millisecond new leaf; the cached semantic root completed
+with 2,555 jobs and a 593-millisecond root.  All five public axiom gates report
+exactly `[propext, Quot.sound]`, and the executable forbidden-token scan
+reports zero hits.
+
+Static analysis now reports 2,560 source modules, 7,958 local import edges,
+zero cycles, 2,554 modules reachable from `YMGap`, the same six reviewed
+exclusions, and zero unexpected orphans.  The host-load guard passes over 236
+repository entry files; all ten mocked JIT remote-state and four bounded
+supervisor cases pass; and the Frontier-DAG guard reports zero unbridged
+enumerations.  Exact current provenance is
+
+```text
+YMGAP_SOURCE_FINGERPRINT sha256:5f7d5db10bda187421d35017bd2686745f91896766c3362fe2283e0b9fd33aa9
+```
