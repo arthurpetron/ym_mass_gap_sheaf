@@ -18219,3 +18219,220 @@ enumerations.  Exact current provenance is
 ```text
 YMGAP_SOURCE_FINGERPRINT sha256:5f7d5db10bda187421d35017bd2686745f91896766c3362fe2283e0b9fd33aa9
 ```
+
+#### 8.13.44 Arbitrary-radius deterministic lower endpoints and reachable fixed-word symmetry
+
+(2026-07-18, session 23, completed and production-wired.)  The two new leaves
+`Z4HalfTimeReflectionAdjacentEvenDeterministicLowerEndpoint.lean` and
+`Z4HalfTimeReflectionAdjacentEvenReachableFixedWordSymmetry.lean` replace the
+coarse reachable-endpoint box from 8.13.43 by an exact symbolic endpoint map.
+They make a strict mathematical reduction: at every radius, each fixed
+spatial link on the integer reflection slice sees at most one lower
+plaquette.  Consequently the lower fusion word does not branch, its endpoint
+is a deterministic spin bounded by the physical cutoff `K`, and its fusion
+amplitude is an exact Kronecker indicator.  No bounded labelling carrier is
+materialized anywhere in either proof.
+
+The local geometry is captured by
+
+```text
+adjacentEvenFixedLinkLowerPlaquette link
+  = (subE link.1 .x3, planeOf link.2 .x3).
+```
+
+For a fixed link and a lower incident numerical face identifier,
+`adjacentEvenFixedLink_lowerPlaquette_eq_backwardTemporal` proves that the
+decoded plaquette equals this backward temporal plaquette.  The proof invokes
+`edge_complete`, which lists exactly the six plaquettes incident to an edge,
+and then separates the four link directions.  A temporal link cannot be
+fixed.  For a spatial link, fixedness places its base point on the integer
+reflection slice; the four spatial candidates are fixed, the forward
+temporal candidate is upper, and only the backward temporal candidate is
+lower.  Thus the result is a local six-case incidence theorem, not a finite
+box computation.
+
+The private numerical-ID uniqueness lemma combines that geometric equality
+with `slabPlaquetteAt_injective_on_physical`.  Since the three-way incident
+face partition is a permutation of a nodup physical incident-ID list, two
+lower IDs would have to be equal and simultaneously distinct.  This proves
+
+```text
+adjacentEvenFixedLink_lowerIds_length_le_one :
+  ((adjacentEvenIncidentFaceIdParts radius link).1).length <= 1,
+
+adjacentEvenLowerSpins_length_le_one :
+  (adjacentEvenIncidentLowerSpins radius physical link).length <= 1.
+```
+
+The canonical endpoint is therefore defined without a choice principle:
+
+```text
+adjacentEvenCommonLowerEndpoint radius physical link
+  = (adjacentEvenIncidentLowerSpins radius physical link).getD 0 0.
+```
+
+It is zero for an empty lower word and the unique lower spin for a singleton.
+Physical boundedness gives
+
+```text
+adjacentEvenCommonLowerEndpoint_le :
+  SlabFaceLabellingBounded K (adjacentEvenExtent radius) physical ->
+  adjacentEvenCommonLowerEndpoint radius physical link <= K.
+```
+
+This improves the previous generic support estimate from `3*K` to the exact
+physical range `0,...,K`.  More importantly, the two lower-amplitude theorems
+remove the corresponding source/target sums symbolically:
+
+```text
+fusionChannelAmplitude cutoff lowerWord channel
+  = boolMultiplicity (decide (channel = commonLowerEndpoint)),
+
+adjacentEvenLowerLinkAmplitude K radius physical link channel
+  = Q'.ofNat
+      (boolMultiplicity (decide (channel = commonLowerEndpoint))).
+```
+
+The second leaf first proves assembly locality.  Fixed incident spin words
+are unchanged when the left and right half states are swapped; lower incident
+spin words of an assembled slab are literally those of its left half; and
+the assembled common lower endpoint is therefore the endpoint of that left
+half.  These are the exact pointwise identities required by the outer
+reflection sandwich, rather than extensional equalities of whole labelling
+functions.
+
+The theorem `adjacentEvenReachableFixedWordTransition_symmetric` then proves
+the strongest valid replacement for the known nonsymmetric unrestricted
+endpoint rectangle.  If `source` and `target` are actually reached by the two
+lower words, the fixed words agree, both endpoint values lie in the unchanged
+production cutoff, and the two assembled labellings are physically bounded,
+then
+
+```text
+fusionWalkMultiplicity cutoff source target fixedWord
+  = fusionWalkMultiplicity cutoff target source fixedWord.
+```
+
+The proof first converts nonzero lower amplitudes into endpoint support
+bounds, combines those with the existing coupled lower-plus-fixed spin
+budget, and applies the constructive reversal theorem only inside that
+coupled support.  It never strengthens the statement to independent
+source/fixed/target boxes.  The specialization
+`adjacentEvenAssembledEndpointFixedWordTransition_symmetric` supplies the
+deterministic endpoints of two reflected physical assemblies and discharges
+reachability by the new indicator theorem.  In particular, the earlier
+radius-zero bad two-face channels are outside the physical endpoint image;
+their counterexample remains a valid fence against the unrestricted matrix
+but is not an obstruction on the coupled physical support.
+
+For later compression, the exact endpoint of a half state is named
+
+```text
+adjacentEvenHalfStateEndpointAssignment radius state : Z4Link -> Nat,
+```
+
+and `adjacentEvenHalfStateEndpointAssignment_le` proves pointwise that an
+enumerated physical half state maps into `0,...,K`.  The proof assembles the
+state with zero fixed-boundary and right-half labellings, proves that assembly
+bounded, and transports the deterministic endpoint back to the left state.
+The associated zero-padded pullback is
+
+```text
+adjacentEvenReachableFixedInterfaceMatrix K radius left right
+  = adjacentEvenFixedInterfaceEndpointKernel K radius
+      (endpointAssignment (halfStateAt left))
+      (endpointAssignment (halfStateAt right))
+```
+
+when both indices are in the finite physical half-state carrier, and zero
+otherwise.  The bounded-index theorem identifies it with the literal kernel.
+The Type-valued target
+
+```text
+AdjacentEvenReachableFixedInterfaceGramWitness K radius
+  := GramRep (adjacentEvenReachableFixedInterfaceMatrix K radius)
+```
+
+is deliberately named but not inhabited.  The current milestone proves
+determinism, support, and fixed-word reversibility; it does **not** infer
+positive semidefiniteness from symmetry and does not claim time-one
+reflection positivity.
+
+The attempted size reconnaissance revealed why all remaining work must stay
+symbolic.  If `n = adjacentEvenExtent radius + 1 = 2*radius + 3`, then the
+lower half has `6*(radius+1)*n^3` face coordinates and the fixed boundary has
+`3*n^3`.  Already at radius zero these are respectively 162 and 81.  At
+`K = 1`, the corresponding Cartesian carriers have `2^162` and `2^81`
+elements.  A capped probe first inspected only the short face-ID list, but a
+subsequent evaluation of the half-state **length** still tried to construct
+the entire `2^162` list and reached the fixed 20 GB interpreter ceiling.  The
+process was killed by that ceiling (exit 134) and the host remained stable.
+The scratch evaluator was deleted immediately.
+
+`AGENTS.md` now makes the resulting invariant explicit: never `#eval`,
+`#reduce`, or otherwise materialize `boundedEdgeLabellings`,
+`boundedLabellingsOn`, or any Cartesian enumerator built from them until a
+symbolic cardinality bound has proved that exact instance safely small.
+Evaluating `.length` is not a safe probe because the list must still be
+constructed.  Inspect only the coordinate/ID list, calculate the product
+bound externally, and prefer support and Fubini proofs whenever it is large.
+
+The shortest remaining constructive route is now a two-level sandwich:
+
+```text
+fixed-face Gram
+  -> reachable common-middle kernel
+       = H * fixed-face-Gram * H^t
+  -> physical reflected matrix
+       = C * reachable-common-middle-kernel * C^t.
+```
+
+The production dependent fixed-face channel Gram already supplies the inner
+positive kernel, and `finiteKernelSandwichGramRep` supplies both mechanical
+Gram transports once the two entrywise identities are proved.  The next leaf
+should be `Z4HalfTimeReflectionAdjacentEvenReachableSandwichReduction.lean`.
+Its work order is:
+
+1. prove lower side-factor locality on an assembled slab and identify the
+   upper factor with the reflected/canonical lower factor;
+2. collapse every lower source/target endpoint sum with the deterministic
+   indicator, using zero padding rather than a filtered materialized list;
+3. identify the complete physical reflected matrix entrywise with a finite
+   sandwich of the reachable common-middle kernel;
+4. isolate one honest residual data theorem: a common-middle half-trajectory
+   factorization of that reachable kernel through the already proved
+   dependent fixed-face channel Gram;
+5. convert that data constructively to
+   `AdjacentEvenReachableFixedInterfaceGramWitness`, then through the outer
+   sandwich to `AdjacentEvenPhysicalAnchorGramWitness`; and
+6. discharge `AdjacentEvenPhysicalAnchorPSD` and resume the already wired
+   normalization, centering, staged time-one, representative-limit, and
+   quotient-induction lane.
+
+If the stronger reachable common-middle Gram identity proves unnecessarily
+awkward, the admissible fallback is a direct tensor-network sum-of-squares
+identity for the already-sandwiched physical quadratic.  The unrestricted
+endpoint matrix, an integer reindexing of the odd/central reflection theorem,
+and bare directed compatibility Schur factors remain formally fenced and are
+not alternative proof routes.
+
+Verification stayed within the mandatory Mac safety envelope: every
+Lean/Lake command was serialized by the shared host lock, used
+`LEAN_NUM_THREADS=1`, and retained `-s 65536 -M 20480`.  The deterministic
+endpoint leaf and the reachable-symmetry leaf both check directly; the latter
+took about 0.40 seconds.  The cached named target completed successfully with
+705 jobs and a 427-millisecond new leaf.  The cached semantic root completed
+all 2,557 jobs with a 2.4-second root.  All thirteen public axiom gates across
+the two leaves report exactly `[propext, Quot.sound]`; the executable
+forbidden-token scan reports zero hits.
+
+Static analysis now reports 2,562 source modules, 7,964 local import edges,
+zero cycles, 2,556 modules reachable from `YMGap`, the same six reviewed
+exclusions, and zero unexpected orphans.  The host-load guard passes over 236
+repository entry files; all ten mocked JIT remote-state and four bounded
+supervisor cases pass; and the Frontier-DAG guard reports zero unbridged
+enumerations.  Exact current provenance is
+
+```text
+YMGAP_SOURCE_FINGERPRINT sha256:23043ee94d2bfca02af737621e70278af2eee813e545708c8324669da9dffecc
+```

@@ -40,6 +40,13 @@ MacBook Pro. Protecting the host takes precedence over verification throughput.
 - If a targeted check approaches the memory ceiling, swaps heavily, stalls, or
   causes thermal pressure, stop it and report the last verified state. Do not
   retry with more workers or a higher limit automatically.
+- Never `#eval`, `#reduce`, or otherwise materialize a Cartesian Lean
+  enumerator such as `boundedEdgeLabellings`, `boundedLabellingsOn`, or a
+  definition built from them until a symbolic cardinality bound has first
+  proved the concrete instance safely small.  Evaluating `.length` still
+  constructs the list and is not a safe size probe.  Inspect only the short
+  coordinate/id list first, compute the resulting product bound externally,
+  and prefer symbolic support/Fubini proofs whenever that bound is large.
 - If verification is intentionally not run for safety, say so precisely. Never
   describe a historical green build recorded in the work plan as a build
   re-verified in the current session.
