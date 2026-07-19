@@ -17810,3 +17810,243 @@ enumerations.  Exact current provenance is
 ```text
 YMGAP_SOURCE_FINGERPRINT sha256:57b258aba83b672491563e0b4e178551ddc6114434786c7de6284c2e950d1675
 ```
+
+#### 8.13.42 Exact adjacent-even assembled-summand factorization
+
+(2026-07-18, session 21, completed and production-wired.)  The first
+load-bearing prerequisite of the time-one positivity track is now formalized
+in
+`Z4HalfTimeReflectionAdjacentEvenAssembledSlabFactorization.lean`.  It
+connects the previously separate side-partition, fixed-link endpoint-Fubini,
+trajectory-collapse, fixed-face coefficient, and reflected-endpoint lanes to
+the complete corrected-slab physical summand.  The result is an exact finite
+rational identity at anchor coupling; it does not insert a positivity premise
+or conceal the remaining interface-kernel theorem.
+
+The leaf first defines the literal adjacent-even link parts
+
+```text
+adjacentEvenLowerLinks = adjacentEvenSlabLinkParts.1,
+adjacentEvenFixedLinks = adjacentEvenSlabLinkParts.2.1,
+adjacentEvenUpperLinks = adjacentEvenSlabLinkParts.2.2
+```
+
+and the three complete side factors
+
+```text
+L_w(physical)
+  = product(lower face coefficients)
+      * ofNat(product(lower link multiplicities)),
+
+F_w(physical)
+  = product(fixed face coefficients)
+      * ofNat(product(fixed link multiplicities)),
+
+U_w(physical)
+  = product(upper face coefficients)
+      * ofNat(product(upper link multiplicities)).
+```
+
+The theorem
+
+```text
+slabParametricKPhysicalTerm_adjacentEven_factorization
+```
+
+proves for every rational coupling `w`, cutoff `K`, radius, and physical
+labelling
+
+```text
+slabParametricKPhysicalTerm w K (adjacentEvenExtent radius) physical
+  ~ L_w(physical) * (F_w(physical) * U_w(physical)).
+```
+
+The proof separately transports the full face product and the full actual-link
+multiplicity product along
+`adjacentEvenSlabFaceIdParts_perm` and
+`adjacentEvenSlabLinkParts_perm`.  Constructive append identities split both
+finite products.  The natural-number link product is embedded into `Q'` by
+two exact `ofNat_mul` equivalences, and one explicit six-factor rational
+reassociation places each face product beside its matching link product.  No
+incident-coordinate locality is assumed: in the even geometry the fixed
+links genuinely read lower, fixed, and upper spins, so their whole coupling
+remains inside `F_w`.
+
+At `w = anchorCoupling`, the fixed factor is attached to the already proved
+literal endpoint calculation:
+
+```text
+adjacentEvenFixedWeight_anchor_eqv_coefficient_mul_collapsed :
+  F_anchor(physical)
+    ~ fixedFaceCoefficientProduct(physical)
+        * collapsedFixedLinkTrajectorySum(physical).
+```
+
+This is the exact chain
+
+```text
+ofNat(fixed-link multiplicity product)
+  ~ global bounded source/target endpoint sum
+  ~ expanded trajectory sum
+  ~ terminal-delta-collapsed trajectory sum.
+```
+
+The heat-kernel coefficient is attached exactly once.  A separate equality,
+
+```text
+adjacentEvenFixedFaceCoefficientProduct_assemble_only_boundary,
+```
+
+proves that on
+
+```text
+physical = assembleAdjacentEvenReflectedSlabLabelling
+  radius left boundary right,
+```
+
+the fixed-face coefficient product reads only `boundary`.  The proof uses the
+literal membership characterization of `adjacentEvenFixedFaceIds` and the
+fixed-coordinate computation of the assembly, term by term in the finite
+product.
+
+The common-coordinate interface has been named explicitly as
+
+```text
+adjacentEvenCommonLowerInterfaceSum K radius physical reflected.
+```
+
+Its source and trajectory sums have integrand
+
+```text
+(lowerAmplitude physical source
+    * faceTransition physical source trajectory)
+  * lowerAmplitude reflected (finalChannel source trajectory).
+```
+
+Here `reflected` is the assembly with `left` and `right` exchanged.  The
+theorem
+
+```text
+adjacentEvenAssembledCollapsedSum_eqv_common_lower
+```
+
+is obtained termwise from
+`adjacentEvenAssembledUpperAmplitude_eqv_commonLower`: the literal reflected
+upper endpoint amplitude is exactly the same lower-amplitude map on the
+swapped physical assembly.  Thus both external endpoint maps now use one
+common kind of half-state coordinate.  The directed middle transition is
+left untouched and visible.
+
+For elaboration and downstream reuse, the two large repeated expressions are
+packaged as
+
+```text
+adjacentEvenAssembledPhysical radius left boundary right,
+adjacentEvenAssembledInterface K radius left boundary right.
+```
+
+The intermediate theorem
+
+```text
+adjacentEvenAssembledFixedWeight_anchor_eqv_interface
+```
+
+combines fixed-link Fubini/collapse, common-lower endpoint transport, and
+fixed-face boundary independence.  The terminal load-bearing identity is
+
+```text
+adjacentEvenAssembledSlabNumerator_eqv_lower_interface_upper :
+  slabTerm_anchor(assembled left boundary right)
+    ~ L_anchor(assembled left boundary right)
+        * (assembledInterface left boundary right
+            * U_anchor(assembled left boundary right)).
+```
+
+This closes the previously explicit missing bridge from the local/interface
+calculation to the complete unnormalized physical spin-foam summand.  Event
+masks and division by the positive slab partition function remain downstream;
+they are not folded into this finite weight identity.
+
+Two independent audits agree on the remaining obstruction.  Existing
+even-time positivity proves only `B(T^(2s)v,v) >= 0`; contraction controls
+translated squared norms; and the completed shift-one theorem proves
+self-adjointness.  None implies `B(Tv,v) >= 0`.  The rational model
+
+```text
+B(x,y) = x*y,   T(x) = -x
+```
+
+is self-adjoint, norm preserving, and has positive even powers, while
+`B(T 1,1) = -1`.  Likewise symmetric entrywise-nonnegative matrices need not
+be positive semidefinite, and the existing directed/mixed-map fences rule out
+the naive Schur and full-window sequential-composition arguments.
+
+The logically minimal next finite theorem should therefore be stated directly
+on the already-sandwiched physical kernel:
+
+```text
+adjacentEvenPhysicalReflectionQuadratic anchorCoupling K radius coefficient
+  = sum_left sum_right
+      (coefficient left * coefficient right)
+        * adjacentEvenPhysicalReflectedKernel
+            anchorCoupling K radius left right,
+
+0 <= adjacentEvenPhysicalReflectionQuadratic
+       anchorCoupling K radius coefficient.
+```
+
+A `GramRep` of the already-sandwiched half-state kernel is sufficient for this
+statement.  A reachable common-middle representation
+
+```text
+GramRep (fun q q' => T (end q) (end q'))
+```
+
+is also sufficient but stronger than logically necessary; it must not become
+an artificial mandatory interface if a direct tensor-network SOS of the
+sandwiched quadratic is shorter.  Before attempting a long general Gram
+construction, perform bounded exact-rational reconnaissance of the *physical
+sandwiched* matrices at small `K` and radius.  The already refuted unrestricted
+endpoint matrix is not the object to test.
+
+Once the finite physical quadratic is proved, the shortest remaining route is:
+
+1. push it through the deterministic occurrence-fingerprint map to the
+   marked adjacent-even pair-event quadratic;
+2. divide by the proved positive slab partition function;
+3. use the adjacent-even conditioned/centered half-power comparison and the
+   coefficient-L1 quadratic estimate to obtain a vanishing lower error;
+4. pass that lower error to `CReal.leEv CReal.czero` for the diagonal centered
+   one-step form;
+5. transport through the existing common-cross equivalence to staged
+   `B(T1 v,v) >= 0`;
+6. apply the staged theorem pointwise to every Cauchy representative, transfer
+   raw to canonical pairing terms, and use constructive nonnegativity of a
+   convergent limit; and
+7. quotient-induct to the completed carrier.
+
+No algebraic-direct-limit density detour is needed for the last step.
+
+Verification stayed within the mandatory Mac safety envelope: every
+Lean/Lake command was serialized by the shared host lock, used
+`LEAN_NUM_THREADS=1`, and retained `-s 65536 -M 20480`.  An initially large
+terminal statement reached the fixed heartbeat fence without significant
+memory growth; the statement was then factored into named definitions and a
+small intermediate theorem, reducing direct elaboration to about 0.55 seconds
+without raising any resource cap.  The draft and production leaf both check
+directly.  The cached named target completed with 699 jobs and a 592-millisecond
+new leaf; the cached semantic root completed with 2,554 jobs and a
+570-millisecond root.  All six public axiom gates report exactly
+`[propext, Quot.sound]`, and the executable forbidden-token scan reports zero
+hits.
+
+Static analysis now reports 2,559 source modules, 7,955 local import edges,
+zero cycles, 2,553 modules reachable from `YMGap`, the same six reviewed
+exclusions, and zero unexpected orphans.  The host-load guard passes over 236
+repository entry files; all ten mocked JIT remote-state and four bounded
+supervisor cases pass; and the Frontier-DAG guard reports zero unbridged
+enumerations.  Exact current provenance is
+
+```text
+YMGAP_SOURCE_FINGERPRINT sha256:0a51596c487ba0c8ab7c4c9e6b8d216a6e5f82b9dd43b91bf65fff5696690890
+```
