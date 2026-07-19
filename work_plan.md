@@ -20272,3 +20272,227 @@ guard passed all 236 tracked or untracked non-ignored entry files, and
 `git diff --check` passed.
 
 The categorical spike remains quarantined and is not imported or staged.
+
+#### 8.13.51 Symbolic Boolean sums and exact one-face trace expansion
+
+The next two layers of the honest elementary-cube trace route are now
+root-wired.  They close the finite algebra needed to expand one fundamental
+plaquette trace, but they intentionally stop before a cube-wide polynomial
+product or Boolean assignment carrier is formed.
+
+##### 8.13.51.1 Symbolic Boolean-sum algebra — ✓ COMPLETE
+
+`SU2QuaternionComplexBoolSumAlgebra` defines false-before-true Boolean
+binders and structurally recursive sums
+
+```text
+rationalComplexBoolSum :
+  Nat -> (List Bool -> RationalComplex) -> RationalComplex,
+
+complexRatPolyBoolSum :
+  Nat -> (List Bool -> ComplexRatPoly) -> ComplexRatPoly.
+```
+
+The base case evaluates the family on the unique empty assignment.  The
+successor case recurses separately on `false :: assignment` and
+`true :: assignment` and adds the two results in that literal order.  No
+list of all assignments, powerset, fingerprint carrier, `Fin` enumeration,
+or bounded labelling family is constructed.
+
+The file proves, constructively and at rational-complex setoid level:
+
+- congruence for one binder and for a sum of arbitrary symbolic depth;
+- binder exchange and the rational-complex addition/multiplication laws
+  needed to change a matrix-path addition tree;
+- addition through a symbolic sum and left/right multiplication through a
+  binder or a symbolic sum;
+- evaluation of an honest complex polynomial through a binder and symbolic
+  sum; and
+- componentwise finite-product Haar additivity through a binder and
+  symbolic sum.
+
+The operational fence is load-bearing.  Recursive representation avoids
+allocating a `2^n` assignment carrier, but reducing the definition at a
+concrete depth still exposes `2^n` leaves.  Hence depth twenty four must
+never be unfolded, simplified, reduced, evaluated, or printed.  Only the
+safe depth-four face identity and depth-three local vertex identity may be
+concretely opened.  Cube-wide arguments must use the abstract congruence,
+linearity, evaluation, and Haar-commutation lemmas.
+
+##### 8.13.51.2 Exact standard and reversed plaquette traces — ✓ COMPLETE
+
+`SU2QuaternionFundamentalPlaquetteTraceExpansion` specializes the binder API
+to four cyclic Boolean indices.  For physical link slots
+`block0, block1, block2, block3`, its two fixed summands are literally
+
+```text
+standard:
+  (((F block0 a b * F block3 b c) * R block2 c d) * R block1 d a),
+
+reversed:
+  (((F block1 a b * F block2 b c) * R block3 c d) * R block0 d a).
+```
+
+Thus the standard word is
+`U0 U3 conj(U2) conj(U1)` and the reversed word is
+`U1 U2 conj(U3) conj(U0)`, exactly matching the occurrence conventions in
+`SU2QuaternionElementaryCubeOrientedTraceWiring`.  Conjugation is inverse
+only on the unit-quaternion locus; the arbitrary-environment statements do
+not silently assume unit norm.
+
+The raw polynomial products remain left-associated.  The file proves a
+generic theorem that the four-index cyclic path sum of four arbitrary
+fundamental matrices is their trace.  Its distributive steps and the
+temporary conversion to a right-associated matrix product occur only after
+evaluation in `RationalComplexEqv`; no raw `RatPoly` associativity,
+commutativity, normalization, or reordering theorem is claimed.
+
+For both orientations the complete semantic chain is now formal:
+
+```text
+evaluate symbolic coefficient sum
+  ≃ four-index rational-complex path sum
+  ≃ trace of the exact four-matrix product
+  ≃ trace of the corresponding quaternion word
+  ≃ (U_1(word.r), 0).
+```
+
+The reverse factors use the previously proved conjugate-transpose
+coefficient semantics.  The quaternion representation law is applied three
+times to the exact right-associated word, and the final character theorem
+uses the established fundamental-trace/Chebyshev identity.
+
+Whole-word orientation invariance is also closed at the correct semantic
+level.  Quaternion anti-multiplicativity and involutivity prove
+
+```text
+conj(U0 U3 conj(U2) conj(U1))
+  ≃ U1 U2 conj(U3) conj(U0),
+```
+
+and trace invariance under quaternion conjugation then proves that the
+standard and reversed symbolic expansions have equivalent evaluations for
+every rational environment.  No unit-norm hypothesis is required for this
+trace statement; unit norm is needed only to rename conjugation as physical
+inversion.
+
+This semantic theorem does **not** imply equality after finite-product Haar.
+The raw face-ordered product and the right-local paired contraction product
+are different duplicate-preserving `RatPoly` representatives.  Pointwise
+evaluation equivalence cannot be transported through the present exact Haar
+functional.  The Haar-facing cube network must therefore be defined
+directly in paired order, and a later explicit Haar-level bridge to the
+production rank-one face representative remains mandatory.
+
+##### 8.13.51.3 Corrected shortest route
+
+The most efficient constructive continuation is now:
+
+1. **Vertex-major tagged cube carrier.**  Retain all twenty-four face-corner
+   indices and number them as eight consecutive triples, one triple for each
+   geometric vertex.  In outward face order the six cyclic tag rows are
+
+   ```text
+   reversed p01@000: [0, 9, 6, 3]
+   standard p02@000: [1, 4, 15, 12]
+   reversed p12@000: [2, 13, 21, 10]
+   standard p01@001: [14, 16, 18, 22]
+   reversed p02@010: [11, 23, 19, 7]
+   standard p12@100: [5, 8, 20, 17].
+   ```
+
+   The vertex triples are
+   `[0,1,2]`, `[3,4,5]`, `[6,7,8]`, `[9,10,11]`,
+   `[12,13,14]`, `[15,16,17]`, `[18,19,20]`, and
+   `[21,22,23]`.  This numbering makes the later delta factorization
+   structural and avoids a global `2^24` reindexing theorem.
+
+2. **Literal twelve-link contraction schedule.**  Pair the unique forward
+   and reverse occurrences on each physical link.  In
+   `(forwardRow, forwardColumn; reverseRow, reverseColumn)` tag notation the
+   twelve pairs are
+
+   ```text
+   (1,4;3,0),   (0,9;10,2),  (2,13;12,1),
+   (9,6;7,11),  (5,8;6,3),   (4,15;17,5),
+   (14,16;15,12),(13,21;22,14),(11,23;21,10),
+   (23,19;18,22),(16,18;20,17),(8,20;19,7).
+   ```
+
+   Attach each pair to the already verified production active-link block,
+   prove the schedule is in range and block-`Nodup`, and define the
+   Haar-facing fixed-assignment summand directly as
+   `fundamentalContractionProduct schedule`.
+
+3. **One-shot fixed-assignment contraction.**  Apply
+   `finiteProductHaarComplex_fundamentalContractionProduct` once to prove
+
+   ```text
+   H_N^C(cubePairedSummand assignment)
+     ≃ schurDeltaProduct(cubeSchedule assignment).
+   ```
+
+   Separately prove at value level that the paired summand evaluates to the
+   same twenty-four coefficients as the product of the six face terms.  Do
+   not use that evaluation result as Haar congruence.
+
+4. **Opaque depth-twenty-four sum and local delta resolution.**  Define the
+   cube trace network as a symbolic depth-24 sum of the paired summand and
+   keep it opaque.  Rewrite the twelve crossed deltas into eight disjoint
+   equality triangles on the vertex triples.  Prove the single local
+   three-Boolean identity by its safe eight cases, then lift it structurally
+   to eight vertices without ever enumerating the global assignment space.
+
+5. **Honest cube Haar value.**  Combine Haar commutation with the symbolic
+   sum, the fixed-assignment contraction, the eight triangle sums, and the
+   already verified arithmetic factor to obtain
+
+   ```text
+   H_N^C(cubeTraceNetwork)
+     ≃ (radiusZeroElementaryCubePostSchurResolvedFactor, 0)
+     ≃ (1/16, 0).
+   ```
+
+6. **Production bridge and four-valent diagnostic.**  Prove an explicit
+   Haar-level bridge from the paired network to the exact production
+   cutoff-one rank-one representative before asserting the factor-sixteen
+   normalization correction.  Bank the elementary-cube discrepancy as a
+   theorem/fence, but postpone a global kernel redesign until the
+   edge-touching double cube has supplied its signed two-dimensional
+   projector/F-move.  This avoids correcting the kernel twice and preserves
+   the interference signs erased by squared Racah probabilities.
+
+Every step remains intuitionistic: concrete finite tables, recursive Boolean
+sums, exact rational setoids, and explicit induction replace choice,
+excluded middle, and native enumeration.
+
+##### 8.13.51.4 Verification ledger
+
+Both target builds were serialized, session-locked, `nice`d,
+single-threaded, and preceded by the mandatory host-idle process check.  No
+clean/full build and no test suite was run:
+
+- `SU2QuaternionComplexBoolSumAlgebra`: 402 jobs;
+- `SU2QuaternionFundamentalPlaquetteTraceExpansion`: 403 jobs.
+
+All displayed public gates report only `propext` and, where quotient/setoid
+algebra enters, `Quot.sound`.  In particular, the generic four-cycle matrix
+trace theorem, both orientation-specific matrix-trace theorems, both
+quaternion-word theorems, and both Chebyshev theorems contain neither
+`sorryAx` nor classical choice.
+
+Independent Boolean-sum and plaquette-order audits found no mathematical,
+constructivity, branch-order, performance-representation, factor-order, or
+imported-API defect.  They led to the explicit depth-24 no-reduction fence,
+direct gates for every downstream multiplication/distribution theorem,
+precise conjugate-versus-inverse wording, and the explicit whole-word
+orientation-invariance theorem.  The plaquette audit checked that the path
+proof retains `a` as the trace index and eliminates `d`, then `c`, then `b`
+using value-level setoid algebra only.
+
+After root wiring, the static audit found 2,625 source modules, 8,142 local
+import edges, zero cycles, 2,619 modules reachable from the semantic root,
+six reviewed/classified semantic orphans, and zero unexpected orphans.  The
+executable forbidden-token scan found zero hits, the host-load guard passed
+all 236 tracked or untracked non-ignored entry files, and `git diff --check`
+passed.
