@@ -2,10 +2,17 @@
 # Rank-aware shared-glue transport for adjacent-even trajectories
 
 The production fixed-face kernel already has a constructive Gram
-representation.  A literal trajectory gluing may nevertheless have to retain
-both a shared gluing coordinate and the rank of that fixed-face Gram: the
-half-trajectory amplitude can depend on the local Gram feature being carried
-through the cut.
+representation.  This file gives a conditional algebraic transport for any
+trajectory gluing that genuinely retains both a shared coordinate and the
+rank of that fixed-face Gram.
+
+A later finite counterfence shows that the *literal contribution of one
+original fixed-face rank* need not be symmetric after adjacent-face
+contraction.  It therefore cannot in general be represented by the same half
+feature on both endpoints.  Nothing below asserts such a production
+factorization: this adapter remains valid for an independently proved
+rank-aware factorization, while the active proof route is now the direct
+rank-mixing quadratic SOS.
 
 This file supplies the purely algebraic transport needed for that situation.
 The old fixed-face weights are repeated over the finite glue carrier but are
@@ -100,14 +107,16 @@ def rankAwareSharedGlueGramRep
 
 /-! ## 2. Adjacent-even production residual and adapter -/
 
-/-- Sufficient constructive data for the reachable endpoint kernel when a
-two-sided trajectory gluing must retain both a common middle field and the
-local feature rank of the production fixed-face Gram.
+/-- Sufficient constructive data for the reachable endpoint kernel when an
+independently established two-sided trajectory gluing retains both a common
+middle field and a feature rank.
 
 Compared with `AdjacentEvenReachableCommonMiddleData`, the half amplitude has
 two additional leading indices: the fixed-face Gram rank and a finite shared
 glue coordinate.  This strictly contains the rank-independent one-glue case
-while preserving the already proved production weights exactly. -/
+while preserving the already proved production weights exactly.  The
+structure is deliberately conditional and must not be read as a literal
+termwise expansion of the production ranks. -/
 structure AdjacentEvenReachableFeatureTrajectoryGluingData
     (K radius : Nat) : Type where
   /-- Number of fixed-face channel fields in the symbolic middle carrier. -/

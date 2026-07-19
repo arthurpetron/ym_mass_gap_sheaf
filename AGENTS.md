@@ -47,6 +47,15 @@ MacBook Pro. Protecting the host takes precedence over verification throughput.
   constructs the list and is not a safe size probe.  Inspect only the short
   coordinate/id list first, compute the resulting product bound externally,
   and prefer symbolic support/Fubini proofs whenever that bound is large.
+- Never concretely unfold, reduce, print, or evaluate
+  `anchorFaceWeightedSOSPolynomial`, `weightedSOSPolynomial`, or a downstream
+  raw-`RatPoly` product/substitution assembled from them at a nontrivial
+  cutoff.  The duplicate-preserving list carrier expands feature squares and
+  may grow at least quartically before any normalization.  Keep proofs
+  symbolic at the `FiniteWeightedRationalSOS`/individual-feature level, or
+  first introduce a proved sparse/DAG representation and a conservative size
+  bound.  A successful symbolic Lean build is not evidence that concrete
+  polynomial materialization is safe.
 - If verification is intentionally not run for safety, say so precisely. Never
   describe a historical green build recorded in the work plan as a build
   re-verified in the current session.

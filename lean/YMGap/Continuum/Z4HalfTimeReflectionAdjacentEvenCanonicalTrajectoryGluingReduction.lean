@@ -1,16 +1,23 @@
 /-
-# Canonical rankwise trajectory-gluing reduction
+# Conditional canonical rankwise trajectory-gluing reduction
 
 All analytic and carrier choices in the adjacent-even reflection problem are
 now fixed: one symbolic incidence-field carrier contains every mixed
 trajectory field, its production fixed-face kernel has a constructive Gram,
 and the terminal endpoint product is preserved by the same outgoing field.
 
-This leaf isolates the sole remaining volume-uniform theorem as canonical
-rankwise shared-glue data.  An inhabitant transports mechanically to the
-reachable Gram, the literal physical Gram, physical positive semidefiniteness,
-and the equivalent active-reachable positivity statement.  No inhabitant is
-asserted here.
+This leaf isolates a strong sufficient theorem as canonical rankwise
+shared-glue data.  An inhabitant transports mechanically to the reachable
+Gram, the literal physical Gram, physical positive semidefiniteness, and the
+equivalent active-reachable positivity statement.  No inhabitant is asserted
+here.
+
+The fixed-original-rank counterfence proves that a literal termwise
+interpretation of this datum is false: an individual adjacent-face rank
+contribution can be nonsymmetric.  Thus this remains a valid conditional
+adapter only if ranks are first reorganized into an actually symmetric
+factorization.  The production route should instead target the direct active
+quadratic SOS, where all face ranks and Haar features may mix.
 -/
 
 import YMGap.Continuum.Z4HalfTimeReflectionAdjacentEvenFeatureTrajectoryGluing
@@ -33,12 +40,13 @@ open YMGap.Continuum.Z4HalfTimeReflectionAdjacentEvenTrajectoryFieldRealization
 
 local infix:50 " ≈ " => Q'.eqv
 
-/-! ## 1. The one remaining canonical datum -/
+/-! ## 1. A strong conditional canonical datum -/
 
-/-- The exact remaining constructive theorem.  Its middle carrier and local
+/-- A strong sufficient constructive datum.  Its middle carrier and local
 Gram are no longer arbitrary: they are the canonical symbolic incidence
-carrier and its proved production Gram.  Only a finite shared-glue carrier,
-its rank-aware half amplitude, and the global entrywise factorization remain. -/
+carrier and its proved production Gram.  A finite shared-glue carrier, its
+rank-aware half amplitude, and the global entrywise factorization remain.
+The datum is not claimed to arise by keeping each original Gram rank fixed. -/
 structure AdjacentEvenCanonicalRankwiseTrajectoryGluingData
     (K radius : Nat) : Type where
   glueCount : Nat

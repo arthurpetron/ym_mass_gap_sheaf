@@ -18897,3 +18897,498 @@ The exact production-source provenance is
 ```text
 YMGAP_SOURCE_FINGERPRINT sha256:0fa711f48e7192d1d4f760cafd83d3383b49e4c35d9aac3e7a906cd699a86206
 ```
+
+#### 8.13.47 Direct rank-mixing quaternion SOS and the exact product-Haar frontier
+
+This milestone starts from the fully wired baseline commit `81c9cb3`, which
+was pushed to `main` after the verification recorded at the end of §8.13.46.
+Everything described below is subsequent work.  In particular, the build and
+fingerprint recorded in §8.13.46 certify that pushed baseline, not the current
+working tree.  The current additions must receive their own serialized,
+memory-capped verification before they are committed or pushed.
+
+The first result of the new audit is a sharp separation between exact finite
+bookkeeping and the actual positivity theorem.  The canonical incidence
+carrier now has a completely explicit mixed-radix codec.  For a noduplicated
+finite key list, `boundedLabellingMixedRadixCount`,
+`boundedLabellingMixedRadixEncode`, and
+`boundedLabellingMixedRadixDecode` provide a positive finite carrier, a
+uniform coordinate bound, zero extension off the active keys, both
+encode/decode identities, injectivity on the active range, and exact agreement
+with the existing symbolic bounded-labelling enumeration.  The adjacent-even
+specialization supplies a concrete middle count, total indexed assignment,
+middle field, and canonical incoming/outgoing trajectory indices.  This
+removes the former existential indexing gap without selecting a function from
+a proposition and without evaluating the astronomically large carrier.
+
+The corresponding Kronecker partition is exact.  `channelEqualityDelta` and
+`boundedLabellingEqualityDelta` take only the rational values zero and one.
+Summing the assignment delta over the bounded carrier gives one for every
+supported bounded target, and the weighted collapse theorem evaluates an
+arbitrary finite assignment sum at that target.  Its adjacent-even incidence
+specialization partitions both the incoming and outgoing trajectory fields.
+Inserting the two partitions into each literal trajectory term yields
+`adjacentEvenCanonicalTrajectoryAssignmentTerm`; finite Fubini then proves
+the exact trajectory-major/assignment-major contraction
+
+```text
+adjacentEvenCanonicalTrajectoryMajorContraction K radius source target
+  ≈
+adjacentEvenCanonicalAssignmentMajorContraction K radius source target.
+```
+
+Together with the previously proved trajectory normal form, the literal
+fixed-interface endpoint kernel is now exactly the explicit canonical
+compatibility contraction.  Multiplicities, terminal deltas, bounds, and zero
+padding are all retained.  Thus no unproved reindexing or hidden finite choice
+remains in the compatibility layer.  This result is an exact normal form; it
+does not assert that the compatibility kernel is Gram.
+
+The decisive correction is supplied by the fixed-original-rank fence.  Two
+rank-one face factors supported respectively on the adjacent state pairs
+`{0,1}` and `{1,2}` give an exact two-face contribution whose forward entry is
+one and whose reverse entry is zero.  More abstractly, every literal
+same-half expression
+
+```text
+sum glue, weight glue * H glue left * H glue right
+```
+
+is symmetric, even if signed weights were allowed.  Hence the nonsymmetric
+fixed-rank contribution cannot possess the proposed common same-half
+factorization.  The conditional feature-trajectory and canonical rankwise
+adapters remain algebraically correct if supplied with their hypotheses, but
+the interpretation that each original character rank should separately
+supply those hypotheses is false.  The production route must first combine
+the vacuum and all active face ranks and only then construct an SOS for the
+complete active quadratic.  No future plan item may silently restore the
+falsified fixed-rank premise.
+
+The replacement target is now explicit.  The direct expression
+
+```text
+adjacentEvenActiveSOS weight amplitude coefficient stateCount termCount
+```
+
+is a finite sum of nonnegatively weighted squares of linear forms in the
+physical coefficient vector.  `AdjacentEvenActiveQuadraticSOSData K radius`
+stores its finite term count, weights, constructive weight inequalities,
+half-state amplitudes, and the one load-bearing identity
+
+```text
+adjacentEvenReachableScaledQuadratic K radius coefficient
+  ≈ adjacentEvenActiveSOS ... coefficient ... .
+```
+
+An inhabitant mechanically proves the active reachable PSD proposition and,
+through the already proved exact diagonal-congruence equivalence, the full
+physical anchor PSD proposition.  This interface permits ranks, quaternion
+features, face selections, Haar monomials, and trajectory decorations to mix
+inside one term carrier.
+
+An entrywise intermediate bridge has also been isolated for the case in which
+the product-Haar construction naturally yields a Gram kernel before the
+quadratic is assembled.  `finiteWeightedGramKernel` is the `Nat`-indexed
+weighted outer-product kernel, and its quadratic is identified with
+`adjacentEvenActiveSOS` by reusing the existing constructive
+`gramQuadForm_eq_sos` theorem rather than duplicating its finite-sum Fubini
+algebra.  `AdjacentEvenReachableKernelSOSData K radius` records an entrywise
+factorization of the unscaled reachable fixed-interface matrix.  Its
+conversion to `AdjacentEvenActiveQuadraticSOSData` multiplies every
+half-state coordinate by `adjacentEvenPhysicalOuterScale K radius state`.
+Thus the exact exterior factors are absorbed without division, a support
+decision, or a positivity premise on the exterior scale.  The entrywise
+record is a convenient sufficient bridge, but it is stronger than the direct
+active-quadratic record.  If the global Haar argument closes only after the
+physical compression, work must instantiate the direct record rather than
+turn the entrywise bridge into a new obstruction.
+
+The local face analysis now treats the complete truncated anchor weight.  The
+excited dimension mass is
+
+```text
+anchorExcitedCharacterDimensionMass cutoff
+  = sum index<cutoff,
+      coeffW anchorCoupling (1+index) * dimQ (1+index).
+```
+
+Termwise this is exactly the degree-two Casimir tail, so the established
+anchor tail estimate gives
+
+```text
+0 ≤ anchorExcitedCharacterDimensionMass cutoff ≤ 1/2.
+```
+
+Consequently
+
+```text
+anchorVacuumReserve cutoff
+  = 1 - anchorExcitedCharacterDimensionMass cutoff
+```
+
+is constructively nonnegative and in fact at least `1/2`, uniformly in the
+cutoff.  The reserve and excited mass add back to one at `Q'.eqv`.  The full
+truncated class function therefore has the exact rank-mixing rewrite
+
+```text
+1 + sum_{s=1}^K coeffW(anchorCoupling,s) * U_s(x)
+  ≈
+anchorVacuumReserve K
+  + sum_{s=1}^K coeffW(anchorCoupling,s) * (dimQ s + U_s(x)).
+```
+
+Every coefficient on the right is nonnegative.  This is the essential step
+that makes the reserve compensate the dimension shifts; it is not a
+rank-by-rank claim about the original unshifted character expansion.
+
+Both parity classes of shifted characters now have all-order, radical-free
+SOS identities over `Q'`.  For even rank, the constructive Chebyshev rotation
+and double-angle argument proves
+
+```text
+ofNat(2*m+1) + U_(2*m)(x)
+  ≈ 2 + 4 * sum_{k<m} T_(k+1)(x)^2.
+```
+
+For odd rank, with `C_0(x)=1` and
+`C_(k+1)(x)=U_(k+1)(x)-U_k(x)`, the adjacent-`U` determinant, fusion boundary,
+and odd telescope prove
+
+```text
+1 + T_(2*k+1)(x) ≈ (1+x) * C_k(x)^2,
+
+ofNat(2*m+2) + U_(2*m+1)(x)
+  ≈ 2 * sum_{k≤m} (1+x) * C_k(x)^2.
+```
+
+On a rational unit quaternion
+
+```text
+x^2 + y1^2 + y2^2 + y3^2 ≈ 1,
+```
+
+the remaining affine factor has the exact four-square identity
+
+```text
+2*(1+x) ≈ (1+x)^2 + y1^2 + y2^2 + y3^2.
+```
+
+Multiplying by `C_k(x)^2` and summing therefore presents every odd shifted
+character as a finite sum of literal rational quaternion squares.  None of
+these proofs selects a square root, a sign, a trigonometric parameter, or a
+classical point on the sphere.
+
+The finite SOS carrier has been expanded into the precise algebra needed by
+the global construction.  `FiniteWeightedRationalSOS Input` stores a finite
+term count, total rational weights, a proof that every weight is nonnegative,
+and total feature functions.  It now provides:
+
+* `value_nonnegative`, proving every represented value nonnegative;
+* `zero`, `one`, and a one-term nonnegative `constant`, retaining a scalar as
+  a weight rather than extracting its square root;
+* `scale`, which multiplies weights by a nonnegative rational;
+* `add` and `addList`, which concatenate finite SOS blocks with exact offset
+  reindexing;
+* `multiply` and `multiplyList`, which use mixed-radix packing and
+  `finSum_flatten` to multiply finite SOS values exactly; and
+* `pullback`, which preserves the term carrier and weights while precomposing
+  every feature with a map of input types, together with exact evaluation,
+  weight, identity, and composition laws.
+
+These operations are symbolic definitions.  They do not materialize a list
+of the packed terms, so their use does not violate the repository's bounded
+enumeration or Mac-load rules.
+
+The complete face certificate is now packaged by `AnchorFaceSOS`.  Its input
+contains four rational quaternion coordinates together with the exact unit
+sphere equation.  The even packet contains a constant weight two and the
+first-kind square modes with weight four.  The odd packet contains four
+unit-weight quaternion squares at every half-angle level.  Decidable parity
+selects the appropriate shifted-character packet; nonnegative scaling absorbs
+`coeffW anchorCoupling (1+index)` into its weights; structural direct sum adds
+all excited ranks; and a one-term constant packet carries the vacuum reserve.
+The resulting theorem is
+
+```text
+anchorTruncatedFaceClassValue cutoff input.x
+  ≈ value (anchorFaceSOS cutoff) input.
+```
+
+Every stored weight is constructively nonnegative, and the exact identity
+gives the pointwise corollary
+
+```text
+0 ≤ anchorTruncatedFaceClassValue cutoff input.x.
+```
+
+This closes the finite one-face rank-mixing SOS.  It does **not** by itself
+show that the reflected endpoint kernel is Gram: pointwise nonnegativity of a
+relative group weight is not a substitute for the exact face-holonomy and
+Haar-contraction identity.
+
+The local polynomial boundary is now complete, subject only to the final
+serialized root verification recorded below.  The fixed environment
+
+```text
+[x,y1,y2,y3]
+```
+
+is implemented by `anchorEnvironment`.  `qPolyToRatPolyAt` embeds every
+univariate `QPoly` by Horner recursion into the raw finite-support `RatPoly`
+carrier, with exact evaluation at the selected coordinate.  Explicit
+polynomials for every `T_n` and `C_n` mode realize the even and odd quaternion
+features.  `RatPolyFeatures` is closed under constants, nonnegative scaling,
+and offset-packed direct sums, and therefore supplies
+
+```text
+anchorFaceFeaturePolynomial cutoff term
+```
+
+for every feature of `anchorFaceSOS cutoff`.  Finally,
+
+```text
+anchorFaceWeightedSOSPolynomial cutoff
+  = sum_term weight(term) * featurePolynomial(term)^2
+```
+
+has the exact semantic identity
+
+```text
+evalRatPoly (anchorEnvironment input)
+    (anchorFaceWeightedSOSPolynomial cutoff)
+  ≈ value (anchorFaceSOS cutoff) input
+  ≈ anchorTruncatedFaceClassValue cutoff input.x.
+```
+
+Thus the complete rank-mixed one-face certificate is available both as a
+finite weighted SOS and as explicit finite-support rational-polynomial data.
+
+Constructive arbitrary-variable polynomial substitution is now available.
+For `sigma : Nat → RatPoly`, `substitute sigma p` is defined by recursion over
+the finite term and exponent lists and satisfies
+
+```text
+evalRatPoly rho (substitute sigma p)
+  ≈ evalRatPoly
+      (fun coordinate => evalRatPoly rho (sigma coordinate)) p.
+```
+
+Substitution by coordinate variables is extensionally the identity and nested
+substitution is extensionally associative in `RatPolyEqv`.  The API also
+proves the two setoid laws
+
+```text
+RatPolyEqv p q
+  → RatPolyEqv (substitute sigma p) (substitute sigma q),
+
+(∀ i, RatPolyEqv (sigma i) (tau i))
+  → RatPolyEqv (substitute sigma p) (substitute tau p),
+```
+
+as well as extensional preservation of raw polynomial addition and
+multiplication.  Later pullbacks can therefore rewrite representatives and
+coordinate maps without a hidden representative-choice premise.
+
+The rational quaternion algebra now supplies the exact group structure needed
+by face holonomies.  Reflected polynomial normalization proves Hamilton
+associativity, both unit laws, conjugation involutivity, reversal of products,
+both conjugate-product identities, preservation of norm by conjugation, and
+multiplicativity of the four-square norm.  Hence the rational points of the
+unit three-sphere form a `ConstructiveGroup`: multiplication is Hamilton
+multiplication and inverse is conjugation.  This statement is deliberately
+only about rational unit quaternions modulo coordinatewise rational semantic
+equality.  It does not assert compactness, completeness, a topology, or a Haar
+measure on the rational-point carrier.
+
+The first genuine lattice-geometric pullback is complete.  In the audited
+`edgesOf` order
+
+```text
+U0 = U(v,a),       U1 = U(v,b),
+U2 = U(v+e_b,a),   U3 = U(v+e_a,b),
+```
+
+the positive plaquette holonomy is fixed as
+
+```text
+U0 * U3 * inv(U2) * inv(U1).
+```
+
+Closure in the unit-norm group supplies its sphere equation without a
+separate normalization argument.  Pulling `anchorFaceSOS cutoff` along this
+map gives `anchorFaceHolonomySOS cutoff`, and pulling once more along
+`plaquetteOrientedEdgeInput` gives `latticeAnchorFaceHolonomySOS`.  Their
+values are exactly the truncated class value at the physical plaquette
+holonomy, and their weights and pointwise nonnegativity are inherited
+constructively from the local packet.
+
+The same holonomy is now polynomial.  A four-component
+`RatPolyQuaternion` implements polynomial scalar embedding, unit,
+conjugation, and Hamilton multiplication, with componentwise exact evaluation
+laws.  In the sixteen scalar-first edge coordinates, the polynomial word
+
+```text
+orientedPlaquetteHolonomyPolynomial
+  = U0 * U3 * conj(U2) * conj(U1)
+```
+
+evaluates to the geometric unit-quaternion holonomy.  Substituting its four
+components for the local anchor variables produces
+
+```text
+anchorFaceHolonomyFeaturePolynomial cutoff term
+anchorFaceHolonomyWeightedSOSPolynomial cutoff,
+```
+
+and their evaluation in the official four-edge environment agrees,
+respectively, with the pulled-back SOS feature and the complete physical face
+class value.  Thus the geometric and polynomial orientation conventions have
+been joined by an exact theorem rather than by an informal coordinate
+identification.
+
+Finite products of these face packets are also available symbolically.  For
+any finite plaquette list, `anchorFaceDensitySOS` maps each plaquette to its
+lattice holonomy pullback and combines the factors using `multiplyList`.
+Every face is evaluated on the same gauge field, so shared links remain
+shared; no independent-face approximation is made.  Its value is exactly the
+right-recursive product
+
+```text
+product_{plaquette in plaquettes}
+  anchorTruncatedFaceClassValue cutoff
+    (latticePlaquetteHolonomy field plaquette).val.r,
+```
+
+all packed weights remain nonnegative, and both the SOS value and the physical
+product are pointwise nonnegative.  The specialization
+`adjacentEvenFixedFaceDensitySOS` uses the existing fixed-face identifier
+order through `slabPlaquetteAt` without evaluating or materializing the slab.
+
+This completes the local rank mixing, polynomial face holonomy, and symbolic
+finite fixed-face density.  It does **not** yet prove reflection positivity.
+`anchorFaceDensitySOS` is still function-valued on a common lattice gauge
+field; it is not yet a polynomial on one finite deduplicated link-coordinate
+carrier.  Moreover, pointwise nonnegativity of the density does not imply that
+the reflected endpoint kernel is Gram.  The remaining load-bearing theorem is
+the exact product-Haar/Fubini identification with the already wired
+spin/fusion/trajectory kernel.
+
+The next construction must therefore enumerate the distinct active physical
+links symbolically, assign each link one four-coordinate block, and substitute
+every local sixteen-coordinate face polynomial into that common carrier.
+Repeated occurrences of a physical link must map to the same block, while
+boundary orientation remains encoded by polynomial conjugation.  If `L` is
+the finite link list, the required Haar functional is the blockwise moment map
+
+```text
+H_L(sum_alpha c_alpha X^alpha)
+  ≈ sum_alpha c_alpha *
+      product_{link in L}
+        sphereMoment4(alpha restricted to that link's four coordinates).
+```
+
+It must be proved linear, compatible with raw polynomial equivalence and each
+link-sphere ideal, compatible with finite Fubini and reindexing, and
+nonnegative on squares.  The final comparison must then reproduce, with no
+suppressed normalization, the literal face coefficient product, shared-link
+fusion multiplicities, canonical incoming/outgoing compatibility
+contraction, endpoint deltas, and exterior physical scales.  Its target is
+either the entrywise statement
+
+```text
+adjacentEvenReachableFixedInterfaceMatrix K radius left right
+  ≈ finiteWeightedGramKernel globalWeight globalHalfAmplitude
+      globalTermCount left right,
+```
+
+which inhabits `AdjacentEvenReachableKernelSOSData`, or, if entrywise
+factorization is unnecessarily strong, the logically minimal quadratic
+statement
+
+```text
+adjacentEvenReachableScaledQuadratic K radius coefficient
+  ≈ adjacentEvenActiveSOS globalWeight activeHalfAmplitude coefficient
+      (adjacentEvenPhysicalHalfStateCount K radius) globalTermCount.
+```
+
+Bare pointwise positivity, symmetry, or a product of independent face
+kernels cannot replace this equality.  The proof must explain exactly how the
+quaternion polynomial/Haar expansion is identical to the already wired finite
+spin-trajectory kernel.
+
+Raw polynomial size is now a formal engineering constraint.  The
+duplicate-preserving `RatPoly` representation expands feature squares and
+their substitutions before normalization; concretely unfolding
+`weightedSOSPolynomial`, `anchorFaceWeightedSOSPolynomial`, or a downstream
+product at nontrivial cutoff can grow roughly quartically and can exhaust the
+host even though symbolic compilation succeeds.  These objects must remain
+opaque and be manipulated through exact evaluation theorems,
+`FiniteWeightedRationalSOS`, and individual feature polynomials.  Any future
+normal form must first use a proved sparse or DAG carrier together with a
+conservative symbolic size bound.  Neither `#eval`, `#reduce`, printing, nor
+even a seemingly harmless concrete size probe is permitted on the raw
+expanded object.
+
+The revised work order is therefore:
+
+1. **Complete:** serialized, one-thread, fixed-memory verification of all
+   current imports and every static consistency/constructivity guard;
+2. construct a noduplicated finite active-link carrier and a mixed-radix
+   four-coordinate codec, with exact lookup theorems for every `edgesOf`
+   occurrence and without materializing the slab;
+3. lift each sixteen-coordinate face feature into that common carrier and
+   prove evaluation against one shared lattice gauge field, then form the
+   symbolic global face packet without expanding the raw polynomial;
+4. generalize the current two-quaternion polynomial Haar moment to an
+   arbitrary finite link list, proving block Fubini, linearity, sphere-ideal
+   descent, reindexing invariance, and square nonnegativity constructively;
+5. split the global features at the reflection plane, include the endpoint
+   and exterior-scale factors, and prove the exact product-Haar expression for
+   the reachable fixed-interface kernel or its physically scaled quadratic;
+6. identify that expression with the existing character expansion,
+   shared-link fusion network, canonical compatibility contraction, and
+   terminal deltas;
+7. inhabit `AdjacentEvenReachableKernelSOSData` if the entrywise identity is
+   obtained, otherwise inhabit `AdjacentEvenActiveQuadraticSOSData` directly,
+   and invoke the mechanical transport to physical anchor PSD;
+8. resume normalization, conditioning/centering, staged time-one,
+   representative-limit, completion, and quotient induction;
+9. reconsider the quarantined categorical spike only for later
+   commuting-square, telescoping, ledger, or representative-limit
+   bookkeeping.
+
+The supplied `cat_structural_spike` remains quarantined.  Its generic
+categorical substrate may become useful in item 9, but it does not provide
+the rational quaternion group law, the polynomial face-holonomy map, the
+finite product-Haar theorem, or the active quadratic factorization.  No spike
+file is imported into production, and no current spike edit is to be staged
+with this mathematical milestone.
+
+**Final verification for §8.13.47 — ✓ COMPLETE (2026-07-19).**  The official
+full incremental `make lean-build LEAN_JOBS=1` ran once under `caffeinate`,
+`nice`, the repository session lock, and the mandatory `-M 20480` per-process
+ceiling.  All three Lake default targets passed in 2,598 jobs: `YMGap`,
+`YMGapGuard`, and `YMGapStatementGuard`.  The frontier guard kept all five
+Clay-frontier types unconditionally uninhabited, and all ten pinned frontier
+statement hashes were unchanged.
+
+The saved full-build log passed the fail-closed axiom audit with 19,957
+executable source gate sites, 19,934 theorems, 2,451 namespaces, zero reviewed
+or unreviewed exceptions, and no dependency outside the accepted set
+`[propext, Quot.sound]`.  Its current-provenance stamp is
+
+```text
+sha256:ed7261ff0db3418f2b250129f57bdc20bc78e11c2838078907b255c7f5fb8c9a
+```
+
+The static import audit found 2,592 source modules, 8,050 local import edges,
+zero cycles, 2,586 modules reachable from the semantic root, six reviewed and
+classified semantic orphans, and zero unexpected orphans.  The host-load
+guard passed all 236 tracked/untracked non-ignored entry files.  The mocked Mac
+CI audit passed ten remote-state scenarios and four bounded-supervisor
+scenarios without signals or sleeps.  The Frontier-DAG audit found twelve
+enumerations, ten registered or grandfathered, zero bridged, two exempt, and
+zero unbridged.  The executable forbidden-token scan found zero hits, and
+`git diff --check` passed.  The separately targeted substitution, polynomial
+holonomy, and finite density leaves also passed with no axiom beyond the same
+accepted set.
