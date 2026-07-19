@@ -16649,3 +16649,181 @@ enumerations.  Exact current provenance is
 ```text
 YMGAP_SOURCE_FINGERPRINT sha256:b7b6626a8a909d0feb9f187ab065525d9de5fe182bfe8cc943ba25adb37dc59a
 ```
+
+#### 8.13.34 Quantitative strict-pairing continuity and explicit regularization
+
+(2026-07-18, session 13, completed and production-wired.)  The first analytic
+layer needed to extend the algebraic strict reflection pairing across
+`StrictJointCylinderOSCompletion` is now constructive and explicit.  The new
+leaf `Z4HalfTimeReflectionStrictJointCRealPairingContinuity.lean` does not yet
+claim a completed pairing.  It supplies the finite-stage estimates and
+Type-level inner rate that the completion construction must consume.
+
+At every rational approximation stage it first proves the exact presentation
+identity
+
+```text
+B(left,right) - B(left',right')
+  ≃ B(left-left',right) + B(left',right-right').
+```
+
+Here `≃` is `Q'.eqv`.  The proof uses only the already established additive
+and scalar laws for the strict polarized form, followed by exact rational
+telescoping; no raw coefficient-function equality is assumed.  Combining this
+split with the stagewise reflection Cauchy--Schwarz inequality gives the
+division-free, square-root-free continuity estimate
+
+```text
+Q(left-left') ≤ delta,
+Q(right-right') ≤ delta,
+Q(right) ≤ bound,
+Q(left') ≤ bound,
+delta * bound ≤ (epsilon/2)^2
+
+  ==>  |B(left,right) - B(left',right')| ≤ epsilon.
+```
+
+The two summands are bounded separately by `epsilon/2`; the proof uses
+`abs_le_of_sq_le_sq`, not a square-root operation.  This theorem is deliberately
+formulated at a common finite base.  The next leaf will transport arbitrary
+staged inputs to their canonical maximum base and turn the bound into a
+`CReal.leRat` statement.  That separation keeps all transport/naturality
+squares explicit, following the useful structural lesson extracted from the
+quarantined `cat_structural_spike` experiment without importing the spike into
+production.
+
+The same leaf also makes the inner approximation rate computational.  For
+fixed strict-cylinder vectors it defines the nonnegative coefficient
+
+```text
+|1/4| * (CauchyCoefficient(left+right)
+       + CauchyCoefficient(left-right))
+```
+
+and proves the half-power estimate
+
+```text
+|B_later - B_earlier| ≤ coefficient * (1/2)^earlier
+```
+
+whenever `earlier ≤ later`.  The estimate is established both for the
+approximations of the existing polarized `CReal` and for the direct rational
+complete-support pairing sequence.  Rescaling a requested tolerance by
+`invSucc coefficient.num.toNat` and using `HalfPow.pow_half_le` yields the
+explicit Type-level modulus
+
+```text
+strictJointCylinderReflectionBilinearCauchyRate left right tolerance
+  = (tolerance * invSucc coefficient.num.toNat).den.
+```
+
+This data is packaged as
+`strictJointCylinderReflectionBilinearQCauchy`.  Consequently the direct
+rational sequence has a canonical regular presentation
+
+```text
+strictJointCylinderReflectionBilinearSequenceLimit
+  := CReal.ofQ'CauchySeq sequence explicitQCauchy.
+```
+
+Termwise equivalence between the direct sequence and the polarized
+approximations, together with constructive uniqueness of limits, proves
+
+```text
+strictJointCylinderReflectionBilinearSequenceLimit ≃
+  strictJointCylinderReflectionBilinear.
+```
+
+Thus later outer-completion arguments may use the canonical inner modulus
+`epsilon.den` supplied by `ofQ'CauchySeq` and then transfer the result back to
+the original reflection pairing.  This avoids the forbidden move of extracting
+Type-valued approximation data from the Prop-valued `CReal.cauchy` field.
+
+A second new leaf, `CRealLimitClose.lean`, supplies the general quotient-descent
+principle needed downstream.  If two `CReal`-valued sequences converge and are
+eventually two-sided close at every sufficiently late sequence stage and
+approximation stage, then their limits are `CReal.Equiv`.  Its proof is an
+epsilon/4 chase with common maxima of the three outer and three inner
+thresholds.  All existential witnesses are eliminated only into `Prop`; no
+choice principle or decidable real comparison is introduced.
+
+The companion leaf
+`Z4HalfTimeReflectionStrictJointCRealPairingAnchorBound.lean` closes the
+representative-uniform norm-bound subproblem without any Prop-to-Type
+elimination.  First it proves the staged geometric inequality
+
+```text
+B(left,left) ≤ 2 * distSq(left,anchor) + 2 * B(anchor,anchor)
+```
+
+in `CReal.leEv`, after co-presenting both staged vectors at their maximum base.
+The proof uses the exact semantic recovery
+`left ≃ (left-anchor)+anchor` and the existing sqrt-free quadratic triangle.
+It then factors the fixed-quadratic half-power modulus into a reusable theorem
+and defines a computable anchor cap from one finite rational approximation plus
+one.  For a completion Cauchy representative `X`, the canonical anchor is
+
+```text
+X.seq (X.modulus 1).
+```
+
+The explicit bound
+
+```text
+strictJointCylinderCauchyNormBoundQ X
+  = 2 + 2 * strictJointCylinderCauchyAnchorCap X
+```
+
+eventually bounds every diagonal staged pairing.  A natural-number ceiling is
+also exported, together with its positivity and `leRat` bound.  This is the
+Type-level finite norm datum required by the forthcoming two-variable outer
+Cauchy rate; it replaces the unusable Prop-valued witness from a generic
+`CReal.localBound` argument.
+
+The remaining completion route is now sharply ordered:
+
+1. Lift the common-base bound to four arbitrary staged inputs by canonical
+   maximum-base transport and export the resulting `CReal.leRat` continuity
+   theorem.
+2. Regularize the arbitrary outer completion moduli into a monotone/cofinal
+   Type-level rate.  `SquaredSeminorm.Cauchy.modulus` is not antitone, so this
+   obligation must be proved and must never be silently assumed.
+3. Apply `CReal.completeLimitFromRate` to the sequence of canonically
+   regularized staged pairings.  Use `CReal.Equiv_of_limit_of_close` to prove
+   independence of both completion representatives, then descend with
+   `Quotient.lift₂` to an `RC`-valued pairing on
+   `StrictJointCylinderOSCompletion`.
+4. Prove the dense-generator compatibility rule.  Only then pass staged
+   symmetry and shift-one covariance through convergence to obtain completed
+   symmetry and
+   `B(T₁ left,right) = B(left,T₁ right)` for arbitrary completed vectors.
+
+This ordering is intuitionistically necessary: the carrier/action bridge of
+8.13.33 and algebraic self-adjointness of 8.13.32 do not themselves imply a
+completed inner product.  The present checkpoint closes inner regularity,
+finite common-base continuity, and representative-uniform norm bounds while
+keeping the outer four-stage estimate, monotone-rate closure, and quotient
+lift honest and visible.
+
+Verification remained inside the mandatory Mac safety envelope: every
+Lean/Lake command was serialized by the canonical host lock, used
+`LEAN_NUM_THREADS=1`, and retained the fixed `-s 65536 -M 20480` weak
+arguments.  Direct production checks of all three leaves succeeded.  The
+combined named-target build completed successfully with 834 jobs (the new
+continuity and anchor leaves took 1.4 seconds and 859 milliseconds,
+respectively), and the cached semantic root completed successfully with 2,546
+jobs and a 647-millisecond root.  `CReal.Equiv_of_limit_of_close` reports the
+gate `[propext]`; all twelve gated strict-pairing declarations report exactly
+`[propext, Quot.sound]`.  The executable forbidden-token scan reports zero
+hits.
+
+Static analysis now reports 2,551 source modules, 7,929 local import edges,
+zero cycles, 2,545 modules reachable from `YMGap`, the same six reviewed
+exclusions, and zero unexpected orphans.  The host-load guard passes over 236
+repository entry files; all ten mocked JIT remote-state and four bounded
+supervisor cases pass; and the Frontier-DAG guard reports zero unbridged
+enumerations.  Exact current provenance is
+
+```text
+YMGAP_SOURCE_FINGERPRINT sha256:f43b3bc0dad508a5e9abdc7685e0c60ddf167255bf70e413894f299bf6628e00
+```
