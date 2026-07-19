@@ -20588,7 +20588,7 @@ This is a raw-representative Haar theorem, not an appeal to pointwise
 polynomial evaluation, and it neither enumerates assignments nor claims that
 the paired representative already equals the six-face production product.
 
-##### 8.13.52.3 Exact delta graph and arithmetic target
+##### 8.13.52.3 Exact delta graph and arithmetic target — ✓ COMPLETE
 
 For one row `(r,c;s,t)`, Schur orthogonality contributes `1/2` precisely when
 `r=t` and `c=s`, and contributes zero otherwise.  In table order the twelve
@@ -20601,8 +20601,8 @@ nonzero conditions are
 (23=22,19=18),(16=17,18=20),(8=7,20=19).
 ```
 
-Regrouping only these Boolean equalities gives eight disjoint equality
-triangles:
+The following vertex-major presentation gives eight disjoint equality
+triangles with the same Boolean solution condition:
 
 ```text
 (0,1,2), (3,4,5), (6,7,8), (9,10,11),
@@ -20617,32 +20617,34 @@ factors of `1/2`, and the exact target is
 2^8 * (1/2)^12 = 1/16.
 ```
 
-This counting paragraph is the specification for the next proof, not yet a
-Lean theorem.  The formal proof must factor the twelve scalar halves from the
-Boolean indicators and prove the local three-bit sum by its safe eight cases;
-it must not unfold, simplify, evaluate, or print the depth-twenty-four sum.
+This counting argument is now formalized in
+`SU2QuaternionElementaryCubeBooleanDeltaResolution`.  The proof factors the
+twelve scalar halves from the Boolean indicators, proves the local three-bit
+sum by its safe eight cases, and never unfolds, simplifies, evaluates, or
+prints the depth-twenty-four sum.  Section 8.13.53 records the exact theorem
+chain and the remaining production-representative bridge.
 
 ##### 8.13.52.4 Updated shortest constructive route
 
-1. Define the opaque paired cube trace network as
+1. **✓ COMPLETE.** Define the opaque paired cube trace network as
    `complexRatPolyBoolSum 24 radiusZeroElementaryCubePairedSummand` and use
    the established Haar/sum commutation plus pointwise contraction theorem
    to reduce it abstractly to the symbolic sum of Schur-delta values.
-2. Prove a one-row value lemma rewriting the oriented Schur delta as a
+2. **✓ COMPLETE.** Prove a one-row value lemma rewriting the oriented Schur delta as a
    canonical `1/2` scalar times a Boolean equality indicator.  Lift it through
    the twelve-row fold, keeping all rational-complex statements at `Eqv` level.
-3. Package one equality triangle and prove its depth-three Boolean sum is two
+3. **✓ COMPLETE.** Package one equality triangle and prove its depth-three Boolean sum is two
    by the eight safe cases.  Prove a parametric consecutive-triple
    factorization and instantiate it at eight vertices, so the proof structure
    scales linearly and never exposes `2^24` branches.
-4. Combine the twelve halves, eight local sums, and the existing exact
+4. **✓ COMPLETE.** Combine the twelve halves, eight local sums, and the existing exact
    post-Schur arithmetic certificate to prove the honest paired cube Haar
    value `(1/16,0)`.
-5. Before identifying this paired network with the production cutoff-one
+5. **NEXT.** Before identifying this paired network with the production cutoff-one
    rank-one cube observable, add the endpoint/tag and global-permutation
    certificates above and prove an explicit raw-representative or Haar-level
    bridge.  Pointwise evaluation equivalence alone remains insufficient.
-6. Then bank the elementary-cube normalization discrepancy and proceed to the
+6. **AFTER THE PRODUCTION BRIDGE.** Bank the elementary-cube normalization discrepancy and proceed to the
    edge-touching double-cube signed projector/F-move diagnostic before any
    global kernel redesign.
 
@@ -20680,3 +20682,224 @@ six reviewed/classified semantic orphans, and zero unexpected orphans.  The
 executable forbidden-token scan found zero hits, the host-load guard passed
 all 236 tracked or untracked non-ignored entry files, and `git diff --check`
 passed.
+
+#### 8.13.53 Constructive Boolean-delta resolution of the paired cube
+
+`SU2QuaternionElementaryCubeBooleanDeltaResolution` completes the symbolic
+Haar calculation for the deliberately paired elementary-cube network.  It is
+root-wired immediately after the tagged contraction leaf.  The result is
+exact and constructive, but its scope is deliberately narrower than the
+production cutoff-one cube observable: the missing representative bridge is
+kept explicit rather than inferred from pointwise evaluation.
+
+##### 8.13.53.1 Opaque Haar-to-delta reduction — ✓ COMPLETE
+
+The Haar-facing polynomial is
+
+```text
+radiusZeroElementaryCubePairedTraceNetwork
+  := complexRatPolyBoolSum 24
+       radiusZeroElementaryCubePairedSummand.
+```
+
+This definition remains opaque at depth twenty four.  Linearity of the exact
+finite-product Haar functional and the fixed-assignment twelve-block theorem
+give
+
+```text
+H_N^C(radiusZeroElementaryCubePairedTraceNetwork)
+  ≃ rationalComplexBoolSum 24
+       radiusZeroElementaryCubeSchurDeltaValue.
+```
+
+The proof uses recursive congruence/linearity APIs only.  It does not create a
+list of `2^24` assignments and does not reduce the recursive sum.
+
+##### 8.13.53.2 Literal crossed-delta graph — ✓ COMPLETE
+
+Every tagged link pair `(r,c;s,t)` contributes the two crossed equalities
+`(r=t,c=s)`.  The resulting twenty-four ordered equality pairs are recorded
+literally and certified to have length twenty four.  A vertex-major
+presentation of their solution condition uses the eight consecutive triples
+
+```text
+[0,1,2], [3,4,5], [6,7,8], [9,10,11],
+[12,13,14], [15,16,17], [18,19,20], [21,22,23].
+```
+
+Their flattening is exactly `List.range 24`; the vertex-triangle edge list has
+length twenty four and no duplicate ordered edges.  No literal permutation
+between that list and the link-order edge list is claimed yet.  Instead, the
+theorem
+
+```text
+radiusZeroElementaryCubeContractionAllMatchBool_eq_triangles
+```
+
+proves for every `List Bool`—including short lists, using the shared default
+`false` convention—that the literal twelve-link conjunction is exactly the
+conjunction of those eight vertex triangles.  The proof destructs the
+twenty-four displayed equalities and uses equality transitivity; it does not
+split on twenty-four Boolean variables.
+
+##### 8.13.53.3 Structural Schur and three-index folds — ✓ COMPLETE
+
+One safe sixteen-case theorem proves, for a single oriented fundamental
+contraction,
+
+```text
+delta(step)
+  ≃ pureReal((1/2) * indicator(crossed indices match)).
+```
+
+Induction over the link schedule then proves
+
+```text
+schurDeltaProduct(schedule)
+  ≃ pureReal((1/2)^(length schedule)
+       * contractionMatchProduct(schedule)).
+```
+
+This induction is linear in the twelve links and is pointwise in an opaque
+assignment.  At the vertex end, `threeChunkProduct` consumes three Boolean
+indices at a time using `getD` and `drop 3`; its default-safe definition is
+essential because the recursive Boolean-sum congruence is stated for all
+lists, not merely lists of the expected length.
+
+The generic theorem
+
+```text
+rationalComplexBoolSum_threeChunkProduct localFactor count
+```
+
+opens exactly three Boolean binders at each induction step and proves that a
+depth-`3*count` sum of independent three-index factors is the `count`th power
+of the local depth-three sum.  Instantiating the local factor with equality of
+three Booleans requires only eight concrete cases and gives local value `2`.
+At `count = 8`, the global symbolic sum is therefore `2^8`, without exposing
+any of its `2^24` leaves.
+
+##### 8.13.53.4 Exact scalar and paired Haar endpoint — ✓ COMPLETE
+
+For every assignment, the literal schedule delta fold is proved equivalent
+to
+
+```text
+(1/2)^12 * product of the eight vertex-triangle indicators.
+```
+
+Boolean-sum congruence, constant-factor linearity, and the generic
+three-index theorem then give
+
+```text
+rationalComplexBoolSum 24 cubeSchurDeltaValue
+  ≃ pureReal((1/2)^12 * 2^8)
+  ≃ pureReal(radiusZeroElementaryCubePostSchurResolvedFactor)
+  ≃ (1/16, 0).
+```
+
+Composing this chain with the opaque Haar-to-delta theorem proves the public
+endpoint
+
+```text
+finiteProductHaarComplex_radiusZeroElementaryCubePairedTraceNetwork_exact :
+  H_N^C(radiusZeroElementaryCubePairedTraceNetwork) ≃ (1/16, 0).
+```
+
+The eight tag-triangle sums agree numerically with the independently counted
+eight geometric vertices; tag-to-geometric-endpoint incidence is deliberately
+left to the production bridge.  The order change from
+`(1/2)^12 * 2^8` to the geometry bookkeeping order
+`2^8 * (1/2)^12` is justified by exact rational-setoid commutativity, not by
+normalizing or evaluating the global Boolean sum.
+
+##### 8.13.53.5 Scope fence: what is and is not proved
+
+The exact `1/16` theorem belongs to the paired raw polynomial constructed from
+the twelve right-local contraction rows.  It does **not** yet establish that
+the existing production cutoff-one rank-one cube representative—the product
+of the six face-ordered trace expansions—has the same finite-product Haar
+value.  Although the two presentations have the intended coefficient values
+under rational environments, the current exact Haar carrier is sensitive to
+raw `RatPoly` syntax, and pointwise evaluation equivalence is not a valid
+Haar-congruence principle.
+
+Therefore no factor-sixteen correction to the production normalization is
+banked at this checkpoint.  Such a correction becomes sound only after one
+of the following is proved constructively:
+
+1. literal raw-polynomial equality after an explicit finite reordering of
+   the twenty-four Boolean binders and the twenty-four coefficient factors;
+   or
+2. a direct Haar-level theorem showing that those reorderings preserve the
+   exact finite-product functional on these two concrete representatives.
+
+The second route is preferable only if it is shorter than the finite literal
+permutation proof; no general extensional Haar quotient should be introduced
+merely to discharge this one cube.
+
+##### 8.13.53.6 Highest-leverage next work: production bridge
+
+Proceed in the following dependency order.
+
+1. **Endpoint/tag incidence.**  For every tagged boundary occurrence, prove
+   that the vertex-major tag determines exactly its geometric endpoint.  A
+   useful certificate maps tags `0..23` to the eight boundary vertices, with
+   each vertex occurring exactly three times.  Prove the map agrees with the
+   row/column endpoint convention of the orientation-specific plaquette trace
+   theorem, rather than relying only on a literal `decide` table.
+2. **Global occurrence coverage.**  Flatten each of the twelve tagged link
+   pairs into its forward and reverse occurrences and prove that this
+   length-twenty-four list is a permutation of the face-major tagged boundary
+   occurrence list.  Also prove the corresponding projections to physical
+   occurrences and to matrix-coefficient descriptors.  Keep this finite and
+   explicit; do not formulate or execute a `2^24` assignment permutation.
+3. **Per-assignment factor reordering.**  Define the exact six-face symbolic
+   summand by multiplying the six already verified orientation-specific
+   four-coefficient terms for a fixed assignment.  Prove that its twenty-four
+   coefficient factors are a finite permutation of the paired summand's
+   factors.  Use associativity/commutativity lemmas for raw `RatPoly` only if
+   they yield actual representative equality; value-level `Eqv` is an audit
+   theorem but not the final Haar bridge.
+4. **Binder-order bridge.**  If the production face-major tag order differs
+   from the vertex-major order, prove a recursive Boolean-sum swap/permutation
+   theorem and apply only the concrete twenty-four-position permutation.
+   The theorem must be structural in the permutation; it must not enumerate
+   assignments or unfold the depth-twenty-four sum.
+5. **Production Haar theorem.**  Compose the representative bridge with the
+   paired-network endpoint to prove the exact Haar value for the named
+   production cutoff-one rank-one elementary-cube observable.  Only here may
+   the factor-sixteen normalization discrepancy be promoted from diagnostic
+   arithmetic to a production theorem.
+6. **Signed four-valent diagnostic.**  After the production bridge is banked,
+   analyze the radius-zero edge-touching double cube.  Retain the signed
+   two-dimensional intermediate channel/projector (or an exact signed
+   `F`-move); do not replace amplitudes by squared Racah probabilities.  Use
+   this diagnostic before redesigning the global local-to-slab kernel, so the
+   kernel is corrected once with both bivalent and four-valent data in view.
+
+All steps remain intuitionistic.  Permutations are finite data with explicit
+coverage/injectivity certificates; Boolean sums are recursive; algebra is
+carried through rational or rational-complex setoid equivalence; and no
+choice, excluded middle, `native_decide`, global assignment materialization,
+or large evaluator call is needed.
+
+##### 8.13.53.7 Verification ledger
+
+The delta-resolution target build was serialized, session-locked, `nice`d,
+single-threaded, and preceded by the mandatory host-idle process check.  No
+clean/full build and no test suite was run:
+
+- `SU2QuaternionElementaryCubeBooleanDeltaResolution`: 732 jobs.
+
+The public gates report no axioms for the local eight-case triangle sum;
+`propext` for the concrete twelve-link-to-eight-triangle equality; and only
+`propext` plus `Quot.sound` for the generic structural sum, pointwise Schur
+resolution, exact symbolic sum, and final paired-network Haar theorem.  The
+leaf contains no classical choice, `sorryAx`, custom axiom, or native decision
+procedure.  After root wiring, the static audit found 2,627 source modules,
+8,148 local import edges, zero cycles, 2,621 modules reachable from the
+semantic root, six reviewed/classified semantic orphans, and zero unexpected
+orphans.  The executable forbidden-token scan found zero hits, the host-load
+guard passed all 236 tracked or untracked non-ignored entry files, and
+`git diff --check` passed.
