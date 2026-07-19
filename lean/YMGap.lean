@@ -45,6 +45,7 @@ import YMGap.Constructive.CRealComplete
 import YMGap.Constructive.CRealCompleteIdx
 import YMGap.Constructive.CRealCompleteCauchy
 import YMGap.Constructive.CRealCompleteRate
+import YMGap.Constructive.CRealRateClosure
 import YMGap.Constructive.TrigBound
 import YMGap.Constructive.Trig
 import YMGap.Constructive.TrigAdd

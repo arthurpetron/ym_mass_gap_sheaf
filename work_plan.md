@@ -16927,3 +16927,122 @@ enumerations.  Exact current provenance is
 ```text
 YMGAP_SOURCE_FINGERPRINT sha256:20ebc922622553ffb9a63cd1f739912d7b2955f46019415b2c0560192c634229
 ```
+
+#### 8.13.36 Constructive monotone/cofinal closure of arbitrary outer rates
+
+(2026-07-18, session 15, completed and production-wired.)  The second item in
+the completion route of 8.13.35 is now discharged at the correct abstract
+level.  The production leaf `Constructive/CRealRateClosure.lean` takes an
+arbitrary rational modulus
+
+```text
+M : Q' -> Nat
+```
+
+with no monotonicity hypothesis and defines the index-absorbing running hull
+
+```text
+modulusHull M 0
+  = max (M (invSucc 0)) 0,
+
+modulusHull M (k+1)
+  = max (modulusHull M k)
+        (max (M (invSucc (k+1))) (k+1)).
+```
+
+The file proves constructively that this hull is monotone in `k`, dominates
+the reciprocal sample `M (invSucc k)`, and is cofinal because
+`k <= modulusHull M k`.  More generally, every earlier reciprocal sample is
+dominated at every later hull stage.  No order property of `M` is used or
+silently inferred.
+
+The only additional data needed to turn that natural-number hull into a rate
+on positive rational tolerances is isolated in
+
+```text
+structure CReal.ReciprocalIndexData where
+  index          : Q' -> Nat
+  index_spec     : 0 < epsilon -> invSucc (index epsilon) <= epsilon
+  index_antitone : 0 < delta -> delta <= epsilon
+                    -> index epsilon <= index delta.
+```
+
+For any such `A`, the closed rate is
+
+```text
+closedRate A M epsilon = modulusHull M (A.index epsilon).
+```
+
+The antitonicity of `A.index` and monotonicity of `modulusHull` immediately
+give `CReal.MmonoPred (closedRate A M)`, while cofinality records the explicit
+lower bound `A.index epsilon <= closedRate A M epsilon`.  This latter fact is
+useful when an outer completeness construction must simultaneously wait for a
+rational tolerance index and for the original sequence modulus.
+
+The central transfer theorem is
+
+```text
+CReal.LeRatBound.closed :
+  LeRatBound sequence M -> LeRatBound sequence (closedRate A M).
+```
+
+Its proof avoids the false same-tolerance assertion
+`M epsilon <= closedRate A M epsilon`.  Given `epsilon > 0`, it instead applies
+the raw outer bound at the canonical smaller tolerance
+
+```text
+eta = invSucc (A.index epsilon) <= epsilon.
+```
+
+The hull dominates exactly `M eta`; the resulting two directed `leRat eta`
+bounds are then weakened to `leRat epsilon` with `CReal.leRat_mono`.  All
+existential approximation thresholds remain inside `Prop`.  Thus there is no
+choice, no extraction of a Type-valued witness from an existential proof, and
+no decidable-real comparison.
+
+This leaf deliberately imports only `CRealCompleteRate` and has no dependency
+on the continuum or reflection-positive layers.  Conversely, it does not
+pretend that an abstract `ReciprocalIndexData` is already inhabited.  The next
+continuum leaf must either instantiate it from an existing constructive
+Archimedean reciprocal-index construction or supply an equally explicit local
+instance.  Keeping that obligation visible prevents the outer completion from
+smuggling in countable choice.
+
+The completion route is now:
+
+1. Assemble the explicit positive `delta`/`slack` budget from `epsilon` and the
+   finite norm ceilings of 8.13.34.  Combine the two completion moduli, both
+   norm-base indices, and the four-stage theorem of 8.13.35 into a raw
+   `CReal.LeRatBound` for the staged-pairing sequence.
+2. Instantiate `ReciprocalIndexData`, apply `LeRatBound.closed`, and use the
+   resulting `closedRate_mmonoPred` as the exact monotone-rate input to
+   `CReal.completeLimitFromRate`.
+3. Give the stage-pairing sequence an explicit inner `CReal.RegPred` (using the
+   canonical direct rational pairing limit rather than extracting a modulus
+   from the Prop-valued `CReal.cauchy` proof), construct its limit, and prove
+   independence of both completion representatives with
+   `CReal.Equiv_of_limit_of_close`.
+4. Descend through `Quotient.lift2` to the completed `RC` pairing, prove dense
+   compatibility, and then pass staged symmetry and shift-one covariance to
+   arbitrary completed vectors.
+
+Verification remained inside the mandatory Mac safety envelope: every
+Lean/Lake command was serialized by the canonical host lock, used
+`LEAN_NUM_THREADS=1`, and retained the fixed `-s 65536 -M 20480` weak
+arguments.  The direct task-work and promoted production checks both
+succeeded.  The cached named target completed with 32 jobs and a
+152-millisecond new leaf; the cached semantic root completed with 2,548 jobs
+and a 457-millisecond root.  Eight gated order/rate declarations report
+`[propext]`, `closedRate_sample_le` is axiom-free, and the executable
+forbidden-token scan reports zero hits.
+
+Static analysis now reports 2,553 source modules, 7,936 local import edges,
+zero cycles, 2,547 modules reachable from `YMGap`, the same six reviewed
+exclusions, and zero unexpected orphans.  The host-load guard passes over 236
+repository entry files; all ten mocked JIT remote-state and four bounded
+supervisor cases pass; and the Frontier-DAG guard reports zero unbridged
+enumerations.  Exact current provenance is
+
+```text
+YMGAP_SOURCE_FINGERPRINT sha256:35ce183da9b79bd7ae1c7d08105a36652d0fa9ed34855313d637d87e64f01e41
+```
