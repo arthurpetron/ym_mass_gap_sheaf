@@ -17445,3 +17445,182 @@ enumerations.  Exact current provenance is
 ```text
 YMGAP_SOURCE_FINGERPRINT sha256:a99c81c71459fc2bd0fec1b6c6dffab238819988c394bc6770007cb1d3c44e44
 ```
+
+#### 8.13.40 Representative independence and completed pairing descent
+
+(2026-07-18, session 19, completed and production-wired.)  The quotient
+obligation isolated in 8.13.39 is now discharged.  The new production leaf
+`Z4HalfTimeReflectionStrictJointCRealCompletedPairingDescent.lean` proves
+that the representative-level limit is invariant under the exact completion
+relation in both arguments and defines an `RC`-valued reflection pairing on
+all of `StrictJointCylinderOSCompletion hcoupling hle`.
+
+Let
+
+```text
+D = strictJointCylinderStageSquaredSeminorm hcoupling hle
+```
+
+and suppose
+
+```text
+hX : D.Close X X',
+hY : D.Close Y Y'.
+```
+
+The theorem
+`strictJointCylinderCanonicalPairingSequence_close_of_close` gives precisely
+the two-level eventuality required by
+`CReal.Equiv_of_limit_of_close`: for every positive `epsilon`, an explicit
+outer stage `Nstage` is supplied, and for every `N >= Nstage` a
+Prop-local approximation threshold synchronizes the two canonical
+constructive-real terms.
+
+The explicit data are
+
+```text
+rho   = half * epsilon,
+C     = max (normCeil Y) (normCeil X'),
+delta = strictJointCylinderPairingContinuityScale C rho,
+
+Nstage =
+  max (max (normBase Y) (normBase X'))
+      (max (hX.modulus delta) (hY.modulus delta)).
+```
+
+The two `Close.close` fields supply
+
+```text
+distSq(X_N,  X'_N) <= delta,
+distSq(Y_N,  Y'_N) <= delta.
+```
+
+The asymmetric undifferenced factors required by the already proved
+four-stage difference theorem are exactly
+
+```text
+B(Y_N,Y_N)   <= ofNat C,
+B(X'_N,X'_N) <= ofNat C.
+```
+
+They follow from the two finite norm anchors and the left/right inequalities
+into the displayed maximum.  The continuity-scale theorem supplies
+
+```text
+(delta + delta) * (ofNat C + delta)
+  <= (half*rho) * (half*rho).
+```
+
+Thus one application of
+`strictJointCylinderStageReflectionBilinear_difference_leRat` returns both
+directed raw polarized differences at tolerance `rho`.  Each is transported
+to the canonical rational-sequence term through
+
+```text
+leRat_of_equiv
+  (Equiv_add canonical_equiv_raw
+    (neg_congr canonical_equiv_raw)).
+```
+
+`CReal.evTwoSided_of_leRat`, asked for the additional positive slack
+`rho`, produces a common approximation cutoff and errors bounded by
+`rho + rho`.  The exact rational equivalence
+`ExpNeg.two_halves epsilon` weakens those bounds to `epsilon`.  No inner
+regularity modulus is reintroduced here: the canonical presentation from
+8.13.39 already supplied it for completeness, while the current uniqueness
+argument needs only this Prop-valued approximation threshold.
+
+Applying `CReal.Equiv_of_limit_of_close` to the two convergence theorems
+proves
+
+```text
+strictJointCylinderRepresentativePairingLimit_equiv_of_close :
+  D.Close X X' ->
+  D.Close Y Y' ->
+  Equiv (representativePairingLimit X Y)
+        (representativePairingLimit X' Y').
+```
+
+The corresponding
+`strictJointCylinderRepresentativePairingLimit_welldef` theorem accepts
+`D.CompletionRel` in both arguments.  It destructs the two
+`Nonempty (D.Close ...)` witnesses only after the target is the proposition
+`CReal.Equiv`.  This is valid intuitionistic elimination and does not choose
+a modulus in Type.
+
+The representative result is packaged as
+
+```text
+strictJointCylinderRepresentativePairingR X Y =
+  Quotient.mk CReal.crealSetoid
+    (strictJointCylinderRepresentativePairingLimit X Y).
+```
+
+Finally,
+
+```text
+strictJointCylinderCompletedPairing :
+  D.Completion -> D.Completion -> CReal.RC
+```
+
+is the simultaneous `Quotient.lift2` in both completion arguments, and
+`strictJointCylinderCompletedPairing_mk` is its definitional computation
+rule.  A useful formal subtlety was made explicit during elaboration: Lean's
+binary quotient-respect function orders its representatives as
+
+```text
+(first-left, second-left, first-right, second-right),
+```
+
+so the two relation proofs compare positions one/three and two/four.  Using
+the apparent grouped order creates a very expensive failed definitional
+equality search.  Correcting the argument order made the lift check immediately
+under the existing heartbeat cap; no resource limit was raised.
+
+The next optimal leaf needs no new analytic continuity theorem.  It should
+first prove a reusable representative transfer principle: a pointwise
+`CReal.Equiv` between the raw polarized pairing sequences implies
+equivalence of the two representative pairing limits.  Chain
+canonical-to-raw equivalence, the supplied stagewise equivalence, and the
+reverse canonical-to-raw equivalence, then use
+`CReal.Equiv_of_limit_of_equal` with the two existing convergence theorems.
+From this one engine:
+
+1. prove that constant representatives recover the staged pairing and hence
+   that `strictJointCylinderCompletedPairing` agrees with the staged form on
+   `D.embedRep`;
+2. combine that computation with the existing
+   `StrictJointCylinderDirectLimit.toOSCompletion` bridge to recover the
+   algebraic direct-limit pairing on the dense image;
+3. lift staged symmetry to arbitrary Cauchy representatives and then by
+   quotient induction to every completed vector;
+4. lift the already derived one-sided shift-one covariance in the same way,
+   using `Nonexpansive.mapCauchy` and the definitional sequence computation;
+5. derive completed shift-one self-adjointness from completed symmetry and
+   one-sided covariance as an exact equality in `CReal.RC`.
+
+Arbitrary completed-vector laws must be proved by quotient induction, not by
+asserting that the algebraic direct-limit image is surjective or invoking an
+unformalized density-continuity principle.  Dense compatibility is a
+validation theorem; representative-level limit transfer is the actual
+extension argument.
+
+Verification stayed within the mandatory Mac safety envelope: every
+Lean/Lake command was serialized by the shared host lock, used
+`LEAN_NUM_THREADS=1`, and retained `-s 65536 -M 20480`.  The complete
+task-work and promoted production leaves checked directly.  The cached named
+target completed with 840 jobs and a 1.2-second new leaf; the cached semantic
+root completed with 2,552 jobs and a 568-millisecond root.  All six public
+axiom gates report exactly `[propext, Quot.sound]`, and the executable
+forbidden-token scan reports zero hits.
+
+Static analysis now reports 2,557 source modules, 7,949 local import edges,
+zero cycles, 2,551 modules reachable from `YMGap`, the same six reviewed
+exclusions, and zero unexpected orphans.  The host-load guard passes over 236
+repository entry files; all ten mocked JIT remote-state and four bounded
+supervisor cases pass; and the Frontier-DAG guard reports zero unbridged
+enumerations.  Exact current provenance is
+
+```text
+YMGAP_SOURCE_FINGERPRINT sha256:e1c4a0a4c9420f2bf0e8a351d9a24d98fd1e9abc8871a73c84c0e976c304d1e7
+```
