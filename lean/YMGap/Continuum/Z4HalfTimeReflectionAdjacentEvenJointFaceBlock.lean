@@ -357,11 +357,17 @@ private theorem anchorCoeff_fourDimensions_eq_tailTerm
   rw [hpow]
   exact Q'.eqv_refl _
 
-theorem anchorJointFourExcitedTail_le_half (faceCutoff : Nat) :
-    tailWindow anchorCoupling 5 1 faceCutoff ≤ dyad 1 := by
+theorem anchorJointFourExcitedTail_le_quarter (faceCutoff : Nat) :
+    tailWindow anchorCoupling 5 1 faceCutoff ≤ dyad 2 := by
   exact tail_modulus
     (w := anchorCoupling) (by decide) (by decide)
-    5 1 1 (by decide) (by decide) faceCutoff
+    5 2 1 (by decide) (by decide) faceCutoff
+
+theorem anchorJointFourExcitedTail_le_half (faceCutoff : Nat) :
+    tailWindow anchorCoupling 5 1 faceCutoff ≤ dyad 1 :=
+  Q'.le_trans' _ _ _
+    (anchorJointFourExcitedTail_le_quarter faceCutoff)
+    (by decide)
 
 private theorem rightProduct4_le_pow
     {a b c d bound : Q'}
@@ -401,10 +407,11 @@ private theorem rightProduct4_le_pow
 
 /-- Uniform heterogeneous row bound for the duplicate-free four-link block.
 The fixed label cutoff and the open-channel cutoff are independent. -/
-theorem anchorJointFourExcitedRowSum_le_half
+theorem anchorJointFourExcitedRowSum_le_tailWindow
     (faceCutoff channelCutoff : Nat) (source : FourChannels) :
     anchorJointFourExcitedRowSum
-        faceCutoff channelCutoff source ≤ dyad 1 := by
+        faceCutoff channelCutoff source ≤
+      tailWindow anchorCoupling 5 1 faceCutoff := by
   let count := channelCutoff + 1
   let term : Nat → Nat → Nat → Nat → Nat → Q' :=
     fun first second third fourth index =>
@@ -561,10 +568,26 @@ theorem anchorJointFourExcitedRowSum_le_half
         tailWindow anchorCoupling 5 1 faceCutoff := by
     unfold tailWindow
     rw [← fsum_eq_finSum]
-  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hswap)
-    (Q'.le_trans' _ _ _ hsum (by
-      rw [htail]
-      exact anchorJointFourExcitedTail_le_half faceCutoff))
+  rw [htail] at hsum
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hswap) hsum
+
+theorem anchorJointFourExcitedRowSum_le_quarter
+    (faceCutoff channelCutoff : Nat) (source : FourChannels) :
+    anchorJointFourExcitedRowSum
+        faceCutoff channelCutoff source ≤ dyad 2 :=
+  Q'.le_trans' _ _ _
+    (anchorJointFourExcitedRowSum_le_tailWindow
+      faceCutoff channelCutoff source)
+    (anchorJointFourExcitedTail_le_quarter faceCutoff)
+
+theorem anchorJointFourExcitedRowSum_le_half
+    (faceCutoff channelCutoff : Nat) (source : FourChannels) :
+    anchorJointFourExcitedRowSum
+        faceCutoff channelCutoff source ≤ dyad 1 :=
+  Q'.le_trans' _ _ _
+    (anchorJointFourExcitedRowSum_le_quarter
+      faceCutoff channelCutoff source)
+    (by decide)
 
 /-! ## 5. Exact finite four-channel enumeration -/
 
@@ -717,10 +740,10 @@ def anchorJointFourExcitedListRowSum
     (anchorJointFourExcitedFaceKernel faceCutoff source)
     (fourChannelSpace channelCutoff)
 
-theorem anchorJointFourExcitedListRowSum_le_half
+theorem anchorJointFourExcitedListRowSum_le_quarter
     (faceCutoff channelCutoff : Nat) (source : FourChannels) :
     anchorJointFourExcitedListRowSum
-        faceCutoff channelCutoff source ≤ dyad 1 := by
+        faceCutoff channelCutoff source ≤ dyad 2 := by
   have hid :
       anchorJointFourExcitedListRowSum
           faceCutoff channelCutoff source ≈
@@ -732,8 +755,17 @@ theorem anchorJointFourExcitedListRowSum_le_half
       channelCutoff
       (anchorJointFourExcitedFaceKernel faceCutoff source)
   exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hid)
-    (anchorJointFourExcitedRowSum_le_half
+    (anchorJointFourExcitedRowSum_le_quarter
       faceCutoff channelCutoff source)
+
+theorem anchorJointFourExcitedListRowSum_le_half
+    (faceCutoff channelCutoff : Nat) (source : FourChannels) :
+    anchorJointFourExcitedListRowSum
+        faceCutoff channelCutoff source ≤ dyad 1 :=
+  Q'.le_trans' _ _ _
+    (anchorJointFourExcitedListRowSum_le_quarter
+      faceCutoff channelCutoff source)
+    (by decide)
 
 /-! ## 6. A constructive index for the finite channel list -/
 
@@ -1413,9 +1445,13 @@ theorem anchorJointFaceNetworkQuadratic_nonnegative
 #print axioms fourFusionIndicator_symmetric
 #print axioms anchorJointFourExcitedFaceKernel_nonnegative
 #print axioms anchorJointFourExcitedFaceKernel_symmetric
+#print axioms anchorJointFourExcitedTail_le_quarter
 #print axioms anchorJointFourExcitedTail_le_half
+#print axioms anchorJointFourExcitedRowSum_le_tailWindow
+#print axioms anchorJointFourExcitedRowSum_le_quarter
 #print axioms anchorJointFourExcitedRowSum_le_half
 #print axioms fourChannelSpace_nodup
+#print axioms anchorJointFourExcitedListRowSum_le_quarter
 #print axioms anchorJointFourExcitedListRowSum_le_half
 #print axioms anchorJointFourExcitedIndexRowSum_le_one
 #print axioms anchorJointFourDominantFeaturePair_eqv_delta_add_excited

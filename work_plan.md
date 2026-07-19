@@ -18609,3 +18609,291 @@ provenance is
 ```text
 YMGAP_SOURCE_FINGERPRINT sha256:cda39a55a28bba9868829c4b668f75d2db95917b46aeda379ea7c125c329bbef
 ```
+
+#### 8.13.46 Active quadratic, canonical trajectory carrier, and the rankwise SOS frontier
+
+(2026-07-18, session 25, production-wired and fully verified.)
+This session sharpened the remaining adjacent-even reflection problem in
+three independent directions and then joined them.  First, the literal
+physical quadratic was identified with the exact physically active reachable
+quadratic.  Second, the mixed incoming/outgoing trajectory fields and their
+terminal endpoint delta were embedded in one canonical symbolic carrier for
+the already proved fixed-face Gram.  Third, the sole remaining theorem was
+reformulated as a rank-aware shared-glue SOS that preserves the local Gram
+weights exactly.  The result is a substantially smaller frontier, but it is
+still a reduction: no rankwise shared-glue datum is inhabited here, and
+time-one reflection positivity is not yet unconditional.
+
+The exact diagonal-congruence identity now holds at quadratic-form level:
+
+```text
+gramQuadForm (diagonalKernelScale M scale) coefficient count
+  ≈
+gramQuadForm M (fun i => coefficient i * scale i) count.
+```
+
+Specializing the identity to the proved physical-matrix factorization gives
+
+```text
+adjacentEvenPhysicalReflectionQuadratic anchorCoupling K radius c
+  ≈
+adjacentEvenReachableScaledQuadratic K radius c,
+```
+
+and the propositions
+
+```text
+AdjacentEvenReachableScaledPSD K radius
+  ↔ AdjacentEvenPhysicalAnchorPSD K radius
+```
+
+are now proved equivalent.  This is not merely a one-way sufficient
+condition.  It prevents future work from demanding positivity on endpoint
+directions killed by the exterior lower-half factor.  Conversely, it does
+not license division by that factor: zero exterior weights remain possible,
+and the active formulation handles them exactly without a support or
+invertibility premise.
+
+The duplicate-free four-link face estimate was strengthened at its source.
+The long row argument is now factored through the parameterized statement
+
+```text
+anchorJointFourExcitedRowSum faceCutoff channelCutoff source
+  ≤ tailWindow anchorCoupling 5 1 faceCutoff,
+```
+
+and `tail_modulus` at the same anchor proves that tail is at most `dyad 2 =
+1/4`.  Hence both the finite-sum and list-row forms of the excited face block
+have row mass at most `1/4`; the previous `1/2` declarations remain as
+backward-compatible consequences.  A symbolic two-face audit then writes a
+reachable patch sharing one channel as
+
+```text
+(Δ + E)(Δ + E) = Δ₇ + (EΔ + ΔE + EE).
+```
+
+The residual is nonnegative.  On endpoints bounded by `K`, fixed-word
+reversal makes the shared `EE` contraction symmetric because both endpoint
+budgets are at most `3*K ≤ 6*K`.  Its row mass is bounded by
+
+```text
+1/4 + 1/4 + 1/16 = 9/16 < 1,
+```
+
+so the reachable two-face patch admits the usual rational
+diagonal-dominance Gram at every cutoff.  This audit found no local reachable
+counterexample, but the full two-face Gram has not yet been promoted to a
+production Lean theorem.  More importantly, this estimate does not
+globalize by incidence degree: even disjoint residual factors have row growth
+of the form `(1+δ)^N-1`.  A fixed radius-zero dominance certificate could be
+obtained by strengthening the individual face tail to `1/256` and using the
+81 fixed faces, since `(257/256)^81 < 2`; that is a useful regression target,
+not an all-radius proof strategy.
+
+The exact half-coupling leaf records
+
+```text
+halfAnchorCoupling = 1/20,
+anchorCoupling ≈ halfAnchorCoupling * halfAnchorCoupling.
+```
+
+It propagates this identity through every Casimir power and proves
+
+```text
+physLinkWeight anchorCoupling spin
+  ≈ anchorHalfSchurAmplitude spin²,
+
+coeffW anchorCoupling spin
+  ≈ dimQ spin * anchorHalfSchurAmplitude spin².
+```
+
+The diagonal half-Schur kernel is nonnegative and symmetric, and its finite
+intermediate-mode composition collapses exactly to the full contracted link
+entry whenever the source mode is within the cutoff.  The composition is
+cutoff-stable once that mode is present.  These are genuine local square and
+Schur identities.  They do not split the spatial plaquette multiplier, do not
+make shared faces independent, and do not themselves prove a global slab
+SOS.  Their intended use is inside the remaining decorated-trajectory
+pairing, not as a pointwise square root of the whole action.
+
+The earlier `AdjacentEvenReachableCommonMiddleData` required one
+rank-independent half amplitude.  That interface was too restrictive for a
+literal expansion of the mixed face kernel.  The new generic construction
+
+```text
+rankAwareSharedGlueFeature
+rankAwareSharedGlueKernel
+rankAwareSharedGlueGramRep
+```
+
+allows the half amplitude to depend on both the fixed-face Gram rank and a
+finite shared-glue coordinate.  It flattens `(rank, glue)` with
+`finSum_flatten`, repeats the original weight `rep.d rank` literally, and
+never signs, divides, or square-roots that weight.  Consequently an
+`AdjacentEvenReachableFeatureTrajectoryGluingData` inhabitant produces the
+reachable Gram constructively.  This is the correct algebraic target for a
+feature-decorated trajectory theorem.
+
+The middle carrier is no longer arbitrary.  Let
+
+```text
+I(radius) = adjacentEvenFixedFaceMajorIncidences radius.
+```
+
+The canonical carrier is the symbolic list
+
+```text
+boundedLabellingsOn (linkAuxiliaryCutoff K) I(radius),
+```
+
+zero-extended away from `I(radius)`.  It is never evaluated.  The new generic
+completeness theorem proves constructively that every labelling bounded on a
+noduplicated key list and zero off that list occurs in
+`boundedLabellingsOn`.  A list-member recursion then supplies an existential
+natural-number `getD` index without a `DecidableEq` instance on function
+spaces.  Therefore every supported bounded incidence assignment has an
+actual middle index, and every middle field is uniformly bounded even for
+zero-padded indices.
+
+For an incidence trajectory, both canonical assignments are now proved
+bounded and realized:
+
+```text
+incoming assignment(id,link)
+  = predecessor channel before face id on link,
+
+outgoing assignment(id,link)
+  = trajectory link id.
+```
+
+The incoming bound follows from a new structural lemma saying that
+`fixedIdIncomingChannel` is either the initial channel or a channel already
+present in the fixed word.  The face-major/link-major incidence permutation
+transports the per-link trajectory bounds to the face-major carrier.  No
+trajectory list, endpoint rectangle, or carrier cardinality is materialized.
+
+Incidence locality is then proved for the dependent fixed-face kernel.  The
+four-channel reader sees only the four literal links of a fixed face, and the
+complete dependent kernel is invariant when its incoming and outgoing
+fields agree on all pairs in `I(radius)`.  Hence every mixed term has
+canonical indices `incoming,outgoing` with
+
+```text
+adjacentEvenTrajectoryFixedFaceResummedKernel K radius source trajectory
+  ≈
+adjacentEvenGlobalDependentFixedFaceChannelMatrix
+  K radius canonicalMiddleField incoming outgoing.
+```
+
+The matrix on the right has the concrete production Gram
+`adjacentEvenCanonicalFixedIncidenceGramRep`.  This discharges the carrier
+selection and field-preservation parts of the former common-middle residual.
+
+Terminal preservation is exact as well.  Congruence lemmas for
+`fixedIdIncomingChannel`, `fixedIdFinalChannel`, and
+`fixedIdTerminalIndicator` show that the full product of terminal deltas
+depends only on the outgoing channels on `I(radius)`.  Reading a canonical
+middle field link-major therefore reconstructs the same terminal endpoint
+factor.  The strongest summand theorem supplies canonical indices satisfying
+
+```text
+faceKernel(source, trajectory) * terminal(source, target, trajectory)
+  ≈
+canonicalGramMatrix(incoming, outgoing)
+  * canonicalMiddleTerminal(source, target, outgoing),
+```
+
+and additionally proves that `canonicalMiddleField incoming` is precisely
+the predecessor field reconstructed from `source` and the canonical outgoing
+middle trajectory.  This is intuitionistic existential realization.  It is
+not a computable global choice of indices and is not, by itself, a reindexing
+of the complete trajectory sum.
+
+The final mechanical interface is
+`AdjacentEvenCanonicalRankwiseTrajectoryGluingData`.  It fixes the canonical
+middle count, middle field, bound, and fixed-face Gram, leaving only a finite
+glue count, a rank-aware half amplitude, and the exact global factorization.
+An inhabitant now yields, with no further mathematics,
+
+```text
+canonical rankwise gluing data
+  → reachable Gram
+  → physical anchor Gram
+  → physical anchor PSD
+  ↔ active reachable PSD.
+```
+
+The irreducible theorem is consequently visible rather than hidden.  After
+choice-free grouping of canonical incoming/outgoing fields, for every fixed
+production Gram rank `r` one must prove an identity of the form
+
+```text
+Σ incoming,outgoing,
+  compatibility(left,right,incoming,outgoing)
+    * v r incoming * v r outgoing
+≈
+Σ glue,
+  H r glue left * H r glue right.
+```
+
+Here `compatibility` is the exact predecessor/terminal trajectory
+multiplicity, not a freely symmetrized proxy.  Reachable word reversal proves
+symmetry of its total kernel, but symmetry alone cannot create the required
+feature pairing.  The existential single-summand realization also cannot be
+used under a finite sum by hidden choice.  The next implementation must:
+
+1. define a choice-free canonical compatibility sum using explicit finite
+   incidence assignments and Kronecker indicators, or an equally explicit
+   mixed-radix codec;
+2. prove its Fubini/delta identification with the literal trajectory list,
+   including multiplicities and zero padding;
+3. expand the canonical fixed-face Gram rankwise before the compatibility
+   contraction;
+4. use the exact `1/20` half-Schur composition, a genuine decorated
+   trajectory pairing, or another explicit SOS to construct the same
+   left/right half feature `H`; and
+5. immediately fall back to a direct active-physical quadratic SOS if a
+   reachable rankwise factorization is falsified.  Do not replace this step
+   by bare symmetry, an unrestricted sequential face product, or a
+   rank-independent half amplitude.
+
+The supplied categorical spike was audited in its expanded
+`cat_structural_spike` form and deliberately left quarantined.  Its
+`DomOver`, integer-substrate, ledger, square-guard, and step-bridge machinery
+is coherent generic bookkeeping, but it supplies neither the rankwise
+trajectory compatibility identity nor the analytic half-feature.  Promoting
+it now would enlarge the trusted production surface without closing the
+current obstruction.  Once physical PSD is unconditional, its commuting
+square and ledger abstractions may be useful for the later uniform-radius,
+telescoping, and representative-limit lane.  No spike file is imported,
+staged, or treated as part of the present proof.
+
+After the canonical rankwise identity is inhabited, work must return
+immediately to the already wired normalization, conditioning/centering,
+staged time-one, representative-limit, and quotient-induction chain.  Further
+local positivity infrastructure is lower priority unless it directly tests
+or constructs that identity.
+
+Final verification stayed inside the mandatory Mac safety envelope.  The
+fully wired `+YMGap` root completed successfully in one serialized Lean
+session with `LEAN_NUM_THREADS=1`, the fixed `-M 20480`/20 GiB cap, and no
+clean or uncached rebuild: 2,567 jobs completed.  All declarations introduced
+in this milestone remain within the project's accepted constructive gates,
+namely no axioms for purely arithmetic leaves, `[propext]` where finite
+function/list extensionality requires it, and at most `[propext, Quot.sound]`
+for the production real-number equivalence layer.  No `Classical`,
+`native_decide`, `sorry`, `admit`, or custom axiom was introduced.
+
+The final structural census reports 2,572 Lean source modules, 7,991 local
+import edges, zero local import cycles, 2,566 modules reachable from the
+semantic root, the same six reviewed exclusions, and zero unexpected
+orphans.  The host-load guard passes over 236 tracked or untracked nonignored
+repository entry files.  All ten mocked Mac-CI remote-state cases and all four
+bounded-supervisor cases pass without signals or sleeps.  The Frontier-DAG
+guard reports 12 enumerations, ten registered or grandfathered, two exempt,
+and zero unbridged; the executable forbidden-token scan reports zero hits.
+The exact production-source provenance is
+
+```text
+YMGAP_SOURCE_FINGERPRINT sha256:0fa711f48e7192d1d4f760cafd83d3383b49e4c35d9aac3e7a906cd699a86206
+```
