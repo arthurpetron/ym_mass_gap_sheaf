@@ -20903,3 +20903,196 @@ semantic root, six reviewed/classified semantic orphans, and zero unexpected
 orphans.  The executable forbidden-token scan found zero hits, the host-load
 guard passed all 236 tracked or untracked non-ignored entry files, and
 `git diff --check` passed.
+
+#### 8.13.54 Vertex-tag incidence and constructive occurrence coverage — ✓ COMPLETE
+
+Module:
+`YMGap.Continuum.SU2QuaternionElementaryCubeTaggedOccurrenceCoverage`.
+
+This checkpoint closes the finite geometric bookkeeping prerequisites for
+comparing the exact paired contraction network with a six-face trace
+representative.  It does not yet identify their raw products or Haar values.
+In particular, every assertion in this section is finite in the twenty-four
+coefficient occurrences; no Boolean assignment is enumerated and the
+depth-twenty-four Boolean sum remains opaque.
+
+##### 8.13.54.1 Vertex-major tag carrier — ✓ COMPLETE
+
+The vertex attached to a tag is defined by `getD (tag / 3)` in the audited
+vertex-major order
+
+```text
+000, 100, 110, 010, 001, 101, 111, 011
+```
+
+at time coordinate one.  The carrier has length eight and no duplicates.
+Mapping tags `0,...,23` repeats each displayed vertex exactly three times,
+and a theorem proves that the tag fibre over every member of the carrier has
+length three.  Independently, deduplicating the outward boundary occurrences
+gives
+
+```text
+000, 010, 110, 100, 101, 001, 011, 111.
+```
+
+An explicit `List.Perm` constructor proof relates these two eight-vertex
+orders.  Thus the tag carrier is not merely cardinality-compatible with the
+geometry: it is a constructive reordering of the independently derived
+boundary-vertex carrier.
+
+##### 8.13.54.2 Ordered endpoint incidence — ✓ COMPLETE
+
+The face-major tag-edge list and the face-major physical-occurrence list are
+mapped to ordered source/target pairs.  The theorem
+
+```text
+radiusZeroElementaryCubeBoundaryTagEndpoints_exact
+```
+
+proves literal equality of these two length-twenty-four lists.  A separate
+Boolean certificate is exactly `List.replicate 24 true`, and the reusable
+member theorem
+
+```text
+radiusZeroElementaryCubeTaggedBoundaryOccurrence_tagEndpointsCoherent
+```
+
+deduces, for an arbitrary member of the tagged boundary list, both source-tag
+and target-tag agreement with the geometric occurrence.  Ordered endpoints
+are retained: no undirected-edge quotient is used, so occurrence polarity and
+the row/column convention remain visible.
+
+##### 8.13.54.3 Coefficient descriptors and row reconstruction — ✓ COMPLETE
+
+`CubeCoefficientDescriptor` records a physical link, orientation sign,
+row tag, and column tag.  Its quaternion block is derived from the already
+audited production active-link index, and its selected polynomial is the
+forward or reverse fundamental coefficient according to the sign.  For every
+tagged link pair and every opaque Boolean assignment, the raw multiplication
+of its forward and reverse descriptor coefficients is definitionally the
+polynomial of that row's oriented fundamental contraction:
+
+```text
+forward descriptor coefficient * reverse descriptor coefficient
+  = pair.contraction.polynomial.
+```
+
+The face-major descriptor list is obtained from the six oriented boundary
+faces.  The paired descriptor list is the **schedule-order flattening** of the
+twelve contraction rows, forward then reverse within each row.  Both lists
+have length twenty four and no duplicate descriptors.
+
+The schedule-order qualification is essential.  The established contraction
+product uses a right-local, tail-first fold, so this flattened list is not the
+raw left-to-right syntactic factor order of that product.  Later Haar
+reordering must preserve each forward/reverse row, reverse the schedule order
+where the fold requires it, and reassociate explicitly; a flat permutation
+alone is not a raw-product equality theorem.
+
+##### 8.13.54.4 Explicit twenty-four-slot coverage — ✓ COMPLETE
+
+Reading the paired rows in schedule order selects the following positions in
+the face-major list:
+
+```text
+[4,3, 0,11, 1,19, 20,2, 8,7, 12,6,
+ 5,23, 9,15, 16,10, 17,14, 13,22, 21,18].
+```
+
+This list has length twenty four, has no duplicates, and contains precisely
+the naturals below twenty four.  More strongly, an explicit polymorphic proof
+using only `List.Perm.cons`, `List.Perm.trans`, `List.perm_middle`, and
+`List.Perm.refl` proves it is a permutation of `List.range 24`.  The same
+constructor witness then proves the paired descriptors are a permutation of
+the face-major descriptors.
+
+No bulk decidable permutation reduction is used in the public proof.  An
+earlier generic membership-based formulation was rejected because its axiom
+gate exposed `Classical.choice`; the explicit constructor proof has no
+axioms.  This is a statement about the chosen proof implementation, not a
+claim that finite decidable permutation checking is inherently classical.
+
+##### 8.13.54.5 Exact projections of the coverage theorem — ✓ COMPLETE
+
+Three projections make the certificate usable by the next algebraic leaves.
+
+1. Mapping descriptors through their coefficient selector, pointwise in an
+   opaque assignment, gives a permutation of the twenty-four raw
+   `ComplexRatPoly` factors.
+2. The paired factor list is proved literally equal to the forward/reverse
+   factors of the established twelve-step contraction schedule.
+3. Reconstructing a tagged oriented occurrence from each descriptor recovers
+   the face-major tagged occurrence list literally; consequently the paired
+   reconstructed occurrences are a permutation of all twenty-four boundary
+   occurrences.
+
+These results jointly certify physical-link coverage, polarity, row and
+column tags, quaternion blocks, raw coefficient selection, and literal
+oriented endpoint incidence.  What remains is algebraic order, not missing
+geometric data.
+
+##### 8.13.54.6 Scope fence and revised critical path
+
+This checkpoint does **not** infer equality of raw products from the flat
+factor permutation, does not commute factors beneath the Haar functional,
+does not relate Boolean binder orders, and does not identify the outward
+six-face expression with the named production cube representative.  The
+critical path is now:
+
+1. **Complex finite-product Haar reordering facade.**  Lift the existing real
+   `finiteProductHaar_polyMul_comm`, `finiteProductHaar_polyMul_middle_comm`,
+   and `finiteProductHaar_polyMul_assoc` laws componentwise through
+   `RationalComplexEqv`.  Prove a structural list-reordering theorem by
+   induction on an explicit `List.Perm`; do not normalize raw polynomials.
+2. **Right-local fold reconciliation.**  Relate the schedule-order flattening
+   to the paired summand's actual tail-first multiplication, retaining each
+   forward/reverse row as a unit and supplying every reassociation explicitly.
+3. **Outward six-face fixed-assignment summand.**  Multiply the six already
+   certified orientation-specific standard/reversed plaquette coefficient
+   terms.  Connect each four-descriptor face chunk to its named trace term,
+   then apply the occurrence permutation only at Haar level.
+4. **Structural Boolean binder bridge.**  Lift the pointwise Haar equivalence
+   through the opaque depth-twenty-four Boolean sum and, if needed, permute
+   binders recursively from finite permutation data.  Never materialize the
+   `2^24` assignments.
+5. **Production-orientation bridge.**  Separately compare the outward-masked
+   six-face representative with the canonical-standard representative used by
+   the production observable.  The outward object must not be called the
+   production cube until this raw or Haar-level orientation bridge is proved;
+   pointwise trace inversion alone is insufficient for the syntax-sensitive
+   exact Haar carrier.
+6. **Exact production endpoint and normalization.**  Only after steps 1--5
+   compose the paired `1/16` theorem into the named production cube theorem
+   and promote any normalization discrepancy from diagnostic arithmetic to a
+   proved correction.
+7. **Signed four-valent diagnostic.**  Then analyze the edge-touching double
+   cube with the signed two-dimensional intermediate channel retained, before
+   modifying the global local-to-slab kernel.
+
+This ordering removes the last finite-incidence uncertainty before the
+analytic algebra begins and keeps all arguments intuitionistic.
+
+##### 8.13.54.7 Verification ledger
+
+The leaf target was built once in isolation under the repository session
+lock, with `caffeinate`, `nice -n 10`, and `LEAN_NUM_THREADS=1`, after the
+mandatory host-idle process check.  It completed successfully in 731 jobs.
+No clean/full build and no test suite was run.
+
+The public axiom gates report: no axioms for the eight-vertex order
+permutation, paired-descriptor nodup theorem, and explicit twenty-four-slot
+permutation; `propext` for the fibre-size, ordered-endpoint table, per-row raw
+multiplication, face-descriptor nodup, and schedule-factor equality;
+`propext` plus `Quot.sound` for the arbitrary-member endpoint theorem,
+descriptor coverage permutation, mapped-polynomial permutation, and literal
+tagged-occurrence permutation.  No gate exposes `Classical.choice` or
+`sorryAx`.
+
+After semantic-root wiring, the static audit found 2,628 source modules,
+8,150 local import edges, zero cycles, 2,622 modules reachable from the
+semantic root, six reviewed/classified semantic orphans, and zero unexpected
+orphans.  The executable forbidden-token scan found zero hits, the host-load
+guard passed all 236 tracked or untracked non-ignored entry files, and
+`git diff --check` passed.  Together with the isolated green target build,
+root reachability certifies that this leaf participates in the current full
+build without rerunning that resource-intensive build.
