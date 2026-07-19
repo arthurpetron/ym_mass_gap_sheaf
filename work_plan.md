@@ -15773,3 +15773,164 @@ form: apply
 half-power bound handles the volume term at `stage`.  No Gram representation,
 positivity upgrade, exterior-shell reproof, or new analytic hypothesis belongs
 in that next leaf.
+
+#### 8.13.27 Adjacent-even Step 5: exact mixed recoding and physical cross-volume control
+
+(2026-07-18, session 8, completed and production-wired.)  The new production
+leaf `Z4HalfTimeReflectionAdjacentEvenOneStepVolumeComparison.lean` implements
+the cross-volume step prescribed above.  The key structural correction is now
+formal rather than merely recorded in the plan: there is no homogeneous
+centered strict-joint chart whose two blocks transport to the adjacent-even
+one-step event.  The exact source-ordered chart is
+
+```text
+adjacentEvenOneStepCenteredRoots base stage roots :=
+  roots.map
+    (centralStrictLowerCenteredStageRoot base (stage + 1))
+  ++
+  roots.map (fun root =>
+    centralStrictUpperCenteredStageRoot (base + 1) stage
+      (timeShiftCanonicalRoot 1 base root)).
+```
+
+The arithmetic identity
+
+```text
+strictQueryBase base + (stage + 1)
+  = strictQueryBase (base + 1) + stage
+```
+
+is exported as `adjacentEvenOneStepRadius_eq`.  It places both blocks in the
+same centered box
+`centeredBoxBase (strictQueryBase (base + 1) + stage)`.  Componentwise
+canonicality is proved from the canonical centered source roots and uniform
+shift; list canonicality then splits through the literal append.  Hence the
+chart preserves source order, duplicate roots, and the precise lower/upper
+multiplicity, with length exactly `roots.length + roots.length`.
+
+The protected-region proof also retains the asymmetry instead of hiding it.
+The upper block naturally lies in
+`strictJointCenteredInner (base + 1) stage`.  The lower block naturally lies
+in `strictJointCenteredInner base (stage + 1)`, which is exactly one smaller.
+`adjacentEvenOneStepLowerInner_le_commonInner` and `boxPlaquettes_mono` promote
+the lower containment to the common upper inner box.  Therefore
+`adjacentEvenOneStepCenteredRoots_inside_originBox` holds for the whole mixed
+list, while
+
+```text
+strictJointCenteredInner (base + 1) stage + stage
+  = centeredBoxBase (strictQueryBase (base + 1) + stage)
+```
+
+supplies protected distance `stage` to the generic cross-volume theorem.
+Nothing in this argument treats the lower block as if it were based at
+`base + 1`, or the upper block as if its source had not been time-shifted.
+
+Exact root transport is a coherent two-step calculation.  The existing
+centered recoding theorems first transport each mixed centered component into
+`centralAmbient R`.  The adjacent-even definitions then transport that
+component once more into `adjacentEvenAmbient R`.  The constructive coherence
+theorem `transportPolymer_trans` identifies this nested transport literally
+with direct transport from the small centered box to the large adjacent-even
+box.  The resulting component lemmas are
+
+```text
+adjacentEvenStrictLowerCanonicalRoot_eq_transport_centeredOneStep
+adjacentEvenStrictUpperCanonicalRoot_eq_transport_centeredOneStep.
+```
+
+Mapping them over the two source blocks proves
+`adjacentEvenStrictJointCylinderRoots_eq_transported_centeredOneStep` without
+permuting or deduplicating the list.  The event theorem
+`adjacentEvenStrictJointSlabEvent_eq_transportedCenteredOneStep` then follows
+by the exact value lists for `adjacentEvenStrictJointCanonicalAtoms` and
+`transportedCanonicalCylinderAtoms`.  Thus the complete canonical marked event
+used by the EventLaw, not a support-only surrogate, is the transported mixed
+centered cylinder.
+
+The generic compatible cross-volume comparison is specialized with
+
+```text
+R        = strictQueryBase (base + 1) + stage,
+small    = centeredBoxBase R,
+middle   = centralAmbient R,
+large    = adjacentEvenAmbient R,
+inner    = strictJointCenteredInner (base + 1) stage,
+distance = stage.
+```
+
+Here `small <= large` is the composite through `middle`; numerically the large
+box is two cutoff cells beyond the centered box, and the generic theorem does
+not require adjacency.  After rewriting by exact event equality and the
+doubled root count,
+`couplingParametricKCompatibleAdjacentEvenStrictJoint_cross_centered_abs_sub_le`
+gives
+
+```text
+abs (P_compatible_large(markedEvent)
+       - P_compatible_small(mixedCenteredEvent))
+  <= spinSummedCylinderBoundaryEpsilon
+       (2 * roots.length) stage.
+```
+
+`couplingPhysicalAdjacentEvenStrictJoint_cross_centered_abs_sub_le` descends
+this to the two literal finite physical laws through the already-proved exact
+physical/compatible rational equivalence.  The pair wrapper
+`couplingPhysicalAdjacentEvenStrictJointPair_cross_centered_abs_sub_le`
+rewrites the large marked event to the raw source-ordered `(left,right)` family
+event and names its small counterpart
+`adjacentEvenOneStepCenteredPairEvent`.  It introduces no nonemptiness or
+fingerprint-length condition and is uniform in the finite character cutoff.
+
+All ten exported proof gates report exactly `[propext, Quot.sound]`.  The leaf
+uses finite list splitting and mapping, uniform shifts, natural-number box
+containment, canonical support transport, exact finite event identities,
+rational equivalence, and the existing constructive tail theorem.  It adds no
+`Classical`, choice, `noncomputable`, `native_decide`, `sorry`, new axiom,
+Gram representation, or reflection positivity premise.
+
+The locked, capped, single-worker target completed with 781 jobs; after the
+incremental proof corrections the final edited leaf checked in 75 seconds.
+The cached production-root check then completed successfully with 2,536 jobs
+and the edited `YMGap` root in 614 milliseconds.  Static import analysis now
+reports 2,541 source modules, 7,898 local edges, no cycle, 2,535 modules
+reachable from the semantic root, the same six reviewed exclusions, and zero
+unexpected orphan.  The exact current provenance is
+
+```text
+YMGAP_SOURCE_FINGERPRINT sha256:3f0dc4ea64cac8e066b92a90394cea9ee259f3210b7a5644adf245e5a81f46b9
+```
+
+The next proof should compose, rather than re-prove, the two now-independent
+finite errors:
+
+```text
+conditioned adjacent-even marked event
+  -- conditional error -->
+ambient adjacent-even marked event
+  -- cross-volume error -->
+mixed centered marked event.
+```
+
+A root-list-independent default atom must be used to instantiate the first
+arrow, because `roots` may be empty.  The canonical choice is
+`centralLowerCubeRoot R`, transported from `centralAmbient R` to
+`adjacentEvenAmbient R`; it is only a totality seed, since
+`slabSourceRootAtom_spec` proves that every actual connected entry selects a
+marked atom.  The triangle inequality should yield exactly
+
+```text
+couplingSlabConditionalBoundaryEpsilon
+    (2 * roots.length) (stage + 4)
+  +
+spinSummedCylinderBoundaryEpsilon
+    (2 * roots.length) stage.
+```
+
+For a common half-power modulus, apply
+`couplingSlabConditionalBoundaryEpsilon_le_coefficient_half_pow` with parameter
+`stage + 1`, normalize `(stage + 1) + 3 = stage + 4`, and weaken
+`half^(stage + 1)` to `half^stage`.  Combine this with
+`spinSummedCylinderBoundaryEpsilon_le_coefficient_half_pow` at `stage`.  That
+composition is the shortest constructive route from the exact corrected-slab
+reflection law to a centered finite-stage covariance estimate.
