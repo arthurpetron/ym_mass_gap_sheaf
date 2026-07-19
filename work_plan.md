@@ -17263,3 +17263,185 @@ enumerations.  Exact current provenance is
 ```text
 YMGAP_SOURCE_FINGERPRINT sha256:866316c49654f883e9f6c126299839dc317f1c6731389d90799b8e0dfff8891e
 ```
+
+#### 8.13.39 Canonical pre-quotient completion of the strict reflection pairing
+
+(2026-07-18, session 18, completed and production-wired.)  The remaining
+analytic completion obligation from 8.13.36--38 is now closed for explicit
+Cauchy representatives.  The new production leaf
+`Z4HalfTimeReflectionStrictJointCRealCanonicalPairingCompletion.lean`
+constructs an actual `CReal` pairing value and proves convergence to it,
+without extracting a modulus from a proposition, choosing representatives, or
+changing the already established polarized stage form.
+
+For staged vectors `left` and `right`, define their canonical common base
+and transported inputs by
+
+```text
+pairingBase  = max left.base right.base,
+pairingLeft  = transport (left.base <= pairingBase) left.vector,
+pairingRight = transport (right.base <= pairingBase) right.vector.
+```
+
+The canonical staged value is not a second polarization formula.  It is the
+constructive completion
+
+```text
+ofQ'CauchySeq
+  (strictJointCylinderReflectionBilinearSequence
+    coupling hcoupling pairingLeft pairingRight)
+  (strictJointCylinderReflectionBilinearQCauchy
+    hcoupling hle pairingLeft pairingRight).
+```
+
+The theorem
+`strictJointCylinderStageReflectionBilinearSequenceLimit_equiv` composes
+two already proved naturality squares.  First, the fixed-box rational sequence
+limit is equivalent to the fixed-box polarized form.  Second,
+`strictJointCylinderStageReflectionBilinear_at_common` identifies that
+fixed-box form with the canonical maximum-box staged form.  Consequently the
+new presentation changes only the available Type-level approximation data,
+not the represented constructive real.
+
+Two general adapters were proved at the exact layer where they are needed.
+For any family `r : Nat -> Nat -> Q'` and explicit memberwise
+`QCauchy (r i)`,
+
+```text
+CReal.ofQ'CauchySeq_family_regPred :
+  RegPred (fun i => ofQ'CauchySeq (r i) (c i))
+          (fun _ epsilon => epsilon.den).
+```
+
+The proof unfolds the canonical approximants and compares their two
+`QMhat` indices using `Nat.le_total` and `QMhat_directed`.  Thus the
+uniform inner modulus `epsilon.den` is executable data; no witness is
+eliminated from the Prop-valued `CReal.cauchy` field.  Also,
+
+```text
+CReal.LeRatBound.of_pointwise_equiv :
+  (forall n, Equiv (s n) (t n)) ->
+  LeRatBound t M ->
+  LeRatBound s M
+```
+
+transfers both directed differences through `Equiv_add`, `neg_congr`, and
+`leRat_of_equiv`.  This is the precise reason the existing raw estimate may
+remain stated for polarized stage values while completeness consumes the
+canonically regular rational-sequence presentation.
+
+For staged-seminorm Cauchy representatives `X,Y`, the leaf defines the
+canonical sequence
+
+```text
+S[X,Y](n) =
+  strictJointCylinderStageReflectionBilinearSequenceLimit
+    hcoupling hle (X.seq n) (Y.seq n).
+```
+
+Pointwise equivalence transfers the raw bound of 8.13.37 to `S[X,Y]`.
+Its arbitrary raw rate is then closed by the executable datum of 8.13.38:
+
+```text
+M[X,Y] =
+  CReal.closedRate
+    CReal.canonicalReciprocalIndexData
+    (strictJointCylinderPairingRawRate hcoupling hle X Y).
+```
+
+`LeRatBound.closed` supplies the two-sided outer estimate at `M[X,Y]`, and
+`closedRate_mmonoPred` supplies the exact antitonicity hypothesis required
+by convergence.  Together with the uniform inner modulus
+`reg n epsilon = epsilon.den`, these data inhabit
+
+```text
+strictJointCylinderRepresentativePairingLimit hcoupling hle X Y =
+  CReal.completeLimitFromRate S[X,Y] M[X,Y] reg ...
+```
+
+and
+`strictJointCylinderRepresentativePairingLimit_converges` proves
+`CReal.ConvergesTo S[X,Y]` of that value.  This is the first genuine
+completed strict pairing value: the former leaves supplied finite-stage
+forms, continuity estimates, and raw rates, whereas this leaf performs the
+constructive diagonal completion itself.
+
+The next optimal leaf is representative independence and quotient descent.
+Write
+
+```text
+D = strictJointCylinderStageSquaredSeminorm hcoupling hle.
+```
+
+Given actual witnesses `hX : D.Close X X'` and
+`hY : D.Close Y Y'`, prove that the two canonical pairing sequences satisfy
+the closeness predicate consumed by `CReal.Equiv_of_limit_of_close`.  For a
+requested positive tolerance `epsilon), set
+
+```text
+rho   = half * epsilon,
+C     = max (strictJointCylinderCauchyNormCeil hcoupling hle Y)
+            (strictJointCylinderCauchyNormCeil hcoupling hle X'),
+delta = strictJointCylinderPairingContinuityScale C rho,
+
+Nstage =
+  max (max (strictJointCylinderCauchyNormBase hcoupling hle Y)
+           (strictJointCylinderCauchyNormBase hcoupling hle X'))
+      (max (hX.modulus delta) (hY.modulus delta)).
+```
+
+At every `N >= Nstage`, the two `Close` witnesses give the squared-distance
+bounds for `X_N,X'_N` and `Y_N,Y'_N`.  The anchor leaves bound the
+undifferenced factors `B(Y_N,Y_N)` and `B(X'_N,X'_N)` by `ofNat C`.
+The budget theorem at `rho` then feeds the four-stage continuity theorem with
+
+```text
+(left,left',right,right') = (X_N,X'_N,Y_N,Y'_N),
+epsilon = rho,
+distance tolerance = slack = delta.
+```
+
+This gives both raw polarized `leRat rho` differences.  Transport them to the
+canonical terms through the pointwise equivalence bridge, use
+`CReal.evTwoSided_of_leRat` to synchronize the inner approximation cutoff,
+and weaken `rho + rho` to `epsilon` by
+`ExpNeg.two_halves epsilon`.  Applying
+`CReal.Equiv_of_limit_of_close` to the two convergence theorems then yields
+
+```text
+D.CompletionRel X X' ->
+D.CompletionRel Y Y' ->
+Equiv (representativePairing X Y)
+      (representativePairing X' Y').
+```
+
+The `Nonempty (D.Close ...)` witnesses hidden by `CompletionRel` are
+eliminated only into this proposition.  Likewise the approximation cutoff
+from `evTwoSided_of_leRat` remains inside the closeness proposition.  Hence
+the descent uses no countable choice or Prop-to-Type extraction.  Package each
+representative value as `Quotient.mk CReal.crealSetoid ...`, descend both
+arguments through `Quotient.lift₂`, and prove the canonical quotient-mk
+computation rule.  Once this is in place, dense compatibility, symmetry, and
+shift-one covariance can be transferred to arbitrary completed vectors.
+
+Verification stayed within the mandatory Mac safety envelope: every
+Lean/Lake command was serialized by the shared host lock, used
+`LEAN_NUM_THREADS=1`, and retained `-s 65536 -M 20480`.  The isolated
+generic lemma, complete task-work leaf, and promoted production leaf all
+checked directly.  The cached named target completed with 838 jobs and a
+1.3-second new leaf; the cached semantic root completed with 2,551 jobs and a
+473-millisecond root.  Both generic adapters report exactly `[propext]`;
+every gated pairing/completion declaration reports exactly
+`[propext, Quot.sound]`; and the executable forbidden-token scan reports
+zero hits.
+
+Static analysis now reports 2,556 source modules, 7,946 local import edges,
+zero cycles, 2,550 modules reachable from `YMGap`, the same six reviewed
+exclusions, and zero unexpected orphans.  The host-load guard passes over 236
+repository entry files; all ten mocked JIT remote-state and four bounded
+supervisor cases pass; and the Frontier-DAG guard reports zero unbridged
+enumerations.  Exact current provenance is
+
+```text
+YMGAP_SOURCE_FINGERPRINT sha256:a99c81c71459fc2bd0fec1b6c6dffab238819988c394bc6770007cb1d3c44e44
+```
