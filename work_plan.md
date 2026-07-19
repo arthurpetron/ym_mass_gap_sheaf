@@ -15603,9 +15603,10 @@ system memory available.
 
 The next highest-value dependency is the distinct adjacent-even conditional
 stability leaf prescribed immediately after Step 4 above.  It must specialize
-the arbitrary-even-extent conditional comparison to these atoms, prove both
-internal and exterior carrier floors, and expose the nonzero finite-stage
-error
+the arbitrary-even-extent conditional comparison to these atoms, prove the
+internal marked-root carrier floor for both the predicate and its Boolean
+complement, retain exterior-shell separation as a distinct locality
+interface, and expose the generally nonzero finite-stage error
 
 ```text
 couplingSlabConditionalBoundaryEpsilon
@@ -15618,3 +15619,157 @@ the generic one-step covariance descent then composes those two bounds.  This
 ordering avoids duplicating event reflection inside the volume-comparison
 proof and keeps exact finite symmetry separate from asymptotic boundary
 control.
+
+#### 8.13.26 Adjacent-even conditional stability: the corrected-slab error is quantitative
+
+(2026-07-18, session 8, completed and production-wired.)  The finite
+conditional-stability leaf
+`Z4HalfTimeReflectionAdjacentEvenOneStepConditionalStability.lean` now closes
+the next dependency after the exact EventLaw.  It specializes the arbitrary
+finite-root comparison in
+`Z4HalfTimeReflectionSlabFiniteKConditionalStabilityGeneral.lean` to the
+source-ordered adjacent-even lower/upper atom list without changing the event,
+discarding duplicate roots, or imposing a label-length hypothesis.
+
+Write
+
+```text
+B := strictQueryBase (base + 1),
+R := B + stage,
+E := adjacentEvenExtent R = 2 * R + 2,
+adjacentEvenAmbient R = E + 1.
+```
+
+Every ambient plaquette omitted by `boundaryCompleteSlabPlaquettes E` has
+time coordinate exactly `E`.  The local constructive metric lemma
+`timeCoordinate_linf_floor_adjacentEven` turns a one-coordinate natural-number
+separation into an `linfDist` lower bound through the time component `x3`; it
+uses neither a choice of a maximizing coordinate nor a classical metric
+argument.
+
+The theorem `adjacentEvenStrictJointRoot_nonSlab_linf_floor` splits membership
+in the joint root list through its literal lower/upper append.  A lower marked
+face has time `t` with `t + 2 <= R`.  An upper marked face has
+`t < R + B`.  Combining either statement with omitted-face time `E` gives
+
+```text
+stage + 3 <= linfDist markedFace omittedFace.
+```
+
+The upper branch is the quantitative bottleneck: natural-number strictness
+converts `t < R + B` into precisely the extra unit needed for `stage + 3`.
+The selected atom in a `SlabConnectedSourceEntry` is genuinely one of the
+marked atoms by `slabSourceRootAtom_spec`; its first canonical face belongs to
+the connected carrier by `slabCanonicalAtomFirstFace_mem`.  Therefore
+`slabConnectedCarrierSupport_linf_size_floor` counts that root face in addition
+to the separation path and proves
+
+```text
+stage + 4 <= (slabConnectedCarrierSupport defaultRoot entry).length.
+```
+
+This result is `adjacentEvenStrictJointConnectedCarrierSupport_floor`.  It is
+polymorphic in the Boolean predicate.  Consequently the same proof supplies
+both hypotheses actually required by the two-sided conditional comparison:
+one carrier floor for `predicate` and one for
+`complementSlabPredicate predicate`.  There is no second carrier selected from
+the exterior shell.
+
+Exterior geometry is nevertheless retained explicitly because the complete
+one-link zero query is part of the exact canonical occurrence event.
+`adjacentEvenStrictUpperCanonicalRoot_exterior_time_le_shiftedBase` shows that
+an upper exterior face has time at most `R + B`.  Together with the stronger
+lower exterior estimate and omitted-face time `E`,
+`adjacentEvenStrictJointExterior_nonSlab_linf_floor` proves the separate bound
+
+```text
+stage + 2 <= linfDist exteriorQueryFace omittedFace.
+```
+
+This one-step-smaller exterior lower bound is not consumed by the general
+conditional-tail theorem.  Its role is to preserve an honest quantitative
+interface for later protected-region arguments and to prevent the work plan
+from conflating exact EventLaw locality with the connected switched-residue
+carrier.  In particular, the `stage + 4` carrier floor comes solely from the
+internal `stage + 3` marked-root separation.
+
+The public predicate-uniform theorem
+`couplingPhysicalAdjacentEvenStrictJointPredicate_givenSlab_abs_sub_le` now
+states, for every finite cutoff and every rational coupling in the constructive
+strong-coupling interval `0 <= coupling <= anchorCoupling`, that
+
+```text
+abs (
+  P_ambient(E + 1, slabMarkedCylinderEvent atoms predicate)
+    -
+  P_ambient_given_boundaryCompleteSlab(E,
+    slabMarkedCylinderEvent atoms predicate)
+) <=
+couplingSlabConditionalBoundaryEpsilon
+  (2 * roots.length) (stage + 4).
+```
+
+Here `atoms` is exactly `adjacentEvenStrictJointCanonicalAtoms R base roots
+...`; its length is proved to be `roots.length + roots.length` and normalized
+to `2 * roots.length`.  The statement is uniform in `cutoff`, is valid for the
+empty root list (where the displayed error coefficient is zero), and otherwise
+does not claim that the finite-stage error is strictly positive.  The raw
+pair-event wrapper
+`couplingPhysicalAdjacentEvenStrictJointPair_givenSlab_abs_sub_le` rewrites the
+same result through `adjacentEvenStrictJointMarkedCylinderEvent_eq`, so it
+applies directly to the `(left,right)` event appearing in the exact EventLaw.
+
+All proofs remain finite and intuitionistic: finite lists, Boolean predicates
+and complements, decidable slab support, coordinate arithmetic, connected
+finite carriers, exact rational absolute values, and positive finite
+normalization.  The leaf introduces no `Classical`, choice, `noncomputable`,
+`native_decide`, `sorry`, or new axiom.  Each of its six public gates reports
+exactly `[propext, Quot.sound]`.
+
+Validation was deliberately layered.  A capped, locked, single-worker target
+build completed successfully with 781 jobs and a 693-millisecond edited leaf.
+The first cached production-root attempt then caught three slab identifiers
+that were available in their defining dependency namespaces but had not been
+opened in the new leaf; this was a real semantic-root wiring failure, not a
+resource failure.  After opening the exact boundary-switch,
+boundary-switch-summation, and finite conditional-stability namespaces, the
+same leaf rebuilt green and the cached `+YMGap` production root completed
+successfully with 2,535 jobs, checking the actual public import rather than
+inferring it from a leaf target.  The static graph now contains 2,540 source
+modules and 7,894 local import edges, with zero cycle, 2,534 modules reachable
+from `YMGap`, the same six reviewed exclusions, and zero unexpected orphan.
+The host-load guard, ten mocked JIT remote-state cases, and four bounded
+supervisor cases also pass.  The exact current production provenance is
+
+```text
+YMGAP_SOURCE_FINGERPRINT sha256:fda2a6f63086a053cfbe67d9f41b95805ac5ddf50b85439f24ca3101dc004b5a
+```
+
+Step 5 is now the unique highest-leverage continuation.  The small centered
+chart cannot be a homogeneous strict-joint schedule: its lower block is
+`centralStrictLowerCenteredStageRoot base (stage + 1)`, whereas its upper
+block is `centralStrictUpperCenteredStageRoot (base + 1) stage` applied to
+`timeShiftCanonicalRoot 1 base root`.  These two blocks share radius `R` and
+must be spliced in their original source order.  A new
+`Z4HalfTimeReflectionAdjacentEvenOneStepVolumeComparison.lean` leaf should
+transport that mixed centered root list into the adjacent-even atom list and
+apply the generic cross-volume theorem with
+
+```text
+small    = centeredBoxBase R,
+large    = adjacentEvenAmbient R = small + 2,
+inner    = strictJointCenteredInner (base + 1) stage,
+distance = stage.
+```
+
+The resulting physical error should be
+`spinSummedCylinderBoundaryEpsilon (2 * roots.length) stage`.  Composing it
+with the conditional estimate above gives the explicit two-error route from
+the corrected-slab EventLaw to the mixed centered event.  For the eventual
+constructive vanishing step, the conditional factor is already in the right
+form: apply
+`couplingSlabConditionalBoundaryEpsilon_le_coefficient_half_pow` at
+`stage + 1`, using `(stage + 1) + 3 = stage + 4`; the ordinary spin-summed
+half-power bound handles the volume term at `stage`.  No Gram representation,
+positivity upgrade, exterior-shell reproof, or new analytic hypothesis belongs
+in that next leaf.
