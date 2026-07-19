@@ -16568,3 +16568,84 @@ enumerations.  Exact current provenance is
 ```text
 YMGAP_SOURCE_FINGERPRINT sha256:93e8cd678301c781f147f5aa983f0af1ed6db7468d54d60296be7376532b7fec
 ```
+
+#### 8.13.33 Canonical direct-limit map into the completed OS carrier
+
+(2026-07-18, session 12, completed and production-wired.)  The previously
+identified carrier-wiring gap is now closed by
+`Z4HalfTimeReflectionStrictJointDirectLimitCompletionBridge.lean`.  The leaf
+constructs a canonical map
+
+```text
+StrictJointCylinderDirectLimit.toOSCompletion :
+  StrictJointCylinderDirectLimit → StrictJointCylinderOSCompletion.
+```
+
+On a staged representative, the map is the constant-Cauchy representative map
+`strictJointCylinderStageSquaredSeminorm.embedRep`.  Its quotient
+well-definedness is exactly
+`strictJointCylinderCompletion_embed_eq_of_stageEquivalent`: every literal
+algebraic direct-limit stage equivalence was already proved to have zero
+completed squared distance.  Thus this bridge adds no new radical, quotient,
+or choice principle.
+
+The constant-generator rule is exposed as a simplification theorem:
+
+```text
+toOSCompletion (StrictJointCylinderDirectLimit.embed stage) = embedRep stage.
+```
+
+The completed nonexpansive time action also has its missing constant-generator
+rule:
+
+```text
+strictJointCylinderCompletedTimeTranslate shift (embedRep stage) =
+  embedRep (stage.timeTranslate shift).
+```
+
+This equality is definitional: mapping a constant Cauchy representative gives
+the constant Cauchy representative of the staged image.  Quotient induction
+on one algebraic representative then proves the full intertwining square
+
+```text
+toOSCompletion (DirectLimit.timeTranslate shift vector) =
+  CompletedTimeTranslate shift (toOSCompletion vector)
+```
+
+for every natural shift.  Hence the algebraic action and completed action are
+now connected by a genuine map, rather than merely being parallel
+constructions with analogous semigroup laws.
+
+The bridge imports only the CReal direct-limit seminorm layer.  In particular,
+the carrier/action square is independent of the later shift-one covariance and
+self-adjointness leaves, which remain separately wired at the semantic root.
+
+This leaf deliberately remains carrier/action wiring.  It does not use the
+algebraic reflection pairing and does not claim that the completed carrier has
+an inner product.  The next analytic obligation is still a continuity theorem
+strong enough to show that the staged reflection bilinear values of two
+explicit-modulus Cauchy representatives form a Cauchy sequence and are
+invariant under completion closeness in either argument.  Only that bound can
+define a completed `CReal.RC` pairing and carry the staged shift-one
+self-adjointness law to arbitrary completed vectors.
+
+Verification remained inside the mandatory Mac safety envelope: every
+Lean/Lake command was serialized by the canonical host lock, used
+`LEAN_NUM_THREADS=1`, and retained the fixed `-s 65536 -M 20480` weak
+arguments.  The corrected direct leaf check completed in 833 milliseconds.
+Removing the unused self-adjointness dependency reduced the named target to
+831 jobs; its new leaf completed in 878 milliseconds.  The cached semantic
+root built successfully with 2,543 jobs and a 467-millisecond root.  All four
+exported gates report exactly `[propext, Quot.sound]`, and the
+executable forbidden-token scan reports zero hits.
+
+Static analysis now reports 2,548 source modules, 7,920 local import edges,
+zero cycles, 2,542 modules reachable from `YMGap`, the same six reviewed
+exclusions, and zero unexpected orphans.  The host-load guard passes over 236
+repository entry files; all ten mocked JIT remote-state and four bounded
+supervisor cases pass; and the Frontier-DAG guard reports zero unbridged
+enumerations.  Exact current provenance is
+
+```text
+YMGAP_SOURCE_FINGERPRINT sha256:b7b6626a8a909d0feb9f187ab065525d9de5fe182bfe8cc943ba25adb37dc59a
+```
