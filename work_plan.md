@@ -22663,58 +22663,195 @@ orphans. The executable-source forbidden-token scan found zero hits, the
 host-load guard passed all 236 tracked or untracked non-ignored entry files,
 and `git diff --check` passed.
 
-#### 8.13.63 Signed four-valent shared-link Haar diagnostic — NEXT SHORTEST MILESTONE
+#### 8.13.63 Signed four-valent shared-link Haar diagnostic — ◐ IN PROGRESS
 
-The radius-zero edge-touching double cube is already a certified finite
-geometry: twelve distinct fundamental faces touch twenty-three links; one
-specified shared link has incidence four and every other touched link has
-incidence two. The scalar production activity assigns the exceptional link
-the invariant-space cardinality two. The next task is to determine exactly
-what information that scalar two retains and what it erases.
+Modules:
 
-Proceed locally before constructing the full double-cube trace network:
+- `YMGap.Continuum.SU2QuaternionOneLinkFourValentHaarProjector`;
+- `YMGap.Continuum.SU2QuaternionEdgeTouchingDoubleCubeSharedLinkHaarNormalization`.
 
-1. **Balanced four-coefficient Haar kernel.** For two forward and two reverse
-   fundamental coefficients on one quaternion block, prove the complete
-   eight-Boolean-index fourth-moment identity. In the direct/crossed pairing
-   basis, whose Gram matrix is `[[4,2],[2,4]]`, the Haar projector must have
-   inverse Gram matrix
+The local signed projector, its scalar trace, and the literal exceptional-link
+geometry are now banked. This resolves the first ambiguity left by the cube
+normalization audit: the production factor two is exactly the closed trace of
+a rank-two normalized Haar projector, but it is not an entrywise substitute
+for that projector. The remaining milestone is to transport the signed local
+kernel through arbitrary spectators and contract the edge-touching network
+without constructing its global Boolean assignment space.
 
-   ```text
-   [[ 1/3, -1/6],
-    [-1/6,  1/3]].
-   ```
+##### 8.13.63.1 Balanced fourth moment and inverse Gram kernel — ✓ COMPLETE
 
-   Prove this entrywise from the exact normalized `S^3` moments. The finite
-   `Bool` cases are constructive and bounded; retain the negative mixed entry
-   explicitly rather than squaring it away.
-2. **Closed trace and scalar multiplicity.** Sum only the four diagonal
-   matrix indices and prove that the local closed character contraction is
-   exactly `(2,0)`. Compare that trace with
-   `geometricLinkMultiplicityFactor_eq_two_of_incidence_four`. This should
-   establish the precise statement: scalar multiplicity two is the *trace* of
-   the normalized signed projector, not the projector itself.
-3. **Literal shared-link orientation.** Prove that the four double-cube face
-   occurrences at the exceptional link have the required two-forward / two-
-   reverse orientation and identify their row/column index order. Do not infer
-   this from incidence cardinality alone.
-4. **Double-cube partial contraction.** Contract the other twenty-two
-   bivalent links with the arbitrary-block spectator Schur theorem while
-   keeping the exceptional block and its incident indices opaque. Substitute
-   the signed fourth-moment projector only after that separation. Never
-   unfold or materialize the global twelve-face Boolean assignment space.
-5. **Racah identification.** Identify the two pairing channels with the
-   existing signed fixed-`F`/Gram-weighted carrier. Squared Racah probabilities
-   `1/4, 3/4, 3/4, 1/4` are comparison data, not a replacement for amplitudes;
-   the negative `-1/6` inverse-Gram entry must survive until the surrounding
-   contractions are complete.
-6. **Correct the production kernel once.** Only after both the bivalent cube
-   normalization and this four-valent signed diagnostic are banked should the
-   scalar local link factor be replaced or refined by a normalized channel-
-   resolved kernel. Then reprove the reachable/compression and reflection-
-   positivity interfaces against that single corrected definition.
+For the direct and crossed invariant pairings
+
+```text
+D(i,j;k,l) = delta(i,k) delta(j,l),
+X(i,j;k,l) = delta(i,l) delta(j,k),
+```
+
+an explicit four-Bool inner product proves the exact Gram matrix
+
+```text
+G = [[4,2],
+     [2,4]].
+```
+
+Write the two forward coefficients as `F_ab F_cd` and the reverse
+coefficients as `R_ef R_gh`. Since the repository convention is
+`R_ef = conj(U_fe)`, the row- and column-pairing vectors are, in this order,
+
+```text
+r = (delta(a,f) delta(c,h), delta(a,h) delta(c,f)),
+c = (delta(b,e) delta(d,g), delta(b,g) delta(d,e)).
+```
+
+The complete eight-index theorem proves directly from the normalized rational
+`S^3` moment carrier that
+
+```text
+H(F_ab F_cd R_ef R_gh)
+  = r^T [[ 1/3, -1/6],
+         [-1/6,  1/3]] c.
+```
+
+Thus the kernel is `G^{-1}`, including its signs. The ordered regression
+
+```text
+(a,b,c,d,e,f,g,h) = (false,false,true,true,true,false,false,true)
+```
+
+isolates a mixed entry and gives exactly `(-1/6,0)`, while the all-false
+diagonal entry gives `(1/3,0)`. These two regressions jointly rule out both an
+index transpose and the mathematically incorrect replacement of signed Racah
+amplitudes by their squared probabilities. The proof uses only 256 explicit
+bounded Boolean cases; it does not construct any geometric labelling family.
+
+##### 8.13.63.2 Closed trace is production multiplicity — ✓ COMPLETE
+
+A safe four-binder Haar Fubini theorem traces only the four diagonal matrix
+indices. It yields
+
+```text
+sum_(a,c,e,g) H(F_aa F_cc R_ee R_gg) = (2,0).
+```
+
+The edge-touching geometry independently gives
+
+```text
+geometricLinkMultiplicityFactor faces sharedLink = 2
+```
+
+from its certified incidence four. Their proved comparison is deliberately a
+closed-scalar statement. It says that the production number is the trace of
+the invariant projector (equivalently, the dimension of its image); it does
+not erase the projector's `-1/6` interference entries.
+
+##### 8.13.63.3 Literal orientation and external-index order — ✓ COMPLETE
+
+The twelve decoded production faces are paired with the exact outward mask
+
+```text
+[R,S,R,S,R, R,S,R,S,R, S,S],
+```
+
+where positions `0,1,2,3,4,10` are the first cube and
+`5,6,7,8,9,11` are the second. Flattening the twelve four-edge boundary words
+produces exactly forty-eight tagged occurrences, each with a proved coherent
+physical link and cyclic source/target.
+
+Filtering this structural list at the unique incidence-four link gives, in
+the inherited face order,
+
+```text
+face IDs:    [21, 52, 66, 67],
+polarities:  [ R,  F,  R,  F].
+```
+
+The corresponding `(matrix row vertex, matrix column vertex)` pairs are
+
+```text
+[((1,1,1,1),(0,1,1,1)),
+ ((0,1,1,1),(1,1,1,1)),
+ ((1,1,1,1),(0,1,1,1)),
+ ((0,1,1,1),(1,1,1,1))].
+```
+
+Consequently both two-forward/two-reverse balance and the reverse-index
+transpose are proved from the literal oriented face words, not inferred from
+incidence cardinality.
+
+##### 8.13.63.4 Scope and verification ledger
+
+Only the fixed eight-index local moment, the four-index diagonal trace, and a
+forty-eight-element structural occurrence list are exposed. No twelve-face
+trace product, depth-forty-eight Boolean sum, global assignment list, bounded
+labelling family, or trajectory is defined, unfolded, evaluated, printed, or
+materialized.
+
+After separate mandatory host-idle checks, the local projector target and the
+geometric comparison target were built individually through the repository
+session lock with `caffeinate`, `nice -n 10`, and `LEAN_NUM_THREADS=1`. The
+projector target completed in 434 jobs; the final geometry target completed
+in 906 jobs and rebuilt only its 458 ms leaf after the endpoint-order theorem
+was added. No full or clean build and no test suite was run.
+
+The Gram calculation, concrete signed regressions, literal face/orientation/
+endpoint tables, and bounded trace arithmetic are axiom-free. The remaining
+Haar/setoid and production-comparison declarations expose only subsets of
+`[propext, Quot.sound]`. No `Classical.choice`, `sorryAx`, `native_decide`,
+custom axiom, `sorry`, or `admit` occurs on the path. An independent read-only
+audit checked the reverse-coefficient convention, all four inverse-Gram
+terms, the negative regression, the diagonal trace, the outward mask, face
+order, polarity word, endpoint order, and scalar-only scope, and found no
+mathematical or code blocker.
+
+After semantic-root wiring, the static import audit found 2,645 source
+modules and 8,201 local import edges, zero cycles, 2,639 modules reachable
+from `YMGap.lean`, all six remaining modules classified, and zero unexpected
+orphans. The executable-source forbidden-token scan found zero hits, the
+host-load guard passed all 236 tracked or untracked non-ignored entry files,
+and `git diff --check` passed.
+
+##### 8.13.63.5 Next load-bearing steps — PARTIAL CONTRACTION NEXT
+
+Proceed in the following order; each step must remain a local structural
+theorem beneath Haar rather than a raw commutativity claim.
+
+1. **Contextual order bridge.** Convert the literal exceptional-link word
+   inherited above, `R F R F`, to the canonical `F F R R` projector order
+   under finite-product Haar, first locally and then under an arbitrary honest
+   complex spectator independent of the shared block. Preserve the exact
+   external index permutation in the theorem statement.
+2. **Arbitrary-block signed partial Haar.** Lift the block-zero, one-link
+   projector to `integrateQuaternionBlockComplex block` and then through
+   `finiteProductHaarComplex_complexSpectator_eq_after_integrating_right`.
+   The resulting reusable API must replace only the selected block by the
+   constant signed inverse-Gram kernel and leave every other link polynomial
+   opaque.
+3. **Twenty-two bivalent contractions.** Give the twenty-three touched links
+   a duplicate-free block decoder. Apply the existing distinct-block
+   spectator Schur fold to the other twenty-two links while retaining the
+   four exceptional occurrences and their incident Boolean indices. Insert
+   the signed fourth moment only after this separation. Never enumerate the
+   `2^48` face-index assignments.
+4. **Channel/Racah identification.** Relate direct/crossed pairings to the
+   rational singlet/triplet coordinates. The combinations `(D+X)/2` and
+   `(D-X)/2` have Gram weights `3` and `1`; match their order and sign with the
+   existing Gram-weighted fixed-`F` carrier before naming any matrix as the
+   Racah move. Prove the repository's actual transpose/inverse convention.
+   The squared data `1/4,3/4,3/4,1/4` are a corollary only and must not replace
+   signed amplitudes.
+5. **Structural double-cube closure.** Build the twelve-face product from the
+   forty-eight tagged occurrences and contract it through the preceding local
+   APIs. The anticipated bare value `1/256 = (1/16)^2` is a target to prove,
+   not an assumption; the fixed-index `-1/6` test remains the acceptance
+   criterion even if the final scalar factorizes.
+6. **Correct the production kernel once.** Only after the bivalent cube
+   normalization, signed channel bridge, and full local double-cube
+   contraction agree should `canonicalSurfaceActivity` be replaced or refined
+   by one normalized channel-resolved kernel. Reprove reachability,
+   compression, and reflection-positivity interfaces against that single
+   definition rather than accumulating geometry-specific scalar patches.
 
 This route is finite, exact, and intuitionistic: recursive Boolean sums,
-explicit finite case proofs, rational setoid algebra, and certified
-permutations replace choice, excluded middle, global enumeration, and unsafe
-evaluator calls.
+explicit finite case proofs, rational setoid algebra, duplicate-free decoders,
+and certified permutations replace choice, excluded middle, global
+enumeration, and unsafe evaluator calls.
