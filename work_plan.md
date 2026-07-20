@@ -22370,30 +22370,155 @@ passed all 236 tracked or untracked non-ignored entry files, and
 root reachability certifies the current full-build wiring without repeating
 the resource-heavy full build.
 
-#### 8.13.61 Canonical all-standard elementary-cube trace product — NEXT SHORTEST MILESTONE
+#### 8.13.61 Canonical all-standard elementary-cube trace product — ✓ COMPLETE
 
-Define the canonical product using
-`standardPlaquetteTraceExpansion` on all six audited face plaquettes, in the
-same face and factor order as the outward product. Prove a one-face
-contextual theorem replacing a reversed expansion by the corresponding
-standard expansion beneath finite-product Haar, with arbitrary accumulated
-spectator and unresolved suffix. The proof must be an explicit bounded
-four-index reindex and sign audit, not an appeal to evaluation extensionality.
+Modules:
 
-Apply the contextual replacement exactly at outward rows 0, 2, and 4. This
-will yield
+- `YMGap.Continuum.SU2QuaternionPlaquetteOrientationHaarReindex`;
+- `YMGap.Continuum.SU2QuaternionElementaryCubeCanonicalTraceExpansionProduct`.
+
+The orientation-faithful outward cube integral is now transported to the
+canonical production representative using the standard plaquette word at all
+six faces, without invoking polynomial evaluation extensionality and without
+unfolding the depth-twenty-four cube sum.
+
+##### 8.13.61.1 Exact sign and fixed-term orientation audit — ✓ COMPLETE
+
+The computational sign function
 
 ```text
-Hᴄ(radiusZeroElementaryCubeCanonicalTraceExpansionProduct)
-  ≃ Hᴄ(radiusZeroElementaryCubeOutwardTraceExpansionProduct)
-  ≃ (1/16, 0).
+fundamentalCoefficientFlipSign(row,column)
+  = +1  when row = column,
+  = -1  otherwise
 ```
 
-Once this representative-level orientation fence closes, connect the
-canonical cube coefficient to the cutoff-one character/weight observable
-used by the strong-coupling anchor, preserving every normalization factor.
-In particular, compare the resulting all-standard Haar factor `1/16` with
-`coarseUnitCube_canonicalSurfaceActivity_eqv` and
-`centeredCoarseUnitCube_canonicalSurfaceActivity_eqv`, whose current scalar
-form is `(coeffW coupling 1)^6`. This must establish or correct the missing
-factor-16 normalization before the four-valent/Racah channel is attacked.
+records the coefficient identity
+`F(r,c) = sign(r,c) R(!c,!r)`. The theorem
+`fundamentalCoefficientFlipSign_cycle_four` proves by the sixteen bounded
+Boolean cases that the four cyclic signs multiply to `+1`. The stronger raw
+identity
+
+```text
+reversedPlaquetteTraceTerm_eq_flippedStandard_reverseFactors
+```
+
+shows that the reversed summand at `(a,b,c,d)` is literally the reverse
+four-factor word of the standard summand at `(!a,!d,!c,!b)`. This identity is
+axiom-free and preserves the syntax-sensitive raw polynomial carrier: no raw
+associativity or commutativity is asserted.
+
+##### 8.13.61.2 Constructive four-binder reindex — ✓ COMPLETE
+
+`rationalComplexBoolBind_complement` exchanges the two branches of one
+Boolean binder. Four nested congruences give simultaneous complementation,
+and three applications of the existing constructive binder-swap theorem
+reverse the final three coordinates. Their composition is
+
+```text
+rationalComplexFourBoolSum_reverse_complement :
+  Σₐᵦ꜀𝒹 family(a,b,c,d)
+    ≃ Σₐᵦ꜀𝒹 family(!a,!d,!c,!b).
+```
+
+Only the safe four-binder syntax is exposed; no finite assignment list is
+constructed.
+
+##### 8.13.61.3 Contextual four-factor and one-face reversal — ✓ COMPLETE
+
+`finiteProductHaarComplex_mul_mulFourLeft_mul_eq_foldlFive` flattens one
+left-combed four-factor block under arbitrary polynomial left and right
+context. It does so solely beneath finite-product Haar. The resulting
+five-factor fold is converted to the established tail-first product,
+permuted by an explicit `List.reverse_perm` witness that fixes the suffix,
+and converted back. This proves
+
+```text
+finiteProductHaarComplex_mul_mulFourLeft_reverse.
+```
+
+Combining this contextual factor reversal with the fixed-term identity and
+the bounded Boolean reindex yields
+
+```text
+finiteProductHaarComplex_mul_reversedPlaquetteTraceExpansion_eq_standard.
+```
+
+Its spectator and suffix are arbitrary polynomials. Consequently the theorem
+is safe to use inside a larger unresolved face product; it never assumes the
+false principle that a bare Haar equivalence is a multiplication congruence.
+
+##### 8.13.61.4 All-standard six-face product and exact value — ✓ COMPLETE
+
+`radiusZeroElementaryCubeCanonicalFaceTraceExpansions` is the literal list of
+six `standardPlaquetteTraceExpansion` factors in the unchanged audited face
+order, and
+`radiusZeroElementaryCubeCanonicalTraceExpansionProduct` is its tail-first
+product. The structural theorem
+`finiteProductHaarComplex_alternatingSix_reversed_eq_standard` accumulates
+the already resolved prefix before each contextual replacement and restores
+tail-first association afterwards.
+
+The concrete proof applies the one-face orientation theorem exactly at
+outward slots `0`, `2`, and `4`; slots `1`, `3`, and `5` remain unchanged.
+This gives both directions of the representative fence,
+
+```text
+finiteProductHaarComplex_radiusZeroElementaryCubeOutward_eq_canonical
+finiteProductHaarComplex_radiusZeroElementaryCubeCanonical_eq_outward,
+```
+
+and closes the capstone
+
+```text
+finiteProductHaarComplex_radiusZeroElementaryCubeCanonicalTraceExpansionProduct_exact :
+  Hᴄ(radiusZeroElementaryCubeCanonicalTraceExpansionProduct)
+    ≃ (1/16, 0).
+```
+
+##### 8.13.61.5 Verification ledger
+
+After separate mandatory host-idle process checks, both new targets were
+built through the repository session lock with `caffeinate`, `nice -n 10`,
+`LEAN_NUM_THREADS=1`, and the mandatory per-process memory ceiling. The
+generic orientation target completed successfully in 434 jobs; the
+downstream canonical cube target completed successfully in 772 jobs. All
+fourteen new printed declarations are inside the permitted axiom gate: the
+literal list, sign, and raw fixed-term audits are axiom-free; the setoid/Haar
+theorems use only `[propext]` or `[propext, Quot.sound]`. No full build or
+full audit was run on the development host. The static import guard then
+checked 2,642 source modules and 8,191 local import edges, found zero cycles,
+proved 2,636 modules reachable from `YMGap.lean`, and classified all six
+remaining modules with zero unexpected orphans. The host-load guard passed
+all 236 tracked or untracked non-ignored executable entry files, its ten
+mocked Mac runner remote-state scenarios, and its four bounded-supervisor
+scenarios; `git diff --check` also passed. An independent read-only audit
+confirmed the coefficient order, reindex direction, fixed suffix, face order,
+replacement slots, equivalence directions, and final `1/16` composition.
+The executable-source forbidden-token scan found zero hits.
+
+#### 8.13.62 Cutoff-one cube activity normalization bridge — NEXT SHORTEST MILESTONE
+
+Connect the exact canonical cube coefficient to the cutoff-one
+character/weight observable used by the strong-coupling anchor, preserving
+every normalization factor. In particular, compare the all-standard Haar
+factor `1/16` with `coarseUnitCube_canonicalSurfaceActivity_eqv` and
+`centeredCoarseUnitCube_canonicalSurfaceActivity_eqv`, whose present scalar
+form is `(coeffW coupling 1)^6`.
+
+The shortest honest route is to define the *weighted canonical cube Haar
+value* by inserting the six fundamental face coefficients as an explicit
+rational scalar, prove Haar scalar-linearity for the honest complex
+polynomial carrier, and derive
+
+```text
+weighted canonical cube value
+  ≃ ((coeffW coupling 1)^6 / 16, 0).
+```
+
+Then compare this theorem with both production activity formulas. The result
+must either (a) refine the physical activity definition by an explicit
+`1/16` link-contraction normalization, with downstream transport lemmas
+updated, or (b) prove that an already present convention supplies the
+compensating factor `16`. Do not change the production definition until that
+convention audit is complete. Bank this normalization fence before starting
+the four-valent/Racah channel.
