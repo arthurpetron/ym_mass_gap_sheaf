@@ -21884,3 +21884,382 @@ passed all 236 tracked or untracked non-ignored entry files, and
 `git diff --check` passed. Together with the isolated green target build,
 root reachability certifies that the new leaf participates in the current
 full build without repeating that resource-heavy build.
+
+#### 8.13.59 Named Boolean environments and constructive cube reindexing — ✓ COMPLETE
+
+Modules:
+
+- `YMGap.Continuum.SU2QuaternionRationalComplexNamedBoolSum`;
+- `YMGap.Continuum.SU2QuaternionElementaryCubeNamedBoolReindex`.
+
+Contextual Haar–Boolean Fubini produces an additive tree whose Boolean
+binders initially occur in face-major order. The contracted outward cube
+network instead stores one length-twenty-four assignment in canonical
+vertex-major tag order. This checkpoint separates binder *names* from binder
+*positions*, proves constructive permutation invariance for the resulting
+rational-complex sum, and connects the canonical named order back to the
+established `List Bool` sum. Everything here is post-Haar and additive: no raw
+complex-polynomial reordering, polynomial distributivity, or multiplication
+congruence is asserted.
+
+##### 8.13.59.1 Total named environments and structural sums — ✓ COMPLETE
+
+A named Boolean environment is a total function `Nat → Bool`. Updating one
+coordinate is explicit:
+
+```text
+boolTagUpdate environment tag value query :=
+  if query = tag then value else environment query.
+```
+
+The self-lookup and distinct-lookup laws identify the updated and untouched
+coordinates. If `first ≠ second`, the two finite updates commute
+extensionally:
+
+```text
+boolTagUpdate (boolTagUpdate environment first firstValue)
+    second secondValue
+  =
+boolTagUpdate (boolTagUpdate environment second secondValue)
+    first firstValue.
+```
+
+The named rational-complex sum is structural in a finite tag word:
+
+```text
+NamedSum [] family
+  := family (fun _ => false),
+
+NamedSum (tag :: tags) family
+  := BoolBind (fun value =>
+       NamedSum tags (fun environment =>
+         family (boolTagUpdate environment tag value))).
+```
+
+The constantly-false base environment is only a total default for names not
+bound by the supplied word. No list of environments and no Boolean-assignment
+carrier is materialized. `rationalComplexNamedBoolSum_congr` transports
+pointwise `RationalComplexEqv` through an arbitrary named word.
+
+##### 8.13.59.2 Adjacent exchange and arbitrary finite permutations — ✓ COMPLETE
+
+For distinct adjacent tags, `rationalComplexBoolBind_swap` exchanges the two
+additive binders and `boolTagUpdate_comm` identifies the resulting leaf
+environments. Equal adjacent tags are handled reflexively. Hence
+
+```text
+rationalComplexNamedBoolSum_swap :
+  NamedSum (first :: second :: rest) family
+    ≃ NamedSum (second :: first :: rest) family.
+```
+
+Structural induction on `List.Perm` then gives
+
+```text
+rationalComplexNamedBoolSum_perm :
+  left.Perm right →
+  NamedSum left family ≃ NamedSum right family.
+```
+
+No duplicate-freeness assumption is needed for this generic theorem: the
+equality case in an adjacent swap is already valid. No decidable permutation
+search, global assignment bijection, or `2^depth` enumeration occurs. The
+theorem reindexes only the rational-complex addition tree after Haar has
+crossed the polynomial sums; it does not reindex a multiplicative factor
+word.
+
+##### 8.13.59.3 Canonical consecutive names and positional assignments — ✓ COMPLETE
+
+`boolListEnvironment start assignment` interprets the list head as the
+Boolean value named `start`, the next entry as `start + 1`, and so on; names
+below the offset and names beyond the list default to `false`. Its definition
+is structural in the offset and queried name and performs no subtraction.
+The key recursion law is
+
+```text
+boolListEnvironment start (bit :: tail)
+  = boolTagUpdate
+      (boolListEnvironment (start + 1) tail) start bit.
+```
+
+Induction on the symbolic depth, not on any concrete assignment tree, proves
+
+```text
+rationalComplexNamedBoolSum_range' :
+  NamedSum (List.range' start depth) family
+    ≃
+  BoolSum depth (fun assignment =>
+    family (boolListEnvironment start assignment)).
+```
+
+At offset zero, `boolListEnvironment` is exactly
+`fun tag => assignment.getD tag false`. Consequently the canonical bridge is
+
+```text
+rationalComplexNamedBoolSum_range :
+  NamedSum (List.range depth) family
+    ≃
+  BoolSum depth (fun assignment =>
+    family (fun tag => assignment.getD tag false)).
+```
+
+At cube depth twenty four the final accessor is definitionally the
+established
+
+```text
+cubeTagValue assignment tag := assignment.getD tag false.
+```
+
+Thus the bridge reaches the existing cube assignment representation without
+converting a face-major list into a vertex-major list and without unfolding,
+simplifying, reducing, evaluating, or printing the depth-twenty-four
+recursion.
+
+##### 8.13.59.4 Exact elementary-cube tag permutation — ✓ COMPLETE
+
+Flattening the six audited outward rows recovers the established face-corner
+tag carrier:
+
+```text
+radiusZeroElementaryCubeOutwardFaceRows.flatMap
+    TaggedOrientedPlaquetteRow.tags
+  = radiusZeroElementaryCubeFaceCornerTags.
+```
+
+The flattened order is literally
+
+```text
+[0,9,6,3, 1,4,15,12, 2,13,21,10,
+ 14,16,18,22, 11,23,19,7, 5,8,20,17].
+```
+
+Two bounded closed audits establish that every displayed entry is below 24
+and that every `Fin 24` value occurs. They inspect only the twenty-four tag
+names, never a Boolean assignment carrier. These audits yield
+
+```text
+tag ∈ radiusZeroElementaryCubeFaceCornerTags ↔ tag < 24.
+```
+
+Together with the existing duplicate-freeness certificate, a local
+axiom-clean induction proves `List.range 24` duplicate-free. A private
+structural `permOfNodupMemIff` then removes each witnessed head using
+`List.append_of_mem` and `List.perm_middle`; no bulk `List.Perm` decider is
+called. The public finite certificate is
+
+```text
+radiusZeroElementaryCubeFaceCornerTags_perm_range :
+  radiusZeroElementaryCubeFaceCornerTags.Perm (List.range 24).
+```
+
+Applying generic named-sum permutation invariance yields the exact cube
+bridge
+
+```text
+rationalComplexNamedBoolSum_radiusZeroElementaryCubeFaceCornerTags_eq_range :
+  NamedSum radiusZeroElementaryCubeFaceCornerTags family
+    ≃ NamedSum (List.range 24) family.
+```
+
+Combining this theorem with `rationalComplexNamedBoolSum_range 24` gives the
+complete representation chain, for every opaque environment family `F`:
+
+```text
+NamedSum radiusZeroElementaryCubeFaceCornerTags F
+  ≃ NamedSum (List.range 24) F
+  ≃ BoolSum 24 (fun assignment => F (cubeTagValue assignment)).
+```
+
+The two theorems deliberately remain separate: the first is finite
+binder-name permutation; the second is the structural equivalence between
+consecutive named binders and the pre-existing positional list sum.
+
+##### 8.13.59.5 Scope fence and revised shortest route
+
+This checkpoint proves the entire binder-order and range/list representation
+layer, but it does not yet prove that the product of six separately summed
+plaquette trace expansions has the leftmost named-sum form above. In
+particular, no environment-indexed six-face integrand has yet been connected
+to `radiusZeroElementaryCubeOutwardFaceTraceProduct`, and contextual Fubini
+has not yet been iterated across the six plaquette factors. Therefore the
+genuine product of six four-binder expansions has not yet inherited the exact
+`1/16` value.
+
+The named family in the displayed chain must next be instantiated by the
+finite-product Haar value of the six fixed-index outward face terms. Only
+after that identification may the existing exact outward trace-network
+theorem be composed into a theorem about the product of trace expansions.
+
+The shortest sound route is now:
+
+1. add an arbitrary-tag-word environment and its structural
+   `NamedSum`/positional-`BoolSum` bridge, needed to land the initial
+   face-major Fubini tree in the named representation;
+2. specialize contextual Fubini to one four-binder plaquette while retaining
+   both the accumulated spectator and unresolved suffix;
+3. iterate that theorem over the six literal outward rows, preserving the
+   orientation mask `reversed, standard, reversed, standard, reversed,
+   standard`;
+4. apply the completed face-major named permutation and canonical range
+   bridge; and
+5. compose with the exact outward trace-network value.
+
+##### 8.13.59.6 Verification ledger
+
+The downstream cube-reindex target was built under the repository session
+lock with `caffeinate`, `nice -n 10`, and `LEAN_NUM_THREADS=1`, after the
+mandatory host-idle process check. It completed successfully in 764 jobs and
+thereby compiled both new leaves. A separate guarded one-file check captured
+the foundational leaf's public axiom gates. No clean/full build and no test
+suite was run.
+
+The gates for update commutation, named-sum swap and arbitrary permutation,
+the environment cons law, both consecutive-range bridges, the finite cube
+permutation, and the specialized cube named-sum theorem expose only
+`[propext, Quot.sound]`; named-sum congruence exposes only `[propext]`. There
+is no `Classical.choice` or `sorryAx`. The finite row-flatten and literal-order
+certificates require no axioms.
+
+After root wiring, the static import audit found 2,637 source modules and
+8,176 local import edges, with zero cycles; 2,631 modules are reachable from
+the semantic root, and all six remaining modules are classified
+infrastructure or examples, leaving zero unexpected orphans. The
+executable-source forbidden-token scan found zero hits. The host-load and
+host-load guard passed all 236 tracked or untracked non-ignored entry files,
+and `git diff --check` passed. Together with the isolated green target build,
+root reachability certifies that both new leaves participate in the current
+full build without repeating that resource-heavy build.
+
+#### 8.13.60 Genuine product of six outward plaquette trace expansions — NEXT SHORTEST MILESTONE
+
+The next efficient milestone is to instantiate the completed Fubini and
+named-reindex infrastructure once, at the audited six outward rows, and close
+the exact Haar value of the genuine product of plaquette trace expansions.
+
+##### 8.13.60.1 Arbitrary tag-word and four-binder bridges
+
+For a general tag word, define `boolTagWordEnvironment tags assignment` by
+pairing tags and bits structurally through `boolTagUpdate`, with false as the
+unbound default. Prove, by induction on `tags`,
+
+```text
+NamedSum tags family
+  ≃ BoolSum tags.length (fun assignment =>
+       family (boolTagWordEnvironment tags assignment)).
+```
+
+The proof must remain symbolic in `tags`; the cube specialization must not
+construct its `2^24` assignments. This bridge is distinct from
+`rationalComplexNamedBoolSum_range`: it records an arbitrary initial binder
+word rather than the canonical consecutive word.
+
+Then specialize existing contextual Haar–Boolean Fubini to four local
+binders:
+
+```text
+finiteProductHaarComplex_mul_fourBoolSum_inner :
+  Hᴄ(spectator * (FourBoolSum family * suffix))
+    ≃
+  FourBoolSum (fun a b c d =>
+    Hᴄ(spectator * (family a b c d * suffix))).
+```
+
+This proof is four structural applications of the one-binder contextual
+theorem and exposes only the safe depth-four syntax.
+
+##### 8.13.60.2 Environment-indexed row terms and honest expansion product
+
+For one `TaggedOrientedPlaquetteRow`, define:
+
+1. its outward trace expansion by selecting
+   `standardPlaquetteTraceExpansion` or
+   `reversedPlaquetteTraceExpansion` from `row.orientation` and its four
+   audited blocks;
+2. its fixed term from a total named environment by selecting the matching
+   standard or reversed trace term and reading the four row tags; and
+3. the six-row product of those fixed terms.
+
+Prove pointwise that substituting `cubeTagValue assignment` into the
+environment-indexed term recovers `row.traceTerm assignment`. Map the row
+expansion over `radiusZeroElementaryCubeOutwardFaceRows` and form its
+tail-first `complexRatPolyProduct`. This is the genuine product of six
+separately summed outward plaquette traces. Keep the alternating outward mask
+literal; reversed rows must not silently be replaced by standard rows.
+
+##### 8.13.60.3 Structural six-row Haar Fubini
+
+Prove a reusable row-list theorem under an arbitrary accumulated spectator
+and unresolved suffix. At each row:
+
+1. use only certified Haar associativity/unit laws to expose the row
+   expansion between the accumulated spectator and remaining product;
+2. apply contextual four-binder Fubini;
+3. absorb the selected fixed row term into the spectator only after
+   Haar-level reassociation; and
+4. recurse on the remaining rows.
+
+A generic normalization lemma should relate the resulting left-associated
+spectator fold to the established tail-first `complexRatPolyProduct`. The
+row induction should first land in the positional face-major tree
+
+```text
+Hᴄ(radiusZeroElementaryCubeOutwardTraceExpansionProduct)
+  ≃
+BoolSum radiusZeroElementaryCubeFaceCornerTags.length
+  (fun faceAssignment =>
+    Hᴄ(radiusZeroElementaryCubeOutwardFaceTraceProductByTag
+      (boolTagWordEnvironment
+        radiusZeroElementaryCubeFaceCornerTags faceAssignment))).
+```
+
+Symmetry of the arbitrary-tag-word bridge then packages precisely this tree
+as the named cube specialization
+
+```text
+Hᴄ(radiusZeroElementaryCubeOutwardTraceExpansionProduct)
+  ≃
+NamedSum radiusZeroElementaryCubeFaceCornerTags
+  (fun environment =>
+    Hᴄ(radiusZeroElementaryCubeOutwardFaceTraceProductByTag environment)).
+```
+
+The proof may expose a single four-binder row at a time, but it must not
+unfold the concrete depth-twenty-four sum, assert raw-polynomial
+associativity/distributivity, or use Haar equivalence as multiplication
+congruence.
+
+##### 8.13.60.4 Exact composition
+
+Compose, in this order:
+
+```text
+Hᴄ(product of six outward trace expansions)
+  ≃ NamedSum faceMajorTags fixedFaceHaar
+  ≃ NamedSum (List.range 24) fixedFaceHaar
+  ≃ BoolSum 24 (fun assignment =>
+       Hᴄ(radiusZeroElementaryCubeOutwardFaceTraceProduct assignment))
+  ≃ Hᴄ(radiusZeroElementaryCubeOutwardTraceNetwork)
+  ≃ (1/16, 0).
+```
+
+The second step is the cube permutation theorem; the third is the canonical
+range/list bridge; the fourth is the symmetry of existing finite-product
+Haar Boolean linearity plus the pointwise environment/list identity; and the
+final step is
+`finiteProductHaarComplex_radiusZeroElementaryCubeOutwardTraceNetwork_exact`.
+The target theorem is
+
+```text
+finiteProductHaarComplex_radiusZeroElementaryCubeOutwardTraceExpansionProduct_exact.
+```
+
+##### 8.13.60.5 Remaining orientation fence
+
+This milestone must stop at the *outward* expansion product. Three faces are
+still represented by reversed trace expansions. Reaching the canonical
+all-standard production observable remains the next separate theorem:
+reindex one reversed four-binder sum by
+`(a,b,c,d) ↦ (!a,!d,!c,!b)`, verify that the four coefficient signs multiply
+to `+1`, and transport that equality only through the established contextual
+Haar machinery. The existing evaluated reversed/standard trace equality is
+not, by itself, a syntax-sensitive Haar-carrier identity.
