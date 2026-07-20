@@ -21731,3 +21731,156 @@ entry files, and `git diff --check` passed. Together with the isolated green
 target builds and the independent mathematical review, root reachability
 certifies that all three new leaves participate in the current full build
 without repeating that resource-heavy build.
+
+#### 8.13.58 Contextual finite-product Haar–Boolean Fubini — ✓ COMPLETE
+
+Module:
+`YMGap.Continuum.SU2QuaternionFiniteProductHaarComplexBoolFubini`.
+
+This checkpoint supplies the missing linearity principle required to pass
+from a product of separately summed plaquette trace expansions to a sum of
+fixed-assignment face products. The theorem is deliberately contextual:
+both the already accumulated factors on the left and the unresolved product
+suffix on the right remain inside every branch. Consequently it is strong
+enough for repeated use in a six-factor product without ever treating bare
+Haar equivalence as a multiplicative congruence.
+
+##### 8.13.58.1 Binary honest-complex distributivity — ✓ COMPLETE
+
+The proof first defines a private scalar expansion of one complex product:
+
+```text
+Hᴄ(left * right)
+  ≃
+(H(left.re * right.re) - H(left.im * right.im),
+ H(left.re * right.im) + H(left.im * right.re)).
+```
+
+Scalar finite-product Haar additivity in the right factor, together with
+compatibility with negation, proves that this expansion is additive in the
+right complex argument. Recombining the two branch expansions gives the
+public theorem
+
+```text
+finiteProductHaarComplex_mul_add_right :
+  Hᴄ(source * (left + right))
+    ≃ Hᴄ(source * left) + Hᴄ(source * right).
+```
+
+This is an exact functional-level bilinearity theorem for the honest complex
+raw-polynomial representation. It asserts neither a quotient-ring law for
+the carrier nor multiplicativity of the Haar functional.
+
+The additive theorem belongs in the Fubini leaf, which imports both the
+complex reordering layer and the Boolean-sum algebra. Keeping it there avoids
+a dependency cycle: the lower reordering layer intentionally does not import
+the addition constructors exposed by the trace/Boolean algebra.
+
+##### 8.13.58.2 Two-sided contextual distribution — ✓ COMPLETE
+
+The central binary context theorem is
+
+```text
+finiteProductHaarComplex_mul_add_inner :
+  Hᴄ(spectator * ((left + right) * suffix))
+    ≃
+  Hᴄ(spectator * (left * suffix))
+    + Hᴄ(spectator * (right * suffix)).
+```
+
+Its proof is a literal Haar-level chain:
+
+1. exchange the inner sum with the suffix;
+2. reassociate to `(spectator * suffix) * (left + right)`;
+3. apply binary right-distributivity; and
+4. in each branch, reassociate and exchange the suffix back to restore
+   `spectator * (branch * suffix)`.
+
+Every reordering is one of the already certified finite-product Haar
+associativity or middle-exchange laws. No equality after Haar is inserted
+under an unverified product context.
+
+##### 8.13.58.3 One-binder and arbitrary-depth Fubini — ✓ COMPLETE
+
+Unfolding only the definition of one Boolean binder specializes the contextual
+binary theorem to
+
+```text
+finiteProductHaarComplex_mul_boolBind_inner :
+  Hᴄ(spectator * (BoolBind family * suffix))
+    ≃
+  BoolBind (fun bit => Hᴄ(spectator * (family bit * suffix))).
+```
+
+Structural recursion on an arbitrary symbolic `depth` then proves
+
+```text
+finiteProductHaarComplex_mul_boolSum_inner :
+  Hᴄ(spectator * (BoolSum depth family * suffix))
+    ≃
+  BoolSum depth
+    (fun assignment => Hᴄ(spectator * (family assignment * suffix))).
+```
+
+The zero-depth case is reflexive. A successor exposes exactly one binder,
+applies the contextual binder theorem, and combines the false and true
+recursive branches with rational-complex additive congruence. Prefix and
+suffix are unchanged throughout the recursion.
+
+The theorem is polymorphic in `depth`; the elementary-cube depth `24` does
+not occur in the module. Thus the proof does not specialize, unfold,
+simplify, reduce, print, enumerate, or evaluate the cube assignment tree.
+
+##### 8.13.58.4 Scope fence and next shortest route
+
+Contextual Fubini supplies distribution, but it does not by itself identify
+the resulting binder order with the vertex-major cube assignment used by the
+exact network. The next production bridge must therefore keep three layers
+separate:
+
+1. define each of the six outward-oriented plaquette trace expansions as its
+   established four-binder Boolean sum and form their tail-first product;
+2. apply contextual Fubini repeatedly, retaining an accumulated prefix and
+   the remaining face suffix, to obtain a face-major depth-twenty-four branch
+   sum whose summand is exactly the six-face trace product from Section
+   8.13.57; and
+3. constructively reindex the rational-complex addition tree from the
+   face-major tag order
+
+```text
+[0,9,6,3, 1,4,15,12, 2,13,21,10,
+ 14,16,18,22, 11,23,19,7, 5,8,20,17]
+```
+
+to vertex-major order `[0,...,23]`, only after Haar has crossed all polynomial
+sums.
+
+The reindexing must use Boolean-binder commutation/congruence structurally;
+`List.Perm` of multiplicative factors cannot alter an additive binder tree,
+and raw-polynomial equality of differently parenthesized sums is neither
+needed nor available. Once this bridge is complete, the exact outward
+network theorem immediately supplies the value `1/16`. The separate
+four-binder reversed-to-standard orientation reindexing remains the following
+checkpoint.
+
+##### 8.13.58.5 Verification ledger
+
+The new leaf was built as one isolated Lake target under the repository
+session lock, with `caffeinate`, `nice -n 10`, and `LEAN_NUM_THREADS=1`, after
+the mandatory host-idle process check. A pre-build guard detected an unrelated
+short-lived Lake process and correctly deferred compilation until it exited.
+The final target completed successfully in 431 jobs. No clean/full build and
+no test suite was run.
+
+The public axiom gates for binary complex distribution, two-sided contextual
+distribution, one-binder Fubini, and arbitrary-depth Boolean Fubini expose
+exactly `[propext, Quot.sound]`, with no `Classical.choice` or `sorryAx`.
+After root wiring, the static import audit found 2,635 source modules and
+8,171 local import edges, with zero cycles; 2,629 modules are reachable from
+the semantic root, and all six remaining modules are classified
+infrastructure or examples, leaving zero unexpected orphans. The
+executable-source forbidden-token scan found zero hits, the host-load guard
+passed all 236 tracked or untracked non-ignored entry files, and
+`git diff --check` passed. Together with the isolated green target build,
+root reachability certifies that the new leaf participates in the current
+full build without repeating that resource-heavy build.
