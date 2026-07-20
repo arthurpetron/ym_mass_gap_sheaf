@@ -22986,16 +22986,60 @@ This is not the diagonal projector trace `2`. Independent reconstruction of
 the bivalent delta graph finds sixteen components: twelve ordinary free loops
 and the four shared variables `A1,A2,B1,B2`. Consequently the later closed
 target remains `2^12 * 4 * (1/2)^22 = 1/256`; using the diagonal trace here
-would incorrectly give `1/512`. The component reduction and full named sum
-remain to be certified in Lean.
+would incorrectly give `1/512`.
+
+That reduction is now certified. The forty-four crossed equalities produced
+by the twenty-two bivalent Schur contractions are definitionally reconstructed
+as sixteen consecutive equality triangles
+
+```text
+[0,1,2], [3,4,5], ..., [45,46,47].
+```
+
+Their flattening is exactly `List.range 48`, is duplicate-free, and splits
+into twelve ordinary components and four exceptional components. Pointwise,
+the original contraction-match product equals the product of these sixteen
+triangle indicators. A parametric theorem then removes each triangle's two
+redundant Boolean binders under an arbitrary rational-complex payload:
+
+```text
+sum_(3n bits) (triangleProduct_n * payload)
+  ≃ sum_(n component bits) payload(repeatEachBoolThree components).
+```
+
+This is an induction on `n`, not an evaluation of the `2^(3n)` carrier. For
+the double cube, the four exceptional component bits enter the signed
+projector in the certified order `B1,A1,A2,B2`; the other twelve bits are
+free. The sixteen-component sum is therefore exactly
+
+```text
+2^12 * 4 = 16384,
+```
+
+and multiplication by the twenty-two Schur factors gives the fully resolved
+coefficient-network Haar value
+
+```text
+(1/2)^22 * 16384 = 1/256.
+```
+
+The proof defines the depth-forty-eight Boolean binder only as an opaque
+recursive expression and never unfolds, simplifies, evaluates, prints, or
+materializes it. The final theorem applies to the honest descriptor-certified
+face-major polynomial coefficient network. What remains is a separate
+structural theorem identifying that coefficient network with the literal
+product of the twelve plaquette-trace polynomials.
 
 ##### 8.13.63.7 Scope and verification ledger
 
-Only the fixed eight-index local moment, the four-index diagonal trace, and a
-forty-eight-element structural occurrence list are exposed. No twelve-face
-trace product, depth-forty-eight Boolean sum, global assignment list, bounded
-labelling family, or trajectory is defined, unfolded, evaluated, printed, or
-materialized.
+Only fixed local moments, bounded local Boolean case splits, structural
+descriptor lists, and opaque recursive Boolean binders are exposed. The
+descriptor-derived depth-forty-eight sum is now defined and transported
+symbolically through a generic triangle-compression theorem; it is never
+unfolded or evaluated. No assignment carrier of cardinality `2^48`, global
+assignment list, bounded labelling family, trajectory, or length family is
+defined, unfolded, evaluated, printed, or materialized. The literal
+twelve-face trace product is not yet identified with the coefficient network.
 
 After separate mandatory host-idle checks, every Lean target was built through
 the repository session lock with `caffeinate`, `nice -n 10`, and
@@ -23006,8 +23050,11 @@ completed in 436 jobs, with its final leaf under 400 ms. The final
 arbitrary-block projector target completed in 435 jobs and 20 seconds; this
 bounded cost is the complete 256-entry symbolic-block proof, not a global
 network enumeration. The grouped double-cube bivalent target completed in 911
-jobs, with its new structural leaf taking about 37 seconds. No full or clean
-build and no test suite was run.
+jobs, with its new structural leaf taking about 37 seconds. The
+delta-component, face-word, Boolean-resolution, and channel-diagonalization
+leaves were each built separately through the same serialized path. The last
+channel leaf completed in about 1.2 seconds after its bounded local proof was
+repaired. No full or clean build and no test suite was run.
 
 The rational Gram calculation, direct projector-entry arithmetic, literal
 face/orientation/endpoint tables, and bounded trace arithmetic are axiom-free.
@@ -23022,7 +23069,13 @@ regressions, each expose exactly `[propext, Quot.sound]`. The twenty-three-link
 decoder, shared-block exclusion, literal-base independence, standalone shared
 projector value, grouped twenty-two-link fold, and forty-eight-descriptor
 coverage permutation expose at most `[propext, Quot.sound]`; the table map and
-external-wiring sum are axiom-free. No
+external-wiring sum are axiom-free. The generic equality-triangle compression,
+the exact component and contracted sums, and the exact coefficient-network
+Haar endpoint expose exactly `[propext, Quot.sound]`. The direct/crossed
+channel inversions, `diag(1,3)` Gram computation, inverse-Gram projector
+diagonalization, and normalized singlet/triplet trace computations are
+axiom-free; the bridge from the Boolean Gram to the rational recoupling Gram
+uses only `propext`. No
 `Classical.choice`, `sorryAx`, `native_decide`, custom axiom, `sorry`, or
 `admit` occurs on the banked path. Independent read-only audits checked the
 reverse-coefficient convention, all four inverse-Gram terms, the negative
@@ -23030,14 +23083,14 @@ regression, diagonal trace, outward mask, face order, polarity word, endpoint
 order, contextual index permutation, spectator-congruence discipline, and
 partial-integration API, and found no mathematical blocker.
 
-After semantic-root wiring, the static import audit found 2,648 source
-modules and 8,212 local import edges, zero cycles, 2,642 modules reachable
+After semantic-root wiring, the static import audit found 2,652 source
+modules and 8,225 local import edges, zero cycles, 2,646 modules reachable
 from `YMGap.lean`, all six remaining modules classified, and zero unexpected
 orphans. The executable-source forbidden-token scan found zero hits, the
 host-load guard passed all 236 tracked or untracked non-ignored entry files,
 and `git diff --check` passed.
 
-##### 8.13.63.8 Next load-bearing steps — DELTA COMPONENT CLOSURE NEXT
+##### 8.13.63.8 Next load-bearing steps — ORDERED CHANNEL BRIDGE NEXT
 
 Proceed in the following order; each step must remain a local structural
 theorem beneath Haar rather than a raw commutativity claim.
@@ -23062,7 +23115,7 @@ theorem beneath Haar rather than a raw commutativity claim.
    literal-base independence, standalone signed base value, and pointwise
    arbitrary-base Schur fold are complete. Every assignment remains an opaque
    `List Bool`; no `2^48` carrier or depth-forty-eight sum was formed.
-4. **Face-word bridge and delta-component closure.** Map the descriptor
+4. **✓ Face-word bridge and delta-component closure.** Map the descriptor
    coverage certificate through an opaque assignment, reconcile the resulting
    face-major factor word with the right-local `contractionProductOver` word
    beneath Haar, and prove the exact sixteen-component Boolean delta graph.
@@ -23078,7 +23131,15 @@ theorem beneath Haar rather than a raw commutativity claim.
    `2^12 * 4 * (1/2)^22 = 1/256`. Do this through named or recursive Boolean
    binders and structural reindexing; never unfold or evaluate a depth-48 sum,
    and never replace this wiring by the diagonal trace `2`.
-5. **Channel/Racah identification.** Relate direct/crossed pairings to the
+
+   This is complete. The descriptor map gives the face-major coefficient
+   word, the exact forty-four-edge graph gives sixteen three-vertex
+   components, the generic triangle-compression theorem reduces `48` binders
+   to `16`, the component sum is `16384`, and the exact face-major coefficient
+   network has Haar value `(1/256,0)`. The depth-48 and depth-16 recursions
+   remain opaque throughout.
+5. **◐ Channel/Racah identification — core complete; ordered-carrier bridge
+   next.** Relate direct/crossed pairings to the
    rational singlet/triplet coordinates. Fix the convention explicitly:
    singlet is `(D-X)/2` with Gram weight `1`, while triplet is `(D+X)/2` with
    Gram weight `3`. Match this order and sign with the existing Gram-weighted
@@ -23086,7 +23147,35 @@ theorem beneath Haar rather than a raw commutativity claim.
    repository's actual transpose/inverse convention.
    The squared data `1/4,3/4,3/4,1/4` are a corollary only and must not replace
    signed amplitudes.
-6. **Correct the production kernel once.** Only after the bivalent cube
+
+   The local core is complete: `S=(D-X)/2`, `T=(D+X)/2`, the inverse
+   relations `D=S+T` and `X=T-S`, Gram `diag(1,3)`, inverse-Gram weights
+   `1,1/3`, the exact signed-projector decomposition, and unit trace of each
+   weighted rank-one channel are all formalized. The existing rational
+   `fundamentalFMove` has the signed columns `(-1/2,1/2)` and `(3/2,1/2)` in
+   this dimension-rescaled basis. The next theorem must identify these
+   coordinates with the repository's ordered/fixed-`F` carriers and state
+   explicitly whether the production coefficient map is the forward matrix,
+   inverse, transpose, or inverse transpose. Only then derive the four squared
+   transition probabilities.
+6. **Literal twelve-trace bridge.** Define the actual two-cube boundary as
+   twelve tagged oriented plaquette rows and prove that flattening their four
+   coefficient slots is the certified face-major descriptor permutation. The
+   production orientation mask is
+
+   ```text
+   R,S,R,S,R, R,S,R,S,R, S,S,
+   ```
+
+   with cube-one faces in slots `0,1,2,3,4,10` and cube-two faces in slots
+   `5,6,7,8,9,11`. Reuse the elementary-cube trace-expansion and tagged
+   occurrence APIs rather than opening a new matrix-index enumeration. This
+   must yield equality, or Haar equivalence by a certified factor-word
+   permutation, between the literal product of twelve trace polynomials and
+   `radiusZeroEdgeTouchingDoubleCubeFaceMajorCoefficientNetwork`; composing
+   with the banked endpoint then gives the literal local observable value
+   `1/256`.
+7. **Correct the production kernel once.** Only after the bivalent cube
    normalization, signed channel bridge, and full local double-cube
    contraction agree should `canonicalSurfaceActivity` be replaced or refined
    by one normalized channel-resolved kernel. Reprove reachability,
