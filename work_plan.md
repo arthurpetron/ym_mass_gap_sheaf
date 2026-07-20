@@ -23572,81 +23572,216 @@ theorem beneath Haar rather than a raw commutativity claim.
    entry-file load policy without an unsafe clean or unconstrained full
    rebuild.
 
-   **Next local closure sequence.**  Before introducing a production
-   network, finish items 4--5 of this milestone in the following order:
+   **Completed arbitrary-block local closure.**  The reusable placement and
+   spectator seams are now closed, with one necessary change from the earlier
+   implementation forecast.
 
-   1. extract the exponent-block clearing and trailing-zero alias lemmas now
-      private in `SU2QuaternionGenericBlockPartialFourValentHaarProjector`
-      into a public shared helper leaf;
-   2. prove the arbitrary-block partial `F F F R R R` theorem by transporting
-      the already certified one-block sixth moment, not by recomputing 4,096
-      Boolean cases;
-   3. compose that theorem with the manifest `TL3` factorization;
-   4. lift through the existing block-independent spectator/Fubini API so an
-      opaque prefix and suffix remain untouched;
-   5. only then define the common incidence-`0/2/4/6` link-kernel interface.
+   1. `SU2QuaternionGenericBlockFundamentalCoefficientSupport` exposes the
+      symbolic base-four exponent lookup facts and the forward/reverse
+      coefficient block-locality theorems.  The four-valent arbitrary-block
+      projector now consumes this shared leaf instead of maintaining private
+      copies.
+   2. `SU2QuaternionGenericBlockPartialSixValentHaarProjectorCore` defines the
+      exact coefficient-sum proposition and proves structurally that the
+      literal left-associated `F F F R R R` word is local to its selected
+      quaternion block.
+   3. The hoped-for transport directly from the one-block theorem is not
+      available at the raw-carrier level: partial integration preserves
+      trailing-zero monomial aliases, while the one-block theorem is stated
+      only after the finite-product Haar functional.  Inferring raw
+      coefficient-sum equality across that gap would require a missing
+      congruence and would be unsound.  The arbitrary-block normalization is
+      therefore certified directly, but under a strict evaluator fence:
+      sixteen linearly imported chunk modules fix the first four Boolean
+      selectors and split only the remaining eight.  Each declaration proves
+      exactly 256 configurations; no declaration or process materializes the
+      4,096-case family.
+   4. The public dispatcher proves
 
-   This order is the shortest sound path to production closure: the hard
-   local representation theory is now complete, while arbitrary link
-   placement and spectator opacity are the remaining reusable seams.
+      ```text
+      integratedComplexCoefficientSum block (F F F R R R)
+        ~= orientedSixFundamentalHaarProjector,
+      ```
 
-9. **Introduce one channel-resolved physical kernel.** Once the bivalent,
-   four-valent, and six-valent local projectors share a common arbitrary-block
-   interface, define a link-local tensor kernel indexed by the actual ordered
-   oriented plaquette occurrences. The global physical term must be obtained
-   by contracting face indices through these local tensors, not by multiplying
-   invariant-space cardinalities. Its cutoff-one specializations must recover:
+      together with all-false `1/4`, negative `-1/12`, and
+      transpose-sensitive `1/12` regressions.  Its block-zero compatibility
+      theorem identifies the new partial statement with the previously
+      certified normalized one-link sixth moment.
+   5. Composition with the genuine `TL3` bridge gives the exact five-term
+      factorization with weights `1/4,1/2,1/2,2/3,2/3`.  Both the signed
+      inverse-Gram result and this positive-channel result lift through
+      `genericBlock_localFactor_with_complex_spectator`, preserving an opaque
+      complex spectator independent of the selected block.
+
+   Every one of the sixteen serial fibers is green under one Lean thread and
+   the repository session lock.  The observed per-fiber peak was at most
+   about 3.77 GB resident memory, with zero swaps; the public dispatcher and
+   spectator leaf used about 1.28 GB, also with zero swaps.  This is a bounded
+   proof decomposition, not a relaxed memory limit.  The public endpoints use
+   exactly `[propext, Quot.sound]`; there is no `Classical`, choice,
+   `native_decide`, `sorry`/`admit`, or custom axiom.  The shared support leaf
+   and public six-valent leaf are imported by `YMGap.lean`, so the entire
+   serial chain belongs to the semantic-root dependency graph.
+
+   After that wiring, the cached serialized `+YMGap` target is green across
+   2,677 jobs in 45.88 seconds, with about 3.04 GB maximum resident memory and
+   zero swaps.  The static import audit finds 2,682 source modules and 8,274
+   local import edges, zero cycles, 2,676 modules reachable from `YMGap.lean`,
+   the same six reviewed alternative roots, and zero unexpected orphans.  The
+   executable forbidden-token scan has zero hits, the host-load guard passes
+   all 236 tracked or untracked nonignored entry files, the ten mocked Mac CI
+   remote-state cases and four bounded-supervisor cases pass, and
+   `git diff --check` passes.  Together the root build and import/default-target
+   guards certify full-current wiring without requiring a clean all-module
+   rebuild on every change.
+
+9. **Close orientation and parity before building the production network.**
+   The next interface must not assume that even link incidence means equal
+   numbers of forward and reverse occurrences.  The elementary cube and the
+   audited double cube are balanced, but an arbitrary cutoff-one support can
+   carry any polarity word.  Even face incidence controls only total valence.
+
+   Exploit the pseudoreality of the fundamental `SU(2)` representation before
+   duplicating projector calculations.  At the literal coefficient level the
+   required self-duality convention is
 
    ```text
-   incidence 0: vacuum factor 1,
-   incidence 2: normalized Schur contraction,
-   incidence 4: signed two-channel inverse-Gram projector,
-   incidence 6: signed five-channel inverse-Gram projector.
+   F[a,b] = sign(a,b) * R[not b, not a],
+   R[a,b] = sign(a,b) * F[not b, not a],
+
+   sign(a,b) = +1 when a=b and -1 otherwise.
    ```
 
-   Keep the face coefficient convention unchanged. In particular, the
-   representation dimension remains in `coeffW`. Separate three notions in
-   the API rather than overloading one scalar:
+   Prove both identities as exact raw complex-polynomial statements and pin
+   the signs by unbalanced second-moment regressions
 
    ```text
-   honestChannelPhysicalTerm   -- signed contracted amplitude,
-   channelAbsoluteMajorant     -- nonnegative absolute bound,
-   canonicalSurfaceActivity   -- legacy multiplicity carrier during migration.
+   integral(F[0,0] F[1,1]) =  1/2,
+   integral(F[0,1] F[1,0]) = -1/2.
    ```
 
-   Prove locally, before any partition-level rewrite:
+   Then execute the following finite constructive sequence.
 
-   ```text
-   |honest local contraction| <= local invariant-dimension majorant,
-   |honestChannelPhysicalTerm| <= channelAbsoluteMajorant,
-   channelAbsoluteMajorant <= the existing convergence budget.
-   ```
+   1. Define an ordered oriented occurrence word for one link and a certified
+      self-duality normalization which converts every even word of length at
+      most six to the balanced orientation expected by the existing Schur,
+      four-valent, or six-valent theorem.  The output must carry the exact
+      product of epsilon signs and complemented/transposed indices.  Reorder
+      raw factors only through the existing setoid-level complex-polynomial
+      reordering API; do not assert list-level polynomial equality.
+   2. Prove exact odd-valence Haar vanishing for lengths `1`, `3`, and `5`.
+      This should be a structural antipodal/total-degree parity theorem, then
+      an arbitrary-block independent-spectator lift—not a separate exhaustive
+      table for every polarity word.
+   3. Define one total cutoff-one local-kernel dispatcher for all seven
+      valences:
 
-   Reflection positivity must be stated through the positive Gram/projector
-   form, while cancellation and recoupling retain signed amplitudes. Squared
-   Racah probabilities are derived comparison data only; they must never
-   replace the signed kernel.
+      ```text
+      0 : identity/vacuum projector, rank 1,
+      1 : zero,
+      2 : signed self-dual Schur projector, rank 1,
+      3 : zero,
+      4 : signed self-dual two-channel projector, rank 2,
+      5 : zero,
+      6 : signed self-dual five-channel projector, rank 5.
+      ```
 
-10. **Migrate production only after the local closure theorem.** The decisive
-    readiness theorem is that every cutoff-one physical support decomposes
-    linkwise into the `0/2/4/6` cases and that the channel-resolved contraction
-    is defined, normalized, and absolutely dominated in each case. Then:
+      Its main theorem must work at an arbitrary in-range block beneath an
+      independent complex spectator.  Thus arbitrary supports are total by
+      construction, while their nonzero sector is selected by parity rather
+      than assumed in the definition.
+   4. Package the even kernels as rational orthogonal projector resolutions.
+      Prove idempotence/self-adjointness in the appropriate rational Gram
+      forms and trace/rank values `1,1,2,5` for valences `0,2,4,6`.  Keep the
+      signed permutation-basis kernels and the positive channel resolutions
+      connected by exact equalities; neither squared recoupling coefficients
+      nor invariant-space cardinalities are physical amplitudes.
+
+   Acceptance must include all seven valences, both self-duality directions,
+   an unbalanced positive and negative sign pin, and recovery of the existing
+   balanced two-, four-, and six-leg endpoints.  Only after this theorem is
+   green is the local cutoff-one representation-theoretic closure complete.
+
+10. **Construct the closed coefficient network and prove rank domination.**
+    Define the global physical coefficient by contracting the actual ordered
+    face indices through the local tensors.  Do not estimate the exponentially
+    many Boolean-index summands entrywise.  Package the contraction instead as
+
+    ```text
+    Tr ((tensor_e P_e) W),
+    ```
+
+    where `P_e` is the valence-selected local Haar projector and `W` is the
+    signed Boolean wiring permutation induced by oriented plaquette cycles,
+    inverse occurrences, and the self-duality epsilon tensors.  Prove that
+    `W` preserves the product rational Gram form.
+
+    For `P = tensor_e P_e`, establish constructively
+
+    ```text
+    |Tr (P W)| <= rank(P)
+                = product_e fundamentalInvariantMultiplicity(valence_e).
+    ```
+
+    A square-root-free route is sufficient: prove
+    `2*|<x,y>| <= ||x||^2 + ||y||^2`, apply it to the signed-permutation
+    isometry on an orthogonal channel basis, and sum only over the image of
+    `P`.  This trace/rank argument is essential: bounds on individual kernel
+    entries do not control the global Boolean-index sum.
+
+    Keep the face coefficient convention unchanged—the representation
+    dimension remains in `coeffW`—and separate the three semantic objects
+
+    ```text
+    honestChannelPhysicalTerm   -- signed contracted Yang--Mills amplitude,
+    channelAbsoluteMajorant     -- nonnegative rank/activity bound,
+    canonicalSurfaceActivity   -- legacy carrier during migration.
+    ```
+
+    Prove, before rewriting a partition,
+
+    ```text
+    abs honestChannelPhysicalTerm <= channelAbsoluteMajorant,
+    channelAbsoluteMajorant ~= canonicalSurfaceActivity,
+    channelAbsoluteMajorant <= the existing convergence budget.
+    ```
+
+    The middle statement identifies the legacy scalar only as a majorant, not
+    as the physical amplitude.  Reflection positivity belongs to the positive
+    Gram/projector form, while cancellation and recoupling remain visible in
+    the signed amplitude.
+
+    Required global normalization tests are: odd-incidence zero; the
+    elementary-cube coefficient `1/16`; the edge-touching double-cube
+    coefficient `1/256`; and at least one unbalanced-polarity network whose
+    sign would be wrong if the epsilon wiring were omitted.
+
+11. **Migrate production only after the total local and domination theorems.**
+    The readiness theorem must cover valences `0` through `6`, not merely the
+    balanced even cases, and must show that every cutoff-one support has a
+    defined normalized contraction whose absolute value is dominated by the
+    current convergence carrier.  Then:
 
     1. define the honest replacement beneath `parametricKPhysicalTerm`;
     2. retain the legacy scalar under an explicit `...Majorant` name;
-    3. reprove cutoff-one partition identification and nonnegativity/absolute
-       convergence with the honest/majorant distinction visible;
-    4. reprove canonical reachability, compression, block transport, and
-       reflection-positive interfaces against that single kernel;
-    5. rerun the elementary-cube and double-cube witnesses as normalization
+    3. reprove cutoff-one partition identification and absolute convergence
+       with the honest/majorant distinction visible;
+    4. derive nonnegativity only where reflection pairing genuinely supplies
+       it, rather than assigning it to every signed local amplitude;
+    5. reprove canonical reachability, compression, block transport, and
+       reflection-positive interfaces against the single total kernel;
+    6. rerun the elementary-cube and double-cube witnesses as normalization
        acceptance tests;
-    6. remove transitional aliases only after all semantic-root consumers use
+    7. remove transitional aliases only after all semantic-root consumers use
        the new API.
 
     This ordering prevents a locally correct signed projector from silently
     invalidating global proofs that currently rely on scalar nonnegativity,
     and prevents a convenient majorant from being mistaken for the Yang--Mills
-    amplitude.
+    amplitude.  It supplies the exact positive-channel input next needed by
+    `AdjacentEvenActiveQuadraticSOSData`; arbitrary-spin extension and the
+    continuum mass-gap closure remain explicit later milestones rather than
+    being claimed here.
 
 This route is finite, exact, and intuitionistic: recursive Boolean sums,
 explicit finite case proofs, rational setoid algebra, duplicate-free decoders,

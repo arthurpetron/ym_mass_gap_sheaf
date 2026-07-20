@@ -16,7 +16,7 @@ network is unfolded or materialized.
 No `Classical`, choice, `sorry`/`admit`, `native_decide`, or custom axiom.
 -/
 
-import YMGap.Continuum.SU2QuaternionGenericBlockPartialFundamentalSchur
+import YMGap.Continuum.SU2QuaternionGenericBlockFundamentalCoefficientSupport
 import YMGap.Continuum.SU2QuaternionOneLinkFourValentHaarProjector
 
 namespace YMGap.Continuum.SU2QuaternionGenericBlockPartialFourValentHaarProjector
@@ -36,6 +36,7 @@ open YMGap.Continuum.SU2QuaternionComplexRatPolyAlgebra
 open YMGap.Continuum.SU2QuaternionFiniteProductHaarComplexReordering
 open YMGap.Continuum.SU2QuaternionOneLinkFundamentalSchurSpectatorFubini
 open YMGap.Continuum.SU2QuaternionGenericBlockPartialFundamentalSchur
+open YMGap.Continuum.SU2QuaternionGenericBlockFundamentalCoefficientSupport
 open YMGap.Continuum.SU2QuaternionFundamentalPlaquetteTraceExpansion
 open YMGap.Continuum.SU2QuaternionOneLinkFourValentHaarProjector
 
@@ -191,57 +192,6 @@ theorem finiteProductHaarComplex_mul_pairedTwoForwardTwoReverse_eq_canonical
 
 /-! ## 2. Exact arbitrary-block coefficient sum -/
 
-/-- Exponent lookup in a raw variable monomial, retained locally so the
-arbitrary block offset reduces without unfolding a symbolic replicated list. -/
-private theorem exponentAt_varMono_local (source coordinate : Nat) :
-    exponentAt (varMono source) coordinate =
-      if coordinate = source then 1 else 0 := by
-  induction source generalizing coordinate with
-  | zero =>
-      cases coordinate <;> rfl
-  | succ source ih =>
-      have hvar : varMono (source + 1) = 0 :: varMono source := by
-        unfold varMono
-        rw [List.replicate_succ]
-        rfl
-      cases coordinate with
-      | zero => rfl
-      | succ coordinate =>
-          rw [hvar]
-          simpa only [exponentAt, List.getD,
-            List.getElem?_cons_succ, Nat.add_one_inj]
-            using ih coordinate
-
-private theorem exponentAt_blockVariableNat_local
-    (block component query : Nat) :
-    exponentAt (varMono (4 * block + component)) (4 * block + query) =
-      if query = component then 1 else 0 := by
-  rw [exponentAt_varMono_local]
-  by_cases heq : query = component
-  · simp only [heq, if_true]
-  · have hcoordinate :
-        4 * block + query ≠ 4 * block + component := by omega
-    simp only [hcoordinate, heq, if_false]
-
-private theorem exponentAt_blockBase_query_local
-    (block query : Nat) :
-    exponentAt (varMono (4 * block)) (4 * block + query) =
-      if query = 0 then 1 else 0 := by
-  simpa only [Nat.add_zero] using
-    exponentAt_blockVariableNat_local block 0 query
-
-private theorem exponentAt_blockComponent_base_local
-    (block component : Nat) :
-    exponentAt (varMono (4 * block + component)) (4 * block) =
-      if 0 = component then 1 else 0 := by
-  simpa only [Nat.add_zero] using
-    exponentAt_blockVariableNat_local block component 0
-
-private theorem exponentAt_blockBase_base_local (block : Nat) :
-    exponentAt (varMono (4 * block)) (4 * block) = 1 := by
-  simpa only [Nat.add_zero] using
-    exponentAt_blockVariableNat_local block 0 0
-
 /-- **Exact arbitrary-block signed fourth moment.**  After integrating the
 selected quaternion block, the coefficient sum of the paired local word is
 the same inverse-Gram projector as at block zero.  The fourth moments remain
@@ -282,10 +232,10 @@ theorem integrated_pairedTwoForwardTwoReverse_projector
         List.map_cons, List.map_nil, List.flatMap_cons, List.flatMap_nil,
         List.append_nil, List.nil_append, List.cons_append,
         quaternionBlockMoment, exponentAt_monoMul,
-        exponentAt_blockVariableNat_local,
-        exponentAt_blockBase_query_local,
-        exponentAt_blockComponent_base_local,
-        exponentAt_blockBase_base_local,
+        exponentAt_blockVariableNat,
+        exponentAt_blockBase_query,
+        exponentAt_blockComponent_base,
+        exponentAt_blockBase_base,
         orientedFourFundamentalHaarProjector,
         orientedFourFundamentalHaarProjectorScalar,
         directOrientedPairing, crossedOrientedPairing, boolKronecker,
