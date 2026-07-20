@@ -21476,3 +21476,258 @@ non-ignored entry files, and `git diff --check` passed.  Together with the
 isolated green target build, root reachability certifies that both leaves
 participate in the current full build without repeating that resource-heavy
 build.
+
+#### 8.13.57 Exact outward six-face trace network — ✓ COMPLETE
+
+Modules:
+`YMGap.Continuum.SU2QuaternionFiniteProductHaarFourFactorGrouping`,
+`YMGap.Continuum.SU2QuaternionElementaryCubeOutwardFaceProductBridge`, and
+`YMGap.Continuum.SU2QuaternionElementaryCubeOutwardTraceNetwork`.
+
+This checkpoint closes the face-chunk and structural depth-twenty-four lift
+left open in Section 8.13.56. It gives the first exact finite-product Haar
+theorem for an honest product of six named, outward-oriented fundamental
+plaquette trace summands, summed over all twenty-four shared matrix-index
+variables. The result is constructive and exact:
+
+```text
+Hᴄ(outward six-face trace network) ≃ (1/16, 0).
+```
+
+The word *outward* remains essential. Three faces use the reversed trace
+orientation and three use the standard trace orientation. This theorem is
+therefore the mathematically correct elementary-cube boundary contraction,
+but it is not yet the canonical-all-standard production expression.
+
+##### 8.13.57.1 Generic contextual four-factor row grouping — ✓ COMPLETE
+
+A symbolic row `r` now has both representations
+
+```text
+rowPolynomial(r) = (((first(r) * second(r)) * third(r)) * fourth(r))
+rowFactors(r)    = [first(r), second(r), third(r), fourth(r)].
+```
+
+The reusable theorem
+
+```text
+finiteProductHaarComplex_mul_fourFactorRowProducts_eq_flatMap
+```
+
+retains an arbitrary accumulated spectator and an arbitrary list-valued
+suffix. It proves, for every row list,
+
+```text
+Hᴄ(spectator * product(map rowPolynomial rows ++ suffix))
+  ≃
+Hᴄ(spectator * product(flatMap rowFactors rows ++ suffix)).
+```
+
+The strengthened statement is the induction invariant required by the
+syntax-sensitive raw polynomial carrier. When one row is exposed, three
+verified four-factor Haar reassociations transform
+
+```text
+(spectator * (((a*b)*c)*d)) * suffix
+```
+
+into the same right-local form as
+
+```text
+((((spectator*a)*b)*c)*d) * suffix.
+```
+
+The recursive call then uses the four-times-accumulated spectator. Thus the
+proof never assumes the false rule that equality after Haar evaluation may
+be multiplied by an arbitrary polynomial context. Introducing and removing
+the canonical left unit gives the public bare endpoint
+
+```text
+finiteProductHaarComplex_fourFactorRowProducts_eq_flatMap.
+```
+
+Both the rows and their factors remain symbolic; the generic proof
+materializes neither cube assignments nor a twenty-four-factor production
+word.
+
+##### 8.13.57.2 Audited outward face rows — ✓ COMPLETE
+
+`TaggedOrientedPlaquetteRow` packages one production plaquette, its outward
+orientation, and its four cyclic vertex-major Boolean tags. The exact six
+rows are:
+
+| row | plaquette base/type | orientation | cyclic tags |
+|---:|---|---|---|
+| 0 | `(0,0,0,1) / p01` | reversed | `[0,9,6,3]` |
+| 1 | `(0,0,0,1) / p02` | standard | `[1,4,15,12]` |
+| 2 | `(0,0,0,1) / p12` | reversed | `[2,13,21,10]` |
+| 3 | `(0,0,1,1) / p01` | standard | `[14,16,18,22]` |
+| 4 | `(0,1,0,1) / p02` | reversed | `[11,23,19,7]` |
+| 5 | `(1,0,0,1) / p12` | standard | `[5,8,20,17]` |
+
+The small concrete theorems
+
+```text
+radiusZeroElementaryCubeOutwardFaceRows_faces
+radiusZeroElementaryCubeOutwardFaceRows_tags
+```
+
+certify that these rows are literally the previously audited outward face
+list and cyclic tag table. Only these six bounded records are reduced.
+
+For canonical edge blocks `(b₀,b₁,b₂,b₃)`, a standard row uses
+
+```text
+[F(b₀), F(b₃), R(b₂), R(b₁)],
+```
+
+whereas a reversed row uses
+
+```text
+[F(b₁), F(b₂), R(b₃), R(b₀)].
+```
+
+The theorem `TaggedOrientedPlaquetteRow.traceTerm_eq_named` proves that the
+left-associated polynomial of every row is exactly the established
+`standardPlaquetteTraceTerm` or `reversedPlaquetteTraceTerm`, with the
+appropriate four tag values. No semantic evaluation or orientation
+identification is used.
+
+##### 8.13.57.3 Descriptor and face-major reconciliation — ✓ COMPLETE
+
+Each face row also produces four signed coefficient descriptors. The exact
+six-row audit
+
+```text
+radiusZeroElementaryCubeOutwardFaceDescriptorRows_flatten
+```
+
+proves that flattening them gives the previously certified twenty-four-entry
+face-major descriptor list. Mapping an arbitrary opaque assignment through
+the descriptor rows therefore yields the exact symbolic identity
+
+```text
+radiusZeroElementaryCubeOutwardFaceCoefficientRows_eq_faceMajorWord.
+```
+
+Applying the generic four-factor grouping theorem to these six rows gives
+
+```text
+finiteProductHaarComplex_radiusZeroElementaryCubeOutwardFaceTraceProduct_eq_faceMajor.
+```
+
+Composing with the fixed-assignment endpoint from Section 8.13.56 then proves
+for every opaque `assignment : List Bool`:
+
+```text
+Hᴄ(product(six named outward face terms at assignment))
+  ≃ radiusZeroElementaryCubeSchurDeltaValue assignment.
+```
+
+This is a pointwise theorem in a symbolic assignment. It does not enumerate
+the `2^24` possible assignments and does not reduce the twenty-four-factor
+product.
+
+##### 8.13.57.4 Structural Boolean lift and exact value — ✓ COMPLETE
+
+The full outward network is deliberately defined opaquely by
+
+```text
+radiusZeroElementaryCubeOutwardTraceNetwork :=
+  complexRatPolyBoolSum 24
+    radiusZeroElementaryCubeOutwardFaceTraceProduct.
+```
+
+The existing structural Haar-linearity theorem moves finite-product Haar
+through this Boolean sum, and `rationalComplexBoolSum_congr` lifts the
+fixed-assignment theorem without exposing any concrete branch tree. This
+gives the two exact bridges
+
+```text
+finiteProductHaarComplex_radiusZeroElementaryCubeOutwardTraceNetwork_eq_schurDeltaSum
+
+finiteProductHaarComplex_radiusZeroElementaryCubeOutwardTraceNetwork_eq_pairedTraceNetwork.
+```
+
+Finally, composing with the already resolved crossed-delta sum proves
+
+```text
+finiteProductHaarComplex_radiusZeroElementaryCubeOutwardTraceNetwork_exact :
+  Hᴄ(radiusZeroElementaryCubeOutwardTraceNetwork) ≃ (1/16, 0).
+```
+
+The factor `1/16` is the exact unnormalized shared-index cube contraction; it
+is not inferred numerically and its vanishing imaginary component is proved
+inside the rational-complex equivalence. This endpoint reconciles all six
+outward faces, twelve physical Haar blocks, twenty-four signed coefficient
+occurrences, twenty-four shared Boolean indices, and the complete crossed
+Schur-delta network.
+
+##### 8.13.57.5 Scope fence and revised shortest route
+
+The present network is a Boolean sum of products of six *summands*. It has
+not yet been identified with the product of six separately defined
+four-binder plaquette trace *expansions*. Distribution of those six sums
+through the surrounding product is nontrivial because bare Haar equivalence
+is not a multiplication congruence. Also, the six local binder rows occur in
+face-major tag order
+
+```text
+[0,9,6,3, 1,4,15,12, 2,13,21,10,
+ 14,16,18,22, 11,23,19,7, 5,8,20,17],
+```
+
+whereas the contracted network uses the vertex-major order `0,...,23`.
+
+The shortest sound continuation is now:
+
+1. add a reusable two-sided contextual Haar multilinearity/Fubini API,
+   proving structural `mul_add_inner`, `mul_boolBind_inner`, and
+   `mul_boolSum_inner` theorems with arbitrary prefix and suffix;
+2. expand the product of the six outward four-binder trace expansions under
+   Haar into a face-major depth-twenty-four rational-complex branch sum;
+3. prove an explicit constructive reindexing of that additive binder tree
+   from face-major tags to vertex-major tags, after Haar has crossed the sums;
+4. conclude that the genuine product of six outward plaquette trace
+   expansions has exact Haar value `1/16`;
+5. prove a separate contextual four-binder orientation theorem. A reversed
+   summand at `(a,b,c,d)` corresponds to a standard summand at
+   `(!a,!d,!c,!b)`, with four cyclic signs multiplying to `+1`; there is no
+   valid same-assignment replacement;
+6. apply that theorem only at the reversed face slots `0,2,4` to reach the
+   canonical-all-standard production expression; and
+7. expose the resulting normalization fence. The current scalar production
+   surrogate contributes `coeff^6`, while the honest weighted cube value is
+   `coeff^6 / 16`. Bank the signed four-valent edge-touching diagnostic
+   before changing the global local-to-slab kernel.
+
+In particular, multiplicative `List.Perm` theorems cannot reindex additive
+Boolean binders; the existing evaluation equality between reversed and
+standard trace expansions cannot be transported through the syntax-sensitive
+Haar carrier; and the link-character cube surrogate must not be substituted
+for this honest shared-index integral.
+
+##### 8.13.57.6 Verification ledger
+
+The generic grouping leaf, the six-face bridge, and the final outward-network
+leaf were each built once as isolated Lake targets under the repository
+session lock, with `caffeinate`, `nice -n 10`, and `LEAN_NUM_THREADS=1`, after
+the mandatory host-idle process check. The three successful checkpoints
+completed in 432, 762, and 764 jobs respectively. No clean/full build and no
+test suite was run, and the depth-twenty-four Boolean sum was never unfolded.
+
+The public axiom gates for the symbolic row definitions and grouping
+theorems, six-row metadata and descriptor audits, named-term identity,
+fixed-assignment Haar endpoints, structural Boolean lift, paired-network
+bridge, and final exact theorem expose no `Classical.choice` or `sorryAx`.
+The Haar-valued endpoints remain within `[propext, Quot.sound]`; the finite
+six-row data audits require no axioms. After root wiring, the static import
+audit found 2,634 source modules and 8,168 local import edges, with zero
+cycles; 2,628 modules are reachable from the semantic root, and all six
+remaining modules are classified infrastructure or examples, leaving zero
+unexpected orphans. The executable-source forbidden-token scan found zero
+hits, the host-load guard passed all 236 tracked or untracked non-ignored
+entry files, and `git diff --check` passed. Together with the isolated green
+target builds and the independent mathematical review, root reachability
+certifies that all three new leaves participate in the current full build
+without repeating that resource-heavy build.
