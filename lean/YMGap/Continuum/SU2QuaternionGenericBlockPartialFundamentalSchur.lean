@@ -375,7 +375,10 @@ private theorem complexQuaternionBlockLocal_conj
     ComplexQuaternionBlockLocal block (complexRatPolyConj value) := by
   exact ⟨hlocal.1, quaternionBlockLocal_polyNeg hlocal.2⟩
 
-private theorem complexQuaternionBlockLocal_mul
+/-- Block-local honest complex polynomials are closed under raw complex
+multiplication.  This public closure is the locality API used by higher-valent
+link factors assembled from already-local contractions. -/
+theorem complexQuaternionBlockLocal_mul
     {block : Nat} {left right : ComplexRatPoly}
     (hleft : ComplexQuaternionBlockLocal block left)
     (hright : ComplexQuaternionBlockLocal block right) :
@@ -852,6 +855,64 @@ theorem finiteProductHaarComplex_mul_allZero_right
         (finiteProductHaar_polyMul_allZero_right
           blockCount factor.2 aliases.1 hall.1)
 
+/-- **Generic block-local factor reduction with a complex spectator.**  If a
+factor is local to an in-range quaternion block and its exact partially
+integrated coefficient sum is `value`, then an arbitrary complex spectator
+independent of that block factors through the full finite-product Haar
+functional.  The conclusion is setoid-level because partial integration
+retains trailing-zero monomial aliases rather than a literal constant
+polynomial. -/
+theorem genericBlock_localFactor_with_complex_spectator
+    (blockCount block : Nat) (hblock : block < blockCount)
+    (spectator factor : ComplexRatPoly)
+    (hindependent :
+      ComplexQuaternionBlockIndependent block spectator)
+    (hlocal : ComplexQuaternionBlockLocal block factor)
+    (value : RationalComplex)
+    (hvalue : RationalComplexEqv
+      (integratedComplexCoefficientSum block factor) value) :
+    RationalComplexEqv
+      (finiteProductHaarComplex blockCount
+        (complexRatPolyMul spectator factor))
+      (rationalComplexMul
+        (finiteProductHaarComplex blockCount spectator) value) := by
+  let aliases := integrateQuaternionBlockComplex block factor
+  have hfubini : RationalComplexEqv
+      (finiteProductHaarComplex blockCount
+        (complexRatPolyMul spectator factor))
+      (finiteProductHaarComplex blockCount
+        (complexRatPolyMul spectator aliases)) := by
+    exact
+      finiteProductHaarComplex_complexSpectator_eq_after_integrating_right
+        blockCount block hblock spectator factor hindependent
+  have hall : AllZeroExponentTerms aliases.1 ∧
+      AllZeroExponentTerms aliases.2 := by
+    exact integrateQuaternionBlockComplex_allZero_of_local block hlocal
+  have halias : RationalComplexEqv
+      (finiteProductHaarComplex blockCount
+        (complexRatPolyMul spectator aliases))
+      (rationalComplexMul
+        (finiteProductHaarComplex blockCount spectator)
+        (coefficientSum aliases.1, coefficientSum aliases.2)) := by
+    exact finiteProductHaarComplex_mul_allZero_right
+      blockCount spectator aliases hall
+  have hcoefficient : RationalComplexEqv
+      (coefficientSum aliases.1, coefficientSum aliases.2) value := by
+    simpa [aliases, integratedComplexCoefficientSum,
+      blockIntegratedCoefficientSum, integrateQuaternionBlockComplex]
+      using hvalue
+  constructor
+  · exact Q'.eqv_trans _ _ _ hfubini.1
+      (Q'.eqv_trans _ _ _ halias.1
+        (rationalComplexMul_congr_right
+          (finiteProductHaarComplex blockCount spectator)
+          hcoefficient).1)
+  · exact Q'.eqv_trans _ _ _ hfubini.2
+      (Q'.eqv_trans _ _ _ halias.2
+        (rationalComplexMul_congr_right
+          (finiteProductHaarComplex blockCount spectator)
+          hcoefficient).2)
+
 /-- **Generic-block partial fundamental Schur theorem with a complex
 spectator.**  For any in-range quaternion block and any componentwise
 block-independent complex spectator, the local oppositely oriented
@@ -925,6 +986,8 @@ theorem genericBlock_oriented_fundamental_schur_with_complex_spectator
 #print axioms quaternionBlockMoment_blockVariablePair
 #print axioms integrated_orientedFundamentalLinkContraction_coefficientSum
 #print axioms finiteProductHaarComplex_mul_allZero_right
+#print axioms complexQuaternionBlockLocal_mul
+#print axioms genericBlock_localFactor_with_complex_spectator
 #print axioms genericBlock_oriented_fundamental_schur_with_complex_spectator
 
 end YMGap.Continuum.SU2QuaternionGenericBlockPartialFundamentalSchur

@@ -22668,15 +22668,19 @@ and `git diff --check` passed.
 Modules:
 
 - `YMGap.Continuum.SU2QuaternionOneLinkFourValentHaarProjector`;
+- `YMGap.Continuum.SU2QuaternionOneLinkFourValentHaarProjectorReordering`;
+- `YMGap.Continuum.SU2QuaternionGenericBlockPartialFundamentalSchur`;
+- `YMGap.Continuum.SU2QuaternionGenericBlockPartialFourValentHaarProjector`;
 - `YMGap.Continuum.SU2QuaternionEdgeTouchingDoubleCubeSharedLinkHaarNormalization`.
 
-The local signed projector, its scalar trace, and the literal exceptional-link
-geometry are now banked. This resolves the first ambiguity left by the cube
-normalization audit: the production factor two is exactly the closed trace of
-a rank-two normalized Haar projector, but it is not an entrywise substitute
-for that projector. The remaining milestone is to transport the signed local
-kernel through arbitrary spectators and contract the edge-touching network
-without constructing its global Boolean assignment space.
+The local signed projector, its scalar trace, the literal exceptional-link
+geometry, the exact contextual order bridge, and the arbitrary-block
+independent-spectator lift are now banked. This resolves the first ambiguity
+left by the cube normalization audit: the production factor two is exactly the
+closed trace of a rank-two normalized Haar projector, but it is not an
+entrywise substitute for that projector. The next milestone is to contract
+the twenty-two bivalent links while retaining the one signed four-valent
+kernel, without constructing the global Boolean assignment space.
 
 ##### 8.13.63.1 Balanced fourth moment and inverse Gram kernel — ✓ COMPLETE
 
@@ -22778,7 +22782,150 @@ Consequently both two-forward/two-reverse balance and the reverse-index
 transpose are proved from the literal oriented face words, not inferred from
 incidence cardinality.
 
-##### 8.13.63.4 Scope and verification ledger
+##### 8.13.63.4 Contextual exceptional-link order bridge — ✓ COMPLETE
+
+The structural shared-link word occurs literally as
+
+```text
+R1 F1 R2 F2.
+```
+
+Finite-product Haar reordering now proves both the bare equivalence and the
+version beneath arbitrary honest complex left spectator and right suffix,
+
+```text
+H(S * ((((R1 F1) R2) F2) * T))
+  ≃ H(S * ((((F1 F2) R1) R2) * T)).
+```
+
+The contextual proof uses the explicit constructive permutation
+
+```text
+[R1,F1,R2,F2,T]
+  -> [F1,R1,R2,F2,T]
+  -> [F1,R1,F2,R2,T]
+  -> [F1,F2,R1,R2,T].
+```
+
+No raw-polynomial associativity, commutativity, or congruence beneath Haar is
+asserted. The local proof instead composes the established Haar-level
+associativity, genuine four-factor exchange, pair exchange, and inverse
+associativity laws.
+
+The coefficient-specialized contextual statement exposes the complete
+external index permutation. From inherited occurrence order
+
+```text
+(r1row,r1col, f1row,f1col, r2row,r2col, f2row,f2col)
+```
+
+the projector receives
+
+```text
+(f1row,f1col, f2row,f2col, r1row,r1col, r2row,r2col),
+```
+
+namely target-from-source positions `[2,3,6,7,0,1,4,5]`. Neither reverse
+row/column pair is swapped externally: `reverseFundamentalCoefficient e f`
+already denotes `conj(U_f e)`. Thus forward rows still pair with external
+reverse columns, and forward columns with external reverse rows.
+
+For the block-local calculation, the paired representative
+
+```text
+(F1 R1)(F2 R2)
+```
+
+is also related to the canonical left comb `(((F1 F2) R1) R2)` beneath an
+arbitrary complex spectator. This latter theorem is proved contextually by
+mapping both words to the common Haar normal form
+
+```text
+(S F1)(F2(R1 R2));
+```
+
+it does not commit the invalid step of multiplying a bare Haar equivalence by
+an arbitrary spectator.
+
+##### 8.13.63.5 Arbitrary-block signed partial Haar — ✓ COMPLETE
+
+Partial integration is stated honestly through
+`integratedComplexCoefficientSum`. Clearing a quaternion block retains
+trailing-zero monomial aliases, so the theorem does not claim raw equality
+with a constant polynomial. For every `block : Nat` and all eight Boolean
+matrix indices, the exact identity is now
+
+```text
+integratedComplexCoefficientSum block
+  ((F1 R1)(F2 R2))
+    ≃ orientedFourFundamentalHaarProjector(F1,F2,R1,R2).
+```
+
+This covers all 256 signed entries at every symbolic base-four block offset.
+The normalization first expands only the finite local polynomial, then uses
+explicit block/base exponent lemmas to remove the symbolic offset without
+adding `sphereMoment4` to the simplifier set. A fenced `simp only` performs
+precisely that structural normalization; the resulting closed rational fourth
+moments may then kernel-reduce, together with the Boolean projector arithmetic,
+under constructive `decide`.
+This proof shape is essential: the earlier ambient-simp prototype compiled
+but its generated proof exposed `Classical.choice`, so it was rejected and
+replaced rather than banked.
+
+The arbitrary-block acceptance pins are
+
+```text
+I_block((F_00 R_00)(F_00 R_00)) ≃ ( 1/3, 0),
+I_block((F_00 R_10)(F_11 R_01)) ≃ (-1/6, 0),
+I_block((F_00 R_00)(F_01 R_10)) ≃ ( 1/6, 0).
+```
+
+The second uses canonical projector order
+`(F1,F2,R1,R2)=(00,11,10,01)` and preserves the inverse-Gram interference
+sign through the symbolic block shift. The third is deliberately
+transpose-sensitive: the correct external reverse convention gives `1/6`,
+whereas omitting the reverse row/column transpose gives zero. A corresponding
+block-zero literal-order regression has `R1 F1 R2 F2 = 00,00,10,01`, so the
+combined acceptance fence also exercises the exact contextual argument order
+rather than merely a transpose-invariant diagonal or mixed entry.
+
+The generic partial-Haar layer now exports two reusable facts:
+
+1. honest complex polynomials local to one quaternion block are closed under
+   raw complex multiplication;
+2. if a local factor has partially integrated coefficient sum `z`, then for
+   `block < blockCount` and any componentwise block-independent spectator
+   `S`,
+
+```text
+H_blockCount(S * factor)
+  ≃ rationalComplexMul(H_blockCount(S), z).
+```
+
+Its proof is exactly the constructive chain
+
+```text
+complex-spectator Fubini
+  -> local factor gives all-zero aliases
+  -> Haar multiplication by all-zero aliases
+  -> coefficient-sum value substitution.
+```
+
+Applying this abstraction to the paired four-valent term, then composing with
+the genuine contextual paired/canonical bridge, gives the reusable endpoint
+
+```text
+H_blockCount(S * (((F1 F2) R1) R2))
+  ≃ rationalComplexMul
+      (H_blockCount(S),
+       orientedFourFundamentalHaarProjector(F1,F2,R1,R2)).
+```
+
+Every nonselected link polynomial remains opaque. The theorem assumes only
+the necessary range proof and block independence; it does not enumerate any
+network state or silently replace the projector by its trace.
+
+##### 8.13.63.6 Scope and verification ledger
 
 Only the fixed eight-index local moment, the four-index diagonal trace, and a
 forty-eight-element structural occurrence list are exposed. No twelve-face
@@ -22786,57 +22933,89 @@ trace product, depth-forty-eight Boolean sum, global assignment list, bounded
 labelling family, or trajectory is defined, unfolded, evaluated, printed, or
 materialized.
 
-After separate mandatory host-idle checks, the local projector target and the
-geometric comparison target were built individually through the repository
-session lock with `caffeinate`, `nice -n 10`, and `LEAN_NUM_THREADS=1`. The
-projector target completed in 434 jobs; the final geometry target completed
-in 906 jobs and rebuilt only its 458 ms leaf after the endpoint-order theorem
-was added. No full or clean build and no test suite was run.
+After separate mandatory host-idle checks, every Lean target was built through
+the repository session lock with `caffeinate`, `nice -n 10`, and
+`LEAN_NUM_THREADS=1`. The block-zero projector target completed in 434 jobs;
+the final geometry target completed in 906 jobs and rebuilt only its 458 ms
+leaf after the endpoint-order theorem was added. The contextual-order target
+completed in 436 jobs, with its final leaf under 400 ms. The final
+arbitrary-block projector target completed in 435 jobs and 20 seconds; this
+bounded cost is the complete 256-entry symbolic-block proof, not a global
+network enumeration. No full or clean build and no test suite was run.
 
-The Gram calculation, concrete signed regressions, literal face/orientation/
-endpoint tables, and bounded trace arithmetic are axiom-free. The remaining
-Haar/setoid and production-comparison declarations expose only subsets of
-`[propext, Quot.sound]`. No `Classical.choice`, `sorryAx`, `native_decide`,
-custom axiom, `sorry`, or `admit` occurs on the path. An independent read-only
-audit checked the reverse-coefficient convention, all four inverse-Gram
-terms, the negative regression, the diagonal trace, the outward mask, face
-order, polarity word, endpoint order, and scalar-only scope, and found no
-mathematical or code blocker.
+The rational Gram calculation, direct projector-entry arithmetic, literal
+face/orientation/endpoint tables, and bounded trace arithmetic are axiom-free.
+Their Haar/setoid lifts, including the concrete signed regressions, together
+with contextual-reordering, partial-integration, locality, spectator, and
+production-comparison declarations expose only subsets of
+`[propext, Quot.sound]`. A separate print-only audit confirms the reusable
+local-factor theorem, contextual paired/canonical theorem, all-256
+arbitrary-block projector, paired locality theorem, and final canonical
+spectator endpoint, as well as both transpose-sensitive acceptance
+regressions, each expose exactly `[propext, Quot.sound]`. No
+`Classical.choice`, `sorryAx`, `native_decide`, custom axiom, `sorry`, or
+`admit` occurs on the banked path. Independent read-only audits checked the
+reverse-coefficient convention, all four inverse-Gram terms, the negative
+regression, diagonal trace, outward mask, face order, polarity word, endpoint
+order, contextual index permutation, spectator-congruence discipline, and
+partial-integration API, and found no mathematical blocker.
 
-After semantic-root wiring, the static import audit found 2,645 source
-modules and 8,201 local import edges, zero cycles, 2,639 modules reachable
+After semantic-root wiring, the static import audit found 2,647 source
+modules and 8,207 local import edges, zero cycles, 2,641 modules reachable
 from `YMGap.lean`, all six remaining modules classified, and zero unexpected
 orphans. The executable-source forbidden-token scan found zero hits, the
 host-load guard passed all 236 tracked or untracked non-ignored entry files,
 and `git diff --check` passed.
 
-##### 8.13.63.5 Next load-bearing steps — PARTIAL CONTRACTION NEXT
+##### 8.13.63.7 Next load-bearing steps — BIVALENT CONTRACTION NEXT
 
 Proceed in the following order; each step must remain a local structural
 theorem beneath Haar rather than a raw commutativity claim.
 
-1. **Contextual order bridge.** Convert the literal exceptional-link word
+1. **✓ Contextual order bridge.** Convert the literal exceptional-link word
    inherited above, `R F R F`, to the canonical `F F R R` projector order
    under finite-product Haar, first locally and then under an arbitrary honest
    complex spectator independent of the shared block. Preserve the exact
    external index permutation in the theorem statement.
-2. **Arbitrary-block signed partial Haar.** Lift the block-zero, one-link
+   This is complete, including arbitrary left/right context and the exact
+   eight-index permutation `[2,3,6,7,0,1,4,5]`.
+2. **✓ Arbitrary-block signed partial Haar.** Lift the block-zero, one-link
    projector to `integrateQuaternionBlockComplex block` and then through
    `finiteProductHaarComplex_complexSpectator_eq_after_integrating_right`.
    The resulting reusable API must replace only the selected block by the
    constant signed inverse-Gram kernel and leave every other link polynomial
-   opaque.
+   opaque. This is complete for all 256 entries, with both paired and canonical
+   independent-spectator endpoints and no raw constant-polynomial claim.
 3. **Twenty-two bivalent contractions.** Give the twenty-three touched links
-   a duplicate-free block decoder. Apply the existing distinct-block
-   spectator Schur fold to the other twenty-two links while retaining the
-   four exceptional occurrences and their incident Boolean indices. Insert
-   the signed fourth moment only after this separation. Never enumerate the
+   their existing production block decoder `adjacentEvenActiveLinkIndex 0`;
+   do not introduce a second numbering. Define the mapped twenty-three-block
+   list and prove its exact length, nodup, and range. Remove the certified
+   shared block to obtain a twenty-two-row schedule, then prove length, nodup,
+   range, and pointwise exclusion of the shared block.
+
+   Build a forty-eight face-corner tag carrier and a literal incidence table
+   consisting of twenty-two oriented bivalent pairs plus the one ordered
+   four-occurrence row. Prove the table sound and covering while every Boolean
+   assignment remains an opaque `List Bool`. With the four-valent word as the
+   base of `contractionProductOver`, prove pointwise
+
+   ```text
+   H(contractionProductOver fourValentBase bivalentSchedule)
+     ≃ schurDeltaProductFrom signedProjector bivalentSchedule.
+   ```
+
+   The proof must establish base independence, use the existing
+   distinct-block spectator Schur fold, bridge the public rational-complex
+   multiplications with `generic_rationalComplexMul_eqv`, and transport the
+   initial value with `schurDeltaProductFrom_congr_initial`. Insert the signed
+   fourth moment only after the structural separation. Never enumerate the
    `2^48` face-index assignments.
 4. **Channel/Racah identification.** Relate direct/crossed pairings to the
-   rational singlet/triplet coordinates. The combinations `(D+X)/2` and
-   `(D-X)/2` have Gram weights `3` and `1`; match their order and sign with the
-   existing Gram-weighted fixed-`F` carrier before naming any matrix as the
-   Racah move. Prove the repository's actual transpose/inverse convention.
+   rational singlet/triplet coordinates. Fix the convention explicitly:
+   singlet is `(D-X)/2` with Gram weight `1`, while triplet is `(D+X)/2` with
+   Gram weight `3`. Match this order and sign with the existing Gram-weighted
+   fixed-`F` carrier before naming any matrix as the Racah move. Prove the
+   repository's actual transpose/inverse convention.
    The squared data `1/4,3/4,3/4,1/4` are a corollary only and must not replace
    signed amplitudes.
 5. **Structural double-cube closure.** Build the twelve-face product from the
