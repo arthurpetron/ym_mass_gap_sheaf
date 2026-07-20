@@ -22671,16 +22671,18 @@ Modules:
 - `YMGap.Continuum.SU2QuaternionOneLinkFourValentHaarProjectorReordering`;
 - `YMGap.Continuum.SU2QuaternionGenericBlockPartialFundamentalSchur`;
 - `YMGap.Continuum.SU2QuaternionGenericBlockPartialFourValentHaarProjector`;
-- `YMGap.Continuum.SU2QuaternionEdgeTouchingDoubleCubeSharedLinkHaarNormalization`.
+- `YMGap.Continuum.SU2QuaternionEdgeTouchingDoubleCubeSharedLinkHaarNormalization`;
+- `YMGap.Continuum.SU2QuaternionEdgeTouchingDoubleCubeBivalentContraction`.
 
 The local signed projector, its scalar trace, the literal exceptional-link
-geometry, the exact contextual order bridge, and the arbitrary-block
-independent-spectator lift are now banked. This resolves the first ambiguity
-left by the cube normalization audit: the production factor two is exactly the
-closed trace of a rank-two normalized Haar projector, but it is not an
-entrywise substitute for that projector. The next milestone is to contract
-the twenty-two bivalent links while retaining the one signed four-valent
-kernel, without constructing the global Boolean assignment space.
+geometry, the exact contextual order bridge, the arbitrary-block
+independent-spectator lift, and the pointwise twenty-two-link bivalent fold are
+now banked. This resolves the first ambiguity left by the cube normalization
+audit: the production factor two is exactly the closed trace of a rank-two
+normalized Haar projector, but it is not an entrywise substitute for that
+projector. The next milestone is to bridge the literal forty-eight-factor face
+word to the grouped representative and resolve its sixteen delta components,
+without constructing the global Boolean assignment space.
 
 ##### 8.13.63.1 Balanced fourth moment and inverse Gram kernel — ✓ COMPLETE
 
@@ -22925,7 +22927,69 @@ Every nonselected link polynomial remains opaque. The theorem assumes only
 the necessary range proof and block independence; it does not enumerate any
 network state or silently replace the projector by its trace.
 
-##### 8.13.63.6 Scope and verification ledger
+##### 8.13.63.6 Twenty-two bivalent contractions — ✓ COMPLETE
+
+The twenty-three physical touched links now use the existing production
+decoder `adjacentEvenActiveLinkIndex 0`. The complete block list has length
+twenty three, is duplicate-free, and lies in the production Haar carrier. The
+certified shared physical link is removed before decoding the bivalent
+complement; the resulting block list has length twenty two, is duplicate-free
+and in range, and provably excludes the shared block.
+
+The face-corner carrier has forty-eight independent tag names. It reuses the
+audited vertex-major elementary-cube cycles for the first cube and a disjoint
+translate by twenty four for the second. A literal twenty-two-row table pairs
+the positive and negative occurrence of every bivalent physical link. The
+remaining four descriptors are exactly the inherited shared word
+
+```text
+R1=(18,22), F1=(23,19), R2=(27,24), F2=(25,28).
+```
+
+Thus the canonical projector receives
+
+```text
+F1,F2,R1,R2 = (23,19,25,28,18,22,27,24).
+```
+
+No external reverse pair is transposed. A constructive forty-eight-position
+`List.Perm` certificate proves that the shared row together with the
+twenty-two bivalent rows covers every face-major coefficient descriptor
+exactly once. Its membership proof uses closed `all < 48` and `Fin 48`
+coverage certificates; an earlier broad-simplifier prototype exposed
+`Classical.choice` and was rejected.
+
+For every opaque `assignment : List Bool`, the literal `R F R F` shared word
+is the base of the established right-local contraction fold. It is independent
+of every scheduled bivalent block. The arbitrary-base distinct-block Schur
+theorem contracts all twenty-two rows first; only then is the standalone Haar
+value of the literal base transported to the signed projector. The banked
+endpoint is
+
+```text
+H(contractionProductOver sharedRFRF bivalentSchedule)
+  ≃ schurDeltaProductFrom signedProjector bivalentSchedule.
+```
+
+This parenthesization is deliberate: canonical `F F R R` is only an internal
+Haar normal form and is never substituted into the raw face order.
+
+The actual two-sheet external wiring has also been isolated as a safe
+four-Bool theorem:
+
+```text
+sum_(A1,A2,B1,B2)
+  K(A1,B1,A2,B2; B1,A1,B2,A2) ≃ 4.
+```
+
+This is not the diagonal projector trace `2`. Independent reconstruction of
+the bivalent delta graph finds sixteen components: twelve ordinary free loops
+and the four shared variables `A1,A2,B1,B2`. Consequently the later closed
+target remains `2^12 * 4 * (1/2)^22 = 1/256`; using the diagonal trace here
+would incorrectly give `1/512`. The component reduction and full named sum
+remain to be certified in Lean.
+
+##### 8.13.63.7 Scope and verification ledger
 
 Only the fixed eight-index local moment, the four-index diagonal trace, and a
 forty-eight-element structural occurrence list are exposed. No twelve-face
@@ -22941,7 +23005,9 @@ leaf after the endpoint-order theorem was added. The contextual-order target
 completed in 436 jobs, with its final leaf under 400 ms. The final
 arbitrary-block projector target completed in 435 jobs and 20 seconds; this
 bounded cost is the complete 256-entry symbolic-block proof, not a global
-network enumeration. No full or clean build and no test suite was run.
+network enumeration. The grouped double-cube bivalent target completed in 911
+jobs, with its new structural leaf taking about 37 seconds. No full or clean
+build and no test suite was run.
 
 The rational Gram calculation, direct projector-entry arithmetic, literal
 face/orientation/endpoint tables, and bounded trace arithmetic are axiom-free.
@@ -22952,7 +23018,11 @@ production-comparison declarations expose only subsets of
 local-factor theorem, contextual paired/canonical theorem, all-256
 arbitrary-block projector, paired locality theorem, and final canonical
 spectator endpoint, as well as both transpose-sensitive acceptance
-regressions, each expose exactly `[propext, Quot.sound]`. No
+regressions, each expose exactly `[propext, Quot.sound]`. The twenty-three-link
+decoder, shared-block exclusion, literal-base independence, standalone shared
+projector value, grouped twenty-two-link fold, and forty-eight-descriptor
+coverage permutation expose at most `[propext, Quot.sound]`; the table map and
+external-wiring sum are axiom-free. No
 `Classical.choice`, `sorryAx`, `native_decide`, custom axiom, `sorry`, or
 `admit` occurs on the banked path. Independent read-only audits checked the
 reverse-coefficient convention, all four inverse-Gram terms, the negative
@@ -22960,14 +23030,14 @@ regression, diagonal trace, outward mask, face order, polarity word, endpoint
 order, contextual index permutation, spectator-congruence discipline, and
 partial-integration API, and found no mathematical blocker.
 
-After semantic-root wiring, the static import audit found 2,647 source
-modules and 8,207 local import edges, zero cycles, 2,641 modules reachable
+After semantic-root wiring, the static import audit found 2,648 source
+modules and 8,212 local import edges, zero cycles, 2,642 modules reachable
 from `YMGap.lean`, all six remaining modules classified, and zero unexpected
 orphans. The executable-source forbidden-token scan found zero hits, the
 host-load guard passed all 236 tracked or untracked non-ignored entry files,
 and `git diff --check` passed.
 
-##### 8.13.63.7 Next load-bearing steps — BIVALENT CONTRACTION NEXT
+##### 8.13.63.8 Next load-bearing steps — DELTA COMPONENT CLOSURE NEXT
 
 Proceed in the following order; each step must remain a local structural
 theorem beneath Haar rather than a raw commutativity claim.
@@ -22986,31 +23056,29 @@ theorem beneath Haar rather than a raw commutativity claim.
    constant signed inverse-Gram kernel and leave every other link polynomial
    opaque. This is complete for all 256 entries, with both paired and canonical
    independent-spectator endpoints and no raw constant-polynomial claim.
-3. **Twenty-two bivalent contractions.** Give the twenty-three touched links
-   their existing production block decoder `adjacentEvenActiveLinkIndex 0`;
-   do not introduce a second numbering. Define the mapped twenty-three-block
-   list and prove its exact length, nodup, and range. Remove the certified
-   shared block to obtain a twenty-two-row schedule, then prove length, nodup,
-   range, and pointwise exclusion of the shared block.
-
-   Build a forty-eight face-corner tag carrier and a literal incidence table
-   consisting of twenty-two oriented bivalent pairs plus the one ordered
-   four-occurrence row. Prove the table sound and covering while every Boolean
-   assignment remains an opaque `List Bool`. With the four-valent word as the
-   base of `contractionProductOver`, prove pointwise
+3. **✓ Twenty-two bivalent contractions.** The production decoder,
+   twenty-three/twenty-two block ledgers, exact tagged pair table, shared-row
+   descriptor, constructive forty-eight-position coverage permutation,
+   literal-base independence, standalone signed base value, and pointwise
+   arbitrary-base Schur fold are complete. Every assignment remains an opaque
+   `List Bool`; no `2^48` carrier or depth-forty-eight sum was formed.
+4. **Face-word bridge and delta-component closure.** Map the descriptor
+   coverage certificate through an opaque assignment, reconcile the resulting
+   face-major factor word with the right-local `contractionProductOver` word
+   beneath Haar, and prove the exact sixteen-component Boolean delta graph.
+   Twelve components are ordinary free loops; the four exceptional components
+   feed
 
    ```text
-   H(contractionProductOver fourValentBase bivalentSchedule)
-     ≃ schurDeltaProductFrom signedProjector bivalentSchedule.
+   K(A1,B1,A2,B2; B1,A1,B2,A2).
    ```
 
-   The proof must establish base independence, use the existing
-   distinct-block spectator Schur fold, bridge the public rational-complex
-   multiplications with `generic_rationalComplexMul_eqv`, and transport the
-   initial value with `schurDeltaProductFrom_congr_initial`. Insert the signed
-   fourth moment only after the structural separation. Never enumerate the
-   `2^48` face-index assignments.
-4. **Channel/Racah identification.** Relate direct/crossed pairings to the
+   Combine the already-banked four-Bool sum `4` with the twenty-two Schur
+   factors and twelve ordinary free sums to prove the closed value
+   `2^12 * 4 * (1/2)^22 = 1/256`. Do this through named or recursive Boolean
+   binders and structural reindexing; never unfold or evaluate a depth-48 sum,
+   and never replace this wiring by the diagonal trace `2`.
+5. **Channel/Racah identification.** Relate direct/crossed pairings to the
    rational singlet/triplet coordinates. Fix the convention explicitly:
    singlet is `(D-X)/2` with Gram weight `1`, while triplet is `(D+X)/2` with
    Gram weight `3`. Match this order and sign with the existing Gram-weighted
@@ -23018,11 +23086,6 @@ theorem beneath Haar rather than a raw commutativity claim.
    repository's actual transpose/inverse convention.
    The squared data `1/4,3/4,3/4,1/4` are a corollary only and must not replace
    signed amplitudes.
-5. **Structural double-cube closure.** Build the twelve-face product from the
-   forty-eight tagged occurrences and contract it through the preceding local
-   APIs. The anticipated bare value `1/256 = (1/16)^2` is a target to prove,
-   not an assumption; the fixed-index `-1/6` test remains the acceptance
-   criterion even if the final scalar factorizes.
 6. **Correct the production kernel once.** Only after the bivalent cube
    normalization, signed channel bridge, and full local double-cube
    contraction agree should `canonicalSurfaceActivity` be replaced or refined
