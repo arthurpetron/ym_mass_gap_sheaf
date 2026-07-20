@@ -23234,12 +23234,225 @@ theorem beneath Haar rather than a raw commutativity claim.
    Neither the depth-forty-eight nor depth-sixteen recursion is unfolded,
    simplified, evaluated, or printed, and no list of assignments is ever
    materialized.
-7. **Correct the production kernel once.** Only after the bivalent cube
-   normalization, signed channel bridge, and full local double-cube
-   contraction agree should `canonicalSurfaceActivity` be replaced or refined
-   by one normalized channel-resolved kernel. Reprove reachability,
-   compression, and reflection-positivity interfaces against that single
-   definition rather than accumulating geometry-specific scalar patches.
+7. **△ Correct the production kernel once — exact discrepancy fence complete;
+   replacement pending.** The first part of this step is now complete in
+   `SU2QuaternionEdgeTouchingDoubleCubeWeightedActivityNormalization`.
+   The literal twelve-face geometry is encoded as the genuine box-3 root
+
+   ```text
+   geometricSupportIds 3 radiusZeroEdgeTouchingDoubleCubeFaces,
+   ```
+
+   rather than reusing the unrelated radius-zero slab identifiers as box
+   identifiers. Structural same-support and duplicate-free length arguments
+   prove that this root has twelve faces. They also transport the audited
+   incidence ledger to the production carrier: the shared link has incidence
+   four and every other touched link has incidence two.
+
+   Write
+
+   ```text
+   c(w) = coeffW w 1 = 2 w^3.
+   ```
+
+   The dimension factor `2` is already part of `coeffW`; the literal
+   fundamental trace must not be divided by two a second time. The two exact
+   values are now connected to the same concrete root:
+
+   ```text
+   honest literal Haar sector = c(w)^12 * (1/256) = 16 w^36,
+   current production scalar  = c(w)^12 * 2       = 8192 w^36.
+   ```
+
+   Hence
+
+   ```text
+   honest * 512 ≃ canonicalSurfaceActivity
+                ≃ parametricKPhysicalTerm w 1 3 (componentLabel root),
+
+   parametricKPhysicalTerm w 1 3 (componentLabel root) * (1/512)
+     ≃ honest.
+   ```
+
+   The final statement is also proved directly at rational-complex level from
+   the weighted literal trace polynomial to the actual cutoff-one physical
+   term times `1/512`. Thus the comparison now crosses the real production
+   seam; it is not merely a comparison with a hand-written surrogate.
+
+   This result also proves why a universal scalar patch is mathematically
+   wrong. The elementary-cube Haar normalization is `1/16`, and the product
+   of the two scalar cube normalizations is the honest double-cube
+   normalization `1/256`. It is *not* the correction `1/512` needed relative
+   to the old double-cube carrier, because that carrier has inserted the
+   extra four-valent invariant-space dimension `2`. The elementary defect is
+   `16`, while this connected shared-link defect is `512`; topology and
+   channel wiring matter.
+
+   The isolated one-thread target is green. A separate print-only audit gives
+   exactly `[propext, Quot.sound]` for every geometric, production, literal
+   Haar, and end-to-end physical-term endpoint, while the two closed scalar
+   regression facts are axiom-free. No full build, clean build, test suite,
+   bounded labelling materialization, or deep Boolean reduction was used.
+
+   **Architectural decision.** Do not mutate `canonicalSurfaceActivity` yet.
+   It has many downstream proofs that use its pointwise nonnegativity, whereas
+   the honest four-valent integrand is a signed tensor whose scalar value only
+   emerges after external indices are contracted. For the transition,
+   interpret the existing definition as a nonnegative multiplicity majorant.
+   The replacement must introduce channel data first, prove an absolute
+   domination theorem by that majorant, and only then switch production
+   consumers in one controlled migration.
+
+8. **Build the six-valent local projector next.** A link in four dimensions
+   can meet six plaquettes even at cutoff one. Therefore a production kernel
+   supporting only bivalent and four-valent links is not closed under the
+   actual support universe. For six fundamental legs the SU(2)-invariant
+   space has Catalan dimension five. The efficient next leaf is a specialized
+   five-channel projector:
+
+   1. choose and freeze one signed, orientation-aware Temperley--Lieb
+      noncrossing-pairing basis of five tensors;
+   2. compute its exact `5 × 5` rational Gram matrix and a certified inverse;
+   3. prove the inverse identities entrywise by bounded constructive cases;
+   4. derive the normalized six-factor Haar projector from the exact `S^3`
+      sixth moment, first at block zero and then at an arbitrary quaternion
+      block;
+   5. lift it through the existing block-independent spectator theorem, so
+      all nonselected link factors remain opaque;
+   6. add sign- and transpose-sensitive regression entries before using the
+      projector in a network.
+
+   Do not begin with all six permutation pairings: at dimension two their
+   `S_3` Gram matrix is singular. Do not build a fully general
+   Temperley--Lieb quotient yet either; the fixed five-channel leaf supplies
+   exactly the missing cutoff-one production case with much less proof and
+   evaluator risk. A generic Catalan constructor should be extracted only
+   after the five-channel orientation convention and spectator API are
+   stable.
+
+   The audited concrete basis for three ordered forward rows
+   `f=(f0,f1,f2)` and three ordered reverse columns `r=(r0,r1,r2)` is
+
+   ```text
+   P0 = [0,1,2],  P1 = [1,0,2],  P2 = [0,2,1],
+   P3 = [1,2,0],  P4 = [2,0,1],
+
+   Pσ(f;r) = product_i delta(fi,r_{σ(i)}).
+   ```
+
+   Omit the sixth permutation `P02=[2,1,0]`; at dimension two it satisfies
+   the pointwise Plücker relation
+
+   ```text
+   P02 = P0 - P1 - P2 + P3 + P4.
+   ```
+
+   In the displayed five-basis order the exact Gram matrix and inverse are
+
+   ```text
+       [8 4 4 2 2]             [ 1/4 -1/6 -1/6  1/12  1/12]
+       [4 8 2 4 4]             [-1/6  1/3  1/6 -1/6  -1/6 ]
+   G = [4 2 8 4 4],   G^-1 =  [-1/6  1/6  1/3 -1/6  -1/6 ],
+       [2 4 4 8 2]             [ 1/12 -1/6 -1/6 1/4  1/12]
+       [2 4 4 2 8]             [ 1/12 -1/6 -1/6 1/12 1/4 ]
+
+   det(G) = 5184.
+   ```
+
+   The oriented kernel must be frozen as
+
+   ```text
+   K = sum_(a,b) G^-1_ab
+         P_a(Frows; Rcols) P_b(Fcols; Rrows).
+   ```
+
+   As in the four-valent proof, `reverseFundamentalCoefficient` already
+   performs the internal conjugate transpose: the external reverse
+   row/column pairs are not swapped. Acceptance pins should include
+   `trace(K)=5`, an all-false value `1/4`, a negative value `-1/12`, and a
+   transpose-sensitive value `1/12` whose wrong convention gives zero.
+
+   After the raw inverse-Gram leaf, diagonalize through the TL3 channels. A
+   convenient orthogonal basis has Gram weights
+
+   ```text
+   diag(4, 2, 2, 3/2, 3/2),
+   ```
+
+   so the projector decomposes as
+
+   ```text
+   (1/4) p3⊗p3 + (1/2) A⊗A + (1/2) B⊗B
+     + (2/3) X⊗X + (2/3) Y⊗Y.
+   ```
+
+   This supplies the positive Gram form without discarding the signed
+   permutation-basis entries. The five summands must each have weighted trace
+   one. Recoupling must retain the `X/Y` interference terms; for example the
+   right-channel vectors obey
+
+   ```text
+   A' = (1/4)A + (3/4)B + (1/2)X + (1/2)Y,
+   B' = (3/4)A + (1/4)B - (1/2)X - (1/2)Y.
+   ```
+
+9. **Introduce one channel-resolved physical kernel.** Once the bivalent,
+   four-valent, and six-valent local projectors share a common arbitrary-block
+   interface, define a link-local tensor kernel indexed by the actual ordered
+   oriented plaquette occurrences. The global physical term must be obtained
+   by contracting face indices through these local tensors, not by multiplying
+   invariant-space cardinalities. Its cutoff-one specializations must recover:
+
+   ```text
+   incidence 0: vacuum factor 1,
+   incidence 2: normalized Schur contraction,
+   incidence 4: signed two-channel inverse-Gram projector,
+   incidence 6: signed five-channel inverse-Gram projector.
+   ```
+
+   Keep the face coefficient convention unchanged. In particular, the
+   representation dimension remains in `coeffW`. Separate three notions in
+   the API rather than overloading one scalar:
+
+   ```text
+   honestChannelPhysicalTerm   -- signed contracted amplitude,
+   channelAbsoluteMajorant     -- nonnegative absolute bound,
+   canonicalSurfaceActivity   -- legacy multiplicity carrier during migration.
+   ```
+
+   Prove locally, before any partition-level rewrite:
+
+   ```text
+   |honest local contraction| <= local invariant-dimension majorant,
+   |honestChannelPhysicalTerm| <= channelAbsoluteMajorant,
+   channelAbsoluteMajorant <= the existing convergence budget.
+   ```
+
+   Reflection positivity must be stated through the positive Gram/projector
+   form, while cancellation and recoupling retain signed amplitudes. Squared
+   Racah probabilities are derived comparison data only; they must never
+   replace the signed kernel.
+
+10. **Migrate production only after the local closure theorem.** The decisive
+    readiness theorem is that every cutoff-one physical support decomposes
+    linkwise into the `0/2/4/6` cases and that the channel-resolved contraction
+    is defined, normalized, and absolutely dominated in each case. Then:
+
+    1. define the honest replacement beneath `parametricKPhysicalTerm`;
+    2. retain the legacy scalar under an explicit `...Majorant` name;
+    3. reprove cutoff-one partition identification and nonnegativity/absolute
+       convergence with the honest/majorant distinction visible;
+    4. reprove canonical reachability, compression, block transport, and
+       reflection-positive interfaces against that single kernel;
+    5. rerun the elementary-cube and double-cube witnesses as normalization
+       acceptance tests;
+    6. remove transitional aliases only after all semantic-root consumers use
+       the new API.
+
+    This ordering prevents a locally correct signed projector from silently
+    invalidating global proofs that currently rely on scalar nonnegativity,
+    and prevents a convenient majorant from being mistaken for the Yang--Mills
+    amplitude.
 
 This route is finite, exact, and intuitionistic: recursive Boolean sums,
 explicit finite case proofs, rational setoid algebra, duplicate-free decoders,
