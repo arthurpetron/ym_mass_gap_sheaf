@@ -23372,6 +23372,37 @@ theorem beneath Haar rather than a raw commutativity claim.
    `trace(K)=5`, an all-false value `1/4`, a negative value `-1/12`, and a
    transpose-sensitive value `1/12` whose wrong convention gives zero.
 
+   **Completed inverse-Gram leaf.**
+   `SU2QuaternionSixValentPairingGram` now implements this basis and kernel
+   exactly.  Its finite proofs never reduce a six-deep Boolean sum: the
+   tensor Gram calculation and the diagonal trace are each factored into two
+   three-Bool contractions.  The leaf proves the omitted-pairing Plucker
+   identity pointwise, realizes the displayed Gram table from the pairing
+   tensors, certifies both matrix-inverse orders, and freezes all four
+   acceptance pins.  In particular, its trace theorem contracts the actual
+   externally oriented projector and proves rank five, rather than merely
+   tracing the abstract `5 x 5` matrix identity.
+
+   The isolated one-thread target and a separate print-only audit are green.
+   The Plucker theorem, inner three-index contraction, both inverse
+   identities, and every scalar regression are axiom-free.  Only the generic
+   rational-sum congruence, the tensor-Gram transport through it, and the
+   final staged trace use `propext`; none uses `Classical`, choice,
+   `Quot.sound`, `native_decide`, `sorry`/`admit`, or a custom axiom.  The
+   module is imported by the semantic root, so the full-current wiring audit
+   reaches it without relying on an orphan compile.
+
+   The serialized one-thread semantic-root target is green after that import.
+   The accompanying static audit now sees 2,656 source modules and 8,241 local
+   import edges, with zero cycles, 2,650 modules reachable from `YMGap.lean`,
+   the same six reviewed alternative roots, and zero unexpected orphans.  The
+   executable forbidden-token scan still has zero hits, the host-load guard
+   passes all 236 tracked or untracked nonignored entry files, and
+   `git diff --check` passes.  This is the current best full wiring check: it
+   validates the changed semantic root while retaining the project-wide Lake
+   glob and default-target coverage guarantees, without launching an unsafe
+   clean or unconstrained parallel build.
+
    After the raw inverse-Gram leaf, diagonalize through the TL3 channels. A
    convenient orthogonal basis has Gram weights
 
