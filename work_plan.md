@@ -22496,29 +22496,225 @@ confirmed the coefficient order, reindex direction, fixed suffix, face order,
 replacement slots, equivalence directions, and final `1/16` composition.
 The executable-source forbidden-token scan found zero hits.
 
-#### 8.13.62 Cutoff-one cube activity normalization bridge — NEXT SHORTEST MILESTONE
+#### 8.13.62 Cutoff-one cube activity normalization bridge — ✓ COMPLETE
 
-Connect the exact canonical cube coefficient to the cutoff-one
-character/weight observable used by the strong-coupling anchor, preserving
-every normalization factor. In particular, compare the all-standard Haar
-factor `1/16` with `coarseUnitCube_canonicalSurfaceActivity_eqv` and
-`centeredCoarseUnitCube_canonicalSurfaceActivity_eqv`, whose present scalar
-form is `(coeffW coupling 1)^6`.
+Module:
+`YMGap.Continuum.SU2QuaternionElementaryCubeWeightedActivityNormalization`.
 
-The shortest honest route is to define the *weighted canonical cube Haar
-value* by inserting the six fundamental face coefficients as an explicit
-rational scalar, prove Haar scalar-linearity for the honest complex
-polynomial carrier, and derive
+The exact canonical cube coefficient is now connected to the two established
+cutoff-one scalar activity formulas without silently changing their semantics.
+The result is a proved factor-sixteen normalization fence: the current
+production carrier is a fusion-channel-cardinality surrogate, whereas the
+honest shared-index Haar observable contains the normalized Schur kernels.
+
+##### 8.13.62.1 Convention audit and forced numerical value — ✓ COMPLETE
+
+The three quantities that had previously been conflated are now separated:
 
 ```text
-weighted canonical cube value
-  ≃ ((coeffW coupling 1)^6 / 16, 0).
+bare canonical six-character Haar integral              ≃ 1/16
+weighted canonical six-face sector                      ≃ (coeffW w 1)^6 / 16
+current coarse/centered canonicalSurfaceActivity scalar ≃ (coeffW w 1)^6.
 ```
 
-Then compare this theorem with both production activity formulas. The result
-must either (a) refine the physical activity definition by an explicit
-`1/16` link-contraction normalization, with downstream transport lemmas
-updated, or (b) prove that an already present convention supplies the
-compensating factor `16`. Do not change the production definition until that
-convention audit is complete. Bank this normalization fence before starting
-the four-valent/Racah channel.
+There is no character-normalization ambiguity in these formulas. The standard
+plaquette trace expansion is the unnormalized fundamental character
+`Cheb.U 1 = Tr D`, while
+
+```text
+coeffW w s = dimQ s * qpow w (c4 s),
+coeffW w 1 = 2 * w^3.
+```
+
+Thus the heat-kernel coefficient already contains the fundamental dimension
+two; it must not be divided by two again. Combining six selected face
+coefficients with the exact canonical Haar theorem forces
+
+```text
+((2 * w^3)^6) / 16 = 4 * w^18
+```
+
+as the mathematical value of the elementary closed-sphere sector. Equivalently,
+this is the expected `dim(fund)^chi * q^F` value with Euler characteristic
+`chi = 2`, face count `F = 6`, `dim(fund) = 2`, and `q = w^3`.
+
+##### 8.13.62.2 Honest scalar insertion and Haar linearity — ✓ COMPLETE
+
+`complexRatPolyRealScalar` embeds an exact rational as a real constant honest
+complex polynomial, and `complexRatPolyRealSmul` scales its two raw polynomial
+components. The structural theorem
+
+```text
+complexRatPolyRealScalar_mul
+```
+
+proves literal equality between left multiplication by that real constant and
+componentwise scaling. Its only nontrivial raw-polynomial step is a direct
+recursion on the duplicate-preserving term list proving
+`polyMul (polyConst scalar) polynomial = polySmul scalar polynomial`; no
+polynomial extensionality or normalization quotient is used.
+
+`finiteProductHaarComplex_realSmul` then applies the already established real
+Haar scalar law to both components, and
+`finiteProductHaarComplex_realScalar_mul` exposes the multiplication interface.
+Consequently the weighted observable
+
+```text
+radiusZeroElementaryCubeWeightedCanonicalTraceExpansionProduct w
+  = realScalar ((coeffW w 1)^6)
+      * radiusZeroElementaryCubeCanonicalTraceExpansionProduct
+```
+
+satisfies the load-bearing exact theorem
+
+```text
+finiteProductHaarComplex_radiusZeroElementaryCubeWeightedCanonical_exact :
+  Hᴄ(weightedCanonicalCube w)
+    ≃ (((coeffW w 1)^6 * (1/16)), 0).
+```
+
+The scalar is inserted on the left in both the raw carrier and the value-level
+rational-complex product. The proof preserves that order and replaces only the
+right Haar factor by the previously certified canonical value.
+
+##### 8.13.62.3 Production comparison and exact factor-sixteen fence — ✓ COMPLETE
+
+The convention audit found no compensating factor sixteen in
+`canonicalSurfaceActivity`. Its face part is exactly `(coeffW w 1)^6`. At each
+of the twelve bivalent cube links the production link factor is
+
+```text
+fundamentalInvariantMultiplicity 2 = 1,
+```
+
+so the complete link-multiplicity product is one. This records the *rank* of
+the one-dimensional invariant space, not the normalized matrix-element Schur
+kernel `1/dim(fund) = 1/2`. The twelve Schur factors and eight closed Boolean
+index loops instead give `2^8 * (1/2)^12 = 1/16`.
+
+The cube-specific scalar operation
+
+```text
+elementaryCubeHaarNormalizeActivity activity = activity * (1/16)
+```
+
+is proved to be inverted exactly by multiplication by sixteen. It defines
+coarse and centered Haar-normalized scalar activities and yields both
+normalization bridges:
+
+```text
+Hᴄ(weightedCanonicalCube w)
+  ≃ (coarseUnitCubeCanonicalSurfaceHaarActivity w, 0),
+
+Hᴄ(weightedCanonicalCube w)
+  ≃ (centeredCoarseUnitCubeCanonicalSurfaceHaarActivity w, 0).
+```
+
+Finally the direction of the defect is fixed unambiguously:
+
+```text
+coarseUnitCubeCanonicalSurfaceHaarActivity w * 16
+  ≃ canonicalSurfaceActivity w 2 coarseUnitCubeSupportIds,
+
+centeredCoarseUnitCubeCanonicalSurfaceHaarActivity w * 16
+  ≃ canonicalSurfaceActivity w 3 centeredCoarseUnitCubeRootAtThree.
+```
+
+Thus the old production scalar is sixteen times the honestly normalized cube
+sector, not one sixteenth of it.
+
+##### 8.13.62.4 Scope fence and production-design consequence
+
+These are exact scalar-value comparisons. They do not claim raw polynomial
+equality, literal equality of the radius-zero/coarse/centered geometric
+representatives, or a universal `/16` correction for every surface. A global
+division by sixteen would be mathematically wrong: even in an all-bivalent
+closed network the net dimension factor depends on topology, while a
+four-valent or higher-valent link retains a non-scalar invariant-channel
+projector and signed recoupling data.
+
+Accordingly the widely used `canonicalSurfaceActivity` definition remains
+unchanged and is now explicitly treated as a combinatorial surrogate on this
+path. The corrected production kernel must be designed only after the first
+four-valent diagnostic determines how normalized Schur kernels and signed
+Racah channels coexist. This avoids a cube-only patch that would have to be
+replaced immediately at the next local geometry.
+
+##### 8.13.62.5 Verification ledger
+
+After the mandatory host-idle check, the new leaf was built through the
+repository session lock with `caffeinate`, `nice -n 10`, and
+`LEAN_NUM_THREADS=1`. Lake replayed the cached dependency cone and compiled
+only the new leaf in 526 ms; the complete target finished successfully in 806
+jobs. No clean or full build, no test suite, and no large Boolean or bounded
+state-space reduction was run.
+
+All eleven printed public gates expose only `[propext]` or
+`[propext, Quot.sound]`; none exposes `Classical.choice`, `sorryAx`, a custom
+axiom, or a native decision procedure. An independent read-only proof audit
+checked scalar placement, both equivalence directions, the `1/16 * 16`
+algebra, the coarse and centered rewrites, and the scope language, and reported
+no defect.
+
+After semantic-root wiring, the static import audit found 2,643 source
+modules and 8,195 local import edges, zero cycles, 2,637 modules reachable
+from `YMGap.lean`, all six remaining modules classified, and zero unexpected
+orphans. The executable-source forbidden-token scan found zero hits, the
+host-load guard passed all 236 tracked or untracked non-ignored entry files,
+and `git diff --check` passed.
+
+#### 8.13.63 Signed four-valent shared-link Haar diagnostic — NEXT SHORTEST MILESTONE
+
+The radius-zero edge-touching double cube is already a certified finite
+geometry: twelve distinct fundamental faces touch twenty-three links; one
+specified shared link has incidence four and every other touched link has
+incidence two. The scalar production activity assigns the exceptional link
+the invariant-space cardinality two. The next task is to determine exactly
+what information that scalar two retains and what it erases.
+
+Proceed locally before constructing the full double-cube trace network:
+
+1. **Balanced four-coefficient Haar kernel.** For two forward and two reverse
+   fundamental coefficients on one quaternion block, prove the complete
+   eight-Boolean-index fourth-moment identity. In the direct/crossed pairing
+   basis, whose Gram matrix is `[[4,2],[2,4]]`, the Haar projector must have
+   inverse Gram matrix
+
+   ```text
+   [[ 1/3, -1/6],
+    [-1/6,  1/3]].
+   ```
+
+   Prove this entrywise from the exact normalized `S^3` moments. The finite
+   `Bool` cases are constructive and bounded; retain the negative mixed entry
+   explicitly rather than squaring it away.
+2. **Closed trace and scalar multiplicity.** Sum only the four diagonal
+   matrix indices and prove that the local closed character contraction is
+   exactly `(2,0)`. Compare that trace with
+   `geometricLinkMultiplicityFactor_eq_two_of_incidence_four`. This should
+   establish the precise statement: scalar multiplicity two is the *trace* of
+   the normalized signed projector, not the projector itself.
+3. **Literal shared-link orientation.** Prove that the four double-cube face
+   occurrences at the exceptional link have the required two-forward / two-
+   reverse orientation and identify their row/column index order. Do not infer
+   this from incidence cardinality alone.
+4. **Double-cube partial contraction.** Contract the other twenty-two
+   bivalent links with the arbitrary-block spectator Schur theorem while
+   keeping the exceptional block and its incident indices opaque. Substitute
+   the signed fourth-moment projector only after that separation. Never
+   unfold or materialize the global twelve-face Boolean assignment space.
+5. **Racah identification.** Identify the two pairing channels with the
+   existing signed fixed-`F`/Gram-weighted carrier. Squared Racah probabilities
+   `1/4, 3/4, 3/4, 1/4` are comparison data, not a replacement for amplitudes;
+   the negative `-1/6` inverse-Gram entry must survive until the surrounding
+   contractions are complete.
+6. **Correct the production kernel once.** Only after both the bivalent cube
+   normalization and this four-valent signed diagnostic are banked should the
+   scalar local link factor be replaced or refined by a normalized channel-
+   resolved kernel. Then reprove the reachable/compression and reflection-
+   positivity interfaces against that single corrected definition.
+
+This route is finite, exact, and intuitionistic: recursive Boolean sums,
+explicit finite case proofs, rational setoid algebra, and certified
+permutations replace choice, excluded middle, global enumeration, and unsafe
+evaluator calls.
