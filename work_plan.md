@@ -23025,10 +23025,10 @@ coefficient-network Haar value
 
 The proof defines the depth-forty-eight Boolean binder only as an opaque
 recursive expression and never unfolds, simplifies, evaluates, prints, or
-materializes it. The final theorem applies to the honest descriptor-certified
-face-major polynomial coefficient network. What remains is a separate
-structural theorem identifying that coefficient network with the literal
-product of the twelve plaquette-trace polynomials.
+materializes it. The final descriptor theorem applies to the honest
+face-major polynomial coefficient network, and the subsequent literal-trace
+leaf now identifies that network beneath Haar with the product of the twelve
+orientation-faithful plaquette-trace polynomials.
 
 ##### 8.13.63.7 Scope and verification ledger
 
@@ -23039,7 +23039,9 @@ symbolically through a generic triangle-compression theorem; it is never
 unfolded or evaluated. No assignment carrier of cardinality `2^48`, global
 assignment list, bounded labelling family, trajectory, or length family is
 defined, unfolded, evaluated, printed, or materialized. The literal
-twelve-face trace product is not yet identified with the coefficient network.
+twelve-face trace product is now identified with the coefficient network
+beneath finite-product Haar, by structural row flattening and named Boolean
+Fubini rather than a false raw-polynomial commutativity claim.
 
 After separate mandatory host-idle checks, every Lean target was built through
 the repository session lock with `caffeinate`, `nice -n 10`, and
@@ -23055,7 +23057,9 @@ delta-component, face-word, Boolean-resolution, and channel-diagonalization
 leaves were each built separately through the same serialized path. The last
 channel leaf completed in about 1.2 seconds after its bounded local proof was
 repaired. The ordered-associator bridge then completed as one 619-module
-cached target, with its new leaf under one second. No full or clean build and
+cached target, with its new leaf under one second. The literal twelve-trace
+bridge completed as one 927-module cached target; after two local elaboration
+repairs its new leaf completed in about one second. No full or clean build and
 no test suite was run.
 
 The rational Gram calculation, direct projector-entry arithmetic, literal
@@ -23082,6 +23086,11 @@ arbitrary-coordinate Gram intertwiner, genuine inverse-associator endpoint,
 and weighted probability bridge expose only `[propext, Quot.sound]`; the
 fixed-channel label order and exact `4G` weight comparison are axiom-free,
 and the factorial-Racah/recoupling-probability comparison uses only `propext`.
+The literal twelve-row geometry and tag table are axiom-free, the descriptor
+flattening uses only `propext`, and the constructive face-tag permutation,
+fixed-assignment Haar regrouping, named-Fubini bridge, coefficient-network
+comparison, contracted-sum endpoint, and exact literal value expose only
+`[propext, Quot.sound]`.
 No
 `Classical.choice`, `sorryAx`, `native_decide`, custom axiom, `sorry`, or
 `admit` occurs on the banked path. Independent read-only audits checked the
@@ -23090,14 +23099,14 @@ regression, diagonal trace, outward mask, face order, polarity word, endpoint
 order, contextual index permutation, spectator-congruence discipline, and
 partial-integration API, and found no mathematical blocker.
 
-After semantic-root wiring, the static import audit found 2,653 source
-modules and 8,229 local import edges, zero cycles, 2,647 modules reachable
+After semantic-root wiring, the static import audit found 2,654 source
+modules and 8,232 local import edges, zero cycles, 2,648 modules reachable
 from `YMGap.lean`, all six remaining modules classified, and zero unexpected
 orphans. The executable-source forbidden-token scan found zero hits, the
 host-load guard passed all 236 tracked or untracked non-ignored entry files,
 and `git diff --check` passed.
 
-##### 8.13.63.8 Next load-bearing steps — LITERAL TWELVE-TRACE BRIDGE NEXT
+##### 8.13.63.8 Next load-bearing steps — PRODUCTION KERNEL CORRECTION NEXT
 
 Proceed in the following order; each step must remain a local structural
 theorem beneath Haar rather than a raw commutativity claim.
@@ -23185,7 +23194,7 @@ theorem beneath Haar rather than a raw commutativity claim.
    `[[1/4,3/4],[3/4,1/4]]`. Its correct signed-source formula remains the
    weighted rule `Pᵢⱼ=(Gᵢ/Gⱼ) Cᵢⱼ²`; the four probabilities are derived
    corollaries and do not erase the signs or the `1:3` Gram ratio.
-6. **Literal twelve-trace bridge.** Define the actual two-cube boundary as
+6. **✓ Literal twelve-trace bridge.** Define the actual two-cube boundary as
    twelve tagged oriented plaquette rows and prove that flattening their four
    coefficient slots is the certified face-major descriptor permutation. The
    production orientation mask is
@@ -23202,6 +23211,29 @@ theorem beneath Haar rather than a raw commutativity claim.
    `radiusZeroEdgeTouchingDoubleCubeFaceMajorCoefficientNetwork`; composing
    with the banked endpoint then gives the literal local observable value
    `1/256`.
+
+   This is complete. The twelve rows are literal production-order tagged
+   plaquettes with face IDs, orientations, and cube slots checked
+   slot-for-slot. Their forty-eight tags form a constructive permutation of
+   `List.range 48`. Mapping each elementary-cube coefficient descriptor to
+   the double-cube carrier and flattening the twelve four-factor rows gives
+   the already certified face-major descriptor word exactly. For every
+   opaque assignment, the twelve left-associated plaquette terms and the
+   forty-eight-factor word are compared only beneath finite-product Haar.
+
+   The genuine product of twelve separate four-Bool trace expansions is then
+   transported by the reusable row-by-row Fubini theorem to a named Boolean
+   sum, reindexed constructively by the tag permutation, and identified with
+   the opaque depth-forty-eight face-major network. Composing with the banked
+   triangle compression and signed shared-link contraction yields
+
+   ```text
+   H(product of the twelve literal outward traces) = (1/256,0).
+   ```
+
+   Neither the depth-forty-eight nor depth-sixteen recursion is unfolded,
+   simplified, evaluated, or printed, and no list of assignments is ever
+   materialized.
 7. **Correct the production kernel once.** Only after the bivalent cube
    normalization, signed channel bridge, and full local double-cube
    contraction agree should `canonicalSurfaceActivity` be replaced or refined
