@@ -22130,107 +22130,169 @@ and `git diff --check` passed. Together with the isolated green target build,
 root reachability certifies that both new leaves participate in the current
 full build without repeating that resource-heavy build.
 
-#### 8.13.60 Genuine product of six outward plaquette trace expansions — NEXT SHORTEST MILESTONE
+#### 8.13.60 Genuine product of six outward plaquette trace expansions — ✓ COMPLETE
 
-The next efficient milestone is to instantiate the completed Fubini and
-named-reindex infrastructure once, at the audited six outward rows, and close
-the exact Haar value of the genuine product of plaquette trace expansions.
+Modules:
 
-##### 8.13.60.1 Arbitrary tag-word and four-binder bridges
+- `YMGap.Continuum.SU2QuaternionRationalComplexNamedBoolWord`;
+- `YMGap.Continuum.SU2QuaternionFiniteProductHaarComplexFourBoolFubini`;
+- `YMGap.Continuum.SU2QuaternionElementaryCubeOutwardTraceExpansionProduct`.
 
-For a general tag word, define `boolTagWordEnvironment tags assignment` by
-pairing tags and bits structurally through `boolTagUpdate`, with false as the
-unbound default. Prove, by induction on `tags`,
+This checkpoint closes the gap left by Sections 8.13.57–59: the exact
+`1/16` value now belongs to the genuine product of six independently summed
+outward plaquette trace expansions, not merely to a preassembled
+depth-twenty-four fixed-assignment network. The alternating outward
+orientation mask is retained literally, and the proof never unfolds or
+evaluates the concrete depth-twenty-four Boolean recursion.
+
+##### 8.13.60.1 Arbitrary tag words and bounded four-binder syntax — ✓ COMPLETE
+
+`boolTagWordEnvironment tags assignment` pairs an arbitrary word of natural
+number tags with positional bits through `boolTagUpdate`. If the bit word is
+short, every still-unpaired tag is updated with `false`; this agrees with the
+`List.getD ... false` convention and makes every bridge valid on the
+arbitrary lists quantified by `rationalComplexBoolSum_congr`, not only on
+the exact-length branches generated internally by the sum.
+
+The structural laws prove:
 
 ```text
-NamedSum tags family
-  ≃ BoolSum tags.length (fun assignment =>
-       family (boolTagWordEnvironment tags assignment)).
+boolTagWordEnvironment (tag :: tags) assignment tag
+  = assignment.getD 0 false,
+
+query ∉ leading →
+boolTagWordEnvironment (leading ++ suffix) assignment query
+  = boolTagWordEnvironment suffix
+      (assignment.drop leading.length) query,
+
+tag ∉ leading →
+boolTagWordEnvironment (leading ++ tag :: suffix) assignment tag
+  = assignment.getD leading.length false.
 ```
 
-The proof must remain symbolic in `tags`; the cube specialization must not
-construct its `2^24` assignments. This bridge is distinct from
-`rationalComplexNamedBoolSum_range`: it records an arbitrary initial binder
-word rather than the canonical consecutive word.
+Duplicate-freeness of the complete displayed word supplies the last
+freshness premise constructively. Induction on the tag word then proves the
+arbitrary representation theorem
 
-Then specialize existing contextual Haar–Boolean Fubini to four local
-binders:
+```text
+rationalComplexNamedBoolSum_tagWord :
+  NamedSum tags family
+    ≃ BoolSum tags.length (fun assignment =>
+         family (boolTagWordEnvironment tags assignment)).
+```
+
+The four-leading-binder identity
+
+```text
+BoolSum (depth + 4) family
+  = FourBoolSum (fun a b c d =>
+      BoolSum depth (fun rest => family (a :: b :: c :: d :: rest)))
+```
+
+is definitional and exposes only four constructors. Four applications of the
+already established one-binder contextual theorem give
 
 ```text
 finiteProductHaarComplex_mul_fourBoolSum_inner :
   Hᴄ(spectator * (FourBoolSum family * suffix))
+    ≃ FourBoolSum (fun a b c d =>
+        Hᴄ(spectator * (family a b c d * suffix))).
+```
+
+The same leaf proves order-preserving normalization between a left-associated
+accumulated fold and the established tail-first product, solely beneath
+finite-product Haar. No raw polynomial associativity or distributivity is
+asserted.
+
+##### 8.13.60.2 Honest oriented row expansions and six-face product — ✓ COMPLETE
+
+For each `TaggedOrientedPlaquetteRow`, the new definitions select:
+
+1. `traceTermBits`, the fixed four-index standard or reversed term;
+2. `traceTermAt`, which reads the row's four named tags from a total Boolean
+   environment; and
+3. `traceExpansion`, the genuine standard or reversed four-binder
+   plaquette expansion.
+
+The row expansion is definitionally its `complexRatPolyFourBoolSum`, and
+substitution of `cubeTagValue assignment` into `traceTermAt` recovers the
+existing fixed-assignment `row.traceTerm assignment` exactly. Mapping the
+expansion over the six audited rows produces
+
+```text
+radiusZeroElementaryCubeOutwardFaceTraceExpansions
+  = radiusZeroElementaryCubeOutwardFaceRows.map traceExpansion,
+```
+
+with the checked literal mask
+
+```text
+[reversed, standard, reversed, standard, reversed, standard].
+```
+
+Its tail-first product is
+`radiusZeroElementaryCubeOutwardTraceExpansionProduct`. Separately, the
+environment-indexed six fixed terms and their tail-first product are
+`radiusZeroElementaryCubeOutwardFaceTraceTermsAt` and
+`radiusZeroElementaryCubeOutwardFaceTraceProductAt`.
+
+##### 8.13.60.3 Structural six-row Haar Fubini and tag decoder — ✓ COMPLETE
+
+`taggedOrientedPlaquetteTraceTermsFromWord rows assignment` consumes four
+positional bits per row and recurses on `assignment.drop 4`. The reusable
+row-list theorem is
+
+```text
+finiteProductHaarComplex_mul_traceExpansionProduct :
+  Hᴄ(spectator * product (rows.map traceExpansion))
     ≃
-  FourBoolSum (fun a b c d =>
-    Hᴄ(spectator * (family a b c d * suffix))).
+  BoolSum (4 * rows.length) (fun assignment =>
+    Hᴄ((traceTermsFromWord rows assignment).foldl
+      complexRatPolyMul spectator)).
 ```
 
-This proof is four structural applications of the one-binder contextual
-theorem and exposes only the safe depth-four syntax.
+At the successor step it exposes one row's four binders, applies contextual
+four-binder Fubini with the unresolved row product as suffix, reassociates
+only at Haar level, and invokes the induction hypothesis with the selected
+term absorbed into the spectator. `Nat.mul_succ` and the definitional
+four-leading-binder identity reassemble the positional sum. Thus the proof
+is structural in the number of rows and never opens the resulting concrete
+depth twenty four.
 
-##### 8.13.60.2 Environment-indexed row terms and honest expansion product
-
-For one `TaggedOrientedPlaquetteRow`, define:
-
-1. its outward trace expansion by selecting
-   `standardPlaquetteTraceExpansion` or
-   `reversedPlaquetteTraceExpansion` from `row.orientation` and its four
-   audited blocks;
-2. its fixed term from a total named environment by selecting the matching
-   standard or reversed trace term and reading the four row tags; and
-3. the six-row product of those fixed terms.
-
-Prove pointwise that substituting `cubeTagValue assignment` into the
-environment-indexed term recovers `row.traceTerm assignment`. Map the row
-expansion over `radiusZeroElementaryCubeOutwardFaceRows` and form its
-tail-first `complexRatPolyProduct`. This is the genuine product of six
-separately summed outward plaquette traces. Keep the alternating outward mask
-literal; reversed rows must not silently be replaced by standard rows.
-
-##### 8.13.60.3 Structural six-row Haar Fubini
-
-Prove a reusable row-list theorem under an arbitrary accumulated spectator
-and unresolved suffix. At each row:
-
-1. use only certified Haar associativity/unit laws to expose the row
-   expansion between the accumulated spectator and remaining product;
-2. apply contextual four-binder Fubini;
-3. absorb the selected fixed row term into the spectator only after
-   Haar-level reassociation; and
-4. recurse on the remaining rows.
-
-A generic normalization lemma should relate the resulting left-associated
-spectator fold to the established tail-first `complexRatPolyProduct`. The
-row induction should first land in the positional face-major tree
+The independent combinatorial theorem
 
 ```text
-Hᴄ(radiusZeroElementaryCubeOutwardTraceExpansionProduct)
-  ≃
-BoolSum radiusZeroElementaryCubeFaceCornerTags.length
-  (fun faceAssignment =>
-    Hᴄ(radiusZeroElementaryCubeOutwardFaceTraceProductByTag
-      (boolTagWordEnvironment
-        radiusZeroElementaryCubeFaceCornerTags faceAssignment))).
+taggedOrientedPlaquetteTraceTermsFromWord_eq_traceTermsAt_tagWord
 ```
 
-Symmetry of the arbitrary-tag-word bridge then packages precisely this tree
-as the named cube specialization
+assumes only duplicate-freeness of `rows.flatMap row.tags`. Its head uses the
+four positional lookup laws; its tail uses append/drop environment agreement
+on every tail tag and a tag-local map congruence. Therefore positional
+four-bit chunks select exactly the same ordered row terms as
+`boolTagWordEnvironment`, even for short assignments. The existing concrete
+flattening and `Nodup` certificates specialize this to all six cube rows and
+then to their ordered product.
+
+##### 8.13.60.4 Full named wiring and exact scalar — ✓ COMPLETE
+
+Starting from the genuine six-expansion product, the proof inserts the
+polynomial unit, applies row-list Fubini, converts the accumulated fold to the
+tail-first product, applies the duplicate-free tag decoder, and reverses the
+arbitrary-tag-word theorem. This gives the load-bearing bridge
 
 ```text
-Hᴄ(radiusZeroElementaryCubeOutwardTraceExpansionProduct)
-  ≃
-NamedSum radiusZeroElementaryCubeFaceCornerTags
-  (fun environment =>
-    Hᴄ(radiusZeroElementaryCubeOutwardFaceTraceProductByTag environment)).
+finiteProductHaarComplex_radiusZeroElementaryCubeOutwardTraceExpansionProduct_eq_namedBoolSum :
+  Hᴄ(radiusZeroElementaryCubeOutwardTraceExpansionProduct)
+    ≃
+  NamedSum radiusZeroElementaryCubeFaceCornerTags (fun environment =>
+    Hᴄ(radiusZeroElementaryCubeOutwardFaceTraceProductAt environment)).
 ```
 
-The proof may expose a single four-binder row at a time, but it must not
-unfold the concrete depth-twenty-four sum, assert raw-polynomial
-associativity/distributivity, or use Haar equivalence as multiplication
-congruence.
+Factor order is unchanged throughout. In particular, the proof does not
+commute raw trace factors, replace a reversed face by a standard face, or use
+Haar equivalence as multiplication congruence.
 
-##### 8.13.60.4 Exact composition
-
-Compose, in this order:
+The structural compatibility endpoint then composes:
 
 ```text
 Hᴄ(product of six outward trace expansions)
@@ -22238,28 +22300,100 @@ Hᴄ(product of six outward trace expansions)
   ≃ NamedSum (List.range 24) fixedFaceHaar
   ≃ BoolSum 24 (fun assignment =>
        Hᴄ(radiusZeroElementaryCubeOutwardFaceTraceProduct assignment))
-  ≃ Hᴄ(radiusZeroElementaryCubeOutwardTraceNetwork)
-  ≃ (1/16, 0).
+  ≃ Hᴄ(radiusZeroElementaryCubeOutwardTraceNetwork).
 ```
 
-The second step is the cube permutation theorem; the third is the canonical
-range/list bridge; the fourth is the symmetry of existing finite-product
-Haar Boolean linearity plus the pointwise environment/list identity; and the
-final step is
-`finiteProductHaarComplex_radiusZeroElementaryCubeOutwardTraceNetwork_exact`.
-The target theorem is
+The pointwise environment/list identity recovers the already audited outward
+face product, and symmetry of structural Boolean Haar linearity reassembles
+the pre-existing outward trace network. This is recorded explicitly as
+
+```text
+finiteProductHaarComplex_radiusZeroElementaryCubeOutwardTraceExpansionProduct_eq_traceNetwork.
+```
+
+Composing that compatibility theorem with the previously proved exact
+outward-network endpoint yields
 
 ```text
 finiteProductHaarComplex_radiusZeroElementaryCubeOutwardTraceExpansionProduct_exact.
 ```
 
-##### 8.13.60.5 Remaining orientation fence
+##### 8.13.60.5 Scope fence and revised shortest route
 
-This milestone must stop at the *outward* expansion product. Three faces are
-still represented by reversed trace expansions. Reaching the canonical
-all-standard production observable remains the next separate theorem:
-reindex one reversed four-binder sum by
-`(a,b,c,d) ↦ (!a,!d,!c,!b)`, verify that the four coefficient signs multiply
-to `+1`, and transport that equality only through the established contextual
-Haar machinery. The existing evaluated reversed/standard trace equality is
-not, by itself, a syntax-sensitive Haar-carrier identity.
+The theorem is the exact orientation-faithful *outward* six-face integral,
+not yet the canonical all-standard production representative. In particular,
+three factors still use `reversedPlaquetteTraceExpansion`. The standard and
+reversed traces were previously shown equal only after evaluation at an
+arbitrary quaternion assignment. That value theorem cannot be substituted
+inside a larger polynomial product, and no unjustified raw-polynomial
+congruence may be inferred from it.
+
+The next shortest sound move is a syntax-sensitive Haar replacement theorem
+for one reversed face in arbitrary left/right context. Reindex its safe four
+Boolean binders by
+
+```text
+(a, b, c, d) ↦ (!a, !d, !c, !b),
+```
+
+prove directly that the four coefficient signs multiply to `+1`, and use
+only Boolean-binder permutation/complement laws plus the established
+contextual Haar machinery. Iterating that theorem over rows 0, 2, and 4 will
+transport the exact `1/16` value to the canonical all-standard six-face
+observable.
+
+##### 8.13.60.6 Verification ledger
+
+The downstream cube-expansion target was built under the repository session
+lock with `caffeinate`, `nice -n 10`, and `LEAN_NUM_THREADS=1`, after the
+mandatory host-idle process check. The final target completed successfully
+in 770 jobs. Intermediate failures were parser/elaboration-only and were
+followed by fresh idle checks and successful serialized retries. No clean or
+full build, no test suite, and no concrete depth-twenty-four reduction was
+run.
+
+The public gates for arbitrary tag-word lookup, four-binder opening,
+row-list Fubini, the duplicate-free decoder, the named six-face wiring, and
+the structural trace-network compatibility theorem, as well as the exact `1/16`
+endpoint expose subsets of `[propext, Quot.sound]`. The
+definitional row-expansion and literal orientation-mask audits require no
+axioms. There is no `Classical.choice`, `sorryAx`, `native_decide`, custom
+axiom, `sorry`, or `admit` on the new path.
+
+After semantic-root wiring, the static import audit found 2,640 source
+modules and 8,186 local import edges, with zero cycles; 2,634 modules are
+reachable from `YMGap.lean`, and all six remaining modules are reviewed
+infrastructure or examples, leaving zero unexpected orphans. The
+executable-source forbidden-token scan found zero hits, the host-load guard
+passed all 236 tracked or untracked non-ignored entry files, and
+`git diff --check` passed. Together with the isolated green target build,
+root reachability certifies the current full-build wiring without repeating
+the resource-heavy full build.
+
+#### 8.13.61 Canonical all-standard elementary-cube trace product — NEXT SHORTEST MILESTONE
+
+Define the canonical product using
+`standardPlaquetteTraceExpansion` on all six audited face plaquettes, in the
+same face and factor order as the outward product. Prove a one-face
+contextual theorem replacing a reversed expansion by the corresponding
+standard expansion beneath finite-product Haar, with arbitrary accumulated
+spectator and unresolved suffix. The proof must be an explicit bounded
+four-index reindex and sign audit, not an appeal to evaluation extensionality.
+
+Apply the contextual replacement exactly at outward rows 0, 2, and 4. This
+will yield
+
+```text
+Hᴄ(radiusZeroElementaryCubeCanonicalTraceExpansionProduct)
+  ≃ Hᴄ(radiusZeroElementaryCubeOutwardTraceExpansionProduct)
+  ≃ (1/16, 0).
+```
+
+Once this representative-level orientation fence closes, connect the
+canonical cube coefficient to the cutoff-one character/weight observable
+used by the strong-coupling anchor, preserving every normalization factor.
+In particular, compare the resulting all-standard Haar factor `1/16` with
+`coarseUnitCube_canonicalSurfaceActivity_eqv` and
+`centeredCoarseUnitCube_canonicalSurfaceActivity_eqv`, whose current scalar
+form is `(coeffW coupling 1)^6`. This must establish or correct the missing
+factor-16 normalization before the four-valent/Racah channel is attacked.
