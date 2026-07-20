@@ -23403,6 +23403,46 @@ theorem beneath Haar rather than a raw commutativity claim.
    glob and default-target coverage guarantees, without launching an unsafe
    clean or unconstrained parallel build.
 
+   **Completed analytic sixth-moment leaf.**
+   `SU2QuaternionOneLinkSixValentHaarProjector` now proves that the literal
+   left-associated `F F F R R R` quaternion polynomial has normalized
+   one-block `S^3` moment exactly equal to the externally transposed
+   five-channel inverse-Gram projector.  This closes the key semantic gap in
+   the preceding leaf: the signed kernel is no longer only an algebraically
+   certified projector candidate, but the actual exact local Haar integral.
+   Independent acceptance endpoints recover the all-equal value `1/4`, the
+   negative interference value `-1/12`, and the transpose-sensitive value
+   `1/12`.  A separate exact moment table records the three nonzero degree-six
+   orbit types
+
+   ```text
+   E[x0^6]       = 5/64,
+   E[x0^4 x1^2] = 1/64,
+   E[x0^2 x1^2 x2^2] = 1/192,
+   ```
+
+   with common radial denominator `4 * 6 * 8 = 192`.
+
+   The 4,096 Boolean configurations are never elaborated in one declaration.
+   Sixteen certificates fix four selector bits and split only the remaining
+   eight, so every proof has at most 256 branches.  More importantly for host
+   safety, these certificates are distributed among four linearly chained
+   chunk modules.  The initial single-process prototype reached about
+   14.6 GB resident memory; the chained build reduced the observed active
+   Lean chunk to about 4.0 GB, a roughly 72 percent reduction, while retaining
+   one process, one thread, the repository lock, niceness, and the existing
+   20 GB Lean hard ceiling.  The final dispatcher performs no moment
+   reduction.  The isolated target is green.  A separate print-only audit
+   shows exactly `[propext, Quot.sound]` for every chunk, the moment table, the
+   public Haar theorem, and all three analytic regressions, with no
+   `Classical`, choice, `sorry`/`admit`, `native_decide`, or custom axiom.
+   After semantic-root wiring, the serialized one-thread `YMGap` target is
+   green.  The static import audit sees 2,662 source modules and 8,248 local
+   import edges, zero cycles, 2,656 modules reachable from `YMGap.lean`, the
+   same six reviewed alternatives, and zero unexpected orphans.  The
+   executable forbidden-token scan has zero hits, the host-load guard passes
+   all 236 entry files, and `git diff --check` passes.
+
    After the raw inverse-Gram leaf, diagonalize through the TL3 channels. A
    convenient orthogonal basis has Gram weights
 
