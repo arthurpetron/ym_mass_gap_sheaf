@@ -23467,6 +23467,129 @@ theorem beneath Haar rather than a raw commutativity claim.
    B' = (3/4)A + (1/4)B - (1/2)X - (1/2)Y.
    ```
 
+   **Completed genuine `TL3` channel bridge.**
+   `SU2QuaternionSixValentTemperleyLiebChannelBridge` now constructs the
+   five channels inside the faithful rational `TL3` algebra rather than
+   merely naming five abstract vectors.  With diagram coordinates
+   `(1,e1,e2,u=e1e2,v=e2e1)`, reflection interchanges `u` and `v`, and the
+   certified elements are
+
+   ```text
+   p3 = (1,-2/3,-2/3, 1/3, 1/3),
+   A  = (0, 1/2,   0,   0,   0),
+   B  = (0, 1/6, 2/3,-1/3,-1/3),
+   X  = (0,-1/4,   0, 1/2,   0),
+   Y  = (0,-1/4,   0,   0, 1/2).
+   ```
+
+   The construction theorems identify `p3` with the recursive Jones--Wenzl
+   projector and prove
+
+   ```text
+   A=e1/2,  B=1-p3-A,  X=2 A(e2/2)B,  Y=2 B(e2/2)A.
+   ```
+
+   For the Markov form `tr(x* y)`, the exact Gram is
+   `D=diag(4,2,2,3/2,3/2)`.  The diagram-to-pairing convention is frozen by
+
+   ```text
+   e1=P0-P1,  e2=P0-P2,
+   u=P0-P1-P2+P4,  v=P0-P1-P2+P3,
+   ```
+
+   and gives the channel coefficient matrix (rows `p3,A,B,X,Y`, columns
+   `P0,...,P4`)
+
+   ```text
+   C = [1/3,    0,    0,  1/3,  1/3]
+       [1/2, -1/2,    0,    0,    0]
+       [1/6,  1/2,    0, -1/3, -1/3]
+       [1/4, -1/4, -1/2,    0,  1/2]
+       [1/4, -1/4, -1/2,  1/2,    0].
+   ```
+
+   Two independent computations now agree exactly:
+
+   ```text
+   C G C^T = D,
+   G^-1 = C^T D^-1 C,
+   D^-1 = diag(1/4,1/2,1/2,2/3,2/3).
+   ```
+
+   Thus every normalized rank-one summand has trace one and their total
+   trace is five.  More importantly, the externally oriented twelve-index
+   kernel is proved structurally, with no Boolean case split, to be
+
+   ```text
+   K(Frow,Fcol;Rrow,Rcol)
+     = sum_alpha D^-1_alpha
+         P_alpha(Frow;Rcol) P_alpha(Fcol;Rrow).
+   ```
+
+   This theorem uses the same reverse-column/reverse-row transpose as the
+   literal `F F F R R R` Haar integral.  Composing it with the exact sixth
+   moment gives a direct public endpoint from the literal normalized Haar
+   polynomial to the manifest positive five-term channel factorization.
+   Positivity here is a Gram/projector statement: signed interference in the
+   original permutation basis is retained and is not replaced by squared
+   recoupling coefficients.
+
+   The right-associated family is also constructed in `TL3`.  Its full
+   signed recoupling matrix, with rows and columns in the same frozen channel
+   order, is
+
+   ```text
+   R = [1,   0,    0,    0,    0]
+       [0, 1/4,  3/4,  1/2,  1/2]
+       [0, 3/4,  1/4, -1/2, -1/2]
+       [0, 3/8, -3/8, -1/4,  3/4]
+       [0, 3/8, -3/8,  3/4, -1/4].
+   ```
+
+   The bridge proves the coefficient recoupling entrywise, `R^2=I`,
+   `R D R^T=D`, and the identical right-channel Markov Gram.  In particular,
+   all `X/Y` signs and interference terms are machine-pinned.
+
+   The isolated target is green under the serialized one-thread host guard.
+   A separate print-only audit finds the concrete TL constructions, both
+   Gram identities, inverse resolution, individual and total trace facts,
+   and right-channel Gram axiom-free.  Generic finite-sum transport and
+   recoupling use only `propext`; the structurally factorized kernel and
+   literal-Haar endpoints use exactly `[propext, Quot.sound]`.  There is no
+   `Classical`, choice, `sorry`/`admit`, `native_decide`, or custom axiom.
+   The proof reduces only five-term sums and closed `5 x 5` tables; it never
+   unfolds a six- or twelve-Bool tensor sum.
+
+   After semantic-root wiring, the serialized one-thread `YMGap` target is
+   green.  The full-current static audit sees 2,663 source modules and 8,251
+   local import edges, zero cycles, 2,657 modules reachable from `YMGap.lean`,
+   the same six reviewed alternative roots, and zero unexpected orphans.
+   The executable forbidden-token scan has zero hits, the host-load guard
+   passes all 236 tracked or untracked nonignored entry files, and
+   `git diff --check` passes.  As in the preceding checkpoints, this is the
+   strongest safe current-wiring validation: it checks the semantic root,
+   project-wide source discovery, default Lake targets, import closure, and
+   entry-file load policy without an unsafe clean or unconstrained full
+   rebuild.
+
+   **Next local closure sequence.**  Before introducing a production
+   network, finish items 4--5 of this milestone in the following order:
+
+   1. extract the exponent-block clearing and trailing-zero alias lemmas now
+      private in `SU2QuaternionGenericBlockPartialFourValentHaarProjector`
+      into a public shared helper leaf;
+   2. prove the arbitrary-block partial `F F F R R R` theorem by transporting
+      the already certified one-block sixth moment, not by recomputing 4,096
+      Boolean cases;
+   3. compose that theorem with the manifest `TL3` factorization;
+   4. lift through the existing block-independent spectator/Fubini API so an
+      opaque prefix and suffix remain untouched;
+   5. only then define the common incidence-`0/2/4/6` link-kernel interface.
+
+   This order is the shortest sound path to production closure: the hard
+   local representation theory is now complete, while arbitrary link
+   placement and spectator opacity are the remaining reusable seams.
+
 9. **Introduce one channel-resolved physical kernel.** Once the bivalent,
    four-valent, and six-valent local projectors share a common arbitrary-block
    interface, define a link-local tensor kernel indexed by the actual ordered
