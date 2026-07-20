@@ -1045,6 +1045,40 @@ theorem finiteProductHaarComplex_mul_adjacent_swap
       (finiteProductHaarComplex_mul_assoc
         blockCount spectator right (complexRatPolyMul left suffix)))
 
+/-- Reassociate a four-factor left comb into the balanced pairing.  The proof
+uses only already established Haar-level exchange laws; no multiplication
+congruence for arbitrary Haar-equivalent polynomials is assumed. -/
+theorem finiteProductHaarComplex_mul_four_assoc
+    (blockCount : Nat)
+    (first second third fourth : ComplexRatPoly) :
+    RationalComplexEqv
+      (finiteProductHaarComplex blockCount
+        (complexRatPolyMul
+          (complexRatPolyMul first
+            (complexRatPolyMul second third)) fourth))
+      (finiteProductHaarComplex blockCount
+        (complexRatPolyMul
+          (complexRatPolyMul first second)
+          (complexRatPolyMul third fourth))) :=
+  rationalComplexEqv_trans
+    (finiteProductHaarComplex_mul_comm blockCount
+      (complexRatPolyMul first (complexRatPolyMul second third)) fourth)
+    (rationalComplexEqv_trans
+      (finiteProductHaarComplex_mul_assoc_context blockCount
+        fourth first (complexRatPolyMul second third))
+      (rationalComplexEqv_trans
+        (finiteProductHaarComplex_mul_middle_comm blockCount
+          (complexRatPolyMul fourth first) second third)
+        (rationalComplexEqv_trans
+          (finiteProductHaarComplex_mul_four_swap blockCount
+            fourth first third second)
+          (rationalComplexEqv_trans
+            (finiteProductHaarComplex_mul_comm blockCount
+              (complexRatPolyMul fourth third)
+              (complexRatPolyMul first second))
+            (finiteProductHaarComplex_mul_middle_comm blockCount
+              (complexRatPolyMul first second) fourth third)))))
+
 /-- A permutation of a tail-first factor word preserves its finite-product
 Haar value beneath any already accumulated spectator prefix.  The proof is
 structural in the supplied `List.Perm` witness, so it introduces no search,
@@ -1119,6 +1153,7 @@ theorem finiteProductHaarComplex_product_perm
 #print axioms finiteProductHaarComplex_mul_one
 #print axioms finiteProductHaarComplex_mul_assoc_context
 #print axioms finiteProductHaarComplex_mul_adjacent_swap
+#print axioms finiteProductHaarComplex_mul_four_assoc
 #print axioms finiteProductHaarComplex_mul_product_perm
 #print axioms finiteProductHaarComplex_product_perm
 

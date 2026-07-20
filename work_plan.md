@@ -21295,3 +21295,184 @@ guard passed all 236 tracked or untracked non-ignored entry files, and
 `git diff --check` passed.  Together with the isolated green target build,
 root reachability certifies that this leaf participates in the current full
 build without an unsafe repetition of that full build.
+
+#### 8.13.56 Right-local fold and face-major product reconciliation — ✓ COMPLETE
+
+Modules:
+`YMGap.Continuum.SU2QuaternionDistinctBlockFundamentalContractionReordering`
+and
+`YMGap.Continuum.SU2QuaternionElementaryCubeTaggedProductReconciliation`.
+
+This checkpoint closes the algebraic-order gap left explicitly open in
+Sections 8.13.54 and 8.13.55.  It relates the established right-local
+contraction fold to the schedule-order forward/reverse coefficient word, then
+uses the explicit twenty-four-slot occurrence permutation to reach the
+face-major word.  Every theorem is symbolic in an arbitrary finite schedule
+or pointwise in one opaque Boolean assignment.
+
+##### 8.13.56.1 Exact coefficient word and reversal convention — ✓ COMPLETE
+
+For an oriented contraction step, the generic factor row is defined as
+
+```text
+[forwardFundamentalCoefficient(step),
+ reverseFundamentalCoefficient(step)].
+```
+
+Flattening these rows in schedule order defines
+`fundamentalContractionCoefficientWord`.  Reversing the schedule before
+flattening produces
+
+```text
+[Fₙ,Rₙ, ..., F₁,R₁].
+```
+
+The order qualification matters: reversing the already flattened list would
+instead give `[Rₙ,Fₙ,...]` and would incorrectly reverse every contraction
+row.  The theorem
+
+```text
+fundamentalContractionCoefficientWord_reverse_perm
+```
+
+uses `List.reverse_perm` followed by constructive `List.Perm.flatMap_right` to
+prove that reverse-schedule and schedule-order words are permutations while
+preserving forward-before-reverse within every row.
+
+##### 8.13.56.2 Suffix-strengthened right-local induction — ✓ COMPLETE
+
+The main generic proof does not attempt to multiply a bare Haar equivalence
+through a polynomial context.  Instead it retains an arbitrary symbolic
+tail-first suffix and proves
+
+```text
+Hᴄ ((contractionProductOver base schedule) * product(suffix))
+  ≃
+Hᴄ (base * product(word(schedule.reverse) ++ suffix)).
+```
+
+The empty-schedule case is reflexive.  In the cons case, writing `C` for the
+recursive tail product, `F,R` for the new row, and `S` for the suffix product,
+the proof performs exactly
+
+```text
+((C * (F * R)) * S)
+  ≃ ((C * F) * (R * S))
+  ≃ C * (F * (R * S)).
+```
+
+The first step is the verified complex four-factor reassociation
+`finiteProductHaarComplex_mul_four_assoc`; the second is ordinary
+Haar-level associativity.  The induction hypothesis is then invoked with
+`F :: R :: suffix`.  Consequently no arbitrary Haar equivalence is ever used
+as a multiplication congruence, and the proof accounts literally for the
+external base, reverse row order, within-row grouping, suffix, and every
+reassociation.
+
+Introducing the empty suffix with the complex right-unit law, applying this
+theorem, restoring schedule order with the spectator permutation theorem,
+and finally removing the canonical base one gives the public generic endpoint
+
+```text
+finiteProductHaarComplex_fundamentalContractionProduct_eq_word.
+```
+
+No range, distinctness, or Schur hypothesis is needed for this purely
+algebraic reconciliation.
+
+##### 8.13.56.3 Named cube words and occurrence transport — ✓ COMPLETE
+
+The cube specialization names two still-opaque lists:
+
+- `radiusZeroElementaryCubePairedCoefficientWord`, the twelve schedule rows
+  flattened forward then reverse; and
+- `radiusZeroElementaryCubeFaceMajorCoefficientWord`, the twenty-four
+  coefficients in the certified six-face occurrence order.
+
+The first is proved literally equal to the generic coefficient word of
+`radiusZeroElementaryCubeContractionSchedule`.  The descriptor coverage
+theorem then gives an explicit `List.Perm` from this paired word to the
+face-major word.  Applying the generic fold endpoint and the complex product
+permutation theorem yields both directions of the exact Haar bridge between
+the paired summand and the face-major coefficient product.
+
+##### 8.13.56.4 Fixed-assignment exact endpoint — ✓ COMPLETE
+
+Composing the face-major-to-paired bridge with the existing twelve-link Schur
+contraction theorem proves
+
+```text
+finiteProductHaarComplex_radiusZeroElementaryCubeFaceMajorCoefficientProduct_eq_schurDeltaValue
+```
+
+for every `assignment : List Bool`:
+
+```text
+Hᴄ (product(radiusZeroElementaryCubeFaceMajorCoefficientWord assignment))
+  ≃ radiusZeroElementaryCubeSchurDeltaValue assignment.
+```
+
+This is the first exact fixed-assignment endpoint whose input is ordered by
+the six outward boundary faces rather than by the internal contraction
+schedule.  It simultaneously certifies all twelve physical block pairings,
+all twenty-four coefficient polarities and tag endpoints, the complete
+algebraic reordering, and the resolved crossed-delta value.
+
+##### 8.13.56.5 Scope fence and revised shortest route
+
+The face-major object remains a right-associated word of twenty-four
+individual coefficients.  It has not yet been identified with a product of
+six named four-factor plaquette trace terms.  In particular:
+
+- four consecutive face-major coefficients must be grouped into the already
+  certified orientation-specific `standardPlaquetteTraceTerm` or
+  `reversedPlaquetteTraceTerm` for that face;
+- the six grouped face terms must then be reconciled with the chosen outer
+  sixfold product parenthesization at Haar level;
+- the outward orientation mask is alternating
+  `[reversed, standard, reversed, standard, reversed, standard]`, whereas the
+  production cube uses a canonical-standard representative;
+- the existing equality between reversed and standard trace expansions is an
+  evaluation theorem and cannot be transported through the syntax-sensitive
+  Haar carrier; and
+- the depth-twenty-four Boolean binder bridge is still unproved and must be
+  structural, never an enumeration of `2^24` assignments.
+
+The most efficient next work is therefore a **face-chunk product bridge**:
+
+1. define the outward fixed-assignment six-face product using the existing
+   standard/reversed plaquette coefficient terms;
+2. prove a generic six-row/four-column Haar reassociation theorem, again with
+   a suffix invariant, connecting its grouped face tree to the flat
+   face-major coefficient word;
+3. compose that theorem with the fixed-assignment endpoint above;
+4. lift the pointwise result through the opaque structural Boolean sum; and
+5. only then prove the separate production-orientation bridge and exact
+   normalization endpoint.
+
+The signed four-valent edge-touching diagnostic remains after this elementary
+cube production bridge, before any change to the global local-to-slab kernel.
+
+##### 8.13.56.6 Verification ledger
+
+The concrete reconciliation leaf was built once as an isolated Lake target
+under the repository session lock, with `caffeinate`, `nice -n 10`, and
+`LEAN_NUM_THREADS=1`, after the mandatory host-idle process check.  The build
+completed successfully in 758 jobs and compiled both new leaves plus the
+new four-factor reassociation dependency.  No clean/full build and no test
+suite was run.
+
+The public axiom gates for the reverse-word permutation, suffix-strengthened
+fold reconciliation, arbitrary-base and pure-product endpoints, cube word
+identification, face-major permutation, paired/face Haar bridges, and final
+Schur-delta endpoint expose no `Classical.choice` or `sorryAx`; the
+Haar-valued endpoints remain within `[propext, Quot.sound]`.  After root
+wiring, the static import audit found 2,631 source modules and 8,159 local
+import edges, with zero cycles; 2,625 modules are reachable from the semantic
+root, and all six remaining modules are classified infrastructure or examples,
+leaving zero unexpected orphans.  The executable-source forbidden-token scan
+found zero hits, the host-load guard passed all 236 tracked or untracked
+non-ignored entry files, and `git diff --check` passed.  Together with the
+isolated green target build, root reachability certifies that both leaves
+participate in the current full build without repeating that resource-heavy
+build.
