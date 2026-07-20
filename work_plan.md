@@ -23054,7 +23054,9 @@ jobs, with its new structural leaf taking about 37 seconds. The
 delta-component, face-word, Boolean-resolution, and channel-diagonalization
 leaves were each built separately through the same serialized path. The last
 channel leaf completed in about 1.2 seconds after its bounded local proof was
-repaired. No full or clean build and no test suite was run.
+repaired. The ordered-associator bridge then completed as one 619-module
+cached target, with its new leaf under one second. No full or clean build and
+no test suite was run.
 
 The rational Gram calculation, direct projector-entry arithmetic, literal
 face/orientation/endpoint tables, and bounded trace arithmetic are axiom-free.
@@ -23075,7 +23077,12 @@ Haar endpoint expose exactly `[propext, Quot.sound]`. The direct/crossed
 channel inversions, `diag(1,3)` Gram computation, inverse-Gram projector
 diagonalization, and normalized singlet/triplet trace computations are
 axiom-free; the bridge from the Boolean Gram to the rational recoupling Gram
-uses only `propext`. No
+uses only `propext`. The signed ordered-table, inverse-Schur transpose,
+arbitrary-coordinate Gram intertwiner, genuine inverse-associator endpoint,
+and weighted probability bridge expose only `[propext, Quot.sound]`; the
+fixed-channel label order and exact `4G` weight comparison are axiom-free,
+and the factorial-Racah/recoupling-probability comparison uses only `propext`.
+No
 `Classical.choice`, `sorryAx`, `native_decide`, custom axiom, `sorry`, or
 `admit` occurs on the banked path. Independent read-only audits checked the
 reverse-coefficient convention, all four inverse-Gram terms, the negative
@@ -23083,14 +23090,14 @@ regression, diagonal trace, outward mask, face order, polarity word, endpoint
 order, contextual index permutation, spectator-congruence discipline, and
 partial-integration API, and found no mathematical blocker.
 
-After semantic-root wiring, the static import audit found 2,652 source
-modules and 8,225 local import edges, zero cycles, 2,646 modules reachable
+After semantic-root wiring, the static import audit found 2,653 source
+modules and 8,229 local import edges, zero cycles, 2,647 modules reachable
 from `YMGap.lean`, all six remaining modules classified, and zero unexpected
 orphans. The executable-source forbidden-token scan found zero hits, the
 host-load guard passed all 236 tracked or untracked non-ignored entry files,
 and `git diff --check` passed.
 
-##### 8.13.63.8 Next load-bearing steps — ORDERED CHANNEL BRIDGE NEXT
+##### 8.13.63.8 Next load-bearing steps — LITERAL TWELVE-TRACE BRIDGE NEXT
 
 Proceed in the following order; each step must remain a local structural
 theorem beneath Haar rather than a raw commutativity claim.
@@ -23138,8 +23145,7 @@ theorem beneath Haar rather than a raw commutativity claim.
    to `16`, the component sum is `16384`, and the exact face-major coefficient
    network has Haar value `(1/256,0)`. The depth-48 and depth-16 recursions
    remain opaque throughout.
-5. **◐ Channel/Racah identification — core complete; ordered-carrier bridge
-   next.** Relate direct/crossed pairings to the
+5. **✓ Channel/Racah identification.** Relate direct/crossed pairings to the
    rational singlet/triplet coordinates. Fix the convention explicitly:
    singlet is `(D-X)/2` with Gram weight `1`, while triplet is `(D+X)/2` with
    Gram weight `3`. Match this order and sign with the existing Gram-weighted
@@ -23148,16 +23154,37 @@ theorem beneath Haar rather than a raw commutativity claim.
    The squared data `1/4,3/4,3/4,1/4` are a corollary only and must not replace
    signed amplitudes.
 
-   The local core is complete: `S=(D-X)/2`, `T=(D+X)/2`, the inverse
+   This is complete. The local core gives `S=(D-X)/2`, `T=(D+X)/2`, the inverse
    relations `D=S+T` and `X=T-S`, Gram `diag(1,3)`, inverse-Gram weights
    `1,1/3`, the exact signed-projector decomposition, and unit trace of each
-   weighted rank-one channel are all formalized. The existing rational
+   weighted rank-one channel are formalized. The existing rational
    `fundamentalFMove` has the signed columns `(-1/2,1/2)` and `(3/2,1/2)` in
-   this dimension-rescaled basis. The next theorem must identify these
-   coordinates with the repository's ordered/fixed-`F` carriers and state
-   explicitly whether the production coefficient map is the forward matrix,
-   inverse, transpose, or inverse transpose. Only then derive the four squared
-   transition probabilities.
+   this dimension-rescaled basis.
+
+   The ordered bridge now fixes every remaining convention. Singlet/triplet
+   correspond respectively to intermediate labels `0/2` on both fixed
+   carriers. If
+
+   ```text
+   F = [[-1/2, 3/2], [1/2, 1/2]],   G = diag(1,3),
+   ```
+
+   the raw forward table `C(left input,right output)` is numerically `F`, so
+   its column-coordinate action is `Cᵀ=Fᵀ`. The actual inverse Schur table
+   `B(left output,right input)` satisfies `B=Cᵀ`. Since `F²=I`, this is exactly
+   `B=C⁻ᵀ`, not an appeal to unweighted Euclidean orthogonality. The arbitrary
+   rational-coordinate theorem
+
+   ```text
+   Fᵀ (G x) ≃ G (F x)
+   ```
+
+   proves `Fᵀ=GFG⁻¹` without division. The ordered weights are
+   `diag(4,12)=4G`, and the independently defined factorial Racah kernel now
+   agrees entrywise with the recoupling probability
+   `[[1/4,3/4],[3/4,1/4]]`. Its correct signed-source formula remains the
+   weighted rule `Pᵢⱼ=(Gᵢ/Gⱼ) Cᵢⱼ²`; the four probabilities are derived
+   corollaries and do not erase the signs or the `1:3` Gram ratio.
 6. **Literal twelve-trace bridge.** Define the actual two-cube boundary as
    twelve tagged oriented plaquette rows and prove that flattening their four
    coefficient slots is the certified face-major descriptor permutation. The
