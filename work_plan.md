@@ -24098,16 +24098,20 @@ abs honestChannelPhysicalTerm
    <= existing convergence budget.
 ```
 
-The key global theorem is the square-root-free projector bound
+The key global theorem is the square-root-free positive-channel bound
 
 ```text
 |Tr(P W)| <= rank(P)
             = product_e fundamentalInvariantMultiplicity(valence_e),
 ```
 
-proved from `2*|<x,y>| <= ||x||^2 + ||y||^2` on an orthogonal channel basis.
-Entrywise kernel bounds do not control the exponentially large Boolean-index
-sum.
+proved from `2*|<x,y>| <= ||x||^2 + ||y||^2` on a finite positive channel
+resolution and a Gram-isometric signed wiring map.  The domination step itself
+needs positivity, the weighted local trace values, and wiring isometry; it does
+not need to wait for separately packaged idempotence.  Self-adjointness and
+idempotence remain necessary before the weighted trace may honestly be called
+the matrix rank.  Entrywise kernel bounds do not control the exponentially
+large Boolean-index sum.
 
 After this theorem, supply the existing conditional bridge
 
@@ -24124,7 +24128,7 @@ Required regression values: odd-incidence zero, elementary-cube coefficient
 `1/16`, edge-touching double-cube coefficient `1/256`, and an unbalanced
 polarity network whose sign detects a missing epsilon tensor.
 
-### 11. Backward gate C9: total local cutoff-one Haar kernel — ◐ ACTIVE
+### 11. Backward gate C9: total local cutoff-one Haar kernel — ◐ INTEGRATION COMPLETE; OPERATOR LAWS ACTIVE
 
 For every oriented fundamental occurrence word of total valence at most six,
 construct one arbitrary-block partial Haar theorem, stable under an independent
@@ -24155,12 +24159,43 @@ Current exact leaves:
   odd oriented word has exact zero partial Haar integral, structurally through
   selected-block homogeneity and a coordinate-parity mismatch.  It includes
   named valence `1`, `3`, and `5` partial and independent-spectator zeros.
+* `SU2QuaternionGenericBlockOrientedEvenWordNormalization.lean` normalizes
+  every four- and six-letter orientation word by exact fundamental
+  pseudoreality.  Mismatched occurrences use the complemented transpose
+  `(!column,!row)` and accumulate the off-diagonal epsilon signs by XOR.  It
+  proves raw normalization, exact selected-block projectors, arbitrary
+  independent-spectator lifts, balanced recovery, and one-/two-sign
+  transpose-sensitive regressions at both valences.
+* `SU2QuaternionGenericBlockCutoffOneHaarDispatcher.lean` packages all seven
+  valences in one nondependent carrier.  Its total term, signed kernel,
+  selected-block theorem, locality theorem, and spectator theorem are exact,
+  with invariant multiplicities `1,0,1,0,2,0,5`.  These numbers are not yet
+  called operator ranks in that leaf.
+* `SU2QuaternionBivalentOperatorKernel.lean` freezes the operator convention
+  `F(output,input)` and `R(input,output)`, factors the epsilon sign into its
+  two operator-index signs, and proves the resulting rank-one bivalent kernel
+  pure real, self-adjoint, idempotent, and of trace one.  All of its printed
+  gates are axiom-free.
 
-All three leaves are target-verified under the serialized one-thread guard and
-are imported by `YMGap.lean`.  The odd-word public gates use exactly
-`[propext, Quot.sound]`; the self-duality and bivalent gates remain within the
-same permitted set.  No full semantic-root rebuild is claimed by this local
-checkpoint.
+All six leaves are target-verified under the serialized one-thread guard and
+are imported by `YMGap.lean`.  The new even and dispatcher public gates use at
+most `[propext, Quot.sound]`; the self-duality, bivalent, and odd gates remain
+within the same permitted set.  No full semantic-root rebuild is claimed by
+this local checkpoint.
+
+The remaining C9 operator work is now sharply isolated.  The bivalent leaf
+freezes the operator index convention
+
+```text
+F(output,input),     R(input,output),
+```
+
+The next step is to package the existing balanced four- and six-valent
+positive channel resolutions and transport them through the orientation mask
+as a signed permutation `T P T^T`.  At valence four the wiring must also
+contain the positional-to-projector swap `[1,3,2,4]`.  This
+gives self-adjointness, idempotence, and trace invariance without enumerating
+orientation/index assignments.
 
 ### 12. Completed leaf C10: structural odd-word vanishing — ✓ COMPLETE
 
@@ -24193,19 +24228,20 @@ enumerate polarity/index assignments.  Delivered:
 6. arbitrary-block independent-spectator zero;
 7. exactly `{propext, Quot.sound}` in the public axiom gates.
 
-The immediate open successor is self-duality normalization of arbitrary oriented
-four- and six-letter words, retaining the exact epsilon sign and
-complemented/transposed indices and reordering only through the existing
-setoid-level polynomial permutation API.  Then build the total dispatcher,
-global trace/rank theorem, and production migration in that order.
+The formerly immediate successors—four/six self-duality normalization and the
+total valence dispatcher—are complete.  The immediate open successor is the
+orientation-correct signed operator isometry and the generic positive-channel
+trace bound, followed by the global network/wiring equality and production
+migration.
 
 ### 13. Consumer-first execution order from the present code
 
 The backward graph determines the following forward implementation order.
 
-1. **Finish the nearby physical leaf:** odd parity; oriented four/six
-   normalization; total valence dispatcher; global trace/rank domination;
-   cutoff-one production migration.
+1. **Finish the nearby physical leaf:** the odd, oriented-even, and total
+   dispatcher stages are complete; prove signed operator transport, the
+   positive-channel global trace domination, and cutoff-one production
+   migration.
 2. **Generalize immediately to all representation labels:** invariant-space
    dimensions, character tails, and a label-summed signed network majorant.
 3. **Use that network as the genuine infrared anchor:** cluster convergence,

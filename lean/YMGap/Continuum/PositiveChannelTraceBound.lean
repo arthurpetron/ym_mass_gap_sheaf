@@ -267,7 +267,7 @@ def oneChannelResolution (F : PreInnerForm V) (v : V) (w : Q')
 /-- The one-channel resolution is structurally nonempty. -/
 theorem oneChannelResolution_nonempty (F : PreInnerForm V) (v : V) (w : Q')
     (hw : (0 : Q') <= w) :
-    (oneChannelResolution F v w hw).channels != [] := by
+    (oneChannelResolution F v w hw).channels ≠ [] := by
   intro h
   cases h
 
