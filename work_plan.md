@@ -23702,32 +23702,31 @@ theorem beneath Haar rather than a raw commutativity claim.
    balanced two-, four-, and six-leg endpoints.  Only after this theorem is
    green is the local cutoff-one representation-theoretic closure complete.
 
-10. **Construct the closed coefficient network and prove rank domination.**
-    Define the global physical coefficient by contracting the actual ordered
-    face indices through the local tensors.  Do not estimate the exponentially
-    many Boolean-index summands entrywise.  Package the contraction instead as
+10. **Construct the closed coefficient factor graph and prove channel-count
+    domination.**  Define the global physical coefficient by contracting the
+    actual ordered face indices through the local tensors.  Do not estimate the
+    exponentially many Boolean-index summands entrywise.  Record instead the
+    exact factor-incidence graph: target and source give two local channel
+    factors per touched link, while every fresh face-corner variable occurs in
+    exactly two distinct factors.
+
+    Prove the finite-Boolean graphical Holder/Finner inequality for this
+    degree-two incidence pattern.  Applied to one structurally selected local
+    channel word, it bounds the closed contraction by the product of endpoint
+    tensor norms.  The two endpoint norms at a link multiply to the channel's
+    squared norm and cancel its inverse-Gram weight, giving one unit per local
+    channel and hence
 
     ```text
-    Tr ((tensor_e P_e) W),
+    |honest coefficient|
+      <= product_e fundamentalInvariantMultiplicity(valence_e).
     ```
 
-    where `P_e` is the valence-selected local Haar projector and `W` is the
-    signed Boolean wiring permutation induced by oriented plaquette cycles,
-    inverse occurrences, and the self-duality epsilon tensors.  Prove that
-    `W` preserves the product rational Gram form.
-
-    For `P = tensor_e P_e`, establish constructively
-
-    ```text
-    |Tr (P W)| <= rank(P)
-                = product_e fundamentalInvariantMultiplicity(valence_e).
-    ```
-
-    A square-root-free route is sufficient: prove
-    `2*|<x,y>| <= ||x||^2 + ||y||^2`, apply it to the signed-permutation
-    isometry on an orthogonal channel basis, and sum only over the image of
-    `P`.  This trace/rank argument is essential: bounds on individual kernel
-    entries do not control the global Boolean-index sum.
+    A single global `Tr(PW)` representation is unavailable on arbitrary
+    supports: the actual cap/cup factor graph can contain odd cycles.  The
+    graphical norm inequality is the scalable replacement.  Bounds on
+    individual kernel entries still do not control the global Boolean-index
+    sum.
 
     Keep the face coefficient convention unchanged—the representation
     dimension remains in `coeffW`—and separate the three semantic objects
@@ -24120,13 +24119,25 @@ channelAbsoluteMajorant    -- nonnegative rank/activity bound,
 canonicalSurfaceActivity   -- legacy carrier during migration.
 ```
 
-The acceptance chain is
+The initially proposed acceptance chain through one global signed wiring,
+`Tr ((tensor_e P_e) W)`, is **not valid for arbitrary supports**.  After the
+semantic target/source reshaping, the face contraction graph is not generally
+bipartite: at the minimal vertex of an elementary cube, the three target caps
+from the incident faces connect the three link-target tensors in a triangle.
+No assignment of whole local tensor factors to two Gram slots can make all
+three edges cross.
+
+The correct acceptance chain is
 
 ```text
 honest signed coefficient network
-  <= local valence-selected Haar projectors P_e
-   + oriented plaquette wiring isometry W
-   + Tr ((tensor_e P_e) W),
+  = nested local positive-channel expansion
+   + one signed local channel tensor at each target/source link endpoint
+   + one Boolean variable on each fresh face corner
+   + every corner variable occurring in exactly two distinct tensor factors
+  <= finite-Boolean graphical Holder/Finner inequality
+   + product of the endpoint tensor l2 norms
+   + inverse channel weights cancelling the two endpoint norms linkwise,
 
 abs honestChannelPhysicalTerm
   <= channelAbsoluteMajorant
@@ -24134,23 +24145,32 @@ abs honestChannelPhysicalTerm
    <= existing convergence budget.
 ```
 
-The key global theorem is the square-root-free positive-channel bound
+The key global theorem is therefore
 
 ```text
-|Tr(P W)| <= rank(P)
-            = product_e fundamentalInvariantMultiplicity(valence_e),
+abs (sum_cornerAssignments product_factor tensorFactor)
+  <= product_factor l2Norm(tensorFactor),
+
+and hence
+
+abs honestCoefficient
+  <= product_link numberOfLocalChannels
+   = product_link fundamentalInvariantMultiplicity(valence_link).
 ```
 
-proved from `2*|<x,y>| <= ||x||^2 + ||y||^2` on a finite positive channel
-resolution and a Gram-isometric signed wiring map.  The domination step itself
-needs positivity, the weighted local trace values, and wiring isometry; it does
-not need to wait for separately packaged idempotence.  Self-adjointness and
-idempotence remain necessary before the weighted trace may honestly be called
-the matrix rank.  Entrywise kernel bounds do not control the exponentially
-large Boolean-index sum.
+This is the finite Finner inequality for a factor graph in which each
+independent corner variable occurs in exactly two factors, specialized to
+exact rational Boolean tensors.  It handles odd cycles and same-side caps/cups
+without a false two-coloring or a Cartesian assignment list.  Each selected
+local channel occurs twice, once at each semantic endpoint, so its two norm
+factors multiply to its exact squared norm and cancel its inverse-Gram weight.
+Self-adjointness and idempotence remain useful projector certifications, but
+the global domination is a network norm theorem rather than a matrix trace
+theorem.  Entrywise kernel bounds still do not control the exponentially large
+Boolean-index sum.
 
-The one-layer generic analytic part is now complete in
-`PositiveChannelTraceBound.lean`.  For any constructive rational pre-inner
+The one-layer generic analytic theorem in
+`PositiveChannelTraceBound.lean` is complete.  For any constructive rational pre-inner
 form, Gram isometry `W`, and finite channel family with explicit nonnegative
 rational weights, it proves
 
@@ -24165,10 +24185,13 @@ finite sum by an exact rational triangle inequality.  Its right-hand side is
 deliberately named `resolvedTraceMass`, not rank.  The four- and six-valent
 operator leaves now identify their positive-channel masses exactly with `2`
 and `5`; together with the bivalent mass `1`, the local analytic input is
-complete.  The remaining concrete work is to transport those resolutions
-through arbitrary orientation masks, prove the oriented plaquette wiring
-Gram-isometric, and identify the literal Wilson coefficient with the resolved
-trace.
+complete.  This theorem remains correct and useful for genuinely bipartite
+subnetworks, but the cube-triangle audit proves that it is not the global C8
+closure theorem.  `TwoSidedFactoredPositiveChannelTraceBound.lean` likewise
+proves the valid extension `|<Uv,Vv>| <= ||v||^2` for two isometries; it cannot
+encode a non-bipartite factor graph and is therefore auxiliary rather than the
+production bridge.  Its exact target and direct audit are green with only
+`[propext, Quot.sound]`.
 
 For a box-sized network, the Cartesian product of the local channel lists
 must **not** be materialized: it has up to `5^(number of six-valent links)`
@@ -24182,11 +24205,11 @@ abs (nestedSum_channelChoices signedTerm)
   =  product_links localInvariantMultiplicity.
 ```
 
-The first inequality is the same square-root-free Young argument under nested
-finite sums; the first equality uses tensor-Gram factorization; the second
-uses the exact local masses `1,2,5`.  This factored theorem is part of C8, not
-an optimization: a flat global channel enumeration is not an admissible
-construction of the production coefficient.
+The first inequality must be the graphical Finner bound under the structural
+nested sums; the norm cancellation uses tensor-Gram factorization; the final
+identity uses the exact local masses `1,2,5`.  This factored construction is
+part of C8, not an optimization: a flat global channel enumeration is not an
+admissible construction of the production coefficient.
 
 `FactoredPositiveChannelTraceBound.lean` now completes this scalable analytic
 lift.  It defines a nested structural choice sum, proves its finite triangle
@@ -24199,9 +24222,13 @@ abs factoredResolvedTrace <= factoredResolvedTraceMass,
 and, from an explicit tensor-Gram norm factorization, proves that the mass is
 exactly the product of the local weighted channel sums.  No Cartesian channel
 list is constructed.  The target and direct axiom audit are green with only
-`[propext, Quot.sound]`.  The remaining `N3--N5` work is therefore concrete:
-package the bivalent positive vector, build the symbolic Boolean tensor form,
-transport arbitrary orientations, and instantiate the tensor-norm hypothesis.
+`[propext, Quot.sound]`.  Its nested-sum and mass-factorization algebra remains
+load-bearing, but its one-isometry trace hypothesis is not the actual
+plaquette geometry.  The pointwise arbitrary-orientation channel
+factorization is now complete in `N3`.  The remaining `N4--N5` work is to
+formalize the exact degree-two corner-incidence ledger, prove the
+finite-Boolean graphical Finner inequality, and instantiate its linkwise norm
+cancellation.
 
 `SymbolicFiniteBoolTensor.lean` now supplies that Gram carrier without a
 finite assignment list.  It builds `BoolTensor n` and its positive dot form by
@@ -24227,7 +24254,9 @@ six-valent tensor Gram is derived structurally from bilinearity and the frozen
 five-pairing Gram calculation, without enumerating the sixty-four Boolean
 coordinates.  Its exact target and direct audit are green with only
 `[propext]`.  The remaining tensor work is therefore the geometry-derived
-signed wiring and its instantiation in the global trace.
+endpoint-factor incidence and its instantiation in the graphical contraction
+bound.  No single global signed wiring or positive trace representation is
+assumed.
 
 `SU2QuaternionCutoffOneLocalChannelMass.lean` now freezes the uniform local
 channel ledger consumed by the factored global bound.  Its single tagged
@@ -24324,9 +24353,18 @@ fundamental occurrence it identifies the semantic operator target/source
 coordinates, proves that forward/reverse normalization complements both
 coordinates with exactly the self-duality sign, and realizes that operation
 by the compiled epsilon wiring.  Its exact target and direct audit are green
-with only `[propext]`.  What remains in `N3` is to lift this one-occurrence law
-through the even-valent local kernel resolutions; what remains in `N4` is the
-separate global cup/cap straightening forced by plaquette contraction.
+with only `[propext]`.
+
+`SU2QuaternionCutoffOneOrientedPositiveChannels.lean` now completes `N3`.
+For every literal orientation pattern and each even valence `2,4,6`, it
+absorbs the accumulated pseudoreality sign into the target/source evaluations
+of the same orientation-transported invariant channel and proves the exact
+positive inverse-Gram resolutions with `1,2,5` channels.  Odd valences vanish
+and the empty word is one.  The capstone
+`cutoffOneHaarKernel_eqv_transportedPositiveChannels` is componentwise in the
+honest rational-complex kernel, performs no Boolean-assignment enumeration,
+and has direct gate `[propext, Quot.sound]`.  Orientation transport preserves
+the complete local channel Gram tables, so the local mass ledger is unchanged.
 
 The N4 geometry audit also rules out a tempting but false shortcut.  A tag
 permutation alone cannot turn the plaquette contraction into a dot product.
@@ -24334,11 +24372,72 @@ For one standard face with corner tags `[a,b,c,d]` and coefficient word
 `F(a,b) F(b,c) R(c,d) R(d,a)`, the operator-projector target word is
 `[a,b,d,a]` while the source word is `[b,c,c,d]`: `a` is a target-target cap
 and `c` is a source-source cup.  Neither word is a permutation of the four
-corners.  Therefore N4 must prove an explicit pivotal/epsilon straightening
-identity on the actual invariant channel tensors, then compile the resulting
-signed bijection to a `SignedBoolWiring`.  The link-major descriptor
-permutation is necessary for Haar factorization but is not this straightening
-theorem.
+corners.  This rules out a global two-sided dot product, but it does not
+require a pivotal straightening.  `N3` instead places each channel value at its
+semantic physical endpoint.  The correct global object is a degree-two factor
+graph: each fresh face-corner variable joins the two half-link channel factors
+meeting at that corner, including odd cycles such as the three-factor triangle
+at a cube vertex.  `N4` must certify this exact incidence and apply a
+constructive graphical Cauchy--Finner inequality.  The link-major descriptor
+permutation is necessary for Haar factorization but is not the incidence
+bound.
+
+Nor can the obstruction be removed by seeking a positive resolution in the
+literal storage-row/storage-column split.  The bivalent `F/R` branch is
+already a decisive counterexample.  With storage row
+`x = (forwardRow, reverseRow)` and storage column
+`y = (forwardColumn, reverseColumn)`, its scalar kernel is
+
+```text
+K(x,y) = (1/2) * 1[x_1 = y_2] * 1[x_2 = y_1]
+       = (1/2) * Swap_4(x,y).
+```
+
+This matrix has rank four and the explicit antisymmetric vector
+`z(01)=1`, `z(10)=-1`, `z(00)=z(11)=0` satisfies `z^T K z = -1`.
+It therefore admits no same-channel positive factorization
+`sum_c w_c v_c(x)v_c(y)` with nonnegative weights, and no invertible separate
+row/column basis changes can turn it into the rank-one invariant projector.
+The positive rank-one form appears only after the semantic reshaping
+
+```text
+target = (forwardRow, reverseColumn),
+source = (forwardColumn, reverseRow),
+```
+
+which is exactly the partial transpose that creates the face cups and caps.
+`SU2QuaternionLocalChannelPivotalInvariance.lean` freezes this obstruction as
+an axiom-free regression: the storage kernel is exactly half-swap and its
+explicit antisymmetric quadratic witness is exactly `-1`.  The rejected
+all-leg pivotal fixed-point layer is not part of the proof.
+
+`SU2QuaternionCutoffOneEndpointChannelPorts.lean` proves the positive half of
+the corrected geometry.  For every oriented occurrence, the semantic target
+is its canonical physical-link base tag and the semantic source is its end
+tag.  For either face orientation the exact port words are `[a,b,d,a]` and
+`[b,c,c,d]`; their concatenation contains the two incidences of every fresh
+corner.  Its target and direct audit are green with gates at most `[propext]`.
+Thus N4 retains the operator-coordinate positive resolution from N3 and uses
+the complete degree-two graphical contraction; a storage-coordinate PSD
+refactor, a global signed-permutation trace, or a plain face permutation is
+mathematically false.
+
+`SymbolicFiniteBoolTensorContraction.lean` supplies the analytic primitive for
+that contraction.  It contracts an arbitrary common innermost Boolean block
+of two finite tensors and proves, constructively and without square roots,
+
+```text
+normSq (contract shared left right) <= normSq left * normSq right.
+```
+
+The proof is structural only in the two free-coordinate blocks; the entire
+shared block is discharged once by the generic Boolean-tensor
+Cauchy--Schwarz theorem, so no assignment carrier or depth-specific expansion
+is introduced.  Its exact target and direct audit are green with gates
+contained in `[propext, Quot.sound]`.  This is not yet the full N4 theorem:
+the remaining combinatorial work must compile the tagged cube factors into a
+sequence of port rearrangements and shared-block contractions and prove that
+the sequence consumes every fresh corner exactly once.
 
 The exact C8 dependency DAG is now frozen as follows:
 
@@ -24355,29 +24454,32 @@ N0  geometry-generic oriented face rows, unique corner tags,
 N3  positive local channels at valence 2/4/6
     + signed arbitrary-orientation transport
              |
-N4  symbolic finite-Boolean Gram carrier
-    + geometry-derived signed plaquette wiring isometry
+N4  exact target/source factor-incidence graph
+    + each fresh corner tag occurs in exactly two distinct factors
+    + finite-Boolean graphical Holder/Finner inequality
              |
-N5  nested factored channel trace
+N5  nested factored channel-network sum
+    + inverse-weight/norm cancellation
     + resolved-mass product `prod_link (1,2,5)`
              |
-N6  literal Haar coefficient = factored resolved trace
+N6  literal Haar coefficient = factored channel-network contraction
     + `abs coefficient <= geometricLinkMultiplicityProduct`
              |
 N7  existing geometric/explicit multiplicity bridge
     + `abs honestCutoffOnePhysicalTerm <= canonicalSurfaceActivity`.
 ```
 
-Execution status: `N0`, `N1`, and all of `N2` are complete.  Concrete
-standard-orientation local `N3` and the local mass ledger of `N5` are complete.
-The one-occurrence arbitrary-orientation epsilon transport is complete, but
-its even-word positive-resolution lift remains open.  The generic
-analytic part of `N5`, the tensor carrier, tensor-product factorization, and
-local channel Gram realization of `N4` are also complete.  The generic
-dispatcher/Fubini theorem and its actual link-bucket instantiation are both
-complete at the constructive axiom gate.  The pivotal/epsilon geometry
-straightening in `N4`, global factored
-instantiation in `N5`, and the acceptance bridge `N6--N7` remain open.
+Execution status: `N0`, `N1`, all of `N2`, and the arbitrary-orientation
+positive local channel theorem `N3` are complete.  The local mass ledger of
+`N5`, generic nested mass algebra, tensor carrier, tensor-product
+factorization, and local channel Gram realization are also complete.  The
+generic dispatcher/Fubini theorem and its actual link-bucket instantiation are
+complete at the constructive axiom gate.  The endpoint-port leaf of `N4` is
+complete, as is the square-root-free two-tensor shared-block contraction
+inequality.  The full factor-key incidence ledger, port-arrangement compiler,
+and recursive contraction-plan instantiation in `N4`, the global factored
+network and inverse-weight/norm cancellation in `N5`, and the acceptance
+bridge `N6--N7` remain open.
 
 The first genuinely global exact checkpoint is `N0--N2`:
 
@@ -24530,46 +24632,58 @@ enumerate polarity/index assignments.  Delivered:
 6. arbitrary-block independent-spectator zero;
 7. exactly `{propext, Quot.sound}` in the public axiom gates.
 
-The formerly immediate successors—four/six self-duality normalization and the
-total valence dispatcher—are complete.  The immediate open successor is the
-orientation-correct signed operator isometry and the generic positive-channel
-trace bound, followed by the global network/wiring equality and production
-migration.
+The formerly immediate successors—four/six self-duality normalization, the
+total valence dispatcher, and the pointwise arbitrary-orientation
+positive-channel factorization—are complete.  The immediate open successors
+are the exact factor-key/degree-two corner-incidence ledger and its compilation
+into the now-proved shared-block contraction inequality, followed by global
+inverse-weight/norm cancellation and production migration.
 
 ### 13. Consumer-first execution order from the present code
 
 The backward graph determines the following forward implementation order.
 
-1. **Finish the nearby physical leaf:** the odd, oriented-even, and total
-   dispatcher stages are complete; prove signed operator transport, the
-   positive-channel global trace domination, and cutoff-one production
-   migration.
-2. **Generalize immediately to all representation labels and group-index the
-   harmonic input:** invariant-space dimensions, character tails, a
+1. **Finish the nearby physical leaf:** `N0--N3`, including signed orientation
+   transport and the local positive-channel resolutions, are complete; prove
+   the full factor-key incidence certificate, graphical contraction
+   domination, linkwise inverse-weight/norm cancellation, and cutoff-one
+   production migration.
+2. **Freeze the minimal semantic consumers before another large
+   generalization:** define `ComputableCompactGaugeGroup`,
+   `PinnedWilsonLatticeFamily`, the source-extended RG output/extraction
+   carrier, and the physical identity `Delta_k = m_lat(k) / a_k`.  These are
+   specification targets, not new assumptions or claims of closure; each must
+   have anti-toy adequacy fields and one intended producer slot.
+3. **Generalize immediately afterward to all representation labels and
+   group-index the harmonic input:** invariant-space dimensions, character tails, a
    label-summed signed network majorant, and the representation/Haar data that
    later RG estimates consume.  Do not postpone analytic group dependence to
    a terminal transport step.
-3. **Use that network as the genuine infrared anchor:** cluster convergence,
+4. **Use that network as the genuine infrared anchor:** cluster convergence,
    reflection-positive forms, a volume-uniform lattice gap, and a finite-energy
    excitation.
-4. **Define the group-indexed sourced RG producer:** make existence, gap,
-   anisotropy, and composite-field estimates outputs of one tower.
-5. **Prove the nonperturbative UV-to-IR flow:** actual block transformations,
-   large-field control, summable errors, and the physical spacing equation.
-6. **Pass both limits with shared moduli:** construct the canonical Schwinger
+5. **Design `C6a` before proving `C6c--C6f`:** every block, UV, crossover,
+   infrared, source, and form estimate must feed one shared extraction theorem
+   rather than a collection of later wrappers.
+6. **Prove the nonperturbative UV-to-IR flow:** actual source-extended block
+   transformations, large-field control, summable errors, and the physical
+   spacing equation.  The genuine phase-cell/effective-action landing theorem
+   is the central new step; `SingleStepDefectBound.singleStep` and the existing
+   scalar floor recursions are consequences, not substitutes for it.
+7. **Pass both limits with shared moduli:** construct the canonical Schwinger
    functions, full OS laws, local source limits, and uniform physical margin
    together.
-7. **Complete constructive OS reconstruction:** reflected Hilbert space, `C0`
+8. **Complete constructive OS reconstruction:** reflected Hilbert space, `C0`
    semigroup, unbounded generator, Poincare action, unique vacuum, and located
    finite spectral edge.
-8. **Close terminal local content from the same sourced RG:** curvature fields,
+9. **Close terminal local content from the same sourced RG:** curvature fields,
    non-Wick cumulant, stress Ward identities, OPE, anomalous dimensions, and AF
    matching.
-9. **Finish global-form descent:** central quotients, faithful lattice actions,
+10. **Finish global-form descent:** central quotients, faithful lattice actions,
    representation descent, and topology/Haar identifications for every compact
    simple global form, using the group-indexed estimates already proved rather
    than introducing new analytic hypotheses here.
-10. **Assemble the adequate terminal target, project to every unchanged legacy
+11. **Assemble the adequate terminal target, project to every unchanged legacy
     frontier, and only then run the terminal guard/axiom/full-build audit.**
 
 The bounded statement-design work for the missing semantic carriers should run
