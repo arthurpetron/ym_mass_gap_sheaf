@@ -23787,3 +23787,466 @@ This route is finite, exact, and intuitionistic: recursive Boolean sums,
 explicit finite case proofs, rational setoid algebra, duplicate-free decoders,
 and certified permutations replace choice, excluded middle, global
 enumeration, and unsafe evaluator calls.
+
+## Completion-first backward proof graph (2026-07-20)
+
+This section supersedes every earlier priority ranking, but it does not delete
+the historical scorecards or weaken their guarded statements.  It starts from
+the literal completion requirements in `docs/ym_mass_gap_prompt.md` and works
+backward until the leaves meet the strongest honest objects that currently
+exist in Lean.  In particular, `ClayTarget`, `ClayTargetPinned`,
+`ContinuumYMWithGap`, `FunctionalContinuumTarget`, `Tier0Scorecard`, and
+`FrontierDAG` remain useful compatibility interfaces, but none is the faithful
+terminal theorem: several fields are deliberately coarse, freely supplied, or
+toy-inhabitable, and several structures say so explicitly in their headers.
+
+The detailed clause-by-clause carrier audit remains
+`docs/clay_resolution_target_inventory.md`.  The graph below is the execution
+plan distilled from that audit.
+
+### 1. Terminal theorem and honesty invariant — ○ MISSING
+
+The required endpoint is a construction, for every actual compact simple
+global gauge group `G`, of one nontrivial four-dimensional pure Yang--Mills
+theory on `R^4` satisfying Wightman- or full Osterwalder--Schrader-strength
+axioms and possessing a finite positive physical Hamiltonian gap
+
+```text
+0 < m_G < infinity.
+```
+
+The same theory must carry gauge-invariant curvature fields, perturbative
+short-distance asymptotic freedom, a conserved stress tensor, and an OPE with a
+controlled remainder.  Its finite-volume Wilson family, limiting Schwinger
+functional, reflected positive-time Hilbert space, semigroup, generator,
+spectrum, and local correlators must be definitionally or theorem-level pinned
+to one shared root.  Independent witnesses for these clauses are not an
+acceptable proof.
+
+The intended terminal shape is therefore approximately
+
+```lean
+def yangMillsExistenceAndMassGap
+    (G : ComputableCompactGaugeGroup)
+    (hG : G.IsCompactSimple) :
+    ClayResolutionTarget G
+```
+
+where `ClayResolutionTarget`, `ComputableCompactGaugeGroup`, and the total
+adequacy theorem do not yet exist in Lean.  They must not be introduced as an
+empty wrapper around old assumptions.  Each semantic carrier below must first
+contain enough equations and anti-toy pins that its inhabitants have the
+physical meaning claimed for them.
+
+**Permanent honesty invariant.**  Every downstream object refers to the same
+`G`, faithful action, Wilson family, continuum observable algebra and
+functional, reflected OS reconstruction, vacuum, and local fields.  Every
+claimed mass number is the located spectral edge of the actual generator and
+is tied back to the uniform lattice estimate in physical units.  The final
+assembler introduces no new hypothesis and projects to all unchanged legacy
+frontier types required by the prompt.
+
+### 2. Backward gate C0: coherent Clay theory — ○ MISSING
+
+```text
+ClayResolutionTarget G
+  <= PinnedWilsonLatticeFamily G
+   + CanonicalSchwingerSystem G
+   + EuclideanSchwingerAxioms G
+   + PhysicalOSReconstruction G
+   + PhysicalSpectralGap G
+   + CanonicalLocalOperatorContent G.
+```
+
+The terminal assembler is accepted only if:
+
+1. every field above is pinned to the same root objects;
+2. a projection supplies the five unchanged guarded legacy frontiers rather
+   than renaming, weakening, or replacing them;
+3. the terminal and adequacy statements themselves are added to the statement
+   guard after review;
+4. every load-bearing theorem uses only `{propext, Quot.sound}`;
+5. both repository statement guards, the forbidden-token scan, semantic-root
+   wiring, and the full-current build gate pass.
+
+No present theorem inhabits this gate.  `FourDExistence.ym_mass_gap_of_existence`
+projects a gap already stored in `ContinuumYMWithGap`;
+`AllSimpleTypes.mass_gap_of_cartanType` consumes a caller-supplied reconstruction
+and OS bundle; and `ClayTargetPinned.toClayTarget` only coarsens an uninhabited
+legacy package.
+
+### 3. Backward gate C1: actual compact simple global group — ○ MISSING
+
+```text
+ComputableCompactGaugeGroup G
+  <= compact global form + topology/uniform structure
+   + constructive group operations
+   + normalized Haar functional/integration
+   + faithful finite-dimensional unitary lattice action
+   + Peter--Weyl/character data and representation descent
+   + proof of compactness and simplicity.
+```
+
+The current `CartanType` and `CompactSimpleGlobalFormCode` layers classify Lie
+and central-quotient data, but explicitly do not construct an actual compact
+group, topology, Haar functional, faithful action, or all representations.
+Thus “all simple types” is not yet “every compact simple global group.”
+
+Execution rule: keep `G` as a parameter in every new terminal-grade interface
+from the beginning.  Use `SU(2)` as the first analytic inhabitant, then prove
+transport through central quotients and the classical/exceptional families.
+Do not extrapolate from `SU(2)` by an unproved “worst group” assertion.
+
+### 4. Backward gate C2: canonical local quantum-field content — ○ MISSING
+
+```text
+CanonicalLocalOperatorContent G
+  <= one source-extended constructive RG tower
+   + renormalized lattice curvature-polynomial approximants
+   + convergence in every spectator correlator
+   + locality, gauge invariance, and E(4) covariance
+   + a nonzero connected higher cumulant / failure of Wick factorization
+   + a local stress tensor with Ward identities and translation charges
+   + OPE coefficient asymptotics with an explicit spectator remainder modulus
+   + beta-function/anomalous-dimension matching for the same correlators.
+```
+
+The present `LocalCurvatureFields`, `StressTensor`, `OPE`, and
+`AsymptoticFreedomShortDistance` are typed statement-layer interfaces.  Their
+individual toy inhabitants, including the one-point and zero-OPE witnesses,
+show that they are not terminal-grade.  The repair is not another conjunction:
+all operator identities and remainders must be equations about the canonical
+Schwinger functions, and nontriviality must be witnessed by an actual connected
+correlator of those fields.
+
+This branch must be included in the sourced RG analysis rather than retrofitted
+after constructing a measure.  Otherwise the hardest multiscale estimates
+would have to be repeated for composite insertions.
+
+### 5. Backward gate C3: physical finite positive mass gap — ○ MISSING
+
+```text
+PhysicalSpectralGap G
+  <= located infimum of the actual generator form on Omega-perp
+   + an explicit strictly positive lower bracket
+   + finite-energy near-edge witnesses
+   + vacuum uniqueness
+   + equality with the continuum limit of the physical lattice gap.
+```
+
+The physical mass is
+
+```text
+m_G = inf { <psi,H psi> :
+              psi in Dom(H), ||psi|| = 1, <Omega,psi> = 0 }.
+```
+
+An arbitrary exclusion interval, a free `genGap` family, or a finite spectral
+model is insufficient.  Finiteness requires near-edge vectors of controlled
+energy; positivity requires a uniform lower bracket; both must concern the
+same unbounded generator.
+
+The quantitative backward chain is
+
+```text
+continuum generator gap
+  <= form/resolvent convergence + uniform physical lattice gap
+  <= Delta_(k+1) >= (1-delta_k) Delta_k - epsilon_k,
+       with Delta_k = m_lat(k) / a_k
+  <= summable defects + a positive infrared/strong-coupling anchor
+  <= a true block-spin comparison for the actual Wilson transfer/form
+  <= controlled effective Yang--Mills RG flow.
+```
+
+The repository has strong constructive algebra showing that a supplied
+summable-defect recursion retains a positive floor.  The hard producer arrow
+from the actual Wilson theory, including the spacing equation and spectral
+identification, remains open.  Legacy `trueMargin`, `singleStep`, and
+`UniformSpacingFloor` objects are conditional consumers, not this producer.
+
+### 6. Backward gate C4: continuous OS reconstruction — ◐ INTERFACE ONLY
+
+```text
+PhysicalOSReconstruction G
+  <= full reflected OS axioms for the canonical Schwinger functions
+   + completed reflected positive-time quotient
+   + strongly continuous positive contraction semigroup U(t)
+   + a densely defined positive self-adjoint generator H
+   + H Omega = 0
+   + positive-energy Poincare representation and spectrum condition.
+```
+
+`CanonicalOSRoot.PositiveTimeOSRoot` is the strongest honest current spine.  It
+uses the reflected form `E((Theta a)^* b)`, constructs the physical quotient
+and completion, pins a one-step transfer, and derives a normalized nonzero
+unit vacuum plus completed self-adjoint/positive/contraction form laws once its
+semantic fields are supplied.  It has no four-dimensional Yang--Mills
+inhabitant.
+
+Missing formal implications are substantial but comparatively standard once
+the full OS hypotheses exist: completed complex vector operations, an exact
+`Nat` semigroup, a constructive-real `C0` semigroup with a time-one pin, a
+closed positive form/resolvent or Yosida construction, its unbounded generator,
+common invariant domains, analytic continuation, Poincare covariance, and
+vacuum uniqueness from clustering.  A bounded logarithm of a time-one transfer
+must not be used as the continuum Hamiltonian.
+
+### 7. Backward gate C5: full canonical Schwinger/OS system — ◐ INTERFACES ONLY
+
+```text
+EuclideanSchwingerAxioms G
+  <= a single CanonicalSchwingerLimit of the pinned Wilson family
+   + constructive test-function regularity and tempered growth
+   + every Schwinger permutation/reality law
+   + a continuous full E(4) action and covariance
+   + reflected half-space positivity
+   + clustering/ergodicity.
+```
+
+`CanonicalOSRoot.ReferenceWeightStageFamily` and
+`CanonicalSchwingerLimit` correctly expose separate volume/cutoff indices,
+explicit approximation errors, and Type-level moduli.  They are not inhabited
+by the intended 4D theory.  The current O(4) carriers encode much weaker or
+freely supplied symmetry data; hypercubic invariance does not prove rotational
+restoration.
+
+Stage equalities and positivity can pass to a controlled limit.  The hard part
+is producing one limit with estimates uniform in volume and spacing, plus
+source derivatives strong enough for the local-operator branch.
+
+### 8. Backward gate C6: one sourced physical RG tower — ○ DOMINANT OPEN THEOREM
+
+The dominant producer should be one group-indexed, source-extended effective
+RG tower carrying simultaneously:
+
+1. the actual Wilson bare functional at each volume/cutoff stage;
+2. effective actions and honest blocking maps;
+3. small- and large-field cells with explicit remainders;
+4. polymer/cluster bounds uniform in volume;
+5. reflection support and form comparison;
+6. coupling flow and anisotropy decay;
+7. the physical transfer/form gap and its spacing conversion;
+8. local/composite source insertions and their mixing matrices;
+9. thermodynamic and continuum convergence moduli.
+
+This is the mathematically central open theorem: a nonperturbative,
+volume-uniform flow from the asymptotically free ultraviolet regime into a
+rigorously controlled massive infrared regime with summable transverse errors.
+A Bałaban-style phase-cell/effective-action construction is the most coherent
+known architecture because it can feed existence, gap, O(4), and local-field
+branches from the same estimates.  The exact character expansion supplies the
+infrared anchor; it cannot by itself control the weak-coupling ultraviolet.
+
+### 9. Backward gate C7: all-label infrared Wilson anchor — ○ OPEN
+
+```text
+uniform infrared/strong-coupling anchor
+  <= honest all-label character/spin-network coefficient network
+   + summable representation tails
+   + cluster expansion for the signed physical weights under an absolute majorant
+   + finite-stage reflection positivity
+   + volume-uniform transfer-form gap
+   + a finite-energy excitation witness.
+```
+
+The cutoff-one fundamental calculation below is a necessary normalization and
+architecture pilot, not the full Wilson action.  The Wilson/heat-kernel
+expansion has arbitrarily high irreducible labels, and repeated plaquette
+powers produce unbounded representation content.  After the cutoff-one network
+is complete, generalize the local rank bound to
+
+```text
+dim Inv(V_(lambda_1)^(epsilon_1) tensor ... tensor
+        V_(lambda_r)^(epsilon_r))
+```
+
+and prove a label-summed activity bound.  Do not continue accumulating isolated
+cube examples after the total network theorem.
+
+### 10. Backward gate C8: honest cutoff-one production coefficient — ◐ ACTIVE
+
+The current production objects `parametricKPhysicalTerm` and
+`canonicalSurfaceActivity` multiply nonnegative face coefficients by a scalar
+link multiplicity.  Exact normalization fences show that this is a majorant,
+not the signed Yang--Mills amplitude:
+
+```text
+elementary cube: honest coefficient differs by factor 16,
+edge-sharing double cube: honest coefficient differs by factor 512.
+```
+
+The correction is topology/channel dependent, so no universal scalar rescaling
+can repair production.  The required objects are
+
+```text
+honestChannelPhysicalTerm  -- signed contracted coefficient,
+channelAbsoluteMajorant    -- nonnegative rank/activity bound,
+canonicalSurfaceActivity   -- legacy carrier during migration.
+```
+
+The acceptance chain is
+
+```text
+honest signed coefficient network
+  <= local valence-selected Haar projectors P_e
+   + oriented plaquette wiring isometry W
+   + Tr ((tensor_e P_e) W),
+
+abs honestChannelPhysicalTerm
+  <= channelAbsoluteMajorant
+   ~= canonicalSurfaceActivity
+   <= existing convergence budget.
+```
+
+The key global theorem is the square-root-free projector bound
+
+```text
+|Tr(P W)| <= rank(P)
+            = product_e fundamentalInvariantMultiplicity(valence_e),
+```
+
+proved from `2*|<x,y>| <= ||x||^2 + ||y||^2` on an orthogonal channel basis.
+Entrywise kernel bounds do not control the exponentially large Boolean-index
+sum.
+
+After this theorem, supply the existing conditional bridge
+
+```text
+AdjacentEvenReachableKernelSOSData
+  -> AdjacentEvenActiveQuadraticSOSData
+  -> AdjacentEvenPhysicalAnchorPSD,
+```
+
+then migrate `parametricKPhysicalTerm` while preserving the visible distinction
+between signed amplitude and positive majorant.
+
+Required regression values: odd-incidence zero, elementary-cube coefficient
+`1/16`, edge-touching double-cube coefficient `1/256`, and an unbalanced
+polarity network whose sign detects a missing epsilon tensor.
+
+### 11. Backward gate C9: total local cutoff-one Haar kernel — ◐ ACTIVE
+
+For every oriented fundamental occurrence word of total valence at most six,
+construct one arbitrary-block partial Haar theorem, stable under an independent
+complex spectator, with dispatcher ranks
+
+```text
+valence: 0  1  2  3  4  5  6
+rank:    1  0  1  0  2  0  5.
+```
+
+The even kernels must retain their signed permutation-basis entries and be
+identified exactly with positive orthogonal channel resolutions.  Prove
+self-adjointness, idempotence in the relevant rational Gram form, and trace/rank
+values; never replace signed amplitudes by squared recoupling coefficients.
+
+Current exact leaves:
+
+* balanced bivalent, four-valent, and six-valent projectors exist at an
+  arbitrary block and under an independent spectator;
+* the six-valent projector has the exact five-channel Temperley--Lieb
+  factorization and rank `5`;
+* `SU2QuaternionFundamentalSelfDuality.lean` proves both raw
+  pseudoreality directions and positive/negative same-orientation `1/2` pins;
+* `SU2QuaternionGenericBlockOrientedBivalentHaarProjector.lean` proves all
+  four `FF/FR/RF/RR` bivalent orientations, arbitrary-block locality, and the
+  spectator lift;
+* `SU2QuaternionGenericBlockOddValentHaarVanishing.lean` proves every nonempty
+  odd oriented word has exact zero partial Haar integral, structurally through
+  selected-block homogeneity and a coordinate-parity mismatch.  It includes
+  named valence `1`, `3`, and `5` partial and independent-spectator zeros.
+
+All three leaves are target-verified under the serialized one-thread guard and
+are imported by `YMGap.lean`.  The odd-word public gates use exactly
+`[propext, Quot.sound]`; the self-duality and bivalent gates remain within the
+same permitted set.  No full semantic-root rebuild is claimed by this local
+checkpoint.
+
+### 12. Completed leaf C10: structural odd-word vanishing — ✓ COMPLETE
+
+For a nonempty ordered word of oriented fundamental coefficients localized at
+one quaternion block, the completed theorem proves:
+
+```text
+word length odd
+  -> every monomial has odd total degree in that block
+  -> a quaternion-block parity mismatch with the vacuum monomial
+  -> exact partial Haar integral = 0.
+```
+
+Reuse
+
+```text
+quaternionBlockMoment_monoMul_zero_of_parityMismatch,
+finiteProductHaar_mul_cross_parity_zero,
+genericBlock_localFactor_with_complex_spectator.
+```
+
+The proof is structural in the word and polynomial support and does not
+enumerate polarity/index assignments.  Delivered:
+
+1. an oriented nonempty word definition with no trailing-`polyOne` alias;
+2. block-degree and block-locality theorems;
+3. the odd-degree-to-parity-mismatch bridge;
+4. exact partial-Haar zero for every odd word;
+5. named valence `1`, `3`, and `5` corollaries;
+6. arbitrary-block independent-spectator zero;
+7. exactly `{propext, Quot.sound}` in the public axiom gates.
+
+The immediate open successor is self-duality normalization of arbitrary oriented
+four- and six-letter words, retaining the exact epsilon sign and
+complemented/transposed indices and reordering only through the existing
+setoid-level polynomial permutation API.  Then build the total dispatcher,
+global trace/rank theorem, and production migration in that order.
+
+### 13. Consumer-first execution order from the present code
+
+The backward graph determines the following forward implementation order.
+
+1. **Finish the nearby physical leaf:** odd parity; oriented four/six
+   normalization; total valence dispatcher; global trace/rank domination;
+   cutoff-one production migration.
+2. **Generalize immediately to all representation labels:** invariant-space
+   dimensions, character tails, and a label-summed signed network majorant.
+3. **Use that network as the genuine infrared anchor:** cluster convergence,
+   reflection-positive forms, a volume-uniform lattice gap, and a finite-energy
+   excitation.
+4. **Define the group-indexed sourced RG producer:** make existence, gap,
+   anisotropy, and composite-field estimates outputs of one tower.
+5. **Prove the nonperturbative UV-to-IR flow:** actual block transformations,
+   large-field control, summable errors, and the physical spacing equation.
+6. **Pass both limits with shared moduli:** construct the canonical Schwinger
+   functions, full OS laws, local source limits, and uniform physical margin
+   together.
+7. **Complete constructive OS reconstruction:** reflected Hilbert space, `C0`
+   semigroup, unbounded generator, Poincare action, unique vacuum, and located
+   finite spectral edge.
+8. **Close terminal local content from the same sourced RG:** curvature fields,
+   non-Wick cumulant, stress Ward identities, OPE, anomalous dimensions, and AF
+   matching.
+9. **Lift the group-indexed proof to every compact simple global form.**
+10. **Assemble the adequate terminal target, project to every unchanged legacy
+    frontier, and only then run the terminal guard/axiom/full-build audit.**
+
+The bounded statement-design work for the missing semantic carriers should run
+alongside these proofs, but it must not proliferate scorecards or be counted as
+mathematical closure.  A carrier is promoted to the terminal spine only when an
+actual producer theorem targets it and its anti-toy adequacy conditions have
+been reviewed.
+
+### 14. Exact status verdict
+
+The repository is not one frontier lemma from the Clay theorem.  It contains a
+large, exact constructive finite-lattice and algebraic substrate; a well-designed
+canonical reflected-OS interface with substantial derived consequences; strong
+conditional defect-recursion algebra; and unusually complete local `SU(2)`
+fundamental Haar calculations.  It does not yet contain an actual all-group
+Wilson family, a four-dimensional continuum Schwinger functional, full OS laws
+for real correlators, a continuous physical semigroup, an unbounded generator,
+a located physical mass edge, terminal-grade local fields/stress/OPE/AF, or an
+all-global-form proof.  The guarded frontier types remain undischarged.
+
+This verdict does not devalue the current local work: it locates it precisely as
+the nearest necessary leaf in the honest finite-stage Wilson functional.  It
+also prevents that leaf, or any future conditional scalar floor, from being
+mistaken for the continuum theorem.
