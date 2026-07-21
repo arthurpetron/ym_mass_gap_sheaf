@@ -24037,6 +24037,42 @@ known architecture because it can feed existence, gap, O(4), and local-field
 branches from the same estimates.  The exact character expansion supplies the
 infrared anchor; it cannot by itself control the weak-coupling ultraviolet.
 
+This gate must not remain one opaque theorem-strength label.  Its honest
+consumer-first decomposition is:
+
+```text
+C6a  sourced-RG extraction:
+     one certificate -> shared Schwinger limits + OS laws + physical gap
+                       + local/composite correlators;
+
+C6b  physical renormalized trajectory:
+     tuned bare coupling versus spacing, dimensional transmutation,
+     anisotropy decay, source mixing, and a fixed physical scale;
+
+C6c  exact source-extended block step:
+     gauge-covariant phase-cell blocking, Jacobian, effective action,
+     reflected support, and small-/large-field polymer decomposition;
+
+C6d  ultraviolet stability:
+     perturbative beta/anomalous-dimension coefficients with a proved
+     nonperturbative remainder and volume-uniform source estimates;
+
+C6e  crossover theorem:
+     the iterated weak-coupling trajectory enters the certified massive
+     cluster domain with summable defects in physical units;
+
+C6f  infrared extraction:
+     the all-label signed-network majorant gives cluster convergence,
+     transfer-form comparison, a uniform lower gap, and a near-edge witness.
+```
+
+`C6e` is the genuinely new mathematical bottleneck; neither a formal
+certificate nor conditional recursion algebra advances it.  Nevertheless,
+`C6a` must be designed first so every estimate produced by `C6c--C6f` has one
+unambiguous consumer.  `C6b--C6e` must be group-indexed from their definitions.
+An `SU(2)` proof may pilot the estimates, but an after-the-fact assertion that
+it is the worst compact simple group is not an admissible all-group argument.
+
 ### 9. Backward gate C7: all-label infrared Wilson anchor — ○ OPEN
 
 ```text
@@ -24113,6 +24149,157 @@ idempotence remain necessary before the weighted trace may honestly be called
 the matrix rank.  Entrywise kernel bounds do not control the exponentially
 large Boolean-index sum.
 
+The one-layer generic analytic part is now complete in
+`PositiveChannelTraceBound.lean`.  For any constructive rational pre-inner
+form, Gram isometry `W`, and finite channel family with explicit nonnegative
+rational weights, it proves
+
+```text
+abs (sum_c weight_c * <v_c, W v_c>)
+  <= sum_c weight_c * <v_c, v_c>.
+```
+
+The proof derives `2*|<x,y>| <= <x,x> + <y,y>` from the positive quadratic
+form, cancels the positive factor two constructively, and closes the weighted
+finite sum by an exact rational triangle inequality.  Its right-hand side is
+deliberately named `resolvedTraceMass`, not rank.  The four- and six-valent
+operator leaves now identify their positive-channel masses exactly with `2`
+and `5`; together with the bivalent mass `1`, the local analytic input is
+complete.  The remaining concrete work is to transport those resolutions
+through arbitrary orientation masks, prove the oriented plaquette wiring
+Gram-isometric, and identify the literal Wilson coefficient with the resolved
+trace.
+
+For a box-sized network, the Cartesian product of the local channel lists
+must **not** be materialized: it has up to `5^(number of six-valent links)`
+leaves.  The immediate scalable lift is therefore a structural nested channel
+fold.  It must prove, without constructing the product list,
+
+```text
+abs (nestedSum_channelChoices signedTerm)
+  <= nestedSum_channelChoices positiveMass
+  =  product_links (sum_localChannels weightedLocalNorm)
+  =  product_links localInvariantMultiplicity.
+```
+
+The first inequality is the same square-root-free Young argument under nested
+finite sums; the first equality uses tensor-Gram factorization; the second
+uses the exact local masses `1,2,5`.  This factored theorem is part of C8, not
+an optimization: a flat global channel enumeration is not an admissible
+construction of the production coefficient.
+
+`FactoredPositiveChannelTraceBound.lean` now completes this scalable analytic
+lift.  It defines a nested structural choice sum, proves its finite triangle
+and monotonicity laws, derives
+
+```text
+abs factoredResolvedTrace <= factoredResolvedTraceMass,
+```
+
+and, from an explicit tensor-Gram norm factorization, proves that the mass is
+exactly the product of the local weighted channel sums.  No Cartesian channel
+list is constructed.  The target and direct axiom audit are green with only
+`[propext, Quot.sound]`.  The remaining `N3--N5` work is therefore concrete:
+package the bivalent positive vector, build the symbolic Boolean tensor form,
+transport arbitrary orientations, and instantiate the tensor-norm hypothesis.
+
+`SymbolicFiniteBoolTensor.lean` now supplies that Gram carrier without a
+finite assignment list.  It builds `BoolTensor n` and its positive dot form by
+structural Boolean fibers, and compiles a small wiring language generated by
+composition, tail lift, adjacent coordinate swap, and signed epsilon
+complement into certified `GramIsometry` maps.  The epsilon complement is
+correctly **not** claimed involutive (`J^2 = -I`), while its Gram action is
+isometric.  It now also defines structural tensor concatenation and proves the
+exact factorization
+
+```text
+dot (x1 tensor y1) (x2 tensor y2) = dot x1 x2 * dot y1 y2
+```
+
+by recursion on the left tensor, without enumerating Boolean assignments.  The
+exact target and direct audit are green; the public gates use only `[propext]`.
+`SU2QuaternionLocalChannelBoolTensor.lean` now completes the concrete local
+embedding.  In output-first/input-second coordinates it realizes the bivalent
+delta in `BoolTensor 2`, the singlet/triplet channels in `BoolTensor 4`, and
+the five Temperley--Lieb channels in `BoolTensor 6`.  Their symbolic Gram
+tables and weighted unit-mass identities are exact.  In particular, the
+six-valent tensor Gram is derived structurally from bilinearity and the frozen
+five-pairing Gram calculation, without enumerating the sixty-four Boolean
+coordinates.  Its exact target and direct audit are green with only
+`[propext]`.  The remaining tensor work is therefore the geometry-derived
+signed wiring and its instantiation in the global trace.
+
+`SU2QuaternionCutoffOneOrientedFaceRows.lean` now completes `N0`.  For every
+numerical cutoff-one support and arbitrary per-face orientation choice it
+constructs production rows retaining support position, physical face ID, and
+decoded plaquette; allocates four globally disjoint corner tags per row;
+projects the literal coefficient descriptors to the established oriented
+plaquette boundary words; identifies their flattened physical links with the
+full geometric boundary by permutation; assigns every descriptor to one
+common touched-link carrier; and proves that each link bucket has exactly its
+geometric incidence length and hence valence at most six.  Its exact target and
+direct axiom audit are green with only `[propext, Quot.sound]`.
+
+`SU2QuaternionCutoffOneNamedTraceExpansionProduct.lean` now completes `N1`.
+For every support and arbitrary per-face standard/reversed choice, it proves
+that finite-product Haar of the literal product of the separately expanded
+plaquette traces equals one rational named Boolean sum over the exact N0
+corner-tag carrier.  The proof moves four binders per face structurally,
+retains production face order and orientation, and never constructs a
+support-sized assignment family.  A first freshness proof was rejected
+because the library `List.nodup_range` carries `Classical.choice`; the accepted
+proof uses an explicit primitive-recursive range-nodup argument instead.  The
+exact target and direct audit are green with only `[propext, Quot.sound]`.
+Thus the active global leaf is now `N2`: the face-major/link-major regrouping
+and structural per-block Haar dispatcher fold.
+
+The exact C8 dependency DAG is now frozen as follows:
+
+```text
+N0  geometry-generic oriented face rows, unique corner tags,
+    and link-occurrence descriptors
+ |
++-- N1  literal face expansion -> named Boolean sum
+|
++-- N2  face-major/link-major permutation
+        + each link bucket -> CutoffOneHaarWord
+        + structural multiblock dispatcher/Fubini fold
+             |
+N3  positive local channels at valence 2/4/6
+    + signed arbitrary-orientation transport
+             |
+N4  symbolic finite-Boolean Gram carrier
+    + geometry-derived signed plaquette wiring isometry
+             |
+N5  nested factored channel trace
+    + resolved-mass product `prod_link (1,2,5)`
+             |
+N6  literal Haar coefficient = factored resolved trace
+    + `abs coefficient <= geometricLinkMultiplicityProduct`
+             |
+N7  existing geometric/explicit multiplicity bridge
+    + `abs honestCutoffOnePhysicalTerm <= canonicalSurfaceActivity`.
+```
+
+Execution status: `N0`, `N1`, and concrete local `N3` are complete; the
+generic analytic part of `N5` is complete; the tensor carrier,
+tensor-product factorization, and local channel Gram realization of `N4` are
+complete.  `N2`, geometry wiring in `N4`, the local-mass instantiation of
+`N5`, and the acceptance bridge `N6--N7` remain open.
+
+The first genuinely global exact checkpoint is `N0--N2`:
+
+```text
+finiteProductHaarComplex literalTraceProduct
+  ~= namedBoolSum tags (fun environment =>
+       product_link cutoffOneHaarKernel(wordAtLink environment link)).
+```
+
+The acceptance checkpoint is `N6--N7`, for every cutoff-one support, not only
+for a cube.  The existing cube values `1/16` and `1/256`, an odd-incidence
+zero, and an orientation-unbalanced epsilon-sign example then become
+specialization regressions.
+
 After this theorem, supply the existing conditional bridge
 
 ```text
@@ -24128,7 +24315,7 @@ Required regression values: odd-incidence zero, elementary-cube coefficient
 `1/16`, edge-touching double-cube coefficient `1/256`, and an unbalanced
 polarity network whose sign detects a missing epsilon tensor.
 
-### 11. Backward gate C9: total local cutoff-one Haar kernel — ◐ INTEGRATION COMPLETE; OPERATOR LAWS ACTIVE
+### 11. Backward gate C9: total local cutoff-one Haar kernel — ◐ POSITIVE RESOLUTIONS COMPLETE; ORIENTATION TRANSPORT ACTIVE
 
 For every oriented fundamental occurrence word of total valence at most six,
 construct one arbitrary-block partial Haar theorem, stable under an independent
@@ -24174,14 +24361,35 @@ Current exact leaves:
 * `SU2QuaternionBivalentOperatorKernel.lean` freezes the operator convention
   `F(output,input)` and `R(input,output)`, factors the epsilon sign into its
   two operator-index signs, and proves the resulting rank-one bivalent kernel
-  pure real, self-adjoint, idempotent, and of trace one.  All of its printed
-  gates are axiom-free.
+  pure real, self-adjoint, idempotent, and of trace one.  It now also proves
+  the orientation-independent positive resolution
+  `(1/2)|delta><delta|`, the exact norm `||delta||^2 = 2`, and weighted mass
+  one.  The original operator-law gates are axiom-free and the new mass gate
+  uses only `[propext]`.
+* `SU2QuaternionFourValentOperatorKernel.lean` applies the same transpose-
+  correct convention to the balanced `F F R R` kernel and proves the exact
+  positive resolution
+  `|S><S| + (1/3)|T><T|`.  The exact channel Gram has squared norms `1,3`, so
+  the weighted resolved mass is `1 + (1/3)*3 = 2`; the literal sixteen-
+  coordinate operator trace is also exactly `2`.
+* `SU2QuaternionSixValentOperatorKernel.lean` applies that operator convention
+  to the balanced `F F F R R R` kernel and proves its exact factorization into
+  five positive Temperley--Lieb rank-one tensors with weights
+  `1/4,1/2,1/2,2/3,2/3`.  Each weighted channel has trace one, their total
+  resolved mass and the signed operator trace are both exactly `5`, and the
+  positive resolution retains both a transpose-sensitive `1/12` entry and a
+  negative `-1/12` interference entry.
+* `SU2QuaternionLocalChannelBoolTensor.lean` proves the formerly missing
+  six-coordinate channel-inner-product/Gram bridge, as well as the matching
+  bivalent and four-valent tensor embeddings.  Raw Boolean-index idempotence
+  remains explicitly unclaimed until it is derived from this Gram bridge; the
+  positive-channel domination theorem itself does not require that extra
+  packaging.
 
-All six leaves are target-verified under the serialized one-thread guard and
-are imported by `YMGap.lean`.  The new even and dispatcher public gates use at
-most `[propext, Quot.sound]`; the self-duality, bivalent, and odd gates remain
-within the same permitted set.  No full semantic-root rebuild is claimed by
-this local checkpoint.
+All displayed new leaves through the three local positive resolutions are
+target-verified under the serialized one-thread guard and are imported by
+`YMGap.lean`.  Their public gates use at most `[propext, Quot.sound]`.  No full
+semantic-root rebuild is claimed by this local checkpoint.
 
 The remaining C9 operator work is now sharply isolated.  The bivalent leaf
 freezes the operator index convention
@@ -24190,12 +24398,14 @@ freezes the operator index convention
 F(output,input),     R(input,output),
 ```
 
-The next step is to package the existing balanced four- and six-valent
-positive channel resolutions and transport them through the orientation mask
-as a signed permutation `T P T^T`.  At valence four the wiring must also
-contain the positional-to-projector swap `[1,3,2,4]`.  This
-gives self-adjointness, idempotence, and trace invariance without enumerating
-orientation/index assignments.
+The balanced four- and six-valent positive channel resolutions and their
+actual Boolean-tensor Gram bridge are now packaged.  The next local step is to
+transport them through every orientation mask as a signed permutation
+`T P T^T`.  At valence four the transport must also contain the
+positional-to-projector swap `[1,3,2,4]`.  This gives self-adjointness and
+trace invariance without enumerating orientation/index assignments.  Raw
+Boolean idempotence may then be derived from the now-complete Gram theorem,
+but it is not on the shortest dependency path to the coefficient bound.
 
 ### 12. Completed leaf C10: structural odd-word vanishing — ✓ COMPLETE
 
@@ -24242,8 +24452,11 @@ The backward graph determines the following forward implementation order.
    dispatcher stages are complete; prove signed operator transport, the
    positive-channel global trace domination, and cutoff-one production
    migration.
-2. **Generalize immediately to all representation labels:** invariant-space
-   dimensions, character tails, and a label-summed signed network majorant.
+2. **Generalize immediately to all representation labels and group-index the
+   harmonic input:** invariant-space dimensions, character tails, a
+   label-summed signed network majorant, and the representation/Haar data that
+   later RG estimates consume.  Do not postpone analytic group dependence to
+   a terminal transport step.
 3. **Use that network as the genuine infrared anchor:** cluster convergence,
    reflection-positive forms, a volume-uniform lattice gap, and a finite-energy
    excitation.
@@ -24260,7 +24473,10 @@ The backward graph determines the following forward implementation order.
 8. **Close terminal local content from the same sourced RG:** curvature fields,
    non-Wick cumulant, stress Ward identities, OPE, anomalous dimensions, and AF
    matching.
-9. **Lift the group-indexed proof to every compact simple global form.**
+9. **Finish global-form descent:** central quotients, faithful lattice actions,
+   representation descent, and topology/Haar identifications for every compact
+   simple global form, using the group-indexed estimates already proved rather
+   than introducing new analytic hypotheses here.
 10. **Assemble the adequate terminal target, project to every unchanged legacy
     frontier, and only then run the terminal guard/axiom/full-build audit.**
 

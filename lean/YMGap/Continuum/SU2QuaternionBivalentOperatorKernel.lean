@@ -33,6 +33,14 @@ local infix:50 " ≈ " => Q'.eqv
 
 /-! ## 1. Operator-index occurrences and epsilon signs -/
 
+/-- One Boolean operator-space coordinate, stored in the semantic order
+`(output,input)`.  Keeping this pair packaged prevents the reverse-oriented
+matrix-storage transpose from leaking into later tensor-network wiring. -/
+structure BivalentOperatorIndex where
+  output : Bool
+  input : Bool
+  deriving DecidableEq
+
 /-- The occurrence representing a fundamental operator coefficient from
 `input` to `output`.  A reverse coefficient stores the transposed pair
 `(input, output)`, because conjugate transpose is already part of
@@ -101,6 +109,10 @@ def bivalentOperatorIndexSum
   bivalentRationalComplexBoolSum (fun output =>
     bivalentRationalComplexBoolSum (fun input => family output input))
 
+/-- One bounded Boolean sum in the exact rational scalar carrier. -/
+def bivalentRationalBoolSum (family : Bool → Q') : Q' :=
+  family false + family true
+
 /-- The bivalent Haar kernel on operator coordinates.  The first occurrence
 carries the target/source output indices.  The oppositely oriented second
 occurrence carries the target/source input indices; its reverse branch stores
@@ -112,6 +124,20 @@ def bivalentOperatorKernel
   orientedBivalentHaarKernel
     (operatorOccurrence orientation targetOutput sourceOutput)
     (operatorOccurrence orientation.opposite targetInput sourceInput)
+
+/-- The same kernel with its target and source operator coordinates packaged
+in semantic `(output,input)` order. -/
+def bivalentOperatorKernelAt
+    (orientation : FundamentalLinkOrientation)
+    (target source : BivalentOperatorIndex) : RationalComplex :=
+  bivalentOperatorKernel orientation
+    target.output target.input source.output source.input
+
+/-- Scalar component of the packaged bivalent operator kernel. -/
+def bivalentOperatorKernelScalar
+    (orientation : FundamentalLinkOrientation)
+    (target source : BivalentOperatorIndex) : Q' :=
+  (bivalentOperatorKernelAt orientation target source).1
 
 /-- Matrix transpose on the two operator-coordinate pairs. -/
 def bivalentOperatorKernelTranspose
@@ -201,7 +227,114 @@ theorem bivalentOperatorKernel_trace_exact
       (bivalentOperatorKernelTrace orientation) (1, 0) := by
   cases orientation <;> constructor <;> decide
 
-/-! ## 4. Sign and transpose regressions -/
+/-! ## 4. Positive scalar-channel resolution -/
+
+/-- The invariant scalar vector in the fundamental operator space:
+`delta(output,input)`.  It has one unit entry on each of the two diagonal
+operator coordinates and vanishes off the diagonal. -/
+def bivalentInvariantDelta (index : BivalentOperatorIndex) : Q' :=
+  if index.output = index.input then 1 else 0
+
+/-- The inverse Gram weight of the scalar invariant vector, namely `1/2`. -/
+def bivalentInvariantChannelWeight : Q' :=
+  Q'.invSucc 1
+
+/-- The manifest positive rank-one scalar kernel
+`(1/2) |delta><delta|`. -/
+def bivalentOperatorPositiveChannelScalar
+    (target source : BivalentOperatorIndex) : Q' :=
+  bivalentInvariantChannelWeight *
+    (bivalentInvariantDelta target * bivalentInvariantDelta source)
+
+/-- Rational-complex lift of the positive scalar-channel kernel. -/
+def bivalentOperatorPositiveChannelKernel
+    (target source : BivalentOperatorIndex) : RationalComplex :=
+  (bivalentOperatorPositiveChannelScalar target source, 0)
+
+/-- For either link orientation, the scalar component of the exact Schur
+kernel is `(1/2) delta(target) delta(source)`.  This is a fixed local
+`2 * 4 * 4` operator-matrix check, independent of the size of any later
+plaquette network. -/
+theorem bivalentOperatorKernelScalar_eqv_positiveChannel
+    (orientation : FundamentalLinkOrientation)
+    (target source : BivalentOperatorIndex) :
+    bivalentOperatorKernelScalar orientation target source ≈
+      bivalentOperatorPositiveChannelScalar target source := by
+  rcases target with ⟨targetOutput, targetInput⟩
+  rcases source with ⟨sourceOutput, sourceInput⟩
+  cases orientation <;>
+    cases targetOutput <;> cases targetInput <;>
+    cases sourceOutput <;> cases sourceInput <;>
+    decide
+
+/-- Rational-complex form of the positive rank-one resolution, uniformly in
+the chosen orientation. -/
+theorem bivalentOperatorKernelAt_eqv_positiveChannel
+    (orientation : FundamentalLinkOrientation)
+    (target source : BivalentOperatorIndex) :
+    RationalComplexEqv
+      (bivalentOperatorKernelAt orientation target source)
+      (bivalentOperatorPositiveChannelKernel target source) := by
+  constructor
+  · exact bivalentOperatorKernelScalar_eqv_positiveChannel
+      orientation target source
+  · simpa [bivalentOperatorKernelAt,
+      bivalentOperatorPositiveChannelKernel] using
+      bivalentOperatorKernel_pureReal orientation
+        target.output target.input source.output source.input
+
+/-- Explicit forward-oriented form of the positive scalar-channel
+resolution. -/
+theorem bivalentOperatorKernelAt_forward_eqv_positiveChannel
+    (target source : BivalentOperatorIndex) :
+    RationalComplexEqv
+      (bivalentOperatorKernelAt .forward target source)
+      (bivalentOperatorPositiveChannelKernel target source) :=
+  bivalentOperatorKernelAt_eqv_positiveChannel .forward target source
+
+/-- Explicit reverse-oriented form of the same positive scalar-channel
+resolution. -/
+theorem bivalentOperatorKernelAt_reverse_eqv_positiveChannel
+    (target source : BivalentOperatorIndex) :
+    RationalComplexEqv
+      (bivalentOperatorKernelAt .reverse target source)
+      (bivalentOperatorPositiveChannelKernel target source) :=
+  bivalentOperatorKernelAt_eqv_positiveChannel .reverse target source
+
+/-- Exact squared norm of the scalar invariant vector, summed over its two
+Boolean operator indices. -/
+def bivalentInvariantDeltaSquaredNorm : Q' :=
+  bivalentRationalBoolSum (fun output =>
+    bivalentRationalBoolSum (fun input =>
+      let index : BivalentOperatorIndex := ⟨output, input⟩
+      bivalentInvariantDelta index * bivalentInvariantDelta index))
+
+/-- The invariant vector has squared norm `2`: precisely its two diagonal
+coordinates survive. -/
+theorem bivalentInvariantDeltaSquaredNorm_exact :
+    bivalentInvariantDeltaSquaredNorm ≈ 2 := by
+  unfold bivalentInvariantDeltaSquaredNorm bivalentRationalBoolSum
+    bivalentInvariantDelta
+  decide
+
+/-- Trace mass of the positive scalar channel before normalization is
+`(1/2) * ||delta||^2`. -/
+def bivalentOperatorWeightedTraceMass : Q' :=
+  bivalentInvariantChannelWeight * bivalentInvariantDeltaSquaredNorm
+
+/-- The rank-one scalar channel contributes exactly one unit of trace mass:
+`(1/2) * 2 = 1`. -/
+theorem bivalentOperatorWeightedTraceMass_exact :
+    bivalentOperatorWeightedTraceMass ≈ 1 := by
+  refine Q'.eqv_trans _
+    (bivalentInvariantChannelWeight * 2) _ ?_ ?_
+  · exact Q'.mul_eqv_congr_left bivalentInvariantChannelWeight
+      bivalentInvariantDeltaSquaredNorm 2
+      bivalentInvariantDeltaSquaredNorm_exact
+  · unfold bivalentInvariantChannelWeight
+    decide
+
+/-! ## 5. Sign and transpose regressions -/
 
 /-- Reverse operator storage is exactly `(input,output)`. -/
 theorem operatorOccurrence_reverse_storage_pin :
@@ -241,6 +374,40 @@ theorem bivalentOperatorKernel_offDiagonal_zero_pin :
       (0, 0) := by
   constructor <;> decide
 
+/-- Packaged diagonal coordinates used by the transpose-sensitive pin. -/
+def bivalentZeroDiagonalOperatorIndex : BivalentOperatorIndex :=
+  ⟨false, false⟩
+
+def bivalentOneDiagonalOperatorIndex : BivalentOperatorIndex :=
+  ⟨true, true⟩
+
+/-- Packaged off-diagonal coordinate used by the zero pin. -/
+def bivalentOffDiagonalOperatorIndex : BivalentOperatorIndex :=
+  ⟨false, true⟩
+
+/-- Packaged form of the existing transpose-sensitive surviving entry. -/
+theorem bivalentOperatorKernelAt_transpose_sensitive_pin :
+    RationalComplexEqv
+      (bivalentOperatorKernelAt .forward
+        bivalentZeroDiagonalOperatorIndex
+        bivalentOneDiagonalOperatorIndex)
+      (Q'.invSucc 1, 0) := by
+  simpa [bivalentOperatorKernelAt,
+    bivalentZeroDiagonalOperatorIndex,
+    bivalentOneDiagonalOperatorIndex] using
+    bivalentOperatorKernel_transpose_sensitive_pin
+
+/-- Packaged form of the existing off-diagonal zero entry. -/
+theorem bivalentOperatorKernelAt_offDiagonal_zero_pin :
+    RationalComplexEqv
+      (bivalentOperatorKernelAt .forward
+        bivalentOffDiagonalOperatorIndex
+        bivalentOffDiagonalOperatorIndex)
+      (0, 0) := by
+  simpa [bivalentOperatorKernelAt,
+    bivalentOffDiagonalOperatorIndex] using
+    bivalentOperatorKernel_offDiagonal_zero_pin
+
 #print axioms operatorOccurrence_dual
 #print axioms fundamentalDualitySign_row_column_factorization
 #print axioms operatorOccurrence_dualitySign_factorization
@@ -249,10 +416,18 @@ theorem bivalentOperatorKernel_offDiagonal_zero_pin :
 #print axioms bivalentOperatorKernel_opposite_orientation
 #print axioms bivalentOperatorKernel_idempotent
 #print axioms bivalentOperatorKernel_trace_exact
+#print axioms bivalentOperatorKernelScalar_eqv_positiveChannel
+#print axioms bivalentOperatorKernelAt_eqv_positiveChannel
+#print axioms bivalentOperatorKernelAt_forward_eqv_positiveChannel
+#print axioms bivalentOperatorKernelAt_reverse_eqv_positiveChannel
+#print axioms bivalentInvariantDeltaSquaredNorm_exact
+#print axioms bivalentOperatorWeightedTraceMass_exact
 #print axioms operatorOccurrence_reverse_storage_pin
 #print axioms operatorOccurrence_forward_dual_transpose_pin
 #print axioms operatorOccurrence_reverse_offDiagonal_sign_pin
 #print axioms bivalentOperatorKernel_transpose_sensitive_pin
 #print axioms bivalentOperatorKernel_offDiagonal_zero_pin
+#print axioms bivalentOperatorKernelAt_transpose_sensitive_pin
+#print axioms bivalentOperatorKernelAt_offDiagonal_zero_pin
 
 end YMGap.Continuum.SU2QuaternionBivalentOperatorKernel
