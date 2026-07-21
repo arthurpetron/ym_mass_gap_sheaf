@@ -24229,6 +24229,23 @@ coordinates.  Its exact target and direct audit are green with only
 `[propext]`.  The remaining tensor work is therefore the geometry-derived
 signed wiring and its instantiation in the global trace.
 
+`SU2QuaternionCutoffOneLocalChannelMass.lean` now freezes the uniform local
+channel ledger consumed by the factored global bound.  Its single tagged
+carrier has the exact seven-branch choice lists, empty on odd valence and of
+length `1,1,2,5` on valence `0,2,4,6`.  Each retained channel contributes
+exactly one unit of inverse-Gram-weighted *actual symbolic tensor norm*, so
+the structural local mass is
+
+```text
+valence: 0  1  2  3  4  5  6
+mass:    1  0  1  0  2  0  5
+```
+
+and agrees branchwise with both dispatcher multiplicity and the production
+`fundamentalInvariantMultiplicity` table.  The theorem never unfolds the
+64-entry six-valent tensor and never forms a global channel product.  Its
+exact target and direct audit are green; public gates use at most `[propext]`.
+
 `SU2QuaternionCutoffOneOrientedFaceRows.lean` now completes `N0`.  For every
 numerical cutoff-one support and arbitrary per-face orientation choice it
 constructs production rows retaining support position, physical face ID, and
@@ -24252,6 +24269,76 @@ proof uses an explicit primitive-recursive range-nodup argument instead.  The
 exact target and direct audit are green with only `[propext, Quot.sound]`.
 Thus the active global leaf is now `N2`: the face-major/link-major regrouping
 and structural per-block Haar dispatcher fold.
+
+`SU2QuaternionCutoffOneLinkBucketWords.lean` completes the geometry-only half
+of `N2`.  It gives every N0 descriptor its honest oriented
+`FundamentalOccurrence` semantics, flattens each N1 face term into its four
+literal coefficient factors under finite-product Haar, and proves that stable
+bucketing by the duplicate-free touched-link carrier is a permutation of the
+full face-major descriptor word.  The proof preserves descriptor
+multiplicities and never assumes descriptor duplicate-freeness.  Consequently,
+for every named environment, Haar of the face product is exactly Haar of the
+link-major product of local occurrence words.  The exact target and direct
+audit are green with only `[propext, Quot.sound]`.  The remaining half of `N2`
+is the proof-carrying length-at-most-six conversion and structural multiblock
+application of the total local dispatcher.
+
+`SU2QuaternionAtMostSixBlockWordFubini.lean` contains that intended generic
+dispatcher fold: it retains each literal occurrence list with a proof of
+length at most six, converts totally to the seven-constructor dispatcher with
+no truncation/default branch, and factors pairwise-distinct block words by
+iterated spectator Fubini.  A first compiling proof was rejected because its
+proof-indexed bounded-list association introduced `Classical.choice`.  The
+accepted proof first recovers the literal occurrence list and then handles the
+seven ordinary dispatcher constructors, keeping proof data out of the
+association motive.  Both its exact target and direct audit are now green;
+every displayed gate is contained in exactly `{propext, Quot.sound}`.  Thus
+the generic dispatcher/Fubini half of N2 is complete.
+
+`SU2QuaternionCutoffOneLinkBucketHaarNetwork.lean` now completes the actual
+link-bucket instantiation and therefore closes `N2`.  Each touched-link bucket
+is packaged as an exact `AtMostSixFundamentalWord`; its block is the link's
+index in the duplicate-free touched-link carrier; those block indices are
+pairwise distinct; and concatenating the packaged factor words recovers the
+literal N1 link-major coefficient word.  The multiblock Fubini theorem then
+gives, for every named Boolean environment, the exact equality
+
+```text
+finiteProductHaarComplex
+  (literal oriented face-trace product at that environment)
+  ~= product_touchedLinks
+       cutoffOneHaarKernel(actual oriented occurrence bucket).
+```
+
+This is an equality of the honest signed coefficient integrand, not an
+absolute majorant and not a scalar multiplicity replacement.  Its exact
+target and direct axiom audit are green with only
+`[propext, Quot.sound]`.
+
+`SU2QuaternionOccurrenceBoolTensorTransport.lean` supplies the first
+constructive orientation component of `N3--N4`.  It replaces proof-indexed
+list transports by the exact-shape type `BoolWord n`, compiles an arbitrary
+coordinatewise epsilon mask to `SignedBoolWiring`, and proves both its
+pointwise evaluation formula and Gram isometry.  For a single oriented
+fundamental occurrence it identifies the semantic operator target/source
+coordinates, proves that forward/reverse normalization complements both
+coordinates with exactly the self-duality sign, and realizes that operation
+by the compiled epsilon wiring.  Its exact target and direct audit are green
+with only `[propext]`.  What remains in `N3` is to lift this one-occurrence law
+through the even-valent local kernel resolutions; what remains in `N4` is the
+separate global cup/cap straightening forced by plaquette contraction.
+
+The N4 geometry audit also rules out a tempting but false shortcut.  A tag
+permutation alone cannot turn the plaquette contraction into a dot product.
+For one standard face with corner tags `[a,b,c,d]` and coefficient word
+`F(a,b) F(b,c) R(c,d) R(d,a)`, the operator-projector target word is
+`[a,b,d,a]` while the source word is `[b,c,c,d]`: `a` is a target-target cap
+and `c` is a source-source cup.  Neither word is a permutation of the four
+corners.  Therefore N4 must prove an explicit pivotal/epsilon straightening
+identity on the actual invariant channel tensors, then compile the resulting
+signed bijection to a `SignedBoolWiring`.  The link-major descriptor
+permutation is necessary for Haar factorization but is not this straightening
+theorem.
 
 The exact C8 dependency DAG is now frozen as follows:
 
@@ -24281,11 +24368,16 @@ N7  existing geometric/explicit multiplicity bridge
     + `abs honestCutoffOnePhysicalTerm <= canonicalSurfaceActivity`.
 ```
 
-Execution status: `N0`, `N1`, and concrete local `N3` are complete; the
-generic analytic part of `N5` is complete; the tensor carrier,
-tensor-product factorization, and local channel Gram realization of `N4` are
-complete.  `N2`, geometry wiring in `N4`, the local-mass instantiation of
-`N5`, and the acceptance bridge `N6--N7` remain open.
+Execution status: `N0`, `N1`, and all of `N2` are complete.  Concrete
+standard-orientation local `N3` and the local mass ledger of `N5` are complete.
+The one-occurrence arbitrary-orientation epsilon transport is complete, but
+its even-word positive-resolution lift remains open.  The generic
+analytic part of `N5`, the tensor carrier, tensor-product factorization, and
+local channel Gram realization of `N4` are also complete.  The generic
+dispatcher/Fubini theorem and its actual link-bucket instantiation are both
+complete at the constructive axiom gate.  The pivotal/epsilon geometry
+straightening in `N4`, global factored
+instantiation in `N5`, and the acceptance bridge `N6--N7` remain open.
 
 The first genuinely global exact checkpoint is `N0--N2`:
 
