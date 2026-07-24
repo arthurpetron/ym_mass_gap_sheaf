@@ -55,6 +55,14 @@ Thus local admissibility and positive multiplicity product do not identify
 the physical dual amplitude, even when every intertwiner space is
 one-dimensional.
 
+The unit four-cube embeds face-for-face into the repository's corrected slab
+of extent one. `computations/corrected_slab_haar_network.py` now constructs
+that slab's actual oriented link complex and runs the exact quaternion Haar
+integrator on it. The embedded 72-face assignment (18 active, 54 vacuum)
+again evaluates to \(-1/196608\), while every one of the slab's 116 local
+edge multiplicities is one. This makes the semantic mismatch internal to the
+same corrected-slab geometry used by the proposed block map.
+
 ## Consequence for the route
 
 The completed cutoff-one slab pushforward and remainder are exact for the
