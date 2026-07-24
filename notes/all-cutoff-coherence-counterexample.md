@@ -34,8 +34,10 @@ Its six doubled-spin-one faces are
 ```
 
 Every fine link sees either zero or two spin-one faces, so every exact SU(2)
-invariant multiplicity is positive. The fine Gibbs term is therefore
-positive.
+invariant multiplicity is positive. The fine multiplicity-product slab term
+is therefore positive. This statement concerns the repository's nonnegative
+slab law; the separate exact-Haar semantic gap is recorded in
+`notes/physical-gibbs-semantic-gap.md`.
 
 The independently stretched dyadic target has exactly one nonzero coarse
 face:
