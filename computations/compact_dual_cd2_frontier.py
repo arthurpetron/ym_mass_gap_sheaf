@@ -8,11 +8,14 @@ zero-mass remainder cancellation, and the universal probability bound
 ``||R||_1 <= 2``.  The first genuinely overlapping carrier is also exact:
 two adjacent six-face cube boundaries cancel their shared face pair, every
 touched link of the resulting ten-face carrier has incidence two, and its
-activity is the tenth power of the fundamental face coefficient.
+activity is the tenth power of the fundamental face coefficient.  Normalizing
+the four already-glued occupation carriers gives a nonnegative,
+row-normalized, reversible, and demonstrably source-dependent cutoff-one
+conditional kernel.
 
-This carrier theorem supplies the local overlap correction, not the joint
-kernel.  The first missing object is the globally coupled, post-gluing
-normalization for overlapping blocks with shared fine links, followed by its
+This closes the Boolean surface sector, not the arbitrary-spin joint kernel.
+The first missing object is the globally coupled recoupling fiber for
+overlapping bounded-spin blocks with shared fine links, followed by its
 all-cutoff identification with the physical corrected-slab pushforward.  The
 vanishing quadratic norm belongs to CD-3.
 """
@@ -33,6 +36,9 @@ class CD2Subgate(Enum):
     SEPARATED_COMPOSITION = "link-separated physical composition"
     OVERLAPPING_CARRIER_CORRECTION = (
         "exact adjacent-cube shared-face cancellation activity"
+    )
+    CUTOFF_ONE_OVERLAP_KERNEL = (
+        "source-dependent reversible cutoff-one overlap kernel"
     )
     OVERLAPPING_LINK_ASSEMBLY = "genuinely overlapping shared-link assembly"
     ALL_CUTOFF_GLOBAL_KERNEL = "all-cutoff whole-slab kernel"
@@ -57,6 +63,12 @@ CD2_LEAN_THEOREMS = (
     "zeroXAxisCancelledRoot_canonicalSurfaceActivity_eqv_pow_ten",
     "Z4AdjacentCubeCancellationActivity."
     "independent_cube_power_eqv_shared_face_square_mul_cancelled",
+    "Z4AdjacentCubeCancellationConditionalKernel."
+    "adjacentCubeConditionalKernel_row_normalized",
+    "Z4AdjacentCubeCancellationConditionalKernel."
+    "adjacentCubeConditionalKernel_detailed_balance",
+    "Z4AdjacentCubeCancellationConditionalKernel."
+    "adjacentCubeConditionalKernel_anchor_source_dependent",
     "CompactDualFiniteBlockRemainder.SlabScalePair.FiniteSlabKernel."
     "remainder_total_eqv_zero",
     "CompactDualFiniteBlockRemainder.SlabScalePair.FiniteSlabKernel."
@@ -73,6 +85,7 @@ class CD2Frontier:
     closed_component: bool
     separated_composition: bool
     overlapping_carrier_correction: bool
+    cutoff_one_overlap_kernel: bool
     overlapping_link_assembly: bool
     all_cutoff_global_kernel: bool
     physical_pushforward: bool
@@ -90,6 +103,10 @@ class CD2Frontier:
             (
                 CD2Subgate.OVERLAPPING_CARRIER_CORRECTION,
                 self.overlapping_carrier_correction,
+            ),
+            (
+                CD2Subgate.CUTOFF_ONE_OVERLAP_KERNEL,
+                self.cutoff_one_overlap_kernel,
             ),
             (
                 CD2Subgate.OVERLAPPING_LINK_ASSEMBLY,
@@ -139,6 +156,7 @@ def current_cd2_frontier() -> CD2Frontier:
         closed_component=True,
         separated_composition=True,
         overlapping_carrier_correction=True,
+        cutoff_one_overlap_kernel=True,
         overlapping_link_assembly=False,
         all_cutoff_global_kernel=False,
         physical_pushforward=False,

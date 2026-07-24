@@ -70,12 +70,26 @@ coeffW(w,1)^12 = coeffW(w,1)^2 A_glued(w).
 ```
 
 This is a quantitative shared-link gluing law, not yet a stochastic block
-map.  The first open subgate is therefore the globally coupled assembly for
-genuinely overlapping blocks with shared fine links.  It must place the
-cancelled carrier inside a source-indexed joint state space and normalize
-only after every shared production link factor and fine-support/recoupling
-projection has been inserted.  Independent local normalization is already
-ruled out by an exact zero-mass fence.
+map.
+
+`Z4AdjacentCubeCancellationConditionalKernel.lean` now performs the next
+finite step.  Its four joint occupation states are the vacuum, the left and
+right six-face carriers, and the doubly occupied ten-face carrier.  Holding
+the left occupation fixed, it normalizes the right occupation only after the
+shared face has been cancelled.  The resulting exact-rational kernel is
+nonnegative, row-normalized, and reversible with respect to its conditional
+partition.  At the pinned anchor its occupied-target probability differs
+between the two source rows, so source dependence is proved rather than
+inferred.
+
+This closes the cutoff-one Boolean surface overlap kernel.  The first open
+parent subgate is still the globally coupled assembly for arbitrary bounded
+spin packets with shared fine links.  It must replace Boolean cancellation by
+the complete shared-face fusion/recoupling fiber, place that fiber inside the
+actual fine/coarse slab state spaces, and normalize only after every shared
+production factor and global support projection has been inserted.
+Independent local normalization remains ruled out by the exact zero-mass
+fence.
 
 After that assembly, two further CD-2 steps remain:
 

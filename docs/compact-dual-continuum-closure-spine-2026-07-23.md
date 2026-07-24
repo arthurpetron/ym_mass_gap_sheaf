@@ -185,11 +185,18 @@ incidence two at every touched link, and exact activity
 powers is `coeffW(w,1)^2` times the glued activity.  This converts the
 qualitative positive adjacent carrier into a quantitative gluing law.
 
-The first open subgate remains genuinely overlapping shared-link *kernel*
-assembly: the theorem does not yet provide a source-indexed joint
-normalization, all-cutoff recoupling, or a physical Gibbs pushforward.
-Those precede the all-cutoff whole-slab kernel and physical pushforward
-identification.
+`Z4AdjacentCubeCancellationConditionalKernel.lean` then normalizes the four
+already-glued Boolean occupation carriers.  The two-state conditional rows
+are nonnegative and normalized, the exact joint swap symmetry yields detailed
+balance, and a pinned-anchor theorem proves the rows are genuinely
+source-dependent.  Thus cutoff-one post-gluing normalization is closed.
+
+The first open parent subgate remains arbitrary-spin overlapping shared-link
+assembly.  The Boolean cancellation channel must be replaced by the complete
+bounded-spin shared-face fusion/recoupling fiber and composed over the actual
+corrected-slab labellings.  No all-cutoff kernel or physical Gibbs
+pushforward follows from the two-state law.  Those precede the all-cutoff
+whole-slab kernel and physical pushforward identification.
 
 ## What this advances
 

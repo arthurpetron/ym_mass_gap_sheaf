@@ -23,6 +23,7 @@ def test_first_open_subgate_is_overlapping_link_assembly() -> None:
     assert frontier.closed_component
     assert frontier.separated_composition
     assert frontier.overlapping_carrier_correction
+    assert frontier.cutoff_one_overlap_kernel
     assert (
         frontier.first_open_subgate()
         is CD2Subgate.OVERLAPPING_LINK_ASSEMBLY
@@ -40,6 +41,21 @@ def test_theorem_surface_pins_normalization_and_uniform_fence() -> None:
     assert (
         "Z4AdjacentCubeCancellationActivity."
         "independent_cube_power_eqv_shared_face_square_mul_cancelled"
+        in CD2_LEAN_THEOREMS
+    )
+    assert (
+        "Z4AdjacentCubeCancellationConditionalKernel."
+        "adjacentCubeConditionalKernel_row_normalized"
+        in CD2_LEAN_THEOREMS
+    )
+    assert (
+        "Z4AdjacentCubeCancellationConditionalKernel."
+        "adjacentCubeConditionalKernel_detailed_balance"
+        in CD2_LEAN_THEOREMS
+    )
+    assert (
+        "Z4AdjacentCubeCancellationConditionalKernel."
+        "adjacentCubeConditionalKernel_anchor_source_dependent"
         in CD2_LEAN_THEOREMS
     )
     assert CD2_LEAN_THEOREMS[-2:] == (
