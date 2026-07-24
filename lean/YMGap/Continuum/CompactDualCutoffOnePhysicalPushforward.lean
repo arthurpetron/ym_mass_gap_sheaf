@@ -53,8 +53,7 @@ theorem physicalTerm_eqv_zero_of_not_positive
     (hnotPositive : ¬ (0 : Q') < D.physicalTerm physical) :
     D.physicalTerm physical ≈ 0 := by
   apply qeqv_of_le_of_ge
-  · unfold Q'.le Q'.lt at hnotPositive ⊢
-    exact Int.le_of_not_gt hnotPositive
+  · exact Int.not_lt.mp hnotPositive
   · exact slabParametricKPhysicalTerm_nonnegative
       D.coupling_nonnegative D.cutoff D.extent physical
 
@@ -132,7 +131,7 @@ def positiveRecouplingBlockedMass
     (target : EdgeLabelling) : Q' :=
   positiveRecouplingBlockedMassAux S hfineCutoff hcoarseCoupling
     target S.fine.physicalLabellings
-    (fun source hsource => hsource)
+    (fun _ hsource => hsource)
 
 private theorem kernelSum_eq_positiveRecouplingAux
     (S : SlabScalePair)

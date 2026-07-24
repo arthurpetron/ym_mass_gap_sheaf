@@ -387,12 +387,20 @@ theorem supportedDirac_reflection
   unfold supportedDirac
   have hreflectedMem :=
     reflectSupportedSlabFaceLabelling_mem htarget
-  by_cases heq : target = selected
-  · subst target
+  by_cases htargetEq :
+      supportedLabellingEqB D.faceEdges target selected = true
+  · have heq :=
+      (supportedLabellingEqB_true_iff htarget hselected).mp htargetEq
+    subst target
     rw [hselectedFixed]
-  · have hreflectedNe :
-      D.reflectLabelling target ≠ selected := by
-      intro hreflected
+  · have hreflectedFalse :
+        supportedLabellingEqB D.faceEdges
+            (D.reflectLabelling target) selected = false := by
+      apply Bool.eq_false_iff.mpr
+      intro hreflectedTrue
+      have hreflected :=
+        (supportedLabellingEqB_true_iff
+          hreflectedMem hselected).mp hreflectedTrue
       have hback := congrArg D.reflectLabelling hreflected
       have hsupport :=
         (boundedEdgeLabellings_sound D.cutoff D.faceEdges target htarget).2
@@ -401,20 +409,12 @@ theorem supportedDirac_reflection
           D.extent target hsupport,
         show reflectSupportedSlabFaceLabelling D.extent selected = selected
           from hselectedFixed] at hback
-      exact heq hback
+      exact htargetEq
+        ((supportedLabellingEqB_true_iff
+          htarget hselected).mpr hback)
     have htargetFalse :
         supportedLabellingEqB D.faceEdges target selected = false := by
-      apply Bool.eq_false_iff.mpr
-      intro htrue
-      exact heq ((supportedLabellingEqB_true_iff
-        htarget hselected).mp htrue)
-    have hreflectedFalse :
-        supportedLabellingEqB D.faceEdges
-            (D.reflectLabelling target) selected = false := by
-      apply Bool.eq_false_iff.mpr
-      intro htrue
-      exact hreflectedNe ((supportedLabellingEqB_true_iff
-        hreflectedMem hselected).mp htrue)
+      exact Bool.eq_false_iff.mpr htargetEq
     rw [htargetFalse, hreflectedFalse]
 
 /-! ## 4. One-plaquette rows are Gibbs-null -/
@@ -564,11 +564,20 @@ theorem supportedLabellingEqB_reflection_fixed
       supportedLabellingEqB D.faceEdges physical selected := by
   have hreflectedMem :=
     reflectSupportedSlabFaceLabelling_mem hphysical
-  by_cases heq : physical = selected
-  · subst physical
+  by_cases hsource :
+      supportedLabellingEqB D.faceEdges physical selected = true
+  · have heq :=
+      (supportedLabellingEqB_true_iff hphysical hselected).mp hsource
+    subst physical
     rw [hselectedFixed]
-  · have hreflectedNe : D.reflectLabelling physical ≠ selected := by
-      intro hreflected
+  · have hreflectedFalse :
+        supportedLabellingEqB D.faceEdges
+            (D.reflectLabelling physical) selected = false := by
+      apply Bool.eq_false_iff.mpr
+      intro hreflectedTrue
+      have hreflected :=
+        (supportedLabellingEqB_true_iff
+          hreflectedMem hselected).mp hreflectedTrue
       have hback := congrArg D.reflectLabelling hreflected
       have hsupport :=
         (boundedEdgeLabellings_sound D.cutoff D.faceEdges
@@ -578,20 +587,12 @@ theorem supportedLabellingEqB_reflection_fixed
           D.extent physical hsupport,
         show reflectSupportedSlabFaceLabelling D.extent selected = selected
           from hselectedFixed] at hback
-      exact heq hback
+      exact hsource
+        ((supportedLabellingEqB_true_iff
+          hphysical hselected).mpr hback)
     have hsourceFalse :
         supportedLabellingEqB D.faceEdges physical selected = false := by
-      apply Bool.eq_false_iff.mpr
-      intro htrue
-      exact heq ((supportedLabellingEqB_true_iff
-        hphysical hselected).mp htrue)
-    have hreflectedFalse :
-        supportedLabellingEqB D.faceEdges
-            (D.reflectLabelling physical) selected = false := by
-      apply Bool.eq_false_iff.mpr
-      intro htrue
-      exact hreflectedNe ((supportedLabellingEqB_true_iff
-        hreflectedMem hselected).mp htrue)
+      exact Bool.eq_false_iff.mpr hsource
     rw [hsourceFalse, hreflectedFalse]
 
 theorem nullCompletionKernel_reflection
@@ -681,6 +682,44 @@ def positiveCoherentSource
     fineState hfine hfineCutoff hpositive hcoarseCoupling
   ).toCoherentSlabRecouplingSource
 
+private theorem qeqv_of_le_of_ge_local {a b : Q'}
+    (hab : a ≤ b) (hba : b ≤ a) : a ≈ b := by
+  show a.num * (b.den : Int) = b.num * (a.den : Int)
+  exact Int.le_antisymm hab hba
+
+private theorem divPos_eqv_congr_local
+    {numerator numerator' denominator denominator' : Q'}
+    (hdenominator : (0 : Q') < denominator)
+    (hdenominator' : (0 : Q') < denominator')
+    (hnumerator : numerator ≈ numerator')
+    (hdenominatorEq : denominator ≈ denominator') :
+    Q'.divPos numerator denominator hdenominator ≈
+      Q'.divPos numerator' denominator' hdenominator' := by
+  apply qeqv_of_le_of_ge_local
+  · apply Q'.le_divPos_of_mul_le
+      numerator' denominator' hdenominator'
+    exact Q'.le_of_eqv
+      (Q'.eqv_trans _ _ _
+        (Q'.mul_eqv_congr_left
+          (Q'.divPos numerator denominator hdenominator)
+          denominator' denominator
+          (Q'.eqv_symm hdenominatorEq))
+        (Q'.eqv_trans _ _ _
+          (Q'.divPos_mul_eqv
+            numerator denominator hdenominator)
+          hnumerator))
+  · apply Q'.le_divPos_of_mul_le
+      numerator denominator hdenominator
+    exact Q'.le_of_eqv
+      (Q'.eqv_trans _ _ _
+        (Q'.mul_eqv_congr_left
+          (Q'.divPos numerator' denominator' hdenominator')
+          denominator denominator' hdenominatorEq)
+        (Q'.eqv_trans _ _ _
+          (Q'.divPos_mul_eqv
+            numerator' denominator' hdenominator')
+          (Q'.eqv_symm hnumerator)))
+
 theorem wholeSlabConditionalKernel_eq_of_fineState_eq
     {S : SlabScalePair}
     (left right : CoherentSlabRecouplingSource S)
@@ -688,10 +727,29 @@ theorem wholeSlabConditionalKernel_eq_of_fineState_eq
     (target : EdgeLabelling) :
     wholeSlabRecouplingConditionalKernel left target ≈
       wholeSlabRecouplingConditionalKernel right target := by
+  have hraw :
+      wholeSlabRecouplingRawWeight S left.fineState target =
+        wholeSlabRecouplingRawWeight S right.fineState target :=
+    congrArg
+      (fun fineState =>
+        wholeSlabRecouplingRawWeight S fineState target)
+      hstate
+  have hpartition :
+      wholeSlabRecouplingPartition left =
+        wholeSlabRecouplingPartition right := by
+    unfold wholeSlabRecouplingPartition
+    exact congrArg
+      (fun fineState =>
+        listQSum
+          (wholeSlabRecouplingRawWeight S fineState)
+          S.coarse.physicalLabellings)
+      hstate
   unfold wholeSlabRecouplingConditionalKernel
-    wholeSlabRecouplingPartition
-  rw [hstate]
-  exact Q'.eqv_refl _
+  exact divPos_eqv_congr_local
+    (wholeSlabRecouplingPartition_pos left)
+    (wholeSlabRecouplingPartition_pos right)
+    (Q'.eqv_of_eq hraw)
+    (Q'.eqv_of_eq hpartition)
 
 def cutoffOneWholeSlabKernel
     (S : SlabScalePair)
@@ -876,6 +934,12 @@ theorem cutoffOneWholeSlabKernel_reflection
         (S.coarse.reflectLabelling coarseState) ≈
       cutoffOneWholeSlabKernel S hfineCutoff hcoarseCoupling
         fineState coarseState := by
+  change
+    cutoffOneWholeSlabKernel S hfineCutoff hcoarseCoupling
+        (reflectSupportedSlabFaceLabelling S.fine.extent fineState)
+        (reflectSupportedSlabFaceLabelling S.coarse.extent coarseState) ≈
+      cutoffOneWholeSlabKernel S hfineCutoff hcoarseCoupling
+        fineState coarseState
   have hreflectedFine :=
     reflectSupportedSlabFaceLabelling_mem hfine
   by_cases hpositive :
@@ -948,6 +1012,7 @@ theorem cutoffOneWholeSlabKernel_fixed_eq_one
           (fixedSingletonLabelling S.coarse) = true :=
     supportedLabellingEqB_true_of_eq _ rfl
   rw [htarget]
+  simp
 
 theorem cutoffOneWholeSlabKernel_bottom_eq_zero
     (S : SlabScalePair)
@@ -996,6 +1061,7 @@ theorem cutoffOneWholeSlabKernel_bottom_eq_zero
       ((supportedLabellingEqB_true_iff
         hfixedCoarseMem hvacuumCoarseMem).mp htrue)
   rw [htarget]
+  simp
 
 /-- The total cutoff-one whole-slab kernel.  Positive Gibbs rows are the
 globally link-glued recoupling law; its source-dependence witness lies on
@@ -1040,6 +1106,10 @@ def cutoffOneWholeSlabFiniteKernel
       exact (by decide : ¬ ((1 : Q') ≈ 0))
 
 #print axioms singletonPhysicalTerm_not_positive
+#print axioms supportedLabellingEqB_reflection_fixed
+#print axioms supportedDirac_reflection
+#print axioms fixedSingletonLabelling_reflection
+#print axioms zeroEdgeLabelling_reflection
 #print axioms nullCompletionKernel_reflection
 #print axioms cutoffOneWholeSlabKernel_eq_positive
 #print axioms cutoffOneWholeSlabKernel_row_normalized
