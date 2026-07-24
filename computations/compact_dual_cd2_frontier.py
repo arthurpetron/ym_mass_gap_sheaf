@@ -90,6 +90,9 @@ class CD2Subgate(Enum):
     WHOLE_SLAB_RAW_CARRIER = (
         "whole-slab globally link-glued recoupling raw carrier"
     )
+    CUTOFF_ONE_COARSE_FACE_DOOR = (
+        "positive parity-selected coarse face channels at cutoff one"
+    )
     COARSE_RECOUPLING_COHERENCE = (
         "globally coherent coarse face/link recoupling field"
     )
@@ -145,6 +148,8 @@ CD2_LEAN_THEOREMS = (
     "wholeSlabRecouplingRawWeight_nonnegative",
     "CompactDualWholeSlabRecouplingRawKernel."
     "wholeSlabRecouplingConditionalKernel_row_normalized",
+    "CompactDualCutoffOneCoarseFaceDoor."
+    "fixedFinalFaceRawWeight_parity_pos",
     "CompactDualPhysicalRemainderLocality.PhysicalKernel."
     "fineCoarseCylinderDefect_abs_le_remainderL1",
     "CompactDualFiniteBlockRemainder.SlabScalePair.FiniteSlabKernel."
@@ -171,6 +176,7 @@ class CD2Frontier:
     general_source_kernel: bool
     fine_intertwiner_witness: bool
     whole_slab_raw_carrier: bool
+    cutoff_one_coarse_face_door: bool
     coarse_recoupling_coherence: bool
     all_cutoff_global_kernel: bool
     physical_pushforward: bool
@@ -216,6 +222,10 @@ class CD2Frontier:
             (
                 CD2Subgate.WHOLE_SLAB_RAW_CARRIER,
                 self.whole_slab_raw_carrier,
+            ),
+            (
+                CD2Subgate.CUTOFF_ONE_COARSE_FACE_DOOR,
+                self.cutoff_one_coarse_face_door,
             ),
             (
                 CD2Subgate.COARSE_RECOUPLING_COHERENCE,
@@ -273,6 +283,7 @@ def current_cd2_frontier() -> CD2Frontier:
         general_source_kernel=True,
         fine_intertwiner_witness=True,
         whole_slab_raw_carrier=True,
+        cutoff_one_coarse_face_door=True,
         coarse_recoupling_coherence=False,
         all_cutoff_global_kernel=False,
         physical_pushforward=False,
