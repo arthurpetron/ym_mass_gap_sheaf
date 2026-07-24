@@ -49,13 +49,29 @@ Current exact certificate:
 - physical heat activity:
   \(w^{48}(1+12w^8+6w^{16}+12w^{24}+w^{32})>0\).
 
+The first bounded-orbit campaign now extends this from one family to every
+intersecting pair on the unit four-cube:
+
+- 7,997 raw pairs in 100 symmetry orbits;
+- all 100 physical heat polynomials coefficientwise positive;
+- six orbits contain negative fixed-face channels;
+- 77 distinct heat polynomials, with minimum positive coefficient \(1/6561\).
+
+The finite \(SU(2)_k\) central-monad campaign is also adjudicated. Fixed
+low-spin fusion, the degree-zero adjunction, and pure-fusion module transport
+stabilize. The full central vacuum carrier grows with rank \(k+1\), physical
+heat weighting is not an ordinary module morphism, and multiplicity vectors
+do not retain the counit/multiplication maps on intertwiner spaces. Central
+induction is therefore a coherence envelope, not the positive RG cone.
+
 BF1 is not closed by one example. The next BF1 work units are:
 
-1. enumerate surface-family orbits at bounded strand count and cutoff;
-2. compute exact heat polynomials and search for negative families;
-3. add embedded fusion-tree/intertwiner data if surface masks alone
+1. census diagonal duplicate surfaces and three-strand family orbits;
+2. test higher labels and larger corrected slabs;
+3. construct the heat-twisted central-module comparison;
+4. add embedded fusion-tree/intertwiner data if surface masks alone
    overcount or fail closure;
-4. state the minimal general positivity lemma surviving that falsification
+5. state the minimal general positivity lemma surviving that falsification
    campaign.
 
 ## BF2–BF4: contraction engine
