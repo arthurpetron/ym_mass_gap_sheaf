@@ -508,6 +508,76 @@ stratum has 20 odd faces and is no longer reducible wholesale to one
 four-cell boundary.  It is the first place where the decorated transfer
 tensor, rather than a one-cell six-j product, must carry the sign theorem.
 
+### First non-product two-cell sign theorem
+
+The complete 20-face stratum is now closed.  It consists of one surface
+orbit with representative
+
+\[
+ S=\mathtt{0x10ac4f6d9e}.
+\]
+
+Its two cell patches have mod-two Betti data
+
+\[
+ (1,2,0)\qquad\text{and}\qquad(1,1,0),
+\]
+
+with three plaquettes in their common three-face.  Thus this is not a
+coordinate torus living on one four-cell boundary and not the clean
+cylinder-to-cylinder gluing already solved above.
+
+A deterministic gauge-tree optimizer makes the exact census feasible.
+Gauge invariance permits any maximal tree.  For each channel, twelve pinned
+vertex/edge relabellings induce twelve breadth-first trees; the evaluator
+chooses the tree minimizing the product of the initial face-polynomial
+sizes, then applies the unchanged exact Haar contraction.  On the first
+previously hard channel the largest initial factor drops from 1,625
+monomials to 64 and the contraction time from approximately 54 seconds to
+milliseconds.  Several easy channels are regression-checked against the
+original gauge, including both signs.
+
+All 119 admissible resolved-channel orbits have now been evaluated:
+
+\[
+\begin{array}{c|r}
+\text{amplitude} & \text{count}\\ \hline
+1/1048576 & 38\\
+1/9437184 & 32\\
+1/28311552 & 6\\
+1/84934656 & 33\\
+1/254803968 & 1\\
+17/84934656 & 1\\
+-1/3145728 & 8.
+\end{array}
+\]
+
+The selected-chain boundaries span \(H_1(T;\mathbf F_2)\).  Choosing the
+first two independent literal edge cycles as basis gives the exact sector
+counts
+
+\[
+ N_{00}=62,\qquad N_{10}=24,\qquad N_{01}=25,\qquad N_{11}=8.
+\]
+
+Every one of the eight negative channels is in class \((1,1)\), and all 111
+other channels are positive.  Therefore
+
+\[
+ \operatorname{sgn} A_D=(-1)^{ab}
+\]
+
+on the first genuinely non-product two-cell surface.  The representative
+sum \(9655/254803968\) is positive but is only a quotient checksum, not an
+orbit-weighted physical pair amplitude.
+
+This is the first gluing theorem here that cannot be reduced to the
+one-four-cube result by coordinate placement.  It gives strong exact
+evidence that the interface changes positive magnitudes while the sign
+continues to descend to the torus quadratic refinement.  It is still a
+finite cutoff-two theorem; it does not prove the same descent on all surface
+complexities, overlap orders, or representation labels.
+
 ## Higher-dimensional status
 
 It would be too strong to say that spin-structure technology has literally
@@ -567,9 +637,11 @@ The next gates are:
    complete overlap-at-most-five filtration are exactly positive.  **OPEN
    next, with the minimal cycle stratum done:** all 34 coordinate-torus
    channel orbits obey `sign=(-1)^(ab)`, including the only representative
-   whose selected chain enters the second cell.  Construct the complete
-   factorized interface transfer tensor for the 20-, 22-, 24-, and 26-face
-   strata, then increase the overlap order.
+   whose selected chain enters the second cell.  **DONE on the first
+   non-product geometry:** all 119 channels of the 20-face surface orbit
+   obey the same quadratic sign law.  Construct the complete factorized
+   interface transfer tensor for the 22-, 24-, and 26-face strata, then
+   increase the overlap order.
 4. **Negative-orbit audit.**  **DONE for binary-pair reachability.**  Exactly
    3 of 33 negative orbits enter this lane, and all three obey \(q=ab=1\).
    **OPEN beyond this lane:** determine the appropriate carrier for the 30

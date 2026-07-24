@@ -12,6 +12,7 @@ from computations.dual_spin_gluing import (
 )
 from computations.dual_spin_interface_census import (
     FIRST_BRANCHING_OVERLAP,
+    GAUGE_TREE_CANDIDATES,
     bounded_overlap_pair_orbit_representatives,
     bounded_overlap_resolved_channel_quotient,
     brick_symmetry_face_maps,
@@ -24,8 +25,12 @@ from computations.dual_spin_interface_census import (
     minimal_interface_torus_channel_value,
     minimal_interface_torus_channels,
     nonzero_defect_channel_representatives,
+    optimized_interface_channel_value,
     pairing_interface_channel_value,
     resolved_channel_is_admissible,
+    twenty_face_torus_channel_value,
+    twenty_face_torus_channels,
+    twenty_face_torus_homology_class,
 )
 
 EXPECTED_OVERLAP_CENSUS = (
@@ -145,6 +150,23 @@ def test_pairing_expansion_matches_both_signs_of_generic_integrator() -> None:
         )
 
 
+def test_optimized_gauge_matches_generic_and_collapses_hard_pin() -> None:
+    assert GAUGE_TREE_CANDIDATES == 12
+    easy_channels = (
+        (0x10AC4F6D9E, 0x00),
+        (0x10AC4F6D9E, 0x21),
+        (0x31AD1B6D9E, 0x240001),
+    )
+    assert all(
+        optimized_interface_channel_value(channel)
+        == exact_interface_channel_value(channel)
+        for channel in easy_channels
+    )
+    assert optimized_interface_channel_value(
+        (0x10AC4F6D9E, 0x240)
+    ) == Fraction(1, 1048576)
+
+
 def test_complete_minimal_interface_torus_stratum_obeys_quadratic_sign() -> None:
     channels = minimal_interface_torus_channels()
     assert len(channels) == 34
@@ -169,6 +191,39 @@ def test_complete_minimal_interface_torus_stratum_obeys_quadratic_sign() -> None
         }
     )
     assert sum(values, start=Fraction(0)) == Fraction(23, 98304)
+
+
+def test_complete_twenty_face_stratum_obeys_quadratic_sign() -> None:
+    channels = twenty_face_torus_channels()
+    assert len(channels) == 119
+    assert {surface for surface, _selected in channels} == {0x10AC4F6D9E}
+
+    values = [twenty_face_torus_channel_value(channel) for channel in channels]
+    classes = [twenty_face_torus_homology_class(channel) for channel in channels]
+    assert Counter(classes) == Counter(
+        {
+            (0, 0): 62,
+            (1, 0): 24,
+            (0, 1): 25,
+            (1, 1): 8,
+        }
+    )
+    assert all(
+        (value < 0) == (homology_class == (1, 1))
+        for value, homology_class in zip(values, classes, strict=True)
+    )
+    assert Counter(values) == Counter(
+        {
+            Fraction(1, 1048576): 38,
+            Fraction(1, 9437184): 32,
+            Fraction(1, 28311552): 6,
+            Fraction(1, 84934656): 33,
+            Fraction(1, 254803968): 1,
+            Fraction(17, 84934656): 1,
+            Fraction(-1, 3145728): 8,
+        }
+    )
+    assert sum(values, start=Fraction(0)) == Fraction(9655, 254803968)
 
 
 def test_empty_overlap_family_has_no_hidden_branch() -> None:

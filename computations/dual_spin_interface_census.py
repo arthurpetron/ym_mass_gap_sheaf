@@ -26,6 +26,8 @@ from dataclasses import dataclass
 from fractions import Fraction
 from functools import cache
 from itertools import permutations, product
+from math import prod
+from random import Random
 from typing import TypeAlias, cast
 
 from computations.dual_spin_gluing import (
@@ -37,6 +39,8 @@ from computations.dual_spin_gluing import (
     two_cell_brick,
 )
 from computations.exact_haar_network import (
+    GaugeFixedComplex,
+    Poly,
     chi,
     contract_pairing_aware,
     invariant_multiplicity,
@@ -58,6 +62,8 @@ SurfacePair: TypeAlias = tuple[int, int]
 TorusClass: TypeAlias = tuple[int, int]
 
 FIRST_BRANCHING_OVERLAP = 5
+GAUGE_TREE_CANDIDATES = 12
+GAUGE_TREE_SEED = 20260723
 
 
 @dataclass(frozen=True)
@@ -475,6 +481,79 @@ def minimal_interface_torus_channel_value(channel: ResolvedChannel) -> Fraction:
 
 
 @cache
+def twenty_face_torus_channels() -> tuple[ResolvedChannel, ...]:
+    """Return the first genuinely non-product two-cell torus stratum."""
+
+    interface = build_two_cell_spin_gluing().interface_face_mask
+    channels = tuple(
+        channel
+        for channel in bounded_overlap_resolved_channel_quotient().representatives
+        if channel[0].bit_count() == 20
+        and (channel[0] & interface).bit_count() == 3
+    )
+    surfaces = {surface for surface, _selected in channels}
+    if len(surfaces) != 1:
+        raise AssertionError("the 20-face quotient stopped being a single surface orbit")
+    return channels
+
+
+@cache
+def twenty_face_torus_homology_basis() -> tuple[int, int]:
+    """Choose the first two independent channel boundaries as an ``H1`` basis."""
+
+    _complex, faces, _meta = two_cell_brick()
+    channels = twenty_face_torus_channels()
+    surface = channels[0][0]
+    basis: list[int] = []
+    for _surface, selected in channels:
+        cycle = face_chain_boundary_mask(faces, selected)
+        if edge_cycles_homologous_mod2(faces, surface, cycle, 0):
+            continue
+        if not basis:
+            basis.append(cycle)
+            continue
+        if edge_cycles_homologous_mod2(faces, surface, cycle, basis[0]):
+            continue
+        basis.append(cycle)
+        break
+    if len(basis) != 2:
+        raise AssertionError("the 20-face channel family did not span torus homology")
+    return basis[0], basis[1]
+
+
+def twenty_face_torus_homology_class(channel: ResolvedChannel) -> TorusClass:
+    """Reduce a 20-face selected-chain boundary in the pinned torus basis."""
+
+    if channel not in set(twenty_face_torus_channels()):
+        raise ValueError("channel is outside the 20-face torus stratum")
+    _complex, faces, _meta = two_cell_brick()
+    surface, selected = channel
+    basis = twenty_face_torus_homology_basis()
+    cycle = face_chain_boundary_mask(faces, selected)
+    matches: list[TorusClass] = [
+        (first, second)
+        for first, second in product((0, 1), repeat=2)
+        if edge_cycles_homologous_mod2(
+            faces,
+            surface,
+            cycle,
+            (basis[0] if first else 0) ^ (basis[1] if second else 0),
+        )
+    ]
+    if len(matches) != 1:
+        raise AssertionError("20-face boundary did not have a unique homology class")
+    return matches[0]
+
+
+def twenty_face_torus_channel_value(channel: ResolvedChannel) -> Fraction:
+    """Evaluate the 20-face stratum in its optimized exact gauge."""
+
+    if channel not in set(twenty_face_torus_channels()):
+        raise ValueError("channel is outside the 20-face torus stratum")
+    return optimized_interface_channel_value(channel)
+
+
+@cache
 def exact_interface_channel_value(channel: ResolvedChannel) -> Fraction:
     """Evaluate one resolved-channel representative by exact Haar integration."""
 
@@ -491,6 +570,130 @@ def exact_interface_channel_value(channel: ResolvedChannel) -> Fraction:
         for face in range(len(faces))
     )
     return evaluate_active_assignment(complex_, faces, spins)
+
+
+@cache
+def optimized_interface_channel_value(channel: ResolvedChannel) -> Fraction:
+    """Evaluate a channel after deterministic maximal-tree optimization.
+
+    Gauge invariance permits any maximal tree.  The default breadth-first
+    tree can create thousands of coordinate monomials before contraction.
+    This evaluator generates a fixed finite family of vertex/edge
+    relabellings, constructs the induced breadth-first tree for each, and
+    chooses the tree minimizing the product of the initial face-factor
+    sizes.  The subsequent Haar contraction is unchanged and exact.
+    """
+
+    complex_, faces, _meta = two_cell_brick()
+    surface, selected = channel
+    if not resolved_channel_is_admissible(surface, selected):
+        return Fraction(0)
+    spins = tuple(
+        1
+        if (surface >> face) & 1
+        else 2
+        if (selected >> face) & 1
+        else 0
+        for face in range(len(faces))
+    )
+    active_faces = [face for face, spin in enumerate(spins) if spin]
+    active_edges = sorted(
+        {
+            edge
+            for face in active_faces
+            for edge, _orientation in faces[face]
+        }
+    )
+    edge_position = {edge: index for index, edge in enumerate(active_edges)}
+    active_vertices = sorted(
+        {
+            vertex
+            for edge in active_edges
+            for vertex in complex_.edges[edge]
+        }
+    )
+    vertex_position = {
+        vertex: index for index, vertex in enumerate(active_vertices)
+    }
+    base_edges = [
+        (
+            vertex_position[complex_.edges[edge][0]],
+            vertex_position[complex_.edges[edge][1]],
+        )
+        for edge in active_edges
+    ]
+    base_faces = {
+        face: [
+            (edge_position[edge], orientation)
+            for edge, orientation in faces[face]
+        ]
+        for face in active_faces
+    }
+
+    vertex_ids = list(range(len(active_vertices)))
+    edge_ids = list(range(len(active_edges)))
+    generator = Random(GAUGE_TREE_SEED)
+    best_score: tuple[int, int, int, int] | None = None
+    best_complex: GaugeFixedComplex | None = None
+    best_factors: list[Poly] | None = None
+    for candidate in range(GAUGE_TREE_CANDIDATES):
+        vertex_permutation = (
+            vertex_ids[:]
+            if candidate == 0
+            else generator.sample(vertex_ids, len(vertex_ids))
+        )
+        edge_permutation = (
+            edge_ids[:]
+            if candidate == 0
+            else generator.sample(edge_ids, len(edge_ids))
+        )
+        vertex_inverse = {
+            old: new for new, old in enumerate(vertex_permutation)
+        }
+        edge_inverse = {
+            old: new for new, old in enumerate(edge_permutation)
+        }
+        candidate_complex = GaugeFixedComplex(
+            len(active_vertices),
+            [
+                (
+                    vertex_inverse[base_edges[old_edge][0]],
+                    vertex_inverse[base_edges[old_edge][1]],
+                )
+                for old_edge in edge_permutation
+            ],
+        )
+        candidate_faces = {
+            face: [
+                (edge_inverse[edge], orientation)
+                for edge, orientation in base_faces[face]
+            ]
+            for face in active_faces
+        }
+        factors = [
+            chi(
+                spins[face],
+                candidate_complex.holonomy_of(candidate_faces[face]),
+            )
+            for face in active_faces
+        ]
+        sizes = tuple(max(1, len(factor)) for factor in factors)
+        score = (
+            prod(sizes),
+            max(sizes, default=1),
+            sum(sizes),
+            candidate,
+        )
+        if best_score is None or score < best_score:
+            best_score = score
+            best_complex = candidate_complex
+            best_factors = factors
+    if best_complex is None or best_factors is None:
+        raise AssertionError("gauge-tree optimizer produced no candidate")
+    value = best_complex.contract_invariant(best_factors)
+    if any(power != 0 for power in value):
+        raise AssertionError("optimized fixed-spin amplitude acquired heat powers")
+    return value.get(0, Fraction(0))
 
 
 @cache
