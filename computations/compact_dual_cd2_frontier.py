@@ -25,6 +25,14 @@ every corrected-slab physical source is covered.  Full physical source
 coverage is therefore the first open gate; a global fine-support projection
 comes only after it.
 
+This is not just an unproved coverage lemma.  An exact positive physical
+counterexample is now pinned: a translated fine unit-cube boundary is
+link-closed and has positive cutoff-one activity, but its induced bottom and
+top dyadic face totals are respectively two and zero.  No
+``CubeStretchedCompatibleSource`` can cover it.  The first open constructor
+must therefore be generalized to arbitrary physical packets while retaining
+the fine auxiliary/intertwiner witness.
+
 The physical remainder now also has a locality fence: for every cylinder
 intertwined pointwise by a candidate slab kernel, the fine/coarse Gibbs
 cylinder mismatch is exactly a selected signed remainder and is bounded by
@@ -62,7 +70,7 @@ class CD2Subgate(Enum):
         "reflection intertwining of the restricted adjacent target"
     )
     PHYSICAL_SOURCE_COVERAGE = (
-        "coverage of every corrected-slab physical source"
+        "general-source recoupling for every corrected-slab physical source"
     )
     GLOBAL_FINE_SUPPORT_PROJECTION = (
         "global fine-support projection for overlapping cube families"
@@ -105,6 +113,8 @@ CD2_LEAN_THEOREMS = (
     "adjacentCubeJointConditionalKernel_row_normalized",
     "Z4AdjacentCubeJointConditionalKernel."
     "adjacentCubeJointConditionalKernel_reflection",
+    "Z4CubeStretchedSourceCoverageFence."
+    "originUnitCube_not_covered_by_stretched_source",
     "CompactDualPhysicalRemainderLocality.PhysicalKernel."
     "fineCoarseCylinderDefect_abs_le_remainderL1",
     "CompactDualFiniteBlockRemainder.SlabScalePair.FiniteSlabKernel."
@@ -127,6 +137,7 @@ class CD2Frontier:
     all_cutoff_shared_face_recoupling: bool
     overlapping_link_assembly: bool
     overlap_reflection_intertwining: bool
+    restricted_source_coverage_refuted: bool
     physical_source_coverage: bool
     global_fine_support_projection: bool
     all_cutoff_global_kernel: bool
@@ -218,6 +229,7 @@ def current_cd2_frontier() -> CD2Frontier:
         all_cutoff_shared_face_recoupling=True,
         overlapping_link_assembly=True,
         overlap_reflection_intertwining=True,
+        restricted_source_coverage_refuted=True,
         physical_source_coverage=False,
         global_fine_support_projection=False,
         all_cutoff_global_kernel=False,

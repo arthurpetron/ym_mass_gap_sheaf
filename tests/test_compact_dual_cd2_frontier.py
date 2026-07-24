@@ -27,6 +27,7 @@ def test_first_open_subgate_is_physical_source_coverage() -> None:
     assert frontier.all_cutoff_shared_face_recoupling
     assert frontier.overlapping_link_assembly
     assert frontier.overlap_reflection_intertwining
+    assert frontier.restricted_source_coverage_refuted
     assert not frontier.physical_source_coverage
     assert (
         frontier.first_open_subgate()
@@ -85,6 +86,11 @@ def test_theorem_surface_pins_normalization_and_uniform_fence() -> None:
     assert (
         "Z4AdjacentCubeJointConditionalKernel."
         "adjacentCubeJointConditionalKernel_reflection"
+        in CD2_LEAN_THEOREMS
+    )
+    assert (
+        "Z4CubeStretchedSourceCoverageFence."
+        "originUnitCube_not_covered_by_stretched_source"
         in CD2_LEAN_THEOREMS
     )
     assert (
