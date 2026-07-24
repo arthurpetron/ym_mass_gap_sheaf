@@ -97,7 +97,9 @@ lean/
     │                          #   (flabby presheaf), Summability (KP certificates),
     │                          #   Gluing (domGlue_preserves_KP), PolymerDomination, SU2KP.
     ├── RG/                    # RG induction + the uniform-group reduction: BlockSpin,
-    │                          #   InductiveState, SigmaHatPilot(+UV), UniformBudget,
+    │                          #   InductiveState, PolynomialTree, production/directed
+    │                          #   interface transports, stable-tail/dynamics certificates,
+    │                          #   SigmaHatPilot(+UV), UniformBudget,
     │                          #   character-tail majorant/antitone chain, EtaPackaging,
     │                          #   SUNWeylData / WeylDimGeneral / RankCollapse.
     ├── MassGap/               # Headline composition theorems: SU2 (mass_gap_SU2),
@@ -235,6 +237,68 @@ two bare `Prop` fields there and is scoped as Milestone 11.17.
 `ContinuumFrontierScorecard` proves that the codynamic, curvature, and
 OS-reconstruction continuum routes all converge on the single
 uninhabited scalar `UniformSpacingFloor`.
+
+The active Core-B reduction now reaches the canonical row-one origin
+square-gap quotient.  `CoreBUniversalSquareGap` gives the exact all-index
+factorization, `CoreBConsumerOrigin` and `Rubric/CoreBPhysicalBridge` give the
+consumer composition, and `CoreBAtomwiseGapBounds` proves the parity content
+floors, sharp coefficient maxima/reserves, endpoint degrees, adverse-chain
+length bound, and homogeneous-chain endpoint estimate for all eleven bounded
+selector families.  `CoreBCanonicalSquareShell` supplies the exact parity
+four-square shell, and `CoreBLowGapBudget` kernel-checks the finite
+coefficientwise envelope budget conditional on its explicitly transcribed
+mass lists.  `CoreBCubicEvenTail` now proves the exact all-index cubic
+even-gap tail `3311/884736`, with a nonnegative geometric remainder and an
+explicit modulus; the comparison from actual adverse mass to that majorant
+remains open.  `CoreBLowGapClassifier` closes the first actual classifier
+fiber: for every stable odd length, the real bounded adverse endpoint-gap-two
+atoms are equivalent to five explicit selector patterns, with a computable
+Boolean classifier.  Summing those five actual contributions into the
+transcribed `oddMass2Formula` remains open.  A parallel exact scout found
+strictly positive Bernstein
+coefficients cell-by-cell through canonical length eight after the physical
+change of variable `u=4w²`.  `CoreBBernsteinConsumer` kernel-checks the direct
+typed composition from an all-index actual-cell Bernstein family to the
+row-one quotient certificate, and `Rubric/CoreBPhysicalBridge` carries that
+family all the way to the guarded bridge.
+`BernsteinSignedMonomialReconstruction` now closes the generic algebraic seam:
+any finite integer-signed monomial ledger is computably compiled into one
+common Bernstein row with an exact evaluation theorem.
+`CoreBActualBernsteinRow` now closes the Core-B-specific enumeration seam: it
+constructs the actual eleven-family integer row and proves exact signed-ledger
+reconstruction, then reduces the physical cell certificate to coefficient
+nonnegativity plus one explicit `u=4w²` scaling identity.  No all-index
+Core-B-specific certificate family is yet inhabited, so Core B remains open
+at those two final row obligations.
+
+On the compact-dual lane, `CompactDualPinnedPhysicalData` pins the physical
+coupling, cutoff, box, observable, packet graph, spin-foam data, and RG state.
+`CompactDualBoundaryReflectionCone` closes the rational one-interface
+reflection cone: every actual finite boundary packet has an exact rational
+sum-of-squares Gram and an exact constructive-real equivalence to the existing
+diagonal reflection form.  The rational weight
+`ofQ'(w^(4*C₂(s)))` is not yet identified with the Schwinger weight
+`exp(-t*C₂(s))`, and no RG block-map preservation theorem is claimed.
+
+`CompactDualPositiveChannelDoor` records the supplied `(1,1,1,1)` rim
+survival probe at the exact rational level.  Its twelve page-spin sectors are
+carried as four exact permutation orbits with multiplicities `1,6,4,1`;
+their nonnegative orbit contributions resum to
+`1/4 + (9/2)s^16 + 6s^24 + (21/4)s^32` and feed a conditional
+activity-times-square consumer.  This is a finite positive-channel candidate,
+not a physical block theorem.  The module names the remaining all-label
+source-dependent kernel obligation over the actual fine/coarse physical
+labelling lists; no inhabitant, semantic Haar-network bridge, complete
+channel decomposition, or overlap remainder is constructed.
+
+The executable companion has since derived an all-label theorem for the
+wheel topology: trivalent Haar projection writes each fixed-label wheel as a
+positive dimension factor times a squared Clebsch--Gordan norm, so every
+fixed-rim heat-kernel channel is coefficientwise nonnegative.  This analytic
+identity is documented and independently regression-checked, but is not yet
+formalized in Lean or identified with the pinned physical spin-foam fiber.
+The canonical unit-rim manifest is exported by
+`computations/dual_positivity_manifest.py`.
 
 **Per-atom partial progress** (the scorecard docstrings may lag these;
 Milestone 11.0 re-syncs them): (D2) has a sound, non-tight L¹

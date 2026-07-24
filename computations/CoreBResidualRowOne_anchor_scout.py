@@ -8,9 +8,11 @@ exponents) satisfies chain_sum <= C_a L_a (1/4)^{T_a - T_f} * (wh)^{m_f} on
 
 Checks:
  A. exponent domination: for every adverse family, m_a >= m_f + 2  AND
-    (T_a - m_a) >= m_f + 2 (so both coordinates exceed the anchor's) — symbolically.
+    (T_a - m_a) >= m_f + 2 (so both coordinates exceed the anchor's) — symbolically;
+    the smallest total-degree gap is 2r (not the previously scouted 6r+4).
  B. the discount inequality  sum_a C_a L_a 4^{-(T_a-T_f)} <= C_f  for r = 4..200 exactly,
-    plus the dominating closed form  (sum_a C_a L_a) * 4^{-(6r+4)} <= C_f  for r=4..200.
+    plus the valid dominating closed form
+    (sum_a C_a L_a) * 4^(-2r) <= C_f for r=4..200.
  C. pointwise re-verification of the FULL assembled bound at tight corners
     (w=1/4, h=1/4) and (w=1/4, h=3/16) for r=4..12:  -sum(adverse) <= anchor.
 """
@@ -73,13 +75,13 @@ for (i,j,C,m_a,L_a,T_a) in adverse:
     c1 = defsign(sp.expand(m_a - m_f - 2))          # h-exponent margin
     c2 = defsign(sp.expand((T_a - m_a) - m_f - 2))  # w-exponent margin (deep end)
     gap = sp.expand(T_a - T_f)
-    c3 = defsign(sp.expand(gap - (6*r+4)))
+    c3 = defsign(sp.expand(gap - 2*r))
     ok = all(x in (0,1) for x in (c1,c2,c3))
     okA &= ok
     if not ok:
         print(f"  DOMINATION FAIL ({i},{j}): m_a-m_f-2={sp.expand(m_a-m_f-2)}, "
-              f"wmargin={sp.expand((T_a-m_a)-m_f-2)}, gap-(6r+4)={sp.expand(gap-(6*r+4))}")
-print(f"A. coordinatewise exponent domination + gap >= 6r+4: {'PASS' if okA else 'FAIL'}")
+              f"wmargin={sp.expand((T_a-m_a)-m_f-2)}, gap-2r={sp.expand(gap-2*r)}")
+print(f"A. coordinatewise exponent domination + gap >= 2r: {'PASS' if okA else 'FAIL'}")
 
 # B. discount inequality, exact for r=4..200
 okB = okB2 = True
@@ -89,16 +91,16 @@ for k in range(4, 201):
     rhs = Fraction(int(C_f.subs(r,k)))
     if lhs > rhs: okB = False; print(f"  B FAIL at r={k}: {lhs} > {rhs}")
     tot = sum(Fraction(int((C*L_a).subs(r,k))) for (_,_,C,_,L_a,_) in adverse)
-    if tot * Fraction(1,4)**(6*k+4) > rhs:
+    if tot * Fraction(1,4)**(2*k) > rhs:
         okB2 = False; print(f"  B2 FAIL at r={k}")
 print(f"B. exact per-family discount sum <= C_f (r=4..200): {'PASS' if okB else 'FAIL'}")
-print(f"B2. crude (sum C_a L_a) * 4^-(6r+4) <= C_f (r=4..200): {'PASS' if okB2 else 'FAIL'}")
+print(f"B2. crude (sum C_a L_a) * 4^(-2r) <= C_f (r=4..200): {'PASS' if okB2 else 'FAIL'}")
 
 # ratio trend to confirm induction-friendliness (monotone decreasing)
 ratios = []
 for k in range(4, 16):
     tot = sum(Fraction(int((C*L_a).subs(r,k))) for (_,_,C,_,L_a,_) in adverse)
-    ratios.append(float(tot * Fraction(1,4)**(6*k+4) / Fraction(int(C_f.subs(r,k)))))
+    ratios.append(float(tot * Fraction(1,4)**(2*k) / Fraction(int(C_f.subs(r,k)))))
 print("   crude-ratio r=4..15:", ["%.2e" % x for x in ratios])
 
 # C. tight-corner pointwise: -sum(adverse chains) <= anchor monomial, exact

@@ -476,6 +476,24 @@ def cumulativeResidual (w h : Q') (s r : Nat) : Nat → Q'
   | n + 1 => cumulativeResidual w h s (r + 1) n
       + boundaryResidualAt w h (s + n) r
 
+/-- **Exact two-step cumulative identity, uniform in the starting row.**
+The length-two diagonal payment is the next-offset residual in row `s` plus
+the current-offset residual in row `s+1`:
+
+`C(s,r,2) = R(s,r+1) + R(s+1,r)`.
+
+This is the all-row form of the previously recorded `s = 0` identity.  It is
+the interface consumed by a diagonal Core-B proof: closing rows separately is
+strictly stronger than proving the cumulative payment required by the finite
+diagonal telescope. -/
+theorem cumulativeResidual_two (w h : Q') (s r : Nat) :
+    cumulativeResidual w h s r 2 ≈
+      boundaryResidualAt w h s (r + 1) +
+        boundaryResidualAt w h (s + 1) r := by
+  simp only [cumulativeResidual]
+  exact Q'.add_eqv_congr_right _ _ _
+    (Q'.eqv_of_eq (Q'.zero_add' (boundaryResidualAt w h s (r + 1))))
+
 /-- **Finite diagonal telescope.**  Every range shift is exactly a terminal
 offset potential plus the cumulative boundary residual along the diagonal. -/
 theorem offsetDelta_diagonal_telescope (w h : Q') (s r : Nat) : ∀ n,
@@ -604,6 +622,7 @@ theorem s6_pairing_not_uniform :
 #print axioms crossDelta_succ_eq_inherited_add_residual
 #print axioms offsetDelta_succ_eq_shifted_add_residual
 #print axioms boundaryResidualAt_eq_potential_difference
+#print axioms cumulativeResidual_two
 #print axioms offsetDelta_diagonal_telescope
 #print axioms boundaryResidual_eq_paired
 #print axioms s6_pure_boundary_minor_negative

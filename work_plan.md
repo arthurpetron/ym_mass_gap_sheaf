@@ -321,6 +321,16 @@ cross-products).  Paper `formal/inductive-state.tex` §5 is
 reformulated from "open question" to "concrete commitment"
 (Definition 5.1, Remark 5.2).
 
+**Structural correction (2026-07-22).**  This scale-local package is retained,
+but it is no longer the type of the complete RG history.  It is the
+constant-interface specialization of the changing-interface model in
+`lean/YMGap/RG/PolynomialTree.lean`.  A production cross-scale state must be
+indexed by `RGInterface`; moving it to the next scale requires the actual
+action/response-selected child interface.  See
+`docs/rg-polynomial-tree-2026-07-22.md`.  No existing analytic certificate is
+invalidated by this correction, but it may not be transported to a different
+scale without an interface witness.
+
 ---
 
 ### Milestone 2.3 — Block-spin sheaf morphism
@@ -344,6 +354,16 @@ induced pushforward on $\mathcal{A}_k$, $\mathcal{S}_k$.
 **Open questions.** Whether to encode the 2-cell as a separate
 typed object or as a method on `InductiveState`. The
 recommendation is a separate object for clarity.
+
+**Structural prerequisite (2026-07-22).**  `T_b` may be stated as an endomap
+only after interface stabilization.  Before that point its codomain is the
+child selected by the current action and returned response.  The typed
+transition kernel must therefore separate the numerical/functional state
+update from the interface update and carry analytic, observable-transport,
+certificate, and cumulative-error witnesses.  The axiom-free generic type and
+a checked three-scale trace plus stable-tail transition are in
+`lean/YMGap/RG/PolynomialTree.lean`; the actual Yang--Mills transports and
+estimates remain open.
 
 ---
 
@@ -11571,10 +11591,13 @@ mechanism is the pure-boundary ANCHOR payment: the `E*E`-vs-`E^2` family
 (`C_f = 81(r+1)(r+2)^2(r+3)`, single monomial `(wh)^{2r^2+8r+22}`, the
 lowest total-degree line `T_f = 4r^2+16r+44`) coordinatewise-dominates every
 adverse chain monomial (margins >= 0, per-family total-degree gaps
-`2r+2`/`4r+2`/`4r+6`/`6r`/`6r+4`-and-up), and the exact per-family discount
-inequality `sum_a C_a L_a 4^{-(T_a-T_f)} <= C_f` holds with ~1e16 slack at
-`r = 4` (verified exactly to `r = 200`; Lean-facing coarsening
-`sum_a C_a L_a <= 4^{2r+2} C_f` also verified).  Design-verification scouts
+beginning at `2r`), and the exact per-family discount inequality
+`sum_a C_a L_a 4^{-(T_a-T_f)} <= C_f` holds at `r = 4` and thereafter
+(verified exactly to `r = 200`).  **Correction (2026-07-22):** the original
+scout's claimed minimum gap `6r+4` and resulting `~1e16` slack were false;
+the valid Lean-facing coarsening is
+`sum_a C_a L_a <= 4^{2r} C_f`, whose ratio at `r=4` is `< 8.90e-4` and then
+decreases.  The route survives with honest three-order slack.  Design-verification scouts
 banked at `computations/CoreBResidualRowOne_{sweep,anchor}_scout.py`.
 
 The first finite cell is PROVED and registered:
@@ -11591,7 +11614,7 @@ the 42-family decomposition identity of `boundaryResidualAt w h 1 r`
 symbolically in `r` (the algebra toolkit of `CoreBStructuralRecurrence`
 suffices; no reflection needed since `r` is symbolic), the chain upper bound
 `chain <= L * (wh)^{m_f} w^{p} h^{q}` from coordinatewise domination, and the
-single quintic-vs-`4^{2r+2}` induction; (iii) assemble
+single quintic-vs-`4^{2r}` induction; (iii) assemble
 `boundaryResidualAt_one_nonneg` for all `r` and feed the cumulative
 consumer; (iv) only then attempt row-`s` propagation through the structural
 recurrence — the anchor family exists at every `s` (pure `E*E` boundary), so
@@ -11646,7 +11669,9 @@ reflection-vs-product, RenormPerSBudget 1/128 floor -> graded-norm cure).
 Core-B campaign state: base row `R(0,r)` closed uniformly
 (`CoreBResidualBaseUniform`); shifted-row cells `R(1,0)`..`R(1,3)` closed
 (`CoreBResidualRowOneCell{Zero,One,Two,Three}{,Factor}`); uniform `r >= 4`
-anchor design verified exactly to `r = 200` with ~1e16 slack at `r = 4`;
+anchor design verified exactly to `r = 200` (corrected 2026-07-22: valid
+minimum gap `2r`, crude ratio `< 8.90e-4` at `r=4`, not the previously claimed
+`~1e16` slack);
 42-family chain decomposition banked with the same-line-matching
 infeasibility FENCED.
 
@@ -11801,3 +11826,1520 @@ rationals and no proofs:
     certificate modules peak 3-4 GB, the semantic bridge ~15 GB; keep
     `LEAN_JOBS <= 3` and the 20 GB weak-arg cap; heavy solo decides may
     use `-M 40960` (the `(1,3)` factor decides at degree ~182 did).
+
+**Core-B s-uniformity scout completed (2026-07-22).**  The mandated
+falsification pass is banked in
+`computations/CoreBResidualAllRows_scout.py` and
+`docs/core-b-all-rows-scout-2026-07-22.md`.  Exact fixed-row symbolic
+enumeration through `s=8` finds the stable all-row formulas
+
+- collected family count `(s+1)(s+2)(3s+11)/2`;
+- every elementary exponent delta EVEN, hence individual
+  `(w^2-h^2)` divisibility;
+- pure-boundary anchor
+  `C_f=(s+2)^4(r+1)(r+2)^2(r+3)` at
+  `m_f=2r^2+8r+2s^2+8s+12`;
+- sign threshold `r0(s)=floor((s+2)^2/2)` and minimum tail discount
+  `2r-2(s-1)` on every tested row;
+- coordinate domination and both exact per-family and minimum-gap crude
+  payments PASS throughout the exact checked tails (combined regression to
+  `r=60`, separate rows `1..7` to `r=120`, row one to `r=200`).
+
+The decision is two-part.  The asymptotic module should be written ONCE,
+symbolic in both `s` and `r`; specializing the large proof to row one would
+waste the stable structure.  But the unstable prefix grows quadratically in
+`s`, so it is an infinite region globally: **do not** open a ladder of
+generated per-row finite cells.  Row `s=4`, offset `r=0` already defeats the
+constant-reserve tactic (260 quotient terms, 79 adverse, zero constant
+reserve), although an exact simplex sweep finds no sign counterexample.  The
+low region needs a symbolic positive-nonconstant grouping or, preferably, a
+direct diagonal-cumulative payment.  Exact rational falsification over all
+`0<=r<r0(s)`, `s=1..8` (2,820 physical-simplex values) found no negative
+residual.
+
+The diagonal interface is now machine-banked:
+`CoreBStructuralRecurrence.cumulativeResidual_two` proves uniformly
+`C(s,r,2) ≈ R(s,r+1)+R(s+1,r)`.  Targeted build GREEN; axiom gate `[propext]`.
+
+**Core-B diagonal-cumulative update (2026-07-22).**  The exact sparse scout
+`computations/core_b_diagonal_cumulative_scout.py` tests the cumulative target
+
+`C(s,r,n) = sum_{t<n} R(s+t,r+n-1-t)`.
+
+For every checked cell in rows `s=1..8` and offsets `r=0..4`, the
+constant-reserve payment succeeds at the tested-minimal length
+`n=max(1,s-r-2)`.  In particular the first zero-reserve cells at `r=0` need
+lengths `2,3,4,5,6` in rows `s=4..8`; moving one step right removes one
+diagonal term.  `CoreBDiagonalCumulative.cumulativeResidual_eq_diagonalResidualSum`
+kernel-checks the arbitrary-length index normal form, while
+`predictedPaymentLength` records the candidate length as data.  This changes
+the low-region target from a quadratic ladder of row cells to a linear-length
+diagonal coefficient-mass theorem.  For `s>=3`, every checked predicted-length
+low diagonal has common content `4s^2+4s-2` and explicit positive reserve
+`4s^5(s+1)^2(s+2)`; the reserve formula was checked exactly through row 12.
+It does NOT yet prove the all-index payment.  Exact reproduction and the
+honest boundary are in
+`docs/core-b-diagonal-cumulative-scout-2026-07-22.md`.
+
+**Core-B diagonal priority correction (2026-07-22).**  Positivity only at
+`n=predictedPaymentLength(s,r)` is not sufficient for the older
+`CumulativeResidualNonnegative` interface, and the determinant telescope in
+fact consumes only root-start cumulatives `C(0,r,n)`.  The first
+consumer-aligned analytic candidate is therefore strengthened to the
+eventual-length statement
+
+`predictedPaymentLength(s,r) <= n  ->  0 <= C(s,r,n)`.
+
+At `s=1` this would supply every length required by a root-start consumer.
+`CoreBRootCumulative.cumulativeResidual_zero_succ_split` now proves the exact
+consumer-aligned reduction
+
+`C(0,r,n+1) ≈ R(0,r+n) + C(1,r,n)`,
+
+and `offsetDelta_nonneg_of_rowOne_cumulative` proves that row-zero residual
+positivity plus all-length row-one cumulative positivity closes every
+Core-B offset determinant.  Thus the proof obligation has been weakened from
+all starting rows/all lengths to the exact root/row-one data used downstream.
+
+The first algebraic action is also banked:
+`CoreBBoundedMonomialNormalForm` defines one natural-coefficient/exponent
+carrier and proves all-`s,r` bounded-index normal forms for every window,
+boundary factor, four numerator components, three midpoint components, every
+mixed minor, the eleven-term residual, and the arbitrary-length diagonal
+cumulative.  The repeated midpoint cross term is collected in its natural
+coefficient; no generated per-row polynomial declarations are used.  Targeted
+builds are GREEN; the new gates are within `[propext, Quot.sound]`.
+
+**Parity correction.**  The displayed positive reserve is an odd-diagonal
+phenomenon: at the predicted length, every tested residual block lies on
+`row+offset=2s-3`.  The adjacent even low diagonal cannot be omitted from an
+all-length/root consumer.  Exact sparse scouting through `s=8` finds for its
+prefixes common quotient content `4s^2-4` but zero constant reserve, so the
+crude constant-reserve payment fails even though physical-simplex sweeps found
+no negative values.  The symbolic proof must therefore expose two uniform
+prefix families: an odd family paid by the explicit constant reserve and an
+even family paid by a positive nonconstant grouping (or a different splice).
+This is the current honest analytic obstruction.
+
+**Core-B universal square-gap milestone CLOSED (2026-07-22).**
+`CoreBUniversalSquareGap` proves that every bounded numerator and midpoint
+atom has an even Casimir exponent, constructs an order-uniform signed
+homogeneous divided-power chain, and proves the exact all-index factorization
+
+`R(s,r) ≈ (w^2-h^2) * Q_R(w,h,s,r)`.
+
+The proof is lifted through all four monomial indices, the fixed eleven mixed
+minor families, and the arbitrary diagonal sum.  In particular
+`cumulativeResidual_squareGap_factor` now proves for every `s,r,n`
+
+`C(s,r,n) ≈ (w^2-h^2) * Q_C(w,h,s,r,n)`.
+
+The quotient is explicit finite-sum data with natural coefficient mass and a
+signed `orientedHomChain`; favorable, adverse, and equal-exponent atoms are
+therefore classified without further determinant algebra.  This is an exact
+factorization only, not quotient nonnegativity and not a Core-B inhabitant.
+
+The repository-wide build is also GREEN (2,482 jobs), the strict axiom audit
+reports 19,449 theorems across 2,385 namespaces with zero exceptions, and the
+frontier, statement-drift, and Clay-rubric guards all PASS.
+This does not inhabit `CoreBBridge` or `CrossRatioMonotone`.  OPEN next, in
+order: (i) formalize the odd/even low-diagonal prefix reindexings and their
+respective quotient content/reserve normal forms; (ii) prove the odd
+reserve-versus-adverse-mass bound and the even positive-nonconstant grouping;
+(iii) splice the parity theorems into the root/row-one consumer and close
+Core B.  The broader
+eventual-length statement remains the preferred combined API if these two
+prefix theorems support it.  The standalone all-`s,r` sign-stable tail
+induction remains a parallel fallback/shared estimate, not a prerequisite for
+the diagonal proof.
+
+**Core-B consumer-origin / true-endpoint milestone CLOSED (2026-07-22).**
+The preceding OPEN ordering over-quantified the downstream theorem and used the
+wrong analytic domain.  `CrossRatioMonotone.cross s` is exactly the zero-offset
+potential `offsetDelta wH w s 0`; therefore its telescope consumes only
+`C(wH,w,0,0,s)`, and the exact root split reduces the entire analytic family to
+
+`C(wH,w,1,0,n)` for arbitrary `n`.
+
+No `forall r` row-one cumulative theorem, no all-root-offset certificate, and
+no independent positivity theorem for every odd/even low prefix is required.
+`CoreBConsumerOrigin` now kernel-checks this minimal chain:
+
+- `RowOneOriginSquareGapQuotientNonnegative w`
+  -> `RowOneOriginCumulativeResidualNonnegative wH w` via the universal
+  square-gap factorization;
+- the fixed-endpoint base row + `cumulativeResidual_zero_succ_split`
+  -> `OriginCumulativeResidualNonnegative wH w`;
+- `offsetDelta_diagonal_telescope` at `(s,r)=(0,0)`
+  -> `0 <= offsetDelta wH w s 0`;
+- a determinant-order adapter -> `CrossRatioMonotone w`.
+
+The module also proves generic front/tail splices and their exact parity forms:
+
+`C(1,0,2k+1) ~= C(1,k,k+1) + C(k+2,0,k)`,
+
+`C(1,0,2(k+1)) ~= C(1,k,k+2) + C(k+3,0,k)`,
+
+at both cumulative and explicit square-gap-quotient levels.
+
+A load-bearing endpoint mismatch was repaired at the same time.  The older
+base/row-cell positivity theorems assume the larger determinant coupling obeys
+`4w <= 1`, but the cross-ratio orientation fixes that endpoint at
+`wH = 1/2`; those theorem signatures cannot be instantiated downstream.
+`CoreBResidualBaseWorstEndpoint.boundaryResidualAt_zero_nonneg_wH` proves the
+whole base row directly at `wH`, using the exact facts
+`2*wH^2 <= 1` and `3*wH^2 <= 1`.  The other old cell signs remain useful only
+on their stated smaller domain and are no longer on the consumer critical path.
+
+The corrected exact scout now collects the *complete* origin consumer diagonal
+before extracting a reserve.  This removes the apparent even-parity zero-reserve
+obstruction: both parity families have a positive literal reserve at the true
+endpoint cap `0 <= h <= wH = 1/2`.  With `n=2k` or `n=2k+1`, checked formulas are
+
+`content(2k) = 4k^2+16k+12`,
+
+`content(2k+1) = 4k^2+20k+22`,
+
+`reserve(2k) = 4(k+1)(k+2)^6(k+3)`,
+
+and, for `k>=1`,
+
+`reserve(2k+1) = 8(k+2)^2(k+3)^2 *
+  (2(k+2)^3(k+4) - (2k+5))`,
+
+with the exceptional `reserve(1)=11232`.  Exact expansion through `n=15`
+(18,049 quotient monomials at the last cell) pays every adverse monomial using
+the endpoint-correct discount `2^{-(a+b)}`; the worst checked debt/reserve ratio
+is `0.160381 < 1/6`.  Thus the next symbolic target is the stronger clean bound
+`6 * adverseDebt(n) <= reserve(n)`, separately by parity.  The central two
+(even) or three (odd) residuals supply the reserve, while off-center content
+gaps grow quadratically; this is the intended all-index proof shape.
+
+Finally, `Rubric/CoreBPhysicalBridge` records a statement-level correction
+without weakening the legacy frontier type.  `FrontierDAG.CoreBBridge w` does
+not itself carry `0 <= w <= wH`; the guarded `PhysicalCoreBBridge` and
+`PhysicalCrossRatioMonotonicity` surfaces now require those hypotheses and the
+guarded frontier consumer threads them explicitly.  The final typed composition
+reduces the physical bridge to the single Type-level
+`PhysicalRowOneOriginSquareGapQuotientNonnegative` input.  The legacy pointwise
+abbreviation is retained for compatibility and endpoint inhabitants; it must
+not be treated as a uniform theorem outside a certified physical interval.
+
+**Honest boundary.**  Core B is NOT closed by this milestone: the repository
+does not yet prove the all-`n` bound `6 * adverseDebt(n) <= reserve(n)`, so neither
+the physical quotient certificate nor `PhysicalCoreBBridge` is inhabited.
+What is closed is the complete consumer alignment, true-endpoint base theorem,
+parity reserve discovery, and final typed composition.  OPEN next, in order:
+(i) expose the central two/three reserve contributors in the bounded monomial
+carrier and prove the displayed content/reserve formulas; (ii) reindex the
+off-center adverse atoms by distance from the center and prove the quadratic-
+gap geometric estimate `6*debt <= reserve`; (iii) inhabit the physical quotient
+certificate and run the already-complete bridge composition.  The previous
+isolated even-prefix positive-nonconstant grouping is retired from the critical
+path.
+
+**Closure-phase refinement.**  A coarser ledger that discards every
+cross-residual cancellation still satisfies
+
+`4 * uncancelledCellDebt(n) <= reserve(n)`
+
+through `n=13`; its worst checked ratio is `0.206074 < 1/4`.  This is now the
+preferred proof target: isolate a fixed central residual band exactly, then
+bound every remaining *cellwise-collected* block independently by its quadratic
+Casimir gap and a geometric tail.  Collection inside each residual is still
+load-bearing: a fully atomwise sixfold bound is already false at `n=1,2`.
+It is stronger than the positivity actually needed but has a far cleaner
+bounded-index structure than the sixfold globally collected debt.
+It remains exact computational evidence, not an all-`n` Lean theorem.
+
+Parallel family-level analysis improves this again.  Before *any* polynomial
+collection, the exact triangle debt satisfies
+
+`2 * atomwiseFamilyDebt(n) <= reserve(n)`
+
+through `n=11` (worst checked ratio `0.39924`).  The left-tail discounts are
+exactly `2^(-8d^2)` in even length and `2^(-8d(d+1))` in odd length; right-tail
+minimum gaps are quadratic outside the central two cells.  The even gap-4 and
+gap-8 blocks cost less than `reserve/4` and `3*reserve/64`, while the odd gap-4
+block costs less than `reserve/8`.  This factor-two atomwise theorem supersedes
+the collected-payment route as the preferred closure proof: it can be stated
+directly over the existing bounded determinant families and requires only a
+finite central-band calculation plus a geometric tail.  The sixfold atomwise
+version is false, but the factor-two estimate is already twice as strong as
+the positivity needed.
+
+`CoreBConsumerOrigin.RowOneOriginCoefficientPayment` now pins the final public
+proof interface: the quotient must decompose into
+`(reserve-adverse)+favorable`, with `adverse <= reserve` and a nonnegative
+favorable tail.  Its adapter immediately constructs
+`RowOneOriginSquareGapQuotientNonnegative`.  Canonical collection is one
+possible producer, but the stronger family-level triangle estimate can also
+produce the three values directly; collection is therefore no longer a
+required step on the preferred route.
+
+Repository-wide verification for this milestone is GREEN: all 624 Python
+tests pass, the aggregate Lean build completes 2,489 jobs, and the regenerated
+strict axiom baseline contains 19,471 theorems across 2,388 namespaces with
+zero exceptions.  The statement-drift and frontier-uninhabitedness guards pass;
+the new consumer and bridge declarations use only the permitted
+`[propext, Quot.sound]` gate (or no axioms).
+
+**Core-B atomwise endpoint-gap phase CLOSED (2026-07-22).**
+`Continuum/CoreBAtomwiseGapBounds.lean` now supplies the all-selector
+arithmetic needed by the preferred family-level route.  It proves exact
+centered antidiagonal formulas in both parities; represents every canonical
+`A_i` atom by the `(n+1,n+3)` antidiagonals and every `M_j` atom by two
+copies of the `n+2` antidiagonal; and proves, for every bounded selector and
+every residual on `C(1,0,n)`,
+
+- even numerator exponent `>= evenContent+2` and midpoint exponent
+  `>= evenContent`;
+- odd numerator and midpoint exponents `>= oddContent`;
+- nonnegative endpoint balance in both parities; and
+- under adverse orientation, homogeneous-chain length
+  `<= (quotientEndpointDegree+2)/2`.
+
+The same module factors a homogeneous chain at its common base and proves the
+generic physical endpoint estimate
+
+`homChain(x,y,base,len) <= len*x^(2*base+len-1)`
+
+for `0 <= y <= x`.  Thus the exponent discount and chain-length cost are
+kernel-checked for all eleven determinant families; no selector
+classification is hidden in this part of the argument.  The targeted build is
+GREEN (200 jobs), and every new public gate is within
+`[propext, Quot.sound]`.
+
+The coefficient side of the atomwise slice is now also kernel-checked.
+`antidiagonalCoefficient_even_center_max` and
+`antidiagonalCoefficient_odd_center_max` prove the sharp central maxima.
+Parity-specific numerator, midpoint, and atom-pair coefficient reserves then
+bound every bounded selector; the midpoint proof explicitly absorbs the
+doubled `j=1` family rather than silently treating it as multiplicity one.
+Finally,
+`twice_antidiagonalExponent_eq_centeredSquare_add` proves the reusable exact
+identity
+
+`2*E(N,p) = centeredIndexSquare(N,p) + N*(N+4)`.
+
+This closes step 1 of the residual-distance translation below except for the
+four-coordinate shell aggregation.
+
+`CoreBCanonicalSquareShell` now closes that aggregation without introducing
+the parity error.  Its exact raw formulas are
+
+`canonical_even_four_square_shell: shell = 2*g+2`,
+
+`canonical_odd_four_square_shell: shell = 2*g+6`.
+
+The generic
+`endpoint_sum_eq_content_add_quotientEndpointDegree` converts to the actual
+quotient degree whenever the raw sum is nontruncated.  The even all-selector
+corollary gets this premise automatically from
+`canonical_even_endpoint_balance_all`; the odd corollary keeps the exact
+nontruncation premise `2*oddContent+2 <= Aexp+Mexp`.  This is necessary:
+the current `Nat` endpoint degree truncates the odd centered raw value `-2` to
+zero.  Target builds pass (201 jobs), the root module compiles, and the public
+axiom gates remain `[propext, Quot.sound]`.
+
+The exact companion scout
+`computations/core_b_atomwise_tail_scout.py` now replaces interpolation at low
+gap by a direct symbolic finite classification.  Writing `n=2k+parity`,
+`row=k+q`, and every window index as `p=k+u`, the exponent gap and chain length
+are independent of `k`.  The quadratic minimum-gap formulas confine every
+block through endpoint degree 20 to `q=-1,...,3` in even length and
+`q=0,...,3` in odd length.  Direct expansion of the eleven component pairs
+then gives exact degree-eight SymPy identities (not merely interpolants).
+Their integer envelope sums are
+
+`21803/65536 = 0.332687378...` (even),
+
+`107657/262144 = 0.410678864...` (odd).
+
+`CoreBLowGapBudget` now kernel-checks the arithmetic budget conditional on the
+explicit transcribed coefficient lists: a reusable Horner evaluator,
+coefficientwise domination for all natural shifts, all eight even and ten odd
+gap envelopes, the two exact dyadic totals above, and that each is `< 1/2`.
+The envelope theorems use only `[propext, Quot.sound]`; the rational total
+identities are axiom-free.  To keep the umbrella build lightweight, the
+nonlinear factored-to-list expansions remain reviewed Python/SymPy identities,
+not eighteen expensive Lean `omega` expansions.  More importantly, the Lean
+module still does not identify those lists with the actual adverse atom
+classifier.  It is therefore a checked conditional budget, not the missing
+finite-classification theorem.
+
+The proposed tail shell inequality
+
+`M_g(k) <= g^3 * reserve(k)` for even `g >= 22`
+
+would add exactly `3311/884736 = 0.003742359...`, leaving the factor-two
+target below `0.337` in even length and `0.415` in odd length.  Exact
+falsification grids continue to pass with substantial shellwise margin.
+The scout explicitly distinguishes exact Python/SymPy identities, finite
+checks, and Lean-kernel results.
+
+**Honest boundary after the endpoint-gap phase.**  Core B is still OPEN.
+The repository does not yet contain (a) the Lean translation of the finite
+low-gap component classification, (b) an all-index coefficient-mass bound for
+the undisplayed Gaussian tail, or (c) the resulting inhabitant of
+`PhysicalRowOneOriginSquareGapQuotientNonnegative`.  The next closure phase is
+therefore still the coefficient-mass phase.
+
+**Residual-distance closure design completed (2026-07-22; computational
+certificate, Lean translation open).**  A sharper proof design now avoids the
+fixed-gap table entirely.  Put `n=2k+epsilon`, residual row `k+q`, and every
+window index `p=k+u`.  The centered window/edge coefficient and exponent
+formulas make every orientation, endpoint degree, and chain length independent
+of `k`; only a degree-eight coefficient polynomial remains.
+
+Take the central band `q=-3,...,3` and window offsets `u>=-6`.  There are
+10,605 admissible atom patterns in each parity.  For every pattern, the scout
+chooses its first legal `k`, forms the proposed coefficient/reserve supremum,
+and checks that every coefficient of the shifted polynomial difference is
+nonnegative.  All 21,210 exact checks pass with zero failures.  Exact rational
+central sums plus factorized Gaussian tails give the deliberately rounded
+bounds
+
+`atomwiseDebt(2k)/reserve(2k) <= 889/2500 = 0.3556`,
+
+`atomwiseDebt(2k+1)/reserve(2k+1) <= 2427/5000 = 0.4854`.
+
+Thus the stronger `2*debt <= reserve` target survives.  Useful one-dimensional
+Gaussian envelopes are `(127/100,267/1000,2/25)` in even parity and
+`(267/1000,2/25,9/1000)` in odd parity.  The exact finite outer-distance sums
+for `4<=|q|<=30` are below `1/200` and `1/50`; `|q|>=31` and `u<-6` are paid
+by elementary quadratic geometric tails.  The exceptional `n=1` cell remains
+an exact finite check.
+
+This residual-distance certificate is now the preferred Lean closure route;
+the exact gap-20 table remains an independent audit.  The next order is:
+
+1. **CLOSED:** kernel-check the centered window/edge coefficient and exponent
+   identities, component balance, parity central coefficient maxima, reserve
+   comparisons, and the signed/nontruncated four-coordinate shell
+   aggregation;
+2. **ARITHMETIC BUDGET CLOSED, CLASSIFIER LINK OPEN:** encode the finite
+   shifted-polynomial coefficient envelopes and exact rational sums; prove
+   that the actual bounded atom classifier has exactly those transcribed
+   polynomials (or instead finish the residual-distance central certificate);
+3. prove the reusable one-dimensional Gaussian finite-plus-geometric tail
+   bounds and assemble the outer-distance/window tails;
+4. construct the atomwise payment, inhabit the physical row-one quotient
+   certificate, and run the already-closed consumer/bridge composition.
+
+**Cubic even-gap arithmetic tail CLOSED (2026-07-23).**
+`Continuum/CoreBCubicEvenTail.lean` proves constructively, for every finite
+prefix length `N`,
+
+`finSum evenGapTailTerm N + evenGapTailRemainder N
+  ≈ 3311/884736`,
+
+where the `j`th term is exactly
+`(22+2*j)^3 / 2^(22+2*j)` and the remainder is nonnegative.  The proof is an
+exact telescoping potential, not a sampled or truncated sum.  It also proves
+
+`remainder N <= remainder 0 * (1/2)^N`
+
+and supplies the explicit Type-level modulus
+`remainder (δ.den+e) <= δ`.  The resulting `QExactTailCertificate` is imported
+by the root build and stays within `[propext, Quot.sound]`.
+
+This closes step 3's infinite-series arithmetic, but not its analytic
+instantiation: the repository still needs the all-selector comparison from
+the actual adverse mass at endpoint gap `g` to the cubic majorant term.
+
+**First actual low-gap classifier fiber CLOSED (2026-07-23).**
+`Continuum/CoreBLowGapClassifier.lean` defines
+`oddCanonicalResidualAdverseAtGap` directly from the actual bounded
+canonical atoms, residual component condition, exponent orientation, and
+`quotientEndpointDegree`.  For every stable odd length `n=2*k+1`, `k>=2`, it
+proves both directions between the gap-two predicate and five explicit
+bounded selector patterns.  The Boolean classifier is kernel-computable, and
+its `= true` theorem is equivalent to the actual predicate.  The public
+soundness, completeness, equivalence, and Boolean-correctness theorems depend
+only on `[propext, Quot.sound]`.
+
+This is an honest selector-fiber theorem, not yet the transcribed budget
+identity.  The next low-gap step is to sum
+`oddCanonicalAtomContribution` over those five patterns and prove that the
+result is exactly the already kernel-checked `oddMass2Formula`; the remaining
+low gaps and the cubic all-gap comparison are still open.
+
+**Physical Bernstein route opened and consumer CLOSED (2026-07-23).**
+The new exact scout `computations/core_b_bernstein_scout.py` uses the actual
+eleven-family bounded normal form, sets `u=4*w^2`, removes the forced lowest
+power, and converts each canonical cell quotient exactly to the Bernstein
+basis on `[0,1]`.  Every individual cell through length `8` has strictly
+positive rational Bernstein coefficients; exact reconstruction passes, and
+after multiplying the unnormalised row by `4^(2*(n+2)*(n+4))`, every checked
+coefficient is a strictly positive integer.  A second implementation sums the
+cleared elevated coefficient directly over the actual bounded atom tuple; it
+agrees exactly with the independent SymPy conversion through length `8` and
+remains strictly positive in every cell through length `15` (the regression
+suite pins the extended direct grid through `12`).  Thus the observed
+positivity occurs before diagonal summation.  This is finite exact evidence,
+not an all-index theorem.
+
+The degree geometry is simple:
+
+- common top degree `H_n=(n+2)*(n+4)`;
+- lowest degree equals half the canonical content plus the already-proved
+  early-cell centered content shift;
+- central Bernstein degree is `2*(k+1)^2` for `n=2k` and
+  `2*(k+1)*(k+2)` for `n=2k+1`.
+
+`Continuum/CoreBBernsteinConsumer.lean` now proves Bernstein-basis positivity
+on the exact physical coordinate interval and defines
+`PhysicalCanonicalCellBernsteinCertificate`, pinned to the actual quotient
+cell with a positive clearing scale and exact reconstruction.
+`rowOneOriginSquareGapQuotientNonnegativeOfBernstein` sums an all-cell family
+into the precise row-one certificate.  `Rubric/CoreBPhysicalBridge.lean`
+then composes an all-coupling Bernstein family directly into
+`PhysicalCoreBBridge`.  No family inhabitant is supplied.
+
+The generic signed-monomial reconstruction seam is also CLOSED.
+`Continuum/BernsteinSignedMonomialReconstruction.lean` provides a computable
+compiler from any finite integer-signed monomial ledger to one common
+unnormalised Bernstein row and proves exact evaluation under the sole degree
+bound on the used exponents.  This removes generic basis conversion from the
+open list.  What remains is Core-B-specific: enumerate the actual
+oriented-chain monomials into that compiler, identify the resulting cleared
+row with `B_(n,t,j)`, and prove its coefficients nonnegative for all indices.
+
+The Core-B-specific row compilation is now CLOSED too.
+`Continuum/CoreBActualBernsteinRow.lean` defines the computable
+`actualCanonicalCellBernsteinRow n t` by summing all eleven actual bounded
+families with their actual coefficients, orientations, chain lengths, and
+exponents.  A computable maximum over the same selector ledger supplies the
+common degree; the file proves every exponent fits, proves denominator
+clearing does not truncate, and reconstructs the full signed ledger exactly.
+Its direct adapter to `PhysicalCanonicalCellBernsteinCertificate` leaves only
+two inputs: coefficientwise nonnegativity of this actual row and the physical
+scaling identity between the cleared quotient and the ledger at `u=4*w^2`.
+
+Detailed formulas and theorem order:
+`docs/core-b-bernstein-route-2026-07-23.md`.
+
+This route is now co-priority with the adverse-tail route and may supersede it
+if the integer rows satisfy a Pascal recurrence.  Exact recurrence scouting
+has now isolated a much sharper conjecture.  Degree elevation of an
+unnormalised row is the exact Pascal convolution
+
+`(E_m R)_j = sum_q choose(m,q) * R_(j-q)`.
+
+After elevating adjacent cells to the same degree, the actual cleared rows
+are strictly coefficientwise increasing up to the central peak and strictly
+decreasing afterward through every length checked to `15` (regression grid
+through `10`).  The peak is `t=k-1` for `n=2k` and `t=k` for `n=2k+1`.
+Consequently an all-index signed adjacent-difference theorem plus positivity
+of the two outer boundary rows would propagate positivity to every cell.
+Several simpler scalar, reversal, power-basis, and cross-length recurrences
+were falsified exactly; they are not proof targets.  This Pascal-unimodal law
+is still finite evidence, not a theorem.
+
+The immediate order is:
+
+1. use the now-closed odd gap-two selector fiber to derive the first actual
+   coefficient-mass identity, then extend the classifier or bypass further
+   gap enumeration through the Bernstein row;
+2. prove the exact physical scaling identity from the actual quotient to the
+   now-constructed eleven-family row;
+3. prove the signed Pascal-unimodal adjacent-cell theorem and the two outer
+   boundary-row sign theorems;
+4. instantiate the already-closed Bernstein consumer and guarded Core-B
+   bridge.
+
+## Cross-cutting structural track: evolving RG interfaces (2026-07-22)
+
+This track incorporates the polynomial-tree correction without renumbering or
+weakening the established analytic frontier.  The key invariant is now
+
+\[
+\text{RG flow}=\text{state evolution}+\text{interface evolution}.
+\]
+
+Fixed-interface systems remain as constant trees.  Consequently the earlier
+`InductiveState`/`BlockSpin` machinery is preserved as the stabilized-tail
+special case, not deleted.
+
+Detailed specification and the honest claim boundary:
+`docs/rg-polynomial-tree-2026-07-22.md`.
+
+**Scheduling rule.** RG-I1--RG-I4 may proceed in parallel with RG-I0.  A
+physical RG-I5 certificate and its RG-I6 directed constant-ray presentation
+are hard prerequisites for an honest RG-I7 contraction statement.  The
+physical RG-I7--RG-I9 certificates must all close before fixed-interface
+correlation-decay or mass-gap consumers are invoked.
+
+### RG-I0 — Preserve the analytic frontier **[ACTIVE; unchanged]**
+
+Continue the current Core-B / physical single-step work: a genuine local
+solution, cutoff-uniform spectral or contraction estimate, referee-grade
+replacement of heuristic constants, and propagation into explicit
+decoupling/error bounds.  The structural track supplies no shortcut for these
+lemmas.
+
+### RG-I1 — Interface polynomial **[PRODUCTION BRIDGE CLOSED; PHYSICAL CARRIERS OPEN]**
+
+`lean/YMGap/RG/PolynomialTree.lean` defines `RGInterface`, the seven-action
+standard vocabulary, proof-carrying success/failure verification responses,
+and every scale-dependent carrier type.
+`lean/YMGap/RG/InductiveInterfaceBridge.lean` supplies concrete exact-rational
+relevant coordinates, KP norm/certificate carriers, a production-interface
+constructor, and a lossless adapter for the existing `InductiveState`.  The
+remaining production task is to supply the actual retained fields, polymer
+atlas, observables, spacing/volume cutoff data beyond the legacy scale index,
+and physical verification diagnostics.
+
+### RG-I2 — Polynomial tree and finite approximants **[STRUCTURAL CLOSED]**
+
+The same module defines executable `PolyTreeApprox n`,
+`PolyTreeHomApprox n`, a coalgebraic possibly-infinite `PolyTree`, the constant
+tree embedding, and checked depth-1/2/3 approximants.  The coalgebraic encoding
+is used because Lean has no literal native coinductive structure of the
+proposed form.
+
+### RG-I3 — State/interface separation **[PRODUCTION ADAPTER CLOSED; PHYSICAL STEPS OPEN]**
+
+`RGState I`, `RGStep`, and `RGTrace` make the successor state inhabit exactly
+the action/response-selected child interface.  `demoThreeScaleTrace` checks
+scales 0/1/2; `demoThreeTransitionTrace` additionally enters the stable-tail
+interface.  Both check the type discipline and explicit diagnostic branch.
+They use toy natural-number payloads and are not analytic Yang--Mills
+certificates.  `InductiveInterfaceBridge.BudgetedTransition.fromStep` now
+lifts a genuine existing `StepTypeWithBudget Q'` result, including its S1--S4
+witnesses, into a complete typed RG state transition with separate dynamic
+and interface errors.  Actual physical retained-field/observable updates
+remain inputs.
+
+### RG-I4 — Interface transport maps **[DIRECTED STRUCTURE CLOSED; PHYSICAL MAPS/BOUNDS OPEN]**
+
+`lean/YMGap/RG/InterfaceStability.lean` now defines constructive, invertible
+transports for actions and dependent responses and for cutoff data, retained
+fields, polymer activities, relevant coordinates, norms, observables,
+certificates, and error budgets.  Complete states transport in both directions
+with exact round-trip theorems; `InterfaceTransportPreserves` separately
+records semantic preservation of coordinates, norms, localization,
+observables, and certificates.  Dynamic and interface distortion remain
+distinct fields of `RGState`.  The checked demo gives a non-identity
+scale-2-to-stable transport.  The production task is to instantiate these
+maps and preservation witnesses for the Yang--Mills carriers; numerical
+coupling stabilization alone is not such an instance.
+
+The production audit exposed an important correction: block-spin coarse
+graining is generally non-invertible.  Therefore
+`lean/YMGap/RG/DirectedInterfaceTransport.lean` is the physical default.  It
+forward-transports every carrier, dependent response, complete state, and the
+two error ledgers without assuming an inverse.  Exact `InterfaceTransport` is
+embedded as a strict special case.  `ProductionCarrierMap` constructs the
+directed map from ordinary functions and carries semantic/error preservation
+witnesses.  The remaining work is the actual Yang--Mills map and its computed
+discrepancy bounds; semantic commutation alone is not an error estimate.
+
+### RG-I5 — Interface-stability estimate **[DIRECTED CERTIFICATE MACHINERY CLOSED; PHYSICAL ESTIMATE OPEN]**
+
+`StableTailCertificate` now packages `k_*`, `P_*`, the selected typed branch,
+coherent transports into `P_*`, semantic-preservation witnesses, the four
+exact-rational discrepancy components, an upper tolerance, and a computable
+stabilization modulus.  `StableTailCertificate.scaleFor` constructively
+returns a scale witness whose entire suffix satisfies the requested positive
+rational resolution.  `demoStableTail` is a checked exact-rational instance;
+the Python mirror additionally tests a decreasing dyadic tail and its computed
+modulus.
+
+`DirectedStableTailCertificate` is the non-invertible production form: it
+retains the typed selected ray, forward transports, semantic/error witnesses,
+four-component discrepancy, tolerance, and modulus.  Every exact certificate
+embeds into it, but no state recovery or source-tree equivalence is inferred.
+
+The remaining analytic task is to supply the physical Yang--Mills `k_*`,
+`P_*`, and bound
+
+\[
+d_{\mathrm{int}}(P_k,P_*)=
+\max\{d_{\mathrm{coord}},d_{\mathrm{norm}},d_{\mathrm{obs}},
+d_{\mathrm{cert}}\}
+\le \varepsilon_{\mathrm{int}}(k)
+\]
+
+for every `k >= k_*`.  Exact definitional equality is not required; the
+physical transport error must be controlled rather than copied from the demo.
+
+### RG-I6 — Stable constant-interface subtree **[DIRECTED STRUCTURAL CLOSED; PHYSICAL CERTIFICATE OPEN]**
+
+`StableTailPresentation.lean` extracts the exact constant-tree presentation
+available from invertible transports.  The physically honest result is
+`DirectedStableTailPresentation.lean`: any directed stable-tail certificate
+constructively yields a typed selected source ray, a forward-normalized
+constant-interface ray/state family, separate error semantics, and an explicit
+resolution landing scale.  It makes no recovery, injectivity, off-ray, or
+whole-tree-equivalence claim.  The remaining physical task is to construct
+the Yang--Mills directed stable-tail certificate.
+
+### RG-I7 — Stable-interface contraction **[COMPOSITION MACHINERY CLOSED; PHYSICAL CONTRACTION OPEN]**
+
+`StableDynamics.UniformContractionCertificate` carries an exact rational
+`0 <= q < 1`, a Type-valued preserved admissible domain, and uniform
+one-step contraction; its consumer proves the full `q^n` bound.  The package
+is pinned to `RGState` on the stable interface and to transported source
+states, so an unrelated surrogate contraction cannot inhabit it.  The open
+analytic task is the cutoff-independent Yang--Mills `q < 1` estimate on the
+preserved Gaussian ball.
+
+`DirectedStableDynamicsCertificate` is the production path: its stable orbit
+is definitionally tied to the one-way image of the node-indexed physical
+source orbit.  It exposes the same landing, contraction, and split-budget
+consequences without any backward map, recovery, or injectivity claim.
+
+### RG-I8 — Constructive landing **[WITNESS MACHINERY CLOSED; PHYSICAL LANDING OPEN]**
+
+`ConstructiveLandingCertificate` and `PhysicalLandingWitness` return the
+offset, absolute `k_0=k_*+offset`, orbit law, and Type-valued admissibility
+witness.  The open analytic task is to construct this witness for the physical
+ultraviolet trajectory; a proposition denying non-landing is still
+insufficient.
+
+### RG-I9 — Accumulated distortion **[COMPOSITION MACHINERY CLOSED; PHYSICAL SUMMABILITY OPEN]**
+
+`SummableDistortion` carries a cap, nonnegativity, every partial-sum bound, and
+a computable tail modulus.  `SeparatedDistortionBudget` keeps `C_dyn` and
+`C_int` separate and derives a combined cap/tail bound only at a named
+composition point.  The open analytic task is to construct both physical
+summability certificates.
+
+### First downstream bridge **[FINITE-VOLUME MACHINERY CLOSED; UNIFORM/CONTINUUM INPUTS OPEN]**
+
+`StableDynamicsCorrelationBridge.lean` and its physical-default companion
+`DirectedStableDynamicsCorrelationBridge.lean` derive geometric correlation
+decay from transported contraction plus an explicit physical readout, then
+reuse the existing clustering-to-gap theorem to return a finite located
+spectral gap with positive exact-rational margin.  A supplied finite-volume
+family gets one such gap at every volume.  They deliberately do not inhabit
+`UniformClusterBound`.  Remaining inputs are: the physical Wilson-observable
+readout and spectral identification; a volume-uniform positive floor and
+two-sided inter-volume modulus; physical-spacing/true-margin conversion; and
+the continuum-measure/OS bindings.
+
+### Executable falsification gate **[RG-I1--I9 STRUCTURAL TESTS CLOSED; PHYSICAL INPUTS OPEN]**
+
+`computations/rg_interface_tree.py` and
+`tests/test_rg_interface_tree.py` supply exact-rational regression tests for
+depth-1/2/3 execution, decreasing interface discrepancy, exact coherent state
+transport and round trips, a computed stabilization scale with checked tail
+suffix, contraction after common-interface transport, branch sensitivity,
+wrong-child rejection, and separate dynamic/interface logging.  The
+demonstration constants are test fixtures, not Yang--Mills estimates.
+Production simulation logs must record
+
+\[
+(P_k,S_k,R_k,q_k,C_k^{\mathrm{dyn}},C_k^{\mathrm{int}},
+\varepsilon_k,\text{certificate status}).
+\]
+
+Only after RG-I7--RG-I9 may the existing correlation-decay, OS reconstruction,
+and physical mass-gap consumers treat the RG tail as a common fixed interface.
+
+## Cross-cutting physical route: compact dual RP-preserving Lanford RG (2026-07-22)
+
+The information-discard audit changes the priority of the physical
+`singleStep` campaign.  The most novel high-leverage route is not another
+Lie-algebra chart estimate.  It is an exact, never-linearized block map in the
+character/fusion (spin-foam) representation, constrained to preserve a
+reflection-positive boundary cone, with the adjacent-block correlation
+remainder retained as data, and a Lanford-style exact-rational contraction
+certificate across the crossover.
+
+Detailed crosswalk, theorem order, and falsification gates:
+`docs/compact-dual-lanford-route-2026-07-22.md`.
+
+This lane is not a claim that compactness solves the problem.  It is scheduled
+in parallel with the active Core-B analytic closure and must respect the
+existing counterevidence: the strong-coupling character expansion diverges
+toward `w=1`, naive shared-link factorization fails, nonabelian recoupling can
+carry signs, and the strong-coupling string-tension series may meet a
+roughening singularity.  Each is a falsification gate, not a detail to omit.
+
+### CD-0 — Pin the shared physical data **[STRUCTURAL PINNING CLOSED]**
+
+Construct one interface whose coupling, finite box, physical character
+cutoff, face/link enumeration, packet graph, reflected boundary data, and
+observable packet are definitionally shared by:
+
+- `Z4ParametricArbitraryCutoffSpinFoamIdentity`;
+- the finite shared-link Haar/fusion calculus;
+- the Schur-diagonal reflection form; and
+- `RG.PolynomialTree.RGState`.
+
+No detached or reparameterized surrogate is accepted.
+
+`Continuum/CompactDualPinnedPhysicalData.lean` now constructs the pinned
+carrier.  One `CompactDualPhysicalData` value definitionally shares the
+rational coupling, cutoff, box, observable packet, physical face/link
+enumeration, fusion-complete packet graph, spin-foam term/partition,
+algebraic Schur-diagonal reflection weights, and the resulting
+`RGInterface`/`RGState` indices.  The norm, certificate, and error carriers
+remain external, so this step does not manufacture an analytic certificate.
+
+The remaining coordinate mismatch is explicit: the spin-foam packet uses
+rational `w^(4*C₂(s))`, whereas `reflSchwinger` uses constructive-real
+`exp(-t*C₂(s))`.  A genuine representation or approximation theorem for
+`w=exp(-t/4)` is needed; this relation is not definitionally available.
+CD-1 must resolve it with a modulus or work directly over the pinned rational
+Schur Gram.
+
+### CD-1 — Dual boundary state and reflection cone **[RATIONAL ONE-INTERFACE CONE CLOSED; SCHWINGER COORDINATE/STEP PRESERVATION OPEN]**
+
+Define the finite boundary packet/intertwiner state and its reflected Gram.
+Prove that the one-interface specialization agrees with the existing
+Osterwalder--Seiler weighted sum of squares.  Initial OS2 is already proved;
+preservation by an RG step is not.
+
+`Continuum/CompactDualBoundaryReflectionCone.lean` now defines an actual
+`DualBoundaryState D` over `CharacterPacket D.cutoff`, pins its packet
+definitionally to `D.observable`, and constructs the exact rational reflected
+pairing and self-Gram.  Every boundary packet receives a Type-level
+`ReflectionConeCertificate`: the rational self-Gram is a finite sum of
+squares with nonnegative pinned weights, its constructive-real embedding is
+setoid-equivalent to the existing `diagReflForm`, and the pinned form agrees
+definitionally with CD-0's `D.reflectionForm`.
+
+This closes the direct rational one-interface cone, not the full CD-1
+analytic interface.  The precise remaining coordinate mismatch is
+
+`ofQ'(w^(4*C₂(s)))` versus `exp(-t*C₂(s))`.
+
+An exact coordinate witness or constructive-real approximation modulus is
+still required to identify the rational cone with `reflSchwinger t`.
+Preservation by an actual block map and the overlap remainder remain CD-2.
+
+### CD-2 — Exact two-plaquette RP-preserving block **[OPEN; FIRST ANALYTIC TEST]**
+
+On two adjacent plaquettes sharing one link, construct the exact dual block
+map from the packet-graph identity and prove
+
+`input = blocked contribution + overlap remainder`.
+
+The planned production interface is `SpinFoamRPBlockRemainder` and the named
+theorem target is `parametricSpinFoam_block_pushforward_decomposition`, with
+
+`D_* mu_fine = mu_coarse + R_overlap`,
+
+`sum R_overlap = 0`,
+
+reflection intertwining / Gram-cone compatibility, and an initial target
+`norm(R_overlap) <= c*(1-w)^2`.
+
+The kernel must be source-dependent, positive, row-normalized, supported on
+genuine fine spin-foam configurations, and parameterized by the physical
+coupling/cutoff schedule.  Return the overlap term as explicit data.  Decide
+reflection-cone preservation with a rational witness or a complete
+counterexample.  This cell is deliberately chosen because the existing
+`15/16` Haar-moment mismatch already refutes naive shared-link factorization.
+
+**Positive-channel door (2026-07-23; finite theorem, physical semantic bridge
+open).**  The exact-Haar survival probe finds twelve positive page-spin
+sectors for the `(1,1,1,1)` rim channel.  They form four permutation orbits
+with multiplicities `1,6,4,1`, representatives
+`(0000),(0022),(0222),(2222)`, exponents `0,16,24,32`, and per-sector
+coefficients `1/4,3/4,3/2,21/4`.
+`Continuum/CompactDualPositiveChannelDoor.lean` kernel-checks the orbit count,
+termwise/orbit nonnegativity, and exact compression to
+
+`1/4 + (9/2)*s^16 + 6*s^24 + (21/4)*s^32`.
+
+It pins this finite scalar candidate to `CompactDualPhysicalData.coupling`
+and supplies only the conditional activity-times-square consumer.  It also
+names the still-uninhabited all-label source-dependent kernel obligation over
+the actual fine/coarse physical labelling lists.  CD-2 remains open: no Lean
+semantic theorem yet identifies the exact-Haar wheel with
+`CompactDualPhysicalData.physicalTerm`; no complete all-rim channel
+decomposition, normalized physical block kernel, zero-mass overlap remainder,
+or uniform norm is constructed.  `SpinFoamRPBlockRemainder` remains a planned
+declaration, not an existing inhabitant.  The exact certificate map and
+falsification gates are recorded in
+`docs/dual-positivity-survival-cd2-map-2026-07-23.md`.
+
+**All-label wheel upgrade (2026-07-23; analytic identity and exact
+cross-check, physical semantic bridge open).**  Expanding each rim character
+into matrix coefficients and using the multiplicity-one trivalent Haar
+projector yields
+
+\[
+ W(j;m)=\frac{1}{\prod_i(m_i+1)}
+ \sum_a\left|\sum_b
+ \prod_i C[j_i,a_i;m_i,b_i\mid m_{i-1},b_{i-1}]\right|^2 .
+\]
+
+Therefore every wheel amplitude is nonnegative at arbitrary label, and every
+fixed-rim heat-kernel page sum is coefficientwise nonnegative.  Exact
+falsification before the derivation found 1,213 nonzero wheels through label
+three with no negatives; an independent Clebsch--Gordan evaluator agrees
+with the quaternion-Haar engine on representative zero, nonzero, symmetric,
+asymmetric, and spin-three cases.  All 81 rim patterns through label two give
+590 positive resolved sectors, 354 nonnegative aggregate coefficients, and
+exact reconstruction.  This closes P2 for the wheel topology, not the
+unanchored slab or the full reflected boundary.
+
+`computations/dual_positivity_manifest.py` now exports the actual oriented
+unit-rim topology, all twelve sectors, raw Haar amplitudes, dimensions,
+exponents, weighted coefficients, and direct-contraction check as canonical
+JSON.  Its pinned SHA-256 is
+`f7ad2fd06add0c8e5bc51e4aa340bdb0e86687f52d664d3ce3397f21be5d2e52`.
+The next load-bearing step is the exact Lean semantic equality from this
+manifest/fiber to `CompactDualPhysicalData.physicalTerm`, followed by the
+complete reflected boundary channel decomposition and explicit overlap
+remainder.
+
+**Resolved fixed-face positivity is refuted; physical-sum conjecture (DP)
+survives (2026-07-23).**  The n-dimensional exact-Haar builder now
+constructs the 16-vertex, 32-edge, 24-face two-skeleton of the boundary of a
+four-cube.  Its 128 binary closed surfaces form nine hyperoctahedral orbits
+and are positive by the two-dimensional Euler/dimension formula
+`Z=2^(chi-F)`.  The three 16-face, Euler-zero surfaces have value `2^-16`
+and are the coordinate Clifford tori in the boundary `S^3`.
+
+**Interference correction.**  The earlier `{0,1,2}` “surface
+superposition” fused each coincident pair of fundamental strands into the
+highest spin-one face channel.  It left every geometric edge trivalent and
+therefore was not the complete four-strand crossing amplitude.  Its result
+remains valid: all 7,997 highest-channel projections have an even number of
+negative tetrahedral `6j` signs and are positive by a local `8x8`
+Eulerian-state table plus even touched-vertex parity.
+
+The genuine pair observable retains two separate `chi_1` factors on overlap
+faces.  At crossing edges it sums the full two-dimensional
+`Inv((1/2)^(tensor 4))` space; equivalently, `chi_1^2=chi_0+chi_2` supplies
+every zero/spin-one overlap fusion choice.  All 7,997 raw intersecting pairs,
+or 100 symmetry orbits, have strictly positive complete sums.  The minimum
+orbit value is `1/16384`.  Six orbits require real signed interference: their
+resolved ledgers contain respectively `(4 negative,12 positive)` terms three
+times, `(16,48)` twice, and `(64,192)` once.  Across all 100 representative
+ledgers there are 108 negative, 696 positive, and 19,548 zero fixed-face
+channels.
+
+The complete cutoff-two constraint problem is larger: 38,151 locally
+admissible assignments in 369 four-cube symmetry orbits.  Exactly 31,447 raw
+assignments are positive and 6,704 are negative; none vanishes.
+Thirty-three orbits have negative global `6j` sign.  The smallest exact
+witness has
+
+```text
+(2,1,1,1,1,2,0,1,1,0,1,1,0,1,1,0,1,1,1,1,0,1,1,0)
+```
+
+in the deterministic face order, nine negative vertex symbols, no zero
+symbol, and direct quaternion-Haar amplitude `-1/196608`.  Every edge is
+trivalent, so each invariant space is at most one-dimensional: this is
+already the complete intertwiner-summed fixed-face coefficient, not a
+negative term awaiting cancellation inside the same fixed-face fiber.  It
+does, however, occur as a resolved fusion channel in genuine binary-pair
+ledgers.  For example masks `0x4ab33` and `0x6bc6ad` contain four such
+negative terms but have positive complete value `31/331776`.
+
+This distinction is definitional for the program conjecture:
+
+> **(DP)** Intertwiner-summed SU(2) dual amplitudes of physical complexes are
+> nonnegative.
+
+Here “physical complex” means the complete surface/fusion object; all induced
+face channels and edge intertwiners must be summed.  The negative
+`-1/196608` channel refutes entrywise fixed-face positivity, not (DP).
+Every complete physical-complex amplitude evaluated by the current exact
+instrument remains nonnegative.
+
+Consequently CD-2 must not require entrywise nonnegativity of every
+fixed-face amplitude or every resolved recoupling channel.  The genuine
+pair result instead strengthens the case for a **complete-intertwiner
+positive cone**: negative resolved channels must be retained in an explicit
+signed ledger, then summed before the reflected Gram/positivity decision.
+Immediate actions are:
+
+1. **DONE on the one-four-cube binary sector:** derive the exact local
+   four-strand crossing kernel, classify the six signed ledgers as
+   `K_(2,2)`, `K_(2,4)`, or `K_(4,4)`, and construct the complete exact
+   binary-surface Gram;
+2. determine which of the 33 negative fixed-face orbits occur in the actual
+   two-plaquette reflected boundary fiber and identify their full
+   intertwiner partners;
+3. refine `CompletePositiveBoundaryChannelDecomposition` to a complete
+   signed-channel decomposition whose assembled reflected kernel is
+   positive semidefinite;
+4. require both `-1/196608` for the resolved negative witness and
+   `31/331776` for its positive pair ledger as semantic/falsification pins for
+   any Python-to-Lean physical-term bridge; and
+5. characterize structurally the largest label cone on which the complete
+   four-valent projector sum is nonnegative.
+
+The exact reconstruction, corrected vertex wiring, all-pair theorem,
+resolved-channel counterexample, and revised scope are recorded in
+`notes/hypercube4d-dual-positivity-conjecture.md`.  This is a genuine no-go
+result for the entrywise-sign shortcut; it does not refute (DP) or reflection
+positivity of the original lattice measure.
+
+**Four-cube binary structural milestone CLOSED (2026-07-23; finite
+coordinate theorem, not an RG estimate).**  The six cancellation-requiring
+pair orbits contain 147 raw pairs.  Their symmetric difference is a
+coordinate Clifford torus, and their complementary-plane overlap graph is
+`K_(2,2)`, `K_(2,4)`, or `K_(4,4)`.  With
+
+`W = [[1,1],[1,-1/3]]`,
+
+every resolved channel is
+
+`A_x = 2^-16 * product_(ij in E(H)) W[x_i,x_j]`,
+
+and the complete sum has the manifestly positive form
+
+`Z_(m,n) = sum_(r=0)^m binom(m,r) * (1 + (-1/3)^r)^n`.
+
+The corresponding physical amplitudes are `31/331776`,
+`1837/6718464`, and `5115985/11019960576`.  The other 94 orbit ledgers are
+termwise nonnegative.  This upgrades the 100-orbit computation to a finite
+structural proof on the four-cube boundary; it does not extend automatically
+to arbitrary complexes.
+
+`hypercube4d_surface_gram.py` now constructs the complete exact
+`128 x 128` matrix
+
+`G(S,T) = integral O_S O_T`.
+
+Its 8,256 unordered entries reduce to 118 pair orbits: 100 distinct
+intersecting, nine distinct disjoint, and nine diagonal.  All 80 distinct
+rational values are positive.  Every row is strictly diagonally dominant,
+so, with `r_i = G_ii - sum_(j != i) G_ij > 0`,
+
+`G = sum_i r_i e_i e_i^T
+     + sum_(i<j) G_ij (e_i+e_j)(e_i+e_j)^T`
+
+is an explicit nonnegative-coordinate rank-one factorization.  Hence `G` is
+positive definite and has exact rank 128; the independent modular
+determinant is `897767826 mod 1000000007`.  The centered nonconstant
+observables are acute as well: 8,124 positive upper-triangle covariances,
+132 zeros, and no negatives.
+
+The preceding campaign ledger's `108 of 109` count is now resolved rather
+than silently renumbered.  Allowing repetitions among nonempty intersecting
+surface pairs gives `100 + 8 = 108` orbits.  Requiring distinct pairs gives
+`100` intersecting plus nine disjoint orbits, hence 109.  The complete Gram
+adds all nine diagonal orbits and contains 118.  This closure supersedes the
+pre-Gram snapshot of 693 exact evaluations without changing its historical
+claim of zero negative complete physical sums.
+
+The next mathematical step is a gluing theorem: identify a local condition
+under which the complete-bipartite resummation or the exact Gram cone is
+preserved when four-cubes share higher-valent interior links.  In parallel,
+map the signed ledgers into the actual CD-2 reflected boundary fiber.  Neither
+task may be described as RG-I7 contraction.
+
+**First higher-valence gluing probe completed (2026-07-23; finite
+evidence).**  `interior_link4d_probe.py` constructs the minimal brick
+`[0,1] x [0,2]^3`, whose distinguished interior link is incident to six
+plaquettes.  It preserves separate `chi_1` factors on duplicate faces and
+cross-checks them against the complete `chi_1^2 = chi_0 + chi_2` expansion.
+The 12 elementary cube boundaries give 66 pairs in four orbits, all positive.
+The 66 two-cube composite surfaces give 2,145 pairs in 65 orbits; a complete
+exact representative census found 2,145 positive, zero zero, and zero
+negative amplitudes, with minimum `1/65536`.  Ten orbits representing 252
+raw pairs activate all six incident plaquettes and are regression-pinned
+positive; the two one-strand-per-plaquette orbits have value `1/32768`.
+
+This does not close the gluing theorem.  The brick's full binary-surface
+kernel has dimension 44, whereas this survey uses only the 66 symmetric
+differences of two elementary boundaries.  The next probe must enlarge the
+surface family by a structural generator or adversarial orbit selection,
+not describe this restricted census as exhaustive.
+
+**Six-valent 66-surface Gram cone CLOSED (2026-07-23; finite gluing
+theorem).**  The four diagonal surface orbits have exact values
+`6562/6561` and `6724/6561`.  The complete 65-orbit off-diagonal
+rederivation confirms that the largest of all 2,145 entries is `31/3888`.
+Hence every row of the exact `66 x 66` Gram has the uniform residual
+
+`6562/6561 - 65*(31/3888) = 50587/104976 > 0`.
+
+Entrywise positivity plus this strict diagonal dominance gives the explicit
+nonnegative-coordinate factorization
+
+`G = sum_i r_i e_i e_i^T
+     + sum_(i<j) G_ij (e_i+e_j)(e_i+e_j)^T`,
+
+with every `r_i > 0`.  `interior_link4d_gram.py` records the compact exact
+orbit certificate, recomputes all diagonal orbits and the unique maximal
+off-diagonal orbit in the ordinary suite, and provides an opt-in slow gate
+that rederives all 65 Haar contractions.  That full gate passes in 237.76
+seconds.
+
+The implication is useful but self-limiting.  The 12 elementary boundaries
+are linearly independent and generate 4,096 surfaces; the certified family
+is only their 66-element weight-two shell.  With the same diagonal floor and
+off-diagonal ceiling, the uniform argument can certify at most 126
+observables and first fails at dimension 127.  It therefore cannot scale to
+the generator closure by cardinality alone.  The next work item is a
+weighted/orbitwise diagonal-dominance theorem or a local gluing identity
+whose cost depends on interaction degree rather than family size.  Only
+after that should the survey enlarge to the weight-three shell.
+
+**Six-valent generator-shell scope scout completed (2026-07-23; engine
+boundary identified).**  Exact GF(2) enumeration gives the shell sizes and
+surface-orbit counts
+
+`k=0..6: (1,1), (12,1), (66,4), (220,9), (495,18),
+          (792,24), (924,30)`.
+
+Within-shell unordered pair orbits grow from four at weight one to 65 at
+weight two and 568 at weight three (24,090 raw pairs).  These combinatorial
+counts are now regression-pinned.  A deliberately bounded attempt to
+evaluate the nine weight-three diagonal representatives did not complete
+even the first representative after sustained multi-minute sparse-polynomial
+growth and was terminated without a sign claim.  The existing exact engine
+already uses greedy link elimination; the obstruction is the size of the
+intermediate quaternion-coordinate polynomial for duplicated high-valence
+faces, not a missing symmetry reduction.
+
+Therefore the next engine step is not a 568-orbit brute-force sweep.  Build a
+local fusion-tree/invariant-projector contraction at the six-valent link,
+keeping the finite `Inv((1/2)^tensor n)` channel block symbolic and gluing
+only its boundary indices.  The first acceptance gate is exact agreement
+with all 65 weight-two representatives and the four diagonal classes; only
+then evaluate the nine weight-three diagonals and select adversarial
+off-diagonal orbits.  This engine work is coordinate-system progress and
+supplies no RG-I7 constant.
+
+**Local S3 pairing projector identity banked; expanded-boundary route
+fenced (2026-07-23).**  `exact_haar_network.py` now implements the exact
+link-linear moment
+
+`integral product_(i=1)^(2m) (c_i dot q) dq
+  = [4*6*...*(2m+2)]^-1
+    * sum_pairings product_(ij) (c_i dot c_j)`.
+
+The implementation is checked against generic quaternion Haar integration
+with coefficient polynomials on other links.  This removes the initial
+`2^40`-scale multiplication estimate at the eight-strand central link.
+However, materializing the 105-pairing result back into one ordinary
+quaternion `Poly` still causes prohibitive intermediate growth; bounded
+weight-two and weight-three full-network attempts were terminated without
+sign claims.  Therefore the acceptance target is now sharper: retain the
+14-dimensional eight-strand invariant block as a factorized tensor/fusion
+tree through subsequent link contractions.  Expanding that block back to
+coordinate monomials is a fenced non-solution.
+
+**Spin-structure sign hypothesis opened with an exact four-cube theorem
+(2026-07-23).**  On every cancellation-requiring pair orbit, the resolved
+sign is
+
+`(-1)^q(x),  q(x) = sum_(ij in K_(m,n)) x_i*x_j
+                 = parity_L(x)*parity_R(x) mod 2`.
+
+Its polarization is
+
+`B(x,y) = parity_L(x)*parity_R(y)
+          + parity_R(x)*parity_L(y)`,
+
+so after quotienting redistribution directions the sign is the even
+quadratic refinement `q(a,b)=a*b` of a two-dimensional symplectic
+`GF(2)` space.  The geometry is equally rigid: every signed orbit has a
+16-face, Euler-zero coordinate Clifford torus as symmetric difference, and
+the overlap faces lie in two complementary coordinate-plane families.  The
+complete amplitude decomposes into four positive parity magnitudes as
+
+`Z = Z_00 + Z_01 + Z_10 - Z_11`.
+
+The exact sector ledgers for `K_(2,2)`, `K_(2,4)`, and `K_(4,4)` are now
+regression-pinned.  Nonzero polarization proves that no single linear
+channel rephasing/orientation can erase every minus sign; changing spin
+structure can only add a linear form and redistribute the negative sectors.
+The correct Kasteleyn analogue is therefore controlled four-spin-sector
+bookkeeping, not entrywise positivity in one chart.
+
+All four local shifts
+
+`q_(alpha,beta)(a,b) = a*b + alpha*a + beta*b`
+
+and their Arf invariants `Arf(q_(alpha,beta)) = alpha*beta` are now
+implemented.  Their exact character transform proves
+
+`(1/2) sum_(alpha,beta) (-1)^(alpha*beta) P_(alpha,beta)
+ = sum_(a,b) Z_(a,b)`.
+
+This sharpens rather than closes the problem: the Arf-weighted half-sum
+reconstructs the **unsigned magnitude ledger**, whereas the physical SU(2)
+amplitude in the present normalization is the single untwisted partition
+`P_(0,0)`.  Thus the four-sector transform is an exact topological Fourier
+organization of the signs, not yet a positivity proof or a
+Pfaffian/Kac--Ward representation of the physical amplitude.
+
+The local geometric semantic bridge is also closed on the six signed
+orbits.  For the two complementary overlap planes `A,B`, the
+symmetric-difference face mask is exactly
+
+`boundary(I_A^2) x boundary(I_B^2)`,
+
+its cellular mod-two Betti numbers are `(1,2,1)`, and boundaries of overlap
+plaquettes in the two plane families represent the product generators of
+`H1(T^2; GF(2))`.  Each complementary pair meets in one vertex.  Hence the
+polarized sign form `B` is the actual mod-two intersection form, not merely
+an abstract symplectic form with matching rank.  The basis is canonical
+from the coordinate split up to exchange.  What remains is its
+globalization and covariance under physical gluing.
+
+That local carrier is now coordinate-free.  For a resolved channel
+selection `x`, let `D_x` be its mod-two chain of selected overlap
+plaquettes.  Its edge boundary lies on the symmetric-difference torus `T`,
+and every tested sign factors exactly as
+
+`sign(A_x) = (-1)^(q_T([boundary D_x]))`.
+
+The regression reduces the literal edge-chain boundaries modulo the span of
+the 16 torus-face boundaries for every channel of all six signed orbits.
+Selections have the same sign quotient precisely through their class in
+`H1(T; GF(2))`.  The remaining gluing problem is therefore sharply typed:
+construct the analogous relative class when the symmetric-difference
+surface is a patch crossing adjacent four-cubes, then prove or refute the
+spin-structure restriction/coboundary law.
+
+**First relative spin-structure gluing gate closed on the clean product
+torus (2026-07-23).**  In the `2 x 1 x 1 x 1` brick, exactly three 24-face
+tori span the two adjacent four-cubes without using a plaquette in their
+shared three-face.  Each splits into two 12-face cylinders:
+
+`(b0,b1,b2) = (1,2,1) -> (1,1,0) union (1,1,0)`.
+
+For the canonical surface pair, six raw overlap plaquettes give 64 formal
+zero/triplet choices.  Four plaquettes form two two-face strips across the
+interface, while two are single-face caps.  The relative defect
+
+`delta(x) = boundary(D_x) mod C1(T; GF(2))`
+
+is supported on interface edges.  Exact SU(2) edge-invariant admissibility
+holds iff `delta(x)=0`.  Hence exactly 16 channels survive, precisely the
+unions of four global caps.  The halves of a strip have the same nonzero
+interface defect and must be selected together.  Their cap-boundary
+homology classes form two pairs with intersection graph `K_(2,2)`.
+
+Schur convolution across the subdividing interface contributes one positive
+`1/dim(2)=1/3` factor for each selected two-face strip and no new sign.  The
+exact ledger is
+
+`A_x = 2^-24 * 3^(-(x_1+x_2))
+       * product_(ij in K_(2,2)) W_(x_i,x_j)`,
+
+with the same `W=[[1,1],[1,-1/3]]` as the one-cell theorem.  Therefore
+
+`sign(A_x)=(-1)^(q_T([boundary D_x]))=(-1)^(a*b)`
+
+after gluing.  The complete partition is
+
+`2^-24 * sum_(r=0)^2 C(2,r) 3^-r (1+(-1/3)^r)^2
+ = 2^-24 * 3232/729
+ = 101/382205952 > 0`.
+
+The generic exact Haar integrator pins the vacuum, single caps, one spanning
+strip, and that strip with zero, one, or two crossings; transverse symmetry
+and exact character convolution supply the remaining entries.  All three
+spanning orientations form one transverse-axis orbit.  Executable geometry,
+relative-defect matching, channel weights, and regression gates are in
+`computations/dual_spin_gluing.py` and
+`tests/test_dual_spin_gluing.py`.
+
+This closes the clean subdivided-product gate, not arbitrary gluing.  The
+next acceptance family is the spanning tori with one or more plaquettes in
+the shared three-face.  Their patch intersection is two-dimensional rather
+than a pair of boundary circles.  The carrier must therefore be upgraded
+from the simple cylinder quotient to the relative/Mayer--Vietoris chain
+complex before any sign claim.  After that comes the factorized six-valent
+invariant block.
+
+**First interface-bearing obstruction found; plain relative homology is
+insufficient (2026-07-23).**  The first targeted scout returns an exact
+counterexample to the clean-family equivalence
+
+`edge-admissible <-> relative boundary defect = 0`.
+
+For
+
+`S=0x31ad1b6d9e`,
+`L=0x10886c4055`,
+`R=0x2125772dcb`,
+`D_x=0x240001`,
+
+the torus `S=L xor R` has two plaquettes in the shared three-face.
+`boundary(D_x)` leaves exactly one uncancelled interface edge outside `S`.
+But three doubled-label-two faces meet at that edge, and
+
+`dim Inv(V_1 tensor V_1 tensor V_1)=1`.
+
+Every edge invariant is admissible.  The generic exact Haar integrator gives
+the resolved amplitude
+
+`1/18874368 > 0`.
+
+This does not refute positivity or the quadratic sign law on cycle sectors.
+It does refute ordinary `H1(T;GF(2))` as a complete carrier once branching
+is allowed.  The next object must be a **decorated relative spin network**:
+the mod-two boundary chain together with its trivalent SU(2) invariant
+vertices.  The clean spin-structure ledger is the branch-free subspace of
+that object.  A Mayer--Vietoris quotient which discards the branch
+intertwiner would be structurally wrong.
+
+**First decorated interface-carrier gate closed on its full symmetry orbit
+(2026-07-23).**  The interface state now retains, edge by edge, the literal
+oriented face strands, doubled-spin labels, relative mod-two defect, and
+every canonical fusion-tree path ending in the trivial representation.
+This distinguishes the nonzero-defect trivalent packet
+
+`dim Inv(V_1^tensor3)=1`
+
+from a defect-free four-valent packet
+
+`dim Inv(V_1^tensor4)=3`,
+
+and also retains the mixed packets of invariant dimension two.  Thus even
+valence plus defect is not enough; the local intertwiner basis is part of
+the gluing coordinate.
+
+The first interface-bearing pair has five overlap faces.  Of its 32 formal
+fusion choices, exactly 24 are edge-admissible.  The generic exact Haar
+integrator finds all 24 strictly positive, with value census
+
+`2 x 2^-22`,
+`12 x (3*2^22)^-1`,
+`8 x (9*2^21)^-1`,
+`2 x 7/(27*2^22)`.
+
+The ledger resums to
+
+`7/3538944 = 2^-22 * 224/27 > 0`,
+
+exactly matching an independent integral of the two unfused fundamental
+surface observables.  The pinned branch generates six channels under
+transverse-axis symmetry, so this closes the complete first branched orbit,
+not only one witness.  Executable carrier construction, fusion bases,
+channel census, and exact resummation are in
+`computations/dual_spin_gluing.py` and
+`tests/test_dual_spin_gluing.py`.
+
+This is the first positive result beyond ordinary spin-structure homology,
+but it is not a universal sign theorem.  The next gate is an orbit census
+over all interface-bearing genus-one surface pairs in the two-cell brick,
+retaining the decorated fusion packet.  A negative channel would locate the
+first nonquadratic gluing sign; continued positivity would support a
+Gram/planar-algebra formulation of the local interface contraction.
+
+**Complete first-branching defect census closed (2026-07-23).**  The
+two-cell binary cycle space has 8,192 closed surfaces, including 237
+genus-one surfaces and 234 which meet the shared three-face.  These generate
+958,464 unordered physical pairs.  The full 96-element cuboid symmetry is
+now executable.
+
+The first branching filtration, overlap at most five, contains 58,878
+pairs.  It reduces to 1,219 pair orbits, 27,122 raw channels on orbit
+representatives, 15,744 edge-admissible representative channels, and 2,166
+distinct resolved-channel orbits.  Exactly 14 have nonzero relative defect.
+All 14 are trivalent `Inv(V_1^tensor3)` endpoints on two surface orbits and
+all 14 exact Haar amplitudes are positive:
+
+`10 x 1/18874368`,
+`1 x 1/75497472`,
+`3 x 1/226492416`.
+
+Therefore no branched endpoint at first branching order is a negative-sign
+carrier.  The remaining 2,152 orbits are defect-free cycle sectors, and
+orders above five remain open.  Direct polynomial integration of the full
+2,166-orbit list blows up on 26-face supports before becoming a viable
+census.  This fixes the next method gate: factor each cell in the decorated
+fusion basis and contract the finite interface tensor.  Returning to a
+global quaternion-monomial expansion is now an explicitly rejected route.
+The manifest and exact branch ledger are in
+`computations/dual_spin_interface_census.py` and
+`tests/test_dual_spin_interface_census.py`.
+
+**Minimal interface-torus quadratic gate closed (2026-07-23).**  The
+16-face coordinate-torus stratum of the first-branching quotient has 34
+resolved-channel orbits.  Thirty-three are supported on one four-cell
+boundary and now evaluate by the exact product of its 16 vertex six-j
+symbols; the one channel entering the second cell is independently
+Haar-pinned.  The exact census is
+
+`15 x 1/65536`,
+`8 x 1/589824`,
+`9 x 1/5308416`,
+`2 x -1/196608`.
+
+Every selected-chain boundary has been reduced in the literal cellular
+`H1(T^2;GF(2))`.  The two and only two negative channels are exactly class
+`(a,b)=(1,1)`, so the complete stratum obeys
+
+`sign(A_D)=(-1)^(a*b)`.
+
+The negative coordinate `(S,D)=(0x24636d9e,0x21)` is therefore an expected
+quadratic crossing sector, not a nonquadratic obstruction and not a
+negative physical pair amplitude.
+
+The exact engine now also has a pairing-aware elimination path: fundamental
+link-linear factors are contracted by their local `S^3` pairing projector
+before coordinate multiplication, and `chi_2=chi_1^2-1` supplies the
+label-two expansion.  It independently reproduces a positive trivalent
+branch and the negative `(1,1)` sector.  It is not yet the full interface
+transfer tensor because larger intermediate packets cease to be
+link-linear.  The next surface-complexity gate is the 20-face stratum, where
+one-cell vertex factorization no longer covers the family.
+
+**First non-product two-cell quadratic gate closed (2026-07-23).**  The
+20-face stratum is one surface orbit, represented by
+`S=0x10ac4f6d9e`.  Its cell patches have Betti data `(1,2,0)` and
+`(1,1,0)` and share three interface plaquettes, so it is neither a
+one-cell coordinate torus nor the clean cylinder gluing.
+
+Exact evaluation is now made scalable by deterministic maximal-tree
+optimization.  Twelve pinned vertex/edge relabellings produce twelve valid
+gauge trees; the tree minimizing the product of initial face-factor sizes is
+chosen before the unchanged Haar contraction.  On the first hard channel,
+the largest initial polynomial drops from 1,625 monomials to 64 and the
+contraction drops from about 54 seconds to milliseconds.
+
+All 119 resolved-channel orbits are exact.  Their value census is
+
+`38 x 1/1048576`,
+`32 x 1/9437184`,
+`6 x 1/28311552`,
+`33 x 1/84934656`,
+`1 x 1/254803968`,
+`1 x 17/84934656`,
+`8 x -1/3145728`.
+
+Literal cellular homology gives sector counts
+
+`N_00=62`, `N_10=24`, `N_01=25`, `N_11=8`.
+
+Every negative is `(1,1)` and every other sector is positive.  Hence the
+first genuinely non-product two-cell geometry still satisfies
+
+`sign(A_D)=(-1)^(a*b)`.
+
+This is a real gluing extension of the spin-structure theorem, not merely
+coordinate covariance of the one-cell result.  It remains finite,
+cutoff-two, and restricted to overlap at most five.  The next
+surface-complexity strata are 22, 24, and 26 faces.
+
+**First unified decorated-carrier sign gate closed (2026-07-23).**  The
+22-face surface orbit, represented by `S=0x31ad1b6d9e`, contains both
+ordinary cycles and the first relative trivalent endpoints.  Its complete
+139-channel quotient splits into 129 zero-defect cycles and ten branches.
+
+The cycle homology census is
+
+`N_00=66`, `N_10=23`, `N_01=32`, `N_11=8`.
+
+Every `(1,1)` cycle and only those cycles are negative.  Their values are
+four copies each of `-1/12582912` and `-1/37748736`.  All ten branches are
+positive with the common exact value `1/18874368`.
+
+Thus one complete physical surface orbit now obeys the unified decorated
+law:
+
+1. branch-free channels carry `(-1)^(a*b)`;
+2. the first `Inv(V_1^tensor3)` endpoints carry positive local weights.
+
+This moves the conjecture beyond isolated branch witnesses and beyond a
+cycle-only theorem.  Higher-valent branch packets, the 24- and 26-face
+strata, overlap above five, and arbitrary representations remain open.
+
+The cutoff-two negative-orbit audit is now exact for the binary-pair lane.
+An encoding `(odd,twos)` is pair-fusion reachable iff there are closed
+binary surfaces `L,R` with
+
+`L xor R = odd` and `twos <= L intersect R`.
+
+Only 3 of the 33 negative symmetry orbits pass this test, accounting for
+192 of 6,704 negative raw assignments.  Their representatives are
+
+`(0x6f6d9e,0x21)`, `(0x6f6d9e,0x261)`,
+`(0x6f6d9e,0x108261)`.
+
+All three have the same Clifford-torus odd support and odd label-two parity
+in both complementary plane families, so every reachable negative is
+exactly a `q=a*b=1` channel.  The other 30 negative orbits (6,512 raw
+assignments) are not reachable from two binary surfaces; their odd supports
+are Euler-characteristic-two spheres with 10, 12, or 14 faces.  They require
+a wider multi-surface/higher-label carrier and do not falsify the torus
+quadratic-refinement theorem.
+
+This is a theorem about the finite sign algebra and local geometry, not yet
+a global spin-structure theorem for the SU(2) dual.  Immediate actions are:
+(i) construct the decorated relative spin-network carrier forced by the
+three-strand interface obstruction and test its sign under gluing; (ii)
+determine the wider carrier for the 30 sphere-supported negative orbits;
+(iii) carry the quotient through the factorized six-valent invariant block;
+and (iv) seek a Gram/Pfaffian-like representation of the physical
+untwisted sector rather than replacing it by the unsigned Arf
+reconstruction.  A first nonquadratic physical orbit is a required
+obstruction, not a failed experiment.  The full derivation and
+falsification gates are in `notes/dual-spin-structure-hypothesis.md`.
+
+**Program-distance firewall (2026-07-23; unchanged).**  None of the dual
+positivity work closes, weakens, or bypasses the uniformity wall.  The entire
+open Clay content remains:
+
+1. RG-I7: a cutoff-independent contraction estimate on a preserved physical
+   domain;
+2. RG-I8: constructive landing of the physical ultraviolet trajectory in
+   that domain;
+3. RG-I9: summable dynamic and interface distortion with a computable tail
+   modulus; and
+4. spacing- and volume-uniform survival of the positive gap through the
+   continuum/OS limit.
+
+This lane is progress in choosing the coordinate system in which those
+distances might be crossed, not progress along the distances themselves.
+The proposed advantage of the exact dual coordinate is that group
+compactness is native, no Lie-algebra linearization is introduced, and hence
+the chart-created large-field problem is not created.  Positivity is only
+the floor of that arena; it supplies neither a contraction constant nor
+landing, summability, or continuum gap survival.
+
+### CD-3 — Remainder norm and cutoff modulus **[OPEN]**
+
+Equip the exact overlap remainder with a weighted norm on the same boundary
+state.  Prove volume-uniform control and return a representation-cutoff
+modulus.  A cutoff-growing bound does not pass this milestone.
+
+### CD-4 — Lanford enclosure on a preserved dual ball **[OPEN]**
+
+Use exact rational interval/Taylor arithmetic to prove self-mapping and
+reflection-cone preservation on a concrete weighted coefficient ball.  Prove
+either a cutoff-uniform derivative bound `q<1` across a finite crossover
+window or accumulated scale-dependent contraction with summable defects.
+A fixed `q<1` is not required in the true deep-UV harmonic regime, where the
+one-step ratio tends to one.  Construct separate dynamic and
+interface-distortion certificates.
+
+### CD-5 — Constructive crossover landing **[OPEN]**
+
+Return the physical scale and state at which the ultraviolet trajectory
+enters the CD-4 ball.  Bare eventuality or subsequence compactness is
+insufficient.
+
+### CD-6 — Directed stable dynamics and consumers **[COMPOSITION READY; PHYSICAL INPUTS OPEN]**
+
+Instantiate `DirectedStableDynamicsCertificate`, then supply the physical
+Wilson readout, volume-uniform floor/modulus, spacing conversion, and
+continuum/OS bindings.  The existing stable-dynamics modules close the
+composition only after CD-0--CD-5 provide genuine physical data.
+
+### Verification snapshot (2026-07-23)
+
+- full Lean build: **PASS**, 2,500 jobs;
+- strict axiom audit: **PASS**, 19,631 theorems across 2,399 namespaces,
+  zero exceptions;
+- frontier-uninhabitedness guard: **PASS**;
+- frontier statement-drift guard: **PASS**, all ten hashes pinned;
+- Clay rubric compilation: **PASS**, fixed-spacing clauses MET and continuum
+  clauses OPEN;
+- Python regression suite: **PASS**, 702 passed and one opt-in slow census
+  skipped by default; the slow 65-orbit census passes separately;
+- new Bernstein and four-cube survey Ruff and strict mypy checks: **PASS**;
+- tracked and new-file whitespace checks: **PASS**.
+
+This snapshot does not change the honest Core-B boundary:
+`PhysicalRowOneOriginSquareGapQuotientNonnegative` remains uninhabited.
