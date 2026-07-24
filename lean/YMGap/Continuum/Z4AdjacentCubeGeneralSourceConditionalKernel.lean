@@ -31,14 +31,21 @@ open YMGap.Continuum.BondMovingStep
 open YMGap.Continuum.FiniteDeterministicKernelPushforward
 open YMGap.Continuum.FiniteWeightedCartesianInjection
 open YMGap.Continuum.FiniteWeightedGramSOS
+open YMGap.Continuum.SU2FiniteTrivalentPacketGraphEdgeOrderNorm
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm
 open YMGap.Continuum.Z4AdjacentCubeJointConditionalKernel
 open YMGap.Continuum.Z4AdjacentCubeSharedFaceRecouplingKernel
+open YMGap.Continuum.Z4CanonicalPolymerUniverse
 open YMGap.Continuum.Z4DyadicSlabCharacterFusionConditionalKernel
 open YMGap.Continuum.Z4DyadicSlabCubeCoupledConditionalKernel
 open YMGap.Continuum.Z4DyadicUnitCubeBlockGeometry
 
 local infix:50 " ≈ " => Q'.eqv
+
+private theorem qmul_congr {a a' b b' : Q'}
+    (ha : a ≈ a') (hb : b ≈ b') : a * b ≈ a' * b' :=
+  Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ _ _ ha)
+    (Q'.mul_eqv_congr_left _ _ _ hb)
 
 private theorem pos_of_eqv_local {a b : Q'}
     (ha : (0 : Q') < a) (hab : a ≈ b) : (0 : Q') < b :=
@@ -65,6 +72,14 @@ private theorem generalQProduct_nonnegative {A : Type}
   | head :: tail =>
       Q'.mul_nonneg _ _ (hvalue head)
         (generalQProduct_nonnegative value hvalue tail)
+
+private theorem generalQProduct_congr_eqv {A : Type}
+    (left right : A → Q') (hagrees : ∀ x, left x ≈ right x) :
+    ∀ xs, generalQProduct left xs ≈ generalQProduct right xs
+  | [] => Q'.eqv_refl 1
+  | head :: tail =>
+      qmul_congr (hagrees head)
+        (generalQProduct_congr_eqv left right hagrees tail)
 
 def generalCubeFaceRawProduct
     (w : Q') (source : GeneralCubePacketSource cutoff)
@@ -314,6 +329,142 @@ theorem generalKernel_of_stretched
     (Q'.eqv_refl _)
     hpartition
 
+/-! ## 5. Corrected-slab reflection compatibility -/
+
+def reflectGeneralCubePacketSource
+    (cutoff : Nat) (planes : CubeReflectionPlanes)
+    (source : GeneralCubePacketSource cutoff) :
+    GeneralCubePacketSource cutoff where
+  packet := fun face =>
+    reflectBoundedFaceSpinPacket cutoff (planes face)
+      (source.packet face)
+
+def reflectGeneralAdjacentCubePacketSource
+    (cutoff : Nat)
+    (leftPlanes rightPlanes : CubeReflectionPlanes)
+    (source : GeneralAdjacentCubePacketSource cutoff) :
+    GeneralAdjacentCubePacketSource cutoff where
+  left := reflectGeneralCubePacketSource cutoff leftPlanes source.left
+  right := reflectGeneralCubePacketSource cutoff rightPlanes source.right
+
+theorem generalCubeFaceRawProduct_reflection
+    (w : Q') (cutoff : Nat) (planes : CubeReflectionPlanes)
+    (source : GeneralCubePacketSource cutoff)
+    (target : CubePairChannelState) :
+    generalCubeFaceRawProduct w
+        (reflectGeneralCubePacketSource cutoff planes source)
+        (reflectCubeTarget planes target) ≈
+      generalCubeFaceRawProduct w source target := by
+  unfold generalCubeFaceRawProduct
+  apply generalQProduct_congr_eqv
+  intro face
+  rw [cubeTargetAt_reflectCubeTarget]
+  exact packetPairChannelRawWeight_reflection
+    w (planes face) (source.packet face).val
+      (cubeTargetAt target face)
+
+theorem generalAdjacentCubeRawWeight_reflection
+    (w : Q') (cutoff : Nat)
+    (leftPlanes rightPlanes : CubeReflectionPlanes)
+    (source : GeneralAdjacentCubePacketSource cutoff)
+    (target : AdjacentCubeJointTarget) :
+    generalAdjacentCubeRawWeight w cutoff
+        (reflectGeneralAdjacentCubePacketSource
+          cutoff leftPlanes rightPlanes source)
+        (reflectAdjacentCubeJointTarget
+          leftPlanes rightPlanes target) ≈
+      generalAdjacentCubeRawWeight w cutoff source target := by
+  unfold generalAdjacentCubeRawWeight
+    reflectGeneralAdjacentCubePacketSource
+    reflectAdjacentCubeJointTarget
+  exact qmul_congr
+    (qmul_congr
+      (generalCubeFaceRawProduct_reflection
+        w cutoff leftPlanes source.left target.1.1)
+      (generalCubeFaceRawProduct_reflection
+        w cutoff rightPlanes source.right target.1.2))
+    (qmul_congr
+      (qmul_congr
+        (Q'.eqv_of_eq
+          (cubeOuterProductionLinkProduct_reflection
+            cutoff leftPlanes target.1.1
+            leftCubeOuterIncidences))
+        (Q'.eqv_of_eq
+          (cubeOuterProductionLinkProduct_reflection
+            cutoff rightPlanes target.1.2
+            rightCubeOuterIncidences)))
+      (Q'.eqv_of_eq
+        (adjacentCubeSharedFaceTargetRawWeight_reflection
+          leftPlanes rightPlanes
+          target.1.1 target.1.2 target.2)))
+
+def reflectPositiveAdjacentCubeSource
+    {w : Q'} (cutoff : Nat)
+    (leftPlanes rightPlanes : CubeReflectionPlanes)
+    (source : PositiveAdjacentCubeSource w cutoff) :
+    PositiveAdjacentCubeSource w cutoff where
+  packets := reflectGeneralAdjacentCubePacketSource
+    cutoff leftPlanes rightPlanes source.packets
+  witness := reflectAdjacentCubeJointTarget
+    leftPlanes rightPlanes source.witness
+  witness_mem := reflectAdjacentCubeJointTarget_mem
+    leftPlanes rightPlanes source.witness_mem
+  witness_positive := pos_of_eqv_local source.witness_positive
+    (Q'.eqv_symm
+      (generalAdjacentCubeRawWeight_reflection
+        w cutoff leftPlanes rightPlanes
+        source.packets source.witness))
+
+theorem generalAdjacentCubePartition_reflection
+    (w : Q') (cutoff : Nat)
+    (leftPlanes rightPlanes : CubeReflectionPlanes)
+    (source : PositiveAdjacentCubeSource w cutoff) :
+    generalAdjacentCubePartition w cutoff
+        (reflectPositiveAdjacentCubeSource
+          cutoff leftPlanes rightPlanes source) ≈
+      generalAdjacentCubePartition w cutoff source := by
+  let reflectedSource :=
+    reflectPositiveAdjacentCubeSource
+      cutoff leftPlanes rightPlanes source
+  let reflectTarget :=
+    reflectAdjacentCubeJointTarget leftPlanes rightPlanes
+  let targets := adjacentCubeJointStateSpace cutoff
+  refine Q'.eqv_trans _
+    (listQSum
+      (generalAdjacentCubeRawWeight w cutoff reflectedSource.packets)
+      (targets.map reflectTarget)) _ ?_ ?_
+  · exact YMGap.Continuum.Z4CanonicalPolymerRange.listQSum_perm _
+      (reflectAdjacentCubeJointStateSpace_perm
+        cutoff leftPlanes rightPlanes).symm
+  · rw [listQSum_map]
+    apply listQSum_congr_on
+    intro target _
+    exact generalAdjacentCubeRawWeight_reflection
+      w cutoff leftPlanes rightPlanes source.packets target
+
+theorem generalAdjacentCubeConditionalKernel_reflection
+    (w : Q') (hw : (0 : Q') < w) (cutoff : Nat)
+    (leftPlanes rightPlanes : CubeReflectionPlanes)
+    (source : PositiveAdjacentCubeSource w cutoff)
+    (target : AdjacentCubeJointTarget) :
+    generalAdjacentCubeConditionalKernel w hw cutoff
+        (reflectPositiveAdjacentCubeSource
+          cutoff leftPlanes rightPlanes source)
+        (reflectAdjacentCubeJointTarget
+          leftPlanes rightPlanes target) ≈
+      generalAdjacentCubeConditionalKernel
+        w hw cutoff source target := by
+  unfold generalAdjacentCubeConditionalKernel
+  exact divPos_eqv_congr_local
+    (generalAdjacentCubePartition_pos hw cutoff
+      (reflectPositiveAdjacentCubeSource
+        cutoff leftPlanes rightPlanes source))
+    (generalAdjacentCubePartition_pos hw cutoff source)
+    (generalAdjacentCubeRawWeight_reflection
+      w cutoff leftPlanes rightPlanes source.packets target)
+    (generalAdjacentCubePartition_reflection
+      w cutoff leftPlanes rightPlanes source)
+
 #print axioms generalCubeFaceRawProduct_nonnegative
 #print axioms generalAdjacentCubeRawWeight_nonnegative
 #print axioms generalAdjacentCubePartition_pos
@@ -322,5 +473,9 @@ theorem generalKernel_of_stretched
 #print axioms generalCubeFaceRawProduct_of_stretched
 #print axioms generalAdjacentCubeRawWeight_of_stretched
 #print axioms generalKernel_of_stretched
+#print axioms generalCubeFaceRawProduct_reflection
+#print axioms generalAdjacentCubeRawWeight_reflection
+#print axioms generalAdjacentCubePartition_reflection
+#print axioms generalAdjacentCubeConditionalKernel_reflection
 
 end YMGap.Continuum.Z4AdjacentCubeGeneralSourceConditionalKernel
