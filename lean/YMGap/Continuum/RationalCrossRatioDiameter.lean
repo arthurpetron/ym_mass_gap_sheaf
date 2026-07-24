@@ -296,6 +296,133 @@ theorem restrict_candidateRate_eqv
       ≈ certificate.candidateRate :=
   Q'.eqv_refl _
 
+private theorem mul_swap4_local (a b c d : Q') :
+    ((a * b) * (c * d)) ≈ ((a * c) * (b * d)) := by
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_assoc_eqv a b (c * d)) ?_
+  refine Q'.eqv_trans _ _ _
+    ?_ (Q'.eqv_symm (Q'.mul_assoc_eqv a c (b * d)))
+  apply Q'.mul_eqv_congr_left
+  refine Q'.eqv_trans _ _ _
+    (Q'.eqv_symm (Q'.mul_assoc_eqv b c d)) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_right _ _ d
+      (Q'.mul_comm_eqv b c)) ?_
+  exact Q'.mul_assoc_eqv c b d
+
+/-! ## Projective invariance under row normalization -/
+
+/-- Multiply each kernel row by an exact rational scale. -/
+def rowRescaledKernel
+    {Source Target : Type}
+    (rowScale : Source → Q')
+    (kernel : Source → Target → Q')
+    (source : Source) (target : Target) : Q' :=
+  rowScale source * kernel source target
+
+/-- Positive row rescaling preserves the same cross-ratio certificate.
+
+This is the exact algebra needed to pass from unnormalized block weights to
+row-normalized conditional probabilities: every row denominator cancels from
+all matrix cross-ratios. -/
+def rowRescale
+    {Source Target : Type}
+    {kernel : Source → Target → Q'}
+    {sources : List Source} {targets : List Target}
+    (certificate :
+      FiniteCrossRatioDiameterCertificate kernel sources targets)
+    (rowScale : Source → Q')
+    (rowScale_pos :
+      ∀ source, source ∈ sources →
+        (0 : Q') < rowScale source) :
+    FiniteCrossRatioDiameterCertificate
+      (rowRescaledKernel rowScale kernel) sources targets where
+  spread := certificate.spread
+  one_le_spread := certificate.one_le_spread
+  strictlyPositive := by
+    intro source hsource target htarget
+    exact Q'.mul_pos
+      (rowScale_pos source hsource)
+      (certificate.strictlyPositive source hsource target htarget)
+  crossRatioBound := by
+    intro first hfirst second hsecond left hleft right hright
+    let rowFactor := rowScale first * rowScale second
+    have hrowFactor : (0 : Q') ≤ rowFactor :=
+      Q'.mul_nonneg _ _
+        (Q'.le_of_lt (rowScale_pos first hfirst))
+        (Q'.le_of_lt (rowScale_pos second hsecond))
+    have hcross :=
+      certificate.crossRatioBound
+        first hfirst second hsecond left hleft right hright
+    have hscaled :
+        rowFactor *
+            (kernel first left * kernel second right) ≤
+          rowFactor *
+            ((certificate.spread * certificate.spread) *
+              (kernel first right * kernel second left)) :=
+      Q'.mul_le_mul_of_nonneg_left _ _ _ hcross hrowFactor
+    have hleftReindex :
+        rowRescaledKernel rowScale kernel first left *
+            rowRescaledKernel rowScale kernel second right ≈
+          rowFactor *
+            (kernel first left * kernel second right) := by
+      unfold rowRescaledKernel rowFactor
+      exact mul_swap4_local _ _ _ _
+    have hscaledRightReindex :
+        rowFactor *
+            ((certificate.spread * certificate.spread) *
+              (kernel first right * kernel second left)) ≈
+          (certificate.spread * certificate.spread) *
+            (rowFactor *
+              (kernel first right * kernel second left)) := by
+      calc
+        rowFactor *
+              ((certificate.spread * certificate.spread) *
+                (kernel first right * kernel second left)) ≈
+            (rowFactor *
+                (certificate.spread * certificate.spread)) *
+              (kernel first right * kernel second left) :=
+          Q'.eqv_symm (Q'.mul_assoc_eqv _ _ _)
+        _ ≈ ((certificate.spread * certificate.spread) *
+                rowFactor) *
+              (kernel first right * kernel second left) :=
+          Q'.mul_eqv_congr_right _ _
+            (kernel first right * kernel second left)
+            (Q'.mul_comm_eqv _ _)
+        _ ≈ (certificate.spread * certificate.spread) *
+              (rowFactor *
+                (kernel first right * kernel second left)) :=
+          Q'.mul_assoc_eqv _ _ _
+    have hrightReindex :
+        (certificate.spread * certificate.spread) *
+            (rowFactor *
+              (kernel first right * kernel second left)) ≈
+          (certificate.spread * certificate.spread) *
+            (rowRescaledKernel rowScale kernel first right *
+              rowRescaledKernel rowScale kernel second left) := by
+      apply Q'.mul_eqv_congr_left
+      exact Q'.eqv_symm (mul_swap4_local _ _ _ _)
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv hleftReindex)
+      (Q'.le_trans' _ _ _ hscaled
+        (Q'.le_of_eqv
+          (Q'.eqv_trans _ _ _
+            hscaledRightReindex hrightReindex)))
+
+theorem rowRescale_candidateRate_eqv
+    {Source Target : Type}
+    {kernel : Source → Target → Q'}
+    {sources : List Source} {targets : List Target}
+    (certificate :
+      FiniteCrossRatioDiameterCertificate kernel sources targets)
+    (rowScale : Source → Q')
+    (rowScale_pos :
+      ∀ source, source ∈ sources →
+        (0 : Q') < rowScale source) :
+    (certificate.rowRescale rowScale rowScale_pos).candidateRate ≈
+      certificate.candidateRate :=
+  Q'.eqv_refl _
+
 /-! ## The certified finite image has the recorded log-free diameter -/
 
 /-- Apply a finite kernel linearly to an exact rational activity. -/
@@ -398,20 +525,6 @@ private theorem nested_scale_left
       (fun x _ => listQSum_mul_left scale (value x) second)
   · exact listQSum_mul_left scale
       (fun x => listQSum (value x) second) first
-
-private theorem mul_swap4_local (a b c d : Q') :
-    ((a * b) * (c * d)) ≈ ((a * c) * (b * d)) := by
-  refine Q'.eqv_trans _ _ _
-    (Q'.mul_assoc_eqv a b (c * d)) ?_
-  refine Q'.eqv_trans _ _ _
-    ?_ (Q'.eqv_symm (Q'.mul_assoc_eqv a c (b * d)))
-  apply Q'.mul_eqv_congr_left
-  refine Q'.eqv_trans _ _ _
-    (Q'.eqv_symm (Q'.mul_assoc_eqv b c d)) ?_
-  refine Q'.eqv_trans _ _ _
-    (Q'.mul_eqv_congr_right _ _ d
-      (Q'.mul_comm_eqv b c)) ?_
-  exact Q'.mul_assoc_eqv c b d
 
 private theorem weightedCrossRatioTerm
     {Source : Type} {Target : Type}
@@ -690,6 +803,8 @@ theorem UniformCrossRatioDiameterCertificate.candidateRate_eqv
 #print axioms FiniteCrossRatioDiameterCertificate.candidateRate_lt_one
 #print axioms FiniteCrossRatioDiameterCertificate.restrict
 #print axioms FiniteCrossRatioDiameterCertificate.restrict_candidateRate_eqv
+#print axioms FiniteCrossRatioDiameterCertificate.rowRescale
+#print axioms FiniteCrossRatioDiameterCertificate.rowRescale_candidateRate_eqv
 #print axioms FiniteCrossRatioDiameterCertificate.finiteKernelAction_projectiveSpread
 #print axioms FiniteCrossRatioDiameterCertificate.finiteKernelAction_pos
 #print axioms UniformCrossRatioDiameterCertificate.atIndex
