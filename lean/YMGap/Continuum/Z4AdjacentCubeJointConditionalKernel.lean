@@ -34,8 +34,11 @@ open YMGap.Continuum.BondMovingStep
 open YMGap.Continuum.FiniteDeterministicKernelPushforward
 open YMGap.Continuum.FiniteWeightedCartesianInjection
 open YMGap.Continuum.FiniteWeightedGramSOS
+open YMGap.Continuum.SU2FiniteTrivalentPacketGraphEdgeOrderNorm
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm
 open YMGap.Continuum.Z4AdjacentCubeSharedFaceRecouplingKernel
+open YMGap.Continuum.Z4CanonicalPolymerUniverse
+open YMGap.Continuum.Z4DyadicSlabCharacterFusionConditionalKernel
 open YMGap.Continuum.Z4DyadicSlabCubeCoupledConditionalKernel
 open YMGap.Continuum.Z4DyadicSlabTwoFaceCoupledConditionalKernel
 open YMGap.Continuum.Z4DyadicSlabTwoFaceSharedLinkKernel
@@ -337,6 +340,282 @@ theorem adjacentCubeJointConditionalKernel_row_normalized
     (Q'.mul_recipPos_eqv _
       (adjacentCubeJointPartition_pos hw cutoff source))
 
+/-! ## 4. Reflection of the complete adjacent target -/
+
+def reflectAdjacentCubeJointTarget
+    (leftPlanes rightPlanes : CubeReflectionPlanes)
+    (target : AdjacentCubeJointTarget) : AdjacentCubeJointTarget :=
+  ((reflectCubeTarget leftPlanes target.1.1,
+      reflectCubeTarget rightPlanes target.1.2),
+    target.2)
+
+theorem reflectAdjacentCubeJointTarget_involutive
+    (leftPlanes rightPlanes : CubeReflectionPlanes)
+    (target : AdjacentCubeJointTarget) :
+    reflectAdjacentCubeJointTarget leftPlanes rightPlanes
+        (reflectAdjacentCubeJointTarget
+          leftPlanes rightPlanes target) = target := by
+  rcases target with ⟨⟨left, right⟩, fused⟩
+  simp only [reflectAdjacentCubeJointTarget]
+  rw [reflectCubeTarget_involutive,
+    reflectCubeTarget_involutive]
+
+theorem reflectAdjacentCubeJointTarget_mem
+    {cutoff : Nat}
+    (leftPlanes rightPlanes : CubeReflectionPlanes)
+    {target : AdjacentCubeJointTarget}
+    (htarget : target ∈ adjacentCubeJointStateSpace cutoff) :
+    reflectAdjacentCubeJointTarget leftPlanes rightPlanes target ∈
+      adjacentCubeJointStateSpace cutoff := by
+  unfold adjacentCubeJointStateSpace at htarget ⊢
+  have hparts := (mem_cartesian_iff _ _ target).mp htarget
+  have hcubes := (mem_cartesian_iff _ _ target.1).mp hparts.1
+  apply (mem_cartesian_iff _ _ _).mpr
+  exact ⟨(mem_cartesian_iff _ _ _).mpr
+      ⟨reflectCubeTarget_mem hcubes.1 leftPlanes,
+        reflectCubeTarget_mem hcubes.2 rightPlanes⟩,
+    hparts.2⟩
+
+private theorem nodup_map_of_injective_local {A B : Type}
+    (f : A → B) (hf : Function.Injective f) :
+    ∀ {xs : List A}, xs.Nodup → (xs.map f).Nodup
+  | [], _ => List.nodup_nil
+  | head :: tail, hnodup => by
+      have hparts := List.nodup_cons.mp hnodup
+      apply List.nodup_cons.mpr
+      constructor
+      · intro hmem
+        obtain ⟨source, hsource, heq⟩ := List.mem_map.mp hmem
+        exact hparts.1 ((hf heq) ▸ hsource)
+      · exact nodup_map_of_injective_local f hf hparts.2
+
+private theorem reflectAdjacentCubeJointTarget_injective
+    (leftPlanes rightPlanes : CubeReflectionPlanes) :
+    Function.Injective
+      (reflectAdjacentCubeJointTarget leftPlanes rightPlanes) := by
+  intro left right heq
+  exact (reflectAdjacentCubeJointTarget_involutive
+      leftPlanes rightPlanes left).symm.trans
+    ((congrArg
+      (reflectAdjacentCubeJointTarget leftPlanes rightPlanes)
+      heq).trans
+      (reflectAdjacentCubeJointTarget_involutive
+        leftPlanes rightPlanes right))
+
+private def cubePairChannelStateDecidableEqLocal :
+    DecidableEq CubePairChannelState :=
+  @instDecidableEqProd PairChannelState
+    (PairChannelState ×
+      (PairChannelState ×
+        (PairChannelState ×
+          (PairChannelState × PairChannelState))))
+    (inferInstance)
+    (@instDecidableEqProd PairChannelState
+      (PairChannelState ×
+        (PairChannelState ×
+          (PairChannelState × PairChannelState)))
+      (inferInstance)
+      (@instDecidableEqProd PairChannelState
+        (PairChannelState × (PairChannelState × PairChannelState))
+        (inferInstance)
+        (@instDecidableEqProd PairChannelState
+          (PairChannelState × PairChannelState)
+          (inferInstance)
+          (@instDecidableEqProd PairChannelState PairChannelState
+            (inferInstance) (inferInstance)))))
+
+theorem reflectAdjacentCubeJointStateSpace_perm
+    (cutoff : Nat)
+    (leftPlanes rightPlanes : CubeReflectionPlanes) :
+    ((adjacentCubeJointStateSpace cutoff).map
+      (reflectAdjacentCubeJointTarget
+        leftPlanes rightPlanes)).Perm
+      (adjacentCubeJointStateSpace cutoff) := by
+  letI : DecidableEq CubePairChannelState :=
+    cubePairChannelStateDecidableEqLocal
+  letI : DecidableEq AdjacentCubeJointTarget := inferInstance
+  apply perm_of_nodup_mem_iff
+  · exact nodup_map_of_injective_local _
+      (reflectAdjacentCubeJointTarget_injective
+        leftPlanes rightPlanes)
+      (adjacentCubeJointStateSpace_nodup cutoff)
+  · exact adjacentCubeJointStateSpace_nodup cutoff
+  · intro target
+    constructor
+    · intro htarget
+      obtain ⟨source, hsource, heq⟩ := List.mem_map.mp htarget
+      rw [← heq]
+      exact reflectAdjacentCubeJointTarget_mem
+        leftPlanes rightPlanes hsource
+    · intro htarget
+      apply List.mem_map.mpr
+      refine ⟨reflectAdjacentCubeJointTarget
+          leftPlanes rightPlanes target,
+        reflectAdjacentCubeJointTarget_mem
+          leftPlanes rightPlanes htarget, ?_⟩
+      exact reflectAdjacentCubeJointTarget_involutive
+        leftPlanes rightPlanes target
+
+private theorem cubeProductionIncidenceFactor_reflection_local
+    (cutoff : Nat) (planes : CubeReflectionPlanes)
+    (target : CubePairChannelState)
+    (incidence : CubeProductionIncidence) :
+    cubeProductionIncidenceFactor cutoff
+        (reflectCubeTarget planes target) incidence =
+      cubeProductionIncidenceFactor cutoff target incidence := by
+  unfold cubeProductionIncidenceFactor
+  rw [cubeTargetAt_reflectCubeTarget,
+    cubeTargetAt_reflectCubeTarget]
+  unfold twoFaceProductionLinkFactor twoFaceCoarseExternal
+  cases hleft : planes incidence.left <;>
+    cases hright : planes incidence.right <;> rfl
+
+theorem cubeOuterProductionLinkProduct_reflection
+    (cutoff : Nat) (planes : CubeReflectionPlanes)
+    (target : CubePairChannelState)
+    (incidences : List CubeProductionIncidence) :
+    cubeOuterProductionLinkProduct cutoff
+        (reflectCubeTarget planes target) incidences =
+      cubeOuterProductionLinkProduct cutoff target incidences := by
+  unfold cubeOuterProductionLinkProduct
+  apply congrArg id
+  induction incidences with
+  | nil => rfl
+  | cons incidence rest ih =>
+      simp only [adjacentQProduct]
+      rw [cubeProductionIncidenceFactor_reflection_local, ih]
+
+theorem cubeTargetSpin_reflection
+    (planes : CubeReflectionPlanes)
+    (target : CubePairChannelState) (face : CubeFaceIndex) :
+    cubeTargetSpin (reflectCubeTarget planes target) face =
+      cubeTargetSpin target face := by
+  unfold cubeTargetSpin
+  rw [cubeTargetAt_reflectCubeTarget]
+  cases hplane : planes face <;> rfl
+
+theorem adjacentCubeSharedFaceTargetRawWeight_reflection
+    (leftPlanes rightPlanes : CubeReflectionPlanes)
+    (left right : CubePairChannelState) (fused : Nat) :
+    adjacentCubeSharedFaceTargetRawWeight
+        (reflectCubeTarget leftPlanes left)
+        (reflectCubeTarget rightPlanes right) fused =
+      adjacentCubeSharedFaceTargetRawWeight left right fused := by
+  unfold adjacentCubeSharedFaceTargetRawWeight
+  rw [cubeTargetSpin_reflection, cubeTargetSpin_reflection,
+    cubeTargetSpin_reflection, cubeTargetSpin_reflection,
+    cubeTargetSpin_reflection, cubeTargetSpin_reflection,
+    cubeTargetSpin_reflection, cubeTargetSpin_reflection,
+    cubeTargetSpin_reflection, cubeTargetSpin_reflection]
+
+theorem adjacentCubeJointRawWeight_reflection
+    (w : Q') (cutoff : Nat)
+    (leftPlanes rightPlanes : CubeReflectionPlanes)
+    (source : AdjacentCubeStretchedSource cutoff)
+    (target : AdjacentCubeJointTarget) :
+    adjacentCubeJointRawWeight w cutoff
+        (reflectAdjacentCubeStretchedSource
+          leftPlanes rightPlanes source)
+        (reflectAdjacentCubeJointTarget
+          leftPlanes rightPlanes target) ≈
+      adjacentCubeJointRawWeight w cutoff source target := by
+  unfold adjacentCubeJointRawWeight
+    reflectAdjacentCubeStretchedSource
+    reflectAdjacentCubeJointTarget
+  exact qmul_congr
+    (qmul_congr
+      (cubeFaceRawProduct_reflection
+        w cutoff leftPlanes source.left target.1.1)
+      (cubeFaceRawProduct_reflection
+        w cutoff rightPlanes source.right target.1.2))
+    (qmul_congr
+      (qmul_congr
+        (Q'.eqv_of_eq
+          (cubeOuterProductionLinkProduct_reflection
+            cutoff leftPlanes target.1.1
+            leftCubeOuterIncidences))
+        (Q'.eqv_of_eq
+          (cubeOuterProductionLinkProduct_reflection
+            cutoff rightPlanes target.1.2
+            rightCubeOuterIncidences)))
+      (Q'.eqv_of_eq
+        (adjacentCubeSharedFaceTargetRawWeight_reflection
+          leftPlanes rightPlanes
+          target.1.1 target.1.2 target.2)))
+
+theorem adjacentCubeJointPartition_reflection
+    (w : Q') (cutoff : Nat)
+    (leftPlanes rightPlanes : CubeReflectionPlanes)
+    (source : AdjacentCubeStretchedSource cutoff) :
+    adjacentCubeJointPartition w cutoff
+        (reflectAdjacentCubeStretchedSource
+          leftPlanes rightPlanes source) ≈
+      adjacentCubeJointPartition w cutoff source := by
+  let reflectedSource :=
+    reflectAdjacentCubeStretchedSource
+      leftPlanes rightPlanes source
+  let reflectTarget :=
+    reflectAdjacentCubeJointTarget leftPlanes rightPlanes
+  let targets := adjacentCubeJointStateSpace cutoff
+  refine Q'.eqv_trans _
+    (listQSum
+      (adjacentCubeJointRawWeight w cutoff reflectedSource)
+      (targets.map reflectTarget)) _ ?_ ?_
+  · exact YMGap.Continuum.Z4CanonicalPolymerRange.listQSum_perm _
+      (reflectAdjacentCubeJointStateSpace_perm
+        cutoff leftPlanes rightPlanes).symm
+  · rw [listQSum_map]
+    apply listQSum_congr_on
+    intro target _
+    exact adjacentCubeJointRawWeight_reflection
+      w cutoff leftPlanes rightPlanes source target
+
+private theorem qeqv_of_le_of_ge_local {a b : Q'}
+    (hab : a ≤ b) (hba : b ≤ a) : a ≈ b := by
+  show a.num * (b.den : Int) = b.num * (a.den : Int)
+  exact Int.le_antisymm hab hba
+
+private theorem divPos_eqv_congr_local {a a' b b' : Q'}
+    (hb : (0 : Q') < b) (hb' : (0 : Q') < b')
+    (haEq : a ≈ a') (hbEq : b ≈ b') :
+    Q'.divPos a b hb ≈ Q'.divPos a' b' hb' := by
+  apply qeqv_of_le_of_ge_local
+  · apply Q'.le_divPos_of_mul_le a' b' hb'
+    exact Q'.le_of_eqv
+      (Q'.eqv_trans _ _ _
+        (Q'.mul_eqv_congr_left (Q'.divPos a b hb) b' b
+          (Q'.eqv_symm hbEq))
+        (Q'.eqv_trans _ _ _ (Q'.divPos_mul_eqv a b hb) haEq))
+  · apply Q'.le_divPos_of_mul_le a b hb
+    exact Q'.le_of_eqv
+      (Q'.eqv_trans _ _ _
+        (Q'.mul_eqv_congr_left (Q'.divPos a' b' hb') b b' hbEq)
+        (Q'.eqv_trans _ _ _ (Q'.divPos_mul_eqv a' b' hb')
+          (Q'.eqv_symm haEq)))
+
+theorem adjacentCubeJointConditionalKernel_reflection
+    (w : Q') (hw : (0 : Q') < w) (cutoff : Nat)
+    (leftPlanes rightPlanes : CubeReflectionPlanes)
+    (source : AdjacentCubeStretchedSource cutoff)
+    (target : AdjacentCubeJointTarget) :
+    adjacentCubeJointConditionalKernel w hw cutoff
+        (reflectAdjacentCubeStretchedSource
+          leftPlanes rightPlanes source)
+        (reflectAdjacentCubeJointTarget
+          leftPlanes rightPlanes target) ≈
+      adjacentCubeJointConditionalKernel
+        w hw cutoff source target := by
+  unfold adjacentCubeJointConditionalKernel
+  exact divPos_eqv_congr_local
+    (adjacentCubeJointPartition_pos hw cutoff
+      (reflectAdjacentCubeStretchedSource
+        leftPlanes rightPlanes source))
+    (adjacentCubeJointPartition_pos hw cutoff source)
+    (adjacentCubeJointRawWeight_reflection
+      w cutoff leftPlanes rightPlanes source target)
+    (adjacentCubeJointPartition_reflection
+      w cutoff leftPlanes rightPlanes source)
+
 #print axioms leftCubeOuterIncidences_length
 #print axioms rightCubeOuterIncidences_length
 #print axioms adjacentCubeJointStateSpace_nodup
@@ -346,5 +625,9 @@ theorem adjacentCubeJointConditionalKernel_row_normalized
 #print axioms adjacentCubeJointPartition_pos
 #print axioms adjacentCubeJointConditionalKernel_nonnegative
 #print axioms adjacentCubeJointConditionalKernel_row_normalized
+#print axioms reflectAdjacentCubeJointStateSpace_perm
+#print axioms adjacentCubeJointRawWeight_reflection
+#print axioms adjacentCubeJointPartition_reflection
+#print axioms adjacentCubeJointConditionalKernel_reflection
 
 end YMGap.Continuum.Z4AdjacentCubeJointConditionalKernel

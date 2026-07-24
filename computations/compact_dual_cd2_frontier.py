@@ -20,8 +20,9 @@ That product is now assembled too: both six-face target spaces, sixteen
 non-interface link factors, and the five shared recoupling factors are summed
 under one all-cutoff denominator.  The first missing object is reflection
 intertwining for this larger target, followed by its global fine-support
-projection, whole-slab assembly, and physical pushforward.  The vanishing
-quadratic norm belongs to CD-3.
+projection, whole-slab assembly, and physical pushforward.  Reflection
+intertwining is now closed too, so the projection is the first open object.
+The vanishing quadratic norm belongs to CD-3.
 """
 
 from __future__ import annotations
@@ -92,6 +93,8 @@ CD2_LEAN_THEOREMS = (
     "adjacentCubeSharedFaceConditionalKernel_source_dependent",
     "Z4AdjacentCubeJointConditionalKernel."
     "adjacentCubeJointConditionalKernel_row_normalized",
+    "Z4AdjacentCubeJointConditionalKernel."
+    "adjacentCubeJointConditionalKernel_reflection",
     "CompactDualFiniteBlockRemainder.SlabScalePair.FiniteSlabKernel."
     "remainder_total_eqv_zero",
     "CompactDualFiniteBlockRemainder.SlabScalePair.FiniteSlabKernel."
@@ -197,7 +200,7 @@ def current_cd2_frontier() -> CD2Frontier:
         cutoff_one_overlap_kernel=True,
         all_cutoff_shared_face_recoupling=True,
         overlapping_link_assembly=True,
-        overlap_reflection_intertwining=False,
+        overlap_reflection_intertwining=True,
         global_fine_support_projection=False,
         all_cutoff_global_kernel=False,
         physical_pushforward=False,

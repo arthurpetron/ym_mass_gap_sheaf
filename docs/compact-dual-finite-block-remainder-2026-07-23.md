@@ -110,11 +110,16 @@ both six-face target spaces and the shared fused channel with the
 compatible stretched target has strictly positive mass for every cutoff, so
 the full adjacent-pair row is nonnegative and exactly normalized.
 
-The first open subgate is now reflection intertwining for this larger joint
-target.  After that come the global fine-support projection for overlapping
-cube families and placement inside the actual fine/coarse corrected-slab
-state spaces.  Independent local normalization remains ruled out by the exact
-zero-mass fence.
+The same module now proves reflection intertwining for this larger joint
+target.  Reflection is an involutive permutation of both six-face channel
+spaces, fixes the fused shared-face spin, and preserves all sixteen retained
+outer-link factors and all five shared recoupling factors.  The partition and
+normalized row are therefore exactly reflection covariant.
+
+The first open subgate is now the global fine-support projection for
+overlapping cube families, followed by placement inside the actual
+fine/coarse corrected-slab state spaces.  Independent local normalization
+remains ruled out by the exact zero-mass fence.
 
 After that assembly, two further CD-2 steps remain:
 

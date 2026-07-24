@@ -205,10 +205,13 @@ shared channel are then summed with the five shared recoupling constraints
 under one denominator.  The all-cutoff joint row is nonnegative and exactly
 normalized.
 
-The first open subgate is reflection intertwining on this expanded target,
-followed by the global fine-support projection for overlapping cube families.
-No whole-slab kernel or physical Gibbs pushforward follows until those
-compatibility layers are closed.
+The expanded target is also proved to be an exact reflection permutation.
+All face, outer-link, and shared recoupling factors are invariant, so both
+the partition and normalized row intertwine corrected-slab reflection.
+
+The first open subgate is now the global fine-support projection for
+overlapping cube families.  No whole-slab kernel or physical Gibbs
+pushforward follows until that compatibility layer is closed.
 
 ## What this advances
 
