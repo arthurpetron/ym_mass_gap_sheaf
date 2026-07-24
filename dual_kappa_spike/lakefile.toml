@@ -1,0 +1,14 @@
+name = "dual_kappa_spike"
+defaultTargets = ["DualKappa", "FrozenHub", "SupportLaw", "DP6Ledger"]
+
+[[lean_lib]]
+name = "DualKappa"
+
+[[lean_lib]]
+name = "FrozenHub"
+
+[[lean_lib]]
+name = "SupportLaw"
+
+[[lean_lib]]
+name = "DP6Ledger"

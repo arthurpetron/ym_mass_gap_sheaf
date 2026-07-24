@@ -1979,6 +1979,41 @@ commit certifies that commit; neither a PR merge nor a queued/cancelled run is
 claimed as kernel evidence. The compact `lean/AXIOM_AUDIT.md` manifest and
 the exact source-site completeness check are the auditable record.
 
+### Adversarial audit rules (added 2026-07-24, from the Simplification Ledger)
+
+Two standing audit rules, derived from the counterfactual analysis in
+the Simplification Ledger (project doc `claude/simplification-ledger.md`;
+ledger entries L11/L21 and L16):
+
+1. **Coupled-simplification audit: R1 reduction + 6j calculus are one
+   unit.** The SU(2) worst-case reduction (monotonicity in `(h^∨, Δ)` +
+   the named character-tail domination input `Z_t(G) ≤ Z_t(SU(2))`) and
+   the multiplicity-free 6j recoupling calculus (the vertex product
+   formula `Z = ∏ {6j}_v`, exact only because A₁ trivalent intertwiner
+   spaces are ≤ 1-dimensional) are load-bearing **together**: the
+   SU(2)-only recoupling layer is legitimate exactly as far as the
+   worst-case reduction stands. Any audit, weakening, restatement, or
+   discharge attempt touching either one must re-verify the other in
+   the same pass, and any doubt cast on the domination lemma
+   immediately propagates "unverified" status to every consumer of the
+   vertex formula. Do not close one side while the other is open.
+
+2. **U(1) discriminator (the Migdal–Kadanoff lesson): every
+   critical-path positivity/contraction step must name where it uses
+   non-abelian-ness.** The Migdal–Kadanoff recursion confines 4D U(1),
+   where the gap statement is false — a mechanism insensitive to the
+   abelian/non-abelian distinction proves too much. Therefore every
+   gap-critical argument (cone contraction, defect bound, anchor
+   transport, positivity survival) must carry an explicit tag
+   identifying where the non-abelian structure (anti-screening /
+   SELF-CHARGE; nonvanishing structure constants; `h^∨ ≥ 2`) enters,
+   such that the argument demonstrably fails or weakens for U(1). A
+   load-bearing step with no such tag is presumed to be either wrong or
+   not yet the real mechanism, and must be flagged in review.
+   Envelope-type bounds (bond-moving, MK) remain admissible only as
+   one-sided inequalities whose direction is proved, never as the
+   gap-producing mechanism itself.
+
 ### Test discipline
 
 Every `computations/*.py` has a matching `tests/test_*.py`. Tests
@@ -23712,10 +23747,11 @@ theorem beneath Haar rather than a raw commutativity claim.
 
     Prove the finite-Boolean graphical Holder/Finner inequality for this
     degree-two incidence pattern.  Applied to one structurally selected local
-    channel word, it bounds the closed contraction by the product of endpoint
-    tensor norms.  The two endpoint norms at a link multiply to the channel's
-    squared norm and cancel its inverse-Gram weight, giving one unit per local
-    channel and hence
+    channel word, it bounds the square of the closed contraction by the product
+    of endpoint tensor norm-squares.  The two endpoint norm-squares at a link
+    combine with the squared inverse-Gram weight, giving one unit per local
+    channel.  A final rational order lemma removes the square after this unit
+    normalization and hence gives
 
     ```text
     |honest coefficient|
@@ -24072,6 +24108,71 @@ unambiguous consumer.  `C6b--C6e` must be group-indexed from their definitions.
 An `SU(2)` proof may pilot the estimates, but an after-the-fact assertion that
 it is the worst compact simple group is not an admissible all-group argument.
 
+#### Cross-gate noncircularity and adequacy fences
+
+The backward graph is valid only with the following permanent fences.  These
+are acceptance conditions on the future interfaces, not optional refinements.
+
+1. **Independent scale setting.**  The lattice spacing `a_k` is fixed by an
+   independent renormalized observable or coupling condition, never by the
+   desired mass.  Only afterward may one prove
+   `Delta_k = m_lat(k) / a_k`; otherwise dimensional transmutation has been
+   inserted by definition.
+2. **No supplied-margin substitution.**  `SingleStepDefectBound.trueMargin`,
+   `singleStep`, and the existing positive-floor recursions are consumers.
+   The producer must derive their entries from the actual Wilson
+   transfer/form, the independently fixed spacing, and one located spectral
+   quantity.
+3. **Transfer and generator gaps remain distinct.**  A finite-stage edge of
+   `I - T`, the quantity `1 - lambda`, and an energy `-log lambda` are not
+   definitionally interchangeable.  The chosen lattice energy and its
+   comparison or convergence to the continuum generator form must be stated
+   and proved explicitly.
+4. **The continuum object is constructed.**  `CanonicalSchwingerLimit` must be
+   extracted as the quotient/completion or universal limit of compatible
+   local cylinder observables, with uniqueness.  A carrier that merely stores
+   a chosen algebra, functional, and the desired approximation laws can hide
+   the existence theorem.
+5. **The RG producer stores only finite-stage facts.**  A sourced RG
+   certificate may contain blocking identities, effective actions, error
+   sequences, source-mixing data, and convergence moduli.  It may not carry a
+   `CanonicalSchwingerLimit`, physical gap, OS reconstruction, or local fields
+   as free fields; a separate extraction theorem constructs them.
+6. **No clustering/gap loop.**  The infrared analysis first proves a
+   transfer/form comparison and uniform spectral lower bound.  Clustering is
+   then derived and may later prove vacuum uniqueness; clustering obtained
+   from the desired gap cannot be reused to establish that same gap.
+7. **Absolute domination is not reflection positivity.**  The graphical
+   Finner and polymer bounds prove absolute convergence.  Reflection
+   positivity must descend from exact finite-stage Wilson identities and pass
+   through the limit separately, even when intermediate effective actions are
+   not manifestly positive.
+8. **Sources are genuinely composite and geometric.**  Curvature fields need
+   multilocal composite sources and spectator estimates; the stress tensor
+   needs background-metric or anisotropic-coupling response; Ward identities
+   need exact finite-stage symmetry equations; and the OPE needs a
+   spectator-uniform remainder modulus.  A scalar source tower is inadequate.
+9. **The group quantifier has an adequacy theorem.**  Either explicit compact
+   simple global-form codes are interpreted and proved exhaustive up to
+   isomorphism, or every actual compact simple group is proved to admit the
+   computable presentation consumed by the construction.  Cartan type alone
+   omits central quotients, faithful actions, representation descent, and
+   character-tail data.
+10. **Use the scalar substrate actually required by all labels.**  Rational
+    `SU(2)` cutoff-one moments are a pilot.  Full Wilson/heat-kernel
+    coefficients and arbitrary-group recoupling data require located
+    constructive real/complex or computable algebraic scalars together with
+    summation moduli; they must not be silently coerced into one rational
+    coefficient.
+11. **Both sides of the mass edge are produced.**  A uniform lower spectral
+    bracket proves positivity but not finiteness or locatedness.  The same
+    infrared/limit construction must transport explicit finite-energy
+    vacuum-orthogonal excitations and ultimately supply near-edge witnesses.
+12. **The OS-to-Wightman step is a theorem, not nomenclature.**  Full `E(4)`
+    covariance, constructive test-function topology, analytic continuation,
+    common invariant domains, continuous Poincare action, and the spectrum
+    cone remain explicit obligations beyond a discrete `Nat` transfer.
+
 ### 9. Backward gate C7: all-label infrared Wilson anchor — ○ OPEN
 
 ```text
@@ -24097,6 +24198,29 @@ dim Inv(V_(lambda_1)^(epsilon_1) tensor ... tensor
 
 and prove a label-summed activity bound.  Do not continue accumulating isolated
 cube examples after the total network theorem.
+
+The highest-leverage theorem immediately after `N7` is the source-stable
+all-label version, provisionally named
+`allLabelMarkedWilsonCoefficient_abs_le_invariantActivity`.  For every group
+presentation `G`, finite oriented plaquette multiset, irrep labeling, and
+finite marked family of local/composite insertions, it must identify the
+literal Haar-integrated coefficient and prove a square-root-free bound of the
+form
+
+```text
+abs coefficient^2
+  <= insertionMass^2
+     * product_link
+         (resolvedMass (Inv_G (tensor_occurrences V_label^orientation)))^2.
+```
+
+Without insertions the insertion mass is one.  A specialized normalized
+corollary may then remove the squares.  Its immediate analytic consumer sums
+this majorant against the exact Wilson/heat-kernel character coefficients
+with a proved label-tail modulus.  The statement must be structural in the
+network and in nested channel choices: it may not materialize a Cartesian
+channel family.  This theorem is the first post-pilot object that feeds both
+the infrared cluster domain and the later sourced local-field branch.
 
 ### 10. Backward gate C8: honest cutoff-one production coefficient — ◐ ACTIVE
 
@@ -24135,8 +24259,8 @@ honest signed coefficient network
    + one signed local channel tensor at each target/source link endpoint
    + one Boolean variable on each fresh face corner
    + every corner variable occurring in exactly two distinct tensor factors
-  <= finite-Boolean graphical Holder/Finner inequality
-   + product of the endpoint tensor l2 norms
+  <= square-root-free finite-Boolean graphical Holder/Finner inequality
+   + product of the endpoint tensor norm-squares
    + inverse channel weights cancelling the two endpoint norms linkwise,
 
 abs honestChannelPhysicalTerm
@@ -24148,26 +24272,28 @@ abs honestChannelPhysicalTerm
 The key global theorem is therefore
 
 ```text
-abs (sum_cornerAssignments product_factor tensorFactor)
-  <= product_factor l2Norm(tensorFactor),
+(sum_cornerAssignments product_factor tensorFactor)^2
+  <= product_factor normSq(tensorFactor),
 
-and hence
+followed, after the selected channels are normalized to total mass one, by
 
 abs honestCoefficient
   <= product_link numberOfLocalChannels
    = product_link fundamentalInvariantMultiplicity(valence_link).
 ```
 
-This is the finite Finner inequality for a factor graph in which each
-independent corner variable occurs in exactly two factors, specialized to
-exact rational Boolean tensors.  It handles odd cycles and same-side caps/cups
-without a false two-coloring or a Cartesian assignment list.  Each selected
-local channel occurs twice, once at each semantic endpoint, so its two norm
-factors multiply to its exact squared norm and cancel its inverse-Gram weight.
-Self-adjointness and idempotence remain useful projector certifications, but
-the global domination is a network norm theorem rather than a matrix trace
-theorem.  Entrywise kernel bounds still do not control the exponentially large
-Boolean-index sum.
+This is the square-root-free finite Finner inequality for a factor graph in
+which each independent corner variable occurs in exactly two factors,
+specialized to exact rational Boolean tensors.  It handles odd cycles and
+same-side caps/cups without a false two-coloring, a Cartesian assignment list,
+or constructively unavailable square roots.  Each selected local channel
+occurs twice, once at each semantic endpoint, so its two norm factors multiply
+to its exact squared norm and cancel its inverse-Gram weight.  The final
+`abs <= 1` step is a rational order lemma applied only after this exact
+normalization.  Self-adjointness and idempotence remain useful projector
+certifications, but the global domination is a network norm theorem rather
+than a matrix trace theorem.  Entrywise kernel bounds still do not control the
+exponentially large Boolean-index sum.
 
 The one-layer generic analytic theorem in
 `PositiveChannelTraceBound.lean` is complete.  For any constructive rational pre-inner
@@ -24439,6 +24565,94 @@ the remaining combinatorial work must compile the tagged cube factors into a
 sequence of port rearrangements and shared-block contractions and prove that
 the sequence consumes every fresh corner exactly once.
 
+`SymbolicFiniteBoolTensorContractionPlan.lean` closes that inequality under an
+arbitrary finite typed binary contraction tree.  Its evaluator recursively
+contracts the declared common Boolean blocks and may apply certified
+Gram-isometric `rewire` nodes at intermediate arities; its `leafMass` is the
+product of the actual leaf norm-squares; and
+`eval_normSq_le_leafMass` proves the output norm-square bound by composing the
+binary estimate with constructive multiplication monotonicity.  The closed
+arity-zero corollary is exactly the square bound needed before the final
+rational absolute-value step.  That step is also closed:
+`abs_le_one_of_square_le_one` proves the constructive rational order fact, and
+`closed_eval_abs_le_one_of_leafMass_le_one` applies it when the exact leaf mass
+is at most one.  The exact target and direct audit are green with gates
+contained in `[propext, Quot.sound]`.  Consequently the analytic induction of
+N4, including the normalized absolute bound, is complete.  The remaining N4
+obligation is the correctness compiler from the concrete tagged factor
+graph—including port order—to one of these typed plans.
+
+`SymbolicFiniteBoolTensorPortReordering.lean` closes the generic port-order
+boundary without extracting data from an arbitrary `List.Perm` proof.  It
+defines valid-by-construction adjacent-swap programs at a fixed tensor arity,
+compiles them to the existing Gram-isometric wiring language, and proves exact
+typed-tag, erased-list, tensor-evaluation, and valuation-parametric semantics.
+An `ArrangesAsOuterThenInner` certificate states computationally that a
+concrete factor has placed its free coordinates outside and a shared block in
+the innermost convention required by `boolTensorContract`.  Its exact target
+and direct audit are green with gate `[propext]`.  The remaining compiler must
+now provide explicit programs and tag equalities for the concrete factor
+merges; it must not eliminate the global incidence permutation into hidden
+choice data.
+
+`SymbolicFiniteBoolTensorContractionEvaluation.lean` closes the semantic
+boundary for each binary merge.  After fixing the two free-coordinate words,
+`boolTensorContract_evalAt_eq_boolTupleSum` identifies the contracted tensor
+pointwise with the literal structural Boolean sum over the common word of the
+product of the two child evaluations.  The sum recurses over typed Boolean
+tuples and never materializes an assignment carrier.  This theorem prevents
+the graph compiler's correctness proof from merely comparing two evaluators
+defined by the same contraction call.  Its exact target and direct audit are
+green with gates contained in `[propext, Quot.sound]`.
+
+`SU2QuaternionCutoffOneGlobalDegreeTwoPorts.lean` now closes the concrete
+incidence ledger.  A tensor factor is keyed by its physical link together with
+its semantic target/source half.  The four fresh corner pairs of every
+oriented face include the required target--target cap and source--source cup;
+their endpoints have distinct factor keys.  Globally, the actual link-major,
+target-before-source port word is proved to be a permutation of the pair-major
+degree-two normal form.  The pair tags are exactly
+`List.range (4 * support.length)`, every tag occurs exactly twice, all factor
+keys are duplicate-free, and both endpoints of every pair belong to genuine
+global factors.  These are structural theorems for arbitrary finite support
+and arbitrary face orientations, not a cube computation.  The exact target
+and direct audit are green with gates contained in `[propext, Quot.sound]`.
+
+`SymbolicFiniteBoolTensorDegreeTwoCompiler.lean` supplies the generic honest
+compiler.  Its dependent merge tree carries each factor tensor, exact typed
+boundary tags, every shared/free split, and explicit adjacent-swap programs in
+the evaluation-correct direction.  A separate certificate audits factorwise
+duplicate-freeness, the one-copy internal-edge/boundary ledger, and the exact
+doubled-edge incidence permutation; compilation never eliminates that
+permutation proof into data.  The compiled plan is proved pointwise equal to
+an independently defined literal evaluator whose merge case is the structural
+Boolean sum of the product of the two child amplitudes.  The exact target and
+direct audit are green with gates contained in `[propext, Quot.sound]`.
+
+The remaining concrete N4 obligation is now sharply typed: construct this
+merge-tree certificate for every fixed cutoff-one local-channel selection and
+identify its literal nested factor sum with the N2 named Boolean network.  Two
+order-independence facts must be proved rather than assumed.  First, an N2
+`CutoffOneHaarWord` contains row/column values read from the Boolean
+environment; the fixed channel site must instead be defined from its
+descriptor bucket and a reference environment, with a proof that its choice
+list and oriented endpoint tensors depend only on valence and occurrence
+orientations.  Second, the native four-valent operator tensor order is
+`[1,3,2,4]` whereas the endpoint-factor word is literal bucket order
+`[1,2,3,4]`; the concrete leaf must carry the explicit middle adjacent swap.
+
+`SymbolicFiniteBoolTensorWeightedContractionBound.lean` closes the abstract
+analytic part of N5.  For a closed plan whose leaf mass is the square of the
+product of local channel norms, it proves directly that the square of the
+inverse-Gram-weighted value is at most one, using the exact local equations
+`weight * norm ≈ 1`; the rational absolute-value lemma then gives a unit
+bound.  `abs_nestedWeightedClosedEval_le_choiceMass` folds this bound through
+the nested local-channel lists without constructing their Cartesian product.
+Its exact target and direct audit are green with gates contained in
+`[propext, Quot.sound]`.  Concrete N5 now requires only the selected-plan leaf
+mass equation and the structural identification of its nested choice mass
+with the established local multiplicity product.
+
 The exact C8 dependency DAG is now frozen as follows:
 
 ```text
@@ -24475,11 +24689,14 @@ positive local channel theorem `N3` are complete.  The local mass ledger of
 factorization, and local channel Gram realization are also complete.  The
 generic dispatcher/Fubini theorem and its actual link-bucket instantiation are
 complete at the constructive axiom gate.  The endpoint-port leaf of `N4` is
-complete, as is the square-root-free two-tensor shared-block contraction
-inequality.  The full factor-key incidence ledger, port-arrangement compiler,
-and recursive contraction-plan instantiation in `N4`, the global factored
-network and inverse-weight/norm cancellation in `N5`, and the acceptance
-bridge `N6--N7` remain open.
+complete, as are the square-root-free two-tensor shared-block contraction
+inequality, its arbitrary finite contraction-tree induction, the explicit
+port-arrangement language, the generic certified degree-two compiler and its
+literal nested-sum semantics, and the full factor-key degree-two incidence
+ledger.  The data-producing cutoff-one specialization and its N2 evaluation
+identity remain open in `N4`.  The abstract nested inverse-weight/norm
+cancellation is complete in `N5`; its concrete leaf-mass and multiplicity
+instantiations, and the acceptance bridge `N6--N7`, remain open.
 
 The first genuinely global exact checkpoint is `N0--N2`:
 
@@ -24708,3 +24925,400 @@ This verdict does not devalue the current local work: it locates it precisely as
 the nearest necessary leaf in the honest finite-stage Wilson functional.  It
 also prevents that leaf, or any future conditional scalar floor, from being
 mistaken for the continuum theorem.
+
+### 15. Dual-representation positivity program — status and schedule (2026-07-23)
+
+An executable second front was opened alongside the Lean spine: exact
+Python mirrors of the quaternion-block Haar calculus
+(`computations/exact_haar_network.py`, `computations/hypercube4d_survey.py`,
+`computations/dual_positivity_survival.py`; 22 exact test pins; full
+findings in `notes/dual-positivity-survival.md`).  Its purpose is to
+decide, in exact arithmetic, whether the dual (character-representation)
+route — abandoned historically for its supposed sign problem — is
+actually obstructed where an exact RG would need to walk.
+
+**What is now established (all exact, machine-checked):**
+
+1. **Frozen-hub sum-of-squares theorem** (proof one paragraph,
+   Lean-ready): every anchored star readout — the star of any link,
+   gauge-fixed spine, rim loops — is a sum of squares, in any dimension
+   and for any compact group.  The folklore "minimal sign-bearing
+   object" cannot go negative; 6j signs are invisible to every anchored
+   probe.
+2. **3D positivity through slab scale:** single cube, double cube
+   (partial high corner still computing), the 2×2×1 slab (first
+   unanchored intertwiner circuit — *not* SOS-protected): every dual
+   coefficient positive; all 81 heat-kernel rim channels
+   Sturm-certified positive on the whole coupling interval with
+   termwise-positive ledgers.
+3. **4D positivity through the hypercube crossing survey:** binary
+   admissible assignments = closed surfaces mod 2 (kernel dim 7);
+   every surface evaluates by 2D Yang–Mills, `Z = d^{χ−F}` (Clifford
+   tori at exactly `2^{−16}`).  The 8128 intersecting-surface pairs —
+   the genuine 4D interference test, with 2-dimensional intertwiner
+   spaces on crossing edges — quotient to 109 symmetry orbits:
+   **108/109 evaluated (693 pair computations), zero negatives, zero
+   inconsistencies.**  The 109th (full double-torus collision) is
+   UNREACHED by the monomial engine — a resource verdict; 255/256 of
+   its exact χ₂-expansion is banked.
+
+**Standing conjecture (promotion target):**
+
+> **(DP)** Intertwiner-summed SU(2) dual amplitudes of physical
+> complexes are nonnegative.
+
+If (DP) holds, the dual representation supports a sign-free exact RG,
+and the historical reason the never-linearized route was abandoned is
+void.  Every estimate this program has produced is consistent with
+(DP); no probe has yet had both the structural room and the
+computational reach to falsify it.
+
+**Relation to the main spine.**  This does not shorten the distance to
+the Clay theorem — the uniformity wall (RG-I7 contraction, RG-I8
+landing, RG-I9 summability; spacing-uniform gap survival) stands
+exactly where §14 locates it.  What it changes is the *coordinate
+system*: it supplies a candidate positivity cone in which those three
+certificates want to be inhabited, with the large-field problem never
+created (compactness is native to the dual; nothing is ever
+linearized).  Positivity ≠ contraction: (DP) is the floor of the
+arena, not the fight.
+
+### Milestone DP.1 — TL-channel contraction engine
+
+**Goal.**  Replace raw monomial contraction with recoupling-channel
+contraction (executable mirror of the Lean TL₃ projector spine), so
+that network cost scales with channel dimensions, not `4^L` monomials.
+
+**Deliverables.**
+- `computations/su2_recoupling_data.py`: exact 6j/θ data extracted
+  *from the certified moment engine* (squared data from K4 spin-model
+  values; signs by Biedenharn–Elliott + orthogonality propagation),
+  cross-pinned against `sympy.physics.wigner`.
+- Channel-basis contraction of the three inherited targets: the
+  extremal double-torus term; the 2×2×2 core; the 4D double hypercube.
+- Tests pinning every new value against the monomial engine on the
+  overlap domain.
+
+**Dependencies.**  None (data layer starts from certified moments).
+
+**Open questions.**  Whether TL sign conventions can be chosen once,
+globally, so that (DP)-positive amplitudes have manifestly positive
+channel decompositions (the "coherent scheme across scales" question —
+this is where the wall would reappear if it exists).
+
+### Milestone DP.2 — One-step dual blocking defect
+
+**Goal.**  Compute the exact one-step blocked dual activity on the
+slab (coarse 2×2 plaquette readout against heat-kernel weights
+everywhere) and measure the first exact 3D defect `c'_n / c_n^4`
+against the 2D fixed-point law.
+
+**Deliverables.**  Exact `s`-polynomial defect table; sign verdicts;
+comparison note.  **Dependencies.**  DP.1 for cost, or restricted
+spins without it.
+
+### Milestone DP.3 — RP-cone tracking
+
+**Goal.**  Decide whether one blocking step preserves reflection
+positivity *in the dual coefficients* (chessboard-reflected slab).
+This is the positivity OS reconstruction actually consumes; (DP)
+positivity does not imply it.  **Dependencies.**  DP.1.
+
+### Milestone DP.4 — (DP) as a theorem or a counterexample
+
+**Goal.**  Either prove (DP) for a nontrivial complex class (candidate
+route: intertwiner-sum = Haar integral of manifest squares via a
+reflection through the complex — the frozen-hub argument's unanchored
+generalization), or locate the first negative amplitude with the DP.1
+engine.  Both outcomes are decisive: a proof opens the sign-free dual
+RG; a counterexample maps the wall's exact coordinate.
+**Dependencies.**  DP.1 (reach), DP.3 (informs the reflection route).
+
+### Milestone DP.5 — Lean transport
+
+**Goal.**  Formalize the frozen-hub SOS theorem and the DP.1 data layer
+into the existing positive-channel spine (`{propext, Quot.sound}`
+gate), so the Python evidence becomes kernel-checked mathematics.
+**Dependencies.**  DP.1; the Mac-side Lean session lock discipline
+(AGENTS.md).
+
+### 15a. Same-day addendum: the wall is found (2026-07-23, evening session)
+
+Three results, in order of discovery, all exact and all
+cross-arbitrated:
+
+1. **Vertex product formula (DP.1 achieved ahead of schedule).**  On
+   the 4-cube boundary — every edge trivalent, intertwiners
+   multiplicity-free — the dual amplitude factorizes with no
+   correction factors of any kind:
+   `Z = ∏_{16 vertices} {6j}_v` (Wigner slot arrangement
+   `{xy xz xt; zt yt yz}`).  Over-verified: 949/949 on the full moment
+   corpus including signs; 20/20 on fresh cell-triples; exact n = 3
+   gates; and it corrected a hand census (disjoint sphere-pairs,
+   χ = 4), with raw moments siding with the formula.  Evaluation cost:
+   sixteen memoized 6j lookups.  `computations/vertex_amplitude.py`.
+
+2. **The 4D pair survey is closed at 109/109, all positive.**  The
+   formerly UNREACHED double-torus collision evaluates to
+   `6^{−16} = 1/2821109907456` (sixteen vertices, each +1/6).
+
+3. **(DP) is FALSE, and its failure has an exact coordinate.**
+   Sweeping all 341,376 triple-surface assignments: 32,384 negatives —
+   every one requiring a spin-3 face; zero negatives at spins ≤ 2
+   anywhere this program has ever computed.  Minimal exemplar
+   (support 18, profile {1:×9, 2:×6, 3:×3}):
+   `Z = −1/3981312`, **arbitrated against the raw moment engine**
+   (512-term χ-strand expansion, 17 s, exact agreement to the digit
+   through a fully independent pipeline).  Geometrically the negative
+   sector lives on **triple-intersection curves of surfaces**; in
+   representation terms it switches on at **j = 3/2**, the second
+   quaternionic representation.
+
+**Revised standing conjecture:**
+
+> **(DP≤1)** Intertwiner-summed SU(2) dual amplitudes with all
+> plaquette spins ≤ 2 (j ≤ 1) are nonnegative.
+
+**Revised milestone consequences.**  DP.4 is resolved in the
+counterexample direction for full (DP) and remains open (proof
+direction) for (DP≤1).  DP.2/DP.3 sharpen into the *physical* wall
+question: heat-kernel weights suppress the negative sector by
+`s^{15}` against the positive sector's `s^{3}` — do the s-weighted
+channel sums stay positive on all of `s ∈ (0,1)`?  The vertex formula
+makes these sums computable; this is now the single most important
+computation in the program, because its answer decides whether the
+dual RG can run in a positive cone with the negative sector
+*controlled* (small-s expansion territory) rather than absent.
+Double-cube (1,1,2) table completed under the guarded engine (two
+heaviest corners UNREACHED, honest resource verdicts; all reached
+values positive) — see notes/dual-positivity-survival.md.
+
+
+### 15b. Addendum (2026-07-24): DP.2 built; band geometry at its honest limit; Lean transport landed
+
+**DP.2 — the slab blocking kernel exists** (`computations/slab_blocking_kernel.py`,
+note P19).  Two-sided blocked kernel T[n,m](s) on the 2x2x1 block, exact in s;
+adapted gauge tree; unit-reduced per-link eliminator; transverse-skeleton
+decomposition cross-validated exactly against direct contraction at M=1.
+Findings: (i) frozen-side scheme collapses to the EXACT 2D rule by univalence
+(gate-checked) — transverse physics enters only through the owned boundary;
+(ii) every reached entry is Sturm-positive on (0,1) — no sign problem in the
+blocking kernel at this depth; (iii) the flow runs FASTER than 2D
+(s' = 0.0341 vs s^4 = 0.0625 at s=1/2) and the corridor narrows
+(1.82 vs wheel 2.23; 0.79 at s=3/4), while the raw whole-cone Birkhoff
+diameter is huge and coupling-dependent — the enveloped cone is the mechanism,
+not a convenience.  M=2 stability partial with per-skeleton wall-clock budget:
+UNREACHED classes recorded.  Milestone DP.2: kernel CONSTRUCTED, saturation
+measurement in progress.
+
+**Band geometry (ABK path) at its honest limit** (note P20).  v2 rebuild:
+non-crossing traversal at revisited sheets, cross-component linking,
+per-component orientability, push-scale stability vote; pairs perfectly even
+(polarization always defined).  Triple consistency saturates at ~70% with every
+miss exactly d2; a 188-triple feature sweep found no connector-level predictor.
+Diagnosis: the lift embeds curves, not the surface — coherent q needs an
+embedded/framed Pin- realization of the full strand cover.  beta = 4*kappa runs
+in correlation mode only until that object exists.
+
+**Lean transport** (`dual_kappa_spike/`, note P21): three kernel-checked
+theorems — `no_local_gauge` (kappa is a genuine global class),
+`rim_readouts_pos` (frozen-hub SOS at certificate level: all 81 anchored rim
+channels strictly positive at every rational s > 0), and
+`kappa_odd_all_branched` (the {1,1,2} branch detector as a Lean function,
+checked on 100 kappa-odd samples).  UNBUILT pending Mac-side `lake build`
+(session lock per AGENTS.md).
+
+**Warning:** Dropbox reverted `work_plan.md` a second time (Section 15/15a were
+missing from the synced copy on 2026-07-24); this file was rebuilt from the
+session record.  Please check for "conflicted copy" duplicates.
+
+### 15c. Addendum (2026-07-24, second session): Simplification Ledger — ranked counterfactuals and milestone adjustments
+
+A full genealogy of every named theorem/law in live use (Lists A–E, four
+generations), with a per-edge ledger of the simplifications made and a
+counterfactual analysis of each against the current repo state, is now in
+the project doc `claude/simplification-ledger.md` (32 ledger entries, 17
+ranked counterfactuals).  Headline findings, recorded here because they
+adjust the plan:
+
+1. **Rank 1 (L3, lattice regularization).**  The largest counterfactual is
+   already the open frontier: R2 / `UniformPhysicalCorrelationDecay` *is*
+   the deferred half of Wilson's lattice simplification.  No plan change;
+   confirms the frontier is correctly identified.
+2. **Rank 2 (L17/L18, anchor + RG transport).**  Survives its
+   counterfactual as a necessity proof.  Named leak point: δ_k-summability
+   must hold *through the crossover*, not merely near the anchor — any
+   silent extension of the certified region is where this line fails.
+3. **Rank 3 (L15, fiducials — most actionable).**  The three flagged
+   constants (`BAŁABAN_SPECTRAL_GAP_COEFF c_λ = 1/2` shape-fiducial;
+   `BALABAN_POLYMER_RESIDUAL = 2.0` heuristic; Seiler `5d−4` cited-but-
+   unverified, already known absent from BFS 1978) are mandatory
+   extraction work under the program's own no-shape-constants law.
+   → **New milestone SL.1 below.**
+4. **Rank 4 (L27, (DP≤1) retreat).**  The middle road — negative sector
+   controlled, not absent: positivity of the s-weighted channel sums on
+   all of (0,1) under s¹⁵-vs-s³ suppression — is the only open road
+   (Birkhoff contraction cannot run on signed kernels; full (DP) is
+   machine-refuted).  This confirms §15a's designation of the s-weighted
+   sum as the program's single most important computation.
+   → **Milestone DP.6 below formalizes it.**
+5. **Rank 7 (L29, ABK curves-vs-surface).**  The one counterfactual whose
+   refusal *helps*: the embedded/framed Pin⁻ realization of the strand
+   cover takes β = 4κ out of correlation mode.  Confirms next-session
+   queue item (3); no change in priority.
+6. **Policy adjustment (L4, heat-kernel action).**  Adopt explicitly:
+   the program proves its heat-kernel-action theory satisfies the Clay
+   axioms + non-triviality *on its own terms*; no Wilson-action
+   universality claim is made or owed.  This cancels the outstanding
+   universality debt by policy.  (The Clay statement names no action.)
+7. **Policy adjustment (L28, truncation errors).**  The DP.2 M-truncation
+   error must enter the §2 modulus registry as a named modulus
+   (ε_slab(M)) with the same witness discipline as ε_UV/ε_IR/ε_RG —
+   UNREACHED wall-clock verdicts are honest but are not moduli.
+8. **New standing audit rules** (recorded under Cross-cutting policies →
+   "Adversarial audit rules", and appended to the audit checklist in
+   `docs/ym_mass_gap_prompt.md`): (i) the **coupled-simplification
+   audit** — R1's worst-case reduction and the multiplicity-free 6j
+   vertex calculus are one auditable unit; (ii) the **U(1)
+   discriminator** — every gap-critical positivity/contraction step must
+   name where non-abelian-ness enters (a mechanism that would equally
+   prove a 4D U(1) gap proves too much; Migdal–Kadanoff is the canonical
+   failure).
+
+### Milestone SL.1 — Fiducial extraction (Rank 3; cheapest large de-risking)
+
+**Goal.**  Reduce the fiducial-constant exposure to zero: replace the
+three flagged literature-shape constants with either (a) constants
+extracted from a specific displayed inequality in the primary source
+(Bałaban CMP 109 (1987) for c_λ; Bałaban CMP 119 (1988) for the polymer
+residual; Seiler LNP 159 (1982) §-precise cite or an in-substrate
+rederivation for the plaquette-polymer connectivity count), or (b)
+in-substrate derivations with explicit witnesses, whichever is reached
+first per constant.
+
+**Deliverables.**  (1) Per-constant provenance note in
+`notes/fiducials_notes.md` upgraded from SHAPE/HEURISTIC to EXTRACTED or
+DERIVED, with page/equation cites or substrate proofs.  (2) Recomputed
+σ̂-trajectory and K_sf/K_lf budgets under the extracted values;
+lockstep tests (`test_kp_constants_lockstep.py`) re-pinned.  (3) If any
+budget breaks: the break is the result — report which milestone reopens
+and at what margin.  (4) Bundle (Rank 13): while inside the KP layer,
+evaluate the Fernández–Procacci criterion as a drop-in replacement and
+record the margin it buys (expected: widened strong-coupling anchor
+region, shrinking the crossover from the provable end).
+
+**Dependencies.**  None (literature + existing modules).  Independent of
+the Lean session lock; safe to run alongside DP work.
+
+**Open questions.**  Whether the 2.0 polymer residual survives extraction
+at all, or must be replaced by a derived k-dependent residual with its
+own summability proof.
+
+### Milestone DP.6 — Signed-sector survival: s-weighted positivity on (0,1) (Rank 4; the designated computation)
+
+**Goal.**  Decide (DP≤1)'s physical sufficiency: with the vertex product
+formula making channel sums computable, determine whether the s-weighted
+channel sums (positive sector s³-scale vs negative sector s¹⁵-scale)
+remain positive on **all** of s ∈ (0,1) — not merely in a small-s
+expansion — on the reachable configuration corpus.
+
+**Deliverables.**  (1) Exact s-polynomial channel sums per configuration
+class via `vertex_amplitude.py`, negative (j ≥ 3/2) sector included.
+(2) Sturm certificates of positivity on (0,1) per reached class, or the
+first certified sign change (either verdict is decisive and banked).
+(3) Endpoint analysis at s → 1⁻ (weak coupling), where suppression is
+weakest — this is where the anchor-transport leak point (finding 2
+above) would first appear.  (4) U(1)-discriminator tag (audit rule ii):
+identify exactly where the argument uses non-abelian structure, with the
+abelian comparison computed.  (5) Lean transport of the positivity
+certificates into the `dual_kappa_spike`/positive-channel spine
+({propext, Quot.sound} gate) for every class whose certificate closes.
+
+**Dependencies.**  DP.2 kernel (built, §15b); vertex formula (§15a);
+SL.1 independent but its sharpened anchor region strengthens the
+interpretation of (3).
+
+**Decision criteria.**  Positive on (0,1) everywhere reached → the dual
+RG runs in a positive cone with the negative sector controlled; DP.3/DP.4
+proceed under (DP≤1)+suppression.  A certified sign change at some s* →
+s* is the new exact wall coordinate; bank it (Lakatos discipline) and
+re-plan the dual route above s*.
+
+**Open questions.**  Whether per-class positivity admits a uniform-in-
+class certificate (a single SOS/Sturm family) rather than class-by-class
+enumeration — required eventually for the a→0 direction, since class
+enumeration does not survive the continuum limit.
+
+### 15d. Addendum (2026-07-24, same session): DP.6 EXECUTED — split verdict; cancellation lives at exponent granularity
+
+All four DP.6 phases ran to completion (cloud-side compute; nothing
+heavy on this host).  Result: **neither of the two anticipated verdicts
+— a third, sharper one.**
+
+**Structural discovery first.**  Both the activity coefficient
+c = ∏(n+1)^mult and the exponent E = Σ n(n+2)·mult depend only on the
+spin *profile*, so every profile-class channel is a **single monomial**
+c·(ΣZ)·s^E: its sign is *s-independent*, and no within-class crossover
+in s is possible.  The §15a framing ("do the s-weighted channel sums
+stay positive on (0,1)?") therefore resolves at class granularity by
+coefficient sign alone — Sturm certification was never genuinely
+reached (all 36 verdicts closed on the exact coefficient-sign fast path
+of `sign_on_unit_interval`; recorded per-verdict as `certified_by`).
+
+**The split verdict (full C(128,3) = 341,376 corpus; sanity pins all
+reproduced: 32,384 negatives, every one requiring a spin-3 face,
+minimal exemplar −1/3981312 at 1⁹2⁶3³):**
+
+- **Per-class survival FAILS.**  Of 260 profile classes (34 mixed),
+  four have negative channel sums — negative on ALL of (0,1):
+  `1⁸2¹¹3⁴` (ΣZ = −1/60466176), `1⁹2¹²3¹` (−7/12754584),
+  `1¹⁰2¹¹3²` (−11/76527504), `1¹¹2¹¹3¹` (−5/38263752).  Margins are
+  narrow (neg/pos mass 68/59, 48/41, 72/61, 18/13 — all just above 1).
+- **Global survival HOLDS.**  The global sum over all triples (and with
+  the all-positive empty/single/pair sectors folded in: 80 monomials,
+  s³⁶…s¹⁹⁸) has **every coefficient strictly positive** — positive on
+  all of (0,1).  At each exponent carried by a negative class
+  (E ∈ {136, 138, 148, 172}) the positive classes sharing that exponent
+  outweigh it by ~50–500×  (exact per-exponent ledger banked).
+
+**Consequence for DP.3/DP.4 (conjecture sharpened).**  (DP≤1) +
+suppression is TRUE at exponent granularity and FALSE at profile
+granularity.  The dual RG cone must therefore be built on
+**exponent-aggregated channels** (or coarser), not profile channels —
+this *answers* DP.1's "coherent scheme across scales" question in the
+negative at profile resolution and fixes the minimum coarseness the
+positive cone must have.  The four negative classes are banked as the
+Lakatos fence marking that resolution boundary.
+
+**U(1) discriminator (audit rule ii, first live application).**  Exact
+computation on the same 4-cube boundary complex (∂∘∂ = 0 verified;
+kernel rank 7 = 8 cubes − 1, Smith factors all 1, full integer kernel):
+U(1) dual amplitudes are identically {0,1} — dual positivity is FREE
+abelianly, while 4D U(1) is gapless at weak coupling (Guth).  Therefore
+**dual-cone positivity is cone admission only, never citable as the gap
+mechanism**; the gap must come from a step that demonstrably fails for
+U(1) — the blocked-kernel contraction rate.  Testable prediction
+banked: U(1) slab blocking should track its 2D rule s′ = s⁴ exactly
+with corridor NON-narrowing (univalence d_m = 1 kills the d³
+denominator), vs the measured SU(2) s′ = 0.0341 < s⁴ = 0.0625 with
+narrowing.  → **Queued as DP.6-U1** (run `slab_blocking_kernel` with
+U(1) weights; the decisive discriminator computation for the
+contraction step).
+
+**Banked artifacts:**  `computations/dp6_signed_survival.py` (+
+`tests/test_dp6_signed_survival.py`, 5 pins green cloud-side; full
+mirrored suite 9/9), `computations/dp6_results.json` (per-class
+records, cancellation ledger, endpoint Fractions at s = 1/2 … 999/1000,
+all positive for the global sums), `notes/dp6-signed-survival.md`,
+`scripts/dp6_u1_dual_check.py`, `docs/dp6-u1-discriminator-2026-07-24.md`,
+and **`dual_kappa_spike/DP6Ledger.lean`** — the kernel-checkable ledger
+(543 generator-verified literals: global coefficient positivity, the
+four negative class sums with c rederived in-Lean, the per-exponent
+P+N=G balance, sanity pins; generator `scripts/gen_dp6_lean.py`).
+DP6Ledger.lean is **UNBUILT** pending Mac-side `lake build` under the
+session lock (joins the three-spike in the build queue).
+
+**DP.6 status: phases P1–P4 complete in-substrate; remaining
+obligations: (1) Mac `lake build` of DP6Ledger + three-spike;
+(2) DP.6-U1 contraction-step discriminator; (3) exponent-aggregated
+cone re-statement feeding DP.3.**
