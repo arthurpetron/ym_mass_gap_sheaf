@@ -128,6 +128,22 @@ reflection orientation.  The geometry frontier therefore stops at
 `cyclic_rim_words_embedded`; the aggregate `geometry_pinned` field remains
 false.
 
+### Boundary carrier must be upgraded before the rim map
+
+The rim audit also found that the current CD-1 `DualBoundaryState` has arity
+one, whereas the wheel requires four ordered rim slots.  The coincident unit
+labels `(1,1,1,1)` do not remove this provenance: the all-label squared-norm
+uses the cyclic neighbors `m_(i-1),m_i` separately at every page.
+
+`computations/dual_boundary_carrier_gap.py` now pins the abstract four-slot
+cyclic carrier and proves that the one-interface carrier is insufficient.
+The next physical field is `physical_half_time_slot_ids_pinned`, followed by
+the reflection permutation and intertwiner basis.  The required Lean carrier
+upgrade is specified in
+`docs/compact-dual-boundary-carrier-gap-2026-07-23.md`.  This upgrade is a
+prerequisite to the full `geometry_pinned` and integrator-semantic fields,
+not a new analytic gate.
+
 ## What this advances
 
 This gate does not prove a new analytic estimate.  It closes a serious
