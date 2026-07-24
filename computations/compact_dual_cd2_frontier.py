@@ -52,9 +52,13 @@ one that geometric assembly is now closed.  The global mod-two image is
 contained in the corrected coarse slab, remains an even cellular surface,
 is encoded by one listed coarse physical labelling, and gives a strictly
 positive whole-slab raw target whenever the fine odd support is even and the
-coarse coupling is positive.  The first open gate is to derive that fine
-evenness from strict positivity of the actual fine Gibbs summand, and then
-extend the construction beyond cutoff one.
+coarse coupling is positive.  That apparent hypothesis has now also been
+discharged for the physical cutoff-one theory: strict positivity of the
+actual fine Gibbs term forces every production link multiplicity nonzero,
+so the SU(2) parity rule makes the fine odd-spin support an even cellular
+surface.  Every positive cutoff-one Gibbs source therefore has an exact
+normalized coherent whole-slab row.  The first open gate is the corresponding
+all-cutoff recoupling coherence theorem.
 
 The physical remainder now also has a locality fence: for every cylinder
 intertwined pointwise by a candidate slab kernel, the fine/coarse Gibbs
@@ -109,6 +113,9 @@ class CD2Subgate(Enum):
     )
     CUTOFF_ONE_GLOBAL_COHERENT_TARGET = (
         "globally coherent whole-slab parity target at cutoff one"
+    )
+    CUTOFF_ONE_POSITIVE_PHYSICAL_COVERAGE = (
+        "whole-slab coherent row for every positive cutoff-one Gibbs source"
     )
     COARSE_RECOUPLING_COHERENCE = (
         "globally coherent coarse face/link recoupling field"
@@ -173,6 +180,10 @@ CD2_LEAN_THEOREMS = (
     "CutoffOneEvenSlabSource.toCoherentSlabRecouplingSource",
     "CompactDualCutoffOneParitySlabTarget."
     "cutoffOneWholeSlabConditionalKernel_row_normalized",
+    "CompactDualCutoffOnePositivePhysicalClosure."
+    "positiveCutoffOnePhysicalTerm_fineOddSupport_even",
+    "CompactDualCutoffOnePositivePhysicalClosure."
+    "cutoffOnePositivePhysicalSource_row_normalized",
     "CompactDualPhysicalRemainderLocality.PhysicalKernel."
     "fineCoarseCylinderDefect_abs_le_remainderL1",
     "CompactDualFiniteBlockRemainder.SlabScalePair.FiniteSlabKernel."
@@ -202,6 +213,7 @@ class CD2Frontier:
     cutoff_one_coarse_face_door: bool
     cutoff_one_coarse_link_door: bool
     cutoff_one_global_coherent_target: bool
+    cutoff_one_positive_physical_coverage: bool
     coarse_recoupling_coherence: bool
     all_cutoff_global_kernel: bool
     physical_pushforward: bool
@@ -259,6 +271,10 @@ class CD2Frontier:
             (
                 CD2Subgate.CUTOFF_ONE_GLOBAL_COHERENT_TARGET,
                 self.cutoff_one_global_coherent_target,
+            ),
+            (
+                CD2Subgate.CUTOFF_ONE_POSITIVE_PHYSICAL_COVERAGE,
+                self.cutoff_one_positive_physical_coverage,
             ),
             (
                 CD2Subgate.COARSE_RECOUPLING_COHERENCE,
@@ -319,6 +335,7 @@ def current_cd2_frontier() -> CD2Frontier:
         cutoff_one_coarse_face_door=True,
         cutoff_one_coarse_link_door=True,
         cutoff_one_global_coherent_target=True,
+        cutoff_one_positive_physical_coverage=True,
         coarse_recoupling_coherence=False,
         all_cutoff_global_kernel=False,
         physical_pushforward=False,
