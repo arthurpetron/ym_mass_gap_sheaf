@@ -578,6 +578,57 @@ continues to descend to the torus quadratic refinement.  It is still a
 finite cutoff-two theorem; it does not prove the same descent on all surface
 complexities, overlap orders, or representation labels.
 
+### First unified decorated-carrier sign theorem
+
+The complete 22-face stratum combines ordinary cycle sectors and the first
+trivalent relative branches in one surface orbit.  Its representative is
+
+\[
+ S=\mathtt{0x31ad1b6d9e}.
+\]
+
+There are 139 resolved-channel orbits.  Of these, 129 have zero relative
+defect and ten terminate at the unique invariant in
+\(\operatorname{Inv}(V_1^{\otimes3})\).
+
+The cycle boundaries again span \(H_1(T;\mathbf F_2)\).  Their sector counts
+are
+
+\[
+ N_{00}=66,\qquad N_{10}=23,\qquad N_{01}=32,\qquad N_{11}=8.
+\]
+
+Every \((1,1)\) cycle and only those cycles are negative.  The eight negative
+values split as four copies each of
+
+\[
+ -\frac1{12582912},\qquad -\frac1{37748736}.
+\]
+
+All ten branch channels are strictly positive and in fact have the common
+value
+
+\[
+ \frac1{18874368}.
+\]
+
+The other 121 cycle channels are positive; the complete 139-channel value
+ledger contains eleven rational values and is regression-pinned.  Its
+unweighted representative sum is \(7735/1019215872>0\), again only a
+quotient checksum.
+
+This establishes the first unified law for the decorated carrier:
+
+* on its branch-free subspace, the sign is
+  \((-1)^{q([\partial D])}=(-1)^{ab}\);
+* the first trivalent relative endpoints carry positive local weights.
+
+That is stronger than two separate observations about cycles and branches:
+both statements now hold on every channel of the same physical surface
+orbit.  What remains open is whether higher-valent branch packets introduce
+an additional local sign, and whether the rule survives the much larger
+24- and 26-face strata and overlap orders above five.
+
 ## Higher-dimensional status
 
 It would be too strong to say that spin-structure technology has literally
@@ -639,9 +690,11 @@ The next gates are:
    channel orbits obey `sign=(-1)^(ab)`, including the only representative
    whose selected chain enters the second cell.  **DONE on the first
    non-product geometry:** all 119 channels of the 20-face surface orbit
-   obey the same quadratic sign law.  Construct the complete factorized
-   interface transfer tensor for the 22-, 24-, and 26-face strata, then
-   increase the overlap order.
+   obey the same quadratic sign law.  **DONE on the first mixed decorated
+   orbit:** all 129 cycle channels of the 22-face stratum obey the quadratic
+   law and all ten trivalent branch channels are positive.  Construct the
+   complete factorized interface transfer tensor for the 24- and 26-face
+   strata, then increase the overlap order and branch valence.
 4. **Negative-orbit audit.**  **DONE for binary-pair reachability.**  Exactly
    3 of 33 negative orbits enter this lane, and all three obey \(q=ab=1\).
    **OPEN beyond this lane:** determine the appropriate carrier for the 30

@@ -31,6 +31,10 @@ from computations.dual_spin_interface_census import (
     twenty_face_torus_channel_value,
     twenty_face_torus_channels,
     twenty_face_torus_homology_class,
+    twenty_two_face_channel_value,
+    twenty_two_face_cycle_channels,
+    twenty_two_face_homology_class,
+    twenty_two_face_torus_channels,
 )
 
 EXPECTED_OVERLAP_CENSUS = (
@@ -224,6 +228,59 @@ def test_complete_twenty_face_stratum_obeys_quadratic_sign() -> None:
         }
     )
     assert sum(values, start=Fraction(0)) == Fraction(9655, 254803968)
+
+
+def test_complete_twenty_two_face_decorated_stratum_obeys_split_sign_law() -> None:
+    channels = twenty_two_face_torus_channels()
+    cycle_channels = twenty_two_face_cycle_channels()
+    branch_channels = tuple(channel for channel in channels if channel not in set(cycle_channels))
+    assert len(channels) == 139
+    assert len(cycle_channels) == 129
+    assert len(branch_channels) == 10
+    assert {surface for surface, _selected in channels} == {0x31AD1B6D9E}
+
+    values = {
+        channel: twenty_two_face_channel_value(channel)
+        for channel in channels
+    }
+    classes = {
+        channel: twenty_two_face_homology_class(channel)
+        for channel in cycle_channels
+    }
+    assert Counter(classes.values()) == Counter(
+        {
+            (0, 0): 66,
+            (1, 0): 23,
+            (0, 1): 32,
+            (1, 1): 8,
+        }
+    )
+    assert all(
+        (values[channel] < 0) == (classes[channel] == (1, 1))
+        for channel in cycle_channels
+    )
+    assert Counter(values[channel] for channel in branch_channels) == Counter(
+        {Fraction(1, 18874368): 10}
+    )
+    assert Counter(values.values()) == Counter(
+        {
+            Fraction(1, 4194304): 15,
+            Fraction(1, 12582912): 38,
+            Fraction(7, 113246208): 3,
+            Fraction(1, 18874368): 10,
+            Fraction(11, 339738624): 1,
+            Fraction(1, 37748736): 17,
+            Fraction(1, 113246208): 20,
+            Fraction(1, 339738624): 8,
+            Fraction(1, 1019215872): 19,
+            Fraction(-1, 12582912): 4,
+            Fraction(-1, 37748736): 4,
+        }
+    )
+    assert sum(values.values(), start=Fraction(0)) == Fraction(
+        7735,
+        1019215872,
+    )
 
 
 def test_empty_overlap_family_has_no_hidden_branch() -> None:

@@ -554,6 +554,90 @@ def twenty_face_torus_channel_value(channel: ResolvedChannel) -> Fraction:
 
 
 @cache
+def twenty_two_face_torus_channels() -> tuple[ResolvedChannel, ...]:
+    """Return the first stratum mixing cycles with trivalent interface branches."""
+
+    interface = build_two_cell_spin_gluing().interface_face_mask
+    channels = tuple(
+        channel
+        for channel in bounded_overlap_resolved_channel_quotient().representatives
+        if channel[0].bit_count() == 22
+        and (channel[0] & interface).bit_count() == 2
+    )
+    surfaces = {surface for surface, _selected in channels}
+    if len(surfaces) != 1:
+        raise AssertionError("the 22-face quotient stopped being a single surface orbit")
+    return channels
+
+
+@cache
+def twenty_two_face_cycle_channels() -> tuple[ResolvedChannel, ...]:
+    """Return the defect-free subspace of the 22-face decorated carrier."""
+
+    return tuple(
+        channel
+        for channel in twenty_two_face_torus_channels()
+        if not relative_boundary_defect(*channel)
+    )
+
+
+@cache
+def twenty_two_face_homology_basis() -> tuple[int, int]:
+    """Choose a deterministic basis from the defect-free channel boundaries."""
+
+    _complex, faces, _meta = two_cell_brick()
+    channels = twenty_two_face_cycle_channels()
+    surface = channels[0][0]
+    basis: list[int] = []
+    for _surface, selected in channels:
+        cycle = face_chain_boundary_mask(faces, selected)
+        if edge_cycles_homologous_mod2(faces, surface, cycle, 0):
+            continue
+        if not basis:
+            basis.append(cycle)
+            continue
+        if edge_cycles_homologous_mod2(faces, surface, cycle, basis[0]):
+            continue
+        basis.append(cycle)
+        break
+    if len(basis) != 2:
+        raise AssertionError("the 22-face cycle channels did not span torus homology")
+    return basis[0], basis[1]
+
+
+def twenty_two_face_homology_class(channel: ResolvedChannel) -> TorusClass:
+    """Reduce a defect-free 22-face channel in the pinned torus basis."""
+
+    if channel not in set(twenty_two_face_cycle_channels()):
+        raise ValueError("channel is outside the 22-face cycle sector")
+    _complex, faces, _meta = two_cell_brick()
+    surface, selected = channel
+    basis = twenty_two_face_homology_basis()
+    cycle = face_chain_boundary_mask(faces, selected)
+    matches: list[TorusClass] = [
+        (first, second)
+        for first, second in product((0, 1), repeat=2)
+        if edge_cycles_homologous_mod2(
+            faces,
+            surface,
+            cycle,
+            (basis[0] if first else 0) ^ (basis[1] if second else 0),
+        )
+    ]
+    if len(matches) != 1:
+        raise AssertionError("22-face boundary did not have a unique homology class")
+    return matches[0]
+
+
+def twenty_two_face_channel_value(channel: ResolvedChannel) -> Fraction:
+    """Evaluate the complete 22-face decorated carrier in an optimized gauge."""
+
+    if channel not in set(twenty_two_face_torus_channels()):
+        raise ValueError("channel is outside the 22-face torus stratum")
+    return optimized_interface_channel_value(channel)
+
+
+@cache
 def exact_interface_channel_value(channel: ResolvedChannel) -> Fraction:
     """Evaluate one resolved-channel representative by exact Haar integration."""
 
