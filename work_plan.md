@@ -5,6 +5,31 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
+## Current execution overlay (2026-07-24)
+
+The historical phases below remain the provenance of completed artifacts,
+but the current frontier schedule is the BF1--BF10 plan in
+`docs/birkhoff-fusion-clay-closure-plan-2026-07-24.md`.  It incorporates the
+counterfactual audit in
+`docs/the-simplification-ledger-2026-07-24.md`.
+
+The audit changes the immediate priority from enlarging scalar or
+multiplicity-only certificates to preserving the full physical object:
+
+1. positive Haar boundary tensors before signed channel expansion;
+2. fusion trees, intertwiner bases, phases, and \(F/R\) maps before
+   decategorification;
+3. the exact plaquette-coupled Gibbs law through blocking and the continuum;
+4. scale-dependent contraction grouped over fixed physical distance;
+5. one shared continuum object through OS reconstruction and spectral-gap
+   identification.
+
+The **next active milestone is BF1.5, “intertwiner-resolved three-strand
+pushforward seed.”**  Its checkable exit certificate is specified in the
+current BF plan.  Unless that section explicitly delegates a task back to
+one of the historical phases below, BF1.5 and then BF2--BF10 control execution
+order.
+
 Each milestone has:
 - A **goal** stated as a checkable predicate.
 - **Deliverables** (files that must exist for the milestone to be

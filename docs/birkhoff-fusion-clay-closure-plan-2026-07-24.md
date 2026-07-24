@@ -14,19 +14,56 @@ Hamiltonian has no spectrum in \((0,\Delta_G)\) for explicit
 A lattice contraction, a continuum correlation rate, or an abstract
 Hamiltonian model is not by itself the terminal theorem.
 
+## Simplification-ledger correction
+
+The dependency and counterfactual audit in
+`docs/the-simplification-ledger-2026-07-24.md` changes the execution order,
+but not the terminal theorem.  The highest-leverage work is no longer
+“enlarge the multiplicity census” in isolation.  It is to preserve three
+pieces of data that earlier reductions discarded:
+
+1. the positive physical Haar boundary tensor before it is split into signed
+   Peter--Weyl channels;
+2. the actual fusion-tree/intertwiner maps, phases, and \(F/R\) symbols before
+   they are decategorified to multiplicity vectors;
+3. one exact plaquette-coupled Gibbs object from fine-to-coarse pushforward
+   through projective contraction, continuum construction, and OS spectral
+   identification.
+
+The corrected contraction target also remains scale-dependent:
+\(q_a=1-ma+o(a)\), grouped over a fixed physical distance.  A microscopic
+spacing-independent \(q<1\) is not the target.
+
+These become **data-preservation invariants** for every gate:
+
+- **P1 — physical object:** every estimate names the exact Haar/Gibbs object
+  on which it acts;
+- **P2 — coherent boundary data:** no carrier closure or block-map claim may
+  retain only masks or multiplicities when the missing map depends on
+  intertwiner bases or phases;
+- **P3 — complete physical grouping:** signs are adjudicated only after all
+  channels with their actual heat weights have been grouped;
+- **P4 — shared-object transport:** a witness on an abstract polymer gas,
+  finite transfer matrix, single-edge character model, or finite fusion
+  category is not silently substituted for the Yang--Mills object;
+- **P5 — physical-distance uniformity:** cutoff-uniform means a grouped
+  exponent over fixed physical length, with located scale and volume moduli;
+- **P6 — all-groups honesty:** SU(2) may be used as a pilot, but not as the
+  all-groups theorem until monotonicity is proved on the physical carrier.
+
 ## Critical path
 
 | Gate | Deliverable | Exit certificate | Hard failure signal |
 |---|---|---|---|
-| BF1. Physical carrier | Finite fusion-closed basis on corrected slabs | Direct Haar integral equals complete fusion ledger; actual heat activity is nonnegative | A negative complete-family heat polynomial, or failure of exact resummation |
-| BF2. Dual positivity | General theorem (DP), or a precisely enlarged positive carrier | Nonnegative activity for every physical generator at every cutoff and coupling | Exact counterexample surviving the complete physical sum |
-| BF3. Physical block map | Exact fine-to-coarse pushforward on the BF2 carrier | Mass preservation, reflection compatibility, and an explicit remainder identity | Coarse data leave the carrier or require signed cancellation not represented by it |
-| BF4. Projective geometry | Birkhoff–Hopf estimate over a fixed physical block | Exact/projective diameter bound whose grouped rate is \(<1\), uniform in volume and cutoff | Infinite diameter or grouped rates with no positive physical decay exponent |
+| BF1. Physical carrier | Finite **intertwiner-resolved boundary-tensor basis** on corrected slabs | Direct unfused Haar integral equals the coherent fusion-tree contraction, independently of basis; complete heat activity is nonnegative | A negative complete physical heat family, basis dependence, or failure of exact resummation |
+| BF2. Dual positivity | General theorem (DP), a reflected-Gram/SOS theorem, or a precisely enlarged positive carrier | Nonnegative activity for every complete physical generator at every cutoff and coupling | Exact counterexample surviving the complete physical sum |
+| BF3. Physical block map | Exact fine-to-coarse pushforward of the plaquette-coupled Haar Gibbs law on the BF2 carrier | Mass preservation, reflection compatibility, joint coarse-intertwiner transport, and an explicit remainder identity | Coarse data leave the carrier or require unrecorded signed/coherent cancellation |
+| BF4. Projective geometry | Birkhoff--Hopf estimate on the reflected physical block kernel over a fixed physical distance | Exact cross-ratio/diameter bound with \(q_a=1-ma+o(a)\) and grouped rate \(<1\), uniform in volume and cutoff | Infinite grouped diameter or no positive physical decay exponent |
 | BF5. Graded stability | Perturbative comparison for branched/intersection sectors | Explicit \(C\kappa^{64}\) bound and summable grouped distortion | Graded contribution is unsummable or changes the cone order |
-| BF6. RG-I7–I9 | Contraction, landing, and summable distortion on the actual Yang–Mills trajectory | One witness-bearing RG certificate with volume/cutoff moduli | Any certificate applies only to a surrogate law or a fixed cutoff |
-| BF7. Continuum theory | Infinite-volume and \(a\to0\) Schwinger functional/measure | Located convergence moduli, non-Gaussianity, locality, AF short-distance normalization | Limit is trivial, Gaussian, nonunique, or detached from the RG trajectory |
-| BF8. OS reconstruction and gap | OS axioms and reconstruction on the BF7 object | Physical Hilbert space, vacuum, Hamiltonian, and \(\operatorname{spec}H\cap(0,\Delta)=\varnothing\) | Correlation decay cannot be identified with the reconstructed Hamiltonian |
-| BF9. All compact simple groups | Uniform group-theoretic lift | Concrete per-group representation/heat-kernel data plus a proved worst-case reduction | An uninhabited representation-data interface remains |
+| BF6. RG-I7–I9 | Contraction, landing, and summable distortion on the **same exact Yang--Mills Gibbs trajectory** | One witness-bearing RG certificate with physical-distance, volume, and cutoff moduli | Any certificate applies only to a surrogate law, a fiducial constant, or a fixed cutoff |
+| BF7. Continuum theory | Infinite-volume and \(a\to0\) Schwinger functional/measure obtained from the BF6 trajectory | Located convergence/tightness moduli, sigma-additive realization or adequate functional construction, non-Gaussianity, locality, covariance, and AF normalization | Limit is trivial, Gaussian, nonunique, non-covariant, or detached from the RG trajectory |
+| BF8. OS reconstruction and gap | OS axioms and reconstruction on the **same BF7 object** | Physical Hilbert space, vacuum, Hamiltonian, and \(\operatorname{spec}H\cap(0,\Delta)=\varnothing\) derived from its grouped decay | Correlation decay cannot be identified with the reconstructed Hamiltonian |
+| BF9. All compact simple groups | Per-group physical carriers and estimates, or a uniform lift proved on those carriers | Concrete per-group representation/heat-kernel/intertwiner data plus a proved physical worst-case reduction | An uninhabited representation-data interface or scalar-only monotonicity remains |
 | BF10. Clay assembly | Shared-object final theorem | `ClayTargetPinned`-strength inhabitant and independent assumption audit | Any clause refers to a different or surrogate object |
 
 ## BF1: current tranche
@@ -66,15 +103,130 @@ heat weighting is not an ordinary module morphism, and multiplicity vectors
 do not retain the counit/multiplication maps on intertwiner spaces. Central
 induction is therefore a coherence envelope, not the positive RG cone.
 
-BF1 is not closed by one example. The next BF1 work units are:
+BF1 is not closed by one example.  The simplification audit changes the next
+BF1 work units to:
 
-1. census diagonal duplicate surfaces and three-strand family orbits;
-2. test higher labels and larger corrected slabs;
-3. construct the heat-twisted central-module comparison;
-4. add embedded fusion-tree/intertwiner data if surface masks alone
-   overcount or fail closure;
-5. state the minimal general positivity lemma surviving that falsification
+1. add embedded fusion trees, orthonormal intertwiner indices, orientations,
+   and exact phase data to the carrier **before** enlarging the census;
+2. construct the first three-strand family where fusion-path multiplicity is
+   nontrivial, then compare direct Haar, coherent recoupling, and the complete
+   physical heat polynomial;
+3. test reflected Gram/SOS positivity on that complete family;
+4. carry the same boundary data through one exact corrected-slab,
+   unnormalized Haar pushforward;
+5. only then enlarge to all three-strand orbits, higher labels, and larger
+   corrected slabs;
+6. construct the heat-twisted central-module comparison as an explanatory
+   coherence envelope, not as the carrier itself;
+7. state the minimal general positivity lemma surviving that falsification
    campaign.
+
+## Next milestone — BF1.5: intertwiner-resolved three-strand pushforward seed
+
+This is the next milestone to execute.
+
+### Goal
+
+Construct one minimal, genuinely four-dimensional three-strand corrected-slab
+sector in which fusion-path multiplicity occurs, retain its full boundary
+intertwiner data, and compute both its complete physical heat activity and
+one exact unnormalized fine-to-coarse Haar pushforward.
+
+This milestone deliberately bridges BF1 and BF3.  A larger
+multiplicity-only census would not test the data that the block map needs.
+
+### Required mathematical object
+
+For every boundary state in the selected sector, record:
+
+- the closed surface-strand multiset and oriented face labels;
+- a canonical fusion tree on each multiply occupied face;
+- an orthonormal basis index for every non-bivalent edge invariant space;
+- exact signed/unitary \(F/R\)-symbol data for changes of tree or ordering;
+- the dimension and Casimir heat exponent of every physical output channel;
+- the reflected partner needed to form the candidate Gram pairing.
+
+The multiplicity ledger is a derived view of this object, never its source of
+truth.
+
+### Work units
+
+1. **Carrier model.** Implement the intertwiner-resolved boundary-state type
+   and deterministic canonicalization under slab symmetries.
+2. **Minimal physical sector.** Locate and pin the smallest three closed
+   fundamental surfaces whose overlap produces nontrivial fusion-path
+   multiplicity and genuinely four-dimensional intersection data.
+3. **Three-way equality.** Compute:
+   - the direct unfused quaternion-Haar network;
+   - the coherent fusion-tree/\(F\)-symbol contraction;
+   - the complete heat-weighted physical activity.
+   Prove the first two agree and that the third resums every channel.
+4. **Basis/coherence audit.** Change the internal fusion tree and verify that
+   the complete activity is unchanged with the exact signed
+   Biedenharn--Elliott/Racah transport.
+5. **Reflected positivity test.** Build the finite reflected Gram matrix for
+   the sector and either give an exact PSD/SOS factorization or isolate its
+   first exact negative principal minor.
+6. **Pushforward seed.** Integrate every fine internal link for one selected
+   boundary-to-coarse-boundary block, returning the unnormalized kernel,
+   total mass, coarse intertwiner map, and literal residual outside the
+   selected carrier.
+7. **Regression and prose certificate.** Pin all exact values and record
+   precisely which clauses are proved, falsified, or still open.
+
+### Exit certificate
+
+BF1.5 closes only when one of the following mutually decisive certificates
+exists.
+
+**Positive exit**
+
+- direct Haar \(=\) coherent recoupling for every state in the selected
+  sector;
+- basis changes leave the complete heat activity invariant;
+- every selected complete heat activity is nonnegative for its full physical
+  coupling domain;
+- the reflected Gram matrix is exactly PSD;
+- the one-block unnormalized pushforward, its coarse-intertwiner transport,
+  total mass, and remainder identity are explicit.
+
+**Negative exit**
+
+- a minimal complete physical heat family is exactly negative; or
+- a basis/coherence inconsistency survives exact signed recoupling; or
+- the exact pushforward requires boundary data outside the proposed enriched
+  carrier.
+
+Any negative exit is progress: it supplies BF2/BF3 with the first exact
+coordinate of failure and specifies the necessary carrier enlargement.
+
+### Anticipated artifacts
+
+- `computations/intertwiner_resolved_carrier.py`;
+- `computations/three_strand_corrected_slab.py`;
+- `tests/test_intertwiner_resolved_carrier.py`;
+- `tests/test_three_strand_corrected_slab.py`;
+- `notes/bf1-5-three-strand-pushforward.md`.
+
+Names may be adjusted to the existing module layout, but the mathematical
+payload and exit test may not be weakened.
+
+### Dependencies already present
+
+- exact quaternion Haar integration and corrected-slab geometry;
+- pair-orbit and diagonal physical heat census;
+- exact signed/squared Wigner--Racah \(6j\) machinery;
+- Biedenharn--Elliott coherence interfaces;
+- the finite \(SU(2)_k\) audit identifying precisely why multiplicities are
+  insufficient.
+
+### Explicit non-goals
+
+BF1.5 does not claim general (DP), cutoff-uniform Birkhoff contraction,
+RG-I7--I9, continuum existence, the all-groups lift, or the Clay theorem.
+Its purpose is to decide whether the first carrier rich enough for the
+physical block map is positive and closed in the first genuinely
+multiplicity-bearing sector.
 
 ## BF2–BF4: contraction engine
 
@@ -110,6 +262,10 @@ The exact pushforward identity must split into:
 This package is RG-I7, RG-I8, and RG-I9 only when its measure is the exact
 Haar-network Gibbs law, not the multiplicity-product surrogate.
 
+The Bałaban-shaped small-/large-field bounds must therefore be re-extracted
+or reproved in the normalization of that exact law.  Literature-shaped
+fiducials remain pilots, not RG exit certificates.
+
 ## BF7–BF10: from RG to the Clay theorem
 
 The RG certificate must construct located infinite-volume and continuum
@@ -124,6 +280,10 @@ show that the grouped correlation exponent supplies a spectral exclusion
 representation-theoretic input must be constructed for each compact simple
 group, and all fields must assemble on the one shared stack required by
 `ClayTargetPinned`.
+
+Finite witnesses for reflection positivity, nontriviality, a transfer gap,
+or identity covariance remain valuable tests, but they do not compose into
+BF7--BF10 unless their maps into this shared object are explicit.
 
 ## Evidence and commit policy
 
