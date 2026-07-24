@@ -156,15 +156,18 @@ legacy term cannot be the direct carrier of an RP-preserving CD-2 block.
 `computations/dual_half_time_reflection_route.py` mirrors the corrected
 boundary-complete slab, constructs its exact face reflection involution, and
 pins the reflected partner of the central four-active/two-temporal page
-carrier.  The immediate open field is now
-`corrected_slab_term_or_legacy_bridge`: either define the full fusion-complete
-physical term on the corrected slab, or prove an exact reflection-compatible
-bridge from the legacy term.
+carrier.  A deeper audit found that the production Lean development already
+contains the complete corrected-slab physical term and partition, their
+reflection invariance, the weighted-Gram identity, exact Cartesian coverage,
+and nonnegativity of the independently defined full physical reflection
+quadratic.
 
-The first course is recommended and is specified in
-`docs/compact-dual-reflection-route-correction-2026-07-23.md`.  Until it is
-implemented, `reflection_intertwines` in the parent CD-2 certificate must
-remain false.
+`CompactDualSlabPhysicalData.lean` packages this as the corrected CD-2
+physical datum.  The finite reflection route is therefore closed without a
+legacy-box bridge.  The immediate open object is the fine-to-coarse physical
+block kernel and its exact retained remainder; `reflection_intertwines` must
+be proved for that kernel, not re-proved for the already closed single-scale
+measure.
 
 ## What this advances
 

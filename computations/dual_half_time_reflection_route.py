@@ -12,9 +12,13 @@ spatial plaquettes on all time slices ``0,...,M`` and temporal plaquettes on
 its exact face reflection permutation, and pins the reflection partner of the
 four-active/two-temporal page carrier.
 
-The result changes the CD-2 target: reflection intertwining must be stated for
-the corrected slab physical term, or a separate exact bridge from the legacy
-box term to that slab must be supplied.
+The production Lean development goes further than the geometry audit: it
+already defines the complete corrected-slab spin-foam term and partition,
+proves exact reflection reindexing, identifies the reflected kernel with a
+weighted Gram matrix, and proves nonnegativity of the independently defined
+full physical reflection quadratic.  The result therefore closes the finite
+reflection route itself.  The next CD-2 target is the scale-to-scale block
+kernel and its retained remainder, not another reflection construction.
 """
 
 from __future__ import annotations
@@ -31,6 +35,17 @@ from computations.dual_positivity_geometry_bridge import (
 
 SPATIAL_PLANES = ((0, 1), (0, 2), (1, 2))
 TEMPORAL_PLANES = ((0, 3), (1, 3), (2, 3))
+
+CORRECTED_SLAB_LEAN_THEOREMS = (
+    "Z4HalfTimeReflectionPartition."
+    "slabParametricKPhysicalTerm_supported_reflection",
+    "Z4HalfTimeReflectionPartition."
+    "slabParametricKPhysicalPartition_reflection_reindex",
+    "Z4HalfTimeReflectionPhysicalGram."
+    "centralPhysicalReflectedKernel_eq_weightedGram",
+    "Z4HalfTimeReflectionPhysicalReindex."
+    "centralFullPhysicalReflectionQuadratic_nonnegative",
+)
 
 
 def _nat_sub(left: int, right: int) -> int:
@@ -304,7 +319,7 @@ def build_corrected_page_reflection_pair(half: int = 1) -> CorrectedPageReflecti
 
 
 def current_cd2_reflection_route_frontier() -> CD2ReflectionRouteFrontier:
-    """Return the honest route after the corrected finite geometry is pinned."""
+    """Return the closed finite-RP route on the corrected physical slab."""
 
     page_pair = build_corrected_page_reflection_pair()
     return CD2ReflectionRouteFrontier(
@@ -313,4 +328,5 @@ def current_cd2_reflection_route_frontier() -> CD2ReflectionRouteFrontier:
             page_pair.extent
         ),
         corrected_page_pair_pinned=page_pair.is_closed(),
+        corrected_slab_spin_foam_term_pinned=True,
     )

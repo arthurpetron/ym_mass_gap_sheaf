@@ -1,6 +1,7 @@
 """Regression pins for the corrected CD-2 reflection geometry."""
 
 from computations.dual_half_time_reflection_route import (
+    CORRECTED_SLAB_LEAN_THEOREMS,
     boundary_complete_slab_plaquettes,
     build_corrected_page_reflection_pair,
     corrected_slab_reflection_is_involutive,
@@ -48,13 +49,23 @@ def test_central_four_plus_two_page_carrier_has_reflected_partner() -> None:
     assert pair.is_closed()
 
 
-def test_route_requires_corrected_slab_physical_term() -> None:
+def test_corrected_slab_physical_reflection_route_is_closed() -> None:
     frontier = current_cd2_reflection_route_frontier()
     assert not frontier.legacy_physical_term_reflection_closed
     assert frontier.corrected_slab_face_permutation_pinned
     assert frontier.corrected_page_pair_pinned
-    assert not frontier.corrected_slab_spin_foam_term_pinned
+    assert frontier.corrected_slab_spin_foam_term_pinned
     assert not frontier.legacy_to_corrected_term_bridge_pinned
-    assert not frontier.viable_physical_term_route_selected()
-    assert frontier.first_open_field() == "corrected_slab_term_or_legacy_bridge"
-    assert not frontier.is_reflection_route_closed()
+    assert frontier.viable_physical_term_route_selected()
+    assert frontier.first_open_field() is None
+    assert frontier.is_reflection_route_closed()
+    assert CORRECTED_SLAB_LEAN_THEOREMS == (
+        "Z4HalfTimeReflectionPartition."
+        "slabParametricKPhysicalTerm_supported_reflection",
+        "Z4HalfTimeReflectionPartition."
+        "slabParametricKPhysicalPartition_reflection_reindex",
+        "Z4HalfTimeReflectionPhysicalGram."
+        "centralPhysicalReflectedKernel_eq_weightedGram",
+        "Z4HalfTimeReflectionPhysicalReindex."
+        "centralFullPhysicalReflectionQuadratic_nonnegative",
+    )
