@@ -56,6 +56,8 @@ intersecting pair on the unit four-cube:
 - all 100 physical heat polynomials coefficientwise positive;
 - six orbits contain negative fixed-face channels;
 - 77 distinct heat polynomials, with minimum positive coefficient \(1/6561\).
+- all 127 diagonal duplicate-surface families are structurally positive:
+  \(A_{S,S}(w)=\prod_i(1+3^{\chi_i}w^{8F_i})\).
 
 The finite \(SU(2)_k\) central-monad campaign is also adjudicated. Fixed
 low-spin fusion, the degree-zero adjunction, and pure-fusion module transport

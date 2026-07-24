@@ -59,13 +59,40 @@ genuine intersection. It is stronger than the unweighted 100-orbit result
 and is stable under the finite \(SU(2)_k\) comparison for every \(k\ge2\),
 because each face contains at most two fundamental strands.
 
-It does not prove the general carrier positive. The next minimal sectors are:
+## Diagonal duplicate surfaces
 
-1. diagonal duplicate surfaces;
-2. three closed fundamental strands, where fusion-path multiplicities first
+The eight nonempty single-surface orbits account for all 127 diagonal pairs
+\((S,S)\). These do not require a \(2^F\) channel enumeration. On each
+edge-connected component \(S_i\), a label-two subset is admissible only when
+it is empty or the whole component. The uniform label-two amplitude is the
+two-dimensional Yang--Mills value \(3^{\chi_i-F_i}\); its face-dimension
+weight is \(3^{F_i}\). Therefore
+
+\[
+ A_{S,S}(w)=\prod_i\left(1+3^{\chi_i}w^{8F_i}\right).
+\]
+
+All coefficients are strictly positive. Exact examples include:
+
+\[
+\begin{aligned}
+\text{six-face sphere:}&\quad 1+9w^{48},\\
+\text{two six-face spheres:}&\quad
+1+18w^{48}+81w^{96},\\
+\text{sixteen-face Clifford torus:}&\quad 1+w^{128}.
+\end{aligned}
+\]
+
+Thus all 100 intersecting pair orbits and all eight diagonal surface orbits
+are now physically heat-positive. The nine disjoint distinct-pair orbits
+have no overlap channel and reduce to independent positive surfaces.
+
+This does not prove the general carrier positive. The next minimal sectors are:
+
+1. three closed fundamental strands, where fusion-path multiplicities first
    occur;
-3. higher surface labels;
-4. corrected slabs larger than one embedded four-cube.
+2. higher surface labels;
+3. corrected slabs larger than one embedded four-cube.
 
 Any of these may produce a negative complete heat polynomial. The
 Birkhoff cone cannot be declared before those tests or a structural

@@ -19,16 +19,21 @@ from fractions import Fraction
 from functools import cache
 
 from computations.exact_haar_network import (
+    GaugeFixedComplex,
     SPoly,
     casimir4,
     dimension,
     sp_clean,
+    sp_mul,
 )
 from computations.hypercube4d_survey import (
+    Face,
     FaceMeta,
     hypercube,
     kernel_basis,
+    mask_orbits,
     pair_orbits,
+    surface_cell_counts,
     surface_pair_fusion_expansion,
     surfaces,
     symmetry_maps,
@@ -191,3 +196,111 @@ def pair_heat_census_certificate() -> PairHeatCensusCertificate:
     if not certificate.validates():
         raise AssertionError("the pair heat census certificate drifted")
     return certificate
+
+
+def surface_face_components(
+    faces: list[Face],
+    mask: int,
+) -> tuple[int, ...]:
+    """Split a binary surface into edge-connected face masks."""
+
+    if mask < 0 or mask >> len(faces):
+        raise ValueError("surface mask leaves the supplied face set")
+    remaining = {
+        face_index
+        for face_index in range(len(faces))
+        if (mask >> face_index) & 1
+    }
+    components: list[int] = []
+    while remaining:
+        seed = min(remaining)
+        stack = [seed]
+        remaining.remove(seed)
+        component = 0
+        while stack:
+            current = stack.pop()
+            component |= 1 << current
+            current_edges = {
+                edge for edge, _orientation in faces[current]
+            }
+            neighbours = {
+                candidate
+                for candidate in remaining
+                if current_edges
+                & {
+                    edge
+                    for edge, _orientation in faces[candidate]
+                }
+            }
+            remaining.difference_update(neighbours)
+            stack.extend(sorted(neighbours, reverse=True))
+        components.append(component)
+    return tuple(sorted(components))
+
+
+def diagonal_surface_heat_activity(
+    complex_: GaugeFixedComplex,
+    faces: list[Face],
+    mask: int,
+) -> SPoly:
+    """Physical activity of two identical fundamental surface strands.
+
+    Each component contributes its vacuum channel and its uniform label-two
+    channel; all proper nonempty subsets have a boundary and vanish.
+    """
+
+    activity: SPoly = {0: Fraction(1)}
+    for component in surface_face_components(faces, mask):
+        _vertices, _edges, face_count, euler = surface_cell_counts(
+            complex_, faces, component
+        )
+        component_factor = {
+            0: Fraction(1),
+            8 * face_count: Fraction(3) ** euler,
+        }
+        activity = sp_mul(activity, component_factor)
+    return sp_clean(activity)
+
+
+@dataclass(frozen=True)
+class DiagonalHeatOrbitRecord:
+    """One nonempty binary-surface orbit with its duplicate activity."""
+
+    representative: int
+    orbit_size: int
+    component_count: int
+    heat_activity: SPoly
+
+    @property
+    def coefficientwise_positive(self) -> bool:
+        return bool(self.heat_activity) and all(
+            coefficient > 0 for coefficient in self.heat_activity.values()
+        )
+
+
+@cache
+def diagonal_surface_heat_census() -> tuple[DiagonalHeatOrbitRecord, ...]:
+    """Evaluate all eight nonempty duplicate-surface orbits structurally."""
+
+    complex_, faces, meta = hypercube()
+    binary_surfaces = surfaces(kernel_basis(complex_, faces))
+    records = [
+        DiagonalHeatOrbitRecord(
+            representative=orbit[0],
+            orbit_size=len(orbit),
+            component_count=len(
+                surface_face_components(faces, orbit[0])
+            ),
+            heat_activity=diagonal_surface_heat_activity(
+                complex_, faces, orbit[0]
+            ),
+        )
+        for orbit in mask_orbits(binary_surfaces[1:], symmetry_maps(meta))
+    ]
+    if (
+        len(records) != 8
+        or sum(record.orbit_size for record in records) != 127
+        or not all(record.coefficientwise_positive for record in records)
+    ):
+        raise AssertionError("the diagonal surface heat census drifted")
+    return tuple(records)
