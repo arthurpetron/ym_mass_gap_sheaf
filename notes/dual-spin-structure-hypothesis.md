@@ -394,6 +394,64 @@ the orbit census over all interface-bearing genus-one surface pairs in the
 two-cell brick, with the fusion-tree packet retained rather than projected
 to mod-two homology.
 
+### Complete first-branching defect census
+
+The natural filtration parameter is the number of coincident faces in the
+two fundamental surfaces.  The two-cell brick has 8,192 closed binary
+surfaces, 237 genus-one surfaces, and 234 genus-one surfaces meeting the
+shared three-face.  Each interface torus is the symmetric difference of
+4,096 unordered pairs, so the complete physical family has
+
+\[
+ 234\cdot4096=958464
+\]
+
+pairs.  The full 96-element symmetry group of the \((2,1,1,1)\) cuboid has
+now been implemented exactly.
+
+Overlap five is the first branching order: it is the smallest filtration
+containing the trivalent relative-defect witness.  Through this order the
+complete counts are
+
+\[
+\begin{array}{c|r}
+\text{object} & \text{count}\\ \hline
+\text{physical pairs} & 58878\\
+\text{pair orbits} & 1219\\
+\text{raw channels on pair-orbit representatives} & 27122\\
+\text{edge-admissible representative channels} & 15744\\
+\text{resolved-channel orbits after deduplication} & 2166.
+\end{array}
+\]
+
+Only 14 of the 2,166 resolved orbits have nonzero relative boundary defect.
+They lie on two surface-orbit representatives; every defect is the same
+single interface edge terminated by the unique invariant in
+\(\operatorname{Inv}(V_1^{\otimes3})\).  Exact Haar integration gives
+
+\[
+\begin{array}{c|c}
+\text{orbit representatives} & \text{amplitude}\\ \hline
+10 & 1/18874368\\
+1  & 1/75497472\\
+3  & 1/226492416.
+\end{array}
+\]
+
+Thus the complete first-branching defect sector is strictly positive.  The
+sum over its 14 symmetry representatives is \(7/12582912\); this sum is only
+a checksum and is not a physical orbit-weighted partition function.
+
+This closes a stronger gate than the original six-element witness orbit:
+no branched endpoint through first branching order carries a negative
+amplitude.  It does not settle the 2,152 defect-free cycle-sector orbits, nor
+any overlap order above five.  Attempting to integrate all 2,166
+representatives directly causes severe quaternion-polynomial blow-up on the
+26-face supports.  The obstruction is computationally diagnostic: the next
+gate must glue two one-cell tensors through the explicit interface
+fusion-tree basis.  Expanding the full Haar polynomial again would discard
+the very structure that the decorated carrier was introduced to retain.
+
 ## Higher-dimensional status
 
 It would be too strong to say that spin-structure technology has literally
@@ -448,9 +506,11 @@ The next gates are:
    but a one-dimensional SU(2) invariant.  **DONE on the first branched
    orbit:** the decorated carrier retains oriented strands and a complete
    fusion-tree basis; all 24 admissible channels are exactly positive and
-   resum to the unfused pair amplitude.  **OPEN next:** classify every
-   interface-bearing genus-one pair orbit and determine whether a universal
-   decorated sign law survives.
+   resum to the unfused pair amplitude.  **DONE through first branching
+   order for nonzero-defect channels:** all 14 defect-channel orbits in the
+   complete overlap-at-most-five filtration are exactly positive.  **OPEN
+   next:** construct the factorized interface transfer tensor, evaluate the
+   remaining 2,152 cycle-sector orbits, then increase the overlap order.
 4. **Negative-orbit audit.**  **DONE for binary-pair reachability.**  Exactly
    3 of 33 negative orbits enter this lane, and all three obey \(q=ab=1\).
    **OPEN beyond this lane:** determine the appropriate carrier for the 30
