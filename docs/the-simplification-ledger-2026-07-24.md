@@ -1,0 +1,516 @@
+# The Simplification Ledger
+
+**Named-result genealogy and counterfactual impact audit for the Yang--Mills
+mass-gap program**
+
+Date: 2026-07-24
+
+## 0. Scope, method, and a necessary warning
+
+This is a dependency audit, not a claim that the Yang--Mills mass-gap problem
+has been solved.  The terminal theorem is still the shared-object theorem in
+`ClayTargetPinned`: for every compact simple \(G\), construct one nontrivial
+four-dimensional continuum Yang--Mills theory, reconstruct its physical
+Hilbert space and Hamiltonian, and prove
+\(\operatorname{spec}H\cap(0,\Delta_G)=\varnothing\) for some
+\(\Delta_G>0\).
+
+Here “we are using” means that a human-eponymous theorem, law, construction,
+identity, transform, expansion, criterion, or strategic comparison occurs on
+the repository's live mathematical route.  The census covers:
+
+- the BF1--BF10 route in
+  `docs/birkhoff-fusion-clay-closure-plan-2026-07-24.md`;
+- the four live formal chains identified in `docs/continuum-map.md`;
+- the continuum and Clay boundary in `docs/clay-open-boundary-ledger.md`;
+- the exact dual-positivity, recoupling, Core-B, cluster, and finite-category
+  campaigns in `notes/`, `computations/`, `tests/`, and `lean/YMGap/`.
+
+An eponym found only in an archive, bibliography, historical aside, or
+abandoned route is not called load-bearing.  Strategic comparisons are
+included but explicitly labelled.  Generic operations such as induction,
+finite summation, and ordinary polynomial arithmetic are omitted unless the
+repository invokes a named theorem or identity.
+
+The historical relation “led to” is interpreted as **mathematical ancestry**:
+the older body supplies concepts or results needed by the newer one.  It is
+not an exclusive priority claim.  History branches, and the same older work
+can support several later results.
+
+### Status key
+
+| Mark | Meaning |
+|---|---|
+| **T** | terminal target or defining physical framework |
+| **D** | directly used in a proved repository result or live proof interface |
+| **F** | frontier machinery proposed for a currently open gate |
+| **I** | structural inspiration; no theorem transferring it to 4D gauge duals |
+| **C** | comparator/no-go route; useful because its failure localizes the wall |
+| **S** | mathematical substrate used inside certificates |
+
+## 1. Result first: ranked net effect on this project
+
+The counterfactual audit produces a sharp ranking.
+
+1. **Retain the full positive Haar-network boundary tensor through blocking.**
+   The largest avoidable loss occurs when a positive group integral is
+   expanded into signed fixed-face channels, and then reduced again to
+   multiplicity vectors.  Undoing both quotients means carrying boundary
+   intertwiners, fusion-tree bases, phases, and reflected Gram data.  This is
+   the most plausible route to the missing BF1--BF4 positive carrier and exact
+   block map.
+
+2. **Retain the scale dependence and group over fixed physical distance.**
+   Requiring one microscopic contraction \(q<1\) independent of the spacing is
+   stronger than the continuum physics permits.  The correct target is
+   \(q_a=1-ma+o(a)\), whose product across distance \(L\) is
+   \(e^{-mL}\).  This changes the statement of BF4, and therefore RG-I7--I9,
+   from an apparently impossible per-step estimate to a dimension-free
+   grouped Birkhoff estimate.
+
+3. **Keep one physical object from Gibbs pushforward through OS
+   reconstruction.**  The repository has many genuine finite witnesses, but
+   different witnesses cannot be assembled into the Clay theorem merely
+   because each inhabits an analogous interface.  Not simplifying the
+   measure to a functional shell, clustering to a finite transfer model, or
+   covariance to the identity rotation would force the actual common
+   continuum object to be constructed.  This does not make BF7--BF10 easier;
+   it prevents a false closure and identifies the remaining Clay content.
+
+4. **Keep the complete 4D intersection geometry.**  Single binary surfaces
+   reduce to 2D Yang--Mills and are positive; Migdal--Kadanoff and other
+   hierarchical reductions also erase joint coarse intertwiners.  Preserving
+   intersections, branching, and fusion-path multiplicity is precisely where
+   dual positivity and the physical RG can live.
+
+5. **Keep exact physical activities inside the cluster/RG step.**  Replacing
+   the Gibbs law by a multiplicity-product surrogate or an abstract polymer
+   majorant proves convergence only for the surrogate.  Propagating the
+   unsimplified activities would turn the existing Penrose/KP and Bałaban
+   architecture into an actual RG-I7--I9 result, if the needed bounds hold.
+
+6. **Retain per-group representation and heat-kernel data.**  The formal
+   “SU(2) worst case” reduction is conditional on monotonicity interfaces that
+   the physical carrier has not supplied.  Carrying each compact simple group
+   is more work, but it is the safe BF9 route and exposes any group-specific
+   failure of positivity or diameter control.
+
+7. **Use finite tensor categories only as local coherence envelopes.**
+   Refusing the simplification from full maps to the Grothendieck ledger is
+   useful; refusing the \(SU(2)_k\) truncation itself is also necessary for the
+   continuum.  The resulting lesson is negative but valuable: Ocneanu
+   rigidity does not provide a cutoff-uniform cone, and the central vacuum
+   carrier grows like \(k+1\).
+
+8. **Restore complete heat-kernel tails and signed recoupling before claiming
+   uniformity.**  Low-spin and squared-\(6j\) certificates are exact where
+   stated, but they cannot decide the all-label carrier or coherent block map.
+   Tail bounds and signed \(F/R\)-symbol identities are required.
+
+The rest of the ledger records why these eight conclusions follow.
+
+---
+
+# Part I. Lists A--E
+
+## 2. List A — named results presently used
+
+List A is keyed by the human or humans conventionally attached to the result.
+The “parents” column points into List B, so every row has a recursive route.
+
+| ID | Human key | Named work used here | Status and exact role | List-B parents |
+|---|---|---|---|---|
+| A01 | **Chen Ning Yang; Robert Mills** | Yang--Mills gauge theory, action, and equations | **T.** Defines the theory to be constructed. | B01, B06 |
+| A02 | **Kenneth Wilson** | Wilson lattice action, Wilson loops, lattice gauge theory, and Wilsonian RG | **D/T.** Regulated Gibbs law and gauge-invariant observables; also the scale architecture. | B01, B11 |
+| A03 | **Arthur Jaffe; Edward Witten** | Yang--Mills existence and mass-gap problem | **T.** Fixes the all-groups, nontriviality, axiomatic-QFT, and positive-gap quantifiers. | B01, B02, B03 |
+| A04 | **Lars Gårding; Arthur Wightman** | Gårding--Wightman/Wightman axioms | **D/T.** Required strength of the reconstructed continuum QFT. | B02 |
+| A05 | **Konrad Osterwalder; Robert Schrader** | Osterwalder--Schrader axioms and reconstruction | **D/T.** Euclidean route to the physical Hilbert space and Hamiltonian. | B02, B03 |
+| A06 | **Konrad Osterwalder; Erhard Seiler** | reflection positivity for lattice gauge theories | **D.** The repository's heat-kernel/character OS2 diagonalization route. | B03, B20 |
+| A07 | **Israel Gelfand; Mark Naimark; Irving Segal** | GNS construction | **D.** Positive functional \(\rightarrow\) cyclic Hilbert-space representation. | B02, B04 |
+| A08 | **Marshall Stone; Einar Hille; Kôsaku Yosida** | Stone generator theorem and Hille--Yosida semigroup theory | **D/F.** Identifies positive-time translations with a Hamiltonian once the continuum semigroup exists. | B04 |
+| A09 | **Gunnar Källén; Harry Lehmann** | Källén--Lehmann spectral representation | **F.** Intended same-object bridge from Euclidean decay to exclusion of low spectral mass. | B04, B21 |
+| A10 | **Percy Daniell; Andrey Kolmogorov** | Daniell--Kolmogorov extension/consistency theorem | **D/F.** Functional inverse-limit structure is present; the actual Yang--Mills measure remains open. | B05 |
+| A11 | **Frigyes Riesz; Andrey Markov; Shizuo Kakutani** | Riesz--Markov--Kakutani representation theorem | **D/F.** Positive functionals to regular Borel measures in the compact/projective construction. | B05 |
+| A12 | **Salomon Bochner; Robert Minlos** | Bochner--Minlos theorem | **F.** Quarantined classical route from characteristic functionals to measures on distribution spaces. | B05 |
+| A13 | **Yuri Prokhorov** | Prokhorov compactness theorem | **F.** Tightness/subsequence tool for continuum measures; no physical uniform modulus is yet supplied. | B05 |
+| A14 | **David Gross; Frank Wilczek; H. David Politzer** | asymptotic freedom of nonabelian gauge theory | **D/T.** One-loop sign is formalized; the true nonperturbative UV limit remains a BF7 condition. | B06, B11 |
+| A15 | **Alfréd Haar** | invariant Haar measure | **D.** Exact link integration and the native positive compact-group Gibbs representation. | B07 |
+| A16 | **Fritz Peter; Hermann Weyl** | Peter--Weyl theorem | **D.** Character/matrix-coefficient expansion of heat kernels and link integrals. | B07, B21 |
+| A17 | **Issai Schur** | Schur lemma and Schur orthogonality | **D.** Link-channel collapse and reflection-positive sum-of-squares diagonalization. | B07, B20 |
+| A18 | **Hermann Weyl** | character, integration, and dimension formulae | **D.** SU(2) exact integrator, heat tails, and all-group representation data. | B07, B08 |
+| A19 | **Hendrik Casimir** | quadratic Casimir operator/eigenvalues | **D.** Heat exponent, representation gap, and per-group spectral data. | B08, B23 |
+| A20 | **Alfred Clebsch; Paul Gordan** | Clebsch--Gordan decomposition and coefficients | **D.** Face fusion, parity/triangle rules, and intertwiner multiplicities. | B09 |
+| A21 | **Eugene Wigner; Giulio Racah** | \(3nj\), \(6j\), Racah \(W\), and recoupling/orthogonality formulae | **D/F.** Exact signed recoupling; squared kernels are proved only where stated. | B09 |
+| A22 | **Leonard Biedenharn; John Elliott** | Biedenharn--Elliott pentagon identity | **D/F.** Required coherent reassociation; general signed identity remains a named frontier in parts of the formal chain. | B09, B15 |
+| A23 | **Élie Cartan; Wilhelm Killing; Eugene Dynkin; Harold Coxeter** | root systems, Dynkin diagrams, Coxeter/Weyl data, classification of compact simple Lie types | **D/F.** Finite type enumeration exists; physical all-group monotonicity is conditional. | B08, B22 |
+| A24 | **Josiah Willard Gibbs; Ludwig Boltzmann** | Gibbs measure/state and Boltzmann weight | **T/D.** The exact lattice law whose pushforward must be blocked, not a surrogate law. | B10 |
+| A25 | **Julius Mayer; Harold Ursell** | Mayer expansion and Ursell connected functions | **D/F.** Connected polymer reorganization; the real multi-plaquette identity is the live D1 wall. | B11 |
+| A26 | **Arthur Cayley** | Cayley tree formula | **S.** Entropy/counting factor in tree and polymer majorants. | B24 |
+| A27 | **Oliver Penrose** | Penrose tree-graph identity/inequality | **D/F.** Controls signed connected graphs by trees; physical activity identification is still required. | B11, B24 |
+| A28 | **David Brydges; Paul Federbush** | Brydges--Federbush tree/Mayer formula | **D/F.** Quantitative cluster majorant used with small-field activities. | B11 |
+| A29 | **Roman Kotecký; David Preiss** | Kotecký--Preiss abstract-polymer convergence criterion | **D/F.** Volume-uniform cluster convergence after physical activities meet its hypothesis. | B11 |
+| A30 | **Roland Dobrushin** | Dobrushin uniqueness/comparison and polymer criteria | **D/F.** Ratio/uniqueness architecture; physical step ratio remains nontrivial. | B11 |
+| A31 | **Tadeusz Bałaban** | constructive lattice-gauge renormalization group and large-/small-field expansion | **D/F.** Governs the intended exact physical RG; current constants include explicitly labelled fiducials and uninhabited steps. | B11, B12 |
+| A32 | **David Hilbert** | Hilbert projective metric | **F.** Proposed metric for dimension-free contraction of positive dual activities. | B13 |
+| A33 | **Garrett Birkhoff; Eberhard Hopf** | Birkhoff--Hopf contraction theorem | **F.** Candidate BF4 engine; no physical finite-diameter carrier has yet been constructed. | B13 |
+| A34 | **Oskar Perron; Ferdinand Frobenius** | Perron--Frobenius theorem | **D/F.** Finite positive-transfer intuition and proposed graded positive-sector control. | B13, B21 |
+| A35 | **Mark Krein; Mikhail Rutman; Stefan Banach** | Krein--Rutman positive-operator theorem and Banach contraction principle | **F/S.** Infinite-dimensional and fixed-point ancestry of the proposed contraction argument. | B13 |
+| A36 | **Pafnuty Chebyshev; Carl Jacobi** | Chebyshev polynomials/orthogonality; Jacobi theta identities and triple product | **D.** SU(2) character coordinates and exact Core-B/theta positivity certificates. | B14, B21 |
+| A37 | **Sergei Bernstein; Jacques Sturm; Andrey Markov; Gyula Lukács** | Bernstein basis positivity, Sturm chains, and Markov--Lukács interval positivity | **D/S.** Exact polynomial sign certificates and fallback decision procedures. | B14 |
+| A38 | **Semyon Gershgorin** | Gershgorin circle theorem | **D/S.** Finite/minor spectral-margin bounds in the Core-B chain. | B14, B21 |
+| A39 | **Siméon Denis Poisson; Leonhard Euler; Colin Maclaurin** | Poisson summation and Euler--Maclaurin formula | **D/C.** Theta/local-CLT comparison tools; exact Poisson inversion was later eliminated from one live tail. | B14, B21 |
+| A40 | **Vladimir Drinfeld; Alexei Davydov; David Yetter; Adrian Ocneanu; Pavel Etingof; Dmitri Nikshych; Viktor Ostrik** | Drinfeld center/central Hopf monad, Davydov--Yetter cohomology, Ocneanu rigidity, fusion-category rigidity | **D/C/F.** Exact finite \(SU(2)_k\) audit; a coherence envelope, not the positive cutoff-uniform carrier. | B15 |
+| A41 | **Heinrich Maschke; Ferdinand Frobenius; Oskar Perron** | Maschke semisimplicity, Frobenius reciprocity, and Frobenius--Perron dimension | **D/S.** Degree-zero/module comparison and finite fusion algebra. | B07, B15 |
+| A42 | **Mark Kac; John Ward; Pieter Kasteleyn; Lars Onsager** | Kac--Ward and Kasteleyn sign absorption/Pfaffians; Onsager solution | **I.** Motivates searching for a higher-dimensional coherence/orientation absorbing dual signs; no 4D gauge theorem follows. | B16 |
+| A43 | **Alexander Migdal; Leo Kadanoff; Boris Rusakov; Edward Witten** | Migdal--Kadanoff recursion and exact 2D Yang--Mills/Migdal formula | **D/C.** 2D formula proves single-surface positivity; MK is a structural comparator and does not equal the 4D physical pushforward. | B12, B17 |
+| A44 | **Joseph Fourier; Marc-Antoine Parseval; Michel Plancherel** | Fourier analysis, Parseval identity, Plancherel theorem | **D/S.** Character/Fourier reconstruction and norm identities. | B21 |
+| A45 | **Guido Fubini; Leonida Tonelli; Pierre Fatou; Augustin Cauchy; Hermann Schwarz; Otto Hölder; Johan Jensen; Thomas Grönwall; Karl Weierstrass** | interchange, convergence, norm inequalities, Grönwall iteration, and infinite-product convergence | **S.** Certificate-level analytic substrate; never supplies the missing physical uniform constants. | B18 |
+| A46 | **Errett Bishop; Ernst Specker** | constructive analysis and Specker obstruction | **D/S.** Located/Cauchy-modulus policy and the reason arbitrary monotone limits are not silently admitted. | B19 |
+| A47 | **Jørgen Pedersen Gram; James Joseph Sylvester** | Gram matrices/sum of squares and Sylvester positivity criteria | **D/F.** Reflection/frozen-hub positivity and candidate carrier geometry. | B20 |
+| A48 | **Werner Heisenberg; Pascual Jordan; Wolfgang Pauli; Paul Dirac** | angular-momentum quantum algebra underlying spin networks | **S.** Physical and algebraic ancestry of SU(2) spin coupling. | B09 |
+| A49 | **Paul Turán; Thomas Joannes Stieltjes; Carl Severin Wigert; Elwin Christoffel; Pierre Desnanot; Carl Jacobi** | Turán inequalities, Stieltjes--Wigert moment systems, Christoffel transforms, and Desnanot--Jacobi determinant identity | **D/S.** Core-B log-concavity, \(q\)-Hankel, and determinant certificates; some routes are structural and others were superseded. | B14 |
+| A50 | **Ludwig Saalschütz; John Dougall; Doron Zeilberger** | terminating hypergeometric summation and creative telescoping | **D/F.** Exact Racah-sum reductions and the still-guarded coupled recurrence route. | B09, B14 |
+| A51 | **Dominique Bakry; Michel Émery** | Bakry--Émery curvature criterion | **D/C.** A genuine free heat-kernel curvature anchor and a documented no-go for the required 4D continuum functional form. | B13, B23 |
+| A52 | **Elliott Lieb; Barry Simon; Derek Robinson; Matthew Hastings; Tohru Koma** | Simon--Lieb, Lieb--Robinson, and Hastings--Koma correlation/gap bounds | **C.** Comparison routes clarifying the hypotheses needed to transport clustering and gaps; not a physical-Yang--Mills closure. | B04, B21 |
+
+### List-A exclusions that prevent overclaiming
+
+The repository also discusses Schwinger--Dyson, Wetterich, BRST/Krein-space,
+instanton, higher-dimensional continuation, and several hierarchical routes.
+They are not List-A dependencies of the current BF critical path.  They are
+retained as conditional interfaces or documented no-gos.  Bakry--Émery and
+the Simon--Lieb/Lieb--Robinson/Hastings--Koma family *are* listed because
+specific proved or diagnostic repository results invoke them, but their
+status is **C**, not a claimed path to the terminal theorem.
+
+## 3. List B — immediate bodies of work behind List A
+
+Each row is keyed by its principal humans, names all List-A children, and
+points to List C.  This is the first recursive expansion.
+
+| ID | Human key | Body of work that led to the List-A items | List-A children | List-C parents |
+|---|---|---|---|---|
+| B01 | **Maxwell; Weyl; Yang; Mills; Wilson** | Gauge covariance: Maxwell's field equations, Weyl's gauge principle, nonabelian connections/curvature, and Wilson's compact lattice regularization. | A01--A03 | C01, C07, C16 |
+| B02 | **Wightman; Gårding; Haag; Kastler; Gelfand; Naimark; Segal** | Axiomatic and algebraic QFT: fields/distributions, covariance, locality, positivity, vacuum, local observable algebras, and cyclic representations. | A03--A05, A07 | C02, C03 |
+| B03 | **Symanzik; Nelson; Osterwalder; Schrader; Seiler** | Euclidean QFT: Markov fields, reflection positivity, analytic continuation, and lattice-gauge reflection arguments. | A03, A05, A06 | C02, C04, C20 |
+| B04 | **Hilbert; Stone; Hille; Yosida; Källén; Lehmann** | Spectral/semigroup theory: self-adjoint generators, positive semigroups, spectral measures, and spectral representations of two-point functions. | A07--A09, A52 | C03, C04, C21 |
+| B05 | **Daniell; Kolmogorov; Riesz; Markov; Kakutani; Bochner; Minlos; Prokhorov** | Measure construction from positive functionals or compatible marginals, plus tightness/weak compactness. | A10--A13 | C05, C03 |
+| B06 | **Yang; Mills; ’t Hooft; Gross; Wilczek; Politzer** | Perturbative renormalization of nonabelian gauge theories and the negative one-loop beta function. | A01, A14 | C01, C11 |
+| B07 | **Haar; Frobenius; Schur; Peter; Weyl** | Harmonic analysis and representation theory of finite/compact groups: invariant integration, irreducible decomposition, characters, and orthogonality. | A15--A18, A41 | C06, C13 |
+| B08 | **Lie; Cartan; Killing; Weyl; Casimir; Dynkin; Coxeter** | Structure and classification of semisimple Lie algebras/groups, roots/weights, Weyl groups, and invariant quadratic operators. | A18, A19, A23 | C07 |
+| B09 | **Clebsch; Gordan; Heisenberg; Jordan; Pauli; Wigner; Racah; Biedenharn; Elliott** | Quantum angular momentum, tensor-product decomposition, recoupling coefficients, hypergeometric formulae, orthogonality, and pentagon coherence. | A20--A22, A48, A50 | C06, C08, C14 |
+| B10 | **Boltzmann; Gibbs; DLR school** | Equilibrium statistical mechanics: normalized exponential weights, finite-volume Gibbs laws, conditional specifications, and thermodynamic limits. | A24 | C09, C05 |
+| B11 | **Mayer; Ursell; Penrose; Brydges; Federbush; Kotecký; Preiss; Dobrushin** | Connected-graph and polymer expansions, tree domination, and volume-uniform convergence/uniqueness criteria. | A25, A27--A30 | C09, C10 |
+| B12 | **Kadanoff; Wilson; Migdal; Bałaban** | Block-spin/coarse-graining ideas, hierarchical/bond-moving approximations, and rigorous multiscale effective-density analysis. | A31, A43 | C11, C09 |
+| B13 | **Hilbert; Birkhoff; Hopf; Perron; Frobenius; Krein; Rutman; Banach; Jentzsch** | Ordered cones, projective metrics, positive eigenvectors/operators, and contraction/fixed-point theory. | A32--A35, A51 | C03, C12 |
+| B14 | **Chebyshev; Jacobi; Poisson; Euler; Maclaurin; Bernstein; Sturm; Markov; Lukács; Gershgorin; Turán; Stieltjes; Wigert; Christoffel; Desnanot; Saalschütz; Dougall; Zeilberger** | Special functions, theta transforms, moment determinants, polynomial approximation/positivity, root counting, hypergeometric summation, local asymptotics, and spectral enclosures. | A36--A39, A49, A50 | C08, C13 |
+| B15 | **Eilenberg; Mac Lane; Drinfeld; Davydov; Yetter; Ocneanu; Etingof; Nikshych; Ostrik** | Monoidal coherence, centers/coends, deformation cohomology, semisimple tensor categories, and rigidity. | A22, A40, A41 | C06, C14 |
+| B16 | **Onsager; Kac; Ward; Kasteleyn; Arf; Cimasoni** | Exact planar Ising/dimer solution, non-backtracking determinants, Pfaffian orientations, and their reformulation by spin structures/quadratic refinements. | A42 | C10, C17 |
+| B17 | **Migdal; Rusakov; Witten; Sengupta** | Exact two-dimensional Yang--Mills via heat-kernel convolution and representation sums weighted by dimension, Casimir, area, and Euler characteristic. | A43 | C07, C13, C16 |
+| B18 | **Cauchy; Schwarz; Hölder; Jensen; Fubini; Tonelli; Fatou; Grönwall; Weierstrass** | Classical real/functional analysis for estimates, interchange of limits/integrals, and convergence of sums/products. | A45 | C05, C13 |
+| B19 | **Brouwer; Bishop; Specker** | Constructive/intuitionistic analysis: witness-bearing existence, locatedness, moduli, and counterexamples to unqualified classical convergence principles. | A46 | C15 |
+| B20 | **Gram; Schur; Osterwalder; Seiler; Sylvester** | Positive quadratic forms, Gram/SOS factorization, and reflected-kernel diagonalization. | A06, A17, A47 | C03, C06 |
+| B21 | **Fourier; Parseval; Plancherel; Stone; Källén; Lehmann; Perron; Frobenius** | Orthogonal expansions and the identification of decay rates with spectral support/eigenvalue separation. | A09, A16, A34, A36, A38, A39, A44, A52 | C03, C13 |
+| B22 | **Cartan; Killing; Dynkin; Coxeter; Weyl** | Finite classification and tabulation of compact simple Lie types and their representation invariants. | A23 | C07 |
+| B23 | **Fourier; Laplace; Beltrami; Casimir; Peter; Weyl** | Heat semigroups on compact groups and character expansions with Casimir eigenvalues. | A19, A51 | C13, C16 |
+| B24 | **Euler; Cayley; Kirchhoff; Penrose** | Graph/tree combinatorics: connected graphs, labelled trees, spanning trees, and graph-to-tree partition schemes. | A26, A27 | C10 |
+
+## 4. List C — the second recursive expansion
+
+| ID | Human key | Earlier body of work | List-B children | List-D parents |
+|---|---|---|---|---|
+| C01 | **Maxwell; Weyl; Yang; Mills; Noether** | Classical fields, local symmetry, connections, curvature, variational actions, and conserved currents. | B01, B06 | D01, D02 |
+| C02 | **Einstein; Poincaré; Wigner; Gårding; Wightman; Haag; Kastler** | Relativistic symmetry and local quantum fields/observables. | B02, B03 | D02, D03 |
+| C03 | **Hilbert; Banach; Riesz; von Neumann; Gelfand; Naimark** | Hilbert/Banach spaces, operator algebras, positive functionals, spectral theory, and ordered operators. | B02, B04, B05, B13, B20, B21 | D03 |
+| C04 | **Wiener; Feynman; Kac; Nelson; Symanzik** | Path/Markov measures and Euclidean-time representations of quantum dynamics. | B03, B04 | D02, D05 |
+| C05 | **Borel; Lebesgue; Daniell; Carathéodory; Radon; Riesz; Kolmogorov** | Measure, integration, extension, regularity, and probability on products/projective systems. | B05, B10, B18 | D05 |
+| C06 | **Frobenius; Schur; Maschke; Burnside; Peter; Weyl** | Character theory, semisimplicity, induced/restricted representations, and compact-group decomposition. | B07, B09, B15, B20 | D04, D03 |
+| C07 | **Galois; Lie; Klein; Cartan; Killing; Weyl** | Groups and continuous symmetries, Lie algebras, root systems, and invariant geometry. | B01, B08, B17, B22 | D04, D09 |
+| C08 | **Euler; Gauss; Jacobi; Clebsch; Gordan; Racah** | Hypergeometric series, orthogonal polynomials, theta functions, and angular-momentum summation identities. | B09, B14 | D08 |
+| C09 | **Bernoulli; Laplace; Boltzmann; Gibbs; Ising** | Probability, ensembles, partition functions, correlations, and lattice statistical mechanics. | B10--B12 | D05, D06 |
+| C10 | **Euler; Cayley; Kirchhoff; Ising; Onsager; Penrose** | Graphs, planar topology, spanning trees, lattice models, and connected combinatorics. | B11, B16, B24 | D07 |
+| C11 | **Kadanoff; Wilson; Callan; Symanzik; Gell-Mann; Low** | Scaling, running couplings, beta functions, and renormalization-group flow. | B06, B12 | D01, D06 |
+| C12 | **Cayley; Klein; Hilbert; Birkhoff** | Cross-ratio/projective geometry and its order-cone metric realization. | B13 | D09 |
+| C13 | **Fourier; Dirichlet; Sturm; Liouville; Parseval; Plancherel; Poisson** | Harmonic and spectral analysis, orthogonal series, transforms, and eigenfunction expansions. | B07, B14, B17, B18, B21, B23 | D08, D03 |
+| C14 | **Noether; Eilenberg; Mac Lane; Hochschild; Drinfeld** | Abstract algebra, natural transformations, cohomology/deformation theory, and monoidal coherence. | B09, B15 | D04, D07 |
+| C15 | **Brouwer; Heyting; Bishop; Specker** | Intuitionistic logic and constructive mathematics. | B19 | D10 |
+| C16 | **Newton; Leibniz; Euler; Lagrange; Laplace; Beltrami** | Differential equations, variational calculus, Laplacians, and heat flow on manifolds. | B01, B17, B23 | D11, D09 |
+| C17 | **Euler; Riemann; Poincaré; Arf** | Surface topology, homology/intersection forms, and quadratic refinements/spin structures. | B16 | D07, D09 |
+| C20 | **Feynman; Kac; Schwinger; Osterwalder; Schrader** | Positivity/analytic-continuation formulations connecting Euclidean and quantum time. | B03 | D02, D05 |
+| C21 | **Sturm; Liouville; Hilbert; Riesz; Stone** | Spectral theory from differential operators through abstract self-adjoint operators. | B04, B21 | D03, D11 |
+
+## 5. List D — the third recursive expansion
+
+| ID | Human key | Earlier body of work | List-C children | List-E parents |
+|---|---|---|---|---|
+| D01 | **Newton; Lagrange; Maxwell; Noether** | Variational field equations and symmetry/conservation laws. | C01, C11 | E01, E07 |
+| D02 | **Planck; Einstein; Heisenberg; Schrödinger; Dirac; Wigner** | Quantum mechanics, relativistic covariance, and quantum fields. | C01, C02, C04, C20 | E02, E07 |
+| D03 | **Hilbert; Banach; Riesz; von Neumann** | Linear/functional analysis, Hilbert spaces, operators, spectra, and topological vector spaces. | C02, C03, C06, C13, C21 | E05, E06 |
+| D04 | **Galois; Cayley; Lie; Frobenius; Noether** | Abstract groups, continuous groups, representation theory, rings, and modules. | C06, C07, C14 | E03, E06 |
+| D05 | **Bernoulli; Laplace; Borel; Lebesgue; Carathéodory; Kolmogorov** | Probability and measure-theoretic integration. | C04, C05, C09, C20 | E02, E04, E05 |
+| D06 | **Boltzmann; Gibbs; Ising; Kadanoff; Wilson** | Statistical mechanics, critical phenomena, and scale dependence. | C09, C11 | E04, E07 |
+| D07 | **Euler; Kirchhoff; Cayley; Riemann; Poincaré** | Combinatorics, graph theory, and topology. | C10, C14, C17 | E02, E08 |
+| D08 | **Euler; Gauss; Fourier; Jacobi; Sturm; Liouville** | Special functions, harmonic analysis, and ordinary differential equations. | C08, C13 | E01, E02 |
+| D09 | **Euclid; Gauss; Riemann; Klein; Hilbert; Cartan** | Geometry from metric/projective ideas to manifolds and connections. | C07, C12, C16, C17 | E02, E03, E06 |
+| D10 | **Cantor; Brouwer; Heyting; Bishop** | Foundations, real-number constructions, and constructive logic. | C15 | E05, E06 |
+| D11 | **Newton; Leibniz; Euler; Lagrange; Laplace** | Calculus, variational principles, PDEs, and diffusion. | C16, C21 | E01, E02 |
+
+## 6. List E — the fourth recursive expansion and stopping roots
+
+List E is the requested fifth list.  The recursion stops here because going
+farther would become a genealogy of mathematics rather than a diagnostic of
+this repository.  These roots are broad enough that “undoing a
+simplification” no longer selects a concrete Yang--Mills carrier.
+
+| ID | Human key | Root body of work | List-D children |
+|---|---|---|---|
+| E01 | **Isaac Newton; Gottfried Leibniz; Leonhard Euler; Joseph-Louis Lagrange** | Calculus, differential equations, and variational mechanics. | D01, D08, D11 |
+| E02 | **Carl Friedrich Gauss; Joseph Fourier; Bernhard Riemann; Henri Poincaré** | Geometry, harmonic analysis, complex/real analysis, and topology. | D02, D05, D07--D09, D11 |
+| E03 | **Évariste Galois; Arthur Cayley; Sophus Lie; Felix Klein** | Abstract and continuous symmetry. | D04, D09 |
+| E04 | **Jacob Bernoulli; Pierre-Simon Laplace; Ludwig Boltzmann; Josiah Willard Gibbs** | Probability and statistical mechanics. | D05, D06 |
+| E05 | **Georg Cantor; Richard Dedekind; Émile Borel; Henri Lebesgue; Constantin Carathéodory** | Sets, real numbers, measure, and integration. | D03, D05, D10 |
+| E06 | **David Hilbert; Stefan Banach; Emmy Noether; Frigyes Riesz** | Abstract algebra and functional analysis. | D03, D04, D09, D10 |
+| E07 | **James Clerk Maxwell; Max Planck; Albert Einstein; Werner Heisenberg; Erwin Schrödinger; Paul Dirac** | Classical fields, relativity, and quantum theory. | D01, D02, D06 |
+| E08 | **Leonhard Euler; Gustav Kirchhoff; Arthur Cayley** | Graph invariants, networks, trees, and combinatorial enumeration. | D07 |
+
+### Recursion completeness check
+
+Every A row names at least one B parent; every B row names at least one C
+parent; every used C row names at least one D parent; and every D row names
+at least one E parent.  Branches merge where the mathematics genuinely
+merges.  For example:
+
+\[
+\begin{aligned}
+\text{Birkhoff--Hopf}
+&\to \text{ordered/projective geometry}
+\to \text{functional analysis + projective geometry}
+\to \text{Hilbert/Banach and Gauss--Riemann roots},\\
+\text{Biedenharn--Elliott}
+&\to \text{angular momentum + monoidal coherence}
+\to \text{representation theory + hypergeometric identities}
+\to \text{group theory + harmonic analysis},\\
+\text{Osterwalder--Schrader}
+&\to \text{Euclidean QFT}
+\to \text{Markov/path measures + axiomatic QFT}
+\to \text{measure theory + quantum theory}.
+\end{aligned}
+\]
+
+---
+
+# Part II. The simplifications and their counterfactuals
+
+## 7. What “simplification” means in this ledger
+
+Not every arrow in Lists A--E is a simplification.  Some are
+generalizations, syntheses, or changes of language.  The ledger below records
+only reductions that occur in the mathematical route used by this
+repository:
+
+- **restriction:** smaller dimension, group, label range, volume, or sector;
+- **truncation:** discard high representations, long polymers, or tails;
+- **quotient/decategorification:** retain multiplicities but lose maps,
+  bases, phases, or coherence;
+- **linearization/expansion:** replace a positive nonlinear/group object by
+  signed coordinates;
+- **majorization:** replace the physical law by an upper-bound polymer or
+  tree model;
+- **object separation:** prove clauses on different witnesses instead of one
+  common theory;
+- **qualitative replacement:** use existence or a fiducial constant where a
+  located uniform modulus is required.
+
+## 8. The Simplification Ledger, ordered by net effect
+
+The “counterfactual” column answers the user's question literally: what
+changes if the simplification is not made and the richer object is propagated
+all the way back up the A--E tree?
+
+| Rank / ID | Simplification actually made | Where it appears in the genealogy and repo | If we do **not** simplify, and propagate the richer object upward | Net effect on the mass-gap program |
+|---|---|---|---|---|
+| **1 / S01** | **Positive Haar integral \(\rightarrow\) signed Peter--Weyl fixed-channel coefficients.** Coordinate expansion exposes negative \(6j\)/intertwiner terms even when the grouped physical amplitude is positive. | E02/E06 \(\to\) D03/D08 \(\to\) C06/C13 \(\to\) B07/B09 \(\to\) A15--A22. Exact negative fixed channels but positive complete pair activities are in `notes/fusion-pair-heat-census.md`. | Carry a boundary-tensor/reflected-Gram cone on which Haar integration remains a positive conditional expectation. Expand only after grouping a complete physical family. The BF1 carrier would be defined by positivity of the unsplit boundary object, not coefficientwise positivity in an arbitrary recoupling basis. | **Potentially decisive for BF1--BF4.** This is the strongest route to (DP), a physical positive block map, and finite projective diameter. It may also fail honestly if a complete physical family is negative. |
+| **2 / S02** | **Intertwiner maps and \(F/R\) symbols \(\rightarrow\) fusion multiplicities/Grothendieck vectors.** | E03/E06 \(\to\) D04 \(\to\) C06/C14 \(\to\) B09/B15 \(\to\) A20--A22/A40--A41. The exact failure is documented in `notes/su2k-central-monad-campaign.md`. | Enrich each carrier element with a fusion tree, orthonormal intertwiner basis, signed/unitary \(F/R\) matrices, and coend counit/multiplication maps. The coarse map could then be tested as an actual central-module/comodule morphism rather than an equality of dimensions. | **Decisive for BF3.** It restores the joint coarse-intertwiner transport that the multiplicity carrier provably cannot encode. It increases dimension but removes a false positive from the finite-category route. |
+| **3 / S03** | **Exact plaquette-coupled Haar Gibbs pushforward \(\rightarrow\) one-face fusion kernel or multiplicity-product surrogate.** | E04/E07 \(\to\) D06 \(\to\) C09/C11 \(\to\) B10/B12 \(\to\) A02/A24/A31/A43. | Integrate every fine internal link of the corrected slab with the actual boundary data and identify the normalized coarse Gibbs density plus a literal remainder. All subsequent KP/Birkhoff estimates would concern the same physical law. | **Necessary for BF3, BF5, and BF6.** It converts the present architecture into physical RG-I7--I9. It may reveal new signs or nonlocal interactions, but those are precisely the real wall. |
+| **4 / S04** | **Physical-distance decay \(\rightarrow\) a spacing-independent contraction at every microscopic step.** | E06 \(\to\) D03 \(\to\) C12 \(\to\) B13 \(\to\) A32--A35. The corrected target is already stated in the BF plan. | Keep \(q_a=1-ma+o(a)\) and bound the product over \(L/a\) steps, including the graded distortion: \(\prod(q_a+C\kappa_a^{64})\le e^{-m_*L}\). Projective diameter may diverge per microscopic step while the grouped physical diameter remains effective. | **Decisive conceptual correction for BF4--BF6.** It aligns “uniform in cutoff” with a finite physical mass rather than an unrealistically strong lattice-scale gap. |
+| **5 / S05** | **One shared continuum Yang--Mills object \(\rightarrow\) separate finite witnesses for OS axioms, clustering, nontriviality, covariance, and spectral data.** | E05--E07 \(\to\) D02/D03/D05 \(\to\) C02--C05/C21 \(\to\) B02--B05/B21 \(\to\) A03--A13. `ClayTargetPinned` was created to prohibit this separation. | Carry the exact RG trajectory into one limiting Schwinger functional/measure; prove OS0--OS4, locality, covariance, non-Gaussianity, and decay there; reconstruct one Hilbert space and identify its Hamiltonian spectrum. | **The entire BF7--BF10 content.** It does not shorten the problem, but it is the difference between a collection of reductions and a Clay solution. |
+| **6 / S06** | **Full 4D branched/intersecting geometry \(\rightarrow\) isolated 2D surfaces.** | E02/E03 \(\to\) D07/D09 \(\to\) C07/C17 \(\to\) B17 \(\to\) A43. | Preserve intersections, four-valent edge invariant spaces, branch loci, and fusion-path multiplicities under every merge. The exact 2D formula remains a positive base case rather than a model of the whole 4D amplitude. | **High positive effect for BF1/BF2.** It moves attention to the first genuinely 4D interference. Cost: the simple formula \(d^{\chi-F}\) disappears and signs/coherence return. |
+| **7 / S07** | **Physical connected Gibbs correlations \(\rightarrow\) an abstract hard-core polymer gas and tree majorant.** | E04/E08 \(\to\) D06/D07 \(\to\) C09/C10 \(\to\) B11/B24 \(\to\) A25--A30. | First prove an exact activity-preserving map from the plaquette Gibbs law to polymers, including Ursell signs and observable insertions; only then apply Penrose/Brydges--Federbush/KP. | **Necessary for physical clustering and BF6.** Existing combinatorial theorems become load-bearing instead of conditional. The hard new input is the physical activity norm, not more tree combinatorics. |
+| **8 / S08** | **Complete effective density \(\rightarrow\) small-/large-field shape plus fiducial constants.** | E04/E07 \(\to\) D06 \(\to\) C11 \(\to\) B12 \(\to\) A31. See `notes/fiducials_notes.md` and `docs/multiscale-2026-07-07.md`. | Extract or reprove the normalized Bałaban step for the repository's exact heat-kernel conventions, with explicit volume/cutoff moduli and the actual remainder norm. | **High effect on BF5/BF6.** It replaces literature-shaped pilots by an RG certificate. It is substantial new constructive analysis, not parameter tuning. |
+| **9 / S09** | **All compact simple groups \(\rightarrow\) an SU(2) “worst case” scalar floor.** | E03 \(\to\) D04/D09 \(\to\) C07 \(\to\) B08/B22 \(\to\) A18/A19/A23. | Build the physical carrier, heat tails, intertwiner bounds, and grouped projective diameter separately for every Cartan type, or prove monotonicity on those actual objects. | **Necessary for BF9 unless monotonicity is proved.** It may show SU(2) is not worst for branching/multiplicity even though it minimizes some Casimir scalars. |
+| **10 / S10** | **Infinite \(\mathrm{Rep}(SU(2))\) \(\rightarrow\) finite \(SU(2)_k\) fusion category.** | E03/E06 \(\to\) D04 \(\to\) C06/C14 \(\to\) B15 \(\to\) A40/A41. | Work with bounded local fusion words inside \(\mathrm{Rep}(SU(2))\), proving estimates uniform as the label cutoff grows; use \(SU(2)_k\) only to test coherent finite windows. | **Prevents a wrong BF1/BF4 route.** Low-spin identities stabilize, but the central vacuum rank \(k+1\) and finite-category rigidity constants do not supply cutoff-uniform contraction. |
+| **11 / S11** | **Physical heat-weighted block transport \(\rightarrow\) pure fusion module transport.** | Same category branch as S10. The explicit counterexample \(D_w(x\otimes V)\ne x\otimes D_w(V)\) is in `notes/su2k-central-monad-campaign.md`. | Construct a heat-twisted/lax module structure whose coherence maps carry Casimir weights and normalization, then compare it exactly with Haar blocking. | **High-risk enabling step for BF3.** It is the correct categorical question left by the finite campaign; ordinary module naturality cannot be cited. |
+| **12 / S12** | **All labels and heat-kernel tail \(\rightarrow\) fundamental/binary surfaces or a finite spin cutoff.** | E02/E06 \(\to\) D03/D08 \(\to\) C06/C13 \(\to\) B07/B23 \(\to\) A15--A21. | Prove a uniform tail envelope compatible with fusion growth, face dimensions, and intertwiner multiplicities; combine it with exact low-label census results. | **Necessary for BF1/BF2 uniformity.** The 100 pair-orbit result is strong evidence, not a theorem for higher labels or three strands. |
+| **13 / S13** | **Signed \(6j\) coherence \(\rightarrow\) squared Racah probability kernels.** | E02/E03 \(\to\) D04/D08 \(\to\) C08/C14 \(\to\) B09 \(\to\) A21/A22. | Retain the phase and square-root data through the pentagon, then group only at a genuinely positive physical boundary pairing. | **Necessary for BF3 coherence.** Squared kernels are ideal for positivity but do not determine the signed associator; the repository already contains an exact permutation-model no-go for deriving pentagon from squared data alone. |
+| **14 / S14** | **Continuum measure \(\rightarrow\) compatible finite/projective positive functionals.** | E05/E06 \(\to\) D03/D05 \(\to\) C03/C05 \(\to\) B05 \(\to\) A10--A13. | Supply tightness/regularity, sigma-additive extension, gauge-compatible support, and convergence moduli for the actual RG family. | **BF7 remains open until this is done.** Non-simplification removes the current functional/measure ambiguity and forces the real continuum construction. |
+| **15 / S15** | **Continuum Hamiltonian gap \(\rightarrow\) finite transfer-operator second eigenvalue or abstract clustering predicate.** | E06/E07 \(\to\) D02/D03 \(\to\) C21 \(\to\) B04/B21 \(\to\) A08/A09/A34. | Establish same-object OS reconstruction, identify time translations, and use the spectral measure to turn uniform continuum decay into an interval with zero spectral support. | **Necessary for BF8.** Finite Perron--Frobenius gaps are useful prototypes but do not by themselves survive the continuum limit. |
+| **16 / S16** | **Full \(O(4)\ltimes\mathbb R^4\) Euclidean covariance \(\rightarrow\) hypercubic symmetry, or merely the identity rotation.** | E02/E07 \(\to\) D02/D09 \(\to\) C02 \(\to\) B02/B03 \(\to\) A04/A05. | Construct nontrivial lattice \(H_4\) actions first, then prove restoration of translations and rotations in the continuum Schwinger functions. | **Necessary for BF7/BF10.** This is not cosmetic: the current identity-rotation witness explicitly does not establish continuum covariance. |
+| **17 / S17** | **Local field algebra and stress/OPE information \(\rightarrow\) Wilson-loop/character algebra.** | E03/E07 \(\to\) D02/D04 \(\to\) C02/C06 \(\to\) B01/B02/B07 \(\to\) A02--A05/A16. | Show that the continuum Wilson algebra generates an adequate local observable net, or construct local curvature/composite fields and their short-distance products on the same measure. | **Important for a defensible BF7/BF10 assembly.** Wilson loops are natural gauge-invariant probes, but the Clay axiomatic target cannot be satisfied by an unrelated single-edge character algebra. |
+| **18 / S18** | **Exact 4D block geometry \(\rightarrow\) Migdal--Kadanoff bond moving/hierarchical recursion.** | E04 \(\to\) D06 \(\to\) C11 \(\to\) B12 \(\to\) A43. | Retain all plaquette-sharing constraints and integrate internal links exactly. Use MK only as a comparison/majorant after an error identity. | **Avoids a known false closure.** The MK route can diagnose scaling and summability but does not prove a theorem for the physical 4D Gibbs pushforward. |
+| **19 / S19** | **General positive cone \(\rightarrow\) raw one-face fusion matrix cone.** | E06 \(\to\) D03/D09 \(\to\) C12 \(\to\) B13 \(\to\) A32/A33. The raw cone has support holes and infinite diameter (`notes/local-face-birkhoff-census.md`). | Define the cone from reflected physical block generators, possibly after a fixed physical grouping that makes every cross-ratio finite. | **Corrects BF4's object.** Birkhoff--Hopf remains promising only after BF1--BF3 supply this cone; the theorem cannot manufacture positivity or finite diameter. |
+| **20 / S20** | **Full heat-kernel/activity polynomial \(\rightarrow\) an unweighted complete fusion sum.** | B07/B09/B23 \(\to\) A15--A22. | Group fixed channels by their actual dimension and Casimir heat exponents and test coefficientwise or interval positivity of that physical polynomial. | **Already produced real progress.** It upgraded the 100-orbit pair census from unweighted positivity to all-\(w>0\) coefficientwise heat positivity. The same upgrade is required in higher sectors. |
+| **21 / S21** | **Planar spin-structure sign cancellation \(\rightarrow\) “all signs can be oriented away” in 4D.** | E02/E08 \(\to\) D07/D09 \(\to\) C10/C17 \(\to\) B16 \(\to\) A42. | Keep the actual 4D cell complex and ask for a higher coherence datum whose coboundary is the recoupling-sign cocycle; allow the result to be an obstruction rather than an orientation. | **Good research question, not a proof step.** A positive answer could reorganize BF2; a nonzero obstruction would locate the first exact sign coordinate. Kac--Ward/Kasteleyn alone imply neither outcome. |
+| **22 / S22** | **Exact theta/local-CLT object \(\rightarrow\) Gaussian, Poisson-dual, or Euler--Maclaurin approximation.** | E01/E02 \(\to\) D08/D11 \(\to\) C08/C13 \(\to\) B14 \(\to\) A36--A39. | Retain exact discrete sums with explicit remainders and use approximations only with uniform error certificates. | **Moderate, mostly Core-B effect.** This has already eliminated an unnecessary exact Poisson frontier in one tail and localizes what remains to uniform discrete curvature/margin estimates. |
+| **23 / S23** | **Global positivity \(\rightarrow\) finite Bernstein/Sturm windows.** | E01/E02 \(\to\) D08 \(\to\) C08/C13 \(\to\) B14 \(\to\) A36--A38. | Seek a structural total-positivity, moment, convolution, or Gram theorem valid for all scale/label parameters; keep finite certificates as regression pins. | **Moderate positive effect.** It can replace infinitely many growing-degree certificates by one theorem, but it does not address the physical Gibbs/blocking mismatch. |
+| **24 / S24** | **Located quantitative theorem \(\rightarrow\) qualitative existence or a literature-shaped fiducial.** | E05/E06 \(\to\) D03/D10 \(\to\) C03/C15 \(\to\) B04/B05/B19 \(\to\) A08--A13/A31/A46. | Require explicit moduli for tightness, contraction, landing, distortion, and spectral exclusion; treat unknown constants as named open inputs rather than values. | **Integrity-critical.** It prevents nonconstructive or numerical placeholders from masquerading as cutoff-uniform estimates. It can make the task harder without changing the classical truth, but it makes every claimed gate auditable. |
+| **25 / S25** | **Positive gauge-invariant OS sector \(\rightarrow\) a larger indefinite BRST/Krein space.** | E06/E07 \(\to\) D02/D03 \(\to\) C02/C03 \(\to\) B02/B20. | Carry the indefinite metric, nilpotent charge, physical quotient, and positivity proof through the continuum. | **Likely negative net effect on the current route.** It may be necessary for gauge-fixed local fields, but the compact Wilson/Haar formulation already avoids ghosts. Adding the larger space creates a new quotient-positivity theorem without solving BF1--BF6. |
+| **26 / S26** | **Constructive witness-bearing limits \(\rightarrow\) unrestricted classical compactness/subsequence extraction.** | E05/E06 \(\to\) D03/D10 \(\to\) C05/C15 \(\to\) B05/B19 \(\to\) A10--A13/A46. | Permit classical subsequences and nonlocated limits, then separately prove uniqueness and identify a positive numerical gap. | **Mixed effect.** Classical compactness may simplify existence, but it does not provide the uniform rate needed to show the limit's gap is positive. Constructive moduli are stronger than Clay formally requires, yet closely match the uniformity wall. |
+
+## 9. Implications for the current work plan
+
+The audit does not recommend adding another independent analytic route.
+It recommends sharpening the existing BF route with four actions:
+
+1. **BF1 carrier enrichment:** extend the three-strand/higher-label/larger-slab
+   census while storing boundary fusion trees and intertwiner bases, not only
+   masks and multiplicities.  Test whether complete physical Haar families
+   are Gram-positive.
+2. **BF3 exact map:** implement one whole corrected-slab Haar pushforward with
+   boundary tensor data, normalization, coarse-intertwiner transport, and an
+   exact remainder identity.  Compare the result with a heat-twisted central
+   module, not an ordinary module morphism.
+3. **BF4 grouped metric:** define projective distance only after a fixed
+   physical grouping and target \(q_a=1-ma+o(a)\).  Record cross-ratio bounds
+   and the \(C\kappa^{64}\) graded budget in the same carrier.
+4. **BF7--BF10 shared-object spine:** for every finite theorem, record the
+   exact map by which it acts on the eventual Gibbs/Schwinger object.  Do not
+   count a gate closed if its witness lives on a single-edge character model,
+   an abstract polymer gas, a finite transfer matrix, or a finite fusion
+   category disconnected from that object.
+
+The first two are novel mathematical work.  The third is the corrected
+uniformity target.  The fourth is the assembly discipline needed for a Clay
+result.
+
+## 10. What this changes—and what it does not
+
+This investigation changes the priority order:
+
+- **More valuable now:** a boundary-tensor positive carrier, exact joint
+  coarse-intertwiner transport, grouped physical-distance projective
+  diameter, and shared-object maps.
+- **Less valuable now:** larger multiplicity-only central-monad tables,
+  more one-face Birkhoff tests, more isolated finite Bernstein windows, or
+  more conditional interfaces with surrogate witnesses.
+
+It does **not** prove (DP), a Birkhoff contraction, RG-I7--I9, the continuum
+limit, OS reconstruction for the physical limit, or a Yang--Mills spectral
+gap.  Its contribution is to identify which historical simplifications are
+harmless coordinate changes and which ones discard exactly the data the
+remaining proof needs.
+
+---
+
+# Part III. Evidence and sources
+
+## 11. Repository evidence
+
+The most important local evidence for the ranking is:
+
+- `docs/birkhoff-fusion-clay-closure-plan-2026-07-24.md` — BF1--BF10 and
+  the grouped physical-distance contraction target;
+- `notes/su2k-central-monad-campaign.md` — exact degree-zero comparison,
+  heat-weight failure of module naturality, loss of counit/multiplication
+  maps, and the \(k+1\) central-vacuum growth;
+- `notes/fusion-pair-heat-census.md` — 100/100 intersecting pair orbits
+  physically heat-positive despite negative fixed channels;
+- `notes/local-face-birkhoff-census.md` — raw one-face support holes and
+  infinite projective diameter;
+- `docs/clay-open-boundary-ledger.md` and
+  `lean/YMGap/Rubric/ClayTargetPinned.lean` — the unconstructed continuum
+  measure, covariance, same-object reconstruction, and spectral gap;
+- `docs/continuum-map.md` — the four live formal dependency chains;
+- `notes/fiducials_notes.md`, `docs/multiscale-2026-07-07.md`, and
+  `docs/largefield-2026-07-07.md` — the exact boundary of the Bałaban-shaped
+  inputs;
+- `docs/q-representability-audit.md` and
+  `formal/sub_papers/README.md` — the distinction between squared rational
+  Racah kernels and signed \(6j\) coherence;
+- `docs/theta-inversion-2026-07-08.md` — the removal of an unnecessary
+  Poisson/modular residual;
+- `formal/references.bib` — the repository's primary bibliography.
+
+## 12. External sources checked
+
+Primary or publisher-hosted sources were preferred.
+
+1. Arthur Jaffe and Edward Witten,
+   [*Quantum Yang--Mills Theory* (official Clay problem
+   description)](https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf).
+   This fixes the target and records the Wightman/Euclidean reconstruction
+   lineage.
+2. Kenneth Wilson,
+   [*Confinement of Quarks*](https://doi.org/10.1103/PhysRevD.10.2445)
+   (1974), introducing the lattice gauge framework used here.
+3. David Gross and Frank Wilczek,
+   [*Asymptotically Free Gauge Theories I*](https://doi.org/10.1103/PhysRevD.8.3633),
+   and H. David Politzer,
+   [*Reliable Perturbative Results for Strong
+   Interactions?*](https://authors.library.caltech.edu/records/fm8ka-55a61)
+   (1973).
+4. Konrad Osterwalder and Robert Schrader,
+   [*Axioms for Euclidean Green's
+   Functions*](https://doi.org/10.1007/BF01645738) (1973): necessary and
+   sufficient Euclidean conditions for a unique Wightman theory.
+5. Irving Segal,
+   [*Irreducible Representations of Operator
+   Algebras*](https://www.ams.org/journals/bull/1947-53-02/S0002-9904-1947-08742-5/)
+   (1947), a source for the GNS lineage.
+6. Garrett Birkhoff,
+   [*Extensions of Jentzsch's
+   Theorem*](https://www.ams.org/tran/1957-085-01/S0002-9947-1957-0087058-6/)
+   (1957), applying Hilbert's projective metric to positive kernels and
+   contraction/fixed-point arguments.
+7. Roman Kotecký and David Preiss,
+   [*Cluster Expansion for Abstract Polymer
+   Models*](https://doi.org/10.1007/BF01211762) (1986).
+8. Tadeusz Bałaban,
+   [*Renormalization Group Approach to Lattice Gauge Field
+   Theories I*](https://doi.org/10.1007/BF01215223) (1987), and
+   [*Convergent Renormalization Expansions for Lattice Gauge
+   Theories*](https://doi.org/10.1007/BF01217741) (1988).
+9. Mark Kac and John Ward,
+   [*A Combinatorial Solution of the Two-Dimensional Ising
+   Model*](https://doi.org/10.1103/PhysRev.88.1332) (1952), and Pieter
+   Kasteleyn,
+   [*Dimer Statistics and Phase
+   Transitions*](https://doi.org/10.1063/1.1703953) (1963).
+10. A. A. Migdal,
+    [*Recursion Equations in Gauge Field
+    Theories*](https://jetp.ras.ru/cgi-bin/dn/e_042_03_0413.pdf) (1975);
+    B. E. Rusakov,
+    [*Loop Averages and Partition Functions in \(U(N)\) Gauge Theory on
+    Two-Dimensional Manifolds*](https://doi.org/10.1142/S0217732390000780)
+    (1990); and Edward Witten,
+    [*On Quantum Gauge Theories in Two
+    Dimensions*](https://doi.org/10.1007/BF02100009) (1991).
+11. Azat Gainutdinov, Jonas Haferkamp, and Christoph Schweigert,
+    [*Davydov--Yetter Cohomology, Comonads and Ocneanu
+    Rigidity*](https://arxiv.org/abs/1910.06094) (2019), and Pavel Etingof,
+    Dmitri Nikshych, and Viktor Ostrik,
+    [*On Fusion
+    Categories*](https://doi.org/10.4007/annals.2005.162.581) (2005).
+
+## 13. Final audit statement
+
+The most important historical simplification to reverse is not
+“lattice \(\rightarrow\) continuum” or “nonabelian \(\rightarrow\) abelian.”
+It is more local:
+
+\[
+\boxed{
+\text{positive physical Haar boundary object}
+\;\longrightarrow\;
+\text{signed channels}
+\;\longrightarrow\;
+\text{multiplicity ledger}
+}
+\]
+
+The repository's exact evidence says the first arrow can create apparent
+signs that disappear after complete physical grouping, while the second
+arrow loses the maps needed for blocking.  Reversing those losses, while
+using a scale-dependent grouped Hilbert metric, is the highest-leverage
+mathematical course now visible.  Even if it succeeds, the resulting RG
+theorem must still be carried through BF7--BF10 on one shared continuum
+object before it is a solution of the Yang--Mills mass-gap problem.
