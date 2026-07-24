@@ -24,7 +24,7 @@ compose with all earlier gates.
 
 | Gate | Required constructive output | What cannot substitute for it |
 |---|---|---|
-| CD-2 | Source-indexed positive row-normalized kernel on the actual fine/coarse physical labellings; exact pushforward; complete reflected channels; computed overlap remainder with zero total mass; reflection intertwining | A positive scalar channel, a detached stochastic matrix, or entrywise fixed-channel positivity |
+| CD-2 | Source-indexed positive row-normalized kernel on the actual fine/coarse physical labellings; exact pushforward; complete reflected channels; computed overlap remainder; reflection intertwining. Zero total mass then follows automatically from finite normalization. | A positive scalar channel, a detached stochastic matrix, or entrywise fixed-channel positivity |
 | CD-3 | Norm of that exact CD-2 remainder; `c(1-w)^2`-type cap; cutoff-independent constant; volume-uniform bound; explicit representation-tail modulus | Any norm of a surrogate remainder or a constant growing with cutoff/volume |
 | CD-4 / RG-I7 | A pinned self-mapping physical coefficient ball; reflection-cone preservation; either `q<1` or an explicit accumulated contraction envelope | Positivity, compactness, or an unquantified stable-manifold statement |
 | CD-5 / RG-I8 | Computed scale and computed physical state entering exactly the CD-4 enclosure | Eventuality, subsequence compactness, or entry of an unpinned trajectory |
@@ -168,6 +168,18 @@ legacy-box bridge.  The immediate open object is the fine-to-coarse physical
 block kernel and its exact retained remainder; `reflection_intertwines` must
 be proved for that kernel, not re-proved for the already closed single-scale
 measure.
+
+`CompactDualFiniteBlockRemainder.lean` now closes the finite algebra around
+that missing kernel.  The corrected source and target laws are normalized;
+for every source-dependent, positive, row-normalized,
+reflection-intertwining slab kernel, the retained pushforward remainder is
+defined and its total mass is proved exactly zero.  Its universal
+cutoff/volume-independent `L¹` bound is `2`.  This removes zero-mass
+cancellation as an independent obligation, but the bound `2` has no vanishing
+RG factor and therefore does not close CD-3.  The executable frontier in
+`computations/compact_dual_cd2_frontier.py` places the first open subgate at
+genuinely overlapping shared-link assembly, before the all-cutoff whole-slab
+kernel and physical Gibbs pushforward identification.
 
 ## What this advances
 

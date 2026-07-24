@@ -19,7 +19,7 @@ Definitions and previously audited finite reflection theorems only.  No
 declaration is used.
 -/
 
-import YMGap.Continuum.Z4HalfTimeReflectionPhysicalReindex
+import YMGap.Continuum.Z4HalfTimeReflectionNormalizedPhysicalGram
 
 namespace YMGap.Continuum.CompactDualSlabPhysicalData
 
@@ -32,6 +32,7 @@ open YMGap.Continuum.Z4HalfTimeReflectionCrossPlaneGeometry
 open YMGap.Continuum.Z4HalfTimeReflectionFaceReindex
 open YMGap.Continuum.Z4HalfTimeReflectionGeometry
 open YMGap.Continuum.Z4HalfTimeReflectionLinkMultiplicity
+open YMGap.Continuum.Z4HalfTimeReflectionNormalizedPhysicalGram
 open YMGap.Continuum.Z4HalfTimeReflectionPartition
 open YMGap.Continuum.Z4HalfTimeReflectionPhysicalGram
 open YMGap.Continuum.Z4HalfTimeReflectionPhysicalReindex
@@ -67,6 +68,13 @@ def physicalTerm (D : SlabPhysicalData) (physical : EdgeLabelling) : Q' :=
 /-- The complete corrected-slab physical partition. -/
 def physicalPartition (D : SlabPhysicalData) : Q' :=
   slabParametricKPhysicalPartition D.coupling D.cutoff D.extent
+
+/-- The normalized probability mass of one complete physical labelling. -/
+def normalizedMass
+    (D : SlabPhysicalData) (physical : EdgeLabelling) : Q' :=
+  Q'.divPos (D.physicalTerm physical) D.physicalPartition
+    (slabParametricKPhysicalPartition_pos
+      D.coupling_nonnegative D.cutoff D.extent)
 
 /-- The supported face-labelling reflection on the selected slab. -/
 def reflectLabelling
@@ -119,6 +127,53 @@ theorem physicalPartition_reflection_reindex (D : SlabPhysicalData) :
   exact slabParametricKPhysicalPartition_reflection_reindex
     D.coupling D.cutoff D.extent
 
+/-- Every normalized corrected-slab physical mass is nonnegative. -/
+theorem normalizedMass_nonnegative
+    (D : SlabPhysicalData) (physical : EdgeLabelling) :
+    (0 : Q') ≤ D.normalizedMass physical := by
+  unfold normalizedMass Q'.divPos
+  exact Q'.mul_nonneg _ _
+    (slabParametricKPhysicalTerm_nonnegative
+      D.coupling_nonnegative D.cutoff D.extent physical)
+    (Q'.le_of_lt (Q'.recipPos_pos _ _))
+
+/-- The normalized masses sum to one on the literal full Cartesian space. -/
+theorem normalizedMass_total (D : SlabPhysicalData) :
+    listQSum D.normalizedMass D.physicalLabellings ≈ 1 := by
+  unfold normalizedMass Q'.divPos physicalTerm physicalPartition
+    physicalLabellings faceEdges
+  exact Q'.eqv_trans _
+    (slabParametricKPhysicalPartition
+        D.coupling D.cutoff D.extent *
+      Q'.recipPos
+        (slabParametricKPhysicalPartition
+          D.coupling D.cutoff D.extent)
+        (slabParametricKPhysicalPartition_pos
+          D.coupling_nonnegative D.cutoff D.extent)) _
+    (listQSum_mul_right
+      (slabParametricKPhysicalTerm
+        D.coupling D.cutoff D.extent)
+      (Q'.recipPos
+        (slabParametricKPhysicalPartition
+          D.coupling D.cutoff D.extent)
+        (slabParametricKPhysicalPartition_pos
+          D.coupling_nonnegative D.cutoff D.extent))
+      (boundedEdgeLabellings D.cutoff
+        (slabPhysicalFaceEdges D.extent)))
+    (Q'.mul_recipPos_eqv _
+      (slabParametricKPhysicalPartition_pos
+        D.coupling_nonnegative D.cutoff D.extent))
+
+/-- Normalization does not disturb exact reflection invariance. -/
+theorem normalizedMass_reflection
+    (D : SlabPhysicalData) {physical : EdgeLabelling}
+    (hphysical : physical ∈ D.physicalLabellings) :
+    D.normalizedMass (D.reflectLabelling physical) ≈
+      D.normalizedMass physical := by
+  unfold normalizedMass Q'.divPos
+  exact Q'.mul_eqv_congr_right _ _ _
+    (D.physicalTerm_reflection hphysical)
+
 /-- The corrected physical kernel is exactly a weighted Gram kernel. -/
 theorem reflectedKernel_eq_weightedGram
     (D : SlabPhysicalData) {left right : EdgeLabelling}
@@ -156,6 +211,9 @@ end YMGap.Continuum.CompactDualSlabPhysicalData
 
 #print axioms YMGap.Continuum.CompactDualSlabPhysicalData.SlabPhysicalData.physicalTerm_reflection
 #print axioms YMGap.Continuum.CompactDualSlabPhysicalData.SlabPhysicalData.physicalPartition_reflection_reindex
+#print axioms YMGap.Continuum.CompactDualSlabPhysicalData.SlabPhysicalData.normalizedMass_nonnegative
+#print axioms YMGap.Continuum.CompactDualSlabPhysicalData.SlabPhysicalData.normalizedMass_total
+#print axioms YMGap.Continuum.CompactDualSlabPhysicalData.SlabPhysicalData.normalizedMass_reflection
 #print axioms YMGap.Continuum.CompactDualSlabPhysicalData.SlabPhysicalData.reflectedKernel_eq_weightedGram
 #print axioms YMGap.Continuum.CompactDualSlabPhysicalData.SlabPhysicalData.reflectionQuadratic_nonnegative
 #print axioms YMGap.Continuum.CompactDualSlabPhysicalData.SlabPhysicalData.fullReflectionQuadratic_nonnegative
