@@ -25322,3 +25322,93 @@ session lock (joins the three-spike in the build queue).
 obligations: (1) Mac `lake build` of DP6Ledger + three-spike;
 (2) DP.6-U1 contraction-step discriminator; (3) exponent-aggregated
 cone re-statement feeding DP.3.**
+
+### 15e. Addendum (2026-07-24, third session): spike build GREEN + axiom-clean; DP.6-U1 refutes-and-sharpens; SL.1 first extractions
+
+**(1) dual_kappa_spike build ✓ (obligation 15d(1) discharged).**
+`lake build` green, all four targets, checked exit code 0, under the
+session lock.  The two P21 files needed v4.29.1 repairs, all
+constructive (no `Classical`, no new axioms): `omega_nat`/`by_contra`/
+`clear * -` replaced (decidable `by_cases`, helper lemmas
+`countNat_eq_zero_of_not_mem` / `eraseFirst_length_le` /
+`mem_of_mem_eraseFirst`); `Nat.strong_induction_on` replaced by
+well-founded recursion on `l.length` (`termination_by`/`decreasing_by`);
+implicit-arg `List.mem_cons_self`; one missing `omega`; one
+`unfold parity; omega` → `show`+`simp`.  **Axiom audit (checked, exit
+0):** `DualKappa.no_local_gauge` and `FrozenHub.rim_readouts_pos` =
+[propext, Quot.sound]; `SupportLaw.kappa_odd_all_branched`,
+`detector_not_vacuous` = [propext]; **all six DP6Ledger theorems
+(`global_coeffs_pos`, `neg_classes_neg`, `exponent_ledger_balances`,
+`ledger_matches_global`, `neg_class_exponents`, `sanity_pins`) depend
+on NO axioms.**  The three P21 theorems + the DP.6 ledger are now
+kernel-checked mathematics, not UNBUILT claims.
+
+**(2) DP.6-U1 executed — §15d's banked prediction REFUTED, and the
+discriminator comes out SHARPER.**  The U(1) slab kernel is NOT
+diagonal (each coarse loop bounds its own tile disk; transverse sector
+= a rank-saturated 4-parameter cube-flip charge lattice, Smith factors
+1,1,1,1), so the projective machinery does not degenerate — and U(1)
+does not track s′ = s⁴: it deviates the OPPOSITE way.  At s = 1/2:
+SU(2) s′ = 0.034121 < s⁴ = 0.0625; U(1) s′ = 0.126197 > s⁴ (exact
+M = 2 witness ρ₁ = 14330603980276662272/11258810062447479809 ≈ 1.2728).
+At s = 3/4: SU(2) 0.249521 < 0.316406 < U(1) 0.451794.  Corridor
+narrowing happens for BOTH groups (U(1): 0.4614 → 0.0119) —
+**corridor phenomenology is group-generic and may NOT be cited as the
+non-abelian tag.  The sharpened U(1)-discriminator tag is the SIGN of
+the one-step coupling defect: s′ < s⁴ (contraction acceleration,
+needs the off-diagonal recoupling at the 4-valent interior edge) vs
+the abelian slab's provable s′ > s⁴ (anti-renormalization).**  This is
+the anti-screening/SELF-CHARGE reality-fact caught in exact
+arithmetic at one blocking step.  SU(2) pins reproduced to the digit
+first (0.034121/1.816737; 0.249521/0.792869).  Truncation certified:
+T_{M+1} − T_M min-degree ≥ (M+1)²; stable ≥ 9–10 digits from M = 3–5.
+One abelian rigidity: T[2,±2] = ∅ at M = 1 (the SU(2) (1,1,2) triad
+has no abelian counterpart).  Cloud tests 23/23 green.
+§15d's testable-prediction text stands as banked-and-refuted
+(Lakatos); the audit-rule tag in the U(1) memo is updated by
+`notes/dp6-u1-slab-blocking.md`.
+
+**(3) SL.1 first extractions (milestone opened).**
+- **Seiler 5d−4 RESOLVED (negative), in-substrate.**  Exact ℤ^d
+  enumeration (d = 3, 4, 5): **5d−4 matches NO plaquette-adjacency
+  notion at any d** — the d = 4 value 16 is a numerical coincidence
+  with the non-coplanar edge-neighbor count 8(d−2) (8, 16, 24 vs 11,
+  16, 21).  The notion the KP bound consumes (edge-connected polymer
+  growth) has max-degree 8d−12 = **20** at d = 4 (per-bond 2(d−1) = 6
+  ✓ BFS eq. 4.24); exact polymer counts N₁..₅ = 1, 20, 458, 11132,
+  280175 — N_n ≤ 16ⁿ holds through n = 5 but growth ratios (20.0,
+  22.9, 24.3, 25.2, rising) already exceed 16, so **μ = 16 is not
+  asymptotically defensible**; the rigorous replacement is 20e.
+  Budget impact computed: g_max^lf 0.4245 → 0.3733 (−12%); pilot
+  closure UNCHANGED (small-field window binding).  → DECISION QUEUED:
+  adopt 20e default in `large_field_kp.py` (recommended) and re-pin.
+- **Bałaban c_λ = 1/2: SHAPE-LOCATED.**  CMP 109 p.258 eq. (0.27)
+  quoted — the literal ½ is a decay-rate split (proof device, any κ),
+  not an extractable coefficient; Theorem 3 is existence-only.  NOTE:
+  `notes/fiducials_notes.md` §1 already re-derived c_λ = 3/4
+  internally (2026-05-26); its summary table still says 1/2 — stale
+  row, fix queued with the merge.
+- **Polymer residual 2.0: precise null.**  CMP 119 absent locally
+  (DOI confirmed, paywalled); CMP 116 (present) has only unpinned
+  absolute constants (C₁, C₂, q at (1.32)/(1.36)).  Extraction needs
+  CMP 119 + CMP 122 I/II.  Constant remains on the internal
+  triangle-inequality derivation.
+- **Corpus mislabel found:** local `Balaban 116.pdf` actually contains
+  CMP 109 (Part I); `Renormalization Group Approach....pdf` is CMP 116
+  (Part II).  Recorded in the upgrade draft.
+- Merge-ready provenance paragraphs: `docs/sl1-fiducials-upgrade-draft-2026-07-24.md`
+  (deliberate merge into `notes/fiducials_notes.md` queued, not
+  auto-applied).
+
+**New artifacts:** `computations/dp6_u1_slab_blocking.py` (+ test, 9
+pins), `computations/dp6_u1_results.json`,
+`notes/dp6-u1-slab-blocking.md`, `computations/plaquette_connectivity.py`
+(+ test, 15 pins), `docs/sl1-fiducials-upgrade-draft-2026-07-24.md`.
+
+**Next queue: (1) adopt μ_plaq = 20e (SL.1 decision) + re-pin lockstep;
+(2) merge the fiducials upgrade draft + fix the stale c_λ row;
+(3) exponent-aggregated cone re-statement feeding DP.3 (with the
+sharpened sign-of-defect tag on every contraction step);
+(4) DP.2 M=2 saturation + ε_slab(M); (5) embedded-surface Pin⁻
+realization; (6) obtain CMP 119/122 for the residual extraction;
+(7) read the completed abk_verdict2 300-sample run.**
