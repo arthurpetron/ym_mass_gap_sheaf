@@ -239,7 +239,18 @@ Its purpose is to decide whether the first carrier rich enough for the
 physical block map is positive and closed in the first genuinely
 multiplicity-bearing sector.
 
-## Next milestone — BF1.6: reflection-cut half-surface carrier
+## Closed milestone — BF1.6: reflection-cut half-surface carrier
+
+**Closed 2026-07-24 by the positive finite-sector route.**  The three BF1.5
+strands cut into loops of lengths four and six with four four-valent and two
+bivalent cut vertices, giving a 16-dimensional invariant boundary-index
+space.  Exact temporal-gauge half-tensor gluing reconstructs the BF1.5
+amplitude \(83/5184\).  The first nontrivial two-state positive-half Gram has
+determinant \(1/331776\) and positive \(LDL^{\mathsf T}\) pivots
+\((41/648,1/20992)\).  A spacing-two, cutoff-two Haar disk block embedded in
+the corrected slab has coarse modes \(1,2s^{12},3s^{32}\), Haar mass one,
+and zero outside-carrier remainder.  See
+`notes/bf1-6-reflection-cut-half-surface.md`.
 
 BF1.5 identifies the datum still missing before BF2/BF3: a closed surface
 must be cut into two open half-surface packets, and the exposed cut-edge
@@ -273,6 +284,39 @@ The gate closes when either:
    states;
 7. perform one actual lattice-spacing-changing corrected-slab Haar
    pushforward and return its kernel, mass, and outside-carrier remainder.
+
+## Next milestone — BF2.1: general reflection-cut positivity carrier
+
+BF1.6 proves that the corrected coordinate system is the positive-half
+boundary tensor, not the closed-surface scalar.  BF2.1 must decide whether
+that finite success extends to the fusion-closed physical carrier.
+
+### Goal
+
+Construct the general finite-cutoff reflection-cut carrier on corrected
+slabs and prove its complete physical weighted Gram blocks nonnegative, or
+isolate the first exact coherent counterexample.
+
+### Required actions
+
+1. enumerate cut signatures and invariant bases through the next cell and
+   label cutoffs;
+2. retain complete magnetic/intertwiner tensors and signed \(F/R\) transport;
+3. group states by boundary signature before testing positivity;
+4. build every weighted Gram block from the exact plaquette-coupled Haar
+   law;
+5. sweep the complete heat-weighted blocks for negative principal minors;
+6. identify a fusion-closed cone stable under the spacing-two block, or
+   return the first exact outside-cone term;
+7. formulate the minimal general reflected-Gram/SOS lemma supported by the
+   census.
+
+### Exit test
+
+The gate closes with either a theorem/certificate covering every generator
+at the stated cutoff and geometry, together with a proved enlargement
+scheme, or a complete physical counterexample retaining all coherent
+boundary data.
 
 ## BF2–BF4: contraction engine
 
