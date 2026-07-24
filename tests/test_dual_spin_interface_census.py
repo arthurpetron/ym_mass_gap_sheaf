@@ -15,11 +15,16 @@ from computations.dual_spin_interface_census import (
     bounded_overlap_pair_orbit_representatives,
     bounded_overlap_resolved_channel_quotient,
     brick_symmetry_face_maps,
+    cell_local_channel_value,
     channel_interface_carrier,
+    coordinate_torus_homology_class,
     exact_interface_channel_value,
     first_branching_census,
     interface_genus_one_surface_masks,
+    minimal_interface_torus_channel_value,
+    minimal_interface_torus_channels,
     nonzero_defect_channel_representatives,
+    pairing_interface_channel_value,
     resolved_channel_is_admissible,
 )
 
@@ -128,6 +133,42 @@ def test_complete_first_branching_defect_sector_is_strictly_positive() -> None:
         }
     )
     assert sum(values, start=Fraction(0)) == Fraction(7, 12582912)
+
+
+def test_pairing_expansion_matches_both_signs_of_generic_integrator() -> None:
+    for channel in (
+        (0x31AD1B6D9E, 0x240001),
+        (0x24636D9E, 0x21),
+    ):
+        assert pairing_interface_channel_value(channel) == exact_interface_channel_value(
+            channel
+        )
+
+
+def test_complete_minimal_interface_torus_stratum_obeys_quadratic_sign() -> None:
+    channels = minimal_interface_torus_channels()
+    assert len(channels) == 34
+    assert sum(cell_local_channel_value(channel) is not None for channel in channels) == 33
+
+    values = [
+        minimal_interface_torus_channel_value(channel)
+        for channel in channels
+    ]
+    classes = [coordinate_torus_homology_class(channel) for channel in channels]
+    assert all(homology_class is not None for homology_class in classes)
+    assert all(
+        (value < 0) == (homology_class == (1, 1))
+        for value, homology_class in zip(values, classes, strict=True)
+    )
+    assert Counter(values) == Counter(
+        {
+            Fraction(1, 65536): 15,
+            Fraction(1, 589824): 8,
+            Fraction(1, 5308416): 9,
+            Fraction(-1, 196608): 2,
+        }
+    )
+    assert sum(values, start=Fraction(0)) == Fraction(23, 98304)
 
 
 def test_empty_overlap_family_has_no_hidden_branch() -> None:

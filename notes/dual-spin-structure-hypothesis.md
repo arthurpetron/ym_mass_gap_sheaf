@@ -452,6 +452,62 @@ gate must glue two one-cell tensors through the explicit interface
 fusion-tree basis.  Expanding the full Haar polynomial again would discard
 the very structure that the decorated carrier was introduced to retain.
 
+### Minimal interface-torus sign theorem
+
+The first complete cycle-sector stratum is now closed as well.  Select from
+the first-branching quotient those channels whose odd support is a 16-face
+coordinate Clifford torus using four plaquettes in the shared three-face.
+There are 34 resolved-channel orbits.
+
+Thirty-three supports lie entirely on one four-cell boundary.  They are
+therefore evaluated without a two-cell polynomial expansion by the exact
+product of the 16 local Wigner six-j symbols.  The remaining channel reaches
+into the second cell and is pinned independently by the generic Haar
+integrator.  The value census is
+
+\[
+\begin{array}{c|c}
+\text{orbit representatives} & \text{amplitude}\\ \hline
+15 & 1/65536\\
+8  & 1/589824\\
+9  & 1/5308416\\
+2  & -1/196608.
+\end{array}
+\]
+
+The literal boundary of every selected label-two chain was reduced modulo
+the 16 torus-face boundaries.  All 34 have a unique class
+\((a,b)\in H_1(T^2;\mathbf F_2)\), including the channel whose selected
+chain enters the second cell.  Exactly the two \((1,1)\) classes are
+negative:
+
+\[
+ \operatorname{sgn} A_D=(-1)^{ab}
+\]
+
+on the complete stratum.  The negative representative
+
+\[
+ (S,D)=(\mathtt{0x24636d9e},\mathtt{0x21})
+\]
+
+has value \(-1/196608\).  It is the expected crossing sector, not a new
+nonquadratic sign and not a negative physical pair amplitude.
+
+At the integrator level, a pairing-aware contraction now applies the exact
+fundamental \(S^3\) projector before multiplying link-linear factors.  In
+combination with
+\(\chi_2=\chi_1^2-1\), it independently reproduces both the positive
+trivalent branch and this negative quadratic sector.  Some larger packets
+still become nonlinear after the first eliminations, so this is not yet the
+complete interface transfer tensor.
+
+This gate proves orientation/interface covariance of the quadratic law on
+the full minimal coordinate-torus stratum.  The next surface-complexity
+stratum has 20 odd faces and is no longer reducible wholesale to one
+four-cell boundary.  It is the first place where the decorated transfer
+tensor, rather than a one-cell six-j product, must carry the sign theorem.
+
 ## Higher-dimensional status
 
 It would be too strong to say that spin-structure technology has literally
@@ -509,8 +565,11 @@ The next gates are:
    resum to the unfused pair amplitude.  **DONE through first branching
    order for nonzero-defect channels:** all 14 defect-channel orbits in the
    complete overlap-at-most-five filtration are exactly positive.  **OPEN
-   next:** construct the factorized interface transfer tensor, evaluate the
-   remaining 2,152 cycle-sector orbits, then increase the overlap order.
+   next, with the minimal cycle stratum done:** all 34 coordinate-torus
+   channel orbits obey `sign=(-1)^(ab)`, including the only representative
+   whose selected chain enters the second cell.  Construct the complete
+   factorized interface transfer tensor for the 20-, 22-, 24-, and 26-face
+   strata, then increase the overlap order.
 4. **Negative-orbit audit.**  **DONE for binary-pair reachability.**  Exactly
    3 of 33 negative orbits enter this lane, and all three obey \(q=ab=1\).
    **OPEN beyond this lane:** determine the appropriate carrier for the 30

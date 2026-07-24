@@ -593,6 +593,68 @@ def contract(factors: Iterable[Poly], links: Iterable[int]) -> Poly:
     return out
 
 
+def contract_pairing_aware(factors: Iterable[Poly], links: Iterable[int]) -> Poly:
+    """Contract a network while preserving fundamental-strand factors.
+
+    Whenever every factor incident to a link is linear in that link, the
+    exact spherical pairing projector is applied before the factors are
+    multiplied.  This is the coordinate realization of contracting the
+    local fundamental intertwiner block.  Composite factors produced later
+    in the elimination may cease to be link-linear; those links fall back to
+    the generic exact Haar moment without changing the value.
+
+    Linear links are eliminated before generic links.  Within each class the
+    same deterministic factor-size cost as :func:`contract` is used.
+    """
+
+    remaining_factors = list(factors)
+    pending = set(links)
+    if any(link < 0 for link in pending):
+        raise ValueError(f"link indices must be nonnegative; got {pending}")
+
+    while pending:
+        choices: list[tuple[int, int, int, list[int]]] = []
+        for link in sorted(pending):
+            indices = [
+                index for index, factor in enumerate(remaining_factors) if link in p_links(factor)
+            ]
+            linear = True
+            for index in indices:
+                try:
+                    link_linear_coefficients(remaining_factors[index], link)
+                except ValueError:
+                    linear = False
+                    break
+            cost = 1
+            for index in indices:
+                cost *= max(1, len(remaining_factors[index]))
+            choices.append((int(not linear), cost, link, indices))
+        generic, _cost, selected_link, selected_indices = min(choices)
+
+        kept: list[Poly] = []
+        selected = set(selected_indices)
+        incident: list[Poly] = []
+        for index, factor in enumerate(remaining_factors):
+            if index in selected:
+                incident.append(factor)
+            else:
+                kept.append(factor)
+        if not generic:
+            kept.append(integrate_link_linear_factors(incident, selected_link))
+        else:
+            merged = {monomial: dict(s_poly) for monomial, s_poly in P_ONE.items()}
+            for factor in incident:
+                merged = p_mul(merged, factor)
+            kept.append(integrate_link(merged, selected_link))
+        remaining_factors = kept
+        pending.remove(selected_link)
+
+    out = {monomial: dict(s_poly) for monomial, s_poly in P_ONE.items()}
+    for factor in remaining_factors:
+        out = p_mul(out, factor)
+    return out
+
+
 def scalar(p: Poly) -> SPoly:
     """Extract a fully contracted coordinate constant."""
     leftovers = [monomial for monomial in p if monomial]

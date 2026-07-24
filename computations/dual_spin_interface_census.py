@@ -36,16 +36,26 @@ from computations.dual_spin_gluing import (
     relative_boundary_defect,
     two_cell_brick,
 )
-from computations.exact_haar_network import invariant_multiplicity
+from computations.exact_haar_network import (
+    chi,
+    contract_pairing_aware,
+    invariant_multiplicity,
+    scalar,
+)
 from computations.hypercube4d_survey import (
+    coordinate_clifford_torus_mask,
+    edge_cycles_homologous_mod2,
+    face_chain_boundary_mask,
     kernel_basis,
     surface_betti_numbers_mod2,
     surfaces,
+    vertex_sixj_product,
 )
 
 FacePermutation: TypeAlias = tuple[int, ...]
 ResolvedChannel: TypeAlias = tuple[int, int]
 SurfacePair: TypeAlias = tuple[int, int]
+TorusClass: TypeAlias = tuple[int, int]
 
 FIRST_BRANCHING_OVERLAP = 5
 
@@ -314,6 +324,157 @@ def channel_interface_carrier(
 
 
 @cache
+def _cell_face_indices(cell: int) -> tuple[int, ...]:
+    if cell not in (0, 1):
+        raise ValueError("the two-cell brick has cells zero and one")
+    mask = build_two_cell_spin_gluing().cell_face_masks[cell]
+    return tuple(face for face in range(_face_count()) if (mask >> face) & 1)
+
+
+@cache
+def _cell_local_meta(
+    cell: int,
+) -> tuple[tuple[tuple[int, int, int, int], int, int], ...]:
+    _complex, _faces, meta = two_cell_brick()
+    return tuple(
+        (
+            (
+                point[0] - cell,
+                point[1],
+                point[2],
+                point[3],
+            ),
+            first,
+            second,
+        )
+        for face in _cell_face_indices(cell)
+        for point, first, second in (meta[face],)
+    )
+
+
+def cell_local_channel_value(channel: ResolvedChannel) -> Fraction | None:
+    """Evaluate a channel supported on one four-cell by its vertex six-j product."""
+
+    surface, selected = channel
+    support = surface | selected
+    certificate = build_two_cell_spin_gluing()
+    for cell, cell_mask in enumerate(certificate.cell_face_masks):
+        if support & ~cell_mask:
+            continue
+        spins = tuple(
+            1
+            if (surface >> face) & 1
+            else 2
+            if (selected >> face) & 1
+            else 0
+            for face in _cell_face_indices(cell)
+        )
+        return vertex_sixj_product(_cell_local_meta(cell), spins)
+    return None
+
+
+@cache
+def _coordinate_torus_cell_and_planes(
+    surface: int,
+) -> tuple[int, tuple[int, int], tuple[int, int]] | None:
+    """Recognize a coordinate Clifford torus on either cell boundary."""
+
+    plane_splits = (
+        ((0, 1), (2, 3)),
+        ((0, 2), (1, 3)),
+        ((0, 3), (1, 2)),
+    )
+    for cell in (0, 1):
+        indices = _cell_face_indices(cell)
+        local_surface = sum(
+            1 << local_face
+            for local_face, global_face in enumerate(indices)
+            if (surface >> global_face) & 1
+        )
+        if local_surface.bit_count() != surface.bit_count():
+            continue
+        for first_plane, second_plane in plane_splits:
+            if local_surface == coordinate_clifford_torus_mask(
+                _cell_local_meta(cell),
+                first_plane,
+                second_plane,
+            ):
+                return cell, first_plane, second_plane
+    return None
+
+
+def coordinate_torus_homology_class(
+    channel: ResolvedChannel,
+) -> TorusClass | None:
+    """Return ``[boundary D]`` in the product basis of a cell Clifford torus."""
+
+    surface, selected = channel
+    geometry = _coordinate_torus_cell_and_planes(surface)
+    if geometry is None or relative_boundary_defect(surface, selected):
+        return None
+    cell, first_plane, second_plane = geometry
+    _complex, faces, meta = two_cell_brick()
+    surface_edges = {
+        edge
+        for face_index, face in enumerate(faces)
+        if (surface >> face_index) & 1
+        for edge, _orientation in face
+    }
+
+    basis_cycles: list[int] = []
+    for plane in (first_plane, second_plane):
+        candidate = next(
+            (
+                face
+                for face in _cell_face_indices(cell)
+                if {meta[face][1], meta[face][2]} == set(plane)
+                and {edge for edge, _orientation in faces[face]} <= surface_edges
+            ),
+            None,
+        )
+        if candidate is None:
+            raise AssertionError("coordinate torus lost a product cap")
+        basis_cycles.append(face_chain_boundary_mask(faces, 1 << candidate))
+
+    selected_boundary = face_chain_boundary_mask(faces, selected)
+    matches: list[TorusClass] = [
+        (first, second)
+        for first, second in product((0, 1), repeat=2)
+        if edge_cycles_homologous_mod2(
+            faces,
+            surface,
+            selected_boundary,
+            (basis_cycles[0] if first else 0) ^ (basis_cycles[1] if second else 0),
+        )
+    ]
+    if len(matches) != 1:
+        raise AssertionError("torus boundary did not have a unique homology class")
+    return matches[0]
+
+
+@cache
+def minimal_interface_torus_channels() -> tuple[ResolvedChannel, ...]:
+    """Return the complete 16-face interface-torus stratum through overlap five."""
+
+    interface = build_two_cell_spin_gluing().interface_face_mask
+    return tuple(
+        channel
+        for channel in bounded_overlap_resolved_channel_quotient().representatives
+        if channel[0].bit_count() == 16
+        and (channel[0] & interface).bit_count() == 4
+    )
+
+
+def minimal_interface_torus_channel_value(channel: ResolvedChannel) -> Fraction:
+    """Use the one-cell vertex factorization whenever the support permits it."""
+
+    if channel not in set(minimal_interface_torus_channels()):
+        raise ValueError("channel is outside the minimal interface-torus stratum")
+    local = cell_local_channel_value(channel)
+    return exact_interface_channel_value(channel) if local is None else local
+
+
+@cache
 def exact_interface_channel_value(channel: ResolvedChannel) -> Fraction:
     """Evaluate one resolved-channel representative by exact Haar integration."""
 
@@ -330,6 +491,55 @@ def exact_interface_channel_value(channel: ResolvedChannel) -> Fraction:
         for face in range(len(faces))
     )
     return evaluate_active_assignment(complex_, faces, spins)
+
+
+@cache
+def pairing_interface_channel_value(channel: ResolvedChannel) -> Fraction:
+    """Evaluate a label-one/two channel through fundamental Haar projectors.
+
+    The character identity ``chi_2 = chi_1**2 - 1`` expands each selected
+    spin-one face into either two explicit fundamental strands or the
+    subtraction term.  Link-linear factors are then contracted by
+    :func:`contract_pairing_aware`, retaining the local invariant projector
+    before any generic coordinate multiplication.
+    """
+
+    complex_, faces, _meta = two_cell_brick()
+    surface, selected = channel
+    if not resolved_channel_is_admissible(surface, selected):
+        return Fraction(0)
+    fundamental_factors = tuple(
+        chi(1, complex_.holonomy_of(face))
+        for face in faces
+    )
+    surface_faces = [
+        face for face in range(len(faces)) if (surface >> face) & 1
+    ]
+    selected_faces = [
+        face for face in range(len(faces)) if (selected >> face) & 1
+    ]
+    total = Fraction(0)
+    for doubled_selection in range(1 << len(selected_faces)):
+        doubled_faces = [
+            face
+            for index, face in enumerate(selected_faces)
+            if (doubled_selection >> index) & 1
+        ]
+        factors = [
+            fundamental_factors[face]
+            for face in surface_faces
+        ]
+        factors.extend(
+            fundamental_factors[face]
+            for face in doubled_faces
+            for _copy in range(2)
+        )
+        contracted = scalar(contract_pairing_aware(factors, complex_.free))
+        if any(power != 0 for power in contracted):
+            raise AssertionError("fundamental channel contraction acquired heat powers")
+        sign = -1 if (len(selected_faces) - len(doubled_faces)) % 2 else 1
+        total += sign * contracted.get(0, Fraction(0))
+    return total
 
 
 @cache

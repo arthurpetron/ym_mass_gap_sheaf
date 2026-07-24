@@ -10,6 +10,7 @@ from computations.exact_haar_network import (
     casimir4,
     chi,
     contract,
+    contract_pairing_aware,
     dimension,
     fusion_labels,
     haar_s3_moment,
@@ -103,6 +104,21 @@ def test_link_linear_pairing_contraction_matches_generic_haar_integration() -> N
 
     # Odd products vanish, but their link-linearity is still validated.
     assert integrate_link_linear_factors(factors[:5], 0) == {}
+
+
+def test_pairing_aware_network_contraction_matches_generic_elimination() -> None:
+    groups = [q_link(index) for index in range(3)]
+    factors = [
+        chi(1, q_mul(groups[0], q_conj(groups[1]))),
+        chi(1, q_mul(groups[1], q_conj(groups[2]))),
+        chi(1, q_mul(groups[2], q_conj(groups[0]))),
+        chi(1, groups[0]),
+        chi(1, groups[1]),
+        chi(1, groups[2]),
+    ]
+    assert scalar(contract_pairing_aware(factors, range(3))) == scalar(
+        contract(factors, range(3))
+    )
 
 
 def test_doubled_label_fusion_conventions() -> None:
