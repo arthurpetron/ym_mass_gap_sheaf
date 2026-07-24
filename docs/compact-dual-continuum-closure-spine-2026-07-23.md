@@ -198,12 +198,17 @@ the same fused channel.  The stretched witness is present below `8K` for
 every cutoff, so the row is nonnegative, normalized, reflection-invariant,
 and source-dependent.
 
-The first open parent subgate is now the complete adjacent-cube product:
-jointly sum both six-face target spaces, retain the sixteen non-interface link
-factors, insert the shared-face kernel, and apply one global support
-projection and normalization.  No whole-slab kernel or physical Gibbs
-pushforward follows from the local recoupling law.  Those precede the
-all-cutoff whole-slab kernel and physical pushforward identification.
+`Z4AdjacentCubeJointConditionalKernel.lean` now closes that complete
+adjacent-cube product.  Four interface incidences are removed from each cube,
+leaving eight outer links per side; both six-face target spaces and the
+shared channel are then summed with the five shared recoupling constraints
+under one denominator.  The all-cutoff joint row is nonnegative and exactly
+normalized.
+
+The first open subgate is reflection intertwining on this expanded target,
+followed by the global fine-support projection for overlapping cube families.
+No whole-slab kernel or physical Gibbs pushforward follows until those
+compatibility layers are closed.
 
 ## What this advances
 

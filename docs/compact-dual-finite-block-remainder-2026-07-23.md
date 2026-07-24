@@ -102,12 +102,19 @@ for every cutoff and yields a nonnegative, row-normalized,
 reflection-invariant conditional kernel.  Its vacuum and fundamental rows
 are exactly distinct (`1` versus `1/2` at `u=0`).
 
-The first open parent subgate is now narrower: sum jointly over the two full
-six-face target spaces, multiply the sixteen non-interface production-link
-factors and this five-constraint shared-face factor, apply the global support
-projection, and normalize once.  Only then can the construction be placed
-inside the actual fine/coarse corrected-slab state spaces.  Independent local
-normalization remains ruled out by the exact zero-mass fence.
+`Z4AdjacentCubeJointConditionalKernel.lean` now performs that complete
+one-pair sum.  It removes the four interface incidences from each independent
+cube link product, leaving eight outer-link factors per cube.  It then sums
+both six-face target spaces and the shared fused channel with the
+`8 + 8 + (1 + 4)` link/recoupling factors under one denominator.  A
+compatible stretched target has strictly positive mass for every cutoff, so
+the full adjacent-pair row is nonnegative and exactly normalized.
+
+The first open subgate is now reflection intertwining for this larger joint
+target.  After that come the global fine-support projection for overlapping
+cube families and placement inside the actual fine/coarse corrected-slab
+state spaces.  Independent local normalization remains ruled out by the exact
+zero-mass fence.
 
 After that assembly, two further CD-2 steps remain:
 

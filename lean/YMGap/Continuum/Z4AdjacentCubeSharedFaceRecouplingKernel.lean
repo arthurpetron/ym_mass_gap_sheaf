@@ -56,11 +56,8 @@ def cubeTargetSpin
     (target : CubePairChannelState) (face : CubeFaceIndex) : Nat :=
   (cubeTargetAt target face).2
 
-def adjacentCubeSharedFaceRawWeight
-    {cutoff : Nat} (source : AdjacentCubeStretchedSource cutoff)
-    (fused : Nat) : Q' :=
-  let left := compatibleCubeTarget source.left
-  let right := compatibleCubeTarget source.right
+def adjacentCubeSharedFaceTargetRawWeight
+    (left right : CubePairChannelState) (fused : Nat) : Q' :=
   fusionInd
       (cubeTargetSpin left .rightYZ)
       (cubeTargetSpin right .leftYZ) fused *
@@ -77,11 +74,18 @@ def adjacentCubeSharedFaceRawWeight
             (cubeTargetSpin left .backXZ)
             (cubeTargetSpin right .backXZ) fused)))
 
-theorem adjacentCubeSharedFaceRawWeight_nonnegative
+def adjacentCubeSharedFaceRawWeight
     {cutoff : Nat} (source : AdjacentCubeStretchedSource cutoff)
-    (fused : Nat) :
-    (0 : Q') ≤ adjacentCubeSharedFaceRawWeight source fused := by
-  unfold adjacentCubeSharedFaceRawWeight
+    (fused : Nat) : Q' :=
+  adjacentCubeSharedFaceTargetRawWeight
+    (compatibleCubeTarget source.left)
+    (compatibleCubeTarget source.right) fused
+
+theorem adjacentCubeSharedFaceTargetRawWeight_nonnegative
+    (left right : CubePairChannelState) (fused : Nat) :
+    (0 : Q') ≤
+      adjacentCubeSharedFaceTargetRawWeight left right fused := by
+  unfold adjacentCubeSharedFaceTargetRawWeight
   exact Q'.mul_nonneg _ _
     (fusionInd_nonneg _ _ _)
     (Q'.mul_nonneg _ _
@@ -91,6 +95,13 @@ theorem adjacentCubeSharedFaceRawWeight_nonnegative
         (Q'.mul_nonneg _ _
           (fusionInd_nonneg _ _ _)
           (fusionInd_nonneg _ _ _))))
+
+theorem adjacentCubeSharedFaceRawWeight_nonnegative
+    {cutoff : Nat} (source : AdjacentCubeStretchedSource cutoff)
+    (fused : Nat) :
+    (0 : Q') ≤ adjacentCubeSharedFaceRawWeight source fused := by
+  unfold adjacentCubeSharedFaceRawWeight
+  exact adjacentCubeSharedFaceTargetRawWeight_nonnegative _ _ _
 
 theorem compatibleCubeTarget_spin_eq_commonTotal
     {cutoff : Nat} (source : CubeStretchedCompatibleSource cutoff)
@@ -112,7 +123,8 @@ theorem adjacentCubeSharedFaceRawWeight_eq_commonTotals
             (fusionInd source.left.commonTotal source.right.commonTotal fused *
       fusionInd source.left.commonTotal
                 source.right.commonTotal fused))) := by
-  simp only [adjacentCubeSharedFaceRawWeight]
+  simp only [adjacentCubeSharedFaceRawWeight,
+    adjacentCubeSharedFaceTargetRawWeight]
   rw [compatibleCubeTarget_spin_eq_commonTotal,
     compatibleCubeTarget_spin_eq_commonTotal,
     compatibleCubeTarget_spin_eq_commonTotal,

@@ -16,10 +16,12 @@ by the complete bounded-spin shared-face recoupling fiber: all five SU(2)
 fusion constraints are normalized at every cutoff and intertwine reflection.
 
 This closes the shared-face fiber, not the complete adjacent-cube product.
-The first missing object is the joint sum over both six-face target spaces
-with all sixteen non-interface production links and the shared recoupling
-inserted before one normalization.  Whole-slab assembly and physical
-pushforward follow that.  The vanishing quadratic norm belongs to CD-3.
+That product is now assembled too: both six-face target spaces, sixteen
+non-interface link factors, and the five shared recoupling factors are summed
+under one all-cutoff denominator.  The first missing object is reflection
+intertwining for this larger target, followed by its global fine-support
+projection, whole-slab assembly, and physical pushforward.  The vanishing
+quadratic norm belongs to CD-3.
 """
 
 from __future__ import annotations
@@ -47,6 +49,12 @@ class CD2Subgate(Enum):
     )
     OVERLAPPING_LINK_ASSEMBLY = (
         "complete adjacent-cube joint production assembly"
+    )
+    OVERLAP_REFLECTION_INTERTWINING = (
+        "reflection intertwining of the all-cutoff adjacent target"
+    )
+    GLOBAL_FINE_SUPPORT_PROJECTION = (
+        "global fine-support projection for overlapping cube families"
     )
     ALL_CUTOFF_GLOBAL_KERNEL = "all-cutoff whole-slab kernel"
     PHYSICAL_PUSHFORWARD = "physical Gibbs pushforward identification"
@@ -82,6 +90,8 @@ CD2_LEAN_THEOREMS = (
     "adjacentCubeSharedFaceConditionalKernel_reflection",
     "Z4AdjacentCubeSharedFaceRecouplingKernel."
     "adjacentCubeSharedFaceConditionalKernel_source_dependent",
+    "Z4AdjacentCubeJointConditionalKernel."
+    "adjacentCubeJointConditionalKernel_row_normalized",
     "CompactDualFiniteBlockRemainder.SlabScalePair.FiniteSlabKernel."
     "remainder_total_eqv_zero",
     "CompactDualFiniteBlockRemainder.SlabScalePair.FiniteSlabKernel."
@@ -101,6 +111,8 @@ class CD2Frontier:
     cutoff_one_overlap_kernel: bool
     all_cutoff_shared_face_recoupling: bool
     overlapping_link_assembly: bool
+    overlap_reflection_intertwining: bool
+    global_fine_support_projection: bool
     all_cutoff_global_kernel: bool
     physical_pushforward: bool
     zero_mass_remainder_derived: bool
@@ -129,6 +141,14 @@ class CD2Frontier:
             (
                 CD2Subgate.OVERLAPPING_LINK_ASSEMBLY,
                 self.overlapping_link_assembly,
+            ),
+            (
+                CD2Subgate.OVERLAP_REFLECTION_INTERTWINING,
+                self.overlap_reflection_intertwining,
+            ),
+            (
+                CD2Subgate.GLOBAL_FINE_SUPPORT_PROJECTION,
+                self.global_fine_support_projection,
             ),
             (
                 CD2Subgate.ALL_CUTOFF_GLOBAL_KERNEL,
@@ -176,7 +196,9 @@ def current_cd2_frontier() -> CD2Frontier:
         overlapping_carrier_correction=True,
         cutoff_one_overlap_kernel=True,
         all_cutoff_shared_face_recoupling=True,
-        overlapping_link_assembly=False,
+        overlapping_link_assembly=True,
+        overlap_reflection_intertwining=False,
+        global_fine_support_projection=False,
         all_cutoff_global_kernel=False,
         physical_pushforward=False,
         zero_mass_remainder_derived=True,

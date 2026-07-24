@@ -17,7 +17,7 @@ def test_finite_remainder_algebra_is_closed() -> None:
     assert frontier.finite_remainder_algebra_closed()
 
 
-def test_first_open_subgate_is_overlapping_link_assembly() -> None:
+def test_first_open_subgate_is_overlap_reflection_intertwining() -> None:
     frontier = current_cd2_frontier()
     assert frontier.local_fusion_kernel
     assert frontier.closed_component
@@ -25,9 +25,10 @@ def test_first_open_subgate_is_overlapping_link_assembly() -> None:
     assert frontier.overlapping_carrier_correction
     assert frontier.cutoff_one_overlap_kernel
     assert frontier.all_cutoff_shared_face_recoupling
+    assert frontier.overlapping_link_assembly
     assert (
         frontier.first_open_subgate()
-        is CD2Subgate.OVERLAPPING_LINK_ASSEMBLY
+        is CD2Subgate.OVERLAP_REFLECTION_INTERTWINING
     )
     assert not frontier.physical_cd2_closed()
     assert not frontier.cd3_smallness_closed()
@@ -72,6 +73,11 @@ def test_theorem_surface_pins_normalization_and_uniform_fence() -> None:
     assert (
         "Z4AdjacentCubeSharedFaceRecouplingKernel."
         "adjacentCubeSharedFaceConditionalKernel_source_dependent"
+        in CD2_LEAN_THEOREMS
+    )
+    assert (
+        "Z4AdjacentCubeJointConditionalKernel."
+        "adjacentCubeJointConditionalKernel_row_normalized"
         in CD2_LEAN_THEOREMS
     )
     assert CD2_LEAN_THEOREMS[-2:] == (
