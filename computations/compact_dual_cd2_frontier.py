@@ -58,7 +58,10 @@ actual fine Gibbs term forces every production link multiplicity nonzero,
 so the SU(2) parity rule makes the fine odd-spin support an even cellular
 surface.  Every positive cutoff-one Gibbs source therefore has an exact
 normalized coherent whole-slab row.  The first open gate is the corresponding
-all-cutoff recoupling coherence theorem.
+all-cutoff recoupling coherence theorem.  Independently, the complete raw
+whole-slab carrier now intertwines corrected-slab reflection exactly: the
+dyadic child packet, internal pair-channel list, coarse-face product, and
+complete coarse-link product have all been reindexed constructively.
 
 The physical remainder now also has a locality fence: for every cylinder
 intertwined pointwise by a candidate slab kernel, the fine/coarse Gibbs
@@ -104,6 +107,9 @@ class CD2Subgate(Enum):
     )
     WHOLE_SLAB_RAW_CARRIER = (
         "whole-slab globally link-glued recoupling raw carrier"
+    )
+    WHOLE_SLAB_REFLECTION_INTERTWINING = (
+        "reflection intertwining of the whole-slab raw carrier"
     )
     CUTOFF_ONE_COARSE_FACE_DOOR = (
         "positive parity-selected coarse face channels at cutoff one"
@@ -172,6 +178,8 @@ CD2_LEAN_THEOREMS = (
     "wholeSlabRecouplingRawWeight_nonnegative",
     "CompactDualWholeSlabRecouplingRawKernel."
     "wholeSlabRecouplingConditionalKernel_row_normalized",
+    "CompactDualWholeSlabRecouplingReflection."
+    "wholeSlabRecouplingRawWeight_reflection",
     "CompactDualCutoffOneCoarseFaceDoor."
     "fixedFinalFaceRawWeight_parity_pos",
     "CompactDualCutoffOneCoarseLinkDoor."
@@ -210,6 +218,7 @@ class CD2Frontier:
     general_source_kernel: bool
     fine_intertwiner_witness: bool
     whole_slab_raw_carrier: bool
+    whole_slab_reflection_intertwining: bool
     cutoff_one_coarse_face_door: bool
     cutoff_one_coarse_link_door: bool
     cutoff_one_global_coherent_target: bool
@@ -259,6 +268,10 @@ class CD2Frontier:
             (
                 CD2Subgate.WHOLE_SLAB_RAW_CARRIER,
                 self.whole_slab_raw_carrier,
+            ),
+            (
+                CD2Subgate.WHOLE_SLAB_REFLECTION_INTERTWINING,
+                self.whole_slab_reflection_intertwining,
             ),
             (
                 CD2Subgate.CUTOFF_ONE_COARSE_FACE_DOOR,
@@ -332,6 +345,7 @@ def current_cd2_frontier() -> CD2Frontier:
         general_source_kernel=True,
         fine_intertwiner_witness=True,
         whole_slab_raw_carrier=True,
+        whole_slab_reflection_intertwining=True,
         cutoff_one_coarse_face_door=True,
         cutoff_one_coarse_link_door=True,
         cutoff_one_global_coherent_target=True,

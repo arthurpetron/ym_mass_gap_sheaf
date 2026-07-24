@@ -154,6 +154,66 @@ private theorem wholeSlabQProduct_pos_on {A : Type}
           (fun x hmem =>
             hvalue x (List.mem_cons_of_mem head hmem)))
 
+private theorem wholeSlabQProduct_congr_on {A : Type}
+    (left right : A → Q') :
+    ∀ xs, (∀ x, x ∈ xs → left x ≈ right x) →
+      wholeSlabQProduct left xs ≈ wholeSlabQProduct right xs
+  | [], _ => Q'.eqv_refl 1
+  | head :: tail, hagree =>
+      Q'.eqv_trans _
+        (right head * wholeSlabQProduct left tail) _
+        (Q'.mul_eqv_congr_right
+          (left head) (right head) (wholeSlabQProduct left tail)
+          (hagree head List.mem_cons_self))
+        (Q'.mul_eqv_congr_left
+          (right head)
+          (wholeSlabQProduct left tail)
+          (wholeSlabQProduct right tail)
+          (wholeSlabQProduct_congr_on left right tail
+            (fun x hmem =>
+              hagree x (List.mem_cons_of_mem head hmem))))
+
+private theorem wholeSlabQProduct_map {A B : Type}
+    (value : B → Q') (reindex : A → B) :
+    ∀ xs, wholeSlabQProduct value (xs.map reindex) =
+      wholeSlabQProduct (fun x => value (reindex x)) xs
+  | [] => rfl
+  | _ :: tail => by
+      simp only [List.map_cons, wholeSlabQProduct]
+      rw [wholeSlabQProduct_map value reindex tail]
+
+private theorem wholeSlabQProduct_perm {A : Type}
+    (value : A → Q') :
+    ∀ {left right : List A}, left.Perm right →
+      wholeSlabQProduct value left ≈ wholeSlabQProduct value right
+  | _, _, List.Perm.nil => Q'.eqv_refl 1
+  | _, _, List.Perm.cons _ hperm =>
+      Q'.mul_eqv_congr_left _ _ _
+        (wholeSlabQProduct_perm value hperm)
+  | _, _, List.Perm.swap first second rest => by
+      change value second *
+          (value first * wholeSlabQProduct value rest) ≈
+        value first *
+          (value second * wholeSlabQProduct value rest)
+      calc
+        value second *
+              (value first * wholeSlabQProduct value rest) ≈
+            (value second * value first) *
+              wholeSlabQProduct value rest :=
+          Q'.eqv_symm (Q'.mul_assoc_eqv _ _ _)
+        _ ≈ (value first * value second) *
+              wholeSlabQProduct value rest :=
+          Q'.mul_eqv_congr_right _ _
+            (wholeSlabQProduct value rest)
+            (Q'.mul_comm_eqv _ _)
+        _ ≈ value first *
+              (value second * wholeSlabQProduct value rest) :=
+          Q'.mul_assoc_eqv _ _ _
+  | _, _, List.Perm.trans hleft hright =>
+      Q'.eqv_trans _ _ _
+        (wholeSlabQProduct_perm value hleft)
+        (wholeSlabQProduct_perm value hright)
+
 def wholeSlabFaceRawProduct
     (S : SlabScalePair) (fineState coarseState : SlabLabelling) : Q' :=
   wholeSlabQProduct
@@ -181,6 +241,34 @@ theorem wholeSlabFaceRawProduct_pos_of_pointwise
   exact wholeSlabQProduct_pos_on
     (wholeSlabFaceRawWeight S fineState coarseState)
     S.coarse.faceEdges hvalue
+
+/-- A permutation of the geometric coarse-face coordinates, together with a
+pointwise equivalence after reindexing, preserves the complete face product.
+This is the public product-level interface used by whole-slab reflection. -/
+theorem wholeSlabFaceRawProduct_eqv_of_reindex
+    (S : SlabScalePair)
+    (leftFine leftCoarse rightFine rightCoarse : SlabLabelling)
+    (reindex : Nat → Nat)
+    (hperm : (S.coarse.faceEdges.map reindex).Perm
+      S.coarse.faceEdges)
+    (hweight : ∀ faceId, faceId ∈ S.coarse.faceEdges →
+      wholeSlabFaceRawWeight S leftFine leftCoarse faceId ≈
+        wholeSlabFaceRawWeight S rightFine rightCoarse
+          (reindex faceId)) :
+    wholeSlabFaceRawProduct S leftFine leftCoarse ≈
+      wholeSlabFaceRawProduct S rightFine rightCoarse := by
+  unfold wholeSlabFaceRawProduct
+  refine Q'.eqv_trans _
+    (wholeSlabQProduct
+      (fun faceId =>
+        wholeSlabFaceRawWeight S rightFine rightCoarse
+          (reindex faceId))
+      S.coarse.faceEdges) _ ?_ ?_
+  · exact wholeSlabQProduct_congr_on _ _ _
+      hweight
+  · rw [← wholeSlabQProduct_map]
+    exact wholeSlabQProduct_perm
+      (wholeSlabFaceRawWeight S rightFine rightCoarse) hperm
 
 /-! ## 2. Complete globally link-glued raw row -/
 
@@ -294,6 +382,7 @@ theorem wholeSlabRecouplingConditionalKernel_row_normalized
 #print axioms slabSpinAtPlaquette_eq_zero_of_not_mem
 #print axioms wholeSlabFaceRawProduct_nonnegative
 #print axioms wholeSlabFaceRawProduct_pos_of_pointwise
+#print axioms wholeSlabFaceRawProduct_eqv_of_reindex
 #print axioms wholeSlabRecouplingRawWeight_nonnegative
 #print axioms wholeSlabRecouplingPartition_pos
 #print axioms wholeSlabRecouplingConditionalKernel_nonnegative
