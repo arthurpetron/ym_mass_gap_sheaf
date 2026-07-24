@@ -24,16 +24,20 @@ multiplicity-only certificates to preserving the full physical object:
 5. one shared continuum object through OS reconstruction and spectral-gap
    identification.
 
-**BF1.6, “reflection-cut half-surface carrier,” closed on 2026-07-24 by its
-positive finite-sector route.**  Exact half-tensor gluing reconstructs the
-BF1.5 amplitude, the first nontrivial positive-half Gram has determinant
-\(1/331776\), and a spacing-two cutoff-two corrected-slab Haar block has
-mass one and zero remainder.  This repairs the BF1.5 reflection obstruction
-without claiming a uniform theorem.  The **next active milestone is BF2.1,
-“general reflection-cut positivity carrier.”**  Its checkable exit
-certificate is specified in the current BF plan.  Unless that section
-explicitly delegates a task back to one of the historical phases below,
-BF2.1 and then BF3--BF10 control execution order.
+**BF2.1, “general reflection-cut positivity carrier,” closed on 2026-07-24
+by the enlarged reflected-Gram route.**  The full heat-kernel Gibbs
+reflection form is a Gram/SOS kernel on the complete fusion- and
+intertwiner-resolved boundary space, and exact Haar blocking is completely
+positive on its PSD cone.  The unit-four-cube certificate enumerates all 64
+binary half-surfaces, bijects their 128 gluings with every closed binary
+surface, and finds exact PSD factorizations for all 32 one-strand and 528
+two-strand boundary blocks.  This does not prove entrywise (DP), contraction,
+or finite-cutoff block closure.  The **next active milestone is BF3.1,
+“whole corrected-slab Kraus kernel.”**  It must construct the actual
+plaquette-coupled block map, joint coarse-intertwiner transport, mass, and
+coherent remainder.  Unless the current BF plan explicitly delegates a
+task back to one of the historical phases below, BF3.1 and then BF4--BF10
+control execution order.
 
 Each milestone has:
 - A **goal** stated as a checkable predicate.

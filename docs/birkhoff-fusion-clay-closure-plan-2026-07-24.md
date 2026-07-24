@@ -285,7 +285,22 @@ The gate closes when either:
 7. perform one actual lattice-spacing-changing corrected-slab Haar
    pushforward and return its kernel, mass, and outside-carrier remainder.
 
-## Next milestone — BF2.1: general reflection-cut positivity carrier
+## Closed milestone — BF2.1: general reflection-cut positivity carrier
+
+**Closed 2026-07-24 by the enlarged reflected-Gram route.**  The exact
+heat-kernel Gibbs reflection form has a general Gram/SOS factorization on
+the complete fusion- and intertwiner-resolved boundary Hilbert space.
+Exact Haar blocking acts on its PSD cone by a completely positive Kraus
+map.  On the unit four-cube, all 64 binary half-surfaces form 32 boundary
+blocks; their 128 ordered gluings biject with every closed binary surface.
+All 32 one-strand and all 528 two-strand coherent blocks have exact
+nonnegative \(LDL^{\mathsf T}\) pivots.  See
+`notes/bf2-1-general-reflection-positive-carrier.md`.
+
+This closes reflected positivity and identifies the cone needed by the
+Birkhoff program.  It does not prove entrywise (DP), strict projective
+contraction, or invariance of a selected finite carrier under the whole
+physical block map.
 
 BF1.6 proves that the corrected coordinate system is the positive-half
 boundary tensor, not the closed-surface scalar.  BF2.1 must decide whether
@@ -317,6 +332,43 @@ The gate closes with either a theorem/certificate covering every generator
 at the stated cutoff and geometry, together with a proved enlargement
 scheme, or a complete physical counterexample retaining all coherent
 boundary data.
+
+## Next milestone — BF3.1: whole corrected-slab Kraus kernel
+
+BF2.1 fixes the carrier and its order.  BF3.1 must now inhabit the map rather
+than infer it from complete positivity.
+
+### Goal
+
+Construct the exact, unnormalized, plaquette-coupled Haar pushforward for
+one whole corrected slab as a Kraus/Stinespring map between the complete
+BF2 boundary spaces.  Return its mass, reflection transport, joint
+coarse-intertwiner action, and the literal coherent remainder at a finite
+representation cutoff.
+
+### Required actions
+
+1. enumerate the complete fine and coarse boundary fusion/intertwiner bases
+   for the smallest whole corrected slab extending the BF1.6 disk;
+2. factor the exact physical heat-kernel block density into half-kernel
+   features without truncating the measure;
+3. integrate every internal Haar link and return the exact Kraus matrices;
+4. verify mass preservation after normalization and covariance under the
+   slab reflection;
+5. compute joint coarse-intertwiner transport, including signed \(F/R\)
+   basis changes;
+6. for a finite boundary projection \(P\), return all four blocks
+   \(P\Phi P\), \(P\Phi Q\), \(Q\Phi P\), and \(Q\Phi Q\);
+7. decide the exact closure condition \(QK_rP=0\) for every Kraus index, or
+   exhibit the first outside-carrier coherent term;
+8. pin the complete kernel with independent direct-Haar and recoupled
+   reconstructions.
+
+### Exit test
+
+The gate closes only with an explicit whole-slab physical kernel.  A generic
+CP-map theorem, the BF1.6 disk, a scalar mass ledger, or a map on
+multiplicity vectors is not an exit certificate.
 
 ## BF2–BF4: contraction engine
 
