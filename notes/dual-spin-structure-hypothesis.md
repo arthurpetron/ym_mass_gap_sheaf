@@ -332,6 +332,68 @@ from \(H_1(T;\mathbf F_2)\) to a **decorated relative spin network** which
 retains trivalent invariant vertices; the ordinary spin-structure sector is
 its branch-free subspace.
 
+### The first decorated interface ledger
+
+The required carrier has now been constructed exactly on this first
+interface-bearing orbit.  At each edge in the shared three-face it records
+
+1. the literal incident face strands, doubled-spin labels, and orientations;
+2. the relative mod-two boundary defect; and
+3. every path in a canonical left-associated fusion tree which ends in the
+   trivial representation.
+
+The last item is essential.  The same five-face overlap ledger contains both
+the trivalent packet
+
+\[
+ \dim\operatorname{Inv}(V_1^{\otimes 3})=1
+\]
+
+with nonzero relative defect and a defect-free four-valent packet
+
+\[
+ \dim\operatorname{Inv}(V_1^{\otimes 4})=3.
+\]
+
+It also contains mixed interface packets with invariant dimension two.
+Consequently neither the defect chain nor the strand valence alone is a
+complete gluing state.
+
+All \(2^5=32\) overlap choices have now been classified and the admissible
+ones evaluated by the generic exact Haar integrator.  Eight choices have a
+zero edge-invariant space.  The remaining 24 are all strictly positive, with
+exact census
+
+\[
+\begin{array}{c|c}
+\text{multiplicity} & \text{amplitude}\\ \hline
+2  & 2^{-22}\\
+12 & (3\cdot 2^{22})^{-1}\\
+8  & (9\cdot 2^{21})^{-1}\\
+2  & 7/(27\cdot 2^{22}).
+\end{array}
+\]
+
+Their sum is
+
+\[
+ Z_{\mathrm{branched}}=\frac{7}{3538944}
+ =2^{-22}\frac{224}{27}>0.
+\]
+
+An independent integral of the two unfused fundamental surface observables
+gives the same rational exactly, so the channel ledger is complete.  The
+pinned obstruction and its five-face ledger generate a six-element orbit
+under permutations of the three transverse axes.
+
+This closes construction and sign testing of the decorated carrier on the
+first interface-bearing symmetry orbit.  It does not prove that every
+decorated carrier has positive contraction, nor that its possible signs are
+still governed by a quadratic refinement.  The next falsification gate is
+the orbit census over all interface-bearing genus-one surface pairs in the
+two-cell brick, with the fusion-tree packet retained rather than projected
+to mod-two homology.
+
 ## Higher-dimensional status
 
 It would be too strong to say that spin-structure technology has literally
@@ -383,8 +445,12 @@ The next gates are:
    quadratic refinement, and the positive \(1/3\) subdivision weights are
    exact.  **FIRST GENERALIZATION OBSTRUCTION FOUND:** an interface-bearing
    torus admits a three-spin-one branch with nonzero mod-two boundary defect
-   but a one-dimensional SU(2) invariant.  **OPEN next:** construct the
-   decorated relative spin-network carrier and determine its sign law.
+   but a one-dimensional SU(2) invariant.  **DONE on the first branched
+   orbit:** the decorated carrier retains oriented strands and a complete
+   fusion-tree basis; all 24 admissible channels are exactly positive and
+   resum to the unfused pair amplitude.  **OPEN next:** classify every
+   interface-bearing genus-one pair orbit and determine whether a universal
+   decorated sign law survives.
 4. **Negative-orbit audit.**  **DONE for binary-pair reachability.**  Exactly
    3 of 33 negative orbits enter this lane, and all three obey \(q=ab=1\).
    **OPEN beyond this lane:** determine the appropriate carrier for the 30

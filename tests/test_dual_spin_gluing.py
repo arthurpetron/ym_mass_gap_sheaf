@@ -15,13 +15,19 @@ from computations.dual_spin_gluing import (
     GLUED_PAIR_RIGHT,
     GLUED_TORUS,
     admissible_raw_channel_masks,
+    branched_admissible_raw_channel_masks,
+    branched_channel_census,
+    branched_partition,
+    branched_raw_channel_face_mask,
     build_two_cell_spin_gluing,
     cap_selection_face_mask,
     cap_selection_raw_mask,
     channel_edge_invariant_multiplicities,
+    decorated_interface_carrier,
     glued_channel_homology_parities,
     glued_channel_weight,
     glued_partition,
+    invariant_fusion_paths,
     permute_face_mask,
     raw_channel_face_mask,
     raw_channel_interface_defect,
@@ -33,6 +39,7 @@ from computations.dual_spin_gluing import (
 )
 from computations.hypercube4d_survey import (
     edge_cycles_homologous_mod2,
+    evaluate_surface_pair,
     face_chain_boundary_mask,
     surface_betti_numbers_mod2,
 )
@@ -208,3 +215,112 @@ def test_interface_branch_is_the_first_obstruction_to_plain_mod2_gluing() -> Non
         for face_index in range(len(faces))
     ]
     assert evaluate_active_assignment(complex_, faces, spins) == Fraction(1, 18874368)
+
+
+def test_decorated_carrier_retains_branch_and_intertwiner_basis() -> None:
+    carrier = decorated_interface_carrier(BRANCHED_TORUS, BRANCHED_SELECTION)
+    branch = next(packet for packet in carrier if packet.edge == BRANCHED_INTERFACE_EDGE)
+    assert branch.relative_defect
+    assert tuple(strand.label for strand in branch.strands) == (2, 2, 2)
+    assert branch.fusion_paths == ((2, 2, 0),)
+    assert branch.invariant_dimension == 1
+
+    four_valent_selection = branched_raw_channel_face_mask(0x1D)
+    four_valent = next(
+        packet
+        for packet in decorated_interface_carrier(BRANCHED_TORUS, four_valent_selection)
+        if packet.edge == BRANCHED_INTERFACE_EDGE
+    )
+    assert not four_valent.relative_defect
+    assert tuple(strand.label for strand in four_valent.strands) == (2, 2, 2, 2)
+    assert four_valent.fusion_paths == (
+        (2, 0, 2, 0),
+        (2, 2, 2, 0),
+        (2, 4, 2, 0),
+    )
+    assert four_valent.invariant_dimension == 3
+
+    assert len(invariant_fusion_paths((1, 1, 2, 2))) == 2
+
+
+def test_decorated_carrier_matches_every_local_edge_invariant() -> None:
+    for channel_mask in branched_admissible_raw_channel_masks():
+        selected = branched_raw_channel_face_mask(channel_mask)
+        multiplicities = channel_edge_invariant_multiplicities(BRANCHED_TORUS, selected)
+        carrier = decorated_interface_carrier(BRANCHED_TORUS, selected)
+        assert all(packet.invariant_dimension == multiplicities[packet.edge] for packet in carrier)
+        assert all(packet.invariant_dimension > 0 for packet in carrier)
+
+
+def test_branched_overlap_ledger_is_complete_exact_and_positive() -> None:
+    admissible = branched_admissible_raw_channel_masks()
+    assert admissible == (
+        0x00,
+        0x02,
+        0x05,
+        0x07,
+        0x09,
+        0x0B,
+        0x0C,
+        0x0D,
+        0x0E,
+        0x0F,
+        0x11,
+        0x13,
+        0x14,
+        0x15,
+        0x16,
+        0x17,
+        0x18,
+        0x19,
+        0x1A,
+        0x1B,
+        0x1C,
+        0x1D,
+        0x1E,
+        0x1F,
+    )
+    census = branched_channel_census()
+    assert tuple(channel for channel, _value in census) == admissible
+    assert all(value > 0 for _channel, value in census)
+    assert Counter(value for _channel, value in census) == Counter(
+        {
+            Fraction(1, 18874368): 8,
+            Fraction(7, 113246208): 2,
+            Fraction(1, 12582912): 12,
+            Fraction(1, 4194304): 2,
+        }
+    )
+    assert branched_partition() == Fraction(7, 3538944)
+
+    complex_, faces, _meta = two_cell_brick()
+    assert evaluate_surface_pair(
+        complex_,
+        faces,
+        BRANCHED_PAIR_LEFT,
+        BRANCHED_PAIR_RIGHT,
+    ) == {0: branched_partition()}
+
+
+def test_branched_obstruction_fills_one_transverse_symmetry_orbit() -> None:
+    _complex, _faces, meta = two_cell_brick()
+    triples = {
+        (
+            permute_face_mask(BRANCHED_TORUS, permutation),
+            permute_face_mask(BRANCHED_OVERLAP, permutation),
+            permute_face_mask(BRANCHED_SELECTION, permutation),
+        )
+        for permutation in transverse_axis_maps(meta)
+    }
+    assert len(triples) == 6
+    for surface, overlap, selected in triples:
+        assert selected & ~overlap == 0
+        carrier = decorated_interface_carrier(surface, selected)
+        branches = [
+            packet
+            for packet in carrier
+            if packet.relative_defect
+            and tuple(strand.label for strand in packet.strands) == (2, 2, 2)
+        ]
+        assert len(branches) == 1
+        assert branches[0].invariant_dimension == 1

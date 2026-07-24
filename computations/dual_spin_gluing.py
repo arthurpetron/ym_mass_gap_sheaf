@@ -12,6 +12,14 @@ The exact channel weight is the one-cube crossing kernel with subdivision
 factors.  A selected spin-one (doubled label two) cap which spans the two
 cells acquires ``1/dim(2)=1/3``; the one-cell caps acquire no such factor.
 This is the character-convolution/Schur-orthogonality gluing law.
+
+The first interface-bearing torus requires a larger carrier.  Its relative
+boundary can terminate at an admissible trivalent spin-one vertex, and its
+four-valent interface packets can have invariant dimension greater than one.
+The decorated carrier below therefore retains the literal incident strands,
+their orientations, and a canonical fusion-tree basis at every interface
+edge.  A complete exact sweep of its overlap ledger has 24 admissible
+channels, all strictly positive.
 """
 
 from __future__ import annotations
@@ -25,6 +33,7 @@ from typing import TypeAlias, cast
 from computations.exact_haar_network import (
     GaugeFixedComplex,
     brick_complex_nd,
+    fusion_labels,
     invariant_multiplicity,
 )
 from computations.four_strand_crossing_kernel import CROSSING_WEIGHT
@@ -75,6 +84,31 @@ class TwoCellSpinGluing:
     cap_masks: tuple[int, int, int, int]
     homology_families: tuple[tuple[int, int], tuple[int, int]]
     crossing_edges: tuple[tuple[int, int], ...]
+
+
+@dataclass(frozen=True)
+class InterfaceStrand:
+    """One labelled, oriented face strand incident to an interface edge."""
+
+    face: int
+    label: int
+    orientation: int
+
+
+@dataclass(frozen=True)
+class InterfaceEdgePacket:
+    """Local decorated spin-network data retained at an interface edge."""
+
+    edge: int
+    strands: tuple[InterfaceStrand, ...]
+    relative_defect: bool
+    fusion_paths: tuple[tuple[int, ...], ...]
+
+    @property
+    def invariant_dimension(self) -> int:
+        """Dimension of the local invariant space in the pinned fusion tree."""
+
+        return len(self.fusion_paths)
 
 
 def two_cell_brick() -> tuple[GaugeFixedComplex, list[Face], list[FaceMeta]]:
@@ -367,6 +401,83 @@ def channel_edge_invariant_multiplicities(
     return tuple(multiplicities)
 
 
+def invariant_fusion_paths(labels: tuple[int, ...]) -> tuple[tuple[int, ...], ...]:
+    """Return the canonical left-associated paths which fuse ``labels`` to zero."""
+
+    paths: tuple[tuple[int, ...], ...] = ((),)
+    current_labels: tuple[int, ...] = (0,)
+    for label in labels:
+        next_paths: list[tuple[int, ...]] = []
+        next_labels: list[int] = []
+        for path, intermediate in zip(paths, current_labels, strict=True):
+            for output in fusion_labels(intermediate, label):
+                next_paths.append((*path, output))
+                next_labels.append(output)
+        paths = tuple(next_paths)
+        current_labels = tuple(next_labels)
+    return tuple(path for path in paths if path and path[-1] == 0)
+
+
+def decorated_interface_carrier(
+    surface_mask: int,
+    selected_face_mask: int,
+) -> tuple[InterfaceEdgePacket, ...]:
+    """Build the literal relative spin-network carrier on the shared three-face.
+
+    Face indices canonically order the local fusion tree.  Unlike a mod-two
+    boundary class, the result distinguishes a trivalent spin-one endpoint
+    from a four-valent packet and retains every invariant channel when the
+    latter has multiplicity greater than one.
+    """
+
+    complex_, faces, _meta = two_cell_brick()
+    certificate = build_two_cell_spin_gluing()
+    if (
+        surface_mask < 0
+        or selected_face_mask < 0
+        or surface_mask & selected_face_mask
+        or (surface_mask | selected_face_mask) >> len(faces)
+    ):
+        raise ValueError("surface and selected overlap must be disjoint brick masks")
+    defect = relative_boundary_defect(surface_mask, selected_face_mask)
+    packets: list[InterfaceEdgePacket] = []
+    for edge in range(len(complex_.edges)):
+        if not (certificate.interface_edge_mask >> edge) & 1:
+            continue
+        strands: list[InterfaceStrand] = []
+        for face_index, face in enumerate(faces):
+            label = (
+                1
+                if (surface_mask >> face_index) & 1
+                else 2
+                if (selected_face_mask >> face_index) & 1
+                else 0
+            )
+            if not label:
+                continue
+            orientation = next(
+                (
+                    face_orientation
+                    for face_edge, face_orientation in face
+                    if face_edge == edge
+                ),
+                None,
+            )
+            if orientation is not None:
+                strands.append(InterfaceStrand(face_index, label, orientation))
+        if strands:
+            paths = invariant_fusion_paths(tuple(strand.label for strand in strands))
+            packets.append(
+                InterfaceEdgePacket(
+                    edge=edge,
+                    strands=tuple(strands),
+                    relative_defect=bool((defect >> edge) & 1),
+                    fusion_paths=paths,
+                )
+            )
+    return tuple(packets)
+
+
 def raw_channel_is_admissible(channel_mask: int) -> bool:
     """Test exact SU(2) edge-invariant admissibility of one raw channel."""
 
@@ -452,3 +563,76 @@ def glued_partition() -> Fraction:
         (glued_channel_weight(selection) for selection in range(1 << 4)),
         start=Fraction(0),
     )
+
+
+def branched_raw_channel_face_mask(channel_mask: int) -> int:
+    """Decode one of the 32 overlap choices for the interface-bearing pair."""
+
+    overlap_faces = [
+        face_index
+        for face_index in range(BRANCHED_OVERLAP.bit_length())
+        if (BRANCHED_OVERLAP >> face_index) & 1
+    ]
+    if channel_mask < 0 or channel_mask >> len(overlap_faces):
+        raise ValueError("raw channel mask leaves the five overlap plaquettes")
+    return sum(
+        1 << face_index
+        for position, face_index in enumerate(overlap_faces)
+        if (channel_mask >> position) & 1
+    )
+
+
+def branched_admissible_raw_channel_masks() -> tuple[int, ...]:
+    """Return every edge-admissible channel in the first branched ledger."""
+
+    return tuple(
+        channel_mask
+        for channel_mask in range(1 << BRANCHED_OVERLAP.bit_count())
+        if all(
+            multiplicity > 0
+            for multiplicity in channel_edge_invariant_multiplicities(
+                BRANCHED_TORUS,
+                branched_raw_channel_face_mask(channel_mask),
+            )
+        )
+    )
+
+
+@cache
+def branched_channel_value(channel_mask: int) -> Fraction:
+    """Evaluate one interface-bearing channel by exact Haar integration."""
+
+    from computations.interior_link4d_probe import evaluate_active_assignment
+
+    selected_faces = branched_raw_channel_face_mask(channel_mask)
+    multiplicities = channel_edge_invariant_multiplicities(
+        BRANCHED_TORUS,
+        selected_faces,
+    )
+    if not all(multiplicity > 0 for multiplicity in multiplicities):
+        return Fraction(0)
+    complex_, faces, _meta = two_cell_brick()
+    spins = tuple(
+        1
+        if (BRANCHED_TORUS >> face_index) & 1
+        else 2
+        if (selected_faces >> face_index) & 1
+        else 0
+        for face_index in range(len(faces))
+    )
+    return evaluate_active_assignment(complex_, faces, spins)
+
+
+def branched_channel_census() -> tuple[tuple[int, Fraction], ...]:
+    """Return the complete nonzero exact ledger for the branched pair."""
+
+    return tuple(
+        (channel_mask, branched_channel_value(channel_mask))
+        for channel_mask in branched_admissible_raw_channel_masks()
+    )
+
+
+def branched_partition() -> Fraction:
+    """Sum the complete interface-bearing overlap ledger."""
+
+    return sum((value for _channel, value in branched_channel_census()), start=Fraction(0))
