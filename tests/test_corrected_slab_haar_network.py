@@ -6,8 +6,10 @@ from computations.corrected_slab_haar_network import (
     corrected_slab_edge_multiplicities,
     corrected_slab_fixed_face_dual_term,
     corrected_slab_haar_complex,
+    embedded_negative_channel_surface_pair,
     embedded_negative_hypercube_assignment,
     evaluate_corrected_slab_assignment,
+    evaluate_corrected_slab_surface_pair,
 )
 from computations.hypercube4d_survey import exact_constant
 
@@ -41,3 +43,27 @@ def test_heat_weight_preserves_the_exact_negative_sign() -> None:
     ) ** 16 * (
         Fraction(3) * Fraction(1, 2) ** 8
     ) ** 2
+
+
+def test_complete_surface_pair_resums_negative_channels_positively() -> None:
+    left, right = embedded_negative_channel_surface_pair()
+    assert exact_constant(
+        evaluate_corrected_slab_surface_pair(1, left, right)
+    ) == Fraction(31, 331776)
+    negative_spins = embedded_negative_hypercube_assignment()
+    overlap = left & right
+    odd = left ^ right
+    selected_twos = sum(
+        1 << face_index
+        for face_index, spin in enumerate(negative_spins)
+        if spin == 2
+    )
+    assert all(
+        spin == (
+            2 if (selected_twos >> face_index) & 1
+            else 1 if (odd >> face_index) & 1
+            else 0
+        )
+        for face_index, spin in enumerate(negative_spins)
+    )
+    assert selected_twos & ~overlap == 0

@@ -121,6 +121,32 @@ def evaluate_corrected_slab_assignment(
     return complex_.contract_invariant(factors or [dict(P_ONE)])
 
 
+def evaluate_corrected_slab_surface_pair(
+    extent: int,
+    left: int,
+    right: int,
+    *,
+    label: int = 1,
+) -> SPoly:
+    """Evaluate two surface strands without preselecting overlap channels."""
+
+    complex_, faces, _plaquettes = corrected_slab_haar_complex(extent)
+    if (
+        left < 0
+        or right < 0
+        or (left | right) >> len(faces)
+        or label < 0
+    ):
+        raise ValueError("surface pair leaves the slab face carrier")
+    factors = [
+        chi(label, complex_.holonomy_of(face))
+        for mask in (left, right)
+        for face_index, face in enumerate(faces)
+        if (mask >> face_index) & 1
+    ]
+    return complex_.contract_invariant(factors or [dict(P_ONE)])
+
+
 def corrected_slab_edge_multiplicities(
     extent: int,
     spins: Sequence[int],
@@ -180,6 +206,35 @@ def embedded_negative_hypercube_assignment() -> tuple[int, ...]:
     if not set(spin_by_face).issubset(set(slab_plaquettes)):
         raise AssertionError("the unit four-cube left the corrected slab")
     return tuple(spin_by_face.get(plaquette, 0) for plaquette in slab_plaquettes)
+
+
+def embed_hypercube_face_mask(mask: int) -> int:
+    """Embed a unit-four-cube face mask in the extent-one slab ordering."""
+
+    _hypercube_complex, hypercube_faces, hypercube_meta = hypercube()
+    if mask < 0 or mask >> len(hypercube_faces):
+        raise ValueError("mask leaves the unit four-cube")
+    selected = {
+        (tuple(point), (first, second))
+        for face_index, (point, first, second) in enumerate(hypercube_meta)
+        if (mask >> face_index) & 1
+    }
+    _slab_complex, _slab_faces, slab_plaquettes = (
+        corrected_slab_haar_complex(1)
+    )
+    if not selected.issubset(set(slab_plaquettes)):
+        raise AssertionError("selected hypercube face left the corrected slab")
+    return sum(
+        1 << face_index
+        for face_index, plaquette in enumerate(slab_plaquettes)
+        if plaquette in selected
+    )
+
+
+def embedded_negative_channel_surface_pair() -> tuple[int, int]:
+    """The complete surface pair whose fusion ledger contains the negative channel."""
+
+    return embed_hypercube_face_mask(0x4AB33), embed_hypercube_face_mask(0x6BC6AD)
 
 
 if __name__ == "__main__":

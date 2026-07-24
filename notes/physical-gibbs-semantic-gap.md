@@ -63,6 +63,28 @@ again evaluates to \(-1/196608\), while every one of the slab's 116 local
 edge multiplicities is one. This makes the semantic mismatch internal to the
 same corrected-slab geometry used by the proposed block map.
 
+The negative channel is not itself a counterexample to (DP). It lies in the
+fusion expansion of the exact pair of closed binary surfaces with hypercube
+masks
+
+```text
+left  = 0x4AB33
+right = 0x6BC6AD.
+```
+
+Their overlap has four fusion choices. The complete ledger has sixteen fixed
+face channels, four negative, and resums exactly to
+
+\[
+\frac{31}{331776}>0.
+\]
+
+`evaluate_corrected_slab_surface_pair` embeds and evaluates the two strands
+directly on the same extent-one corrected slab and obtains that positive
+rational independently. This is the first concrete positive carrier for an
+actual pushforward: a complete surface/fusion family, rather than one
+preselected face labelling.
+
 ## Consequence for the route
 
 The completed cutoff-one slab pushforward and remainder are exact for the
