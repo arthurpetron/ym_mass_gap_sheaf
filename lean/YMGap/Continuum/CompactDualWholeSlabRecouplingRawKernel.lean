@@ -55,16 +55,42 @@ abbrev SlabLabelling := EdgeLabelling
 
 /-! ## 1. Whole-slab geometric face fibers -/
 
-/-- Read a corrected-slab numerical labelling at a geometric plaquette.
-Every dyadic preimage used below belongs to the selected slab, so the
-`listIndexOf` fallback is unreachable on the physical carrier. -/
+/-- Read a corrected-slab numerical labelling at a geometric plaquette,
+extended by spin zero outside the selected slab.  Every dyadic preimage used
+by the raw kernel is inside, while the explicit zero extension makes the
+function safe for later global cellular-boundary arguments. -/
 def slabSpinAtPlaquette
     (extent : Nat) (physical : SlabLabelling)
     (plaquette :
       YMGap.Continuum.ClusterCount4DProgress.Z4Plaq) : Nat :=
-  physical
-    (listIndexOf plaquette
-      (boundaryCompleteSlabPlaquettes extent))
+  if plaquette ∈ boundaryCompleteSlabPlaquettes extent then
+    physical
+      (listIndexOf plaquette
+        (boundaryCompleteSlabPlaquettes extent))
+  else 0
+
+theorem slabSpinAtPlaquette_eq_of_mem
+    {extent : Nat} {physical : SlabLabelling}
+    {plaquette :
+      YMGap.Continuum.ClusterCount4DProgress.Z4Plaq}
+    (hplaquette :
+      plaquette ∈ boundaryCompleteSlabPlaquettes extent) :
+    slabSpinAtPlaquette extent physical plaquette =
+      physical
+        (listIndexOf plaquette
+          (boundaryCompleteSlabPlaquettes extent)) := by
+  unfold slabSpinAtPlaquette
+  rw [if_pos hplaquette]
+
+theorem slabSpinAtPlaquette_eq_zero_of_not_mem
+    {extent : Nat} {physical : SlabLabelling}
+    {plaquette :
+      YMGap.Continuum.ClusterCount4DProgress.Z4Plaq}
+    (hplaquette :
+      plaquette ∉ boundaryCompleteSlabPlaquettes extent) :
+    slabSpinAtPlaquette extent physical plaquette = 0 := by
+  unfold slabSpinAtPlaquette
+  rw [if_neg hplaquette]
 
 def wholeSlabFinePacket
     (S : SlabScalePair) (fineState : SlabLabelling)
@@ -237,6 +263,8 @@ theorem wholeSlabRecouplingConditionalKernel_row_normalized
       (wholeSlabRecouplingPartition_pos source))
 
 #print axioms wholeSlabFaceRawWeight_nonnegative
+#print axioms slabSpinAtPlaquette_eq_of_mem
+#print axioms slabSpinAtPlaquette_eq_zero_of_not_mem
 #print axioms wholeSlabFaceRawProduct_nonnegative
 #print axioms wholeSlabRecouplingRawWeight_nonnegative
 #print axioms wholeSlabRecouplingPartition_pos
