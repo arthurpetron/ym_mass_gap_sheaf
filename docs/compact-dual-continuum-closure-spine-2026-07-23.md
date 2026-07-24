@@ -144,6 +144,28 @@ upgrade is specified in
 prerequisite to the full `geometry_pinned` and integrator-semantic fields,
 not a new analytic gate.
 
+### Reflection-closed physical datum correction
+
+The geometry audit found a stricter obstruction.  The legacy
+`CompactDualPhysicalData.physicalTerm` uses `boxPlaquettes n`, and the Lean
+theorems `not_physicalFaceReflectionClosed` and
+`no_physicalFaceReflectionReindex` prove that this face list is not closed
+under physical half-time reflection at any nonzero extent.  Consequently the
+legacy term cannot be the direct carrier of an RP-preserving CD-2 block.
+
+`computations/dual_half_time_reflection_route.py` mirrors the corrected
+boundary-complete slab, constructs its exact face reflection involution, and
+pins the reflected partner of the central four-active/two-temporal page
+carrier.  The immediate open field is now
+`corrected_slab_term_or_legacy_bridge`: either define the full fusion-complete
+physical term on the corrected slab, or prove an exact reflection-compatible
+bridge from the legacy term.
+
+The first course is recommended and is specified in
+`docs/compact-dual-reflection-route-correction-2026-07-23.md`.  Until it is
+implemented, `reflection_intertwines` in the parent CD-2 certificate must
+remain false.
+
 ## What this advances
 
 This gate does not prove a new analytic estimate.  It closes a serious
