@@ -191,12 +191,19 @@ are nonnegative and normalized, the exact joint swap symmetry yields detailed
 balance, and a pinned-anchor theorem proves the rows are genuinely
 source-dependent.  Thus cutoff-one post-gluing normalization is closed.
 
-The first open parent subgate remains arbitrary-spin overlapping shared-link
-assembly.  The Boolean cancellation channel must be replaced by the complete
-bounded-spin shared-face fusion/recoupling fiber and composed over the actual
-corrected-slab labellings.  No all-cutoff kernel or physical Gibbs
-pushforward follows from the two-state law.  Those precede the all-cutoff
-whole-slab kernel and physical pushforward identification.
+`Z4AdjacentCubeSharedFaceRecouplingKernel.lean` replaces the Boolean
+cancellation channel locally by the complete bounded-spin shared-face fiber.
+One face fusion constraint and four interface-link constraints are imposed on
+the same fused channel.  The stretched witness is present below `8K` for
+every cutoff, so the row is nonnegative, normalized, reflection-invariant,
+and source-dependent.
+
+The first open parent subgate is now the complete adjacent-cube product:
+jointly sum both six-face target spaces, retain the sixteen non-interface link
+factors, insert the shared-face kernel, and apply one global support
+projection and normalization.  No whole-slab kernel or physical Gibbs
+pushforward follows from the local recoupling law.  Those precede the
+all-cutoff whole-slab kernel and physical pushforward identification.
 
 ## What this advances
 

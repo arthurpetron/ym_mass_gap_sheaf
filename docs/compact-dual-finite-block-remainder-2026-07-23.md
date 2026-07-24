@@ -83,13 +83,31 @@ between the two source rows, so source dependence is proved rather than
 inferred.
 
 This closes the cutoff-one Boolean surface overlap kernel.  The first open
-parent subgate is still the globally coupled assembly for arbitrary bounded
-spin packets with shared fine links.  It must replace Boolean cancellation by
-the complete shared-face fusion/recoupling fiber, place that fiber inside the
-actual fine/coarse slab state spaces, and normalize only after every shared
-production factor and global support projection has been inserted.
-Independent local normalization remains ruled out by the exact zero-mass
-fence.
+parent subgate was the globally coupled assembly for arbitrary bounded spin
+packets with shared fine links.
+
+`Z4AdjacentCubeSharedFaceRecouplingKernel.lean` now closes the local
+all-cutoff part of that parent gate.  Given two compatible six-face cube
+sources, it fuses the two shared-face coarse characters to one channel `u`
+and imposes the same `u` at all four boundary links.  The raw interface factor
+is therefore one face Clebsch--Gordan indicator times four outer-link
+indicators.  The stretched channel
+
+```text
+u = commonTotal_left + commonTotal_right <= 8 K
+```
+
+makes all five indicators exactly one.  This proves a positive denominator
+for every cutoff and yields a nonnegative, row-normalized,
+reflection-invariant conditional kernel.  Its vacuum and fundamental rows
+are exactly distinct (`1` versus `1/2` at `u=0`).
+
+The first open parent subgate is now narrower: sum jointly over the two full
+six-face target spaces, multiply the sixteen non-interface production-link
+factors and this five-constraint shared-face factor, apply the global support
+projection, and normalize once.  Only then can the construction be placed
+inside the actual fine/coarse corrected-slab state spaces.  Independent local
+normalization remains ruled out by the exact zero-mass fence.
 
 After that assembly, two further CD-2 steps remain:
 
