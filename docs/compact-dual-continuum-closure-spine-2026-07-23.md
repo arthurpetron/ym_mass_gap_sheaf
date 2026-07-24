@@ -101,6 +101,33 @@ first open field remains `geometry_pinned`, followed by integrator semantics,
 complete reflected channels, the physical kernel, and the overlap remainder.
 The parent CD-2 gate remains open.
 
+### Physical four-page carrier pinned; full wheel geometry still open
+
+`computations/dual_positivity_geometry_bridge.py` corrects a dimensional
+ambiguity in the phrase “four-page interior-link wheel.”  A physical interior
+link in four dimensions has six incident plaquettes, not four.  At the first
+interior direction-zero link of the production extent-two box, the exact
+physical face identifiers are
+
+```text
+(66, 79, 86, 90, 91, 92).
+```
+
+The `01` and `02` transverse planes give the four active pages
+`(66,79,90,91)`; the `03` pair `(86,92)` must be in the vacuum
+representation.  Their local positions in the production
+`incidentPlaqIds` order are active `(0,1,3,4)` and vacuum `(2,5)`.
+Exhaustive exact fusion checks through doubled spin three verify that the
+six-valent invariant with those two vacuum labels equals the corresponding
+four-valent invariant.
+
+This pins the wheel's physical page carrier and removes a possible detached
+four-valent surrogate.  It does **not** yet embed the four cyclic rim words
+`X_i X_(i+1)^-1` into the reflected boundary packet or pin their half-time
+reflection orientation.  The geometry frontier therefore stops at
+`cyclic_rim_words_embedded`; the aggregate `geometry_pinned` field remains
+false.
+
 ## What this advances
 
 This gate does not prove a new analytic estimate.  It closes a serious
