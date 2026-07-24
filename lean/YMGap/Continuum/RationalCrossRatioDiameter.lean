@@ -423,6 +423,105 @@ theorem rowRescale_candidateRate_eqv
       certificate.candidateRate :=
   Q'.eqv_refl _
 
+/-! ## Projective invariance under target-column scaling -/
+
+/-- Multiply each kernel column by an exact rational scale. -/
+def columnRescaledKernel
+    {Source Target : Type}
+    (columnScale : Target → Q')
+    (kernel : Source → Target → Q')
+    (source : Source) (target : Target) : Q' :=
+  kernel source target * columnScale target
+
+/-- Positive target-column rescaling preserves the same cross-ratio
+certificate.  This is the exact cancellation used when a globally glued link
+multiplicity depends only on the retained coarse target. -/
+def columnRescale
+    {Source Target : Type}
+    {kernel : Source → Target → Q'}
+    {sources : List Source} {targets : List Target}
+    (certificate :
+      FiniteCrossRatioDiameterCertificate kernel sources targets)
+    (columnScale : Target → Q')
+    (columnScale_pos :
+      ∀ target, target ∈ targets →
+        (0 : Q') < columnScale target) :
+    FiniteCrossRatioDiameterCertificate
+      (columnRescaledKernel columnScale kernel) sources targets where
+  spread := certificate.spread
+  one_le_spread := certificate.one_le_spread
+  strictlyPositive := by
+    intro source hsource target htarget
+    exact Q'.mul_pos
+      (certificate.strictlyPositive source hsource target htarget)
+      (columnScale_pos target htarget)
+  crossRatioBound := by
+    intro first hfirst second hsecond left hleft right hright
+    let columnFactor := columnScale left * columnScale right
+    have hcolumnFactor : (0 : Q') ≤ columnFactor :=
+      Q'.mul_nonneg _ _
+        (Q'.le_of_lt (columnScale_pos left hleft))
+        (Q'.le_of_lt (columnScale_pos right hright))
+    have hcross :=
+      certificate.crossRatioBound
+        first hfirst second hsecond left hleft right hright
+    have hscaled :
+        (kernel first left * kernel second right) * columnFactor ≤
+          ((certificate.spread * certificate.spread) *
+            (kernel first right * kernel second left)) *
+              columnFactor :=
+      Q'.mul_le_mul_of_nonneg_right _ _ _ hcross hcolumnFactor
+    have hleftReindex :
+        columnRescaledKernel columnScale kernel first left *
+            columnRescaledKernel columnScale kernel second right ≈
+          (kernel first left * kernel second right) *
+            columnFactor := by
+      unfold columnRescaledKernel columnFactor
+      exact mul_swap4_local _ _ _ _
+    have hrightReindex :
+        ((certificate.spread * certificate.spread) *
+            (kernel first right * kernel second left)) *
+              columnFactor ≈
+          (certificate.spread * certificate.spread) *
+            (columnRescaledKernel columnScale kernel first right *
+              columnRescaledKernel columnScale kernel second left) := by
+      refine Q'.eqv_trans _
+        ((certificate.spread * certificate.spread) *
+          ((kernel first right * kernel second left) *
+            columnFactor)) _
+        (Q'.mul_assoc_eqv _ _ _) ?_
+      apply Q'.mul_eqv_congr_left
+      unfold columnRescaledKernel columnFactor
+      calc
+        (kernel first right * kernel second left) *
+              (columnScale left * columnScale right) ≈
+            (kernel first right * kernel second left) *
+              (columnScale right * columnScale left) :=
+          Q'.mul_eqv_congr_left _ _ _
+            (Q'.mul_comm_eqv _ _)
+        _ ≈ (kernel first right * columnScale right) *
+              (kernel second left * columnScale left) :=
+          Q'.eqv_symm (mul_swap4_local _ _ _ _)
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv hleftReindex)
+      (Q'.le_trans' _ _ _ hscaled
+        (Q'.le_of_eqv hrightReindex))
+
+theorem columnRescale_candidateRate_eqv
+    {Source Target : Type}
+    {kernel : Source → Target → Q'}
+    {sources : List Source} {targets : List Target}
+    (certificate :
+      FiniteCrossRatioDiameterCertificate kernel sources targets)
+    (columnScale : Target → Q')
+    (columnScale_pos :
+      ∀ target, target ∈ targets →
+        (0 : Q') < columnScale target) :
+    (certificate.columnRescale
+        columnScale columnScale_pos).candidateRate ≈
+      certificate.candidateRate :=
+  Q'.eqv_refl _
+
 /-! ## The certified finite image has the recorded log-free diameter -/
 
 /-- Apply a finite kernel linearly to an exact rational activity. -/
@@ -805,6 +904,8 @@ theorem UniformCrossRatioDiameterCertificate.candidateRate_eqv
 #print axioms FiniteCrossRatioDiameterCertificate.restrict_candidateRate_eqv
 #print axioms FiniteCrossRatioDiameterCertificate.rowRescale
 #print axioms FiniteCrossRatioDiameterCertificate.rowRescale_candidateRate_eqv
+#print axioms FiniteCrossRatioDiameterCertificate.columnRescale
+#print axioms FiniteCrossRatioDiameterCertificate.columnRescale_candidateRate_eqv
 #print axioms FiniteCrossRatioDiameterCertificate.finiteKernelAction_projectiveSpread
 #print axioms FiniteCrossRatioDiameterCertificate.finiteKernelAction_pos
 #print axioms UniformCrossRatioDiameterCertificate.atIndex
