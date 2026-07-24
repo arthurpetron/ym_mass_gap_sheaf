@@ -132,6 +132,23 @@ private def wholeSlabQProduct {A : Type}
   | [] => 1
   | head :: tail => value head * wholeSlabQProduct value tail
 
+/-- Public finite-product interface for the whole-slab face product.  The
+private implementation remains hidden so downstream modules use this stable
+recursion rather than its generated private name. -/
+def wholeSlabFiniteQProduct {A : Type}
+    (value : A → Q') : List A → Q'
+  | [] => 1
+  | head :: tail => value head * wholeSlabFiniteQProduct value tail
+
+private theorem wholeSlabQProduct_eqv_finiteQProduct {A : Type}
+    (value : A → Q') :
+    ∀ xs, wholeSlabQProduct value xs ≈
+      wholeSlabFiniteQProduct value xs
+  | [] => Q'.eqv_refl 1
+  | _ :: tail =>
+      Q'.mul_eqv_congr_left _ _ _
+        (wholeSlabQProduct_eqv_finiteQProduct value tail)
+
 private theorem wholeSlabQProduct_nonnegative {A : Type}
     (value : A → Q') (hvalue : ∀ x, (0 : Q') ≤ value x) :
     ∀ xs, (0 : Q') ≤ wholeSlabQProduct value xs
@@ -219,6 +236,15 @@ def wholeSlabFaceRawProduct
   wholeSlabQProduct
     (wholeSlabFaceRawWeight S fineState coarseState)
     S.coarse.faceEdges
+
+theorem wholeSlabFaceRawProduct_eqv_finiteQProduct
+    (S : SlabScalePair) (fineState coarseState : SlabLabelling) :
+    wholeSlabFaceRawProduct S fineState coarseState ≈
+      wholeSlabFiniteQProduct
+        (wholeSlabFaceRawWeight S fineState coarseState)
+        S.coarse.faceEdges := by
+  unfold wholeSlabFaceRawProduct
+  exact wholeSlabQProduct_eqv_finiteQProduct _ _
 
 theorem wholeSlabFaceRawProduct_nonnegative
     (S : SlabScalePair) (fineState coarseState : SlabLabelling) :
@@ -378,6 +404,7 @@ theorem wholeSlabRecouplingConditionalKernel_row_normalized
       (wholeSlabRecouplingPartition_pos source))
 
 #print axioms wholeSlabFaceRawWeight_nonnegative
+#print axioms wholeSlabFaceRawProduct_eqv_finiteQProduct
 #print axioms slabSpinAtPlaquette_eq_of_mem
 #print axioms slabSpinAtPlaquette_eq_zero_of_not_mem
 #print axioms wholeSlabFaceRawProduct_nonnegative

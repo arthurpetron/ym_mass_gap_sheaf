@@ -296,6 +296,67 @@ theorem restrict_candidateRate_eqv
       ≈ certificate.candidateRate :=
   Q'.eqv_refl _
 
+/-! ## Monotone enlargement of a recorded spread -/
+
+/-- A valid cross-ratio certificate remains valid after increasing its
+recorded spread.  This is what turns a regulator-dependent active-face
+product into one common cutoff/volume-independent diameter bound. -/
+def widen
+    {Source Target : Type}
+    {kernel : Source → Target → Q'}
+    {sources : List Source} {targets : List Target}
+    (certificate :
+      FiniteCrossRatioDiameterCertificate kernel sources targets)
+    (largerSpread : Q')
+    (hspread : certificate.spread ≤ largerSpread) :
+    FiniteCrossRatioDiameterCertificate kernel sources targets where
+  spread := largerSpread
+  one_le_spread :=
+    Q'.le_trans' _ _ _
+      certificate.one_le_spread hspread
+  strictlyPositive := certificate.strictlyPositive
+  crossRatioBound := by
+    intro first hfirst second hsecond left hleft right hright
+    let reverseProduct :=
+      kernel first right * kernel second left
+    have hlargerNonnegative : (0 : Q') ≤ largerSpread :=
+      Q'.le_trans' _ _ _
+        Q'.zero_le_one
+        (Q'.le_trans' _ _ _
+          certificate.one_le_spread hspread)
+    have hcertificateNonnegative :
+        (0 : Q') ≤ certificate.spread :=
+      Q'.le_of_lt certificate.spread_pos
+    have hsquare :
+        certificate.spread * certificate.spread ≤
+          largerSpread * largerSpread :=
+      Q'.mul_le_mul_of_nonneg hspread hspread
+        hlargerNonnegative hcertificateNonnegative
+    have hreverseNonnegative : (0 : Q') ≤ reverseProduct :=
+      Q'.mul_nonneg _ _
+        (Q'.le_of_lt
+          (certificate.strictlyPositive
+            first hfirst right hright))
+        (Q'.le_of_lt
+          (certificate.strictlyPositive
+            second hsecond left hleft))
+    exact Q'.le_trans' _ _ _
+      (certificate.crossRatioBound
+        first hfirst second hsecond left hleft right hright)
+      (Q'.mul_le_mul_of_nonneg_right _ _ _
+        hsquare hreverseNonnegative)
+
+theorem widen_spread_eq
+    {Source Target : Type}
+    {kernel : Source → Target → Q'}
+    {sources : List Source} {targets : List Target}
+    (certificate :
+      FiniteCrossRatioDiameterCertificate kernel sources targets)
+    (largerSpread : Q')
+    (hspread : certificate.spread ≤ largerSpread) :
+    (certificate.widen largerSpread hspread).spread = largerSpread :=
+  rfl
+
 private theorem mul_swap4_local (a b c d : Q') :
     ((a * b) * (c * d)) ≈ ((a * c) * (b * d)) := by
   refine Q'.eqv_trans _ _ _
@@ -521,6 +582,450 @@ theorem columnRescale_candidateRate_eqv
         columnScale columnScale_pos).candidateRate ≈
       certificate.candidateRate :=
   Q'.eqv_refl _
+
+/-! ## Projective diameter of pointwise products -/
+
+/-- Multiply two positive kernels coordinatewise.  This is the algebraic
+operation underlying a factorized local face activity. -/
+def pointwiseProductKernel
+    {Source Target : Type}
+    (left right : Source → Target → Q')
+    (source : Source) (target : Target) : Q' :=
+  left source target * right source target
+
+/-- Cross-ratio spreads multiply under pointwise products.
+
+Consequently, a factor which is independent of the source has spread one
+and contributes nothing to the accumulated projective diameter.  Repeated
+use localizes a factorized slab certificate to its genuinely active face
+fibers. -/
+def pointwiseMul
+    {Source Target : Type}
+    {leftKernel rightKernel : Source → Target → Q'}
+    {sources : List Source} {targets : List Target}
+    (leftCertificate :
+      FiniteCrossRatioDiameterCertificate
+        leftKernel sources targets)
+    (rightCertificate :
+      FiniteCrossRatioDiameterCertificate
+        rightKernel sources targets) :
+    FiniteCrossRatioDiameterCertificate
+      (pointwiseProductKernel leftKernel rightKernel)
+      sources targets where
+  spread := leftCertificate.spread * rightCertificate.spread
+  one_le_spread := by
+    have hmul := Q'.mul_le_mul_of_nonneg
+      leftCertificate.one_le_spread
+      rightCertificate.one_le_spread
+      (Q'.le_of_lt leftCertificate.spread_pos)
+      Q'.zero_le_one
+    exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.one_mul_eqv 1)) hmul
+  strictlyPositive := by
+    intro source hsource target htarget
+    exact Q'.mul_pos
+      (leftCertificate.strictlyPositive source hsource target htarget)
+      (rightCertificate.strictlyPositive source hsource target htarget)
+  crossRatioBound := by
+    intro first hfirst second hsecond left hleft right hright
+    let leftForward :=
+      leftKernel first left * leftKernel second right
+    let leftReverse :=
+      leftKernel first right * leftKernel second left
+    let rightForward :=
+      rightKernel first left * rightKernel second right
+    let rightReverse :=
+      rightKernel first right * rightKernel second left
+    let leftSpreadSquare :=
+      leftCertificate.spread * leftCertificate.spread
+    let rightSpreadSquare :=
+      rightCertificate.spread * rightCertificate.spread
+    have hleftCross :=
+      leftCertificate.crossRatioBound
+        first hfirst second hsecond left hleft right hright
+    have hrightCross :=
+      rightCertificate.crossRatioBound
+        first hfirst second hsecond left hleft right hright
+    have hleftUpperNonnegative :
+        (0 : Q') ≤ leftSpreadSquare * leftReverse :=
+      Q'.mul_nonneg _ _
+        (Q'.mul_nonneg _ _
+          (Q'.le_of_lt leftCertificate.spread_pos)
+          (Q'.le_of_lt leftCertificate.spread_pos))
+        (Q'.mul_nonneg _ _
+          (Q'.le_of_lt
+            (leftCertificate.strictlyPositive
+              first hfirst right hright))
+          (Q'.le_of_lt
+            (leftCertificate.strictlyPositive
+              second hsecond left hleft)))
+    have hrightForwardNonnegative :
+        (0 : Q') ≤ rightForward :=
+      Q'.mul_nonneg _ _
+        (Q'.le_of_lt
+          (rightCertificate.strictlyPositive
+            first hfirst left hleft))
+        (Q'.le_of_lt
+          (rightCertificate.strictlyPositive
+            second hsecond right hright))
+    have hproduct :
+        leftForward * rightForward ≤
+          (leftSpreadSquare * leftReverse) *
+            (rightSpreadSquare * rightReverse) :=
+      Q'.mul_le_mul_of_nonneg hleftCross hrightCross
+        hleftUpperNonnegative hrightForwardNonnegative
+    have hleftReindex :
+        pointwiseProductKernel leftKernel rightKernel first left *
+            pointwiseProductKernel leftKernel rightKernel second right ≈
+          leftForward * rightForward := by
+      unfold pointwiseProductKernel leftForward rightForward
+      exact mul_swap4_local _ _ _ _
+    have hspreadReindex :
+        leftSpreadSquare * rightSpreadSquare ≈
+          (leftCertificate.spread * rightCertificate.spread) *
+            (leftCertificate.spread * rightCertificate.spread) := by
+      unfold leftSpreadSquare rightSpreadSquare
+      exact mul_swap4_local _ _ _ _
+    have hreverseReindex :
+        leftReverse * rightReverse ≈
+          pointwiseProductKernel leftKernel rightKernel first right *
+            pointwiseProductKernel leftKernel rightKernel second left := by
+      unfold leftReverse rightReverse pointwiseProductKernel
+      exact mul_swap4_local _ _ _ _
+    have hrightReindex :
+        (leftSpreadSquare * leftReverse) *
+              (rightSpreadSquare * rightReverse) ≈
+          ((leftCertificate.spread * rightCertificate.spread) *
+              (leftCertificate.spread * rightCertificate.spread)) *
+            (pointwiseProductKernel leftKernel rightKernel first right *
+              pointwiseProductKernel leftKernel rightKernel second left) := by
+      refine Q'.eqv_trans _
+        ((leftSpreadSquare * rightSpreadSquare) *
+          (leftReverse * rightReverse)) _
+        (mul_swap4_local _ _ _ _) ?_
+      refine Q'.eqv_trans _
+        (((leftCertificate.spread * rightCertificate.spread) *
+            (leftCertificate.spread * rightCertificate.spread)) *
+          (leftReverse * rightReverse)) _ ?_ ?_
+      · exact Q'.mul_eqv_congr_right _ _ _
+          hspreadReindex
+      · exact Q'.mul_eqv_congr_left _ _ _
+          hreverseReindex
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv hleftReindex)
+      (Q'.le_trans' _ _ _ hproduct
+        (Q'.le_of_eqv hrightReindex))
+
+theorem pointwiseMul_spread_eq
+    {Source Target : Type}
+    {leftKernel rightKernel : Source → Target → Q'}
+    {sources : List Source} {targets : List Target}
+    (leftCertificate :
+      FiniteCrossRatioDiameterCertificate
+        leftKernel sources targets)
+    (rightCertificate :
+      FiniteCrossRatioDiameterCertificate
+        rightKernel sources targets) :
+    (leftCertificate.pointwiseMul rightCertificate).spread =
+      leftCertificate.spread * rightCertificate.spread :=
+  rfl
+
+/-- A strictly positive source-independent factor is a projective gauge and
+has the exact unit-spread certificate. -/
+def sourceIndependentCertificate
+    {Source Target : Type}
+    (column : Target → Q')
+    (sources : List Source) (targets : List Target)
+    (column_pos :
+      ∀ target, target ∈ targets → (0 : Q') < column target) :
+    FiniteCrossRatioDiameterCertificate
+      (fun _ target => column target) sources targets where
+  spread := 1
+  one_le_spread := Q'.le_refl' 1
+  strictlyPositive := by
+    intro _ _ target htarget
+    exact column_pos target htarget
+  crossRatioBound := by
+    intro _ _ _ _ left hleft right hright
+    have hcomm :
+        column left * column right ≈
+          column right * column left :=
+      Q'.mul_comm_eqv _ _
+    have hunit :
+        ((1 : Q') * 1) * (column right * column left) ≈
+          column right * column left := by
+      exact Q'.eqv_trans _ _ _
+        (Q'.mul_eqv_congr_right
+          ((1 : Q') * 1) 1 (column right * column left)
+          (Q'.mul_one_eqv 1))
+        (Q'.one_mul_eqv (column right * column left))
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv hcomm)
+      (Q'.le_of_eqv (Q'.eqv_symm hunit))
+
+theorem sourceIndependentCertificate_candidateRate_eqv_zero
+    {Source Target : Type}
+    (column : Target → Q')
+    (sources : List Source) (targets : List Target)
+    (column_pos :
+      ∀ target, target ∈ targets → (0 : Q') < column target) :
+    (sourceIndependentCertificate
+      column sources targets column_pos).candidateRate ≈ 0 := by
+  unfold sourceIndependentCertificate candidateRate
+  exact Q'.zero_mul_eqv _
+
+/-! ## Finite products of local factors -/
+
+/-- The pointwise product of a finite list of local kernels.  The empty
+product is the positive unit kernel. -/
+def factorizedKernel
+    {Factor Source Target : Type}
+    (localKernel : Factor → Source → Target → Q') :
+    List Factor → Source → Target → Q'
+  | [], _, _ => 1
+  | factor :: rest, source, target =>
+      localKernel factor source target *
+        factorizedKernel localKernel rest source target
+
+/-- Assemble local exact certificates into a certificate for their finite
+pointwise product.  Its spread is the product of the local spreads, with no
+factor involving the ambient source or target dimensions. -/
+def factorizedCertificate
+    {Factor Source Target : Type}
+    (localKernel : Factor → Source → Target → Q')
+    (sources : List Source) (targets : List Target) :
+    ∀ factors : List Factor,
+      (∀ factor, factor ∈ factors →
+        FiniteCrossRatioDiameterCertificate
+          (localKernel factor) sources targets) →
+      FiniteCrossRatioDiameterCertificate
+        (factorizedKernel localKernel factors) sources targets
+  | [], _ =>
+      sourceIndependentCertificate
+        (fun _ => 1) sources targets
+        (fun _ _ =>
+          show (0 : Q') < (1 : Q') from by decide)
+  | factor :: rest, localCertificate => by
+      let headCertificate :=
+        localCertificate factor List.mem_cons_self
+      let tailCertificate :=
+        factorizedCertificate localKernel sources targets rest
+          (fun item hitem =>
+            localCertificate item
+              (List.mem_cons_of_mem factor hitem))
+      exact headCertificate.pointwiseMul tailCertificate
+
+/-- Exact ordered product of the recorded local spreads. -/
+def factorSpreadProduct {Factor : Type}
+    (recordedSpread : Factor → Q') : List Factor → Q'
+  | [] => 1
+  | factor :: rest =>
+      recordedSpread factor *
+        factorSpreadProduct recordedSpread rest
+
+/-- Left-associated-by-recursion power matching the exact representation
+used by `factorSpreadProduct` for a constant local spread. -/
+def spreadPower (spread : Q') : Nat → Q'
+  | 0 => 1
+  | n + 1 => spread * spreadPower spread n
+
+theorem factorSpreadProduct_const_eq_spreadPower
+    {Factor : Type} (spread : Q') :
+    ∀ factors : List Factor,
+      factorSpreadProduct (fun _ => spread) factors =
+        spreadPower spread factors.length
+  | [] => rfl
+  | _ :: tail => by
+      change spread *
+          factorSpreadProduct (fun _ => spread) tail =
+        spread * spreadPower spread tail.length
+      rw [factorSpreadProduct_const_eq_spreadPower spread tail]
+
+theorem one_le_spreadPower
+    (spread : Q') (hone : (1 : Q') ≤ spread) :
+    ∀ n, (1 : Q') ≤ spreadPower spread n
+  | 0 => Q'.le_refl' 1
+  | n + 1 => by
+      have hmul := Q'.mul_le_mul_of_nonneg
+        hone (one_le_spreadPower spread hone n)
+        (Q'.le_trans' _ _ _ Q'.zero_le_one hone)
+        Q'.zero_le_one
+      exact Q'.le_trans' _ _ _
+        (Q'.le_of_eqv (Q'.one_mul_eqv 1)) hmul
+
+theorem spreadPower_nonnegative
+    (spread : Q') (hone : (1 : Q') ≤ spread)
+    (n : Nat) :
+    (0 : Q') ≤ spreadPower spread n :=
+  Q'.le_trans' _ _ _
+    Q'.zero_le_one
+    (one_le_spreadPower spread hone n)
+
+theorem spreadPower_le_succ
+    (spread : Q') (hone : (1 : Q') ≤ spread)
+    (n : Nat) :
+    spreadPower spread n ≤ spreadPower spread (n + 1) := by
+  change spreadPower spread n ≤
+    spread * spreadPower spread n
+  exact Q'.le_trans' _ _ _
+    (Q'.le_of_eqv
+      (Q'.eqv_symm
+        (Q'.one_mul_eqv (spreadPower spread n))))
+    (Q'.mul_le_mul_of_nonneg_right
+      1 spread (spreadPower spread n)
+      hone (spreadPower_nonnegative spread hone n))
+
+theorem spreadPower_mono
+    (spread : Q') (hone : (1 : Q') ≤ spread)
+    {smaller larger : Nat} (hsize : smaller ≤ larger) :
+    spreadPower spread smaller ≤ spreadPower spread larger := by
+  obtain ⟨extra, rfl⟩ := Nat.exists_eq_add_of_le hsize
+  clear hsize
+  induction extra with
+  | zero =>
+      simp only [Nat.add_zero]
+      exact Q'.le_refl' _
+  | succ extra ih =>
+      exact Q'.le_trans' _ _ _
+        ih
+        (by
+          simpa only [Nat.add_assoc] using
+            spreadPower_le_succ spread hone (smaller + extra))
+
+/-- The assembled certificate's spread is semantically the ordered product
+of any pointwise-equivalent recorded local spreads. -/
+theorem factorizedCertificate_spread_eqv_product
+    {Factor Source Target : Type}
+    (localKernel : Factor → Source → Target → Q')
+    (sources : List Source) (targets : List Target)
+    (recordedSpread : Factor → Q') :
+    ∀ (factors : List Factor)
+      (localCertificate :
+        ∀ factor, factor ∈ factors →
+          FiniteCrossRatioDiameterCertificate
+            (localKernel factor) sources targets),
+      (∀ factor hfactor,
+        (localCertificate factor hfactor).spread ≈
+          recordedSpread factor) →
+      (factorizedCertificate localKernel sources targets
+          factors localCertificate).spread ≈
+        factorSpreadProduct recordedSpread factors
+  | [], _, _ => Q'.eqv_refl 1
+  | head :: tail, localCertificate, hspread => by
+      change
+        (localCertificate head List.mem_cons_self).spread *
+              (factorizedCertificate localKernel sources targets tail
+                (fun item hitem =>
+                  localCertificate item
+                    (List.mem_cons_of_mem head hitem))).spread ≈
+          recordedSpread head *
+            factorSpreadProduct recordedSpread tail
+      refine Q'.eqv_trans _
+        (recordedSpread head *
+          (factorizedCertificate localKernel sources targets tail
+            (fun item hitem =>
+              localCertificate item
+                (List.mem_cons_of_mem head hitem))).spread) _ ?_ ?_
+      · exact Q'.mul_eqv_congr_right _ _ _
+          (hspread head List.mem_cons_self)
+      · apply Q'.mul_eqv_congr_left
+        exact factorizedCertificate_spread_eqv_product
+          localKernel sources targets recordedSpread tail
+          (fun item hitem =>
+            localCertificate item
+              (List.mem_cons_of_mem head hitem))
+          (fun item hitem =>
+            hspread item
+              (List.mem_cons_of_mem head hitem))
+
+/-- Unit-spread inactive factors disappear exactly from the spread ledger. -/
+theorem factorSpreadProduct_mask_eqv_filter
+    {Factor : Type}
+    (active : Factor → Bool)
+    (recordedSpread : Factor → Q') :
+    ∀ factors : List Factor,
+      factorSpreadProduct
+          (fun factor =>
+            if active factor then recordedSpread factor else 1)
+          factors ≈
+        factorSpreadProduct recordedSpread
+          (factors.filter active)
+  | [] => Q'.eqv_refl 1
+  | head :: tail => by
+      cases hactive : active head with
+      | false =>
+          simp only [factorSpreadProduct, List.filter, hactive,
+            Bool.false_eq_true, ↓reduceIte]
+          exact Q'.eqv_trans _ _ _
+            (Q'.one_mul_eqv _)
+            (factorSpreadProduct_mask_eqv_filter
+              active recordedSpread tail)
+      | true =>
+          simp only [factorSpreadProduct, List.filter, hactive,
+            ↓reduceIte]
+          apply Q'.mul_eqv_congr_left
+          exact factorSpreadProduct_mask_eqv_filter
+            active recordedSpread tail
+
+/-- Complete active-factor pruning theorem.  If every inactive local factor
+has recorded spread one, the global certificate spread is the product over
+the active filter only. -/
+theorem factorizedCertificate_spread_eqv_activeProduct
+    {Factor Source Target : Type}
+    (localKernel : Factor → Source → Target → Q')
+    (sources : List Source) (targets : List Target)
+    (active : Factor → Bool)
+    (recordedSpread : Factor → Q')
+    (factors : List Factor)
+    (localCertificate :
+      ∀ factor, factor ∈ factors →
+        FiniteCrossRatioDiameterCertificate
+          (localKernel factor) sources targets)
+    (hspread :
+      ∀ factor hfactor,
+        (localCertificate factor hfactor).spread ≈
+          if active factor then recordedSpread factor else 1) :
+    (factorizedCertificate localKernel sources targets
+        factors localCertificate).spread ≈
+      factorSpreadProduct recordedSpread
+        (factors.filter active) := by
+  exact Q'.eqv_trans _ _ _
+    (factorizedCertificate_spread_eqv_product
+      localKernel sources targets
+      (fun factor =>
+        if active factor then recordedSpread factor else 1)
+      factors localCertificate hspread)
+    (factorSpreadProduct_mask_eqv_filter
+      active recordedSpread factors)
+
+theorem factorizedCertificate_nil_spread
+    {Factor Source Target : Type}
+    (localKernel : Factor → Source → Target → Q')
+    (sources : List Source) (targets : List Target)
+    (localCertificate :
+      ∀ factor, factor ∈ ([] : List Factor) →
+        FiniteCrossRatioDiameterCertificate
+          (localKernel factor) sources targets) :
+    (factorizedCertificate localKernel sources targets []
+      localCertificate).spread = 1 :=
+  rfl
+
+theorem factorizedCertificate_cons_spread
+    {Factor Source Target : Type}
+    (localKernel : Factor → Source → Target → Q')
+    (sources : List Source) (targets : List Target)
+    (factor : Factor) (rest : List Factor)
+    (localCertificate :
+      ∀ item, item ∈ factor :: rest →
+        FiniteCrossRatioDiameterCertificate
+          (localKernel item) sources targets) :
+    (factorizedCertificate localKernel sources targets
+        (factor :: rest) localCertificate).spread =
+      (localCertificate factor List.mem_cons_self).spread *
+        (factorizedCertificate localKernel sources targets rest
+          (fun item hitem =>
+            localCertificate item
+              (List.mem_cons_of_mem factor hitem))).spread :=
+  rfl
 
 /-! ## The certified finite image has the recorded log-free diameter -/
 
@@ -902,10 +1407,20 @@ theorem UniformCrossRatioDiameterCertificate.candidateRate_eqv
 #print axioms FiniteCrossRatioDiameterCertificate.candidateRate_lt_one
 #print axioms FiniteCrossRatioDiameterCertificate.restrict
 #print axioms FiniteCrossRatioDiameterCertificate.restrict_candidateRate_eqv
+#print axioms FiniteCrossRatioDiameterCertificate.widen
 #print axioms FiniteCrossRatioDiameterCertificate.rowRescale
 #print axioms FiniteCrossRatioDiameterCertificate.rowRescale_candidateRate_eqv
 #print axioms FiniteCrossRatioDiameterCertificate.columnRescale
 #print axioms FiniteCrossRatioDiameterCertificate.columnRescale_candidateRate_eqv
+#print axioms FiniteCrossRatioDiameterCertificate.pointwiseMul
+#print axioms FiniteCrossRatioDiameterCertificate.sourceIndependentCertificate
+#print axioms FiniteCrossRatioDiameterCertificate.sourceIndependentCertificate_candidateRate_eqv_zero
+#print axioms FiniteCrossRatioDiameterCertificate.factorizedCertificate
+#print axioms FiniteCrossRatioDiameterCertificate.factorizedCertificate_cons_spread
+#print axioms FiniteCrossRatioDiameterCertificate.factorizedCertificate_spread_eqv_product
+#print axioms FiniteCrossRatioDiameterCertificate.factorSpreadProduct_mask_eqv_filter
+#print axioms FiniteCrossRatioDiameterCertificate.factorizedCertificate_spread_eqv_activeProduct
+#print axioms FiniteCrossRatioDiameterCertificate.spreadPower_mono
 #print axioms FiniteCrossRatioDiameterCertificate.finiteKernelAction_projectiveSpread
 #print axioms FiniteCrossRatioDiameterCertificate.finiteKernelAction_pos
 #print axioms UniformCrossRatioDiameterCertificate.atIndex
