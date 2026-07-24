@@ -48,9 +48,13 @@ both sides of that assembly is now closed: the parity-selected channel of
 every four-face packet has positive recoupling mass, and every binary
 even-parity word of geometric link valence at most six has positive invariant
 multiplicity at every production auxiliary cutoff.  What remains at cutoff
-one is the geometric theorem identifying the dyadic parity image at each
-coarse link and assembling the resulting face labels into one listed coarse
-physical state.
+one that geometric assembly is now closed.  The global mod-two image is
+contained in the corrected coarse slab, remains an even cellular surface,
+is encoded by one listed coarse physical labelling, and gives a strictly
+positive whole-slab raw target whenever the fine odd support is even and the
+coarse coupling is positive.  The first open gate is to derive that fine
+evenness from strict positivity of the actual fine Gibbs summand, and then
+extend the construction beyond cutoff one.
 
 The physical remainder now also has a locality fence: for every cylinder
 intertwined pointwise by a candidate slab kernel, the fine/coarse Gibbs
@@ -102,6 +106,9 @@ class CD2Subgate(Enum):
     )
     CUTOFF_ONE_COARSE_LINK_DOOR = (
         "positive binary even-parity coarse links at cutoff one"
+    )
+    CUTOFF_ONE_GLOBAL_COHERENT_TARGET = (
+        "globally coherent whole-slab parity target at cutoff one"
     )
     COARSE_RECOUPLING_COHERENCE = (
         "globally coherent coarse face/link recoupling field"
@@ -162,6 +169,10 @@ CD2_LEAN_THEOREMS = (
     "fixedFinalFaceRawWeight_parity_pos",
     "CompactDualCutoffOneCoarseLinkDoor."
     "binaryEvenExplicitValenceMultiplicity_pos_of_cutoff",
+    "CompactDualCutoffOneParitySlabTarget."
+    "CutoffOneEvenSlabSource.toCoherentSlabRecouplingSource",
+    "CompactDualCutoffOneParitySlabTarget."
+    "cutoffOneWholeSlabConditionalKernel_row_normalized",
     "CompactDualPhysicalRemainderLocality.PhysicalKernel."
     "fineCoarseCylinderDefect_abs_le_remainderL1",
     "CompactDualFiniteBlockRemainder.SlabScalePair.FiniteSlabKernel."
@@ -190,6 +201,7 @@ class CD2Frontier:
     whole_slab_raw_carrier: bool
     cutoff_one_coarse_face_door: bool
     cutoff_one_coarse_link_door: bool
+    cutoff_one_global_coherent_target: bool
     coarse_recoupling_coherence: bool
     all_cutoff_global_kernel: bool
     physical_pushforward: bool
@@ -243,6 +255,10 @@ class CD2Frontier:
             (
                 CD2Subgate.CUTOFF_ONE_COARSE_LINK_DOOR,
                 self.cutoff_one_coarse_link_door,
+            ),
+            (
+                CD2Subgate.CUTOFF_ONE_GLOBAL_COHERENT_TARGET,
+                self.cutoff_one_global_coherent_target,
             ),
             (
                 CD2Subgate.COARSE_RECOUPLING_COHERENCE,
@@ -302,6 +318,7 @@ def current_cd2_frontier() -> CD2Frontier:
         whole_slab_raw_carrier=True,
         cutoff_one_coarse_face_door=True,
         cutoff_one_coarse_link_door=True,
+        cutoff_one_global_coherent_target=True,
         coarse_recoupling_coherence=False,
         all_cutoff_global_kernel=False,
         physical_pushforward=False,

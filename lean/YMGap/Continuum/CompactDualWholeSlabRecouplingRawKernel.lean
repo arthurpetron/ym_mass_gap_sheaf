@@ -140,6 +140,20 @@ private theorem wholeSlabQProduct_nonnegative {A : Type}
       Q'.mul_nonneg _ _ (hvalue head)
         (wholeSlabQProduct_nonnegative value hvalue tail)
 
+private theorem wholeSlabQProduct_pos_on {A : Type}
+    (value : A → Q') :
+    ∀ xs, (∀ x, x ∈ xs → (0 : Q') < value x) →
+      (0 : Q') < wholeSlabQProduct value xs
+  | [], _ => by
+      change (0 : Q') < 1
+      decide
+  | head :: tail, hvalue =>
+      Q'.mul_pos
+        (hvalue head List.mem_cons_self)
+        (wholeSlabQProduct_pos_on value tail
+          (fun x hmem =>
+            hvalue x (List.mem_cons_of_mem head hmem)))
+
 def wholeSlabFaceRawProduct
     (S : SlabScalePair) (fineState coarseState : SlabLabelling) : Q' :=
   wholeSlabQProduct
@@ -154,6 +168,19 @@ theorem wholeSlabFaceRawProduct_nonnegative
   intro coarseFaceId
   exact wholeSlabFaceRawWeight_nonnegative
     S fineState coarseState coarseFaceId
+
+/-- Pointwise strict positivity on every geometric coarse face makes the
+complete whole-slab face product strictly positive. -/
+theorem wholeSlabFaceRawProduct_pos_of_pointwise
+    (S : SlabScalePair) (fineState coarseState : SlabLabelling)
+    (hvalue : ∀ coarseFaceId, coarseFaceId ∈ S.coarse.faceEdges →
+      (0 : Q') <
+        wholeSlabFaceRawWeight S fineState coarseState coarseFaceId) :
+    (0 : Q') < wholeSlabFaceRawProduct S fineState coarseState := by
+  unfold wholeSlabFaceRawProduct
+  exact wholeSlabQProduct_pos_on
+    (wholeSlabFaceRawWeight S fineState coarseState)
+    S.coarse.faceEdges hvalue
 
 /-! ## 2. Complete globally link-glued raw row -/
 
@@ -266,6 +293,7 @@ theorem wholeSlabRecouplingConditionalKernel_row_normalized
 #print axioms slabSpinAtPlaquette_eq_of_mem
 #print axioms slabSpinAtPlaquette_eq_zero_of_not_mem
 #print axioms wholeSlabFaceRawProduct_nonnegative
+#print axioms wholeSlabFaceRawProduct_pos_of_pointwise
 #print axioms wholeSlabRecouplingRawWeight_nonnegative
 #print axioms wholeSlabRecouplingPartition_pos
 #print axioms wholeSlabRecouplingConditionalKernel_nonnegative
