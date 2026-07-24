@@ -177,9 +177,19 @@ defined and its total mass is proved exactly zero.  Its universal
 cutoff/volume-independent `L¹` bound is `2`.  This removes zero-mass
 cancellation as an independent obligation, but the bound `2` has no vanishing
 RG factor and therefore does not close CD-3.  The executable frontier in
-`computations/compact_dual_cd2_frontier.py` places the first open subgate at
-genuinely overlapping shared-link assembly, before the all-cutoff whole-slab
-kernel and physical Gibbs pushforward identification.
+`computations/compact_dual_cd2_frontier.py` also records the first exact
+overlap correction.  `Z4AdjacentCubeCancellationActivity.lean` proves that
+the closed symmetric-difference carrier of two adjacent cubes has ten faces,
+incidence two at every touched link, and exact activity
+`coeffW(w,1)^10`; equivalently the product of the two independent cube
+powers is `coeffW(w,1)^2` times the glued activity.  This converts the
+qualitative positive adjacent carrier into a quantitative gluing law.
+
+The first open subgate remains genuinely overlapping shared-link *kernel*
+assembly: the theorem does not yet provide a source-indexed joint
+normalization, all-cutoff recoupling, or a physical Gibbs pushforward.
+Those precede the all-cutoff whole-slab kernel and physical pushforward
+identification.
 
 ## What this advances
 

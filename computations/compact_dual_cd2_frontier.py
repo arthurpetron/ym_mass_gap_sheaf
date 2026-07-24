@@ -5,12 +5,16 @@ normalized corrected-slab laws, single-scale reflection positivity, a local
 source-dependent character/fusion kernel, a closed cutoff-one cube projector,
 reflection-compatible composition for link-separated cubes, automatic
 zero-mass remainder cancellation, and the universal probability bound
-``||R||_1 <= 2``.
+``||R||_1 <= 2``.  The first genuinely overlapping carrier is also exact:
+two adjacent six-face cube boundaries cancel their shared face pair, every
+touched link of the resulting ten-face carrier has incidence two, and its
+activity is the tenth power of the fundamental face coefficient.
 
-The first missing object is not another normalization identity.  It is the
-globally coupled kernel for genuinely overlapping blocks with shared fine
-links, followed by its all-cutoff identification with the physical
-corrected-slab pushforward.  The vanishing quadratic norm belongs to CD-3.
+This carrier theorem supplies the local overlap correction, not the joint
+kernel.  The first missing object is the globally coupled, post-gluing
+normalization for overlapping blocks with shared fine links, followed by its
+all-cutoff identification with the physical corrected-slab pushforward.  The
+vanishing quadratic norm belongs to CD-3.
 """
 
 from __future__ import annotations
@@ -27,6 +31,9 @@ class CD2Subgate(Enum):
     LOCAL_FUSION_KERNEL = "source-dependent local character/fusion kernel"
     CLOSED_COMPONENT = "closed projected cube component"
     SEPARATED_COMPOSITION = "link-separated physical composition"
+    OVERLAPPING_CARRIER_CORRECTION = (
+        "exact adjacent-cube shared-face cancellation activity"
+    )
     OVERLAPPING_LINK_ASSEMBLY = "genuinely overlapping shared-link assembly"
     ALL_CUTOFF_GLOBAL_KERNEL = "all-cutoff whole-slab kernel"
     PHYSICAL_PUSHFORWARD = "physical Gibbs pushforward identification"
@@ -46,6 +53,10 @@ CD2_LEAN_THEOREMS = (
     "closedCubeFineSlotKernel_row_normalized",
     "Z4DyadicSlabCubeKernelProductComposition."
     "bridgedProjectedTwoCubeRawProduct_eqv_unionProductionSummand",
+    "Z4AdjacentCubeCancellationActivity."
+    "zeroXAxisCancelledRoot_canonicalSurfaceActivity_eqv_pow_ten",
+    "Z4AdjacentCubeCancellationActivity."
+    "independent_cube_power_eqv_shared_face_square_mul_cancelled",
     "CompactDualFiniteBlockRemainder.SlabScalePair.FiniteSlabKernel."
     "remainder_total_eqv_zero",
     "CompactDualFiniteBlockRemainder.SlabScalePair.FiniteSlabKernel."
@@ -61,6 +72,7 @@ class CD2Frontier:
     local_fusion_kernel: bool
     closed_component: bool
     separated_composition: bool
+    overlapping_carrier_correction: bool
     overlapping_link_assembly: bool
     all_cutoff_global_kernel: bool
     physical_pushforward: bool
@@ -75,6 +87,10 @@ class CD2Frontier:
             (CD2Subgate.LOCAL_FUSION_KERNEL, self.local_fusion_kernel),
             (CD2Subgate.CLOSED_COMPONENT, self.closed_component),
             (CD2Subgate.SEPARATED_COMPOSITION, self.separated_composition),
+            (
+                CD2Subgate.OVERLAPPING_CARRIER_CORRECTION,
+                self.overlapping_carrier_correction,
+            ),
             (
                 CD2Subgate.OVERLAPPING_LINK_ASSEMBLY,
                 self.overlapping_link_assembly,
@@ -122,6 +138,7 @@ def current_cd2_frontier() -> CD2Frontier:
         local_fusion_kernel=True,
         closed_component=True,
         separated_composition=True,
+        overlapping_carrier_correction=True,
         overlapping_link_assembly=False,
         all_cutoff_global_kernel=False,
         physical_pushforward=False,

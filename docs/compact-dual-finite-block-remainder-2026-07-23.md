@@ -52,11 +52,30 @@ The current local chain already supplies:
 4. the cutoff-one fine-support projector; and
 5. exact physical composition for link-separated projected cubes.
 
-The first open subgate is the globally coupled assembly for genuinely
-overlapping blocks with shared fine links.  It must normalize only after all
-shared production link factors and fine-support/recoupling projections have
-been inserted.  Independent local normalization is already ruled out by an
-exact zero-mass fence.
+`Z4AdjacentCubeCancellationActivity.lean` now closes the first exact
+overlap-carrier calculation.  For two adjacent cube boundaries, ordinary
+union is not gauge closed: the retained interface-face boundary has
+incidence three.  Symmetric-difference gluing deletes both copies of the
+shared face and produces a ten-face carrier.  Every touched link then has
+incidence exactly two, so the full cutoff-one Haar multiplicity is one and
+
+```text
+A_glued(w) = coeffW(w,1)^10.
+```
+
+In particular the two independent six-face powers obey the exact correction
+
+```text
+coeffW(w,1)^12 = coeffW(w,1)^2 A_glued(w).
+```
+
+This is a quantitative shared-link gluing law, not yet a stochastic block
+map.  The first open subgate is therefore the globally coupled assembly for
+genuinely overlapping blocks with shared fine links.  It must place the
+cancelled carrier inside a source-indexed joint state space and normalize
+only after every shared production link factor and fine-support/recoupling
+projection has been inserted.  Independent local normalization is already
+ruled out by an exact zero-mass fence.
 
 After that assembly, two further CD-2 steps remain:
 
