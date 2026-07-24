@@ -30,6 +30,7 @@ def test_first_open_subgate_is_coarse_recoupling_coherence() -> None:
     assert frontier.restricted_source_coverage_refuted
     assert frontier.general_source_kernel
     assert frontier.fine_intertwiner_witness
+    assert frontier.whole_slab_raw_carrier
     assert not frontier.coarse_recoupling_coherence
     assert (
         frontier.first_open_subgate()
@@ -113,6 +114,16 @@ def test_theorem_surface_pins_normalization_and_uniform_fence() -> None:
     assert (
         "CompactDualSlabFineIntertwinerWitness."
         "positivePhysicalTerm_has_fineFusionWitness"
+        in CD2_LEAN_THEOREMS
+    )
+    assert (
+        "CompactDualWholeSlabRecouplingRawKernel."
+        "wholeSlabRecouplingRawWeight_nonnegative"
+        in CD2_LEAN_THEOREMS
+    )
+    assert (
+        "CompactDualWholeSlabRecouplingRawKernel."
+        "wholeSlabRecouplingConditionalKernel_row_normalized"
         in CD2_LEAN_THEOREMS
     )
     assert (

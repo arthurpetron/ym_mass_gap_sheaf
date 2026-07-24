@@ -87,6 +87,9 @@ class CD2Subgate(Enum):
     FINE_INTERTWINER_WITNESS = (
         "global fine-intertwiner witness extraction from positive physical mass"
     )
+    WHOLE_SLAB_RAW_CARRIER = (
+        "whole-slab globally link-glued recoupling raw carrier"
+    )
     COARSE_RECOUPLING_COHERENCE = (
         "globally coherent coarse face/link recoupling field"
     )
@@ -138,6 +141,10 @@ CD2_LEAN_THEOREMS = (
     "originUnitCube_not_covered_by_stretched_source",
     "CompactDualSlabFineIntertwinerWitness."
     "positivePhysicalTerm_has_fineFusionWitness",
+    "CompactDualWholeSlabRecouplingRawKernel."
+    "wholeSlabRecouplingRawWeight_nonnegative",
+    "CompactDualWholeSlabRecouplingRawKernel."
+    "wholeSlabRecouplingConditionalKernel_row_normalized",
     "CompactDualPhysicalRemainderLocality.PhysicalKernel."
     "fineCoarseCylinderDefect_abs_le_remainderL1",
     "CompactDualFiniteBlockRemainder.SlabScalePair.FiniteSlabKernel."
@@ -163,6 +170,7 @@ class CD2Frontier:
     restricted_source_coverage_refuted: bool
     general_source_kernel: bool
     fine_intertwiner_witness: bool
+    whole_slab_raw_carrier: bool
     coarse_recoupling_coherence: bool
     all_cutoff_global_kernel: bool
     physical_pushforward: bool
@@ -204,6 +212,10 @@ class CD2Frontier:
             (
                 CD2Subgate.FINE_INTERTWINER_WITNESS,
                 self.fine_intertwiner_witness,
+            ),
+            (
+                CD2Subgate.WHOLE_SLAB_RAW_CARRIER,
+                self.whole_slab_raw_carrier,
             ),
             (
                 CD2Subgate.COARSE_RECOUPLING_COHERENCE,
@@ -260,6 +272,7 @@ def current_cd2_frontier() -> CD2Frontier:
         restricted_source_coverage_refuted=True,
         general_source_kernel=True,
         fine_intertwiner_witness=True,
+        whole_slab_raw_carrier=True,
         coarse_recoupling_coherence=False,
         all_cutoff_global_kernel=False,
         physical_pushforward=False,
