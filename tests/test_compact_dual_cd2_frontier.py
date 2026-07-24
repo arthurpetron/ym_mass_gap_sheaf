@@ -32,6 +32,7 @@ def test_first_open_subgate_is_coarse_recoupling_coherence() -> None:
     assert frontier.fine_intertwiner_witness
     assert frontier.whole_slab_raw_carrier
     assert frontier.cutoff_one_coarse_face_door
+    assert frontier.cutoff_one_coarse_link_door
     assert not frontier.coarse_recoupling_coherence
     assert (
         frontier.first_open_subgate()
@@ -130,6 +131,11 @@ def test_theorem_surface_pins_normalization_and_uniform_fence() -> None:
     assert (
         "CompactDualCutoffOneCoarseFaceDoor."
         "fixedFinalFaceRawWeight_parity_pos"
+        in CD2_LEAN_THEOREMS
+    )
+    assert (
+        "CompactDualCutoffOneCoarseLinkDoor."
+        "binaryEvenExplicitValenceMultiplicity_pos_of_cutoff"
         in CD2_LEAN_THEOREMS
     )
     assert (

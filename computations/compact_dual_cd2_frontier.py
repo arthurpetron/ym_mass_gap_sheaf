@@ -43,7 +43,14 @@ the multiplicity product in the physical Gibbs summand.  Hence every strictly
 positive physical fine summand has a global fine-intertwiner witness.  The
 first open gate is now coarse recoupling coherence: transport that global
 field through all dyadic face fusions while forcing every reused coarse face
-and link to share one target channel.
+and link to share one target channel.  At cutoff one the local algebra on
+both sides of that assembly is now closed: the parity-selected channel of
+every four-face packet has positive recoupling mass, and every binary
+even-parity word of geometric link valence at most six has positive invariant
+multiplicity at every production auxiliary cutoff.  What remains at cutoff
+one is the geometric theorem identifying the dyadic parity image at each
+coarse link and assembling the resulting face labels into one listed coarse
+physical state.
 
 The physical remainder now also has a locality fence: for every cylinder
 intertwined pointwise by a candidate slab kernel, the fine/coarse Gibbs
@@ -92,6 +99,9 @@ class CD2Subgate(Enum):
     )
     CUTOFF_ONE_COARSE_FACE_DOOR = (
         "positive parity-selected coarse face channels at cutoff one"
+    )
+    CUTOFF_ONE_COARSE_LINK_DOOR = (
+        "positive binary even-parity coarse links at cutoff one"
     )
     COARSE_RECOUPLING_COHERENCE = (
         "globally coherent coarse face/link recoupling field"
@@ -150,6 +160,8 @@ CD2_LEAN_THEOREMS = (
     "wholeSlabRecouplingConditionalKernel_row_normalized",
     "CompactDualCutoffOneCoarseFaceDoor."
     "fixedFinalFaceRawWeight_parity_pos",
+    "CompactDualCutoffOneCoarseLinkDoor."
+    "binaryEvenExplicitValenceMultiplicity_pos_of_cutoff",
     "CompactDualPhysicalRemainderLocality.PhysicalKernel."
     "fineCoarseCylinderDefect_abs_le_remainderL1",
     "CompactDualFiniteBlockRemainder.SlabScalePair.FiniteSlabKernel."
@@ -177,6 +189,7 @@ class CD2Frontier:
     fine_intertwiner_witness: bool
     whole_slab_raw_carrier: bool
     cutoff_one_coarse_face_door: bool
+    cutoff_one_coarse_link_door: bool
     coarse_recoupling_coherence: bool
     all_cutoff_global_kernel: bool
     physical_pushforward: bool
@@ -226,6 +239,10 @@ class CD2Frontier:
             (
                 CD2Subgate.CUTOFF_ONE_COARSE_FACE_DOOR,
                 self.cutoff_one_coarse_face_door,
+            ),
+            (
+                CD2Subgate.CUTOFF_ONE_COARSE_LINK_DOOR,
+                self.cutoff_one_coarse_link_door,
             ),
             (
                 CD2Subgate.COARSE_RECOUPLING_COHERENCE,
@@ -284,6 +301,7 @@ def current_cd2_frontier() -> CD2Frontier:
         fine_intertwiner_witness=True,
         whole_slab_raw_carrier=True,
         cutoff_one_coarse_face_door=True,
+        cutoff_one_coarse_link_door=True,
         coarse_recoupling_coherence=False,
         all_cutoff_global_kernel=False,
         physical_pushforward=False,
