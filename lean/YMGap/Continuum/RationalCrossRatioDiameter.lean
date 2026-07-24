@@ -46,8 +46,6 @@ open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm
 
 local infix:50 " ≈ " => Q'.eqv
 
-universe u v
-
 /-- A finite, log-free certificate for a bounded projective image.
 
 Strict positivity is required on the selected rectangle.  Fusion zeros in a
@@ -55,9 +53,9 @@ larger physical kernel therefore force the caller to select an unbranched
 positive sector (or to certify a positive primitive iterate) before this
 structure can be inhabited. -/
 structure FiniteCrossRatioDiameterCertificate
-    {Source : Type u} {Target : Type v}
+    {Source : Type} {Target : Type}
     (kernel : Source → Target → Q')
-    (sources : List Source) (targets : List Target) : Type (max u v) where
+    (sources : List Source) (targets : List Target) : Type where
   /-- Rational square-root majorant for all matrix cross-ratios. -/
   spread : Q'
   one_le_spread : (1 : Q') ≤ spread
@@ -80,7 +78,7 @@ namespace FiniteCrossRatioDiameterCertificate
 
 /-- `spread` is strictly positive because it is at least one. -/
 theorem spread_pos
-    {Source : Type u} {Target : Type v}
+    {Source : Type} {Target : Type}
     {kernel : Source → Target → Q'}
     {sources : List Source} {targets : List Target}
     (certificate :
@@ -90,7 +88,7 @@ theorem spread_pos
 
 /-- The denominator `spread + 1` of the rational candidate is positive. -/
 theorem candidateDenominator_pos
-    {Source : Type u} {Target : Type v}
+    {Source : Type} {Target : Type}
     {kernel : Source → Target → Q'}
     {sources : List Source} {targets : List Target}
     (certificate :
@@ -104,7 +102,7 @@ This is only a candidate contraction rate until a constructive
 Birkhoff--Hopf bridge identifies the relevant activity map and Hilbert
 projective distance. -/
 def candidateRate
-    {Source : Type u} {Target : Type v}
+    {Source : Type} {Target : Type}
     {kernel : Source → Target → Q'}
     {sources : List Source} {targets : List Target}
     (certificate :
@@ -116,7 +114,7 @@ def candidateRate
 
 /-- The exact rational candidate rate is nonnegative. -/
 theorem candidateRate_nonnegative
-    {Source : Type u} {Target : Type v}
+    {Source : Type} {Target : Type}
     {kernel : Source → Target → Q'}
     {sources : List Source} {targets : List Target}
     (certificate :
@@ -243,7 +241,7 @@ private theorem divPos_lt_one_of_lt
 /-- The exact rational candidate is strictly below one, independently of the
 number of selected source or target coordinates. -/
 theorem candidateRate_lt_one
-    {Source : Type u} {Target : Type v}
+    {Source : Type} {Target : Type}
     {kernel : Source → Target → Q'}
     {sources : List Source} {targets : List Target}
     (certificate :
@@ -255,7 +253,7 @@ theorem candidateRate_lt_one
 /-- Restricting to smaller certified source and target lists cannot enlarge
 the recorded cross-ratio spread. -/
 def restrict
-    {Source : Type u} {Target : Type v}
+    {Source : Type} {Target : Type}
     {kernel : Source → Target → Q'}
     {sources : List Source} {targets : List Target}
     (certificate :
@@ -283,7 +281,7 @@ def restrict
       right (target_subset right hright)
 
 theorem restrict_candidateRate_eqv
-    {Source : Type u} {Target : Type v}
+    {Source : Type} {Target : Type}
     {kernel : Source → Target → Q'}
     {sources : List Source} {targets : List Target}
     (certificate :
@@ -298,6 +296,327 @@ theorem restrict_candidateRate_eqv
       ≈ certificate.candidateRate :=
   Q'.eqv_refl _
 
+/-! ## The certified finite image has the recorded log-free diameter -/
+
+/-- Apply a finite kernel linearly to an exact rational activity. -/
+def finiteKernelAction
+    {Source : Type} {Target : Type}
+    (kernel : Source → Target → Q')
+    (sources : List Source)
+    (activity : Source → Q')
+    (target : Target) : Q' :=
+  listQSum
+    (fun source => kernel source target * activity source)
+    sources
+
+/-- The division-free form of a Hilbert-projective spread bound between two
+positive rays.  When all coordinates are positive, this says their Hilbert
+distance is at most `2 log spread`, without introducing a logarithm into the
+exact certificate layer. -/
+def ProjectiveSpreadBound
+    {Target : Type}
+    (spread : Q') (targets : List Target)
+    (first second : Target → Q') : Prop :=
+  ∀ left, left ∈ targets →
+    ∀ right, right ∈ targets →
+      first left * second right ≤
+        (spread * spread) * (first right * second left)
+
+/-- A nonzero point of the closed positive activity cone, with its positive
+coordinate retained as Type-level witness data. -/
+structure NonzeroNonnegativeActivity
+    {Source : Type}
+    (sources : List Source) (activity : Source → Q') : Type where
+  nonnegative :
+    ∀ source, source ∈ sources →
+      (0 : Q') ≤ activity source
+  positiveSource : Source
+  positiveSource_mem : positiveSource ∈ sources
+  positiveSource_value : (0 : Q') < activity positiveSource
+
+private theorem listQSum_mono_on
+    {A : Type} (lower upper : A → Q') :
+    ∀ xs : List A,
+      (∀ x, x ∈ xs → lower x ≤ upper x) →
+        listQSum lower xs ≤ listQSum upper xs
+  | [], _ => Q'.le_refl' 0
+  | head :: tail, hbound => by
+      exact Q'.le_trans' _ _ _
+        (Q'.add_le_add_right _ _ _
+          (hbound head List.mem_cons_self))
+        (Q'.add_le_add_left _ _ _
+          (listQSum_mono_on lower upper tail
+            (fun x hx =>
+              hbound x (List.mem_cons_of_mem head hx))))
+
+private theorem listQSum_member_le
+    {A : Type} (value : A → Q') :
+    ∀ (xs : List A),
+      (∀ x, x ∈ xs → (0 : Q') ≤ value x) →
+      ∀ {selected : A}, selected ∈ xs →
+      value selected ≤ listQSum value xs
+  | [], _, _, hmem => False.elim (List.not_mem_nil hmem)
+  | head :: tail, hvalue, selected, hmem => by
+      rcases List.mem_cons.mp hmem with rfl | htail
+      · exact Q'.add_le_self_of_nonneg _ _
+          (listQSum_nonnegative_on value tail
+            (fun x hx =>
+              hvalue x (List.mem_cons_of_mem selected hx)))
+      · have hinductive :=
+          listQSum_member_le value tail
+            (fun x hx =>
+              hvalue x (List.mem_cons_of_mem head hx))
+            htail
+        have hmono :
+            listQSum value tail ≤
+              value head + listQSum value tail := by
+          have hstep :=
+            Q'.add_le_add_right
+              (0 : Q') (value head)
+              (listQSum value tail)
+              (hvalue head List.mem_cons_self)
+          rwa [Q'.zero_add'] at hstep
+        exact Q'.le_trans' _ _ _ hinductive hmono
+
+private theorem nested_scale_left
+    {A B : Type}
+    (scale : Q') (value : A → B → Q')
+    (first : List A) (second : List B) :
+    listQSum
+        (fun x =>
+          listQSum (fun y => scale * value x y) second)
+        first ≈
+      scale *
+        listQSum
+          (fun x => listQSum (value x) second)
+          first := by
+  refine Q'.eqv_trans _
+    (listQSum
+      (fun x => scale * listQSum (value x) second)
+      first) _ ?_ ?_
+  · exact listQSum_congr_on _ _ first
+      (fun x _ => listQSum_mul_left scale (value x) second)
+  · exact listQSum_mul_left scale
+      (fun x => listQSum (value x) second) first
+
+private theorem mul_swap4_local (a b c d : Q') :
+    ((a * b) * (c * d)) ≈ ((a * c) * (b * d)) := by
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_assoc_eqv a b (c * d)) ?_
+  refine Q'.eqv_trans _ _ _
+    ?_ (Q'.eqv_symm (Q'.mul_assoc_eqv a c (b * d)))
+  apply Q'.mul_eqv_congr_left
+  refine Q'.eqv_trans _ _ _
+    (Q'.eqv_symm (Q'.mul_assoc_eqv b c d)) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_right _ _ d
+      (Q'.mul_comm_eqv b c)) ?_
+  exact Q'.mul_assoc_eqv c b d
+
+private theorem weightedCrossRatioTerm
+    {Source : Type} {Target : Type}
+    {kernel : Source → Target → Q'}
+    {sources : List Source} {targets : List Target}
+    (certificate :
+      FiniteCrossRatioDiameterCertificate kernel sources targets)
+    (first second : Source)
+    (hfirst : first ∈ sources) (hsecond : second ∈ sources)
+    (left right : Target)
+    (hleft : left ∈ targets) (hright : right ∈ targets)
+    (firstActivity secondActivity : Source → Q')
+    (hfirstActivity : (0 : Q') ≤ firstActivity first)
+    (hsecondActivity : (0 : Q') ≤ secondActivity second) :
+    (kernel first left * firstActivity first) *
+        (kernel second right * secondActivity second) ≤
+      (certificate.spread * certificate.spread) *
+        ((kernel first right * firstActivity first) *
+          (kernel second left * secondActivity second)) := by
+  let activityFactor :=
+    firstActivity first * secondActivity second
+  have hactivityFactor : (0 : Q') ≤ activityFactor :=
+    Q'.mul_nonneg _ _
+      hfirstActivity hsecondActivity
+  have hcross :=
+    certificate.crossRatioBound
+      first hfirst second hsecond left hleft right hright
+  have hscaled :
+      (kernel first left * kernel second right) * activityFactor ≤
+        ((certificate.spread * certificate.spread) *
+          (kernel first right * kernel second left)) *
+            activityFactor :=
+    Q'.mul_le_mul_of_nonneg_right _ _ _ hcross hactivityFactor
+  have hleftReindex :
+      (kernel first left * firstActivity first) *
+          (kernel second right * secondActivity second) ≈
+        (kernel first left * kernel second right) *
+          activityFactor :=
+    mul_swap4_local _ _ _ _
+  have hrightReindex :
+      ((certificate.spread * certificate.spread) *
+          (kernel first right * kernel second left)) *
+            activityFactor ≈
+        (certificate.spread * certificate.spread) *
+          ((kernel first right * firstActivity first) *
+            (kernel second left * secondActivity second)) := by
+    refine Q'.eqv_trans _
+      ((certificate.spread * certificate.spread) *
+        ((kernel first right * kernel second left) *
+          activityFactor)) _
+      (Q'.mul_assoc_eqv _ _ _) ?_
+    exact Q'.mul_eqv_congr_left
+      (certificate.spread * certificate.spread) _ _
+      (mul_swap4_local _ _ _ _)
+  exact Q'.le_trans' _ _ _
+    (Q'.le_of_eqv hleftReindex)
+    (Q'.le_trans' _ _ _ hscaled
+      (Q'.le_of_eqv hrightReindex))
+
+/-- The cross-ratio certificate bounds the complete finite image diameter.
+
+The result quantifies over arbitrary nonnegative input activities and contains
+no factor depending on `sources.length` or `targets.length`.  This is the
+finite exact statement behind the phrase "dimension-free."  It remains
+conditional on the supplied `spread`; proving that one common spread works
+for the physical local activity cone is the analytic RG-I7 gate. -/
+theorem finiteKernelAction_projectiveSpread
+    {Source : Type} {Target : Type}
+    {kernel : Source → Target → Q'}
+    {sources : List Source} {targets : List Target}
+    (certificate :
+      FiniteCrossRatioDiameterCertificate kernel sources targets)
+    (firstActivity secondActivity : Source → Q')
+    (hfirstActivity :
+      ∀ source, source ∈ sources →
+        (0 : Q') ≤ firstActivity source)
+    (hsecondActivity :
+      ∀ source, source ∈ sources →
+        (0 : Q') ≤ secondActivity source) :
+    ProjectiveSpreadBound certificate.spread targets
+      (finiteKernelAction kernel sources firstActivity)
+      (finiteKernelAction kernel sources secondActivity) := by
+  intro left hleft right hright
+  let leftTerm : Source → Q' :=
+    fun first =>
+      kernel first left * firstActivity first
+  let rightTerm : Source → Q' :=
+    fun second =>
+      kernel second right * secondActivity second
+  let crossedLeftTerm : Source → Q' :=
+    fun first =>
+      kernel first right * firstActivity first
+  let crossedRightTerm : Source → Q' :=
+    fun second =>
+      kernel second left * secondActivity second
+  let crossedProduct : Source → Source → Q' :=
+    fun first second =>
+      crossedLeftTerm first * crossedRightTerm second
+  have hdouble :
+      listQSum
+          (fun first =>
+            listQSum
+              (fun second => leftTerm first * rightTerm second)
+              sources)
+          sources ≤
+        listQSum
+          (fun first =>
+            listQSum
+              (fun second =>
+                (certificate.spread * certificate.spread) *
+                  crossedProduct first second)
+              sources)
+          sources := by
+    apply listQSum_mono_on
+    intro first hfirst
+    apply listQSum_mono_on
+    intro second hsecond
+    exact weightedCrossRatioTerm
+      certificate first second hfirst hsecond
+      left right hleft hright
+      firstActivity secondActivity
+      (hfirstActivity first hfirst)
+      (hsecondActivity second hsecond)
+  have hleftProduct :
+      listQSum
+          (fun first =>
+            listQSum
+              (fun second => leftTerm first * rightTerm second)
+              sources)
+          sources ≈
+        finiteKernelAction kernel sources firstActivity left *
+          finiteKernelAction kernel sources secondActivity right := by
+    exact listQSum_product leftTerm rightTerm sources sources
+  have hcrossedProduct :
+      listQSum
+          (fun first =>
+            listQSum (crossedProduct first) sources)
+          sources ≈
+        finiteKernelAction kernel sources firstActivity right *
+          finiteKernelAction kernel sources secondActivity left := by
+    exact listQSum_product
+      crossedLeftTerm crossedRightTerm sources sources
+  have hscaledProduct :
+      listQSum
+          (fun first =>
+            listQSum
+              (fun second =>
+                (certificate.spread * certificate.spread) *
+                  crossedProduct first second)
+              sources)
+          sources ≈
+        (certificate.spread * certificate.spread) *
+          (finiteKernelAction kernel sources firstActivity right *
+            finiteKernelAction kernel sources secondActivity left) := by
+    exact Q'.eqv_trans _ _ _
+      (nested_scale_left
+        (certificate.spread * certificate.spread)
+        crossedProduct sources sources)
+      (Q'.mul_eqv_congr_left
+        (certificate.spread * certificate.spread) _ _
+        hcrossedProduct)
+  exact Q'.le_trans' _ _ _
+    (Q'.ge_of_eqv hleftProduct)
+    (Q'.le_trans' _ _ _ hdouble
+      (Q'.le_of_eqv hscaledProduct))
+
+/-- A certified strictly-positive kernel sends every nonzero nonnegative
+activity into the strict interior on every selected target coordinate. -/
+theorem finiteKernelAction_pos
+    {Source : Type} {Target : Type}
+    {kernel : Source → Target → Q'}
+    {sources : List Source} {targets : List Target}
+    (certificate :
+      FiniteCrossRatioDiameterCertificate kernel sources targets)
+    {activity : Source → Q'}
+    (hactivity : NonzeroNonnegativeActivity sources activity)
+    {target : Target} (htarget : target ∈ targets) :
+    (0 : Q') <
+      finiteKernelAction kernel sources activity target := by
+  let term : Source → Q' :=
+    fun source => kernel source target * activity source
+  have htermNonnegative :
+      ∀ source, source ∈ sources →
+        (0 : Q') ≤ term source := by
+    intro source hsource
+    exact Q'.mul_nonneg _ _
+      (Q'.le_of_lt
+        (certificate.strictlyPositive source hsource
+          target htarget))
+      (hactivity.nonnegative source hsource)
+  have hwitness :
+      (0 : Q') <
+        term hactivity.positiveSource :=
+    Q'.mul_pos
+      (certificate.strictlyPositive
+        hactivity.positiveSource
+        hactivity.positiveSource_mem target htarget)
+      hactivity.positiveSource_value
+  have hle :
+      term hactivity.positiveSource ≤
+        listQSum term sources :=
+    listQSum_member_le term sources htermNonnegative
+      hactivity.positiveSource_mem
+  exact Q'.pos_of_lt_of_le hwitness hle
+
 end FiniteCrossRatioDiameterCertificate
 
 /-! ## One common spread across cutoff and volume -/
@@ -309,11 +628,11 @@ does not claim that the index is a physical cutoff/volume pair; a physical
 specialization must provide that identification and must use a local activity
 cone rather than silently tensoring the full configuration cone. -/
 structure UniformCrossRatioDiameterCertificate
-    (Index : Type u)
-    (Source Target : Index → Type v)
+    (Index : Type)
+    (Source Target : Index → Type)
     (kernel : ∀ index, Source index → Target index → Q')
     (sources : ∀ index, List (Source index))
-    (targets : ∀ index, List (Target index)) : Type (max u v) where
+    (targets : ∀ index, List (Target index)) : Type where
   spread : Q'
   one_le_spread : (1 : Q') ≤ spread
   strictlyPositive :
@@ -334,8 +653,8 @@ structure UniformCrossRatioDiameterCertificate
 definitionally the common uniform spread, not merely propositionally equal to
 it. -/
 def UniformCrossRatioDiameterCertificate.atIndex
-    {Index : Type u}
-    {Source Target : Index → Type v}
+    {Index : Type}
+    {Source Target : Index → Type}
     {kernel : ∀ index, Source index → Target index → Q'}
     {sources : ∀ index, List (Source index)}
     {targets : ∀ index, List (Target index)}
@@ -352,8 +671,8 @@ def UniformCrossRatioDiameterCertificate.atIndex
 
 /-- Every regulator index has the same exact rational candidate rate. -/
 theorem UniformCrossRatioDiameterCertificate.candidateRate_eqv
-    {Index : Type u}
-    {Source Target : Index → Type v}
+    {Index : Type}
+    {Source Target : Index → Type}
     {kernel : ∀ index, Source index → Target index → Q'}
     {sources : ∀ index, List (Source index)}
     {targets : ∀ index, List (Target index)}
@@ -371,6 +690,8 @@ theorem UniformCrossRatioDiameterCertificate.candidateRate_eqv
 #print axioms FiniteCrossRatioDiameterCertificate.candidateRate_lt_one
 #print axioms FiniteCrossRatioDiameterCertificate.restrict
 #print axioms FiniteCrossRatioDiameterCertificate.restrict_candidateRate_eqv
+#print axioms FiniteCrossRatioDiameterCertificate.finiteKernelAction_projectiveSpread
+#print axioms FiniteCrossRatioDiameterCertificate.finiteKernelAction_pos
 #print axioms UniformCrossRatioDiameterCertificate.atIndex
 #print axioms UniformCrossRatioDiameterCertificate.candidateRate_eqv
 
