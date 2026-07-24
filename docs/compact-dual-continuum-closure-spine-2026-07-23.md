@@ -76,6 +76,31 @@ Only after these six items may `SpinFoamRPBlockRemainder` be inhabited.  The
 next work step is therefore the physical geometry/integrator semantic bridge,
 not a larger sign census.
 
+### First semantic slice closed
+
+`computations/dual_positivity_coordinate_bridge.py` now closes the exact
+coupling/cutoff coordinate slice of this list.  For every one of the twelve
+unit-rim sectors it proves computationally that
+
+\[
+  W(j;m)\prod_i
+    \left[(j_i+1)s^{j_i(j_i+2)}\right]
+  =
+  c_{j,m}s^{\sum_i j_i(j_i+2)},
+\]
+
+and it verifies that the sector ledger, compressed four-monomial activity,
+and independent exact-Haar contraction agree at an arbitrary pinned rational
+coupling.  It also catches a support distinction that matters physically:
+cutoff one supports the fixed rim labels, but cutoff two is required for the
+complete induced page-spin sum.
+
+The executable semantic frontier therefore closes manifest integrity,
+coupling coordinate, boundary support, and page-cutoff completeness.  Its
+first open field remains `geometry_pinned`, followed by integrator semantics,
+complete reflected channels, the physical kernel, and the overlap remainder.
+The parent CD-2 gate remains open.
+
 ## What this advances
 
 This gate does not prove a new analytic estimate.  It closes a serious
