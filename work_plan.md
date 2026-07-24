@@ -24,11 +24,15 @@ multiplicity-only certificates to preserving the full physical object:
 5. one shared continuum object through OS reconstruction and spectral-gap
    identification.
 
-The **next active milestone is BF1.5, “intertwiner-resolved three-strand
-pushforward seed.”**  Its checkable exit certificate is specified in the
-current BF plan.  Unless that section explicitly delegates a task back to
-one of the historical phases below, BF1.5 and then BF2--BF10 control execution
-order.
+**BF1.5, “intertwiner-resolved three-strand pushforward seed,” closed on
+2026-07-24 by its negative route.**  The three-strand Haar/heat/coherence
+tests pass exactly, but the closed full-slab carrier's one-sided reflected
+Gram form has principal minor \(-1/65536\).  This locates the next missing
+object: open positive-half surfaces with their cut-edge intertwiner data.
+The **next active milestone is BF1.6, “reflection-cut half-surface
+carrier.”**  Its checkable exit certificate is specified in the current BF
+plan.  Unless that section explicitly delegates a task back to one of the
+historical phases below, BF1.6 and then BF2--BF10 control execution order.
 
 Each milestone has:
 - A **goal** stated as a checkable predicate.

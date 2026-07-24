@@ -121,7 +121,18 @@ BF1 work units to:
 7. state the minimal general positivity lemma surviving that falsification
    campaign.
 
-## Next milestone — BF1.5: intertwiner-resolved three-strand pushforward seed
+## Closed milestone — BF1.5: intertwiner-resolved three-strand pushforward seed
+
+**Closed 2026-07-24 by the negative route.**  The minimal sector has 96
+explicit fusion paths over 64 output channels.  Direct Haar, left/right
+coherent path sums, signed Racah transport, and the positive heat activity
+all agree exactly.  The path-to-channel unnormalized Haar pushforward is
+explicit.  However, the one-sided reflected Gram form on the closed
+full-slab surface generators has leading \(3\times3\) principal minor
+\(-1/65536\).  Because those generators cross the reflection plane, this is
+not an OS-positivity counterexample; it proves that the proposed
+closed-surface carrier is not the positive-half reflection cone.  See
+`notes/bf1-5-three-strand-pushforward.md`.
 
 This is the next milestone to execute.
 
@@ -227,6 +238,41 @@ RG-I7--I9, continuum existence, the all-groups lift, or the Clay theorem.
 Its purpose is to decide whether the first carrier rich enough for the
 physical block map is positive and closed in the first genuinely
 multiplicity-bearing sector.
+
+## Next milestone — BF1.6: reflection-cut half-surface carrier
+
+BF1.5 identifies the datum still missing before BF2/BF3: a closed surface
+must be cut into two open half-surface packets, and the exposed cut-edge
+intertwiner indices must be retained rather than contracted away.
+
+### Goal
+
+Construct the minimal positive-half carrier whose gluing reconstructs every
+BF1.5 closed state, identify the corrected-slab reflected kernel as its exact
+Gram matrix, and carry that carrier through one genuinely
+spacing-changing, unnormalized Haar block.
+
+### Exit test
+
+The gate closes when either:
+
+- the reconstructed minimal reflected kernel has an exact PSD/SOS
+  factorization and the geometric block pushforward remains inside the
+  half-surface carrier with explicit mass and remainder; or
+- an exact negative minor, gluing inconsistency, or outside-carrier
+  pushforward term identifies the next datum that must be retained.
+
+### Required actions
+
+1. split the three BF1.5 strands at the half-time reflection plane;
+2. canonicalize open surface boundaries and oriented cut loops;
+3. attach an orthonormal invariant-basis index at every cut edge;
+4. implement reflection and gluing with exact signed \(F/R\) transport;
+5. recover the closed BF1.5 Haar amplitudes by summing shared cut indices;
+6. build and factor the physical one-sided Gram matrix on positive-half
+   states;
+7. perform one actual lattice-spacing-changing corrected-slab Haar
+   pushforward and return its kernel, mass, and outside-carrier remainder.
 
 ## BF2–BF4: contraction engine
 
