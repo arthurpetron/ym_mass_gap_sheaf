@@ -17,7 +17,7 @@ def test_finite_remainder_algebra_is_closed() -> None:
     assert frontier.finite_remainder_algebra_closed()
 
 
-def test_first_open_subgate_is_physical_source_coverage() -> None:
+def test_first_open_subgate_is_coarse_recoupling_coherence() -> None:
     frontier = current_cd2_frontier()
     assert frontier.local_fusion_kernel
     assert frontier.closed_component
@@ -28,10 +28,12 @@ def test_first_open_subgate_is_physical_source_coverage() -> None:
     assert frontier.overlapping_link_assembly
     assert frontier.overlap_reflection_intertwining
     assert frontier.restricted_source_coverage_refuted
-    assert not frontier.physical_source_coverage
+    assert frontier.general_source_kernel
+    assert frontier.fine_intertwiner_witness
+    assert not frontier.coarse_recoupling_coherence
     assert (
         frontier.first_open_subgate()
-        is CD2Subgate.PHYSICAL_SOURCE_COVERAGE
+        is CD2Subgate.COARSE_RECOUPLING_COHERENCE
     )
     assert not frontier.physical_cd2_closed()
     assert not frontier.cd3_smallness_closed()
@@ -89,8 +91,28 @@ def test_theorem_surface_pins_normalization_and_uniform_fence() -> None:
         in CD2_LEAN_THEOREMS
     )
     assert (
+        "Z4AdjacentCubeGeneralSourceConditionalKernel."
+        "generalAdjacentCubeConditionalKernel_row_normalized"
+        in CD2_LEAN_THEOREMS
+    )
+    assert (
+        "Z4AdjacentCubeGeneralSourceConditionalKernel."
+        "generalAdjacentCubeConditionalKernel_reflection"
+        in CD2_LEAN_THEOREMS
+    )
+    assert (
+        "Z4AdjacentCubeGeneralSourceConditionalKernel."
+        "generalKernel_of_stretched"
+        in CD2_LEAN_THEOREMS
+    )
+    assert (
         "Z4CubeStretchedSourceCoverageFence."
         "originUnitCube_not_covered_by_stretched_source"
+        in CD2_LEAN_THEOREMS
+    )
+    assert (
+        "CompactDualSlabFineIntertwinerWitness."
+        "positivePhysicalTerm_has_fineFusionWitness"
         in CD2_LEAN_THEOREMS
     )
     assert (

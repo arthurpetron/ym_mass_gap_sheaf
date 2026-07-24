@@ -31,7 +31,19 @@ link-closed and has positive cutoff-one activity, but its induced bottom and
 top dyadic face totals are respectively two and zero.  No
 ``CubeStretchedCompatibleSource`` can cover it.  The first open constructor
 must therefore be generalized to arbitrary physical packets while retaining
-the fine auxiliary/intertwiner witness.
+the fine auxiliary/intertwiner witness.  That generalization is now closed:
+the complete adjacent target is nonnegative, row-normalized, and
+reflection-intertwining for arbitrary bounded face packets whenever one
+positive joint target is retained.
+
+The fine physical term also now supplies its retained datum constructively.
+Every link multiplicity is expanded into the literal finite list of accepted
+fusion paths; their whole-slab Cartesian product has length exactly equal to
+the multiplicity product in the physical Gibbs summand.  Hence every strictly
+positive physical fine summand has a global fine-intertwiner witness.  The
+first open gate is now coarse recoupling coherence: transport that global
+field through all dyadic face fusions while forcing every reused coarse face
+and link to share one target channel.
 
 The physical remainder now also has a locality fence: for every cylinder
 intertwined pointwise by a candidate slab kernel, the fine/coarse Gibbs
@@ -69,11 +81,14 @@ class CD2Subgate(Enum):
     OVERLAP_REFLECTION_INTERTWINING = (
         "reflection intertwining of the restricted adjacent target"
     )
-    PHYSICAL_SOURCE_COVERAGE = (
-        "general-source recoupling for every corrected-slab physical source"
+    GENERAL_SOURCE_KERNEL = (
+        "general-source adjacent kernel with retained positive witness"
     )
-    GLOBAL_FINE_SUPPORT_PROJECTION = (
-        "global fine-support projection for overlapping cube families"
+    FINE_INTERTWINER_WITNESS = (
+        "global fine-intertwiner witness extraction from positive physical mass"
+    )
+    COARSE_RECOUPLING_COHERENCE = (
+        "globally coherent coarse face/link recoupling field"
     )
     ALL_CUTOFF_GLOBAL_KERNEL = "all-cutoff whole-slab kernel"
     PHYSICAL_PUSHFORWARD = "physical Gibbs pushforward identification"
@@ -113,8 +128,16 @@ CD2_LEAN_THEOREMS = (
     "adjacentCubeJointConditionalKernel_row_normalized",
     "Z4AdjacentCubeJointConditionalKernel."
     "adjacentCubeJointConditionalKernel_reflection",
+    "Z4AdjacentCubeGeneralSourceConditionalKernel."
+    "generalAdjacentCubeConditionalKernel_row_normalized",
+    "Z4AdjacentCubeGeneralSourceConditionalKernel."
+    "generalAdjacentCubeConditionalKernel_reflection",
+    "Z4AdjacentCubeGeneralSourceConditionalKernel."
+    "generalKernel_of_stretched",
     "Z4CubeStretchedSourceCoverageFence."
     "originUnitCube_not_covered_by_stretched_source",
+    "CompactDualSlabFineIntertwinerWitness."
+    "positivePhysicalTerm_has_fineFusionWitness",
     "CompactDualPhysicalRemainderLocality.PhysicalKernel."
     "fineCoarseCylinderDefect_abs_le_remainderL1",
     "CompactDualFiniteBlockRemainder.SlabScalePair.FiniteSlabKernel."
@@ -138,8 +161,9 @@ class CD2Frontier:
     overlapping_link_assembly: bool
     overlap_reflection_intertwining: bool
     restricted_source_coverage_refuted: bool
-    physical_source_coverage: bool
-    global_fine_support_projection: bool
+    general_source_kernel: bool
+    fine_intertwiner_witness: bool
+    coarse_recoupling_coherence: bool
     all_cutoff_global_kernel: bool
     physical_pushforward: bool
     zero_mass_remainder_derived: bool
@@ -174,12 +198,16 @@ class CD2Frontier:
                 self.overlap_reflection_intertwining,
             ),
             (
-                CD2Subgate.PHYSICAL_SOURCE_COVERAGE,
-                self.physical_source_coverage,
+                CD2Subgate.GENERAL_SOURCE_KERNEL,
+                self.general_source_kernel,
             ),
             (
-                CD2Subgate.GLOBAL_FINE_SUPPORT_PROJECTION,
-                self.global_fine_support_projection,
+                CD2Subgate.FINE_INTERTWINER_WITNESS,
+                self.fine_intertwiner_witness,
+            ),
+            (
+                CD2Subgate.COARSE_RECOUPLING_COHERENCE,
+                self.coarse_recoupling_coherence,
             ),
             (
                 CD2Subgate.ALL_CUTOFF_GLOBAL_KERNEL,
@@ -230,8 +258,9 @@ def current_cd2_frontier() -> CD2Frontier:
         overlapping_link_assembly=True,
         overlap_reflection_intertwining=True,
         restricted_source_coverage_refuted=True,
-        physical_source_coverage=False,
-        global_fine_support_projection=False,
+        general_source_kernel=True,
+        fine_intertwiner_witness=True,
+        coarse_recoupling_coherence=False,
         all_cutoff_global_kernel=False,
         physical_pushforward=False,
         zero_mass_remainder_derived=True,
