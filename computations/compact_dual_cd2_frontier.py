@@ -15,14 +15,21 @@ conditional kernel.  The Boolean channel has now also been replaced locally
 by the complete bounded-spin shared-face recoupling fiber: all five SU(2)
 fusion constraints are normalized at every cutoff and intertwine reflection.
 
-This closes the shared-face fiber, not the complete adjacent-cube product.
-That product is now assembled too: both six-face target spaces, sixteen
-non-interface link factors, and the five shared recoupling factors are summed
-under one all-cutoff denominator.  The first missing object is reflection
-intertwining for this larger target, followed by its global fine-support
-projection, whole-slab assembly, and physical pushforward.  Reflection
-intertwining is now closed too, so the projection is the first open object.
-The vanishing quadratic norm belongs to CD-3.
+This closes the shared-face fiber, and the adjacent target is assembled too:
+both six-face target spaces, sixteen non-interface link factors, and the five
+shared recoupling factors are summed under one all-cutoff denominator.  Its
+reflection intertwining is exact.  But its rows are presently normalized only
+on ``CubeStretchedCompatibleSource``: all six face-packet totals of each cube
+are required to agree.  That is a positive-witness sector, not a proof that
+every corrected-slab physical source is covered.  Full physical source
+coverage is therefore the first open gate; a global fine-support projection
+comes only after it.
+
+The physical remainder now also has a locality fence: for every cylinder
+intertwined pointwise by a candidate slab kernel, the fine/coarse Gibbs
+cylinder mismatch is exactly a selected signed remainder and is bounded by
+``||R||_1``.  Thus a nonlocal exact coupling cannot be promoted into a
+remainder-free RG step.  The vanishing uniform norm belongs to CD-3.
 """
 
 from __future__ import annotations
@@ -52,7 +59,10 @@ class CD2Subgate(Enum):
         "complete adjacent-cube joint production assembly"
     )
     OVERLAP_REFLECTION_INTERTWINING = (
-        "reflection intertwining of the all-cutoff adjacent target"
+        "reflection intertwining of the restricted adjacent target"
+    )
+    PHYSICAL_SOURCE_COVERAGE = (
+        "coverage of every corrected-slab physical source"
     )
     GLOBAL_FINE_SUPPORT_PROJECTION = (
         "global fine-support projection for overlapping cube families"
@@ -95,6 +105,8 @@ CD2_LEAN_THEOREMS = (
     "adjacentCubeJointConditionalKernel_row_normalized",
     "Z4AdjacentCubeJointConditionalKernel."
     "adjacentCubeJointConditionalKernel_reflection",
+    "CompactDualPhysicalRemainderLocality.PhysicalKernel."
+    "fineCoarseCylinderDefect_abs_le_remainderL1",
     "CompactDualFiniteBlockRemainder.SlabScalePair.FiniteSlabKernel."
     "remainder_total_eqv_zero",
     "CompactDualFiniteBlockRemainder.SlabScalePair.FiniteSlabKernel."
@@ -115,6 +127,7 @@ class CD2Frontier:
     all_cutoff_shared_face_recoupling: bool
     overlapping_link_assembly: bool
     overlap_reflection_intertwining: bool
+    physical_source_coverage: bool
     global_fine_support_projection: bool
     all_cutoff_global_kernel: bool
     physical_pushforward: bool
@@ -148,6 +161,10 @@ class CD2Frontier:
             (
                 CD2Subgate.OVERLAP_REFLECTION_INTERTWINING,
                 self.overlap_reflection_intertwining,
+            ),
+            (
+                CD2Subgate.PHYSICAL_SOURCE_COVERAGE,
+                self.physical_source_coverage,
             ),
             (
                 CD2Subgate.GLOBAL_FINE_SUPPORT_PROJECTION,
@@ -201,6 +218,7 @@ def current_cd2_frontier() -> CD2Frontier:
         all_cutoff_shared_face_recoupling=True,
         overlapping_link_assembly=True,
         overlap_reflection_intertwining=True,
+        physical_source_coverage=False,
         global_fine_support_projection=False,
         all_cutoff_global_kernel=False,
         physical_pushforward=False,
