@@ -386,7 +386,7 @@ The gate closes only with an explicit whole-slab physical kernel.  A generic
 CP-map theorem, the BF1.6 disk, a scalar mass ledger, or a map on
 multiplicity vectors is not an exit certificate.
 
-## Next milestone — BF3.2: all-label kernel and vanishing remainder
+## Active milestone — BF3.2: all-label kernel and vanishing remainder
 
 ### Goal
 
@@ -414,6 +414,36 @@ BF3.2 closes only when the same exact Haar map constructed in BF3.1 has an
 all-label, cutoff-uniform completion and a vanishing physical remainder.
 The universal probability bound two, zero vacuum coefficient, or a
 finite-cutoff table is not sufficient.
+
+### Fixed-block tranche completed 2026-07-25
+
+Every nine-word coarse Wilson coefficient of the 72-face BF3.1 Haar network
+now has a literal finite-cutoff approximant and an explicit all-label Cauchy
+modulus.  The character estimate
+
+\[
+  (n+1)s^{n(n+2)}|\chi_n|\le(n+1)^2s^{n(n+2)}
+\]
+
+gives a super-geometric one-plaquette tail and the exact fixed-slab envelope
+\(72H_N^{71}T_N\).  Dividing by the product of external representation
+dimensions makes this coefficient bound uniform in all coarse labels.  A
+constructive coupling-dependent cutoff schedule is implemented.
+
+In the elementary strong-coupling positivity corridor this also gives a
+normalized bound on the actual plaquette-coupled Haar Gibbs density.  At
+\(s=1/2\), cutoff \(N=11\) is the least cutoff certified by this estimate to
+put the normalized \(L^1\) tail below \(10^{-2}\).
+
+This does **not** close BF3.2.  The current estimate has not been identified
+with the BF2 trace-class boundary-kernel norm, grows by naïve tensorization
+with the number of plaquettes, and controls representation truncation rather
+than the actual fine/coarse RG remainder.  The existing
+`Z4FixedCutoffNaiveTailFence` rules out a volume-uniform additive
+independent-plaquette repair.  The remaining route must use a localized or
+connected norm and must bound every coherent \(P/Q\) block and every
+fine/coarse cylinder mismatch.  See
+`notes/bf3-2-all-label-whole-slab-frontier.md`.
 
 ## Closed diagnostic milestone — BF3.3: Birkhoff handoff admissibility
 
