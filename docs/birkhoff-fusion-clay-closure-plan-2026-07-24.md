@@ -415,6 +415,45 @@ all-label, cutoff-uniform completion and a vanishing physical remainder.
 The universal probability bound two, zero vacuum coefficient, or a
 finite-cutoff table is not sufficient.
 
+## Closed diagnostic milestone — BF3.3: Birkhoff handoff admissibility
+
+**Closed 2026-07-25 by the exact obstruction route, in advance of BF3.2.**
+This gate adjudicates the currently available shortcuts from positivity to
+Birkhoff contraction; it does not skip BF3.2 or open BF4.
+
+The BF3.1 reflected density is a direct sum of 32 positive rank-one blocks.
+Every block has projective rate zero, but the full support has no
+cut-signature mixing and therefore has infinite global projective diameter.
+The local reflected fusion Gram is strictly positive inside each parity
+sector at every finite cutoff, but an explicit spin-\(2\)/spin-\(4N\)
+cross-ratio obeys
+
+\[
+ \Theta_N\ge
+ \frac{(N+1)(3N^2+7N+1)}{18N}
+ \ge\frac{N^2}{6}.
+\]
+
+Hence both the rational certificate rate and the sharp Birkhoff--Hopf
+diameter rate tend to one with the cutoff. Finally, at
+\(s_N=1-1/(2(N+1)(N+3))\), the first outside-cutoff heat feature is at
+least \((N+2)/2\), so no cutoff-only tail modulus is uniform in the
+coupling.
+
+### Exit result
+
+BF3.3 closes as a rejection certificate for these three candidate
+handoffs. A valid BF4 input must instead provide the exact all-label
+physical kernel, an invariant positive carrier, retained signed
+intertwiners, global or fixed-distance grouped mixing, the physical
+projective norm, a fixed-distance diameter bound, coherent-remainder
+domination in that norm, a coupling-dependent cutoff schedule, and
+volume-uniform constants.
+
+Only the signed-intertwiner field is currently available. Therefore the
+critical path remains BF3.2 before BF4. See
+`notes/bf3-3-birkhoff-handoff-admissibility.md`.
+
 ## BF2–BF4: contraction engine
 
 The Birkhoff map will not be the raw one-face fusion matrix: its support has

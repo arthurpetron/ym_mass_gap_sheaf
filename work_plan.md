@@ -37,6 +37,13 @@ finite representation cutoff is invariant under the full heat law.  The
 older multiplicity-product Lean kernel is retained only as a typed
 normalization scaffold, not promoted to the exact Haar object.  The **next
 active milestone is BF3.2, “all-label kernel and vanishing remainder.”**
+The out-of-order diagnostic **BF3.3, “Birkhoff handoff admissibility,”
+closed on 2026-07-25 by exact obstruction**: the 32 rank-one blocks do not
+mix globally, the reflected local Gram has a projective cross-ratio growing
+at least as \(N^2/6\), and the outside-cutoff heat feature has no
+coupling-uniform cutoff-only tail. BF3.3 therefore does not authorize BF4;
+it specifies the nine fields that BF3.2 must supply to the physical
+Birkhoff handoff.
 Unless the current BF plan explicitly delegates a task back to one of the
 historical phases below, BF3.2 and then BF4--BF10 control execution order.
 
