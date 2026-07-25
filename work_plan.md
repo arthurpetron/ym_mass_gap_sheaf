@@ -25503,3 +25503,46 @@ cone preservation where 6j interference first enters + RP at M=2;
 access); (d) su3_closure_spike stale comment + m_0_bootstrap envelope
 widening (housekeeping); (e) manuscript sweep for the 999/1000 →
 998/1000 headline change (formal/ tex + any doc quoting m₀).**
+
+### 15g. Addendum (2026-07-25): CMP 119 extraction DONE (queue item c, first half) — residual SHAPE-CONFIRMED, constant unpinned
+
+The user fetched the CMP 119 issue-2 document into
+`docs/pdf_references/` — it turned out to be **Euclid's front-matter
+doc only (2 pages)**; the actual article text was then obtained
+through the Mac's own egress (in-memory pipe, nothing installed) and
+identity-confirmed ("Commun. Math. Phys. 119, 243-285 (1988)";
+[I] = CMP 109, [II] = CMP 116).  Full extraction now in
+`notes/cmp119_extraction.md` §5 and archived at
+`_generated/pdf_text/cmp119_balaban_243-285.txt`.
+
+**Verdict on `BALABAN_POLYMER_RESIDUAL = 2.0`: SHAPE-CONFIRMED,
+constant unpinned — the fiducial stays internally derived, but the
+shape citation is now quote-level.**  Findings:
+- The explicit **factor 2** exists in the paper (p. 283, second proof
+  of Theorem 2): the far-class polymer difference "can be estimated by
+  2E₀ exp(−(1/2)κ[·−j]) exp(−(1/2)κ d_j(X))" — exactly the
+  |A−B| ≤ 2·(single-activity bound) triangle-inequality two-channel
+  device behind the repo's channel multiplicity 2.  **Decisive
+  caveat:** Bałaban's difference compares two *configurations*
+  (U_k vs 1) at fixed scale j; the repo's residual compares scales
+  k → k+1.  Same device and constant, different inequality instance —
+  hence SHAPE-CONFIRMED, not EXTRACTED.
+- The only pinned numeric in a main bound is R₁ = 1 (eq. (2.44),
+  p. 263, small-coupling remark) — not the residual.  Everything else
+  is the CMP 116-style existence chain (E₀, E₁, B₀, E±, κ, M
+  unpinned; proof-device numerics β = 1/4, ½κ splits,
+  2^{−(j−1−n)} only).
+- **The R-operation — the residual's natural home — is explicitly
+  deferred**: "We will not describe it here, we will only assume that
+  it has some properties" (p. 244); construction "given in the next
+  paper" = **CMP 122 I/II, still unheld** — the remaining extraction
+  frontier (queue item c, second half).
+- c_λ cross-check: eq. (3.48) p. 280 and the p. 283 split reuse the
+  ½κ rate-split of CMP 109 (0.27), reinforcing §1.2's
+  bookkeeping-device reading; nothing pins κ.
+
+`notes/fiducials_notes.md` updated in place (§5 status → SHAPE-
+CONFIRMED, new §5.2 extraction record, summary-table row updated,
+`\cite{Balaban1988convergent}` restored as quote-level shape source;
+§1.2 gains the c_λ cross-check).  Article PDF to be archived
+alongside the front-matter file in `docs/pdf_references/`.

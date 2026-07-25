@@ -1,5 +1,10 @@
 # CMP 119 / CMP 122 Open-Access Retrieval + Residual-Extraction Attempt
 
+> **SUPERSEDED SAME-DAY (2026-07-25, later pass): the null was unblocked
+> by a human fetch and the CMP 119 extraction is now COMPLETE — see §5
+> below. Verdict: SHAPE-CONFIRMED, constant unpinned.** §§1–4 are the
+> morning retrieval-null record, retained unchanged as history.
+
 **Date:** 2026-07-25 (extends the 2026-07-24 SL.1 reconnaissance).
 **Goal:** obtain readable body text of Bałaban's CMP 119 and CMP 122 papers
 from legitimate open archives and extract, at quote level, any numeric
@@ -100,3 +105,206 @@ Consequences for `BALABAN_POLYMER_RESIDUAL = 2.0`:
 
 **No constants were invented; nothing in the repo's numeric state
 changes as a result of this pass.**
+
+---
+
+## 5. CMP 119 direct extraction (2026-07-25, unblocked)
+
+**Unblock.** A human fetched a PDF from the Project Euclid issue page
+into `docs/pdf_references/communications-in-mathematical-physics_volume-119_issue-2.pdf`.
+**Caveat discovered:** that file is the issue *front matter only* (2
+pages, 302 KB — cover TOC + editorial boilerplate; Euclid's issue-level
+link is the "Miscellaneous front pages" document). The article itself
+was then obtained by an in-memory fetch executed *on the user's Mac*
+(residential egress passes the Incapsula wall that blocks the
+container): `curl <URL #2 of the §2 log> | gs -sDEVICE=txtwrite`
+— piped, no file written to the Mac. The Euclid scan carries an OCR
+text layer; the complete paper (pp. 243–285) extracted to 2,307 text
+lines, archived cloud-side at `/home/claude/fid/cmp119_fulltext.txt`
+(pp. 243–~279) with the tail (pp. 279–285) captured in-session.
+Identity confirmed from the text itself: header "Commun. Math. Phys.
+119, 243-285 (1988)"; references list "[I] ... Commun. Math. Phys.
+109, 249-301 (1987)" and "[II] ... Commun. Math. Phys. 116, 1-22
+(1988)"; communicated by A. Jaffe; received June 5, 1987.
+
+All quotes below are OCR-faithful from the ghostscript text layer;
+`[garbled]` marks unreadable spans, with bracketed reconstructions
+justified by surrounding text.
+
+### 5.1. The residual-relevant structure (hunt target 1)
+
+The central analytic object of the Proof of Theorem 2 (pp. 279–284) is
+**exactly a difference of polymer-localized cluster-expansion terms
+between two configurations**:
+
+> "The basic expression to analyze, either in the proof of Theorem 2,
+> or in the analysis of renormalization, is the difference
+> E^(j)(Λ_j, U_k, z) − E^(j)(Λ_j, 1, z)."  (p. 279)
+
+and the second proof of Theorem 2 bounds this difference, polymer by
+polymer, with an **explicit numeric factor 2 — the triangle-inequality
+two-channel device**:
+
+> "We divide the localization domains X into two classes: [X ⊂ □̃^~,
+> or X ∩ (□̃^~)^c ≠ ∅]. For X in the second class the difference of the
+> corresponding expressions can be estimated by
+> 2E₀ exp(−(1/2)κ[garbled: ·−j]) exp(−(1/2)κ d_j(X)), and
+> exp(−(1/2)κ[·−j]) < (L^j L^{−n})^5, hence these terms can be treated
+> as before."  (p. 283; raw OCR: "2Eexp(-(1/2)>φ -j))exp
+> (-(l/2)κd(X)l and exp(-(l/2)/φ -j)) <(Z/ZΓ")^5", with the E₀
+> subscript on the following line)
+
+That is: |A − B| ≤ |A| + |B| ≤ 2·(single-term activity bound) — the
+same channel-multiplicity-2 device as the repo's §5 derivation, in the
+primary source, with the 2 written out. **Scope caveat (decisive for
+the fiducial):** Bałaban's difference is between two *background
+configurations* (U_k vs 1) at a fixed scale j; the repo's
+`BALABAN_POLYMER_RESIDUAL` bounds the *cross-scale* (k → k+1)
+per-polymer change under block-spin transport. The device and constant
+coincide; the inequality instance is different. The single-term bound
+being doubled is (1.1.18)/(3.48):
+
+> "|E^(j)(X, z)| ≤ E₀ exp(−κ(L^j L^{−n})^{−1}) exp(−(1/2)κ d_j(X)) .
+> (3.48)"  (p. 280; raw OCR: "\E (X,z)\^E exp(-KiUL'")- )exp(-^κdj(X))";
+> the first exponent's argument is confirmed by the following line
+> "the sum over X is bounded by O(1)exp(−κ(L^jL^{−n})^{−1}) ≤
+> O(1)(L^jL^{−n})^5")
+
+— note the recurring exp(−(1/2)κ d) **rate-split**, the same
+bookkeeping device as CMP 109 eq. (0.27).
+
+The first proof's renormalized version of the difference is display
+(3.67), p. 283:
+
+> "E^(j)(Λ_j, U_k, z) − E^(j)(Λ_j, 1, z) − β_j A(h_z, U_k) =
+> O((L^j L^{−n})^{5−ε})"
+
+with O(·) unpinned.
+
+### 5.2. Explicit numeric constants — complete inventory (hunt target 2)
+
+**Pinned numeric in a main bound (the only one):**
+
+> "Similarly, there exists an absolute constant R₁ such, that
+> Σ [R^(j)(·, U_k) − R^(j)(·, 1)] ≤ R₁ g_j² Σ_n |Γ_n ∩ Ω|  (2.44)
+> for the regular configurations U_k. **(In fact the constant R₁ can
+> be taken as equal to 1 for g_j sufficiently small.)**"  (Theorem 2,
+> p. 263; raw OCR of the display: "ύRigf Σ l * l")
+
+R₁ = 1 bounds the *configuration-difference* of R-terms — again not
+the cross-scale residual.
+
+**Proof-device numerics (choices, not determinations):**
+
+- "The number β is a small positive constant, but not too small,
+  e.g., we can take β = 1/4."  (p. 261–262, after the analyticity
+  conditions (2.34)–(2.39).)
+- Improved post-transformation decay: "with the number κ replaced,
+  for example, by (1 + 4β)κ"  (p. 262) — with the β = 1/4 example
+  this is 2κ.
+- Boundary-term geometric ratio: "the remaining factor exp(−d_j(X))
+  is used to get an additional small factor, e.g. for j > n it can be
+  bounded by 2^{−(j−1−n)}"  (pp. 263–264, feeding (2.47)/(2.48); raw
+  OCR "2~u~1~n").
+- Per-step analyticity shrinkage: "This is the reason for putting the
+  powers of 1/2 in the conditions (2.36)–(2.39). The analyticity
+  domains become smaller after each step, but the difference is very
+  small and exponentially decreasing in the number of steps."  (p. 277)
+- Rate-splits exp(−(1/2)κ·): (3.48) p. 280 and the p. 283 display of
+  §5.1 — both spend half the inductive rate on a small prefactor,
+  identically to CMP 109 (0.27).
+- Large-field suppression, first step (p. 243–244): the Wilson-action
+  term for a large plaquette gives
+  "exp[−(1/g₀²)(1 − Re tr U(∂p))] ≤ exp(−(1/(2g₀²)) p₀²(g₀)) ≤
+  g₀^[garbled]", with p₀(g₀) = A₀(log g₀^{−1})^{p₀}, A₀ and the
+  integer p₀ unpinned.
+
+**Unpinned existence-constant chain (the CMP 116 pattern, again):**
+
+- Theorem 1 (p. 262–263): "There exist constants, introduced in the
+  above description, such that if the sequence of coupling constants
+  {g_k} ... satisfies the inequalities (1.0.33), then the sequence of
+  densities {ρ_k} ... satisfies all the inductive assumptions. **The
+  constants satisfy numerous restrictions introduced in the proof.**"
+  Plus: "some of the restrictions on constants, e.g. on constants κ,
+  M, ε_j, α_{0,j}, α_{1,j}, come from the paper [I] ... and we will
+  introduce some new restrictions also."
+- E₁ in (2.43): "there exists a constant E₁ independent of j, k, Ω,
+  {Ω_j}, {Λ_j}, T (but dependent on the other constants occurring in
+  the formulation of this theorem)" ... "The constant E₁ depends on β
+  also, and grows to ∞ if β → 1."  (p. 263)
+- B₀ in the boundary-term inductive bound:
+  "|B^(j)(X, (U,J), A, {S_i})| ≤ B₀ exp(−κ d_j(X)) . (2.42)"  (p. 262)
+- Per-step constant degradation: "the terms of the sum above satisfy
+  the bounds (2.42), with the constant B₀ replaced by O(p_k²(g_k))"
+  (p. 278) — O(·) unpinned.
+- Corollary 3 (Ultraviolet Stability), p. 264: "there exist constants
+  E₋, E₊ independent of η and T, but depending on g_k" — existence
+  only.
+- (2.38): "with an absolute constant B" — unpinned.
+
+### 5.3. Logical structure of the residual (hunt target 3)
+
+The paper's own summary theorem (p. 245): "**Theorem.** If ρ_k
+satisfies the assumptions described in detail in Sect. 2, then Tρ_k
+satisfies also the corresponding assumptions." The whole paper is
+form-preservation of the inductive density description under T, with
+constants held in the Theorem-1 existence chain. Critically for the
+residual question, **the large-field renormalization operation R — the
+natural home of any per-polymer residual constant — is not constructed
+in CMP 119**:
+
+> "The operation R serves this purpose. We will not describe it here,
+> we will only assume that it has some properties incorporated in the
+> inductive description of the effective actions."  (p. 244)
+
+> "The above property will follow immediately from the construction of
+> the R-terms given in the next paper."  (p. 260–261, after (2.32))
+
+i.e., the R-operation content is genuinely deferred to CMP 122 I/II
+(still not held; see §2 log — Springer-gated, and the Euclid IDs for
+volume 122 were not resolved). What would pin the constants: solving
+the "numerous restrictions" system of Theorem 1's proof together with
+the [I]-inherited constraints on κ, M, ε_j, α_{0,j}, α_{1,j} — CMP 119
+nowhere collapses this system to numeric values.
+
+### 5.4. Verdict for `BALABAN_POLYMER_RESIDUAL = 2.0`
+
+**SHAPE-CONFIRMED (constant unpinned for the repo's inequality), with
+a quote-level located ancestor of the factor-2 device.**
+
+1. CMP 119's central object is a difference of polymer-localized
+   cluster-expansion terms, bounded per-polymer — the repo's ΔT(X)
+   shape is genuinely Bałaban's shape. The shape citation
+   [Balaban1988convergent] is upgraded from "motivating, not
+   supplying" to quote-level (p. 279, p. 283, (3.48), (3.67)).
+2. The explicit factor 2 appears at p. 283 in exactly the repo's
+   two-channel triangle role — but for a configuration-difference at
+   fixed scale, not the cross-scale (k → k+1) σ̂-transport residual.
+   **No display in CMP 119 bounds the cross-scale per-polymer change;
+   the constant 2.0 therefore remains internally derived**
+   (`notes/sigma-hat-derivation.md` §2.3-derivation), now with primary-
+   source precedent that the device and its constant are Bałaban-native.
+3. The 2026-07-25-morning expectation (§4.3 above) is confirmed
+   verbatim: the paper supplies existence constants (Theorem 1, E₁,
+   B₀, E₀, E₋/E₊) with exactly one pinned numeric, R₁ = 1 in (2.44) —
+   and that display is not the residual.
+4. No sign-preservation lemma (for the c = 1 tightening) appears;
+   differences are handled by absolute values and the factor-2 split
+   throughout. That refinement target stays open.
+5. Remaining extraction frontier: CMP 122 I/II (the R-operation
+   construction). Unchanged unblock paths per §4.4.
+
+**c_λ cross-check (bonus target).** CMP 119 contains nothing that pins
+κ (Theorem 1 is existence-only, inheriting [I]'s restrictions), and it
+*reuses* the exp(−(1/2)κ d) rate-split of CMP 109 (0.27) at (3.48) and
+p. 283 — further confirming the fiducials note §1.2 reading that the
+historical c_λ = 1/2 shape descends from a recurring bookkeeping
+device, not a spectral constant.
+
+**Corpus hygiene note.** The repo file
+`docs/pdf_references/communications-in-mathematical-physics_volume-119_issue-2.pdf`
+is NOT the Bałaban paper — it is the 2-page issue front matter. For
+the corpus, the article PDF should be downloaded (browser, same URL as
+§2 log entry #2) and dropped into `docs/pdf_references/`, then OCR'd
+into `_generated/pdf_text/`.

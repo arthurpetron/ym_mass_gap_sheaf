@@ -70,6 +70,22 @@
 > rest on the internal derivation — see §5.1 and
 > `notes/cmp119_extraction.md`.
 >
+> **Update 2026-07-25 (later pass — CMP 119 unblocked and read in
+> full).** The retrieval null of the same morning was unblocked by a
+> human fetch, and the complete text of CMP 119 (1988) 243–285 was
+> extracted and hunted. Verdict for the polymer residual:
+> **SHAPE-CONFIRMED, constant unpinned** — the paper's central object
+> is precisely a difference of polymer-localized cluster-expansion
+> terms, and it uses the two-channel triangle device with an explicit
+> factor 2 (p. 283), but for a configuration-difference at fixed
+> scale, not the repo's cross-scale residual; the only pinned numeric
+> in a main bound is R₁ = 1 in (2.44). `BALABAN_POLYMER_RESIDUAL =
+> 2.0` remains internally derived. See §5.2 and
+> `notes/cmp119_extraction.md` §5. Note also: the fetched corpus file
+> `docs/pdf_references/communications-in-mathematical-physics_volume-119_issue-2.pdf`
+> is the issue **front matter only** (2 pages), not the article — the
+> article PDF still needs to be added to the corpus.
+>
 > Each fiducial below carries a `status` field marking how strong its
 > provenance is. One value remains flagged **HEURISTIC** — see the
 > summary table below. *(Superseded 2026-07-24: the flagged-value
@@ -286,6 +302,18 @@ decision to re-derive the value internally as the SU(2) Casimir gap
 C_2(1/2) = 3/4: the primary sources supply no number that could
 contradict (or support) any specific rational.  Nothing in CMP
 109/116/102 pins c_λ.
+
+**CMP 119 cross-check (2026-07-25, full-text read — see §5.2).**  The
+newly extracted CMP 119 further confirms this reading: its Theorem 1
+is again existence-only ("There exist constants, introduced in the
+above description … The constants satisfy numerous restrictions
+introduced in the proof", p. 262–263, explicitly inheriting [I]'s
+restrictions on κ, M, ε_j, α_{0,j}, α_{1,j}), and it **reuses the
+exp(−(1/2)κ d) rate-split** of CMP 109 (0.27) in at least two places:
+eq. (3.48), p. 280 ("|E^(j)(X,z)| ≤ E₀ exp(−κ(L^jL^{−n})^{−1})
+exp(−(1/2)κ d_j(X))") and the p. 283 two-class polymer split.  The ½
+is a recurring bookkeeping device across the whole series; κ is never
+pinned.  Nothing in CMP 109/116/119/102 pins c_λ.
 
 **Citations.**
 - TeX: `\cite{Balaban1987RG-I,Balaban1988RG-II,BrydgesFederbush1978}`
@@ -780,6 +808,16 @@ the follow-up open-access retrieval pass (2026-07-25) established that
 the constant cannot currently be extracted from any locally held or
 openly accessible primary source. Precise-null record in §5.1.**
 
+**Status update (2026-07-25, later pass): DERIVED (internal,
+unchanged) + SHAPE-CONFIRMED at quote level. CMP 119 was unblocked by
+a human fetch and read in full; the "motivating, not supplying"
+demotion is partially reversed — the paper genuinely carries the
+difference-of-polymer-terms shape and the factor-2 triangle device
+(explicitly, p. 283), so the shape citation is upgraded back to
+quote-level. What it does NOT carry is the repo's cross-scale
+(k → k+1) residual inequality or any numeric for it; the constant 2.0
+remains internally derived. Full extraction record in §5.2.**
+
 **First-principles derivation** (full argument in
 `notes/sigma-hat-derivation.md` §2.3-derivation; surfaced in code as
 `derive_polymer_boundary_channel_count() → 2`).
@@ -915,6 +953,69 @@ spec-mandated $A_{\min} = 4$.
    for the three DOIs, followed by a rerun of the extraction hunt
    against `_generated/pdf_text/`.
 
+### 5.2. CMP 119 read in full — SHAPE-CONFIRMED, constant unpinned (2026-07-25, unblocked)
+
+**Unblock and provenance.** A human fetch from the Project Euclid
+issue page landed
+`docs/pdf_references/communications-in-mathematical-physics_volume-119_issue-2.pdf`
+— which turned out to be the issue **front matter only** (2 pages;
+Euclid's issue-level link is the "Miscellaneous front pages"
+document).  The article itself (pp. 243–285) was then extracted via an
+in-memory fetch+OCR-layer read executed on the user's machine (whose
+residential egress passes the bot wall; nothing was written to the
+Mac).  Complete quote-level record with OCR-faithful displays:
+`notes/cmp119_extraction.md` §5; full text archived as
+`cmp119_fulltext.txt` alongside it.  Identity confirmed from the text
+(header "Commun. Math. Phys. 119, 243-285 (1988)"; references [I] =
+CMP 109, [II] = CMP 116; communicated by A. Jaffe).
+
+**What CMP 119 supplies for this fiducial (hunt results).**
+
+1. **The shape is really there.**  "The basic expression to analyze,
+   either in the proof of Theorem 2, or in the analysis of
+   renormalization, is the difference E^(j)(Λ_j, U_k, z) −
+   E^(j)(Λ_j, 1, z)" (p. 279) — a difference of polymer-localized
+   cluster-expansion terms, bounded polymer-by-polymer.
+2. **The factor-2 two-channel triangle device appears explicitly**
+   (p. 283, second proof of Theorem 2): the difference over polymers
+   in the far class "can be estimated by 2E₀ exp(−(1/2)κ[·−j])
+   exp(−(1/2)κ d_j(X))" — i.e., |A − B| ≤ 2·(single-activity bound),
+   Bałaban's own use of the same device that yields the project's
+   channel multiplicity 2.  **Scope caveat:** his difference compares
+   two background *configurations* (U_k vs 1) at fixed scale j; the
+   project's residual compares scales k and k+1 under block-spin
+   transport.  Same device and constant, different inequality
+   instance — so the 2.0 stays internally derived, now with
+   primary-source precedent.
+3. **Exactly one pinned numeric in a main bound:** Theorem 2, p. 263 —
+   "there exists an absolute constant R₁ such that [(2.44)] … (In
+   fact the constant R₁ can be taken as equal to 1 for g_j
+   sufficiently small.)"  All other constants are the familiar
+   existence chain: Theorem 1 ("There exist constants … numerous
+   restrictions introduced in the proof"), E₁ of (2.43) ("grows to ∞
+   if β → 1"), B₀ of (2.42), E₀ of (1.1.18)/(3.48), E₋/E₊ of
+   Corollary 3 (UV stability), B₀ → O(p_k²(g_k)) after one step
+   (p. 278).  Proof-device numerics only: β = 1/4 ("e.g., we can
+   take"), (1+4β)κ, the boundary ratio 2^{−(j−1−n)}, powers of 1/2 in
+   (2.36)–(2.39), and the ½κ rate-splits.
+4. **The R-operation is deferred:** "The operation R serves this
+   purpose.  We will not describe it here, we will only assume that
+   it has some properties…" (p. 244); its construction is "given in
+   the next paper" (p. 260–261) — i.e., CMP 122 I/II, still not held.
+   The residual's natural primary-source home therefore remains
+   unread; extraction frontier unchanged.
+5. **No sign-preservation lemma** appears (differences handled by
+   absolute values and the factor-2 split throughout) — the
+   c_polymer = 1 tightening stays a project-level open target.
+
+**Net effect.**  §5's constant and derivation are unchanged; the shape
+citation [Balaban1988convergent] is upgraded from "motivating, not
+supplying" (§5.1) to **quote-level SHAPE-CONFIRMED** (pp. 279, 280,
+283; displays (2.43), (2.44), (3.48), (3.67)).  The 2026-07-25-morning
+prediction in §5.1(4) — "those papers also supply existence-constants
+only" — is confirmed verbatim for CMP 119, modulo the single pinned
+R₁ = 1.
+
 **Citations.**
 - TeX: `\cite{Balaban1988convergent,BrydgesFederbush1978}`
 - Lean (planned quantitative closure): import
@@ -924,6 +1025,12 @@ spec-mandated $A_{\min} = 4$.
   *shape/motivation only*; the constant's provenance citation is
   `notes/sigma-hat-derivation.md` §2.3-derivation. Retrieval log:
   `notes/cmp119_extraction.md`.*
+- *Addendum 2026-07-25 (later pass): supersedes the previous line's
+  demotion — cite `\cite{Balaban1988convergent}` as the quote-level
+  SHAPE source (pp. 279/283, displays (2.43)/(2.44)/(3.48)/(3.67));
+  the NUMERIC provenance citation remains
+  `notes/sigma-hat-derivation.md` §2.3-derivation. Extraction record:
+  `notes/cmp119_extraction.md` §5.*
 
 ---
 
@@ -975,7 +1082,7 @@ so no history is lost.)*
 | `MU_CONNECTIVITY_4D` | log(8e) | literature formula | already standard | — |
 | `MU_PLAQUETTE_4D` | 16 (option only; **default now `20e`**, adopted 2026-07-24) | **RESOLVED-negative for 5d−4 (2026-07-24)**: matches no adjacency notion at any d; d = 4 agreement with 8(d−2) = 16 coincidental; N_n ≤ 16^n verified only for n ≤ 5 with growth ratios already > 16; rigorous default `MU_PLAQUETTE_BF_CONSERVATIVE_4D = 20e` (§3.3–§3.4) | only via a restricted-class extraction from Seiler LNP 159 (still inaccessible) | `fiducial_sensitivity.sweep_mu_plaq` |
 | `J_MAX_DEFAULT` | 12 | engineering | only if needed | — |
-| `BALABAN_POLYMER_RESIDUAL` | 2.0 | **DERIVED 2026-05-25** (internal triangle-inequality, unchanged); CMP 119/122 extraction: **precise null** (2026-07-24/25 — paper absent locally, open archive bot-walled, Springer gated; CMP 116 existence-only, quote-confirmed) (§5.1) | tighter c=1 via sign-preservation lemma (open); or primary-source extraction if CMP 119/122 PDFs are obtained | `fiducial_sensitivity.sweep_polymer_residual` |
+| `BALABAN_POLYMER_RESIDUAL` | 2.0 | **DERIVED 2026-05-25** (internal triangle-inequality, unchanged); CMP 119 read in full 2026-07-25: **SHAPE-CONFIRMED, constant unpinned** — factor-2 triangle device located at quote level (p. 283) but for a fixed-scale configuration-difference, not the cross-scale residual; only pinned numeric is R₁ = 1 in (2.44); R-operation deferred to CMP 122 (still unheld) (§5.2) | tighter c=1 via sign-preservation lemma (open); or CMP 122 I/II extraction (R-operation construction) | `fiducial_sensitivity.sweep_polymer_residual` |
 | `WILSON_LOOP_MIN_AREA_DIMENSIONLESS` | 4 | from project spec | n/a | — |
 | Trajectory defaults | various | engineering | n/a | — |
 
@@ -994,6 +1101,9 @@ so no history is lost.)*
 > the §3.3–§3.4 resolution and the 2026-07-24 default flip. The
 > `BALABAN_POLYMER_RESIDUAL` row previously cited only the 2026-05-25
 > derivation; the precise-null extraction record (§5.1) is appended.
+> *(Second update, 2026-07-25 later pass: that row's "precise null"
+> was superseded same-day by the completed CMP 119 extraction —
+> SHAPE-CONFIRMED, constant unpinned; see §5.2.)*
 
 **One flagged HEURISTIC value remaining (after 2026-05-25 derivation pass):**
 1. `BAŁABAN_SPECTRAL_GAP_COEFF = 1/2` (literature-shape, but the
@@ -1028,7 +1138,10 @@ so no history is lost.)*
 >    window — inactive at the canonical wire-in (sf-binding, §3.4).
 > 3. `BALABAN_POLYMER_RESIDUAL = 2.0` unchanged (DERIVED, internal);
 >    literature extraction attempt closed as a precise null (§5.1,
->    `notes/cmp119_extraction.md`).
+>    `notes/cmp119_extraction.md`) — then reopened and completed the
+>    same day after a human unblock: CMP 119 read in full,
+>    **SHAPE-CONFIRMED at quote level, constant unpinned** (§5.2);
+>    the remaining extraction frontier is CMP 122 I/II.
 
 ---
 
@@ -1095,7 +1208,7 @@ so no history is lost.)*
 | --- | --- |
 | `Balaban1987RG-I` | Bałaban, "RG approach to lattice gauge field theories. I", CMP 109 (1987), 249–301. |
 | `Balaban1988RG-II` | Bałaban, "RG approach to lattice gauge field theories. II. Cluster expansions", CMP 116 (1988), 1–22. |
-| `Balaban1988convergent` | Bałaban, "Convergent renormalization expansions for lattice gauge theories", CMP 119 (1988), 243–285. DOI 10.1007/BF01217741; Project Euclid `euclid.cmp/1104162401`. *(2026-07-24/25: shape/motivation-only for §5; not locally held; open archive bot-walled — see §5.1.)* |
+| `Balaban1988convergent` | Bałaban, "Convergent renormalization expansions for lattice gauge theories", CMP 119 (1988), 243–285. DOI 10.1007/BF01217741; Project Euclid `euclid.cmp/1104162401`. *(2026-07-25: read in full after human unblock — quote-level SHAPE source for §5, constant unpinned; see §5.2 and `notes/cmp119_extraction.md` §5. NB the corpus file `communications-in-mathematical-physics_volume-119_issue-2.pdf` is front matter only; the article PDF still needs to be added.)* |
 | `Balaban1989LargeField-I` | Bałaban, "Large field renormalization. I. The basic step of the ℝ operation", CMP 122 (1989), 175–202. DOI 10.1007/BF01257412. *(Added 2026-07-25; identity confirmed via Springer; not locally held.)* |
 | `Balaban1989LargeField-II` | Bałaban, "Large field renormalization. II. Localization, exponentiation, and bounds for the R operation", CMP 122 (1989), 355–392. DOI 10.1007/BF01238433. *(Added 2026-07-25; identity confirmed via Springer; not locally held.)* |
 | `BrydgesFederbush1978` | Brydges & Federbush, "A new form of the Mayer expansion...", JMP 19 (1978), 2064–2067. |
