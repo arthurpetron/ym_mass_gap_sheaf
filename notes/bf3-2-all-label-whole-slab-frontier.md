@@ -96,31 +96,202 @@ dimension-weighted coefficient norm, the least cutoffs for tolerance
 \(s=\tfrac12,\tfrac34,\tfrac9{10}\).  This directly implements the
 coupling-dependence required by the BF3.3 near-continuum fence.
 
-## 3. Why this does not close BF3.2
+## 3. All-coupling Jacobi floor
+
+The elementary floor \(1-E_N(s)\) is limited to strong coupling, but the
+differentiated Jacobi triple product gives a rational pointwise floor for
+every rational \(0<s<1\).  In the conjugacy coordinate
+\(x=\cos\theta\),
+
+\[
+ K_s(x)=\frac{\vartheta_3(x)}{2s}S_s(x),
+\]
+
+where
+
+\[
+\begin{aligned}
+\vartheta_3(x)
+&=
+\prod_{n\ge1}
+  (1-s^{2n})
+  (1+2s^{2n-1}x+s^{4n-2}),\\
+S_s(x)
+&=
+\sum_{n\ge1}
+\frac{2s^{2n-1}}
+ {1+2s^{2n-1}x+s^{4n-2}}.
+\end{aligned}
+\]
+
+For \(-1\le x\le1\),
+
+\[
+ 1+2s^{2n-1}x+s^{4n-2}
+ \ge (1-s^{2n-1})^2,
+\]
+
+and the first term of \(S_s\) is at least
+\(2s/(1+s)^2\).  Define
+
+\[
+\begin{aligned}
+P_M(s)
+&=
+\prod_{n=1}^{M}
+(1-s^{2n})(1-s^{2n-1})^2,\\
+\delta_M(s)
+&=
+\frac{s^{2M+2}+2s^{2M+1}}{1-s^2}.
+\end{aligned}
+\]
+
+The elementary product inequality
+\(\prod_i(1-x_i)\ge1-\sum_i x_i\) gives, whenever
+\(\delta_M(s)<1\),
+
+\[
+  K_s(x)
+  \ge
+  L_{s,M}
+  :=
+  \frac{P_M(s)(1-\delta_M(s))}{(1+s)^2}
+  >0
+\]
+
+uniformly on the complete conjugacy interval.  Increasing \(M\) eventually
+makes \(\delta_M(s)<1\), so this is a terminating rational construction at
+every rational coupling.
+
+Combining \(L_{s,M}\) with the super-geometric character tail selects a
+cutoff satisfying both
+
+\[
+  T_N(s)<L_{s,M}
+\]
+
+and
+
+\[
+ \frac{2\cdot72H_N(s)^{71}T_N(s)}
+ {L_{s,M}^{72}}
+ \le\varepsilon.
+\]
+
+The first inequality proves that the truncated plaquette kernel itself is
+positive; the second bounds the normalized conditional law.  Sample exact
+certificate sizes are:
+
+| \(s\) | Jacobi product terms | rational floor (decimal guide) |
+|---:|---:|---:|
+| \(1/2\) | 1 | \(4.8611\times10^{-2}\) |
+| \(3/4\) | 3 | \(1.5701\times10^{-4}\) |
+| \(9/10\) | 13 | \(5.6593\times10^{-11}\) |
+
+For \(s=3/4\) and normalized tolerance \(10^{-1}\), the least cutoff
+certified by this deliberately crude floor is \(N=49\).
+
+The rational inequalities and schedule are executable.  The analytic input
+is the standard differentiated Jacobi triple-product identity.  The
+repository's `HeatKernelPos*.lean` files explicitly leave that infinite
+identity unformalized, so the frontier records the distinction: the
+paper-level all-coupling floor is complete, while its axiom-clean Lean
+transport remains open.
+
+## 4. Why this does not close BF3.2
 
 Three distinct norms must not be conflated.
 
-1. The estimate above controls a dimension-weighted matrix coefficient, and
-   in the positivity corridor the \(L^1\) difference of two fixed-block
-   Gibbs densities.
+1. The estimate above controls a dimension-weighted matrix coefficient and
+   the \(L^1\) difference of two local conditional Gibbs densities.
 2. BF2's carrier is the cone of positive trace-class kernels on the complete
    fusion/intertwiner boundary Hilbert space.
 3. BF4 needs the Hilbert projective metric on a cone invariant under the
    normalized physical block map.
 
-BF2 proves that exact Haar blocking is completely positive.  It does not
-prove that the raw blocking map is trace preserving, identify the
-coefficient majorant with trace norm on every coherent \(P/Q\) block, or
-make complete positivity a Hilbert-metric contraction.  Those are additional
-theorems.
+The first additional theorem—the trace-norm identification for
+representation truncation—can now be proved.
+
+For one boundary holonomy, use the heat-weighted Peter--Weyl feature vector
+
+\[
+ v_s(g)_{nmk}
+ =
+ \sqrt{(n+1)s^{n(n+2)}}D^n_{mk}(g).
+\]
+
+Unitarity gives
+
+\[
+ \lVert v_s(g)\rVert^2
+ =
+ \sum_n(n+1)^2s^{n(n+2)}
+ \le H_N(s)
+\]
+
+uniformly in \(g\).  Tensoring over the nine coarse Wilson holonomies gives
+evaluation norm at most \(H_N(s)^9\).  If \(\delta\mu\) is the normalized
+local Gibbs truncation error, then the reflected Gram difference is a
+Bochner integral of rank-one kernels,
+
+\[
+ \delta G
+ =
+ \int |v(U)\rangle\langle v(U)|\,d\delta\mu(U),
+\]
+
+and hence
+
+\[
+ \lVert\delta G\rVert_1
+ \le
+ H_N(s)^9\lVert\delta\mu\rVert_{L^1}.
+\]
+
+Resolving gauge invariance and intertwiners is an orthogonal projection and
+cannot increase this norm.  For the finite boundary projection \(P\) and
+\(Q=1-P\), the trace ideal property gives
+
+\[
+\begin{aligned}
+\lVert P\delta GP\rVert_1&\le\lVert\delta G\rVert_1,\\
+\lVert P\delta GQ\rVert_1&\le\lVert\delta G\rVert_1,\\
+\lVert Q\delta GP\rVert_1&\le\lVert\delta G\rVert_1,\\
+\lVert Q\delta GQ\rVert_1&\le\lVert\delta G\rVert_1.
+\end{aligned}
+\]
+
+Signed orthonormal \(F/R\) recouplings are unitary and preserve trace norm.
+This identifies the character/Gibbs tail with the BF2 trace-class
+boundary-kernel norm and retains every coherent corner.  It also makes the
+complete boundary Gram a trace-norm Cauchy object.
+
+This theorem does not say the raw physical block is trace preserving, nor
+does it make complete positivity a Hilbert-metric contraction.  It controls
+only the representation truncation of a fixed exact conditional law.
+Moreover, trace-norm convergence does not imply convergence in BF4's
+relative heat order: an error supported on the smallest heat eigenvalue can
+have vanishing trace norm and relative-order norm one.  That exact
+counter-witness is recorded in
+`computations/reference_order_birkhoff.py`.
 
 The present product estimate also contains \(H_N^{F-1}\) and a factor \(F\)
-for \(F\) plaquettes.  It is therefore a fixed-block estimate, not a
-volume-uniform one.  This agrees with the axiom-free obstruction
+for \(F\) active plaquettes.  It is therefore not a uniform estimate on a
+single global density when \(F\) is the total lattice volume.  This agrees
+with the axiom-free obstruction
 `Z4FixedCutoffNaiveTailFence`: an independent first-omitted-label charge
 summed over every plaquette is unbounded on cofinal boxes.  A valid
 volume-uniform BF3.2 estimate must instead use a local conditional norm,
 connected-cluster cancellation, or another localization mechanism.
+
+For a conditional block kernel, all
+plaquette factors disjoint from the corrected slab cancel between numerator
+and normalizer.  Exactly 72 active plaquettes remain, and fixed exterior
+links only change their holonomies.  Since both the character upper bound and
+the Jacobi lower bound are pointwise and uniform in the holonomy,
+the normalized conditional truncation estimate above is uniform in the
+ambient finite volume and in the boundary condition at every rational
+coupling.
 
 Finally, representation truncation is not the RG remainder.  The actual
 remainder compares the normalized fine Gibbs pushforward with the actual
@@ -144,24 +315,26 @@ mismatches still have to be bounded.
 | external-label uniformity | complete after division by the product of representation dimensions |
 | coupling-dependent cutoff schedule | constructive |
 | normalized actual density tail | complete in the elementary strong-coupling corridor |
-| identify the tail with the BF2 trace-class kernel norm | open |
-| control all coherent \(P/Q\) blocks in that norm | open |
-| volume-uniform vanishing modulus | open; naïve additive route is ruled out |
+| rational all-coupling heat-kernel floor and positive truncated law | complete using the differentiated Jacobi identity; Lean transport open |
+| identify the complete open-boundary tail with the BF2 trace-class kernel norm | complete for representation truncation |
+| control all coherent \(P/Q\) truncation blocks in that norm | complete |
+| boundary/ambient-volume-uniform conditional truncation tail | complete at every rational coupling |
+| global additive volume tail | impossible by the naïve route; localization is mandatory |
 | bound the actual fine/coarse RG remainder | open |
 | pass a ready physical kernel to BF4 | not yet admissible |
 
 The next theorem is therefore:
 
-> Define a localized BF2 kernel norm on the complete boundary
-> fusion/intertwiner field, prove the exact Haar block is bounded in that
-> norm, and bound every physical cylinder mismatch and coherent \(P/Q\)
-> block by a connected tail with constants independent of the ambient
-> volume.
+> Construct the actual local fine-to-coarse Haar pushforward and compare it
+> with the actual coarse Gibbs conditional law in the same BF2 trace norm;
+> bound every resulting cylinder mismatch and coherent remainder with
+> constants independent of ambient volume.  Then strengthen the centered
+> remainder to the relative heat-order inequality required by BF4.
 
 Only after this theorem can the grouped physical map be tested against
 BF4's nine-field handoff.
 
-## 5. Reproduction
+## 6. Reproduction
 
 - `computations/all_label_whole_slab_tail.py`;
 - `tests/test_all_label_whole_slab_tail.py`;

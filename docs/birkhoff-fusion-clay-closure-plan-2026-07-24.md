@@ -435,10 +435,55 @@ normalized bound on the actual plaquette-coupled Haar Gibbs density.  At
 \(s=1/2\), cutoff \(N=11\) is the least cutoff certified by this estimate to
 put the normalized \(L^1\) tail below \(10^{-2}\).
 
+Conditioning on the exterior of one corrected slab cancels every disjoint
+plaquette factor.  The same 72-face estimate is therefore uniform in the
+ambient finite volume and boundary holonomies inside the certified
+strong-coupling corridor.
+
+The strong-coupling restriction is removed at paper level by a new exact
+Jacobi-product floor.  If
+
+\[
+ P_M(s)=\prod_{n=1}^M(1-s^{2n})(1-s^{2n-1})^2,\qquad
+ \delta_M(s)=\frac{s^{2M+2}+2s^{2M+1}}{1-s^2}<1,
+\]
+
+then the differentiated Jacobi triple product gives
+
+\[
+ K_s(x)\ge
+ \frac{P_M(s)(1-\delta_M(s))}{(1+s)^2}>0
+\]
+
+for every \(x\in[-1,1]\).  Combining this with the character tail constructs
+a coupling-dependent cutoff making the truncated plaquette kernel positive
+and the normalized local conditional tail arbitrarily small at every
+rational \(0<s<1\).  The finite rational certificate is executable; the
+repository's existing `HeatKernelPos*.lean` frontier still lacks the
+infinite differentiated Jacobi identity.
+
 This does **not** close BF3.2.  The current estimate has not been identified
-with the BF2 trace-class boundary-kernel norm, grows by naïve tensorization
-with the number of plaquettes, and controls representation truncation rather
-than the actual fine/coarse RG remainder.  The existing
+with the actual fine/coarse RG remainder.
+
+The representation tail itself is now identified with the BF2 trace-class
+boundary-kernel norm.  The heat-weighted Peter--Weyl evaluation vector on
+nine coarse holonomies has squared norm at most \(H_N(s)^9\), so a normalized
+local Gibbs \(L^1\) tail \(\varepsilon_N\) gives
+
+\[
+ \lVert\delta G_N\rVert_1\le H_N(s)^9\varepsilon_N.
+\]
+
+All four \(P/Q\) corners obey the same bound by the trace ideal property,
+and signed orthonormal recouplings preserve it.  Thus the open-boundary Gram
+is a trace-norm Cauchy object retaining magnetic and intertwiner data.
+
+BF3.2 remains open because this is a representation-truncation comparison
+of one exact conditional law.  It is not yet a construction or bound of the
+actual normalized fine-Haar pushforward minus the actual coarse Gibbs law.
+It also cannot be promoted directly into BF4: an exact heat-spectrum witness
+has trace norm tending to zero while its relative-order norm remains one.
+The existing
 `Z4FixedCutoffNaiveTailFence` rules out a volume-uniform additive
 independent-plaquette repair.  The remaining route must use a localized or
 connected norm and must bound every coherent \(P/Q\) block and every
@@ -489,6 +534,48 @@ critical path remains BF3.2 before BF4. See
 The Birkhoff map will not be the raw one-face fusion matrix: its support has
 zero holes and infinite Hilbert diameter. The candidate is the reflected
 physical block kernel on BF2-positive generators.
+
+The full infinite-cutoff PSD trace-class cone is the correct order carrier
+but has empty trace-norm interior, so it is not itself the quantitative
+Birkhoff cone.  BF4 must prove that the grouped physical image lies in a
+reference-order part.  For a faithful trace-one heat reference \(R_a\), the
+new exact target is
+
+\[
+  \alpha_a\ell(A)R_a
+  \preceq\Phi_{a,L}(A)
+  \preceq\beta_a\ell(A)R_a.
+\]
+
+This single two-sided operator estimate implies
+
+\[
+  q_{a,L}\le
+  \frac{\beta_a-\alpha_a}{\beta_a+\alpha_a}
+\]
+
+independently of boundary-space dimension.  The abstract exact-rational
+Loewner-order certificate and the trace-cone interior-collapse witness are
+complete.  The physical all-label minorization, reference-cone invariance,
+and coherent-remainder domination are open.  The cutoff-one BF3.1 map cannot
+satisfy a positive lower minorization because all 32 components are rank
+one.  See `notes/bf4-reference-order-cone-gate.md`.
+
+Equivalently, center the normalized physical output at \(R_a\):
+
+\[
+ E_A=\Phi_{a,L}(A)/\ell(A)-R_a.
+\]
+
+The single relative-order estimate
+
+\[
+ -\delta_aR_a\preceq E_A\preceq\delta_aR_a
+\]
+
+gives \(\alpha_a=1-\delta_a\), \(\beta_a=1+\delta_a\), and therefore the
+dimension-free rate \(q_{a,L}\le\delta_a\).  This is the precise remaining
+physical theorem.
 
 For lattice spacing \(a_n\), the target is scale-dependent:
 

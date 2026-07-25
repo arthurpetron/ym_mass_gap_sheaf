@@ -6,6 +6,9 @@ import pytest
 
 from computations.all_label_whole_slab_tail import (
     WHOLE_SLAB_FACE_COUNT,
+    all_coupling_conditional_normalized_tail,
+    all_coupling_normalized_cutoff,
+    bf2_trace_kernel_tail,
     bf32_all_label_frontier,
     computable_all_label_haar_coefficient,
     coupling_dependent_cutoff,
@@ -13,6 +16,7 @@ from computations.all_label_whole_slab_tail import (
     finite_cutoff_whole_slab_haar_coefficient,
     heat_character_sup_term,
     heat_character_tail_ratio,
+    jacobi_heat_kernel_floor,
     single_plaquette_all_label_tail,
     strong_coupling_normalized_cutoff,
     strong_coupling_normalized_tail,
@@ -103,6 +107,9 @@ def test_strong_coupling_tail_controls_the_normalized_actual_density() -> None:
     assert certificate.normalized_total_variation_tail > 0
     assert certificate.normalized_total_variation_tail < Fraction(1, 100)
     assert certificate.truncated_density_positive
+    assert certificate.boundary_holonomy_uniform
+    assert certificate.ambient_volume_independent
+    assert not certificate.actual_rg_remainder
 
     schedule = strong_coupling_normalized_cutoff(
         Fraction(1, 2),
@@ -115,6 +122,71 @@ def test_strong_coupling_tail_controls_the_normalized_actual_density() -> None:
         strong_coupling_normalized_tail(Fraction(3, 4), 6)
 
 
+def test_jacobi_product_supplies_a_rational_floor_at_every_sample_coupling() -> None:
+    floors = tuple(
+        jacobi_heat_kernel_floor(coupling)
+        for coupling in (
+            Fraction(1, 2),
+            Fraction(3, 4),
+            Fraction(9, 10),
+        )
+    )
+
+    assert all(floor.validates() for floor in floors)
+    assert all(floor.heat_kernel_floor > 0 for floor in floors)
+    assert all(floor.tail_charge < 1 for floor in floors)
+    assert tuple(floor.product_terms for floor in floors) == tuple(
+        sorted(floor.product_terms for floor in floors)
+    )
+    assert all(not floor.identity_formalized_in_repo for floor in floors)
+
+
+def test_jacobi_floor_extends_the_normalized_conditional_tail() -> None:
+    schedule = all_coupling_normalized_cutoff(
+        Fraction(3, 4),
+        Fraction(1, 10),
+    )
+    certificate = all_coupling_conditional_normalized_tail(
+        schedule.coupling,
+        schedule.cutoff,
+    )
+
+    assert schedule.validates()
+    assert certificate.validates()
+    assert certificate.truncated_plaquette_floor > 0
+    assert certificate.normalized_total_variation_tail <= Fraction(1, 10)
+    assert certificate.boundary_holonomy_uniform
+    assert certificate.ambient_volume_independent
+    assert not certificate.actual_rg_remainder
+
+
+def test_local_gibbs_tail_controls_every_coherent_bf2_trace_block() -> None:
+    schedule = all_coupling_normalized_cutoff(
+        Fraction(1, 2),
+        Fraction(1, 100),
+    )
+    certificate = bf2_trace_kernel_tail(
+        schedule.coupling,
+        schedule.cutoff,
+    )
+
+    assert certificate.validates()
+    assert certificate.boundary_feature_slots == 9
+    assert certificate.evaluation_norm_squared_upper > 0
+    assert certificate.trace_norm_tail_bound > 0
+    assert {
+        certificate.retained_block_bound,
+        certificate.retained_to_outside_block_bound,
+        certificate.outside_to_retained_block_bound,
+        certificate.outside_block_bound,
+    } == {certificate.trace_norm_tail_bound}
+    assert certificate.complete_magnetic_features
+    assert certificate.complete_intertwiner_projection
+    assert certificate.unitary_recoupling_invariant
+    assert certificate.ambient_volume_independent
+    assert not certificate.actual_fine_coarse_rg_remainder
+
+
 def test_bf32_frontier_does_not_promote_a_fixed_block_tail_to_bf4() -> None:
     frontier = bf32_all_label_frontier()
 
@@ -123,8 +195,12 @@ def test_bf32_frontier_does_not_promote_a_fixed_block_tail_to_bf4() -> None:
     assert frontier.computable_haar_cauchy_name
     assert frontier.coupling_dependent_cutoff_constructed
     assert frontier.normalized_strong_coupling_tail
-    assert not frontier.bf2_psd_norm_identified
-    assert not frontier.arbitrary_volume_uniform
+    assert frontier.conditional_tail_boundary_uniform
+    assert frontier.conditional_tail_ambient_volume_uniform
+    assert frontier.all_coupling_positive_floor_schedule
+    assert not frontier.jacobi_floor_identity_formalized
+    assert frontier.complete_boundary_trace_cauchy_name
+    assert frontier.bf2_psd_norm_identified
     assert not frontier.actual_rg_remainder_bounded
     assert not frontier.bf32_closed
     assert frontier.next_gate == "BF3.2-remains-before-BF4"

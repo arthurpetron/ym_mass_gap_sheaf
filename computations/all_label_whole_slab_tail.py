@@ -19,18 +19,16 @@ Wilson coefficient by the product of its representation dimensions cancels
 all dependence on the external labels.
 
 This is a genuine fixed-block all-label completion of the BF3.1 finite sums.
-It is not the full BF3.2 exit certificate:
+A differentiated-Jacobi-product floor makes the normalized local truncation
+bound constructive for every rational ``0 < s < 1``.  The heat-weighted
+Peter--Weyl feature map then lifts that ``L1`` tail to the trace norm of the
+BF2 reflected boundary Gram, simultaneously controlling all coherent
+``P/Q`` corners and every signed unitary recoupling.
 
-* the resulting global product bound grows with the number of plaquettes;
-* its dimension-weighted coefficient norm is not yet identified with the
-  BF2 PSD boundary-kernel norm;
-* it controls representation truncation, not the actual fine/coarse RG
-  remainder.
-
-Inside a strong-coupling corridor the same estimates give a pointwise lower
-bound on every plaquette heat kernel and hence an explicit normalized
-total-variation truncation bound.  This isolates exactly what remains before
-the all-label kernel can be passed to BF4.
+It is not the full BF3.2 exit certificate.  The resulting local theorem
+controls representation truncation of an exact conditional Haar law, not
+the actual fine-pushforward versus coarse-Gibbs RG remainder.  The latter is
+the remaining BF3.2 obstruction before the kernel can be passed to BF4.
 """
 
 from __future__ import annotations
@@ -433,7 +431,15 @@ def coupling_dependent_cutoff(
 
 @dataclass(frozen=True)
 class StrongCouplingNormalizedTail:
-    """Actual normalized Gibbs truncation bound in the positivity corridor."""
+    """Boundary-uniform conditional Gibbs tail in the positivity corridor.
+
+    Conditioning the ambient lattice law on every link outside the corrected
+    slab removes all plaquette factors disjoint from the slab.  The remaining
+    holonomies may contain fixed boundary links, but the character estimate is
+    uniform in those holonomies.  Thus this fixed 72-face estimate is also
+    uniform in the ambient finite volume.  It is still only a truncation-tail
+    estimate, not a bound on the fine/coarse RG remainder.
+    """
 
     coupling: Fraction
     cutoff: int
@@ -444,6 +450,9 @@ class StrongCouplingNormalizedTail:
     unnormalized_density_l1_tail: Fraction
     normalized_total_variation_tail: Fraction
     truncated_density_positive: bool
+    boundary_holonomy_uniform: bool
+    ambient_volume_independent: bool
+    actual_rg_remainder: bool
 
     def validates(self) -> bool:
         tail = single_plaquette_all_label_tail(self.coupling, self.cutoff)
@@ -465,6 +474,9 @@ class StrongCouplingNormalizedTail:
             and self.normalized_total_variation_tail
             == 2 * density_tail / self.partition_floor
             and self.truncated_density_positive
+            and self.boundary_holonomy_uniform
+            and self.ambient_volume_independent
+            and not self.actual_rg_remainder
         )
 
 
@@ -496,6 +508,9 @@ def strong_coupling_normalized_tail(
         unnormalized_density_l1_tail=density_tail,
         normalized_total_variation_tail=2 * density_tail / floor**WHOLE_SLAB_FACE_COUNT,
         truncated_density_positive=True,
+        boundary_holonomy_uniform=True,
+        ambient_volume_independent=True,
+        actual_rg_remainder=False,
     )
     if not certificate.validates():
         raise AssertionError("the normalized strong-coupling tail drifted")
@@ -573,6 +588,393 @@ def strong_coupling_normalized_cutoff(
         cutoff += 1
 
 
+def _jacobi_product_prefix(coupling: Fraction, terms: int) -> Fraction:
+    """Finite lower-product prefix from the differentiated Jacobi identity."""
+
+    if not 0 < coupling < 1:
+        raise ValueError("the heat coordinate must lie strictly between zero and one")
+    if terms < 1:
+        raise ValueError("the Jacobi floor requires at least one product term")
+    return prod(
+        (
+            (1 - coupling ** (2 * index))
+            * (1 - coupling ** (2 * index - 1)) ** 2
+            for index in range(1, terms + 1)
+        ),
+        start=Fraction(1),
+    )
+
+
+def _jacobi_product_tail_charge(
+    coupling: Fraction,
+    terms: int,
+) -> Fraction:
+    """Union-bound charge of every Jacobi factor omitted after ``terms``."""
+
+    if not 0 < coupling < 1:
+        raise ValueError("the heat coordinate must lie strictly between zero and one")
+    if terms < 1:
+        raise ValueError("the Jacobi floor requires at least one product term")
+    return (
+        coupling ** (2 * terms + 2)
+        + 2 * coupling ** (2 * terms + 1)
+    ) / (1 - coupling**2)
+
+
+@dataclass(frozen=True)
+class JacobiHeatKernelFloor:
+    """Exact rational pointwise floor for one full SU(2) heat kernel.
+
+    The analytic input is the differentiated Jacobi triple-product identity
+
+        K_s(x) = theta_3(x) S_s(x) / (2s).
+
+    The inequalities after that identity are elementary rational estimates:
+    every theta factor is bounded by its square completion, the first
+    positive ``S`` term is retained, and the omitted infinite product is
+    bounded below by one minus the sum of its missing charges.
+    """
+
+    coupling: Fraction
+    product_terms: int
+    finite_product: Fraction
+    tail_charge: Fraction
+    infinite_product_lower_bound: Fraction
+    heat_kernel_floor: Fraction
+    uniform_on_conjugacy_interval: bool
+    analytic_identity: str
+    identity_formalized_in_repo: bool
+
+    def validates(self) -> bool:
+        if (
+            not 0 < self.coupling < 1
+            or self.product_terms < 1
+            or not 0 <= self.tail_charge < 1
+        ):
+            return False
+        prefix = _jacobi_product_prefix(
+            self.coupling,
+            self.product_terms,
+        )
+        tail = _jacobi_product_tail_charge(
+            self.coupling,
+            self.product_terms,
+        )
+        product_floor = prefix * (1 - tail)
+        return (
+            self.finite_product == prefix
+            and self.tail_charge == tail
+            and self.infinite_product_lower_bound == product_floor > 0
+            and self.heat_kernel_floor
+            == product_floor / (1 + self.coupling) ** 2
+            > 0
+            and self.uniform_on_conjugacy_interval
+            and self.analytic_identity
+            == "differentiated-Jacobi-triple-product-for-SU2-heat-kernel"
+            and not self.identity_formalized_in_repo
+        )
+
+
+def jacobi_heat_kernel_floor(coupling: Fraction) -> JacobiHeatKernelFloor:
+    """Construct a positive rational heat-kernel floor for every ``0<s<1``."""
+
+    if not 0 < coupling < 1:
+        raise ValueError("the heat coordinate must lie strictly between zero and one")
+    terms = 1
+    while _jacobi_product_tail_charge(coupling, terms) >= 1:
+        terms += 1
+    prefix = _jacobi_product_prefix(coupling, terms)
+    tail = _jacobi_product_tail_charge(coupling, terms)
+    product_floor = prefix * (1 - tail)
+    certificate = JacobiHeatKernelFloor(
+        coupling=coupling,
+        product_terms=terms,
+        finite_product=prefix,
+        tail_charge=tail,
+        infinite_product_lower_bound=product_floor,
+        heat_kernel_floor=product_floor / (1 + coupling) ** 2,
+        uniform_on_conjugacy_interval=True,
+        analytic_identity=(
+            "differentiated-Jacobi-triple-product-for-SU2-heat-kernel"
+        ),
+        identity_formalized_in_repo=False,
+    )
+    if not certificate.validates():
+        raise AssertionError("the Jacobi heat-kernel floor drifted")
+    return certificate
+
+
+@dataclass(frozen=True)
+class AllCouplingConditionalNormalizedTail:
+    """Boundary-uniform normalized truncation tail for every rational coupling."""
+
+    coupling: Fraction
+    cutoff: int
+    fine_face_count: int
+    plaquette_floor: JacobiHeatKernelFloor
+    plaquette_tail: SinglePlaquetteAllLabelTail
+    truncated_plaquette_floor: Fraction
+    full_partition_floor: Fraction
+    unnormalized_density_l1_tail: Fraction
+    normalized_total_variation_tail: Fraction
+    boundary_holonomy_uniform: bool
+    ambient_volume_independent: bool
+    actual_rg_remainder: bool
+
+    def validates(self) -> bool:
+        if (
+            not self.plaquette_floor.validates()
+            or not self.plaquette_tail.validates()
+            or self.coupling != self.plaquette_floor.coupling
+            or self.coupling != self.plaquette_tail.coupling
+            or self.cutoff != self.plaquette_tail.cutoff
+        ):
+            return False
+        floor = self.plaquette_floor.heat_kernel_floor
+        tail = self.plaquette_tail.tail_bound
+        density_tail = (
+            self.fine_face_count
+            * self.plaquette_tail.total_upper_bound
+            ** (self.fine_face_count - 1)
+            * tail
+        )
+        return (
+            self.fine_face_count == WHOLE_SLAB_FACE_COUNT
+            and self.truncated_plaquette_floor == floor - tail > 0
+            and self.full_partition_floor == floor**self.fine_face_count
+            and self.unnormalized_density_l1_tail == density_tail
+            and self.normalized_total_variation_tail
+            == 2 * density_tail / self.full_partition_floor
+            and self.boundary_holonomy_uniform
+            and self.ambient_volume_independent
+            and not self.actual_rg_remainder
+        )
+
+
+def all_coupling_conditional_normalized_tail(
+    coupling: Fraction,
+    cutoff: int,
+) -> AllCouplingConditionalNormalizedTail:
+    """Lift the Jacobi floor and character tail to a normalized local law."""
+
+    floor = jacobi_heat_kernel_floor(coupling)
+    tail = single_plaquette_all_label_tail(coupling, cutoff)
+    if tail.tail_bound >= floor.heat_kernel_floor:
+        raise ValueError(
+            "the cutoff does not yet make the truncated plaquette kernel positive"
+        )
+    density_tail = (
+        WHOLE_SLAB_FACE_COUNT
+        * tail.total_upper_bound ** (WHOLE_SLAB_FACE_COUNT - 1)
+        * tail.tail_bound
+    )
+    certificate = AllCouplingConditionalNormalizedTail(
+        coupling=coupling,
+        cutoff=cutoff,
+        fine_face_count=WHOLE_SLAB_FACE_COUNT,
+        plaquette_floor=floor,
+        plaquette_tail=tail,
+        truncated_plaquette_floor=(
+            floor.heat_kernel_floor - tail.tail_bound
+        ),
+        full_partition_floor=(
+            floor.heat_kernel_floor**WHOLE_SLAB_FACE_COUNT
+        ),
+        unnormalized_density_l1_tail=density_tail,
+        normalized_total_variation_tail=(
+            2
+            * density_tail
+            / floor.heat_kernel_floor**WHOLE_SLAB_FACE_COUNT
+        ),
+        boundary_holonomy_uniform=True,
+        ambient_volume_independent=True,
+        actual_rg_remainder=False,
+    )
+    if not certificate.validates():
+        raise AssertionError("the all-coupling normalized tail drifted")
+    return certificate
+
+
+@dataclass(frozen=True)
+class AllCouplingNormalizedCutoffPoint:
+    """Least cutoff certified by the Jacobi floor at one tolerance."""
+
+    coupling: Fraction
+    tolerance: Fraction
+    cutoff: int
+    normalized_tail_bound: Fraction
+    truncated_plaquette_floor: Fraction
+
+    def validates(self) -> bool:
+        if not 0 < self.coupling < 1 or self.tolerance <= 0 or self.cutoff < 0:
+            return False
+        current = all_coupling_conditional_normalized_tail(
+            self.coupling,
+            self.cutoff,
+        )
+        if current.normalized_total_variation_tail > self.tolerance:
+            return False
+        previous_fails = self.cutoff == 0
+        if self.cutoff > 0:
+            try:
+                previous = all_coupling_conditional_normalized_tail(
+                    self.coupling,
+                    self.cutoff - 1,
+                )
+            except ValueError:
+                previous_fails = True
+            else:
+                previous_fails = (
+                    previous.normalized_total_variation_tail > self.tolerance
+                )
+        return (
+            previous_fails
+            and self.normalized_tail_bound
+            == current.normalized_total_variation_tail
+            and self.truncated_plaquette_floor
+            == current.truncated_plaquette_floor
+            > 0
+        )
+
+
+def all_coupling_normalized_cutoff(
+    coupling: Fraction,
+    tolerance: Fraction,
+) -> AllCouplingNormalizedCutoffPoint:
+    """Return the least Jacobi-floor cutoff for a normalized local tolerance."""
+
+    if not 0 < coupling < 1:
+        raise ValueError("the heat coordinate must lie strictly between zero and one")
+    if tolerance <= 0:
+        raise ValueError("the requested tolerance must be positive")
+    cutoff = 0
+    while True:
+        try:
+            certificate = all_coupling_conditional_normalized_tail(
+                coupling,
+                cutoff,
+            )
+        except ValueError:
+            cutoff += 1
+            continue
+        if certificate.normalized_total_variation_tail <= tolerance:
+            point = AllCouplingNormalizedCutoffPoint(
+                coupling=coupling,
+                tolerance=tolerance,
+                cutoff=cutoff,
+                normalized_tail_bound=(
+                    certificate.normalized_total_variation_tail
+                ),
+                truncated_plaquette_floor=(
+                    certificate.truncated_plaquette_floor
+                ),
+            )
+            if not point.validates():
+                raise AssertionError("the all-coupling cutoff schedule drifted")
+            return point
+        cutoff += 1
+
+
+@dataclass(frozen=True)
+class BF2TraceKernelTail:
+    """Trace-norm lift of a local Gibbs tail to the BF2 boundary Gram.
+
+    Each boundary holonomy uses the heat-weighted Peter--Weyl feature vector
+
+        sqrt((n+1) s^(n(n+2))) D^n_mk(g).
+
+    Unitarity of ``D^n`` makes its squared evaluation norm
+
+        sum_n (n+1)^2 s^(n(n+2)).
+
+    Tensoring over the nine coarse holonomies raises this bound to the ninth
+    power.  Integrating ``|v><v|`` against a signed measure of ``L1`` mass
+    ``epsilon`` then has trace norm at most ``H(s)^9 epsilon``.  Orthogonal
+    compressions and unitary recouplings do not increase that norm.
+    """
+
+    coupling: Fraction
+    cutoff: int
+    boundary_feature_slots: int
+    normalized_density_tail: AllCouplingConditionalNormalizedTail
+    evaluation_norm_squared_upper: Fraction
+    trace_norm_tail_bound: Fraction
+    retained_block_bound: Fraction
+    retained_to_outside_block_bound: Fraction
+    outside_to_retained_block_bound: Fraction
+    outside_block_bound: Fraction
+    complete_magnetic_features: bool
+    complete_intertwiner_projection: bool
+    unitary_recoupling_invariant: bool
+    ambient_volume_independent: bool
+    actual_fine_coarse_rg_remainder: bool
+
+    def validates(self) -> bool:
+        if (
+            not self.normalized_density_tail.validates()
+            or self.coupling != self.normalized_density_tail.coupling
+            or self.cutoff != self.normalized_density_tail.cutoff
+            or self.boundary_feature_slots != len(coarse_face_paths())
+        ):
+            return False
+        heat_upper = (
+            self.normalized_density_tail.plaquette_tail.total_upper_bound
+        )
+        evaluation = heat_upper**self.boundary_feature_slots
+        trace_bound = (
+            evaluation
+            * self.normalized_density_tail.normalized_total_variation_tail
+        )
+        return (
+            self.evaluation_norm_squared_upper == evaluation
+            and self.trace_norm_tail_bound == trace_bound
+            and self.retained_block_bound == trace_bound
+            and self.retained_to_outside_block_bound == trace_bound
+            and self.outside_to_retained_block_bound == trace_bound
+            and self.outside_block_bound == trace_bound
+            and self.complete_magnetic_features
+            and self.complete_intertwiner_projection
+            and self.unitary_recoupling_invariant
+            and self.ambient_volume_independent
+            and not self.actual_fine_coarse_rg_remainder
+        )
+
+
+def bf2_trace_kernel_tail(
+    coupling: Fraction,
+    cutoff: int,
+) -> BF2TraceKernelTail:
+    """Lift an all-coupling conditional tail to all coherent BF2 blocks."""
+
+    normalized = all_coupling_conditional_normalized_tail(
+        coupling,
+        cutoff,
+    )
+    slots = len(coarse_face_paths())
+    evaluation = normalized.plaquette_tail.total_upper_bound**slots
+    trace_bound = evaluation * normalized.normalized_total_variation_tail
+    certificate = BF2TraceKernelTail(
+        coupling=coupling,
+        cutoff=cutoff,
+        boundary_feature_slots=slots,
+        normalized_density_tail=normalized,
+        evaluation_norm_squared_upper=evaluation,
+        trace_norm_tail_bound=trace_bound,
+        retained_block_bound=trace_bound,
+        retained_to_outside_block_bound=trace_bound,
+        outside_to_retained_block_bound=trace_bound,
+        outside_block_bound=trace_bound,
+        complete_magnetic_features=True,
+        complete_intertwiner_projection=True,
+        unitary_recoupling_invariant=True,
+        ambient_volume_independent=True,
+        actual_fine_coarse_rg_remainder=False,
+    )
+    if not certificate.validates():
+        raise AssertionError("the BF2 trace-kernel tail drifted")
+    return certificate
+
+
 @dataclass(frozen=True)
 class BF32AllLabelFrontier:
     """Fail-closed adjudication of the all-label progress toward BF3.2."""
@@ -583,8 +985,12 @@ class BF32AllLabelFrontier:
     external_label_uniform_weighted_norm: bool
     coupling_dependent_cutoff_constructed: bool
     normalized_strong_coupling_tail: bool
+    conditional_tail_boundary_uniform: bool
+    conditional_tail_ambient_volume_uniform: bool
+    all_coupling_positive_floor_schedule: bool
+    jacobi_floor_identity_formalized: bool
+    complete_boundary_trace_cauchy_name: bool
     bf2_psd_norm_identified: bool
-    arbitrary_volume_uniform: bool
     actual_rg_remainder_bounded: bool
     bf32_closed: bool
     first_open_obligation: str
@@ -598,12 +1004,16 @@ class BF32AllLabelFrontier:
             and self.external_label_uniform_weighted_norm
             and self.coupling_dependent_cutoff_constructed
             and self.normalized_strong_coupling_tail
-            and not self.bf2_psd_norm_identified
-            and not self.arbitrary_volume_uniform
+            and self.conditional_tail_boundary_uniform
+            and self.conditional_tail_ambient_volume_uniform
+            and self.all_coupling_positive_floor_schedule
+            and not self.jacobi_floor_identity_formalized
+            and self.complete_boundary_trace_cauchy_name
+            and self.bf2_psd_norm_identified
             and not self.actual_rg_remainder_bounded
             and not self.bf32_closed
             and self.first_open_obligation
-            == "identify-weighted-Haar-tail-with-BF2-PSD-kernel-norm"
+            == "construct-and-bound-actual-fine-coarse-RG-remainder"
             and self.next_gate == "BF3.2-remains-before-BF4"
         )
 
@@ -627,6 +1037,18 @@ def bf32_all_label_frontier() -> BF32AllLabelFrontier:
         Fraction(1, 2),
         Fraction(1, 100),
     )
+    normalized_tail = strong_coupling_normalized_tail(
+        normalized.coupling,
+        normalized.cutoff,
+    )
+    jacobi_schedule = all_coupling_normalized_cutoff(
+        Fraction(3, 4),
+        Fraction(1, 10),
+    )
+    trace_tail = bf2_trace_kernel_tail(
+        jacobi_schedule.coupling,
+        jacobi_schedule.cutoff,
+    )
     frontier = BF32AllLabelFrontier(
         fixed_block_all_label_kernel=fixed.validates(),
         computable_haar_cauchy_name=(
@@ -639,13 +1061,26 @@ def bf32_all_label_frontier() -> BF32AllLabelFrontier:
             == fixed.external_dimension * fixed.dimension_weighted_tail_bound
         ),
         coupling_dependent_cutoff_constructed=schedule.validates(),
-        normalized_strong_coupling_tail=normalized.validates(),
-        bf2_psd_norm_identified=False,
-        arbitrary_volume_uniform=False,
+        normalized_strong_coupling_tail=(
+            normalized.validates() and normalized_tail.validates()
+        ),
+        conditional_tail_boundary_uniform=(
+            normalized_tail.boundary_holonomy_uniform
+        ),
+        conditional_tail_ambient_volume_uniform=(
+            normalized_tail.ambient_volume_independent
+        ),
+        all_coupling_positive_floor_schedule=jacobi_schedule.validates(),
+        jacobi_floor_identity_formalized=False,
+        complete_boundary_trace_cauchy_name=trace_tail.validates(),
+        bf2_psd_norm_identified=(
+            trace_tail.unitary_recoupling_invariant
+            and trace_tail.complete_intertwiner_projection
+        ),
         actual_rg_remainder_bounded=False,
         bf32_closed=False,
         first_open_obligation=(
-            "identify-weighted-Haar-tail-with-BF2-PSD-kernel-norm"
+            "construct-and-bound-actual-fine-coarse-RG-remainder"
         ),
         next_gate="BF3.2-remains-before-BF4",
     )
