@@ -196,11 +196,12 @@ def test_no_pilot_failures_in_envelope() -> None:
 
 def test_mean_close_to_baseline() -> None:
     """The bootstrap mean should be close to the tornado baseline m_0
-    (~0.9996) since the envelopes are approximately centered."""
+    (~0.9988 post-2026-07-25 μ_plaq upgrade; was ~0.9996) since the
+    envelopes are approximately centered."""
     result = run_bootstrap(n_samples=1000, seed=0)
     # Reasonable tolerance: envelopes are asymmetric (c_lambda envelope
     # extends further below baseline than above), so mean drifts slightly
-    # downward from the baseline 0.9996.
+    # downward from the baseline 0.9988.
     assert 0.97 < result.mean < 1.0
 
 

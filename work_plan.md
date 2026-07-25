@@ -25412,3 +25412,94 @@ sharpened sign-of-defect tag on every contraction step);
 (4) DP.2 M=2 saturation + ε_slab(M); (5) embedded-surface Pin⁻
 realization; (6) obtain CMP 119/122 for the residual extraction;
 (7) read the completed abk_verdict2 300-sample run.**
+
+### 15f. Addendum (2026-07-25): prove-out round — queue items 1, 2, 3, 6, 7 executed
+
+**(1) μ_plaq = 20e ADOPTED (SL.1 decision closed).**
+`MU_PLAQUETTE_4D_RATIONAL = 1359141/25000` (= 54.36564, exact rational
+majorant of 20e, slack ≈ 3.4e-6; ≥ 20e guarded by a new exact
+factorial-series test); `SEILER_5D_MINUS_4_LEGACY = 16` retained for
+comparison sweeps only.  Provenance upgraded LITERATURE-SHAPE →
+DERIVED (Δ = 8d−12 enumerated in `plaquette_connectivity.py`; BF bound
+eΔ).  Recomputed: g_max^lf 0.424549 → **0.373289** (−12.07%,
+prediction confirmed); K_lf(0.30) 0.015624 → 0.055155; pilot
+trajectory still clears both windows (Ση = 2.393e-3, 418× margin) —
+**closure UNCHANGED**, but at the window *edge* the lf window now
+binds (max_g0 0.4132 → 0.3655), retiring the old "sf binds"
+shorthand.  **Honest headline correction:** m₀ = √(1−Ση) drops
+0.999602 → 0.998803 — the quotable floor is now **998/1000** (was
+999/1000); bootstrap 5th-pct 994/1000; headline ≥ 950/1000 intact.
+Tornado sensitivity reordered: A_min > μ_plaq > c_polymer > c_λ.
+**Lean unsoundness caught and fixed:** `SU2KP.K_lf_canonical` (16/1000)
+and `PolymerDomination.K_lf_pilot` (2/125) were BELOW the true
+K_lf — unsound as upper bounds; re-pinned (56/1000, 523/10000, …) and
+**targeted main-tree `lake build` of both Sheaf modules GREEN (32
+jobs, exit 0, axiom gate clean — constants axiom-free or {propext})**.
+Cloud tests: 195 green incl. 6 new large-field lockstep pins.
+Note: `notes/mu20-change-note.md`; stale `# 16` comment flagged in
+`scripts/su3_closure_spike.py`; m_0_bootstrap envelope [10,55] barely
+contains 54.37 — flagged.
+
+**(2) Fiducials note MERGED (canonical `notes/fiducials_notes.md`
+updated in place, dated addenda, no deletions).**  5d−4 →
+RESOLVED-negative (§3.3/3.4); c_λ → SHAPE-LOCATED with the CMP 109
+eq. (0.27) quote (§1.2) and the **stale summary-table row fixed**
+(now 3/4 / DERIVED, consistent with the 2026-05-26 internal
+derivation); residual 2.0 → precise-null record (§5.1); corpus
+mislabels recorded; bibliography extended (CMP 122 I/II DOIs).
+
+**(6) CMP 119/122 retrieval: precise null, documented.**
+Titles/DOIs/Euclid IDs confirmed; Project Euclid PDF bot-walled,
+Springer paywalled, GDZ does not hold CMP, Wayback/fatcat blocked.
+No constants invented.  Human unblock paths (browser fetch of the
+Euclid PDF; institutional access) listed in
+`notes/cmp119_extraction.md`.  Residual 2.0 remains on the internal
+triangle-inequality derivation.
+
+**(7) abk_verdict2 300-sample run READ — β = 4κ correlation-mode
+support DOWNGRADED (honest cut).**  300/300 rows, but β assembled for
+only 52 (nonpin 143 / q 69 / B 26 / b1_big 10 discarded — 83%
+attrition).  Raw: 22/52 matches vs 1/8 baseline (exact binomial tail
+≈ 8.2e-8) — but 14 rows are b1 = 0 trivial (β ≡ 0), and stratified:
+κ=0 → 7/22 (tail ≈ 0.015), **κ=1 → 2/16 = exactly baseline (tail
+≈ 0.61)**.  The prior "every miss d2" pattern does NOT persist
+(d1:6, d2:13, d3:3, d4:8; 9 odd-β rows).  Verdict: the data supports
+a β ≡ 0 attractor on κ=0, not β = 4κ; **the embedded-surface Pin⁻
+realization is re-scoped from confirmer to DECIDER** — the current
+curve-lift assembly cannot distinguish "β = 4κ true but assembly
+corrupts κ=1" from "false".  Note:
+`notes/abk-verdict2-read-2026-07-24.md`; exact analysis
+`scripts/abk_verdict2_analysis.py`.
+
+**(3) DP.3 OPENED at exponent granularity — statement + first RP
+data point, PSD.**  `docs/dp3-exponent-cone-statement.md` defines the
+exponent-aggregated cone C_exp and states the three obligations
+(cone preservation under blocking — trivial at M=1, open at M≥2 where
+6j interference enters; OS reflection positivity of the blocked
+Gram; iteration stability), each carrying its U(1)-discriminator tag
+(duality/RP/entrywise positivity group-blind or group-generic; only
+the contraction-acceleration sign carries gap weight).  **First RP
+check (exact, `computations/dp3_rp_check.py` + 7-test pin):** link
+reflection θ: z ↦ 1−z through the blocking plane; θ antilinear ⇒
+SU(2) Gram = T directly (real characters), U(1) Gram = T[−n,m].
+**PSD for both groups — not just at s ∈ {1/4, 1/2, 3/4} but on all of
+(0,1) by Sturm on the leading principal minors** (SU(2): minors 1–3
+positive, minor 4 exactly zero — spin-3 zero row, PSD-neutral).
+Conjugation is provably material: the unconjugated U(1) control fails
+PSD on all of (0,1) — dropping antilinearity would have declared a
+spurious RP violation.  Structural echo: the SU(2) RP-minor
+polynomials contain negative coefficients yet are Sturm-positive —
+RP-minor positivity is itself a cross-exponent cancellation, the
+DP.6 granularity lesson one level up.  Honesty: one step, M=1
+truncation, PSD structurally expected (truncated heat kernel keeps
+positive character coefficients ⇒ Osterwalder–Seiler survives
+truncation) — verification, not proof.  Decisive follow-ups: M=2,
+iterated kernel, larger half-space observable algebras.
+
+**Remaining queue: (a) DP.2/DP.3 M=2 — saturation + ε_slab(M) +
+cone preservation where 6j interference first enters + RP at M=2;
+(b) embedded-surface Pin⁻ realization (now the DECIDER for β = 4κ);
+(c) human unblock for CMP 119/122 (browser fetch or institutional
+access); (d) su3_closure_spike stale comment + m_0_bootstrap envelope
+widening (housekeeping); (e) manuscript sweep for the 999/1000 →
+998/1000 headline change (formal/ tex + any doc quoting m₀).**

@@ -10,6 +10,8 @@ from computations.heat_kernel import HeatKernelConvention
 from computations.large_field_kp import (
     J_MAX_DEFAULT,
     MU_PLAQUETTE_4D,
+    MU_PLAQUETTE_4D_RATIONAL,
+    SEILER_5D_MINUS_4_LEGACY,
     CharacterTailSum,
     LargeFieldKP,
     compute_large_field_kp,
@@ -127,23 +129,27 @@ def test_lf_K_finite_in_convergent_regime() -> None:
 
 
 def test_lf_K_grows_as_g_approaches_threshold() -> None:
-    """As g approaches the convergence threshold, K_lf grows (q → 1)."""
+    """As g approaches the convergence threshold, K_lf grows (q → 1).
+
+    Re-pinned 2026-07-25 (μ_plaq 16 → 1359141/25000 ≥ 20e): the canonical
+    threshold moved 0.4245 → 0.3733, so the near-threshold sample moves
+    0.40 → 0.36 (K_lf(0.36) ≈ 2.004, finite)."""
     K_small = compute_large_field_kp(g_k=0.1).K_lf
     K_mid = compute_large_field_kp(g_k=0.3).K_lf
-    K_near = compute_large_field_kp(g_k=0.4).K_lf
+    K_near = compute_large_field_kp(g_k=0.36).K_lf
     assert K_small < K_mid < K_near
     assert math.isfinite(K_near)
 
 
 def test_lf_K_infinite_above_threshold_canonical() -> None:
-    """Above g_max ≈ 0.42 canonical, K_lf = ∞."""
+    """Above g_max ≈ 0.3733 canonical (μ_plaq = 20e-majorant), K_lf = ∞."""
     kp = compute_large_field_kp(g_k=0.5, t_choice=CANONICAL)
     assert math.isinf(kp.K_lf)
     assert not kp.convergent
 
 
 def test_lf_K_infinite_above_threshold_wilson() -> None:
-    """Above g_max ≈ 0.85 Wilson, K_lf = ∞."""
+    """Above g_max ≈ 0.7466 Wilson (μ_plaq = 20e-majorant), K_lf = ∞."""
     kp = compute_large_field_kp(g_k=1.0, t_choice=WILSON)
     assert math.isinf(kp.K_lf)
     assert not kp.convergent
@@ -164,9 +170,12 @@ def test_lf_K_is_not_constant() -> None:
 
 def test_lf_convergence_threshold_canonical_near_estimate() -> None:
     """Bisected threshold matches the small-g leading-asymptotic estimate
-    g_max ≈ √(C_2 / (log 4 + log μ_plaq)) ≈ 0.4247."""
+    g_max ≈ √(C_2 / (log 4 + log μ_plaq)) ≈ 0.3733.
+
+    Re-pinned 2026-07-25: μ_plaq = 1359141/25000 (≥ 20e) gives
+    g_max ≈ 0.373289 (was 0.424549 under the unsupported legacy 16)."""
     g_max = convergence_threshold_g_lf(t_choice=CANONICAL)
-    assert 0.42 < g_max < 0.43
+    assert 0.3732 < g_max < 0.3734
 
 
 def test_lf_convergence_threshold_wilson_larger_than_canonical() -> None:
@@ -355,18 +364,17 @@ class TestPlaquetteEdgeNeighborCount:
         with pytest.raises(ValueError, match="d ≥ 2"):
             plaquette_edge_neighbor_count(0)
 
-    def test_bf_universal_bound_at_d4_is_loose(self):
-        """The BF universal bound μ ≤ e · max_degree at d=4 gives ~54.4,
-        strictly looser than the literature MU_PLAQUETTE_4D = 16 and
-        looser than the conservative 8e ≈ 21.7 fallback.  This is the
-        audit-note finding: the direct count does NOT beat the cited
-        values; they rely on refinements beyond the BF universal bound."""
+    def test_bf_universal_bound_at_d4_is_default(self):
+        """Re-pinned 2026-07-25 (SL.1): the BF universal bound
+        μ ≤ e · max_degree = 20e ≈ 54.366 at d = 4 is now the SOURCE of
+        the default: MU_PLAQUETTE_4D is its exact-rational majorant
+        1359141/25000 = 54.36564 ≥ 20e.  The legacy 16 (5d - 4) is
+        strictly below the BF bound and matches no adjacency notion
+        (comparison sweeps only)."""
         direct_bf_bound = math.e * plaquette_edge_neighbor_count(4)
-        assert direct_bf_bound > MU_PLAQUETTE_4D, (
-            "expected direct BF bound 20e ≈ 54.4 > literature 16; "
-            "if this assertion ever fails, recheck whether the cited "
-            "literature value is being refined upward"
-        )
+        assert MU_PLAQUETTE_4D >= direct_bf_bound  # rational majorant ≥ 20e
+        assert MU_PLAQUETTE_4D - direct_bf_bound < 1e-5  # and tight (≈3.4e-6)
+        assert direct_bf_bound > SEILER_5D_MINUS_4_LEGACY
         assert direct_bf_bound > 8.0 * math.e
 
 
@@ -414,28 +422,115 @@ class TestMuPlaquetteBFConservative:
         )
         assert MU_PLAQUETTE_BF_CONSERVATIVE_4D > MU_PLAQUETTE_CONSERVATIVE_4D
 
-    def test_bf_conservative_larger_than_literature(self) -> None:
-        """The genuine BF-conservative (20e ≈ 54.4) is also strictly larger
-        than the Seiler literature value (16), as expected: 16 reflects a
-        tighter argument beyond the BF universal bound that the project
-        cannot reproduce from first principles."""
+    def test_bf_conservative_larger_than_legacy_and_default_majorizes(self) -> None:
+        """Re-pinned 2026-07-25: the BF bound (20e ≈ 54.366) is strictly
+        larger than the LEGACY Seiler-cited 16 (which matches no adjacency
+        notion), and the module default MU_PLAQUETTE_4D is now the
+        exact-rational majorant of the BF bound (default ≥ 20e float)."""
         from computations.large_field_kp import (
             MU_PLAQUETTE_4D,
             MU_PLAQUETTE_BF_CONSERVATIVE_4D,
+            SEILER_5D_MINUS_4_LEGACY,
         )
-        assert MU_PLAQUETTE_BF_CONSERVATIVE_4D > MU_PLAQUETTE_4D
+        assert MU_PLAQUETTE_BF_CONSERVATIVE_4D > SEILER_5D_MINUS_4_LEGACY
+        assert MU_PLAQUETTE_4D >= MU_PLAQUETTE_BF_CONSERVATIVE_4D
 
-    def test_bf_conservative_shrinks_pilot_window(self) -> None:
-        """The genuine BF-conservative μ shrinks g_max_lf vs the literature
-        default — quantitative cost of insisting on rigor."""
+    def test_bf_default_shrinks_pilot_window_vs_legacy(self) -> None:
+        """Re-pinned 2026-07-25: the rigorous default (20e-majorant)
+        shrinks g_max_lf vs the unsupported legacy 16 — the quantitative
+        cost of insisting on rigor, now priced into the default:
+        0.424549 → 0.373289 (≈ −12%)."""
         from computations.large_field_kp import (
             MU_PLAQUETTE_4D,
             MU_PLAQUETTE_BF_CONSERVATIVE_4D,
+            SEILER_5D_MINUS_4_LEGACY,
         )
+        g_legacy = convergence_threshold_g_lf(mu_plaq=SEILER_5D_MINUS_4_LEGACY)
         g_default = convergence_threshold_g_lf(mu_plaq=MU_PLAQUETTE_4D)
         g_bf = convergence_threshold_g_lf(
             mu_plaq=MU_PLAQUETTE_BF_CONSERVATIVE_4D
         )
-        assert g_bf < g_default
-        # Expected ~0.42 → ~0.37, a ~12% reduction.  Allow margin.
-        assert 0.30 < g_bf < 0.40
+        assert g_default < g_legacy
+        assert 0.42 < g_legacy < 0.43
+        assert 0.3732 < g_default < 0.3734
+        # The default (rational majorant) and the float 20e differ by
+        # ≈ 3.4e-6 in μ, i.e. by ≲ 1e-8 in threshold.
+        assert abs(g_default - g_bf) < 1e-4
+
+# --------------------------------------------------------------------------
+# ≥ 20e guard (SL.1 2026-07-25): validity of the polymer KP bound requires
+# μ_plaq ≥ the true growth constant, so the wired-in rational must NEVER be
+# silently downgraded below 20e.  Exact rational arithmetic only — no floats
+# on the certifying side.
+# --------------------------------------------------------------------------
+
+
+class TestMuPlaquetteGe20eGuard:
+    """Guards MU_PLAQUETTE_4D ≥ 20e via rational cross-multiplication."""
+
+    @staticmethod
+    def _e_upper_bound_rational() -> "Fraction":
+        """Exact rational UPPER bound on e via the factorial series:
+
+            e = Σ_{k≥0} 1/k!  ≤  Σ_{k=0}^{n} 1/k! + 1/(n!·(n-1))
+
+        (tail: Σ_{k>n} 1/k! ≤ (1/n!)·Σ_{j≥1} (n+1)^{-j} = 1/(n!·n)
+        ≤ 1/(n!·(n-1)) for n ≥ 2; with n = 15 the certificate error is
+        < 1e-12, ample against the majorant's ≈ 3.4e-6 slack).
+        """
+        from fractions import Fraction
+        n = 15
+        fact = 1
+        e_ub = Fraction(1)  # k = 0 term
+        for k in range(1, n + 1):
+            fact *= k
+            e_ub += Fraction(1, fact)
+        # rational tail bound (n = 15: 1/(15!·14) ≥ true tail)
+        e_ub += Fraction(1, fact * (n - 1))
+        return e_ub
+
+    def test_rational_ge_20e_exact(self) -> None:
+        """MU_PLAQUETTE_4D_RATIONAL ≥ 20e, certified in exact rational
+        arithmetic (cross-multiplication under the hood of Fraction ≤)."""
+        e_ub = self._e_upper_bound_rational()
+        assert 20 * e_ub <= MU_PLAQUETTE_4D_RATIONAL, (
+            f"MU_PLAQUETTE_4D_RATIONAL = {MU_PLAQUETTE_4D_RATIONAL} silently "
+            f"downgraded below 20e (rational 20e upper cert = {20 * e_ub})"
+        )
+
+    def test_float_constant_ge_20e_exact(self) -> None:
+        """The float actually consumed downstream also majorizes 20e:
+        Fraction(float) is exact, so this is a rational statement too.
+        (float ≥ 20·e_ub with e_ub ≥ e implies float ≥ 20e.)"""
+        from fractions import Fraction
+        e_ub = self._e_upper_bound_rational()
+        assert Fraction(MU_PLAQUETTE_4D) >= 20 * e_ub, \
+            "float MU_PLAQUETTE_4D fell below the rational 20e upper certificate"
+        # And the float faithfully represents the rational (< 1e-10 off).
+        assert abs(Fraction(MU_PLAQUETTE_4D) - MU_PLAQUETTE_4D_RATIONAL) < Fraction(1, 10**10)
+
+    @staticmethod
+    def _e_lower_bound_rational() -> "Fraction":
+        """Exact rational LOWER bound on e: the partial series itself."""
+        from fractions import Fraction
+        fact = 1
+        e_lb = Fraction(1)
+        for k in range(1, 16):
+            fact *= k
+            e_lb += Fraction(1, fact)
+        return e_lb
+
+    def test_rational_is_the_documented_majorant(self) -> None:
+        """The wired-in rational is exactly 20 × 2718282/1000000 (reduced),
+        i.e. the 6-significant-digit decimal majorant of e, times 20."""
+        from fractions import Fraction
+        assert MU_PLAQUETTE_4D_RATIONAL == Fraction(20) * Fraction(2718282, 10**6)
+        assert MU_PLAQUETTE_4D_RATIONAL == Fraction(1359141, 25000)
+
+    def test_legacy_16_below_20e(self) -> None:
+        """The legacy Seiler value is strictly below the certified 20e lower
+        bound — it can never be re-adopted as a 'BF-conservative' value."""
+        e_lb = self._e_lower_bound_rational()
+        from fractions import Fraction
+        assert Fraction(16) < 20 * e_lb
+        assert SEILER_5D_MINUS_4_LEGACY == 16.0

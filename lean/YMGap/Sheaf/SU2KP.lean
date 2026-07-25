@@ -40,7 +40,7 @@ just a paper-level argument.
 Both pilot operating points of `formal/mass-gap-theorem.tex`:
 
   * **canonical** at `g = 0.30`: ρ_sf = 25/3, ρ_lf = 6947/1000,
-    K_sf = 6/5, K_lf = 16/1000 (the current canonical `def` values
+    K_sf = 6/5, K_lf = 56/1000 (the current canonical `def` values
     `rho_sf_canonical`, `rho_lf_canonical`, `K_sf_canonical`,
     `K_lf_canonical`).  Note: the 2026-05-26 `c_λ = 3/4` Casimir-gap
     derivation raised ρ_sf by a factor 3/2, from the earlier 50/9 to
@@ -281,9 +281,10 @@ theorem rho_lf_le_rho_sf_canonical : rho_lf_canonical ≤ rho_sf_canonical := by
 /-- Large-field rate at Wilson g = 0.50: `ρ_lf ≈ 10.614`. -/
 def rho_lf_wilson : Q' := Q'.mkPos 10613 1000 (by decide)
 
-/-- Large-field amplitude at canonical g = 0.30: `K_lf ≈ 0.0156`.
+/-- Large-field amplitude at canonical g = 0.30: `K_lf ≈ 0.0552`.
 
-Python returns 0.015624…; rounded UP to 16/1000 in Q'.
+Re-pinned 2026-07-25 (SL.1 μ_plaq upgrade 16 → 1359141/25000 ≥ 20e):
+Python returns 0.055154…; rounded UP to 56/1000 in Q'.
 
 **Algebraic derivation in Lean** (`K_lf_canonical_derivation` below):
 `K_lf` satisfies the Brydges–Federbush cluster-expansion convergence
@@ -291,14 +292,15 @@ relation `K_lf · (1 - q) ≥ q` where `q = μ_plaq · Z_t^upper` is the
 character-expansion residual.  This converts the Python `K_lf = q/(1-q)`
 formula into a Q′-decidable inequality, replacing the original
 `K_lf = 1.0` placeholder with a Q′-algebraically-verified bound. -/
-def K_lf_canonical : Q' := Q'.mkPos 16 1000 (by decide)
+def K_lf_canonical : Q' := Q'.mkPos 56 1000 (by decide)
 
-/-- Large-field amplitude at Wilson g = 0.50: `K_lf ≈ 0.000393`.
+/-- Large-field amplitude at Wilson g = 0.50: `K_lf ≈ 0.00134`.
 
-Python returns 0.000393…; rounded UP to 1/1000 in Q'.  Same
+Re-pinned 2026-07-25 (μ_plaq upgrade): Python returns 0.0013379…;
+rounded UP to 2/1000 in Q'.  Same
 `K_lf · (1 - q) ≥ q` algebraic derivation as canonical
 (`K_lf_wilson_derivation` below). -/
-def K_lf_wilson : Q' := Q'.mkPos 1 1000 (by decide)
+def K_lf_wilson : Q' := Q'.mkPos 2 1000 (by decide)
 
 /-! ### Brydges–Federbush algebraic derivation of K_lf (closes the placeholder)
 
@@ -314,9 +316,10 @@ form: `K_lf · (1 - q) ≥ q`, equivalent to `K_lf ≥ q / (1-q)` when
 `1 - q > 0` (convergent regime).
 
 The Q′-rational values of `q` at each pilot operating point come from
-the Python computation with conservative upward rounding:
-  * canonical g = 0.30: q_actual ≈ 0.01538 → q_upper = 154/10000 (Q′).
-  * Wilson    g = 0.50: q_actual ≈ 0.00039 → q_upper = 4/10000 (Q′).
+the Python computation with conservative upward rounding (re-pinned
+2026-07-25 for the SL.1 μ_plaq upgrade 16 → 1359141/25000 ≥ 20e):
+  * canonical g = 0.30: q_actual ≈ 0.052271 → q_upper = 523/10000 (Q′).
+  * Wilson    g = 0.50: q_actual ≈ 0.001336 → q_upper = 14/10000 (Q′).
 
 The cluster-expansion convergence (`q < 1`) is verified by
 `q_*_lt_one` theorems below.
@@ -329,23 +332,25 @@ formula.  See `notes/large-field-derivation.md` §"3.2-upgrade" for
 the analytical chain. -/
 
 /-- The character-expansion residual `q = μ_plaq · Z_t^upper` at
-canonical g = 0.30: Q′ upper bound `154/10000 = 0.0154`.
+canonical g = 0.30: Q′ upper bound `523/10000 = 0.0523`.
 
 Source: `computations/large_field_kp.py::heat_kernel_character_tail_Z`
-at g=0.30 canonical returns `Z_t^upper ≈ 9.615e-4`; with `μ_plaq = 16`
-the residual is `q ≈ 0.01538`, rounded UP to 154/10000. -/
-def q_canonical_upper : Q' := Q'.mkPos 154 10000 (by decide)
+at g=0.30 canonical returns `Z_t^upper ≈ 9.615e-4`; with the derived
+`μ_plaq = 1359141/25000 = 54.36564 ≥ 20e` (SL.1 2026-07-25) the
+residual is `q ≈ 0.052271`, rounded UP to 523/10000. -/
+def q_canonical_upper : Q' := Q'.mkPos 523 10000 (by decide)
 
 /-- The character-expansion residual at Wilson g = 0.50: Q′ upper
-bound `4/10000 = 0.0004`.
+bound `14/10000 = 0.0014`.
 
-Source: same Python module at Wilson g=0.50: `Z_t^upper ≈ 2.46e-5`,
-`q ≈ 3.93e-4`, rounded UP to 4/10000. -/
-def q_wilson_upper : Q' := Q'.mkPos 4 10000 (by decide)
+Source: same Python module at Wilson g=0.50: `Z_t^upper ≈ 2.458e-5`,
+`q ≈ 1.336e-3` at the derived `μ_plaq = 1359141/25000` (SL.1
+2026-07-25), rounded UP to 14/10000. -/
+def q_wilson_upper : Q' := Q'.mkPos 14 10000 (by decide)
 
 /-- Convergence at canonical: `q < 1` (cluster expansion converges).
 
-`154/10000 < 1`: cross-product `154 · 1 < 1 · 10000` is `154 < 10000` ✓. -/
+`523/10000 < 1`: cross-product `523 · 1 < 1 · 10000` is `523 < 10000` ✓. -/
 theorem q_canonical_lt_one : q_canonical_upper < (1 : Q') := by decide
 
 /-- Convergence at Wilson: `q < 1`. -/

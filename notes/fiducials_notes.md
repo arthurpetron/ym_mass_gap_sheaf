@@ -42,9 +42,39 @@
 > (LNP 159 not in the PDF set); (d) no sign-preservation lemma for the
 > $c_{\text{polymer}} = 1$ tightening was found in any audited PDF.
 >
+> **Update 2026-07-24 (corpus file-identity correction).** The PDF
+> filenames in `docs/pdf_references/` are swapped relative to their
+> contents: `docs/pdf_references/Balaban 116.pdf` actually contains
+> **CMP 109 (1987) 249–301** (RG I, small-field effective actions,
+> d = 4), and `docs/pdf_references/Renormalization Group Approach to
+> Lattice Gauge Field Theories.pdf` actually contains **CMP 116 (1988)
+> 1–22** (RG II, cluster expansions). `Balaban 102.pdf` is CMP 102
+> (1985) 255–275 as labeled. **CMP 119 (1988) 243–285 is not in the
+> corpus.** Any per-fiducial citation of "[Balaban1988RG-II] (CMP 116)"
+> that was read from the file named `Balaban 116` was in fact read from
+> CMP 109; the 2026-05-25 audit's content attributions
+> ((0.27)/(1.18) → CMP 109; (1.32)/(1.36) → CMP 116) are nevertheless
+> correct — the audit evidently keyed on content, not filenames.
+> (Evidence: direct reads of the OCR corpus `_generated/pdf_text/`,
+> 2026-07-24 SL.1 pass.)
+>
+> **Update 2026-07-24/25 (SL.1 extraction pass + retrieval pass).**
+> Three provenance upgrades merged below, each dated and
+> evidence-pointed: (a) the Seiler "$5d-4$" formula is **RESOLVED
+> (negative)** by exact enumeration — see §3.3–§3.4; the code default
+> flipped to the rigorous $20e$ (2026-07-24). (b) The historical
+> $c_\lambda = 1/2$ is **SHAPE-LOCATED** to CMP 109 eq. (0.27) — a
+> proof-device rate split, not an extracted coefficient — see §1.2.
+> (c) A CMP 119 / CMP 122 open-access retrieval attempt (2026-07-25)
+> ended in a **precise null**; the polymer residual 2.0 continues to
+> rest on the internal derivation — see §5.1 and
+> `notes/cmp119_extraction.md`.
+>
 > Each fiducial below carries a `status` field marking how strong its
 > provenance is. One value remains flagged **HEURISTIC** — see the
-> summary table below.
+> summary table below. *(Superseded 2026-07-24: the flagged-value
+> bookkeeping is updated in the dated addendum under the summary
+> table.)*
 
 ---
 
@@ -61,6 +91,10 @@ $$
 $$
 
 **Status: DERIVED — identified with the SU(2) Casimir gap $C_2(1/2) = 3/4$ (2026-05-26).**
+**Status addendum (2026-07-24): + SHAPE-LOCATED — the historical "1/2"
+is now traced to a specific display in the primary source (CMP 109
+eq. (0.27)) and confirmed to be a bookkeeping split, not an extracted
+coefficient. See §1.2.**
 
 **Previous value $c_\lambda = 1/2$ replaced.**  The previous value was a
 pilot-tolerance fiducial supported by the 2026-05-25 PDF audit's
@@ -121,10 +155,20 @@ of the bound; see [Balaban1987RG-I, Balaban1988RG-II].
     \ge (1 - 2\delta)\kappa$ (eq.~1.32) — i.e., `κ` and `κ_1` are linked
     by inequalities, not equalities.
 
+> *(Editorial note 2026-07-24: the file named `Balaban 116.pdf` in the
+> corpus is in fact CMP 109 — see the corpus file-identity correction
+> in the Honest framing. The content attributions in the bullets above
+> are correct as stated.)*
+
 **Verdict of the audit.** Bałaban's framework establishes the
 **existence** of a positive `κ` satisfying a system of upper-bound
 constraints (`κ ≤ κ_0`, plus compatibility with `κ_1, M, γ, ε_i, α_i`).
 The primary sources do NOT pin down a numerical value for `κ`.
+
+> *(Historical text — the two paragraphs below describe the
+> pre-2026-05-26 value 1/2 and are retained for the audit trail. The
+> current wire-in is 3/4; see the derivation at the top of §1 and the
+> located ancestor of the 1/2 in §1.2.)*
 
 The project's `BAŁABAN_SPECTRAL_GAP_COEFF = 1/2` is correctly labeled
 fiducial: it is a representative value within Bałaban's qualitative
@@ -158,6 +202,14 @@ with it, the convergence threshold $g_{\max}^{\mathrm{sf}}$.
 
 ### 1.1. Empirical lower bound: pilot-tolerance threshold (2026-05-25)
 
+> *(Dated note 2026-07-24: the threshold table below was computed
+> against the historical default $c_\lambda = 1/2$; its "default 0.5
+> margin" column reads relative to that value. The thresholds
+> themselves — smallest $c_\lambda$ at which the pilot closes — are
+> unchanged by the 3/4 wire-in; the current default's margin at the
+> canonical wire-in is correspondingly larger (3/4 vs threshold
+> ≈ 0.289 ⇒ ≈ +160%).)*
+
 Although we cannot derive $c_{\lambda}$ from first principles within
 this project (it depends on Gribov-patch geometry, Killing-form
 normalization, and the patch atlas — all undecided in Phase 3), we can
@@ -187,6 +239,54 @@ This empirical lower bound does **not** establish that $c_{\lambda} \ge
 value $0.5$ is consistent with that constraint, but the BOUND comes
 from operational behavior, not from a first-principles derivation.
 
+### 1.2. SHAPE-LOCATED: the historical 1/2 traced to CMP 109 eq. (0.27) (SL.1, 2026-07-24)
+
+**SL.1 direct-text extraction (2026-07-24), CMP 109 p. 258, eq. (0.27).**
+The display in which the factor 1/2 literally appears is (OCR-faithful
+quote from `_generated/pdf_text/Balaban 116.txt` — the file that
+actually contains CMP 109; page 10 of the PDF = p. 258 of CMP 109):
+
+> "If its localization domain X is large, for example it is not
+> contained in any cube □ ∈ π_k, then the inequality (0.25) ensures that
+> |E^(j)(X, U_k)| ≤ E_0 exp(−κ(L^j η)^…) exp(−(1/2)κ d_j(X)),  (0.27)
+> and the first exponential can be bounded by an arbitrary positive
+> power of L^j η, e.g. by (5!/κ^5)(L^j η)^5.  This power is enough to
+> control the sums in (0.23), (0.24)."
+
+The 1/2 in (0.27) is therefore a **decay-rate split**: half of the
+inductive rate κ is spent extracting the small prefactor
+exp(−κ(L^jη)^…), the other half retained as polymer-size decay.  It is
+a proof device, valid for ANY κ satisfying the inductive assumptions —
+not a determination of κ.  The value of κ itself is existence-only:
+
+> **Theorem 3** (CMP 109, p. 264, verbatim): "There exist positive
+> constants κ_0, M(κ), γ, ε_0, ε_1, α_0, α_1 such, that if κ ≤ κ_0,
+> M ≥ M(κ), 0 < g_k ≤ γ for k = 0, 1, …, K, then the sequence of
+> actions A_k, defined inductively by the small field renormalization
+> transformations (0.17)–(0.20), satisfy all the inductive assumptions
+> described between (1.1)–(1.22)."
+
+and the SU(2) specialization defers even its own proof:
+
+> **Theorem 2** (CMP 109, p. 259): "Let d = 4, G = SU(2), and let γ be
+> a sufficiently small positive constant, then for a sufficiently small
+> positive g there exists a bare coupling constant g_0 = g_0(ε, γ) such
+> that the sequence of the effective coupling constants g_k is
+> contained in the interval ]0, γ], and g_K = g. […] A proof of this
+> theorem, based on perturbative calculations, will be given in a
+> separate paper."
+
+**Upgraded verdict (2026-07-24).**  The 2026-05-25 audit conclusion
+("existence-only, no numerical κ") is CONFIRMED at quote level, and
+sharpened: the project's historical c_λ = 1/2 shape now has a located
+ancestor — the (0.27) rate-split — which makes explicit that 1/2 was
+never a property of the gauge group or the Laplacian, only of
+Bałaban's bookkeeping.  This retroactively strengthens the 2026-05-26
+decision to re-derive the value internally as the SU(2) Casimir gap
+C_2(1/2) = 3/4: the primary sources supply no number that could
+contradict (or support) any specific rational.  Nothing in CMP
+109/116/102 pins c_λ.
+
 **Citations.**
 - TeX: `\cite{Balaban1987RG-I,Balaban1988RG-II,BrydgesFederbush1978}`
 - Lean (planned quantitative closure): import `YMGap.Constructive.Rationals`
@@ -194,6 +294,12 @@ from operational behavior, not from a first-principles derivation.
 - Python: `computations.small_field_kp.BAŁABAN_SPECTRAL_GAP_COEFF`
   (currently `Fraction(1, 2)`).
 - Empirical lower bound: `computations.fiducial_sensitivity.c_lambda_pilot_tolerance_threshold`.
+- *Addendum 2026-07-24: the Lean and Python lines above are the
+  historical 1/2 wiring retained for the audit trail; the current
+  wire-in is `Q'.C2_oneHalf` (= 3/4) in Lean and `Fraction(3, 4)` in
+  Python, per the 2026-05-26 derivation and the downstream-impact
+  table at the top of §1. Shape-location witness: §1.2 quotes from
+  `_generated/pdf_text/` (SL.1 pass).*
 
 ---
 
@@ -250,6 +356,18 @@ $$
 **Status: LITERATURE-SHAPE VALUE; FORMULA $5d-4$ COMMONLY CITED BUT
 NOT VERIFIED BY DIRECT WEB SEARCH.**
 
+**Status update (2026-07-24): the $5d - 4$ question is RESOLVED
+(negative) by exact enumeration — see §3.3–§3.4. The formula matches
+no natural plaquette-adjacency notion at any $d$; the $d = 4$ value 16
+coincides with the non-coplanar edge-neighbor count $8(d-2)$ and only
+there. `MU_PLAQUETTE_4D = 16` is downgraded from "widely cited but not
+verified" to "UNSUPPORTED for the code-consumed counting statement".
+The KP-consumed adjacency graph has max-degree exactly 20 at $d = 4$,
+so the rigorous derivable constant is
+`MU_PLAQUETTE_BF_CONSERVATIVE_4D = 20e` (§3.2). Disposition: the
+**$20e$ default was adopted 2026-07-24** (see §3.4); 16 is retained
+only as an explicitly-caveated literature-shape option.**
+
 **Shape source.** The plaquette-polymer connectivity bound on a
 d-dimensional cubic lattice: the number of connected plaquette-polymers
 of size $n$ containing a fixed plaquette is bounded by
@@ -264,7 +382,9 @@ and [ItzyksonDrouffe1989].
 directly verifiable from the project's WebSearch pass — none of the
 returned excerpts contained the formula verbatim. It is widely cited
 in the field but the project does not (yet) have a primary-source
-verification.
+verification. *(Superseded 2026-07-24: §3.3 shows the formula cannot
+be a plaquette-adjacency count at all; primary-source verification is
+no longer the blocking question.)*
 
 **Three honest options:**
 
@@ -289,6 +409,11 @@ verification.
    $g_{\max}^{\mathrm{lf}} \to 0.374$ (~12% reduction), with the SU(2)
    pilot still closing because the sf threshold (≈ 0.40) is binding.
 
+*(Disposition 2026-07-24: option 3 adopted as the project default,
+on the strength of the §3.3–§3.4 enumeration. Option 1 survives only
+with an explicit "restricted-class, unverified" caveat; option 2
+remains deprecated.)*
+
 **All three are available in code** (as of 2026-05-25):
 
 ```python
@@ -304,6 +429,10 @@ kp_site_alt = compute_large_field_kp(g, mu_plaq=MU_PLAQUETTE_CONSERVATIVE_4D)
 kp_rigorous = compute_large_field_kp(g, mu_plaq=MU_PLAQUETTE_BF_CONSERVATIVE_4D)
 ```
 
+*(Note 2026-07-24: the inline comment "default" above reflects the
+pre-flip state; per the §3.4 disposition the adopted default is
+`MU_PLAQUETTE_BF_CONSERVATIVE_4D = 20e`.)*
+
 Sensitivity sweep: `computations/fiducial_sensitivity.py::sweep_mu_plaq`
 (includes all three values in the default sweep).
 
@@ -312,7 +441,9 @@ of the plaquette-polymer connectivity bound for $d = 4$ (or any tighter
 bound from later literature, e.g. for restricted polymer classes
 in [DrouffeItzykson1978] / [ItzyksonDrouffe1989]). Refinement
 *enlarges* the lf convergent regime. The shape of $K_{\mathrm{lf}}$
-does not change.
+does not change. *(2026-07-24: any such extraction must now also
+explain which restricted class or counting weight the $5d-4$ refers
+to, since §3.3 rules out all unrestricted adjacency counts.)*
 
 ### 3.1. Direct edge-neighbor count — audit note (2026-05-25)
 
@@ -377,6 +508,8 @@ audit shows:
 runs in this regime). Document the conservative fallback's justification
 as pending re-derivation. Treat the direct count $20e$ as a verified
 upper bound for sanity-checking — not as a default.
+*(Superseded 2026-07-24: recommendation reversed by the §3.3–§3.4
+enumeration; $20e$ adopted as default.)*
 
 **Code exposure (2026-05-25).** `computations/large_field_kp.py` now
 provides `plaquette_edge_neighbor_count(d) → 8d - 12` as the direct
@@ -483,6 +616,10 @@ Avoid `MU_PLAQUETTE_CONSERVATIVE_4D = 8e` for new code: it's preserved
 as a backwards-compat alias but its "conservative for plaquettes"
 justification is invalid.
 
+*(2026-07-24: the first recommendation is now the adopted default;
+the second survives only with the "restricted-class, unverified"
+caveat of §3.4.)*
+
 **Generalizes to arbitrary $d$.** The helper `mu_plaquette_bf_conservative(d)`
 returns `e · (8d - 12)` for any $d \ge 2$:
 
@@ -491,11 +628,111 @@ returns `e · (8d - 12)` for any $d \ge 2$:
   - $d = 4$: $20 e \approx 54.37$
   - $d = 5$: $28 e \approx 76.11$
 
+### 3.3. Exact enumeration of all adjacency notions — the $5d-4$ formula RESOLVED negative (SL.1, 2026-07-24)
+
+`computations/plaquette_connectivity.py` (developed in the 2026-07-24
+SL.1 pass as `sl1/plaquette_connectivity.py`, pinned by the 15 tests of
+`sl1/test_plaquette_connectivity.py`) enumerates, in exact integer
+arithmetic with a provable bounding-box exhaustiveness certificate
+(base coordinates of any vertex-sharing plaquette lie in {−1, 0, 1};
+the scan runs over [−2, 2]^d and asserts no qualifier touches the
+boundary), every plaquette of every orientation adjacent to a fixed
+unit xy-plaquette P₀ at the origin:
+
+| notion                              | d=2 | d=3 | d=4 | d=5 | exact formula |
+| ---                                 | --- | --- | --- | --- | ---           |
+| share ≥ 1 edge                      | 4   | 12  | 20  | 28  | 8d − 12       |
+| … coplanar                          | 4   | 4   | 4   | 4   | 4             |
+| … non-coplanar                      | 0   | 8   | 16  | 24  | 8(d − 2)      |
+| share ≥ 1 vertex                    | 8   | 32  | 72  | 128 | 8(d − 1)²     |
+| … vertex-only (no edge)             | 4   | 20  | 52  | 100 | 8d² − 24d + 20 |
+| ≥ 2 shared vertices without an edge | 0   | 0   | 0   | 0   | 0             |
+| plaquettes containing a fixed bond  | 2   | 4   | 6   | 8   | 2(d − 1) ✓ BFS (4.24) |
+| plaquettes containing a fixed vertex| 4   | 12  | 24  | 40  | 2d(d − 1)     |
+| **formula 5d − 4 (Seiler-cited)**   | 6   | 11  | 16  | 21  | —             |
+
+Formula-in-d proofs (three-point exact polynomial fits, verified at a
+fourth d where the count is defined): an edge in direction μ lies in
+2(d−1) plaquettes (one per perpendicular direction and side; BFS 1978
+eq. (4.24), already confirmed in §3.1), so each of P₀'s 4 edges
+contributes 2(d−1) − 1 = 2d − 3 other plaquettes, all distinct across
+edges: 4(2d − 3) = 8d − 12.  Of these, exactly one per edge is coplanar
+(the reflected square), giving 4 and 8d − 16 = 8(d − 2) for the split.
+For vertex-sharing: 2d(d−1) plaquettes contain a given vertex (choose
+the plane, C(d,2) ways, and the quadrant, 4 ways); inclusion–exclusion
+over P₀'s 4 vertices (no plaquette shares ≥ 2 vertices with P₀ without
+sharing an edge — enumerated 0 in all d) gives 8(d−1)².
+
+**Conclusion 1 — the 5d − 4 formula matches NO adjacency notion at any
+d.**  The single numerical agreement is at d = 4, where 5d − 4 = 16
+coincides with the non-coplanar edge-neighbor count 8(d − 2) — and only
+there (d = 3: 8 vs 11; d = 5: 24 vs 21).  A coincidence, not a formula.
+
+### 3.4. The code-consumed counting statement, tested directly (SL.1, 2026-07-24)
+
+What `computations/large_field_kp.py` actually consumes (via
+K_lf = q/(1−q), q = μ_plaq·Z_t) is
+
+    N_n(P₀) := #{edge-connected plaquette polymers X, |X| = n, P₀ ∈ X}
+             ≤ μ_plaq^n.
+
+Exact enumeration of N_n (same module, duplicate-free connected-subgraph
+enumeration):
+
+| d = 4 | N_n     | N_n / N_{n−1} | 16^n      | N_n ≤ 16^n |
+| ---   | ---     | ---           | ---       | ---        |
+| n = 1 | 1       | —             | 16        | OK         |
+| n = 2 | 20      | 20.0          | 256       | OK         |
+| n = 3 | 458     | 22.9          | 4096      | OK         |
+| n = 4 | 11 132  | 24.3          | 65 536    | OK         |
+| n = 5 | 280 175 | 25.2          | 1 048 576 | OK         |
+
+(d = 3: N_n = 1, 12, 158, 2148, 29685; ratios 12.0 → 13.8.)
+
+**Conclusion 2 — 16 holds for n ≤ 5 but is not asymptotically
+defensible.**  The one-step growth ratios exceed 16 from n = 2 onward
+and increase monotonically (20.0, 22.9, 24.3, 25.2 → the animal growth
+constant λ from below).  Unless growth saturates below 16 — implausible
+given the monotone ratios and the degree-20 graph — N_n ≤ 16^n fails at
+some finite n (naive extrapolation at ratio ≈ 25.5: first violation
+near n ≈ 8).  This is evidence, not a theorem: the enumerated n ≤ 5
+give a rigorous λ lower bound of only (N_5/5)^{1/5} ≈ 8.9.  What IS a
+theorem is: (i) 5d − 4 counts none of the natural adjacency notions,
+and (ii) the code-consumed graph has max-degree exactly 20, so the
+rigorous derivable constant is `MU_PLAQUETTE_BF_CONSERVATIVE_4D = 20e`
+(§3.2), unchanged.
+
+**Disposition (2026-07-24): 20e default adopted.**  If Seiler's LNP 159
+(still not in the corpus; not openly accessible) proves a 5d − 4 bound,
+it must concern a restricted polymer class or a different counting
+weight, not the unrestricted N_n above.  Accordingly the code default
+flips to `MU_PLAQUETTE_BF_CONSERVATIVE_4D = 20e`; 16 is retained only
+with an explicit "restricted-class, unverified" caveat.  Downstream
+touch-points of `MU_PLAQUETTE_4D` (grep 2026-07-24):
+`compute_large_field_kp` / `eps_lf` / `first_few_rg_steps` /
+`convergence_threshold_g_lf` defaults in
+`computations/large_field_kp.py`; the `mu_plaq` parameter of
+`sigma_hat_trajectory`; `fiducial_sensitivity.sweep_mu_plaq` and
+`max_g0_closure`.  Cost of the flip (already measured in §3.2):
+canonical g_max^lf 0.4245 → 0.3733 (≈ −12%); pilot closure at the
+canonical g₀ = 0.30 wire-in unchanged (sf window ≈ 0.40/0.49 binding).
+
 **Citations.**
 - TeX: `\cite{Seiler1982,DrouffeItzykson1978,ItzyksonDrouffe1989}`
 - Lean: not currently a Lean constant; if needed, encode as a `Q'` or
   `Nat` (since $16 \in \mathbb{N}$, this is trivial).
 - Python: `computations.large_field_kp.MU_PLAQUETTE_4D` (float = 16.0).
+- *Addendum 2026-07-24:*
+  - *Enumeration witness: `computations/plaquette_connectivity.py`
+    (SL.1; developed as `sl1/plaquette_connectivity.py` with 15 pinned
+    tests in `sl1/test_plaquette_connectivity.py`).*
+  - *Per-bond count: [BrydgesFroehlichSeiler1978IHES] eq. (4.24)
+    (unchanged, ✓).*
+  - *5d − 4 attribution: [Seiler1982] LNP 159 — cited-but-unverified,
+    now additionally shown incompatible with every natural adjacency
+    count; a 2026-07-24 web pass again surfaced no verbatim statement.*
+  - *Adopted default: `computations.large_field_kp.MU_PLAQUETTE_BF_CONSERVATIVE_4D`
+    (= 20e), per the §3.4 disposition.*
 
 ---
 
@@ -534,6 +771,14 @@ $$
 $$
 
 **Status: DERIVED (reclassified 2026-05-25).** Previously HEURISTIC.
+
+**Status update (2026-07-24/25): DERIVED (project-internal
+triangle-inequality channel count, unchanged). The literature
+shape-source citation [Balaban1988convergent] (CMP 119) is demoted to
+"motivating, not supplying": the SL.1 reconnaissance (2026-07-24) and
+the follow-up open-access retrieval pass (2026-07-25) established that
+the constant cannot currently be extracted from any locally held or
+openly accessible primary source. Precise-null record in §5.1.**
 
 **First-principles derivation** (full argument in
 `notes/sigma-hat-derivation.md` §2.3-derivation; surfaced in code as
@@ -586,11 +831,99 @@ The historical match $2/4 = 1/2$ with the previous placeholder is now
 independently-derived worst-case happens to equal 1/2 with the
 spec-mandated $A_{\min} = 4$.
 
+### 5.1. CMP 119 / CMP 122 extraction reconnaissance — precise null (SL.1 2026-07-24, retrieval pass 2026-07-25)
+
+**Reconnaissance record.**
+
+1. **CMP 119 (1988) 243–285 is absent from the local corpus** —
+   `docs/pdf_references/` contains CMP 102, CMP 109, CMP 116 (see the
+   file-identity correction in the Honest framing), BFS-IHES, the Clay
+   statement, and Jørgensen; no CMP 119.  Bibliographic identity
+   confirmed externally: T. Bałaban, "Convergent renormalization
+   expansions for lattice gauge theories", Commun. Math. Phys. 119
+   (1988) 243–285, DOI 10.1007/BF01217741.  Full text is
+   subscription-gated at Springer; the Project Euclid open archive is
+   bot-walled (Incapsula) from this container, so no legitimate open
+   extraction path was available.
+
+2. **CMP 116 (present) supplies no numerical residual factor.**  Its
+   cluster-expansion bounds carry named-but-unpinned absolute
+   constants and inequality-linked rates, e.g. (quotes from
+   `_generated/pdf_text/Renormalization Group Approach to Lattice
+   Gauge Field Theories.txt` — the file that actually contains CMP 116;
+   pp. 9–10 of CMP 116):
+
+   > "exp(−(1 − δ)κ d_k(Y) − δκ d_j(X)),  (1.32)  if
+   > ½(κ₁ − 1) ≥ (1 − δ)κ, 0 < δ < 1."
+
+   > "**Lemma 1.** […] There exist absolute constants C₁, C₂, q, for
+   > which |V′_k(Y, U, J, B)| ≤ B₀ ε₁ C₁ M^q exp(C₂κ₁)
+   > exp(−(1 − 2δ)κ d_k(Y)).  (1.36)"
+
+   plus the further ordering assumption "(1/8)κ₁ ≥ (1 − 2δ)κ" (p. 9;
+   OCR partially garbled, consistent with the 2026-05-25 audit's
+   reading of the same constraint).  Everything is existence-only; no
+   factor-2 (or any numeric) per-polymer residual appears.
+
+3. **Dedicated open-access retrieval pass (2026-07-25) — precise null
+   upheld and strengthened.**  Full log in
+   `notes/cmp119_extraction.md`.  Summary:
+   - **Exact identities pinned** (Springer DOI pages): CMP 119 as
+     above; the companions are T. Bałaban, "Large field
+     renormalization. I. The basic step of the ℝ operation", Commun.
+     Math. Phys. **122** (1989) 175–202, DOI 10.1007/BF01257412, and
+     "Large field renormalization. II. Localization, exponentiation,
+     and bounds for the R operation", Commun. Math. Phys. **122**
+     (1989) 355–392, DOI 10.1007/BF01238433.
+   - The **direct Project Euclid open-archive PDF URL for CMP 119 was
+     located** (`euclid.cmp/1104162401`, via the crawlable search
+     index) but returns an Incapsula bot-challenge instead of the PDF;
+     the issue TOC page fails the same way.  Wayback-Machine copies
+     are proxy-blocked (HTTP 403 at the agent proxy);
+     api.fatcat.wiki timed out; scholar.archive.org rate-limited;
+     GDZ/DigiZeitschriften shows **no CMP holdings at all** (dead end,
+     not merely blocked).  Springer pages are reachable but
+     subscription-gated (USD 39.95/PDF).
+   - Abstract-level content (Springer): CMP 119 introduces "an
+     inductive description of the complete effective densities
+     including large field domains" and yields convergent expansions
+     for superrenormalizable models; CMP 122-I constructs the
+     large-field ℝ operation; CMP 122-II supplies its localization,
+     exponentiation, and bounds, completing the UV-stability proof
+     (its Theorem 1).  Nothing at abstract level asserts a numeric
+     residual constant.
+   - Dimock's open-access review series "The Renormalization Group
+     According to Balaban" (arXiv 1108.1335 / 1212.5562 / 1304.0705)
+     treats the scalar φ⁴ model in d = 3 as an expository
+     reconstruction of the *method* — it is not a source for the
+     gauge-theory residual constants.
+
+4. **Consequence.**  The constant 2.0 continues to rest entirely on the
+   project-internal derivation of §5 (triangle inequality on the
+   per-polymer activity change under T_b; channel multiplicity 2;
+   optimal worst-case absent a sign-preservation lemma).  What
+   extraction WOULD require: CMP 119 §§ on the R-operation /
+   large-field–small-field recombination (pages 243–285), plus its
+   companions CMP 122 I/II (175–202, 355–392), under matched
+   conventions — with the realistic expectation, given the uniform
+   pattern of Theorems 1–3 (CMP 109) and Lemma 1 (CMP 116) and the
+   qualitative framing of the CMP 122 abstracts, that those papers
+   also supply existence-constants only, in which case the internal
+   derivation remains the strongest available provenance.  Concrete
+   unblock: a human fetch of the Euclid PDF from a normal browser (the
+   archive is genuinely open access), or institutional Springer access
+   for the three DOIs, followed by a rerun of the extraction hunt
+   against `_generated/pdf_text/`.
+
 **Citations.**
 - TeX: `\cite{Balaban1988convergent,BrydgesFederbush1978}`
 - Lean (planned quantitative closure): import
   `YMGap.Constructive.Rationals`, use `Q'.ofNat 2`.
 - Python: `computations.sigma_hat_trajectory.BALABAN_POLYMER_RESIDUAL`.
+- *Addendum 2026-07-24/25: mark `\cite{Balaban1988convergent}` as
+  *shape/motivation only*; the constant's provenance citation is
+  `notes/sigma-hat-derivation.md` §2.3-derivation. Retrieval log:
+  `notes/cmp119_extraction.md`.*
 
 ---
 
@@ -632,15 +965,35 @@ physics constants.**
 
 ## Summary table
 
+*(Table rows updated 2026-07-25 to reflect the current wire-ins; the
+superseded row contents are quoted in the dated note below the table,
+so no history is lost.)*
+
 | Constant | Value | Status | Refine? | Sweep entry point |
 | --- | --- | --- | --- | --- |
-| `BAŁABAN_SPECTRAL_GAP_COEFF` | 1/2 | literature-shape fiducial; pilot-tolerance lower bound 0.289 at canonical wire-in (§1.1) | refinement requires Bałaban paper extraction | `fiducial_sensitivity.sweep_spectral_gap_coeff`, `c_lambda_pilot_tolerance_threshold` |
+| `BAŁABAN_SPECTRAL_GAP_COEFF` | 3/4 | DERIVED (SU(2) Casimir $C_2(1/2)$, 2026-05-26); historical 1/2 SHAPE-LOCATED to CMP 109 eq. (0.27) rate-split (2026-07-24); primary sources numerical-value-free (quote-confirmed); pilot-tolerance lower bound 0.289 at canonical wire-in (§1.1) | further refinement requires Gribov-patch / atlas analytics, not paper extraction (§1.2) | `fiducial_sensitivity.sweep_spectral_gap_coeff`, `c_lambda_pilot_tolerance_threshold` |
 | `MU_CONNECTIVITY_4D` | log(8e) | literature formula | already standard | — |
-| `MU_PLAQUETTE_4D` | 16 | literature-shape (5d-4) | genuinely-BF-conservative fallback `MU_PLAQUETTE_BF_CONSERVATIVE_4D = 20e` (or deprecated `MU_PLAQUETTE_CONSERVATIVE_4D = 8e`, site-bound) | `fiducial_sensitivity.sweep_mu_plaq` |
+| `MU_PLAQUETTE_4D` | 16 (option only; **default now `20e`**, adopted 2026-07-24) | **RESOLVED-negative for 5d−4 (2026-07-24)**: matches no adjacency notion at any d; d = 4 agreement with 8(d−2) = 16 coincidental; N_n ≤ 16^n verified only for n ≤ 5 with growth ratios already > 16; rigorous default `MU_PLAQUETTE_BF_CONSERVATIVE_4D = 20e` (§3.3–§3.4) | only via a restricted-class extraction from Seiler LNP 159 (still inaccessible) | `fiducial_sensitivity.sweep_mu_plaq` |
 | `J_MAX_DEFAULT` | 12 | engineering | only if needed | — |
-| `BALABAN_POLYMER_RESIDUAL` | 2.0 | **DERIVED 2026-05-25** | tighter c=1 via sign-preservation lemma (open) | `fiducial_sensitivity.sweep_polymer_residual` |
+| `BALABAN_POLYMER_RESIDUAL` | 2.0 | **DERIVED 2026-05-25** (internal triangle-inequality, unchanged); CMP 119/122 extraction: **precise null** (2026-07-24/25 — paper absent locally, open archive bot-walled, Springer gated; CMP 116 existence-only, quote-confirmed) (§5.1) | tighter c=1 via sign-preservation lemma (open); or primary-source extraction if CMP 119/122 PDFs are obtained | `fiducial_sensitivity.sweep_polymer_residual` |
 | `WILSON_LOOP_MIN_AREA_DIMENSIONLESS` | 4 | from project spec | n/a | — |
 | Trajectory defaults | various | engineering | n/a | — |
+
+> **Dated note (2026-07-25) — superseded row contents, for the audit
+> trail.** Before this update the table's `BAŁABAN_SPECTRAL_GAP_COEFF`
+> row still read "1/2 — literature-shape fiducial; pilot-tolerance
+> lower bound 0.289 at canonical wire-in (§1.1) — refinement requires
+> Bałaban paper extraction". That row was stale on two counts: (i) the
+> value had been 3/4 since the 2026-05-26 Casimir derivation recorded
+> at the top of §1 (the table was simply never updated); (ii) the
+> "refinement requires Bałaban paper extraction" pointer is obsolete —
+> §1.2 shows at quote level that the papers contain no extractable
+> number (the 1/2 in CMP 109 (0.27) is a rate-split proof device).
+> The `MU_PLAQUETTE_4D` row previously read "16 — literature-shape
+> (5d-4)" with the 20e fallback listed as refinement; superseded by
+> the §3.3–§3.4 resolution and the 2026-07-24 default flip. The
+> `BALABAN_POLYMER_RESIDUAL` row previously cited only the 2026-05-25
+> derivation; the precise-null extraction record (§5.1) is appended.
 
 **One flagged HEURISTIC value remaining (after 2026-05-25 derivation pass):**
 1. `BAŁABAN_SPECTRAL_GAP_COEFF = 1/2` (literature-shape, but the
@@ -659,6 +1012,23 @@ physics constants.**
    (`derive_polymer_boundary_channel_count() → 2`). See §5 for the
    first-principles derivation. The tighter `c = 1` requires a
    sign-preservation lemma (open analytic refinement).
+
+> **Dated supersession of the flagged-value bookkeeping (2026-07-25).**
+> The three numbered items above are the 2026-05-25 state, retained
+> verbatim for the audit trail. Current state:
+> 1. **No HEURISTIC value remains.** `BAŁABAN_SPECTRAL_GAP_COEFF` is
+>    3/4, DERIVED (Casimir, 2026-05-26), with the historical 1/2
+>    SHAPE-LOCATED to CMP 109 eq. (0.27) (2026-07-24, §1.2).
+> 2. The "widely cited but not directly verified" flag on
+>    `MU_PLAQUETTE_4D = 16` is superseded by **RESOLVED-negative**
+>    (2026-07-24, §3.3): 5d−4 is not a plaquette-adjacency count.
+>    Default flipped to `MU_PLAQUETTE_BF_CONSERVATIVE_4D = 20e`; note
+>    also that item 2's "−0.2%" figure referred to the deprecated 8e
+>    fallback, whereas the adopted 20e default costs ≈ −12% of the lf
+>    window — inactive at the canonical wire-in (sf-binding, §3.4).
+> 3. `BALABAN_POLYMER_RESIDUAL = 2.0` unchanged (DERIVED, internal);
+>    literature extraction attempt closed as a precise null (§5.1,
+>    `notes/cmp119_extraction.md`).
 
 ---
 
@@ -711,6 +1081,12 @@ physics constants.**
   The pilot window is dominated by the small-field fiducial; the
   conservative large-field fallback is essentially free.
 
+  *(Dated note 2026-07-25: the sample table above predates the
+  2026-05-26 c_λ = 3/4 wire-in and the 2026-07-24 μ_plaq = 20e default
+  flip; rerun `max_g0_closure` for current figures. The qualitative
+  conclusion — sf-fiducial-dominated pilot window — is unchanged, per
+  the §3.4 cost measurement.)*
+
 ---
 
 ## Bibliography (mirror of `formal/references.bib`)
@@ -719,10 +1095,18 @@ physics constants.**
 | --- | --- |
 | `Balaban1987RG-I` | Bałaban, "RG approach to lattice gauge field theories. I", CMP 109 (1987), 249–301. |
 | `Balaban1988RG-II` | Bałaban, "RG approach to lattice gauge field theories. II. Cluster expansions", CMP 116 (1988), 1–22. |
-| `Balaban1988convergent` | Bałaban, "Convergent renormalization expansions for lattice gauge theories", CMP 119 (1988), 243–285. |
+| `Balaban1988convergent` | Bałaban, "Convergent renormalization expansions for lattice gauge theories", CMP 119 (1988), 243–285. DOI 10.1007/BF01217741; Project Euclid `euclid.cmp/1104162401`. *(2026-07-24/25: shape/motivation-only for §5; not locally held; open archive bot-walled — see §5.1.)* |
+| `Balaban1989LargeField-I` | Bałaban, "Large field renormalization. I. The basic step of the ℝ operation", CMP 122 (1989), 175–202. DOI 10.1007/BF01257412. *(Added 2026-07-25; identity confirmed via Springer; not locally held.)* |
+| `Balaban1989LargeField-II` | Bałaban, "Large field renormalization. II. Localization, exponentiation, and bounds for the R operation", CMP 122 (1989), 355–392. DOI 10.1007/BF01238433. *(Added 2026-07-25; identity confirmed via Springer; not locally held.)* |
 | `BrydgesFederbush1978` | Brydges & Federbush, "A new form of the Mayer expansion...", JMP 19 (1978), 2064–2067. |
 | `Seiler1982` | Seiler, *Gauge Theories as a Problem of Constructive QFT...*, LNP 159, Springer 1982. |
 | `DrouffeItzykson1978` | Drouffe & Itzykson, "Lattice gauge fields", Phys. Rep. 38 (1978), 133–175. |
 | `ItzyksonDrouffe1989` | Itzykson & Drouffe, *Statistical Field Theory* (Vol. 1 & 2), Cambridge 1989. |
 | `Cammarota1982` | Cammarota, "Decay of correlations for infinite range interactions in unbounded spin systems", CMP 85 (1982), 517–528. |
 | `GlimmJaffe1987` | Glimm & Jaffe, *Quantum Physics: A Functional Integral Point of View* (2nd ed.), Springer 1987. |
+
+> **Corpus filename caveat (2026-07-24).** In `docs/pdf_references/`,
+> the file `Balaban 116.pdf` contains `Balaban1987RG-I` (CMP 109) and
+> `Renormalization Group Approach to Lattice Gauge Field Theories.pdf`
+> contains `Balaban1988RG-II` (CMP 116); see the Honest framing for
+> the full correction.
