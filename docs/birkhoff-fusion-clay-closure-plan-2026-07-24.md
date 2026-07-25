@@ -333,7 +333,23 @@ at the stated cutoff and geometry, together with a proved enlargement
 scheme, or a complete physical counterexample retaining all coherent
 boundary data.
 
-## Next milestone — BF3.1: whole corrected-slab Kraus kernel
+## Closed milestone — BF3.1: whole corrected-slab Kraus kernel
+
+**Closed 2026-07-25 at physical representation cutoff one.**  The smallest
+whole corrected slab has 72 faces.  Its complete binary physical sector
+gives 32 exact rank-one Kraus blocks on a 64-state half-boundary carrier and
+an independently reconstructed mass polynomial.  All 512 spacing-two
+binary Wilson words have explicit 128-channel affine Haar fibres, including
+four- and six-valent intertwiner packets.  The first non-vacuum fibre is
+fully evaluated and has a nonzero signed normalized remainder.  Exact
+leading terms in all four \(P/Q\) blocks show that every finite
+representation cutoff leaks.  See
+`notes/bf3-1-whole-corrected-slab-kraus.md`.
+
+The older multiplicity-product conditional kernel remains a useful formal
+normalization scaffold but is not identified with this coherent Haar map.
+All-label summability and a physical vanishing-remainder estimate remain
+open.
 
 BF2.1 fixes the carrier and its order.  BF3.1 must now inhabit the map rather
 than infer it from complete positivity.
@@ -369,6 +385,35 @@ representation cutoff.
 The gate closes only with an explicit whole-slab physical kernel.  A generic
 CP-map theorem, the BF1.6 disk, a scalar mass ledger, or a map on
 multiplicity vectors is not an exit certificate.
+
+## Next milestone — BF3.2: all-label kernel and vanishing remainder
+
+### Goal
+
+Upgrade the BF3.1 cutoff-one affine Haar fibres to the full heat-kernel
+representation field and prove that the coherent normalized remainder has a
+cutoff- and volume-uniform vanishing modulus in the same PSD boundary-kernel
+norm.
+
+### Required actions
+
+1. construct the all-label fusion/intertwiner fibre over every coarse Wilson
+   word, retaining all signed \(F/R\) transport;
+2. give a summable heat-tail envelope uniform in the finite slab volume;
+3. control \(P\Phi Q\), \(Q\Phi P\), and \(Q\Phi Q\) without deleting their
+   coherence;
+4. evaluate or enclose the actual normalized Haar remainder, not the older
+   multiplicity-product surrogate remainder;
+5. return an explicit cutoff modulus and a volume-uniform norm bound that
+   tends to zero at the required blocking scale;
+6. identify the exact all-label kernel passed to BF4.
+
+### Exit test
+
+BF3.2 closes only when the same exact Haar map constructed in BF3.1 has an
+all-label, cutoff-uniform completion and a vanishing physical remainder.
+The universal probability bound two, zero vacuum coefficient, or a
+finite-cutoff table is not sufficient.
 
 ## BF2–BF4: contraction engine
 

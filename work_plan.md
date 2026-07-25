@@ -24,20 +24,21 @@ multiplicity-only certificates to preserving the full physical object:
 5. one shared continuum object through OS reconstruction and spectral-gap
    identification.
 
-**BF2.1, “general reflection-cut positivity carrier,” closed on 2026-07-24
-by the enlarged reflected-Gram route.**  The full heat-kernel Gibbs
-reflection form is a Gram/SOS kernel on the complete fusion- and
-intertwiner-resolved boundary space, and exact Haar blocking is completely
-positive on its PSD cone.  The unit-four-cube certificate enumerates all 64
-binary half-surfaces, bijects their 128 gluings with every closed binary
-surface, and finds exact PSD factorizations for all 32 one-strand and 528
-two-strand boundary blocks.  This does not prove entrywise (DP), contraction,
-or finite-cutoff block closure.  The **next active milestone is BF3.1,
-“whole corrected-slab Kraus kernel.”**  It must construct the actual
-plaquette-coupled block map, joint coarse-intertwiner transport, mass, and
-coherent remainder.  Unless the current BF plan explicitly delegates a
-task back to one of the historical phases below, BF3.1 and then BF4--BF10
-control execution order.
+**BF3.1, “whole corrected-slab Kraus kernel,” closed on 2026-07-25 at
+physical representation cutoff one.**  The 72-face slab has an exact
+32-block rank-one reflected Haar kernel, a 64-state half-boundary carrier,
+and independently reconstructed mass
+\(1+32s^{18}+96s^{30}+224s^{36}+192s^{42}+3s^{48}\).
+Every one of the 512 binary spacing-two Wilson words now has a complete
+128-state coherent Haar fibre.  The first non-vacuum fibre has been
+evaluated exactly and gives a nonzero signed normalized remainder.  All four
+\(P/Q\) blocks are retained, and a label-\(N+1\) witness proves that no
+finite representation cutoff is invariant under the full heat law.  The
+older multiplicity-product Lean kernel is retained only as a typed
+normalization scaffold, not promoted to the exact Haar object.  The **next
+active milestone is BF3.2, “all-label kernel and vanishing remainder.”**
+Unless the current BF plan explicitly delegates a task back to one of the
+historical phases below, BF3.2 and then BF4--BF10 control execution order.
 
 Each milestone has:
 - A **goal** stated as a checkable predicate.
