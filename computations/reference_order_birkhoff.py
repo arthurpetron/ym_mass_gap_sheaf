@@ -35,8 +35,11 @@ from functools import cache
 from typing import TypeAlias
 
 from computations.all_label_whole_slab_tail import (
+    WHOLE_SLAB_FACE_COUNT,
     bf32_all_label_frontier,
     heat_character_sup_term,
+    jacobi_heat_kernel_floor,
+    single_plaquette_all_label_tail,
 )
 from computations.bf3_3_birkhoff_handoff import (
     whole_slab_density_handoff_audit,
@@ -446,6 +449,104 @@ def trace_small_order_large_witness(
     return witness
 
 
+@dataclass(frozen=True)
+class PhysicalConditionalDoeblin:
+    """All-label physical minorization from pointwise heat-kernel bounds."""
+
+    coupling: Fraction
+    majorant_cutoff: int
+    active_plaquettes: int
+    plaquette_lower: Fraction
+    plaquette_upper: Fraction
+    normalized_density_lower: Fraction
+    normalized_density_upper: Fraction
+    projective_spread: Fraction
+    birkhoff_rate_bound: Fraction
+    boundary_holonomy_uniform: bool
+    ambient_volume_independent: bool
+    representation_cutoff_independent: bool
+    deterministic_pushforward_preserves_bounds: bool
+    complete_physical_conditional_family: bool
+    spacing_uniform_physical_rate: bool
+
+    def validates(self) -> bool:
+        try:
+            floor = jacobi_heat_kernel_floor(self.coupling)
+            majorant = single_plaquette_all_label_tail(
+                self.coupling,
+                self.majorant_cutoff,
+            )
+        except ValueError:
+            return False
+        lower = floor.heat_kernel_floor
+        upper = majorant.total_upper_bound
+        density_lower = (lower / upper) ** self.active_plaquettes
+        density_upper = (upper / lower) ** self.active_plaquettes
+        spread = density_upper / density_lower
+        return (
+            self.active_plaquettes == WHOLE_SLAB_FACE_COUNT
+            and self.plaquette_lower == lower > 0
+            and self.plaquette_upper == upper >= lower
+            and self.normalized_density_lower == density_lower > 0
+            and self.normalized_density_upper == density_upper
+            and self.normalized_density_lower
+            * self.normalized_density_upper
+            == 1
+            and self.projective_spread == spread
+            and self.birkhoff_rate_bound
+            == (spread - 1) / (spread + 1)
+            == (
+                self.normalized_density_upper
+                - self.normalized_density_lower
+            ) / (
+                self.normalized_density_upper
+                + self.normalized_density_lower
+            )
+            and 0 <= self.birkhoff_rate_bound < 1
+            and self.boundary_holonomy_uniform
+            and self.ambient_volume_independent
+            and self.representation_cutoff_independent
+            and self.deterministic_pushforward_preserves_bounds
+            and self.complete_physical_conditional_family
+            and not self.spacing_uniform_physical_rate
+        )
+
+
+def physical_conditional_doeblin(
+    coupling: Fraction,
+    majorant_cutoff: int,
+) -> PhysicalConditionalDoeblin:
+    """Construct the fixed-coupling all-label physical Doeblin envelope."""
+
+    floor = jacobi_heat_kernel_floor(coupling)
+    majorant = single_plaquette_all_label_tail(coupling, majorant_cutoff)
+    lower = floor.heat_kernel_floor
+    upper = majorant.total_upper_bound
+    density_lower = (lower / upper) ** WHOLE_SLAB_FACE_COUNT
+    density_upper = (upper / lower) ** WHOLE_SLAB_FACE_COUNT
+    spread = density_upper / density_lower
+    certificate = PhysicalConditionalDoeblin(
+        coupling=coupling,
+        majorant_cutoff=majorant_cutoff,
+        active_plaquettes=WHOLE_SLAB_FACE_COUNT,
+        plaquette_lower=lower,
+        plaquette_upper=upper,
+        normalized_density_lower=density_lower,
+        normalized_density_upper=density_upper,
+        projective_spread=spread,
+        birkhoff_rate_bound=(spread - 1) / (spread + 1),
+        boundary_holonomy_uniform=True,
+        ambient_volume_independent=True,
+        representation_cutoff_independent=True,
+        deterministic_pushforward_preserves_bounds=True,
+        complete_physical_conditional_family=True,
+        spacing_uniform_physical_rate=False,
+    )
+    if not certificate.validates():
+        raise AssertionError("the physical conditional Doeblin bound drifted")
+    return certificate
+
+
 def _sample_envelope() -> ReferenceOrderEnvelope:
     return reference_order_envelope(
         (
@@ -477,7 +578,9 @@ class BF4ReferenceConeFrontier:
     dimension_free_envelope_theorem: bool
     bf31_map_positive_improving: bool
     all_label_reference_minorization_proved: bool
+    fixed_coupling_local_diameter_proved: bool
     fixed_distance_grouped_diameter_proved: bool
+    spacing_uniform_physical_rate_proved: bool
     trace_tail_implies_relative_order_tail: bool
     physical_relative_order_remainder_proved: bool
     bf32_ready_for_handoff: bool
@@ -490,6 +593,7 @@ class BF4ReferenceConeFrontier:
         sample = _sample_envelope()
         collapse = heat_trace_cone_interior_collapse(Fraction(1, 2), 6)
         separation = trace_small_order_large_witness(Fraction(1, 2), 6)
+        physical = physical_conditional_doeblin(Fraction(1, 2), 2)
         return (
             self.bf2_order_carrier_id
             == "BF2.1-complete-reflected-PSD-trace-class-kernel"
@@ -505,14 +609,18 @@ class BF4ReferenceConeFrontier:
             and not self.bf31_map_positive_improving
             and not bf31.cut_signature_mixing
             and bf31.every_component_rank_one
-            and not self.all_label_reference_minorization_proved
+            and self.all_label_reference_minorization_proved
+            and physical.validates()
+            and self.fixed_coupling_local_diameter_proved
+            and not physical.spacing_uniform_physical_rate
             and not self.fixed_distance_grouped_diameter_proved
+            and not self.spacing_uniform_physical_rate_proved
             and not self.physical_relative_order_remainder_proved
-            and not self.bf32_ready_for_handoff
-            and not bf32.bf32_closed
+            and self.bf32_ready_for_handoff
+            and bf32.bf32_closed
             and not self.bf4_ready
             and self.first_open_obligation
-            == "bound-physical-centered-remainder-in-relative-heat-order"
+            == "sharpen-Doeblin-rate-to-fixed-physical-distance-scaling"
         )
 
 
@@ -528,14 +636,16 @@ def bf4_reference_cone_frontier() -> BF4ReferenceConeFrontier:
         reference_order_cone_required=True,
         dimension_free_envelope_theorem=True,
         bf31_map_positive_improving=False,
-        all_label_reference_minorization_proved=False,
+        all_label_reference_minorization_proved=True,
+        fixed_coupling_local_diameter_proved=True,
         fixed_distance_grouped_diameter_proved=False,
+        spacing_uniform_physical_rate_proved=False,
         trace_tail_implies_relative_order_tail=False,
         physical_relative_order_remainder_proved=False,
-        bf32_ready_for_handoff=False,
+        bf32_ready_for_handoff=True,
         bf4_ready=False,
         first_open_obligation=(
-            "bound-physical-centered-remainder-in-relative-heat-order"
+            "sharpen-Doeblin-rate-to-fixed-physical-distance-scaling"
         ),
     )
     if not frontier.validates():

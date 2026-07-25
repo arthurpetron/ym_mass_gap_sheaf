@@ -1,4 +1,4 @@
-"""Exact regression gates for the BF3.2 fixed-block all-label completion."""
+"""Exact regression gates for the BF3.2 all-label Haar/trace completion."""
 
 from fractions import Fraction
 
@@ -8,6 +8,7 @@ from computations.all_label_whole_slab_tail import (
     WHOLE_SLAB_FACE_COUNT,
     all_coupling_conditional_normalized_tail,
     all_coupling_normalized_cutoff,
+    bf2_trace_kernel_cutoff,
     bf2_trace_kernel_tail,
     bf32_all_label_frontier,
     computable_all_label_haar_coefficient,
@@ -17,6 +18,7 @@ from computations.all_label_whole_slab_tail import (
     heat_character_sup_term,
     heat_character_tail_ratio,
     jacobi_heat_kernel_floor,
+    rational_sqrt_upper,
     single_plaquette_all_label_tail,
     strong_coupling_normalized_cutoff,
     strong_coupling_normalized_tail,
@@ -173,13 +175,29 @@ def test_local_gibbs_tail_controls_every_coherent_bf2_trace_block() -> None:
     assert certificate.validates()
     assert certificate.boundary_feature_slots == 9
     assert certificate.evaluation_norm_squared_upper > 0
-    assert certificate.trace_norm_tail_bound > 0
-    assert {
-        certificate.retained_block_bound,
-        certificate.retained_to_outside_block_bound,
-        certificate.outside_to_retained_block_bound,
-        certificate.outside_block_bound,
-    } == {certificate.trace_norm_tail_bound}
+    assert certificate.density_trace_norm_bound > 0
+    assert certificate.boundary_outside_diagonal_bound > 0
+    assert certificate.boundary_cross_trace_norm_bound**2 >= (
+        certificate.boundary_cross_squared_bound
+    )
+    assert certificate.retained_block_bound == (
+        certificate.density_trace_norm_bound
+    )
+    assert certificate.retained_to_outside_block_bound == (
+        certificate.boundary_cross_trace_norm_bound
+    )
+    assert certificate.outside_to_retained_block_bound == (
+        certificate.boundary_cross_trace_norm_bound
+    )
+    assert certificate.outside_block_bound == (
+        certificate.boundary_outside_diagonal_bound
+    )
+    assert certificate.total_trace_norm_tail_bound == (
+        certificate.retained_block_bound
+        + certificate.retained_to_outside_block_bound
+        + certificate.outside_to_retained_block_bound
+        + certificate.outside_block_bound
+    )
     assert certificate.complete_magnetic_features
     assert certificate.complete_intertwiner_projection
     assert certificate.unitary_recoupling_invariant
@@ -187,7 +205,23 @@ def test_local_gibbs_tail_controls_every_coherent_bf2_trace_block() -> None:
     assert not certificate.actual_fine_coarse_rg_remainder
 
 
-def test_bf32_frontier_does_not_promote_a_fixed_block_tail_to_bf4() -> None:
+def test_rational_square_root_enclosure_is_exact_and_one_sided() -> None:
+    assert rational_sqrt_upper(Fraction(0)) == 0
+    assert rational_sqrt_upper(Fraction(1, 4)) == Fraction(1, 2)
+    upper = rational_sqrt_upper(Fraction(2))
+    assert upper * upper >= 2
+    assert (upper - 1) ** 2 < 2
+
+
+def test_complete_bf2_trace_tail_has_a_constructive_cutoff_modulus() -> None:
+    point = bf2_trace_kernel_cutoff(Fraction(1, 2), Fraction(1, 100))
+
+    assert point.validates()
+    assert point.total_trace_norm_tail_bound <= Fraction(1, 100)
+    assert point.previous_cutoff_fails
+
+
+def test_bf32_closes_at_paper_level_and_hands_off_to_bf4() -> None:
     frontier = bf32_all_label_frontier()
 
     assert frontier.validates()
@@ -201,6 +235,9 @@ def test_bf32_frontier_does_not_promote_a_fixed_block_tail_to_bf4() -> None:
     assert not frontier.jacobi_floor_identity_formalized
     assert frontier.complete_boundary_trace_cauchy_name
     assert frontier.bf2_psd_norm_identified
-    assert not frontier.actual_rg_remainder_bounded
-    assert not frontier.bf32_closed
-    assert frontier.next_gate == "BF3.2-remains-before-BF4"
+    assert frontier.actual_normalized_haar_remainder_bounded
+    assert not frontier.fine_coarse_ansatz_remainder_bounded
+    assert frontier.bf32_paper_closed
+    assert not frontier.bf32_lean_closed
+    assert frontier.bf32_closed
+    assert frontier.next_gate == "BF4-physical-reference-order-minorization"

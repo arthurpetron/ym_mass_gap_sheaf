@@ -8,6 +8,7 @@ from computations.reference_order_birkhoff import (
     bf4_reference_cone_frontier,
     centered_reference_remainder,
     heat_trace_cone_interior_collapse,
+    physical_conditional_doeblin,
     reference_order_envelope,
     trace_small_order_large_witness,
 )
@@ -137,6 +138,26 @@ def test_trace_norm_can_vanish_while_relative_order_stays_one() -> None:
     assert len(set(trace_norms)) == len(trace_norms)
 
 
+def test_physical_conditional_family_has_fixed_coupling_finite_diameter() -> None:
+    certificate = physical_conditional_doeblin(Fraction(1, 2), 2)
+
+    assert certificate.validates()
+    assert certificate.active_plaquettes == 72
+    assert 0 < certificate.plaquette_lower <= certificate.plaquette_upper
+    assert 0 < certificate.normalized_density_lower < 1
+    assert certificate.normalized_density_upper > 1
+    assert certificate.normalized_density_lower * (
+        certificate.normalized_density_upper
+    ) == 1
+    assert 0 < certificate.birkhoff_rate_bound < 1
+    assert certificate.boundary_holonomy_uniform
+    assert certificate.ambient_volume_independent
+    assert certificate.representation_cutoff_independent
+    assert certificate.deterministic_pushforward_preserves_bounds
+    assert certificate.complete_physical_conditional_family
+    assert not certificate.spacing_uniform_physical_rate
+
+
 def test_bf4_is_reformulated_but_not_opened_by_the_abstract_engine() -> None:
     frontier = bf4_reference_cone_frontier()
 
@@ -145,12 +166,14 @@ def test_bf4_is_reformulated_but_not_opened_by_the_abstract_engine() -> None:
     assert frontier.dimension_free_envelope_theorem
     assert not frontier.full_trace_cone_has_trace_norm_interior
     assert not frontier.bf31_map_positive_improving
-    assert not frontier.all_label_reference_minorization_proved
+    assert frontier.all_label_reference_minorization_proved
+    assert frontier.fixed_coupling_local_diameter_proved
     assert not frontier.fixed_distance_grouped_diameter_proved
+    assert not frontier.spacing_uniform_physical_rate_proved
     assert not frontier.trace_tail_implies_relative_order_tail
     assert not frontier.physical_relative_order_remainder_proved
-    assert not frontier.bf32_ready_for_handoff
+    assert frontier.bf32_ready_for_handoff
     assert not frontier.bf4_ready
     assert frontier.first_open_obligation == (
-        "bound-physical-centered-remainder-in-relative-heat-order"
+        "sharpen-Doeblin-rate-to-fixed-physical-distance-scaling"
     )

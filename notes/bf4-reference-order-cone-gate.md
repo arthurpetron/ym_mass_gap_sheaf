@@ -2,8 +2,8 @@
 
 Date: 2026-07-25
 
-Status: **BF4 target corrected and its dimension-free abstract lemma
-constructed; the physical minorization remains open**.
+Status: **active BF4 gate**.  A fixed-coupling physical minorization is
+constructed; its spacing-uniform fixed-distance mass rate remains open.
 
 ## 1. The BF2 cone is an order carrier, not yet the Birkhoff cone
 
@@ -176,6 +176,70 @@ for every \(N\).  Thus it supplies no strict lower minorization.  The exact
 finite witnesses are executable.  BF4 needs a heat-relative tail estimate,
 not only a Schatten/trace tail.
 
+### Fixed-coupling physical minorization
+
+The BF3.2 Jacobi floor supplies a first physical reference-order estimate,
+without enumerating representations.  Condition on every link outside one
+corrected slab.  For every boundary condition \(b\), the internal-link
+weight satisfies
+
+\[
+ L_s^{72}
+ \le
+ w_b(U)
+ \le
+ H_s^{72},
+\]
+
+where \(L_s>0\) is the rational Jacobi floor and \(H_s\) is the rational
+all-label character upper bound.  The conditional partition has the same
+two bounds.  Relative to normalized internal Haar measure \(\lambda\),
+
+\[
+ \left(\frac{L_s}{H_s}\right)^{72}\lambda
+ \le
+ \mu_b
+ \le
+ \left(\frac{H_s}{L_s}\right)^{72}\lambda.
+\]
+
+Push both sides through the deterministic coarse-holonomy map.  Positivity
+of pushforward preserves the inequalities, so every physical boundary
+condition has the same reference support and finite projective diameter.
+Writing
+
+\[
+ \alpha_s=\left(\frac{L_s}{H_s}\right)^{72},
+ \qquad
+ \beta_s=\left(\frac{H_s}{L_s}\right)^{72},
+\]
+
+gives the exact dimension-free fixed-coupling rate
+
+\[
+ q_s
+ \le
+ \frac{\beta_s-\alpha_s}{\beta_s+\alpha_s}<1.
+\]
+
+The constants are independent of ambient volume and representation cutoff.
+This closes the existence of an all-label physical minorization and repairs
+the cutoff-one support disconnection after complete physical grouping.
+
+It is far too crude to close the mass-scale estimate.  Decimal guides for
+the exact certified deficits are
+
+| \(s\) | character majorant cutoff | \(\log_{10}(1-q_s)\) |
+|---:|---:|---:|
+| \(1/2\) | 2 | \(-215.6\) |
+| \(3/4\) | 6 | \(-631.5\) |
+| \(9/10\) | 16 | \(-1642.1\) |
+
+These numbers do not disprove a physical mass rate; they show that global
+pointwise floor/ceiling comparison throws away essentially all of it.  BF4
+now needs a grouped comparison that uses fusion/heat locality rather than
+the worst holonomy on every plaquette.
+
 ## 3. Why BF3.1 cannot inhabit the estimate
 
 The BF3.1 cutoff-one density consists of 32 disconnected rank-one
@@ -198,27 +262,28 @@ repair.
 
 | BF4 field | Current state |
 |---|---|
-| exact all-label Haar-network block kernel | the local reflected boundary Gram has a heat-weighted Peter--Weyl trace-norm Cauchy name; the actual fine-to-coarse versus coarse-Gibbs remainder remains open |
+| exact all-label Haar-network block kernel | BF3.2 closed: the local reflected boundary Gram has a heat-weighted Peter--Weyl trace-norm Cauchy name and complete coherent cutoff modulus |
 | invariant positive carrier | BF2 PSD trace-class order carrier proved; invariance of a quantitative reference-order subcone is open |
 | signed intertwiner transport | closed at BF3.1 finite cutoff |
-| global or grouped mixing | absent at BF3.1; open for the all-label grouped map |
-| physical projective norm | corrected candidate: Hilbert order relative to \(R_a\); not yet inhabited by the physical map |
-| fixed-distance diameter | abstract formula complete conditional on \((\mathrm{DOEBLIN})_{a,L}\); physical constants open |
+| global or grouped mixing | complete for the fixed-coupling physical conditional family by Haar-reference minorization |
+| physical projective norm | inhabited at fixed coupling by Hilbert order relative to pushed Haar; a sharp heat-relative cone is open |
+| fixed-coupling local diameter | complete, cutoff- and ambient-volume-independent |
+| fixed-physical-distance scaling | open; the current pointwise certificate has a catastrophically small deficit |
 | coherent representation-tail domination | complete in BF2 trace norm; actual fine/coarse RG remainder open |
 | coupling-dependent cutoff | all-coupling rational Jacobi-floor schedule constructed; the differentiated identity's Lean transport is open |
-| volume uniformity | local conditional truncation is ambient-volume uniform at every rational coupling; physical remainder and minorization constants are open |
+| volume uniformity | local conditional truncation and fixed-coupling minorization are ambient-volume uniform; physical-distance scaling is open |
 
-BF4 is therefore reached as a precisely formulated gate, not opened as a
-proved contraction milestone.
+BF3.2 now supplies an admissible all-label handoff.  BF4 is therefore active
+as a precisely formulated gate, not closed as a contraction milestone.
 
 ## 5. The next theorem
 
 The highest-leverage theorem is now:
 
 > For the exact all-label, normalized, fixed-distance grouped Haar block,
-> construct a faithful heat reference kernel \(R_a\) and prove
-> \(-\delta_aR_a\preceq E_A\preceq\delta_aR_a\) for every physical input,
-> with \(\delta_a\) independent of ambient volume and representation cutoff.
+> replace the worst-holonomy \(L_s/H_s\) comparison by a local
+> fusion/heat-relative comparison whose grouped rate over physical length
+> \(L\) has a positive spacing-uniform exponent.
 
 At microscopic distance the correct target remains
 

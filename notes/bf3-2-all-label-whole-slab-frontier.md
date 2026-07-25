@@ -2,8 +2,10 @@
 
 Date: 2026-07-25
 
-Status: **fixed-block all-label construction complete; full BF3.2 remains
-open**.
+Status: **closed at paper level by a localized all-label Haar/trace-class
+completion**.  The differentiated infinite Jacobi identity used by the
+all-coupling floor is not yet transported through the repository's Lean
+`CReal` development.
 
 ## 1. Result
 
@@ -249,15 +251,36 @@ and hence
 \]
 
 Resolving gauge invariance and intertwiners is an orthogonal projection and
-cannot increase this norm.  For the finite boundary projection \(P\) and
-\(Q=1-P\), the trace ideal property gives
+cannot increase this norm.
+
+There is a second, distinct tail: truncating the boundary feature vector
+itself.  For the cutoff projection \(P_N\) and \(Q_N=1-P_N\), put
+
+\[
+ D_N(s)=9H_N(s)^8T_N(s).
+\]
+
+Then
 
 \[
 \begin{aligned}
-\lVert P\delta GP\rVert_1&\le\lVert\delta G\rVert_1,\\
-\lVert P\delta GQ\rVert_1&\le\lVert\delta G\rVert_1,\\
-\lVert Q\delta GP\rVert_1&\le\lVert\delta G\rVert_1,\\
-\lVert Q\delta GQ\rVert_1&\le\lVert\delta G\rVert_1.
+\lVert Q_NGQ_N\rVert_1
+&\le D_N(s),\\
+\lVert P_NGQ_N\rVert_1,\,
+\lVert Q_NGP_N\rVert_1
+&\le \sqrt{H_N(s)^9D_N(s)}.
+\end{aligned}
+\]
+
+The implementation replaces the square root by an exact rational upper
+enclosure.  Combining the Gibbs-density and feature-space tails gives
+
+\[
+\begin{aligned}
+\lVert G-P_NG_NP_N\rVert_1
+\le{}&
+H_N(s)^9\lVert\delta\mu_N\rVert_{L^1}\\
+&+2\sqrt{H_N(s)^9D_N(s)}+D_N(s).
 \end{aligned}
 \]
 
@@ -293,9 +316,10 @@ the normalized conditional truncation estimate above is uniform in the
 ambient finite volume and in the boundary condition at every rational
 coupling.
 
-Finally, representation truncation is not the RG remainder.  The actual
-remainder compares the normalized fine Gibbs pushforward with the actual
-coarse Gibbs law and retains
+Finally, the BF3.2 representation-cutoff remainder is not the later
+fine-pushforward-versus-coarse-ansatz RG remainder.  That later remainder
+compares the normalized fine Gibbs pushforward with a named coarse reference
+law and retains
 
 \[
   P\Phi Q,\qquad Q\Phi P,\qquad Q\Phi Q.
@@ -303,8 +327,8 @@ coarse Gibbs law and retains
 
 `CompactDualPhysicalRemainderLocality` proves that every intertwined
 fine/coarse cylinder mismatch lower-bounds its \(L^1\) norm.  Thus no global
-refresh kernel can manufacture a zero remainder; the physical cylinder
-mismatches still have to be bounded.
+refresh kernel can manufacture a zero RG remainder; those cylinder
+mismatches still have to be bounded before RG-I7--I9.
 
 ## 4. Gate ledger
 
@@ -320,19 +344,23 @@ mismatches still have to be bounded.
 | control all coherent \(P/Q\) truncation blocks in that norm | complete |
 | boundary/ambient-volume-uniform conditional truncation tail | complete at every rational coupling |
 | global additive volume tail | impossible by the naïve route; localization is mandatory |
-| bound the actual fine/coarse RG remainder | open |
-| pass a ready physical kernel to BF4 | not yet admissible |
+| complete trace-norm cutoff modulus | constructive; at \(s=1/2\), \(N=18\) is least certified for total error \(<10^{-2}\) |
+| BF3.2 paper exit | closed |
+| axiom-clean Lean transport of differentiated Jacobi identity | open |
+| bound the later fine/coarse ansatz RG remainder | open; not part of the cutoff-completion claim |
+| pass the exact all-label carrier to BF4 | complete |
 
-The next theorem is therefore:
+The BF3.2 exit is the exact all-label local Haar kernel together with a
+cutoff- and ambient-volume-uniform vanishing modulus for its normalized
+coherent \(P/Q\) remainder in the BF2 trace-class norm.  This is now
+constructed.
 
-> Construct the actual local fine-to-coarse Haar pushforward and compare it
-> with the actual coarse Gibbs conditional law in the same BF2 trace norm;
-> bound every resulting cylinder mismatch and coherent remainder with
-> constants independent of ambient volume.  Then strengthen the centered
-> remainder to the relative heat-order inequality required by BF4.
+The next theorem, at BF4, is:
 
-Only after this theorem can the grouped physical map be tested against
-BF4's nine-field handoff.
+> For the exact grouped physical map, center every normalized output at a
+> faithful same-map heat reference \(R_a\) and prove the relative-order bound
+> \(-\delta_aR_a\preceq E_A\preceq\delta_aR_a\), uniformly in cutoff and
+> volume over fixed physical distance.
 
 ## 6. Reproduction
 

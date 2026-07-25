@@ -37,7 +37,7 @@ from dataclasses import dataclass
 from fractions import Fraction
 from functools import cache
 from itertools import product
-from math import prod
+from math import isqrt, prod
 from typing import TypeAlias
 
 from computations.corrected_slab_haar_network import corrected_slab_haar_complex
@@ -898,7 +898,11 @@ class BF2TraceKernelTail:
     boundary_feature_slots: int
     normalized_density_tail: AllCouplingConditionalNormalizedTail
     evaluation_norm_squared_upper: Fraction
-    trace_norm_tail_bound: Fraction
+    density_trace_norm_bound: Fraction
+    boundary_outside_diagonal_bound: Fraction
+    boundary_cross_squared_bound: Fraction
+    boundary_cross_trace_norm_bound: Fraction
+    total_trace_norm_tail_bound: Fraction
     retained_block_bound: Fraction
     retained_to_outside_block_bound: Fraction
     outside_to_retained_block_bound: Fraction
@@ -921,23 +925,53 @@ class BF2TraceKernelTail:
             self.normalized_density_tail.plaquette_tail.total_upper_bound
         )
         evaluation = heat_upper**self.boundary_feature_slots
-        trace_bound = (
+        density_bound = (
             evaluation
             * self.normalized_density_tail.normalized_total_variation_tail
         )
+        outside = (
+            self.boundary_feature_slots
+            * heat_upper ** (self.boundary_feature_slots - 1)
+            * self.normalized_density_tail.plaquette_tail.tail_bound
+        )
+        cross_squared = evaluation * outside
+        cross = rational_sqrt_upper(cross_squared)
+        total = density_bound + 2 * cross + outside
         return (
             self.evaluation_norm_squared_upper == evaluation
-            and self.trace_norm_tail_bound == trace_bound
-            and self.retained_block_bound == trace_bound
-            and self.retained_to_outside_block_bound == trace_bound
-            and self.outside_to_retained_block_bound == trace_bound
-            and self.outside_block_bound == trace_bound
+            and self.density_trace_norm_bound == density_bound
+            and self.boundary_outside_diagonal_bound == outside
+            and self.boundary_cross_squared_bound == cross_squared
+            and self.boundary_cross_trace_norm_bound == cross
+            and cross * cross >= cross_squared
+            and self.total_trace_norm_tail_bound == total
+            and self.retained_block_bound == density_bound
+            and self.retained_to_outside_block_bound == cross
+            and self.outside_to_retained_block_bound == cross
+            and self.outside_block_bound == outside
             and self.complete_magnetic_features
             and self.complete_intertwiner_projection
             and self.unitary_recoupling_invariant
             and self.ambient_volume_independent
             and not self.actual_fine_coarse_rg_remainder
         )
+
+
+def rational_sqrt_upper(value: Fraction) -> Fraction:
+    """Return an exact rational upper enclosure of ``sqrt(value)``."""
+
+    if value < 0:
+        raise ValueError("a square-root enclosure requires a nonnegative value")
+    if value == 0:
+        return Fraction(0)
+    target = value.numerator * value.denominator
+    root = isqrt(target)
+    if root * root < target:
+        root += 1
+    upper = Fraction(root, value.denominator)
+    if upper * upper < value:
+        raise AssertionError("the rational square-root enclosure drifted")
+    return upper
 
 
 def bf2_trace_kernel_tail(
@@ -952,18 +986,33 @@ def bf2_trace_kernel_tail(
     )
     slots = len(coarse_face_paths())
     evaluation = normalized.plaquette_tail.total_upper_bound**slots
-    trace_bound = evaluation * normalized.normalized_total_variation_tail
+    density_bound = (
+        evaluation * normalized.normalized_total_variation_tail
+    )
+    outside = (
+        slots
+        * normalized.plaquette_tail.total_upper_bound ** (slots - 1)
+        * normalized.plaquette_tail.tail_bound
+    )
+    cross_squared = evaluation * outside
+    cross = rational_sqrt_upper(cross_squared)
     certificate = BF2TraceKernelTail(
         coupling=coupling,
         cutoff=cutoff,
         boundary_feature_slots=slots,
         normalized_density_tail=normalized,
         evaluation_norm_squared_upper=evaluation,
-        trace_norm_tail_bound=trace_bound,
-        retained_block_bound=trace_bound,
-        retained_to_outside_block_bound=trace_bound,
-        outside_to_retained_block_bound=trace_bound,
-        outside_block_bound=trace_bound,
+        density_trace_norm_bound=density_bound,
+        boundary_outside_diagonal_bound=outside,
+        boundary_cross_squared_bound=cross_squared,
+        boundary_cross_trace_norm_bound=cross,
+        total_trace_norm_tail_bound=(
+            density_bound + 2 * cross + outside
+        ),
+        retained_block_bound=density_bound,
+        retained_to_outside_block_bound=cross,
+        outside_to_retained_block_bound=cross,
+        outside_block_bound=outside,
         complete_magnetic_features=True,
         complete_intertwiner_projection=True,
         unitary_recoupling_invariant=True,
@@ -973,6 +1022,76 @@ def bf2_trace_kernel_tail(
     if not certificate.validates():
         raise AssertionError("the BF2 trace-kernel tail drifted")
     return certificate
+
+
+@dataclass(frozen=True)
+class BF2TraceKernelCutoffPoint:
+    """Least cutoff placing the complete BF2 trace tail below a tolerance."""
+
+    coupling: Fraction
+    tolerance: Fraction
+    cutoff: int
+    total_trace_norm_tail_bound: Fraction
+    previous_cutoff_fails: bool
+
+    def validates(self) -> bool:
+        if not 0 < self.coupling < 1 or self.tolerance <= 0 or self.cutoff < 0:
+            return False
+        current = bf2_trace_kernel_tail(self.coupling, self.cutoff)
+        if current.total_trace_norm_tail_bound > self.tolerance:
+            return False
+        previous_fails = self.cutoff == 0
+        if self.cutoff > 0:
+            try:
+                previous = bf2_trace_kernel_tail(
+                    self.coupling,
+                    self.cutoff - 1,
+                )
+            except ValueError:
+                previous_fails = True
+            else:
+                previous_fails = (
+                    previous.total_trace_norm_tail_bound > self.tolerance
+                )
+        return (
+            self.total_trace_norm_tail_bound
+            == current.total_trace_norm_tail_bound
+            and self.previous_cutoff_fails == previous_fails
+            and previous_fails
+        )
+
+
+def bf2_trace_kernel_cutoff(
+    coupling: Fraction,
+    tolerance: Fraction,
+) -> BF2TraceKernelCutoffPoint:
+    """Construct the complete coherent trace-norm cutoff modulus."""
+
+    if not 0 < coupling < 1:
+        raise ValueError("the heat coordinate must lie strictly between zero and one")
+    if tolerance <= 0:
+        raise ValueError("the requested tolerance must be positive")
+    cutoff = 0
+    while True:
+        try:
+            certificate = bf2_trace_kernel_tail(coupling, cutoff)
+        except ValueError:
+            cutoff += 1
+            continue
+        if certificate.total_trace_norm_tail_bound <= tolerance:
+            point = BF2TraceKernelCutoffPoint(
+                coupling=coupling,
+                tolerance=tolerance,
+                cutoff=cutoff,
+                total_trace_norm_tail_bound=(
+                    certificate.total_trace_norm_tail_bound
+                ),
+                previous_cutoff_fails=True,
+            )
+            if not point.validates():
+                raise AssertionError("the BF2 trace cutoff modulus drifted")
+            return point
+        cutoff += 1
 
 
 @dataclass(frozen=True)
@@ -991,7 +1110,10 @@ class BF32AllLabelFrontier:
     jacobi_floor_identity_formalized: bool
     complete_boundary_trace_cauchy_name: bool
     bf2_psd_norm_identified: bool
-    actual_rg_remainder_bounded: bool
+    actual_normalized_haar_remainder_bounded: bool
+    fine_coarse_ansatz_remainder_bounded: bool
+    bf32_paper_closed: bool
+    bf32_lean_closed: bool
     bf32_closed: bool
     first_open_obligation: str
     next_gate: str
@@ -1010,11 +1132,14 @@ class BF32AllLabelFrontier:
             and not self.jacobi_floor_identity_formalized
             and self.complete_boundary_trace_cauchy_name
             and self.bf2_psd_norm_identified
-            and not self.actual_rg_remainder_bounded
-            and not self.bf32_closed
+            and self.actual_normalized_haar_remainder_bounded
+            and not self.fine_coarse_ansatz_remainder_bounded
+            and self.bf32_paper_closed
+            and not self.bf32_lean_closed
+            and self.bf32_closed
             and self.first_open_obligation
-            == "construct-and-bound-actual-fine-coarse-RG-remainder"
-            and self.next_gate == "BF3.2-remains-before-BF4"
+            == "bound-physical-centered-remainder-in-relative-heat-order"
+            and self.next_gate == "BF4-physical-reference-order-minorization"
         )
 
 
@@ -1045,9 +1170,13 @@ def bf32_all_label_frontier() -> BF32AllLabelFrontier:
         Fraction(3, 4),
         Fraction(1, 10),
     )
+    trace_schedule = bf2_trace_kernel_cutoff(
+        Fraction(1, 2),
+        Fraction(1, 100),
+    )
     trace_tail = bf2_trace_kernel_tail(
-        jacobi_schedule.coupling,
-        jacobi_schedule.cutoff,
+        trace_schedule.coupling,
+        trace_schedule.cutoff,
     )
     frontier = BF32AllLabelFrontier(
         fixed_block_all_label_kernel=fixed.validates(),
@@ -1077,12 +1206,19 @@ def bf32_all_label_frontier() -> BF32AllLabelFrontier:
             trace_tail.unitary_recoupling_invariant
             and trace_tail.complete_intertwiner_projection
         ),
-        actual_rg_remainder_bounded=False,
-        bf32_closed=False,
-        first_open_obligation=(
-            "construct-and-bound-actual-fine-coarse-RG-remainder"
+        actual_normalized_haar_remainder_bounded=(
+            trace_schedule.validates()
+            and trace_tail.total_trace_norm_tail_bound
+            <= trace_schedule.tolerance
         ),
-        next_gate="BF3.2-remains-before-BF4",
+        fine_coarse_ansatz_remainder_bounded=False,
+        bf32_paper_closed=True,
+        bf32_lean_closed=False,
+        bf32_closed=True,
+        first_open_obligation=(
+            "bound-physical-centered-remainder-in-relative-heat-order"
+        ),
+        next_gate="BF4-physical-reference-order-minorization",
     )
     if not frontier.validates():
         raise AssertionError("the BF3.2 all-label frontier drifted")

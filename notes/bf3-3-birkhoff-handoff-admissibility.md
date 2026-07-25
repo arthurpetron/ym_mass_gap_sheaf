@@ -6,6 +6,12 @@ Status: **closed by the exact obstruction route**. This is a diagnostic
 milestone, completed out of dependency order at the user's request. BF3.2
 remains open and must be closed before the physical map can enter BF4.
 
+**Subsequent status (2026-07-25):** BF3.2 is now closed at paper level by the
+localized all-label Haar/trace-class construction in
+`notes/bf3-2-all-label-whole-slab-frontier.md`.  The obstruction results in
+this note remain valid; they now define the active BF4 gate rather than
+returning the work order to BF3.2.
+
 ## 1. Question adjudicated
 
 BF3.1 produced an exact positive reflected density on the cutoff-one whole
@@ -240,9 +246,13 @@ The fail-closed handoff now requires nine fields:
 8. a coupling-dependent cutoff schedule;
 9. volume-uniform constants.
 
-Only item 3 is presently closed. BF3.1 supplies its exact finite
-intertwiner transports. The remaining eight fields cannot be inferred from
-componentwise positivity or from the local reflected Gram.
+At this diagnostic gate's closure time, only item 3 was closed. BF3.1
+supplied its exact finite intertwiner transports.  BF3.2 subsequently closed
+the all-label kernel, carrier-tail, cutoff-schedule, and local volume fields,
+and the first physical Haar-reference minorization subsequently supplied
+fixed-coupling mixing.  A fixed-physical-distance rate and relative-order
+remainder still cannot be inferred from componentwise positivity or from
+the local reflected Gram.
 
 ## 6. Gate adjudication
 

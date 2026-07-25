@@ -386,7 +386,7 @@ The gate closes only with an explicit whole-slab physical kernel.  A generic
 CP-map theorem, the BF1.6 disk, a scalar mass ledger, or a map on
 multiplicity vectors is not an exit certificate.
 
-## Active milestone — BF3.2: all-label kernel and vanishing remainder
+## Closed milestone — BF3.2: all-label kernel and vanishing remainder
 
 ### Goal
 
@@ -415,7 +415,10 @@ all-label, cutoff-uniform completion and a vanishing physical remainder.
 The universal probability bound two, zero vacuum coefficient, or a
 finite-cutoff table is not sufficient.
 
-### Fixed-block tranche completed 2026-07-25
+**Closed 2026-07-25 at paper level.**  The repository's axiom-clean Lean
+transport remains open at the differentiated infinite Jacobi identity.
+
+### Completion
 
 Every nine-word coarse Wilson coefficient of the 72-face BF3.1 Haar network
 now has a literal finite-cutoff approximant and an explicit all-label Cauchy
@@ -462,9 +465,6 @@ rational \(0<s<1\).  The finite rational certificate is executable; the
 repository's existing `HeatKernelPos*.lean` frontier still lacks the
 infinite differentiated Jacobi identity.
 
-This does **not** close BF3.2.  The current estimate has not been identified
-with the actual fine/coarse RG remainder.
-
 The representation tail itself is now identified with the BF2 trace-class
 boundary-kernel norm.  The heat-weighted Peter--Weyl evaluation vector on
 nine coarse holonomies has squared norm at most \(H_N(s)^9\), so a normalized
@@ -474,20 +474,33 @@ local Gibbs \(L^1\) tail \(\varepsilon_N\) gives
  \lVert\delta G_N\rVert_1\le H_N(s)^9\varepsilon_N.
 \]
 
-All four \(P/Q\) corners obey the same bound by the trace ideal property,
-and signed orthonormal recouplings preserve it.  Thus the open-boundary Gram
-is a trace-norm Cauchy object retaining magnetic and intertwiner data.
+The independent boundary-feature tail is
+\(D_N=9H_N(s)^8T_N(s)\).  It bounds \(QGQ\), while the two coherent corners
+are bounded by \(\sqrt{H_N(s)^9D_N}\), with an exact rational square-root
+enclosure in the certificate.  Signed orthonormal recouplings preserve all
+these trace norms.  Thus the open-boundary Gram is a trace-norm Cauchy
+object retaining magnetic and intertwiner data.
 
-BF3.2 remains open because this is a representation-truncation comparison
-of one exact conditional law.  It is not yet a construction or bound of the
-actual normalized fine-Haar pushforward minus the actual coarse Gibbs law.
-It also cannot be promoted directly into BF4: an exact heat-spectrum witness
-has trace norm tending to zero while its relative-order norm remains one.
+Combining the density and boundary-feature tails gives a constructive total
+trace-norm cutoff modulus.  At \(s=1/2\), \(N=18\) is the least cutoff
+certified by the implemented bound to put the complete coherent error below
+\(10^{-2}\).  The exact all-label local Haar kernel, coupling-dependent
+cutoff, ambient-volume-uniform conditional normalization, full magnetic and
+intertwiner feature field, and all coherent \(P/Q\) trace tails therefore
+satisfy the BF3.2 exit test.
+
+This closes the representation-cutoff remainder, not the later
+fine-pushforward-versus-coarse-ansatz RG remainder.  The latter requires a
+named landing/reference rule and remains open before RG-I7--I9.  Nor can
+trace convergence be promoted directly into BF4: an exact heat-spectrum
+witness has trace norm tending to zero while its relative-order norm remains
+one.
 The existing
 `Z4FixedCutoffNaiveTailFence` rules out a volume-uniform additive
 independent-plaquette repair.  The remaining route must use a localized or
-connected norm and must bound every coherent \(P/Q\) block and every
-fine/coarse cylinder mismatch.  See
+connected norm.  BF3.2 now bounds every cutoff \(P/Q\) block; the later
+fine/coarse cylinder mismatches remain part of the RG landing/remainder
+problem.  See
 `notes/bf3-2-all-label-whole-slab-frontier.md`.
 
 ## Closed diagnostic milestone — BF3.3: Birkhoff handoff admissibility
@@ -525,8 +538,11 @@ projective norm, a fixed-distance diameter bound, coherent-remainder
 domination in that norm, a coupling-dependent cutoff schedule, and
 volume-uniform constants.
 
-Only the signed-intertwiner field is currently available. Therefore the
-critical path remains BF3.2 before BF4. See
+At the time of this diagnostic closure, only the signed-intertwiner field
+was available.  BF3.2 has subsequently closed at paper level and the
+fixed-coupling physical minorization now closes the support/mixing field.
+The historical obstruction remains the reason BF4 targets fixed physical
+distance rather than the raw local Gram. See
 `notes/bf3-3-birkhoff-handoff-admissibility.md`.
 
 ## BF2–BF4: contraction engine
@@ -556,8 +572,9 @@ This single two-sided operator estimate implies
 
 independently of boundary-space dimension.  The abstract exact-rational
 Loewner-order certificate and the trace-cone interior-collapse witness are
-complete.  The physical all-label minorization, reference-cone invariance,
-and coherent-remainder domination are open.  The cutoff-one BF3.1 map cannot
+complete.  The sharp heat-relative reference-cone invariance and
+physical-distance coherent-remainder domination are open.  The cutoff-one
+BF3.1 map cannot
 satisfy a positive lower minorization because all 32 components are rank
 one.  See `notes/bf4-reference-order-cone-gate.md`.
 
@@ -576,6 +593,28 @@ The single relative-order estimate
 gives \(\alpha_a=1-\delta_a\), \(\beta_a=1+\delta_a\), and therefore the
 dimension-free rate \(q_{a,L}\le\delta_a\).  This is the precise remaining
 physical theorem.
+
+The first physical all-label minorization is now also constructed at every
+fixed rational coupling.  The Jacobi floor \(L_s\) and character ceiling
+\(H_s\) give, for the 72 active plaquettes and every exterior boundary
+condition,
+
+\[
+ (L_s/H_s)^{72}\lambda
+ \le \mu_b\le
+ (H_s/L_s)^{72}\lambda.
+\]
+
+The deterministic coarse pushforward preserves this comparison.  Therefore
+the completely grouped physical conditional family has a finite,
+cutoff-independent and ambient-volume-independent diameter at fixed
+coupling.  This closes the support/mixing field rejected by BF3.3.
+
+It does not close BF4's physical-distance rate: the certified values of
+\(1-q_s\) are already about \(10^{-216}\) at \(s=1/2\) and deteriorate as
+\(s\to1\).  The next BF4 action is to replace this global worst-holonomy
+comparison by a fusion/heat-local grouped estimate with
+\(q_a=1-ma+o(a)\), or directly a fixed-distance rate \(<1\).
 
 For lattice spacing \(a_n\), the target is scale-dependent:
 
