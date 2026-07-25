@@ -25546,3 +25546,56 @@ CONFIRMED, new §5.2 extraction record, summary-table row updated,
 `\cite{Balaban1988convergent}` restored as quote-level shape source;
 §1.2 gains the c_λ cross-check).  Article PDF to be archived
 alongside the front-matter file in `docs/pdf_references/`.
+
+### 15h. Addendum (2026-07-25): CMP 122 I/II fetched and extracted — the Bałaban extraction frontier is CLOSED
+
+The Mac-egress fetch path (browser UA + referer) retrieved both
+R-operation papers first try; archived (gitignored) as
+`docs/pdf_references/Balaban_CMP122_I_175-202.pdf` (28 pp) and
+`Balaban_CMP122_II_355-392.pdf` (38 pp), text at
+`_generated/pdf_text/Balaban 122-I.txt` / `122-II.txt`.  Paper II's
+reference list fixes Bałaban's own numbering: [I]=CMP 109,
+[II]=CMP 116, [III]=CMP 119, [IV]=CMP 122-I.  **All five papers of
+the chain are now read; the extraction frontier is closed.**
+
+**FINAL verdict on `BALABAN_POLYMER_RESIDUAL = 2.0`: SHAPE-CONFIRMED,
+constant unpinned — the k → k+1 per-polymer activity-difference
+instance the repo uses appears NOWHERE in the published chain.  The
+constant remains (correctly) internally derived
+(`notes/sigma-hat-derivation.md` §2.3), now with two quote-level
+factor-2 cousins:** CMP 119 p. 283 (configuration-difference triangle
+inequality) and CMP 122-II (1.85) pp. 385–386 (the suppression-budget
+recursion reserving **2p₀(g)** units per region per scale step,
+closed by tree-graph induction into
+T_k(X) ≤ exp(−2(1+β₀)⁻¹p₀(g_k)), (1.89) p. 387).
+
+Other findings:
+- **The final normal-form R-bound has constant exactly 1**:
+  |R^(k)(X,(U,J))| ≤ exp(−p₀(g_k))exp(−κ d_k(X)) ((1.100), II
+  p. 390) — precedent that clean constants are achievable when a
+  dedicated small factor absorbs the looseness; non-transferable to
+  the repo's residual without the sign-preservation lemma (the c = 1
+  tightening stays open).
+- **Paper I/II actually pin their proof constants** (unlike CMP
+  116/119): α = 1/8, β = 1/2, L₀ = (L−1)/2, C ≤ 2, c_m ∈ {1,3},
+  β₀ = 1/7 (closing −2(1+β₀)⁻¹p₀ + 1 + 2κ(100R_k)^d ≤ −(3/2)p₀,
+  II p. 389).  κ itself: never pinned ("for κ large enough").
+- **Retroactive pinning:** (1.89) "implies the inequality (2.50)
+  [III], hence Corollary 3" — CMP 119's UV-stability link is
+  discharged inside the published chain; E₋/E₊ stay existence-only.
+- **AUDIT-CRITICAL:** "The proof of Theorem 2 [CMP 109] … is very
+  awkward and long … and has not been published yet, so we have
+  Theorem 1 with the assumption" (II, pp. 355–356) — **the removal of
+  the weak-coupling assumption in Bałaban's final UV-stability
+  theorem rests on an unpublished proof.**  This (i) closes the §1.2
+  c_λ thread definitively (κ unpinned to the end of the chain), and
+  (ii) matters for the program's prior-work narrative: the strongest
+  published form of Bałaban UV stability is conditional at exactly
+  the point the repo's own strong-coupling anchor + transport
+  architecture is designed to avoid.  Cite accordingly in
+  `formal/introduction.tex` when the manuscript sweep runs.
+
+`notes/cmp119_extraction.md` gains §6 (the CMP 122 record);
+`notes/fiducials_notes.md` §5/§5.3 finalized (residual row: frontier
+CLOSED; refine path = sign-preservation lemma only).  Queue item (c)
+fully discharged.

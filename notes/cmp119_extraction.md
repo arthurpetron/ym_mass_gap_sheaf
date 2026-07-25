@@ -308,3 +308,180 @@ is NOT the Bałaban paper — it is the 2-page issue front matter. For
 the corpus, the article PDF should be downloaded (browser, same URL as
 §2 log entry #2) and dropped into `docs/pdf_references/`, then OCR'd
 into `_generated/pdf_text/`.
+
+---
+
+## 6. CMP 122 I/II extraction (2026-07-25, second unblock — the R-operation papers)
+
+**Fetch record.** The CMP 119 lesson (Mac residential egress + browser
+UA passes the Incapsula wall) was applied to the remaining frontier.
+Euclid IDs located from the cloud via the crawlable search index:
+paper I = `euclid.cmp/1104178393`, paper II = `euclid.cmp/1104178467`.
+Fetched Mac-side (`curl -L`, browser UA, referer
+`https://projecteuclid.org/`, URL form
+`https://projecteuclid.org/download/pdf_1/euclid.cmp/<id>`), written
+to the repo (authorized, gitignored):
+
+| File | Size | Pages | Magic | Journal pages |
+| --- | --- | --- | --- | --- |
+| `docs/pdf_references/Balaban_CMP122_I_175-202.pdf` | 2,826,369 B | 28 | %PDF-1.2 | 175–202 ✓ (28 pp.) |
+| `docs/pdf_references/Balaban_CMP122_II_355-392.pdf` | 4,030,232 B | 38 | %PDF-1.2 | 355–392 ✓ (38 pp.) |
+
+Text archives (gs txtwrite of the OCR layer, matching the
+`_generated/pdf_text/` convention): `Balaban 122-I.txt` (1,615 lines),
+`Balaban 122-II.txt` (2,047 lines). Identities confirmed from the
+headers ("Commun. Math. Phys. 122, 175-202 (1989)" / "122, 355-392
+(1989)") and paper II's reference list, which fixes Bałaban's internal
+numbering: **[I] = CMP 109, [II] = CMP 116, [III] = CMP 119,
+[IV] = CMP 122-I**. Both communicated by A. Jaffe.
+
+All quotes OCR-faithful; `[garbled]` marks unreadable spans.
+
+### 6.1. What the R operation is, and its basic step (paper I)
+
+Definition by density-replacement quotients, normalized: "a large
+field expression is replaced by the corresponding small field
+expression in such a way, that integrals of the densities are
+unchanged" (p. 176), with the basic normalization property
+"∫dV (Rρ)(V) = ∫dV ρ(V) . (0.4)". The large-field small factor being
+renormalized is (0.1), p. 175: "exp[−(1/g₀²)[1 − Re tr U(∂p)]] ≤
+exp(−p₀²(g₀)) = [garbled: g₀^{A₀²(log g₀)...}]", with p₀(g₀) =
+A₀(log g₀⁻¹)^{p₀}, A₀ and integer p₀ unpinned. Geometric setup with
+explicit numerics: component sizes > 20MR_k, > 40MR_k, minimal ≈
+42(L/(L−1))MR_k, admissible class ≤ 100MR_k (p. 177) — the origin of
+paper II's (100R_k)^d factors.
+
+### 6.2. Hunt (b): the constants of the localization/exponentiation chain
+
+**Paper I is the constraint-solving paper of the series** — it
+actually *solves* its small constraint systems with concrete choices,
+a step beyond the pure existence style of CMP 109/116/119:
+
+- "0 < β ≤ 1/2, but not too small, e.g., we can take β = 1/2. The
+  number L₀ satisfies 2^{L₀} < [garbled](1/2)L, e.g., we can take
+  L₀ = (1/2)(L−1)."  (I, p. ~181)
+- "β₀ ≤ 1/2, β ≤ 1/2, L₀ < (1/2)L), and α ≤ 1/4. **Thus taking
+  α = 1/8 in (1.48) we satisfy all the conditions.**"  (I, p. 187;
+  with "the last inequality implies (1.49) if 8α ≤ 1" just above)
+- "We choose M large enough, so that δ(M/M₁)[^?] ≥ 2."  (I, p. 186)
+- "The constant C above is a positive integer. It is usually small,
+  because of geometric constraints on the cubes, for example we can
+  assume that C ≤ 2. The constant B is a fixed absolute constant, for
+  example we can take the constant B = B₃ from Theorem 1 [16]."
+  (I, p. 191)
+- "c_m = 1 for m < k, and c_m = 3 for m = k"  (I, p. 191, condition
+  (iii) of the analyticity spaces)
+- "they form a descending sequence … if β ≤ 1/4 and L₀² ≤ (1/3)L"
+  (I, p. 191)
+- "taking α ≤ 1/8, we estimate the right-hand side of (1.98) [of
+  paper I] by (21/8)ε ≤ 3(1 − β(1/2))ε"  (I, p. ~198; OCR partly
+  garbled)
+
+**Paper II's exponentiation chain** (Sect. 1, displays (1.88)–(1.100))
+mixes explicit device numerics with O(1)'s:
+
+- Activity bounds (1.92)–(1.95): decay rates (1+2β)κ, then (1+β)κ;
+  smallness driver α with "α ≤ exp(−(1+β)κ2^d)" (p. 388) and the
+  recurring α^{1/3}; tree-graph sums closed by "O(1)α^{1/3} ≤ 1 ≤
+  [garbled](β−2^d)βκ **for κ large enough**" (p. 389) — κ unpinned,
+  as everywhere in the series.
+- The g-smallness closure with an explicit example choice: "We assume
+  that g_k is so small that −2(1+β₀)⁻¹p₀(g_k) + 1 + 2κ(100R_k)^d ≤
+  −[garbled: (3/2)]p₀(g_k) **(for example, take β₀ = 1/7, then this
+  means that −(1/4)p₀(g_k) + 1 + 2κ(100R_k)^d ≤ 0**, and before we
+  had stronger restrictions on p₀(g_k))."  (p. 389)
+- Final activity bound (1.97) with c₁ = exp(−p₀(g_k)) if X′ misses
+  the ∪Y_i, else c₁ = α^{1/3}; "The estimate (1.97) is sufficient for
+  convergence of the exponentiated cluster expansion" and "{···} =
+  exp R′^{(k)} = exp Σ R′^{(k)}(X). (1.98)".
+- (1.99): "|R′^{(k)}(X,(U,J))| ≤ O(1)c₁ exp(−(1+½β)κ d(X))" — O(1)
+  unpinned.
+- **(1.100), the final inductive R-term bound — constant exactly 1:**
+  "|R^{(k)}(X,(U,J))| ≤ exp(−p₀(g_k)) exp(−κ d_k(X)) . (1.100)"
+  (p. 390).  In Bałaban's final normal form the per-polymer R-term
+  carries **no O(1) multiplier at all**; every looseness is absorbed
+  into the suppression exp(−p₀(g_k)) and the rate κ.
+- Second-pass degradations (p. 391, the (1.103)–(1.104)
+  representation): "the number β is replaced by (1/4)β, and α by
+  O(1)[garbled: α^?]".
+
+### 6.3. Hunt (a)+(c): the cross-scale residual instance
+
+**The k → k+1 scale-comparison inequality — the instance CMP 119 did
+not contain — does not appear in CMP 122 either, in the repo's
+per-polymer activity-difference form.** What the papers do across
+scales is a **suppression-budget recursion** in the exponent: each
+large-field component Z carries a number κ_j(Z), and the step j → j+1
+updates it by (paper II, pp. 385–387, displays (1.83)–(1.87)):
+
+> "κ_{j+1}(Z) = Σ(κ_j(Z^{(n)}) + **2p₀(g_j)**) +
+> Σ(γ₀A₁p₀²(g_{j+1})(d′_{j+1}(Z^f_{j+1}) + 1) + **2p₀(g_{j+1})**) −
+> O(1)M^dR^d_{j+1}d′_{j+1}(Z) − **2p₀(g_{j(Z)})** . (1.85)"
+
+closed by a tree-graph induction ((1.86)–(1.87)) and yielding the
+**fundamental large-field suppression inequality**:
+
+> "T_k(X)[garbled: |·|] ≤ exp(−**2**(1+β₀)⁻¹ p₀(g_k)) . (1.89)"
+> (p. 387: "we have the fundamental inequality")
+
+with the explicit example β₀ = 1/7 making the retained rate
+2(1+1/7)⁻¹ = 7/4 (of which 1/4 is spent on the (100R_k)^d volume
+factors, leaving 3/2 — the p. 389 closure above). **This is the
+closest cross-scale factor-2 in the whole corpus**: each large-field
+region's budget carries increments of exactly 2p₀ per merged region
+across the scale step, and the final per-region suppression keeps the
+prefactor 2 (shaved to 2(1+β₀)⁻¹). It is a *budget/bookkeeping* 2 in
+an exponent — a per-region reservation of two units of suppression —
+not a bound on |T_{k+1}(X′) − T_k(X)| or on any truncated-correlation
+change under block-spin. No display in either paper bounds the repo's
+σ̂-transport per-polymer change.
+
+### 6.4. Hunt (d): retroactive pinning of the CMP 119 chain
+
+- The logical link is pinned: "an improved bound (1.89), with the
+  additional term −κd(X) in the exponential. **This implies the
+  inequality (2.50) [III], hence Corollary 3.**" (II, p. 387) — CMP
+  119's UV-stability corollary is discharged by (1.89)+decay.
+- The final stability constants stay existence-only: "(0.1) … with
+  the constants E₋, E₊ independent of k, T_η, U_k" (II, p. 356).
+- κ is never pinned ("for κ large enough", p. 389); E₀, E₁, B₀ of
+  CMP 119 are not revisited numerically.
+- **Audit-critical honesty item** (II, p. 355–356, Introduction):
+  "Theorem 2 of [I] allows us to remove the assumption on the
+  effective coupling constants in the above theorem … **The proof of
+  Theorem 2, which is based on second order perturbative
+  calculations, is very awkward and long … and has not been published
+  yet, so we have Theorem 1 with the assumption.**"  I.e., the
+  removal of the weak-coupling assumption in the final UV-stability
+  theorem rests on an **unpublished** proof (CMP 109's Theorem 2,
+  whose "proof … will be given in a separate paper" — see §5 and the
+  fiducials note §1.2). The published chain proves Theorem 1 *with*
+  the assumption g_k ∈ ]0, γ].
+
+### 6.5. Verdict for `BALABAN_POLYMER_RESIDUAL = 2.0` (final, full-chain)
+
+**SHAPE-CONFIRMED — constant unpinned for the repo's inequality —
+now on the complete published chain (CMP 109, 116, 119, 122 I/II, all
+read).** The k → k+1 per-polymer activity-difference instance appears
+nowhere in the corpus; the constant 2.0 rests definitively on the
+project-internal triangle-inequality derivation
+(`notes/sigma-hat-derivation.md` §2.3-derivation). The primary
+sources supply two quote-level cousins of the factor 2, strengthening
+the shape citation without supplying the constant:
+
+1. the fixed-scale configuration-difference bound "2E₀…" (CMP 119
+   p. 283 — §5.1 above), and
+2. the cross-scale suppression-budget increments 2p₀(g_j) and the
+   fundamental per-region bound exp(−2(1+β₀)⁻¹p₀(g_k)) (CMP 122-II
+   (1.85)/(1.89) — §6.3 above).
+
+Notable for any future tightening argument: Bałaban's own final
+normal-form R-term bound (1.100) carries **constant exactly 1** by
+absorbing all looseness into exp(−p₀(g_k)) — precedent that a
+clean-constant normal form is achievable when a dedicated small
+factor is available. This does not transfer to the repo's residual
+without such a factor; the c_polymer = 1 tightening still requires
+the (absent) sign-preservation lemma or an analogous absorbed small
+factor. No invented constants; extraction frontier for this fiducial
+is now **closed** — there are no further primary-source papers in the
+chain to read.

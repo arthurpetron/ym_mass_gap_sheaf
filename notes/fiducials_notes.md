@@ -86,6 +86,24 @@
 > is the issue **front matter only** (2 pages), not the article — the
 > article PDF still needs to be added to the corpus.
 >
+> **Update 2026-07-25 (third pass — CMP 122 I/II fetched and read;
+> primary-source chain COMPLETE).** Using the proven Mac-side fetch
+> path, the two R-operation papers were archived to
+> `docs/pdf_references/Balaban_CMP122_I_175-202.pdf` (2.8 MB, 28 pp.)
+> and `Balaban_CMP122_II_355-392.pdf` (4.0 MB, 38 pp.), with text
+> archives `_generated/pdf_text/Balaban 122-I.txt` / `122-II.txt`
+> (the CMP 119 article was separately archived as
+> `Balaban_CMP119_243-285.pdf`).  All five Bałaban papers (CMP 109,
+> 116, 119, 122 I/II) are now read.  Final verdict for the polymer
+> residual: **SHAPE-CONFIRMED, constant unpinned, frontier closed** —
+> the cross-scale per-polymer instance appears nowhere; the corpus
+> supplies two quote-level factor-2 cousins (CMP 119 p. 283; CMP
+> 122-II (1.85)/(1.89)) and a constant-exactly-1 normal-form R-term
+> bound ((1.100)).  Audit-critical: CMP 122-II states that the proof
+> of CMP 109's Theorem 2 (removing the weak-coupling assumption) "has
+> not been published yet".  See §5.3 and
+> `notes/cmp119_extraction.md` §6.
+>
 > Each fiducial below carries a `status` field marking how strong its
 > provenance is. One value remains flagged **HEURISTIC** — see the
 > summary table below. *(Superseded 2026-07-24: the flagged-value
@@ -314,6 +332,19 @@ eq. (3.48), p. 280 ("|E^(j)(X,z)| ≤ E₀ exp(−κ(L^jL^{−n})^{−1})
 exp(−(1/2)κ d_j(X))") and the p. 283 two-class polymer split.  The ½
 is a recurring bookkeeping device across the whole series; κ is never
 pinned.  Nothing in CMP 109/116/119/102 pins c_λ.
+
+**CMP 122 I/II cross-check (2026-07-25, third pass — see §5.3).**
+The chain-completing papers change nothing for c_λ: κ remains
+unpinned to the end ("for κ large enough", CMP 122-II p. 389; decay
+rates appear as (1+2β)κ, (1+β)κ, (1+½β)κ with β a device constant).
+And the Theorem 2 whose proof this section quotes as deferred "to a
+separate paper" is confirmed **still unpublished as of CMP 122-II
+(1989), p. 355–356**: "The proof of Theorem 2 … is very awkward and
+long … and has not been published yet, so we have Theorem 1 with the
+assumption."  The published Bałaban chain therefore proves UV
+stability under the assumption g_k ∈ ]0, γ] with existence-only
+constants — reinforcing that the project's internally derived
+c_λ = 3/4 is not in tension with any published number.
 
 **Citations.**
 - TeX: `\cite{Balaban1987RG-I,Balaban1988RG-II,BrydgesFederbush1978}`
@@ -818,6 +849,18 @@ quote-level. What it does NOT carry is the repo's cross-scale
 (k → k+1) residual inequality or any numeric for it; the constant 2.0
 remains internally derived. Full extraction record in §5.2.**
 
+**Status update (2026-07-25, third pass — chain complete): DERIVED
+(internal, FINAL). CMP 122 I/II were fetched and read (§5.3); the
+cross-scale per-polymer instance appears nowhere in the now-complete
+published chain (CMP 109, 116, 119, 122 I/II). The extraction
+frontier for this fiducial is closed: there are no further
+primary-source papers to read. The constant 2.0 rests definitively on
+`notes/sigma-hat-derivation.md` §2.3-derivation, with quote-level
+factor-2 cousins in the corpus (CMP 119 p. 283 fixed-scale
+configuration-difference; CMP 122-II (1.85)/(1.89) cross-scale
+suppression-budget increments 2p₀ and per-region bound
+exp(−2(1+β₀)⁻¹p₀(g_k))).**
+
 **First-principles derivation** (full argument in
 `notes/sigma-hat-derivation.md` §2.3-derivation; surfaced in code as
 `derive_polymer_boundary_channel_count() → 2`).
@@ -1016,6 +1059,65 @@ prediction in §5.1(4) — "those papers also supply existence-constants
 only" — is confirmed verbatim for CMP 119, modulo the single pinned
 R₁ = 1.
 
+### 5.3. CMP 122 I/II read in full — chain complete, verdict FINAL (2026-07-25, third pass)
+
+**Provenance.** Fetched Mac-side via the proven residential-egress
+path (Euclid IDs `euclid.cmp/1104178393` and `euclid.cmp/1104178467`,
+located from the cloud via the crawlable search index); archived as
+`docs/pdf_references/Balaban_CMP122_I_175-202.pdf` (2,826,369 B,
+28 pp., %PDF-1.2) and `Balaban_CMP122_II_355-392.pdf` (4,030,232 B,
+38 pp., %PDF-1.2); text archives
+`_generated/pdf_text/Balaban 122-I.txt` (1,615 lines) and
+`Balaban 122-II.txt` (2,047 lines).  Paper II's reference list fixes
+Bałaban's internal numbering: [I] = CMP 109, [II] = CMP 116,
+[III] = CMP 119, [IV] = CMP 122-I.  Full quote-level record:
+`notes/cmp119_extraction.md` §6.
+
+**Hunt results (summary; quotes in the extraction record).**
+
+1. **The cross-scale per-polymer instance is absent here too.**  What
+   the papers do across scales is a suppression-*budget* recursion in
+   the exponent: per-component numbers κ_j(Z) updated by (1.85) with
+   explicit per-region increments **2p₀(g_j)**, closed by tree-graph
+   induction ((1.86)–(1.87)), yielding the fundamental large-field
+   suppression "T_k(X) ≤ exp(−2(1+β₀)⁻¹p₀(g_k)) (1.89)" (II,
+   p. 387).  This is the closest cross-scale factor-2 in the corpus —
+   a budget/bookkeeping 2 in an exponent, not a bound on the repo's
+   per-polymer activity change |ΔT(X)| under block-spin.
+2. **A constant-exactly-1 normal-form bound exists**: "|R^(k)(X,(U,J))|
+   ≤ exp(−p₀(g_k)) exp(−κd_k(X)) (1.100)" (II, p. 390) — no O(1)
+   multiplier; all looseness absorbed into exp(−p₀(g_k)).  Precedent
+   that clean constants are achievable *given a dedicated small
+   factor*; does not transfer to the σ̂-residual absent such a factor
+   (the c = 1 tightening still needs the sign-preservation lemma).
+3. **Paper I solves its constraint systems with concrete choices** —
+   a step beyond the pure existence style: "we can take β = 1/2",
+   "L₀ = (1/2)(L−1)", "taking α = 1/8 in (1.48) we satisfy all the
+   conditions" (with "8α ≤ 1"), "C ≤ 2", "c_m = 1 for m < k, and
+   c_m = 3 for m = k", "B = B₃ from Theorem 1 [16]", geometry
+   20/40/≈42(L/(L−1))/100 · MR_k.  Paper II adds the example
+   "take β₀ = 1/7" closing the g-smallness condition
+   "−2(1+β₀)⁻¹p₀(g_k) + 1 + 2κ(100R_k)^d ≤ −(3/2)p₀(g_k)" (p. 389),
+   and "α ≤ exp(−(1+β)κ2^d)".  κ itself remains unpinned ("for κ
+   large enough", p. 389).
+4. **Retroactive pinning of the CMP 119 chain**: (1.89)+decay
+   "implies the inequality (2.50) [III], hence Corollary 3" (II,
+   p. 387) — the UV-stability corollary link is discharged.  E₋/E₊
+   remain existence-only ("(0.1) … independent of k, T_η, U_k").
+5. **Audit-critical (II, pp. 355–356):** "Theorem 2 of [I] allows us
+   to remove the assumption on the effective coupling constants …
+   The proof of Theorem 2, which is based on second order
+   perturbative calculations, is very awkward and long … **and has
+   not been published yet**, so we have Theorem 1 with the
+   assumption."  The published chain proves UV stability *with* the
+   weak-coupling assumption g_k ∈ ]0, γ]; its removal rests on the
+   unpublished proof of CMP 109's Theorem 2 (the same theorem §1.2
+   quotes as deferring its proof "to a separate paper").
+
+**Verdict (final, full-chain): SHAPE-CONFIRMED, constant unpinned.**
+`BALABAN_POLYMER_RESIDUAL = 2.0` rests definitively on the internal
+derivation; the extraction frontier is closed.
+
 **Citations.**
 - TeX: `\cite{Balaban1988convergent,BrydgesFederbush1978}`
 - Lean (planned quantitative closure): import
@@ -1082,7 +1184,7 @@ so no history is lost.)*
 | `MU_CONNECTIVITY_4D` | log(8e) | literature formula | already standard | — |
 | `MU_PLAQUETTE_4D` | 16 (option only; **default now `20e`**, adopted 2026-07-24) | **RESOLVED-negative for 5d−4 (2026-07-24)**: matches no adjacency notion at any d; d = 4 agreement with 8(d−2) = 16 coincidental; N_n ≤ 16^n verified only for n ≤ 5 with growth ratios already > 16; rigorous default `MU_PLAQUETTE_BF_CONSERVATIVE_4D = 20e` (§3.3–§3.4) | only via a restricted-class extraction from Seiler LNP 159 (still inaccessible) | `fiducial_sensitivity.sweep_mu_plaq` |
 | `J_MAX_DEFAULT` | 12 | engineering | only if needed | — |
-| `BALABAN_POLYMER_RESIDUAL` | 2.0 | **DERIVED 2026-05-25** (internal triangle-inequality, unchanged); CMP 119 read in full 2026-07-25: **SHAPE-CONFIRMED, constant unpinned** — factor-2 triangle device located at quote level (p. 283) but for a fixed-scale configuration-difference, not the cross-scale residual; only pinned numeric is R₁ = 1 in (2.44); R-operation deferred to CMP 122 (still unheld) (§5.2) | tighter c=1 via sign-preservation lemma (open); or CMP 122 I/II extraction (R-operation construction) | `fiducial_sensitivity.sweep_polymer_residual` |
+| `BALABAN_POLYMER_RESIDUAL` | 2.0 | **DERIVED 2026-05-25** (internal triangle-inequality, unchanged); full chain CMP 109/116/119/122-I/122-II read (2026-07-25): **SHAPE-CONFIRMED, constant unpinned, frontier CLOSED** — cross-scale per-polymer instance absent everywhere; quote-level factor-2 cousins at CMP 119 p. 283 (fixed-scale config-difference) and CMP 122-II (1.85)/(1.89) (2p₀ budget increments; T_k ≤ exp(−2(1+β₀)⁻¹p₀)); constant-1 normal form (1.100); pinned numerics only R₁ = 1 (119, (2.44)) and device choices (α = 1/8, β = 1/2, β₀ = 1/7, C ≤ 2, c_m ∈ {1,3}) (§5.2–§5.3) | tighter c=1 via sign-preservation lemma (open) — the only remaining path; no further primary sources exist | `fiducial_sensitivity.sweep_polymer_residual` |
 | `WILSON_LOOP_MIN_AREA_DIMENSIONLESS` | 4 | from project spec | n/a | — |
 | Trajectory defaults | various | engineering | n/a | — |
 
@@ -1141,7 +1243,9 @@ so no history is lost.)*
 >    `notes/cmp119_extraction.md`) — then reopened and completed the
 >    same day after a human unblock: CMP 119 read in full,
 >    **SHAPE-CONFIRMED at quote level, constant unpinned** (§5.2);
->    the remaining extraction frontier is CMP 122 I/II.
+>    then CMP 122 I/II fetched and read the same day (§5.3) — chain
+>    complete, verdict FINAL, extraction frontier **closed**; the
+>    only remaining refinement path is the sign-preservation lemma.
 
 ---
 
@@ -1208,9 +1312,9 @@ so no history is lost.)*
 | --- | --- |
 | `Balaban1987RG-I` | Bałaban, "RG approach to lattice gauge field theories. I", CMP 109 (1987), 249–301. |
 | `Balaban1988RG-II` | Bałaban, "RG approach to lattice gauge field theories. II. Cluster expansions", CMP 116 (1988), 1–22. |
-| `Balaban1988convergent` | Bałaban, "Convergent renormalization expansions for lattice gauge theories", CMP 119 (1988), 243–285. DOI 10.1007/BF01217741; Project Euclid `euclid.cmp/1104162401`. *(2026-07-25: read in full after human unblock — quote-level SHAPE source for §5, constant unpinned; see §5.2 and `notes/cmp119_extraction.md` §5. NB the corpus file `communications-in-mathematical-physics_volume-119_issue-2.pdf` is front matter only; the article PDF still needs to be added.)* |
-| `Balaban1989LargeField-I` | Bałaban, "Large field renormalization. I. The basic step of the ℝ operation", CMP 122 (1989), 175–202. DOI 10.1007/BF01257412. *(Added 2026-07-25; identity confirmed via Springer; not locally held.)* |
-| `Balaban1989LargeField-II` | Bałaban, "Large field renormalization. II. Localization, exponentiation, and bounds for the R operation", CMP 122 (1989), 355–392. DOI 10.1007/BF01238433. *(Added 2026-07-25; identity confirmed via Springer; not locally held.)* |
+| `Balaban1988convergent` | Bałaban, "Convergent renormalization expansions for lattice gauge theories", CMP 119 (1988), 243–285. DOI 10.1007/BF01217741; Project Euclid `euclid.cmp/1104162401`. *(2026-07-25: read in full — quote-level SHAPE source for §5, constant unpinned; see §5.2 and `notes/cmp119_extraction.md` §5. Article PDF archived as `docs/pdf_references/Balaban_CMP119_243-285.pdf` (4.2 MB, 44 pp.); the earlier `communications-in-mathematical-physics_volume-119_issue-2.pdf` is front matter only.)* |
+| `Balaban1989LargeField-I` | Bałaban, "Large field renormalization. I. The basic step of the ℝ operation", CMP 122 (1989), 175–202. DOI 10.1007/BF01257412; Project Euclid `euclid.cmp/1104178393`. *(2026-07-25: fetched and read — archived as `docs/pdf_references/Balaban_CMP122_I_175-202.pdf` (2.8 MB, 28 pp.), text `_generated/pdf_text/Balaban 122-I.txt`; see §5.3.)* |
+| `Balaban1989LargeField-II` | Bałaban, "Large field renormalization. II. Localization, exponentiation, and bounds for the R operation", CMP 122 (1989), 355–392. DOI 10.1007/BF01238433; Project Euclid `euclid.cmp/1104178467`. *(2026-07-25: fetched and read — archived as `docs/pdf_references/Balaban_CMP122_II_355-392.pdf` (4.0 MB, 38 pp.), text `_generated/pdf_text/Balaban 122-II.txt`; see §5.3. NB p. 355–356: the proof of CMP 109's Theorem 2 "has not been published yet".)* |
 | `BrydgesFederbush1978` | Brydges & Federbush, "A new form of the Mayer expansion...", JMP 19 (1978), 2064–2067. |
 | `Seiler1982` | Seiler, *Gauge Theories as a Problem of Constructive QFT...*, LNP 159, Springer 1982. |
 | `DrouffeItzykson1978` | Drouffe & Itzykson, "Lattice gauge fields", Phys. Rep. 38 (1978), 133–175. |
