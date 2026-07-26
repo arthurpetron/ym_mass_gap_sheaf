@@ -547,9 +547,15 @@ most \(a^{62}\).  The exact 120-face fiber-product geometry and
 boundary-message Markovization algebra are now pinned.  The remaining
 constructor is no longer the transfer kernel itself: its positive,
 reflection-symmetric all-label formula on the 48-link interface is explicit.
-The open inputs are a uniform relative bound for its backward messages,
-coarse-carrier Markov intertwining, and the resulting fixed-distance
-minorization before microscopic floor loss.
+The carrier input is now closed by retaining the complete fine spatial
+boundary: tree gauge leaves 23 cycle variables and the retained projection
+is the identity, so Markov intertwining is exact. A two-sided grouped
+row-ratio estimate is sufficient for every terminal message; endpoint
+spatial weights cancel in the relative coordinate. The kinetic 23-cycle
+reference has the spacing-uniform common mass
+\((1055/3489)^{46}\). The open physical input is the corresponding
+two-sided Harnack estimate for the grouped Feynman--Kac kernel with all
+interior spatial weights included, before microscopic floor loss.
 
 Executable certificates include
 `transverse_cutoff_one_fusion_audit()` in
@@ -566,6 +572,8 @@ operator-tail certificates are documented in
 `notes/bf4-transverse-residual-operator-tail.md`, and
 `notes/bf4-weak-coupling-tail-obstruction.md`.  The direct physical
 comparison is in `notes/bf4-physical-all-label-choi-domination.md`.
+The enlarged carrier and message-order reduction are in
+`notes/bf4-boundary-message-uniform-order.md`.
 
 This corrects the interpretation of the BF3.2 handoff:
 

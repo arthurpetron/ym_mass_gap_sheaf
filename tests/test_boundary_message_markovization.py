@@ -7,6 +7,7 @@ import pytest
 from computations.boundary_message_markovization import (
     all_label_fine_boundary_transfer,
     coarse_boundary_sufficiency_audit,
+    enlarged_fine_boundary_carrier,
     markovize_transfer_chain,
     physical_boundary_message_blueprint,
 )
@@ -66,6 +67,9 @@ def test_physical_blueprint_closes_composition_algebra_but_not_uniformity() -> N
     assert not blueprint.nine_slot_coarse_markov_intertwining_proved
     assert not blueprint.spacing_uniform_boundary_message_ratio_proved
     assert not blueprint.spacing_uniform_grouped_minorization_proved
+    assert blueprint.first_open_obligation == (
+        "prove-spacing-uniform-feynman-kac-harnack-with-interior-spatial-weights"
+    )
 
 
 def test_all_label_fine_boundary_transfer_has_exact_physical_census() -> None:
@@ -95,6 +99,23 @@ def test_nine_coarse_loops_miss_an_exact_center_boundary_direction() -> None:
     assert not audit.raw_transfer_factors_through_nine_coarse_loops
     assert not audit.coarse_markov_lumpability_refuted
     assert audit.enlargement_or_conditional_cancellation_required
+
+
+def test_full_fine_boundary_enlargement_is_exactly_markov_lumpable() -> None:
+    carrier = enlarged_fine_boundary_carrier()
+
+    assert carrier.validates()
+    assert carrier.spatial_boundary_link_count == 48
+    assert carrier.spatial_boundary_vertex_count == 26
+    assert carrier.connected_component_count == 1
+    assert carrier.spanning_tree_link_count == 25
+    assert carrier.gauge_fixed_cycle_rank == 23
+    assert carrier.identity_projection_markov_lumpable
+    assert carrier.finite_horizon_markov_composition_exact
+    assert carrier.coarse_spatial_observables_recoverable
+    assert not carrier.nine_loop_raw_sufficiency_required
+    assert carrier.carrier_enlargement_completed
+    assert not carrier.spacing_uniform_message_order_proved
 
 
 def test_invalid_transfer_chains_fail_closed() -> None:

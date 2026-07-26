@@ -173,8 +173,12 @@ The next theorem is therefore not basic fixed-coupling positivity or
 abstract channel algebra.  The two-slab fiber-product geometry and
 finite-horizon boundary-message normalization are now exact.  The next
 transfer kernel is also explicit on the 48-link fine boundary.  The next
-objects are a spacing-uniform **relative residual-order** estimate for its
-backward messages and a coarse-carrier Markov-intertwining theorem.
+carrier is now the full 23-cycle tree-gauge boundary, so its identity
+Markov intertwining is exact. The next object is a spacing-uniform
+two-sided Harnack estimate for the grouped physical Feynman--Kac kernel
+with all interior spatial weights. The row-order theorem then supplies the
+relative backward-message minorization independently of the terminal
+message; see `notes/bf4-boundary-message-uniform-order.md`.
 
 The executable certificate is
 `computations/physical_all_label_choi_domination.py`, with tests in

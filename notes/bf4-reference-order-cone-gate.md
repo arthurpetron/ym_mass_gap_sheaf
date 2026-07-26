@@ -373,9 +373,12 @@ convolution.  The next order theorem is therefore a fixed-physical-distance
 relative residual estimate on the physically glued block, not another
 fixed-slab cutoff calculation.  Its geometry and finite-horizon
 boundary-message normalization are now exact, and the continuous all-label
-boundary transfer is explicit.  The missing input is a uniform relative
-estimate for its backward messages plus intertwining of the fine-boundary
-Markov channel with the retained nine-slot carrier.
+boundary transfer is explicit. The carrier issue is closed on the enlarged
+route: the connected 48-link/26-vertex boundary has 23 tree-gauge cycle
+variables and identity Markov intertwining. The remaining input is the
+spacing-uniform two-sided Harnack estimate for the grouped physical
+Feynman--Kac kernel with all interior spatial weights; see
+`notes/bf4-boundary-message-uniform-order.md`.
 
 The grouped-half hypothesis itself is not free: for the local bare
 heat-kernel multiplier \(\rho=s^3\), it implies

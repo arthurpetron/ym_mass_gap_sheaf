@@ -198,6 +198,21 @@ def test_physical_promotion_frontier_remains_fail_closed():
     assert frontier.nine_coarse_loop_raw_transfer_sufficiency_refuted
     assert not frontier.coarse_markov_lumpability_refuted
     assert frontier.carrier_enlargement_or_conditional_cancellation_required
+    assert frontier.enlarged_fine_boundary_carrier_constructed
+    assert frontier.enlarged_boundary_gauge_fixed_cycle_rank == 23
+    assert frontier.enlarged_carrier_identity_markov_intertwining_proved
+    assert frontier.grouped_row_harnack_message_order_reduction_proved
+    assert frontier.endpoint_spatial_weight_cancellation_proved
+    assert frontier.kinetic_23_cycle_spacing_uniform_message_order_proved
+    assert frontier.kinetic_markov_common_mass == (
+        Fraction(1055, 3489) ** 46
+    )
+    assert not frontier.interior_spatial_feynman_kac_harnack_proved
+    assert (
+        frontier.uniform_positive_kernel_limit_message_order_criterion_proved
+    )
+    assert not frontier.physical_grouped_feynman_kac_uniform_limit_proved
+    assert not frontier.physical_limit_kernel_strictly_positive_proved
     assert not frontier.direct_integrated_glued_block_comparison_refuted
     assert not frontier.physical_consecutive_slab_rg_identification_proved
     assert not frontier.consecutive_scale_channel_composition_proved

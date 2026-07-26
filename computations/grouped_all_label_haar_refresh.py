@@ -45,6 +45,9 @@ from computations.all_label_whole_slab_tail import (
 from computations.boundary_message_markovization import (
     physical_boundary_message_blueprint,
 )
+from computations.boundary_message_uniform_order import (
+    physical_backward_message_order_frontier,
+)
 from computations.corrected_slab_haar_network import corrected_slab_haar_complex
 from computations.corrected_slab_physical_gluing import (
     interface_floor_ceiling_no_go,
@@ -1073,6 +1076,17 @@ class GroupedPhysicalPacketFrontier:
     nine_coarse_loop_raw_transfer_sufficiency_refuted: bool
     coarse_markov_lumpability_refuted: bool
     carrier_enlargement_or_conditional_cancellation_required: bool
+    enlarged_fine_boundary_carrier_constructed: bool
+    enlarged_boundary_gauge_fixed_cycle_rank: int
+    enlarged_carrier_identity_markov_intertwining_proved: bool
+    grouped_row_harnack_message_order_reduction_proved: bool
+    endpoint_spatial_weight_cancellation_proved: bool
+    kinetic_23_cycle_spacing_uniform_message_order_proved: bool
+    kinetic_markov_common_mass: Fraction
+    interior_spatial_feynman_kac_harnack_proved: bool
+    uniform_positive_kernel_limit_message_order_criterion_proved: bool
+    physical_grouped_feynman_kac_uniform_limit_proved: bool
+    physical_limit_kernel_strictly_positive_proved: bool
     direct_integrated_glued_block_comparison_refuted: bool
     physical_consecutive_slab_rg_identification_proved: bool
     consecutive_scale_channel_composition_proved: bool
@@ -1124,6 +1138,7 @@ class GroupedPhysicalPacketFrontier:
             dyadic_spacing=True,
         )
         boundary_messages = physical_boundary_message_blueprint()
+        message_order = physical_backward_message_order_frontier()
         return (
             witness.validates()
             and geometry.validates()
@@ -1145,6 +1160,7 @@ class GroupedPhysicalPacketFrontier:
             and gluing.validates()
             and interface_no_go.validates()
             and boundary_messages.validates()
+            and message_order.validates()
             and self.all_label_corridor_kernel_constructed
             and self.exact_semigroup_grouping
             and self.common_haar_packet_constructed
@@ -1190,6 +1206,18 @@ class GroupedPhysicalPacketFrontier:
             and self.nine_coarse_loop_raw_transfer_sufficiency_refuted
             and not self.coarse_markov_lumpability_refuted
             and self.carrier_enlargement_or_conditional_cancellation_required
+            and self.enlarged_fine_boundary_carrier_constructed
+            and self.enlarged_boundary_gauge_fixed_cycle_rank == 23
+            and self.enlarged_carrier_identity_markov_intertwining_proved
+            and self.grouped_row_harnack_message_order_reduction_proved
+            and self.endpoint_spatial_weight_cancellation_proved
+            and self.kinetic_23_cycle_spacing_uniform_message_order_proved
+            and self.kinetic_markov_common_mass
+            == Fraction(1055, 3489) ** 46
+            and not self.interior_spatial_feynman_kac_harnack_proved
+            and self.uniform_positive_kernel_limit_message_order_criterion_proved
+            and not self.physical_grouped_feynman_kac_uniform_limit_proved
+            and not self.physical_limit_kernel_strictly_positive_proved
             and not self.direct_integrated_glued_block_comparison_refuted
             and not self.physical_consecutive_slab_rg_identification_proved
             and not self.consecutive_scale_channel_composition_proved
@@ -1201,7 +1229,7 @@ class GroupedPhysicalPacketFrontier:
             and not self.actual_grouped_all_label_packet_proved
             and not self.spacing_uniform_refresh_mass_proved
             and self.first_open_obligation
-            == "prove-coarse-lumpability-or-enlarge-carrier-and-uniform-message-ratio"
+            == "prove-spacing-uniform-feynman-kac-harnack-with-interior-spatial-weights"
         )
 
 
@@ -1252,6 +1280,17 @@ def grouped_physical_packet_frontier() -> GroupedPhysicalPacketFrontier:
         nine_coarse_loop_raw_transfer_sufficiency_refuted=True,
         coarse_markov_lumpability_refuted=False,
         carrier_enlargement_or_conditional_cancellation_required=True,
+        enlarged_fine_boundary_carrier_constructed=True,
+        enlarged_boundary_gauge_fixed_cycle_rank=23,
+        enlarged_carrier_identity_markov_intertwining_proved=True,
+        grouped_row_harnack_message_order_reduction_proved=True,
+        endpoint_spatial_weight_cancellation_proved=True,
+        kinetic_23_cycle_spacing_uniform_message_order_proved=True,
+        kinetic_markov_common_mass=Fraction(1055, 3489) ** 46,
+        interior_spatial_feynman_kac_harnack_proved=False,
+        uniform_positive_kernel_limit_message_order_criterion_proved=True,
+        physical_grouped_feynman_kac_uniform_limit_proved=False,
+        physical_limit_kernel_strictly_positive_proved=False,
         direct_integrated_glued_block_comparison_refuted=False,
         physical_consecutive_slab_rg_identification_proved=False,
         consecutive_scale_channel_composition_proved=False,
@@ -1261,7 +1300,7 @@ def grouped_physical_packet_frontier() -> GroupedPhysicalPacketFrontier:
         actual_grouped_all_label_packet_proved=False,
         spacing_uniform_refresh_mass_proved=False,
         first_open_obligation=(
-            "prove-coarse-lumpability-or-enlarge-carrier-and-uniform-message-ratio"
+            "prove-spacing-uniform-feynman-kac-harnack-with-interior-spatial-weights"
         ),
     )
     if not frontier.validates():

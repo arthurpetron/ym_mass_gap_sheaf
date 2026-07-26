@@ -199,9 +199,11 @@ time-reflection symmetric.  Its products reproduce the glued density with
 the expected endpoint half-weights, and backward messages construct the
 fine-boundary finite-horizon Markov channel.
 
-What is not yet proved is a spacing-uniform relative bound on those
-continuous messages or that the nine coarse holonomies form a Markov
-intertwining/sufficient statistic for this fine-boundary channel.
+The smaller nine-loop carrier has now been replaced on this route by the
+complete connected fine-boundary graph. Its 48 links and 26 vertices leave
+23 cycle variables after tree gauge. The retained projection is the
+identity, so source/target Markov intertwining is exact; nine-loop
+lumpability is no longer required.
 
 There is already an exact obstruction to the simplest sufficiency claim.
 In the pinned gauge, free link \(7\), geometrically
@@ -220,9 +222,21 @@ changes because
 \]
 Thus the raw transfer kernel does not factor through the nine coarse loops.
 This does not by itself refute Markov lumpability after conditional
-integration and backward-message normalization.  It proves that the next
-step must either establish a genuine conditional-cancellation/lumpability
-theorem or enlarge the retained carrier.
+integration and backward-message normalization. The enlarged-carrier branch
+has instead been executed.
+
+For any positive grouped raw kernel, a uniform two-sided row-ratio estimate
+orders every backward message and gives a terminal-independent Markov
+minorization. Endpoint spatial square-root weights cancel exactly after
+passing to \(g_j=h_j/\sqrt{W_{\rm spatial}}\). On the 23-cycle kinetic
+reference carrier, grouping until the heat coordinate is at most \(1/2\)
+gives the spacing-uniform common mass
+\[
+\varepsilon_{\rm kin}
+=\left(\frac{1055}{3489}\right)^{46}.
+\]
+The physical theorem remains open because this kinetic estimate omits the
+interior spatial Feynman--Kac weights.
 
 ## Exact no-go for composing the current microscopic tags
 
@@ -266,21 +280,20 @@ refresh.  It leaves two possibilities:
 
 ## Remaining theorem
 
-The next theorem starts from the now-constructed all-label boundary transfer
-and must prove both:
-
-1. despite the raw hidden-link witness, prove that conditional integration
-   makes the nine-slot pushforward Markov-lumpable, or enlarge the retained
-   carrier until an intertwining holds;
-2. uniformly compare the boundary messages strongly enough that, before
-   microscopic minorization,
-   \[
-   \Phi_{\mu_{a,L}^{\rm glue}}
-   \succeq
-   \varepsilon_L\Omega_{R_{a,L}},
-   \qquad \varepsilon_L>0,
-   \]
-   uniformly in spacing, representation cutoff, and ambient volume.
+The carrier and terminal-message algebra are now closed. The next theorem
+starts from the all-label boundary transfer on the enlarged 23-cycle
+carrier and must prove a spacing-uniform two-sided Harnack estimate for its
+grouped Feynman--Kac kernel, with every interior spatial weight included.
+Equivalently, it is enough to prove uniform convergence to a bounded,
+strictly positive limit kernel. Either result would imply, before
+microscopic minorization,
+\[
+\Phi_{\mu_{a,L}^{\rm glue}}
+\succeq
+\varepsilon_L\Omega_{R_{a,L}},
+\qquad \varepsilon_L>0,
+\]
+uniformly in spacing, representation cutoff, and ambient volume.
 
 The executable certificate is
 `computations/physical_all_label_channel_composition.py`, with tests in
@@ -288,4 +301,7 @@ The executable certificate is
 geometry and interface no-go are in
 `computations/corrected_slab_physical_gluing.py`, tested by
 `tests/test_corrected_slab_physical_gluing.py`.  Boundary-message
-Markovization is tested by `tests/test_boundary_message_markovization.py`.
+Markovization and uniform-order reduction are in
+`computations/boundary_message_markovization.py` and
+`computations/boundary_message_uniform_order.py`; see
+`notes/bf4-boundary-message-uniform-order.md`.

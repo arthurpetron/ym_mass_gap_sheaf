@@ -45,7 +45,12 @@ from computations.corrected_slab_physical_gluing import (
 from computations.dual_half_time_reflection_route import (
     boundary_complete_slab_plaquettes,
 )
-from computations.dual_positivity_geometry_bridge import edges_of
+from computations.dual_positivity_geometry_bridge import (
+    Link4,
+    Vertex4,
+    add_e,
+    edges_of,
+)
 from computations.whole_corrected_slab_kraus import coarse_face_paths
 
 RationalVector: TypeAlias = tuple[Fraction, ...]
@@ -489,6 +494,124 @@ def coarse_boundary_sufficiency_audit(
     return audit
 
 
+def _connected_component_count(
+    vertices: set[Vertex4],
+    edges: set[Link4],
+) -> int:
+    neighbors: dict[Vertex4, set[Vertex4]] = {
+        vertex: set() for vertex in vertices
+    }
+    for base, direction in edges:
+        target = add_e(base, direction)
+        neighbors[base].add(target)
+        neighbors[target].add(base)
+    unseen = set(vertices)
+    component_count = 0
+    while unseen:
+        component_count += 1
+        stack = [unseen.pop()]
+        while stack:
+            vertex = stack.pop()
+            for neighbor in neighbors[vertex]:
+                if neighbor in unseen:
+                    unseen.remove(neighbor)
+                    stack.append(neighbor)
+    return component_count
+
+
+@dataclass(frozen=True)
+class EnlargedFineBoundaryCarrier:
+    """Complete gauge-invariant boundary carrier used instead of nine loops."""
+
+    spatial_boundary_link_count: int
+    spatial_boundary_vertex_count: int
+    connected_component_count: int
+    spanning_tree_link_count: int
+    gauge_fixed_cycle_rank: int
+    source_target_carriers_identical: bool
+    carrier_description: str
+    retained_projection: str
+    identity_projection_markov_lumpable: bool
+    fine_boundary_transfer_acts_on_carrier: bool
+    finite_horizon_markov_composition_exact: bool
+    coarse_spatial_loops_per_slice: int
+    coarse_spatial_observables_recoverable: bool
+    temporal_coarse_observables_retained_in_environment_instrument: bool
+    nine_loop_raw_sufficiency_required: bool
+    carrier_enlargement_completed: bool
+    spacing_uniform_message_order_proved: bool
+
+    def validates(self) -> bool:
+        plaquettes = boundary_complete_slab_plaquettes(1)
+        all_edges = {
+            edge
+            for plaquette in plaquettes
+            for edge in edges_of(plaquette)
+        }
+        boundary_edges = {
+            edge
+            for edge in all_edges
+            if edge[1] < 3 and edge[0][3] == 0
+        }
+        vertices = {
+            vertex
+            for base, direction in boundary_edges
+            for vertex in (base, add_e(base, direction))
+        }
+        components = _connected_component_count(vertices, boundary_edges)
+        cycle_rank = len(boundary_edges) - len(vertices) + components
+        return (
+            self.spatial_boundary_link_count == len(boundary_edges) == 48
+            and self.spatial_boundary_vertex_count == len(vertices) == 26
+            and self.connected_component_count == components == 1
+            and self.spanning_tree_link_count == len(vertices) - 1 == 25
+            and self.gauge_fixed_cycle_rank == cycle_rank == 23
+            and self.source_target_carriers_identical
+            and self.carrier_description
+            == "tree-gauge SU2^23 with residual root conjugation on invariants"
+            and self.retained_projection == "identity-on-full-fine-boundary"
+            and self.identity_projection_markov_lumpable
+            and self.fine_boundary_transfer_acts_on_carrier
+            and self.finite_horizon_markov_composition_exact
+            and self.coarse_spatial_loops_per_slice == 3
+            and self.coarse_spatial_observables_recoverable
+            and self.temporal_coarse_observables_retained_in_environment_instrument
+            and not self.nine_loop_raw_sufficiency_required
+            and self.carrier_enlargement_completed
+            and not self.spacing_uniform_message_order_proved
+        )
+
+
+@cache
+def enlarged_fine_boundary_carrier() -> EnlargedFineBoundaryCarrier:
+    """Retain all boundary cycles so Markov intertwining is the identity."""
+
+    carrier = EnlargedFineBoundaryCarrier(
+        spatial_boundary_link_count=48,
+        spatial_boundary_vertex_count=26,
+        connected_component_count=1,
+        spanning_tree_link_count=25,
+        gauge_fixed_cycle_rank=23,
+        source_target_carriers_identical=True,
+        carrier_description=(
+            "tree-gauge SU2^23 with residual root conjugation on invariants"
+        ),
+        retained_projection="identity-on-full-fine-boundary",
+        identity_projection_markov_lumpable=True,
+        fine_boundary_transfer_acts_on_carrier=True,
+        finite_horizon_markov_composition_exact=True,
+        coarse_spatial_loops_per_slice=3,
+        coarse_spatial_observables_recoverable=True,
+        temporal_coarse_observables_retained_in_environment_instrument=True,
+        nine_loop_raw_sufficiency_required=False,
+        carrier_enlargement_completed=True,
+        spacing_uniform_message_order_proved=False,
+    )
+    if not carrier.validates():
+        raise AssertionError("the enlarged fine-boundary carrier drifted")
+    return carrier
+
+
 @dataclass(frozen=True)
 class PhysicalBoundaryMessageBlueprint:
     """Exact algebra closed around the still-open all-label boundary kernel."""
@@ -520,11 +643,13 @@ class PhysicalBoundaryMessageBlueprint:
         coarse_sufficiency = coarse_boundary_sufficiency_audit(
             Fraction(1, 2)
         )
+        enlarged_carrier = enlarged_fine_boundary_carrier()
         return (
             self.gluing_geometry.validates()
             and finite_witness.validates()
             and physical_transfer.validates()
             and coarse_sufficiency.validates()
+            and enlarged_carrier.validates()
             and self.spatial_slice_weight_assignment
             == "initial-boundary-weight plus temporal-and-target-spatial per step"
             and self.raw_transfer_fiber_product_composition_exact
@@ -539,7 +664,7 @@ class PhysicalBoundaryMessageBlueprint:
             and not self.spacing_uniform_boundary_message_ratio_proved
             and not self.spacing_uniform_grouped_minorization_proved
             and self.first_open_obligation
-            == "prove-coarse-lumpability-or-enlarge-carrier-and-uniform-message-ratio"
+            == "prove-spacing-uniform-feynman-kac-harnack-with-interior-spatial-weights"
         )
 
 
@@ -563,7 +688,7 @@ def physical_boundary_message_blueprint() -> PhysicalBoundaryMessageBlueprint:
         spacing_uniform_boundary_message_ratio_proved=False,
         spacing_uniform_grouped_minorization_proved=False,
         first_open_obligation=(
-            "prove-coarse-lumpability-or-enlarge-carrier-and-uniform-message-ratio"
+            "prove-spacing-uniform-feynman-kac-harnack-with-interior-spatial-weights"
         ),
     )
     if not blueprint.validates():

@@ -775,19 +775,38 @@ ratios telescope exactly under composition.  The continuous all-label
 transfer is now explicitly defined on the 48-link source/target boundary by
 integrating the 20 temporal links between symmetric square roots of the
 spatial weights.  It is positive, continuous, gauge invariant, and
-reflection symmetric.  The remaining comparison must prove
-spacing-uniform relative message/minorization bounds and show that the nine
-coarse holonomies intertwine this fine-boundary Markov channel, before
-microscopic floor loss.
+reflection symmetric.
 
 Simple raw sufficiency of the nine loops is false.  A pinned free boundary
 link absent from every coarse path changes three fine spatial plaquettes
 under the center flip \(I\mapsto-I\), while all nine retained holonomies stay
 fixed.  Since
 \(K_s(I)-K_s(-I)=2\sum_{n\ {\rm odd}}(n+1)^2s^{n(n+2)}>0\),
-the raw transfer changes.  The remaining carrier decision is therefore
-sharp: prove Markov lumpability created by conditional integration and
-backward messages, or enlarge the retained boundary carrier.
+the raw transfer changes. Markov lumpability created by conditional
+integration is not refuted.
+
+**The enlargement branch is now executed.** Retain the complete connected
+fine spatial boundary. Its 48 links and 26 vertices leave 23 cycle variables
+after tree gauge. The retained projection is the identity, so the
+fine-boundary source/target Markov intertwining is exact and nine-loop
+lumpability is not required on this route.
+
+A two-sided row-ratio estimate for a positive grouped raw kernel now gives
+both a terminal-independent order bound for every backward message and a
+common Markov minorization. The endpoint spatial square roots cancel in the
+relative coordinate \(g_j=h_j/\sqrt{W_{\rm spatial}}\). For the 23-cycle
+kinetic reference kernel, grouping to heat coordinate at most \(1/2\)
+proves the spacing-uniform mass
+\[
+\left(\frac{1055}{3489}\right)^{46}.
+\]
+The remaining physical estimate is a spacing-uniform two-sided Harnack
+bound for the grouped Feynman--Kac kernel with all interior spatial weights,
+or uniform convergence of that kernel to a bounded strictly positive
+limit. Strict positivity alone is insufficient: the exact two-state family
+\(Q_{1/n}\operatorname{diag}(1,n)Q_{1/n}\) has common row-order mass
+\(n/(n^2-n+1)\to0\). See
+`notes/bf4-boundary-message-uniform-order.md`.
 
 The cumulative-heat condition controls the local bare heat-kernel mode.
 With \(\rho=s^3\), it implies

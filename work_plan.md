@@ -5,7 +5,7 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
-## Current execution overlay (updated 2026-07-25)
+## Current execution overlay (updated 2026-07-26)
 
 The historical phases below remain the provenance of completed artifacts,
 but the current frontier schedule is the BF1--BF10 plan in
@@ -294,10 +294,12 @@ between symmetric square roots of the 24-face spatial weights.  It is
 strictly positive, continuous, gauge invariant, and reflection symmetric;
 its backward messages construct the fine-boundary Markov channel.
 
-The remaining physical object is now sharply limited to a spacing-uniform
-relative bound on those continuous messages and proof that the nine coarse
-holonomies intertwine the fine-boundary Markov channel (or a proof that the
-retained carrier must be enlarged).
+**BF4 enlarged-carrier/message-order update (2026-07-26).** The retained
+carrier is now the complete connected fine spatial boundary. Its 48 links
+and 26 vertices have tree-gauge cycle rank \(48-26+1=23\). The retained
+projection is the identity, so the fine-boundary source/target Markov
+intertwining is exact; this route no longer requires nine-loop
+lumpability.
 
 The raw nine-loop sufficiency shortcut is exactly refuted.  Gauge-fixed
 free link \(7\), geometrically \(((0,0,1,0),0)\), occurs in lower spatial
@@ -310,8 +312,29 @@ spatial density by three factors, since
  2\sum_{n\ {\rm odd}}(n+1)^2s^{n(n+2)}>0.
 \]
 Therefore the raw transfer does not factor through the nine-loop carrier.
-Markov lumpability after conditional integration is not refuted; it is now
-the precise alternative to enlarging the carrier.
+Markov lumpability after conditional integration is not refuted, but the
+enlarged-carrier alternative has now been executed.
+
+The remaining order algebra is also exact. A two-sided row-ratio estimate
+for a positive grouped raw kernel orders every backward message and gives a
+terminal-independent Markov minorization. The endpoint spatial weights
+cancel after passing to
+\(g_j=h_j/\sqrt{W_{\rm spatial}}\). Grouping the kinetic reference kernel
+until its heat coordinate is at most \(1/2\) gives the spacing-uniform
+23-cycle common mass
+\[
+ \varepsilon_{\rm kin}
+ =
+ \left(\frac{1055}{3489}\right)^{46}.
+\]
+This is not yet the physical bound because the intermediate spatial
+Feynman--Kac weights are absent. The single remaining BF4 message-order
+estimate is a spacing-uniform two-sided Harnack bound for that interacting
+grouped kernel, or uniform convergence to a bounded strictly positive limit
+kernel. A two-state exact countermodel has common mass
+\(n/(n^2-n+1)\to0\), so positivity of arbitrary interior weights cannot
+replace this Yang--Mills-specific estimate. See
+`notes/bf4-boundary-message-uniform-order.md`.
 
 The cumulative-heat condition is also not automatic.  For the local bare
 heat-kernel multiplier \(\rho(a)=s(a)^3\), it implies
