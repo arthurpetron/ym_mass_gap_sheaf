@@ -12,8 +12,8 @@ This result constructs the residual boundary function.  Subsequent direct
 all-label measure regrouping constructs the physical source/target Choi
 operator and proves fixed-coupling CP-order corridor domination without
 expanding this function in a signed recoupling basis.  A spacing-uniform
-coefficient as \(s\to1\), mass-preserving RG interpretation, and
-consecutive-scale composition remain open.
+coefficient as \(s\to1\) and the identification of abstract channel
+convolution with boundary-dependent physical slab gluing remain open.
 
 ## Uniform bound
 
@@ -89,9 +89,10 @@ What remains is the stronger operator-theoretic bridge:
    coordinate-level recoupling proof is required, or continue basis-free;
 2. replace the collapsing one-step coefficient by a spacing-uniform
    relative residual-order estimate over a fixed physical distance;
-3. identify the positive Choi difference as a mass-preserving RG channel
-   residual;
-4. prove same-carrier composition between consecutive scales.
+3. identify abstract random-unitary convolution with the boundary-dependent
+   Haar-network channel obtained by physically gluing consecutive slabs;
+4. prove that the grouped corridor component is the common reset packet
+   required by the base-norm contraction theorem.
 
 The fixed-\(s\) modulus above cannot be silently promoted to the second item:
 its certified cutoff grows as \(s\to1\), and the available Jacobi-floor

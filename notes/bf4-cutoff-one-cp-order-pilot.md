@@ -163,5 +163,8 @@ order defines the physical nine-slot source/target Choi Gram and proves
 This does not contradict the negative cutoff-one pilot because no signed
 finite character truncation is isolated as a CP summand.  See
 `notes/bf4-physical-all-label-choi-domination.md`.  The new coefficient
-still collapses toward weak coupling and is not yet a mass-preserving
-consecutive-scale RG channel decomposition.
+still collapses toward weak coupling.  Its normalized all-label measure
+difference has subsequently been promoted to a random-unitary CPTP
+residual, but abstract channel convolution is not yet the physically glued
+consecutive-slab RG map.  See
+`notes/bf4-all-label-channel-composition.md`.

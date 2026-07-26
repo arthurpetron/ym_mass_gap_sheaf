@@ -37,13 +37,18 @@ orthogonal compressions of this full operator, not character truncations of
 the physical density.
 
 This closes fixed-coupling CP domination of the basis-free physical Gram.
-It does not close BF4.  The certified coefficient collapses as ``s -> 1``:
+After finite-cutoff deweighting, the normalized positive measure difference
+also defines a random-unitary CPTP residual on the projective all-label
+carrier; those details are executable in
+``physical_all_label_channel_composition.py``.  It does not close BF4.  The
+certified coefficient collapses as ``s -> 1``:
 
     eta_s <= ((1-s)**3 / (1+s))**21.
 
-Nor does this module identify the resulting CP map with a mass-preserving
-channel that composes between consecutive RG scales.  Those two statements
-are the remaining physical-distance obligations.
+Abstract same-carrier channels compose by group convolution.  What remains
+unproved is the identification of that convolution with the Haar-network
+kernel obtained by physically gluing consecutive corrected slabs, together
+with a spacing-uniform fixed-distance minorization.
 """
 
 from __future__ import annotations
@@ -418,6 +423,8 @@ class PhysicalAllLabelChoiDomination:
     entrywise_all_label_recoupling_contraction_materialized: bool
     consecutive_scale_channel_composition_proved: bool
     cp_residual_mass_preserving_channel_proved: bool
+    abstract_same_carrier_convolution_composition_proved: bool
+    physical_consecutive_slab_rg_identification_proved: bool
     spacing_uniform_cp_domination_proved: bool
     physical_coupling_spacing_condition_proved: bool
     jacobi_identity_formalized_in_repo: bool
@@ -497,7 +504,9 @@ class PhysicalAllLabelChoiDomination:
             and self.signed_recoupling_basis_independent
             and not self.entrywise_all_label_recoupling_contraction_materialized
             and not self.consecutive_scale_channel_composition_proved
-            and not self.cp_residual_mass_preserving_channel_proved
+            and self.cp_residual_mass_preserving_channel_proved
+            and self.abstract_same_carrier_convolution_composition_proved
+            and not self.physical_consecutive_slab_rg_identification_proved
             and not self.spacing_uniform_cp_domination_proved
             and not self.physical_coupling_spacing_condition_proved
             and not self.jacobi_identity_formalized_in_repo
@@ -508,7 +517,7 @@ class PhysicalAllLabelChoiDomination:
             and self.corridor_choi_definition
             == "J_corr=Integral |W_u(Pi(x))><W_u(Pi(x))| dmu_selected(x)"
             and self.first_open_obligation
-            == "prove-spacing-uniform-relative-residual-order-and-rg-composition"
+            == "identify-physical-gluing-and-prove-fixed-distance-minorization"
         )
 
 
@@ -587,7 +596,9 @@ def physical_all_label_choi_domination(
         signed_recoupling_basis_independent=True,
         entrywise_all_label_recoupling_contraction_materialized=False,
         consecutive_scale_channel_composition_proved=False,
-        cp_residual_mass_preserving_channel_proved=False,
+        cp_residual_mass_preserving_channel_proved=True,
+        abstract_same_carrier_convolution_composition_proved=True,
+        physical_consecutive_slab_rg_identification_proved=False,
         spacing_uniform_cp_domination_proved=False,
         physical_coupling_spacing_condition_proved=False,
         jacobi_identity_formalized_in_repo=False,
@@ -601,7 +612,7 @@ def physical_all_label_choi_domination(
             "J_corr=Integral |W_u(Pi(x))><W_u(Pi(x))| dmu_selected(x)"
         ),
         first_open_obligation=(
-            "prove-spacing-uniform-relative-residual-order-and-rg-composition"
+            "identify-physical-gluing-and-prove-fixed-distance-minorization"
         ),
     )
     if not certificate.validates():

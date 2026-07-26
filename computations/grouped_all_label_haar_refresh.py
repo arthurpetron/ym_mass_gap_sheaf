@@ -42,9 +42,20 @@ from computations.all_label_whole_slab_tail import (
     heat_character_sup_term,
     single_plaquette_all_label_tail,
 )
+from computations.boundary_message_markovization import (
+    physical_boundary_message_blueprint,
+)
 from computations.corrected_slab_haar_network import corrected_slab_haar_complex
+from computations.corrected_slab_physical_gluing import (
+    interface_floor_ceiling_no_go,
+    two_slab_physical_gluing_audit,
+)
 from computations.dual_positivity_geometry_bridge import edges_of
 from computations.exact_haar_network import casimir4, invariant_multiplicity
+from computations.physical_all_label_channel_composition import (
+    dyadic_fixed_distance_iteration_no_go,
+    mass_preserving_channel_promotion,
+)
 from computations.physical_all_label_choi_domination import (
     physical_all_label_choi_domination,
 )
@@ -1044,6 +1055,26 @@ class GroupedPhysicalPacketFrontier:
     spacing_dependent_cutoff_schedule_pinned: bool
     fixed_coupling_physical_corridor_cp_domination_proved: bool
     spacing_uniform_physical_corridor_cp_domination_proved: bool
+    finite_cutoff_choi_deweighting_pinned: bool
+    normalized_random_unitary_residual_cptp_proved: bool
+    projective_all_label_normal_channel_defined: bool
+    abstract_same_carrier_convolution_composition_proved: bool
+    microscopic_corridor_tag_fixed_distance_route_refuted: bool
+    two_slab_fixed_spatial_fiber_product_geometry_pinned: bool
+    independent_convolution_physical_gluing_refuted: bool
+    interface_floor_ceiling_uniform_route_refuted: bool
+    raw_fiber_product_transfer_composition_exact: bool
+    boundary_message_markovization_algebra_proved: bool
+    finite_horizon_mass_preserving_composition_algebra_proved: bool
+    all_label_continuous_boundary_transfer_constructed: bool
+    spacing_uniform_boundary_message_ratio_proved: bool
+    fine_boundary_conditioned_gluing_channel_constructed: bool
+    nine_slot_coarse_markov_intertwining_proved: bool
+    nine_coarse_loop_raw_transfer_sufficiency_refuted: bool
+    coarse_markov_lumpability_refuted: bool
+    carrier_enlargement_or_conditional_cancellation_required: bool
+    direct_integrated_glued_block_comparison_refuted: bool
+    physical_consecutive_slab_rg_identification_proved: bool
     consecutive_scale_channel_composition_proved: bool
     corrected_slab_corridor_cover_pinned: bool
     interacting_map_cp_dominates_corridor: bool
@@ -1082,6 +1113,17 @@ class GroupedPhysicalPacketFrontier:
             Fraction(1, 2),
             Fraction(1, 2),
         )
+        channel_promotion = mass_preserving_channel_promotion(
+            Fraction(1, 2),
+            Fraction(1, 2),
+        )
+        fixed_distance_no_go = dyadic_fixed_distance_iteration_no_go(2)
+        gluing = two_slab_physical_gluing_audit()
+        interface_no_go = interface_floor_ceiling_no_go(
+            Fraction(3, 4),
+            dyadic_spacing=True,
+        )
+        boundary_messages = physical_boundary_message_blueprint()
         return (
             witness.validates()
             and geometry.validates()
@@ -1098,6 +1140,11 @@ class GroupedPhysicalPacketFrontier:
             and cp_obstruction.validates()
             and weak_coupling_tail_obstruction.validates()
             and physical_choi.validates()
+            and channel_promotion.validates()
+            and fixed_distance_no_go.validates()
+            and gluing.validates()
+            and interface_no_go.validates()
+            and boundary_messages.validates()
             and self.all_label_corridor_kernel_constructed
             and self.exact_semigroup_grouping
             and self.common_haar_packet_constructed
@@ -1125,6 +1172,26 @@ class GroupedPhysicalPacketFrontier:
             and self.spacing_dependent_cutoff_schedule_pinned
             and self.fixed_coupling_physical_corridor_cp_domination_proved
             and not self.spacing_uniform_physical_corridor_cp_domination_proved
+            and self.finite_cutoff_choi_deweighting_pinned
+            and self.normalized_random_unitary_residual_cptp_proved
+            and self.projective_all_label_normal_channel_defined
+            and self.abstract_same_carrier_convolution_composition_proved
+            and self.microscopic_corridor_tag_fixed_distance_route_refuted
+            and self.two_slab_fixed_spatial_fiber_product_geometry_pinned
+            and self.independent_convolution_physical_gluing_refuted
+            and self.interface_floor_ceiling_uniform_route_refuted
+            and self.raw_fiber_product_transfer_composition_exact
+            and self.boundary_message_markovization_algebra_proved
+            and self.finite_horizon_mass_preserving_composition_algebra_proved
+            and self.all_label_continuous_boundary_transfer_constructed
+            and not self.spacing_uniform_boundary_message_ratio_proved
+            and self.fine_boundary_conditioned_gluing_channel_constructed
+            and not self.nine_slot_coarse_markov_intertwining_proved
+            and self.nine_coarse_loop_raw_transfer_sufficiency_refuted
+            and not self.coarse_markov_lumpability_refuted
+            and self.carrier_enlargement_or_conditional_cancellation_required
+            and not self.direct_integrated_glued_block_comparison_refuted
+            and not self.physical_consecutive_slab_rg_identification_proved
             and not self.consecutive_scale_channel_composition_proved
             and geometry.every_internal_link_transversely_coupled
             and not geometry.literal_semigroup_factorization_of_full_integrand
@@ -1134,7 +1201,7 @@ class GroupedPhysicalPacketFrontier:
             and not self.actual_grouped_all_label_packet_proved
             and not self.spacing_uniform_refresh_mass_proved
             and self.first_open_obligation
-            == "prove-spacing-uniform-relative-residual-order-and-rg-composition"
+            == "prove-coarse-lumpability-or-enlarge-carrier-and-uniform-message-ratio"
         )
 
 
@@ -1167,6 +1234,26 @@ def grouped_physical_packet_frontier() -> GroupedPhysicalPacketFrontier:
         spacing_dependent_cutoff_schedule_pinned=True,
         fixed_coupling_physical_corridor_cp_domination_proved=True,
         spacing_uniform_physical_corridor_cp_domination_proved=False,
+        finite_cutoff_choi_deweighting_pinned=True,
+        normalized_random_unitary_residual_cptp_proved=True,
+        projective_all_label_normal_channel_defined=True,
+        abstract_same_carrier_convolution_composition_proved=True,
+        microscopic_corridor_tag_fixed_distance_route_refuted=True,
+        two_slab_fixed_spatial_fiber_product_geometry_pinned=True,
+        independent_convolution_physical_gluing_refuted=True,
+        interface_floor_ceiling_uniform_route_refuted=True,
+        raw_fiber_product_transfer_composition_exact=True,
+        boundary_message_markovization_algebra_proved=True,
+        finite_horizon_mass_preserving_composition_algebra_proved=True,
+        all_label_continuous_boundary_transfer_constructed=True,
+        spacing_uniform_boundary_message_ratio_proved=False,
+        fine_boundary_conditioned_gluing_channel_constructed=True,
+        nine_slot_coarse_markov_intertwining_proved=False,
+        nine_coarse_loop_raw_transfer_sufficiency_refuted=True,
+        coarse_markov_lumpability_refuted=False,
+        carrier_enlargement_or_conditional_cancellation_required=True,
+        direct_integrated_glued_block_comparison_refuted=False,
+        physical_consecutive_slab_rg_identification_proved=False,
         consecutive_scale_channel_composition_proved=False,
         corrected_slab_corridor_cover_pinned=False,
         interacting_map_cp_dominates_corridor=False,
@@ -1174,7 +1261,7 @@ def grouped_physical_packet_frontier() -> GroupedPhysicalPacketFrontier:
         actual_grouped_all_label_packet_proved=False,
         spacing_uniform_refresh_mass_proved=False,
         first_open_obligation=(
-            "prove-spacing-uniform-relative-residual-order-and-rg-composition"
+            "prove-coarse-lumpability-or-enlarge-carrier-and-uniform-message-ratio"
         ),
     )
     if not frontier.validates():

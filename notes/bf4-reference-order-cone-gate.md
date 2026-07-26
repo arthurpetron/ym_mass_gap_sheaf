@@ -367,10 +367,15 @@ The new coefficient still collapses:
  \le
  \left(\frac{(1-s)^3}{1+s}\right)^{21}.
 \]
-The next order theorem is therefore a fixed-physical-distance relative
-residual estimate, not another fixed-slab cutoff calculation.  It must also
-identify the positive Choi difference with a mass-preserving channel
-residual which composes between consecutive scales.
+The positive difference now has a projective random-unitary CPTP
+residual-channel promotion, and those abstract channels compose by
+convolution.  The next order theorem is therefore a fixed-physical-distance
+relative residual estimate on the physically glued block, not another
+fixed-slab cutoff calculation.  Its geometry and finite-horizon
+boundary-message normalization are now exact, and the continuous all-label
+boundary transfer is explicit.  The missing input is a uniform relative
+estimate for its backward messages plus intertwining of the fine-boundary
+Markov channel with the retained nine-slot carrier.
 
 The grouped-half hypothesis itself is not free: for the local bare
 heat-kernel multiplier \(\rho=s^3\), it implies

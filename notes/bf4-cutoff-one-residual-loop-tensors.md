@@ -149,10 +149,12 @@ measure regrouping now defines the basis-free physical Choi/Kraus Gram and
 proves fixed-coupling corridor domination with coefficient
 \((\ell_s/H_s)^{21}\).
 
-The load-bearing step is now to replace that collapsing fixed-slab
-coefficient by a spacing-uniform relative residual-order estimate over fixed
-physical distance, and to identify the positive Choi difference as a
-mass-preserving channel residual composing between consecutive scales.
+The normalized difference now has a random-unitary CPTP residual-channel
+promotion and abstract same-carrier convolution law.  The load-bearing step
+is to identify that law with actual boundary-dependent corrected-slab
+gluing and to replace the collapsing fixed-slab coefficient by a
+spacing-uniform relative residual-order estimate applied directly to the
+glued physical-distance block.
 
 Positive rational coefficients multiplying Wilson traces do not establish
 that order statement, because Wilson traces themselves need not be positive.

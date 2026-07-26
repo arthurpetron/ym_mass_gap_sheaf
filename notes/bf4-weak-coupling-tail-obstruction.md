@@ -73,10 +73,13 @@ cutoff \(N(s)\) certifies the heat-kernel upper majorant used in
  \left(\frac{\ell_s}{H_s}\right)^{21}J_{\rm corr}(s,u).
 \]
 This resolves fixed-coupling CP order but not weak-coupling uniformity,
-because the Jacobi-floor coefficient collapses as \(s\to1\).  The next
-theorem must therefore obtain a spacing-uniform relative residual-order
-estimate over a fixed physical distance and prove mass-preserving
-same-carrier RG composition.
+because the Jacobi-floor coefficient collapses as \(s\to1\).  Its normalized
+difference is now a random-unitary CPTP residual with abstract same-carrier
+convolution.  The exact 120-face gluing geometry and boundary-message
+Markovization algebra are now pinned, and the continuous all-label
+fine-boundary transfer is explicit.  The next theorem must obtain a
+spacing-uniform relative message/minorization estimate and coarse-carrier
+intertwining directly on the fixed physical-distance block.
 
 The executable certificate is
 `computations/transverse_weak_coupling_tail_obstruction.py`.

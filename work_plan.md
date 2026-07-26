@@ -225,13 +225,93 @@ coefficient obeys
  \eta_s\le
  \left(\frac{(1-s)^3}{1+s}\right)^{21},
 \]
-so it collapses on the weak-coupling trajectory.  Moreover the positive
-Choi difference is not yet identified with a mass-preserving RG channel
-residual, and consecutive-scale composition on the carrier is unproved.
-The next theorem is now a spacing-uniform **relative residual-order**
-estimate over fixed physical distance, together with that channel
-composition identification.  See
-`notes/bf4-physical-all-label-choi-domination.md`.
+so it collapses on the weak-coupling trajectory.
+
+**BF4 residual-channel/composition update (2026-07-26).**  Removing the
+strictly positive auxiliary heat feature at every finite Peter--Weyl cutoff
+promotes the comparison to random-unitary channels on one universal
+nine-slot carrier.  The normalized residual law
+\[
+ \omega_s=
+ \frac{\mu_{\rm phys}-\eta_s\mu_{\rm corr}}{1-\eta_s}
+\]
+is a probability measure, so
+\[
+ \Phi_{\rm phys}
+ =
+ \eta_s\Phi_{\rm corr}+(1-\eta_s)\Phi_{\omega_s}
+\]
+has a CPTP, unital, mass-preserving residual.  The finite channels restrict
+projectively to the normal all-label channel, and abstract same-carrier
+composition is exactly group convolution.
+
+This does not yet identify abstract convolution with the boundary-dependent
+Haar-network map obtained by physically gluing consecutive slabs, and
+\(\Phi_{\rm corr}\) is not silently treated as an input-independent reset.
+Moreover, on \(a=2^{-k}\), \(s=1-a\), \(m=1/a\), the total weight of every
+composition history containing at least one currently certified corridor
+tag is bounded by
+\[
+ 1-(1-\eta_s)^m\le m\eta_s\le a^{62}.
+\]
+Thus composing the existing microscopic certificate cannot supply a
+spacing-uniform fixed-distance refresh.  The next theorem is now the direct
+physical-gluing identity plus a grouped minorization proved before
+microscopic floor/ceiling loss.  See
+`notes/bf4-all-label-channel-composition.md`.
+
+The adjacent-slab geometry is also pinned exactly.  Two translated 72-face
+slabs overlap on 24 spatial plaquettes, 48 links, and 26 vertices; their
+fixed-spatial union has 120 faces, 184 links, and 78 vertices.  It is not
+the repository's isotropic `extent=2` slab, which has 405 faces.  On the
+identified interface variables,
+\[
+ W_{\rm lower}W_{\rm upper}
+ =
+ W_{\rm glued}W_{\rm interface}.
+\]
+Independent convolution therefore double-counts the 24 interface kernels.
+Correcting this by a separate floor/ceiling comparison produces another
+coefficient bounded by \(a^{72}\).  The live constructor is now specifically
+the all-label boundary transfer kernel on the 120-face fiber product and
+its direct integrated minorization.
+
+The normalization/composition algebra for that constructor is now exact.
+For raw transfer kernels \(T_j\), a positive terminal message and the
+backward recursion
+\[
+ h_j(x)=\int T_j(x,y)h_{j+1}(y)\,dy
+\]
+give mass-preserving kernels
+\[
+ P_j(x,dy)=T_j(x,y)h_{j+1}(y)h_j(x)^{-1}\,dy.
+\]
+The messages telescope under composition, reproducing the raw glued path
+law.  This finite-horizon theorem is executable over exact rational
+matrices.  The continuous all-label transfer is also now defined explicitly
+on the 48-link source/target boundary by integrating the 20 temporal links
+between symmetric square roots of the 24-face spatial weights.  It is
+strictly positive, continuous, gauge invariant, and reflection symmetric;
+its backward messages construct the fine-boundary Markov channel.
+
+The remaining physical object is now sharply limited to a spacing-uniform
+relative bound on those continuous messages and proof that the nine coarse
+holonomies intertwine the fine-boundary Markov channel (or a proof that the
+retained carrier must be enlarged).
+
+The raw nine-loop sufficiency shortcut is exactly refuted.  Gauge-fixed
+free link \(7\), geometrically \(((0,0,1,0),0)\), occurs in lower spatial
+faces \(1,9,10\) but in none of the nine coarse paths.  Its center flip
+\(I\mapsto-I\) leaves all retained holonomies unchanged while changing the
+spatial density by three factors, since
+\[
+ K_s(I)-K_s(-I)
+ =
+ 2\sum_{n\ {\rm odd}}(n+1)^2s^{n(n+2)}>0.
+\]
+Therefore the raw transfer does not factor through the nine-loop carrier.
+Markov lumpability after conditional integration is not refuted; it is now
+the precise alternative to enlarging the carrier.
 
 The cumulative-heat condition is also not automatic.  For the local bare
 heat-kernel multiplier \(\rho(a)=s(a)^3\), it implies

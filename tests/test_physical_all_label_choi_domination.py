@@ -92,7 +92,9 @@ def test_cp_result_remains_fail_closed_at_physical_distance() -> None:
         certificate.entrywise_all_label_recoupling_contraction_materialized
     )
     assert not certificate.consecutive_scale_channel_composition_proved
-    assert not certificate.cp_residual_mass_preserving_channel_proved
+    assert certificate.cp_residual_mass_preserving_channel_proved
+    assert certificate.abstract_same_carrier_convolution_composition_proved
+    assert not certificate.physical_consecutive_slab_rg_identification_proved
     assert not certificate.spacing_uniform_cp_domination_proved
     assert not certificate.physical_coupling_spacing_condition_proved
     assert not certificate.jacobi_identity_formalized_in_repo

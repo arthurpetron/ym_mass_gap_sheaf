@@ -405,8 +405,8 @@ For every proposed fixed-physical-distance improvement, record:
 1. source boundary signature;
 2. target reference packet;
 3. the exact relative Radon--Nikodym or Choi-order coefficient;
-4. whether the positive difference is a mass-preserving channel residual;
-5. its consecutive-scale composition law;
+4. whether its CPTP residual is the actual physical RG residual;
+5. whether abstract convolution equals boundary-dependent slab gluing;
 6. whether the same packet occurs for every source signature;
 7. a lower bound uniform over the steps in one fixed physical distance.
 
@@ -427,8 +427,17 @@ fixed-coupling coefficient.  That coefficient satisfies
 \]
 so multiplying fixed-slab certificates cannot close BF4.  The search must
 replace this floor/ceiling ratio by a fixed-distance relative residual-order
-bound \(\eta_{a,L}\ge\eta_L\), while proving mass preservation and
-same-carrier RG composition.  The first
+bound \(\eta_{a,L}\ge\eta_L\).
+
+The normalized all-label measure difference is now a random-unitary CPTP
+residual after finite-cutoff heat-feature deweighting, and the projective
+normal channels compose abstractly by convolution.  This closes mass
+preservation and same-carrier algebra, but not the physical identity between
+that convolution and boundary-dependent corrected-slab gluing.  Indeed, the
+total mass of all histories containing at least one currently certified
+corridor tag is at most \(a^{62}\) over \(1/a\) dyadic steps.  The search
+must therefore construct and estimate the physically glued fixed-distance
+block directly.  The first
 successful family becomes the constructor for BF4-C3; its uniform
 \(\eta_L\), together with the cumulative-heat inequality, closes BF4-C4.
 

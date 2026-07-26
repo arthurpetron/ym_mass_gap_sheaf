@@ -534,11 +534,22 @@ This fixed-coupling coefficient is not the BF4 exit coefficient.  It obeys
  \le
  \left(\frac{(1-s)^3}{1+s}\right)^{21},
 \]
-and hence collapses as \(s\to1\).  The Choi residual has also not been
-identified as a mass-preserving channel residual composing between
-consecutive RG scales.  The remaining constructor is a spacing-uniform
-relative residual-order theorem over fixed physical distance together with
-that composition identification.
+and hence collapses as \(s\to1\).  Finite heat-feature deweighting now
+identifies the normalized measure difference as a random-unitary CPTP
+residual, and the projective all-label channels compose abstractly by group
+convolution.  However, that convolution has not been identified with the
+boundary-dependent channel obtained by physically gluing consecutive
+corrected slabs.
+
+The current microscopic tags also cannot be rescued by formal composition:
+over \(m=1/a\) dyadic steps their total corridor-tagged history mass is at
+most \(a^{62}\).  The exact 120-face fiber-product geometry and
+boundary-message Markovization algebra are now pinned.  The remaining
+constructor is no longer the transfer kernel itself: its positive,
+reflection-symmetric all-label formula on the 48-link interface is explicit.
+The open inputs are a uniform relative bound for its backward messages,
+coarse-carrier Markov intertwining, and the resulting fixed-distance
+minorization before microscopic floor loss.
 
 Executable certificates include
 `transverse_cutoff_one_fusion_audit()` in

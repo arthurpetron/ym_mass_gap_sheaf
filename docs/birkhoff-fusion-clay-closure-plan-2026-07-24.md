@@ -739,11 +739,55 @@ is bounded above by
 \[
  \left(\frac{(1-s)^3}{1+s}\right)^{21}
 \]
-and therefore collapses toward weak coupling.  The positive Choi residual
-is not yet identified as a mass-preserving RG channel residual, and
-consecutive-scale composition is unproved.  The next comparison must prove
-a spacing-uniform relative residual-order decomposition over fixed physical
-distance and the same-carrier channel composition law.
+and therefore collapses toward weak coupling.  Finite heat-feature
+deweighting now promotes the normalized positive measure difference to a
+random-unitary CPTP residual on a projective all-label carrier.  The normal
+channels compose abstractly by group convolution.
+
+The remaining composition gate is physical, not algebraic: abstract
+convolution has not been identified with the boundary-dependent
+Haar-network map obtained by gluing consecutive corrected slabs.  Composing
+only the current microscopic corridor tags cannot close the gap; over
+\(m=1/a\) dyadic steps their total tagged mass is at most \(a^{62}\).
+
+The exact gluing audit now shows why ordinary convolution is the wrong
+physical object.  Adjacent 72-face slabs share 24 spatial plaquettes, 48
+links, and 26 vertices; their fixed-spatial union has 120 faces.  The
+one-slab density product counts every interface kernel twice:
+\[
+ W_{\rm lower}W_{\rm upper}
+ =
+ W_{\rm glued}W_{\rm interface}.
+\]
+The existing isotropic extent-two slab has 405 faces and is not this
+time-glued geometry.  Paying for the interface afterward by a global
+floor/ceiling ratio gives a coefficient at most \(a^{72}\), so that route is
+also nonuniform.
+
+The finite-horizon normalization algebra is nevertheless constructive.
+Assign every spatial-slice weight once in raw transfer kernels \(T_j\),
+choose a positive terminal message, and recurse
+\[
+ h_j(x)=\int T_j(x,y)h_{j+1}(y)\,dy.
+\]
+Then \(P_j(x,dy)=T_j(x,y)h_{j+1}(y)h_j(x)^{-1}dy\) is Markov and the message
+ratios telescope exactly under composition.  The continuous all-label
+transfer is now explicitly defined on the 48-link source/target boundary by
+integrating the 20 temporal links between symmetric square roots of the
+spatial weights.  It is positive, continuous, gauge invariant, and
+reflection symmetric.  The remaining comparison must prove
+spacing-uniform relative message/minorization bounds and show that the nine
+coarse holonomies intertwine this fine-boundary Markov channel, before
+microscopic floor loss.
+
+Simple raw sufficiency of the nine loops is false.  A pinned free boundary
+link absent from every coarse path changes three fine spatial plaquettes
+under the center flip \(I\mapsto-I\), while all nine retained holonomies stay
+fixed.  Since
+\(K_s(I)-K_s(-I)=2\sum_{n\ {\rm odd}}(n+1)^2s^{n(n+2)}>0\),
+the raw transfer changes.  The remaining carrier decision is therefore
+sharp: prove Markov lumpability created by conditional integration and
+backward messages, or enlarge the retained boundary carrier.
 
 The cumulative-heat condition controls the local bare heat-kernel mode.
 With \(\rho=s^3\), it implies

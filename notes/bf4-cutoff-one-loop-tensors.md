@@ -128,9 +128,11 @@ basis-free physical source/target Choi Gram and proves
 at every fixed coupling.  Thus entrywise all-label \(F/R\) transport is no
 longer required for that fixed-coupling order statement.
 
-The remaining BF4 obligation is to replace the collapsing coefficient by a
-spacing-uniform relative residual-order bound over fixed physical distance,
-then identify the positive Choi difference with a mass-preserving channel
-residual composing between consecutive scales.  Until those steps are
-proved, the corrected slab has no certified spacing-uniform physical refresh
-packet, and no mass-gap consequence follows from this calculation.
+The normalized measure difference has now been promoted to a projectively
+compatible random-unitary CPTP residual, with abstract channel composition
+given by convolution.  The remaining BF4 obligation is to identify that
+composition with the physically glued, boundary-dependent Haar-network
+block and prove a spacing-uniform relative residual-order bound directly
+over fixed physical distance.  Until those steps are proved, the corrected
+slab has no certified spacing-uniform physical refresh packet, and no
+mass-gap consequence follows from this calculation.

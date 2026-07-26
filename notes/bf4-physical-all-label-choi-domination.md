@@ -145,24 +145,36 @@ For the exact dyadic model \(a=2^{-k}\), \(s(a)=1-a\),
  \le
  \left(\frac{a^3}{2-a}\right)^{21}.
 \]
-Composing these fixed-slab coefficients cannot yield the required
-spacing-uniform physical-distance refresh mass.
+Expanding \(m=1/a\) microscopic decompositions and using only histories
+with a certified corridor tag gives at most
+\[
+ 1-(1-\eta_s)^m\le m\eta_s\le a^{62}.
+\]
+Thus composition of the current fixed-slab certificate cannot yield the
+required spacing-uniform physical-distance refresh mass.
 
-The construction also stops short of two semantic promotions:
+The normalized positive measure difference has now been promoted, after
+finite-cutoff heat-feature deweighting, to a random-unitary CPTP residual.
+The finite carriers form an exact projective family, and the resulting
+normal all-label channels compose abstractly by group convolution.  See
+`notes/bf4-all-label-channel-composition.md`.
 
-1. the positive Choi difference has not been identified as a
-   mass-preserving channel residual on the RG state space;
-2. composition of this source/target carrier between consecutive physical
-   scales has not been proved.
+The remaining semantic promotion is specifically physical: abstract
+convolution has not been identified with the boundary-dependent
+Haar-network channel obtained by gluing consecutive corrected slabs.
+Nor has the corridor channel been proved to be the input-independent reset
+required by the base-norm refresh theorem.
 
 Finally, the Jacobi identity underlying \(\ell_s\) remains a paper-level
 analytic input rather than a theorem formalized in the repository's Lean
 kernel.
 
-The next theorem is therefore not basic fixed-coupling positivity.  It is a
-spacing-uniform **relative residual-order** estimate on a fixed physical
-distance, together with the consecutive-scale channel-composition
-identification.
+The next theorem is therefore not basic fixed-coupling positivity or
+abstract channel algebra.  The two-slab fiber-product geometry and
+finite-horizon boundary-message normalization are now exact.  The next
+transfer kernel is also explicit on the 48-link fine boundary.  The next
+objects are a spacing-uniform **relative residual-order** estimate for its
+backward messages and a coarse-carrier Markov-intertwining theorem.
 
 The executable certificate is
 `computations/physical_all_label_choi_domination.py`, with tests in

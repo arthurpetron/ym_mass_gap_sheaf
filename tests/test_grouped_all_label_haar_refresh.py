@@ -180,6 +180,26 @@ def test_physical_promotion_frontier_remains_fail_closed():
     assert not (
         frontier.spacing_uniform_physical_corridor_cp_domination_proved
     )
+    assert frontier.finite_cutoff_choi_deweighting_pinned
+    assert frontier.normalized_random_unitary_residual_cptp_proved
+    assert frontier.projective_all_label_normal_channel_defined
+    assert frontier.abstract_same_carrier_convolution_composition_proved
+    assert frontier.microscopic_corridor_tag_fixed_distance_route_refuted
+    assert frontier.two_slab_fixed_spatial_fiber_product_geometry_pinned
+    assert frontier.independent_convolution_physical_gluing_refuted
+    assert frontier.interface_floor_ceiling_uniform_route_refuted
+    assert frontier.raw_fiber_product_transfer_composition_exact
+    assert frontier.boundary_message_markovization_algebra_proved
+    assert frontier.finite_horizon_mass_preserving_composition_algebra_proved
+    assert frontier.all_label_continuous_boundary_transfer_constructed
+    assert not frontier.spacing_uniform_boundary_message_ratio_proved
+    assert frontier.fine_boundary_conditioned_gluing_channel_constructed
+    assert not frontier.nine_slot_coarse_markov_intertwining_proved
+    assert frontier.nine_coarse_loop_raw_transfer_sufficiency_refuted
+    assert not frontier.coarse_markov_lumpability_refuted
+    assert frontier.carrier_enlargement_or_conditional_cancellation_required
+    assert not frontier.direct_integrated_glued_block_comparison_refuted
+    assert not frontier.physical_consecutive_slab_rg_identification_proved
     assert not frontier.consecutive_scale_channel_composition_proved
     assert frontier.cumulative_heat_condition_contains_rescaled_bare_mode_floor
     assert not frontier.interacting_map_cp_dominates_corridor
