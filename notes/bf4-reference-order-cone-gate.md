@@ -276,14 +276,60 @@ repair.
 BF3.2 now supplies an admissible all-label handoff.  BF4 is therefore active
 as a precisely formulated gate, not closed as a contraction milestone.
 
-## 5. The next theorem
+## 5. Intuitionistic contraction normal form
+
+There is now an axiom-clean alternative to formalizing the full logarithmic
+Birkhoff--Hopf theorem.  If the grouped physical map admits the literal
+decomposition
+
+\[
+ \Phi_{a,L}
+ =
+ \varepsilon_{a,L}\Omega_{R_{a,L}}
+ +(1-\varepsilon_{a,L})\Psi_{a,L},
+ \qquad
+ \Omega_R(A)=\ell(A)R,
+\]
+
+with a positive mass-preserving residual, then equal-mass inputs contract
+in the base norm by \(1-\varepsilon_{a,L}\).  The finite exact-rational
+kernel theorem is proved in
+`lean/YMGap/Continuum/ConstructiveRefreshContraction.lean`.
+
+This is already latent in the reference-order formulation.  The lower
+inequality
+
+\[
+ -\delta R\preceq E_A
+\]
+
+gives \(\Phi(A)\succeq(1-\delta)\ell(A)R\), so
+\(\varepsilon=1-\delta\) and the refresh rate is exactly \(\delta\).  The
+upper Loewner bound remains useful for Hilbert geometry but is not needed
+for the base-norm contraction.
+
+The certificate should be sought after grouping over fixed physical
+distance.  Microscopic global Haar minorization is intrinsically too weak
+near the small-time heat-kernel limit.  The preferred physical witness is
+
+\[
+ \varepsilon_{a,L}\ge\varepsilon_L>0,
+ \qquad
+ q_L=1-\varepsilon_L<1,
+\]
+
+uniform in spacing, cutoff, and ambient volume.  Complete positivity of the
+residual is the strongest tensor-stable version.  See
+`notes/bf4-intuitionistic-proof-routes.md`.
+
+## 6. The next theorem
 
 The highest-leverage theorem is now:
 
 > For the exact all-label, normalized, fixed-distance grouped Haar block,
-> replace the worst-holonomy \(L_s/H_s\) comparison by a local
-> fusion/heat-relative comparison whose grouped rate over physical length
-> \(L\) has a positive spacing-uniform exponent.
+> exhibit a common faithful Haar/fusion refresh packet of mass at least
+> \(\varepsilon_L>0\), uniformly in spacing, cutoff, and ambient volume,
+> and prove that the residual grouped map is positive and mass-preserving.
 
 At microscopic distance the correct target remains
 
@@ -304,7 +350,7 @@ or, equivalently,
 After grouping over fixed physical \(L\), the corresponding ratio must be
 bounded strictly below one with constants uniform in cutoff and volume.
 
-## 6. Reproduction
+## 7. Reproduction
 
 - `computations/reference_order_birkhoff.py`;
 - `tests/test_reference_order_birkhoff.py`;

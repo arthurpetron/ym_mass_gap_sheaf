@@ -5,7 +5,7 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
-## Current execution overlay (2026-07-24)
+## Current execution overlay (updated 2026-07-25)
 
 The historical phases below remain the provenance of completed artifacts,
 but the current frontier schedule is the BF1--BF10 plan in
@@ -35,17 +35,43 @@ evaluated exactly and gives a nonzero signed normalized remainder.  All four
 \(P/Q\) blocks are retained, and a label-\(N+1\) witness proves that no
 finite representation cutoff is invariant under the full heat law.  The
 older multiplicity-product Lean kernel is retained only as a typed
-normalization scaffold, not promoted to the exact Haar object.  The **next
-active milestone is BF3.2, “all-label kernel and vanishing remainder.”**
+normalization scaffold, not promoted to the exact Haar object.
+
+**BF3.2, “all-label kernel and vanishing representation-cutoff remainder,”
+closed at paper level on 2026-07-25.**  The local reflected boundary Gram
+now has a heat-weighted Peter--Weyl trace-norm Cauchy name, complete
+coherent \(P/Q\) cutoff modulus, and boundary/ambient-volume-uniform local
+tail.  This is representation-cutoff completion, not a bound on the later
+fine/coarse RG ansatz remainder.
+
 The out-of-order diagnostic **BF3.3, “Birkhoff handoff admissibility,”
 closed on 2026-07-25 by exact obstruction**: the 32 rank-one blocks do not
 mix globally, the reflected local Gram has a projective cross-ratio growing
 at least as \(N^2/6\), and the outside-cutoff heat feature has no
-coupling-uniform cutoff-only tail. BF3.3 therefore does not authorize BF4;
-it specifies the nine fields that BF3.2 must supply to the physical
-Birkhoff handoff.
+coupling-uniform cutoff-only tail.  BF3.2 subsequently supplied the
+all-label handoff and the fixed-coupling Haar-reference minorization
+supplied support/mixing, so **BF4 is the active milestone**.
+
+The first intuitionistic BF4 engine is now closed in
+`lean/YMGap/Continuum/ConstructiveRefreshContraction.lean`: an explicit
+decomposition
+\[
+  \Phi=\varepsilon\Omega_R+(1-\varepsilon)\Psi
+\]
+with a positive mass-preserving residual contracts equal-mass finite laws
+by the exact rate \(1-\varepsilon\).  This removes logarithms, projective
+suprema, spectral decompositions, and choice from the contraction algebra.
+The square-kernel constructor in
+`lean/YMGap/RG/ConstructiveRefreshStableDynamics.lean` proves simplex
+invariance and exports this directly as the existing RG-I7
+`UniformContractionCertificate`.
+It does **not** close physical BF4.  The next active gate is to construct
+the same decomposition for the exact all-label grouped Haar map over fixed
+physical distance and prove
+\(\varepsilon_{a,L}\ge\varepsilon_L>0\), uniformly in spacing, cutoff, and
+ambient volume.  See `notes/bf4-intuitionistic-proof-routes.md`.
 Unless the current BF plan explicitly delegates a task back to one of the
-historical phases below, BF3.2 and then BF4--BF10 control execution order.
+historical phases below, BF4--BF10 control execution order.
 
 Each milestone has:
 - A **goal** stated as a checkable predicate.

@@ -616,6 +616,51 @@ It does not close BF4's physical-distance rate: the certified values of
 comparison by a fusion/heat-local grouped estimate with
 \(q_a=1-ma+o(a)\), or directly a fixed-distance rate \(<1\).
 
+### Intuitionistic BF4 normal form (2026-07-25)
+
+The finite contraction algebra no longer needs to wait for a constructive
+formalization of logarithmic Hilbert geometry.  An explicit grouped
+refresh decomposition
+
+\[
+  \Phi_{a,L}
+  =
+  \varepsilon_{a,L}\Omega_{R_{a,L}}
+  +(1-\varepsilon_{a,L})\Psi_{a,L},
+  \qquad
+  \Omega_R(A)=\ell(A)R,
+\]
+
+with positive mass-preserving residual \(\Psi_{a,L}\), contracts the base
+norm by \(1-\varepsilon_{a,L}\).  The finite exact-rational theorem is
+machine checked in
+`lean/YMGap/Continuum/ConstructiveRefreshContraction.lean`.
+For square grouped kernels,
+`lean/YMGap/RG/ConstructiveRefreshStableDynamics.lean` exports the result
+as the existing RG-I7 `UniformContractionCertificate`.
+
+The lower half of the existing relative-order target already has this
+form: \(-\delta R\preceq E_A\) gives
+\(\Phi(A)\succeq(1-\delta)\ell(A)R\), hence
+\(\varepsilon=1-\delta\) and contraction rate \(\delta\).  The upper
+Loewner estimate is not needed for this base-norm route.
+
+The physical target should be imposed on the map grouped over a fixed
+physical distance, not obtained by multiplying the catastrophic
+microscopic Haar floors.  The new preferred BF4 exit witness is therefore
+
+\[
+  \varepsilon_{a,L}\ge\varepsilon_L>0,
+  \qquad
+  q_L=1-\varepsilon_L<1,
+\]
+
+uniformly in spacing, representation cutoff, and ambient volume.  Complete
+positivity of the residual is preferred so that the certificate survives
+boundary ancillas and coherent intertwiner transport.  The exact grouped
+physical refresh packet and its spacing-uniform mass remain open.  See
+`notes/bf4-intuitionistic-proof-routes.md`.
+
 For lattice spacing \(a_n\), the target is scale-dependent:
 
 \[
