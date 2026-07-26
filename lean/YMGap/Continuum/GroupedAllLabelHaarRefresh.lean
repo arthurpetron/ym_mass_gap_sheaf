@@ -107,7 +107,7 @@ theorem corridorPacketMass_pos (corridorCount : Nat) :
   exact BondMovingScaledNorm.qpow_pos
     allLabelHaarFloor_pos corridorCount
 
-/-! ## The cumulative-heat premise already contains gap-scale content -/
+/-! ## The cumulative-heat premise contains a rescaled bare-mode estimate -/
 
 /-- Exact constants in the logarithm-free converse estimate. -/
 def oneEighth : Q' := Q'.mkPos 1 8 (by decide)
@@ -125,14 +125,15 @@ private theorem sevenEighths_le_one_sub_of_le_eighth
       sevenEighths ≈ (1 : Q') + -oneEighth))
     hadd
 
-/-- If a grouped fundamental separator is at most `1/8`, then the one-step
-margin already obeys the exact gap-scale inequality
+/-- If a grouped fundamental bare multiplier is at most `1/8`, then the
+one-step margin obeys the exact rescaled-mode inequality
 
     7/8 <= steps * (1 - rho).
 
-This is the constructive, logarithm-free converse showing that a uniformly
-mixed fixed-distance corridor cannot be assumed independently of a
-per-spacing gap estimate. -/
+This is a constructive, logarithm-free estimate for the local heat-kernel
+Fourier mode.  It is not a physical Yang--Mills gap estimate until a separate
+theorem identifies this bare mode with the interacting gauge-invariant
+transfer separator. -/
 theorem grouped_eighth_implies_step_margin
     {rho : Q'} (hrho0 : (0 : Q') ≤ rho)
     (hrho1 : rho ≤ (1 : Q')) (steps : Nat)

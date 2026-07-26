@@ -236,16 +236,17 @@ coupling/spacing relation.  Stating that relation is unavoidable: without
 it one can choose \(s(a)\) so close to one that the fixed-distance grouped
 coordinate remains above \(1/2\).
 
-### The cumulative condition is already gap-scale content
+### The cumulative condition controls a bare heat mode, not yet the physical gap
 
-The condition must not be smuggled in as an innocent choice of grouping.
+The condition is not automatic from grouping, but its exact content must be
+named correctly.
 Let
 
 \[
  \rho(a)=s(a)^3
 \]
 
-be the exact fundamental heat-kernel separator.  If
+be the exact fundamental Fourier multiplier of the local heat kernel.  If
 \(m=\lceil L/a\rceil\) and \(s(a)^m\le1/2\), then
 
 \[
@@ -276,21 +277,28 @@ Since \(ma\le L+a\), for \(a\le L\),
  \quad}
 \]
 
-Thus \((\mathrm{CH})_L\) already implies a spacing-uniform lower bound on
-the fundamental physical gap margin.  Conversely, a suitable positive
-lower bound on \((1-\rho(a))/a\) supplies a grouped subunit rate after
+Thus \((\mathrm{CH})_L\) implies a spacing-uniform lower bound on the
+rescaled **bare heat-kernel mode margin**.  Conversely, a suitable positive
+lower bound on this bare quantity supplies a grouped subunit rate after
 choosing \(L\) large enough.
 
-The corridor calculation is therefore not by itself a solution of the
-uniformity wall.  It establishes a sharp **equivalence mechanism**:
+This does not identify \(\rho(a)\) with the second eigenvalue of the
+interacting four-dimensional, gauge-invariant transfer operator.  That
+identification is the repository's separate open physical-margin bridge.  In
+fact the usual bare asymptotic-freedom scaling can make
+\((1-\rho(a))/a\) diverge, which is a diagnostic that this local multiplier
+is not itself the finite continuum mass.
 
-> a physical gap-scale cumulative heat estimate produces an explicit
-> all-label refresh packet, while a uniform grouped-half packet condition
-> already contains a physical gap-scale estimate.
+The corridor calculation therefore establishes a narrower equivalence:
 
-The genuinely new work must prove the interacting corrected-slab
-CP-domination and the scale estimate together, rather than assuming
-\((\mathrm{CH})_L\) independently.
+> a cumulative bare heat estimate produces an explicit all-label refresh
+> packet, while a uniform grouped-half condition bounds the same rescaled
+> bare mode.
+
+The BF4 work is to prove the interacting corrected-slab CP-domination and
+derive the needed bare coupling/spacing estimate from the actual trajectory.
+Promotion of the resulting grouped contraction to a physical mass gap still
+requires the shared-object transfer/OS identification in BF6--BF8.
 
 ## 6. Audit of the current “actual” BF3.2 object
 
@@ -375,6 +383,43 @@ Every remaining degree-one link is corridor-protected, so the reduction
 cannot continue without acting on the heat corridors themselves.  The
 load-bearing CP-order comparison has therefore been cut in half: it is a
 specific 21-face transverse core, not an undifferentiated 42-face remainder.
+
+### Complete cutoff-one fusion expansion of the residual
+
+The 21-face residual has now also been expanded without the mod-two boundary
+simplification.  Its connected component contains 15 faces, five trivalent
+internal Haar links, and nine bivalent corridor-protected links.  The six
+remaining faces are disjoint one-face decorations attached through nine
+additional protected links.
+
+At representation cutoff one, the connected core has 1024 internally
+admissible binary face assignments.  Mod-two boundary data collapse these to
+128 signatures with eight fillings each.  That collapse is not physically
+adequate: whenever two fundamental strands reach a protected link, both the
+singlet output \(0\) and triplet output \(2\) must be retained.  Keeping those
+outputs gives the exact complete ledger:
+
+| field | exact result |
+|---|---:|
+| connected-core boundary label profiles | \(4761\) |
+| connected-core fusion paths | \(10673\) |
+| profile multiplicities \(1,2,4,8\) | \(1505,2184,944,128\) |
+| decoration boundary profiles | \(64\) |
+| full 21-face boundary label profiles | \(304704\) |
+| full 21-face fusion paths | \(683072\) |
+
+Every admissible internal trivalent packet has one-dimensional invariant
+space, so the first multiplicity is entirely in the distinct core fillings
+and boundary fusion outputs.  The vacuum boundary profile alone has eight
+fillings, at face counts \(0,6,10,12\) with multiplicities \(1,3,3,1\).
+
+This is a cutoff-one fusion ledger, not yet the CP-order certificate.  It
+refutes use of the 128-state parity boundary as the source of truth and pins
+the next object: evaluate the coherent partially contracted Haar tensor on
+these complete boundary sectors, then prove an all-label positive lower
+bound with a cutoff modulus.  The executable certificate is
+`transverse_cutoff_one_fusion_audit()` in
+`computations/grouped_all_label_haar_refresh.py`.
 
 This corrects the interpretation of the BF3.2 handoff:
 

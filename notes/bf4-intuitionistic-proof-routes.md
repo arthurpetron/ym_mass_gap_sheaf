@@ -364,14 +364,17 @@ then
  \eta_L\left(\frac{1055}{2272}\right)^r.
 \]
 Thus the common packet no longer has to be discovered.  C4 must prove the
-physical coupling/spacing inequality and the uniform CP-domination mass.
-This condition is equivalent in strength to a gap-scale estimate, not a
-free grouping convention: with \(\rho=s^3\), it implies
+bare coupling/spacing inequality and the uniform CP-domination mass.  The
+condition is not a free grouping convention: with \(\rho=s^3\), it implies
 \[
  (1-\rho(a))/a\ge 7/(16L)
 \]
-for \(a\le L\).  The interacting proof must therefore derive it rather than
-use it as an independent hypothesis.
+for \(a\le L\).  Here \(\rho\) is the local bare heat-kernel Fourier
+multiplier, not yet the separator of the interacting gauge-invariant transfer
+operator.  The inequality may be derived from bare asymptotic freedom; it
+becomes a physical gap statement only after the separate transfer
+identification.  C4 must therefore derive the bare estimate on the actual
+trajectory and must not silently promote it to the Clay gap.
 
 ### BF4-C5 — graded transport
 

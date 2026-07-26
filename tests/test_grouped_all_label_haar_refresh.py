@@ -10,12 +10,13 @@ from computations.grouped_all_label_haar_refresh import (
     GROUPED_HEAT_CAP,
     all_label_haar_floor_certificate,
     corrected_slab_corridor_geometry_audit,
-    cumulative_heat_gap_witness,
+    cumulative_heat_mode_witness,
     fixed_distance_corridor_certificate,
     grouped_heat_coordinate,
     grouped_physical_packet_frontier,
     heat_mode_multiplier,
     least_steps_below_cap,
+    transverse_cutoff_one_fusion_audit,
     transverse_leaf_reduction_audit,
 )
 
@@ -76,12 +77,13 @@ def test_fixed_distance_dyadic_model_has_one_uniform_packet():
         assert certificate.grouped_coupling <= GROUPED_HEAT_CAP
         assert certificate.common_haar_floor == ALL_LABEL_HAAR_FLOOR
         assert certificate.nine_holonomy_packet_mass == expected_packet
-        gap = cumulative_heat_gap_witness(certificate)
-        assert gap.validates()
-        assert gap.grouped_separator <= Fraction(1, 8)
-        assert gap.lattice_margin >= Fraction(7, 8 * denominator)
-        assert gap.physical_margin >= Fraction(7, 8)
-        assert gap.fixed_distance_floor == Fraction(7, 16)
+        mode = cumulative_heat_mode_witness(certificate)
+        assert mode.validates()
+        assert mode.grouped_separator <= Fraction(1, 8)
+        assert mode.lattice_margin >= Fraction(7, 8 * denominator)
+        assert mode.rescaled_bare_margin >= Fraction(7, 8)
+        assert mode.rescaled_bare_floor == Fraction(7, 16)
+        assert not mode.physical_transfer_identification_proved
 
 
 def test_fixed_distance_condition_fails_closed_when_heat_time_is_too_short():
@@ -128,6 +130,28 @@ def test_transverse_factor_graph_reduces_to_exact_21_face_core():
     assert audit.maximal_for_unprotected_leaf_rule
 
 
+def test_transverse_core_complete_cutoff_one_fusion_ledger():
+    audit = transverse_cutoff_one_fusion_audit()
+    assert audit.validates()
+    assert len(audit.connected_core_faces) == 15
+    assert len(audit.decoration_faces) == 6
+    assert audit.internal_trivalent_link_count == 5
+    assert audit.core_protected_link_count == 9
+    assert audit.binary_internal_admissible_assignments == 1024
+    assert audit.binary_boundary_parity_profiles == 128
+    assert audit.binary_fillings_per_parity_profile == 8
+    assert audit.complete_core_boundary_label_profiles == 4761
+    assert audit.complete_core_fusion_paths == 10673
+    assert audit.complete_residual_boundary_label_profiles == 304704
+    assert audit.complete_residual_fusion_paths == 683072
+    assert audit.internal_intertwiner_multiplicity_one
+    assert audit.singlet_triplet_boundary_channels_retained
+    assert audit.parity_only_boundary_carrier_refuted
+    assert not audit.coherent_partial_haar_tensors_evaluated
+    assert not audit.cp_order_domination_proved
+    assert not audit.all_label_completion_proved
+
+
 def test_physical_promotion_frontier_remains_fail_closed():
     frontier = grouped_physical_packet_frontier()
     assert frontier.validates()
@@ -136,7 +160,8 @@ def test_physical_promotion_frontier_remains_fail_closed():
     assert frontier.nine_geometric_corridors_pinned
     assert frontier.transverse_interaction_obstruction_pinned
     assert frontier.transverse_leaf_reduction_pinned
-    assert frontier.cumulative_heat_condition_contains_gap_scale_floor
+    assert frontier.transverse_cutoff_one_fusion_ledger_pinned
+    assert frontier.cumulative_heat_condition_contains_rescaled_bare_mode_floor
     assert not frontier.interacting_map_cp_dominates_corridor
     assert not frontier.physical_coupling_spacing_condition_proved
     assert not frontier.actual_grouped_all_label_packet_proved

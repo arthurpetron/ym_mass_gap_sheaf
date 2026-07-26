@@ -334,12 +334,14 @@ Normalized-Haar leaf elimination reduces the transverse comparison to a
 specific 21-face core.  The next order theorem must show that the full
 interacting map CP-dominates the corridor packet after that core is summed.
 
-The grouped-half hypothesis itself is not free: for \(\rho=s^3\), it
-implies \((1-\rho(a))/a\ge7/(16L)\) at
-\(m=\lceil L/a\rceil\), \(a\le L\).  Thus the corridor construction
-converts a physical gap-scale estimate into a common packet; it does not
-replace the need to prove that estimate from the interacting map.  See
-`notes/bf4-grouped-all-label-haar-kernel.md`.
+The grouped-half hypothesis itself is not free: for the local bare
+heat-kernel multiplier \(\rho=s^3\), it implies
+\((1-\rho(a))/a\ge7/(16L)\) at \(m=\lceil L/a\rceil\), \(a\le L\).
+This is not yet a physical gap estimate: the identification with the
+interacting gauge-invariant transfer separator remains open.  The corridor
+construction converts a bare cumulative-heat estimate into a common packet;
+the physical promotion belongs to the later shared-object transfer/OS
+bridge.  See `notes/bf4-grouped-all-label-haar-kernel.md`.
 
 ## 6. The next theorem
 

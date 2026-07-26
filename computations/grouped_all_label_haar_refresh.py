@@ -36,6 +36,7 @@ from collections import Counter, defaultdict
 from dataclasses import dataclass
 from fractions import Fraction
 from functools import cache
+from itertools import product
 
 from computations.all_label_whole_slab_tail import (
     heat_character_sup_term,
@@ -43,7 +44,7 @@ from computations.all_label_whole_slab_tail import (
 )
 from computations.corrected_slab_haar_network import corrected_slab_haar_complex
 from computations.dual_positivity_geometry_bridge import edges_of
-from computations.exact_haar_network import casimir4
+from computations.exact_haar_network import casimir4, invariant_multiplicity
 from computations.whole_corrected_slab_kraus import coarse_face_paths
 
 GROUPED_HEAT_CAP = Fraction(1, 2)
@@ -59,7 +60,7 @@ def grouped_heat_coordinate(coupling: Fraction, steps: int) -> Fraction:
         raise ValueError("the microscopic heat coordinate must lie in (0, 1)")
     if steps < 1:
         raise ValueError("a grouped corridor must contain at least one step")
-    return coupling**steps
+    return Fraction(coupling**steps)
 
 
 def heat_mode_multiplier(coupling: Fraction, steps: int, label: int) -> Fraction:
@@ -67,7 +68,7 @@ def heat_mode_multiplier(coupling: Fraction, steps: int, label: int) -> Fraction
 
     if label < 0:
         raise ValueError("a doubled SU(2) label must be nonnegative")
-    return grouped_heat_coordinate(coupling, steps) ** casimir4(label)
+    return Fraction(grouped_heat_coordinate(coupling, steps) ** casimir4(label))
 
 
 def least_steps_below_cap(
@@ -272,8 +273,14 @@ def fixed_distance_corridor_certificate(
 
 
 @dataclass(frozen=True)
-class CumulativeHeatGapWitness:
-    """Show that the grouped-half condition already contains a gap-scale floor."""
+class CumulativeHeatModeWitness:
+    """Rescale the bare heat-kernel mode margin implied by grouped mixing.
+
+    The quantity ``rho = s**3`` is a Fourier multiplier of the local
+    plaquette heat kernel.  It is not the separator of the interacting
+    gauge-invariant transfer operator unless an additional physical
+    identification theorem is supplied.
+    """
 
     spacing: Fraction
     physical_distance: Fraction
@@ -283,9 +290,10 @@ class CumulativeHeatGapWitness:
     grouped_separator: Fraction
     lattice_margin: Fraction
     lattice_margin_lower: Fraction
-    physical_margin: Fraction
-    physical_margin_lower: Fraction
-    fixed_distance_floor: Fraction | None
+    rescaled_bare_margin: Fraction
+    rescaled_bare_margin_lower: Fraction
+    rescaled_bare_floor: Fraction | None
+    physical_transfer_identification_proved: bool
 
     def validates(self) -> bool:
         if (
@@ -301,8 +309,8 @@ class CumulativeHeatGapWitness:
             return False
         lattice_margin = 1 - separator
         lattice_lower = Fraction(7, 8 * steps)
-        physical_margin = lattice_margin / self.spacing
-        physical_lower = lattice_lower / self.spacing
+        rescaled_margin = lattice_margin / self.spacing
+        rescaled_lower = lattice_lower / self.spacing
         fixed_floor = (
             Fraction(7, 16) / self.physical_distance
             if self.spacing <= self.physical_distance
@@ -314,33 +322,35 @@ class CumulativeHeatGapWitness:
             and self.grouped_separator == grouped_separator
             and self.lattice_margin == lattice_margin >= lattice_lower
             and self.lattice_margin_lower == lattice_lower
-            and self.physical_margin == physical_margin >= physical_lower
-            and self.physical_margin_lower == physical_lower
+            and self.rescaled_bare_margin == rescaled_margin >= rescaled_lower
+            and self.rescaled_bare_margin_lower == rescaled_lower
             and steps * self.spacing
             <= self.physical_distance + self.spacing
-            and self.fixed_distance_floor == fixed_floor
+            and self.rescaled_bare_floor == fixed_floor
             and (
                 fixed_floor is None
-                or physical_margin >= physical_lower >= fixed_floor
+                or rescaled_margin >= rescaled_lower >= fixed_floor
             )
+            and not self.physical_transfer_identification_proved
         )
 
 
-def cumulative_heat_gap_witness(
+def cumulative_heat_mode_witness(
     certificate: FixedDistanceCorridorCertificate,
-) -> CumulativeHeatGapWitness:
-    """Derive a physical fundamental-mode margin from grouped heat mixing.
+) -> CumulativeHeatModeWitness:
+    """Derive a rescaled bare-mode margin from grouped heat mixing.
 
-    If ``s**m <= 1/2``, then the fundamental separator satisfies
+    If ``s**m <= 1/2``, then the fundamental bare multiplier satisfies
     ``(s**3)**m <= 1/8``.  The exact Bernoulli inequality
 
         1 - rho**m <= m * (1 - rho)
 
     therefore yields ``1 - rho >= 7/(8m)``.  With
     ``m = ceil(L/a)`` and ``a <= L``, this gives the spacing-uniform floor
-    ``(1-rho)/a >= 7/(16L)``.  Thus the cumulative-heat premise is already a
-    quantitative version of the physical gap-scale input; it is not a free
-    consequence of grouping.
+    ``(1-rho)/a >= 7/(16L)``.  This is an exact statement about the bare
+    heat-kernel mode.  Calling it a physical mass-gap estimate would require
+    the separate, currently open identification with the interacting
+    gauge-invariant transfer separator.
     """
 
     if not certificate.validates() or not certificate.cumulative_heat_condition:
@@ -352,7 +362,7 @@ def cumulative_heat_gap_witness(
         raise AssertionError("cubing the grouped-half condition drifted")
     lattice_lower = Fraction(7, 8 * steps)
     physical_lower = lattice_lower / certificate.spacing
-    witness = CumulativeHeatGapWitness(
+    witness = CumulativeHeatModeWitness(
         spacing=certificate.spacing,
         physical_distance=certificate.physical_distance,
         microscopic_coupling=certificate.microscopic_coupling,
@@ -361,16 +371,17 @@ def cumulative_heat_gap_witness(
         grouped_separator=grouped_separator,
         lattice_margin=1 - separator,
         lattice_margin_lower=lattice_lower,
-        physical_margin=(1 - separator) / certificate.spacing,
-        physical_margin_lower=physical_lower,
-        fixed_distance_floor=(
+        rescaled_bare_margin=(1 - separator) / certificate.spacing,
+        rescaled_bare_margin_lower=physical_lower,
+        rescaled_bare_floor=(
             Fraction(7, 16) / certificate.physical_distance
             if certificate.spacing <= certificate.physical_distance
             else None
         ),
+        physical_transfer_identification_proved=False,
     )
     if not witness.validates():
-        raise AssertionError("the cumulative-heat gap witness drifted")
+        raise AssertionError("the cumulative-heat bare-mode witness drifted")
     return witness
 
 
@@ -425,8 +436,9 @@ def _corridor_face_ids() -> tuple[tuple[int, ...], ...]:
                     point = [0, 0, 0, time]
                     point[first] += first_offset
                     point[second] += second_offset
+                    vertex = (point[0], point[1], point[2], point[3])
                     face_ids.append(
-                        face_index[(tuple(point), (first, second))]
+                        face_index[(vertex, (first, second))]
                     )
             corridors.append(tuple(face_ids))
     for direction in range(3):
@@ -434,8 +446,9 @@ def _corridor_face_ids() -> tuple[tuple[int, ...], ...]:
         for offset in range(2):
             point = [0, 0, 0, 0]
             point[direction] += offset
+            vertex = (point[0], point[1], point[2], point[3])
             face_ids.append(
-                face_index[(tuple(point), (direction, 3))]
+                face_index[(vertex, (direction, 3))]
             )
         corridors.append(tuple(face_ids))
     return tuple(corridors)
@@ -692,6 +705,283 @@ def transverse_leaf_reduction_audit() -> TransverseLeafReductionAudit:
 
 
 @dataclass(frozen=True)
+class TransverseCutoffOneFusionAudit:
+    """Complete cutoff-one fusion ledger of the pinned transverse residual.
+
+    The actual boundary outputs ``0``, ``1`` and ``2`` are retained at every
+    corridor-protected link.  Thus two incident fundamental strands keep
+    their distinct singlet and triplet channels instead of being collapsed
+    to mod-two parity.
+
+    This is not yet a CP-order theorem: the corresponding coherent partial
+    Haar tensors and their all-label positive lower bound remain open.
+    """
+
+    representation_cutoff: int
+    connected_core_faces: tuple[int, ...]
+    decoration_faces: tuple[int, ...]
+    internal_trivalent_link_count: int
+    core_protected_link_count: int
+    decoration_protected_link_count: int
+    decoration_protected_degree_census: tuple[tuple[int, int], ...]
+    protected_link_sets_pairwise_disjoint: bool
+    binary_internal_admissible_assignments: int
+    binary_boundary_parity_profiles: int
+    binary_fillings_per_parity_profile: int
+    complete_core_boundary_label_profiles: int
+    complete_core_fusion_paths: int
+    core_profile_multiplicity_census: tuple[tuple[int, int], ...]
+    core_profile_face_count_term_census: tuple[tuple[int, int], ...]
+    vacuum_profile_face_count_ledger: tuple[tuple[int, int], ...]
+    decoration_boundary_label_profiles: int
+    complete_residual_boundary_label_profiles: int
+    complete_residual_fusion_paths: int
+    residual_profile_multiplicity_census: tuple[tuple[int, int], ...]
+    internal_intertwiner_multiplicity_one: bool
+    singlet_triplet_boundary_channels_retained: bool
+    parity_only_boundary_carrier_refuted: bool
+    coherent_partial_haar_tensors_evaluated: bool
+    cp_order_domination_proved: bool
+    all_label_completion_proved: bool
+    first_open_obligation: str
+
+    def validates(self) -> bool:
+        return (
+            self.representation_cutoff == 1
+            and self.connected_core_faces
+            == (9, 11, 13, 15, 19, 20, 23, 25, 29, 39, 40, 41, 44, 49, 59)
+            and self.decoration_faces == (31, 32, 47, 50, 56, 58)
+            and self.internal_trivalent_link_count == 5
+            and self.core_protected_link_count == 9
+            and self.decoration_protected_link_count == 9
+            and self.decoration_protected_degree_census == ((1, 3), (2, 3))
+            and self.protected_link_sets_pairwise_disjoint
+            and self.binary_internal_admissible_assignments == 1024
+            and self.binary_boundary_parity_profiles == 128
+            and self.binary_fillings_per_parity_profile == 8
+            and self.complete_core_boundary_label_profiles == 4761
+            and self.complete_core_fusion_paths == 10673
+            and self.core_profile_multiplicity_census
+            == ((1, 1505), (2, 2184), (4, 944), (8, 128))
+            and self.core_profile_face_count_term_census
+            == ((1, 2512), (2, 1717), (3, 465), (4, 46), (5, 21))
+            and self.vacuum_profile_face_count_ledger
+            == ((0, 1), (6, 3), (10, 3), (12, 1))
+            and self.decoration_boundary_label_profiles == 64
+            and self.complete_residual_boundary_label_profiles == 304704
+            and self.complete_residual_fusion_paths == 683072
+            and self.residual_profile_multiplicity_census
+            == ((1, 96320), (2, 139776), (4, 60416), (8, 8192))
+            and self.internal_intertwiner_multiplicity_one
+            and self.singlet_triplet_boundary_channels_retained
+            and self.parity_only_boundary_carrier_refuted
+            and not self.coherent_partial_haar_tensors_evaluated
+            and not self.cp_order_domination_proved
+            and not self.all_label_completion_proved
+            and self.first_open_obligation
+            == "evaluate-coherent-partial-haar-tensors-and-prove-all-label-cp-domination"
+        )
+
+
+def _residual_face_components(
+    residual_faces: tuple[int, ...],
+) -> tuple[tuple[int, ...], ...]:
+    """Return components joined through free corrected-slab Haar links."""
+
+    complex_, faces, _plaquettes = corrected_slab_haar_complex(1)
+    residual = set(residual_faces)
+    faces_by_link: defaultdict[int, set[int]] = defaultdict(set)
+    for face_id in residual:
+        for link, _orientation in faces[face_id]:
+            if link in complex_.free:
+                faces_by_link[link].add(face_id)
+    neighbors: defaultdict[int, set[int]] = defaultdict(set)
+    for incident in faces_by_link.values():
+        for face_id in incident:
+            neighbors[face_id].update(incident - {face_id})
+
+    unseen = set(residual)
+    components: list[tuple[int, ...]] = []
+    while unseen:
+        root = min(unseen)
+        stack = [root]
+        unseen.remove(root)
+        component: list[int] = []
+        while stack:
+            face_id = stack.pop()
+            component.append(face_id)
+            for neighbor in neighbors[face_id]:
+                if neighbor in unseen:
+                    unseen.remove(neighbor)
+                    stack.append(neighbor)
+        components.append(tuple(sorted(component)))
+    return tuple(sorted(components, key=lambda component: (-len(component), component)))
+
+
+@cache
+def transverse_cutoff_one_fusion_audit() -> TransverseCutoffOneFusionAudit:
+    """Expand all cutoff-one fusion families of the 21-face residual."""
+
+    complex_, faces, _plaquettes = corrected_slab_haar_complex(1)
+    leaf = transverse_leaf_reduction_audit()
+    components = _residual_face_components(leaf.residual_core_faces)
+    connected = tuple(component for component in components if len(component) > 1)
+    decorations = tuple(component[0] for component in components if len(component) == 1)
+    if len(connected) != 1:
+        raise AssertionError("the transverse residual ceased to have one connected core")
+    core = connected[0]
+
+    selected_faces = {
+        face_id
+        for corridor in _corridor_face_ids()
+        for face_id in corridor
+    }
+    free_links = set(complex_.free)
+    protected_links = {
+        link
+        for face_id in selected_faces
+        for link, _orientation in faces[face_id]
+        if link in free_links
+    }
+    core_links = {
+        link
+        for face_id in core
+        for link, _orientation in faces[face_id]
+        if link in free_links
+    }
+    core_internal = tuple(sorted(core_links - protected_links))
+    core_boundary = tuple(sorted(core_links & protected_links))
+    internal_incidence = tuple(
+        tuple(
+            position
+            for position, face_id in enumerate(core)
+            if any(link == internal for link, _orientation in faces[face_id])
+        )
+        for internal in core_internal
+    )
+    boundary_incidence = tuple(
+        tuple(
+            position
+            for position, face_id in enumerate(core)
+            if any(link == boundary for link, _orientation in faces[face_id])
+        )
+        for boundary in core_boundary
+    )
+    if any(len(incident) != 3 for incident in internal_incidence):
+        raise AssertionError("the connected transverse core lost trivalence")
+    if any(len(incident) != 2 for incident in boundary_incidence):
+        raise AssertionError("the connected transverse boundary lost bivalence")
+
+    parity_profiles: Counter[tuple[int, ...]] = Counter()
+    label_profiles: Counter[tuple[int, ...]] = Counter()
+    profile_face_counts: defaultdict[tuple[int, ...], Counter[int]] = defaultdict(Counter)
+    admissible_assignments = 0
+    internal_multiplicity_one = True
+    for mask in range(1 << len(core)):
+        active = tuple(bool((mask >> position) & 1) for position in range(len(core)))
+        internal_counts = tuple(
+            sum(active[position] for position in incident)
+            for incident in internal_incidence
+        )
+        if any(count not in (0, 2) for count in internal_counts):
+            continue
+        admissible_assignments += 1
+        internal_multiplicity_one = (
+            internal_multiplicity_one
+            and all(
+                invariant_multiplicity((1,) * count) == 1
+                for count in internal_counts
+            )
+        )
+        boundary_counts = tuple(
+            sum(active[position] for position in incident)
+            for incident in boundary_incidence
+        )
+        parity_profiles[tuple(count % 2 for count in boundary_counts)] += 1
+        choices = tuple(
+            (0,) if count == 0 else ((1,) if count == 1 else (0, 2))
+            for count in boundary_counts
+        )
+        face_count = mask.bit_count()
+        for profile in product(*choices):
+            label_profiles[profile] += 1
+            profile_face_counts[profile][face_count] += 1
+
+    parity_multiplicities = set(parity_profiles.values())
+    vacuum_profile = (0,) * len(core_boundary)
+    decoration_link_sets = tuple(
+        {
+            link
+            for link, _orientation in faces[face_id]
+            if link in protected_links
+        }
+        for face_id in decorations
+    )
+    all_decoration_links = set().union(*decoration_link_sets)
+    decoration_profiles = 1 << len(decorations)
+    certificate = TransverseCutoffOneFusionAudit(
+        representation_cutoff=1,
+        connected_core_faces=core,
+        decoration_faces=decorations,
+        internal_trivalent_link_count=len(core_internal),
+        core_protected_link_count=len(core_boundary),
+        decoration_protected_link_count=len(all_decoration_links),
+        decoration_protected_degree_census=tuple(
+            sorted(Counter(map(len, decoration_link_sets)).items())
+        ),
+        protected_link_sets_pairwise_disjoint=(
+            len(all_decoration_links) == sum(map(len, decoration_link_sets))
+            and all_decoration_links.isdisjoint(core_boundary)
+        ),
+        binary_internal_admissible_assignments=admissible_assignments,
+        binary_boundary_parity_profiles=len(parity_profiles),
+        binary_fillings_per_parity_profile=(
+            next(iter(parity_multiplicities))
+            if len(parity_multiplicities) == 1
+            else 0
+        ),
+        complete_core_boundary_label_profiles=len(label_profiles),
+        complete_core_fusion_paths=sum(label_profiles.values()),
+        core_profile_multiplicity_census=tuple(
+            sorted(Counter(label_profiles.values()).items())
+        ),
+        core_profile_face_count_term_census=tuple(
+            sorted(Counter(len(ledger) for ledger in profile_face_counts.values()).items())
+        ),
+        vacuum_profile_face_count_ledger=tuple(
+            sorted(profile_face_counts[vacuum_profile].items())
+        ),
+        decoration_boundary_label_profiles=decoration_profiles,
+        complete_residual_boundary_label_profiles=(
+            len(label_profiles) * decoration_profiles
+        ),
+        complete_residual_fusion_paths=(
+            sum(label_profiles.values()) * decoration_profiles
+        ),
+        residual_profile_multiplicity_census=tuple(
+            (multiplicity, count * decoration_profiles)
+            for multiplicity, count in sorted(Counter(label_profiles.values()).items())
+        ),
+        internal_intertwiner_multiplicity_one=internal_multiplicity_one,
+        singlet_triplet_boundary_channels_retained=any(
+            2 in profile for profile in label_profiles
+        ),
+        parity_only_boundary_carrier_refuted=(
+            len(label_profiles) > len(parity_profiles)
+        ),
+        coherent_partial_haar_tensors_evaluated=False,
+        cp_order_domination_proved=False,
+        all_label_completion_proved=False,
+        first_open_obligation=(
+            "evaluate-coherent-partial-haar-tensors-and-prove-all-label-cp-domination"
+        ),
+    )
+    if not certificate.validates():
+        raise AssertionError("the cutoff-one transverse fusion ledger drifted")
+    return certificate
+
+
+@dataclass(frozen=True)
 class GroupedPhysicalPacketFrontier:
     """Fail-closed verdict for promotion from a heat corridor to physical BF4."""
 
@@ -700,10 +990,11 @@ class GroupedPhysicalPacketFrontier:
     common_haar_packet_constructed: bool
     common_packet_faithful_on_all_peter_weyl_labels: bool
     spacing_uniform_given_cumulative_heat_condition: bool
-    cumulative_heat_condition_contains_gap_scale_floor: bool
+    cumulative_heat_condition_contains_rescaled_bare_mode_floor: bool
     nine_geometric_corridors_pinned: bool
     transverse_interaction_obstruction_pinned: bool
     transverse_leaf_reduction_pinned: bool
+    transverse_cutoff_one_fusion_ledger_pinned: bool
     corrected_slab_corridor_cover_pinned: bool
     interacting_map_cp_dominates_corridor: bool
     physical_coupling_spacing_condition_proved: bool
@@ -715,19 +1006,22 @@ class GroupedPhysicalPacketFrontier:
         witness = all_label_haar_floor_certificate(Fraction(9, 10))
         geometry = corrected_slab_corridor_geometry_audit()
         leaf_reduction = transverse_leaf_reduction_audit()
+        fusion = transverse_cutoff_one_fusion_audit()
         return (
             witness.validates()
             and geometry.validates()
             and leaf_reduction.validates()
+            and fusion.validates()
             and self.all_label_corridor_kernel_constructed
             and self.exact_semigroup_grouping
             and self.common_haar_packet_constructed
             and self.common_packet_faithful_on_all_peter_weyl_labels
             and self.spacing_uniform_given_cumulative_heat_condition
-            and self.cumulative_heat_condition_contains_gap_scale_floor
+            and self.cumulative_heat_condition_contains_rescaled_bare_mode_floor
             and self.nine_geometric_corridors_pinned
             and self.transverse_interaction_obstruction_pinned
             and self.transverse_leaf_reduction_pinned
+            and self.transverse_cutoff_one_fusion_ledger_pinned
             and geometry.every_internal_link_transversely_coupled
             and not geometry.literal_semigroup_factorization_of_full_integrand
             and not self.corrected_slab_corridor_cover_pinned
@@ -736,7 +1030,7 @@ class GroupedPhysicalPacketFrontier:
             and not self.actual_grouped_all_label_packet_proved
             and not self.spacing_uniform_refresh_mass_proved
             and self.first_open_obligation
-            == "expand-21-face-transverse-core-and-prove-cp-order-domination"
+            == "lift-cutoff-one-fusion-ledger-to-coherent-all-label-cp-domination"
         )
 
 
@@ -749,17 +1043,18 @@ def grouped_physical_packet_frontier() -> GroupedPhysicalPacketFrontier:
         common_haar_packet_constructed=True,
         common_packet_faithful_on_all_peter_weyl_labels=True,
         spacing_uniform_given_cumulative_heat_condition=True,
-        cumulative_heat_condition_contains_gap_scale_floor=True,
+        cumulative_heat_condition_contains_rescaled_bare_mode_floor=True,
         nine_geometric_corridors_pinned=True,
         transverse_interaction_obstruction_pinned=True,
         transverse_leaf_reduction_pinned=True,
+        transverse_cutoff_one_fusion_ledger_pinned=True,
         corrected_slab_corridor_cover_pinned=False,
         interacting_map_cp_dominates_corridor=False,
         physical_coupling_spacing_condition_proved=False,
         actual_grouped_all_label_packet_proved=False,
         spacing_uniform_refresh_mass_proved=False,
         first_open_obligation=(
-            "expand-21-face-transverse-core-and-prove-cp-order-domination"
+            "lift-cutoff-one-fusion-ledger-to-coherent-all-label-cp-domination"
         ),
     )
     if not frontier.validates():

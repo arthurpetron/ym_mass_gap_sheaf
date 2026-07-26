@@ -683,14 +683,17 @@ factorization.  Exact Haar leaf elimination removes 21 of the 42 transverse
 faces and leaves a pinned 21-face core.  That core is the next finite
 fusion-family comparison.
 
-The cumulative-heat condition is itself gap-scale content.  With
-\(\rho=s^3\), it implies
+The cumulative-heat condition controls the local bare heat-kernel mode.
+With \(\rho=s^3\), it implies
 \[
  (1-\rho(a))/a\ge7/(16L)
 \]
-for \(a\le L\).  It therefore cannot be assumed as an independent shortcut:
-the interacting CP comparison must generate the scale estimate that makes
-the common packet uniform.
+for \(a\le L\).  This is not yet the physical gap: identifying this bare
+Fourier multiplier with the interacting gauge-invariant transfer separator
+is a separate open bridge, and bare asymptotic freedom may make the displayed
+ratio diverge.  BF4 must derive the bare scale estimate on the actual
+trajectory and the interacting CP comparison; BF6--BF8 must perform the
+shared-object physical transfer and OS promotion.
 
 This audit also sharpens the BF3.2 handoff language.  BF3.2 has the
 all-label local reflected Gram and its trace-class Cauchy modulus.

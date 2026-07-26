@@ -120,17 +120,27 @@ domination mass.  Exact normalized-Haar leaf elimination removes 21 of
 those 42 faces.  The maximal residual for this rule is one connected
 15-face component plus six one-face corridor decorations; every remaining
 leaf link is corridor-protected.  This pinned 21-face core is the next
-finite physical object to expand in complete fusion families.
-The cumulative-heat condition is also not free.  With the exact fundamental
-separator \(\rho(a)=s(a)^3\), it implies
+finite physical object to expand in complete fusion families.  Its
+cutoff-one expansion is now exact: the connected core has 1024 internally
+admissible assignments, 4761 complete boundary-label profiles, and 10673
+fusion paths; after the six decorations the full residual has 304704
+profiles and 683072 paths.  The 128-state parity boundary is therefore not
+an adequate carrier because it forgets the separate singlet/triplet outputs
+at doubly occupied protected links.  The next constructor must evaluate the
+coherent partially contracted Haar tensors for this ledger and lift the
+result to an all-label CP-order bound with a cutoff modulus.
+The cumulative-heat condition is also not automatic.  For the local bare
+heat-kernel multiplier \(\rho(a)=s(a)^3\), it implies
 \[
  \frac{1-\rho(a)}a\ge\frac7{16L}
  \qquad(a\le L),
 \]
-by \(1-\rho^m\le m(1-\rho)\).  It therefore already contains a
-spacing-uniform fundamental gap-scale floor.  The next proof must derive the
-CP-domination and this scale estimate from the interacting map together; it
-may not assume the grouped-half condition as an independent input.
+by \(1-\rho^m\le m(1-\rho)\).  This is a rescaled bare-mode floor, not a
+physical mass gap: the transfer-operator identification remains open and the
+bare ratio may diverge along the asymptotically-free trajectory.  The next
+proof must derive the CP-domination and the needed bare scale estimate on the
+actual trajectory; later gates must still identify the grouped contraction
+with the physical transfer/OS object.
 Unless the current BF plan explicitly delegates a task back to one of the
 historical phases below, BF4--BF10 control execution order.
 
