@@ -999,6 +999,7 @@ import YMGap.Continuum.Z4DyadicSlabCubeManyTimeSlicePositiveWeight
 import YMGap.Continuum.Z4DyadicSU2ParitySpinKernel
 import YMGap.Continuum.FiniteDeterministicKernelPushforward
 import YMGap.Continuum.ConstructiveRefreshContraction
+import YMGap.Continuum.GroupedAllLabelHaarRefresh
 import YMGap.Continuum.Z4DyadicSU2ParityGlobalPushforward
 import YMGap.Continuum.Z4DyadicSU2ParityPhysicalWeightFence
 import YMGap.Continuum.Z4DyadicSU2ParityActivityMatchedDefect

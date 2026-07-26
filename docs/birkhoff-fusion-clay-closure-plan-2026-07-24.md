@@ -661,6 +661,43 @@ boundary ancillas and coherent intertwiner transport.  The exact grouped
 physical refresh packet and its spacing-uniform mass remain open.  See
 `notes/bf4-intuitionistic-proof-routes.md`.
 
+The first all-label grouping experiment is now positive.  The exact central
+heat corridor satisfies \(K_s^{*m}=K_{s^m}\), and the complete character
+tail gives the rational common Haar floor
+\[
+ K_{s^m}\ge\frac{1055}{2272}
+ \quad\text{when}\quad s^m\le\frac12.
+\]
+A finite \(r\)-corridor cover would therefore carry common mass
+\((1055/2272)^r\), before the physical domination coefficient.  This
+identifies the remaining BF4 constructor: prove that the normalized
+interacting corrected-slab grouped map CP-dominates such a corridor cover
+with \(\eta_{a,L}\ge\eta_L>0\), and prove
+\(s(a)^{\lceil L/a\rceil}\le1/2\).  The resulting physical packet has mass
+at least \(\eta_L(1055/2272)^r\).
+
+The nine canonical filling disks are now pinned exactly.  They use 30
+disjoint faces and 27 disjoint internal links, but every internal link also
+meets two transverse plaquettes, refuting literal product-semigroup
+factorization.  Exact Haar leaf elimination removes 21 of the 42 transverse
+faces and leaves a pinned 21-face core.  That core is the next finite
+fusion-family comparison.
+
+The cumulative-heat condition is itself gap-scale content.  With
+\(\rho=s^3\), it implies
+\[
+ (1-\rho(a))/a\ge7/(16L)
+\]
+for \(a\le L\).  It therefore cannot be assumed as an independent shortcut:
+the interacting CP comparison must generate the scale estimate that makes
+the common packet uniform.
+
+This audit also sharpens the BF3.2 handoff language.  BF3.2 has the
+all-label local reflected Gram and its trace-class Cauchy modulus.
+Constructing a source-indexed kernel that composes across consecutive
+physical scales, including the shared coarse-intertwiner field, remains
+part of BF4.  See `notes/bf4-grouped-all-label-haar-kernel.md`.
+
 For lattice spacing \(a_n\), the target is scale-dependent:
 
 \[

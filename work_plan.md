@@ -70,6 +70,67 @@ the same decomposition for the exact all-label grouped Haar map over fixed
 physical distance and prove
 \(\varepsilon_{a,L}\ge\varepsilon_L>0\), uniformly in spacing, cutoff, and
 ambient volume.  See `notes/bf4-intuitionistic-proof-routes.md`.
+
+**BF4 grouped all-label corridor update (2026-07-25).**  The first proposed
+physical mechanism now passes an exact all-label test.  Central Haar
+convolution gives \(K_s^{*m}=K_{s^m}\).  Once \(s^m\le1/2\), the complete
+\(SU(2)\) character series has the rational pointwise floor
+\[
+  K_{s^m}(g)\ge\varepsilon_0:=\frac{1055}{2272}.
+\]
+Every Peter--Weyl label remains present, and a finite cover by \(r\)
+independent heat corridors has common Haar mass at least
+\(\varepsilon_0^r\); for the nine BF3.2 coarse holonomy coordinates the
+arithmetic candidate is \(\varepsilon_0^9\approx1.003789\times10^{-3}\).
+The coefficient semigroup and finite-cover positivity are formalized in
+`lean/YMGap/Continuum/GroupedAllLabelHaarRefresh.lean`; the infinite-tail
+census and fixed-distance criterion are executable in
+`computations/grouped_all_label_haar_refresh.py`.
+
+This does not yet inhabit the physical packet.  The audit found that BF3.2
+constructs the all-label local reflected Gram coefficientwise with a
+trace-class cutoff modulus, but not a composable source-indexed grouped
+kernel across consecutive scales.  The next active theorem is therefore
+more precise:
+
+1. pin a finite heat-corridor cover of the corrected-slab coarse carrier,
+   including every shared intertwiner;
+2. prove that the actual normalized interacting grouped map contains that
+   corridor cover in CP order with coefficient
+   \(\eta_{a,L}\ge\eta_L>0\);
+3. prove the physical cumulative-heat inequality
+   \(s(a)^{\lceil L/a\rceil}\le1/2\).
+
+These give the physical refresh mass
+\[
+  \varepsilon_{a,L}
+  \ge
+  \eta_L\left(\frac{1055}{2272}\right)^r>0.
+\]
+See `notes/bf4-grouped-all-label-haar-kernel.md`.  BF4 remains open until
+the CP-order corridor domination and physical spacing relation are proved.
+The geometric part of item 1 is now exact: the nine canonical fine disks
+use 30 pairwise-disjoint faces and 27 pairwise-disjoint internal links, and
+every disk boundary is its named coarse Wilson path.  The load-bearing
+obstruction is also exact: each of those 27 internal links is incident to
+exactly two of the remaining 42 transverse plaquettes.  Hence literal
+product-semigroup factorization fails; the next constructor must sum or
+condition the transverse fusion families while retaining a positive
+domination mass.  Exact normalized-Haar leaf elimination removes 21 of
+those 42 faces.  The maximal residual for this rule is one connected
+15-face component plus six one-face corridor decorations; every remaining
+leaf link is corridor-protected.  This pinned 21-face core is the next
+finite physical object to expand in complete fusion families.
+The cumulative-heat condition is also not free.  With the exact fundamental
+separator \(\rho(a)=s(a)^3\), it implies
+\[
+ \frac{1-\rho(a)}a\ge\frac7{16L}
+ \qquad(a\le L),
+\]
+by \(1-\rho^m\le m(1-\rho)\).  It therefore already contains a
+spacing-uniform fundamental gap-scale floor.  The next proof must derive the
+CP-domination and this scale estimate from the interacting map together; it
+may not assume the grouped-half condition as an independent input.
 Unless the current BF plan explicitly delegates a task back to one of the
 historical phases below, BF4--BF10 control execution order.
 

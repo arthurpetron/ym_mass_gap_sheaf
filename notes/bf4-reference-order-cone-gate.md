@@ -322,6 +322,25 @@ uniform in spacing, cutoff, and ambient volume.  Complete positivity of the
 residual is the strongest tensor-stable version.  See
 `notes/bf4-intuitionistic-proof-routes.md`.
 
+The first all-label corridor candidate is now explicit.  If the grouped
+central heat coordinate satisfies \(s^m\le1/2\), then
+\[
+ K_{s^m}(g)\ge\frac{1055}{2272}
+\]
+for the complete character series.  The nine canonical coarse-loop disks
+are geometrically pinned, but all 27 of their internal links meet two
+transverse plaquettes, so the 72-face integrand does not literally factor.
+Normalized-Haar leaf elimination reduces the transverse comparison to a
+specific 21-face core.  The next order theorem must show that the full
+interacting map CP-dominates the corridor packet after that core is summed.
+
+The grouped-half hypothesis itself is not free: for \(\rho=s^3\), it
+implies \((1-\rho(a))/a\ge7/(16L)\) at
+\(m=\lceil L/a\rceil\), \(a\le L\).  Thus the corridor construction
+converts a physical gap-scale estimate into a common packet; it does not
+replace the need to prove that estimate from the interacting map.  See
+`notes/bf4-grouped-all-label-haar-kernel.md`.
+
 ## 6. The next theorem
 
 The highest-leverage theorem is now:

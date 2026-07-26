@@ -322,6 +322,20 @@ from the same all-label Haar-network map that exited BF3.2.  Prove all-label
 positivity, mass preservation, reflection intertwining, cut-signature
 mixing, and coherent \(P/Q\) compatibility.
 
+**Corridor result (2026-07-25).**  The central all-label heat corridor is
+now explicit.  Haar convolution gives \(K_s^{*m}=K_{s^m}\), and the complete
+character tail proves
+\[
+ K_{s^m}(g)\ge\frac{1055}{2272}
+ \qquad\text{whenever }s^m\le\frac12.
+\]
+This supplies a genuine all-label common Haar packet, with every
+Peter--Weyl mode strictly present.  What remains open in C3 is the physical
+promotion: pin a finite corrected-slab corridor cover and prove that the
+actual interacting grouped map CP-dominates it with a coefficient bounded
+away from zero.  BF3.2's current coefficientwise Cauchy Gram is not itself
+the required composable source-indexed grouped kernel.
+
 ### BF4-C4 — spacing-uniform packet mass
 
 **Open and load-bearing.**
@@ -336,6 +350,29 @@ that
 This replaces the present catastrophic microscopic Haar floor by a grouped
 heat-relative estimate.
 
+For the corridor route the spacing obligation has the exact
+logarithm-free form
+\[
+ s(a)^{\lceil L/a\rceil}\le\frac12.
+\]
+If the physical CP-domination coefficient is
+\(\eta_{a,L}\ge\eta_L>0\) and the cover uses \(r\) independent corridors,
+then
+\[
+ \varepsilon_{a,L}
+ \ge
+ \eta_L\left(\frac{1055}{2272}\right)^r.
+\]
+Thus the common packet no longer has to be discovered.  C4 must prove the
+physical coupling/spacing inequality and the uniform CP-domination mass.
+This condition is equivalent in strength to a gap-scale estimate, not a
+free grouping convention: with \(\rho=s^3\), it implies
+\[
+ (1-\rho(a))/a\ge 7/(16L)
+\]
+for \(a\le L\).  The interacting proof must therefore derive it rather than
+use it as an independent hypothesis.
+
 ### BF4-C5 — graded transport
 
 **Open; shared with BF5.**
@@ -347,8 +384,9 @@ in `ScaleDependentGradedPerronFrobenius.lean`.
 
 ## 6. Recommended next experiment
 
-Search for the common packet on the **smallest grouped corrected slab that
-mixes two distinct BF3.1 cut signatures**.
+Construct the CP-order lift of the now-explicit heat packet on the
+**smallest grouped corrected slab that mixes two distinct BF3.1 cut
+signatures**.
 
 For every candidate fusion-history family, record:
 
@@ -362,13 +400,20 @@ For every candidate fusion-history family, record:
 
 Stop a candidate immediately if it fails cut-signature mixing or if its
 common mass is a fixed low-spin probability vanishing at weak coupling.
-The first successful family becomes the constructor for BF4-C3; its
-heat-relative lower bound is BF4-C4.
+The corridor packet itself is already all-label and has the fixed mass
+\(1055/2272\) once its grouped coordinate is at most \(1/2\).  The search
+must now determine the finite corridor cover, its shared-intertwiner
+transport, and the CP-domination coefficient \(\eta_{a,L}\).  The first
+successful family becomes the constructor for BF4-C3; its uniform
+\(\eta_L\), together with the cumulative-heat inequality, closes BF4-C4.
 
 The executable finite screening interface is
 `maximal_refresh_certificate` /
 `grouped_refresh_certificates` in
 `computations/constructive_refresh_contraction.py`.
+The grouped all-label corridor certificate is in
+`computations/grouped_all_label_haar_refresh.py`; see
+`notes/bf4-grouped-all-label-haar-kernel.md`.
 
 ## 7. Literature coordinate
 
