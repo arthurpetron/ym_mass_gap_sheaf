@@ -344,7 +344,7 @@ orders every backward-message channel with terminal-independent common mass
 \(\Theta(G)^{-1}\). Source/target Perron profiles cancel exactly, so they
 may depend on spacing and localize. At every fixed coupling, compact
 positivity-improving Perron theory gives intrinsic rank-one convergence.
-The remaining spacing-uniform theorem is now the explicit two-buffer budget
+The spacing-uniform consumer is the explicit two-buffer budget
 \[
 C_{s(a)}^2q_{s(a)}^{m(a,L)-2}\le\delta_L<1,
 \]
@@ -397,9 +397,34 @@ k_s(M_{\overline W_s}k_s)^{m-1}R M_{\sqrt W},
 \]
 The endpoint weights cancel projectively, so the 23-cycle Harnack problem
 has been reduced without extrema loss to a five-holonomy Feynman--Kac
-kernel. The immediate open theorem is now a spacing-uniform intrinsic
-Perron budget, or direct four-boundary cross-ratio bound, for that effective
 kernel.
+
+**BF4 five-holonomy Perron update (2026-07-26).** The exact spatial Schur
+form \(S\) and temporal quotient kinetic form \(K\) satisfy
+\[
+\det(S-\lambda K)
+=-\frac{(\lambda-6)^2(\lambda-4)^3}{384}.
+\]
+The limiting Mehler ratio is therefore
+\(q_0=3-2\sqrt2<1/5\). Short-time \(SU(2)\) heat-kernel convergence,
+with the global \(1/81\) estimate controlling the complement of the flat
+chart, gives \(q_s\le1/4\) eventually. The Jacobi floor and character
+ceiling give, for \(\tau=-\log s\),
+\[
+C_s^2\le e^{1728/\tau}.
+\]
+Consequently, if \(\tau(a)\ge\kappa a\) and \(L>1728/\kappa\), then
+\[
+C_{s(a)}^2q_{s(a)}^{m(a,L)-2}\longrightarrow0.
+\]
+This closes the Perron obstruction for the executable model \(s=1-a\)
+(any integer \(L\ge1729\)) and for one-loop AF trajectories with
+\(\tau(a)/a\to\infty\). The existing constructive theorem
+`BareAFImpliesLinearFloor` also supplies
+\(\tau(a)\ge(\alpha\Lambda/(4C))a\) from an `AFEnvelope` after identifying
+\(s=e^{-t/4}\). The immediate open theorem is now to instantiate that
+envelope on the nonperturbative physical BF4 trajectory.
+See `notes/bf4-five-holonomy-perron-budget.md`.
 
 The cumulative-heat condition is also not automatic.  For the local bare
 heat-kernel multiplier \(\rho(a)=s(a)^3\), it implies
@@ -409,10 +434,10 @@ heat-kernel multiplier \(\rho(a)=s(a)^3\), it implies
 \]
 by \(1-\rho^m\le m(1-\rho)\).  This is a rescaled bare-mode floor, not a
 physical mass gap: the transfer-operator identification remains open and the
-bare ratio may diverge along the asymptotically-free trajectory.  The next
-proof must derive the CP-domination and the needed bare scale estimate on the
-actual trajectory; later gates must still identify the grouped contraction
-with the physical transfer/OS object.
+bare ratio may diverge along the asymptotically-free trajectory. The next
+proof must instantiate the bare-AF envelope and heat-coordinate identity
+on the actual trajectory; later gates must still identify the grouped
+contraction with the continuum transfer/OS object.
 Unless the current BF plan explicitly delegates a task back to one of the
 historical phases below, BF4--BF10 control execution order.
 

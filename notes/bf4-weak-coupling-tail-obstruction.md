@@ -77,14 +77,15 @@ because the Jacobi-floor coefficient collapses as \(s\to1\).  Its normalized
 difference is now a random-unitary CPTP residual with abstract same-carrier
 convolution.  The exact 120-face gluing geometry and boundary-message
 Markovization algebra are now pinned, and the continuous all-label
-fine-boundary transfer is explicit.  The next theorem must obtain a
-spacing-uniform four-boundary cross-ratio bound for the grouped physical
-Feynman--Kac kernel directly on the fixed physical-distance block. The
+fine-boundary transfer is explicit. The grouped physical Feynman--Kac
+kernel now has a spacing-uniform four-boundary bound under
+\(-\log s(a)\ge\kappa a\). The constructive `BareAFImpliesLinearFloor`
+theorem derives this comparison from an `AFEnvelope`. The
 carrier has been enlarged to the full 23-cycle tree-gauge boundary, where
 the retained projection and Markov intertwining are identities. Source and
-target Perron profiles cancel, so the exact remaining budget is
-\(C_s^2q_s^{m-2}<1\); see
-`notes/bf4-physical-feynman-kac-projective-harnack.md`.
+target Perron profiles cancel. The remaining physical task is to instantiate
+that envelope on the nonperturbative BF4 trajectory; see
+`notes/bf4-five-holonomy-perron-budget.md`.
 
 The executable certificate is
 `computations/transverse_weak_coupling_tail_obstruction.py`.

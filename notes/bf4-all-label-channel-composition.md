@@ -288,12 +288,19 @@ conditional integration over the other 18 coordinates turns the enlarged
 spatial weight \(\overline W_s=R M_{W_s}R^\ast\). Endpoint weights cancel
 from the cross-ratio.
 
-The next theorem must therefore bound the grouped four-boundary cross-ratio
-of this five-holonomy kernel uniformly. Equivalently, it is enough to prove
-relative rank-one Perron convergence with
-\(C_s^2q_s^{m-2}\le\delta_L<1\). The spacing-dependent Perron profiles
-cancel and need no absolute lower bound. Either result would imply, before
-microscopic minorization,
+The reduced Perron estimate is now proved under the trajectory condition
+\[
+-\log s(a)\ge\kappa a.
+\]
+The exact Gaussian ratio is \(3-2\sqrt2<1/5\), the nonlinear ratio is
+eventually at most \(1/4\), and
+\[
+C_s^2\le e^{1728/(-\log s)}.
+\]
+Thus \(L>1728/\kappa\) implies
+\(C_s^2q_s^{m-2}\to0\). The spacing-dependent Perron profiles cancel and
+need no absolute lower bound. Under the trajectory condition this gives,
+before microscopic minorization,
 \[
 \Phi_{\mu_{a,L}^{\rm glue}}
 \succeq
@@ -301,6 +308,10 @@ microscopic minorization,
 \qquad \varepsilon_L>0,
 \]
 uniformly in spacing, representation cutoff, and ambient volume.
+
+The constructive `BareAFImpliesLinearFloor` theorem derives the required
+comparison from an `AFEnvelope`. The remaining theorem is now to instantiate
+that envelope on the nonperturbative physical BF4 lattice trajectory.
 
 The executable certificate is
 `computations/physical_all_label_channel_composition.py`, with tests in

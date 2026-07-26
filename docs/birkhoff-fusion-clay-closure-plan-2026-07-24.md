@@ -806,7 +806,7 @@ Strict positivity alone is insufficient: the exact two-state family
 four-boundary cross-ratio. Its inverse orders every terminal-message Doob
 transform, and spacing-dependent Perron profiles cancel. Fixed-coupling
 compact positivity-improving theory gives intrinsic rank-one convergence;
-the remaining uniform estimate is
+the projective consumer is
 \[
 C_{s(a)}^2q_{s(a)}^{m(a,L)-2}\le\delta_L<1,
 \]
@@ -851,10 +851,32 @@ T_s^m=M_{\sqrt W_s}R^\ast
 k_s(M_{\overline W_s}k_s)^{m-1}R M_{\sqrt W_s}.
 \]
 The endpoint profiles cancel in the four-boundary ratio. Thus the live
-bridge is a spacing-uniform intrinsic Perron budget, or direct projective
-cross-ratio bound, for the exact five-holonomy effective Feynman--Kac
-kernel. A 23-dimensional elliptic or hypocoercive estimate is no longer
-required.
+operator is the exact five-holonomy effective Feynman--Kac kernel. A
+23-dimensional elliptic or hypocoercive estimate is no longer required.
+
+The Perron estimate on that operator is now closed under a precise spacing
+hypothesis. Exact rational elimination gives
+\[
+\det(S-\lambda K)
+=-\frac{(\lambda-6)^2(\lambda-4)^3}{384},
+\]
+so the Gaussian limiting ratio is \(3-2\sqrt2<1/5\), and nonlinear
+short-time convergence gives \(q_s\le1/4\) eventually. Global heat-kernel
+bounds give
+\[
+C_s^2\le\exp\!\left(\frac{1728}{-\log s}\right).
+\]
+Therefore \(-\log s(a)\ge\kappa a\) and \(L>1728/\kappa\) imply
+\[
+C_{s(a)}^2q_{s(a)}^{m(a,L)-2}\to0.
+\]
+The executable \(s=1-a\) model and one-loop AF trajectories satisfy this
+condition. The existing constructive `BareAFImpliesLinearFloor` theorem
+derives it from an `AFEnvelope`, with
+\(\kappa=\alpha\Lambda/(4C)\) after \(s=e^{-t/4}\). The live bridge is now
+to instantiate that envelope on the nonperturbative physical BF4
+trajectory. See
+`notes/bf4-five-holonomy-perron-budget.md`.
 
 The cumulative-heat condition controls the local bare heat-kernel mode.
 With \(\rho=s^3\), it implies
@@ -864,8 +886,8 @@ With \(\rho=s^3\), it implies
 for \(a\le L\).  This is not yet the physical gap: identifying this bare
 Fourier multiplier with the interacting gauge-invariant transfer separator
 is a separate open bridge, and bare asymptotic freedom may make the displayed
-ratio diverge.  BF4 must derive the bare scale estimate on the actual
-trajectory and the interacting CP comparison; BF6--BF8 must perform the
+ratio diverge. BF4 must derive the bare scale estimate on the actual
+trajectory by instantiating the AF envelope; BF6--BF8 must perform the
 shared-object physical transfer and OS promotion.
 
 This audit also sharpens the BF3.2 handoff language.  BF3.2 has the

@@ -42,6 +42,9 @@ from computations.all_label_whole_slab_tail import (
     heat_character_sup_term,
     single_plaquette_all_label_tail,
 )
+from computations.boundary_five_holonomy_perron import (
+    PERRON_FIRST_OPEN_OBLIGATION,
+)
 from computations.boundary_message_markovization import (
     physical_boundary_message_blueprint,
 )
@@ -50,9 +53,6 @@ from computations.boundary_message_projective_harnack import (
 )
 from computations.boundary_message_uniform_order import (
     physical_backward_message_order_frontier,
-)
-from computations.boundary_temporal_relative_coupling import (
-    TEMPORAL_RELATIVE_FIRST_OPEN_OBLIGATION,
 )
 from computations.corrected_slab_haar_network import corrected_slab_haar_complex
 from computations.corrected_slab_physical_gluing import (
@@ -993,6 +993,21 @@ class GroupedPhysicalPacketFrontier:
     eighteen_dimensional_fibers_conditionally_integrated: bool
     five_holonomy_feynman_kac_operator_identity_proved: bool
     spatial_temporal_hypocoercive_perron_bound_proved: bool
+    exact_gaussian_generalized_eigenvalue_multiplicities: tuple[
+        tuple[int, int],
+        ...,
+    ]
+    gaussian_largest_nonvacuum_ratio_upper: Fraction
+    rescaled_nonlinear_operator_hilbert_schmidt_convergence_proved: bool
+    eventual_nonlinear_spectral_ratio_upper: Fraction
+    buffer_square_log_exponent: int
+    spacing_uniform_perron_budget_under_heat_time_spacing_floor_proved: bool
+    dyadic_model_spacing_uniform_perron_budget_proved: bool
+    one_loop_af_heat_time_over_spacing_diverges: bool
+    bare_af_envelope_implies_heat_time_spacing_floor_proved: bool
+    exponential_af_envelope_closes_every_fixed_positive_length: bool
+    physical_bf4_af_envelope_instantiated: bool
+    physical_heat_time_over_spacing_floor_proved: bool
     spacing_uniform_physical_four_boundary_cross_ratio_proved: bool
     spacing_uniform_intrinsic_perron_remainder_proved: bool
     boundary_spanning_connected_expansion_bound_proved: bool
@@ -1139,6 +1154,29 @@ class GroupedPhysicalPacketFrontier:
             and self.eighteen_dimensional_fibers_conditionally_integrated
             and self.five_holonomy_feynman_kac_operator_identity_proved
             and not self.spatial_temporal_hypocoercive_perron_bound_proved
+            and self.exact_gaussian_generalized_eigenvalue_multiplicities
+            == projective_harnack.exact_gaussian_generalized_eigenvalue_multiplicities
+            == ((4, 3), (6, 2))
+            and self.gaussian_largest_nonvacuum_ratio_upper
+            == projective_harnack.gaussian_largest_nonvacuum_ratio_upper
+            == Fraction(1, 5)
+            and self.rescaled_nonlinear_operator_hilbert_schmidt_convergence_proved
+            and self.eventual_nonlinear_spectral_ratio_upper
+            == projective_harnack.eventual_nonlinear_spectral_ratio_upper
+            == Fraction(1, 4)
+            and self.buffer_square_log_exponent
+            == projective_harnack.buffer_square_log_exponent
+            == 1728
+            and self.spacing_uniform_perron_budget_under_heat_time_spacing_floor_proved
+            and self.dyadic_model_spacing_uniform_perron_budget_proved
+            and self.one_loop_af_heat_time_over_spacing_diverges
+            and self.bare_af_envelope_implies_heat_time_spacing_floor_proved
+            == projective_harnack.bare_af_envelope_implies_heat_time_spacing_floor_proved
+            and self.exponential_af_envelope_closes_every_fixed_positive_length
+            == projective_harnack.exponential_af_envelope_closes_every_fixed_positive_length
+            and not self.physical_bf4_af_envelope_instantiated
+            and not projective_harnack.physical_bf4_af_envelope_instantiated
+            and not self.physical_heat_time_over_spacing_floor_proved
             and not self.spacing_uniform_physical_four_boundary_cross_ratio_proved
             and not self.spacing_uniform_intrinsic_perron_remainder_proved
             and not self.boundary_spanning_connected_expansion_bound_proved
@@ -1152,7 +1190,7 @@ class GroupedPhysicalPacketFrontier:
             and not self.physical_coupling_spacing_condition_proved
             and not self.actual_grouped_all_label_packet_proved
             and not self.spacing_uniform_refresh_mass_proved
-            and self.first_open_obligation == TEMPORAL_RELATIVE_FIRST_OPEN_OBLIGATION
+            and self.first_open_obligation == PERRON_FIRST_OPEN_OBLIGATION
         )
 
 
@@ -1229,6 +1267,21 @@ def grouped_physical_packet_frontier() -> GroupedPhysicalPacketFrontier:
         eighteen_dimensional_fibers_conditionally_integrated=True,
         five_holonomy_feynman_kac_operator_identity_proved=True,
         spatial_temporal_hypocoercive_perron_bound_proved=False,
+        exact_gaussian_generalized_eigenvalue_multiplicities=(
+            (4, 3),
+            (6, 2),
+        ),
+        gaussian_largest_nonvacuum_ratio_upper=Fraction(1, 5),
+        rescaled_nonlinear_operator_hilbert_schmidt_convergence_proved=True,
+        eventual_nonlinear_spectral_ratio_upper=Fraction(1, 4),
+        buffer_square_log_exponent=1728,
+        spacing_uniform_perron_budget_under_heat_time_spacing_floor_proved=True,
+        dyadic_model_spacing_uniform_perron_budget_proved=True,
+        one_loop_af_heat_time_over_spacing_diverges=True,
+        bare_af_envelope_implies_heat_time_spacing_floor_proved=True,
+        exponential_af_envelope_closes_every_fixed_positive_length=True,
+        physical_bf4_af_envelope_instantiated=False,
+        physical_heat_time_over_spacing_floor_proved=False,
         spacing_uniform_physical_four_boundary_cross_ratio_proved=False,
         spacing_uniform_intrinsic_perron_remainder_proved=False,
         boundary_spanning_connected_expansion_bound_proved=False,
@@ -1240,7 +1293,7 @@ def grouped_physical_packet_frontier() -> GroupedPhysicalPacketFrontier:
         physical_coupling_spacing_condition_proved=False,
         actual_grouped_all_label_packet_proved=False,
         spacing_uniform_refresh_mass_proved=False,
-        first_open_obligation=TEMPORAL_RELATIVE_FIRST_OPEN_OBLIGATION,
+        first_open_obligation=PERRON_FIRST_OPEN_OBLIGATION,
     )
     if not frontier.validates():
         raise AssertionError("the grouped physical packet frontier drifted")

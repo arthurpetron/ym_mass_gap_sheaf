@@ -189,8 +189,7 @@ prove relative convergence to a spacing-dependent rank-one Perron profile.
 The profiles themselves need no uniform lower bound.
 
 At fixed coupling, compact positivity-improving Perron theory supplies that
-relative convergence. The remaining theorem is the spacing-uniform
-two-buffer budget
+relative convergence. The spacing-uniform consumer is the two-buffer budget
 \[
 C_{s(a)}^2q_{s(a)}^{m(a,L)-2}\le\delta_L<1,
 \]
@@ -213,11 +212,23 @@ T_s^m=M_{\sqrt W}R^\ast
 k_s(M_{\overline W_s}k_s)^{m-1}R M_{\sqrt W}.
 \]
 Thus the physical cross-ratio is exactly that of a five-holonomy effective
-Feynman--Kac kernel. The remaining work is the spacing-uniform
-heat-kernel/Perron promotion for this reduced kernel.
+Feynman--Kac kernel.
+
+The reduced Perron estimate is now proved under
+\(\tau(a)=-\log s(a)\ge\kappa a\). Exact quadratic elimination gives
+generalized eigenvalues \(4,4,4,6,6\), hence limiting ratio
+\(3-2\sqrt2<1/5\), while the global heat-kernel envelope gives
+\[
+C_s^2\le e^{1728/\tau}.
+\]
+Thus \(L>1728/\kappa\) makes the two-buffer budget tend to zero. The
+constructive `BareAFImpliesLinearFloor` theorem derives the heat-time floor
+from an `AFEnvelope`. The remaining physical work is to instantiate that
+envelope on the nonperturbative BF4 trajectory.
 
 The executable gates are
 `computations/boundary_message_markovization.py`,
 `computations/boundary_message_uniform_order.py`, and
-`computations/boundary_message_projective_harnack.py`. See
+`computations/boundary_message_projective_harnack.py`. See also
+`computations/boundary_five_holonomy_perron.py`,
 `notes/bf4-physical-feynman-kac-projective-harnack.md`.

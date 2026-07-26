@@ -34,9 +34,12 @@ weight.  At fixed coupling, rank-one Perron convergence then follows at
 paper level from its strictly positive continuous kernel on a compact
 quotient: the integral operator is compact and positivity improving, and
 two smoothing factors turn the operator-norm Perron remainder into a
-uniform kernel remainder.  The open estimate is quantitative and
-spacing-uniform.  Equivalently, one must bound the four-boundary cross-ratio
-of the grouped five-holonomy kernel.
+uniform kernel remainder.  The exact weak-coupling Gaussian spectrum and
+global heat-kernel bounds now make this quantitative and spacing-uniform
+whenever the physical heat time obeys ``-log(s(a)) >= kappa * a``.  The
+constructive bare-AF theorem derives that lower bound from an
+``AFEnvelope``.  The remaining obligation is to instantiate the envelope
+on the nonperturbative physical BF4 trajectory.
 """
 
 from __future__ import annotations
@@ -46,6 +49,11 @@ from dataclasses import dataclass
 from fractions import Fraction
 from functools import cache
 
+from computations.boundary_five_holonomy_perron import (
+    PERRON_FIRST_OPEN_OBLIGATION,
+    five_holonomy_gaussian_perron,
+    five_holonomy_spacing_budget,
+)
 from computations.boundary_message_markovization import (
     AllLabelFineBoundaryTransfer,
     all_label_fine_boundary_transfer,
@@ -59,7 +67,6 @@ from computations.boundary_spatial_flatness_coercivity import (
     boundary_spatial_flatness_coercivity,
 )
 from computations.boundary_temporal_relative_coupling import (
-    TEMPORAL_RELATIVE_FIRST_OPEN_OBLIGATION,
     boundary_temporal_relative_coupling,
 )
 from computations.rational_projective_diameter import (
@@ -455,6 +462,21 @@ class PhysicalFeynmanKacProjectiveRoute:
     eighteen_dimensional_fibers_conditionally_integrated: bool
     five_holonomy_feynman_kac_operator_identity_proved: bool
     spatial_temporal_hypocoercive_perron_bound_proved: bool
+    exact_gaussian_generalized_eigenvalue_multiplicities: tuple[
+        tuple[int, int],
+        ...,
+    ]
+    gaussian_largest_nonvacuum_ratio_upper: Fraction
+    rescaled_nonlinear_operator_hilbert_schmidt_convergence_proved: bool
+    eventual_nonlinear_spectral_ratio_upper: Fraction
+    buffer_square_log_exponent: int
+    spacing_uniform_perron_budget_under_heat_time_spacing_floor_proved: bool
+    dyadic_model_spacing_uniform_perron_budget_proved: bool
+    one_loop_af_heat_time_over_spacing_diverges: bool
+    bare_af_envelope_implies_heat_time_spacing_floor_proved: bool
+    exponential_af_envelope_closes_every_fixed_positive_length: bool
+    physical_bf4_af_envelope_instantiated: bool
+    physical_heat_time_over_spacing_floor_proved: bool
     boundary_connected_interaction_target_identified: bool
     spacing_uniform_physical_cross_ratio_proved: bool
     spacing_uniform_intrinsic_buffer_bound_proved: bool
@@ -483,6 +505,8 @@ class PhysicalFeynmanKacProjectiveRoute:
         )
         spatial_flatness = boundary_spatial_flatness_coercivity()
         temporal_coupling = boundary_temporal_relative_coupling()
+        gaussian_perron = five_holonomy_gaussian_perron()
+        spacing_budget = five_holonomy_spacing_budget()
         return (
             self.transfer.validates()
             and self.transfer.transfer_strictly_positive_and_continuous
@@ -493,6 +517,8 @@ class PhysicalFeynmanKacProjectiveRoute:
             and budget.validates()
             and spatial_flatness.validates()
             and temporal_coupling.validates()
+            and gaussian_perron.validates()
+            and spacing_budget.validates()
             and self.four_boundary_ratio == "G(x,z)G(x',z')/[G(x,z')G(x',z)]"
             and self.cross_ratio_orders_every_terminal_message
             and self.source_target_profiles_cancel_exactly
@@ -520,13 +546,32 @@ class PhysicalFeynmanKacProjectiveRoute:
             and self.eighteen_dimensional_fibers_conditionally_integrated
             and self.five_holonomy_feynman_kac_operator_identity_proved
             and not self.spatial_temporal_hypocoercive_perron_bound_proved
+            and self.exact_gaussian_generalized_eigenvalue_multiplicities == ((4, 3), (6, 2))
+            and self.gaussian_largest_nonvacuum_ratio_upper
+            == gaussian_perron.gaussian_largest_nonvacuum_ratio_upper
+            == Fraction(1, 5)
+            and self.rescaled_nonlinear_operator_hilbert_schmidt_convergence_proved
+            and self.eventual_nonlinear_spectral_ratio_upper
+            == gaussian_perron.eventual_nonlinear_spectral_ratio_upper
+            == Fraction(1, 4)
+            and self.buffer_square_log_exponent == spacing_budget.buffer_square_log_exponent == 1728
+            and self.spacing_uniform_perron_budget_under_heat_time_spacing_floor_proved
+            and self.dyadic_model_spacing_uniform_perron_budget_proved
+            and self.one_loop_af_heat_time_over_spacing_diverges
+            and self.bare_af_envelope_implies_heat_time_spacing_floor_proved
+            == spacing_budget.bare_af_envelope_implies_heat_time_spacing_floor_proved
+            and self.exponential_af_envelope_closes_every_fixed_positive_length
+            == spacing_budget.exponential_af_envelope_closes_every_fixed_positive_length
+            and not self.physical_bf4_af_envelope_instantiated
+            and not spacing_budget.physical_bf4_af_envelope_instantiated
+            and not self.physical_heat_time_over_spacing_floor_proved
             and self.boundary_connected_interaction_target_identified
             and not self.spacing_uniform_physical_cross_ratio_proved
             and not self.spacing_uniform_intrinsic_buffer_bound_proved
             and not self.spacing_uniform_bulk_spectral_budget_proved
             and not self.boundary_spanning_connected_expansion_bound_proved
             and not self.physical_backward_message_order_proved
-            and self.first_open_obligation == TEMPORAL_RELATIVE_FIRST_OPEN_OBLIGATION
+            and self.first_open_obligation == PERRON_FIRST_OPEN_OBLIGATION
         )
 
 
@@ -565,13 +610,28 @@ def physical_feynman_kac_projective_route() -> PhysicalFeynmanKacProjectiveRoute
         eighteen_dimensional_fibers_conditionally_integrated=True,
         five_holonomy_feynman_kac_operator_identity_proved=True,
         spatial_temporal_hypocoercive_perron_bound_proved=False,
+        exact_gaussian_generalized_eigenvalue_multiplicities=(
+            (4, 3),
+            (6, 2),
+        ),
+        gaussian_largest_nonvacuum_ratio_upper=Fraction(1, 5),
+        rescaled_nonlinear_operator_hilbert_schmidt_convergence_proved=True,
+        eventual_nonlinear_spectral_ratio_upper=Fraction(1, 4),
+        buffer_square_log_exponent=1728,
+        spacing_uniform_perron_budget_under_heat_time_spacing_floor_proved=True,
+        dyadic_model_spacing_uniform_perron_budget_proved=True,
+        one_loop_af_heat_time_over_spacing_diverges=True,
+        bare_af_envelope_implies_heat_time_spacing_floor_proved=True,
+        exponential_af_envelope_closes_every_fixed_positive_length=True,
+        physical_bf4_af_envelope_instantiated=False,
+        physical_heat_time_over_spacing_floor_proved=False,
         boundary_connected_interaction_target_identified=True,
         spacing_uniform_physical_cross_ratio_proved=False,
         spacing_uniform_intrinsic_buffer_bound_proved=False,
         spacing_uniform_bulk_spectral_budget_proved=False,
         boundary_spanning_connected_expansion_bound_proved=False,
         physical_backward_message_order_proved=False,
-        first_open_obligation=TEMPORAL_RELATIVE_FIRST_OPEN_OBLIGATION,
+        first_open_obligation=PERRON_FIRST_OPEN_OBLIGATION,
     )
     if not route.validates():
         raise AssertionError("the physical Feynman--Kac projective route drifted")

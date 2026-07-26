@@ -216,6 +216,21 @@ def test_physical_promotion_frontier_remains_fail_closed():
     assert frontier.eighteen_dimensional_fibers_conditionally_integrated
     assert frontier.five_holonomy_feynman_kac_operator_identity_proved
     assert not frontier.spatial_temporal_hypocoercive_perron_bound_proved
+    assert frontier.exact_gaussian_generalized_eigenvalue_multiplicities == (
+        (4, 3),
+        (6, 2),
+    )
+    assert frontier.gaussian_largest_nonvacuum_ratio_upper == Fraction(1, 5)
+    assert frontier.rescaled_nonlinear_operator_hilbert_schmidt_convergence_proved
+    assert frontier.eventual_nonlinear_spectral_ratio_upper == Fraction(1, 4)
+    assert frontier.buffer_square_log_exponent == 1728
+    assert frontier.spacing_uniform_perron_budget_under_heat_time_spacing_floor_proved
+    assert frontier.dyadic_model_spacing_uniform_perron_budget_proved
+    assert frontier.one_loop_af_heat_time_over_spacing_diverges
+    assert frontier.bare_af_envelope_implies_heat_time_spacing_floor_proved
+    assert frontier.exponential_af_envelope_closes_every_fixed_positive_length
+    assert not frontier.physical_bf4_af_envelope_instantiated
+    assert not frontier.physical_heat_time_over_spacing_floor_proved
     assert not frontier.spacing_uniform_physical_four_boundary_cross_ratio_proved
     assert not frontier.spacing_uniform_intrinsic_perron_remainder_proved
     assert not frontier.boundary_spanning_connected_expansion_bound_proved
@@ -227,3 +242,4 @@ def test_physical_promotion_frontier_remains_fail_closed():
     assert not frontier.physical_coupling_spacing_condition_proved
     assert not frontier.actual_grouped_all_label_packet_proved
     assert not frontier.spacing_uniform_refresh_mass_proved
+    assert frontier.first_open_obligation == ("instantiate-af-envelope-on-physical-bf4-trajectory")

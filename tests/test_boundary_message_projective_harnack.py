@@ -121,15 +121,28 @@ def test_physical_route_fails_closed_at_the_uniform_cross_ratio() -> None:
     assert route.eighteen_dimensional_fibers_conditionally_integrated
     assert route.five_holonomy_feynman_kac_operator_identity_proved
     assert not route.spatial_temporal_hypocoercive_perron_bound_proved
+    assert route.exact_gaussian_generalized_eigenvalue_multiplicities == (
+        (4, 3),
+        (6, 2),
+    )
+    assert route.gaussian_largest_nonvacuum_ratio_upper == Fraction(1, 5)
+    assert route.rescaled_nonlinear_operator_hilbert_schmidt_convergence_proved
+    assert route.eventual_nonlinear_spectral_ratio_upper == Fraction(1, 4)
+    assert route.buffer_square_log_exponent == 1728
+    assert route.spacing_uniform_perron_budget_under_heat_time_spacing_floor_proved
+    assert route.dyadic_model_spacing_uniform_perron_budget_proved
+    assert route.one_loop_af_heat_time_over_spacing_diverges
+    assert route.bare_af_envelope_implies_heat_time_spacing_floor_proved
+    assert route.exponential_af_envelope_closes_every_fixed_positive_length
+    assert not route.physical_bf4_af_envelope_instantiated
+    assert not route.physical_heat_time_over_spacing_floor_proved
     assert route.boundary_connected_interaction_target_identified
     assert not route.spacing_uniform_physical_cross_ratio_proved
     assert not route.spacing_uniform_intrinsic_buffer_bound_proved
     assert not route.spacing_uniform_bulk_spectral_budget_proved
     assert not route.boundary_spanning_connected_expansion_bound_proved
     assert not route.physical_backward_message_order_proved
-    assert route.first_open_obligation == (
-        "prove-spacing-uniform-five-holonomy-effective-perron-budget"
-    )
+    assert route.first_open_obligation == ("instantiate-af-envelope-on-physical-bf4-trajectory")
 
 
 def test_projective_inputs_fail_closed() -> None:

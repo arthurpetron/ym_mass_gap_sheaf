@@ -28,8 +28,11 @@ kinetic kernel, then
 
 Thus the 18 untransmitted coordinates are integrated out exactly; no
 23-dimensional temporal ellipticity or hypocoercivity assumption is
-needed.  The remaining analytic task is a spacing-uniform projective
-Perron/Harnack bound for this five-holonomy effective Feynman--Kac kernel.
+needed.  The downstream five-holonomy Perron calculation now proves the
+spacing-uniform projective bound under
+``-log(s(a)) >= kappa * a``.  The existing constructive bare-AF theorem
+derives this lower bound from an ``AFEnvelope``; the remaining task is to
+instantiate that envelope on the physical BF4 trajectory.
 """
 
 from __future__ import annotations
@@ -57,9 +60,7 @@ IntegerMatrix = tuple[tuple[int, ...], ...]
 RationalMatrix = tuple[tuple[Fraction, ...], ...]
 
 TRANSMITTED_CYCLE_INDICES = (0, 4, 5, 6, 10)
-TEMPORAL_RELATIVE_FIRST_OPEN_OBLIGATION = (
-    "prove-spacing-uniform-five-holonomy-effective-perron-budget"
-)
+TEMPORAL_RELATIVE_FIRST_OPEN_OBLIGATION = "instantiate-af-envelope-on-physical-bf4-trajectory"
 TEMPORAL_LEFT_ANNIHILATOR: IntegerMatrix = (
     (0, 1, -1, 0, -1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     (1, -1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),

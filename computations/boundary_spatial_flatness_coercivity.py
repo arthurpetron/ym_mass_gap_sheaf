@@ -27,7 +27,9 @@ bi-invariant triangle inequality yields the global bound
     sum_edges distance(U_e, I)**2
       <= 81 * sum_faces distance(U_p, I)**2.
 
-It is not yet a spacing-uniform intrinsic Perron estimate.
+This module alone is not a spacing-uniform intrinsic Perron estimate.  Its
+coercivity bounds are consumed downstream by the five-holonomy Gaussian
+limit and global Perron-budget calculation.
 """
 
 from __future__ import annotations

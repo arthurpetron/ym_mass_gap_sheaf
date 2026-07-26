@@ -560,8 +560,10 @@ kernel limit is unnecessary. The temporal Haar integral factors exactly
 through five chord holonomies of its connected 20-vertex base graph.
 Conditional integration over the 18 complementary boundary coordinates
 produces an exact five-holonomy Feynman--Kac operator with all interior
-spatial weights included. The open input is its uniform intrinsic remainder
-\(C_s^2q_s^{m-2}<1\), or an equivalent direct cross-product bound.
+spatial weights included. Its intrinsic remainder is now controlled under
+\(-\log s(a)\ge\kappa a\). The constructive bare-AF theorem supplies this
+comparison from an `AFEnvelope`; the open physical input is to instantiate
+that envelope on the nonperturbative BF4 trajectory.
 
 Executable certificates include
 `transverse_cutoff_one_fusion_audit()` in
@@ -640,9 +642,15 @@ The first open theorem is therefore no longer “find some positive packet,”
 “prove fixed-coupling Choi positivity,” or construct the continuous
 carrier. Those inputs are explicit. The current projective route asks:
 
-> **Prove a spacing-uniform intrinsic Perron remainder, or direct
-> four-boundary cross-ratio bound, for the exact five-holonomy effective
-> Feynman--Kac kernel over fixed physical distance.**
+> **Derive \(-\log s(a)\ge\kappa a\), or the stronger one-loop
+> asymptotically-free comparison, for the actual physical lattice
+> coupling/spacing trajectory.**
+
+Indeed the five-holonomy operator analysis now proves
+\(q_s\le1/4\) eventually and
+\(C_s^2\le e^{1728/(-\log s)}\). Therefore the displayed trajectory
+condition closes the fixed-distance Perron budget for
+\(L>1728/\kappa\).
 
 The geometry portion is now partly closed: the nine disks, their
 boundaries, and their disjoint internal-link sets are pinned.  The open

@@ -336,20 +336,39 @@ G^{(5)}_{s,m}
 No 23-dimensional temporal ellipticity or spatial--temporal
 hypocoercivity hypothesis is needed.
 
-## The spacing-uniform theorem now required
+## The spacing-uniform Perron theorem
 
 Let \(s=s(a)\), and let \(m(a,L)\) be the number of microscopic slabs in
 fixed physical length \(L\). Apply fixed-coupling Perron theory to the
-five-holonomy effective transfer (5FK). It is sufficient to prove
+five-holonomy effective transfer (5FK). The exact quadratic forms of its
+weak-coupling limit have generalized spectrum
+\[
+\operatorname{spec}(K^{-1}S)=\{4,4,4,6,6\}.
+\]
+The limiting Mehler ratio is therefore
+\[
+q_0=3-2\sqrt2<\frac15.
+\]
+Short-time heat-kernel convergence, controlled outside the flat chart by
+the global \(1/81\) curvature estimate, gives \(q_s\le1/4\) eventually.
+
+The global Jacobi floor and character ceiling also give, with
+\(\tau=-\log s\),
+\[
+C_s^2\le e^{1728/\tau}.
+\]
+Hence, if \(\tau(a)\ge\kappa a\) eventually and
+\(L>1728/\kappa\), then
 \[
 \boxed{
 C_{s(a)}^2q_{s(a)}^{m(a,L)-2}
-\le\delta_L<1
+\longrightarrow0.
 }
 \tag{UPH}
 \]
-uniformly in spacing and ambient volume, with \(C_s,q_s\) now belonging to
-the five-holonomy effective operator.
+In particular (UPH) is proved for the executable model \(s(a)=1-a\) for
+every integer \(L\ge1729\), and on a one-loop asymptotically-free trajectory
+where \(\tau(a)/a\to\infty\).
 
 Then (PH) and the relative rank-one theorem give
 \[
@@ -364,6 +383,10 @@ The Perron profile \(\phi_{s(a)}\) is allowed to localize. Neither a uniform
 lower bound on \(\phi_{s(a)}\) nor an absolute positive limit of the
 normalized kernels is required; all profile factors cancel from the
 four-boundary ratio.
+
+The full derivation and executable exact matrices are in
+`notes/bf4-five-holonomy-perron-budget.md` and
+`computations/boundary_five_holonomy_perron.py`.
 
 ## Direct Yang--Mills boundary-interaction form
 
@@ -394,15 +417,15 @@ connected boundary-to-boundary distortion:
 \]
 or, without logarithms, the cross-product inequality (CR).
 
-The physical options are now:
-
-1. combine the exact fiber weight \(\overline W_s\), the global \(1/81\)
-   curvature bound and uniform \(SU(2)\) heat-kernel estimates to prove the
-   five-holonomy intrinsic Perron budget (UPH), including uniform control
-   of \(C_{s(a)}\) and accumulated decay of \(q_{s(a)}\); or
-2. prove (CR) directly on (5FK) by a connected surface/cluster
-   reorganization of the grouped all-label integral.
+The operator-theoretic option is now closed under the necessary trajectory
+condition \(-\log s(a)\ge\kappa a\). The constructive
+`BareAFImpliesLinearFloor` theorem derives this lower bound from an
+`AFEnvelope`, with \(\kappa=\alpha\Lambda/(4C)\) after \(s=e^{-t/4}\).
+The first physical task is now to instantiate that envelope on the
+nonperturbative BF4 trajectory. Without some trajectory relation, an
+arbitrary super-exponentially small heat time produces a countertrajectory
+even in the local Gaussian regime.
 
 The executable frontier is
 `physical_feynman_kac_projective_route()`. It fails closed at precisely
-this spacing-uniform five-holonomy four-boundary estimate.
+this physical AF-envelope instantiation.
