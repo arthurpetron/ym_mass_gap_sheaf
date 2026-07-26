@@ -174,5 +174,14 @@ The next obligation is:
 > sign, and identify the resulting source-indexed tensor with the physical
 > grouped corrected-slab Choi operator.
 
-Only after that identification is available does it make sense to seek a
-positive corridor subtraction and a uniform CP-order lower bound.
+An entrywise recoupling proof would require that identification before
+seeking a positive corridor subtraction and a uniform CP-order lower bound.
+
+The fixed-coupling order theorem has since been obtained by a different,
+basis-free route: group the full positive leaf-reduced measure first, define
+the nine-slot source/target Choi Gram directly, and apply pointwise residual
+measure order.  This does not materialize the entrywise all-label
+contraction described above, but it proves the same fixed-coupling Choi
+inequality invariantly under recoupling.  See
+`notes/bf4-physical-all-label-choi-domination.md`.  Its coefficient is not
+spacing-uniform.

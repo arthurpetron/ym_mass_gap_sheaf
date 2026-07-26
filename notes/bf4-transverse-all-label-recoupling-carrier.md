@@ -46,8 +46,8 @@ The executable constructor is
 
 ## What remains open
 
-This is an abstract orthonormal fusion-basis carrier, not yet the physical
-operator.  It does not currently contain:
+This is an abstract orthonormal fusion-basis carrier, not itself the physical
+operator.  In this coordinate presentation it does not currently contain:
 
 1. numerical magnetic-index Clebsch--Gordan coefficients in one fixed global
    convention;
@@ -56,10 +56,23 @@ operator.  It does not currently contain:
 3. coherent Haar amplitudes on those open indices above cutoff one;
 4. a carrier-norm cutoff modulus connecting the fixed-coupling uniform
    function tail to the source-indexed operator;
-5. the physical all-label Choi/Kraus map or its CP-order comparison.
+5. an entrywise physical all-label Choi/Kraus contraction through that
+   recoupling basis.
 
-The next constructor must supply these amplitudes and transport before
-seeking a positive domination coefficient.  The exact cutoff-one CP pilot
-shows why this order is mandatory: the binary truncation is already
-indefinite at a legitimate weak-coupling activity, so it cannot be inserted
-as a separately positive seed and repaired afterward.
+Subsequent work supplies the local magnetic tensors and a residual
+full-measure Gram operator.  More importantly, direct all-label measure
+regrouping now bypasses the missing entrywise \(F/R\) expansion and proves
+the basis-free fixed-coupling comparison
+\[
+ J_{\rm phys}(s,u)\succeq
+ \left(\frac{\ell_s}{H_s}\right)^{21}J_{\rm corr}(s,u).
+\]
+See `notes/bf4-physical-all-label-choi-domination.md`.  The coordinate-level
+recoupling contraction above remains open, but it is no longer required for
+that fixed-coupling theorem.
+
+The exact cutoff-one CP pilot still rules out treating the binary
+truncation as a separately positive seed and repairing it label by label.
+The live obstruction is instead the collapse of the certified coefficient
+toward weak coupling, together with the missing mass-preserving
+consecutive-scale RG composition.

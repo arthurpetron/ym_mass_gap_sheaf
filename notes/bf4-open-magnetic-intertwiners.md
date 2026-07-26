@@ -72,7 +72,8 @@ transverse graph.  In particular, the following remain open:
    (the complete cutoff-one transport is now pinned separately);
 2. coherent all-label Haar amplitudes on the global boundary carrier;
 3. transport of the residual heat-tail modulus into that carrier norm;
-4. CP-order domination of the physical grouped map by the corridor packet.
+4. spacing-uniform, mass-preserving CP-order domination of the physical
+   grouped map by the corridor packet.
 
 The executable sources are
 `computations/su2_magnetic_intertwiners.py` and
@@ -81,3 +82,10 @@ The executable sources are
 The cutoff-one global convention and shared protected-link interfaces are
 constructed in `computations/transverse_open_index_network.py`; see
 `notes/bf4-transverse-open-index-network.md`.
+
+A later direct all-label measure argument defines the basis-free physical
+source/target Choi Gram and proves fixed-coupling CP domination without
+materializing the entrywise all-label \(F/R\) contraction.  See
+`notes/bf4-physical-all-label-choi-domination.md`.  The local tensors here
+remain the exact coordinate implementation needed for any future entrywise
+or formalized version.

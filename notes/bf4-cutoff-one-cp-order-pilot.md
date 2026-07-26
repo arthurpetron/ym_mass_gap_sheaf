@@ -153,3 +153,15 @@ The next CP-order object must therefore be all-label from the start:
 The executable certificate is
 `computations/transverse_cutoff_one_cp_order.py`, with regression gates in
 `tests/test_transverse_cutoff_one_cp_order.py`.
+
+The revised construction has since been carried out basis-freely at fixed
+coupling.  Grouping the full positive leaf-reduced measure before taking
+order defines the physical nine-slot source/target Choi Gram and proves
+\[
+ J_{\rm phys}\succeq(\ell_s/H_s)^{21}J_{\rm corr}.
+\]
+This does not contradict the negative cutoff-one pilot because no signed
+finite character truncation is isolated as a CP summand.  See
+`notes/bf4-physical-all-label-choi-domination.md`.  The new coefficient
+still collapses toward weak coupling and is not yet a mass-preserving
+consecutive-scale RG channel decomposition.

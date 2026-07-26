@@ -8,9 +8,12 @@ corridor-protected boundary links, at every fixed heat coordinate
 \(0<s<1\).  The convergence is uniform in all boundary holonomies and
 independent of the ambient lattice volume.
 
-This result constructs the residual boundary function.  It does not yet
-construct a source-indexed recoupling/Kraus carrier, prove CP-order corridor
-domination, or give a cutoff uniform as \(s\to1\).
+This result constructs the residual boundary function.  Subsequent direct
+all-label measure regrouping constructs the physical source/target Choi
+operator and proves fixed-coupling CP-order corridor domination without
+expanding this function in a signed recoupling basis.  A spacing-uniform
+coefficient as \(s\to1\), mass-preserving RG interpretation, and
+consecutive-scale composition remain open.
 
 ## Uniform bound
 
@@ -73,15 +76,23 @@ claims of optimality.
 
 This theorem removes one ambiguity from the BF4 frontier: the transverse
 residual itself is not blocked by an undefined all-label character sum.
-What remains is operator-theoretic:
+The later basis-free construction in
+`notes/bf4-physical-all-label-choi-domination.md` has now completed the
+physical all-label Choi comparison at each fixed coupling:
+\[
+ J_{\rm phys}(s,u)\succeq
+ \left(\frac{\ell_s}{H_s}\right)^{21}J_{\rm corr}(s,u).
+\]
+What remains is the stronger operator-theoretic bridge:
 
-1. combine the now-explicit nested local carrier with open magnetic-index
-   amplitudes and global recoupling transport;
-2. lift the residual function tail to that source-indexed operator;
-3. reconstruct the all-label Choi/Kraus map and compare it in CP order with
-   the nine-corridor packet;
-4. obtain a domination coefficient and cutoff control uniform along the
-   weak-coupling trajectory.
+1. either materialize the entrywise all-label \(F/R\) transport, if a
+   coordinate-level recoupling proof is required, or continue basis-free;
+2. replace the collapsing one-step coefficient by a spacing-uniform
+   relative residual-order estimate over a fixed physical distance;
+3. identify the positive Choi difference as a mass-preserving RG channel
+   residual;
+4. prove same-carrier composition between consecutive scales.
 
-The fixed-\(s\) modulus above cannot be silently promoted to the fourth item:
-its certified cutoff grows as \(s\to1\).
+The fixed-\(s\) modulus above cannot be silently promoted to the second item:
+its certified cutoff grows as \(s\to1\), and the available Jacobi-floor
+coefficient itself collapses there.

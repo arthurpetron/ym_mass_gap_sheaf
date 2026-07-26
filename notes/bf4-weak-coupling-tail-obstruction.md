@@ -65,8 +65,18 @@ This does not obstruct:
 - a trace-class Cauchy name at each fixed coupling;
 - positivity of the full heat-kernel measure.
 
-It does determine the form of the next theorem: the open-index Choi tail
-must carry an explicit spacing-dependent cutoff schedule or avoid a fixed
-label truncation by regrouping the all-label operator directly.
+The direct-regrouping option has now been executed: the physical
+source/target Choi operator retains the full label tower, while a derived
+cutoff \(N(s)\) certifies the heat-kernel upper majorant used in
+\[
+ J_{\rm phys}(s,u)\succeq
+ \left(\frac{\ell_s}{H_s}\right)^{21}J_{\rm corr}(s,u).
+\]
+This resolves fixed-coupling CP order but not weak-coupling uniformity,
+because the Jacobi-floor coefficient collapses as \(s\to1\).  The next
+theorem must therefore obtain a spacing-uniform relative residual-order
+estimate over a fixed physical distance and prove mass-preserving
+same-carrier RG composition.
+
 The executable certificate is
 `computations/transverse_weak_coupling_tail_obstruction.py`.

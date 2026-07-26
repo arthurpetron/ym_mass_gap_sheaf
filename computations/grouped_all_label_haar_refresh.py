@@ -45,6 +45,9 @@ from computations.all_label_whole_slab_tail import (
 from computations.corrected_slab_haar_network import corrected_slab_haar_complex
 from computations.dual_positivity_geometry_bridge import edges_of
 from computations.exact_haar_network import casimir4, invariant_multiplicity
+from computations.physical_all_label_choi_domination import (
+    physical_all_label_choi_domination,
+)
 from computations.su2_magnetic_intertwiners import (
     transverse_magnetic_tensor_packet,
 )
@@ -1036,6 +1039,12 @@ class GroupedPhysicalPacketFrontier:
     transverse_cutoff_one_weak_coupling_cp_obstruction_pinned: bool
     transverse_fixed_cutoff_weak_coupling_tail_obstruction_pinned: bool
     transverse_open_index_all_label_choi_reconstructed: bool
+    basis_free_physical_all_label_source_target_choi_defined: bool
+    direct_all_label_measure_regrouping_used: bool
+    spacing_dependent_cutoff_schedule_pinned: bool
+    fixed_coupling_physical_corridor_cp_domination_proved: bool
+    spacing_uniform_physical_corridor_cp_domination_proved: bool
+    consecutive_scale_channel_composition_proved: bool
     corrected_slab_corridor_cover_pinned: bool
     interacting_map_cp_dominates_corridor: bool
     physical_coupling_spacing_condition_proved: bool
@@ -1069,6 +1078,10 @@ class GroupedPhysicalPacketFrontier:
         weak_coupling_tail_obstruction = (
             fixed_cutoff_weak_coupling_obstruction(2)
         )
+        physical_choi = physical_all_label_choi_domination(
+            Fraction(1, 2),
+            Fraction(1, 2),
+        )
         return (
             witness.validates()
             and geometry.validates()
@@ -1084,6 +1097,7 @@ class GroupedPhysicalPacketFrontier:
             and operator_tail.validates()
             and cp_obstruction.validates()
             and weak_coupling_tail_obstruction.validates()
+            and physical_choi.validates()
             and self.all_label_corridor_kernel_constructed
             and self.exact_semigroup_grouping
             and self.common_haar_packet_constructed
@@ -1106,6 +1120,12 @@ class GroupedPhysicalPacketFrontier:
                 self.transverse_fixed_cutoff_weak_coupling_tail_obstruction_pinned
             )
             and not self.transverse_open_index_all_label_choi_reconstructed
+            and self.basis_free_physical_all_label_source_target_choi_defined
+            and self.direct_all_label_measure_regrouping_used
+            and self.spacing_dependent_cutoff_schedule_pinned
+            and self.fixed_coupling_physical_corridor_cp_domination_proved
+            and not self.spacing_uniform_physical_corridor_cp_domination_proved
+            and not self.consecutive_scale_channel_composition_proved
             and geometry.every_internal_link_transversely_coupled
             and not geometry.literal_semigroup_factorization_of_full_integrand
             and not self.corrected_slab_corridor_cover_pinned
@@ -1114,7 +1134,7 @@ class GroupedPhysicalPacketFrontier:
             and not self.actual_grouped_all_label_packet_proved
             and not self.spacing_uniform_refresh_mass_proved
             and self.first_open_obligation
-            == "contract-all-label-open-indices-and-prove-spacing-uniform-cp-domination"
+            == "prove-spacing-uniform-relative-residual-order-and-rg-composition"
         )
 
 
@@ -1142,13 +1162,19 @@ def grouped_physical_packet_frontier() -> GroupedPhysicalPacketFrontier:
         transverse_cutoff_one_weak_coupling_cp_obstruction_pinned=True,
         transverse_fixed_cutoff_weak_coupling_tail_obstruction_pinned=True,
         transverse_open_index_all_label_choi_reconstructed=False,
+        basis_free_physical_all_label_source_target_choi_defined=True,
+        direct_all_label_measure_regrouping_used=True,
+        spacing_dependent_cutoff_schedule_pinned=True,
+        fixed_coupling_physical_corridor_cp_domination_proved=True,
+        spacing_uniform_physical_corridor_cp_domination_proved=False,
+        consecutive_scale_channel_composition_proved=False,
         corrected_slab_corridor_cover_pinned=False,
         interacting_map_cp_dominates_corridor=False,
         physical_coupling_spacing_condition_proved=False,
         actual_grouped_all_label_packet_proved=False,
         spacing_uniform_refresh_mass_proved=False,
         first_open_obligation=(
-            "contract-all-label-open-indices-and-prove-spacing-uniform-cp-domination"
+            "prove-spacing-uniform-relative-residual-order-and-rg-composition"
         ),
     )
     if not frontier.validates():

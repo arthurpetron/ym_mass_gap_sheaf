@@ -350,10 +350,27 @@ identify the physical source-indexed Choi map.
 
 Moreover no fixed cutoff is weak-coupling uniform, even relatively: an
 explicit omitted block exceeds the retained identity head.  The next order
-theorem must reconstruct the open-index all-label Choi operator in this
-pivotal convention and show that the full interacting map CP-dominates the
-corridor packet after a spacing-dependent cutoff or direct all-label
-regrouping.
+comparison therefore uses direct all-label measure regrouping.  Vectorizing
+the complete nine-slot Peter--Weyl carrier and writing the leaf-reduced
+density as \(S_sR_s\) gives the exact fixed-coupling inequality
+\[
+ J_{\rm phys}(s,u)
+ \succeq
+ \left(\frac{\ell_s}{H_s}\right)^{21}J_{\rm corr}(s,u).
+\]
+This is genuine Choi/CP order and is invariant under the signed recoupling
+basis.
+
+The new coefficient still collapses:
+\[
+ \left(\frac{\ell_s}{H_s}\right)^{21}
+ \le
+ \left(\frac{(1-s)^3}{1+s}\right)^{21}.
+\]
+The next order theorem is therefore a fixed-physical-distance relative
+residual estimate, not another fixed-slab cutoff calculation.  It must also
+identify the positive Choi difference with a mass-preserving channel
+residual which composes between consecutive scales.
 
 The grouped-half hypothesis itself is not free: for the local bare
 heat-kernel multiplier \(\rho=s^3\), it implies

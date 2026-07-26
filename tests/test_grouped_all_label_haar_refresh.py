@@ -173,6 +173,14 @@ def test_physical_promotion_frontier_remains_fail_closed():
         frontier.transverse_fixed_cutoff_weak_coupling_tail_obstruction_pinned
     )
     assert not frontier.transverse_open_index_all_label_choi_reconstructed
+    assert frontier.basis_free_physical_all_label_source_target_choi_defined
+    assert frontier.direct_all_label_measure_regrouping_used
+    assert frontier.spacing_dependent_cutoff_schedule_pinned
+    assert frontier.fixed_coupling_physical_corridor_cp_domination_proved
+    assert not (
+        frontier.spacing_uniform_physical_corridor_cp_domination_proved
+    )
+    assert not frontier.consecutive_scale_channel_composition_proved
     assert frontier.cumulative_heat_condition_contains_rescaled_bare_mode_floor
     assert not frontier.interacting_map_cp_dominates_corridor
     assert not frontier.physical_coupling_spacing_condition_proved

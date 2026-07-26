@@ -387,22 +387,28 @@ in `ScaleDependentGradedPerronFrobenius.lean`.
 
 ## 6. Recommended next experiment
 
-Extend the now-explicit cutoff-one selected/residual open-index contraction
-to the all-label carrier on the **smallest grouped corrected slab that mixes
-two distinct BF3.1 cut signatures**.  Preserve the pinned shared-\(k\)
-weights, signed Racah blocks, and \(J^2=-I\) pivotal convention.  Do not
-start from the cutoff-one truncation: its exact ten-feature Schur symbol is
-indefinite at \(z=2s^3=3/2\), even though the full heat kernel is positive.
+Start from the now-explicit direct all-label Choi inequality on the
+**smallest grouped corrected slab that mixes two distinct BF3.1 cut
+signatures**:
+\[
+ J_{\rm phys}(s,u)
+ \succeq
+ \left(\frac{\ell_s}{H_s}\right)^{21}J_{\rm corr}(s,u).
+\]
+This construction groups the full measure before taking order and is
+independent of the signed recoupling basis.  Do not revert to the cutoff-one
+truncation: its exact ten-feature Schur symbol is indefinite at
+\(z=2s^3=3/2\).
 
-For every candidate fusion-history family, record:
+For every proposed fixed-physical-distance improvement, record:
 
 1. source boundary signature;
 2. target reference packet;
-3. exact heat coefficient;
-4. exact Haar/fusion amplitude after summing the complete physical family;
-5. whether the term survives at all representation cutoffs;
+3. the exact relative Radon--Nikodym or Choi-order coefficient;
+4. whether the positive difference is a mass-preserving channel residual;
+5. its consecutive-scale composition law;
 6. whether the same packet occurs for every source signature;
-7. a heat-relative lower bound, not an absolute Haar floor.
+7. a lower bound uniform over the steps in one fixed physical distance.
 
 Stop a candidate immediately if it fails cut-signature mixing or if its
 common mass is a fixed low-spin probability vanishing at weak coupling.
@@ -414,11 +420,15 @@ weak-coupling error, so any finite approximation must expose a derived
 cutoff \(N(s)\); the alternative is direct all-label operator regrouping.
 The corridor packet itself is already all-label and has the fixed mass
 \(1055/2272\) once its grouped coordinate is at most \(1/2\).  The search
-must now determine the finite corridor cover, its shared-intertwiner
-transport beyond cutoff one, the physical source/target Choi contraction,
-and the CP-domination coefficient \(\eta_{a,L}\).  The fixed-coupling
-positive Gram already has an exact trace-norm compression tail, but has not
-yet been identified with that physical Choi map.  The first
+now has a physical source/target Choi contraction and a positive
+fixed-coupling coefficient.  That coefficient satisfies
+\[
+ \eta_s\le((1-s)^3/(1+s))^{21},
+\]
+so multiplying fixed-slab certificates cannot close BF4.  The search must
+replace this floor/ceiling ratio by a fixed-distance relative residual-order
+bound \(\eta_{a,L}\ge\eta_L\), while proving mass preservation and
+same-carrier RG composition.  The first
 successful family becomes the constructor for BF4-C3; its uniform
 \(\eta_L\), together with the cumulative-heat inequality, closes BF4-C4.
 

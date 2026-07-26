@@ -144,15 +144,15 @@ are in `tests/test_transverse_cutoff_one_residual_tensor.py`.
 The six decorations are now fully incorporated into the coherent cutoff-one
 residual.  What remains is not further binary-face bookkeeping.  A nested
 arbitrary-cutoff local recoupling carrier and a fixed-coupling uniform
-all-label residual tail have since been constructed.  The load-bearing
-representation-theoretic and order-theoretic step is now:
+all-label residual tail have since been constructed.  Direct all-label
+measure regrouping now defines the basis-free physical Choi/Kraus Gram and
+proves fixed-coupling corridor domination with coefficient
+\((\ell_s/H_s)^{21}\).
 
-1. evaluate open magnetic-index amplitudes and global \(F/R\) transport on
-   that carrier;
-2. lift the function tail to the source-indexed operator and reconstruct the
-   physical all-label Choi/Kraus map;
-3. show that map CP-dominates a common corridor packet with a spacing- and
-   volume-uniform positive mass.
+The load-bearing step is now to replace that collapsing fixed-slab
+coefficient by a spacing-uniform relative residual-order estimate over fixed
+physical distance, and to identify the positive Choi difference as a
+mass-preserving channel residual composing between consecutive scales.
 
 Positive rational coefficients multiplying Wilson traces do not establish
 that order statement, because Wilson traces themselves need not be positive.

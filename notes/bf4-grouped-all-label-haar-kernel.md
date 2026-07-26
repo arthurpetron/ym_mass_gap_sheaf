@@ -499,17 +499,46 @@ identity.  The pivotal warning \(J^2=-I\) is explicit.
 At fixed coupling, the scalar residual modulus also lifts to trace norm for
 a positive full-measure Gram operator.  Complete finite feature
 compressions remain PSD/CP under an established Choi indexing, and the
-feature tail controls both coherent \(P/Q\) corners.  This does not identify
-the Gram with the physical source-to-target corrected-slab map.
+feature tail controls both coherent \(P/Q\) corners.  By itself that
+residual-only construction does not identify the physical source-to-target
+corrected-slab map.
 
 No fixed cutoff can repair the missing weak-coupling uniformity.  For every
 \(N\), an explicit \(s_N<1\) makes the first omitted identity term at least
 \((N+2)^2/2\).  A second witness makes the omitted block
 \(N+1,\ldots,2N+1\) exceed the entire retained head, so fixed-cutoff
-relative error also exceeds one half.  The remaining constructor must
-therefore contract the selected and residual open indices on the all-label
-carrier using either an explicit moving cutoff \(N(s)\) or a direct
-all-label regrouping, then prove spacing-uniform CP domination.
+relative error also exceeds one half.
+
+Direct all-label measure regrouping now supplies the basis-free physical
+source/target contraction and the fixed-coupling order comparison.  Write
+the leaf-reduced physical density as \(S_sR_s\), where \(S_s\) contains the
+30 selected faces and \(R_s\) is the positive 21-face residual.  Vectorizing
+all \(D^n_{mk}\) blocks on the nine coarse holonomies gives the same
+Peter--Weyl source/target carrier on both sides.  Since
+\[
+ \ell_s^{21}\le R_s\le H_s^{21},
+\]
+normalization gives the exact all-label Choi inequality
+\[
+ J_{\rm phys}(s,u)
+ \succeq
+ \left(\frac{\ell_s}{H_s}\right)^{21}
+ J_{\rm corr}(s,u).
+\]
+The cutoff used to certify \(H_s\) is coupling-dependent proof data; the
+physical operator and the comparison use the full label tower.
+
+This fixed-coupling coefficient is not the BF4 exit coefficient.  It obeys
+\[
+ \left(\frac{\ell_s}{H_s}\right)^{21}
+ \le
+ \left(\frac{(1-s)^3}{1+s}\right)^{21},
+\]
+and hence collapses as \(s\to1\).  The Choi residual has also not been
+identified as a mass-preserving channel residual composing between
+consecutive RG scales.  The remaining constructor is a spacing-uniform
+relative residual-order theorem over fixed physical distance together with
+that composition identification.
 
 Executable certificates include
 `transverse_cutoff_one_fusion_audit()` in
@@ -524,7 +553,8 @@ operator-tail certificates are documented in
 `notes/bf4-open-magnetic-intertwiners.md`,
 `notes/bf4-transverse-open-index-network.md`,
 `notes/bf4-transverse-residual-operator-tail.md`, and
-`notes/bf4-weak-coupling-tail-obstruction.md`.
+`notes/bf4-weak-coupling-tail-obstruction.md`.  The direct physical
+comparison is in `notes/bf4-physical-all-label-choi-domination.md`.
 
 This corrects the interpretation of the BF3.2 handoff:
 
@@ -579,21 +609,25 @@ so the physical refresh mass satisfies
 
 This is the desired spacing-, cutoff-, and volume-uniform BF4 witness.
 
-The first open theorem is therefore no longer “find some positive packet.”
-The packet and its all-label mass are explicit.  The first open theorem is:
+The first open theorem is therefore no longer “find some positive packet”
+or “prove fixed-coupling Choi positivity.”  Both are explicit.  The first
+open theorem is:
 
-> **Prove the corrected-slab CP-order corridor domination
-> \((\mathrm{PCD})_{a,L}\), including a finite corridor cover and shared
-> coarse-intertwiner transport.**
+> **Upgrade the fixed-slab all-label Choi domination to a
+> spacing-uniform relative residual-order decomposition over fixed physical
+> distance, and identify the positive residual as a mass-preserving channel
+> composing on the same carrier between consecutive scales.**
 
 The geometry portion is now partly closed: the nine disks, their
 boundaries, and their disjoint internal-link sets are pinned.  The open
 portion is exactly the transverse-interaction/recoupling sum forced by the
 two off-corridor incidences at every internal link.  Normalized Haar leaf
 elimination reduces that sum to the pinned 21-face core above.  Its local
-open tensors and cutoff-one shared-channel network are now explicit; the
-remaining open portion is the all-label physical source/target contraction
-and its spacing-uniform CP-order lower bound.
+open tensors and cutoff-one shared-channel network are explicit.  Direct
+measure regrouping contracts the full source/target Gram and proves CP order
+at fixed coupling, but its coefficient collapses.  The remaining open
+portion is the fixed-physical-distance relative-order and channel
+composition theorem.
 
 After that, prove the physical cumulative-heat condition
 \((\mathrm{CH})_L\).

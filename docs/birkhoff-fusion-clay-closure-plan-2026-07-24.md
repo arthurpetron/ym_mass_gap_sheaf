@@ -712,15 +712,38 @@ dimension weights \(1/(k+1)\), signed Racah transports, and the pivotal sign
 \(J^2=-I\) are pinned without flattening the path family.  A separate
 positive full-measure Gram construction lifts the fixed-coupling scalar
 tail to trace norm, including coherent \(P/Q\) corners.  It remains
-fail-closed about the physical source/target Choi identification.
+fail-closed by itself about the physical source/target Choi identification.
 
 Weak-coupling uniformity cannot be obtained from one fixed cutoff: an exact
 Bernoulli witness gives a divergent absolute omitted term, and a block
 witness makes the omitted relative tail larger than the entire retained
-head.  The next comparison must therefore contract the selected and
-residual indices on the all-label carrier in one pivotal convention and use
-a derived moving cutoff or direct all-label regrouping before proving the
-spacing-uniform CP lower bound.
+head.
+
+Direct all-label measure regrouping now contracts the physical
+source/target Gram without expanding the density into signed channel
+families.  On the nine complete Peter--Weyl slots, the leaf-reduced
+factorization \(S_sR_s\) and the pointwise bounds
+\(\ell_s^{21}\le R_s\le H_s^{21}\) give
+\[
+ J_{\rm phys}(s,u)
+ \succeq
+ \left(\frac{\ell_s}{H_s}\right)^{21}
+ J_{\rm corr}(s,u)
+\]
+in full Choi/CP order.  The upper majorant uses a derived
+coupling-dependent cutoff, while the operator comparison itself retains the
+full label tower.
+
+This closes fixed-coupling CP domination, not BF4.  The certified coefficient
+is bounded above by
+\[
+ \left(\frac{(1-s)^3}{1+s}\right)^{21}
+\]
+and therefore collapses toward weak coupling.  The positive Choi residual
+is not yet identified as a mass-preserving RG channel residual, and
+consecutive-scale composition is unproved.  The next comparison must prove
+a spacing-uniform relative residual-order decomposition over fixed physical
+distance and the same-carrier channel composition law.
 
 The cumulative-heat condition controls the local bare heat-kernel mode.
 With \(\rho=s^3\), it implies

@@ -185,14 +185,54 @@ Finally, an exact \(10\times10\) Schur/Gram pilot proves that the cutoff-one
 truncation cannot itself be the weak-coupling CP component: at \(z=2s^3=3/2\)
 the vector \(e_8-e_9\) has quadratic form
 \(-2738971/1048576\).  The full all-label heat kernel is not obstructed.
-The next constructor must contract the selected and residual open indices
-in one pivotal convention on the all-label carrier, reconstruct the
-physical source-indexed Choi operator, and prove spacing-uniform CP
-domination with a moving cutoff or direct all-label regrouping.  See
+At that stage the next constructor was to contract the selected and
+residual open indices in one pivotal convention on the all-label carrier,
+reconstruct the physical source-indexed Choi operator, and test
+spacing-uniform CP domination with a moving cutoff or direct all-label
+regrouping.  See
 `notes/bf4-open-magnetic-intertwiners.md`,
 `notes/bf4-transverse-open-index-network.md`,
 `notes/bf4-transverse-residual-operator-tail.md`, and
 `notes/bf4-weak-coupling-tail-obstruction.md`.
+
+**BF4 physical all-label Choi update (2026-07-26).**  Direct all-label
+measure regrouping now bypasses the entrywise \(F/R\) expansion for the
+fixed-coupling order theorem.  On each of the nine coarse holonomies,
+\(D^n_{mk}\) is vectorized with \(m\) as source and \(k\) as target magnetic
+index.  Tensoring these complete Peter--Weyl blocks defines the same
+all-label carrier on both sides.  After the exact leaf integrations, the
+physical density is \(S_sR_s\), while the selected-only corridor density is
+\(S_s\).  The full heat-kernel bounds
+\[
+ \ell_s^{21}\le R_s\le H_s^{21}
+\]
+therefore imply, after normalization,
+\[
+ J_{\rm phys}(s,u)
+ \succeq
+ \eta_s J_{\rm corr}(s,u),
+ \qquad
+ \eta_s=\left(\frac{\ell_s}{H_s}\right)^{21}>0.
+\]
+This is full all-label Choi/CP order at every fixed rational \(s,u<1\), and
+every finite magnetic cutoff is an orthogonal compression of it.  The
+cutoff used to compute \(H_s\) is explicit coupling-dependent proof data,
+not a truncation of the physical operator.
+
+This closes fixed-coupling positivity but not physical BF4.  The certified
+coefficient obeys
+\[
+ \eta_s\le
+ \left(\frac{(1-s)^3}{1+s}\right)^{21},
+\]
+so it collapses on the weak-coupling trajectory.  Moreover the positive
+Choi difference is not yet identified with a mass-preserving RG channel
+residual, and consecutive-scale composition on the carrier is unproved.
+The next theorem is now a spacing-uniform **relative residual-order**
+estimate over fixed physical distance, together with that channel
+composition identification.  See
+`notes/bf4-physical-all-label-choi-domination.md`.
+
 The cumulative-heat condition is also not automatic.  For the local bare
 heat-kernel multiplier \(\rho(a)=s(a)^3\), it implies
 \[

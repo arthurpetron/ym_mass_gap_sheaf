@@ -193,3 +193,11 @@ CP-order difference.
 The executable certificate is
 `computations/transverse_residual_operator_tail.py`, with regression gates
 in `tests/test_transverse_residual_operator_tail.py`.
+
+Subsequent work bypasses the missing entrywise identification for the
+fixed-coupling order theorem.  It defines the physical nine-slot
+source/target Choi Gram directly from the full leaf-reduced measure and
+proves a basis-free CP comparison before recoupling.  See
+`notes/bf4-physical-all-label-choi-domination.md`.  The residual-only Gram in
+this note remains useful for trace-class approximation; it should not be
+confused with the newer physical coarse Choi definition.
