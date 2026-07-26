@@ -331,8 +331,12 @@ for the complete character series.  The nine canonical coarse-loop disks
 are geometrically pinned, but all 27 of their internal links meet two
 transverse plaquettes, so the 72-face integrand does not literally factor.
 Normalized-Haar leaf elimination reduces the transverse comparison to a
-specific 21-face core.  The next order theorem must show that the full
-interacting map CP-dominates the corridor packet after that core is summed.
+specific 21-face core.  The 1024 admissible fundamental fillings of its
+connected component have now been coherently contracted to distinct
+canonical trace-word records with rational scalar coefficients on the
+protected boundary.  The next order theorem must lift this finite trace-word
+result to all labels and show that the full interacting map CP-dominates the
+corridor packet after that core is summed.
 
 The grouped-half hypothesis itself is not free: for the local bare
 heat-kernel multiplier \(\rho=s^3\), it implies

@@ -680,8 +680,16 @@ The nine canonical filling disks are now pinned exactly.  They use 30
 disjoint faces and 27 disjoint internal links, but every internal link also
 meets two transverse plaquettes, refuting literal product-semigroup
 factorization.  Exact Haar leaf elimination removes 21 of the 42 transverse
-faces and leaves a pinned 21-face core.  That core is the next finite
-fusion-family comparison.
+faces and leaves a pinned 21-face core.  Its connected 15-face component has
+1024 admissible cutoff-one fillings.  Their coherent partial Haar tensors are
+now constructed as 1024 distinct canonical trace-word records with rational
+scalar coefficients, soluble orientation constraints, and maximum trace-word
+length seven.  Distinctness here is syntactic after the stated word
+canonicalizations, not functional independence modulo every \(SU(2)\) trace
+identity.  This is a finite fundamental-sector result, not the needed
+all-label order theorem.  The next comparison must lift the compact
+trace-word family through the complete recoupling tower and prove a
+spacing-uniform CP lower bound with a summable cutoff modulus.
 
 The cumulative-heat condition controls the local bare heat-kernel mode.
 With \(\rho=s^3\), it implies

@@ -45,6 +45,9 @@ from computations.all_label_whole_slab_tail import (
 from computations.corrected_slab_haar_network import corrected_slab_haar_complex
 from computations.dual_positivity_geometry_bridge import edges_of
 from computations.exact_haar_network import casimir4, invariant_multiplicity
+from computations.transverse_cutoff_one_loop_tensor import (
+    cutoff_one_loop_tensor_audit,
+)
 from computations.whole_corrected_slab_kraus import coarse_face_paths
 
 GROUPED_HEAT_CAP = Fraction(1, 2)
@@ -713,8 +716,9 @@ class TransverseCutoffOneFusionAudit:
     their distinct singlet and triplet channels instead of being collapsed
     to mod-two parity.
 
-    This is not yet a CP-order theorem: the corresponding coherent partial
-    Haar tensors and their all-label positive lower bound remain open.
+    The corresponding coherent partial Haar tensors are now constructed in
+    the fundamental trace-word basis.  This is still not a CP-order theorem:
+    their all-label lift and positive lower bound remain open.
     """
 
     representation_cutoff: int
@@ -775,11 +779,11 @@ class TransverseCutoffOneFusionAudit:
             and self.internal_intertwiner_multiplicity_one
             and self.singlet_triplet_boundary_channels_retained
             and self.parity_only_boundary_carrier_refuted
-            and not self.coherent_partial_haar_tensors_evaluated
+            and self.coherent_partial_haar_tensors_evaluated
             and not self.cp_order_domination_proved
             and not self.all_label_completion_proved
             and self.first_open_obligation
-            == "evaluate-coherent-partial-haar-tensors-and-prove-all-label-cp-domination"
+            == "lift-coherent-cutoff-one-tensors-to-all-label-cp-domination"
         )
 
 
@@ -969,11 +973,13 @@ def transverse_cutoff_one_fusion_audit() -> TransverseCutoffOneFusionAudit:
         parity_only_boundary_carrier_refuted=(
             len(label_profiles) > len(parity_profiles)
         ),
-        coherent_partial_haar_tensors_evaluated=False,
+        coherent_partial_haar_tensors_evaluated=(
+            cutoff_one_loop_tensor_audit().validates()
+        ),
         cp_order_domination_proved=False,
         all_label_completion_proved=False,
         first_open_obligation=(
-            "evaluate-coherent-partial-haar-tensors-and-prove-all-label-cp-domination"
+            "lift-coherent-cutoff-one-tensors-to-all-label-cp-domination"
         ),
     )
     if not certificate.validates():
@@ -995,6 +1001,7 @@ class GroupedPhysicalPacketFrontier:
     transverse_interaction_obstruction_pinned: bool
     transverse_leaf_reduction_pinned: bool
     transverse_cutoff_one_fusion_ledger_pinned: bool
+    transverse_cutoff_one_coherent_loop_tensors_pinned: bool
     corrected_slab_corridor_cover_pinned: bool
     interacting_map_cp_dominates_corridor: bool
     physical_coupling_spacing_condition_proved: bool
@@ -1007,11 +1014,13 @@ class GroupedPhysicalPacketFrontier:
         geometry = corrected_slab_corridor_geometry_audit()
         leaf_reduction = transverse_leaf_reduction_audit()
         fusion = transverse_cutoff_one_fusion_audit()
+        loop_tensors = cutoff_one_loop_tensor_audit()
         return (
             witness.validates()
             and geometry.validates()
             and leaf_reduction.validates()
             and fusion.validates()
+            and loop_tensors.validates()
             and self.all_label_corridor_kernel_constructed
             and self.exact_semigroup_grouping
             and self.common_haar_packet_constructed
@@ -1022,6 +1031,7 @@ class GroupedPhysicalPacketFrontier:
             and self.transverse_interaction_obstruction_pinned
             and self.transverse_leaf_reduction_pinned
             and self.transverse_cutoff_one_fusion_ledger_pinned
+            and self.transverse_cutoff_one_coherent_loop_tensors_pinned
             and geometry.every_internal_link_transversely_coupled
             and not geometry.literal_semigroup_factorization_of_full_integrand
             and not self.corrected_slab_corridor_cover_pinned
@@ -1030,7 +1040,7 @@ class GroupedPhysicalPacketFrontier:
             and not self.actual_grouped_all_label_packet_proved
             and not self.spacing_uniform_refresh_mass_proved
             and self.first_open_obligation
-            == "lift-cutoff-one-fusion-ledger-to-coherent-all-label-cp-domination"
+            == "lift-cutoff-one-coherent-loop-tensors-to-all-label-cp-domination"
         )
 
 
@@ -1048,13 +1058,14 @@ def grouped_physical_packet_frontier() -> GroupedPhysicalPacketFrontier:
         transverse_interaction_obstruction_pinned=True,
         transverse_leaf_reduction_pinned=True,
         transverse_cutoff_one_fusion_ledger_pinned=True,
+        transverse_cutoff_one_coherent_loop_tensors_pinned=True,
         corrected_slab_corridor_cover_pinned=False,
         interacting_map_cp_dominates_corridor=False,
         physical_coupling_spacing_condition_proved=False,
         actual_grouped_all_label_packet_proved=False,
         spacing_uniform_refresh_mass_proved=False,
         first_open_obligation=(
-            "lift-cutoff-one-fusion-ledger-to-coherent-all-label-cp-domination"
+            "lift-cutoff-one-coherent-loop-tensors-to-all-label-cp-domination"
         ),
     )
     if not frontier.validates():

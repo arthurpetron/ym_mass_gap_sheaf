@@ -147,7 +147,7 @@ def test_transverse_core_complete_cutoff_one_fusion_ledger():
     assert audit.internal_intertwiner_multiplicity_one
     assert audit.singlet_triplet_boundary_channels_retained
     assert audit.parity_only_boundary_carrier_refuted
-    assert not audit.coherent_partial_haar_tensors_evaluated
+    assert audit.coherent_partial_haar_tensors_evaluated
     assert not audit.cp_order_domination_proved
     assert not audit.all_label_completion_proved
 
@@ -161,6 +161,7 @@ def test_physical_promotion_frontier_remains_fail_closed():
     assert frontier.transverse_interaction_obstruction_pinned
     assert frontier.transverse_leaf_reduction_pinned
     assert frontier.transverse_cutoff_one_fusion_ledger_pinned
+    assert frontier.transverse_cutoff_one_coherent_loop_tensors_pinned
     assert frontier.cumulative_heat_condition_contains_rescaled_bare_mode_floor
     assert not frontier.interacting_map_cp_dominates_corridor
     assert not frontier.physical_coupling_spacing_condition_proved

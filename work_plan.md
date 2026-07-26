@@ -126,9 +126,19 @@ admissible assignments, 4761 complete boundary-label profiles, and 10673
 fusion paths; after the six decorations the full residual has 304704
 profiles and 683072 paths.  The 128-state parity boundary is therefore not
 an adequate carrier because it forgets the separate singlet/triplet outputs
-at doubly occupied protected links.  The next constructor must evaluate the
-coherent partially contracted Haar tensors for this ledger and lift the
-result to an all-label CP-order bound with a cutoff modulus.
+at doubly occupied protected links.  The coherent fundamental partial Haar
+tensors are now evaluated exactly for all 1024 core fillings.  They give 1024
+distinct canonical trace-word records, each a rational scalar times a product
+of protected-boundary Wilson traces; functional independence modulo all
+\(SU(2)\) trace identities is not asserted.  Every face-orientation
+constraint is soluble, the coefficient census is
+\((1/32\!:\!192),(1/16\!:\!448),(1/8\!:\!192),(1/4\!:\!128),(1\!:\!64)\),
+and the longest trace word has length seven.  Representative tensors,
+including the maximal twelve-face case, agree with independent exact
+quaternion-coordinate integration.  The next constructor must lift this
+compact cutoff-one trace-word family to an all-label recoupling/CP-order
+bound with a summable cutoff modulus.  See
+`notes/bf4-cutoff-one-loop-tensors.md`.
 The cumulative-heat condition is also not automatic.  For the local bare
 heat-kernel multiplier \(\rho(a)=s(a)^3\), it implies
 \[

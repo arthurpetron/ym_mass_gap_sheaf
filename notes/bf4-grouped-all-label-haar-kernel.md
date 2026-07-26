@@ -414,12 +414,43 @@ and boundary fusion outputs.  The vacuum boundary profile alone has eight
 fillings, at face counts \(0,6,10,12\) with multiplicities \(1,3,3,1\).
 
 This is a cutoff-one fusion ledger, not yet the CP-order certificate.  It
-refutes use of the 128-state parity boundary as the source of truth and pins
-the next object: evaluate the coherent partially contracted Haar tensor on
-these complete boundary sectors, then prove an all-label positive lower
-bound with a cutoff modulus.  The executable certificate is
+refutes use of the 128-state parity boundary as the source of truth.
+
+The coherent fundamental partial tensors are now also explicit.  Whole-face
+orientation flips make the two active strands at every internal Haar link
+oppositely oriented in all 1024 admissible assignments.  Repeated use of
+\[
+ \int \chi_1(UA)\chi_1(U^{-1}B)\,dU
+   = \frac12\chi_1(AB)
+\]
+(with the corresponding trace-splitting identity when both occurrences are
+in one loop) contracts each filling to a positive rational coefficient times
+a product of Wilson traces on the nine protected boundary links.  The exact
+coefficient census is
+\[
+  192\!\times\!\frac1{32},\quad
+  448\!\times\!\frac1{16},\quad
+  192\!\times\!\frac18,\quad
+  128\!\times\!\frac14,\quad
+  64\!\times\!1.
+\]
+All 1024 canonical compact trace-word records are distinct under free
+reduction, cyclicity, inversion, and factor permutation; functional
+independence modulo every \(SU(2)\) trace identity is not asserted.  No
+surviving trace word has length greater than seven.  Distinguished cases,
+including a maximal twelve-face filling, agree exactly with the independent
+quaternion-coordinate Haar contraction.
+
+This closes coherent evaluation only in the cutoff-one fundamental sector.
+It does not prove that the complete all-label interacting map dominates the
+corridor packet in CP order.  The next object is an all-label recoupling lift
+of these tensors, with a summable cutoff modulus and a positive domination
+constant uniform in spacing and volume.  Executable certificates are
 `transverse_cutoff_one_fusion_audit()` in
-`computations/grouped_all_label_haar_refresh.py`.
+`computations/grouped_all_label_haar_refresh.py` and
+`cutoff_one_loop_tensor_audit()` in
+`computations/transverse_cutoff_one_loop_tensor.py`; see
+`notes/bf4-cutoff-one-loop-tensors.md`.
 
 This corrects the interpretation of the BF3.2 handoff:
 
