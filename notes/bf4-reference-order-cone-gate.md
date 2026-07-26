@@ -376,9 +376,10 @@ boundary-message normalization are now exact, and the continuous all-label
 boundary transfer is explicit. The carrier issue is closed on the enlarged
 route: the connected 48-link/26-vertex boundary has 23 tree-gauge cycle
 variables and identity Markov intertwining. The remaining input is the
-spacing-uniform two-sided Harnack estimate for the grouped physical
-Feynman--Kac kernel with all interior spatial weights; see
-`notes/bf4-boundary-message-uniform-order.md`.
+spacing-uniform four-boundary cross-ratio bound for the grouped physical
+Feynman--Kac kernel with all interior spatial weights. Equivalently, prove
+the intrinsic Perron remainder \(C_s^2q_s^{m-2}<1\); see
+`notes/bf4-physical-feynman-kac-projective-harnack.md`.
 
 The grouped-half hypothesis itself is not free: for the local bare
 heat-kernel multiplier \(\rho=s^3\), it implies

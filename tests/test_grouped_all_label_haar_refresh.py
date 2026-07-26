@@ -29,9 +29,7 @@ def test_exact_all_label_floor_at_grouped_half():
     assert certificate.remaining_absolute_tail_bound == Fraction(81, 2272)
     assert certificate.nonvacuum_absolute_bound == Fraction(1217, 2272)
     assert certificate.common_haar_floor == ALL_LABEL_HAAR_FLOOR
-    assert certificate.packet_mass(BF32_COARSE_HOLONOMY_COUNT) == (
-        Fraction(1055, 2272) ** 9
-    )
+    assert certificate.packet_mass(BF32_COARSE_HOLONOMY_COUNT) == (Fraction(1055, 2272) ** 9)
 
 
 def test_semigroup_coordinate_and_every_label_are_exact():
@@ -40,9 +38,7 @@ def test_semigroup_coordinate_and_every_label_are_exact():
     grouped = grouped_heat_coordinate(coupling, steps)
     assert grouped == Fraction(27, 64)
     for label in range(10):
-        assert heat_mode_multiplier(coupling, steps, label) == (
-            grouped ** (label * (label + 2))
-        )
+        assert heat_mode_multiplier(coupling, steps, label) == (grouped ** (label * (label + 2)))
         assert heat_mode_multiplier(coupling, steps, label) > 0
 
 
@@ -169,17 +165,13 @@ def test_physical_promotion_frontier_remains_fail_closed():
     assert frontier.transverse_fixed_coupling_all_label_cauchy_modulus_pinned
     assert frontier.transverse_fixed_coupling_operator_trace_tail_pinned
     assert frontier.transverse_cutoff_one_weak_coupling_cp_obstruction_pinned
-    assert (
-        frontier.transverse_fixed_cutoff_weak_coupling_tail_obstruction_pinned
-    )
+    assert frontier.transverse_fixed_cutoff_weak_coupling_tail_obstruction_pinned
     assert not frontier.transverse_open_index_all_label_choi_reconstructed
     assert frontier.basis_free_physical_all_label_source_target_choi_defined
     assert frontier.direct_all_label_measure_regrouping_used
     assert frontier.spacing_dependent_cutoff_schedule_pinned
     assert frontier.fixed_coupling_physical_corridor_cp_domination_proved
-    assert not (
-        frontier.spacing_uniform_physical_corridor_cp_domination_proved
-    )
+    assert not (frontier.spacing_uniform_physical_corridor_cp_domination_proved)
     assert frontier.finite_cutoff_choi_deweighting_pinned
     assert frontier.normalized_random_unitary_residual_cptp_proved
     assert frontier.projective_all_label_normal_channel_defined
@@ -204,15 +196,29 @@ def test_physical_promotion_frontier_remains_fail_closed():
     assert frontier.grouped_row_harnack_message_order_reduction_proved
     assert frontier.endpoint_spatial_weight_cancellation_proved
     assert frontier.kinetic_23_cycle_spacing_uniform_message_order_proved
-    assert frontier.kinetic_markov_common_mass == (
-        Fraction(1055, 3489) ** 46
-    )
+    assert frontier.kinetic_markov_common_mass == (Fraction(1055, 3489) ** 46)
     assert not frontier.interior_spatial_feynman_kac_harnack_proved
-    assert (
-        frontier.uniform_positive_kernel_limit_message_order_criterion_proved
-    )
+    assert frontier.uniform_positive_kernel_limit_message_order_criterion_proved
     assert not frontier.physical_grouped_feynman_kac_uniform_limit_proved
     assert not frontier.physical_limit_kernel_strictly_positive_proved
+    assert frontier.four_boundary_cross_ratio_message_order_proved
+    assert frontier.relative_rank_one_projective_limit_sufficient
+    assert not frontier.absolute_positive_kernel_limit_required
+    assert frontier.fixed_coupling_intrinsic_perron_convergence_available
+    assert frontier.spatial_boundary_two_sphere_homotopy_type_certified
+    assert frontier.unique_flat_spatial_su2_gauge_orbit_proved
+    assert frontier.linearized_spatial_curvature_coercivity_floor == Fraction(1, 11)
+    assert frontier.global_nonlinear_spatial_curvature_coercivity_constant == Fraction(1, 81)
+    assert frontier.nonlinear_global_spatial_curvature_coercivity_proved
+    assert frontier.linearized_temporal_relative_coupling_rank == 5
+    assert not frontier.microscopic_temporal_ellipticity_on_all_23_cycles
+    assert frontier.exact_nonlinear_five_holonomy_factorization_proved
+    assert frontier.eighteen_dimensional_fibers_conditionally_integrated
+    assert frontier.five_holonomy_feynman_kac_operator_identity_proved
+    assert not frontier.spatial_temporal_hypocoercive_perron_bound_proved
+    assert not frontier.spacing_uniform_physical_four_boundary_cross_ratio_proved
+    assert not frontier.spacing_uniform_intrinsic_perron_remainder_proved
+    assert not frontier.boundary_spanning_connected_expansion_bound_proved
     assert not frontier.direct_integrated_glued_block_comparison_refuted
     assert not frontier.physical_consecutive_slab_rg_identification_proved
     assert not frontier.consecutive_scale_channel_composition_proved

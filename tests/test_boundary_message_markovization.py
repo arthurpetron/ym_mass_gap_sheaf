@@ -29,9 +29,7 @@ def test_backward_messages_make_every_transfer_row_stochastic() -> None:
         (Fraction(1), Fraction(2)),
     )
     assert all(
-        sum(row, start=Fraction(0)) == 1
-        for kernel in certificate.markov_kernels
-        for row in kernel
+        sum(row, start=Fraction(0)) == 1 for kernel in certificate.markov_kernels for row in kernel
     )
 
 
@@ -59,16 +57,14 @@ def test_physical_blueprint_closes_composition_algebra_but_not_uniformity() -> N
     assert blueprint.raw_transfer_fiber_product_composition_exact
     assert blueprint.backward_message_markovization_exact
     assert blueprint.finite_horizon_mass_preserving_composition_exact
-    assert not (
-        blueprint.independent_one_slab_row_normalization_composes_physically
-    )
+    assert not (blueprint.independent_one_slab_row_normalization_composes_physically)
     assert blueprint.all_label_continuous_boundary_transfer_constructed
     assert blueprint.fine_boundary_physical_gluing_channel_constructed
     assert not blueprint.nine_slot_coarse_markov_intertwining_proved
     assert not blueprint.spacing_uniform_boundary_message_ratio_proved
     assert not blueprint.spacing_uniform_grouped_minorization_proved
     assert blueprint.first_open_obligation == (
-        "prove-spacing-uniform-feynman-kac-harnack-with-interior-spatial-weights"
+        "bound-grouped-physical-four-boundary-cross-ratio-by-spacing-uniform-constant"
     )
 
 

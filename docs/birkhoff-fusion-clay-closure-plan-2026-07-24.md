@@ -800,13 +800,61 @@ proves the spacing-uniform mass
 \[
 \left(\frac{1055}{3489}\right)^{46}.
 \]
-The remaining physical estimate is a spacing-uniform two-sided Harnack
-bound for the grouped Feynman--Kac kernel with all interior spatial weights,
-or uniform convergence of that kernel to a bounded strictly positive
-limit. Strict positivity alone is insufficient: the exact two-state family
+Strict positivity alone is insufficient: the exact two-state family
 \(Q_{1/n}\operatorname{diag}(1,n)Q_{1/n}\) has common row-order mass
-\(n/(n^2-n+1)\to0\). See
-`notes/bf4-boundary-message-uniform-order.md`.
+\(n/(n^2-n+1)\to0\). The exact invariant target is now the grouped
+four-boundary cross-ratio. Its inverse orders every terminal-message Doob
+transform, and spacing-dependent Perron profiles cancel. Fixed-coupling
+compact positivity-improving theory gives intrinsic rank-one convergence;
+the remaining uniform estimate is
+\[
+C_{s(a)}^2q_{s(a)}^{m(a,L)-2}\le\delta_L<1,
+\]
+or the equivalent direct cross-product inequality
+\(\Theta(G_{a,L})\le\Theta_L\). See
+`notes/bf4-physical-feynman-kac-projective-harnack.md`.
+
+The spatial-well topology and linearization are now exact. Eighteen
+face--edge collapses and eighteen graph leaf collapses retract the 24-face
+spatial complex onto a cube boundary, so it has \(S^2\) homotopy type and a
+unique flat \(SU(2)\) gauge orbit. In tree gauge the \(24\times23\)
+linearized curvature matrix \(B\) has full rank, trace-Gram \(47\),
+Gram determinant \(6\), and
+\[
+B^\mathsf TB>{1\over11}I
+\]
+by exact positivity of every leading principal minor of
+\(11B^\mathsf TB-I\). Thus topological multiwell metastability is not the
+remaining obstruction on this carrier. Removing one redundant face and
+reversing the resulting 23 face--edge collapses gives the global
+non-Abelian metric inequality
+\[
+\sum_{\text{23 cycles}}d(U_e,I)^2
+\le81\sum_{\text{24 faces}}d(U_p,I)^2.
+\]
+The temporal smoothing is rank-deficient at linear order: the 24-face
+temporal matrix has rank \(24\), its internal 20-link block has rank \(19\),
+and only five relative source--target cycle differences survive. Their
+exact indices are \(\{0,4,5,6,10\}\).
+
+This linear defect now has an exact nonlinear resolution. The 24 temporal
+faces are edge cylinders over a connected 20-vertex, 24-edge graph, whose
+20 vertex gauge variables are precisely the integrated temporal links.
+Tree gauge leaves five chord holonomies, so the temporal Haar kernel factors
+exactly through five source and five target holonomies. Its 19-edge tree
+extends to a full-boundary spanning tree, so these are literal coordinates
+in an adapted gauge with 18 complementary product-Haar directions. If
+\(R\) conditionally integrates those fibers and
+\(\overline W_s=R M_{W_s}R^\ast\), then
+\[
+T_s^m=M_{\sqrt W_s}R^\ast
+k_s(M_{\overline W_s}k_s)^{m-1}R M_{\sqrt W_s}.
+\]
+The endpoint profiles cancel in the four-boundary ratio. Thus the live
+bridge is a spacing-uniform intrinsic Perron budget, or direct projective
+cross-ratio bound, for the exact five-holonomy effective Feynman--Kac
+kernel. A 23-dimensional elliptic or hypocoercive estimate is no longer
+required.
 
 The cumulative-heat condition controls the local bare heat-kernel mode.
 With \(\rho=s^3\), it implies

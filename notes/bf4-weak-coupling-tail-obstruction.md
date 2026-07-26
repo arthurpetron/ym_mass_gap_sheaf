@@ -78,11 +78,13 @@ difference is now a random-unitary CPTP residual with abstract same-carrier
 convolution.  The exact 120-face gluing geometry and boundary-message
 Markovization algebra are now pinned, and the continuous all-label
 fine-boundary transfer is explicit.  The next theorem must obtain a
-spacing-uniform two-sided Harnack estimate for the grouped physical
+spacing-uniform four-boundary cross-ratio bound for the grouped physical
 Feynman--Kac kernel directly on the fixed physical-distance block. The
 carrier has been enlarged to the full 23-cycle tree-gauge boundary, where
-the retained projection and Markov intertwining are identities. See
-`notes/bf4-boundary-message-uniform-order.md`.
+the retained projection and Markov intertwining are identities. Source and
+target Perron profiles cancel, so the exact remaining budget is
+\(C_s^2q_s^{m-2}<1\); see
+`notes/bf4-physical-feynman-kac-projective-harnack.md`.
 
 The executable certificate is
 `computations/transverse_weak_coupling_tail_obstruction.py`.

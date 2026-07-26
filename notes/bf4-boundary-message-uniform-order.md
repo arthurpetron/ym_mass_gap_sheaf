@@ -149,6 +149,9 @@ and every backward-message Markovization has common mass at least
 
 The finite exact certificate is
 `uniform_kernel_limit_message_order()`.
+This criterion remains valid, but it is not necessary: a spacing-dependent
+rank-one profile may localize and destroy every absolute floor while
+canceling exactly from the normalized channel.
 
 ## Why positivity of the interior weights is insufficient
 
@@ -166,27 +169,55 @@ terminal-independent row-order mass
 Thus strict positivity of an intermediate potential, by itself, cannot
 give spacing-uniform order. This finite countermodel does not refute the
 physical Yang--Mills Harnack estimate; it proves that the estimate must use
-specific structure of the spatial plaquette weight or establish the
-positive-kernel limit above. The executable witness is
+specific structure of the spatial plaquette weight. The executable witness is
 `intermediate_potential_harnack_obstruction()`.
 
-## Remaining obstruction
+## Projective refinement and remaining obstruction
 
 The physical grouped kernel includes the intermediate spatial plaquette
 weights. A global comparison by their pointwise floor and ceiling repeats
-the known weak-coupling collapse and is not useful. The next theorem must
-prove one of the equivalent stronger statements on the enlarged carrier:
+the known weak-coupling collapse and is not useful. The exact invariant
+consumer is instead the four-boundary ratio
+\[
+\Theta(G)=
+\sup_{x,x',z,z'}
+{G(x,z)G(x',z')\over G(x,z')G(x',z)}.
+\]
+A bound \(\Theta(G_{a,L})\le\Theta_L\) gives common Markov mass
+\(\Theta_L^{-1}\) for every terminal message. Equivalently, it is enough to
+prove relative convergence to a spacing-dependent rank-one Perron profile.
+The profiles themselves need no uniform lower bound.
 
-1. a spacing-uniform two-sided Harnack estimate for the grouped
-   Feynman--Kac kernel with all interior spatial weights included; or
-2. uniform convergence of that kernel to a bounded, strictly positive
-   limit kernel.
+At fixed coupling, compact positivity-improving Perron theory supplies that
+relative convergence. The remaining theorem is the spacing-uniform
+two-buffer budget
+\[
+C_{s(a)}^2q_{s(a)}^{m(a,L)-2}\le\delta_L<1,
+\]
+or the four-boundary cross-product estimate directly.
 
-Only after that estimate is proved does the terminal-independent row-order
-theorem yield spacing-uniform order for the physical continuous backward
-messages.
+The Yang--Mills spatial carrier has one exact flat gauge orbit: its cell
+complex collapses to a cube boundary, and the tree-gauge linearized
+curvature Gram obeys \(B^\mathsf TB>(1/11)I\). The remaining bridge is
+not topological multiwell degeneracy. A reverse-collapse reconstruction also
+gives the global bound
+\(\sum_e d(U_e,I)^2\le81\sum_p d(U_p,I)^2\).
+
+The temporal Haar integral now reduces exactly further. Its 24 faces are
+edge cylinders over a connected 20-vertex graph, so tree gauge leaves five
+chord holonomies. A spanning tree of that graph extends to the full
+boundary, and conditional integration over the 18 complementary Haar
+coordinates gives
+\[
+T_s^m=M_{\sqrt W}R^\ast
+k_s(M_{\overline W_s}k_s)^{m-1}R M_{\sqrt W}.
+\]
+Thus the physical cross-ratio is exactly that of a five-holonomy effective
+Feynman--Kac kernel. The remaining work is the spacing-uniform
+heat-kernel/Perron promotion for this reduced kernel.
 
 The executable gates are
 `computations/boundary_message_markovization.py`,
-`computations/boundary_message_uniform_order.py`, and their corresponding
-tests.
+`computations/boundary_message_uniform_order.py`, and
+`computations/boundary_message_projective_harnack.py`. See
+`notes/bf4-physical-feynman-kac-projective-harnack.md`.

@@ -553,9 +553,15 @@ is the identity, so Markov intertwining is exact. A two-sided grouped
 row-ratio estimate is sufficient for every terminal message; endpoint
 spatial weights cancel in the relative coordinate. The kinetic 23-cycle
 reference has the spacing-uniform common mass
-\((1055/3489)^{46}\). The open physical input is the corresponding
-two-sided Harnack estimate for the grouped Feynman--Kac kernel with all
-interior spatial weights included, before microscopic floor loss.
+\((1055/3489)^{46}\). The exact physical consumer is now the grouped
+four-boundary cross-ratio, whose inverse orders every terminal-message
+channel. Spacing-dependent Perron profiles cancel, so an absolute positive
+kernel limit is unnecessary. The temporal Haar integral factors exactly
+through five chord holonomies of its connected 20-vertex base graph.
+Conditional integration over the 18 complementary boundary coordinates
+produces an exact five-holonomy Feynman--Kac operator with all interior
+spatial weights included. The open input is its uniform intrinsic remainder
+\(C_s^2q_s^{m-2}<1\), or an equivalent direct cross-product bound.
 
 Executable certificates include
 `transverse_cutoff_one_fusion_audit()` in
@@ -574,6 +580,8 @@ operator-tail certificates are documented in
 comparison is in `notes/bf4-physical-all-label-choi-domination.md`.
 The enlarged carrier and message-order reduction are in
 `notes/bf4-boundary-message-uniform-order.md`.
+The projective physical target is in
+`notes/bf4-physical-feynman-kac-projective-harnack.md`.
 
 This corrects the interpretation of the BF3.2 handoff:
 
@@ -628,14 +636,13 @@ so the physical refresh mass satisfies
 
 This is the desired spacing-, cutoff-, and volume-uniform BF4 witness.
 
-The first open theorem is therefore no longer “find some positive packet”
-or “prove fixed-coupling Choi positivity.”  Both are explicit.  The first
-open theorem is:
+The first open theorem is therefore no longer “find some positive packet,”
+“prove fixed-coupling Choi positivity,” or construct the continuous
+carrier. Those inputs are explicit. The current projective route asks:
 
-> **Upgrade the fixed-slab all-label Choi domination to a
-> spacing-uniform relative residual-order decomposition over fixed physical
-> distance, and identify the positive residual as a mass-preserving channel
-> composing on the same carrier between consecutive scales.**
+> **Prove a spacing-uniform intrinsic Perron remainder, or direct
+> four-boundary cross-ratio bound, for the exact five-holonomy effective
+> Feynman--Kac kernel over fixed physical distance.**
 
 The geometry portion is now partly closed: the nine disks, their
 boundaries, and their disjoint internal-link sets are pinned.  The open
@@ -644,9 +651,9 @@ two off-corridor incidences at every internal link.  Normalized Haar leaf
 elimination reduces that sum to the pinned 21-face core above.  Its local
 open tensors and cutoff-one shared-channel network are explicit.  Direct
 measure regrouping contracts the full source/target Gram and proves CP order
-at fixed coupling, but its coefficient collapses.  The remaining open
-portion is the fixed-physical-distance relative-order and channel
-composition theorem.
+at fixed coupling, but its coefficient collapses. The exact five-holonomy
+conditional integration now supplies the physical fixed-distance carrier
+on which the remaining relative-order estimate must be proved.
 
 After that, prove the physical cumulative-heat condition
 \((\mathrm{CH})_L\).

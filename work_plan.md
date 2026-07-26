@@ -328,13 +328,78 @@ until its heat coordinate is at most \(1/2\) gives the spacing-uniform
  \left(\frac{1055}{3489}\right)^{46}.
 \]
 This is not yet the physical bound because the intermediate spatial
-Feynman--Kac weights are absent. The single remaining BF4 message-order
-estimate is a spacing-uniform two-sided Harnack bound for that interacting
-grouped kernel, or uniform convergence to a bounded strictly positive limit
-kernel. A two-state exact countermodel has common mass
+Feynman--Kac weights are absent. A two-state exact countermodel has common mass
 \(n/(n^2-n+1)\to0\), so positivity of arbitrary interior weights cannot
-replace this Yang--Mills-specific estimate. See
-`notes/bf4-boundary-message-uniform-order.md`.
+replace a Yang--Mills-specific estimate.
+
+**BF4 projective Feynman--Kac update (2026-07-26).** An absolute positive
+kernel limit is no longer required. For the grouped physical kernel \(G\),
+the four-boundary cross-ratio
+\[
+\Theta(G)=
+\sup_{x,x',z,z'}
+{G(x,z)G(x',z')\over G(x,z')G(x',z)}
+\]
+orders every backward-message channel with terminal-independent common mass
+\(\Theta(G)^{-1}\). Source/target Perron profiles cancel exactly, so they
+may depend on spacing and localize. At every fixed coupling, compact
+positivity-improving Perron theory gives intrinsic rank-one convergence.
+The remaining spacing-uniform theorem is now the explicit two-buffer budget
+\[
+C_{s(a)}^2q_{s(a)}^{m(a,L)-2}\le\delta_L<1,
+\]
+or equivalently a direct bound \(\Theta(G_{a,L})\le\Theta_L\). In
+path-integral language this is a bound on connected source-to-target
+distortion after all one-boundary free-energy factors cancel. See
+`notes/bf4-physical-feynman-kac-projective-harnack.md`.
+
+The spatial Yang--Mills well has now been audited exactly. The full 24-face
+complex is not itself a surface, but 18 face--edge collapses and 18 graph
+leaf collapses retract it onto the six-face boundary of a cube. Hence the
+retained spatial complex has \(S^2\) homotopy type and every flat \(SU(2)\)
+connection is gauge trivial. Multiple topological flat wells are excluded.
+After tree gauge, the \(24\times23\) linearized curvature matrix \(B\) has
+full rank, \(\operatorname{tr}(B^\mathsf TB)=47\),
+\(\det(B^\mathsf TB)=6\), and Sylvester's criterion applied to
+\(11B^\mathsf TB-I\) proves
+\[
+\lVert B\xi\rVert_2^2>{1\over11}\lVert\xi\rVert_2^2.
+\]
+Removing one redundant face collapses the other 23 faces to a spanning
+tree. Reversing that collapse gives a triangular non-Abelian
+reconstruction and the global metric inequality
+\[
+\sum_{\text{23 cycles}}d(U_e,I)^2
+\le81\sum_{\text{24 faces}}d(U_p,I)^2.
+\]
+Thus global curvature coercivity is also closed. The next analytic step is
+not ordinary 23-dimensional elliptic smoothing. The exact temporal
+incidence matrix has rank \(24\), its 20-link internal block has rank \(19\),
+and the resulting relative source--target rank is only \(5\). An integral
+left annihilator identifies the transmitted cycle indices as
+\(\{0,4,5,6,10\}\), each appearing as source minus target.
+
+The nonlinear factorization branch is now closed. The 24 temporal faces are
+the edge cylinders over a connected 20-vertex, 24-edge graph, and the 20
+temporal links are exactly its vertex gauge variables. Haar integration
+therefore factors the temporal kernel through the graph's five chord
+holonomies on each boundary. The five holonomies are generally nonlinear
+functions of the 23 full-graph cycle coordinates; the pinned indices give
+their linearization at the flat orbit. The temporal-graph tree extends to
+a full-boundary tree, in whose adapted gauge they are literal chord
+coordinates with 18 complementary product-Haar directions. Conditional
+Haar integration of those fibers gives the exact repeated-transfer identity
+\[
+T_s^m=M_{\sqrt W}R^\ast
+k_s(M_{\overline W_s}k_s)^{m-1}R M_{\sqrt W},
+\qquad
+\overline W_s=R M_W R^\ast.
+\]
+The endpoint weights cancel projectively, so the 23-cycle Harnack problem
+has been reduced without extrema loss to a five-holonomy Feynman--Kac
+kernel. The immediate open theorem is now a spacing-uniform intrinsic
+Perron budget, or direct four-boundary cross-ratio bound, for that effective
+kernel.
 
 The cumulative-heat condition is also not automatic.  For the local bare
 heat-kernel multiplier \(\rho(a)=s(a)^3\), it implies

@@ -280,12 +280,19 @@ refresh.  It leaves two possibilities:
 
 ## Remaining theorem
 
-The carrier and terminal-message algebra are now closed. The next theorem
-starts from the all-label boundary transfer on the enlarged 23-cycle
-carrier and must prove a spacing-uniform two-sided Harnack estimate for its
-grouped Feynman--Kac kernel, with every interior spatial weight included.
-Equivalently, it is enough to prove uniform convergence to a bounded,
-strictly positive limit kernel. Either result would imply, before
+The carrier and terminal-message algebra are now closed. The temporal Haar
+integral also factors exactly through five chord holonomies of its
+20-vertex, 24-edge base graph. In an adapted full-boundary tree gauge,
+conditional integration over the other 18 coordinates turns the enlarged
+23-cycle transfer into a five-holonomy Feynman--Kac operator with effective
+spatial weight \(\overline W_s=R M_{W_s}R^\ast\). Endpoint weights cancel
+from the cross-ratio.
+
+The next theorem must therefore bound the grouped four-boundary cross-ratio
+of this five-holonomy kernel uniformly. Equivalently, it is enough to prove
+relative rank-one Perron convergence with
+\(C_s^2q_s^{m-2}\le\delta_L<1\). The spacing-dependent Perron profiles
+cancel and need no absolute lower bound. Either result would imply, before
 microscopic minorization,
 \[
 \Phi_{\mu_{a,L}^{\rm glue}}
@@ -303,5 +310,7 @@ geometry and interface no-go are in
 `tests/test_corrected_slab_physical_gluing.py`.  Boundary-message
 Markovization and uniform-order reduction are in
 `computations/boundary_message_markovization.py` and
-`computations/boundary_message_uniform_order.py`; see
-`notes/bf4-boundary-message-uniform-order.md`.
+`computations/boundary_message_uniform_order.py`. The projective Harnack
+consumer is in `computations/boundary_message_projective_harnack.py`; see
+`notes/bf4-boundary-message-uniform-order.md` and
+`notes/bf4-physical-feynman-kac-projective-harnack.md`.

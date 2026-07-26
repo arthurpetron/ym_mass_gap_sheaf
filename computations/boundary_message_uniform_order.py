@@ -45,7 +45,9 @@ the intermediate spatial Feynman--Kac weights are omitted.  The remaining
 BF4 estimate is a spacing-uniform two-sided Harnack bound with those weights
 included.  An exact two-state family also shows that positivity of arbitrary
 intermediate weights cannot supply such a bound: its common row-order mass
-is ``n/(n**2-n+1)``, which tends to zero.
+is ``n/(n**2-n+1)``, which tends to zero.  The sharper projective consumer
+and spacing-dependent rank-one alternative are implemented in
+``boundary_message_projective_harnack.py``.
 """
 
 from __future__ import annotations
@@ -134,27 +136,20 @@ class FiniteGroupedMessageOrder:
         beta = max(ratios)
         message = tuple(
             sum(
-                (
-                    kernel[source][target] * terminal[target]
-                    for target in range(len(terminal))
-                ),
+                (kernel[source][target] * terminal[target] for target in range(len(terminal))),
                 start=Fraction(0),
             )
             for source in range(len(kernel))
         )
         markov = tuple(
             tuple(
-                kernel[source][target]
-                * terminal[target]
-                / message[source]
+                kernel[source][target] * terminal[target] / message[source]
                 for target in range(len(terminal))
             )
             for source in range(len(kernel))
         )
         reference_message = message[self.reference_source]
-        message_ratios = tuple(
-            value / reference_message for value in message
-        )
+        message_ratios = tuple(value / reference_message for value in message)
         epsilon = alpha / beta
         reference_markov = markov[self.reference_source]
         return (
@@ -172,14 +167,11 @@ class FiniteGroupedMessageOrder:
             and self.terminal_message_independent_coefficient
             and self.exact_markov_minorization
             and all(
-                markov[source][target]
-                >= epsilon * reference_markov[target]
+                markov[source][target] >= epsilon * reference_markov[target]
                 for source in range(len(markov))
                 for target in range(len(reference_markov))
             )
-            and all(
-                sum(row, start=Fraction(0)) == 1 for row in markov
-            )
+            and all(sum(row, start=Fraction(0)) == 1 for row in markov)
         )
 
 
@@ -207,10 +199,7 @@ def finite_grouped_message_order(
     beta = max(ratios)
     message = tuple(
         sum(
-            (
-                kernel[source][target] * terminal[target]
-                for target in range(len(terminal))
-            ),
+            (kernel[source][target] * terminal[target] for target in range(len(terminal))),
             start=Fraction(0),
         )
         for source in range(len(kernel))
@@ -276,8 +265,7 @@ class EndpointWeightCancellation:
             return False
         weighted = tuple(
             tuple(
-                source[row] * core[row][column] * target[column]
-                for column in range(len(core[0]))
+                source[row] * core[row][column] * target[column] for column in range(len(core[0]))
             )
             for row in range(len(core))
         )
@@ -287,10 +275,7 @@ class EndpointWeightCancellation:
         )
         core_order = finite_grouped_message_order(
             core,
-            tuple(
-                target[index] * terminal[index]
-                for index in range(len(target))
-            ),
+            tuple(target[index] * terminal[index] for index in range(len(target))),
         )
         return (
             self.weighted_kernel == weighted
@@ -324,10 +309,7 @@ def endpoint_weight_cancellation(
     ):
         raise ValueError("endpoint weights must be positive and compatible")
     weighted = tuple(
-        tuple(
-            source[row] * core[row][column] * target[column]
-            for column in range(len(core[0]))
-        )
+        tuple(source[row] * core[row][column] * target[column] for column in range(len(core[0])))
         for row in range(len(core))
     )
     weighted_markov = finite_grouped_message_order(
@@ -336,10 +318,7 @@ def endpoint_weight_cancellation(
     ).markov_kernel
     core_markov = finite_grouped_message_order(
         core,
-        tuple(
-            target[index] * terminal[index]
-            for index in range(len(target))
-        ),
+        tuple(target[index] * terminal[index] for index in range(len(target))),
     ).markov_kernel
     certificate = EndpointWeightCancellation(
         core_kernel=core,
@@ -404,32 +383,25 @@ class KineticBoundaryMessageUniformOrder:
         upper = (ceiling / floor) ** cycles
         return (
             0 < self.microscopic_coupling < 1
-            and self.grouped_steps
-            == _least_steps_below_half(self.microscopic_coupling)
+            and self.grouped_steps == _least_steps_below_half(self.microscopic_coupling)
             and self.grouped_coupling
             == self.microscopic_coupling**self.grouped_steps
             <= GROUPED_HEAT_CAP
             and self.carrier.validates()
             and self.gauge_fixed_cycle_count == cycles == 23
-            and self.one_cycle_floor
-            == floor
-            == ONE_CYCLE_HAAR_FLOOR
-            and self.one_cycle_ceiling
-            == ceiling
-            == ONE_CYCLE_HAAR_CEILING
+            and self.one_cycle_floor == floor == ONE_CYCLE_HAAR_FLOOR
+            and self.one_cycle_ceiling == ceiling == ONE_CYCLE_HAAR_CEILING
             and self.grouped_row_ratio_lower == lower
             and self.grouped_row_ratio_upper == upper
             and self.backward_message_ratio_lower == lower
             and self.backward_message_ratio_upper == upper
-            and self.markov_common_mass
-            == lower / upper
-            == (floor / ceiling) ** (2 * cycles)
+            and self.markov_common_mass == lower / upper == (floor / ceiling) ** (2 * cycles)
             and self.terminal_message_independent
             and self.spacing_uniform_under_grouped_heat_cap
             and not self.interior_spatial_feynman_kac_weights_included
             and not self.physical_backward_message_order_proved
             and self.first_open_obligation
-            == "prove-spacing-uniform-feynman-kac-harnack-with-interior-spatial-weights"
+            == "bound-grouped-physical-four-boundary-cross-ratio-by-spacing-uniform-constant"
         )
 
 
@@ -444,11 +416,7 @@ def kinetic_boundary_message_uniform_order(
         GROUPED_HEAT_CAP,
         1,
     )
-    floor = (
-        1
-        - heat_character_sup_term(GROUPED_HEAT_CAP, 1)
-        - envelope.tail_bound
-    )
+    floor = 1 - heat_character_sup_term(GROUPED_HEAT_CAP, 1) - envelope.tail_bound
     ceiling = envelope.total_upper_bound
     carrier = enlarged_fine_boundary_carrier()
     cycles = carrier.gauge_fixed_cycle_rank
@@ -472,7 +440,7 @@ def kinetic_boundary_message_uniform_order(
         interior_spatial_feynman_kac_weights_included=False,
         physical_backward_message_order_proved=False,
         first_open_obligation=(
-            "prove-spacing-uniform-feynman-kac-harnack-with-interior-spatial-weights"
+            "bound-grouped-physical-four-boundary-cross-ratio-by-spacing-uniform-constant"
         ),
     )
     if not certificate.validates():
@@ -515,9 +483,7 @@ class IntermediatePotentialHarnackObstruction:
             and self.intermediate_potential == potential
             and self.grouped_feynman_kac_kernel == grouped
             and self.row_ratio_lower == order.row_ratio_lower == 1
-            and self.row_ratio_upper
-            == order.row_ratio_upper
-            == Fraction(n * n - n + 1, n)
+            and self.row_ratio_upper == order.row_ratio_upper == Fraction(n * n - n + 1, n)
             and self.terminal_independent_markov_common_mass
             == order.common_reference_mass
             == common_mass
@@ -624,8 +590,7 @@ class PhysicalBackwardMessageOrderFrontier:
             and self.finite_grouped_row_ratio_theorem_proved
             and self.backward_message_order_terminal_independent
             and self.endpoint_spatial_weight_cancellation_proved
-            and self.correct_relative_message_coordinate
-            == "g_j=h_j/sqrt(W_spatial)"
+            and self.correct_relative_message_coordinate == "g_j=h_j/sqrt(W_spatial)"
             and self.kinetic_23_cycle_spacing_uniform_order_proved
             and self.kinetic_markov_common_mass
             == kinetic.markov_common_mass
@@ -639,13 +604,12 @@ class PhysicalBackwardMessageOrderFrontier:
             and not self.physical_limit_kernel_strictly_positive_proved
             and not self.global_floor_ceiling_potential_comparison_usable
             and self.first_open_obligation
-            == "prove-spacing-uniform-feynman-kac-harnack-with-interior-spatial-weights"
+            == "bound-grouped-physical-four-boundary-cross-ratio-by-spacing-uniform-constant"
         )
 
 
 @cache
-def physical_backward_message_order_frontier(
-) -> PhysicalBackwardMessageOrderFrontier:
+def physical_backward_message_order_frontier() -> PhysicalBackwardMessageOrderFrontier:
     """Return the exact uniform-order reduction and fail-closed physical gate."""
 
     kinetic = kinetic_boundary_message_uniform_order(Fraction(9, 10))
@@ -665,7 +629,7 @@ def physical_backward_message_order_frontier(
         physical_limit_kernel_strictly_positive_proved=False,
         global_floor_ceiling_potential_comparison_usable=False,
         first_open_obligation=(
-            "prove-spacing-uniform-feynman-kac-harnack-with-interior-spatial-weights"
+            "bound-grouped-physical-four-boundary-cross-ratio-by-spacing-uniform-constant"
         ),
     )
     if not frontier.validates():
@@ -697,10 +661,7 @@ class UniformKernelLimitMessageOrder:
             approximation = _positive_matrix(self.approximating_kernel)
         except ValueError:
             return False
-        if (
-            len(limit) != len(approximation)
-            or len(limit[0]) != len(approximation[0])
-        ):
+        if len(limit) != len(approximation) or len(limit[0]) != len(approximation[0]):
             return False
         error = max(
             abs(limit[row][column] - approximation[row][column])
@@ -740,10 +701,7 @@ def uniform_kernel_limit_message_order(
 
     limit = _positive_matrix(limit_kernel)
     approximation = _positive_matrix(approximating_kernel)
-    if (
-        len(limit) != len(approximation)
-        or len(limit[0]) != len(approximation[0])
-    ):
+    if len(limit) != len(approximation) or len(limit[0]) != len(approximation[0]):
         raise ValueError("the limit and approximating kernels must have one shape")
     error = max(
         abs(limit[row][column] - approximation[row][column])

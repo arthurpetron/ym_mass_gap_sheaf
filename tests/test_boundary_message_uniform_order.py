@@ -40,10 +40,7 @@ def test_positive_endpoint_spatial_weights_cancel_from_markovization() -> None:
     )
 
     assert certificate.validates()
-    assert (
-        certificate.weighted_markov_kernel
-        == certificate.core_updated_terminal_markov_kernel
-    )
+    assert certificate.weighted_markov_kernel == certificate.core_updated_terminal_markov_kernel
     assert certificate.source_endpoint_weight_cancels
     assert certificate.target_endpoint_weight_absorbed_into_terminal
 
@@ -61,9 +58,7 @@ def test_kinetic_23_cycle_message_order_is_spacing_uniform_after_grouping() -> N
         assert certificate.grouped_coupling <= Fraction(1, 2)
         assert certificate.one_cycle_floor == Fraction(1055, 2272)
         assert certificate.one_cycle_ceiling == Fraction(3489, 2272)
-        assert certificate.markov_common_mass == (
-            Fraction(1055, 3489) ** 46
-        )
+        assert certificate.markov_common_mass == (Fraction(1055, 3489) ** 46)
         assert certificate.terminal_message_independent
         assert certificate.spacing_uniform_under_grouped_heat_cap
         assert not certificate.interior_spatial_feynman_kac_weights_included
@@ -88,13 +83,9 @@ def test_physical_frontier_is_reduced_to_the_interior_feynman_kac_harnack() -> N
     assert frontier.finite_grouped_row_ratio_theorem_proved
     assert frontier.backward_message_order_terminal_independent
     assert frontier.endpoint_spatial_weight_cancellation_proved
-    assert frontier.correct_relative_message_coordinate == (
-        "g_j=h_j/sqrt(W_spatial)"
-    )
+    assert frontier.correct_relative_message_coordinate == ("g_j=h_j/sqrt(W_spatial)")
     assert frontier.kinetic_23_cycle_spacing_uniform_order_proved
-    assert frontier.kinetic_markov_common_mass == (
-        Fraction(1055, 3489) ** 46
-    )
+    assert frontier.kinetic_markov_common_mass == (Fraction(1055, 3489) ** 46)
     assert not frontier.interior_spatial_feynman_kac_weights_included
     assert not frontier.physical_grouped_two_sided_harnack_proved
     assert not frontier.physical_spacing_uniform_backward_message_order_proved
@@ -102,6 +93,9 @@ def test_physical_frontier_is_reduced_to_the_interior_feynman_kac_harnack() -> N
     assert not frontier.physical_grouped_feynman_kac_uniform_limit_proved
     assert not frontier.physical_limit_kernel_strictly_positive_proved
     assert not frontier.global_floor_ceiling_potential_comparison_usable
+    assert frontier.first_open_obligation == (
+        "bound-grouped-physical-four-boundary-cross-ratio-by-spacing-uniform-constant"
+    )
 
 
 def test_uniform_positive_kernel_limit_closes_message_order_stably() -> None:
@@ -119,9 +113,7 @@ def test_uniform_positive_kernel_limit_closes_message_order_stably() -> None:
     assert certificate.limit_floor == 4
     assert certificate.approximating_floor == Fraction(19, 5)
     assert certificate.approximating_ceiling == Fraction(36, 5)
-    assert certificate.terminal_independent_markov_common_mass == (
-        Fraction(19, 36) ** 2
-    )
+    assert certificate.terminal_independent_markov_common_mass == (Fraction(19, 36) ** 2)
     assert certificate.uniform_message_order_proved
 
 

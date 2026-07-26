@@ -86,10 +86,7 @@ def _matrix_product(
     return tuple(
         tuple(
             sum(
-                (
-                    left[source][middle] * right[middle][target]
-                    for middle in range(len(right))
-                ),
+                (left[source][middle] * right[middle][target] for middle in range(len(right))),
                 start=Fraction(0),
             )
             for target in range(len(right[0]))
@@ -122,10 +119,7 @@ class BoundaryMessageMarkovization:
 
     def validates(self) -> bool:
         try:
-            transfers = tuple(
-                _nonnegative_matrix(matrix)
-                for matrix in self.transfers
-            )
+            transfers = tuple(_nonnegative_matrix(matrix) for matrix in self.transfers)
         except ValueError:
             return False
         if not transfers:
@@ -136,10 +130,7 @@ class BoundaryMessageMarkovization:
         ):
             return False
         terminal = _fraction_vector(self.terminal_message)
-        if (
-            len(terminal) != len(transfers[-1][0])
-            or any(value <= 0 for value in terminal)
-        ):
+        if len(terminal) != len(transfers[-1][0]) or any(value <= 0 for value in terminal):
             return False
         messages: list[RationalVector] = [()] * (len(transfers) + 1)
         messages[-1] = terminal
@@ -148,19 +139,14 @@ class BoundaryMessageMarkovization:
             messages[index] = tuple(
                 sum(
                     (
-                        transfers[index][source][target]
-                        * following[target]
+                        transfers[index][source][target] * following[target]
                         for target in range(len(following))
                     ),
                     start=Fraction(0),
                 )
                 for source in range(len(transfers[index]))
             )
-        if any(
-            value <= 0
-            for message in messages
-            for value in message
-        ):
+        if any(value <= 0 for message in messages for value in message):
             return False
         kernels = tuple(
             tuple(
@@ -178,9 +164,7 @@ class BoundaryMessageMarkovization:
         markov_composite = _chain_product(kernels)
         endpoint = tuple(
             tuple(
-                raw_composite[source][target]
-                * terminal[target]
-                / messages[0][source]
+                raw_composite[source][target] * terminal[target] / messages[0][source]
                 for target in range(len(raw_composite[0]))
             )
             for source in range(len(raw_composite))
@@ -192,11 +176,7 @@ class BoundaryMessageMarkovization:
             and self.markov_composite == markov_composite == endpoint
             and self.every_message_strictly_positive
             and self.every_kernel_mass_preserving
-            and all(
-                sum(row, start=Fraction(0)) == 1
-                for kernel in kernels
-                for row in kernel
-            )
+            and all(sum(row, start=Fraction(0)) == 1 for kernel in kernels for row in kernel)
             and self.telescoping_endpoint_identity
             and not self.independent_row_normalization_used
         )
@@ -212,15 +192,11 @@ def markovize_transfer_chain(
     if not matrices:
         raise ValueError("at least one transfer matrix is required")
     if any(
-        len(matrices[index][0]) != len(matrices[index + 1])
-        for index in range(len(matrices) - 1)
+        len(matrices[index][0]) != len(matrices[index + 1]) for index in range(len(matrices) - 1)
     ):
         raise ValueError("the transfer chain dimensions do not compose")
     terminal = _fraction_vector(terminal_message)
-    if (
-        len(terminal) != len(matrices[-1][0])
-        or any(value <= 0 for value in terminal)
-    ):
+    if len(terminal) != len(matrices[-1][0]) or any(value <= 0 for value in terminal):
         raise ValueError("the terminal message must be positive and compatible")
 
     messages: list[RationalVector] = [()] * (len(matrices) + 1)
@@ -298,30 +274,16 @@ class AllLabelFineBoundaryTransfer:
 
     def validates(self) -> bool:
         plaquettes = boundary_complete_slab_plaquettes(1)
-        edges = {
-            edge
-            for plaquette in plaquettes
-            for edge in edges_of(plaquette)
-        }
+        edges = {edge for plaquette in plaquettes for edge in edges_of(plaquette)}
         source_faces = tuple(
-            plaquette
-            for plaquette in plaquettes
-            if 3 not in plaquette[1] and plaquette[0][3] == 0
+            plaquette for plaquette in plaquettes if 3 not in plaquette[1] and plaquette[0][3] == 0
         )
         target_faces = tuple(
-            plaquette
-            for plaquette in plaquettes
-            if 3 not in plaquette[1] and plaquette[0][3] == 1
+            plaquette for plaquette in plaquettes if 3 not in plaquette[1] and plaquette[0][3] == 1
         )
-        temporal_faces = tuple(
-            plaquette for plaquette in plaquettes if 3 in plaquette[1]
-        )
-        source_links = {
-            edge for edge in edges if edge[1] < 3 and edge[0][3] == 0
-        }
-        target_links = {
-            edge for edge in edges if edge[1] < 3 and edge[0][3] == 1
-        }
+        temporal_faces = tuple(plaquette for plaquette in plaquettes if 3 in plaquette[1])
+        source_links = {edge for edge in edges if edge[1] < 3 and edge[0][3] == 0}
+        target_links = {edge for edge in edges if edge[1] < 3 and edge[0][3] == 1}
         temporal_links = {edge for edge in edges if edge[1] == 3}
         return (
             0 < self.coupling < 1
@@ -333,8 +295,7 @@ class AllLabelFineBoundaryTransfer:
             and self.target_boundary_link_count == len(target_links) == 48
             and self.internal_temporal_link_count == len(temporal_links) == 20
             and source_links.isdisjoint(target_links)
-            and self.boundary_configuration_space
-            == "SU2^48 modulo boundary gauge"
+            and self.boundary_configuration_space == "SU2^48 modulo boundary gauge"
             and self.symmetric_transfer_definition
             == "T_s(x,y)=sqrt(W_sp(x))*Integral_G^20 W_temp(x,z,y) dz*sqrt(W_sp(y))"
             and self.full_all_label_heat_kernels_used
@@ -369,8 +330,7 @@ def all_label_fine_boundary_transfer(
         internal_temporal_link_count=20,
         boundary_configuration_space="SU2^48 modulo boundary gauge",
         symmetric_transfer_definition=(
-            "T_s(x,y)=sqrt(W_sp(x))*Integral_G^20 "
-            "W_temp(x,z,y) dz*sqrt(W_sp(y))"
+            "T_s(x,y)=sqrt(W_sp(x))*Integral_G^20 W_temp(x,z,y) dz*sqrt(W_sp(y))"
         ),
         full_all_label_heat_kernels_used=True,
         normalized_internal_haar_integration=True,
@@ -410,25 +370,15 @@ class CoarseBoundarySufficiencyAudit:
     def validates(self) -> bool:
         complex_, faces, plaquettes = corrected_slab_haar_complex(1)
         paths = coarse_face_paths()
-        retained_links = {
-            link for path in paths for link, _orientation in path
-        }
+        retained_links = {link for path in paths for link, _orientation in path}
         ordered_geometric_edges = tuple(
-            sorted(
-                {
-                    edge
-                    for plaquette in plaquettes
-                    for edge in edges_of(plaquette)
-                }
-            )
+            sorted({edge for plaquette in plaquettes for edge in edges_of(plaquette)})
         )
         invisible: list[tuple[int, tuple[int, ...]]] = []
         for link in complex_.free:
             incident = tuple(
                 face_id
-                for face_id, (face, plaquette) in enumerate(
-                    zip(faces, plaquettes, strict=True)
-                )
+                for face_id, (face, plaquette) in enumerate(zip(faces, plaquettes, strict=True))
                 if (
                     3 not in plaquette[1]
                     and plaquette[0][3] == 0
@@ -441,16 +391,12 @@ class CoarseBoundarySufficiencyAudit:
             0 < self.coupling < 1
             and self.retained_coarse_path_count == len(paths) == 9
             and self.retained_coarse_path_link_count == len(retained_links) == 40
-            and self.invisible_free_lower_spatial_link_count
-            == len(invisible)
-            == 17
+            and self.invisible_free_lower_spatial_link_count == len(invisible) == 17
             and self.witness_link_id == invisible[0][0] == 7
             and self.witness_geometric_link
             == ordered_geometric_edges[self.witness_link_id]
             == ((0, 0, 1, 0), 0)
-            and self.witness_incident_lower_spatial_faces
-            == invisible[0][1]
-            == (1, 9, 10)
+            and self.witness_incident_lower_spatial_faces == invisible[0][1] == (1, 9, 10)
             and self.witness_absent_from_every_coarse_path
             and self.witness_link_id not in retained_links
             and self.identity_and_center_flip_have_same_coarse_holonomies
@@ -482,9 +428,7 @@ def coarse_boundary_sufficiency_audit(
         witness_absent_from_every_coarse_path=True,
         identity_and_center_flip_have_same_coarse_holonomies=True,
         center_flip_changes_spatial_weight=True,
-        heat_identity_minus_center_series=(
-            "K_s(I)-K_s(-I)=2*Sum_{n odd}(n+1)^2*s^(n(n+2))>0"
-        ),
+        heat_identity_minus_center_series=("K_s(I)-K_s(-I)=2*Sum_{n odd}(n+1)^2*s^(n(n+2))>0"),
         raw_transfer_factors_through_nine_coarse_loops=False,
         coarse_markov_lumpability_refuted=False,
         enlargement_or_conditional_cancellation_required=True,
@@ -498,9 +442,7 @@ def _connected_component_count(
     vertices: set[Vertex4],
     edges: set[Link4],
 ) -> int:
-    neighbors: dict[Vertex4, set[Vertex4]] = {
-        vertex: set() for vertex in vertices
-    }
+    neighbors: dict[Vertex4, set[Vertex4]] = {vertex: set() for vertex in vertices}
     for base, direction in edges:
         target = add_e(base, direction)
         neighbors[base].add(target)
@@ -543,16 +485,8 @@ class EnlargedFineBoundaryCarrier:
 
     def validates(self) -> bool:
         plaquettes = boundary_complete_slab_plaquettes(1)
-        all_edges = {
-            edge
-            for plaquette in plaquettes
-            for edge in edges_of(plaquette)
-        }
-        boundary_edges = {
-            edge
-            for edge in all_edges
-            if edge[1] < 3 and edge[0][3] == 0
-        }
+        all_edges = {edge for plaquette in plaquettes for edge in edges_of(plaquette)}
+        boundary_edges = {edge for edge in all_edges if edge[1] < 3 and edge[0][3] == 0}
         vertices = {
             vertex
             for base, direction in boundary_edges
@@ -593,9 +527,7 @@ def enlarged_fine_boundary_carrier() -> EnlargedFineBoundaryCarrier:
         spanning_tree_link_count=25,
         gauge_fixed_cycle_rank=23,
         source_target_carriers_identical=True,
-        carrier_description=(
-            "tree-gauge SU2^23 with residual root conjugation on invariants"
-        ),
+        carrier_description=("tree-gauge SU2^23 with residual root conjugation on invariants"),
         retained_projection="identity-on-full-fine-boundary",
         identity_projection_markov_lumpable=True,
         fine_boundary_transfer_acts_on_carrier=True,
@@ -640,9 +572,7 @@ class PhysicalBoundaryMessageBlueprint:
             (1, 2),
         )
         physical_transfer = all_label_fine_boundary_transfer(Fraction(1, 2))
-        coarse_sufficiency = coarse_boundary_sufficiency_audit(
-            Fraction(1, 2)
-        )
+        coarse_sufficiency = coarse_boundary_sufficiency_audit(Fraction(1, 2))
         enlarged_carrier = enlarged_fine_boundary_carrier()
         return (
             self.gluing_geometry.validates()
@@ -664,7 +594,7 @@ class PhysicalBoundaryMessageBlueprint:
             and not self.spacing_uniform_boundary_message_ratio_proved
             and not self.spacing_uniform_grouped_minorization_proved
             and self.first_open_obligation
-            == "prove-spacing-uniform-feynman-kac-harnack-with-interior-spatial-weights"
+            == "bound-grouped-physical-four-boundary-cross-ratio-by-spacing-uniform-constant"
         )
 
 
@@ -688,7 +618,7 @@ def physical_boundary_message_blueprint() -> PhysicalBoundaryMessageBlueprint:
         spacing_uniform_boundary_message_ratio_proved=False,
         spacing_uniform_grouped_minorization_proved=False,
         first_open_obligation=(
-            "prove-spacing-uniform-feynman-kac-harnack-with-interior-spatial-weights"
+            "bound-grouped-physical-four-boundary-cross-ratio-by-spacing-uniform-constant"
         ),
     )
     if not blueprint.validates():
