@@ -1,8 +1,8 @@
 # BF4 observable-matched trajectory: first exact step
 
 **Date:** 2026-07-26
-**Status:** constructive cutoff-one step proved; weak-coupling trajectory and
-AF envelope remain open
+**Status:** constructive cutoff-one step and finite scheduled iteration proved;
+weak-coupling atlas limit and AF envelope remain open
 
 ## 1. Why this step is necessary
 
@@ -73,14 +73,53 @@ that the proposed SU(2)/U(1) discriminator is an exact finite decision problem
 once the physical observable and candidate atlas are supplied; it does not
 invent the SU(2) sign.
 
-## 4. Constructive audit
+## 4. Scheduled finite trajectory and atlas order
+
+`BF4ObservableMatchedTrajectory.lean` iterates the one-step constructor over
+supplied schedules of corrected-slab geometries, positive candidate atlases,
+and observables. Starting from a strictly positive coupling, every successor
+is produced recursively by the exact argmin. At every finite step the module
+proves:
+
+- strict positivity and membership in that step's atlas;
+- global minimality of the physical matching defect;
+- the exact comparison trichotomy against the preceding coupling's fourth
+  power;
+- transfer of any certified candidate error bound to the selected error.
+
+For two finite atlases \(A\subseteq B\), the selected defects obey the exact
+order bound
+\[
+  D_O(s,s'_B)\le D_O(s,s'_A).
+\]
+If a `DefectSafeRefinement` additionally certifies that the old selected
+coupling remains a minimizer after enlargement, the two optimal defects are
+semantically equal.
+
+This is the spacing-finite refinement theorem, not an atlas-limit theorem.
+Monotonicity of scalar defects alone does not imply convergence of their
+argmin couplings. The missing implication requires identifiability or
+coercivity of the physical separator observable, with an explicit
+constructive modulus. The exact consumer is already proved:
+`couplingAt_succ_distance_le_of_identifiability` converts a bound
+\[
+  |u-u_*|\le C\,D_O(s,u)
+\]
+and a candidate defect certificate \(D_O\le\varepsilon\) into
+\[
+  |s'_{\!A}-u_*|\le C\varepsilon
+\]
+for the recursively selected coupling. The coercivity inequality itself is
+the remaining Yang--Mills analysis.
+
+## 5. Constructive audit
 
 The new declarations are computable and use no `Classical.*`,
 `native_decide`, `sorry`, custom axiom, or `noncomputable` declaration.
 Their axiom profiles are within the project gate
 `{propext, Quot.sound}`. The root build and frontier statement guards pass.
 
-## 5. Precise residual
+## 6. Precise residual
 
 This closes the *constructor* for one exact finite step, not the physical
 trajectory. The remaining obligations are now concrete:
@@ -90,9 +129,10 @@ trajectory. The remaining obligations are now concrete:
    observable.
 2. Build the U(1) physical pushforward on the same geometry and run the same
    comparison harness.
-3. Supply refining positive atlases near \(s=1\), prove stabilization or a
-   constructive Cauchy modulus for their argmins, and then iterate the derived
-   step.
+3. Supply refining positive atlases near \(s=1\) and prove a constructive
+   Cauchy modulus for their argmins from a Yang--Mills-specific
+   identifiability/coercivity estimate. Finite iteration and defect
+   antitonicity are now proved.
 4. Prove the weak-coupling marginal defect envelope, with the non-abelian and
    abelian signs separated.
 5. Only then instantiate `AFEnvelope` on this action-linked trajectory and

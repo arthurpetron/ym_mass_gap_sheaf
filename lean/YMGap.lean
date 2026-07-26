@@ -1010,6 +1010,7 @@ import YMGap.Continuum.BF4GroupedFeynmanKacHarnack
 import YMGap.Continuum.BF4PhysicalTrajectoryFence
 import YMGap.Continuum.BF4BlockOperatorExtensionalFence
 import YMGap.Continuum.BF4ObservableMatchedOneStep
+import YMGap.Continuum.BF4ObservableMatchedTrajectory
 import YMGap.Continuum.FiveHolonomyPerronCutoff
 import YMGap.Continuum.BF4AFHeatSpacing
 import YMGap.Continuum.BF4AFInstantiation

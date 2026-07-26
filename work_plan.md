@@ -592,6 +592,31 @@ the marginal anti-screening envelope.  Only that derived limiting trajectory
 may inhabit `AFEnvelope` and feed `BareAFImpliesLinearFloor`.  See
 `notes/bf4-observable-matched-trajectory.md`.
 
+**BF4 finite trajectory and atlas-refinement update (2026-07-26).**
+`BF4ObservableMatchedTrajectory.lean` now recursively iterates the derived
+one-step map over schedules of geometries, positive rational atlases, and
+observables.  Every finite successor is strictly positive, belongs to its
+step atlas, globally minimizes the exact pushed-vs-coarse defect, and carries
+the executable comparison certificate against \(s^4\).  A `Type`-valued
+candidate witness transfers any explicit approximation error to the selected
+coupling.
+
+The first exact atlas-order theorem is also closed: if a finite atlas is
+refined by retaining every old candidate, its optimal physical matching
+defect cannot increase.  A stronger `DefectSafeRefinement` certificate implies
+semantic equality of the old and refined optimal defects.  This does not yet
+prove convergence of the selected couplings: scalar defect antitonicity does
+not control argmin displacement.  The next analytic theorem is therefore a
+Yang--Mills-specific identifiability/coercivity bound for the physical
+separator observable, strong enough to convert defect error plus atlas mesh
+into a coupling-distance modulus.  The downstream implication is already
+formalized: if
+\(|u-u_*|\le C D_O(s,u)\) on the atlas and one candidate has defect at most
+\(\varepsilon\), then the selected successor satisfies
+\(|s'_A-u_*|\le C\varepsilon\).  The concrete DP exponent-Gram separator and a
+same-carrier U(1) pushforward are absent from the currently available
+tree/branches, so neither sign is claimed.
+
 The cumulative-heat condition is also not automatic.  For the local bare
 heat-kernel multiplier \(\rho(a)=s(a)^3\), it implies
 \[
