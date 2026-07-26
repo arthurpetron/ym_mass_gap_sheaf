@@ -1000,6 +1000,12 @@ import YMGap.Continuum.Z4DyadicSU2ParitySpinKernel
 import YMGap.Continuum.FiniteDeterministicKernelPushforward
 import YMGap.Continuum.ConstructiveRefreshContraction
 import YMGap.Continuum.GroupedAllLabelHaarRefresh
+import YMGap.Continuum.SU2HaarL2HilbertSchmidt
+import YMGap.Continuum.SU2HeatChannelHilbertSchmidtCompletion
+import YMGap.Continuum.BF4FiveHolonomyGaussian
+import YMGap.Continuum.FiveHolonomyPerronCutoff
+import YMGap.Continuum.BF4AFHeatSpacing
+import YMGap.Continuum.BF4AFInstantiation
 import YMGap.Continuum.Z4DyadicSU2ParityGlobalPushforward
 import YMGap.Continuum.Z4DyadicSU2ParityPhysicalWeightFence
 import YMGap.Continuum.Z4DyadicSU2ParityActivityMatchedDefect

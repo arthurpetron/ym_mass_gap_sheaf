@@ -426,6 +426,49 @@ This closes the Perron obstruction for the executable model \(s=1-a\)
 envelope on the nonperturbative physical BF4 trajectory.
 See `notes/bf4-five-holonomy-perron-budget.md`.
 
+**BF4 Lean analytic/AF milestone and fail-closed correction
+(2026-07-26).**  The following pieces now build and are axiom-gated:
+
+- exact normalized SU(2) Haar Riemann orthogonality, finite packet
+  Haar--\(L^2\)/Parseval identities, and finite-rank kernel
+  Hilbert--Schmidt convergence;
+- the infinite diagonal heat-channel Hilbert--Schmidt completion, with the
+  quantitative squared tail
+  \[
+  \sum_{i<d}a_{N+m+i}(q)^2
+  \le {a_N(q)^2\rho^{2m}\over1-\rho^2};
+  \]
+- a constructed spacing-dependent cutoff
+  \(N(q)=\operatorname{powBaseCutoff}(q,1/4)+1\) for every \(0<q<1\),
+  giving \(2q^{2(N(q)+1)}\le1/2\), both the all-label coefficient ceiling
+  and the all-label Haar--Hilbert--Schmidt completion;
+- the exact rational five-holonomy Gaussian generalized spectrum
+  \(4,4,4,6,6\);
+- the conditional moving-cutoff Perron theorem
+  \(C_s^2q_s^{m-2}<1\), with the 48-factor/four-buffer exponent \(192B\);
+- an exact reciprocal bare heat/transmutation trajectory, its cubic AF
+  recurrence remainder, exact exponential spacing bound, a concrete
+  `AFEnvelope`, and an actual application of
+  `BareAFImpliesLinearFloor`.
+
+This does **not** machine-check the nonlinear claim made in the preceding
+paragraph that \(q_s\to q_0\).  The new Hilbert--Schmidt theorem is for the
+diagonal SU(2) heat channel, not yet for the normalized nonlinear grouped
+five-holonomy BF4 kernel.  The remaining analytic theorem must control the
+BCH products, Haar Jacobians, spatial conditional integration, chart
+complement, and the joint cutoff/rescaling limit strongly enough to obtain
+operator Hilbert--Schmidt convergence and hence \(q_s\le1/4\).
+
+Nor is the reciprocal trajectory the genuine same-action four-dimensional
+BF4 block-map orbit.  The existing repository explicitly leaves that
+operator identification open (`PhysicalRGSelfSimilar` identifies it with
+the non-hierarchical bond-moving residual).  Consequently the concrete
+`AFEnvelope` is currently a verified bare scalar envelope only.  It may be
+applied to the physical BF4 trajectory only after proving that the grouped
+block operator supplies its `t`, `a`, and heat-coordinate identities.  These
+are the two active fail-closed residuals; no frontier type was weakened or
+inhabited.
+
 The cumulative-heat condition is also not automatic.  For the local bare
 heat-kernel multiplier \(\rho(a)=s(a)^3\), it implies
 \[

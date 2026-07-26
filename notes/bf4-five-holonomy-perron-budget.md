@@ -2,7 +2,37 @@
 
 ## Status
 
-The reduced Yang--Mills Perron obstruction is now proved under the necessary
+**Machine-checked status correction (2026-07-26).**  The scalar Perron
+arithmetic, the SU(2) Haar--\(L^2\) character layer, and the all-label
+Hilbert--Schmidt coefficient completion are now proved in Lean.  The
+nonlinear assertion in Section 5 is still an analytic proof programme, not
+a Lean theorem: the development does not yet identify the normalized
+five-holonomy BF4 operator with the Gaussian limit in Hilbert--Schmidt norm,
+and therefore does not yet construct the physical certificate
+\(q_s\le1/4\).  Likewise, the `AFEnvelope` instantiated below is an exact
+bare heat/transmutation envelope; it has not been identified with the
+same-action nonperturbative four-dimensional BF4 block-map orbit.  These two
+identifications are the fail-closed residuals.  No physical BF4 or Clay
+frontier type is inhabited.
+
+The checked components are:
+
+- `SU2HaarL2HilbertSchmidt.lean`: normalized Haar Riemann orthogonality,
+  finite packet Parseval, and finite-rank kernel Hilbert--Schmidt limits;
+- `SU2HeatChannelHilbertSchmidtCompletion.lean`: the genuine infinite
+  diagonal heat-channel squared tail and constructive Hilbert--Schmidt
+  completion;
+- `FiveHolonomyPerronCutoff.lean`: the explicit spacing-dependent label
+  cutoff, all-label ceiling, and the conditional strict inequality
+  \(C_s^2q_s^{m-2}<1\);
+- `BF4FiveHolonomyGaussian.lean`: the exact rational generalized spectrum
+  \(4,4,4,6,6\);
+- `BF4AFInstantiation.lean`: an exact reciprocal bare trajectory, its cubic
+  remainder and exponential spacing bound, a concrete `AFEnvelope`, and the
+  application of `BareAFImpliesLinearFloor`.
+
+At the analytic level, the intended reduced Yang--Mills Perron obstruction is
+the following conditional statement under the necessary
 heat-time/spacing hypothesis
 \[
 \tau(a):=-\log s(a)\ge\kappa a
@@ -10,7 +40,8 @@ heat-time/spacing hypothesis
 \]
 for some \(\kappa>0\) along the continuum tail.
 
-More precisely, the five-holonomy effective transfer has:
+The remaining Section 5 argument is intended to prove that the
+five-holonomy effective transfer has:
 
 - limiting non-vacuum spectral ratio
   \[
