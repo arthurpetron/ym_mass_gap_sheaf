@@ -162,6 +162,11 @@ def test_physical_promotion_frontier_remains_fail_closed():
     assert frontier.transverse_leaf_reduction_pinned
     assert frontier.transverse_cutoff_one_fusion_ledger_pinned
     assert frontier.transverse_cutoff_one_coherent_loop_tensors_pinned
+    assert frontier.transverse_cutoff_one_complete_residual_tensors_pinned
+    assert frontier.transverse_arbitrary_cutoff_recoupling_carrier_pinned
+    assert frontier.transverse_fixed_coupling_all_label_cauchy_modulus_pinned
+    assert frontier.transverse_cutoff_one_weak_coupling_cp_obstruction_pinned
+    assert not frontier.transverse_open_index_all_label_choi_reconstructed
     assert frontier.cumulative_heat_condition_contains_rescaled_bare_mode_floor
     assert not frontier.interacting_map_cp_dominates_corridor
     assert not frontier.physical_coupling_spacing_condition_proved

@@ -387,9 +387,11 @@ in `ScaleDependentGradedPerronFrobenius.lean`.
 
 ## 6. Recommended next experiment
 
-Construct the CP-order lift of the now-explicit heat packet on the
-**smallest grouped corrected slab that mixes two distinct BF3.1 cut
-signatures**.
+Construct the open-index all-label Choi lift of the now-explicit heat packet
+on the **smallest grouped corrected slab that mixes two distinct BF3.1 cut
+signatures**.  Do not start from the cutoff-one truncation: its exact
+ten-feature Schur symbol is indefinite at \(z=2s^3=3/2\), even though the
+full heat kernel is positive.
 
 For every candidate fusion-history family, record:
 
@@ -403,6 +405,10 @@ For every candidate fusion-history family, record:
 
 Stop a candidate immediately if it fails cut-signature mixing or if its
 common mass is a fixed low-spin probability vanishing at weak coupling.
+Also stop any proposal that tries to add the cutoff-one family as an
+independently CP summand; the exact negative direction \(e_8-e_9\) rules out
+that promotion.  Candidate families must group the full label tower before
+the CP-order comparison.
 The corridor packet itself is already all-label and has the fixed mass
 \(1055/2272\) once its grouped coordinate is at most \(1/2\).  The search
 must now determine the finite corridor cover, its shared-intertwiner

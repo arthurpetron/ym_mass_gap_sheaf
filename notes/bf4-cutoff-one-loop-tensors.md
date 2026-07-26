@@ -112,19 +112,20 @@ The executable source is
 
 Positivity of the scalar coefficients in this fundamental trace basis is not
 the required CP-order domination.  Wilson traces are not themselves positive
-functions, higher representation labels introduce nontrivial recouplings,
-and the complete 21-face residual also includes the six one-face
-decorations.
+functions.  The six decorations, nested arbitrary-cutoff local fusion bases,
+and a fixed-coupling all-label function tail have since been constructed.
+The exact cutoff-one Schur pilot nevertheless becomes indefinite at
+\(z=2s^3=3/2\), so the binary family cannot be used as a separately positive
+weak-coupling seed.
 
 The next BF4 obligation is therefore:
 
-1. lift the compact boundary-word contraction to arbitrary Peter--Weyl
-   labels and complete intertwiner data;
-2. prove an all-label trace-class or summable cutoff modulus;
-3. compare the resulting interacting boundary map with the nine-corridor
-   packet in a tensor-stable positive cone;
-4. extract a domination coefficient bounded below uniformly in lattice
-   spacing and ambient volume.
+1. evaluate the open magnetic-index Haar amplitudes and global \(F/R\)
+   transport on the nested fusion carrier;
+2. lift the fixed-coupling function tail to that source-indexed operator;
+3. reconstruct the all-label physical Choi/Kraus map;
+4. compare it with the nine-corridor packet and extract a domination
+   coefficient bounded below uniformly in spacing and ambient volume.
 
 Until those steps are proved, the corrected slab has no certified physical
 refresh packet, and no mass-gap consequence follows from this calculation.

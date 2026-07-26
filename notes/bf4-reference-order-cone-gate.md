@@ -334,9 +334,14 @@ Normalized-Haar leaf elimination reduces the transverse comparison to a
 specific 21-face core.  The 1024 admissible fundamental fillings of its
 connected component have now been coherently contracted to distinct
 canonical trace-word records with rational scalar coefficients on the
-protected boundary.  The next order theorem must lift this finite trace-word
-result to all labels and show that the full interacting map CP-dominates the
-corridor packet after that core is summed.
+protected boundary, and the six decorations complete the full binary
+residual.  A nested arbitrary-cutoff recoupling carrier and a fixed-coupling
+uniform all-label residual tail are now explicit.  But the cutoff-one
+ten-feature Schur symbol becomes indefinite already at \(z=3/2\), so binary
+CP domination cannot be promoted monotonically into weak coupling.  The next
+order theorem must reconstruct the open-index all-label Choi operator and
+show that the full interacting map CP-dominates the corridor packet after
+the labels are coherently regrouped.
 
 The grouped-half hypothesis itself is not free: for the local bare
 heat-kernel multiplier \(\rho=s^3\), it implies

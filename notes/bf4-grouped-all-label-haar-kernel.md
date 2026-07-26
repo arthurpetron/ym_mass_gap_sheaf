@@ -441,16 +441,60 @@ surviving trace word has length greater than seven.  Distinguished cases,
 including a maximal twelve-face filling, agree exactly with the independent
 quaternion-coordinate Haar contraction.
 
-This closes coherent evaluation only in the cutoff-one fundamental sector.
-It does not prove that the complete all-label interacting map dominates the
-corridor packet in CP order.  The next object is an all-label recoupling lift
-of these tensors, with a summable cutoff modulus and a positive domination
-constant uniform in spacing and volume.  Executable certificates are
+The six decorations are now included as exact independent boundary factors.
+The full residual has \(1024\cdot64=65536\) cutoff-one assignment records,
+at most 14 trace factors, individual word length at most seven, and total
+word length at most 27.  This finishes the complete binary residual rather
+than only its connected component.
+
+The next all-label carrier is also explicit as a nested finite-cutoff family.
+It retains all five oriented trivalent invariant bases, all nine protected
+boundary fusion bases, and every boundary output through \(2N\).  Exact
+factor-graph elimination gives:
+
+| face cutoff \(N\) | admissible core assignments | boundary-channel paths |
+|---:|---:|---:|
+| 1 | \(1024\) | \(10673\) |
+| 2 | \(184437\) | \(29647857\) |
+| 3 | \(8114176\) | \(8982556738\) |
+| 4 | \(179406250\) | \(1075792843993\) |
+| 5 | \(2279938752\) | \(54549556261540\) |
+
+The \(N=1\) row independently reproduces the binary ledger, and every local
+basis embeds literally into the next cutoff.  Separately, the one-plaquette
+character tail and normalized-Haar nonexpansivity give the full 21-face
+residual the fixed-coupling uniform modulus
+\[
+ E_N(s)=21H_N(s)^{20}T_N(s),
+\]
+uniform in the 18 protected boundary holonomies and ambient volume.  This
+constructs the all-label residual boundary function for each fixed \(s<1\),
+but the bound is not uniform as \(s\to1\).
+
+An exact \(10\times10\) Schur/Gram pilot explains why cutoff one cannot be
+promoted to the missing CP theorem.  At activity \(z=2s^3=1/2\),
+\(G(z)-I/3\) is positive definite.  At the valid weak-coupling activity
+\(z=3/2\), however, the vector \(e_8-e_9\) has quadratic form
+\[
+ -\frac{2738971}{1048576}<0.
+\]
+Thus the cutoff-one truncation is not even a positive Schur multiplier there.
+This does not obstruct the full positive heat kernel; it proves that the
+labels must be regrouped before taking CP order.
+
+The remaining constructor is now precise: evaluate the open magnetic-index
+Haar amplitudes and global \(F/R\) transport on the nested carrier, combine
+them with the all-label tail, reconstruct the physical source-indexed Choi
+operator, and prove its spacing-uniform CP domination over the corridor
+packet.  Executable certificates include
 `transverse_cutoff_one_fusion_audit()` in
 `computations/grouped_all_label_haar_refresh.py` and
 `cutoff_one_loop_tensor_audit()` in
-`computations/transverse_cutoff_one_loop_tensor.py`; see
-`notes/bf4-cutoff-one-loop-tensors.md`.
+`computations/transverse_cutoff_one_loop_tensor.py`; see also
+`notes/bf4-cutoff-one-residual-loop-tensors.md`,
+`notes/bf4-transverse-all-label-recoupling-carrier.md`,
+`notes/bf4-transverse-all-label-tail.md`, and
+`notes/bf4-cutoff-one-cp-order-pilot.md`.
 
 This corrects the interpretation of the BF3.2 handoff:
 

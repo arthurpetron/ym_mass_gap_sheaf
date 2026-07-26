@@ -135,10 +135,38 @@ constraint is soluble, the coefficient census is
 \((1/32\!:\!192),(1/16\!:\!448),(1/8\!:\!192),(1/4\!:\!128),(1\!:\!64)\),
 and the longest trace word has length seven.  Representative tensors,
 including the maximal twelve-face case, agree with independent exact
-quaternion-coordinate integration.  The next constructor must lift this
-compact cutoff-one trace-word family to an all-label recoupling/CP-order
-bound with a summable cutoff modulus.  See
-`notes/bf4-cutoff-one-loop-tensors.md`.
+quaternion-coordinate integration.  This pins the binary source data used by
+the all-label carrier below.  See `notes/bf4-cutoff-one-loop-tensors.md`.
+The six one-face decorations are now incorporated exactly as independent
+protected-boundary trace factors, completing all \(1024\cdot64=65536\)
+cutoff-one residual records.  The arbitrary-cutoff local recoupling carrier
+is also constructed: it retains the five oriented trivalent invariant bases,
+the nine complete boundary-output bases through \(2N\), and literal
+inclusions between successive cutoffs.  Exact factor elimination gives
+assignment/path counts
+\[
+\begin{array}{c|rr}
+N&\text{assignments}&\text{boundary paths}\\\hline
+1&1024&10673\\
+2&184437&29647857\\
+3&8114176&8982556738\\
+4&179406250&1075792843993\\
+5&2279938752&54549556261540.
+\end{array}
+\]
+The full 21-face residual has the fixed-coupling, boundary-uniform Cauchy
+modulus \(21H_N(s)^{20}T_N(s)\), so its all-label boundary function exists
+for every fixed \(s<1\); this modulus is not spacing-uniform as \(s\to1\).
+Finally, an exact \(10\times10\) Schur/Gram pilot proves that the cutoff-one
+truncation cannot itself be the weak-coupling CP component: at \(z=2s^3=3/2\)
+the vector \(e_8-e_9\) has quadratic form
+\(-2738971/1048576\).  The full all-label heat kernel is not obstructed.
+The next constructor must evaluate the open magnetic-index Haar amplitudes
+and global \(F/R\) transport on the nested carrier, reconstruct the
+source-indexed all-label Choi operator, and prove its spacing-uniform CP
+domination.  See `notes/bf4-transverse-all-label-recoupling-carrier.md`,
+`notes/bf4-transverse-all-label-tail.md`, and
+`notes/bf4-cutoff-one-cp-order-pilot.md`.
 The cumulative-heat condition is also not automatic.  For the local bare
 heat-kernel multiplier \(\rho(a)=s(a)^3\), it implies
 \[

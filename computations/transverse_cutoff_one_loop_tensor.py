@@ -541,7 +541,7 @@ class CutoffOneLoopTensorAudit:
             and not self.all_label_completion_proved
             and not self.cp_order_domination_proved
             and self.first_open_obligation
-            == "lift-compact-cutoff-one-loop-tensors-to-all-label-cp-order"
+            == "evaluate-open-index-all-label-haar-amplitudes"
         )
 
 
@@ -606,7 +606,7 @@ def cutoff_one_loop_tensor_audit() -> CutoffOneLoopTensorAudit:
         all_label_completion_proved=False,
         cp_order_domination_proved=False,
         first_open_obligation=(
-            "lift-compact-cutoff-one-loop-tensors-to-all-label-cp-order"
+            "evaluate-open-index-all-label-haar-amplitudes"
         ),
     )
     if not audit.validates():

@@ -687,9 +687,25 @@ scalar coefficients, soluble orientation constraints, and maximum trace-word
 length seven.  Distinctness here is syntactic after the stated word
 canonicalizations, not functional independence modulo every \(SU(2)\) trace
 identity.  This is a finite fundamental-sector result, not the needed
-all-label order theorem.  The next comparison must lift the compact
-trace-word family through the complete recoupling tower and prove a
-spacing-uniform CP lower bound with a summable cutoff modulus.
+all-label order theorem.  The six decorations now complete 65536 binary
+residual records.  Beyond cutoff one, a nested local recoupling carrier
+retains every trivalent invariant and protected-boundary output, and exact
+variable elimination has been carried through cutoff five.  A separate
+product-tail argument constructs the full residual boundary function at
+every fixed coupling with modulus \(21H_N^{20}T_N\).
+
+The cutoff-one CP pilot also supplies an exact route rejection.  Although a
+ten-feature Schur compression has domination mass \(1/3\) at activity
+\(z=1/2\), at the physical weak-coupling activity \(z=3/2\) it has the
+negative direction
+\[
+ (e_8-e_9)^{\mathsf T}G(e_8-e_9)
+ =-\frac{2738971}{1048576}.
+\]
+Thus the binary truncation cannot be treated as a positive component and
+then corrected label by label.  The next comparison must construct the
+open-index all-label Choi amplitudes and global recoupling transport first,
+then prove a spacing-uniform CP lower bound using the all-label tail.
 
 The cumulative-heat condition controls the local bare heat-kernel mode.
 With \(\rho=s^3\), it implies
