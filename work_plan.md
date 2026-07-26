@@ -469,6 +469,102 @@ block operator supplies its `t`, `a`, and heat-coordinate identities.  These
 are the two active fail-closed residuals; no frontier type was weakened or
 inhabited.
 
+**BF4 grouped five-holonomy analytic and trajectory-fence increment
+(2026-07-26).**  The analytic carrier is now genuinely nonlinear at every
+finite character cutoff and genuinely all-label on the five-coordinate
+tensor carrier:
+
+- four exact Clebsch--Gordan fusion products synthesize to the pointwise
+  fifth power of the finite SU(2) heat packet;
+- normalized midpoint-Haar sums converge to the exact finite nonlinear
+  Haar--\(L^2\) square;
+- the literal five-label Hilbert--Schmidt boxes factor as the fifth tensor
+  power of the one-coordinate square and converge constructively to a
+  CReal completion;
+- the same certified character cutoff survives every positive grouped
+  heat rescaling \(q\mapsto q^{\mathrm{steps}}\).
+
+The exact Gaussian Perron ratio is also now constructed as a CReal:
+\[
+q_0=3-2\sqrt2,\qquad
+\frac1{20}\le q_0\le\frac9{50}<\frac15.
+\]
+The upper bracket leaves the exact nonlinear handoff buffer
+\[
+ \frac9{50}+\frac7{100}=\frac14.
+\]
+Thus any normalized physical spectral ratio proved within \(7/100\) above
+a Gaussian-ratio approximation already obeys the required \(q\le1/4\).
+These statements are in
+`SU2GroupedFiveHolonomyHilbertSchmidt.lean` and
+`BF4GaussianPerronRatio.lean`.
+
+Direct domination of the nonlinear fifth power by the independent
+five-coordinate tensor completion is now also permanently excluded.  At
+\(q=1/2\), cutoff one, Lean computes
+\[
+ \|h_1^5\|_{L^2}^2
+ =\frac{215753357}{524288}
+ >
+ \frac{9765625}{1048576}
+ =\bigl(\|h_1\|_{L^2}^2\bigr)^5.
+\]
+The nonlinear all-label completion therefore needs a dimension-weighted
+fusion-tail theorem, not the tensor-box comparison.  The exact missing
+analytic estimate is a constructive uniform Cauchy bound for
+\(h_N^{\star5}\), together with its grouped \(q^{\mathrm{steps}}\) form.
+
+The interior-weight Harnack dependence is now exact as well.
+`BF4GroupedFeynmanKacHarnack.lean` proves a pathwise lower/upper sandwich
+for nonconstant positive potentials and a terminal-independent projective
+spread
+\[
+ k_{\rm spread}\,v_{\rm spread}^{p}.
+\]
+For the BF4 kinetic corridor this uses
+\[
+ k_{\min}=(1055/2272)^{23},\quad
+ k_{\max}=(3489/2272)^{23},\quad
+ k_{\rm spread}=(3489/1055)^{23},
+\]
+with kinetic common mass \((1055/3489)^{46}\).  A constructive spike
+family proves that strict positivity, even with unit floor, supplies no
+finite spacing-uniform \(v_{\rm spread}\).  The required remaining input
+is therefore a Yang--Mills-specific uniform oscillation bound after
+conditional spatial integration, or a finer cancellation/lumpability
+theorem that removes this factor.
+
+Three further tempting physical shortcuts are permanently fenced.  First, an
+exact two-state countermodel using the proved all-label Haar floor
+\(1055/2272\) shows that insertion of a merely positive interior potential
+can make \(QDQ>4Q^2\); heat semigroup arithmetic plus positivity therefore
+does not imply the required 48-factor CP order.  Second, the existing
+`BondMovingResidual` does not connect its `delta` to its
+`fullStepWeight`: Lean constructs a record with `delta = 0` but an
+incorrect full-step weight.  The repaired
+`CoupledBondMovingResidual` adds the missing deviation inequality, and
+`LinkedBondMovingTrajectory` adds the required next-iterate
+identification.  Third,
+`BF4BlockOperatorExtensionalFence.lean` proves on the actual source-indexed
+globally link-glued slab operator that replacing `SlabScalePair.couplingFlow`
+can leave every raw kernel entry unchanged.  Constant and spiked,
+extensionally inequivalent flows generate the same operator.  Hence that
+operator cannot determine a cubic AF recurrence or a physical
+heat-time/spacing trajectory.
+
+Thus the exact residual has become narrower but remains physical: prove a
+dimension-weighted nonlinear fusion-tail estimate; prove a
+Yang--Mills-specific spacing-uniform conditional-integral/Harnack estimate
+for the spatially weighted five-holonomy Feynman--Kac kernel; prove the
+BCH/Jacobian/chart-complement modulus that identifies its normalized
+operator with the Gaussian limit, and construct an inhabitant of the
+action-linked BF4 trajectory from a block operator that actually constructs
+the next physical action from the pushed current law.  Only that constructor
+can instantiate the already-proved bare `AFEnvelope` on the physical
+trajectory and feed `BareAFImpliesLinearFloor`.  The tensor carrier, the
+flow-blind slab operator, and the bare AF envelope do not by themselves
+supply those identifications.
+
 The cumulative-heat condition is also not automatic.  For the local bare
 heat-kernel multiplier \(\rho(a)=s(a)^3\), it implies
 \[

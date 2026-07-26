@@ -1002,7 +1002,13 @@ import YMGap.Continuum.ConstructiveRefreshContraction
 import YMGap.Continuum.GroupedAllLabelHaarRefresh
 import YMGap.Continuum.SU2HaarL2HilbertSchmidt
 import YMGap.Continuum.SU2HeatChannelHilbertSchmidtCompletion
+import YMGap.Continuum.SU2GroupedFiveHolonomyHilbertSchmidt
 import YMGap.Continuum.BF4FiveHolonomyGaussian
+import YMGap.Continuum.BF4GaussianPerronRatio
+import YMGap.Continuum.BF4InterleavedPotentialShortcutFence
+import YMGap.Continuum.BF4GroupedFeynmanKacHarnack
+import YMGap.Continuum.BF4PhysicalTrajectoryFence
+import YMGap.Continuum.BF4BlockOperatorExtensionalFence
 import YMGap.Continuum.FiveHolonomyPerronCutoff
 import YMGap.Continuum.BF4AFHeatSpacing
 import YMGap.Continuum.BF4AFInstantiation

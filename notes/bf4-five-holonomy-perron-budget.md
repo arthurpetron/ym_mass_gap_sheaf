@@ -22,14 +22,66 @@ The checked components are:
 - `SU2HeatChannelHilbertSchmidtCompletion.lean`: the genuine infinite
   diagonal heat-channel squared tail and constructive Hilbert--Schmidt
   completion;
+- `SU2GroupedFiveHolonomyHilbertSchmidt.lean`: four exact
+  Clebsch--Gordan fusions equal the pointwise fifth power at finite
+  cutoff; genuine midpoint-Haar convergence for that nonlinear carrier;
+  and a constructive all-label Hilbert--Schmidt completion of the literal
+  five-coordinate tensor carrier, stable under
+  \(q\mapsto q^{\mathrm{steps}}\).  The same module machine-refutes direct
+  domination of the nonlinear carrier by that independent tensor box:
+  at \(q=1/2\), cutoff one,
+  \[
+    \frac{215753357}{524288}
+    >
+    \frac{9765625}{1048576};
+  \]
 - `FiveHolonomyPerronCutoff.lean`: the explicit spacing-dependent label
   cutoff, all-label ceiling, and the conditional strict inequality
   \(C_s^2q_s^{m-2}<1\);
 - `BF4FiveHolonomyGaussian.lean`: the exact rational generalized spectrum
   \(4,4,4,6,6\);
+- `BF4GaussianPerronRatio.lean`: a constructive-real
+  \(q_0=3-2\sqrt2\) with
+  \(1/20\le q_0\le9/50<1/5\), plus the exact nonlinear handoff buffer
+  \(9/50+7/100=1/4\);
 - `BF4AFInstantiation.lean`: an exact reciprocal bare trajectory, its cubic
   remainder and exponential spacing bound, a concrete `AFEnvelope`, and the
   application of `BareAFImpliesLinearFloor`.
+
+Four additional axiom-gated layers prevent the remaining physical
+identifications from being inferred from insufficient premises:
+
+- `BF4InterleavedPotentialShortcutFence.lean` proves with the actual
+  all-label Haar floor \(1055/2272\) that a positive interior
+  Feynman--Kac weight need not satisfy even the naïve one-factor
+  \(QDQ\le4Q^2\) comparison;
+- `BF4PhysicalTrajectoryFence.lean` proves that the legacy
+  `BondMovingResidual` permits `delta = 0` with an unrelated
+  `fullStepWeight`, then supplies the fail-closed
+  `CoupledBondMovingResidual` and `LinkedBondMovingTrajectory`
+  interfaces that a real block-map construction must inhabit;
+- `BF4GroupedFeynmanKacHarnack.lean` proves the exact pathwise sandwich
+  with nonconstant interior potentials, the projective spread
+  \(k_{\rm spread}v_{\rm spread}^{p}\), and the BF4 kinetic constants
+  \(k_{\min}=(1055/2272)^{23}\),
+  \(k_{\max}=(3489/2272)^{23}\), and
+  \(k_{\rm spread}=(3489/1055)^{23}\).  It also proves that positivity
+  plus a unit potential floor yields no finite uniform potential spread;
+- `BF4BlockOperatorExtensionalFence.lean` proves that the current genuine
+  source-indexed slab operator is insensitive to arbitrary changes of its
+  declared `couplingFlow` away from the one endpoint constraint.  Two
+  inequivalent flows therefore produce identical raw kernels, so this
+  operator cannot determine the physical AF trajectory.
+
+The nonlinear all-label analytic residual is now exact: prove a
+dimension-weighted fusion-tail Cauchy estimate for \(h_N^{\star5}\), stable
+under grouped heat rescaling.  The grouped Harnack residual is likewise
+exact: prove a spacing-uniform Yang--Mills bound for the conditionally
+integrated interior-potential spread, or an exact cancellation/lumpability
+result that avoids this spread.  The trajectory residual requires a block
+constructor that extracts the next physical action from the pushed current
+law; only then may the existing bare `AFEnvelope` and
+`BareAFImpliesLinearFloor` be instantiated physically.
 
 At the analytic level, the intended reduced Yang--Mills Perron obstruction is
 the following conditional statement under the necessary
