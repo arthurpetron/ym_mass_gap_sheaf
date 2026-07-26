@@ -565,6 +565,33 @@ trajectory and feed `BareAFImpliesLinearFloor`.  The tensor carrier, the
 flow-blind slab operator, and the bare AF envelope do not by themselves
 supply those identifications.
 
+**BF4 observable-matched trajectory constructor (2026-07-26).**  The
+flow-blindness fence is now followed by a constructive first physical
+alternative.  `BF4ObservableMatchedOneStep.lean` uses the exact cutoff-one
+globally link-glued physical pushforward and defines the coarse coupling by
+minimizing, over a supplied finite positive rational atlas, the absolute
+difference between a pushed fine observable expectation and the normalized
+coarse Gibbs expectation.  The fine/coarse corrected-slab geometry and its
+exact extent relation are constructed, the finite argmin carries membership
+and global minimality certificates, and the physical scale pair/kernel are
+rebuilt from the selected coupling.  The output coupling is therefore derived
+from the blocked law rather than read from the extensionally invisible
+`couplingFlow` field.
+
+The same module returns an executable `Type`-valued certificate for exactly
+one branch of the discriminator
+\[
+  s'<s^4,\qquad s'\simeq s^4,\qquad s^4<s',
+\]
+where \(s^4\) is only the exact two-dimensional reference.  It does not claim
+which branch the physical SU(2) weak-coupling flow occupies.  The remaining
+trajectory obstruction is now: instantiate the DP reflection-positive
+separator observable, construct the U(1) control kernel on the same carrier,
+prove convergence/stability under refining atlases near \(s=1\), and derive
+the marginal anti-screening envelope.  Only that derived limiting trajectory
+may inhabit `AFEnvelope` and feed `BareAFImpliesLinearFloor`.  See
+`notes/bf4-observable-matched-trajectory.md`.
+
 The cumulative-heat condition is also not automatic.  For the local bare
 heat-kernel multiplier \(\rho(a)=s(a)^3\), it implies
 \[
