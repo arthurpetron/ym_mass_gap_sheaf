@@ -338,10 +338,22 @@ protected boundary, and the six decorations complete the full binary
 residual.  A nested arbitrary-cutoff recoupling carrier and a fixed-coupling
 uniform all-label residual tail are now explicit.  But the cutoff-one
 ten-feature Schur symbol becomes indefinite already at \(z=3/2\), so binary
-CP domination cannot be promoted monotonically into weak coupling.  The next
-order theorem must reconstruct the open-index all-label Choi operator and
-show that the full interacting map CP-dominates the corridor packet after
-the labels are coherently regrouped.
+CP domination cannot be promoted monotonically into weak coupling.
+
+The carrier now has exact local magnetic tensors at arbitrary finite cutoff.
+At cutoff one, its 33 oriented incidences, 18 shared protected interfaces,
+\(1/(k+1)\) dimension weights, signed Racah blocks, and \(J^2=-I\) pivotal
+sign are all explicit.  The fixed-coupling scalar tail also lifts to a
+trace-norm tail for finite compressions of the positive full-measure Gram,
+including coherent cutoff cross corners.  These results still do not
+identify the physical source-indexed Choi map.
+
+Moreover no fixed cutoff is weak-coupling uniform, even relatively: an
+explicit omitted block exceeds the retained identity head.  The next order
+theorem must reconstruct the open-index all-label Choi operator in this
+pivotal convention and show that the full interacting map CP-dominates the
+corridor packet after a spacing-dependent cutoff or direct all-label
+regrouping.
 
 The grouped-half hypothesis itself is not free: for the local bare
 heat-kernel multiplier \(\rho=s^3\), it implies

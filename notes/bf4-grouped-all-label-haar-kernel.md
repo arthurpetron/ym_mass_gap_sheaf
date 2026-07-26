@@ -482,11 +482,36 @@ Thus the cutoff-one truncation is not even a positive Schur multiplier there.
 This does not obstruct the full positive heat kernel; it proves that the
 labels must be regrouped before taking CP order.
 
-The remaining constructor is now precise: evaluate the open magnetic-index
-Haar amplitudes and global \(F/R\) transport on the nested carrier, combine
-them with the all-label tail, reconstruct the physical source-indexed Choi
-operator, and prove its spacing-uniform CP domination over the corridor
-packet.  Executable certificates include
+The local magnetic-index data are now exact at arbitrary finite cutoff.
+An explicit factorial formula produces every Condon--Shortley CG coefficient
+as a signed quadratic radical.  Exact audits through cutoff three prove
+orthonormality, completeness, and trivalent Lie-generator invariance.
+
+The global convention is pinned at cutoff one without flattening the 10673
+paths.  The 15-face network has 33 oriented magnetic incidences, five
+rank-one trivalent Haar nodes, and nine open residual-pair CG nodes.  At
+each core protected link, residual and selected pairs share output \(k\)
+with weight \(1/(k+1)\); each decoration enforces selected-pair output equal
+to the residual label.  The nine all-fundamental Racah blocks consist of
+five standard reflections, three signed ordering variants, and one
+identity.  The pivotal warning \(J^2=-I\) is explicit.
+
+At fixed coupling, the scalar residual modulus also lifts to trace norm for
+a positive full-measure Gram operator.  Complete finite feature
+compressions remain PSD/CP under an established Choi indexing, and the
+feature tail controls both coherent \(P/Q\) corners.  This does not identify
+the Gram with the physical source-to-target corrected-slab map.
+
+No fixed cutoff can repair the missing weak-coupling uniformity.  For every
+\(N\), an explicit \(s_N<1\) makes the first omitted identity term at least
+\((N+2)^2/2\).  A second witness makes the omitted block
+\(N+1,\ldots,2N+1\) exceed the entire retained head, so fixed-cutoff
+relative error also exceeds one half.  The remaining constructor must
+therefore contract the selected and residual open indices on the all-label
+carrier using either an explicit moving cutoff \(N(s)\) or a direct
+all-label regrouping, then prove spacing-uniform CP domination.
+
+Executable certificates include
 `transverse_cutoff_one_fusion_audit()` in
 `computations/grouped_all_label_haar_refresh.py` and
 `cutoff_one_loop_tensor_audit()` in
@@ -494,7 +519,12 @@ packet.  Executable certificates include
 `notes/bf4-cutoff-one-residual-loop-tensors.md`,
 `notes/bf4-transverse-all-label-recoupling-carrier.md`,
 `notes/bf4-transverse-all-label-tail.md`, and
-`notes/bf4-cutoff-one-cp-order-pilot.md`.
+`notes/bf4-cutoff-one-cp-order-pilot.md`.  The new open-index and
+operator-tail certificates are documented in
+`notes/bf4-open-magnetic-intertwiners.md`,
+`notes/bf4-transverse-open-index-network.md`,
+`notes/bf4-transverse-residual-operator-tail.md`, and
+`notes/bf4-weak-coupling-tail-obstruction.md`.
 
 This corrects the interpretation of the BF3.2 handoff:
 
@@ -560,7 +590,10 @@ The geometry portion is now partly closed: the nine disks, their
 boundaries, and their disjoint internal-link sets are pinned.  The open
 portion is exactly the transverse-interaction/recoupling sum forced by the
 two off-corridor incidences at every internal link.  Normalized Haar leaf
-elimination reduces that sum to the pinned 21-face core above.
+elimination reduces that sum to the pinned 21-face core above.  Its local
+open tensors and cutoff-one shared-channel network are now explicit; the
+remaining open portion is the all-label physical source/target contraction
+and its spacing-uniform CP-order lower bound.
 
 After that, prove the physical cumulative-heat condition
 \((\mathrm{CH})_L\).

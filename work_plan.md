@@ -156,17 +156,43 @@ N&\text{assignments}&\text{boundary paths}\\\hline
 \]
 The full 21-face residual has the fixed-coupling, boundary-uniform Cauchy
 modulus \(21H_N(s)^{20}T_N(s)\), so its all-label boundary function exists
-for every fixed \(s<1\); this modulus is not spacing-uniform as \(s\to1\).
+for every fixed \(s<1\).  The local open magnetic tensors are now explicit
+at arbitrary finite cutoff via an exact Condon--Shortley factorial formula.
+Through cutoff three, every CG basis is exactly orthonormal and complete and
+every trivalent tensor is annihilated by \(J_z,J_+,J_-\).
+
+At cutoff one, the connected residual is also a non-flattened open-index
+network with 33 oriented incidences.  Its nine core protected interfaces
+share a fusion output \(k\) with weight \(1/(k+1)\), its nine decorations
+enforce selected-pair output equal to residual label, and its signed Racah
+transport has census five standard reflections, three ordering variants,
+and one identity.  The fundamental pivotal sign \(J^2=-I\) is retained.
+This pins the complete local and cutoff-one global convention, but does not
+yet contract the physical selected-corridor source indices.
+
+The scalar modulus now lifts at fixed coupling to an exact trace-norm
+Cauchy modulus for a positive residual Gram operator, including both
+coherent \(P/Q\) cross corners.  Compressions of the full positive measure
+remain PSD/CP under any established Choi indexing; the physical
+source-to-target indexing is still absent.  Neither this bound nor the
+scalar bound is spacing-uniform.  In fact, an exact Bernoulli witness proves
+that every fixed representation cutoff fails uniformly as \(s\to1\), both
+in absolute error and in relative error: an omitted block can exceed the
+entire retained identity head.  Therefore the next theorem must use a
+spacing-dependent cutoff \(N(s)\) or regroup the full label tower directly.
+
 Finally, an exact \(10\times10\) Schur/Gram pilot proves that the cutoff-one
 truncation cannot itself be the weak-coupling CP component: at \(z=2s^3=3/2\)
 the vector \(e_8-e_9\) has quadratic form
 \(-2738971/1048576\).  The full all-label heat kernel is not obstructed.
-The next constructor must evaluate the open magnetic-index Haar amplitudes
-and global \(F/R\) transport on the nested carrier, reconstruct the
-source-indexed all-label Choi operator, and prove its spacing-uniform CP
-domination.  See `notes/bf4-transverse-all-label-recoupling-carrier.md`,
-`notes/bf4-transverse-all-label-tail.md`, and
-`notes/bf4-cutoff-one-cp-order-pilot.md`.
+The next constructor must contract the selected and residual open indices
+in one pivotal convention on the all-label carrier, reconstruct the
+physical source-indexed Choi operator, and prove spacing-uniform CP
+domination with a moving cutoff or direct all-label regrouping.  See
+`notes/bf4-open-magnetic-intertwiners.md`,
+`notes/bf4-transverse-open-index-network.md`,
+`notes/bf4-transverse-residual-operator-tail.md`, and
+`notes/bf4-weak-coupling-tail-obstruction.md`.
 The cumulative-heat condition is also not automatic.  For the local bare
 heat-kernel multiplier \(\rho(a)=s(a)^3\), it implies
 \[

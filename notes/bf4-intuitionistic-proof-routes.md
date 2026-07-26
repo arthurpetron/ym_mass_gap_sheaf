@@ -387,11 +387,12 @@ in `ScaleDependentGradedPerronFrobenius.lean`.
 
 ## 6. Recommended next experiment
 
-Construct the open-index all-label Choi lift of the now-explicit heat packet
-on the **smallest grouped corrected slab that mixes two distinct BF3.1 cut
-signatures**.  Do not start from the cutoff-one truncation: its exact
-ten-feature Schur symbol is indefinite at \(z=2s^3=3/2\), even though the
-full heat kernel is positive.
+Extend the now-explicit cutoff-one selected/residual open-index contraction
+to the all-label carrier on the **smallest grouped corrected slab that mixes
+two distinct BF3.1 cut signatures**.  Preserve the pinned shared-\(k\)
+weights, signed Racah blocks, and \(J^2=-I\) pivotal convention.  Do not
+start from the cutoff-one truncation: its exact ten-feature Schur symbol is
+indefinite at \(z=2s^3=3/2\), even though the full heat kernel is positive.
 
 For every candidate fusion-history family, record:
 
@@ -408,11 +409,16 @@ common mass is a fixed low-spin probability vanishing at weak coupling.
 Also stop any proposal that tries to add the cutoff-one family as an
 independently CP summand; the exact negative direction \(e_8-e_9\) rules out
 that promotion.  Candidate families must group the full label tower before
-the CP-order comparison.
+the CP-order comparison.  A fixed cutoff is now ruled out even for relative
+weak-coupling error, so any finite approximation must expose a derived
+cutoff \(N(s)\); the alternative is direct all-label operator regrouping.
 The corridor packet itself is already all-label and has the fixed mass
 \(1055/2272\) once its grouped coordinate is at most \(1/2\).  The search
 must now determine the finite corridor cover, its shared-intertwiner
-transport, and the CP-domination coefficient \(\eta_{a,L}\).  The first
+transport beyond cutoff one, the physical source/target Choi contraction,
+and the CP-domination coefficient \(\eta_{a,L}\).  The fixed-coupling
+positive Gram already has an exact trace-norm compression tail, but has not
+yet been identified with that physical Choi map.  The first
 successful family becomes the constructor for BF4-C3; its uniform
 \(\eta_L\), together with the cumulative-heat inequality, closes BF4-C4.
 

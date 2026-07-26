@@ -118,13 +118,18 @@ The exact cutoff-one Schur pilot nevertheless becomes indefinite at
 \(z=2s^3=3/2\), so the binary family cannot be used as a separately positive
 weak-coupling seed.
 
-The next BF4 obligation is therefore:
+The first two steps have now advanced: arbitrary-cutoff local magnetic
+tensors, the complete cutoff-one shared-channel \(F/R\) network, and a
+fixed-coupling positive-Gram trace tail are explicit.  The remaining BF4
+obligation is therefore:
 
-1. evaluate the open magnetic-index Haar amplitudes and global \(F/R\)
-   transport on the nested fusion carrier;
-2. lift the fixed-coupling function tail to that source-indexed operator;
-3. reconstruct the all-label physical Choi/Kraus map;
-4. compare it with the nine-corridor packet and extract a domination
+1. extend the cutoff-one global \(F/R\) transport to the nested all-label
+   fusion carrier;
+2. contract the selected and residual indices into the physical
+   source-indexed Choi/Kraus map;
+3. use a spacing-dependent cutoff or direct all-label regrouping, since
+   fixed-cutoff absolute and relative weak-coupling tails are impossible;
+4. compare the result with the nine-corridor packet and extract a domination
    coefficient bounded below uniformly in spacing and ambient volume.
 
 Until those steps are proved, the corrected slab has no certified physical

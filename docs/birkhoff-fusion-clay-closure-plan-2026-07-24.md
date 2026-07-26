@@ -703,9 +703,24 @@ negative direction
  =-\frac{2738971}{1048576}.
 \]
 Thus the binary truncation cannot be treated as a positive component and
-then corrected label by label.  The next comparison must construct the
-open-index all-label Choi amplitudes and global recoupling transport first,
-then prove a spacing-uniform CP lower bound using the all-label tail.
+then corrected label by label.
+
+The missing local open-index data are now constructed at arbitrary finite
+cutoff by exact Condon--Shortley magnetic tensors.  At cutoff one the full
+15-face incidence network, all 18 shared protected-link interfaces,
+dimension weights \(1/(k+1)\), signed Racah transports, and the pivotal sign
+\(J^2=-I\) are pinned without flattening the path family.  A separate
+positive full-measure Gram construction lifts the fixed-coupling scalar
+tail to trace norm, including coherent \(P/Q\) corners.  It remains
+fail-closed about the physical source/target Choi identification.
+
+Weak-coupling uniformity cannot be obtained from one fixed cutoff: an exact
+Bernoulli witness gives a divergent absolute omitted term, and a block
+witness makes the omitted relative tail larger than the entire retained
+head.  The next comparison must therefore contract the selected and
+residual indices on the all-label carrier in one pivotal convention and use
+a derived moving cutoff or direct all-label regrouping before proving the
+spacing-uniform CP lower bound.
 
 The cumulative-heat condition controls the local bare heat-kernel mode.
 With \(\rho=s^3\), it implies
