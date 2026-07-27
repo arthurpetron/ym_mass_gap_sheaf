@@ -174,3 +174,55 @@ atlas.  It returns a computational `Type`-valued certificate for the exact
 finite ordering of the independently matched SU(2) and U(1) couplings.
 No weak-coupling sign is claimed until cutoff/spacing convergence and a
 located separator bound are proved.
+
+## 8. All-label U(1) reflection positivity and block CP order
+
+The finite U(1) control theory now has a genuine reflection-positive
+same-carrier interpretation.  `BF4U1ReflectionCovariance.lean` proves the
+orientation-correct action of time reflection on signed face charges:
+spatial faces retain their charge and time-oriented faces acquire charge
+conjugation.  The full Haar-constrained physical term and bounded carrier
+are invariant under this involution.
+
+At a fixed central boundary,
+`BF4U1TwistedReflectionGram.lean` factors the physical weight into a
+nonnegative boundary weight and two half amplitudes.  The orientation sign
+makes the raw kernel a charge-conjugation-twisted Gram.  This is not discarded:
+global charge conjugation is proved to permute the exact half-state carrier,
+and every conjugation-even coefficient is regrouped into an ordinary
+weighted sum of squares.
+
+`BF4U1TwistedPhysicalReindex.lean` then proves that lower state, central
+boundary, and reflected upper state form an exact Cartesian reindexing of
+the complete bounded physical carrier.  Consequently both the unnormalized
+physical quadratic and the normalized-mass quadratic are nonnegative for
+every conjugation-even half observable.
+
+Heat-exponent indicators and arbitrary finite rational linear combinations
+of them are conjugation-even.  `BF4U1ExponentGramPositivity.lean` therefore
+proves positivity of their genuine all-label normalized quadratics and
+identifies the existing coarse discriminator diagonal with this
+orientation-correct form.
+
+Finally `BF4U1BlockReflectionCP.lean` proves that the direct four-face BF4
+charge sum:
+
+- intertwines fine and coarse time reflection;
+- commutes with global charge conjugation;
+- is exactly lumpable on lower and reflected-upper half observables; and
+- sends the fine normalized law to the already-defined blocked mass through
+  the supported deterministic kernel.
+
+Thus the blocked reflection quadratic is exactly the fine reflection
+quadratic of the pulled-back observable.  Arbitrary finite exponent packets
+of the actual blocked law are nonnegative, and every diagonal
+`u1BlockedExponentGramEntry` used by the SU(2)/U(1) discriminator is
+nonnegative.  This closes the finite-cutoff same-carrier CP-order
+obstruction constructively; every new dependency gate is contained in
+`{propext, Quot.sound}`.
+
+What remains is analytic rather than a missing finite carrier: a
+spacing-dependent charge/representation cutoff with a quantitative
+all-label tail modulus, uniform convergence of the grouped physical
+quadratics, and then the Yang--Mills-specific weak-coupling/AF separation on
+the physical BF4 trajectory.

@@ -13998,3 +13998,51 @@ composition only after CD-0--CD-5 provide genuine physical data.
 
 This snapshot does not change the honest Core-B boundary:
 `PhysicalRowOneOriginSquareGapQuotientNonnegative` remains uninhabited.
+
+## BF4 same-carrier U(1) reflection/CP milestone (2026-07-26)
+
+The finite signed-charge control lane has passed the obstruction that had
+been described as the missing same-carrier exponent-Gram pushforward.
+
+1. `BF4U1ReflectionCovariance.lean` constructs the orientation-correct
+   reflection on every bounded signed charge label and proves exact local
+   incidence covariance, Haar-factor covariance, full carrier permutation,
+   and physical-weight invariance.
+2. `BF4U1TwistedReflectionGram.lean` performs the fixed-central-boundary
+   contraction.  The unavoidable temporal orientation sign is retained as
+   global charge conjugation on the reflected half.  For every
+   conjugation-even coefficient the twisted quadratic is reindexed to an
+   explicit nonnegative weighted Gram sum.
+3. `BF4U1TwistedPhysicalReindex.lean` proves literal inverse restriction and
+   assembly maps and an exact permutation between the lower/boundary/upper
+   Cartesian carrier and the complete bounded physical carrier.  It
+   transports the conditional Gram theorem to the genuine all-label
+   physical and normalized laws.
+4. `BF4U1ExponentGramPositivity.lean` proves that magnitude-exponent
+   indicators and arbitrary finite exponent packets are conjugation-even.
+   Their genuine all-label normalized quadratics are positive, and the
+   pre-existing coarse exponent-Gram diagonal is identified with that
+   quadratic.
+5. `BF4U1BlockReflectionCP.lean` proves reflection and conjugation
+   equivariance of the four-face BF4 charge sum, exact lower/reflected-upper
+   lumpability, the deterministic-kernel weighted-row identity, and the
+   equality between the blocked OS quadratic and the fine OS quadratic of
+   the block pullback.  Therefore the actual blocked law preserves the
+   conjugation-even reflection cone.  Arbitrary blocked exponent packets
+   and every diagonal `u1BlockedExponentGramEntry` are nonnegative.
+
+All declarations are constructive and their printed axiom profiles are
+subsets of `{propext, Quot.sound}`.  This is a finite-cutoff CP-order theorem,
+not a continuum or mass-gap theorem.
+
+The next analytic bridge is now sharply isolated:
+
+1. choose a spacing-dependent charge/representation cutoff `K(a)`;
+2. prove an all-label tail estimate uniform in the slab spacing/volume
+   regime used by the BF4 trajectory;
+3. use the already-proved finite weighted-Gram convergence layer to pass
+   these reflection quadratics to the cutoff-free grouped kernel;
+4. establish the Yang--Mills-specific weak-coupling separator and cubic AF
+   remainder for the genuine BF4 trajectory; and
+5. only after those physical estimates instantiate `AFEnvelope` and apply
+   `BareAFImpliesLinearFloor`.
