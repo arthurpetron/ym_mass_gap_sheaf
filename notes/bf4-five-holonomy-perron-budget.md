@@ -3,10 +3,11 @@
 ## Status
 
 **Machine-checked status correction (2026-07-26).**  The scalar Perron
-arithmetic, the SU(2) Haar--\(L^2\) character layer, and the all-label
-Hilbert--Schmidt coefficient completion are now proved in Lean.  The
-nonlinear assertion in Section 5 is still an analytic proof programme, not
-a Lean theorem: the development does not yet identify the normalized
+arithmetic, the SU(2) Haar--\(L^2\) character layer, the all-label
+Hilbert--Schmidt coefficient completion, and the nonlinear same-carrier
+five-fusion completion are now proved in Lean.  The remaining assertion in
+Section 5 is still an analytic proof programme, not a Lean theorem: the
+development does not yet identify the normalized, conditionally integrated
 five-holonomy BF4 operator with the Gaussian limit in Hilbert--Schmidt norm,
 and therefore does not yet construct the physical certificate
 \(q_s\le1/4\).  Likewise, the `AFEnvelope` instantiated below is an exact
@@ -35,6 +36,16 @@ The checked components are:
     >
     \frac{9765625}{1048576};
   \]
+- `SU2DimensionWeightedHeatTail.lean` and
+  `SU2FusionWeightedMass.lean`: the spacing-dependent \(1/8\) label cutoff,
+  a uniform dimension-weighted heat mass ceiling, and exact multiplicativity
+  of that mass under genuine Clebsch--Gordan fusion;
+- `SU2NonlinearFiveFusionTail.lean` and
+  `SU2NonlinearFiveFusionCompletion.lean`: directed same-carrier padding,
+  the exact omitted weighted packet tail, the quantitative nonlinear
+  Haar-square bound, and a constructed `CReal` to which both the direct
+  fivefold packet squares and the canonical grouped five-holonomy Haar
+  observables converge;
 - `FiveHolonomyPerronCutoff.lean`: the explicit spacing-dependent label
   cutoff, all-label ceiling, and the conditional strict inequality
   \(C_s^2q_s^{m-2}<1\);
@@ -73,15 +84,17 @@ identifications from being inferred from insufficient premises:
   inequivalent flows therefore produce identical raw kernels, so this
   operator cannot determine the physical AF trajectory.
 
-The nonlinear all-label analytic residual is now exact: prove a
-dimension-weighted fusion-tail Cauchy estimate for \(h_N^{\star5}\), stable
-under grouped heat rescaling.  The grouped Harnack residual is likewise
-exact: prove a spacing-uniform Yang--Mills bound for the conditionally
-integrated interior-potential spread, or an exact cancellation/lumpability
-result that avoids this spread.  The trajectory residual requires a block
-constructor that extracts the next physical action from the pushed current
-law; only then may the existing bare `AFEnvelope` and
-`BareAFImpliesLinearFloor` be instantiated physically.
+The nonlinear all-label fusion-tail residual is now closed.  In particular,
+the proof does not compare against the invalid independent tensor box: it
+pads both truncations to one SU(2) carrier, propagates coefficient order
+through five genuine fusions, and controls the Haar square by the exact
+dimension-weighted omitted tail.  The grouped Harnack residual remains:
+prove a spacing-uniform Yang--Mills bound for the conditionally integrated
+interior-potential spread, or an exact cancellation/lumpability result that
+avoids this spread.  The trajectory residual requires a block constructor
+that extracts the next physical action from the pushed current law; only then
+may the existing bare `AFEnvelope` and `BareAFImpliesLinearFloor` be
+instantiated physically.
 
 At the analytic level, the intended reduced Yang--Mills Perron obstruction is
 the following conditional statement under the necessary

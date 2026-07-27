@@ -1003,6 +1003,10 @@ import YMGap.Continuum.GroupedAllLabelHaarRefresh
 import YMGap.Continuum.SU2HaarL2HilbertSchmidt
 import YMGap.Continuum.SU2HeatChannelHilbertSchmidtCompletion
 import YMGap.Continuum.SU2GroupedFiveHolonomyHilbertSchmidt
+import YMGap.Continuum.SU2DimensionWeightedHeatTail
+import YMGap.Continuum.SU2FusionWeightedMass
+import YMGap.Continuum.SU2NonlinearFiveFusionTail
+import YMGap.Continuum.SU2NonlinearFiveFusionCompletion
 import YMGap.Continuum.BF4FiveHolonomyGaussian
 import YMGap.Continuum.BF4GaussianPerronRatio
 import YMGap.Continuum.BF4InterleavedPotentialShortcutFence

@@ -509,10 +509,17 @@ five-coordinate tensor completion is now also permanently excluded.  At
  \frac{9765625}{1048576}
  =\bigl(\|h_1\|_{L^2}^2\bigr)^5.
 \]
-The nonlinear all-label completion therefore needs a dimension-weighted
-fusion-tail theorem, not the tensor-box comparison.  The exact missing
-analytic estimate is a constructive uniform Cauchy bound for
-\(h_N^{\star5}\), together with its grouped \(q^{\mathrm{steps}}\) form.
+The nonlinear all-label completion therefore needed a dimension-weighted
+fusion-tail theorem, not the tensor-box comparison.  That estimate is now
+proved in `SU2DimensionWeightedHeatTail.lean`,
+`SU2FusionWeightedMass.lean`, `SU2NonlinearFiveFusionTail.lean`, and
+`SU2NonlinearFiveFusionCompletion.lean`: both cutoffs are placed on one
+directed carrier; coefficient order propagates through five genuine
+Clebsch--Gordan fusions; the nonlinear Haar-square difference is bounded by
+the exact omitted dimension-weighted tail; and the canonical grouped
+five-holonomy Haar sequence converges to a constructed `CReal` for every
+rational \(0<q<1\).  The generic nome theorem applies in particular to every
+positive grouped rescaling \(q^{\mathrm{steps}}\).
 
 The interior-weight Harnack dependence is now exact as well.
 `BF4GroupedFeynmanKacHarnack.lean` proves a pathwise lower/upper sandwich
@@ -553,17 +560,17 @@ operator cannot determine a cubic AF recurrence or a physical
 heat-time/spacing trajectory.
 
 Thus the exact residual has become narrower but remains physical: prove a
-dimension-weighted nonlinear fusion-tail estimate; prove a
 Yang--Mills-specific spacing-uniform conditional-integral/Harnack estimate
 for the spatially weighted five-holonomy Feynman--Kac kernel; prove the
 BCH/Jacobian/chart-complement modulus that identifies its normalized
-operator with the Gaussian limit, and construct an inhabitant of the
+operator with the Gaussian limit; and construct an inhabitant of the
 action-linked BF4 trajectory from a block operator that actually constructs
 the next physical action from the pushed current law.  Only that constructor
 can instantiate the already-proved bare `AFEnvelope` on the physical
-trajectory and feed `BareAFImpliesLinearFloor`.  The tensor carrier, the
-flow-blind slab operator, and the bare AF envelope do not by themselves
-supply those identifications.
+trajectory and feed `BareAFImpliesLinearFloor`.  The new nonlinear
+same-carrier completion closes the finite-to-all-label fusion obstruction,
+but the tensor carrier, the flow-blind slab operator, and the bare AF envelope
+still do not supply these physical identifications.
 
 **BF4 observable-matched trajectory constructor (2026-07-26).**  The
 flow-blindness fence is now followed by a constructive first physical
