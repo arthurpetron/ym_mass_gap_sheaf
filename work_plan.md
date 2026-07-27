@@ -573,6 +573,136 @@ tail \(81/2272\).  `BF4RetainedKineticWindow.lean` proves that a literal
 \((3489/1055)^{23}\), and therefore passes through every nonnegative
 interior Feynman--Kac weight without a path-length loss.
 
+**BF4 completed pointwise-kernel/order update (2026-07-26).**
+`SU2AllLabelPointwiseHeatCompletion.lean` now completes the finite
+class-heat partials to an actual `CReal` for \(0\le w\le1/2\), preserving
+the exact semantic corridor
+\[
+ \frac{1055}{2272}\le K_w(x)\le\frac{3489}{2272}.
+\]
+`SU2AllLabelPointwiseHeatLimitBridge.lean` proves convergence of the lifted
+finite partials, packages the completed corridor, and proves constructive
+uniqueness of the limit up to `CReal.Equiv`.
+`BF4CompletedHeatRetainedConsumer.lean` tensorizes this sound completed
+corridor over a literal list of 23 factors, and
+`BF4CompletedSU2PointwiseRetainedHarnack.lean` instantiates the consumer with
+the completed SU(2) values themselves.  The resulting retained kinetic
+comparison has the exact spread \((3489/1055)^{23}\); completion adds no
+slack.  `BF4CompletedRetainedConditionalOrder.lean` proves that a common
+nonnegative rational interior path potential and finite path integration
+preserve this `CReal.leEv` comparison with the same spread, and
+`BF4CompletedSU2ConditionalHarnack.lean` performs the literal SU(2)
+composition.  These modules also prove entrywise finite amplification and
+preservation of an already-formed nonnegative quadratic/Gram channel,
+without incorrectly promoting scalar entrywise order to Loewner order.
+
+The pointwise completion is no longer confined to the fixed corridor as an
+existence theorem.  `SU2PointwiseHeatSpacingCompletion.lean` constructs for
+every rational \(0<w<1\) the explicit spacing-dependent cutoff
+\[
+ N(w)=\operatorname{powBaseCutoff}(w,1/8)
+\]
+and the shifted ratio
+\[
+ \rho(w)=4w^{2N(w)+3}\le\frac12.
+\]
+The signed character tail is dominated by a geometric envelope, yielding a
+constructive `CReal` and convergence of the shifted ordinary character
+prefixes.  `SU2PointwiseHeatSpacingTailBound.lean` strengthens this to the
+explicit two-sided bound
+\[
+ \left|S_{M+L}(w,x)-S_M(w,x)\right|
+ \le
+ \frac{H(w)\rho(w)^M}{1-\rho(w)}
+\]
+in rational order form, and lifts it to a semantic `geRat`/`leRat` corridor
+around every finite prefix.  On the overlap \(0<w\le1/2\),
+`SU2PointwiseHeatCompletionCompatibility.lean` proves that the
+spacing-dependent and fixed-corridor completions are constructively
+equivalent and transfers the exact one-factor corridor.
+`BF4CompletedProductLimitBridge.lean` proves that simultaneous common-cutoff
+finite products converge to the recursively completed product on every
+finite retained list, including the literal 23-factor carrier.  Thus the
+completed retained order is now connected to an explicit sequence of
+finite-character products, not merely assembled from unrelated completed
+values.  `BF4CompletedConditionalLimitBridge.lean` further proves that
+cutoff removal commutes with multiplication by the common rational
+Feynman--Kac path potential and with finite retained-path integration.
+The sign-safe quantitative companion
+`BF4CompletedProductTailBound.lean` propagates the one-factor tail with the
+exact 23-factor coefficient
+\[
+ 23\left(\frac{3489}{2272}\right)^{22},
+\]
+giving explicit semantic lower and upper bounds for the completed product
+around its simultaneous finite cutoff.
+`BF4CompletedConditionalTailBound.lean` carries that exact error through
+finite conditional integration:
+\[
+ 23\left(\frac{3489}{2272}\right)^{22}T
+ \sum_{\mathrm{path}}V(\mathrm{path}),
+\]
+for arbitrary nonnegative rational path weights, including the actual
+product of local interior-potential insertions.
+`BF4CompletedConditionalTailModulus.lean` turns this formula into the
+explicit fixed-carrier cutoff
+\[
+ N(\varepsilon)=\operatorname{powBaseCutoff}
+ \left(\rho(w),\frac{\varepsilon}{K+1}\right),
+\]
+and proves the full conditional tail is at most \(\varepsilon\) for every
+later label index.  The \(+1\) handles an empty or zero-mass path carrier
+without a case split.
+
+The matrix/Gram limit layer is now explicit but still honestly conditional
+on the carrier identification.  `BF4CompletedConditionalGramLimitBridge.lean`
+proves finite entrywise source/target amplification and cutoff convergence
+of already-formed nonnegative weighted quadratic channels.
+`BF4CompletedRankOneGramLimitBridge.lean` constructs those premises for
+same-path rank-one squares from convergent bounded cutoff amplitudes.
+`BF4CompletedFiniteGramLimitBridge.lean` constructs signed finite test
+combinations of state amplitudes, proves their explicit
+\(\sum |c_i|B\) bound and convergence, squares each channel linear form, and
+uses the exact finite Gram-to-SOS identity to obtain cutoff nonnegativity,
+completed convergence, and completed positivity for the literal finite Gram
+quadratic.  `BF4CompletedCrossGramMatrixLimit.lean` finally defines the
+completed cross entries
+\(\sum_c w_c A_{i,c}A_{j,c}\), proves entrywise cutoff convergence, and proves
+that every finite signed rational matrix quadratic is `CReal.Equiv` to the
+manifest completed sum of squares and hence nonnegative.  This is a genuine
+finite completed Gram/Loewner theorem; it does not derive that theorem from
+scalar Harnack order and does not identify the supplied half-amplitudes with
+the interacting physical slab.
+
+For general \(0<w<1\),
+`SU2PointwiseHeatPositiveCompletion.lean` identifies the new completion with
+the existing differentiated Jacobi series by
+\[
+ wK_w(x)\simeq D_w(x),\qquad
+ K_w(x)\simeq w^{-1}D_w(x).
+\]
+It proves nonnegativity from `JTPIdentity.DiffJTP` but does not inhabit that
+premise.  The exact remaining general-nome positivity leaf is therefore the
+differentiated Jacobi product/double-limit identity
+\(D_w\simeq\frac12\vartheta_3 S\).  A normalization audit in
+`JTPFullProductDerivativeNormalization.lean` proves at every finite product
+cutoff that the derivative of the *full* Jacobi product is
+\(\vartheta_3 S\), whereas the differentiated Chebyshev series targets the
+half-product \(\frac12\vartheta_3 S\).  Thus the current Wall-2 pointwise
+premise identifying the full product directly with `chebTConv` is not the
+missing theorem: it has the wrong affine normalization.  The smallest
+correct analytic input is an all-real, locally uniform constructive JTP
+\[
+ \vartheta_3(w,x)\simeq 1+2\,\mathrm{chebTConv}(w,x)
+\]
+with an explicit modulus, followed by differentiation of this affine-scaled
+identity.  The new module proves the finite derivative normalization and its
+`CReal` target `Rproduct`; it does not yet supply that uniform JTP modulus.
+This is cutoff removal at each fixed \(w\), not a
+spacing-uniform corridor as \(w\to1\): \(N(w)\) is allowed to diverge, and
+no positive lower bound uniform on the AF trajectory follows from this
+completion alone.
+
 That implication cannot be fired from the already-known aggregate kernel
 window.  `BF4AggregatePathwiseOrderFence.lean` constructs a strictly
 positive two-source, two-target, two-path family whose grouped kernel is
