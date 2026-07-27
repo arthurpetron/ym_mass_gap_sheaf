@@ -49,13 +49,35 @@ The checked components are:
   fivefold packet squares and the canonical grouped five-holonomy Haar
   observables converge;
 - `BF4RetainedPathConditionalOrder.lean`,
+  `BF4RetainedKineticWindow.lean`,
   `BF4TerminalSmoothingProjective.lean`, and
   `BF4PositiveKernelSpacingConvergence.lean`: positive conditional
   integration on the enlarged `(terminal, full path)` carrier, finite
   matrix-amplified order preservation, a potential-independent retained
-  kinetic Harnack/Gram theorem, terminal-smoothing projective domination,
-  and a constructive positive-kernel convergence consumer with an explicit
-  spacing-error modulus;
+  kinetic Harnack/Gram theorem, the exact implication from a 23-factor
+  retained pointwise corridor to BF4 Harnack order, terminal-smoothing
+  projective domination, and a constructive positive-kernel convergence
+  consumer with an explicit spacing-error modulus;
+- `SU2AllLabelPointwiseHeatCorridor.lean`: the previously external
+  \(1055/2272\) and \(3489/2272\) constants are now derived in Lean for every
+  finite doubled-label SU(2) class-heat partial.  The proof uses
+  \(|U_n(x)|\le n+1\), the sharp tail ratio \(1/72\), and the exact tail
+  budget \(81/2272\);
+- `BF4AggregatePathwiseOrderFence.lean`: an exact positive two-path family
+  has grouped spread one while its required pre-integration spread exceeds
+  every proposed rational constant.  Aggregate projective order therefore
+  cannot supply the retained-path premise;
+- `BF4RetainedSU2InterfaceGram.lean`: the actual finite-cutoff corrected
+  SU(2) reflection slab is exactly a retained singleton-path weighted Gram
+  kernel, with nonnegative interface weight and nonnegative quadratic form.
+  An exact signed rank-one example proves that Gram/CP positivity does not
+  imply entrywise retained kinetic positivity or scalar Harnack order;
+- `BF4RetainedGramReferenceOrder.lean`: termwise comparison of physical and
+  reference channel weights gives a two-sided Loewner sandwich for every
+  finite weighted-Gram quadratic and every finite matrix amplification.  It
+  applies to the actual retained SU(2) slab conditional on the now-explicit
+  boundary-weight comparison; cutoff- and spacing-uniform construction of
+  that comparison remains open;
 - `BF4ConditionalCarrierLumpabilityFence.lean`: terminal-message
   lumpability of an actual post-fiber-integration kernel on its complete
   three-bit carrier, together with an exact counterexample when one retained
@@ -106,15 +128,22 @@ dimension-weighted omitted tail.  The generic interior-potential oscillation
 loss can now be avoided on an enlarged retained-path carrier: a pathwise
 kinetic comparison passes through the complete nonnegative spatial weight
 without changing its spread, and rank-one retained channels pass through
-conditional integration as weighted Gram forms.  What remains physical is
-to construct this representation for the actual finite/all-label BF4 kernel
-and prove a cutoff-, spacing-, and grouping-uniform pathwise kinetic
-domination (or Gram factorization), plus strict integrated positivity.  An
-alternative sufficient route is the proved spacing-error convergence
-theorem, but its uniform closeness-to-one hypothesis has not been established
-for the Yang--Mills spatial weight.  The trajectory residual separately
-requires a block constructor that extracts the next physical action from the
-pushed current law; only then may the existing bare `AFEnvelope` and
+conditional integration as weighted Gram forms.  The actual finite BF4 slab
+now has that Gram representation, and the finite SU(2) class-heat factor has
+the exact pointwise corridor.  These two results do not yet compose: the
+retained rank-one amplitudes can have signed off-diagonal products, and no
+theorem identifies 23 positive class-heat factors with the interacting
+retained slab kinetic channel.  What remains physical is a
+positivity-improving regrouping or a Loewner/reference-order comparison on a
+common retained carrier.  The finite Loewner implication is now proved; the
+remaining datum is a physical reference-weight window with
+cutoff-/spacing-uniform constants, together with cutoff-compatible all-label
+convergence.  An alternative sufficient route
+is the proved spacing-error convergence theorem, but its uniform
+closeness-to-one hypothesis has not been established for the Yang--Mills
+spatial weight.  The trajectory residual separately requires a block
+constructor that extracts the next physical action from the pushed current
+law; only then may the existing bare `AFEnvelope` and
 `BareAFImpliesLinearFloor` be instantiated physically.
 
 At the analytic level, the intended reduced Yang--Mills Perron obstruction is

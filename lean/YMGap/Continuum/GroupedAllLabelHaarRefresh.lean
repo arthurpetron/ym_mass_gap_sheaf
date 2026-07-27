@@ -20,13 +20,13 @@ an additional domination coefficient `eta > 0`, the resulting physical
 packet coefficient `eta * epsilon0^r` is strictly positive as well.
 
 This module does not assert that the interacting corrected-slab map has
-that CP-order decomposition.  Nor does it formalize the infinite character
-tail proving the pointwise heat-kernel lower bound; that analytic statement
-is presently certified in exact arithmetic by
-`computations/grouped_all_label_haar_refresh.py`.  The purpose here is to
-close the coefficient-semigroup and finite-cover arithmetic consumed by
-the future physical constructor without introducing logarithms, limits,
-choice, or classical reasoning.
+that CP-order decomposition.  This module itself only closes the
+coefficient-semigroup and finite-cover arithmetic.  The downstream
+`SU2AllLabelPointwiseHeatCorridor` now formalizes the character estimate and
+proves the displayed floor and its matching ceiling for every finite
+doubled-label class-heat partial.  Passing that finite corridor to an
+infinite-character `CReal` kernel and identifying 23 such positive factors
+inside the interacting retained BF4 slab remain separate steps.
 -/
 
 import YMGap.Continuum.AbelianFusionCLT

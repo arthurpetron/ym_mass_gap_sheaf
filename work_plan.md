@@ -558,6 +558,53 @@ proves another sufficient route from normalized spatial weights and an
 explicit vanishing spacing-error modulus to the completed nonlinear
 five-fusion `CReal`.
 
+The local heat corridor and its precise quantifier boundary are now
+machine-checked as well.  `SU2AllLabelPointwiseHeatCorridor.lean` proves for
+every finite doubled-label class-heat partial, every \(0\le w\le1/2\), and
+every \(x\in[-1,1]\),
+\[
+ \frac{1055}{2272}\le K_{w,M}(x)\le\frac{3489}{2272}.
+\]
+The constants are no longer merely imported from the Python census: Lean
+derives the sharp post-label-two ratio \(1/72\), head \(9/256\), and total
+tail \(81/2272\).  `BF4RetainedKineticWindow.lean` proves that a literal
+23-factor retained kinetic product satisfying this local corridor yields
+`RetainedKineticHarnackData` with spread
+\((3489/1055)^{23}\), and therefore passes through every nonnegative
+interior Feynman--Kac weight without a path-length loss.
+
+That implication cannot be fired from the already-known aggregate kernel
+window.  `BF4AggregatePathwiseOrderFence.lean` constructs a strictly
+positive two-source, two-target, two-path family whose grouped kernel is
+identically one, while any pre-integration symmetric pathwise comparison
+requires spread at least \(h+1\); choosing \(h\) from the proposed rational
+spread defeats every candidate.  Thus retained pathwise order is genuinely
+stronger than grouped projective order, not a missing algebraic rewrite.
+
+The actual finite SU(2) slab now has a retained carrier, but of the other
+kind.  `BF4RetainedSU2InterfaceGram.lean` identifies each fixed cross-plane
+labelling with a singleton retained path and proves that the physical
+finite-cutoff reflected kernel is exactly the resulting nonnegatively
+weighted Gram kernel.  This resolves the finite orientation/phase
+factorization and proves every physical reflection quadratic nonnegative.
+It does not supply scalar Harnack order: an exact \(+1,-1\) rank-one
+countermodel has a negative off-diagonal retained kinetic entry while every
+quadratic stays nonnegative.  The remaining analytic choice is therefore
+explicit: either construct a positivity-improving regrouping that realizes
+the 23 positive local factors on the physical retained carrier, or prove a
+Loewner/reference-order sandwich for the Gram kernel and carry that order
+through the cutoff-free, spacing-uniform limit.
+
+The finite Loewner implication itself is now closed in
+`BF4RetainedGramReferenceOrder.lean`.  Termwise lower and upper comparison
+of a physical channel weight against a common nonnegative reference weight
+passes to every weighted-Gram quadratic and to arbitrary finite matrix
+amplifications.  The theorem is instantiated on the actual retained SU(2)
+slab behind an explicit `RetainedSU2BoundaryReferenceWindow`.  The remaining
+field is substantive rather than formal: construct those boundary-weight
+windows with constants uniform in cutoff and physical spacing, then prove
+their survival under the all-label limit.
+
 The carrier choice is also fenced on an actual conditionally integrated
 kernel.  `BF4ConditionalCarrierLumpabilityFence.lean` proves
 terminal-message lumpability on the complete three-bit source pattern of
@@ -584,10 +631,12 @@ extensionally inequivalent flows generate the same operator.  Hence that
 operator cannot determine a cubic AF recurrence or a physical
 heat-time/spacing trajectory.
 
-Thus the exact residual has become narrower but remains physical: construct
-the actual finite/all-label BF4 retained-path representation and prove its
-cutoff-, spacing-, and grouping-uniform pathwise kinetic domination (or
-rank-one Gram factorization), including strict integrated positivity; prove
+Thus the exact residual has become narrower but remains physical: extend the
+actual finite retained Gram representation to a cutoff-compatible all-label
+carrier and prove spacing- and grouping-uniform positivity-improving
+regrouping or construct the physical reference-weight windows consumed by
+the proved Loewner-order theorem, including strict integrated positivity;
+prove
 the BCH/Jacobian/chart-complement modulus that identifies its normalized
 operator with the Gaussian limit; and construct an inhabitant of the
 action-linked BF4 trajectory from a block operator that actually constructs

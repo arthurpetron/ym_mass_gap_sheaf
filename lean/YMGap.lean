@@ -1012,6 +1012,11 @@ import YMGap.Continuum.BF4GaussianPerronRatio
 import YMGap.Continuum.BF4InterleavedPotentialShortcutFence
 import YMGap.Continuum.BF4GroupedFeynmanKacHarnack
 import YMGap.Continuum.BF4RetainedPathConditionalOrder
+import YMGap.Continuum.BF4RetainedKineticWindow
+import YMGap.Continuum.SU2AllLabelPointwiseHeatCorridor
+import YMGap.Continuum.BF4AggregatePathwiseOrderFence
+import YMGap.Continuum.BF4RetainedSU2InterfaceGram
+import YMGap.Continuum.BF4RetainedGramReferenceOrder
 import YMGap.Continuum.BF4TerminalSmoothingProjective
 import YMGap.Continuum.BF4PositiveKernelSpacingConvergence
 import YMGap.Continuum.BF4ConditionalCarrierLumpabilityFence

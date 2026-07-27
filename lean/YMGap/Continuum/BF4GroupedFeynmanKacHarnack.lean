@@ -33,10 +33,18 @@ For the BF4 all-label census the kinetic constants are instantiated as
   kHi     = (3489/2272)^23,
   kSpread = (3489/1055)^23.
 
-The remaining Yang--Mills-specific input is exactly a spacing-uniform
-oscillation estimate for the spatial Feynman--Kac weights.  The final
-two-state spike theorem proves that strict positivity alone cannot supply
-any finite uniform oscillation constant.
+The downstream `SU2AllLabelPointwiseHeatCorridor` proves the one-factor
+window for every finite doubled-label SU(2) class-heat partial and
+`BF4RetainedKineticWindow` tensorizes it on a literal 23-factor retained
+product.  This file alone treats the displayed kinetic bounds as inputs; the
+actual interacting BF4 slab is not thereby identified with that product.
+
+For the aggregate route in this module, the remaining Yang--Mills-specific
+input is a spacing-uniform oscillation estimate for the spatial
+Feynman--Kac weights.  The final two-state spike theorem proves that strict
+positivity alone cannot supply any finite uniform oscillation constant.  The
+retained-carrier alternative instead requires physical pathwise
+identification or Gram reference-order data.
 
 ## Axiom gate
 
