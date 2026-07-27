@@ -1,8 +1,9 @@
 # BF4 observable-matched trajectory: first exact step
 
 **Date:** 2026-07-26
-**Status:** constructive cutoff-one step and finite scheduled iteration proved;
-weak-coupling atlas limit and AF envelope remain open
+**Status:** constructive cutoff-one step, finite scheduled iteration,
+exponent-Gram matching, and same-geometry U(1) pushforward proved;
+weak-coupling/cutoff limits and the physical AF envelope remain open
 
 ## 1. Why this step is necessary
 
@@ -124,11 +125,14 @@ Their axiom profiles are within the project gate
 This closes the *constructor* for one exact finite step, not the physical
 trajectory. The remaining obligations are now concrete:
 
-1. Instantiate \(O\) with the DP exponent-granularity reflection-positive
-   separator observable, rather than an arbitrary rational labelling
-   observable.
-2. Build the U(1) physical pushforward on the same geometry and run the same
-   comparison harness.
+1. Remove the finite exponent-coordinate and spin/charge cutoffs with a
+   quantitative modulus, and prove that the resulting Gram pencil has the
+   required located physical separator.  The finite all-coordinate
+   regrouping is now exact.
+2. Prove reflection positivity and cutoff convergence for the
+   gauge-constrained U(1) Gram, so that its finite comparison branch has a
+   stable continuum meaning.  The same-geometry signed-charge law and its
+   normalized pushforward are now exact.
 3. Supply refining positive atlases near \(s=1\) and prove a constructive
    Cauchy modulus for their argmins from a Yang--Mills-specific
    identifiability/coercivity estimate. Finite iteration and defect
@@ -140,3 +144,33 @@ trajectory. The remaining obligations are now concrete:
 
 Thus the old free-flow obstruction has been removed at \(M=1\), while the
 remaining Clay-level content is exposed rather than assumed.
+
+## 7. Exponent-Gram and U(1) milestone
+
+`BF4ExponentGramMatchedOneStep.lean` replaces the pointwise-observable
+surrogate by the actual reflected-law bilinear form
+\[
+ \sum_\phi f(\phi_-)\,g(\theta\phi_+)\,\mu(\phi).
+\]
+Lower-half states are grouped by their exact total Casimir exponent.  At
+fixed cutoff the module constructs the complete Cartesian list of exponent
+coordinates, proves that every bounded lower state occurs below its computed
+ceiling, and minimizes the full finite \(L^1\) Gram-entry discrepancy.  The
+normalized-mass form is proved equal to the existing full OS quadratic, so
+the actual diagonal entries used by the matcher are nonnegative.
+
+`BF4U1SameCarrierPushforward.lean` constructs the control theory on the same
+corrected-slab cells.  Alternating natural labels encode signed charges,
+link factors impose exact oriented charge conservation, and face factors are
+\(w^{q^2}\).  The vacuum proves strict partition positivity.  The dyadic
+block is literal addition of the four nondegenerate face charges; a proved
+\(|q_1+\cdots+q_4|\le4K\) bound shows that its totalization fallback is never
+used on a physical fine state.  Its supported Dirac kernel and blocked mass
+are nonnegative and exactly normalized.
+
+Finally `BF4SU2U1ExponentGramDiscriminator.lean` runs both physical laws
+through the same finite exponent-coordinate list and positive coupling
+atlas.  It returns a computational `Type`-valued certificate for the exact
+finite ordering of the independently matched SU(2) and U(1) couplings.
+No weak-coupling sign is claimed until cutoff/spacing convergence and a
+located separator bound are proved.

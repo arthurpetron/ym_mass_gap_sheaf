@@ -613,9 +613,37 @@ into a coupling-distance modulus.  The downstream implication is already
 formalized: if
 \(|u-u_*|\le C D_O(s,u)\) on the atlas and one candidate has defect at most
 \(\varepsilon\), then the selected successor satisfies
-\(|s'_A-u_*|\le C\varepsilon\).  The concrete DP exponent-Gram separator and a
-same-carrier U(1) pushforward are absent from the currently available
-tree/branches, so neither sign is claimed.
+\(|s'_A-u_*|\le C\varepsilon\).
+
+**BF4 exponent-Gram / same-geometry U(1) update (2026-07-26).**
+`BF4ExponentGramMatchedOneStep.lean` now constructs the genuine finite
+reflected-law bilinear form, groups lower-half SU(2) states by their exact
+total Casimir exponent, enumerates every exponent coordinate below the
+computed fixed-cutoff ceiling, and minimizes the complete finite Gram-entry
+\(L^1\) discrepancy.  Its normalized-law quadratic is identified with the
+pre-existing full OS quadratic; consequently the actual diagonal entries
+used by the matcher are nonnegative, not merely an auxiliary proxy.
+
+`BF4U1SameCarrierPushforward.lean` constructs the abelian control law on the
+identical corrected-slab geometry with signed integer charges, oriented
+link-divergence Haar constraints, and exact \(w^{q^2}\) face weights.  Its
+partition is strictly positive from the vacuum, its normalized mass sums to
+one, and its dyadic block adds the four signed charges in the explicit
+nondegenerate face fibre.  A kernel-checked
+\(|q_1+\cdots+q_4|\le4K\) theorem proves that the bounded totalization branch
+is inactive on every physical fine state.  The resulting supported-Dirac
+pushforward is nonnegative and has total mass one.
+
+`BF4SU2U1ExponentGramDiscriminator.lean` runs both laws through the same
+finite exponent-coordinate list and positive coupling atlas, returning a
+computational `Type`-valued trichotomy for the two independently derived
+matched couplings.  Thus the former “no concrete exponent-Gram observable or
+same-carrier U(1) pushforward” obstruction is closed at finite spacing and
+cutoff.  The remaining obstruction is analytic: a constructive
+cutoff/coordinate/spacing convergence modulus, reflection positivity of the
+gauge-constrained U(1) Gram, and a located separator/coercivity bound strong
+enough to stabilize the comparison sign near \(s=1\).  No continuum sign is
+claimed.
 
 The cumulative-heat condition is also not automatic.  For the local bare
 heat-kernel multiplier \(\rho(a)=s(a)^3\), it implies
