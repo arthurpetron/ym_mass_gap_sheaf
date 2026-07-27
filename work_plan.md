@@ -541,6 +541,31 @@ is therefore a Yang--Mills-specific uniform oscillation bound after
 conditional spatial integration, or a finer cancellation/lumpability
 theorem that removes this factor.
 
+The finer retained-carrier algebra is now machine-checked.
+`BF4RetainedPathConditionalOrder.lean` enlarges the carrier to
+\((\text{terminal},\text{complete interior path})\).  Forgetting the path is
+an exact deterministic positive pushforward, preserves order at every finite
+matrix amplification, and carries a pathwise kinetic Harnack comparison
+through an arbitrary nonnegative spatial potential with the *same* spread:
+the global \(v_{\rm spread}^{p}\) loss disappears.  If the retained kinetic
+channels factor through half-amplitudes, the integrated kernel is exactly a
+nonnegatively weighted Gram form and every finite quadratic is nonnegative.
+`BF4TerminalSmoothingProjective.lean` gives a complementary regrouping:
+an arbitrary nonzero nonnegative prefix followed by one certified terminal
+kernel inherits only the terminal factor's projective spread, including a
+uniform-family BF4 consumer.  `BF4PositiveKernelSpacingConvergence.lean`
+proves another sufficient route from normalized spatial weights and an
+explicit vanishing spacing-error modulus to the completed nonlinear
+five-fusion `CReal`.
+
+The carrier choice is also fenced on an actual conditionally integrated
+kernel.  `BF4ConditionalCarrierLumpabilityFence.lean` proves
+terminal-message lumpability on the complete three-bit source pattern of
+`threeBlockFiberConditionalKernel`, but gives two explicit colliding sources
+whose normalized rows differ after one source bit is forgotten.  Conditional
+integration therefore supports an enlarged sufficient carrier; it does not
+by itself justify an arbitrarily smaller retained projection.
+
 Three further tempting physical shortcuts are permanently fenced.  First, an
 exact two-state countermodel using the proved all-label Haar floor
 \(1055/2272\) shows that insertion of a merely positive interior potential
@@ -559,18 +584,20 @@ extensionally inequivalent flows generate the same operator.  Hence that
 operator cannot determine a cubic AF recurrence or a physical
 heat-time/spacing trajectory.
 
-Thus the exact residual has become narrower but remains physical: prove a
-Yang--Mills-specific spacing-uniform conditional-integral/Harnack estimate
-for the spatially weighted five-holonomy Feynman--Kac kernel; prove the
-BCH/Jacobian/chart-complement modulus that identifies its normalized
+Thus the exact residual has become narrower but remains physical: construct
+the actual finite/all-label BF4 retained-path representation and prove its
+cutoff-, spacing-, and grouping-uniform pathwise kinetic domination (or
+rank-one Gram factorization), including strict integrated positivity; prove
+the BCH/Jacobian/chart-complement modulus that identifies its normalized
 operator with the Gaussian limit; and construct an inhabitant of the
 action-linked BF4 trajectory from a block operator that actually constructs
 the next physical action from the pushed current law.  Only that constructor
 can instantiate the already-proved bare `AFEnvelope` on the physical
 trajectory and feed `BareAFImpliesLinearFloor`.  The new nonlinear
-same-carrier completion closes the finite-to-all-label fusion obstruction,
-but the tensor carrier, the flow-blind slab operator, and the bare AF envelope
-still do not supply these physical identifications.
+same-carrier completion and retained-path conditional order close two
+generic analytic obstructions, but the tensor carrier, the flow-blind slab
+operator, and the bare AF envelope still do not supply these physical
+identifications.
 
 **BF4 observable-matched trajectory constructor (2026-07-26).**  The
 flow-blindness fence is now followed by a constructive first physical

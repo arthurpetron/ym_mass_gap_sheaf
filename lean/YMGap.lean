@@ -1011,6 +1011,10 @@ import YMGap.Continuum.BF4FiveHolonomyGaussian
 import YMGap.Continuum.BF4GaussianPerronRatio
 import YMGap.Continuum.BF4InterleavedPotentialShortcutFence
 import YMGap.Continuum.BF4GroupedFeynmanKacHarnack
+import YMGap.Continuum.BF4RetainedPathConditionalOrder
+import YMGap.Continuum.BF4TerminalSmoothingProjective
+import YMGap.Continuum.BF4PositiveKernelSpacingConvergence
+import YMGap.Continuum.BF4ConditionalCarrierLumpabilityFence
 import YMGap.Continuum.BF4PhysicalTrajectoryFence
 import YMGap.Continuum.BF4BlockOperatorExtensionalFence
 import YMGap.Continuum.BF4ObservableMatchedOneStep

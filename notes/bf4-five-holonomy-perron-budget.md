@@ -5,16 +5,18 @@
 **Machine-checked status correction (2026-07-26).**  The scalar Perron
 arithmetic, the SU(2) Haar--\(L^2\) character layer, the all-label
 Hilbert--Schmidt coefficient completion, and the nonlinear same-carrier
-five-fusion completion are now proved in Lean.  The remaining assertion in
-Section 5 is still an analytic proof programme, not a Lean theorem: the
-development does not yet identify the normalized, conditionally integrated
-five-holonomy BF4 operator with the Gaussian limit in Hilbert--Schmidt norm,
-and therefore does not yet construct the physical certificate
-\(q_s\le1/4\).  Likewise, the `AFEnvelope` instantiated below is an exact
-bare heat/transmutation envelope; it has not been identified with the
-same-action nonperturbative four-dimensional BF4 block-map orbit.  These two
-identifications are the fail-closed residuals.  No physical BF4 or Clay
-frontier type is inhabited.
+five-fusion completion are now proved in Lean.  Positive/order/Gram
+preservation under finite retained-path conditional integration is also
+proved.  The remaining assertion in Section 5 is still an analytic proof
+programme, not a Lean theorem: the development does not yet construct the
+actual all-label BF4 retained-path kernel with a spacing-uniform pathwise
+kinetic estimate, nor identify the resulting normalized five-holonomy
+operator with the Gaussian limit in Hilbert--Schmidt norm.  It therefore
+does not yet construct the physical certificate \(q_s\le1/4\).  Likewise,
+the `AFEnvelope` instantiated below is an exact bare heat/transmutation
+envelope; it has not been identified with the same-action nonperturbative
+four-dimensional BF4 block-map orbit.  These identifications are the
+fail-closed residuals.  No physical BF4 or Clay frontier type is inhabited.
 
 The checked components are:
 
@@ -46,6 +48,18 @@ The checked components are:
   Haar-square bound, and a constructed `CReal` to which both the direct
   fivefold packet squares and the canonical grouped five-holonomy Haar
   observables converge;
+- `BF4RetainedPathConditionalOrder.lean`,
+  `BF4TerminalSmoothingProjective.lean`, and
+  `BF4PositiveKernelSpacingConvergence.lean`: positive conditional
+  integration on the enlarged `(terminal, full path)` carrier, finite
+  matrix-amplified order preservation, a potential-independent retained
+  kinetic Harnack/Gram theorem, terminal-smoothing projective domination,
+  and a constructive positive-kernel convergence consumer with an explicit
+  spacing-error modulus;
+- `BF4ConditionalCarrierLumpabilityFence.lean`: terminal-message
+  lumpability of an actual post-fiber-integration kernel on its complete
+  three-bit carrier, together with an exact counterexample when one retained
+  source bit is forgotten;
 - `FiveHolonomyPerronCutoff.lean`: the explicit spacing-dependent label
   cutoff, all-label ceiling, and the conditional strict inequality
   \(C_s^2q_s^{m-2}<1\);
@@ -88,13 +102,20 @@ The nonlinear all-label fusion-tail residual is now closed.  In particular,
 the proof does not compare against the invalid independent tensor box: it
 pads both truncations to one SU(2) carrier, propagates coefficient order
 through five genuine fusions, and controls the Haar square by the exact
-dimension-weighted omitted tail.  The grouped Harnack residual remains:
-prove a spacing-uniform Yang--Mills bound for the conditionally integrated
-interior-potential spread, or an exact cancellation/lumpability result that
-avoids this spread.  The trajectory residual requires a block constructor
-that extracts the next physical action from the pushed current law; only then
-may the existing bare `AFEnvelope` and `BareAFImpliesLinearFloor` be
-instantiated physically.
+dimension-weighted omitted tail.  The generic interior-potential oscillation
+loss can now be avoided on an enlarged retained-path carrier: a pathwise
+kinetic comparison passes through the complete nonnegative spatial weight
+without changing its spread, and rank-one retained channels pass through
+conditional integration as weighted Gram forms.  What remains physical is
+to construct this representation for the actual finite/all-label BF4 kernel
+and prove a cutoff-, spacing-, and grouping-uniform pathwise kinetic
+domination (or Gram factorization), plus strict integrated positivity.  An
+alternative sufficient route is the proved spacing-error convergence
+theorem, but its uniform closeness-to-one hypothesis has not been established
+for the Yang--Mills spatial weight.  The trajectory residual separately
+requires a block constructor that extracts the next physical action from the
+pushed current law; only then may the existing bare `AFEnvelope` and
+`BareAFImpliesLinearFloor` be instantiated physically.
 
 At the analytic level, the intended reduced Yang--Mills Perron obstruction is
 the following conditional statement under the necessary
