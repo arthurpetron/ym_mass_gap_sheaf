@@ -26685,3 +26685,77 @@ sharpening: exact-N hybrid (compute network_value_fixed for the
 dominant level-3 configs, bound the rest by domination) — pushes
 the windows toward s ~ 0.65-0.7.  (3) The diagonal kappa_3 only if
 MD.4's atlas demands it; otherwise the windows carry the crossover.
+
+### 16h. Addendum (2026-07-28, same session): REFLECTION POSITIVITY AS A QUANTITATIVE TOOL — the OS/CS lemma, nine-to-twelve orders recovered, and the certified window pushed to s = 11/20 with a 3e-4-wide interval at s = 1/2
+
+Executes the §16g "interim sharpening", upgraded: the exact-N
+hybrid became a REFLECTION-POSITIVITY bound — the config-level
+shadow of DP.R1's OS Gram.  Artifacts:
+`computations/su2_cs_tail.py`, `computations/su2_cs_diagonals.json`
+(+ worker shards), `computations/su2_cs_tail_results.json`,
+`notes/su2-cs-tail.md`, `tests/test_cs_tail.py`.  Suite 93/93
+green (cloud).
+
+**The lemma (config-level OS/CS).**  The DP.3 OS pairing (link
+reflection z -> 1-z) restricts to each fixed transverse sector:
+(q, w) sit on theta-invariant vertical faces with single characters
+(positive spectral weight — the Osterwalder-Seiler condition); the
+top data (n, a) and bottom data (m, b) are strictly one-sided.
+Sector-wise OS positivity + Cauchy-Schwarz give, for every
+admissible fixed-tile labelling,
+
+    N(n,m,q,w,a,b)^2 <= N(n,n,q,w,a,a) * N(m,m,q,w,b,b),
+
+both factors >= 0 (OS norms).  MACHINE GATES: (i) verified on the
+banked exact NEGATIVE network values of dp3_m2_entries (their
+diagonal partners computed fresh) — nontrivial: the left side is
+signed 6j interference, the bound a product of norms; (ii) the D4
+canonicalization used to dedup diagonal keys verified against
+computed values (rotation, reflection, wall-shift images agree
+exactly); (iii) every computed diagonal >= 0, asserted at
+computation time.
+
+**The quantitative gain.**  Crude domination |N| <= d_n d_m prod d
+is 10^3..10^5 per config; computed diagonals give sqrt(D_a D_b) ~
+10^-7..10^-6: NINE TO TWELVE orders recovered per covered config.
+Coverage: level-3 configs ranked by carried crude mass (steep —
+~100 diagonal keys own essentially all of it); diagonals computed
+exactly (network_value_fixed) under wall-clock budgets in parallel
+workers; one-sided CS where only one side landed; crude fallback
+otherwise — every path certified, unreached values only LOOSEN the
+bound.  Levels >= 4 keep the §16g domination transfer.
+
+**Certified windows (the consumer, re-executed).**
+
+    s = 1/2:    X_11(M -> infinity) in [+0.258238, +0.258546]
+                — THREE-DECIMAL certification (§16g gave
+                [+0.0665, +0.4193]: ~1000x tighter);
+    s = 11/20:  X_11 in [+0.2519, +0.3126]  — NEW certified
+                territory beyond the §16g boundary;
+    s = 3/5:    still closed by ~2.3x (tail11 6.0e-5 vs
+                T11 2.6e-5) — the remaining top-mass diagonal
+                keys (heavy contractions, some exceeding a 900 s
+                budget in this container) would open it; workers
+                left running, coverage extendable without any
+                code change.
+
+**Honesty.**  The lemma's proof is the standard OS-Seiler
+link-reflection argument applied sector-wise — machine-verified on
+banked exact values; a Lean-grade formalization is NOT claimed.
+Unreached diagonals are recorded as unreached, never consumed.
+The certified domain still does not overlap the tau-series domain;
+the TRUE corner-amplitude factorization remains THE open front —
+the diagonal values computed here are exactly the diagonal entries
+of that corner Gram, so this work is consumed, not discarded, by
+the full program.  Cloud only; Mac session-lock run owed; push of
+this session's commits owed by Arthur.
+
+**Next attack.**  (1) The corner-amplitude factorization proper:
+the off-diagonal corner Gram entries via the same OS structure
+(the cut Hilbert space is now concretely populated by these
+diagonal norms).  (2) Cheaper diagonal evaluation (the contraction
+order in network_value_fixed is generic; a cut-adapted elimination
+order should collapse the 900s+ cases) — every landed value
+extends the certified window mechanically.  (3) At the meeting
+ground: iterate blocking (M -> infinity windows on the ITERATED
+map) once the one-step window reaches s ~ 0.8.
