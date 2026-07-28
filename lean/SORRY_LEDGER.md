@@ -70,28 +70,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 
 ## Entries
 
-### [BF4-outer-Markov] all-label SU(2) block-kernel contracts — **OPEN PHYSICAL INPUTS**
+### [BF4-outer-Markov] all-label SU(2) block-kernel contract — **ONE OPEN PHYSICAL INPUT**
 
 - **milestone**: BF4 physical outer-cutoff score transport (`work_plan.md`,
   current BF4 overlay)
 - **file**:
   `lean/YMGap/Continuum/BF4SU2OuterCutoffBlockGramContract.lean`,
-  `lean/YMGap/Continuum/BF4SU2OuterPhysicalMarkovKernelFrontier.lean`
+  `lean/YMGap/Continuum/BF4SU2OuterPhysicalMarkovKernelFrontier.lean`,
+  `lean/YMGap/Continuum/BF4SU2OuterRawKernelCoherenceReduction.lean`,
+  `lean/YMGap/Continuum/BF4SU2OuterRawKernelCutoffDiagnostics.lean`,
+  `lean/YMGap/Continuum/BF4SU2OuterPositiveRowClosureReduction.lean`
 - **decls**: `SU2OuterPhysicalBlockContract`,
   `SU2OuterPhysicalMarkovContract`, `SU2OuterPositiveRowClosure`,
-  `SU2OuterRawKernelCutoffCoherence`
-- **obligation**: Construct the genuine source-indexed BF4 all-label
-  recoupling kernel on the fine cutoff-\(K\) and coarse cutoff-\(4K\)
-  corrected slabs, prove nonnegativity and row normalization, exact
-  cutoff-one recovery, old-entry coherence, and the lossless-support law
-  excluding transitions from an old fine source to a newly introduced
-  coarse target.  The deterministic `SU2OuterPhysicalBlockContract` is a
-  stronger marginal surrogate and is not accepted as a replacement for this
-  source-indexed construction.
+  `SU2OuterRawKernelCutoffStability`,
+  `SU2OuterJointChannelSelection`
+- **obligation**: Construct `SU2OuterPositiveRowClosure` for the genuine
+  source-indexed BF4 all-label recoupling weight on the fine cutoff-\(K\)
+  and coarse cutoff-\(4K\) corrected slabs.  One explicit sufficient route
+  is the stronger `SU2OuterJointChannelSelection`: one shared coarse target
+  with a positive selected channel on every face and a positive intertwiner
+  multiplicity on every shared coarse link.  Nonnegativity, row
+  normalization, exact cutoff-one recovery, old-entry stability, and
+  zero-on-new-targets lossless support are now theorems once this single
+  positive-row input is supplied.  The deterministic
+  `SU2OuterPhysicalBlockContract` is a stronger marginal surrogate and is
+  not accepted as a replacement for this source-indexed construction.
 - **constructive or propositional**: constructive — the kernel entries (or
   an enlarged retained carrier and their induced kernel) are data; all
   stated laws must then be proved without choice.
-- **status**: open.  No value of these physical-input structures is defined.  Conditional
+- **status**: open.  No value of `SU2OuterPositiveRowClosure` or
+  `SU2OuterJointChannelSelection` is defined.  Conditional
   consequences are proved: bounded backward messages stay in \([0,1]\), are
   cutoff-stable on old sources under lossless support, and satisfy the exact
   stochastic Fubini/blocked-Gram identity.  The raw-kernel frontier closes a
@@ -99,12 +107,32 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   permit nonphysical Dirac completion on higher-spin rows.
   `SU2OuterPositiveRowClosure` instead requires every positive fine row to
   construct a positive coarse witness for the literal globally link-glued
-  `wholeSlabRecouplingRawWeight`; `SU2OuterRawKernelCutoffCoherence` pins
-  old-entry stability and lossless support to the resulting normalized raw
-  kernel.  From those strictly stronger inputs,
-  `physicalMarkovContractOfRawKernel` derives the earlier stochastic
-  contract.  Thus a future physical discharge must inhabit the raw-kernel
-  structures, not merely an opaque or Dirac-completed stochastic contract.
+  `wholeSlabRecouplingRawWeight`.
+  `BF4SU2OuterRawKernelCoherenceReduction` proves that its witness choice
+  cannot change the normalized row and that Gibbs-null bookkeeping rows
+  contribute zero physical mass.  Its one-field
+  `SU2OuterRawKernelCutoffStability` pins old-entry stability to the
+  resulting normalized raw kernel; `old_source_no_new_target_of_cutoff_stable`
+  derives exact lossless support and
+  `physicalMarkovContractOfRawKernelCutoffStability` derives the earlier
+  stochastic contract.
+  `BF4SU2OuterRawKernelCutoffDiagnostics` proves cutoff stability for every
+  unnormalized pair-channel, face, face-product, and coarse-link factor and
+  proves zero raw weight outside the old \(4K\) target carrier.  It also
+  closes raw-partition stability, positive normalized rows, null-row
+  completion including \(K=0<L\), and the full normalized kernel theorem.
+  It therefore defines `su2OuterRawKernelCutoffStability`,
+  `su2OuterRawKernelCutoffCoherence`, and
+  `su2OuterPhysicalMarkovContractOfPositiveRowClosure` from positive-row
+  closure alone.
+  `BF4SU2OuterPositiveRowClosureReduction` proves all independent stretched
+  face factors positive but also formalizes the exact shared-link
+  counterexample that makes the resulting coarse target inadmissible.  Its
+  replacement `SU2OuterJointChannelSelection` chooses a single coarse target,
+  all positive face channels, and all positive shared-link intertwiners
+  jointly, and constructively implies `SU2OuterPositiveRowClosure`.
+  Thus the future physical discharge is precisely that joint nonvanishing
+  datum, not an opaque or Dirac-completed stochastic contract.
 - **must not be closed classically**: per `AGENTS.md` Rule 6 — a future
   inhabitant must be an explicit finite constructor, not a
   `Classical.choice` witness.

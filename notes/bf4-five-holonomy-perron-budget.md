@@ -232,9 +232,22 @@ The checked components are:
   Since those abstract stochastic laws permit an artificial higher-spin
   Dirac completion, `BF4SU2OuterPhysicalMarkovKernelFrontier.lean` further
   pins positive rows to the literal normalized globally link-glued raw BF4
-  weight.  It derives the stochastic contract from the named
-  `SU2OuterPositiveRowClosure` and
-  `SU2OuterRawKernelCutoffCoherence` inputs, neither of which is inhabited.
+  weight.  The only remaining named physical input is
+  `SU2OuterPositiveRowClosure`.
+  `BF4SU2OuterRawKernelCoherenceReduction.lean` proves that closure-witness
+  choices cannot alter a positive row, null completions contribute zero
+  pushed mass, and the lossless-support field is derivable from the
+  one-field `SU2OuterRawKernelCutoffStability` using nested normalized rows.
+  `BF4SU2OuterRawKernelCutoffDiagnostics.lean` then derives that stability
+  structure itself from positive-row closure: pair channels, faces, face
+  products, link products, the raw partition, positive normalized rows, and
+  null completions (including \(K=0<L\)) are all cutoff-stable.
+  `BF4SU2OuterPositiveRowClosureReduction.lean` proves every independent
+  highest-spin face factor positive but also formalizes a positive fine-state
+  counterexample whose independently stretched coarse target has zero
+  shared-link multiplicity.  Its viable replacement is the joint
+  target/channel/intertwiner datum `SU2OuterJointChannelSelection`, which
+  constructively implies positive-row closure.
   `BF4SU2StochasticBlockedGramObservableTail.lean` and its CReal companion
   then prove the conditional fixed-nome coordinate tail, Bishop limit,
   uniqueness, and unit-interval bounds.
@@ -243,9 +256,10 @@ The checked components are:
   `BF4SU2StochasticOuterExponentGramDistanceCRealLimit.lean` transports the
   paired coordinate bound through absolute values and finite summation to
   construct the exact nonlinear distance's Bishop-real limit.
-  Discharging the two raw-kernel inputs, maximizing candidate-wise moduli
-  over the finite atlas, and obtaining a spacing-uniform weak-coupling score
-  tube remain open;
+  `BF4SU2OuterCutoffAtlasUniformScoreTube.lean` constructively maximizes the
+  candidate-wise moduli over the finite atlas and builds the fixed-nome
+  rational reference tube.  Constructing joint positive-row selection and
+  obtaining a spacing-uniform weak-coupling score tube remain open;
 - `BF4ExponentGramLocatedStability.lean`: exact located-margin stability of
   finite SU(2)/U(1) argmins. Together these layers still do not construct the
   required spacing-uniform physical score tubes or located Yang--Mills

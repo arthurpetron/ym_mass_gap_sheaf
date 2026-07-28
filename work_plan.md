@@ -1095,10 +1095,35 @@ higher-spin rows.  `BF4SU2OuterPhysicalMarkovKernelFrontier.lean` closes
 that loophole: it defines every positive row from the literal globally
 link-glued BF4 raw recoupling weight, proves nonnegativity, normalization,
 and exact cutoff-one recovery, and derives the earlier stochastic contract
-only from two stronger named inputs.  The remaining inputs are
-`SU2OuterPositiveRowClosure` (a positive coarse witness for every positive
-higher-spin fine row) and `SU2OuterRawKernelCutoffCoherence` (old-entry
-stability plus lossless \(4K\)-support for that raw kernel).
+only from stronger raw-kernel inputs.
+`BF4SU2OuterRawKernelCoherenceReduction.lean` sharpens this frontier:
+positive-row witness choices provably cannot alter the normalized raw row,
+Gibbs-null bookkeeping completions contribute exactly zero pushed mass, and
+old-entry stability plus finite carrier nesting, nonnegativity, and
+normalization constructively imply the zero-on-new-targets lossless-support
+law.
+`BF4SU2OuterRawKernelCutoffDiagnostics.lean` proves the finite algebra below
+that normalized statement: pair-channel sums, fixed-final face weights,
+whole-slab face products, and explicit coarse-link multiplicities are
+cutoff-stable on old labels, while a target above the old \(4K\) carrier has
+zero raw weight.  It then proves raw-partition stability, positive
+normalized-row stability, null-completion stability including \(K=0<L\),
+and the full `outerWholeSlabKernel` stability theorem.  Hence
+`SU2OuterRawKernelCutoffStability`, lossless \(4K\)-support, and the physical
+Markov contract are now constructed from `SU2OuterPositiveRowClosure`;
+positive-row closure is the only remaining raw-kernel input.
+
+`BF4SU2OuterPositiveRowClosureReduction.lean` also tests the most tempting
+row witness.  It proves that the highest-spin channel is positive on every
+coarse face and lies in the \(4K\) carrier, but an exact fine unit-cube
+boundary state gives a positive fine row whose independently stretched
+coarse target has a zero shared-link multiplicity.  Thus independent
+facewise choices cannot close the row theorem.  The viable enlarged datum is
+`SU2OuterJointChannelSelection`: a shared coarse target, positive selected
+channel on every face, and positive intertwiner multiplicity at every shared
+coarse link.  Such a joint selection constructively implies
+`SU2OuterPositiveRowClosure`; constructing it from every positive fine
+invariant tensor network is the remaining nonvanishing/completeness theorem.
 
 `BF4SU2StochasticBlockedGramObservableTail.lean` now performs the analytic
 join: the contract's conditional event is a concrete coherent unit
@@ -1109,7 +1134,8 @@ explicit two-sided Cauchy modulus.
 Bishop real, proves convergence and constructive uniqueness, and keeps both
 the finite entries and limit in \([0,1]\).  These theorems are conditional on
 the stochastic contract; the physically accepted instantiation is the one
-derived from the two raw-kernel inputs above.
+derived from positive-row closure alone via
+`su2OuterPhysicalMarkovContractOfPositiveRowClosure`.
 
 `BF4SU2CoarseOuterExponentGramTail.lean` identifies the coarse coordinate
 with its corrected-slab event law at cutoff \(4K\), converts the slab modulus
@@ -1120,6 +1146,15 @@ nonlinear finite-coordinate result: absolute-value Lipschitz transport,
 multiplicity-paid finite summation (including the empty-coordinate case),
 two-sided Cauchy convergence of the exact exponent-Gram distance, and its
 canonical Bishop-real limit with constructive uniqueness.
+`BF4SU2OuterCutoffAtlasUniformScoreTube.lean` now takes the constructive
+maximum of those executable moduli over the literal finite positive coupling
+atlas.  It yields one fixed-nome cutoff for every candidate simultaneously,
+an exact rational reference score at that cutoff, and the corresponding
+two-sided `AtlasScoreTube`.  Its family stores only the literal raw-kernel
+positive-row package and derives cutoff stability and Markov contracts
+internally, so an arbitrary Dirac family cannot enter through this layer.
+This closes the finite-atlas maximum, but it is still pointwise in nome and
+geometry.
 
 `BF4ExponentGramLocatedStability.lean` proves the exact argmin-stability
 consumer: if a limiting score has a named minimizer separated on the complete
@@ -1149,20 +1184,20 @@ heat-kernel multiplier \(\rho(a)=s(a)^3\), it implies
 by \(1-\rho^m\le m(1-\rho)\).  This is a rescaled bare-mode floor, not a
 physical mass gap: the transfer-operator identification remains open and the
 bare ratio may diverge along the asymptotically-free trajectory. The next
-proof must discharge the positive-row closure and raw fusion-support
-coherence (or enlarge the retained carrier enough to prove them), take a
-constructive maximum of the new candidate-wise nonlinear moduli over the
-finite physical atlas, and obtain a cutoff schedule uniform along the
-spacing-dependent weak-coupling trajectory.  It must then prove a located
-Yang--Mills separator, derive the cubic law for the exact matched block
-output, and construct the independent physical spacing envelope. Later gates
-must still identify the grouped contraction with the continuum transfer/OS
-object.
+proof must construct the joint coarse face-channel/intertwiner selection for
+every positive fine row.  Normalized old-entry stability, lossless support,
+and the finite-atlas maximum are now closed consequences of that single
+input.  The proof must next make the common cutoff schedule uniform along the
+spacing-dependent weak-coupling trajectory, prove a located genuine
+Yang--Mills limiting separator, derive the cubic law for the exact matched
+block output, and construct the independent physical spacing envelope.
+Later gates must still identify the grouped contraction with the continuum
+transfer/OS object.
 
 **Verification snapshot (2026-07-27).**
 
-- full Lean build: **PASS**, 2,610 jobs;
-- strict axiom audit: **PASS**, 20,488 theorems across 2,522 namespaces,
+- full Lean build: **PASS**, 2,614 jobs;
+- strict axiom audit: **PASS**, 20,551 theorems across 2,530 namespaces,
   zero exceptions;
 - frontier-uninhabitedness guard: **PASS**;
 - frontier statement-drift guard: **PASS**, all ten hashes pinned;

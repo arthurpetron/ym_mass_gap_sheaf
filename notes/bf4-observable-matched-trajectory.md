@@ -435,8 +435,31 @@ normalized globally link-glued `wholeSlabRecouplingRawWeight`, proves
 nonnegativity, row normalization, and exact cutoff-one recovery, and derives
 the earlier stochastic interface only from
 `SU2OuterPositiveRowClosure` and
-`SU2OuterRawKernelCutoffCoherence`.  These two structures are the genuine
-uninhabited higher-spin inputs.
+the raw-kernel cutoff laws.
+`BF4SU2OuterRawKernelCoherenceReduction.lean` adversarially minimizes the
+latter: closure-witness choices do not change a positive row, null-row
+completions carry zero pushed mass, and old-entry stability alone forces
+zero mass on newly admitted targets by nested finite normalization.
+Consequently the genuine uninhabited higher-spin inputs are
+reduced further by `BF4SU2OuterRawKernelCutoffDiagnostics.lean`.  That module
+proves cutoff stability for pair channels, fixed-final face weights, the
+whole face and link products, and zero raw weight outside the old \(4K\)
+carrier.  It then proves raw-partition stability, positive normalized-row
+stability, and null completion stability including \(K=0<L\).  Therefore
+`SU2OuterRawKernelCutoffStability`, the earlier two-field coherence package,
+and the physical Markov contract are all derived from the single remaining
+input `SU2OuterPositiveRowClosure`.
+
+`BF4SU2OuterPositiveRowClosureReduction.lean` probes that input.  The
+highest-spin channel gives a positive factor on every face and stays inside
+the lossless carrier, but the formalized unit-cube-boundary counterexample
+has a positive fine Gibbs row and zero shared-link multiplicity for the
+independently stretched coarse target.  The correct retained datum is joint:
+`SU2OuterJointChannelSelection` carries one shared coarse target, one
+positive selected channel per face, and positive intertwiner multiplicity at
+every shared coarse link.  It implies the original positive-row closure,
+leaving a precise finite-dimensional nonvanishing/completeness theorem
+rather than independent local estimates.
 
 `BF4SU2StochasticBlockedGramObservableTail.lean` packages the conditional
 exponent event as the corrected-slab coherent unit observable and proves an
@@ -455,9 +478,15 @@ the coordinate errors sum with tolerance
 \(\varepsilon/(\#\mathrm{coordinates}+1)\), the empty list is handled
 definitionally, and the exact finite exponent-Gram distance converges to a
 constructively unique Bishop real.
+`BF4SU2OuterCutoffAtlasUniformScoreTube.lean` takes the constructive maximum
+of these moduli over every member of the literal finite positive atlas.  It
+therefore supplies one fixed-nome cutoff and a two-sided rational reference
+score tube simultaneously for all candidates.  Its family stores only
+positive-row proofs for the literal raw kernel and derives all cutoff and
+Markov laws internally.  No spacing-uniform weak-coupling schedule or
+genuine limiting separator is inferred.
 
-The current open SU(2) tasks are therefore narrower: prove positive-row
-closure and raw fusion-support coherence for the literal kernel (or enlarge
-the retained carrier); take the constructive maximum of the candidate-wise
-nonlinear moduli over the finite atlas; and make that schedule uniform along
-the spacing-dependent weak-coupling trajectory.
+The current open SU(2) tasks are therefore narrower: construct the joint
+coarse channel/intertwiner selection; then make the now atlas-uniform cutoff
+schedule uniform along the spacing-dependent weak-coupling trajectory and
+prove a located genuine limiting Yang--Mills separator.
