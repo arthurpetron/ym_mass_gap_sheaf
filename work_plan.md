@@ -26819,3 +26819,81 @@ heavy diagonal and unreached M=2 config lands in milliseconds,
 (iii) the domination transfer upgrades to the TRUE corner transfer
 — the M -> infinity dichotomy instrument.  This is now the single
 critical-path item of MD.2.
+
+### 16j. Addendum (2026-07-28, same session): THE WALL FALLS — the Rust contraction engine plus the D4-orbit tactic land the entire blocked tier; the certified boundary marches to s = 3/5 with a six-decimal window at s = 1/2
+
+Executes §16i's "single critical-path item" in its pragmatic form:
+not yet the recoupling evaluator, but a faithful Rust port of the
+exact_haar_network hot core (p_mul, integrate_link, p_reduce_units,
+greedy elimination + the pair-premerge fallback; num-bigint exact
+rationals, packed byte-vector monomials — the Python dict/Fraction
+representation §16i identified as the wall costs ~20-50x more per
+monomial).  Factors still constructed by the gated Python path;
+only the contraction crosses the boundary (JSON, big-int strings).
+Artifacts: `rust/haar_contract/` (crate),
+`computations/su2_rust_eval.py`, `notes/rust-haar-engine.md`,
+`tests/test_rust_eval.py`, updated ledgers
+(`su2_cs_diagonals.json`: 59 exact diagonals;
+`su2_m2_finality.json`: 30 direct M=2-unreached values, ZERO
+timeouts remaining in the resolved set;
+`su2_combined_windows.json`).  Suite 103/103 green (cloud).
+
+**Gates (all green).**  The full banked-value battery: D4-gate
+values, every listed SIGNED negative config of dp3_m2_entries for
+(1,1), (0,1), (1,2) — sign and magnitude exact — and
+Python-computed CS-ledger diagonals.  Standing pins: every landed
+direct value satisfies the OS/CS lemma against its diagonal
+partners; every diagonal is >= 0.
+
+**The wall, before/after.**  Python-greedy 556 s -> Rust 61 s;
+gate cases 24-40 s -> 0.4-11 s; the all-walls-active M=2-unreached
+class (NEVER landed in Python at any budget) -> 78-203 s.
+
+**The D4-orbit tactic (a discovery about the engine, banked).**
+Contraction cost is wildly REPRESENTATIVE-dependent along the D4
+orbit while the value is invariant (gated §16h): configs that OOM a
+7 GB container in the canonical labelling land in SECONDS after a
+cyclic rotation — observed extremes: fail-at-424 s -> 1 s (rot2);
+OOM -> 39 s (rot1).  The sweep's rotation-fallback turned the
+resistant families (q=(0,1,1,1) w=(1,2,2,1); w=3 walls) into
+routine 10-100 s evaluations.  Consequence: U_2(1,1) fell from
+5.0e-5 to 6.9e-7 (18 -> then all mass-relevant configs resolved),
+U_2(0,0) to 1.7e-8, U_2(0,1) to 1.1e-6, and the binding level-3
+tail collapsed key by key.
+
+**Certified X_11 (M -> infinity) windows — the march.**
+
+    s = 1/2:    [+0.258391, +0.258393]   (2e-6 wide: six decimals)
+    s = 11/20:  [+0.282335, +0.283082]
+    s = 9/16:   [+0.288564, +0.291908]
+    s = 4/7:    [+0.291080, +0.300836]   (was: missed by 0.004)
+    s = 3/5:    [+0.154922, +0.455443]   <- NEW boundary, tau = 0.51
+
+The certified values RISE with s (0.258 -> 0.29+), tracing the
+nonperturbative curve toward the flat-series regime.  s = 5/8
+remains closed by ~3x (tail11 1.7e-4 vs T11 ~ 7e-5): the residual
+is now spread over many small level-3 leftovers, the level >= 4
+domination rest, and the remaining ~30 low-mass unresolved configs
+— all mechanically extendable with more sweep time; the recoupling
+evaluator remains the structural fix for the deep-s run to 0.8.
+
+**Honesty.**  The Rust engine is gated against every banked exact
+value but is NOT formally verified — scaffolding in the §16d
+sense; its outputs enter windows only as exact rationals with the
+OS/CS-lemma pins standing over all of them.  Budget misses recorded
+as unreached, never consumed.  dp3_m2_entries never modified
+(finality values in their own ledger).  The certified domain still
+does not overlap the tau-series domain (tau = 0.51 vs the series'
+tau <~ 0.3 usefulness) — the meeting is closer but not closed.
+Cloud only; Mac session-lock run owed; push owed by Arthur
+(`git push origin main`).
+
+**Next attack.**  (1) Keep the sweep grinding (mechanical boundary
+extension toward 5/8; every value counts).  (2) The recoupling
+evaluator for the deep run — now an optimization, not a blocker;
+its gate set has grown to ~90 banked exact values.  (3) With the
+one-step window at rising s: the ITERATED map (blocked kernel of
+the blocked kernel) with the same window machinery — the dichotomy
+instrument proper.  (4) The D4-orbit cost anisotropy deserves a
+recorded explanation (likely the greedy's interaction with the
+tree-gauge asymmetry) — understanding it may yield another 10x.
