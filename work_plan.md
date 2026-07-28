@@ -14994,3 +14994,80 @@ The next genuine inputs are now:
 4. construct the physical dominant mean-zero Perron identification.
 
 No Clay-frontier type is claimed inhabited by this reduction.
+
+## Grouped fixed-plane Choi, physical HS Cauchy, and weighted Perron carrier (2026-07-28)
+
+The lossy four-preimage carrier has now been bypassed for the reflected
+fixed-plane kernel itself.
+
+`BF4SU2FixedIntertwinerPhysicalChoi` proves that the genuine grouped BF4
+source/target half-amplitudes are `centralHalfAmplitude`, that the interior
+spatial insertion is the literal fixed-plane heat factor, and that
+conditional summation over every retained fixed-link intertwiner gives the
+actual `centralPhysicalReflectedKernel`.  This is the requested physical
+all-label source/target Choi contraction, not an abstract amplitude
+placeholder.
+
+`BF4SU2FixedMagneticMehlerCarrier` enlarges every fixed spin-\(s\) face by
+the literal magnetic fiber `List.range (s+1)`.  The carrier cardinality
+therefore stores the representation dimension, and every refined member
+has pure heat eigenweight \(w^{C_4(s)}\).  Summing the magnetic and
+intertwiner fibers reconstructs the genuine BF4 fixed weight exactly.
+Consequently the physical and reference spatial insertions obey the
+spacing-uniform pointwise order window
+\[
+  1\cdot W_{\rm ref}\le W_{\rm phys}\le1\cdot W_{\rm ref}.
+\]
+The one-face magnetic mass is bounded by the proved pointwise heat
+majorant and its shifted geometric tail.
+
+`BF4SU2FixedMagneticPositiveKernelConvergence` identifies a fixed pair entry
+with the normalized expectation of its literal lower/reflected-upper
+cylinder.  The existing degree-thirteen arbitrary-nome schedule therefore
+gives an executable cutoff Cauchy modulus for every genuine normalized
+entry.  No matrix entry is introduced independently of the physical spin
+foam.
+
+`BF4SU2FixedMagneticPhysicalHSCauchy` pays the moving square-carrier growth.
+For a base carrier of exact size \(N>0\), its schedule invokes the entry
+modulus at tolerance \(\varepsilon/N\) and also forces both later cutoffs
+above the base cutoff.  Lean proves the exact cancellation
+\[
+  N\bigl(N(\varepsilon/N)^2\bigr)=\varepsilon^2
+\]
+and hence the nonlinear physical Hilbert--Schmidt Cauchy bound on every
+old moving carrier.  This is a genuine global matrix estimate obtained from
+the degree-thirteen physical tail.
+
+`BF4SU2FixedMagneticPhysicalMarkov` corrects the previous vacuum model.
+The partition-normalized Choi kernel is first treated as a symmetric joint
+probability law.  Its row marginal defines a constructively nonempty
+positive-row carrier; zero rows are proved to decouple.  Row-wise
+conditional normalization then gives an exact Markov kernel satisfying
+detailed balance with the normalized physical marginal.  The constant
+vacuum is fixed, the marginal-weighted mean is preserved, the physical
+mean-zero subspace is invariant, and the marginal vacuum projector is
+removed exactly.  The exact marginal-weighted inner product is also
+constructed, and finite Fubini plus detailed balance proves that the
+conditional physical operator is self-adjoint in it.  This avoids both a
+uniform-vacuum surrogate and a nonconstructive square-root conjugation.
+
+All load-bearing declarations print axiom profiles contained in
+`{propext, Quot.sound}`.
+
+The remaining analytic frontier is narrower and cannot be replaced by the
+spatial `[1,1]` identity:
+
+1. construct a distinct Gaussian endpoint Mehler kernel on this same
+   physical weighted carrier;
+2. prove a grouped interacting physical-minus-Mehler entry estimate along
+   the AF spacing trajectory;
+3. combine that estimate with the now-proved dimension compensation to
+   obtain centered physical/Mehler HS convergence; and
+4. prove a contraction (or constructively dominant mode) on the physical
+   marginal-mean-zero carrier, thereby identifying the nonlinear physical
+   Perron ratio.
+
+The present milestone proves physical cutoff convergence, carrier-growth
+domination, and the exact weighted vacuum/mean-zero geometry.  It does not
+claim the distinct Mehler comparison or the \(q\le1/4\) physical contraction.

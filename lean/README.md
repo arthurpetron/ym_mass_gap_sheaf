@@ -232,19 +232,55 @@ Choi contraction on the same retained carrier.  It proves exact conditional
 expectation, finite and matrix-amplified Gram positivity, and lower/upper
 Loewner domination from a pointwise window on the complete interior spatial
 weight.  The collar row killing the old carrier is instantiated with row
-mass one.  The remaining physical step is to identify the abstract
-source/target amplitudes and spatial weights with the grouped BF4
-Feynman--Kac observable, then prove its spacing-uniform window and
-Mehler-entry estimates.
+mass one.
 `BF4SU2FineIntertwinerPhysicalDisintegration` proves that this normalized
 row is the conditional law of the literal production spin foam.  Its
 partition is exactly the `Q'` image of the corrected-slab SU(2) link
 multiplicity, the sum of the per-witness face contributions is the genuine
 `SlabPhysicalData.physicalTerm`, and multiplying the conditional row by that
 physical term recovers each unnormalized witness contribution.  Thus the
-base Haar carrier and normalization are physically identified; the grouped
-source/target amplitudes and interior spatial insertion remain the honest
-open identification.
+base Haar carrier and normalization are physically identified.
+
+The fixed-plane grouped identification is now exact.
+`BF4SU2FixedIntertwinerPhysicalChoi` identifies the source and target
+half-amplitudes with `centralHalfAmplitude`, the interior insertion with the
+fixed-plane heat factor, and the resulting Choi entry with the genuine
+`centralPhysicalReflectedKernel`.
+`BF4SU2FixedMagneticMehlerCarrier` then refines every spin-\(s\) fixed-face
+channel by its literal \(s+1\) magnetic indices.  Conditional summation
+recovers the representation dimension exactly, while each refined channel
+carries only the heat eigenweight \(w^{C_4(s)}\).  Hence the physical and
+reference spatial insertions have the spacing-independent pointwise window
+\([1,1]\); the local magnetic tail is controlled by the proved heat
+majorant.  This equality concerns the spatial insertion on the enlarged
+carrier, not a completed Gaussian endpoint Mehler comparison.
+
+`BF4SU2FixedMagneticPositiveKernelConvergence` identifies every normalized
+kernel entry with a cutoff-stable lower/reflected-upper Yang--Mills cylinder
+expectation.  The arbitrary-nome degree-thirteen envelope therefore gives
+an executable two-cutoff modulus; degree thirteen pays the full link
+intertwiner growth together with the magnetic dimension.
+`BF4SU2FixedMagneticPhysicalHSCauchy` compensates the complete square
+carrier dimension: on a base carrier of size \(N\), it requests entry
+tolerance \(\varepsilon/N\) and proves exactly
+\[
+  \|J_{K_1}-J_{K_2}\|_{\rm HS}^2
+  \le N^2(\varepsilon/N)^2=\varepsilon^2
+\]
+for all later cutoffs beyond the displayed modulus.
+
+Finally, `BF4SU2FixedMagneticPhysicalMarkov` performs the physically correct
+normalization of the symmetric joint law.  It filters precisely the
+positive row marginals, proves discarded rows decouple, divides each
+retained row by its own marginal, and obtains a nonempty reversible Markov
+carrier with normalized stationary marginal.  Constants are fixed, the
+marginal-weighted mean is preserved, and the corresponding physical
+mean-zero subspace is invariant.  Its marginal vacuum projector is
+constructed and removed exactly.  Uniform counting measure is no longer
+substituted for the physical vacuum.  The exact marginal-weighted inner
+product is also constructed, and finite Fubini plus detailed balance proves
+that the physical conditional BF4 operator is self-adjoint in it, without
+adjoining square roots of rational marginal weights.
 
 The same-carrier HS route is now vacuum-correct.  In
 `BF4NormalizedSameCarrierPerron`, normalized nonlinear and Mehler matrices
@@ -252,10 +288,13 @@ are compared after removing the same rank-one vacuum projector; raw
 mean-zero eigenmodes are proved unchanged.  A cutoff-indexed convergence
 datum with growing carrier dimension and explicit error modulus yields the
 eventual `7/100` perturbation and `q ≤ 1/4` for an actual dominant finite
-eigenmode.  The open analytic task is to inhabit that datum with the literal
-interacting BF4/Mehler matrices and prove the HS modulus and Perron
-dominance; a raw normalized matrix is deliberately never subjected to the
-false global quarter bound because it contains the vacuum eigenvalue one.
+eigenmode.  The remaining analytic task is a distinct Gaussian endpoint
+Mehler kernel on the same physical weighted carrier, with an interacting
+physical-minus-Mehler entry estimate (not merely the now-exact spatial
+insertion window), followed by a constructive contraction or dominant-mode
+identification on the physical marginal-mean-zero subspace.  A raw
+normalized matrix is deliberately never subjected to the false global
+quarter bound because it contains the vacuum eigenvalue one.
 
 **Ledger state.** The `YMGap` library builds sorry-free (`lake build`
 reports zero `declaration uses 'sorry'`; see `SORRY_LEDGER.md`, whose
