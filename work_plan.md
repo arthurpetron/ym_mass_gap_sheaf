@@ -26367,3 +26367,62 @@ note is a prediction under flagged assumptions, banked as scope, not
 as theorem.  Cloud verification only; Mac session-lock run and the
 git commit (stale index.lock, §15j) remain owed — everything since
 §15i is still Dropbox-only.
+
+### 16d. Addendum (2026-07-28, same session): the SU(2) flat representation BANKED — the non-abelian analogue of the Poisson step, verified to 87 digits; the c_SU2 derivation now has its instrument
+
+The entry point of §16c route (b) is in the tree.  In repo
+conventions (s = e^{-tau}, K = sum d_n s^{C(n)} chi_n, chi_n =
+sin((n+1)phi)/sin(phi), phi the class half-angle), the SU(2) heat
+kernel equals EXACTLY a Gaussian image sum on the flat line:
+
+    K(phi; s) = e^{tau} sqrt(pi) / (4 tau^{3/2} sin phi)
+                * sum_{j in Z} (phi - 2 pi j)
+                  e^{-(phi - 2 pi j)^2/(4 tau)}
+
+(Jacobi theta transform of the character sum; classical).  Artifacts:
+`computations/su2_flat_heat_kernel.py`,
+`tests/test_su2_flat_heat_kernel.py`; suite 41/41 green (cloud).
+Gates: identity to 9.1e-87 worst relative error across a 16-point
+(tau, phi) grid with adaptive precision (the small-tau/large-phi
+corner needs ~ phi^2/(4 tau ln 10) extra digits against
+cancellation); Haar normalization exact to quadrature precision;
+character projection to 4.4e-61 for n = 1..3.  Verification
+discipline note, recorded deliberately: the first transcription of
+the image constants (period pi, prefactor /2) was WRONG and the
+40-digit gate refused it; the corrected constants (period 2 pi,
+prefactor /4) pass at 87 digits — the gate did exactly the job the
+campaign's rules assign it.
+
+**What this makes possible.**  Near s -> 1 every slab face activity
+is a flat Gaussian in the plaquette class angle times explicit
+Jacobian insertions plus exponentially small images.  The SU(2) slab
+kernel becomes a flat Gaussian NETWORK integral whose leading order
+is group-blind (three decoupled components on the same geometry —
+E* = 3, matching §16c's prediction channel), and the O(tau)
+correction — c_SU2, MD.3's marginal-defect coefficient — is a
+finite sum of Gaussian moments against three explicit insertion
+families: (i) the e^{tau} per-face normalization (cancels in flow
+ratios up to face counts), (ii) the phi/sin(phi) activity Jacobians
+and the sin^2(phi) Weyl density, (iii) BCH non-closure of the
+plaquette angle — the first place the structure constants enter.
+The U(1) mirror of the same expansion must reproduce c1 = -4 at
+N = 2 (built-in refutation channel).  Status: the identity is a
+verified numerical gate (scaffolding), not yet a certified-rational
+object; certification (rational pi windows + tail bounds, per
+`u1_theta_kernel.slack_bound`) is owed by whichever step first
+consumes it in a verdict.
+
+**Queue.**  (1) The Gaussian network dictionary of the slab: exact
+effective covariance of the two coarse loop angles from the face
+constraint geometry (the U(1)/real relaxation already fixes the
+leading block: Sigma_eff = [[3,1],[1,3]] per component); (2) the
+(ii)-insertion moments (pure calculus, groupwise); (3) the
+(iii)-BCH moments (the non-abelian content; sign of c_SU2 = the
+anti-screening statement at this order); (4) U(1)-mirror gate.
+
+**Git.**  Commit d6af5ba (this session, user-authorized lock
+clearance) banks §15i–§16c and all prior uncommitted state; the
+§16d artifacts are committed on top in the same session.  PUSH still
+requires the user's credentials from the Mac terminal:
+`git push origin main` — neither the device sandbox (no network) nor
+the cloud container (no credentials; private repo) can complete it.
