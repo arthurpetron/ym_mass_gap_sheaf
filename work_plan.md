@@ -26759,3 +26759,63 @@ order should collapse the 900s+ cases) — every landed value
 extends the certified window mechanically.  (3) At the meeting
 ground: iterate blocking (M -> infinity windows on the ITERATED
 map) once the one-step window reaches s ~ 0.8.
+
+### 16i. Addendum (2026-07-28, same session): the certified boundary walks to s = 9/16; the blocker is NAMED — network-value evaluation technology, not bounds
+
+Executes the §16h queue.  Artifacts: `computations/su2_cut_eval.py`
+(cut-adapted contraction: corner-sweep + layer-staged orders, gated
+correct against the greedy engine incl. an off-diagonal negative
+config), `computations/su2_m2_finality.py` (direct M=2-finality
+values + CS-sharpened U_2 + the COMBINED window assembly),
+`computations/su2_combined_windows.json`,
+`tests/test_cut_eval_finality.py`.  Suite 99/99 green (cloud).
+
+**Certified windows (combined assembly: T_2 finality repair +
+OS/CS level-3 tails + domination levels >= 4).**
+
+    s = 1/2:    X_11 in [+0.258238, +0.258546]
+    s = 11/20:  X_11 in [+0.251954, +0.312592]
+    s = 9/16:   X_11 in [+0.177195, +0.392345]   <- NEW boundary
+    s = 4/7:    misses by 0.004 in log units (lower end -0.004)
+    s = 3/5:    closed by ~4x (tail11 5.9e-5 + U2-11 5.0e-5 vs
+                T11 2.6e-5)
+
+Every additional diagonal value extends the boundary mechanically
+(re-run the assembly; no code change).  Workers were left running;
+one more landing near the (1,1) mass owners tips s = 4/7.
+
+**The honest negative findings (as valuable as the windows).**
+(1) Corner-sweep and layer-staged elimination orders do NOT
+collapse the heavy contraction class: on the reference 556 s
+diagonal, greedy blows a 45 s budget, corner sweeps blow 240 s
+budgets, a staged order OOM-killed a 7 GB container.  The orders
+are CORRECT (gated) and occasionally useful, but the blowup is
+intrinsic to the polynomial-elimination REPRESENTATION at spin 3,
+not to the order.  (2) The M=2-unreached configs and their diagonal
+partners share the same hard (q, w) skeletons — that is WHY they
+were unreached at 300 s in §15i: e.g. the all-walls-active patterns
+q=(0,1,1,1), w=(1,2,2,1) time out at 600-900 s from every order
+tried.  CONSEQUENCE, sharply: the certified window's advance past
+s ~ 0.57 is blocked on ONE named technology — recoupling-based
+(6j/transfer) evaluation of the slab network values — which is the
+same object as the corner-amplitude factorization: one derivation
+buys both the fast evaluator and the true transfer weights.
+
+**Honesty.**  All new values exact; timeouts recorded, never
+consumed.  The landed direct M=2 values (if any) are kept in a
+separate ledger; dp3_m2_entries is never modified.  The OS/CS
+lemma consistency of every landed direct value against its
+diagonal partners is a standing pin.  Cloud only; Mac session-lock
+run owed; push owed by Arthur (`git push origin main`).
+
+**Next attack (converged to one object).**  The recoupling
+evaluator: resolve the slab network into the D4 corner basis
+(intertwiner labels on the four radial cuts + the central 4-valent
+vertex), evaluate corner amplitudes as small 6j-assemblies
+(`computations/wigner_6j.py` has the primitives), gate against the
+~40 banked exact network values (incl. negatives), then (i) every
+heavy diagonal and unreached M=2 config lands in milliseconds,
+(ii) the certified window runs to the s ~ 0.8 meeting ground,
+(iii) the domination transfer upgrades to the TRUE corner transfer
+— the M -> infinity dichotomy instrument.  This is now the single
+critical-path item of MD.2.
