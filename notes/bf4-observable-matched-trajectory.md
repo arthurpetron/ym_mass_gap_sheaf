@@ -316,7 +316,83 @@ The probability change from cutoff \(K\) to any \(L\ge K\) is bounded by the
 same tensor envelope with constant \(1\); the tensor cutoff therefore gives
 an explicit normalized-event Cauchy modulus.
 
-The next exact bridge is to construct the corresponding limit object and
-transport this modulus through the cutoff-dependent BF4 block-pullback and
-coarse exponent-Gram coordinates. The current theorem remains fixed-nome,
-fixed-half, and finite-volume.
+`BF4U1OuterCutoffCRealLimit.lean` now turns that modulus into a Bishop
+constructive real whose `K`-th approximation is the exact cutoff-\(K\)
+probability, proves convergence of the lifted rational sequence, and proves
+constructive uniqueness.  The adjacent finite and limiting probability
+algebra modules establish the unit-interval bounds, event monotonicity, and
+event/complement normalization.
+
+`BF4U1OuterCutoffBlockGramTransport.lean` performs the next exact bridge.  On
+the physical fine carrier the cutoff-dependent bounded block agrees
+pointwise with the direct four-charge sum; list induction transports that
+pointwise equality through the exponent coordinates without `funext`.
+Blocked and coarse Gram entries are thereby identified with
+cutoff-independent Boolean events on their canonical fine and coarse slabs.
+For \(K\le L\), every coordinate discrepancy is bounded by the sum of the
+fine tensor envelope at \(K\) and the coarse envelope at \(4K\), and finite
+coordinate summation yields the corresponding literal exponent-Gram score
+bound.  The explicit tolerance theorem pays the two tensor cutoffs at \(K\)
+and \(4K\) and is uniform in the later cutoff \(L\), including the score of
+any named atlas candidate.
+
+`BF4U1OuterCutoffAtlasUniformScoreTube.lean` takes a constructive maximum
+over the fine threshold and every candidate-dependent coarse threshold.
+Assuming explicitly that all candidates lie below one, this produces one
+executable cutoff for the complete finite atlas and arbitrary-pair Cauchy
+control beyond it.  The module packages both a per-tolerance tube and a
+Type-level Cauchy modulus, without inserting an assumed limiting score.
+
+`BF4U1OuterCutoffScoreCRealLimit.lean` then specializes that Cauchy layer to
+a singleton atlas and constructs a Bishop real for each fixed candidate.
+Its approximants are exactly the literal finite score, the lifted rational
+sequence converges, and the limit is constructively unique.  Named candidates
+in a larger atlas inherit the same exact approximation identity.
+
+Thus the U(1) outer-cutoff probability limit, atlas-uniform block/coarse score
+convergence, and candidate-wise constructive-real score limits are now
+constructed.  They remain fixed-nome, fixed-half, and finite-volume; no
+uniformity toward \(w=1\), located Yang--Mills separator, or spacing limit
+follows.
+
+## 13. First physical SU(2) outer-cutoff envelope
+
+`SU2OuterCutoffUniformTensorTail.lean` first records the
+cutoff-cardinality-free tensor recursion for the existing nonlinear
+dimension-weighted channel coefficient.  The physical spin-foam face weight
+needs a higher polynomial budget because of its link intertwiners.
+
+`SU2PhysicalOuterCutoffTensorTail.lean` uses the exact incidence ledger to
+fix that budget.  The local cubic intertwiner bound is charged at all four
+boundary links, giving \((s+1)^{12}\); after the heat-kernel dimension factor
+the face majorant is precisely
+\[
+ (s+1)^{13}w^{s(s+2)}.
+\]
+The generic polynomial Casimir tail at degree thirteen supplies a
+one-coordinate dyadic tail and a cutoff-independent ceiling under explicit
+rational head and ratio hypotheses, and the module tensors this over every
+fixed finite face list.  At the proved strong-coupling anchor it also
+identifies the literal interacting physical term with a pointwise
+degree-thirteen product majorant.
+
+`SU2PhysicalOuterCutoffFiniteFubiniTail.lean` performs the literal
+finite-Fubini step.  The product-weighted `boundedEdgeLabellings` sum factors
+exactly into the recursive tensor mass, the Boolean some-face-new sector is
+bounded by the outside-union recursion, and the pointwise physical incidence
+bound is summed over that sector.  At the strong-coupling anchor this proves
+that the actual interacting cutoff increment is bounded by the
+outer-cutoff-independent degree-thirteen envelope.
+
+`SU2PhysicalOuterCutoffAnchorSchedule.lean` discharges the anchor tail
+hypotheses with executable data.  The base ceiling starts at \(S=1\), the
+retained cutoff at dyadic precision \(r\) is \(M(r)=r\), and the
+degree-thirteen head is proved inductively to gain one factor \(1/2\) per
+additional spin.  Hence the one-face shell is at most \(2^{-r}\) and the
+actual anchor increment has a scheduled tensor-envelope bound for every
+later \(K\ge M(r)\).
+
+This does not yet provide SU(2) cutoff nesting and normalized-event
+convergence, payment of the full finite-dimensional tensor coefficient at a
+requested tolerance, a block/coarse score tube, or a spacing-varying
+weak-coupling discharge of the tail hypotheses.

@@ -193,8 +193,29 @@ The checked components are:
   of the outer carrier cardinality, its explicit fixed-nome/fixed-face-count
   modulus, its finite-Fubini/Haar domination of the genuine constrained
   new-sector mass, and a sharp normalized Boolean-event Cauchy modulus.
-  Constructing the limit object and transporting cutoff-dependent
-  block/coarse exponent-Gram observables remain open;
+  `BF4U1OuterCutoffCRealLimit.lean` and its probability-algebra companions
+  construct the Bishop-real limit with its unit-interval, monotonicity, and
+  complement laws. `BF4U1OuterCutoffBlockGramTransport.lean` then identifies
+  blocked/coarse entries with fixed events and proves explicit
+  fixed-candidate score convergence, with thresholds paid at \(K\) and
+  \(4K\). `BF4U1OuterCutoffAtlasUniformScoreTube.lean` takes the finite
+  candidate maximum and constructs one complete-atlas Cauchy modulus under
+  an explicit all-candidates-below-one hypothesis.
+  `BF4U1OuterCutoffScoreCRealLimit.lean` constructs the candidate-wise Bishop
+  score limit with exact finite-score approximants, convergence, and
+  constructive uniqueness. Uniformity as the nome tends to one remains open;
+- `SU2OuterCutoffUniformTensorTail.lean` and
+  `SU2PhysicalOuterCutoffTensorTail.lean`, followed by
+  `SU2PhysicalOuterCutoffFiniteFubiniTail.lean` and
+  `SU2PhysicalOuterCutoffAnchorSchedule.lean`: respectively the free
+  nonlinear channel tensor envelope, the physical degree-thirteen Casimir
+  envelope forced by the exact four-dimensional link-multiplicity incidence
+  ledger, the literal finite-Fubini comparison, and the executable
+  \(S=1,\ M(r)=r\) anchor schedule.  The actual interacting anchor cutoff
+  increment is bounded by the same outer-cutoff-independent tensor envelope
+  without supplied arithmetic premises. SU(2) cutoff nesting,
+  normalized-event control, total-tolerance rescaling, weak-coupling
+  scheduling, and score transport remain open;
 - `BF4ExponentGramLocatedStability.lean`: exact located-margin stability of
   finite SU(2)/U(1) argmins. Together these layers still do not construct the
   required spacing-uniform physical score tubes or located Yang--Mills

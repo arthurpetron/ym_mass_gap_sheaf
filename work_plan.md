@@ -955,7 +955,108 @@ sharp constant \(1\). Combining this with the explicit tensor cutoff gives a
 constructive normalized-event Cauchy modulus uniform in every later outer
 cutoff. This is still fixed-nome and fixed finite geometry. No `CReal` limit
 object, cutoff-dependent BF4 block-pullback/coarse score convergence, SU(2)
-analogue, spacing limit, or volume-uniform statement is inferred.
+analogue, spacing limit, or volume-uniform statement is inferred by that
+module alone.
+
+`BF4U1OuterCutoffEventProbabilityAlgebra.lean`,
+`BF4U1OuterCutoffCRealLimit.lean`, and
+`BF4U1OuterCutoffCRealProbabilityAlgebra.lean` now construct the missing
+fixed-nome limit object.  The exact finite-cutoff probability is the
+`K`-th approximation of a Bishop `CReal`; the same executable tensor-tail
+cutoff certifies the Cauchy law and convergence of the lifted rational
+sequence.  The limit is unique up to `CReal.Equiv`, lies in the constructive
+unit interval under the transitive `CReal.leEv` order, is monotone under
+Boolean-event inclusion, and satisfies exact event/complement normalization
+up to `CReal.Equiv`.  The nome, slab half-width, and event remain fixed, so
+this does not yet vary spacing or volume and is not a nonabelian continuum
+measure.
+
+`BF4U1OuterCutoffBlockGramTransport.lean` removes the bounded-wrapper
+artifact from the deterministic dyadic block without functional
+extensionality: on every listed physical state the cutoff block agrees
+pointwise with the direct four-charge sum, and list induction transports
+that equality through the lower and reflected-upper exponent sums.  Every
+blocked entry is therefore exactly one cutoff-independent Boolean-event
+probability on the fine slab, while every coarse entry is the analogous
+event probability at the induced cutoff \(4K\).  The normalized-event
+envelope passes through both sides, the absolute discrepancy is Lipschitz in
+the two entry errors, and finite coordinate summation gives a score bound
+\[
+ \left|D_L-D_K\right|
+ \le \#\mathrm{coordinates}\,
+   \bigl(E_{\mathrm{fine}}(g,K)
+       +E_{\mathrm{coarse}}(g_{\mathrm c},4K)\bigr).
+\]
+An explicit tolerance theorem pays the fine tensor cutoff at \(K\) and the
+coarse tensor cutoff at \(4K\), uniformly in every later \(L\), and is
+re-exported for every named member of the positive coupling atlas.  This
+closes outer-cutoff convergence of the literal fixed-nome U(1) block/coarse
+score for each candidate; it is not uniform as the nome tends to one and
+does not provide the located separator margin.
+
+`BF4U1OuterCutoffAtlasUniformScoreTube.lean` pays all candidate-dependent
+coarse thresholds at once.  Under the explicit atlas-wide hypothesis that
+every candidate is below one, it takes the constructive maximum of the fixed
+fine threshold and the finite list of candidate coarse thresholds.  That
+single executable cutoff gives the requested score bound for every atlas
+member and every pair of later outer cutoffs.  Both a per-tolerance tube and
+a Type-level Cauchy structure with modulus
+\(\varepsilon\mapsto K_{\mathrm{atlas}}(\varepsilon)\) are constructed; no
+rational limiting score is inserted into those structures.
+
+`BF4U1OuterCutoffScoreCRealLimit.lean` specializes the uniform Cauchy API to
+a constructive singleton atlas and builds the actual fixed-candidate Bishop
+real.  Its `K`-th approximation is the literal finite
+`u1ExponentGramDistance`; the lifted rational score sequence converges to it,
+and any other limit is `CReal.Equiv`.  A named atlas candidate receives the
+same limit with an exact approximation identity.  This supplies
+constructive-real limiting scores candidate by candidate, but it still does
+not prove a located separation between their limiting values.
+
+The first SU(2) outer-cutoff layers are now also explicit.
+`SU2OuterCutoffUniformTensorTail.lean` tensors the existing
+dimension-weighted nonlinear channel tail without paying the later cutoff
+cardinality.  That channel convention is a reusable free-coordinate layer,
+not yet the literal spin-foam bound.
+`SU2PhysicalOuterCutoffTensorTail.lean` then uses the actual four-dimensional
+incidence ledger: the cubic local link-multiplicity estimate, charged across
+four boundary links, contributes degree twelve per face, and the heat-kernel
+dimension factor raises the physical face majorant to
+\[
+  (s+1)^{13}w^{s(s+2)}
+  =\operatorname{tailTerm}(w,13,s).
+\]
+The existing polynomial Casimir tail gives an outer-cutoff-independent
+one-face shell and ceiling under explicit rational head/ratio hypotheses;
+the module tensors these over any fixed face list and verifies at the proved
+strong-coupling anchor that the literal physical term is pointwise dominated
+by the same degree-thirteen face product.
+
+`SU2PhysicalOuterCutoffFiniteFubiniTail.lean` closes the corresponding
+literal finite-Fubini step.  It identifies the product-weighted sum over
+`boundedEdgeLabellings` exactly with the recursive tensor mass, proves that
+the Boolean sector with some label above \(M\) is bounded by the recursive
+outside-union mass, and sums the pointwise incidence theorem.  Consequently,
+at the proved strong-coupling anchor, the actual interacting cutoff increment
+is bounded by the same degree-thirteen tensor envelope, uniformly in every
+later outer cutoff \(K\).  Cutoff nesting/normalized arbitrary-event control,
+transport through the SU(2) block/coarse score, and spacing-varying
+uniformity remain open.
+
+`SU2PhysicalOuterCutoffAnchorSchedule.lean` removes the remaining arithmetic
+hypotheses at that fixed anchor.  It proves constructively that the
+degree-thirteen ratio is already at most \(1/2\) from spin one onward and
+uses induction on the half-ratio to obtain the executable schedule
+\[
+ S=1,\qquad M(r)=r,\qquad
+ \operatorname{tailTerm}(1/400,13,M(r)+1)\le2^{-(r+1)}.
+\]
+Thus the one-face shell is at most \(2^{-r}\), and the literal interacting
+increment satisfies the scheduled tensor-envelope theorem whenever
+\(M(r)\le K\), without supplied head/ratio premises.  The tensor coefficient
+still has to be paid when converting a requested total tolerance, and this
+fixed-anchor schedule is not a schedule along a running weak-coupling
+trajectory.
 
 `BF4ExponentGramLocatedStability.lean` proves the exact argmin-stability
 consumer: if a limiting score has a named minimizer separated on the complete
@@ -985,13 +1086,33 @@ heat-kernel multiplier \(\rho(a)=s(a)^3\), it implies
 by \(1-\rho^m\le m(1-\rho)\).  This is a rescaled bare-mode floor, not a
 physical mass gap: the transfer-operator identification remains open and the
 bare ratio may diverge along the asymptotically-free trajectory. The next
-proof must transport the U(1) normalized-event modulus through the
-cutoff-dependent BF4 block/coarse exponent-Gram scores, construct the
-analogous outer-cutoff SU(2) score tube, and prove the located Yang--Mills
+proof must complete SU(2) cutoff nesting and normalized-event control from
+the now-proved anchor new-sector estimate, rescale the fixed-anchor precision
+by the finite tensor coefficient and then construct the spacing-dependent
+weak-coupling schedule, transport that estimate through
+the SU(2) block/coarse exponent-Gram score, and prove the located Yang--Mills
 separator. It must then derive the cubic law for the exact
 matched block output and construct the independent physical spacing
 envelope. Later gates must still identify the grouped contraction with the
 continuum transfer/OS object.
+
+**Verification snapshot (2026-07-27).**
+
+- full Lean build: **PASS**, 2,594 jobs;
+- strict axiom audit: **PASS**, 20,339 theorems across 2,505 namespaces,
+  zero exceptions;
+- frontier-uninhabitedness guard: **PASS**;
+- frontier statement-drift guard: **PASS**, all ten hashes pinned;
+- Clay rubric compilation: **PASS**, fixed-spacing clauses MET and continuum
+  clauses OPEN;
+- frontier DAG check: **PASS**, 12 enumerations, zero unbridged.
+
+This snapshot certifies the constructive finite-cutoff and fixed-anchor
+milestones above.  It does not alter the Clay boundary: the running
+weak-coupling SU(2) normalized score tube, located Yang--Mills separator,
+physical cubic BF4 trajectory, spacing envelope, and continuum OS/transfer
+identification remain open.
+
 Unless the current BF plan explicitly delegates a task back to one of the
 historical phases below, BF4--BF10 control execution order.
 
