@@ -758,13 +758,60 @@ preserve its spread exactly.  An already-formed Gram quadratic remains
 nonnegative after positive weighting and integration, which is the safe CP
 order statement and does not infer Loewner order from scalar entrywise order.
 
-The remaining Faraut leaf is now quantitative and physical rather than
-algebraic: construct the actual per-scale image certificates together with
-`FarautAFBitGrowth` (\(B_a\,t(a)/4\le D\)), prove endpoint/chart coverage, identify
-the completed local factors with the physical all-label joint-carrier
-kernel, and establish the nonlinear \(q_{s(a)}\le1/4\) comparison.  Given
-those data, the displayed spacing-uniform Perron obstruction is fully
-discharged by `faraut_perron_of_available_depth`.
+Four further constructive layers now narrow that analytic leaf.
+`SU2FarautGeometricImageCompletion.lean` constructs the completed `CReal`
+image sum from rational paired-image data with
+\(0\le p_n\le Cr^n\), proves the exact prefix modulus and
+\(C/(1-r)\) ceiling, and manufactures the earlier
+`FarautInteriorImageCertificate`; the completed image sum and convergence
+are no longer assumed fields.  `SU2FarautGaussianPairDomination.lean` proves
+the reusable semantic Gaussian comparison
+\[
+ 0<a\le b,\quad t>0,\quad 2t\le a^2
+ \Longrightarrow
+ b e^{-b^2/(4t)}\le a e^{-a^2/(4t)}
+\]
+from an exact rational gap split and a Padé prefactor bound.
+
+`BF4FarautAFCutoffGrowth.lean` evaluates the moving cutoff on the explicit
+dyadic heat schedule
+\[
+ x_s=t_s/4=2^{-s},\qquad w_s=(1+x_s)^{-1},\qquad
+ B_s=8(2^s+1)
+\]
+and proves \(B_sx_s\le16\) at every scale.  Its same-action refinement makes
+the executable budget definitionally
+`spacingLabelCutoff (E.w (coupling s))`; the local nome and the AF envelope
+can no longer use unrelated schedules.  `BF4MatchedPhysicalFarautTrajectory`
+specializes that statement to the exact observable/exponent-Gram matched BF4
+output, so the bit schedule is literally
+`spacingLabelCutoff (blockedWeight family (coupling s))`, not a substituted
+Padé action.  The required dyadic identification remains an explicit bridge
+because the current exact matched trajectory has not yet been proved to obey
+it.
+
+Independently of the image identity,
+`SU2PointwiseHeatDynamicWindow.lean` gives a direct all-label character-series
+route.  One finite rational prefix/tail calculation yields lower and upper
+bounds on the already-constructed completed heat kernel, tensorizes over all
+twenty-three factors, and feeds the same Perron budget.  The closed
+\((w,x)=(1/2,0)\) calculation proves \(1/2\le K_w(x)\le2\), showing the
+interface is non-vacuous.  On the joint BF4 carrier a
+`WholeSlabJointCarrierNonempty` witness now proves positive path-list length;
+with a positive potential floor the conditional pushforward retains an
+explicit positive lower bound.  Hence an empty carrier can no longer serve
+as a physical positivity discharge.
+
+The remaining Faraut/direct-heat leaf is the actual physical identification:
+construct uniform finite prefix/tail windows (or rational Faraut image data)
+on every class coordinate occurring along the exact matched AF trajectory;
+prove the dyadic/same-action bridge for that trajectory; cover the endpoint
+charts; identify the twenty-three completed factors and enumeration measure
+with the physical all-label BF4 joint-carrier kernel; construct the required
+nonempty joint carrier on every positive physical row; and establish the
+genuine nonlinear \(q_{s(a)}\le1/4\) comparison.  Once those objects are
+inhabited, `faraut_perron_of_available_depth` gives the displayed strict
+spacing-uniform contraction.
 
 That implication cannot be fired from the already-known aggregate kernel
 window.  `BF4AggregatePathwiseOrderFence.lean` constructs a strictly

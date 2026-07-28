@@ -1019,6 +1019,8 @@ import YMGap.Continuum.SU2PointwiseHeatSpacingCompletion
 import YMGap.Continuum.SU2PointwiseHeatSpacingTailBound
 import YMGap.Continuum.SU2PointwiseHeatPositiveCompletion
 import YMGap.Continuum.SU2FarautInteriorImageHarnack
+import YMGap.Continuum.SU2FarautGeometricImageCompletion
+import YMGap.Continuum.SU2FarautGaussianPairDomination
 import YMGap.Continuum.JTPFullProductDerivativeNormalization
 import YMGap.Continuum.BF4CompletedHeatRetainedConsumer
 import YMGap.Continuum.SU2AllLabelPointwiseHeatLimitBridge
@@ -1083,6 +1085,8 @@ import YMGap.Continuum.BF4SU2OuterBinaryLayerReduction
 import YMGap.Continuum.CompactDualAllCutoffOddParitySlabLayer
 import YMGap.Continuum.BF4SU2OuterBinaryLayerCounterexample
 import YMGap.Continuum.BF4FarautJointCarrierAFBudget
+import YMGap.Continuum.BF4FarautAFCutoffGrowth
+import YMGap.Continuum.SU2PointwiseHeatDynamicWindow
 import YMGap.Continuum.BF4SU2StochasticBlockedGramObservableTail
 import YMGap.Continuum.BF4SU2StochasticBlockedGramCRealLimit
 import YMGap.Continuum.BF4SU2CoarseOuterExponentGramTail
@@ -1107,6 +1111,7 @@ import YMGap.Continuum.FiveHolonomyPerronCutoff
 import YMGap.Continuum.BF4AFHeatSpacing
 import YMGap.Continuum.BF4AFInstantiation
 import YMGap.Continuum.BF4MatchedPhysicalAFBridge
+import YMGap.Continuum.BF4MatchedPhysicalFarautTrajectory
 import YMGap.Continuum.Z4DyadicSU2ParityGlobalPushforward
 import YMGap.Continuum.Z4DyadicSU2ParityPhysicalWeightFence
 import YMGap.Continuum.Z4DyadicSU2ParityActivityMatchedDefect

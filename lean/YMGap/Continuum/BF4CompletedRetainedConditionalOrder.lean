@@ -92,6 +92,56 @@ theorem completedPathSum_nonnegative_on
         SumOfSquares.geRat_add hhead htail
       exact ExpPos.geRat_mono hsum (by decide)
 
+/-- A nonnegative finite path sum retains the lower bound of any explicitly
+selected member.  This is the constructive non-vacuity companion to
+`completedPathSum_nonnegative_on`: a later physical application cannot obtain
+a positive lower bound merely because its carrier happened to be empty. -/
+theorem completedPathSum_ge_selected
+    {Path : Type} (weight : Path → CReal) :
+    ∀ paths : List Path,
+      (∀ path, path ∈ paths →
+        ExpPos.geRat (weight path) 0) →
+      ∀ selected, selected ∈ paths →
+        ∀ floor : Q',
+          ExpPos.geRat (weight selected) floor →
+          ExpPos.geRat
+            (completedPathSum weight paths) floor
+  | [], _, selected, hselected, _, _ =>
+      False.elim (List.not_mem_nil hselected)
+  | head :: tail, hnonnegative, selected, hselected, floor,
+      hselectedFloor => by
+      rcases List.mem_cons.mp hselected with hhead | htail
+      · subst selected
+        have htailNonnegative :=
+          completedPathSum_nonnegative_on
+            weight tail
+            (fun path hpath =>
+              hnonnegative path
+                (List.mem_cons_of_mem head hpath))
+        have hsum :=
+          SumOfSquares.geRat_add
+            hselectedFloor htailNonnegative
+        exact ExpPos.geRat_mono hsum
+          (Q'.le_of_eqv
+            (Q'.eqv_symm
+              (Q'.eqv_of_eq (Q'.add_zero' floor))))
+      · have hheadNonnegative :=
+          hnonnegative head List.mem_cons_self
+        have htailFloor :=
+          completedPathSum_ge_selected
+            weight tail
+            (fun path hpath =>
+              hnonnegative path
+                (List.mem_cons_of_mem head hpath))
+            selected htail floor hselectedFloor
+        have hsum :=
+          SumOfSquares.geRat_add
+            hheadNonnegative htailFloor
+        exact ExpPos.geRat_mono hsum
+          (Q'.le_of_eqv
+            (Q'.eqv_symm
+              (Q'.eqv_of_eq (Q'.zero_add' floor))))
+
 /-- A completed scalar pulls through a finite path sum. -/
 theorem completedPathSum_const_mul
     {Path : Type} (scale : CReal) (weight : Path → CReal) :
@@ -419,6 +469,7 @@ end YMGap.Continuum.BF4CompletedRetainedConditionalOrder
 
 #print axioms YMGap.Continuum.BF4CompletedRetainedConditionalOrder.completedPathSum_mono_on
 #print axioms YMGap.Continuum.BF4CompletedRetainedConditionalOrder.completedPathSum_nonnegative_on
+#print axioms YMGap.Continuum.BF4CompletedRetainedConditionalOrder.completedPathSum_ge_selected
 #print axioms YMGap.Continuum.BF4CompletedRetainedConditionalOrder.completedPathSum_const_mul
 #print axioms YMGap.Continuum.BF4CompletedRetainedConditionalOrder.completedRetainedFeynmanKacWeight_nonnegative
 #print axioms YMGap.Continuum.BF4CompletedRetainedConditionalOrder.completedRetainedFeynmanKacWeight_pathwiseDomination
