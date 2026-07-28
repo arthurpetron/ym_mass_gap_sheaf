@@ -930,6 +930,16 @@ positivity of the lower fold and
 The remaining geometric input is the canonical list of raw BF4
 source/target/path/factor locations and its relative class-coordinate map.
 
+That geometric input is now closed in
+`BF4CanonicalClassCoordinateCarrier`.  The actual 24 lower spatial faces
+produce 48 links, split constructively into a 25-link spanning tree and 23
+chords.  The five transmitted coordinates are the chord indices
+\(\{0,4,5,6,10\}\).  Rational unit quaternions provide the relative class
+coordinate, finite Cauchy--Schwarz proves its exact \([-1,1]\) range, and
+the complete physical location type retains source, target, path, and chord
+factor.  The module also supplies an explicit nonempty identity carrier and
+instantiates the 23-factor finite heat corridor.
+
 Second, the exact matched finite source-to-target kernel is exposed together
 with its physical marginals.  Any explicitly constructed common carrier
 gives a totalized finite rational matrix whose in-range entries are literally
@@ -959,6 +969,21 @@ of the normalized nonlinear BF4 operator to the Gaussian Mehler reference
 on one common cutoff-dependent function-space carrier, plus the stated
 spectral identification.
 
+`BF4NormalizedSameCarrierPerron` now formalizes the correct target of that
+construction.  A raw normalized Markov matrix contains the constant vacuum
+eigenvalue \(1\), so it cannot satisfy a global \(1/4\) Rayleigh bound.  The
+module constructs the exact rank-one uniform vacuum projector on every
+successor-size rational carrier, proves its row mass is one, proves it
+annihilates mean-zero vectors, and transports raw mean-zero eigenmodes to
+the vacuum-removed matrix.  A cutoff-indexed
+`NormalizedSameCarrierMehlerHSConvergence` permits the carrier dimension to
+grow and retains an explicit error modulus \(\varepsilon_K\to0\).  It
+constructively yields an eventual \(7/100\) HS perturbation and hence
+\(q_K\le1/4\) for a `PerronIdentification` that contains an actual nonzero
+eigenmode and a proof that it dominates every other nonnegative eigenmode.
+The remaining work is to inhabit this datum with the literal interacting
+BF4 and Mehler matrices—not to re-prove the finite HS implication.
+
 The joint-carrier reduction was also repaired.  A valid binary multicover
 may use arbitrarily many globally even cutoff-one sheets; local fusion
 bounds still give the required \(2K/4K\) channel windows.  The old \(K=2\)
@@ -966,6 +991,18 @@ counterexample has an explicit three-sheet multicover and an actual
 enumerated joint carrier.  The exact remaining combinatorial theorem is:
 every positive fine SU(2) row admits a finite integral strand-colouring into
 globally even binary slab sheets.
+
+The first induction step is now a theorem in
+`BF4SU2OuterOddLayerResidual`.  Every positive row supplies its closed
+odd-parity sheet, that sheet is pointwise bounded by the row, and its
+subtraction leaves an all-even state in the same physical finite carrier.
+Sheet plus residual reconstructs the row exactly.  Moreover, any multicover
+of the even residual can be prepended by the canonical sheet to produce a
+multicover of the original row.  Thus the remaining normality theorem is
+sharply localized to the all-even residual semigroup.
+`computations/bf4_binary_multicover_normality.py` is a non-proof MILP scout
+for this exact semigroup question on small unions of actual corrected-slab
+cube boundaries; its current bounded search finds no counterexample.
 
 ## BF5–BF6: physical RG closure
 

@@ -184,6 +184,32 @@ reviewed changes).
 
 ## Current status (2026-07-03)
 
+**Active BF4 milestone (2026-07-28).** The canonical retained spatial
+carrier is now literal Lean data: 24 lower faces, 48 physical links, an
+explicit 25-link tree, 23 chord coordinates, and the five transmitted chord
+indices `{0,4,5,6,10}`.  Rational unit quaternions define the actual SU(2)
+relative class coordinate and finite Cauchy--Schwarz proves its `[-1,1]`
+range.  Complete source/target/path/factor locations, an explicit nonempty
+identity carrier, and the 23-factor kinetic Harnack instantiation are in
+`BF4CanonicalClassCoordinateCarrier`.
+
+The all-positive-row strand route now constructs the first closed parity
+sheet and an exact all-even residual in
+`BF4SU2OuterOddLayerResidual`.  Any multicover of that residual is proved to
+reconstruct a multicover of the original row.  The remaining combinatorial
+obstruction is the integral normality theorem for the all-even residual.
+
+The same-carrier HS route is now vacuum-correct.  In
+`BF4NormalizedSameCarrierPerron`, normalized nonlinear and Mehler matrices
+are compared after removing the same rank-one vacuum projector; raw
+mean-zero eigenmodes are proved unchanged.  A cutoff-indexed convergence
+datum with growing carrier dimension and explicit error modulus yields the
+eventual `7/100` perturbation and `q ≤ 1/4` for an actual dominant finite
+eigenmode.  The open analytic task is to inhabit that datum with the literal
+interacting BF4/Mehler matrices and prove the HS modulus and Perron
+dominance; a raw normalized matrix is deliberately never subjected to the
+false global quarter bound because it contains the vacuum eigenvalue one.
+
 **Ledger state.** The `YMGap` library builds sorry-free (`lake build`
 reports zero `declaration uses 'sorry'`; see `SORRY_LEDGER.md`, whose
 remaining entries are closure records and named-hypothesis

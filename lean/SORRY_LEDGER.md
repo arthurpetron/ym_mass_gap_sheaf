@@ -85,6 +85,8 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4SU2OuterJointCarrierEnumeration.lean`,
   `lean/YMGap/Continuum/BF4SU2OuterFineWitnessRoutingReduction.lean`,
   `lean/YMGap/Continuum/BF4SU2OuterBinaryLayerReduction.lean`,
+  `lean/YMGap/Continuum/BF4SU2OuterBinaryMulticoverReduction.lean`,
+  `lean/YMGap/Continuum/BF4SU2OuterOddLayerResidual.lean`,
   `lean/YMGap/Continuum/CompactDualAllCutoffOddParitySlabLayer.lean`,
   `lean/YMGap/Continuum/BF4SU2OuterBinaryLayerCounterexample.lean`
 - **decls**: `SU2OuterPhysicalBlockContract`,
@@ -93,6 +95,8 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `SU2OuterJointChannelSelection`, `SU2OuterJointCarrierNonempty`,
   `SU2OuterFineWitnessRouting`, `SU2OuterBinaryLayerDecomposition`,
   `positivePhysicalTerm_fineOddSupport_even`,
+  `positivePhysicalTermOddLayerResidual`,
+  `positivePhysicalTermMulticoverOfResidual`,
   `no_SU2OuterBinaryLayerDecomposition`
 - **obligation**: Construct `SU2OuterPositiveRowClosure` for the genuine
   source-indexed BF4 all-label recoupling weight on the fine cutoff-\(K\)
@@ -167,10 +171,18 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   are forced to repeat the odd-incidence plain union, while positivity is
   certified by the exact three-sheet identity
   \(2(A\cup B)=A+B+(A\triangle B)\) and cutoff stability.  Therefore the
-  remaining physical discharge is again the genuine joint carrier/fine
-  witness router, now constrained to retain the three-face spin-one branch
-  (or equivalent shared intertwiner data); the binary-only proposal is
-  formally refuted rather than listed as open.
+  bounded-two-layer proposal is formally refuted rather than listed as open.
+  `BF4SU2OuterBinaryMulticoverReduction` removes that false global sheet
+  budget: any finite binary multicover produces an actual enumerated joint
+  carrier.  `BF4SU2OuterOddLayerResidual` now constructs, for every positive
+  row, the canonical closed odd-parity sheet, proves it is pointwise below
+  the row, subtracts it, proves the residual remains in the physical carrier
+  and is even on every face, and reconstructs the row exactly.  A multicover
+  of that even residual is constructively prepended to give a multicover of
+  the original row.  The remaining combinatorial input is therefore the
+  integral normality/strand-colouring theorem for the all-even residual (or
+  an equivalent direct joint-carrier constructor), not the first parity
+  sheet.
 - **must not be closed classically**: per `AGENTS.md` Rule 6 — a future
   inhabitant must be an explicit finite constructor, not a
   `Classical.choice` witness.
@@ -186,7 +198,9 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4FarautJointCarrierAFBudget.lean`,
   `lean/YMGap/Continuum/BF4FarautAFCutoffGrowth.lean`,
   `lean/YMGap/Continuum/SU2PointwiseHeatDynamicWindow.lean`,
-  `lean/YMGap/Continuum/BF4MatchedPhysicalFarautTrajectory.lean`
+  `lean/YMGap/Continuum/BF4MatchedPhysicalFarautTrajectory.lean`,
+  `lean/YMGap/Continuum/BF4CanonicalClassCoordinateCarrier.lean`,
+  `lean/YMGap/Continuum/BF4NormalizedSameCarrierPerron.lean`
 - **decls**: `FarautInteriorImageCertificate`,
   `FarautInteriorImageCertificate.kernel_ge_floor`,
   `FarautInteriorImageCertificate.kernel_le_ceiling`,
@@ -205,7 +219,11 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `PointwiseHeatTailWindow`,
   `wholeSlabDynamicConditionalPushforward_ge_witnessed_floor`,
   `SameActionPointwiseHeatWindows`,
-  `matchedPhysicalPointwiseAFWindowFamily`
+  `matchedPhysicalPointwiseAFWindowFamily`,
+  `canonicalBF4SpatialFiniteHeatHarnack`,
+  `NormalizedSameCarrierMehlerHSConvergence`,
+  `eventually_perronRatio_le_quarter`,
+  `matchedCentered_perronRatio_le_quarter`
 - **obligation**: Instantiate the certificate from the literal SU(2)
   heat-kernel image formula with constructive \(t\)-to-nome normalization,
   rational Gaussian/trigonometric enclosures, pairwise image domination, and
@@ -246,11 +264,25 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   sum which cannot be vacuous on an empty carrier.
   `BF4MatchedPhysicalFarautTrajectory` specializes the same-action cutoff
   to the exact matched `blockedWeight`.
-  Still open are the physical dyadic bridge, uniform windows/image
-  enclosures on the full AF class-coordinate set, Faraut/character
-  normalization and endpoint coverage, nonempty joint-carrier construction
-  on every positive row, equality with the full physical BF4 operator and
-  enumeration measure, and the nonlinear \(q\le1/4\) theorem.
+  `BF4CanonicalClassCoordinateCarrier` closes the previously unnamed
+  geometry: the 24 lower spatial faces give exactly 48 physical links,
+  constructively covered by an explicit 25-link tree and 23 chords; the five
+  transmitted chords are exactly indices \(\{0,4,5,6,10\}\).  Rational unit
+  quaternions give the genuine relative SU(2) class coordinate with proved
+  range \([-1,1]\), complete source/target/path/factor locations, an explicit
+  nonempty identity carrier, and the literal 23-factor finite heat corridor.
+  `BF4NormalizedSameCarrierPerron` corrects the spectral comparison boundary:
+  it builds the exact uniform vacuum projector, proves mean-zero eigenmodes
+  survive vacuum removal, defines cutoff-varying normalized nonlinear/Mehler
+  Hilbert--Schmidt convergence on the same growing carrier, derives the
+  eventual \(7/100\) perturbation and \(q\le1/4\), and requires a Perron
+  identification to carry an actual dominant eigenmode.
+  Still open are the physical dyadic bridge, uniform Faraut/image
+  enclosures on the full class-coordinate set, Faraut/character
+  normalization and endpoint coverage, the all-even residual
+  strand-colouring theorem, identification of the normalized interacting
+  BF4 matrix and Mehler matrix on the same complete carrier, the actual HS
+  convergence modulus for those matrices, and dominant-mode identification.
 - **must not be closed classically**: per `AGENTS.md` Rule 6; the uniform
   enclosures and modulus must remain explicit constructive data.
 
