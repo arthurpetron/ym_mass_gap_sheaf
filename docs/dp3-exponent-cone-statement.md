@@ -1,5 +1,29 @@
 # DP.3 at exponent granularity — formal re-statement, and the first RP data point
 
+> **AMENDED 2026-07-26 (M = 2 round).  Claim (i) as stated below is
+> REFUTED, at BOTH granularities.**  The coefficient cone `C_exp`
+> (§1, `a_E >= 0`) is not preserved by one blocking step at activity
+> truncation M = 2:
+>
+> * entry level — `T[1,1]` carries the coefficient **-32/3 at s^76**
+>   (all eight configurations at that exponent computed; final);
+> * aggregated level — the blocked image `(Bv)_1` carries **-64/3 at
+>   s^79**, with the sibling channels contributing *exactly zero*
+>   there, so the repair route named in §2(i)(a) below ("prove (i) at
+>   the aggregated level ... exactly the DP.6 pattern") is **closed**.
+>
+> What survives is positivity as a FUNCTION: `T[1,1]` and the blocked
+> images are Sturm-positive on all of (0,1) despite the negative
+> coefficients.  The cone is therefore restated functionally —
+> **claim (i')**, §2(i') — which is what the Birkhoff/Hilbert
+> machinery of DP.2 actually consumes; the coefficientwise version was
+> a convenience that no measurement in this program ever used.
+> Details, method, and the eps_slab(M) certificate:
+> `notes/dp3-m2-cone-refutation.md`; data
+> `computations/dp3_m2_entries.json`; pins `tests/test_dp3_m2.py`.
+> Claim (ii) (RP) is untouched by this round and has NOT been re-run
+> at M = 2.
+
 **Date.** 2026-07-25.
 **Predecessors.** DP.2 (exact blocked kernel `T[n,m](s)` on the 2x2x1 slab,
 `ym_dp6/computations/slab_blocking_kernel.py`, Sturm-positive entries on (0,1));
@@ -89,11 +113,42 @@ content of (i) lives at larger M, where signed 6j interference can in principle
 put negative coefficients into an entry while leaving it positive as a
 function. If that occurs, claim (i) must be proved at the aggregated level
 (cancellation across m at fixed output exponent), exactly the DP.6 pattern.
+
+> **2026-07-26: this is exactly what happened, and the aggregated repair
+> FAILED.**  At M = 2 signed 6j interference does put a negative
+> coefficient into an entry (`T[1,1]`, -32/3 at s^76), the entry does
+> remain positive as a function, and aggregation across m does NOT
+> rescue coefficientwise positivity: `(Bv)_1` has -64/3 at s^79 with
+> both sibling channels vanishing at that exponent.  See claim (i')
+> below.
 (b) The cone on which contraction will eventually be run is the **enveloped**
 (corridor-restricted) cone of DP.2/P19, since the Birkhoff diameter of the full
 positive cone is huge (Δ ≈ 12–65); claim (i) is stated for the full C_exp, and
 its enveloped refinement (blocked image lands in the corridor) is part of the
 contraction milestone, not of DP.3.
+
+### (i') Functional cone preservation — the replacement for (i) (added 2026-07-26)
+
+Let `C_fun` be the cone of dual data whose channels are positive as
+*functions* on (0,1) (Sturm-certifiable), rather than coefficientwise.
+
+**Claim DP.3-(i') (functional cone preservation).**  For dual data
+admitted at exponent granularity, the blocked data has every coarse
+channel `(Bv)_n` positive as a function on (0,1).
+
+This is strictly weaker than (i), is what DP.2's Birkhoff/Hilbert
+diameter measurements consume (they evaluate entries at each s), and is
+contradicted by nothing computed in the M = 2 round: every entry and
+every blocked image checked there is Sturm-positive on its final part.
+Status: **verified, not proved.**
+
+Recorded with it, because it governs how (i') feeds the contraction
+milestone: **positive diagonal conjugation is Birkhoff-neutral.**  The
+Hilbert projective metric satisfies `d(Df, Dg) = d(f, g)` for positive
+diagonal `D`, so an h-transform `P = D_{1/h} T D_{h'}` has the same
+projective diameter, hence the same contraction coefficient, as `T`.  A
+contraction rate may be computed on an unnormalized composed kernel and
+transported to the normalized/Markovized channel with no re-estimation.
 
 ### (ii) Reflection positivity of the blocked dual coefficients
 

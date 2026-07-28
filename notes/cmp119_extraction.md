@@ -120,8 +120,10 @@ was then obtained by an in-memory fetch executed *on the user's Mac*
 container): `curl <URL #2 of the §2 log> | gs -sDEVICE=txtwrite`
 — piped, no file written to the Mac. The Euclid scan carries an OCR
 text layer; the complete paper (pp. 243–285) extracted to 2,307 text
-lines, archived cloud-side at `/home/claude/fid/cmp119_fulltext.txt`
-(pp. 243–~279) with the tail (pp. 279–285) captured in-session.
+lines; the durable archive is the repo's
+`_generated/pdf_text/Balaban 119.txt` (198 KB), with the article PDF at
+`docs/pdf_references/Balaban_CMP119_243-285.pdf` (44 pp., 4,197,862 B,
+ABBYY FineReader OCR layer, 2004 Euclid scan).
 Identity confirmed from the text itself: header "Commun. Math. Phys.
 119, 243-285 (1988)"; references list "[I] ... Commun. Math. Phys.
 109, 249-301 (1987)" and "[II] ... Commun. Math. Phys. 116, 1-22
@@ -302,12 +304,32 @@ p. 283 — further confirming the fiducials note §1.2 reading that the
 historical c_λ = 1/2 shape descends from a recurring bookkeeping
 device, not a spectral constant.
 
-**Corpus hygiene note.** The repo file
+**Corpus hygiene note (DISCHARGED 2026-07-25).** The repo file
 `docs/pdf_references/communications-in-mathematical-physics_volume-119_issue-2.pdf`
-is NOT the Bałaban paper — it is the 2-page issue front matter. For
-the corpus, the article PDF should be downloaded (browser, same URL as
-§2 log entry #2) and dropped into `docs/pdf_references/`, then OCR'd
-into `_generated/pdf_text/`.
+is NOT the Bałaban paper — it is the 2-page issue front matter. The
+article PDF is archived as
+`docs/pdf_references/Balaban_CMP119_243-285.pdf` and OCR'd to
+`_generated/pdf_text/Balaban 119.txt`.  A second copy of the same
+bytes was later added under the title
+`Convergent Renormalization Expansions for Lattice Gauge Theories.pdf`
+and retired (`cmp` byte-identical) to keep one canonical name per
+paper.
+
+### 5.5. Independent re-verification against the archived PDF (2026-07-25, later)
+
+The §5 extraction was performed from a transient OCR pipe.  Every
+load-bearing quote was subsequently re-extracted from the **archived**
+PDF (`pdftotext`, independent of the original ghostscript path) and
+matched character-for-character: the p. 279 difference
+E⁽ʲ⁾(Λⱼ,U_k,z) − E⁽ʲ⁾(Λⱼ,1,z); the p. 283 two-class split with the
+explicit `2E0exp(-(1/2)>φ -j))exp (-(l/2)κd j (X)` factor-2 device;
+(3.48); (3.67) with its unpinned O((LʲL⁻ⁿ)⁵⁻ᵉ); the R₁ = 1 remark
+after (2.44); the R-operation deferral on p. 244; β = 1/4; and the
+powers-of-1/2 analyticity shrinkage (p. 277).  Both proofs of
+Theorem 2 confirm the scope caveat directly: the difference compares
+two *background configurations* (U_k vs 1) at fixed scale j.
+**The SHAPE-CONFIRMED / constant-unpinned verdict now rests on the
+archived primary source, not on an ephemeral pipe.**
 
 ---
 

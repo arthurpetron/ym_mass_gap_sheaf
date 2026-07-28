@@ -25513,7 +25513,7 @@ through the Mac's own egress (in-memory pipe, nothing installed) and
 identity-confirmed ("Commun. Math. Phys. 119, 243-285 (1988)";
 [I] = CMP 109, [II] = CMP 116).  Full extraction now in
 `notes/cmp119_extraction.md` §5 and archived at
-`_generated/pdf_text/cmp119_balaban_243-285.txt`.
+`_generated/pdf_text/Balaban 119.txt`.
 
 **Verdict on `BALABAN_POLYMER_RESIDUAL = 2.0`: SHAPE-CONFIRMED,
 constant unpinned — the fiducial stays internally derived, but the
@@ -25599,3 +25599,771 @@ Other findings:
 `notes/fiducials_notes.md` §5/§5.3 finalized (residual row: frontier
 CLOSED; refine path = sign-preservation lemma only).  Queue item (c)
 fully discharged.
+
+### 15i. Addendum (2026-07-26): DP.3 at M=2 — the COEFFICIENT CONE IS REFUTED at both granularities; the functional cone survives
+
+Queue item (a) executed (DP.2/DP.3 at M=2).  `docs/dp3-exponent-cone-statement.md`
+§2(i)(a) had named the open content of claim (i) exactly: at M=1 every entry is
+coefficientwise nonnegative, so preservation is trivial; the content lives at
+larger M "where signed 6j interference can in principle put negative
+coefficients into an entry while leaving it positive as a function", and if that
+happens "claim (i) must be proved at the aggregated level (cancellation across m
+at fixed output exponent), exactly the DP.6 pattern".  **Both halves are now
+settled, the second one negatively.**
+
+**(1) Entry level — REFUTED, exactly.**  `T[1,1]` at M=2 carries the
+coefficient **−32/3 at s^76**.  Eight configurations sit at E=76; all eight are
+computed; four contribute 0 and four contribute −8/3 each (D4/reflection images
+of one configuration, q=(0,1,2,1) w=(1,1,1,1), tiles (1,0,1,2)/(1,2,1,2),
+N = −1/1492992).
+
+**(2) Aggregated level — ALSO REFUTED; the DP.6 repair is NOT available.**  For
+the heat-kernel envelope v_m = d_m s^{C(m)}, the blocked image `(Bv)_1` carries
+**−64/3 at s^79**, and the sibling channels contribute **exactly zero** there
+(T[1,0] at s^79 = 0, T[1,2] at s^71 = 0).  There is no cancellation to appeal
+to.  DP.6's precedent — positivity lost at fine granularity, restored by
+aggregation with 50–500x margins — does not repeat one level up.
+
+**(3) Functional positivity SURVIVES.**  `T[1,1]`'s final part is
+Sturm-positive on all of (0,1) despite the negative coefficient; so are the
+final parts of `(Bv)_0` and `(Bv)_1`.  The negativity is a property of the
+character/exponent basis, not of the kernel.
+
+**Consequence — change of cone, not repair of proof.**  `C_exp` was defined
+coefficientwise (a_E >= 0) as a convenience; DP.2's contraction measurements
+never consumed it (they evaluate entries at each s and take Hilbert projective
+diameters).  Restated:
+
+> **DP.3-(i') (functional cone preservation).**  For dual data admitted at
+> exponent granularity, every coarse channel (Bv)_n is positive as a FUNCTION
+> on (0,1).
+
+(i') is what Birkhoff needs, is strictly weaker than (i), and is contradicted by
+nothing computed.  Recorded alongside: **positive diagonal conjugation is
+Birkhoff-neutral** (d(Df,Dg) = d(f,g)), so a Doob/h-transform
+P = D_{1/h} T D_{h'} has the same projective diameter and contraction
+coefficient as T — a rate may be computed on the unnormalized composed kernel
+and transported to a Markovized channel with no re-estimation.
+
+**(4) eps_slab(M) certified (Simplification-Ledger item 7 discharged).**  By
+pure combinatorial enumeration over triad-admissible labellings — no Haar
+contraction, no wall-clock dependence — E*(n,m,M) := min{E(config) : max spin =
+M+1} bounds min-deg(T_{M+1}-T_M).  At M=1, against the naive single-face bound
+C(2)=**8**: E* = 38, 32, 32, 68, 38, 44, 56, 56, 68, 88 over the ten entries, so
+**global E* = 32**.  A spin-2 face cannot appear in isolation; the triads at the
+4-valent interior edge and the corner-linked perimeter classes force companions
+up with it.  At s=1/2 the suppression factor alone is 2^-32 ~ 2.3e-10.
+Corroboration: computed T_{M=2}[0,0] agrees with T_{M=1}[0,0] through s^47,
+first differing at s^48 (4 -> 40).
+
+**(5) Discriminator.**  U(1) control at M=1,2,3: **zero** negative coefficients
+in any entry (certified lattice-point counts).  Every negative SU(2) network
+value requires a **spin-2 face** — the §15a signature (negatives required spin-3)
+recurring one level up, inside the blocking kernel.  Tag for the liability:
+**non-abelian**; tag for functional positivity: group-generic, no gap weight.
+The only gap-carrying step remains the sign of the one-step coupling defect.
+
+**Method notes.**  M=2 was unreachable by the polynomial-valued route (direct
+contraction >3.3 GB; skeleton route timed out on 17/46 classes).  New
+**fixed-tile decomposition** (`computations/dp3_fixed_tile.py`) expands tile
+activities into fixed spins so each class becomes a pure-character network with
+an exact rational value; **gated** against `skeleton_value` (14/14, incl. spin-2
+classes) and against `kernel_entry_skeleton` at M=1 for all ten entries
+(`dp3_m2_driver.gate_M1`).  Rigor device: a configuration contributes to exactly
+ONE exponent, so a coefficient is FINAL as soon as no UNREACHED configuration
+sits at that exponent — sharper than a global window, and schedule-independent
+(`dp3_m2_analysis.final_at` / `blocked_final_at`).  Runs are process-isolated
+(`scripts/run_iso.py`, `scripts/worker_fixed.py`): two earlier runs died on
+memory, one OOM-killed, one in a cascade of MemoryErrors raised inside its own
+handler.
+
+**Artifacts.**  `notes/dp3-m2-cone-refutation.md`;
+`computations/dp3_fixed_tile.py`, `dp3_m2_driver.py`, `dp3_m2_analysis.py`,
+`eps_slab.py`, `dp3_m2_entries.json`; `tests/test_dp3_m2.py` (10 fast pins
+green); `scripts/run_iso.py`, `worker_fixed.py`, `blocked_image.py`.
+
+**Open / next.**  (i) RP at M=2 (claim ii) NOT re-run — the M=1 data point
+stands unamended; (ii) `T[2,2]` still computing, so `(Bv)_2` and the 3x3 Gram at
+M=2 are open; (iii) restate C_exp functionally in
+`docs/dp3-exponent-cone-statement.md` and re-derive the enveloped-cone
+contraction on that cone; (iv) three T[0,1] configurations (E=68,76,76) exceed a
+5 GB address-space cap, not merely a time budget — they bound that entry's
+global window but affect no verdict above, by the per-exponent predicate.
+
+### 15j. Addendum (2026-07-26): DP.3 M=2 verdict transported to Lean — 21 theorems, ALL AXIOM-FREE
+
+The §15i result is now kernel-checked mathematics, not a Python claim.
+`dual_kappa_spike/DP3M2Ledger.lean` (generated by
+`scripts/gen_dp3m2_lean.py` from `computations/dp3_m2_entries.json`,
+DP6Ledger convention: rationals as (Int, Nat), comparisons
+cross-multiplied into Int, closed-integer `decide`, no Mathlib).
+
+**What is banked.**
+
+- `e76Configs` — every configuration of T[1,1] at the fence exponent 76
+  with its exact Haar value N and D4 multiplicity.  Both the exponent
+  (`configExp`) and the assembly weight (`configWeight`) are
+  **rederived in Lean** from the labelling, so the ledger is internally
+  consistent, not merely transcribed — the analogue of DP6Ledger's
+  `profileExp`/`profileCoeff` rederivation.
+- `e76_weights_positive` — the lemma that licenses the whole reading:
+  every assembly weight is strictly positive, so a negative kernel
+  coefficient can ONLY originate in a negative 6j network value.
+- `t11_coeff_76_value` / `t11_coeff_76_negative` — **the entry-level
+  fence**: the assembled coefficient is exactly -32/3, negative.
+  DP.3-(i) refuted.
+- `blocked_79_no_cancellation` / `blocked_79_value` /
+  `blocked_79_negative` — **the aggregated fence**: both sibling
+  channels vanish identically at their feeding exponents (79 and 71),
+  so the -64/3 at s^79 in (Bv)_1 stands alone.  The DP.6 repair route
+  is closed, in the kernel.
+- `t11_final_unique_negative` / `t11_final_others_positive` — the
+  negative coefficient is the ONLY one in the final part.
+- `t11_scaled_matches` + `t11_final_positive_at` — evaluation pins at
+  s = 1/4, 1/2, 3/4: the entry is strictly positive there despite the
+  negative coefficient.  Deliberately a WITNESS only; following the
+  DP6Ledger precedent, "positive on all of (0,1)" is NOT formalized
+  here (that remains Sturm-certified in `computations/`).
+- `eps_star_beats_naive` / `eps_star_min` — eps_slab(1)'s certified
+  exponents, every one at least 4x the naive single-face bound C(2)=8.
+
+**Verification.**  `lake build` green for all five spike targets;
+`#print axioms` on all 21 theorems: **"does not depend on any axioms"**
+for every one (better than the {propext, Quot.sound} budget).
+Non-vacuity is not assumed: explicit count pins (`e76_config_count`,
+`t11_final_count`, `blocked79_count`, `eps_star_count`) rule out
+trivially-true `List.all`, and a **mutation test** (falsify the fence
+coefficient to +32/3 and give a sibling channel a nonzero value) breaks
+exactly the three theorems asserting those literals.
+
+**Where it was verified — read this precisely.**  The build and axiom
+audit were run in the **cloud container** with the pinned toolchain
+(leanprover/lean4:v4.29.1), NOT on the Mac.  This is sound for this
+package specifically because `dual_kappa_spike` has zero dependencies
+(`lake-manifest.json` packages == []), so nothing about the host
+environment enters; and it leaves the AGENTS.md machine-safety contract
+completely untouched rather than working around it.  **A Mac-side
+`lake build` under the session lock has NOT been run this session** —
+per the contract, the green above is not a Mac verification.
+
+**Unchanged wiring TODO** (shared with DualKappa/FrozenHub/DP6Ledger):
+the ledger literals are transported from the Python quaternion-Haar
+machinery; re-deriving them inside Lean from the main tree's finite
+product Haar evaluation is the standing gap between "kernel-checked
+ledger" and "kernel-checked mathematics all the way down".
+
+**Blocked, needs a human decision:** `.git/index.lock` (zero bytes,
+2026-07-25 22:06) is stale — no git/lean/lake/pytest process exists on
+the device — so nothing from §15i or §15j has been committed.  Clearing
+it is a one-line fix but AGENTS.md forbids removing a retained lock
+unilaterally.
+
+### 15k. Addendum (2026-07-26): T[2,2] closed — all three blocked channels computed; verdicts unchanged
+
+`T[2,2]` finished (225/314 configurations, 89 unreached, FINAL below
+E = 72; 31 terms; one negative coefficient at E = 102, PROVISIONAL).
+All six entries n,m <= 2 and all three blocked channels are now in
+`computations/dp3_m2_entries.json`.
+
+`(Bv)_2`: FINAL below E = 66; coefficientwise nonnegative on its final
+part; Sturm-positive on (0,1).  Negative coefficients at E = 110, 115
+are provisional.
+
+**The §15i verdicts are unchanged.**  Negative coefficients turn out to
+be common in the provisional tails of every entry and every channel —
+but exactly TWO are final under the per-exponent predicate, and they
+are the two fences already banked: T[1,1] at s^76 (-32/3) and (Bv)_1 at
+s^79 (-64/3).  The Lean ledger is byte-identical after regeneration
+(it banks those two fences, which T[2,2] does not touch); spike build
+re-verified green, python pins 10/10 green.
+
+Still open: **RP at M = 2 (claim ii) has NOT been re-run**; the M = 1
+data point stands unamended and the 3x3 Gram at M = 2 is untested.
+
+### 16. The marginality-dichotomy program: SELF-CHARGE as a theorem — status and schedule (2026-07-28)
+
+This section promotes the central finding of the two-clone review
+(project doc `claude/route-forward-2026-07-26.md`) from strategy memo to
+schedule.  The finding, in one sentence: the two lines of the program
+have, from opposite ends, reduced the Clay problem to the statement that
+the derived flow of the exact theory is marginal with the anti-screening
+sign — the campaign's own SELF-CHARGE reality-fact — and neither line
+has noticed, in writing, that the other holds its missing half.
+
+**What the two halves are.**  The codex/BF line proved (its BF4 notes,
+2026-07-26) that the temporal sector of the corrected slab reduces
+EXACTLY to five chord holonomies (relative rank 5, transmitted cycles
+{0,4,5,6,10}), with the quadratic pencil completely solved:
+det(S - lambda K) = -(lambda-6)^2 (lambda-4)^3 / 384, Mehler ratio
+q_0 = 3 - 2*sqrt(2) < 1/5, buffer constant C_s^2 <= e^{1728/tau} with
+tau = -log s.  On that carrier the grouped Perron budget closes
+CONDITIONALLY: if the physical trajectory satisfies the heat-time floor
+
+>   (TS)   tau(a) >= kappa * a
+
+then C_{s(a)}^2 * q_{s(a)}^{m(a,L)-2} -> 0 for every physical distance
+L > 1728/kappa — and BF4 §9 proves some trajectory hypothesis is
+NECESSARY (admissible s(a) -> 1 exist for which the grouped cross-ratio
+diverges).  A Lean consumer (`AFEnvelope`, `BareAFImpliesLinearFloor`,
+kappa = alpha*Lambda/4C) was built there and is waiting for a physical
+inhabitant.  This tree (the DP line) holds the other half: the only
+in-substrate instrument that computes the one-step coupling flow of the
+exact blocking kernel to certificate grade, and the pinned discriminator
+— the SIGN of the one-step coupling defect (§15e: SU(2) s' < s^4,
+U(1) s' > s^4, exact witnesses; corridor narrowing demoted as
+group-generic).  These are two ends of one object: the derived flow map
+of the coupling under the exact blocking step.
+
+**The decision problem.**  In log coordinates tau = -log s, the exact 2D
+self-reproduction rule s' = s^4 reads tau'/tau = 4.  The banked strong-
+coupling measurement (s = 1/2, s' = 0.034121) gives tau'/tau ~ 4.88 —
+GOOD at strong coupling (acceleration past 2D feeds the anchor; it is
+the confining direction) but silent about the weak-coupling end.  The
+whole conditional BF4 chain lights up or dies on one dichotomy:
+
+>   **Marginality dichotomy.**  For the physically matched one-step
+>   flow, does tau'/tau tend to 4 as s -> 1 (2D-like; trajectory
+>   tau(a) ~ a^2; (TS) FAILS; the scheme's transport is wrong at weak
+>   coupling) or to 1+ (marginal with anti-screening; tau(a) ~
+>   1/log(1/(a*Lambda)) >> kappa*a; (TS) HOLDS with enormous room)?
+
+If the transverse/fluctuation sector renormalizes the tree-level ratio 4
+down to marginality, that cancellation IS dimensional transmutation in
+this formalism, and its residual first-order coefficient IS a
+constructive beta function: a rational number derived from finite Haar
+integrals — no pi, no measurement.  This gives RG-I8 (constructive UV
+landing) its first concrete, falsifiable, in-substrate shape, and it is
+decidable with machinery this tree already owns: the slab blocking
+kernel (DP.2), the fixed-tile decomposition and per-exponent finality
+device (§15i), the Sturm toolset, the U(1) mirror harness (§15e), and
+the located-second-eigenvalue machinery (`Continuum/LocatedSpectralGap`).
+
+**Honesty box.**  (a) The five-chord reduction, the (TS) necessity
+theorem, and the `AFEnvelope` consumer are CODEX-CLONE artifacts known
+here only through the project-doc review; nothing in this tree has
+verified them (grep 2026-07-28: `AFEnvelope`/`BareAFImpliesLinearFloor`
+absent from the audited namespaces; nearest in-tree cluster is
+`Continuum/AFTrajectoryCertificate` + `Continuum/BareAFDiagnostic`).
+They enter this schedule as claims to import and re-verify, not as
+facts (MD.0).  (b) The dichotomy framing and the three-regime
+decomposition below are the route-forward's two flagged extrapolations;
+each must be proved or refuted here, not assumed.  (c) This program
+does not by itself discharge RG-I7 (cutoff-independent contraction),
+RG-I9 (summable distortion), the OS quantitative debt, O(4)
+restoration, or non-triviality/OPE.  Per the standing triage those
+consume the uniform trajectory rather than substituting for it.
+
+### Milestone MD.0 — Bank, unblock, import (prerequisite housekeeping)
+
+**Goal.**  The §15i–15k state is committed and Mac-verified; the codex
+five-chord/(TS) artifacts are imported and independently re-verified
+in-substrate before anything consumes them.
+
+**Deliverables.**
+- Human decision on the stale `.git/index.lock` (zero bytes, 2026-07-25
+  22:06; §15j); then commit and push §15i–15k artifacts.  Standing
+  warning applies: Dropbox has reverted `work_plan.md` twice — git is
+  the durable record, so this commit is load-bearing, not hygiene.
+- Mac-side `scripts/with_lean_session_lock.sh` targeted `lake build` of
+  the five spike targets per AGENTS.md (the §15j cloud green is
+  recorded as not a Mac verification).
+- `git fetch` of the codex snapshot branch
+  (`codex/full-workspace-snapshot-2026-07-24`); extraction of (i) the
+  BF4 five-chord data and pencil, (ii) `AFEnvelope` /
+  `BareAFImpliesLinearFloor` and their axiom state, (iii) the BF4 §9
+  necessity construction.
+- Independent re-verification gate: recompute the five-chord pencil
+  det(S - lambda K), the transmitted-cycle set, and q_0 = 3 - 2*sqrt(2)
+  from this tree's own slab machinery (exact rational eigen-pencil on
+  the temporal sector) before the carrier is used anywhere.  Until this
+  gate passes, MD.2 runs on the full slab kernel; the five-chord
+  carrier is an acceleration, never a precondition.
+
+**Dependencies.**  None (the lock decision is the user's).
+
+### Milestone MD.1 — The observable-matched flow map (definition layer)
+
+**Goal.**  A definition of the blocked coupling s' that is fixed by
+matching an OBSERVABLE across the blocking step, not by projecting the
+blocked kernel back onto single-plaquette form.  Projection builds the
+2D rule in at tree level; the 4-vs-1 ambiguity of the dichotomy lives
+entirely in this definition, so the definition layer is load-bearing.
+
+**Definition (primary).**  s' is the coupling at which the COARSE
+transfer separator (the located second eigenvalue, machinery of
+`Continuum/LocatedSpectralGap`) reproduces the FINE two-cell separator,
+both computed in the DP.3 exponent-granularity RP Gram of
+perimeter-loop characters (the only norm in the program that is
+simultaneously exact, reflection-positive, and blocking-covariant).
+**Definition (control).**  Gram-corridor matching — s' fixed by
+reproducing the corridor width of the enveloped cone.  Two genuinely
+different matchings are required by the scheme-covariance fence below.
+
+**Deliverables.**
+- `computations/flow_matching.py`: exact-rational matched s' for both
+  definitions, SU(2) and U(1) through the same code path, M as a
+  parameter; the legacy projection value recorded alongside as
+  comparison (never as gate).
+- Gates: (g1) at s = 1/2, M = 1 the harness reproduces the banked DP.2
+  protocol numbers to the digit before any new claim is made; (g2)
+  U(1) mirror runs on the identical ∂-data (the §15e fairness
+  discipline); (g3) both matchings evaluated on the same run.
+- `docs/observable-matched-flow.md` recording the definitions and the
+  refutation surface (what outcome kills what).
+
+**Dependencies.**  None hard; MD.0's five-chord gate accelerates it.
+
+**Open questions.**  Whether M = 1 suffices at the definition layer or
+the 4-valent interior edge (where §15e locates the non-abelian
+recoupling) forces M >= 2 from the start; whether the matched s' is
+well-defined on all of (0,1) or only piecewise (a piecewise answer is
+itself reportable structure).
+
+### Milestone MD.2 — The dichotomy computation (decisive)
+
+**Goal.**  Decide, in exact arithmetic with Sturm-certified windows,
+whether the observable-matched ratio tau'/tau tends to 4 or to 1+ as
+s -> 1-, for SU(2) and U(1) in the same harness.
+
+**Protocol.**  Rational ladder s in {1/2, 3/4, 9/10, 99/100, 999/1000}
+(the DP.6 endpoint ladder) extended toward 1 as far as the per-exponent
+finality device certifies; M = 1 then M = 2 via the fixed-tile route;
+M = 3 stability check with the eps_slab(M) modulus bounding truncation
+exponents; both MD.1 matchings; every number an exact rational, every
+window a Sturm certificate.
+
+**Decision table (all three outcomes are deliverables).**
+- SU(2) ratio trends to 1+ AND U(1) separates (ratio -> 1- or the
+  abelian rule): mechanism certified; open MD.3 in the same session.
+- NO separation between SU(2) and U(1): the scheme family is an
+  MK-type false positive, refuted BEFORE it can contaminate the chain;
+  bank the kernel-checked fence, kill the scheme family, promote shaft
+  PF to primary.
+- SU(2) ratio -> 4 for every admissible matching: the most important
+  negative theorem the program has produced — (TS) is uninhabitable
+  along this scheme family; bank it and redirect.
+
+**Deliverables.**  `computations/dichotomy_run.py`; exact ledger
+`computations/dichotomy_results.json`; `notes/marginality-dichotomy.md`;
+pinned tests.  Process isolation per §15i (5 GB caps, UNREACHED
+recorded, per-exponent finality only).
+
+**Dependencies.**  MD.1.
+
+### Milestone MD.3 — The marginal-defect coefficient (a constructive beta function)
+
+**Goal.**  If MD.2 lands marginal: a two-sided rational envelope
+
+>   1 < tau'/tau <= 1 + c*tau   uniformly on (s_*, 1),
+
+with c and s_* explicit rationals and Sturm certificates — the sharpest
+known form of the Balaban-grade hardness, concentrated into one
+truncation-error lemma on a finite-dimensional map near its marginal
+fixed point.  The residual first-order coefficient is extracted as an
+exact rational (finite Haar integrals; no measurement) and its SIGN is
+the anti-screening statement: SU(2) positive, U(1) non-positive.
+
+**Group uniformity rides along.**  Derive the defect coefficient with
+(h_vee, Delta_Casimir) as parameters — the one-loop anti-screening
+coefficient is monotone in h_vee — so the existing R1 worst-case spine
+(everything minimized at A_1) carries it to all compact simple G with
+SU(2) as pilot, per invariant P6.  The coupled-simplification audit
+applies in full: this touches the multiplicity-free 6j vertex calculus.
+
+**Deliverables.**  Envelope certificates; coefficient ledger;
+`notes/marginal-defect-coefficient.md`; the U(1) non-positivity fence
+as a certified computation, not a remark.
+
+**Dependencies.**  MD.2 (marginal branch).
+
+### Milestone MD.4 — The window atlas (the crossover is compact)
+
+**Goal.**  A finite, Sturm-certified rational cover of the compact
+interval [2^{-1/3}, s_*] chaining the unconditional strong-coupling
+anchor window (single-edge located-gap window [0, 2^{-1/3}), where
+1 - w^3 -> 0 kills any uniform floor from lattice units alone) to the
+validity edge s_* of the MD.3 envelope.  Under the three-regime
+decomposition — strong: unconditional; middle: compact, hence a finite
+atlas of exact certificates; weak: the MD.3 envelope — the crossover
+("the tornado") is not an infinite problem.  The decomposition itself
+is extrapolation #2 and must be proved as the atlas-adequacy lemma:
+the union of the three regimes covers the derived trajectory.
+
+**Deliverables.**  `computations/window_atlas.py` + certificate ledger;
+per-window functional-positivity statements on the DP.3-(i') functional
+cone (consuming DP.R2 below); the atlas-adequacy lemma statement.
+
+**Dependencies.**  MD.3 (for s_*); DP.R2.
+
+### Milestone MD.5 — (TS) instantiation and Lean transport
+
+**Goal.**  Package MD.3 + MD.4 as the physical inhabitant of the
+bare-AF envelope consumer; derive the linear heat-time floor
+tau(a) >= kappa*a with explicit rational witness; feed the five-chord
+Perron budget; exit certificate is the scale-dependent grouped target
+q_a = 1 - m*a + o(a) over fixed physical distance (deliberately NOT a
+microscopic uniform q < 1).
+
+**Lean.**  Extend `dual_kappa_spike` with a generated ledger
+(`scripts/gen_md_lean.py`, DP6Ledger/DP3M2Ledger convention: rationals
+as (Int, Nat), cross-multiplied comparisons, closed-integer `decide`,
+no Mathlib, count pins + mutation test) banking: the envelope
+inequalities on the atlas windows, the U(1) non-positivity fence, and
+the composition into the floor.  Then wire toward the main-tree
+consumer (imported `AFEnvelope` or `Continuum/AFTrajectoryCertificate`)
+under the {propext, Quot.sound} gate with both statement guards.  The
+standing wiring TODO is inherited and recorded: generated ledgers are
+"kernel-checked ledger", not "kernel-checked mathematics all the way
+down", until the in-Lean finite-product Haar re-derivation lands.
+
+**Two identifications owed to the BF side, with DP fillings.**  The
+"physical projective norm" field of BF3.3's admissibility interface :=
+the DP.3 exponent-granularity RP Gram; the refresh/minorization packet
+re-derived on the five-chord carrier in that Gram norm.
+
+**Dependencies.**  MD.3, MD.4; MD.0 (consumer import + gate).
+
+### Shaft PF (parallel-safe) — fermionize the sign sector
+
+The other standing liability: dual positivity is only true after
+retreat (DP<=1 / exponent aggregation, §15d), the coefficient cone is
+refuted outright (§15i), and positive-carrier constructions keep paying
+collapse penalties to avoid the signed sector.  The structural evidence
+— sgn A_x = (-1)^{q(x)} with q an even Brown/Arf-type quadratic
+refinement of the mod-2 intersection form; sector ledgers resumming
+through overlap graphs K_{2,2}/K_{2,4}/K_{4,4} with local weight
+W = [[1,1],[1,-1/3]] and Z_{m,n} = sum_r C(m,r)(1+(-1/3)^r)^n > 0 — is
+exactly the input shape of the Gauss-Milgram/Arf-Brown-Kervaire
+calculus, i.e. of fermionization (2D Ising <-> free fermion via
+Kasteleyn orientations; signed surface sums <-> spin structures).
+
+**Milestone PF.1 — the embedded Pin- DECIDER.**  Construct the
+embedded/framed Pin- realization of the full strand cover: embed the
+SURFACE (global push-axis assignment), not the curves — the curves-only
+lift saturates at ~70% triple consistency, and the completed 300-sample
+abk_verdict2 run showed the miss pattern is NOT clean d2 (d1:6, d2:13,
+d3:3, d4:8) with an 83% assembly attrition and a beta == 0 attractor on
+kappa=0.  Decision rule (banked 2026-07-24): if the embedded surface
+reproduces the kappa=1 -> beta=4 half, beta = 4*kappa is alive; if it
+reproduces the beta == 0 attractor, DROP beta = 4*kappa in favor of a
+beta == 0 rigidity statement.  Either way the correlation-mode era
+ends: the embedded object makes q well-defined, kills the nonpin/q/B
+failure modes, and turns the conjecture into a computable statement.
+
+**Milestone PF.2 — the Pfaffian identity.**  Formulate and test:
+
+>   The signed part of the SU(2) dual heat-kernel sum on a physical
+>   complex is, exactly, a Pin--twisted sum over the strand cover, and
+>   its exponent-aggregated channels are Pfaffians of an explicit
+>   Kasteleyn-oriented finite matrix built from the W-weights — hence
+>   positive by structure, not by suppression.
+
+First test on the K_{2,2}/K_{2,4}/K_{4,4} ledgers where the closed form
+is already exact; `computations/kasteleyn_search.py` /
+`kasteleyn_phase2.py` are the starting machinery.  If true, dual
+positivity becomes an identity at every cutoff with no s-window
+smallness — precisely the positive, cutoff-uniform Birkhoff carrier the
+BF3.3 interface demands, and the scale-coherent sign convention (open
+DP.1 question) comes with it via the ABK Z/8 phase.
+
+**Milestone PF.3 — the strata where the shaft can die.**  (i) The
+chi = 2 sphere supports: 30 of 33 negative orbits at doubled-spin
+cutoff two live OUTSIDE the torus lane where the (-1)^{ab} rule is
+proven — extend or refute the quadratic-refinement law there.  (ii)
+Interface-bearing configurations force decorated RELATIVE spin
+networks (boundary-decorated refinements).  Both finite computations;
+run them before any PF result is consumed upstream.
+
+**Coupling.**  PF landing hands MD its positive carrier with no
+collapse factors; MD landing does not need PF.  Neither blocks the
+other; PF is the designated redirect target if MD.2 refutes.
+
+### DP residuals (feed, do not block)
+
+- **DP.R1 — RP at M = 2.**  Re-run DP.3-(ii) with the closed T[2,2]:
+  the 3x3 Gram under theta: z -> 1-z, Sturm on leading principal
+  minors, U(1) mirror, antilinearity control.  Named open in §15i and
+  §15k; the M = 1 PSD point stands unamended until this runs.
+- **DP.R2 — functional cone restatement.**  Rewrite
+  `docs/dp3-exponent-cone-statement.md` around DP.3-(i') (functional
+  cone preservation), and re-derive the enveloped-cone contraction on
+  that cone, using the recorded Birkhoff-neutral Doob/h-transform
+  lemma (d(Df,Dg) = d(f,g)) to transport rates from the unnormalized
+  composed kernel.  This is the §15i open item (iii) and is consumed
+  by MD.4.
+- **DP.R3 — T[0,1] window.**  The three configurations at E = 68, 76,
+  76 exceed the 5 GB address-space cap; build a streamed/factored
+  evaluator or a sharper skeleton bound.  Windows only; no verdicts.
+
+### Route-specific fences (added to the standing audit rules)
+
+1. **U(1) control at every MD stage.**  Any envelope, corridor, atlas
+   window, or contraction statement that survives verbatim under
+   d_n == 1, Casimir m^2 carries no gap weight; the DP.6-U1 audit
+   table applies unchanged to the observable-matched flow.  The MD.2
+   harness must emit the U(1) verdict in the same run, always.
+2. **Scheme covariance of the defect sign.**  The classical fact that
+   the one-loop coefficient is scheme-independent needs an in-substrate
+   analogue: the SIGN of the marginal defect must be invariant across
+   the admissible scheme family (M, carrier, matching observable).
+   Cheap first check: separator matching vs Gram-corridor matching
+   agree.  A sign that flips across admissible schemes refutes the
+   definition layer (MD.1), not the theory — bank it as such.
+3. **Anti-loop rule.**  The MD.5 deliverable is a two-sided rational
+   envelope with Sturm certificates and a Lean inhabitant of the
+   imported consumer — not a renamed alias of (TS), and not a new
+   interface equivalent in strength to it.  A reduction is the start
+   of the next attack, never a deliverable.
+4. **No measured number on the critical path.**  Ladder evaluations
+   are scouting until replaced by certified windows; only exact
+   rationals and Sturm certificates cross into proofs or ledgers.
+5. **Refutations are deliverables.**  A certified non-separation at
+   MD.2, or a certified tau'/tau -> 4 for every admissible matching,
+   is banked as a kernel-checked fence and redirects the campaign to
+   PF as primary — in the same session, per the standing loop.
+
+### Registry update (mechanism families, not wording)
+
+Two families enter the active mechanism registry: **derived-flow
+marginality** (observable-matched blocking flow; dimensional
+transmutation as a computed cancellation; distinct from bond-moving
+envelopes — refuted 2026-06-27, linear defect; from the character-
+window mechanism — closed by the ceiling theorem hi < 2^{-1/3}; and
+from fixed-coupling CP domination — collapse eta_s^{21}), and
+**sign-sector fermionization** (Pin-/Kasteleyn/Pfaffian; distinct from
+suppression-and-margin control of the signed sector).  Gate mapping:
+MD attacks the trajectory content of C6b/C6d/C6e in this substrate's
+coordinates and gives RG-I8 its first falsifiable shape; PF attacks
+the carrier content of C7/RG-I7.  Cross-gate fence 1 (independent
+scale setting) is respected by construction: the matching observable
+fixes s' with no reference to any desired mass.
+
+### Sequencing
+
+MD.0 (user unblocks git; imports start immediately) -> MD.1 -> MD.2
+[decision point] -> MD.3 -> MD.4 -> MD.5; PF.1 -> PF.2 -> PF.3 in
+parallel throughout; DP.R1/DP.R2 immediately (DP.R2 gates MD.4);
+DP.R3 and the manuscript sweep (998/1000 headline, conditional Balaban
+citation) as background.  Deferred until MD.2 decides: BF5-style
+branched-sector grading, further DP strata enumeration, any new Lean
+composition machinery — the RG-I/CD scaffolding is closed and waiting;
+it needs physical content, not more structure.
+
+### 16a. Addendum (2026-07-28): MD.1 EXECUTED — the strong-coupling sign discriminator is SCHEME-BORNE; magnitude separation survives; MD.2 opened with a protocol discovery
+
+MD.1 (the observable-matched flow map, definition layer) is executed.
+Artifacts: `computations/flow_matching.py` (both matchings, both
+groups, one code path, M a parameter); `tests/test_flow_matching.py`
+(9 pins, green in the cloud container); `docs/observable-matched-flow.md`
+(the definition record); `computations/flow_matching_results.json`
+(exact ledger, 16 rows, ladder s in {1/4, 1/2, 3/4, 9/10}).
+
+**Definitions landed.**  D1 (primary, separator matching): the matched
+coupling solves d_1 s'^{C(1)} = sigma(s), where sigma(s) =
+lambda_1/lambda_0 of the DP.3 OS Gram of the one-step blocked slab —
+exact charpoly, Sturm isolation, certified rational windows,
+cross-checked against an independent float eigensolver to all printed
+digits.  Structural fact: the 2D fixed-point pairing on this geometry
+is RANK ONE (frozen gate), so sigma is a purely transverse observable
+— the 2D theory has zero connected one-step transfer, and any nonzero
+sigma lives in exactly the sector §15e located the non-abelian
+recoupling in.  D2 (control, pair matching): s'_{ab}^{C(b)-C(a)} =
+(v_b d_a)/(v_a d_b) on the flowed envelope, exact rationals; the U(1)
+(0,1) pair reproduces the banked rho_1 witness identically.  Gates:
+g1 banked DP.2 floats to the digit + DP.6-U1 exact witnesses; g2
+identical boundary data + saved-kernel equality; g3 one ledger.
+
+**Finding 1 — the §15e sign discriminator does not survive matched
+truncation under the envelope definition.**  Exact: T[0,2] has NO
+2D-disk term at M=1; it first appears at M=2 (3 s^32, final window
+66 > 32).  At M=1 the (0,1) pair is already ABOVE the 2D rule
+(1467702248448/6005899834403585 > (1/2)^12) while pairs into the
+disk-starved spin-2 channel sit ~100x BELOW — the legacy fit averaged
+these into the banked s' = 0.034121 < s^4.  At M=2 ALL SU(2) pairs
+are ABOVE the rule (1.00098, 1.01615, 1.01515 at s = 1/2, exact),
+the same side as U(1) (1.27284, 13.19148, 10.36386).  What survives
+is separation by MAGNITUDE (U(1) deviations 16x-800x SU(2)'s), and,
+on D1, the exact ordering sigma_su2 * 4 < sigma_u1 at s = 1/2 with
+M-stability (su2 M1->M2 shift < 0.25%; u1 M2->M3 < 3e-7 relative):
+the SU(2) connected channel damps >4x harder than the abelian one —
+the contraction-friendly direction, now on a located spectral
+observable instead of a fit.  Consequence for the ledgers: every
+"SU(2) s' < s^4" statement (§15b, §15e, §15i(5), the P23-P24
+record) must be read as scheme-qualified (M=1, fit protocol); the
+non-abelian tag is NOT a fixed-s sign.  The route-forward's fence
+anticipated this: the discriminating object is the s -> 1 dichotomy
+class under scheme covariance, not a strong-coupling sign.
+
+**Finding 2 — scheme covariance fails at fixed strong coupling.**
+At the same s, kernel, and M, legacy/pair/separator give different
+defect signs.  Banked as the MD.1 fence firing exactly as designed:
+it refutes fixed-s sign discriminators, and moves the burden to the
+s -> 1 limit (MD.2), where the dichotomy class must agree across
+admissible matchings before it counts.
+
+**MD.2 opened — first probe and a protocol discovery.**  At
+s = 99/100 the truncation ladder does not converge: U(1) pair01
+tau'/tau falls 19.55 -> 12.03 -> 7.88 across M = 3, 4, 5 (still
+falling); SU(2) M=2 tails above the final windows weigh
+(99/100)^58 = 0.56 relative — fixed-M ladder points CANNOT reach the
+dichotomy regime.  MD.2's first deliverable is therefore an
+M -> infinity-controlled object, not a longer ladder: for U(1) the
+owned-boundary kernel at M = infinity is an exact quadratic-form
+theta sum over the rank-4 cube-flip lattice,
+T_U1[n,m](s) = sum_{c in Z^4} s^{Q(c;n,m)}, with geometric tail
+bounds certifiable in exact rationals — no truncation.  The SU(2)
+analogue needs the fixed-tile machinery with eps_slab-style tail
+bounds at general M.  Theta-resummation of the abelian transverse
+sector is the next attack.
+
+**Honesty.**  Cloud-container verification only; no Mac-side run
+under the session lock this session (AGENTS.md discipline: cloud
+green is not a Mac verification; the module and tests are pure
+Python + Fraction with no repo-lock interaction, and sympy is used
+only inside the imported flip-lattice certificate).  SU(2) M=2 rows
+consume provisional tails above the per-entry final windows —
+irrelevant at s <= 1/2 (< 2^-58 rel), order 1e-3 at s = 9/10, order
+0.5 at s = 99/100 (that row is marked accordingly).  The separator's
+matched channel is labeled by the fixed-point n = 1 channel;
+eigenvector channel migration was not observed on this ladder but is
+not excluded off it.  Nothing here decides the dichotomy: MD.1 is
+the definition layer, and both of its findings are about which
+definitions are admissible, not about the s -> 1 class.  Git commit
+remains blocked on the stale `.git/index.lock` (§15j human
+decision); until it is cleared, work_plan.md and these artifacts are
+Dropbox-only and the standing revert warning applies.
+
+### 16b. Addendum (2026-07-28, same session): U(1) LANE DECIDED at M = infinity — theta-resummation lands tau'/tau -> 3 EXACTLY; the SU(2) target number is now pinned
+
+The §16a protocol discovery is executed.  The abelian owned-boundary
+kernel needs no truncation: its configuration set is (particular
+disk) + (rank-4 cube-flip lattice), so the M = infinity kernel is the
+quadratic-form theta series T[n,m](s) = sum_{c in Z^4} s^{Q(c;n,m)}.
+Artifacts: `computations/u1_theta_kernel.py`,
+`computations/u1_theta_results.json`,
+`tests/test_u1_theta_kernel.py`, `notes/u1-theta-resummation.md`.
+Pins 17/17 green (with the MD.1 suite) in the cloud container.
+
+**Exact lattice data (grid-verified, pinned).**
+A = B^T B = 6I - Adj(C_4), spectrum {4, 6, 6, 8} by exact charpoly
+(x-4)(x-6)^2(x-8); b(n,m) = 2(n-m)(1,1,1,1); |u|^2 = 4;
+Qmin(n,m) = min over REAL c of Q = 3n^2 + 3m^2 + 2nm.  Kernel values
+at rational s are certified rational windows (partial sum + tail
+bound from lambda_min = 4 and the shell count <= 80 r^3); gates:
+flip-lattice certificate, spectrum, Qmin grid, monotone sandwich of
+T_M for M = 3..6, nested refinement.
+
+**The law.**  As tau = -log s -> 0, T[n,m] ~ Theta_0(tau)
+e^{-tau Qmin(n,m)} with Theta_0 group-data-free (Poisson; corrections
+O(e^{-c/tau})).  Over any charge-symmetric coarse basis the mean
+kills the cross term and matches C(n) = n^2 exactly, so EVERY
+D2-family observable (all pairs, and the legacy fit) has one limit:
+
+>   tau'/tau -> E* = |u|^2 - (B^T u)^T A^{-1} (B^T u) = 4 - 1 = 3.
+
+N-independent; scheme-covariant across the D2 family AT the limit
+(the §16 fence holds there).  Certified ladder (pairs 01/02/12):
+s = 1/2: 3.6520/3.0695/2.8753; 3/4: 2.8031/2.7670/2.7550; 9/10:
+2.7809/2.7822/2.7826; 99/100: 2.9620/2.9621/2.9621 -> 3.  The pairs
+collapse onto each other as s -> 1; approach E* + O(tau),
+non-monotone (dip near s ~ 0.85, pinned).  Cross-instrument gate:
+theta at s = 1/2 reproduces the converged fixed-M 3.652 to the
+digit; the §16a fixed-M values at 99/100 (19.6/12.0/7.9) are
+confirmed pure truncation artifacts (true value 2.962).
+
+**Consequence.**  The U(1) lane of the one-step dichotomy is
+DECIDED: tau'/tau -> 3 — neither the 2D class (4) nor the marginal
+class (1).  Under naive one-step iteration tau(a) ~ a^{log2 3} =
+a^{1.585}, failing the (TS) linear floor — as the gapless abelian
+control must.  The SU(2) half of MD.2 now has an exact target: gap
+weight requires E*_SU2 to separate BELOW E*_U1 = 3; naive
+(TS)-viability needs E*_SU2 <= 2; marginality proper is -> 1.
+
+**Derived expectation to prove or refute (the next attack).**  In
+the flat limit the compact-group heat kernel degenerates to a
+Lie-algebra Gaussian and the leading minimization is group-blind, so
+SU(2) should ALSO land at leading exponent 3 with the non-abelian
+content in the SUBLEADING slope: E*(tau) = 3 + c_G tau + O(tau^2),
+discriminator c_SU2 vs c_U1.  This relocates MD.3's marginal-defect
+coefficient to a concrete finite computation on this instrument.
+The U(1) slope is ~3.8 near tau = 0 from the ladder and exactly
+derivable from the theta expansion; the SU(2) analogue needs the
+M -> infinity resummation of the character-sum kernel (fixed-tile
+machinery + eps_slab-grade tail bounds).  That resummation is the
+open front.
+
+**Honesty.**  One-step, thickness-one, anisotropic (2x2x1) blocking
+on the DP.2 slab — an exact statement about this instrument, not an
+iterated isotropic trajectory; the iteration reading is heuristic
+until the iterated map exists.  D1 (separator) degenerates at this
+geometry (lambda_1/lambda_0 = O(tau); matched ratio diverges like
+log(1/tau)/tau) and needs a tau-rescaled matching to be a dichotomy
+coordinate — recorded, not repaired.  Poisson enters only the
+asymptotic statement; every ladder number is a certified rational
+window.  Cloud-container verification only; the Mac-side session-lock
+run and the git commit (stale index.lock, §15j) remain owed.
+
+### 16c. Addendum (2026-07-28, same session): the U(1) lane upgraded from limit to EXACT ASYMPTOTIC CURVE — E*(tau) = 3 - 4 tau + (112/5) tau^2, coefficients pair-independent; the SU(2) discriminator sharpened to a slope with a structural prediction
+
+Artifacts: `computations/flow_asymptotic.py`,
+`computations/flow_asymptotic_results.json`,
+`tests/test_flow_asymptotic.py`, `notes/su2-flat-limit-scope.md`.
+Full suite 37/37 green in the cloud container.
+
+**Theta-factor separation (lemma-grade, certified).**  Q(c;n,m) =
+(c-c*)^T A (c-c*) + Qmin(n,m), so T[n,m](s) = s^{Qmin} Theta_{c*}(s)
+and the c*-dependence of Theta is bounded by an explicit dual sum:
+|Theta_{c*}/Theta_0 - 1| <= 2 sum_{k!=0} e^{-pi^2 k^T A^-1 k / tau},
+certified rational via k^T A^-1 k >= |k|^2/8, pi^2 >= 9869/1000,
+e^{-x} <= 1/(partial series), shells <= 80 r^3.  The divergent,
+group-blind theta bulk cancels IDENTICALLY in every observable;
+what remains is the finite coarse-basis polynomial
+
+    P_n(s) = sum_{|m|<=N} s^{gamma n m + (alpha+1) m^2}
+           = sum_m s^{2nm + 4m^2},
+
+and every pair observable has the exact asymptotic closed form
+E*_{ab}(s) = 3 + [log P_a - log P_b]/(tau (C(b)-C(a))).
+
+**Verification.**  Against the §16b certified windows: agreement to
+1e-10 at s = 99/100, ~1e-6 at 9/10 (within the certified slack;
+at 3/4 the dual corrections are real and visible, ~5e-2 — the curve
+is asymptotic, and the crossover scale is now quantified).
+
+**Expansion, exact.**  E*(tau) = 3 + c1 tau + c2 tau^2 + O(tau^3)
+with c1 = -gamma^2 Var_N(m)/2 (= -4/3, -4, -8 at N = 1, 2, 3) and
+c2 = 112/5 at N = 2 — BOTH pair-independent: the D2 family is
+scheme-covariant through second order.  The N-dependence of c1 is
+explicit and structural (basis variance), not noise.
+
+**The sharpened discriminator (structural prediction, NOT banked).**
+The U(1) slope is driven entirely by gamma^2 — the square of the
+abelian cross term nm, i.e. the linear-in-covariance coupling of the
+two loop tilts, a channel that exists because e^{im theta} has a
+tilting first moment.  SU(2) characters are real and even on the Lie
+algebra, so E[grad chi] = 0 and the linear cross term is FORBIDDEN:
+under flagged assumptions (A1 flat-limit interchange, A2 component
+decoupling; `notes/su2-flat-limit-scope.md`) the prediction is
+E*_SU2(0) = 3 (group-blind, as §16b anticipated), gamma_SU2 = 0 at
+leading order, and c_SU2 free of any basis-artifact term — the first
+genuinely non-abelian number of the flow, whose SIGN is the
+anti-screening statement at this order.  MD.3's marginal-defect
+coefficient is now this one number.
+
+**Next attack (the open half of MD.2), two routes queued.**
+(a) Cyclic transfer operator for the SU(2) slab network (D4
+structure: trace of a 4-fold product over (tile, perimeter-class,
+wall) labels with 6j vertex weights) — gate: reproduce
+`kernel_entry_skeleton` exactly at M = 1, 2; then certified windows
+at growing M with eps_slab-grade tails.  (b) Flat-limit expansion:
+discharge A1/A2 into finite Gaussian-moment computations and derive
+c_SU2 as an exact rational, with the U(1) mirror of the same
+machinery required to reproduce c1 = -4 at N = 2 as its built-in
+refutation channel.
+
+**Honesty.**  One-step, thickness-one, anisotropic slab instrument
+throughout; iterated/isotropic upgrades downstream.  §3 of the scope
+note is a prediction under flagged assumptions, banked as scope, not
+as theorem.  Cloud verification only; Mac session-lock run and the
+git commit (stale index.lock, §15j) remain owed — everything since
+§15i is still Dropbox-only.
