@@ -180,27 +180,45 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 - **milestone**: completed SU(2) retained-kernel Harnack / general-nome
   positivity route (`work_plan.md`, Faraut image-formula overlay)
 - **file**:
-  `lean/YMGap/Continuum/SU2FarautInteriorImageHarnack.lean`
+  `lean/YMGap/Continuum/SU2FarautInteriorImageHarnack.lean`,
+  `lean/YMGap/Continuum/BF4FarautJointCarrierAFBudget.lean`
 - **decls**: `FarautInteriorImageCertificate`,
   `FarautInteriorImageCertificate.kernel_ge_floor`,
   `FarautInteriorImageCertificate.kernel_le_ceiling`,
-  `farautInterior_projective_order`
+  `farautInterior_projective_order`, `FarautBitWindow`,
+  `farautCompletedRetainedHarnack`,
+  `wholeSlabFarautConditionalPushforward_domination`,
+  `faraut_perron_of_available_depth`, `FarautAFBitGrowth`,
+  `FarautAFWindowFamily`,
+  `faraut_af_family_core_length_uniform`
 - **obligation**: Instantiate the certificate from the literal SU(2)
   heat-kernel image formula with constructive \(t\)-to-nome normalization,
   rational Gaussian/trigonometric enclosures, pairwise image domination, and
   a summable tail bound uniform on a specified interior class-angle window.
-  Then control the removable endpoint singularities and identify the kernel
-  with the interacting BF4 retained carrier.  The identity and quantitative
-  image data are explicit fields; the completed Harnack window is derived
-  from them and is not itself assumed.
+  The quantitative output must include a natural bit cost \(B_a\) with
+  \(U_a\le4^{B_a}L_a\) and one uniform heat-cost ceiling
+  \(B_a t(a)/4\le D\).  Then control the removable endpoint singularities,
+  identify the twenty-three completed local factors with the interacting
+  BF4 joint-carrier kernel, and prove its nonlinear ratio is at most \(1/4\).
+  The identity and quantitative image data are explicit fields; the
+  completed Harnack window and Perron contraction are derived from them and
+  are not themselves assumed.
 - **constructive or propositional**: constructive — the image sequences,
   rational floors/ceilings, and majorant are `Type`-level data, and the
   resulting `CReal` order is approximation-wise.
 - **status**: open analytic instantiation.  Given a certificate,
   `SU2FarautInteriorImageHarnack` proves paired-prefix nonnegativity, a
   strict zeroth-image floor, the majorant ceiling, completed-kernel order,
-  and terminal-independent projective comparison.  It does not define
-  exponentials or prove Faraut's analytic identity internally.
+  and terminal-independent projective comparison.
+  `BF4FarautJointCarrierAFBudget` further proves that a per-scale bit window
+  costs exactly \(46B_a\) Perron powers, so
+  \(m(a,L)\ge46B_a+3\) implies
+  \(C_{s(a)}^2q_{s(a)}^{m(a,L)-2}<1\).  It retains the full enumerated
+  face-channel/shared-intertwiner code through conditional integration and
+  proves the AF physical-length cancellation
+  \(\kappa(46B_a a)\le46D\).  It does not define exponentials, prove
+  Faraut's analytic identity internally, construct `FarautAFBitGrowth`, or
+  identify the supplied completed factors with the physical BF4 operator.
 - **must not be closed classically**: per `AGENTS.md` Rule 6; the uniform
   enclosures and modulus must remain explicit constructive data.
 

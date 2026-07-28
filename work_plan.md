@@ -719,6 +719,53 @@ with the interacting BF4 retained carrier.  Thus the module genuinely
 localizes the Faraut route but does not yet supply a spacing-uniform AF
 Harnack bound.
 
+`BF4FarautJointCarrierAFBudget.lean` now closes the entire
+spacing-dependent algebra downstream of a quantitative Faraut window.  At
+scale \(a\), write \(B_a\) for an explicit natural-number bit cost satisfying
+\[
+ U_a\le 4^{B_a}L_a
+\]
+for the one-factor Faraut ceiling and positive floor.  The literal
+twenty-three-factor retained product then has spread \(4^{23B_a}\), the
+two-sided Perron square obeys \(C_{s(a)}^2\le4^{46B_a}\), and every available
+source-target depth
+\[
+ m(a,L)\ge46B_a+3
+\]
+gives, constructively and at that same spacing,
+\[
+ C_{s(a)}^2q_{s(a)}^{m(a,L)-2}\le\frac14<1
+\]
+whenever the genuine nonlinear ratio satisfies \(0\le q_{s(a)}\le1/4\).
+No spacing-independent bound on \(B_a\) is assumed.  The module also proves
+the AF cancellation which makes a moving bit cost physically usable: if
+\(B_a\,t(a)/4\le D\) and
+\(\kappa a\le t(a)/4\) is supplied by `AFEnvelope`, then
+\[
+ \kappa\,(46B_a\,a)\le46D.
+\]
+Thus the required growing lattice depth occupies one fixed physical length
+once Faraut's Gaussian images furnish the expected \(B_a=O(1/t(a))\)
+certificate.
+
+The same module makes the carrier enlargement literal.  Retained paths are
+singleton paths in `wholeSlabJointCarrierCodes`, so every retained state
+contains the complete coarse face-channel field and the shared-link fusion
+witness.  Faraut certificates on the twenty-three local factors construct a
+dynamic completed Harnack datum on this joint carrier; arbitrary common
+nonnegative interior spatial weights and finite conditional integration
+preserve its spread exactly.  An already-formed Gram quadratic remains
+nonnegative after positive weighting and integration, which is the safe CP
+order statement and does not infer Loewner order from scalar entrywise order.
+
+The remaining Faraut leaf is now quantitative and physical rather than
+algebraic: construct the actual per-scale image certificates together with
+`FarautAFBitGrowth` (\(B_a\,t(a)/4\le D\)), prove endpoint/chart coverage, identify
+the completed local factors with the physical all-label joint-carrier
+kernel, and establish the nonlinear \(q_{s(a)}\le1/4\) comparison.  Given
+those data, the displayed spacing-uniform Perron obstruction is fully
+discharged by `faraut_perron_of_available_depth`.
+
 That implication cannot be fired from the already-known aggregate kernel
 window.  `BF4AggregatePathwiseOrderFence.lean` constructs a strictly
 positive two-source, two-target, two-path family whose grouped kernel is
