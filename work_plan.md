@@ -26426,3 +26426,65 @@ clearance) banks §15i–§16c and all prior uncommitted state; the
 requires the user's credentials from the Mac terminal:
 `git push origin main` — neither the device sandbox (no network) nor
 the cloud container (no credentials; private repo) can complete it.
+
+### 16e. Addendum (2026-07-28, same session): the moment computation, stage one — dictionary GATED, the fusion-mean identity KILLS the linear cross slope, and the discriminating observable's abelian lane is VERIFIED
+
+Artifacts: `computations/gaussian_network_moments.py`,
+`computations/gaussian_network_results.json`,
+`tests/test_gaussian_network_moments.py`,
+`notes/gaussian-network-dictionary.md`.  Suite 48/48 green (cloud).
+
+**Dictionary (exact rationals, gated).**  Per su(2) component the
+flat limit of the slab is the Gaussian network S = |BX|^2/(4 tau) on
+the 16 free links.  GATE PASSED: the loop covariance
+L G^-1 L^T = [[3,1],[1,3]] from independent 16x16 rational linear
+algebra — the angle picture reproduces the flux-picture
+Qmin = 3n^2+3m^2+2nm by Legendre duality.  Face variances by D4
+class, each exactly uniform: tiles 79/96, perimeter walls 79/96,
+interior walls 17/24 (x 2 tau).  The face-loop and link-loop
+covariance aggregates for the insertion assembly are emitted.
+
+**Structure theorem 1 (fusion-channel formula).**  With loop
+insertions as operator tilts (ordering corrections deferred,
+relative O(tau^2)): T[n,m]/Theta ~ sum_J (2J+1)
+e^{-tau[3C(n)+3C(m)+delta_J]}, delta_J = C(2J)-C(n)-C(m).  The
+abelian cross term gamma*nm is REPLACED by the fusion-channel
+spread; leading diagonal cost group-blind (E* = 3, as §16b/§16c
+predicted).
+
+**Structure theorem 2 (fusion-mean identity).**  sum_J (2J+1)
+delta_J = 2 tr(J1.J2) = 0 exactly (pinned n,m <= 6): the mean
+channel spread VANISHES — the algebraic form of the §16c realness
+argument.  The SU(2) pair moment has NO O(tau) cross correction at
+leading fusion order; c_SU2 is carried entirely by the Jacobian/BCH
+insertion moments (+ the finite-basis cumulant mechanism).  First
+surviving cross effect: -tau^2 Var_fusion(delta)/2, with
+Var_fusion = 12, 32, 256/3 at (1,1), (1,2), (2,2), exact.
+
+**Calculus gate.**  e^tau E_flat[(sin phi/phi) chi_n] =
+d_n e^{-tau C(n)} verified to 5.4e-41: the Jacobian insertion plus
+the e^tau normalization convert the flat (n+1)^2 into the exact
+Casimir — every constant of the insertion calculus pinned by one
+identity.
+
+**The discriminating observable.**  Connected cross ratio
+X_nm = log(T[n,m]T[0,0]/(T[n,0]T[0,m])): U(1) X_11 -> -2 tau EXACT
+(verified from certified theta windows: -0.210720 vs -0.210721 at
+s = 9/10; -0.020101 vs -0.020101 at 99/100); SU(2) X_11 -> +6 tau^2
+predicted (coefficient indicative until the BCH moments land; the
+vanishing of the O(tau) term is exact).  Opposite sign, different
+order — the sharpest group separation the program has produced, and
+the designated first consumer of the SU(2) M -> infinity
+resummation.
+
+**Next attack (the assembly).**  (a) (ii)-insertion assembly from
+the emitted covariance aggregates; (b) (iii)-BCH cubic moments (the
+anti-screening sign lives here); (c) finite-basis cumulants on the
+corrected exponents; (d) the U(1) mirror must return c_dyn = 0
+exactly — the pipeline's refutation channel.
+
+**Honesty.**  Operator-ordering corrections deferred at relative
+O(tau^2) — O(tau) statements safe, tau^2 coefficients indicative.
+Cloud verification only; Mac session-lock run owed; the push of
+d6af5ba/4d57923 (+ this addendum's commit) is owed by the user:
+`git push origin main`.
