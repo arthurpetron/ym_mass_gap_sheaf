@@ -213,9 +213,39 @@ The checked components are:
   ledger, the literal finite-Fubini comparison, and the executable
   \(S=1,\ M(r)=r\) anchor schedule.  The actual interacting anchor cutoff
   increment is bounded by the same outer-cutoff-independent tensor envelope
-  without supplied arithmetic premises. SU(2) cutoff nesting,
-  normalized-event control, total-tolerance rescaling, weak-coupling
-  scheduling, and score transport remain open;
+  without supplied arithmetic premises.
+  `SU2PhysicalOuterCutoffAnchorTotalTolerance.lean` and
+  `SU2PhysicalOuterCutoffNormalizedEventTail.lean` now pay the complete
+  finite-dimensional coefficient, prove exact cutoff nesting, and give the
+  sharp normalized Boolean-event tail; the adjacent anchor CReal modules
+  construct its Bishop-real probability algebra.  The three
+  `SU2PhysicalOuterCutoffNome*` modules extend the quantitative increment,
+  event limit, and CReal construction to every fixed rational
+  \(0<w<1\), pointwise rather than uniformly as \(w\to1\).
+  `BF4SU2CorrectedSlabOuterCutoffTail.lean` transfers the estimate to the
+  actual reflection slab by a supported ambient injection, while
+  `BF4SU2CorrectedSlabBoundedObservableTail.lean` controls every coherent
+  \([0,1]\)-valued backward message.
+  `BF4SU2OuterCutoffBlockGramContract.lean` defines the genuine
+  source-indexed Markov interface and derives its order, coherence, Fubini,
+  and blocked-Gram identities from an explicit lossless-support field.
+  Since those abstract stochastic laws permit an artificial higher-spin
+  Dirac completion, `BF4SU2OuterPhysicalMarkovKernelFrontier.lean` further
+  pins positive rows to the literal normalized globally link-glued raw BF4
+  weight.  It derives the stochastic contract from the named
+  `SU2OuterPositiveRowClosure` and
+  `SU2OuterRawKernelCutoffCoherence` inputs, neither of which is inhabited.
+  `BF4SU2StochasticBlockedGramObservableTail.lean` and its CReal companion
+  then prove the conditional fixed-nome coordinate tail, Bishop limit,
+  uniqueness, and unit-interval bounds.
+  `BF4SU2CoarseOuterExponentGramTail.lean` pays the induced \(4K\) carrier
+  through a constructive quarter-ceiling, and
+  `BF4SU2StochasticOuterExponentGramDistanceCRealLimit.lean` transports the
+  paired coordinate bound through absolute values and finite summation to
+  construct the exact nonlinear distance's Bishop-real limit.
+  Discharging the two raw-kernel inputs, maximizing candidate-wise moduli
+  over the finite atlas, and obtaining a spacing-uniform weak-coupling score
+  tube remain open;
 - `BF4ExponentGramLocatedStability.lean`: exact located-margin stability of
   finite SU(2)/U(1) argmins. Together these layers still do not construct the
   required spacing-uniform physical score tubes or located Yang--Mills

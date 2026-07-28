@@ -70,6 +70,45 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 
 ## Entries
 
+### [BF4-outer-Markov] all-label SU(2) block-kernel contracts — **OPEN PHYSICAL INPUTS**
+
+- **milestone**: BF4 physical outer-cutoff score transport (`work_plan.md`,
+  current BF4 overlay)
+- **file**:
+  `lean/YMGap/Continuum/BF4SU2OuterCutoffBlockGramContract.lean`,
+  `lean/YMGap/Continuum/BF4SU2OuterPhysicalMarkovKernelFrontier.lean`
+- **decls**: `SU2OuterPhysicalBlockContract`,
+  `SU2OuterPhysicalMarkovContract`, `SU2OuterPositiveRowClosure`,
+  `SU2OuterRawKernelCutoffCoherence`
+- **obligation**: Construct the genuine source-indexed BF4 all-label
+  recoupling kernel on the fine cutoff-\(K\) and coarse cutoff-\(4K\)
+  corrected slabs, prove nonnegativity and row normalization, exact
+  cutoff-one recovery, old-entry coherence, and the lossless-support law
+  excluding transitions from an old fine source to a newly introduced
+  coarse target.  The deterministic `SU2OuterPhysicalBlockContract` is a
+  stronger marginal surrogate and is not accepted as a replacement for this
+  source-indexed construction.
+- **constructive or propositional**: constructive — the kernel entries (or
+  an enlarged retained carrier and their induced kernel) are data; all
+  stated laws must then be proved without choice.
+- **status**: open.  No value of these physical-input structures is defined.  Conditional
+  consequences are proved: bounded backward messages stay in \([0,1]\), are
+  cutoff-stable on old sources under lossless support, and satisfy the exact
+  stochastic Fubini/blocked-Gram identity.  The raw-kernel frontier closes a
+  discovered loophole in the first stochastic interface: its laws alone
+  permit nonphysical Dirac completion on higher-spin rows.
+  `SU2OuterPositiveRowClosure` instead requires every positive fine row to
+  construct a positive coarse witness for the literal globally link-glued
+  `wholeSlabRecouplingRawWeight`; `SU2OuterRawKernelCutoffCoherence` pins
+  old-entry stability and lossless support to the resulting normalized raw
+  kernel.  From those strictly stronger inputs,
+  `physicalMarkovContractOfRawKernel` derives the earlier stochastic
+  contract.  Thus a future physical discharge must inhabit the raw-kernel
+  structures, not merely an opaque or Dirac-completed stochastic contract.
+- **must not be closed classically**: per `AGENTS.md` Rule 6 — a future
+  inhabitant must be an explicit finite constructor, not a
+  `Classical.choice` witness.
+
 ### [continuum] μ_∞ existence attack-surface skeleton — **S2/S3/S4/S5/S6 ALL CLOSED**
 
 - **milestone**: Track B continuum (E1–E4; `docs/track-b-continuum-plan.md`,

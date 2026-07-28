@@ -1039,9 +1039,7 @@ the Boolean sector with some label above \(M\) is bounded by the recursive
 outside-union mass, and sums the pointwise incidence theorem.  Consequently,
 at the proved strong-coupling anchor, the actual interacting cutoff increment
 is bounded by the same degree-thirteen tensor envelope, uniformly in every
-later outer cutoff \(K\).  Cutoff nesting/normalized arbitrary-event control,
-transport through the SU(2) block/coarse score, and spacing-varying
-uniformity remain open.
+later outer cutoff \(K\).
 
 `SU2PhysicalOuterCutoffAnchorSchedule.lean` removes the remaining arithmetic
 hypotheses at that fixed anchor.  It proves constructively that the
@@ -1053,10 +1051,75 @@ uses induction on the half-ratio to obtain the executable schedule
 \]
 Thus the one-face shell is at most \(2^{-r}\), and the literal interacting
 increment satisfies the scheduled tensor-envelope theorem whenever
-\(M(r)\le K\), without supplied head/ratio premises.  The tensor coefficient
-still has to be paid when converting a requested total tolerance, and this
-fixed-anchor schedule is not a schedule along a running weak-coupling
-trajectory.
+\(M(r)\le K\), without supplied head/ratio premises.
+
+The 2026-07-27 all-label continuation now pays the previously outstanding
+finite tensor coefficient and normalized quotient.  At the anchor,
+`SU2PhysicalOuterCutoffAnchorTotalTolerance.lean` factors the tensor envelope
+as \(2^{-r}C_d\) and constructs an arbitrary-tolerance retained cutoff;
+`SU2PhysicalOuterCutoffNormalizedEventTail.lean` proves exact nesting and the
+sharp normalized Boolean-event tail.  The associated anchor Bishop-real
+limit and its unit-interval, monotonicity, and complement laws are in the two
+`SU2PhysicalOuterCutoffAnchorCReal*` modules.
+
+The fixed-nome restriction is also no longer the anchor alone.
+`SU2PhysicalOuterCutoffNomeTolerance.lean` constructs an executable
+degree-thirteen ratio cutoff for every rational \(0<w<1\);
+`SU2PhysicalOuterCutoffNomeInteractingTolerance.lean` transfers it to the
+literal interacting increment; and
+`SU2PhysicalOuterCutoffNomeCRealLimit.lean` constructs the corresponding
+event-probability Bishop real.  These statements are pointwise in \(w\):
+their cutoff may diverge as \(w\to1\), so they are not yet uniform along an
+asymptotically-free spacing trajectory.
+
+For the actual reflection geometry,
+`BF4SU2CorrectedSlabOuterCutoffTail.lean` injects the corrected-slab new
+sector into the supported ambient carrier and obtains the same sharp
+normalized tail without asserting a false slab/box partition equality.
+`BF4SU2CorrectedSlabOuterCutoffCRealLimit.lean` constructs its anchor
+Bishop-real event law.  The more general
+`BF4SU2CorrectedSlabBoundedObservableTail.lean` handles cutoff-stable
+rational observables in \([0,1]\), with an explicit modulus for every fixed
+rational nome.
+
+`BF4SU2OuterCutoffBlockGramContract.lean` then isolates the honest physical
+transport interface.  Its source-indexed stochastic contract has
+nonnegative normalized rows, old-entry stability, exact cutoff-one recovery,
+and a lossless-support law forbidding an old fine source from leaking into a
+new coarse target.  From those fields it proves uniform order bounds and
+cutoff coherence for arbitrary finite-cutoff backward messages, together
+with the Fubini identity expressing the blocked exponent-Gram coordinate as
+a fine-law expectation of a \([0,1]\)-valued conditional event.  The
+stochastic laws alone, however, admit a nonphysical Dirac completion on
+higher-spin rows.  `BF4SU2OuterPhysicalMarkovKernelFrontier.lean` closes
+that loophole: it defines every positive row from the literal globally
+link-glued BF4 raw recoupling weight, proves nonnegativity, normalization,
+and exact cutoff-one recovery, and derives the earlier stochastic contract
+only from two stronger named inputs.  The remaining inputs are
+`SU2OuterPositiveRowClosure` (a positive coarse witness for every positive
+higher-spin fine row) and `SU2OuterRawKernelCutoffCoherence` (old-entry
+stability plus lossless \(4K\)-support for that raw kernel).
+
+`BF4SU2StochasticBlockedGramObservableTail.lean` now performs the analytic
+join: the contract's conditional event is a concrete coherent unit
+observable, the blocked exponent-Gram coordinate is exactly its normalized
+corrected-slab expectation, and every fixed rational \(0<g<1\) receives an
+explicit two-sided Cauchy modulus.
+`BF4SU2StochasticBlockedGramCRealLimit.lean` constructs the associated
+Bishop real, proves convergence and constructive uniqueness, and keeps both
+the finite entries and limit in \([0,1]\).  These theorems are conditional on
+the stochastic contract; the physically accepted instantiation is the one
+derived from the two raw-kernel inputs above.
+
+`BF4SU2CoarseOuterExponentGramTail.lean` identifies the coarse coordinate
+with its corrected-slab event law at cutoff \(4K\), converts the slab modulus
+to a base-\(K\) modulus by a constructive quarter-ceiling, and combines it
+with the blocked modulus.  Finally
+`BF4SU2StochasticOuterExponentGramDistanceCRealLimit.lean` proves the
+nonlinear finite-coordinate result: absolute-value Lipschitz transport,
+multiplicity-paid finite summation (including the empty-coordinate case),
+two-sided Cauchy convergence of the exact exponent-Gram distance, and its
+canonical Bishop-real limit with constructive uniqueness.
 
 `BF4ExponentGramLocatedStability.lean` proves the exact argmin-stability
 consumer: if a limiting score has a named minimizer separated on the complete
@@ -1086,20 +1149,20 @@ heat-kernel multiplier \(\rho(a)=s(a)^3\), it implies
 by \(1-\rho^m\le m(1-\rho)\).  This is a rescaled bare-mode floor, not a
 physical mass gap: the transfer-operator identification remains open and the
 bare ratio may diverge along the asymptotically-free trajectory. The next
-proof must complete SU(2) cutoff nesting and normalized-event control from
-the now-proved anchor new-sector estimate, rescale the fixed-anchor precision
-by the finite tensor coefficient and then construct the spacing-dependent
-weak-coupling schedule, transport that estimate through
-the SU(2) block/coarse exponent-Gram score, and prove the located Yang--Mills
-separator. It must then derive the cubic law for the exact
-matched block output and construct the independent physical spacing
-envelope. Later gates must still identify the grouped contraction with the
-continuum transfer/OS object.
+proof must discharge the positive-row closure and raw fusion-support
+coherence (or enlarge the retained carrier enough to prove them), take a
+constructive maximum of the new candidate-wise nonlinear moduli over the
+finite physical atlas, and obtain a cutoff schedule uniform along the
+spacing-dependent weak-coupling trajectory.  It must then prove a located
+Yang--Mills separator, derive the cubic law for the exact matched block
+output, and construct the independent physical spacing envelope. Later gates
+must still identify the grouped contraction with the continuum transfer/OS
+object.
 
 **Verification snapshot (2026-07-27).**
 
-- full Lean build: **PASS**, 2,594 jobs;
-- strict axiom audit: **PASS**, 20,339 theorems across 2,505 namespaces,
+- full Lean build: **PASS**, 2,610 jobs;
+- strict axiom audit: **PASS**, 20,488 theorems across 2,522 namespaces,
   zero exceptions;
 - frontier-uninhabitedness guard: **PASS**;
 - frontier statement-drift guard: **PASS**, all ten hashes pinned;

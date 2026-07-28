@@ -392,7 +392,72 @@ additional spin.  Hence the one-face shell is at most \(2^{-r}\) and the
 actual anchor increment has a scheduled tensor-envelope bound for every
 later \(K\ge M(r)\).
 
-This does not yet provide SU(2) cutoff nesting and normalized-event
-convergence, payment of the full finite-dimensional tensor coefficient at a
-requested tolerance, a block/coarse score tube, or a spacing-varying
-weak-coupling discharge of the tail hypotheses.
+`SU2PhysicalOuterCutoffAnchorTotalTolerance.lean` now factors the tensor
+envelope as its dyadic shell times the complete finite-dimensional
+coefficient and pays an arbitrary positive rational tolerance.
+`SU2PhysicalOuterCutoffNormalizedEventTail.lean` proves exact old/new
+partition and numerator decomposition and the sharp normalized event bound;
+the adjacent anchor CReal modules construct the limiting Bishop-real
+probability algebra.
+
+`SU2PhysicalOuterCutoffNomeTolerance.lean`,
+`SU2PhysicalOuterCutoffNomeInteractingTolerance.lean`, and
+`SU2PhysicalOuterCutoffNomeCRealLimit.lean` repeat that construction for
+every fixed rational \(0<w<1\) with an executable degree-thirteen ratio
+cutoff.  The estimate is uniform in the later label cutoff but pointwise in
+the nome, so it is not a spacing-uniform asymptotically-free estimate.
+
+The literal BF4 reflection carrier is handled separately.
+`BF4SU2CorrectedSlabOuterCutoffTail.lean` injects every corrected-slab new
+state into the supported ambient new sector and proves the normalized event
+tail without identifying the slab and box partitions.
+`BF4SU2CorrectedSlabOuterCutoffCRealLimit.lean` constructs the anchor
+Bishop-real event law, and
+`BF4SU2CorrectedSlabBoundedObservableTail.lean` proves the fixed-nome
+two-sided Cauchy bound for any cutoff-stable rational observable in
+\([0,1]\).
+
+Finally `BF4SU2OuterCutoffBlockGramContract.lean` records the required
+source-indexed stochastic BF4 kernel as a Type-level physical interface.
+Assuming its normalized-row, cutoff-stability, cutoff-one recovery, and
+lossless-support fields, it proves that arbitrary bounded coarse observables
+pull back to backward messages still in \([0,1]\), that those messages are
+exactly stable on old fine sources, and that the blocked exponent-Gram
+coordinate is their fine-law expectation.  This is a conditional transport
+theorem, not by itself a physical construction of the kernel.
+
+An adversarial audit shows why that distinction matters: the stochastic
+fields alone permit a frozen cutoff-one kernel followed by artificial Dirac
+completion on newly admitted higher-spin sources.
+`BF4SU2OuterPhysicalMarkovKernelFrontier.lean` removes that loophole.  It
+defines the all-cutoff scale pair and pins every positive row to the
+normalized globally link-glued `wholeSlabRecouplingRawWeight`, proves
+nonnegativity, row normalization, and exact cutoff-one recovery, and derives
+the earlier stochastic interface only from
+`SU2OuterPositiveRowClosure` and
+`SU2OuterRawKernelCutoffCoherence`.  These two structures are the genuine
+uninhabited higher-spin inputs.
+
+`BF4SU2StochasticBlockedGramObservableTail.lean` packages the conditional
+exponent event as the corrected-slab coherent unit observable and proves an
+explicit fixed-nome blocked-coordinate Cauchy modulus.
+`BF4SU2StochasticBlockedGramCRealLimit.lean` constructs the resulting
+Bishop-real coordinate limit, convergence, uniqueness, and unit-interval
+bounds.
+
+`BF4SU2CoarseOuterExponentGramTail.lean` performs the matching coarse
+calculation at cutoff \(4K\), using a constructive quarter-ceiling to return
+an explicit modulus in the base cutoff.  It then combines the blocked and
+coarse sides into a signed coordinate-residual modulus.
+`BF4SU2StochasticOuterExponentGramDistanceCRealLimit.lean` completes the
+nonlinear finite-coordinate step: the rational absolute value is Lipschitz,
+the coordinate errors sum with tolerance
+\(\varepsilon/(\#\mathrm{coordinates}+1)\), the empty list is handled
+definitionally, and the exact finite exponent-Gram distance converges to a
+constructively unique Bishop real.
+
+The current open SU(2) tasks are therefore narrower: prove positive-row
+closure and raw fusion-support coherence for the literal kernel (or enlarge
+the retained carrier); take the constructive maximum of the candidate-wise
+nonlinear moduli over the finite atlas; and make that schedule uniform along
+the spacing-dependent weak-coupling trajectory.
