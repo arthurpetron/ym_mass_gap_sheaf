@@ -1088,6 +1088,9 @@ import YMGap.Continuum.BF4SU2OuterBinaryMulticoverReduction
 import YMGap.Continuum.BF4SU2OuterBinaryMulticoverCounterexampleRepair
 import YMGap.Continuum.BF4SU2OuterOddLayerResidual
 import YMGap.Continuum.BF4SU2OuterBinaryMulticoverSearch
+import YMGap.Continuum.BF4SU2OuterBinaryMulticoverDecision
+import YMGap.Continuum.BF4SU2OuterBinaryMulticoverNoGo
+import YMGap.Continuum.BF4SU2OuterJointCarrierStrictEnlargement
 import YMGap.Continuum.BF4FarautJointCarrierAFBudget
 import YMGap.Continuum.BF4FarautAFCutoffGrowth
 import YMGap.Continuum.SU2PointwiseHeatDynamicWindow

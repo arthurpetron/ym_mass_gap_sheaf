@@ -193,11 +193,15 @@ range.  Complete source/target/path/factor locations, an explicit nonempty
 identity carrier, and the 23-factor kinetic Harnack instantiation are in
 `BF4CanonicalClassCoordinateCarrier`.
 
-The all-positive-row strand route now constructs the first closed parity
-sheet and an exact all-even residual in
-`BF4SU2OuterOddLayerResidual`.  Any multicover of that residual is proved to
-reconstruct a multicover of the original row.  The remaining combinatorial
-obstruction is the integral normality theorem for the all-even residual.
+The closed-sheet route is now decisively classified.  The exact row-mass
+budget makes binary-multicover existence constructively decidable, but
+`BF4SU2OuterBinaryMulticoverNoGo` proves that the universal normality theorem
+is false: a literal positive cutoff-two row has a four-link cocircuit
+certificate excluding every binary multicover.  The same row is proved to
+belong to the enumerated global joint carrier in
+`BF4SU2OuterJointCarrierStrictEnlargement`.  Thus the live combinatorial
+obstruction is joint-channel/intertwiner carrier nonemptiness for arbitrary
+positive rows, not binary-sheet normality.
 
 The same-carrier HS route is now vacuum-correct.  In
 `BF4NormalizedSameCarrierPerron`, normalized nonlinear and Mehler matrices

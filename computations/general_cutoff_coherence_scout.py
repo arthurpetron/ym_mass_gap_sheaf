@@ -33,7 +33,6 @@ from computations.dual_positivity_geometry_bridge import (
 )
 from computations.exact_haar_network import invariant_multiplicity
 
-
 SpinLabelling = dict[Plaquette4, int]
 
 
@@ -65,7 +64,8 @@ def unit_cube_boundary(
     faces: list[Plaquette4] = []
     for pair in combinations(directions, 2):
         missing = next(axis for axis in directions if axis not in pair)
-        plane = tuple(pair)
+        first, second = pair
+        plane = (first, second)
         faces.extend(((base, plane), (add_e(base, missing), plane)))
     return tuple(faces)
 

@@ -14807,3 +14807,43 @@ Feynman--Kac/Mehler entry estimate with decay strong enough to dominate
 carrier growth, followed by construction of the physical dominant
 mean-zero Perron mode.  Matrix convergence has been reduced to this
 quantitative entrywise problem; it has not been assumed away.
+
+## BF4 binary normality no-go and strict joint-carrier pivot (2026-07-28)
+
+The finite search has now been upgraded to a complete constructive decision
+at the exact row-mass budget.  `BF4SU2OuterBinaryMulticoverDecision` proves
+face-mass additivity, canonicalizes and prunes empty layers, bounds the
+remaining layer count by row mass, and returns either an actual multicover
+or a proof that none exists.
+
+The universal all-positive-row multicover theorem is false.
+`BF4SU2OuterBinaryMulticoverNoGo` defines a literal cutoff-two state on 17
+corrected-slab faces.  Exact degree counts show that its 32 touched links
+reduce to the positive SU(2) words `[2,2]` or `[2,2,2]`, and the full
+corrected-slab physical summand is strictly positive.  A four-link
+coboundary intersects the support oddly only at one distinguished face.
+Double counting proves that every closed binary subsupport misses that
+face, so no binary multicover reconstructs the row.  All proofs remain
+within `{propext, Quot.sound}`.
+
+The replacement carrier is genuinely larger, not merely renamed.
+`BF4SU2OuterJointCarrierStrictEnlargement` proves that every retained dyadic
+packet of the same no-go row is vacuum and constructs its coherent coarse
+vacuum target, face channels, and link intertwiners.  The semantic selection
+is converted by the existing completeness theorem into an actual member of
+`wholeSlabJointCarrierCodes`.  Thus one theorem now states both sides:
+the row has no closed-sheet multicover, while its global joint-carrier list
+has positive length.
+
+The deterministic Python regression records the ambient extent-one
+certificate: 72 faces, 116 link rows, GF(2) rank 65, 127 nonempty closed
+binary sheets, 17 nonzero labels, and the sparse four-link cocircuit.  It
+also checks the 116 positive vacuum coarse-link multiplicities of the joint
+witness.
+
+The live combinatorial obstruction is now the genuine all-row
+`SU2OuterJointCarrierNonempty`/fine-witness routing theorem.  Analytically,
+the next independent obstruction remains an actual normalized grouped
+Feynman--Kac/Mehler entry estimate whose decay dominates common-carrier
+growth, followed by the physical mean-zero Perron identification.  Neither
+is supplied by the strict-enlargement example.

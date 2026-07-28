@@ -987,10 +987,8 @@ BF4 and Mehler matrices—not to re-prove the finite HS implication.
 The joint-carrier reduction was also repaired.  A valid binary multicover
 may use arbitrarily many globally even cutoff-one sheets; local fusion
 bounds still give the required \(2K/4K\) channel windows.  The old \(K=2\)
-counterexample has an explicit three-sheet multicover and an actual
-enumerated joint carrier.  The exact remaining combinatorial theorem is:
-every positive fine SU(2) row admits a finite integral strand-colouring into
-globally even binary slab sheets.
+two-cube counterexample has an explicit three-sheet multicover and an actual
+enumerated joint carrier.  That observation does not extend universally.
 
 The first induction step is now a theorem in
 `BF4SU2OuterOddLayerResidual`.  Every positive row supplies its closed
@@ -998,11 +996,11 @@ odd-parity sheet, that sheet is pointwise bounded by the row, and its
 subtraction leaves an all-even state in the same physical finite carrier.
 Sheet plus residual reconstructs the row exactly.  Moreover, any multicover
 of the even residual can be prepended by the canonical sheet to produce a
-multicover of the original row.  Thus the remaining normality theorem is
-sharply localized to the all-even residual semigroup.
-`computations/bf4_binary_multicover_normality.py` is a non-proof MILP scout
-for this exact semigroup question on small unions of actual corrected-slab
-cube boundaries; its current bounded search finds no counterexample.
+multicover of the original row.  This is a valid reduction, but the resulting
+normality theorem is false.  A global cocircuit scout found a 17-face
+all-even cutoff-two row satisfying every local SU(2) link condition but
+lying outside the closed-binary-sheet semigroup; the certificate is now
+checked in Lean as described below.
 
 ### Executable multicover normality and entrywise HS reduction (2026-07-28)
 
@@ -1021,10 +1019,30 @@ layer has the same state as the canonical layer generated from its own odd
 support, that support occurs in the powerset scan, and canonicalization
 preserves a layer-word sum.  Therefore every genuine multicover with `r`
 layers forces the executable search to return a successful word at budget
-`r`.  This is not the missing normality theorem: Lean still does not
-construct a multicover for an arbitrary positive row.  It proves that the
-obstruction is a finite integral-semigroup membership theorem, not an
-enumeration or certificate-soundness problem.
+`r`.  `BF4SU2OuterBinaryMulticoverDecision` improves this to a complete
+decision at the exact row-mass budget after constructively pruning empty
+layers.
+
+`BF4SU2OuterBinaryMulticoverNoGo` then takes the negative branch on a literal
+positive row.  The row labels 17 displayed plaquettes by twice-spin two.
+Its 32 touched links have degree two or three, so zero-insertion invariance
+reduces every local multiplicity to `[2,2]` or `[2,2,2]`; the complete
+physical term is strictly positive.  Four displayed `x2` links form a
+coboundary whose odd intersection with the positive support is the single
+distinguished `p12` face.  Every closed binary sheet meets a coboundary
+evenly, so every sheet contained in the row misses that face, contradicting
+reconstruction.  This is a theorem, not a failed bounded search.
+
+`BF4SU2OuterJointCarrierStrictEnlargement` executes the required carrier
+pivot on the same row.  Every retained dyadic four-face packet is proved
+vacuum, hence the shared coarse vacuum target, vacuum face channels, and
+vacuum link intertwiners form a genuine
+`WholeSlabJointChannelSelection`.  Completeness of the global carrier
+enumeration produces a literal member of `wholeSlabJointCarrierCodes`.
+Consequently the joint carrier strictly contains the closed-sheet carrier
+on physical data.  The remaining all-row combinatorial theorem is
+`SU2OuterJointCarrierNonempty`, or an equivalent fine-witness router; binary
+normality is retired.
 
 `BF4EntrywiseSameCarrierHSConvergence` replaces the broad full-matrix
 convergence input by the quantitative target
