@@ -14847,3 +14847,59 @@ the next independent obstruction remains an actual normalized grouped
 Feynman--Kac/Mehler entry estimate whose decay dominates common-carrier
 growth, followed by the physical mean-zero Perron identification.  Neither
 is supplied by the strict-enlargement example.
+
+## BF4 raw-row nonvanishing and retained Harnack bridge (2026-07-28)
+
+The enlarged joint-carrier obstruction has been reduced to the exact scalar
+nonvanishing statement for the genuine recoupling row.
+
+`BF4SU2OuterJointCarrierRawRowMass` defines
+`wholeSlabJointRawRowMass S fineState` as the finite sum of the literal
+nonnegative `wholeSlabRecouplingRawWeight` entries over the coarse physical
+carrier.  Constructive positive-sum extraction proves both directions of
+\[
+  0 < \operatorname{length}(\mathrm{wholeSlabJointCarrierCodes}(S,x))
+  \quad\Longleftrightarrow\quad
+  0 < \mathrm{wholeSlabJointRawRowMass}(S,x).
+\]
+In the difficult direction, positive row mass selects a positive coarse
+target.  Positivity of its product extracts every positive face factor and
+shared-link multiplicity; positive fixed-final face sums then select one
+literal pair channel per coarse face.  These data construct a genuine
+`WholeSlabJointChannelSelection`, not a choice axiom or routing placeholder.
+
+The same scalar certificate now constructs the exact normalized
+`CoherentSlabRecouplingSource`.  Its partition is definitionally the
+raw-row mass, its selected normalized entry is strictly positive, and two
+division-safe order lemmas prove:
+
+1. a raw numerator floor plus a partition ceiling gives a normalized entry
+   floor; and
+2. a raw numerator ceiling proportional to the exact partition gives the
+   same normalized ceiling.
+
+At family level, `SU2OuterRawRowMassPositive` is constructively equivalent
+to `SU2OuterJointCarrierNonempty` and therefore supplies both the old
+fine-witness routing interface and the physical positive-row closure.  This
+does not prove the scalar theorem from positivity of the fine Gibbs term.
+
+`BF4SU2OuterRawRowMassRetainedHarnack` feeds strict raw-row mass into the
+existing dynamic pointwise-heat layer.  It proves positive length of the
+literal singleton-path carrier and a non-vacuous grouped conditional
+Feynman--Kac lower bound.  On the 17-face normality counterrow it proves
+simultaneously that no binary multicover exists, the raw row mass is
+positive, and the retained enlarged carrier is inhabited.
+
+All new declarations have printed axiom profiles contained in
+`{propext, Quot.sound}`.
+
+The next genuine inputs are now:
+
+1. prove `SU2OuterRawRowMassPositive` from positive fine physical mass,
+   equivalently establish scalar nonvanishing for every genuine BF4 row;
+2. prove spacing-uniform raw numerator/partition bounds for the retained
+   grouped Feynman--Kac entries and an entrywise Mehler error whose decay
+   dominates common-carrier growth; and
+3. construct the physical dominant mean-zero Perron identification.
+
+No Clay-frontier type is claimed inhabited by this reduction.

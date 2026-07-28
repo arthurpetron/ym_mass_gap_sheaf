@@ -200,8 +200,21 @@ is false: a literal positive cutoff-two row has a four-link cocircuit
 certificate excluding every binary multicover.  The same row is proved to
 belong to the enumerated global joint carrier in
 `BF4SU2OuterJointCarrierStrictEnlargement`.  Thus the live combinatorial
-obstruction is joint-channel/intertwiner carrier nonemptiness for arbitrary
-positive rows, not binary-sheet normality.
+obstruction is not binary-sheet normality.
+
+`BF4SU2OuterJointCarrierRawRowMass` now identifies the enlarged obstruction
+exactly with one scalar statement about the genuine BF4 row:
+`wholeSlabJointCarrierCodes` has positive length if and only if the finite
+sum of its nonnegative whole-slab recoupling weights is strictly positive.
+The reverse implication is constructive: positive total mass selects a
+positive coarse target, then positive face channels and shared-link fusion
+witnesses.  It also constructs the literal normalized
+`CoherentSlabRecouplingSource` and proves division-safe lower/upper order
+transfer from raw numerator and partition bounds.
+`BF4SU2OuterRawRowMassRetainedHarnack` feeds this scalar certificate into
+the grouped retained Feynman--Kac floor.  The live all-row input is therefore
+the scalar nonvanishing theorem `SU2OuterRawRowMassPositive`, followed
+analytically by spacing-uniform numerator/partition estimates.
 
 The same-carrier HS route is now vacuum-correct.  In
 `BF4NormalizedSameCarrierPerron`, normalized nonlinear and Mehler matrices

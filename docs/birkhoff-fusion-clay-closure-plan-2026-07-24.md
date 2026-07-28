@@ -1044,6 +1044,32 @@ on physical data.  The remaining all-row combinatorial theorem is
 `SU2OuterJointCarrierNonempty`, or an equivalent fine-witness router; binary
 normality is retired.
 
+`BF4SU2OuterJointCarrierRawRowMass` removes the routing formulation as an
+independent mystery.  It defines the literal unnormalised whole-slab row
+mass and proves
+\[
+  \#\,\mathrm{JointCarrier}(S,x)>0
+  \quad\Longleftrightarrow\quad
+  \sum_y W_{\mathrm{raw}}(S;x,y)>0.
+\]
+The difficult direction uses only finite constructive recursion: select a
+positive coarse summand, factor its positive face/link product, select a
+positive fixed-final channel at every coarse face, and extract positive
+shared-link fusion multiplicities.  The same certificate constructs the
+existing exact normalized `CoherentSlabRecouplingSource`; its partition is
+definitionally the displayed raw-row mass.  Separate raw numerator floors
+and partition ceilings are then transported through `divPos` to normalized
+entry floors.
+
+`BF4SU2OuterRawRowMassRetainedHarnack` connects that result to the retained
+grouped Feynman--Kac kernel.  Strict raw-row mass gives a literal singleton
+retained path and the already-proved positive conditional Harnack floor.
+On the 17-face no-go row this path exists while a binary multicover is
+impossible, verifying that the analytic carrier is genuinely enlarged.
+The remaining all-row theorem is now the scalar nonvanishing statement
+`SU2OuterRawRowMassPositive`; it has not been inferred from fine-term
+positivity.
+
 `BF4EntrywiseSameCarrierHSConvergence` replaces the broad full-matrix
 convergence input by the quantitative target
 \[
