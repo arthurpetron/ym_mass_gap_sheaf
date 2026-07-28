@@ -703,6 +703,22 @@ spacing-uniform corridor as \(w\to1\): \(N(w)\) is allowed to diverge, and
 no positive lower bound uniform on the AF trajectory follows from this
 completion alone.
 
+Faraut's explicit SU(2) heat-kernel image formula supplies a second,
+complementary positivity route.  `SU2FarautInteriorImageHarnack.lean`
+constructively pairs the images \(k=-n\) and \(k=n+1\), proves prefix
+nonnegativity from pairwise Gaussian domination, retains a strict zeroth-pair
+floor, propagates a summable majorant to an upper window, and derives the
+terminal-independent projective order consumed by the Harnack layer.  The
+analytic identity is not re-assumed as the desired window: it is an explicit
+field of `FarautInteriorImageCertificate`, alongside the positive/negative
+image data and their quantitative bounds.  OPEN on this route are the
+constructive \(t\)-to-nome normalization, rational enclosures for the
+trigonometric/Gaussian factors, a uniform interior pair-domination and tail
+certificate, endpoint removable-singularity control, and identification
+with the interacting BF4 retained carrier.  Thus the module genuinely
+localizes the Faraut route but does not yet supply a spacing-uniform AF
+Harnack bound.
+
 That implication cannot be fired from the already-known aggregate kernel
 window.  `BF4AggregatePathwiseOrderFence.lean` constructs a strictly
 positive two-source, two-target, two-path family whose grouped kernel is
@@ -1148,10 +1164,35 @@ addition with the exact summed cutoff.  Consequently, if a positive fine
 state is reconstructed as at most \(K\) globally even cutoff-one sheet
 layers, the cutoff-one parity theorem supplies each layer's coherent coarse
 target and channels; addition supplies the genuine \(4K\)-cutoff
-`WholeSlabJointChannelSelection`.  All coarse data are derived.  The sole new
-input `SU2OuterBinaryLayerDecomposition` mentions only the fine geometry, and
-is deliberately still open: prove that every positive fine invariant network
-admits such a bounded global binary-sheet decomposition.
+`WholeSlabJointChannelSelection`.  All coarse data are derived.
+
+That sufficient route is now sharply fenced rather than left as a plausible
+universal input.  `CompactDualAllCutoffOddParitySlabLayer.lean` proves the
+true all-cutoff remnant: every strictly positive physical state has one
+globally even binary layer given by its odd-spin support.
+`BF4SU2OuterBinaryLayerCounterexample.lean` then gives the decisive
+cutoff-two obstruction.  Put twice-spin label two on the ordinary eleven-face
+union of two adjacent cube boundaries.  Its exact production summand is
+strictly positive, but any decomposition into at most two binary layers
+forces both layers to equal the odd-incidence plain union, impossible at the
+displayed three-face interface link.  In fact its positivity is proved
+structurally by
+\[
+  2(A\cup B)=A+B+(A\mathbin{\triangle}B):
+\]
+the two cube boundaries and their symmetric difference are three closed
+binary sheets, whose additive fusion certificate transports from cutoff
+three to the physical cutoff two.  Thus
+`no_SU2OuterBinaryLayerDecomposition` proves that the advertised universal
+`SU2OuterBinaryLayerDecomposition` is uninhabited for the literal
+extent-three geometry and positive unit coupling.
+
+The binary reduction remains a correct conditional theorem, but it is not
+the remaining physical discharge.  The frontier returns to the genuine
+`SU2OuterJointCarrierNonempty`/fine-witness routing problem, now with a
+concrete design constraint: the retained carrier must preserve branched
+spin-one fusion data (the three-face junction), or an equivalent shared
+intertwiner/strand routing, rather than only globally even binary sheets.
 
 `BF4SU2StochasticBlockedGramObservableTail.lean` now performs the analytic
 join: the contract's conditional event is a concrete coherent unit

@@ -1018,6 +1018,7 @@ import YMGap.Continuum.SU2AllLabelPointwiseHeatCompletion
 import YMGap.Continuum.SU2PointwiseHeatSpacingCompletion
 import YMGap.Continuum.SU2PointwiseHeatSpacingTailBound
 import YMGap.Continuum.SU2PointwiseHeatPositiveCompletion
+import YMGap.Continuum.SU2FarautInteriorImageHarnack
 import YMGap.Continuum.JTPFullProductDerivativeNormalization
 import YMGap.Continuum.BF4CompletedHeatRetainedConsumer
 import YMGap.Continuum.SU2AllLabelPointwiseHeatLimitBridge
@@ -1079,6 +1080,8 @@ import YMGap.Continuum.SU2PairChannelSupportAddition
 import YMGap.Continuum.BF4SU2OuterJointCarrierEnumeration
 import YMGap.Continuum.BF4SU2OuterFineWitnessRoutingReduction
 import YMGap.Continuum.BF4SU2OuterBinaryLayerReduction
+import YMGap.Continuum.CompactDualAllCutoffOddParitySlabLayer
+import YMGap.Continuum.BF4SU2OuterBinaryLayerCounterexample
 import YMGap.Continuum.BF4SU2StochasticBlockedGramObservableTail
 import YMGap.Continuum.BF4SU2StochasticBlockedGramCRealLimit
 import YMGap.Continuum.BF4SU2CoarseOuterExponentGramTail

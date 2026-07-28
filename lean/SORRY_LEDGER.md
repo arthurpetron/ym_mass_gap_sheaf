@@ -84,12 +84,16 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/SU2PairChannelSupportAddition.lean`,
   `lean/YMGap/Continuum/BF4SU2OuterJointCarrierEnumeration.lean`,
   `lean/YMGap/Continuum/BF4SU2OuterFineWitnessRoutingReduction.lean`,
-  `lean/YMGap/Continuum/BF4SU2OuterBinaryLayerReduction.lean`
+  `lean/YMGap/Continuum/BF4SU2OuterBinaryLayerReduction.lean`,
+  `lean/YMGap/Continuum/CompactDualAllCutoffOddParitySlabLayer.lean`,
+  `lean/YMGap/Continuum/BF4SU2OuterBinaryLayerCounterexample.lean`
 - **decls**: `SU2OuterPhysicalBlockContract`,
   `SU2OuterPhysicalMarkovContract`, `SU2OuterPositiveRowClosure`,
   `SU2OuterRawKernelCutoffStability`,
   `SU2OuterJointChannelSelection`, `SU2OuterJointCarrierNonempty`,
-  `SU2OuterFineWitnessRouting`, `SU2OuterBinaryLayerDecomposition`
+  `SU2OuterFineWitnessRouting`, `SU2OuterBinaryLayerDecomposition`,
+  `positivePhysicalTerm_fineOddSupport_even`,
+  `no_SU2OuterBinaryLayerDecomposition`
 - **obligation**: Construct `SU2OuterPositiveRowClosure` for the genuine
   source-indexed BF4 all-label recoupling weight on the fine cutoff-\(K\)
   and coarse cutoff-\(4K\) corrected slabs.  One explicit sufficient route
@@ -153,12 +157,52 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   Finally `BF4SU2OuterBinaryLayerReduction` derives the entire coarse target,
   every positive face channel, and every positive shared-link factor from a
   decomposition of the positive fine state into at most \(K\) globally even
-  cutoff-one sheets.  Thus the smallest current physical discharge is the
-  fine-geometric, Type-valued `SU2OuterBinaryLayerDecomposition`; the module
-  explicitly leaves construction of that decomposition open.
+  cutoff-one sheets.  This remains a correct sufficient theorem, but it is
+  not a universal discharge.  `CompactDualAllCutoffOddParitySlabLayer`
+  proves the valid all-cutoff conclusion that the odd-spin support of every
+  positive state is one even binary layer.
+  `BF4SU2OuterBinaryLayerCounterexample` then constructs a positive
+  cutoff-two corrected-slab state on the doubled ordinary union of two
+  adjacent cubes and proves `no_SU2OuterBinaryLayerDecomposition`: two layers
+  are forced to repeat the odd-incidence plain union, while positivity is
+  certified by the exact three-sheet identity
+  \(2(A\cup B)=A+B+(A\triangle B)\) and cutoff stability.  Therefore the
+  remaining physical discharge is again the genuine joint carrier/fine
+  witness router, now constrained to retain the three-face spin-one branch
+  (or equivalent shared intertwiner data); the binary-only proposal is
+  formally refuted rather than listed as open.
 - **must not be closed classically**: per `AGENTS.md` Rule 6 — a future
   inhabitant must be an explicit finite constructor, not a
   `Classical.choice` witness.
+
+### [SU2-Faraut-interior] constructive image-kernel Harnack certificate — **OPEN ANALYTIC INPUT**
+
+- **milestone**: completed SU(2) retained-kernel Harnack / general-nome
+  positivity route (`work_plan.md`, Faraut image-formula overlay)
+- **file**:
+  `lean/YMGap/Continuum/SU2FarautInteriorImageHarnack.lean`
+- **decls**: `FarautInteriorImageCertificate`,
+  `FarautInteriorImageCertificate.kernel_ge_floor`,
+  `FarautInteriorImageCertificate.kernel_le_ceiling`,
+  `farautInterior_projective_order`
+- **obligation**: Instantiate the certificate from the literal SU(2)
+  heat-kernel image formula with constructive \(t\)-to-nome normalization,
+  rational Gaussian/trigonometric enclosures, pairwise image domination, and
+  a summable tail bound uniform on a specified interior class-angle window.
+  Then control the removable endpoint singularities and identify the kernel
+  with the interacting BF4 retained carrier.  The identity and quantitative
+  image data are explicit fields; the completed Harnack window is derived
+  from them and is not itself assumed.
+- **constructive or propositional**: constructive — the image sequences,
+  rational floors/ceilings, and majorant are `Type`-level data, and the
+  resulting `CReal` order is approximation-wise.
+- **status**: open analytic instantiation.  Given a certificate,
+  `SU2FarautInteriorImageHarnack` proves paired-prefix nonnegativity, a
+  strict zeroth-image floor, the majorant ceiling, completed-kernel order,
+  and terminal-independent projective comparison.  It does not define
+  exponentials or prove Faraut's analytic identity internally.
+- **must not be closed classically**: per `AGENTS.md` Rule 6; the uniform
+  enclosures and modulus must remain explicit constructive data.
 
 ### [continuum] μ_∞ existence attack-surface skeleton — **S2/S3/S4/S5/S6 ALL CLOSED**
 
