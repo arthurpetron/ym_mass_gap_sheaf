@@ -911,6 +911,62 @@ certificate data are the positive cone, an interior comparison point, lower
 and upper cross-ratio bounds, the physical block length, and the graded
 distortion budget.
 
+## 2026-07-28 constructive carrier and HS milestone
+
+The current Lean layer makes three formerly implicit interfaces explicit.
+
+First, the spacing-dependent Faraut window is now a finite physical-carrier
+calculation.  For a supplied nonempty list of genuine BF4 locations and
+their relative SU(2) class coordinates, the code computes the minimum of
+the truncated heat kernel minus its closed tail and the maximum of the
+truncated heat kernel plus that tail.  The same-action specialization is
+definitionally at
+`blockedWeight family (coupling scale)`.  All pointwise window assumptions
+are eliminated once two scale-wise rational inequalities are proved:
+positivity of the lower fold and
+\[
+  \operatorname{upper}\le 4^{\mathrm{bits}}\operatorname{lower}.
+\]
+The remaining geometric input is the canonical list of raw BF4
+source/target/path/factor locations and its relative class-coordinate map.
+
+Second, the exact matched finite source-to-target kernel is exposed together
+with its physical marginals.  Any explicitly constructed common carrier
+gives a totalized finite rational matrix whose in-range entries are literally
+entries of that kernel.  This is a square section, not yet the normalized
+five-holonomy transfer operator.
+
+Third, for every finite carrier size \(N\), two rational
+Cauchy--Schwarz steps prove the dimension-free estimate
+\[
+ |\langle v,Ev\rangle|
+ \le\varepsilon\langle v,v\rangle
+ \quad\text{from}\quad
+ \|E\|_{\mathrm{HS}}^2\le\varepsilon^2.
+\]
+Consequently an exact same-carrier comparison with the Gaussian reference
+at error \(7/100\) gives the uniform Rayleigh bound \(1/4\).  On a matched
+physical square section this yields the nonlinear physical
+\(q_s\le1/4\) conclusion after supplying the explicit
+self-adjoint/vacuum/Perron identification.  Together with the existing
+all-label geometry and moving-depth inequality, Lean then proves
+\[
+ C_s^2q_s^{m-2}<1.
+\]
+The unresolved analytic construction is therefore no longer a scalar
+Hilbert--Schmidt convergence statement.  It is the full-matrix convergence
+of the normalized nonlinear BF4 operator to the Gaussian Mehler reference
+on one common cutoff-dependent function-space carrier, plus the stated
+spectral identification.
+
+The joint-carrier reduction was also repaired.  A valid binary multicover
+may use arbitrarily many globally even cutoff-one sheets; local fusion
+bounds still give the required \(2K/4K\) channel windows.  The old \(K=2\)
+counterexample has an explicit three-sheet multicover and an actual
+enumerated joint carrier.  The exact remaining combinatorial theorem is:
+every positive fine SU(2) row admits a finite integral strand-colouring into
+globally even binary slab sheets.
+
 ## BF5–BF6: physical RG closure
 
 The exact pushforward identity must split into:

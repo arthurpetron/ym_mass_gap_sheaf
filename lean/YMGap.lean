@@ -1084,6 +1084,8 @@ import YMGap.Continuum.BF4SU2OuterFineWitnessRoutingReduction
 import YMGap.Continuum.BF4SU2OuterBinaryLayerReduction
 import YMGap.Continuum.CompactDualAllCutoffOddParitySlabLayer
 import YMGap.Continuum.BF4SU2OuterBinaryLayerCounterexample
+import YMGap.Continuum.BF4SU2OuterBinaryMulticoverReduction
+import YMGap.Continuum.BF4SU2OuterBinaryMulticoverCounterexampleRepair
 import YMGap.Continuum.BF4FarautJointCarrierAFBudget
 import YMGap.Continuum.BF4FarautAFCutoffGrowth
 import YMGap.Continuum.SU2PointwiseHeatDynamicWindow
@@ -1108,10 +1110,14 @@ import YMGap.Continuum.BF4U1OuterCutoffBlockGramTransport
 import YMGap.Continuum.BF4U1OuterCutoffAtlasUniformScoreTube
 import YMGap.Continuum.BF4U1OuterCutoffScoreCRealLimit
 import YMGap.Continuum.FiveHolonomyPerronCutoff
+import YMGap.Continuum.ScalarHilbertSchmidtPerronFence
+import YMGap.Continuum.FiniteCarrierHSPerronPerturbation
 import YMGap.Continuum.BF4AFHeatSpacing
 import YMGap.Continuum.BF4AFInstantiation
 import YMGap.Continuum.BF4MatchedPhysicalAFBridge
 import YMGap.Continuum.BF4MatchedPhysicalFarautTrajectory
+import YMGap.Continuum.BF4MatchedPhysicalFiniteHeatWindow
+import YMGap.Continuum.BF4MatchedPhysicalKernelBridge
 import YMGap.Continuum.Z4DyadicSU2ParityGlobalPushforward
 import YMGap.Continuum.Z4DyadicSU2ParityPhysicalWeightFence
 import YMGap.Continuum.Z4DyadicSU2ParityActivityMatchedDefect
