@@ -58,3 +58,19 @@ The **group dependence (R1) is structurally closed**: the worst-case reduction t
 The **continuum existence (R2) is the open frontier**: OS reconstruction and the continuum spectral lift remain paper-level interfaces. This — not more groups — is what stands between the current state and the prize.
 
 See `work_plan.md` and `docs/uniform-parametric-bound-plan.md` for the up-to-date status.
+
+### Current BF4 certificate layer
+
+`BF4SU2OuterBinaryMulticoverSearch` is an executable bounded decision
+procedure for the finite strand-colouring problem.  It enumerates all
+closed binary slab supports and layer words, proves every successful
+reconstruction globally sound, and proves that every genuine `r`-layer
+multicover is found by budget `r`.  The open theorem is still existence of
+such a multicover for every positive physical SU(2) row.
+
+`BF4EntrywiseSameCarrierHSConvergence` proves
+`|Eᵢⱼ| ≤ δ ⇒ ||E||²_HS ≤ N(N δ²)` and specializes the result to the
+literal centered matched-BF4 square section.  The remaining analytic input
+is an actual grouped-kernel/Mehler entry bound whose decay beats the growth
+of the common carrier dimension, together with the physical Perron
+identification.

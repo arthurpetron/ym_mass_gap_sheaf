@@ -14763,3 +14763,47 @@ The next analytic bridge is now sharply isolated:
    remainder for the genuine BF4 trajectory; and
 5. only after those physical estimates instantiate `AFEnvelope` and apply
    `BareAFImpliesLinearFloor`.
+
+## BF4 finite multicover search and entrywise HS milestone (2026-07-28)
+
+Two remaining interfaces have been converted into exact constructive
+certificates.
+
+`BF4SU2OuterBinaryMulticoverSearch` now:
+
+1. enumerates the full powerset of corrected-slab plaquettes;
+2. checks even incidence on the finite duplicate-free boundary-link union
+   and proves that check globally sound and complete;
+3. turns every passing support into an actual binary even slab layer;
+4. enumerates all layer words up to a chosen budget;
+5. checks reconstruction on the finite physical face list and proves global
+   equality by zero extension; and
+6. proves relative completeness: every genuine `r`-layer multicover
+   canonicalizes into the finite alphabet without changing its sum, so the
+   search succeeds by budget `r`.
+
+This is an executable bounded decision procedure, not an existence proof
+for the all-positive-row integral strand-colouring theorem.  The next
+combinatorial target remains to construct the multicover for every positive
+row, equivalently to prove membership of the all-even residual in the
+closed-binary-support semigroup.
+
+`BF4EntrywiseSameCarrierHSConvergence` proves the explicit finite bound
+\[
+  \|E\|_{\rm HS}^2\le N\bigl(N\delta^2\bigr)
+  \qquad\text{when}\qquad |E_{ij}|\le\delta.
+\]
+A cutoff-indexed same-carrier comparison now supplies entry errors
+\(\delta_K\), dimensions \(N_K\), and the transparent balance
+\(N_K^2\delta_K^2\le\varepsilon_K^2\) with a Type-valued modulus
+\(\varepsilon_K\to0\).  This constructs the existing HS convergence datum
+and its eventual centered \(q_K\le1/4\) conclusion.  The literal
+matched-physical specialization also converts direct entry bounds on the
+centered grouped BF4 square section into the fixed-scale physical quarter
+theorem.
+
+The next analytic target is therefore an actual grouped
+Feynman--Kac/Mehler entry estimate with decay strong enough to dominate
+carrier growth, followed by construction of the physical dominant
+mean-zero Perron mode.  Matrix convergence has been reduced to this
+quantitative entrywise problem; it has not been assumed away.

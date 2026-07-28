@@ -1004,6 +1004,52 @@ sharply localized to the all-even residual semigroup.
 for this exact semigroup question on small unions of actual corrected-slab
 cube boundaries; its current bounded search finds no counterexample.
 
+### Executable multicover normality and entrywise HS reduction (2026-07-28)
+
+`BF4SU2OuterBinaryMulticoverSearch` closes the finite representability
+subproblem constructively.  Its closure test examines precisely the
+duplicate-free union of plaquette boundary links; links outside that list
+have incidence count zero, so a passing Boolean scan proves global
+`EvenFaceIncidence`.  The complete powerset of corrected-slab plaquettes is
+filtered by this test to give a finite alphabet of genuine
+`BinaryEvenSlabLayer` values.  Bounded words over that alphabet are checked
+only on the physical face-ID list, with exact zero-extension proving global
+reconstruction.
+
+The search is both sound and relatively complete.  Every abstract binary
+layer has the same state as the canonical layer generated from its own odd
+support, that support occurs in the powerset scan, and canonicalization
+preserves a layer-word sum.  Therefore every genuine multicover with `r`
+layers forces the executable search to return a successful word at budget
+`r`.  This is not the missing normality theorem: Lean still does not
+construct a multicover for an arbitrary positive row.  It proves that the
+obstruction is a finite integral-semigroup membership theorem, not an
+enumeration or certificate-soundness problem.
+
+`BF4EntrywiseSameCarrierHSConvergence` replaces the broad full-matrix
+convergence input by the quantitative target
+\[
+  |E_{ij}|\le\delta
+  \quad\Longrightarrow\quad
+  \|E\|_{\mathrm{HS}}^2\le N\bigl(N\delta^2\bigr).
+\]
+A cutoff-indexed grouped-kernel construction may now provide direct entry
+bounds \(\delta_K\) together with
+\[
+  N_K^2\delta_K^2\le\varepsilon_K^2,\qquad
+  \varepsilon_K\longrightarrow0.
+\]
+These data construct `NormalizedSameCarrierMehlerHSConvergence` and inherit
+its eventual centered Perron bound.  The fixed-scale specialization uses
+the literal matched physical BF4 square section, exact uniform-vacuum
+removal, an entrywise grouped-kernel/Mehler estimate, and the dimension
+buffer to invoke the already-proved physical \(q\le1/4\) theorem.
+
+The genuine analytic obstruction is now an estimate on the actual
+normalized grouped Feynman--Kac entries strong enough to beat common-carrier
+dimension growth, plus the physical Perron identification.  No scalar Haar
+square or uncentered Markov matrix can discharge it.
+
 ## BF5–BF6: physical RG closure
 
 The exact pushforward identity must split into:
