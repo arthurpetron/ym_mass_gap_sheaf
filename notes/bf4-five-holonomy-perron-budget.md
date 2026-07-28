@@ -171,6 +171,40 @@ The checked components are:
 - `BF4AFInstantiation.lean`: an exact reciprocal bare trajectory, its cubic
   remainder and exponential spacing bound, a concrete `AFEnvelope`, and the
   application of `BareAFImpliesLinearFloor`.
+- `U1SignedChargeHeatTail.lean`,
+  `BF4U1ExponentGramCutoffTailBridge.lean`, and
+  `BF4U1SignedChargeTailInstantiation.lean`: fixed-nome signed-charge cutoff
+  control, finite-state amplification through the genuine U(1) reflection
+  quadratic/block map, and a concrete tolerance modulus for every fixed
+  slab with \(0<w<1\);
+- `BF4U1ExponentGramOffDiagonalCutoff.lean`,
+  `BF4U1FiniteExponentGramTailTube.lean`, and
+  `BF4U1ActualExponentGramScoreTube.lean`: arbitrary left/right exponent
+  coordinates, finite-coordinate error propagation, and an actual
+  finite-atlas tube for the literal U(1) exponent-Gram score at fixed outer
+  charge carrier, assuming the fine nome and every atlas candidate are below
+  \(1\);
+- `BF4U1OuterCutoffNesting.lean` and
+  `BF4U1OuterCutoffUniformTensorTail.lean`, together with
+  `BF4U1OuterCutoffTensorTailModulus.lean` and
+  `BF4U1OuterCutoffFiniteFubiniTail.lean`, followed by
+  `BF4U1OuterCutoffNormalizedEventTail.lean`: the exact cutoff-directed
+  partition decomposition, a direct recursive heat-tail envelope independent
+  of the outer carrier cardinality, its explicit fixed-nome/fixed-face-count
+  modulus, its finite-Fubini/Haar domination of the genuine constrained
+  new-sector mass, and a sharp normalized Boolean-event Cauchy modulus.
+  Constructing the limit object and transporting cutoff-dependent
+  block/coarse exponent-Gram observables remain open;
+- `BF4ExponentGramLocatedStability.lean`: exact located-margin stability of
+  finite SU(2)/U(1) argmins. Together these layers still do not construct the
+  required spacing-uniform physical score tubes or located Yang--Mills
+  separator;
+- `BF4MatchedPhysicalAFBridge.lean`: a conditional constructor whose weight
+  is definitionally routed through a matched finite BF4 argmin rather than
+  the Padé formula. Its parameterized matching data remain supplied and do
+  not themselves certify a genuine continuum trajectory. Supplied physical
+  cubic-remainder and spacing certificates produce an `AFEnvelope` and the
+  existing linear floor. Those certificates remain uninhabited.
 
 Four additional axiom-gated layers prevent the remaining physical
 identifications from being inferred from insufficient premises:

@@ -1,9 +1,13 @@
 # BF4 observable-matched trajectory: first exact step
 
 **Date:** 2026-07-26
-**Status:** constructive cutoff-one step, finite scheduled iteration,
-exponent-Gram matching, and same-geometry U(1) pushforward proved;
-weak-coupling/cutoff limits and the physical AF envelope remain open
+**Status:** finite matching and U(1) reflection/CP proved; fixed-nome
+signed-charge tails, off-diagonal finite-atlas score tubes, outer-cutoff
+nesting/tensor control, located-argmin stability, and the conditional matched-AF
+consumer are formalized; the finite-Fubini/Haar outer lift is proved, while
+fixed-nome normalized Boolean-event convergence is proved; outer
+exponent-Gram transport, spacing-uniform score tubes, the Yang--Mills cubic
+law, and physical spacing remain open
 
 ## 1. Why this step is necessary
 
@@ -221,8 +225,98 @@ nonnegative.  This closes the finite-cutoff same-carrier CP-order
 obstruction constructively; every new dependency gate is contained in
 `{propext, Quot.sound}`.
 
-What remains is analytic rather than a missing finite carrier: a
-spacing-dependent charge/representation cutoff with a quantitative
-all-label tail modulus, uniform convergence of the grouped physical
-quadratics, and then the Yang--Mills-specific weak-coupling/AF separation on
-the physical BF4 trajectory.
+The next analytic layer is now split precisely. The actual signed-label
+one-coordinate heat series has a fixed-nome quantitative cutoff, and a
+separate finite-slab theorem amplifies any one-charge tail through the genuine
+normalized reflection quadratic and deterministic BF4 block. A located-margin
+consumer also stabilizes the literal SU(2)/U(1) argmins once uniform score
+tubes are supplied. What remains is to connect these layers into
+spacing-uniform physical score tubes, prove the corresponding SU(2) tail and
+Yang--Mills separator, and derive the cubic AF and spacing certificates on the
+exact matched trajectory.
+
+## 9. Fixed-nome U(1) cutoff and finite-slab amplification
+
+`U1SignedChargeHeatTail.lean` proves a constructive Cauchy modulus for the
+actual label order \(0,+1,-1,\ldots\), using
+\(2w^{M+1}/(1-w)\). `BF4U1ExponentGramCutoffTailBridge.lean` lifts a supplied
+one-charge tail through the genuine normalized slab sum, its exponent-Gram
+diagonal, and the deterministic BF4 block. The amplification is the finite
+state count. `BF4U1SignedChargeTailInstantiation.lean` supplies that datum
+constructively for every fixed slab with \(0<w<1\), rescaling the tolerance by
+the exact positive state count before selecting the signed-charge cutoff.
+`BF4U1ExponentGramOffDiagonalCutoff.lean` extends this to arbitrary
+left/right exponent coordinates after the deterministic BF4 pullback.
+`BF4U1ActualExponentGramScoreTube.lean` pays both blocked/coarse entry errors
+and the finite-coordinate count, then takes a constructive maximum over the
+finite atlas. It produces an actual `AtlasScoreTube` for the literal U(1)
+score at fixed outer charge carrier, provided the fine nome and all atlas
+candidates are strictly below \(1\). These results do not yet provide an
+outer-carrier limit or a cutoff uniform as \(w\to1\).
+
+## 10. Located stability of the matched comparison
+
+`BF4ExponentGramLocatedStability.lean` proves that a two-sided uniform score
+error \(\varepsilon\) cannot change the finite argmin when the named limiting
+minimizer has margin \(\delta>2\varepsilon\). The theorem simultaneously
+stabilizes the exact SU(2)/U(1) comparison branch. It is a consumer: the
+limiting scores, cutoff score tubes, and located Yang--Mills separator margin
+are not constructed by the module.
+
+## 11. Conditional matched-AF consumer
+
+`BF4MatchedPhysicalAFBridge.lean` routes its trajectory weight through a
+literal finite observable- or exponent-Gram-matching argmin rather than the
+Padé formula. Its parameterized geometry, atlas, coordinates, and observable
+are nevertheless supplied data, so this wrapper does not certify that the
+family is the genuine continuum trajectory. Given a
+`CubicMarginLaw` for that output and a separate `PhysicalSpacingEnvelope`, it
+constructs an `AFEnvelope` and invokes `BareAFImpliesLinearFloor`. Neither
+physical certificate is inhabited here, so this is not an instantiation on
+the nonperturbative four-dimensional continuum trajectory.
+
+## 12. Outer-cutoff directed system and tensor tail
+
+The fixed-slab state-count amplification is not uniform when a separate outer
+charge carrier grows. `BF4U1OuterCutoffNesting.lean` proves the exact
+replacement algebra: the smaller carrier is the old-label filter of every
+larger carrier, the physical term is cutoff-independent, and the larger
+partition is the smaller partition plus a nonnegative new sector.
+
+`BF4U1OuterCutoffUniformTensorTail.lean` then avoids counting outer states.
+For fixed \(0<w<1\), it bounds the signed one-coordinate shell above \(M\)
+uniformly in every outer \(K\ge M\), supplies a cutoff-independent
+one-coordinate heat ceiling, and tensorizes them through the recursive union
+envelope
+\[
+  E_0=0,\qquad E_{d+1}=T_w(M)H_*(w)^d+H_*(w)E_d.
+\]
+`BF4U1OuterCutoffFiniteFubiniTail.lean` completes the finite Fubini step on
+the literal `boundedEdgeLabellings` carrier and proves that the genuine
+Haar-constrained new-sector mass is no larger than this envelope. In
+particular, for every \(K\le L\),
+\[
+  Z_{L\setminus K}\le E_{\#\mathrm{faces}}(w,K),
+  \qquad Z_L\le Z_K+E_{\#\mathrm{faces}}(w,K).
+\]
+`BF4U1OuterCutoffTensorTailModulus.lean` additionally factors \(E_d\) as
+the one-charge closed tail times a fixed finite-dimensional coefficient and
+constructs an explicit retained-charge cutoff after rescaling the requested
+tolerance by \(1+C_d(w)\). The result is uniform in the later outer cutoff,
+but remains fixed-nome and fixed-face-count.
+
+`BF4U1OuterCutoffNormalizedEventTail.lean` then proves the exact nested
+quotient algebra
+\[
+ \left|\frac{a}{d}-\frac{a+b}{d+n}\right|\le n
+ \quad(a\le d,\ b\le n,\ d\ge1),
+\]
+and applies it to every Boolean event of the canonical normalized slab law.
+The probability change from cutoff \(K\) to any \(L\ge K\) is bounded by the
+same tensor envelope with constant \(1\); the tensor cutoff therefore gives
+an explicit normalized-event Cauchy modulus.
+
+The next exact bridge is to construct the corresponding limit object and
+transport this modulus through the cutoff-dependent BF4 block-pullback and
+coarse exponent-Gram coordinates. The current theorem remains fixed-nome,
+fixed-half, and finite-volume.

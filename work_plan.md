@@ -858,6 +858,124 @@ gauge-constrained U(1) Gram, and a located separator/coercivity bound strong
 enough to stabilize the comparison sign near \(s=1\).  No continuum sign is
 claimed.
 
+**BF4 fixed-nome cutoff, located-stability, and conditional-AF bridge
+update (2026-07-27).** `U1SignedChargeHeatTail.lean` now works on the
+actual U(1) label order \(0,+1,-1,+2,-2,\ldots\). For every fixed rational
+\(0<w<1\), it proves the closed one-coordinate signed tail
+\[
+  T_w(M)=\frac{2w^{M+1}}{1-w}
+\]
+and constructs an explicit tolerance-dependent charge cutoff. This is
+fixed-nome convergence; the cutoff is not uniform as \(w\to1\).
+
+`BF4U1ExponentGramCutoffTailBridge.lean` supplies the finite-slab lifting
+mechanism. After masking the genuine normalized U(1) slab law by a face-charge
+cutoff, an omitted state is bounded by one offending face factor, so the
+omitted reflection quadratic is at most
+\[
+  |\mathrm{states}(D)|\,T(M).
+\]
+The bound specializes to the genuine exponent-Gram diagonal and transports
+through the deterministic BF4 block by the already-proved fine-pullback/CP
+identity. `BF4U1SignedChargeTailInstantiation.lean` then discharges the
+one-charge datum at every fixed slab with \(0<w<1\): it divides the requested
+tolerance by the exact positive state count, applies the signed-charge power
+cutoff, and proves the resulting genuine and blocked diagonal errors are at
+most the original tolerance. This cutoff still depends on the nome and full
+finite carrier; a spacing-uniform physical score tube is not inferred.
+
+`BF4U1ExponentGramOffDiagonalCutoff.lean` removes the diagonal restriction.
+It proves two-sided and absolute bounds for distinct left/right exponent
+coordinates and transports the bilinear estimate through the deterministic
+BF4 pullback. `BF4U1FiniteExponentGramTailTube.lean` sums those errors over a
+finite coordinate list and constructs a common finite-atlas cutoff for a
+fixed-reference score. `BF4U1ActualExponentGramScoreTube.lean` then masks
+both the blocked and candidate-dependent coarse entries, pays the two entry
+errors and finite-coordinate count, and constructs an actual
+`AtlasScoreTube` whose limiting score is the literal
+`atlasU1ExponentGramScore`, assuming the fine nome and every atlas candidate
+are strictly below \(1\). This theorem fixes the outer
+`fineChargeCutoff`; it removes only an internal retained-charge mask and is
+not yet an outer all-label limit.
+
+The crude \(|\mathrm{states}(D)|T(M)\) estimate is therefore useful at a
+fixed finite slab but cannot be made uniform in an independently growing
+outer carrier: for fixed \(M\), the state count diverges with the outer
+cutoff. `BF4U1OuterCutoffNesting.lean` now supplies the exact directed
+algebra needed to replace it. For \(K\le L\), the cutoff-\(K\) carrier is
+literally the old-label filter of the cutoff-\(L\) carrier, the physical
+summand is unchanged, and
+\[
+  Z_L \simeq Z_K + Z_{L\setminus K},
+  \qquad Z_{L\setminus K}\ge0.
+\]
+
+`BF4U1OuterCutoffUniformTensorTail.lean` proves the corresponding direct
+free-coordinate estimate without any outer state count. The one-coordinate
+mass between retained charge \(M\) and any outer cutoff \(K\ge M\) is at most
+\(T_w(M)\), every one-coordinate partial is bounded by a fixed
+\(H_*(w)\), and the recursive union envelope
+\[
+ E_0=0,\qquad
+E_{d+1}=T_w(M)H_*(w)^d+H_*(w)E_d
+\]
+bounds the \(d\)-coordinate offending mass uniformly in \(K\).
+`BF4U1OuterCutoffFiniteFubiniTail.lean` now identifies the free tensor mass
+with the literal function-valued `boundedEdgeLabellings` sum, decomposes the
+Boolean outside-window event one face at a time, and drops the exact
+\(0/1\) Haar constraints by order domination. Consequently, for every
+\(K\le L\), the genuine constrained new sector satisfies
+\[
+ Z_{L\setminus K}\le E_{\#\mathrm{faces}}(w,K),
+ \qquad
+ Z_L\le Z_K+E_{\#\mathrm{faces}}(w,K).
+\]
+This closes the finite-Fubini/Haar part of the outer all-label bridge. The
+changing normalization denominator is handled separately below.
+
+`BF4U1OuterCutoffTensorTailModulus.lean` factors the recursive envelope
+exactly as the one-charge closed tail times a finite-dimensional coefficient.
+After replacing that coefficient by the strictly positive
+\(1+C_d(w)\), it applies `signedChargePairCutoff` at the rescaled tolerance
+\(\varepsilon/(1+C_d(w))\). This gives an explicit retained-charge cutoff
+for which the whole tensor envelope is at most \(\varepsilon\), uniformly in
+every later outer cutoff. The modulus remains fixed in \(w<1\) and in the
+finite face count; it is not uniform as \(w\to1\) or as volume grows.
+
+`BF4U1OuterCutoffNormalizedEventTail.lean` proves the exact quotient
+difference and nested-law normalization algebra. If the old event/partition
+masses are \(a,d\) and the new event/total masses are \(b,n\), with
+\(a\le d\), \(b\le n\), and \(d\ge1\), then
+\[
+ \left|\frac{a}{d}-\frac{a+b}{d+n}\right|\le n.
+\]
+Applied to the canonical slabs, every Boolean-event probability changes by
+at most the genuine new-sector mass and hence by the tensor envelope, with
+sharp constant \(1\). Combining this with the explicit tensor cutoff gives a
+constructive normalized-event Cauchy modulus uniform in every later outer
+cutoff. This is still fixed-nome and fixed finite geometry. No `CReal` limit
+object, cutoff-dependent BF4 block-pullback/coarse score convergence, SU(2)
+analogue, spacing limit, or volume-uniform statement is inferred.
+
+`BF4ExponentGramLocatedStability.lean` proves the exact argmin-stability
+consumer: if a limiting score has a named minimizer separated on the complete
+finite atlas by margin \(\delta>0\), and a two-sided cutoff score tube has
+error \(\varepsilon\) with \(2\varepsilon<\delta\), then the literal finite
+argmin is equivalent to that target. Applied simultaneously, it transports
+the exact below/matched/above SU(2)/U(1) comparison branch. The limiting
+scores, score tubes, and Yang--Mills located margins remain analytic inputs.
+
+`BF4MatchedPhysicalAFBridge.lean` closes only the downstream packaging gap.
+Its weight is definitionally produced by the observable- or exponent-Gram
+finite BF4 argmin rather than the Padé formula. The rationally parameterized
+geometry, atlas, coordinates, and observable remain supplied data, so the
+wrapper alone does not certify a genuine physical trajectory. Given a
+Yang--Mills-specific `CubicMarginLaw` for that selected block output and an
+independent `PhysicalSpacingEnvelope`, it constructs `AFEnvelope` and applies
+`BareAFImpliesLinearFloor`. No inhabitant of either physical certificate is
+constructed, and finite atlases and cutoffs remain explicit. Hence no
+nonperturbative BF4 continuum trajectory or physical mass gap is claimed.
+
 The cumulative-heat condition is also not automatic.  For the local bare
 heat-kernel multiplier \(\rho(a)=s(a)^3\), it implies
 \[
@@ -867,9 +985,13 @@ heat-kernel multiplier \(\rho(a)=s(a)^3\), it implies
 by \(1-\rho^m\le m(1-\rho)\).  This is a rescaled bare-mode floor, not a
 physical mass gap: the transfer-operator identification remains open and the
 bare ratio may diverge along the asymptotically-free trajectory. The next
-proof must instantiate the bare-AF envelope and heat-coordinate identity
-on the actual trajectory; later gates must still identify the grouped
-contraction with the continuum transfer/OS object.
+proof must transport the U(1) normalized-event modulus through the
+cutoff-dependent BF4 block/coarse exponent-Gram scores, construct the
+analogous outer-cutoff SU(2) score tube, and prove the located Yang--Mills
+separator. It must then derive the cubic law for the exact
+matched block output and construct the independent physical spacing
+envelope. Later gates must still identify the grouped contraction with the
+continuum transfer/OS object.
 Unless the current BF plan explicitly delegates a task back to one of the
 historical phases below, BF4--BF10 control execution order.
 
