@@ -1125,6 +1125,34 @@ coarse link.  Such a joint selection constructively implies
 `SU2OuterPositiveRowClosure`; constructing it from every positive fine
 invariant tensor network is the remaining nonvanishing/completeness theorem.
 
+`BF4SU2OuterJointCarrierEnumeration.lean` makes that global theorem fully
+finite and executable: it enumerates bounded coarse face fields, all retained
+pair channels, and complete coarse-link fusion-witness assignments, then
+filters them by the literal raw conditions.  Membership constructs
+`WholeSlabJointChannelSelection`, and every semantic joint selection has a
+canonical representative in the enumeration.  Hence
+`SU2OuterJointCarrierNonempty` is equivalent to the earlier joint-selection
+input, not an assumed choice principle.  `BF4SU2OuterFineWitnessRoutingReduction.lean`
+also extracts a Type-level member of the finite fine-intertwiner list from a
+positive physical term.  Its explicit fine-to-coarse router isolates the
+strand-routing statement but, because a nonempty coarse carrier gives a
+constant router, does not pretend to prove that statement.
+
+The first genuine support-lift mechanism is now formalized in
+`SU2FusionSupportAddition.lean`,
+`SU2PairChannelSupportAddition.lean`, and
+`BF4SU2OuterBinaryLayerReduction.lean`.  SU(2) fusion support, canonical and
+explicit link multiplicities, whole-slab link products, four-spin packet
+channels, and positive raw face weights are all closed under componentwise
+addition with the exact summed cutoff.  Consequently, if a positive fine
+state is reconstructed as at most \(K\) globally even cutoff-one sheet
+layers, the cutoff-one parity theorem supplies each layer's coherent coarse
+target and channels; addition supplies the genuine \(4K\)-cutoff
+`WholeSlabJointChannelSelection`.  All coarse data are derived.  The sole new
+input `SU2OuterBinaryLayerDecomposition` mentions only the fine geometry, and
+is deliberately still open: prove that every positive fine invariant network
+admits such a bounded global binary-sheet decomposition.
+
 `BF4SU2StochasticBlockedGramObservableTail.lean` now performs the analytic
 join: the contract's conditional event is a concrete coherent unit
 observable, the blocked exponent-Gram coordinate is exactly its normalized

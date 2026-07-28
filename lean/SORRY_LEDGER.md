@@ -79,11 +79,17 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4SU2OuterPhysicalMarkovKernelFrontier.lean`,
   `lean/YMGap/Continuum/BF4SU2OuterRawKernelCoherenceReduction.lean`,
   `lean/YMGap/Continuum/BF4SU2OuterRawKernelCutoffDiagnostics.lean`,
-  `lean/YMGap/Continuum/BF4SU2OuterPositiveRowClosureReduction.lean`
+  `lean/YMGap/Continuum/BF4SU2OuterPositiveRowClosureReduction.lean`,
+  `lean/YMGap/Continuum/SU2FusionSupportAddition.lean`,
+  `lean/YMGap/Continuum/SU2PairChannelSupportAddition.lean`,
+  `lean/YMGap/Continuum/BF4SU2OuterJointCarrierEnumeration.lean`,
+  `lean/YMGap/Continuum/BF4SU2OuterFineWitnessRoutingReduction.lean`,
+  `lean/YMGap/Continuum/BF4SU2OuterBinaryLayerReduction.lean`
 - **decls**: `SU2OuterPhysicalBlockContract`,
   `SU2OuterPhysicalMarkovContract`, `SU2OuterPositiveRowClosure`,
   `SU2OuterRawKernelCutoffStability`,
-  `SU2OuterJointChannelSelection`
+  `SU2OuterJointChannelSelection`, `SU2OuterJointCarrierNonempty`,
+  `SU2OuterFineWitnessRouting`, `SU2OuterBinaryLayerDecomposition`
 - **obligation**: Construct `SU2OuterPositiveRowClosure` for the genuine
   source-indexed BF4 all-label recoupling weight on the fine cutoff-\(K\)
   and coarse cutoff-\(4K\) corrected slabs.  One explicit sufficient route
@@ -131,8 +137,25 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   replacement `SU2OuterJointChannelSelection` chooses a single coarse target,
   all positive face channels, and all positive shared-link intertwiners
   jointly, and constructively implies `SU2OuterPositiveRowClosure`.
-  Thus the future physical discharge is precisely that joint nonvanishing
-  datum, not an opaque or Dirac-completed stochastic contract.
+  `BF4SU2OuterJointCarrierEnumeration` enumerates the literal finite global
+  carrier of coarse targets, face channels, and link-intertwiner assignments.
+  Its nonemptiness is constructively equivalent to joint channel selection;
+  this executable enumeration does not itself prove nonemptiness.
+  `BF4SU2OuterFineWitnessRoutingReduction` repairs the Prop-to-Type boundary
+  by extracting a retained fine intertwiner assignment from every positive
+  physical term.  Its router interface is again equivalent to joint-carrier
+  nonemptiness, so no solution is claimed there.
+  The substantive new algebra is additive closure.  `SU2FusionSupportAddition`
+  proves that link fusion witnesses, canonical/explicit multiplicities, and
+  whole-slab link products remain positive under pointwise addition.
+  `SU2PairChannelSupportAddition` proves the matching finite-cutoff face
+  statement and its arbitrary finite-list lift.
+  Finally `BF4SU2OuterBinaryLayerReduction` derives the entire coarse target,
+  every positive face channel, and every positive shared-link factor from a
+  decomposition of the positive fine state into at most \(K\) globally even
+  cutoff-one sheets.  Thus the smallest current physical discharge is the
+  fine-geometric, Type-valued `SU2OuterBinaryLayerDecomposition`; the module
+  explicitly leaves construction of that decomposition open.
 - **must not be closed classically**: per `AGENTS.md` Rule 6 — a future
   inhabitant must be an explicit finite constructor, not a
   `Classical.choice` witness.
