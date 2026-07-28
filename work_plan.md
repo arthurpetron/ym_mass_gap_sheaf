@@ -26488,3 +26488,99 @@ O(tau^2) — O(tau) statements safe, tau^2 coefficients indicative.
 Cloud verification only; Mac session-lock run owed; the push of
 d6af5ba/4d57923 (+ this addendum's commit) is owed by the user:
 `git push origin main`.
+
+### 16f. Addendum (2026-07-28, same session): the c_SU2 ASSEMBLY EXECUTED — the marginal-defect coefficient is an exact rational, its sign is anti-screening, and the U(1) mirror gate does not fire
+
+The §16e queue (a)-(d) is executed in one exact instrument.
+Artifacts: `computations/c_su2_assembly.py`,
+`computations/c_su2_assembly_results.json`,
+`tests/test_c_su2_assembly.py`, `notes/c-su2-assembly.md`.  Suite
+77/77 green (cloud; includes 12 new exact pins).
+
+**The engine.**  A tilted-moment engine for the flat-limit Gaussian
+network of the slab, exact through tau^2 in the (n,m)-dependent
+part — INCLUDING the operator-ordering terms §16e deferred, which
+enter at exactly the order c_SU2 lives at and are here computed,
+not deferred.  Per su(2) triple: T[n,m] = Z e^{F tau} tr E[e^{iL}
+exp(q - V_3 - V_4)], with L the loop tilts, q the phi/sin(phi) +
+(sin u/u)^2 Jacobian insertions, V_3/V_4 the BCH non-closure of the
+face-ordered products (commutator = cross product), covariance
+8 tau G^{-1} (the §16e dictionary).  All moments reduce to
+exact-rational J-word tables (epsilon contractions via precomputed
+isotropic patterns; E[det det] = 6 det Cov); traces from an exact
+complex-rational spin cache.  E[V_3 L] = 0 pinned.
+
+**Gates, all exact, all green.**  (g1, decisive) heat-kernel
+SEMIGROUP on 1-, 2-, 3-link chains: the entire tau^2 connected
+coefficient must vanish — and does, exactly; one identity
+exercising Jacobians, BCH, orderings, normalization together.
+(g3) BCH series vs mpmath matrix logs.  (g4, the §16e (d)
+refutation channel) the identical engine at one abelian component:
+kappa_2 == 0 identically — c_dyn^{U(1)} = 0 EXACTLY — and the
+identical flow assembly reproduces the banked c_1 = -4 at N = 2.
+(g5) s_1 = const - 3(C(n)+C(m)) exactly; series exactly real;
+polynomial fit exact on the grid + held-out n = 4.
+
+**The result (exact rationals).**
+
+    kappa_2(n,m) - kappa_2(0,0)
+      = -(21/8)(C(n) + C(m)) + (2/3) C(n) C(m).
+
+No quadratic terms: pair-independence of the slope is a THEOREM of
+the fit at this order.  (i) The cross coefficient is PURE FUSION:
+(2/3) C(n)C(m) = Var_fusion(delta)/2 — Jacobian/BCH/orderings do
+not touch the cross channel, so the discriminating observable is
+now exact at this order: X_nm = (2/3) C(n) C(m) tau^2, X_11 =
++6 tau^2 (the §16e "indicative" upgraded to exact).  Cross-checked
+on the banked exact M=2 SU(2) kernel: T[1,1]T[0,0] > T[0,1]^2
+exactly at sampled s, X_11/tau^2 passing through ~6 on s in
+[3/4, 17/20] before fixed-M truncation bites (consistent with the
+§16a protocol discovery).  (ii) The diagonal dynamical defect is
+c_dyn = +21/8, with exact block attribution orderings -6 +
+Jacobians 139/4 + BCH-quartic 502/3 + BCH-cubic-squared -4769/24 +
+epsilon-linear 0 — a cancellation certified by g1.  (iii) Flow
+slopes: E* = 3 + c_SU2(N) tau, c_SU2(N) = 21/8 - (2/3) E_w[C(m)]
+(w ~ d_m^2): +41/40, -11/8, -183/40 at N = 1, 2, 3, every pair
+identical (gated).  The N-dependence is basis bookkeeping exactly
+parallel to U(1)'s -4/3, -4, -8; the basis-free content is c_dyn
+and the cross coefficient.
+
+**MD.3's number.**  At the standard basis N = 2 the SU(2)
+fusion-basis term equals -4 — numerically identical to U(1)'s
+entire slope — so the matched-basis defect is
+
+    c_SU2 - c_U1 = +21/8   EXACTLY:
+
+the first genuinely non-abelian number of the flow, an exact
+rational with no pi and no measured input, parameterized by the
+engine's group data as MD.3 demanded.  Its sign is POSITIVE: the
+non-abelian dynamics push the one-step exponent UP — away from
+marginality, toward the gapped class — relative to the gapless
+abelian control on the same instrument and basis.  The
+anti-screening statement at this order is BANKED.
+
+**Honesty.**  One-step, thickness-one, anisotropic slab; tau-slope
+of the D2 family at s -> 1; iterated/isotropic upgrades downstream.
+Image/theta-separation slack exponentially small (certified
+rational for U(1); 41-87-digit numeric gates for SU(2); a
+certified-rational SU(2) slack bound is owed by whichever step
+first consumes c_dyn in a verdict).  tau^3 outside this
+computation.  A2 (component decoupling) is DISCHARGED at this
+order by construction — the engine computes the coupled
+three-component integral exactly; A1 (flat-limit interchange)
+remains flagged.  The M=2 cross-check is a consistency gate, not a
+certificate.  Cloud verification only; Mac session-lock run owed;
+push of this session's commits owed by Arthur
+(`git push origin main`).
+
+**Next attack (MD.2 residual + MD.4 feed).**  (a) The tau^3 term
+and the crossover: extend the engine one order (the same term
+algebra, one more Wick order) to bound where the asymptotic curve
+hands off to the Sturm window atlas (MD.4 consumes this).  (b) The
+SU(2) M -> infinity resummation (cyclic transfer operator, §16c
+route (a)) so the dichotomy class of tau'/tau as s -> 1 is decided
+from certified windows rather than the flat expansion — X_nm =
+(2/3) C(n)C(m) tau^2 is its designated first consumer, now with an
+exact target.  (c) A certified-rational SU(2) image/slack bound to
+upgrade the flat dictionary from numerically gated to
+certificate-grade.
