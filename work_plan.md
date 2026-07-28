@@ -26584,3 +26584,104 @@ from certified windows rather than the flat expansion — X_nm =
 exact target.  (c) A certified-rational SU(2) image/slack bound to
 upgrade the flat dictionary from numerically gated to
 certificate-grade.
+
+### 16g. Addendum (2026-07-28, second session): the tau^3 CROSS LAW, the per-face image CERTIFICATE, and the FIRST CERTIFIED M -> infinity statement — the two instruments now bracket the dichotomy from both ends
+
+Push of d6af5ba..150dceb confirmed on origin/main.  This session
+executes the §16f queue: (a) the tau^3 extension, (b) the M ->
+infinity resummation's first certified stage, (c) the
+certificate-grade image slack.  Artifacts:
+`computations/c_su2_tau3.py`, `computations/su2_flat_slack.py`,
+`computations/su2_minf_windows.py`, their JSON ledgers,
+`tests/test_tau3_and_windows.py`.  Suite 87/87 green (cloud).
+
+**(a) The tau^3 cross law (exact).**  The engine is extended one
+Wick order with the complete tau^3 term algebra: BCH grades 4-5
+(derived by 2x2 matrix series, gated against the graded recursion
+and mpmath), the quartic Jacobian/Haar insertions, the quintic and
+sextic BCH potentials V_5, V_6 and the Jacobian-argument couplings
+J_3, J_4, decomposed into det/dot invariant form by a generic
+symmetrized-tensor solver with entrywise exactness asserts.
+Scope discipline: cross observables need >= 2 J's per side, so
+X_nm receives tau^3 contributions ONLY from L^6, L^4 q_2, L^4 V_4,
+L^4 V_3^2 (pointwise Gram), L^5 V_3 — all computed on the slab.
+GATES, all exact: star-3 semigroup kappa_2 = kappa_3 = 0 with V_3
+and Delta^(3..5) LIVE (recorded honestly: the §16f chains had
+V_3 == 0, so this also retroactively strengthens the tau^2
+verification); fusion stars (both loops on one link) reproduce
+sum_J (2J+1) e^{-k tau C(2J)} through kappa_3 at k = 1 and k = 3 —
+the decisive independent-algebra gate for the cross channel;
+U(1) mirror kappa_3 == 0; star-4 at kappa_2; the slab V_3^2 L^2
+block recomputed via the Gram route equals the §16f epsilon route.
+THE RESULT:
+
+    X_nm = C(n) C(m) [ (2/3) tau^2 + (115/54) tau^3 ] + O(tau^4),
+
+the tau^3 coefficient again EXACTLY proportional to C(n) C(m)
+(115/6, 460/9, 3680/27 at (1,1), (1,2), (2,2)).  Decomposition:
+fusion part (8/9) C C (from mu3c(delta) = -(16/3) C C, exact),
+dynamical part (67/54) C C — the first nonzero DYNAMICAL cross
+coefficient (at tau^2 the dynamics left the cross channel
+untouched).  Both terms positive: the discriminator's sign is
+reinforced at next order.  The DIAGONAL kappa_3 (the E* curvature)
+is left open: its heavy blocks (V_3^4 L^2, V_3 V_5 L^2, V_6 L^2,
+J-blocks) are combinatorially out of reach of direct Wick
+enumeration on the slab (~10^10 pairings); for MD.4's crossover
+purpose they are superseded by the certified windows of (b).
+
+**(c) The per-face image certificate.**  `su2_flat_slack.eps_img`
+certifies, in exact rationals, |K - K_0|/K_0 <= eps_img(tau, delta)
+on phi in (0, pi - delta], handling the j-pair cancellation at
+phi -> 0 by mean-value bounds; scale e^{-pi delta/tau}
+(e.g. 4.4e-13 at tau = 1/20, delta = 1/2; mpmath domination gate
+passed).  The remaining glue — the T-mass of the large-angle
+region — is the SAME object as the spin tail (angle-spin duality)
+and joins the (b) residual; the tau-series coefficients are
+untouched by images at every finite order.
+
+**(b) The domination transfer operator and the first certified
+M -> infinity statement.**  The dominated mass sum_{L} prod_f
+d^2 s^C over triad-admissible labellings factorizes EXACTLY as
+d_n d_m tr_{parity-even}(T^4) on corner states (a, b, q) — the
+|N|-free SHELL of the corner transfer factorization (§16c route
+(a)), with |N| <= d_n d_m prod d the only crudeness.  Certified
+TAIL(M; s) = trace difference + a union-bound Lambda-slop (no
+square-root losses); the M=2 finality gaps (unreached configs,
+labels listed in dp3_m2_entries) folded in as exact per-config
+mass bounds.  EXECUTED CONSUMPTION:
+
+    at s = 1/2:  X_11(M -> infinity) in [+0.0665, +0.4193],
+    certified positive — T11 T00 > T01^2 including ALL truncation
+    corrections: the flat discriminator's sign, nonperturbative.
+
+Above s ~ 0.55 the |N| <= prod d overshoot (~10^5 at s = 3/4)
+swamps the small entries and the windows close.  The two certified
+instruments now BRACKET the dichotomy regime from opposite ends:
+the tau-series owns tau -> 0 (s -> 1), certified-window kernels own
+s <= 1/2, and their meeting ground s in [0.8, 0.95] — where the
+tau^3/tau^2 ratio ~ 1 at s = 3/4 explains the apparent series-vs-M=2
+gap there — is exactly what the TRUE corner amplitudes must open.
+
+**Also recorded.**  M = 3 kernel entries attempted in the cloud
+container: UNREACHED (wall-clock; kernel_entry(0,0,3) exceeded 50
+minutes without completing) — the fixed-tile route at M = 3 needs
+the transfer factorization, not more budget.
+
+**Honesty.**  The certified window and the asymptotic series do
+not yet overlap; nothing here decides the s -> 1 dichotomy class.
+X_nm's tau^3 law is exact as a series statement; its domain of
+numerical usefulness ends near s ~ 0.8.  The image certificate is
+per-face; the network glue is flagged.  The domination gate
+dominated(2) + U_2 >= T_2 passed at s = 1/2, 3/4 for all entries
+used.  Cloud verification only; Mac session-lock run owed.
+
+**Next attack (the sharpened open front).**  (1) The TRUE corner
+transfer amplitudes: replace the domination weights d^2 s^C by the
+actual recoupling matrix elements on the SAME (a, b, q) label
+space — every order-of-magnitude recovered widens the certified
+window toward the series domain; the meeting at s ~ 0.85 decides
+the dichotomy with certificates on both sides.  (2) Cheap interim
+sharpening: exact-N hybrid (compute network_value_fixed for the
+dominant level-3 configs, bound the rest by domination) — pushes
+the windows toward s ~ 0.65-0.7.  (3) The diagonal kappa_3 only if
+MD.4's atlas demands it; otherwise the windows carry the crossover.
