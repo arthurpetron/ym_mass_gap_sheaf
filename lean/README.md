@@ -202,8 +202,9 @@ belong to the enumerated global joint carrier in
 `BF4SU2OuterJointCarrierStrictEnlargement`.  Thus the live combinatorial
 obstruction is not binary-sheet normality.
 
-`BF4SU2OuterJointCarrierRawRowMass` now identifies the enlarged obstruction
-exactly with one scalar statement about the genuine BF4 row:
+`BF4SU2OuterJointCarrierRawRowMass` identifies nonemptiness of the
+four-preimage coarse carrier exactly with one scalar statement about that
+specific BF4 row:
 `wholeSlabJointCarrierCodes` has positive length if and only if the finite
 sum of its nonnegative whole-slab recoupling weights is strictly positive.
 The reverse implication is constructive: positive total mass selects a
@@ -211,10 +212,39 @@ positive coarse target, then positive face channels and shared-link fusion
 witnesses.  It also constructs the literal normalized
 `CoherentSlabRecouplingSource` and proves division-safe lower/upper order
 transfer from raw numerator and partition bounds.
-`BF4SU2OuterRawRowMassRetainedHarnack` feeds this scalar certificate into
-the grouped retained Feynman--Kac floor.  The live all-row input is therefore
-the scalar nonvanishing theorem `SU2OuterRawRowMassPositive`, followed
-analytically by spacing-uniform numerator/partition estimates.
+`BF4SU2OuterRawRowMassRetainedHarnack` conditionally feeds this scalar
+certificate into the grouped retained Feynman--Kac floor.  The certificate
+is not universal.  `BF4SU2OuterRawRowMassCounterexample` constructs a
+positive cutoff-two fine row whose only nonvacuum coarse packet is
+`(2,0,0,0)` and whose adjacent coarse packets are vacuum.  Every positive
+face channel therefore produces the forbidden link word `(2,0,0)`.
+Consequently the raw-row mass vanishes in the strict-order sense and
+`SU2OuterRawRowMassPositive` is contradictory for the pinned geometry.
+
+`BF4SU2OuterFineIntertwinerRetainedCarrier` makes the corrective pivot.
+Before the lossy four-preimage projection, the literal finite fine
+link-intertwiner carrier is canonically inhabited on every positive row.
+`BF4SU2FineIntertwinerConditionalKernel` normalizes the exact unit-counting
+Haar fiber on that carrier and proves partition positivity, nonnegativity,
+strict member positivity, and row mass one.
+`BF4SU2FineIntertwinerChoiCPOrder` then performs the all-label source/target
+Choi contraction on the same retained carrier.  It proves exact conditional
+expectation, finite and matrix-amplified Gram positivity, and lower/upper
+Loewner domination from a pointwise window on the complete interior spatial
+weight.  The collar row killing the old carrier is instantiated with row
+mass one.  The remaining physical step is to identify the abstract
+source/target amplitudes and spatial weights with the grouped BF4
+Feynman--Kac observable, then prove its spacing-uniform window and
+Mehler-entry estimates.
+`BF4SU2FineIntertwinerPhysicalDisintegration` proves that this normalized
+row is the conditional law of the literal production spin foam.  Its
+partition is exactly the `Q'` image of the corrected-slab SU(2) link
+multiplicity, the sum of the per-witness face contributions is the genuine
+`SlabPhysicalData.physicalTerm`, and multiplying the conditional row by that
+physical term recovers each unnormalized witness contribution.  Thus the
+base Haar carrier and normalization are physically identified; the grouped
+source/target amplitudes and interior spatial insertion remain the honest
+open identification.
 
 The same-carrier HS route is now vacuum-correct.  In
 `BF4NormalizedSameCarrierPerron`, normalized nonlinear and Mehler matrices

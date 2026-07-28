@@ -14881,25 +14881,116 @@ division-safe order lemmas prove:
 At family level, `SU2OuterRawRowMassPositive` is constructively equivalent
 to `SU2OuterJointCarrierNonempty` and therefore supplies both the old
 fine-witness routing interface and the physical positive-row closure.  This
-does not prove the scalar theorem from positivity of the fine Gibbs term.
+equivalence is an exact characterization of the four-preimage carrier; it
+does not imply that the scalar premise follows from positivity of the fine
+Gibbs term.
 
-`BF4SU2OuterRawRowMassRetainedHarnack` feeds strict raw-row mass into the
-existing dynamic pointwise-heat layer.  It proves positive length of the
-literal singleton-path carrier and a non-vacuous grouped conditional
-Feynman--Kac lower bound.  On the 17-face normality counterrow it proves
-simultaneously that no binary multicover exists, the raw row mass is
-positive, and the retained enlarged carrier is inhabited.
+`BF4SU2OuterRawRowMassRetainedHarnack` conditionally feeds strict raw-row
+mass into the existing dynamic pointwise-heat layer.  It proves positive
+length of the literal singleton-path carrier and a non-vacuous grouped
+conditional Feynman--Kac lower bound.  On the earlier 17-face normality
+counterrow it proves simultaneously that no binary multicover exists, the
+raw row mass is positive, and the retained enlarged carrier is inhabited.
+That row is not a universal nonvanishing argument.
 
 All new declarations have printed axiom profiles contained in
 `{propext, Quot.sound}`.
 
+### Four-preimage raw-row no-go and fine-intertwiner pivot
+
+`BF4SU2OuterRawRowMassCounterexample` now proves that the proposed first
+input is false.  Its pinned cutoff-two source has one doubled central
+`p01` face and a sixteen-face spin-one collar.  Every active fine link has
+nonzero word `[1,1]` or `[2,1,1]`; vacuum insertion and the exact valence
+formulas prove every fine link multiplicity positive, and the heat-kernel
+face factor makes the full physical term strictly positive.
+
+Only one four-preimage coarse packet is nonvacuum: the central packet is
+`(2,0,0,0)`, while the `p02` and `p03` packets sharing its displayed
+coarse `x0` link are both `(0,0,0,0)`.  Positive SU(2) fusion channels
+force final labels `2`, `0`, and `0`.  The exact coarse Haar multiplicity
+of `[2,0,0]` is zero.  Hence:
+
+- `no_collarState_jointChannelSelection` excludes every semantic joint
+  coarse selection;
+- `collarState_rawRowMass_not_pos` excludes strict raw-row mass; and
+- `no_SU2OuterRawRowMassPositive` refutes the all-row scalar structure for
+  the pinned physical geometry.
+
+This is an information-loss theorem, not a failure of fine gauge
+admissibility.  The side collar carries the fine intertwiner flux but is
+absent from `wholeSlabFinePacket`, which samples only four nondegenerate
+face preimages.
+
+`BF4SU2OuterFineIntertwinerRetainedCarrier` therefore retains a checked
+member of the literal finite `slabFineFusionWitnesses` list before that
+projection.  `WholeSlabRetainedFineIntertwiner.ofPositivePhysicalTerm`
+constructs such data from every positive fine term, and
+`canonicalSU2OuterFineIntertwinerCarrier` inhabits the all-row family
+without a new hypothesis.  On the pinned row the positive fine term and
+the empty old joint selection give the exact strict-enlargement
+certificate.
+
+`BF4SU2FineIntertwinerConditionalKernel` adds the first corrected
+normalization layer.  At fixed fine face labels, every accepted global
+intertwiner assignment contributes one unit to the exact SU(2) Haar
+multiplicity.  The module normalizes this literal counting row on
+`slabFineFusionWitnesses`, proving partition positivity from physical-term
+positivity, nonnegativity, strict positivity on every retained member, and
+exact row mass one.  This is an actual Haar-fiber Markov row, not a
+Dirac-completed version of the refuted coarse kernel.
+
+`BF4SU2FineIntertwinerChoiCPOrder` now performs the next contraction before
+forgetting that index.  On the literal `slabFineFusionWitnesses` carrier it
+constructs the exact conditional expectation and a source/target
+weighted-Gram (Choi) entry.  Nonnegative complete spatial weights give a
+positive finite quadratic form, and the theorem remains true after an
+arbitrary finite matrix amplification.  More strongly, any pointwise
+window
+
+\[
+  \ell \le W_{\mathrm{spatial}}(\iota) \le u
+\]
+
+gives the exact Loewner sandwich between the normalized Haar reference Gram
+and the spatially weighted Gram, with the same constants \(\ell,u\) and no
+carrier-cardinality loss.  The pinned collar counterexample is instantiated
+as a normalized retained source, so the row on which the old coarse carrier
+is empty now has an exact Markov Haar fiber and a completely positive
+all-label contraction.
+
+The Choi amplitude and complete spatial weight remain explicit arguments:
+the module does not pretend that an arbitrary amplitude is the physical BF4
+observable.  The next identification theorem must connect those arguments
+to the actual grouped five-holonomy/Feynman--Kac factors.
+
+`BF4SU2FineIntertwinerPhysicalDisintegration` supplies the first exact
+physical identification on this corrected carrier.  It proves that the
+normalized Haar partition is precisely
+`Q'.ofNat slabExplicitLinkMultiplicityProduct`, defines one literal witness
+contribution as the genuine heat-kernel face factor times one Haar unit, and
+proves that summing those contributions reconstructs
+`SlabPhysicalData.physicalTerm`.  On every positive source it further proves
+\[
+  \mathrm{physicalTerm}(x)\,K_x(\iota)
+    \simeq w_{\mathrm{fiber}}(x,\iota),
+\]
+so normalizing the literal production fiber gives exactly the retained
+conditional kernel and exact row mass one.  The enlarged carrier is
+therefore the physical SU(2) Haar fiber already counted by the BF4 summand,
+not an auxiliary completion.
+
 The next genuine inputs are now:
 
-1. prove `SU2OuterRawRowMassPositive` from positive fine physical mass,
-   equivalently establish scalar nonvanishing for every genuine BF4 row;
-2. prove spacing-uniform raw numerator/partition bounds for the retained
-   grouped Feynman--Kac entries and an entrywise Mehler error whose decay
-   dominates common-carrier growth; and
-3. construct the physical dominant mean-zero Perron identification.
+1. identify the retained Choi **source/target amplitudes and interior spatial
+   insertion** with the actual grouped BF4 five-holonomy/Feynman--Kac
+   observable; the base Haar fiber and its normalization are now physically
+   identified;
+2. identify the resulting physical coarse observable algebra and prove reflection
+   covariance/Markov normalization without factoring through the refuted
+   four-preimage row;
+3. prove spacing-uniform numerator/partition bounds and an entrywise Mehler
+   error whose decay dominates the enlarged common-carrier growth; and
+4. construct the physical dominant mean-zero Perron identification.
 
 No Clay-frontier type is claimed inhabited by this reduction.
