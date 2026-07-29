@@ -27246,3 +27246,68 @@ explicit rationals, not a renamed (TS).  No-circularity: the scale
 is set by observable matching, never by the desired mass.  Budget
 misses recorded as UNREACHED, never consumed.  All prior guarded
 statements unchanged.
+
+### §17a — P1 stage one EXECUTED: the envelope lemma is inhabited (2026-07-29, cloud)
+
+**The theorem (first inhabitant, discriminator form).**  Explicit
+rationals K_X and tau* = 2^-82 such that, for ALL 0 < tau <= tau*:
+
+    | X_11(tau) - 6 tau^2 - (115/6) tau^3 |  <=  K_X tau^4,
+
+whence X_11 > 0 on the whole interval (monotone margin K_X tau^2 <=
+3 < 6) and the two-sided envelope X_11 in 6 tau^2 (1 +- rho(tau)),
+rho = (115/36) tau + (K_X/6) tau^2, on (0, tau*] — the
+anti-screening sign of the derived one-step flow certified on the
+weak-coupling interval (s*, 1), s* <= explicit rational < 1.
+Artifacts: computations/su2_envelope.py + ledger,
+tests/test_envelope.py (4 pins).  Suite 113/113 (490 s, cloud).
+
+**Method (the eta-variable master lemma).**  eta = sqrt(8 tau) as
+the ANALYTIC variable: on the scaled fields x = eta M xi the
+action's cubic+ parts pair their 1/(8 tau) with x^3 ~ eta^3, so
+every insertion is a POSITIVE power of eta at fixed xi and the
+essential singularity of the naive x-expansion disappears.  Then:
+small-field eta-Taylor tail by Cauchy on |eta'| = r0/(cM |xi|)
+with M(xi) <= A0 e^{|xi|^2/4} once r0 <= 1/(4 g3 cM^2) (the
+insertion sup is <= |xi|^2/4 at the domain edge — the small-field
+analyticity mechanism made explicit), closed by the exact
+variance-2 moment E[|xi|^8 e^{|xi|^2/4}] = 2^{d/2+4} d(d+2)(d+4)
+(d+6), d = 48; large field by real-domain positivity + Gaussian
+tail at the half-radius split; images by the per-face bound glued
+multiplicatively (tiny-tau lane: certified j-image exponent
+pi delta j / tau, avoiding large-exponent internals); log
+composition 4u/(1-u).  Exponential classes dominated SYMBOLICALLY
+on all of (0, tau*] by exp_le_power (e^y >= 2^y + doubling
+induction; no caps in the theorem).  Slab constants exact:
+cM^2 = 367/96 < 4 asserted against the complex; crude BCH
+majorants G3 = 64, G4 = 1024, A0 = 4*2^20, r0 = 1/1024.
+
+**Gates.**  (g1) fusion-star remainder-scaling gate: the exactly
+known F_1(tau) = sum (2J+1) e^{-tau C(2J)} deviates from its
+two-term flat model by 0.234-0.238 tau^2 across a dyadic grid —
+the remainder sits exactly one order beyond the kept terms, the
+inequality class the master lemma asserts.  (g2) parity per the
+banked evenness.  (g3) exp_le_power soundness both directions.
+
+**Honesty.**  K_X ~ 3.8e49 and tau* ~ 2.1e-25 are ABSURD and
+NONEMPTY — crude constants by design; the deliverable is the
+inhabited lemma, the first two-sided certified envelope of the
+program.  The 1 < tau'/tau <= 1 + c tau MATCHED-FLOW form still
+requires the diagonal kappa_3 (open) or the iterated-map route
+(P2).  U(1) discipline: the discriminator does NOT survive
+d_n == 1 — for U(1) the same machinery bounds |X_U1| <= K tau^4
+around ZERO series (X2 is the SU(2)-specific input); positivity is
+not produced abelian-ly.  A1 flat-limit interchange: discharged at
+the X-observable BY this bound (stage one); the BCH majorant
+constants are crude-certified, their per-face sharpening named.
+Sharpening routes (ranked): per-face g3 (est. 10^2-10^3 on K_X),
+component factorization d 48 -> 16 (2^16), tau^4 cross law (turns
+rho's tau-linear term sharp), A0 via face-factor cancellation.
+Cloud only; Mac lake run unaffected (no Lean in this stage); push
+owed by Arthur.
+
+**Next attack.**  (P1 stage two) sharpen (K_X, tau*) toward the
+atlas range by the ranked routes; (P2) the iterated-map windows —
+now with BOTH ends bounded: certified windows to s = 8/13, the
+envelope on (s*, 1); (P3) the atlas-adequacy statement consuming
+both.
