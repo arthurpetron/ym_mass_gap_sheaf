@@ -15055,22 +15055,42 @@ uniform-vacuum surrogate and a nonconstructive square-root conjugation.
 All load-bearing declarations print axiom profiles contained in
 `{propext, Quot.sound}`.
 
+`BF4WeightedJointPerronPerturbation` now proves the missing weighted
+generalized-Rayleigh layer.  For symmetric physical and endpoint joint laws,
+the row-relative hypothesis
+\[
+  \sum_y |J_{\rm phys}(x,y)-J_M(x,y)|
+  \le \varepsilon\,\pi_{\rm phys}(x)
+\]
+implies the sharp physical estimate
+\[
+  |\mathcal Q_{\rm phys}(f)-\mathcal Q_M(f)|
+  \le \varepsilon\sum_x\pi_{\rm phys}(x)f(x)^2.
+\]
+The same module proves that the marginal-weighted physical Markov quadratic
+is exactly the normalized physical Choi quadratic, defines the
+witness-bearing `CentralPhysicalMehlerComparison`, and proves its
+rate-plus-error quarter-bound consumer.  This removes the need for rational
+square roots or a minimum-marginal conjugation.
+
 The remaining analytic frontier is narrower and cannot be replaced by the
 spatial `[1,1]` identity:
 
 1. construct a distinct Gaussian endpoint Mehler kernel on this same
-   physical weighted carrier;
-2. prove a grouped interacting physical-minus-Mehler entry estimate along
-   the AF spacing trajectory;
-3. combine that estimate with the now-proved dimension compensation to
-   obtain centered physical/Mehler HS convergence; and
-4. prove a contraction (or constructively dominant mode) on the physical
+   physical weighted carrier by resolving the map from the current
+   five-holonomy coordinates to the retained Peter--Weyl `EdgeLabelling`s;
+2. prove the AF-uniform **row-relative** physical-minus-Mehler estimate
+   required by `CentralPhysicalMehlerComparison`; a plain `epsilon / N`
+   entry estimate is insufficient unless accompanied by a uniform retained
+   marginal lower bound;
+3. prove the Gaussian contraction (or constructively dominant mode) on the physical
    marginal-mean-zero carrier, thereby identifying the nonlinear physical
    Perron ratio.
 
 The present milestone proves physical cutoff convergence, carrier-growth
-domination, and the exact weighted vacuum/mean-zero geometry.  It does not
-claim the distinct Mehler comparison or the \(q\le1/4\) physical contraction.
+domination, the exact weighted vacuum/mean-zero geometry, and the complete
+weighted perturbation consumer.  It does not claim an inhabitant of the
+distinct Mehler comparison or the \(q\le1/4\) physical contraction.
 
 # 2026-07-28 — Five-gate backward roadmap from the physical BF4 carrier
 
@@ -15083,9 +15103,10 @@ Markov carrier and works through:
 
 1. a distinct Gaussian endpoint Mehler joint kernel on the same retained
    coordinates;
-2. an AF-uniform physical-minus-Mehler entry estimate at `epsilon / N`;
-3. a weighted joint-law/generalized-Rayleigh perturbation theorem compatible
-   with the physical Choi marginal;
+2. an AF-uniform physical-minus-Mehler row-relative estimate against the
+   physical Choi marginal;
+3. the now-proved weighted joint-law/generalized-Rayleigh perturbation
+   theorem;
 4. the physical `q <= 1/4` theorem and
    `C_s^2 q_s^(m-2) < 1`;
 5. a linked physical BF4 RG trajectory, physical cubic AF law, and physical

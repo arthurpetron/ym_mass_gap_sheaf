@@ -71,7 +71,6 @@ The milestone does **not** yet construct:
 
 - a distinct Gaussian endpoint/Mehler kernel on this carrier;
 - an AF-uniform physical-minus-Mehler estimate;
-- a weighted perturbation theorem on \(\ell^2(\pi)\);
 - the physical non-vacuum Perron bound \(q\leq 1/4\);
 - the resulting strict grouped cutoff inequality
   \[
@@ -81,6 +80,22 @@ The milestone does **not** yet construct:
 - a spacing-uniform continuum theory.
 
 That is the exact starting node \(S_0\).
+
+The first interface edge out of \(S_0\) is now complete.
+`BF4WeightedJointPerronPerturbation` proves, constructively and on the exact
+positive-row carrier, that symmetric joint laws satisfying
+\[
+  \sum_y|J(x,y)-M(x,y)|\leq\varepsilon\pi(x)
+\]
+obey
+\[
+  |\mathcal Q_J(f)-\mathcal Q_M(f)|
+  \leq\varepsilon\sum_x\pi(x)f(x)^2.
+\]
+It also identifies the physical Markov quadratic exactly with the normalized
+physical Choi joint quadratic and packages the remaining endpoint data as
+`CentralPhysicalMehlerComparison`.  Thus M3 below is proved; M1--M2 must now
+inhabit that interface.
 
 ## 3. Dijkstra convention
 
@@ -308,6 +323,24 @@ Construct a cutoff-indexed Gaussian endpoint kernel by taking the quadratic
 BF4 action on the **same retained boundary coordinates** as
 `centralPositiveHalfStates`.
 
+There is a real carrier mismatch to resolve before this definition is
+available.  `centralPositiveHalfStates` consists of finite Peter--Weyl
+`EdgeLabelling`s, whereas `BF4FiveHolonomyGaussian` and
+`BF4CanonicalClassCoordinateCarrier` currently expose continuous/rational
+five-holonomy coordinates without a source/target transform from those
+labellings.  Therefore the next construction must do one of the following:
+
+1. define the five-holonomy Gaussian endpoint semigroup and calculate its
+   Peter--Weyl matrix coefficients on every retained `EdgeLabelling`; or
+2. construct a finite cylinder transform from the retained labellings to the
+   five class coordinates and prove that pulling the Gaussian joint law back
+   through this transform preserves all retained observables.
+
+The first route is preferred because it produces a joint kernel directly on
+the physical carrier and makes the marginal calculation explicit.  An
+arbitrary refresh matrix, identity kernel, or renamed physical joint law does
+not resolve this mismatch.
+
 Required data:
 
 - a Mehler joint kernel \(J^M_{K,a}(x,y)\);
@@ -327,17 +360,34 @@ The preferred strongest interface is to prove
 If exact equality is false, carry an explicit marginal comparison and include
 its error in the perturbation theorem.
 
-### M2. Prove the AF-uniform entry estimate
+### M2. Prove the AF-uniform row-relative estimate
 
 For every physical tolerance \(\varepsilon>0\), retained base cutoff \(K_0\),
-and AF-window spacing \(a\), construct a cutoff \(K\geq K_0\) such that, for
-all retained source/target states,
+and AF-window spacing \(a\), construct a cutoff \(K\geq K_0\) such that every
+retained source row satisfies
 \[
+  \sum_y
   \left|J^{\mathrm{phys}}_{K,a}(x,y)-J^M_{K,a}(x,y)\right|
-  \leq \frac{\varepsilon}{N_{K_0}}.
+  \leq\varepsilon\,\pi^{\mathrm{phys}}_{K,a}(x).
 \]
 
-For the conditional kernels, separately prove
+This is strictly stronger in the relevant direction than an unweighted
+`\(\varepsilon/N\)` matrix estimate.  A plain bound
+\[
+  |J^{\mathrm{phys}}(x,y)-J^M(x,y)|\leq\varepsilon/N
+\]
+controls ordinary Hilbert--Schmidt norm but gives no spacing-uniform
+\(\ell^2(\pi)\) estimate when small physical marginals are allowed.
+An entrywise proof may still feed the row-relative theorem, but it must have
+one of the weighted forms
+\[
+ |J^{\mathrm{phys}}(x,y)-J^M(x,y)|
+   \leq \frac{\varepsilon\,\pi^{\mathrm{phys}}(x)}{N}
+\]
+or combine an absolute entry estimate with an explicit AF-uniform positive
+lower bound for every retained marginal.
+
+If conditional comparison is needed independently, prove
 \[
   \left|P^{\mathrm{phys}}_{K,a}(x,y)-M_{K,a}(x,y)\right|
   \leq \frac{\varepsilon}{N_{K_0}}
@@ -358,7 +408,7 @@ The existing degree-thirteen all-label cutoff modulus and physical cutoff
 Cauchy theorem supply the nonlinear-tail half. The new content is the
 quadratic remainder and the normalization/marginal comparison.
 
-### M3. Prove the correct weighted perturbation lemma
+### M3. Prove the correct weighted perturbation lemma — COMPLETE
 
 The existing \(\varepsilon/N\) compensation proves an unweighted matrix HS
 bound:
@@ -381,8 +431,18 @@ must be constructed:
    symmetric matrix, together with a located finite spectral theorem and
    transport back to the rational physical carrier.
 
-Route 2 is shortest in the current constructive library. It reuses the
-already-proved joint-law symmetry and the exact physical mean-zero condition.
+Route 2 is implemented in
+`lean/YMGap/Continuum/BF4WeightedJointPerronPerturbation.lean`.
+The theorem
+`finiteJointQuadratic_abs_sub_le_weightedSquare` proves the sharp
+row-relative estimate using finite `Q'` sums and
+\(2|f(x)f(y)|\leq f(x)^2+f(y)^2\).
+`centralPhysicalWeightedMarkovQuadratic_eq_joint` identifies the exact
+physical Markov quadratic with the normalized Choi joint law.
+`CentralPhysicalMehlerComparison.physical_markov_quadratic_abs_le_quarter`
+is the completed consumer: an endpoint rate plus row-relative error at most
+\(1/4\) yields the physical quarter bound.  The axiom audit contains only
+`propext` and `Quot.sound`.
 
 ### M4. Identify the physical non-vacuum Perron quantity
 
@@ -590,10 +650,10 @@ The next executable theorem queue is:
 
 | Priority | Theorem-sized deliverable | Why it is next |
 |---:|---|---|
-| 0 | Distinct endpoint Mehler joint kernel on `centralPositiveHalfStates` | The current physical carrier already supplies all nonlinear and Perron geometry needed to state it |
-| 1 | AF-uniform numerator/partition/marginal entry estimate at \(\varepsilon/N\) | This is the remaining analytic estimate quoted in the current status |
-| 2 | Weighted joint-law/generalized-Rayleigh perturbation theorem | Prevents the unweighted-vacuum mismatch from invalidating the quarter conclusion |
-| 3 | Physical `q ≤ 1/4` and `C_s² q^(m-2) < 1` | Closes the present BF4 obstruction |
+| 0 | Peter--Weyl matrix-coefficient transform from the five-holonomy Gaussian endpoint to `centralPositiveHalfStates` | This is the exact missing map between the existing Gaussian coordinates and physical labels |
+| 1 | Distinct marginal-matched endpoint Mehler joint kernel on `centralPositiveHalfStates` | The weighted endpoint fields are now stated exactly by `CentralPhysicalMehlerComparison` |
+| 2 | AF-uniform numerator/partition/marginal row-relative estimate | This is the remaining Yang--Mills estimate needed by the proved weighted consumer |
+| 3 | Endpoint mean-zero rate plus physical `q ≤ 1/4` and `C_s² q^(m-2) < 1` | Closes the present BF4 obstruction |
 | 4 | Linked BF4 trajectory + physical cubic AF law + spacing envelope | Makes the already-proved AF floor theorem genuinely physical |
 | 5 | Per-mode shift, per-scale bridge, `SpectralMarginInput`, and physical true-margin recursion | Opens the direct paths to the floor, Tier-0 Sub-wall B, and FrontierDAG |
 | 6 | Physical pentagon, tree graph, Mayer bridge, graded RG stability | Closes Tier-0 Sub-wall A and the cluster half of the continuum limit |
@@ -607,8 +667,9 @@ The next major milestone is reached when Lean contains, with no new axiom,
 `sorry`, classical choice shortcut, or surrogate matrix:
 
 1. a distinct endpoint Mehler kernel on the exact fixed magnetic BF4 carrier;
-2. the AF-window entry estimate with explicit cutoff and carrier compensation;
-3. a weighted physical Perron identification;
+2. the AF-window row-relative estimate with explicit cutoff, carrier, and
+   marginal compensation;
+3. an inhabitant of the now-proved weighted physical comparison interface;
 4. `centralPhysical_perronRatio_le_quarter`;
 5. the physical specialization of
    \(C_{s(a)}^2q_{s(a)}^{m(a,L)-2}<1\).

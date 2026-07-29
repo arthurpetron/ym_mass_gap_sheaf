@@ -81,6 +81,19 @@ weighted joint-law/generalized-Rayleigh perturbation theorem (or an
 equivalent weighted HS theorem).  The older uniform-vacuum Perron theorem
 cannot be applied directly to the new physical Markov carrier.
 
+That finite weighted theorem is now proved in
+`BF4WeightedJointPerronPerturbation`.  Its usable analytic hypothesis is the
+row-relative estimate
+\[
+ \sum_y|J_{\rm phys}(x,y)-J_M(x,y)|
+ \leq\varepsilon\,\pi_{\rm phys}(x),
+\]
+not an unweighted `epsilon / N` entry bound.  The module also proves the exact
+joint-law formula for the physical weighted Markov quadratic and supplies the
+quarter-bound consumer.  The remaining BF4 task is to construct the distinct
+endpoint joint law on the Peter--Weyl carrier and inhabit this row-relative
+certificate along the AF trajectory.
+
 ## BF1: current tranche
 
 The carrier candidate is a multiset of closed labelled surface strands.
