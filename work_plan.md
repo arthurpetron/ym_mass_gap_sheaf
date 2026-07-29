@@ -15229,6 +15229,51 @@ construction.  Those are now the two precise priority-0 residuals.  After
 them come the projected mean-zero spectral certificate and the AF-uniform
 row-relative physical-minus-Mehler estimate.
 
+### Constructive-real tenfold-Haar Mehler projection (2026-07-29)
+
+`BF4GeometricHaarMehlerProjection` closes the raw double-Haar coefficient
+residual without forcing the genuine exponential into a rational point-value
+record and without assuming artificial orthogonality of face labelings.
+
+* `quaternionHaarMono` and `quaternionHaar` give the exact normalized
+  `SU(2)^n` moment functional for arbitrary finite `n`; `tenfoldHaar` is its
+  five-source/five-target specialization.  A constructive factorial
+  comparison proves every monomial moment lies in `[0,1]`.
+* The exact coupled three-colour action is compiled to a rational polynomial
+  in the forty real coordinates of the source and target holonomies.  The
+  theorem `eval_compactCoupledBF4ActionPolynomial` identifies its evaluation
+  with the previously certified `coupledBF4LieAction`; this is the genuine
+  `(K,S)` action, not a product heat surrogate.
+* Source and target copies of every all-spin geometric BF4 wavefunction are
+  multiplied by the exact polynomial Taylor terms `(-A)^k/k!` and integrated
+  by `tenfoldHaar`.  `eval_negativeExponentialPolynomialTerm` identifies those
+  terms pointwise with the constructive exponential series.
+* `polynomialCoefficientL1` supplies a completely explicit domination:
+  tenfold Haar is contractive for this norm, the norm is submultiplicative,
+  and
+  \[
+    |c_k(\psi,\phi)|
+      \le B_{\psi,\phi}\,\frac{A_1^k}{k!}.
+  \]
+  This feeds the existing `ExpNeg` factorial-tail machinery.
+  `geometricMehlerTaylorModulus` is the resulting Type-level cutoff function,
+  and `geometricMehlerHaarCoefficient` is the genuine `CReal` limit of the
+  exact double-Haar Taylor partials.
+* `geometricBF4DoubleHaarTransform` packages the exact geometric
+  wavefunctions, their honest fivefold-Haar pairing, the coupled raw endpoint
+  coefficients, and the proved convergence modulus.  It deliberately has no
+  pairwise-orthogonality field.
+
+Thus the earlier priority-0 “double-Haar coefficient construction” is
+closed.  The remaining normalization obstruction is now sharper: prove
+strict positivity (with a quantitative lower bound) of the vacuum
+double-Haar partition, divide the raw coefficients by it, and identify the
+mean-zero Perron geometry of that normalized compact-Haar operator with a
+spectral comparison strong enough to inherit the certified tangent Gaussian
+ratio.  The tangent `q_0 < 1/5` theorem alone does not perform this compact
+projection identification.  After that still comes the AF-uniform
+physical-minus-Mehler row-relative estimate.
+
 # 2026-07-28 — Five-gate backward roadmap from the physical BF4 carrier
 
 **Status.** PLANNED, with the current node and every terminal gate pinned to
