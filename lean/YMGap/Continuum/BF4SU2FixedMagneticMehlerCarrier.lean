@@ -1,6 +1,13 @@
 /-
 # BF4 fixed-plane magnetic refinement and exact Mehler window
 
+Here **magnetic** means the finite Peter--Weyl matrix-index fiber of the
+spin-`s/2` irreducible representation (`0, ..., s`).  It does **not** mean a
+fixed monopole, center-vortex, background field, or topological
+magnetic-flux sector.  The face representation label is held fixed while
+this entire matrix-index fiber is summed; the sum is the dynamical internal
+trace which reconstructs the representation dimension.
+
 The fixed-plane Choi carrier already retains every accepted SU(2) link
 intertwiner.  Its spatial weight still contains the representation dimension
 

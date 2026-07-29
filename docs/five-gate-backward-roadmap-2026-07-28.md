@@ -511,6 +511,23 @@ but its convergent physical identification and AF-uniform comparison, along
 with the concrete `CubicMarginLaw` / `PhysicalSpacingEnvelope` trajectory,
 remain open.
 
+`BF4CanonicalFiniteNumeratorPartitionBudget` sharpens this status at fixed
+scale.  It forms the exact finite numerator error, endpoint ceiling,
+partition error, normalized entry budgets, and located marginal payment,
+thereby constructing a literal `CentralPhysicalNumeratorPartitionBudget`
+with a computed rational tolerance at every finite physical carrier.  It
+also proves from the retained vacuum row that
+\[
+  \sum_\lambda |A_0(\lambda)|^2\geq1,\qquad
+  \pi_{\min}\leq1,\qquad r_1\geq1.
+\]
+Consequently the canonical order-one Cauchy--Schwarz rate plus any
+nonnegative comparison tolerance cannot meet the quarter premise.  This is a
+machine-checked fence around that coarse estimate, not a no-gap statement:
+M2 must now use a genuinely centered sharper Rayleigh estimate or the higher
+positive-Gram endpoint, together with a spacing-uniform bound on its exact
+physical comparison budget.
+
 ### M2. Prove the AF-uniform row-relative estimate
 
 For every physical tolerance \(\varepsilon>0\), retained base cutoff \(K_0\),

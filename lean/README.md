@@ -255,6 +255,13 @@ reference spatial insertions have the spacing-independent pointwise window
 majorant.  This equality concerns the spatial insertion on the enlarged
 carrier, not a completed Gaussian endpoint Mehler comparison.
 
+Here “magnetic” is representation-theoretic: it is the full Peter--Weyl
+matrix-index fiber on a face whose spin label is fixed during the
+conditional sum.  It is not a restriction to a prescribed monopole,
+center-vortex, background-field, or topological magnetic-flux sector.
+The implementation sums this full fiber dynamically; fixing one magnetic
+matrix index would fail to reconstruct the representation dimension.
+
 `BF4SU2FixedMagneticPositiveKernelConvergence` identifies every normalized
 kernel entry with a cutoff-stable lower/reflected-upper Yang--Mills cylinder
 expectation.  The arbitrary-nome degree-thirteen envelope therefore gives
@@ -325,6 +332,23 @@ physical: the coupled normalized five-holonomy endpoint kernel, the geometric
 BF4 spin-network identification of the constructed all-spin character
 carrier, its spectral certificate, and uniform Yang--Mills estimates
 inhabiting the displayed budgets.
+
+`BF4CanonicalFiniteNumeratorPartitionBudget` now inhabits the complete
+numerator/partition/marginal interface at every fixed finite physical BF4
+scale for every signed symmetric endpoint.  Its tolerance is the executable
+exact rational
+\[
+  \varepsilon_{\rm fin}
+  = |S|\,\frac{\sum_{x\in S} b(x)}{\pi_{\min}},
+\]
+where each \(b(x)\) is formed from literal physical-minus-endpoint numerator
+and partition differences.  The module also locates the vacuum row and
+proves that the canonical order-one Cauchy--Schwarz rate is at least one.
+Since \(\varepsilon_{\rm fin}\geq0\), that particular rank-one rate can never
+satisfy \(r+\varepsilon\leq1/4\).  Thus the live spectral route must use
+centered cancellation or the higher positive-Gram endpoint; the still-open
+analytic task is spacing-uniform smallness of the exact physical comparison
+budget for that sharper endpoint along the genuine AF trajectory.
 
 **Ledger state.** The `YMGap` library builds sorry-free (`lake build`
 reports zero `declaration uses 'sorry'`; see `SORRY_LEDGER.md`, whose
