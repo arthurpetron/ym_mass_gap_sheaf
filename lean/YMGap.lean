@@ -2255,6 +2255,9 @@ import YMGap.Continuum.BF4CompactActionMomentPositivity
 import YMGap.Continuum.BF4CompactActionSphereShift
 import YMGap.Continuum.BF4CompactActionPhysicalCPOrder
 import YMGap.Continuum.BF4CompactActionShiftedExponential
+import YMGap.Continuum.BF4CompactActionShiftedLimit
+import YMGap.Continuum.BF4CompactActionExponentialShift
+import YMGap.Continuum.BF4CompactActionPhysicalLimit
 
 -- Codynamic core: reusable error/defect + trajectory (Grönwall) tools,
 -- transposed from the machine-verified Agda `Codynamic.*` development.

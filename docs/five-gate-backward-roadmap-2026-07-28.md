@@ -408,12 +408,44 @@ proved constructively for the genuine physical \((K,S)\) action polynomial
   \]
   so all finite shifted-exponential quadratic partial sums are nonnegative
   and monotone.
+- `BF4CompactActionShiftedLimit` proves the quantitative all-degree majorant
+  \[
+    \frac1{n!}H(P^2D^n)
+      \leq \|P\|_1^2\frac{\|D\|_1^n}{n!},
+  \]
+  supplies an explicit factorial-tail modulus, and packages the monotone
+  partials as a located, nonnegative `CReal`.
+- `BF4CompactActionExponentialShift` proves an arbitrary-suffix Haar
+  reassociation theorem, uses it to identify the parity-arranged positive
+  carrier with the canonical \(P^2D^n\) carrier in both even and odd degree,
+  and establishes coefficientwise
+  \[
+    [e^{-133/4}H(P^2e^D)]_n=[H(P^2e^{-A})]_n.
+  \]
+- `BF4CompactActionPhysicalLimit` proves the required constructive Mertens
+  theorem.  It splits the same-cutoff product rectangle into the genuine
+  negative-action Cauchy triangle and a corner, bounds that corner by
+  \[
+    \|P\|_1^2\,
+    \operatorname{cornerAbsAdd}
+      (133/4,\|D\|_1,n),
+  \]
+  and proves that the lifted Taylor partials \(H(P^2e^{-A})\) converge to the
+  located product
+  \[
+    e^{-133/4}H(P^2e^D).
+  \]
 
-This closes the finite polynomial CP-order obstruction.  It does **not** yet
-inhabit M1: the next theorem must give those monotone partials a constructive
-factorial-tail modulus, form their located `CReal` limit, prove the exact
-shifted/negative-action exponential identity, and then identify its
-five-holonomy Peter--Weyl matrix with the retained all-spin BF4 endpoint.
+This closes the finite polynomial CP-order, factorial-tail, carrier
+identification, and limit-level scalar-shift obstructions.  It does **not**
+yet inhabit M1.  The remaining M1 constructor must turn the source/target
+reflection pairing for the actual all-spin BF4 boundary wavefunctions into
+this square-carrier theorem, then prove that the resulting five-holonomy
+Peter--Weyl matrix is the projected endpoint.  A general source/target entry
+is not literally an ordinary square \(P^2\); the missing bridge must retain
+the reflection/conjugation geometry rather than identify the two boundary
+halves by fiat.  After that identification, the next analytic target is the
+AF-uniform row-relative estimate of M2.
 
 ### M2. Prove the AF-uniform row-relative estimate
 
