@@ -15145,6 +15145,44 @@ Only those physical witnesses can produce the unconditional
 \(q\leq1/4\) theorem and then
 \(C_{s(a)}^2q_{s(a)}^{m(a,L)-2}<1\).
 
+### Normalized product kernel and inhabited all-spin character carrier (2026-07-28)
+
+`BF4FiveHolonomyNormalizedKernel` now closes the exact expansion-level part
+of items 1--2 without conflating it with the coupled physical endpoint.
+
+* `centralFiveHeatKernelPacket` is the finite all-spin character packet of
+  the literal product heat kernel on the five retained
+  rational-unit-quaternion holonomies.  Vacuum-coefficient extraction is
+  the normalized \(\mathrm{SU}(2)^5\) Haar functional, and Lean proves its
+  value is exactly one at every cutoff.  The corresponding relative kernel
+  is proved symmetric in source and target.
+* `bf4StateCode` gives a constructive mixed-radix code of the complete
+  bounded lower-half face labelling and is proved injective on
+  `centralPositiveHalfStates`.
+* `canonicalBF4AllSpinCharacterTransform` is an actual inhabitant of the
+  new coefficient-bearing expansion interface.  Every retained physical
+  state is sent to a distinct tensor-product all-spin character on all five
+  holonomies; the displayed one-term expansion synthesizes pointwise, and
+  the previously proved all-mode character Haar theorem gives exact unit
+  norm and pairwise orthogonality.
+* `generalizedA_not_symmetric` proves that the displayed generalized
+  operator \(K^{-1}S\) cannot itself be the Hessian of a scalar Gaussian.
+  The genuine coupled endpoint must instead retain the symmetric kinetic
+  and spatial pair \((K,S)\), or use a constructively built symmetric
+  conjugation.
+
+Honest scope: the inhabited transform is a faithful Peter--Weyl character
+coordinate realization, not yet the geometric BF4 spin-network transform.
+The remaining physical step is to construct quaternion multiplication and
+the tree-gauge plaquette words, integrate/sum the eighteen non-transmitted
+chords with the exact link-intertwiner contractions, and prove that the
+resulting five-holonomy wavefunctions agree with this coefficient carrier
+(or replace its canonical coordinate modes by the resulting literal
+expansions).  In parallel, the normalized product heat kernel must be
+replaced by the coupled Feynman--Kac/Mehler kernel associated with the
+symmetric pair \((K,S)\).  Only after those two identifications may the
+existing double-Haar projection and AF row-relative budget be instantiated.
+
 # 2026-07-28 — Five-gate backward roadmap from the physical BF4 carrier
 
 **Status.** PLANNED, with the current node and every terminal gate pinned to

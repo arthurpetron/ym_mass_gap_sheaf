@@ -1105,6 +1105,7 @@ import YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
 import YMGap.Continuum.BF4SU2FixedMagneticPhysicalHSCauchy
 import YMGap.Continuum.BF4WeightedJointPerronPerturbation
 import YMGap.Continuum.BF4AFUniformRowRelativeBudget
+import YMGap.Continuum.BF4FiveHolonomyNormalizedKernel
 import YMGap.Continuum.BF4FarautJointCarrierAFBudget
 import YMGap.Continuum.BF4FarautAFCutoffGrowth
 import YMGap.Continuum.SU2PointwiseHeatDynamicWindow

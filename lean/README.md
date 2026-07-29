@@ -301,6 +301,19 @@ finite-dimensional level.  `BF4CentralPositivePeterWeylEndpoint` proves the
 fundamental rational-complex \(\mathrm{SU}(2)\) Haar Schur table and exhibits
 a negative matrix coefficient, then defines nonvacuous all-spin boundary and
 double-Haar endpoint-projection targets on the literal physical labels.
+`BF4FiveHolonomyNormalizedKernel` constructs the exactly Haar-normalized
+finite product heat kernel on the five rational-unit-quaternion coordinates,
+proves its endpoint symmetry, and supplies an inhabited expansion-level
+all-spin character transform on the exact positive BF4 carrier.  Its
+mixed-radix state mode is faithful, its one-term character expansions
+synthesize pointwise, and the genuine all-mode \(\mathrm{SU}(2)^5\) Haar
+Kronecker table proves normalization and orthogonality.  This is explicitly a
+faithful character-coordinate realization: it does not yet identify those
+characters with the geometric BF4 spin networks obtained after integrating
+the eighteen non-transmitted chords.  The same module also proves that
+`generalizedA = K^{-1}S` is not symmetric, so the coupled endpoint must retain
+the symmetric pair `(kineticK24, spatialS24)` (or construct its symmetric
+conjugate) rather than treating `generalizedA` itself as a scalar Hessian.
 `BF4SymmetricReferenceOperatorComparison` therefore treats the projected
 endpoint as the signed symmetric positive-semidefinite operator it naturally
 is; its weighted quarter consumer does not require an entrywise-positive
@@ -308,9 +321,10 @@ endpoint law or a matching endpoint marginal.
 `BF4AFUniformRowRelativeBudget` completes the cross-numerator,
 numerator/partition, carrier-growth, marginal-floor, and AF-family algebra
 feeding that consumer.  The unproved inputs are now purely analytic and
-physical: the actual normalized five-holonomy endpoint kernel, the all-spin
-BF4 boundary wavefunctions, their spectral certificate, and uniform
-Yang--Mills estimates inhabiting the displayed budgets.
+physical: the coupled normalized five-holonomy endpoint kernel, the geometric
+BF4 spin-network identification of the constructed all-spin character
+carrier, its spectral certificate, and uniform Yang--Mills estimates
+inhabiting the displayed budgets.
 
 **Ledger state.** The `YMGap` library builds sorry-free (`lake build`
 reports zero `declaration uses 'sorry'`; see `SORRY_LEDGER.md`, whose
