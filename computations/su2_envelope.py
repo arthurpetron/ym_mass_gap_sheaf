@@ -98,6 +98,18 @@ code): per-face instead of global g3; component factorization d 48->16;
 higher banked order (tau^4 cross law) to upgrade rho to (115/36)tau +
 O(tau^2) with smaller K.
 
+REPAIR (2026-07-29, work_plan §17b).  The first release's smallness
+condition used a global cubic majorant (G3 = 64) that under-counted
+the 20-face sum; the constants block below now carries the repaired
+face-summed literals (G3_TOT, K4CAP, QHAT — derivation at the block,
+exact-complex assertions in su2_envelope2.gate_repair/gate_cubic).
+The repair happens to SHARPEN the lemma (r0: 1/1024 -> 1/390), since
+the cubic vanishes identically on the 16 faces with <= 2 distinct
+links.  The theorem statement and every consumer are unchanged; the
+ledger values (K_X, tau*, s*) are regenerated.  Sharpened stage-two
+constants live in su2_envelope2 (kappa-optimized reweight, uniform-
+circle A0, exact per-face triple sums).
+
 Run:  python -m computations.su2_envelope
 """
 
@@ -169,9 +181,31 @@ def check_slab_constants() -> bool:
 #     giving G3 = 64, G4 = 1024 as sum-closures (8^3/(1-1/2) etc.).
 # These enter only through the products g3 = G3 * (word const), and the
 # smallness condition r0 <= 1/(4 g3 CM^2); crudeness only shrinks tau*.
+#
+# --- REPAIR (2026-07-29, work_plan §17b) -------------------------------
+# The original release used the global cubic majorant G3 = 64, which
+# does NOT cover the sum over the 20 faces (the per-face cubic of
+# phi^2 - theta^2 is 2 theta . Delta_2, and its crude per-face
+# majorants sum to more than 64 |x|max^3).  The exact accounting in
+# su2_envelope2 (gates g_repair + g_cubic) both exposes and repairs
+# this: the cubic VANISHES IDENTICALLY on every face whose word has
+# <= 2 distinct links (scalar triple product with a repeated vector)
+# — 16 of the 20 faces — and the four surviving faces carry at most
+# G3_TOT = 39/2 triple-product terms (6 per 4-letter face, 3/2 for
+# the 3-letter face), each bounded by (cM |eta| |xi|)^3.  On the
+# Cauchy circle the cubic budget is then G3_TOT CM^2 r0 |xi|^2, and
+# ALL quartic-and-higher orders are closed at once by the positive-
+# coefficient Dynkin majorant (su2_envelope2.q_hat): with
+# Q(sigma) <= QHAT sigma^4 on sigma <= 1/50 (QHAT = 5/2 a certified
+# cover), sigma_f <= k_f CM |eta| |xi| and sum_f k_f^4 <= K4CAP =
+# 1060, the quartic+ budget is QHAT K4CAP CM^2 r0^2 |xi|^2 / 2.  The
+# budget split 1/4 = 1/5 + 1/20 fixes r0 = 1/390 — LARGER than the
+# original 1/1024: the under-count and the unexploited vanishing
+# structure more than cancel, so the repair also sharpens tau*.
 R_BCH = Frac(1, 16)
-G3 = Frac(64)
-G4 = Frac(1024)
+G3_TOT = Frac(39, 2)
+K4CAP = Frac(1060)
+QHAT = Frac(5, 2)
 
 # Jacobian/character majorant A0 for the entry integrand at eta = 0
 # neighborhood: |chi_n chi_m| <= d_n d_m <= 4 (entries used: n,m <= 1),
@@ -219,9 +253,16 @@ def exp_neg_upper(x: Frac, order: int = 24) -> Frac:
 
 
 def r0_choice() -> Frac:
-    """The working radius r0 = min(R_BCH, 1/(4 g3 CM^2)) with
-    g3 = G3 (word-structure constant already inside G3)."""
-    return min(R_BCH, Frac(1) / (4 * G3 * CM * CM))
+    """The working radius (repaired, §17b): the |xi|^2/4 reweight
+    budget splits as 1/5 (cubic, G3_TOT face-summed triple products)
+    + 1/20 (all quartic-and-higher, Dynkin-closed):
+        r0 = min(R_BCH, (1/5) / (G3_TOT CM^2)),
+    with the quartic+ budget QHAT K4CAP CM^2 r0^2 / 2 <= 1/20
+    asserted (and sigma_f <= 4 CM r0 / CM <= 1/50, q_hat's domain)."""
+    r0 = min(R_BCH, Frac(1, 5) / (G3_TOT * CM * CM))
+    assert QHAT * K4CAP * CM * CM * r0 * r0 / 2 <= Frac(1, 20)
+    assert 4 * r0 <= Frac(1, 50)         # sigma_f cap on the circle
+    return r0
 
 
 def small_field_K(d: int = D_GAUSS, a0: Frac = A0) -> Frac:
@@ -416,7 +457,7 @@ def main() -> None:
     print("=" * 66)
     assert check_slab_constants()
     print(f"constants: d={D_GAUSS} CM={CM} r0={r0_choice()} "
-          f"G3={G3} A0=4*2^20")
+          f"G3_TOT={G3_TOT} A0=4*2^20")
     ks = small_field_K()
     print(f"K_small = {ks} (~{float(ks):.3e})")
     print("GATE star:", "PASSED" if star_gate() else "FAILED")

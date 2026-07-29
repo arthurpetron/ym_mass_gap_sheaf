@@ -27311,3 +27311,84 @@ atlas range by the ranked routes; (P2) the iterated-map windows —
 now with BOTH ends bounded: certified windows to s = 8/13, the
 envelope on (s*, 1); (P3) the atlas-adequacy statement consuming
 both.
+
+### §17b — P1 stage two EXECUTED: envelope constants sharpened from the exact complex; a stage-one face-sum under-count FOUND AND REPAIRED; the U(1) mirror separation certified (2026-07-29, cloud)
+
+**The repair (honesty first).**  §17a's smallness condition r0 <=
+1/(4 g3 cM^2) used g3 = 64 as a GLOBAL cubic majorant for the action
+remainder on the Cauchy circle; the per-face cubic majorants of
+phi_f^2 - theta_f^2 SUM over the 20 faces to more than 64 |x|max^3 —
+the released stage-one constants (K_X ~ 3.8e49, tau* = 2^-82) were
+derivation-unsound.  The exact accounting both exposes and rescues
+this: the cubic 2 theta.Delta_2 is a sum of scalar triple products
+x_k.(x_i x x_j), which VANISHES IDENTICALLY on every face whose word
+has <= 2 distinct links — 16 of the 20 faces (13 two-letter + 3
+one-letter).  The four surviving faces carry at most G3_TOT = 39/2
+triple-product terms; quartic-and-higher close IN ALL ORDERS under
+the positive-coefficient Dynkin majorant with QHAT = 5/2 certified on
+sigma <= 1/50 (q_hat(1/8) ~ 2.74 > 5/2 — the domain assert is
+load-bearing and pinned by a test).  Repaired stage one: r0 = 1/390
+(> 1/1024: the under-count and the unexploited vanishing structure
+more than cancel), K_X = 1.663e46, tau* = 2^-76 — sound, and SHARPER
+than the unsound release.  su2_envelope.py carries the repaired
+literals + REPAIR docstring; ledger regenerated.
+
+**Stage two (computations/su2_envelope2.py).**  Three certified
+replacements, exact slab data throughout (c_e^2 >= (G^-1)_ee by
+isqrt; T3 = 50.851 over the 4 carrier faces; S4 = 4524.5;
+s_max = 6.117):
+  (1) exact per-face insertion budget
+      (r0/cM) T3 + qhat (r0/cM)^2 S4/2 <= kappa (no G4 layer);
+  (2) reweight exponent OPTIMIZED: kappa = 1/9 (stage one hard-wired
+      1/4 at cost 2^28 in E[|xi|^8 e^{kappa|xi|^2}]);
+  (3) A0 by xi-UNIFORM circle bounds (every ||x'_e|| <= r0 on the
+      circle): A0 = 4.0198 vs stage one's 4*2^20.
+RESULT:  |X_11 - 6 tau^2 - (115/6) tau^3| <= K_X tau^4 on (0, tau*],
+K_X ~ 3.799e33, r0 = 3853/2^20, tau* = 2^-55, s* <= 1 - 2^-55 +
+2^-111 exact — a 2^27 certified-domain gain over the §17a release
+with soundness restored, X_11 > 0 and the two-sided envelope on all
+of (0, 2^-55].
+
+**The U(1) mirror lane (the §17.4 fence, executed).**  Identical
+machinery, one abelian component (§16f g4 convention): abelian =>
+Delta S == 0, no Jacobians, entire main branch, kappa = 0 — the
+lane's constants are tiny (K_U1 ~ 7.67e6):
+    |X_U1(tau) + 8 tau| <= K_U1 tau^4  on (0, tau*],
+linear term -8 (G^-1)_{t,b} tau with (G^-1)_{t,b} = 1 exact,
+kappa_2 = kappa_3 = 0 the banked §16f/§16g mirror gates.  CONSUMED:
+the certified two-sided separation on the COMMON interval
+
+    X_SU2(tau) > 0 > X_U1(tau)   for all tau in (0, 2^-55]
+
+— anti-screening vs screening, nonperturbative on the interval.
+Scheme covariance of the mirror sign gated against the second banked
+U(1) instrument (theta kernel, Qmin = 3n^2+3m^2+2nm): engine/theta
+conversion EXACTLY 4 on diagonal (12 vs 3) and cross (8 vs 2).
+
+**Gates (all green).**  g_cubic (vanishing lemma + triple-sum bound
+on exact rational vectors; Delta_2 independently vs mpmath matrix
+logs), g_dynkin (certified bounds dominate mpmath), g_repair
+(repaired literals vs the exact complex, incl. q_hat(1/50) <= 5/2),
+g_mirror (Ginv_tb = 1, Qmin form, factor 4, banked kappa zeros,
+X2/X3 literals), g_star (§17a mechanism gate), g_dominate (stage two
+strictly beats repaired stage one).
+
+**Verification.**  Cloud.  tests/test_envelope2.py (5 pins incl. the
+q_hat domain trap) + test_envelope.py (4) green; MD-era subset 182
+passed / 4 skipped (rust engine unbuilt in this container).
+Full-tree pytest: 756 passed / 20 failed / 4 skipped — the 20 are
+PRE-EXISTING stale pins in Phase 1-4-era files (test_chaining_eta*,
+test_continuum_limit, test_long_k_trajectory, test_mass_gap_bound,
+test_q_lift; May c_lambda-change and old K-trajectory pilot drift),
+none importing anything touched here; recorded, not repaired.
+pyproject.toml: `slow` marker registered (bare-container collection
+under --strict-markers errored on test_dp3_m2.py).  Mac session-lock
+run unaffected (no Lean in this stage); push owed by Arthur.
+
+**Next attack.**  (P1 stage three, ranked) polydisc Cauchy in
+per-face variables — removes the global 1/|xi| radius shrink, the
+dominant structural loss; tau^4 cross law (remainder -> tau^5, rho's
+linear term sharp); D4-class tightening of T3.  (P2) iterated-map
+windows, now with both ends bounded.  (P3) atlas-adequacy statement.
+The matched-flow form 1 < tau'/tau <= 1 + c tau still awaits the
+diagonal kappa_3 or the P2 consumer — not claimed here.
