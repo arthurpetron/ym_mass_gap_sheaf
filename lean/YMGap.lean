@@ -2241,6 +2241,16 @@ import YMGap.Continuum.CodynamicReflectionUnitRecast
 import YMGap.Continuum.SITE1PerMoveDefect
 import YMGap.Continuum.DimensionalLiftCollapse
 import YMGap.Continuum.MinkowskiModularReflection
+import YMGap.Continuum.SU2QuaternionArbitraryGaussianPositivity
+import YMGap.Continuum.SU2QuaternionArbitraryHaarRadialPositivity
+import YMGap.Continuum.SU2QuaternionArbitraryHaarSphereIdeal
+import YMGap.Continuum.SU2QuaternionArbitraryHaarHomogenization
+import YMGap.Continuum.SU2QuaternionArbitraryHaarPolynomialPositivity
+import YMGap.Continuum.SU2QuaternionHaarRingNormalizer
+import YMGap.Continuum.SU2QuaternionArbitraryHaarFourSwap
+import YMGap.Continuum.BF4CompactCoupledActionBounds
+import YMGap.Continuum.BF4CompactActionDiagonalSOS
+import YMGap.Continuum.BF4CompactActionCPOrder
 
 -- Codynamic core: reusable error/defect + trajectory (Grönwall) tools,
 -- transposed from the machine-verified Agda `Codynamic.*` development.

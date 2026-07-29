@@ -15304,3 +15304,61 @@ Markov carrier and works through:
 **Immediate milestone.** Construct the endpoint Mehler kernel, prove the
 AF-window entry bound and the correctly weighted Perron comparison, then close
 the strict grouped cutoff inequality on the exact physical carrier.
+
+### All-degree tenfold-Haar positivity and compact-action CP order (2026-07-29)
+
+The polynomial positivity obstruction in the exact geometric endpoint has
+now been closed constructively, without a spin or degree cutoff.
+
+* `SU2QuaternionArbitraryGaussianPositivity` proves the finite Gram
+  representation for arbitrary coordinate range.
+* `SU2QuaternionArbitraryHaarRadialPositivity`,
+  `SU2QuaternionArbitraryHaarSphereIdeal`, and
+  `SU2QuaternionArbitraryHaarHomogenization` transfer that Gram theorem to
+  normalized product Haar on arbitrary quaternion blocks, prove insertion of
+  every retained radius square is the identity, and homogenize every finite
+  polynomial parity sector.
+* `SU2QuaternionArbitraryHaarPolynomialPositivity` proves exact orthogonality
+  of distinct block-parity sectors and concludes
+  \[
+    \mathcal H_b(P^2)\ge0
+  \]
+  for every finite polynomial supported in the first \(4b\) coordinates.
+  `tenfoldHaar_square_nonnegative` is the \(b=10\) BF4 specialization.
+* `SU2QuaternionHaarRingNormalizer` proves that reflective canonicalization
+  is invisible under product Haar even with an arbitrary polynomial
+  multiplier.  `SU2QuaternionArbitraryHaarFourSwap` proves the all-block
+  Fubini identity
+  \[
+    \mathcal H_b((pq)(rs))=\mathcal H_b((pr)(qs)).
+  \]
+* `BF4CompactCoupledActionBounds` proves the exact spacing-independent action
+  window \(0\le A\le133/4\).
+* `BF4CompactActionDiagonalSOS` rewrites
+  \[
+    480(133/4-A)
+      =1596\sum_{i<40}x_i^2-480A
+  \]
+  in the ten-sphere quotient as a finite signed-edge sum of squares.  The
+  literal normalized expression identity is kernel-checked, every one of
+  the forty residual diagonal weights is strictly positive, and the minimum
+  cleared reserve is \(956\).
+* `BF4CompactActionCPOrder` consumes those facts to prove, for every supported
+  forty-coordinate polynomial \(P\),
+  \[
+    \mathcal H_{10}\!\left(P^2(133/4-A)\right)\ge0.
+  \]
+  This is an all-label polynomial CP/order theorem, not a finite table.
+
+The next exact analytic step is to prove the arbitrary-insertion sphere-ideal
+identity \(D+A=133/4\) for the normalized complement polynomial \(D\), prove
+nonnegativity of every Haar moment \(\mathcal H_{10}(D^k)\), and identify the
+shifted positive series
+\[
+  \mathcal H_{10}(e^{-A})
+   =e^{-133/4}\sum_{k\ge0}\frac{\mathcal H_{10}(D^k)}{k!}.
+\]
+That will give the required strict vacuum partition lower bound.  It will
+close normalization, but it will not by itself prove the physical compact
+Perron contraction or the AF-uniform physical-minus-Mehler row-relative
+estimate; those remain subsequent frontier gates.
