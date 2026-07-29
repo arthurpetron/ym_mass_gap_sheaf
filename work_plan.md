@@ -27637,3 +27637,80 @@ thickness-2 census (blocking-vs-stacking defect) when the
 recoupling evaluator lands, whose gate set now includes the
 (3,3)-class diagonal binding the depth-2 magnitude.  (3) P3
 atlas-adequacy.
+
+## §17f (2026-07-29): P2 CONTINUED — the matched-flow consumer at depth 2: a certified, scheme-covariant, magnitude-separated composition drift; the D1 depth-2 covariance theorem; the mirror refutes conjugated-Gram covariance
+
+Executes the §17d/§17e next-attack item (the matched-flow consumer).
+Artifacts: computations/p2_matched_flow.py + ledger,
+tests/test_p2_matched_flow.py (3 tests), notes/p2-matched-flow.md.
+
+**D1 (separator): depth-2 covariance is a THEOREM on composed
+kernels — and the mirror breaks it.**  SU(2): the OS Gram is T
+itself, T is symmetric PSD (entry-level OS Gram §17e; PSD
+machine-certified on the banked exact M=1 kernel, Sturm count of
+negative roots = 0), so lambda_i(T^2) = lambda_i(T)^2 and sigma_2 =
+sigma^2 EXACTLY (gated on the banked kernel: sigma = 7.034652e-8,
+sigma_2 = sigma^2 to the window): the separator matching carries NO
+depth-2 trajectory content on the composed object.  U(1) conjugated
+Gram G = PT: eigenvalues carry parity signs, and the exact finite
+theta kernels REFUTE covariance — sigma_2 = 1.0388e-4 < 1.8531e-4 =
+sigma^2 at s = 1/2, M-stable (M = 2, 3): the abelian second channel
+is parity-odd; composition damps it strictly faster than the square.
+Depth-2 separator content EXISTS for U(1), is EMPTY for composed
+SU(2) — the dual of the §17d vacuity theorem, at the separator
+level.
+
+**D2 (pair): the first certified two-step flow numbers.**  Flowed
+envelope of the certified two-step kernel on the banked coarse basis
+(primary {0,1,2}; {0,1} control — channel-2 sector membership is
+truncation-undecided at M -> infinity, both schemes run), from the
+SAME certified M -> infinity entry windows as §17e (sharper
+instrument than MD.1's provisional M = 2 kernels; consistent with
+them: tau'/tau at 1/2 = 3.9995 vs 3.9986).  Certified windows
+(primary): tau'/tau, tau''/tau = [3.9995, 3.9995], [3.9995, 3.9995]
+at 1/2; [3.9982,3.9984], [3.9984,3.9984] at 11/20; [3.9974,3.9979],
+[3.9978,3.9978] at 9/16; [3.9965,3.9978], [3.9973,3.9974] at 4/7;
+wide at 3/5; 61/100 and 8/13 = the reported instrument boundary
+(T_2(0,1)-column l >= 9 crude tails — the §17e wall).  U(1) exact at
+all seven points: 3.6520 -> 3.7272 (1/2) ... 3.2021 -> 3.3299
+(8/13).
+
+**The trajectory verdict.**  tau''/tau stays ~4, not ~16 — matched
+against the one-step fixed-point form, the composed kernel reads as
+almost the SAME effective coupling: the rank-one collapse seen
+through the flow map.  The windows certify the residual drift
+tau''/tau - tau'/tau:
+
+- SU(2) primary: CERTIFIED POSITIVE at 1/2 ([1.71e-5, 1.74e-5]) and
+  11/20 ([3.56e-5, 1.50e-4]); window-bounded at 9/16, 4/7.
+- SU(2) {0,1} control: certified positive at 1/2, 11/20, 9/16, 4/7 —
+  scheme-covariant sign.
+- U(1) exact: +7.5e-2 (1/2) rising to +12.8e-2 (8/13).
+
+Same sign both groups and both schemes; magnitudes separated ~4e3 at
+s = 1/2.  The §16 fence pattern — sign scheme-covariant, MAGNITUDE
+discriminates — now holds at the trajectory level, in the observable
+class the §17d vacuity theorem licenses: the first certified
+statement about the matched flow's second step in the scheme family
+(TS) constrains.
+
+**Gates.**  g_sigma_sq (Sturm code path), g_su2_psd (banked M=1 Gram
+PSD + covariance), g_u1_parity (VERDICT refuted, banked, M-stable),
+g_mirror (theta pair inside the §16c asymptotic-curve band at 9/10),
+g_t2_regress (generalized T_2 windows == §17e on {0,1}^2 exactly),
+g_boundary (positive envelopes on the claimed range s <= 3/5).
+Tests test_p2_matched_flow 3/3; test_flow_matching 9/9 unaffected.
+Cloud verification; Mac-side run not claimed.
+
+**Honesty.**  Composed DERIVED kernels; the thickness-2 census
+defect untouched.  Matched objects live on finite coarse bases;
+b012/b01 scheme spread reported in the ledger, never hidden.  Float
+tau ratios are images of certified rational windows; every certified
+claim is a rational comparison.
+
+**Next attack.**  (1) Drift s-dependence: tighten 9/16 and 4/7 on
+the primary basis — first consumer remains the recoupling evaluator
+/ (3,3)-class diagonals (same ranking as §17e).  (2) The thickness-2
+census: the composed-vs-refined comparison now has TWO certified
+targets (T_2 windows AND the matched-flow drift).  (3) P3
+atlas-adequacy with both instruments.
