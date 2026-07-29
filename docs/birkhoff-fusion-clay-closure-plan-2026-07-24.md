@@ -66,6 +66,21 @@ These become **data-preservation invariants** for every gate:
 | BF9. All compact simple groups | Per-group physical carriers and estimates, or a uniform lift proved on those carriers | Concrete per-group representation/heat-kernel/intertwiner data plus a proved physical worst-case reduction | An uninhabited representation-data interface or scalar-only monotonicity remains |
 | BF10. Clay assembly | Shared-object final theorem | `ClayTargetPinned`-strength inhabitant and independent assumption audit | Any clause refers to a different or surrogate object |
 
+## Five-gate backward plan
+
+The exact backward dependency program from the current fixed-magnetic BF4
+carrier to all five guarded Lean gates is now recorded in
+`docs/five-gate-backward-roadmap-2026-07-28.md`.
+
+That audit adds one load-bearing correction to the BF4 obstruction below.
+The existing entry tolerance `epsilon / N` pays the ordinary `N^2` matrix
+Hilbert--Schmidt sum, while the exact physical Perron carrier is the
+nonuniform marginal-weighted mean-zero space.  Therefore the path from the
+new endpoint Mehler kernel to the physical quarter theorem includes a
+weighted joint-law/generalized-Rayleigh perturbation theorem (or an
+equivalent weighted HS theorem).  The older uniform-vacuum Perron theorem
+cannot be applied directly to the new physical Markov carrier.
+
 ## BF1: current tranche
 
 The carrier candidate is a multiset of closed labelled surface strands.

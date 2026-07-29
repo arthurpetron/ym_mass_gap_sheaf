@@ -15071,3 +15071,33 @@ spatial `[1,1]` identity:
 The present milestone proves physical cutoff convergence, carrier-growth
 domination, and the exact weighted vacuum/mean-zero geometry.  It does not
 claim the distinct Mehler comparison or the \(q\le1/4\) physical contraction.
+
+# 2026-07-28 — Five-gate backward roadmap from the physical BF4 carrier
+
+**Status.** PLANNED, with the current node and every terminal gate pinned to
+concrete Lean types.  The canonical dependency and execution plan is
+`docs/five-gate-backward-roadmap-2026-07-28.md`.
+
+The shortest honest route begins with the current exact BF4 Choi/positive-row
+Markov carrier and works through:
+
+1. a distinct Gaussian endpoint Mehler joint kernel on the same retained
+   coordinates;
+2. an AF-uniform physical-minus-Mehler entry estimate at `epsilon / N`;
+3. a weighted joint-law/generalized-Rayleigh perturbation theorem compatible
+   with the physical Choi marginal;
+4. the physical `q <= 1/4` theorem and
+   `C_s^2 q_s^(m-2) < 1`;
+5. a linked physical BF4 RG trajectory, physical cubic AF law, and physical
+   spacing envelope;
+6. per-mode and per-scale spectral localization, the additive physical margin
+   recursion, and `SpectralMarginInput`;
+7. the parallel physical-pentagon/tree/Mayer/graded-stability branch;
+8. the shared continuum functional, sharp same-action O(4), OS/GNS
+   reconstruction, and all-compact-simple-group lift;
+9. assembly of `UniformSpacingFloor`, `Tier0Scorecard`, `FrontierDAG`,
+   `ClayTargetPinned`, and finally `ClayTarget` by its proved coarsening.
+
+**Immediate milestone.** Construct the endpoint Mehler kernel, prove the
+AF-window entry bound and the correctly weighted Perron comparison, then close
+the strict grouped cutoff inequality on the exact physical carrier.
