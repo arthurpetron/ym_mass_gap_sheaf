@@ -27392,3 +27392,76 @@ linear term sharp); D4-class tightening of T3.  (P2) iterated-map
 windows, now with both ends bounded.  (P3) atlas-adequacy statement.
 The matched-flow form 1 < tau'/tau <= 1 + c tau still awaits the
 diagonal kappa_3 or the P2 consumer — not claimed here.
+
+### §17c — P1 stage three EXECUTED: the MAJORANT-SERIES envelope — tau* = 2^-44 — plus a second stage-1/2 constant repair (2026-07-29, cloud)
+
+**The route decision (supersedes the §17b ranking, with reasons
+banked).**  The §17b next-lever list read: polydisc Cauchy, then the
+tau^4 cross law, then P2.  The stage-three analysis showed (i) the
+naive polydisc keeps the (1/radius)^8 penalty in max-of-local-fields
+form — certified ceiling ~2^4-2^6; (ii) what both items are really
+after is available directly: the MIDDLE Taylor coefficients a_k
+(k = 8..N) of the entry function are plain global Gaussian moments
+needing NO analyticity — bound each by an exact-rational majorant
+and demote the Cauchy machinery to the ultra-tail (k > N).  This
+subsumes the polydisc (per-face locality lives in the per-face
+majorant factors) AND the tau^4 law (a certified BOUND on the tau^4+
+coefficients is all positivity needs; the exact law remains open and
+is now only an MD.4-curvature item).
+
+**The machinery (computations/su2_envelope3.py).**  Positive-
+coefficient majorant composition over the factorized integrand
+(character x 16 Haar x 20 Jacobians x multi-letter exp(-g_f)):
+per-face g-orders refined by the exact word structure — cubic
+2 t3_f (zero on 16/20 faces, §17b), quartic p_f^2 + 2 s_f d3_f with
+(p_f, d3_f) from the LABELLED BCH fold (repeated-link brackets
+dropped), quintic mixed, >= sextic closed in all orders by the
+Goldberg/Dynkin scalar series f(z) = -log(2 - e^z); z/sin z and
+(sinh u/u)^2 compositions; monomial expectations closed by pooled
+Hoelder into exact chi_3 moments (odd uppers via sqrt(2/pi) <= 4/5).
+Log-composition via the majorant log Lambda; ultra-tail at order
+N+2 by the stage-two (r0, kappa) machinery per order; large-field,
+image, and the NEW LF-polynomial shells; (kappa, N) scanned.
+
+**THE RESULT.**  |X_11 - 6 tau^2 - (115/6) tau^3| <= R_X(tau) on
+(0, tau*] with **tau* = 2^-44** (N = 12, kappa = 1/9),
+R_X(tau*)/tau*^2 = 0.875 <= 3, R_X/tau^2 nondecreasing => X_11 > 0
+and the two-sided envelope on ALL of (0, 2^-44].  U(1) mirror:
+R_X^{U1}(tau*) ~ 1.1e-44 << 8 tau* — the separation
+X_SU2 > 0 > X_U1 stands on the common interval, with the mirror
+majorants gated against the EXACT abelian coefficients (V-hat = 8,
+4^j/j!).  Sound progression: 2^-82 (stage one) -> 2^-61 (stage two)
+-> 2^-44 (stage three).
+
+**REPAIR #2 (honesty).**  Stages one/two consumed the eta^8 Cauchy
+tail as K_small tau^4, dropping 8^4 from eta^8 = (8 tau)^4.  Both
+modules now carry ETA8 = 8^4 explicitly: stage one 2^-76 -> 2^-82
+(coincidentally the §17a headline number, now sound), stage two
+2^-55 -> 2^-61, mirror K_U1 -> 3.14e10.  Also made explicit: the
+E[1_LF |poly-coeff|] piece of the large-field split (Cauchy-Schwarz
+with L^2 majorants mL2_k) that stages one/two silently absorbed in
+shell slack (~e^{-3e7} at their tau* — negligible, but ledgered).
+
+**Gates (all green).**  g_fold (labelled majorants dominate the
+exact vector BCH fold per face), g_dynkin numeric (mpmath matrix
+logs + t-grading Vandermonde: exact grades 2-4 under a_k sigma^k on
+the real face words), g_moments, g_series (positivity + z/sin z
+Taylor match + haar domination), g_u1_exact, g_star, g_dominate.
+Envelope tests 15/15 (three pin updates for the repairs); no other
+suite file imports these modules.
+
+**What binds now, ranked.**  (1) Lambda_8 itself: the pooled-Hoelder
+step E[prod chi^a] <= E[chi^D] ignores monomial spread across
+near-independent atoms (~1e4 at degree 16) — sharp product moments
+(Wick/Isserlis trace formulas or a Cauchy-Schwarz tree) are the next
+constant lever; (2) the large-field shell exp(-r0^2/(128 cM^2 tau))
+caps ANY series improvement at tau ~ 2^-30±3 for budget-admissible
+r0 — the fix is compact-domain (owned-boundary) large-field bounds,
+i.e. image technology, not more orders; (3) the matched-flow form
+awaits diagonal kappa_3 or P2.
+
+**Next attack: P2 — the iterated-map windows** (the trajectory
+instrument; both ends of the gap now bounded: certified one-step
+windows to s = 8/13, the envelope on (s*, 1) with s* = e^{-2^-44}).
+Then P3 atlas-adequacy.  Cloud only; no Lean this stage; push owed
+by Arthur.

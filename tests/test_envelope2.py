@@ -33,9 +33,10 @@ def test_slab_data_exact():
 def test_stage_two_theorem():
     tau2, s_up2, k2, consts = envelope_theorem2()
     tau1, _s1, k1 = thm1()
-    # the banked stage-two constants (regenerate ledger if these move)
-    assert tau2 == F(1, 2 ** 55)
-    assert tau1 == F(1, 2 ** 76)
+    # the banked stage-two constants (regenerate ledger if these
+    # move); the §17c ETA8 repair moved 2^-55 -> 2^-61, 2^-76 -> 2^-82
+    assert tau2 == F(1, 2 ** 61)
+    assert tau1 == F(1, 2 ** 82)
     assert k2 < k1                        # dominates repaired stage one
     assert k2 * tau2 * tau2 <= 3 < 6      # positivity margin
     assert consts["kappa"] == F(1, 9)
@@ -48,7 +49,7 @@ def test_mirror_separation():
     k_u1, margin = mirror_theorem()
     tau2, _, k2, _ = envelope_theorem2()
     assert margin > 0
-    assert k_u1 < F(10 ** 7)              # abelian lane is TINY
+    assert k_u1 < F(10 ** 11)             # abelian lane is TINY
     assert k_u1 * tau2 ** 3 < 8           # X_U1 < 0 on all of (0, tau*]
     # SU(2) lower end positive at tau* (redundant with theorem margin)
     assert 6 * tau2 ** 2 + F(115, 6) * tau2 ** 3 - k2 * tau2 ** 4 > 0

@@ -120,9 +120,10 @@ GATES
 HONESTY
 -------
 The deliverable is still the inhabited lemma with SOUND explicit
-rationals — now K_X ~ 3.8e33, tau* = 2^-55 (from 2^-82 unsound /
-2^-76 repaired): 2^27 of certified-domain gain over the original
-release, still far from the atlas range s in (0.6, 1).  The remaining distance is structural: the
+rationals — K_X ~ 1.56e37, tau* = 2^-61 after BOTH repairs (the §17b
+face-sum repair and the §17c ETA8 = 8^4 repair of the eta^8 -> tau^4
+conversion, which this module originally dropped alongside stage
+one), still far from the atlas range s in (0.6, 1).  The remaining distance is structural: the
 Cauchy radius shrinks like 1/|xi| because ONE global circle must keep
 every link field inside the BCH domain.  Named next levers, ranked:
 (i) polydisc Cauchy in per-face variables (radius set by face-local
@@ -149,6 +150,7 @@ from computations.su2_envelope import (
 from computations.su2_envelope import (
     CM,
     D_GAUSS,
+    ETA8,
     N_FACES,
     X2,
     X3,
@@ -358,13 +360,15 @@ def envelope_theorem2() -> tuple[Frac, Frac, Frac, dict[str, Frac]]:
         for all 0 < tau <= tau*:
         | X_11(tau) - 6 tau^2 - (115/6) tau^3 |  <=  K_X tau^4,
 
-    with the same shell structure as stage one (K_X = 8 (K_small + 1)
-    absorbing the exponential classes via exp_le_power; positivity
-    margin K_X tau*^2 <= 3 < 6; s* <= 1 - tau* + tau*^2/2)."""
+    with the same shell structure as stage one (K_X =
+    8 (4096 K_small + 1), the 4096 = 8^4 converting the eta^8 Cauchy
+    tail to tau^4 — the §17c repair, carried here as in stage one;
+    exp_le_power absorbs the exponential classes; positivity margin
+    K_X tau*^2 <= 3 < 6; s* <= 1 - tau* + tau*^2/2)."""
     data = SlabData()
     consts = su2_constants(data)
     k_small = consts["K_small"]
-    k_x = 8 * (k_small + 1)
+    k_x = 8 * (ETA8 * k_small + 1)
     tau = Frac(1)
     while k_x * tau * tau > 3:
         tau /= 2
@@ -373,7 +377,7 @@ def envelope_theorem2() -> tuple[Frac, Frac, Frac, dict[str, Frac]]:
     r0 = consts["r0"]
     c_lf = r0 * r0 / (128 * CM * CM)
     assert exp_le_power(c_lf, tau, 4, Frac(2) * 8 * 2 ** (D_GAUSS // 2))
-    assert (k_small + 1) * tau ** 4 <= Frac(1, 2)
+    assert (ETA8 * k_small + 1) * tau ** 4 <= Frac(1, 2)
     s_upper = 1 - tau + tau * tau / 2
     return tau, s_upper, k_x, consts
 
@@ -436,7 +440,7 @@ def mirror_theorem() -> tuple[Frac, Frac]:
     tau_star, _, k_x, _ = envelope_theorem2()
     consts = u1_constants(data)
     k_small = consts["K_small"]
-    k_u1 = 8 * (k_small + 1)
+    k_u1 = 8 * (ETA8 * k_small + 1)
     r0 = consts["r0"]
     c_lf = r0 * r0 / (128 * CM * CM)
     assert exp_le_power(c_lf, tau_star, 4, Frac(2) * 8 * 2 ** (D_U1 // 2))

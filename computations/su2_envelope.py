@@ -206,6 +206,7 @@ R_BCH = Frac(1, 16)
 G3_TOT = Frac(39, 2)
 K4CAP = Frac(1060)
 QHAT = Frac(5, 2)
+ETA8 = Frac(8) ** 4          # eta^8 = (8 tau)^4: the tau^4 conversion
 
 # Jacobian/character majorant A0 for the entry integrand at eta = 0
 # neighborhood: |chi_n chi_m| <= d_n d_m <= 4 (entries used: n,m <= 1),
@@ -309,8 +310,14 @@ def image_bound(tau: Frac) -> Frac:
 
 def entry_relative_remainder(tau: Frac) -> Frac:
     """Certified bound on |T[n,m]/T_flat-poly - 1|'s eta^8-tail for the
-    entries used (n, m <= 1): K_small tau^4 + large + images."""
-    return small_field_K() * tau ** 4 + large_field_bound(tau) \
+    entries used (n, m <= 1): K_small eta^8 + large + images, with
+    eta^8 = (8 tau)^4 = 4096 tau^4.
+
+    REPAIR (2026-07-29, §17c): the original release consumed
+    K_small * tau^4, silently dropping the 8^4 of eta^8 = (8 tau)^4.
+    The factor is now carried explicitly here and in
+    envelope_theorem; it costs 2^6 on tau*."""
+    return small_field_K() * ETA8 * tau ** 4 + large_field_bound(tau) \
         + image_bound(tau)
 
 
@@ -354,12 +361,14 @@ def envelope_theorem():
     hence  X_11(tau) >= 6 tau^2 + (115/6) tau^3 - K_X tau^4 > 0 on the
     whole interval (monotone: K_X tau^2 <= K_X tau*^2 < 6), and the
     two-sided envelope with rho(tau) = (115/36) tau + (K_X/6) tau^2.
-    K_X := 8 (K_small + 1): the +1 absorbs both exponential error
-    classes once exp_le_power certifies each <= tau^4/2 on (0, tau*]
-    (their tau-dependence is steeper than any power); the factor 8 is
-    the log-composition 4 u/(1-u) <= 8 u for u <= 1/2."""
+    K_X := 8 (4096 K_small + 1): the 4096 = 8^4 converts the eta^8
+    Cauchy tail to tau^4 (eta^2 = 8 tau; §17c repair); the +1 absorbs
+    both exponential error classes once exp_le_power certifies each
+    <= tau^4/2 on (0, tau*] (their tau-dependence is steeper than any
+    power); the factor 8 is the log-composition 4 u/(1-u) <= 8 u for
+    u <= 1/2."""
     k_small = small_field_K()
-    k_x = 8 * (k_small + 1)
+    k_x = 8 * (ETA8 * k_small + 1)
     # tau*: largest dyadic with K_X tau*^2 <= 3 (margin 2x under 6)
     tau = Frac(1)
     while k_x * tau * tau > 3:
@@ -373,7 +382,7 @@ def envelope_theorem():
     c_lf = r0 * r0 / (128 * CM * CM)
     assert exp_le_power(c_lf, tau, 4, Frac(2) * 8 * 2 ** (D_GAUSS // 2))
     # u <= (K_small + 1) tau^4 <= 1/2 at tau* (recheck):
-    assert (k_small + 1) * tau ** 4 <= Frac(1, 2)
+    assert (ETA8 * k_small + 1) * tau ** 4 <= Frac(1, 2)
     s_upper = 1 - tau + tau * tau / 2       # e^{-t} <= 1 - t + t^2/2
     return tau, s_upper, k_x
 
