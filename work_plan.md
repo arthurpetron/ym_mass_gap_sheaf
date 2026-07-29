@@ -26897,3 +26897,123 @@ the blocked kernel) with the same window machinery — the dichotomy
 instrument proper.  (4) The D4-orbit cost anisotropy deserves a
 recorded explanation (likely the greedy's interaction with the
 tree-gauge asymmetry) — understanding it may yield another 10x.
+
+### §16k — the Λ-cap repair, complete OS/CS coverage, and the first kernel-checked OS/CS certificate (2026-07-28/29, cloud)
+
+**Executed.**  Three advances in one stage: (1) the Λ-slop of the
+domination transfer identified as pure union-bound slack and
+removed by raising the cap; (2) the diagonal-partner sweep run to
+COMPLETION — every landed off-diagonal now has both OS/CS partners
+landed; (3) the OS/CS structure itself banked as a generated,
+kernel-checked, axiom-free Lean certificate (the Rust engine's
+outputs entering the formal development for the first time).
+Code: scripts/gen_oscs_lean.py (generator),
+dual_kappa_spike/OSCSLedger.lean + lean/OSCSLedger.lean (generated
+certificate, sixth spike target), tests/test_gen_oscs_lean.py
+(3 pins); ledgers su2_cs_diagonals.json (97 landed / 20 unreached,
+shards consolidated), su2_m2_finality.json (40 landed / 1
+unreached), su2_combined_windows.json (regenerated, lam = 8).
+Suite: 106/106 green (439 s, cloud).
+
+**The Λ-cap repair (one parameter, half the gap).**  At s = 5/8 the
+(1,1) entry's obstruction decomposed as U2res 4.0e-5 + lvl3 7.1e-5
++ rest(>=4) 1.7e-5 + Λ-slop 4.0e-5 against T = 7.3e-5.  The slop
+at Λ = 6 is the union bound over label escapes; at Λ = 8 it falls
+to 2.8e-12 — eleven orders — while the dominated rest is UNCHANGED
+(the level >= 4 mass is already inside the cap).  The Λ = 6
+default was slack, not structure: combined_x11_window now defaults
+lam = 8.  This single change moved the positive-window boundary
+from s = 3/5 past s = 8/13 before any new value landed.
+
+**The partner sweep (19/19, zero misses).**  The 19 diagonal keys
+demanded as OS/CS partners by landed off-diagonals but absent from
+the ledger (14 never tried, 5 previously failed at 300-900 s
+budgets) ALL landed under the Rust engine with the D4-rotation
+fallback — 71 s to 586 s each.  Meanwhile the need-ranked sweep
+landed 16 more level-3 diagonals (all first-try, no budget miss
+this run: the §16j resistant class is now routine).  Ledger state:
+97/117 level-3 diagonal keys landed; 40/41 M = 2 finality targets
+landed (the one residual is the §16i triple-wall-3 config).
+
+**Complete OS/CS coverage.**  Every one of the 40 landed direct
+off-diagonal values now has BOTH diagonal partners landed, and
+every one satisfies N^2 <= D_a * D_b — the lemma pin holds with no
+exceptions across the full banked ledger, 7 signed rows included.
+
+**OSCSLedger.lean — the Rust results enter the formal tree.**  The
+directive "use the Rust learnings to help the formal Lean" lands
+as a generated certificate in the DP6Ledger/DP3M2Ledger
+convention (exact rationals as (Int, Nat), comparisons
+cross-multiplied into Int, kernel `decide` on closed integer
+arithmetic, no Mathlib, standalone spike target).  What the kernel
+checks, per generated theorem:
+
+  - diag_nonneg: all 97 landed reflection-diagonals >= 0 — OS
+    positivity is a PREDICTION of the Osterwalder-Seiler norm
+    structure, and the computed values comply (7 off-diagonals are
+    negative, so this is not an evaluator triviality);
+  - cs_bound_all: N^2 <= D_a * D_b on all 40 rows;
+  - cs_partners_located: the PAIRING IS REDERIVED, not
+    transcribed — d4Images implements the D4 action on
+    half-configuration keys inside Lean and the kernel checks each
+    cited partner value sits in the diagonal ledger at a D4 image
+    of the key the lemma demands;
+  - diag_le_crude / m2_le_crude: the crude bound
+    |N| <= d_n d_m prod_f d_f with the face product rederived from
+    the labelling — the domination-transfer input of §16g, checked
+    on every landed value;
+  - m2_negative_count / cs_includes_signed: the sign census (7
+    rows, 6j interference) — the inequality is exercised on signed
+    data.
+
+Verification (cloud, per the spike's 2026-07-26 precedent): pinned
+toolchain v4.29.1 (container install), elaborates in 6.9 s, all 10
+theorems AXIOM-FREE (#print axioms empty — stronger than the
+{propext, Quot.sound} budget), mutation-tested (negating a
+diagonal breaks exactly diag_nonneg + the location of its citing
+rows; corrupting a partner value breaks cs_partners_located +
+cs_bound_all; inflating N breaks cs_bound_all; count literals
+load-bearing).  A Mac-side `lake build` of the six spike targets
+under the session lock is OWED, not claimed.
+
+**Certified X_11 (M -> infinity) windows — the march (lam = 8).**
+
+    s = 1/2:    [+0.258392, +0.258392]   (7e-7 wide)
+    s = 11/20:  [+0.282612, +0.282805]
+    s = 9/16:   [+0.289793, +0.290682]
+    s = 4/7:    [+0.294655, +0.297282]
+    s = 3/5:    [+0.274282, +0.356372]   (was [+0.155, +0.455])
+    s = 61/100: [+0.177639, +0.451456]   CERT
+    s = 8/13:   [+0.028179, +0.558919]   <- NEW CERT boundary
+    s = 31/50:  window [-0.27, +0.70], positive, ratio open
+    s = 5/8:    window [-1.36, +0.94], positive, ratio open
+
+The ratio > 1 certificate now reaches s = 8/13 ~ 0.615 (tau =
+0.486); positive windows reach s = 5/8 (tau = 0.470) — the §16j
+target "extend toward 5/8" is MET at window level.  The certified
+curve holds its ~0.29 plateau through s = 4/7 before the
+tail-driven widening — the nonperturbative X_11 stays firmly above
+the U(1) mirror's 0 with margin growing along the whole certified
+range.
+
+**Honesty.**  The Rust engine remains gated-but-not-verified
+scaffolding (§16d convention); what the Lean kernel now certifies
+is the OS/CS STRUCTURE of its outputs (positivity, the CS
+inequality, the crude bound, the D4 pairing), not the contraction
+that produced them — re-deriving the values inside Lean from the
+finite-product-Haar spine is the standing wiring TODO shared with
+the other spike ledgers.  D4 value-invariance is an input fact
+(gated numerically over the banked battery); the ACTION is what
+Lean rederives.  Budget misses recorded unreached, never consumed
+(20 + 1 stand).  Mac lake build owed; push owed by Arthur.
+
+**Next attack.**  (1) The 20 residual diagonals (hard class:
+900 s+ budgets or the recoupling evaluator) — each landing
+tightens lvl3 at 31/50 and 5/8 toward CERT.  (2) The recoupling
+(6j/corner-basis) evaluator, gate set now 137 banked exact values.
+(3) The iterated-map windows on the rising one-step boundary — the
+dichotomy instrument proper.  (4) Lean: extend the certificate to
+the WINDOW inequality itself (DomTransfer trace + geometric tails
+are finite rational data — the s = 1/2 window is one big
+kernel-decidable rational inequality), and the D4-anisotropy
+explanation.

@@ -225,9 +225,16 @@ def cs_sharpened_u2(entry: str, n: int, m: int, s: Frac):
     return add, residual, n_res, n_cs
 
 
-def combined_x11_window(s: Frac, lam: int = 6):
+def combined_x11_window(s: Frac, lam: int = 8):
     """The full assembly: T_2 + direct finality values, CS-sharpened
-    U_2, CS-sharpened level-3 tail, domination levels >= 4."""
+    U_2, CS-sharpened level-3 tail, domination levels >= 4.
+
+    lam = 8 default (work_plan section 16k): the Lambda-cap union
+    bound `lam_slop` falls from ~4e-5 to ~3e-12 at s = 5/8 between
+    lam = 6 and lam = 8 while the dominated rest is unchanged — the
+    slop at lam = 6 was pure union-bound slack, and removing it
+    marched the positive-window boundary from s = 3/5 past
+    s = 8/13."""
     import math as _math
     from computations.su2_minf_windows import (
         DomTransfer, entry_value_and_unreached, load_m2)
