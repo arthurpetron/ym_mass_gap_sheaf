@@ -27465,3 +27465,71 @@ instrument; both ends of the gap now bounded: certified one-step
 windows to s = 8/13, the envelope on (s*, 1) with s* = e^{-2^-44}).
 Then P3 atlas-adequacy.  Cloud only; no Lean this stage; push owed
 by Arthur.
+
+### §17d — P2 OPENED: the iterated-map windows — the raw depth-2 sign proved VACUOUS, the U(1) law pinned to four digits, and the first certified trajectory numbers (2026-07-29, cloud)
+
+**The object.**  One blocking step = the banked slab kernel matrix
+T[n,m](s) (character-basis pair moments).  The iterated map is
+kernel composition through the shared boundary charge:
+T_2[n,m] = sum_k T[n,k] T[k,m], g_k = 1 by character orthonormality
+(SU(2): k >= 0; U(1): k in Z) — the transfer-semigroup square, the
+two-step object the (TS) hypothesis constrains.  Gated: diagonal
+heat-kernel toy composes to exact doubling; the U(1) exact lane
+below pins the convention.
+
+**The structural theorem (refutation-grade design fact).**  T real
+symmetric => T_2 = T^2 is a GRAM matrix => Cauchy-Schwarz forces
+X^(2) = log(T_2[1,1]T_2[0,0]/T_2[0,1]^2) >= 0 for EVERY group.  The
+§17.4 mirror fence FIRES on the raw two-step cross sign: it cannot
+discriminate SU(2) from U(1).  Quantified on the exact theta kernel:
+at s = 1/2 the abelian one-step cross is certified NEGATIVE
+(-0.3564) while the two-step is certified POSITIVE (+0.02545).
+Continuum: min over the shared real charge gives Qmin_2 =
+3(n^2+m^2) - (n+m)^2/6, cross -1/3, X_2^{U1} -> +tau/3; the
+certified window at s = 9/10 lands on tau/3 to FOUR DIGITS
+(3.5120e-2 = 3.5120e-2).  CONSEQUENCE: at even iteration depth the
+discriminating trajectory content is the MAGNITUDE/matched-flow
+structure, never the sign.
+
+**The certified SU(2) trajectory numbers
+(computations/p2_iterated.py; entry windows = the §16h-16l combined
+assembly generalized to {0,1,2}^2 with the 4^{E/3} d-absorption for
+label-less (2,2) unreached configs; k >= 3 truncation by DomTransfer
+full traces (k <= 8) + the analytic corner floor (4^{1/3}s)^{f(k)},
+f(k) = min_q(2C(q)+C(k-q)), on 4s^3 < 1).**
+- s = 1/2:  X^(2)_SU2 in [2.04e-8, 7.16e-7], CERTIFIED POSITIVE —
+  6-7 orders below the one-step 0.2584: the rank-one collapse of a
+  strongly gapped step, certified at depth 2 (the two-step Gram
+  angle is a spectral-ratio readout; the k = 0 channel dominates).
+- DEPTH-2 MAGNITUDE SEPARATION, certified: X^(2)_SU2(1/2) <=
+  7.16e-7 < 2.54e-2 = X^(2)_U1(1/2) — the SU(2) iterated kernel is
+  ~5 orders closer to rank-one than the abelian mirror at the same
+  coupling: the gapped-vs-Coulomb trajectory signature at depth 2,
+  in exactly the observable class the vacuity theorem licenses.
+- s = 11/20: [-8.8e-7, 4.07e-3] bracketed, sign not certified (the
+  one-step entry windows there are ~1e-6-wide and square through);
+  9/16 similar; 8/13 uninformative after squaring.  Mechanical fix:
+  the standing background diagonal lane — every one-step tightening
+  squares through the composition.
+
+**Gates (all green).**  g_qmin (incl. the -1/3 continuum cross),
+g_hk (semigroup doubling), g_u1_law (four-digit tau/3), g_scale
+(collapse pin), g_separation (SU2 << U1 window comparison).  Tests
+test_p2_iterated 4/4; envelope suite unaffected.
+
+**Honesty.**  One composition step of the DERIVED kernels
+(transfer-direction stack); the thickness-2 fine-scale census — the
+blocking-vs-stacking defect — is the next rung (the §16 defect
+frame).  The matched-flow tau'/tau windows at depth 2 (MD.1
+matchings) are the designated consumer, not claimed.  (·,2) windows
+crude but enter only at 1e-13 on the CERT range.  Cloud only; push
+owed by Arthur.
+
+**Next attack.**  (1) Certify the depth-2 sign at 11/20-9/16 via the
+background diagonal lane -> the certified s-curve of the collapse
+rate (the trajectory's gap curve).  (2) The matched-flow consumer:
+tau'/tau windows at depth 2 under both MD.1 matchings against the
+§17c envelope.  (3) The thickness-2 census when the recoupling
+evaluator lands.  (P3) the atlas-adequacy statement now has both
+instruments: envelope on (s*, 1) with s* = e^{-2^-44}, iterated
+windows on the anchor side.
