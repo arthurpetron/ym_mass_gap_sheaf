@@ -15183,6 +15183,52 @@ replaced by the coupled Feynman--Kac/Mehler kernel associated with the
 symmetric pair \((K,S)\).  Only after those two identifications may the
 existing double-Haar projection and AF row-relative budget be instantiated.
 
+### Geometric 18-chord contraction and coupled symmetric-pair kernel (2026-07-29)
+
+`BF4GeometricSpinNetworkMehler` now replaces both auxiliary constructions at
+the finite geometric/reference level.
+
+* The literal 24 lower BF4 spatial plaquettes are evaluated as oriented
+  noncommutative quaternion words after the explicit `25 + 23` tree/chord
+  split.  Lean proves that every geometric chord is sent to its own
+  quaternion-variable block, and proves that polynomial quaternion
+  multiplication evaluates to Hamilton multiplication in every rational
+  environment.
+* Every twice-spin face label is inserted through the exact Chebyshev
+  character polynomial, with no spin cutoff.  The 24 factors are multiplied
+  before contraction, so shared-link coupling is retained.
+* The complementary chord set is proved to be exactly the eighteen indices
+  outside `{0,4,5,6,10}`.  `integrateEighteenChords` replaces each source
+  monomial by the product of its eighteen normalized `S^3` moments and
+  reindexes the five retained quaternion blocks.  The semantic theorem
+  `eval_integrateEighteenChords` proves term by term that this polynomial is
+  the direct partial-Haar functional, and the all-vacuum wavefunction is
+  proved extensionally equal to one.
+* The product heat reference is replaced by the coupled Gaussian
+  Feynman--Kac action
+  \[
+    \frac1{96}(x-y)^T K_{24}(x-y)
+      +\frac18 x^TSx+\frac18 y^TSy .
+  \]
+  Division-free LDL certificates prove both quadratic forms nonnegative.
+  Lean proves source/target symmetry, proves that both the kinetic and
+  spatial forms contain genuine cross-coordinate terms, lifts the kernel to
+  all three `su(2)` components, and pulls it back by the specified imaginary
+  coordinate chart to the same rational `SU(2)^5` carrier as the contracted
+  spin networks.  The exact `4×3,6×2` generalized spectrum and constructive
+  `q_0 < 1/5` certificate are retained.
+
+This is a genuine replacement of the mixed-radix character *coding* by the
+geometric boundary wavefunction, but it does not yet inhabit
+`CentralPositiveBoundaryPeterWeylTransform`: the contracted face-labelled
+wavefunctions still need an exact normalized fivefold-Haar
+matrix-coefficient synthesis (including any required independent
+intertwiner labels), and the pulled-back `CReal` kernel still needs its
+fivefold-Haar partition normalization and double-Haar coefficient
+construction.  Those are now the two precise priority-0 residuals.  After
+them come the projected mean-zero spectral certificate and the AF-uniform
+row-relative physical-minus-Mehler estimate.
+
 # 2026-07-28 — Five-gate backward roadmap from the physical BF4 carrier
 
 **Status.** PLANNED, with the current node and every terminal gate pinned to
