@@ -27017,3 +27017,67 @@ the WINDOW inequality itself (DomTransfer trace + geometric tails
 are finite rational data — the s = 1/2 window is one big
 kernel-decidable rational inequality), and the D4-anisotropy
 explanation.
+
+### §16l — WindowLedger.lean: the certified X_11 windows replayed by the Lean kernel (2026-07-29, cloud)
+
+**Executed.**  The §16k queue's Lean item — "the window inequality
+itself is one big kernel-decidable rational inequality" — done.
+Code: scripts/gen_window_lean.py (generator),
+dual_kappa_spike/WindowLedger.lean + lean/WindowLedger.lean
+(generated certificate, seventh spike target),
+tests/test_gen_window_lean.py (3 pins).  Suite: 109/109 green
+(539 s, cloud, sweep paused).
+
+**What the kernel now replays (not transcribes).**  For each of
+nine grid couplings s = a/b:
+
+  - T[n,m](s) ASSEMBLED in-kernel: the M = 2 census polynomial
+    evaluated at the exact rational coupling (evalNum precedent)
+    PLUS the resolved-config rows with assembly weight W and
+    exponent E rederived from the labelling — the same
+    rederivation discipline as DP3M2Ledger/OSCSLedger, now driving
+    the actual certified-window pipeline;
+  - the unresolved-mass bound U from the SAME labelling: 22 crude
+    rows fully rederived (W * cN, cN = d_n d_m prod d_f); 17 CS
+    rows via cited r with r >= 0 and r^2 >= D_a * D_b
+    kernel-checked and the cited partner values kernel-LOCATED in
+    the cited diagonal ledger through the D4 action — no citation
+    trusted;
+  - lo = T - U - tail > 0 entrywise at ALL nine grid points
+    (windows_positive), and lo11 * lo00 > hi01^2 at the seven CERT
+    points (x11_ratio_certified): X_11 > 0 kernel-certified at
+    s = 1/2, 11/20, 9/16, 4/7, 3/5, 61/100, 8/13.
+
+The kernel-checked statement is exactly the §16k boundary: the
+blocked SU(2) one-step observable X_11 = log(T11 T00 / T01^2)
+strictly positive through s = 8/13 — where the U(1) mirror is
+exactly 0 — plus window positivity (ratio open) at 31/50 and 5/8.
+
+**Honesty (what remains transcribed).**  Census polynomials
+(dp3_m2_entries; the T[1,1] final part's internal assembly is
+independently banked in DP3M2Ledger), landed N values and cited
+diagonals (the gated engines; independently kernel-checked for OS
+positivity + CS in OSCSLedger), and the tail bounds (level-3 CS
+tail + domination >= 4 + Lambda-slop at Lambda = 8, computed by
+the gated Python and rounded UP to 10^-60 — validity-preserving).
+The licensed mathematical inputs are the OS/CS lemma and D4
+value-invariance.  Rederiving the tails needs the DomTransfer
+trace and the certified geometric sums in Lean — the next rung;
+rederiving N needs the finite-product-Haar spine — the standing
+wiring TODO.
+
+**Verification.**  Cloud, pinned v4.29.1: elaborates 7 s, all 10
+theorems AXIOM-FREE, mutation battery clean (negating a census
+coefficient or inflating a tail breaks windows_positive +
+x11_ratio_certified; corrupting a cited diagonal breaks the
+cs_valid* of the citing entry; shrinking r below sqrt(D_a D_b)
+breaks its cs_valid*; counts load-bearing).  Mac lake build of the
+seven targets under the session lock OWED, not claimed.
+
+**Meanwhile.**  The 1800 s-budget hard sweep grinds the 20
+residual diagonals (none landed yet this run — the class is hard
+at any budget; the recoupling evaluator remains their structural
+fix).  Next attack: (1) the hard residuals / recoupling evaluator;
+(2) Lean-side: DomTransfer + geometric tails in-kernel (removes
+the largest transcribed literal), then the iterated-map windows;
+(3) the D4 cost-anisotropy explanation.
