@@ -60,7 +60,7 @@ theorem compactActionComplementSOSPolynomial_eq :
       exprToRatPoly compactActionComplementSOSExpr := by
   decide
 
-private theorem quaternionHaar_append
+theorem quaternionHaar_append
     (blocks : Nat) :
     ∀ left right : RatPoly,
       quaternionHaar blocks (left ++ right) ≈
@@ -91,7 +91,7 @@ private theorem quaternionHaar_polyMul_add_left
   simp only [polyAdd, polyMul, List.flatMap_append]
   exact quaternionHaar_append blocks _ _
 
-private theorem quaternionHaar_polyMul_add_right
+theorem quaternionHaar_polyMul_add_right
     (blocks : Nat) (first left right : RatPoly) :
     quaternionHaar blocks
         (polyMul first (polyAdd left right)) ≈
@@ -212,7 +212,7 @@ private theorem quaternionHaar_polyMul_smul_left
       (quaternionHaar_polyMul
         blocks left right))
 
-private theorem quaternionHaar_polyMul_smul_right
+theorem quaternionHaar_polyMul_smul_right
     (blocks : Nat) (coefficient : Q')
     (left right : RatPoly) :
     quaternionHaar blocks
@@ -238,7 +238,7 @@ private theorem quaternionHaar_polyMul_smul_right
     (quaternionHaar_polyMul_comm
       blocks right left)
 
-private theorem supported_polyMul
+theorem supported_polyMul
     {blocks : Nat} {left right : RatPoly}
     (hleft : SupportedQuaternionBlocks blocks left)
     (hright : SupportedQuaternionBlocks blocks right) :
@@ -298,12 +298,12 @@ private theorem supported_polyMul
     (hleft leftTerm hleftTerm)
     (hright rightTerm hrightTerm)
 
-private def polynomialSupportedBool
+def polynomialSupportedBool
     (blocks : Nat) (polynomial : RatPoly) : Bool :=
   polynomial.all fun term =>
     decide (term.1.length ≤ 4 * blocks)
 
-private theorem supported_of_bool
+theorem supported_of_bool
     (blocks : Nat) (polynomial : RatPoly)
     (hsupported :
       polynomialSupportedBool blocks polynomial = true) :
@@ -331,7 +331,7 @@ theorem compactActionComplementSOSEntries_supported :
     (exprToRatPoly entry.2)
     (List.all_eq_true.mp hall entry hentry)
 
-private theorem one_sos_entry_nonnegative
+theorem one_sos_entry_nonnegative
     (polynomial : RatPoly)
     (hsupport :
       SupportedQuaternionBlocks 10 polynomial)
@@ -388,7 +388,7 @@ private theorem one_sos_entry_nonnegative
           (polyMul polynomial polynomial)
           (polyMul linear linear))))
 
-private theorem sos_entries_nonnegative
+theorem sos_entries_nonnegative
     (polynomial : RatPoly)
     (hsupport :
       SupportedQuaternionBlocks 10 polynomial) :
@@ -591,6 +591,13 @@ theorem compactActionComplement_cp
 end YMGap.Continuum.BF4CompactActionCPOrder
 
 #print axioms YMGap.Continuum.BF4CompactActionCPOrder.compactActionComplementSOSPolynomial_eq
+#print axioms YMGap.Continuum.BF4CompactActionCPOrder.quaternionHaar_append
+#print axioms YMGap.Continuum.BF4CompactActionCPOrder.quaternionHaar_polyMul_add_right
+#print axioms YMGap.Continuum.BF4CompactActionCPOrder.quaternionHaar_polyMul_smul_right
+#print axioms YMGap.Continuum.BF4CompactActionCPOrder.supported_polyMul
+#print axioms YMGap.Continuum.BF4CompactActionCPOrder.supported_of_bool
+#print axioms YMGap.Continuum.BF4CompactActionCPOrder.one_sos_entry_nonnegative
+#print axioms YMGap.Continuum.BF4CompactActionCPOrder.sos_entries_nonnegative
 #print axioms YMGap.Continuum.BF4CompactActionCPOrder.compactActionComplementSOSEntries_supported
 #print axioms YMGap.Continuum.BF4CompactActionCPOrder.compactActionComplementSOSPolynomial_cp
 #print axioms YMGap.Continuum.BF4CompactActionCPOrder.clearedSphereComplement_cp

@@ -380,6 +380,41 @@ lumping are optional stronger data.  If they are available, they recover the
 older Markov-joint interface.  They are not needed by the direct symmetric
 operator comparison.
 
+#### 2026-07-29 compact-Haar action-order milestone
+
+The nonlinear finite-order analytic layer underneath this transform is now
+proved constructively for the genuine physical \((K,S)\) action polynomial
+\(A\), rather than for a surrogate Gaussian matrix:
+
+- `BF4CompactActionSphereShift` proves the exact arbitrary-insertion identity
+  \[
+    H(PD)+H(PA)=\frac{133}{4}H(P),
+    \qquad D=\frac{133}{4}-A,
+  \]
+  and identifies the denominator-cleared compiler coefficientwise with the
+  original physical \((1/96,1/8)\) compiler used by the geometric Mehler
+  series.
+- `BF4CompactActionPhysicalCPOrder` gives an explicit 45-square LDL/SOS
+  certificate for \(A\) and proves the two-sided polynomial-square Haar order
+  \[
+    0\leq H(P^2A),\qquad
+    0\leq H(P^2D)
+  \]
+  for every supported rational polynomial \(P\).
+- `BF4CompactActionMomentPositivity` and
+  `BF4CompactActionShiftedExponential` extend this to every degree:
+  \[
+    0\leq H(P^2D^n),
+  \]
+  so all finite shifted-exponential quadratic partial sums are nonnegative
+  and monotone.
+
+This closes the finite polynomial CP-order obstruction.  It does **not** yet
+inhabit M1: the next theorem must give those monotone partials a constructive
+factorial-tail modulus, form their located `CReal` limit, prove the exact
+shifted/negative-action exponential identity, and then identify its
+five-holonomy Peter--Weyl matrix with the retained all-spin BF4 endpoint.
+
 ### M2. Prove the AF-uniform row-relative estimate
 
 For every physical tolerance \(\varepsilon>0\), retained base cutoff \(K_0\),

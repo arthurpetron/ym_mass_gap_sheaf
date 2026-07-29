@@ -2251,6 +2251,10 @@ import YMGap.Continuum.SU2QuaternionArbitraryHaarFourSwap
 import YMGap.Continuum.BF4CompactCoupledActionBounds
 import YMGap.Continuum.BF4CompactActionDiagonalSOS
 import YMGap.Continuum.BF4CompactActionCPOrder
+import YMGap.Continuum.BF4CompactActionMomentPositivity
+import YMGap.Continuum.BF4CompactActionSphereShift
+import YMGap.Continuum.BF4CompactActionPhysicalCPOrder
+import YMGap.Continuum.BF4CompactActionShiftedExponential
 
 -- Codynamic core: reusable error/defect + trajectory (Grönwall) tools,
 -- transposed from the machine-verified Agda `Codynamic.*` development.
