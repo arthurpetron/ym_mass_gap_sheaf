@@ -192,28 +192,54 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 - **milestone**: five-gate backward roadmap M1--M2
 - **file**:
   `lean/YMGap/Continuum/BF4ReflectedAllSpinPeterWeylBridge.lean`,
-  `lean/YMGap/Continuum/BF4ReflectedAllSpinAFRowRelative.lean`
+  `lean/YMGap/Continuum/BF4ReflectedAllSpinAFRowRelative.lean`,
+  `lean/YMGap/Continuum/BF4ReflectedAllSpinMehlerGramEndpoint.lean`,
+  `lean/YMGap/Continuum/BF4ReflectedAllSpinMehlerGramAFRow.lean`,
+  `lean/YMGap/Continuum/BF4ReflectedAllSpinTaylorRankOneEndpoint.lean`
 - **decls**: `reflectedPhysicalCoefficient_equiv_geometric`,
   `GeometricTaylorEndpointSpectralData`,
   `MatchedReflectedAllSpinAFRowCertificate`,
+  `bf4MehlerGramVacuumPartition_pos`,
+  `normalized_bf4MehlerGram_quadratic_nonnegative`,
+  `MatchedReflectedAllSpinMehlerGramAFRowCertificate`,
+  `canonicalRankOneGeometricTaylorEndpointSpectralData`,
+  `matchedReflectedAllSpinAFRowCertificateOfCanonicalRankOne`,
   `MatchedReflectedAllSpinAFRowCertificate.row_relative_estimate`
-- **obligation**: Construct `MatchedReflectedAllSpinAFRowCertificate` on the
-  physical matched trajectory by proving spectral positivity and a buffered
-  physical-mean-zero Rayleigh rate for the displayed geometric all-spin
-  endpoint, together with uniform numerator, partition, endpoint-ceiling,
-  carrier-payment, and retained physical marginal bounds.
+- **obligation**: Instantiate
+  `matchedReflectedAllSpinAFRowCertificateOfCanonicalRankOne` on a genuine
+  physical matched trajectory by constructing the scale-uniform numerator,
+  partition, endpoint-ceiling, carrier-payment, and physical-marginal
+  budgets.  For the later quarter contraction, sharpen or estimate the
+  explicit order-one rate strongly enough that `rate + epsilon ≤ 1/4`, or
+  replace order one by a higher-order endpoint with a proved smaller
+  physical-mean-zero rate.
 - **constructive or propositional**: constructive — the order schedule,
   rational partitions, common tolerance, spectral rates, and every
   scale-indexed analytic budget are `Type`-level data.
-- **status**: open analytic instantiation.  The source/target obstruction is
+- **status**: open AF-uniform analytic instantiation; the finite spectral
+  subproblem is closed at order one.  The source/target obstruction is
   closed: exact rational polarization identifies every finite reflected
   physical Taylor coefficient with the 24-plaquette all-spin geometric
   coefficient, and polarization of the two located diagonal limits gives
   the corresponding `CReal` endpoint.  The AF consumer is also closed and
   pinned definitionally to `geometricMehlerTaylorPartial`, its
   vacuum--vacuum partition, the exact blocked weight, the matched moving
-  cutoff, and the physical spacing envelope.  No value of
-  `MatchedReflectedAllSpinAFRowCertificate` is yet defined.
+  cutoff, and the physical spacing envelope.
+  `BF4ReflectedAllSpinTaylorRankOneEndpoint` proves exact product-Haar
+  factorization, unit partition, symmetry, and PSD.  It constructively takes
+  the minimum of the nonempty strictly-positive physical-row carrier and
+  derives the physical Rayleigh rate by finite Cauchy--Schwarz.  Thus a
+  direct constructor of the original certificate is defined.  No closed
+  physical value exists yet because no concrete `CubicMarginLaw`,
+  `PhysicalSpacingEnvelope`, or common AF-uniform analytic budget is supplied,
+  and no quarter-smallness claim is made for the coarse order-one rate.
+  In parallel, `BF4ReflectedAllSpinMehlerGramEndpoint` constructs the
+  nontrivial positive feature-Gram route: exact factorized-action Haar
+  identification, a five-Haar SOS shift, all nonnegative complement moments,
+  fifteen nonnegative kinetic features, strict vacuum partitions at every
+  positive shifted order, and normalized PSD.  Its matched AF record still
+  needs a physical-mean-zero Rayleigh estimate and the same uniform analytic
+  budget.
 - **must not be closed classically**: per `AGENTS.md` Rule 6; a future
   inhabitant must supply explicit rational moduli and witnesses rather than
   a selected spectral bound.

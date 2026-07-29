@@ -471,12 +471,45 @@ matrix or normalizer cannot inhabit it.
 
 This closes the finite polynomial CP-order, factorial-tail, carrier
 identification, limit-level scalar shift, and reflected source/target
-Peter--Weyl identification.  It does **not** yet close M1 or M2.  The
-remaining analytic constructor is precisely the scale-uniform
-`MatchedReflectedAllSpinAFRowCertificate`: prove spectral positivity and a
-buffered physical-mean-zero Rayleigh rate for the displayed geometric
-endpoint, then give its numerator, partition, endpoint-ceiling, and physical
-marginal-payment bounds uniformly on the matched AF trajectory.
+Peter--Weyl identification.
+
+There is now also a nontrivial positive finite endpoint.
+`BF4ReflectedAllSpinMehlerGramEndpoint` proves that the genuine reflected BF4
+action has the exact one-sided Feynman--Kac plus cross-Mehler factorization
+under every ten-Haar insertion.  The one-sided shifted complement is an
+explicit five-Haar SOS with nonnegative moments; the cross exponential has
+fifteen nonnegative three-colour LDL features.  Finite ordered feature words
+therefore give a literal all-spin Gram matrix with strict vacuum partition,
+symmetry, and normalized PSD.  `BF4ReflectedAllSpinMehlerGramAFRow` connects
+this endpoint to the matched AF budget.  Its physical-mean-zero Rayleigh rate
+and AF-uniform physical comparison remain open.
+
+`BF4ReflectedAllSpinTaylorRankOneEndpoint` now also closes the finite spectral
+part of M2 at Taylor order one.  It proves exact product-Haar factorization
+\[
+  M_1(\lambda,\mu)=A_0(\lambda)A_0(\mu)
+\]
+and the exact vacuum partition \(Z_1=1\), hence symmetry and PSD.  Because
+`centralPositiveHalfStates` is a constructively nonempty finite list whose
+members have strictly positive physical row marginal, the module takes its
+located rational minimum \(\pi_{\min}>0\).  Finite Cauchy--Schwarz then gives
+the explicit physical Rayleigh rate
+\[
+  r_1=\frac{\sum_\lambda |A_0(\lambda)|^2}{\pi_{\min}}.
+\]
+The direct constructor
+`matchedReflectedAllSpinAFRowCertificateOfCanonicalRankOne` fills the
+original, unchanged certificate with these objects.
+
+M2 is nevertheless not closed.  The remaining analytic input is the common
+spacing-uniform `CentralPhysicalNumeratorPartitionBudget`: numerator and
+partition errors, endpoint ceiling, carrier payment, and physical marginal
+payment on the exact matched trajectory.  Moreover \(r_1\) is only a coarse
+finite bound; the separate quarter condition \(r_1+\varepsilon\le1/4\) has
+not been proved.  The finite positive endpoint part of M1 is constructed,
+but its convergent physical identification and AF-uniform comparison, along
+with the concrete `CubicMarginLaw` / `PhysicalSpacingEnvelope` trajectory,
+remain open.
 
 ### M2. Prove the AF-uniform row-relative estimate
 

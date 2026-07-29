@@ -215,7 +215,7 @@ theorem scaledClearedCompactAction_cp
               compactPhysicalActionSOSExpr)) := by
     rw [← compactPhysicalActionSOSPolynomial_eq]
     exact sos_entries_nonnegative
-      polynomial hsupport
+      10 polynomial hsupport
       compactPhysicalActionSOSEntries
       compactPhysicalActionSOSEntries_nonnegative
       compactPhysicalActionSOSEntries_supported

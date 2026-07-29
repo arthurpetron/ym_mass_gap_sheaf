@@ -82,6 +82,69 @@ theorem quaternionHaar_append
         (Q'.eqv_symm
           (Q'.add_assoc_eqv _ _ _))
 
+/-- Exact product Haar is linear under rational scalar multiplication. -/
+theorem quaternionHaar_polySmul
+    (blocks : Nat) (coefficient : Q') :
+    ∀ polynomial : RatPoly,
+      quaternionHaar blocks
+          (polySmul coefficient polynomial) ≈
+        coefficient *
+          quaternionHaar blocks polynomial
+  | [] =>
+      Q'.eqv_symm (Q'.mul_zero_eqv coefficient)
+  | term :: rest => by
+      change
+        (coefficient * term.2) *
+              quaternionHaarMono blocks term.1 +
+            quaternionHaar blocks
+              (polySmul coefficient rest) ≈
+          coefficient *
+            (term.2 *
+                quaternionHaarMono blocks term.1 +
+              quaternionHaar blocks rest)
+      refine Q'.eqv_trans _
+        (coefficient *
+              (term.2 *
+                quaternionHaarMono blocks term.1) +
+            coefficient *
+              quaternionHaar blocks rest) _ ?_ ?_
+      · exact Q'.add_eqv_congr'
+          (Q'.mul_assoc_eqv coefficient term.2
+            (quaternionHaarMono blocks term.1))
+          (quaternionHaar_polySmul
+            blocks coefficient rest)
+      · exact Q'.eqv_symm
+          (Q'.mul_add_eqv coefficient _ _)
+
+/-- Multiplication by the literal polynomial unit is invisible to exact
+product Haar. -/
+theorem quaternionHaar_polyMul_one_right
+    (blocks : Nat) :
+    ∀ polynomial : RatPoly,
+      quaternionHaar blocks
+          (polyMul polynomial polyOne) ≈
+        quaternionHaar blocks polynomial
+  | [] => Q'.eqv_refl 0
+  | term :: rest => by
+      change
+        (term.2 * 1) *
+              quaternionHaarMono blocks
+                (monoMul term.1 []) +
+            quaternionHaar blocks
+              (polyMul rest polyOne) ≈
+          term.2 *
+              quaternionHaarMono blocks term.1 +
+            quaternionHaar blocks rest
+      have hmono :
+          monoMul term.1 [] = term.1 := by
+        cases term.1 <;> rfl
+      rw [hmono]
+      exact Q'.add_eqv_congr'
+        (Q'.mul_eqv_congr_right _ _ _
+          (Q'.mul_one_eqv term.2))
+        (quaternionHaar_polyMul_one_right
+          blocks rest)
+
 private theorem quaternionHaar_polyMul_add_left
     (blocks : Nat) (left right third : RatPoly) :
     quaternionHaar blocks
@@ -332,39 +395,41 @@ theorem compactActionComplementSOSEntries_supported :
     (List.all_eq_true.mp hall entry hentry)
 
 theorem one_sos_entry_nonnegative
+    (blocks : Nat)
     (polynomial : RatPoly)
     (hsupport :
-      SupportedQuaternionBlocks 10 polynomial)
+      SupportedQuaternionBlocks blocks polynomial)
     (entry : Int × PolyExpr)
     (hweight : (0 : Int) ≤ entry.1)
     (hlinear :
-      SupportedQuaternionBlocks 10
+      SupportedQuaternionBlocks blocks
         (exprToRatPoly entry.2)) :
     (0 : Q') ≤
-      tenfoldHaar
+      quaternionHaar blocks
         (polyMul (polyMul polynomial polynomial)
           (polynomialSOSEntry entry)) := by
   let linear := exprToRatPoly entry.2
   have hsquare :
       (0 : Q') ≤
-        tenfoldHaar
+        quaternionHaar blocks
           (polyMul
             (polyMul polynomial linear)
             (polyMul polynomial linear)) :=
-    tenfoldHaar_square_nonnegative
+    quaternionHaar_square_nonnegative
+      blocks
       (polyMul polynomial linear)
       (supported_polyMul hsupport hlinear)
   have hfour :
-      tenfoldHaar
+      quaternionHaar blocks
           (polyMul
             (polyMul polynomial polynomial)
             (polyMul linear linear)) ≈
-        tenfoldHaar
+        quaternionHaar blocks
           (polyMul
             (polyMul polynomial linear)
             (polyMul polynomial linear)) :=
     quaternionHaar_polyMul_four_swap
-      10 polynomial polynomial linear linear
+      blocks polynomial polynomial linear linear
   have hcoefficient :
       (0 : Q') ≤ Q'.ofInt entry.1 := by
     rw [Q'.zero_le_iff_num_nonneg]
@@ -372,7 +437,7 @@ theorem one_sos_entry_nonnegative
   have hscaled :
       (0 : Q') ≤
         Q'.ofInt entry.1 *
-          tenfoldHaar
+          quaternionHaar blocks
             (polyMul
               (polyMul polynomial polynomial)
               (polyMul linear linear)) :=
@@ -384,22 +449,23 @@ theorem one_sos_entry_nonnegative
     (Q'.le_of_eqv
       (Q'.eqv_symm
         (quaternionHaar_polyMul_smul_right
-          10 (Q'.ofInt entry.1)
+          blocks (Q'.ofInt entry.1)
           (polyMul polynomial polynomial)
           (polyMul linear linear))))
 
 theorem sos_entries_nonnegative
+    (blocks : Nat)
     (polynomial : RatPoly)
     (hsupport :
-      SupportedQuaternionBlocks 10 polynomial) :
+      SupportedQuaternionBlocks blocks polynomial) :
     ∀ entries : List (Int × PolyExpr),
       (∀ entry, entry ∈ entries →
         (0 : Int) ≤ entry.1) →
       (∀ entry, entry ∈ entries →
-        SupportedQuaternionBlocks 10
+        SupportedQuaternionBlocks blocks
           (exprToRatPoly entry.2)) →
       (0 : Q') ≤
-        tenfoldHaar
+        quaternionHaar blocks
           (polyMul
             (polyMul polynomial polynomial)
             (entries.foldr
@@ -411,7 +477,7 @@ theorem sos_entries_nonnegative
   | [], _, _ => by
       change
         (0 : Q') ≤
-          tenfoldHaar
+          quaternionHaar blocks
             (polyMul
               (polyMul polynomial polynomial)
               (exprToRatPoly (.const 0)))
@@ -421,7 +487,7 @@ theorem sos_entries_nonnegative
       rw [hzero]
       change
         (0 : Q') ≤
-          tenfoldHaar
+          quaternionHaar blocks
             ((polyMul
               (polyMul polynomial polynomial)
               [([], (0 : Q'))]))
@@ -431,26 +497,26 @@ theorem sos_entries_nonnegative
       | cons term rest induction =>
           change
             (0 : Q') ≤
-              (term.2 * 0) *
-                    quaternionHaarMono 10
+                (term.2 * 0) *
+                    quaternionHaarMono blocks
                       (monoMul term.1 []) +
-                tenfoldHaar
+                quaternionHaar blocks
                   (polyMul rest [([], (0 : Q'))])
           have hterm :
               (term.2 * 0) *
-                  quaternionHaarMono 10
+                  quaternionHaarMono blocks
                     (monoMul term.1 []) ≈ 0 := by
             exact Q'.eqv_trans _ _ _
               (Q'.mul_eqv_congr_right _ _ _
                 (Q'.mul_zero_eqv term.2))
               (Q'.zero_mul_eqv _)
           have hsum :
-              (term.2 * 0) *
-                    quaternionHaarMono 10
+                  (term.2 * 0) *
+                    quaternionHaarMono blocks
                       (monoMul term.1 []) +
-                  tenfoldHaar
+                  quaternionHaar blocks
                     (polyMul rest [([], (0 : Q'))]) ≈
-                tenfoldHaar
+                quaternionHaar blocks
                   (polyMul rest [([], (0 : Q'))]) := by
             exact Q'.eqv_trans _ _ _
               (Q'.add_eqv_congr_right _ _ _ hterm)
@@ -461,12 +527,12 @@ theorem sos_entries_nonnegative
   | entry :: rest, hweights, hlinear => by
       have hhead :=
         one_sos_entry_nonnegative
-          polynomial hsupport entry
+          blocks polynomial hsupport entry
           (hweights entry (by simp))
           (hlinear entry (by simp))
       have hrest :=
         sos_entries_nonnegative
-          polynomial hsupport rest
+          blocks polynomial hsupport rest
           (fun other hother =>
             hweights other (by simp [hother]))
           (fun other hother =>
@@ -476,7 +542,7 @@ theorem sos_entries_nonnegative
         (Q'.le_of_eqv
           (Q'.eqv_symm
             (quaternionHaar_polyMul_add_right
-              10 (polyMul polynomial polynomial)
+              blocks (polyMul polynomial polynomial)
               (polynomialSOSEntry entry)
               (rest.foldr
                 (fun next total =>
@@ -496,7 +562,7 @@ theorem compactActionComplementSOSPolynomial_cp
         (polyMul (polyMul polynomial polynomial)
           compactActionComplementSOSPolynomial) := by
   exact sos_entries_nonnegative
-    polynomial hsupport
+    10 polynomial hsupport
     compactActionComplementSOSEntries
     compactActionComplementSOSEntries_nonnegative
     compactActionComplementSOSEntries_supported
@@ -592,6 +658,8 @@ end YMGap.Continuum.BF4CompactActionCPOrder
 
 #print axioms YMGap.Continuum.BF4CompactActionCPOrder.compactActionComplementSOSPolynomial_eq
 #print axioms YMGap.Continuum.BF4CompactActionCPOrder.quaternionHaar_append
+#print axioms YMGap.Continuum.BF4CompactActionCPOrder.quaternionHaar_polySmul
+#print axioms YMGap.Continuum.BF4CompactActionCPOrder.quaternionHaar_polyMul_one_right
 #print axioms YMGap.Continuum.BF4CompactActionCPOrder.quaternionHaar_polyMul_add_right
 #print axioms YMGap.Continuum.BF4CompactActionCPOrder.quaternionHaar_polyMul_smul_right
 #print axioms YMGap.Continuum.BF4CompactActionCPOrder.supported_polyMul

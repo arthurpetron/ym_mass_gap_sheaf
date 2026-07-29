@@ -15350,18 +15350,29 @@ now been closed constructively, without a spin or degree cutoff.
   \]
   This is an all-label polynomial CP/order theorem, not a finite table.
 
-The next exact analytic step is to prove the arbitrary-insertion sphere-ideal
-identity \(D+A=133/4\) for the normalized complement polynomial \(D\), prove
-nonnegativity of every Haar moment \(\mathcal H_{10}(D^k)\), and identify the
-shifted positive series
+`BF4ReflectedAllSpinMehlerGramEndpoint` completes the corresponding
+one-sided arbitrary-insertion shift in the factorized geometry.  It proves
+the exact LDL factorization of the genuine reflected BF4 action under every
+ten-Haar insertion, constructs the five-Haar complement \(E=B-D\) as an
+explicit SOS, proves every moment \(\mathcal H_5(E^k)\ge0\), and proves
 \[
-  \mathcal H_{10}(e^{-A})
-   =e^{-133/4}\sum_{k\ge0}\frac{\mathcal H_{10}(D^k)}{k!}.
+  \mathcal H_5(P E)+\mathcal H_5(P D)=B\,\mathcal H_5(P)
 \]
-That will give the required strict vacuum partition lower bound.  It will
-close normalization, but it will not by itself prove the physical compact
-Perron contraction or the AF-uniform physical-minus-Mehler row-relative
-estimate; those remain subsequent frontier gates.
+for arbitrary inserted \(P\).  The shifted positive finite Feynman--Kac
+series therefore has an explicit positive vacuum half-amplitude at every
+positive order.
+
+The same module factors the cross exponential through the fifteen
+three-colour LDL features and enumerates its ordered factorial words.  Their
+nonnegative weights make the all-spin source/target endpoint a literal
+finite Gram matrix.  Raw symmetry, strict partition positivity, and
+normalized PSD are theorems.  `BF4ReflectedAllSpinMehlerGramAFRow` pins this
+positive endpoint to the matched AF row-budget interface.
+
+What remains for this positive-Gram route is the physical-mean-zero Rayleigh
+estimate and the AF-uniform physical-minus-endpoint
+numerator/partition/marginal budget.  The finite Gram construction alone
+does not imply either estimate or the quarter contraction.
 
 ### Reflected all-spin endpoint and matched AF row interface (2026-07-29)
 
@@ -15383,10 +15394,44 @@ weight is `blockedWeight family (coupling scale)`; its cutoff is
 `MatchedReflectedAllSpinAFRowCertificate`, Lean now proves the desired
 row-relative estimate with one common rational tolerance at every scale.
 
-The immediate remaining constructor is therefore no longer a carrier map.
-It is the explicit analytic inhabitant of
+At that milestone the immediate remaining constructor was no longer a
+carrier map but the analytic inhabitant of
 `MatchedReflectedAllSpinAFRowCertificate`: a scale-dependent Taylor order,
-positive partition, symmetric PSD endpoint with a buffered physical
-mean-zero rate, and uniform numerator/partition/ceiling/marginal-payment
-bounds.  This certificate is recorded as open `Type`-level data in
-`lean/SORRY_LEDGER.md`; it has not been postulated or inhabited.
+positive partition, symmetric PSD endpoint with a physical mean-zero rate,
+and uniform numerator/partition/ceiling/marginal-payment bounds.  The next
+subsection records the subsequent discharge of its finite order-one
+spectral fields and the precise AF-uniform data that remain.
+
+### Order-one rank-one endpoint constructor (2026-07-29)
+
+`BF4ReflectedAllSpinTaylorRankOneEndpoint` now constructs the spectral side
+of that certificate at the first Taylor order.  Product Haar factorization
+proves
+\[
+  M_1(\lambda,\mu)=A_0(\lambda)A_0(\mu),
+  \qquad Z_1=1,
+\]
+for the genuine five-Haar BF4 half-amplitude \(A_0\).  Consequently the
+normalized endpoint is symmetric and positive semidefinite on every finite
+carrier.
+
+The physical Rayleigh field is also no longer opaque.  The retained carrier
+is definitionally the nonempty finite list of rows with strictly positive
+physical marginal.  A constructive `Q'` minimum therefore gives
+\(\pi_{\min}>0\), and finite Cauchy--Schwarz proves the explicit rate
+\[
+  r_1=
+  \frac{\sum_{\lambda}|A_0(\lambda)|^2}{\pi_{\min}}.
+\]
+No choice, `Classical`, `sorry`, or new axiom is used.
+`matchedReflectedAllSpinAFRowCertificateOfCanonicalRankOne` is now a direct
+constructor for the original unchanged certificate.  It fixes the endpoint
+and all spectral fields and leaves only the genuine scale-uniform inputs:
+the physical coupling window and
+`CentralPhysicalNumeratorPartitionBudget` along the matched AF trajectory.
+
+This is not yet a closed Yang--Mills certificate.  The rate above is a
+finite, potentially coarse bound; no spacing-uniform \(r_1+\varepsilon\le
+1/4\) theorem is claimed.  No concrete `CubicMarginLaw`,
+`PhysicalSpacingEnvelope`, or AF-uniform
+numerator/partition/ceiling/marginal-payment inhabitant has been constructed.
