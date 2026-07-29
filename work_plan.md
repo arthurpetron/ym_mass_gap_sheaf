@@ -15362,3 +15362,31 @@ That will give the required strict vacuum partition lower bound.  It will
 close normalization, but it will not by itself prove the physical compact
 Perron contraction or the AF-uniform physical-minus-Mehler row-relative
 estimate; those remain subsequent frontier gates.
+
+### Reflected all-spin endpoint and matched AF row interface (2026-07-29)
+
+`BF4ReflectedAllSpinPeterWeylBridge` now turns the diagonal compact-action
+limit into the genuine source/target coefficient.  It proves exact
+ten-block support for the source and reflected target geometric
+wavefunctions, applies rational polarization at every Taylor order, and
+identifies the resulting located `CReal` with
+`geometricMehlerHaarCoefficient`.  This removes the earlier invalid shortcut
+of treating a general source/target entry as one ordinary square.
+
+`BF4ReflectedAllSpinAFRowRelative` pins the existing division-free row budget
+to that construction and to the exact matched trajectory.  Its endpoint
+numerator is definitionally `geometricMehlerTaylorPartial`, and its
+partition is definitionally the matching vacuum--vacuum coefficient; its
+weight is `blockedWeight family (coupling scale)`; its cutoff is
+`matchedPhysicalSpacingBits`; and its spacing theorem uses
+`physicalAFEnvelope`.  Given
+`MatchedReflectedAllSpinAFRowCertificate`, Lean now proves the desired
+row-relative estimate with one common rational tolerance at every scale.
+
+The immediate remaining constructor is therefore no longer a carrier map.
+It is the explicit analytic inhabitant of
+`MatchedReflectedAllSpinAFRowCertificate`: a scale-dependent Taylor order,
+positive partition, symmetric PSD endpoint with a buffered physical
+mean-zero rate, and uniform numerator/partition/ceiling/marginal-payment
+bounds.  This certificate is recorded as open `Type`-level data in
+`lean/SORRY_LEDGER.md`; it has not been postulated or inhabited.

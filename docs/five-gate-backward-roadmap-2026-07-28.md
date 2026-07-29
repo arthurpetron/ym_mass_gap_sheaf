@@ -430,22 +430,53 @@ proved constructively for the genuine physical \((K,S)\) action polynomial
     \operatorname{cornerAbsAdd}
       (133/4,\|D\|_1,n),
   \]
-  and proves that the lifted Taylor partials \(H(P^2e^{-A})\) converge to the
-  located product
+    and proves that the lifted Taylor partials \(H(P^2e^{-A})\) converge to the
+    located product
+    \[
+      e^{-133/4}H(P^2e^D).
+    \]
+
+#### 2026-07-29 reflected all-spin Peter--Weyl bridge milestone
+
+`BF4ReflectedAllSpinPeterWeylBridge` now closes the source/target
+polarization obstruction without identifying the two boundary halves:
+
+- the source and reflected target are the geometric BF4 spin-network
+  wavefunctions obtained from the 24 plaquette characters after exact
+  integration of the 18 non-transmitted chords;
+- both wavefunctions, their sum, and their difference are proved to be
+  supported on the ten quaternion blocks required by the compact Haar layer;
+- the exact rational polarization identity
   \[
-    e^{-133/4}H(P^2e^D).
+    H(PQK)=\frac14\bigl(H((P+Q)^2K)-H((P-Q)^2K)\bigr)
   \]
+  converts every finite negative-action Taylor coefficient into the genuine
+  reflected geometric double-Haar coefficient;
+- polarization of the two located diagonal limits gives a constructive
+  `CReal` source/target coefficient, and
+  `reflectedPhysicalCoefficient_equiv_geometric` identifies it with the
+  all-spin geometric Mehler Haar coefficient.
+
+`BF4ReflectedAllSpinAFRowRelative` then pins the M2 normalization theorem to
+this numerator and to the exact matched BF4 trajectory:
+`blockedWeight family (coupling scale)`,
+`matchedPhysicalSpacingBits`, and the same `CubicMarginLaw` /
+`PhysicalSpacingEnvelope` used by `physicalAFEnvelope`.
+`MatchedReflectedAllSpinAFRowCertificate.row_relative_estimate` proves the
+AF-uniform row-relative conclusion from one common rational tolerance.
+Unlike the earlier generic interface, its endpoint numerator is
+definitionally `geometricMehlerTaylorPartial` and its partition is
+definitionally the corresponding vacuum--vacuum coefficient; an unrelated
+matrix or normalizer cannot inhabit it.
 
 This closes the finite polynomial CP-order, factorial-tail, carrier
-identification, and limit-level scalar-shift obstructions.  It does **not**
-yet inhabit M1.  The remaining M1 constructor must turn the source/target
-reflection pairing for the actual all-spin BF4 boundary wavefunctions into
-this square-carrier theorem, then prove that the resulting five-holonomy
-Peter--Weyl matrix is the projected endpoint.  A general source/target entry
-is not literally an ordinary square \(P^2\); the missing bridge must retain
-the reflection/conjugation geometry rather than identify the two boundary
-halves by fiat.  After that identification, the next analytic target is the
-AF-uniform row-relative estimate of M2.
+identification, limit-level scalar shift, and reflected source/target
+Peter--Weyl identification.  It does **not** yet close M1 or M2.  The
+remaining analytic constructor is precisely the scale-uniform
+`MatchedReflectedAllSpinAFRowCertificate`: prove spectral positivity and a
+buffered physical-mean-zero Rayleigh rate for the displayed geometric
+endpoint, then give its numerator, partition, endpoint-ceiling, and physical
+marginal-payment bounds uniformly on the matched AF trajectory.
 
 ### M2. Prove the AF-uniform row-relative estimate
 

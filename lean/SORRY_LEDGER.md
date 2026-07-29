@@ -187,6 +187,37 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   inhabitant must be an explicit finite constructor, not a
   `Classical.choice` witness.
 
+### [BF4-reflected-PW-AF] reflected all-spin endpoint estimate — **OPEN ANALYTIC INPUT**
+
+- **milestone**: five-gate backward roadmap M1--M2
+- **file**:
+  `lean/YMGap/Continuum/BF4ReflectedAllSpinPeterWeylBridge.lean`,
+  `lean/YMGap/Continuum/BF4ReflectedAllSpinAFRowRelative.lean`
+- **decls**: `reflectedPhysicalCoefficient_equiv_geometric`,
+  `GeometricTaylorEndpointSpectralData`,
+  `MatchedReflectedAllSpinAFRowCertificate`,
+  `MatchedReflectedAllSpinAFRowCertificate.row_relative_estimate`
+- **obligation**: Construct `MatchedReflectedAllSpinAFRowCertificate` on the
+  physical matched trajectory by proving spectral positivity and a buffered
+  physical-mean-zero Rayleigh rate for the displayed geometric all-spin
+  endpoint, together with uniform numerator, partition, endpoint-ceiling,
+  carrier-payment, and retained physical marginal bounds.
+- **constructive or propositional**: constructive — the order schedule,
+  rational partitions, common tolerance, spectral rates, and every
+  scale-indexed analytic budget are `Type`-level data.
+- **status**: open analytic instantiation.  The source/target obstruction is
+  closed: exact rational polarization identifies every finite reflected
+  physical Taylor coefficient with the 24-plaquette all-spin geometric
+  coefficient, and polarization of the two located diagonal limits gives
+  the corresponding `CReal` endpoint.  The AF consumer is also closed and
+  pinned definitionally to `geometricMehlerTaylorPartial`, its
+  vacuum--vacuum partition, the exact blocked weight, the matched moving
+  cutoff, and the physical spacing envelope.  No value of
+  `MatchedReflectedAllSpinAFRowCertificate` is yet defined.
+- **must not be closed classically**: per `AGENTS.md` Rule 6; a future
+  inhabitant must supply explicit rational moduli and witnesses rather than
+  a selected spectral bound.
+
 ### [SU2-Faraut-interior] constructive image-kernel Harnack certificate — **OPEN ANALYTIC INPUT**
 
 - **milestone**: completed SU(2) retained-kernel Harnack / general-nome

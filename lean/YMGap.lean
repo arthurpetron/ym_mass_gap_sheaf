@@ -1105,6 +1105,8 @@ import YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
 import YMGap.Continuum.BF4SU2FixedMagneticPhysicalHSCauchy
 import YMGap.Continuum.BF4WeightedJointPerronPerturbation
 import YMGap.Continuum.BF4AFUniformRowRelativeBudget
+import YMGap.Continuum.BF4ReflectedAllSpinPeterWeylBridge
+import YMGap.Continuum.BF4ReflectedAllSpinAFRowRelative
 import YMGap.Continuum.BF4FiveHolonomyNormalizedKernel
 import YMGap.Continuum.BF4GeometricSpinNetworkMehler
 import YMGap.Continuum.BF4GeometricHaarMehlerProjection
