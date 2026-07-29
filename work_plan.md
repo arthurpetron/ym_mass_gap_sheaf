@@ -27533,3 +27533,107 @@ tau'/tau windows at depth 2 under both MD.1 matchings against the
 evaluator lands.  (P3) the atlas-adequacy statement now has both
 instruments: envelope on (s*, 1) with s* = e^{-2^-44}, iterated
 windows on the anchor side.
+
+## §17e (2026-07-29): P2 CONTINUED — the depth-2 sign certified on the WHOLE CERT grid by the SOS/Lagrange route; entry-level OS Gram (mirror-pinned to the conjugated form); the crude closure upgraded to a theorem
+
+Executes §17d's next-attack item (1) — and supersedes its mechanism:
+the sign at 11/20 and 9/16 did NOT need the background diagonal
+lane.  Artifacts: computations/p2_iterated.py (§17e layers in
+place), regenerated p2_iterated_results.json, tests/test_p2_iterated
+(7 tests), notes/p2-iterated-windows.md §17e.
+
+**The SOS/Lagrange route (structural).**  T_2 = T^2 is the Gram
+matrix of the one-step rows, so the two-step determinant is an
+EXACT sum of squares of one-step 2x2 minors (Lagrange/Cauchy-Binet,
+absolutely convergent under the dominated per-index bounds):
+
+    det_2 = T2_00 T2_11 - T2_01^2 = sum_{k<l} M_kl^2,
+    M_kl  = T[0,k] T[1,l] - T[0,l] T[1,k].
+
+Every term is >= 0, so any finite minor family is a certified lower
+bound — and the LEADING minor M_01 = T00 T11 - T01^2 is exactly the
+one-step X11 object, certified positive on the whole §16l grid.
+With X^(2) = log(1 + det_2/T2_01^2):
+
+    r_lo = 1 + max(0, M01_lo)^2 / T2_01_hi^2 > 1
+
+at EVERY grid point — the one-step gap converts directly into the
+two-step sign, no new Haar values consumed.  The same identity with
+per-index upper bounds U(j) (windows k <= 2, dominated 3..8, crude
+l >= 9) gives the magnitude upper bound.
+
+**Certified depth-2 collapse curve (final combined windows, X^(2)):**
+1/2: [2.077e-8, 2.148e-8] (33x tighter than §17d); 11/20:
+[2.519e-7, 1.671e-5] SIGN NEW; 9/16: [4.585e-7, 1.884e-4] SIGN NEW;
+4/7: [6.963e-7, 1.055e-3] new point; 3/5: [1.909e-6, 3.008e-1] new
+point; 61/100: [9.534e-9, --] sign only; 8/13: [2.665e-15, --] sign
+now certified.  Depth-2 magnitude separation SU2 << U1 certified at
+FOUR points (1/2, 11/20, 9/16, 4/7), extending §17d's single point
+— the certified onset of the gapped-vs-Coulomb trajectory signature
+along the anchor side.
+
+**Entry-level OS Gram — and the mirror fence earning its keep.**
+The slab weight factorizes across the reflection plane (W =
+W_qw W_top W_bot), so the banked §16h config-level OS/CS lemma sums
+bilinearly over the shared (q, w) sectors: T is an OS Gram matrix
+and |T[n,j]| <= sqrt(T[n,n] T[j,j]).  This breaks the §17e
+magnitude wall dom(1,3) = 9.8e-5 -> 5.5e-7 at 11/20 (the (0,3)
+minor was the entire det_2 upper-bound budget).  THE U(1) LANE
+REFUTED THE NAIVE FORM: on the exact theta kernel Qmin(n,m) =
+3n^2+3m^2+2nm gives T[1,3]^2 ~ s^72 >> s^80 ~ T[1,1]T[3,3] —
+aligned charges cost MORE on the slab (B^T u = -B^T w: the two disk
+sources drive the flip lattice oppositely), so the raw matrix is
+NOT PSD.  The OS reflection reverses the boundary loop: the Gram
+object is T[nbar, m], and conjugating one side restores CS exactly
+(Qmin(-1,3) = 24: s^48 <= s^40).  SU(2) is self-conjugate
+(chi_nbar = chi_n), so the sharpening consumed by u_abs_bound is
+sound as stated.  Gated exactly on the abelian lane in conjugated
+form WITH a teeth check (the unconjugated form must fail — it
+does).
+
+**The crude closure is now a theorem, not a convention.**  The
+corner floor satisfies the convexity sandwich f_real(k) <= f(k) <=
+f_real(k) + 3 with f_real = (2k^2+8k-1)/3 (real minimizer q* =
+(k-1)/3, g'' = 6, integer offset <= 1; instances asserted at every
+evaluation), hence df(k) >= (4k+1)/3 for EVERY k, hence the uniform
+cube-ratio bound (c(l+1)/c(l))^3 <= ((L+2)/(L+1))^3 64
+(4s^3)^{ceil((4L+1)/3)} — exact rational arithmetic throughout.
+The adaptive anchor L(s) (smallest L with ratio-cube <= 1/8; L = 9
+at s = 1/2 ... 67 at 8/13) makes every l >= 9 closure an exact
+segment sum plus a geometric tail with ratio <= 1/2, valid for the
+WHOLE tail.  (The first §17e attempt asserted per-l halving of
+single crude values — REFUTED at s = 3/5, and the checked-max-ratio
+variant refuted at 61/100 by genuinely increasing steps from the
+4-power floor jumps; the convexity route closes it for good.)
+
+**Repairs (honesty first).**  (R1) §17d's T_2 LOWER bounds dropped
+possibly-negative straddling k <= 2 terms and the k >= 3 tail on
+the off-diagonal lo side — sound on the diagonal (squares), not on
+T2_01.  Repaired via exact interval products + tail subtraction;
+effect ~6e-10 absolute at 11/20, below every banked digit; ledger
+regenerated.  (R2) crude_high_k closed its label sums with
+sum_pow2(0, s); re-anchored at K = 4 (same certified quantity,
+strictly tighter): ~7 orders at s = 8/13.
+
+**Gates 9/9 green**: g_qmin, g_hk, g_lagrange (the identity
+replayed exactly on rationals through the minor code path), g_oscs
+(conjugated, both lanes, with teeth), g_u1_law (four-digit tau/3),
+g_sign (full grid), g_consist (SOS and entrywise routes intersect
+everywhere), g_scale, g_separation (four points).  Tests
+test_p2_iterated 7/7 (129 s); test_cs_tail 6/6 unaffected; no other
+module imports p2_iterated (checked).  Cloud verification;
+Mac-side run not claimed.
+
+**What binds the magnitudes now, ranked**: (1) the (0,3) minor
+through dom(3,3) — the first named consumer for the recoupling
+evaluator / any landed (3,3)-class diagonal; (2) the (0,2)/(1,2)
+crude entry windows (label-less (2,2) unreached masses); (3) the
+l >= 9 crude closure, only at 61/100 and 8/13.
+
+**Next attack.**  (1) The matched-flow consumer: tau'/tau at depth
+2 under both MD.1 matchings against the §17c envelope — both
+instruments now certified two-sided on 1/2..4/7.  (2) The
+thickness-2 census (blocking-vs-stacking defect) when the
+recoupling evaluator lands, whose gate set now includes the
+(3,3)-class diagonal binding the depth-2 magnitude.  (3) P3
+atlas-adequacy.
