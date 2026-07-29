@@ -296,6 +296,22 @@ identification on the physical marginal-mean-zero subspace.  A raw
 normalized matrix is deliberately never subjected to the false global
 quarter bound because it contains the vacuum eigenvalue one.
 
+The Peter--Weyl endpoint interface is now exact at the constructive
+finite-dimensional level.  `BF4CentralPositivePeterWeylEndpoint` proves the
+fundamental rational-complex \(\mathrm{SU}(2)\) Haar Schur table and exhibits
+a negative matrix coefficient, then defines nonvacuous all-spin boundary and
+double-Haar endpoint-projection targets on the literal physical labels.
+`BF4SymmetricReferenceOperatorComparison` therefore treats the projected
+endpoint as the signed symmetric positive-semidefinite operator it naturally
+is; its weighted quarter consumer does not require an entrywise-positive
+endpoint law or a matching endpoint marginal.
+`BF4AFUniformRowRelativeBudget` completes the cross-numerator,
+numerator/partition, carrier-growth, marginal-floor, and AF-family algebra
+feeding that consumer.  The unproved inputs are now purely analytic and
+physical: the actual normalized five-holonomy endpoint kernel, the all-spin
+BF4 boundary wavefunctions, their spectral certificate, and uniform
+Yang--Mills estimates inhabiting the displayed budgets.
+
 **Ledger state.** The `YMGap` library builds sorry-free (`lake build`
 reports zero `declaration uses 'sorry'`; see `SORRY_LEDGER.md`, whose
 remaining entries are closure records and named-hypothesis

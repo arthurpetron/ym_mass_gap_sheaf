@@ -93,9 +93,26 @@ obey
   \leq\varepsilon\sum_x\pi(x)f(x)^2.
 \]
 It also identifies the physical Markov quadratic exactly with the normalized
-physical Choi joint quadratic and packages the remaining endpoint data as
-`CentralPhysicalMehlerComparison`.  Thus M3 below is proved; M1--M2 must now
-inhabit that interface.
+physical Choi joint quadratic.
+
+The Peter--Weyl/AF interface has since been sharpened in three modules:
+
+- `BF4CentralPositivePeterWeylEndpoint` constructs the exact rational-complex
+  fundamental \(\mathrm{SU}(2)\) matrix coefficients, proves their Haar Schur
+  table, and proves an explicit coefficient is negative.  It then states
+  nonvacuous all-spin boundary-transform and double-Haar endpoint-projection
+  targets on `centralPositiveHalfStates`.
+- `BF4SymmetricReferenceOperatorComparison` records the mathematically
+  natural output of that projection: a signed symmetric positive-semidefinite
+  matrix with a physical-mean-zero Rayleigh bound.  Its direct weighted
+  consumer needs neither entrywise positivity nor an endpoint marginal.
+- `BF4AFUniformRowRelativeBudget` proves the complete division-free
+  cross-numerator, numerator/partition, carrier-growth, marginal-floor, and
+  AF-family bookkeeping needed to construct the row-relative comparison.
+
+Thus M3 is complete in the stronger signed-operator form, and the finite
+normalization part of M2 is complete.  M1 and the genuinely
+Yang--Mills-specific estimates required to inhabit M2 remain open.
 
 ## 3. Dijkstra convention
 
@@ -317,7 +334,7 @@ After all fields are produced on the same trajectory, assembly is cost 1.
 This is the current priority queue head because it feeds the spectral,
 cluster, true-margin, and physical-RG branches.
 
-### M1. Define the distinct weighted endpoint Mehler object
+### M1. Define the distinct weighted endpoint Mehler object — INTERFACE COMPLETE
 
 Construct a cutoff-indexed Gaussian endpoint kernel by taking the quadratic
 BF4 action on the **same retained boundary coordinates** as
@@ -336,29 +353,32 @@ labellings.  Therefore the next construction must do one of the following:
    five class coordinates and prove that pulling the Gaussian joint law back
    through this transform preserves all retained observables.
 
-The first route is preferred because it produces a joint kernel directly on
-the physical carrier and makes the marginal calculation explicit.  An
-arbitrary refresh matrix, identity kernel, or renamed physical joint law does
-not resolve this mismatch.
+The first route is implemented as a nonvacuous witness-bearing target in
+`BF4CentralPositivePeterWeylEndpoint`.  The exact fundamental
+matrix-coefficient calculation also proves that a Peter--Weyl coefficient
+can be negative.  Consequently the projection naturally produces a signed
+symmetric positive-semidefinite operator, not automatically an
+entrywise-positive Markov joint law.  An arbitrary refresh matrix, identity
+kernel, or renamed physical joint law does not resolve the mismatch.
 
 Required data:
 
-- a Mehler joint kernel \(J^M_{K,a}(x,y)\);
-- its marginal \(\pi^M_{K,a}\);
-- the corresponding conditional kernel \(M_{K,a}(x,y)\);
-- positivity, normalization, detailed balance, and constant preservation;
-- a mean-zero carrier compatible with the physical carrier.
+- an actual normalized five-holonomy Gaussian/Mehler kernel;
+- the all-spin BF4 boundary spin-network wavefunctions and their exact
+  fivefold Haar pairing;
+- the genuine double-Haar projected matrix
+  \(M_{K,a}(x,y)\) on the retained labels;
+- symmetry, quadratic-form positivity, and a located Rayleigh bound on the
+  physical marginal-mean-zero carrier.
 
 The endpoint object must be distinct from the nonlinear physical matrix. A
 renaming of the physical kernel, the identity matrix, or an arbitrary
 normalized Gaussian matrix is not an endpoint construction.
 
-The preferred strongest interface is to prove
-\[
-  \pi^M_{K,a}=\pi^{\mathrm{phys}}_{K,a}.
-\]
-If exact equality is false, carry an explicit marginal comparison and include
-its error in the perturbation theorem.
+Entrywise positivity, an endpoint marginal, and positive refined-channel
+lumping are optional stronger data.  If they are available, they recover the
+older Markov-joint interface.  They are not needed by the direct symmetric
+operator comparison.
 
 ### M2. Prove the AF-uniform row-relative estimate
 
@@ -367,9 +387,19 @@ and AF-window spacing \(a\), construct a cutoff \(K\geq K_0\) such that every
 retained source row satisfies
 \[
   \sum_y
-  \left|J^{\mathrm{phys}}_{K,a}(x,y)-J^M_{K,a}(x,y)\right|
+  \left|J^{\mathrm{phys}}_{K,a}(x,y)-M_{K,a}(x,y)\right|
   \leq\varepsilon\,\pi^{\mathrm{phys}}_{K,a}(x).
 \]
+
+Here \(M\) may be signed.  `BF4AFUniformRowRelativeBudget` proves that it is
+enough to bound the division-free cross numerator
+\[
+ N_{\mathrm{phys}}(x,y)Z_M-N_M(x,y)Z_{\mathrm{phys}}
+\]
+and pay the resulting source-dependent entry budget against
+\(\varepsilon\pi^{\mathrm{phys}}(x)\) after multiplying by the full retained
+carrier size.  It also derives this cross estimate from separate numerator
+and partition errors plus an absolute endpoint-numerator ceiling.
 
 This is strictly stronger in the relevant direction than an unweighted
 `\(\varepsilon/N\)` matrix estimate.  A plain bound
@@ -387,7 +417,7 @@ one of the weighted forms
 or combine an absolute entry estimate with an explicit AF-uniform positive
 lower bound for every retained marginal.
 
-If conditional comparison is needed independently, prove
+If the optional Markov-joint interpretation is needed independently, prove
 \[
   \left|P^{\mathrm{phys}}_{K,a}(x,y)-M_{K,a}(x,y)\right|
   \leq \frac{\varepsilon}{N_{K_0}}
@@ -405,8 +435,8 @@ The proof must expose:
 - the AF spacing/coupling window on which all four estimates are uniform.
 
 The existing degree-thirteen all-label cutoff modulus and physical cutoff
-Cauchy theorem supply the nonlinear-tail half. The new content is the
-quadratic remainder and the normalization/marginal comparison.
+Cauchy theorem supply the nonlinear-tail half. The new analytic content is
+to inhabit the displayed budgets uniformly along the genuine AF trajectory.
 
 ### M3. Prove the correct weighted perturbation lemma — COMPLETE
 
@@ -432,17 +462,21 @@ must be constructed:
    transport back to the rational physical carrier.
 
 Route 2 is implemented in
-`lean/YMGap/Continuum/BF4WeightedJointPerronPerturbation.lean`.
+`lean/YMGap/Continuum/BF4WeightedJointPerronPerturbation.lean` and extended
+to signed Peter--Weyl reference operators in
+`lean/YMGap/Continuum/BF4SymmetricReferenceOperatorComparison.lean`.
 The theorem
 `finiteJointQuadratic_abs_sub_le_weightedSquare` proves the sharp
 row-relative estimate using finite `Q'` sums and
 \(2|f(x)f(y)|\leq f(x)^2+f(y)^2\).
 `centralPhysicalWeightedMarkovQuadratic_eq_joint` identifies the exact
 physical Markov quadratic with the normalized Choi joint law.
-`CentralPhysicalMehlerComparison.physical_markov_quadratic_abs_le_quarter`
-is the completed consumer: an endpoint rate plus row-relative error at most
-\(1/4\) yields the physical quarter bound.  The axiom audit contains only
-`propext` and `Quot.sound`.
+The `physical_markov_quadratic_abs_le_quarter` theorem in
+`CentralPhysicalSymmetricReferenceComparison` is the primary completed consumer:
+an endpoint rate plus row-relative error at most \(1/4\) yields the physical
+quarter bound.  The older `CentralPhysicalMehlerComparison` is recovered
+only when a separate entrywise-positive joint-law certificate exists.  The
+axiom audit contains only `propext` and `Quot.sound`.
 
 ### M4. Identify the physical non-vacuum Perron quantity
 
@@ -650,9 +684,9 @@ The next executable theorem queue is:
 
 | Priority | Theorem-sized deliverable | Why it is next |
 |---:|---|---|
-| 0 | Peter--Weyl matrix-coefficient transform from the five-holonomy Gaussian endpoint to `centralPositiveHalfStates` | This is the exact missing map between the existing Gaussian coordinates and physical labels |
-| 1 | Distinct marginal-matched endpoint Mehler joint kernel on `centralPositiveHalfStates` | The weighted endpoint fields are now stated exactly by `CentralPhysicalMehlerComparison` |
-| 2 | AF-uniform numerator/partition/marginal row-relative estimate | This is the remaining Yang--Mills estimate needed by the proved weighted consumer |
+| 0 | Actual normalized five-holonomy Mehler kernel plus all-spin BF4 boundary wavefunctions inhabiting `CentralPositiveBoundaryPeterWeylTransform` and `CentralPositiveGaussianEndpointProjection` | The exact transform target and fundamental Schur calculation now exist; these are its missing analytic witnesses |
+| 1 | Endpoint quadratic-form positivity and physical-mean-zero spectral certificate | This turns the genuine projected matrix into `CentralSymmetricReferenceOperator` without a false entrywise-positivity assumption |
+| 2 | AF-uniform cross-numerator or numerator/partition/marginal-floor budget | The finite normalization theorem is proved; the remaining work is the Yang--Mills estimate inhabiting it |
 | 3 | Endpoint mean-zero rate plus physical `q ≤ 1/4` and `C_s² q^(m-2) < 1` | Closes the present BF4 obstruction |
 | 4 | Linked BF4 trajectory + physical cubic AF law + spacing envelope | Makes the already-proved AF floor theorem genuinely physical |
 | 5 | Per-mode shift, per-scale bridge, `SpectralMarginInput`, and physical true-margin recursion | Opens the direct paths to the floor, Tier-0 Sub-wall B, and FrontierDAG |
@@ -666,10 +700,12 @@ The next executable theorem queue is:
 The next major milestone is reached when Lean contains, with no new axiom,
 `sorry`, classical choice shortcut, or surrogate matrix:
 
-1. a distinct endpoint Mehler kernel on the exact fixed magnetic BF4 carrier;
+1. a distinct endpoint Mehler kernel and its genuine double-Haar
+   Peter--Weyl projection on the exact fixed magnetic BF4 carrier;
 2. the AF-window row-relative estimate with explicit cutoff, carrier, and
    marginal compensation;
-3. an inhabitant of the now-proved weighted physical comparison interface;
+3. an inhabitant of the signed symmetric weighted physical comparison
+   interface;
 4. `centralPhysical_perronRatio_le_quarter`;
 5. the physical specialization of
    \(C_{s(a)}^2q_{s(a)}^{m(a,L)-2}<1\).
@@ -685,9 +721,10 @@ edge.
 The route must be revised, not cosmetically patched, if any of the following is
 proved:
 
-- the quadratic endpoint kernel is not positive on the enlarged carrier;
-- physical and Mehler positive-row carriers cannot be compared with a uniform
-  marginal bound;
+- the projected endpoint fails quadratic-form positivity on the enlarged
+  carrier;
+- the signed endpoint matrix cannot be compared row-relatively to the
+  physical matrix against the physical marginal;
 - the required entry error cannot dominate carrier growth on the AF window;
 - the weighted non-vacuum Rayleigh quotient is not controlled by the proposed
   HS metric;

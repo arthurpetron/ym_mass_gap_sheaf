@@ -15092,6 +15092,59 @@ domination, the exact weighted vacuum/mean-zero geometry, and the complete
 weighted perturbation consumer.  It does not claim an inhabitant of the
 distinct Mehler comparison or the \(q\le1/4\) physical contraction.
 
+## Peter--Weyl endpoint and AF row-relative interface milestone (2026-07-28)
+
+Three new constructive modules now isolate the exact remaining analytic
+input without assuming that Fourier matrix coefficients form a probability
+table.
+
+`BF4CentralPositivePeterWeylEndpoint` constructs rational-complex
+spin-\(1/2\) matrix coefficients on the rational unit-quaternion
+\(\mathrm{SU}(2)\) carrier and proves their exact product-Haar Schur table.
+It also proves that a fundamental coefficient takes the value \(-1\) at the
+central element \(-1\).  This rules out the shortcut from
+positive-semidefinite Peter--Weyl operator to entrywise-positive joint law.
+The module then defines nonvacuous, witness-bearing targets for the genuine
+all-spin BF4 boundary expansion and the double-Haar projection of an actual
+five-holonomy endpoint kernel.  Haar normalization forces every retained
+expansion to be nonempty, while the pinned generalized tangent precision
+forces the endpoint kernel to be nonzero.
+
+`BF4SymmetricReferenceOperatorComparison` introduces the correct primary
+carrier for that projection: a signed symmetric positive-semidefinite
+reference matrix with a physical-marginal-mean-zero Rayleigh estimate.  The
+physical quarter consumer is proved directly from a row-relative comparison;
+it does not require entrywise positivity, an endpoint marginal, or a
+conditional endpoint Markov kernel.  A positive refined-channel lumping and
+the older joint-law interface remain available as optional stronger data.
+
+`BF4AFUniformRowRelativeBudget` proves the normalization algebra required to
+build that comparison.  It controls normalized entries through the
+division-free cross numerator
+\[
+  N_{\rm phys}Z_M-N_MZ_{\rm phys},
+\]
+derives this bound from separate numerator and partition errors plus an
+absolute endpoint-numerator ceiling, pays complete carrier growth against a
+source-dependent physical marginal floor, packages the construction
+uniformly over an AF scale family, and feeds it into the already-proved
+rate-plus-error quarter theorem.
+
+This closes the finite-dimensional Peter--Weyl/normalization interface, not
+the Yang--Mills estimate itself.  The next genuine inputs are:
+
+1. the normalized five-holonomy Mehler/Feynman--Kac kernel;
+2. the all-spin BF4 boundary spin-network wavefunctions and exact fivefold
+   Haar synthesis;
+3. quadratic-form positivity and a physical-mean-zero spectral rate for the
+   resulting double-Haar projected matrix;
+4. AF-uniform numerator, partition, endpoint-ceiling, and physical
+   marginal-floor witnesses inhabiting the proved row budget.
+
+Only those physical witnesses can produce the unconditional
+\(q\leq1/4\) theorem and then
+\(C_{s(a)}^2q_{s(a)}^{m(a,L)-2}<1\).
+
 # 2026-07-28 — Five-gate backward roadmap from the physical BF4 carrier
 
 **Status.** PLANNED, with the current node and every terminal gate pinned to
