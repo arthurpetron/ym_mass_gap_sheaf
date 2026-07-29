@@ -1111,6 +1111,7 @@ import YMGap.Continuum.BF4ReflectedAllSpinMehlerGramEndpoint
 import YMGap.Continuum.BF4ReflectedAllSpinMehlerGramAFRow
 import YMGap.Continuum.BF4ReflectedAllSpinTaylorRankOneEndpoint
 import YMGap.Continuum.BF4CanonicalFiniteNumeratorPartitionBudget
+import YMGap.Continuum.BF4CanonicalFiniteMehlerGramSpectralBudget
 import YMGap.Continuum.BF4FiveHolonomyNormalizedKernel
 import YMGap.Continuum.BF4GeometricSpinNetworkMehler
 import YMGap.Continuum.BF4GeometricHaarMehlerProjection

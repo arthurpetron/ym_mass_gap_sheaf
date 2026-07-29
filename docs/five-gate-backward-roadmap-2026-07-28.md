@@ -528,6 +528,29 @@ M2 must now use a genuinely centered sharper Rayleigh estimate or the higher
 positive-Gram endpoint, together with a spacing-uniform bound on its exact
 physical comparison budget.
 
+`BF4CanonicalFiniteMehlerGramSpectralBudget` now implements both of those
+fixed-scale choices simultaneously.  For the positive feature-word Gram
+\(M\), it removes the exact physical vacuum joint
+\(V(x,y)=\pi(x)\pi(y)\).  The physical mean-zero equation makes the
+\(V\)-quadratic vanish exactly.  A constructive maximum over the retained
+carrier then gives
+\[
+  r_{\rm cen}
+  =\max_x\frac{\sum_y|M(x,y)-V(x,y)|}{\pi(x)},
+\]
+and the weighted Schur--Young theorem proves the corresponding Rayleigh
+bound.  Thus `MehlerGramEndpointSpectralData` no longer needs an arbitrary
+fixed-scale spectral witness.  The module also instantiates the exact finite
+numerator/partition budget and specializes both objects to the literal
+matched BF4 coordinates.
+
+The live M2 scalar is therefore
+`matchedExactCenteredMehlerGramQuarterCostAt`, definitionally
+\(r_{\rm cen}+\varepsilon_{\rm fin}\).  Its bound by \(1/4\), uniformly in
+the spacing along an inhabited physical `CubicMarginLaw` /
+`PhysicalSpacingEnvelope`, is the next Yang--Mills estimate; the fixed-scale
+finite-dimensional spectral and comparison data are now constructed.
+
 ### M2. Prove the AF-uniform row-relative estimate
 
 For every physical tolerance \(\varepsilon>0\), retained base cutoff \(K_0\),

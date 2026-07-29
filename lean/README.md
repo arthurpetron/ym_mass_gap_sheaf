@@ -350,6 +350,24 @@ centered cancellation or the higher positive-Gram endpoint; the still-open
 analytic task is spacing-uniform smallness of the exact physical comparison
 budget for that sharper endpoint along the genuine AF trajectory.
 
+`BF4CanonicalFiniteMehlerGramSpectralBudget` constructs that sharper
+fixed-scale spectral datum.  It subtracts the exact physical vacuum joint
+\(V(x,y)=\pi(x)\pi(y)\), proves its quadratic form vanishes on the physical
+\(\pi\)-mean-zero carrier, and defines the executable centered Schur rate
+\[
+  r_{\rm cen}
+  =\max_{x\in S}
+    \frac{\sum_{y\in S}|M(x,y)-\pi(x)\pi(y)|}{\pi(x)}.
+\]
+Every denominator is positive by membership in `centralPositiveHalfStates`.
+The resulting positive-Gram `MehlerGramEndpointSpectralData`, its raw
+endpoint, and its complete exact finite comparison budget are unconditional
+constructive definitions.  On the literal matched BF4 coordinates, the
+remaining quarter problem is now the single explicit rational sequence
+`matchedExactCenteredMehlerGramQuarterCostAt = r_cen + epsilon_fin`.
+Proving that sequence at most \(1/4\) uniformly along the genuine AF
+trajectory remains open.
+
 **Ledger state.** The `YMGap` library builds sorry-free (`lake build`
 reports zero `declaration uses 'sorry'`; see `SORRY_LEDGER.md`, whose
 remaining entries are closure records and named-hypothesis
