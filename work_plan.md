@@ -27081,3 +27081,168 @@ fix).  Next attack: (1) the hard residuals / recoupling evaluator;
 (2) Lean-side: DomTransfer + geometric tails in-kernel (removes
 the largest transcribed literal), then the iterated-map windows;
 (3) the D4 cost-anisotropy explanation.
+
+## §17 — Dijkstra from the Clay gates: route audit and reprioritization (2026-07-29)
+
+This section re-runs the backward search of the 2026-07-20
+completion-first graph from scratch — starting at the literal Clay
+gates, relaxing backward over theorem-space with known proof
+technologies as edges — and compares the geodesic it finds against
+the current execution front (§§15–16l).  It supersedes the §16l
+next-attack list as the priority ranking; it does not modify any
+guarded statement, milestone definition, or honesty verdict.  The
+2026-07-20 C-graph and the 2026-07-26 route-forward synthesis both
+survive this audit intact; what changes is the ORDER of attack
+inside the MD program and the allocation of Lean effort.
+
+Web usage note (campaign fence respected): public search was used
+only for standard published methods and their endpoints — the
+Balaban/Dimock UV-stability literature, the constructive-YM survey
+material in Chatterjee's free-energy paper, Osterwalder–Seiler
+reflection positivity, and the abelian 4D Coulomb-phase anchors
+(Guth, Fröhlich–Spencer) grounding the U(1) discriminator.  It was
+NOT used to search for a solution to the problem or to adjudicate
+its status; encountered items claiming full solutions were not
+read, per the prompt.
+
+### 17.1 The gate graph, refreshed
+
+Backward from the boxed terminal statement:
+
+    G0  terminal: for every compact simple G — existence on R^4 at
+        Wightman/OS strength + mass gap Delta > 0, machine-checked,
+        axiom-clean.                                  [= C0, MISSING]
+    G1  OS reconstruction + physical spectral pin: reflected
+        positive-time carrier, semigroup, generator, located edge.
+        Technology STANDARD (OS I/II, GNS); constructive port is
+        ENGINEERING, not research risk.       [= C4/C5, interfaces]
+    G2  two-parameter continuum limit of the Schwinger family with
+        uniform clustering: standard MODULO its inputs; all risk
+        imported from G3.                                   [= C6a]
+    G3  THE volume- and spacing-uniform physical-units gap.
+        Feeds from three regimes:                        [= C6b–f]
+          G5  IR anchor (strong coupling): located gap window
+              [0, 2^{-1/3}), OS/Seiler technology — CLOSED at
+              fixed spacing, unconditional.
+          G6  UV envelope (s -> 1): the literature's endpoint here
+              (Balaban 1983–89; Dimock's re-derivation; MRS;
+              Federbush) is UV STABILITY OF THE PARTITION FUNCTION
+              on the torus — free-energy bounds only.  It does NOT
+              deliver correlators, a gap, or the continuum
+              Schwinger family, and the surveyed field stalled on
+              exactly that.  The program's reduction of this gate
+              to a TWO-SIDED MARGINAL ENVELOPE on a derived
+              finite-dimensional flow map (MD.3) is therefore a
+              genuine shortening IF the envelope lemma is
+              provable; BF4 §9's necessity theorem shows no route
+              avoids some trajectory hypothesis.
+          G4  crossover (weak -> strong): NO published technology
+              crosses it; strong-coupling gaps and weak-coupling
+              stability have coexisted unconnected since the
+              1980s.  The three-regime decomposition (anchor /
+              compact Sturm atlas / marginal envelope) remains,
+              on this audit, the shortest known path — the
+              program's own contribution, still unpublished
+              anywhere else as far as the fence permits knowing.
+    G7  all-group uniformity: R1 worst-case spine to SU(2) (built,
+        modulo the character-tail interface debt) + the (h_vee,
+        Delta) parameterized defect coefficient.            [= C1]
+    G8  nontriviality / local fields / stress tensor / OPE / AF
+        asymptotics: real obligations, downstream CONSUMERS of the
+        same tower (BF7–BF10).                          [= C2, C3]
+
+Geodesic: G5 (closed) + MD.2/MD.3 envelope (G6) + MD.4 atlas (G4)
+-> (TS) -> five-holonomy Perron budget -> G3 -> G2 -> G1 -> G0,
+with G7 riding the R1 spine and G8 consuming the tower.  This is
+the route the plan already holds.  The audit's findings are about
+WHERE ON IT the effort currently sits.
+
+### 17.2 Findings — where execution left the geodesic
+
+**F1 (order inversion in the middle regime).**  MD.4's atlas is
+defined by its RIGHT edge s_* — the validity edge of the MD.3
+envelope — which does not exist yet, because the envelope lemma
+has not been attacked.  Meanwhile §§16h–16k marched the atlas's
+LEFT edge (s = 1/2 -> 8/13 CERT) at a cost per Delta-s that grows
+exponentially (the evaluation wall; the §16j Rust engine bought
+one increment, the §16k sweep another).  Dijkstra's rule: never
+push the expensive frontier before the cheap defining edge is
+placed.  The certified one-step atlas at s <= 8/13 is ALREADY
+sufficient anchor-side overlap for any plausible s_*; further
+mechanical s-marching is off-geodesic beyond ~31/50.
+
+**F2 (missing edge: one-step windows are not the (TS) object).**
+(TS) constrains the TRAJECTORY — iterated blocking — while every
+certified window so far is one blocking step deep.  The iterated
+map (blocked kernel of the blocked kernel, same window machinery)
+has been queued since §16j as "the dichotomy instrument proper"
+and has slipped behind mechanical sweeps three times.  It is the
+actual edge between the atlas and (TS).
+
+**F3 (the envelope gap is the certified-domain gap).**  §16j
+recorded it precisely: the certified instrument reaches tau =
+0.51 while the tau-series (tau^2 + tau^3 exact law, §16g) is
+useful only for tau <~ 0.3, and the domains do not overlap.  The
+MD.3 envelope lemma IS the closure of this gap: a certified
+remainder bound for the series (eps_img-style, §16g already built
+the per-face image certificate) meeting the certified windows.
+This is the one place Balaban-grade hardness now concentrates,
+and it is currently receiving zero attention.
+
+**F4 (Lean allocation).**  OSCSLedger + WindowLedger (§§16k–16l)
+are the right transport discipline, but their remaining wiring
+TODOs (tails in-kernel, Haar-spine rederivation of N) deepen
+already-certified layers — engineering with no G4 shortening.
+The geodesic Lean items are MD.5's: the AFEnvelope inhabitant
+path, the atlas-adequacy lemma STATEMENT, and gen_md_lean.py.
+
+**F5 (idle hedge lane).**  G1 is on the critical path, independent
+of G4, and pure engineering — and is currently idle.  If G4
+lands, G1 instantly becomes the bottleneck.  A low-intensity
+standing lane (PositiveTimeOSRoot semigroup/generator
+formalization; the R1 character-tail interface debt for G7)
+converts dead waiting time into critical-path progress at zero
+cost to the front line.
+
+### 17.3 The reprioritized queue (supersedes §16l's list)
+
+    P1  MD.2-weak + MD.3: the s -> 1 envelope.  Certify the
+        series remainder (eps_img technology on the tau^3 law;
+        both MD.1 matchings; U(1) mirror in the same harness;
+        scheme-covariance check) and extract the two-sided
+        envelope 1 < tau'/tau <= 1 + c*tau with explicit
+        rational (c, s_*).  THE front-line item.
+    P2  Iterated-map windows: the certified-window machinery on
+        the twice-blocked kernel at s in the banked atlas range;
+        first certified statement about the TRAJECTORY, and the
+        consumer-side test of P1's envelope.
+    P3  Overlap closure: chain P2's iterated windows to P1's s_*
+        (the atlas-adequacy lemma, stated then proved).  MD.4
+        completes here — by meeting s_*, not by marching s.
+    P4  MD.5: AFEnvelope inhabitant -> BareAFImpliesLinearFloor
+        -> (TS) -> five-holonomy Perron budget.  ALL new Lean
+        effort lands here (gen_md_lean.py in the spike
+        convention) until P1–P3 move.
+    P5  Standing hedge lane (low, steady): G1 semigroup/generator
+        engineering; R1 character-tail interface.
+    P6  Background only (CPU, not attention): the 20 residual
+        hard diagonals; the recoupling evaluator (promote only if
+        P2 hits the evaluation wall at depth 2); Pin- DECIDER
+        (shaft 2, capped).
+
+    De-prioritized explicitly: one-step s-marching beyond 31/50;
+    new certificate layers over already-certified strata; DP
+    strata enumeration; BF5 grading.  Each waits on P1–P4.
+
+### 17.4 Fences (restated for the new front)
+
+The U(1) mirror runs at every P1/P2 stage (4D compact U(1) is in
+its Coulomb phase at weak coupling — any mechanism blind to the
+group proves false statements; the exact c_SU2 - c_U1 = +21/8
+separation at order tau^2 is the model of admissible evidence).
+Scheme covariance of the envelope sign across both MD.1 matchings.
+The anti-loop rule: P1's deliverable is a certified envelope with
+explicit rationals, not a renamed (TS).  No-circularity: the scale
+is set by observable matching, never by the desired mass.  Budget
+misses recorded as UNREACHED, never consumed.  All prior guarded
+statements unchanged.
