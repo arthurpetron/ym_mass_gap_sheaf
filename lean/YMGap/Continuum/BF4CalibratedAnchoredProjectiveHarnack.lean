@@ -278,6 +278,88 @@ def calibratedEmptyRightAnchoredProjective
   spreadSquare_le := spreadSquare_le
   projective := projective
 
+/-- **Grouped positive-kernel constructor for the BF4 right profile.**
+
+If the calibrated right profile and physical marginal are two nonzero
+nonnegative activities propagated by the same strictly positive finite
+kernel, the kernel's cross-ratio certificate supplies the full anchored
+profile certificate.  The vacuum normalization is discharged by the exact
+BF4 theorem rather than assumed. -/
+def calibratedEmptyRightAnchoredProjective_of_kernelActions
+    {Source : Type}
+    (w : Q') (hw : (0 : Q') ≤ w)
+    (K halfExtent diagonalOrder : Nat)
+    (kernel : Source → EdgeLabelling → Q')
+    (sources : List Source)
+    (candidate physical : Source → Q')
+    (certificate :
+      FiniteCrossRatioDiameterCertificate
+        kernel sources
+        (BF4RetainedProfileStates
+          w hw K halfExtent))
+    (candidateActivity :
+      FiniteCrossRatioDiameterCertificate.NonzeroNonnegativeActivity
+        sources candidate)
+    (physicalActivity :
+      FiniteCrossRatioDiameterCertificate.NonzeroNonnegativeActivity
+        sources physical)
+    (spreadSquare_le :
+      certificate.spread * certificate.spread ≤
+        anchoredProjectiveCeiling)
+    (candidate_identification :
+      ∀ state,
+        state ∈
+            BF4RetainedProfileStates
+              w hw K halfExtent →
+          BF4CalibratedRightProfile
+              w hw K halfExtent diagonalOrder state ≈
+            FiniteCrossRatioDiameterCertificate.finiteKernelAction
+              kernel sources candidate state)
+    (physical_identification :
+      ∀ state,
+        state ∈
+            BF4RetainedProfileStates
+              w hw K halfExtent →
+          BF4PhysicalProfile
+              w hw K halfExtent state ≈
+            FiniteCrossRatioDiameterCertificate.finiteKernelAction
+              kernel sources physical state) :
+    AnchoredProjectiveProfile
+      (BF4RetainedProfileStates
+        w hw K halfExtent)
+      (BF4CalibratedRightProfile
+        w hw K halfExtent diagonalOrder)
+      (BF4PhysicalProfile
+        w hw K halfExtent) := by
+  let anchor := zeroEdgeLabelling
+  let anchorMem :
+      anchor ∈
+        BF4RetainedProfileStates
+          w hw K halfExtent :=
+    zeroEdgeLabelling_mem_centralPositiveHalfStates
+      hw K halfExtent
+  have hactionAnchor :
+      FiniteCrossRatioDiameterCertificate.finiteKernelAction
+          kernel sources candidate anchor ≈
+        FiniteCrossRatioDiameterCertificate.finiteKernelAction
+          kernel sources physical anchor := by
+    exact Q'.eqv_trans _ _ _
+      (Q'.eqv_symm
+        (candidate_identification anchor anchorMem))
+      (Q'.eqv_trans _ _ _
+        (calibratedEmptyRightProfile_vacuum
+          w hw K halfExtent diagonalOrder)
+        (physical_identification anchor anchorMem))
+  let actionData :=
+    AnchoredProjectiveProfile.ofKernelActions
+      certificate candidate physical
+      candidateActivity physicalActivity
+      anchor anchorMem hactionAnchor
+      spreadSquare_le
+  let profileData :=
+    actionData.profileEqv candidate_identification
+  exact profileData.marginalEqv physical_identification
+
 /-- Cross order zero transports the single right-profile certificate to the
 identical left profile. -/
 def calibratedEmptyLeftCrossZeroAnchoredProjective
@@ -377,10 +459,68 @@ def calibratedEmptyCrossZeroProfileHarnackData_of_rightAnchoredProjective
     (calibratedEmptyLeftCrossZeroAnchoredProjective right)
     right
 
+/-- **Common-kernel cross-zero Harnack theorem.**
+
+This is the direct BF4 analytic interface: identify the calibrated profile
+and physical marginal as two activities propagated by one strictly positive
+grouped kernel, and prove the squared projective spread cap `65/64`.  The
+vacuum calibration and the equality of the cross-zero left/right profiles
+then produce both pointwise `1/64` Harnack windows. -/
+def calibratedEmptyCrossZeroProfileHarnackData_of_kernelActions
+    {Source : Type}
+    (w : Q') (hw : (0 : Q') ≤ w)
+    (K halfExtent diagonalOrder : Nat)
+    (kernel : Source → EdgeLabelling → Q')
+    (sources : List Source)
+    (candidate physical : Source → Q')
+    (certificate :
+      FiniteCrossRatioDiameterCertificate
+        kernel sources
+        (BF4RetainedProfileStates
+          w hw K halfExtent))
+    (candidateActivity :
+      FiniteCrossRatioDiameterCertificate.NonzeroNonnegativeActivity
+        sources candidate)
+    (physicalActivity :
+      FiniteCrossRatioDiameterCertificate.NonzeroNonnegativeActivity
+        sources physical)
+    (spreadSquare_le :
+      certificate.spread * certificate.spread ≤
+        anchoredProjectiveCeiling)
+    (candidate_identification :
+      ∀ state,
+        state ∈
+            BF4RetainedProfileStates
+              w hw K halfExtent →
+          BF4CalibratedRightProfile
+              w hw K halfExtent diagonalOrder state ≈
+            FiniteCrossRatioDiameterCertificate.finiteKernelAction
+              kernel sources candidate state)
+    (physical_identification :
+      ∀ state,
+        state ∈
+            BF4RetainedProfileStates
+              w hw K halfExtent →
+          BF4PhysicalProfile
+              w hw K halfExtent state ≈
+            FiniteCrossRatioDiameterCertificate.finiteKernelAction
+              kernel sources physical state) :
+    CalibratedEmptyProfileHarnackData
+      w hw K halfExtent diagonalOrder 0 :=
+  calibratedEmptyCrossZeroProfileHarnackData_of_rightAnchoredProjective
+    (calibratedEmptyRightAnchoredProjective_of_kernelActions
+      w hw K halfExtent diagonalOrder
+      kernel sources candidate physical
+      certificate candidateActivity physicalActivity
+      spreadSquare_le
+      candidate_identification physical_identification)
+
 end YMGap.Continuum.BF4CalibratedAnchoredProjectiveHarnack
 
 /-! ## Dependency gates -/
 
 #print axioms YMGap.Continuum.BF4CalibratedAnchoredProjectiveHarnack.calibratedEmptyProfileHarnackData_of_anchoredProjective
 #print axioms YMGap.Continuum.BF4CalibratedAnchoredProjectiveHarnack.calibratedEmptyLeftProfile_crossZero_eqv_right
+#print axioms YMGap.Continuum.BF4CalibratedAnchoredProjectiveHarnack.calibratedEmptyRightAnchoredProjective_of_kernelActions
 #print axioms YMGap.Continuum.BF4CalibratedAnchoredProjectiveHarnack.calibratedEmptyCrossZeroProfileHarnackData_of_rightAnchoredProjective
+#print axioms YMGap.Continuum.BF4CalibratedAnchoredProjectiveHarnack.calibratedEmptyCrossZeroProfileHarnackData_of_kernelActions

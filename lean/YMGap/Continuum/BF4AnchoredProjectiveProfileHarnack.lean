@@ -169,6 +169,57 @@ structure AnchoredProjectiveProfile
 
 namespace AnchoredProjectiveProfile
 
+/-- A strictly positive finite kernel sends any two nonzero nonnegative
+activities to anchored projectively comparable profiles.  This is the exact
+positive-kernel constructor needed by the grouped Feynman--Kac route. -/
+def ofKernelActions
+    {Source Target : Type}
+    {kernel : Source → Target → Q'}
+    {sources : List Source} {targets : List Target}
+    (certificate :
+      FiniteCrossRatioDiameterCertificate
+        kernel sources targets)
+    (candidate physical : Source → Q')
+    (candidateActivity :
+      FiniteCrossRatioDiameterCertificate.NonzeroNonnegativeActivity
+        sources candidate)
+    (physicalActivity :
+      FiniteCrossRatioDiameterCertificate.NonzeroNonnegativeActivity
+        sources physical)
+    (anchor : Target) (anchor_mem : anchor ∈ targets)
+    (anchor_match :
+      FiniteCrossRatioDiameterCertificate.finiteKernelAction
+          kernel sources candidate anchor ≈
+        FiniteCrossRatioDiameterCertificate.finiteKernelAction
+          kernel sources physical anchor)
+    (spreadSquare_le :
+      certificate.spread * certificate.spread ≤
+        anchoredProjectiveCeiling) :
+    AnchoredProjectiveProfile
+      targets
+      (FiniteCrossRatioDiameterCertificate.finiteKernelAction
+        kernel sources candidate)
+      (FiniteCrossRatioDiameterCertificate.finiteKernelAction
+        kernel sources physical) where
+  spread := certificate.spread
+  anchor := anchor
+  anchor_mem := anchor_mem
+  marginal_anchor_pos :=
+    certificate.finiteKernelAction_pos
+      physicalActivity anchor_mem
+  anchor_match := anchor_match
+  profile_nonnegative := by
+    intro target htarget
+    exact Q'.le_of_lt
+      (certificate.finiteKernelAction_pos
+        candidateActivity htarget)
+  spreadSquare_le := spreadSquare_le
+  projective :=
+    certificate.finiteKernelAction_projectiveSpread
+      candidate physical
+      candidateActivity.nonnegative
+      physicalActivity.nonnegative
+
 /-- Transport an anchored projective certificate across pointwise semantic
 equality of the candidate profile on the retained carrier. -/
 def profileEqv
@@ -215,6 +266,53 @@ def profileEqv
         (marginal left)
         (Q'.eqv_symm
           (hprofile right hright)))
+
+/-- Transport an anchored projective certificate across pointwise semantic
+equality of the reference marginal on the retained carrier. -/
+def marginalEqv
+    {State : Type}
+    {states : List State}
+    {profile marginal marginal' : State → Q'}
+    (data :
+      AnchoredProjectiveProfile states profile marginal)
+    (hmarginal :
+      ∀ state, state ∈ states →
+        marginal' state ≈ marginal state) :
+    AnchoredProjectiveProfile states profile marginal' where
+  spread := data.spread
+  anchor := data.anchor
+  anchor_mem := data.anchor_mem
+  marginal_anchor_pos :=
+    Q'.pos_of_lt_of_le
+      data.marginal_anchor_pos
+      (Q'.le_of_eqv
+        (Q'.eqv_symm
+          (hmarginal data.anchor data.anchor_mem)))
+  anchor_match :=
+    Q'.eqv_trans _ _ _
+      data.anchor_match
+      (Q'.eqv_symm
+        (hmarginal data.anchor data.anchor_mem))
+  profile_nonnegative := data.profile_nonnegative
+  spreadSquare_le := data.spreadSquare_le
+  projective := by
+    intro left hleft right hright
+    have hbound :=
+      data.projective
+        left hleft right hright
+    refine Q'.le_trans' _ _ _
+      (Q'.le_of_eqv
+        (Q'.mul_eqv_congr_left
+          (profile left) _ _
+          (hmarginal right hright)))
+      (Q'.le_trans' _ _ _ hbound
+        (Q'.le_of_eqv ?_))
+    exact Q'.mul_eqv_congr_left
+      (data.spread * data.spread) _ _
+      (Q'.mul_eqv_congr_left
+        (profile right) _ _
+        (Q'.eqv_symm
+          (hmarginal left hleft)))
 
 theorem upper_window
     {State : Type}
@@ -370,4 +468,6 @@ end YMGap.Continuum.BF4AnchoredProjectiveProfileHarnack
 /-! ## Dependency gates -/
 
 #print axioms YMGap.Continuum.BF4AnchoredProjectiveProfileHarnack.le_of_mul_le_mul_right_pos
+#print axioms YMGap.Continuum.BF4AnchoredProjectiveProfileHarnack.AnchoredProjectiveProfile.ofKernelActions
+#print axioms YMGap.Continuum.BF4AnchoredProjectiveProfileHarnack.AnchoredProjectiveProfile.marginalEqv
 #print axioms YMGap.Continuum.BF4AnchoredProjectiveProfileHarnack.AnchoredProjectiveProfile.relative_sixtyFourth
