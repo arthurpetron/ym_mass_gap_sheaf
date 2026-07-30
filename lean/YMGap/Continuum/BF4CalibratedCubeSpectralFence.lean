@@ -17,7 +17,7 @@ noncomputable declaration.
 -/
 
 import YMGap.Continuum.BF4CentralLowerCubePositiveRow
-import YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget
+import YMGap.Continuum.BF4PhysicalRecenteredEndpointRate
 
 namespace YMGap.Continuum.BF4CalibratedCubeSpectralFence
 
@@ -27,6 +27,7 @@ set_option maxHeartbeats 8000000
 open YMGap.Constructive
 open YMGap.Continuum.BF4CanonicalFiniteMehlerGramSpectralBudget
 open YMGap.Continuum.BF4CentralLowerCubePositiveRow
+open YMGap.Continuum.BF4PhysicalRecenteredEndpointRate
 open YMGap.Continuum.BF4ReflectedAllSpinMehlerGramEndpoint
 open YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
 open YMGap.Continuum.BF4SU2FixedMagneticPositiveKernelConvergence
@@ -259,6 +260,174 @@ theorem not_calibrated_rate_le_eighth_of_cube_defect
       hscaledRate
   exact Int.not_lt_of_ge hreverse hdefect
 
+/-! ## Correct post-calibration physical centering -/
+
+/-- The cube diagonal of the physically recentered endpoint is the exact
+square-calibrated value `pi0^2 / 256`. -/
+theorem physicallyRecentered_cube_entry_eqv
+    {w : Q'} (hw : (0 : Q') ≤ w)
+    (K : Nat) :
+    let pi0 :=
+      centralPhysicalRowMarginal
+        w hw K 0 zeroEdgeLabelling
+    (physicallyRecenteredVacuumCalibratedMehlerGramRawEndpoint
+        w hw K 0 0 0).joint
+        centralLowerCubeState centralLowerCubeState ≈
+      (pi0 * pi0) *
+        Q'.mkPos 1 256 (by decide) := by
+  let pi0 :=
+    centralPhysicalRowMarginal
+      w hw K 0 zeroEdgeLabelling
+  exact Q'.eqv_trans _ _ _
+    (physicallyRecenteredVacuumCalibratedMehlerGramRawEndpoint_joint_eqv_scaled
+      w hw K 0 0 0
+      centralLowerCubeState centralLowerCubeState)
+    (Q'.mul_eqv_congr_left
+      (pi0 * pi0) _ _
+      normalizedMehlerGram_cube_cube_eqv_oneTwoFiftySixth)
+
+/-- The genuine cube defect for the corrected rate is
+`|pi0^2/256 - piCube^2|`; the obsolete expression
+`pi0^2 * |1/256 - piCube^2|` does not occur. -/
+theorem physicallyRecentered_cube_defect_le_rowMass
+    {w : Q'} (hw : (0 : Q') < w)
+    {K : Nat} (hK : 1 ≤ K) :
+    let pi0 :=
+      centralPhysicalRowMarginal
+        w (Q'.le_of_lt hw) K 0 zeroEdgeLabelling
+    let piCube :=
+      centralPhysicalRowMarginal
+        w (Q'.le_of_lt hw) K 0 centralLowerCubeState
+    Q'.abs
+        ((pi0 * pi0) *
+            Q'.mkPos 1 256 (by decide) +
+          (-(piCube * piCube))) ≤
+      physicalCenteredEndpointRowMass
+        (vacuumCalibratedExactCenteredMehlerGramRawEndpoint
+          w (Q'.le_of_lt hw) K 0 0 0)
+        centralLowerCubeState := by
+  let pi0 :=
+    centralPhysicalRowMarginal
+      w (Q'.le_of_lt hw) K 0 zeroEdgeLabelling
+  let piCube :=
+    centralPhysicalRowMarginal
+      w (Q'.le_of_lt hw) K 0 centralLowerCubeState
+  let endpoint :=
+    vacuumCalibratedExactCenteredMehlerGramRawEndpoint
+      w (Q'.le_of_lt hw) K 0 0 0
+  let value := fun target =>
+    Q'.abs
+      (endpoint.joint centralLowerCubeState target +
+        (-centralPhysicalVacuumJoint
+          w (Q'.le_of_lt hw) K 0
+          centralLowerCubeState target))
+  have hmember :
+      value centralLowerCubeState ≤
+        listQSum value
+          (centralPositiveHalfStates
+            w (Q'.le_of_lt hw) K 0) :=
+    listQSum_member_le_nonnegative
+      value
+      (fun target => Q'.abs_nonneg _)
+      (centralPositiveHalfStates
+        w (Q'.le_of_lt hw) K 0)
+      (centralLowerCubeState_mem_centralPositiveHalfStates
+        hw hK)
+  have holdEntry :
+      endpoint.joint
+          centralLowerCubeState centralLowerCubeState ≈
+        (pi0 * pi0) *
+          Q'.mkPos 1 256 (by decide) := by
+    exact Q'.eqv_trans _ _ _
+      (Q'.eqv_symm
+        (physicallyRecenteredVacuumCalibratedMehlerGramRawEndpoint_joint
+          w (Q'.le_of_lt hw) K 0 0 0
+          centralLowerCubeState centralLowerCubeState))
+      (physicallyRecentered_cube_entry_eqv
+        (Q'.le_of_lt hw) K)
+  have hentry :
+      value centralLowerCubeState ≈
+        Q'.abs
+          ((pi0 * pi0) *
+              Q'.mkPos 1 256 (by decide) +
+            (-(piCube * piCube))) := by
+    unfold value centralPhysicalVacuumJoint piCube
+    exact Q'.abs_eqv_congr
+      (Q'.add_eqv_congr_right _ _ _ holdEntry)
+  unfold physicalCenteredEndpointRowMass
+    finiteJointDifferenceAbsRowMass endpoint
+  exact Q'.le_trans' _ _ _
+    (Q'.ge_of_eqv hentry) hmember
+
+/-- The exact corrected rate must pay the genuine cube defect. -/
+theorem physicallyRecentered_cube_defect_le_rate_mul_marginal
+    {w : Q'} (hw : (0 : Q') < w)
+    {K : Nat} (hK : 1 ≤ K) :
+    let pi0 :=
+      centralPhysicalRowMarginal
+        w (Q'.le_of_lt hw) K 0 zeroEdgeLabelling
+    let piCube :=
+      centralPhysicalRowMarginal
+        w (Q'.le_of_lt hw) K 0 centralLowerCubeState
+    Q'.abs
+        ((pi0 * pi0) *
+            Q'.mkPos 1 256 (by decide) +
+          (-(piCube * piCube))) ≤
+      (physicallyRecenteredVacuumCalibratedMehlerGramRawEndpoint
+          w (Q'.le_of_lt hw) K 0 0 0).rate *
+        piCube := by
+  exact Q'.le_trans' _ _ _
+    (physicallyRecentered_cube_defect_le_rowMass
+      hw hK)
+    (physicalCenteredEndpointRowMass_le_rate_mul_marginal
+      (endpoint :=
+        vacuumCalibratedExactCenteredMehlerGramRawEndpoint
+          w (Q'.le_of_lt hw) K 0 0 0)
+      (centralLowerCubeState_mem_centralPositiveHalfStates
+        hw hK))
+
+/-- Corrected cube no-go criterion for the new `1/8` rate. -/
+theorem not_physicallyRecentered_rate_le_eighth_of_cube_defect
+    {w : Q'} (hw : (0 : Q') < w)
+    {K : Nat} (hK : 1 ≤ K)
+    (hdefect :
+      let pi0 :=
+        centralPhysicalRowMarginal
+          w (Q'.le_of_lt hw) K 0 zeroEdgeLabelling
+      let piCube :=
+        centralPhysicalRowMarginal
+          w (Q'.le_of_lt hw) K 0 centralLowerCubeState
+      Q'.mkPos 1 8 (by decide) * piCube <
+        Q'.abs
+          ((pi0 * pi0) *
+              Q'.mkPos 1 256 (by decide) +
+            (-(piCube * piCube)))) :
+    ¬
+      (physicallyRecenteredVacuumCalibratedMehlerGramRawEndpoint
+          w (Q'.le_of_lt hw) K 0 0 0).rate ≤
+        Q'.mkPos 1 8 (by decide) := by
+  intro hrate
+  let piCube :=
+    centralPhysicalRowMarginal
+      w (Q'.le_of_lt hw) K 0 centralLowerCubeState
+  have hpiCubeNonnegative :
+      (0 : Q') ≤ piCube :=
+    centralPhysicalRowMarginal_nonnegative
+      (Q'.le_of_lt hw) K 0 centralLowerCubeState
+  have hscaled :
+      (physicallyRecenteredVacuumCalibratedMehlerGramRawEndpoint
+            w (Q'.le_of_lt hw) K 0 0 0).rate *
+          piCube ≤
+        Q'.mkPos 1 8 (by decide) * piCube :=
+    Q'.mul_le_mul_of_nonneg_right _ _ _
+      hrate hpiCubeNonnegative
+  have hreverse :=
+    Q'.le_trans' _ _ _
+      (physicallyRecentered_cube_defect_le_rate_mul_marginal
+        hw hK)
+      hscaled
+  exact Int.not_lt_of_ge hreverse hdefect
+
 end YMGap.Continuum.BF4CalibratedCubeSpectralFence
 
 /-! ## Dependency gates -/
@@ -270,3 +439,7 @@ end YMGap.Continuum.BF4CalibratedCubeSpectralFence
 #print axioms YMGap.Continuum.BF4CalibratedCubeSpectralFence.cube_diagonal_defect_le_centeredRate_mul_marginal
 #print axioms YMGap.Continuum.BF4CalibratedCubeSpectralFence.calibrated_cube_diagonal_defect_le_rate_mul_marginal
 #print axioms YMGap.Continuum.BF4CalibratedCubeSpectralFence.not_calibrated_rate_le_eighth_of_cube_defect
+#print axioms YMGap.Continuum.BF4CalibratedCubeSpectralFence.physicallyRecentered_cube_entry_eqv
+#print axioms YMGap.Continuum.BF4CalibratedCubeSpectralFence.physicallyRecentered_cube_defect_le_rowMass
+#print axioms YMGap.Continuum.BF4CalibratedCubeSpectralFence.physicallyRecentered_cube_defect_le_rate_mul_marginal
+#print axioms YMGap.Continuum.BF4CalibratedCubeSpectralFence.not_physicallyRecentered_rate_le_eighth_of_cube_defect

@@ -399,6 +399,29 @@ theorem physicalRecenterRawMehlerEndpointRate_joint
       endpoint.joint left right := by
   exact Q'.eqv_refl _
 
+/-- Because physical recentering changes no joint entry, it leaves the
+literal physical-minus-endpoint row error unchanged. -/
+theorem physicalNormalizedJointRowError_recenter_eqv
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {K halfExtent : Nat}
+    (endpoint :
+      CentralPhysicalRawMehlerEndpoint
+        w hw K halfExtent)
+    (source : EdgeLabelling) :
+    physicalNormalizedJointRowError
+        (physicalRecenterRawMehlerEndpointRate endpoint)
+        source ≈
+      physicalNormalizedJointRowError endpoint source := by
+  unfold physicalNormalizedJointRowError
+    finiteJointDifferenceAbsRowMass
+  apply listQSum_congr
+  intro target
+  apply Q'.abs_eqv_congr
+  apply Q'.add_eqv_congr_left
+  exact Q'.neg_eqv_congr _ _
+    (physicalRecenterRawMehlerEndpointRate_joint
+      endpoint source target)
+
 /-! ## 3. Correctly recentered vacuum-calibrated endpoint -/
 
 /-- The vacuum-calibrated BF4 positive Gram equipped with the exact
@@ -523,6 +546,7 @@ end YMGap.Continuum.BF4PhysicalRecenteredEndpointRate
 #print axioms YMGap.Continuum.BF4PhysicalRecenteredEndpointRate.physicalCenteredEndpointRate_le_iff_rows
 #print axioms YMGap.Continuum.BF4PhysicalRecenteredEndpointRate.physicalCenteredEndpoint_meanZero_quadratic
 #print axioms YMGap.Continuum.BF4PhysicalRecenteredEndpointRate.physicalRecenterRawMehlerEndpointRate_joint
+#print axioms YMGap.Continuum.BF4PhysicalRecenteredEndpointRate.physicalNormalizedJointRowError_recenter_eqv
 #print axioms YMGap.Continuum.BF4PhysicalRecenteredEndpointRate.physicallyRecenteredVacuumCalibratedMehlerGramRawEndpoint_joint_eqv_scaled
 #print axioms YMGap.Continuum.BF4PhysicalRecenteredEndpointRate.physicallyRecenteredVacuumCalibrated_rate_le_eighth_iff_rows
 #print axioms YMGap.Continuum.BF4PhysicalRecenteredEndpointRate.physicallyRecenteredVacuumCalibratedMehlerGramRawEndpoint_vacuum
