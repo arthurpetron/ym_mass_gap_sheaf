@@ -39,15 +39,19 @@ open YMGap.Continuum.BondMovingStep
 open YMGap.Continuum.FiniteDeterministicKernelPushforward
 open YMGap.Continuum.FiniteWeightedGramSOS
 open YMGap.Continuum.HeatKernelRGStep
+open YMGap.Continuum.SU2CharacterVacuumHaar
+open YMGap.Continuum.SU2FiniteSharedLinkFusionNetwork
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphActualOperator
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
 open YMGap.Continuum.Z4HalfTimeReflectionCrossPlaneFactorization
+open YMGap.Continuum.Z4HalfTimeReflectionCrossPlaneLabellings
 open YMGap.Continuum.Z4HalfTimeReflectionGeometry
 open YMGap.Continuum.Z4HalfTimeReflectionLinkMultiplicity
 open YMGap.Continuum.Z4HalfTimeReflectionNormalizedPhysicalGram
 open YMGap.Continuum.Z4HalfTimeReflectionPartition
 open YMGap.Continuum.Z4HalfTimeReflectionPhysicalGram
+open YMGap.Continuum.Z4FiniteBoxHeatKernelPacketState
 
 local infix:50 " ≈ " => Q'.eqv
 
