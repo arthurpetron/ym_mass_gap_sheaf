@@ -862,6 +862,63 @@ theorem centralVacuum_add_cube_marginal_le_one
       (centralPhysicalRowMarginal_total_one
         w hw K 0))
 
+/-! The exact activity-dependent vacuum bound is stronger than every fixed
+numerical specialization below.  It retains the representation-dimension
+factor in `coeffW`; consequently the six-face activity tends to `64`, not
+to one, as the heat nome tends to one. -/
+
+theorem centralVacuumRowMarginal_le_cubeActivityReciprocal
+    {w : Q'} (hw : (0 : Q') ≤ w)
+    {K : Nat} (hK : 1 ≤ K) :
+    let activity := (coeffW w 1) ^ 6
+    let denominator := 1 + activity
+    centralPhysicalRowMarginal
+        w hw K 0 zeroEdgeLabelling ≤
+      Q'.divPos 1 denominator
+        (Q'.pos_add_nonneg (by decide)
+          (Q'.pow_nonneg _ (coeffW_nonneg hw 1) 6)) := by
+  let pi0 :=
+    centralPhysicalRowMarginal
+      w hw K 0 zeroEdgeLabelling
+  let picube :=
+    centralPhysicalRowMarginal
+      w hw K 0 centralLowerCubeState
+  let activity := (coeffW w 1) ^ 6
+  let denominator := 1 + activity
+  have hpi0nonnegative : (0 : Q') ≤ pi0 :=
+    centralPhysicalRowMarginal_nonnegative
+      hw K 0 zeroEdgeLabelling
+  have hcube : activity * pi0 ≤ picube :=
+    centralCubeRowMarginal_dominates_activity_mul_vacuum
+      hw hK
+  have hpair : pi0 + picube ≤ 1 :=
+    centralVacuum_add_cube_marginal_le_one hw hK
+  have hsum :
+      pi0 + activity * pi0 ≤ 1 :=
+    Q'.le_trans' _ _ _
+      (Q'.add_le_add_left pi0
+        (activity * pi0) picube hcube)
+      hpair
+  have hproduct :
+      pi0 * denominator ≤ 1 := by
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (by
+        unfold denominator
+        calc
+          pi0 * (1 + activity) ≈
+              pi0 * 1 + pi0 * activity :=
+            Q'.mul_add_eqv pi0 1 activity
+          _ ≈ pi0 + activity * pi0 :=
+            Q'.add_eqv_congr'
+              (Q'.mul_one_eqv pi0)
+              (Q'.mul_comm_eqv pi0 activity)))
+      hsum
+  exact Q'.le_divPos_of_mul_le
+    1 denominator
+    (Q'.pos_add_nonneg (by decide)
+      (Q'.pow_nonneg _ (coeffW_nonneg hw 1) 6))
+    hproduct
+
 def cubeActivityOneFifth : Q' :=
   Q'.mkPos 1 5 (by decide)
 
@@ -997,6 +1054,92 @@ theorem centralVacuumRowMarginal_le_fiveSixths_of_threeQuarters_le
     hw0 hK
     (cubeActivity_oneFifth_le_of_threeQuarters_le hw)
 
+/-- Seven units of non-vacuum cube activity force the vacuum row below the
+exact spectral budget scale `1/8`. -/
+theorem centralVacuumRowMarginal_le_oneEighth_of_cubeActivitySeven
+    {w : Q'} (hw : (0 : Q') ≤ w)
+    {K : Nat} (hK : 1 ≤ K)
+    (hactivity :
+      (7 : Q') ≤ (coeffW w 1) ^ 6) :
+    centralPhysicalRowMarginal
+        w hw K 0 zeroEdgeLabelling ≤
+      Q'.mkPos 1 8 (by decide) := by
+  let activity := (coeffW w 1) ^ 6
+  let denominator := 1 + activity
+  have hdenominatorPos :
+      (0 : Q') < denominator :=
+    Q'.pos_add_nonneg (by decide)
+      (Q'.pow_nonneg _ (coeffW_nonneg hw 1) 6)
+  have hreciprocal :=
+    centralVacuumRowMarginal_le_cubeActivityReciprocal
+      hw hK
+  have hone_le_eighthProduct :
+      1 ≤ Q'.mkPos 1 8 (by decide) * denominator := by
+    have hdenominator :
+        (8 : Q') ≤ denominator :=
+      Q'.le_trans' _ _ _
+        (Q'.le_of_eqv (by decide))
+        (Q'.add_le_add_left 1 7 activity hactivity)
+    have hscaled :=
+      Q'.mul_le_mul_of_nonneg_left
+        8 denominator
+        (Q'.mkPos 1 8 (by decide))
+        hdenominator (by decide)
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv
+        (show
+          (1 : Q') ≈
+            Q'.mkPos 1 8 (by decide) * 8 by
+          decide))
+      hscaled
+  exact Q'.le_trans' _ _ _ hreciprocal
+    (Q'.divPos_le_of_le_mul
+      1 denominator hdenominatorPos
+      hone_le_eighthProduct)
+
+def cubeActivitySevenWeightFloor : Q' :=
+  Q'.mkPos 8 9 (by decide)
+
+/-- At nome `8/9` the exact fundamental cube activity already exceeds
+seven.  Monotonicity transports this closed rational check to every larger
+nome. -/
+theorem cubeActivity_seven_le_of_eightNinths_le
+    {w : Q'} (hw : cubeActivitySevenWeightFloor ≤ w) :
+    (7 : Q') ≤ (coeffW w 1) ^ 6 := by
+  have hcoefficient :
+      coeffW cubeActivitySevenWeightFloor 1 ≤
+        coeffW w 1 :=
+    coeffW_mono_w
+      (by
+        unfold cubeActivitySevenWeightFloor
+        decide)
+      hw 1
+  have hpower :
+      (coeffW cubeActivitySevenWeightFloor 1) ^ 6 ≤
+        (coeffW w 1) ^ 6 :=
+    pow_le_pow_of_le
+      (coeffW_nonneg
+        (by
+          unfold cubeActivitySevenWeightFloor
+          decide) 1)
+      hcoefficient 6
+  exact Q'.le_trans' _ _ _
+    (by
+      unfold cubeActivitySevenWeightFloor
+      decide)
+    hpower
+
+theorem centralVacuumRowMarginal_le_oneEighth_of_eightNinths_le
+    {w : Q'} (hw0 : (0 : Q') ≤ w)
+    (hw : cubeActivitySevenWeightFloor ≤ w)
+    {K : Nat} (hK : 1 ≤ K) :
+    centralPhysicalRowMarginal
+        w hw0 K 0 zeroEdgeLabelling ≤
+      Q'.mkPos 1 8 (by decide) :=
+  centralVacuumRowMarginal_le_oneEighth_of_cubeActivitySeven
+    hw0 hK
+    (cubeActivity_seven_le_of_eightNinths_le hw)
+
 end YMGap.Continuum.BF4CentralLowerCubeRowDomination
 
 /-! ## Dependency gates -/
@@ -1017,6 +1160,10 @@ end YMGap.Continuum.BF4CentralLowerCubeRowDomination
 #print axioms YMGap.Continuum.BF4CentralLowerCubeRowDomination.centralCubeNormalizedKernel_dominates_activity_mul_vacuum
 #print axioms YMGap.Continuum.BF4CentralLowerCubeRowDomination.centralCubeRowMarginal_dominates_activity_mul_vacuum
 #print axioms YMGap.Continuum.BF4CentralLowerCubeRowDomination.centralVacuum_add_cube_marginal_le_one
+#print axioms YMGap.Continuum.BF4CentralLowerCubeRowDomination.centralVacuumRowMarginal_le_cubeActivityReciprocal
 #print axioms YMGap.Continuum.BF4CentralLowerCubeRowDomination.centralVacuumRowMarginal_le_fiveSixths_of_cubeActivity
 #print axioms YMGap.Continuum.BF4CentralLowerCubeRowDomination.cubeActivity_oneFifth_le_of_threeQuarters_le
 #print axioms YMGap.Continuum.BF4CentralLowerCubeRowDomination.centralVacuumRowMarginal_le_fiveSixths_of_threeQuarters_le
+#print axioms YMGap.Continuum.BF4CentralLowerCubeRowDomination.centralVacuumRowMarginal_le_oneEighth_of_cubeActivitySeven
+#print axioms YMGap.Continuum.BF4CentralLowerCubeRowDomination.cubeActivity_seven_le_of_eightNinths_le
+#print axioms YMGap.Continuum.BF4CentralLowerCubeRowDomination.centralVacuumRowMarginal_le_oneEighth_of_eightNinths_le

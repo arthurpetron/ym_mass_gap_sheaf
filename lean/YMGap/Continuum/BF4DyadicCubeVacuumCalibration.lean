@@ -25,6 +25,7 @@ import YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget
 namespace YMGap.Continuum.BF4DyadicCubeVacuumCalibration
 
 open YMGap.Constructive
+open YMGap.Continuum.BondMovingStep
 open YMGap.Continuum.BF4CentralLowerCubePositiveRow
 open YMGap.Continuum.BF4CentralLowerCubeRowDomination
 open YMGap.Continuum.BF4CanonicalFiniteMehlerGramSpectralBudget
@@ -88,6 +89,50 @@ theorem cubeActivityWeightFloor_le_dyadicPadeNome
         (dyadicHeatDenominator scale * 4)
   exact Int.ofNat_le.mpr hnat
 
+theorem eight_le_dyadicHeatDenominator
+    {scale : Nat} (hscale : 3 ≤ scale) :
+    8 ≤ dyadicHeatDenominator scale := by
+  unfold dyadicHeatDenominator
+  have hpow :
+      2 ^ 3 ≤ 2 ^ scale :=
+    Nat.pow_le_pow_right (by decide) hscale
+  simpa using hpow
+
+theorem cubeActivitySevenWeightFloor_le_dyadicPadeNome
+    {scale : Nat} (hscale : 3 ≤ scale) :
+    cubeActivitySevenWeightFloor ≤ dyadicPadeNome scale := by
+  have hden :
+      8 ≤ dyadicHeatDenominator scale :=
+    eight_le_dyadicHeatDenominator hscale
+  unfold cubeActivitySevenWeightFloor
+  show
+    (Q'.mkPos 8 9 (by decide)).num *
+        ((dyadicPadeNome scale).den : Int) ≤
+      (dyadicPadeNome scale).num *
+        ((Q'.mkPos 8 9 (by decide)).den : Int)
+  rw [Q'.mkPos_num, Q'.mkPos_den,
+    dyadicPadeNome_num, dyadicPadeNome_den]
+  have hnat :
+      8 * (dyadicHeatDenominator scale + 1) ≤
+        dyadicHeatDenominator scale * 9 := by
+    calc
+      8 * (dyadicHeatDenominator scale + 1) =
+          8 * dyadicHeatDenominator scale + 8 := by
+        rw [Nat.mul_add]
+      _ ≤ 8 * dyadicHeatDenominator scale +
+          dyadicHeatDenominator scale :=
+        Nat.add_le_add_left hden _
+      _ = dyadicHeatDenominator scale * 9 := by
+        simp only [Nat.mul_succ, Nat.succ_mul,
+          Nat.zero_mul, Nat.mul_zero, Nat.zero_add,
+          Nat.add_assoc]
+  change
+    Int.ofNat
+        (8 * (dyadicHeatDenominator scale + 1)) ≤
+      Int.ofNat
+        (dyadicHeatDenominator scale * 9)
+  exact Int.ofNat_le.mpr hnat
+
 /-! ## 2. Transport through the exact same-action bridge -/
 
 theorem cubeActivityWeightFloor_le_matchedWeight
@@ -103,6 +148,26 @@ theorem cubeActivityWeightFloor_le_matchedWeight
       matchedAllSpinWeight family coupling scale := by
   have hdyadic :=
     cubeActivityWeightFloor_le_dyadicPadeNome hscale
+  have hnome := bridge.nome scale
+  change
+    matchedAllSpinWeight family coupling scale ≈
+      dyadicPadeNome scale at hnome
+  exact Q'.le_trans' _ _ _ hdyadic
+    (Q'.ge_of_eqv hnome)
+
+theorem cubeActivitySevenWeightFloor_le_matchedWeight
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat → Q'}
+    (bridge :
+      MatchedDyadicSameActionAFBridge
+        family law spacing coupling)
+    {scale : Nat} (hscale : 3 ≤ scale) :
+    cubeActivitySevenWeightFloor ≤
+      matchedAllSpinWeight family coupling scale := by
+  have hdyadic :=
+    cubeActivitySevenWeightFloor_le_dyadicPadeNome hscale
   have hnome := bridge.nome scale
   change
     matchedAllSpinWeight family coupling scale ≈
@@ -149,6 +214,61 @@ theorem matchedVacuumRowMarginal_le_fiveSixths_tail
       (matchedAllSpinWeight_nonnegative
         family coupling scale)
       (cubeActivityWeightFloor_le_matchedWeight
+        bridge hscale)
+      (one_le_matchedAllSpinCutoff bridge scale)
+
+/-- Exact activity-sensitive form, valid at every dyadic scale without a
+prefix exception. -/
+theorem matchedVacuumRowMarginal_le_cubeActivityReciprocal
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat → Q'}
+    (bridge :
+      MatchedDyadicSameActionAFBridge
+        family law spacing coupling)
+    (scale : Nat) :
+    let w := matchedAllSpinWeight family coupling scale
+    let hw := matchedAllSpinWeight_nonnegative
+      family coupling scale
+    let activity := (coeffW w 1) ^ 6
+    let denominator := 1 + activity
+    centralPhysicalRowMarginal
+        w hw
+        (matchedAllSpinCutoff family coupling scale)
+        0 zeroEdgeLabelling ≤
+      Q'.divPos 1 denominator
+        (Q'.pos_add_nonneg (by decide)
+          (Q'.pow_nonneg _ (coeffW_nonneg hw 1) 6)) := by
+  exact
+    centralVacuumRowMarginal_le_cubeActivityReciprocal
+      (matchedAllSpinWeight_nonnegative
+        family coupling scale)
+      (one_le_matchedAllSpinCutoff bridge scale)
+
+/-- From scale three onward, the literal one-cube activity already forces
+the stationary vacuum row below `1/8`. -/
+theorem matchedVacuumRowMarginal_le_oneEighth_tail
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat → Q'}
+    (bridge :
+      MatchedDyadicSameActionAFBridge
+        family law spacing coupling)
+    {scale : Nat} (hscale : 3 ≤ scale) :
+    centralPhysicalRowMarginal
+        (matchedAllSpinWeight family coupling scale)
+        (matchedAllSpinWeight_nonnegative
+          family coupling scale)
+        (matchedAllSpinCutoff family coupling scale)
+        0 zeroEdgeLabelling ≤
+      Q'.mkPos 1 8 (by decide) := by
+  exact
+    centralVacuumRowMarginal_le_oneEighth_of_eightNinths_le
+      (matchedAllSpinWeight_nonnegative
+        family coupling scale)
+      (cubeActivitySevenWeightFloor_le_matchedWeight
         bridge hscale)
       (one_le_matchedAllSpinCutoff bridge scale)
 
@@ -273,8 +393,12 @@ end YMGap.Continuum.BF4DyadicCubeVacuumCalibration
 /-! ## Dependency gates -/
 
 #print axioms YMGap.Continuum.BF4DyadicCubeVacuumCalibration.cubeActivityWeightFloor_le_dyadicPadeNome
+#print axioms YMGap.Continuum.BF4DyadicCubeVacuumCalibration.cubeActivitySevenWeightFloor_le_dyadicPadeNome
 #print axioms YMGap.Continuum.BF4DyadicCubeVacuumCalibration.cubeActivityWeightFloor_le_matchedWeight
+#print axioms YMGap.Continuum.BF4DyadicCubeVacuumCalibration.cubeActivitySevenWeightFloor_le_matchedWeight
 #print axioms YMGap.Continuum.BF4DyadicCubeVacuumCalibration.one_le_matchedAllSpinCutoff
 #print axioms YMGap.Continuum.BF4DyadicCubeVacuumCalibration.matchedVacuumRowMarginal_le_fiveSixths_tail
+#print axioms YMGap.Continuum.BF4DyadicCubeVacuumCalibration.matchedVacuumRowMarginal_le_cubeActivityReciprocal
+#print axioms YMGap.Continuum.BF4DyadicCubeVacuumCalibration.matchedVacuumRowMarginal_le_oneEighth_tail
 #print axioms YMGap.Continuum.BF4DyadicCubeVacuumCalibration.centered_rate_nineFiftieths_impossible_of_vacuum_le_fiveSixths
 #print axioms YMGap.Continuum.BF4DyadicCubeVacuumCalibration.matched_centered_rate_nineFiftieths_impossible_tail
