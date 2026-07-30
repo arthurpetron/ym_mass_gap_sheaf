@@ -20,6 +20,11 @@ This module proves the complete algebra downstream of that estimate.
 
       C_s^2 q_s^(m-2) ≤ 1/4 < 1.
 
+* The sharpened depth `46*bits+5` leaves two further quarter powers and
+  gives the profile-Harnack budget
+
+      C_s^2 q_s^(m-2) ≤ 1/64.
+
 The retained paths used by the physical specialization are built from
 `WholeSlabJointCarrierCode`.  Hence a retained state contains the complete
 coarse face-channel field and the shared-link fusion-witness assignment.
@@ -107,6 +112,16 @@ def farautPerronSquare (bits : Nat) : Q' :=
 extra quarter power after subtracting the two endpoint buffers. -/
 def farautRequiredDepth (bits : Nat) : Nat :=
   46 * bits + 3
+
+/-- The exact lattice depth that leaves three uncancelled quarter powers,
+and hence pays the `1/64` profile-Harnack tolerance. -/
+def farautHarnackRequiredDepth (bits : Nat) : Nat :=
+  46 * bits + 5
+
+/-- The rational tolerance required by the calibrated empty-profile
+Harnack layer. -/
+def farautHarnackTolerance : Q' :=
+  Q'.mkPos 1 64 (by decide)
 
 private theorem pow_pos_local {value : Q'}
     (value_pos : (0 : Q') < value) :
@@ -800,6 +815,89 @@ theorem farautRequiredDepth_sub_two (bits : Nat) :
   unfold farautRequiredDepth
   omega
 
+/-- The sharpened depth leaves exactly three powers after the Faraut
+cross-ratio cost has been cancelled. -/
+theorem farautHarnackRequiredDepth_sub_two (bits : Nat) :
+    farautHarnackRequiredDepth bits - 2 =
+      46 * bits + 3 := by
+  unfold farautHarnackRequiredDepth
+  omega
+
+/-- Two additional powers beyond the ordinary Perron budget sharpen
+`1/4` to the exact calibrated tolerance `1/64`. -/
+theorem fourPow_mul_qPow_le_harnackTolerance
+    {q : Q'} (hq0 : (0 : Q') ≤ q) (hqQuarter : q ≤ quarter)
+    (K r : Nat) (hKr : K + 3 ≤ r) :
+    four ^ K * q ^ r ≤ farautHarnackTolerance := by
+  let oneSixteenth : Q' := Q'.mkPos 1 16 (by decide)
+  have hstrong :
+      four ^ (K + 2) * q ^ r ≤ quarter :=
+    fourPow_mul_qPow_le_quarter
+      hq0 hqQuarter (K + 2) r (by omega)
+  have hscaled :
+      oneSixteenth *
+          (four ^ (K + 2) * q ^ r) ≤
+        oneSixteenth * quarter :=
+    Q'.mul_le_mul_of_nonneg_left _ _ _
+      hstrong (by
+        unfold oneSixteenth
+        decide)
+  have hcancelPower :
+      oneSixteenth * four ^ (K + 2) ≈
+        four ^ K := by
+    calc
+      oneSixteenth * four ^ (K + 2) ≈
+          oneSixteenth *
+            (four ^ K * four ^ 2) :=
+        Q'.mul_eqv_congr_left
+          oneSixteenth _ _
+          (Q'.pow_add_eqv four K 2)
+      _ ≈
+          (oneSixteenth * four ^ K) *
+            four ^ 2 :=
+        Q'.eqv_symm
+          (Q'.mul_assoc_eqv
+            oneSixteenth (four ^ K) (four ^ 2))
+      _ ≈
+          (four ^ K * oneSixteenth) *
+            four ^ 2 :=
+        Q'.mul_eqv_congr_right _ _ _
+          (Q'.mul_comm_eqv
+            oneSixteenth (four ^ K))
+      _ ≈
+          four ^ K *
+            (oneSixteenth * four ^ 2) :=
+        Q'.mul_assoc_eqv
+          (four ^ K) oneSixteenth (four ^ 2)
+      _ ≈ four ^ K * 1 :=
+        Q'.mul_eqv_congr_left
+          (four ^ K) _ _ (by
+            unfold oneSixteenth four
+            decide)
+      _ ≈ four ^ K :=
+        Q'.mul_one_eqv _
+  have hleft :
+      oneSixteenth *
+          (four ^ (K + 2) * q ^ r) ≈
+        four ^ K * q ^ r := by
+    exact Q'.eqv_trans _ _ _
+      (Q'.eqv_symm
+        (Q'.mul_assoc_eqv
+          oneSixteenth
+          (four ^ (K + 2))
+          (q ^ r)))
+      (Q'.mul_eqv_congr_right _ _ _
+        hcancelPower)
+  have hright :
+      oneSixteenth * quarter ≈
+        farautHarnackTolerance := by
+    unfold oneSixteenth quarter farautHarnackTolerance
+    decide
+  exact Q'.le_trans' _ _ _
+    (Q'.ge_of_eqv hleft)
+    (Q'.le_trans' _ _ _ hscaled
+      (Q'.le_of_eqv hright))
+
 /-- **Spacing-uniform Faraut/Perron contraction.**  Once the nonlinear
 five-holonomy ratio is at most `1/4`, the depth selected from the local
 Faraut bit cost proves the desired strict inequality. -/
@@ -868,6 +966,69 @@ theorem faraut_perron_of_available_depth
   exact Q'.lt_of_le_of_lt
     (Q'.le_trans' _ _ _ hproduct hquarter)
     (by decide)
+
+/-- **Spacing-uniform profile-Harnack budget.**  The sharpened physical
+depth pays the full two-sided Faraut spread and leaves the exact `1/64`
+remainder required by the calibrated anchored-profile theorem. -/
+theorem faraut_perron_harnack_requiredDepth
+    (bits : Nat) (qS : Q')
+    (qS_nonnegative : (0 : Q') ≤ qS)
+    (qS_le_quarter : qS ≤ quarter) :
+    farautPerronSquare bits *
+        qS ^ (farautHarnackRequiredDepth bits - 2) ≤
+      farautHarnackTolerance := by
+  have hcap := farautPerronSquare_le_cap bits
+  have hqpow :
+      (0 : Q') ≤
+        qS ^ (farautHarnackRequiredDepth bits - 2) :=
+    Q'.pow_nonneg qS qS_nonnegative _
+  have hproduct :
+      farautPerronSquare bits *
+          qS ^ (farautHarnackRequiredDepth bits - 2) ≤
+        four ^ (46 * bits) *
+          qS ^ (farautHarnackRequiredDepth bits - 2) :=
+    Q'.mul_le_mul_of_nonneg_right _ _ _
+      hcap hqpow
+  have hdepth :
+      46 * bits + 3 ≤
+        farautHarnackRequiredDepth bits - 2 := by
+    rw [farautHarnackRequiredDepth_sub_two]
+    exact Nat.le_refl _
+  exact Q'.le_trans' _ _ _ hproduct
+    (fourPow_mul_qPow_le_harnackTolerance
+      qS_nonnegative qS_le_quarter
+      (46 * bits)
+      (farautHarnackRequiredDepth bits - 2)
+      hdepth)
+
+/-- Any physical depth above the sharpened requirement inherits the
+`1/64` Faraut/Perron remainder. -/
+theorem faraut_perron_harnack_of_available_depth
+    (bits : Nat) (qS : Q') (m : Nat)
+    (qS_nonnegative : (0 : Q') ≤ qS)
+    (qS_le_quarter : qS ≤ quarter)
+    (depth_available :
+      farautHarnackRequiredDepth bits ≤ m) :
+    farautPerronSquare bits *
+        qS ^ (m - 2) ≤
+      farautHarnackTolerance := by
+  have hcap := farautPerronSquare_le_cap bits
+  have hqpow :
+      (0 : Q') ≤ qS ^ (m - 2) :=
+    Q'.pow_nonneg qS qS_nonnegative _
+  have hproduct :
+      farautPerronSquare bits * qS ^ (m - 2) ≤
+        four ^ (46 * bits) * qS ^ (m - 2) :=
+    Q'.mul_le_mul_of_nonneg_right _ _ _
+      hcap hqpow
+  have hdepth :
+      46 * bits + 3 ≤ m - 2 := by
+    unfold farautHarnackRequiredDepth at depth_available
+    omega
+  exact Q'.le_trans' _ _ _ hproduct
+    (fourPow_mul_qPow_le_harnackTolerance
+      qS_nonnegative qS_le_quarter
+      (46 * bits) (m - 2) hdepth)
 
 /-- A family of spacing-dependent Faraut bit costs therefore gives the
 strict Perron inequality at every scale, with no uniform bound on `bits`
@@ -1098,8 +1259,12 @@ end YMGap.Continuum.BF4FarautJointCarrierAFBudget
 #print axioms YMGap.Continuum.BF4FarautJointCarrierAFBudget.wholeSlabJointCarrierQuadratic_nonnegative
 #print axioms YMGap.Continuum.BF4FarautJointCarrierAFBudget.farautPerronSquare_le_cap
 #print axioms YMGap.Continuum.BF4FarautJointCarrierAFBudget.farautRequiredDepth_sub_two
+#print axioms YMGap.Continuum.BF4FarautJointCarrierAFBudget.farautHarnackRequiredDepth_sub_two
+#print axioms YMGap.Continuum.BF4FarautJointCarrierAFBudget.fourPow_mul_qPow_le_harnackTolerance
 #print axioms YMGap.Continuum.BF4FarautJointCarrierAFBudget.faraut_perron_requiredDepth_strict
 #print axioms YMGap.Continuum.BF4FarautJointCarrierAFBudget.faraut_perron_of_available_depth
+#print axioms YMGap.Continuum.BF4FarautJointCarrierAFBudget.faraut_perron_harnack_requiredDepth
+#print axioms YMGap.Continuum.BF4FarautJointCarrierAFBudget.faraut_perron_harnack_of_available_depth
 #print axioms YMGap.Continuum.BF4FarautJointCarrierAFBudget.faraut_perron_family_strict
 #print axioms YMGap.Continuum.BF4FarautJointCarrierAFBudget.af_faraut_core_physical_length
 #print axioms YMGap.Continuum.BF4FarautJointCarrierAFBudget.faraut_af_family_core_length_uniform
