@@ -1,5 +1,5 @@
 name = "dual_kappa_spike"
-defaultTargets = ["DualKappa", "FrozenHub", "SupportLaw", "DP6Ledger", "DP3M2Ledger", "OSCSLedger", "WindowLedger"]
+defaultTargets = ["DualKappa", "FrozenHub", "SupportLaw", "DP6Ledger", "DP3M2Ledger", "OSCSLedger", "WindowLedger", "SectorSOSLedger"]
 
 [[lean_lib]]
 name = "DualKappa"
@@ -21,3 +21,6 @@ name = "OSCSLedger"
 
 [[lean_lib]]
 name = "WindowLedger"
+
+[[lean_lib]]
+name = "SectorSOSLedger"

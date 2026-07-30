@@ -27714,3 +27714,190 @@ the primary basis — first consumer remains the recoupling evaluator
 census: the composed-vs-refined comparison now has TWO certified
 targets (T_2 windows AND the matched-flow drift).  (3) P3
 atlas-adequacy with both instruments.
+
+## §17g (2026-07-29/30, cloud): P3 EXECUTED — the SECTOR-SOS certificate: X_11 > 0 on ALL of (0,1) from one coefficient-sign check; the atlas collapses; the s->1 order-4 degeneracy is PROVED PROTECTED and the rate front is renamed
+
+Executes queue item **P3** (overlap closure / atlas-adequacy) — and
+supersedes the mechanism P3 was expected to need.  Artifacts:
+`computations/sector_sos.py` (+ ledger), `computations/sector_sos_cap2/`
+(independent-replication tooling), `computations/u1_conjugation_fence.py`
+(+ ledger), `tests/test_sector_sos.py` (13 tests),
+`scripts/gen_sector_sos_lean.py`, `dual_kappa_spike/SectorSOSLedger.lean`
+(eighth spike target), `notes/sector-sos-positivity.md`.
+
+**THE COVERAGE FINDING THAT REFRAMES P3 (stated, then made moot).**  The
+atlas exists to cover the middle regime `[2^{-1/3}, s_*] = [0.793701,
+1 - 5.68e-14]`.  Every certified grid point banked in §§16h-16l and §17e
+— bought at exponentially rising cost, and the object of §17.2's F1
+complaint — lies at `s <= 5/8 = 0.625`, i.e. **entirely inside the
+unconditional strong-coupling anchor window `[0, 2^{-1/3})`**.  The
+marched frontier therefore contributed *zero* coverage to the interval
+the atlas is for; the middle regime had NO coverage at all.  F1 called
+the s-marching off-geodesic by cost; the sharper statement is that it was
+off-geodesic by DOMAIN.
+
+**THE STRUCTURE (three facts).**  The M->infinity slab kernel decomposes
+over transverse sectors `sigma = (q,w)` (theta-invariant faces, §16h):
+`T[n,m](s) = sum_sigma W_sigma(s) G_sigma[n,m](s)`, `W_sigma > 0`.
+**(F1)** each `G_sigma` is an EXACT FINITE polynomial — at fixed sector
+`triad(n,q_i,a_i)` forces `a_i <= n + q_i`, so the tile sums TERMINATE:
+no truncation error inside a sector, ever (gate `g_exact`, M vs M+1
+identical; teeth: at cap<=2 the M=2 kernels differ on 144/187 sectors).
+**(F2)** each `G_sigma` is PSD over `(n,m) in {0,1}^2` — the BANKED §16h
+sector-wise OS/link-reflection input plus `G_sigma = V^T H V` with `H`
+the half-config Gram and `V` the strictly positive tile weights (gate
+`g_psd`, exact square-root-free LDL: all 16 sectors of the certificate
+family AND all 187 of the independent cap<=2 family, ZERO failures;
+teeth: every `H` is rank-deficient so the zero-pivot branch fires, and
+71/187 have a negative entry, so PSD is not entrywise positivity).
+**(F3)** det is superadditive on PSD 2x2: `det(X+Y) = det X + det Y +
+tr(X adj Y)` exactly, both extra terms `>= 0`, so **truncating the sector
+family can only DECREASE the determinant**: `det T_S <= det T_full` on
+`(0,1)`.  Equivalently the pair expansion `det T_full = sum W^2 det G +
+sum_{sigma<sigma'} W W' Q`, `Q = AB' + BA' - 2CC' >= 0`, is an exact sum
+of NON-NEGATIVE terms indexed by sector pairs — the depth-1 analogue of
+the §17e depth-2 Lagrange/Cauchy-Binet SOS (gate `g_pairs`: exact
+rational identity, zero negative `Q`).
+
+**THE CERTIFICATE.**  Family = the 16 sectors with all labels <= 1.
+Exact assembled kernels: `T00 = 1 + 16s^18 + 16s^30 + 32s^36 + 16s^42 +
+4s^48`; `T01 = 2s^12 + ... + 6s^68` (10 terms); `T11 = 5s^24 + ... +
+9s^88` (13 terms).  Then `det_S = T00 T11 - T01^2 = s^24 P(s)`, `deg P =
+106`, `P(0) = 1`, **16 of P's 46 coefficients NEGATIVE**.  Under the
+Moebius bijection `s = 1/(1+t) : (0,1) -> (0,inf)`,
+
+    R(t) = (1+t)^106 P(1/(1+t)) = t^4 * Rhat(t),
+    Rhat: 103 integer coefficients, ALL >= 0, Rhat(0) = 15972864 > 0.
+
+Hence `P > 0` on `(0,1)`, hence by (F3) the FULL kernel satisfies
+`T00 T11 > T01^2`:
+
+>   **X_11(s) = log(T00 T11 / T01^2) > 0 for ALL s in (0,1)** — the
+>   anti-screening sign of the one-step blocked observable, uniformly on
+>   the whole interval, modulo the banked (F2) OS input (which is the
+>   SAME input §16h-§17e already consume, not a new frontier atom).
+
+Positivity is now a comparison of 103 integers against zero — a
+DESCARTES certificate, not a Sturm count.  Independent replication on a
+disjointly built family: cap<=2, **187 sectors**, built with an
+independent exact spin-network evaluator gated BIT-FOR-BIT against the
+incumbent `dp3_fixed_tile` on all 171 cap<=1 configurations, 320
+orthogonality identities and 130 random networks: `deg 376`, 69/163
+negative coefficients, **0 roots in (0,1)** by BOTH Sturm and Descartes,
+`Rhat(0) = 230460431616`.
+
+**CONSISTENCY WITH THE BANKED INSTRUMENT.**  `g_census`: the sector
+assembly reproduces the banked M=2 census polynomial exactly on the
+leading block of every entry and is coefficientwise DOMINATED by it
+elsewhere — the relation a positive sub-sum must satisfy.  `g_grid`: at
+every §16l CERT point `det_S > 0` and the assembly's `X_11` sits at or
+above the banked floor; at `s = 1/2` it is `0.258391`, EQUAL to the
+banked certified floor to six decimals — the two routes meet.
+Non-vacuity: the dominant trivial sector is EXACTLY rank one
+(`det G = 0` identically) and the diagonal part is `7.1e-14` of `det_S`
+at `s = 1/2` — the certificate is entirely cross-sector INTERFERENCE.
+
+**THE U(1) FENCE, EARNING ITS KEEP AGAIN (§17.4).**  Abelian:
+`T[n,m] = D_n D_m Phi(n-m)` with `Phi(k) = sum_c s^{a(c)}(s^{2S(c)})^k` a
+STIELTJES MOMENT SEQUENCE, so the observable's matrix is a TOEPLITZ form
+while the OS Gram object `T[-n,m] = D_n D_m Phi(n+m)` is a HANKEL form.
+Hankel of a moment sequence is PSD; Toeplitz is not — that one word is
+the fence.  Per abelian orbit `{c,-c}`,
+`det G_sigma = s^{2a+8}(4 - (t+1/t)^2) < 0` whenever `S(c) != 0` — a
+PROOF, not a numeric; 270/313 orbits carry a strictly negative exact
+determinant (witness `c=(1,0,0,0)` at `s=1/2`: `-225/16777216`).  The
+ASSEMBLED abelian 2x2 has certified negative determinant, so **no**
+sector decomposition whatsoever can be sector-wise PSD abelian-ly: the
+fence is decomposition-INDEPENDENT.  Conjugated blocks are rank one and
+their sum is PSD (conjugated PASSES).  Kernel-checked exponent form:
+`2Qmin(n,m) - Qmin(n,n) - Qmin(m,m) = -2(n-m)^2` (unconjugated, wrong
+sign) vs `2Qmin(-n,m) - Qmin(-n,n) - Qmin(-m,m) = +2(n-m)^2`
+(conjugated).  New closed form, the exact mirror of the SU(2) statement
+with the opposite sign: `X_U1(s) = -2 log(Phi(1)/Phi(0)) < 0` for EVERY
+`s in (0,1)` (banked `X_U1(1/2) = -0.35636` reproduced).  **Where SU(2)
+enters:** OS gives PSD of `[T[nbar,m]]`; SU(2) is self-conjugate so
+`nbar = n` and the OS-PSD object and the `X_11` object are LITERALLY THE
+SAME MATRIX, sector by sector.  Two flags: self-conjugacy is used TWICE
+(boundary charge and sector-preservation — abelian-ly reflection sends
+`c -> -c`, which is why the abelian analysis needs `±c` orbits), and it
+is an SU(2)/A_1 fact, so all-group uniformity rides the R1 worst-case
+spine (invariant P6) — inherited debt, not discharged here.
+
+**LEAN (eighth spike target).**  `SectorSOSLedger.lean`, generated: the
+sector weights and exponents REDERIVED in-kernel from the labelling; the
+assembly REDERIVED coefficient by coefficient against declared integer
+polynomials with an exponent-COMPLETENESS guard; `det_S` formed
+in-kernel; the Moebius transform by Horner in `u = 1+t`; then
+`sector_sos_certified : rHat.all (fun c => decide (0 <= c)) = true` by
+`decide` — the program's **first kernel-checked INTERVAL statement**
+(every prior certified statement was pointwise).  Plus `r_low_order`
+(order exactly 4 at `t=0`, leading 15972864), `t_rederived`,
+`exps_complete`, `det_bottom`, `p_has_negative_coefficients` (=16,
+non-vacuity), `sector_blocks_psd_on_grid`, `trivial_sector_rank_one`, and
+three U(1) fence theorems.  Verified in the cloud with Lean 4.29.1,
+`LEAN_NUM_THREADS=1 -M 8192`: **exit code 0**, no errors, no warnings.
+`#print axioms`: ten of eleven theorems depend on NO axioms at all;
+`r_low_order` on `[propext]` only — inside the `{propext, Quot.sound}`
+budget.  **Mutation-tested**: changing one transcribed Haar value
+`(34, 9/16) -> (34, 10/16)` makes `t_rederived` fail.  Tests
+`test_sector_sos.py` 13/13 (47 s).  **Mac-side lake run NOT claimed** —
+no Lean ran on the host this session.
+
+**THE RATE: A BANKED REFUTATION AND A RENAMED FRONT.**  `det_S` gives a
+QUANTITATIVE floor only after an upper bound on `T01` (one entry — the
+cheap direction of the window instrument), and near `s = 1` the floor is
+`O(tau^4)`, not the true `O(tau^2)`.  The obvious lever — enlarge the
+transverse family — is **REFUTED**: the cap<=2 family (187 sectors) has
+the SAME order-4 vanishing at `s = 1`, because every sector shares the
+`s -> 1` collapse of `T` onto the rank-one dimension kernel
+`That[n,m] = d_n d_m s^{12(n+m)} T00`, with the two exact coincidences
+`T00(1) x_2 = u_1^2` and `T00(1) x_3 + T00'(1) x_2 = 2 u_1 u_2`
+(`u = T01 - 2T00`, `x = T11 - 4T01 + 4T00`) holding in BOTH families.
+The order-4 degeneracy is PROTECTED, not a small-family artifact.
+
+**Queue effect.**  P3's sign half is CLOSED on the whole interval and the
+atlas requirement collapses from "finitely many expensive windows meeting
+`s_*`" to one coefficient-sign check; MD.4's per-window functional
+positivity is discharged uniformly.  DE-PRIORITISED as a consequence:
+further one-step s-marching (already capped at 31/50 by §17.3, now moot
+for the sign), and the recoupling evaluator / (0,3)- and (3,3)-class
+diagonal lane AS SIGN CONSUMERS — they remain rate consumers only.
+
+**Next attack.**  (1) The deviation kernel `delta = T - That`, and
+specifically `delta11 - 4 s^12 delta01`, whose order-3 coefficient is the
+first quantity the protection mechanism does NOT fix: the two-sided rate
+envelope `1 < tau'/tau <= 1 + c tau` and the P3 overlap closure now live
+there, not in `det T`.  (2) The cheap direction of the window instrument
+(upper bound on `T01` alone, uniformly in s) to convert `det_S` into a
+certified `X_11` FLOOR on the middle regime.  (3) Transport the sector-SOS
+argument to the depth-2 object, where §17e's Lagrange SOS and this
+depth-1 SOS should compose.  (4) Standing: pin the
+`computations/sector_sos_cap2/` replication tooling in `tests/`.
+
+**§17g addendum (same session): the next front OPENED and its first
+guess REFUTED.**  The deviation kernel `delta = T - That`,
+`That[n,m] = d_n d_m s^{12(n+m)} T00`, was named above as the way past
+the protected order-4 degeneracy.  Computed exactly in both families:
+
+* `delta01 = T01 - 2 s^12 T00` and `delta11 = T11 - 4 s^24 T00` each
+  vanish to order EXACTLY 2 at `s = 1`, with `delta11 = 4 * delta01` at
+  leading order EXACTLY — cap<=1: 16896 = 4 * 4224; cap<=2:
+  2899680 = 4 * 724920.  The protection relation is confirmed
+  independently of `det`.
+* The proposed escape combination `delta11 - 4 s^12 delta01
+  = T11 - 4 s^12 T01 + 4 s^24 T00` vanishes to order **4**, not 3 —
+  leading coefficient 397824 (cap<=1) and 181063296 (cap<=2), both
+  positive.  **The "order-3 coefficient" guess is REFUTED**: the
+  order-4 vanishing is a property of the OBSERVABLE CLASS, not of the
+  transverse family, and subtracting the rank-one dimension kernel does
+  not break it.
+* What DOES respond to the family is the SIZE, not the order: every
+  leading coefficient grows by 2-4 orders from cap<=1 to cap<=2
+  (4224 -> 724920; 397824 -> 181063296; det's 15972864 ->
+  230460431616).  So family enlargement buys magnitude, never order.
+
+Consequence for the ranking: the rate must come from the RELATIVE
+quantity `X_11 / tau^2`, i.e. from pairing `det_S` with a uniform UPPER
+bound on `T01` alone (the cheap direction of the window instrument),
+not from any further algebraic recombination of the same entries.  That
+is now the single next item.
