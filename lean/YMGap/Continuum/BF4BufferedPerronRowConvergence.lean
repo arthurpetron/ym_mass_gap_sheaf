@@ -46,6 +46,7 @@ open YMGap.Continuum.BF4PhysicallyRecenteredMatchedEighth
 open YMGap.Continuum.BF4ReflectedAllSpinAFRowRelative
 open YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
 open YMGap.Continuum.BF4SU2FixedMagneticPositiveKernelConvergence
+open YMGap.Continuum.BF4SymmetricReferenceOperatorComparison
 open YMGap.Continuum.BF4WeightedJointPerronPerturbation
 open YMGap.Continuum.FiniteDeterministicKernelPushforward
 open YMGap.Continuum.FiniteWeightedGramSOS
@@ -937,6 +938,27 @@ structure MatchedCrossZeroPhysicalSixteenthRows
 
 namespace MatchedCrossZeroPhysicalSixteenthRows
 
+/-- The first requested spacing-uniform scalar inequality, with the sharper
+constant `1/16`. -/
+theorem calibrated_rate_le_sixteenth
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat → Q'}
+    {halfExtent diagonalOrder : Nat → Nat}
+    (rows :
+      MatchedCrossZeroPhysicalSixteenthRows
+        family law spacing coupling
+        halfExtent diagonalOrder)
+    (scale : Nat) :
+    (matchedPhysicallyRecenteredMehlerGramRawEndpointAt
+        family coupling halfExtent
+        diagonalOrder (fun _ => 0) scale).rate ≤
+      Q'.mkPos 1 16 (by decide) := by
+  unfold matchedPhysicallyRecenteredMehlerGramRawEndpointAt
+  exact physicallyRecenteredCrossZero_rate_le_sixteenth
+    (rows.harnack scale)
+
 /-- Cross-zero Harnack and the physical centered-row sixteenth inhabit both
 literal spacing-uniform `1/8` fields of
 `MatchedPhysicallyRecenteredRowwiseEighthEstimates`. -/
@@ -987,4 +1009,5 @@ end YMGap.Continuum.BF4BufferedPerronRowConvergence
 #print axioms YMGap.Continuum.BF4BufferedPerronRowConvergence.finiteBufferedIntegratedMajorant_le
 #print axioms YMGap.Continuum.BF4BufferedPerronRowConvergence.BufferedCenteredJointRow.row_abs_mass_le
 #print axioms YMGap.Continuum.BF4BufferedPerronRowConvergence.physicalCenteredPhysicalRowMass_le_sixteenth_of_faraut_buffered
+#print axioms YMGap.Continuum.BF4BufferedPerronRowConvergence.MatchedCrossZeroPhysicalSixteenthRows.calibrated_rate_le_sixteenth
 #print axioms YMGap.Continuum.BF4BufferedPerronRowConvergence.MatchedCrossZeroPhysicalSixteenthRows.toRowwiseEighthEstimates
