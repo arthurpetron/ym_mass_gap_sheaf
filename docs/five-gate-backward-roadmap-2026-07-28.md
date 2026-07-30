@@ -595,6 +595,37 @@ literal calibrated centered-rate estimate.  Neither estimate is asserted:
 their spacing-uniform proof on the genuine BF4 trajectory remains the
 Yang--Mills analytic content.
 
+The subsequent operator-sharp refinement removes the remaining
+\(|S|/\pi_{\min}\) overpayment.  Lean now computes
+\[
+  \varepsilon_{\rm row}
+  =
+  \max_{x\in S}
+  \frac{\sum_{y\in S}|J_{\rm phys}(x,y)-J_M(x,y)|}{\pi(x)}
+\]
+by constructive list recursion.  It proves row by row that
+\[
+  \sum_y|J_{\rm phys}(x,y)-J_M(x,y)|
+  \le \varepsilon_{\rm row}\,\pi(x),
+\]
+packages the calibrated Mehler Gram as the signed symmetric reference
+operator, and feeds this exact epsilon to the weighted Perron perturbation
+theorem.  `MatchedVacuumCalibratedRowwiseEighthEstimates.toSharpEighthBounds`
+therefore fills the two operator-sharp \(1/8\) fields from exactly:
+
+1. the calibrated physical-mean-zero reference rate \(\le1/8\); and
+2. the all-label, all-retained-row inequality
+   \[
+     \sum_y|J_{\rm phys}(x,y)-J_M(x,y)|
+     \le \tfrac18\pi(x).
+   \]
+
+`MatchedVacuumCalibratedSharpEighthBounds.physical_quarter_uniform` then
+proves the physical mean-zero \(1/4\) contraction at every matched scale.
+This is the minimal weighted-Schur target; it is strictly sharper than the
+earlier global all-label sufficient condition.  The two displayed
+Yang--Mills inequalities themselves remain to be proved.
+
 ### M2. Prove the AF-uniform row-relative estimate
 
 For every physical tolerance \(\varepsilon>0\), retained base cutoff \(K_0\),
