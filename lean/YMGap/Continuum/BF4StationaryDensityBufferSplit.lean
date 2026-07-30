@@ -34,6 +34,7 @@ open YMGap.Continuum.BF4BufferedPerronRowConvergence
 open YMGap.Continuum.FiniteDeterministicKernelPushforward
 open YMGap.Continuum.FiniteWeightedGramSOS
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
+open YMGap.Continuum.SU2FiniteTrivalentPacketGraphEdgeOrderNorm
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm
 
 local infix:50 " ≈ " => Q'.eqv
@@ -851,6 +852,563 @@ theorem oldWholeSlabJointCarrierPath_not_harnack_depth
   unfold farautHarnackRequiredDepth at hdepth
   omega
 
+/-! ## 6. Exact weighted transfer powers and their all-word expansion -/
+
+/-- The density of `steps + 1` consecutive one-step transfers.  Starting
+at one step avoids introducing a reciprocal of the stationary weight for
+the zero-step identity density. -/
+def finiteWeightedDensityPower
+    {State : Type}
+    (states : List State) (weight : State → Q')
+    (kernel : State → State → Q') :
+    Nat → State → State → Q'
+  | 0 => kernel
+  | steps + 1 =>
+      finiteWeightedDensityCompose
+        states weight kernel
+        (finiteWeightedDensityPower
+          states weight kernel steps)
+
+/-- A stationary row remains normalized after weighted composition. -/
+theorem compose_row_normalized
+    {State : Type}
+    (states : List State) (weight : State → Q')
+    (left right : State → State → Q')
+    (left_row :
+      ∀ source,
+        listQSum
+            (fun middle =>
+              weight middle * left source middle)
+            states ≈
+          1)
+    (right_row :
+      ∀ middle,
+        listQSum
+            (fun target =>
+              weight target * right middle target)
+            states ≈
+          1)
+    (source : State) :
+    listQSum
+        (fun target =>
+          weight target *
+            finiteWeightedDensityCompose
+              states weight left right source target)
+        states ≈
+      1 := by
+  unfold finiteWeightedDensityCompose
+  refine Q'.eqv_trans _
+    (listQSum
+      (fun target =>
+        listQSum
+          (fun middle =>
+            weight target *
+              ((weight middle * left source middle) *
+                right middle target))
+          states)
+      states) _ ?_ ?_
+  · apply listQSum_congr_local
+    intro target
+    exact Q'.eqv_symm
+      (listQSum_mul_left
+        (weight target)
+        (fun middle =>
+          (weight middle * left source middle) *
+            right middle target)
+        states)
+  refine Q'.eqv_trans _
+    (listQSum
+      (fun middle =>
+        listQSum
+          (fun target =>
+            weight target *
+              ((weight middle * left source middle) *
+                right middle target))
+          states)
+      states) _ ?_ ?_
+  · exact listQSum_swap
+        (fun middle target =>
+          weight target *
+            ((weight middle * left source middle) *
+              right middle target))
+        states states
+  refine Q'.eqv_trans _ _ _
+    (listQSum_congr_local
+      (fun middle => by
+        refine Q'.eqv_trans _
+          ((weight middle * left source middle) *
+            listQSum
+              (fun target =>
+                weight target * right middle target)
+              states) _ ?_ ?_
+        · refine Q'.eqv_trans _
+            (listQSum
+              (fun target =>
+                (weight middle * left source middle) *
+                  (weight target * right middle target))
+              states) _ ?_ ?_
+          · apply listQSum_congr_local
+            intro target
+            ac_qeqv
+          · exact listQSum_mul_left _ _ _
+        exact Q'.eqv_trans _ _ _
+          (Q'.mul_eqv_congr_left _ _ _
+            (right_row middle))
+          (Q'.mul_one_eqv _))
+      states) ?_
+  exact left_row source
+
+/-- Every positive-length power of a row-normalized transfer density is
+row normalized. -/
+theorem finiteWeightedDensityPower_row_normalized
+    {State : Type}
+    (states : List State) (weight : State → Q')
+    (kernel : State → State → Q')
+    (kernel_row :
+      ∀ source,
+        listQSum
+            (fun target =>
+              weight target * kernel source target)
+            states ≈
+          1) :
+    ∀ steps source,
+      listQSum
+          (fun target =>
+            weight target *
+              finiteWeightedDensityPower
+                states weight kernel steps source target)
+          states ≈
+        1
+  | 0, source => kernel_row source
+  | steps + 1, source => by
+      unfold finiteWeightedDensityPower
+      exact compose_row_normalized
+        states weight kernel
+        (finiteWeightedDensityPower
+          states weight kernel steps)
+        kernel_row
+        (finiteWeightedDensityPower_row_normalized
+          states weight kernel kernel_row steps)
+        source
+
+/-- Every positive-length power of a column-normalized transfer density is
+column normalized. -/
+theorem finiteWeightedDensityPower_column_normalized
+    {State : Type}
+    (states : List State) (weight : State → Q')
+    (kernel : State → State → Q')
+    (kernel_column :
+      ∀ target,
+        listQSum
+            (fun source =>
+              weight source * kernel source target)
+            states ≈
+          1) :
+    ∀ steps target,
+      listQSum
+          (fun source =>
+            weight source *
+              finiteWeightedDensityPower
+                states weight kernel steps source target)
+          states ≈
+        1
+  | 0, target => kernel_column target
+  | steps + 1, target => by
+      unfold finiteWeightedDensityPower
+      exact compose_column_normalized
+        states weight kernel
+        (finiteWeightedDensityPower
+          states weight kernel steps)
+        kernel_column
+        (finiteWeightedDensityPower_column_normalized
+          states weight kernel kernel_column steps)
+        target
+
+/-- Product attached to a word of intermediate transfer states.  A word of
+length `steps` contains exactly the `steps` internal vertices of a path
+with `steps + 1` transfer edges. -/
+def finiteWeightedDensityPathProduct
+    {State : Type}
+    (weight : State → Q')
+    (kernel : State → State → Q')
+    (source target : State) :
+    List State → Q'
+  | [] => kernel source target
+  | middle :: tail =>
+      (weight middle * kernel source middle) *
+        finiteWeightedDensityPathProduct
+          weight kernel middle target tail
+
+/-- Sum over every exact-length word of intermediate states. -/
+def finiteWeightedDensityPathSum
+    {State : Type}
+    (states : List State) (weight : State → Q')
+    (kernel : State → State → Q')
+    (steps : Nat) (source target : State) : Q' :=
+  listQSum
+    (finiteWeightedDensityPathProduct
+      weight kernel source target)
+    (finiteWords states steps)
+
+/-- The recursive transfer power is exactly the complete all-label path
+sum.  No positivity, noduplication, or decidable equality is required. -/
+theorem finiteWeightedDensityPathSum_eq_power
+    {State : Type}
+    (states : List State) (weight : State → Q')
+    (kernel : State → State → Q') :
+    ∀ steps source target,
+      finiteWeightedDensityPathSum
+          states weight kernel steps source target ≈
+        finiteWeightedDensityPower
+          states weight kernel steps source target
+  | 0, source, target => by
+      unfold finiteWeightedDensityPathSum finiteWords
+      unfold listQSum finiteWeightedDensityPathProduct
+      exact Q'.eqv_of_eq (Q'.add_zero' _)
+  | steps + 1, source, target => by
+      unfold finiteWeightedDensityPathSum
+      change
+        listQSum
+            (finiteWeightedDensityPathProduct
+              weight kernel source target)
+            (states.flatMap
+              (fun middle =>
+                (finiteWords states steps).map
+                  (fun tail => middle :: tail))) ≈
+          finiteWeightedDensityPower
+            states weight kernel (steps + 1)
+            source target
+      refine Q'.eqv_trans _
+        (listQSum
+          (fun middle =>
+            listQSum
+              (finiteWeightedDensityPathProduct
+                weight kernel source target)
+              ((finiteWords states steps).map
+                (fun tail => middle :: tail)))
+          states) _ ?_ ?_
+      · exact listQSum_flatMap
+          (finiteWeightedDensityPathProduct
+            weight kernel source target)
+          (fun middle =>
+            (finiteWords states steps).map
+              (fun tail => middle :: tail))
+          states
+      refine Q'.eqv_trans _
+        (listQSum
+          (fun middle =>
+            listQSum
+              (fun tail =>
+                (weight middle * kernel source middle) *
+                  finiteWeightedDensityPathProduct
+                    weight kernel middle target tail)
+              (finiteWords states steps))
+          states) _ ?_ ?_
+      · apply listQSum_congr_local
+        intro middle
+        rw [listQSum_map]
+        exact Q'.eqv_refl _
+      refine Q'.eqv_trans _
+        (listQSum
+          (fun middle =>
+            (weight middle * kernel source middle) *
+              listQSum
+                (finiteWeightedDensityPathProduct
+                  weight kernel middle target)
+                (finiteWords states steps))
+          states) _ ?_ ?_
+      · apply listQSum_congr_local
+        intro middle
+        exact listQSum_mul_left
+          (weight middle * kernel source middle)
+          (finiteWeightedDensityPathProduct
+            weight kernel middle target)
+          (finiteWords states steps)
+      unfold finiteWeightedDensityPower
+      unfold finiteWeightedDensityCompose
+      apply listQSum_congr_local
+      intro middle
+      exact Q'.mul_eqv_congr_left
+        (weight middle * kernel source middle) _ _
+        (finiteWeightedDensityPathSum_eq_power
+          states weight kernel steps middle target)
+
+/-! ## 7. Physical one-step transfer constructor -/
+
+/-- A physical BF4 row represented by a single stationary transfer density,
+with one endpoint step on either side of its exact all-label middle power.
+
+For physical depth `depth`, the middle has `depth - 3` intermediate words,
+hence `depth - 2` transfer edges.  The full sandwich therefore has exactly
+`depth` one-step edges.  This structure isolates the remaining Yang--Mills
+input to one genuine transfer density, its reflected-joint gluing theorem,
+and endpoint/middle quantitative estimates. -/
+structure PhysicalBF4TransferPowerRow
+    {w : Q'} (hw : (0 : Q') ≤ w)
+    (K halfExtent : Nat)
+    (source : EdgeLabelling)
+    (depth : Nat)
+    (oneStep : EdgeLabelling → EdgeLabelling → Q')
+    (endpointBound middleBound : Q') : Type where
+  depth_at_least_three :
+    3 ≤ depth
+  endpointBound_nonnegative :
+    (0 : Q') ≤ endpointBound
+  middleBound_nonnegative :
+    (0 : Q') ≤ middleBound
+  oneStep_row :
+    ∀ row,
+      listQSum
+          (fun state =>
+            centralPhysicalRowMarginal
+                w hw K halfExtent state *
+              oneStep row state)
+          (centralPositiveHalfStates
+            w hw K halfExtent) ≈
+        1
+  oneStep_column :
+    ∀ column,
+      listQSum
+          (fun state =>
+            centralPhysicalRowMarginal
+                w hw K halfExtent state *
+              oneStep state column)
+          (centralPositiveHalfStates
+            w hw K halfExtent) ≈
+        1
+  joint_density :
+    ∀ target,
+      target ∈
+          centralPositiveHalfStates
+            w hw K halfExtent →
+        centralNormalizedPhysicalReflectedKernel
+            w hw K halfExtent source target ≈
+          (centralPhysicalRowMarginal
+                w hw K halfExtent source *
+            centralPhysicalRowMarginal
+                w hw K halfExtent target) *
+            finiteWeightedDensityCompose
+              (centralPositiveHalfStates
+                w hw K halfExtent)
+              (centralPhysicalRowMarginal
+                w hw K halfExtent)
+              oneStep
+              (finiteWeightedDensityCompose
+                (centralPositiveHalfStates
+                  w hw K halfExtent)
+                (centralPhysicalRowMarginal
+                  w hw K halfExtent)
+                (finiteWeightedDensityPower
+                  (centralPositiveHalfStates
+                    w hw K halfExtent)
+                  (centralPhysicalRowMarginal
+                    w hw K halfExtent)
+                  oneStep (depth - 3))
+                oneStep)
+              source target
+  left_bound :
+    listQSum
+        (fun state =>
+          Q'.abs
+            (centralPhysicalRowMarginal
+                w hw K halfExtent state *
+              finiteCenteredDensity
+                oneStep source state))
+        (centralPositiveHalfStates
+          w hw K halfExtent) ≤
+      endpointBound
+  middle_power_bound :
+    ∀ first,
+      first ∈
+          centralPositiveHalfStates
+            w hw K halfExtent →
+        listQSum
+            (fun second =>
+              Q'.abs
+                (centralPhysicalRowMarginal
+                    w hw K halfExtent second *
+                  finiteCenteredDensity
+                    (finiteWeightedDensityPower
+                      (centralPositiveHalfStates
+                        w hw K halfExtent)
+                      (centralPhysicalRowMarginal
+                        w hw K halfExtent)
+                      oneStep (depth - 3))
+                    first second))
+            (centralPositiveHalfStates
+              w hw K halfExtent) ≤
+          middleBound
+  right_bound :
+    ∀ first,
+      first ∈
+          centralPositiveHalfStates
+            w hw K halfExtent →
+        listQSum
+            (fun target =>
+              centralPhysicalRowMarginal
+                  w hw K halfExtent target *
+                Q'.abs
+                  (finiteCenteredDensity
+                    oneStep first target))
+            (centralPositiveHalfStates
+              w hw K halfExtent) ≤
+          endpointBound
+
+namespace PhysicalBF4TransferPowerRow
+
+/-- A physical transfer-power row supplies the exact three-factor
+stationary certificate used by the carrier-free Perron estimate. -/
+def toStationaryTripleRow
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {K halfExtent : Nat}
+    {source : EdgeLabelling}
+    {depth : Nat}
+    {oneStep : EdgeLabelling → EdgeLabelling → Q'}
+    {endpointBound middleBound : Q'}
+    (data :
+      PhysicalBF4TransferPowerRow
+        hw K halfExtent source depth
+        oneStep endpointBound middleBound) :
+    PhysicalBF4StationaryTripleRow
+      hw K halfExtent source
+      oneStep
+      (finiteWeightedDensityPower
+        (centralPositiveHalfStates
+          w hw K halfExtent)
+        (centralPhysicalRowMarginal
+          w hw K halfExtent)
+        oneStep (depth - 3))
+      oneStep endpointBound middleBound where
+  endpointBound_nonnegative :=
+    data.endpointBound_nonnegative
+  middleBound_nonnegative :=
+    data.middleBound_nonnegative
+  left_row :=
+    data.oneStep_row
+  middle_row :=
+    finiteWeightedDensityPower_row_normalized
+      (centralPositiveHalfStates
+        w hw K halfExtent)
+      (centralPhysicalRowMarginal
+        w hw K halfExtent)
+      oneStep data.oneStep_row (depth - 3)
+  middle_column :=
+    finiteWeightedDensityPower_column_normalized
+      (centralPositiveHalfStates
+        w hw K halfExtent)
+      (centralPhysicalRowMarginal
+        w hw K halfExtent)
+      oneStep data.oneStep_column (depth - 3)
+  right_column :=
+    data.oneStep_column
+  joint_density :=
+    data.joint_density
+  left_bound :=
+    data.left_bound
+  middle_bound :=
+    data.middle_power_bound
+  right_bound :=
+    data.right_bound
+
+/-- The middle transfer density is literally the sum over all retained
+state words of the required length. -/
+theorem middle_power_eq_all_word_path_sum
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {K halfExtent : Nat}
+    {source : EdgeLabelling}
+    {depth : Nat}
+    {oneStep : EdgeLabelling → EdgeLabelling → Q'}
+    {endpointBound middleBound : Q'}
+    (data :
+      PhysicalBF4TransferPowerRow
+        hw K halfExtent source depth
+        oneStep endpointBound middleBound)
+    (first second : EdgeLabelling) :
+    finiteWeightedDensityPower
+        (centralPositiveHalfStates
+          w hw K halfExtent)
+        (centralPhysicalRowMarginal
+          w hw K halfExtent)
+        oneStep (depth - 3) first second ≈
+      finiteWeightedDensityPathSum
+        (centralPositiveHalfStates
+          w hw K halfExtent)
+        (centralPhysicalRowMarginal
+          w hw K halfExtent)
+        oneStep (depth - 3) first second := by
+  have _ := data.depth_at_least_three
+  exact Q'.eqv_symm
+    (finiteWeightedDensityPathSum_eq_power
+      (centralPositiveHalfStates
+        w hw K halfExtent)
+      (centralPhysicalRowMarginal
+        w hw K halfExtent)
+      oneStep (depth - 3) first second)
+
+/-- The path/sandwich bookkeeping has exactly the requested physical
+depth: `(depth - 3) + 3 = depth`. -/
+theorem middle_word_length_plus_endpoints
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {K halfExtent : Nat}
+    {source : EdgeLabelling}
+    {depth : Nat}
+    {oneStep : EdgeLabelling → EdgeLabelling → Q'}
+    {endpointBound middleBound : Q'}
+    (data :
+      PhysicalBF4TransferPowerRow
+        hw K halfExtent source depth
+        oneStep endpointBound middleBound) :
+    depth - 3 + 3 = depth := by
+  have hdepth := data.depth_at_least_three
+  omega
+
+/-- The physical one-step constructor inherits the exact `C² rho` bound. -/
+theorem physical_centered_row_le
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {K halfExtent : Nat}
+    {source : EdgeLabelling}
+    {depth : Nat}
+    {oneStep : EdgeLabelling → EdgeLabelling → Q'}
+    {endpointBound middleBound : Q'}
+    (data :
+      PhysicalBF4TransferPowerRow
+        hw K halfExtent source depth
+        oneStep endpointBound middleBound) :
+    physicalCenteredPhysicalRowMass
+        w hw K halfExtent source ≤
+      ((endpointBound * endpointBound) * middleBound) *
+        centralPhysicalRowMarginal
+          w hw K halfExtent source :=
+  data.toStationaryTripleRow.physical_centered_row_le
+
+/-- At the sharpened Faraut depth, a genuine physical one-step transfer
+power gives the required `1/16` physical centered row. -/
+theorem physical_centered_row_le_sixteenth_of_faraut
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {K halfExtent : Nat}
+    {source : EdgeLabelling}
+    {bits depth : Nat} {qS : Q'}
+    {oneStep : EdgeLabelling → EdgeLabelling → Q'}
+    (qS_nonnegative : (0 : Q') ≤ qS)
+    (qS_le_quarter : qS ≤ quarter)
+    (depth_available :
+      farautHarnackRequiredDepth bits ≤ depth)
+    (data :
+      PhysicalBF4TransferPowerRow
+        hw K halfExtent source depth oneStep
+        (farautRetainedSpread bits)
+        (qS ^ (depth - 2))) :
+    physicalCenteredPhysicalRowMass
+        w hw K halfExtent source ≤
+      Q'.mkPos 1 16 (by decide) *
+        centralPhysicalRowMarginal
+          w hw K halfExtent source :=
+  data.toStationaryTripleRow
+    |>.physical_centered_row_le_sixteenth_of_faraut
+      qS_nonnegative qS_le_quarter depth_available
+
+end PhysicalBF4TransferPowerRow
+
 end YMGap.Continuum.BF4StationaryDensityBufferSplit
 
 /-! ## Dependency gates -/
@@ -865,3 +1423,11 @@ end YMGap.Continuum.BF4StationaryDensityBufferSplit
 #print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.finiteWords_length
 #print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.wholeSlabJointCarrierMarkovPaths_length
 #print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.oldWholeSlabJointCarrierPath_not_harnack_depth
+#print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.compose_row_normalized
+#print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.finiteWeightedDensityPower_row_normalized
+#print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.finiteWeightedDensityPower_column_normalized
+#print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.finiteWeightedDensityPathSum_eq_power
+#print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.PhysicalBF4TransferPowerRow.toStationaryTripleRow
+#print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.PhysicalBF4TransferPowerRow.middle_power_eq_all_word_path_sum
+#print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.PhysicalBF4TransferPowerRow.middle_word_length_plus_endpoints
+#print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.PhysicalBF4TransferPowerRow.physical_centered_row_le_sixteenth_of_faraut
