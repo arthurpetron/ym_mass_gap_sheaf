@@ -48,6 +48,178 @@ private theorem listQSum_mono_on
             hterm item
               (List.mem_cons_of_mem head hitem)))
 
+/-- A relative estimate on two channel weights survives multiplication by a
+nonnegative common half-amplitude product.  This is the scalar CP-order step
+which turns a Yang--Mills heat-weight estimate into the integrand hypothesis
+used below. -/
+theorem gramIntegrand_relative_of_weight_relative
+    (physicalWeight referenceWeight
+      leftAmplitude rightAmplitude epsilon : Q')
+    (hleft : (0 : Q') ≤ leftAmplitude)
+    (hright : (0 : Q') ≤ rightAmplitude)
+    (hweight :
+      Q'.abs (physicalWeight + (-referenceWeight)) ≤
+        epsilon * physicalWeight) :
+    Q'.abs
+        (physicalWeight *
+              (leftAmplitude * rightAmplitude) +
+          (-(referenceWeight *
+              (leftAmplitude * rightAmplitude)))) ≤
+      epsilon *
+        (physicalWeight *
+          (leftAmplitude * rightAmplitude)) := by
+  let amplitudeProduct :=
+    leftAmplitude * rightAmplitude
+  have hamplitudeProduct :
+      (0 : Q') ≤ amplitudeProduct :=
+    Q'.mul_nonneg _ _ hleft hright
+  have hdifference :
+      physicalWeight * amplitudeProduct +
+          (-(referenceWeight * amplitudeProduct)) ≈
+        (physicalWeight + (-referenceWeight)) *
+          amplitudeProduct := by
+    exact Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_left
+        (physicalWeight * amplitudeProduct)
+        (-(referenceWeight * amplitudeProduct))
+        ((-referenceWeight) * amplitudeProduct)
+        (Q'.eqv_symm
+          (Q'.neg_mul_eqv referenceWeight amplitudeProduct)))
+      (Q'.eqv_symm
+        (Q'.add_mul_eqv
+          physicalWeight (-referenceWeight)
+          amplitudeProduct))
+  have habs :
+      Q'.abs
+          (physicalWeight * amplitudeProduct +
+            (-(referenceWeight * amplitudeProduct))) ≈
+        Q'.abs (physicalWeight + (-referenceWeight)) *
+          amplitudeProduct := by
+    exact Q'.eqv_trans _ _ _
+      (Q'.abs_eqv_congr hdifference)
+      (YMGap.Continuum.TsumDeriv.abs_mul_nonneg_right
+        (physicalWeight + (-referenceWeight))
+        hamplitudeProduct)
+  have hscaled :
+      Q'.abs (physicalWeight + (-referenceWeight)) *
+          amplitudeProduct ≤
+        (epsilon * physicalWeight) *
+          amplitudeProduct :=
+    Q'.mul_le_mul_of_nonneg_right _ _ _
+      hweight hamplitudeProduct
+  have hreassociate :
+      (epsilon * physicalWeight) * amplitudeProduct ≈
+        epsilon *
+          (physicalWeight * amplitudeProduct) :=
+    Q'.mul_assoc_eqv
+      epsilon physicalWeight amplitudeProduct
+  exact Q'.le_trans' _ _ _
+    (Q'.le_of_eqv habs)
+    (Q'.le_trans' _ _ _
+      hscaled (Q'.le_of_eqv hreassociate))
+
+/-- The concrete multiplicative window `[7/8, 9/8]` is exactly the relative
+`1/8` absolute-error estimate. -/
+theorem weightRelativeEighth_of_sevenNineWindow
+    (physicalWeight referenceWeight : Q')
+    (hlower :
+      Q'.mkPos 7 8 (by decide) * physicalWeight ≤
+        referenceWeight)
+    (hupper :
+      referenceWeight ≤
+        Q'.mkPos 9 8 (by decide) * physicalWeight) :
+    Q'.abs (physicalWeight + (-referenceWeight)) ≤
+      Q'.mkPos 1 8 (by decide) * physicalWeight := by
+  let epsilon := Q'.mkPos 1 8 (by decide)
+  have hsplitLower :
+      Q'.mkPos 7 8 (by decide) * physicalWeight +
+          epsilon * physicalWeight ≈
+        physicalWeight := by
+    exact Q'.eqv_trans _ _ _
+      (Q'.eqv_symm
+        (Q'.add_mul_eqv
+          (Q'.mkPos 7 8 (by decide))
+          epsilon physicalWeight))
+      (Q'.eqv_trans _ _ _
+        (Q'.mul_eqv_congr_right _ _ physicalWeight
+          (by decide))
+        (Q'.one_mul_eqv physicalWeight))
+  have hsplitUpper :
+      Q'.mkPos 9 8 (by decide) * physicalWeight ≈
+        physicalWeight + epsilon * physicalWeight := by
+    exact Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_right
+        (Q'.mkPos 9 8 (by decide))
+        (1 + epsilon) physicalWeight
+        (by decide))
+      (Q'.eqv_trans _ _ _
+        (Q'.add_mul_eqv
+          1 epsilon physicalWeight)
+        (Q'.add_eqv_congr_right
+          (1 * physicalWeight)
+          physicalWeight
+          (epsilon * physicalWeight)
+          (Q'.one_mul_eqv physicalWeight)))
+  have hphysical_le :
+      physicalWeight ≤
+        referenceWeight + epsilon * physicalWeight := by
+    exact Q'.le_trans' _ _ _
+      (Q'.ge_of_eqv hsplitLower)
+      (Q'.add_le_add_right _ _ _
+        hlower)
+  have hreference_le :
+      referenceWeight ≤
+        physicalWeight + epsilon * physicalWeight := by
+    exact Q'.le_trans' _ _ _
+      hupper (Q'.le_of_eqv hsplitUpper)
+  exact Q'.abs_le
+    (Q'.neg_le_sub_of_le_add hreference_le)
+    (Q'.sub_le_of_le_add hphysical_le)
+
+/-- A channel-weight relative estimate implies the full common-carrier
+integrand estimate whenever all retained half-amplitudes are nonnegative. -/
+theorem weightedGram_integrand_relative_of_weight_relative
+    {State Channel : Type}
+    (states : List State)
+    (channels : List Channel)
+    (physicalWeight referenceWeight : Channel → Q')
+    (amplitude : State → Channel → Q')
+    (epsilon : Q')
+    (hamplitude :
+      ∀ state, state ∈ states →
+        ∀ channel, channel ∈ channels →
+          (0 : Q') ≤ amplitude state channel)
+    (hweight :
+      ∀ channel, channel ∈ channels →
+        Q'.abs
+            (physicalWeight channel +
+              (-referenceWeight channel)) ≤
+          epsilon * physicalWeight channel) :
+    ∀ left, left ∈ states →
+      ∀ right, right ∈ states →
+        ∀ channel, channel ∈ channels →
+          Q'.abs
+              (physicalWeight channel *
+                    (amplitude left channel *
+                      amplitude right channel) +
+                (-(referenceWeight channel *
+                    (amplitude left channel *
+                      amplitude right channel)))) ≤
+            epsilon *
+              (physicalWeight channel *
+                (amplitude left channel *
+                  amplitude right channel)) := by
+  intro left hleft right hright channel hchannel
+  exact gramIntegrand_relative_of_weight_relative
+    (physicalWeight channel)
+    (referenceWeight channel)
+    (amplitude left channel)
+    (amplitude right channel)
+    epsilon
+    (hamplitude left hleft channel hchannel)
+    (hamplitude right hright channel hchannel)
+    (hweight channel hchannel)
+
 /-- A channelwise relative CP-order estimate implies the corresponding
 relative estimate for one common-carrier weighted-Gram entry.
 
@@ -450,3 +622,6 @@ end YMGap.Continuum.BF4SameCarrierRowCPDomination
 #print axioms YMGap.Continuum.BF4SameCarrierRowCPDomination.weightedGram_entry_error_le_of_integrand_relative
 #print axioms YMGap.Continuum.BF4SameCarrierRowCPDomination.weightedGram_row_error_le_of_integrand_relative
 #print axioms YMGap.Continuum.BF4SameCarrierRowCPDomination.normalizedWeightedGram_row_error_le_of_integrand_relative
+#print axioms YMGap.Continuum.BF4SameCarrierRowCPDomination.gramIntegrand_relative_of_weight_relative
+#print axioms YMGap.Continuum.BF4SameCarrierRowCPDomination.weightRelativeEighth_of_sevenNineWindow
+#print axioms YMGap.Continuum.BF4SameCarrierRowCPDomination.weightedGram_integrand_relative_of_weight_relative
