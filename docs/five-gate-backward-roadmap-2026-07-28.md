@@ -568,6 +568,33 @@ rate and the exact physical-minus-calibrated comparison tolerance.  Proving
 those two spacing-uniform Yang--Mills estimates is now the live M2 analytic
 work; all square-scaling and fixed-carrier algebra are discharged.
 
+The same module now also removes the scalar partition overpayment from the
+second eighth target.  Any raw endpoint is rewritten with numerator
+\(Z_{\rm phys}J_M\) and partition \(Z_{\rm phys}\); its normalized joint,
+PSD quadratic, and Rayleigh rate are unchanged, while its exact partition
+error is identically zero.  Lean proves entry by entry that the old
+separated cross budget reduces to
+\[
+  \frac{\sum_y|N_{\rm phys}(x,y)-Z_{\rm phys}J_M(x,y)|}
+       {Z_{\rm phys}},
+\]
+and bounds this by the literal normalized row mass
+\[
+  \sum_y|J_{\rm phys}(x,y)-J_M(x,y)|.
+\]
+Consequently the comparison eighth is now fed by one division-free
+all-label estimate:
+\[
+ |S|\,\sum_{x\in S}\sum_{y\in S}
+   |J_{\rm phys}(x,y)-J_M(x,y)|
+ \le \frac18\,\pi_{\min}.
+\]
+`MatchedVacuumCalibratedNormalizedEighthBounds.toQuarterBudget` fills both
+original eighth fields from this displayed comparison estimate and the
+literal calibrated centered-rate estimate.  Neither estimate is asserted:
+their spacing-uniform proof on the genuine BF4 trajectory remains the
+Yang--Mills analytic content.
+
 ### M2. Prove the AF-uniform row-relative estimate
 
 For every physical tolerance \(\varepsilon>0\), retained base cutoff \(K_0\),

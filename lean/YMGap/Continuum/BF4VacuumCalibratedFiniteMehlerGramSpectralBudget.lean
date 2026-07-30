@@ -31,6 +31,8 @@ open YMGap.Continuum.BF4CanonicalFiniteMehlerGramSpectralBudget
 open YMGap.Continuum.BF4CanonicalFiniteNumeratorPartitionBudget
 open YMGap.Continuum.BF4MatchedPhysicalAFBridge
 open YMGap.Continuum.BF4ReflectedAllSpinAFRowRelative
+open YMGap.Continuum.BF4ReflectedAllSpinTaylorRankOneEndpoint
+open YMGap.Continuum.BF4SU2FixedMagneticPositiveKernelConvergence
 open YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
 open YMGap.Continuum.BF4WeightedJointPerronPerturbation
 open YMGap.Continuum.FiniteDeterministicKernelPushforward
@@ -38,7 +40,10 @@ open YMGap.Continuum.FiniteWeightedGramSOS
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
 open YMGap.Continuum.Z4FiniteCylinderQuadraticStability
+open YMGap.Continuum.Z4HalfTimeReflectionGeometry
 open YMGap.Continuum.Z4HalfTimeReflectionNormalizedPhysicalGram
+open YMGap.Continuum.Z4HalfTimeReflectionPartition
+open YMGap.Continuum.Z4HalfTimeReflectionPhysicalGram
 
 local infix:50 " ≈ " => Q'.eqv
 
@@ -297,11 +302,698 @@ theorem squareScaledRawMehlerEndpoint_joint
     (Q'.recipPos
       endpoint.partition endpoint.partition_pos)
 
-/-! ## 2. Physical stationary-vacuum calibration -/
+/-! ## 2. Exact physical repartitioning -/
 
-/-- Calibrate the exact positive Gram by the physical stationary-vacuum
-amplitude `pi0²`. -/
-def vacuumCalibratedExactCenteredMehlerGramRawEndpoint
+/-- Rewrite a raw endpoint over the exact physical BF4 partition without
+changing its normalized joint, PSD quadratic, or Rayleigh rate.
+
+The new numerator is `Z_phys * endpoint.joint` and the new partition is
+`Z_phys`.  This removes a purely scalar partition mismatch from the
+separated numerator/partition comparison budget. -/
+def physicalRepartitionRawMehlerEndpoint
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {K halfExtent : Nat}
+    (endpoint :
+      CentralPhysicalRawMehlerEndpoint
+        w hw K halfExtent) :
+    CentralPhysicalRawMehlerEndpoint
+      w hw K halfExtent where
+  numerator :=
+    fun left right =>
+      slabParametricKPhysicalPartition
+          w K (centralExtent halfExtent) *
+        endpoint.joint left right
+  partition :=
+    slabParametricKPhysicalPartition
+      w K (centralExtent halfExtent)
+  partition_pos :=
+    slabParametricKPhysicalPartition_pos
+      hw K (centralExtent halfExtent)
+  numerator_symmetric := by
+    intro left right hleft hright
+    exact Q'.mul_eqv_congr_left
+      (slabParametricKPhysicalPartition
+        w K (centralExtent halfExtent))
+      (endpoint.joint left right)
+      (endpoint.joint right left)
+      (endpoint.joint_symmetric hleft hright)
+  normalized_quadratic_nonnegative := by
+    intro observable
+    let states :=
+      centralPositiveHalfStates
+        w hw K halfExtent
+    let repartitionedJoint :=
+      fun left right =>
+        Q'.divPos
+          (slabParametricKPhysicalPartition
+              w K (centralExtent halfExtent) *
+            endpoint.joint left right)
+          (slabParametricKPhysicalPartition
+            w K (centralExtent halfExtent))
+          (slabParametricKPhysicalPartition_pos
+            hw K (centralExtent halfExtent))
+    have hjoint :
+        ∀ left, left ∈ states →
+          ∀ right, right ∈ states →
+            repartitionedJoint left right ≈
+              endpoint.joint left right := by
+      intro left _ right _
+      unfold repartitionedJoint Q'.divPos
+      let partition :=
+        slabParametricKPhysicalPartition
+          w K (centralExtent halfExtent)
+      let reciprocal :=
+        Q'.recipPos partition
+          (slabParametricKPhysicalPartition_pos
+            hw K (centralExtent halfExtent))
+      let entry := endpoint.joint left right
+      change (partition * entry) * reciprocal ≈ entry
+      refine Q'.eqv_trans _
+        (partition * (entry * reciprocal)) _ ?_ ?_
+      · exact Q'.mul_assoc_eqv partition entry reciprocal
+      refine Q'.eqv_trans _
+        (partition * (reciprocal * entry)) _ ?_ ?_
+      · exact Q'.mul_eqv_congr_left partition _ _
+          (Q'.mul_comm_eqv entry reciprocal)
+      refine Q'.eqv_trans _
+        ((partition * reciprocal) * entry) _ ?_ ?_
+      · exact Q'.eqv_symm
+          (Q'.mul_assoc_eqv partition reciprocal entry)
+      refine Q'.eqv_trans _ ((1 : Q') * entry) _ ?_ ?_
+      · exact Q'.mul_eqv_congr_right _ _ entry
+          (Q'.mul_recipPos_eqv partition
+            (slabParametricKPhysicalPartition_pos
+              hw K (centralExtent halfExtent)))
+      · exact Q'.one_mul_eqv entry
+    exact Q'.le_trans' _ _ _
+      (endpoint.normalized_quadratic_nonnegative observable)
+      (Q'.le_of_eqv
+        (Q'.eqv_symm
+          (finiteJointQuadratic_joint_eqv
+            states observable
+            repartitionedJoint endpoint.joint hjoint)))
+  rate := endpoint.rate
+  rate_nonnegative := endpoint.rate_nonnegative
+  normalized_meanZero_quadratic := by
+    intro observable hmean
+    let states :=
+      centralPositiveHalfStates
+        w hw K halfExtent
+    let repartitionedJoint :=
+      fun left right =>
+        Q'.divPos
+          (slabParametricKPhysicalPartition
+              w K (centralExtent halfExtent) *
+            endpoint.joint left right)
+          (slabParametricKPhysicalPartition
+            w K (centralExtent halfExtent))
+          (slabParametricKPhysicalPartition_pos
+            hw K (centralExtent halfExtent))
+    have hjoint :
+        ∀ left, left ∈ states →
+          ∀ right, right ∈ states →
+            repartitionedJoint left right ≈
+              endpoint.joint left right := by
+      intro left _ right _
+      unfold repartitionedJoint Q'.divPos
+      let partition :=
+        slabParametricKPhysicalPartition
+          w K (centralExtent halfExtent)
+      let reciprocal :=
+        Q'.recipPos partition
+          (slabParametricKPhysicalPartition_pos
+            hw K (centralExtent halfExtent))
+      let entry := endpoint.joint left right
+      change (partition * entry) * reciprocal ≈ entry
+      refine Q'.eqv_trans _
+        (partition * (entry * reciprocal)) _ ?_ ?_
+      · exact Q'.mul_assoc_eqv partition entry reciprocal
+      refine Q'.eqv_trans _
+        (partition * (reciprocal * entry)) _ ?_ ?_
+      · exact Q'.mul_eqv_congr_left partition _ _
+          (Q'.mul_comm_eqv entry reciprocal)
+      refine Q'.eqv_trans _
+        ((partition * reciprocal) * entry) _ ?_ ?_
+      · exact Q'.eqv_symm
+          (Q'.mul_assoc_eqv partition reciprocal entry)
+      refine Q'.eqv_trans _ ((1 : Q') * entry) _ ?_ ?_
+      · exact Q'.mul_eqv_congr_right _ _ entry
+          (Q'.mul_recipPos_eqv partition
+            (slabParametricKPhysicalPartition_pos
+              hw K (centralExtent halfExtent)))
+      · exact Q'.one_mul_eqv entry
+    have hquadratic :
+        finiteJointQuadratic
+            states observable repartitionedJoint ≈
+          finiteJointQuadratic
+            states observable endpoint.joint :=
+      finiteJointQuadratic_joint_eqv
+        states observable
+        repartitionedJoint endpoint.joint hjoint
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv
+        (Q'.abs_eqv_congr hquadratic))
+      (endpoint.normalized_meanZero_quadratic
+        observable hmean)
+
+/-- Exact physical repartitioning leaves every normalized endpoint entry
+unchanged. -/
+theorem physicalRepartitionRawMehlerEndpoint_joint
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {K halfExtent : Nat}
+    (endpoint :
+      CentralPhysicalRawMehlerEndpoint
+        w hw K halfExtent)
+    (left right : EdgeLabelling) :
+    (physicalRepartitionRawMehlerEndpoint endpoint).joint
+        left right ≈
+      endpoint.joint left right := by
+  unfold physicalRepartitionRawMehlerEndpoint
+    CentralPhysicalRawMehlerEndpoint.joint
+    Q'.divPos
+  let partition :=
+    slabParametricKPhysicalPartition
+      w K (centralExtent halfExtent)
+  let reciprocal :=
+    Q'.recipPos partition
+      (slabParametricKPhysicalPartition_pos
+        hw K (centralExtent halfExtent))
+  let entry := endpoint.joint left right
+  change (partition * entry) * reciprocal ≈ entry
+  refine Q'.eqv_trans _
+    (partition * (entry * reciprocal)) _ ?_ ?_
+  · exact Q'.mul_assoc_eqv partition entry reciprocal
+  refine Q'.eqv_trans _
+    (partition * (reciprocal * entry)) _ ?_ ?_
+  · exact Q'.mul_eqv_congr_left partition _ _
+      (Q'.mul_comm_eqv entry reciprocal)
+  refine Q'.eqv_trans _
+    ((partition * reciprocal) * entry) _ ?_ ?_
+  · exact Q'.eqv_symm
+      (Q'.mul_assoc_eqv partition reciprocal entry)
+  refine Q'.eqv_trans _ ((1 : Q') * entry) _ ?_ ?_
+  · exact Q'.mul_eqv_congr_right _ _ entry
+      (Q'.mul_recipPos_eqv partition
+        (slabParametricKPhysicalPartition_pos
+          hw K (centralExtent halfExtent)))
+  · exact Q'.one_mul_eqv entry
+
+/-- The separated comparison's partition error vanishes identically after
+exact physical repartitioning. -/
+theorem physicalRepartitionRawMehlerEndpoint_partitionError_zero
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {K halfExtent : Nat}
+    (endpoint :
+      CentralPhysicalRawMehlerEndpoint
+        w hw K halfExtent) :
+    exactPartitionError
+        (physicalRepartitionRawMehlerEndpoint endpoint) ≈
+      0 := by
+  unfold exactPartitionError
+    physicalRepartitionRawMehlerEndpoint
+  exact Q'.eqv_trans _ _ _
+    (Q'.abs_eqv_congr
+      (Q'.add_neg_self_eqv
+        (slabParametricKPhysicalPartition
+          w K (centralExtent halfExtent))))
+    (by decide)
+
+/-- After exact physical repartitioning the separated cross majorant has no
+partition contribution: it is precisely the raw numerator row error times
+the common physical partition. -/
+theorem physicalRepartitionRawMehlerEndpoint_crossMajorant
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {K halfExtent : Nat}
+    (endpoint :
+      CentralPhysicalRawMehlerEndpoint
+        w hw K halfExtent)
+    (source : EdgeLabelling) :
+    exactCrossMajorant
+        (physicalRepartitionRawMehlerEndpoint endpoint)
+        source ≈
+      exactNumeratorError
+          (physicalRepartitionRawMehlerEndpoint endpoint)
+          source *
+        slabParametricKPhysicalPartition
+          w K (centralExtent halfExtent) := by
+  unfold exactCrossMajorant
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr_left
+      (exactNumeratorError
+          (physicalRepartitionRawMehlerEndpoint endpoint)
+          source *
+        slabParametricKPhysicalPartition
+          w K (centralExtent halfExtent))
+      _
+      0
+      (Q'.eqv_trans _ _ _
+        (Q'.mul_eqv_congr_left
+          (exactEndpointNumeratorCeiling
+            (physicalRepartitionRawMehlerEndpoint endpoint)
+            source)
+          _
+          0
+          (physicalRepartitionRawMehlerEndpoint_partitionError_zero
+            endpoint))
+        (Q'.mul_zero_eqv _))) ?_
+  exact Q'.eqv_of_eq
+    (Q'.add_zero'
+      (exactNumeratorError
+          (physicalRepartitionRawMehlerEndpoint endpoint)
+          source *
+        slabParametricKPhysicalPartition
+          w K (centralExtent halfExtent)))
+
+/-- Local positive-division cancellation, kept here so the repartition
+simplification does not depend on a separate spectral namespace. -/
+private theorem divPos_eqv_of_eqv_mul_local
+    {p q c : Q'} (hq : (0 : Q') < q)
+    (h : p ≈ c * q) :
+    Q'.divPos p q hq ≈ c := by
+  unfold Q'.divPos
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_right p (c * q)
+      (Q'.recipPos q hq) h) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_assoc_eqv c q
+      (Q'.recipPos q hq)) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_left c _ _
+      (Q'.mul_recipPos_eqv q hq)) ?_
+  exact Q'.mul_one_eqv c
+
+/-- The canonical normalized entry budget of a physically repartitioned
+endpoint is exactly its raw numerator row error divided by the physical
+partition.  Thus the comparison field no longer pays any independent
+partition error. -/
+theorem physicalRepartitionRawMehlerEndpoint_entryBudget
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {K halfExtent : Nat}
+    (endpoint :
+      CentralPhysicalRawMehlerEndpoint
+        w hw K halfExtent)
+    (source : EdgeLabelling) :
+    exactEntryBudget
+        (physicalRepartitionRawMehlerEndpoint endpoint)
+        source ≈
+      Q'.divPos
+        (exactNumeratorError
+          (physicalRepartitionRawMehlerEndpoint endpoint)
+          source)
+        (slabParametricKPhysicalPartition
+          w K (centralExtent halfExtent))
+        (slabParametricKPhysicalPartition_pos
+          hw K (centralExtent halfExtent)) := by
+  let repartitioned :=
+    physicalRepartitionRawMehlerEndpoint endpoint
+  let partition :=
+    slabParametricKPhysicalPartition
+      w K (centralExtent halfExtent)
+  let error :=
+    exactNumeratorError repartitioned source
+  let quotient :=
+    Q'.divPos error partition
+      (slabParametricKPhysicalPartition_pos
+        hw K (centralExtent halfExtent))
+  have hmajorant :
+      exactCrossMajorant repartitioned source ≈
+        error * partition :=
+    physicalRepartitionRawMehlerEndpoint_crossMajorant
+      endpoint source
+  have hquotient :
+      quotient * partition ≈ error :=
+    Q'.divPos_mul_eqv error partition
+      (slabParametricKPhysicalPartition_pos
+        hw K (centralExtent halfExtent))
+  have hfactor :
+      error * partition ≈
+        quotient * (partition * partition) := by
+    refine Q'.eqv_trans _ _ _
+      ((Q'.eqv_symm
+        (Q'.mul_eqv_congr_right
+          (quotient * partition) error partition
+          hquotient))) ?_
+    exact Q'.mul_assoc_eqv quotient partition partition
+  have hnumerator :
+      exactCrossMajorant repartitioned source ≈
+        quotient * (partition * partition) :=
+    Q'.eqv_trans _ _ _ hmajorant hfactor
+  unfold exactEntryBudget
+  change
+    Q'.divPos
+        (exactCrossMajorant repartitioned source)
+        (partition * partition)
+        _ ≈ quotient
+  exact divPos_eqv_of_eqv_mul_local
+    (Q'.mul_pos
+      (slabParametricKPhysicalPartition_pos
+        hw K (centralExtent halfExtent))
+      (slabParametricKPhysicalPartition_pos
+        hw K (centralExtent halfExtent)))
+    hnumerator
+
+/-- Canonical comparison tolerance after physical repartitioning, displayed
+without the now-vanishing partition branch. -/
+def physicalRepartitionNumeratorEpsilon
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {K halfExtent : Nat}
+    (endpoint :
+      CentralPhysicalRawMehlerEndpoint
+        w hw K halfExtent) : Q' :=
+  let repartitioned :=
+    physicalRepartitionRawMehlerEndpoint endpoint
+  let states := endpointStates repartitioned
+  let partition :=
+    slabParametricKPhysicalPartition
+      w K (centralExtent halfExtent)
+  let floorData :=
+    centralPositivePhysicalMarginalFloorData
+      w hw K halfExtent
+  Q'.divPos
+    (Q'.ofNat states.length *
+      listQSum
+        (fun source =>
+          Q'.divPos
+            (exactNumeratorError repartitioned source)
+            partition
+            (slabParametricKPhysicalPartition_pos
+              hw K (centralExtent halfExtent)))
+        states)
+    floorData.floor floorData.floor_pos
+
+/-- The original fixed-carrier tolerance is exactly the numerator-only
+tolerance after physical repartitioning. -/
+theorem physicalRepartitionRawMehlerEndpoint_finiteEpsilon
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {K halfExtent : Nat}
+    (endpoint :
+      CentralPhysicalRawMehlerEndpoint
+        w hw K halfExtent) :
+    exactFiniteEpsilon
+        (physicalRepartitionRawMehlerEndpoint endpoint) ≈
+      physicalRepartitionNumeratorEpsilon endpoint := by
+  let repartitioned :=
+    physicalRepartitionRawMehlerEndpoint endpoint
+  let states := endpointStates repartitioned
+  let partition :=
+    slabParametricKPhysicalPartition
+      w K (centralExtent halfExtent)
+  let floorData :=
+    centralPositivePhysicalMarginalFloorData
+      w hw K halfExtent
+  have hsum :
+      exactEntryBudgetSum repartitioned ≈
+        listQSum
+          (fun source =>
+            Q'.divPos
+              (exactNumeratorError repartitioned source)
+              partition
+              (slabParametricKPhysicalPartition_pos
+                hw K (centralExtent halfExtent)))
+          states := by
+    unfold exactEntryBudgetSum
+    exact listQSum_congr
+      (fun source =>
+        physicalRepartitionRawMehlerEndpoint_entryBudget
+          endpoint source)
+      states
+  unfold exactFiniteEpsilon
+    physicalRepartitionNumeratorEpsilon
+  unfold Q'.divPos
+  exact Q'.mul_eqv_congr_right
+    (Q'.ofNat states.length *
+      exactEntryBudgetSum repartitioned)
+    (Q'.ofNat states.length *
+      listQSum
+        (fun source =>
+          Q'.divPos
+            (exactNumeratorError repartitioned source)
+            partition
+            (slabParametricKPhysicalPartition_pos
+              hw K (centralExtent halfExtent)))
+        states)
+    (Q'.recipPos floorData.floor floorData.floor_pos)
+    (Q'.mul_eqv_congr_left
+      (Q'.ofNat states.length)
+      _ _ hsum)
+
+/-- Literal normalized physical-minus-endpoint mass in one retained row. -/
+def physicalNormalizedJointRowError
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {K halfExtent : Nat}
+    (endpoint :
+      CentralPhysicalRawMehlerEndpoint
+        w hw K halfExtent)
+    (source : EdgeLabelling) : Q' :=
+  finiteJointDifferenceAbsRowMass
+    (centralPositiveHalfStates w hw K halfExtent)
+    (centralNormalizedPhysicalReflectedKernel
+      w hw K halfExtent)
+    endpoint.joint source
+
+/-- The raw numerator-row error of a physically repartitioned endpoint is
+bounded by the physical partition times the literal normalized row error. -/
+theorem physicalRepartitionRawMehlerEndpoint_numeratorError_le
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {K halfExtent : Nat}
+    (endpoint :
+      CentralPhysicalRawMehlerEndpoint
+        w hw K halfExtent)
+    (source : EdgeLabelling) :
+    exactNumeratorError
+        (physicalRepartitionRawMehlerEndpoint endpoint)
+        source ≤
+      slabParametricKPhysicalPartition
+          w K (centralExtent halfExtent) *
+        physicalNormalizedJointRowError endpoint source := by
+  let states :=
+    centralPositiveHalfStates w hw K halfExtent
+  let partition :=
+    slabParametricKPhysicalPartition
+      w K (centralExtent halfExtent)
+  let physical :=
+    centralNormalizedPhysicalReflectedKernel
+      w hw K halfExtent
+  have hpartitionPos :
+      (0 : Q') < partition :=
+    slabParametricKPhysicalPartition_pos
+      hw K (centralExtent halfExtent)
+  have hpartitionNonnegative :
+      (0 : Q') ≤ partition :=
+    Q'.le_of_lt hpartitionPos
+  have hentry :
+      ∀ target, target ∈ states →
+        Q'.abs
+            (centralPhysicalReflectedKernel
+                  w K halfExtent source target +
+              (-((physicalRepartitionRawMehlerEndpoint endpoint).numerator
+                source target))) ≤
+          partition *
+            Q'.abs
+              (physical source target +
+                (-endpoint.joint source target)) := by
+    intro target _
+    let physicalEntry := physical source target
+    let endpointEntry := endpoint.joint source target
+    have hphysicalRaw :
+        centralPhysicalReflectedKernel
+            w K halfExtent source target ≈
+          partition * physicalEntry := by
+      exact Q'.eqv_symm
+        (Q'.eqv_trans _ _ _
+          (Q'.mul_comm_eqv partition physicalEntry)
+          (Q'.divPos_mul_eqv
+            (centralPhysicalReflectedKernel
+              w K halfExtent source target)
+            partition hpartitionPos))
+    change
+      Q'.abs
+          (centralPhysicalReflectedKernel
+                w K halfExtent source target +
+            (-(partition * endpointEntry))) ≤
+        partition *
+          Q'.abs
+            (physicalEntry + (-endpointEntry))
+    have hdifference :
+        centralPhysicalReflectedKernel
+              w K halfExtent source target +
+            (-(partition * endpointEntry)) ≈
+          partition * physicalEntry +
+            (-(partition * endpointEntry)) :=
+      Q'.add_eqv_congr_right _ _ _
+        hphysicalRaw
+    have hcommon :=
+      abs_common_mul_sub_le
+        partition physicalEntry endpointEntry
+        (Q'.abs
+          (physicalEntry + (-endpointEntry)))
+        (Q'.le_refl' _)
+    rw [YMGap.Constructive.ExpNeg.abs_of_nonneg
+      hpartitionNonnegative] at hcommon
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv
+        (Q'.abs_eqv_congr hdifference))
+      hcommon
+  unfold exactNumeratorError
+    physicalNormalizedJointRowError
+    finiteJointDifferenceAbsRowMass
+    endpointStates
+  exact Q'.le_trans' _ _ _
+    (listQSum_mono _ _ states hentry)
+    (Q'.le_of_eqv
+      (listQSum_mul_left
+        partition
+        (fun target =>
+          Q'.abs
+            (physical source target +
+              (-endpoint.joint source target)))
+        states))
+
+/-- Once the common physical partition is cancelled, each canonical entry
+budget is bounded directly by the normalized row error. -/
+theorem physicalRepartitionRawMehlerEndpoint_entryBudget_le_rowError
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {K halfExtent : Nat}
+    (endpoint :
+      CentralPhysicalRawMehlerEndpoint
+        w hw K halfExtent)
+    (source : EdgeLabelling) :
+    exactEntryBudget
+        (physicalRepartitionRawMehlerEndpoint endpoint)
+        source ≤
+      physicalNormalizedJointRowError endpoint source := by
+  let partition :=
+    slabParametricKPhysicalPartition
+      w K (centralExtent halfExtent)
+  let numeratorError :=
+    exactNumeratorError
+      (physicalRepartitionRawMehlerEndpoint endpoint)
+      source
+  let rowError :=
+    physicalNormalizedJointRowError endpoint source
+  have hpartitionPos :
+      (0 : Q') < partition :=
+    slabParametricKPhysicalPartition_pos
+      hw K (centralExtent halfExtent)
+  have hnumerator :
+      numeratorError ≤ partition * rowError :=
+    physicalRepartitionRawMehlerEndpoint_numeratorError_le
+      endpoint source
+  have hquotient :
+      Q'.divPos numeratorError partition hpartitionPos ≤
+        rowError := by
+    apply Q'.divPos_le_of_le_mul
+    exact Q'.le_trans' _ _ _
+      hnumerator
+      (Q'.le_of_eqv
+        (Q'.mul_comm_eqv partition rowError))
+  exact Q'.le_trans' _ _ _
+    (Q'.le_of_eqv
+      (physicalRepartitionRawMehlerEndpoint_entryBudget
+        endpoint source))
+    hquotient
+
+/-- Normalized-row majorant for the exact finite comparison tolerance. -/
+def physicalNormalizedJointFiniteEpsilon
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {K halfExtent : Nat}
+    (endpoint :
+      CentralPhysicalRawMehlerEndpoint
+        w hw K halfExtent) : Q' :=
+  let states :=
+    centralPositiveHalfStates w hw K halfExtent
+  let floorData :=
+    centralPositivePhysicalMarginalFloorData
+      w hw K halfExtent
+  Q'.divPos
+    (Q'.ofNat states.length *
+      listQSum
+        (physicalNormalizedJointRowError endpoint)
+        states)
+    floorData.floor floorData.floor_pos
+
+/-- Division-free payment criterion for the normalized comparison eighth.
+This is the exact aggregate all-label estimate that the grouped
+Feynman--Kac/Mehler entry bound must discharge. -/
+theorem physicalNormalizedJointFiniteEpsilon_le_eighth_of_cross
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {K halfExtent : Nat}
+    (endpoint :
+      CentralPhysicalRawMehlerEndpoint
+        w hw K halfExtent)
+    (hcross :
+      let states :=
+        centralPositiveHalfStates w hw K halfExtent
+      let floorData :=
+        centralPositivePhysicalMarginalFloorData
+          w hw K halfExtent
+      Q'.ofNat states.length *
+          listQSum
+            (physicalNormalizedJointRowError endpoint)
+            states ≤
+        Q'.mkPos 1 8 (by decide) * floorData.floor) :
+    physicalNormalizedJointFiniteEpsilon endpoint ≤
+      Q'.mkPos 1 8 (by decide) := by
+  let states :=
+    centralPositiveHalfStates w hw K halfExtent
+  let floorData :=
+    centralPositivePhysicalMarginalFloorData
+      w hw K halfExtent
+  unfold physicalNormalizedJointFiniteEpsilon
+  exact Q'.divPos_le_of_le_mul _ _ _
+    hcross
+
+/-- The exact canonical tolerance of a physically repartitioned endpoint is
+bounded by the explicit normalized-row majorant. -/
+theorem physicalRepartitionRawMehlerEndpoint_finiteEpsilon_le_normalized
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {K halfExtent : Nat}
+    (endpoint :
+      CentralPhysicalRawMehlerEndpoint
+        w hw K halfExtent) :
+    exactFiniteEpsilon
+        (physicalRepartitionRawMehlerEndpoint endpoint) ≤
+      physicalNormalizedJointFiniteEpsilon endpoint := by
+  let repartitioned :=
+    physicalRepartitionRawMehlerEndpoint endpoint
+  let states :=
+    centralPositiveHalfStates w hw K halfExtent
+  let floorData :=
+    centralPositivePhysicalMarginalFloorData
+      w hw K halfExtent
+  have hsum :
+      exactEntryBudgetSum repartitioned ≤
+        listQSum
+          (physicalNormalizedJointRowError endpoint)
+          states := by
+    unfold exactEntryBudgetSum endpointStates
+    exact listQSum_mono _ _ states
+      (fun source _ =>
+        physicalRepartitionRawMehlerEndpoint_entryBudget_le_rowError
+          endpoint source)
+  have hnumerator :
+      Q'.ofNat states.length *
+          exactEntryBudgetSum repartitioned ≤
+        Q'.ofNat states.length *
+          listQSum
+            (physicalNormalizedJointRowError endpoint)
+            states :=
+    Q'.mul_le_mul_of_nonneg_left _ _ _
+      hsum (Q'.ofNat_nonneg _)
+  unfold exactFiniteEpsilon
+    physicalNormalizedJointFiniteEpsilon
+    Q'.divPos
+  exact Q'.mul_le_mul_of_nonneg_right _ _ _
+    hnumerator
+    (Q'.le_of_lt
+      (Q'.recipPos_pos
+        floorData.floor floorData.floor_pos))
+
+/-! ## 3. Physical stationary-vacuum calibration -/
+
+/-- Square-calibrated positive Gram before the harmless exact physical
+repartitioning. -/
+def vacuumSquareScaledExactCenteredMehlerGramRawEndpoint
     (w : Q') (hw : (0 : Q') ≤ w)
     (K halfExtent diagonalOrder crossOrder : Nat) :
     CentralPhysicalRawMehlerEndpoint
@@ -316,6 +1008,17 @@ def vacuumCalibratedExactCenteredMehlerGramRawEndpoint
       hw K halfExtent
       SU2FiniteTrivalentPacketGraphActualOperator.zeroEdgeLabelling)
     (exactCenteredMehlerGramRawEndpoint
+      w hw K halfExtent diagonalOrder crossOrder)
+
+/-- Calibrate the exact positive Gram by the physical stationary-vacuum
+amplitude `pi0²`. -/
+def vacuumCalibratedExactCenteredMehlerGramRawEndpoint
+    (w : Q') (hw : (0 : Q') ≤ w)
+    (K halfExtent diagonalOrder crossOrder : Nat) :
+    CentralPhysicalRawMehlerEndpoint
+      w hw K halfExtent :=
+  physicalRepartitionRawMehlerEndpoint
+    (vacuumSquareScaledExactCenteredMehlerGramRawEndpoint
       w hw K halfExtent diagonalOrder crossOrder)
 
 /-- Vacuum calibration exactly matches the stationary rank-one vacuum
@@ -336,6 +1039,12 @@ theorem vacuumCalibratedExactCenteredMehlerGramRawEndpoint_vacuum
     centralPhysicalRowMarginal
       w hw K halfExtent
       SU2FiniteTrivalentPacketGraphActualOperator.zeroEdgeLabelling
+  have hrepartition :=
+    physicalRepartitionRawMehlerEndpoint_joint
+      (vacuumSquareScaledExactCenteredMehlerGramRawEndpoint
+        w hw K halfExtent diagonalOrder crossOrder)
+      SU2FiniteTrivalentPacketGraphActualOperator.zeroEdgeLabelling
+      SU2FiniteTrivalentPacketGraphActualOperator.zeroEdgeLabelling
   have hscale :=
     squareScaledRawMehlerEndpoint_joint
       pi0
@@ -346,6 +1055,7 @@ theorem vacuumCalibratedExactCenteredMehlerGramRawEndpoint_vacuum
         w hw K halfExtent diagonalOrder crossOrder)
       SU2FiniteTrivalentPacketGraphActualOperator.zeroEdgeLabelling
       SU2FiniteTrivalentPacketGraphActualOperator.zeroEdgeLabelling
+  refine Q'.eqv_trans _ _ _ hrepartition ?_
   refine Q'.eqv_trans _ _ _ hscale ?_
   exact Q'.eqv_trans _ _ _
     (Q'.mul_eqv_congr_left
@@ -400,6 +1110,7 @@ theorem vacuumCalibratedExactCenteredMehlerGramRawEndpoint_rate_le
       hsquare
       (exactCenteredMehlerGramRate_nonnegative
         w hw K halfExtent diagonalOrder crossOrder)
+  change (pi0 * pi0) * rate ≤ rate
   exact Q'.le_trans' _ _ _ hscaled
     (Q'.le_of_eqv
       (Q'.eqv_trans _ _ _
@@ -408,7 +1119,7 @@ theorem vacuumCalibratedExactCenteredMehlerGramRawEndpoint_rate_le
           (Q'.mul_one_eqv 1))
         (Q'.one_mul_eqv rate)))
 
-/-! ## 3. Matched physical AF coordinates -/
+/-! ## 4. Matched physical AF coordinates -/
 
 /-- The calibrated endpoint on the exact matched BF4 carrier at one scale. -/
 def matchedVacuumCalibratedMehlerGramRawEndpointAt
@@ -430,6 +1141,47 @@ def matchedVacuumCalibratedMehlerGramRawEndpointAt
     (halfExtent scale)
     (diagonalOrder scale)
     (crossOrder scale)
+
+/-- The direct normalized-row comparison majorant at one matched scale. -/
+def matchedVacuumCalibratedNormalizedComparisonAt
+    (family : MatchedBlockFamily)
+    (coupling : Nat → Q')
+    (halfExtent diagonalOrder crossOrder : Nat → Nat)
+    (scale : Nat) : Q' :=
+  physicalNormalizedJointFiniteEpsilon
+    (vacuumSquareScaledExactCenteredMehlerGramRawEndpoint
+      (matchedAllSpinWeight family coupling scale)
+      (matchedAllSpinWeight_nonnegative
+        family coupling scale)
+      (matchedAllSpinCutoff family coupling scale)
+      (halfExtent scale)
+      (diagonalOrder scale)
+      (crossOrder scale))
+
+/-- At matched coordinates the exact separated tolerance is bounded by the
+literal normalized physical-minus-calibrated row majorant. -/
+theorem matchedVacuumCalibratedMehlerGram_finiteEpsilon_le_normalized
+    (family : MatchedBlockFamily)
+    (coupling : Nat → Q')
+    (halfExtent diagonalOrder crossOrder : Nat → Nat)
+    (scale : Nat) :
+    exactFiniteEpsilon
+        (matchedVacuumCalibratedMehlerGramRawEndpointAt
+          family coupling halfExtent
+          diagonalOrder crossOrder scale) ≤
+      matchedVacuumCalibratedNormalizedComparisonAt
+        family coupling halfExtent
+        diagonalOrder crossOrder scale := by
+  exact
+    physicalRepartitionRawMehlerEndpoint_finiteEpsilon_le_normalized
+      (vacuumSquareScaledExactCenteredMehlerGramRawEndpoint
+        (matchedAllSpinWeight family coupling scale)
+        (matchedAllSpinWeight_nonnegative
+          family coupling scale)
+        (matchedAllSpinCutoff family coupling scale)
+        (halfExtent scale)
+        (diagonalOrder scale)
+        (crossOrder scale))
 
 /-- The exact finite comparison cost after removing the scalar vacuum
 normalization obstruction. -/
@@ -490,6 +1242,11 @@ theorem matchedVacuumCalibratedMehlerGramRate_eqv
           (halfExtent scale)
           (diagonalOrder scale)
           (crossOrder scale) := by
+  unfold matchedVacuumCalibratedMehlerGramRawEndpointAt
+    vacuumCalibratedExactCenteredMehlerGramRawEndpoint
+    vacuumSquareScaledExactCenteredMehlerGramRawEndpoint
+    physicalRepartitionRawMehlerEndpoint
+    squareScaledRawMehlerEndpoint
   exact Q'.eqv_refl _
 
 /-- A quarter estimate for the calibrated exact cost gives the desired
@@ -543,7 +1300,7 @@ theorem matchedVacuumCalibratedMehlerGram_physical_quarter_at
         diagonalOrder crossOrder scale)
       hquarter observable hmean
 
-/-! ## 4. The corrected spacing-uniform analytic interface -/
+/-! ## 5. The corrected spacing-uniform analytic interface -/
 
 /-- The two genuinely analytic estimates remaining after stationary-vacuum
 calibration.  The coupling window is tied to the same physical
@@ -572,6 +1329,112 @@ structure MatchedVacuumCalibratedQuarterBudget
             family coupling halfExtent
             diagonalOrder crossOrder scale) ≤
         Q'.mkPos 1 8 (by decide)
+
+/-- Sharpened analytic input for the two eighth fields.  The spectral scalar
+is displayed before definitional endpoint packaging, and the comparison
+scalar is the literal normalized physical-minus-calibrated row majorant.
+Unlike the older separated budget, neither field contains an artificial
+partition mismatch. -/
+structure MatchedVacuumCalibratedNormalizedEighthBounds
+    (family : MatchedBlockFamily)
+    (law : CubicMarginLaw family)
+    (_spacing : PhysicalSpacingEnvelope law.g₁)
+    (coupling : Nat → Q')
+    (halfExtent diagonalOrder crossOrder : Nat → Nat) : Type where
+  coupling_pos :
+    ∀ scale, (0 : Q') < coupling scale
+  coupling_le_window :
+    ∀ scale, coupling scale ≤ law.g₁
+  centered_spectral_eighth :
+    ∀ scale,
+      let pi0 :=
+        centralPhysicalRowMarginal
+          (matchedAllSpinWeight family coupling scale)
+          (matchedAllSpinWeight_nonnegative
+            family coupling scale)
+          (matchedAllSpinCutoff family coupling scale)
+          (halfExtent scale)
+          SU2FiniteTrivalentPacketGraphActualOperator.zeroEdgeLabelling
+      (pi0 * pi0) *
+          exactCenteredMehlerGramRate
+            (matchedAllSpinWeight family coupling scale)
+            (matchedAllSpinWeight_nonnegative
+              family coupling scale)
+            (matchedAllSpinCutoff family coupling scale)
+            (halfExtent scale)
+            (diagonalOrder scale)
+            (crossOrder scale) ≤
+        Q'.mkPos 1 8 (by decide)
+  normalized_comparison_cross_eighth :
+    ∀ scale,
+      let w :=
+        matchedAllSpinWeight family coupling scale
+      let hw :=
+        matchedAllSpinWeight_nonnegative
+          family coupling scale
+      let K :=
+        matchedAllSpinCutoff family coupling scale
+      let half := halfExtent scale
+      let states :=
+        centralPositiveHalfStates w hw K half
+      let floorData :=
+        centralPositivePhysicalMarginalFloorData
+          w hw K half
+      let endpoint :=
+        vacuumSquareScaledExactCenteredMehlerGramRawEndpoint
+          w hw K half
+          (diagonalOrder scale) (crossOrder scale)
+      Q'.ofNat states.length *
+          listQSum
+            (physicalNormalizedJointRowError endpoint)
+            states ≤
+        Q'.mkPos 1 8 (by decide) * floorData.floor
+
+namespace MatchedVacuumCalibratedNormalizedEighthBounds
+
+/-- The sharpened normalized estimates precisely inhabit the two original
+spacing-uniform eighth fields. -/
+def toQuarterBudget
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat → Q'}
+    {halfExtent diagonalOrder crossOrder : Nat → Nat}
+    (bounds :
+      MatchedVacuumCalibratedNormalizedEighthBounds
+        family law spacing coupling halfExtent
+        diagonalOrder crossOrder) :
+    MatchedVacuumCalibratedQuarterBudget
+      family law spacing coupling halfExtent
+      diagonalOrder crossOrder where
+  coupling_pos := bounds.coupling_pos
+  coupling_le_window := bounds.coupling_le_window
+  spectral_eighth := by
+    intro scale
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv
+        (matchedVacuumCalibratedMehlerGramRate_eqv
+          family coupling halfExtent
+          diagonalOrder crossOrder scale))
+      (bounds.centered_spectral_eighth scale)
+  comparison_eighth := by
+    intro scale
+    exact Q'.le_trans' _ _ _
+      (matchedVacuumCalibratedMehlerGram_finiteEpsilon_le_normalized
+        family coupling halfExtent
+        diagonalOrder crossOrder scale)
+      (physicalNormalizedJointFiniteEpsilon_le_eighth_of_cross
+        (vacuumSquareScaledExactCenteredMehlerGramRawEndpoint
+          (matchedAllSpinWeight family coupling scale)
+          (matchedAllSpinWeight_nonnegative
+            family coupling scale)
+          (matchedAllSpinCutoff family coupling scale)
+          (halfExtent scale)
+          (diagonalOrder scale)
+          (crossOrder scale))
+        (bounds.normalized_comparison_cross_eighth scale))
+
+end MatchedVacuumCalibratedNormalizedEighthBounds
 
 namespace MatchedVacuumCalibratedQuarterBudget
 
@@ -657,12 +1520,28 @@ end YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.finiteJointQuadratic_scale_joint
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.squareScaledRawMehlerEndpoint
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.squareScaledRawMehlerEndpoint_joint
+#print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.physicalRepartitionRawMehlerEndpoint
+#print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.physicalRepartitionRawMehlerEndpoint_joint
+#print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.physicalRepartitionRawMehlerEndpoint_partitionError_zero
+#print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.physicalRepartitionRawMehlerEndpoint_crossMajorant
+#print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.physicalRepartitionRawMehlerEndpoint_entryBudget
+#print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.physicalRepartitionNumeratorEpsilon
+#print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.physicalRepartitionRawMehlerEndpoint_finiteEpsilon
+#print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.physicalNormalizedJointRowError
+#print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.physicalRepartitionRawMehlerEndpoint_numeratorError_le
+#print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.physicalRepartitionRawMehlerEndpoint_entryBudget_le_rowError
+#print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.physicalNormalizedJointFiniteEpsilon
+#print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.physicalNormalizedJointFiniteEpsilon_le_eighth_of_cross
+#print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.physicalRepartitionRawMehlerEndpoint_finiteEpsilon_le_normalized
+#print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.vacuumSquareScaledExactCenteredMehlerGramRawEndpoint
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.vacuumCalibratedExactCenteredMehlerGramRawEndpoint
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.vacuumCalibratedExactCenteredMehlerGramRawEndpoint_vacuum
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.vacuumCalibratedExactCenteredMehlerGramRawEndpoint_rate_le
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.matchedVacuumCalibratedMehlerGramRawEndpointAt
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.matchedVacuumCalibratedMehlerGramQuarterCostAt_nonnegative
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.matchedVacuumCalibratedMehlerGramRate_eqv
+#print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.matchedVacuumCalibratedMehlerGram_finiteEpsilon_le_normalized
+#print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.MatchedVacuumCalibratedNormalizedEighthBounds.toQuarterBudget
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.matchedVacuumCalibratedMehlerGram_physical_quarter_at
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.MatchedVacuumCalibratedQuarterBudget.quarterCostAt_le
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.MatchedVacuumCalibratedQuarterBudget.physical_quarter_uniform
