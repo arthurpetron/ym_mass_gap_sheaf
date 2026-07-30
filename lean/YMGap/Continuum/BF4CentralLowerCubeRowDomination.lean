@@ -28,7 +28,9 @@ open YMGap.Continuum.BondMovingStep
 open YMGap.Continuum.BF4CentralLowerCubePositiveRow
 open YMGap.Continuum.BF4SU2FixedMagneticPositiveKernelConvergence
 open YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
+open YMGap.Continuum.BondMovingMoment
 open YMGap.Continuum.FiniteWeightedGramSOS
+open YMGap.Continuum.FusedAmplitudeDerivation
 open YMGap.Continuum.SU2CharacterVacuumHaar
 open YMGap.Continuum.SU2FiniteSharedLinkFusionNetwork
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphActualOperator
@@ -51,6 +53,7 @@ open YMGap.Continuum.Z4HalfTimeReflectionLinkMultiplicity
 open YMGap.Continuum.Z4HalfTimeReflectionNormalizedPhysicalGram
 open YMGap.Continuum.Z4HalfTimeReflectionPartition
 open YMGap.Continuum.Z4HalfTimeReflectionPhysicalGram
+open YMGap.Continuum.Z4HalfTimeReflectionPhysicalReindex
 open YMGap.Continuum.Z4PhysicalSurfaceComponentLabels
 open YMGap.Continuum.Z4ValenceFusionCutoffIndependence
 
@@ -748,6 +751,252 @@ theorem centralCubeRowMarginal_dominates_activity_mul_vacuum
       centralNormalizedPhysicalReflectedKernel_nonnegative
         hw K 0 centralLowerCubeState target)
 
+/-! ## 7. From cube activity to the `5/6` vacuum calibration -/
+
+private theorem listQSum_nonnegative
+    {A : Type} (value : A → Q')
+    (hvalue : ∀ item, (0 : Q') ≤ value item) :
+    ∀ items : List A, (0 : Q') ≤ listQSum value items
+  | [] => Q'.le_refl' 0
+  | head :: tail =>
+      Q'.zero_le_add _ _
+        (hvalue head)
+        (listQSum_nonnegative value hvalue tail)
+
+private theorem listQSum_member_le_nonnegative
+    {A : Type} (value : A → Q')
+    (hvalue : ∀ item, (0 : Q') ≤ value item) :
+    ∀ (items : List A) {item : A}, item ∈ items →
+      value item ≤ listQSum value items
+  | [], _, hmem => absurd hmem List.not_mem_nil
+  | head :: tail, item, hmem => by
+      rcases List.mem_cons.mp hmem with rfl | htail
+      · exact Q'.add_le_self_of_nonneg _ _
+          (listQSum_nonnegative value hvalue tail)
+      · have ih :=
+          listQSum_member_le_nonnegative
+            value hvalue tail htail
+        have hmono :
+            listQSum value tail ≤
+              value head + listQSum value tail :=
+          by
+            have h :=
+              Q'.add_le_add_right
+                (0 : Q') (value head)
+                (listQSum value tail)
+                (hvalue head)
+            rwa [Q'.zero_add'] at h
+        exact Q'.le_trans' _ _ _ ih hmono
+
+private theorem two_members_le_listQSum
+    {A : Type} (value : A → Q')
+    (hvalue : ∀ item, (0 : Q') ≤ value item) :
+    ∀ (items : List A) {left right : A},
+      items.Nodup →
+      left ∈ items →
+      right ∈ items →
+      left ≠ right →
+        value left + value right ≤ listQSum value items
+  | [], _, _, _, hleft, _, _ => absurd hleft List.not_mem_nil
+  | head :: tail, left, right, hnodup, hleft, hright, hne => by
+      have htailNodup := (List.nodup_cons.mp hnodup).2
+      rcases List.mem_cons.mp hleft with rfl | hleftTail
+      · have hrightTail : right ∈ tail := by
+          rcases List.mem_cons.mp hright with hrightHead | hrightTail
+          · exact False.elim (hne hrightHead.symm)
+          · exact hrightTail
+        exact Q'.add_le_add_left
+          (value left) (value right)
+          (listQSum value tail)
+          (listQSum_member_le_nonnegative
+            value hvalue tail hrightTail)
+      · rcases List.mem_cons.mp hright with rfl | hrightTail
+        · have hmember :=
+            listQSum_member_le_nonnegative
+              value hvalue tail hleftTail
+          have hadd :=
+            Q'.add_le_add_right
+              (value left) (listQSum value tail)
+              (value right) hmember
+          exact Q'.le_trans' _ _ _ hadd
+            (Q'.le_of_eqv
+              (Q'.add_comm_eqv
+                (listQSum value tail) (value right)))
+        · have ih :=
+            two_members_le_listQSum value hvalue tail
+              htailNodup hleftTail hrightTail hne
+          have htailLe :
+              listQSum value tail ≤
+                value head + listQSum value tail :=
+            by
+              have h :=
+                Q'.add_le_add_right
+                  (0 : Q') (value head)
+                  (listQSum value tail)
+                  (hvalue head)
+              rwa [Q'.zero_add'] at h
+          exact Q'.le_trans' _ _ _ ih htailLe
+
+theorem centralVacuum_add_cube_marginal_le_one
+    {w : Q'} (hw : (0 : Q') ≤ w)
+    {K : Nat} (hK : 1 ≤ K) :
+    centralPhysicalRowMarginal
+          w hw K 0 zeroEdgeLabelling +
+        centralPhysicalRowMarginal
+          w hw K 0 centralLowerCubeState ≤
+      1 := by
+  have hsum :=
+    two_members_le_listQSum
+      (centralPhysicalRowMarginal w hw K 0)
+      (fun state =>
+        centralPhysicalRowMarginal_nonnegative
+          hw K 0 state)
+      (centralHalfStates K 0)
+      (centralHalfStates_nodup K 0)
+      (zero_mem_bounded K (centralLowerFaceIds 0))
+      (centralLowerCubeState_mem_centralHalfStates hK)
+      (fun heq =>
+        centralLowerCubeState_ne_zero heq.symm)
+  exact Q'.le_trans' _ _ _ hsum
+    (Q'.le_of_eqv
+      (centralPhysicalRowMarginal_total_one
+        w hw K 0))
+
+def cubeActivityOneFifth : Q' :=
+  Q'.mkPos 1 5 (by decide)
+
+private def cubeActivitySixFifths : Q' :=
+  Q'.mkPos 6 5 (by decide)
+
+/-- An exact `1/5` lower bound on the six-face activity supplies the required
+physical stationary-vacuum calibration `pi(0) ≤ 5/6`. -/
+theorem centralVacuumRowMarginal_le_fiveSixths_of_cubeActivity
+    {w : Q'} (hw : (0 : Q') ≤ w)
+    {K : Nat} (hK : 1 ≤ K)
+    (hactivity :
+      cubeActivityOneFifth ≤ (coeffW w 1) ^ 6) :
+    centralPhysicalRowMarginal
+        w hw K 0 zeroEdgeLabelling ≤
+      Q'.mkPos 5 6 (by decide) := by
+  let pi0 :=
+    centralPhysicalRowMarginal
+      w hw K 0 zeroEdgeLabelling
+  let picube :=
+    centralPhysicalRowMarginal
+      w hw K 0 centralLowerCubeState
+  have hpi0nonnegative : (0 : Q') ≤ pi0 :=
+    centralPhysicalRowMarginal_nonnegative
+      hw K 0 zeroEdgeLabelling
+  have hactivityScaled :
+      cubeActivityOneFifth * pi0 ≤
+        (coeffW w 1) ^ 6 * pi0 :=
+    Q'.mul_le_mul_of_nonneg_right
+      cubeActivityOneFifth ((coeffW w 1) ^ 6)
+      pi0 hactivity hpi0nonnegative
+  have hcube :
+      (coeffW w 1) ^ 6 * pi0 ≤ picube :=
+    centralCubeRowMarginal_dominates_activity_mul_vacuum
+      hw hK
+  have hpair : pi0 + picube ≤ 1 :=
+    centralVacuum_add_cube_marginal_le_one hw hK
+  have hsum :
+      pi0 + cubeActivityOneFifth * pi0 ≤ 1 :=
+    Q'.le_trans' _ _ _
+      (Q'.add_le_add_left pi0
+        (cubeActivityOneFifth * pi0) picube
+        (Q'.le_trans' _ _ _
+          hactivityScaled hcube))
+      hpair
+  have hsixFifths :
+      pi0 + cubeActivityOneFifth * pi0 ≈
+        cubeActivitySixFifths * pi0 := by
+    calc
+      pi0 + cubeActivityOneFifth * pi0 ≈
+          pi0 * 1 + cubeActivityOneFifth * pi0 :=
+        Q'.add_eqv_congr_right _ _ _
+          (Q'.eqv_symm (Q'.mul_one_eqv pi0))
+      _ ≈ pi0 * 1 + pi0 * cubeActivityOneFifth :=
+        Q'.add_eqv_congr_left _ _ _
+          (Q'.mul_comm_eqv cubeActivityOneFifth pi0)
+      _ ≈ pi0 * (1 + cubeActivityOneFifth) :=
+        Q'.eqv_symm
+          (Q'.mul_add_eqv pi0 1 cubeActivityOneFifth)
+      _ ≈ pi0 * cubeActivitySixFifths :=
+        Q'.mul_eqv_congr_left pi0 _ _
+          (by
+            unfold cubeActivityOneFifth cubeActivitySixFifths
+            decide)
+      _ ≈ cubeActivitySixFifths * pi0 :=
+        Q'.mul_comm_eqv pi0 cubeActivitySixFifths
+  have hsixBound :
+      cubeActivitySixFifths * pi0 ≤ 1 :=
+    Q'.le_trans' _ _ _
+      (Q'.ge_of_eqv hsixFifths) hsum
+  have hscaled :=
+    Q'.mul_le_mul_of_nonneg_left
+      (cubeActivitySixFifths * pi0) 1
+      (Q'.mkPos 5 6 (by decide))
+      hsixBound (by decide)
+  exact Q'.le_trans' _ _ _
+    (Q'.ge_of_eqv (by
+      change
+        Q'.mkPos 5 6 (by decide) *
+            (cubeActivitySixFifths * pi0) ≈ pi0
+      exact Q'.eqv_trans _ _ _
+        (Q'.eqv_symm
+          (Q'.mul_assoc_eqv
+            (Q'.mkPos 5 6 (by decide))
+            cubeActivitySixFifths pi0))
+        (Q'.eqv_trans _ _ _
+          (Q'.mul_eqv_congr_right _ _ pi0
+            (by decide))
+          (Q'.one_mul_eqv pi0))))
+    (Q'.le_trans' _ _ _ hscaled
+      (Q'.le_of_eqv
+        (Q'.mul_one_eqv
+          (Q'.mkPos 5 6 (by decide)))))
+
+def cubeActivityWeightFloor : Q' :=
+  Q'.mkPos 3 4 (by decide)
+
+/-- The transparent AF-window criterion: `w ≥ 3/4` already makes the exact
+six-face fundamental activity at least `1/5`. -/
+theorem cubeActivity_oneFifth_le_of_threeQuarters_le
+    {w : Q'} (hw : cubeActivityWeightFloor ≤ w) :
+    cubeActivityOneFifth ≤ (coeffW w 1) ^ 6 := by
+  have hcoefficient :
+      coeffW cubeActivityWeightFloor 1 ≤ coeffW w 1 :=
+    coeffW_mono_w
+      (by
+        unfold cubeActivityWeightFloor
+        decide)
+      hw 1
+  have hpower :
+      (coeffW cubeActivityWeightFloor 1) ^ 6 ≤
+        (coeffW w 1) ^ 6 :=
+    pow_le_pow_of_le
+      (coeffW_nonneg
+        (by
+          unfold cubeActivityWeightFloor
+          decide) 1)
+      hcoefficient 6
+  exact Q'.le_trans' _ _ _
+    (by
+      unfold cubeActivityOneFifth cubeActivityWeightFloor
+      decide)
+    hpower
+
+theorem centralVacuumRowMarginal_le_fiveSixths_of_threeQuarters_le
+    {w : Q'} (hw0 : (0 : Q') ≤ w)
+    (hw : cubeActivityWeightFloor ≤ w)
+    {K : Nat} (hK : 1 ≤ K) :
+    centralPhysicalRowMarginal
+        w hw0 K 0 zeroEdgeLabelling ≤
+      Q'.mkPos 5 6 (by decide) :=
+  centralVacuumRowMarginal_le_fiveSixths_of_cubeActivity
+    hw0 hK
+    (cubeActivity_oneFifth_le_of_threeQuarters_le hw)
+
 end YMGap.Continuum.BF4CentralLowerCubeRowDomination
 
 /-! ## Dependency gates -/
@@ -767,3 +1016,7 @@ end YMGap.Continuum.BF4CentralLowerCubeRowDomination
 #print axioms YMGap.Continuum.BF4CentralLowerCubeRowDomination.centralCubeReflectedKernel_dominates_activity_mul_vacuum
 #print axioms YMGap.Continuum.BF4CentralLowerCubeRowDomination.centralCubeNormalizedKernel_dominates_activity_mul_vacuum
 #print axioms YMGap.Continuum.BF4CentralLowerCubeRowDomination.centralCubeRowMarginal_dominates_activity_mul_vacuum
+#print axioms YMGap.Continuum.BF4CentralLowerCubeRowDomination.centralVacuum_add_cube_marginal_le_one
+#print axioms YMGap.Continuum.BF4CentralLowerCubeRowDomination.centralVacuumRowMarginal_le_fiveSixths_of_cubeActivity
+#print axioms YMGap.Continuum.BF4CentralLowerCubeRowDomination.cubeActivity_oneFifth_le_of_threeQuarters_le
+#print axioms YMGap.Continuum.BF4CentralLowerCubeRowDomination.centralVacuumRowMarginal_le_fiveSixths_of_threeQuarters_le
