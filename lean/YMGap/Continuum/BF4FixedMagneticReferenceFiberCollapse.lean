@@ -26,12 +26,15 @@ set_option maxRecDepth 100000
 set_option maxHeartbeats 8000000
 
 open YMGap.Constructive
+open YMGap.Continuum.BF4AFUniformRowRelativeBudget
+open YMGap.Continuum.BF4FixedMagneticMehlerEndpointCompatibility
 open YMGap.Continuum.BF4PhysicalSameCarrierRowCPDomination
 open YMGap.Continuum.BF4PhysicalFixedMagneticRowCPDomination
 open YMGap.Continuum.BF4SameCarrierRowCPDomination
 open YMGap.Continuum.BF4SU2FixedMagneticMehlerCarrier
 open YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
 open YMGap.Continuum.BF4SU2FixedMagneticPositiveKernelConvergence
+open YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget
 open YMGap.Continuum.BF4WeightedJointPerronPerturbation
 open YMGap.Continuum.BF4SU2FixedIntertwinerPhysicalChoi
 open YMGap.Continuum.FiniteDeterministicKernelPushforward
@@ -508,6 +511,94 @@ theorem centralNormalizedFixedMagneticReferenceGram_row_error_le_eighth_of_colla
     (Q'.mkPos 1 8 (by decide))
     hsource hactive
 
+/-! ## 6. Exact endpoint consumer -/
+
+/-- A same-carrier endpoint realization stated only in terms of the
+conditionally integrated weight actually visible to the physical Gram.
+
+Unlike `FixedMagneticEndpointRealization`, this structure does not constrain
+how reference mass is distributed among witness/magnetic refinements.
+Unlike `FixedMagneticCoreTailEndpointRealization`, it has no tail fields:
+the boundary-inactive complement is proved to vanish above. -/
+structure CollapsedActiveFixedMagneticEndpointRealization
+    {w : Q'} (hw : (0 : Q') ≤ w)
+    (K half : Nat)
+    (endpoint :
+      CentralPhysicalRawMehlerEndpoint
+        w hw K half) : Type where
+  referenceWeight :
+    CentralFixedMagneticIntertwinerChannel → Q'
+  joint_identification :
+    ∀ left,
+      left ∈ centralPositiveHalfStates w hw K half →
+        ∀ right,
+          right ∈ centralPositiveHalfStates w hw K half →
+            endpoint.joint left right ≈
+              centralNormalizedFixedMagneticReferenceGram
+                w hw K half referenceWeight left right
+  collapsed_active_eighth :
+    ∀ source,
+      source ∈ centralPositiveHalfStates w hw K half →
+        ∀ boundary,
+          boundary ∈
+              (centralBoundaryChannels K half).filter
+                (centralBoundaryActiveCore
+                  w K half source) →
+            Q'.abs
+                (centralBoundaryWeight w K half boundary +
+                  (-centralCollapsedFixedMagneticReferenceWeight
+                      K half referenceWeight boundary)) ≤
+              Q'.mkPos 1 8 (by decide) *
+                centralBoundaryWeight w K half boundary
+
+namespace CollapsedActiveFixedMagneticEndpointRealization
+
+/-- The collapsed endpoint realization proves the literal
+physical-minus-endpoint row `1/8` estimate. -/
+theorem physicalNormalizedJointRowError_le_eighth
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {K half : Nat}
+    {endpoint :
+      CentralPhysicalRawMehlerEndpoint
+        w hw K half}
+    (realization :
+      CollapsedActiveFixedMagneticEndpointRealization
+        hw K half endpoint)
+    {source : EdgeLabelling}
+    (hsource :
+      source ∈ centralPositiveHalfStates
+        w hw K half) :
+    physicalNormalizedJointRowError endpoint source ≤
+      Q'.mkPos 1 8 (by decide) *
+        centralPhysicalRowMarginal
+          w hw K half source := by
+  have htransport :
+      physicalNormalizedJointRowError endpoint source ≈
+        finiteJointDifferenceAbsRowMass
+          (centralPositiveHalfStates w hw K half)
+          (centralNormalizedPhysicalReflectedKernel
+            w hw K half)
+          (centralNormalizedFixedMagneticReferenceGram
+            w hw K half realization.referenceWeight)
+          source := by
+    unfold physicalNormalizedJointRowError
+      finiteJointDifferenceAbsRowMass
+    apply listQSum_congr_on
+    intro target htarget
+    apply Q'.abs_eqv_congr
+    apply Q'.add_eqv_congr_left
+    exact Q'.neg_eqv_congr _ _
+      (realization.joint_identification
+        source hsource target htarget)
+  exact Q'.le_trans' _ _ _
+    (Q'.le_of_eqv htransport)
+    (centralNormalizedFixedMagneticReferenceGram_row_error_le_eighth_of_collapsed_active
+      realization.referenceWeight hsource
+      (realization.collapsed_active_eighth
+        source hsource))
+
+end CollapsedActiveFixedMagneticEndpointRealization
+
 end YMGap.Continuum.BF4FixedMagneticReferenceFiberCollapse
 
 /-! ## Dependency gates -/
@@ -521,3 +612,4 @@ end YMGap.Continuum.BF4FixedMagneticReferenceFiberCollapse
 #print axioms YMGap.Continuum.BF4FixedMagneticReferenceFiberCollapse.centralHalfAmplitude_eqv_zero_of_boundary_inactive
 #print axioms YMGap.Continuum.BF4FixedMagneticReferenceFiberCollapse.centralNormalizedFixedMagneticReferenceGram_row_error_le_collapsed_active
 #print axioms YMGap.Continuum.BF4FixedMagneticReferenceFiberCollapse.centralNormalizedFixedMagneticReferenceGram_row_error_le_eighth_of_collapsed_active
+#print axioms YMGap.Continuum.BF4FixedMagneticReferenceFiberCollapse.CollapsedActiveFixedMagneticEndpointRealization.physicalNormalizedJointRowError_le_eighth
