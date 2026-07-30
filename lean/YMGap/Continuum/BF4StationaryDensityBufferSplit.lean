@@ -759,6 +759,98 @@ theorem physical_centered_row_le_sixteenth_of_faraut
 
 end PhysicalBF4StationaryTripleRow
 
+/-! ## 5. A genuine depth-indexed all-label carrier -/
+
+open YMGap.Continuum.BF4SU2OuterJointCarrierEnumeration
+open YMGap.Continuum.CompactDualFiniteBlockRemainder
+
+/-- All words of an exact length over a finite alphabet.  Unlike the
+historical singleton embedding, this carrier has a literal intermediate
+state at every transfer step. -/
+def finiteWords {State : Type}
+    (states : List State) : Nat → List (List State)
+  | 0 => [[]]
+  | depth + 1 =>
+      states.flatMap (fun head =>
+        (finiteWords states depth).map
+          (fun tail => head :: tail))
+
+/-- Every enumerated word has exactly the requested length. -/
+theorem finiteWords_length
+    {State : Type} (states : List State) :
+    ∀ {depth : Nat} {path : List State},
+      path ∈ finiteWords states depth →
+        path.length = depth
+  | 0, path, hpath => by
+      change path ∈ ([[]] : List (List State)) at hpath
+      simp only [List.mem_cons, List.not_mem_nil, or_false] at hpath
+      subst path
+      rfl
+  | depth + 1, path, hpath => by
+      change
+        path ∈
+          states.flatMap (fun head =>
+            (finiteWords states depth).map
+              (fun tail => head :: tail)) at hpath
+      obtain ⟨head, _, htailBlock⟩ :=
+        List.mem_flatMap.mp hpath
+      obtain ⟨tail, htail, rfl⟩ :=
+        List.mem_map.mp htailBlock
+      simp only [List.length_cons]
+      exact congrArg Nat.succ
+        (finiteWords_length states htail)
+
+/-- The genuine depth-indexed whole-slab carrier retains every face-channel
+field and shared-link fusion witness at every transfer step. -/
+def wholeSlabJointCarrierMarkovPaths
+    (S : SlabScalePair) (fineState : EdgeLabelling)
+    (depth : Nat) :
+    List (List (WholeSlabJointCarrierCode S fineState)) :=
+  finiteWords
+    (wholeSlabJointCarrierCodes S fineState)
+    depth
+
+/-- Its path length is definitionally tied to the analytic depth. -/
+theorem wholeSlabJointCarrierMarkovPaths_length
+    {S : SlabScalePair} {fineState : EdgeLabelling}
+    {depth : Nat}
+    {path : List (WholeSlabJointCarrierCode S fineState)}
+    (hpath :
+      path ∈
+        wholeSlabJointCarrierMarkovPaths
+          S fineState depth) :
+    path.length = depth :=
+  finiteWords_length
+    (wholeSlabJointCarrierCodes S fineState)
+    hpath
+
+/-- Diagnostic: the older retained carrier has path length one.  Therefore
+its singleton-path membership cannot by itself witness the sharpened Faraut
+depth `46 * bits + 5`. -/
+theorem oldWholeSlabJointCarrierPath_length_one
+    {S : SlabScalePair} {fineState : EdgeLabelling}
+    {path : List (WholeSlabJointCarrierCode S fineState)}
+    (hpath :
+      path ∈ wholeSlabJointCarrierPaths S fineState) :
+    path.length = 1 := by
+  unfold wholeSlabJointCarrierPaths at hpath
+  obtain ⟨code, _, rfl⟩ := List.mem_map.mp hpath
+  rfl
+
+/-- The singleton carrier cannot silently discharge the physical depth
+premise. -/
+theorem oldWholeSlabJointCarrierPath_not_harnack_depth
+    {S : SlabScalePair} {fineState : EdgeLabelling}
+    {path : List (WholeSlabJointCarrierCode S fineState)}
+    (hpath :
+      path ∈ wholeSlabJointCarrierPaths S fineState)
+    (bits : Nat) :
+    ¬ farautHarnackRequiredDepth bits ≤ path.length := by
+  intro hdepth
+  rw [oldWholeSlabJointCarrierPath_length_one hpath] at hdepth
+  unfold farautHarnackRequiredDepth at hdepth
+  omega
+
 end YMGap.Continuum.BF4StationaryDensityBufferSplit
 
 /-! ## Dependency gates -/
@@ -770,3 +862,6 @@ end YMGap.Continuum.BF4StationaryDensityBufferSplit
 #print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.PhysicalBF4StationaryTripleRow.toPhysicalBF4BufferedCenteredRow
 #print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.PhysicalBF4StationaryTripleRow.physical_centered_row_le
 #print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.PhysicalBF4StationaryTripleRow.physical_centered_row_le_sixteenth_of_faraut
+#print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.finiteWords_length
+#print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.wholeSlabJointCarrierMarkovPaths_length
+#print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.oldWholeSlabJointCarrierPath_not_harnack_depth
