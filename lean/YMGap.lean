@@ -1102,6 +1102,7 @@ import YMGap.Continuum.BF4SU2FixedIntertwinerPhysicalChoi
 import YMGap.Continuum.BF4SU2FixedMagneticMehlerCarrier
 import YMGap.Continuum.BF4SU2FixedMagneticPositiveKernelConvergence
 import YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
+import YMGap.Continuum.BF4PhysicalConditionalDensity
 import YMGap.Continuum.BF4SU2FixedMagneticPhysicalHSCauchy
 import YMGap.Continuum.BF4WeightedJointPerronPerturbation
 import YMGap.Continuum.BF4AFUniformRowRelativeBudget

@@ -23,6 +23,7 @@ noncomputable declaration.
 -/
 
 import YMGap.Continuum.BF4BufferedPerronRowConvergence
+import YMGap.Continuum.BF4PhysicalConditionalDensity
 
 namespace YMGap.Continuum.BF4StationaryDensityBufferSplit
 
@@ -31,6 +32,7 @@ set_option maxHeartbeats 4000000
 
 open YMGap.Constructive
 open YMGap.Continuum.BF4BufferedPerronRowConvergence
+open YMGap.Continuum.BF4PhysicalConditionalDensity
 open YMGap.Continuum.FiniteDeterministicKernelPushforward
 open YMGap.Continuum.FiniteWeightedGramSOS
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
@@ -1409,6 +1411,225 @@ theorem physical_centered_row_le_sixteenth_of_faraut
 
 end PhysicalBF4TransferPowerRow
 
+/-! ## 8. Reduction of physical joint gluing to density gluing -/
+
+/-- A Yang--Mills-specific density gluing certificate.  The physical Choi
+joint and both stationary normalizations are no longer assumptions: they
+are supplied by `BF4PhysicalConditionalDensity`.  What remains here is the
+genuine geometric statement that the whole-slab conditional density is the
+endpoint--middle-power--endpoint convolution of a reversible one-step
+transfer, together with the three quantitative row budgets. -/
+structure PhysicalBF4DensityPowerGluingRow
+    {w : Q'} (hw : (0 : Q') ≤ w)
+    (K halfExtent : Nat)
+    (source : EdgeLabelling)
+    (depth : Nat)
+    (oneStep : EdgeLabelling → EdgeLabelling → Q')
+    (endpointBound middleBound : Q') : Type where
+  source_mem :
+    source ∈
+      centralPositiveHalfStates
+        w hw K halfExtent
+  depth_at_least_three :
+    3 ≤ depth
+  endpointBound_nonnegative :
+    (0 : Q') ≤ endpointBound
+  middleBound_nonnegative :
+    (0 : Q') ≤ middleBound
+  oneStep_row :
+    ∀ row,
+      listQSum
+          (fun state =>
+            centralPhysicalRowMarginal
+                w hw K halfExtent state *
+              oneStep row state)
+          (centralPositiveHalfStates
+            w hw K halfExtent) ≈
+        1
+  oneStep_column :
+    ∀ column,
+      listQSum
+          (fun state =>
+            centralPhysicalRowMarginal
+                w hw K halfExtent state *
+              oneStep state column)
+          (centralPositiveHalfStates
+            w hw K halfExtent) ≈
+        1
+  density_gluing :
+    ∀ target,
+      target ∈
+          centralPositiveHalfStates
+            w hw K halfExtent →
+        centralPhysicalConditionalDensity
+            w hw K halfExtent source target ≈
+          finiteWeightedDensityCompose
+            (centralPositiveHalfStates
+              w hw K halfExtent)
+            (centralPhysicalRowMarginal
+              w hw K halfExtent)
+            oneStep
+            (finiteWeightedDensityCompose
+              (centralPositiveHalfStates
+                w hw K halfExtent)
+              (centralPhysicalRowMarginal
+                w hw K halfExtent)
+              (finiteWeightedDensityPower
+                (centralPositiveHalfStates
+                  w hw K halfExtent)
+                (centralPhysicalRowMarginal
+                  w hw K halfExtent)
+                oneStep (depth - 3))
+              oneStep)
+            source target
+  left_bound :
+    listQSum
+        (fun state =>
+          Q'.abs
+            (centralPhysicalRowMarginal
+                w hw K halfExtent state *
+              finiteCenteredDensity
+                oneStep source state))
+        (centralPositiveHalfStates
+          w hw K halfExtent) ≤
+      endpointBound
+  middle_power_bound :
+    ∀ first,
+      first ∈
+          centralPositiveHalfStates
+            w hw K halfExtent →
+        listQSum
+            (fun second =>
+              Q'.abs
+                (centralPhysicalRowMarginal
+                    w hw K halfExtent second *
+                  finiteCenteredDensity
+                    (finiteWeightedDensityPower
+                      (centralPositiveHalfStates
+                        w hw K halfExtent)
+                      (centralPhysicalRowMarginal
+                        w hw K halfExtent)
+                      oneStep (depth - 3))
+                    first second))
+            (centralPositiveHalfStates
+              w hw K halfExtent) ≤
+          middleBound
+  right_bound :
+    ∀ first,
+      first ∈
+          centralPositiveHalfStates
+            w hw K halfExtent →
+        listQSum
+            (fun target =>
+              centralPhysicalRowMarginal
+                  w hw K halfExtent target *
+                Q'.abs
+                  (finiteCenteredDensity
+                    oneStep first target))
+            (centralPositiveHalfStates
+              w hw K halfExtent) ≤
+          endpointBound
+
+namespace PhysicalBF4DensityPowerGluingRow
+
+/-- Exact normalized-joint reconstruction turns density gluing into the
+one-step transfer-power certificate. -/
+def toTransferPowerRow
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {K halfExtent : Nat}
+    {source : EdgeLabelling}
+    {depth : Nat}
+    {oneStep : EdgeLabelling → EdgeLabelling → Q'}
+    {endpointBound middleBound : Q'}
+    (data :
+      PhysicalBF4DensityPowerGluingRow
+        hw K halfExtent source depth
+        oneStep endpointBound middleBound) :
+    PhysicalBF4TransferPowerRow
+      hw K halfExtent source depth
+      oneStep endpointBound middleBound where
+  depth_at_least_three :=
+    data.depth_at_least_three
+  endpointBound_nonnegative :=
+    data.endpointBound_nonnegative
+  middleBound_nonnegative :=
+    data.middleBound_nonnegative
+  oneStep_row :=
+    data.oneStep_row
+  oneStep_column :=
+    data.oneStep_column
+  joint_density := by
+    intro target htarget
+    refine Q'.eqv_trans _
+      ((centralPhysicalRowMarginal
+            w hw K halfExtent source *
+          centralPhysicalRowMarginal
+            w hw K halfExtent target) *
+        centralPhysicalConditionalDensity
+          w hw K halfExtent source target) _ ?_ ?_
+    · exact normalizedJoint_eq_marginals_mul_density
+        data.source_mem htarget
+    · exact Q'.mul_eqv_congr_left
+        (centralPhysicalRowMarginal
+            w hw K halfExtent source *
+          centralPhysicalRowMarginal
+            w hw K halfExtent target) _ _
+        (data.density_gluing target htarget)
+  left_bound :=
+    data.left_bound
+  middle_power_bound :=
+    data.middle_power_bound
+  right_bound :=
+    data.right_bound
+
+/-- The density-level Yang--Mills certificate reaches the exact physical
+`C² rho` row theorem. -/
+theorem physical_centered_row_le
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {K halfExtent : Nat}
+    {source : EdgeLabelling}
+    {depth : Nat}
+    {oneStep : EdgeLabelling → EdgeLabelling → Q'}
+    {endpointBound middleBound : Q'}
+    (data :
+      PhysicalBF4DensityPowerGluingRow
+        hw K halfExtent source depth
+        oneStep endpointBound middleBound) :
+    physicalCenteredPhysicalRowMass
+        w hw K halfExtent source ≤
+      ((endpointBound * endpointBound) * middleBound) *
+        centralPhysicalRowMarginal
+          w hw K halfExtent source :=
+  data.toTransferPowerRow.physical_centered_row_le
+
+/-- With the Faraut endpoint spread and a quarter-contracting middle
+transfer, density gluing yields the target physical `1/16` row. -/
+theorem physical_centered_row_le_sixteenth_of_faraut
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {K halfExtent : Nat}
+    {source : EdgeLabelling}
+    {bits depth : Nat} {qS : Q'}
+    {oneStep : EdgeLabelling → EdgeLabelling → Q'}
+    (qS_nonnegative : (0 : Q') ≤ qS)
+    (qS_le_quarter : qS ≤ quarter)
+    (depth_available :
+      farautHarnackRequiredDepth bits ≤ depth)
+    (data :
+      PhysicalBF4DensityPowerGluingRow
+        hw K halfExtent source depth oneStep
+        (farautRetainedSpread bits)
+        (qS ^ (depth - 2))) :
+    physicalCenteredPhysicalRowMass
+        w hw K halfExtent source ≤
+      Q'.mkPos 1 16 (by decide) *
+        centralPhysicalRowMarginal
+          w hw K halfExtent source :=
+  data.toTransferPowerRow
+    |>.physical_centered_row_le_sixteenth_of_faraut
+      qS_nonnegative qS_le_quarter depth_available
+
+end PhysicalBF4DensityPowerGluingRow
+
 end YMGap.Continuum.BF4StationaryDensityBufferSplit
 
 /-! ## Dependency gates -/
@@ -1431,3 +1652,5 @@ end YMGap.Continuum.BF4StationaryDensityBufferSplit
 #print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.PhysicalBF4TransferPowerRow.middle_power_eq_all_word_path_sum
 #print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.PhysicalBF4TransferPowerRow.middle_word_length_plus_endpoints
 #print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.PhysicalBF4TransferPowerRow.physical_centered_row_le_sixteenth_of_faraut
+#print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.PhysicalBF4DensityPowerGluingRow.toTransferPowerRow
+#print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.PhysicalBF4DensityPowerGluingRow.physical_centered_row_le_sixteenth_of_faraut
