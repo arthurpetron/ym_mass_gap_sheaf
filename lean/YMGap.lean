@@ -1119,6 +1119,7 @@ import YMGap.Continuum.BF4GeometricSpinNetworkMehler
 import YMGap.Continuum.BF4GeometricHaarMehlerProjection
 import YMGap.Continuum.BF4FarautJointCarrierAFBudget
 import YMGap.Continuum.BF4BufferedPerronRowConvergence
+import YMGap.Continuum.FiniteSignedKernelL1
 import YMGap.Continuum.BF4StationaryDensityBufferSplit
 import YMGap.Continuum.BF4FarautAFCutoffGrowth
 import YMGap.Continuum.SU2PointwiseHeatDynamicWindow

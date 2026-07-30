@@ -24,6 +24,7 @@ noncomputable declaration.
 
 import YMGap.Continuum.BF4BufferedPerronRowConvergence
 import YMGap.Continuum.BF4PhysicalConditionalDensity
+import YMGap.Continuum.FiniteSignedKernelL1
 
 namespace YMGap.Continuum.BF4StationaryDensityBufferSplit
 
@@ -33,7 +34,9 @@ set_option maxHeartbeats 4000000
 open YMGap.Constructive
 open YMGap.Continuum.BF4BufferedPerronRowConvergence
 open YMGap.Continuum.BF4PhysicalConditionalDensity
+open YMGap.Continuum.ConstructiveRefreshContraction
 open YMGap.Continuum.FiniteDeterministicKernelPushforward
+open YMGap.Continuum.FiniteSignedKernelL1
 open YMGap.Continuum.FiniteWeightedGramSOS
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphEdgeOrderNorm
@@ -1026,6 +1029,236 @@ theorem finiteWeightedDensityPower_column_normalized
           states weight kernel kernel_column steps)
         target
 
+/-- The centered transition matrix corresponding to a density relative to
+`weight`. -/
+def finiteWeightedCenteredTransition
+    {State : Type}
+    (weight : State → Q')
+    (kernel : State → State → Q')
+    (source target : State) : Q' :=
+  weight target *
+    finiteCenteredDensity kernel source target
+
+/-- Weighted centered-row `L1` mass. -/
+def finiteWeightedCenteredRowMass
+    {State : Type}
+    (states : List State) (weight : State → Q')
+    (kernel : State → State → Q')
+    (source : State) : Q' :=
+  finiteL1Norm states
+    (finiteWeightedCenteredTransition weight kernel source)
+
+/-- Centered stationary density composition is ordinary multiplication of
+the corresponding weighted centered transition matrices. -/
+theorem weightedCenteredTransition_compose
+    {State : Type}
+    (states : List State) (weight : State → Q')
+    (left right : State → State → Q')
+    (weight_total :
+      listQSum weight states ≈ 1)
+    (left_row :
+      ∀ source,
+        listQSum
+            (fun middle =>
+              weight middle * left source middle)
+            states ≈
+          1)
+    (right_column :
+      ∀ target,
+        listQSum
+            (fun middle =>
+              weight middle * right middle target)
+            states ≈
+          1)
+    (source target : State) :
+    finiteWeightedCenteredTransition weight
+        (finiteWeightedDensityCompose
+          states weight left right)
+        source target ≈
+      finiteKernelPushforward states
+        (finiteWeightedCenteredTransition
+          weight left source)
+        (finiteWeightedCenteredTransition
+          weight right)
+        target := by
+  unfold finiteWeightedCenteredTransition
+  refine Q'.eqv_trans _
+    (weight target *
+      finiteWeightedDensityCompose
+        states weight
+        (finiteCenteredDensity left)
+        (finiteCenteredDensity right)
+        source target) _ ?_ ?_
+  · exact Q'.mul_eqv_congr_left
+      (weight target) _ _
+      (centered_compose_eq_compose_centered
+        states weight left right
+        weight_total left_row right_column
+        source target)
+  unfold finiteWeightedDensityCompose
+    finiteKernelPushforward
+  refine Q'.eqv_trans _
+    (listQSum
+      (fun middle =>
+        weight target *
+          ((weight middle *
+              finiteCenteredDensity left source middle) *
+            finiteCenteredDensity right middle target))
+      states) _ ?_ ?_
+  · exact Q'.eqv_symm
+      (listQSum_mul_left
+        (weight target)
+        (fun middle =>
+          (weight middle *
+            finiteCenteredDensity left source middle) *
+              finiteCenteredDensity right middle target)
+        states)
+  apply listQSum_congr_local
+  intro middle
+  ac_qeqv
+
+/-- Signed `L1` submultiplicativity for centered stationary densities. -/
+theorem finiteWeightedCenteredRowMass_compose_le
+    {State : Type}
+    (states : List State) (weight : State → Q')
+    (left right : State → State → Q')
+    (weight_total :
+      listQSum weight states ≈ 1)
+    (left_row :
+      ∀ source,
+        listQSum
+            (fun middle =>
+              weight middle * left source middle)
+            states ≈
+          1)
+    (right_column :
+      ∀ target,
+        listQSum
+            (fun middle =>
+              weight middle * right middle target)
+            states ≈
+          1)
+    (source : State)
+    (rightBound : Q')
+    (right_bound :
+      ∀ middle, middle ∈ states →
+        finiteWeightedCenteredRowMass
+            states weight right middle ≤
+          rightBound) :
+    finiteWeightedCenteredRowMass
+        states weight
+        (finiteWeightedDensityCompose
+          states weight left right)
+        source ≤
+      rightBound *
+        finiteWeightedCenteredRowMass
+          states weight left source := by
+  unfold finiteWeightedCenteredRowMass
+  refine Q'.le_trans' _ _ _
+    (Q'.le_of_eqv
+      (listQSum_congr_local
+        (fun target =>
+          Q'.abs_eqv_congr
+            (weightedCenteredTransition_compose
+              states weight left right
+              weight_total left_row right_column
+              source target))
+        states)) ?_
+  exact finiteKernelPushforward_l1_le
+    states states
+    (finiteWeightedCenteredTransition
+      weight left source)
+    (finiteWeightedCenteredTransition
+      weight right)
+    rightBound right_bound
+
+/-- A one-step centered-row bound tensorizes to the exact power
+`q^(steps+1)`.  Thus the `depth - 3` middle power used by the BF4 sandwich
+has the required exponent `depth - 2`. -/
+theorem finiteWeightedDensityPower_centered_row_le_pow
+    {State : Type}
+    (states : List State) (weight : State → Q')
+    (kernel : State → State → Q')
+    (weight_total :
+      listQSum weight states ≈ 1)
+    (kernel_row :
+      ∀ source,
+        listQSum
+            (fun target =>
+              weight target * kernel source target)
+            states ≈
+          1)
+    (kernel_column :
+      ∀ target,
+        listQSum
+            (fun source =>
+              weight source * kernel source target)
+            states ≈
+          1)
+    (q : Q')
+    (q_nonnegative : (0 : Q') ≤ q)
+    (one_step_bound :
+      ∀ source, source ∈ states →
+        finiteWeightedCenteredRowMass
+            states weight kernel source ≤
+          q) :
+    ∀ steps source,
+      source ∈ states →
+        finiteWeightedCenteredRowMass
+            states weight
+            (finiteWeightedDensityPower
+              states weight kernel steps)
+            source ≤
+          q ^ (steps + 1)
+  | 0, source, hsource => by
+      change
+        finiteWeightedCenteredRowMass
+            states weight kernel source ≤
+          q * 1
+      exact Q'.le_trans' _ _ _
+        (one_step_bound source hsource)
+        (Q'.ge_of_eqv (Q'.mul_one_eqv q))
+  | steps + 1, source, hsource => by
+      unfold finiteWeightedDensityPower
+      have hcompose :
+          finiteWeightedCenteredRowMass
+              states weight
+              (finiteWeightedDensityCompose
+                states weight kernel
+                (finiteWeightedDensityPower
+                  states weight kernel steps))
+              source ≤
+            (q ^ (steps + 1)) *
+              finiteWeightedCenteredRowMass
+                states weight kernel source :=
+        finiteWeightedCenteredRowMass_compose_le
+          states weight kernel
+          (finiteWeightedDensityPower
+            states weight kernel steps)
+          weight_total kernel_row
+          (finiteWeightedDensityPower_column_normalized
+            states weight kernel kernel_column steps)
+          source (q ^ (steps + 1))
+          (fun middle hmiddle =>
+            finiteWeightedDensityPower_centered_row_le_pow
+              states weight kernel weight_total
+              kernel_row kernel_column q q_nonnegative
+              one_step_bound steps middle hmiddle)
+      have hscale :
+          (q ^ (steps + 1)) *
+              finiteWeightedCenteredRowMass
+                states weight kernel source ≤
+            (q ^ (steps + 1)) * q :=
+        Q'.mul_le_mul_of_nonneg_left _ _ _
+          (one_step_bound source hsource)
+          (Q'.pow_nonneg q q_nonnegative (steps + 1))
+      refine Q'.le_trans' _ _ _ hcompose
+        (Q'.le_trans' _ _ _ hscale ?_)
+      simp only [Q'.pow_succ]
+      exact Q'.le_of_eqv
+        (Q'.mul_comm_eqv
+          (q ^ (steps + 1)) q)
+
 /-- Product attached to a word of intermediate transfer states.  A word of
 length `steps` contains exactly the `steps` internal vertices of a path
 with `steps + 1` transfer edges. -/
@@ -1630,6 +1863,200 @@ theorem physical_centered_row_le_sixteenth_of_faraut
 
 end PhysicalBF4DensityPowerGluingRow
 
+/-! ## 9. Reduction of the middle-power budget to one step -/
+
+/-- The final local form of the physical transfer constructor.  Compared
+with `PhysicalBF4DensityPowerGluingRow`, its depth-dependent middle estimate
+is replaced by one centered-row estimate for the one-step transfer.  Signed
+`L1` submultiplicativity supplies every power automatically. -/
+structure PhysicalBF4OneStepContractionGluingRow
+    {w : Q'} (hw : (0 : Q') ≤ w)
+    (K halfExtent : Nat)
+    (source : EdgeLabelling)
+    (depth : Nat)
+    (oneStep : EdgeLabelling → EdgeLabelling → Q')
+    (endpointBound qS : Q') : Type where
+  source_mem :
+    source ∈
+      centralPositiveHalfStates
+        w hw K halfExtent
+  depth_at_least_three :
+    3 ≤ depth
+  endpointBound_nonnegative :
+    (0 : Q') ≤ endpointBound
+  qS_nonnegative :
+    (0 : Q') ≤ qS
+  oneStep_row :
+    ∀ row,
+      listQSum
+          (fun state =>
+            centralPhysicalRowMarginal
+                w hw K halfExtent state *
+              oneStep row state)
+          (centralPositiveHalfStates
+            w hw K halfExtent) ≈
+        1
+  oneStep_column :
+    ∀ column,
+      listQSum
+          (fun state =>
+            centralPhysicalRowMarginal
+                w hw K halfExtent state *
+              oneStep state column)
+          (centralPositiveHalfStates
+            w hw K halfExtent) ≈
+        1
+  density_gluing :
+    ∀ target,
+      target ∈
+          centralPositiveHalfStates
+            w hw K halfExtent →
+        centralPhysicalConditionalDensity
+            w hw K halfExtent source target ≈
+          finiteWeightedDensityCompose
+            (centralPositiveHalfStates
+              w hw K halfExtent)
+            (centralPhysicalRowMarginal
+              w hw K halfExtent)
+            oneStep
+            (finiteWeightedDensityCompose
+              (centralPositiveHalfStates
+                w hw K halfExtent)
+              (centralPhysicalRowMarginal
+                w hw K halfExtent)
+              (finiteWeightedDensityPower
+                (centralPositiveHalfStates
+                  w hw K halfExtent)
+                (centralPhysicalRowMarginal
+                  w hw K halfExtent)
+                oneStep (depth - 3))
+              oneStep)
+            source target
+  one_step_centered_bound :
+    ∀ first,
+      first ∈
+          centralPositiveHalfStates
+            w hw K halfExtent →
+        finiteWeightedCenteredRowMass
+            (centralPositiveHalfStates
+              w hw K halfExtent)
+            (centralPhysicalRowMarginal
+              w hw K halfExtent)
+            oneStep first ≤
+          qS
+  left_bound :
+    listQSum
+        (fun state =>
+          Q'.abs
+            (centralPhysicalRowMarginal
+                w hw K halfExtent state *
+              finiteCenteredDensity
+                oneStep source state))
+        (centralPositiveHalfStates
+          w hw K halfExtent) ≤
+      endpointBound
+  right_bound :
+    ∀ first,
+      first ∈
+          centralPositiveHalfStates
+            w hw K halfExtent →
+        listQSum
+            (fun target =>
+              centralPhysicalRowMarginal
+                  w hw K halfExtent target *
+                Q'.abs
+                  (finiteCenteredDensity
+                    oneStep first target))
+            (centralPositiveHalfStates
+              w hw K halfExtent) ≤
+          endpointBound
+
+namespace PhysicalBF4OneStepContractionGluingRow
+
+/-- Signed `L1` tensorization constructs the exact depth-dependent middle
+field required by density gluing. -/
+def toDensityPowerGluingRow
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {K halfExtent : Nat}
+    {source : EdgeLabelling}
+    {depth : Nat}
+    {oneStep : EdgeLabelling → EdgeLabelling → Q'}
+    {endpointBound qS : Q'}
+    (data :
+      PhysicalBF4OneStepContractionGluingRow
+        hw K halfExtent source depth
+        oneStep endpointBound qS) :
+    PhysicalBF4DensityPowerGluingRow
+      hw K halfExtent source depth oneStep
+      endpointBound (qS ^ (depth - 2)) where
+  source_mem :=
+    data.source_mem
+  depth_at_least_three :=
+    data.depth_at_least_three
+  endpointBound_nonnegative :=
+    data.endpointBound_nonnegative
+  middleBound_nonnegative :=
+    Q'.pow_nonneg qS data.qS_nonnegative (depth - 2)
+  oneStep_row :=
+    data.oneStep_row
+  oneStep_column :=
+    data.oneStep_column
+  density_gluing :=
+    data.density_gluing
+  left_bound :=
+    data.left_bound
+  middle_power_bound := by
+    intro first hfirst
+    have hpower :=
+      finiteWeightedDensityPower_centered_row_le_pow
+        (centralPositiveHalfStates
+          w hw K halfExtent)
+        (centralPhysicalRowMarginal
+          w hw K halfExtent)
+        oneStep
+        (centralPositiveRowMarginal_total_one
+          w hw K halfExtent)
+        data.oneStep_row data.oneStep_column
+        qS data.qS_nonnegative
+        data.one_step_centered_bound
+        (depth - 3) first hfirst
+    unfold finiteWeightedCenteredRowMass
+      finiteWeightedCenteredTransition at hpower
+    have hexponent :
+        depth - 3 + 1 = depth - 2 := by
+      have hdepth := data.depth_at_least_three
+      omega
+    rw [hexponent] at hpower
+    exact hpower
+  right_bound :=
+    data.right_bound
+
+/-- The complete physical conclusion now consumes only density gluing,
+endpoint bounds, and the local one-step contraction. -/
+theorem physical_centered_row_le_sixteenth_of_faraut
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {K halfExtent : Nat}
+    {source : EdgeLabelling}
+    {bits depth : Nat} {qS : Q'}
+    {oneStep : EdgeLabelling → EdgeLabelling → Q'}
+    (qS_le_quarter : qS ≤ quarter)
+    (depth_available :
+      farautHarnackRequiredDepth bits ≤ depth)
+    (data :
+      PhysicalBF4OneStepContractionGluingRow
+        hw K halfExtent source depth oneStep
+        (farautRetainedSpread bits) qS) :
+    physicalCenteredPhysicalRowMass
+        w hw K halfExtent source ≤
+      Q'.mkPos 1 16 (by decide) *
+        centralPhysicalRowMarginal
+          w hw K halfExtent source :=
+  data.toDensityPowerGluingRow
+    |>.physical_centered_row_le_sixteenth_of_faraut
+      data.qS_nonnegative qS_le_quarter depth_available
+
+end PhysicalBF4OneStepContractionGluingRow
+
 end YMGap.Continuum.BF4StationaryDensityBufferSplit
 
 /-! ## Dependency gates -/
@@ -1654,3 +2081,8 @@ end YMGap.Continuum.BF4StationaryDensityBufferSplit
 #print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.PhysicalBF4TransferPowerRow.physical_centered_row_le_sixteenth_of_faraut
 #print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.PhysicalBF4DensityPowerGluingRow.toTransferPowerRow
 #print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.PhysicalBF4DensityPowerGluingRow.physical_centered_row_le_sixteenth_of_faraut
+#print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.weightedCenteredTransition_compose
+#print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.finiteWeightedCenteredRowMass_compose_le
+#print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.finiteWeightedDensityPower_centered_row_le_pow
+#print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.PhysicalBF4OneStepContractionGluingRow.toDensityPowerGluingRow
+#print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.PhysicalBF4OneStepContractionGluingRow.physical_centered_row_le_sixteenth_of_faraut
