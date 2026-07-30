@@ -544,12 +544,29 @@ fixed-scale spectral witness.  The module also instantiates the exact finite
 numerator/partition budget and specializes both objects to the literal
 matched BF4 coordinates.
 
-The live M2 scalar is therefore
-`matchedExactCenteredMehlerGramQuarterCostAt`, definitionally
-\(r_{\rm cen}+\varepsilon_{\rm fin}\).  Its bound by \(1/4\), uniformly in
-the spacing along an inhabited physical `CubicMarginLaw` /
-`PhysicalSpacingEnvelope`, is the next Yang--Mills estimate; the fixed-scale
-finite-dimensional spectral and comparison data are now constructed.
+The first proposed M2 scalar,
+`matchedExactCenteredMehlerGramQuarterCostAt`, is definitionally
+\(r_{\rm cen}+\varepsilon_{\rm fin}\), but its self-vacuum normalization is
+not on the physical probability scale.  Lean now proves the exact fence
+\[
+  1-\pi(0)^2\leq r_{\rm cen}\pi(0),
+\]
+so an all-scale quarter bound for that scalar would force
+\(\pi(0)>1/2\) at every scale.  This condition is absent from, and not
+implied by, `CubicMarginLaw` or `PhysicalSpacingEnvelope`.
+
+`BF4VacuumCalibratedFiniteMehlerGramSpectralBudget` repairs the mismatch by
+multiplying the positive Gram and its certified rate by \(\pi(0)^2\).
+This is a literal square, so symmetry, PSD, and the mean-zero Rayleigh
+estimate survive constructively.  The vacuum coefficient then equals the
+stationary rank-one coefficient \(\pi(0)^2\), and the calibrated rate cannot
+exceed the old rate.  The corrected live scalar is
+`matchedVacuumCalibratedMehlerGramQuarterCostAt`.  Its uniform quarter bound
+follows from two explicit \(1/8\) targets in
+`MatchedVacuumCalibratedQuarterBudget`: the calibrated centered spectral
+rate and the exact physical-minus-calibrated comparison tolerance.  Proving
+those two spacing-uniform Yang--Mills estimates is now the live M2 analytic
+work; all square-scaling and fixed-carrier algebra are discharged.
 
 ### M2. Prove the AF-uniform row-relative estimate
 

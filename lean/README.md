@@ -362,11 +362,26 @@ fixed-scale spectral datum.  It subtracts the exact physical vacuum joint
 Every denominator is positive by membership in `centralPositiveHalfStates`.
 The resulting positive-Gram `MehlerGramEndpointSpectralData`, its raw
 endpoint, and its complete exact finite comparison budget are unconditional
-constructive definitions.  On the literal matched BF4 coordinates, the
-remaining quarter problem is now the single explicit rational sequence
-`matchedExactCenteredMehlerGramQuarterCostAt = r_cen + epsilon_fin`.
-Proving that sequence at most \(1/4\) uniformly along the genuine AF
-trajectory remains open.
+constructive definitions.  A further normalization audit proves
+\[
+  1-\pi(0)^2\leq r_{\rm cen}\pi(0).
+\]
+Consequently the previously proposed all-scale bound for
+`matchedExactCenteredMehlerGramQuarterCostAt = r_cen + epsilon_fin`
+would force \(\pi(0)>1/2\) at every scale, independently of the truncation
+orders.  Neither `CubicMarginLaw` nor `PhysicalSpacingEnvelope` contains
+such a stationary-marginal hypothesis.
+
+`BF4VacuumCalibratedFiniteMehlerGramSpectralBudget` removes this artificial
+obstruction.  It proves that square-scaling a raw endpoint preserves
+symmetry, PSD, and the physical-mean-zero Rayleigh bound, then scales the
+Mehler Gram by \(\pi(0)^2\).  The calibrated vacuum entry is exactly
+\(\pi(0)^2\), and its certified spectral rate is no larger than the original
+one.  On matched coordinates the corrected exact scalar is
+`matchedVacuumCalibratedMehlerGramQuarterCostAt`.  Its spacing-uniform
+quarter theorem is reduced without hidden finite data to the two genuine
+Yang--Mills estimates: calibrated spectral rate at most \(1/8\), and exact
+physical comparison tolerance at most \(1/8\).
 
 **Ledger state.** The `YMGap` library builds sorry-free (`lake build`
 reports zero `declaration uses 'sorry'`; see `SORRY_LEDGER.md`, whose
