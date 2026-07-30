@@ -548,8 +548,66 @@ structure CollapsedActiveFixedMagneticEndpointRealization
                 (centralBoundaryWeight w K half boundary +
                   (-centralCollapsedFixedMagneticReferenceWeight
                       K half referenceWeight boundary)) ≤
-              Q'.mkPos 1 8 (by decide) *
-                centralBoundaryWeight w K half boundary
+                Q'.mkPos 1 8 (by decide) *
+                  centralBoundaryWeight w K half boundary
+
+/-- Construct a collapsed endpoint realization from the natural
+source-active multiplicative window.  This is strictly weaker than a
+pointwise window on every fine intertwiner/magnetic label: only the total
+conditionally integrated reference mass visible to the displayed row is
+constrained. -/
+def collapsedActiveFixedMagneticEndpointRealization_of_sevenNineWindow
+    {w : Q'} (hw : (0 : Q') ≤ w)
+    (K half : Nat)
+    (endpoint :
+      CentralPhysicalRawMehlerEndpoint
+        w hw K half)
+    (referenceWeight :
+      CentralFixedMagneticIntertwinerChannel → Q')
+    (joint_identification :
+      ∀ left,
+        left ∈ centralPositiveHalfStates w hw K half →
+          ∀ right,
+            right ∈ centralPositiveHalfStates w hw K half →
+              endpoint.joint left right ≈
+                centralNormalizedFixedMagneticReferenceGram
+                  w hw K half referenceWeight left right)
+    (lower_window :
+      ∀ source,
+        source ∈ centralPositiveHalfStates w hw K half →
+          ∀ boundary,
+            boundary ∈
+                (centralBoundaryChannels K half).filter
+                  (centralBoundaryActiveCore
+                    w K half source) →
+              Q'.mkPos 7 8 (by decide) *
+                  centralBoundaryWeight w K half boundary ≤
+                centralCollapsedFixedMagneticReferenceWeight
+                  K half referenceWeight boundary)
+    (upper_window :
+      ∀ source,
+        source ∈ centralPositiveHalfStates w hw K half →
+          ∀ boundary,
+            boundary ∈
+                (centralBoundaryChannels K half).filter
+                  (centralBoundaryActiveCore
+                    w K half source) →
+              centralCollapsedFixedMagneticReferenceWeight
+                  K half referenceWeight boundary ≤
+                Q'.mkPos 9 8 (by decide) *
+                  centralBoundaryWeight w K half boundary) :
+    CollapsedActiveFixedMagneticEndpointRealization
+      hw K half endpoint where
+  referenceWeight := referenceWeight
+  joint_identification := joint_identification
+  collapsed_active_eighth := by
+    intro source hsource boundary hboundary
+    exact weightRelativeEighth_of_sevenNineWindow
+      (centralBoundaryWeight w K half boundary)
+      (centralCollapsedFixedMagneticReferenceWeight
+        K half referenceWeight boundary)
+      (lower_window source hsource boundary hboundary)
+      (upper_window source hsource boundary hboundary)
 
 namespace CollapsedActiveFixedMagneticEndpointRealization
 
@@ -612,4 +670,5 @@ end YMGap.Continuum.BF4FixedMagneticReferenceFiberCollapse
 #print axioms YMGap.Continuum.BF4FixedMagneticReferenceFiberCollapse.centralHalfAmplitude_eqv_zero_of_boundary_inactive
 #print axioms YMGap.Continuum.BF4FixedMagneticReferenceFiberCollapse.centralNormalizedFixedMagneticReferenceGram_row_error_le_collapsed_active
 #print axioms YMGap.Continuum.BF4FixedMagneticReferenceFiberCollapse.centralNormalizedFixedMagneticReferenceGram_row_error_le_eighth_of_collapsed_active
+#print axioms YMGap.Continuum.BF4FixedMagneticReferenceFiberCollapse.collapsedActiveFixedMagneticEndpointRealization_of_sevenNineWindow
 #print axioms YMGap.Continuum.BF4FixedMagneticReferenceFiberCollapse.CollapsedActiveFixedMagneticEndpointRealization.physicalNormalizedJointRowError_le_eighth
