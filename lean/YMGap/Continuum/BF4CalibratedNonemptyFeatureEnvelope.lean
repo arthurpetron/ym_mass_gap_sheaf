@@ -420,6 +420,75 @@ theorem physicalCenteredEndpointRowMass_le_eighth_of_profile_and_factorial
     (calibratedNonemptyFeatureAbsRowMass_le_sixteenth_of_factorial
       henvelope)
 
+/-- **Cross-zero sharpening.**  When the feature-word order is zero, the
+nonempty Gram is exactly absent.  Hence a `1/16` empty-profile payment gives
+a `1/16`, rather than merely `1/8`, physical-centered endpoint row. -/
+theorem physicalCenteredEndpointRowMass_crossZero_le_sixteenth_of_profile
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {K halfExtent diagonalOrder : Nat}
+    {source : EdgeLabelling}
+    (hprofile :
+      calibratedEmptyLeftProfileMismatch
+              w hw K halfExtent diagonalOrder 0 source *
+            calibratedEmptyRightProfileAbsMass
+              w hw K halfExtent diagonalOrder +
+          centralPhysicalRowMarginal
+              w hw K halfExtent source *
+            calibratedEmptyRightProfileMismatchMass
+              w hw K halfExtent diagonalOrder ≤
+        Q'.mkPos 1 16 (by decide) *
+          centralPhysicalRowMarginal
+            w hw K halfExtent source) :
+    physicalCenteredEndpointRowMass
+        (vacuumCalibratedExactCenteredMehlerGramRawEndpoint
+          w hw K halfExtent diagonalOrder 0)
+        source ≤
+      Q'.mkPos 1 16 (by decide) *
+        centralPhysicalRowMarginal
+          w hw K halfExtent source := by
+  have hcore :
+      calibratedEmptyPhysicalMismatchRowMass
+          w hw K halfExtent diagonalOrder 0 source ≤
+        Q'.mkPos 1 16 (by decide) *
+          centralPhysicalRowMarginal
+            w hw K halfExtent source :=
+    calibratedEmptyPhysicalMismatchRowMass_le_of_profile_budget
+      hprofile
+  have htailZero :
+      calibratedNonemptyFeatureAbsRowMass
+          w hw K halfExtent diagonalOrder 0 source ≤
+        (0 : Q') := by
+    refine Q'.le_trans' _ _ _
+      (calibratedNonemptyFeatureAbsRowMass_le_factorialEnvelope
+        w hw K halfExtent diagonalOrder 0 source) ?_
+    exact Q'.le_of_eqv
+      (calibratedNonemptyFeatureFactorialRowEnvelope_crossZero
+        w hw K halfExtent diagonalOrder source)
+  have htail :
+      calibratedNonemptyFeatureAbsRowMass
+          w hw K halfExtent diagonalOrder 0 source ≤
+        (0 : Q') *
+          centralPhysicalRowMarginal
+            w hw K halfExtent source := by
+    exact Q'.le_trans' _ _ _ htailZero
+      (Q'.ge_of_eqv
+        (Q'.zero_mul_eqv
+          (centralPhysicalRowMarginal
+            w hw K halfExtent source)))
+  refine Q'.le_trans' _ _ _
+    (physicalCenteredEndpointRowMass_le_of_core_tail
+      (Q'.mkPos 1 16 (by decide)) 0
+      hcore htail) ?_
+  exact Q'.le_of_eqv
+    (Q'.mul_eqv_congr_right
+      (Q'.mkPos 1 16 (by decide) + 0)
+      (Q'.mkPos 1 16 (by decide))
+      (centralPhysicalRowMarginal
+        w hw K halfExtent source)
+      (Q'.eqv_of_eq
+        (Q'.add_zero'
+          (Q'.mkPos 1 16 (by decide)))))
+
 end YMGap.Continuum.BF4CalibratedNonemptyFeatureEnvelope
 
 /-! ## Dependency gates -/
@@ -429,3 +498,4 @@ end YMGap.Continuum.BF4CalibratedNonemptyFeatureEnvelope
 #print axioms YMGap.Continuum.BF4CalibratedNonemptyFeatureEnvelope.calibratedNonemptyFeatureAbsRowMass_le_factorialEnvelope
 #print axioms YMGap.Continuum.BF4CalibratedNonemptyFeatureEnvelope.calibratedNonemptyFeatureFactorialRowEnvelope_crossZero_le_sixteenth
 #print axioms YMGap.Continuum.BF4CalibratedNonemptyFeatureEnvelope.physicalCenteredEndpointRowMass_le_eighth_of_profile_and_factorial
+#print axioms YMGap.Continuum.BF4CalibratedNonemptyFeatureEnvelope.physicalCenteredEndpointRowMass_crossZero_le_sixteenth_of_profile
