@@ -754,6 +754,34 @@ def physicalNormalizedJointRowError
       w hw K halfExtent)
     endpoint.joint source
 
+/-- Exact physical repartitioning is invisible to the normalized absolute
+row discrepancy. -/
+theorem physicalNormalizedJointRowError_physicalRepartition_eqv
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {K halfExtent : Nat}
+    (endpoint :
+      CentralPhysicalRawMehlerEndpoint
+        w hw K halfExtent)
+    (source : EdgeLabelling) :
+    physicalNormalizedJointRowError
+        (physicalRepartitionRawMehlerEndpoint endpoint)
+        source ≈
+      physicalNormalizedJointRowError endpoint source := by
+  unfold physicalNormalizedJointRowError
+    finiteJointDifferenceAbsRowMass
+  apply listQSum_congr
+  intro target
+  apply Q'.abs_eqv_congr
+  exact Q'.add_eqv_congr_left
+    (centralNormalizedPhysicalReflectedKernel
+      w hw K halfExtent source target)
+    (-(physicalRepartitionRawMehlerEndpoint endpoint).joint
+      source target)
+    (-endpoint.joint source target)
+    (Q'.neg_eqv_congr _ _
+      (physicalRepartitionRawMehlerEndpoint_joint
+        endpoint source target))
+
 /-- Exact cancellation of the common physical partition.  For a physically
 repartitioned endpoint, the raw numerator-row discrepancy is not merely
 bounded by the physical partition times the normalized discrepancy; it is
@@ -1182,6 +1210,37 @@ theorem listQMaxZero_le_of_on_mem
               hvalue state
                 (List.mem_cons_of_mem head hstate))⟩
 
+/-- Multiplication by a fixed rational may be kept outside the finite
+maximum when proving an upper bound.  This selection argument does not need
+the multiplier to be positive: `listQMaxZero` is definitionally one of its
+displayed entries (or zero). -/
+theorem mul_listQMaxZero_le_of_on_mem
+    {State : Type}
+    (scale : Q')
+    (value : State → Q')
+    (states : List State)
+    (bound : Q')
+    (hbound : (0 : Q') ≤ bound)
+    (hvalue :
+      ∀ state, state ∈ states →
+        scale * value state ≤ bound) :
+    scale * listQMaxZero value states ≤ bound := by
+  induction states with
+  | nil =>
+      exact Q'.le_trans' _ _ _
+        (Q'.le_of_eqv (Q'.mul_zero_eqv scale))
+        hbound
+  | cons head tail inductionHypothesis =>
+      unfold listQMaxZero Q'.max'
+      split
+      next _ =>
+        exact inductionHypothesis
+          (fun state hstate =>
+            hvalue state
+              (List.mem_cons_of_mem head hstate))
+      next _ =>
+        exact hvalue head List.mem_cons_self
+
 /-- A literal row-relative estimate bounds the executable maximum by the
 same epsilon. -/
 theorem physicalNormalizedJointMaxRowRatio_le_of_row_relative
@@ -1422,6 +1481,90 @@ theorem vacuumCalibratedExactCenteredMehlerGramRawEndpoint_rate_le
           ((1 : Q') * 1) 1 rate
           (Q'.mul_one_eqv 1))
         (Q'.one_mul_eqv rate)))
+
+/-- Direct all-row criterion for a vacuum-calibrated spectral bound.
+
+The estimate is imposed on the *scaled centered row mass*
+
+`pi0² * sum_y |M(x,y) - pi(x)pi(y)|`,
+
+not on the unscaled centered rate.  This is the stable quantity on an AF
+trajectory where `pi0` decreases and the unscaled row ratios necessarily
+grow.  Taking the exact finite maximum introduces no carrier-cardinality or
+minimum-marginal loss. -/
+theorem vacuumCalibrated_rate_le_of_scaled_centered_rows
+    (w : Q') (hw : (0 : Q') ≤ w)
+    (K halfExtent diagonalOrder crossOrder : Nat)
+    (epsilon : Q')
+    (hepsilon : (0 : Q') ≤ epsilon)
+    (hrow :
+      let pi0 :=
+        centralPhysicalRowMarginal
+          w hw K halfExtent
+          SU2FiniteTrivalentPacketGraphActualOperator.zeroEdgeLabelling
+      ∀ source,
+        source ∈
+            centralPositiveHalfStates
+              w hw K halfExtent →
+          (pi0 * pi0) *
+              exactCenteredMehlerGramRowMass
+                w hw K halfExtent
+                diagonalOrder crossOrder source ≤
+            epsilon *
+              centralPhysicalRowMarginal
+                w hw K halfExtent source) :
+    (vacuumCalibratedExactCenteredMehlerGramRawEndpoint
+        w hw K halfExtent diagonalOrder crossOrder).rate ≤
+      epsilon := by
+  let pi0 :=
+    centralPhysicalRowMarginal
+      w hw K halfExtent
+      SU2FiniteTrivalentPacketGraphActualOperator.zeroEdgeLabelling
+  let states :=
+    centralPositiveHalfStates
+      w hw K halfExtent
+  let value :=
+    exactCenteredMehlerGramRowRatio
+      w hw K halfExtent diagonalOrder crossOrder
+  change
+    (pi0 * pi0) *
+        listQMaxZero value states ≤
+      epsilon
+  apply mul_listQMaxZero_le_of_on_mem
+    (pi0 * pi0) value states epsilon hepsilon
+  intro source hsource
+  have hpositive :
+      (0 : Q') <
+        centralPhysicalRowMarginal
+          w hw K halfExtent source :=
+    (mem_centralPositiveHalfStates_iff.mp hsource).2
+  have hdiv :
+      Q'.divPos
+          ((pi0 * pi0) *
+            exactCenteredMehlerGramRowMass
+              w hw K halfExtent
+              diagonalOrder crossOrder source)
+          (centralPhysicalRowMarginal
+            w hw K halfExtent source)
+          hpositive ≤
+        epsilon :=
+    Q'.divPos_le_of_le_mul _ _ _ (hrow source hsource)
+  unfold value exactCenteredMehlerGramRowRatio
+  rw [dif_pos hpositive]
+  exact Q'.le_trans' _ _ _
+    (Q'.le_of_eqv (by
+      unfold Q'.divPos
+      exact Q'.eqv_symm
+        (Q'.mul_assoc_eqv
+          (pi0 * pi0)
+          (exactCenteredMehlerGramRowMass
+            w hw K halfExtent
+            diagonalOrder crossOrder source)
+          (Q'.recipPos
+            (centralPhysicalRowMarginal
+              w hw K halfExtent source)
+            hpositive))))
+    hdiv
 
 /-- The rational calibration threshold which converts the Gaussian
 `9/50` rate ceiling into the requested `1/8` rate ceiling. -/
@@ -1843,6 +1986,147 @@ structure MatchedVacuumCalibratedRowwiseEighthEstimates
               (matchedAllSpinCutoff family coupling scale)
               (halfExtent scale) source
 
+/-- Division-free, all-label form of the two sharp eighth estimates.
+
+The first field controls the vacuum-square-scaled centered Mehler numerator
+row before its positive physical marginal is divided out.  The second field
+controls the literal physical-minus-Mehler raw numerator after exact
+repartitioning by the physical partition.  These are the two estimates
+produced naturally by a grouped Feynman--Kac/Choi contraction; all finite
+maxima and all normalizing divisions are discharged below. -/
+structure MatchedVacuumCalibratedAllLabelEighthEstimates
+    (family : MatchedBlockFamily)
+    (law : CubicMarginLaw family)
+    (_spacing : PhysicalSpacingEnvelope law.g₁)
+    (coupling : Nat → Q')
+    (halfExtent diagonalOrder crossOrder : Nat → Nat) : Type where
+  coupling_pos :
+    ∀ scale, (0 : Q') < coupling scale
+  coupling_le_window :
+    ∀ scale, coupling scale ≤ law.g₁
+  spectral_centered_row_eighth :
+    ∀ scale source,
+      source ∈
+          centralPositiveHalfStates
+            (matchedAllSpinWeight family coupling scale)
+            (matchedAllSpinWeight_nonnegative
+              family coupling scale)
+            (matchedAllSpinCutoff family coupling scale)
+            (halfExtent scale) →
+        let w :=
+          matchedAllSpinWeight family coupling scale
+        let hw :=
+          matchedAllSpinWeight_nonnegative
+            family coupling scale
+        let K :=
+          matchedAllSpinCutoff family coupling scale
+        let half := halfExtent scale
+        let pi0 :=
+          centralPhysicalRowMarginal
+            w hw K half
+            SU2FiniteTrivalentPacketGraphActualOperator.zeroEdgeLabelling
+        (pi0 * pi0) *
+            exactCenteredMehlerGramRowMass
+              w hw K half
+              (diagonalOrder scale) (crossOrder scale)
+              source ≤
+          Q'.mkPos 1 8 (by decide) *
+            centralPhysicalRowMarginal
+              w hw K half source
+  comparison_numerator_row_eighth :
+    ∀ scale source,
+      source ∈
+          centralPositiveHalfStates
+            (matchedAllSpinWeight family coupling scale)
+            (matchedAllSpinWeight_nonnegative
+              family coupling scale)
+            (matchedAllSpinCutoff family coupling scale)
+            (halfExtent scale) →
+        let w :=
+          matchedAllSpinWeight family coupling scale
+        let hw :=
+          matchedAllSpinWeight_nonnegative
+            family coupling scale
+        let K :=
+          matchedAllSpinCutoff family coupling scale
+        let half := halfExtent scale
+        exactNumeratorError
+            (physicalRepartitionRawMehlerEndpoint
+              (vacuumSquareScaledExactCenteredMehlerGramRawEndpoint
+                w hw K half
+                (diagonalOrder scale) (crossOrder scale)))
+            source ≤
+          slabParametricKPhysicalPartition
+              w K (centralExtent half) *
+            (Q'.mkPos 1 8 (by decide) *
+              centralPhysicalRowMarginal
+                w hw K half source)
+
+namespace MatchedVacuumCalibratedAllLabelEighthEstimates
+
+/-- Exact normalization and finite-maximum cancellation: the two
+division-free all-label estimates inhabit the operator-sharp rowwise
+certificate. -/
+def toRowwiseEighthEstimates
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat → Q'}
+    {halfExtent diagonalOrder crossOrder : Nat → Nat}
+    (estimates :
+      MatchedVacuumCalibratedAllLabelEighthEstimates
+        family law spacing coupling halfExtent
+        diagonalOrder crossOrder) :
+    MatchedVacuumCalibratedRowwiseEighthEstimates
+      family law spacing coupling halfExtent
+      diagonalOrder crossOrder where
+  coupling_pos := estimates.coupling_pos
+  coupling_le_window := estimates.coupling_le_window
+  spectral_eighth := by
+    intro scale
+    exact
+      vacuumCalibrated_rate_le_of_scaled_centered_rows
+        (matchedAllSpinWeight family coupling scale)
+        (matchedAllSpinWeight_nonnegative
+          family coupling scale)
+        (matchedAllSpinCutoff family coupling scale)
+        (halfExtent scale)
+        (diagonalOrder scale)
+        (crossOrder scale)
+        (Q'.mkPos 1 8 (by decide))
+        (by decide)
+        (estimates.spectral_centered_row_eighth scale)
+  comparison_row_eighth := by
+    intro scale source hsource
+    let w :=
+      matchedAllSpinWeight family coupling scale
+    let hw :=
+      matchedAllSpinWeight_nonnegative
+        family coupling scale
+    let K :=
+      matchedAllSpinCutoff family coupling scale
+    let half := halfExtent scale
+    let endpoint :=
+      vacuumSquareScaledExactCenteredMehlerGramRawEndpoint
+        w hw K half
+        (diagonalOrder scale)
+        (crossOrder scale)
+    have hnormalized :=
+      physicalNormalizedJointRowError_le_of_repartitioned_numeratorError
+        endpoint
+        source
+        (Q'.mkPos 1 8 (by decide))
+        (estimates.comparison_numerator_row_eighth
+          scale source hsource)
+    have hinvariant :=
+      physicalNormalizedJointRowError_physicalRepartition_eqv
+        endpoint source
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv hinvariant)
+      hnormalized
+
+end MatchedVacuumCalibratedAllLabelEighthEstimates
+
 namespace MatchedVacuumCalibratedRowwiseEighthEstimates
 
 /-- The literal all-row Yang--Mills estimate computes the sharp comparison
@@ -2169,6 +2453,7 @@ end YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.physicalNormalizedJointRowError
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.physicalRepartitionRawMehlerEndpoint_numeratorError_eqv
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.physicalRepartitionRawMehlerEndpoint_numeratorError_le
+#print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.physicalNormalizedJointRowError_physicalRepartition_eqv
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.physicalNormalizedJointRowError_le_of_repartitioned_numeratorError
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.physicalRepartitionRawMehlerEndpoint_entryBudget_le_rowError
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.physicalNormalizedJointFiniteEpsilon
@@ -2177,6 +2462,7 @@ end YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.physicalNormalizedJointRowRatio_nonnegative
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.physicalNormalizedJointMaxRowRatio_nonnegative
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.listQMaxZero_le_of_on_mem
+#print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.mul_listQMaxZero_le_of_on_mem
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.physicalNormalizedJointMaxRowRatio_le_of_row_relative
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.physicalNormalizedJointRowError_le_max_mul_marginal
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.exactPhysicalNormalizedJointReferenceComparison
@@ -2184,6 +2470,7 @@ end YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.vacuumCalibratedExactCenteredMehlerGramRawEndpoint
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.vacuumCalibratedExactCenteredMehlerGramRawEndpoint_vacuum
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.vacuumCalibratedExactCenteredMehlerGramRawEndpoint_rate_le
+#print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.vacuumCalibrated_rate_le_of_scaled_centered_rows
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.vacuumCalibrated_rate_le_eighth_of_centered_le_nineFiftieths
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.vacuumMarginal_cubic_defect_le_vacuumCalibrated_rate
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.matchedVacuumCalibratedMehlerGramRawEndpointAt
@@ -2192,6 +2479,7 @@ end YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.matchedVacuumCalibratedMehlerGram_finiteEpsilon_le_normalized
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.matchedVacuumCalibratedSharpReferenceComparisonAt
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.MatchedVacuumCalibratedRowwiseEighthEstimates.toSharpEighthBounds
+#print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.MatchedVacuumCalibratedAllLabelEighthEstimates.toRowwiseEighthEstimates
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.MatchedVacuumCalibratedSharpEighthBounds.physical_quarter_uniform
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.MatchedVacuumCalibratedNormalizedEighthBounds.toQuarterBudget
 #print axioms YMGap.Continuum.BF4VacuumCalibratedFiniteMehlerGramSpectralBudget.matchedVacuumCalibratedMehlerGram_physical_quarter_at
