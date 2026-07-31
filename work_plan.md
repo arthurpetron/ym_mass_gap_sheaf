@@ -16686,3 +16686,127 @@ Acceptance requires explicit constructive moduli and exact same-carrier
 identifications.  A field asserting convergence, a separately positive
 surrogate kernel, or an entrywise estimate without aggregate
 carrier-growth control does not cross this milestone.
+
+## 15. Aggregate all-label cross tail and located grouped-Haar limit (2026-07-31)
+
+`BF4GroupedHolonomyCrossMajorant` completes the cross-cutoff part of the
+two-parameter positive endpoint bridge at every fixed diagonal order.
+The construction stays on the exact five-holonomy source carrier and its
+reflected ten-holonomy gluing carrier.
+
+The crucial regrouping is now a theorem rather than an assumed growth
+budget.  For each of the fifteen positive kinetic LDL features \(f\), define
+\[
+  a_f=w_f\,\|P_f\|_1^2,\qquad S=\sum_f a_f.
+\]
+Lean proves the exact all-label identity
+\[
+  \sum_{\lvert W\rvert=n}
+    w_W\!\left(\prod_{f\in W}\|P_f\|_1\right)^2
+  =\frac{S^n}{n!}.
+\]
+Thus the \(15^n\) ordered-word carrier growth is absorbed before applying
+the factorial tail estimate; it is not paid by an external cardinality
+certificate.
+
+For every finite signed all-spin packet, the module then proves:
+
+1. the literal packet half-polynomial has coefficient \(L^1\) norm bounded
+   by a packet/diagonal prefactor times the feature-word product;
+2. the Haar channel amplitude obeys the same bound;
+3. the complete packet SOS shell of exact length \(n\) is bounded by the
+   packet prefactor squared times \(S^n/n!\);
+4. a block of omitted shells is bounded by the corresponding
+   `ExpNeg.blockAbs`;
+5. `bf4PacketCrossModulus` is an explicit constructive Cauchy modulus;
+6. `bf4PacketGroupedSquareCrossLimit` is a located `CReal`;
+7. every rational approximation is exactly equivalent to the literal
+   grouped ten-Haar polynomial at that cutoff; and
+8. positive-semidefinite order for arbitrary signed packets survives in
+   the located limit.
+
+All new printed declarations have axiom sets contained in
+`{propext, Quot.sound}`.
+
+### Milestone boundary and next producer
+
+This closes revised P0'' item 2 and the cross-coordinate portion of items
+3--4.  It does not remove the diagonal Feynman--Kac cutoff, identify the
+two-parameter limit with the compact negative-action exponential, or
+identify that endpoint with the corrected Wilson slab.
+
+The next producer is therefore
+`BF4GroupedHolonomyPositiveLimit`, with this order:
+
+1. derive a spacing-uniform coefficient-\(L^1\) modulus for
+   `sourceDiagonalFeynmanKacPartial` on the same five-holonomy carrier;
+2. combine that diagonal modulus with `bf4PacketCrossModulus` in an explicit
+   cofinal two-parameter schedule;
+3. construct the joint located packet quadratic and prove schedule
+   independence;
+4. prove its exact same-carrier equality with the existing compact
+   negative-action endpoint;
+5. only then attack the Wilson/heat-kernel physical gluing and row-mass
+   transport.
+
+The principal remaining analytic seam is no longer cross-carrier growth.
+It is uniform control of the diagonal insertion prefactor as the diagonal
+order varies, followed by the compact endpoint identification.
+
+## 16. Diagonal coefficient-tail closure (2026-07-31)
+
+The first item of the next producer is now implemented in
+`BF4GroupedHolonomyPositiveLimit`.
+
+Writing \(E\) for the literal normalized positive one-sided complement and
+\(D=\|E\|_1\), Lean proves directly on the parity-arranged
+square/square-times-\(E\) carrier that
+\[
+  \bigl\|E_{\mathrm{CP}}^{(n)}\bigr\|_1\le D^n
+  \quad\text{and}\quad
+  \left\|\frac{E_{\mathrm{CP}}^{(n)}}{n!}\right\|_1
+  \le \frac{D^n}{n!}.
+\]
+This is not an appeal to the formal exponential: the even and odd carriers
+are separately reduced to exact `qpow` identities.
+
+The module further supplies:
+
+1. `sourceDiagonalFeynmanKacPartial_l1_le`, bounding every partial by the
+   scalar positive exponential partial;
+2. `bf4SourceDiagonalL1Block_le`, bounding every omitted block by
+   `ExpNeg.blockAbs D`;
+3. `bf4SourceDiagonalL1Modulus` and its quantitative tail theorem; and
+4. `sourceDiagonalFeynmanKacPartial_l1_uniform`, a single explicit rational
+   `expPosBound D` controlling every diagonal order.
+
+Because these constants contain no lattice-spacing parameter, the analytic
+bound is uniform under any later AF spacing schedule that uses this exact
+BF4 complement.  This statement does not itself identify that fixed
+complement with a genuine spacing-dependent Wilson block trajectory.
+
+### Next exact residual
+
+The joint cofinal limit now needs one bilinear estimate.  For each packet
+and kinetic word, prove that changing diagonal order from \(d\) to \(d+r\)
+changes the squared half-amplitude by
+\[
+  |L_{d+r}^2-L_d^2|
+  \le |L_{d+r}-L_d|\,
+      (|L_{d+r}|+|L_d|),
+\]
+then pay the first factor with `bf4SourceDiagonalL1Block_le`, both uniform
+half-amplitude factors with `sourceDiagonalFeynmanKacPartial_l1_uniform`,
+and sum all words using the already-proved exact all-label collapse.  This
+will produce a diagonal Cauchy modulus uniform in cross order and hence the
+joint two-parameter `CReal`.
+
+After that, the unresolved order is:
+
+1. prove cofinal-schedule independence;
+2. identify the joint limit with the compact negative-action endpoint on
+   the canonical carrier;
+3. identify that endpoint with the corrected Wilson/heat-kernel slab;
+4. transport row mass and proceed to the Harnack/Perron budget; and
+5. independently construct the genuine spacing-dependent BF4 RG
+   trajectory needed for the AF envelope.

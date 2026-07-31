@@ -211,6 +211,8 @@ YMGap.Continuum.BF4GroupedCommonKernelPerronAction.MatchedBF4BoundaryGroupedProf
 YMGap.Continuum.BF4GroupedCommonKernelPerronAction.MatchedBF4GroupedProfileFarautRows = dd7df2caf4bc7c63  (2)
 YMGap.Continuum.BF4GroupedFeynmanKacHarnack = dd07160de300d413  (10)
 YMGap.Continuum.BF4GroupedGramChoiKernel = 30790f9136c01a23  (8)
+YMGap.Continuum.BF4GroupedHolonomyCrossMajorant = 630f0208174cfb79  (12)
+YMGap.Continuum.BF4GroupedHolonomyPositiveLimit = 31a6a899bb880e4f  (5)
 YMGap.Continuum.BF4InterleavedPotentialShortcutFence = 9e147c897626c0b6  (6)
 YMGap.Continuum.BF4LocalContractionGluing = 1a4da8efa808d89a  (1)
 YMGap.Continuum.BF4LocalContractionGluing.PhysicalBF4LocalContractionGluingRow = 3a281ef59b486b6f  (3)
