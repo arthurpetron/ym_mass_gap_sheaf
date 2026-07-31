@@ -337,6 +337,38 @@ theorem l1_le_quarter
 
 end NormalizedProjectivePair
 
+/-- Argument-form interface to the normalized-projective theorem.  This
+avoids constructing a large dependent record at physical call sites. -/
+theorem finiteL1Distance_le_quarter_of_normalized_projective
+    {State : Type}
+    (states : List State)
+    (left right : State → Q')
+    (spread : Q')
+    (left_nonnegative :
+      ∀ state, state ∈ states →
+        (0 : Q') ≤ left state)
+    (right_nonnegative :
+      ∀ state, state ∈ states →
+        (0 : Q') ≤ right state)
+    (left_total_one :
+      listQSum left states ≈ 1)
+    (right_total_one :
+      listQSum right states ≈ 1)
+    (spreadSquare_le :
+      spread * spread ≤ anchoredProjectiveCeiling)
+    (projective :
+      FiniteCrossRatioDiameterCertificate.ProjectiveSpreadBound
+        spread states left right) :
+    finiteL1Distance states left right ≤ quarter :=
+  NormalizedProjectivePair.l1_le_quarter
+    { spread := spread
+      left_nonnegative := left_nonnegative
+      right_nonnegative := right_nonnegative
+      left_total_one := left_total_one
+      right_total_one := right_total_one
+      spreadSquare_le := spreadSquare_le
+      projective := projective }
+
 end YMGap.Continuum.BF4NormalizedProjectivePosteriorHarnack
 
 /-! ## Axiom-dependency gates -/
@@ -345,3 +377,4 @@ end YMGap.Continuum.BF4NormalizedProjectivePosteriorHarnack
 #print axioms YMGap.Continuum.BF4NormalizedProjectivePosteriorHarnack.NormalizedProjectivePair.right_upper
 #print axioms YMGap.Continuum.BF4NormalizedProjectivePosteriorHarnack.NormalizedProjectivePair.pointwise_deviation
 #print axioms YMGap.Continuum.BF4NormalizedProjectivePosteriorHarnack.NormalizedProjectivePair.l1_le_quarter
+#print axioms YMGap.Continuum.BF4NormalizedProjectivePosteriorHarnack.finiteL1Distance_le_quarter_of_normalized_projective
