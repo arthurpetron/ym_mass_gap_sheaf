@@ -1350,8 +1350,12 @@ structure MatchedPhysicalConditionalDensityCoreTailRows
         (matchedAllSpinCutoff family coupling scale)
         (halfExtent scale)
         (diagonalOrder scale) 0
+  /-- The retained target core may depend on both the AF scale and the
+  physical source row.  This dependence is essential in the presence of
+  fusion zeros: the set of targets visible through a common BF4 boundary
+  channel is source dependent. -/
   inCore :
-    Nat → EdgeLabelling → Bool
+    Nat → EdgeLabelling → EdgeLabelling → Bool
   coreTail_exists :
     ∀ scale source,
       source ∈
@@ -1369,7 +1373,7 @@ structure MatchedPhysicalConditionalDensityCoreTailRows
             (matchedAllSpinCutoff family coupling scale)
             (halfExtent scale)
             source
-            (inCore scale))
+            (inCore scale source))
 
 namespace MatchedPhysicalConditionalDensityCoreTailRows
 
