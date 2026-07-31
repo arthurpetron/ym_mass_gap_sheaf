@@ -15552,3 +15552,70 @@ All new load-bearing Lean declarations are axiom-gated by
 `[propext, Quot.sound]` only.  The full library, statement/frontier guards,
 and fixed-spacing Clay rubric build; no unconditional Clay-frontier
 inhabitant is introduced.
+
+### Boundary-carrier terminal Harnack and endpoint-free local contraction (2026-07-31)
+
+The preceding middle-carrier construction still asked for a strict
+cross-ratio certificate for the grouped prefix \(P(x,m)\).  That condition
+is stronger than the BF4 geometry warrants: fusion and incidence rules can
+make individual prefix entries vanish even when every retained physical row
+has positive total mass.
+
+`BF4PhysicalBoundaryCommonKernelAction` now defines the preferred common
+kernel on the complete fixed-interface carrier,
+\[
+  J(b,x)=\sum_m P(x,m)T(m,b),
+\]
+and proves directly from exact grouped gluing that
+\[
+  \sum_b J(b,x)\frac{W(b)B(b)}{Z_{\rm phys}}=\pi(x).
+\]
+Thus the literal physical activity and its action remain exact while the
+carrier is moved to the source boundary.
+
+`BF4GroupedCommonKernelPerronAction` constructs the strict certificate for
+\(J\) by transposing the terminal-smoothed certificate.  Its spread is
+definitionally the primitive terminal spread.  The construction needs only
+nonnegative prefix entries and a positive total prefix mass in every
+retained row; it does not assume that every fusion prefix entry is
+strictly positive.
+
+The quantitative interface has also been minimized.  The new
+`BF4BoundaryGroupedProfileHarnackAt` asks directly for
+\[
+  C_{\rm terminal}^{\,2}\le \frac{65}{64}.
+\]
+It constructs both calibrated cross-zero profile windows from the exact
+physical and candidate actions.  The earlier Faraut/Perron estimate
+\[
+  C_{\rm terminal}^{\,2}
+    \le 1+C_b^2q_s^{m-2}
+\]
+is now an optional sufficient producer for this direct Harnack datum, not a
+mandatory representation of it.
+
+Finally `MatchedBF4LocalContractionGluingRows` records the genuine local
+stationary BF4 slice on the identical AF schedule.  Together with the
+direct terminal Harnack and \(q_s\le1/4\), it constructs
+`MatchedPhysicalBF4LocalContractionRows`; the already-proved consumer then
+delivers the physical \(1/32\) core, both \(1/64\) tails, and both rowwise
+\(1/8\) estimates without any separate endpoint-spread buffer theorem.
+The stronger one-step Faraut-buffer route remains available.
+
+This is a strict logical reduction, not an analytic closure.  The next
+load-bearing Yang--Mills constructions are:
+
+1. the genuine eighteen-chord grouped half-amplitude factorization, with
+   nonnegative/nonzero prefix rows and a strictly positive primitive
+   terminal kernel satisfying \(C_{\rm terminal}^2\le65/64\);
+2. the calibrated all-spin Peter--Weyl boundary activity and its exact
+   action under the same terminal-smoothed kernel;
+3. the actual local stationary BF4 slice gluing and its centered
+   \(q_s\le1/4\) estimate, unless the stronger Faraut-buffer route is used;
+4. the physical `CubicMarginLaw` and `PhysicalSpacingEnvelope` that place
+   these estimates on the nonperturbative AF continuum trajectory.
+
+All new declarations compile without `sorry`, `Classical`, choice, or
+`noncomputable`; their printed axiom dependencies are contained in
+`[propext, Quot.sound]`.  No unconditional Clay-frontier inhabitant is
+claimed at this milestone.

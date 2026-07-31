@@ -523,6 +523,19 @@ def groupedHalfAmplitude
   FiniteCrossRatioDiameterCertificate.finiteKernelAction
     terminal middles (prefixWeight state) boundary
 
+/-- The boundary-source common kernel obtained by transposing a grouped
+terminal-smoothed half-amplitude.  Unlike the transposed prefix alone, this
+kernel inherits strict positivity and projective spread directly from the
+primitive terminal certificate. -/
+def centralGroupedBoundaryCommonKernel
+    {Middle : Type}
+    (middles : List Middle)
+    (prefixWeight : EdgeLabelling → Middle → Q')
+    (terminal : Middle → EdgeLabelling → Q')
+    (boundary state : EdgeLabelling) : Q' :=
+  terminalSmoothedKernel
+    prefixWeight terminal middles state boundary
+
 /-- Finite Fubini for a grouped source-target kernel action. -/
 private theorem groupedKernelAction_eqv_boundaryAction
     {State Middle Boundary : Type}
@@ -679,6 +692,58 @@ theorem centralGroupedPhysicalCommonKernelAction_eqv_marginal
   exact centralPhysicalBoundaryKernelAction_eqv_marginal
     state_mem
 
+/-- **Boundary-carrier grouped physical action identification.**  If the
+terminal-smoothed grouped amplitude is entrywise the genuine physical BF4
+half-amplitude, its transposed boundary-source kernel acts on the literal
+physical boundary activity as the exact physical marginal.
+
+This route keeps the common carrier on the fixed interface.  Consequently
+the common-kernel certificate can be constructed by transposing
+`terminalSmoothedCertificate`; no strict certificate for the generally
+zero-containing prefix is required. -/
+theorem centralGroupedBoundaryCommonKernelAction_eqv_marginal
+    {Middle : Type}
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {K half : Nat}
+    (middles : List Middle)
+    (prefixWeight : EdgeLabelling → Middle → Q')
+    (terminal : Middle → EdgeLabelling → Q')
+    (physical_gluing :
+      ∀ state,
+        state ∈ centralPositiveHalfStates w hw K half →
+          ∀ boundary,
+            boundary ∈ centralBoundaryChannels K half →
+              centralHalfAmplitude w K half state boundary ≈
+                terminalSmoothedKernel
+                  prefixWeight terminal middles state boundary)
+    {state : EdgeLabelling}
+    (state_mem :
+      state ∈ centralPositiveHalfStates w hw K half) :
+    FiniteCrossRatioDiameterCertificate.finiteKernelAction
+        (centralGroupedBoundaryCommonKernel
+          middles prefixWeight terminal)
+        (centralBoundaryChannels K half)
+        (centralPhysicalBoundaryActivity w hw K half)
+        state ≈
+      centralPhysicalRowMarginal w hw K half state := by
+  refine Q'.eqv_trans _
+    (FiniteCrossRatioDiameterCertificate.finiteKernelAction
+      (centralPhysicalBoundaryKernel w K half)
+      (centralBoundaryChannels K half)
+      (centralPhysicalBoundaryActivity w hw K half)
+      state) _ ?_ ?_
+  · unfold FiniteCrossRatioDiameterCertificate.finiteKernelAction
+    apply listQSum_congr_on
+    intro boundary boundary_mem
+    apply Q'.mul_eqv_congr_right
+    unfold centralGroupedBoundaryCommonKernel
+      centralPhysicalBoundaryKernel
+    exact Q'.eqv_symm
+      (physical_gluing state state_mem
+        boundary boundary_mem)
+  exact centralPhysicalBoundaryKernelAction_eqv_marginal
+    state_mem
+
 /-- Scale-uniform action identification along the exact AF trajectory.  No
 new analytic field is required: the carrier, kernel, activity, positivity,
 and physical action are all computed at each scale. -/
@@ -751,4 +816,5 @@ end YMGap.Continuum.BF4PhysicalBoundaryCommonKernelAction
 #print axioms YMGap.Continuum.BF4PhysicalBoundaryCommonKernelAction.transposeCertificate
 #print axioms YMGap.Continuum.BF4PhysicalBoundaryCommonKernelAction.centralGroupedPhysicalMiddleActivityCertificate
 #print axioms YMGap.Continuum.BF4PhysicalBoundaryCommonKernelAction.centralGroupedPhysicalCommonKernelAction_eqv_marginal
+#print axioms YMGap.Continuum.BF4PhysicalBoundaryCommonKernelAction.centralGroupedBoundaryCommonKernelAction_eqv_marginal
 #print axioms YMGap.Continuum.BF4PhysicalBoundaryCommonKernelAction.matchedPhysicalBoundaryKernelAction_eqv_profile

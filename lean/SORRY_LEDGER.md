@@ -350,22 +350,34 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   marginal.  Exact finite Fubini transports this activity through any
   genuine grouped factorization
   \(A(x,b)=\sum_m P(x,m)T(m,b)\), giving the exact physical action of the
-  common kernel \(P\) on the retained middle carrier.
+  common kernel \(P\) on the retained middle carrier.  Its preferred
+  boundary-carrier refinement instead transposes the terminal-smoothed
+  kernel \(J(b,x)=\sum_mP(x,m)T(m,b)\).  The strict certificate is then
+  constructed automatically from the primitive terminal certificate and
+  the positive prefix rows, and its spread is definitionally the terminal
+  spread; a generally zero-containing fusion prefix needs no independent
+  strict certificate.
   `PhysicalBF4OneStepContractionGluingRow.toFarautBufferedRow` closes the
   formerly arbitrary buffer-carrier interface: a genuine stationary
   one-step density gluing now constructs the two endpoint buffers and the
   depth-dependent middle power on the literal positive BF4 carrier.
   `BF4GroupedCommonKernelPerronAction` combines these constructions on
-  definitionally the same bit/depth/nonlinear-rate trajectory and feeds the
-  already-proved \(1/32\) core and two \(1/64\) tails.
+  definitionally the same bit/depth/nonlinear-rate trajectory.  Its minimal
+  terminal-Harnack interface requires only the direct squared-spread bound
+  \(C_s^2\le65/64\); the Perron-form estimate is retained as one sufficient
+  producer.  A second endpoint-free producer combines that Harnack datum
+  with an actual local stationary BF4 slice contraction \(q_s\le1/4\) and
+  feeds the already-proved \(1/32\) core, two \(1/64\) tails, and both
+  rowwise-eighth estimates without a separate endpoint buffer bound.
   Still open are the physical dyadic bridge, uniform Faraut/image
   enclosures on the full class-coordinate set, Faraut/character
   normalization and endpoint coverage, the all-even residual
   strand-colouring theorem, the genuine positive primitive terminal and
-  grouped half-amplitude factorization, candidate Peter--Weyl action and
-  projective-Perron remainder on that same common kernel, the actual
-  stationary one-step BF4 density gluing with endpoint spread and
-  \(q_s\le1/4\), identification of the normalized interacting BF4 and
+  grouped half-amplitude factorization with terminal squared spread at most
+  \(65/64\), the candidate Peter--Weyl boundary activity/action under that
+  same terminal-smoothed kernel, the actual local stationary BF4 slice
+  gluing with \(q_s\le1/4\) (or the stronger endpoint-buffer alternative),
+  identification of the normalized interacting BF4 and
   Mehler matrices on the same complete carrier, the actual HS convergence
   modulus for those matrices, and dominant-mode identification.
 - **must not be closed classically**: per `AGENTS.md` Rule 6; the uniform

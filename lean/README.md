@@ -383,10 +383,10 @@ quarter theorem is reduced without hidden finite data to the two genuine
 Yang--Mills estimates: calibrated spectral rate at most \(1/8\), and exact
 physical comparison tolerance at most \(1/8\).
 
-The current grouped-action layer removes one of those hidden
-identifications.  `BF4PhysicalBoundaryCommonKernelAction` uses the complete
-fixed-interface carrier after the eighteen non-transmitted chords have been
-integrated and constructs the literal activity
+The grouped-action layer removes one of those hidden identifications.
+`BF4PhysicalBoundaryCommonKernelAction` uses the complete fixed-interface
+carrier after the eighteen non-transmitted chords have been integrated and
+constructs the literal activity
 \[
   a_{\rm phys}(b)=W(b)B(b)/Z_{\rm phys}.
 \]
@@ -399,21 +399,45 @@ activity as the exact marginal:
 For an exact grouped gluing
 \(A(x,b)=\sum_m P(x,m)T(m,b)\), finite Fubini pushes this activity through
 \(T\), producing a nonzero positive activity on the enlarged middle carrier
-and identifying the common kernel \(P(x,m)\) with the same physical
-marginal.  `BF4GroupedCommonKernelPerronAction` installs that theorem into
-the scale-uniform Faraut/core-tail consumer; the physical activity and
-physical action-identification fields are no longer assumptions.
+and identifying \(P(x,m)\) with the same physical marginal.
+
+The preferred construction now keeps the common positive kernel on the
+boundary carrier instead:
+\[
+  J(b,x)=\sum_m P(x,m)T(m,b).
+\]
+The certificate for \(J\) is the transpose of the terminal-smoothed
+certificate.  It is therefore constructed from the primitive terminal
+certificate and the nonnegative/nonzero prefix rows, its projective spread
+is definitionally the primitive terminal spread, and no strict-positivity
+certificate is required for the generally zero-containing fusion prefix.
+The same exact gluing theorem identifies \(J a_{\rm phys}=\pi\).
+`BF4GroupedCommonKernelPerronAction` installs this boundary-carrier theorem
+into the scale-uniform core/tail consumer; the physical activity,
+certificate, and action-identification fields are theorem outputs.
+
+There are now two certified quantitative continuations.  A terminal
+Perron-form estimate
+\(C_s^2\le 1+C_b^2q_s^{m-2}\) implies the required Harnack bound, but the
+minimal interface asks directly for
+\(C_s^2\le65/64\).  Independently, a genuine local stationary slice with
+centered contraction \(q_s\le1/4\) feeds the endpoint-free local-contraction
+consumer, so the physical \(1/32\) core, two \(1/64\) tails, and both
+rowwise \(1/8\) estimates no longer require a separate endpoint-spread
+buffer theorem.  The stronger Faraut buffer remains an alternative.
 `PhysicalBF4OneStepContractionGluingRow.toFarautBufferedRow` also turns an
 exact one-step stationary density gluing on the literal retained carrier
 into the full witness-bearing \(C_s^2q_s^{m-2}\) buffer, and the
 scale-family producer forces that gluing to use definitionally the same
 bit, depth, and nonlinear-rate schedule as the grouped profile.  The
 remaining BF4 analytic inputs are now explicit: construct the genuine
-grouped half-amplitude gluing and a positive primitive terminal
-certificate, identify the calibrated Peter--Weyl activity on the same
-middle carrier and prove its Perron remainder, and prove the actual
-one-step stationary BF4 density gluing together with its endpoint and
-\(q_s\le 1/4\) bounds.  Those Yang--Mills estimates are not yet inhabited.
+grouped half-amplitude gluing and a positive primitive terminal certificate
+whose squared spread is at most \(65/64\), identify the calibrated
+Peter--Weyl boundary activity under this same terminal-smoothed kernel, and
+prove the actual local stationary BF4 slice gluing with \(q_s\le1/4\)
+(or, alternatively, the stronger endpoint-buffer estimate).  The physical
+`CubicMarginLaw` and `PhysicalSpacingEnvelope` also remain to be
+constructed.  Those Yang--Mills estimates are not yet inhabited.
 
 **Ledger state.** The `YMGap` library builds sorry-free (`lake build`
 reports zero `declaration uses 'sorry'`; see `SORRY_LEDGER.md`, whose
