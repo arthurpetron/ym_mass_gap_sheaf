@@ -1124,6 +1124,7 @@ import YMGap.Continuum.BF4StationaryDensityBufferSplit
 import YMGap.Continuum.BF4LocalContractionGluing
 import YMGap.Continuum.BF4PhysicalBoundaryCenteredGram
 import YMGap.Continuum.BF4PhysicalBoundaryPosterior
+import YMGap.Continuum.BF4NormalizedProjectivePosteriorHarnack
 import YMGap.Continuum.BF4FarautAFCutoffGrowth
 import YMGap.Continuum.SU2PointwiseHeatDynamicWindow
 import YMGap.Continuum.BF4SU2StochasticBlockedGramObservableTail
