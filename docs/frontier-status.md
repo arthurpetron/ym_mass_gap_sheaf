@@ -1,7 +1,7 @@
 # Frontier status
 
 > **Auto-generated** by `scripts/frontier_status.py` on 2026-07-31.
-> Axiom-gate source: `lean/AXIOM_AUDIT.md` hashed baseline (21640 tracked declarations, 2738 namespaces, 0 reviewed exceptions).
+> Axiom-gate source: `lean/AXIOM_AUDIT.md` hashed baseline (21648 tracked declarations, 2739 namespaces, 0 reviewed exceptions).
 > Guard configuration: **5 protected frontier types**, **0 reviewed allowlist entries**.
 > Read-only report — no Lean source is edited. `GUARDED OPEN` is determined
 > from `YMGapGuard.lean`; field counts are only documentation-marker counts.
@@ -392,7 +392,7 @@ structure ContinuumYMExistence {M : Nat → Type} (μ_inf : ContinuumMeasure M) 
 Every `YMGap/*.lean` NOT reachable (transitively) from `YMGap.lean` — i.e.
 silently skipped by the default `lake build` and therefore un-audited.
 
-Reachable modules parsed from import closure; **70 of 2790** `YMGap/*.lean` files are unreachable from `YMGap.lean`.
+Reachable modules parsed from import closure; **70 of 2791** `YMGap/*.lean` files are unreachable from `YMGap.lean`.
 
 - `lean/YMGap/Continuum/BF4CalibratedCubeSpectralFence.lean`
 - `lean/YMGap/Continuum/BF4CentralLowerCubePositiveRow.lean`

@@ -16592,3 +16592,97 @@ half-amplitude and its reflected integral-square identity.  The new
 fivefold-Haar Gram is its ready Peter--Weyl-side consumer, not a substitute
 for that physical gluing theorem.  No guarded frontier type is discharged
 by this slice.
+
+## 14. Exact grouped positive-feature holonomy/Choi layer (2026-07-31)
+
+`BF4GroupedGramChoiKernel` now closes the finite algebraic seam between the
+existing five-Haar all-spin half-amplitudes and the existing positive
+Feynman--Kac/Mehler feature Gram.
+
+The construction is literal rather than certificate-driven:
+
+1. every polynomial supported on five quaternion blocks is put into a
+   canonical twenty-coordinate form, and normalized product Haar is proved
+   invariant under that canonicalization;
+2. the geometric all-spin wavefunction, the one-sided diagonal
+   Feynman--Kac partial sum, and each ordered kinetic feature word are
+   multiplied on the same five-holonomy carrier;
+3. the canonical half-polynomial is proved to have Haar value exactly
+   `bf4MehlerHalfAmplitude`;
+4. source and reflected target copies are shifted onto disjoint
+   twenty-coordinate blocks;
+5. exact tenfold product-Haar factorization identifies the resulting
+   reflected holonomy polynomial with one weighted Gram channel;
+6. summing the displayed feature words gives
+   `bf4GroupedHolonomyGluing_haar_eq_mehlerGram`;
+7. an arbitrary finite signed all-spin state packet gives one literal
+   grouped sum of reflected integral squares;
+8. this packet integral is proved equal to the complete
+   `weightedGramQuadratic`, so the entrywise and quadratic constructions
+   are the same finite operator; and
+9. increasing the kinetic word cutoff adds a positive-semidefinite
+   increment for every signed packet.
+
+The last point supplies a constructive directed system:
+\[
+  \mathcal Q_{d,c}(v)\le \mathcal Q_{d,c+1}(v)
+\]
+for every diagonal order \(d\), cross order \(c\), and finite signed packet
+\(v\).  It is stronger than diagonal-entry monotonicity, but it is not yet
+a convergence theorem: no spacing-uniform upper bound or Cauchy modulus has
+been proved.
+
+### Precise milestone boundary
+
+This module proves exact reflected holonomy gluing for the **finite positive
+feature approximation**.  It does not yet prove that this approximation is
+the corrected Wilson-slab physical kernel.  In particular it does not:
+
+- sum the diagonal and cross truncations to a located constructive-real
+  endpoint;
+- identify that endpoint with `reflectedPhysicalCoefficient` or the compact
+  negative-action exponential;
+- identify the compact endpoint with the finite corrected Wilson/heat-kernel
+  fixed-intertwiner Choi operator;
+- transport strict physical row mass; or
+- discharge a guarded Clay-frontier type.
+
+Thus P0' item 5 is closed only for the finite Mehler/Feynman--Kac
+approximants.  The physical Wilson-slab version of P0' remains open.
+
+### Revised next producer: the two-parameter positive endpoint bridge
+
+Work next on one same-carrier theorem with the following internal order:
+
+1. **Diagonal modulus.**  Derive a quantitative factorial-tail modulus for
+   `sourceDiagonalFeynmanKacPartial`, uniform on the retained five-holonomy
+   BF4 carrier and along the proposed AF spacing schedule.
+2. **Cross modulus.**  Bound the aggregate omitted kinetic words, including
+   alphabet growth and the polynomial/Haar amplitude bound, rather than
+   bounding each word in isolation.
+3. **Cofinal schedule.**  Choose constructive diagonal and cross cutoffs
+   from a requested rational accuracy and prove that all later grouped
+   quadratic forms lie within that accuracy.
+4. **Located positive limit.**  Form the resulting `CReal` kernel/quadratic
+   limit and transport symmetry, positive-semidefinite order, and the
+   finite packet Choi identity.
+5. **Compact endpoint identification.**  Prove that the limit equals the
+   existing compact negative-action/Peter--Weyl endpoint on the same
+   canonical five-holonomy carrier.
+6. **Physical gluing identification.**  Starting from the positive
+   Wilson/heat-kernel density, integrate the eighteen non-transmitted
+   chords and prove equality with the compact endpoint and with the
+   corrected fixed-intertwiner physical Choi kernel.
+7. **Row-mass transport.**  Move strict row mass and the common-kernel
+   action through that equality; only then feed the P1' Harnack,
+   projective-contraction, and Mehler/HS consumers.
+
+Suggested producer split:
+`BF4GroupedHolonomyPositiveLimit`,
+`BF4GroupedHolonomyCompactEndpoint`, and
+`BF4WilsonHolonomyPhysicalGluing`.
+
+Acceptance requires explicit constructive moduli and exact same-carrier
+identifications.  A field asserting convergence, a separately positive
+surrogate kernel, or an entrywise estimate without aggregate
+carrier-growth control does not cross this milestone.
