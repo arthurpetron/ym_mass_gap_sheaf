@@ -16810,3 +16810,72 @@ After that, the unresolved order is:
 4. transport row mass and proceed to the Harnack/Perron budget; and
 5. independently construct the genuine spacing-dependent BF4 RG
    trajectory needed for the AF envelope.
+
+## 17. Joint grouped BF4 positive limit (2026-07-31)
+
+`BF4GroupedHolonomyPositiveLimit` now closes the nonlinear two-cutoff
+obstruction described above.  The new proof is constructive throughout and
+uses exact `Q'` algebra rather than reduced-rational equality.
+
+The implemented chain is:
+
+1. `bf4PacketChannelLinear_add_block` inserts the literal omitted diagonal
+   polynomial into every packet half-amplitude and proves the exact additive
+   channel decomposition.
+2. `bf4PacketWordSOS_diagonal_block_abs_le` proves the nonlinear
+   difference-of-squares estimate.  The proof factors the change through the
+   exact shell increment and pays both endpoint amplitudes with the common
+   `bf4PacketUniformHalfL1Scale`.
+3. `bf4PacketCrossSOSPartial_diagonal_block_abs_le` sums that pointwise
+   estimate over every retained word.  The complete label sum is identified
+   with the positive exponential partial
+   \[
+     \sum_{k=0}^{c}\frac{S^k}{k!}
+   \]
+   and bounded by the single rational `expPosBound S`, independent of the
+   kinetic cutoff.
+4. `bf4PacketCrossSOSPartial_diagonal_cauchy` supplies an explicit
+   `bf4PacketDiagonalModulus`, uniform in cross order.  Conversely,
+   `bf4PacketCrossSOSPartial_uniform_cross_cauchy` supplies an explicit
+   `bf4PacketUniformCrossModulus`, uniform in diagonal order.
+5. `bf4PacketCrossSOSPartial_joint_cauchy` combines the two estimates with
+   an exact half-tolerance split.  This constructs
+   `bf4PacketGroupedSquareJointLimit`, a located constructive real removing
+   both cutoffs simultaneously.
+6. `BF4GroupedCofinalSchedule` retains the two cutoff functions as
+   `Type`-level data.  `bf4PacketGroupedSquareScheduledLimit_equiv_joint`
+   proves that every explicitly cofinal schedule gives the same endpoint.
+7. `bf4PacketGroupedSquare_haar_eq_jointLimit_approx` identifies every
+   rational approximation with the literal grouped ten-Haar contraction,
+   and `bf4PacketGroupedSquareJointLimit_nonnegative` transports the
+   manifest SOS/CP order to the joint limit.
+
+All new load-bearing declarations report only the permitted
+`[propext, Quot.sound]` axiom footprint.  In particular, there is no
+`Classical.*`, `native_decide`, `noncomputable`, custom axiom, or hidden
+`sorry`.
+
+This closes the analytic joint-limit producer on the exact grouped BF4
+polynomial carrier.  It does **not** yet identify that carrier with a
+spacing-dependent Wilson/heat-kernel slab on the physical AF trajectory,
+nor does it establish the physical Perron contraction or a continuum
+Osterwalder--Schrader theory.
+
+### Next exact residual
+
+The next producer must be an exact same-carrier endpoint comparison:
+
+1. define the infinite negative-action/Feynman--Kac endpoint on the canonical
+   grouped carrier and prove that its finite diagonal/word truncations are
+   precisely the approximants above;
+2. identify the resulting grouped endpoint with the corrected physical
+   Wilson/heat-kernel slab after integrating the eighteen
+   non-transmitted chords;
+3. transport the joint positive quadratic form to the physical common kernel
+   and prove the row-mass/action identities needed by the projective Perron
+   argument;
+4. establish the AF-uniform row-relative perturbation budget
+   \(r+\varepsilon\le 1/4\); and
+5. connect the exact BF4 coefficients to a genuine spacing-dependent
+   nonperturbative block trajectory, then instantiate the already-built AF
+   envelope and continuum/OS chain.

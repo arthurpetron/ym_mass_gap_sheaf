@@ -1,7 +1,7 @@
 # Frontier status
 
 > **Auto-generated** by `scripts/frontier_status.py` on 2026-07-31.
-> Axiom-gate source: `lean/AXIOM_AUDIT.md` hashed baseline (21665 tracked declarations, 2741 namespaces, 0 reviewed exceptions).
+> Axiom-gate source: `lean/AXIOM_AUDIT.md` hashed baseline (21678 tracked declarations, 2741 namespaces, 0 reviewed exceptions).
 > Guard configuration: **5 protected frontier types**, **0 reviewed allowlist entries**.
 > Read-only report — no Lean source is edited. `GUARDED OPEN` is determined
 > from `YMGapGuard.lean`; field counts are only documentation-marker counts.
