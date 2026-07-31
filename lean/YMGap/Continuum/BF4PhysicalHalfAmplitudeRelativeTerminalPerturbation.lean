@@ -852,6 +852,73 @@ def toApproxTerminalSmoothingRows
         physicalRelativeErrorTolerance
         hrelative).2
 
+/-- **Support audit.**  The terminal-floor/error certificate forces every
+selected physical half-amplitude entry to be strictly positive.
+
+This is a useful applicability test: if a proposed all-boundary BF4
+rectangle contains a fusion zero, this stronger positive-terminal
+certificate cannot inhabit it.  One must then restrict to a common support
+fiber or use the support-safe buffered Choi/Perron route. -/
+theorem physical_entry_pos
+    {Middle : Nat → Type}
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat → Q'}
+    {halfExtent diagonalOrder : Nat → Nat}
+    (data :
+      MatchedPhysicalHalfAmplitudeTerminalFloorErrorRows
+        Middle family law spacing coupling
+        halfExtent diagonalOrder)
+    (scale : Nat) (source boundary : EdgeLabelling)
+    (source_mem :
+      source ∈
+          centralPositiveHalfStates
+            (matchedAllSpinWeight family coupling scale)
+            (matchedAllSpinWeight_nonnegative
+              family coupling scale)
+            (matchedAllSpinCutoff family coupling scale)
+            (halfExtent scale))
+    (boundary_mem :
+      boundary ∈
+          centralBoundaryChannels
+            (matchedAllSpinCutoff family coupling scale)
+            (halfExtent scale)) :
+    (0 : Q') <
+      centralHalfAmplitude
+        (matchedAllSpinWeight family coupling scale)
+        (matchedAllSpinCutoff family coupling scale)
+        (halfExtent scale) source boundary := by
+  let idealCertificate :=
+    terminalSmoothedCertificate
+      (data.terminalCertificate scale)
+      (data.prefixRows scale)
+  have hideal :
+      (0 : Q') <
+        terminalSmoothedKernel
+          (data.prefixWeight scale)
+          (data.terminal scale)
+          (data.middles scale)
+          source boundary :=
+    idealCertificate.strictlyPositive
+      source source_mem boundary boundary_mem
+  have hlower :
+      (0 : Q') <
+        (1 : Q') + -physicalRelativeErrorTolerance := by
+    decide
+  have hproduct :
+      (0 : Q') <
+        ((1 : Q') + -physicalRelativeErrorTolerance) *
+          terminalSmoothedKernel
+            (data.prefixWeight scale)
+            (data.terminal scale)
+            (data.middles scale)
+            source boundary :=
+    Q'.mul_pos hlower hideal
+  exact Q'.pos_of_lt_of_le hproduct
+    (data.toApproxTerminalSmoothingRows.physical_lower
+      scale source source_mem boundary boundary_mem)
+
 /-- The concrete terminal floor and entry estimate therefore discharge
 both spacing-uniform physical `1/8` fields. -/
 def toRowwiseEighthEstimates
@@ -884,4 +951,5 @@ end YMGap.Continuum.BF4PhysicalHalfAmplitudeRelativeTerminalPerturbation
 #print axioms YMGap.Continuum.BF4PhysicalHalfAmplitudeRelativeTerminalPerturbation.MatchedPhysicalHalfAmplitudeApproxTerminalSmoothingRows.toHalfAmplitudeProjectiveRows
 #print axioms YMGap.Continuum.BF4PhysicalHalfAmplitudeRelativeTerminalPerturbation.MatchedPhysicalHalfAmplitudeApproxTerminalSmoothingRows.toRowwiseEighthEstimates
 #print axioms YMGap.Continuum.BF4PhysicalHalfAmplitudeRelativeTerminalPerturbation.MatchedPhysicalHalfAmplitudeTerminalFloorErrorRows.toApproxTerminalSmoothingRows
+#print axioms YMGap.Continuum.BF4PhysicalHalfAmplitudeRelativeTerminalPerturbation.MatchedPhysicalHalfAmplitudeTerminalFloorErrorRows.physical_entry_pos
 #print axioms YMGap.Continuum.BF4PhysicalHalfAmplitudeRelativeTerminalPerturbation.MatchedPhysicalHalfAmplitudeTerminalFloorErrorRows.toRowwiseEighthEstimates
