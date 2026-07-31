@@ -667,6 +667,35 @@ def compactPhysicalNegativeTaylorQuadraticLimit
     (compactActionShiftedTaylorQuadraticLimit
       polynomial hsupport)
 
+/-- **Haar--`L²` positivity of the located physical endpoint.**
+
+For every supported rational polynomial `P`, the genuine compact BF4
+functional
+
+`H₁₀(P² exp(-A))`
+
+is nonnegative in the sound constructive-real order.  This is derived from
+the exact sphere shift: the scalar factor `exp(-133/4)` is nonnegative and
+the shifted complement series is a located limit of nonnegative Haar
+quadratics.  No positivity certificate is passed as an argument.
+
+This is positivity of the full ten-holonomy square functional.  Reflected
+source/target positivity is a distinct statement and requires the
+cross-plane Gram factorization. -/
+theorem compactPhysicalNegativeTaylorQuadraticLimit_nonnegative
+    (polynomial : RatPoly)
+    (hsupport :
+      SupportedQuaternionBlocks 10 polynomial) :
+    ExpPos.geRat
+      (compactPhysicalNegativeTaylorQuadraticLimit
+        polynomial hsupport)
+      0 := by
+  exact CReal.mul_nonneg
+    (expNeg_geRat_zero
+      compactCoupledBF4ActionCeiling (by decide))
+    (compactActionShiftedTaylorQuadraticLimit_nonnegative
+      polynomial hsupport)
+
 @[simp] theorem compactPhysicalNegativeTaylorQuadraticLimit_approx
     (polynomial : RatPoly)
     (hsupport :
@@ -834,4 +863,5 @@ end YMGap.Continuum.BF4CompactActionPhysicalLimit
 #print axioms YMGap.Continuum.BF4CompactActionPhysicalLimit.compactShiftedProduct_eq_negativePartial_add_corner
 #print axioms YMGap.Continuum.BF4CompactActionPhysicalLimit.compactShiftedCorner_eventually_small
 #print axioms YMGap.Continuum.BF4CompactActionPhysicalLimit.compactPhysicalNegativeTaylorQuadraticLimit
+#print axioms YMGap.Continuum.BF4CompactActionPhysicalLimit.compactPhysicalNegativeTaylorQuadraticLimit_nonnegative
 #print axioms YMGap.Continuum.BF4CompactActionPhysicalLimit.compactPhysicalNegativeTaylorQuadraticPartial_converges

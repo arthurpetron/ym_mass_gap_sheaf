@@ -1107,6 +1107,7 @@ import YMGap.Continuum.BF4SU2FixedMagneticPhysicalHSCauchy
 import YMGap.Continuum.BF4WeightedJointPerronPerturbation
 import YMGap.Continuum.BF4AFUniformRowRelativeBudget
 import YMGap.Continuum.BF4ReflectedAllSpinPeterWeylBridge
+import YMGap.Continuum.BF4GeometricAllSpinHaarGram
 import YMGap.Continuum.BF4ReflectedAllSpinAFRowRelative
 import YMGap.Continuum.BF4ReflectedAllSpinMehlerGramEndpoint
 import YMGap.Continuum.BF4ReflectedAllSpinMehlerGramAFRow

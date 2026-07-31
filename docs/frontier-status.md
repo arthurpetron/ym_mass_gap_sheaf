@@ -1,7 +1,7 @@
 # Frontier status
 
 > **Auto-generated** by `scripts/frontier_status.py` on 2026-07-31.
-> Axiom-gate source: fresh `lake build` log (21632 declarations, 2737 namespaces; layered over AXIOM_AUDIT.md).
+> Axiom-gate source: `lean/AXIOM_AUDIT.md` hashed baseline (21640 tracked declarations, 2738 namespaces, 0 reviewed exceptions).
 > Guard configuration: **5 protected frontier types**, **0 reviewed allowlist entries**.
 > Read-only report — no Lean source is edited. `GUARDED OPEN` is determined
 > from `YMGapGuard.lean`; field counts are only documentation-marker counts.
@@ -39,12 +39,12 @@ structure Tier0Scorecard (p : z4Chain.toLattice.Plaquette) (w : Q') (b : Nat) (a
 
 | decl | module | axiom gate |
 |---|---|---|
-| `fixedSpacing_met` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | Quot.sound, propext |
-| `subA_offCorr_decompose` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | Quot.sound, propext |
-| `subA_tree_graph` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | Quot.sound, propext |
-| `subB_prodFloor_pos` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | Quot.sound, propext |
-| `subB_physGap_pos` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | Quot.sound, propext |
-| `toFrontierC` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | Quot.sound, propext |
+| `fixedSpacing_met` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | within gate {propext, Quot.sound} |
+| `subA_offCorr_decompose` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | within gate {propext, Quot.sound} |
+| `subA_tree_graph` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | within gate {propext, Quot.sound} |
+| `subB_prodFloor_pos` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | within gate {propext, Quot.sound} |
+| `subB_physGap_pos` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | within gate {propext, Quot.sound} |
+| `toFrontierC` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | within gate {propext, Quot.sound} |
 
 **(c) Fields explicitly marked OPEN in source documentation:**
 
@@ -85,8 +85,8 @@ structure ReconstructionOpenFrontier (D : SmulGNSData) (op : TransferOperator D.
 
 | decl | module | axiom gate |
 |---|---|---|
-| `reconstruction_status` | `lean/YMGap/Rubric/ReconstructionScorecardFinal.lean` | Quot.sound, propext |
-| `all_fixed_spacing_reconstruction_proved` | `lean/YMGap/Rubric/ReconstructionScorecardFinal.lean` | Quot.sound, propext |
+| `reconstruction_status` | `lean/YMGap/Rubric/ReconstructionScorecardFinal.lean` | within gate {propext, Quot.sound} |
+| `all_fixed_spacing_reconstruction_proved` | `lean/YMGap/Rubric/ReconstructionScorecardFinal.lean` | within gate {propext, Quot.sound} |
 
 **(c) Fields explicitly marked OPEN in source documentation:**
 
@@ -129,11 +129,11 @@ structure UniformSpacingFloor {ι : Type} {α : Type} (le : Q' → α → Prop) 
 
 | decl | module | axiom gate |
 |---|---|---|
-| `ofUniformPhysGapFloor` | `lean/YMGap/Continuum/UnifiedContinuumFloor.lean` | Quot.sound, propext |
-| `ofModeEnergyFloor` | `lean/YMGap/Continuum/UnifiedContinuumFloor.lean` | axiom-free |
-| `ofContinuumGapPersistence` | `lean/YMGap/Continuum/UnifiedContinuumFloor.lean` | propext |
-| `ofUniformRatioVariation` | `lean/YMGap/Continuum/UnifiedContinuumFloor.lean` | Quot.sound, propext |
-| `ofDimensionalTransmutation` | `lean/YMGap/Continuum/UnifiedContinuumFloor.lean` | Quot.sound, propext |
+| `ofUniformPhysGapFloor` | `lean/YMGap/Continuum/UnifiedContinuumFloor.lean` | within gate {propext, Quot.sound} |
+| `ofModeEnergyFloor` | `lean/YMGap/Continuum/UnifiedContinuumFloor.lean` | within gate {propext, Quot.sound} |
+| `ofContinuumGapPersistence` | `lean/YMGap/Continuum/UnifiedContinuumFloor.lean` | within gate {propext, Quot.sound} |
+| `ofUniformRatioVariation` | `lean/YMGap/Continuum/UnifiedContinuumFloor.lean` | within gate {propext, Quot.sound} |
+| `ofDimensionalTransmutation` | `lean/YMGap/Continuum/UnifiedContinuumFloor.lean` | within gate {propext, Quot.sound} |
 
 **(c) Fields explicitly marked OPEN in source documentation:**
 
@@ -165,9 +165,9 @@ structure SpectralMarginInput (b : Nat) (afr : AFRateModulus) (N₀ : Nat) : Typ
 
 | decl | module | axiom gate |
 |---|---|---|
-| `toAsymptotic` | `lean/YMGap/Continuum/AsymptoticSpectralLoc.lean` | Quot.sound, propext |
-| `uniform_floor` | `lean/YMGap/Continuum/AsymptoticSpectralLoc.lean` | Quot.sound, propext |
-| `continuum_floor_pos` | `lean/YMGap/Continuum/AsymptoticSpectralLoc.lean` | Quot.sound, propext |
+| `toAsymptotic` | `lean/YMGap/Continuum/AsymptoticSpectralLoc.lean` | within gate {propext, Quot.sound} |
+| `uniform_floor` | `lean/YMGap/Continuum/AsymptoticSpectralLoc.lean` | within gate {propext, Quot.sound} |
+| `continuum_floor_pos` | `lean/YMGap/Continuum/AsymptoticSpectralLoc.lean` | within gate {propext, Quot.sound} |
 
 **(c) Fields explicitly marked OPEN in source documentation:**
 
@@ -210,9 +210,9 @@ structure SixJPentagon : Type
 
 | decl | module | axiom gate |
 |---|---|---|
-| `a2_racah` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | Quot.sound, propext |
-| `a2_tetra_nonneg` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | Quot.sound, propext |
-| `pentagon_to_racah` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | axiom-free |
+| `a2_racah` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | within gate {propext, Quot.sound} |
+| `a2_tetra_nonneg` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | within gate {propext, Quot.sound} |
+| `pentagon_to_racah` | `lean/YMGap/Continuum/Tier0Scorecard.lean` | within gate {propext, Quot.sound} |
 
 **(c) Fields explicitly marked OPEN in source documentation:**
 
@@ -242,10 +242,10 @@ structure ClayTargetPinned {M : Nat → Type} (μ_inf : ContinuumMeasure M) : Ty
 
 | decl | module | axiom gate |
 |---|---|---|
-| `toClayTarget` | `lean/YMGap/Rubric/ClayTargetPinned.lean` | Quot.sound, propext |
-| `pinned_fixedSpacing_proved` | `lean/YMGap/Rubric/ClayTargetPinned.lean` | Quot.sound, propext |
-| `toClayTarget_fixedSpacing` | `lean/YMGap/Rubric/ClayTargetPinned.lean` | Quot.sound, propext |
-| `toClayTarget_o4_eq` | `lean/YMGap/Rubric/ClayTargetPinned.lean` | Quot.sound, propext |
+| `toClayTarget` | `lean/YMGap/Rubric/ClayTargetPinned.lean` | within gate {propext, Quot.sound} |
+| `pinned_fixedSpacing_proved` | `lean/YMGap/Rubric/ClayTargetPinned.lean` | within gate {propext, Quot.sound} |
+| `toClayTarget_fixedSpacing` | `lean/YMGap/Rubric/ClayTargetPinned.lean` | within gate {propext, Quot.sound} |
+| `toClayTarget_o4_eq` | `lean/YMGap/Rubric/ClayTargetPinned.lean` | within gate {propext, Quot.sound} |
 
 **(c) Fields explicitly marked OPEN in source documentation:**
 
@@ -291,7 +291,7 @@ structure ClayTarget : Type
 
 | decl | module | axiom gate |
 |---|---|---|
-| `clay_fixed_spacing_met` | `lean/YMGap/Rubric/ClayScorecard.lean` | Quot.sound, propext |
+| `clay_fixed_spacing_met` | `lean/YMGap/Rubric/ClayScorecard.lean` | within gate {propext, Quot.sound} |
 
 **(c) Fields explicitly marked OPEN in source documentation:**
 
@@ -368,7 +368,7 @@ structure ContinuumYMExistence {M : Nat → Type} (μ_inf : ContinuumMeasure M) 
 
 | decl | module | axiom gate |
 |---|---|---|
-| `ym_mass_gap_of_existence` | `lean/YMGap/Continuum/FourDExistence.lean` | Quot.sound, propext |
+| `ym_mass_gap_of_existence` | `lean/YMGap/Continuum/FourDExistence.lean` | within gate {propext, Quot.sound} |
 
 **(c) Fields explicitly marked OPEN in source documentation:**
 
@@ -392,7 +392,7 @@ structure ContinuumYMExistence {M : Nat → Type} (μ_inf : ContinuumMeasure M) 
 Every `YMGap/*.lean` NOT reachable (transitively) from `YMGap.lean` — i.e.
 silently skipped by the default `lake build` and therefore un-audited.
 
-Reachable modules parsed from import closure; **70 of 2789** `YMGap/*.lean` files are unreachable from `YMGap.lean`.
+Reachable modules parsed from import closure; **70 of 2790** `YMGap/*.lean` files are unreachable from `YMGap.lean`.
 
 - `lean/YMGap/Continuum/BF4CalibratedCubeSpectralFence.lean`
 - `lean/YMGap/Continuum/BF4CentralLowerCubePositiveRow.lean`

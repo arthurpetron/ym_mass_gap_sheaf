@@ -16533,3 +16533,62 @@ Stop and revise the route if any of the following is proved:
 These are mathematical falsification points, not reasons to introduce
 another conditional scorecard.  The program remains at zero guarded
 frontier discharges until a producer crosses one of the existing guards.
+
+## 13. Initial execution of the revised P0 route (2026-07-31)
+
+The first implementation slice of P0'/P0'' is now complete in the exact
+geometric Haar carrier.
+
+`BF4GeometricAllSpinHaarGram` constructs arbitrary finite **signed** packets
+of the literal geometric BF4 wavefunctions obtained after integration of
+the eighteen non-transmitted chords.  The face labels in a packet are not
+bounded by a common spin cutoff.  Lean proves:
+
+1. every contracted wavefunction is supported on exactly the five
+   transmitted quaternion blocks;
+2. every finite signed packet remains on that same carrier;
+3. the older explicit `fivefoldHaar` functional is exactly equivalent to
+   the uniform arbitrary-product implementation `quaternionHaar 5`;
+4. the resulting all-spin Haar entry kernel is symmetric, without an
+   orthogonality assumption;
+5. every diagonal entry is nonnegative; and
+6. the complete packet quadratic is nonnegative because it is the literal
+   normalized-Haar integral of the packet square.
+
+This is the corrected positivity order required by §9.1: signs inside a
+recoupling expansion are allowed, while the completely regrouped geometric
+wavefunction is positive in Haar \(L^2\).  No certificate field restates
+positivity.
+
+`BF4CompactActionPhysicalLimit` now also exports
+`compactPhysicalNegativeTaylorQuadraticLimit_nonnegative`.  For every
+supported polynomial \(P\), the located compact endpoint
+\[
+  H_{10}\!\left(P^2 e^{-A}\right)
+\]
+is nonnegative in the constructive-real order.  The proof multiplies the
+already-proved nonnegative shifted-complement limit by
+\(e^{-133/4}\ge0\).  This closes a missing analytic consequence of the
+factorial-tail construction.
+
+These two theorems do **not** yet identify
+\(H(S\,\theta S\,e^{-A})\) with a square, and they do not identify the
+compact Mehler action with the exact Wilson slab.  In particular, the
+following P0 obligations remain open:
+
+- construct the reflected **holonomy** half-amplitudes of the positive
+  Wilson/heat-kernel slab before spin recoupling;
+- prove the exact conditional gluing identity after integrating the
+  eighteen interior chords;
+- prove that its holonomy Choi kernel is the same operator as the existing
+  finite physical fixed-intertwiner Choi kernel;
+- transport strict row mass through that equality; and
+- prove convergence and endpoint identification of the positive
+  cross-feature Gram truncations, rather than only positivity at each
+  finite truncation.
+
+The next producer should therefore be the exact Wilson-slab holonomy
+half-amplitude and its reflected integral-square identity.  The new
+fivefold-Haar Gram is its ready Peter--Weyl-side consumer, not a substitute
+for that physical gluing theorem.  No guarded frontier type is discharged
+by this slice.
