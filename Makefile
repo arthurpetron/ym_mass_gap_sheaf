@@ -108,9 +108,10 @@ lean-rubric:
 # Regenerate the read-only frontier ledger docs/frontier-status.md: for each of
 # the declared Clay-frontier bundles it records the current partial closes (with
 # their axiom gate from lean/AXIOM_AUDIT.md) and the residual OPEN fields, parsed
-# mechanically from the Lean sources. Edits no Lean source; every bundle stays
-# OPEN by design. See scripts/frontier_status.py (--lake to layer a live build
-# log over the baseline gates).
+# mechanically from the Lean sources. Edits no Lean source; guard-protected
+# frontier types are distinguished from unguarded interfaces/inputs. See
+# scripts/frontier_status.py (--lake to layer a live build log over the baseline
+# gates).
 frontier-status:
 	python3 scripts/frontier_status.py
 

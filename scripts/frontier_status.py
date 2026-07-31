@@ -36,19 +36,24 @@ are instead parsed live from a `lake build` log via the audit script's own
 `THEOREM_PATTERN`, and layered OVER the baseline.  No file is edited; this script
 is read-only w.r.t. the Lean sources.
 
-This script does NOT prove anything and does NOT change the honest status: every
-bundle here is OPEN by design.  It only reports the current partial closes and the
-open residual fields, mechanically, from the sources + the axiom baseline.
+This script does NOT prove anything and does NOT change the honest status.  It
+distinguishes the frontier types protected by `YMGapGuard.lean` from unguarded
+interfaces/inputs and treats source `OPEN` markers only as documentation.  It
+reports partial closes and residual fields mechanically from the sources, guard
+configuration, and axiom data.
 """
 
 from __future__ import annotations
 
 import argparse
 import datetime
+import os
 import re
 import subprocess
 import sys
+from dataclasses import dataclass
 from pathlib import Path
+from typing import NotRequired, TypedDict
 
 # --------------------------------------------------------------------------
 # Paths
@@ -60,6 +65,7 @@ YMGAP_ROOT = LEAN_DIR / "YMGap.lean"
 YMGAP_PKG = LEAN_DIR / "YMGap"
 BASELINE_PATH = LEAN_DIR / "AXIOM_AUDIT.md"
 OUTPUT_PATH = REPO_ROOT / "docs" / "frontier-status.md"
+GUARD_PATH = LEAN_DIR / "YMGapGuard.lean"
 
 # --------------------------------------------------------------------------
 # Axiom-gate sources (shared shapes with lean_axiom_audit.py)
@@ -74,29 +80,71 @@ THEOREM_PATTERN = re.compile(
 
 # `lean/AXIOM_AUDIT.md` recorded-baseline line shape.
 BASELINE_LINE_RE = re.compile(r"^(?P<name>[^=#\s][^=]*?)\s*=\s*(?P<axioms>.*)$")
+BASELINE_DIGEST_RE = re.compile(
+    r"^(?P<namespace>YMGap[\w\\.']*?)\s*=\s*"
+    r"(?P<digest>[0-9a-f]{8,64})\s*"
+    r"(?:\(\s*(?P<count>\d+)\s*\))?\s*$"
+)
 
 
-def parse_axiom_baseline(path: Path) -> dict[str, set[str]]:
-    """Parse `AXIOM_AUDIT.md` (hashed format) into {name: axioms} for the
-    EXCEPTIONS only — theorems whose axioms fall outside `{propext, Quot.sound}`.
+@dataclass(frozen=True)
+class AxiomBaseline:
+    """The two logically different parts of the hashed axiom baseline.
 
-    Clean theorems are no longer listed individually (the file records
-    per-namespace digests instead); callers treat any name absent here as
-    within the gate.  For exact per-decl axioms of clean decls, run with
-    `--from-file`/`--lake` (a live build log)."""
-    result: dict[str, set[str]] = {}
+    `exceptions` is a sparse map containing only declarations outside the
+    constructive gate. `namespace_digests` carries the complete declaration
+    inventory through per-namespace counts. Confusing the former with the latter
+    caused the status report to claim that a clean baseline tracked zero
+    declarations.
+    """
+
+    exceptions: dict[str, set[str]]
+    namespace_digests: dict[str, tuple[str, int]]
+
+    @property
+    def declaration_count(self) -> int:
+        return sum(count for _digest, count in self.namespace_digests.values())
+
+    @property
+    def namespace_count(self) -> int:
+        return len(self.namespace_digests)
+
+    @property
+    def available(self) -> bool:
+        return bool(self.exceptions or self.namespace_digests)
+
+
+def parse_axiom_baseline(path: Path) -> AxiomBaseline:
+    """Parse both sections of the hashed `AXIOM_AUDIT.md` baseline.
+
+    The exception map is sparse; the digest map supplies the complete tracked
+    declaration and namespace counts. For exact per-declaration axioms of clean
+    declarations, run with `--from-file` or `--lake`.
+    """
+    exceptions: dict[str, set[str]] = {}
+    digests: dict[str, tuple[str, int]] = {}
     if not path.exists():
-        return result
-    in_exceptions = False
+        return AxiomBaseline(exceptions, digests)
+    section: str | None = None
     for line in path.read_text(encoding="utf-8").splitlines():
         stripped = line.strip()
         if stripped.startswith("## Exceptions"):
-            in_exceptions = True
+            section = "exceptions"
             continue
         if stripped.startswith("## Namespace digests"):
-            in_exceptions = False
+            section = "digests"
             continue
-        if not in_exceptions or not stripped or stripped.startswith(("#", ">")):
+        if not stripped or stripped.startswith(("#", ">")):
+            continue
+        if section == "digests":
+            m_digest = BASELINE_DIGEST_RE.match(stripped)
+            if m_digest:
+                digests[m_digest.group("namespace")] = (
+                    m_digest.group("digest"),
+                    int(m_digest.group("count") or 0),
+                )
+            continue
+        if section != "exceptions":
             continue
         m = BASELINE_LINE_RE.match(stripped)
         if not m:
@@ -104,8 +152,10 @@ def parse_axiom_baseline(path: Path) -> dict[str, set[str]]:
         name = m.group("name").strip()
         if not name.startswith("YMGap"):
             continue
-        result[name] = {a.strip() for a in m.group("axioms").split(",") if a.strip()}
-    return result
+        exceptions[name] = {
+            a.strip() for a in m.group("axioms").split(",") if a.strip()
+        }
+    return AxiomBaseline(exceptions, digests)
 
 
 def parse_lake_output(output: str) -> dict[str, set[str]]:
@@ -122,12 +172,15 @@ def parse_lake_output(output: str) -> dict[str, set[str]]:
     return result
 
 
-def run_lake_build() -> str:
+def run_lake_build() -> tuple[int, str]:
+    env = os.environ.copy()
+    env.setdefault("LEAN_NUM_THREADS", "3")
     proc = subprocess.run(
         ["lake", "build"], cwd=LEAN_DIR,
         capture_output=True, text=True, check=False,
+        env=env,
     )
-    return proc.stdout + proc.stderr
+    return proc.returncode, proc.stdout + proc.stderr
 
 
 def format_gate(name: str, gates: dict[str, set[str]]) -> str:
@@ -196,8 +249,7 @@ def extract_signature(text: str, short_name: str) -> str:
         if ln.strip() == "" and chunk:
             break
     sig = " ".join(part for part in chunk if part)
-    sig = re.sub(r"\s+", " ", sig).strip()
-    return sig
+    return re.sub(r"\s+", " ", sig).strip()
 
 
 # Markers the codebase uses in field doc-comments to flag status.
@@ -268,10 +320,7 @@ def extract_fields(text: str, struct_name: str) -> list[tuple[str, str, str]]:
             continue
         if stripped.startswith("/--"):
             pending_doc = [stripped]
-            if "-/" not in stripped:
-                in_doc = True
-            else:
-                in_doc = False
+            in_doc = "-/" not in stripped
             i += 1
             continue
         m = field_re.match(ln)
@@ -325,7 +374,18 @@ def list_open_abbrevs(text: str, prefix: str = "Open") -> list[tuple[str, str]]:
 # Each entry declares a frontier bundle TYPE, its module, the structure whose
 # fields carry the open residual, and the best partial-close declarations.
 
-FRONTIER = [
+
+class FrontierEntry(TypedDict):
+    token: str
+    type: str
+    module: str
+    struct: str
+    partial_close: list[str]
+    sub_structs: NotRequired[list[str]]
+    open_abbrevs: NotRequired[str]
+
+
+FRONTIER: list[FrontierEntry] = [
     {
         "token": "Tier0Scorecard atoms",
         "type": "YMGap.Continuum.Tier0Scorecard.Tier0Scorecard",
@@ -391,12 +451,36 @@ FRONTIER = [
         ],
     },
     {
+        "token": "ClayTargetPinned",
+        "type": "YMGap.Rubric.ClayTargetPinned.ClayTargetPinned",
+        "module": "YMGap/Rubric/ClayTargetPinned.lean",
+        "struct": "ClayTargetPinned",
+        "partial_close": [
+            "YMGap.Rubric.ClayTargetPinned.toClayTarget",
+            "YMGap.Rubric.ClayTargetPinned.pinned_fixedSpacing_proved",
+            "YMGap.Rubric.ClayTargetPinned.toClayTarget_fixedSpacing",
+            "YMGap.Rubric.ClayTargetPinned.toClayTarget_o4_eq",
+        ],
+    },
+    {
         "token": "ClayTarget",
         "type": "YMGap.Rubric.ClayScorecard.ClayTarget",
         "module": "YMGap/Rubric/ClayScorecard.lean",
         "struct": "ClayTarget",
         "partial_close": [
             "YMGap.Rubric.ClayScorecard.clay_fixed_spacing_met",
+        ],
+    },
+    {
+        "token": "FrontierDAG",
+        "type": "YMGap.Rubric.FrontierDAG.FrontierDAG",
+        "module": "YMGap/Rubric/FrontierDAG.lean",
+        "struct": "FrontierDAG",
+        "partial_close": [
+            "YMGap.Rubric.FrontierDAG.toSubWallA",
+            "YMGap.Rubric.FrontierDAG.trueMarginAtom",
+            "YMGap.Rubric.FrontierDAG.o4Atom",
+            "YMGap.Rubric.FrontierDAG.boundedHAtom",
         ],
     },
     {
@@ -409,6 +493,55 @@ FRONTIER = [
         ],
     },
 ]
+
+
+_BACKTICK_NAME_RE = re.compile(r"`([A-Za-z_][\w.]*)")
+
+
+def _lean_name_list_body(text: str, def_name: str) -> str:
+    """Return the bracket body of a simple Lean `List Name` definition."""
+    start = text.find(f"def {def_name}")
+    if start < 0:
+        return ""
+    open_bracket = text.find("[", start)
+    if open_bracket < 0:
+        return ""
+    close_bracket = text.find("]", open_bracket)
+    if close_bracket < 0:
+        return ""
+    return text[open_bracket + 1 : close_bracket]
+
+
+def parse_guard_configuration(path: Path = GUARD_PATH) -> tuple[set[str], set[str]]:
+    """Return `(protected frontier types, reviewed inhabitant allowlist)`.
+
+    This is a static read of the guard configuration. The report deliberately
+    tells users to compile `YMGapGuard` for the authoritative inhabitance check.
+    """
+    if not path.exists():
+        return set(), set()
+    text = path.read_text(encoding="utf-8")
+    protected = set(
+        _BACKTICK_NAME_RE.findall(_lean_name_list_body(text, "frontierTypeNames"))
+    )
+    allowlist = set(
+        _BACKTICK_NAME_RE.findall(_lean_name_list_body(text, "frontierAllowlist"))
+    )
+    return protected, allowlist
+
+
+def bundle_state(
+    fq_type: str,
+    guarded_types: set[str],
+    open_fields: list[tuple[str, str, str]],
+    open_abbrevs: list[tuple[str, str]],
+) -> str:
+    """Status label that never mistakes missing prose markers for closure."""
+    if fq_type in guarded_types:
+        return "**GUARDED OPEN**"
+    if open_fields or open_abbrevs:
+        return "**DECLARED OPEN**"
+    return "interface/input (not guard-verified)"
 
 
 def module_of(fq_name: str) -> str:
@@ -525,28 +658,38 @@ def noncomputable_ledger() -> list[tuple[str, int, str]]:
 # --------------------------------------------------------------------------
 
 
-def emit_report(gates: dict[str, set[str]], gate_source: str) -> str:
+def emit_report(
+    gates: dict[str, set[str]],
+    gate_source: str,
+    guarded_types: set[str] | None = None,
+    guard_allowlist: set[str] | None = None,
+) -> str:
+    guarded_types = guarded_types or set()
+    guard_allowlist = guard_allowlist or set()
     today = datetime.date.today().isoformat()
-    L: list[str] = []
-    A = L.append
+    L: list[str] = []  # noqa: N806 - compact report-builder notation
+    A = L.append  # noqa: N806 - compact report-builder notation
 
     A("# Frontier status")
     A("")
     A(f"> **Auto-generated** by `scripts/frontier_status.py` on {today}.")
     A(f"> Axiom-gate source: {gate_source}.")
-    A("> Read-only report — no Lean source is edited. Every bundle below is OPEN")
-    A("> by design; this only records the current partial closes and the residual")
-    A("> open fields, parsed mechanically from the sources + the axiom baseline.")
+    A(f"> Guard configuration: **{len(guarded_types)} protected frontier types**, "
+      f"**{len(guard_allowlist)} reviewed allowlist entries**.")
+    A("> Read-only report — no Lean source is edited. `GUARDED OPEN` is determined")
+    A("> from `YMGapGuard.lean`; field counts are only documentation-marker counts.")
     A("")
     A("The Clay Yang–Mills mass-gap problem remains **OPEN**. This document is a")
-    A("status ledger, not a claim of closure.")
+    A("status ledger, not a claim of closure. Run `make lean-frontier-guard` for")
+    A("the authoritative environment-level inhabitance check.")
     A("")
 
     # --- Summary table ---
     A("## Summary")
     A("")
-    A("| Frontier bundle | Lean type | # partial closes | # open fields |")
-    A("|---|---|---|---|")
+    A("| Frontier bundle | Lean type | theorem state | # partial closes | "
+      "# doc-marked OPEN fields |")
+    A("|---|---|---|---|---|")
     summary_rows = []
     per_entry = []
     for e in FRONTIER:
@@ -562,8 +705,10 @@ def emit_report(gates: dict[str, set[str]], gate_source: str) -> str:
         n_open = len(open_fields) + len(open_abbrevs)
         per_entry.append((e, text, fields, open_fields, open_abbrevs))
         short_type = e["type"].rsplit(".", 1)[-1]
+        state = bundle_state(e["type"], guarded_types, open_fields, open_abbrevs)
         summary_rows.append(
-            f"| {e['token']} | `{short_type}` | {len(e['partial_close'])} | {n_open} |"
+            f"| {e['token']} | `{short_type}` | {state} | "
+            f"{len(e['partial_close'])} | {n_open} |"
         )
     L.extend(summary_rows)
     A("")
@@ -573,8 +718,11 @@ def emit_report(gates: dict[str, set[str]], gate_source: str) -> str:
         A(f"## {e['token']}")
         A("")
         sig = extract_signature(text, e["struct"])
-        A(f"**(a) Lean type** — `{e['type']}`  ")
+        A(f"**(a) Lean type** — `{e['type']}`")
+        A("")
         A(f"module `lean/{e['module']}`")
+        state = bundle_state(e["type"], guarded_types, open_fields, open_abbrevs)
+        A(f"theorem state: {state}")
         A("")
         A("```lean")
         A(sig)
@@ -592,7 +740,7 @@ def emit_report(gates: dict[str, set[str]], gate_source: str) -> str:
             A(f"| `{short}` | `lean/{mod}` | {gate} |")
         A("")
 
-        A("**(c) Fields that remain OPEN:**")
+        A("**(c) Fields explicitly marked OPEN in source documentation:**")
         A("")
         if open_fields:
             for fn, _st, doc in open_fields:
@@ -602,12 +750,13 @@ def emit_report(gates: dict[str, set[str]], gate_source: str) -> str:
             for nm, rhs in open_abbrevs:
                 A(f"- `{nm}` = `{rhs}`")
         if not open_fields and not open_abbrevs:
-            A("- (no field flagged OPEN by doc-marker; see the full field ledger below)")
+            A("- (none; absence of an `OPEN` marker does **not** prove that the")
+            A("  structure is inhabited or that its physical hypotheses are discharged)")
         A("")
 
         # full field ledger for transparency.
         if fields:
-            A("<details><summary>full field ledger (status by doc-marker)</summary>")
+            A("<details><summary>full field ledger (documentation markers only)</summary>")
             A("")
             A("| field | status | doc |")
             A("|---|---|---|")
@@ -672,9 +821,15 @@ def main() -> int:
                     help="Print the report to stdout instead of writing the file.")
     args = ap.parse_args()
 
-    gates = parse_axiom_baseline(BASELINE_PATH)
-    gate_source = f"`lean/AXIOM_AUDIT.md` ({len(gates)} recorded decls)"
-    if not gates:
+    baseline = parse_axiom_baseline(BASELINE_PATH)
+    gates = dict(baseline.exceptions)
+    gate_source = (
+        "`lean/AXIOM_AUDIT.md` hashed baseline "
+        f"({baseline.declaration_count} tracked declarations, "
+        f"{baseline.namespace_count} namespaces, "
+        f"{len(baseline.exceptions)} reviewed exceptions)"
+    )
+    if not baseline.available:
         print(f"WARNING: baseline {BASELINE_PATH} empty/missing; gates unavailable.",
               file=sys.stderr)
 
@@ -684,14 +839,45 @@ def main() -> int:
             print(f"ERROR: --from-file not found: {args.from_file}", file=sys.stderr)
             return 3
         live = parse_lake_output(args.from_file.read_text(encoding="utf-8"))
-        gate_source = f"`{args.from_file}` build log (layered over AXIOM_AUDIT.md)"
+        live_namespaces = {name.rsplit(".", 1)[0] for name in live}
+        gate_source = (
+            f"`{args.from_file}` build log "
+            f"({len(live)} declarations, {len(live_namespaces)} namespaces; "
+            "layered over AXIOM_AUDIT.md)"
+        )
     elif args.lake:
-        live = parse_lake_output(run_lake_build())
-        gate_source = "fresh `lake build` log (layered over AXIOM_AUDIT.md)"
+        returncode, output = run_lake_build()
+        if returncode != 0:
+            print(f"ERROR: lake build failed (exit {returncode}).", file=sys.stderr)
+            return 3
+        live = parse_lake_output(output)
+        live_namespaces = {name.rsplit(".", 1)[0] for name in live}
+        gate_source = (
+            "fresh `lake build` log "
+            f"({len(live)} declarations, {len(live_namespaces)} namespaces; "
+            "layered over AXIOM_AUDIT.md)"
+        )
+    if (args.from_file is not None or args.lake) and not live:
+        print("ERROR: no `#print axioms` declarations found in live build output.",
+              file=sys.stderr)
+        return 3
     if live:
         gates.update(live)
 
-    report = emit_report(gates, gate_source)
+    guarded_types, guard_allowlist = parse_guard_configuration()
+    missing_guarded = guarded_types - {entry["type"] for entry in FRONTIER}
+    if missing_guarded:
+        missing = ", ".join(sorted(missing_guarded))
+        print(f"ERROR: guarded frontier type(s) absent from FRONTIER registry: {missing}",
+              file=sys.stderr)
+        return 3
+
+    report = emit_report(
+        gates,
+        gate_source,
+        guarded_types=guarded_types,
+        guard_allowlist=guard_allowlist,
+    )
 
     if args.stdout:
         sys.stdout.write(report)

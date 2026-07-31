@@ -16198,3 +16198,338 @@ The parallel mathematical task is P2: construct `CubicMarginLaw` and
 and P2 would move the repository across D0 and place it immediately before
 the scale-uniform loopy/RG dominator D1.  That is the next honest major
 program milestone.
+
+# Literature-backed backward-path correction (2026-07-31)
+
+This section supersedes the P0--P2 route ordering immediately above.  It
+records what changed after comparing the proposed backward path with primary
+sources and with the exact types in the current Lean tree.  It does not claim
+that any Clay-facing atom has been discharged.  The terminal specification
+remains the [Jaffe--Witten official problem
+description](https://www.claymath.org/wp-content/uploads/2022/02/MPPc.pdf);
+Clay continues to list the problem as
+[unsolved](https://www.claymath.org/millennium/yang-mills-the-maths-gap/).
+
+## 9. Research findings that change the local route
+
+### 9.1 Exact all-label duality is available, but termwise positivity is not
+
+Oeckl--Pfeiffer give an exact duality transformation for lattice gauge theory
+with an arbitrary compact Lie group in dimension at least two.  Haar
+integrations are replaced by sums over irreducible representations and
+intertwiners, and generalized Wilson loops are included:
+
+- [Oeckl--Pfeiffer, exact non-Abelian lattice duality
+  (2000)](https://arxiv.org/abs/hep-th/0008095);
+- [Pfeiffer--Oeckl, dual lattice gauge theory
+  (2001)](https://arxiv.org/abs/hep-lat/0110034).
+
+This supports the proposed integration of the eighteen non-transmitted
+chords and a genuine Peter--Weyl all-spin endpoint.  It does **not** justify
+the old P0 acceptance condition that every resulting recoupling summand be
+nonnegative.  In the explicit \(SU(2)\) dual formulation, \(18j\) symbols can
+have either sign; the numerical dual literature calls this a sign problem:
+
+- [Cherrington--Christensen--Khavkine, dual \(SU(2)\) computations
+  (2007)](https://arxiv.org/abs/0705.2629).
+
+Therefore the physical positivity statement must be made before or after
+the signed recoupling expansion, not term by term inside it.  The corrected
+order of construction is:
+
+1. start from the positive Wilson/heat-kernel density in boundary holonomy
+   variables;
+2. reflect the target half and integrate the interior variables to obtain a
+   Gram/Choi kernel;
+3. prove positivity of that integral kernel by reflection positivity;
+4. apply the Peter--Weyl transform isometrically to obtain the all-spin
+   carrier; and
+5. allow signed internal \(6j/18j\) summands while proving that their fully
+   grouped sum is the transformed positive operator.
+
+This is consistent with the lattice positivity theorems of
+[Lüscher](https://doi.org/10.1007/BF01614090) and
+[Osterwalder--Seiler](https://doi.org/10.1016/0003-4916(78)90039-8):
+physical positivity belongs to the reflected functional/transfer matrix,
+not to a chosen recoupling formula for each matrix entry.
+
+### 9.2 The direct global terminal-spread target is not the first Harnack lane
+
+`BF4BoundaryGroupedProfileHarnackAt` currently requests
+
+\[
+  \operatorname{spread}(K_{\rm terminal})^2\le \frac{65}{64}.
+\]
+
+For a raw compact-group heat kernel at a time tending to zero, a global
+supremum/infimum ratio normally grows rather than tends to one: the diagonal
+peak and an endpoint at positive geodesic distance have different Gaussian
+exponents.  Faraut's explicit \(SU(2)\) image formula exposes precisely this
+short-time behavior.  Thus a global \(65/64\) cap is plausible only after
+one of the following has been proved:
+
+- a buffer whose total effective heat time is uniformly mixing;
+- restriction to a spacing-uniform interior window;
+- conditioning/normalization that cancels the common short-time peak; or
+- a local contraction estimate that does not use a global minimum.
+
+[Driver--Gordina](https://arxiv.org/abs/0711.4392) supplies
+dimension-independent integrated Harnack inequalities for convolution heat
+kernels on unimodular Lie groups, and
+[Thompson](https://arxiv.org/abs/1811.03471) supplies Harnack/gradient
+estimates for Feynman--Kac semigroups.  Neither paper, without an additional
+Yang--Mills-specific potential estimate, proves the repo's grouped BF4
+terminal cap.
+
+The elementary comparison to target first is the bounded-potential
+Feynman--Kac sandwich
+
+\[
+ e^{-t\sup V}p_t(x,y)\ \le K_V(t;x,y)\ \le\
+ e^{-t\inf V}p_t(x,y).
+\]
+
+On a retained window its projective cost is bounded by the corresponding
+heat-kernel cost times \(e^{t\,\operatorname{osc}V}\).  The missing physical
+input is therefore a spacing-uniform oscillation bound for the exact
+conditional interior BF4 action, together with a window/buffer theorem.  A
+generic heat-kernel Harnack theorem alone cannot supply it.
+
+### 9.3 The present matched block family is a projection, not an RG trajectory
+
+In `BF4MatchedPhysicalAFBridge.lean`, `MatchedBlockFamily` contains freely
+supplied geometries, atlases, coordinates, and observables.
+`blockedWeight` selects a member of a finite positive atlas by a constructive
+argmin.  Consequently:
+
+- it is an exact selector for the supplied finite matching problem;
+- it is not the exact pushforward of the four-dimensional Wilson measure;
+- matching finitely many coordinates does not prove a cubic beta-function
+  remainder; and
+- `CubicMarginLaw` and `PhysicalSpacingEnvelope` remain genuine inputs.
+
+Balaban's four-dimensional program instead works with constrained background
+fields, localized fluctuation effective actions, random-walk expansions, and
+cluster expansions:
+
+- [Balaban, coupling-constant renormalization in four dimensions
+  (1987)](https://doi.org/10.1007/BF01215223);
+- [Balaban, cluster expansions
+  (1988)](https://doi.org/10.1007/BF01239022);
+- [Balaban, the variational problem and background
+  fields](https://deepblue.lib.umich.edu/items/e9af57c2-30bd-4dfc-85cd-3f01956f02fa).
+
+The Lean AF producer must therefore be refactored around an exact block
+effective action.  Finite observable/exponent-Gram matching may then be
+proved to be a projection of that action, but cannot define the physical
+trajectory by itself.
+
+The existing countermodel in `BF4PhysicalTrajectoryFence.lean` already
+formalizes the related sequencing failure: a residual record does not
+identify the full-step output with the next input.  The corrected RG object
+must inhabit `LinkedBondMovingTrajectory` and carry the exact action
+identification from one scale to the next.
+
+### 9.4 Generic cluster theorems are consumers of physical activities
+
+The constructive tree and Mayer layers may use standard polymer machinery,
+for example:
+
+- [Ueltschi, cluster expansions and correlation
+  functions](https://arxiv.org/abs/math-ph/0304003);
+- [Fernández--Procacci, tree-graph convergence
+  criteria](https://arxiv.org/abs/math-ph/0605041).
+
+But these results begin with a specified activity and compatibility
+relation satisfying quantitative hypotheses.  They do not manufacture the
+BF4 activity or prove its scale-uniform norm.  Hence `tTree` and `d1Mayer`
+move only after the exact block effective action has produced localized
+physical polymers and their computable majorants.
+
+### 9.5 Continuum reconstruction needs the full OS input on one functional
+
+Osterwalder--Schrader reconstruction requires more than a weak limit and
+reflection positivity.  The corrected theorem includes Euclidean covariance,
+positivity, symmetry, clustering, and a sufficient regularity/growth
+condition on the same family of Schwinger functions:
+
+- [Osterwalder--Schrader II
+  (1975)](https://projecteuclid.org/journals/communications-in-mathematical-physics/volume-42/issue-3/Axioms-for-Euclidean-Greens-functions-II-with-an-Appendix-by/cmp/1103899050.pdf).
+
+This confirms the previous P4 correction: reconstruct a strongly continuous
+contraction semigroup and its generally unbounded self-adjoint generator.
+Do not require a bounded \(H=-\log T\), and do not combine axioms proved for
+different limiting objects.
+
+## 10. Corrected backward graph from the Clay target
+
+The backward search now has the following dominator chain.  An arrow
+\(A\leftarrow B\) means that \(B\) is required to construct \(A\).
+
+```text
+ClayTargetPinned / all compact simple G
+  <- same-theory curvature observables + AF/OPE/nontriviality
+  <- OS reconstruction + unique vacuum + positive generator gap
+  <- one continuum Schwinger functional with OS0--OS4 and sharp O(4)
+  <- quantitative infinite-volume and a -> 0 convergence
+  <- spacing-uniform lattice floor on a linked physical trajectory
+  <- summable RG/polymer erosion + exact scale linkage
+  <- exact block effective action + cubic AF law + spacing relation
+  <- local physical contraction on the same grouped BF4 action
+  <- reflected holonomy Gram/Choi kernel
+  <- positive Wilson/heat-kernel density and exact conditional integration
+```
+
+The Peter--Weyl all-spin construction is a horizontal equivalence at the
+last two levels, not a replacement for reflection positivity:
+
+```text
+reflected holonomy Gram kernel
+  <-> Peter--Weyl unitary transform
+  <-> grouped all-spin operator (signed internal recoupling allowed)
+```
+
+This graph leaves three live local analytic lanes after the common exact
+kernel has been built:
+
+| Rank | Lane | Required new physical theorem | Lean consumer |
+|---:|---|---|---|
+| 1 | windowed/buffered Feynman--Kac | oscillation bound for the integrated BF4 potential plus a heat-kernel window/buffer Harnack estimate | `BF4BoundaryGroupedProfileHarnackAt` after proving the cap |
+| 2 | local projective/Markov contraction | one exact stationary slice, invariant physical row measure, and \(q\le1/4\) without a global minimum | `MatchedPhysicalBF4LocalContractionRows` |
+| 3 | same-carrier Mehler/HS comparison | physical-minus-reference row-relative or Hilbert--Schmidt error with carrier-growth compensation | existing calibrated \(1/8+1/8\) consumers |
+
+The old unconditioned global terminal-spread lane is retained only if the
+constructed buffer has a uniformly positive effective mixing time.  It is
+no longer ranked first merely because its consumer has the fewest fields.
+
+## 11. Revised executable work plan
+
+### P0' — holonomy positivity before spin recoupling
+
+Construct, without named analytic input:
+
+1. the finite BF4 slab and its five transmitted boundary holonomies;
+2. the Wilson/heat-kernel density with the eighteen interior chord
+   variables;
+3. source and reflected-target half-amplitudes in Haar \(L^2\);
+4. the exact conditional integral defining the grouped boundary kernel;
+5. its Gram/Choi factorization and positive-semidefinite/order properties;
+6. strict positive row mass at the holonomy-kernel level; and
+7. equality of the kernel action with the physical conditional boundary
+   activity.
+
+Suggested Lean producer names (not yet declarations):
+`BF4ExactHolonomyHalfAmplitude`, `BF4GroupedGramChoiKernel`, and
+`BF4HolonomyPhysicalGluing`.
+
+Acceptance test: positivity follows from an integral square/reflection
+identity.  It is not assumed as a field and does not claim that each future
+spin-recoupling summand is positive.
+
+### P0'' — exact all-spin transform on the same operator
+
+1. Construct the Haar-\(L^2\) Peter--Weyl transform with explicit finite
+   cutoff maps and a constructive tail modulus.
+2. Integrate all eighteen interior chords using Haar projectors.
+3. Identify the resulting intertwiners and recoupling coefficients.
+4. Prove equality between the transformed holonomy kernel and the grouped
+   all-spin kernel.
+5. Transport positivity, row mass, reflection, and common-kernel action
+   through that equality.
+
+Acceptance test: signed \(6j/18j\) terms are allowed internally, but the
+complete regrouped series has a located `CReal` limit and is proved equal to
+the positive transformed operator.  This replaces the obsolete
+"all prefix entries are nonnegative" requirement.
+
+### P1' — derive a Yang--Mills-specific local contraction
+
+Run two lanes against the same P0 kernel:
+
+1. **Windowed Feynman--Kac lane**
+   - identify the symmetric-pair diffusion and exact interior potential;
+   - prove a scale-uniform retained window;
+   - prove a Type-valued oscillation bound for the conditional potential;
+   - combine Faraut/compact-group heat estimates with the Feynman--Kac
+     sandwich;
+   - choose buffer depth so the final projective cost is at most \(65/64\).
+2. **Local contraction lane**
+   - normalize one exact physical slice;
+   - construct its invariant/stationary physical row measure;
+   - prove common-kernel lumpability after conditional integration, or
+     enlarge the carrier until it holds;
+   - prove the weighted mean-zero contraction \(q\le1/4\).
+
+Keep the Mehler/HS route as the explicit third fallback, but only with a
+reference kernel on the same carrier and a proved physical-action
+identification.
+
+Acceptance test: an unconditional constructor for
+`MatchedPhysicalBF4LocalContractionRows`, or an unconditional constructor for
+`MatchedBF4BoundaryGroupedCoreHarnackRows` together with the genuine gluing
+rows.  None of `terminal_spread_square_le`, `localRate_le_quarter`, physical
+gluing, or row-relative error may merely be copied into a certificate field.
+
+### P2' — replace scalar matching by an exact linked RG effective action
+
+Construct:
+
+1. an exact constrained block map/pushforward for the BF4 Wilson action;
+2. background-field minimizers with explicit gauges/charts;
+3. a decomposition of the effective action into the running Yang--Mills
+   coupling plus localized irrelevant polymer activities;
+4. small-field random-walk/localization estimates;
+5. large-field suppression and a scale-uniform polymer norm;
+6. the cubic coupling remainder with explicit \(\beta,E,g_1\);
+7. exact identification of every full-step output with the next input;
+8. dimensional transmutation/spacing data on that same trajectory; and
+9. projection theorems relating the exact action to the existing observable
+   and exponent-Gram finite selectors.
+
+Acceptance test: inhabit `LinkedBondMovingTrajectory`, `CubicMarginLaw`, and
+`PhysicalSpacingEnvelope` from the exact action.  Only after that instantiate
+`AFEnvelope` and apply `BareAFImpliesLinearFloor`.
+
+### P3'--P7' — retain the downstream order, strengthen its pins
+
+After P0'--P2':
+
+1. construct the physical polymer activities and discharge `tTree`,
+   `d1Mayer`, edge shift, associator, and summable erosion;
+2. inhabit `UniformSpacingFloor`;
+3. construct one quantitative continuum Schwinger functional;
+4. prove OS0--OS4 and sharp O(4) on it;
+5. reconstruct the semigroup and unbounded generator and transport the gap;
+6. construct curvature observables, nontriviality, AF/OPE, and stress-energy
+   data on the same theory;
+7. generalize every physical producer from \(SU(2)\) to each compact simple
+   group; and
+8. perform the guarded Clay assembly and external mathematical review.
+
+## 12. Immediate next milestone and stop conditions
+
+The next code milestone is **P0' through item 5**:
+
+> an exact reflected BF4 holonomy kernel, after integrating the eighteen
+> non-transmitted chords, with a proved Haar-\(L^2\) Gram/Choi
+> factorization.
+
+Then P0'' begins with the cutoff Peter--Weyl transform and a quantitative
+all-label tail modulus.  P1' and P2' can proceed in parallel only after their
+shared physical objects are pinned: P1' consumes the exact conditional
+kernel, while P2' consumes the exact block effective action.
+
+Stop and revise the route if any of the following is proved:
+
+- the claimed five-holonomy boundary is not closed under exact conditional
+  gluing;
+- the reflected Wilson slab does not yield the proposed Gram factorization;
+- the retained window shrinks too quickly to control the all-label tail;
+- the effective buffer time still tends to zero, making the global
+  \(65/64\) cap impossible for that lane; or
+- the exact block action cannot be decomposed with a summable irrelevant
+  remainder in the proposed norm.
+
+These are mathematical falsification points, not reasons to introduce
+another conditional scorecard.  The program remains at zero guarded
+frontier discharges until a producer crosses one of the existing guards.
