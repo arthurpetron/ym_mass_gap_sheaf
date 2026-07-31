@@ -16978,3 +16978,71 @@ beyond that endpoint theorem is the corrected Wilson/heat-kernel slab gluing,
 row-mass/Perron transport, the AF-uniform (1/4) perturbation budget, and the
 nonperturbative spacing-dependent BF4 RG trajectory required by the five Clay
 gates.
+
+## 19. Three-factor rectangular cofinal modulus (2026-07-31)
+
+`BF4GroupedThreeFactorCofinal` now closes the independent-cutoff part of the
+remaining analytic limit theorem.  The source diagonal, target diagonal, and
+kinetic-cross Taylor orders are no longer tied to one diagonal schedule.
+
+The new constructive chain is:
+
+1. `positivePolynomialTaylorTerm_l1_le` and
+   `positivePolynomialTaylorBlock_l1_le_of_modulus` give a reusable explicit
+   factorial-tail modulus for an arbitrary rational polynomial Taylor factor.
+2. `abstractPacketRectangularHaar` is the literal packet-boundary Haar
+   contraction with three independent positive Taylor cutoffs.
+3. `bf4PacketGroupedSquare_haar_eqv_abstractRectangle` proves that the exact
+   all-label grouped square at cutoffs `(d,c)` is the `(d,d,c+1)` member of
+   this rectangle.
+4. The three spectator scales
+   `abstractPacketSourceTailScale`, `abstractPacketTargetTailScale`, and
+   `abstractPacketCrossTailScale` uniformly bound the two unchanged factors
+   and the packet boundary when one cutoff moves.
+5. `abstractPacketThreeFactorModulus` is the maximum of the three scaled
+   factorial moduli at quarter tolerance.  The theorem
+   `abstractPacketRectangularHaar_joint_cauchy` uses it to compare any two
+   rectangles with six unrelated cutoffs.
+6. `abstractPacketRectangularLimit` is the resulting located constructive
+   real.  `BF4ThreeFactorCofinalSchedule` retains all three cutoff functions,
+   and `abstractPacketRectangularSchedule_converges` proves convergence for
+   every explicitly cofinal schedule.
+7. `abstractPacketRectangularLimit_equiv_groupedJoint` identifies the new
+   rectangular endpoint exactly with the previously constructed
+   `bf4PacketGroupedSquareJointLimit`; the normalized version is likewise
+   identified with `bf4PacketPhysicalNormalizedGroupedLimit`.
+
+Every printed theorem has axiom footprint contained in
+`[propext, Quot.sound]`.  Thus the rectangular net is now a genuine
+three-parameter net with a quantitative cofinal modulus, not merely a
+diagonal sequence.
+
+### Remaining Mertens identification
+
+This milestone does **not yet** prove
+
+```
+bf4PacketPhysicalNormalizedGroupedLimit packet ≈
+  abstractPhysicalNormalizedGroupedPacketLimit packet.
+```
+
+The remaining step is no longer cutoff cofinality.  It is the exact
+Mertens regrouping of the product of the three positive polynomial
+exponentials into the single grouped-action exponential, followed by the
+literal source/target polarization.  The next producer should therefore:
+
+1. prove a generic two-factor positive-polynomial Cauchy-product theorem in
+   `TenHaarCarrierEqv`, including an explicit coefficient-`L¹` corner bound;
+2. apply it twice to collapse the source/target/cross rectangle to the
+   Taylor series of `groupedPositiveComponentPolynomial`;
+3. transport that series through
+   `groupedPositiveComponent_haar_eq_compiled` and
+   `groupedPositiveComplement_haar_eq_compact_add_shift`;
+4. identify the compact-complement terms with
+   `compactActionShiftedTaylorQuadraticLimit`; and
+5. use the exact packet-boundary polarization to obtain the displayed
+   normalized endpoint equivalence.
+
+Only after this finite-dimensional analytic identity is complete should the
+program return to the corrected Wilson/heat-kernel slab gluing and the
+spacing-uniform Perron/AF gates.

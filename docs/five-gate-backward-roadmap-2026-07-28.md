@@ -845,11 +845,18 @@ arbitrary-insertion ten-Haar quotient:
 - source and target packet-half boundary factorizations; and
 - the complete finite rectangular packet identity at both cutoffs.
 
-Thus the current P0 edge is a constructive three-factor cofinal/Mertens
-modulus from that rectangular net to the single grouped exponential. It must
-identify `bf4PacketPhysicalNormalizedGroupedLimit` with
+`BF4GroupedThreeFactorCofinal` now supplies the quantitative max-of-three
+factorial modulus for six unrelated rectangular cutoffs, constructs the
+located rectangular endpoint, proves independence of every explicitly
+cofinal three-cutoff schedule, and identifies that endpoint with
+`bf4PacketGroupedSquareJointLimit`.  Thus cutoff cofinality itself is closed.
+
+The current P0 edge is the narrower Mertens regrouping of the three positive
+polynomial exponential factors into the single grouped-action exponential,
+followed by literal packet-boundary polarization.  It must identify
+`bf4PacketPhysicalNormalizedGroupedLimit` with
 `abstractPhysicalNormalizedGroupedPacketLimit`. No continuum, Perron, or Clay
-gate follows merely from the finite identity.
+gate follows merely from the rectangular convergence theorem.
 
 ### Track A: loopy geometry and the physical associator
 
@@ -950,7 +957,7 @@ The next executable theorem queue is:
 
 | Priority | Theorem-sized deliverable | Why it is next |
 |---:|---|---|
-| 0 | Constructive three-factor cofinal/Mertens theorem from the proved finite rectangular grouped packet net to `abstractPhysicalNormalizedGroupedPacketLimit` | This is the sole remaining same-carrier endpoint-identification edge; the action normalization then gives the compact physical endpoint |
+| 0 | Positive-polynomial Cauchy-product/Mertens regrouping of the now-located three-factor rectangle, plus packet polarization, to `abstractPhysicalNormalizedGroupedPacketLimit` | The independent-cutoff cofinal modulus is proved; this is the sole remaining same-carrier endpoint-identification edge |
 | 1 | Identify that endpoint with the corrected Wilson/heat-kernel slab kernel and transport its common boundary/projective Perron geometry | The physical endpoint must be the kernel used by the transfer argument, not only an abstract compact-action quadratic |
 | 2 | Endpoint quadratic-form positivity and physical-mean-zero spectral certificate on that identified carrier | This turns the genuine projected matrix into `CentralSymmetricReferenceOperator` without a false entrywise-positivity assumption |
 | 3 | AF-uniform cross-numerator or numerator/partition/marginal-floor budget, then physical `q ≤ 1/4` and `C_s² q^(m-2) < 1` | Closes the local BF4 contraction only after the endpoint is physically pinned |
