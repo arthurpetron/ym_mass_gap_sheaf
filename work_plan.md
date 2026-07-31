@@ -15435,3 +15435,58 @@ finite, potentially coarse bound; no spacing-uniform \(r_1+\varepsilon\le
 1/4\) theorem is claimed.  No concrete `CubicMarginLaw`,
 `PhysicalSpacingEnvelope`, or AF-uniform
 numerator/partition/ceiling/marginal-payment inhabitant has been constructed.
+
+### Executable physical-density core and sharpened AF/Faraut payment (2026-07-30)
+
+`BF4PhysicalDensityThresholdCore` constructs the requested source-dependent
+core directly from the canonical physical BF4 density:
+\[
+  C_s(x)=\{y:\lvert k_s(x,y)-1\rvert\le 1/32\}.
+\]
+The predicate is an executable rational `Bool`, so its pointwise `1/32`
+window is definitional rather than retained as a field.  A finite
+Markov-inequality argument proves that a weighted centered-density row
+bounded by \(1/4096\) gives stationary bad mass at most \(1/128\), and
+conditional bad mass at most
+\[
+  1/128+1/4096=33/4096<1/64.
+\]
+Thus both requested `1/64` tail fields are constructed.  The matched
+core interface was corrected to depend on the source row; this is necessary
+when fusion zeros make reachable target support source dependent.
+
+`BF4PhysicalDensityThresholdCoreAF` proves that the stronger row input is
+paid by the existing retained Faraut spread on the same AF schedule.  The
+depth
+\[
+  m_{\rm core}(b)=46b+8
+\]
+leaves six powers after the two endpoint buffers, and Lean proves
+\[
+  C_b^2q^{m-2}\le 4^{-6}=1/4096
+\]
+whenever \(0\le q\le1/4\).  Exact physical joint/density factorization and
+positive-carrier membership then cancel the source marginal and feed the
+threshold-core theorem.
+
+The same module removes an opaque calibrated-Harnack field from the combined
+constructor.  `BF4CalibratedProfileFarautAt.toCalibratedHarnack` builds both
+cross-zero `1/64` profile windows from the common grouped-kernel action,
+candidate/physical activities, Faraut cross-ratio certificate, and the
+same bit/depth/rate values used by the core.  Consequently
+`MatchedBF4ThresholdCoreFarautRows.toMatchedCoreTailRows` simultaneously
+constructs the calibrated profile certificate, the physical `1/32` core,
+and both `1/64` tails on the exact `blockedWeight` / moving-cutoff carrier.
+
+This closes the core selection, all three core/tail inequalities, their
+spacing arithmetic, and the same-trajectory Harnack adapter.  It does not
+manufacture the two remaining Yang--Mills analytic inputs:
+
+1. the genuine grouped physical buffer/gluing witness at every scale and
+   positive source row; and
+2. the common-kernel projective Perron comparison and its two exact profile
+   action identifications.
+
+Those two inputs, together with the still-unconstructed physical
+`CubicMarginLaw` and `PhysicalSpacingEnvelope`, are the next frontier.  No
+unconditional Clay-frontier inhabitant is claimed.
