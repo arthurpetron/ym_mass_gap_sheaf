@@ -15619,3 +15619,582 @@ All new declarations compile without `sorry`, `Classical`, choice, or
 `noncomputable`; their printed axiom dependencies are contained in
 `[propext, Quot.sound]`.  No unconditional Clay-frontier inhabitant is
 claimed at this milestone.
+
+# Repo-wide Clay-backward Dijkstra audit (2026-07-31)
+
+This section supersedes the **queue and route ranking** in the
+2026-07-28 five-gate backward roadmap.  It does not erase the historical
+milestones above.  It incorporates the boundary-carrier and local
+contraction reductions proved through commit `121d45c`.
+
+## 0. Terminal state: the theorem that must actually be reached
+
+The external target is the Clay/Jaffe--Witten problem, not merely one of
+the repository's internal scorecards.  The official statement requires,
+for every compact simple gauge group \(G\),
+
+1. a nontrivial quantum Yang--Mills theory on \(\mathbb R^4\);
+2. axioms at least as strong as the Wightman axioms, or Euclidean
+   Osterwalder--Schrader axioms followed by reconstruction;
+3. a unique vacuum and a number \(\Delta>0\) such that the Hamiltonian has
+   no spectrum in \((0,\Delta)\);
+4. local gauge-invariant fields associated to invariant local
+   polynomials in the curvature and its covariant derivatives;
+5. the prescribed short-distance/asymptotically-free behavior, including
+   the expected local singular structure; and
+6. a cutoff-free, infinite-volume continuum construction.  A subsequential
+   weak limit by itself is not a solution unless the axioms and the gap
+   survive the limit.
+
+Official sources:
+
+- <https://www.claymath.org/millennium/yang-mills-the-maths-gap/>
+- <https://www.claymath.org/wp-content/uploads/2022/02/MPPc.pdf>
+
+Consequently, the following are useful intermediate theorems but are not
+terminal states:
+
+- a mass gap at fixed lattice spacing;
+- an abstract positive transfer matrix not identified with the BF4 action;
+- a continuum measure without OS reconstruction and spectral control;
+- a gap theorem conditional on an unconstructed scaling limit;
+- an \(SU(2)\)-only theorem;
+- a weak or separately chosen O(4) action;
+- a scalar AF envelope not proved to be the physical BF4 trajectory; or
+- an inhabitant obtained by placing desired estimates in structure fields.
+
+The final repo-facing theorem should therefore refine
+`ClayTargetPinned`, not merely the weaker legacy `ClayTarget`.  In
+particular it must replace the legacy weak O(4) slot by the sharp
+same-action O(4) representation, and add explicit curvature-local,
+asymptotic-freedom/OPE, stress-energy, nontriviality, and all-group pins.
+
+## 1. Audited current state
+
+### 1.1 Green, machine-checked infrastructure
+
+- The fixed-spacing reflection-positive Wilson/BF4 construction and its
+  fixed-spacing transfer/gap interface compile.
+- The finite, constructive Haar/Peter--Weyl, all-label tail, Choi,
+  grouped-kernel, weighted-Perron, Harnack, row-relative, and
+  core/tail/eighth **consumers** are present.
+- The latest boundary-carrier reduction proves that an exact grouped
+  factorization
+  \[
+    A(x,b)=\sum_m P(x,m)T(m,b)
+  \]
+  acts on the literal physical boundary activity exactly, and transfers a
+  strict terminal certificate to the terminal-smoothed common kernel
+  without requiring every prefix entry to be positive.
+- `MatchedPhysicalBF4LocalContractionRows` already converts a genuine
+  same-carrier local estimate into the physical \(1/32\) core, two
+  \(1/64\) tails, the rowwise \(1/8+1/8\) budget, and the uniform
+  \(q\le1/4\) conclusion.
+- `TrueMarginRecursionPhysical` is an honest additive physical interface:
+  it uses \(m_{\rm lat}(a_k)/a_k\), explicit erosion/tail control, and a
+  positive lower-floor witness.  Its producer
+  `uniformSpacingFloor_of_trueMarginPhysical` is a zero-cost logical
+  transport once those physical data exist.
+- `ContinuumGapLimit.withGap_of_persistence` correctly assembles a
+  continuum gapped theory once a physical continuum theory,
+  reconstruction, and persistence of the positive rate have been supplied.
+- The current full build and axiom audit are green.  The most recent audit
+  observed 21,632 theorem declarations, 2,737 namespaces, and no axiom
+  exception beyond the repository policy.
+
+### 1.2 Open guarded theorem states
+
+The statement guard protects five types and permits no unconditional
+inhabitant:
+
+1. `Tier0Scorecard`;
+2. `UniformSpacingFloor`;
+3. `ClayTarget`;
+4. `ClayTargetPinned`; and
+5. `FrontierDAG`.
+
+The guard-verified frontier-discharge count is therefore
+\[
+  D=0.
+\]
+This is the correct current status.  It is not evidence against the
+substantial infrastructure above; it says that none of it has yet been
+physically assembled across the load-bearing analytic gaps.
+
+The frontier ledger currently exposes ten principal open atoms
+(`bulkCtrl`, `tTree`, `d1Mayer`, `a2Racah`, `a2Pentagon`, `coreB`,
+`edgeShift`, `trueMargin`, `boundedH`, and `o4`), one data bundle, and two
+named bridges.  Several of the underlying Lean structures admit abstract
+or model inhabitants.  Such inhabitants do not close a Clay frontier
+node unless they are pinned definitionally or propositionally to the
+literal Wilson/BF4 action, common carrier, AF schedule, and continuum
+observable algebra.
+
+### 1.3 Status tooling that must not be used as a truth oracle
+
+`frontier_burndown.py` is useful for guarded declarations.  By contrast,
+parts of `frontier_status.py` and prose counters have drifted:
+
+- a field can be reported as closed merely because a documentation marker
+  is absent even while its protected parent type remains uninhabited;
+- the script currently reports an empty axiom-declaration baseline even
+  though the live audit finds 21,632 declarations; and
+- README/file-reachability/noncomputability counts do not all agree with
+  the live scan.
+
+Therefore the priority order for status claims is:
+
+1. statement guard and actual declaration search;
+2. full Lean build and printed axiom audit;
+3. physical pin inspection;
+4. generated status scripts; then
+5. prose counters.
+
+Repairing the status scripts is a maintenance task, not a Clay-path
+milestone.
+
+## 2. Dijkstra convention for a proof hypergraph
+
+The proof graph is an **AND/OR hypergraph**, not an ordinary linear graph.
+A theorem requiring four hypotheses is an AND node: all four incoming
+edges must be paid.  Competing proofs of the same theorem are OR edges:
+the cheapest physically valid one may be selected.
+
+Use the following effort costs:
+
+| Cost | Meaning |
+|---:|---|
+| 0 | already-proved transport/assembly on exactly the same physical objects |
+| 1 | finite interface or bookkeeping theorem |
+| 2 | new local finite-dimensional/analytic estimate |
+| 3 | scale-uniform RG, polymer, or spectral theorem |
+| 4 | continuum construction/reconstruction or all-group uniformization |
+| \(\infty\) | refuted, unpinned surrogate, circular, or too weak for the external target |
+
+Costs are lexicographic.  **Physical identity is checked before numerical
+cost.**  A short proof about an arbitrary kernel has infinite path cost
+until that kernel is identified with the grouped BF4 action on the same
+carrier and AF trajectory.
+
+The phrase “all paths” below means all viable paths represented by the
+current repo contract and declared mechanism portfolio.  It cannot mean
+all conceivable future mathematics.  Undeveloped alternatives are listed
+explicitly rather than silently treated as closures.
+
+## 3. Backward route graph
+
+```mermaid
+flowchart TD
+  CLAY["Clay/Jaffe–Witten theorem<br/>all compact simple G"]
+  PIN["Sharpened same-object ClayTargetPinned"]
+  GAP["Continuum OS/Wightman theory<br/>unique vacuum + spectral gap"]
+  CONTENT["Curvature-local observables<br/>AF/OPE/stress/nontriviality"]
+  GROUP["All compact simple groups"]
+  CONT["Same-action continuum scaling limit<br/>OS0–OS4 + sharp O(4)"]
+  PERSIST["Positive physical rate persists<br/>through a→0 and volume→∞"]
+  FLOOR["UniformSpacingFloor on physical trajectory"]
+  TRUE["TrueMarginRecursionPhysical / SpectralMarginInput"]
+  RG["Linked BF4 RG + CubicMarginLaw<br/>+ PhysicalSpacingEnvelope"]
+  LOOP["Loopy geometry stability<br/>tree/Mayer/associator/polymer"]
+  LOCAL["Physical one-block contraction or defect estimate"]
+  FACT["Exact eighteen-chord grouped BF4 factorization<br/>same carrier/action/activity"]
+  HARNACK["Terminal Harnack + local q≤1/4"]
+  FARAUT["Faraut buffered power estimate"]
+  MEHLER["Calibrated Mehler / positive-Gram comparison"]
+  HS["Same-carrier HS/Perron convergence"]
+  DENS["Direct conditional-density window"]
+  CURRENT["Current repo state<br/>consumers and conditional assemblers proved"]
+
+  CLAY --> PIN
+  PIN --> GAP
+  PIN --> CONTENT
+  PIN --> GROUP
+  GAP --> CONT
+  GAP --> PERSIST
+  PERSIST --> FLOOR
+  FLOOR --> TRUE
+  TRUE --> RG
+  RG --> LOOP
+  RG --> LOCAL
+
+  LOCAL --> HARNACK
+  LOCAL --> FARAUT
+  LOCAL --> MEHLER
+  LOCAL --> HS
+  LOCAL --> DENS
+
+  HARNACK --> FACT
+  FARAUT --> FACT
+  MEHLER --> FACT
+  HS --> FACT
+  DENS --> FACT
+
+  FACT --> CURRENT
+  LOOP --> CURRENT
+  CONT --> CURRENT
+  CONTENT --> CURRENT
+  GROUP --> CURRENT
+```
+
+The diagram is read from top to bottom: start at the solved theorem and
+ask which predecessors would construct it.  Every downward branch
+eventually reaches a currently proved interface, a genuine open analytic
+theorem, or an infinite-cost surrogate.
+
+## 4. Complete route catalogue relative to the repo
+
+### 4.1 Local BF4 OR-node: five viable lanes
+
+All five lanes require the same literal starting data:
+
+- the geometric five-interface BF4 carrier;
+- the eighteen non-transmitted chord integrations;
+- the exact grouped source/target half-amplitudes;
+- the normalized physical boundary activity and partition function;
+- the same terminal-smoothed kernel; and
+- the same nonperturbative AF scale schedule.
+
+They are alternatives only after those pins have been made.
+
+#### L1 — terminal Harnack plus local stationary contraction
+
+This is the current shortest lane.
+
+1. Construct the exact eighteen-chord factorization with nonnegative,
+   nonzero prefix row mass.
+2. Construct a strictly positive primitive terminal kernel with
+   \[
+     C_{\rm terminal}^2\le \frac{65}{64}.
+   \]
+3. Identify the calibrated all-spin Peter--Weyl candidate boundary
+   activity and prove its exact action under the same kernel.
+4. Construct the local stationary BF4 slice and prove its centered
+   contraction \(q_s\le1/4\).
+5. Apply `MatchedBF4BoundaryGroupedCoreHarnackRows` and the already-proved
+   local-contraction consumer.
+
+Remaining cost: \(2+2+2\), followed by cost-0 assembly.
+
+#### L2 — stronger Faraut buffer
+
+1. Use the same exact factorization and Peter--Weyl action.
+2. Construct one-step stationary gluing on the literal positive carrier.
+3. Prove a scale-uniform endpoint/power estimate
+   \[
+     C_s^2q_s^{m(s,L)-2}\le\frac1{64}
+   \]
+   or the corresponding sharpened Harnack implication.
+4. Feed the existing Faraut/core-tail theorem.
+
+This lane is preferable if the Faraut heat-kernel formula yields a
+cleaner endpoint bound than a direct \(65/64\) terminal-spread estimate.
+Remaining cost: \(2+3\).
+
+#### L3 — calibrated positive-Gram/Mehler perturbation
+
+1. Construct the genuine coupled endpoint Mehler/Feynman--Kac kernel on
+   the all-spin carrier.
+2. Prove the calibrated mean-zero reference rate
+   \(r_{\rm calibrated}(s)\le1/8\).
+3. Prove for every retained row \(x\)
+   \[
+     \sum_y\left|J_{\rm phys}^{(s)}(x,y)-J_M^{(s)}(x,y)\right|
+       \le \frac18\,\pi_s(x).
+   \]
+4. Apply the existing weighted-Perron perturbation and quarter
+   contraction consumer.
+
+Remaining cost: \(2+3\).  An uncalibrated rank-one endpoint is too coarse
+and is not a substitute.
+
+#### L4 — nonlinear same-carrier Hilbert--Schmidt convergence
+
+1. Establish all-label Haar-\(L^2\)-Hilbert--Schmidt convergence with a
+   spacing-dependent cutoff or direct regrouping.
+2. Prove carrier-growth compensation and identify the positive Perron
+   vector with the exact physical boundary activity.
+3. Convert Hilbert--Schmidt control into the required row-relative
+   physical contraction.
+
+Remaining cost: \(3\).  This is a useful backup if pointwise Harnack
+constants are unattainable but global spectral convergence is strong
+enough.
+
+#### L5 — direct physical conditional-density window
+
+1. Write the exact conditional physical row density after the
+   eighteen-chord integration.
+2. Prove a spacing-uniform pointwise window around its normalized
+   stationary density.
+3. Deduce Dobrushin/Doeblin or projective contraction directly, avoiding
+   a global minimum-marginal or carrier-cardinality loss.
+
+Remaining cost: \(2+3\).  This can be the cheapest analytic lane if
+positivity and normalization expose a small action oscillation.
+
+### 4.2 From a local quarter theorem to a uniform physical floor
+
+The five local lanes merge at the following AND-path:
+
+1. **Physical BF4 trajectory.**  Construct the actual
+   `CubicMarginLaw` and `PhysicalSpacingEnvelope`; do not merely postulate
+   their fields.
+2. **Linked block recursion.**  Pin `LinkedBondMovingTrajectory` and its
+   I7--I9 comparisons to consecutive grouped BF4 scales.
+3. **Loopy correction.**  Supply the physical tree/Mayer estimates and
+   signed or fractional all-label associator/pentagon control on the exact
+   BF4 activity.
+4. **Graded stability.**  Show that accumulated polymer/edge-shift
+   erosion is summable and smaller than the local positive margin.
+5. **True margin.**  Construct `TrueMarginRecursionPhysical`, including
+   the explicit tail modulus and positive floor.
+6. Apply `uniformSpacingFloor_of_trueMarginPhysical`.
+
+There are several repo-represented analytic implementations of steps
+3--5:
+
+- **spectral localization/CoreB:** localize the positive block
+  contraction and control edge shifts;
+- **cluster/polymer:** obtain exponential clustering and OS4 directly
+  from a graded polymer expansion;
+- **Bakry--Émery/log-Sobolev:** turn convexity/mixing on the physical
+  quotient carrier into a uniform mode-energy floor;
+- **codynamic/dimensional-transmutation:** convert the linked AF recursion
+  into a positive physical inverse correlation length; and
+- **direct transfer-semigroup:** prove a located positive spectral
+  threshold for the reconstructed semigroup.
+
+These are OR-lanes only for the analytic floor.  They all still require
+the same physical BF4 pins, scaling limit, and OS reconstruction.  The
+existing `ContinuumFrontierScorecard` mainly proves that their abstract
+interfaces converge on `UniformSpacingFloor`; it does not yet instantiate
+one on Yang--Mills data.
+
+### 4.3 From a uniform floor to the continuum mass gap
+
+This is an AND-node:
+
+1. Construct the infinite-volume and \(a\to0\) limit of the same
+   gauge-invariant Schwinger functional, with an explicit convergence
+   modulus strong enough to transport correlations and reflection
+   positivity.
+2. Prove OS0--OS4 on that functional.  Existing OS1/OS2 algebraic
+   producers may be reused; OS0 regularity, OS3 reflection positivity in
+   the limit, and OS4 clustering must remain pinned to the same action.
+3. Prove the sharp O(4) action on the same functional, not the legacy weak
+   `RubricO4Restoration` placeholder.
+4. Perform OS/GNS reconstruction using the semigroup and its
+   self-adjoint generator.  Do not require a bounded continuum
+   Hamiltonian \(H=-\log T\); the physical generator is generally
+   unbounded.
+5. Transport the positive physical floor to a spectral gap above the
+   unique vacuum.  Then `ContinuumGapLimit.withGap_of_persistence` is a
+   cost-0 assembly.
+
+The measure-free `FunctionalContinuumTarget` route is acceptable and may
+be preferable constructively; a Minlos measure is optional.  What is not
+optional is the common functional, common O(4) action, OS positivity,
+clustering, reconstruction, and spectral identification.
+
+### 4.4 The content branch required in parallel
+
+A continuum gap alone is not the full official problem.  On the same
+continuum theory construct:
+
+1. gauge-invariant local observables generated from curvature and
+   covariant derivatives;
+2. their locality, covariance, domains, and nontrivial correlators;
+3. the ultraviolet AF scaling law on the physical trajectory, not merely
+   a bare scalar envelope;
+4. the required short-distance/OPE singular behavior;
+5. a stress-energy tensor with the required conservation/covariance
+   properties; and
+6. a proof that the resulting theory is nontrivial.
+
+`AFEnvelope` and `BareAFImpliesLinearFloor` remain useful scalar
+diagnostics.  They become part of this branch only after the genuine BF4
+block trajectory proves the cubic AF remainder and spacing relation.
+Instantiating an abstract envelope is not itself the physical AF theorem.
+
+### 4.5 The all-compact-simple-group branch
+
+The \(SU(2)\) carrier is the proving ground, not the terminal theorem.
+For each compact simple \(G\), construct and compare:
+
+1. Haar/Peter--Weyl data and representation-tail moduli;
+2. the geometric grouped BF4 carrier and exact chord integrations;
+3. positivity/Harnack or alternative local contraction constants;
+4. the group-dependent beta-function/spacing law;
+5. uniform RG and continuum estimates; and
+6. curvature-observable and reconstruction pins.
+
+The current `AllSimpleTypes` representative operating-point reductions
+are conditional interfaces.  They do not yet lift the actual continuum
+construction from \(SU(2)\) to arbitrary compact simple \(G\).
+
+## 5. Infinite-cost, refuted, or currently undeveloped routes
+
+These branches must not re-enter the priority queue without a new theorem
+that removes the stated obstruction.
+
+| Route | Current cost | Reason |
+|---|---:|---|
+| arbitrary positive matrix, identity kernel, or surrogate Gaussian | \(\infty\) | not the grouped BF4 action |
+| universal binary multicover/closed-sheet normality | \(\infty\) | refuted by an explicit cutoff-two row |
+| four-preimage/raw-row-mass carrier | \(\infty\) | a positive row can have zero projected mass |
+| one fixed magnetic index/flux as full carrier | \(\infty\) | loses the dynamic matrix-index fibre and cannot reconstruct representation dimension |
+| uncalibrated order-one rank-one endpoint | \(\infty\) for the quarter target | constants are too coarse |
+| uncalibrated centered-Gram quarter | \(\infty\) | would force unavailable vacuum mass \(>1/2\) |
+| abstract `AFEnvelope` or model `UniformSpacingFloor` | \(\infty\) | desired physical estimate is stored, not derived |
+| weak/subsequential continuum limit | \(\infty\) | no survival of axioms and gap |
+| legacy weak O(4) restoration | \(\infty\) for the external theorem | does not identify the same continuum action |
+| bounded continuum Hamiltonian target | \(\infty\) | wrong functional-analytic target; use the semigroup generator |
+| dilute instanton gas | \(\infty\) in the present form | large-size infrared integral reduces to the unresolved single-step estimate |
+| large-\(N\) or matter-assisted gap | \(\infty\) for Clay | does not prove fixed finite compact simple pure Yang--Mills |
+| stochastic quantization/SPDE | undeveloped cost 4 | no repo construction of the 4D invariant measure plus OS/gap |
+| random-surface/dual representation | undeveloped cost 3--4 | no exact same-action continuum representation yet |
+| direct canonical Hamiltonian construction | undeveloped cost 4 | quotient domain, self-adjointness, local fields, and gap all open |
+
+The last three are legitimate research programs.  They are not currently
+shorter paths from this repo state because they would have to rebuild most
+of the shared continuum and physical-identification spine.
+
+## 6. Dominators and the actual minimum cut
+
+Every finite-cost route currently known crosses these five dominators:
+
+| Dominator | Concrete missing output | Why no route bypasses it |
+|---|---|---|
+| D0: physical local estimate | exact grouped BF4 action plus one valid L1--L5 contraction theorem | all later margins need a literal positive local input |
+| D1: linked physical trajectory | `CubicMarginLaw`, `PhysicalSpacingEnvelope`, linked RG, summable erosion | fixed-spacing positivity does not survive \(a\to0\) automatically |
+| D2: continuum functional | same-action scaling limit with uniform estimates | Clay excludes a cutoff theory |
+| D3: reconstruction/content | sharp O(4), OS/GNS generator, curvature fields, AF/OPE/stress/nontriviality | a scalar gap is not a quantum Yang--Mills theory |
+| D4: all groups | actual lift from \(SU(2)\) to every compact simple \(G\) | explicitly quantified in the official problem |
+
+The smallest current cut is D0: no physical local quarter or equivalent
+defect theorem has yet been proved.  However D1 can and should be developed
+in parallel because it is algebraically independent of which local lane
+ultimately wins.  Likewise the continuum functional and all-group
+interfaces should be sharpened now, so D0 does not merely expose the next
+undocumented obstruction.
+
+## 7. Updated executable work queue
+
+### P0 — pin the exact local physical objects
+
+Deliver one module, or a tightly coupled module family, that constructs:
+
+1. the canonical five-interface BF4 source/target carrier;
+2. integration of all eighteen non-transmitted chords;
+3. exact grouped source and reflected target half-amplitudes;
+4. nonnegative prefix entries and strictly positive total prefix row mass;
+5. the primitive terminal kernel on the same carrier;
+6. the physical boundary activity/partition function; and
+7. the all-spin Peter--Weyl candidate activity and exact common-kernel
+   action.
+
+Acceptance test: no amplitude or positivity estimate is a structure field;
+all are derived from the Wilson/BF4 definitions.  The exact-action theorem
+must feed `BF4PhysicalBoundaryCommonKernelAction`.
+
+### P1 — race the local analytic lanes
+
+Attempt L1 first, while keeping L2/L3 as explicit fallbacks:
+
+- **P1a:** prove \(C_{\rm terminal}^2\le65/64\);
+- **P1b:** construct the stationary local BF4 slice and prove
+  \(q_s\le1/4\);
+- **P1c fallback:** prove
+  \(C_s^2q_s^{m(s,L)-2}\le1/64\) from the Faraut formula and physical depth;
+- **P1d fallback:** construct the genuine Mehler reference and prove the
+  calibrated \(1/8\) rate plus \(1/8\) row-relative error;
+- **P1e fallback:** use direct conditional-density oscillation or
+  same-carrier Hilbert--Schmidt convergence.
+
+Acceptance test: inhabit
+`MatchedPhysicalBF4LocalContractionRows` or an equivalent physical
+quarter theorem on the exact P0 objects and schedule.
+
+### P2 — construct the AF trajectory independently
+
+1. Define consecutive physical BF4 blocks and the genuine running
+   coupling from the same action.
+2. Prove the cubic AF remainder, with signs and constants.
+3. Derive the spacing relation and construct `PhysicalSpacingEnvelope`.
+4. Construct `CubicMarginLaw`.
+5. Instantiate the physical `AFEnvelope`; only then apply
+   `BareAFImpliesLinearFloor` as a diagnostic.
+
+Acceptance test: the schedule used in P1 and P2 is definitionally the same,
+and no field merely repeats the requested AF inequality.
+
+### P3 — close the finite-to-uniform margin path
+
+1. Pin `LinkedBondMovingTrajectory` and I7--I9.
+2. Prove the exact BF4 tree/Mayer bounds.
+3. Prove the physical all-label Racah/associator/pentagon control.
+4. Establish graded polymer/edge-shift summability.
+5. Construct `TrueMarginRecursionPhysical`.
+6. Obtain `UniformSpacingFloor` by the existing adequacy lemma.
+
+Acceptance test: the guarded `UniformSpacingFloor` gains its first
+unconditional inhabitant, with no frontier allowlist entry.
+
+### P4 — construct the same-action continuum theory
+
+1. Build the infinite-volume and scaling-limit Schwinger functional with
+   a quantitative modulus.
+2. Prove OS0--OS4 and sharp O(4) on that same functional.
+3. Reconstruct the Hilbert space, vacuum, semigroup, and unbounded
+   self-adjoint generator.
+4. Transport the P3 floor to spectral separation and exponential
+   clustering.
+5. Instantiate `ContinuumYMWithGap`.
+
+Acceptance test: the continuum object appearing in the gap theorem is the
+limit of the P0--P3 physical action, not a separately postulated object.
+
+### P5 — construct local Yang--Mills content and ultraviolet behavior
+
+Construct curvature-local fields, gauge invariance, nontriviality, the
+physical AF/OPE behavior, and stress-energy data on the P4 theory.
+Strengthen `ClayTargetPinned` if necessary so these cannot be forgotten by
+the final constructor.
+
+### P6 — lift the entire pinned construction to all compact simple groups
+
+Generalize carriers, tail estimates, local contraction constants, AF
+trajectory, RG stability, continuum limit, and local fields.  Groupwise
+constants are allowed; the theorem must quantify over every compact simple
+\(G\).
+
+### P7 — final guarded assembly
+
+1. Inhabit the strengthened pinned Clay target.
+2. Derive the legacy `ClayTarget` only as a corollary.
+3. Inhabit `Tier0Scorecard`, `UniformSpacingFloor`, and the physically
+   pinned `FrontierDAG`.
+4. Run the full build, statement/frontier guards, dependency audit, and
+   a source-level scan for `sorry`, `Classical`, choice,
+   `native_decide`, and accidental `noncomputable`.
+5. Request external mathematical review.  Do not describe the Clay
+   problem as solved merely because the internal guards pass.
+
+## 8. Immediate next milestone
+
+The next major milestone is not another conditional consumer.  It is:
+
+> **P0 + either P1a/P1b or one complete fallback lane, on the literal
+> grouped BF4 carrier and the same AF schedule.**
+
+In Lean terms, the desired milestone is an unconditional constructor of
+`MatchedPhysicalBF4LocalContractionRows` (or a theorem of exactly the same
+physical strength) from concrete Wilson/BF4 definitions, not from a
+certificate whose fields restate terminal spread, Harnack, contraction, or
+row-relative error.
+
+The parallel mathematical task is P2: construct `CubicMarginLaw` and
+`PhysicalSpacingEnvelope` from the actual BF4 recursion.  Finishing P0/P1
+and P2 would move the repository across D0 and place it immediately before
+the scale-uniform loopy/RG dominator D1.  That is the next honest major
+program milestone.
