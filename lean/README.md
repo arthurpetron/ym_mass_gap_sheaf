@@ -333,6 +333,24 @@ BF4 spin-network identification of the constructed all-spin character
 carrier, its spectral certificate, and uniform Yang--Mills estimates
 inhabiting the displayed budgets.
 
+The grouped endpoint has since been pinned much more tightly to the physical
+action. `BF4GroupedPhysicalActionShift` proves under every arbitrary
+ten-holonomy insertion that the positive exponent
+`source complement + target complement + kinetic cross` differs from the
+genuine compact BF4 action by exactly the two one-sided sphere shifts; after
+the explicit scalar normalization, its abstract located packet endpoint is
+the compact negative-action endpoint. `BF4GroupedCarrierMertens` supplies the
+finite same-carrier producer: it regroups all ordered feature labels into the
+physical kinetic Taylor partial, identifies both source and separately
+compiled target diagonal partials, transports canonical padding through
+reflection, and proves that every actual grouped packet square at finite
+cutoffs is one common reflected boundary times those three genuine Taylor
+partials. The remaining endpoint obstruction is no longer finite
+source/target geometry: it is the constructive three-factor cofinal Mertens
+theorem identifying this rectangular net with the single grouped exponential
+limit. That limit theorem, and the later Wilson-slab/Perron/AF estimates, are
+not asserted here.
+
 `BF4CanonicalFiniteNumeratorPartitionBudget` now inhabits the complete
 numerator/partition/marginal interface at every fixed finite physical BF4
 scale for every signed symmetric endpoint.  Its tolerance is the executable

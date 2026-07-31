@@ -16879,3 +16879,102 @@ The next producer must be an exact same-carrier endpoint comparison:
 5. connect the exact BF4 coefficients to a genuine spacing-dependent
    nonperturbative block trajectory, then instantiate the already-built AF
    envelope and continuum/OS chain.
+
+## 18. Physical-action normalization and finite same-carrier Mertens bridge (2026-07-31)
+
+Two new constructive modules now narrow the endpoint-identification residual.
+
+`BF4GroupedPhysicalActionShift` identifies the polynomial represented by the
+positive grouped carrier.  With (E_s=B-D_s), its reflected target copy
+(E_t=B-D_t), and the fifteen-feature kinetic cross polynomial (X), Lean
+constructs
+\[
+  G=E_s+E_t+X
+\]
+and proves under every arbitrary ten-Haar insertion that
+\[
+  H(PG)+H(PA)=2B\,H(P),
+\]
+where (A) is the genuine compact BF4 action.  The omitted scalar in the two
+positive half-amplitudes is therefore exactly (e^{-2B}).  The module then
+proves constructively that the abstract normalized grouped quadratic is the
+already-located compact physical negative-action quadratic.  Polarization
+places this result on the literal packet source/target carrier.  This closes
+the action and scalar-normalization side of the comparison, but deliberately
+does not assert that the existing joint grouped limit is already the abstract
+grouped exponential.
+
+`BF4GroupedCarrierMertens` now supplies the finite producer for that remaining
+comparison.  It defines an arbitrary-insertion ten-Haar carrier quotient and
+proves, without classical reasoning, that it is a commutative-semiring
+congruence.  In particular Lean proves:
+
+1. exact recursive factorization of every physical word coefficient,
+   \[
+     w_W=\frac1{|W|!}\prod_{f\in W}w_f;
+   \]
+2. regrouping of each literal reflected source-word/target-word polynomial
+   into the product of the corresponding weighted Choi atoms;
+3. the exact-length all-label identity, for every arbitrary insertion (P),
+   \[
+     \sum_{|W|=n}H(PK_W)
+       =H\!\left(P\frac{X^n}{n!}\right);
+   \]
+4. the at-most-cutoff version identifying the complete retained word list
+   with the ordinary Taylor partial of the genuine compiled
+   `sourceTargetKineticCrossPolynomial`;
+5. carrier equality between each parity-arranged source diagonal CP moment
+   and the ordinary power (E_s^n), hence equality of the complete source
+   diagonal Feynman--Kac partial with the ordinary positive Taylor partial;
+6. exact multiplicativity of the twenty-coordinate reflection, including a
+   proof that the reflected padded unit remains the carrier unit;
+7. arbitrary-insertion invariance of canonical quaternion padding for any
+   supported subcarrier fitting in the ten retained blocks; and
+8. factorization of the exact canonical packet half-polynomial as one common
+   raw geometric boundary polynomial times its diagonal and feature-word
+   insertions.
+9. a decidable forty-coordinate canonical termwise relation which treats
+   compiler-trimmed constants and explicitly zero-padded constants as the
+   same monomial, and a proof that this relation survives every arbitrary
+   ten-Haar insertion;
+10. carrier identification of the separately compiled physical target
+    complement with the twenty-coordinate reflection of the source
+    complement, followed by equality at every diagonal Taylor order;
+11. transport of canonical five-quaternion padding through reflection and
+    the full target packet-half factorization through the reflected boundary,
+    the compiled target diagonal partial, and the literal target feature
+    word; and
+12. the complete finite rectangular identity
+
+    \[
+      Q_{d,c}(P)
+      \simeq
+      H\!\left(B_P\,
+        T_d(E_s)T_d(E_t)T_{c+1}(X)\right)
+    \]
+
+    for every packet (P), diagonal cutoff (d), and kinetic cutoff (c),
+    where (B_P) is the common reflected boundary polynomial and all three
+    Taylor factors use the genuine compiled physical coordinates.
+
+Every printed load-bearing theorem in both modules has axiom footprint
+contained in `[propext, Quot.sound]`; there is no `sorry`, `Classical.*`,
+`native_decide`, `noncomputable`, or new named frontier input.
+
+### Exact remaining endpoint obstruction
+
+The former three-part finite obstruction has been reduced to one analytic
+limit theorem.  The reflected-target compiler/padding comparison and the
+complete finite rectangular identity are now proved.  What remains is to
+give a constructive three-factor Mertens/cofinal modulus showing that those
+rectangular approximants converge to the single grouped exponential
+(H(P^2e^G)).  It must conclude
+   `bf4PacketPhysicalNormalizedGroupedLimit packet ≈
+   abstractPhysicalNormalizedGroupedPacketLimit packet`.
+
+Once that limit theorem closes, the already-proved action normalization gives
+the genuine compact physical packet endpoint immediately.  What still lies
+beyond that endpoint theorem is the corrected Wilson/heat-kernel slab gluing,
+row-mass/Perron transport, the AF-uniform (1/4) perturbation budget, and the
+nonperturbative spacing-dependent BF4 RG trajectory required by the five Clay
+gates.

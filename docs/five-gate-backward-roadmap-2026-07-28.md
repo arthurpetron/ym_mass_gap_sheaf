@@ -831,6 +831,26 @@ Outputs:
 
 ## 8. Parallel branches that the Mehler theorem does not close
 
+### 2026-07-31 grouped-carrier endpoint delta
+
+The finite endpoint path has advanced past the source/target compiler seam.
+`BF4GroupedPhysicalActionShift` identifies the normalized grouped positive
+exponent with the genuine compact BF4 negative-action endpoint at the
+abstract located-limit level. `BF4GroupedCarrierMertens` now proves, in the
+arbitrary-insertion ten-Haar quotient:
+
+- exact all-label regrouping into the physical kinetic-cross Taylor partial;
+- source and genuinely compiled reflected-target diagonal Taylor identities;
+- reflection-invariance of the canonical packet padding;
+- source and target packet-half boundary factorizations; and
+- the complete finite rectangular packet identity at both cutoffs.
+
+Thus the current P0 edge is a constructive three-factor cofinal/Mertens
+modulus from that rectangular net to the single grouped exponential. It must
+identify `bf4PacketPhysicalNormalizedGroupedLimit` with
+`abstractPhysicalNormalizedGroupedPacketLimit`. No continuum, Perron, or Clay
+gate follows merely from the finite identity.
+
 ### Track A: loopy geometry and the physical associator
 
 1. Construct the signed/fractional physical \(6j\) associator on the retained
@@ -930,10 +950,10 @@ The next executable theorem queue is:
 
 | Priority | Theorem-sized deliverable | Why it is next |
 |---:|---|---|
-| 0 | Actual normalized five-holonomy Mehler kernel plus all-spin BF4 boundary wavefunctions inhabiting `CentralPositiveBoundaryPeterWeylTransform` and `CentralPositiveGaussianEndpointProjection` | The exact transform target and fundamental Schur calculation now exist; these are its missing analytic witnesses |
-| 1 | Endpoint quadratic-form positivity and physical-mean-zero spectral certificate | This turns the genuine projected matrix into `CentralSymmetricReferenceOperator` without a false entrywise-positivity assumption |
-| 2 | AF-uniform cross-numerator or numerator/partition/marginal-floor budget | The finite normalization theorem is proved; the remaining work is the Yang--Mills estimate inhabiting it |
-| 3 | Endpoint mean-zero rate plus physical `q ≤ 1/4` and `C_s² q^(m-2) < 1` | Closes the present BF4 obstruction |
+| 0 | Constructive three-factor cofinal/Mertens theorem from the proved finite rectangular grouped packet net to `abstractPhysicalNormalizedGroupedPacketLimit` | This is the sole remaining same-carrier endpoint-identification edge; the action normalization then gives the compact physical endpoint |
+| 1 | Identify that endpoint with the corrected Wilson/heat-kernel slab kernel and transport its common boundary/projective Perron geometry | The physical endpoint must be the kernel used by the transfer argument, not only an abstract compact-action quadratic |
+| 2 | Endpoint quadratic-form positivity and physical-mean-zero spectral certificate on that identified carrier | This turns the genuine projected matrix into `CentralSymmetricReferenceOperator` without a false entrywise-positivity assumption |
+| 3 | AF-uniform cross-numerator or numerator/partition/marginal-floor budget, then physical `q ≤ 1/4` and `C_s² q^(m-2) < 1` | Closes the local BF4 contraction only after the endpoint is physically pinned |
 | 4 | Linked BF4 trajectory + physical cubic AF law + spacing envelope | Makes the already-proved AF floor theorem genuinely physical |
 | 5 | Per-mode shift, per-scale bridge, `SpectralMarginInput`, and physical true-margin recursion | Opens the direct paths to the floor, Tier-0 Sub-wall B, and FrontierDAG |
 | 6 | Physical pentagon, tree graph, Mayer bridge, graded RG stability | Closes Tier-0 Sub-wall A and the cluster half of the continuum limit |
@@ -943,17 +963,18 @@ The next executable theorem queue is:
 
 ## 11. Definition of the next major milestone
 
-The next major milestone is reached when Lean contains, with no new axiom,
+The next endpoint milestone is reached when Lean contains, with no new axiom,
 `sorry`, classical choice shortcut, or surrogate matrix:
 
-1. a distinct endpoint Mehler kernel and its genuine double-Haar
-   Peter--Weyl projection on the exact fixed magnetic BF4 carrier;
-2. the AF-window row-relative estimate with explicit cutoff, carrier, and
+1. the constructive three-factor Mertens identification of the actual grouped
+   packet limit with the normalized compact physical packet endpoint;
+2. its identification with the corrected Wilson/heat-kernel slab kernel;
+3. the AF-window row-relative estimate with explicit cutoff, carrier, and
    marginal compensation;
-3. an inhabitant of the signed symmetric weighted physical comparison
+4. an inhabitant of the signed symmetric weighted physical comparison
    interface;
-4. `centralPhysical_perronRatio_le_quarter`;
-5. the physical specialization of
+5. `centralPhysical_perronRatio_le_quarter`;
+6. the physical specialization of
    \(C_{s(a)}^2q_{s(a)}^{m(a,L)-2}<1\).
 
 At that point the queue advances to the linked physical trajectory and
