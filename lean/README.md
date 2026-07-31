@@ -383,6 +383,38 @@ quarter theorem is reduced without hidden finite data to the two genuine
 Yang--Mills estimates: calibrated spectral rate at most \(1/8\), and exact
 physical comparison tolerance at most \(1/8\).
 
+The current grouped-action layer removes one of those hidden
+identifications.  `BF4PhysicalBoundaryCommonKernelAction` uses the complete
+fixed-interface carrier after the eighteen non-transmitted chords have been
+integrated and constructs the literal activity
+\[
+  a_{\rm phys}(b)=W(b)B(b)/Z_{\rm phys}.
+\]
+It proves constructively that the vacuum boundary coordinate is strictly
+positive and that the transposed physical half-amplitude acts on this
+activity as the exact marginal:
+\[
+  \sum_b A(x,b)a_{\rm phys}(b)=\pi(x).
+\]
+For an exact grouped gluing
+\(A(x,b)=\sum_m P(x,m)T(m,b)\), finite Fubini pushes this activity through
+\(T\), producing a nonzero positive activity on the enlarged middle carrier
+and identifying the common kernel \(P(x,m)\) with the same physical
+marginal.  `BF4GroupedCommonKernelPerronAction` installs that theorem into
+the scale-uniform Faraut/core-tail consumer; the physical activity and
+physical action-identification fields are no longer assumptions.
+`PhysicalBF4OneStepContractionGluingRow.toFarautBufferedRow` also turns an
+exact one-step stationary density gluing on the literal retained carrier
+into the full witness-bearing \(C_s^2q_s^{m-2}\) buffer, and the
+scale-family producer forces that gluing to use definitionally the same
+bit, depth, and nonlinear-rate schedule as the grouped profile.  The
+remaining BF4 analytic inputs are now explicit: construct the genuine
+grouped half-amplitude gluing and a positive primitive terminal
+certificate, identify the calibrated Peter--Weyl activity on the same
+middle carrier and prove its Perron remainder, and prove the actual
+one-step stationary BF4 density gluing together with its endpoint and
+\(q_s\le 1/4\) bounds.  Those Yang--Mills estimates are not yet inhabited.
+
 **Ledger state.** The `YMGap` library builds sorry-free (`lake build`
 reports zero `declaration uses 'sorry'`; see `SORRY_LEDGER.md`, whose
 remaining entries are closure records and named-hypothesis

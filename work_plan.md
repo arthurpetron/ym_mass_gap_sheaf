@@ -15487,6 +15487,68 @@ manufacture the two remaining Yang--Mills analytic inputs:
 2. the common-kernel projective Perron comparison and its two exact profile
    action identifications.
 
-Those two inputs, together with the still-unconstructed physical
-`CubicMarginLaw` and `PhysicalSpacingEnvelope`, are the next frontier.  No
-unconditional Clay-frontier inhabitant is claimed.
+At that milestone those two inputs, together with the still-unconstructed
+physical `CubicMarginLaw` and `PhysicalSpacingEnvelope`, were the next
+frontier.  No unconditional Clay-frontier inhabitant was claimed.
+
+### Exact grouped physical action and one-step buffer adapter (2026-07-30)
+
+`BF4PhysicalBoundaryCommonKernelAction` closes both physical-action
+identifications left open in the preceding milestone.  On the complete
+fixed-interface carrier it constructs
+\[
+  a_{\rm phys}(b)=\frac{W(b)B(b)}{Z_{\rm phys}},
+\]
+proves constructively that its vacuum coordinate is strictly positive, and
+uses the exact boundary-moment identity to show
+\[
+  \sum_b A(x,b)a_{\rm phys}(b)=\pi(x).
+\]
+For every exact grouped factorization
+\[
+  A(x,b)=\sum_m P(x,m)T(m,b),
+\]
+finite Fubini pushes \(a_{\rm phys}\) backward through \(T\).  A strictly
+positive terminal certificate then gives a nonzero nonnegative activity on
+the middle carrier, while the common kernel \(P(x,m)\), transposed as
+\(m\to x\), acts on it as the exact physical marginal.  Thus physical
+activity positivity and the physical common-kernel action are theorem
+outputs, not fields.
+
+The buffer side is also sharpened.
+`PhysicalBF4FarautBufferedRow` now carries arbitrary constructive
+intermediate types instead of hard-coding unrelated `Nat` carriers.
+`PhysicalBF4OneStepContractionGluingRow.toFarautBufferedRow` constructs its
+left endpoint, middle density power, and right endpoint directly on the
+literal positive BF4 carrier.  Therefore a genuine stationary one-step
+density gluing with endpoint bound \(C_s\) and local centered rate \(q_s\)
+automatically yields the full
+\[
+  C_s^2q_s^{m-2}
+\]
+buffer witness.
+
+Finally `BF4GroupedCommonKernelPerronAction` combines the grouped profile
+and one-step gluing as constructive dependent data sharing definitionally
+the same `bits`, `depth`, and nonlinear-rate functions.  Its scale-family
+producer feeds the existing sharpened Faraut/core-tail theorem and hence
+constructs the physical \(1/32\) core, both \(1/64\) tails, and the two
+rowwise eighth estimates once the remaining analytic data are supplied.
+
+This is a strict reduction, not a Yang--Mills closure.  The remaining
+inputs are now:
+
+1. a genuine grouped BF4 half-amplitude factorization with a strictly
+   positive primitive terminal certificate;
+2. the calibrated Peter--Weyl candidate activity/action and its
+   projective-Perron remainder on the identical common kernel; and
+3. the actual stationary one-step BF4 density gluing along the physical
+   trajectory, including the retained endpoint-spread bounds and
+   \(q_s\le1/4\); and
+4. the genuine physical `CubicMarginLaw` and `PhysicalSpacingEnvelope`
+   needed to instantiate that trajectory rather than merely parameterize it.
+
+All new load-bearing Lean declarations are axiom-gated by
+`[propext, Quot.sound]` only.  The full library, statement/frontier guards,
+and fixed-spacing Clay rubric build; no unconditional Clay-frontier
+inhabitant is introduced.

@@ -257,7 +257,10 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/SU2PointwiseHeatDynamicWindow.lean`,
   `lean/YMGap/Continuum/BF4MatchedPhysicalFarautTrajectory.lean`,
   `lean/YMGap/Continuum/BF4CanonicalClassCoordinateCarrier.lean`,
-  `lean/YMGap/Continuum/BF4NormalizedSameCarrierPerron.lean`
+  `lean/YMGap/Continuum/BF4NormalizedSameCarrierPerron.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCommonKernelAction.lean`,
+  `lean/YMGap/Continuum/BF4StationaryDensityBufferSplit.lean`,
+  `lean/YMGap/Continuum/BF4GroupedCommonKernelPerronAction.lean`
 - **decls**: `FarautInteriorImageCertificate`,
   `FarautInteriorImageCertificate.kernel_ge_floor`,
   `FarautInteriorImageCertificate.kernel_le_ceiling`,
@@ -280,7 +283,12 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `canonicalBF4SpatialFiniteHeatHarnack`,
   `NormalizedSameCarrierMehlerHSConvergence`,
   `eventually_perronRatio_le_quarter`,
-  `matchedCentered_perronRatio_le_quarter`
+  `matchedCentered_perronRatio_le_quarter`,
+  `centralPhysicalBoundaryActivityCertificate`,
+  `centralPhysicalBoundaryKernelAction_eqv_marginal`,
+  `centralGroupedPhysicalCommonKernelAction_eqv_marginal`,
+  `PhysicalBF4OneStepContractionGluingRow.toFarautBufferedRow`,
+  `MatchedBF4GroupedProfileFarautRows.toThresholdCoreFarautRows`
 - **obligation**: Instantiate the certificate from the literal SU(2)
   heat-kernel image formula with constructive \(t\)-to-nome normalization,
   rational Gaussian/trigonometric enclosures, pairwise image domination, and
@@ -334,12 +342,32 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   Hilbert--Schmidt convergence on the same growing carrier, derives the
   eventual \(7/100\) perturbation and \(q\le1/4\), and requires a Perron
   identification to carry an actual dominant eigenmode.
+  `BF4PhysicalBoundaryCommonKernelAction` now closes the physical side of
+  the common-action identification.  On the complete fixed-interface
+  carrier it constructs the literal activity \(W(b)B(b)/Z_{\rm phys}\),
+  proves its vacuum coordinate strictly positive, and proves that the
+  transposed genuine half-amplitude maps it exactly to the physical
+  marginal.  Exact finite Fubini transports this activity through any
+  genuine grouped factorization
+  \(A(x,b)=\sum_m P(x,m)T(m,b)\), giving the exact physical action of the
+  common kernel \(P\) on the retained middle carrier.
+  `PhysicalBF4OneStepContractionGluingRow.toFarautBufferedRow` closes the
+  formerly arbitrary buffer-carrier interface: a genuine stationary
+  one-step density gluing now constructs the two endpoint buffers and the
+  depth-dependent middle power on the literal positive BF4 carrier.
+  `BF4GroupedCommonKernelPerronAction` combines these constructions on
+  definitionally the same bit/depth/nonlinear-rate trajectory and feeds the
+  already-proved \(1/32\) core and two \(1/64\) tails.
   Still open are the physical dyadic bridge, uniform Faraut/image
   enclosures on the full class-coordinate set, Faraut/character
   normalization and endpoint coverage, the all-even residual
-  strand-colouring theorem, identification of the normalized interacting
-  BF4 matrix and Mehler matrix on the same complete carrier, the actual HS
-  convergence modulus for those matrices, and dominant-mode identification.
+  strand-colouring theorem, the genuine positive primitive terminal and
+  grouped half-amplitude factorization, candidate Peter--Weyl action and
+  projective-Perron remainder on that same common kernel, the actual
+  stationary one-step BF4 density gluing with endpoint spread and
+  \(q_s\le1/4\), identification of the normalized interacting BF4 and
+  Mehler matrices on the same complete carrier, the actual HS convergence
+  modulus for those matrices, and dominant-mode identification.
 - **must not be closed classically**: per `AGENTS.md` Rule 6; the uniform
   enclosures and modulus must remain explicit constructive data.
 

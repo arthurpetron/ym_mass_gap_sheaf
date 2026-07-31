@@ -1136,6 +1136,8 @@ import YMGap.Continuum.BF4MatchedBufferedPerronEighthClosure
 import YMGap.Continuum.BF4PhysicalConditionalDensityContraction
 import YMGap.Continuum.BF4PhysicalDensityThresholdCore
 import YMGap.Continuum.BF4PhysicalDensityThresholdCoreAF
+import YMGap.Continuum.BF4PhysicalBoundaryCommonKernelAction
+import YMGap.Continuum.BF4GroupedCommonKernelPerronAction
 import YMGap.Continuum.BF4FarautAFCutoffGrowth
 import YMGap.Continuum.SU2PointwiseHeatDynamicWindow
 import YMGap.Continuum.BF4SU2StochasticBlockedGramObservableTail

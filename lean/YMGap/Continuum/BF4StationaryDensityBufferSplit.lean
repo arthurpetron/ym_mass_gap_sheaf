@@ -2031,6 +2031,51 @@ def toDensityPowerGluingRow
   right_bound :=
     data.right_bound
 
+/-- The genuine one-step density gluing constructs the witness-bearing
+Faraut buffer on the literal retained physical state carrier.  No reindexing
+to an unrelated numerical carrier and no choice of intermediate types is
+needed. -/
+def toFarautBufferedRow
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {K halfExtent : Nat}
+    {source : EdgeLabelling}
+    {bits depth : Nat} {qS : Q'}
+    {oneStep : EdgeLabelling → EdgeLabelling → Q'}
+    (data :
+      PhysicalBF4OneStepContractionGluingRow
+        hw K halfExtent source depth oneStep
+        (farautRetainedSpread bits) qS) :
+    PhysicalBF4FarautBufferedRow
+      w hw K halfExtent source bits depth qS where
+  Left := EdgeLabelling
+  Middle := EdgeLabelling
+  leftStates :=
+    centralPositiveHalfStates w hw K halfExtent
+  middleStates :=
+    centralPositiveHalfStates w hw K halfExtent
+  leftBuffer := fun row state =>
+    centralPhysicalRowMarginal
+        w hw K halfExtent state *
+      finiteCenteredDensity oneStep row state
+  middleKernel := fun first second =>
+    centralPhysicalRowMarginal
+        w hw K halfExtent second *
+      finiteCenteredDensity
+        (finiteWeightedDensityPower
+          (centralPositiveHalfStates
+            w hw K halfExtent)
+          (centralPhysicalRowMarginal
+            w hw K halfExtent)
+          oneStep (depth - 3))
+        first second
+  rightBuffer :=
+    finiteCenteredDensity oneStep
+  certificate :=
+    data.toDensityPowerGluingRow
+      |>.toTransferPowerRow
+      |>.toStationaryTripleRow
+      |>.toPhysicalBF4BufferedCenteredRow
+
 /-- The complete physical conclusion now consumes only density gluing,
 endpoint bounds, and the local one-step contraction. -/
 theorem physical_centered_row_le_sixteenth_of_faraut
@@ -2085,4 +2130,5 @@ end YMGap.Continuum.BF4StationaryDensityBufferSplit
 #print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.finiteWeightedCenteredRowMass_compose_le
 #print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.finiteWeightedDensityPower_centered_row_le_pow
 #print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.PhysicalBF4OneStepContractionGluingRow.toDensityPowerGluingRow
+#print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.PhysicalBF4OneStepContractionGluingRow.toFarautBufferedRow
 #print axioms YMGap.Continuum.BF4StationaryDensityBufferSplit.PhysicalBF4OneStepContractionGluingRow.physical_centered_row_le_sixteenth_of_faraut

@@ -846,12 +846,14 @@ structure PhysicalBF4FarautBufferedRow
     (w : Q') (hw : (0 : Q') ≤ w)
     (K halfExtent : Nat)
     (source : EdgeLabelling)
-    (bits depth : Nat) (qS : Q') : Type where
-  leftStates : List Nat
-  middleStates : List Nat
-  leftBuffer : EdgeLabelling → Nat → Q'
-  middleKernel : Nat → Nat → Q'
-  rightBuffer : Nat → EdgeLabelling → Q'
+    (bits depth : Nat) (qS : Q') : Type 1 where
+  Left : Type
+  Middle : Type
+  leftStates : List Left
+  middleStates : List Middle
+  leftBuffer : EdgeLabelling → Left → Q'
+  middleKernel : Left → Middle → Q'
+  rightBuffer : Middle → EdgeLabelling → Q'
   certificate :
     PhysicalBF4BufferedCenteredRow
       (w := w) (hw := hw)
