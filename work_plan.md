@@ -27901,3 +27901,148 @@ quantity `X_11 / tau^2`, i.e. from pairing `det_S` with a uniform UPPER
 bound on `T01` alone (the cheap direction of the window instrument),
 not from any further algebraic recombination of the same entries.  That
 is now the single next item.
+
+## §17h (2026-07-30, cloud): the §17g sign becomes a RATE — the first certified quantitative statement in the middle regime, and the crude diagonal domination NAMED AND SIZED as the sole remaining loss
+
+Executes §17g's next-attack item (2).  Artifacts:
+`computations/sector_floor.py` (+ ledger),
+`tests/test_sector_floor.py` (6 tests).
+
+**The inequality.**  With `D = T00 T11 - T01^2` and
+`sin^2 theta = D/(T00 T11) in [0,1)`,
+
+    X_11 = -log(1 - D/(T00 T11))  >=  D / (T00 T11),
+
+and BOTH ingredients are now available in the EASY direction:
+
+* `D >= det_S(s)` — the §17g sector-truncated determinant, an exact
+  polynomial valid on all of `(0,1)` by det-superadditivity over the PSD
+  sector blocks.  **No upper bound on the off-diagonal `T01` is needed
+  anywhere.**  That was the expensive, sign-cancelling direction that
+  capped the §16h-§17e window instrument at `s <= 5/8`; the §17g
+  structure removes it from the rate problem entirely.
+* `T00, T11` are DIAGONAL Gram entries — sums of NON-NEGATIVE terms — so
+  any domination of the Haar values bounds them above with no
+  cancellation to track.  Used here: the incumbent crude domination
+  (`su2_minf_windows.DomTransfer` + `lam_slop`), which converges for
+  EVERY `s < 1` once `4 s^{2lam+3} < 1` and `16 s^{4lam+6} < 1`.
+
+**THE RESULT — certified floors strictly above the anchor edge**
+(`2^{-1/3} = 0.793701`, so every point below is OUTSIDE the
+unconditional anchor window; each is the first certified quantitative
+statement at that coupling):
+
+    s        tau       lam   det_S        CERTIFIED X_11 >=   crude cost
+    4/5      0.22314    4    1.7174e-2    5.9477e-25          4.674e+23
+    5/6      0.18232    5    5.7711e-2    6.9182e-28          3.044e+26
+    6/7      0.15415    5    1.3703e-1    2.2185e-32          6.780e+30
+    9/10     0.10536    8    6.0153e-1    1.2025e-37          4.351e+35
+    14/15    0.06899   11    1.4123e+0    2.8191e-46          4.237e+43
+    24/25    0.04082   14    1.4948e+0    6.4308e-55          2.461e+51
+
+**Honesty, stated as sharply as the numbers allow.**  The floor is
+certified and positive across the middle regime — and it is 24 to 54
+orders below the truth.  The loss is NOT in `det_S` (exact) and NOT in
+the inequality (tight to within the `log(1+x) ~ x` step at small `x`):
+it is ENTIRELY the crude `|N| <= prod(dim)` domination of the DIAGONAL
+entries, and the module measures that loss point by point against the
+reference ratio `det_S/(T00_S T11_S)`.  It is recorded as a certified
+floor, never as a useful one.
+
+**The named fix, and its size.**  The diagonal admits the OS-triangle
+bound `T_nn = sum_sigma W_sigma ||x_n(sigma)||^2` with
+`||x_n(sigma)|| <= sum_a W_a(s) sqrt(N(n,n,sigma,a,a))` — the §16h
+Cauchy-Schwarz sharpening applied to the DIAGONAL, whose inputs are
+single same-config Haar values (the cheapest objects in the program,
+already computed for the cap<=1 family by
+`sector_sos.half_config_gram`).  The residual is then only the SECTOR
+tail, where `W_sigma` carries the full `s^{2C(q)}` suppression.  From
+the measured slack this recovers of order 20 magnitudes at `s = 4/5`.
+Crucially it is EASY-DIRECTION work throughout: no off-diagonal, no
+unresolved diagonals, no recoupling evaluator, no (3,3)-class lane.
+
+**Queue effect.**  The rate problem on the middle regime is now a
+DIAGONAL-ONLY estimate.  The recoupling evaluator and the
+(0,3)/(3,3)-class diagonal lane, already de-prioritised as sign
+consumers in §17g, are hereby de-prioritised as MIDDLE-REGIME RATE
+consumers too — they bind only the off-diagonal, which this route no
+longer touches.  Tests `test_sector_floor.py` 6/6 (130 s), including a
+pinned honesty test that the crude cost exceeds 10^20.  Cloud
+verification; Mac-side run not claimed.
+
+**Next attack.**  (1) The OS-triangle diagonal bound: exact
+`sqrt(N(n,n,sigma,a,a))` per sector up to a label cutoff plus a
+sector-tail closure, replacing `DomTransfer` in `sector_floor` —
+the ~20-order recovery, and the item that turns the floor from
+decorative into usable.  (2) With a usable floor, compare against the
+`6 tau^2` law to test whether the sector family must grow with
+`1/sqrt(tau)` (the adapted-family atlas) or whether a fixed family
+suffices down to the MD.3 edge.  (3) §17g item (3), the depth-2
+transport, stays queued behind these — note the §17d vacuity theorem
+already makes the depth-2 SIGN group-generic, so only the FLOOR
+transports there, via `det_{2e} >= (det_e)^2` (Cauchy-Binet on the
+composed Gram, leading minor).
+
+**§17h supplement (same session): the loss is now RESOLVED INTO TWO
+REGIMES, each with a different binding constraint and a different fix.**
+Two measurements, both exact:
+
+*(a) The `N_diag <= 1` lane — worth 10-13 orders, and it is a real
+lemma, not a convention.*  Every diagonal Haar value of the cap<=1
+family satisfies `0 <= N(n,n,sigma,a,a) <= 1`, with the maximum exactly
+1 at the trivial config and values down to `1/186624 = 1/(2^8 3^6)`; the
+crude `|N| <= prod(dim)` domination overpays by up to `1.25e12` ON A
+SINGLE CONFIG.  Re-running the incumbent 4-cycle transfer with LINEAR
+dim weights (`d_a s^{C(a)}`, `d_q^2 s^{2C(q)}`, `d_w s^{C(w)}` — the
+weights the OS-triangle bound `||x_n(sigma)|| <= sum_a W_a
+sqrt(N_diag)` produces under `N_diag <= 1`) gives, CONDITIONALLY on that
+bound:
+
+    s = 4/5 :  T00_hi 8.49e10 -> 6.32e5,  floor 5.95e-25 -> 4.30e-14
+               (gain 7.24e10x; residual slack to the reference 6.46e12x)
+    s = 9/10:  T00_hi 1.12e18 -> 5.56e11, floor 1.20e-37 -> 1.94e-24
+               (gain 1.62e13x; residual slack 2.69e22x)
+
+`N_diag <= 1` is NOT asserted here.  It is the multiplicity-free vertex
+statement, and the standing coupled-simplification audit binds it to the
+SU(2) worst-case reduction and the `Z_t(G) <= Z_t(SU(2))` character-tail
+input — any pass that proves it must re-verify both.  It is recorded as
+a measured, exactly-witnessed CONJECTURE with its audit dependency
+named, and the conditional floor above is what it would buy.
+
+*(b) The family-adaptation law — measured, and it says the atlas is
+real after all.*  Comparing `det_S` on the cap<=1 (16-sector) and
+cap<=2 (187-sector) families at the same coupling:
+
+    s        det_S2 / det_S1     ref ratio, cap<=1 -> cap<=2
+    1/2      1.000               2.2771e-1 -> 2.2771e-1
+    4/5      1.083               2.7801e-1 -> 2.8800e-1
+    9/10     4.262               5.2318e-2 -> 8.2142e-2
+    24/25    1.814e+2            1.5827e-3 -> 6.1795e-3
+    99/100   4.198e+3            5.7721e-6 -> 3.3522e-5
+
+The cap<=1 family SATURATES at moderate coupling (`s <= 4/5`: enlarging
+buys under 9%) and starves as `s -> 1` (4198x at 99/100 and still
+climbing).  So:
+
+>   **Two regimes, two binding constraints.**  At moderate `tau` the
+>   det side is already essentially exact and the entire loss is the
+>   DIAGONAL upper bound.  As `tau -> 0` the diagonal is not the issue —
+>   the FAMILY is, and the required label cap grows with `1/tau`.
+
+This resolves §17g's open rate question into two independent, separately
+attackable engineering items, and it *re-legitimises the atlas concept*
+in a new form: not a cover by expensive point windows, but an
+s-ADAPTED LADDER OF SECTOR FAMILIES, each supplying an INTERVAL
+certificate of the §17g coefficient-sign type (cheap, kernel-checkable)
+on its own dyadic band of `tau`.  Whether the ladder terminates before
+the MD.3 edge `tau* = 2^-44` is the sharp form of the P3 overlap
+question, and it is now a measurable quantity rather than a hope.
+
+**Revised next attack.**  (1) The `N_diag <= 1` lemma under the full
+coupled-simplification audit (multiplicity-free vertex + character-tail
+domination in the same pass) — it is worth 13 orders and nothing else in
+the diagonal lane is worth building first.  (2) The cap<=3 family, to
+fit the growth law `cap(tau)` and test whether the ladder terminates.
+(3) Only then the atlas-adequacy statement in its new form: a finite
+ladder of interval certificates meeting `tau*`.
