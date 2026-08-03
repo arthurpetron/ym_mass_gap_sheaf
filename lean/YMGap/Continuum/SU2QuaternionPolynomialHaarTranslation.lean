@@ -260,6 +260,15 @@ def rightTranslatedHeadQuaternion : PolyQuaternion :=
 def headExponentLedger (e0 e1 e2 e3 : Nat) : List Nat :=
   [e0, e1, e2, e3]
 
+private theorem headQuaternionMoment_headExponentLedger
+    (monomial : List Nat) :
+    headQuaternionMoment
+        (headExponentLedger
+          (exponentAt monomial 0) (exponentAt monomial 1)
+          (exponentAt monomial 2) (exponentAt monomial 3)) =
+      headQuaternionMoment monomial := by
+  rfl
+
 def expectedTranslatedHeadMoment
     (e0 e1 e2 e3 : Nat) : RatPoly :=
   polySmul
@@ -328,6 +337,46 @@ def rightTranslationMomentCheck (e0 e1 e2 e3 : Nat) : Bool :=
         (translatedHeadMonomial rightTranslatedHeadQuaternion
           e0 e1 e2 e3)))
     (canonRat (expectedTranslatedHeadMoment e0 e1 e2 e3))
+
+/-- Scan exactly the head exponent quadruples that occur in a finite
+polynomial.  Unlike a rectangular degree table, this certificate does no
+irrelevant work. -/
+def translationPolynomialCheck
+    (check : Nat → Nat → Nat → Nat → Bool)
+    (polynomial : RatPoly) : Bool :=
+  polynomial.all fun term =>
+    check
+      (exponentAt term.1 0) (exponentAt term.1 1)
+      (exponentAt term.1 2) (exponentAt term.1 3)
+
+/-- One term after substituting a translated head quaternion and performing
+the head Haar integral, while retaining its coefficient and tail monomial. -/
+def partialTranslatedHeadTerm
+    (translated : PolyQuaternion) (term : RatTerm) : RatPoly :=
+  polyMul
+    (partialHaarHead
+      (translatedHeadMonomial translated
+        (exponentAt term.1 0) (exponentAt term.1 1)
+        (exponentAt term.1 2) (exponentAt term.1 3)))
+    [(term.1.drop 4, term.2)]
+
+/-- Termwise translated-head substitution followed by exact head Haar. -/
+def partialTranslatedHeadPolynomial
+    (translated : PolyQuaternion) : RatPoly → RatPoly
+  | [] => polyZero
+  | term :: rest =>
+      polyAdd (partialTranslatedHeadTerm translated term)
+        (partialTranslatedHeadPolynomial translated rest)
+
+theorem translationPolynomialCheck_term
+    {check : Nat → Nat → Nat → Nat → Bool}
+    {polynomial : RatPoly}
+    (hcheck : translationPolynomialCheck check polynomial = true)
+    {term : RatTerm} (hterm : term ∈ polynomial) :
+    check
+      (exponentAt term.1 0) (exponentAt term.1 1)
+      (exponentAt term.1 2) (exponentAt term.1 3) = true := by
+  exact List.all_eq_true.mp hcheck term hterm
 
 private theorem quaternionPrefixPolynomialCheck_irrel
     (first second : Nat) : ∀ left right : RatPoly,
@@ -607,7 +656,165 @@ theorem rightTranslationMomentCheck_haar_sound
     (expectedTranslatedHeadMoment_mul_haar
       blocks hblocks e0 e1 e2 e3 tail)
 
+private theorem partialTranslatedHeadTerm_haar
+    (blocks : Nat) (translated : PolyQuaternion)
+    (check : Nat → Nat → Nat → Nat → Bool)
+    (hsound :
+      ∀ (e0 e1 e2 e3 : Nat),
+        check e0 e1 e2 e3 = true →
+        ∀ tail : RatPoly,
+          SupportedQuaternionBlocks blocks tail →
+          quaternionHaar blocks
+              (polyMul
+                (partialHaarHead
+                  (translatedHeadMonomial translated e0 e1 e2 e3))
+                tail) ≈
+            headQuaternionMoment
+                (headExponentLedger e0 e1 e2 e3) *
+              quaternionHaar blocks tail)
+    (term : RatTerm)
+    (hterm : term.1.length ≤ 4 * (blocks + 1))
+    (hcheck :
+      check
+        (exponentAt term.1 0) (exponentAt term.1 1)
+        (exponentAt term.1 2) (exponentAt term.1 3) = true) :
+    quaternionHaar blocks
+        (partialTranslatedHeadTerm translated term) ≈
+      term.2 * quaternionHaarMono (blocks + 1) term.1 := by
+  let tail : RatPoly := [(term.1.drop 4, term.2)]
+  have htail : SupportedQuaternionBlocks blocks tail := by
+    intro source hsource
+    simp only [tail, List.mem_cons, List.not_mem_nil, or_false] at hsource
+    subst source
+    simp only
+    rw [List.length_drop]
+    omega
+  have htranslated := hsound
+    (exponentAt term.1 0) (exponentAt term.1 1)
+    (exponentAt term.1 2) (exponentAt term.1 3)
+    hcheck tail htail
+  rw [headQuaternionMoment_headExponentLedger] at htranslated
+  refine Q'.eqv_trans _
+    (headQuaternionMoment term.1 * quaternionHaar blocks tail) _
+    htranslated ?_
+  refine Q'.eqv_trans _
+    (headQuaternionMoment term.1 *
+      (term.2 * quaternionHaarMono blocks (term.1.drop 4))) _
+    (Q'.mul_eqv_congr_left _ _ _
+      (QPoly.q_add_zero_eqv _)) ?_
+  refine Q'.eqv_trans _
+    ((headQuaternionMoment term.1 * term.2) *
+      quaternionHaarMono blocks (term.1.drop 4)) _
+    (Q'.eqv_symm (Q'.mul_assoc_eqv _ _ _)) ?_
+  refine Q'.eqv_trans _
+    ((term.2 * headQuaternionMoment term.1) *
+      quaternionHaarMono blocks (term.1.drop 4)) _
+    (Q'.mul_eqv_congr_right _ _ _
+      (Q'.mul_comm_eqv _ _)) ?_
+  refine Q'.eqv_trans _
+    (term.2 *
+      (headQuaternionMoment term.1 *
+        quaternionHaarMono blocks (term.1.drop 4))) _
+    (Q'.mul_assoc_eqv _ _ _) ?_
+  exact Q'.mul_eqv_congr_left _ _ _
+    (headMoment_mul_tailHaarMono blocks term.1)
+
+private theorem partialTranslatedHeadPolynomial_haar
+    (blocks : Nat) (translated : PolyQuaternion)
+    (check : Nat → Nat → Nat → Nat → Bool)
+    (hsound :
+      ∀ (e0 e1 e2 e3 : Nat),
+        check e0 e1 e2 e3 = true →
+        ∀ tail : RatPoly,
+          SupportedQuaternionBlocks blocks tail →
+          quaternionHaar blocks
+              (polyMul
+                (partialHaarHead
+                  (translatedHeadMonomial translated e0 e1 e2 e3))
+                tail) ≈
+            headQuaternionMoment
+                (headExponentLedger e0 e1 e2 e3) *
+              quaternionHaar blocks tail) :
+    ∀ polynomial : RatPoly,
+      SupportedQuaternionBlocks (blocks + 1) polynomial →
+      translationPolynomialCheck check polynomial = true →
+      quaternionHaar blocks
+          (partialTranslatedHeadPolynomial translated polynomial) ≈
+        quaternionHaar (blocks + 1) polynomial
+  | [], _, _ => Q'.eqv_refl 0
+  | term :: rest, hsupport, hcheck => by
+      have htermCheck := translationPolynomialCheck_term hcheck
+        (List.mem_cons_self : term ∈ term :: rest)
+      have hrestCheck :
+          translationPolynomialCheck check rest = true := by
+        exact List.all_eq_true.mpr fun source hsource =>
+          translationPolynomialCheck_term hcheck
+            (List.mem_cons_of_mem term hsource)
+      change
+        quaternionHaar blocks
+            (partialTranslatedHeadTerm translated term ++
+              partialTranslatedHeadPolynomial translated rest) ≈
+          term.2 * quaternionHaarMono (blocks + 1) term.1 +
+            quaternionHaar (blocks + 1) rest
+      refine Q'.eqv_trans _
+        (quaternionHaar blocks
+            (partialTranslatedHeadTerm translated term) +
+          quaternionHaar blocks
+            (partialTranslatedHeadPolynomial translated rest)) _
+        (quaternionHaar_append blocks _ _) ?_
+      exact Q'.add_eqv_congr'
+        (partialTranslatedHeadTerm_haar blocks translated check hsound
+          term (hsupport term List.mem_cons_self) htermCheck)
+        (partialTranslatedHeadPolynomial_haar blocks translated check hsound
+          rest
+          (fun source hsource =>
+            hsupport source (List.mem_cons_of_mem term hsource))
+          hrestCheck)
+
+/-- **Finite-polynomial constructive left Haar invariance.**  The executable
+scan checks only exponent quadruples that occur in `polynomial`; a successful
+scan transports the entire supported polynomial through the left head
+translation and exact head integration. -/
+theorem leftTranslationPolynomialCheck_haar_sound
+    (blocks : Nat) (hblocks : 0 < blocks)
+    (polynomial : RatPoly)
+    (hsupport : SupportedQuaternionBlocks (blocks + 1) polynomial)
+    (hcheck :
+      translationPolynomialCheck leftTranslationMomentCheck polynomial =
+        true) :
+    quaternionHaar blocks
+        (partialTranslatedHeadPolynomial
+          leftTranslatedHeadQuaternion polynomial) ≈
+      quaternionHaar (blocks + 1) polynomial := by
+  exact partialTranslatedHeadPolynomial_haar blocks
+    leftTranslatedHeadQuaternion leftTranslationMomentCheck
+    (fun e0 e1 e2 e3 termCheck tail tailSupport =>
+      leftTranslationMomentCheck_haar_sound blocks hblocks
+        e0 e1 e2 e3 termCheck tail tailSupport)
+    polynomial hsupport hcheck
+
+/-- Finite-polynomial right-translation companion. -/
+theorem rightTranslationPolynomialCheck_haar_sound
+    (blocks : Nat) (hblocks : 0 < blocks)
+    (polynomial : RatPoly)
+    (hsupport : SupportedQuaternionBlocks (blocks + 1) polynomial)
+    (hcheck :
+      translationPolynomialCheck rightTranslationMomentCheck polynomial =
+        true) :
+    quaternionHaar blocks
+        (partialTranslatedHeadPolynomial
+          rightTranslatedHeadQuaternion polynomial) ≈
+      quaternionHaar (blocks + 1) polynomial := by
+  exact partialTranslatedHeadPolynomial_haar blocks
+    rightTranslatedHeadQuaternion rightTranslationMomentCheck
+    (fun e0 e1 e2 e3 termCheck tail tailSupport =>
+      rightTranslationMomentCheck_haar_sound blocks hblocks
+        e0 e1 e2 e3 termCheck tail tailSupport)
+    polynomial hsupport hcheck
+
 end YMGap.Continuum.SU2QuaternionPolynomialHaarTranslation
 
 #print axioms YMGap.Continuum.SU2QuaternionPolynomialHaarTranslation.leftTranslationMomentCheck_haar_sound
 #print axioms YMGap.Continuum.SU2QuaternionPolynomialHaarTranslation.rightTranslationMomentCheck_haar_sound
+#print axioms YMGap.Continuum.SU2QuaternionPolynomialHaarTranslation.leftTranslationPolynomialCheck_haar_sound
+#print axioms YMGap.Continuum.SU2QuaternionPolynomialHaarTranslation.rightTranslationPolynomialCheck_haar_sound

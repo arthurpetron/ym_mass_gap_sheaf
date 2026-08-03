@@ -18568,11 +18568,14 @@ and checks the exact rational-polynomial identity
 The soundness theorem permits an arbitrary supported tail multiplier.  The
 previously proved quaternion sphere ideal removes the generated radius power,
 so a successful finite certificate gives the untranslated head moment times
-the full tail Haar integral.  Both left and right load-bearing theorems audit
-to `[propext, Quot.sound]`.  The interface is deliberately certificate
-parametric: a universal all-degree combinatorial proof, or certificates for
-the concrete finite-cutoff polynomial being transported, are still needed to
-compose the complete 25-step raw-link gauge substitution.
+the full tail Haar integral.  A termwise scanner and recursive linearity proof
+now lift this to an arbitrary finite supported polynomial, checking only the
+head exponent quadruples that occur in that polynomial.  Both monomial and
+polynomial left/right load-bearing theorems audit to
+`[propext, Quot.sound]`.  The interface is deliberately certificate
+parametric: a universal all-degree combinatorial proof, or successful scans of
+the concrete finite-cutoff polynomials during the 25 eliminations, are still
+needed to compose the complete raw-link gauge substitution.
 
 `BF4ExactSpatialTreeCycleFiveHaarMarginal` closes the other two requested
 operations on the adapted boundary carrier.  Its block ledger is

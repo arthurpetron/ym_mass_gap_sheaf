@@ -734,11 +734,12 @@ one-block algebra needed by that change of variables.  For a left product
 `a·u` or right product `u·a`, an executable rational-polynomial certificate
 identifies the exact head `S³` moment with the untranslated moment times the
 appropriate power of `|a|²`.  The existing sphere ideal then removes that
-power after multiplication by an arbitrary supported tail polynomial.  Thus
-every certified monomial has a kernel-checked left/right Haar-invariance
-theorem; the load-bearing audit is `[propext, Quot.sound]`.  This is a
-certificate-parametric result, not yet a universal all-degree translation
-theorem.
+power after multiplication by an arbitrary supported tail polynomial.  A
+termwise scan lifts the result to any finite supported polynomial while
+checking only exponent quadruples that actually occur.  Thus every successful
+finite certificate has a kernel-checked left/right Haar-invariance theorem;
+the load-bearing audit is `[propext, Quot.sound]`.  This remains
+certificate-parametric rather than a universal all-degree translation theorem.
 
 `BF4ExactSpatialTreeCycleFiveHaarMarginal` closes the marginal once the
 adapted 48-block carrier has been reached.  In the literal order “25 tree
