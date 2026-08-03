@@ -772,6 +772,17 @@ of each chord coordinate is the existing based-cycle polynomial, plus the
 concrete scan discharge.  Until those are proved, no raw five-link/based-cycle
 marginal equality is claimed.
 
+`BF4ExactSpatialTreeGaugeTranslationSemantics` now makes that last syntactic
+proof an exact executable interface.  For each chord it applies the certified
+per-cycle shear list to the adapted raw coordinate quaternion and compares the
+four canonical rational coordinate polynomials with
+`P(start)·U_c·P(end)⁻¹`.  Successful checks soundly yield canonical
+`QuaternionPrefixPolyQuaternionEqv 48`, with axiom gate
+`[propext, Quot.sound]`.  The all-23 success theorem is not claimed: brute
+canonical reduction was memory-safe but too slow even on the first cycle, so
+the next implementation should prove the quaternion anti-homomorphism and
+composition identities structurally or use small cached batches.
+
 **Per-atom partial progress** (the scorecard docstrings may lag these;
 Milestone 11.0 re-syncs them): (D2) has a sound, non-tight L¹
 inhabitant (`SepLatticeZ4Close.SepLatticeZ4_witness`); (T′) is reduced

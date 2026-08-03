@@ -18643,3 +18643,32 @@ raw chord coordinate is prefix-equivalent to the already defined
 concrete cutoff polynomials and compose with the exact 25+18 integration.
 No raw-link/based-cycle marginal equality is claimed until that
 identification and those scans are closed.
+
+## 44. Exact semantic-check surface for each based cycle (2026-08-03)
+
+`BF4ExactSpatialTreeGaugeTranslationSemantics` now constructs, for every
+cycle, both sides of the last syntactic identification in the same adapted
+48-block carrier:
+
+```text
+translated chord coordinate
+    versus
+P(start) · U_c · P(end)⁻¹.
+```
+
+The per-cycle raw shear list is independently proved index-valid, converted
+to the proof-carrying chain, and applied to all four coordinate polynomials of
+the selected chord quaternion.  An exact rational canonicalizer removes
+irrelevant multiplication-tree and term-order differences before four
+executable prefix checks.  A soundness theorem converts any successful check
+into `QuaternionPrefixPolyQuaternionEqv 48` between the canonical forms and
+audits to `[propext, Quot.sound]`.
+
+This milestone exposes the precise remaining certificate but does not claim
+that all 23 checks have succeeded.  A direct kernel reduction of even one
+canonical comparison was monitored and stopped after one minute: it remained
+memory-safe but was not a practical proof strategy.  The next step is thus a
+structural proof of quaternion conjugation as an anti-homomorphism (and
+translation composition), or an explicitly batched/cached certificate—not a
+larger unmonitored reduction.  The Milestone-43 conditional Haar theorem and
+the exact 25+18 marginal remain valid and unchanged.
