@@ -100,6 +100,8 @@
     "centered_defect": "strictly-positive-for-w>0",
     "lean_surface_certificate": "kernel-checked",
     "surface_face_weight": "exact-(2*w^3)^F-kernel-checked",
-    "surface_haar_bridge": "split-reindex+topological-amplitude+QPoly-assembly-open"
+    "surface_haar_bridge": "QPoly-closed+pointwise-116-to-Haar5-closed;reindex+fivefold-amplitudes-open",
+    "qpoly_assembly": "128+2-surface-sums-kernel-checked",
+    "six_face_sphere": "literal-raw-words+five-chord-Haar-1/16-kernel-checked"
   }
 }

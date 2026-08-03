@@ -8,7 +8,7 @@ R(w) = 1 + 4 w^18
 C(w) = 1 + 32 w^18 + 96 w^30 + 224 w^36 + 192 w^42 + 3 w^48.
 ```
 
-The constructive Lean lift now has three checked layers.
+The constructive Lean lift now has four checked layers.
 
 1. `BF4CutoffOneBinarySurfaceCertificate` generates the rank-seven binary
    surface space from seven masks, proves that the 128 masks are distinct and
@@ -38,6 +38,16 @@ The constructive Lean lift now has three checked layers.
    literal cutoff-one heat-kernel face product is exactly
    `(2 * w^3)^F`, where `F` is its checked face count
    (`embeddedSurfaceFaceFactor_exact`).
+4. `BF4ExactCutoffOneHaarFiveEvaluation` now closes the complete finite
+   topological-sum/QPoly assembly.  Its checked singleton-monomial and list
+   assembly lemmas identify the 128-term constant sum and two-term vacuum-row
+   sum with the sparse polynomials above.  It also proves, pointwise for every
+   embedded binary surface, that the literal 116-link Haar coefficient equals
+   an exact fivefold marginal on the based cycles `[0,4,5,6,10]`.  The smallest
+   nonempty surface is additionally pinned to its six literal raw slab words,
+   partitioned into seven local tree links and five chords; the resulting
+   256-term compact polynomial has kernel-checked Haar value `1/16`, exactly
+   `2^(8-12)`.
 
 `BF4ExactCutoffOneHaarFiveEvaluation` exposes the remaining bridge as the
 uninhabited proposition `CutoffOneBinarySurfaceHaarBridge`.  Conditional on
@@ -45,32 +55,32 @@ that one honest bridge, the existing 116-link-to-five-cycle theorems yield the
 two closed forms, the strict order `R(w) < C(w)`, and the exact positive
 centered numerator `C(w)-R(w)^2` for every `w > 0`.
 
-The summary bridge is now factored into named residual interfaces:
+The summary bridge is factored into named interfaces:
 
 - `CutoffOneCharacterExpansionReindex` identifies the actual two fivefold
   Haar expressions with literal corrected-slab dual sums;
 - `CutoffOneClosedSurfaceTopologicalAmplitude` asks pointwise for the signed
-  116-link contraction `2^(V-E)`;
+  contraction `2^(V-E)`; the new pointwise theorem reduces this exactly to
+  128 fivefold Haar evaluations;
 - `CutoffOneClosedSurfaceSumEvaluation` packages the resulting two finite
-  sums as the checked sparse polynomials.
+  sums as the checked sparse polynomials, and is now constructed
+  unconditionally from the pointwise amplitude interface.
 
 Lean proves that the pointwise amplitude, together with the exact face-factor
 theorem, reduces every dual summand and both relevant finite sums to their
 explicit topological targets.  It also proves that the character reindex and
 finite-sum evaluation compose to the original summary bridge.
 
-The bridge now has one mathematical package remaining; the heat-weight half
-is no longer part of it:
+The bridge now has two sharply separated mathematical tasks remaining; the
+heat-weight and QPoly-assembly halves are no longer part of either:
 
 - derive the actual fivefold character expansion as the finite closed-label
-  sum and prove the fundamental closed-surface Haar amplitude `2^(V-E)`.
-  The new literal incidence equivalence then supplies the exact 128-surface
-  reindexing automatically.
-
-There is also a deliberately visible mechanical Lean task: identify the two
-explicit topological sums with the already checked `QPoly` coefficient lists.
-This is finite polynomial assembly, not an additional physical assumption,
-but it is not marked complete until the corresponding theorem exists.
+  sum (`CutoffOneCharacterExpansionReindex`);
+- evaluate the 128 pointwise fivefold surface marginals as `2^(V-E)`.  The
+  six-face sphere's compact five-chord value is complete; the still-open step
+  is to generalize the local tree-pruning contraction (including the higher
+  topologies) and connect it uniformly to each requested based-cycle
+  marginal.
 
 No new axiom, `sorry`, `native_decide`, classical choice, or noncomputable
 declaration is used.  The checked dependency sets are contained in

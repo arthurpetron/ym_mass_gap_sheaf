@@ -184,6 +184,22 @@ private theorem cutoffOneIntegrandOn_degreeAtMost
           (fun other hother =>
             hfaces other (List.mem_cons_of_mem face hother)))
 
+/-- Every literal cutoff-one slab integrand has block degree bounded by the
+geometric plaquette-incidence count, before multiplication by its heat
+coefficient.  This public form is the pointwise input needed to send an
+individual binary surface through the 116-link-to-five-cycle bridge. -/
+theorem exactCorrectedSlabSpinNetworkIntegrand_cutoffOne_degreeAtMost
+    (block : Nat) (faceLabel : EdgeLabelling)
+    (hlabel : ∀ id, faceLabel id ≤ 1) :
+    QuaternionBlockDegreeAtMost block
+      (exactSlabBlockIncidenceDegree block)
+      (exactCorrectedSlabSpinNetworkIntegrand 1 faceLabel) := by
+  simpa [exactCorrectedSlabSpinNetworkIntegrand,
+    exactSlabBlockIncidenceDegree] using
+    cutoffOneIntegrandOn_degreeAtMost block faceLabel hlabel
+      (boundaryCompleteSlabPlaquettes 1)
+      (fun face hface => hface)
+
 theorem exactCorrectedSlabWeightedIntegrand_cutoffOne_degreeAtMost
     (block : Nat) (w : Q') (faceLabel : EdgeLabelling)
     (hlabel : ∀ id, faceLabel id ≤ 1) :
@@ -192,11 +208,8 @@ theorem exactCorrectedSlabWeightedIntegrand_cutoffOne_degreeAtMost
       (exactCorrectedSlabWeightedIntegrand w 1 faceLabel) := by
   unfold exactCorrectedSlabWeightedIntegrand
   apply QuaternionBlockDegreeAtMost.smul
-  simpa [exactCorrectedSlabSpinNetworkIntegrand,
-    exactSlabBlockIncidenceDegree] using
-    cutoffOneIntegrandOn_degreeAtMost block faceLabel hlabel
-      (boundaryCompleteSlabPlaquettes 1)
-      (fun face hface => hface)
+  exact exactCorrectedSlabSpinNetworkIntegrand_cutoffOne_degreeAtMost
+    block faceLabel hlabel
 
 /-! ## 2. The five incidence counts are at most five -/
 
@@ -370,6 +383,7 @@ theorem cutoffOne_basedCycleFive_order :
 end YMGap.Continuum.BF4ExactCutoffOneTransmittedDegree
 
 #print axioms YMGap.Continuum.BF4ExactCutoffOneTransmittedDegree.bf4TransmittedRawChordIncidenceDegrees_eq
+#print axioms YMGap.Continuum.BF4ExactCutoffOneTransmittedDegree.exactCorrectedSlabSpinNetworkIntegrand_cutoffOne_degreeAtMost
 #print axioms YMGap.Continuum.BF4ExactCutoffOneTransmittedDegree.adaptedVacuumRowResummedPolynomial_cutoffOne_degree_five
 #print axioms YMGap.Continuum.BF4ExactCutoffOneTransmittedDegree.exactVacuumRightConstantCrossMoment_cutoffOne_eq_basedCycleFiveHaar
 #print axioms YMGap.Continuum.BF4ExactCutoffOneTransmittedDegree.exactConstantQuadraticMoment_cutoffOne_eq_basedCycleFiveHaar

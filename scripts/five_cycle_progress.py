@@ -207,6 +207,9 @@ def render_chart(state: dict[str, Any]) -> str:
             f"surface-certificate={evidence.get('lean_surface_certificate', '?')}  "
             f"face-weight={evidence.get('surface_face_weight', '?')}  "
             f"haar-bridge={evidence.get('surface_haar_bridge', '?')}",
+            "finite contraction: "
+            f"qpoly={evidence.get('qpoly_assembly', '?')}  "
+            f"six-face={evidence.get('six_face_sphere', '?')}",
             "legend: [x] complete  [>] active  [ ] pending  [!] blocked",
         ]
     )

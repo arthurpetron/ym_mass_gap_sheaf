@@ -25,7 +25,15 @@ def test_default_chart_tracks_current_milestone() -> None:
     assert "slab-embedding=128/128-closed-complete" in chart
     assert "[>] prove closed-surface sum equals the actual Haar_5 moments (active)" in chart
     assert "face-weight=exact-(2*w^3)^F-kernel-checked" in chart
-    assert "haar-bridge=split-reindex+topological-amplitude+QPoly-assembly-open" in chart
+    assert (
+        "haar-bridge=QPoly-closed+pointwise-116-to-Haar5-closed;"
+        "reindex+fivefold-amplitudes-open" in chart
+    )
+    assert "qpoly=128+2-surface-sums-kernel-checked" in chart
+    assert (
+        "six-face=literal-raw-words+five-chord-Haar-1/16-kernel-checked"
+        in chart
+    )
     assert "WHOLE-PROJECT FORMAL ROADMAP: CURRENT LEAN -> COMPLETE YANG--MILLS PROOF" in chart
     assert "high-level milestones: 2/9 complete" in chart
     assert "[>] active finite campaign: actual BF4 Haar_5 surface bridge" in chart
