@@ -31,6 +31,10 @@ STAGE_ORDER: Final = (
     ("haar5_evaluation", "evaluate the two exact Haar_5 values"),
     ("haar5_comparison", "compare row and constant Haar_5 values"),
     ("centered_balance", "determine exact centered-vacuum balance"),
+    ("lean_surface_certificate", "kernel-check rank-seven surface census and polynomials"),
+    ("slab_surface_embedding", "embed 128 surfaces in literal 72-face / 116-link slab"),
+    ("lean_centered_obstruction", "kernel-check strict centered normalization obstruction"),
+    ("surface_haar_bridge", "prove closed-surface sum equals the actual Haar_5 moments"),
 )
 STATUS_MARKS: Final = {
     "pending": " ",
@@ -124,6 +128,16 @@ def render_chart(state: dict[str, Any]) -> str:
         "        |",
         "        v",
         "exact centered-vacuum balance",
+        "        |",
+        f"        v  {parameters['embedded_surface_count']}/"
+        f"{parameters['closed_surface_count']} surfaces embedded",
+        f"literal slab closure: {parameters['literal_slab_faces']} faces / "
+        f"{parameters['raw_links']} links",
+        f"incidence elimination: rank {parameters['slab_incidence_rank']} / "
+        f"nullity {parameters['binary_cycle_rank']}",
+        "        |",
+        "        v",
+        "constructive surface-sum -> Haar_5 bridge",
         "",
         "STATUS PATH",
     ]
@@ -140,7 +154,11 @@ def render_chart(state: dict[str, Any]) -> str:
             f"rust-cycles={evidence.get('rust_cycle_checks', '?')}",
             "certificate: "
             f"cycle-space={evidence.get('haar5_cycle_space', '?')}  "
+            f"slab-embedding={evidence.get('slab_embedding', '?')}  "
             f"centered-defect={evidence.get('centered_defect', '?')}",
+            "formal frontier: "
+            f"surface-certificate={evidence.get('lean_surface_certificate', '?')}  "
+            f"haar-bridge={evidence.get('surface_haar_bridge', '?')}",
             "legend: [x] complete  [>] active  [ ] pending  [!] blocked",
         ]
     )

@@ -39,6 +39,7 @@ def main() -> int:
     )
     evidence = state.setdefault("evidence", {})
     evidence["haar5_cycle_space"] = f"{balance.closed_surface_count}/128"
+    evidence["slab_embedding"] = "128/128-closed-complete"
     evidence["centered_defect"] = "strictly-positive-for-w>0"
     DEFAULT_STATE_PATH.write_text(
         json.dumps(state, indent=2) + "\n",

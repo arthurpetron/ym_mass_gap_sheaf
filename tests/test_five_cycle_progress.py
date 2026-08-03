@@ -17,17 +17,20 @@ STATE_PATH = Path(__file__).resolve().parents[1] / "docs" / "five-cycle-progress
 
 def test_default_chart_tracks_current_milestone() -> None:
     chart = render_chart(load_state(STATE_PATH))
-    assert "progress: 8/8 stages complete" in chart
+    assert "progress: 11/12 stages complete" in chart
     assert "based cycles [0,4,5,6,10]" in chart
     assert "cycle space 2^7 = 128 closed surfaces" in chart
     assert "[x] determine exact centered-vacuum balance (complete)" in chart
+    assert "128/128 surfaces embedded" in chart
+    assert "slab-embedding=128/128-closed-complete" in chart
+    assert "[>] prove closed-surface sum equals the actual Haar_5 moments (active)" in chart
 
 
 def test_stage_overrides_are_validated_and_rendered() -> None:
     state = deepcopy(load_state(STATE_PATH))
     apply_overrides(state, ["haar5_evaluation=complete", "haar5_comparison=active"])
     chart = render_chart(state)
-    assert "progress: 7/8 stages complete" in chart
+    assert "progress: 10/12 stages complete" in chart
     assert "[x] evaluate the two exact Haar_5 values (complete)" in chart
     assert "[>] compare row and constant Haar_5 values (active)" in chart
 

@@ -34,7 +34,10 @@
       5
     ],
     "binary_cycle_rank": 7,
-    "closed_surface_count": 128
+    "closed_surface_count": 128,
+    "embedded_surface_count": 128,
+    "literal_slab_faces": 72,
+    "slab_incidence_rank": 65
   },
   "stages": {
     "carrier_adaptation": "complete",
@@ -44,7 +47,11 @@
     "cutoff_one_degree": "complete",
     "haar5_evaluation": "complete",
     "haar5_comparison": "complete",
-    "centered_balance": "complete"
+    "centered_balance": "complete",
+    "lean_surface_certificate": "complete",
+    "slab_surface_embedding": "complete",
+    "lean_centered_obstruction": "complete",
+    "surface_haar_bridge": "active"
   },
   "evidence": {
     "lean_bridge_commit": "5a196e5",
@@ -52,6 +59,9 @@
     "axiom_exceptions": 0,
     "rust_cycle_checks": "23/23",
     "haar5_cycle_space": "128/128",
-    "centered_defect": "strictly-positive-for-w>0"
+    "slab_embedding": "128/128-closed-complete",
+    "centered_defect": "strictly-positive-for-w>0",
+    "lean_surface_certificate": "kernel-checked",
+    "surface_haar_bridge": "haar-reindex+topological-amplitude-open"
   }
 }
