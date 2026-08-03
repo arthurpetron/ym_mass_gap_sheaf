@@ -1,0 +1,56 @@
+{
+  "title": "BF4 five-based-cycle Haar campaign",
+  "parameters": {
+    "raw_links": 116,
+    "tree_links": 25,
+    "chords": 23,
+    "unused_cycles": 18,
+    "based_cycles": [
+      0,
+      4,
+      5,
+      6,
+      10
+    ],
+    "raw_blocks": [
+      11,
+      3,
+      6,
+      23,
+      42
+    ],
+    "adapted_blocks": [
+      25,
+      29,
+      30,
+      31,
+      35
+    ],
+    "incidence_degrees": [
+      4,
+      4,
+      4,
+      5,
+      5
+    ],
+    "binary_cycle_rank": 7,
+    "closed_surface_count": 128
+  },
+  "stages": {
+    "carrier_adaptation": "complete",
+    "based_cycle_geometry": "complete",
+    "haar_invariance": "complete",
+    "unused_variable_integration": "complete",
+    "cutoff_one_degree": "complete",
+    "haar5_evaluation": "complete",
+    "haar5_comparison": "complete",
+    "centered_balance": "complete"
+  },
+  "evidence": {
+    "last_commit": "5a196e5",
+    "axiom_exceptions": 0,
+    "rust_cycle_checks": "23/23",
+    "haar5_cycle_space": "128/128",
+    "centered_defect": "strictly-positive-for-w>0"
+  }
+}
