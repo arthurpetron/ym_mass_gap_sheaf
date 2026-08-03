@@ -360,6 +360,20 @@ def partialTranslatedHeadTerm
         (exponentAt term.1 2) (exponentAt term.1 3)))
     [(term.1.drop 4, term.2)]
 
+/-- Reinsert a source term's tail behind an empty four-coordinate head. -/
+def headTailLiftTerm (term : RatTerm) : RatPoly :=
+  [([0, 0, 0, 0] ++ term.1.drop 4, term.2)]
+
+/-- One source term after genuinely substituting the translated quaternion
+for its head coordinates, before any Haar integration. -/
+def translatedHeadTerm
+    (translated : PolyQuaternion) (term : RatTerm) : RatPoly :=
+  polyMul
+    (translatedHeadMonomial translated
+      (exponentAt term.1 0) (exponentAt term.1 1)
+      (exponentAt term.1 2) (exponentAt term.1 3))
+    (headTailLiftTerm term)
+
 /-- Termwise translated-head substitution followed by exact head Haar. -/
 def partialTranslatedHeadPolynomial
     (translated : PolyQuaternion) : RatPoly → RatPoly
@@ -367,6 +381,15 @@ def partialTranslatedHeadPolynomial
   | term :: rest =>
       polyAdd (partialTranslatedHeadTerm translated term)
         (partialTranslatedHeadPolynomial translated rest)
+
+/-- The actual block-count-preserving translated-head substitution on every
+term of a finite polynomial. -/
+def translatedHeadPolynomial
+    (translated : PolyQuaternion) : RatPoly → RatPoly
+  | [] => polyZero
+  | term :: rest =>
+      polyAdd (translatedHeadTerm translated term)
+        (translatedHeadPolynomial translated rest)
 
 theorem translationPolynomialCheck_term
     {check : Nat → Nat → Nat → Nat → Bool}
@@ -771,6 +794,193 @@ private theorem partialTranslatedHeadPolynomial_haar
             hsupport source (List.mem_cons_of_mem term hsource))
           hrestCheck)
 
+private theorem partialTranslatedHeadTerm_supported
+    (blocks : Nat) (hblocks : 0 < blocks)
+    (translated : PolyQuaternion)
+    (htranslated : SupportedPolyQuaternion 2 translated)
+    (term : RatTerm)
+    (hterm : term.1.length ≤ 4 * (blocks + 1)) :
+    SupportedQuaternionBlocks blocks
+      (partialTranslatedHeadTerm translated term) := by
+  apply supported_polyMul
+  · apply supported_weaken_local (by omega : 1 ≤ blocks)
+    exact partialHaarHead_supported
+      (translatedHeadMonomial_supported htranslated
+        (exponentAt term.1 0) (exponentAt term.1 1)
+        (exponentAt term.1 2) (exponentAt term.1 3))
+  · intro source hsource
+    simp only [List.mem_cons, List.not_mem_nil, or_false] at hsource
+    subst source
+    simp only
+    rw [List.length_drop]
+    omega
+
+private theorem partialTranslatedHeadPolynomial_supported
+    (blocks : Nat) (hblocks : 0 < blocks)
+    (translated : PolyQuaternion)
+    (htranslated : SupportedPolyQuaternion 2 translated) :
+    ∀ polynomial : RatPoly,
+      SupportedQuaternionBlocks (blocks + 1) polynomial →
+      SupportedQuaternionBlocks blocks
+        (partialTranslatedHeadPolynomial translated polynomial)
+  | [], _ => supported_polyZero_local blocks
+  | term :: rest, hsupport =>
+      supported_polyAdd_local
+        (partialTranslatedHeadTerm_supported blocks hblocks
+          translated htranslated term
+          (hsupport term List.mem_cons_self))
+        (partialTranslatedHeadPolynomial_supported blocks hblocks
+          translated htranslated rest
+          (fun source hsource =>
+            hsupport source (List.mem_cons_of_mem term hsource)))
+
+private theorem headTailLiftTerm_independent (term : RatTerm) :
+    HeadQuaternionIndependent (headTailLiftTerm term) := by
+  intro source hsource
+  simp only [headTailLiftTerm, List.mem_cons,
+    List.not_mem_nil, or_false] at hsource
+  subst source
+  simp [headQuaternionDegree, exponentAt]
+
+private theorem dropHeadPolynomial_headTailLiftTerm (term : RatTerm) :
+    dropHeadPolynomial (headTailLiftTerm term) =
+      [(term.1.drop 4, term.2)] := by
+  simp [dropHeadPolynomial, headTailLiftTerm]
+
+private theorem translatedHeadTerm_haar_partial
+    (blocks : Nat) (translated : PolyQuaternion) (term : RatTerm) :
+    quaternionHaar (blocks + 1)
+        (translatedHeadTerm translated term) ≈
+      quaternionHaar blocks
+        (partialTranslatedHeadTerm translated term) := by
+  unfold translatedHeadTerm partialTranslatedHeadTerm
+  simpa [dropHeadPolynomial_headTailLiftTerm] using
+    quaternionHaar_polyMul_headIndependent blocks
+      (translatedHeadMonomial translated
+        (exponentAt term.1 0) (exponentAt term.1 1)
+        (exponentAt term.1 2) (exponentAt term.1 3))
+      (headTailLiftTerm term)
+      (headTailLiftTerm_independent term)
+
+private theorem translatedHeadPolynomial_haar_partial
+    (blocks : Nat) (translated : PolyQuaternion) :
+    ∀ polynomial : RatPoly,
+    quaternionHaar (blocks + 1)
+        (translatedHeadPolynomial translated polynomial) ≈
+      quaternionHaar blocks
+        (partialTranslatedHeadPolynomial translated polynomial)
+  | [] => Q'.eqv_refl 0
+  | term :: rest => by
+      change
+        quaternionHaar (blocks + 1)
+            (translatedHeadTerm translated term ++
+              translatedHeadPolynomial translated rest) ≈
+          quaternionHaar blocks
+            (partialTranslatedHeadTerm translated term ++
+              partialTranslatedHeadPolynomial translated rest)
+      refine Q'.eqv_trans _
+        (quaternionHaar (blocks + 1)
+            (translatedHeadTerm translated term) +
+          quaternionHaar (blocks + 1)
+            (translatedHeadPolynomial translated rest)) _
+        (quaternionHaar_append (blocks + 1) _ _) ?_
+      refine Q'.eqv_trans _
+        (quaternionHaar blocks
+            (partialTranslatedHeadTerm translated term) +
+          quaternionHaar blocks
+            (partialTranslatedHeadPolynomial translated rest)) _
+        (Q'.add_eqv_congr'
+          (translatedHeadTerm_haar_partial blocks translated term)
+          (translatedHeadPolynomial_haar_partial blocks translated rest)) ?_
+      exact Q'.eqv_symm (quaternionHaar_append blocks _ _)
+
+private theorem headTailLiftTerm_supported
+    (blocks : Nat) (term : RatTerm)
+    (hterm : term.1.length ≤ 4 * (blocks + 1)) :
+    SupportedQuaternionBlocks (blocks + 1) (headTailLiftTerm term) := by
+  intro source hsource
+  simp only [headTailLiftTerm, List.mem_cons,
+    List.not_mem_nil, or_false] at hsource
+  subst source
+  simp only [List.length_append, List.length_cons, List.length_nil]
+  rw [List.length_drop]
+  omega
+
+private theorem translatedHeadTerm_supported
+    (blocks : Nat) (hblocks : 0 < blocks)
+    (translated : PolyQuaternion)
+    (htranslated : SupportedPolyQuaternion 2 translated)
+    (term : RatTerm)
+    (hterm : term.1.length ≤ 4 * (blocks + 1)) :
+    SupportedQuaternionBlocks (blocks + 1)
+      (translatedHeadTerm translated term) := by
+  apply supported_polyMul
+  · apply supported_weaken_local (by omega : 2 ≤ blocks + 1)
+    exact translatedHeadMonomial_supported htranslated
+      (exponentAt term.1 0) (exponentAt term.1 1)
+      (exponentAt term.1 2) (exponentAt term.1 3)
+  · exact headTailLiftTerm_supported blocks term hterm
+
+private theorem translatedHeadPolynomial_supported
+    (blocks : Nat) (hblocks : 0 < blocks)
+    (translated : PolyQuaternion)
+    (htranslated : SupportedPolyQuaternion 2 translated) :
+    ∀ polynomial : RatPoly,
+      SupportedQuaternionBlocks (blocks + 1) polynomial →
+      SupportedQuaternionBlocks (blocks + 1)
+        (translatedHeadPolynomial translated polynomial)
+  | [], _ => supported_polyZero_local (blocks + 1)
+  | term :: rest, hsupport =>
+      supported_polyAdd_local
+        (translatedHeadTerm_supported blocks hblocks translated htranslated
+          term (hsupport term List.mem_cons_self))
+        (translatedHeadPolynomial_supported blocks hblocks
+          translated htranslated rest
+          (fun source hsource =>
+            hsupport source (List.mem_cons_of_mem term hsource)))
+
+theorem partialLeftTranslatedHeadPolynomial_supported
+    (blocks : Nat) (hblocks : 0 < blocks)
+    (polynomial : RatPoly)
+    (hsupport : SupportedQuaternionBlocks (blocks + 1) polynomial) :
+    SupportedQuaternionBlocks blocks
+      (partialTranslatedHeadPolynomial
+        leftTranslatedHeadQuaternion polynomial) :=
+  partialTranslatedHeadPolynomial_supported blocks hblocks
+    leftTranslatedHeadQuaternion leftTranslatedHeadQuaternion_supported
+    polynomial hsupport
+
+theorem partialRightTranslatedHeadPolynomial_supported
+    (blocks : Nat) (hblocks : 0 < blocks)
+    (polynomial : RatPoly)
+    (hsupport : SupportedQuaternionBlocks (blocks + 1) polynomial) :
+    SupportedQuaternionBlocks blocks
+      (partialTranslatedHeadPolynomial
+        rightTranslatedHeadQuaternion polynomial) :=
+  partialTranslatedHeadPolynomial_supported blocks hblocks
+    rightTranslatedHeadQuaternion rightTranslatedHeadQuaternion_supported
+    polynomial hsupport
+
+theorem leftTranslatedHeadPolynomial_supported
+    (blocks : Nat) (hblocks : 0 < blocks)
+    (polynomial : RatPoly)
+    (hsupport : SupportedQuaternionBlocks (blocks + 1) polynomial) :
+    SupportedQuaternionBlocks (blocks + 1)
+      (translatedHeadPolynomial leftTranslatedHeadQuaternion polynomial) :=
+  translatedHeadPolynomial_supported blocks hblocks
+    leftTranslatedHeadQuaternion leftTranslatedHeadQuaternion_supported
+    polynomial hsupport
+
+theorem rightTranslatedHeadPolynomial_supported
+    (blocks : Nat) (hblocks : 0 < blocks)
+    (polynomial : RatPoly)
+    (hsupport : SupportedQuaternionBlocks (blocks + 1) polynomial) :
+    SupportedQuaternionBlocks (blocks + 1)
+      (translatedHeadPolynomial rightTranslatedHeadQuaternion polynomial) :=
+  translatedHeadPolynomial_supported blocks hblocks
+    rightTranslatedHeadQuaternion rightTranslatedHeadQuaternion_supported
+    polynomial hsupport
+
 /-- **Finite-polynomial constructive left Haar invariance.**  The executable
 scan checks only exponent quadruples that occur in `polynomial`; a successful
 scan transports the entire supported polynomial through the left head
@@ -812,9 +1022,53 @@ theorem rightTranslationPolynomialCheck_haar_sound
         e0 e1 e2 e3 termCheck tail tailSupport)
     polynomial hsupport hcheck
 
+/-- **Block-count-preserving constructive left Haar invariance.**  This is
+the actual translated polynomial, not merely its head integral.  Fubini
+reduces its full Haar value to the certified partial translation above. -/
+theorem leftTranslatedHeadPolynomial_haar_sound
+    (blocks : Nat) (hblocks : 0 < blocks)
+    (polynomial : RatPoly)
+    (hsupport : SupportedQuaternionBlocks (blocks + 1) polynomial)
+    (hcheck :
+      translationPolynomialCheck leftTranslationMomentCheck polynomial =
+        true) :
+    quaternionHaar (blocks + 1)
+        (translatedHeadPolynomial leftTranslatedHeadQuaternion polynomial) ≈
+      quaternionHaar (blocks + 1) polynomial := by
+  exact Q'.eqv_trans _
+    (quaternionHaar blocks
+      (partialTranslatedHeadPolynomial
+        leftTranslatedHeadQuaternion polynomial)) _
+    (translatedHeadPolynomial_haar_partial blocks
+      leftTranslatedHeadQuaternion polynomial)
+    (leftTranslationPolynomialCheck_haar_sound blocks hblocks polynomial
+      hsupport hcheck)
+
+/-- Block-count-preserving right-translation companion. -/
+theorem rightTranslatedHeadPolynomial_haar_sound
+    (blocks : Nat) (hblocks : 0 < blocks)
+    (polynomial : RatPoly)
+    (hsupport : SupportedQuaternionBlocks (blocks + 1) polynomial)
+    (hcheck :
+      translationPolynomialCheck rightTranslationMomentCheck polynomial =
+        true) :
+    quaternionHaar (blocks + 1)
+        (translatedHeadPolynomial rightTranslatedHeadQuaternion polynomial) ≈
+      quaternionHaar (blocks + 1) polynomial := by
+  exact Q'.eqv_trans _
+    (quaternionHaar blocks
+      (partialTranslatedHeadPolynomial
+        rightTranslatedHeadQuaternion polynomial)) _
+    (translatedHeadPolynomial_haar_partial blocks
+      rightTranslatedHeadQuaternion polynomial)
+    (rightTranslationPolynomialCheck_haar_sound blocks hblocks polynomial
+      hsupport hcheck)
+
 end YMGap.Continuum.SU2QuaternionPolynomialHaarTranslation
 
 #print axioms YMGap.Continuum.SU2QuaternionPolynomialHaarTranslation.leftTranslationMomentCheck_haar_sound
 #print axioms YMGap.Continuum.SU2QuaternionPolynomialHaarTranslation.rightTranslationMomentCheck_haar_sound
 #print axioms YMGap.Continuum.SU2QuaternionPolynomialHaarTranslation.leftTranslationPolynomialCheck_haar_sound
 #print axioms YMGap.Continuum.SU2QuaternionPolynomialHaarTranslation.rightTranslationPolynomialCheck_haar_sound
+#print axioms YMGap.Continuum.SU2QuaternionPolynomialHaarTranslation.leftTranslatedHeadPolynomial_haar_sound
+#print axioms YMGap.Continuum.SU2QuaternionPolynomialHaarTranslation.rightTranslatedHeadPolynomial_haar_sound

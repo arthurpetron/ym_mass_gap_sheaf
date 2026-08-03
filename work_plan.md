@@ -18602,3 +18602,44 @@ the certified translation law, then join that equality to this marginal and
 to the existing 116-link resummed centered-vacuum polynomials.  No equality
 between the Milestone-40 raw-link marginal and this based-cycle marginal is
 claimed by Milestone 42.
+
+## 43. Composable selected-pair Haar chain and literal BF4 ledger (2026-08-03)
+
+`SU2QuaternionPolynomialHaarTranslation` now constructs the actual
+block-count-preserving translated polynomial before head integration.  Exact
+Fubini joins that substitution to the earlier executable moment scan, proving
+full left/right Haar invariance on the unchanged carrier.
+
+`SU2QuaternionSelectedHaarTranslation` exposes any two distinct blocks as
+head and multiplier, performs the checked substitution, and restores the
+original order.  Quaternion conjugation is implemented by three exact
+coordinate sign changes, so all four geometric cases are certified:
+
+```text
+a·u,  u·a,  a⁻¹·u,  u·a⁻¹.
+```
+
+`SU2QuaternionSelectedHaarTranslationChain` composes those steps while
+running each finite-polynomial check on the output of all preceding steps.
+It proves exact full-Haar preservation for an arbitrary successful chain and
+also exposes a 25-vertex batch interface for the displayed BF4 tree.
+
+`BF4ExactSpatialTreeGaugeTranslationLedger` instantiates the actual rooted
+geometry rather than a placeholder.  For each of the 23 chord blocks it emits
+the left start-path multipliers and right inverse end-path multipliers that
+form `P(start)·U_c·P(end)⁻¹`.  The resulting literal ledger has 139 pair
+shears.  A decidable theorem checks every index and distinctness condition,
+and a successful successive polynomial scan now gives
+
+```text
+Haar_48(applyBF4TreeGaugeTranslationLedger(P)) = Haar_48(P).
+```
+
+All new load-bearing theorems audit to `[propext, Quot.sound]`; the finite
+ledger-validity theorem needs only `propext`.  The remaining bridge is now a
+specific syntactic identification: prove that applying this ledger to each
+raw chord coordinate is prefix-equivalent to the already defined
+`assignedBasedCycleHolonomy`, then discharge the executable scans for the
+concrete cutoff polynomials and compose with the exact 25+18 integration.
+No raw-link/based-cycle marginal equality is claimed until that
+identification and those scans are closed.

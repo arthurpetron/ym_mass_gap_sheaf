@@ -751,6 +751,27 @@ polynomial.  The raw-link-to-adapted-carrier triangular substitution is still
 the open composition step; no raw five-link/based-cycle marginal equality is
 claimed yet.
 
+`SU2QuaternionSelectedHaarTranslation` and
+`SU2QuaternionSelectedHaarTranslationChain` now close the compositional Haar
+layer of that substitution.  A selected block and distinct multiplier are
+exposed as blocks zero and one, genuinely substituted by left or right
+quaternion multiplication, and restored without changing the carrier size.
+Three coordinate sign changes provide the inverse-multiplier cases.  A
+successive executable scan then proves full product-Haar invariance for any
+finite chain, including a 25-vertex batch interface.  All direct, inverse,
+single-step, and iterated theorems audit to `[propext, Quot.sound]`.
+
+`BF4ExactSpatialTreeGaugeTranslationLedger` generates the literal chain from
+the certified BF4 root paths.  Across all 23 chords it contains exactly 139
+pair shears and constructively checks that chord blocks `25,...,47` are always
+distinct from tree multipliers `0,...,24`.  For any supported 48-block
+polynomial whose successive scans succeed, applying this concrete ledger
+preserves `Haar_48`.  The remaining seam is no longer an unspecified
+left/right invariance theorem: it is the syntactic proof that the ledger image
+of each chord coordinate is the existing based-cycle polynomial, plus the
+concrete scan discharge.  Until those are proved, no raw five-link/based-cycle
+marginal equality is claimed.
+
 **Per-atom partial progress** (the scorecard docstrings may lag these;
 Milestone 11.0 re-syncs them): (D2) has a sound, non-tight L¹
 inhabitant (`SepLatticeZ4Close.SepLatticeZ4_witness`); (T′) is reduced
