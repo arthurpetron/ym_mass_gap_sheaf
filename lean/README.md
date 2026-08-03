@@ -700,10 +700,21 @@ three literal finite polynomial sums, moves each heat-kernel face weight into
 the signed 116-link polynomial, and packages the complete vacuum row and
 constant quadratic moment as `Haar_116(P_row)` and
 `Haar_116(P_constant)`.  The centered vacuum balance is restated entirely in
-those two explicit polynomial values.  Their evaluation remains open: the
-next bridge must reduce the literal 116-link carrier to the five transmitted
-holonomies (or an equivalent gauge-fixed carrier).  No centered no-go,
-positivity, or local-gluing inhabitant is claimed.
+those two explicit polynomial values.
+
+`BF4ExactPhysicalCenteredVacuumTransmittedMarginal` now closes the exact
+product-Haar reduction to five surviving blocks.  It computes the raw slab
+blocks of the five transmitted tree-gauge chords as `[11,3,6,23,42]`, swaps
+them in canonical transmitted order with tail blocks `111,...,115`, and
+iterates constructive head Fubini over the other 111 blocks.  For every
+supported literal slab polynomial it proves
+`Haar_116(P) = Haar_5(M_transmitted(P))`, proves that the marginal is
+syntactically supported on twenty real coordinates, and applies the result to
+both resummed moments and the complete centered-vacuum expression.  These five
+coordinates are still raw chord-link representatives.  The nonlinear
+vertex-gauge change of variables identifying them with the five existing
+cycle-holonomy coordinates, and the subsequent cutoff-one evaluation, remain
+open.  No centered no-go, positivity, or local-gluing inhabitant is claimed.
 
 **Per-atom partial progress** (the scorecard docstrings may lag these;
 Milestone 11.0 re-syncs them): (D2) has a sound, non-tight L¹

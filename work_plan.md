@@ -18471,3 +18471,46 @@ variance would refute centered same action on the canonical probe; agreement
 would preserve the centered seam and leave the genuine local-gluing estimate
 as the route to the exact `1/16` contraction.  Neither outcome is claimed by
 this milestone.
+
+## 40. Exact transmitted five-block Haar marginal (2026-08-03)
+
+`BF4ExactPhysicalCenteredVacuumTransmittedMarginal` closes the exact Fubini
+half of the proposed 116-link-to-five-holonomy step.  The five transmitted
+tree-gauge chords `{0,4,5,6,10}` have raw blocks
+
+```text
+[11, 3, 6, 23, 42]
+```
+
+in `boundaryCompleteSlabLinks 1`.  An explicit five-transposition involution
+moves those blocks, in that order, to tail blocks `[111,112,113,114,115]`.
+After that exact Haar-preserving reindexing, 111 iterations of the existing
+one-block constructive Fubini operator produce a polynomial supported on five
+quaternion blocks.  The universal theorem is
+
+```text
+SupportedQuaternionBlocks 116 P
+  -> Haar_116(P) = Haar_5(M_transmitted(P)).
+```
+
+Applying it to the two Milestone-39 polynomials gives
+
+```text
+R_exact(w,K) = Haar_5(M_transmitted(P_row(w,K))),
+C_exact(w,K) = Haar_5(M_transmitted(P_constant(w,K))),
+```
+
+and the complete exact centered-vacuum quadratic is rewritten using those two
+fivefold values.  The dependency audit remains exactly
+`[propext, Quot.sound]`.
+
+This is an exact marginalization, not yet the nonlinear vertex-gauge theorem.
+The five surviving variables are the raw link representatives of the chosen
+chords.  Calling them cycle holonomies requires proving Haar preservation for
+the vertex-dependent left/right quaternion transformations that set the 25
+tree links to identity and turn chord links into based cycle products.  The
+existing block-permutation invariance does not prove that statement.  The next
+atom is therefore the explicit tree-gauge change-of-variables bridge from
+`M_transmitted(P)` to the existing five-cycle-holonomy carrier, followed by
+the cutoff-one evaluation of the row and constant marginals.  Neither that
+bridge nor a centered same-action verdict is claimed here.

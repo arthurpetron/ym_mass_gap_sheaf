@@ -191,6 +191,7 @@ YMGap.Continuum.BF4ExactPhysicalCenteredVacuumMomentExpansion = 7cfb8e1dada38838
 YMGap.Continuum.BF4ExactPhysicalCenteredVacuumMomentExpansion.ExactHaarPhysicalPerronCenteredSameActionAt = 506fbb3b6845ef04  (1)
 YMGap.Continuum.BF4ExactPhysicalCenteredVacuumProbe = d4cf0a86044aec3e  (2)
 YMGap.Continuum.BF4ExactPhysicalCenteredVacuumProbe.ExactHaarPhysicalPerronCenteredSameActionAt = 2359aa54619c63a6  (1)
+YMGap.Continuum.BF4ExactPhysicalCenteredVacuumTransmittedMarginal = 69979ed93b891ca4  (5)
 YMGap.Continuum.BF4ExactPhysicalPerronCenteredReroute.ExactHaarPhysicalCenteredLocalGluingAFCertificate = 61b84cd0e132e03f  (1)
 YMGap.Continuum.BF4ExactPhysicalPerronCenteredReroute.ExactHaarPhysicalPerronCenteredSameActionAt = a73295650c104a3f  (3)
 YMGap.Continuum.BF4ExactPhysicalPerronCenteredReroute.ExactHaarPhysicalPerronSameActionAt = 9394bd5c2c1b0ca0  (1)
