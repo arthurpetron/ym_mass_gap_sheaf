@@ -716,6 +716,19 @@ vertex-gauge change of variables identifying them with the five existing
 cycle-holonomy coordinates, and the subsequent cutoff-one evaluation, remain
 open.  No centered no-go, positivity, or local-gluing inhabitant is claimed.
 
+`BF4ExactSpatialTreeGaugeBasedCycles` now supplies the finite geometry behind
+those cycle coordinates.  It enumerates the 26 vertices of the displayed
+25-link rooted tree, gives explicit root paths to every chord endpoint, and
+proves that all 23 words `P(start) · U_chord · P(end)⁻¹` are closed loops.
+Their raw 116-link polynomial holonomies and their tree-gauge specializations
+are defined explicitly.  After tree gauge, each loop is constructively proved
+prefix-equivalent to its indexed quaternion coordinate; the five transmitted
+loops occur in the exact retained order `[0,4,5,6,10]`, and the pre-existing
+five-coordinate monomial projection is proved to use precisely those blocks.
+The nonlinear Haar-preserving change of variables from the raw five-link
+marginal to these based-cycle holonomies remains open, so no equality of those
+two fivefold Haar values is claimed.
+
 **Per-atom partial progress** (the scorecard docstrings may lag these;
 Milestone 11.0 re-syncs them): (D2) has a sound, non-tight L¹
 inhabitant (`SepLatticeZ4Close.SepLatticeZ4_witness`); (T′) is reduced

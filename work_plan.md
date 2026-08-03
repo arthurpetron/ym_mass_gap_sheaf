@@ -18514,3 +18514,41 @@ atom is therefore the explicit tree-gauge change-of-variables bridge from
 `M_transmitted(P)` to the existing five-cycle-holonomy carrier, followed by
 the cutoff-one evaluation of the row and constant marginals.  Neither that
 bridge nor a centered same-action verdict is claimed here.
+
+## 41. Five rooted based-cycle holonomies (2026-08-03)
+
+`BF4ExactSpatialTreeGaugeBasedCycles` closes the finite geometric half of the
+tree-gauge bridge.  The displayed 25-link breadth-first tree now has an
+explicit root, a 26-vertex enumeration, and a literal root path to every
+vertex.  A decidable all-chord certificate proves that the paths to all 46
+chord endpoints are composable, terminate at the claimed endpoint, and use
+only tree links.
+
+Each of the 23 spatial chords is then completed to the closed rooted word
+
+```text
+P(start(c)) · U_c · P(end(c))⁻¹.
+```
+
+The corresponding polynomial holonomy is defined both in the raw 116-link
+carrier and after the displayed tree gauge.  Constructive quaternion
+polynomial algebra proves that every tree-gauge based holonomy is
+prefix-equivalent to its own cycle-coordinate block.  Consequently the five
+transmitted words and raw/tree-gauge polynomial lists are genuine based-cycle
+holonomies, in the exact retained order
+
+```text
+[0, 4, 5, 6, 10].
+```
+
+The existing `retainedFiveMonomial` projection is proved to select precisely
+those twenty real coordinates.  The load-bearing audit remains
+`[propext, Quot.sound]`.
+
+This milestone does not yet transport the Milestone-40 Haar marginal through
+the nonlinear triangular change of variables.  That remaining algebraic seam
+needs constructive left/right quaternion Haar invariance (and its iterated
+product form) for the vertex-dependent substitutions.  Until that theorem is
+proved, the raw five-link marginal is not identified with the five
+based-cycle marginal.  Cutoff-one evaluation and the centered same-action
+verdict therefore remain downstream.
