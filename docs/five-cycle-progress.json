@@ -91,8 +91,8 @@
     "clay_target": "pending"
   },
   "evidence": {
-    "lean_bridge_commit": "5a196e5",
-    "evaluation_commit": "3811d51",
+    "lean_bridge_commit": "6147f21",
+    "evaluation_commit": "de1ce57",
     "axiom_exceptions": 0,
     "rust_cycle_checks": "23/23",
     "haar5_cycle_space": "128/128",
