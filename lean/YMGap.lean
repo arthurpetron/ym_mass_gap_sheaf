@@ -1160,6 +1160,7 @@ import YMGap.Continuum.BF4ExactCutoffOneTransmittedDegree
 import YMGap.Continuum.BF4CutoffOneBinarySurfaceCertificate
 import YMGap.Continuum.BF4CutoffOneBinarySurfaceEmbedding
 import YMGap.Continuum.BF4ExactCutoffOneHaarFiveEvaluation
+import YMGap.Continuum.BF4ExactCutoffOneSurfaceCharacterReindex
 import YMGap.Continuum.BF4ReflectedAllSpinAFRowRelative
 import YMGap.Continuum.BF4ReflectedAllSpinMehlerGramEndpoint
 import YMGap.Continuum.BF4ReflectedAllSpinMehlerGramAFRow

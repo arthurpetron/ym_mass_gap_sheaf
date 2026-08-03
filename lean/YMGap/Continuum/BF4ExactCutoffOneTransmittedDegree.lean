@@ -16,6 +16,7 @@ and the constructive Haar bridge only.  No `Classical.*`, `native_decide`,
 -/
 
 import YMGap.Continuum.BF4ExactSpatialTreeGaugeRawCarrier
+import YMGap.Continuum.SU2QuaternionHaarHeadFubini
 
 namespace YMGap.Continuum.BF4ExactCutoffOneTransmittedDegree
 
@@ -36,7 +37,10 @@ open YMGap.Continuum.FiniteDeterministicKernelPushforward
 open YMGap.Continuum.RingNormaliser
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphActualOperator
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
+open YMGap.Continuum.SU2QuaternionArbitraryHaarBlockReflection
+open YMGap.Continuum.SU2QuaternionArbitraryHaarRadialPositivity
 open YMGap.Continuum.SU2QuaternionPolynomialHaarCarrier
+open YMGap.Continuum.SU2QuaternionHaarHeadFubini
 open YMGap.Continuum.SU2QuaternionSelectedHaarTranslationDegree
 open YMGap.Continuum.SU2QuaternionSolidZonalCharacter
 open YMGap.Continuum.Z4HalfTimeReflectionCrossPlaneLabellings
@@ -125,7 +129,7 @@ private theorem orientedSlabWordFold_blockDegree
           (fun other hother =>
             hentries other (List.mem_cons_of_mem entry hother)))
 
-private theorem correctedSlabPlaquetteScalar_blockDegree
+theorem correctedSlabPlaquetteScalar_blockDegree
     (block : Nat) {face : Z4Plaq}
     (hface : face ∈ boundaryCompleteSlabPlaquettes 1) :
     HasQuaternionBlockDegree block (slabFaceBlockDegree block face)
@@ -136,6 +140,150 @@ private theorem correctedSlabPlaquetteScalar_blockDegree
     (fun entry hentry => hentry)
   simpa [correctedSlabPlaquettePolynomial, slabFaceBlockDegree] using
     hword.scalar
+
+/-! ### Exact cutoff-one homogeneity and odd-link annihilation -/
+
+/-- Exact selected-link degree contributed by a list of cutoff-one faces.
+Unlike the incidence ceiling below, this counts only faces whose label is
+the fundamental label `1`. -/
+def cutoffOneFacesSelectedBlockDegree
+    (block : Nat) (faceLabel : EdgeLabelling) : List Z4Plaq -> Nat
+  | [] => 0
+  | face :: rest =>
+      faceLabel ((boundaryCompleteSlabPlaquettes 1).idxOf face) *
+          slabFaceBlockDegree block face +
+        cutoffOneFacesSelectedBlockDegree block faceLabel rest
+
+def cutoffOneSlabSelectedBlockDegree
+    (block : Nat) (faceLabel : EdgeLabelling) : Nat :=
+  cutoffOneFacesSelectedBlockDegree block faceLabel
+    (boundaryCompleteSlabPlaquettes 1)
+
+private theorem cutoffOneFaceFactor_blockDegree
+    (block : Nat) (faceLabel : EdgeLabelling)
+    (hlabel : forall id, faceLabel id <= 1)
+    {face : Z4Plaq}
+    (hface : face ∈ boundaryCompleteSlabPlaquettes 1) :
+    HasQuaternionBlockDegree block
+      (faceLabel ((boundaryCompleteSlabPlaquettes 1).idxOf face) *
+        slabFaceBlockDegree block face)
+      (correctedSlabPlaquetteSpinFactor 1 faceLabel face) := by
+  let faceId := (boundaryCompleteSlabPlaquettes 1).idxOf face
+  have hspin := hlabel faceId
+  have hcases : faceLabel faceId = 0 ∨ faceLabel faceId = 1 := by omega
+  rcases hcases with hzero | hone
+  · unfold correctedSlabPlaquetteSpinFactor
+    rw [show (boundaryCompleteSlabPlaquettes 1).idxOf face = faceId from rfl,
+      hzero]
+    simpa using hasQuaternionBlockDegree_one block
+  · unfold correctedSlabPlaquetteSpinFactor
+    rw [show (boundaryCompleteSlabPlaquettes 1).idxOf face = faceId from rfl,
+      hone]
+    simpa using
+      (correctedSlabPlaquetteScalar_blockDegree block hface).smul 2
+
+private theorem cutoffOneIntegrandOn_blockDegree
+    (block : Nat) (faceLabel : EdgeLabelling)
+    (hlabel : forall id, faceLabel id <= 1) :
+    forall faces : List Z4Plaq,
+      (forall face, face ∈ faces ->
+        face ∈ boundaryCompleteSlabPlaquettes 1) ->
+      HasQuaternionBlockDegree block
+        (cutoffOneFacesSelectedBlockDegree block faceLabel faces)
+        (faces.foldr
+          (fun face total =>
+            polyMul
+              (correctedSlabPlaquetteSpinFactor 1 faceLabel face)
+              total)
+          polyOne)
+  | [], _ => by
+      simpa [cutoffOneFacesSelectedBlockDegree] using
+        hasQuaternionBlockDegree_one block
+  | face :: rest, hfaces => by
+      simp only [List.foldr, cutoffOneFacesSelectedBlockDegree]
+      exact (cutoffOneFaceFactor_blockDegree block faceLabel hlabel
+          (hfaces face List.mem_cons_self)).mul
+        (cutoffOneIntegrandOn_blockDegree block faceLabel hlabel rest
+          (fun other hother =>
+            hfaces other (List.mem_cons_of_mem face hother)))
+
+/-- At cutoff one, every monomial of the literal 116-link integrand is
+homogeneous in each selected link block, with degree equal to the number of
+selected incident plaquettes. -/
+theorem exactCorrectedSlabSpinNetworkIntegrand_cutoffOne_blockDegree
+    (block : Nat) (faceLabel : EdgeLabelling)
+    (hlabel : forall id, faceLabel id <= 1) :
+    HasQuaternionBlockDegree block
+      (cutoffOneSlabSelectedBlockDegree block faceLabel)
+      (exactCorrectedSlabSpinNetworkIntegrand 1 faceLabel) := by
+  simpa [exactCorrectedSlabSpinNetworkIntegrand,
+    cutoffOneSlabSelectedBlockDegree] using
+    cutoffOneIntegrandOn_blockDegree block faceLabel hlabel
+      (boundaryCompleteSlabPlaquettes 1)
+      (fun face hface => hface)
+
+theorem exactCorrectedSlabWeightedIntegrand_cutoffOne_blockDegree
+    (block : Nat) (w : Q') (faceLabel : EdgeLabelling)
+    (hlabel : forall id, faceLabel id <= 1) :
+    HasQuaternionBlockDegree block
+      (cutoffOneSlabSelectedBlockDegree block faceLabel)
+      (exactCorrectedSlabWeightedIntegrand w 1 faceLabel) := by
+  unfold exactCorrectedSlabWeightedIntegrand
+  exact (exactCorrectedSlabSpinNetworkIntegrand_cutoffOne_blockDegree
+    block faceLabel hlabel).smul _
+
+private theorem headDegree_reindex_selected
+    (monomial : List Nat) (selected : Nat) (hselected : selected < 116) :
+    headQuaternionDegree
+        (reindexQuaternionExponents
+          (headSwapBlockInvolution 116 selected hselected) monomial) =
+      quaternionBlockDegree monomial selected := by
+  unfold headQuaternionDegree quaternionBlockDegree
+  rw [exponentAt_reindexQuaternionExponents,
+    exponentAt_reindexQuaternionExponents,
+    exponentAt_reindexQuaternionExponents,
+    exponentAt_reindexQuaternionExponents]
+  all_goals try omega
+  simp [headSwapBlockInvolution_map_zero]
+
+/-- A supported 116-link polynomial which is homogeneous of odd degree in
+one selected quaternion block has zero normalized product-Haar integral. -/
+theorem quaternionHaar_116_eq_zero_of_odd_blockDegree
+    (block degree : Nat) (hblock : block < 116) (hodd : degree % 2 = 1)
+    (polynomial : RatPoly)
+    (hsupport : SupportedQuaternionBlocks 116 polynomial)
+    (hdegree : HasQuaternionBlockDegree block degree polynomial) :
+    quaternionHaar 116 polynomial ≈ 0 := by
+  let reindexed := reindexQuaternionPolynomial
+    (headSwapBlockInvolution 116 block hblock) polynomial
+  have hheadOdd : HeadQuaternionOdd reindexed := by
+    intro term hterm
+    unfold reindexed reindexQuaternionPolynomial at hterm
+    obtain ⟨source, hsource, htermEq⟩ := List.mem_map.mp hterm
+    rw [← htermEq, headDegree_reindex_selected source.1 block hblock,
+      hdegree source hsource]
+    exact hodd
+  exact Q'.eqv_trans _ _ _
+    (quaternionHaar_eq_partialHaar_selected
+      115 block hblock polynomial hsupport)
+    (quaternionHaar_partialHaarHead_eq_zero_of_odd
+      115 reindexed hheadOdd)
+
+/-- Odd selected-face incidence at any literal slab link kills the exact
+heat-weighted cutoff-one summand. -/
+theorem exactCorrectedSlabWeightedHaar_cutoffOne_eq_zero_of_odd_degree
+    (w : Q') (faceLabel : EdgeLabelling) (block : Nat)
+    (hblock : block < 116)
+    (hlabel : forall id, faceLabel id <= 1)
+    (hodd : cutoffOneSlabSelectedBlockDegree block faceLabel % 2 = 1) :
+    quaternionHaar 116
+        (exactCorrectedSlabWeightedIntegrand w 1 faceLabel) ≈ 0 := by
+  apply quaternionHaar_116_eq_zero_of_odd_blockDegree
+    block (cutoffOneSlabSelectedBlockDegree block faceLabel)
+    hblock hodd
+  · exact exactCorrectedSlabWeightedIntegrand_supported_116 w 1 faceLabel
+  · exact exactCorrectedSlabWeightedIntegrand_cutoffOne_blockDegree
+      block w faceLabel hlabel
 
 private theorem cutoffOneFaceFactor_degreeAtMost
     (block : Nat) (faceLabel : EdgeLabelling)
@@ -384,6 +532,10 @@ end YMGap.Continuum.BF4ExactCutoffOneTransmittedDegree
 
 #print axioms YMGap.Continuum.BF4ExactCutoffOneTransmittedDegree.bf4TransmittedRawChordIncidenceDegrees_eq
 #print axioms YMGap.Continuum.BF4ExactCutoffOneTransmittedDegree.exactCorrectedSlabSpinNetworkIntegrand_cutoffOne_degreeAtMost
+#print axioms YMGap.Continuum.BF4ExactCutoffOneTransmittedDegree.correctedSlabPlaquetteScalar_blockDegree
+#print axioms YMGap.Continuum.BF4ExactCutoffOneTransmittedDegree.exactCorrectedSlabSpinNetworkIntegrand_cutoffOne_blockDegree
+#print axioms YMGap.Continuum.BF4ExactCutoffOneTransmittedDegree.quaternionHaar_116_eq_zero_of_odd_blockDegree
+#print axioms YMGap.Continuum.BF4ExactCutoffOneTransmittedDegree.exactCorrectedSlabWeightedHaar_cutoffOne_eq_zero_of_odd_degree
 #print axioms YMGap.Continuum.BF4ExactCutoffOneTransmittedDegree.adaptedVacuumRowResummedPolynomial_cutoffOne_degree_five
 #print axioms YMGap.Continuum.BF4ExactCutoffOneTransmittedDegree.exactVacuumRightConstantCrossMoment_cutoffOne_eq_basedCycleFiveHaar
 #print axioms YMGap.Continuum.BF4ExactCutoffOneTransmittedDegree.exactConstantQuadraticMoment_cutoffOne_eq_basedCycleFiveHaar

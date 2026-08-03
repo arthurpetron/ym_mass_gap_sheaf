@@ -59,10 +59,10 @@ nine representatives agree with `2^(V-E)`, and their orbit sizes cover all
 and uniform bivalent contraction still have to be kernel-checked in Lean.
 
 `BF4ExactCutoffOneHaarFiveEvaluation` exposes the remaining bridge as the
-uninhabited proposition `CutoffOneBinarySurfaceHaarBridge`.  Conditional on
-that one honest bridge, the existing 116-link-to-five-cycle theorems yield the
-two closed forms, the strict order `R(w) < C(w)`, and the exact positive
-centered numerator `C(w)-R(w)^2` for every `w > 0`.
+proposition `CutoffOneBinarySurfaceHaarBridge`.  Conditional on that one
+honest bridge, the existing 116-link-to-five-cycle theorems yield the two
+closed forms, the strict order `R(w) < C(w)`, and the exact positive centered
+numerator `C(w)-R(w)^2` for every `w > 0`.
 
 The summary bridge is factored into named interfaces:
 
@@ -75,16 +75,22 @@ The summary bridge is factored into named interfaces:
   sums as the checked sparse polynomials, and is now constructed
   unconditionally from the pointwise amplitude interface.
 
+`BF4ExactCutoffOneSurfaceCharacterReindex` now inhabits the first interface.
+It encodes every bounded 72-face labelling as a bit mask, constructively
+extracts an odd physical-link incidence from every nonclosed mask, annihilates
+that summand by selected-block Haar Fubini, and permutes the surviving kernel
+exactly onto the 128 embedded surfaces.  The same proof filters the physical
+vacuum row to its two embedded surfaces.  It does not enumerate the `2^72`
+carrier.
+
 Lean proves that the pointwise amplitude, together with the exact face-factor
 theorem, reduces every dual summand and both relevant finite sums to their
 explicit topological targets.  It also proves that the character reindex and
 finite-sum evaluation compose to the original summary bridge.
 
-The bridge now has two sharply separated mathematical tasks remaining; the
-heat-weight and QPoly-assembly halves are no longer part of either:
+The bridge now has one sharply separated mathematical task remaining; the
+character reindex, heat-weight, and QPoly-assembly halves are closed:
 
-- derive the actual fivefold character expansion as the finite closed-label
-  sum (`CutoffOneCharacterExpansionReindex`);
 - evaluate the 128 pointwise fivefold surface marginals as `2^(V-E)`.  The
   six-face sphere's compact five-chord value and all nine exact orbit
   representatives are complete; the still-open step is to kernel-check the
