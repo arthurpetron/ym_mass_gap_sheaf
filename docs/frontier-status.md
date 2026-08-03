@@ -1,7 +1,7 @@
 # Frontier status
 
-> **Auto-generated** by `scripts/frontier_status.py` on 2026-07-31.
-> Axiom-gate source: `lean/AXIOM_AUDIT.md` hashed baseline (21717 tracked declarations, 2744 namespaces, 0 reviewed exceptions).
+> **Auto-generated** by `scripts/frontier_status.py` on 2026-08-02.
+> Axiom-gate source: `lean/AXIOM_AUDIT.md` hashed baseline (22038 tracked declarations, 2842 namespaces, 0 reviewed exceptions).
 > Guard configuration: **5 protected frontier types**, **0 reviewed allowlist entries**.
 > Read-only report — no Lean source is edited. `GUARDED OPEN` is determined
 > from `YMGapGuard.lean`; field counts are only documentation-marker counts.
@@ -392,11 +392,9 @@ structure ContinuumYMExistence {M : Nat → Type} (μ_inf : ContinuumMeasure M) 
 Every `YMGap/*.lean` NOT reachable (transitively) from `YMGap.lean` — i.e.
 silently skipped by the default `lake build` and therefore un-audited.
 
-Reachable modules parsed from import closure; **70 of 2795** `YMGap/*.lean` files are unreachable from `YMGap.lean`.
+Reachable modules parsed from import closure; **67 of 2966** `YMGap/*.lean` files are unreachable from `YMGap.lean`.
 
 - `lean/YMGap/Continuum/BF4CalibratedCubeSpectralFence.lean`
-- `lean/YMGap/Continuum/BF4CentralLowerCubePositiveRow.lean`
-- `lean/YMGap/Continuum/BF4CentralLowerCubeRowDomination.lean`
 - `lean/YMGap/Continuum/BF4DyadicCubeVacuumCalibration.lean`
 - `lean/YMGap/Continuum/BF4MatchedProfileFactorialCollapsedQuarter.lean`
 - `lean/YMGap/Continuum/CompactDualCutoffOneLocalFaceGramCertificate.lean`
@@ -455,7 +453,6 @@ Reachable modules parsed from import closure; **70 of 2795** `YMGap/*.lean` file
 - `lean/YMGap/Continuum/Z4AdjacentCubeJointConditionalKernel.lean`
 - `lean/YMGap/Continuum/Z4AdjacentCubeSharedFaceRecouplingKernel.lean`
 - `lean/YMGap/Continuum/Z4CubeStretchedSourceCoverageFence.lean`
-- `lean/YMGap/Continuum/Z4FusionPairSingletInjection.lean`
 - `lean/YMGap/Continuum/Z4HalfTimeReflectionAdjacentEvenReachableEndpointCompression.lean`
 - `lean/YMGap/Continuum/Z4OutwardSevenCubeGoodBackgroundSwitching.lean`
 - `lean/YMGap/ModuliAlgebra.lean`

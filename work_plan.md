@@ -18202,3 +18202,91 @@ Thus Milestone 33's grouped node remains a valid optional construction, but
 it is no longer mandatory.  The shortest remaining analytic push is now
 sharper: prove the exact signed/positive same-action resummation and inhabit
 the genuine local stationary gluing/rate data at every matched AF scale.
+
+## 35. Vacuum-diagonal fence for the exact/physical same-action seam (2026-08-02)
+
+The seam isolated in Milestone 34 has now been audited rather than left as a
+putative resummation theorem.  `BF4ExactPhysicalPerronSameActionFence`
+constructs the faithful BF4 code delta at the vacuum and evaluates its two
+quadratics exactly.
+
+On the signed 116-link Haar side, finite code-delta collapse reduces the
+quadratic to the literal vacuum--vacuum kernel entry.  The all-cutoff
+selected-face Peter--Weyl theorem then gives
+
+```text
+Q_exact(delta_vacuum) = 1.
+```
+
+On the normalized positive multiplicity-product side, the same collapse
+reduces the quadratic to the normalized vacuum diagonal.  This diagonal is
+at most the vacuum row marginal.  The explicit six-face lower-cube state has
+strictly positive row marginal for every positive coupling and every
+`K >= 1`, while the vacuum and cube marginals sum to at most one.  Therefore
+
+```text
+Q_physical(delta_vacuum) < 1       (w > 0, K >= 1).
+```
+
+The existing cube-activity calibration makes the separation quantitative.
+For `w >= 8/9`, the vacuum row marginal—and therefore the vacuum diagonal—is
+at most `1/8`.  The same observable consequently proves the uniform lower
+bound
+
+```text
+|Q_exact(delta_vacuum) - Q_physical(delta_vacuum)| >= 7/8
+    (w >= 8/9, K >= 1).
+```
+
+Thus even a small-error comparison to the current positive law is impossible
+in the high-nome AF window; any useful comparison must change normalization,
+observable transport, or positive target representation in a load-bearing
+way.
+
+This lower bound is also installed as an operator-style fence.
+`ExactHaarPhysicalQuadraticL1ErrorAt` measures the quadratic discrepancy by
+`epsilon * ||f||_1^2` on the shared bounded carrier.  The vacuum code delta
+has exact `l1` norm one, so every such identity-on-observables comparison has
+`epsilon >= 7/8` for `w >= 8/9`; in particular
+`no_exactHaarPhysicalQuadraticL1QuarterError` rules out a quarter-error
+adapter.  This prevents the conditional quarter consumers of Milestone 34
+from being revived merely by replacing equality with a superficially small
+uniform error term.
+
+The terminal theorem
+
+```lean
+exactHaarPhysicalPerronSameActionAt_cutoffOne_uninhabited
+```
+
+shows that `ExactHaarPhysicalPerronSameActionAt w hw 1` has no witness at any
+positive coupling.  This is a full-carrier exact theorem, not a numerical
+surrogate or a mismatch of centering conventions.  All nine printed gates use
+only `[propext, Quot.sound]`.
+
+### Corrected dependency graph
+
+```text
+literal signed Haar quadratic  ---- exact equality ----> current positive
+                                                           physical law
+                                IMPOSSIBLE at K=1, w>0
+
+honest alternatives:
+
+  (A) signed Haar  --nontrivial transformed comparison--> physical Perron
+      (the identity-on-observables error is at least 7/8 for w >= 8/9);
+
+  (B) signed Haar  --new exact positive representation--> local stationary
+      gluing / qS contraction;
+
+  (C) retain the grouped exact/reference comparison, but use a viable
+      higher-order/common-Perron centering and the row-summable error budget.
+```
+
+Milestone 34's conditional consumers remain logically correct, but their
+current same-action premise cannot be the load-bearing producer.  The next
+honest finite-scale atom is therefore a quantitative signed-Haar/physical
+comparison on a shared carrier (beginning with the vacuum diagonal defect),
+or an exact positivity-preserving resummation whose target is not the present
+multiplicity-product law.  AF-uniform local gluing remains relevant only after
+one of those corrected bridges is supplied.

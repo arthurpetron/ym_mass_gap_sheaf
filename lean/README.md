@@ -637,16 +637,26 @@ can supply.
 than mandatory.  It proves exactly that zero-marginal filtering preserves
 the normalized full physical OS quadratic, so the full physical carrier and
 the positive-row Perron carrier have the same finite quadratic form.  The
-single remaining signed-to-positive seam is the explicit `Type`-level input
-`ExactHaarPhysicalPerronSameActionAt`.  From it, the existing symmetric
-Perron comparison transfers a quarter bound.  More directly, genuine
+proposed signed-to-positive seam is the explicit `Type`-level input
+`ExactHaarPhysicalPerronSameActionAt`.  Its consumers remain valid: from it,
+the existing symmetric Perron comparison transfers a quarter bound.  More
+directly, genuine
 one-slice stationary density gluing with local rate at most `1/4` transfers
 the already-proved physical centered-row `1/16` estimate to the literal
 exact Haar-network quadratic.  The latter route uses neither a grouped
-spectral eighth nor a row-error eighth nor a carrier-growth payment.  Its
-same-action resummation and AF-uniform local gluing/rate witnesses remain
-open analytic inputs; the bypass consumer itself audits only to
-`[propext, Quot.sound]`.
+spectral eighth nor a row-error eighth nor a carrier-growth payment.
+`BF4ExactPhysicalPerronSameActionFence` now proves, however, that the seam
+itself is uninhabited at cutoff one for every positive coupling.  The vacuum
+code delta has exact-Haar quadratic one, whereas its normalized positive
+physical quadratic is strictly below one because the explicit non-vacuum
+cube row carries positive marginal mass.  Thus exact equality to the current
+multiplicity-product law is not an open resummation theorem; a correct route
+must compare the two actions with nonzero error or construct a different
+positive representation of the signed Haar network.  Quantitatively, for
+`w >= 8/9` the physical vacuum-delta value is at most `1/8`, so its absolute
+quadratic defect from the exact value is at least `7/8`.  Hence a small-error
+adapter to the current law is also excluded in the high-nome AF window.  The
+fence and bypass consumers audit only to `[propext, Quot.sound]`.
 
 **Per-atom partial progress** (the scorecard docstrings may lag these;
 Milestone 11.0 re-syncs them): (D2) has a sound, non-tight L¹
