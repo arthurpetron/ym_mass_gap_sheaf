@@ -18290,3 +18290,63 @@ comparison on a shared carrier (beginning with the vacuum diagonal defect),
 or an exact positivity-preserving resummation whose target is not the present
 multiplicity-product law.  AF-uniform local gluing remains relevant only after
 one of those corrected bridges is supplied.
+
+## 36. Centered exact/physical reroute after the vacuum fence (2026-08-02)
+
+The vacuum-diagonal fence is decisive against equality on the full observable
+space, but its separating code delta is not in the stationary-mean-zero
+subspace used by the contraction theorems.  The fence therefore does not
+imply that the restriction of the two quadratics to that centered subspace is
+different.
+
+`BF4ExactPhysicalPerronCenteredReroute` records the minimal surviving seam as
+
+```lean
+ExactHaarPhysicalPerronCenteredSameActionAt w hw K
+```
+
+whose equality field requires an explicit `CentralPhysicalMeanZero` witness.
+Every full same-action certificate adapts to the centered one.  No converse
+is asserted, and the new structure is deliberately not inhabited.
+
+The existing contraction algebra has been factored through this weaker
+interface.  Both load-bearing consumers require equality only for their
+centered input:
+
+```text
+centered exact/physical equality + symmetric Perron rate <= 1/4
+    -> exact quarter on the physical mean-zero subspace;
+
+centered exact/physical equality + genuine local gluing qS <= 1/4
+    -> exact 1/16 on the physical mean-zero subspace.
+```
+
+The AF-family certificate
+`ExactHaarPhysicalCenteredLocalGluingAFCertificate` retains `Nonempty`
+rowwise one-step kernels and supplies the second implication at every matched
+scale without demanding the already-refuted equality on constants or vacuum
+point observables.
+
+### Corrected dependency graph
+
+```text
+full same action ------------------------------------------ REFUTED
+      |
+      | (logical adapter only)
+      v
+centered same action -------------------------------------- OPEN
+      |
+      +---------------------------+
+      |                           |
+      v                           v
+symmetric Perron quarter      local stationary gluing qS <= 1/4
+      |                           |
+      v                           v
+exact centered quarter        exact centered 1/16
+```
+
+This reroute narrows the necessary fusion/transport theorem; it does not
+claim that centering removes the signed/positive mismatch.  The next analytic
+producer is an inhabitant of centered same action, or a transformed centered
+comparison with an error small enough for one of the two consumers, together
+with genuine AF-uniform local gluing for the direct sixteenth route.

@@ -658,6 +658,19 @@ quadratic defect from the exact value is at least `7/8`.  Hence a small-error
 adapter to the current law is also excluded in the high-nome AF window.  The
 fence and bypass consumers audit only to `[propext, Quot.sound]`.
 
+The vacuum delta separating the two full quadratics is not physically
+mean-zero, so that fence does not by itself refute equality on the centered
+consumer space.  `BF4ExactPhysicalPerronCenteredReroute` therefore replaces
+the false all-observable premise by the strictly weaker
+`ExactHaarPhysicalPerronCenteredSameActionAt`.  The old premise maps to this
+one, while both the symmetric-reference quarter and the local-gluing
+sixteenth are proved to need only centered equality.  Its AF wrapper retains
+the genuine rowwise local witnesses without requiring equality on constants
+or vacuum point observables.  This is an interface correction, not a new
+analytic existence claim: neither centered same action nor local gluing is
+inhabited by the module, and the signed/positive fusion problem remains open.
+All centered-reroute gates again audit only to `[propext, Quot.sound]`.
+
 **Per-atom partial progress** (the scorecard docstrings may lag these;
 Milestone 11.0 re-syncs them): (D2) has a sound, non-tight L¹
 inhabitant (`SepLatticeZ4Close.SepLatticeZ4_witness`); (T′) is reduced
