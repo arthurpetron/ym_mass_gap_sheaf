@@ -18672,3 +18672,33 @@ structural proof of quaternion conjugation as an anti-homomorphism (and
 translation composition), or an explicitly batched/cached certificate—not a
 larger unmonitored reduction.  The Milestone-43 conditional Haar theorem and
 the exact 25+18 marginal remain valid and unchanged.
+
+## 45. Rust sparse-normalization pilot for all 23 cycle words (2026-08-03)
+
+`computations/bf4_cycle_normalizer_rust` tests the computational alternative
+without floating point or external crates.  It copies the literal BF4 path
+and chord tables, represents each monomial by packed exponents for the 192
+adapted real coordinates, and accumulates exact signed-integer coefficients
+in sparse hash maps.  For every cycle it compares
+
+```text
+P(start) · U_c · conjugate(P(end))
+```
+
+with the factor order generated algebraically by the left and right-inverse
+shear ledger.  All 23 exact comparisons pass.  The ledger census independently
+reproduces 139 shears.  On the development Mac the complete release run takes
+1.311--1.399 seconds; cycle zero takes under one millisecond, and the deepest
+cycles (131,072 terms in each vector component) take about 0.4--0.45 seconds.
+Four release tests, including the all-cycle equality, pass in 1.19--1.24
+seconds, and strict Clippy reports no warnings.
+
+This is strong evidence that sparse native normalization is practical, but it
+is not added to the Lean axiom gate.  The Rust comparison models the algebraic
+word emitted by the ledger; it does not independently certify every internal
+reindexing step of `translatedAdaptedChordQuaternion`.  Its deterministic CSV
+digests are regression fingerprints, not proof hashes.  A load-bearing bridge
+still requires either a Rust-generated derivation consumed by a small Lean
+checker or, preferably, structural Lean theorems for conjugation reversal and
+selected-translation composition.  No all-23 Lean semantic theorem is claimed
+by this pilot.
