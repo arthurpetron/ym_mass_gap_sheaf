@@ -167,6 +167,25 @@ private theorem listQSum_value_mul_vacuumCodeDelta
     (centralHalfStates_nodup K 0)
     (zeroEdgeLabelling_mem_centralHalfStates K 0)
 
+/-- The same point-evaluation collapse on the strictly positive physical
+carrier.  The physical vacuum row is always retained. -/
+theorem listQSum_value_mul_vacuumCodeDelta_positive
+    {w : Q'} (hw : (0 : Q') ≤ w)
+    (K : Nat) (value : EdgeLabelling → Q') :
+    listQSum
+        (fun state => value state * vacuumCodeDelta K state)
+        (centralPositiveHalfStates w hw K 0) ≈
+      value zeroEdgeLabelling := by
+  unfold vacuumCodeDelta
+  exact listQSum_codeDelta_of_mem_nodup
+    K zeroEdgeLabelling
+    (zeroEdgeLabelling_mem_centralHalfStates K 0)
+    value (centralPositiveHalfStates w hw K 0)
+    (fun item hitem =>
+      (mem_centralPositiveHalfStates_iff.mp hitem).1)
+    (centralPositiveHalfStates_nodup w hw K 0)
+    (zeroEdgeLabelling_mem_centralPositiveHalfStates hw K 0)
+
 private theorem mul3_swap_last (A B C : Q') :
     (A * B) * C ≈ (A * C) * B := by
   exact Q'.eqv_trans _ (A * (B * C)) _
@@ -563,6 +582,7 @@ end YMGap.Continuum.BF4ExactPhysicalPerronSameActionFence
 
 /-! ## Dependency gates -/
 
+#print axioms YMGap.Continuum.BF4ExactPhysicalPerronSameActionFence.listQSum_value_mul_vacuumCodeDelta_positive
 #print axioms YMGap.Continuum.BF4ExactPhysicalPerronSameActionFence.exactSlabAllCutoffQuadratic_vacuumCodeDelta_eqv_one
 #print axioms YMGap.Continuum.BF4ExactPhysicalPerronSameActionFence.coefficientL1_vacuumCodeDelta_eqv_one
 #print axioms YMGap.Continuum.BF4ExactPhysicalPerronSameActionFence.centralNormalizedFull_vacuumCodeDelta_eqv_diagonal

@@ -671,6 +671,16 @@ analytic existence claim: neither centered same action nor local gluing is
 inhabited by the module, and the signed/positive fusion problem remains open.
 All centered-reroute gates again audit only to `[propext, Quot.sound]`.
 
+`BF4ExactPhysicalCenteredVacuumProbe` now makes the first mandatory test of
+that open seam explicit.  It subtracts the normalized physical vacuum row
+marginal from the faithful vacuum code delta and proves that the resulting
+observable has exactly zero physical stationary mean.  Any centered
+same-action certificate must therefore identify the exact and physical
+quadratics on this named probe.  This does not yet decide the seam: doing so
+requires the exact signed-Haar delta--constant cross moment and constant
+moment, which the raw vacuum-diagonal fence did not evaluate.  The probe
+module records that residual without an axiom or hidden inhabitant.
+
 **Per-atom partial progress** (the scorecard docstrings may lag these;
 Milestone 11.0 re-syncs them): (D2) has a sound, non-tight L¹
 inhabitant (`SepLatticeZ4Close.SepLatticeZ4_witness`); (T′) is reduced

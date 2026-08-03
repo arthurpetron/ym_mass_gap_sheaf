@@ -18350,3 +18350,40 @@ claim that centering removes the signed/positive mismatch.  The next analytic
 producer is an inhabitant of centered same action, or a transformed centered
 comparison with an error small enough for one of the two consumers, together
 with genuine AF-uniform local gluing for the direct sixteenth route.
+
+## 37. Canonical centered vacuum probe (2026-08-02)
+
+The centered seam is now tested on a literal observable rather than left as
+an abstract restriction.  `BF4ExactPhysicalCenteredVacuumProbe` first proves
+that the faithful vacuum code delta has physical stationary expectation
+
+```text
+pi_vacuum = centralPhysicalRowMarginal(..., zeroEdgeLabelling).
+```
+
+The exact point-collapse lemma is extended from the full bounded carrier to
+the strictly positive physical carrier; this is valid because the vacuum row
+is always retained.  The observable
+
+```text
+f_vacuum = delta_vacuum - pi_vacuum
+```
+
+then has `CentralPhysicalMeanZero` by an explicit finite-sum calculation and
+normalization of the positive row marginal.  No choice or classical
+selection is used.
+
+Every `ExactHaarPhysicalPerronCenteredSameActionAt` witness must consequently
+satisfy the named necessary equation
+
+```text
+Q_exact(f_vacuum) = Q_physical(f_vacuum).
+```
+
+This result neither inhabits nor refutes centered same action.  Expanding the
+left side introduces the exact signed-Haar delta--constant cross moment and
+constant moment.  Those moments were irrelevant to the raw delta fence and
+are not yet evaluated by the exact normalization lane.  They are the next
+finite targets: compute them at cutoff one, compare the resulting centered
+value with the physical joint variance, and either derive a centered no-go
+theorem or preserve the centered seam with an exact quantified defect.
