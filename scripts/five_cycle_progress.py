@@ -134,7 +134,8 @@ def render_chart(state: dict[str, Any]) -> str:
         [
             "",
             "evidence: "
-            f"commit={evidence.get('last_commit', '?')}  "
+            f"lean-bridge={evidence.get('lean_bridge_commit', '?')}  "
+            f"evaluation={evidence.get('evaluation_commit', '?')}  "
             f"axiom-exceptions={evidence.get('axiom_exceptions', '?')}  "
             f"rust-cycles={evidence.get('rust_cycle_checks', '?')}",
             "certificate: "
