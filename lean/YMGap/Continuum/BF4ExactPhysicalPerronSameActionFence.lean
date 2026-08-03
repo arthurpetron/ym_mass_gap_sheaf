@@ -152,7 +152,9 @@ private theorem listQSum_codeDelta_of_mem_nodup
               hparts.2 htail))
           (Q'.eqv_of_eq (Q'.zero_add' (value selected)))
 
-private theorem listQSum_value_mul_vacuumCodeDelta
+/-- Point evaluation by the faithful vacuum code delta on the full bounded
+carrier. -/
+theorem listQSum_value_mul_vacuumCodeDelta
     (K : Nat) (value : EdgeLabelling → Q') :
     listQSum
         (fun state => value state * vacuumCodeDelta K state)
@@ -195,7 +197,9 @@ private theorem mul3_swap_last (A B C : Q') :
         (Q'.mul_comm_eqv B C))
       (Q'.eqv_symm (Q'.mul_assoc_eqv A C B)))
 
-private theorem finiteJointQuadratic_vacuumCodeDelta
+/-- A quadratic point observable collapses any joint law to its
+vacuum--vacuum entry on the full bounded carrier. -/
+theorem finiteJointQuadratic_vacuumCodeDelta
     (K : Nat) (joint : EdgeLabelling → EdgeLabelling → Q') :
     finiteJointQuadratic
         (centralHalfStates K 0)
@@ -582,7 +586,9 @@ end YMGap.Continuum.BF4ExactPhysicalPerronSameActionFence
 
 /-! ## Dependency gates -/
 
+#print axioms YMGap.Continuum.BF4ExactPhysicalPerronSameActionFence.listQSum_value_mul_vacuumCodeDelta
 #print axioms YMGap.Continuum.BF4ExactPhysicalPerronSameActionFence.listQSum_value_mul_vacuumCodeDelta_positive
+#print axioms YMGap.Continuum.BF4ExactPhysicalPerronSameActionFence.finiteJointQuadratic_vacuumCodeDelta
 #print axioms YMGap.Continuum.BF4ExactPhysicalPerronSameActionFence.exactSlabAllCutoffQuadratic_vacuumCodeDelta_eqv_one
 #print axioms YMGap.Continuum.BF4ExactPhysicalPerronSameActionFence.coefficientL1_vacuumCodeDelta_eqv_one
 #print axioms YMGap.Continuum.BF4ExactPhysicalPerronSameActionFence.centralNormalizedFull_vacuumCodeDelta_eqv_diagonal

@@ -455,7 +455,9 @@ private theorem marginal_mul_divPos_eqv
       (Q'.mul_recipPos_eqv marginal hmarginal))
     (Q'.mul_one_eqv joint)
 
-private theorem marginal_mul_conditional_eqv_joint
+/-- On a retained source row, stationary marginal times the conditional
+kernel reconstructs the normalized joint entry. -/
+theorem marginal_mul_conditional_eqv_joint
     {w : Q'} {hw : (0 : Q') ≤ w}
     {K half : Nat} {source target : EdgeLabelling}
     (hsource :
@@ -1179,6 +1181,7 @@ theorem centralPhysicalMeanZero_markovApply
 #print axioms centralNormalizedPhysicalReflectedKernel_nonnegative
 #print axioms centralNormalizedPhysicalReflectedKernel_symm
 #print axioms centralPhysicalConditionalKernel_row_normalized
+#print axioms marginal_mul_conditional_eqv_joint
 #print axioms centralPhysicalConditionalKernel_detailed_balance
 #print axioms centralPhysicalRowMarginal_total_one
 #print axioms centralPositiveRowMarginal_total_one

@@ -18387,3 +18387,56 @@ are not yet evaluated by the exact normalization lane.  They are the next
 finite targets: compute them at cutoff one, compare the resulting centered
 value with the physical joint variance, and either derive a centered no-go
 theorem or preserve the centered seam with an exact quantified defect.
+
+## 38. Exact centered-vacuum moment ledger (2026-08-02)
+
+`BF4ExactPhysicalCenteredVacuumMomentExpansion` completes the algebraic
+expansion requested at the end of Milestone 37.  It first installs a generic
+finite bilinear form, proves additivity in both observable slots, proves the
+four-term affine self-expansion, and proves slot exchange for symmetric joint
+kernels.
+
+For the literal signed-Haar kernel define
+
+```text
+R_exact(w,K) = sum_y K_exact(vacuum,y),
+C_exact(w,K) = sum_{x,y} K_exact(x,y).
+```
+
+The two delta--constant orientations are equal by the already-proved literal
+kernel symmetry, and the surviving cross moment is exactly `R_exact`.  If
+`p` denotes the positive physical vacuum marginal, the exact centered probe
+therefore has the fully explicit expansion
+
+```text
+Q_exact(delta_vacuum - p)
+  = 1 - p R_exact - p R_exact + p^2 C_exact.
+```
+
+All signs here are represented by exact `Q'` addition and negation; the
+display is conventional notation for the proved rational equivalence.
+
+The positive side closes without a new premise.  Point collapse on the
+positive carrier, marginal-times-conditional reconstruction, row
+normalization, and physical kernel symmetry give
+
+```text
+Q_physical(delta_vacuum - p)
+  = J_physical(vacuum,vacuum) - p^2.
+```
+
+The theorem
+
+```lean
+ExactHaarPhysicalPerronCenteredSameActionAt.vacuumMoment_balance
+```
+
+shows that every centered same-action inhabitant must equate those two named
+expressions.  Hence the abstract centered seam has been reduced, on its first
+mandatory probe, to two signed-Haar scalars: `R_exact` and `C_exact`.
+
+This is not yet a centered no-go theorem.  The next cutoff-one atom is to
+evaluate `R_exact(w,1)` and `C_exact(w,1)` from the literal 116-link Haar
+network.  The existing all-cutoff normalization proves only the
+vacuum--vacuum boundary partition and does not determine either one-sided row
+sum or the complete constant quadratic moment.

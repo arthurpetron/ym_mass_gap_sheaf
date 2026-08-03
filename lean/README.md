@@ -681,6 +681,19 @@ requires the exact signed-Haar delta--constant cross moment and constant
 moment, which the raw vacuum-diagonal fence did not evaluate.  The probe
 module records that residual without an axiom or hidden inhabitant.
 
+`BF4ExactPhysicalCenteredVacuumMomentExpansion` now evaluates the complete
+algebra surrounding that probe.  A generic finite bilinear API expands an
+affine observable and transports kernel symmetry.  On the physical side the
+centered value is exactly the normalized vacuum diagonal minus the square of
+the vacuum marginal.  On the signed-Haar side it is the unit vacuum diagonal
+plus two copies of one vacuum-row cross moment and the marginal-square
+multiple of one constant quadratic moment.  The two cross orientations are
+proved equal by literal slab-kernel symmetry, and the remaining cross moment
+is identified with the complete signed vacuum row sum.  Thus any centered
+same-action witness must solve one explicit scalar moment balance.  Only the
+signed vacuum row sum and signed constant quadratic moment remain unevaluated;
+the module makes no equality or positivity claim about them.
+
 **Per-atom partial progress** (the scorecard docstrings may lag these;
 Milestone 11.0 re-syncs them): (D2) has a sound, non-tight L¹
 inhabitant (`SepLatticeZ4Close.SepLatticeZ4_witness`); (T′) is reduced

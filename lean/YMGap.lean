@@ -1142,6 +1142,7 @@ import YMGap.Continuum.BF4ExactPhysicalPerronReroute
 import YMGap.Continuum.BF4ExactPhysicalPerronSameActionFence
 import YMGap.Continuum.BF4ExactPhysicalPerronCenteredReroute
 import YMGap.Continuum.BF4ExactPhysicalCenteredVacuumProbe
+import YMGap.Continuum.BF4ExactPhysicalCenteredVacuumMomentExpansion
 import YMGap.Continuum.BF4ReflectedAllSpinAFRowRelative
 import YMGap.Continuum.BF4ReflectedAllSpinMehlerGramEndpoint
 import YMGap.Continuum.BF4ReflectedAllSpinMehlerGramAFRow
