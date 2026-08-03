@@ -18552,3 +18552,50 @@ product form) for the vertex-dependent substitutions.  Until that theorem is
 proved, the raw five-link marginal is not identified with the five
 based-cycle marginal.  Cutoff-one evaluation and the centered same-action
 verdict therefore remain downstream.
+
+## 42. Certified quaternion translation and adapted five-cycle marginal (2026-08-03)
+
+`SU2QuaternionPolynomialHaarTranslation` establishes the executable core of
+constructive left/right quaternion Haar invariance.  For each exponent
+quadruple it expands either `a·u` or `u·a`, integrates the head quaternion,
+and checks the exact rational-polynomial identity
+
+```text
+∫_u (a·u)^e du = moment(e) · (|a|²)^((sum e)/2),
+∫_u (u·a)^e du = moment(e) · (|a|²)^((sum e)/2).
+```
+
+The soundness theorem permits an arbitrary supported tail multiplier.  The
+previously proved quaternion sphere ideal removes the generated radius power,
+so a successful finite certificate gives the untranslated head moment times
+the full tail Haar integral.  Both left and right load-bearing theorems audit
+to `[propext, Quot.sound]`.  The interface is deliberately certificate
+parametric: a universal all-degree combinatorial proof, or certificates for
+the concrete finite-cutoff polynomial being transported, are still needed to
+compose the complete 25-step raw-link gauge substitution.
+
+`BF4ExactSpatialTreeCycleFiveHaarMarginal` closes the other two requested
+operations on the adapted boundary carrier.  Its block ledger is
+
+```text
+48 = 25 tree + 18 unused cycles + 5 transmitted cycles.
+```
+
+An explicit five-transposition involution sends adapted blocks
+`[25,29,30,31,35]`, corresponding to based cycles `[0,4,5,6,10]`, to tail
+blocks `[43,44,45,46,47]`.  Iterating exact head Fubini 43 times therefore
+integrates precisely the 25 tree variables and 18 complementary cycle
+variables.  For every polynomial supported on the adapted carrier,
+
+```text
+Haar_48(P) = Haar_5(M_based-cycle(P)),
+```
+
+and the marginal is proved syntactically supported on five quaternion blocks.
+This fivefold based-cycle marginal is exact once the adapted carrier is the
+input.  The remaining frontier is narrowly identified: compose the raw
+48-link polynomial with the 25 triangular vertex-gauge substitutions using
+the certified translation law, then join that equality to this marginal and
+to the existing 116-link resummed centered-vacuum polynomials.  No equality
+between the Milestone-40 raw-link marginal and this based-cycle marginal is
+claimed by Milestone 42.

@@ -729,6 +729,27 @@ The nonlinear Haar-preserving change of variables from the raw five-link
 marginal to these based-cycle holonomies remains open, so no equality of those
 two fivefold Haar values is claimed.
 
+`SU2QuaternionPolynomialHaarTranslation` now supplies the constructive
+one-block algebra needed by that change of variables.  For a left product
+`a·u` or right product `u·a`, an executable rational-polynomial certificate
+identifies the exact head `S³` moment with the untranslated moment times the
+appropriate power of `|a|²`.  The existing sphere ideal then removes that
+power after multiplication by an arbitrary supported tail polynomial.  Thus
+every certified monomial has a kernel-checked left/right Haar-invariance
+theorem; the load-bearing audit is `[propext, Quot.sound]`.  This is a
+certificate-parametric result, not yet a universal all-degree translation
+theorem.
+
+`BF4ExactSpatialTreeCycleFiveHaarMarginal` closes the marginal once the
+adapted 48-block carrier has been reached.  In the literal order “25 tree
+blocks, then 23 based-cycle blocks,” an explicit involution moves cycles
+`[0,4,5,6,10]` to the tail.  Exact Fubini integrates the 25 tree variables
+and all 18 unused cycles, proving
+`Haar_48(P) = Haar_5(M_based-cycle(P))` for every supported adapted-carrier
+polynomial.  The raw-link-to-adapted-carrier triangular substitution is still
+the open composition step; no raw five-link/based-cycle marginal equality is
+claimed yet.
+
 **Per-atom partial progress** (the scorecard docstrings may lag these;
 Milestone 11.0 re-syncs them): (D2) has a sound, non-tight L¹
 inhabitant (`SepLatticeZ4Close.SepLatticeZ4_witness`); (T′) is reduced
