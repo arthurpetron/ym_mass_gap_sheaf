@@ -33,7 +33,11 @@ The constructive Lean lift now has three checked layers.
    preserves the row kernel and that literal even-incidence closure implies
    all 65 echelon constraints.  Triangular reconstruction from the seven free
    coordinates then proves the exact equivalence: a bounded slab mask is
-   closed if and only if it belongs to the 128-mask embedded list.
+   closed if and only if it belongs to the 128-mask embedded list.  The same
+   module now also proves, for every certified compact surface, that the
+   literal cutoff-one heat-kernel face product is exactly
+   `(2 * w^3)^F`, where `F` is its checked face count
+   (`embeddedSurfaceFaceFactor_exact`).
 
 `BF4ExactCutoffOneHaarFiveEvaluation` exposes the remaining bridge as the
 uninhabited proposition `CutoffOneBinarySurfaceHaarBridge`.  Conditional on
@@ -41,12 +45,32 @@ that one honest bridge, the existing 116-link-to-five-cycle theorems yield the
 two closed forms, the strict order `R(w) < C(w)`, and the exact positive
 centered numerator `C(w)-R(w)^2` for every `w > 0`.
 
-The bridge now has one mathematical package remaining:
+The summary bridge is now factored into named residual interfaces:
+
+- `CutoffOneCharacterExpansionReindex` identifies the actual two fivefold
+  Haar expressions with literal corrected-slab dual sums;
+- `CutoffOneClosedSurfaceTopologicalAmplitude` asks pointwise for the signed
+  116-link contraction `2^(V-E)`;
+- `CutoffOneClosedSurfaceSumEvaluation` packages the resulting two finite
+  sums as the checked sparse polynomials.
+
+Lean proves that the pointwise amplitude, together with the exact face-factor
+theorem, reduces every dual summand and both relevant finite sums to their
+explicit topological targets.  It also proves that the character reindex and
+finite-sum evaluation compose to the original summary bridge.
+
+The bridge now has one mathematical package remaining; the heat-weight half
+is no longer part of it:
 
 - derive the actual fivefold character expansion as the finite closed-label
   sum and prove the fundamental closed-surface Haar amplitude `2^(V-E)`.
   The new literal incidence equivalence then supplies the exact 128-surface
   reindexing automatically.
+
+There is also a deliberately visible mechanical Lean task: identify the two
+explicit topological sums with the already checked `QPoly` coefficient lists.
+This is finite polynomial assembly, not an additional physical assumption,
+but it is not marked complete until the corresponding theorem exists.
 
 No new axiom, `sorry`, `native_decide`, classical choice, or noncomputable
 declaration is used.  The checked dependency sets are contained in

@@ -33,13 +33,142 @@ open YMGap.Continuum.BF4ExactCorrectedSlabHaarNetwork
 open YMGap.Continuum.BF4ExactCutoffOneTransmittedDegree
 open YMGap.Continuum.BF4ExactPhysicalCenteredVacuumMomentExpansion
 open YMGap.Continuum.BF4GeometricHaarMehlerProjection
+open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm
 open YMGap.Continuum.SU2QuaternionPolynomialHaarCarrier
 
 local infix:50 " ≈ " => Q'.eqv
 
-/-- Honest residual interface between the fivefold Haar expressions and the
-independently checked binary-surface sum.  Constructing a value of this type
-is precisely the remaining finite geometric argument. -/
+/-! ## 1. Two explicit residual halves of the surface bridge -/
+
+/-- Exact corrected-slab dual sum over a supplied finite compact-mask list.
+Every summand uses the literal 72-face labelling and the normalized Haar
+contraction over all 116 corrected-slab links. -/
+def exactEmbeddedSurfaceDualSum (w : Q') (masks : List Nat) : Q' :=
+  listQSum
+    (fun compactMask =>
+      exactCorrectedSlabDualTerm w 1 1
+        (embeddedSurfaceLabelling compactMask))
+    masks
+
+/-- First residual half: reindex the two actual fivefold Haar expressions as
+finite sums of literal corrected-slab dual terms.  Closure/list completeness
+is already proved in `BF4CutoffOneBinarySurfaceEmbedding`. -/
+structure CutoffOneCharacterExpansionReindex : Prop where
+  vacuumRowReindex : ∀ w : Q',
+    quaternionHaar 5
+        (exactVacuumRowBasedCycleFivePolynomialCutoffOne w) ≈
+      exactEmbeddedSurfaceDualSum w vacuumRowSurfaceMasks
+  constantReindex : ∀ w : Q',
+    quaternionHaar 5
+        (exactConstantMomentBasedCycleFivePolynomialCutoffOne w) ≈
+      exactEmbeddedSurfaceDualSum w binarySurfaceMasks
+
+/-- The predicted normalized Haar contraction of a closed fundamental
+surface.  Its denominator is `2^(E-V)`; the already-proved face factor
+contributes `(2*w^3)^F`. -/
+def surfaceTopologicalHaarAmplitude (compactMask : Nat) : Q' :=
+  Q'.mkPos 1
+    (2 ^ (surfaceEdgeCount compactMask - surfaceVertexCount compactMask))
+    (Nat.two_pow_pos _)
+
+/-- Pointwise second residual half: the signed 116-link Haar contraction of
+each certified closed surface has the expected topological value `2^(V-E)`.
+This deliberately remains uninhabited. -/
+structure CutoffOneClosedSurfaceTopologicalAmplitude : Prop where
+  amplitude : ∀ compactMask : Nat, compactMask ∈ binarySurfaceMasks →
+    exactCorrectedSlabHaarCoefficient 1
+        (embeddedSurfaceLabelling compactMask) ≈
+      surfaceTopologicalHaarAmplitude compactMask
+
+/-- The explicit term left after substituting the proved face factor and the
+predicted topological Haar amplitude. -/
+def topologicalEmbeddedSurfaceDualTerm
+    (w : Q') (compactMask : Nat) : Q' :=
+  (Q'.ofNat 2 * RingNormaliser.qpow w 3) ^
+      surfaceFaceCount compactMask *
+    surfaceTopologicalHaarAmplitude compactMask
+
+def topologicalEmbeddedSurfaceDualSum
+    (w : Q') (masks : List Nat) : Q' :=
+  listQSum (topologicalEmbeddedSurfaceDualTerm w) masks
+
+/-- The two checked vacuum-row masks are members of the complete 128-surface
+family, so the same pointwise amplitude theorem applies to them. -/
+theorem vacuumRowSurfaceMasks_subset_binarySurfaceMasks
+    (compactMask : Nat) (hmem : compactMask ∈ vacuumRowSurfaceMasks) :
+    compactMask ∈ binarySurfaceMasks := by
+  have hsurface : compactMask = 0 ∨ compactMask = 2167232 := by
+    simpa [vacuumRowSurfaceMasks] using hmem
+  rcases hsurface with rfl | rfl <;> decide
+
+/-- The proved `(2*w^3)^F` face factor reduces each exact dual summand to the
+topological target, conditional only on the pointwise Haar amplitude. -/
+theorem exactEmbeddedSurfaceDualTerm_eq_topological
+    (surface : CutoffOneClosedSurfaceTopologicalAmplitude)
+    (w : Q') (compactMask : Nat)
+    (hmem : compactMask ∈ binarySurfaceMasks) :
+    exactCorrectedSlabDualTerm w 1 1
+        (embeddedSurfaceLabelling compactMask) ≈
+      topologicalEmbeddedSurfaceDualTerm w compactMask := by
+  unfold exactCorrectedSlabDualTerm topologicalEmbeddedSurfaceDualTerm
+  exact Q'.eqv_trans _
+    ((Q'.ofNat 2 * RingNormaliser.qpow w 3) ^
+        surfaceFaceCount compactMask *
+      exactCorrectedSlabHaarCoefficient 1
+        (embeddedSurfaceLabelling compactMask)) _
+    (Q'.mul_eqv_congr_right _ _ _
+      (embeddedSurfaceFaceFactor_exact w hmem))
+    (Q'.mul_eqv_congr_left _ _ _
+      (surface.amplitude compactMask hmem))
+
+private theorem listQSum_congr_mem {A : Type} {f g : A → Q'} :
+    ∀ xs : List A, (∀ x, x ∈ xs → f x ≈ g x) →
+      listQSum f xs ≈ listQSum g xs
+  | [], _ => Q'.eqv_refl _
+  | x :: xs, hagree =>
+      Q'.add_eqv_congr'
+        (hagree x List.mem_cons_self)
+        (listQSum_congr_mem xs
+          (fun item hitem =>
+            hagree item (List.mem_cons_of_mem x hitem)))
+
+/-- Pointwise topological amplitudes reduce the full 128-surface exact dual
+sum to the explicit topological sum. -/
+theorem exactEmbeddedConstantSurfaceDualSum_eq_topological
+    (surface : CutoffOneClosedSurfaceTopologicalAmplitude) (w : Q') :
+    exactEmbeddedSurfaceDualSum w binarySurfaceMasks ≈
+      topologicalEmbeddedSurfaceDualSum w binarySurfaceMasks := by
+  apply listQSum_congr_mem
+  intro compactMask hmem
+  exact exactEmbeddedSurfaceDualTerm_eq_topological
+    surface w compactMask hmem
+
+/-- The same reduction holds for the two-term vacuum-row surface list. -/
+theorem exactEmbeddedVacuumRowSurfaceDualSum_eq_topological
+    (surface : CutoffOneClosedSurfaceTopologicalAmplitude) (w : Q') :
+    exactEmbeddedSurfaceDualSum w vacuumRowSurfaceMasks ≈
+      topologicalEmbeddedSurfaceDualSum w vacuumRowSurfaceMasks := by
+  apply listQSum_congr_mem
+  intro compactMask hmem
+  exact exactEmbeddedSurfaceDualTerm_eq_topological
+    surface w compactMask
+    (vacuumRowSurfaceMasks_subset_binarySurfaceMasks compactMask hmem)
+
+/-- Finite-sum form of the second residual half.  In combination with
+`embeddedSurfaceFaceFactor_exact`, its two fields are the exact algebraic
+targets generated by the pointwise topological amplitude. -/
+structure CutoffOneClosedSurfaceSumEvaluation : Prop where
+  vacuumRowEvaluation : ∀ w : Q',
+    exactEmbeddedSurfaceDualSum w vacuumRowSurfaceMasks ≈
+      QPoly.eval vacuumRowSurfaceHeatPolynomial w
+  constantEvaluation : ∀ w : Q',
+    exactEmbeddedSurfaceDualSum w binarySurfaceMasks ≈
+      QPoly.eval constantSurfaceHeatPolynomial w
+
+/-- Summary residual interface between the fivefold Haar expressions and the
+independently checked binary-surface sum.  The theorem below constructs it
+from the two named halves, preventing the remaining work from being described
+as one undifferentiated equality. -/
 structure CutoffOneBinarySurfaceHaarBridge : Prop where
   vacuumRowSurfaceExpansion : ∀ w : Q',
     quaternionHaar 5
@@ -49,6 +178,21 @@ structure CutoffOneBinarySurfaceHaarBridge : Prop where
     quaternionHaar 5
         (exactConstantMomentBasedCycleFivePolynomialCutoffOne w) ≈
       QPoly.eval constantSurfaceHeatPolynomial w
+
+/-- Character-expansion reindexing plus closed-surface sum evaluation implies
+the original summary bridge. -/
+theorem cutoffOneBinarySurfaceHaarBridge_of_parts
+    (reindex : CutoffOneCharacterExpansionReindex)
+    (surface : CutoffOneClosedSurfaceSumEvaluation) :
+    CutoffOneBinarySurfaceHaarBridge where
+  vacuumRowSurfaceExpansion w :=
+    Q'.eqv_trans _ _ _
+      (reindex.vacuumRowReindex w)
+      (surface.vacuumRowEvaluation w)
+  constantSurfaceExpansion w :=
+    Q'.eqv_trans _ _ _
+      (reindex.constantReindex w)
+      (surface.constantEvaluation w)
 
 /-- Under the explicit surface-expansion bridge, the cutoff-one vacuum row is
 exactly `R(w) = 1 + 4w^18`. -/
@@ -205,6 +349,10 @@ theorem cutoffOne_centeredNormalizationDefect_closedForm (w : Q') :
 
 end YMGap.Continuum.BF4ExactCutoffOneHaarFiveEvaluation
 
+#print axioms YMGap.Continuum.BF4ExactCutoffOneHaarFiveEvaluation.cutoffOneBinarySurfaceHaarBridge_of_parts
+#print axioms YMGap.Continuum.BF4ExactCutoffOneHaarFiveEvaluation.exactEmbeddedSurfaceDualTerm_eq_topological
+#print axioms YMGap.Continuum.BF4ExactCutoffOneHaarFiveEvaluation.exactEmbeddedConstantSurfaceDualSum_eq_topological
+#print axioms YMGap.Continuum.BF4ExactCutoffOneHaarFiveEvaluation.exactEmbeddedVacuumRowSurfaceDualSum_eq_topological
 #print axioms YMGap.Continuum.BF4ExactCutoffOneHaarFiveEvaluation.exactVacuumRightConstantCrossMoment_cutoffOne_closedForm
 #print axioms YMGap.Continuum.BF4ExactCutoffOneHaarFiveEvaluation.exactConstantQuadraticMoment_cutoffOne_closedForm
 #print axioms YMGap.Continuum.BF4ExactCutoffOneHaarFiveEvaluation.exactVacuumRow_lt_exactConstant_cutoffOne

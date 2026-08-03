@@ -24,6 +24,15 @@ def test_default_chart_tracks_current_milestone() -> None:
     assert "128/128 surfaces embedded" in chart
     assert "slab-embedding=128/128-closed-complete" in chart
     assert "[>] prove closed-surface sum equals the actual Haar_5 moments (active)" in chart
+    assert "face-weight=exact-(2*w^3)^F-kernel-checked" in chart
+    assert "haar-bridge=split-reindex+topological-amplitude+QPoly-assembly-open" in chart
+    assert "WHOLE-PROJECT FORMAL ROADMAP: CURRENT LEAN -> COMPLETE YANG--MILLS PROOF" in chart
+    assert "high-level milestones: 2/9 complete" in chart
+    assert "[>] active finite campaign: actual BF4 Haar_5 surface bridge" in chart
+    assert "supporting exact evidence; not alone a Clay closure" in chart
+    assert "[ ] CLAY / JAFFE--WITTEN TARGET" in chart
+    assert "complete formal dependency roadmap, not a claim" in chart
+    assert "guarded frontier bundles remain deliberately uninhabited" in chart
 
 
 def test_stage_overrides_are_validated_and_rendered() -> None:
@@ -33,6 +42,14 @@ def test_stage_overrides_are_validated_and_rendered() -> None:
     assert "progress: 10/12 stages complete" in chart
     assert "[x] evaluate the two exact Haar_5 values (complete)" in chart
     assert "[>] compare row and constant Haar_5 values (active)" in chart
+
+
+def test_project_stage_override_updates_full_path() -> None:
+    state = deepcopy(load_state(STATE_PATH))
+    apply_overrides(state, ["haar5_surface_bridge=complete"])
+    chart = render_chart(state)
+    assert "high-level milestones: 3/9 complete" in chart
+    assert "[x] active finite campaign: actual BF4 Haar_5 surface bridge" in chart
 
 
 def test_unknown_stage_is_rejected() -> None:

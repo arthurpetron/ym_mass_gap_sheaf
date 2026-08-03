@@ -37,7 +37,33 @@
     "closed_surface_count": 128,
     "embedded_surface_count": 128,
     "literal_slab_faces": 72,
-    "slab_incidence_rank": 65
+    "slab_incidence_rank": 65,
+    "frontier_bucket1_atoms": [
+      "bond-moved spectral localization / bulk shift",
+      "4D tree-graph and Mayer--Ursell control",
+      "physical fractional-6j pentagon associator",
+      "Core-B finite-s spectral margin and bridge"
+    ],
+    "frontier_bucket2_atoms": [
+      "pinned edge-shift identities",
+      "true dimensionless physical-margin recursion",
+      "bounded Hamiltonian H=-log(T)",
+      "physical O(4) isotropization running"
+    ],
+    "functional_continuum_atoms": [
+      "a->0 Schwinger-functional scaling modulus",
+      "same-action OS0 covariance and OS4 clustering",
+      "complete GNS reconstruction on that functional"
+    ],
+    "uniform_gap_atoms": [
+      "one rational floor below every physical gap",
+      "dimensional transmutation / coupling-uniformity"
+    ],
+    "shared_stack_atoms": [
+      "pin continuum functional, OS data, GNS Hilbert space, and gap",
+      "prove full O(4), gauge generation, asymptotic freedom, nontriviality"
+    ],
+    "final_goal": "constructive 4D quantum Yang--Mills existence with a strictly positive mass gap"
   },
   "stages": {
     "carrier_adaptation": "complete",
@@ -53,6 +79,17 @@
     "lean_centered_obstruction": "complete",
     "surface_haar_bridge": "active"
   },
+  "project_stages": {
+    "constructive_substrate": "complete",
+    "fixed_spacing": "complete",
+    "haar5_surface_bridge": "active",
+    "frontier_bucket1": "pending",
+    "frontier_bucket2": "pending",
+    "functional_continuum": "pending",
+    "uniform_spacing_floor": "pending",
+    "shared_physical_stack": "pending",
+    "clay_target": "pending"
+  },
   "evidence": {
     "lean_bridge_commit": "5a196e5",
     "evaluation_commit": "3811d51",
@@ -62,6 +99,7 @@
     "slab_embedding": "128/128-closed-complete",
     "centered_defect": "strictly-positive-for-w>0",
     "lean_surface_certificate": "kernel-checked",
-    "surface_haar_bridge": "haar-reindex+topological-amplitude-open"
+    "surface_face_weight": "exact-(2*w^3)^F-kernel-checked",
+    "surface_haar_bridge": "split-reindex+topological-amplitude+QPoly-assembly-open"
   }
 }

@@ -24,12 +24,20 @@ import YMGap.Continuum.BF4ExactCorrectedSlabHaarNetwork
 
 namespace YMGap.Continuum.BF4CutoffOneBinarySurfaceEmbedding
 
+open YMGap.Constructive
 open YMGap.Continuum.BF4CutoffOneBinarySurfaceCertificate
 open YMGap.Continuum.BF4ExactCorrectedSlabHaarNetwork
 open YMGap.Continuum.BF4GeometricSpinNetworkMehler
+open YMGap.Continuum.BondMovingStep
+open YMGap.Continuum.SU2CharacterVacuumHaar
+open YMGap.Continuum.SU2FiniteSharedLinkFusionNetwork
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
+open YMGap.Continuum.Z4FiniteBoxHeatKernelPacketState
+open YMGap.Continuum.Z4HalfTimeReflectionFaceReindex
 open YMGap.Continuum.Z4HalfTimeReflectionGeometry
 open YMGap.Continuum.Z4HalfTimeReflectionPhysicalGram
+
+local infix:50 " ≈ " => Q'.eqv
 
 set_option maxRecDepth 200000
 set_option maxHeartbeats 12000000
@@ -657,6 +665,121 @@ theorem slabSurfaceIsClosed_iff_mem_embeddedBinarySurfaceMasks
     exact List.all_eq_true.mp
       embeddedBinarySurfaceMasks_sound.2.2 mask hmem
 
+/-! ## Exact cutoff-one heat weight of an embedded surface -/
+
+/-- Number of selected literal slab faces in one embedded compact mask. -/
+def embeddedSurfaceSelectedFaceCount (compactMask : Nat) : Nat :=
+  ((List.range 72).filter fun faceId =>
+    (embedBinarySurfaceMask compactMask).testBit faceId).length
+
+private theorem qmul_congr {a a' b b' : Q'}
+    (ha : a.eqv a') (hb : b.eqv b') : (a * b).eqv (a' * b') :=
+  Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ _ _ ha)
+    (Q'.mul_eqv_congr_left _ _ _ hb)
+
+private theorem eliminateLinks_congr_on
+    (left right : Nat → Q') : ∀ ids : List Nat,
+    (∀ id, id ∈ ids → left id ≈ right id) →
+      eliminateLinks left ids ≈ eliminateLinks right ids
+  | [], _ => Q'.eqv_refl _
+  | id :: rest, hagree =>
+      qmul_congr
+        (hagree id List.mem_cons_self)
+        (eliminateLinks_congr_on left right rest
+          (fun item hitem =>
+            hagree item (List.mem_cons_of_mem id hitem)))
+
+private theorem eliminateLinks_testBit_pow
+    (mask : Nat) (coefficient : Q') : ∀ ids : List Nat,
+    eliminateLinks
+        (fun id => if mask.testBit id then coefficient else 1)
+        ids ≈
+      coefficient ^
+        (ids.filter (fun id => mask.testBit id)).length
+  | [] => Q'.eqv_refl _
+  | id :: rest => by
+      by_cases hselected : mask.testBit id = true
+      · simp only [eliminateLinks, hselected, if_true,
+          List.filter_cons, List.length_cons, Q'.pow_succ]
+        exact qmul_congr (Q'.eqv_refl _)
+          (eliminateLinks_testBit_pow mask coefficient rest)
+      · simp only [eliminateLinks, hselected, List.filter_cons]
+        exact Q'.eqv_trans _ _ _
+          (Q'.mul_eqv_congr_left 1 _ _
+            (eliminateLinks_testBit_pow mask coefficient rest))
+          (Q'.one_mul_eqv _)
+
+private theorem embeddedSurfaceCoefficientAt
+    (w : Q') (compactMask faceId : Nat) :
+    coeffAt (heatKernelPacket 1 w)
+        (embeddedSurfaceLabelling compactMask faceId) =
+      if (embedBinarySurfaceMask compactMask).testBit faceId
+      then coeffW w 1 else 1 := by
+  unfold embeddedSurfaceLabelling
+  split
+  · rw [coeffAt_heatKernelPacket (hspin := by omega)]
+  · rw [coeffAt_heatKernelPacket (hspin := by omega), coeffW_zero]
+
+/-- The literal 72-face heat-kernel product of any embedded binary mask is
+exactly one fundamental coefficient for each selected face. -/
+theorem embeddedSurfaceFaceFactor_eq_coeffWOne_pow
+    (w : Q') (compactMask : Nat) :
+    slabParametricKPhysicalFaceFactor w 1 1
+        (embeddedSurfaceLabelling compactMask) ≈
+      (coeffW w 1) ^ embeddedSurfaceSelectedFaceCount compactMask := by
+  unfold slabParametricKPhysicalFaceFactor
+  refine Q'.eqv_trans _
+    (eliminateLinks
+      (fun faceId =>
+        if (embedBinarySurfaceMask compactMask).testBit faceId
+        then coeffW w 1 else 1)
+      (slabPhysicalFaceEdges 1)) _ ?_ ?_
+  · apply eliminateLinks_congr_on
+    intro faceId _
+    exact Q'.eqv_of_eq (embeddedSurfaceCoefficientAt w compactMask faceId)
+  · unfold slabPhysicalFaceEdges embeddedSurfaceSelectedFaceCount
+    rw [correctedSlabPlaquettes_extent_one_length]
+    exact eliminateLinks_testBit_pow
+      (embedBinarySurfaceMask compactMask) (coeffW w 1) (List.range 72)
+
+/-- The literal embedding preserves the selected-face count on every member
+of the certified 128-surface family. -/
+theorem embeddedBinarySurfaceMasks_preserve_selected_face_count :
+    binarySurfaceMasks.all (fun mask =>
+      decide (embeddedSurfaceSelectedFaceCount mask =
+        surfaceFaceCount mask)) = true := by
+  decide
+
+theorem embeddedSurfaceSelectedFaceCount_eq_surfaceFaceCount
+    {compactMask : Nat} (hmem : compactMask ∈ binarySurfaceMasks) :
+    embeddedSurfaceSelectedFaceCount compactMask =
+      surfaceFaceCount compactMask := by
+  exact of_decide_eq_true
+    (List.all_eq_true.mp
+      embeddedBinarySurfaceMasks_preserve_selected_face_count
+      compactMask hmem)
+
+private theorem coeffW_one_eq_two_qpow_three (w : Q') :
+    coeffW w 1 = Q'.ofNat 2 * RingNormaliser.qpow w 3 := by
+  rfl
+
+/-- **Closed heat-weight half of the surface bridge.**  For every certified
+closed surface, the exact corrected-slab face factor is
+`(2 * w^3)^F`.  Thus the remaining bridge contains only the finite
+character-expansion reindex and the signed topological Haar amplitude. -/
+theorem embeddedSurfaceFaceFactor_exact
+    (w : Q') {compactMask : Nat}
+    (hmem : compactMask ∈ binarySurfaceMasks) :
+    slabParametricKPhysicalFaceFactor w 1 1
+        (embeddedSurfaceLabelling compactMask) ≈
+      (Q'.ofNat 2 * RingNormaliser.qpow w 3) ^
+        surfaceFaceCount compactMask := by
+  have hfactor :=
+    embeddedSurfaceFaceFactor_eq_coeffWOne_pow w compactMask
+  rw [embeddedSurfaceSelectedFaceCount_eq_surfaceFaceCount hmem,
+    coeffW_one_eq_two_qpow_three] at hfactor
+  exact hfactor
+
 end YMGap.Continuum.BF4CutoffOneBinarySurfaceEmbedding
 
 #print axioms YMGap.Continuum.BF4CutoffOneBinarySurfaceEmbedding.activeHypercubeSlabFaceIds_spec
@@ -670,3 +793,5 @@ end YMGap.Continuum.BF4CutoffOneBinarySurfaceEmbedding
 #print axioms YMGap.Continuum.BF4CutoffOneBinarySurfaceEmbedding.embeddedBinarySurfaceBasis_free_coordinates
 #print axioms YMGap.Continuum.BF4CutoffOneBinarySurfaceEmbedding.slabIncidenceXorEchelon_kernel_unique_of_freeBits
 #print axioms YMGap.Continuum.BF4CutoffOneBinarySurfaceEmbedding.slabSurfaceIsClosed_iff_mem_embeddedBinarySurfaceMasks
+#print axioms YMGap.Continuum.BF4CutoffOneBinarySurfaceEmbedding.embeddedSurfaceFaceFactor_eq_coeffWOne_pow
+#print axioms YMGap.Continuum.BF4CutoffOneBinarySurfaceEmbedding.embeddedSurfaceFaceFactor_exact
