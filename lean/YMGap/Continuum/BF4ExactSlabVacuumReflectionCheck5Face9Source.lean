@@ -1,5 +1,6 @@
 import YMGap.Continuum.BF4ExactSlabVacuumReflectionFiniteCheck
 import YMGap.Continuum.BF4ExactSlabVacuumReflectionCheck5Face9Canonical
+import YMGap.Continuum.BF4ExactSlabVacuumReflectionCheck5Face9Raw
 
 namespace YMGap.Continuum.BF4ExactSlabVacuumReflectionFiniteCheck
 
@@ -13,6 +14,7 @@ theorem faceSlice5_normal9_source :
     canon (fastCompactReflectRaw
       (correctedSlabPlaquettePolynomial 1 (faceSliceEntry 5 9)).scalar) =
         faceSlice5Normal9Canonical := by
+  rw [faceSlice5_normal9_raw]
   decide
 
 end YMGap.Continuum.BF4ExactSlabVacuumReflectionFiniteCheck

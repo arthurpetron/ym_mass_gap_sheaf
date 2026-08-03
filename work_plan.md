@@ -18440,3 +18440,34 @@ evaluate `R_exact(w,1)` and `C_exact(w,1)` from the literal 116-link Haar
 network.  The existing all-cutoff normalization proves only the
 vacuum--vacuum boundary partition and does not determine either one-sided row
 sum or the complete constant quadratic moment.
+
+## 39. Exact centered-vacuum Haar resummation (2026-08-02)
+
+`BF4ExactPhysicalCenteredVacuumHaarResummation` closes the finite Fubini step
+left by Milestone 38.  Product Haar is proved linear over a literal finite
+polynomial sum, then over two and three nested sums, using only exact `Q'`
+arithmetic.  Each exact slab summand is also identified with the 116-link Haar
+value of its heat-kernel weight multiplied into the signed spin-network
+polynomial.
+
+Consequently the two unresolved scalars now have explicit resummed carriers:
+
+```text
+R_exact(w,K) = Haar_116(P_row(w,K)),
+C_exact(w,K) = Haar_116(P_constant(w,K)).
+```
+
+Here `P_row` contains the right-boundary and interface-channel sums, while
+`P_constant` contains both spatial-boundary sums and the interface-channel
+sum.  The centered exact expression and the necessary centered same-action
+balance are both rewritten in terms of these two polynomials.  No sign,
+positivity, or numerical-value claim is introduced.
+
+The next mathematical bridge is now geometric rather than algebraic:
+gauge-fix and resum the literal 116 link variables to the five transmitted
+holonomies (or prove an equivalent exact reduction), then evaluate
+`P_row(w,1)` and `P_constant(w,1)`.  A mismatch with the closed positive
+variance would refute centered same action on the canonical probe; agreement
+would preserve the centered seam and leave the genuine local-gluing estimate
+as the route to the exact `1/16` contraction.  Neither outcome is claimed by
+this milestone.

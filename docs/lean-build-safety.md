@@ -67,3 +67,14 @@ is spooled to disk instead of being retained in Python memory during the Lean
 high-water mark.
 
 Bare `lake build` and `lake env lean` bypass the monitor and are prohibited.
+
+## Bounded certificate decomposition
+
+The cold-cache rebuild also exposed several 64-term reflection checks whose
+single `decide` proof reached Lean's per-worker kernel memory ceiling even
+under safe one-worker execution.  These checks now use the same mathematical
+decision procedure in bounded pieces: a checked literal raw polynomial, two
+independent 32-term source equalities, a reassembly theorem, and a separate
+reflected-target canonical equality.  This is a resource-safety refactor, not
+an oracle: every piece remains kernel checked and its exported gates depend
+only on `propext` and `Quot.sound`.

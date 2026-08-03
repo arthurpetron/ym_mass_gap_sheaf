@@ -694,6 +694,17 @@ same-action witness must solve one explicit scalar moment balance.  Only the
 signed vacuum row sum and signed constant quadratic moment remain unevaluated;
 the module makes no equality or positivity claim about them.
 
+`BF4ExactPhysicalCenteredVacuumHaarResummation` now performs the missing
+finite Fubini step.  It proves that product Haar commutes with one, two, and
+three literal finite polynomial sums, moves each heat-kernel face weight into
+the signed 116-link polynomial, and packages the complete vacuum row and
+constant quadratic moment as `Haar_116(P_row)` and
+`Haar_116(P_constant)`.  The centered vacuum balance is restated entirely in
+those two explicit polynomial values.  Their evaluation remains open: the
+next bridge must reduce the literal 116-link carrier to the five transmitted
+holonomies (or an equivalent gauge-fixed carrier).  No centered no-go,
+positivity, or local-gluing inhabitant is claimed.
+
 **Per-atom partial progress** (the scorecard docstrings may lag these;
 Milestone 11.0 re-syncs them): (D2) has a sound, non-tight L¹
 inhabitant (`SepLatticeZ4Close.SepLatticeZ4_witness`); (T′) is reduced
