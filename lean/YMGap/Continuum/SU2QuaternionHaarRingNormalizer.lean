@@ -194,7 +194,7 @@ theorem rawWeightedSum_canon
 
 /-! ## 2. Exact Haar realization of the arbitrary weight -/
 
-private theorem quaternionHaarRow_ofInt_scale
+theorem quaternionHaarRow_ofInt_scale
     (blocks : Nat) (monomial : List Nat)
     (coefficient : Int) :
     ∀ right : RatPoly,
@@ -314,6 +314,91 @@ theorem quaternionHaar_raw_canon_mul
     (quaternionHaar_polyMul
       blocks (rawToRatPoly polynomial) right)
 
+/-! ## 3. Canonicalization after an arbitrary monomial embedding -/
+
+/-- Interpret the monomial key of a raw integer polynomial through an
+arbitrary dense-monomial embedding.  This permits small sparse keys to drive
+the normalizer while the resulting polynomial still lives on the literal
+quaternion-coordinate carrier. -/
+def mappedRawToRatPoly
+    (embed : List Nat → List Nat) (polynomial : RawPoly) : RatPoly :=
+  polynomial.map fun term => (embed term.1, Q'.ofInt term.2)
+
+private theorem quaternionHaarBilinear_mappedRawToRatPoly
+    (blocks : Nat) (embed : List Nat → List Nat)
+    (right : RatPoly) :
+    ∀ polynomial : RawPoly,
+      quaternionHaarBilinear blocks
+          (mappedRawToRatPoly embed polynomial) right ≈
+        rawWeightedSum
+          (fun key =>
+            quaternionHaarRow blocks
+              (embed key, 1) right)
+          polynomial
+  | [] => Q'.eqv_refl 0
+  | term :: rest => by
+      change
+        quaternionHaarRow blocks
+              (embed term.1, Q'.ofInt term.2) right +
+            quaternionHaarBilinear blocks
+              (mappedRawToRatPoly embed rest) right ≈
+          Q'.ofInt term.2 *
+              quaternionHaarRow blocks
+                (embed term.1, 1) right +
+            rawWeightedSum
+              (fun key =>
+                quaternionHaarRow blocks
+                  (embed key, 1) right)
+              rest
+      exact QPoly.q_add_congr
+        (quaternionHaarRow_ofInt_scale
+          blocks (embed term.1) term.2 right)
+        (quaternionHaarBilinear_mappedRawToRatPoly
+          blocks embed right rest)
+
+/-- Canonicalization of arbitrary compact monomial keys is invisible to
+exact product Haar after those keys are mapped back to dense monomials and
+multiplied by an arbitrary rational polynomial. -/
+theorem quaternionHaar_mapped_raw_canon_mul
+    (blocks : Nat) (embed : List Nat → List Nat)
+    (polynomial : RawPoly) (right : RatPoly) :
+    quaternionHaar blocks
+        (polyMul
+          (mappedRawToRatPoly embed (canon polynomial)) right) ≈
+      quaternionHaar blocks
+        (polyMul
+          (mappedRawToRatPoly embed polynomial) right) := by
+  refine Q'.eqv_trans _
+    (quaternionHaarBilinear blocks
+      (mappedRawToRatPoly embed (canon polynomial)) right) _
+    (quaternionHaar_polyMul
+      blocks (mappedRawToRatPoly embed (canon polynomial))
+      right) ?_
+  refine Q'.eqv_trans _
+    (rawWeightedSum
+      (fun key =>
+        quaternionHaarRow blocks
+          (embed key, 1) right)
+      (canon polynomial)) _
+    (quaternionHaarBilinear_mappedRawToRatPoly
+      blocks embed right (canon polynomial)) ?_
+  refine Q'.eqv_trans _
+    (rawWeightedSum
+      (fun key =>
+        quaternionHaarRow blocks
+          (embed key, 1) right)
+      polynomial) _
+    (rawWeightedSum_canon _ polynomial) ?_
+  refine Q'.eqv_trans _
+    (quaternionHaarBilinear blocks
+      (mappedRawToRatPoly embed polynomial) right) _
+    (Q'.eqv_symm
+      (quaternionHaarBilinear_mappedRawToRatPoly
+        blocks embed right polynomial)) ?_
+  exact Q'.eqv_symm
+    (quaternionHaar_polyMul
+      blocks (mappedRawToRatPoly embed polynomial) right)
+
 /-- A checked equality of reflective normal forms may be consumed under
 Haar, with an arbitrary polynomial multiplier. -/
 theorem quaternionHaar_expr_mul_congr_of_normal_eq
@@ -368,4 +453,5 @@ end YMGap.Continuum.SU2QuaternionHaarRingNormalizer
 
 #print axioms YMGap.Continuum.SU2QuaternionHaarRingNormalizer.rawWeightedSum_canon
 #print axioms YMGap.Continuum.SU2QuaternionHaarRingNormalizer.quaternionHaar_raw_canon_mul
+#print axioms YMGap.Continuum.SU2QuaternionHaarRingNormalizer.quaternionHaar_mapped_raw_canon_mul
 #print axioms YMGap.Continuum.SU2QuaternionHaarRingNormalizer.quaternionHaar_expr_mul_congr_of_normal_eq

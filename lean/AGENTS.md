@@ -25,6 +25,32 @@ Before adding or modifying any Lean file, read:
    `Continuum/ContinuumFrontierScorecard.lean`) — they define which
    obligations are genuinely open (Rule 9).
 
+### Rule 0a: Crash-safe Lean execution
+
+Machine stability is part of proof correctness. The 2026-08-02 full audit ran
+three Lean workers, each permitted 32 GiB, on a 64 GiB Mac. macOS reached 63
+swapfiles and 100% of its compressor segment limit, stopped scheduling
+`watchdogd` for 91 seconds, and kernel-panicked.
+
+Consequently:
+
+1. Never run bare `lake build` or `lake env lean`. Use `make lean-build`, one of
+   the monitored Make targets, or `python3 scripts/safe_lean_build.py`.
+2. The safe launcher uses two workers on the 64 GiB development Mac, preserves
+   a 12 GiB OS reserve, monitors memory pressure/swap/process-tree RSS, and
+   refuses a third worker. Smaller machines default to one worker.
+3. Only one monitored build may exist at a time. Do not bypass its lock, memory
+   checks, or process-group shutdown.
+4. Build the narrowest relevant target before considering a full library
+   build. Full axiom audits are integration gates, not routine substitutes for
+   targeted checking.
+5. If safety telemetry stops a run, allow recovery and resume with `--jobs 1`.
+   Do not weaken the thresholds or immediately repeat the parallel run.
+6. High memory utilization is acceptable. Compressor/swap escalation that can
+   starve macOS is not. Silent output is never evidence that a build is safe.
+
+See `docs/lean-build-safety.md` for commands, thresholds, and the postmortem.
+
 ---
 
 ## Rule 1: No classical axioms in load-bearing theorems
@@ -226,7 +252,9 @@ complete constructive machinery, the established pattern (used by
 
 A change is complete only when:
 
-1. `lake build` succeeds (or fails only on logged `sorry`s).
+1. `make lean-build` (the monitored launcher) succeeds, or the explicitly
+   reported verification boundary is recorded when a safety cutoff prevents a
+   full build. Never bypass the cutoff to satisfy this item.
 2. Every new load-bearing theorem has a passing `#print axioms` check
    (Rule 1).
 3. New quarantined classical uses are in `CLASSICAL_LEDGER.md`

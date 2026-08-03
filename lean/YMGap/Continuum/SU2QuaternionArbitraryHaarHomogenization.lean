@@ -837,6 +837,14 @@ private theorem quaternionRadiusPolynomial_degree
   · exact coordinateSquareMono_blockDegree
       radiusBlock 3 block (by omega)
 
+/-- Public block-degree interface for the quaternion radius polynomial. -/
+theorem quaternionRadiusPolynomial_blockDegree
+    (radiusBlock block : Nat) :
+    ∀ term, term ∈ quaternionRadiusPolynomial radiusBlock →
+      quaternionBlockDegree term.1 block =
+        if block = radiusBlock then 2 else 0 :=
+  quaternionRadiusPolynomial_degree radiusBlock block
+
 private theorem sameQuaternionParity_refl
     (blocks : Nat) (monomial : List Nat) :
     SameQuaternionParity blocks monomial monomial := by

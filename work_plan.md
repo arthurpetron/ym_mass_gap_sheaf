@@ -12904,6 +12904,27 @@ and the complete OS/Wightman and local-field conclusions remain open.
   compressed `T`; otherwise produce a counterexample inside this genuinely
   reachable coupled domain and change the reflection-positive slicing.
 
+## 2026-08-02: watchdog-panic postmortem and monitored Lean launcher
+
+- Root cause: `make lean-audit` launched three concurrent Lean workers on the
+  64 GiB M4 Max after the per-worker ceiling had been raised from 20 GiB to
+  32 GiB. The aggregate allowance was 96 GiB. macOS reached 63 swapfiles and
+  100% of its compressor segment limit, `watchdogd` missed check-ins for 91
+  seconds, and the kernel panicked.
+- Replaced static concurrency assumptions with `scripts/safe_lean_build.py`:
+  two workers by default on hosts with at least 48 GiB, one on smaller hosts,
+  12 GiB OS headroom on the development Mac, live pressure/swap/process-tree
+  RSS monitoring, process-group shutdown, and a single-build lock. Three
+  workers are refused on the 64 GiB machine.
+- Routed every executable repository build path through the launcher:
+  Makefile builds/guards/audits, `lean_axiom_audit.py`,
+  `frontier_status.py --lake`, and `computations/progress_metric.sh`. Audit
+  output is spooled to disk during the memory high-water mark.
+- Added root and Lean agent rules prohibiting bare `lake build` / `lake env
+  lean`, requiring narrow targets first, and requiring a one-worker resume if
+  pressure stops a two-worker run. High-memory work remains supported; unsafe
+  aggregate concurrency is the prohibited condition.
+
 ## 2026-07-16 (later): build-memory triage and full-tree green on the chart-392 wave
 
 - Root cause of the machine-crashing "checks": every check path ran bare
@@ -12922,6 +12943,9 @@ and the complete OS/Wightman and local-field conclusions remain open.
   "excessive memory consumption detected" instead of swap-crashing the
   machine.  Weak args do not invalidate cached artifacts.  Override
   parallelism per run with `make lean-build LEAN_JOBS=8` for light waves.
+  **Superseded 2026-08-02:** that override and three-worker policy are unsafe
+  under the later 32 GiB worker ceiling; the monitored launcher is now the
+  only supported path.
 - Fix (one-line Lean repair): the retuning strengthened
   `lowerSixFullRemainderPayment_production` from `8189 <= k` to `390 <= k`;
   the unchanged consumer `HarmonicLowerSixTailEnvelopeProductionStep` still
@@ -13193,11 +13217,12 @@ rationals and no proofs:
     Rule 5 notes (order-independence of the actual invariants); place the
     nine `formal/sub_papers/` Outline.md files from the delivered tarball;
     delete the stray `.outlines_transfer.b64` if present.
-  - Build hygiene reminders: bare `lake build` spawns 16 workers (no
-    `--jobs` flag in this Lake; `LEAN_NUM_THREADS` is the only cap);
-    certificate modules peak 3-4 GB, the semantic bridge ~15 GB; keep
-    `LEAN_JOBS <= 3` and the 20 GB weak-arg cap; heavy solo decides may
-    use `-M 40960` (the `(1,3)` factor decides at degree ~182 did).
+  - Build hygiene (superseded and enforced after the 2026-08-02 panic): never
+    run bare `lake build` / `lake env lean`. Use
+    `scripts/safe_lean_build.py`; it selects two monitored workers on the
+    64 GiB Mac, refuses a third, and falls back to `--jobs 1` for a
+    pressure-stopped or known-heavy target. Do not override the 32 GiB hard
+    worker cap or telemetry thresholds.
 
 **Core-B s-uniformity scout completed (2026-07-22).**  The mandated
 falsification pass is banked in
@@ -16963,6 +16988,10 @@ contained in `[propext, Quot.sound]`; there is no `sorry`, `Classical.*`,
 
 ### Exact remaining endpoint obstruction
 
+**Closed on 2026-07-31 by the construction recorded in §20 below.**  The
+following paragraph records the obstruction as it stood after the finite
+carrier milestone.
+
 The former three-part finite obstruction has been reduced to one analytic
 limit theorem.  The reflected-target compiler/padding comparison and the
 complete finite rectangular identity are now proved.  What remains is to
@@ -17017,7 +17046,7 @@ Every printed theorem has axiom footprint contained in
 three-parameter net with a quantitative cofinal modulus, not merely a
 diagonal sequence.
 
-### Remaining Mertens identification
+### Mertens identification (closed in §20)
 
 This milestone does **not yet** prove
 
@@ -17046,3 +17075,1130 @@ literal source/target polarization.  The next producer should therefore:
 Only after this finite-dimensional analytic identity is complete should the
 program return to the corrected Wilson/heat-kernel slab gluing and the
 spacing-uniform Perron/AF gates.
+
+## 20. Positive-polynomial Cauchy/Mertens and physical packet endpoint (2026-07-31)
+
+`BF4PositivePolynomialCauchyMertens` completes the analytic identification
+left open in §§18--19.  The proof is constructive throughout and supplies
+explicit cutoffs rather than appealing to an abstract rearrangement theorem.
+
+The completed chain is:
+
+1. `positivePolynomialConv_eq_term` proves the exact finite Cauchy
+   coefficient identity for two rational-polynomial positive Taylor series
+   in `TenHaarCarrierEqv`.
+2. `positivePolynomialCorner_l1_le_of_modulus` and
+   `positivePolynomialRectangleHaar_close_sumPartial` give an explicit
+   coefficient-`L¹` Mertens corner modulus under an arbitrary ten-Haar
+   insertion.
+3. `abstractPacketThreeFactorHaar_close_groupedPartial` applies that theorem
+   twice, collapsing the source/target/cross rectangle to the Taylor partial
+   of `groupedPositiveComponentPolynomial`.
+4. `abstractPacketRectangularLimit_equiv_groupedComponent` identifies the
+   complete three-parameter cofinal net with the located single grouped-action
+   exponential.
+5. The order-one diagonal and empty kinetic word are proved to be carrier
+   units.  Consequently the canonical source and target packet halves equal
+   the raw boundary factors, and `bf4PacketHaar_polarization_raw` proves exact
+   all-cutoff source/target polarization under every grouped kernel insertion.
+6. `groupedPositiveComponent_eqv_compact_add_shift` transports the component
+   exponent to the compact complement plus the scalar action shift.  A second
+   explicit two-factor Mertens argument proves
+   `abstractGroupedComponentQuadratic_equiv_abstractGroupedPositive`, while
+   the scalar-shift partial is identified coefficientwise with
+   `ExpNeg.partialSumAbs` and the compact-complement partial with
+   `compactActionShiftedTaylorQuadraticPartial`.
+7. Physical normalization and polarization then give the endpoint the prior
+   milestones required:
+
+   ```lean
+   bf4PacketPhysicalNormalizedGroupedLimit packet ≈
+     abstractPhysicalNormalizedGroupedPacketLimit packet
+   ```
+
+   The load-bearing theorem is
+   `bf4PacketPhysicalNormalizedGroupedLimit_equiv_abstractPhysicalPacket`;
+   `abstractPacketPhysicalNormalizedRectangularLimit_equiv_abstractPhysicalPacket`
+   states the same result directly for the rectangular net.
+
+The module is imported by `YMGap.lean`.  Its printed gates depend only on
+`[propext, Quot.sound]`; it uses no `sorry`, `Classical.*`, `native_decide`,
+choice, custom axiom, or noncomputable declaration.
+
+### Active next gate
+
+This closes the finite-dimensional all-label Mertens/endpoint obstruction,
+not the Clay problem.  The next physical milestone is to identify this exact
+packet endpoint with the corrected Wilson/heat-kernel slab after conditional
+integration of the eighteen non-transmitted chords, preserving the common
+positive kernel and row masses.  That gluing theorem must then feed the
+projective-Perron/action identification, the spacing-uniform row-relative
+budget `r + ε ≤ 1/4`, and finally the genuine nonperturbative BF4 spacing
+trajectory.  Those remain open and are the active BF4/AF frontier.
+
+## 21. Boundary-indexed compact-reference endpoint (2026-08-01)
+
+The scalar packet endpoint is now exposed as a located source/target kernel.
+`BF4PositivePolynomialCauchyMertens` contains two direct end-to-end
+compositions:
+
+```lean
+abstractPacketPhysicalNormalizedRectangularLimit packet ≈
+  compactPhysicalPacketReflectedLimit packet
+
+bf4PacketPhysicalNormalizedGroupedLimit packet ≈
+  compactPhysicalPacketReflectedLimit packet
+```
+
+These declarations compose the independent-cutoff limit, the two Mertens
+collapses, physical scalar normalization, and the compact negative-action
+identification.  The module then defines the positive and signed two-state
+polarization packets and the boundary-indexed located kernel
+`bf4AllLabelGroupedPacketKernel`.  The theorem
+
+```lean
+bf4AllLabelGroupedPacketKernel_equiv_compactPhysical
+```
+
+identifies it with the correspondingly polarized compact coupled-action
+packet kernel.  Thus the output needed by later rowwise arguments is no
+longer only a scalar quadratic on an unnamed packet; it is a constructive
+kernel indexed by the actual all-spin boundary labellings.  All three new
+printed gates have axiom footprint `[propext, Quot.sound]`.
+
+### Semantic correction to the next edge
+
+The compact coupled-action endpoint is a **reference kernel**, not yet the
+finite Wilson/heat-kernel corrected-slab Gibbs kernel.  Moreover,
+`centralHalfAmplitude` is built from the nonnegative product of local
+invariant-space multiplicities.  The signed exact Haar-network audit in
+`notes/physical-gibbs-semantic-gap.md` proves that this multiplicity product
+cannot be silently identified with the exact dual Wilson coefficient.
+
+Consequently the active edge is not an unconditional equality with
+`centralHalfAmplitude`.  Its theorem-sized order is now:
+
+1. construct the exact scale-dependent corrected-slab Haar-network kernel,
+   retaining the full fusion/intertwiner sum and the five transmitted
+   holonomies;
+2. define its boundary map into the newly exposed all-label packet kernel and
+   prove that both kernels use the same retained carrier;
+3. prove a spacing-dependent physical/reference row-relative or quadratic
+   comparison, with the compact kernel as the ideal term;
+4. feed that estimate into the already-proved terminal-floor/error and
+   projective-Perron consumers to obtain `r + ε ≤ 1/4` and physical
+   contraction; and
+5. only then connect the result to the genuine BF4 block trajectory and AF
+   spacing envelope.
+
+This keeps the eighteen-chord integration and the compact Mehler endpoint,
+but removes the false shortcut from a multiplicity-product surrogate to the
+Wilson Gibbs law.
+
+## 22. Exact finite corrected-slab Haar-network carrier (2026-08-01)
+
+`BF4ExactCorrectedSlabHaarNetwork` now constructs the finite dual object that
+the semantic correction in §21 required.
+
+For every boundary-complete slab extent, the module:
+
+1. assigns one independent polynomial `SU(2)` quaternion to every literal
+   slab link;
+2. multiplies the four oriented link variables around each plaquette in
+   noncommutative Hamilton order;
+3. applies the exact all-spin Chebyshev character selected by the face label;
+4. multiplies all plaquette characters; and
+5. applies exact normalized quaternion product Haar over every slab link.
+
+At extent one Lean proves the closed geometry counts
+
+```text
+72 plaquettes
+116 links
+```
+
+and proves that every oriented incidence of every physical plaquette belongs
+to that link carrier, so the definition never replaces a physical link by the
+identity fallback.  The exact heat-weighted dual term is
+
+```lean
+slabParametricKPhysicalFaceFactor w K extent faceLabel *
+  exactCorrectedSlabHaarCoefficient extent faceLabel
+```
+
+and the all-vacuum term is proved exactly equivalent to `1`.  Finally,
+`exactCorrectedSlabReflectedKernel` sums these signed complete Haar-network
+terms over the bounded fixed-interface labels.  Unlike
+`centralPhysicalReflectedKernel`, its link contraction is not replaced by a
+product of invariant-space dimensions.
+
+The same module also closes the boundary-coordinate part of the next edge.
+It restricts the exact extent-one geometry to the literal 24 lower spatial
+faces, applies the proved 25-tree/23-chord gauge fixing, integrates the
+eighteen non-transmitted chords, and proves by exact definition unfolding
+
+```lean
+exactCorrectedSlabSourceFiveHolonomyBoundary state =
+  geometricBF4WavefunctionOfState state
+
+exactCorrectedSlabTargetFiveHolonomyBoundary state =
+  targetGeometricWavefunction state
+```
+
+Thus both reflected boundary maps land on the exact five-holonomy polynomial
+carrier used by `bf4AllLabelGroupedPacketKernel`; no faithful-character code
+or surrogate boundary feature is inserted.
+
+The first interior decomposition milestone is also explicit.  Lean defines
+the literal lower/fixed/upper face lists, proves that each contains 24 faces,
+and proves constructively that their concatenation is a duplicate-free
+permutation of all 72 corrected-slab plaquettes.  The middle list supplies
+`exactCorrectedSlabInteriorInsertion`, the genuine 24-face cross-plane
+polynomial on the same 116-link carrier; its vacuum value is proved to be the
+polynomial unit.  This removes ambiguity about which cells constitute the
+interior Feynman--Kac insertion, but does not yet perform its non-vacuum Haar
+contraction.
+
+The printed declarations use no axioms beyond `[propext, Quot.sound]` (the two
+finite geometry counts are axiom-free).
+
+### Active residual
+
+The next exact edge is now the full interior gluing on that carrier:
+
+1. factor the complete 72-face Haar-network integrand into the proved source
+   and target boundary polynomials plus the now-explicit 24-face interior
+   insertion, while preserving the normalized product-Haar semantics;
+2. integrate every non-retained interior link/chord and expose the resulting
+   spacing-dependent five-plus-five-holonomy kernel;
+3. compare that exact slab kernel with
+   `bf4AllLabelGroupedPacketKernel` on that shared carrier; and
+4. prove the AF-uniform relative error/Harnack budget needed by the existing
+   Perron consumers.
+
+This closes construction of the finite exact slab coefficient.  It does not
+yet prove reflection positivity of the signed dual kernel, equality with the
+compact reference, an AF-uniform estimate, or a mass gap.
+
+## 23. Exact-slab/grouped-Mehler AF comparison carrier (2026-08-01)
+
+`BF4ExactSlabGroupedAFComparison` now connects the literal signed slab matrix
+to the already-proved weighted perturbation consumer without passing through
+the nonnegative multiplicity-product surrogate.
+
+The semantic correction is built into the types.  A Peter--Weyl coefficient
+matrix may have signed entries, so the new comparison does not call its row
+sum a probability marginal.  Instead Lean constructs the canonical positive
+row scale
+
+```lean
+exactSlabBoundaryHaarDiagonalWeight state =
+  geometricAllSpinHaarKernel state state
+```
+
+and proves it nonnegative for every all-spin state from the exact fivefold
+Haar-square theorem.  `exactSlabPositiveHaarStates K` constructively removes
+only zero-norm labels.  Its vacuum member is proved strictly positive, so the
+carrier is nonempty at every cutoff.
+
+On this carrier the module defines, without arbitrary matrix fields:
+
+1. `exactSlabRawKernel`, definitionally the extent-one
+   `exactCorrectedSlabReflectedKernel` on the 72-face/116-link Haar network;
+2. `normalizedExactSlabKernel`, normalized by its displayed vacuum--vacuum
+   coefficient;
+3. `normalizedGroupedMehlerKernel`, definitionally the positive
+   `bf4MehlerGramNumerator` divided by its proved positive feature-Gram vacuum
+   partition; and
+4. `ExactSlabBoundaryMeanZero` and the corresponding Haar-diagonal weighted
+   square.
+
+The grouped kernel symmetry and positive-semidefiniteness are proved
+unconditionally.  Given exact-slab vacuum positivity/reflection symmetry, a
+grouped mean-zero rate, and the literal row comparison,
+`ExactSlabGroupedRowComparison.exact_quadratic_abs_le` proves
+
+```text
+|Q_exact(f)| <= (r + epsilon) * ||f||^2_Haar-diagonal.
+```
+
+The theorem `rate_add_epsilon_le_quarter` proves exact rationally that the two
+spacing-uniform eighth estimates imply `r(a) + epsilon(a) <= 1/4`, and the
+next theorem gives the uniform quarter quadratic bound.
+
+The epsilon producer has also been reduced below a stored row estimate.
+Lean proves the unfiltered carrier identity
+`(centralHalfStates K 0).length = (K+1)^24` and the corresponding upper bound
+for the positive Haar carrier.  `ExactSlabGroupedEntrywiseEighthData` asks only
+for a pointwise entry envelope and the explicit cube-growth payment
+
+```text
+(K+1)^24 * entryBudget(x)
+  <= (1/8) * exactSlabBoundaryHaarDiagonalWeight(x).
+```
+
+The finite constructive Schur/cardinality theorem derives the complete
+row-relative `1/8` bound.  The AF wrapper pins every occurrence of the weight
+and cutoff to `matchedAllSpinWeight` and `matchedAllSpinCutoff` on the same
+`CubicMarginLaw`/`PhysicalSpacingEnvelope` trajectory.  Every printed theorem
+has axiom footprint contained in `[propext, Quot.sound]`.
+
+### Active analytic residual
+
+This milestone closes the common-carrier and perturbative-consumer plumbing;
+it does **not** inhabit the remaining Yang--Mills estimates.  The shortest
+honest path is now:
+
+1. extend the now-proved all-cutoff reflection symmetry and cutoff-one exact
+   vacuum positivity to every moving cutoff by the even-spin selected-link
+   harmonic identity described in §25;
+2. establish the grouped feature-Gram mean-zero Rayleigh rate `r(a) <= 1/8`
+   on the Haar-diagonal carrier, together with the physical Perron
+   identification of that mean-zero hyperplane;
+3. prove an AF-uniform pointwise exact-slab/Mehler entry envelope whose decay
+   pays the displayed moving-carrier cardinality, yielding
+   `epsilon(a) <= 1/8`; and
+4. instantiate `ExactSlabGroupedAFEntrywiseEighthCertificate`, after which the
+   exact `r(a)+epsilon(a)<=1/4` and quarter quadratic theorems require no
+   further analytic assumptions.
+
+The critical scalar obstruction is therefore no longer hidden inside an old
+"physical row" structure: it is the explicit all-spin entry-decay versus
+Haar-diagonal carrier-growth inequality for the literal exact slab and the
+displayed grouped Feynman--Kac/Mehler matrix.
+
+## 24. Exact slab reflection symmetry and vacuum-tail reduction (2026-08-01)
+
+`SU2QuaternionArbitraryHaarBlockReflection` and
+`BF4ExactSlabVacuumReflection` now close the symmetry portion of the exact
+normalization gate on the literal signed network.
+
+The proof is not a declaration-level symmetry field.  Lean constructs the
+actual involution of all 116 slab-link quaternion blocks by reflecting each
+geometric link and searching the same nodup link list.  It proves normalized
+product Haar invariant under that block permutation and under independent
+sign changes of the three vector coordinates of every time-link quaternion.
+Because block reindexing pads constant monomials, the proof also constructs a
+prefix polynomial equivalence, proves exact product Haar insensitive to that
+padding, and verifies that addition, multiplication, scalar multiplication,
+negation, and the full Chebyshev character recursion respect it.
+
+At the geometric layer, a finite kernel check proves the orientation-correct
+scalar-word covariance for every one of the 72 plaquettes at extent one,
+including the three time-oriented plane types.  This check is then lifted to
+all spins, multiplied over all faces, and reindexed with the proved
+plaquette-list permutation.  The resulting load-bearing theorems are:
+
+```lean
+exactCorrectedSlabHaarCoefficient_reflection
+exactCorrectedSlabDualTerm_supported_reflection
+exactCorrectedSlabReflectedKernel_symmetric
+```
+
+Thus `exactSlabRawKernel` is now unconditionally symmetric for every rational
+coupling and every cutoff; the old `raw_symmetric` field has a concrete
+inhabitant and no restriction to the positive Haar carrier is needed.
+
+Vacuum positivity has been reduced exactly, without assuming signed dual
+terms are individually positive.  The new displayed scalar
+
+```lean
+exactSlabVacuumTail w K
+```
+
+is the sum over the Boolean complement of the cutoff-zero slice inside
+`centralBoundaryChannels K 0`.  Cutoff coherence proves constructively that
+the omitted slice is exactly the singleton all-zero interface channel; no
+decidable equality on the function type `EdgeLabelling` is used.  Lean proves
+
+```text
+exactSlabVacuumPartition(w,K) = 1 + exactSlabVacuumTail(w,K)
+```
+
+up to exact rational equivalence.  Therefore the concrete inequality
+
+```text
+abs(exactSlabVacuumTail(w,K)) < 1
+```
+
+implies strict positivity and, together with the now-proved symmetry,
+constructs `ExactSlabNormalizationData.ofVacuumTailBound`.  At cutoff zero
+the tail is proved definitionally zero, so
+`exactSlabNormalizationData_cutoff_zero` is fully inhabited.
+
+The vacuum geometry now gives a sharper route than estimating that signed
+tail.  `BF4ExactSlabVacuumFixedFaceGeometry` proves, by finite kernel checks,
+that each of the 24 reflection-fixed temporal plaquettes has a distinguished
+lower spatial link which
+
+```text
+lies in that plaquette,
+lies in the literal 116-link Haar carrier,
+is on the lower side, and
+lies in no other reflection-fixed plaquette.
+```
+
+It also constructively extracts a nonzero fixed-face label from every
+non-vacuum member of `centralBoundaryChannels K 0`; the extraction is an
+induction over the finite support and uses no global excluded middle.
+Consequently every non-vacuum vacuum--vacuum summand comes with a canonical
+exposed link on which one-link Peter--Weyl orthogonality can act first.
+
+The normalization consumer has been strengthened accordingly.  The pinned
+proposition
+
+```lean
+ExactSlabVacuumNontrivialTermsVanish w K
+```
+
+mentions the literal `exactCorrectedSlabDualTerm` and no arbitrary kernel.
+Lean proves that it implies
+
+```text
+exactSlabVacuumTail(w,K) = 0,
+exactSlabVacuumPartition(w,K) = 1,
+0 < exactSlabVacuumPartition(w,K),
+```
+
+and directly constructs
+`ExactSlabNormalizationData.ofNontrivialTermsVanish`.  Thus the exact vacuum
+normalization will require no spacing estimate at all if the exposed-link
+orthogonality theorem is completed.
+
+The literal vacuum integrand has now also been reduced before stating that
+analytic theorem.  `BF4ExactSlabVacuumInteriorReduction` reorders the complete
+72-face product by a proved permutation, deletes the 48 lower/upper spatial
+unit factors under normalized product Haar, and identifies the remainder with
+the existing 24-face polynomial
+
+```lean
+exactCorrectedSlabInteriorInsertion boundary
+```
+
+on the same 116 link blocks.  The resulting equality is
+
+```lean
+exactCorrectedSlabVacuumBoundaryHaarCoefficient_eq_interior
+```
+
+and contains neither a cutoff estimate nor a positivity premise.  The final
+analytic atom is now named
+
+```lean
+ExactFixedFaceConditionalHaarOrthogonality
+```
+
+on this exact interior polynomial.  Lean proves that this one proposition
+implies `ExactVacuumNontrivialHaarTermsVanish K` for every cutoff and hence,
+through
+`ExactSlabNormalizationData.ofFixedFaceConditionalHaarOrthogonality`, gives
+the exact symmetric normalization with vacuum partition equal to one for
+every coupling and cutoff.
+
+### Updated active analytic residual
+
+The previous two-field normalization obstruction has split into an exact
+algebraic route and a scalar AF fallback.  The shortest route is now:
+
+1. inhabit `ExactFixedFaceConditionalHaarOrthogonality` by proving, for the
+   repository's arbitrary-product quaternion-polynomial Haar, the all-spin
+   conditional identity
+   `integral_U chi_j(A * U * B) = 0` for `j > 0`, with arbitrary polynomial
+   insertion independent of the exposed block; use the exposed-link theorem
+   to inhabit `ExactSlabVacuumNontrivialTermsVanish` for every `w,K`;
+2. prove the grouped Haar-diagonal mean-zero rate `r(a) <= 1/8` and identify
+   that hyperplane with the physical Perron complement;
+3. prove the exact-slab/grouped-Mehler pointwise entry envelope paying
+   `(K(a)+1)^24`, hence `epsilon(a) <= 1/8`; and
+4. instantiate the existing AF entrywise-eighth certificate and its proved
+   `r(a)+epsilon(a)<=1/4` consumer.
+
+If the all-spin conditional-Haar bridge proves too expensive, the prior
+spacing-uniform estimate
+`abs(exactSlabVacuumTail(w(a),K(a))) < 1` remains a valid fallback.  The
+present milestone proves finite exact symmetry and the exposed-link reduction;
+it does not yet claim the all-spin conditional-Haar identity, continuum
+existence, or the mass gap.
+
+## 25. Exact cutoff-one vacuum positivity and symmetric normalization (2026-08-01)
+
+The first nontrivial exact normalization gate is now fully inhabited.
+`SU2QuaternionHaarHeadFubini` proves a constructive 116-to-115 block Fubini
+identity: any selected quaternion block can be moved to the head, integrated
+exactly, and followed by product Haar on the remaining blocks.
+`BF4ExactSlabVacuumSelectedHaar` applies it to the exposed link selected by
+each nonzero fixed face.
+
+The literal finite geometry is audited rather than assumed.  For every one of
+the 24 fixed faces, Lean proves that its selected block occurs with degree one
+in that face and degree zero in every other fixed face.  Consequently a
+boundary whose selected label is odd makes every monomial odd in the exposed
+quaternion block, and the exact head moment vanishes.  At representation
+cutoff one, every non-vacuum label is the fundamental label one, so Lean
+obtains the unconditional theorem
+
+```lean
+exactVacuumNontrivialHaarTermsVanish_cutoff_one :
+  ExactVacuumNontrivialHaarTermsVanish 1
+```
+
+The vacuum-tail decomposition in `BF4ExactSlabGroupedAFComparison` was also
+made genuinely intuitionistic during this closure.  Its former `List.erase`
+presentation required a nonexistent global `BEq` instance for the infinite
+function type `EdgeLabelling`.  The exact tail is now the Boolean complement
+of `labelWithinB 0 (centralFixedFaceIds 0)`.  The proved cutoff-coherence
+identity identifies the zero slice with `[zeroEdgeLabelling]`, yielding the
+same exact partition theorem without deciding equality of arbitrary
+labellings.
+
+`BF4ExactSlabVacuumCutoffOneNormalization` now proves, for every rational
+heat parameter `w`,
+
+```lean
+exactSlabVacuumPartition_cutoff_one_eqv_one (w) :
+  exactSlabVacuumPartition w 1 ≈ 1
+
+exactSlabVacuumPartition_cutoff_one_pos (w) :
+  0 < exactSlabVacuumPartition w 1
+
+exactSlabRawKernel_cutoff_one_symmetric (w) (left) (right) :
+  exactSlabRawKernel w 1 left right ≈
+    exactSlabRawKernel w 1 right left
+```
+
+and packages the two required fields as the concrete inhabitant
+`exactSlabNormalizationData_cutoff_one w : ExactSlabNormalizationData w 1`.
+The symmetry theorem underneath is stronger: it holds for every cutoff.
+All printed gates depend only on `[propext, Quot.sound]`; there is no `sorry`,
+classical choice, `native_decide`, custom axiom, or noncomputable declaration.
+
+### Next normalization edge
+
+Exact normalization is now closed at `K = 0` and `K = 1`.  For `K >= 2`, odd
+fixed-face labels are already annihilated by the same selected-head theorem.
+The remaining finite-cutoff obstruction is sharply the even-spin identity
+
+```text
+integral_U chi_j(A * U * B) = 0  for every even j > 0,
+```
+
+with the other 115 quaternion blocks retained as polynomial coefficients.
+The repository already contains the unary radius homogenization theorem that
+preserves product Haar under insertion of sphere-radius powers.  The next
+proof should combine that homogenization with the traceless/harmonic
+decomposition of the degree-`j` SU(2) character matrix coefficient, then feed
+the result through
+`fixedFaceConditionalHaarOrthogonality_of_selectedPartial`.  This would give
+`ExactSlabNormalizationData w K` for every `w,K` with no spacing estimate.
+
+After that all-cutoff normalization closure, the independent AF frontier is
+unchanged: prove the grouped Haar-diagonal Perron rate `r(a) <= 1/8` and the
+exact-slab/grouped-Mehler row error `epsilon(a) <= 1/8` on the same physical
+trajectory.  The existing consumer then yields `r(a) + epsilon(a) <= 1/4`.
+No continuum construction or Yang--Mills mass gap is claimed at this finite
+milestone.
+
+## 26. Even-spin selected-Haar analytic layer (2026-08-01)
+
+The first even representation has now been closed on the literal 116-block
+quaternion carrier.  `SU2QuaternionSpinTwoConditionalHaar` proves the exact
+conditional formula
+
+```text
+partialHaarHead(chi_2(A U B C))
+  = |A|^2 |B|^2 |C|^2 - 1
+```
+
+as a rational canonical polynomial identity for all sixteen plaquette
+orientations.  This corrects an important point: before imposing the three
+tail sphere equations the conditional polynomial is not literally zero.
+After the exact tail radius relations are applied, Lean proves
+
+```lean
+exposedSpinTwoCharacter116_mul_headIndependent_zero
+```
+
+for every polynomial multiplier independent of the selected head block.
+Thus all other 115 quaternion blocks remain arbitrary polynomial
+coefficients.  The theorem depends only on `[propext, Quot.sound]`.
+
+The all-spin algebraic part is also complete.  The solid zonal recurrence
+
+```text
+Z_(j+2) = 2 s Z_(j+1) - R Z_j
+```
+
+uses the product `R` of the four quaternion radius squares.  Exact
+arbitrary-insertion sphere descent proves that `R = 1` in the 116-block Haar
+carrier, so `Z_j` and the ordinary character `chi_j` agree there for every
+spin.  Structural block-degree lemmas prove that `Z_j` is homogeneous of
+degree `j` in each plaquette quaternion; no finite-spin computation or
+classical decision procedure is used for this all-spin statement.
+
+Two new analytic modules prove the radial and Gaussian integration-by-parts
+parts of the even-spin argument:
+
+* `SU2QuaternionHeadHomogeneousGaussian` proves that a polynomial homogeneous
+  of degree `2k` in the selected quaternion has exact sphere mean times the
+  positive common factor `sphereFourDenominator k` equal to its
+  four-dimensional Gaussian mean, with arbitrary tail coefficients retained;
+* `SU2QuaternionHeadGaussianLaplacian` proves coefficient-retaining
+  Euler--Gaussian integration by parts,
+  `d E_G[P] = E_G[Delta_head P]`, and hence that every positive even
+  homogeneous polynomial with zero Gaussian head-Laplacian moment has zero
+  exact product-Haar mean.
+
+These results reduce the remaining all-even theorem to a single algebraic
+certificate on the already-constructed solid character:
+
+```text
+headGaussianLaplacianTail 115
+  (exposedSolidZonalCharacter orientations (2*k)) = 0.
+```
+
+The intended proof is the solid-zonal harmonic recurrence.  For the selected
+head coordinates, with `ell = scalar(A U B C)`, tail radius product `rho`, and
+`R = rho |U|^2`, the exact identities are
+
+```text
+|grad ell|^2 = rho,
+Delta R = 8 rho,
+grad ell . grad R = 2 rho ell,
+D_ell Z_(j+1) = (j+2) rho Z_j,
+Delta Z_j = 0.
+```
+
+The next implementation edge is therefore a finite rational differential
+algebra for `RatPoly` proving the product rules and the first three quaternion
+word identities, followed by simultaneous induction for the last two zonal
+identities.  Instantiating the proved even-homogeneous annihilation theorem
+then closes every even `j>0`; combining it with the existing odd-degree theorem
+and the fixed-face reindexing closes `ExactFixedFaceConditionalHaarOrthogonality`
+and all-cutoff exact vacuum normalization.
+
+This milestone closes `j=2`, all-spin solidification/homogeneity, the common
+radial denominator, and Gaussian Euler--Laplacian annihilation.  It does not
+yet claim the all-spin harmonic certificate, all-cutoff normalization,
+continuum existence, or a mass gap.
+
+## 27. All-spin selected-link RatPoly harmonicity (2026-08-01)
+
+The selected-link harmonic certificate is now inhabited for every spin and
+all sixteen plaquette orientations.  The public theorem
+
+```lean
+SU2QuaternionSolidZonalHarmonic.laplacian_U_solidZonal_AUB_zero
+```
+
+proves coefficient-sensitive `Δ_U Z_j(AUB) = 0` in `RatPoly`; none of the
+other 115 quaternion blocks is specialized or discarded.  The finite layer
+proves `Δs = 0` and `∇s · ∇s = ρ` for every orientation.  A general
+Euler theorem supplies `∇P · ∇R = 2jρP`, and a simultaneous induction
+proves both harmonicity and
+`∇s · ∇Z_j = (j+1)ρ Z_(j-1)`.  The two product-rule contributions
+then cancel exactly in the solid-zonal recurrence.  The theorem's axiom
+footprint is `[propext, Quot.sound]`.
+
+The next exact-normalization task was narrower: transport coefficient-level
+`headLaplacian P = 0` through `headGaussianTail` to the already-proved
+`headGaussianLaplacianTail`/homogeneous Gaussian-Haar annihilation theorem.
+That transport is now discharged by Milestone 28 below.  The fixed-face
+factorization/reindexing remains before the even theorem can be applied to the
+literal 24-face slab fold.  Only after that application and the existing odd
+spin split may all-cutoff exact vacuum normalization be claimed.  The AF
+row-relative estimates remain independent and open.
+
+## 28. Gaussian-tail transport and even all-spin Haar annihilation (2026-08-01)
+
+The coefficient-to-moment obstruction is now inhabited.  The public theorem
+
+```lean
+SU2QuaternionSolidZonalGaussianTransport.headGaussianTail_headLaplacian
+```
+
+proves the exact finite identity
+
+```text
+headGaussianTail tail (headLaplacian P)
+  = headGaussianLaplacianTail tail P
+```
+
+in rational equivalence.  Its proof transposes each of the four formal second
+derivatives through the finite polynomial sum, identifies the lowered
+exponents with the four Gaussian moments, and retains
+`quaternionHaarMono tail (monomial.drop 4)` in every coordinate term.  Thus no
+integration-by-parts axiom, convergence premise, or spacing hypothesis is
+introduced.
+
+The generic consequence
+
+```lean
+headGaussianLaplacianTail_zero_of_coeffEqv
+```
+
+transports any coefficient-sensitive harmonicity certificate to every
+Gaussian tail size.  At tail size 115 it instantiates the existing homogeneous
+Gaussian/Haar theorem and proves exact 116-block Haar annihilation for every
+positive even-spin solid zonal BF4 mode and its ordinary-character carrier.
+The multiplier extension proves the same statement after multiplication by
+an arbitrary polynomial of selected-head degree zero; this is the precise
+analytic form needed to retain the other 23 fixed-face factors.  Every new
+load-bearing theorem audits to `[propext, Quot.sound]`.
+
+The next obstruction is purely the exact slab geometry/algebra interface:
+
+1. extract the selected face from `exactCorrectedSlabInteriorInsertion` after
+   `headSwapBlockInvolution`;
+2. identify its ordered four link factors and orientations with an
+   `exposedFourWord`, allowing a further tail-block permutation when its three
+   non-head links are not blocks 1, 2, and 3;
+3. prove the fold of the other 23 faces has head block degree zero; and
+4. apply the even multiplier theorem together with the existing odd theorem
+   to inhabit `ExactFixedFaceSelectedPartialOrthogonality`.
+
+No all-cutoff vacuum normalization, continuum construction, or mass gap is
+claimed at this milestone.
+
+### Deferred formal-method borrowings from `openai/ten-proofs`
+
+The 2026-08-01 OpenAI `ten-proofs` release contains no direct Yang--Mills,
+Haar/Peter--Weyl, or Osterwalder--Schrader theorem, but three proof patterns
+are worth retaining for later gates:
+
+1. **Finite Gram/CP order:** port the rectangular purification pattern
+   `Mᴴ M = F`, positive Hermitian sandwiches, Kronecker positivity, and
+   positive weighted means to the repository's explicit `Q'`/constructive
+   matrix carriers.  Do not import the source implementation: it uses
+   Mathlib complex matrices, `noncomputable`, and `Classical.choice`.
+2. **Positive Gaussian tails:** reuse the proof architecture “pointwise
+   exponential majorant → integrable/located dominating kernel → monotone
+   tail comparison → explicit decay modulus,” reconstructed over `CReal` or
+   the existing finite rational approximation carriers.  This is relevant to
+   the later grouped Feynman--Kac/Mehler convergence gate, not to the current
+   finite slab permutation.
+3. **Independent checking:** after the current exact lane stabilizes, evaluate
+   a theorem manifest plus `lean4export`/Comparator/`nanoda` checking as a
+   second verifier beside `AXIOM_AUDIT.md` and the frontier statement guards.
+   The released project targets Lean 4.32 whereas this repository currently
+   targets Lean 4.29.1, so adoption requires an isolated compatibility trial.
+
+These are deferred engineering/analytic resources, not new premises and not
+evidence that any Clay gate has been inhabited.
+
+## 29. Exact selected-face fold and three-transposition tail carrier (2026-08-01)
+
+`BF4ExactSlabSelectedFaceFold` removes the first two geometry/algebra
+obstructions left by Milestone 28.  For every one of the 24 literal fixed
+faces it now:
+
+1. uses a project-local constructive first-occurrence erasure (with direct
+   permutation, membership, and nodup-exclusion proofs) and the exact-Haar
+   factor-fold permutation theorem to extract that selected character from
+   the full fixed-plane fold, without expanding or normalizing the 24-factor
+   product;
+2. proves structurally that the erased 23-face fold has quaternion-block
+   degree zero in the selected exposed link;
+3. transports that degree certificate through the explicit exposed-link head
+   swap, making the residual multiplier genuinely head-independent;
+4. records the selected plaquette's four literal link blocks and proves their
+   common orientation pattern is `[false,false,true,true]`; and
+5. constructs the remaining tail change of variables as three disjoint
+   transpositions.  Its map fixes block zero, sends canonical blocks `1,2,3`
+   to the selected word's three tail blocks, stays inside all 116 blocks, and
+   is proved involutive.  Composing it with the head swap sends new blocks
+   `0,1,2,3` to the four original selected-face blocks in exact word order.
+
+The accompanying `SU2QuaternionPrefixPolynomialCheck` supplies a proved
+constructive executable certificate for the next polynomial identification.
+It compares compact nonzero coordinate/exponent codes rather than repeatedly
+scanning the 464-coordinate padded carrier, and soundly produces the existing
+`QuaternionPrefixPolynomialEqv` relation.  Its printed soundness gates use
+only `[propext, Quot.sound]`.
+
+### Active exact edge
+
+The new block-map theorem fixes the carrier and orientation data but does not
+by itself state the final polynomial-word identity.  The next exact theorem
+must apply the sparse prefix checker (or an equivalent structural coordinate
+proof) to identify the doubly reindexed selected scalar with
+
+```lean
+(exposedFourWord false false true true).scalar
+```
+
+and lift that identity through `characterPolynomial`.  Multiplicativity of
+block reindexing then places the head-independent 23-face fold beside this
+canonical character.  The already-proved positive-even Gaussian/Haar
+multiplier theorem and the existing odd theorem can then inhabit the full
+fixed-face conditional orthogonality field, followed by all-cutoff exact
+vacuum normalization.  This remains a finite exact gate; the independent AF
+row-relative estimates and all continuum/Clay gates remain open.
+
+## 30. Structural canonical word and all-spin fixed-face Haar gate (2026-08-01)
+
+`BF4ExactSlabSelectedFaceCanonicalWord` closes the active exact edge of
+Milestone 29 without invoking the expensive 116-block executable normalizer.
+Its coordinate theorem proves contravariantly that two explicit block
+involutions send each old physical coordinate quaternion to its new canonical
+block, modulo only trailing-zero prefix padding.  Componentwise quaternion
+multiplication and conjugation preserve this relation.  Combined with a
+literal descriptor audit of the physical face, this yields
+
+```lean
+exactFixedFaceDoublyReindexedSelectedScalar_prefix
+```
+
+whose right side is exactly
+`(exposedFourWord false false true true).scalar`.  A structural reindexing
+lemma and the existing Chebyshev recursion lift it uniformly through
+`characterPolynomial` at every spin.
+
+The residual 23-face fold remains degree zero in head block zero after the
+tail permutation.  On that common carrier the proof then splits exactly as
+required:
+
+1. positive even spin `2*k` uses
+   `exposedEvenCharacter_mul_blockDegree_zero_quaternionHaar_zero`;
+2. odd spin uses `quaternionHaar_partialHaarHead_eq_zero_of_odd`, after a
+   structural parity induction for the ordinary character.
+
+Supported prefix-Haar equality promotes the canonical presentation back to
+the doubly reindexed physical product.  Exact Haar invariance under the head
+and tail involutions then returns to the original selected-times-residual
+factorization.  Consequently the module inhabits
+
+```lean
+exactFixedFaceConditionalHaarOrthogonality
+exactVacuumNontrivialHaarTermsVanish_all_cutoffs
+```
+
+for every finite label cutoff.  All load-bearing printed declarations audit
+to `[propext, Quot.sound]`; there is no `sorry`, custom axiom,
+`Classical.choice`, or `noncomputable` declaration in the new module.
+
+### Progress map after Milestone 30
+
+```text
+CURRENT EXACT LANE
+
+  literal 24-face BF4 insertion
+              |
+              v
+  selected face x retained 23-face fold
+              |                         [M29]
+              v
+  head swap + three tail transpositions
+              |
+              v
+  canonical word (0,1,2,3; F,F,T,T)
+              |                         [M30: CLOSED]
+              +------> characterPolynomial, all spins
+                              |
+                    +---------+---------+
+                    |                   |
+              odd-head Fubini     even solid-zonal
+                    |                   |
+                    +---------+---------+
+                              v
+             fixed-face Haar orthogonality
+                              |
+                              v
+       all finite-cutoff non-vacuum terms vanish
+
+BROADER CLAY PATH
+
+  [exact finite slab gate: CLOSED]
+                 |
+                 v
+  [AF-uniform physical/reference row comparison: OPEN]
+                 |
+                 v
+  [cutoff removal + infinite-volume OS measure: OPEN]
+                 |
+                 v
+  [uniform exponential clustering / spectral gap: OPEN]
+                 |
+                 v
+  [OS reconstruction + Yang--Mills axioms: OPEN]
+                 |
+                 v
+  [Clay existence and mass gap target: OPEN]
+```
+
+The next program edge is no longer the selected-face Peter--Weyl identity.
+It is the independent spacing-uniform physical/reference comparison for the
+exact slab kernel, followed by cutoff removal.  No continuum or Clay-level
+claim follows from this finite exact milestone alone.
+
+## 31. All-cutoff exact normalization installed in the AF comparison (2026-08-01)
+
+`BF4ExactSlabAllCutoffAFComparison` connects the selected-face theorem of
+Milestone 30 to the literal corrected-slab/reference comparison.  The exact
+vacuum partition is now proved rationally equivalent to one, and therefore
+strictly positive, for every coupling and every finite spin cutoff.  The
+canonical normalized exact slab is symmetric on the positive Haar-diagonal
+carrier.
+
+The former one-scale and AF-uniform comparison interfaces have consequently
+been reduced.  Their new forms,
+
+```lean
+AllCutoffExactSlabGroupedEntrywiseEighthData
+AllCutoffExactSlabGroupedAFEntrywiseEighthCertificate
+```
+
+contain no normalization or partition-positivity premise.  Once their three
+genuine analytic fields are supplied--the grouped-reference spectral eighth,
+the pointwise physical/reference entry error, and the Haar-diagonal payment
+of carrier growth--the existing Schur comparison yields the literal exact
+quarter contraction and
+
+```lean
+rate + epsilon <= 1/4
+```
+
+at every AF scale.  Thus exact normalization is closed and is no longer part
+of the AF frontier.  The three displayed analytic estimates, the physical
+BF4 cubic-margin/spacing trajectory, and the common-kernel Perron/action
+identification remain open.
+
+## 32. Constructive cutoff-limit closure of AF order, OS2, and clustering (2026-08-01)
+
+`BF4ExactSlabRegularLimitOS` proves the order-closed part of cutoff and volume
+removal on `RegularCReal`.  No subsequence, compactness principle, or classical
+choice is used.  Given explicit `ModCauchy` witnesses, it proves:
+
+1. the exact AF quarter quadratic contraction survives the joint scaling
+   limit;
+2. the normalized full physical reflection Gram remains nonnegative, so OS2
+   reflection positivity is closed under the limit;
+3. the unit channel remains exactly normalized; and
+4. any cutoff-uniform geometric correlation envelope survives as a two-sided
+   constructive-real bound.
+
+The module also names the exact remaining same-action seam as
+`ExactAFPhysicalReflectionIdentification`: equality, on the common carrier,
+between the signed Peter--Weyl exact-slab quadratic and the independently
+positive normalized corrected-slab reflection quadratic.  From this one
+proposition it derives finite and limiting exact-slab OS2 positivity and unit
+normalization.  The proposition itself is not inhabited; in particular the
+filtered Haar-diagonal carrier is not silently equated with the complete
+physical lower-half carrier.
+
+All load-bearing gates in Milestones 31--32 print only
+`[propext, Quot.sound]`.  The modules contain no `sorry`, `admit`, custom
+axiom, `Classical.*`, `native_decide`, or `noncomputable` declaration.
+
+This is a transport milestone, not construction of the missing continuum
+theory.  The physical per-observable Cauchy moduli, their cylinder
+compatibility/linearity, the exact slab semigroup and Perron complement,
+same-action Euclidean covariance, and a spacing-uniform finite correlation
+envelope are still required.  A sigma-additive measure is optional in the
+program's canonical functional formulation; the positive normalized
+Schwinger functional with OS0--OS4 and GNS reconstruction is not optional.
+
+### Progress map after Milestone 32
+
+```text
+  [literal selected-face Haar identity]                 CLOSED M30
+                         |
+                         v
+  [Z_K(w) = 1 + exact normalized symmetric slab]        CLOSED M31
+                         |
+                         v
+  [grouped spectral rate <= 1/8]                        OPEN
+             + [exact/reference row error <= 1/8]       OPEN
+             + [carrier-growth payment]                 OPEN
+                         |
+                         v
+  [exact AF mean-zero quarter contraction]              PROVED from fields
+                         |
+                         v
+  [exact/physical common-carrier action identification] OPEN
+                         |
+                         v
+  [physical Perron complement + slab semigroup/action]  OPEN
+                         |
+                         v
+  [joint cutoff/volume Cauchy moduli for observables]    OPEN
+                         |
+                         v
+  [RegularCReal order + OS2 + unit limit transport]     CLOSED M32
+                         |
+                         v
+  [uniform finite geometric correlation envelope]       OPEN
+                         |
+                         v
+  [limit exponential envelope transport]                CLOSED M32
+                         |
+                         v
+  [one Schwinger functional: OS0--OS4 + GNS gap]        OPEN
+                         |
+                         v
+  [Clay continuum existence and mass gap]               OPEN
+```
+
+### Revised shortest honest path
+
+The next producer should attack the first open cut in the diagram, in this
+order:
+
+1. prove the grouped Mehler Haar-boundary spectral eighth on the exact
+   retained carrier;
+2. prove the scale-dependent entry estimate and its explicit
+   `(K+1)^24` compensation, thereby inhabiting the reduced all-cutoff AF
+   certificate;
+3. identify the exact weighted-zero space with the physical Perron
+   complement and prove the normalized slab gluing/semigroup law;
+4. use that law plus the quarter contraction to derive a uniform finite
+   geometric correlation bound, rather than assuming clustering separately;
+5. construct compatible `ModCauchy` data for every local cylinder observable
+   under simultaneous spin-cutoff, volume, and spacing removal;
+6. assemble the resulting positive normalized linear functional, prove
+   same-action OS0 covariance and OS4 clustering, and invoke constructive GNS
+   reconstruction.
+
+Milestone 32 proves that the order-theoretic portions of steps 5--6 are no
+longer obstructions: once the explicit physical moduli and finite uniform
+bounds exist, their limiting inequalities follow mechanically.
+
+## 33. AF spectral fence and row-summable growth interface (2026-08-02)
+
+The first open AF cut has now been audited rather than merely repackaged.
+`BF4ExactSlabHaarSpectralFence` constructs a genuine observable on the full
+cutoff-one positive Haar carrier.  It is the code-delta difference between
+the vacuum and the one-face state `setEdgeLabel zeroEdgeLabelling 0 1`.
+Lean proves exactly that:
+
+```text
+Haar-diagonal mean                         = 0
+Haar-diagonal weighted square             = 2
+grouped (diagonalOrder,crossOrder)=(0,0)
+  quadratic                               = 1
+```
+
+Therefore every `GroupedMehlerHaarBoundarySpectralData 1 0 0` rate is at
+least `1/2`, and the theorem
+
+```lean
+no_grouped00_HaarBoundary_spectral_eighth
+```
+
+rules out a rate at most `1/8`.  This is a theorem about the full carrier,
+not a numerical 2-by-2 surrogate.  It does not rule out larger grouped
+orders.  It does establish that the present exact Haar-diagonal centering is
+not automatically the grouped reference's Perron centering, so the lowest
+grouped endpoint cannot start the proposed proof.
+
+The row-error/growth side has also been sharpened.
+`AllCutoffExactSlabGroupedRowSummableEighthData` accepts a target-dependent
+entry majorant and requires precisely
+
+```text
+sum_target entryBudget(source,target)
+  <= (1/8) * exactSlabBoundaryHaarDiagonalWeight(source).
+```
+
+From this exact summed obligation Lean derives the row-relative eighth and
+the quarter contraction.  Its AF-uniform wrapper feeds the existing
+`ExactSlabGroupedAFQuarterCertificate`.  The older source-only budget and
+the `(K+1)^24` cardinality payment are retained as a sufficient special case
+through `toRowSummableEighthData`; the crude cube factor is no longer built
+into the minimal consumer.
+
+All printed gates depend only on `[propext, Quot.sound]` and use no classical
+choice, `sorry`, `native_decide`, custom axiom, or noncomputable declaration.
+
+### Status of the node after the audit
+
+The composite node remains **OPEN**, but its proof obligations and one false
+starting point are now exact:
+
+1. **spectral 1/8:** the `(0,0)` grouped endpoint is impossible on the stated
+   Haar-centered carrier; either prove the eighth at a higher order with a
+   uniform cutoff/spacing choice, or first prove the common Perron-carrier
+   identification and recenter the reference honestly;
+2. **row error 1/8 + growth:** construct a scale-uniform target-dependent
+   majorant for the literal exact/reference difference and prove its exact
+   row sum is at most the Haar-diagonal eighth; a uniform majorant must still
+   pay `(K+1)^24`, while locality/cluster decay may use the sharper summable
+   interface; and
+3. **AF closure:** once those two analytic producers exist at every matched
+   scale, the exact quarter contraction is already a proved consumer.
+
+The revised shortest honest route is thus to attack the exact/reference
+local comparison and the common Perron centering together, rather than to
+assume that the lowest positive Gram endpoint is spectrally small on a
+different weighted-zero hyperplane.
+
+## 34. Exact-Haar / physical-Perron reroute around the macro spectral node (2026-08-02)
+
+`BF4ExactPhysicalPerronReroute` removes the grouped macro-slab comparison
+from the unique load-bearing path to exact contraction.  The first theorem
+is unconditional and purely finite: filtering the normalized positive
+physical reflection law to its strictly positive marginal rows and columns
+does not change its quadratic form.  Consequently
+
+```text
+normalized full physical OS quadratic
+  = positive-row physical joint quadratic
+  = weighted Perron-Markov quadratic.
+```
+
+The only exact-to-positive input is now named
+`ExactHaarPhysicalPerronSameActionAt`.  It identifies, observable by
+observable, the literal signed 116-link Haar-network quadratic on the full
+bounded holonomy carrier `centralHalfStates K 0` with the normalized full
+positive physical quadratic.  It is `Type`-level data and is deliberately
+not inhabited: the required fusion/holonomy resummation between the signed
+Peter--Weyl network and the current positive multiplicity-product law
+remains open.
+
+Two closed consumers follow from that one seam.
+
+1. A certificate-independent symmetric-reference Perron comparison with
+   `rate + epsilon <= 1/4` transfers the quarter estimate directly to the
+   literal exact Haar quadratic.
+2. More importantly, exact all-word gluing of a genuine stationary
+   one-slice BF4 density plus its local `qS <= 1/4` contraction invokes the
+   already-proved physical centered-row theorem.  It gives row constant
+   `1/16`; symmetry and the physical mean-zero cancellation turn this into
+   the stronger exact quadratic bound
+
+   ```text
+   |Q_exact(f)| <= (1/16) <f,f>_physical.
+   ```
+
+The AF-uniform wrapper
+`ExactHaarPhysicalLocalGluingAFQuarterCertificate` retains the rowwise local
+kernel under `Nonempty (Sigma oneStep, ...)`, so the proposition is consumed
+constructively without selecting an infinite family of kernels.
+
+All new printed gates depend only on `[propext, Quot.sound]`; the module uses
+no `Classical.*`, `sorry`, `native_decide`, custom axiom, choice, or
+noncomputable declaration.
+
+### Revised dependency graph
+
+```text
+Exact Haar normalization                                      CLOSED
+        |
+        v
+Exact signed-Haar / positive-physical same action             OPEN
+        |
+        +-----------------------+
+        |                       |
+        v                       v
+physical symmetric-reference  exact one-slice density gluing
+rate+error <= 1/4              + local qS <= 1/4
+        |                       |
+        v                       v
+exact quarter                  exact 1/16 (hence quarter)
+
+grouped macro spectral 1/8 + row error 1/8 + growth           BYPASSED
+```
+
+Thus Milestone 33's grouped node remains a valid optional construction, but
+it is no longer mandatory.  The shortest remaining analytic push is now
+sharper: prove the exact signed/positive same-action resummation and inhabit
+the genuine local stationary gluing/rate data at every matched AF scale.

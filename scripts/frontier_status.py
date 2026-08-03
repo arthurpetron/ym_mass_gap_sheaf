@@ -47,10 +47,10 @@ from __future__ import annotations
 
 import argparse
 import datetime
-import os
 import re
 import subprocess
 import sys
+import tempfile
 from dataclasses import dataclass
 from pathlib import Path
 from typing import NotRequired, TypedDict
@@ -66,6 +66,7 @@ YMGAP_PKG = LEAN_DIR / "YMGap"
 BASELINE_PATH = LEAN_DIR / "AXIOM_AUDIT.md"
 OUTPUT_PATH = REPO_ROOT / "docs" / "frontier-status.md"
 GUARD_PATH = LEAN_DIR / "YMGapGuard.lean"
+SAFE_LEAN_BUILD = REPO_ROOT / "scripts" / "safe_lean_build.py"
 
 # --------------------------------------------------------------------------
 # Axiom-gate sources (shared shapes with lean_axiom_audit.py)
@@ -173,14 +174,16 @@ def parse_lake_output(output: str) -> dict[str, set[str]]:
 
 
 def run_lake_build() -> tuple[int, str]:
-    env = os.environ.copy()
-    env.setdefault("LEAN_NUM_THREADS", "3")
-    proc = subprocess.run(
-        ["lake", "build"], cwd=LEAN_DIR,
-        capture_output=True, text=True, check=False,
-        env=env,
-    )
-    return proc.returncode, proc.stdout + proc.stderr
+    with tempfile.TemporaryDirectory(prefix="ymgap-frontier-build-") as directory:
+        log_path = Path(directory) / "lake-build.log"
+        proc = subprocess.run(
+            [sys.executable, str(SAFE_LEAN_BUILD), "--log-file", str(log_path), "--"],
+            cwd=REPO_ROOT,
+            text=True,
+            check=False,
+        )
+        output = log_path.read_text(encoding="utf-8", errors="replace") if log_path.exists() else ""
+    return proc.returncode, output
 
 
 def format_gate(name: str, gates: dict[str, set[str]]) -> str:

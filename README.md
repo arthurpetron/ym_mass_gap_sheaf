@@ -32,7 +32,13 @@ A working LaTeX installation with `latexmk` is required for `make paper`.
 | `make lint`     | Run `ruff check` and `mypy` (strict, 100% type coverage). |
 | `make figures`  | Regenerate plots in `visualizations/` (Phase 1+).         |
 | `make paper`    | Build `formal/main.tex` to PDF via `latexmk`.             |
+| `make lean-build` | Run the monitored Lean build (two workers on the 64 GiB Mac). |
+| `make lean-audit` | Run the monitored full axiom-gate audit.                 |
 | `make clean`    | Remove Python, type-checker, and LaTeX build artifacts.   |
+
+Lean builds must use the monitored repository entry points; bare `lake build`
+and `lake env lean` bypass the crash safeguards. See
+[`docs/lean-build-safety.md`](docs/lean-build-safety.md).
 
 ## Layout
 

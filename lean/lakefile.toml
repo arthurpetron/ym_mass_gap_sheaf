@@ -6,16 +6,16 @@ defaultTargets = ["YMGap", "YMGapGuard", "YMGapStatementGuard"]
 # weak argument: it changes only the compiler process stack reservation and
 # does not invalidate or alter theorem artifacts.
 #
-# `-M 20480` caps each lean worker at 20 GB: a runaway kernel computation
-# then fails deterministically with "excessive memory consumption detected"
-# instead of driving the whole machine into swap.  The ceiling is sized for
-# the heaviest known module, HarmonicLowerSixTailBaseSemanticBridge, whose
-# staged piece reconciliation peaks near 15 GB (measured 2026-07-16).  Pair
-# with a worker cap when building (Lake spawns one worker per logical core
-# by default and this Lake has no `--jobs` flag): `LEAN_NUM_THREADS=3 lake
-# build`, or `make lean-build` which sets it.  Both are weak arguments and
-# do not invalidate cached artifacts.
-weakLeanArgs = ["-s", "65536", "-M", "20480"]
+# `-M 32768` is the last-ditch 32 GiB ceiling for one Lean worker.  It is high
+# because a literal BF4 face-covariance certificate exceeds the former 20 GiB
+# ceiling (measured 2026-08-01); it is NOT an aggregate build-memory policy.
+# The 2026-08-02 watchdog panic demonstrated that three such workers can fill
+# macOS's compressor segment pool on a 64 GiB machine.  All repository builds
+# therefore go through `scripts/safe_lean_build.py`: two monitored workers on
+# this workstation, one on smaller machines, a 12 GiB OS reserve, swap/pressure
+# cutoffs, and a single-build lock.  Bare `lake build` / `lake env lean` bypass
+# those protections and are prohibited by AGENTS.md.
+weakLeanArgs = ["-s", "65536", "-M", "32768"]
 
 # Milestone 1.1 deliberately depends on nothing but Lean core: SU(2)
 # Casimirs are exact rationals, so `Nat`/`Rat` suffice and no

@@ -10,7 +10,8 @@
 # discharged and the frontier guard BREAKS.
 
 set -uo pipefail
-cd "$(dirname "$0")/../lean" || exit 1
+REPO_ROOT=$(cd "$(dirname "$0")/.." && pwd)
+cd "$REPO_ROOT/lean" || exit 1
 
 echo "=================================================================="
 echo " YM MASS-GAP FORWARD-PROGRESS METRIC   ($(git -C .. rev-parse --short HEAD 2>/dev/null))"
@@ -52,7 +53,8 @@ for f in "${FRONTIER[@]}"; do echo "     - $f"; done
 # --- D: DISCHARGED critical-path obligations (TRUE NORTH) ---------------------
 # An obligation is DISCHARGED only if a load-bearing type is newly inhabited
 # axiom-clean AND the frontier guard reacts (drops below 5). Until then D=0.
-GUARD=$(lake build YMGapGuard 2>&1 | grep -oE "[0-9]+ Clay-frontier types" | grep -oE "^[0-9]+" || echo "?")
+GUARD=$(python3 "$REPO_ROOT/scripts/safe_lean_build.py" -- YMGapGuard 2>&1 \
+  | grep -oE "[0-9]+ Clay-frontier types" | grep -oE "^[0-9]+" || echo "?")
 echo
 echo "D  (critical-path obligations DISCHARGED; guard must break)  : $([ "$GUARD" = 5 ] && echo 0 || echo ">=1  (guard=$GUARD, CHECK!)")"
 echo "     frontier-guard uninhabited types = $GUARD   (5 = nothing discharged; <5 = something closed)"

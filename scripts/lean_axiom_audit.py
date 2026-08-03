@@ -58,15 +58,16 @@ from __future__ import annotations
 
 import argparse
 import hashlib
-import os
 import re
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 LEAN_DIR = REPO_ROOT / "lean"
 BASELINE_PATH = LEAN_DIR / "AXIOM_AUDIT.md"
+SAFE_LEAN_BUILD = REPO_ROOT / "scripts" / "safe_lean_build.py"
 
 # The permitted axiom gate (AGENTS.md Rule 1). Anything else => EXCEPTIONS.
 GATE = frozenset({"propext", "Quot.sound"})
@@ -244,24 +245,20 @@ def parse_baseline(path: Path) -> tuple[dict[str, set[str]], dict[str, tuple[str
 
 
 def run_lake_build() -> tuple[int, str]:
-    # Cap Lake's worker parallelism unless the caller already set it. Lake
-    # defaults to one worker per logical core; the generated exact-rational
-    # certificate modules can each peak at several GB during kernel checking
-    # (the Base semantic bridge near 15 GB), so an uncapped rebuild wave
-    # (16 workers on a 16-core/64 GB machine) exhausts physical memory.
-    # LEAN_NUM_THREADS is the only parallelism control this Lake version
-    # exposes (no `--jobs` flag). Keep in sync with LEAN_JOBS in Makefile.
-    env = os.environ.copy()
-    env.setdefault("LEAN_NUM_THREADS", "3")
-    proc = subprocess.run(
-        ["lake", "build"],
-        cwd=LEAN_DIR,
-        capture_output=True,
-        text=True,
-        check=False,
-        env=env,
-    )
-    return proc.returncode, proc.stdout + proc.stderr
+    # The launcher owns concurrency, the cross-process build lock, and live
+    # pressure/swap cutoffs.  Spool Lake output to disk so the Python audit
+    # process does not retain a potentially large build log while Lean is at
+    # peak memory.
+    with tempfile.TemporaryDirectory(prefix="ymgap-lean-audit-") as directory:
+        log_path = Path(directory) / "lake-build.log"
+        proc = subprocess.run(
+            [sys.executable, str(SAFE_LEAN_BUILD), "--log-file", str(log_path), "--"],
+            cwd=REPO_ROOT,
+            text=True,
+            check=False,
+        )
+        output = log_path.read_text(encoding="utf-8", errors="replace") if log_path.exists() else ""
+    return proc.returncode, output
 
 
 # --------------------------------------------------------------------------

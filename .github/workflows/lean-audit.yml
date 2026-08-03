@@ -25,6 +25,7 @@ on:
     paths:
       - "lean/**"
       - "scripts/lean_axiom_audit.py"
+      - "scripts/safe_lean_build.py"
       - "scripts/frontier_dag_check.py"
       - "Makefile"
       - ".github/workflows/lean-audit.yml"
@@ -32,6 +33,7 @@ on:
     paths:
       - "lean/**"
       - "scripts/lean_axiom_audit.py"
+      - "scripts/safe_lean_build.py"
       - "scripts/frontier_dag_check.py"
       - "Makefile"
       - ".github/workflows/lean-audit.yml"

@@ -142,7 +142,7 @@ python3 computations/CoreBResidualAllRows_scout.py \
   --rows 1 2 3 4 --max-r 120
 
 cd lean
-LEAN_NUM_THREADS=3 lake build YMGap.Continuum.CoreBStructuralRecurrence
+python3 scripts/safe_lean_build.py -- YMGap.Continuum.CoreBStructuralRecurrence
 ```
 
 Use `--show-groups` to print every exact total-gap group and its collected

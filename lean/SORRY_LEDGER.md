@@ -244,6 +244,34 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   inhabitant must supply explicit rational moduli and witnesses rather than
   a selected spectral bound.
 
+### [BF4-exact-physical-Perron] exact Haar / positive Perron same action — **OPEN ANALYTIC INPUT**
+
+- **milestone**: AF macro-slab reroute (`work_plan.md`, Milestone 34)
+- **file**:
+  `lean/YMGap/Continuum/BF4ExactPhysicalPerronReroute.lean`
+- **decls**: `ExactHaarPhysicalPerronSameActionAt`,
+  `ExactHaarPhysicalPerronAFQuarterCertificate`,
+  `ExactHaarPhysicalLocalGluingAFQuarterCertificate`
+- **obligation**: Construct, at every matched cutoff, the finite
+  fusion/holonomy resummation identifying the quadratic form of the literal
+  signed 116-link Haar kernel on `centralHalfStates K 0` with the normalized
+  positive physical reflection quadratic.  For the direct bypass, also
+  construct the genuine stationary one-slice density, its exact all-word
+  gluing to the physical conditional slab density, and a local centered rate
+  at most `1/4`.
+- **constructive or propositional**: constructive — same action is a
+  `Type`-level witness, while each rowwise local kernel is retained under
+  `Nonempty (Sigma oneStep, PhysicalBF4LocalContractionGluingRow ...)` so no
+  scale-indexed choice is introduced.
+- **status**: open analytic instantiation.  The consumer is closed:
+  zero-marginal row/column filtering is proved to preserve the normalized
+  full physical OS quadratic exactly; a symmetric-reference Perron estimate
+  transfers a quarter bound; and the direct local-gluing route bypasses the
+  grouped spectral-eighth/row-eighth/growth node and transfers the stronger
+  physical `1/16` estimate to the literal exact Haar quadratic.
+- **must not be closed classically**: per `AGENTS.md` Rule 6; the resummation,
+  gluing density, and AF-uniform local-rate witnesses must remain explicit.
+
 ### [SU2-Faraut-interior] constructive image-kernel Harnack certificate — **OPEN ANALYTIC INPUT**
 
 - **milestone**: completed SU(2) retained-kernel Harnack / general-nome

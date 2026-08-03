@@ -169,13 +169,13 @@ the ones where a classical proof would be unacceptable. The
 ## Building
 
 ```sh
-lake build                 # build everything (no external packages to fetch)
-lake build YMGap.MassGap.SU2                    # just the SU(2) headline chain
-lake build YMGap.Continuum.Tier0Scorecard       # just the frontier scorecard
-lake build YMGap.PolyAtlas YMGap.ModuliAlgebra  # the excluded expository modules
+make lean-build  # from repository root; monitored full build
+python3 scripts/safe_lean_build.py -- YMGap.MassGap.SU2
+python3 scripts/safe_lean_build.py -- YMGap.Continuum.Tier0Scorecard
+python3 scripts/safe_lean_build.py -- YMGap.PolyAtlas YMGap.ModuliAlgebra
 ```
 
-Every PR-equivalent change must pass `lake build` and the axiom check
+Every PR-equivalent change must pass the monitored `make lean-build` and the axiom check
 described in `AGENTS.md` (`make lean-audit` at the repo root; refresh
 the baseline with `make lean-audit-update` only for deliberate,
 reviewed changes).
@@ -457,7 +457,7 @@ prove the actual local stationary BF4 slice gluing with \(q_s\le1/4\)
 `CubicMarginLaw` and `PhysicalSpacingEnvelope` also remain to be
 constructed.  Those Yang--Mills estimates are not yet inhabited.
 
-**Ledger state.** The `YMGap` library builds sorry-free (`lake build`
+**Ledger state.** The `YMGap` library builds sorry-free (`make lean-build`
 reports zero `declaration uses 'sorry'`; see `SORRY_LEDGER.md`, whose
 remaining entries are closure records and named-hypothesis
 bookkeeping, not open holes). `AXIOM_AUDIT.md` tracks ~3,758
@@ -572,6 +572,81 @@ identity is documented and independently regression-checked, but is not yet
 formalized in Lean or identified with the pinned physical spin-foam fiber.
 The canonical unit-rim manifest is exported by
 `computations/dual_positivity_manifest.py`.
+
+The exact-slab normalization lane now closes the first even spin on the
+literal 116-quaternion carrier.  `SU2QuaternionSpinTwoConditionalHaar` proves
+that integrating the selected block of `chi_2(A U B)` produces the tail
+radius defect and that this defect vanishes against every head-independent
+polynomial insertion after the exact tail sphere relations.  The other 115
+blocks are therefore retained as polynomial coefficients.  The all-spin
+solid-zonal recurrence is proved Haar-equivalent to the ordinary character
+and homogeneous of the exact representation degree.  The accompanying
+`SU2QuaternionHeadHomogeneousGaussian` and
+`SU2QuaternionHeadGaussianLaplacian` modules prove the common radial-factor
+identity and `d E_G[P] = E_G[Delta P]` with retained tail coefficients.  The
+all-spin rational differential-algebra atom has now also been closed.
+`SU2QuaternionSolidZonalHarmonic.laplacian_U_solidZonal_AUB_zero` proves
+coefficient-sensitive `Δ_U Z_j(AUB) = 0` for all sixteen orientations, while
+retaining the other 115 quaternion blocks.  The proof combines exact finite
+certificates for `Δs = 0` and `|∇s|² = ρ` with Euler homogeneity and a
+simultaneous solid-zonal harmonic/directional recurrence.  It audits to
+`[propext, Quot.sound]`.  The finite Gaussian transport is now also closed:
+`SU2QuaternionSolidZonalGaussianTransport.headGaussianTail_headLaplacian`
+identifies Gaussian integration after the formal selected-head Laplacian with
+the existing termwise Gaussian-Laplacian functional, without deleting any
+tail coefficient.  Consequently every positive even-spin solid or ordinary
+BF4 character has zero exact Haar integral on the 116-block carrier, including
+after multiplication by an arbitrary selected-head-degree-zero polynomial.
+The selected-face geometry is now extracted exactly by
+`BF4ExactSlabSelectedFaceFold`: a constructive face-list permutation isolates
+the chosen character, the erased 23-face fold is proved head-independent from
+literal link incidence, and a three-disjoint-transposition tail map sends the
+four selected word blocks to canonical blocks `0,1,2,3` with orientation
+pattern `[false,false,true,true]`.
+`BF4ExactSlabSelectedFaceCanonicalWord` now closes the corresponding algebraic
+and Haar gate structurally, without expanding the 116-block polynomial.  It
+proves that the doubly reindexed selected scalar is prefix-equivalent to
+`(exposedFourWord false false true true).scalar`, transports the equivalence
+through every `characterPolynomial`, and retains the other 23 factors as a
+head-degree-zero multiplier.  Positive even labels are then killed by the
+existing solid-zonal harmonic theorem and odd labels by the existing
+one-block Fubini theorem.  Prefix-Haar transport and both block-involution
+changes of variables inhabit `ExactFixedFaceConditionalHaarOrthogonality` and
+`ExactVacuumNontrivialHaarTermsVanish K` for every finite cutoff `K`.  These
+are exact finite-slab statements; the spacing-uniform AF comparison,
+continuum limit, Osterwalder--Schrader reconstruction, and mass gap remain
+open.
+
+The first AF comparison cut now has an exact spectral fence and a sharper
+growth interface.  `BF4ExactSlabHaarSpectralFence` constructs a cutoff-one
+Haar-mean-zero observable of weighted square `2` whose lowest-order grouped
+Mehler quadratic is `1`; hence
+`no_grouped00_HaarBoundary_spectral_eighth` proves that the `(0,0)` grouped
+endpoint cannot have rate at most `1/8` on the currently stated
+Haar-diagonal zero space.  Higher orders and an eventual common-Perron
+recentering remain open.  On the comparison side,
+`AllCutoffExactSlabGroupedRowSummableEighthData` now consumes a
+target-dependent majorant through its actual row sum.  The earlier uniform
+entry budget with `(K+1)^24` growth is proved to be a sufficient adapter, not
+the minimal analytic obligation.  Thus the composite spectral/error/growth
+node remains open, but the false lowest-order start is excluded and the
+remaining row estimate is stated at the strength an actual locality bound
+can supply.
+
+`BF4ExactPhysicalPerronReroute` now makes that grouped node optional rather
+than mandatory.  It proves exactly that zero-marginal filtering preserves
+the normalized full physical OS quadratic, so the full physical carrier and
+the positive-row Perron carrier have the same finite quadratic form.  The
+single remaining signed-to-positive seam is the explicit `Type`-level input
+`ExactHaarPhysicalPerronSameActionAt`.  From it, the existing symmetric
+Perron comparison transfers a quarter bound.  More directly, genuine
+one-slice stationary density gluing with local rate at most `1/4` transfers
+the already-proved physical centered-row `1/16` estimate to the literal
+exact Haar-network quadratic.  The latter route uses neither a grouped
+spectral eighth nor a row-error eighth nor a carrier-growth payment.  Its
+same-action resummation and AF-uniform local gluing/rate witnesses remain
+open analytic inputs; the bypass consumer itself audits only to
+`[propext, Quot.sound]`.
 
 **Per-atom partial progress** (the scorecard docstrings may lag these;
 Milestone 11.0 re-syncs them): (D2) has a sound, non-tight L¹
