@@ -69,6 +69,16 @@ def surfaceIsClosed (mask : Nat) : Bool :=
   edgeIncidenceMasks.all fun edge =>
     decide (maskIntersectionCount edge mask % 2 = 0)
 
+/-- A binary surface is edge-bivalent when every physical edge is met by
+either zero or exactly two selected plaquettes.  This is stronger than the
+mod-two closure test and is the local hypothesis needed by the remaining
+uniform fundamental-character contraction. -/
+def surfaceIsEdgeBivalent (mask : Nat) : Bool :=
+  edgeIncidenceMasks.all fun edge =>
+    decide
+      (maskIntersectionCount edge mask = 0 ∨
+        maskIntersectionCount edge mask = 2)
+
 def surfaceFaceCount (mask : Nat) : Nat :=
   maskIntersectionCount ((2 ^ 24) - 1) mask
 
@@ -106,6 +116,13 @@ theorem binarySurfaceMasks_complete :
     binarySurfaceMasks.length = 128 ∧
     binarySurfaceMasks.Nodup ∧
     binarySurfaceMasks.all surfaceIsClosed = true := by
+  decide
+
+/-- Every one of the 128 certified closed two-chains is genuinely
+edge-bivalent.  Thus no four- or six-valent link intertwiner occurs in the
+pointwise Haar-five campaign. -/
+theorem binarySurfaceMasks_edge_bivalent :
+    binarySurfaceMasks.all surfaceIsEdgeBivalent = true := by
   decide
 
 /-! ## Exact topology census -/
@@ -400,6 +417,7 @@ theorem expectedCenteredNormalizationDefectHeatPolynomial_positive
 end YMGap.Continuum.BF4CutoffOneBinarySurfaceCertificate
 
 #print axioms YMGap.Continuum.BF4CutoffOneBinarySurfaceCertificate.binarySurfaceMasks_complete
+#print axioms YMGap.Continuum.BF4CutoffOneBinarySurfaceCertificate.binarySurfaceMasks_edge_bivalent
 #print axioms YMGap.Continuum.BF4CutoffOneBinarySurfaceCertificate.binarySurface_topology_census
 #print axioms YMGap.Continuum.BF4CutoffOneBinarySurfaceCertificate.constantSurfaceHeatPolynomial_closedForm
 #print axioms YMGap.Continuum.BF4CutoffOneBinarySurfaceCertificate.haarFiveDifferenceHeatPolynomial_closedForm

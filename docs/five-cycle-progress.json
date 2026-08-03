@@ -102,6 +102,8 @@
     "surface_face_weight": "exact-(2*w^3)^F-kernel-checked",
     "surface_haar_bridge": "QPoly-closed+pointwise-116-to-Haar5-closed;reindex+fivefold-amplitudes-open",
     "qpoly_assembly": "128+2-surface-sums-kernel-checked",
-    "six_face_sphere": "literal-raw-words+five-chord-Haar-1/16-kernel-checked"
+    "six_face_sphere": "literal-raw-words+five-chord-Haar-1/16-kernel-checked",
+    "surface_orbit_haar": "9/9-exact-representatives-cover-128/128",
+    "surface_bivalence": "128/128-edge-valence-0-or-2-kernel-checked"
   }
 }

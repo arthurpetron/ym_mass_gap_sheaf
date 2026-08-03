@@ -34,6 +34,8 @@ def test_default_chart_tracks_current_milestone() -> None:
         "six-face=literal-raw-words+five-chord-Haar-1/16-kernel-checked"
         in chart
     )
+    assert "haar=9/9-exact-representatives-cover-128/128" in chart
+    assert "bivalence=128/128-edge-valence-0-or-2-kernel-checked" in chart
     assert "WHOLE-PROJECT FORMAL ROADMAP: CURRENT LEAN -> COMPLETE YANG--MILLS PROOF" in chart
     assert "high-level milestones: 2/9 complete" in chart
     assert "[>] active finite campaign: actual BF4 Haar_5 surface bridge" in chart

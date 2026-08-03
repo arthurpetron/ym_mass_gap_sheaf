@@ -47,7 +47,16 @@ The constructive Lean lift now has four checked layers.
    nonempty surface is additionally pinned to its six literal raw slab words,
    partitioned into seven local tree links and five chords; the resulting
    256-term compact polynomial has kernel-checked Haar value `1/16`, exactly
-   `2^(8-12)`.
+   `2^(8-12)`.  The binary-surface certificate additionally checks that all
+   128 surfaces are edge-bivalent: every physical edge has selected-face
+   valence zero or two, so no higher-valent link intertwiner enters this
+   pointwise campaign.
+
+An independent exact quaternion audit contracts one literal gauge-fixed
+surface network from each of the nine hyperoctahedral surface orbits.  All
+nine representatives agree with `2^(V-E)`, and their orbit sizes cover all
+128 surfaces.  This is executable finite evidence; the symmetry transport
+and uniform bivalent contraction still have to be kernel-checked in Lean.
 
 `BF4ExactCutoffOneHaarFiveEvaluation` exposes the remaining bridge as the
 uninhabited proposition `CutoffOneBinarySurfaceHaarBridge`.  Conditional on
@@ -77,10 +86,11 @@ heat-weight and QPoly-assembly halves are no longer part of either:
 - derive the actual fivefold character expansion as the finite closed-label
   sum (`CutoffOneCharacterExpansionReindex`);
 - evaluate the 128 pointwise fivefold surface marginals as `2^(V-E)`.  The
-  six-face sphere's compact five-chord value is complete; the still-open step
-  is to generalize the local tree-pruning contraction (including the higher
-  topologies) and connect it uniformly to each requested based-cycle
-  marginal.
+  six-face sphere's compact five-chord value and all nine exact orbit
+  representatives are complete; the still-open step is to kernel-check the
+  hyperoctahedral transport and generalize the local tree-pruning contraction
+  to the now-certified bivalent surfaces, connecting it uniformly to each
+  requested based-cycle marginal.
 
 No new axiom, `sorry`, `native_decide`, classical choice, or noncomputable
 declaration is used.  The checked dependency sets are contained in

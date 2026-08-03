@@ -210,6 +210,9 @@ def render_chart(state: dict[str, Any]) -> str:
             "finite contraction: "
             f"qpoly={evidence.get('qpoly_assembly', '?')}  "
             f"six-face={evidence.get('six_face_sphere', '?')}",
+            "orbit reduction: "
+            f"haar={evidence.get('surface_orbit_haar', '?')}  "
+            f"bivalence={evidence.get('surface_bivalence', '?')}",
             "legend: [x] complete  [>] active  [ ] pending  [!] blocked",
         ]
     )
