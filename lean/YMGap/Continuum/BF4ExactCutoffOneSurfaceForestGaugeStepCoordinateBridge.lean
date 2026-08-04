@@ -10,6 +10,7 @@ import YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeStepCoordinateCertific
 namespace YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeStepCoordinateCheck
 
 open YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeTranslation
+open YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGauge
 open YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordSemantics
 open YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics
 open YMGap.Continuum.BF4CutoffOneBinarySurfaceCertificate
@@ -1658,6 +1659,118 @@ theorem surfaceForestGaugeLedgerCoordinateSemantic_coeffEqv_of_wordCheck
         hcheck mask hmask hnonzero edgeId hedgeId reverse]
       exact PolyQuaternionCoeffEqv.refl _))
 
+/-! ## Selected-face word compiler -/
+
+/-- One literal compact face word expressed in the 32-block active-carrier
+order on which the selected-pair translation ledger acts. -/
+def surfaceActiveFaceWord (faceId : Nat) : List OrientedSurfaceEdge :=
+  (hypercubeFaceWords.getD faceId []).map fun entry =>
+    (surfaceActiveBlock entry.1, entry.2)
+
+/-- Executable join between the iterated ledger word compiler and the
+rooted-path substitution on every selected face.  The source nonemptiness and
+block bounds are carried in the same row so the structural theorem below has
+no hidden geometry hypotheses. -/
+def surfaceForestGaugeLedgerFaceWordRowCheck
+    (maskEntry : {candidate // candidate ∈ binarySurfaceMasks}) : Bool :=
+  if maskEntry.1 = 0 then true else
+    (surfaceSelectedCompactFaceIds maskEntry.1).all fun faceId =>
+      decide (surfaceActiveFaceWord faceId ≠ []) &&
+      (surfaceActiveFaceWord faceId).all fun entry =>
+        decide (entry.1 < 32) &&
+          decide
+            (applySelectedTranslationStepsWord
+                (surfaceForestGaugeTranslationSteps
+                  maskEntry.1 maskEntry.2)
+                (surfaceActiveFaceWord faceId) =
+              (substituteSurfaceGaugeWord maskEntry.1
+                (hypercubeFaceWords.getD faceId [])).map fun substituted =>
+                  (surfaceActiveBlock substituted.1, substituted.2))
+
+def binarySurfaceForestGaugeLedgerFaceWordCheck : Bool :=
+  binarySurfaceMasks.attach.all surfaceForestGaugeLedgerFaceWordRowCheck
+
+/-- The complete actual ledger sends the active-carrier holonomy of every
+selected face to the padded rooted-path-substituted holonomy.  This theorem
+is entirely structural after the two finite word certificates are supplied. -/
+theorem surfaceForestGaugeLedgerFaceWordSemantic_coeffEqv_of_checks
+    (hwordCheck : binarySurfaceForestGaugeLedgerWordCheck = true)
+    (hfaceCheck : binarySurfaceForestGaugeLedgerFaceWordCheck = true)
+    (mask : Nat) (hmask : mask ∈ binarySurfaceMasks)
+    (hnonzero : mask ≠ 0) (faceId : Nat)
+    (hface : faceId ∈ surfaceSelectedCompactFaceIds mask) :
+    PolyQuaternionCoeffEqv
+      (applySelectedTranslationStepsQuaternion (by decide : 0 < 31)
+        (surfaceForestGaugeTranslationSteps mask hmask)
+        (compactOrientedQuaternionWord
+          (surfaceActiveFaceWord faceId)))
+      (reindexPolyQuaternion (identityQuaternionBlockInvolution 32)
+        (compactOrientedQuaternionWord
+          ((substituteSurfaceGaugeWord mask
+            (hypercubeFaceWords.getD faceId [])).map fun substituted =>
+              (surfaceActiveBlock substituted.1, substituted.2)))) := by
+  have hmaskRow := List.all_eq_true.mp hfaceCheck
+    ⟨mask, hmask⟩ (List.mem_attach _ ⟨mask, hmask⟩)
+  simp only [surfaceForestGaugeLedgerFaceWordRowCheck, hnonzero,
+    if_false] at hmaskRow
+  have hfaceRow := List.all_eq_true.mp hmaskRow faceId hface
+  simp only [Bool.and_eq_true] at hfaceRow
+  have hsourceNonempty : surfaceActiveFaceWord faceId ≠ [] :=
+    of_decide_eq_true hfaceRow.1
+  have hsourceBound : ∀ entry, entry ∈ surfaceActiveFaceWord faceId →
+      entry.1 < 32 := by
+    intro entry hentry
+    have hentryRow := List.all_eq_true.mp hfaceRow.2 entry hentry
+    have hentryParts : decide (entry.1 < 32) = true ∧
+        decide
+          (applySelectedTranslationStepsWord
+              (surfaceForestGaugeTranslationSteps mask hmask)
+              (surfaceActiveFaceWord faceId) =
+            (substituteSurfaceGaugeWord mask
+              (hypercubeFaceWords.getD faceId [])).map fun substituted =>
+                (surfaceActiveBlock substituted.1, substituted.2)) = true := by
+      simpa only [Bool.and_eq_true] using hentryRow
+    exact of_decide_eq_true hentryParts.1
+  have hcompiled :
+      applySelectedTranslationStepsWord
+          (surfaceForestGaugeTranslationSteps mask hmask)
+          (surfaceActiveFaceWord faceId) =
+        (substituteSurfaceGaugeWord mask
+          (hypercubeFaceWords.getD faceId [])).map fun substituted =>
+            (surfaceActiveBlock substituted.1, substituted.2) := by
+    have hentry := List.all_eq_true.mp hfaceRow.2
+    cases hsource : surfaceActiveFaceWord faceId with
+    | nil => exact False.elim (hsourceNonempty hsource)
+    | cons first rest =>
+        have hfirstRow := hentry first (by simp [hsource])
+        have hfirstParts : decide (first.1 < 32) = true ∧
+            decide
+              (applySelectedTranslationStepsWord
+                  (surfaceForestGaugeTranslationSteps mask hmask)
+                  (surfaceActiveFaceWord faceId) =
+                (substituteSurfaceGaugeWord mask
+                  (hypercubeFaceWords.getD faceId [])).map fun substituted =>
+                    (surfaceActiveBlock substituted.1, substituted.2)) =
+              true := by
+          simpa only [Bool.and_eq_true] using hfirstRow
+        have horiginal :
+            applySelectedTranslationStepsWord
+                (surfaceForestGaugeTranslationSteps mask hmask)
+                (surfaceActiveFaceWord faceId) =
+              (substituteSurfaceGaugeWord mask
+                (hypercubeFaceWords.getD faceId [])).map fun substituted =>
+                  (surfaceActiveBlock substituted.1, substituted.2) :=
+          of_decide_eq_true hfirstParts.2
+        simpa [hsource] using horiginal
+  have hchain := surfaceForestGaugeLedgerStepsWord_coeffEqv
+    mask hmask (surfaceForestGaugeTranslationSteps mask hmask)
+    (surfaceForestGaugeTranslationSteps_nonempty
+      hwordCheck mask hmask hnonzero)
+    (fun step hstep => hstep)
+    (surfaceActiveFaceWord faceId) hsourceNonempty hsourceBound
+  rw [hcompiled] at hchain
+  exact hchain
+
 end YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeStepCoordinateCheck
 
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeStepCoordinateCheck.decodeRawSelectedTranslationStep_selectedTranslationStepCode
@@ -1671,3 +1784,4 @@ end YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeStepCoordinateCheck
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeStepCoordinateCheck.surfaceForestGaugeLedgerStepOrientedCoordinate_coeffEqv
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeStepCoordinateCheck.surfaceActiveBlockRangeCheck_true
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeStepCoordinateCheck.surfaceForestGaugeLedgerCoordinateSemantic_coeffEqv_of_wordCheck
+#print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeStepCoordinateCheck.surfaceForestGaugeLedgerFaceWordSemantic_coeffEqv_of_checks

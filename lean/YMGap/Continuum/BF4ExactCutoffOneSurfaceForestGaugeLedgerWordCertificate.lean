@@ -40,9 +40,17 @@ import YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeLedgerWordCheck31
 
 namespace YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeStepCoordinateCheck
 
+set_option maxRecDepth 1000000
+set_option maxHeartbeats 12000000
+
 open YMGap.Continuum.BF4CutoffOneBinarySurfaceCertificate
+open YMGap.Continuum.BF4ExactCutoffOneHaarFiveEvaluation
+open YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGauge
 open YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeTranslation
+open YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordSemantics
 open YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics
+open YMGap.Continuum.BF4ExactSlabSelectedFaceCanonicalWord
+open YMGap.Continuum.SU2QuaternionHaarRationalCanonicalizer
 open YMGap.Continuum.SU2QuaternionPolynomialHaarCarrier
 open YMGap.Continuum.SU2QuaternionSelectedHaarTranslationChain
 open YMGap.Continuum.SU2QuaternionSpinTwoConditionalHaar
@@ -122,6 +130,48 @@ theorem binarySurfaceForestGaugeLedgerWordCheck_true :
     surfaceForestGaugeLedgerWordMaskChunk31_all_true]
   decide
 
+/-- All selected plaquette words agree with the letterwise compiler after
+the complete dependent ledger.  This certificate manipulates finite edge
+lists only; it never expands a polynomial. -/
+theorem binarySurfaceForestGaugeLedgerFaceWordCheck_true :
+    binarySurfaceForestGaugeLedgerFaceWordCheck = true := by
+  unfold binarySurfaceForestGaugeLedgerFaceWordCheck
+  rw [binarySurfaceMasks_attach_eq_word_chunks]
+  simp only [List.all_append,
+    surfaceForestGaugeLedgerWordMaskChunk00_face_all_true,
+    surfaceForestGaugeLedgerWordMaskChunk01_face_all_true,
+    surfaceForestGaugeLedgerWordMaskChunk02_face_all_true,
+    surfaceForestGaugeLedgerWordMaskChunk03_face_all_true,
+    surfaceForestGaugeLedgerWordMaskChunk04_face_all_true,
+    surfaceForestGaugeLedgerWordMaskChunk05_face_all_true,
+    surfaceForestGaugeLedgerWordMaskChunk06_face_all_true,
+    surfaceForestGaugeLedgerWordMaskChunk07_face_all_true,
+    surfaceForestGaugeLedgerWordMaskChunk08_face_all_true,
+    surfaceForestGaugeLedgerWordMaskChunk09_face_all_true,
+    surfaceForestGaugeLedgerWordMaskChunk10_face_all_true,
+    surfaceForestGaugeLedgerWordMaskChunk11_face_all_true,
+    surfaceForestGaugeLedgerWordMaskChunk12_face_all_true,
+    surfaceForestGaugeLedgerWordMaskChunk13_face_all_true,
+    surfaceForestGaugeLedgerWordMaskChunk14_face_all_true,
+    surfaceForestGaugeLedgerWordMaskChunk15_face_all_true,
+    surfaceForestGaugeLedgerWordMaskChunk16_face_all_true,
+    surfaceForestGaugeLedgerWordMaskChunk17_face_all_true,
+    surfaceForestGaugeLedgerWordMaskChunk18_face_all_true,
+    surfaceForestGaugeLedgerWordMaskChunk19_face_all_true,
+    surfaceForestGaugeLedgerWordMaskChunk20_face_all_true,
+    surfaceForestGaugeLedgerWordMaskChunk21_face_all_true,
+    surfaceForestGaugeLedgerWordMaskChunk22_face_all_true,
+    surfaceForestGaugeLedgerWordMaskChunk23_face_all_true,
+    surfaceForestGaugeLedgerWordMaskChunk24_face_all_true,
+    surfaceForestGaugeLedgerWordMaskChunk25_face_all_true,
+    surfaceForestGaugeLedgerWordMaskChunk26_face_all_true,
+    surfaceForestGaugeLedgerWordMaskChunk27_face_all_true,
+    surfaceForestGaugeLedgerWordMaskChunk28_face_all_true,
+    surfaceForestGaugeLedgerWordMaskChunk29_face_all_true,
+    surfaceForestGaugeLedgerWordMaskChunk30_face_all_true,
+    surfaceForestGaugeLedgerWordMaskChunk31_face_all_true]
+  decide
+
 theorem surfaceForestGaugeLedgerCoordinateSemantic_coeffEqv
     (mask : Nat) (hmask : mask ∈ binarySurfaceMasks)
     (hnonzero : mask ≠ 0) (edgeId : Nat) (hedgeId : edgeId < 32)
@@ -137,7 +187,29 @@ theorem surfaceForestGaugeLedgerCoordinateSemantic_coeffEqv
     binarySurfaceForestGaugeLedgerWordCheck_true
     mask hmask hnonzero edgeId hedgeId reverse
 
+/-- Public face-level specialization of the complete ledger certificate. -/
+theorem surfaceForestGaugeLedgerFaceWordSemantic_coeffEqv
+    (mask : Nat) (hmask : mask ∈ binarySurfaceMasks)
+    (hnonzero : mask ≠ 0) (faceId : Nat)
+    (hface : faceId ∈ surfaceSelectedCompactFaceIds mask) :
+    PolyQuaternionCoeffEqv
+      (applySelectedTranslationStepsQuaternion (by decide : 0 < 31)
+        (surfaceForestGaugeTranslationSteps mask hmask)
+        (compactOrientedQuaternionWord
+          (surfaceActiveFaceWord faceId)))
+      (reindexPolyQuaternion (identityQuaternionBlockInvolution 32)
+        (compactOrientedQuaternionWord
+          ((substituteSurfaceGaugeWord mask
+            (hypercubeFaceWords.getD faceId [])).map fun substituted =>
+              (surfaceActiveBlock substituted.1, substituted.2)))) :=
+  surfaceForestGaugeLedgerFaceWordSemantic_coeffEqv_of_checks
+    binarySurfaceForestGaugeLedgerWordCheck_true
+    binarySurfaceForestGaugeLedgerFaceWordCheck_true
+    mask hmask hnonzero faceId hface
+
 end YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeStepCoordinateCheck
 
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeStepCoordinateCheck.binarySurfaceForestGaugeLedgerWordCheck_true
+#print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeStepCoordinateCheck.binarySurfaceForestGaugeLedgerFaceWordCheck_true
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeStepCoordinateCheck.surfaceForestGaugeLedgerCoordinateSemantic_coeffEqv
+#print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeStepCoordinateCheck.surfaceForestGaugeLedgerFaceWordSemantic_coeffEqv

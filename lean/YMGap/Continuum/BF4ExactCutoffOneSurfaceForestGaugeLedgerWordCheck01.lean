@@ -21,6 +21,14 @@ theorem surfaceForestGaugeLedgerWordMaskChunk01_all_true :
       surfaceForestGaugeLedgerWordRowCheck = true := by
   decide
 
+set_option maxHeartbeats 12000000 in
+set_option maxRecDepth 1000000 in
+theorem surfaceForestGaugeLedgerWordMaskChunk01_face_all_true :
+    surfaceForestGaugeLedgerWordMaskChunk01.all
+      surfaceForestGaugeLedgerFaceWordRowCheck = true := by
+  decide
+
 end YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeStepCoordinateCheck
 
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeStepCoordinateCheck.surfaceForestGaugeLedgerWordMaskChunk01_all_true
+#print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeStepCoordinateCheck.surfaceForestGaugeLedgerWordMaskChunk01_face_all_true
