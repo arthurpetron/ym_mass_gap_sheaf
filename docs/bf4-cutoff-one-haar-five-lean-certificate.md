@@ -8,7 +8,7 @@ R(w) = 1 + 4 w^18
 C(w) = 1 + 32 w^18 + 96 w^30 + 224 w^36 + 192 w^42 + 3 w^48.
 ```
 
-The constructive Lean lift now has five checked layers.
+The constructive Lean lift now has six checked layers.
 
 1. `BF4CutoffOneBinarySurfaceCertificate` generates the rank-seven binary
    surface space from seven masks, proves that the 128 masks are distinct and
@@ -78,6 +78,35 @@ The constructive Lean lift now has five checked layers.
    value.  This closes an optimization/correctness seam; it does not by itself
    prove the remaining `2^(V-E)` theorem.
 
+6. `BF4ExactCutoffOneSurfaceActiveCarrier` proves that all 128 literal
+   surface integrands use exactly the displayed 32-link unit-four-cube
+   carrier, moves those blocks to the front by a checked swap chain, and
+   deletes the other 84 normalized Haar variables.  The resulting 32-link
+   value is proved equal both to the original 116-link coefficient and to the
+   five-based-cycle marginal.
+
+   `BF4ExactCutoffOneSurfaceActiveFactorizedHaar` removes spin-zero faces at
+   the source, before their padded unit monomials can enter contraction.  For
+   every nonempty certified mask it proves the literal coefficient equal to
+   a selected-face, 32-link fused evaluator carrying at most sixteen genuine
+   factors.  Its 127-case premise is proved equivalent in both directions to
+   the original pointwise topological-amplitude interface; the empty surface
+   is already evaluated exactly.
+
+   `BF4CutoffOneSurfacePrimalForestCertificate` reconstructs the actual
+   16-vertex/32-edge four-cube graph from the existing incidence tables and
+   kernel-checks deterministic maximal forests for all 128 masks.  It also
+   supplies orientation-aware rooted paths and checks that the surviving
+   chord count is `E-V+C` on every surface.
+
+   `BF4ExactCutoffOneSurfaceForestGauge` ties the compact 24 face words back
+   to the literal corrected-slab geometry and defines the concrete
+   chord-only evaluator obtained by deleting each checked forest.  The final
+   seam is now split into Haar-preserving forest transport and exact
+   evaluation of that concrete network.  The generic evaluator has
+   kernel-checked values for explicit 6-face/5-chord, 10-face/9-chord, and
+   12-face/11-chord masks, each equal to `2^(V-E)`.
+
 An independent exact quaternion audit contracts one literal gauge-fixed
 surface network from each of the nine hyperoctahedral surface orbits.  All
 nine representatives agree with `2^(V-E)`, and their orbit sizes cover all
@@ -118,13 +147,15 @@ The bridge now has one sharply separated mathematical task remaining; the
 character reindex, heat-weight, QPoly assembly, and exact factor-network
 reduction are closed:
 
-- evaluate the 128 factorized surface networks as `2^(V-E)`.  The factorized
-  and fused-bivalent theorems already identify these values with both the
-  literal 116-link coefficients and the requested fivefold marginals.  The
-  six-face sphere's compact five-chord value and all nine exact orbit
-  representatives are complete; the still-open step is a kernel-checked
-  maximal-forest gauge reduction (or the equivalent uniform bivalent pairing
-  theorem) for all 128 surfaces.  Direct all-116-block normalization, fused
+- prove that the checked maximal-forest coordinate change transports the
+  selected active evaluator to the new concrete chord-only evaluator, then
+  finish its remaining exact values (or prove the equivalent uniform
+  bivalent pairing theorem).  The active/factorized theorems identify the
+  source with both the literal 116-link coefficients and the requested
+  fivefold marginals.  All 128 forests and rooted paths, three explicit
+  nonempty Lean forest-gauge values, the six-face sphere's earlier compact
+  five-chord value, and all nine external exact orbit representatives are
+  complete.  Direct all-116-block normalization, fused
   fixed-order bivalent contraction, and a proof-carrying greedy prototype were
   benchmarked and rejected as impractical final certificate paths; none was
   used as mathematical evidence.

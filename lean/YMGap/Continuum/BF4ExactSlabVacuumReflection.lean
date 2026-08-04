@@ -1586,6 +1586,34 @@ private theorem correctedSlabSpinNetworkFold_supported
         (correctedSlabSpinNetworkFold_supported
           extent faceLabel rest)
 
+/-- Public per-face support interface for downstream finite-carrier
+contractors.  The implementation remains the literal corrected-slab
+plaquette polynomial above. -/
+theorem correctedSlabPlaquetteSpinFactor_support
+    (extent : Nat) (faceLabel : SlabFaceLabelling)
+    (face : SlabFace) :
+    SupportedQuaternionBlocks
+      (boundaryCompleteSlabLinks extent).length
+      (correctedSlabPlaquetteSpinFactor extent faceLabel face) :=
+  correctedSlabPlaquetteSpinFactor_supported extent faceLabel face
+
+/-- Any sublist of corrected-slab faces has a supported literal factor
+fold.  This is the support input needed after spin-zero faces are removed
+before a factorized Haar contraction. -/
+theorem correctedSlabSpinNetworkFaces_support
+    (extent : Nat) (faceLabel : SlabFaceLabelling)
+    (faces : List SlabFace) :
+    SupportedQuaternionBlocks
+      (boundaryCompleteSlabLinks extent).length
+      (faces.foldr
+        (fun face total =>
+          polyMul
+            (correctedSlabPlaquetteSpinFactor
+              extent faceLabel face)
+            total)
+        polyOne) :=
+  correctedSlabSpinNetworkFold_supported extent faceLabel faces
+
 /-- The literal 24-face fixed-plane insertion is supported on exactly the
 same 116 quaternion blocks as the complete corrected slab.  This public
 support theorem is the finite-carrier input to selected-link Fubini. -/

@@ -183,6 +183,17 @@ def render_chart(state: dict[str, Any]) -> str:
         f"incidence elimination: rank {parameters['slab_incidence_rank']} / "
         f"nullity {parameters['binary_cycle_rank']}",
         "        |",
+        f"        v  exact {parameters['raw_links']} -> "
+        f"{parameters['active_surface_links']} active links",
+        f"selected surface factors: at most "
+        f"{parameters['max_selected_surface_faces']} faces",
+        f"primal graph: {parameters['surface_primal_vertices']} vertices / "
+        f"{parameters['surface_primal_edges']} edges",
+        "        |  128/128 maximal forests + rooted paths checked",
+        "        v",
+        "concrete chord-only forest-gauge evaluator",
+        "        |  forest transport + remaining exact values open",
+        "        |",
         "        v",
         "constructive surface-sum -> Haar_5 bridge",
         "",
@@ -213,6 +224,9 @@ def render_chart(state: dict[str, Any]) -> str:
             "orbit reduction: "
             f"haar={evidence.get('surface_orbit_haar', '?')}  "
             f"bivalence={evidence.get('surface_bivalence', '?')}",
+            "forest gauge: "
+            f"geometry={evidence.get('surface_primal_forests', '?')}  "
+            f"lean-values={evidence.get('lean_forest_gauge_values', '?')}",
             "legend: [x] complete  [>] active  [ ] pending  [!] blocked",
         ]
     )
