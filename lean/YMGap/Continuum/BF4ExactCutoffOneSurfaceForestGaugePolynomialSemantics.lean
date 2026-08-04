@@ -42,7 +42,9 @@ open YMGap.Continuum.BF4GeometricHaarMehlerProjection
 open YMGap.Continuum.BF4GeometricSpinNetworkMehler
 open YMGap.Continuum.RingNormaliser
 open YMGap.Continuum.SU2QuaternionArbitraryHaarBlockReflection
+open YMGap.Continuum.SU2QuaternionArbitraryHaarRadialPositivity
 open YMGap.Continuum.SU2QuaternionArbitraryHaarSphereIdeal
+open YMGap.Continuum.SU2QuaternionBivalentHaarContraction
 open YMGap.Continuum.SU2QuaternionFactorizedHaarContraction
 open YMGap.Continuum.SU2QuaternionPolynomialHaarCarrier
 open YMGap.Continuum.SU2QuaternionSolidZonalCharacter
@@ -813,6 +815,260 @@ theorem embeddedSurfaceSelectedActiveFactorProduct_prefix
   exact go (surfaceSelectedCompactFaceIds mask)
     (fun _ hface => hface)
 
+/-! ## Supported compact-word Haar endpoint -/
+
+private theorem supported_polyZero_local (blocks : Nat) :
+    SupportedQuaternionBlocks blocks polyZero := by
+  intro term hterm
+  simp [polyZero] at hterm
+
+private theorem supported_polyOne_local (blocks : Nat) :
+    SupportedQuaternionBlocks blocks polyOne := by
+  intro term hterm
+  simp only [polyOne, List.mem_cons, List.not_mem_nil, or_false] at hterm
+  subst term
+  simp
+
+private theorem supported_polyVar_local
+    {blocks coordinate : Nat} (hcoordinate : coordinate < 4 * blocks) :
+    SupportedQuaternionBlocks blocks (polyVar coordinate) := by
+  intro term hterm
+  simp only [polyVar, List.mem_cons, List.not_mem_nil, or_false] at hterm
+  subst term
+  simp [RingNormaliser.varMono]
+  omega
+
+private theorem supported_polyAdd_local
+    {blocks : Nat} {left right : RatPoly}
+    (hleft : SupportedQuaternionBlocks blocks left)
+    (hright : SupportedQuaternionBlocks blocks right) :
+    SupportedQuaternionBlocks blocks (polyAdd left right) := by
+  intro term hterm
+  rcases List.mem_append.mp hterm with hterm | hterm
+  · exact hleft term hterm
+  · exact hright term hterm
+
+private theorem supported_polyNeg_local
+    {blocks : Nat} {polynomial : RatPoly}
+    (hsupport : SupportedQuaternionBlocks blocks polynomial) :
+    SupportedQuaternionBlocks blocks (polyNeg polynomial) := by
+  intro term hterm
+  obtain ⟨source, hsource, hsourceEq⟩ := List.mem_map.mp hterm
+  rw [← hsourceEq]
+  exact hsupport source hsource
+
+private theorem supported_polySmul_local
+    {blocks : Nat} {scale : Q'} {polynomial : RatPoly}
+    (hsupport : SupportedQuaternionBlocks blocks polynomial) :
+    SupportedQuaternionBlocks blocks (polySmul scale polynomial) := by
+  intro term hterm
+  obtain ⟨source, hsource, hsourceEq⟩ := List.mem_map.mp hterm
+  rw [← hsourceEq]
+  exact hsupport source hsource
+
+private structure SupportedPolyQuaternionLocal
+    (blocks : Nat) (quaternion : PolyQuaternion) : Prop where
+  scalar : SupportedQuaternionBlocks blocks quaternion.scalar
+  iPart : SupportedQuaternionBlocks blocks quaternion.iPart
+  jPart : SupportedQuaternionBlocks blocks quaternion.jPart
+  kPart : SupportedQuaternionBlocks blocks quaternion.kPart
+
+private theorem supportedPolyQuaternion_one_local (blocks : Nat) :
+    SupportedPolyQuaternionLocal blocks PolyQuaternion.one :=
+  ⟨supported_polyOne_local blocks, supported_polyZero_local blocks,
+    supported_polyZero_local blocks, supported_polyZero_local blocks⟩
+
+private theorem supportedPolyQuaternion_coordinateVariable_local
+    {blocks block : Nat} (hblock : block < blocks) :
+    SupportedPolyQuaternionLocal blocks
+      (PolyQuaternion.coordinateVariable block) := by
+  constructor <;> apply supported_polyVar_local <;> omega
+
+private theorem supportedPolyQuaternion_conj_local
+    {blocks : Nat} {quaternion : PolyQuaternion}
+    (hsupport : SupportedPolyQuaternionLocal blocks quaternion) :
+    SupportedPolyQuaternionLocal blocks (PolyQuaternion.conj quaternion) :=
+  ⟨hsupport.scalar, supported_polyNeg_local hsupport.iPart,
+    supported_polyNeg_local hsupport.jPart,
+    supported_polyNeg_local hsupport.kPart⟩
+
+private theorem supportedPolyQuaternion_mul_local
+    {blocks : Nat} {left right : PolyQuaternion}
+    (hleft : SupportedPolyQuaternionLocal blocks left)
+    (hright : SupportedPolyQuaternionLocal blocks right) :
+    SupportedPolyQuaternionLocal blocks (PolyQuaternion.mul left right) := by
+  constructor
+  · exact supported_polyAdd_local
+      (supported_polyMul hleft.scalar hright.scalar)
+      (supported_polyNeg_local (supported_polyAdd_local
+        (supported_polyMul hleft.iPart hright.iPart)
+        (supported_polyAdd_local
+          (supported_polyMul hleft.jPart hright.jPart)
+          (supported_polyMul hleft.kPart hright.kPart))))
+  · exact supported_polyAdd_local
+      (supported_polyMul hleft.scalar hright.iPart)
+      (supported_polyAdd_local
+        (supported_polyMul hleft.iPart hright.scalar)
+        (supported_polyAdd_local
+          (supported_polyMul hleft.jPart hright.kPart)
+          (supported_polyNeg_local
+            (supported_polyMul hleft.kPart hright.jPart))))
+  · exact supported_polyAdd_local
+      (supported_polyMul hleft.scalar hright.jPart)
+      (supported_polyAdd_local
+        (supported_polyMul hleft.jPart hright.scalar)
+        (supported_polyAdd_local
+          (supported_polyMul hleft.kPart hright.iPart)
+          (supported_polyNeg_local
+            (supported_polyMul hleft.iPart hright.kPart))))
+  · exact supported_polyAdd_local
+      (supported_polyMul hleft.scalar hright.kPart)
+      (supported_polyAdd_local
+        (supported_polyMul hleft.kPart hright.scalar)
+        (supported_polyAdd_local
+          (supported_polyMul hleft.iPart hright.jPart)
+          (supported_polyNeg_local
+            (supported_polyMul hleft.jPart hright.iPart))))
+
+private theorem orientedCoordinateQuaternion_supported_local
+    {blocks block : Nat} (hblock : block < blocks) (reverse : Bool) :
+    SupportedPolyQuaternionLocal blocks
+      (orientedCoordinateQuaternion block reverse) := by
+  cases reverse with
+  | false =>
+      simpa [orientedCoordinateQuaternion] using
+        (supportedPolyQuaternion_coordinateVariable_local hblock)
+  | true =>
+      simpa [orientedCoordinateQuaternion] using
+        (supportedPolyQuaternion_conj_local
+          (supportedPolyQuaternion_coordinateVariable_local hblock))
+
+private theorem compactOrientedQuaternionWord_supported_local
+    {blocks : Nat} (word : List (Nat × Bool))
+    (hword : ∀ entry, entry ∈ word → entry.1 < blocks) :
+    SupportedPolyQuaternionLocal blocks
+      (compactOrientedQuaternionWord word) := by
+  have go : ∀ (entries : List (Nat × Bool)) (total : PolyQuaternion),
+      (∀ entry, entry ∈ entries → entry.1 < blocks) →
+      SupportedPolyQuaternionLocal blocks total →
+      SupportedPolyQuaternionLocal blocks
+        (entries.foldl
+          (fun current entry =>
+            PolyQuaternion.mul current
+              (orientedCoordinateQuaternion entry.1 entry.2))
+          total) := by
+    intro entries
+    induction entries with
+    | nil =>
+        intro total _ htotal
+        exact htotal
+    | cons entry rest induction =>
+        intro total hentries htotal
+        simp only [List.foldl_cons]
+        exact induction _
+          (fun other hother =>
+            hentries other (List.mem_cons_of_mem entry hother))
+          (supportedPolyQuaternion_mul_local htotal
+            (orientedCoordinateQuaternion_supported_local
+              (hentries entry List.mem_cons_self) entry.2))
+  exact go word PolyQuaternion.one hword
+    (supportedPolyQuaternion_one_local blocks)
+
+private theorem characterPolynomial_supported_local
+    {blocks : Nat} {scalar : RatPoly}
+    (hsupport : SupportedQuaternionBlocks blocks scalar) : ∀ spin,
+    SupportedQuaternionBlocks blocks (characterPolynomial scalar spin)
+  | 0 => supported_polyOne_local blocks
+  | 1 => supported_polySmul_local hsupport
+  | spin + 2 =>
+      supported_polyAdd_local
+        (supported_polyMul (supported_polySmul_local hsupport)
+          (characterPolynomial_supported_local hsupport (spin + 1)))
+        (supported_polySmul_local
+          (characterPolynomial_supported_local hsupport spin))
+
+private theorem factorProduct_supported_local
+    {blocks : Nat} : ∀ factors : List RatPoly,
+    (∀ factor, factor ∈ factors →
+      SupportedQuaternionBlocks blocks factor) →
+    SupportedQuaternionBlocks blocks (factorProduct factors)
+  | [], _ => supported_polyOne_local blocks
+  | factor :: rest, hfactors =>
+      supported_polyMul
+        (hfactors factor List.mem_cons_self)
+        (factorProduct_supported_local rest fun other hother =>
+          hfactors other (List.mem_cons_of_mem factor hother))
+
+/-- Finite support certificate for every compact edge block occurring in
+every selected face word. -/
+def activeSurfaceSelectedWordBlockBoundCheck : Bool :=
+  binarySurfaceMasks.all fun mask =>
+    (surfaceSelectedCompactFaceIds mask).all fun faceId =>
+      (hypercubeFaceWords.getD faceId []).all fun entry =>
+        decide (surfaceActiveBlock entry.1 < 32)
+
+theorem activeSurfaceSelectedWordBlockBoundCheck_true :
+    activeSurfaceSelectedWordBlockBoundCheck = true := by
+  decide
+
+private theorem activeSurfaceSelectedWordBlock_lt
+    (mask : Nat) (hmask : mask ∈ binarySurfaceMasks)
+    (faceId : Nat) (hface : faceId ∈ surfaceSelectedCompactFaceIds mask)
+    (entry : Nat × Bool)
+    (hentry : entry ∈ hypercubeFaceWords.getD faceId []) :
+    surfaceActiveBlock entry.1 < 32 := by
+  have hrow := List.all_eq_true.mp
+    activeSurfaceSelectedWordBlockBoundCheck_true mask hmask
+  have hfaceRow := List.all_eq_true.mp hrow faceId hface
+  exact of_decide_eq_true (List.all_eq_true.mp hfaceRow entry hentry)
+
+theorem activeSurfaceSelectedWordFactorProduct_supported
+    (mask : Nat) (hmask : mask ∈ binarySurfaceMasks) :
+    SupportedQuaternionBlocks 32
+      (factorProduct (activeSurfaceSelectedWordFactors mask)) := by
+  apply factorProduct_supported_local
+  intro factor hfactor
+  unfold activeSurfaceSelectedWordFactors at hfactor
+  obtain ⟨faceId, hface, rfl⟩ := List.mem_map.mp hfactor
+  apply characterPolynomial_supported_local
+  exact (compactOrientedQuaternionWord_supported_local
+    ((hypercubeFaceWords.getD faceId []).map fun entry =>
+      (surfaceActiveBlock entry.1, entry.2))
+    (fun mappedEntry hmapped => by
+      obtain ⟨entry, hentry, hentryEq⟩ := List.mem_map.mp hmapped
+      rw [← hentryEq]
+      exact activeSurfaceSelectedWordBlock_lt
+        mask hmask faceId hface entry hentry)).scalar
+
+theorem embeddedSurfaceSelectedActiveFactorProduct_supported
+    (mask : Nat) :
+    SupportedQuaternionBlocks 32
+      (factorProduct (embeddedSurfaceSelectedActiveFactors mask)) := by
+  apply factorProduct_supported_local
+  intro factor hfactor
+  unfold embeddedSurfaceSelectedActiveFactors at hfactor
+  obtain ⟨face, _, rfl⟩ := List.mem_map.mp hfactor
+  exact trimQuaternionPolynomial_supported 32 _
+
+/-- The literal selected-face evaluator is exactly the Haar value of the
+compact 32-block oriented face-word product.  From this point onward the
+116-link slab carrier has been eliminated without an expansion. -/
+theorem embeddedSurfaceSelectedActiveBivalentHaar_eq_wordHaar
+    (mask : Nat) (hmask : mask ∈ binarySurfaceMasks) :
+    embeddedSurfaceSelectedActiveBivalentHaar mask ≈
+      quaternionHaar 32
+        (factorProduct (activeSurfaceSelectedWordFactors mask)) := by
+  exact Q'.eqv_trans _
+    (quaternionHaar 32
+      (factorProduct (embeddedSurfaceSelectedActiveFactors mask))) _
+    (Q'.eqv_symm
+      (quaternionHaar_eq_compactBivalentFactorizedHaar 32
+        (embeddedSurfaceSelectedActiveFactors mask)))
+    (quaternionHaar_prefixPolynomialEqv 32
+      (embeddedSurfaceSelectedActiveFactorProduct_prefix mask hmask)
+      (embeddedSurfaceSelectedActiveFactorProduct_supported mask)
+      (activeSurfaceSelectedWordFactorProduct_supported mask hmask))
+
 /-! ## The unit-sphere cancellation carrier -/
 
 /-- A single retained quaternion radius is the polynomial unit with the
@@ -843,4 +1099,6 @@ end YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugePolynomialSemantics
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugePolynomialSemantics.activeSelectedSurfaceSlabFaceFactor_prefix
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugePolynomialSemantics.selectedSurfaceLiteralFaceGeometry
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugePolynomialSemantics.embeddedSurfaceSelectedActiveFactorProduct_prefix
+#print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugePolynomialSemantics.activeSurfaceSelectedWordFactorProduct_supported
+#print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugePolynomialSemantics.embeddedSurfaceSelectedActiveBivalentHaar_eq_wordHaar
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugePolynomialSemantics.quaternionRadiusPolynomial_carrier_one

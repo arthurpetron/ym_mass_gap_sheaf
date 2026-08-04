@@ -120,7 +120,9 @@ The constructive Lean lift now has six checked layers.
    without Hamilton-product expansion, that every literal 116-block selected
    plaquette becomes its compact active quaternion word, that the result
    survives the exact 116-to-32 trim, and that the spin-one character lift
-   holds for the complete selected factor product on all 128 masks.  It also
+   holds for the complete selected factor product on all 128 masks.  Supported
+   prefix transport now identifies the actual selected-face evaluator with
+   the exact Haar value of that compact 32-block word-factor product.  It also
    packages one quaternion radius as the Haar-carrier unit.  What remains is
    the structural lift of the forest substitution plus free/cyclic
    cancellation through those compact word factors.
