@@ -26,8 +26,11 @@ open YMGap.Constructive
 open YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugePolynomialSemantics
 open YMGap.Continuum.BF4ExactCutoffOneHaarFiveEvaluation
 open YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordSemantics
+open YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeTranslation
 open YMGap.Continuum.BF4CutoffOneBinarySurfaceCertificate
 open YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGauge
+open YMGap.Continuum.BF4ExactSlabSelectedFaceCanonicalWord
+open YMGap.Continuum.BF4CompactActionSphereShift
 open YMGap.Continuum.BF4GeometricSpinNetworkMehler
 open YMGap.Continuum.BF4GeometricHaarMehlerProjection
 open YMGap.Continuum.RingNormaliser
@@ -2789,6 +2792,36 @@ theorem signSelectedPolynomial_coeffEqv
         (ratWeightedSum_signSelectedPolynomial
           coordinates selected weight right)))
 
+theorem signSelectedPolynomial_smul_coeffEqv
+    (coordinates : Nat) (selected : Nat → Bool)
+    (scale : Q') (polynomial : RatPoly) :
+    RatPolyCoeffEqv
+      (signSelectedPolynomial coordinates selected
+        (polySmul scale polynomial))
+      (polySmul scale
+        (signSelectedPolynomial coordinates selected polynomial)) := by
+  intro weight
+  let transformed : List Nat → Q' := fun monomial =>
+    if selectedExponentParity coordinates selected monomial
+    then -(weight monomial) else weight monomial
+  exact Q'.eqv_trans _
+    (ratWeightedSum transformed (polySmul scale polynomial)) _
+    (ratWeightedSum_signSelectedPolynomial
+      coordinates selected weight (polySmul scale polynomial))
+    (Q'.eqv_trans _
+      (scale * ratWeightedSum transformed polynomial) _
+      (ratWeightedSum_smul transformed scale polynomial)
+      (Q'.eqv_trans _
+        (scale * ratWeightedSum weight
+          (signSelectedPolynomial coordinates selected polynomial)) _
+        (Q'.mul_eqv_congr_left _ _ _
+          (Q'.eqv_symm
+            (ratWeightedSum_signSelectedPolynomial
+              coordinates selected weight polynomial)))
+        (Q'.eqv_symm
+          (ratWeightedSum_smul weight scale
+            (signSelectedPolynomial coordinates selected polynomial)))))
+
 theorem conjugateQuaternionBlockPolynomial_coeffEqv
     (blocks block : Nat) {left right : RatPoly}
     (heqv : RatPolyCoeffEqv left right) :
@@ -2810,6 +2843,17 @@ theorem conjugateQuaternionBlockPolynomial_mul
   simpa [conjugateQuaternionBlockPolynomial] using
     (signSelectedPolynomial_mul_coeffEqv (4 * blocks)
       (quaternionConjugateCoordinateSelector block) left right)
+
+theorem conjugateQuaternionBlockPolynomial_smul
+    (blocks block : Nat) (scale : Q') (polynomial : RatPoly) :
+    RatPolyCoeffEqv
+      (conjugateQuaternionBlockPolynomial blocks block
+        (polySmul scale polynomial))
+      (polySmul scale
+        (conjugateQuaternionBlockPolynomial blocks block polynomial)) := by
+  simpa [conjugateQuaternionBlockPolynomial] using
+    (signSelectedPolynomial_smul_coeffEqv (4 * blocks)
+      (quaternionConjugateCoordinateSelector block) scale polynomial)
 
 theorem selectedLeftInverseTranslatedPolynomial_coeffEqv
     (tailBlocks selected multiplier : Nat)
@@ -2923,6 +2967,208 @@ theorem selectedRightInverseTranslatedPolynomial_mul
         (tailBlocks + 1) multiplier
         (translate (conjugate left)) (translate (conjugate right))))
 
+theorem selectedLeftTranslatedPolynomial_smul
+    (tailBlocks selected multiplier : Nat)
+    (hblocks : 0 < tailBlocks)
+    (hselected : selected < tailBlocks + 1)
+    (hmultiplier : multiplier < tailBlocks + 1)
+    (hdistinct : selected ≠ multiplier)
+    (scale : Q') (polynomial : RatPoly) :
+    RatPolyCoeffEqv
+      (selectedLeftTranslatedPolynomial tailBlocks selected multiplier
+        hblocks hselected hmultiplier hdistinct
+        (polySmul scale polynomial))
+      (polySmul scale
+        (selectedLeftTranslatedPolynomial tailBlocks selected multiplier
+          hblocks hselected hmultiplier hdistinct polynomial)) := by
+  have htranslated := translatedHeadPolynomial_smul
+    leftTranslatedHeadQuaternion scale
+    (exposeTranslationPairPolynomial (tailBlocks + 1)
+      selected multiplier (by omega) hselected hmultiplier polynomial)
+  have hrestored := restoreTranslationPairPolynomial_coeffEqv
+    (tailBlocks + 1) selected multiplier (by omega)
+    hselected hmultiplier htranslated
+  simpa [selectedLeftTranslatedPolynomial,
+    exposeTranslationPairPolynomial,
+    restoreTranslationPairPolynomial,
+    reindexQuaternionPolynomial_smul] using hrestored
+
+theorem selectedRightTranslatedPolynomial_smul
+    (tailBlocks selected multiplier : Nat)
+    (hblocks : 0 < tailBlocks)
+    (hselected : selected < tailBlocks + 1)
+    (hmultiplier : multiplier < tailBlocks + 1)
+    (hdistinct : selected ≠ multiplier)
+    (scale : Q') (polynomial : RatPoly) :
+    RatPolyCoeffEqv
+      (selectedRightTranslatedPolynomial tailBlocks selected multiplier
+        hblocks hselected hmultiplier hdistinct
+        (polySmul scale polynomial))
+      (polySmul scale
+        (selectedRightTranslatedPolynomial tailBlocks selected multiplier
+          hblocks hselected hmultiplier hdistinct polynomial)) := by
+  have htranslated := translatedHeadPolynomial_smul
+    rightTranslatedHeadQuaternion scale
+    (exposeTranslationPairPolynomial (tailBlocks + 1)
+      selected multiplier (by omega) hselected hmultiplier polynomial)
+  have hrestored := restoreTranslationPairPolynomial_coeffEqv
+    (tailBlocks + 1) selected multiplier (by omega)
+    hselected hmultiplier htranslated
+  simpa [selectedRightTranslatedPolynomial,
+    exposeTranslationPairPolynomial,
+    restoreTranslationPairPolynomial,
+    reindexQuaternionPolynomial_smul] using hrestored
+
+theorem selectedLeftInverseTranslatedPolynomial_smul
+    (tailBlocks selected multiplier : Nat)
+    (hblocks : 0 < tailBlocks)
+    (hselected : selected < tailBlocks + 1)
+    (hmultiplier : multiplier < tailBlocks + 1)
+    (hdistinct : selected ≠ multiplier)
+    (scale : Q') (polynomial : RatPoly) :
+    RatPolyCoeffEqv
+      (selectedLeftInverseTranslatedPolynomial tailBlocks selected multiplier
+        hblocks hselected hmultiplier hdistinct
+        (polySmul scale polynomial))
+      (polySmul scale
+        (selectedLeftInverseTranslatedPolynomial tailBlocks selected
+          multiplier hblocks hselected hmultiplier hdistinct polynomial)) := by
+  exact RatPolyCoeffEqv.trans
+    (conjugateQuaternionBlockPolynomial_coeffEqv
+      (tailBlocks + 1) multiplier
+      (selectedLeftTranslatedPolynomial_coeffEqv
+        tailBlocks selected multiplier hblocks hselected hmultiplier
+        hdistinct
+        (conjugateQuaternionBlockPolynomial_smul
+          (tailBlocks + 1) multiplier scale polynomial)))
+    (RatPolyCoeffEqv.trans
+      (conjugateQuaternionBlockPolynomial_coeffEqv
+        (tailBlocks + 1) multiplier
+        (selectedLeftTranslatedPolynomial_smul tailBlocks selected multiplier
+          hblocks hselected hmultiplier hdistinct scale
+          (conjugateQuaternionBlockPolynomial
+            (tailBlocks + 1) multiplier polynomial)))
+      (conjugateQuaternionBlockPolynomial_smul
+        (tailBlocks + 1) multiplier scale
+        (selectedLeftTranslatedPolynomial tailBlocks selected multiplier
+          hblocks hselected hmultiplier hdistinct
+          (conjugateQuaternionBlockPolynomial
+            (tailBlocks + 1) multiplier polynomial))))
+
+theorem selectedRightInverseTranslatedPolynomial_smul
+    (tailBlocks selected multiplier : Nat)
+    (hblocks : 0 < tailBlocks)
+    (hselected : selected < tailBlocks + 1)
+    (hmultiplier : multiplier < tailBlocks + 1)
+    (hdistinct : selected ≠ multiplier)
+    (scale : Q') (polynomial : RatPoly) :
+    RatPolyCoeffEqv
+      (selectedRightInverseTranslatedPolynomial tailBlocks selected multiplier
+        hblocks hselected hmultiplier hdistinct
+        (polySmul scale polynomial))
+      (polySmul scale
+        (selectedRightInverseTranslatedPolynomial tailBlocks selected
+          multiplier hblocks hselected hmultiplier hdistinct polynomial)) := by
+  exact RatPolyCoeffEqv.trans
+    (conjugateQuaternionBlockPolynomial_coeffEqv
+      (tailBlocks + 1) multiplier
+      (selectedRightTranslatedPolynomial_coeffEqv
+        tailBlocks selected multiplier hblocks hselected hmultiplier
+        hdistinct
+        (conjugateQuaternionBlockPolynomial_smul
+          (tailBlocks + 1) multiplier scale polynomial)))
+    (RatPolyCoeffEqv.trans
+      (conjugateQuaternionBlockPolynomial_coeffEqv
+        (tailBlocks + 1) multiplier
+        (selectedRightTranslatedPolynomial_smul tailBlocks selected multiplier
+          hblocks hselected hmultiplier hdistinct scale
+          (conjugateQuaternionBlockPolynomial
+            (tailBlocks + 1) multiplier polynomial)))
+      (conjugateQuaternionBlockPolynomial_smul
+        (tailBlocks + 1) multiplier scale
+        (selectedRightTranslatedPolynomial tailBlocks selected multiplier
+          hblocks hselected hmultiplier hdistinct
+          (conjugateQuaternionBlockPolynomial
+            (tailBlocks + 1) multiplier polynomial))))
+
+theorem selectedLeftTranslatedPolynomial_add
+    (tailBlocks selected multiplier : Nat)
+    (hblocks : 0 < tailBlocks)
+    (hselected : selected < tailBlocks + 1)
+    (hmultiplier : multiplier < tailBlocks + 1)
+    (hdistinct : selected ≠ multiplier)
+    (left right : RatPoly) :
+    selectedLeftTranslatedPolynomial tailBlocks selected multiplier
+        hblocks hselected hmultiplier hdistinct (polyAdd left right) =
+      polyAdd
+        (selectedLeftTranslatedPolynomial tailBlocks selected multiplier
+          hblocks hselected hmultiplier hdistinct left)
+        (selectedLeftTranslatedPolynomial tailBlocks selected multiplier
+          hblocks hselected hmultiplier hdistinct right) := by
+  simp [selectedLeftTranslatedPolynomial,
+    exposeTranslationPairPolynomial,
+    restoreTranslationPairPolynomial,
+    reindexQuaternionPolynomial_add,
+    translatedHeadPolynomial_add]
+
+theorem selectedRightTranslatedPolynomial_add
+    (tailBlocks selected multiplier : Nat)
+    (hblocks : 0 < tailBlocks)
+    (hselected : selected < tailBlocks + 1)
+    (hmultiplier : multiplier < tailBlocks + 1)
+    (hdistinct : selected ≠ multiplier)
+    (left right : RatPoly) :
+    selectedRightTranslatedPolynomial tailBlocks selected multiplier
+        hblocks hselected hmultiplier hdistinct (polyAdd left right) =
+      polyAdd
+        (selectedRightTranslatedPolynomial tailBlocks selected multiplier
+          hblocks hselected hmultiplier hdistinct left)
+        (selectedRightTranslatedPolynomial tailBlocks selected multiplier
+          hblocks hselected hmultiplier hdistinct right) := by
+  simp [selectedRightTranslatedPolynomial,
+    exposeTranslationPairPolynomial,
+    restoreTranslationPairPolynomial,
+    reindexQuaternionPolynomial_add,
+    translatedHeadPolynomial_add]
+
+theorem selectedLeftInverseTranslatedPolynomial_add
+    (tailBlocks selected multiplier : Nat)
+    (hblocks : 0 < tailBlocks)
+    (hselected : selected < tailBlocks + 1)
+    (hmultiplier : multiplier < tailBlocks + 1)
+    (hdistinct : selected ≠ multiplier)
+    (left right : RatPoly) :
+    selectedLeftInverseTranslatedPolynomial tailBlocks selected multiplier
+        hblocks hselected hmultiplier hdistinct (polyAdd left right) =
+      polyAdd
+        (selectedLeftInverseTranslatedPolynomial tailBlocks selected multiplier
+          hblocks hselected hmultiplier hdistinct left)
+        (selectedLeftInverseTranslatedPolynomial tailBlocks selected multiplier
+          hblocks hselected hmultiplier hdistinct right) := by
+  simp [selectedLeftInverseTranslatedPolynomial,
+    selectedLeftTranslatedPolynomial_add,
+    signSelectedPolynomial_add,
+    conjugateQuaternionBlockPolynomial]
+
+theorem selectedRightInverseTranslatedPolynomial_add
+    (tailBlocks selected multiplier : Nat)
+    (hblocks : 0 < tailBlocks)
+    (hselected : selected < tailBlocks + 1)
+    (hmultiplier : multiplier < tailBlocks + 1)
+    (hdistinct : selected ≠ multiplier)
+    (left right : RatPoly) :
+    selectedRightInverseTranslatedPolynomial tailBlocks selected multiplier
+        hblocks hselected hmultiplier hdistinct (polyAdd left right) =
+      polyAdd
+        (selectedRightInverseTranslatedPolynomial tailBlocks selected multiplier
+          hblocks hselected hmultiplier hdistinct left)
+        (selectedRightInverseTranslatedPolynomial tailBlocks selected multiplier
+          hblocks hselected hmultiplier hdistinct right) := by
+  simp [selectedRightInverseTranslatedPolynomial,
+    selectedRightTranslatedPolynomial_add,
+    signSelectedPolynomial_add,
+    conjugateQuaternionBlockPolynomial]
+
 open YMGap.Continuum.SU2QuaternionSelectedHaarTranslationChain
 
 theorem applySelectedTranslationStep_coeffEqv
@@ -2993,6 +3239,75 @@ theorem applySelectedTranslationStep_mul
               step.selected step.multiplier hblocks step.selected_lt
               step.multiplier_lt step.distinct left right)
 
+theorem applySelectedTranslationStep_smul
+    {tailBlocks : Nat} (hblocks : 0 < tailBlocks)
+    (step : SelectedTranslationStep tailBlocks)
+    (scale : Q') (polynomial : RatPoly) :
+    RatPolyCoeffEqv
+      (applySelectedTranslationStep hblocks step
+        (polySmul scale polynomial))
+      (polySmul scale
+        (applySelectedTranslationStep hblocks step polynomial)) := by
+  cases hside : step.side with
+  | left =>
+      cases horientation : step.multiplierOrientation with
+      | direct =>
+          simpa [applySelectedTranslationStep, hside, horientation] using
+            (selectedLeftTranslatedPolynomial_smul tailBlocks
+              step.selected step.multiplier hblocks step.selected_lt
+              step.multiplier_lt step.distinct scale polynomial)
+      | inverse =>
+          simpa [applySelectedTranslationStep, hside, horientation] using
+            (selectedLeftInverseTranslatedPolynomial_smul tailBlocks
+              step.selected step.multiplier hblocks step.selected_lt
+              step.multiplier_lt step.distinct scale polynomial)
+  | right =>
+      cases horientation : step.multiplierOrientation with
+      | direct =>
+          simpa [applySelectedTranslationStep, hside, horientation] using
+            (selectedRightTranslatedPolynomial_smul tailBlocks
+              step.selected step.multiplier hblocks step.selected_lt
+              step.multiplier_lt step.distinct scale polynomial)
+      | inverse =>
+          simpa [applySelectedTranslationStep, hside, horientation] using
+            (selectedRightInverseTranslatedPolynomial_smul tailBlocks
+              step.selected step.multiplier hblocks step.selected_lt
+              step.multiplier_lt step.distinct scale polynomial)
+
+theorem applySelectedTranslationStep_add
+    {tailBlocks : Nat} (hblocks : 0 < tailBlocks)
+    (step : SelectedTranslationStep tailBlocks)
+    (left right : RatPoly) :
+    applySelectedTranslationStep hblocks step (polyAdd left right) =
+      polyAdd
+        (applySelectedTranslationStep hblocks step left)
+        (applySelectedTranslationStep hblocks step right) := by
+  cases hside : step.side with
+  | left =>
+      cases horientation : step.multiplierOrientation with
+      | direct =>
+          simpa [applySelectedTranslationStep, hside, horientation] using
+            (selectedLeftTranslatedPolynomial_add tailBlocks
+              step.selected step.multiplier hblocks step.selected_lt
+              step.multiplier_lt step.distinct left right)
+      | inverse =>
+          simpa [applySelectedTranslationStep, hside, horientation] using
+            (selectedLeftInverseTranslatedPolynomial_add tailBlocks
+              step.selected step.multiplier hblocks step.selected_lt
+              step.multiplier_lt step.distinct left right)
+  | right =>
+      cases horientation : step.multiplierOrientation with
+      | direct =>
+          simpa [applySelectedTranslationStep, hside, horientation] using
+            (selectedRightTranslatedPolynomial_add tailBlocks
+              step.selected step.multiplier hblocks step.selected_lt
+              step.multiplier_lt step.distinct left right)
+      | inverse =>
+          simpa [applySelectedTranslationStep, hside, horientation] using
+            (selectedRightInverseTranslatedPolynomial_add tailBlocks
+              step.selected step.multiplier hblocks step.selected_lt
+              step.multiplier_lt step.distinct left right)
+
 theorem applySelectedTranslationSteps_coeffEqv
     {tailBlocks : Nat} (hblocks : 0 < tailBlocks) :
     ∀ (steps : List (SelectedTranslationStep tailBlocks))
@@ -3023,6 +3338,320 @@ theorem applySelectedTranslationSteps_mul
         (applySelectedTranslationSteps_mul hblocks rest
           (applySelectedTranslationStep hblocks step left)
           (applySelectedTranslationStep hblocks step right))
+
+theorem applySelectedTranslationSteps_smul
+    {tailBlocks : Nat} (hblocks : 0 < tailBlocks) :
+    ∀ (steps : List (SelectedTranslationStep tailBlocks))
+      (scale : Q') (polynomial : RatPoly),
+      RatPolyCoeffEqv
+        (applySelectedTranslationSteps hblocks steps
+          (polySmul scale polynomial))
+        (polySmul scale
+          (applySelectedTranslationSteps hblocks steps polynomial))
+  | [], scale, polynomial =>
+      RatPolyCoeffEqv.refl (polySmul scale polynomial)
+  | step :: rest, scale, polynomial =>
+      RatPolyCoeffEqv.trans
+        (applySelectedTranslationSteps_coeffEqv hblocks rest
+          (applySelectedTranslationStep_smul
+            hblocks step scale polynomial))
+        (applySelectedTranslationSteps_smul hblocks rest scale
+          (applySelectedTranslationStep hblocks step polynomial))
+
+theorem applySelectedTranslationSteps_neg
+    {tailBlocks : Nat} (hblocks : 0 < tailBlocks)
+    (steps : List (SelectedTranslationStep tailBlocks))
+    (polynomial : RatPoly) :
+    RatPolyCoeffEqv
+      (applySelectedTranslationSteps hblocks steps (polyNeg polynomial))
+      (polyNeg
+        (applySelectedTranslationSteps hblocks steps polynomial)) := by
+  exact RatPolyCoeffEqv.trans
+    (applySelectedTranslationSteps_coeffEqv hblocks steps
+      (RatPolyCoeffEqv.neg_eq_negOne_smul polynomial))
+    (RatPolyCoeffEqv.trans
+      (applySelectedTranslationSteps_smul hblocks steps (-1) polynomial)
+      (RatPolyCoeffEqv.symm
+        (RatPolyCoeffEqv.neg_eq_negOne_smul
+          (applySelectedTranslationSteps hblocks steps polynomial))))
+
+theorem applySelectedTranslationSteps_add
+    {tailBlocks : Nat} (hblocks : 0 < tailBlocks) :
+    ∀ (steps : List (SelectedTranslationStep tailBlocks))
+      (left right : RatPoly),
+      applySelectedTranslationSteps hblocks steps (polyAdd left right) =
+        polyAdd
+          (applySelectedTranslationSteps hblocks steps left)
+          (applySelectedTranslationSteps hblocks steps right)
+  | [], left, right => rfl
+  | step :: rest, left, right => by
+      simp only [applySelectedTranslationSteps]
+      rw [applySelectedTranslationStep_add hblocks step left right]
+      exact applySelectedTranslationSteps_add hblocks rest
+        (applySelectedTranslationStep hblocks step left)
+        (applySelectedTranslationStep hblocks step right)
+
+def applySelectedTranslationStepsQuaternion
+    {tailBlocks : Nat} (hblocks : 0 < tailBlocks)
+    (steps : List (SelectedTranslationStep tailBlocks))
+    (quaternion : PolyQuaternion) : PolyQuaternion where
+  scalar := applySelectedTranslationSteps hblocks steps quaternion.scalar
+  iPart := applySelectedTranslationSteps hblocks steps quaternion.iPart
+  jPart := applySelectedTranslationSteps hblocks steps quaternion.jPart
+  kPart := applySelectedTranslationSteps hblocks steps quaternion.kPart
+
+theorem applySelectedTranslationStepsQuaternion_coeffEqv
+    {tailBlocks : Nat} (hblocks : 0 < tailBlocks)
+    (steps : List (SelectedTranslationStep tailBlocks))
+    {left right : PolyQuaternion}
+    (heqv : PolyQuaternionCoeffEqv left right) :
+    PolyQuaternionCoeffEqv
+      (applySelectedTranslationStepsQuaternion hblocks steps left)
+      (applySelectedTranslationStepsQuaternion hblocks steps right) :=
+  ⟨applySelectedTranslationSteps_coeffEqv hblocks steps heqv.scalar,
+    applySelectedTranslationSteps_coeffEqv hblocks steps heqv.iPart,
+    applySelectedTranslationSteps_coeffEqv hblocks steps heqv.jPart,
+    applySelectedTranslationSteps_coeffEqv hblocks steps heqv.kPart⟩
+
+theorem applySelectedTranslationStepsQuaternion_conj
+    {tailBlocks : Nat} (hblocks : 0 < tailBlocks)
+    (steps : List (SelectedTranslationStep tailBlocks))
+    (quaternion : PolyQuaternion) :
+    PolyQuaternionCoeffEqv
+      (applySelectedTranslationStepsQuaternion hblocks steps
+        (PolyQuaternion.conj quaternion))
+      (PolyQuaternion.conj
+        (applySelectedTranslationStepsQuaternion hblocks steps
+          quaternion)) :=
+  ⟨RatPolyCoeffEqv.refl _,
+    applySelectedTranslationSteps_neg hblocks steps quaternion.iPart,
+    applySelectedTranslationSteps_neg hblocks steps quaternion.jPart,
+    applySelectedTranslationSteps_neg hblocks steps quaternion.kPart⟩
+
+private theorem applySelectedTranslationSteps_threeSum
+    {tailBlocks : Nat} (hblocks : 0 < tailBlocks)
+    (steps : List (SelectedTranslationStep tailBlocks))
+    (first second third : RatPoly) :
+    RatPolyCoeffEqv
+      (applySelectedTranslationSteps hblocks steps
+        (polyAdd first (polyAdd second third)))
+      (polyAdd
+        (applySelectedTranslationSteps hblocks steps first)
+        (polyAdd
+          (applySelectedTranslationSteps hblocks steps second)
+          (applySelectedTranslationSteps hblocks steps third))) := by
+  rw [applySelectedTranslationSteps_add,
+    applySelectedTranslationSteps_add]
+  exact RatPolyCoeffEqv.refl _
+
+theorem applySelectedTranslationStepsQuaternion_mul
+    {tailBlocks : Nat} (hblocks : 0 < tailBlocks)
+    (steps : List (SelectedTranslationStep tailBlocks))
+    (left right : PolyQuaternion) :
+    PolyQuaternionCoeffEqv
+      (applySelectedTranslationStepsQuaternion hblocks steps
+        (PolyQuaternion.mul left right))
+      (PolyQuaternion.mul
+        (applySelectedTranslationStepsQuaternion hblocks steps left)
+        (applySelectedTranslationStepsQuaternion hblocks steps right)) := by
+  constructor
+  · simp only [applySelectedTranslationStepsQuaternion,
+      PolyQuaternion.mul]
+    rw [applySelectedTranslationSteps_add]
+    apply RatPolyCoeffEqv.add
+    · exact applySelectedTranslationSteps_mul hblocks steps
+        left.scalar right.scalar
+    · exact RatPolyCoeffEqv.trans
+        (applySelectedTranslationSteps_neg hblocks steps _)
+        (RatPolyCoeffEqv.neg
+          (RatPolyCoeffEqv.trans
+            (applySelectedTranslationSteps_threeSum hblocks steps _ _ _)
+            (RatPolyCoeffEqv.add
+              (applySelectedTranslationSteps_mul hblocks steps
+                left.iPart right.iPart)
+              (RatPolyCoeffEqv.add
+                (applySelectedTranslationSteps_mul hblocks steps
+                  left.jPart right.jPart)
+                (applySelectedTranslationSteps_mul hblocks steps
+                  left.kPart right.kPart)))))
+  · simp only [applySelectedTranslationStepsQuaternion,
+      PolyQuaternion.mul]
+    rw [applySelectedTranslationSteps_add]
+    apply RatPolyCoeffEqv.add
+    · exact applySelectedTranslationSteps_mul hblocks steps
+        left.scalar right.iPart
+    · exact RatPolyCoeffEqv.trans
+        (applySelectedTranslationSteps_threeSum hblocks steps _ _ _)
+        (RatPolyCoeffEqv.add
+          (applySelectedTranslationSteps_mul hblocks steps
+            left.iPart right.scalar)
+          (RatPolyCoeffEqv.add
+            (applySelectedTranslationSteps_mul hblocks steps
+              left.jPart right.kPart)
+            (RatPolyCoeffEqv.trans
+              (applySelectedTranslationSteps_neg hblocks steps _)
+              (RatPolyCoeffEqv.neg
+                (applySelectedTranslationSteps_mul hblocks steps
+                  left.kPart right.jPart)))))
+  · simp only [applySelectedTranslationStepsQuaternion,
+      PolyQuaternion.mul]
+    rw [applySelectedTranslationSteps_add]
+    apply RatPolyCoeffEqv.add
+    · exact applySelectedTranslationSteps_mul hblocks steps
+        left.scalar right.jPart
+    · exact RatPolyCoeffEqv.trans
+        (applySelectedTranslationSteps_threeSum hblocks steps _ _ _)
+        (RatPolyCoeffEqv.add
+          (applySelectedTranslationSteps_mul hblocks steps
+            left.jPart right.scalar)
+          (RatPolyCoeffEqv.add
+            (applySelectedTranslationSteps_mul hblocks steps
+              left.kPart right.iPart)
+            (RatPolyCoeffEqv.trans
+              (applySelectedTranslationSteps_neg hblocks steps _)
+              (RatPolyCoeffEqv.neg
+                (applySelectedTranslationSteps_mul hblocks steps
+                  left.iPart right.kPart)))))
+  · simp only [applySelectedTranslationStepsQuaternion,
+      PolyQuaternion.mul]
+    rw [applySelectedTranslationSteps_add]
+    apply RatPolyCoeffEqv.add
+    · exact applySelectedTranslationSteps_mul hblocks steps
+        left.scalar right.kPart
+    · exact RatPolyCoeffEqv.trans
+        (applySelectedTranslationSteps_threeSum hblocks steps _ _ _)
+        (RatPolyCoeffEqv.add
+          (applySelectedTranslationSteps_mul hblocks steps
+            left.kPart right.scalar)
+          (RatPolyCoeffEqv.add
+            (applySelectedTranslationSteps_mul hblocks steps
+              left.iPart right.jPart)
+            (RatPolyCoeffEqv.trans
+              (applySelectedTranslationSteps_neg hblocks steps _)
+              (RatPolyCoeffEqv.neg
+                (applySelectedTranslationSteps_mul hblocks steps
+                  left.jPart right.iPart)))))
+
+/-! ## Canonical finite coordinate certificates -/
+
+def polyQuaternionCanonicalCoeffCheck
+    (left right : PolyQuaternion) : Bool :=
+  decide (RatPolyTermwiseEqv (canonRat left.scalar) (canonRat right.scalar)) &&
+    (decide (RatPolyTermwiseEqv
+        (canonRat left.iPart) (canonRat right.iPart)) &&
+      (decide (RatPolyTermwiseEqv
+          (canonRat left.jPart) (canonRat right.jPart)) &&
+        decide (RatPolyTermwiseEqv
+          (canonRat left.kPart) (canonRat right.kPart))))
+
+theorem polyQuaternionCanonicalCoeffCheck_sound
+    {left right : PolyQuaternion}
+    (hcheck : polyQuaternionCanonicalCoeffCheck left right = true) :
+    PolyQuaternionCoeffEqv left right := by
+  have hsplit :
+      RatPolyTermwiseEqv (canonRat left.scalar) (canonRat right.scalar) ∧
+      RatPolyTermwiseEqv (canonRat left.iPart) (canonRat right.iPart) ∧
+      RatPolyTermwiseEqv (canonRat left.jPart) (canonRat right.jPart) ∧
+      RatPolyTermwiseEqv (canonRat left.kPart) (canonRat right.kPart) := by
+    simpa [polyQuaternionCanonicalCoeffCheck] using hcheck
+  exact ⟨RatPolyCoeffEqv.of_canon_termwise hsplit.1,
+    RatPolyCoeffEqv.of_canon_termwise hsplit.2.1,
+    RatPolyCoeffEqv.of_canon_termwise hsplit.2.2.1,
+    RatPolyCoeffEqv.of_canon_termwise hsplit.2.2.2⟩
+
+def identityQuaternionBlockInvolution
+    (blocks : Nat) : QuaternionBlockInvolution blocks where
+  map := fun block => block
+  map_lt := fun _ hblock => hblock
+  involutive := fun _ _ => rfl
+
+theorem identityReindexQuaternionPolynomial_prefix
+    (blocks : Nat) : ∀ polynomial : RatPoly,
+    QuaternionPrefixPolynomialEqv blocks
+      (reindexQuaternionPolynomial
+        (identityQuaternionBlockInvolution blocks) polynomial)
+      polynomial
+  | [] => .nil
+  | term :: rest => by
+      apply QuaternionPrefixPolynomialEqv.cons
+      · constructor
+        · exact Q'.eqv_refl term.2
+        · intro coordinate hcoordinate
+          rw [exponentAt_reindexQuaternionExponents
+            (identityQuaternionBlockInvolution blocks)
+            term.1 hcoordinate]
+          change exponentAt term.1
+              (4 * (coordinate / 4) + coordinate % 4) =
+            exponentAt term.1 coordinate
+          rw [show 4 * (coordinate / 4) + coordinate % 4 = coordinate by
+            omega]
+      · exact identityReindexQuaternionPolynomial_prefix blocks rest
+
+theorem identityReindexPolyQuaternion_prefix
+    (blocks : Nat) (quaternion : PolyQuaternion) :
+    QuaternionPrefixPolyQuaternionEqv blocks
+      (reindexPolyQuaternion
+        (identityQuaternionBlockInvolution blocks) quaternion)
+      quaternion :=
+  ⟨identityReindexQuaternionPolynomial_prefix blocks quaternion.scalar,
+    identityReindexQuaternionPolynomial_prefix blocks quaternion.iPart,
+    identityReindexQuaternionPolynomial_prefix blocks quaternion.jPart,
+    identityReindexQuaternionPolynomial_prefix blocks quaternion.kPart⟩
+
+def paddedSubstitutedSurfaceGaugeEntryQuaternion
+    (mask : Nat) (entry : OrientedSurfaceEdge) : PolyQuaternion :=
+  reindexPolyQuaternion (identityQuaternionBlockInvolution 32)
+    (compactOrientedQuaternionWord
+      ((substituteSurfaceGaugeEntry mask entry).map fun substituted =>
+        (surfaceActiveBlock substituted.1, substituted.2)))
+
+def surfaceForestGaugeCoordinateSemanticCheck
+    (mask : Nat) (hmask : mask ∈ binarySurfaceMasks)
+    (edgeId : Nat) (reverse : Bool) : Bool :=
+  polyQuaternionCanonicalCoeffCheck
+    (applySelectedTranslationStepsQuaternion (by decide : 0 < 31)
+      (surfaceForestGaugeTranslationSteps mask hmask)
+      (orientedCoordinateQuaternion (surfaceActiveBlock edgeId) reverse))
+    (paddedSubstitutedSurfaceGaugeEntryQuaternion mask (edgeId, reverse))
+
+def selectedTranslationStepForwardWord
+    {tailBlocks : Nat} (step : SelectedTranslationStep tailBlocks)
+    (block : Nat) : List OrientedSurfaceEdge :=
+  if block = step.selected then
+    let multiplierReverse := match step.multiplierOrientation with
+      | .direct => false
+      | .inverse => true
+    match step.side with
+    | .left =>
+        [(step.multiplier, multiplierReverse), (step.selected, false)]
+    | .right =>
+        [(step.selected, false), (step.multiplier, multiplierReverse)]
+  else [(block, false)]
+
+def selectedTranslationStepCoordinateCheck
+    {tailBlocks : Nat} (hblocks : 0 < tailBlocks)
+    (step : SelectedTranslationStep tailBlocks) (block : Nat) : Bool :=
+  polyQuaternionCanonicalCoeffCheck
+    (applySelectedTranslationStepsQuaternion hblocks
+      [step] (orientedCoordinateQuaternion block false))
+    (reindexPolyQuaternion
+      (identityQuaternionBlockInvolution (tailBlocks + 1))
+      (compactOrientedQuaternionWord
+        (selectedTranslationStepForwardWord step block)))
+
+def surfaceForestGaugeStepCoordinateCheck
+    (mask : Nat) (hmask : mask ∈ binarySurfaceMasks) : Bool :=
+  (surfaceForestGaugeTranslationSteps mask hmask).all fun step =>
+    (List.range 32).all fun block =>
+      selectedTranslationStepCoordinateCheck
+        (by decide : 0 < 31) step block
+
+def binarySurfaceForestGaugeCoordinateSemanticCheck : Bool :=
+  binarySurfaceMasks.attach.all fun maskEntry =>
+    (List.range 32).all fun edgeId =>
+      [false, true].all fun reverse =>
+        surfaceForestGaugeCoordinateSemanticCheck
+          maskEntry.1 maskEntry.2 edgeId reverse
 
 theorem applySelectedTranslationSteps_factorProduct
     {tailBlocks : Nat} (hblocks : 0 < tailBlocks)
@@ -3120,5 +3749,8 @@ end YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics.translatedHeadPolynomial_coeffEqv
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics.signSelectedPolynomial_mul_coeffEqv
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics.applySelectedTranslationSteps_factorProduct
+#print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics.applySelectedTranslationSteps_add
+#print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics.applySelectedTranslationStepsQuaternion_mul
+#print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics.polyQuaternionCanonicalCoeffCheck_sound
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics.compactFundamentalWordFactor_cyclicFreeSurfaceReduce_carrier
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics.substitutedSurfaceGaugeFaceFactor_carrier
