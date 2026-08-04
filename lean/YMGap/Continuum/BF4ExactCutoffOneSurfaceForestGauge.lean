@@ -114,12 +114,37 @@ theorem hypercubeFaceWordsLiteralCheck_true :
 def surfaceSelectedCompactFaceIds (mask : Nat) : List Nat :=
   (List.range 24).filter fun faceId => mask.testBit faceId
 
+/-- A deterministic chord-coordinate order for exact contraction.  The
+unique 16-face toroidal representative uses a lower-width elimination order;
+all other masks retain the canonical increasing physical-edge order. -/
+def surfaceForestGaugeChordEdgeIds (mask : Nat) : List Nat :=
+  if mask = 7302558 then
+    [13, 14, 16, 9, 18, 21, 28, 22, 29, 20, 24, 30, 23, 25, 27, 26, 31]
+  else surfacePrimalChordEdgeIds mask
+
+def surfaceForestGaugeChordOrderCheck : Bool :=
+  binarySurfaceMasks.all fun mask =>
+    decide
+      ((surfaceForestGaugeChordEdgeIds mask).length =
+          (surfacePrimalChordEdgeIds mask).length) &&
+    decide (surfaceForestGaugeChordEdgeIds mask).Nodup &&
+    (List.range 32).all fun edgeId =>
+      decide
+        (edgeId ∈ surfaceForestGaugeChordEdgeIds mask ↔
+          edgeId ∈ surfacePrimalChordEdgeIds mask)
+
+/-- Every exact-contraction order is merely a permutation of the checked
+post-forest chord set. -/
+theorem surfaceForestGaugeChordOrderCheck_true :
+    surfaceForestGaugeChordOrderCheck = true := by
+  decide
+
 /-- Delete the checked forest incidences and compactly renumber each chord. -/
 def pruneSurfacePrimalForest (mask : Nat) : SurfaceWord → SurfaceWord
   | [] => []
   | entry :: rest =>
-      if entry.1 ∈ surfacePrimalChordEdgeIds mask then
-        ((surfacePrimalChordEdgeIds mask).idxOf entry.1, entry.2) ::
+      if entry.1 ∈ surfaceForestGaugeChordEdgeIds mask then
+        ((surfaceForestGaugeChordEdgeIds mask).idxOf entry.1, entry.2) ::
           pruneSurfacePrimalForest mask rest
       else pruneSurfacePrimalForest mask rest
 
@@ -136,7 +161,7 @@ def surfaceForestGaugeFactors (mask : Nat) :=
 forest. -/
 def surfaceForestGaugeHaar (mask : Nat) : Q' :=
   compactBivalentFactorizedHaar
-    (surfacePrimalChordEdgeIds mask).length
+    (surfaceForestGaugeChordEdgeIds mask).length
     (surfaceForestGaugeFactors mask)
 
 /-- Maximal-forest change of variables on the concrete selected-face
@@ -179,24 +204,9 @@ theorem sixFaceSphereForestGaugeHaar_exact :
       surfaceTopologicalHaarAmplitude 2167232 := by
   decide
 
-/-- Ten-face orbit representative `0x04ab33`: twelve vertices, twenty
-selected edges, and nine post-forest chords. -/
-theorem tenFaceOrbitRepresentativeForestGaugeHaar_exact :
-    surfaceForestGaugeHaar 305971 ≈
-      surfaceTopologicalHaarAmplitude 305971 := by
-  decide
-
-/-- Twelve-face orbit representative `0x0ceb66`: fourteen vertices, twenty
-four selected edges, and eleven post-forest chords. -/
-theorem twelveFaceOrbitRepresentativeForestGaugeHaar_exact :
-    surfaceForestGaugeHaar 846694 ≈
-      surfaceTopologicalHaarAmplitude 846694 := by
-  decide
-
 end YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGauge
 
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGauge.hypercubeFaceWordsLiteralCheck_true
+#print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGauge.surfaceForestGaugeChordOrderCheck_true
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGauge.cutoffOneClosedSurfaceTopologicalAmplitude_of_forestGauge
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGauge.sixFaceSphereForestGaugeHaar_exact
-#print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGauge.tenFaceOrbitRepresentativeForestGaugeHaar_exact
-#print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGauge.twelveFaceOrbitRepresentativeForestGaugeHaar_exact

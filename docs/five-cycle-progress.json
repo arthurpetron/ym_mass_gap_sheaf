@@ -104,12 +104,12 @@
     "centered_defect": "strictly-positive-for-w>0",
     "lean_surface_certificate": "kernel-checked",
     "surface_face_weight": "exact-(2*w^3)^F-kernel-checked",
-    "surface_haar_bridge": "reindex+QPoly+116-to-Haar5+active32+selected-face+forest-gauge-target-closed;forest-transport+remaining-values-open",
+    "surface_haar_bridge": "reindex+QPoly+116-to-Haar5+active32+selected-face+forest-gauge-target-closed;forest-transport+orbit-symmetry-open",
     "qpoly_assembly": "128+2-surface-sums-kernel-checked",
     "six_face_sphere": "literal-raw-words+five-chord-Haar-1/16-kernel-checked",
     "surface_orbit_haar": "9/9-exact-representatives-cover-128/128",
     "surface_bivalence": "128/128-edge-valence-0-or-2-kernel-checked;fused-step-exact",
     "surface_primal_forests": "128/128-maximal-forests+root-paths-kernel-checked",
-    "lean_forest_gauge_values": "3-explicit-nonempty-masks-kernel-checked"
+    "lean_forest_gauge_values": "9-masks+8/8-nonempty-orbit-reps-kernel-checked"
   }
 }

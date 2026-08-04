@@ -27,12 +27,14 @@ def test_default_chart_tracks_current_milestone() -> None:
     assert "face-weight=exact-(2*w^3)^F-kernel-checked" in chart
     assert (
         "haar-bridge=reindex+QPoly+116-to-Haar5+active32+selected-face+"
-        "forest-gauge-target-closed;forest-transport+remaining-values-open"
+        "forest-gauge-target-closed;forest-transport+orbit-symmetry-open"
         in chart
     )
     assert "exact 116 -> 32 active links" in chart
     assert "128/128 maximal forests + rooted paths checked" in chart
     assert "concrete chord-only forest-gauge evaluator" in chart
+    assert "all 8 nonempty orbit values checked" in chart
+    assert "forest transport + orbit symmetry open" in chart
     assert "qpoly=128+2-surface-sums-kernel-checked" in chart
     assert (
         "six-face=literal-raw-words+five-chord-Haar-1/16-kernel-checked"
@@ -44,7 +46,7 @@ def test_default_chart_tracks_current_milestone() -> None:
         in chart
     )
     assert "geometry=128/128-maximal-forests+root-paths-kernel-checked" in chart
-    assert "lean-values=3-explicit-nonempty-masks-kernel-checked" in chart
+    assert "lean-values=9-masks+8/8-nonempty-orbit-reps-kernel-checked" in chart
     assert "WHOLE-PROJECT FORMAL ROADMAP: CURRENT LEAN -> COMPLETE YANG--MILLS PROOF" in chart
     assert "high-level milestones: 2/9 complete" in chart
     assert "[>] active finite campaign: actual BF4 Haar_5 surface bridge" in chart

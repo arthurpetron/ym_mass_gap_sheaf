@@ -104,8 +104,16 @@ The constructive Lean lift now has six checked layers.
    chord-only evaluator obtained by deleting each checked forest.  The final
    seam is now split into Haar-preserving forest transport and exact
    evaluation of that concrete network.  The generic evaluator has
-   kernel-checked values for explicit 6-face/5-chord, 10-face/9-chord, and
-   12-face/11-chord masks, each equal to `2^(V-E)`.
+   kernel-checked values for two explicit 6-face/5-chord masks, one
+   10-face/9-chord mask, both connected 12-face/11-chord orbit
+   representatives, and the disconnected two-sphere 12-face/10-chord
+   representative, both 14-face/13-chord representatives, and the unique
+   16-face/17-chord toroidal representative, each equal to `2^(V-E)`.  Thus
+   all eight nonempty orbit representatives are kernel-checked.  Orbit
+   computations live in separate modules so each expensive kernel reduction
+   is cached independently.  The toroidal case uses seventeen generated
+   proof-carrying checkpoints; Lean independently decides every exact
+   checkpoint and the final `1/65536` value.
 
 An independent exact quaternion audit contracts one literal gauge-fixed
 surface network from each of the nine hyperoctahedral surface orbits.  All
@@ -148,17 +156,18 @@ character reindex, heat-weight, QPoly assembly, and exact factor-network
 reduction are closed:
 
 - prove that the checked maximal-forest coordinate change transports the
-  selected active evaluator to the new concrete chord-only evaluator, then
-  finish its remaining exact values (or prove the equivalent uniform
-  bivalent pairing theorem).  The active/factorized theorems identify the
-  source with both the literal 116-link coefficients and the requested
-  fivefold marginals.  All 128 forests and rooted paths, three explicit
-  nonempty Lean forest-gauge values, the six-face sphere's earlier compact
-  five-chord value, and all nine external exact orbit representatives are
-  complete.  Direct all-116-block normalization, fused
-  fixed-order bivalent contraction, and a proof-carrying greedy prototype were
-  benchmarked and rejected as impractical final certificate paths; none was
-  used as mathematical evidence.
+  selected active evaluator to the new concrete chord-only evaluator, and
+  prove the finite hyperoctahedral symmetry transport from all 128 masks to
+  the eight checked nonempty representatives (or prove the equivalent
+  uniform bivalent pairing theorem).  The active/factorized theorems identify
+  the source with both the literal 116-link coefficients and the requested
+  fivefold marginals.  All 128 forests and rooted paths, all eight nonempty
+  Lean orbit values, the six-face sphere's earlier compact five-chord value,
+  and all nine external exact orbit representatives are complete.  Direct
+  all-116-block and monolithic fixed-order normalization were benchmarked and
+  rejected as impractical certificate paths.  The final toroidal value instead
+  uses a generated low-width staged certificate whose every transition is
+  checked by the Lean kernel.
 
 No new axiom, `sorry`, `native_decide`, classical choice, or noncomputable
 declaration is used.  The checked dependency sets are contained in
