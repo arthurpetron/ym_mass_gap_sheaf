@@ -104,15 +104,15 @@
     "centered_defect": "strictly-positive-for-w>0",
     "lean_surface_certificate": "kernel-checked",
     "surface_face_weight": "exact-(2*w^3)^F-kernel-checked",
-    "surface_haar_bridge": "reindex+QPoly+116-to-Haar5+active32+selected-face+physical-factor-product-lift+compact-word-Haar-endpoint+forest-gauge-target+inverse-forest-ledger+source-degree-closed+cyclic-word-semantics+selected-chain-factorProduct-homomorphism+whole-word-free-cyclic-reducer+all-128-forest-values;selected-chain-coordinate-action-open",
+    "surface_haar_bridge": "reindex+QPoly+116-to-Haar5+active32+selected-face+physical-factor-product-lift+compact-word-Haar-endpoint+forest-gauge-target+inverse-forest-ledger+source-degree-closed+cyclic-word-semantics+selected-chain-factorProduct-homomorphism+whole-word-free-cyclic-reducer+all-128-forest-values+all-128-ledger-coordinate-action-kernel-checked;translated-face-product-identification-open",
     "qpoly_assembly": "128+2-surface-sums-kernel-checked",
     "six_face_sphere": "literal-raw-words+five-chord-Haar-1/16-kernel-checked",
     "surface_orbit_haar": "9/9-exact-representatives-cover-128/128",
     "surface_bivalence": "128/128-edge-valence-0-or-2-kernel-checked;fused-step-exact",
     "surface_primal_forests": "128/128-maximal-forests+root-paths-kernel-checked",
     "lean_forest_gauge_values": "128/128-staged-kernel-checked",
-    "surface_forest_translation": "128/128-inverse-orientation-ledgers+source-degree-five+Haar-invariance+cyclic-word-semantics+physical-factor-product-lift+compact-word-Haar-endpoint+coefficient-to-Haar-carrier-algebra+reflective-Hamilton-assoc+oriented-inverse-radius+selected-chain-factorProduct-homomorphism+whole-word-free-cyclic-reducer+128/128-substituted-face-carrier-kernel-checked;selected-chain-coordinate-action-open",
+    "surface_forest_translation": "128/128-inverse-orientation-ledgers+source-degree-five+Haar-invariance+cyclic-word-semantics+physical-factor-product-lift+compact-word-Haar-endpoint+coefficient-to-Haar-carrier-algebra+reflective-Hamilton-assoc+oriented-inverse-radius+selected-chain-factorProduct-homomorphism+whole-word-free-cyclic-reducer+128/128-substituted-face-carrier-kernel-checked+all-128-mask/all-32-edge/two-orientation-coordinate-action-kernel-checked;translated-face-product-identification-open",
     "surface_word_reducer": "free+cyclic+128/128 face specialization kernel-checked",
-    "surface_translation_compiler": "all-four-step chain congruence+factorProduct homomorphism kernel-checked; oriented-coordinate action open"
+    "surface_translation_compiler": "all-four-step chain congruence+factorProduct homomorphism+all-128-mask/all-32-edge/two-orientation-coordinate-action-kernel-checked; face-character lift active"
   }
 }
