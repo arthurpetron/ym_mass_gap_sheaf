@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
-"""Generate a staged Lean certificate for one BF4 surface contraction.
+"""Generate staged Lean certificates for BF4 surface contractions.
 
 The generator mirrors the list-level definitions used by
 ``compactBivalentFactorizedHaarContract``.  Its output is not trusted:
 every generated checkpoint is re-evaluated and proved by Lean's kernel.
 Splitting the seventeen head integrations into separate theorems prevents
 one enormous reduction from exhausting memory or a monolithic heartbeat
-budget.
+budget.  Orbit compatibility modules are emitted as proof-sharing aliases to
+the complete mask campaign, so an orbit representative is never normalized
+twice.
 """
 
 from __future__ import annotations
@@ -53,6 +55,47 @@ Poly: TypeAlias = list[Term]
 Factors: TypeAlias = list[Poly]
 Quaternion: TypeAlias = tuple[Poly, Poly, Poly, Poly]
 Word: TypeAlias = list[tuple[int, bool]]
+
+ORBIT_REPRESENTATIVES: tuple[tuple[int, str], ...] = (
+    (
+        0x008938,
+        "Six faces, eight vertices, twelve edges, and five post-forest chords.",
+    ),
+    (
+        0x04AB33,
+        "Ten faces, twelve vertices, twenty edges, and nine post-forest chords.",
+    ),
+    (
+        0x0CEB66,
+        "Twelve faces, fourteen vertices, twenty-four edges, and eleven\n"
+        "post-forest chords.",
+    ),
+    (
+        0x1CEFC0,
+        "Twelve faces, fourteen vertices, twenty-four edges, and eleven\n"
+        "post-forest chords; this is the second twelve-face symmetry orbit.",
+    ),
+    (
+        0x2533CB,
+        "Two six-face components: twelve faces, sixteen vertices, twenty-four\n"
+        "edges, two primal components, and ten post-forest chords.",
+    ),
+    (
+        0x25BAF3,
+        "Fourteen faces, sixteen vertices, twenty-eight edges, and thirteen\n"
+        "post-forest chords.",
+    ),
+    (
+        0x2DFAA6,
+        "Fourteen faces, sixteen vertices, twenty-eight edges, and thirteen\n"
+        "post-forest chords; this is the second fourteen-face symmetry orbit.",
+    ),
+    (
+        0x6F6D9E,
+        "Sixteen faces, sixteen vertices, thirty-two edges, and seventeen\n"
+        "post-forest chords.",
+    ),
+)
 
 
 def var_mono(index: int) -> Mono:
@@ -490,6 +533,59 @@ def mask_module_name(mask: int) -> str:
     return f"BF4ExactCutoffOneSurfaceForestGaugeMask{mask:06X}"
 
 
+def orbit_module_name(mask: int) -> str:
+    return f"BF4ExactCutoffOneSurfaceForestGaugeOrbit{mask:06X}"
+
+
+def emit_orbit_alias(mask: int, description: str) -> str:
+    """Emit the stable orbit API by reusing the exhaustive mask proof."""
+
+    mask_module = mask_module_name(mask)
+    orbit_module = orbit_module_name(mask)
+    lines = [
+        f"/- Proof-shared forest-gauge value for orbit representative 0x{mask:06x}.",
+        "",
+        "The exhaustive mask campaign already kernel-checks this representative.  This",
+        "compatibility module reuses that proof instead of normalizing the same closed",
+    ]
+    if mask == 0x6F6D9E:
+        lines.extend(
+            [
+                "computation a second time; in particular it does not duplicate the",
+                "2,694-line staged trace.",
+            ]
+        )
+    else:
+        lines.append("computation a second time.")
+    lines.extend(
+        [
+            "-/",
+            "",
+            f"import YMGap.Continuum.{mask_module}",
+            "",
+            f"namespace YMGap.Continuum.{orbit_module}",
+            "",
+            "open YMGap.Constructive",
+            "open YMGap.Continuum.BF4ExactCutoffOneHaarFiveEvaluation",
+            "open YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGauge",
+            "",
+            "local infix:50 \" ≈ \" => Q'.eqv",
+            "",
+            f"/-- {description} -/",
+            "theorem forestGaugeHaar_exact :",
+            f"    surfaceForestGaugeHaar {mask} ≈",
+            f"      surfaceTopologicalHaarAmplitude {mask} :=",
+            f"  YMGap.Continuum.{mask_module}.forestGaugeHaar_exact",
+            "",
+            f"end YMGap.Continuum.{orbit_module}",
+            "",
+            f"#print axioms YMGap.Continuum.{orbit_module}.forestGaugeHaar_exact",
+            "",
+        ]
+    )
+    return "\n".join(lines)
+
+
 def emit_all_evaluation_umbrella(masks: list[int]) -> str:
     nonzero_masks = [mask for mask in masks if mask != 0]
     lines = [
@@ -574,7 +670,16 @@ def main() -> None:
     parser.add_argument("--mask", type=lambda value: int(value, 0), default=MASK)
     parser.add_argument("--survey-binary", action="store_true")
     parser.add_argument("--all-output-dir", type=Path)
+    parser.add_argument("--orbit-alias-output-dir", type=Path)
     args = parser.parse_args()
+    if args.orbit_alias_output_dir is not None:
+        for mask, description in ORBIT_REPRESENTATIVES:
+            output = args.orbit_alias_output_dir / f"{orbit_module_name(mask)}.lean"
+            output.write_text(
+                emit_orbit_alias(mask, description), encoding="utf-8"
+            )
+            print(f"wrote {output.name}: proof-shared mask=0x{mask:06x}")
+        return
     if args.survey_binary:
         for mask in binary_surface_masks():
             if mask == 0:

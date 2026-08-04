@@ -1,11 +1,13 @@
-/- Kernel-checked forest-gauge value for orbit representative 0x1cefc0. -/
+/- Proof-shared forest-gauge value for orbit representative 0x1cefc0.
 
-import YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGauge
+The exhaustive mask campaign already kernel-checks this representative.  This
+compatibility module reuses that proof instead of normalizing the same closed
+computation a second time.
+-/
+
+import YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeMask1CEFC0
 
 namespace YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeOrbit1CEFC0
-
-set_option maxRecDepth 200000
-set_option maxHeartbeats 12000000
 
 open YMGap.Constructive
 open YMGap.Continuum.BF4ExactCutoffOneHaarFiveEvaluation
@@ -17,8 +19,8 @@ local infix:50 " ≈ " => Q'.eqv
 post-forest chords; this is the second twelve-face symmetry orbit. -/
 theorem forestGaugeHaar_exact :
     surfaceForestGaugeHaar 1896384 ≈
-      surfaceTopologicalHaarAmplitude 1896384 := by
-  decide
+      surfaceTopologicalHaarAmplitude 1896384 :=
+  YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeMask1CEFC0.forestGaugeHaar_exact
 
 end YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeOrbit1CEFC0
 

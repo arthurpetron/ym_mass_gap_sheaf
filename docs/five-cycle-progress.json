@@ -110,7 +110,7 @@
     "surface_orbit_haar": "9/9-exact-representatives-cover-128/128",
     "surface_bivalence": "128/128-edge-valence-0-or-2-kernel-checked;fused-step-exact",
     "surface_primal_forests": "128/128-maximal-forests+root-paths-kernel-checked",
-    "lean_forest_gauge_values": "128/128-staged-kernel-checked",
+    "lean_forest_gauge_values": "128/128-staged-kernel-checked;8/8-orbit-APIs-proof-shared;full-audit-22542-theorems/0-exceptions",
     "surface_forest_translation": "128/128-inverse-orientation-ledgers+source-degree-five+Haar-invariance+cyclic-word-semantics+physical-factor-product-lift+compact-word-Haar-endpoint+coefficient-to-Haar-carrier-algebra+reflective-Hamilton-assoc+oriented-inverse-radius+selected-chain-factorProduct-homomorphism+whole-word-free-cyclic-reducer+128/128-substituted-face-carrier-kernel-checked+all-128-mask/all-32-edge/two-orientation-coordinate-action+all-selected-face-word+face-character/selected-factor-product-lift+padded-active-word-to-chord-Haar-endpoint+translated-semantics+actual-transport-kernel-checked",
     "surface_word_reducer": "free+cyclic+128/128 face specialization kernel-checked",
     "surface_translation_compiler": "all-four-step chain congruence+factorProduct homomorphism+all-128-mask/all-32-edge/two-orientation-coordinate-action+all-selected-face-word+face-character/selected-factor-product-lift+padded-active-word Haar endpoint+actual BF4 Haar5 surface bridge kernel-checked"
