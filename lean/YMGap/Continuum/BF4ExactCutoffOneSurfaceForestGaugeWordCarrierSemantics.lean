@@ -33,6 +33,7 @@ open YMGap.Continuum.BF4GeometricHaarMehlerProjection
 open YMGap.Continuum.RingNormaliser
 open YMGap.Continuum.SU2QuaternionFactorizedHaarContraction
 open YMGap.Continuum.SU2QuaternionHaarRationalCanonicalizer
+open YMGap.Continuum.SU2QuaternionPolynomialHaarTranslation
 open YMGap.Continuum.SU2QuaternionPolynomialHaarCarrier
 open YMGap.Continuum.SU2QuaternionRatPolyDifferential
 open YMGap.Continuum.SU2QuaternionArbitraryHaarSphereIdeal
@@ -2034,6 +2035,297 @@ theorem compactFundamentalWordFactor_cyclicFreeSurfaceReduce_carrier
       (cyclicFreeSurfaceReduceAux_carrier
         reduced.length reduced hreduced))
 
+/-! ## Structural algebra of translated-head substitution -/
+
+private theorem translatedHead_drop_monoMul :
+    ∀ (count : Nat) (left right : List Nat),
+      (monoMul left right).drop count =
+        monoMul (left.drop count) (right.drop count)
+  | 0, left, right => by simp
+  | count + 1, [], right => by simp [monoMul]
+  | count + 1, left, [] => by
+      rw [monoMul_right_nil_local, List.drop_nil,
+        monoMul_right_nil_local]
+  | count + 1, _ :: left, _ :: right => by
+      simp only [monoMul, List.drop_succ_cons]
+      exact translatedHead_drop_monoMul count left right
+
+private theorem fourZeroHead_monoMul (left right : List Nat) :
+    monoMul ([0, 0, 0, 0] ++ left) ([0, 0, 0, 0] ++ right) =
+      [0, 0, 0, 0] ++ monoMul left right := by
+  rfl
+
+private theorem headTailLiftTerm_mul
+    (left right : RatTerm) :
+    headTailLiftTerm
+        (monoMul left.1 right.1, left.2 * right.2) =
+      polyMul (headTailLiftTerm left) (headTailLiftTerm right) := by
+  change
+    [([0, 0, 0, 0] ++ (monoMul left.1 right.1).drop 4,
+        left.2 * right.2)] =
+      [
+        (monoMul ([0, 0, 0, 0] ++ left.1.drop 4)
+            ([0, 0, 0, 0] ++ right.1.drop 4),
+          left.2 * right.2)]
+  rw [translatedHead_drop_monoMul,
+    fourZeroHead_monoMul]
+
+private theorem ratPolyPow_eq_coeffPolyPow
+    (polynomial : RatPoly) : ∀ exponent,
+    ratPolyPow polynomial exponent = coeffPolyPow polynomial exponent
+  | 0 => rfl
+  | exponent + 1 => by
+      change
+        polyMul (ratPolyPow polynomial exponent) polynomial =
+          polyMul (coeffPolyPow polynomial exponent) polynomial
+      rw [ratPolyPow_eq_coeffPolyPow polynomial exponent]
+
+private def eightPolynomialEnvironment
+    (p0 p1 p2 p3 p4 p5 p6 p7 : RatPoly) : Nat → RatPoly
+  | 0 => p0
+  | 1 => p1
+  | 2 => p2
+  | 3 => p3
+  | 4 => p4
+  | 5 => p5
+  | 6 => p6
+  | 7 => p7
+  | _ => polyZero
+
+private def pairedEightProductExpr : PolyExpr :=
+  .mul (.mul (.var 0) (.var 1))
+    (.mul (.mul (.var 2) (.var 3))
+      (.mul (.mul (.var 4) (.var 5))
+        (.mul (.var 6) (.var 7))))
+
+private def separatedEightProductExpr : PolyExpr :=
+  .mul
+    (.mul (.var 0)
+      (.mul (.var 2) (.mul (.var 4) (.var 6))))
+    (.mul (.var 1)
+      (.mul (.var 3) (.mul (.var 5) (.var 7))))
+
+private theorem pairedEightProductExpr_normal :
+    normalize pairedEightProductExpr =
+      normalize separatedEightProductExpr := by
+  decide
+
+private theorem pairedEightProduct_coeffEqv
+    (p0 p1 p2 p3 p4 p5 p6 p7 : RatPoly) :
+    RatPolyCoeffEqv
+      (polyMul (polyMul p0 p1)
+        (polyMul (polyMul p2 p3)
+          (polyMul (polyMul p4 p5) (polyMul p6 p7))))
+      (polyMul
+        (polyMul p0 (polyMul p2 (polyMul p4 p6)))
+        (polyMul p1 (polyMul p3 (polyMul p5 p7)))) := by
+  let environment :=
+    eightPolynomialEnvironment p0 p1 p2 p3 p4 p5 p6 p7
+  simpa [environment, eightPolynomialEnvironment,
+    pairedEightProductExpr, separatedEightProductExpr,
+    coeffEvalExpr] using
+    (coeffEvalExpr_eqv_of_normalize_eq
+      pairedEightProductExpr separatedEightProductExpr
+      pairedEightProductExpr_normal environment)
+
+theorem translatedHeadMonomial_add
+    (translated : PolyQuaternion)
+    (a0 a1 a2 a3 b0 b1 b2 b3 : Nat) :
+    RatPolyCoeffEqv
+      (translatedHeadMonomial translated
+        (a0 + b0) (a1 + b1) (a2 + b2) (a3 + b3))
+      (polyMul
+        (translatedHeadMonomial translated a0 a1 a2 a3)
+        (translatedHeadMonomial translated b0 b1 b2 b3)) := by
+  simp only [translatedHeadMonomial, ratPolyPow_eq_coeffPolyPow]
+  exact RatPolyCoeffEqv.trans
+    (RatPolyCoeffEqv.mul
+      (coeffPolyPow_add translated.scalar a0 b0)
+      (RatPolyCoeffEqv.mul
+        (coeffPolyPow_add translated.iPart a1 b1)
+        (RatPolyCoeffEqv.mul
+          (coeffPolyPow_add translated.jPart a2 b2)
+          (coeffPolyPow_add translated.kPart a3 b3))))
+    (pairedEightProduct_coeffEqv
+      (coeffPolyPow translated.scalar a0)
+      (coeffPolyPow translated.scalar b0)
+      (coeffPolyPow translated.iPart a1)
+      (coeffPolyPow translated.iPart b1)
+      (coeffPolyPow translated.jPart a2)
+      (coeffPolyPow translated.jPart b2)
+      (coeffPolyPow translated.kPart a3)
+      (coeffPolyPow translated.kPart b3))
+
+theorem translatedHeadTerm_mul
+    (translated : PolyQuaternion) (left right : RatTerm) :
+    RatPolyCoeffEqv
+      (translatedHeadTerm translated
+        (monoMul left.1 right.1, left.2 * right.2))
+      (polyMul (translatedHeadTerm translated left)
+        (translatedHeadTerm translated right)) := by
+  simp only [translatedHeadTerm, exponentAt_monoMul]
+  rw [headTailLiftTerm_mul]
+  exact RatPolyCoeffEqv.trans
+    (RatPolyCoeffEqv.mul
+      (translatedHeadMonomial_add translated
+        (exponentAt left.1 0) (exponentAt left.1 1)
+        (exponentAt left.1 2) (exponentAt left.1 3)
+        (exponentAt right.1 0) (exponentAt right.1 1)
+        (exponentAt right.1 2) (exponentAt right.1 3))
+      (RatPolyCoeffEqv.refl _))
+    (RatPolyCoeffEqv.mul_four_swap
+      (translatedHeadMonomial translated
+        (exponentAt left.1 0) (exponentAt left.1 1)
+        (exponentAt left.1 2) (exponentAt left.1 3))
+      (translatedHeadMonomial translated
+        (exponentAt right.1 0) (exponentAt right.1 1)
+        (exponentAt right.1 2) (exponentAt right.1 3))
+      (headTailLiftTerm left) (headTailLiftTerm right))
+
+theorem translatedHeadPolynomial_add
+    (translated : PolyQuaternion) : ∀ left right : RatPoly,
+    translatedHeadPolynomial translated (polyAdd left right) =
+      polyAdd (translatedHeadPolynomial translated left)
+        (translatedHeadPolynomial translated right)
+  | [], right => rfl
+  | term :: rest, right => by
+      rw [show polyAdd (term :: rest) right =
+          term :: polyAdd rest right by rfl]
+      rw [show translatedHeadPolynomial translated
+          (term :: polyAdd rest right) =
+          polyAdd (translatedHeadTerm translated term)
+            (translatedHeadPolynomial translated (polyAdd rest right)) by
+          rfl]
+      rw [show translatedHeadPolynomial translated (term :: rest) =
+          polyAdd (translatedHeadTerm translated term)
+            (translatedHeadPolynomial translated rest) by rfl]
+      rw [translatedHeadPolynomial_add translated rest right]
+      simpa [polyAdd] using
+        (List.append_assoc
+          (translatedHeadTerm translated term)
+          (translatedHeadPolynomial translated rest)
+          (translatedHeadPolynomial translated right)).symm
+
+private theorem translatedHeadPolynomial_mul_single
+    (translated : PolyQuaternion) (left : RatTerm) : ∀ right : RatPoly,
+    RatPolyCoeffEqv
+      (translatedHeadPolynomial translated (polyMul [left] right))
+      (polyMul (translatedHeadTerm translated left)
+        (translatedHeadPolynomial translated right))
+  | [] => by
+      change RatPolyCoeffEqv polyZero
+        (polyMul (translatedHeadTerm translated left) polyZero)
+      exact RatPolyCoeffEqv.symm
+        (RatPolyCoeffEqv.mul_zero_right _)
+  | right :: rest => by
+      rw [polyMul_single_cons_right_exact,
+        translatedHeadPolynomial_add]
+      rw [show translatedHeadPolynomial translated
+          (polyMul [left] [right]) =
+          translatedHeadTerm translated
+            (monoMul left.1 right.1, left.2 * right.2) by
+          simp [polyMul, polyAdd, polyZero,
+            translatedHeadPolynomial]]
+      rw [show translatedHeadPolynomial translated (right :: rest) =
+          polyAdd (translatedHeadTerm translated right)
+            (translatedHeadPolynomial translated rest) by rfl]
+      change RatPolyCoeffEqv
+        (polyAdd
+          (translatedHeadTerm translated
+            (monoMul left.1 right.1, left.2 * right.2))
+          (translatedHeadPolynomial translated (polyMul [left] rest)))
+        (polyMul (translatedHeadTerm translated left)
+          (polyAdd (translatedHeadTerm translated right)
+            (translatedHeadPolynomial translated rest)))
+      exact RatPolyCoeffEqv.trans
+        (RatPolyCoeffEqv.add
+          (translatedHeadTerm_mul translated left right)
+          (translatedHeadPolynomial_mul_single translated left rest))
+        (RatPolyCoeffEqv.symm
+          (RatPolyCoeffEqv.mul_add_right
+            (translatedHeadTerm translated left)
+            (translatedHeadTerm translated right)
+            (translatedHeadPolynomial translated rest)))
+
+/-- Translated-head substitution is multiplicative in the constructive
+coefficient quotient.  The proof works termwise and never expands or
+canonicalizes a complete surface polynomial. -/
+theorem translatedHeadPolynomial_mul
+    (translated : PolyQuaternion) : ∀ left right : RatPoly,
+    RatPolyCoeffEqv
+      (translatedHeadPolynomial translated (polyMul left right))
+      (polyMul (translatedHeadPolynomial translated left)
+        (translatedHeadPolynomial translated right))
+  | [], right => RatPolyCoeffEqv.refl polyZero
+  | term :: rest, right => by
+      rw [polyMul_cons_left_exact,
+        translatedHeadPolynomial_add]
+      rw [show translatedHeadPolynomial translated (term :: rest) =
+          polyAdd (translatedHeadTerm translated term)
+            (translatedHeadPolynomial translated rest) by rfl]
+      rw [polyMul_add_left_exact]
+      exact RatPolyCoeffEqv.add
+        (translatedHeadPolynomial_mul_single translated term right)
+        (translatedHeadPolynomial_mul translated rest right)
+
+private theorem translatedHeadTerm_smul
+    (translated : PolyQuaternion) (scale : Q') (term : RatTerm) :
+    RatPolyCoeffEqv
+      (translatedHeadTerm translated (term.1, scale * term.2))
+      (polySmul scale (translatedHeadTerm translated term)) := by
+  change RatPolyCoeffEqv
+    (polyMul
+      (translatedHeadMonomial translated
+        (exponentAt term.1 0) (exponentAt term.1 1)
+        (exponentAt term.1 2) (exponentAt term.1 3))
+      (polySmul scale (headTailLiftTerm term)))
+    (polySmul scale
+      (polyMul
+        (translatedHeadMonomial translated
+          (exponentAt term.1 0) (exponentAt term.1 1)
+          (exponentAt term.1 2) (exponentAt term.1 3))
+        (headTailLiftTerm term)))
+  let monomial := translatedHeadMonomial translated
+    (exponentAt term.1 0) (exponentAt term.1 1)
+    (exponentAt term.1 2) (exponentAt term.1 3)
+  exact RatPolyCoeffEqv.trans
+    (RatPolyCoeffEqv.mul_comm monomial
+      (polySmul scale (headTailLiftTerm term)))
+    (RatPolyCoeffEqv.trans
+      (RatPolyCoeffEqv.polyMul_smul_left scale
+        (headTailLiftTerm term) monomial)
+      (RatPolyCoeffEqv.smul scale
+        (RatPolyCoeffEqv.mul_comm
+          (headTailLiftTerm term) monomial)))
+
+theorem translatedHeadPolynomial_smul
+    (translated : PolyQuaternion) (scale : Q') : ∀ polynomial : RatPoly,
+    RatPolyCoeffEqv
+      (translatedHeadPolynomial translated (polySmul scale polynomial))
+      (polySmul scale
+        (translatedHeadPolynomial translated polynomial))
+  | [] => RatPolyCoeffEqv.refl polyZero
+  | term :: rest => by
+      rw [show polySmul scale (term :: rest) =
+          (term.1, scale * term.2) :: polySmul scale rest by rfl]
+      rw [show translatedHeadPolynomial translated
+          ((term.1, scale * term.2) :: polySmul scale rest) =
+          polyAdd
+            (translatedHeadTerm translated (term.1, scale * term.2))
+            (translatedHeadPolynomial translated
+              (polySmul scale rest)) by rfl]
+      rw [show translatedHeadPolynomial translated (term :: rest) =
+          polyAdd (translatedHeadTerm translated term)
+            (translatedHeadPolynomial translated rest) by rfl]
+      exact RatPolyCoeffEqv.trans
+        (RatPolyCoeffEqv.add
+          (translatedHeadTerm_smul translated scale term)
+          (translatedHeadPolynomial_smul translated scale rest))
+        (RatPolyCoeffEqv.symm
+          (RatPolyCoeffEqv.smul_add scale
+            (translatedHeadTerm translated term)
+            (translatedHeadPolynomial translated rest)))
+
 /-! ## Specialization to all certified surface faces -/
 
 def binarySubstitutedSurfaceGaugeWordBlockBoundCheck : Bool :=
@@ -2099,5 +2391,7 @@ end YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics.PolyQuaternionCoeffEqv.mul_assoc
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics.orientedCoordinateQuaternion_mul_opposite
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics.polyQuaternion_mul_scalar_cyclic
+#print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics.translatedHeadPolynomial_mul
+#print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics.translatedHeadPolynomial_smul
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics.compactFundamentalWordFactor_cyclicFreeSurfaceReduce_carrier
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics.substitutedSurfaceGaugeFaceFactor_carrier
