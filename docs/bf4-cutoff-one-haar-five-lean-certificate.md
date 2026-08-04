@@ -185,12 +185,13 @@ evaluations, and the complete free-plus-cyclic word reducer lift are closed:
   forests and rooted paths, every inverse translation ledger, every cyclic
   word check, the 128-mask substituted-word block bound, every specialized
   substituted-face carrier, and all 127 nonempty exact network values are
-  complete.  The translated-head primitive is now proved structurally
-  multiplicative and compatible with scalar multiplication in the exact
-  coefficient quotient; this removes the need to expand a complete face or
-  factor network.  Reindexing/conjugation congruence and the selected-step
-  coordinate action remain to lift this primitive through the concrete
-  ledger.  Direct
+  complete.  The translated-head primitive, both reindexing passes, direct
+  and inverse multiplier conjugation, and all four selected-step cases are
+  now coefficient-congruent and multiplicative.  The complete chain
+  distributes over every nonempty factor product, removing the need to
+  expand a complete face or network.  Its exact action on oriented
+  coordinate words remains to identify the distributed face factors with
+  the checked substitutions.  Direct
   source-polynomial expansion was benchmarked and rejected as an impractical
   certificate path; the remaining proof must use the structural word/factor
   algebra rather than monolithic normalization.

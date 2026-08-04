@@ -2200,11 +2200,17 @@ theorem translatedHeadPolynomial_add
           polyAdd (translatedHeadTerm translated term)
             (translatedHeadPolynomial translated rest) by rfl]
       rw [translatedHeadPolynomial_add translated rest right]
-      simpa [polyAdd] using
-        (List.append_assoc
-          (translatedHeadTerm translated term)
-          (translatedHeadPolynomial translated rest)
-          (translatedHeadPolynomial translated right)).symm
+      change
+        translatedHeadTerm translated term ++
+              (translatedHeadPolynomial translated rest ++
+                translatedHeadPolynomial translated right) =
+          (translatedHeadTerm translated term ++
+              translatedHeadPolynomial translated rest) ++
+            translatedHeadPolynomial translated right
+      exact (List.append_assoc
+        (translatedHeadTerm translated term)
+        (translatedHeadPolynomial translated rest)
+        (translatedHeadPolynomial translated right)).symm
 
 private theorem translatedHeadPolynomial_mul_single
     (translated : PolyQuaternion) (left : RatTerm) : ∀ right : RatPoly,
@@ -2326,6 +2332,724 @@ theorem translatedHeadPolynomial_smul
             (translatedHeadTerm translated term)
             (translatedHeadPolynomial translated rest)))
 
+private theorem RatPolyCoeffEqv.single_coefficient
+    (monomial : List Nat) {left right : Q'}
+    (hcoefficient : left ≈ right) :
+    RatPolyCoeffEqv [(monomial, left)] [(monomial, right)] := by
+  intro weight
+  change left * weight monomial + 0 ≈
+    right * weight monomial + 0
+  exact Q'.add_eqv_congr_right _ _ _
+    (Q'.mul_eqv_congr_right _ _ _ hcoefficient)
+
+private theorem translatedHeadTerm_coefficient_smul
+    (translated : PolyQuaternion) (term : RatTerm) :
+    RatPolyCoeffEqv
+      (translatedHeadTerm translated term)
+      (polySmul term.2
+        (translatedHeadTerm translated (term.1, 1))) := by
+  let monomial := translatedHeadMonomial translated
+    (exponentAt term.1 0) (exponentAt term.1 1)
+    (exponentAt term.1 2) (exponentAt term.1 3)
+  have htail : RatPolyCoeffEqv
+      (headTailLiftTerm term)
+      (headTailLiftTerm (term.1, term.2 * 1)) := by
+    apply RatPolyCoeffEqv.single_coefficient
+    exact Q'.eqv_symm (Q'.mul_one_eqv term.2)
+  exact RatPolyCoeffEqv.trans
+    (RatPolyCoeffEqv.mul
+      (RatPolyCoeffEqv.refl monomial) htail)
+    (translatedHeadTerm_smul translated term.2 (term.1, 1))
+
+private theorem ratWeightedSum_translatedHeadPolynomial
+    (translated : PolyQuaternion) (weight : List Nat → Q') :
+    ∀ polynomial : RatPoly,
+    ratWeightedSum weight
+        (translatedHeadPolynomial translated polynomial) ≈
+      ratWeightedSum
+        (fun monomial => ratWeightedSum weight
+          (translatedHeadTerm translated (monomial, 1)))
+        polynomial
+  | [] => Q'.eqv_refl 0
+  | term :: rest => by
+      let transformed : List Nat → Q' := fun monomial =>
+        ratWeightedSum weight
+          (translatedHeadTerm translated (monomial, 1))
+      refine Q'.eqv_trans _
+        (ratWeightedSum weight (translatedHeadTerm translated term) +
+          ratWeightedSum weight
+            (translatedHeadPolynomial translated rest)) _
+        (ratWeightedSum_add weight
+          (translatedHeadTerm translated term)
+          (translatedHeadPolynomial translated rest)) ?_
+      exact Q'.add_eqv_congr'
+        (Q'.eqv_trans _
+          (ratWeightedSum weight
+            (polySmul term.2
+              (translatedHeadTerm translated (term.1, 1)))) _
+          ((translatedHeadTerm_coefficient_smul translated term) weight)
+          (ratWeightedSum_smul weight term.2
+            (translatedHeadTerm translated (term.1, 1))))
+        (ratWeightedSum_translatedHeadPolynomial
+          translated weight rest)
+
+/-- Translated-head substitution descends to the constructive coefficient
+quotient, so its algebra laws compose through a translation chain. -/
+theorem translatedHeadPolynomial_coeffEqv
+    (translated : PolyQuaternion) {left right : RatPoly}
+    (heqv : RatPolyCoeffEqv left right) :
+    RatPolyCoeffEqv
+      (translatedHeadPolynomial translated left)
+      (translatedHeadPolynomial translated right) := by
+  intro weight
+  let transformed : List Nat → Q' := fun monomial =>
+    ratWeightedSum weight
+      (translatedHeadTerm translated (monomial, 1))
+  exact Q'.eqv_trans _ (ratWeightedSum transformed left) _
+    (ratWeightedSum_translatedHeadPolynomial translated weight left)
+    (Q'.eqv_trans _ (ratWeightedSum transformed right) _
+      (heqv transformed)
+      (Q'.eqv_symm
+        (ratWeightedSum_translatedHeadPolynomial
+          translated weight right)))
+
+open YMGap.Continuum.SU2QuaternionArbitraryHaarBlockReflection
+
+private theorem ratWeightedSum_reindexQuaternionPolynomial
+    {blocks : Nat} (permutation : QuaternionBlockInvolution blocks)
+    (weight : List Nat → Q') : ∀ polynomial : RatPoly,
+    ratWeightedSum weight
+        (reindexQuaternionPolynomial permutation polynomial) ≈
+      ratWeightedSum
+        (fun monomial => weight
+          (reindexQuaternionExponents permutation monomial))
+        polynomial
+  | [] => Q'.eqv_refl 0
+  | term :: rest => by
+      change
+        term.2 * weight
+              (reindexQuaternionExponents permutation term.1) +
+            ratWeightedSum weight
+              (reindexQuaternionPolynomial permutation rest) ≈
+          term.2 * weight
+              (reindexQuaternionExponents permutation term.1) +
+            ratWeightedSum
+              (fun monomial => weight
+                (reindexQuaternionExponents permutation monomial)) rest
+      exact Q'.add_eqv_congr_left _ _ _
+        (ratWeightedSum_reindexQuaternionPolynomial
+          permutation weight rest)
+
+theorem RatPolyCoeffEqv.reindex
+    {blocks : Nat} (permutation : QuaternionBlockInvolution blocks)
+    {left right : RatPoly} (heqv : RatPolyCoeffEqv left right) :
+    RatPolyCoeffEqv
+      (reindexQuaternionPolynomial permutation left)
+      (reindexQuaternionPolynomial permutation right) := by
+  intro weight
+  let transformed : List Nat → Q' := fun monomial =>
+    weight (reindexQuaternionExponents permutation monomial)
+  exact Q'.eqv_trans _ (ratWeightedSum transformed left) _
+    (ratWeightedSum_reindexQuaternionPolynomial
+      permutation weight left)
+    (Q'.eqv_trans _ (ratWeightedSum transformed right) _
+      (heqv transformed)
+      (Q'.eqv_symm
+        (ratWeightedSum_reindexQuaternionPolynomial
+          permutation weight right)))
+
+open YMGap.Continuum.SU2QuaternionSelectedHaarTranslation
+
+private theorem exposeTranslationPairPolynomial_coeffEqv
+    (blocks selected multiplier : Nat)
+    (hblocks : 1 < blocks)
+    (hselected : selected < blocks) (hmultiplier : multiplier < blocks)
+    {left right : RatPoly} (heqv : RatPolyCoeffEqv left right) :
+    RatPolyCoeffEqv
+      (exposeTranslationPairPolynomial blocks selected multiplier
+        hblocks hselected hmultiplier left)
+      (exposeTranslationPairPolynomial blocks selected multiplier
+        hblocks hselected hmultiplier right) := by
+  exact RatPolyCoeffEqv.reindex
+    (translationPairTailPermutation blocks selected multiplier
+      hblocks hselected hmultiplier)
+    (RatPolyCoeffEqv.reindex
+      (translationPairHeadPermutation blocks selected hselected) heqv)
+
+private theorem restoreTranslationPairPolynomial_coeffEqv
+    (blocks selected multiplier : Nat)
+    (hblocks : 1 < blocks)
+    (hselected : selected < blocks) (hmultiplier : multiplier < blocks)
+    {left right : RatPoly} (heqv : RatPolyCoeffEqv left right) :
+    RatPolyCoeffEqv
+      (restoreTranslationPairPolynomial blocks selected multiplier
+        hblocks hselected hmultiplier left)
+      (restoreTranslationPairPolynomial blocks selected multiplier
+        hblocks hselected hmultiplier right) := by
+  exact RatPolyCoeffEqv.reindex
+    (translationPairHeadPermutation blocks selected hselected)
+    (RatPolyCoeffEqv.reindex
+      (translationPairTailPermutation blocks selected multiplier
+        hblocks hselected hmultiplier) heqv)
+
+theorem selectedLeftTranslatedPolynomial_coeffEqv
+    (tailBlocks selected multiplier : Nat)
+    (hblocks : 0 < tailBlocks)
+    (hselected : selected < tailBlocks + 1)
+    (hmultiplier : multiplier < tailBlocks + 1)
+    (hdistinct : selected ≠ multiplier)
+    {left right : RatPoly} (heqv : RatPolyCoeffEqv left right) :
+    RatPolyCoeffEqv
+      (selectedLeftTranslatedPolynomial tailBlocks selected multiplier
+        hblocks hselected hmultiplier hdistinct left)
+      (selectedLeftTranslatedPolynomial tailBlocks selected multiplier
+        hblocks hselected hmultiplier hdistinct right) := by
+  apply restoreTranslationPairPolynomial_coeffEqv
+  apply translatedHeadPolynomial_coeffEqv
+  exact exposeTranslationPairPolynomial_coeffEqv
+    (tailBlocks + 1) selected multiplier (by omega)
+    hselected hmultiplier heqv
+
+theorem selectedRightTranslatedPolynomial_coeffEqv
+    (tailBlocks selected multiplier : Nat)
+    (hblocks : 0 < tailBlocks)
+    (hselected : selected < tailBlocks + 1)
+    (hmultiplier : multiplier < tailBlocks + 1)
+    (hdistinct : selected ≠ multiplier)
+    {left right : RatPoly} (heqv : RatPolyCoeffEqv left right) :
+    RatPolyCoeffEqv
+      (selectedRightTranslatedPolynomial tailBlocks selected multiplier
+        hblocks hselected hmultiplier hdistinct left)
+      (selectedRightTranslatedPolynomial tailBlocks selected multiplier
+        hblocks hselected hmultiplier hdistinct right) := by
+  apply restoreTranslationPairPolynomial_coeffEqv
+  apply translatedHeadPolynomial_coeffEqv
+  exact exposeTranslationPairPolynomial_coeffEqv
+    (tailBlocks + 1) selected multiplier (by omega)
+    hselected hmultiplier heqv
+
+theorem selectedLeftTranslatedPolynomial_mul
+    (tailBlocks selected multiplier : Nat)
+    (hblocks : 0 < tailBlocks)
+    (hselected : selected < tailBlocks + 1)
+    (hmultiplier : multiplier < tailBlocks + 1)
+    (hdistinct : selected ≠ multiplier)
+    (left right : RatPoly) :
+    RatPolyCoeffEqv
+      (selectedLeftTranslatedPolynomial tailBlocks selected multiplier
+        hblocks hselected hmultiplier hdistinct (polyMul left right))
+      (polyMul
+        (selectedLeftTranslatedPolynomial tailBlocks selected multiplier
+          hblocks hselected hmultiplier hdistinct left)
+        (selectedLeftTranslatedPolynomial tailBlocks selected multiplier
+          hblocks hselected hmultiplier hdistinct right)) := by
+  have htranslated := translatedHeadPolynomial_mul
+    leftTranslatedHeadQuaternion
+    (exposeTranslationPairPolynomial (tailBlocks + 1)
+      selected multiplier (by omega) hselected hmultiplier left)
+    (exposeTranslationPairPolynomial (tailBlocks + 1)
+      selected multiplier (by omega) hselected hmultiplier right)
+  have hrestored := restoreTranslationPairPolynomial_coeffEqv
+    (tailBlocks + 1) selected multiplier (by omega)
+    hselected hmultiplier htranslated
+  simpa [selectedLeftTranslatedPolynomial,
+    exposeTranslationPairPolynomial,
+    restoreTranslationPairPolynomial,
+    reindexQuaternionPolynomial_mul] using hrestored
+
+theorem selectedRightTranslatedPolynomial_mul
+    (tailBlocks selected multiplier : Nat)
+    (hblocks : 0 < tailBlocks)
+    (hselected : selected < tailBlocks + 1)
+    (hmultiplier : multiplier < tailBlocks + 1)
+    (hdistinct : selected ≠ multiplier)
+    (left right : RatPoly) :
+    RatPolyCoeffEqv
+      (selectedRightTranslatedPolynomial tailBlocks selected multiplier
+        hblocks hselected hmultiplier hdistinct (polyMul left right))
+      (polyMul
+        (selectedRightTranslatedPolynomial tailBlocks selected multiplier
+          hblocks hselected hmultiplier hdistinct left)
+        (selectedRightTranslatedPolynomial tailBlocks selected multiplier
+          hblocks hselected hmultiplier hdistinct right)) := by
+  have htranslated := translatedHeadPolynomial_mul
+    rightTranslatedHeadQuaternion
+    (exposeTranslationPairPolynomial (tailBlocks + 1)
+      selected multiplier (by omega) hselected hmultiplier left)
+    (exposeTranslationPairPolynomial (tailBlocks + 1)
+      selected multiplier (by omega) hselected hmultiplier right)
+  have hrestored := restoreTranslationPairPolynomial_coeffEqv
+    (tailBlocks + 1) selected multiplier (by omega)
+    hselected hmultiplier htranslated
+  simpa [selectedRightTranslatedPolynomial,
+    exposeTranslationPairPolynomial,
+    restoreTranslationPairPolynomial,
+    reindexQuaternionPolynomial_mul] using hrestored
+
+/-! ### Coordinate-sign substitution in the coefficient quotient -/
+
+private theorem decide_exponentParity_add_local
+    (left right : Nat) :
+    decide ((left + right) % 2 = 1) =
+      xor (decide (left % 2 = 1))
+        (decide (right % 2 = 1)) := by
+  have hleft : left % 2 = 0 ∨ left % 2 = 1 := by omega
+  have hright : right % 2 = 0 ∨ right % 2 = 1 := by omega
+  rcases hleft with hleft | hleft <;>
+    rcases hright with hright | hright <;>
+    rw [Nat.add_mod, hleft, hright] <;> decide
+
+private theorem selectedExponentParity_monoMul_local
+    (coordinates : Nat) (selected : Nat → Bool)
+    (left right : List Nat) :
+    selectedExponentParity coordinates selected (monoMul left right) =
+      xor
+        (selectedExponentParity coordinates selected left)
+        (selectedExponentParity coordinates selected right) := by
+  unfold selectedExponentParity
+  have hfold : ∀ (entries : List Nat) (leftParity rightParity : Bool),
+      entries.foldl
+          (fun parity coordinate =>
+            if selected coordinate then
+              xor parity
+                (decide
+                  (exponentAt (monoMul left right) coordinate % 2 = 1))
+            else parity)
+          (xor leftParity rightParity) =
+        xor
+          (entries.foldl
+            (fun parity coordinate =>
+              if selected coordinate then
+                xor parity
+                  (decide (exponentAt left coordinate % 2 = 1))
+              else parity)
+            leftParity)
+          (entries.foldl
+            (fun parity coordinate =>
+              if selected coordinate then
+                xor parity
+                  (decide (exponentAt right coordinate % 2 = 1))
+              else parity)
+            rightParity) := by
+    intro entries leftParity rightParity
+    induction entries generalizing leftParity rightParity with
+    | nil => rfl
+    | cons coordinate rest induction =>
+        simp only [List.foldl_cons]
+        by_cases hselected : selected coordinate = true
+        · rw [if_pos hselected, if_pos hselected, if_pos hselected,
+            YMGap.Continuum.SU2QuaternionRatPolyDifferential.exponentAt_monoMul,
+            decide_exponentParity_add_local]
+          have hxor : ∀ leftBit rightBit : Bool,
+              xor (xor leftParity rightParity)
+                  (xor leftBit rightBit) =
+                xor (xor leftParity leftBit)
+                  (xor rightParity rightBit) := by
+            intro leftBit rightBit
+            cases leftParity <;> cases rightParity <;>
+              cases leftBit <;> cases rightBit <;> rfl
+          rw [hxor]
+          exact induction _ _
+        · rw [if_neg hselected, if_neg hselected, if_neg hselected]
+          exact induction _ _
+  simpa only [Bool.false_xor] using
+    hfold (List.range coordinates) false false
+
+set_option linter.unusedSimpArgs false in
+private theorem signSelectedTerm_mul_coeffEqv
+    (coordinates : Nat) (selected : Nat → Bool)
+    (left right : RatTerm) :
+    RatPolyCoeffEqv
+      [signSelectedTerm coordinates selected
+        (monoMul left.1 right.1, left.2 * right.2)]
+      [(monoMul
+          (signSelectedTerm coordinates selected left).1
+          (signSelectedTerm coordinates selected right).1,
+        (signSelectedTerm coordinates selected left).2 *
+          (signSelectedTerm coordinates selected right).2)] := by
+  apply RatPolyCoeffEqv.single_coefficient
+  unfold signSelectedTerm
+  rw [selectedExponentParity_monoMul_local]
+  generalize hleft :
+    selectedExponentParity coordinates selected left.1 = leftParity
+  generalize hright :
+    selectedExponentParity coordinates selected right.1 = rightParity
+  cases leftParity <;> cases rightParity
+  · simp only [hleft, hright, Bool.false_xor, if_false, Prod.snd]
+    exact Q'.eqv_refl _
+  · simp only [hleft, hright, Bool.false_xor, if_false, if_true,
+      Prod.snd]
+    exact Q'.eqv_symm (Q'.mul_neg_eqv left.2 right.2)
+  · simp only [hleft, hright, Bool.true_xor, Bool.not_false,
+      if_false, if_true, Prod.snd]
+    exact Q'.eqv_symm (Q'.neg_mul_eqv left.2 right.2)
+  · simp only [hleft, hright, Bool.true_xor, Bool.not_true,
+      if_false, if_true, Prod.snd]
+    exact Q'.eqv_symm
+      (Q'.eqv_trans _ (-(left.2 * (-right.2))) _
+        (Q'.neg_mul_eqv left.2 (-right.2))
+        (Q'.eqv_trans _ (-(-(left.2 * right.2))) _
+          (Q'.neg_eqv_congr _ _
+            (Q'.mul_neg_eqv left.2 right.2))
+          (Q'.neg_neg_eqv (left.2 * right.2))))
+
+private theorem signSelectedPolynomial_mulRow_coeffEqv
+    (coordinates : Nat) (selected : Nat → Bool)
+    (source : RatTerm) : ∀ right : RatPoly,
+    RatPolyCoeffEqv
+      (signSelectedPolynomial coordinates selected
+        (right.map fun target =>
+          (monoMul source.1 target.1, source.2 * target.2)))
+      ((signSelectedPolynomial coordinates selected right).map
+        fun target =>
+          (monoMul
+              (signSelectedTerm coordinates selected source).1
+              target.1,
+            (signSelectedTerm coordinates selected source).2 *
+              target.2))
+  | [] => RatPolyCoeffEqv.refl polyZero
+  | target :: rest => by
+      simpa [signSelectedPolynomial, polyAdd] using
+        (RatPolyCoeffEqv.add
+          (signSelectedTerm_mul_coeffEqv
+            coordinates selected source target)
+          (signSelectedPolynomial_mulRow_coeffEqv
+            coordinates selected source rest))
+
+theorem signSelectedPolynomial_mul_coeffEqv
+    (coordinates : Nat) (selected : Nat → Bool) :
+    ∀ left right : RatPoly,
+    RatPolyCoeffEqv
+      (signSelectedPolynomial coordinates selected
+        (polyMul left right))
+      (polyMul
+        (signSelectedPolynomial coordinates selected left)
+        (signSelectedPolynomial coordinates selected right))
+  | [], right => RatPolyCoeffEqv.refl polyZero
+  | source :: rest, right => by
+      simpa only [polyMul, List.flatMap_cons,
+        signSelectedPolynomial, List.map_append, List.map_cons] using
+        (RatPolyCoeffEqv.add
+          (signSelectedPolynomial_mulRow_coeffEqv
+            coordinates selected source right)
+          (signSelectedPolynomial_mul_coeffEqv
+            coordinates selected rest right))
+
+private theorem ratWeightedSum_signSelectedPolynomial
+    (coordinates : Nat) (selected : Nat → Bool)
+    (weight : List Nat → Q') : ∀ polynomial : RatPoly,
+    ratWeightedSum weight
+        (signSelectedPolynomial coordinates selected polynomial) ≈
+      ratWeightedSum
+        (fun monomial =>
+          if selectedExponentParity coordinates selected monomial
+          then -(weight monomial) else weight monomial)
+        polynomial
+  | [] => Q'.eqv_refl 0
+  | term :: rest => by
+      change
+        (if selectedExponentParity coordinates selected term.1
+          then -term.2 else term.2) * weight term.1 +
+            ratWeightedSum weight
+              (signSelectedPolynomial coordinates selected rest) ≈
+          term.2 *
+              (if selectedExponentParity coordinates selected term.1
+                then -(weight term.1) else weight term.1) +
+            ratWeightedSum
+              (fun monomial =>
+                if selectedExponentParity coordinates selected monomial
+                then -(weight monomial) else weight monomial) rest
+      apply Q'.add_eqv_congr'
+      · generalize hparity :
+          selectedExponentParity coordinates selected term.1 = parity
+        cases parity
+        · exact Q'.eqv_refl _
+        · exact Q'.eqv_trans _ (-(term.2 * weight term.1)) _
+            (Q'.neg_mul_eqv term.2 (weight term.1))
+            (Q'.eqv_symm (Q'.mul_neg_eqv term.2 (weight term.1)))
+      · exact ratWeightedSum_signSelectedPolynomial
+          coordinates selected weight rest
+
+theorem signSelectedPolynomial_coeffEqv
+    (coordinates : Nat) (selected : Nat → Bool)
+    {left right : RatPoly} (heqv : RatPolyCoeffEqv left right) :
+    RatPolyCoeffEqv
+      (signSelectedPolynomial coordinates selected left)
+      (signSelectedPolynomial coordinates selected right) := by
+  intro weight
+  let transformed : List Nat → Q' := fun monomial =>
+    if selectedExponentParity coordinates selected monomial
+    then -(weight monomial) else weight monomial
+  exact Q'.eqv_trans _ (ratWeightedSum transformed left) _
+    (ratWeightedSum_signSelectedPolynomial
+      coordinates selected weight left)
+    (Q'.eqv_trans _ (ratWeightedSum transformed right) _
+      (heqv transformed)
+      (Q'.eqv_symm
+        (ratWeightedSum_signSelectedPolynomial
+          coordinates selected weight right)))
+
+theorem conjugateQuaternionBlockPolynomial_coeffEqv
+    (blocks block : Nat) {left right : RatPoly}
+    (heqv : RatPolyCoeffEqv left right) :
+    RatPolyCoeffEqv
+      (conjugateQuaternionBlockPolynomial blocks block left)
+      (conjugateQuaternionBlockPolynomial blocks block right) := by
+  simpa [conjugateQuaternionBlockPolynomial] using
+    (signSelectedPolynomial_coeffEqv (4 * blocks)
+      (quaternionConjugateCoordinateSelector block) heqv)
+
+theorem conjugateQuaternionBlockPolynomial_mul
+    (blocks block : Nat) (left right : RatPoly) :
+    RatPolyCoeffEqv
+      (conjugateQuaternionBlockPolynomial blocks block
+        (polyMul left right))
+      (polyMul
+        (conjugateQuaternionBlockPolynomial blocks block left)
+        (conjugateQuaternionBlockPolynomial blocks block right)) := by
+  simpa [conjugateQuaternionBlockPolynomial] using
+    (signSelectedPolynomial_mul_coeffEqv (4 * blocks)
+      (quaternionConjugateCoordinateSelector block) left right)
+
+theorem selectedLeftInverseTranslatedPolynomial_coeffEqv
+    (tailBlocks selected multiplier : Nat)
+    (hblocks : 0 < tailBlocks)
+    (hselected : selected < tailBlocks + 1)
+    (hmultiplier : multiplier < tailBlocks + 1)
+    (hdistinct : selected ≠ multiplier)
+    {left right : RatPoly} (heqv : RatPolyCoeffEqv left right) :
+    RatPolyCoeffEqv
+      (selectedLeftInverseTranslatedPolynomial tailBlocks
+        selected multiplier hblocks hselected hmultiplier hdistinct left)
+      (selectedLeftInverseTranslatedPolynomial tailBlocks
+        selected multiplier hblocks hselected hmultiplier hdistinct right) := by
+  apply conjugateQuaternionBlockPolynomial_coeffEqv
+  apply selectedLeftTranslatedPolynomial_coeffEqv
+  exact conjugateQuaternionBlockPolynomial_coeffEqv
+    (tailBlocks + 1) multiplier heqv
+
+theorem selectedRightInverseTranslatedPolynomial_coeffEqv
+    (tailBlocks selected multiplier : Nat)
+    (hblocks : 0 < tailBlocks)
+    (hselected : selected < tailBlocks + 1)
+    (hmultiplier : multiplier < tailBlocks + 1)
+    (hdistinct : selected ≠ multiplier)
+    {left right : RatPoly} (heqv : RatPolyCoeffEqv left right) :
+    RatPolyCoeffEqv
+      (selectedRightInverseTranslatedPolynomial tailBlocks
+        selected multiplier hblocks hselected hmultiplier hdistinct left)
+      (selectedRightInverseTranslatedPolynomial tailBlocks
+        selected multiplier hblocks hselected hmultiplier hdistinct right) := by
+  apply conjugateQuaternionBlockPolynomial_coeffEqv
+  apply selectedRightTranslatedPolynomial_coeffEqv
+  exact conjugateQuaternionBlockPolynomial_coeffEqv
+    (tailBlocks + 1) multiplier heqv
+
+theorem selectedLeftInverseTranslatedPolynomial_mul
+    (tailBlocks selected multiplier : Nat)
+    (hblocks : 0 < tailBlocks)
+    (hselected : selected < tailBlocks + 1)
+    (hmultiplier : multiplier < tailBlocks + 1)
+    (hdistinct : selected ≠ multiplier)
+    (left right : RatPoly) :
+    RatPolyCoeffEqv
+      (selectedLeftInverseTranslatedPolynomial tailBlocks
+        selected multiplier hblocks hselected hmultiplier hdistinct
+        (polyMul left right))
+      (polyMul
+        (selectedLeftInverseTranslatedPolynomial tailBlocks
+          selected multiplier hblocks hselected hmultiplier hdistinct left)
+        (selectedLeftInverseTranslatedPolynomial tailBlocks
+          selected multiplier hblocks hselected hmultiplier hdistinct
+          right)) := by
+  let conjugate := conjugateQuaternionBlockPolynomial
+    (tailBlocks + 1) multiplier
+  let translate := selectedLeftTranslatedPolynomial tailBlocks
+    selected multiplier hblocks hselected hmultiplier hdistinct
+  exact RatPolyCoeffEqv.trans
+    (conjugateQuaternionBlockPolynomial_coeffEqv
+      (tailBlocks + 1) multiplier
+      (selectedLeftTranslatedPolynomial_coeffEqv
+        tailBlocks selected multiplier hblocks hselected hmultiplier
+        hdistinct
+        (conjugateQuaternionBlockPolynomial_mul
+          (tailBlocks + 1) multiplier left right)))
+    (RatPolyCoeffEqv.trans
+      (conjugateQuaternionBlockPolynomial_coeffEqv
+        (tailBlocks + 1) multiplier
+        (selectedLeftTranslatedPolynomial_mul
+          tailBlocks selected multiplier hblocks hselected hmultiplier
+          hdistinct (conjugate left) (conjugate right)))
+      (conjugateQuaternionBlockPolynomial_mul
+        (tailBlocks + 1) multiplier
+        (translate (conjugate left)) (translate (conjugate right))))
+
+theorem selectedRightInverseTranslatedPolynomial_mul
+    (tailBlocks selected multiplier : Nat)
+    (hblocks : 0 < tailBlocks)
+    (hselected : selected < tailBlocks + 1)
+    (hmultiplier : multiplier < tailBlocks + 1)
+    (hdistinct : selected ≠ multiplier)
+    (left right : RatPoly) :
+    RatPolyCoeffEqv
+      (selectedRightInverseTranslatedPolynomial tailBlocks
+        selected multiplier hblocks hselected hmultiplier hdistinct
+        (polyMul left right))
+      (polyMul
+        (selectedRightInverseTranslatedPolynomial tailBlocks
+          selected multiplier hblocks hselected hmultiplier hdistinct left)
+        (selectedRightInverseTranslatedPolynomial tailBlocks
+          selected multiplier hblocks hselected hmultiplier hdistinct
+          right)) := by
+  let conjugate := conjugateQuaternionBlockPolynomial
+    (tailBlocks + 1) multiplier
+  let translate := selectedRightTranslatedPolynomial tailBlocks
+    selected multiplier hblocks hselected hmultiplier hdistinct
+  exact RatPolyCoeffEqv.trans
+    (conjugateQuaternionBlockPolynomial_coeffEqv
+      (tailBlocks + 1) multiplier
+      (selectedRightTranslatedPolynomial_coeffEqv
+        tailBlocks selected multiplier hblocks hselected hmultiplier
+        hdistinct
+        (conjugateQuaternionBlockPolynomial_mul
+          (tailBlocks + 1) multiplier left right)))
+    (RatPolyCoeffEqv.trans
+      (conjugateQuaternionBlockPolynomial_coeffEqv
+        (tailBlocks + 1) multiplier
+        (selectedRightTranslatedPolynomial_mul
+          tailBlocks selected multiplier hblocks hselected hmultiplier
+          hdistinct (conjugate left) (conjugate right)))
+      (conjugateQuaternionBlockPolynomial_mul
+        (tailBlocks + 1) multiplier
+        (translate (conjugate left)) (translate (conjugate right))))
+
+open YMGap.Continuum.SU2QuaternionSelectedHaarTranslationChain
+
+theorem applySelectedTranslationStep_coeffEqv
+    {tailBlocks : Nat} (hblocks : 0 < tailBlocks)
+    (step : SelectedTranslationStep tailBlocks)
+    {left right : RatPoly} (heqv : RatPolyCoeffEqv left right) :
+    RatPolyCoeffEqv
+      (applySelectedTranslationStep hblocks step left)
+      (applySelectedTranslationStep hblocks step right) := by
+  cases hside : step.side with
+  | left =>
+      cases horientation : step.multiplierOrientation with
+      | direct =>
+          simpa [applySelectedTranslationStep, hside, horientation] using
+            (selectedLeftTranslatedPolynomial_coeffEqv tailBlocks
+              step.selected step.multiplier hblocks step.selected_lt
+              step.multiplier_lt step.distinct heqv)
+      | inverse =>
+          simpa [applySelectedTranslationStep, hside, horientation] using
+            (selectedLeftInverseTranslatedPolynomial_coeffEqv tailBlocks
+              step.selected step.multiplier hblocks step.selected_lt
+              step.multiplier_lt step.distinct heqv)
+  | right =>
+      cases horientation : step.multiplierOrientation with
+      | direct =>
+          simpa [applySelectedTranslationStep, hside, horientation] using
+            (selectedRightTranslatedPolynomial_coeffEqv tailBlocks
+              step.selected step.multiplier hblocks step.selected_lt
+              step.multiplier_lt step.distinct heqv)
+      | inverse =>
+          simpa [applySelectedTranslationStep, hside, horientation] using
+            (selectedRightInverseTranslatedPolynomial_coeffEqv tailBlocks
+              step.selected step.multiplier hblocks step.selected_lt
+              step.multiplier_lt step.distinct heqv)
+
+theorem applySelectedTranslationStep_mul
+    {tailBlocks : Nat} (hblocks : 0 < tailBlocks)
+    (step : SelectedTranslationStep tailBlocks)
+    (left right : RatPoly) :
+    RatPolyCoeffEqv
+      (applySelectedTranslationStep hblocks step (polyMul left right))
+      (polyMul
+        (applySelectedTranslationStep hblocks step left)
+        (applySelectedTranslationStep hblocks step right)) := by
+  cases hside : step.side with
+  | left =>
+      cases horientation : step.multiplierOrientation with
+      | direct =>
+          simpa [applySelectedTranslationStep, hside, horientation] using
+            (selectedLeftTranslatedPolynomial_mul tailBlocks
+              step.selected step.multiplier hblocks step.selected_lt
+              step.multiplier_lt step.distinct left right)
+      | inverse =>
+          simpa [applySelectedTranslationStep, hside, horientation] using
+            (selectedLeftInverseTranslatedPolynomial_mul tailBlocks
+              step.selected step.multiplier hblocks step.selected_lt
+              step.multiplier_lt step.distinct left right)
+  | right =>
+      cases horientation : step.multiplierOrientation with
+      | direct =>
+          simpa [applySelectedTranslationStep, hside, horientation] using
+            (selectedRightTranslatedPolynomial_mul tailBlocks
+              step.selected step.multiplier hblocks step.selected_lt
+              step.multiplier_lt step.distinct left right)
+      | inverse =>
+          simpa [applySelectedTranslationStep, hside, horientation] using
+            (selectedRightInverseTranslatedPolynomial_mul tailBlocks
+              step.selected step.multiplier hblocks step.selected_lt
+              step.multiplier_lt step.distinct left right)
+
+theorem applySelectedTranslationSteps_coeffEqv
+    {tailBlocks : Nat} (hblocks : 0 < tailBlocks) :
+    ∀ (steps : List (SelectedTranslationStep tailBlocks))
+      {left right : RatPoly},
+      RatPolyCoeffEqv left right →
+      RatPolyCoeffEqv
+        (applySelectedTranslationSteps hblocks steps left)
+        (applySelectedTranslationSteps hblocks steps right)
+  | [], _, _, heqv => heqv
+  | step :: rest, _, _, heqv =>
+      applySelectedTranslationSteps_coeffEqv hblocks rest
+        (applySelectedTranslationStep_coeffEqv hblocks step heqv)
+
+theorem applySelectedTranslationSteps_mul
+    {tailBlocks : Nat} (hblocks : 0 < tailBlocks) :
+    ∀ (steps : List (SelectedTranslationStep tailBlocks))
+      (left right : RatPoly),
+      RatPolyCoeffEqv
+        (applySelectedTranslationSteps hblocks steps (polyMul left right))
+        (polyMul
+          (applySelectedTranslationSteps hblocks steps left)
+          (applySelectedTranslationSteps hblocks steps right))
+  | [], left, right => RatPolyCoeffEqv.refl (polyMul left right)
+  | step :: rest, left, right =>
+      RatPolyCoeffEqv.trans
+        (applySelectedTranslationSteps_coeffEqv hblocks rest
+          (applySelectedTranslationStep_mul hblocks step left right))
+        (applySelectedTranslationSteps_mul hblocks rest
+          (applySelectedTranslationStep hblocks step left)
+          (applySelectedTranslationStep hblocks step right))
+
+theorem applySelectedTranslationSteps_factorProduct
+    {tailBlocks : Nat} (hblocks : 0 < tailBlocks)
+    (steps : List (SelectedTranslationStep tailBlocks)) :
+    ∀ factors : List RatPoly, factors ≠ [] →
+    RatPolyCoeffEqv
+      (applySelectedTranslationSteps hblocks steps
+        (factorProduct factors))
+      (factorProduct (factors.map fun factor =>
+        applySelectedTranslationSteps hblocks steps factor))
+  | [], hnonempty => False.elim (hnonempty rfl)
+  | [factor], _ =>
+      RatPolyCoeffEqv.trans
+        (applySelectedTranslationSteps_coeffEqv hblocks steps
+          (RatPolyCoeffEqv.mul_one factor))
+        (RatPolyCoeffEqv.symm
+          (RatPolyCoeffEqv.mul_one
+            (applySelectedTranslationSteps hblocks steps factor)))
+  | factor :: next :: rest, _ =>
+      RatPolyCoeffEqv.trans
+        (applySelectedTranslationSteps_mul hblocks steps factor
+          (factorProduct (next :: rest)))
+        (RatPolyCoeffEqv.mul
+          (RatPolyCoeffEqv.refl _)
+          (applySelectedTranslationSteps_factorProduct
+            hblocks steps (next :: rest) (by simp)))
+
 /-! ## Specialization to all certified surface faces -/
 
 def binarySubstitutedSurfaceGaugeWordBlockBoundCheck : Bool :=
@@ -2393,5 +3117,8 @@ end YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics.polyQuaternion_mul_scalar_cyclic
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics.translatedHeadPolynomial_mul
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics.translatedHeadPolynomial_smul
+#print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics.translatedHeadPolynomial_coeffEqv
+#print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics.signSelectedPolynomial_mul_coeffEqv
+#print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics.applySelectedTranslationSteps_factorProduct
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics.compactFundamentalWordFactor_cyclicFreeSurfaceReduce_carrier
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics.substitutedSurfaceGaugeFaceFactor_carrier
