@@ -111,6 +111,6 @@
     "surface_bivalence": "128/128-edge-valence-0-or-2-kernel-checked;fused-step-exact",
     "surface_primal_forests": "128/128-maximal-forests+root-paths-kernel-checked",
     "lean_forest_gauge_values": "128/128-staged-kernel-checked",
-    "surface_forest_translation": "128/128-inverse-orientation-ledgers+source-degree-five+Haar-invariance+cyclic-word-semantics+physical-factor-product-lift+compact-word-Haar-endpoint+coefficient-to-Haar-carrier-algebra-kernel-checked;forest-substitution-cancellation-lift-open"
+    "surface_forest_translation": "128/128-inverse-orientation-ledgers+source-degree-five+Haar-invariance+cyclic-word-semantics+physical-factor-product-lift+compact-word-Haar-endpoint+coefficient-to-Haar-carrier-algebra+reflective-Hamilton-assoc+oriented-inverse-radius-kernel-checked;whole-word-reducer-lift-open"
   }
 }

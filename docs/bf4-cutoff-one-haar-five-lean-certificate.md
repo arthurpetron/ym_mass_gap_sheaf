@@ -126,9 +126,13 @@ The constructive Lean lift now has six checked layers.
    packages one quaternion radius as the Haar-carrier unit.  The companion
    word-carrier module lifts coefficientwise polynomial equality through
    Hamilton multiplication and the solid character, and proves that this
-   equality acts inside an arbitrary-insertion Haar carrier.  What remains is
-   the structural lift of the forest substitution plus free/cyclic
-   cancellation through those compact word factors.
+   equality acts inside an arbitrary-insertion Haar carrier.  Its reflective
+   substitution layer now kernel-checks Hamilton associativity, both
+   inverse-norm identities, cyclic scalar invariance, the coordinate norm to
+   radius identification, and both oriented adjacent inverse products.  What
+   remains is the structural lift of these local cancellations through the
+   whole forest-substituted word fold and then through the free/cyclic
+   reducers.
 
 An independent exact quaternion audit contracts one literal gauge-fixed
 surface network from each of the nine hyperoctahedral surface orbits.  The
