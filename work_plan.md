@@ -5526,6 +5526,44 @@ the constructive-friendly choice).
 
 ### Milestone 13.2 — `hlocalize` discretized: fusion local-CLT via reflected lattice paths **[research]**
 
+**Update (2026-08-04 — three-track ballot/log-concavity/interlacing
+campaign).**  Three constructive modules now separate the finite path
+combinatorics from the genuinely heat-weighted residual.
+
+* `Continuum/FusionBallotClosedForm.lean` proves the exact guarded formula
+  `pathCount 1 p s = PNPaths.ballotNat p s` on
+  `s ≤ p ∧ (p+s)%2=0`, and zero otherwise.  Its Pascal proof includes the
+  half-row binomial monotonicity and the reflecting-wall cancellation; no
+  growing canonical evaluation is used.
+* `Continuum/FusionPathRowLogConcave.lean` proves the stronger adjacent-ratio
+  invariant for every even and odd support row and, unconditionally for all
+  `p,s`,
+  `pathCount 1 p s * pathCount 1 p (s+4) ≤ pathCount 1 p (s+2)^2`.
+  This proof is independent of the closed form: adjacent Pascal summation and
+  reflected-wall prepend preserve the ratio order.
+* `Continuum/FusionWeightedBoxInterlacing.lean` proves that every weighted
+  `quadDiff` mode outside `s+2 ≤ 2N` is nonnegative, and gives a reflected
+  Boolean checker for the remaining exactly `2N-1` modes, with soundness,
+  completeness, and a constructor for the genuine fixed-cutoff
+  `FusionConvLogConcaveCore.cauchyBinet` field.  It also compiles a uniform
+  family of finite-triangle certificates into `UniformBoxLogConcave`.
+
+The same weighted module also kernel-checks the exact obstruction to using
+row log-concavity alone.  Unit degree weights `d₀=d₁=d₂=1` are positive and
+log-concave, but their ballot mixture has `(B₀,B₁,B₂)=(2,1,1)`, hence
+`B₀B₂=2>B₁²=1`.  A future paired expansion must therefore prove quantitative
+even/odd exchange inequalities (schematically
+`E_r E_{r+1} ≤ O_r²` and `O_r O_{r+1} ≤ E_{r+1}²`); fixed-parity row shape
+cannot provide the missing heat-weight margin.
+
+The exact honest residual is now
+`∀ N s, s+2 ≤ 2N → 0 ≤ quadDiff w N s`: mixed-parity, heat-weighted box
+interlacing on the finite support triangle.  Same-parity path-row
+log-concavity does not by itself discharge it.  Thus the explicit ballot
+formula and all-`p` row log-concavity are CLOSED, while the unbounded weighted
+local-CLT remains OPEN.  All new public gates are within
+`[propext, Quot.sound]`; no frontier type is falsely inhabited.
+
 **Update (2026-07-09, session 5 — step 5, general-`N` tail + a pointer
 correction).** `Continuum/BoxSumTailGeneral.lean`: the general-`N` mode tail
 `2N < s → boxSum w N s ≃ 0` (`boxSum_tail`) + `boxSum_cross_tail_le`

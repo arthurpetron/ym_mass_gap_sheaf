@@ -1809,7 +1809,10 @@ import YMGap.Continuum.XiAvoidanceCorrelation
 import YMGap.Continuum.KernelCB2
 import YMGap.Continuum.KpowParityTP2
 import YMGap.Continuum.FusionBallotRecurrence
+import YMGap.Continuum.FusionBallotClosedForm
+import YMGap.Continuum.FusionPathRowLogConcave
 import YMGap.Continuum.BoxSumTailGeneral
+import YMGap.Continuum.FusionWeightedBoxInterlacing
 import YMGap.Continuum.EpsSplitAdjudication
 import YMGap.Continuum.TaylorModel
 import YMGap.Continuum.TaylorModelStep2

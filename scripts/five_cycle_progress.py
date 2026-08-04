@@ -234,6 +234,10 @@ def render_chart(state: dict[str, Any]) -> str:
             f"geometry={evidence.get('surface_primal_forests', '?')}  "
             f"lean-values={evidence.get('lean_forest_gauge_values', '?')}  "
             f"transport={evidence.get('surface_forest_translation', '?')}",
+            "fusion path campaign: "
+            f"ballot={evidence.get('fusion_ballot_closed_form', '?')}  "
+            f"row-LC={evidence.get('fusion_path_row_logconcavity', '?')}  "
+            f"weighted={evidence.get('fusion_weighted_interlacing', '?')}",
             "legend: [x] complete  [>] active  [ ] pending  [!] blocked",
         ]
     )
