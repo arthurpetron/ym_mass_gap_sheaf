@@ -1,0 +1,15 @@
+import YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeStepCoordinateCheck
+
+namespace YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeStepCoordinateCheck
+
+set_option maxRecDepth 200000
+set_option maxHeartbeats 120000000
+
+theorem surfaceForestGaugeStepUniverseCodes12_coordinateCheck_true :
+    surfaceForestGaugeStepUniverseCodes12.all
+      decodedSelectedTranslationStepCoordinateCheck = true := by
+  decide
+
+end YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeStepCoordinateCheck
+
+#print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeStepCoordinateCheck.surfaceForestGaugeStepUniverseCodes12_coordinateCheck_true
