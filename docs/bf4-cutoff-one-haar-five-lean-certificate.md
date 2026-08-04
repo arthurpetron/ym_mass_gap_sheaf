@@ -8,7 +8,7 @@ R(w) = 1 + 4 w^18
 C(w) = 1 + 32 w^18 + 96 w^30 + 224 w^36 + 192 w^42 + 3 w^48.
 ```
 
-The constructive Lean lift now has four checked layers.
+The constructive Lean lift now has five checked layers.
 
 1. `BF4CutoffOneBinarySurfaceCertificate` generates the rank-seven binary
    surface space from seven masks, proves that the 128 masks are distinct and
@@ -51,6 +51,21 @@ The constructive Lean lift now has four checked layers.
    128 surfaces are edge-bivalent: every physical edge has selected-face
    valence zero or two, so no higher-valent link intertwiner enters this
    pointwise campaign.
+5. `SU2QuaternionFactorizedHaarContraction` proves a constructive exact
+   variable-elimination algorithm for polynomial factor networks.  At each
+   quaternion it multiplies only incident factors, applies the normalized
+   `S^3` moment, canonicalizes that local output, and transports every
+   independent factor to the remaining blocks.  Its compact variant also
+   deletes literal unit factors.  The load-bearing evaluator theorem is
+   axiom-audited to `[propext, Quot.sound]`.
+
+   `BF4ExactCutoffOneSurfaceFactorizedHaar` connects this evaluator to the
+   actual geometry: the 72 plaquette factors multiply definitionally to the
+   original corrected-slab integrand, every literal 116-link embedded-surface
+   coefficient equals its factorized value, and therefore every actual
+   five-based-cycle marginal equals that same factorized value.  The known
+   six-face/five-chord `1/16` calculation is recovered through this common
+   evaluator interface.
 
 An independent exact quaternion audit contracts one literal gauge-fixed
 surface network from each of the nine hyperoctahedral surface orbits.  All
@@ -89,14 +104,17 @@ explicit topological targets.  It also proves that the character reindex and
 finite-sum evaluation compose to the original summary bridge.
 
 The bridge now has one sharply separated mathematical task remaining; the
-character reindex, heat-weight, and QPoly-assembly halves are closed:
+character reindex, heat-weight, QPoly assembly, and exact factor-network
+reduction are closed:
 
-- evaluate the 128 pointwise fivefold surface marginals as `2^(V-E)`.  The
-  six-face sphere's compact five-chord value and all nine exact orbit
-  representatives are complete; the still-open step is to kernel-check the
-  hyperoctahedral transport and generalize the local tree-pruning contraction
-  to the now-certified bivalent surfaces, connecting it uniformly to each
-  requested based-cycle marginal.
+- evaluate the 128 factorized surface networks as `2^(V-E)`.  The factorized
+  theorem already identifies these values with both the literal 116-link
+  coefficients and the requested fivefold marginals.  The six-face sphere's
+  compact five-chord value and all nine exact orbit representatives are
+  complete; the still-open step is an efficient kernel-checked maximal-forest
+  gauge reduction (or the equivalent uniform bivalent pairing theorem) for
+  all 128 surfaces.  Direct all-116-block normalization was benchmarked and
+  rejected as an impractical certificate path; it was not used as evidence.
 
 No new axiom, `sorry`, `native_decide`, classical choice, or noncomputable
 declaration is used.  The checked dependency sets are contained in

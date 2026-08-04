@@ -1124,6 +1124,7 @@ import YMGap.Continuum.BF4ExactSlabVacuumInteriorReduction
 import YMGap.Continuum.SU2QuaternionHaarHeadFubini
 import YMGap.Continuum.SU2QuaternionHaarHeadConditionalProduct
 import YMGap.Continuum.SU2QuaternionHaarRationalCanonicalizer
+import YMGap.Continuum.SU2QuaternionFactorizedHaarContraction
 import YMGap.Continuum.SU2QuaternionHaarUnaryHomogenization
 import YMGap.Continuum.SU2QuaternionSolidZonalCharacter
 import YMGap.Continuum.SU2QuaternionSolidZonalHarmonic
@@ -1161,6 +1162,7 @@ import YMGap.Continuum.BF4CutoffOneBinarySurfaceCertificate
 import YMGap.Continuum.BF4CutoffOneBinarySurfaceEmbedding
 import YMGap.Continuum.BF4ExactCutoffOneHaarFiveEvaluation
 import YMGap.Continuum.BF4ExactCutoffOneSurfaceCharacterReindex
+import YMGap.Continuum.BF4ExactCutoffOneSurfaceFactorizedHaar
 import YMGap.Continuum.BF4ReflectedAllSpinAFRowRelative
 import YMGap.Continuum.BF4ReflectedAllSpinMehlerGramEndpoint
 import YMGap.Continuum.BF4ReflectedAllSpinMehlerGramAFRow
