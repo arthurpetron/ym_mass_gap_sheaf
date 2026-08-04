@@ -5564,7 +5564,9 @@ sum theorem then compile each growing scan to the predecessor and successor
 terms alone.  Consequences now PROVED uniformly: finite propagation
 `p < s → pathCount 1 p s = 0`, the guard-free reflected recurrence, occupied
 path parity `(p+s)%2=0`, and off-parity vanishing.  This is the constructive
-induction interface for the explicit ballot formula: subsequent proofs no
+induction interface for the explicit ballot formula.  The next support step
+is also CLOSED: every in-cone parity-compatible endpoint is strictly
+positive, hence `pathCount 1 p s ≠ 0 ↔ s ≤ p ∧ (p+s)%2=0`.  Subsequent proofs no
 longer re-run a growing finite enumeration.  All gates are exactly
 `[propext, Quot.sound]`; the ballot closed form and row log-concavity remain
 honestly open.

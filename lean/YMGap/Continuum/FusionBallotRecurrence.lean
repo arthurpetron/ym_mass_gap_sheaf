@@ -244,6 +244,50 @@ theorem pathCount_j1_eq_zero_of_parity_ne (p s : Nat)
   · exact hzero
   · exact absurd (pathCount_j1_parity p s hzero) hpar
 
+/-! ## 6. Exact support characterization -/
+
+/-- Every endpoint inside the finite-speed cone and on the correct parity
+lattice is occupied.  The proof follows the predecessor edge in the sparse
+recurrence, except at the reflecting wall where it follows the unique
+successor edge. -/
+theorem pathCount_j1_pos_of_support : ∀ p s,
+    s ≤ p → (p + s) % 2 = 0 → 0 < pathCount 1 p s
+  | 0, s, hs, _ => by
+      have hz : s = 0 := by omega
+      subst s
+      decide
+  | p + 1, 0, _, hpar => by
+      have hp1 : 1 ≤ p := by omega
+      have ih := pathCount_j1_pos_of_support p 1 hp1 (by simpa using hpar)
+      have hr := pathCount_j1_succ p 0
+      simp at hr
+      rw [hr]
+      exact ih
+  | p + 1, s + 1, hs, hpar => by
+      have hs' : s ≤ p := by omega
+      have hp' : (p + s) % 2 = 0 := by omega
+      have ih := pathCount_j1_pos_of_support p s hs' hp'
+      have hr := pathCount_j1_succ p (s + 1)
+      simp only [Nat.succ_ne_zero, if_false, Nat.succ_sub_one] at hr
+      rw [hr]
+      omega
+
+/-- **Exact support of the fundamental Bratteli path count.**  A count is
+nonzero exactly at endpoints reachable in `p` unit steps: inside the cone
+`s ≤ p` and on the parity lattice `(p+s)%2=0`. -/
+theorem pathCount_j1_ne_zero_iff (p s : Nat) :
+    pathCount 1 p s ≠ 0 ↔ s ≤ p ∧ (p + s) % 2 = 0 := by
+  constructor
+  · intro h
+    have hs : s ≤ p := by
+      by_cases hs : s ≤ p
+      · exact hs
+      · exact absurd (pathCount_j1_eq_zero_of_lt p s (by omega)) h
+    exact ⟨hs, pathCount_j1_parity p s h⟩
+  · rintro ⟨hs, hpar⟩
+    have hpos := pathCount_j1_pos_of_support p s hs hpar
+    omega
+
 end YMGap.Continuum.FusionBallotRecurrence
 
 /-! ## Axiom-dependency gates -/
@@ -257,3 +301,5 @@ end YMGap.Continuum.FusionBallotRecurrence
 #print axioms YMGap.Continuum.FusionBallotRecurrence.pathCount_j1_succ
 #print axioms YMGap.Continuum.FusionBallotRecurrence.pathCount_j1_parity
 #print axioms YMGap.Continuum.FusionBallotRecurrence.pathCount_j1_eq_zero_of_parity_ne
+#print axioms YMGap.Continuum.FusionBallotRecurrence.pathCount_j1_pos_of_support
+#print axioms YMGap.Continuum.FusionBallotRecurrence.pathCount_j1_ne_zero_iff
