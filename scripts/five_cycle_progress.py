@@ -196,7 +196,9 @@ def render_chart(state: dict[str, Any]) -> str:
         "        |  128/128 orientation-aware Haar ledgers checked",
         "        |  source degree-five + Haar invariance + cyclic words checked",
         "        |  physical factor/product lift kernel-checked",
-        "        |  forest substitution/cancellation lift open",
+        f"        |  word reducer: {evidence.get('surface_word_reducer', '?')}",
+        f"        |  translation semantics: "
+        f"{evidence.get('surface_translation_compiler', '?')}",
         "        |",
         "        v",
         "constructive surface-sum -> Haar_5 bridge",

@@ -24,6 +24,10 @@ set_option maxHeartbeats 12000000
 
 open YMGap.Constructive
 open YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugePolynomialSemantics
+open YMGap.Continuum.BF4ExactCutoffOneHaarFiveEvaluation
+open YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordSemantics
+open YMGap.Continuum.BF4CutoffOneBinarySurfaceCertificate
+open YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGauge
 open YMGap.Continuum.BF4GeometricSpinNetworkMehler
 open YMGap.Continuum.BF4GeometricHaarMehlerProjection
 open YMGap.Continuum.RingNormaliser
@@ -33,6 +37,7 @@ open YMGap.Continuum.SU2QuaternionPolynomialHaarCarrier
 open YMGap.Continuum.SU2QuaternionRatPolyDifferential
 open YMGap.Continuum.SU2QuaternionArbitraryHaarSphereIdeal
 open YMGap.Continuum.SU2QuaternionSpinTwoConditionalHaar
+open YMGap.Continuum.SU2QuaternionSolidZonalCharacter
 
 local infix:50 " ≈ " => Q'.eqv
 
@@ -1065,6 +1070,215 @@ theorem PolyQuaternionCoeffEqv.mul_scalar_scalar
       (RatPolyCoeffEqv.refl (polyMul q.scalar scalar)) hneg)
     (RatPolyCoeffEqv.add_zero (polyMul q.scalar scalar))
 
+private theorem RatPolyCoeffEqv.neg_zero_of
+    {polynomial : RatPoly}
+    (h : RatPolyCoeffEqv polynomial polyZero) :
+    RatPolyCoeffEqv (polyNeg polynomial) polyZero := by
+  simpa [polyNeg, polyZero] using RatPolyCoeffEqv.neg h
+
+private theorem RatPolyCoeffEqv.add_four_middle
+    {first middle third fourth target : RatPoly}
+    (hfirst : RatPolyCoeffEqv first polyZero)
+    (hmiddle : RatPolyCoeffEqv middle target)
+    (hthird : RatPolyCoeffEqv third polyZero)
+    (hfourth : RatPolyCoeffEqv fourth polyZero) :
+    RatPolyCoeffEqv
+      (polyAdd first (polyAdd middle (polyAdd third fourth))) target :=
+  RatPolyCoeffEqv.trans
+    (RatPolyCoeffEqv.add hfirst
+      (RatPolyCoeffEqv.add hmiddle
+        (RatPolyCoeffEqv.add hthird hfourth)))
+    (RatPolyCoeffEqv.trans
+      (RatPolyCoeffEqv.zero_add
+        (polyAdd target (polyAdd polyZero polyZero)))
+      (RatPolyCoeffEqv.trans
+        (RatPolyCoeffEqv.add
+          (RatPolyCoeffEqv.refl target)
+          (RatPolyCoeffEqv.zero_add polyZero))
+        (RatPolyCoeffEqv.add_zero target)))
+
+/-- Multiplication by a scalar quaternion scales all four components. -/
+theorem PolyQuaternionCoeffEqv.mul_scalar
+    (q : PolyQuaternion) (scalar : RatPoly) :
+    PolyQuaternionCoeffEqv
+      (PolyQuaternion.mul q (scalarPolyQuaternion scalar))
+      ⟨polyMul q.scalar scalar, polyMul q.iPart scalar,
+        polyMul q.jPart scalar, polyMul q.kPart scalar⟩ := by
+  constructor
+  · exact PolyQuaternionCoeffEqv.mul_scalar_scalar q scalar
+  · exact RatPolyCoeffEqv.add_four_middle
+      (RatPolyCoeffEqv.mul_zero_right q.scalar)
+      (RatPolyCoeffEqv.refl (polyMul q.iPart scalar))
+      (RatPolyCoeffEqv.mul_zero_right q.jPart)
+      (RatPolyCoeffEqv.neg_zero_of
+        (RatPolyCoeffEqv.mul_zero_right q.kPart))
+  · exact RatPolyCoeffEqv.add_four_middle
+      (RatPolyCoeffEqv.mul_zero_right q.scalar)
+      (RatPolyCoeffEqv.refl (polyMul q.jPart scalar))
+      (RatPolyCoeffEqv.mul_zero_right q.kPart)
+      (RatPolyCoeffEqv.neg_zero_of
+        (RatPolyCoeffEqv.mul_zero_right q.iPart))
+  · exact RatPolyCoeffEqv.add_four_middle
+      (RatPolyCoeffEqv.mul_zero_right q.scalar)
+      (RatPolyCoeffEqv.refl (polyMul q.kPart scalar))
+      (RatPolyCoeffEqv.mul_zero_right q.iPart)
+      (RatPolyCoeffEqv.neg_zero_of
+        (RatPolyCoeffEqv.mul_zero_right q.jPart))
+
+theorem PolyQuaternionCoeffEqv.mul_one (q : PolyQuaternion) :
+    PolyQuaternionCoeffEqv
+      (PolyQuaternion.mul q PolyQuaternion.one) q := by
+  exact PolyQuaternionCoeffEqv.trans
+    (by simpa [PolyQuaternion.one, scalarPolyQuaternion] using
+      (PolyQuaternionCoeffEqv.mul_scalar q polyOne))
+    ⟨RatPolyCoeffEqv.mul_one q.scalar,
+      RatPolyCoeffEqv.mul_one q.iPart,
+      RatPolyCoeffEqv.mul_one q.jPart,
+      RatPolyCoeffEqv.mul_one q.kPart⟩
+
+theorem PolyQuaternionCoeffEqv.one_mul (q : PolyQuaternion) :
+    PolyQuaternionCoeffEqv
+      (PolyQuaternion.mul PolyQuaternion.one q) q := by
+  constructor
+  · simpa [PolyQuaternion.mul, PolyQuaternion.one, polyZero,
+      polyAdd, polyMul, polyNeg] using RatPolyCoeffEqv.one_mul q.scalar
+  · simpa [PolyQuaternion.mul, PolyQuaternion.one, polyZero,
+      polyAdd, polyMul, polyNeg] using RatPolyCoeffEqv.one_mul q.iPart
+  · simpa [PolyQuaternion.mul, PolyQuaternion.one, polyZero,
+      polyAdd, polyMul, polyNeg] using RatPolyCoeffEqv.one_mul q.jPart
+  · simpa [PolyQuaternion.mul, PolyQuaternion.one, polyZero,
+      polyAdd, polyMul, polyNeg] using RatPolyCoeffEqv.one_mul q.kPart
+
+theorem HaarCarrierEqv.add
+    {blocks : Nat} {left left' right right' : RatPoly}
+    (hleft : HaarCarrierEqv blocks left left')
+    (hright : HaarCarrierEqv blocks right right') :
+    HaarCarrierEqv blocks
+      (polyAdd left right) (polyAdd left' right') := by
+  change QuaternionHaarCarrierEqv blocks
+    (polyAdd left right) (polyAdd left' right')
+  exact QuaternionHaarCarrierEqv.add hleft hright
+
+theorem HaarCarrierEqv.smul
+    {blocks : Nat} (scale : Q') {left right : RatPoly}
+    (h : HaarCarrierEqv blocks left right) :
+    HaarCarrierEqv blocks
+      (polySmul scale left) (polySmul scale right) := by
+  change QuaternionHaarCarrierEqv blocks
+    (polySmul scale left) (polySmul scale right)
+  exact QuaternionHaarCarrierEqv.smul scale h
+
+private theorem RatPolyCoeffEqv.neg_eq_negOne_smul :
+    ∀ polynomial : RatPoly,
+    RatPolyCoeffEqv
+      (polyNeg polynomial) (polySmul (-1) polynomial)
+  | [] => RatPolyCoeffEqv.refl polyZero
+  | term :: rest => by
+      intro weight
+      change
+        (-term.2) * weight term.1 +
+              ratWeightedSum weight (polyNeg rest) ≈
+          ((-1) * term.2) * weight term.1 +
+            ratWeightedSum weight (polySmul (-1) rest)
+      have hcoefficient : (-term.2) ≈ (-1) * term.2 := by
+        exact Q'.eqv_symm
+          (Q'.eqv_trans _ (-(1 * term.2)) _
+            (Q'.neg_mul_eqv 1 term.2)
+            (Q'.neg_eqv_congr _ _ (Q'.one_mul_eqv term.2)))
+      exact Q'.add_eqv_congr'
+        (Q'.mul_eqv_congr_right _ _ _ hcoefficient)
+        (RatPolyCoeffEqv.neg_eq_negOne_smul rest weight)
+
+theorem HaarCarrierEqv.neg
+    {blocks : Nat} {left right : RatPoly}
+    (h : HaarCarrierEqv blocks left right) :
+    HaarCarrierEqv blocks (polyNeg left) (polyNeg right) :=
+  HaarCarrierEqv.trans
+    (RatPolyCoeffEqv.haarCarrier
+      (RatPolyCoeffEqv.neg_eq_negOne_smul left))
+    (HaarCarrierEqv.trans
+      (HaarCarrierEqv.smul (-1) h)
+      (HaarCarrierEqv.symm
+        (RatPolyCoeffEqv.haarCarrier
+          (RatPolyCoeffEqv.neg_eq_negOne_smul right))))
+
+/-- Componentwise arbitrary-insertion Haar equivalence for polynomial
+quaternions.  Unlike coefficient equality, this relation can erase unit
+radius factors and still survives every later Hamilton multiplication. -/
+structure PolyQuaternionHaarCarrierEqv
+    (blocks : Nat) (left right : PolyQuaternion) : Prop where
+  scalar : HaarCarrierEqv blocks left.scalar right.scalar
+  iPart : HaarCarrierEqv blocks left.iPart right.iPart
+  jPart : HaarCarrierEqv blocks left.jPart right.jPart
+  kPart : HaarCarrierEqv blocks left.kPart right.kPart
+
+theorem PolyQuaternionHaarCarrierEqv.of_coeff
+    {blocks : Nat} {left right : PolyQuaternion}
+    (h : PolyQuaternionCoeffEqv left right) :
+    PolyQuaternionHaarCarrierEqv blocks left right :=
+  ⟨RatPolyCoeffEqv.haarCarrier h.scalar,
+    RatPolyCoeffEqv.haarCarrier h.iPart,
+    RatPolyCoeffEqv.haarCarrier h.jPart,
+    RatPolyCoeffEqv.haarCarrier h.kPart⟩
+
+theorem PolyQuaternionHaarCarrierEqv.refl
+    (blocks : Nat) (q : PolyQuaternion) :
+    PolyQuaternionHaarCarrierEqv blocks q q :=
+  ⟨HaarCarrierEqv.refl blocks q.scalar,
+    HaarCarrierEqv.refl blocks q.iPart,
+    HaarCarrierEqv.refl blocks q.jPart,
+    HaarCarrierEqv.refl blocks q.kPart⟩
+
+theorem PolyQuaternionHaarCarrierEqv.trans
+    {blocks : Nat} {first middle last : PolyQuaternion}
+    (hfirst : PolyQuaternionHaarCarrierEqv blocks first middle)
+    (hlast : PolyQuaternionHaarCarrierEqv blocks middle last) :
+    PolyQuaternionHaarCarrierEqv blocks first last :=
+  ⟨HaarCarrierEqv.trans hfirst.scalar hlast.scalar,
+    HaarCarrierEqv.trans hfirst.iPart hlast.iPart,
+    HaarCarrierEqv.trans hfirst.jPart hlast.jPart,
+    HaarCarrierEqv.trans hfirst.kPart hlast.kPart⟩
+
+theorem PolyQuaternionHaarCarrierEqv.mul
+    {blocks : Nat} {left left' right right' : PolyQuaternion}
+    (hleft : PolyQuaternionHaarCarrierEqv blocks left left')
+    (hright : PolyQuaternionHaarCarrierEqv blocks right right') :
+    PolyQuaternionHaarCarrierEqv blocks
+      (PolyQuaternion.mul left right)
+      (PolyQuaternion.mul left' right') := by
+  constructor
+  · exact HaarCarrierEqv.add
+      (HaarCarrierEqv.mul hleft.scalar hright.scalar)
+      (HaarCarrierEqv.neg (HaarCarrierEqv.add
+        (HaarCarrierEqv.mul hleft.iPart hright.iPart)
+        (HaarCarrierEqv.add
+          (HaarCarrierEqv.mul hleft.jPart hright.jPart)
+          (HaarCarrierEqv.mul hleft.kPart hright.kPart))))
+  · exact HaarCarrierEqv.add
+      (HaarCarrierEqv.mul hleft.scalar hright.iPart)
+      (HaarCarrierEqv.add
+        (HaarCarrierEqv.mul hleft.iPart hright.scalar)
+        (HaarCarrierEqv.add
+          (HaarCarrierEqv.mul hleft.jPart hright.kPart)
+          (HaarCarrierEqv.neg
+            (HaarCarrierEqv.mul hleft.kPart hright.jPart))))
+  · exact HaarCarrierEqv.add
+      (HaarCarrierEqv.mul hleft.scalar hright.jPart)
+      (HaarCarrierEqv.add
+        (HaarCarrierEqv.mul hleft.jPart hright.scalar)
+        (HaarCarrierEqv.add
+          (HaarCarrierEqv.mul hleft.kPart hright.iPart)
+          (HaarCarrierEqv.neg
+            (HaarCarrierEqv.mul hleft.iPart hright.kPart))))
+  · exact HaarCarrierEqv.add
+      (HaarCarrierEqv.mul hleft.scalar hright.kPart)
+      (HaarCarrierEqv.add
+        (HaarCarrierEqv.mul hleft.kPart hright.scalar)
+        (HaarCarrierEqv.add
+          (HaarCarrierEqv.mul hleft.iPart hright.jPart)
+          (HaarCarrierEqv.neg
+            (HaarCarrierEqv.mul hleft.jPart hright.iPart))))
+
 private def threeQuaternionEnvironment
     (first second third : PolyQuaternion) : Nat → RatPoly
   | 0 => first.scalar
@@ -1138,6 +1352,65 @@ theorem PolyQuaternionCoeffEqv.mul_assoc
       (coeffEvalExpr_eqv_of_normalize_eq
         exprAssocLeft.kPart exprAssocRight.kPart
         exprAssoc_normal.2.2.2 environment)
+
+/-- A right-associated oriented word product, used only as the structural
+normal form for reasoning about cyclic boundaries. -/
+def orientedSurfaceWordProduct : List OrientedSurfaceEdge → PolyQuaternion
+  | [] => PolyQuaternion.one
+  | entry :: rest =>
+      PolyQuaternion.mul
+        (orientedCoordinateQuaternion entry.1 entry.2)
+        (orientedSurfaceWordProduct rest)
+
+private theorem orientedSurfaceWordFold_coeffEqv
+    (initial : PolyQuaternion) : ∀ word : List OrientedSurfaceEdge,
+    PolyQuaternionCoeffEqv
+      (word.foldl
+        (fun total entry => PolyQuaternion.mul total
+          (orientedCoordinateQuaternion entry.1 entry.2)) initial)
+      (PolyQuaternion.mul initial (orientedSurfaceWordProduct word))
+  | [] => PolyQuaternionCoeffEqv.symm
+      (PolyQuaternionCoeffEqv.mul_one initial)
+  | entry :: rest => by
+      exact PolyQuaternionCoeffEqv.trans
+        (orientedSurfaceWordFold_coeffEqv
+          (PolyQuaternion.mul initial
+            (orientedCoordinateQuaternion entry.1 entry.2)) rest)
+        (PolyQuaternionCoeffEqv.mul_assoc initial
+          (orientedCoordinateQuaternion entry.1 entry.2)
+          (orientedSurfaceWordProduct rest))
+
+theorem compactOrientedQuaternionWord_coeffEqv_product
+    (word : List OrientedSurfaceEdge) :
+    PolyQuaternionCoeffEqv
+      (compactOrientedQuaternionWord word)
+      (orientedSurfaceWordProduct word) :=
+  PolyQuaternionCoeffEqv.trans
+    (orientedSurfaceWordFold_coeffEqv PolyQuaternion.one word)
+    (PolyQuaternionCoeffEqv.one_mul (orientedSurfaceWordProduct word))
+
+theorem orientedSurfaceWordProduct_append
+    (left right : List OrientedSurfaceEdge) :
+    PolyQuaternionCoeffEqv
+      (orientedSurfaceWordProduct (left ++ right))
+      (PolyQuaternion.mul
+        (orientedSurfaceWordProduct left)
+        (orientedSurfaceWordProduct right)) := by
+  induction left with
+  | nil =>
+      exact PolyQuaternionCoeffEqv.symm
+        (PolyQuaternionCoeffEqv.one_mul
+          (orientedSurfaceWordProduct right))
+  | cons entry rest induction =>
+      exact PolyQuaternionCoeffEqv.trans
+        (PolyQuaternionCoeffEqv.mul
+          (PolyQuaternionCoeffEqv.refl
+            (orientedCoordinateQuaternion entry.1 entry.2)) induction)
+        (PolyQuaternionCoeffEqv.symm
+          (PolyQuaternionCoeffEqv.mul_assoc
+            (orientedCoordinateQuaternion entry.1 entry.2)
+            (orientedSurfaceWordProduct rest)
+            (orientedSurfaceWordProduct right)))
 
 private def exprConjProduct : PolyQuaternionExpr :=
   PolyQuaternionExpr.mul
@@ -1302,6 +1575,196 @@ theorem orientedCoordinateQuaternion_mul_opposite
         (PolyQuaternionCoeffEqv.scalarQuaternion
           (polyQuaternionNorm_coordinateVariable block))
 
+/-- An oriented edge followed by its inverse is the quaternion unit in the
+componentwise Haar carrier, provided its block is integrated. -/
+theorem PolyQuaternionHaarCarrierEqv.oriented_pair_one
+    {blocks block : Nat} (hblock : block < blocks) (reverse : Bool) :
+    PolyQuaternionHaarCarrierEqv blocks
+      (PolyQuaternion.mul
+        (orientedCoordinateQuaternion block reverse)
+        (orientedCoordinateQuaternion block (!reverse)))
+      PolyQuaternion.one :=
+  PolyQuaternionHaarCarrierEqv.trans
+    (PolyQuaternionHaarCarrierEqv.of_coeff
+      (orientedCoordinateQuaternion_mul_opposite block reverse))
+    ⟨quaternionRadiusPolynomial_carrier_one hblock,
+      HaarCarrierEqv.refl blocks polyZero,
+      HaarCarrierEqv.refl blocks polyZero,
+      HaarCarrierEqv.refl blocks polyZero⟩
+
+/-- Componentwise carrier equivalence of word holonomies survives appending
+the same oriented suffix. -/
+theorem compactOrientedQuaternionWord_append_congr
+    {blocks : Nat} {left right : List (Nat × Bool)}
+    (h : PolyQuaternionHaarCarrierEqv blocks
+      (compactOrientedQuaternionWord left)
+      (compactOrientedQuaternionWord right)) :
+    ∀ suffix : List (Nat × Bool),
+    PolyQuaternionHaarCarrierEqv blocks
+      (compactOrientedQuaternionWord (left ++ suffix))
+      (compactOrientedQuaternionWord (right ++ suffix))
+  | [] => by simpa using h
+  | entry :: rest => by
+      have hentry := PolyQuaternionHaarCarrierEqv.mul h
+        (PolyQuaternionHaarCarrierEqv.refl blocks
+          (orientedCoordinateQuaternion entry.1 entry.2))
+      have hprefix : PolyQuaternionHaarCarrierEqv blocks
+          (compactOrientedQuaternionWord (left ++ [entry]))
+          (compactOrientedQuaternionWord (right ++ [entry])) := by
+        simpa [compactOrientedQuaternionWord, List.foldl_append] using hentry
+      simpa [List.append_assoc] using
+        (compactOrientedQuaternionWord_append_congr hprefix rest)
+
+/-- One adjacent inverse pair at the end of a word can be erased in the
+componentwise Haar carrier. -/
+theorem compactOrientedQuaternionWord_append_inverse_pair
+    {blocks : Nat} (word : List (Nat × Bool))
+    (entry : Nat × Bool) (hblock : entry.1 < blocks) :
+    PolyQuaternionHaarCarrierEqv blocks
+      (compactOrientedQuaternionWord
+        (word ++ [entry, (entry.1, !entry.2)]))
+      (compactOrientedQuaternionWord word) := by
+  let wordValue := compactOrientedQuaternionWord word
+  let oriented := orientedCoordinateQuaternion entry.1 entry.2
+  let inverse := orientedCoordinateQuaternion entry.1 (!entry.2)
+  have hassoc : PolyQuaternionHaarCarrierEqv blocks
+      (PolyQuaternion.mul (PolyQuaternion.mul wordValue oriented) inverse)
+      (PolyQuaternion.mul wordValue (PolyQuaternion.mul oriented inverse)) :=
+    PolyQuaternionHaarCarrierEqv.of_coeff
+      (PolyQuaternionCoeffEqv.mul_assoc wordValue oriented inverse)
+  have hcancel : PolyQuaternionHaarCarrierEqv blocks
+      (PolyQuaternion.mul wordValue (PolyQuaternion.mul oriented inverse))
+      (PolyQuaternion.mul wordValue PolyQuaternion.one) :=
+    PolyQuaternionHaarCarrierEqv.mul
+      (PolyQuaternionHaarCarrierEqv.refl blocks wordValue)
+      (PolyQuaternionHaarCarrierEqv.oriented_pair_one hblock entry.2)
+  have hone : PolyQuaternionHaarCarrierEqv blocks
+      (PolyQuaternion.mul wordValue PolyQuaternion.one) wordValue :=
+    PolyQuaternionHaarCarrierEqv.of_coeff
+      (PolyQuaternionCoeffEqv.mul_one wordValue)
+  simpa [wordValue, oriented, inverse, compactOrientedQuaternionWord,
+    List.foldl_append] using
+    (PolyQuaternionHaarCarrierEqv.trans hassoc
+      (PolyQuaternionHaarCarrierEqv.trans hcancel hone))
+
+private theorem bool_eq_not_of_ne {left right : Bool}
+    (h : left ≠ right) : right = !left := by
+  cases left <;> cases right <;> simp_all
+
+private theorem mem_freeSurfaceReduceStep
+    {stack : List OrientedSurfaceEdge} {entry item : OrientedSurfaceEdge}
+    (hitem : item ∈ freeSurfaceReduceStep stack entry) :
+    item = entry ∨ item ∈ stack := by
+  cases stack with
+  | nil => simpa [freeSurfaceReduceStep] using hitem
+  | cons head rest =>
+      by_cases hcancel : head.1 = entry.1 ∧ head.2 ≠ entry.2
+      · right
+        exact List.mem_cons_of_mem head
+          (by simpa [freeSurfaceReduceStep, hcancel] using hitem)
+      · simpa [freeSurfaceReduceStep, hcancel] using hitem
+
+/-- One executable stack step preserves the word holonomy in the
+componentwise Haar carrier. -/
+theorem freeSurfaceReduceStep_carrier
+    {blocks : Nat} (stack : List OrientedSurfaceEdge)
+    (entry : OrientedSurfaceEdge)
+    (hstack : ∀ item, item ∈ stack → item.1 < blocks) :
+    PolyQuaternionHaarCarrierEqv blocks
+      (compactOrientedQuaternionWord (stack.reverse ++ [entry]))
+      (compactOrientedQuaternionWord
+        (freeSurfaceReduceStep stack entry).reverse) := by
+  cases stack with
+  | nil =>
+      exact PolyQuaternionHaarCarrierEqv.refl blocks _
+  | cons head rest =>
+      by_cases hcancel : head.1 = entry.1 ∧ head.2 ≠ entry.2
+      · have hinverse : entry = (head.1, !head.2) := by
+          apply Prod.ext
+          · exact hcancel.1.symm
+          · exact bool_eq_not_of_ne hcancel.2
+        have hpair := compactOrientedQuaternionWord_append_inverse_pair
+          (blocks := blocks) rest.reverse head
+          (hstack head List.mem_cons_self)
+        have hsource :
+            (head :: rest).reverse ++ [entry] =
+              rest.reverse ++ [head, (head.1, !head.2)] := by
+          simp [hinverse, List.append_assoc]
+        have htarget :
+            (freeSurfaceReduceStep (head :: rest) entry).reverse =
+              rest.reverse := by
+          simp [freeSurfaceReduceStep, hcancel]
+        rw [hsource, htarget]
+        exact hpair
+      · have hsame :
+            (head :: rest).reverse ++ [entry] =
+              (freeSurfaceReduceStep (head :: rest) entry).reverse := by
+          simp [freeSurfaceReduceStep, hcancel, List.append_assoc]
+        rw [hsame]
+        exact PolyQuaternionHaarCarrierEqv.refl blocks _
+
+/-- The fold-level invariant of the executable free reducer.  The source is
+the unreduced stack word followed by the remaining input; the target is the
+final reversed stack. -/
+theorem freeSurfaceReduceFold_carrier
+    {blocks : Nat} : ∀ (word stack : List OrientedSurfaceEdge),
+    (∀ item, item ∈ stack → item.1 < blocks) →
+    (∀ item, item ∈ word → item.1 < blocks) →
+    PolyQuaternionHaarCarrierEqv blocks
+      (compactOrientedQuaternionWord (stack.reverse ++ word))
+      (compactOrientedQuaternionWord
+        (word.foldl freeSurfaceReduceStep stack).reverse)
+  | [], stack, _, _ => by
+      simpa using PolyQuaternionHaarCarrierEqv.refl blocks
+        (compactOrientedQuaternionWord stack.reverse)
+  | entry :: rest, stack, hstack, hword => by
+      let nextStack := freeSurfaceReduceStep stack entry
+      have hentry : entry.1 < blocks :=
+        hword entry List.mem_cons_self
+      have hrest : ∀ item, item ∈ rest → item.1 < blocks := by
+        intro item hitem
+        exact hword item (List.mem_cons_of_mem entry hitem)
+      have hnext : ∀ item, item ∈ nextStack → item.1 < blocks := by
+        intro item hitem
+        rcases mem_freeSurfaceReduceStep hitem with rfl | hold
+        · exact hentry
+        · exact hstack item hold
+      have hstep := freeSurfaceReduceStep_carrier
+        (blocks := blocks) stack entry hstack
+      have hsuffix :=
+        compactOrientedQuaternionWord_append_congr hstep rest
+      have hrecursive := freeSurfaceReduceFold_carrier
+        (blocks := blocks) rest nextStack hnext hrest
+      exact PolyQuaternionHaarCarrierEqv.trans
+        (by simpa [nextStack, List.append_assoc] using hsuffix)
+        hrecursive
+
+/-- Free reduction of any block-bounded oriented word preserves its complete
+polynomial quaternion in the arbitrary-insertion Haar carrier. -/
+theorem freeSurfaceReduce_carrier
+    {blocks : Nat} (word : List OrientedSurfaceEdge)
+    (hword : ∀ item, item ∈ word → item.1 < blocks) :
+    PolyQuaternionHaarCarrierEqv blocks
+      (compactOrientedQuaternionWord word)
+      (compactOrientedQuaternionWord (freeSurfaceReduce word)) := by
+  simpa [freeSurfaceReduce] using
+    (freeSurfaceReduceFold_carrier
+      (blocks := blocks) word []
+      (fun _ hitem => by simp at hitem) hword)
+
+/-- Consequently the spin-one face factor is unchanged by the executable
+free reducer, with arbitrary surrounding face factors retained. -/
+theorem compactFundamentalWordFactor_freeSurfaceReduce_carrier
+    {blocks : Nat} (word : List OrientedSurfaceEdge)
+    (hword : ∀ item, item ∈ word → item.1 < blocks) :
+    HaarCarrierEqv blocks
+      (compactFundamentalWordFactor word)
+      (compactFundamentalWordFactor (freeSurfaceReduce word)) := by
+  simpa [compactFundamentalWordFactor, characterPolynomial] using
+    (HaarCarrierEqv.smul 2
+      (freeSurfaceReduce_carrier
+        (blocks := blocks) word hword).scalar)
+
 private theorem exprScalarCyclic_normal :
     normalize
         (PolyQuaternionExpr.mul
@@ -1333,6 +1796,299 @@ theorem polyQuaternion_mul_scalar_cyclic
         (PolyQuaternionExpr.coordinate 0)).scalar
       exprScalarCyclic_normal environment)
 
+/-- A scalar radius quaternion can be erased on the left of any quaternion
+at the level of scalar Haar carriers.  Cyclic scalarity moves it to the right,
+where the already-proved scalar multiplication formula exposes the radius
+factor consumed by the sphere ideal. -/
+theorem scalarRadiusQuaternion_mul_scalar_carrier
+    {blocks block : Nat} (hblock : block < blocks)
+    (q : PolyQuaternion) :
+    HaarCarrierEqv blocks
+      (PolyQuaternion.mul
+        (scalarPolyQuaternion (quaternionRadiusPolynomial block)) q).scalar
+      q.scalar :=
+  HaarCarrierEqv.trans
+    (RatPolyCoeffEqv.haarCarrier
+      (polyQuaternion_mul_scalar_cyclic
+        (scalarPolyQuaternion (quaternionRadiusPolynomial block)) q))
+    (HaarCarrierEqv.trans
+      (RatPolyCoeffEqv.haarCarrier
+        (PolyQuaternionCoeffEqv.mul_scalar_scalar q
+          (quaternionRadiusPolynomial block)))
+      (HaarCarrierEqv.trans
+        (HaarCarrierEqv.mul_left q.scalar
+          (quaternionRadiusPolynomial_carrier_one hblock))
+        (RatPolyCoeffEqv.haarCarrier
+          (RatPolyCoeffEqv.mul_one q.scalar))))
+
+/-- Removing inverse-oriented first and last letters preserves the traced
+fundamental face factor.  This is the structural soundness theorem for one
+successful `cancelSurfaceCyclicBoundary` step. -/
+theorem compactFundamentalWordFactor_cyclic_boundary_carrier
+    {blocks : Nat} (first : OrientedSurfaceEdge)
+    (middle : List OrientedSurfaceEdge) (hblock : first.1 < blocks) :
+    HaarCarrierEqv blocks
+      (compactFundamentalWordFactor
+        (first :: (middle ++ [(first.1, !first.2)])))
+      (compactFundamentalWordFactor middle) := by
+  let firstValue := orientedCoordinateQuaternion first.1 first.2
+  let lastValue := orientedCoordinateQuaternion first.1 (!first.2)
+  let middleValue := orientedSurfaceWordProduct middle
+  have hrest : PolyQuaternionCoeffEqv
+      (orientedSurfaceWordProduct
+        (middle ++ [(first.1, !first.2)]))
+      (PolyQuaternion.mul middleValue lastValue) :=
+    PolyQuaternionCoeffEqv.trans
+      (orientedSurfaceWordProduct_append middle
+        [(first.1, !first.2)])
+      (PolyQuaternionCoeffEqv.mul
+        (PolyQuaternionCoeffEqv.refl middleValue)
+        (by simpa [lastValue, orientedSurfaceWordProduct] using
+          (PolyQuaternionCoeffEqv.mul_one lastValue)))
+  have hword : PolyQuaternionCoeffEqv
+      (compactOrientedQuaternionWord
+        (first :: (middle ++ [(first.1, !first.2)])))
+      (PolyQuaternion.mul
+        (PolyQuaternion.mul firstValue middleValue) lastValue) :=
+    PolyQuaternionCoeffEqv.trans
+      (compactOrientedQuaternionWord_coeffEqv_product _)
+      (PolyQuaternionCoeffEqv.trans
+        (PolyQuaternionCoeffEqv.mul
+          (PolyQuaternionCoeffEqv.refl firstValue) hrest)
+        (PolyQuaternionCoeffEqv.symm
+          (PolyQuaternionCoeffEqv.mul_assoc
+            firstValue middleValue lastValue)))
+  have hrotate : RatPolyCoeffEqv
+      (PolyQuaternion.mul
+        (PolyQuaternion.mul firstValue middleValue) lastValue).scalar
+      (PolyQuaternion.mul
+        (PolyQuaternion.mul lastValue firstValue) middleValue).scalar :=
+    RatPolyCoeffEqv.trans
+      (polyQuaternion_mul_scalar_cyclic
+        (PolyQuaternion.mul firstValue middleValue) lastValue)
+      (PolyQuaternionCoeffEqv.symm
+        (PolyQuaternionCoeffEqv.mul_assoc
+          lastValue firstValue middleValue)).scalar
+  have hpair : PolyQuaternionCoeffEqv
+      (PolyQuaternion.mul lastValue firstValue)
+      (scalarPolyQuaternion
+        (quaternionRadiusPolynomial first.1)) := by
+    simpa [firstValue, lastValue] using
+      (orientedCoordinateQuaternion_mul_opposite first.1 (!first.2))
+  have hpairMiddle : PolyQuaternionCoeffEqv
+      (PolyQuaternion.mul
+        (PolyQuaternion.mul lastValue firstValue) middleValue)
+      (PolyQuaternion.mul
+        (scalarPolyQuaternion (quaternionRadiusPolynomial first.1))
+        middleValue) :=
+    PolyQuaternionCoeffEqv.mul hpair
+      (PolyQuaternionCoeffEqv.refl middleValue)
+  have hscalar : HaarCarrierEqv blocks
+      (compactOrientedQuaternionWord
+        (first :: (middle ++ [(first.1, !first.2)]))).scalar
+      middleValue.scalar :=
+    HaarCarrierEqv.trans
+      (RatPolyCoeffEqv.haarCarrier hword.scalar)
+      (HaarCarrierEqv.trans
+        (RatPolyCoeffEqv.haarCarrier hrotate)
+        (HaarCarrierEqv.trans
+          (RatPolyCoeffEqv.haarCarrier hpairMiddle.scalar)
+          (scalarRadiusQuaternion_mul_scalar_carrier
+            hblock middleValue)))
+  have hmiddle : HaarCarrierEqv blocks middleValue.scalar
+      (compactOrientedQuaternionWord middle).scalar :=
+    HaarCarrierEqv.symm
+      (RatPolyCoeffEqv.haarCarrier
+        (compactOrientedQuaternionWord_coeffEqv_product middle).scalar)
+  simpa [compactFundamentalWordFactor, characterPolynomial] using
+    (HaarCarrierEqv.smul 2
+      (HaarCarrierEqv.trans hscalar hmiddle))
+
+private theorem cancelSurfaceCyclicBoundary_mem
+    {word inner : List OrientedSurfaceEdge}
+    (hcancel : cancelSurfaceCyclicBoundary word = some inner) :
+    ∀ item, item ∈ inner → item ∈ word := by
+  intro item hitem
+  cases word with
+  | nil => simp [cancelSurfaceCyclicBoundary] at hcancel
+  | cons first rest =>
+      cases rest with
+      | nil =>
+          simp [cancelSurfaceCyclicBoundary] at hcancel
+      | cons second tail =>
+          generalize hreverse : (second :: tail).reverse = reversed
+          cases reversed with
+          | nil => simp at hreverse
+          | cons last reverseMiddle =>
+              by_cases hends : first.1 = last.1 ∧ first.2 ≠ last.2
+              · simp [cancelSurfaceCyclicBoundary, hreverse, hends] at hcancel
+                have hinner : inner = reverseMiddle.reverse := hcancel.symm
+                have hrest : second :: tail =
+                    reverseMiddle.reverse ++ [last] := by
+                  have := congrArg List.reverse hreverse
+                  simpa using this
+                rw [hinner] at hitem
+                apply List.mem_cons_of_mem first
+                rw [hrest]
+                exact List.mem_append_left [last] hitem
+              · simp [cancelSurfaceCyclicBoundary, hreverse, hends] at hcancel
+
+/-- A successful executable cyclic-boundary cancellation preserves the
+fundamental face factor in the arbitrary-insertion Haar carrier. -/
+theorem cancelSurfaceCyclicBoundary_carrier
+    {blocks : Nat} {word inner : List OrientedSurfaceEdge}
+    (hcancel : cancelSurfaceCyclicBoundary word = some inner)
+    (hword : ∀ item, item ∈ word → item.1 < blocks) :
+    HaarCarrierEqv blocks
+      (compactFundamentalWordFactor word)
+      (compactFundamentalWordFactor inner) := by
+  cases word with
+  | nil => simp [cancelSurfaceCyclicBoundary] at hcancel
+  | cons first rest =>
+      cases rest with
+      | nil =>
+          simp [cancelSurfaceCyclicBoundary] at hcancel
+      | cons second tail =>
+          generalize hreverse : (second :: tail).reverse = reversed
+          cases reversed with
+          | nil => simp at hreverse
+          | cons last reverseMiddle =>
+              by_cases hends : first.1 = last.1 ∧ first.2 ≠ last.2
+              · simp [cancelSurfaceCyclicBoundary, hreverse, hends] at hcancel
+                have hinner : inner = reverseMiddle.reverse := hcancel.symm
+                have hrest : second :: tail =
+                    reverseMiddle.reverse ++ [last] := by
+                  have := congrArg List.reverse hreverse
+                  simpa using this
+                have hlast : last = (first.1, !first.2) := by
+                  apply Prod.ext
+                  · exact hends.1.symm
+                  · exact bool_eq_not_of_ne hends.2
+                rw [hinner, hrest, hlast]
+                exact compactFundamentalWordFactor_cyclic_boundary_carrier
+                  first reverseMiddle.reverse
+                  (hword first List.mem_cons_self)
+              · simp [cancelSurfaceCyclicBoundary, hreverse, hends] at hcancel
+
+private theorem freeSurfaceReduceFold_mem
+    {word stack : List OrientedSurfaceEdge} {item : OrientedSurfaceEdge}
+    (hitem : item ∈ word.foldl freeSurfaceReduceStep stack) :
+    item ∈ stack ∨ item ∈ word := by
+  induction word generalizing stack with
+  | nil => exact Or.inl hitem
+  | cons entry rest induction =>
+      rcases induction hitem with hnext | hrest
+      · rcases mem_freeSurfaceReduceStep hnext with rfl | hstack
+        · exact Or.inr List.mem_cons_self
+        · exact Or.inl hstack
+      · exact Or.inr (List.mem_cons_of_mem entry hrest)
+
+private theorem freeSurfaceReduce_mem
+    {word : List OrientedSurfaceEdge} {item : OrientedSurfaceEdge}
+    (hitem : item ∈ freeSurfaceReduce word) : item ∈ word := by
+  have hfold : item ∈ word.foldl freeSurfaceReduceStep [] := by
+    simpa [freeSurfaceReduce] using hitem
+  rcases freeSurfaceReduceFold_mem hfold with hnil | hword
+  · simp at hnil
+  · exact hword
+
+/-- Fuel-bounded cyclic reduction preserves the traced fundamental factor. -/
+theorem cyclicFreeSurfaceReduceAux_carrier
+    {blocks : Nat} : ∀ (fuel : Nat) (word : List OrientedSurfaceEdge),
+    (∀ item, item ∈ word → item.1 < blocks) →
+    HaarCarrierEqv blocks
+      (compactFundamentalWordFactor word)
+      (compactFundamentalWordFactor
+        (cyclicFreeSurfaceReduceAux fuel word))
+  | 0, word, _ => HaarCarrierEqv.refl blocks _
+  | fuel + 1, word, hword => by
+      cases hcancel : cancelSurfaceCyclicBoundary word with
+      | none =>
+          simpa [cyclicFreeSurfaceReduceAux, hcancel] using
+            HaarCarrierEqv.refl blocks
+              (compactFundamentalWordFactor word)
+      | some inner =>
+          have hinner : ∀ item, item ∈ inner → item.1 < blocks := by
+            intro item hitem
+            exact hword item
+              (cancelSurfaceCyclicBoundary_mem hcancel item hitem)
+          simpa [cyclicFreeSurfaceReduceAux, hcancel] using
+            (HaarCarrierEqv.trans
+              (cancelSurfaceCyclicBoundary_carrier hcancel hword)
+              (cyclicFreeSurfaceReduceAux_carrier fuel inner hinner))
+
+/-- Full free-plus-cyclic reduction preserves one fundamental face factor. -/
+theorem compactFundamentalWordFactor_cyclicFreeSurfaceReduce_carrier
+    {blocks : Nat} (word : List OrientedSurfaceEdge)
+    (hword : ∀ item, item ∈ word → item.1 < blocks) :
+    HaarCarrierEqv blocks
+      (compactFundamentalWordFactor word)
+      (compactFundamentalWordFactor (cyclicFreeSurfaceReduce word)) := by
+  let reduced := freeSurfaceReduce word
+  have hreduced : ∀ item, item ∈ reduced → item.1 < blocks := by
+    intro item hitem
+    exact hword item (freeSurfaceReduce_mem hitem)
+  exact HaarCarrierEqv.trans
+    (compactFundamentalWordFactor_freeSurfaceReduce_carrier word hword)
+    (by simpa [cyclicFreeSurfaceReduce, reduced] using
+      (cyclicFreeSurfaceReduceAux_carrier
+        reduced.length reduced hreduced))
+
+/-! ## Specialization to all certified surface faces -/
+
+def binarySubstitutedSurfaceGaugeWordBlockBoundCheck : Bool :=
+  binarySurfaceMasks.all fun mask =>
+    (surfaceSelectedCompactFaceIds mask).all fun faceId =>
+      (substituteSurfaceGaugeWord mask
+        (hypercubeFaceWords.getD faceId [])).all fun entry =>
+          decide (entry.1 < 32)
+
+theorem binarySubstitutedSurfaceGaugeWordBlockBoundCheck_true :
+    binarySubstitutedSurfaceGaugeWordBlockBoundCheck = true := by
+  decide
+
+theorem substitutedSurfaceGaugeWord_block_lt
+    (mask : Nat) (hmask : mask ∈ binarySurfaceMasks)
+    (faceId : Nat) (hface : faceId ∈ surfaceSelectedCompactFaceIds mask)
+    (entry : OrientedSurfaceEdge)
+    (hentry : entry ∈ substituteSurfaceGaugeWord mask
+      (hypercubeFaceWords.getD faceId [])) : entry.1 < 32 := by
+  have hmaskRow := List.all_eq_true.mp
+    binarySubstitutedSurfaceGaugeWordBlockBoundCheck_true mask hmask
+  have hfaceRow := List.all_eq_true.mp hmaskRow faceId hface
+  exact of_decide_eq_true (List.all_eq_true.mp hfaceRow entry hentry)
+
+/-- For every selected face of every certified surface, the fully substituted
+word factor is Haar-carrier equivalent to the checked unrenumbered physical
+chord factor. -/
+theorem substitutedSurfaceGaugeFaceFactor_carrier
+    (mask : Nat) (hmask : mask ∈ binarySurfaceMasks)
+    (faceId : Nat) (hface : faceId ∈ surfaceSelectedCompactFaceIds mask) :
+    HaarCarrierEqv 32
+      (compactFundamentalWordFactor
+        (substituteSurfaceGaugeWord mask
+          (hypercubeFaceWords.getD faceId [])))
+      (compactFundamentalWordFactor
+        (surfaceForestGaugePhysicalWord mask
+          (hypercubeFaceWords.getD faceId []))) := by
+  have hsemantic := surfaceForestGaugeFaceWordSemanticCheck_of_mem
+    mask hmask faceId hface
+  have heq :
+      cyclicFreeSurfaceReduce
+          (substituteSurfaceGaugeWord mask
+            (hypercubeFaceWords.getD faceId [])) =
+        surfaceForestGaugePhysicalWord mask
+          (hypercubeFaceWords.getD faceId []) := by
+    simpa [surfaceForestGaugeFaceWordSemanticCheck] using hsemantic
+  have hcarrier :=
+    compactFundamentalWordFactor_cyclicFreeSurfaceReduce_carrier
+      (blocks := 32)
+      (substituteSurfaceGaugeWord mask
+        (hypercubeFaceWords.getD faceId []))
+      (substitutedSurfaceGaugeWord_block_lt mask hmask faceId hface)
+  rw [heq] at hcarrier
+  exact hcarrier
+
 end YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics
 
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics.RatPolyCoeffEqv.haarCarrier
@@ -1343,3 +2099,5 @@ end YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics.PolyQuaternionCoeffEqv.mul_assoc
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics.orientedCoordinateQuaternion_mul_opposite
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics.polyQuaternion_mul_scalar_cyclic
+#print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics.compactFundamentalWordFactor_cyclicFreeSurfaceReduce_carrier
+#print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics.substitutedSurfaceGaugeFaceFactor_carrier

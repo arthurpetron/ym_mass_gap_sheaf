@@ -170,18 +170,22 @@ explicit topological targets.  It also proves that the character reindex and
 finite-sum evaluation compose to the original summary bridge.
 
 The bridge now has one sharply separated mathematical task remaining; the
-character reindex, heat-weight, QPoly assembly, and all 128 exact
-factor-network evaluations are closed:
+character reindex, heat-weight, QPoly assembly, all 128 exact factor-network
+evaluations, and the complete free-plus-cyclic word reducer lift are closed:
 
-- lift the checked forest substitution and cyclic free-word identity through
-  the unit-quaternion polynomial carrier, proving that the translated compact
-  active word-factor network is the concrete chord-only network under Haar.
+- identify the selected-translation polynomial compiler, step by step, with
+  the checked substituted compact words.  Once that compiler-to-word theorem
+  is composed with the now-proved free-plus-cyclic carrier theorem, the
+  translated compact active word-factor network is the concrete chord-only
+  network under Haar.
   The physical plaquette-to-compact-factor and complete factor-product lifts
   are now kernel-checked.  The
   active/factorized theorems identify the source with both the literal
   116-link coefficients and the requested fivefold marginals.  All 128
   forests and rooted paths, every inverse translation ledger, every cyclic
-  word check, and all 127 nonempty exact network values are complete.  Direct
+  word check, the 128-mask substituted-word block bound, every specialized
+  substituted-face carrier, and all 127 nonempty exact network values are
+  complete.  Direct
   source-polynomial expansion was benchmarked and rejected as an impractical
   certificate path; the remaining proof must use the structural word/factor
   algebra rather than monolithic normalization.
