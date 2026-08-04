@@ -1808,6 +1808,7 @@ import YMGap.Continuum.XiExceptionalTreeBudgetFence
 import YMGap.Continuum.XiAvoidanceCorrelation
 import YMGap.Continuum.KernelCB2
 import YMGap.Continuum.KpowParityTP2
+import YMGap.Continuum.FusionBallotRecurrence
 import YMGap.Continuum.BoxSumTailGeneral
 import YMGap.Continuum.EpsSplitAdjudication
 import YMGap.Continuum.TaylorModel

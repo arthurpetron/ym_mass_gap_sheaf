@@ -253,7 +253,7 @@ def render_chart(state: dict[str, Any]) -> str:
             "fixed-spacing SU(2) heat-kernel Yang--Mills",
             "        |",
             f"        [{STATUS_MARKS[project_stages['haar5_surface_bridge']]}] "
-            "active finite campaign: actual BF4 Haar_5 surface bridge",
+            "finite campaign: actual BF4 Haar_5 surface bridge",
             "            (supporting exact evidence; not alone a Clay closure)",
             "        |",
             "        +------------------------------+",
@@ -270,6 +270,10 @@ def render_chart(state: dict[str, Any]) -> str:
         left = bucket1[index] if index < len(bucket1) else ""
         right = bucket2[index] if index < len(bucket2) else ""
         lines.append(f"{left:<{width}}{right}")
+    lines.append(
+        "    current atom: "
+        f"{parameters.get('current_frontier_atom', 'not selected')}"
+    )
     lines.extend(
         [
             "        |                              |",

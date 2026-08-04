@@ -5555,6 +5555,20 @@ or (ii) an LGV path-pair injection — both finite combinatorics, both open.
 `kpow_TP2_j1` is the two-row comparison payload the weighted
 `strongCoupling` interlacing consumes. First-try green, axiom-clean.
 
+**Update (2026-08-04 — ballot route, sparse computation compiler).**
+`Continuum/FusionBallotRecurrence.lean` replaces the executable
+range-wide scan in `pathCount 1` by a PROVED two-neighbour recurrence.  The
+fundamental Clebsch--Gordan row is specialized exactly to
+`s = a+1 ∨ a = s+1`; a generic `List.range`/`foldr → nsum` bridge and sparse
+sum theorem then compile each growing scan to the predecessor and successor
+terms alone.  Consequences now PROVED uniformly: finite propagation
+`p < s → pathCount 1 p s = 0`, the guard-free reflected recurrence, occupied
+path parity `(p+s)%2=0`, and off-parity vanishing.  This is the constructive
+induction interface for the explicit ballot formula: subsequent proofs no
+longer re-run a growing finite enumeration.  All gates are exactly
+`[propext, Quot.sound]`; the ballot closed form and row log-concavity remain
+honestly open.
+
 **Update (2026-07-09, session 5 — step 3, CB₂ LANDED).**
 `Continuum/KernelCB2.lean`: the 2×2 Cauchy–Binet/Karlin composition brick
 PROVED in subtraction-free exchange form over `Nat` — `comp_TP2` (pair the
