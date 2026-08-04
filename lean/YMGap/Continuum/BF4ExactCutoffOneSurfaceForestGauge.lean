@@ -139,12 +139,65 @@ theorem surfaceForestGaugeChordOrderCheck_true :
     surfaceForestGaugeChordOrderCheck = true := by
   decide
 
+/-- Constructive first index for a natural-number list.  The direct recursion
+keeps the large generated coordinate certificates cheap to reduce, while
+`Nat.beq` avoids any inferred equality instance in the load-bearing
+chord-compaction path. -/
+def natListIndexOf (target : Nat) : List Nat → Nat
+  | [] => 0
+  | item :: rest =>
+      match Nat.beq item target with
+      | true => 0
+      | false => natListIndexOf target rest + 1
+
+theorem natListIndexOf_lt_length_of_mem
+    (target : Nat) (items : List Nat) (hmem : target ∈ items) :
+    natListIndexOf target items < items.length := by
+  induction items with
+  | nil => simp at hmem
+  | cons item rest induction =>
+      cases hbeq : Nat.beq item target with
+      | true => simp [natListIndexOf, hbeq]
+      | false =>
+          have hne : item ≠ target := by
+            intro heq
+            subst item
+            simp at hbeq
+          have hrest : target ∈ rest := by
+            rcases List.mem_cons.mp hmem with heq | htail
+            · exact False.elim (hne heq.symm)
+            · exact htail
+          simpa [natListIndexOf, hbeq] using induction hrest
+
+theorem getD_natListIndexOf_of_mem
+    (target fallback : Nat) (items : List Nat)
+    (hmem : target ∈ items) :
+    items.getD (natListIndexOf target items) fallback = target := by
+  induction items with
+  | nil => simp at hmem
+  | cons item rest induction =>
+      cases hbeq : Nat.beq item target with
+      | true =>
+          have heq : item = target := Nat.eq_of_beq_eq_true hbeq
+          simpa [natListIndexOf, hbeq, heq]
+      | false =>
+          have hne : item ≠ target := by
+            intro heq
+            subst item
+            simp at hbeq
+          have hrest : target ∈ rest := by
+            rcases List.mem_cons.mp hmem with heq | htail
+            · exact False.elim (hne heq.symm)
+            · exact htail
+          simpa [natListIndexOf, hbeq] using induction hrest
+
 /-- Delete the checked forest incidences and compactly renumber each chord. -/
 def pruneSurfacePrimalForest (mask : Nat) : SurfaceWord → SurfaceWord
   | [] => []
   | entry :: rest =>
       if entry.1 ∈ surfaceForestGaugeChordEdgeIds mask then
-        ((surfaceForestGaugeChordEdgeIds mask).idxOf entry.1, entry.2) ::
+        (natListIndexOf entry.1 (surfaceForestGaugeChordEdgeIds mask),
+          entry.2) ::
           pruneSurfacePrimalForest mask rest
       else pruneSurfacePrimalForest mask rest
 

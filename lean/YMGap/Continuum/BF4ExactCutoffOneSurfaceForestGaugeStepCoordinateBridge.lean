@@ -1613,7 +1613,7 @@ theorem surfaceActiveBlockRangeCheck_true :
     surfaceActiveBlockRangeCheck = true := by
   decide
 
-private theorem surfaceActiveBlock_lt_of_lt
+theorem surfaceActiveBlock_lt_of_lt
     (edgeId : Nat) (hedgeId : edgeId < 32) :
     surfaceActiveBlock edgeId < 32 := by
   exact of_decide_eq_true
