@@ -103,23 +103,27 @@ The constructive Lean lift now has six checked layers.
    to the literal corrected-slab geometry and defines the concrete
    chord-only evaluator obtained by deleting each checked forest.  The final
    seam is now split into Haar-preserving forest transport and exact
-   evaluation of that concrete network.  The generic evaluator has
-   kernel-checked values for two explicit 6-face/5-chord masks, one
-   10-face/9-chord mask, both connected 12-face/11-chord orbit
-   representatives, and the disconnected two-sphere 12-face/10-chord
-   representative, both 14-face/13-chord representatives, and the unique
-   16-face/17-chord toroidal representative, each equal to `2^(V-E)`.  Thus
-   all eight nonempty orbit representatives are kernel-checked.  Orbit
-   computations live in separate modules so each expensive kernel reduction
-   is cached independently.  The toroidal case uses seventeen generated
-   proof-carrying checkpoints; Lean independently decides every exact
-   checkpoint and the final `1/65536` value.
+   evaluation of that concrete network.  The generated per-mask modules now
+   give all 127 nonempty networks independent proof-carrying staged
+   contractions, each equal to `2^(V-E)`.  The umbrella module exhausts the
+   literal 128-mask list and inhabits the evaluation proposition without any
+   orbit-symmetry premise.  Each expensive reduction is cached independently;
+   Lean checks every staged transition and final exact rational value.
+
+   `BF4ExactCutoffOneSurfaceForestGaugeTranslation` kernel-checks all 128
+   inverse, orientation-aware rooted-path translation ledgers, the exact
+   active/compact edge permutation, the source degree-five bound, and
+   constructive left/right Haar invariance.  The companion word-semantics
+   module checks every selected face of every mask: after inverse gauge
+   substitution, free cancellation and cyclic cancellation recover exactly
+   the physical chord word.  What remains is the structural algebraic lift
+   from this cyclic word identity to equality of the translated quaternion
+   factor polynomial modulo the unit-sphere relations.
 
 An independent exact quaternion audit contracts one literal gauge-fixed
-surface network from each of the nine hyperoctahedral surface orbits.  All
-nine representatives agree with `2^(V-E)`, and their orbit sizes cover all
-128 surfaces.  This is executable finite evidence; the symmetry transport
-and uniform bivalent contraction still have to be kernel-checked in Lean.
+surface network from each of the nine hyperoctahedral surface orbits.  The
+new exhaustive Lean campaign supersedes that orbit reduction as proof
+evidence, while retaining it as a compact regression audit.
 
 `BF4ExactCutoffOneHaarFiveEvaluation` exposes the remaining bridge as the
 proposition `CutoffOneBinarySurfaceHaarBridge`.  Conditional on that one
@@ -152,22 +156,19 @@ explicit topological targets.  It also proves that the character reindex and
 finite-sum evaluation compose to the original summary bridge.
 
 The bridge now has one sharply separated mathematical task remaining; the
-character reindex, heat-weight, QPoly assembly, and exact factor-network
-reduction are closed:
+character reindex, heat-weight, QPoly assembly, and all 128 exact
+factor-network evaluations are closed:
 
-- prove that the checked maximal-forest coordinate change transports the
-  selected active evaluator to the new concrete chord-only evaluator, and
-  prove the finite hyperoctahedral symmetry transport from all 128 masks to
-  the eight checked nonempty representatives (or prove the equivalent
-  uniform bivalent pairing theorem).  The active/factorized theorems identify
-  the source with both the literal 116-link coefficients and the requested
-  fivefold marginals.  All 128 forests and rooted paths, all eight nonempty
-  Lean orbit values, the six-face sphere's earlier compact five-chord value,
-  and all nine external exact orbit representatives are complete.  Direct
-  all-116-block and monolithic fixed-order normalization were benchmarked and
-  rejected as impractical certificate paths.  The final toroidal value instead
-  uses a generated low-width staged certificate whose every transition is
-  checked by the Lean kernel.
+- lift the checked cyclic free-word identity through the unit-quaternion
+  polynomial carrier, proving that the translated selected active factor
+  network is the concrete chord-only network under Haar.  The
+  active/factorized theorems identify the source with both the literal
+  116-link coefficients and the requested fivefold marginals.  All 128
+  forests and rooted paths, every inverse translation ledger, every cyclic
+  word check, and all 127 nonempty exact network values are complete.  Direct
+  source-polynomial expansion was benchmarked and rejected as an impractical
+  certificate path; the remaining proof must use the structural word/factor
+  algebra rather than monolithic normalization.
 
 No new axiom, `sorry`, `native_decide`, classical choice, or noncomputable
 declaration is used.  The checked dependency sets are contained in

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate a staged Lean certificate for the BF4 0x6f6d9e contraction.
+"""Generate a staged Lean certificate for one BF4 surface contraction.
 
 The generator mirrors the list-level definitions used by
 ``compactBivalentFactorizedHaarContract``.  Its output is not trusted:
@@ -184,20 +184,18 @@ def head_quaternion_moment(monomial: Mono) -> QRaw:
 
 
 def insert_rat_term(monomial: Mono, coefficient: QRaw, polynomial: Poly) -> Poly:
-    if not polynomial:
-        return [] if coefficient.num == 0 else [(monomial, coefficient)]
-    other_monomial, other_coefficient = polynomial[0]
-    rest = polynomial[1:]
     if coefficient.num == 0:
         return polynomial
-    if monomial < other_monomial:
-        return [(monomial, coefficient)] + polynomial
-    if monomial == other_monomial:
-        combined = coefficient + other_coefficient
-        return rest if combined.num == 0 else [(monomial, combined)] + rest
-    return [(other_monomial, other_coefficient)] + insert_rat_term(
-        monomial, coefficient, rest
-    )
+    prefix: Poly = []
+    for index, (other_monomial, other_coefficient) in enumerate(polynomial):
+        if monomial < other_monomial:
+            return prefix + [(monomial, coefficient)] + polynomial[index:]
+        if monomial == other_monomial:
+            combined = coefficient + other_coefficient
+            replacement = [] if combined.num == 0 else [(monomial, combined)]
+            return prefix + replacement + polynomial[index + 1:]
+        prefix.append((other_monomial, other_coefficient))
+    return prefix + [(monomial, coefficient)]
 
 
 def canon_rat(polynomial: Poly) -> Poly:
@@ -286,14 +284,74 @@ HYPERCUBE_FACE_WORDS: list[Word] = [
     [(25, False), (31, False), (27, True), (26, True)],
     [(28, False), (31, False), (30, True), (29, True)],
 ]
-
 MASK = 0x6F6D9E
-CHORD_ORDER = [13, 14, 16, 9, 18, 21, 28, 22, 29, 20, 24, 30, 23, 25, 27, 26, 31]
+TORUS_CHORD_ORDER = [
+    13, 14, 16, 9, 18, 21, 28, 22, 29, 20, 24, 30, 23, 25, 27, 26, 31,
+]
+EDGE_INCIDENCE_MASKS = [
+    7, 25, 42, 52, 196, 336, 416, 1538, 2568, 3104, 5248, 6400,
+    24577, 40968, 49168, 81984, 98560, 139776, 165888, 200704,
+    786433, 1310722, 1572868, 2621504, 3145856, 4456960, 5243904,
+    6295552, 8658944, 8929280, 10551296, 12713984,
+]
+BINARY_SURFACE_BASIS = [
+    2707861, 1049766, 35128, 2167232, 4333056, 8642560, 16515072,
+]
+HYPERCUBE_EDGE_ENDPOINTS = [
+    (0, 8), (0, 4), (0, 2), (0, 1), (1, 9), (1, 5), (1, 3),
+    (2, 10), (2, 6), (2, 3), (3, 11), (3, 7), (4, 12), (4, 6),
+    (4, 5), (5, 13), (5, 7), (6, 14), (6, 7), (7, 15), (8, 12),
+    (8, 10), (8, 9), (9, 13), (9, 11), (10, 14), (10, 11),
+    (11, 15), (12, 14), (12, 13), (13, 15), (14, 15),
+]
 
 
-def forest_gauge_words() -> list[Word]:
-    chord_index = {edge: index for index, edge in enumerate(CHORD_ORDER)}
-    selected = [index for index in range(24) if MASK & (1 << index)]
+def selected_surface_edges(mask: int) -> list[int]:
+    return [
+        edge
+        for edge, incidence in enumerate(EDGE_INCIDENCE_MASKS)
+        if (incidence & mask).bit_count() > 0
+    ]
+
+
+def binary_surface_masks() -> list[int]:
+    output = []
+    for coefficient in range(128):
+        remaining = coefficient
+        mask = 0
+        for basis in BINARY_SURFACE_BASIS:
+            if remaining % 2 == 1:
+                mask ^= basis
+            remaining //= 2
+        output.append(mask)
+    return output
+
+
+def canonical_surface_chords(mask: int) -> list[int]:
+    labels = list(range(16))
+    forest: list[int] = []
+    selected = set(selected_surface_edges(mask))
+    for edge, (tail, head) in enumerate(HYPERCUBE_EDGE_ENDPOINTS):
+        if edge not in selected:
+            continue
+        left_label = labels[tail]
+        right_label = labels[head]
+        if left_label == right_label:
+            continue
+        labels = [
+            left_label if label == right_label else label for label in labels
+        ]
+        forest.append(edge)
+    return [edge for edge in selected_surface_edges(mask) if edge not in forest]
+
+
+def surface_chord_order(mask: int) -> list[int]:
+    return TORUS_CHORD_ORDER if mask == MASK else canonical_surface_chords(mask)
+
+
+def forest_gauge_words(mask: int, chord_order: list[int]) -> list[Word]:
+    chord_index = {edge: index for index, edge in enumerate(chord_order)}
+    selected = [index for index in range(24) if mask & (1 << index)]
     return [
         [
             (chord_index[edge], reverse)
@@ -304,9 +362,14 @@ def forest_gauge_words() -> list[Word]:
     ]
 
 
-def stages() -> list[Factors]:
-    output = [[fundamental_word_factor(word) for word in forest_gauge_words()]]
-    for _block in CHORD_ORDER:
+def stages(mask: int = MASK, chord_order: list[int] | None = None) -> list[Factors]:
+    if chord_order is None:
+        chord_order = surface_chord_order(mask)
+    output = [[
+        fundamental_word_factor(word)
+        for word in forest_gauge_words(mask, chord_order)
+    ]]
+    for _block in chord_order:
         output.append(compact_bivalent_head_step(output[-1]))
     return output
 
@@ -332,14 +395,20 @@ def lean_factors(factors: Factors) -> str:
     return "[" + rendered + "]"
 
 
-def emit_lean(all_stages: list[Factors]) -> str:
+def emit_lean(
+    all_stages: list[Factors], mask: int = MASK,
+    chord_order: list[int] | None = None,
+) -> str:
+    if chord_order is None:
+        chord_order = surface_chord_order(mask)
+    suffix = f"{mask:06X}"
     lines = [
-        "/- Generated proof-carrying checkpoints for BF4 mask 0x6f6d9e.",
+        f"/- Generated proof-carrying checkpoints for BF4 mask 0x{mask:06x}.",
         "   Regenerate with computations/generate_bf4_forest_gauge_staged.py. -/",
         "",
         "import YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGauge",
         "",
-        "namespace YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeOrbit6F6D9E",
+        f"namespace YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeMask{suffix}",
         "",
         "set_option maxRecDepth 200000",
         "set_option maxHeartbeats 12000000",
@@ -359,7 +428,7 @@ def emit_lean(all_stages: list[Factors]) -> str:
     # large and unnecessary raw-factor literal.  Every later stage is literal.
     lines.extend(
         [
-            "def stage0 := surfaceForestGaugeFactors 7302558",
+            f"def stage0 := surfaceForestGaugeFactors {mask}",
             "",
         ]
     )
@@ -377,13 +446,13 @@ def emit_lean(all_stages: list[Factors]) -> str:
         )
     lines.extend(
         [
-            "theorem contraction17_exact :",
-            "    compactBivalentFactorizedHaarContract 17 stage0 =",
-            "      factorProduct (nonUnitFactors stage17) := by",
+            f"theorem contraction{len(chord_order)}_exact :",
+            f"    compactBivalentFactorizedHaarContract {len(chord_order)} stage0 =",
+            f"      factorProduct (nonUnitFactors stage{len(chord_order)}) := by",
         ]
     )
     for index in range(1, len(all_stages)):
-        remaining = len(CHORD_ORDER) - index
+        remaining = len(chord_order) - index
         lines.extend(
             [
                 f"  change compactBivalentFactorizedHaarContract {remaining}",
@@ -396,21 +465,103 @@ def emit_lean(all_stages: list[Factors]) -> str:
             "  rfl",
             "",
             "theorem forestGaugeHaar_exact :",
-            "    surfaceForestGaugeHaar 7302558 ≈",
-            "      surfaceTopologicalHaarAmplitude 7302558 := by",
+            f"    surfaceForestGaugeHaar {mask} ≈",
+            f"      surfaceTopologicalHaarAmplitude {mask} := by",
             "  unfold surfaceForestGaugeHaar compactBivalentFactorizedHaar",
             "  change quaternionHaar 0",
-            "      (compactBivalentFactorizedHaarContract 17 stage0) ≈ _",
-            "  rw [contraction17_exact]",
+            f"      (compactBivalentFactorizedHaarContract {len(chord_order)} stage0) ≈ _",
+            f"  rw [contraction{len(chord_order)}_exact]",
             "  decide",
         ]
     )
     lines.extend(
         [
             "",
-            "end YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeOrbit6F6D9E",
+            f"end YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeMask{suffix}",
             "",
-            "#print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeOrbit6F6D9E.forestGaugeHaar_exact",
+            f"#print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeMask{suffix}.forestGaugeHaar_exact",
+            "",
+        ]
+    )
+    return "\n".join(lines)
+
+
+def mask_module_name(mask: int) -> str:
+    return f"BF4ExactCutoffOneSurfaceForestGaugeMask{mask:06X}"
+
+
+def emit_all_evaluation_umbrella(masks: list[int]) -> str:
+    nonzero_masks = [mask for mask in masks if mask != 0]
+    lines = [
+        "/- Generated complete finite BF4 forest-gauge evaluation umbrella.",
+        "   Every imported per-mask checkpoint is independently kernel-checked. -/",
+        "",
+    ]
+    lines.extend(
+        f"import YMGap.Continuum.{mask_module_name(mask)}"
+        for mask in nonzero_masks
+    )
+    lines.extend(
+        [
+            "",
+            "namespace YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeAllEvaluation",
+            "",
+            "set_option maxRecDepth 300000",
+            "set_option maxHeartbeats 12000000",
+            "",
+            "open YMGap.Continuum.BF4CutoffOneBinarySurfaceCertificate",
+            "open YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGauge",
+            "",
+            "def binarySurfaceMasksLiteral : List Nat :=",
+            "  [" + ", ".join(str(mask) for mask in masks) + "]",
+            "",
+            "theorem binarySurfaceMasks_eq_literal :",
+            "    binarySurfaceMasks = binarySurfaceMasksLiteral := by",
+            "  decide",
+            "",
+            "/-- Every concrete nonempty forest-gauge network has its exact",
+            "topological Haar value, by exhaustive proof-carrying contraction. -/",
+            "theorem cutoffOneSurfaceForestGaugeEvaluation :",
+            "    CutoffOneSurfaceForestGaugeEvaluation := by",
+            "  intro mask hmask hnonzero",
+            "  have hcases :",
+        ]
+    )
+    alternatives = [f"mask = {mask}" for mask in masks]
+    for index, alternative in enumerate(alternatives):
+        prefix = "      " if index == 0 else "        "
+        suffix = " ∨" if index + 1 < len(alternatives) else " := by"
+        lines.append(f"{prefix}{alternative}{suffix}")
+    lines.extend(
+        [
+            "    rw [binarySurfaceMasks_eq_literal] at hmask",
+            "    simpa only [binarySurfaceMasksLiteral, List.mem_cons,",
+            "      List.not_mem_nil, or_false] using hmask",
+        ]
+    )
+    for index, mask in enumerate(masks):
+        if index + 1 < len(masks):
+            lines.append(f"  rcases hcases with h{index} | hcases")
+            lines.append(f"  · subst mask")
+            indent = "    "
+        else:
+            lines.append(f"  have h{index} := hcases")
+            lines.append("  subst mask")
+            indent = "  "
+        if mask == 0:
+            lines.append(f"{indent}exact False.elim (hnonzero rfl)")
+        else:
+            namespace = (
+                "YMGap.Continuum."
+                f"BF4ExactCutoffOneSurfaceForestGaugeMask{mask:06X}"
+            )
+            lines.append(f"{indent}exact {namespace}.forestGaugeHaar_exact")
+    lines.extend(
+        [
+            "",
+            "end YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeAllEvaluation",
+            "",
+            "#print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeAllEvaluation.cutoffOneSurfaceForestGaugeEvaluation",
             "",
         ]
     )
@@ -420,8 +571,56 @@ def emit_lean(all_stages: list[Factors]) -> str:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", type=Path)
+    parser.add_argument("--mask", type=lambda value: int(value, 0), default=MASK)
+    parser.add_argument("--survey-binary", action="store_true")
+    parser.add_argument("--all-output-dir", type=Path)
     args = parser.parse_args()
-    all_stages = stages()
+    if args.survey_binary:
+        for mask in binary_surface_masks():
+            if mask == 0:
+                continue
+            chord_order = surface_chord_order(mask)
+            all_stages = stages(mask, chord_order)
+            largest = max(
+                (len(factor) for factors in all_stages for factor in factors),
+                default=0,
+            )
+            total = max(
+                (sum(len(factor) for factor in factors) for factors in all_stages),
+                default=0,
+            )
+            print(
+                f"0x{mask:06x} faces={mask.bit_count():2d} "
+                f"chords={len(chord_order):2d} largest={largest:6d} "
+                f"stage-terms={total:6d}"
+            )
+        return
+    if args.all_output_dir is not None:
+        masks = binary_surface_masks()
+        for mask in masks:
+            if mask == 0:
+                continue
+            chord_order = surface_chord_order(mask)
+            all_stages = stages(mask, chord_order)
+            output = args.all_output_dir / f"{mask_module_name(mask)}.lean"
+            output.write_text(
+                emit_lean(all_stages, mask, chord_order), encoding="utf-8"
+            )
+            print(
+                f"wrote {output.name}: faces={mask.bit_count()} "
+                f"chords={len(chord_order)} stages={len(all_stages) - 1}"
+            )
+        umbrella = (
+            args.all_output_dir /
+            "BF4ExactCutoffOneSurfaceForestGaugeAllEvaluation.lean"
+        )
+        umbrella.write_text(
+            emit_all_evaluation_umbrella(masks), encoding="utf-8"
+        )
+        print(f"wrote {umbrella.name}: masks={len(masks)}")
+        return
+    chord_order = surface_chord_order(args.mask)
+    all_stages = stages(args.mask, chord_order)
     for index, factors in enumerate(all_stages):
         term_count = sum(len(factor) for factor in factors)
         largest = max((len(factor) for factor in factors), default=0)
@@ -439,7 +638,9 @@ def main() -> None:
             f"coefficient_bits={coefficient_bits}"
         )
     if args.output is not None:
-        args.output.write_text(emit_lean(all_stages), encoding="utf-8")
+        args.output.write_text(
+            emit_lean(all_stages, args.mask, chord_order), encoding="utf-8"
+        )
 
 
 if __name__ == "__main__":

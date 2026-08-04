@@ -192,8 +192,10 @@ def render_chart(state: dict[str, Any]) -> str:
         "        |  128/128 maximal forests + rooted paths checked",
         "        v",
         "concrete chord-only forest-gauge evaluator",
-        "        |  all 8 nonempty orbit values checked",
-        "        |  forest transport + orbit symmetry open",
+        "        |  all 127 nonempty mask values staged + kernel-checked",
+        "        |  128/128 orientation-aware Haar ledgers checked",
+        "        |  source degree-five + Haar invariance + cyclic words checked",
+        "        |  translated polynomial factor lift open",
         "        |",
         "        v",
         "constructive surface-sum -> Haar_5 bridge",
@@ -227,7 +229,8 @@ def render_chart(state: dict[str, Any]) -> str:
             f"bivalence={evidence.get('surface_bivalence', '?')}",
             "forest gauge: "
             f"geometry={evidence.get('surface_primal_forests', '?')}  "
-            f"lean-values={evidence.get('lean_forest_gauge_values', '?')}",
+            f"lean-values={evidence.get('lean_forest_gauge_values', '?')}  "
+            f"transport={evidence.get('surface_forest_translation', '?')}",
             "legend: [x] complete  [>] active  [ ] pending  [!] blocked",
         ]
     )
