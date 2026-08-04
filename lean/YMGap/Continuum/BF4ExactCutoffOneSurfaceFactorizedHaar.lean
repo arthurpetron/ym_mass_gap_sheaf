@@ -16,7 +16,7 @@ native_decide, sorry, custom axiom, choice, or noncomputable declaration.
 -/
 
 import YMGap.Continuum.BF4ExactCutoffOneSurfaceCharacterReindex
-import YMGap.Continuum.SU2QuaternionFactorizedHaarContraction
+import YMGap.Continuum.SU2QuaternionBivalentHaarContraction
 
 namespace YMGap.Continuum.BF4ExactCutoffOneSurfaceFactorizedHaar
 
@@ -30,6 +30,7 @@ open YMGap.Continuum.BF4ExactCorrectedSlabHaarNetwork
 open YMGap.Continuum.BF4ExactCutoffOneHaarFiveEvaluation
 open YMGap.Continuum.BF4GeometricHaarMehlerProjection
 open YMGap.Continuum.SU2QuaternionFactorizedHaarContraction
+open YMGap.Continuum.SU2QuaternionBivalentHaarContraction
 open YMGap.Continuum.SU2QuaternionPolynomialHaarCarrier
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
 open YMGap.Continuum.Z4HalfTimeReflectionGeometry
@@ -75,6 +76,23 @@ def embeddedSurfaceFactorizedHaar (compactMask : Nat) : Q' :=
     (correctedSlabSpinNetworkFactors 1
       (embeddedSurfaceLabelling compactMask))
 
+/-- The same literal 116-link value through the fused two-incident-factor
+contractor.  Its recursion is proved definitionally equal to the generic
+factorized contractor, but it discards zero one-link moments before they can
+form a large intermediate. -/
+def embeddedSurfaceBivalentHaar (compactMask : Nat) : Q' :=
+  compactBivalentFactorizedHaar (boundaryCompleteSlabLinks 1).length
+    (correctedSlabSpinNetworkFactors 1
+      (embeddedSurfaceLabelling compactMask))
+
+theorem embeddedSurfaceBivalentHaar_eq_factorized
+    (compactMask : Nat) :
+    embeddedSurfaceBivalentHaar compactMask =
+      embeddedSurfaceFactorizedHaar compactMask := by
+  unfold embeddedSurfaceBivalentHaar embeddedSurfaceFactorizedHaar
+    compactBivalentFactorizedHaar compactFactorizedHaar
+  rw [compactBivalentFactorizedHaarContract_eq]
+
 theorem exactCorrectedSlabHaarCoefficient_eq_factorized
     (extent : Nat)
     (faceLabel :
@@ -95,6 +113,17 @@ theorem exactEmbeddedSurfaceHaarCoefficient_eq_factorized
       embeddedSurfaceFactorizedHaar compactMask := by
   exact exactCorrectedSlabHaarCoefficient_eq_factorized 1
     (embeddedSurfaceLabelling compactMask)
+
+/-- Exact BF4-facing form of the fused bivalent contraction. -/
+theorem exactEmbeddedSurfaceHaarCoefficient_eq_bivalent
+    (compactMask : Nat) :
+    exactCorrectedSlabHaarCoefficient 1
+        (embeddedSurfaceLabelling compactMask) ≈
+      embeddedSurfaceBivalentHaar compactMask := by
+  exact Q'.eqv_trans _ _ _
+    (exactEmbeddedSurfaceHaarCoefficient_eq_factorized compactMask)
+    (Q'.eqv_of_eq
+      (embeddedSurfaceBivalentHaar_eq_factorized compactMask).symm)
 
 /-- Consequently the actual five-based-cycle marginal and the factorized
 116-link evaluation are the same exact rational number. -/
@@ -158,6 +187,7 @@ theorem sixFaceSphereFiveChordHaar_factorized_exact :
 end YMGap.Continuum.BF4ExactCutoffOneSurfaceFactorizedHaar
 
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceFactorizedHaar.exactEmbeddedSurfaceHaarCoefficient_eq_factorized
+#print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceFactorizedHaar.exactEmbeddedSurfaceHaarCoefficient_eq_bivalent
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceFactorizedHaar.embeddedSurfaceBasedCycleFive_eq_factorized
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceFactorizedHaar.cutoffOneClosedSurfaceTopologicalAmplitude_of_factorized
 #print axioms YMGap.Continuum.BF4ExactCutoffOneSurfaceFactorizedHaar.sixFaceSphereFiveChordHaar_factorized_exact

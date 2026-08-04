@@ -67,6 +67,17 @@ The constructive Lean lift now has five checked layers.
    six-face/five-chord `1/16` calculation is recovered through this common
    evaluator interface.
 
+   `SU2QuaternionBivalentHaarContraction` now specializes the local step used
+   by every nonempty binary-surface edge.  When exactly two factors meet the
+   head link, it fuses multiplication, the normalized one-link moment, head
+   block deletion, and exact-zero filtering.  Lean proves that the filtered
+   rational canonical form is the generic partial-Haar result and that the
+   complete compact bivalent recursion is the existing factorized recursion.
+   The BF4 module therefore exposes a literal 116-link bivalent value and
+   proves it equal to both the original slab coefficient and the factorized
+   value.  This closes an optimization/correctness seam; it does not by itself
+   prove the remaining `2^(V-E)` theorem.
+
 An independent exact quaternion audit contracts one literal gauge-fixed
 surface network from each of the nine hyperoctahedral surface orbits.  All
 nine representatives agree with `2^(V-E)`, and their orbit sizes cover all
@@ -108,13 +119,15 @@ character reindex, heat-weight, QPoly assembly, and exact factor-network
 reduction are closed:
 
 - evaluate the 128 factorized surface networks as `2^(V-E)`.  The factorized
-  theorem already identifies these values with both the literal 116-link
-  coefficients and the requested fivefold marginals.  The six-face sphere's
-  compact five-chord value and all nine exact orbit representatives are
-  complete; the still-open step is an efficient kernel-checked maximal-forest
-  gauge reduction (or the equivalent uniform bivalent pairing theorem) for
-  all 128 surfaces.  Direct all-116-block normalization was benchmarked and
-  rejected as an impractical certificate path; it was not used as evidence.
+  and fused-bivalent theorems already identify these values with both the
+  literal 116-link coefficients and the requested fivefold marginals.  The
+  six-face sphere's compact five-chord value and all nine exact orbit
+  representatives are complete; the still-open step is a kernel-checked
+  maximal-forest gauge reduction (or the equivalent uniform bivalent pairing
+  theorem) for all 128 surfaces.  Direct all-116-block normalization, fused
+  fixed-order bivalent contraction, and a proof-carrying greedy prototype were
+  benchmarked and rejected as impractical final certificate paths; none was
+  used as mathematical evidence.
 
 No new axiom, `sorry`, `native_decide`, classical choice, or noncomputable
 declaration is used.  The checked dependency sets are contained in
