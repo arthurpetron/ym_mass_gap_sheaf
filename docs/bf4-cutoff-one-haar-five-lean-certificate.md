@@ -123,7 +123,10 @@ The constructive Lean lift now has six checked layers.
    holds for the complete selected factor product on all 128 masks.  Supported
    prefix transport now identifies the actual selected-face evaluator with
    the exact Haar value of that compact 32-block word-factor product.  It also
-   packages one quaternion radius as the Haar-carrier unit.  What remains is
+   packages one quaternion radius as the Haar-carrier unit.  The companion
+   word-carrier module lifts coefficientwise polynomial equality through
+   Hamilton multiplication and the solid character, and proves that this
+   equality acts inside an arbitrary-insertion Haar carrier.  What remains is
    the structural lift of the forest substitution plus free/cyclic
    cancellation through those compact word factors.
 
