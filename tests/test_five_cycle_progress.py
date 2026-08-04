@@ -27,9 +27,10 @@ def test_default_chart_tracks_current_milestone() -> None:
     assert "face-weight=exact-(2*w^3)^F-kernel-checked" in chart
     assert (
         "haar-bridge=reindex+QPoly+116-to-Haar5+active32+selected-face+"
-        "forest-gauge-target+inverse-forest-ledger+source-degree-closed+"
+        "physical-factor-product-lift+forest-gauge-target+"
+        "inverse-forest-ledger+source-degree-closed+"
         "cyclic-word-semantics+all-128-forest-values;"
-        "translated-polynomial-factor-lift-open"
+        "forest-substitution-cancellation-lift-open"
         in chart
     )
     assert "exact 116 -> 32 active links" in chart
@@ -38,7 +39,8 @@ def test_default_chart_tracks_current_milestone() -> None:
     assert "all 127 nonempty mask values staged + kernel-checked" in chart
     assert "128/128 orientation-aware Haar ledgers checked" in chart
     assert "source degree-five + Haar invariance + cyclic words checked" in chart
-    assert "translated polynomial factor lift open" in chart
+    assert "physical factor/product lift kernel-checked" in chart
+    assert "forest substitution/cancellation lift open" in chart
     assert "qpoly=128+2-surface-sums-kernel-checked" in chart
     assert (
         "six-face=literal-raw-words+five-chord-Haar-1/16-kernel-checked"
@@ -53,8 +55,9 @@ def test_default_chart_tracks_current_milestone() -> None:
     assert "lean-values=128/128-staged-kernel-checked" in chart
     assert (
         "transport=128/128-inverse-orientation-ledgers+source-degree-five+"
-        "Haar-invariance+cyclic-word-semantics-kernel-checked;"
-        "polynomial-factor-lift-open"
+        "Haar-invariance+cyclic-word-semantics+"
+        "physical-factor-product-lift-kernel-checked;"
+        "forest-substitution-cancellation-lift-open"
         in chart
     )
     assert "WHOLE-PROJECT FORMAL ROADMAP: CURRENT LEAN -> COMPLETE YANG--MILLS PROOF" in chart

@@ -116,9 +116,14 @@ The constructive Lean lift now has six checked layers.
    constructive left/right Haar invariance.  The companion word-semantics
    module checks every selected face of every mask: after inverse gauge
    substitution, free cancellation and cyclic cancellation recover exactly
-   the physical chord word.  What remains is the structural algebraic lift
-   from this cyclic word identity to equality of the translated quaternion
-   factor polynomial modulo the unit-sphere relations.
+   the physical chord word.  The new polynomial-semantics module now proves,
+   without Hamilton-product expansion, that every literal 116-block selected
+   plaquette becomes its compact active quaternion word, that the result
+   survives the exact 116-to-32 trim, and that the spin-one character lift
+   holds for the complete selected factor product on all 128 masks.  It also
+   packages one quaternion radius as the Haar-carrier unit.  What remains is
+   the structural lift of the forest substitution plus free/cyclic
+   cancellation through those compact word factors.
 
 An independent exact quaternion audit contracts one literal gauge-fixed
 surface network from each of the nine hyperoctahedral surface orbits.  The
@@ -159,9 +164,11 @@ The bridge now has one sharply separated mathematical task remaining; the
 character reindex, heat-weight, QPoly assembly, and all 128 exact
 factor-network evaluations are closed:
 
-- lift the checked cyclic free-word identity through the unit-quaternion
-  polynomial carrier, proving that the translated selected active factor
-  network is the concrete chord-only network under Haar.  The
+- lift the checked forest substitution and cyclic free-word identity through
+  the unit-quaternion polynomial carrier, proving that the translated compact
+  active word-factor network is the concrete chord-only network under Haar.
+  The physical plaquette-to-compact-factor and complete factor-product lifts
+  are now kernel-checked.  The
   active/factorized theorems identify the source with both the literal
   116-link coefficients and the requested fivefold marginals.  All 128
   forests and rooted paths, every inverse translation ledger, every cyclic
