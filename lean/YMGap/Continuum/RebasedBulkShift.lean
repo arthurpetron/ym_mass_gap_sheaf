@@ -182,12 +182,13 @@ def rebasedLocalCLT_of_saddle {N : Nat} {w : Q'} {p : Nat}
 
 /-! ## 5. Wiring back to `SaddleLocalCLT` at a re-based reference
 
-For the DOWNSTREAM localization (`SpectralLocalization.pert` hard-codes `eigA w` as the
-true gap edge), a re-based carrier still needs its shift phrased against the bare `eigA w`.
-When the effective weight equals the bare weight (`p = 1`, `w_eff = w`), the two are
-definitionally identical, so a `RebasedLocalCLT` at `w_eff = w` yields a `SaddleLocalCLT`
-directly.  (For `p ≥ 2`, `w_eff ≠ w` and closing the localization needs the auxiliary
-`eigA w_eff s ≤ 2/3` on the bulk window — a separate downstream step, out of scope.) -/
+For the historical DOWNSTREAM localization (`SpectralLocalization.pert` hard-codes
+`eigA w` as the reference), a re-based carrier can be converted back to the bare carrier
+only when `w_eff = w`.  At `p = 1` this is definitionally true, so a
+`RebasedLocalCLT` at `w_eff = w` yields a `SaddleLocalCLT` directly.  For `p ≥ 2` no
+such conversion is valid.  Instead, the corrected direct localization route uses
+`eigA w_eff s ≤ 2/3` on the bulk window; that downstream theorem is now closed in
+`RebasedBulkLocalizationBridge.rebasedFusion_bulk_below_gapEdge`. -/
 
 /-- **`rebasedToSaddle_at_bare` — recover the original `SaddleLocalCLT` carrier from a
 re-based one whose effective weight is the bare weight.**  Since `rateP w s = eigA w s`,

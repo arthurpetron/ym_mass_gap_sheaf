@@ -9,8 +9,8 @@ identity shared with the reconstruction scorecard.
 The point of the node is bookkeeping-with-teeth: it is a FAITHFUL Type-level
 inventory (no `Prop := True` slots, no `sorry`, no `axiom`) whose every field is a
 genuine named residual carried elsewhere in the development, and it is
-DELIBERATELY UNINHABITED — its remaining open atoms (`bulkCtrl`'s bond-moved
-`bulk_shift`, `tTree`, `d1Mayer`, the `a2Pentagon` physical associator,
+DELIBERATELY UNINHABITED — its remaining open atoms (`bulkCtrl`'s corrected
+bond-moved localization, `tTree`, `d1Mayer`, the `a2Pentagon` physical associator,
 `edgeShift`, `trueMargin`, `boundedH`, `o4`) are open Clay-frontier residuals,
 so a total inhabitant of `FrontierDAG` would close the problem.  The canonical
 `coreB` field is now physically discharged on `0 <= w <= 1/2`; the separate
@@ -93,7 +93,13 @@ structure FrontierDAG
     {D : GNSData} (G : SpectralGapData D.gnsComplete)
     (L : AdditiveTransferOperator D) (N pΓ : Nat) : Type 1 where
   -- ── BUCKET 1 : a→0 gap-survival / Tier-0 cluster ────────────────────────
-  /-- The bond-moved spectral-localization certificate (open `bulk_shift`). -/
+  /-- The bond-moved spectral-localization certificate (OPEN).  The intended old
+  physical pin via the bare-reference `SaddleLocalCLT.bulkShiftBound` is exactly
+  refuted at a near-continuum `p=2` point by
+  `RebasedBulkLocalizationBridge.bareFusionShift_two_not_le`; the corrected direct
+  bulk-to-gap theorem is `rebasedFusion_bulk_below_gapEdge`.  Therefore physical
+  discharge of this canonical slot requires an explicit reviewed repoint to the
+  re-based carrier plus `ExpShiftBridge`.  No silent type change is made here. -/
   bulkCtrl : SpectralLocalizationCrux.SpectralLocalization w
   /-- (D2) the plaquette-graph `SepLattice` metric refining `z4Chain` — inhabited
   DATA, carried only to type `tTree`. -/
@@ -221,8 +227,9 @@ def coreBToCrossRatio
 
 /-! ## 6. Interface non-vacuity witnesses (the DATA slots are real)
 
-`FrontierDAG` is uninhabited as a WHOLE (its remaining open atoms include
-`bulkCtrl`/`bulk_shift`, `tTree`, `d1Mayer`, the physical `a2Pentagon`,
+`FrontierDAG` is uninhabited as a WHOLE (its remaining open atoms include the
+corrected physical realization/repoint of `bulkCtrl`, `tTree`, `d1Mayer`, the
+physical `a2Pentagon`,
 `edgeShift`, `trueMargin`, `boundedH`, and `o4`), but its interface is faithful
 and the physical `coreB` field is now closed on the certified half interval.
 These certify the product is non-vacuous as a type former (Rule: faithful +
@@ -261,10 +268,16 @@ PROVED here (axiom-clean, `[propext, Quot.sound]`):
     `0 <= w <= 1/2`;
   * `d2Sep_witness` / `bulkCtrl_interface_witness` — interface non-vacuity.
 
+The old physical `p=2` pin of `bulkCtrl` is separately kernel-refuted and the
+corrected re-based bulk-to-gap bridge is closed in
+`RebasedBulkLocalizationBridge`; those facts diagnose and narrow the remaining
+canonical repoint but do not inhabit this field.
+
 OPEN (deliberately uninhabited — NO inhabitant provided, never `sorry`):
 
   * `FrontierDAG` itself — guard-protected via its remaining open atoms
-    (`bulkCtrl`/`bulk_shift`, `tTree`, `d1Mayer`, the physical `a2Pentagon`,
+    (the corrected physical `bulkCtrl` repoint, `tTree`, `d1Mayer`, the physical
+    `a2Pentagon`,
     `edgeShift`, `trueMargin`, `boundedH`, `o4`);
   * `CoreBBridge` — the missing Core-B cross-list bridge lemma.
 

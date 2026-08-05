@@ -2263,6 +2263,7 @@ import YMGap.Continuum.CurvatureFloorStatement
 import YMGap.Continuum.FusionSaddleReduction
 import YMGap.MassGap.AllSimpleTypes
 import YMGap.Continuum.RebasedBulkShift
+import YMGap.Continuum.RebasedBulkLocalizationBridge
 import YMGap.Continuum.FusionShiftMonotone
 import YMGap.Continuum.MeanComplementClose
 import YMGap.Continuum.DiscreteLaplaceSaddle

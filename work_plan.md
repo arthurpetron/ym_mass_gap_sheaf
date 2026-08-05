@@ -18915,3 +18915,40 @@ cross-list `CoreBBridge` and the fields `bulkCtrl`, `tTree`, `d1Mayer`,
 `a2Pentagon`, `edgeShift`, `trueMargin`, `boundedH`, and `o4` remain open.  The
 next canonical atom is `bulkCtrl`, specifically the physical bond-moved
 spectral-localization / `bulk_shift` theorem.
+
+## 49. Exact `bulkCtrl` statement fence and corrected re-based bulk-localization bridge (2026-08-05)
+
+The next canonical atom could not honestly be attacked by constructing the
+historical carrier.  That carrier compares the physical `p`-fold fusion spectrum
+against the bare `p=1` heat rate.  `RebasedBulkLocalizationBridge` now turns the
+previous numerical warning into an exact kernel theorem at the near-continuum
+boundary:
+
+```text
+N = 3, w = 11/12, p = 2, s = 2
+  -> not (fusionEig - eigA <= 1/12).
+```
+
+Consequently both the old `SaddleLocalCLT` physical inhabitant and any
+`SpectralLocalization` pinned to that actual fusion spectrum are refuted at this
+point.  This is a statement fence, not a discharge of `FrontierDAG.bulkCtrl`:
+the canonical type remains non-vacuous for the unperturbed spectrum, but its
+intended old `p>=2` physical realization is wrong.
+
+The corrected downstream bulk-localization bridge is simultaneously closed,
+uniformly in `N`, `p`, and the mode `s`:
+
+```text
+RebasedLocalCLT + 0 <= w_eff <= 1 + bulk-at-w_eff + near-continuum(w)
+  -> fusionEig N w p s <= eigA w 1.
+```
+
+It uses the re-based `1/12` shift, the proved effective bulk ceiling `2/3`, and
+the original gap-edge floor `3/4`.  Every load-bearing theorem audits to
+`[propext, Quot.sound]`; the finite counterexample uses ordinary kernel `decide`,
+not `native_decide`.
+
+The remaining physical work is now sharply identified as (i) the genuine
+`RebasedBulkShift.ExpShiftBridge` and (ii) a reviewed canonical `bulkCtrl` repoint.
+Per the frontier-honesty contract, the field type is not silently changed in this
+milestone.

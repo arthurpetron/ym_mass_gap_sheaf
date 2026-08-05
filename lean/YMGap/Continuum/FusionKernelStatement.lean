@@ -190,9 +190,11 @@ inhabited (`saddleLocalCLT_p1`); `p ≥ 2` named-open.
 
 ⚠ **SUPERSEDED for `p ≥ 2`.** The `bulkShiftBound` field below compares `fusionEig`
 to the BARE `p = 1` heat rate `eigA w s`, which the pilot (`computations/core_b_pilot.py`)
-proved is FALSE for every `p ≥ 2` (the reference rate must be re-based to the aggregate
-`w_eff ≈ exp(−A_p)`).  Do NOT attempt to inhabit `bulkShiftBound` for `p ≥ 2` — it is
-unsatisfiable as stated.  The CORRECTED, satisfiable carrier is
+found false throughout its `p ≥ 2` grid.  The failure is now also an exact Lean theorem:
+`RebasedBulkLocalizationBridge.bareFusionShift_two_not_le` kernel-refutes the physical
+pin at `N=3`, `w=11/12`, `p=2`, `s=2`.  The reference rate must be re-based to the
+aggregate `w_eff ≈ exp(−A_p)`.  Do NOT attempt to inhabit `bulkShiftBound` for `p ≥ 2`.
+The CORRECTED, satisfiable carrier is
 `Continuum.RebasedBulkShift.RebasedLocalCLT` (`rebasedBulkShift`, off `rateP w_eff`),
 whose `p ≥ 2` obligation is the single `ExpShiftBridge`.  This structure is retained only
 for the `p = 1` anchor and the historical wiring shape. -/
