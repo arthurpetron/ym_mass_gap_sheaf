@@ -18880,3 +18880,38 @@ The incidence-vector theorem is axiom-free; both endpoint theorems audit to
 Haar marginal.  It does not yet numerically integrate the resulting
 five-variable polynomials, compare the centered exact and positive moments,
 or decide centered same action; those are the next analytic milestones.
+
+## 48. All-`N` post-boundary shell reserve and physical Core-B field discharge (2026-08-04)
+
+The fusion-box campaign now closes every cleared Bernstein prefix, including
+the exceptional odd boundary cutoffs.  The proof separates the row by parity:
+the four even first-shell cells pay the complete even negative ledger; the odd
+central cell plus four displaced cells pay the complete odd ledger; and exact
+classifiers handle the two odd cutoffs between that boundary and the uniform
+tail.  This constructs
+
+```text
+PostBoundaryEvenOddPrefixReserve
+  -> AllCutoffPhysicalPrefixReserve
+  -> forall w, 0 <= w <= 1/2 -> UniformBoxLogConcave w
+```
+
+simultaneously for every cutoff `N`.  The endpoint consumer also supplies the
+all-`N` `S1Dominance` family at `w = 1/2`.  All load-bearing declarations audit
+to `[propext, Quot.sound]` and use kernel-checked integer/rational computation;
+there is no classical choice, `native_decide`, or trusted native certificate.
+
+Separately, the already-proved positive-coupling finite-`s` Turan family is
+joined to a new exact `w ~= 0` construction.  The result
+
+```text
+forall w, 0 <= w <= 1/2 -> AcNReserveAnalytic.FiniteSMargin w
+```
+
+physically inhabits the canonical `FrontierDAG.coreB` field throughout the
+closed physical interval.  This is a genuine field discharge, recorded in
+`lean/SORRY_LEDGER.md`; it is not a total `FrontierDAG` inhabitant.  The forward
+cross-list `CoreBBridge` and the fields `bulkCtrl`, `tTree`, `d1Mayer`,
+`a2Pentagon`, `edgeShift`, `trueMargin`, `boundedH`, and `o4` remain open.  The
+next canonical atom is `bulkCtrl`, specifically the physical bond-moved
+spectral-localization / `bulk_shift` theorem.

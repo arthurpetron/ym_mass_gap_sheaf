@@ -9,10 +9,12 @@ identity shared with the reconstruction scorecard.
 The point of the node is bookkeeping-with-teeth: it is a FAITHFUL Type-level
 inventory (no `Prop := True` slots, no `sorry`, no `axiom`) whose every field is a
 genuine named residual carried elsewhere in the development, and it is
-DELIBERATELY UNINHABITED — its open atoms (`bulkCtrl`'s bond-moved `bulk_shift`,
-the `a2Pentagon` physical associator, `coreB`, `edgeShift`, `boundedH`, `o4`) are
-open Clay-frontier residuals, so a total inhabitant of `FrontierDAG` would close
-the problem.
+DELIBERATELY UNINHABITED — its remaining open atoms (`bulkCtrl`'s bond-moved
+`bulk_shift`, `tTree`, `d1Mayer`, the `a2Pentagon` physical associator,
+`edgeShift`, `trueMargin`, `boundedH`, `o4`) are open Clay-frontier residuals,
+so a total inhabitant of `FrontierDAG` would close the problem.  The canonical
+`coreB` field is now physically discharged on `0 <= w <= 1/2`; the separate
+cross-list `CoreBBridge` below remains open.
 
 One coarsening is PROVED here:
 
@@ -49,6 +51,7 @@ import YMGap.Continuum.Stage1LoopyReduction
 import YMGap.Continuum.GenuineKP
 import YMGap.Continuum.SepLatticeZ4Close
 import YMGap.Continuum.FiniteSMarginWorstcase
+import YMGap.Continuum.FrontierCoreBPhysicalDischarge
 import YMGap.Rubric.ContinuumScorecard
 import YMGap.Rubric.ReconstructionScorecard
 
@@ -66,11 +69,12 @@ open YMGap.Rubric
 
 /-- **`FrontierDAG` — the whole open frontier as a single product node.**
 
-Every field is a genuine, elsewhere-named open residual of the continuum
-programme.  Uninhabited by design: its open atoms (`bulkCtrl`'s bond-moved
-`bulk_shift`, the `a2Pentagon` physical associator, `coreB`, `edgeShift`,
-`boundedH`, `o4`) are open frontier residuals, so a total inhabitant of
-`FrontierDAG` would close the mass-gap problem.  The single `d2Sep` slot is
+Every field is a genuine, elsewhere-named continuum obligation or datum.
+Uninhabited by design: its remaining open atoms (`bulkCtrl`'s bond-moved
+`bulk_shift`, `tTree`, `d1Mayer`, the `a2Pentagon` physical associator,
+`edgeShift`, `trueMargin`, `boundedH`, `o4`) are frontier residuals, so a total
+inhabitant of `FrontierDAG` would close the mass-gap problem.  The `coreB` field
+is physically inhabited on `0 <= w <= 1/2`.  The single `d2Sep` slot is
 inhabited DATA (the `SepLatticeZ4` metric, needed only to *type* `tTree`); it is
 NOT what keeps the product open.
 
@@ -217,10 +221,10 @@ def coreBToCrossRatio
 
 /-! ## 6. Interface non-vacuity witnesses (the DATA slots are real)
 
-`FrontierDAG` is uninhabited as a WHOLE (its open atoms — `bulkCtrl` `bulk_shift`,
-`a2Pentagon`, `coreB`, `edgeShift`, `boundedH`, `o4` — are open frontier
-residuals), but its interface is faithful: the data-carrying slots have genuine
-witnesses.
+`FrontierDAG` is uninhabited as a WHOLE (its remaining open atoms include
+`bulkCtrl`/`bulk_shift`, `tTree`, `d1Mayer`, the physical `a2Pentagon`,
+`edgeShift`, `trueMargin`, `boundedH`, and `o4`), but its interface is faithful
+and the physical `coreB` field is now closed on the certified half interval.
 These certify the product is non-vacuous as a type former (Rule: faithful +
 non-vacuous statement layer), NOT that the frontier itself is closed. -/
 
@@ -228,6 +232,14 @@ non-vacuous statement layer), NOT that the frontier itself is closed. -/
 `SepLattice` metric constructed in `SepLatticeZ4Close`. -/
 def d2Sep_witness : Ursell4DProgress.SepLatticeZ4 :=
   SepLatticeZ4Close.SepLatticeZ4_witness
+
+/-- The canonical `FrontierDAG.coreB` field is physically inhabited throughout
+the complete certified interval `0 <= w <= 1/2`.  This is the field itself,
+not the separate forward `CoreBBridge` into the coarse cross-ratio atom. -/
+def coreB_physical_witness {w : Q'}
+    (hw0 : (0 : Q') <= w) (hwH : w <= FusionCoreStepRoundA.wH) :
+    AcNReserveAnalytic.FiniteSMargin w :=
+  FrontierCoreBPhysicalDischarge.finiteSMargin_physical hw0 hwH
 
 /-- The `bulkCtrl` slot's interface is non-vacuous: the UNPERTURBED spectrum is a
 `SpectralLocalization` on any near-continuum weight (this is NOT the bond-moved
@@ -245,13 +257,15 @@ PROVED here (axiom-clean, `[propext, Quot.sound]`):
   * `trueMarginAtom` / `o4Atom` / `boundedHAtom` — the Bucket-2 field
     projections onto the reconstruction scorecard's OPEN abbreviations;
   * `coreBToCrossRatio` — the Core-B reduction, TOTAL in a `CoreBBridge`;
+  * `coreB_physical_witness` — the actual `coreB` field throughout
+    `0 <= w <= 1/2`;
   * `d2Sep_witness` / `bulkCtrl_interface_witness` — interface non-vacuity.
 
 OPEN (deliberately uninhabited — NO inhabitant provided, never `sorry`):
 
-  * `FrontierDAG` itself — guard-protected via its open atoms (`bulkCtrl`
-    `bulk_shift`, `a2Pentagon` physical associator, `coreB`, `edgeShift`,
-    `boundedH`, `o4`);
+  * `FrontierDAG` itself — guard-protected via its remaining open atoms
+    (`bulkCtrl`/`bulk_shift`, `tTree`, `d1Mayer`, the physical `a2Pentagon`,
+    `edgeShift`, `trueMargin`, `boundedH`, `o4`);
   * `CoreBBridge` — the missing Core-B cross-list bridge lemma.
 
 DEMOTED (not carried as a field): the character-diagonalization node
@@ -260,3 +274,5 @@ exists given the two Schur identities), hence not an unconditional frontier atom
 -/
 
 end YMGap.Rubric.FrontierDAG
+
+#print axioms YMGap.Rubric.FrontierDAG.coreB_physical_witness

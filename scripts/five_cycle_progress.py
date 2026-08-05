@@ -278,6 +278,18 @@ def render_chart(state: dict[str, Any]) -> str:
         "    current atom: "
         f"{parameters.get('current_frontier_atom', 'not selected')}"
     )
+    lines.append("    completed supporting campaigns (not field inhabitants):")
+    lines.extend(
+        _indented_atoms(parameters["frontier_supporting_discharged"], "      [x] ")
+    )
+    lines.append("    physically discharged canonical fields:")
+    lines.extend(
+        _indented_atoms(parameters["frontier_discharged_atoms"], "      [x] ")
+    )
+    lines.append("    canonical fields still physically open:")
+    lines.extend(
+        _indented_atoms(parameters["frontier_open_atoms"], "      [ ] ")
+    )
     lines.extend(
         [
             "        |                              |",

@@ -16,10 +16,10 @@ second section records the exact constructive composition from the stronger
 term-filtered prefix reserve to certificates at every cutoff and hence to the
 existing interval `UniformBoxLogConcave` consumer.
 
-Honest scope: this file does not pretend that endpoint positivity proves the
-whole interval prefix reserve.  The remaining interval seam is precisely the
-even first-shell / odd two-shell integer-prefix classification stated at the
-end.
+Honest scope: this file does not pretend that endpoint positivity alone proves
+the whole interval prefix reserve.  It exposes the exact even/odd integer seam;
+that seam is now constructively discharged downstream in
+`FusionBoxPostBoundaryClosure`.
 -/
 
 import YMGap.Continuum.FusionBoxPrefixReserve
@@ -466,13 +466,14 @@ def uniformBoxLogConcave_of_physical_prefix_reserve
   uniformBoxLogConcave_of_bernstein_certificates hw0 hwH hstrong
     (allCutoffBernsteinCertificatesOfPrefixReserve reserve)
 
-/-! ## 5. Narrow remaining interval seam
+/-! ## 5. Exact interval seam (discharged downstream)
 
-The endpoint is now unconditional.  To promote it to the whole physical
-interval through the canonical Bernstein rows, the remaining theorem is the
-integer shell statement below.  It is strictly narrower than the old
-all-coupling box inequality: it mentions only the executable term-filtered
-prefix carrier already connected exactly to the reconstruction.
+The endpoint is unconditional.  Promotion to the whole physical interval
+through the canonical Bernstein rows factors through the integer shell
+statement below.  It is strictly narrower than the old all-coupling box
+inequality: it mentions only the executable term-filtered prefix carrier
+already connected exactly to the reconstruction.  The concrete witness is
+`FusionBoxPostBoundaryClosure.postBoundaryEvenOddPrefixReserve`.
 -/
 
 def EvenOddShellPrefixReserve : Prop :=

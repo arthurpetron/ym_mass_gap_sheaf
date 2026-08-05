@@ -1817,6 +1817,13 @@ import YMGap.Continuum.FusionEvenOddExchange
 import YMGap.Continuum.FusionEvenOddBoxDecomposition
 import YMGap.Continuum.FusionWeightedInterlacingCertificate
 import YMGap.Continuum.FusionBoxShellReserve
+import YMGap.Continuum.FusionBoxFirstShellReserve
+import YMGap.Continuum.FusionBoxEndpointShellPayment
+import YMGap.Continuum.FusionBoxBoundaryShellClassification
+import YMGap.Continuum.FusionBoxPostBoundaryClosure
+import YMGap.Continuum.FusionBoxAllNConsumer
+import YMGap.Continuum.FusionBoxPhysicalIntervalConsumer
+import YMGap.Continuum.FrontierCoreBPhysicalDischarge
 import YMGap.Continuum.EpsSplitAdjudication
 import YMGap.Continuum.TaylorModel
 import YMGap.Continuum.TaylorModelStep2

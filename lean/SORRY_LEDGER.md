@@ -70,6 +70,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 
 ## Entries
 
+### [FrontierDAG-coreB-physical] finite-`s` Core-B margin on the closed physical interval — **CLOSED 2026-08-04**
+
+- **milestone**: 11.14 (`FrontierDAG` canonical-atom discharge)
+- **file**:
+  `lean/YMGap/Continuum/FrontierCoreBPhysicalDischarge.lean`,
+  `lean/YMGap/Rubric/FrontierDAG.lean`
+- **decls**:
+  `YMGap.Continuum.FrontierCoreBPhysicalDischarge.finiteSMargin_physical`,
+  `YMGap.Rubric.FrontierDAG.coreB_physical_witness`
+- **obligation**: Construct the actual `FrontierDAG.coreB` field
+  `AcNReserveAnalytic.FiniteSMargin w` for every rational physical coupling
+  `0 <= w <= wH = 1/2`.
+- **constructive or propositional**: constructive — `FiniteSMargin w` is
+  `Type`-level data carrying the margin proof at every finite row.
+- **closed**: the positive-coupling branch consumes the proved all-truncation
+  Turan margin `finiteSMargin_of_trunc`; the zero-equivalent branch proves the
+  adverse upper autoconvolution vanishes termwise and constructs the margin
+  directly.  The nonnegative rational dichotomy composes the two branches into
+  the closed-interval family.
+- **axiom-gate (closed)**: `[propext, Quot.sound]` only; no `sorryAx`,
+  `Classical.choice`, `native_decide`, new axiom, or noncomputable witness.
+- **honest residual**: this closes the canonical `coreB` field on the stated
+  physical interval only.  `FrontierDAG.CoreBBridge w : FiniteSMargin w ->
+  CrossRatioMonotone w` and the other open `FrontierDAG` fields remain
+  uninhabited, so no total frontier or Clay target is claimed.
+- **must not be closed classically**: per `AGENTS.md` Rule 6 — and isn't.
+
 ### [BF4-outer-Markov] all-label SU(2) block-kernel contract — **ONE OPEN PHYSICAL INPUT**
 
 - **milestone**: BF4 physical outer-cutoff score transport (`work_plan.md`,

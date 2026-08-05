@@ -788,7 +788,7 @@ theorem all_rows_nonnegative_of_prefix_reserve
     (fun k hk =>
       raw_fourPrefix_nonnegative_of_physical_reserve reserve N s k hs hk)
 
-/-! ## PROVED vs. remaining implementation seam
+/-! ## PROVED interface and downstream closure
 
 PROVED here:
 
@@ -799,7 +799,7 @@ PROVED here:
 * the direct Abel composition from the actual public prefix carrier to every
   coefficient at Track A's canonical degree.
 
-REMAINING in this module:
+EXPOSED as an input in this module:
 
 * classify the first one/two raw shells and combine those facts with the
   post-boundary prefix comparison to inhabit
@@ -807,12 +807,16 @@ REMAINING in this module:
 
 The bounded strand overcount and the actual `13/8`, `35/32` box-mass
 ceilings are now proved in the sibling `FusionBoxStrandCeilings` module.  The
-support lemmas here eliminate every prefix through the first-shell boundary,
-so only post-boundary reserve payment remains.
+support lemmas here eliminate every prefix through the first-shell boundary.
+The post-boundary payment is now proved in
+`FusionBoxPostBoundaryClosure`, including the exceptional first two odd
+prefixes.
 
 The named target is Track A's actual `boxClearedPowerPrefix` family, and it
-is now reduced by `allCutoffPhysicalPrefixReserve_of_postBoundary` to the
-strictly post-first-shell even/odd obligations.
+is reduced by `allCutoffPhysicalPrefixReserve_of_postBoundary` to the strictly
+post-first-shell even/odd obligations, and the downstream definition
+`FusionBoxPostBoundaryClosure.allCutoffPhysicalPrefixReserve` supplies the
+concrete witness.
 -/
 
 end YMGap.Continuum.FusionBoxPrefixReserve
