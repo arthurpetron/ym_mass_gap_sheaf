@@ -865,10 +865,16 @@ exponent `k` and a reduced mantissa `m` with `0 < m+1`, the artanh-window certif
 `|yOf m| ≤ 1/3`, and the scaling relation `x ≃ (2^k as CReal) · m`.  For a positive
 rational, `k` is decidable Int/Nat arithmetic on `num`/`den`; for a general `CReal` it
 requires locating `x` between consecutive powers of two from its rational lower bound
-— standard, but a sizeable separate build.  We isolate it as the single named residual
-(a `Type`-level datum carrying its witnesses, no `Prop`-level `∃`), and do NOT fake it.
-`CReal.log` is definable FROM it via `(k as CReal)·log2 + logRat m …`.  Believed TRUE
-(the standard floor-log₂ on a located positive real). -/
+— standard, but a sizeable separate build.  We isolate it as a named residual (a
+`Type`-level datum carrying its witnesses, no `Prop`-level `∃`), and do NOT fake it.
+
+**Statement fence.**  The historical structure below stores `logScale` independently
+of `scale`; it does not yet carry the law saying that this value is the logarithm of
+the represented scale.  Consequently the resulting `CReal.log` is only faithful for
+constructors that enforce that compatibility.  The executable counter-operation
+`RebasedExpShiftSupportReduction.shiftLogScale` preserves all represented data while
+shifting the returned value arbitrarily.  New analytic consumers must use a pinned
+reduction such as that module's `DyadicLogReduction`. -/
 
 /-- The named range-reduction residual for the general `CReal` logarithm. -/
 structure CRealLogRangeReduction (x : CReal) : Type where
@@ -885,9 +891,10 @@ structure CRealLogRangeReduction (x : CReal) : Type where
   /-- `log scale` as a `CReal` (the `k·log2` summand). -/
   logScale : CReal
 
-/-- **The general `CReal` logarithm, built FROM the named range-reduction residual.**
-Given the reduction datum, `log x = logScale + 2·artanh(yOf m)` — the genuine
-logarithm, with no placeholder for the artanh part (it is the real series limit). -/
+/-- **The legacy range-reduction logarithm.**  Given the reduction datum,
+`log x = logScale + 2·artanh(yOf m)`.  The artanh term is the genuine constructive
+series limit, but faithfulness of the total value additionally requires the constructor
+to pin `logScale` to `scale`; the structure itself does not enforce that law. -/
 def CReal.log (x : CReal) (red : CRealLogRangeReduction x) : CReal :=
   CReal.add red.logScale (logRat red.m red.hm1 red.hyb)
 

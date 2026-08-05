@@ -99,7 +99,10 @@ structure FrontierDAG
   `RebasedBulkLocalizationBridge.bareFusionShift_two_not_le`; the corrected direct
   bulk-to-gap theorem is `rebasedFusion_bulk_below_gapEdge`.  Therefore physical
   discharge of this canonical slot requires an explicit reviewed repoint to the
-  re-based carrier plus `ExpShiftBridge`.  No silent type change is made here. -/
+  re-based carrier plus `ExpShiftBridge`.  The latter now reduces exactly to the
+  finite modes `s ≤ 2*N` in `RebasedExpShiftSupportReduction`; its repaired faithful
+  log-to-exp transfer and the reviewed repoint remain open.  No silent type change is
+  made here. -/
   bulkCtrl : SpectralLocalizationCrux.SpectralLocalization w
   /-- (D2) the plaquette-graph `SepLattice` metric refining `z4Chain` — inhabited
   DATA, carried only to type `tTree`. -/

@@ -156,14 +156,21 @@ The leading exponent `A` (expected `−log w`, the Gaussian rate `(1−w)/p`), t
 curvature/remainder modulus `eta`, the range-reduction plumbing `red` so `CReal.log`
 is defined on each eigenvalue, and the saddle `estimate` on `fusionEig`.  This is the
 honest mechanism record for the residual; it is NAMED-OPEN (uninhabited) for the
-genuine 4D exponent `p ≥ 2`. -/
+genuine 4D exponent `p ≥ 2`.
+
+**Statement fence.**  The historical `CRealLogRangeReduction` type does not relate its
+`logScale` field to its represented `scale`.  Therefore this legacy carrier records the
+original intended shape but its `estimate` alone is not a faithful logarithmic premise.
+`RebasedExpShiftSupportReduction.shiftLogScale` proves the arbitrary-shift freedom, and
+`FaithfulFiniteSaddleLogForm` states the repaired finite premise. -/
 structure SaddleLogForm (N : Nat) (w : Q') (p : Nat)
     (h0' : ∀ s, (0 : Q') < dimQ s * bondMovedCoeff N w p 0) : Type where
   /-- `A_p(w)` — leading exponent (expected `−log w`). -/
   A : Q'
   /-- `eta_p(w)` — curvature / remainder modulus. -/
   eta : Q'
-  /-- Range-reduction plumbing so `CReal.log` is defined on each eigenvalue. -/
+  /-- Legacy range-reduction plumbing.  Its free `logScale` field is not pinned to
+  `scale`; see the statement fence above. -/
   red : (s : Nat) → CRealLogRangeReduction (CReal.ofQ' (fusionEig N w p s (h0' s)))
   /-- **THE SADDLE ESTIMATE (log form, `CReal`)**:
       `|log(fusionEig s) + A·C₂(s)| ≤ eta·C₂(s)²`, `C₂(s) = c4 s = s(s+2)`.

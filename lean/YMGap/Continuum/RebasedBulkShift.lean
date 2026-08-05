@@ -35,10 +35,13 @@ is the EXACT SAME Q' shape as the original field (no `CReal` plumbing — the ge
   * At `p = 1` (`w_eff := w`) `rateP w s = eigA w s` DEFINITIONALLY, so re-basing is a
     definitional identity and the corrected carrier is INHABITED from the existing
     `saddleLocalCLT_p1` (`rebasedLocalCLT_p1`).  This is the anchor.
-  * For `p ≥ 2`, re-basing is a genuine weakening.  The conversion of the (already
-    re-based) `CReal` saddle `estimate` into the Q' `rebasedBulkShift` is the single
-    irreducible analytic core (one `CReal.exp`-Lipschitz step); it is named as the
-    residual `ExpShiftBridge` and is NAMED-OPEN — NOT inhabited, NOT faked (Rule 5).
+  * For `p ≥ 2`, re-basing is a genuine weakening.  Its Q'-level residual is named
+    `ExpShiftBridge` and is NAMED-OPEN — NOT inhabited, NOT faked (Rule 5).  The later
+    `RebasedExpShiftSupportReduction` proves that this apparently all-mode field is
+    equivalent, at positive fusion exponent and nonnegative effective weight, to the
+    finite family `s ≤ 2*N`.  That module also fences a missing compatibility law in
+    the legacy `SaddleLogForm.red`; the old log estimate is not yet a faithful premise
+    for the intended exp-Lipschitz conversion.
 
 The pilot re-confirms satisfiability for `p ≥ 2`: `rebased_shift ≤ 0.0121` on the whole
 grid vs the `1/12 = 0.0833` budget (Table 3), worst saddle modulus `eta = 0.00246` at
@@ -145,18 +148,21 @@ def rebasedLocalCLT_p1 {N : Nat} {w : Q'} (hw0 : (0 : Q') ≤ w) (hw1 : w ≤ (1
   weff := w
   rebasedBulkShift := (saddleLocalCLT_p1 hw0 hw1 h0').bulkShiftBound
 
-/-! ## 4. The named-open bridge `ExpShiftBridge` — the single irreducible analytic core
+/-! ## 4. The named-open bridge `ExpShiftBridge` — reduced later to finite support
 
-The conversion of the (already re-based) `CReal` saddle `estimate` of `SaddleLogForm`
-into the Q'-level `rebasedBulkShift` is ONE `CReal.exp`-Lipschitz step (`w_eff ≈
-exp(−A_p)`).  It is named here as the residual and left UNINHABITED for `p ≥ 2` (Rule 5);
-`rebasedLocalCLT_of_saddle` REDUCES the corrected carrier to it. -/
+The intended conversion of a faithful, re-based `CReal` saddle estimate into the
+Q'-level `rebasedBulkShift` is an exp-Lipschitz step (`w_eff ≈ exp(−A_p)`).  It is named
+here as the residual and left UNINHABITED for `p ≥ 2` (Rule 5);
+`rebasedLocalCLT_of_saddle` only re-packages an explicit witness.  The subsequent
+`RebasedExpShiftSupportReduction` proves that positive fusion powers vanish above
+`2*N`, reducing this all-mode interface to `FiniteExpShiftBridge`, and exposes why the
+legacy `SaddleLogForm` logarithm still needs a scale/log-scale compatibility repair. -/
 
-/-- **`ExpShiftBridge` — THE NAMED-OPEN analytic core (`p ≥ 2`).**  Carries the effective
-weight `w_eff : Q'` and the exp-Lipschitz consequence of `SaddleLogForm.estimate`: the
-re-based Q'-level shift bound.  This is the single `CReal.exp` step that converts the
-`eta·C₂²` `CReal` saddle remainder into the `Q'` margin.  NAMED-OPEN: NOT inhabited for
-`p ≥ 2`, NOT faked. -/
+/-- **`ExpShiftBridge` — THE NAMED-OPEN analytic output (`p ≥ 2`).**  Carries the
+effective weight `w_eff : Q'` and the intended exp-Lipschitz consequence of a faithful
+saddle estimate: the re-based Q'-level shift bound.  Its exact finite-support reduction
+is `RebasedExpShiftSupportReduction.FiniteExpShiftBridge`.  NAMED-OPEN: NOT inhabited
+for `p ≥ 2`, NOT faked. -/
 structure ExpShiftBridge (N : Nat) (w : Q') (p : Nat) (weff : Q')
     (h0' : ∀ s, (0 : Q') < dimQ s * bondMovedCoeff N w p 0) : Type where
   /-- The re-based Q'-level eigenvalue-shift bound (exp-Lipschitz image of the saddle

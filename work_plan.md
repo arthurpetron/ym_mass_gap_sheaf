@@ -18952,3 +18952,45 @@ The remaining physical work is now sharply identified as (i) the genuine
 `RebasedBulkShift.ExpShiftBridge` and (ii) a reviewed canonical `bulkCtrl` repoint.
 Per the frontier-honesty contract, the field type is not silently changed in this
 milestone.
+
+## 50. Finite-support `ExpShiftBridge` reduction and faithful-log statement fence (2026-08-05)
+
+`RebasedExpShiftSupportReduction` closes the exact computation-theoretic shell around
+the next `bulkCtrl` sub-obligation.  The truncated Clebsch--Gordan product has support
+at most `2*N` for arbitrary input sequences, so every positive `fusionPow`,
+`bondMovedCoeff`, and vacuum-normalized fusion eigenvalue vanishes beyond that cutoff.
+Consequently the historical all-mode `ExpShiftBridge` is compiled from the finite
+family
+
+```text
+s <= 2*N
+```
+
+provided the effective weight is nonnegative.  No brute canonical evaluation is
+needed in the infinite tail: the kernel proof discharges it structurally.  The reverse
+restriction is immediate, so this is an exact finite reduction of the open bridge, not
+an inhabitant smuggled through a stronger assumption.
+
+The same tranche exposes a load-bearing defect in the legacy saddle premise.
+`CRealLogRangeReduction` stores `logScale` independently of `scale`; `shiftLogScale`
+therefore keeps the represented input, mantissa, window proof, and scaling equality
+fixed while adding an arbitrary constructive real to the value returned by `CReal.log`.
+Thus the old `SaddleLogForm.estimate` cannot be used as a faithful logarithmic estimate
+without an additional compatibility law.  `DyadicLogReduction` and
+`FaithfulFiniteSaddleLogForm` state a deterministic repaired premise on the exact finite
+support window.
+
+All new load-bearing declarations are kernel-checked with only `propext` and
+`Quot.sound`.  The remaining analytic task is the finite faithful saddle-to-exp
+Lipschitz transfer, followed by the explicitly reviewed canonical `bulkCtrl` repoint;
+neither is claimed closed here.
+
+Verification used the monitored launcher.  The focused module and downstream
+FrontierDAG builds passed (209 and 332 jobs respectively), and a focused audit log
+checked 2,427 declarations in 220 imported namespaces with zero exceptions.  The two
+new namespace digests were merged into the existing full baseline, now 22,745 tracked
+declarations in 3,046 namespaces.  A root `YMGap` rebuild advanced through the existing
+heavy certificate graph but was repeatedly stopped by the launcher's 12 GiB operating-
+system reserve, including at one worker.  That aggregate rerun remains an operational
+verification gate; its safety stop is not represented as a proof failure and was not
+bypassed by weakening the monitor.
