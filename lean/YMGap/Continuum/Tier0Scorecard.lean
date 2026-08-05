@@ -331,7 +331,10 @@ OPEN (NAMED, NO inhabitant — the sharpened frontier):
               `PentagonRelation.PentagonNumericCore` — the fractional-6j associator
               (physical associator open; `SixJPentagon` was a refuted
               channel-mismatch bug);
-  Sub-wall B: `SpectralMarginInput` = `sl.hlocalize` (Core B) + `hbridge` + `hadd`;
+  Sub-wall B: `SpectralMarginInput` = `sl.hlocalize` (per-scale) + `hbridge` +
+              `hadd`.  The canonical per-mode `FrontierDAG.bulkCtrl` is now the
+              finite re-based `CanonicalBulkControl`; the cross-arity bridge to
+              `hlocalize` remains named-open in `FrontierDAGBridges`;
   Continuum existence: FUNCTIONAL (`Continuum.FunctionalContinuumTarget`, OS0–OS4 +
     GNS, measure-free) — the σ-additive `ContinuumScorecard.CitedMinlosLift` is an
     OPTIONAL classical corollary, NOT an atom.

@@ -9,8 +9,8 @@ identity shared with the reconstruction scorecard.
 The point of the node is bookkeeping-with-teeth: it is a FAITHFUL Type-level
 inventory (no `Prop := True` slots, no `sorry`, no `axiom`) whose every field is a
 genuine named residual carried elsewhere in the development, and it is
-DELIBERATELY UNINHABITED — its remaining open atoms (`bulkCtrl`'s corrected
-bond-moved localization, `tTree`, `d1Mayer`, the `a2Pentagon` physical associator,
+DELIBERATELY UNINHABITED — its remaining open atoms (`bulkCtrl`'s finite
+re-based fusion shift, `tTree`, `d1Mayer`, the `a2Pentagon` physical associator,
 `edgeShift`, `trueMargin`, `boundedH`, `o4`) are open Clay-frontier residuals,
 so a total inhabitant of `FrontierDAG` would close the problem.  The canonical
 `coreB` field is now physically discharged on `0 <= w <= 1/2`; the separate
@@ -37,7 +37,7 @@ Two honest reductions are recorded (NAMED, uninhabited — never faked):
     field): it is dischargeable-conditionally (a proved constructor exists given
     the Schur identities), hence not an unconditional frontier atom.
 -/
-import YMGap.Continuum.SpectralLocalizationCrux
+import YMGap.Continuum.RebasedBulkLocalizationBridge
 import YMGap.Continuum.Ursell4DProgress
 import YMGap.Continuum.Tier0Scorecard
 import YMGap.Continuum.PentagonRelation
@@ -93,17 +93,25 @@ structure FrontierDAG
     {D : GNSData} (G : SpectralGapData D.gnsComplete)
     (L : AdditiveTransferOperator D) (N pΓ : Nat) : Type 1 where
   -- ── BUCKET 1 : a→0 gap-survival / Tier-0 cluster ────────────────────────
-  /-- The bond-moved spectral-localization certificate (OPEN).  The intended old
-  physical pin via the bare-reference `SaddleLocalCLT.bulkShiftBound` is exactly
-  refuted at a near-continuum `p=2` point by
-  `RebasedBulkLocalizationBridge.bareFusionShift_two_not_le`; the corrected direct
-  bulk-to-gap theorem is `rebasedFusion_bulk_below_gapEdge`.  Therefore physical
-  discharge of this canonical slot requires an explicit reviewed repoint to the
-  re-based carrier plus `ExpShiftBridge`.  The latter now reduces exactly to the
-  finite modes `s ≤ 2*N` in `RebasedExpShiftSupportReduction`; its repaired faithful
-  log-to-exp transfer and the reviewed repoint remain open.  No silent type change is
-  made here. -/
+  /-- **The reviewed canonical bond-moved fusion control (OPEN analytic field).**
+
+  Historical field type, preserved verbatim for Rule-9 review:
+
+  ```text
   bulkCtrl : SpectralLocalizationCrux.SpectralLocalization w
+  ```
+
+  Its intended physical `pΓ >= 2` pin compared `fusionEig` with the bare `p=1`
+  rate and is exactly refuted by
+  `RebasedBulkLocalizationBridge.bareFusionShift_two_not_le`.  The replacement
+  pins the actual spectrum to the SAME cutoff `N`, weight `w`, and bond-moving
+  exponent `pΓ` already used by `edgeShift`; requires `1 <= N`, `0 < pΓ`, the
+  physical/near-continuum windows, and an effective weight in `[0,1]`; and leaves
+  only the corrected finite family `s <= 2*N` as its analytic field.  Above that
+  window the fusion tail vanishes by theorem.  This is a reviewed physical
+  strengthening in specificity, not an inhabitant: the genuine finite
+  saddle-to-exp certificate remains OPEN for `pΓ >= 2`. -/
+  bulkCtrl : RebasedBulkLocalizationBridge.CanonicalBulkControl N w pΓ
   /-- (D2) the plaquette-graph `SepLattice` metric refining `z4Chain` — inhabited
   DATA, carried only to type `tTree`. -/
   d2Sep : Ursell4DProgress.SepLatticeZ4
@@ -228,10 +236,27 @@ def coreBToCrossRatio
     FiniteSMarginWorstcase.CrossRatioMonotone w :=
   br F.coreB
 
+/-! ## 5a. Canonical `bulkCtrl` consumer -/
+
+/-- **The canonical field delivers the corrected physical localization output.**
+Every mode that is bulk at the field's effective weight lies below the original
+`s = 1` heat-kernel gap edge.  The spectrum and exponent are definitionally the
+same `N`, `w`, and `pΓ` carried by the enclosing `FrontierDAG`. -/
+theorem bulkCtrl_bulk_below_gapEdge
+    {p : z4Chain.toLattice.Plaquette} {w : Q'}
+    {D : GNSData} {G : SpectralGapData D.gnsComplete}
+    {L : AdditiveTransferOperator D} {N pΓ : Nat}
+    (F : FrontierDAG p w G L N pΓ) (s : Nat)
+    (hbulk : BulkModeCrux.q12 <= Q'.ofNat (RGTransport.c4 s) *
+      ((1 : Q') - F.bulkCtrl.weff)) :
+    FusionKernelStatement.fusionEig N w pΓ s (F.bulkCtrl.denomPos s)
+      <= SpectralLocalizationCrux.eigA w 1 :=
+  F.bulkCtrl.bulk_below_gapEdge s hbulk
+
 /-! ## 6. Interface non-vacuity witnesses (the DATA slots are real)
 
 `FrontierDAG` is uninhabited as a WHOLE (its remaining open atoms include the
-corrected physical realization/repoint of `bulkCtrl`, `tTree`, `d1Mayer`, the
+finite physical analytic field inside the now-repointed `bulkCtrl`, `tTree`, `d1Mayer`, the
 physical `a2Pentagon`,
 `edgeShift`, `trueMargin`, `boundedH`, and `o4`), but its interface is faithful
 and the physical `coreB` field is now closed on the certified half interval.
@@ -251,13 +276,14 @@ def coreB_physical_witness {w : Q'}
     AcNReserveAnalytic.FiniteSMargin w :=
   FrontierCoreBPhysicalDischarge.finiteSMargin_physical hw0 hwH
 
-/-- The `bulkCtrl` slot's interface is non-vacuous: the UNPERTURBED spectrum is a
-`SpectralLocalization` on any near-continuum weight (this is NOT the bond-moved
-certificate; it only certifies the interface is real). -/
-def bulkCtrl_interface_witness (w : Q')
-    (hnc : (1 : Q') - w ≤ SpectralLocalizationCrux.q112) :
-    SpectralLocalizationCrux.SpectralLocalization w :=
-  SpectralLocalizationCrux.trivialLocalization w hnc
+/-- The repointed `bulkCtrl` interface is non-vacuous: at `pΓ = 1` the actual
+fusion spectrum is the unperturbed heat-kernel spectrum and the canonical finite
+carrier is inhabited.  This is NOT the genuine `pΓ >= 2` discharge. -/
+def bulkCtrl_interface_witness (N : Nat) (w : Q')
+    (hN : 1 <= N) (hw0 : (0 : Q') <= w) (hw1 : w <= (1 : Q'))
+    (hnc : (1 : Q') - w <= SpectralLocalizationCrux.q112) :
+    RebasedBulkLocalizationBridge.CanonicalBulkControl N w 1 :=
+  RebasedBulkLocalizationBridge.canonicalBulkControl_p1 N w hN hw0 hw1 hnc
 
 /-! ## 7. PROVED vs OPEN (AGENTS.md Rule 6)
 
@@ -269,17 +295,19 @@ PROVED here (axiom-clean, `[propext, Quot.sound]`):
   * `coreBToCrossRatio` — the Core-B reduction, TOTAL in a `CoreBBridge`;
   * `coreB_physical_witness` — the actual `coreB` field throughout
     `0 <= w <= 1/2`;
+  * `bulkCtrl_bulk_below_gapEdge` — the corrected canonical field consumer;
   * `d2Sep_witness` / `bulkCtrl_interface_witness` — interface non-vacuity.
 
-The old physical `p=2` pin of `bulkCtrl` is separately kernel-refuted and the
-corrected re-based bulk-to-gap bridge is closed in
-`RebasedBulkLocalizationBridge`; those facts diagnose and narrow the remaining
-canonical repoint but do not inhabit this field.
+The old physical `p=2` pin of `bulkCtrl` is separately kernel-refuted.  The
+canonical field has now been reviewed and repointed to the exact finite re-based
+fusion carrier; the finite-to-all-mode compiler and corrected bulk-to-gap
+consumer are proved in `RebasedBulkLocalizationBridge`.  This statement repair
+does not inhabit the remaining finite analytic field.
 
 OPEN (deliberately uninhabited — NO inhabitant provided, never `sorry`):
 
   * `FrontierDAG` itself — guard-protected via its remaining open atoms
-    (the corrected physical `bulkCtrl` repoint, `tTree`, `d1Mayer`, the physical
+    (the finite saddle-to-exp field inside `bulkCtrl`, `tTree`, `d1Mayer`, the physical
     `a2Pentagon`,
     `edgeShift`, `trueMargin`, `boundedH`, `o4`);
   * `CoreBBridge` — the missing Core-B cross-list bridge lemma.
@@ -292,3 +320,5 @@ exists given the two Schur identities), hence not an unconditional frontier atom
 end YMGap.Rubric.FrontierDAG
 
 #print axioms YMGap.Rubric.FrontierDAG.coreB_physical_witness
+#print axioms YMGap.Rubric.FrontierDAG.bulkCtrl_bulk_below_gapEdge
+#print axioms YMGap.Rubric.FrontierDAG.bulkCtrl_interface_witness

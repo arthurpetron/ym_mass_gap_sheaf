@@ -25,14 +25,15 @@ value returned by `CReal.log`; `log_shiftLogScale` proves the shift.  Thus the
 old `SaddleLogForm.estimate` must not be treated as a faithful logarithmic
 premise until that missing compatibility law is supplied.
 
-To state the corrected finite saddle premise without changing any canonical
-frontier field, this module introduces `DyadicLogReduction`: its scale is
+To state the corrected finite saddle premise before the canonical frontier
+repoint, this module introduced `DyadicLogReduction`: its scale is
 literal dyadic data and its log-scale is definitionally the corresponding
 signed multiple of the constructed `log 2`.  `FaithfulFiniteSaddleLogForm`
 uses this deterministic rational logarithm only on the finite support window.
 It is deliberately uninhabited here.  The remaining analytic step is now the
 finite exp-Lipschitz transfer from that faithful estimate to
-`FiniteExpShiftBridge`.
+`FiniteExpShiftBridge`; `RebasedBulkLocalizationBridge.CanonicalBulkControl`
+now uses that finite bridge as the reviewed canonical analytic field.
 
 # Constructivity
 
@@ -259,6 +260,21 @@ def expShiftBridge_of_finite {N : Nat} {w : Q'} {p : Nat} {weff : Q'}
       exact Q'.le_trans' _ _ _ (Q'.sub_le_of_le_add hleAdd)
         (by decide : (0 : Q') <= q112)
 
+/-- **Positive-exponent form of the finite-support compiler.**  The canonical
+frontier carries the physical fusion exponent itself, together with `0 < p`,
+rather than exposing an arbitrary predecessor.  Splitting that positive natural
+as `k + 1` and applying `expShiftBridge_of_finite` compiles the same finite
+certificate into the historical all-mode bridge. -/
+def expShiftBridge_of_finite_pos {N : Nat} {w : Q'} {p : Nat} {weff : Q'}
+    {h0' : forall s, (0 : Q') < dimQ s * bondMovedCoeff N w p 0}
+    (hp : 0 < p) (hweff0 : (0 : Q') <= weff)
+    (F : FiniteExpShiftBridge N w p weff h0') :
+    ExpShiftBridge N w p weff h0' := by
+  cases p with
+  | zero => omega
+  | succ k =>
+      exact expShiftBridge_of_finite hweff0 F
+
 end YMGap.Continuum.RebasedExpShiftSupportReduction
 
 /-! ## Axiom-dependency gates -/
@@ -275,3 +291,4 @@ end YMGap.Continuum.RebasedExpShiftSupportReduction
 #print axioms YMGap.Continuum.RebasedExpShiftSupportReduction.fusionEig_succ_le_zero_above_two_cutoff
 #print axioms YMGap.Continuum.RebasedExpShiftSupportReduction.finiteExpShiftBridge_of_expShiftBridge
 #print axioms YMGap.Continuum.RebasedExpShiftSupportReduction.expShiftBridge_of_finite
+#print axioms YMGap.Continuum.RebasedExpShiftSupportReduction.expShiftBridge_of_finite_pos

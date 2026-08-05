@@ -62,7 +62,15 @@ axioms) and of `YMGapGuard.lean` (it hashes the statement, not its inhabitants),
 so neither `make lean-audit-update` nor the absence of an inhabitant can silence
 it.
 -/
-import YMGap
+/- Import the exact pinned-statement dependency roots, rather than the `YMGap`
+umbrella.  The guard is a structural environment query; importing unrelated
+continuum certificates cannot strengthen its result and used to force every
+repository-wide finite computation to replay before ten hashes were checked. -/
+import YMGap.Rubric.ClayTargetPinned
+import YMGap.Rubric.ClayScorecard
+import YMGap.Rubric.FrontierDAG
+import YMGap.Continuum.Tier0Scorecard
+import YMGap.Continuum.UnifiedContinuumFloor
 import Lean
 
 open Lean Elab Command
@@ -167,7 +175,9 @@ def pinnedFrontierStatements : List (Name × String) :=
   [ -- ── frontier structures (type + all field/constructor signatures) ──
     (`YMGap.Rubric.ClayTargetPinned.ClayTargetPinned,            "a626368409b9a5a4"),
     (`YMGap.Rubric.ClayScorecard.ClayTarget,                     "cc27a2da027c4a06"),
-    (`YMGap.Rubric.FrontierDAG.FrontierDAG,                      "90dd24877aae84ce"),
+    -- Reviewed 2026-08-05: `bulkCtrl` was repointed from the refuted bare
+    -- localization interface to finite re-based control at the DAG's N,w,pΓ.
+    (`YMGap.Rubric.FrontierDAG.FrontierDAG,                      "9a886b2ae801bdd0"),
     (`YMGap.Continuum.Tier0Scorecard.Tier0Scorecard,             "ce2b66cc5711b963"),
     (`YMGap.Continuum.UnifiedContinuumFloor.UniformSpacingFloor, "414cbe2aaf2c2d53"),
     -- ── shared parameter defs/structures (type + value/fields) ──────────

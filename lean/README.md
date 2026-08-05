@@ -837,10 +837,14 @@ mathematics (`TreeGraphBoundProgress`, with the (P) leg under further
 active reduction in `PenroseDomInduction`); the pentagon track has the
 Level-1/Level-2 analysis and a refutation of the permutation surrogate
 (`PentagonRelation`); `hbridge` has its wiring lemma
-(`PinnedBridgeProgress.edgeShift_le_gradedDefect`); and the δ-loop
-capstone (`DeltaFrontierLedger`) reduces the bond-moving obstruction to
-the single vacuum-normalized bulk-shift residual `bulkCtrl` (= the
-`hlocalize` content, open for `p ≥ 2`). Hygiene note: the library
+(`PinnedBridgeProgress.edgeShift_le_gradedDefect`); and the canonical
+`FrontierDAG.bulkCtrl` field is now reviewed and repointed from the refuted
+bare-reference `SpectralLocalization w` to
+`RebasedBulkLocalizationBridge.CanonicalBulkControl N w pΓ`.  Its spectrum,
+cutoff, and positive exponent are physically pinned, its infinite tail is
+compiled structurally from `s ≤ 2*N`, and its finite saddle-to-exp field remains
+open for `pΓ ≥ 2`.  The older `DeltaFrontierLedger` carrier retains its historical
+bare interface and is not treated as definitionally equivalent. Hygiene note: the library
 carries exactly 9 `noncomputable` declarations (in `NormExcitedDrift`,
 `DominantModeRecursion`, `UniformCouplingFromAF`), pending the
 classification ledger required by the AGENTS.md Rule 1 addendum.

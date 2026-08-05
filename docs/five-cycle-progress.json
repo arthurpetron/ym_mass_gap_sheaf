@@ -48,7 +48,7 @@
       "physical fractional-6j pentagon associator",
       "Core-B finite-s margin [closed] + forward bridge [open]"
     ],
-    "current_frontier_atom": "bulkCtrl -- bare p=2 pin refuted; rebased bulk-to-gap closed; ExpShift reduced exactly to finite s<=2N with faithful-log defect fenced; finite exp transfer + canonical repoint remain open",
+    "current_frontier_atom": "bulkCtrl -- canonical field reviewed and repointed to the actual finite re-based fusion carrier at shared N,w,pGamma; finite faithful saddle-to-exp certificate remains open",
     "frontier_supporting_discharged": [
       "all-N post-boundary even/odd cleared-prefix reserve",
       "all-N UniformBoxLogConcave for every 0 <= w <= 1/2",
@@ -56,7 +56,8 @@
       "exact N=3, w=11/12, p=2 bare-reference physical statement fence",
       "all-N,p,s rebased fusion bulk-to-original-gap-edge bridge",
       "positive-fusion support bound and all-mode ExpShift-to-finite-s<=2N compiler",
-      "legacy CReal logarithm arbitrary-logScale statement fence and deterministic dyadic replacement premise"
+      "legacy CReal logarithm arbitrary-logScale statement fence and deterministic dyadic replacement premise",
+      "reviewed canonical bulkCtrl repoint to CanonicalBulkControl N w pGamma with positive-exponent tail compiler and p=1 non-vacuity"
     ],
     "frontier_discharged_atoms": [
       "d2Sep -- plaquette separation data",
@@ -64,7 +65,7 @@
       "coreB -- FiniteSMargin for every 0 <= w <= 1/2"
     ],
     "frontier_open_atoms": [
-      "bulkCtrl -- physical bond-moved spectral localization",
+      "bulkCtrl -- finite faithful saddle-to-exp certificate for the pinned physical fusion spectrum",
       "tTree -- 4D spanning-tree inequality",
       "d1Mayer -- absolute Mayer--Ursell expansion",
       "a2Pentagon -- physical fractional-6j associator",
@@ -135,13 +136,13 @@
     "surface_orbit_haar": "9/9-exact-representatives-cover-128/128",
     "surface_bivalence": "128/128-edge-valence-0-or-2-kernel-checked;fused-step-exact",
     "surface_primal_forests": "128/128-maximal-forests+root-paths-kernel-checked",
-    "lean_forest_gauge_values": "128/128-staged-kernel-checked;8/8-orbit-APIs-proof-shared;audited-22745-theorems/3046-namespaces/0-exceptions;new-namespace-digests-from-focused-kernel-log",
+    "lean_forest_gauge_values": "128/128-staged-kernel-checked;8/8-orbit-APIs-proof-shared;audited-22750-theorems/3046-namespaces/0-exceptions;changed-namespace-digests-from-focused-kernel-log",
     "surface_forest_translation": "128/128-inverse-orientation-ledgers+source-degree-five+Haar-invariance+cyclic-word-semantics+physical-factor-product-lift+compact-word-Haar-endpoint+coefficient-to-Haar-carrier-algebra+reflective-Hamilton-assoc+oriented-inverse-radius+selected-chain-factorProduct-homomorphism+whole-word-free-cyclic-reducer+128/128-substituted-face-carrier-kernel-checked+all-128-mask/all-32-edge/two-orientation-coordinate-action+all-selected-face-word+face-character/selected-factor-product-lift+padded-active-word-to-chord-Haar-endpoint+translated-semantics+actual-transport-kernel-checked",
     "surface_word_reducer": "free+cyclic+128/128 face specialization kernel-checked",
     "surface_translation_compiler": "all-four-step chain congruence+factorProduct homomorphism+all-128-mask/all-32-edge/two-orientation-coordinate-action+all-selected-face-word+face-character/selected-factor-product-lift+padded-active-word Haar endpoint+actual BF4 Haar5 surface bridge kernel-checked",
     "fusion_ballot_recurrence": "two-neighbor sparse compiler+exact cone/parity support iff;[propext,Quot.sound]",
     "fusion_ballot_closed_form": "pathCount=guarded-PNPaths.ballotNat exactly;[propext,Quot.sound]",
     "fusion_path_row_logconcavity": "all-p support-row ratio order+step-two log-concavity;[propext,Quot.sound]",
-    "fusion_weighted_interlacing": "exact even/odd sectors+margins+ratio-fence compiler+order-N^3 checker+N7-half core+u=4w^2 Bernstein family consumer;division-free prefix-to-Bernstein Abel compiler+exact reconstruction kernel-checked;constructive strand ceilings 13/8+35/32;all-N post-boundary even/odd cleared-prefix reserve kernel-checked;all-N UniformBoxLogConcave for every 0<=w<=1/2 kernel-checked;all-N endpoint S1Dominance at w=1/2 kernel-checked;Core-B FiniteSMargin physically discharged on closed 0<=w<=1/2;bare-p2 physical pin exactly refuted at N3/w11of12/s2;rebased bulk-to-gap-edge bridge all-N,p,s kernel-checked;all gates [propext,Quot.sound]"
+    "fusion_weighted_interlacing": "exact even/odd sectors+margins+ratio-fence compiler+order-N^3 checker+N7-half core+u=4w^2 Bernstein family consumer;division-free prefix-to-Bernstein Abel compiler+exact reconstruction kernel-checked;constructive strand ceilings 13/8+35/32;all-N post-boundary even/odd cleared-prefix reserve kernel-checked;all-N UniformBoxLogConcave for every 0<=w<=1/2 kernel-checked;all-N endpoint S1Dominance at w=1/2 kernel-checked;Core-B FiniteSMargin physically discharged on closed 0<=w<=1/2;bare-p2 physical pin exactly refuted at N3/w11of12/s2;rebased bulk-to-gap-edge bridge all-N,p,s kernel-checked;positive-exponent finite-support compiler+reviewed canonical bulkCtrl repoint kernel-checked;all gates [propext,Quot.sound]"
   }
 }

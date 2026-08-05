@@ -13,10 +13,10 @@ supply, or a documented refutation — and never fakes a merge.  The verdicts:
         the two Minlos slots are one node.
 
   (ii)  **`bulkCtrl` vs `hlocalize` — DOCUMENTED REFUTATION (arity mismatch).**
-        `FrontierDAG.bulkCtrl : SpectralLocalizationCrux.SpectralLocalization w`
-        is PER-MODE (`Q' → Type`); the graded-budget carrier
+        `FrontierDAG.bulkCtrl` is now the physical finite-mode carrier
+        `CanonicalBulkControl N w pΓ`; the graded-budget carrier
         `GradedBondMovingBudget.SpectralLocalization : AFRateModulus → Nat → Type`
-        is PER-SCALE.  The arities differ, so there is NO `rfl` merge.  The
+        is PER-SCALE.  The indexed objects still differ, so there is NO `rfl` merge.  The
         genuine link is the per-scale `hbridge_of_hlocalize`
         (`Stage2ConvergesToMargin`), a NAMED-OPEN reduction — encoded here as the
         uninhabited bridge type `BulkCtrlToHlocalizeBridge`, NOT an identity.
@@ -92,8 +92,9 @@ theorem minlos_crosslist_identity :
 
 /-! ## (ii) `bulkCtrl` vs `hlocalize` — DOCUMENTED REFUTATION (arity mismatch)
 
-`FrontierDAG.bulkCtrl` has type `SpectralLocalizationCrux.SpectralLocalization w`
-(`Q' → Type`, a per-MODE bulk-shift certificate).  The graded-budget localization
+`FrontierDAG.bulkCtrl` now has type
+`RebasedBulkLocalizationBridge.CanonicalBulkControl N w pΓ`, a finite per-MODE
+fusion certificate pinned to its cutoff and exponent.  The graded-budget localization
 carrier is `GradedBondMovingBudget.SpectralLocalization afr N₀`
 (`AFRateModulus → Nat → Type`, a per-SCALE statement).  The arities differ, so no
 `rfl` identifies them.  The GENUINE link is the per-scale
@@ -102,12 +103,21 @@ record the honest cross-list content as the NAMED-OPEN bridge type below and DO
 NOT inhabit it (Rule 8). -/
 
 /-- **`BulkCtrlToHlocalizeBridge` — the NAMED-OPEN per-mode ⟶ per-scale bridge.**
-From a per-MODE `SpectralLocalization` at every weight `afr.w k`, produce the
+From a canonical physical finite-mode control at every weight `afr.w k`, produce the
 per-SCALE graded-budget `SpectralLocalization afr N₀`.  This is the honest content
 of the suspected `bulkCtrl`/`hlocalize` identification — a reduction, NOT the `rfl`
-merge the arities forbid.  Left UNINHABITED. -/
-abbrev BulkCtrlToHlocalizeBridge (afr : AFRateModulus) (N₀ : Nat) : Type :=
-  (∀ k, SpectralLocalizationCrux.SpectralLocalization (afr.w k)) →
+merge the arities forbid.  Left UNINHABITED.
+
+Historical statement before the reviewed canonical repoint:
+
+```text
+(forall k, SpectralLocalizationCrux.SpectralLocalization (afr.w k)) ->
+  GradedBondMovingBudget.SpectralLocalization afr N0
+```
+-/
+abbrev BulkCtrlToHlocalizeBridge
+    (afr : AFRateModulus) (N₀ N p : Nat) : Type :=
+  (∀ k, RebasedBulkLocalizationBridge.CanonicalBulkControl N (afr.w k) p) →
     GradedBondMovingBudget.SpectralLocalization afr N₀
 
 /-! ## (iii) `OpenTrueMargin ⟹ UniformSpacingFloor` — PROVED supply, two routes
@@ -193,7 +203,7 @@ PROVED here (axiom-clean, `[propext]` / `[propext, Quot.sound]`):
 
 OPEN / REFUTED (named, NO inhabitant — never `sorry`):
 
-  * (ii)  `BulkCtrlToHlocalizeBridge` — the per-mode ⟶ per-scale bridge; the
+  * (ii)  `BulkCtrlToHlocalizeBridge` — the canonical finite-mode ⟶ per-scale bridge; the
           `bulkCtrl`/`hlocalize` identity is refuted by the arity mismatch, the
           genuine link being the named per-scale `hbridge_of_hlocalize`;
   * (iv)  `FrontierDAG.CoreBBridge` — the forward `FiniteSMargin → CrossRatioMonotone`

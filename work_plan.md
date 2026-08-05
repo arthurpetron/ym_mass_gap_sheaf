@@ -18994,3 +18994,60 @@ heavy certificate graph but was repeatedly stopped by the launcher's 12 GiB oper
 system reserve, including at one worker.  That aggregate rerun remains an operational
 verification gate; its safety stop is not represented as a proof failure and was not
 bypassed by weakening the monitor.
+
+## 51. Reviewed canonical `bulkCtrl` repoint to finite re-based fusion control (2026-08-05)
+
+**Status. DONE — statement repointed; finite analytic field remains OPEN.**
+
+The Rule-9 review is complete.  The historical canonical field
+
+```text
+bulkCtrl : SpectralLocalizationCrux.SpectralLocalization w
+```
+
+has been replaced by
+
+```text
+bulkCtrl : RebasedBulkLocalizationBridge.CanonicalBulkControl N w pΓ.
+```
+
+This is a physical statement repair, not a discharge.  The old carrier allowed an
+arbitrary perturbed spectrum and its intended pin to the actual `pΓ >= 2` fusion
+spectrum is exactly refuted at `N=3`, `w=11/12`, `p=2`, `s=2`.  The replacement is
+strictly more specific about the physical object: it shares the DAG's cutoff `N`,
+weight `w`, and bond-moving exponent `pΓ`; carries `1 <= N`, `0 < pΓ`, the physical
+and near-continuum windows, and the actual fusion normalization; and retains only
+the finite re-based shift family `s <= 2*N` as its named analytic field.
+
+`expShiftBridge_of_finite_pos` compiles the exact infinite tail for an arbitrary
+positive physical exponent.  `CanonicalBulkControl.bulk_below_gapEdge` then proves
+that every effective-bulk mode of the actual `fusionEig N w pΓ` spectrum lies below
+the original `s=1` gap edge.  `canonicalBulkControl_p1` supplies a genuine
+unperturbed non-vacuity witness.  All three declarations audit only to
+`[propext, Quot.sound]`.
+
+The statement review is recorded in `lean/SORRY_LEDGER.md`, the historical type is
+preserved in both the carrier and canonical field docstrings, and the deliberate
+`FrontierDAG` hash repin is part of this tranche.  The older
+`DeltaFrontierLedger.bulkCtrl` remains a historical bare-reference interface and is
+not silently declared equivalent.  The next analytic task is to construct the
+finite faithful saddle-to-exp certificate for the genuine `pΓ >= 2` input, followed
+by its physical block-power transport.
+
+The statement guard was also narrowed from the full `YMGap` umbrella to the exact
+five pinned dependency roots.  Its environment query and ten structural hashes are
+unchanged, but a cached run now checks the reviewed pin through a 336-job dependency
+closure instead of replaying the unrelated full BF4 certificate graph.  The focused
+axiom log has zero exceptions and its four relevant namespace digests exactly match
+the merged baseline.
+
+A read-only computation audit identified the next certificate-throughput repair:
+`BF4CompactActionDiagonalSOS.actionCoefficient` repeatedly normalizes and sorts the
+same 40-coordinate quadratic polynomial, including at least `40 * choose(40,2)` full
+normalizations per reserve pass.  The constructive replacement should compile once
+to a fixed upper-triangular quadratic coefficient table, prove
+`compileQuadratic_sound`, and derive all sign/reserve facts from one opaque Boolean
+checker.  Rust may generate the untrusted table, but Lean must verify it.  Existing
+`CoreBResidualSimplex.fastNormalize` and `RawGridSemanticTransport` soundness APIs are
+the intended substrate.  This optimization is recorded for the next heavy audit; it
+is not needed to justify the canonical repoint itself.

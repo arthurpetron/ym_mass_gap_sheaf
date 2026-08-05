@@ -70,6 +70,47 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 
 ## Entries
 
+### [FrontierDAG-bulkCtrl-repoint] canonical finite re-based fusion control — **STATEMENT REPOINTED 2026-08-05; ANALYTIC FIELD OPEN**
+
+- **milestone**: 11.14 / work-plan milestone 51 (`FrontierDAG` canonical-atom
+  statement repair)
+- **files**:
+  `lean/YMGap/Continuum/RebasedExpShiftSupportReduction.lean`,
+  `lean/YMGap/Continuum/RebasedBulkLocalizationBridge.lean`,
+  `lean/YMGap/Rubric/FrontierDAG.lean`
+- **historical field statement**:
+  `bulkCtrl : SpectralLocalizationCrux.SpectralLocalization w`.
+- **review finding**: the intended physical pin of that carrier to
+  `fusionEig N w p` is kernel-refuted at `N=3`, `w=11/12`, `p=2`, `s=2`,
+  because its bare-reference shift exceeds `1/12`.  The arbitrary `eig'` field
+  also failed to pin the canonical atom to the DAG's cutoff and exponent.
+- **reviewed replacement**:
+  `bulkCtrl : RebasedBulkLocalizationBridge.CanonicalBulkControl N w pΓ`.
+  It carries `1 <= N`, `0 < pΓ`, the physical and near-continuum windows,
+  the actual fusion denominator, an effective weight in `[0,1]`, and the
+  corrected `FiniteExpShiftBridge` only on `s <= 2*N`.  Thus it is tied to the
+  SAME `N`, `w`, and `pΓ` already used by the enclosing physical DAG.
+- **proved migration machinery**:
+  `expShiftBridge_of_finite_pos` compiles the infinite tail structurally;
+  `CanonicalBulkControl.bulk_below_gapEdge` delivers the corrected physical
+  bulk-to-gap result; `canonicalBulkControl_p1` proves interface non-vacuity at
+  the unperturbed exponent.
+- **constructive or propositional**: constructive — the effective weight and
+  finite certificate are `Type`-level data.
+- **axiom gate**: all new load-bearing declarations use only
+  `[propext, Quot.sound]`; no `sorryAx`, classical choice, `native_decide`, new
+  axiom, or noncomputable witness.
+- **honest residual**: this is a statement repair, NOT a physical discharge.
+  The finite faithful saddle-to-exp certificate remains uninhabited for the
+  genuine `pΓ >= 2` input.  The historical `DeltaFrontierLedger.bulkCtrl`
+  interface is not silently equated with the corrected carrier; its downstream
+  block-power transport remains separate open work.
+- **Rule-9 sign-off record**: old statement preserved above; replacement is
+  stronger in physical specificity and removes the refuted bare reference; the
+  canonical statement hash is deliberately re-pinned in the same reviewed
+  change.
+- **must not be closed classically**: per `AGENTS.md` Rule 6/9.
+
 ### [FrontierDAG-coreB-physical] finite-`s` Core-B margin on the closed physical interval — **CLOSED 2026-08-04**
 
 - **milestone**: 11.14 (`FrontierDAG` canonical-atom discharge)

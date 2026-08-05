@@ -46,12 +46,19 @@ corollary object, not as a frontier atom.
 
   * **Input A — the discrete SU(2) heat-kernel-fusion local-CLT.**  Carried as the
     wiring datum `DeltaFrontierLedger.DeltaToBlockPower`, whose sole non-trivial
-    content is the vacuum-normalized bulk eigenvalue-shift control `bulkCtrl`
+    content is the historical vacuum-normalized bulk eigenvalue-shift control
     (`SpectralLocalizationCrux.SpectralLocalization`, `bulk_shift ≤ 1/12`) for the
     genuine 4D bond-moving exponent `p = b^{d−1} ≥ 2`, together with the block-power
     bridge `residualToPower`.  PROVED at `p = 1` and for `s = 1`; OPEN at `p ≥ 2`
     (the weighted fusion-multiplicity monotonicity tier).  Once supplied, the whole
     δ-loop fires and the physical continuum gap floor is positive.
+
+    The canonical `FrontierDAG.bulkCtrl` field has since been reviewed and
+    repointed to `CanonicalBulkControl N w p`, whose analytic input is the
+    corrected finite re-based family `s ≤ 2*N`.  This legacy `DeltaToBlockPower`
+    route is not silently identified with that corrected carrier; transporting
+    canonical finite localization into the physical block-power law remains a
+    named downstream bridge.
 
   * **(DELETED as an atom) — the cited-classical Minlos σ-additive lift.**  Carried
     as the token `ClayScorecard.ClayContinuumExistence` (= `CitedMinlosLift`): the
@@ -243,8 +250,10 @@ PROVED (CONDITIONAL — Input A ⇒ continuum floor):
 
 OPEN (NAMED, NO inhabitant in this file):
 
-  * Input A — `DiscreteFusionLocalCLT` (= `DeltaToBlockPower`): the `p ≥ 2`
-    discrete SU(2) heat-kernel-fusion local-CLT (the `bulkCtrl` residual);
+  * Input A — `DiscreteFusionLocalCLT` (= legacy `DeltaToBlockPower`): the `p ≥ 2`
+    discrete SU(2) heat-kernel-fusion local-CLT plus block-power bridge.  The
+    canonical DAG field is the corrected finite `CanonicalBulkControl`; no
+    equivalence with the historical bare carrier is claimed;
   * (functionally) the `a → 0` uniform modulus of
     `FunctionalContinuumTarget.ScalingLimitModulus` + the OS0/OS4 clauses.
 

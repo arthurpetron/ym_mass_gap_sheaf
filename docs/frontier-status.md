@@ -1,7 +1,7 @@
 # Frontier status
 
-> **Auto-generated** by `scripts/frontier_status.py` on 2026-08-03.
-> Axiom-gate source: `lean/AXIOM_AUDIT.md` hashed baseline (22174 tracked declarations, 2867 namespaces, 0 reviewed exceptions).
+> **Auto-generated** by `scripts/frontier_status.py` on 2026-08-05.
+> Axiom-gate source: `lean/AXIOM_AUDIT.md` hashed baseline (22750 tracked declarations, 3046 namespaces, 0 reviewed exceptions).
 > Guard configuration: **5 protected frontier types**, **0 reviewed allowlist entries**.
 > Read-only report — no Lean source is edited. `GUARDED OPEN` is determined
 > from `YMGapGuard.lean`; field counts are only documentation-marker counts.
@@ -331,7 +331,7 @@ structure FrontierDAG (p : z4Chain.toLattice.Plaquette) (w : Q') {D : GNSData} (
 
 **(c) Fields explicitly marked OPEN in source documentation:**
 
-- `bulkCtrl` — The bond-moved spectral-localization certificate (open `bulk_shift`).
+- `bulkCtrl` — **The reviewed canonical bond-moved fusion control (OPEN analytic field).** Historical field type, preserved verbatim for Rule-9 review: ...
 - `a2Pentagon` — (A2, Level-2) the genuine fractional-6j associator numeric core `PentagonRelation.PentagonNumericCore` (physical associator OPEN).
 - `edgeShift` — The pinned edge-shift residual (`hId`/`hLin`;
 
@@ -339,7 +339,7 @@ structure FrontierDAG (p : z4Chain.toLattice.Plaquette) (w : Q') {D : GNSData} (
 
 | field | status | doc |
 |---|---|---|
-| `bulkCtrl` | OPEN | The bond-moved spectral-localization certificate (open `bulk_shift`). |
+| `bulkCtrl` | OPEN | **The reviewed canonical bond-moved fusion control (OPEN analytic field).** Historical field type, preserved verbatim for Rule-9 review: ... |
 | `d2Sep` | — | (D2) the plaquette-graph `SepLattice` metric refining `z4Chain` — inhabited DATA, carried only to type `tTree`. |
 | `tTree` | — | (T′) the per-cluster Penrose / Poghosyan–Ueltschi spanning-tree inequality over the (D2) lattice `d2Sep.val`. |
 | `d1Mayer` | PROVED | (D1) the absolute Mayer–Ursell connecting-cluster expansion over the CLOSED 4D count `z4ClusterCountBound p`. |
@@ -392,7 +392,7 @@ structure ContinuumYMExistence {M : Nat → Type} (μ_inf : ContinuumMeasure M) 
 Every `YMGap/*.lean` NOT reachable (transitively) from `YMGap.lean` — i.e.
 silently skipped by the default `lake build` and therefore un-audited.
 
-Reachable modules parsed from import closure; **67 of 3015** `YMGap/*.lean` files are unreachable from `YMGap.lean`.
+Reachable modules parsed from import closure; **67 of 3259** `YMGap/*.lean` files are unreachable from `YMGap.lean`.
 
 - `lean/YMGap/Continuum/BF4CalibratedCubeSpectralFence.lean`
 - `lean/YMGap/Continuum/BF4DyadicCubeVacuumCalibration.lean`
