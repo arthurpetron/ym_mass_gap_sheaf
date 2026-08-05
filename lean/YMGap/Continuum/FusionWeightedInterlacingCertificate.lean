@@ -257,6 +257,22 @@ theorem bernsteinRowNonnegativeCheck_sound
   exact List.all_eq_true.mp hcheck j
     (List.mem_range.mpr (by omega))
 
+/-- Completeness of the reflected row checker.  This is the constructive
+bridge used by uniform symbolic producers: once every coefficient in the
+finite row is proved nonnegative propositionally, the Boolean certificate
+field is populated without evaluating the coefficients themselves. -/
+theorem bernsteinRowNonnegativeCheck_complete
+    (degree : Nat) (coefficient : Nat → Int)
+    (hcoeff : ∀ j, j ≤ degree → (0 : Int) ≤ coefficient j) :
+    bernsteinRowNonnegativeCheck degree coefficient = true := by
+  unfold bernsteinRowNonnegativeCheck
+  apply List.all_eq_true.mpr
+  intro j hj
+  apply decide_eq_true
+  exact hcoeff j (by
+    have hjlt := List.mem_range.mp hj
+    omega)
+
 /-- A denominator-cleared Bernstein certificate for every mode of one fixed
 cutoff.  The reconstruction field is pinned to the actual box difference;
 therefore a detached positive polynomial cannot inhabit this interface.
@@ -390,6 +406,7 @@ end YMGap.Continuum.FusionWeightedInterlacingCertificate
 #print axioms YMGap.Continuum.FusionWeightedInterlacingCertificate.fastFiniteInterlacingCheck_N7_half
 #print axioms YMGap.Continuum.FusionWeightedInterlacingCertificate.fusionConvLogConcaveCore_N7_half_fast
 #print axioms YMGap.Continuum.FusionWeightedInterlacingCertificate.bernsteinRowNonnegativeCheck_sound
+#print axioms YMGap.Continuum.FusionWeightedInterlacingCertificate.bernsteinRowNonnegativeCheck_complete
 #print axioms YMGap.Continuum.FusionWeightedInterlacingCertificate.FiniteTriangleBernsteinCertificate
 #print axioms YMGap.Continuum.FusionWeightedInterlacingCertificate.finite_interlacing_of_bernstein_certificate
 #print axioms YMGap.Continuum.FusionWeightedInterlacingCertificate.fusionConvLogConcaveCore_of_bernstein_certificate

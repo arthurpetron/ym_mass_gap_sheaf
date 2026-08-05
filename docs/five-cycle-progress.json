@@ -48,7 +48,7 @@
       "physical fractional-6j pentagon associator",
       "Core-B finite-s spectral margin and bridge"
     ],
-    "current_frontier_atom": "bond-moved spectral localization: all-N physical Bernstein/ratio certificate for mixed-parity box interlacing",
+    "current_frontier_atom": "bond-moved spectral localization: post-boundary even/odd shell reserve for the all-coupling Bernstein interval",
     "frontier_bucket2_atoms": [
       "pinned edge-shift identities",
       "true dimensionless physical-margin recursion",
@@ -118,6 +118,6 @@
     "fusion_ballot_recurrence": "two-neighbor sparse compiler+exact cone/parity support iff;[propext,Quot.sound]",
     "fusion_ballot_closed_form": "pathCount=guarded-PNPaths.ballotNat exactly;[propext,Quot.sound]",
     "fusion_path_row_logconcavity": "all-p support-row ratio order+step-two log-concavity;[propext,Quot.sound]",
-    "fusion_weighted_interlacing": "exact even/odd sectors+margins+ratio-fence compiler+order-N^3 checker+N7-half core+u=4w^2 Bernstein family consumer;exact scout nonnegative through N12;all-N reconstruction remains"
+    "fusion_weighted_interlacing": "exact even/odd sectors+margins+ratio-fence compiler+order-N^3 checker+N7-half core+u=4w^2 Bernstein family consumer;division-free prefix-to-Bernstein Abel compiler+exact reconstruction kernel-checked;constructive strand ceilings 13/8+35/32;all-N UniformBoxLogConcave at w=1/2 kernel-checked;all-coupling interval reduced to post-boundary even/odd shell reserve"
   }
 }
