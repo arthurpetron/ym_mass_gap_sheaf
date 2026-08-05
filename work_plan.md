@@ -5526,6 +5526,48 @@ the constructive-friendly choice).
 
 ### Milestone 13.2 — `hlocalize` discretized: fusion local-CLT via reflected lattice paths **[research]**
 
+**Update (2026-08-04 — heat-weighted even/odd exchange and reflected
+certificate compiler).**  The mixed-parity residual now has an exact
+two-state interface, an explicit sector decomposition, and a faster verified
+evaluator.
+
+* `Continuum/FusionEvenOddExchange.lean` proves the constructive parity
+  automaton: the even-to-odd and odd-to-even exchange laws assemble to every
+  step-two log-concavity inequality.  Its stronger
+  `FiniteAlternatingRatioFence` is an abstract-interpretation certificate with
+  executable rational scales and first-order bounds
+  `A ≤ qB`, `qC ≤ B`; constructive multiplication proves `AC ≤ B²`.  The file
+  explicitly records that the bare parity split is only a compiler, not the
+  missing analytic proof.
+* `Continuum/FusionEvenOddBoxDecomposition.lean` proves the exact weighted
+  sector formulas: even channels are even-even plus odd-odd mass, while odd
+  channels are twice one oriented even-odd mass.  It identifies `quadDiff` at
+  even and odd channels with the two heat-exchange margins and proves both
+  guarded compiler directions.  The associated `r=(a+1)+(b+1)` parity facts
+  connect to `FusionRDFactor` without reviving its refuted rectangular
+  factorization.
+* `Continuum/FusionWeightedInterlacingCertificate.lean` replaces the literal
+  four-fold `quadDiff` evaluator by a proved-equivalent direct `boxSum`
+  checker.  The reflected scan drops from order `N^5` to order `N^3` exposed
+  summands, supports bounded certificate blocks, and kernel-closes the new
+  exact cutoff `N=7`, `w=1/2`; the two block computations themselves are
+  axiom-free.  Thus the previously compiled concrete wall moves from `N≤6`
+  to `N≤7`.
+* The same module defines `FiniteTriangleBernsteinCertificate` in the
+  physical coordinate `u=4w²`, a reflected integer-row checker, fixed-cutoff
+  and all-cutoff consumers, and the direct landing
+  `∀N, certificate N → UniformBoxLogConcave w`.  The exact scout
+  `scripts/fusion_box_bernstein_scout.py` finds every full-degree physical
+  Bernstein row coefficient nonnegative for all finite-triangle modes through
+  `N=12`.  This is reproducible certificate-generation evidence, not yet a
+  Lean inhabitant of the all-`N` family.
+
+The honest remaining analytic/computation-theoretic task is now sharply
+separated: generate and reconstruct the actual physical Bernstein rows (or
+construct the alternating ratio fences) uniformly in `N`.  `UniformBoxLogConcave`
+itself remains uninhabited.  All new proof gates are within
+`[propext, Quot.sound]`; the closed `N=7` block decisions are axiom-free.
+
 **Update (2026-08-04 — three-track ballot/log-concavity/interlacing
 campaign).**  Three constructive modules now separate the finite path
 combinatorics from the genuinely heat-weighted residual.

@@ -1813,6 +1813,9 @@ import YMGap.Continuum.FusionBallotClosedForm
 import YMGap.Continuum.FusionPathRowLogConcave
 import YMGap.Continuum.BoxSumTailGeneral
 import YMGap.Continuum.FusionWeightedBoxInterlacing
+import YMGap.Continuum.FusionEvenOddExchange
+import YMGap.Continuum.FusionEvenOddBoxDecomposition
+import YMGap.Continuum.FusionWeightedInterlacingCertificate
 import YMGap.Continuum.EpsSplitAdjudication
 import YMGap.Continuum.TaylorModel
 import YMGap.Continuum.TaylorModelStep2
