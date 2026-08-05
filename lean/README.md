@@ -842,8 +842,14 @@ Level-1/Level-2 analysis and a refutation of the permutation surrogate
 bare-reference `SpectralLocalization w` to
 `RebasedBulkLocalizationBridge.CanonicalBulkControl N w pΓ`.  Its spectrum,
 cutoff, and positive exponent are physically pinned, its infinite tail is
-compiled structurally from `s ≤ 2*N`, and its finite saddle-to-exp field remains
-open for `pΓ ≥ 2`.  The older `DeltaFrontierLedger` carrier retains its historical
+compiled structurally from `s ≤ 2*N`.  The reflected finite saddle-to-exp
+*compiler* is now kernel-checked: each mode selects either the direct rational
+shift atom or an explicit dyadic-log tail/separation atom whose false branch
+contradicts the faithful saddle estimate.  Genuine physical `pΓ ≥ 2` certificate
+data remain open.  A corrected conditional transport now carries canonical bulk
+localization through one named physical map-identification bridge to
+`PhysicalRGInput` and a positive `CRealFloor`.  The older `DeltaFrontierLedger`
+carrier retains its historical
 bare interface and is not treated as definitionally equivalent. Hygiene note: the library
 carries exactly 9 `noncomputable` declarations (in `NormExcitedDrift`,
 `DominantModeRecursion`, `UniformCouplingFromAF`), pending the

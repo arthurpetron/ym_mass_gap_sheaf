@@ -110,7 +110,9 @@ structure FrontierDAG
   only the corrected finite family `s <= 2*N` as its analytic field.  Above that
   window the fusion tail vanishes by theorem.  This is a reviewed physical
   strengthening in specificity, not an inhabitant: the genuine finite
-  saddle-to-exp certificate remains OPEN for `pΓ >= 2`. -/
+  saddle-to-exp certificate data remain OPEN for `pΓ >= 2`; the selected
+  reflected certificate compiler itself is proved in
+  `ReflectedSaddleExpCertificate`. -/
   bulkCtrl : RebasedBulkLocalizationBridge.CanonicalBulkControl N w pΓ
   /-- (D2) the plaquette-graph `SepLattice` metric refining `z4Chain` — inhabited
   DATA, carried only to type `tTree`. -/
@@ -307,7 +309,7 @@ does not inhabit the remaining finite analytic field.
 OPEN (deliberately uninhabited — NO inhabitant provided, never `sorry`):
 
   * `FrontierDAG` itself — guard-protected via its remaining open atoms
-    (the finite saddle-to-exp field inside `bulkCtrl`, `tTree`, `d1Mayer`, the physical
+    (the physical finite saddle-to-exp certificate data inside `bulkCtrl`, `tTree`, `d1Mayer`, the physical
     `a2Pentagon`,
     `edgeShift`, `trueMargin`, `boundedH`, `o4`);
   * `CoreBBridge` — the missing Core-B cross-list bridge lemma.

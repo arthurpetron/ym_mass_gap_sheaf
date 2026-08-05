@@ -57,8 +57,11 @@ corollary object, not as a frontier atom.
     repointed to `CanonicalBulkControl N w p`, whose analytic input is the
     corrected finite re-based family `s ≤ 2*N`.  This legacy `DeltaToBlockPower`
     route is not silently identified with that corrected carrier; transporting
-    canonical finite localization into the physical block-power law remains a
-    named downstream bridge.
+    canonical finite localization into the physical block-power law is now
+    routed explicitly by `CanonicalBulkBlockPowerTransport`: the route reaches
+    `PhysicalRGInput` and a positive `CRealFloor`, conditional on the single named
+    physical identification `localizationToPower`.  That identification remains
+    open for the genuine four-dimensional blocking map.
 
   * **(DELETED as an atom) — the cited-classical Minlos σ-additive lift.**  Carried
     as the token `ClayScorecard.ClayContinuumExistence` (= `CitedMinlosLift`): the

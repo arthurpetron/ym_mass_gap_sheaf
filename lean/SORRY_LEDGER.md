@@ -77,6 +77,8 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 - **files**:
   `lean/YMGap/Continuum/RebasedExpShiftSupportReduction.lean`,
   `lean/YMGap/Continuum/RebasedBulkLocalizationBridge.lean`,
+  `lean/YMGap/Continuum/ReflectedSaddleExpCertificate.lean`,
+  `lean/YMGap/Continuum/CanonicalBulkBlockPowerTransport.lean`,
   `lean/YMGap/Rubric/FrontierDAG.lean`
 - **historical field statement**:
   `bulkCtrl : SpectralLocalizationCrux.SpectralLocalization w`.
@@ -94,17 +96,29 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `expShiftBridge_of_finite_pos` compiles the infinite tail structurally;
   `CanonicalBulkControl.bulk_below_gapEdge` delivers the corrected physical
   bulk-to-gap result; `canonicalBulkControl_p1` proves interface non-vacuity at
-  the unperturbed exponent.
+  the unperturbed exponent.  The selected reflected checker now proves the
+  general certificate compiler `finiteExpShiftBridge_of_certificate`: a direct
+  rational branch or an explicit dyadic-log tail/separation branch is checked
+  at each finite mode, and the latter is contradicted by the faithful saddle
+  estimate.  The result compiles end-to-end into `CanonicalBulkControl`.  The
+  corrected downstream `CanonicalBulkBlockPowerTransport` reaches
+  `PhysicalRGInput` and a positive `CRealFloor` conditional on its single named
+  physical map-identification field `localizationToPower`.
 - **constructive or propositional**: constructive — the effective weight and
   finite certificate are `Type`-level data.
 - **axiom gate**: all new load-bearing declarations use only
   `[propext, Quot.sound]`; no `sorryAx`, classical choice, `native_decide`, new
   axiom, or noncomputable witness.
-- **honest residual**: this is a statement repair, NOT a physical discharge.
-  The finite faithful saddle-to-exp certificate remains uninhabited for the
-  genuine `pΓ >= 2` input.  The historical `DeltaFrontierLedger.bulkCtrl`
-  interface is not silently equated with the corrected carrier; its downstream
-  block-power transport remains separate open work.
+- **honest residual**: this is still NOT a physical `pΓ >= 2` discharge.  The
+  certificate *compiler* is closed, but the genuine physical certificate data
+  (effective-rate dyadic reductions, selected depths/tail budgets, and the
+  successful finite Boolean scan) remain uninhabited.  The compiler deliberately
+  avoids a global log/exp inverse: its false route uses only explicit artanh
+  tails and the supplied saddle estimate.  The historical
+  `DeltaFrontierLedger.bulkCtrl` interface is not silently equated with the
+  corrected carrier.  Its replacement now has an explicit conditional
+  block-power transport, but the physical fusion-spectrum-to-`blockingStep.Φ`
+  identification remains the named `localizationToPower` residual.
 - **Rule-9 sign-off record**: old statement preserved above; replacement is
   stronger in physical specificity and removes the refuted bare reference; the
   canonical statement hash is deliberately re-pinned in the same reviewed

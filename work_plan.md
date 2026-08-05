@@ -19051,3 +19051,68 @@ checker.  Rust may generate the untrusted table, but Lean must verify it.  Exist
 `CoreBResidualSimplex.fastNormalize` and `RawGridSemanticTransport` soundness APIs are
 the intended substrate.  This optimization is recorded for the next heavy audit; it
 is not needed to justify the canonical repoint itself.
+
+## 52. Reflected finite saddle-to-exp compiler and corrected block-power transport (2026-08-05)
+
+**Status. COMPILER CLOSED; PHYSICAL CERTIFICATE DATA AND MAP IDENTIFICATION OPEN.**
+
+The repaired finite logarithmic premise does not, by itself, imply the desired
+re-based rational shift.  The audit found four missing ingredients: an effective
+weight, a logarithm of its powered rate, an explicit remainder budget, and either a
+log/exp inverse or an equivalent separation argument.  `CRealLog` also has no general
+signed-real exponential inverse or logarithm power law.  Building that global layer
+is therefore not necessary for this finite obligation.
+
+`ReflectedSaddleExpCertificate` closes the shorter constructive route.  It proves an
+explicit tail theorem for every `DyadicLogReduction` from the existing artanh
+geometric recurrence.  An untrusted per-mode route then selects exactly one kernel
+check:
+
+```text
+direct route:      fusionEig - rateP weff <= 1/12
+separation route:  eta*C4^2 + delta + mu
+                     <= logEig(K) - logRate(K) - eigTail - rateTail.
+```
+
+The separation route additionally checks the two tail recurrences, `0 < mu`, and a
+rational rate-log anchor.  Its soundness proof instantiates the Prop-level saddle
+estimate at `mu/2`, moves to `max K M`, and derives incompatible upper and lower
+bounds on `logEig-logRate`.  Thus it genuinely consumes the saddle estimate and is
+not a disguised copy of the target shift.  `FiniteSaddleToExpCertificate.checked` is
+one finite `List.range (2*N+1)` Boolean scan.  The proved compilers now give
+
+```text
+FiniteSaddleToExpCertificate
+  -> FiniteExpShiftBridge
+  -> ExpShiftBridge                  (positive exponent)
+  -> CanonicalBulkControl.
+```
+
+This is the intended computer-science acceleration: a Rust or Lean generator may
+choose the route, dyadic reductions, depth, and rational budgets, while Lean verifies
+only the selected atoms.  All load-bearing declarations audit to
+`[propext, Quot.sound]`.  The genuine physical `pΓ >= 2` data and successful scan are
+not yet inhabited, so `FrontierDAG.bulkCtrl` is not claimed discharged.
+
+In parallel, `CanonicalBulkBlockPowerTransport` replaces the unusable historical
+bare-reference route.  It proves the canonical modewise localization verdict, names
+the one remaining physical identification from that verdict to
+`BlockingStepFrontier.IsBlockPower`, and transports any completed bundle through the
+existing green consumers to `PhysicalRGInput`, `UnifiedContinuumFloor.CRealFloor`,
+and strict floor positivity.  The hierarchical exact-power map supplies interface
+non-vacuity.  For physical four-dimensional Yang--Mills the
+fusion-spectrum-to-`blockingStep.Φ` identification remains honestly open as
+`localizationToPower`.
+
+**Verification boundary.**  Both new modules pass focused monitored builds and
+focused axiom audits (14 gated declarations total, zero exceptions, only
+`[propext, Quot.sound]`), and the 10-statement drift guard passes unchanged.
+The monolithic root/frontier guards were also attempted under the mandated
+memory launcher.  The root target stopped at the 12 GiB operating-system
+reserve; the one-worker frontier retry then exposed two pre-existing BF4
+certificate shards,
+`BF4ExactSlabVacuumReflectionCheck4Face4.lean` and
+`BF4ExactSlabVacuumReflectionCheck5Face3.lean`, that exceed Lean's fixed 32 GiB
+per-worker kernel-memory ceiling.  No ceiling or safety threshold was raised.
+This is the explicit full-build boundary for the milestone, not a failure of
+the new saddle or transport modules.
