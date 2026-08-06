@@ -19449,3 +19449,44 @@ The focused monitored check completes in under one second and every exported
 gate reports only `[propext]` or `[propext, Quot.sound]`.  Neither the `16/75`
 slope inequality nor the fine dyadic reserve is claimed proved; the all-scale
 weighted-box strong-Turan family also remains open.
+
+## 61. Cancellation-preserving theta drift covariance (2026-08-06)
+
+**Status. THE COMMON-CUTOFF QUOTIENT IS NOW AN EXACT RECTANGULAR KERNEL; ITS
+CASIMIR SIGN PARTITION IS PROVED FOR EVERY CUTOFF.**
+
+`P2BlockCompatibleThetaDriftCross` removes division from the coarse normalized
+deficit change and proves the identity
+
+```text
+A(w0,N)*D(w4,N) - A(w4,N)*D(w0,N)
+  = sum_(i<N) sum_(j<=N) K(w0,w4;i,j).
+```
+
+The rectangular sum is split exactly into a square core and its one unmatched
+terminal column.  Twice the square core is also identified with the sum of the
+transposed pair kernels `K(i,j)+K(j,i)`.  These are structural-recursion
+certificates: Lean checks a constant-size finite-sum theorem instead of
+normalizing the growing rational expression at each cutoff.
+
+Each cell is then factored into one nonnegative dimension scalar and a
+two-base Casimir power cross.  From exponent order alone the checker proves,
+uniformly in the cutoff and for every `0 <= low <= high`,
+
+```text
+j <= i  ->  K(low,high;i,j) <= 0,
+i <  j  ->  0 <= K(low,high;i,j).
+```
+
+Thus the remaining `16/75` theorem is precisely a weighted exchange between
+the favorable lower triangle and the adverse upper triangle plus terminal
+column.  A floating-point scouting fence at `k=7` reports that the terminal
+column alone costs about `1.97` times the available budget while the square
+core refunds about `0.98`; this is diagnostic only, but it rules out dropping
+the negative core.  The actual Lean frontier remains the exact all-`k>=7`
+kernel exchange together with the independent fine even/odd reserve.
+
+The covariance-plus-fine-reserve compiler lands directly in the existing
+division-free coefficient sandwich and hence the genuine `BlockingStep.Phi`
+consumer.  The focused monitored check passes with only `[propext]` or
+`[propext, Quot.sound]`.  No all-scale tail inhabitant is claimed.

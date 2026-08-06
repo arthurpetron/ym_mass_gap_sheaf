@@ -943,9 +943,11 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 - **milestone**: FrontierDAG bucket 1 / physical pGamma=2 mode-one transport.
 - **file**:
   `lean/YMGap/Continuum/P2BlockCompatibleThetaNormalizedDeficit.lean`,
-  `lean/YMGap/Continuum/P2BlockCompatibleThetaScaleInvariant.lean`
+  `lean/YMGap/Continuum/P2BlockCompatibleThetaScaleInvariant.lean`,
+  `lean/YMGap/Continuum/P2BlockCompatibleThetaDriftCross.lean`
 - **decl**: `BlockCompatibleP2NormalizedDeficitTailFromSeven`,
-  `BlockCompatibleP2DimensionlessNormalizedTailFromSeven`
+  `BlockCompatibleP2DimensionlessNormalizedTailFromSeven`,
+  `BlockCompatibleP2DimensionlessDriftCrossTailFromSeven`
 - **obligation**: Inhabit the two schedule-specific normalized-deficit
   inequalities for every `k >= 7`, including the explicit shared debt
   `delta_k=(1/360)8^(-k)`.
@@ -963,7 +965,13 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `(16/75)*((3/8)*u_k^2*L_k)=delta_k`; constructive alternating Taylor proves
   `w_k <= w_(k+1)^4 <= w_k+(3/8)u_k^2`.  Thus the coarse tail has been reduced
   further to a fixed `16/75` dimensionless normalized-slope bound, while the
-  fine field remains the independent even/odd reserve.  These compile through
+  fine field remains the independent even/odd reserve.  The coarse quotient is
+  now division-free and equal to one rectangular mode-pair kernel sum.  Its
+  square-core/terminal-column split, transposed-pair identity, common monomial
+  factorization, and exact sign partition (`j<=i` favorable, `i<j` adverse)
+  are kernel-checked for every cutoff.  The remaining analytic content is the
+  sharp triangular exchange paying the `16/75` budget; the negative square
+  core cannot be discarded.  These compile through
   the deficit-energy/SOS, dyadic parity, quotient, and genuine
   `BlockingStep.Phi` layers.  The remaining tail begins honestly at `k=7`;
   neither analytic field is claimed inhabited.
