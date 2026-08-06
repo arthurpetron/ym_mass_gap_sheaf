@@ -945,11 +945,13 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/P2BlockCompatibleThetaNormalizedDeficit.lean`,
   `lean/YMGap/Continuum/P2BlockCompatibleThetaScaleInvariant.lean`,
   `lean/YMGap/Continuum/P2BlockCompatibleThetaDriftCross.lean`,
-  `lean/YMGap/Continuum/P2BlockCompatibleThetaTrapezoidExchange.lean`
+  `lean/YMGap/Continuum/P2BlockCompatibleThetaTrapezoidExchange.lean`,
+  `lean/YMGap/Continuum/P2BlockCompatibleThetaTerminalChord.lean`
 - **decl**: `BlockCompatibleP2NormalizedDeficitTailFromSeven`,
   `BlockCompatibleP2DimensionlessNormalizedTailFromSeven`,
   `BlockCompatibleP2DimensionlessDriftCrossTailFromSeven`,
-  `BlockCompatibleP2TrapezoidExchangeTailFromSeven`
+  `BlockCompatibleP2TrapezoidExchangeTailFromSeven`,
+  `BlockCompatibleP2TerminalSeparatedTailFromSeven`
 - **obligation**: Inhabit the two schedule-specific normalized-deficit
   inequalities for every `k >= 7`, including the explicit shared debt
   `delta_k=(1/360)8^(-k)`.
@@ -976,8 +978,13 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   the square core plus the terminal column, and the terminal column is exactly
   one scalar cross.  A nonpositive trapezoid cross together with a terminal
   bound by twice the normalized budget compiles to the desired covariance
-  bound without discarding the negative core.  Both schedule-specific
-  inequalities remain open.  These compile through
+  bound without discarding the negative core.  The terminal cross is now
+  factored exactly by the actual heat increment and bounded by a constructive
+  mixed-power right rectangle.  Its remaining field is the product of one
+  explicit high-weight terminal monomial and one low-weight Casimir-gap
+  moment, bounded by `(32/75)*L*D0*D4`; no growing difference of powers or
+  scale-dependent drift remains in that atom.  The separated terminal bound,
+  trapezoid exchange, and fine reserve remain open.  These compile through
   the deficit-energy/SOS, dyadic parity, quotient, and genuine
   `BlockingStep.Phi` layers.  The remaining tail begins honestly at `k=7`;
   neither analytic field is claimed inhabited.

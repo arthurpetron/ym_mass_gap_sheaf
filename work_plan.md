@@ -19532,3 +19532,45 @@ previous independent fine even/odd reserve.  The focused monitored check
 passes with only `[propext]` or `[propext, Quot.sound]`; no inhabitant of the
 new tail structure, all-scale physical frontier, or Yang--Mills theorem is
 claimed.
+
+## 63. Terminal heat chord and endpoint/moment separation (2026-08-06)
+
+**Status. THE TERMINAL COLUMN HAS NO REMAINING DIFFERENCE OF LARGE POWERS;
+ITS OPEN FIELD IS ONE DIMENSIONLESS ENDPOINT--MOMENT PRODUCT.**
+
+`P2BlockCompatibleThetaTerminalChord` proves that every terminal kernel has a
+strictly positive Casimir exponent gap and applies the constructive mixed
+difference-of-powers identity.  Summing the exact cell factorization gives
+
+```text
+terminalCross(low,high,N)
+  = (high-low) * terminalChordMass(low,high,N).
+```
+
+The physical fourth-power heat comparison supplies
+`high-low <= blockQuadraticDrift(k)`.  The mixed power cofactor is then bounded
+by its right rectangle, and constant-size reflected algebra separates the
+resulting mass exactly as
+
+```text
+terminalRightMass(low,high,N)
+  = terminalOuterFactor(high,N) * terminalLowMoment(low,N).
+```
+
+Here `terminalOuterFactor` is the single terminal dimension square times
+`high^(2*C4(N)-1)`, while `terminalLowMoment` is one finite sum weighted by the
+exact exponent gap.  Consequently the remaining scale-free terminal atom is
+
+```text
+terminalOuterFactor(w4,Nk) * terminalLowMoment(w0,Nk)
+  <= (32/75) * Lk * D0 * D4.
+```
+
+This field, the nonpositive trapezoid exchange, and the independent fine
+even/odd reserve compile directly through the checked covariance and
+coefficient-sandwich layers to the genuine `BlockingStep.Phi` consumer.
+Floating-point scouting places the normalized left side near `0.41965` for
+large cutoffs, below `32/75 = 0.42666...`; this is diagnostic only and shows
+that the proof must preserve roughly 1.6 percent slack.  The focused monitored
+Lean check passes with only `[propext]` or `[propext, Quot.sound]`.  No tail
+inhabitant or all-scale Yang--Mills claim is asserted.
