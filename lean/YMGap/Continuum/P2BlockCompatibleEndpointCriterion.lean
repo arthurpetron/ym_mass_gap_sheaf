@@ -258,7 +258,7 @@ def BlockCompatibleP2EndpointMonotonicityTail.toModeOneTailMonotonicity
     have hsquare := coarse_le_fine_square_of_reference_budget
       hfine.1 hfine.2 hrefFine.1 hrefFine.2
       (blockRawModeOne_endpoint_error k)
-      (blockRawModeOne_endpoint_error (k + 1)) (E.budget k hk)
+      (blockRawModeOne_endpoint_error (k + 1)) (E.budget k (by omega))
     exact Q'.le_trans' _ _ _ hsquare
       (Q'.ge_of_eqv (P2DyadicFusionEndpointCriterion.qpow_two_eqv
         (blockRawModeOne (k + 1))))

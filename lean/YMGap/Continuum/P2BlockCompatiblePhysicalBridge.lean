@@ -6,9 +6,9 @@ This module installs the replacement cutoff/weight schedule in the reviewed
 two honest analytic carriers:
 
 * the division-free coefficient tail that constructs `CanonicalBulkControl`;
-* the normalized mode-one square comparison from scale `k = 2` onward.
+* the normalized mode-one square comparison from scale `k = 4` onward.
 
-The first two square cells are already kernel-checked.  Once the tail is
+The first four square cells are already kernel-checked.  Once the tail is
 supplied, the same square comparison propagates a one-half mode-one floor, so
 there is no independent all-scale floor hypothesis.  The quotient compiler
 then reaches the actual `BlockingStep.Phi` defect identity on the
@@ -103,13 +103,23 @@ theorem fusionModeOne_step_one (D : BlockCompatibleP2CoeffTailData) :
       qpow (fusionModeQ D.toControlFamily modeOne 2) 2 :=
   fusionModeOne_coarse_le_fineSquare_of_raw D 1 blockRaw_step_one
 
+theorem fusionModeOne_step_two (D : BlockCompatibleP2CoeffTailData) :
+    fusionModeQ D.toControlFamily modeOne 2 <=
+      qpow (fusionModeQ D.toControlFamily modeOne 3) 2 :=
+  fusionModeOne_coarse_le_fineSquare_of_raw D 2 blockRaw_step_two
+
+theorem fusionModeOne_step_three (D : BlockCompatibleP2CoeffTailData) :
+    fusionModeQ D.toControlFamily modeOne 3 <=
+      qpow (fusionModeQ D.toControlFamily modeOne 4) 2 :=
+  fusionModeOne_coarse_le_fineSquare_of_raw D 3 blockRaw_step_three
+
 /-- The only remaining normalized-amplitude comparison.  Its finite prefix is
-not repeated: the structural proof starts at `k = 2`. -/
+not repeated: the structural proof starts at `k = 4`. -/
 structure BlockCompatibleP2ModeOneTailMonotonicity : Type where
-  tail : forall k, 2 <= k ->
+  tail : forall k, 4 <= k ->
     blockRawModeOne k <= qpow (blockRawModeOne (k + 1)) 2
 
-/-- Combine the two exact head cells with the one all-scale tail theorem. -/
+/-- Combine the four exact head cells with the one all-scale tail theorem. -/
 theorem BlockCompatibleP2ModeOneTailMonotonicity.coarseLeFineSquare
     (M : BlockCompatibleP2ModeOneTailMonotonicity)
     (D : BlockCompatibleP2CoeffTailData) (k : Nat) :
@@ -121,8 +131,14 @@ theorem BlockCompatibleP2ModeOneTailMonotonicity.coarseLeFineSquare
       cases k with
       | zero => exact fusionModeOne_step_one D
       | succ k =>
-          exact fusionModeOne_coarse_le_fineSquare_of_raw D (k + 2)
-            (M.tail (k + 2) (by omega))
+          cases k with
+          | zero => exact fusionModeOne_step_two D
+          | succ k =>
+              cases k with
+              | zero => exact fusionModeOne_step_three D
+              | succ k =>
+                  exact fusionModeOne_coarse_le_fineSquare_of_raw D (k + 4)
+                    (M.tail (k + 4) (by omega))
 
 /-! ## 3. Derive the all-scale half floor -/
 

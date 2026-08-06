@@ -43,6 +43,12 @@ theorem blockWeight_one_eqv :
 theorem blockWeight_two_eqv :
     blockWeight 2 ≈ Q'.mkPos 191 192 (by decide) := by decide
 
+theorem blockWeight_three_eqv :
+    blockWeight 3 ≈ Q'.mkPos 767 768 (by decide) := by decide
+
+theorem blockWeight_four_eqv :
+    blockWeight 4 ≈ Q'.mkPos 3071 3072 (by decide) := by decide
+
 def blockScaledModeZero : Q' :=
   scaledModeOne 11 12 (blockNcut 0) (by decide)
 
@@ -51,6 +57,12 @@ def blockScaledModeOne : Q' :=
 
 def blockScaledModeTwo : Q' :=
   scaledModeOne 191 192 (blockNcut 2) (by decide)
+
+def blockScaledModeThree : Q' :=
+  scaledModeOne 767 768 (blockNcut 3) (by decide)
+
+def blockScaledModeFour : Q' :=
+  scaledModeOne 3071 3072 (blockNcut 4) (by decide)
 
 theorem blockRawModeZero_eqv : blockRawModeOne 0 ≈ blockScaledModeZero :=
   p2VacNorm_one_eqv_scaled 11 12 (by decide) (blockWeight 0)
@@ -67,11 +79,27 @@ theorem blockRawModeTwo_eqv : blockRawModeOne 2 ≈ blockScaledModeTwo :=
     blockWeight_two_eqv (blockWeight_nonneg 2) (blockWeight_le_one 2)
     (blockNcut 2) (by decide)
 
+theorem blockRawModeThree_eqv : blockRawModeOne 3 ≈ blockScaledModeThree :=
+  p2VacNorm_one_eqv_scaled 767 768 (by decide) (blockWeight 3)
+    blockWeight_three_eqv (blockWeight_nonneg 3) (blockWeight_le_one 3)
+    (blockNcut 3) (by decide)
+
+theorem blockRawModeFour_eqv : blockRawModeOne 4 ≈ blockScaledModeFour :=
+  p2VacNorm_one_eqv_scaled 3071 3072 (by decide) (blockWeight 4)
+    blockWeight_four_eqv (blockWeight_nonneg 4) (blockWeight_le_one 4)
+    (blockNcut 4) (by decide)
+
 theorem blockScaled_step_zero :
     blockScaledModeZero <= qpow blockScaledModeOne 2 := by decide
 
 theorem blockScaled_step_one :
     blockScaledModeOne <= qpow blockScaledModeTwo 2 := by decide
+
+theorem blockScaled_step_two :
+    blockScaledModeTwo <= qpow blockScaledModeThree 2 := by decide
+
+theorem blockScaled_step_three :
+    blockScaledModeThree <= qpow blockScaledModeFour 2 := by decide
 
 private theorem transport_scaled_square {rawCoarse rawFine scaledCoarse scaledFine : Q'}
     (hc : rawCoarse ≈ scaledCoarse) (hf : rawFine ≈ scaledFine)
@@ -93,9 +121,24 @@ theorem blockRaw_step_one :
   transport_scaled_square blockRawModeOne_eqv blockRawModeTwo_eqv
     blockScaled_step_one
 
+/-- Third exact physical square cell, the first member of the former
+structural tail. -/
+theorem blockRaw_step_two :
+    blockRawModeOne 2 <= qpow (blockRawModeOne 3) 2 :=
+  transport_scaled_square blockRawModeTwo_eqv blockRawModeThree_eqv
+    blockScaled_step_two
+
+/-- Fourth exact physical square cell. -/
+theorem blockRaw_step_three :
+    blockRawModeOne 3 <= qpow (blockRawModeOne 4) 2 :=
+  transport_scaled_square blockRawModeThree_eqv blockRawModeFour_eqv
+    blockScaled_step_three
+
 end YMGap.Continuum.P2BlockCompatibleScheduleCells
 
 /-! ## Axiom-dependency gates -/
 
 #print axioms YMGap.Continuum.P2BlockCompatibleScheduleCells.blockRaw_step_zero
 #print axioms YMGap.Continuum.P2BlockCompatibleScheduleCells.blockRaw_step_one
+#print axioms YMGap.Continuum.P2BlockCompatibleScheduleCells.blockRaw_step_two
+#print axioms YMGap.Continuum.P2BlockCompatibleScheduleCells.blockRaw_step_three

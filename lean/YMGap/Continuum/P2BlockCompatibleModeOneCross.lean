@@ -67,7 +67,7 @@ theorem blockRawModeOne_eqv_crossRatio (k : Nat) :
 /-- Cancellation-preserving all-scale residual.  It is division-free and
 contains exactly three finite sums at each physical square step. -/
 structure BlockCompatibleP2ModeOneCrossTail : Type where
-  cross : forall k, 2 <= k ->
+  cross : forall k, 4 <= k ->
     blockModeOneNum k *
         (blockModeOneDen (k + 1) * blockModeOneDen (k + 1)) <=
       blockModeOneDen k *
