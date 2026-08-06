@@ -2283,6 +2283,7 @@ import YMGap.Continuum.P2RetunedBlockingDictionary
 import YMGap.Continuum.P2RetunedFusionPowerCertificate
 import YMGap.Continuum.P2RetunedFusionPowerFenceAudit
 import YMGap.Continuum.P2RetunedFusionDefectPower
+import YMGap.Continuum.P2RetunedFusionRunningCell
 import YMGap.Continuum.FusionShiftMonotone
 import YMGap.Continuum.MeanComplementClose
 import YMGap.Continuum.DiscreteLaplaceSaddle
