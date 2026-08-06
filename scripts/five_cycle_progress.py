@@ -215,6 +215,14 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
                 f"k>={parameters['physical_coeff_tail_start']}"
             )
             lines.append(
+                "        |     +-- [x] exact coefficient heads "
+                f"k=[{_csv(parameters['physical_coeff_head_prefix_scales'])}]"
+            )
+            lines.append(
+                "        |     +-- [>] residual head seed "
+                f"k>={parameters['physical_coeff_head_tail_start']}"
+            )
+            lines.append(
                 "        |     +-- [x] parity proof compiler "
                 f"{parameters['physical_coeff_tail_invariant']}"
             )

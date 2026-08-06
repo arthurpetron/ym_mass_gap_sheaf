@@ -23,6 +23,7 @@ declaration.
 -/
 
 import YMGap.Continuum.P2BlockCompatiblePhysicalBridge
+import YMGap.Continuum.P2BlockCompatibleHeadLinearCertificate
 import YMGap.Continuum.P2BlockCompatibleIntegralTailCertificate
 import YMGap.Continuum.P2RetunedRatioCompiler
 import YMGap.Continuum.SelfFusionLogConcave
@@ -34,6 +35,7 @@ open YMGap.Continuum
 open YMGap.Continuum.BondMovingStep
 open YMGap.Continuum.FusionKernelStatement
 open YMGap.Continuum.P2BlockCompatiblePhysicalBridge
+open YMGap.Continuum.P2BlockCompatibleHeadLinearCertificate
 open YMGap.Continuum.P2BlockCompatibleIntegralTailCertificate
 open YMGap.Continuum.P2BlockCompatibleSchedule
 open YMGap.Continuum.P2RetunedRatioCompiler
@@ -339,6 +341,32 @@ structure P2RetunedBoxCoreParityStrands (N : Nat) (w : Q') : Type where
           boxTailBase N w (2 * m)) *
         boxTailLeft N w (2 * m - 1)
 
+/-- The two transition schemas without the single head cell.  Separating
+the transition automaton from its seed lets exact finite head certificates
+advance independently of the all-mode analytic family. -/
+structure P2RetunedBoxCoreParityTransitions (N : Nat) (w : Q') : Type where
+  oddStep : forall m, 2 * m + 3 < 2 * N ->
+    boxTailBase N w (2 * m + 1) *
+        boxTailLeft N w (2 * m + 3) <=
+      (qpow (p2RetunedWeight w) 4 *
+          boxTailBase N w (2 * m + 3)) *
+        boxTailLeft N w (2 * m + 1)
+  evenBridge : forall m, 1 <= m -> 2 * m < 2 * N ->
+    boxTailBase N w (2 * m - 1) *
+        boxTailLeft N w (2 * m) <=
+      (qpow (p2RetunedWeight w) 2 *
+          boxTailBase N w (2 * m)) *
+        boxTailLeft N w (2 * m - 1)
+
+/-- Insert one proved seed into the head-free transition automaton. -/
+def boxCoreParityStrands_of_head_transitions {N : Nat} {w : Q'}
+    (head : boxTailLeft N w 1 <= boxTailRight N w 1)
+    (T : P2RetunedBoxCoreParityTransitions N w) :
+    P2RetunedBoxCoreParityStrands N w where
+  head := head
+  oddStep := T.oddStep
+  evenBridge := T.evenBridge
+
 theorem coeffTailLeft_eqv_boxTailLeft (N : Nat) (w : Q') (s : Nat) :
     coeffTailLeft N w s ≈ boxTailLeft N w s := by
   unfold coeffTailLeft boxTailLeft
@@ -354,6 +382,16 @@ theorem coeffTailRight_eqv_boxTailRight (N : Nat) (w : Q') (s : Nat) :
   unfold coeffTailRight boxTailRight
   exact Q'.mul_eqv_congr_left _ _ _
     (coeffTailBase_eqv_boxTailBase N w s)
+
+/-- Transport a proved physical head cell back to the exact weighted-box
+coordinate. -/
+theorem boxHead_of_coeffHead {N : Nat} {w : Q'}
+    (h : coeffTailLeft N w 1 <= coeffTailRight N w 1) :
+    boxTailLeft N w 1 <= boxTailRight N w 1 :=
+  Q'.le_trans' _ _ _
+    (Q'.ge_of_eqv (coeffTailLeft_eqv_boxTailLeft N w 1))
+    (Q'.le_trans' _ _ _ h
+      (Q'.le_of_eqv (coeffTailRight_eqv_boxTailRight N w 1)))
 
 /-- Exact reconstruction transports the fixed-power box laws to the physical
 coefficient laws. -/
@@ -506,6 +544,79 @@ def BlockCompatibleP2BoxCoreParityStrandFromFour.toCoeffTailData
     BlockCompatibleP2CoeffTailData :=
   T.toCoeffTailFromFour.toAllScale
 
+set_option maxRecDepth 100000
+set_option exponentiation.threshold 60000
+
+/-! ## Two more exact physical head cells -/
+
+/-- The scale-four head is a single common-denominator natural-number cell;
+unlike a full-support scan it reduces quickly in the kernel. -/
+theorem blockIntegralHeadCheck_four : physicalIntegralTailAt 4 1 := by decide
+
+/-- The scale-five head is still a single exact cell.  The enlarged evaluator
+limits apply only to the certificate tail of this module. -/
+theorem blockIntegralHeadCheck_five : physicalIntegralTailAt 5 1 := by decide
+
+theorem blockBoxHead_four :
+    boxTailLeft (blockNcut 4) (blockWeight 4) 1 <=
+      boxTailRight (blockNcut 4) (blockWeight 4) 1 :=
+  boxHead_of_coeffHead
+    (physicalIntegralTailAt_sound 4 1 blockIntegralHeadCheck_four)
+
+theorem blockBoxHead_five :
+    boxTailLeft (blockNcut 5) (blockWeight 5) 1 <=
+      boxTailRight (blockNcut 5) (blockWeight 5) 1 :=
+  boxHead_of_coeffHead
+    (physicalIntegralTailAt_sound 5 1 blockIntegralHeadCheck_five)
+
+theorem blockBoxHead_six :
+    boxTailLeft (blockNcut 6) (blockWeight 6) 1 <=
+      boxTailRight (blockNcut 6) (blockWeight 6) 1 :=
+  boxHead_of_coeffHead
+    (physicalIntegralTailAt_sound 6 1 physicalIntegralHeadCheck_six)
+
+theorem blockBoxHead_seven :
+    boxTailLeft (blockNcut 7) (blockWeight 7) 1 <=
+      boxTailRight (blockNcut 7) (blockWeight 7) 1 :=
+  boxHead_of_coeffHead
+    (physicalIntegralTailAt_sound 7 1 physicalIntegralHeadCheck_seven)
+
+/-- Sharper post-prefix coefficient frontier.  The parity transitions remain
+the genuinely all-mode input from `k=4`, but exact computation has moved the
+single head seed to `k>=8`. -/
+structure BlockCompatibleP2BoxParityTransitionsFromFourHeadFromEight : Type where
+  transitions : forall k, 4 <= k ->
+    P2RetunedBoxCoreParityTransitions (blockNcut k) (blockWeight k)
+  head : forall k, 8 <= k ->
+    boxTailLeft (blockNcut k) (blockWeight k) 1 <=
+      boxTailRight (blockNcut k) (blockWeight k) 1
+
+def BlockCompatibleP2BoxParityTransitionsFromFourHeadFromEight.toFromFour
+    (T : BlockCompatibleP2BoxParityTransitionsFromFourHeadFromEight) :
+    BlockCompatibleP2BoxCoreParityStrandFromFour where
+  boxCore := fun k hk =>
+    boxCoreParityStrands_of_head_transitions
+      (by
+        by_cases h4 : k = 4
+        · subst k
+          exact blockBoxHead_four
+        by_cases h5 : k = 5
+        · subst k
+          exact blockBoxHead_five
+        by_cases h6 : k = 6
+        · subst k
+          exact blockBoxHead_six
+        by_cases h7 : k = 7
+        · subst k
+          exact blockBoxHead_seven
+        exact T.head k (by omega))
+      (T.transitions k hk)
+
+def BlockCompatibleP2BoxParityTransitionsFromFourHeadFromEight.toCoeffTailData
+    (T : BlockCompatibleP2BoxParityTransitionsFromFourHeadFromEight) :
+    BlockCompatibleP2CoeffTailData :=
+  T.toFromFour.toCoeffTailData
+
 #print axioms tail_of_alternating_strands
 #print axioms alternatingTailStrands_of_eqv
 #print axioms parityStrands_of_core
@@ -517,5 +628,12 @@ def BlockCompatibleP2BoxCoreParityStrandFromFour.toCoeffTailData
 #print axioms BlockCompatibleP2BoxParityStrandData.toCoeffTailData
 #print axioms BlockCompatibleP2BoxCoreParityStrandData.toCoeffTailData
 #print axioms BlockCompatibleP2BoxCoreParityStrandFromFour.toCoeffTailData
+#print axioms blockIntegralHeadCheck_four
+#print axioms blockIntegralHeadCheck_five
+#print axioms blockBoxHead_four
+#print axioms blockBoxHead_five
+#print axioms blockBoxHead_six
+#print axioms blockBoxHead_seven
+#print axioms BlockCompatibleP2BoxParityTransitionsFromFourHeadFromEight.toCoeffTailData
 
 end YMGap.Continuum.P2RetunedParityStrandCompiler

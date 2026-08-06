@@ -2,13 +2,15 @@
 Track 11.7-fusion / R4e -- physically repoint the strict frontier away from
 the constructively empty schedule-wide strong-Turan carrier.
 
-The coefficient input is now the fixed-power parity-strand family only from
-`k>=4`: direct integral certificates discharge every supported mode at scales
-zero through three, odd cells propagate by a two-step product law, and each
-even cell is inserted from the preceding odd cell by the true odd-index Turan
-law.  The theta input remains the honest post-certificate tail with both fields
-requested only from `k>=8`.  These independent inputs compile directly to the
-reviewed all-cutoff family, its spectrum pins, and the genuine
+The coefficient input is now the fixed-power parity-transition family from
+`k>=4`, with its single head requested only from `k>=8`: direct integral
+certificates discharge every supported mode at scales zero through three;
+sparse linear certificates discharge the head cells at scales four through
+seven.  Odd cells propagate by a two-step
+product law, and each even cell is inserted from the preceding odd cell by the
+true odd-index Turan law.  The theta input remains the honest post-certificate
+tail with both fields requested only from `k>=8`.  These independent inputs
+compile directly to the reviewed all-cutoff family, its spectrum pins, and the genuine
 `BlockingStep.Phi` quotient defect without passing through either refuted
 all-index strong-Turan carrier.
 
@@ -39,9 +41,10 @@ open YMGap.Continuum.P2RetunedParityStrandCompiler
 open YMGap.Continuum.RGTransport
 
 /-- Honest Bucket-1 boundary after removing both refuted sufficient premises.
-The true parity-strand coefficient laws begin only at physical scale four. -/
+The true transition laws begin at scale four; exact cells move the sole head
+seed to scale eight. -/
 structure BlockCompatibleP2PhysicalFrontierRepointed : Type where
-  coefficient : BlockCompatibleP2BoxCoreParityStrandFromFour
+  coefficient : BlockCompatibleP2BoxParityTransitionsFromFourHeadFromEight
   theta : BlockCompatibleP2PostRadialTailStrictFromEight
 
 def BlockCompatibleP2PhysicalFrontierRepointed.coeffTailData

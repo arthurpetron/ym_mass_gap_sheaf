@@ -470,6 +470,41 @@ Focused monitored checks are green and all new load-bearing gates use only
 inequalities from `k>=4` remain the honest analytic coefficient frontier.
 No full audit, remote push, or GitHub CI run was used.
 
+## Exact parity heads through physical scale seven (2026-08-06)
+
+The parity carrier now separates its head-free transition automaton from the
+single seed.  This lets exact finite work advance without duplicating or
+weakening the actual all-scale analytic premises.
+
+- Kernel `decide` certificates prove `physicalIntegralTailAt 4 1` and
+  `physicalIntegralTailAt 5 1`; the existing common-denominator soundness
+  theorem transports them to the exact weighted-box head inequalities.
+- `P2BlockCompatibleHeadLinearCertificate` proves that channel one is exactly
+  one adjacent band and channel two exactly one diagonal plus two oriented
+  distance-two bands after common-denominator clearing.  This reduces the
+  head evaluator from a Clebsch double sum to three linear finite sums.
+- The sparse evaluator proves the formerly intractable physical heads at
+  `k=6` and `k=7` by axiom-free kernel `decide`; its reconstruction and
+  transport theorems use only `[propext, Quot.sound]`.
+- `BlockCompatibleP2BoxParityTransitionsFromFourHeadFromEight` requests the odd
+  two-step and preceding-odd insertion laws from `k>=4`, but requests the sole
+  head only from `k>=8`.  Exact case analysis inserts the four head cells before
+  compiling to the reviewed all-cutoff coefficient family.
+- The physical `CanonicalBulkControl`, `finePin`, `imagePin`, genuine
+  `BlockingStep.Phi` defect power, and half-loss consumer has been repointed to
+  this sharper interface.  Its focused monitored check is green and its gates
+  remain `[propext, Quot.sound]`.
+- Direct evaluation of the unreduced `k=6` head exhausted the monitored Lean
+  memory ceiling and was safely stopped.  The sparse representation replaces
+  that failed route: `k=6` checks in seconds and `k=7` in under two minutes on
+  one monitored worker without memory pressure.  Extending finite evaluation
+  indefinitely is not the proof; the honest next head step is an analytic
+  schedule induction on the sparse bands.
+
+No full audit, remote push, or GitHub CI run was used.  The head from `k>=8`,
+the transition laws from `k>=4`, and the two uniform `k>=8` theta transports
+remain open.
+
 ## Dead routes (refuted — do not re-attempt)
 
 - **`Var_m(cosθ)` monotonicity → uniform-in-`m`** — REFUTED (`VarianceMonotonicity.lean`,
