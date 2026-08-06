@@ -300,6 +300,33 @@ Honest frontier: the physical `k=7` fine-reserve cell is closed.  The uniform
 family, and physical margin recursion remain open.  This is not a proof of the
 Yang--Mills Millennium problem.
 
+## Checked `k=7` reserve installed in the physical frontier (2026-08-06)
+
+The exact base cell is now consumed downstream, so it is no longer duplicated
+as a caller-supplied assumption.
+
+- `blockFineReserve_seven` states the checked certificate directly over the
+  repository's physical `blockWeight`, `blockNcut`, `coordNormSq`,
+  `coefficientDeficit`, and `blockParityDebt` definitions.
+- `BlockCompatibleP2PostRadialTailFromEight` asks for trapezoid exchange from
+  `k>=7`, but asks for the fine reserve only from `k>=8`.  Its compiler fills
+  the missing `k=7` branch with `blockFineReserve_seven`.
+- Combined with the weighted-box coefficient carrier, the reduced frontier
+  constructs an actual all-cutoff `pGamma=2` `CanonicalBulkControlFamily` and
+  proves the generic `pGamma>=2` condition.  Its `finePin` is selected by the
+  canonical fusion spectrum, its `imagePin` comes from `BlockingStep.step`, and
+  the existing mode-one quotient compiler reaches the genuine
+  `BlockingStep.Phi` defect-power identity and uniform half-loss gate.
+- The focused source check and monitored module target are green.  All
+  exported declarations use only `[propext, Quot.sound]`; no full-project audit
+  and no remote CI run were used.
+
+This is a strict premise reduction, not an inhabitant of the full frontier.
+The all-scale weighted-box strong-Turan family, trapezoid exchange from seven,
+fine reserve from eight, loss summability, physical margin recursion,
+continuum construction, and physical O(4) restoration remain open.  It is not
+a solution of the Yang--Mills Millennium problem.
+
 ## Dead routes (refuted — do not re-attempt)
 
 - **`Var_m(cosθ)` monotonicity → uniform-in-`m`** — REFUTED (`VarianceMonotonicity.lean`,

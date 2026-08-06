@@ -136,6 +136,26 @@ theorem fineSevenReserveAtomsPhysicalDebt :
   exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hleft)
     fineSevenReserveAtomsCertifiedDebt
 
+/-- The sealed-atom certificate is exactly the repository's physical
+`fineReserve` field at scale `k=7`.  This is the exported theorem used to
+remove the checked head cell from later all-scale carriers. -/
+theorem blockFineReserve_seven :
+    let w1 := blockWeight (7 + 1)
+    let w4 := qpow w1 4
+    let D1 := coordNormSq w1 (blockNcut (7 + 1))
+    let D4 := coordNormSq w4 (blockNcut 7)
+    let T1 := coefficientDeficit w1 (blockNcut (7 + 1))
+    let T4 := coefficientDeficit w4 (blockNcut 7)
+    Q'.ofNat 2 * (D4 * T1) +
+        blockParityDebt 7 * (D1 * D4) <= D1 * T4 := by
+  dsimp only
+  rw [show blockNcut (7 + 1) = 1279 by decide,
+    show blockNcut 7 = 639 by decide]
+  have h := fineSevenReserveAtomsPhysicalDebt
+  rw [fineSevenD1ExactAtom_eq, fineSevenD4ExactAtom_eq,
+    fineSevenT1ExactAtom_eq, fineSevenT4ExactAtom_eq] at h
+  exact h
+
 /-- Honest carrier for downstream variable-index transport.  The structural
 equalities identify every sealed atom with the repository's physical
 definition; `reserve` is the exact `k=7` fine-reserve inequality. -/
@@ -165,6 +185,7 @@ def fineSevenPhysicalReserveCertificate : FineSevenPhysicalReserveCertificate wh
 #print axioms fineSevenTwiceT1_eqv_P1
 #print axioms fineSevenTwiceT4_eqv_P4
 #print axioms fineSevenReserveAtomsPhysicalDebt
+#print axioms blockFineReserve_seven
 #print axioms fineSevenPhysicalReserveCertificate
 
 end YMGap.Continuum.P2BlockCompatibleThetaFineReserveSevenPhysical
