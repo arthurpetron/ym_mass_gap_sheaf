@@ -103,6 +103,12 @@ theorem blockMargin_le_one (k : Nat) : blockMargin k <= (1 : Q') :=
 theorem blockWeight_nonneg (k : Nat) : (0 : Q') <= blockWeight k :=
   Q'.sub_nonneg_of_le (blockMargin_le_one k)
 
+theorem blockWeight_pos (k : Nat) : (0 : Q') < blockWeight k := by
+  unfold blockWeight
+  exact HKPos.one_sub_pos
+    (Q'.lt_of_le_of_lt (blockMargin_le_q112 k)
+      (by decide : q112 < (1 : Q')))
+
 theorem blockWeight_le_one (k : Nat) : blockWeight k <= (1 : Q') :=
   BondMovingRetuneFix.oneSub_le_one (blockMargin_nonneg k)
 
@@ -301,6 +307,7 @@ end YMGap.Continuum.P2BlockCompatibleSchedule
 /-! ## Axiom-dependency gates -/
 
 #print axioms YMGap.Continuum.P2BlockCompatibleSchedule.blockNcut_closed
+#print axioms YMGap.Continuum.P2BlockCompatibleSchedule.blockWeight_pos
 #print axioms YMGap.Continuum.P2BlockCompatibleSchedule.endpointRate_le_doubleSucc_square
 #print axioms YMGap.Continuum.P2BlockCompatibleSchedule.endpointRate_block_step
 #print axioms YMGap.Continuum.P2BlockCompatibleSchedule.endpointBlockCrossGap_eqv
