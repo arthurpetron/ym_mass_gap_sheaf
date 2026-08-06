@@ -1015,6 +1015,21 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   Peter--Weyl reconstruction are already kernel-checked.
 - **status note**: remains independent of the parity-transport pair above.
 
+### [R3k-strand-A1] Exact finite Clebsch-box strand reindex — **CLOSED 2026-08-06**
+
+- **milestone**: FrontierDAG bucket 1 / half-time physical coefficient route.
+- **file**: `lean/YMGap/Continuum/FusionStrandExactReindex.lean`
+- **decl**: `boxSum_eq_lineSum_lagCorr`
+- **obligation**: Prove for every exact weight, cutoff, and channel that the
+  cutoff-square Clebsch sum equals the antidiagonal line sum of the truncated
+  lag correlation, with cutoff `r < N+1-max(p,t-p)`.
+- **constructive?**: yes — unique strand deltas, finite Fubini, exact delta
+  collapse, and one masked-prefix theorem; no evaluated large certificate.
+- **status note**: A1 is closed with axiom gate `[propext, Quot.sound]` and is
+  wired into `P2HalfTimeLineSumTailRatio.toCoeff`.  The schedule-wide
+  lag-correlation line-sum inequality (A3/physical half-time sign) remains an
+  explicit open input; this entry does not claim it or a continuum margin.
+
 ## How to add an entry
 
 ```markdown

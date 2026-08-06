@@ -259,6 +259,11 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
                     "        |     +-- [x] half-time power compiler "
                     f"{parameters['physical_coeff_half_time_power_compiler']}"
                 )
+            if parameters.get("physical_coeff_strand_reindex"):
+                lines.append(
+                    "        |     +-- [x] exact strand A1 reindex "
+                    f"{parameters['physical_coeff_strand_reindex']}"
+                )
             if parameters.get("physical_coeff_half_time_frontier"):
                 lines.append(
                     "        |     +-- [>] adjacent half-time alternative "

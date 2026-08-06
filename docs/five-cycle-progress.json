@@ -65,7 +65,8 @@
     "physical_coeff_tail_invariant": "head-free odd q^4 pairs + preceding-odd q^2 insertion",
     "physical_coeff_transition_compiler": "one integer cross-product per transition",
     "physical_coeff_half_time_power_compiler": "w^(s+2) <= q^(2*s+3) by retune decay",
-    "physical_coeff_half_time_frontier": "one schedule-native adjacent inequality for k>=4",
+    "physical_coeff_strand_reindex": "exact boxSum = lineSum(lagCorr) for every N,t,w",
+    "physical_coeff_half_time_frontier": "one schedule-native lag-correlation line-sum inequality for k>=4",
     "physical_theta_tail_start": 8,
     "physical_pins_head_free": true,
     "frontier_bucket1_atoms": [
@@ -81,6 +82,7 @@
       "head-free physical pin frontier: the proved k>=8 head is inserted automatically, leaving only k>=4 parity transitions and the k>=8 theta tail; finePin, imagePin, genuine BlockingStep.Phi defect power, and the half-loss gate remain kernel-checked; all gates [propext,Quot.sound]",
       "parity-transition proof compiler: generic common-denominator reconstruction clears both weighted-box factors and the q^2/q^4 heat power, proves one pure-Nat cross product sound, and repoints the physical pin frontier to natural-number odd/even transition families; all gates [propext,Quot.sound]",
       "half-time adjacent-ratio compiler: the general retune-decay theorem and exponent antitonicity prove w^(s+2)<=q^(2*s+3); therefore one stronger schedule-native adjacent coefficient inequality from k>=4 compiles to the all-scale CanonicalBulkControl family after the four checked prefixes; the adjacent family remains open; all gates [propext,Quot.sound]",
+      "exact strand A1 reindex: constructive finite Fubini and unique strand-delta collapse prove boxSum(w,N,t)=lineSum(lagCorr(w,N),t) with the sharp r<N+1-max(p,t-p) cutoff for every N,t,w; the half-time family is now one schedule-native line-sum inequality, while its analytic sign remains open; all gates [propext,Quot.sound]",
       "all-N post-boundary even/odd cleared-prefix reserve",
       "all-N UniformBoxLogConcave for every 0 <= w <= 1/2",
       "all-N endpoint S1Dominance at w = 1/2",
