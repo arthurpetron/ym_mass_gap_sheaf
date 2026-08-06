@@ -2373,6 +2373,7 @@ import YMGap.Continuum.P2HalfTimeParityStrandCompiler
 import YMGap.Continuum.P2HalfTimeStrongTuranCompiler
 import YMGap.Continuum.P2HalfTimeStrongTuranObstruction
 import YMGap.Continuum.P2BlockCompatiblePhysicalCompiledFrontier
+import YMGap.Continuum.P2HalfTimeScaleFourSplicedParityCompiler
 import YMGap.Continuum.P2BlockCompatiblePhysicalFrontierRepointed
 import YMGap.Continuum.P2DyadicPhysicalMarginTransport
 import YMGap.Continuum.P2RetunedFusionRunningCell

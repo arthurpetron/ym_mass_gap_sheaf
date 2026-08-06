@@ -378,6 +378,11 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
                     "        |     +-- [x] endpoint-spliced parity compiler "
                     f"{parameters['physical_coeff_endpoint_spliced_parity']}"
                 )
+            if parameters.get("physical_coeff_half_time_scale_four_complete"):
+                lines.append(
+                    "        |     +-- [x] complete physical k=4 half-time row "
+                    f"{parameters['physical_coeff_half_time_scale_four_complete']}"
+                )
             if parameters.get("physical_coeff_half_time_frontier"):
                 lines.append(
                     "        |     +-- [>] half-time reserve frontier "
@@ -395,7 +400,9 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
                 "        |     +-- [x] finePin + imagePin + genuine Phi defect-power dictionary"
             )
             lines.append(
-                "        |     +-- [>] pure-Nat off-band reserve + theta tail inputs"
+                "        |     +-- [>] pure-Nat off-cover transitions "
+                f"k>={state['parameters'].get('physical_coeff_residual_transition_start', 4)}"
+                " + theta tail inputs"
             )
     lines.extend(
         [

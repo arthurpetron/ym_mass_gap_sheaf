@@ -143,7 +143,7 @@ theorem tail_of_alternating_outside
 
 /-! ## 2. Pointwise reinsertion of the growing heat powers -/
 
-private theorem halfTimeBox_oddStep_of_core
+theorem halfTimeBox_oddStep_of_core
     {N : Nat} {w : Q'} (hw0 : (0 : Q') <= w) (m : Nat)
     (hcore :
       boxTailBase N w (2 * m + 1) * boxTailLeft N w (2 * m + 3) <=
@@ -192,7 +192,7 @@ private theorem halfTimeBox_oddStep_of_core
   exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hleft)
     (Q'.le_trans' _ _ _ hscaled (Q'.le_of_eqv hright))
 
-private theorem halfTimeBox_evenBridge_of_core
+theorem halfTimeBox_evenBridge_of_core
     {N : Nat} {w : Q'} (hw0 : (0 : Q') <= w) (m : Nat) (hm : 1 <= m)
     (hcore :
       boxTailBase N w (2 * m - 1) * boxTailLeft N w (2 * m) <=
@@ -362,6 +362,8 @@ end YMGap.Continuum.P2HalfTimeEndpointSplicedParityCompiler
 /-! ## Axiom-dependency gates -/
 
 #print axioms YMGap.Continuum.P2HalfTimeEndpointSplicedParityCompiler.tail_of_alternating_outside
+#print axioms YMGap.Continuum.P2HalfTimeEndpointSplicedParityCompiler.halfTimeBox_oddStep_of_core
+#print axioms YMGap.Continuum.P2HalfTimeEndpointSplicedParityCompiler.halfTimeBox_evenBridge_of_core
 #print axioms YMGap.Continuum.P2HalfTimeEndpointSplicedParityCompiler.physical_halfTime_box_of_endpointCoverAt
 #print axioms YMGap.Continuum.P2HalfTimeEndpointSplicedParityCompiler.BlockCompatibleP2HalfTimeOffCoverTransitionsFromFour.toLineSumTail
 #print axioms YMGap.Continuum.P2HalfTimeEndpointSplicedParityCompiler.BlockCompatibleP2HalfTimeOffCoverTransitionsFromFour.toCoeffTailData

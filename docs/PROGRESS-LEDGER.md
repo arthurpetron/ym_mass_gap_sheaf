@@ -694,6 +694,29 @@ then compiles through the exact A1 reindex to the common physical carrier.
 All new gates are `[propext, Quot.sound]`.  No full audit, remote push, or
 GitHub CI run was used.
 
+## Complete physical scale-four row and residual `k>=5` splice (2026-08-06)
+
+The first unresolved physical cutoff is now discharged rather than left in
+the all-scale transition premise.  At `k=4`, the closed schedule gives
+`N_4=79` and `w_4=3071/3072`.  A generic Boolean block scanner proves a
+theorem about computation: if its bounded scan succeeds, every direct
+half-time cell in that interval holds.  Nine independently compiled blocks
+close `s=2..136`; process isolation keeps each kernel normalization below the
+per-process memory ceiling.  The existing physical head theorem closes
+`s=1`, and the symbolic endpoint-cover theorem closes `s=137..157`.
+
+The resulting theorem proves the genuine bond-moved coefficient inequality
+for every supported scale-four mode.  Exact A1 setoid transport moves that
+row to lag-correlation coordinates.  A dependent all-cutoff compiler now
+uses the direct row at `k=4` and requests off-cover odd/even transition atoms
+only for `k>=5`.  This smaller honest input reaches the same reviewed
+`CanonicalBulkControlFamily`, proves `pGamma>=2`, and retains `finePin`,
+`imagePin`, the genuine `BlockingStep.Phi` quotient defect-power law, and the
+half-loss estimate.  The `k>=5` off-cover transition family and the `k>=8`
+theta tail remain open.  Every new load-bearing gate is
+`[propext, Quot.sound]`; each concrete Boolean block theorem is axiom-free.
+No full audit, remote push, or GitHub CI run was used.
+
 ## Dead routes (refuted — do not re-attempt)
 
 - **`Var_m(cosθ)` monotonicity → uniform-in-`m`** — REFUTED (`VarianceMonotonicity.lean`,

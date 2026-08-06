@@ -1351,6 +1351,50 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   family reaches the common reviewed physical carrier; all gates are
   `[propext, Quot.sound]`.
 
+### [R4ae-scale-four-reflection] Scale-four bounded reflection certificates — **CLOSED 2026-08-06**
+
+- **milestone**: FrontierDAG bucket 1 / proof about computation.
+- **file**: `lean/YMGap/Continuum/P2HalfTimeScaleFourCertificate.lean` and
+  `P2HalfTimeScaleFourCertificate{18,34,50,66,82,98,114,130}.lean`
+- **decl**: `halfTimeIntegralTailBlockCheck_sound`,
+  `physicalHalfTimeScaleFourCheck_2_17` through
+  `physicalHalfTimeScaleFourCheck_130_136`
+- **obligation**: Check the direct half-time cells `s=2..136` at the first
+  unresolved physical cutoff without one crash-sized kernel normalization.
+- **constructive?**: yes — a generic Boolean-list soundness theorem and nine
+  process-isolated `decide` certificates.
+- **status note**: all block declarations are axiom-free; the soundness
+  wrapper uses only `[propext, Quot.sound]`.
+
+### [R4af-scale-four-complete] Complete physical scale-four row — **CLOSED 2026-08-06**
+
+- **milestone**: FrontierDAG bucket 1 / physical coefficient route.
+- **file**: `lean/YMGap/Continuum/P2HalfTimeScaleFourComplete.lean`
+- **decl**: `physicalHalfTimeScaleFourInteriorAt`,
+  `physical_halfTime_scaleFour`
+- **obligation**: Join the checked interior, the proved head, and the symbolic
+  endpoint band into every supported half-time cell at `k=4`, `N_4=79`.
+- **constructive?**: yes — bounded reflection, explicit `Q'.eqv` transport,
+  Presburger endpoint enumeration, and the existing endpoint theorem.
+- **status note**: every `1<=s<158` cell is closed; all gates are
+  `[propext, Quot.sound]`.
+
+### [R4ag-scale-four-splice] Residual transition compiler from scale five — **CLOSED 2026-08-06**
+
+- **milestone**: FrontierDAG bucket 1 / genuine physical consumer.
+- **file**: `lean/YMGap/Continuum/P2HalfTimeScaleFourSplicedParityCompiler.lean`
+- **decl**: `physicalScaleFourLineSumTail`,
+  `BlockCompatibleP2HalfTimeOffCoverTransitionsFromFive.toLineSumTail`,
+  `BlockCompatibleP2PhysicalScaleFourSplicedParityFrontier.blockDefectPowerOnTrajectory`
+- **obligation**: Remove the entire `k=4` row from the off-cover transition
+  family while preserving the reviewed all-cutoff physical trajectory.
+- **constructive?**: yes — dependent scale split, exact A1 transport, and the
+  existing common physical compiler.
+- **status note**: only off-cover transitions for `k>=5` plus the independent
+  theta tail remain; `pGamma>=2`, `finePin`, `imagePin`, genuine
+  `BlockingStep.Phi` defect power, and half-loss all remain kernel-checked
+  under `[propext, Quot.sound]`.
+
 ## How to add an entry
 
 ```markdown
