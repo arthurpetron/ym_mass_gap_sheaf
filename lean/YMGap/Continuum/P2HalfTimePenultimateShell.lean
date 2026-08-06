@@ -365,7 +365,7 @@ private theorem bernDen_step_cover (m n D : Nat) (hD : 0 < D)
       _ = m * (D + n) := by rw [Nat.mul_add]
   exact_mod_cast htarget
 
-private theorem physical_power_upper_step (r m n : Nat)
+theorem physical_power_upper_step (r m n : Nat)
     (hcleared : physicalWeightDen (r + 4) <= m * n) :
     Q'.ofNat (m + 1) * qpow (blockWeight (r + 4)) n <= Q'.ofNat m := by
   let k := r + 4
@@ -568,6 +568,7 @@ end YMGap.Continuum.P2HalfTimePenultimateShell
 #print axioms YMGap.Continuum.P2HalfTimePenultimateShell.penultimateHalfTimeScalar
 #print axioms YMGap.Continuum.P2HalfTimePenultimateShell.blockNcut_ge_79
 #print axioms YMGap.Continuum.P2HalfTimePenultimateShell.physical_twoThirds_power_floor
+#print axioms YMGap.Continuum.P2HalfTimePenultimateShell.physical_power_upper_step
 #print axioms YMGap.Continuum.P2HalfTimePenultimateShell.physical_prepenultimate_coeff_descending
 #print axioms YMGap.Continuum.P2HalfTimePenultimateShell.physical_penultimate_coeff_descending
 #print axioms YMGap.Continuum.P2HalfTimePenultimateShell.physical_terminal_coeff_descending_from_four

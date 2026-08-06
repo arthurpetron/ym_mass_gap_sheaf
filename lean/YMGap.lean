@@ -2345,6 +2345,7 @@ import YMGap.Continuum.P2BlockCompatibleHalfTimeRatioCompiler
 import YMGap.Continuum.P2HalfTimeShiftTail
 import YMGap.Continuum.P2HalfTimePenultimateShell
 import YMGap.Continuum.P2HalfTimeAntepenultimateShell
+import YMGap.Continuum.P2HalfTimeFourthShell
 import YMGap.Continuum.P2HalfTimeTerminalShell
 import YMGap.Continuum.P2RetunedParityStrandCompiler
 import YMGap.Continuum.P2BlockCompatibleHeadLinearCertificate

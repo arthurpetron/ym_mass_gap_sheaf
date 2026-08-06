@@ -19894,3 +19894,36 @@ and common-carrier monitored targets pass; all exported gates report
 `[propext, Quot.sound]`.  The deeper interior signs, theta trapezoid/fine
 reserve, later FrontierDAG atoms, physical recursion, and the continuum
 Yang--Mills target remain open.
+
+## 74. Fourth half-time boundary shell (2026-08-06)
+
+**Status. THE `s=2*N_k-4` SHELL IS DISCHARGED FOR EVERY `k>=4`; THE OPEN
+PURE-NAT FAMILY MOVES A FOURTH ROW BELOW THE CUTOFF.**
+
+`P2HalfTimeFourthShell` reuses the exact nine-pair formula already proved for
+`boxSum(w,N,2*N-4)` and the six-pair formula one channel above it.  For
+descending endpoint coefficients `E >= A >= X >= B >= C`, the comparison is
+the nonnegative identity
+
+```text
+2*U - 3*T
+  = 4*C*(X-B) + 2*C*(A-X) + 4*C*(E-A)
+    + 2*(B-C)^2 + 2*(B-C)*(X-B)
+    + 4*(B-C)*(A-X) + 2*(X-B)^2.
+```
+
+The proved reflective `Q'` polynomial normalizer checks this identity.  One
+additional reciprocal-Bernoulli descent theorem establishes
+`c_(N-3) <= c_(N-4)` on the physical schedule, the same `2/3` floor pays the
+heat power, and dimension monotonicity completes the half-time cell.  The
+common physical compiler now assumes exactly
+
+```text
+k >= 4,  2 <= s,  s + 4 < 2*N_k
+```
+
+for its remaining full-local natural-number reserve signs.  The focused shell
+and common-carrier monitored targets pass; all exported gates report
+`[propext, Quot.sound]`.  The deeper interior signs, theta trapezoid/fine
+reserve, later FrontierDAG atoms, physical recursion, and the continuum
+Yang--Mills target remain open.
