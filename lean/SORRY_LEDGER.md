@@ -944,10 +944,12 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 - **file**:
   `lean/YMGap/Continuum/P2BlockCompatibleThetaNormalizedDeficit.lean`,
   `lean/YMGap/Continuum/P2BlockCompatibleThetaScaleInvariant.lean`,
-  `lean/YMGap/Continuum/P2BlockCompatibleThetaDriftCross.lean`
+  `lean/YMGap/Continuum/P2BlockCompatibleThetaDriftCross.lean`,
+  `lean/YMGap/Continuum/P2BlockCompatibleThetaTrapezoidExchange.lean`
 - **decl**: `BlockCompatibleP2NormalizedDeficitTailFromSeven`,
   `BlockCompatibleP2DimensionlessNormalizedTailFromSeven`,
-  `BlockCompatibleP2DimensionlessDriftCrossTailFromSeven`
+  `BlockCompatibleP2DimensionlessDriftCrossTailFromSeven`,
+  `BlockCompatibleP2TrapezoidExchangeTailFromSeven`
 - **obligation**: Inhabit the two schedule-specific normalized-deficit
   inequalities for every `k >= 7`, including the explicit shared debt
   `delta_k=(1/360)8^(-k)`.
@@ -969,9 +971,13 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   now division-free and equal to one rectangular mode-pair kernel sum.  Its
   square-core/terminal-column split, transposed-pair identity, common monomial
   factorization, and exact sign partition (`j<=i` favorable, `i<j` adverse)
-  are kernel-checked for every cutoff.  The remaining analytic content is the
-  sharp triangular exchange paying the `16/75` budget; the negative square
-  core cannot be discarded.  These compile through
+  are kernel-checked for every cutoff.  Exact finite-sum algebra now sharpens
+  this to two one-dimensional fields: the trapezoid cross is exactly twice
+  the square core plus the terminal column, and the terminal column is exactly
+  one scalar cross.  A nonpositive trapezoid cross together with a terminal
+  bound by twice the normalized budget compiles to the desired covariance
+  bound without discarding the negative core.  Both schedule-specific
+  inequalities remain open.  These compile through
   the deficit-energy/SOS, dyadic parity, quotient, and genuine
   `BlockingStep.Phi` layers.  The remaining tail begins honestly at `k=7`;
   neither analytic field is claimed inhabited.

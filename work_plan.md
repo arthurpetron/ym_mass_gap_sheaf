@@ -19490,3 +19490,45 @@ The covariance-plus-fine-reserve compiler lands directly in the existing
 division-free coefficient sandwich and hence the genuine `BlockingStep.Phi`
 consumer.  The focused monitored check passes with only `[propext]` or
 `[propext, Quot.sound]`.  No all-scale tail inhabitant is claimed.
+
+## 62. Sharp trapezoid refund and terminal split (2026-08-06)
+
+**Status. THE TWO-DIMENSIONAL COARSE COVARIANCE IS REDUCED TO TWO EXACT
+ONE-DIMENSIONAL INEQUALITIES; BOTH SCHEDULE ESTIMATES REMAIN OPEN.**
+
+`P2BlockCompatibleThetaTrapezoidExchange` retains the cancellation exposed by
+the rectangular kernel rather than bounding its positive and negative sectors
+separately.  If `C` is the square-core covariance and `E` its unmatched
+terminal column, the new finite-sum identities prove
+
+```text
+trapezoidCross = 2*C + E,
+terminalCross  = E.
+```
+
+The first identity is also the scalar formula obtained by replacing each
+diagonal mass with `full mass + terminal-deleted prefix`.  It therefore turns
+the sharp negative-core refund into a one-dimensional comparison of two
+weighted truncated sequences.  No cutoff-dependent rational expression is
+normalized.
+
+The exact positive-factor compiler proves that
+
+```text
+trapezoidCross <= 0
+terminalCross  <= 2*blockDriftCrossBudget(k)
+```
+
+imply
+
+```text
+fixedCutoffDeficitDriftCross <= blockDriftCrossBudget(k).
+```
+
+The factor two cancels constructively, and the result lands directly in
+`BlockCompatibleP2CoefficientSandwichFromSeven`.  This isolates the analytic
+work as a schedule-specific trapezoid exchange and terminal estimate, plus the
+previous independent fine even/odd reserve.  The focused monitored check
+passes with only `[propext]` or `[propext, Quot.sound]`; no inhabitant of the
+new tail structure, all-scale physical frontier, or Yang--Mills theorem is
+claimed.
