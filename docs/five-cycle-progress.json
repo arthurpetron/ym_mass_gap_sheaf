@@ -48,7 +48,7 @@
       "physical fractional-6j pentagon associator",
       "Core-B finite-s margin [closed] + forward bridge [open]"
     ],
-    "current_frontier_atom": "bulkCtrl -- reflected finite saddle-to-exp compiler is kernel-checked; physical pGamma>=2 certificate data/rate reductions remain open, with conditional block-power transport now reaching CRealFloor",
+    "current_frontier_atom": "bulkCtrl -- first nonvacuous physical pGamma=2 cell is kernel-checked at N=3,w=11/12,weff=23/25; all-scale certificate family and exact fusion/blocking dictionary remain open",
     "frontier_supporting_discharged": [
       "all-N post-boundary even/odd cleared-prefix reserve",
       "all-N UniformBoxLogConcave for every 0 <= w <= 1/2",
@@ -59,7 +59,9 @@
       "legacy CReal logarithm arbitrary-logScale statement fence and deterministic dyadic replacement premise",
       "reviewed canonical bulkCtrl repoint to CanonicalBulkControl N w pGamma with positive-exponent tail compiler and p=1 non-vacuity",
       "selected reflected saddle-to-exp checker: explicit dyadic-log tails + rate anchor + separation contradiction -> FiniteExpShiftBridge -> CanonicalBulkControl",
-      "corrected canonical localization-to-block-power transport reaches PhysicalRGInput and positive CRealFloor conditional on one named physical map-identification bridge"
+      "corrected canonical localization-to-block-power transport reaches PhysicalRGInput and positive CRealFloor conditional on one named physical map-identification bridge",
+      "exact nonvacuous physical pGamma=2 CanonicalBulkControl cell at N=3,w=11/12,weff=23/25 with all seven support atoms kernel-checked and mode 2 in bulk",
+      "trajectory-only block-power consumer and genuine cross-scale fusion-spectrum/blockingStep.Phi dictionary refine the over-strong global-map residual and reach CRealFloor"
     ],
     "frontier_discharged_atoms": [
       "d2Sep -- plaquette separation data",
@@ -67,7 +69,7 @@
       "coreB -- FiniteSMargin for every 0 <= w <= 1/2"
     ],
     "frontier_open_atoms": [
-      "bulkCtrl -- physical pGamma>=2 reflected certificate data (effective-rate reductions/depths/rational checks); compiler closed",
+      "bulkCtrl -- one exact pGamma=2 cell closed; all-scale/cutoff physical certificate family remains open",
       "tTree -- 4D spanning-tree inequality",
       "d1Mayer -- absolute Mayer--Ursell expansion",
       "a2Pentagon -- physical fractional-6j associator",
@@ -145,6 +147,6 @@
     "fusion_ballot_recurrence": "two-neighbor sparse compiler+exact cone/parity support iff;[propext,Quot.sound]",
     "fusion_ballot_closed_form": "pathCount=guarded-PNPaths.ballotNat exactly;[propext,Quot.sound]",
     "fusion_path_row_logconcavity": "all-p support-row ratio order+step-two log-concavity;[propext,Quot.sound]",
-    "fusion_weighted_interlacing": "exact even/odd sectors+margins+ratio-fence compiler+order-N^3 checker+N7-half core+u=4w^2 Bernstein family consumer;division-free prefix-to-Bernstein Abel compiler+exact reconstruction kernel-checked;constructive strand ceilings 13/8+35/32;all-N post-boundary even/odd cleared-prefix reserve kernel-checked;all-N UniformBoxLogConcave for every 0<=w<=1/2 kernel-checked;all-N endpoint S1Dominance at w=1/2 kernel-checked;Core-B FiniteSMargin physically discharged on closed 0<=w<=1/2;bare-p2 physical pin exactly refuted at N3/w11of12/s2;rebased bulk-to-gap-edge bridge all-N,p,s kernel-checked;positive-exponent finite-support compiler+reviewed canonical bulkCtrl repoint+reflected dyadic-log saddle-to-exp compiler+conditional canonical block-power-to-CRealFloor transport kernel-checked;all gates [propext,Quot.sound]"
+    "fusion_weighted_interlacing": "exact even/odd sectors+margins+ratio-fence compiler+order-N^3 checker+N7-half core+u=4w^2 Bernstein family consumer;division-free prefix-to-Bernstein Abel compiler+exact reconstruction kernel-checked;constructive strand ceilings 13/8+35/32;all-N post-boundary even/odd cleared-prefix reserve kernel-checked;all-N UniformBoxLogConcave for every 0<=w<=1/2 kernel-checked;all-N endpoint S1Dominance at w=1/2 kernel-checked;Core-B FiniteSMargin physically discharged on closed 0<=w<=1/2;bare-p2 physical pin exactly refuted at N3/w11of12/s2;rebased bulk-to-gap-edge bridge all-N,p,s kernel-checked;positive-exponent finite-support compiler+reviewed canonical bulkCtrl repoint+reflected dyadic-log saddle-to-exp compiler;exact N3/w11of12/p2/weff23of25 seven-mode CanonicalBulkControl cell+nonempty mode-two bulk;trajectory-only block-power consumer+genuine cross-scale fusion-spectrum/Phi dictionary-to-CRealFloor kernel-checked;all gates [propext,Quot.sound]"
   }
 }

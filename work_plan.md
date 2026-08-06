@@ -19116,3 +19116,47 @@ certificate shards,
 per-worker kernel-memory ceiling.  No ceiling or safety threshold was raised.
 This is the explicit full-build boundary for the milestone, not a failure of
 the new saddle or transport modules.
+
+## 53. First physical `pΓ = 2` certificate cell and genuine fusion/blocking dictionary (2026-08-05)
+
+**Status. ONE NONVACUOUS FINITE CELL CLOSED; ALL-SCALE PHYSICAL DICTIONARY OPEN.**
+
+`PhysicalP2FiniteCertificate` supplies the first actual positive-exponent data
+for the reviewed canonical carrier:
+
+```text
+N = 3,  w = 11/12,  pΓ = 2,  weff = 23/25.
+```
+
+Lean's kernel checks all seven exact support atoms `0 <= s <= 6`, constructs
+`CanonicalBulkControl 3 fenceW 2`, and proves mode `s=2` satisfies the effective
+bulk premise.  The witness therefore cannot pass through the `weff=1` empty-bulk
+loophole.  `computations/core_b_pilot.py` now has a full terminal `p=2` row
+generator (distinct from the recursively queried `0..N` working row), exact
+`Fraction` certificate atoms, and a regression test matching the Lean constants.
+
+The subsequent map audit found that the historical conditional residual was
+over-strong and under-specified: a single-scale localization inequality cannot
+determine `blockingStep.Φ : CReal -> CReal`, much less prove a power identity for
+every constructive real.  `BlockingStepFrontier.IsBlockPowerOnTrajectory` is the
+sharp consumer actually needed by `selfSimilarC`; the new green consumers build
+`PhysicalRGInput` and `CRealFloor` from that trajectory-only law.
+
+`FusionSpectrumBlockingIdentification` then states the genuine cross-scale
+dictionary.  At every scale it requires a completed physical `pΓ>=2` canonical
+control and selected bulk mode, pins the fine separator to the next fusion
+eigenvalue, pins the actual `blockingStep.Φ` image to the coarse fusion
+eigenvalue, and carries the exact fusion power identity.  These pins compose to
+the trajectory power law and then to the continuum floor.  The interface is a
+proved refinement, not an inhabitant: the all-scale certificate family and the
+two exact physical map identities remain open.
+
+Focused monitored builds pass for the positive-exponent certificate (211 jobs),
+the trajectory consumer (168 jobs), and the genuine dictionary (213 jobs).  All
+new gates report only `[propext, Quot.sound]`; there is no `sorryAx`, classical
+choice, `native_decide`, or unmonitored Lean invocation.  The root `YMGap`
+integration target was attempted under the same monitor with two workers and,
+after memory recovery, the required one-worker retry.  Both were stopped cleanly
+at the 12 GiB operating-system reserve, with no Lean diagnostic.  The focused
+213-job dependency closure and 2,461-declaration axiom audit are therefore the
+verified boundary; no safety threshold was weakened.

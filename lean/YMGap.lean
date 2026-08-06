@@ -2267,6 +2267,8 @@ import YMGap.Continuum.RebasedBulkLocalizationBridge
 import YMGap.Continuum.CanonicalBulkBlockPowerTransport
 import YMGap.Continuum.RebasedExpShiftSupportReduction
 import YMGap.Continuum.ReflectedSaddleExpCertificate
+import YMGap.Continuum.PhysicalP2FiniteCertificate
+import YMGap.Continuum.FusionSpectrumBlockingIdentification
 import YMGap.Continuum.FusionShiftMonotone
 import YMGap.Continuum.MeanComplementClose
 import YMGap.Continuum.DiscreteLaplaceSaddle

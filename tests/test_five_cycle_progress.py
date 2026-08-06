@@ -17,22 +17,15 @@ STATE_PATH = Path(__file__).resolve().parents[1] / "docs" / "five-cycle-progress
 
 def test_default_chart_tracks_current_milestone() -> None:
     chart = render_chart(load_state(STATE_PATH))
-    assert "progress: 11/12 stages complete" in chart
+    assert "progress: 12/12 stages complete" in chart
     assert "based cycles [0,4,5,6,10]" in chart
     assert "cycle space 2^7 = 128 closed surfaces" in chart
     assert "[x] determine exact centered-vacuum balance (complete)" in chart
     assert "128/128 surfaces embedded" in chart
     assert "slab-embedding=128/128-closed-complete" in chart
-    assert "[>] prove closed-surface sum equals the actual Haar_5 moments (active)" in chart
+    assert "[x] prove closed-surface sum equals the actual Haar_5 moments (complete)" in chart
     assert "face-weight=exact-(2*w^3)^F-kernel-checked" in chart
-    assert (
-        "haar-bridge=reindex+QPoly+116-to-Haar5+active32+selected-face+"
-        "physical-factor-product-lift+forest-gauge-target+"
-        "inverse-forest-ledger+source-degree-closed+"
-        "cyclic-word-semantics+all-128-forest-values;"
-        "forest-substitution-cancellation-lift-open"
-        in chart
-    )
+    assert "actual-transport+Haar5-topological-amplitude-kernel-checked" in chart
     assert "exact 116 -> 32 active links" in chart
     assert "128/128 maximal forests + rooted paths checked" in chart
     assert "concrete chord-only forest-gauge evaluator" in chart
@@ -40,7 +33,7 @@ def test_default_chart_tracks_current_milestone() -> None:
     assert "128/128 orientation-aware Haar ledgers checked" in chart
     assert "source degree-five + Haar invariance + cyclic words checked" in chart
     assert "physical factor/product lift kernel-checked" in chart
-    assert "forest substitution/cancellation lift open" in chart
+    assert "word reducer: free+cyclic+128/128 face specialization kernel-checked" in chart
     assert "qpoly=128+2-surface-sums-kernel-checked" in chart
     assert (
         "six-face=literal-raw-words+five-chord-Haar-1/16-kernel-checked"
@@ -53,16 +46,10 @@ def test_default_chart_tracks_current_milestone() -> None:
     )
     assert "geometry=128/128-maximal-forests+root-paths-kernel-checked" in chart
     assert "lean-values=128/128-staged-kernel-checked" in chart
-    assert (
-        "transport=128/128-inverse-orientation-ledgers+source-degree-five+"
-        "Haar-invariance+cyclic-word-semantics+"
-        "physical-factor-product-lift-kernel-checked;"
-        "forest-substitution-cancellation-lift-open"
-        in chart
-    )
+    assert "padded-active-word-to-chord-Haar-endpoint+translated-semantics" in chart
     assert "WHOLE-PROJECT FORMAL ROADMAP: CURRENT LEAN -> COMPLETE YANG--MILLS PROOF" in chart
-    assert "high-level milestones: 2/9 complete" in chart
-    assert "[>] active finite campaign: actual BF4 Haar_5 surface bridge" in chart
+    assert "high-level milestones: 3/9 complete" in chart
+    assert "[x] finite campaign: actual BF4 Haar_5 surface bridge" in chart
     assert "supporting exact evidence; not alone a Clay closure" in chart
     assert "[ ] CLAY / JAFFE--WITTEN TARGET" in chart
     assert "complete formal dependency roadmap, not a claim" in chart
@@ -73,7 +60,7 @@ def test_stage_overrides_are_validated_and_rendered() -> None:
     state = deepcopy(load_state(STATE_PATH))
     apply_overrides(state, ["haar5_evaluation=complete", "haar5_comparison=active"])
     chart = render_chart(state)
-    assert "progress: 10/12 stages complete" in chart
+    assert "progress: 11/12 stages complete" in chart
     assert "[x] evaluate the two exact Haar_5 values (complete)" in chart
     assert "[>] compare row and constant Haar_5 values (active)" in chart
 
@@ -83,7 +70,7 @@ def test_project_stage_override_updates_full_path() -> None:
     apply_overrides(state, ["haar5_surface_bridge=complete"])
     chart = render_chart(state)
     assert "high-level milestones: 3/9 complete" in chart
-    assert "[x] active finite campaign: actual BF4 Haar_5 surface bridge" in chart
+    assert "[x] finite campaign: actual BF4 Haar_5 surface bridge" in chart
 
 
 def test_unknown_stage_is_rejected() -> None:

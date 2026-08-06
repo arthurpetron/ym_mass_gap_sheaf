@@ -64,6 +64,12 @@ DEFAULT_DPS: int = 40
 
 Q112: Fraction = Fraction(1, 12)  # Lean `q112`, the localization margin.
 
+# First exact positive-exponent Lean certificate cell
+# (`PhysicalP2FiniteCertificate`).
+PHYSICAL_P2_FENCE_N: int = 3
+PHYSICAL_P2_FENCE_W: Fraction = Fraction(11, 12)
+PHYSICAL_P2_FENCE_WEFF: Fraction = Fraction(23, 25)
+
 _VIZ_DIR = (
     Path(__file__).resolve().parent.parent
     / "visualizations"
@@ -170,6 +176,49 @@ def bond_moved_coeff(n_cut: int, w: Number, p: int, s: int) -> Number:
     """`bondMovedCoeff N w p s` (Lean `BondMovingStep.bondMovedCoeff`)."""
     one, zero = _numeric_units(w)
     return bond_moved_array(w, n_cut, p, one, zero)[s]
+
+
+def bond_moved_p2_full(n_cut: int, w: Number) -> list[Number]:
+    """Full terminal `p=2` fusion row on the exact support `0 <= s <= 2*N`.
+
+    Recursive folds query only modes through `N`, which is why
+    :func:`bond_moved_array` stores an `N+1` working row.  The final two-fold
+    product itself has support through `2*N`; this helper evaluates that full
+    terminal row and mirrors the finite Lean certificate window exactly.
+    """
+    zero: Number = Fraction(0) if isinstance(w, Fraction) else mp.mpf(0)
+    coeffs = _coeff_w_array(w, n_cut)
+    return [
+        sum(
+            (
+                coeffs[a] * coeffs[b]
+                for a in range(n_cut + 1)
+                for b in range(n_cut + 1)
+                if fusion_ok(a, b, s)
+            ),
+            zero,
+        )
+        for s in range(2 * n_cut + 1)
+    ]
+
+
+def p2_full_fusion_eigs(n_cut: int, w: Number) -> list[Number]:
+    """Vacuum-normalized eigenvalues of the full terminal `p=2` row."""
+    row = bond_moved_p2_full(n_cut, w)
+    return [row[s] / (dim_q(s) * row[0]) for s in range(2 * n_cut + 1)]
+
+
+def physical_p2_fence_shift_atoms() -> list[Fraction]:
+    """The seven exact shift atoms checked by the first physical Lean cell.
+
+    Returns `fusionEig(3,11/12,2,s) - (23/25)^C4(s)` for `0 <= s <= 6`.
+    Every entry is at most `1/12`; mode two is in the nonempty effective bulk.
+    """
+    eigs = p2_full_fusion_eigs(PHYSICAL_P2_FENCE_N, PHYSICAL_P2_FENCE_W)
+    return [
+        eig - eig_a(PHYSICAL_P2_FENCE_WEFF, s)
+        for s, eig in enumerate(eigs)
+    ]
 
 
 def fusion_kernel_norm(n_cut: int, w: Number, p: int, s: int) -> Number:

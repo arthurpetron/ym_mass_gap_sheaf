@@ -131,6 +131,17 @@ def test_rebased_shift_under_budget():
             assert reb < Q112
 
 
+def test_physical_p2_fence_full_support_certificate():
+    atoms = cb.physical_p2_fence_shift_atoms()
+    assert len(atoms) == 2 * cb.PHYSICAL_P2_FENCE_N + 1
+    assert all(atom <= Fraction(1, 12) for atom in atoms)
+    # Anti-vacuity: s=2 lies in the effective bulk at weff=23/25.
+    assert Fraction(1, 2) <= cb.c4(2) * (1 - cb.PHYSICAL_P2_FENCE_WEFF)
+    # The tight atom is mode three and still has positive rational slack.
+    assert max(range(len(atoms)), key=atoms.__getitem__) == 3
+    assert atoms[3] < Fraction(1, 12)
+
+
 def test_eta_monotone_in_bulk_window():
     # eta is non-increasing in p on the character/bulk window (w <= 11/12);
     # the w -> 1 corner (95/96) is a ~1e-6 subleading anomaly (measured, honest).

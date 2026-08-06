@@ -137,6 +137,24 @@ is the SINGLE remaining open statement once (a) is granted. -/
 def IsBlockPower (b : Nat) (Φ : CReal → CReal) : Prop :=
   ∀ x : CReal, CReal.Equiv (Φ x) (cpow x (b + 1))
 
+/-- **The physically sufficient power law on the separator trajectory.**  The
+continuum consumer never applies `Φ` to an arbitrary constructive real: it uses
+only the displayed next-scale separators `s (k+1)`.  This predicate records
+exactly those applications and no off-trajectory extension of the physical map.
+
+`IsBlockPower` implies this law, but the converse is intentionally not claimed.
+For a fusion-spectrum dictionary this is the honest target, because the finite
+spectral data pins the RG map only on the physical trajectory. -/
+def IsBlockPowerOnTrajectory (b : Nat) (s : Nat → CReal)
+    (Φ : CReal → CReal) : Prop :=
+  ∀ k : Nat, CReal.Equiv (Φ (s (k + 1))) (cpow (s (k + 1)) (b + 1))
+
+/-- A global block-power law restricts to the physical separator trajectory. -/
+theorem blockPowerOnTrajectory_of_blockPower {b : Nat} {s : Nat → CReal}
+    {Φ : CReal → CReal} (h : IsBlockPower b Φ) :
+    IsBlockPowerOnTrajectory b s Φ :=
+  fun k => h (s (k + 1))
+
 /-! ## 2. THE REDUCTION: `BlockingStep + IsBlockPower → selfSimilarC`
 
 This is the sharpening: the open self-similar law is exactly the composite of the
@@ -155,6 +173,14 @@ theorem selfSimilarC_of_blockingPower {b : Nat} {s : Nat → CReal}
     (B : BlockingStep s) (h : IsBlockPower b B.Φ) :
     selfSimilarC b s :=
   fun k => CReal.Equiv.trans (B.step k) (h (s (k + 1)))
+
+/-- **Sharp trajectory-level reduction.**  The exact block-power law only on
+the physical separator inputs already proves the complete self-similar flow.
+No assertion about `Φ x` away from the physical trajectory is needed. -/
+theorem selfSimilarC_of_blockingPowerOnTrajectory {b : Nat} {s : Nat → CReal}
+    (B : BlockingStep s) (h : IsBlockPowerOnTrajectory b s B.Φ) :
+    selfSimilarC b s :=
+  fun k => CReal.Equiv.trans (B.step k) (h k)
 
 /-! ## 3. THE PROVEN single-RG-step results (how close we get, `Q'` level)
 
@@ -251,6 +277,28 @@ def physicalRGInput_of_blockingPower {b : Nat} (hb : 1 ≤ b)
   floor0_pos := floor0_pos
   hbase0 := hbase0
 
+/-- The trajectory-level block-power law is the weakest direct input needed to
+build the physical RG package. -/
+def physicalRGInput_of_blockingPowerOnTrajectory {b : Nat} (hb : 1 ≤ b)
+    (physSep : Nat → CReal)
+    (B : BlockingStep physSep)
+    (hpow : IsBlockPowerOnTrajectory b physSep B.Φ)
+    (sepNonneg : ∀ k, ExpPos.geRat (physSep k) 0)
+    (sepLeOne : ∀ k, CReal.leRat (physSep k) 1)
+    (floor0 : Q') (floor0_pos : (0 : Q') < floor0)
+    (hbase0 : CReal.leEv (CReal.ofQ' floor0)
+      (physGapC b physSep (geomSpacing b) 0)) :
+    PhysicalRGInput where
+  b := b
+  hb := hb
+  physSep := physSep
+  selfSimilar := selfSimilarC_of_blockingPowerOnTrajectory B hpow
+  sepNonneg := sepNonneg
+  sepLeOne := sepLeOne
+  floor0 := floor0
+  floor0_pos := floor0_pos
+  hbase0 := hbase0
+
 /-- **The physical continuum gap from the per-step power law (GREEN reduction).**
 Composing `physicalRGInput_of_blockingPower` with the proved
 `physicalRG_continuum_gap`: GIVEN the single per-step power law (b) (plus the
@@ -269,6 +317,22 @@ def physicalGap_of_blockingPower {b : Nat} (hb : 1 ≤ b)
   physicalRG_continuum_gap
     (physicalRGInput_of_blockingPower hb physSep B hpow sepNonneg sepLeOne
       floor0 floor0_pos hbase0)
+
+/-- The spacing-uniform continuum floor from the sharp trajectory-only power
+law. -/
+def physicalGap_of_blockingPowerOnTrajectory {b : Nat} (hb : 1 ≤ b)
+    (physSep : Nat → CReal)
+    (B : BlockingStep physSep)
+    (hpow : IsBlockPowerOnTrajectory b physSep B.Φ)
+    (sepNonneg : ∀ k, ExpPos.geRat (physSep k) 0)
+    (sepLeOne : ∀ k, CReal.leRat (physSep k) 1)
+    (floor0 : Q') (floor0_pos : (0 : Q') < floor0)
+    (hbase0 : CReal.leEv (CReal.ofQ' floor0)
+      (physGapC b physSep (geomSpacing b) 0)) :
+    UnifiedContinuumFloor.CRealFloor (physGapC b physSep (geomSpacing b)) :=
+  physicalRG_continuum_gap
+    (physicalRGInput_of_blockingPowerOnTrajectory hb physSep B hpow sepNonneg
+      sepLeOne floor0 floor0_pos hbase0)
 
 /-! ## 6. The honest frontier ledger (English)
 
@@ -310,6 +374,8 @@ end YMGap.Continuum.BlockingStepFrontier
 
 #print axioms YMGap.Continuum.BlockingStepFrontier.equivRefl
 #print axioms YMGap.Continuum.BlockingStepFrontier.selfSimilarC_of_blockingPower
+#print axioms YMGap.Continuum.BlockingStepFrontier.blockPowerOnTrajectory_of_blockPower
+#print axioms YMGap.Continuum.BlockingStepFrontier.selfSimilarC_of_blockingPowerOnTrajectory
 #print axioms YMGap.Continuum.BlockingStepFrontier.decimation_isPower
 #print axioms YMGap.Continuum.BlockingStepFrontier.hierarchical_blocking_exact
 #print axioms YMGap.Continuum.BlockingStepFrontier.concreteBlockingStep
@@ -317,3 +383,5 @@ end YMGap.Continuum.BlockingStepFrontier
 #print axioms YMGap.Continuum.BlockingStepFrontier.concreteTower_selfSimilarC
 #print axioms YMGap.Continuum.BlockingStepFrontier.physicalRGInput_of_blockingPower
 #print axioms YMGap.Continuum.BlockingStepFrontier.physicalGap_of_blockingPower
+#print axioms YMGap.Continuum.BlockingStepFrontier.physicalRGInput_of_blockingPowerOnTrajectory
+#print axioms YMGap.Continuum.BlockingStepFrontier.physicalGap_of_blockingPowerOnTrajectory

@@ -109,16 +109,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 - **axiom gate**: all new load-bearing declarations use only
   `[propext, Quot.sound]`; no `sorryAx`, classical choice, `native_decide`, new
   axiom, or noncomputable witness.
-- **honest residual**: this is still NOT a physical `pΓ >= 2` discharge.  The
-  certificate *compiler* is closed, but the genuine physical certificate data
-  (effective-rate dyadic reductions, selected depths/tail budgets, and the
-  successful finite Boolean scan) remain uninhabited.  The compiler deliberately
+- **2026-08-05 positive-exponent progress**:
+  `PhysicalP2FiniteCertificate.fenceCanonicalBulkControl` now inhabits the first
+  exact nonvacuous physical cell at `N=3`, `w=11/12`, `pΓ=2`,
+  `weff=23/25`.  All seven modes `s<=6` are checked by kernel `decide`, and
+  `fenceModeTwo_isBulk` proves the consumer's bulk premise is inhabited at
+  `s=2`.  This closes concrete certificate data at one fence cell; it is not an
+  all-cutoff or all-scale closure.
+- **map-identification refinement**:
+  `BlockingStepFrontier.IsBlockPowerOnTrajectory` proves that only physical
+  separator inputs are required downstream.  The new
+  `FusionSpectrumBlockingDictionary` explicitly carries per-scale positive-
+  exponent controls, a localized mode, the fine fusion pin, the genuine
+  `blockingStep.Φ` image pin, and the exact fusion power identity.  Its proved
+  bridge reaches `PhysicalRGInput` and `CRealFloor`.  This strictly refines the
+  earlier over-strong global `forall x : CReal` residual.
+- **honest residual**: this is still NOT an all-scale physical `pΓ >= 2`
+  discharge.  The certificate *compiler* and one exact finite cell are closed,
+  but the genuine physical certificate family across the RG trajectory remains
+  uninhabited.  The compiler deliberately
   avoids a global log/exp inverse: its false route uses only explicit artanh
   tails and the supplied saddle estimate.  The historical
   `DeltaFrontierLedger.bulkCtrl` interface is not silently equated with the
-  corrected carrier.  Its replacement now has an explicit conditional
-  block-power transport, but the physical fusion-spectrum-to-`blockingStep.Φ`
-  identification remains the named `localizationToPower` residual.
+  corrected carrier.  The physical fine/image pins and exact cross-scale fusion
+  power identity remain named fields of `FusionSpectrumBlockingDictionary`.
 - **Rule-9 sign-off record**: old statement preserved above; replacement is
   stronger in physical specificity and removes the refuted bare reference; the
   canonical statement hash is deliberately re-pinned in the same reviewed
