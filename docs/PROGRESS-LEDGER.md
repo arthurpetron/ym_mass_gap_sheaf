@@ -664,13 +664,14 @@ uniform schedule-specific theorem missing from the preceding entry.  Lean
 proves coefficient descent at every endpoint depth `m` with `2*m<=N_k`, then
 feeds the resulting nonnegative increment environment into the all-depth
 semantic endpoint-ratio compiler.  A variable-depth constructive Bernoulli
-argument pays the heat factor whenever `5*(m+1)<=N_k+1`.  The exact box/line
-reindex therefore proves the complete half-time cell
-`s=2*N_k-m` throughout that growing endpoint band.
+argument pays the heat factor under the exact cover
+`(m+1)*(2*N_k-m+2)<=D_k`; `5*(m+1)<=N_k+1` is retained as a simple sufficient
+corollary.  The exact box/line reindex therefore proves the complete half-time
+cell `s=2*N_k-m` throughout that growing endpoint band.
 
 The new residual carrier asks for a full-local Nat numerator sign only when
-`k>=4`, `2<=s<2*N_k`, and
-`5*(2*N_k-s+1)>N_k+1`.  It coarsens into the existing reviewed physical
+`k>=4`, `2<=s<2*N_k`, and the conjunction
+`2*(2*N_k-s)<=N_k`, `(2*N_k-s+1)*(s+2)<=D_k` does not hold.  It coarsens into the existing reviewed physical
 carrier, and Lean checks the resulting `pGamma>=2`, `finePin`, `imagePin`,
 genuine `BlockingStep.Phi` trajectory defect-power law, and half-loss bound.
 All new gates are `[propext, Quot.sound]`.  No full audit, remote push, or

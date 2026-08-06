@@ -11,9 +11,11 @@ forces `coeffW w_k j <= coeffW w_k (j-1)`.  Thus the reversed endpoint
 coefficient string is monotone through every depth `m` with `2*m <= N_k`.
 
 Together with the semantic all-depth endpoint compiler and a variable-depth
-Bernoulli floor, this gives the complete half-time cell on the linearly growing
-band `5 * (m + 1) <= N_k + 1`.  Thus the proof removes a macroscopic family of
-endpoint channels at every physical cutoff without a shell table.
+Bernoulli floor, this gives the complete half-time cell whenever
+`2*m <= N_k` and `(m+1)*(2*N_k-m+2) <= D_k`.  The simpler condition
+`5*(m+1) <= N_k+1` remains as a convenient corollary.  Thus the proof removes
+a macroscopic family of endpoint channels at every physical cutoff without a
+shell table.
 
 No `Classical`, `native_decide`, `sorry`, custom axiom, or noncomputable
 declaration.
@@ -323,9 +325,11 @@ theorem physical_heat_cross_fifth_depth (r m : Nat)
 
 /-! ## 5. Complete half-time cells on the macroscopic endpoint band -/
 
-theorem physical_endpointBox_le_heat_fifth_depth
+theorem physical_endpointBox_le_heat_of_cover
     (r m : Nat) (hm : 0 < m)
-    (hfifth : 5 * (m + 1) <= blockNcut (r + 4) + 1) :
+    (hdepth : 2 * m <= blockNcut (r + 4))
+    (hcover : (m + 1) * (2 * blockNcut (r + 4) - m + 2) <=
+      physicalWeightDen (r + 4)) :
     endpointBoxExpr (blockWeight (r + 4)) (blockNcut (r + 4)) (m - 1) <=
       qpow (blockWeight (r + 4))
           (2 * blockNcut (r + 4) - m + 2) *
@@ -333,13 +337,11 @@ theorem physical_endpointBox_le_heat_fifth_depth
   let N := blockNcut (r + 4)
   let w := blockWeight (r + 4)
   let exponent := 2 * N - m + 2
-  have hdepth : 2 * m <= N := by
-    dsimp only [N]
-    omega
   have hratio := physical_endpointRatio_of_double_depth r m m hm
     (by omega) (by simpa only [N] using hdepth)
   have hheat : Q'.ofNat m <= qpow w exponent * Q'.ofNat (m + 1) := by
-    simpa only [w, exponent, N] using physical_heat_cross_fifth_depth r m hfifth
+    exact physical_heat_cross_of_cover r m exponent (by
+      simpa only [N, exponent] using hcover)
   have hmN : m <= N := by omega
   have hsupport := boxSum_top_endpoint w N m hmN
   have hbox0 : (0 : Q') <= boxSum w N (2 * N - m) :=
@@ -364,9 +366,11 @@ theorem physical_endpointBox_le_heat_fifth_depth
       (Q'.le_trans' _ _ _ hheatScaled (Q'.le_of_eqv hreorder))
   exact Q'.le_of_mul_le_mul_left hcancel (Q'.ofNat_succ_pos m)
 
-theorem physical_halfTime_box_fifth_depth
+theorem physical_halfTime_box_of_cover
     (r m : Nat) (hm : 0 < m)
-    (hfifth : 5 * (m + 1) <= blockNcut (r + 4) + 1) :
+    (hdepth : 2 * m <= blockNcut (r + 4))
+    (hcover : (m + 1) * (2 * blockNcut (r + 4) - m + 2) <=
+      physicalWeightDen (r + 4)) :
     let N := blockNcut (r + 4)
     dimQ (2 * N - m) *
         boxSum (blockWeight (r + 4)) N (2 * N - m + 1) <=
@@ -376,11 +380,9 @@ theorem physical_halfTime_box_fifth_depth
   let N := blockNcut (r + 4)
   let w := blockWeight (r + 4)
   let exponent := 2 * N - m + 2
-  have hmN : m <= N := by
-    dsimp only [N]
-    omega
+  have hmN : m <= N := by omega
   have hpredN : m - 1 <= N := by omega
-  have hendpoint := physical_endpointBox_le_heat_fifth_depth r m hm hfifth
+  have hendpoint := physical_endpointBox_le_heat_of_cover r m hm hdepth hcover
   have ePrev0 := boxSum_top_endpoint w N (m - 1) hpredN
   have ePrev : boxSum w N (2 * N - m + 1) ≈ endpointBoxExpr w N (m - 1) := by
     simpa only [show 2 * N - (m - 1) = 2 * N - m + 1 by omega] using ePrev0
@@ -423,9 +425,11 @@ theorem physical_halfTime_box_fifth_depth
   exact Q'.le_trans' _ _ _ hdimScaled
     (Q'.le_trans' _ _ _ hratioScaled (Q'.le_of_eqv hreorder))
 
-theorem physical_halfTime_lineSum_fifth_depth
+theorem physical_halfTime_lineSum_of_cover
     (r m : Nat) (hm : 0 < m)
-    (hfifth : 5 * (m + 1) <= blockNcut (r + 4) + 1) :
+    (hdepth : 2 * m <= blockNcut (r + 4))
+    (hcover : (m + 1) * (2 * blockNcut (r + 4) - m + 2) <=
+      physicalWeightDen (r + 4)) :
     let N := blockNcut (r + 4)
     dimQ (2 * N - m) *
         lineSum (lagCorr (blockWeight (r + 4)) N) (2 * N - m + 1) <=
@@ -434,7 +438,7 @@ theorem physical_halfTime_lineSum_fifth_depth
           lineSum (lagCorr (blockWeight (r + 4)) N) (2 * N - m)) := by
   let N := blockNcut (r + 4)
   let w := blockWeight (r + 4)
-  have hbox := physical_halfTime_box_fifth_depth r m hm hfifth
+  have hbox := physical_halfTime_box_of_cover r m hm hdepth hcover
   have eleft :
       dimQ (2 * N - m) * lineSum (lagCorr w N) (2 * N - m + 1) ≈
         dimQ (2 * N - m) * boxSum w N (2 * N - m + 1) :=
@@ -451,6 +455,62 @@ theorem physical_halfTime_lineSum_fifth_depth
   exact Q'.le_trans' _ _ _ (Q'.le_of_eqv eleft)
     (Q'.le_trans' _ _ _ (by simpa only [N, w] using hbox)
       (Q'.le_of_eqv eright))
+
+theorem physical_halfTime_lineSum_of_cover_from_four
+    (k m : Nat) (hk : 4 <= k) (hm : 0 < m)
+    (hdepth : 2 * m <= blockNcut k)
+    (hcover : (m + 1) * (2 * blockNcut k - m + 2) <=
+      physicalWeightDen k) :
+    let N := blockNcut k
+    dimQ (2 * N - m) *
+        lineSum (lagCorr (blockWeight k) N) (2 * N - m + 1) <=
+      qpow (blockWeight k) (2 * N - m + 2) *
+        (dimQ (2 * N - m + 1) *
+          lineSum (lagCorr (blockWeight k) N) (2 * N - m)) := by
+  obtain ⟨r, rfl⟩ := Nat.exists_eq_add_of_le hk
+  simpa only [Nat.add_comm] using
+    physical_halfTime_lineSum_of_cover r m hm (by
+      simpa only [Nat.add_comm] using hdepth) (by
+      simpa only [Nat.add_comm] using hcover)
+
+/-! ## 6. Simple one-fifth corollaries -/
+
+theorem physical_endpointBox_le_heat_fifth_depth
+    (r m : Nat) (hm : 0 < m)
+    (hfifth : 5 * (m + 1) <= blockNcut (r + 4) + 1) :
+    endpointBoxExpr (blockWeight (r + 4)) (blockNcut (r + 4)) (m - 1) <=
+      qpow (blockWeight (r + 4))
+          (2 * blockNcut (r + 4) - m + 2) *
+        endpointBoxExpr (blockWeight (r + 4)) (blockNcut (r + 4)) m := by
+  apply physical_endpointBox_le_heat_of_cover r m hm
+  · omega
+  · exact physical_fifth_depth_cover r m hfifth
+
+theorem physical_halfTime_box_fifth_depth
+    (r m : Nat) (hm : 0 < m)
+    (hfifth : 5 * (m + 1) <= blockNcut (r + 4) + 1) :
+    let N := blockNcut (r + 4)
+    dimQ (2 * N - m) *
+        boxSum (blockWeight (r + 4)) N (2 * N - m + 1) <=
+      qpow (blockWeight (r + 4)) (2 * N - m + 2) *
+        (dimQ (2 * N - m + 1) *
+          boxSum (blockWeight (r + 4)) N (2 * N - m)) := by
+  apply physical_halfTime_box_of_cover r m hm
+  · omega
+  · exact physical_fifth_depth_cover r m hfifth
+
+theorem physical_halfTime_lineSum_fifth_depth
+    (r m : Nat) (hm : 0 < m)
+    (hfifth : 5 * (m + 1) <= blockNcut (r + 4) + 1) :
+    let N := blockNcut (r + 4)
+    dimQ (2 * N - m) *
+        lineSum (lagCorr (blockWeight (r + 4)) N) (2 * N - m + 1) <=
+      qpow (blockWeight (r + 4)) (2 * N - m + 2) *
+        (dimQ (2 * N - m + 1) *
+          lineSum (lagCorr (blockWeight (r + 4)) N) (2 * N - m)) := by
+  apply physical_halfTime_lineSum_of_cover r m hm
+  · omega
+  · exact physical_fifth_depth_cover r m hfifth
 
 theorem physical_halfTime_lineSum_fifth_depth_from_four
     (k m : Nat) (hk : 4 <= k) (hm : 0 < m)
@@ -475,6 +535,10 @@ end YMGap.Continuum.P2HalfTimeMacroscopicEndpointDescent
 #print axioms YMGap.Continuum.P2HalfTimeMacroscopicEndpointDescent.physical_endpointRatio_of_double_depth
 #print axioms YMGap.Continuum.P2HalfTimeMacroscopicEndpointDescent.physical_heat_cross_of_cover
 #print axioms YMGap.Continuum.P2HalfTimeMacroscopicEndpointDescent.physical_fifth_depth_cover
+#print axioms YMGap.Continuum.P2HalfTimeMacroscopicEndpointDescent.physical_endpointBox_le_heat_of_cover
+#print axioms YMGap.Continuum.P2HalfTimeMacroscopicEndpointDescent.physical_halfTime_box_of_cover
+#print axioms YMGap.Continuum.P2HalfTimeMacroscopicEndpointDescent.physical_halfTime_lineSum_of_cover
+#print axioms YMGap.Continuum.P2HalfTimeMacroscopicEndpointDescent.physical_halfTime_lineSum_of_cover_from_four
 #print axioms YMGap.Continuum.P2HalfTimeMacroscopicEndpointDescent.physical_endpointBox_le_heat_fifth_depth
 #print axioms YMGap.Continuum.P2HalfTimeMacroscopicEndpointDescent.physical_halfTime_box_fifth_depth
 #print axioms YMGap.Continuum.P2HalfTimeMacroscopicEndpointDescent.physical_halfTime_lineSum_fifth_depth

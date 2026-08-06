@@ -2,9 +2,10 @@
 Track 11.7-fusion / R4ac -- macroscopic physical reserve consumer.
 
 `P2HalfTimeMacroscopicEndpointDescent` proves complete half-time cells on the
-linearly growing endpoint band
+exact schedule-supported endpoint band
 
-    5 * (m + 1) <= N_k + 1,    s = 2*N_k - m.
+    2*m <= N_k,
+    (m+1)*(2*N_k-m+2) <= D_k,    s = 2*N_k-m.
 
 This module installs that theorem in the real compiled physical carrier.  The
 remaining coefficient field asks for exact full-local numerator signs only
@@ -34,6 +35,7 @@ open YMGap.Continuum.P2BlockCompatiblePhysicalBridge
 open YMGap.Continuum.P2BlockCompatiblePhysicalCompiledFrontier
 open YMGap.Continuum.P2BlockCompatiblePhysicalFrontierStrictFromEight
 open YMGap.Continuum.P2BlockCompatibleSchedule
+open YMGap.Continuum.P2BlockCompatibleScheduleClosed
 open YMGap.Continuum.P2HalfTimeMacroscopicEndpointDescent
 open YMGap.Continuum.P2HalfTimeParityStrandCompiler
 open YMGap.Continuum.P2HalfTimeShiftTail
@@ -49,7 +51,8 @@ macroscopic endpoint band.  The negated band guard is a pure-Nat condition;
 there is no shell table and no fixed depth. -/
 structure BlockCompatibleP2FullLocalNumeratorMacroscopicInteriorFromFour : Type where
   nonneg : forall k s, 4 <= k -> 2 <= s -> s < 2 * blockNcut k ->
-    ¬ (5 * (2 * blockNcut k - s + 1) <= blockNcut k + 1) ->
+    ¬ (2 * (2 * blockNcut k - s) <= blockNcut k ∧
+      (2 * blockNcut k - s + 1) * (s + 2) <= physicalWeightDen k) ->
     physicalFullLocalReserveAt k (blockNcut k) s
 
 /-- Splice the proved head and the growing endpoint band into a full physical
@@ -62,12 +65,14 @@ def BlockCompatibleP2FullLocalNumeratorMacroscopicInteriorFromFour.toLineSumTail
       by_cases h2 : 2 <= s
       · let N := blockNcut k
         let m := 2 * N - s
-        by_cases hband : 5 * (m + 1) <= N + 1
+        by_cases hband : 2 * m <= N ∧
+            (m + 1) * (2 * N - m + 2) <= physicalWeightDen k
         · have hm : 0 < m := by
             dsimp only [m, N]
             omega
-          have hline := physical_halfTime_lineSum_fifth_depth_from_four
-            k m hk hm (by simpa only [N] using hband)
+          have hline := physical_halfTime_lineSum_of_cover_from_four
+            k m hk hm (by simpa only [N] using hband.1)
+              (by simpa only [N] using hband.2)
           simpa only [N, m,
             show 2 * blockNcut k - (2 * blockNcut k - s) = s by omega,
             show 2 * blockNcut k - (2 * blockNcut k - s) + 1 = s + 1 by
@@ -75,7 +80,10 @@ def BlockCompatibleP2FullLocalNumeratorMacroscopicInteriorFromFour.toLineSumTail
             show 2 * blockNcut k - (2 * blockNcut k - s) + 2 = s + 2 by
               omega] using hline
         · exact physicalFullLocalReserveAt_lineSum k (blockNcut k) s
-            (T.nonneg k s hk h2 hsN (by simpa only [N, m] using hband))
+            (T.nonneg k s hk h2 hsN (by
+              simpa only [N, m,
+                show 2 * blockNcut k - (2 * blockNcut k - s) + 2 = s + 2 by
+                  omega] using hband))
       · have hs1 : s = 1 := by omega
         subst s
         exact physical_halfTime_lineSum_head_from_four k hk

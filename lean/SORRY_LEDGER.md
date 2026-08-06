@@ -1317,9 +1317,9 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 - **constructive?**: yes — exact physical-coordinate arithmetic, the
   all-depth semantic endpoint compiler, reciprocal Bernoulli, and exact
   box-to-line transport.
-- **status note**: every cell `s=2*N_k-m` with `m>0` and
-  `5*(m+1)<=N_k+1` is discharged for `k>=4`; all gates are
-  `[propext, Quot.sound]`.
+- **status note**: every cell `s=2*N_k-m` with `m>0`, `2*m<=N_k`, and
+  `(m+1)*(2*N_k-m+2)<=D_k` is discharged for `k>=4`; the one-fifth band is a
+  simple corollary.  All gates are `[propext, Quot.sound]`.
 
 ### [R4ac-macroscopic-physical-consumer] Macroscopic reserve consumer — **CLOSED 2026-08-06**
 
@@ -1332,9 +1332,9 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   reviewed `CanonicalBulkControl` and genuine `BlockingStep.Phi` trajectory.
 - **constructive?**: yes — a pure-Nat band split followed by the existing
   physical compiler and spectrum dictionary.
-- **status note**: the exact remaining coefficient input is the off-band
-  full-local numerator sign for `k>=4`, `2<=s<2*N_k`, and
-  `5*(2*N_k-s+1)>N_k+1`; all gates are `[propext, Quot.sound]`.
+- **status note**: the exact remaining coefficient input is the full-local
+  numerator sign outside `2*(2*N_k-s)<=N_k` and
+  `(2*N_k-s+1)*(s+2)<=D_k`; all gates are `[propext, Quot.sound]`.
 
 ## How to add an entry
 
