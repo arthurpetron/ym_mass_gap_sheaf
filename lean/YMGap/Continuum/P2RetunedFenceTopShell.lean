@@ -23,9 +23,19 @@ open YMGap.Continuum.BondMovingStep
 open YMGap.Continuum.BoxSumTailGeneral
 open YMGap.Continuum.FusionCoreInduction
 open YMGap.Continuum.FusionQuotientCollapse
+open YMGap.Continuum.P2RetunedFenceEdgeAllCutoffs
+open YMGap.Continuum.P2RetunedRatioCompiler
+open YMGap.Continuum.RebasedBulkLocalizationBridge
+open YMGap.Continuum.RGTransport
+open YMGap.Continuum.RingNormaliser
 open YMGap.Continuum.SelfFusionLogConcave
 
 local infix:50 " ≈ " => Q'.eqv
+
+private theorem mul_eqv_both {a a' b b' : Q'}
+    (ha : a ≈ a') (hb : b ≈ b') : a * b ≈ a' * b' :=
+  Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ _ _ ha)
+    (Q'.mul_eqv_congr_left _ _ _ hb)
 
 private theorem fsum_collapse_bounded {g : Nat → Q'} {k n : Nat}
     (hk : k < n) (hz : ∀ i, i < n → i ≠ k → g i ≈ (0 : Q')) :
@@ -318,6 +328,149 @@ theorem boxSum_top_even (w : Q') (N : Nat) (hN : 2 ≤ N) :
   rw [show 2 * (N - 1) = 2 * N - 2 by omega] at hold
   exact Q'.add_eqv_congr' hold (boxSumDelta_top_even w N hN)
 
+/-! ## Boundary Turan reduction -/
+
+def topShellUpper (B C : Q') : Q' :=
+  B * B + (B * B + (B * B + C * C))
+
+def topShellDouble (B : Q') : Q' := B + B
+
+/-- A one-dimensional scalar fence for the canonical boundary shell.  All
+Clebsch sums have disappeared; only the last two heat coefficients remain. -/
+def TopShellScalarFence (N : Nat) : Prop :=
+  let B := coeffW fenceW (N - 1)
+  let C := coeffW fenceW N
+  (dimQ (2 * N - 1) * dimQ (2 * N - 1)) * topShellUpper B C ≤
+    (RGTransport.qpow (p2RetunedWeight fenceW) 2 *
+      (dimQ (2 * N) * dimQ (2 * N - 2))) *
+        (topShellDouble B * topShellDouble B)
+
+private def topScaleLeftExpr : PolyExpr :=
+  .mul (.mul (.var 0) (.var 1))
+    (.mul (.var 0) (.mul (.var 2) (.var 2)))
+
+private def topScaleLeftPackedExpr : PolyExpr :=
+  .mul (.mul (.mul (.var 0) (.var 0)) (.var 1))
+    (.mul (.var 2) (.var 2))
+
+private theorem topScaleLeft_normal :
+    normalize topScaleLeftExpr = normalize topScaleLeftPackedExpr := by decide
+
+private theorem topScaleLeft (D U C : Q') :
+    (D * U) * (D * (C * C)) ≈ ((D * D) * U) * (C * C) := by
+  change
+    (eval (fun i => if i = 0 then D else if i = 1 then U else C)
+      topScaleLeftExpr).eqv
+    (eval (fun i => if i = 0 then D else if i = 1 then U else C)
+      topScaleLeftPackedExpr)
+  exact poly_identity_of_normal_eq _ _ topScaleLeft_normal _
+
+private def topScaleRightExpr : PolyExpr :=
+  .mul
+    (.mul (.var 0) (.mul (.var 1)
+      (.add (.mul (.var 3) (.var 4)) (.mul (.var 3) (.var 4)))))
+    (.mul (.var 2)
+      (.add (.mul (.var 3) (.var 4)) (.mul (.var 3) (.var 4))))
+
+private def topScaleRightPackedExpr : PolyExpr :=
+  .mul
+    (.mul (.mul (.var 0) (.mul (.var 1) (.var 2)))
+      (.mul (.add (.var 3) (.var 3)) (.add (.var 3) (.var 3))))
+    (.mul (.var 4) (.var 4))
+
+private theorem topScaleRight_normal :
+    normalize topScaleRightExpr = normalize topScaleRightPackedExpr := by decide
+
+private theorem topScaleRight (q H L B C : Q') :
+    (q * (H * ((B * C) + (B * C)))) *
+        (L * ((B * C) + (B * C))) ≈
+      ((q * (H * L)) * (topShellDouble B * topShellDouble B)) * (C * C) := by
+  unfold topShellDouble
+  change
+    (eval (fun i => if i = 0 then q else if i = 1 then H else
+      if i = 2 then L else if i = 3 then B else C)
+      topScaleRightExpr).eqv
+    (eval (fun i => if i = 0 then q else if i = 1 then H else
+      if i = 2 then L else if i = 3 then B else C)
+      topScaleRightPackedExpr)
+  exact poly_identity_of_normal_eq _ _ topScaleRight_normal _
+
+/-- Heat-weight log-concavity bounds the four-term lower shell by three
+copies of the middle square plus the top square. -/
+theorem boxSum_top_even_le_upper (N : Nat) (hN : 2 ≤ N) :
+    boxSum fenceW N (2 * N - 2) ≤
+      topShellUpper (coeffW fenceW (N - 1)) (coeffW fenceW N) := by
+  let A := coeffW fenceW (N - 2)
+  let B := coeffW fenceW (N - 1)
+  let C := coeffW fenceW N
+  have hlc0 := FusionGenFunction.coeffW_logConcave
+    fenceW_nonneg fenceW_le_one (N - 2)
+  have hlc : A * C ≤ B * B := by
+    simpa only [A, B, C, show N - 2 + 1 = N - 1 by omega,
+      show N - 2 + 2 = N by omega] using hlc0
+  have hsum :
+      B * B + (A * C + (A * C + C * C)) ≤
+        B * B + (B * B + (B * B + C * C)) :=
+    Q'.add_le_add (Q'.le_refl' _) (Q'.add_le_add hlc
+      (Q'.add_le_add hlc (Q'.le_refl' _)))
+  exact Q'.le_trans' _ _ _
+    (Q'.le_of_eqv (boxSum_top_even fenceW N hN)) hsum
+
+/-- A proof of the scalar fence discharges the actual canonical boundary
+strong-Turan atom `s = 2*N-2`. -/
+theorem fenceTopShellTuran_of_scalar (N : Nat) (hN : 2 ≤ N)
+    (hscalar : TopShellScalarFence N) :
+    (dimQ (2 * N - 1) * boxSum fenceW N (2 * N - 2)) *
+        (dimQ (2 * N - 1) * boxSum fenceW N (2 * N)) ≤
+      (RGTransport.qpow (p2RetunedWeight fenceW) 2 *
+          (dimQ (2 * N) * boxSum fenceW N (2 * N - 1))) *
+        (dimQ (2 * N - 2) * boxSum fenceW N (2 * N - 1)) := by
+  let B := coeffW fenceW (N - 1)
+  let C := coeffW fenceW N
+  let D := dimQ (2 * N - 1)
+  let H := dimQ (2 * N)
+  let L := dimQ (2 * N - 2)
+  let q := RGTransport.qpow (p2RetunedWeight fenceW) 2
+  let U := topShellUpper B C
+  have hg0 : boxSum fenceW N (2 * N - 2) ≤ U :=
+    boxSum_top_even_le_upper N hN
+  have hg2 : boxSum fenceW N (2 * N) ≈ C * C := by
+    simpa only [C] using boxSum_top fenceW N
+  have hg1 : boxSum fenceW N (2 * N - 1) ≈ (B * C) + (B * C) := by
+    simpa only [B, C] using boxSum_top_odd fenceW N (by omega)
+  have hD0 : (0 : Q') ≤ D := dimQ_nonneg _
+  have hC0 : (0 : Q') ≤ C := coeffW_nonneg fenceW_nonneg _
+  have hDC0 : (0 : Q') ≤ D * (C * C) :=
+    Q'.mul_nonneg _ _ hD0 (Q'.mul_nonneg _ _ hC0 hC0)
+  have hleft0 :
+      (D * boxSum fenceW N (2 * N - 2)) *
+          (D * boxSum fenceW N (2 * N)) ≤
+        (D * U) * (D * (C * C)) := by
+    have hfirst := Q'.mul_le_mul_of_nonneg_left _ _ D hg0 hD0
+    have hprod := Q'.mul_le_mul_of_nonneg_right _ _ (D * (C * C)) hfirst hDC0
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (Q'.mul_eqv_congr_left _ _ _
+        (Q'.mul_eqv_congr_left D _ _ hg2))) hprod
+  have hscalar' : (D * D) * U ≤
+      (q * (H * L)) * (topShellDouble B * topShellDouble B) := by
+    simpa only [TopShellScalarFence, B, C, D, H, L, q, U] using hscalar
+  have hCC0 : (0 : Q') ≤ C * C := Q'.mul_nonneg _ _ hC0 hC0
+  have hscaled := Q'.mul_le_mul_of_nonneg_right _ _ (C * C) hscalar' hCC0
+  have hmiddle : (D * U) * (D * (C * C)) ≤
+      ((q * (H * L)) * (topShellDouble B * topShellDouble B)) * (C * C) :=
+    Q'.le_trans' _ _ _ (Q'.le_of_eqv (topScaleLeft D U C)) hscaled
+  have hright :
+      ((q * (H * L)) * (topShellDouble B * topShellDouble B)) * (C * C) ≈
+        (q * (H * boxSum fenceW N (2 * N - 1))) *
+          (L * boxSum fenceW N (2 * N - 1)) := by
+    refine Q'.eqv_trans _ _ _ (Q'.eqv_symm (topScaleRight q H L B C)) ?_
+    exact mul_eqv_both
+      (Q'.mul_eqv_congr_left q _ _ (Q'.mul_eqv_congr_left H _ _
+        (Q'.eqv_symm hg1)))
+      (Q'.mul_eqv_congr_left L _ _ (Q'.eqv_symm hg1))
+  exact Q'.le_trans' _ _ _ hleft0
+    (Q'.le_trans' _ _ _ hmiddle (Q'.le_of_eqv hright))
+
 end YMGap.Continuum.P2RetunedFenceTopShell
 
 /-! ## Axiom-dependency gates -/
@@ -328,3 +481,5 @@ end YMGap.Continuum.P2RetunedFenceTopShell
 #print axioms YMGap.Continuum.P2RetunedFenceTopShell.boxSum_top_odd
 #print axioms YMGap.Continuum.P2RetunedFenceTopShell.boxSumDelta_top_even
 #print axioms YMGap.Continuum.P2RetunedFenceTopShell.boxSum_top_even
+#print axioms YMGap.Continuum.P2RetunedFenceTopShell.boxSum_top_even_le_upper
+#print axioms YMGap.Continuum.P2RetunedFenceTopShell.fenceTopShellTuran_of_scalar
