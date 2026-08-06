@@ -20026,3 +20026,37 @@ seventh-shell and common-carrier monitored targets pass; every exported gate
 reports only `[propext, Quot.sound]`.  The deeper interior signs, theta
 trapezoid/fine reserve, later FrontierDAG atoms, physical recursion, and the
 constructive continuum Yang--Mills target remain open.
+
+## 78. Eighth half-time boundary shell (2026-08-06)
+
+**Status. THE `s=2*N_k-8` SHELL IS DISCHARGED FOR EVERY `k>=4`; THE OPEN
+PURE-NAT FAMILY MOVES AN EIGHTH ROW BELOW THE CUTOFF.**
+
+`P2HalfTimeEighthRatio` gives a reusable endpoint-polynomial comparison for
+the twenty-pair and twenty-five-pair boxes.  For descending coefficients
+`I >= H >= G >= F >= E >= A >= X >= B >= C`, the sharp comparison is
+
+```text
+5*boxSum(w,N,2*N-7) <= 4*boxSum(w,N,2*N-8).
+```
+
+Its cleared slack is an explicit sum of twenty-three nonnegative products in
+the eight successive coefficient increments.  The reflected normalizer checks
+the polynomial identity, while `P2HalfTimeEighthShell` separately proves the
+exact 25-pair Clebsch support.
+
+The schedule-specific descent `c_(N-7) <= c_(N-8)` follows from the closed
+physical denominator coordinate, and a direct Bernoulli argument proves the
+matching `4/5 <= w^(2*N-6)` heat floor.  Exact strand reindexing transports the
+box result to the line-sum carrier.  The common physical compiler now assumes
+exactly
+
+```text
+k >= 4,  2 <= s,  s + 8 < 2*N_k
+```
+
+for its remaining full-local natural-number reserve signs.  The focused
+eighth-shell and common-carrier monitored targets pass; every exported gate
+reports only `[propext, Quot.sound]`.  The deeper interior signs, theta
+trapezoid/fine reserve, later FrontierDAG atoms, physical recursion, and the
+constructive continuum Yang--Mills target remain open.

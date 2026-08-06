@@ -71,7 +71,19 @@ class Minimum:
     index: int
 
 
-def scan_scale(k: int) -> tuple[float, Minimum, Minimum, Minimum, Minimum]:
+def scan_scale(
+    k: int,
+) -> tuple[
+    float,
+    Minimum,
+    Minimum,
+    Minimum,
+    Minimum,
+    Minimum,
+    Minimum,
+    Minimum,
+    Minimum,
+]:
     n_cut, w, q = physical_coordinates(k)
     g = fusion_row_p2(n_cut, w)
 
@@ -80,6 +92,7 @@ def scan_scale(k: int) -> tuple[float, Minimum, Minimum, Minimum, Minimum]:
     head = head_right / head_left
 
     odd_min = Minimum(inf, -1)
+    half_time_odd_min = Minimum(inf, -1)
     for s in range(1, 2 * n_cut, 2):
         if s + 2 >= 2 * n_cut:
             break
@@ -88,16 +101,24 @@ def scan_scale(k: int) -> tuple[float, Minimum, Minimum, Minimum, Minimum]:
         slack = right / left
         if slack < odd_min.slack:
             odd_min = Minimum(slack, s)
+        half_time_slack = ((w**2) * (s + 4) * (s + 1) * g[s + 2] * g[s + 1]) / left
+        if half_time_slack < half_time_odd_min.slack:
+            half_time_odd_min = Minimum(half_time_slack, s)
 
     even_min = Minimum(inf, -1)
+    half_time_even_min = Minimum(inf, -1)
     for s in range(2, 2 * n_cut, 2):
         left = (s + 1) * (s + 1) * g[s - 1] * g[s + 1]
         right = (q**2) * s * (s + 2) * g[s] * g[s]
         slack = right / left
         if slack < even_min.slack:
             even_min = Minimum(slack, s)
+        half_time_slack = (w * s * (s + 2) * g[s] * g[s]) / left
+        if half_time_slack < half_time_even_min.slack:
+            half_time_even_min = Minimum(half_time_slack, s)
 
     tail_min = Minimum(inf, -1)
+    half_time_min = Minimum(inf, -1)
     for s in range(1, 2 * n_cut):
         left = (s + 1) * g[s + 1]
         right = (q ** (2 * s + 3)) * (s + 2) * g[s]
@@ -105,15 +126,33 @@ def scan_scale(k: int) -> tuple[float, Minimum, Minimum, Minimum, Minimum]:
         if slack < tail_min.slack:
             tail_min = Minimum(slack, s)
 
+        half_time_right = (w ** (s + 2)) * (s + 2) * g[s]
+        half_time_slack = half_time_right / left
+        if half_time_slack < half_time_min.slack:
+            half_time_min = Minimum(half_time_slack, s)
+
     fixed_w_min = Minimum(inf, -1)
+    fixed_w_from_two_min = Minimum(inf, -1)
     for t in range(1, 2 * n_cut):
         left = (t + 1) * (t + 1) * g[t - 1] * g[t + 1]
         right = w * t * (t + 2) * g[t] * g[t]
         slack = right / left
         if slack < fixed_w_min.slack:
             fixed_w_min = Minimum(slack, t)
+        if t >= 2 and slack < fixed_w_from_two_min.slack:
+            fixed_w_from_two_min = Minimum(slack, t)
 
-    return head, odd_min, even_min, tail_min, fixed_w_min
+    return (
+        head,
+        odd_min,
+        even_min,
+        half_time_odd_min,
+        half_time_even_min,
+        tail_min,
+        half_time_min,
+        fixed_w_min,
+        fixed_w_from_two_min,
+    )
 
 
 def main() -> None:
@@ -123,17 +162,33 @@ def main() -> None:
 
     print(
         " k    N       head       odd-min@index       even-min@index      "
-        "tail-min@index       fixed-w-min@index"
+        "ht-odd-min@index    ht-even-min@index   tail-min@index       "
+        "half-time-min@index  fixed-w-min@index  "
+        "fixed-w-t>=2-min@index"
     )
     for k in range(args.max_k + 1):
         n_cut, _, _ = physical_coordinates(k)
-        head, odd, even, tail, fixed_w = scan_scale(k)
+        (
+            head,
+            odd,
+            even,
+            half_time_odd,
+            half_time_even,
+            tail,
+            half_time,
+            fixed_w,
+            fixed_w_from_two,
+        ) = scan_scale(k)
         print(
             f"{k:2d} {n_cut:4d}  {head:11.8f}  "
             f"{odd.slack:11.8f}@{odd.index:<4d}  "
             f"{even.slack:11.8f}@{even.index:<4d}  "
+            f"{half_time_odd.slack:11.8f}@{half_time_odd.index:<4d}  "
+            f"{half_time_even.slack:11.8f}@{half_time_even.index:<4d}  "
             f"{tail.slack:11.8f}@{tail.index:<4d}  "
-            f"{fixed_w.slack:11.8f}@{fixed_w.index:<4d}"
+            f"{half_time.slack:11.8f}@{half_time.index:<4d}  "
+            f"{fixed_w.slack:11.8f}@{fixed_w.index:<4d}  "
+            f"{fixed_w_from_two.slack:11.8f}@{fixed_w_from_two.index:<4d}"
         )
 
 

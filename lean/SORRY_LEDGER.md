@@ -1187,6 +1187,35 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   for `k>=4`, `2<=s`, and `s+7<2*N_k`.  The deeper interior family remains
   open.  All closed gates are `[propext, Quot.sound]`.
 
+### [R4t-half-time-eighth-ratio] Eighth sharp endpoint ratio — **CLOSED 2026-08-06**
+
+- **milestone**: FrontierDAG bucket 1 / half-time physical coefficient route.
+- **file**: `lean/YMGap/Continuum/P2HalfTimeEighthRatio.lean`
+- **decl**: `eighthBoxRatio`
+- **obligation**: Compare the twenty-pair depth-seven endpoint box with the
+  adjacent twenty-five-pair depth-eight endpoint box without evaluating the
+  physical convolution.
+- **constructive?**: yes — a sound reflected polynomial identity rewrites the
+  cleared slack `4*B8-5*B7` as twenty-three nonnegative products in eight
+  successive coefficient increments.
+- **status note**: the theorem is an algebraic component of the physical shell,
+  not by itself a frontier discharge.  Its gate is `[propext, Quot.sound]`.
+
+### [R4u-half-time-eighth-shell] Eighth boundary shell — **CLOSED 2026-08-06**
+
+- **milestone**: FrontierDAG bucket 1 / half-time physical coefficient route.
+- **file**: `lean/YMGap/Continuum/P2HalfTimeEighthShell.lean`
+- **decl**: `boxSum_top_eight`, `physical_eighth_coeff_descending`,
+  `physical_halfTime_lineSum_eighth_from_four`
+- **obligation**: Remove the `s=2*N_k-8` shell from the all-scale full-local
+  reserve carrier.
+- **constructive?**: yes — exact twenty-five/twenty-pair support, the reflected
+  twenty-three-term ratio certificate, endpoint coefficient descent, and the
+  sharp physical `4/5` heat-power floor.
+- **status note**: the common compiled carrier now assumes reserve signs only
+  for `k>=4`, `2<=s`, and `s+8<2*N_k`.  The deeper interior family remains
+  open.  All closed gates are `[propext, Quot.sound]`.
+
 ## How to add an entry
 
 ```markdown
