@@ -237,6 +237,39 @@ frontier without claiming an inhabitant of its remaining analytic fields.
   open, so this is a complexity-reduction/decomposition move rather than a
   critical-path discharge.
 
+## Terminal outer and radial fields discharged (2026-08-06)
+
+The fixed-block compression has now produced two physical all-scale
+certificates rather than only a smaller conditional carrier.
+
+- The terminal outer field is proved for every `k >= 7` by the exact 640-step
+  endpoint table, a uniform Bernoulli power ceiling, and a kernel-checked
+  fixed-point witness.
+- The radial field is reduced by the exact identity
+  `radial + M4 + (2*L^2-1)*d0 = (4*L^2-2)*D + (2*L+1)*dN`.
+  Its complementary coefficient is exactly `159/125`, and
+  `159/125 + 341/125 = 4`, so the fourth-moment inequality compiles to the
+  required `radial <= (341/125)*L^2*D` estimate without budget loss.
+- A generic common-denominator floor/ceiling evaluator proves binary powers in
+  logarithmically many rounded multiplication steps.  It replaces direct
+  normalization of giant rational powers with a small proof about the
+  computation itself.
+- The physical proof uses an exact 640-entry certificate at `k=7`.  For
+  `k>=8`, the identity `L=1280*2^(k-8)`, Bernoulli and reciprocal-Bernoulli base
+  bounds, and fixed-point second/fourth/terminal moment witnesses transport one
+  1280-block certificate to every scale.
+- `terminalRadial_fromSeven` proves the original radial field at every physical
+  scale `k>=7`.  `BlockCompatibleP2PostRadialTailFromSeven` is therefore the
+  new honest carrier, with exactly two analytic fields: the nonpositive
+  trapezoid exchange and the independent fine even/odd reserve.
+- The exported load-bearing declarations check with
+  `[propext, Quot.sound]`; no full-project audit or remote CI run was used.
+
+This is a real frontier discharge, but not a Yang--Mills solution.  The two
+remaining normalized-deficit fields, the deeper-interior strong-Turan family,
+the physical margin recursion, continuum construction, and O(4) restoration
+remain open.
+
 ## Dead routes (refuted — do not re-attempt)
 
 - **`Var_m(cosθ)` monotonicity → uniform-in-`m`** — REFUTED (`VarianceMonotonicity.lean`,
