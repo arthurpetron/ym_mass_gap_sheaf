@@ -327,6 +327,38 @@ fine reserve from eight, loss summability, physical margin recursion,
 continuum construction, and physical O(4) restoration remain open.  It is not
 a solution of the Yang--Mills Millennium problem.
 
+## Exact `k=7` trapezoid exchange discharged and installed (2026-08-06)
+
+The second residual theta head is now closed.  The physical frontier no
+longer asks callers to provide either `k=7` theta inequality.
+
+- The exact comparison is
+  `fixedCutoffTrapezoidCross (blockWeight 7) (qpow (blockWeight 8) 4) 639 <= 0`.
+  Its relative margin is too small for coarse analytic rounding, so the proof
+  uses the same high-precision scale as the fine-reserve certificate.
+- Binary floor/ceiling powers enclose both coefficient rows.  A generic
+  32-term blocked-sum compiler bounds the low adjacent sum and high trapezoid
+  norm from above, and the high adjacent sum and low trapezoid norm from
+  below.  Four 639-term natural table equalities are kernel-checked without
+  axioms; one final integer cross product proves the sign.
+- `blockTrapezoidExchange_seven` states the result over the repository's raw
+  physical definitions.  `BlockCompatibleP2PostRadialTailStrictFromEight`
+  inserts that theorem and the previously checked fine-reserve head, so both
+  remaining theta fields are requested only for `k>=8`.
+- With the still-open weighted-box strong-Turan family, the strict carrier
+  exposes the actual all-cutoff `pGamma=2` `CanonicalBulkControlFamily`, its
+  generic `pGamma>=2` condition, selected-spectrum `finePin` and `imagePin`,
+  the genuine `BlockingStep.Phi` defect-power identity, and the constructive
+  half-loss gate.
+- Focused checks and both monitored module targets are green.  All exported
+  load-bearing declarations use only `[propext, Quot.sound]`; no full audit,
+  remote push, or GitHub CI run was used.
+
+Honest frontier: the weighted-box strong-Turan family, uniform trapezoid and
+fine-reserve transports from `k>=8`, loss summability, physical recursion,
+continuum construction, and O(4) restoration remain open.  This is not a
+solution of the Yang--Mills Millennium problem.
+
 ## Dead routes (refuted — do not re-attempt)
 
 - **`Var_m(cosθ)` monotonicity → uniform-in-`m`** — REFUTED (`VarianceMonotonicity.lean`,
