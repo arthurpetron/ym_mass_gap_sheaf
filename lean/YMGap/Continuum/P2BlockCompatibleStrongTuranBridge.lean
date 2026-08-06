@@ -21,7 +21,7 @@ Pure structure compilation and the existing Nat induction.  No `Classical`,
 `native_decide`, `sorry`, custom axiom, or noncomputable declaration.
 -/
 
-import YMGap.Continuum.P2BlockCompatibleThetaCross
+import YMGap.Continuum.P2BlockCompatibleThetaDeficit
 import YMGap.Continuum.P2RetunedStrongTuranCompiler
 
 namespace YMGap.Continuum.P2BlockCompatibleStrongTuranBridge
@@ -34,6 +34,7 @@ open YMGap.Continuum.P2BlockCompatiblePhysicalBridge
 open YMGap.Continuum.P2BlockCompatibleModeOneCross
 open YMGap.Continuum.P2BlockCompatibleSchedule
 open YMGap.Continuum.P2BlockCompatibleThetaCross
+open YMGap.Continuum.P2BlockCompatibleThetaDeficit
 open YMGap.Continuum.P2RetunedBlockingDictionary
 open YMGap.Continuum.P2RetunedFusionDefectPower
 open YMGap.Continuum.P2RetunedFusionPhysicalMode
@@ -84,13 +85,13 @@ def BlockCompatibleP2BoxStrongTuranData.toCoeffTailData
 /-! ## 2. The two canonical physical frontier atoms -/
 
 /-- The complete remaining input boundary for the present p=2 physical
-bridge: weighted-box strong Turan at every scale, and the finite-theta normal
-form of the normalized mode-one cross comparison.  The latter preserves
-cancellation because the crude unnormalized endpoint-Lipschitz route is
-provably too large. -/
+bridge: weighted-box strong Turan at every scale, and the additive finite-
+theta deficit recursion for the normalized mode-one cross comparison.  The
+latter preserves cancellation because the crude unnormalized endpoint-
+Lipschitz route is provably too large. -/
 structure BlockCompatibleP2PhysicalFrontierAtoms : Type where
   coefficient : BlockCompatibleP2BoxStrongTuranData
-  thetaCross : BlockCompatibleP2ThetaCrossTail
+  thetaDeficit : BlockCompatibleP2ThetaDeficitHalfContraction
 
 def BlockCompatibleP2PhysicalFrontierAtoms.coeffTailData
     (A : BlockCompatibleP2PhysicalFrontierAtoms) :
@@ -100,7 +101,8 @@ def BlockCompatibleP2PhysicalFrontierAtoms.coeffTailData
 def BlockCompatibleP2PhysicalFrontierAtoms.modeOneTailMonotonicity
     (A : BlockCompatibleP2PhysicalFrontierAtoms) :
     BlockCompatibleP2ModeOneTailMonotonicity :=
-  A.thetaCross.toModeOneCrossTail.toModeOneTailMonotonicity
+  A.thetaDeficit.toThetaDeficitTail.toThetaCrossTail.toModeOneCrossTail
+    |>.toModeOneTailMonotonicity
 
 /-- The two frontier atoms compile all the way to the actual physical map:
 `finePin` is spectrum-defined, `imagePin` is `BlockingStep.step`, and the
