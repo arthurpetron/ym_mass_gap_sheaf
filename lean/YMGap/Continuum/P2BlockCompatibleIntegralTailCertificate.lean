@@ -6,14 +6,17 @@ The strengthened Turan routes are constructively false on the physical
 schedule, although the actual adjacent coefficient inequalities remain true
 in every tested cell.  This module compiles the exact target directly from a
 single common-denominator natural-number comparison.  It checks the complete
-supports at the first three physical cutoffs and leaves only scales `k>=3` as
-the honest schedule-wide coefficient input.
+supports at the first four physical cutoffs and leaves only scales `k>=4` as
+the honest schedule-wide coefficient input.  Closed schedule coordinates
+further identify that residual with one pure-`Nat` family, eliminating
+per-scale rational witnesses from the analytic frontier.
 
 No `Classical`, `native_decide`, `sorry`, custom axiom, or noncomputable
 declaration.
 -/
 
 import YMGap.Continuum.P2BlockCompatibleScheduleCells
+import YMGap.Continuum.P2BlockCompatibleScheduleClosed
 import YMGap.Continuum.P2BlockCompatiblePhysicalBridge
 import YMGap.Continuum.P2VacNormIntegralCertificate
 
@@ -30,6 +33,7 @@ open YMGap.Continuum.BondMovingRetuneFix
 open YMGap.Continuum.P2BlockCompatiblePhysicalBridge
 open YMGap.Continuum.P2BlockCompatibleSchedule
 open YMGap.Continuum.P2BlockCompatibleScheduleCells
+open YMGap.Continuum.P2BlockCompatibleScheduleClosed
 open YMGap.Continuum.P2RetunedFenceIntegralCertificate
 open YMGap.Continuum.P2RetunedRatioCompiler
 open YMGap.Continuum.P2VacNormIntegralCertificate
@@ -148,6 +152,58 @@ def coeffTailRatio_of_integralCheck
     integralTailBlockCheck_sound num den qnum qden N 1 (2 * N - 1) s
       hden hqden w hw hq hcheck hs (by omega)
 
+/-! ## Schedule-native arithmetic frontier -/
+
+/-- The exact physical adjacent-tail atom written solely in natural-number
+coordinates.  All rational data are supplied by the closed schedule formulas
+`blockWeight_eqv_closed` and `blockRetunedWeight_eqv_closed`. -/
+def physicalIntegralTailAt (k s : Nat) : Prop :=
+  integralTailAt
+    (physicalWeightNum k) (physicalWeightDen k)
+    (physicalRetunedNum k) (physicalRetunedDen k)
+    (blockNcut k) s
+
+instance physicalIntegralTailAtDecidable (k s : Nat) :
+    Decidable (physicalIntegralTailAt k s) := by
+  unfold physicalIntegralTailAt
+  infer_instance
+
+/-- Soundness of the schedule-native arithmetic atom. -/
+theorem physicalIntegralTailAt_sound (k s : Nat)
+    (h : physicalIntegralTailAt k s) :
+    dimQ s * bondMovedCoeff (blockNcut k) (blockWeight k) 2 (s + 1) ≤
+      qpow (p2RetunedWeight (blockWeight k)) (2 * s + 3) *
+        (dimQ (s + 1) *
+          bondMovedCoeff (blockNcut k) (blockWeight k) 2 s) :=
+  integralTailAt_sound
+    (physicalWeightNum k) (physicalWeightDen k)
+    (physicalRetunedNum k) (physicalRetunedDen k)
+    (blockNcut k) s
+    (physicalWeightDen_pos k) (physicalRetunedDen_pos k)
+    (blockWeight k) (blockWeight_eqv_closed k)
+    (blockRetunedWeight_eqv_closed k) h
+
+/-- One executable full-support scan in the closed physical coordinates. -/
+def physicalIntegralTailCheck (k : Nat) : Bool :=
+  integralTailBlockCheck
+    (physicalWeightNum k) (physicalWeightDen k)
+    (physicalRetunedNum k) (physicalRetunedDen k)
+    (blockNcut k) 1 (2 * blockNcut k - 1)
+
+/-- A successful schedule-native scan compiles directly to the physical
+coefficient-tail carrier at that cutoff. -/
+def blockCoeffTail_of_physicalIntegralTailCheck (k : Nat)
+    (hcheck : physicalIntegralTailCheck k = true) :
+    P2RetunedCoeffTailRatio (blockNcut k) (blockWeight k)
+      (blockWeight_nonneg k) (blockWeight_le_one k) :=
+  coeffTailRatio_of_integralCheck
+    (physicalWeightNum k) (physicalWeightDen k)
+    (physicalRetunedNum k) (physicalRetunedDen k)
+    (blockNcut k)
+    (physicalWeightDen_pos k) (physicalRetunedDen_pos k)
+    (blockWeight k) (blockWeight_nonneg k) (blockWeight_le_one k)
+    (blockWeight_eqv_closed k) (blockRetunedWeight_eqv_closed k) hcheck
+
 theorem blockRetunedWeight_zero_eqv :
     p2RetunedWeight (blockWeight 0) ≈ Q'.mkPos 23 24 (by decide) := by
   unfold p2RetunedWeight renormWFix renormTauFix blockWeight blockMargin
@@ -253,6 +309,23 @@ structure BlockCompatibleP2CoeffTailFromFour : Type where
     P2RetunedCoeffTailRatio (blockNcut k) (blockWeight k)
       (blockWeight_nonneg k) (blockWeight_le_one k)
 
+/-- Pure-arithmetic form of the remaining physical coefficient frontier.
+Unlike `BlockCompatibleP2CoeffTailFromFour`, this carrier contains no `Q'`
+terms: its only field is the exact common-denominator `Nat` inequality at
+every supported adjacent mode and every scale `k>=4`. -/
+structure BlockCompatibleP2IntegralTailFromFour : Type where
+  tail : forall k s, 4 ≤ k → 1 ≤ s → s < 2 * blockNcut k →
+    physicalIntegralTailAt k s
+
+/-- Compile the pure-`Nat` schedule theorem to the rational coefficient
+carrier consumed by `CanonicalBulkControl`. -/
+def BlockCompatibleP2IntegralTailFromFour.toCoeffTailFromFour
+    (T : BlockCompatibleP2IntegralTailFromFour) :
+    BlockCompatibleP2CoeffTailFromFour where
+  tail := fun k hk =>
+    { tail := fun s hs hsN =>
+        physicalIntegralTailAt_sound k s (T.tail k s hk hs hsN) }
+
 def BlockCompatibleP2CoeffTailFromFour.toFromThree
     (T : BlockCompatibleP2CoeffTailFromFour) :
     BlockCompatibleP2CoeffTailFromThree where
@@ -277,6 +350,9 @@ def BlockCompatibleP2CoeffTailFromFour.toAllScale
 #print axioms blockCoeffTail_one
 #print axioms blockCoeffTail_two
 #print axioms blockCoeffTail_three
+#print axioms physicalIntegralTailAt_sound
+#print axioms blockCoeffTail_of_physicalIntegralTailCheck
+#print axioms BlockCompatibleP2IntegralTailFromFour.toCoeffTailFromFour
 #print axioms BlockCompatibleP2CoeffTailFromThree.toAllScale
 #print axioms BlockCompatibleP2CoeffTailFromFour.toAllScale
 

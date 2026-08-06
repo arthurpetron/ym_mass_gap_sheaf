@@ -404,6 +404,32 @@ physical recursion, continuum construction, and O(4) restoration also remain
 open.  No full audit, remote push, or GitHub CI run was used, and this is not a
 solution of the Yang--Mills Millennium problem.
 
+## Physical coefficient tail in closed all-scale coordinates (2026-08-06)
+
+The scale-varying rational bookkeeping in the remaining coefficient frontier
+has been eliminated without enlarging the claim.
+
+- `P2BlockCompatibleScheduleClosed` defines `D_k=12*4^k` and proves for every
+  scale that the physical margin is `1/D_k`, the heat weight is
+  `(D_k-1)/D_k`, and the canonical two-fold retune is
+  `(2D_k-1)/(2D_k)`.  These are semantic equalities in the constructive
+  rational substrate, not normalization assumptions or per-scale evaluation.
+- `physicalIntegralTailAt k s` is therefore the exact adjacent coefficient
+  target in pure natural-number coordinates.  Its soundness theorem restores
+  the physical `Q'` inequality using the generic common-denominator compiler.
+- `BlockCompatibleP2IntegralTailFromFour` now states the whole remaining
+  coefficient frontier with no rational fields: for every `k>=4` and every
+  supported `1<=s<2*blockNcut k`, prove `physicalIntegralTailAt k s`.  A checked
+  compiler turns that family into `BlockCompatibleP2CoeffTailFromFour` and
+  hence the actual all-cutoff `CanonicalBulkControl` consumer.
+- This is a structural reduction of the real theorem, not its discharge.  It
+  makes the next analytic attack precise: prove the natural inequality by the
+  even/odd heat-exchange or ballot/interlacing machinery, instead of extending
+  the cubic fusion-table scan or introducing another false Turan premise.
+
+Focused monitored checks are green and exported declarations use only
+`[propext, Quot.sound]`.  No full audit, remote push, or GitHub CI run was used.
+
 ## Dead routes (refuted — do not re-attempt)
 
 - **`Var_m(cosθ)` monotonicity → uniform-in-`m`** — REFUTED (`VarianceMonotonicity.lean`,

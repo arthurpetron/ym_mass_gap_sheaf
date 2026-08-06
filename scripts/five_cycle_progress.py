@@ -202,6 +202,10 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
         if key == "all_cutoff_bulk_control":
             parameters = state["parameters"]
             lines.append(
+                "        |     +-- [x] closed physical coordinates "
+                f"{parameters['physical_coeff_closed_coordinate']}"
+            )
+            lines.append(
                 "        |     +-- [x] physical coefficient prefix "
                 f"k=[{_csv(parameters['physical_coeff_prefix_scales'])}] "
                 f"({parameters['physical_coeff_prefix_atoms']} atoms)"
