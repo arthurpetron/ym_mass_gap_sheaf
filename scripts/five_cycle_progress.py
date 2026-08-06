@@ -222,6 +222,11 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
                 "        |     +-- [x] all-cutoff head reduction "
                 f"{parameters['physical_coeff_head_reduction']}"
             )
+            if parameters.get("physical_coeff_head_boundary"):
+                lines.append(
+                    "        |     +-- [x] physical endpoint/debt boundary "
+                    f"k>={parameters['physical_coeff_head_tail_start']}"
+                )
             lines.append(
                 "        |     +-- [>] residual head seed "
                 f"k>={parameters['physical_coeff_head_tail_start']}"

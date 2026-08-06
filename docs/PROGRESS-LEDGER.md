@@ -528,6 +528,31 @@ normal form, replacing direct evaluation of the growing rational sums.
 No full audit, remote push, or GitHub CI run was used.  The honest next step is
 to discharge the two physical schedule inequalities uniformly for `k >= 8`.
 
+## Physical all-cutoff retuned-head boundary (2026-08-06)
+
+The endpoint/debt half of the sparse-head Dirichlet data is now discharged
+uniformly at every open scale `k = r + 8`.
+
+- `P2BlockCompatibleScheduleClosed` proves the exact coordinate identity
+  `25 D_k = 12 (N_k+1)^2`.
+- `P2BlockCompatibleHeadPhysicalFloor` replaces the growing endpoint power by
+  34 identical Bernoulli chunks.  The only closed computation is the fixed
+  rational certificate `(15/16)^34 >= 1/9`; this gives
+  `c_(N-1) >= N/9` at every scale.
+- `P2BlockCompatibleHeadPhysicalBoundary` bounds the retune debt by its exact
+  endpoint cubic, clears that comparison through the physical coordinate,
+  and uses reciprocal Bernoulli to prove the terminal coefficient is
+  descending.  Hence the endpoint floor square lies inside the genuine
+  `headBoundary`, and `physical_head_boundary` pays the full retune debt for
+  every `k >= 8`.
+- The focused monitored module build is green.  Every exported load-bearing
+  theorem has exactly the allowed `[propext, Quot.sound]` gate.
+
+No full audit, remote push, or GitHub CI run was used.  The remaining head
+field is the uniform energy comparison
+`3*dirichletEnergy <= 2*headTwoStepEnergy`; it is not being conflated with the
+completed boundary payment.
+
 ## Dead routes (refuted — do not re-attempt)
 
 - **`Var_m(cosθ)` monotonicity → uniform-in-`m`** — REFUTED (`VarianceMonotonicity.lean`,

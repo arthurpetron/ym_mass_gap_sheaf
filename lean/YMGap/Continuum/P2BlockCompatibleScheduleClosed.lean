@@ -21,12 +21,14 @@ declaration.
 -/
 
 import YMGap.Continuum.P2BlockCompatibleSchedule
+import YMGap.Continuum.CasimirMoment
 
 namespace YMGap.Continuum.P2BlockCompatibleScheduleClosed
 
 open YMGap.Constructive
 open YMGap.Continuum
 open YMGap.Continuum.BondMovingRetuneFix
+open YMGap.Continuum.CasimirMoment
 open YMGap.Continuum.P2BlockCompatibleSchedule
 open YMGap.Continuum.P2RetunedFenceIntegralCertificate
 open YMGap.Continuum.P2RetunedRatioCompiler
@@ -57,6 +59,16 @@ theorem physicalWeightDen_pos (k : Nat) : 0 < physicalWeightDen k := by
 theorem physicalRetunedDen_pos (k : Nat) : 0 < physicalRetunedDen k := by
   unfold physicalRetunedDen
   exact Nat.mul_pos (by decide) (physicalWeightDen_pos k)
+
+/-- The physical heat denominator is exactly quadratic in the shifted cutoff.
+This is the arithmetic reason that the endpoint weights remain at a fixed
+Gaussian depth along the whole block schedule. -/
+theorem physicalWeightDen_cutoff_square (k : Nat) :
+    25 * physicalWeightDen k = 12 * (blockNcut k + 1) * (blockNcut k + 1) := by
+  rw [blockNcut_closed, physicalWeightDen, four_pow_eq]
+  change (5 * 5) * (12 * (2 ^ k * 2 ^ k)) =
+    12 * (5 * 2 ^ k) * (5 * 2 ^ k)
+  ac_rfl
 
 /-- Subtracting a positive unit fraction from one produces the predecessor
 numerator over the same denominator. -/
@@ -133,5 +145,6 @@ theorem blockRetunedWeight_eqv_closed (k : Nat) :
 #print axioms blockMargin_eqv_closed
 #print axioms blockWeight_eqv_closed
 #print axioms blockRetunedWeight_eqv_closed
+#print axioms physicalWeightDen_cutoff_square
 
 end YMGap.Continuum.P2BlockCompatibleScheduleClosed
