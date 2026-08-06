@@ -2356,6 +2356,7 @@ import YMGap.Continuum.P2HalfTimeNinthShell
 import YMGap.Continuum.P2HalfTimeEndpointRatioCompiler
 import YMGap.Continuum.P2HalfTimeEndpointRatioCertificateCompiler
 import YMGap.Continuum.P2HalfTimeEndpointSupportCompiler
+import YMGap.Continuum.P2HalfTimeEndpointSemanticCompiler
 import YMGap.Continuum.P2HalfTimeTenthShell
 import YMGap.Continuum.P2HalfTimeTerminalShell
 import YMGap.Continuum.P2RetunedParityStrandCompiler

@@ -16,7 +16,7 @@ declaration.
 -/
 
 import YMGap.Continuum.P2HalfTimeNinthShell
-import YMGap.Continuum.P2HalfTimeEndpointSupportCompiler
+import YMGap.Continuum.P2HalfTimeEndpointSemanticCompiler
 
 namespace YMGap.Continuum.P2HalfTimeTenthShell
 
@@ -36,6 +36,7 @@ open YMGap.Continuum.P2BlockCompatibleSchedule
 open YMGap.Continuum.P2BlockCompatibleScheduleClosed
 open YMGap.Continuum.P2HalfTimeAntepenultimateShell
 open YMGap.Continuum.P2HalfTimeEndpointRatioCertificateCompiler
+open YMGap.Continuum.P2HalfTimeEndpointSemanticCompiler
 open YMGap.Continuum.P2HalfTimeEndpointSupportCompiler
 open YMGap.Continuum.P2HalfTimeEighthShell
 open YMGap.Continuum.P2HalfTimeFifthShell
@@ -180,7 +181,7 @@ theorem tenthEndpointBoxRatio (w : Q') (N : Nat)
     (hrho : forall i, i <= 10 ->
       (0 : Q') <= endpointIncrementEnvironment w N i) :
     endpointBoxExpr w N 9 <= fiveSixths * endpointBoxExpr w N 10 := by
-  have hcross := endpointRatio_ten_prefix
+  have hcross := endpointRatio_allDepth_prefix 5 10 (by decide) (by decide)
     (endpointIncrementEnvironment w N) hrho
   have hscaled := Q'.mul_le_mul_of_nonneg_left _ _ oneSixth hcross
     (by decide : (0 : Q') <= oneSixth)

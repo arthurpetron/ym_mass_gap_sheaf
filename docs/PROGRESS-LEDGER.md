@@ -636,6 +636,27 @@ gates are `[propext, Quot.sound]`.  The deeper interior reserve, theta tail,
 and later constructive Yang--Mills layers remain open.  No full audit,
 remote push, or GitHub CI run was used.
 
+## All-depth semantic endpoint-ratio compiler (2026-08-06)
+
+The fixed reflected polynomial certificates are no longer load-bearing for
+endpoint ratios.  `P2HalfTimeEndpointSemanticCompiler` proves, for arbitrary
+depth, the increment expansion, common-bound threshold reindex, fourfold
+finite Fubini permutation, exact parity-row and parity-triangle counts, and
+the translation identity
+`endpointThresholdMultiplicity m a b ≃ ofNat (thresholdTriangleCount m a b)`.
+The closed Nat coefficient inequality therefore lifts once to the table-free
+semantic theorem `(R+1)*E_(m-1) <= R*E_m` for every positive `m<=2*R` and
+every nonnegative increment prefix.  The checked tenth-shell physical
+consumer now uses this all-depth theorem instead of
+`endpointRatio_ten_prefix`.
+
+This closes certificate-size growth and arbitrary-depth endpoint semantics;
+it does **not** assert physical coefficient descent beyond depth ten.  The
+honest physical residual domain remains `k>=4`, `2<=s`, `s+10<2*N_k` until a
+uniform schedule-specific descent/heat transport theorem or the interior
+reserve proof discharges the remaining cells.  All new exported gates are
+`[propext, Quot.sound]`.  No full audit, remote push, or GitHub CI run was used.
+
 ## Dead routes (refuted — do not re-attempt)
 
 - **`Var_m(cosθ)` monotonicity → uniform-in-`m`** — REFUTED (`VarianceMonotonicity.lean`,
