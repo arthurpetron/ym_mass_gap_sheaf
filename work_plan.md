@@ -19302,3 +19302,42 @@ Focused monitored builds pass for `P2BlockCompatibleThetaParityEnergy` (400
 jobs), `P2BlockCompatibleThetaPathEnergy` (401 jobs), and the downstream
 `P2BlockCompatibleStrongTuranBridge` (403 jobs).  Every new theorem reports
 only `[propext]` or `[propext, Quot.sound]`.
+
+## 57. Cleared theta certificate and first physical tail cell (2026-08-06)
+
+**Status. EXACT `k=4`, `N=79 -> 159` CELL CLOSED; HONEST TAIL MOVED TO
+`k>=5`; GENUINE PHYSICAL CONSUMER REPOINTED.**
+
+`P2BlockCompatibleThetaClearedCertificate` replaces canonical rational
+evaluation by a proof about the computation.  A fuelled binary
+square-and-multiply evaluator is proved equal to ordinary natural powers.
+Every coefficient monomial is then lifted to one shared denominator, so the
+norm, adjacent correlation, and deficit comparisons reduce to integer
+inequalities without multiplying unrelated rational denominators.
+
+The reflective Boolean checker closes the first previously open physical
+tail cell exactly:
+
+```text
+k = 4
+coarse: blockWeight 4 = 3071/3072, cutoff 79
+fine:   blockWeight 5 = 12287/12288, cutoff 159
+fourth: (blockWeight 5)^4, cutoff 79
+debt:   delta_4 = (1/360) 8^(-4)
+```
+
+The coefficient cell is transported back through the positive theta scales
+to the two path-energy inequalities.  The prefix/tail compiler combines this
+checked anchor with `BlockCompatibleP2CoefficientSandwichFromFive`, whose
+only fields are the same two comparisons for `k>=5`.  The downstream
+`BlockCompatibleP2PhysicalFrontierAtomsFromFive` boundary then compiles this
+reduced input through dyadic parity, theta deficit, mode-one quotient data,
+and the actual `BlockingStep.Phi` map to the defect-power identity and the
+half-loss bound.
+
+This is a strict discharge of one physical scale, not an all-scale claim.
+The weighted-box strong-Turan family and the coefficient sandwich tail for
+every `k>=5` remain open.  The monitored narrow module build completes 402
+jobs; the downstream focused bridge check passes.  All exported gates are
+`[propext, Quot.sound]`, with no classical choice, `native_decide`, `sorry`,
+custom axiom, or noncomputable witness.

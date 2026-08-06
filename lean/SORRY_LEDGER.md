@@ -941,21 +941,22 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 ### [R3k-parity] Block-compatible dyadic parity transport — **OPEN**
 
 - **milestone**: FrontierDAG bucket 1 / physical pGamma=2 mode-one transport.
-- **file**: `lean/YMGap/Continuum/P2BlockCompatibleThetaPathEnergy.lean`
-- **decl**: `BlockCompatibleP2ThetaPathEnergySandwich`
+- **file**: `lean/YMGap/Continuum/P2BlockCompatibleThetaClearedCertificate.lean`
+- **decl**: `BlockCompatibleP2CoefficientSandwichFromFive`
 - **obligation**: Inhabit the schedule-specific coarse and fine positive
-  path-energy comparisons for every `k >= 4`, including the explicit shared
-  debt `delta_k=(1/360)8^(-k)`.
+  coefficient/path-energy comparisons for every `k >= 5`, including the
+  explicit shared debt `delta_k=(1/360)8^(-k)`.
 - **constructive?**: yes — both are finite `Q'` inequalities.  The checked
-  compiler uses exact dyadic finite-sum reconstruction, the cutoff-uniform
-  endpoint-plus-Dirichlet sum-of-squares identity, positive cancellation,
-  and the proved reflective polynomial normalizer.
+  compiler uses logarithmic square-and-multiply, one common denominator per
+  finite theta sum, exact dyadic finite-sum reconstruction, the cutoff-uniform
+  endpoint-plus-Dirichlet sum-of-squares identity, and positive cancellation.
 - **status note**: the former single cross-cutoff Pascal-residual atom has been
   split into these two smaller local atoms.  The tempting debt-free coarse
-  comparison was numerically refuted and is not used.  The exact geometric
-  debt recursion, even-node factor four, deficit-energy/SOS equivalences, and
-  implication to the genuine `BlockingStep.Phi` defect-power law are closed;
-  no inhabitant of either all-scale analytic premise is claimed.
+  comparison was numerically refuted and is not used.  The exact `k=4`,
+  `N=79 -> 159` coefficient cell is kernel-checked and compiles through the
+  deficit-energy/SOS, dyadic parity, quotient, and genuine
+  `BlockingStep.Phi` layers.  The remaining tail begins honestly at `k=5`;
+  no inhabitant of that all-scale analytic tail is claimed.
 - **axiom gate (closed compiler)**: `[propext, Quot.sound]` only.
 
 ### [R3k-box] All-scale weighted-box strong-Turan family — **OPEN**
