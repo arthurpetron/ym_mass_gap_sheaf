@@ -331,6 +331,12 @@ theorem twice_headBareSlack_eqv_energy_boundary (w : Q') : forall M : Nat,
 def headRetuneDebt (w : Q') (N : Nat) : Q' :=
   q6 * (((1 : Q') + (-qpow (p2RetunedWeight w) 5)) * adjCorr w N)
 
+/-- Retune debt for an arbitrary explicit head power.  Keeping the power as
+data lets the same Dirichlet identity serve both the canonical retune and the
+heat-matched half-time factor `w^3`. -/
+def headPowerDebt (rho w : Q') (N : Nat) : Q' :=
+  Q'.ofNat 6 * (((1 : Q') + (-rho)) * adjCorr w N)
+
 private def retuneSlackL : RingNormaliser.PolyExpr :=
   .add
     (.mul (.const 2)
@@ -386,6 +392,83 @@ structure P2RetunedHeadDirichletData (N : Nat) (w : Q') : Type where
   cutoff : 2 <= N
   energy : q3 * dirichletEnergy w N <= q2 * headTwoStepEnergy w N
   boundary : headRetuneDebt w N <= headBoundary w N
+
+/-- Positive-energy data for a caller-supplied head power.  This is a strict
+generalization of `P2RetunedHeadDirichletData`: the common energy comparison
+is unchanged, while the endpoint reserve pays the exact selected debt. -/
+structure P2HeadPowerDirichletData (N : Nat) (w rho : Q') : Type where
+  cutoff : 2 <= N
+  energy : q3 * dirichletEnergy w N <= q2 * headTwoStepEnergy w N
+  boundary : headPowerDebt rho w N <= headBoundary w N
+
+/-- The sparse-head Dirichlet identity compiled at an arbitrary explicit
+power.  This is the proof-about-computation theorem used by the physical
+half-time head: no coefficient scan depends on the cutoff. -/
+theorem boxHead_of_powerDirichletData {N : Nat} {w rho : Q'}
+    (D : P2HeadPowerDirichletData N w rho) :
+    dimQ 1 * boxSum w N 2 <= rho * (dimQ 2 * boxSum w N 1) := by
+  let A := adjCorr w N
+  let C := channelTwoFormula w N
+  have hidentity := twice_headBareSlack_eqv_energy_boundary w (N - 2)
+  have hcut := D.cutoff
+  have hN : N - 2 + 2 = N := by omega
+  rw [hN] at hidentity
+  have henergyNonneg : (0 : Q') <=
+      q2 * headTwoStepEnergy w N + (-(q3 * dirichletEnergy w N)) := by
+    exact Q'.sub_nonneg_of_le D.energy
+  have hboundaryNonneg : (0 : Q') <=
+      headBoundary w N + (-headPowerDebt rho w N) := by
+    exact Q'.sub_nonneg_of_le D.boundary
+  have hsumNonneg : (0 : Q') <=
+      (q2 * headTwoStepEnergy w N +
+        (-(q3 * dirichletEnergy w N))) +
+        (headBoundary w N + (-headPowerDebt rho w N)) :=
+    Q'.zero_le_add _ _ henergyNonneg hboundaryNonneg
+  have hslackNonneg : (0 : Q') <=
+      q2 * (q3 * A + (-C)) + (-headPowerDebt rho w N) := by
+    let E := q2 * headTwoStepEnergy w N + (-(q3 * dirichletEnergy w N))
+    let B := headBoundary w N
+    let debt := -headPowerDebt rho w N
+    have hgroup : E + (B + debt) ≈ (E + B) + debt :=
+      Q'.eqv_symm (Q'.add_assoc_eqv E B debt)
+    have hid : (E + B) + debt ≈ q2 * headBareSlack w N + debt :=
+      Q'.add_eqv_congr_right _ _ debt (Q'.eqv_symm hidentity)
+    have hdef : q2 * headBareSlack w N + debt ≈
+        q2 * (q3 * A + (-C)) + debt := by
+      unfold headBareSlack A C
+      exact Q'.eqv_refl _
+    exact Q'.le_trans' _ _ _ hsumNonneg
+      (Q'.le_of_eqv (Q'.eqv_trans _ _ _ hgroup
+        (Q'.eqv_trans _ _ _ hid hdef)))
+  have hcore : C <= q3 * rho * A := by
+    have hscaledNonneg : (0 : Q') <=
+        q2 * (q3 * rho * A) + (-(q2 * C)) := by
+      exact Q'.le_trans' _ _ _ hslackNonneg
+        (Q'.le_of_eqv (by
+          unfold headPowerDebt A
+          exact retuneSlack_eqv _ _ _))
+    have hscaled : q2 * C <= q2 * (q3 * rho * A) :=
+      Q'.le_of_sub_nonneg hscaledNonneg
+    exact Q'.le_of_mul_le_mul_left hscaled (by decide)
+  have hbox1 := boxSum_one_eq_twice_adjCorr w N
+  have hbox2 := boxSum_two_eq_formula w N
+  have hdim :
+      q2 * (q3 * rho * A) ≈
+        rho * (dimQ 2 * boxSum w N 1) := by
+    unfold dimQ q2 q3
+    refine Q'.eqv_trans _
+      (rho * (Q'.ofNat 3 * (Q'.ofNat 2 * A))) _
+      (boxScale_eqv rho A) ?_
+    exact Q'.mul_eqv_congr_left rho _ _
+      (Q'.mul_eqv_congr_left (Q'.ofNat 3) _ _
+        (Q'.eqv_symm hbox1))
+  have hleft : dimQ 1 * boxSum w N 2 ≈ q2 * C := by
+    unfold dimQ q2 C
+    exact Q'.mul_eqv_congr_left (Q'.ofNat 2) _ _ hbox2
+  have hscaledCore := Q'.mul_le_mul_of_nonneg_left _ _ q2 hcore (by decide)
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hleft)
+    (Q'.le_trans' _ _ _ hscaledCore
+      (Q'.le_of_eqv hdim))
 
 /-- The two positive-energy inequalities compile to the exact weighted-box
 head used by the parity-strand automaton. -/
@@ -458,6 +541,7 @@ theorem boxHead_of_dirichletData {N : Nat} {w : Q'}
       (Q'.le_of_eqv hdim))
 
 #print axioms twice_headBareSlack_eqv_energy_boundary
+#print axioms boxHead_of_powerDirichletData
 #print axioms boxHead_of_dirichletData
 
 end YMGap.Continuum.P2BlockCompatibleHeadDirichletCompiler

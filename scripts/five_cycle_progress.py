@@ -259,6 +259,21 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
                     "        |     +-- [x] half-time power compiler "
                     f"{parameters['physical_coeff_half_time_power_compiler']}"
                 )
+            if parameters.get("physical_coeff_half_time_parity_compiler"):
+                lines.append(
+                    "        |     +-- [x] heat-matched parity automaton "
+                    f"{parameters['physical_coeff_half_time_parity_compiler']}"
+                )
+            if parameters.get("physical_coeff_half_time_heads"):
+                lines.append(
+                    "        |     +-- [x] heat-matched physical heads "
+                    f"{parameters['physical_coeff_half_time_heads']}"
+                )
+            if parameters.get("physical_coeff_half_time_nat_frontier"):
+                lines.append(
+                    "        |     +-- [>] heat-matched pure-Nat frontier "
+                    f"{parameters['physical_coeff_half_time_nat_frontier']}"
+                )
             if parameters.get("physical_coeff_strand_reindex"):
                 lines.append(
                     "        |     +-- [x] exact strand A1 reindex "

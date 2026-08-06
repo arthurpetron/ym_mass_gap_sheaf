@@ -23,7 +23,9 @@ set_option maxHeartbeats 3000000
 open YMGap.Constructive
 open YMGap.Continuum
 open YMGap.Continuum.AllWindowCorrDirichlet
+open YMGap.Continuum.ArbitraryTruncationRetuneCorr
 open YMGap.Continuum.BondMovingStep
+open YMGap.Continuum.EndpointCutoffTailFormula
 open YMGap.Continuum.FusionGenFunction
 open YMGap.Continuum.HarmonicSymbolicAnchorRatio
 open YMGap.Continuum.HeatKernelGap
@@ -32,6 +34,7 @@ open YMGap.Continuum.P2BlockCompatibleHeadDirichletCompiler
 open YMGap.Continuum.P2BlockCompatibleHeadLocalEnergyCompiler
 open YMGap.Continuum.P2BlockCompatibleHeadPhysicalBoundary
 open YMGap.Continuum.P2BlockCompatibleHeadPhysicalEnergy
+open YMGap.Continuum.P2BlockCompatibleHeadPhysicalFloor
 open YMGap.Continuum.P2BlockCompatibleSchedule
 open YMGap.Continuum.P2BlockCompatibleScheduleClosed
 open YMGap.Continuum.ReciprocalBernoulliUpper
@@ -53,6 +56,7 @@ local macro "ring_qeqv" : tactic =>
 private def q2 : Q' := Q'.ofNat 2
 private def q3 : Q' := Q'.ofNat 3
 private def q4 : Q' := Q'.ofNat 4
+private def q6 : Q' := Q'.ofNat 6
 private def q7 : Q' := Q'.ofNat 7
 private def q8 : Q' := Q'.ofNat 8
 private def q12 : Q' := Q'.ofNat 12
@@ -850,6 +854,214 @@ theorem physical_box_head (r : Nat) :
           (blockWeight (r + 8)) (blockNcut (r + 8)) 1) :=
   boxHead_of_dirichletData (physical_head_dirichlet_data r)
 
+/-! ## The heat-matched half-time head -/
+
+/-- Three original heat powers lose at most three copies of the physical
+margin.  The factor two is the normalization used by `headPowerDebt`. -/
+theorem twice_halfTime_cubic_defect_le {w : Q'}
+    (hw0 : (0 : Q') <= w) (hw1 : w <= (1 : Q')) :
+    q2 * ((1 : Q') - qpow w 3) <= q6 * ((1 : Q') - w) := by
+  have hdef := HeatKernelRGStep.oneSub_qpow_le hw0 hw1 3
+  have hscaled := Q'.mul_le_mul_of_nonneg_left _ _ q2 hdef (by decide)
+  have hre : q2 * (Q'.ofNat 3 * ((1 : Q') - w)) ≈
+      q6 * ((1 : Q') - w) := by
+    unfold q2 q6
+    ring_qeqv
+  exact Q'.le_trans' _ _ _ hscaled (Q'.le_of_eqv hre)
+
+/-- The exact half-time head debt has the same cubic endpoint form as the
+retuned debt, with constant six instead of five. -/
+theorem halfTimeHeadDebt_le_cubic {w : Q'}
+    (hw0 : (0 : Q') <= w) (hw1 : w <= (1 : Q')) (N : Nat) :
+    headPowerDebt (qpow w 3) w N <=
+      q6 * (((1 : Q') - w) *
+        (Q'.ofNat N * (Q'.ofNat N + 1) * (Q'.ofNat N + 2))) := by
+  let defect := (1 : Q') + -qpow w 3
+  let A := adjCorr w N
+  let A1 := adjCorr (1 : Q') N
+  let margin := (1 : Q') - w
+  let P := Q'.ofNat N * (Q'.ofNat N + 1) * (Q'.ofNat N + 2)
+  have hdef0 : (0 : Q') <= defect :=
+    Q'.sub_nonneg_of_le (HeatKernelGap.qpow_le_one hw0 hw1 3)
+  have hA0 : (0 : Q') <= A := adjCorr_nonneg hw0 N
+  have hA10 : (0 : Q') <= A1 := adjCorr_nonneg (by decide) N
+  have hmargin0 : (0 : Q') <= margin := Q'.sub_nonneg_of_le hw1
+  have hA : A <= A1 := adjCorr_le_endpoint hw0 hw1 N
+  have hdef : q2 * defect <= q6 * margin := by
+    dsimp only [defect, margin]
+    exact twice_halfTime_cubic_defect_le hw0 hw1
+  have hprod : (q2 * defect) * A <= (q6 * margin) * A1 :=
+    Q'.mul_le_mul_of_nonneg hdef hA
+      (Q'.mul_nonneg _ _ (by decide) hmargin0) hA0
+  have hscale := Q'.mul_le_mul_of_nonneg_left _ _ q3 hprod (by decide)
+  have hendpoint : q3 * A1 ≈ P := by
+    dsimp only [A1, P]
+    exact adjCorr_endpoint_closed N
+  have hleft : q3 * ((q2 * defect) * A) ≈
+      headPowerDebt (qpow w 3) w N := by
+    dsimp only [defect, A]
+    unfold q2 q3 headPowerDebt
+    ring_qeqv
+  have hright : q3 * ((q6 * margin) * A1) ≈
+      q6 * (margin * P) := by
+    refine Q'.eqv_trans _ (q6 * (margin * (q3 * A1))) _ ?_ ?_
+    · unfold q3 q6
+      ring_qeqv
+    · exact Q'.mul_eqv_congr_left q6 _ _
+        (Q'.mul_eqv_congr_left margin _ _ hendpoint)
+  exact Q'.le_trans' _ _ _ (Q'.ge_of_eqv hleft)
+    (Q'.le_trans' _ _ _ hscale (Q'.le_of_eqv hright))
+
+/-- Cleared physical endpoint comparison for the half-time cubic debt.  The
+proof uses `25 D = 12 (N+1)^2`; its cost is independent of the scale. -/
+theorem physical_halfTime_cubic_cleared (r : Nat) :
+    486 * blockNcut (r + 8) * (blockNcut (r + 8) + 1) *
+        (blockNcut (r + 8) + 2) <=
+      physicalWeightDen (r + 8) * blockNcut (r + 8) *
+        blockNcut (r + 8) := by
+  let N := blockNcut (r + 8)
+  let D := physicalWeightDen (r + 8)
+  have hN : 1279 <= N := blockNcut_ge_1279 r
+  have hcoef : 12150 <= 10 * N := by omega
+  have hmul := Nat.mul_le_mul_right (N + 2) hcoef
+  have hshape : 10 * N * (N + 2) <= 12 * (N + 1) * N := by
+    have hlinear : 10 * (N + 2) <= 12 * (N + 1) := by omega
+    have h := Nat.mul_le_mul_right N hlinear
+    simpa only [Nat.mul_assoc, Nat.mul_comm, Nat.mul_left_comm] using h
+  have hcore : 12150 * (N + 2) <= 12 * (N + 1) * N :=
+    Nat.le_trans hmul hshape
+  have hfactor := Nat.mul_le_mul_left (N * (N + 1)) hcore
+  have hcoord := physicalWeightDen_cutoff_square (r + 8)
+  change 25 * D = 12 * (N + 1) * (N + 1) at hcoord
+  change 486 * N * (N + 1) * (N + 2) <= D * N * N
+  have hscaled :
+      25 * (486 * N * (N + 1) * (N + 2)) <=
+        25 * (D * N * N) := by
+    calc
+      _ = (N * (N + 1)) * (12150 * (N + 2)) := by
+        simp only [Nat.mul_comm, Nat.mul_left_comm]
+        rw [← Nat.mul_assoc, show 25 * 486 = 12150 by decide]
+      _ <= (N * (N + 1)) * (12 * (N + 1) * N) := hfactor
+      _ = (25 * D) * (N * N) := by
+        rw [hcoord]
+        simp only [Nat.mul_comm, Nat.mul_left_comm]
+      _ = _ := by
+        simp only [Nat.mul_assoc, Nat.mul_comm, Nat.mul_left_comm]
+  exact Nat.le_of_mul_le_mul_left hscaled (by decide)
+
+private theorem halfTime_cubic_fraction_le_ninth_sq
+    (N D : Nat) (hD : 0 < D)
+    (hcleared : 486 * N * (N + 1) * (N + 2) <= D * N * N) :
+    q6 * (Q'.mkPos 1 D hD *
+        (Q'.ofNat N * Q'.ofNat (N + 1) * Q'.ofNat (N + 2))) <=
+      (Q'.ofNat N * Q'.mkPos 1 9 (by decide)) *
+        (Q'.ofNat N * Q'.mkPos 1 9 (by decide)) := by
+  show
+    (q6 * (Q'.mkPos 1 D hD *
+      (Q'.ofNat N * Q'.ofNat (N + 1) * Q'.ofNat (N + 2)))).num *
+        (((Q'.ofNat N * Q'.mkPos 1 9 (by decide)) *
+          (Q'.ofNat N * Q'.mkPos 1 9 (by decide))).den : Int) <=
+      ((Q'.ofNat N * Q'.mkPos 1 9 (by decide)) *
+        (Q'.ofNat N * Q'.mkPos 1 9 (by decide))).num *
+        ((q6 * (Q'.mkPos 1 D hD *
+          (Q'.ofNat N * Q'.ofNat (N + 1) * Q'.ofNat (N + 2)))).den : Int)
+  unfold q6
+  simp only [Q'.mul_num_cast, Q'.mul_den_cast, Q'.ofNat_num_cast,
+    Q'.ofNat_den_cast, Q'.mkPos_num, Q'.mkPos_den, Int.one_mul, Int.mul_one]
+  push_cast
+  have hcleared' :
+      6 * (N * (N + 1) * (N + 1 + 1)) * 81 <= N * N * D := by
+    simpa only [Nat.add_assoc, Nat.mul_assoc, Nat.mul_comm, Nat.mul_left_comm]
+      using hcleared
+  exact_mod_cast hcleared'
+
+/-- The half-time cubic debt fits inside the same explicit endpoint square
+used by the canonical retuned proof. -/
+theorem physical_halfTime_cubic_cap_le_endpoint_floor (r : Nat) :
+    q6 * (((1 : Q') - blockWeight (r + 8)) *
+        (Q'.ofNat (blockNcut (r + 8)) *
+          (Q'.ofNat (blockNcut (r + 8)) + 1) *
+          (Q'.ofNat (blockNcut (r + 8)) + 2))) <=
+      (Q'.ofNat (blockNcut (r + 8)) * Q'.mkPos 1 9 (by decide)) *
+        (Q'.ofNat (blockNcut (r + 8)) * Q'.mkPos 1 9 (by decide)) := by
+  let N := blockNcut (r + 8)
+  let D := physicalWeightDen (r + 8)
+  have hmargin := one_sub_blockWeight_eqv_margin (r + 8)
+  have hclosed := blockMargin_eqv_closed (r + 8)
+  have hmarginClosed :
+      ((1 : Q') - blockWeight (r + 8)) ≈
+        Q'.mkPos 1 D (physicalWeightDen_pos (r + 8)) :=
+    Q'.eqv_trans _ _ _ hmargin hclosed
+  have hP :
+      Q'.ofNat N * (Q'.ofNat N + 1) * (Q'.ofNat N + 2) ≈
+        Q'.ofNat N * Q'.ofNat (N + 1) * Q'.ofNat (N + 2) := by
+    have h1 : Q'.ofNat N + (1 : Q') ≈ Q'.ofNat (N + 1) :=
+      Q'.eqv_symm (BulkModeCrux.ofNat_succ_eqv N)
+    have h2 : Q'.ofNat N + (2 : Q') ≈ Q'.ofNat (N + 2) :=
+      Q'.eqv_symm (Q'.ofNat_add_eqv N 2)
+    refine Q'.eqv_trans _
+      ((Q'.ofNat N * Q'.ofNat (N + 1)) * (Q'.ofNat N + 2)) _ ?_ ?_
+    · exact Q'.mul_eqv_congr_right _ _ _
+        (Q'.mul_eqv_congr_left (Q'.ofNat N) _ _ h1)
+    · exact Q'.mul_eqv_congr_left _ _ _ h2
+  have hre :
+      q6 * (((1 : Q') - blockWeight (r + 8)) *
+        (Q'.ofNat N * (Q'.ofNat N + 1) * (Q'.ofNat N + 2))) ≈
+      q6 * (Q'.mkPos 1 D (physicalWeightDen_pos (r + 8)) *
+        (Q'.ofNat N * Q'.ofNat (N + 1) * Q'.ofNat (N + 2))) := by
+    refine Q'.mul_eqv_congr_left q6 _ _ ?_
+    refine Q'.eqv_trans _
+      (Q'.mkPos 1 D (physicalWeightDen_pos (r + 8)) *
+        (Q'.ofNat N * (Q'.ofNat N + 1) * (Q'.ofNat N + 2))) _ ?_ ?_
+    · exact Q'.mul_eqv_congr_right _ _ _ hmarginClosed
+    · exact Q'.mul_eqv_congr_left _ _ _ hP
+  refine Q'.le_trans' _ _ _ (Q'.le_of_eqv hre) ?_
+  exact halfTime_cubic_fraction_le_ninth_sq N D
+    (physicalWeightDen_pos (r + 8)) (physical_halfTime_cubic_cleared r)
+
+/-- The physical boundary pays the stronger heat-matched head debt at every
+symbolic scale `k >= 8`. -/
+theorem physical_halfTime_head_boundary (r : Nat) :
+    headPowerDebt (qpow (blockWeight (r + 8)) 3)
+        (blockWeight (r + 8)) (blockNcut (r + 8)) <=
+      headBoundary (blockWeight (r + 8)) (blockNcut (r + 8)) := by
+  have hdebt := halfTimeHeadDebt_le_cubic
+    (blockWeight_nonneg (r + 8)) (blockWeight_le_one (r + 8))
+    (blockNcut (r + 8))
+  have hcap := physical_halfTime_cubic_cap_le_endpoint_floor r
+  have hfloor :
+      (Q'.ofNat (blockNcut (r + 8)) * Q'.mkPos 1 9 (by decide)) *
+          (Q'.ofNat (blockNcut (r + 8)) * Q'.mkPos 1 9 (by decide)) <=
+        coeffW (blockWeight (r + 8)) (blockNcut (r + 8) - 1) *
+          coeffW (blockWeight (r + 8)) (blockNcut (r + 8) - 1) := by
+    simpa only [show r + 7 + 1 = r + 8 by omega] using
+      physical_endpoint_coeff_sq_floor (r + 7)
+  have hboundary := physical_endpoint_sq_le_headBoundary r
+  exact Q'.le_trans' _ _ _ hdebt
+    (Q'.le_trans' _ _ _ hcap
+      (Q'.le_trans' _ _ _ hfloor hboundary))
+
+/-- Constant-cost data for the stronger half-time head. -/
+def physical_halfTime_head_dirichlet_data (r : Nat) :
+    P2HeadPowerDirichletData
+      (blockNcut (r + 8)) (blockWeight (r + 8))
+      (qpow (blockWeight (r + 8)) 3) := {
+  cutoff := Nat.le_trans (by decide) (blockNcut_ge_1279 r)
+  energy := by simpa only using physical_head_energy r
+  boundary := physical_halfTime_head_boundary r
+}
+
+/-- Genuine half-time mode-one head at every symbolic physical scale
+`k = r+8`.  This is strictly stronger than `physical_box_head` and is proved
+without evaluating the growing Clebsch box. -/
+theorem physical_box_halfTime_head (r : Nat) :
+    dimQ 1 * SelfFusionLogConcave.boxSum
+        (blockWeight (r + 8)) (blockNcut (r + 8)) 2 <=
+      qpow (blockWeight (r + 8)) 3 *
+        (dimQ 2 * SelfFusionLogConcave.boxSum
+          (blockWeight (r + 8)) (blockNcut (r + 8)) 1) :=
+  boxHead_of_powerDirichletData (physical_halfTime_head_dirichlet_data r)
+
 #print axioms physical_coeff_successor_cap
 #print axioms physical_first_endpoint_stencil
 #print axioms physical_first_interior_stencil
@@ -858,5 +1070,12 @@ theorem physical_box_head (r : Nat) :
 #print axioms physical_head_energy
 #print axioms physical_head_dirichlet_data
 #print axioms physical_box_head
+#print axioms twice_halfTime_cubic_defect_le
+#print axioms halfTimeHeadDebt_le_cubic
+#print axioms physical_halfTime_cubic_cleared
+#print axioms physical_halfTime_cubic_cap_le_endpoint_floor
+#print axioms physical_halfTime_head_boundary
+#print axioms physical_halfTime_head_dirichlet_data
+#print axioms physical_box_halfTime_head
 
 end YMGap.Continuum.P2BlockCompatibleHeadPhysicalEnergyClose

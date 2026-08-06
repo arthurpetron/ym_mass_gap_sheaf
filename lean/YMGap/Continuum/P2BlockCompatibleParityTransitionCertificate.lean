@@ -95,16 +95,17 @@ private theorem scale_boxTailLeft_reconstruct
   · simpa only [scaledBoxLeftAt] using
       scaledDimCoeffAt_reconstruct num den hden w hw N s (s + 1)
 
-/-- Generic soundness of the natural-number cross-product cell.  The checker
-is untrusted computation; this theorem is the load-bearing proof. -/
-theorem integralBoxCrossAt_sound
+/-- Generic soundness of the natural-number cross-product cell for an
+arbitrary rational power base.  The checker is untrusted computation; this
+theorem is the load-bearing proof. -/
+theorem integralBoxCrossAt_sound_of_base
     (num den qnum qden N p a b c d : Nat)
     (hden : 0 < den) (hqden : 0 < qden)
     (w : Q') (hw : w ≈ Q'.mkPos num den hden)
-    (hq : p2RetunedWeight w ≈ Q'.mkPos qnum qden hqden)
+    (q : Q') (hq : q ≈ Q'.mkPos qnum qden hqden)
     (h : integralBoxCrossAt num den qnum qden N p a b c d) :
     boxTailBase N w a * boxTailLeft N w b <=
-      (qpow (p2RetunedWeight w) p * boxTailBase N w c) *
+      (qpow q p * boxTailBase N w c) *
         boxTailLeft N w d := by
   let scale := Q'.ofNat (den ^ (2 * c4 N))
   let x := boxTailBase N w a
@@ -115,7 +116,7 @@ theorem integralBoxCrossAt_sound
   let yn := scaledBoxLeftAt num den N b
   let zn := scaledBoxBaseAt num den N c
   let un := scaledBoxLeftAt num den N d
-  let qp := qpow (p2RetunedWeight w) p
+  let qp := qpow q p
   have hcross : xn * yn * qden ^ p <= qnum ^ p * (zn * un) := by
     simpa only [xn, yn, zn, un] using h
   have hrat := ofNat_le_mkPos_mul_of_cross
@@ -189,6 +190,20 @@ theorem integralBoxCrossAt_sound
   have hfinal : x * y <= (qp * z) * u :=
     Q'.le_trans' _ _ _ hraw (Q'.ge_of_eqv htarget)
   simpa only [x, y, z, u, qp] using hfinal
+
+/-- Retuned specialization retained for the canonical parity carrier. -/
+theorem integralBoxCrossAt_sound
+    (num den qnum qden N p a b c d : Nat)
+    (hden : 0 < den) (hqden : 0 < qden)
+    (w : Q') (hw : w ≈ Q'.mkPos num den hden)
+    (hq : p2RetunedWeight w ≈ Q'.mkPos qnum qden hqden)
+    (h : integralBoxCrossAt num den qnum qden N p a b c d) :
+    boxTailBase N w a * boxTailLeft N w b <=
+      (qpow (p2RetunedWeight w) p * boxTailBase N w c) *
+        boxTailLeft N w d :=
+  integralBoxCrossAt_sound_of_base
+    num den qnum qden N p a b c d hden hqden w hw
+    (p2RetunedWeight w) hq h
 
 /-- Pure-`Nat` odd two-step cell on the physical schedule. -/
 def physicalBoxOddTransitionAt (k m : Nat) : Prop :=
@@ -287,6 +302,7 @@ def BlockCompatibleP2BoxParityTransitionsFromFour.withPhysicalHead
       show 1 + 1 = 2 by decide,
       show 2 * 1 + 3 = 5 by decide] using h
 
+#print axioms integralBoxCrossAt_sound_of_base
 #print axioms integralBoxCrossAt_sound
 #print axioms physicalBoxOddTransitionAt_sound
 #print axioms physicalBoxEvenTransitionAt_sound
