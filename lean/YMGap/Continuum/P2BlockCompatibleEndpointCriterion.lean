@@ -19,6 +19,7 @@ declaration.
 
 import YMGap.Continuum.P2BlockCompatiblePhysicalBridge
 import YMGap.Continuum.P2DyadicFusionEndpointCriterion
+import YMGap.Continuum.SpectralMarginBridge
 
 namespace YMGap.Continuum.P2BlockCompatibleEndpointCriterion
 
@@ -39,8 +40,36 @@ open YMGap.Continuum.P2RetunedFusionDefectPower
 open YMGap.Continuum.P2RetunedFusionPhysicalMode
 open YMGap.Continuum.P2RetunedRatioCompiler
 open YMGap.Continuum.RGTransport
+open YMGap.Continuum.SpectralMarginBridge
+open YMGap.Continuum.VacNormEigShift
 
 local infix:50 " ≈ " => Q'.eqv
+
+local macro "ring_qeqv" : tactic =>
+  `(tactic| (show _ * (_ : Int) = _ * (_ : Int);
+             simp only [Q'.mul_num_cast, Q'.mul_den_cast, Int.mul_one];
+             ac_rfl))
+
+private theorem divPos_eqv_divPos_of_cross {p q p' q' : Q'}
+    (hq : (0 : Q') < q) (hq' : (0 : Q') < q')
+    (hcross : p * q' ≈ p' * q) :
+    Q'.divPos p q hq ≈ Q'.divPos p' q' hq' := by
+  let c := Q'.divPos p' q' hq'
+  have hright : (c * q) * q' ≈ p' * q := by
+    refine Q'.eqv_trans _ _ _ (Q'.mul_assoc_eqv c q q') ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_left c _ _ (Q'.mul_comm_eqv q q')) ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.eqv_symm (Q'.mul_assoc_eqv c q' q)) ?_
+    exact Q'.mul_eqv_congr_right _ _ q (Q'.divPos_mul_eqv p' q' hq')
+  have hmul : p * q' ≈ (c * q) * q' :=
+    Q'.eqv_trans _ _ _ hcross (Q'.eqv_symm hright)
+  have hcancel : p ≈ c * q := by
+    apply Q'.mul_left_cancel_of_pos hq'
+    refine Q'.eqv_trans _ _ _ (Q'.mul_comm_eqv q' p) ?_
+    refine Q'.eqv_trans _ _ _ hmul ?_
+    exact Q'.mul_comm_eqv (c * q) q'
+  exact divPos_eqv_of_eqv_mul hq hcancel
 
 /-- Exact endpoint-continuity error on the replacement schedule. -/
 def blockEndpointError (k : Nat) : Q' :=
@@ -73,6 +102,88 @@ theorem blockRawModeOne_endpoint_error (k : Nat) :
       (one_sub_blockWeight_eqv_margin k)
   exact Q'.le_trans' _ _ _ h (Q'.le_of_eqv hmargin)
 
+/-! ## Exact endpoint reserve -/
+
+/-- Common positive denominator for the endpoint square at `N -> 2N+1`. -/
+def endpointBlockCommonDen (N : Nat) : Q' :=
+  let M := 2 * N + 1
+  let D := Q'.ofNat (2 * M + 3)
+  let d := Q'.ofNat (2 * N + 3)
+  (D * D) * d
+
+theorem endpointBlockCommonDen_pos (N : Nat) :
+    (0 : Q') < endpointBlockCommonDen N := by
+  dsimp only [endpointBlockCommonDen]
+  exact Q'.mul_pos
+    (Q'.mul_pos (endpointDen_pos (2 * N + 1))
+      (endpointDen_pos (2 * N + 1)))
+    (endpointDen_pos N)
+
+/-- Closed endpoint reserve
+`6(N+2)/((4N+5)^2(2N+3))`. -/
+def endpointBlockSlack (N : Nat) : Q' :=
+  Q'.divPos
+    (Q'.ofNat 6 * (Q'.ofNat N + Q'.ofNat 2))
+    (endpointBlockCommonDen N) (endpointBlockCommonDen_pos N)
+
+/-- The endpoint square is the coarse endpoint plus the exact positive
+reserve. -/
+theorem endpointRate_add_endpointBlockSlack_eqv (N : Nat) :
+    endpointRate N + endpointBlockSlack N ≈
+      endpointRate (2 * N + 1) * endpointRate (2 * N + 1) := by
+  let M := 2 * N + 1
+  let a := Q'.ofNat (2 * N)
+  let d := Q'.ofNat (2 * N + 3)
+  let A := Q'.ofNat (2 * M)
+  let D := Q'.ofNat (2 * M + 3)
+  let den := (D * D) * d
+  let coarseNum := a * (D * D)
+  let fineNum := (A * A) * d
+  let slackNum := Q'.ofNat 6 * (Q'.ofNat N + Q'.ofNat 2)
+  have hd : (0 : Q') < d := by
+    unfold d
+    exact endpointDen_pos N
+  have hD : (0 : Q') < D := by
+    unfold D M
+    exact endpointDen_pos (2 * N + 1)
+  have hD2 : (0 : Q') < D * D := Q'.mul_pos hD hD
+  have hden : (0 : Q') < den := Q'.mul_pos hD2 hd
+  have hcoarse : endpointRate N ≈
+      Q'.divPos coarseNum den hden := by
+    unfold endpointRate
+    apply divPos_eqv_divPos_of_cross (endpointDen_pos N) hden
+    dsimp only [coarseNum, den, a, d, D]
+    ring_qeqv
+  have hsquare : Q'.divPos (A * A) (D * D) hD2 ≈
+      endpointRate M * endpointRate M := by
+    simpa only [endpointRate, A, D] using
+      (P2BlockCompatibleSchedule.divPos_square_eqv A D hD)
+  have hcommon : Q'.divPos (A * A) (D * D) hD2 ≈
+      Q'.divPos fineNum den hden := by
+    apply divPos_eqv_divPos_of_cross hD2 hden
+    dsimp only [fineNum, den, A, D, d]
+    ring_qeqv
+  have hfine : endpointRate M * endpointRate M ≈
+      Q'.divPos fineNum den hden :=
+    Q'.eqv_trans _ _ _ (Q'.eqv_symm hsquare) hcommon
+  have hslack : endpointBlockSlack N ≈
+      Q'.divPos slackNum den hden := by
+    rfl
+  have hadd := Q'.add_eqv_congr' hcoarse hslack
+  have hsame := add_divPos_eqv coarseNum slackNum den hden
+  have hgap : fineNum ≈ coarseNum + slackNum := by
+    simpa only [M, a, d, A, D, coarseNum, fineNum, slackNum] using
+      (endpointBlockCrossGap_eqv N)
+  have hnum : coarseNum + slackNum ≈ fineNum := Q'.eqv_symm hgap
+  have hquot :
+      Q'.divPos (coarseNum + slackNum) den hden ≈
+        Q'.divPos fineNum den hden := by
+    apply divPos_eqv_divPos_of_cross hden hden
+    exact Q'.mul_eqv_congr_right _ _ den hnum
+  exact Q'.eqv_trans _ _ _ hadd
+    (Q'.eqv_trans _ _ _ hsame
+      (Q'.eqv_trans _ _ _ hquot (Q'.eqv_symm hfine)))
+
 /-- The normalized-amplitude tail reduced to an explicit scalar inequality.
 No fusion convolution or rational quotient occurs in this data. -/
 structure BlockCompatibleP2EndpointMonotonicityTail : Type where
@@ -82,6 +193,25 @@ structure BlockCompatibleP2EndpointMonotonicityTail : Type where
           Q'.ofNat 2 * blockEndpointError (k + 1)) <=
       endpointRate (blockNcut (k + 1)) *
         endpointRate (blockNcut (k + 1))
+
+/-- Preferred scalar residual: the two continuity errors fit inside the exact
+closed endpoint reserve. -/
+structure BlockCompatibleP2EndpointReserveTail : Type where
+  errorsLeSlack : forall k, 2 <= k ->
+    blockEndpointError k + Q'.ofNat 2 * blockEndpointError (k + 1) <=
+      endpointBlockSlack (blockNcut k)
+
+/-- The exact endpoint identity compiles the reserve form to the budget form. -/
+def BlockCompatibleP2EndpointReserveTail.toEndpointMonotonicityTail
+    (R : BlockCompatibleP2EndpointReserveTail) :
+    BlockCompatibleP2EndpointMonotonicityTail where
+  budget := fun k hk => by
+    have hadd := Q'.add_le_add_left
+      (endpointRate (blockNcut k)) _ _ (R.errorsLeSlack k hk)
+    exact Q'.le_trans' _ _ _ hadd
+      (Q'.le_of_eqv (by
+        simpa only [blockNcut_succ] using
+          (endpointRate_add_endpointBlockSlack_eqv (blockNcut k))))
 
 /-- The endpoint budget discharges the sole normalized mode-one tail used by
 the physical bridge. -/
@@ -122,6 +252,8 @@ theorem BlockCompatibleP2EndpointMonotonicityTail.factorLossLeHalf
   E.toModeOneTailMonotonicity.factorLossLeHalf D k
 
 #print axioms blockRawModeOne_endpoint_error
+#print axioms endpointRate_add_endpointBlockSlack_eqv
+#print axioms BlockCompatibleP2EndpointReserveTail.toEndpointMonotonicityTail
 #print axioms BlockCompatibleP2EndpointMonotonicityTail.toModeOneTailMonotonicity
 #print axioms BlockCompatibleP2EndpointMonotonicityTail.blockDefectPowerOnTrajectory
 #print axioms BlockCompatibleP2EndpointMonotonicityTail.factorLossLeHalf

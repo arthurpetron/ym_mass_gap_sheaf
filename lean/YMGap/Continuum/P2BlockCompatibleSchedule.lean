@@ -173,7 +173,7 @@ private theorem ofNat_two_mul_add_eqv (N c : Nat) :
     (Q'.add_eqv_congr_right _ _ _
       (SU3CharFactor.ofNat_mul_eqv 2 N))
 
-private theorem divPos_square_eqv (p q : Q') (hq : (0 : Q') < q) :
+theorem divPos_square_eqv (p q : Q') (hq : (0 : Q') < q) :
     Q'.divPos (p * p) (q * q) (Q'.mul_pos hq hq) ≈
       Q'.divPos p q hq * Q'.divPos p q hq := by
   let r := Q'.divPos p q hq
@@ -234,6 +234,62 @@ theorem endpointRate_le_doubleSucc_square (N : Nat) :
   have hsquare := divPos_square_eqv A D (endpointDen_pos M)
   exact Q'.le_trans' _ _ _ hquot (Q'.le_of_eqv hsquare)
 
+/-- Exact cross-multiplied reserve behind the endpoint square.  In ordinary
+fraction notation this is
+
+`(4N+2)^2(2N+3) = 2N(4N+5)^2 + 6(N+2)`.
+
+The identity is reflected from the constant-size polynomial normal form; it
+does not evaluate a growing cutoff expression. -/
+theorem endpointBlockCrossGap_eqv (N : Nat) :
+    let M := 2 * N + 1
+    let a := Q'.ofNat (2 * N)
+    let d := Q'.ofNat (2 * N + 3)
+    let A := Q'.ofNat (2 * M)
+    let D := Q'.ofNat (2 * M + 3)
+    (A * A) * d ≈
+      a * (D * D) + Q'.ofNat 6 * (Q'.ofNat N + Q'.ofNat 2) := by
+  dsimp only
+  let M := 2 * N + 1
+  let x := Q'.ofNat N
+  have hM : Q'.ofNat M ≈ Q'.ofNat 2 * x + Q'.ofNat 1 := by
+    unfold M x
+    exact ofNat_two_mul_add_eqv N 1
+  have ha : Q'.ofNat (2 * N) ≈ blockCoarseNum x := by
+    unfold blockCoarseNum x
+    exact SU3CharFactor.ofNat_mul_eqv 2 N
+  have hd : Q'.ofNat (2 * N + 3) ≈ blockCoarseDen x := by
+    unfold blockCoarseDen x
+    exact ofNat_two_mul_add_eqv N 3
+  have hA : Q'.ofNat (2 * M) ≈ blockFineNum x := by
+    unfold blockFineNum
+    exact Q'.eqv_trans _ _ _
+      (SU3CharFactor.ofNat_mul_eqv 2 M)
+      (Q'.mul_eqv_congr_left (Q'.ofNat 2) _ _ hM)
+  have hD : Q'.ofNat (2 * M + 3) ≈ blockFineDen x := by
+    unfold blockFineDen
+    exact Q'.eqv_trans _ _ _
+      (ofNat_two_mul_add_eqv M 3)
+      (Q'.add_eqv_congr_right _ _ _
+        (Q'.mul_eqv_congr_left (Q'.ofNat 2) _ _ hM))
+  have hleft :
+      (Q'.ofNat (2 * M) * Q'.ofNat (2 * M)) *
+          Q'.ofNat (2 * N + 3) ≈
+        (blockFineNum x * blockFineNum x) * blockCoarseDen x :=
+    mul_eqv_both (mul_eqv_both hA hA) hd
+  have hright :
+      Q'.ofNat (2 * N) *
+            (Q'.ofNat (2 * M + 3) * Q'.ofNat (2 * M + 3)) +
+          Q'.ofNat 6 * (Q'.ofNat N + Q'.ofNat 2) ≈
+        blockCoarseNum x *
+            (blockFineDen x * blockFineDen x) +
+          Q'.ofNat 6 * (x + Q'.ofNat 2) :=
+    Q'.add_eqv_congr'
+      (mul_eqv_both ha (mul_eqv_both hD hD))
+      (Q'.mul_eqv_congr_left (Q'.ofNat 6) _ _ (Q'.eqv_refl _))
+  exact Q'.eqv_trans _ _ _ hleft
+    (Q'.eqv_trans _ _ _ (endpointBlockGap_eqv x) (Q'.eqv_symm hright))
+
 theorem endpointRate_block_step (k : Nat) :
     endpointRate (blockNcut k) <=
       endpointRate (blockNcut (k + 1)) * endpointRate (blockNcut (k + 1)) := by
@@ -247,3 +303,4 @@ end YMGap.Continuum.P2BlockCompatibleSchedule
 #print axioms YMGap.Continuum.P2BlockCompatibleSchedule.blockNcut_closed
 #print axioms YMGap.Continuum.P2BlockCompatibleSchedule.endpointRate_le_doubleSucc_square
 #print axioms YMGap.Continuum.P2BlockCompatibleSchedule.endpointRate_block_step
+#print axioms YMGap.Continuum.P2BlockCompatibleSchedule.endpointBlockCrossGap_eqv
