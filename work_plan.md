@@ -19367,3 +19367,43 @@ uniform normalized-deficit comparison/recurrence for the common-cutoff
 coarse inequality; the fine reserve is asymptotically much larger.  The
 weighted-box strong-Turan family and the coefficient sandwich for all `k>=6`
 remain open.
+
+## 59. Third cleared theta cell and normalized all-scale residue (2026-08-06)
+
+**Status. EXACT `k=6`, `N=319 -> 639` CELL CLOSED; THE HONEST TAIL IS TWO
+NORMALIZED-DEFICIT INEQUALITIES FOR `k>=7`.**
+
+The common-denominator checker now closes the third physical tail cell at
+coarse weight `49151/49152`, fine weight `196607/196608`, and the literal
+shared debt `delta_6`.  The kernel computation completed in 159 seconds under
+the monitored one-worker launcher while the operating-system reserve remained
+healthy.  This is the final brute finite anchor: the next cutoff would scale
+the certificate far more sharply than the mathematical content justifies.
+
+`P2BlockCompatibleThetaNormalizedDeficit` introduces the exact scalar
+coordinate
+
+```text
+rho(w,N) = (coordNormSq(w,N) - adjCorr(w,N)) / coordNormSq(w,N)
+```
+
+and proves, once and constructively, that the two normalized inequalities
+cancel back to the division-free coefficient sandwich.  Consequently the
+remaining physical theta input is precisely
+
+```text
+rho(w_(k+1)^4,N_k) <= rho(w_k,N_k) + delta_k,
+2*rho(w_(k+1),N_(k+1)) + delta_k <= rho(w_(k+1)^4,N_k),
+```
+
+for every `k>=7`.  The three checked prefix cells are inserted automatically,
+and the downstream normalized frontier reaches the actual `BlockingStep.Phi`
+defect-power theorem and the quotient half-loss bound.  `finePin` remains
+definitional and `imagePin` remains the supplied `BlockingStep.step`; no map
+identity has been re-assumed.
+
+Focused monitored checks pass for the normalized compiler and the downstream
+physical bridge.  Every exported gate reports only `[propext, Quot.sound]`.
+The all-scale weighted-box strong-Turan family and the two normalized
+`k>=7` inequalities remain open; no all-scale physical frontier is claimed
+inhabited.

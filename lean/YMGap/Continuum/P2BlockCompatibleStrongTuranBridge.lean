@@ -21,7 +21,7 @@ Pure structure compilation and the existing Nat induction.  No `Classical`,
 `native_decide`, `sorry`, custom axiom, or noncomputable declaration.
 -/
 
-import YMGap.Continuum.P2BlockCompatibleThetaClearedCertificate
+import YMGap.Continuum.P2BlockCompatibleThetaNormalizedDeficit
 import YMGap.Continuum.P2RetunedStrongTuranCompiler
 
 namespace YMGap.Continuum.P2BlockCompatibleStrongTuranBridge
@@ -39,6 +39,7 @@ open YMGap.Continuum.P2BlockCompatibleThetaParityEnergy
 open YMGap.Continuum.P2BlockCompatibleThetaParityTransport
 open YMGap.Continuum.P2BlockCompatibleThetaPathEnergy
 open YMGap.Continuum.P2BlockCompatibleThetaClearedCertificate
+open YMGap.Continuum.P2BlockCompatibleThetaNormalizedDeficit
 open YMGap.Continuum.P2RetunedBlockingDictionary
 open YMGap.Continuum.P2RetunedFusionDefectPower
 open YMGap.Continuum.P2RetunedFusionPhysicalMode
@@ -111,6 +112,17 @@ structure BlockCompatibleP2PhysicalFrontierAtomsFromSix : Type where
   coefficient : BlockCompatibleP2BoxStrongTuranData
   thetaCoefficientTail : BlockCompatibleP2CoefficientSandwichFromSix
 
+/-- Physical frontier after the exact `k=6`, `N=319 -> 639` cell is checked. -/
+structure BlockCompatibleP2PhysicalFrontierAtomsFromSeven : Type where
+  coefficient : BlockCompatibleP2BoxStrongTuranData
+  thetaCoefficientTail : BlockCompatibleP2CoefficientSandwichFromSeven
+
+/-- Canonical analytic frontier after the checked prefix: weighted-box strong
+Turan plus the two normalized-deficit inequalities from `k=7` onward. -/
+structure BlockCompatibleP2PhysicalFrontierAtomsNormalizedFromSeven : Type where
+  coefficient : BlockCompatibleP2BoxStrongTuranData
+  thetaNormalizedTail : BlockCompatibleP2NormalizedDeficitTailFromSeven
+
 /-- Insert the checked `k=4` cell, compile the remaining coefficient cells to
 path-energy cells, and recover the original physical frontier boundary. -/
 def BlockCompatibleP2PhysicalFrontierAtomsFromFive.toPhysicalFrontierAtoms
@@ -128,6 +140,24 @@ def BlockCompatibleP2PhysicalFrontierAtomsFromSix.toPhysicalFrontierAtoms
   coefficient := A.coefficient
   thetaEnergySandwich :=
     A.thetaCoefficientTail.toAllScale.toThetaPathEnergySandwich
+
+/-- Insert all three checked tail cells and recover the original physical
+frontier from a coefficient sandwich beginning at `k=7`. -/
+def BlockCompatibleP2PhysicalFrontierAtomsFromSeven.toPhysicalFrontierAtoms
+    (A : BlockCompatibleP2PhysicalFrontierAtomsFromSeven) :
+    BlockCompatibleP2PhysicalFrontierAtoms where
+  coefficient := A.coefficient
+  thetaEnergySandwich :=
+    A.thetaCoefficientTail.toAllScale.toThetaPathEnergySandwich
+
+/-- Cancel the normalized ratios, insert the three checked prefix cells, and
+recover the original physical frontier boundary. -/
+def BlockCompatibleP2PhysicalFrontierAtomsNormalizedFromSeven.toPhysicalFrontierAtoms
+    (A : BlockCompatibleP2PhysicalFrontierAtomsNormalizedFromSeven) :
+    BlockCompatibleP2PhysicalFrontierAtoms where
+  coefficient := A.coefficient
+  thetaEnergySandwich := A.thetaNormalizedTail.toCoefficientSandwich
+    |>.toAllScale.toThetaPathEnergySandwich
 
 def BlockCompatibleP2PhysicalFrontierAtoms.coeffTailData
     (A : BlockCompatibleP2PhysicalFrontierAtoms) :
@@ -228,6 +258,61 @@ theorem BlockCompatibleP2PhysicalFrontierAtomsFromSix.factorLossLeHalf
       YMGap.Constructive.HalfPow.half :=
   A.toPhysicalFrontierAtoms.factorLossLeHalf k
 
+/-- The three-anchor frontier reaches the genuine physical map with only a
+`k>=7` theta coefficient tail left open. -/
+theorem BlockCompatibleP2PhysicalFrontierAtomsFromSeven.blockDefectPowerOnTrajectory
+    (A : BlockCompatibleP2PhysicalFrontierAtomsFromSeven)
+    {B : BlockingStep
+      (fusionSeparator
+        A.toPhysicalFrontierAtoms.coeffTailData.toControlFamily modeOne)} :
+    IsBlockDefectPowerOnTrajectory 1
+      (fusionSeparator
+        A.toPhysicalFrontierAtoms.coeffTailData.toControlFamily modeOne) B.Φ
+      (A.toPhysicalFrontierAtoms.modeOneTailMonotonicity.toQuotientData
+        A.toPhysicalFrontierAtoms.coeffTailData (B := B)).toCrossMul.factor :=
+  A.toPhysicalFrontierAtoms.blockDefectPowerOnTrajectory
+
+/-- The three-anchor quotient factors retain the uniform half-loss bound. -/
+theorem BlockCompatibleP2PhysicalFrontierAtomsFromSeven.factorLossLeHalf
+    (A : BlockCompatibleP2PhysicalFrontierAtomsFromSeven)
+    {B : BlockingStep
+      (fusionSeparator
+        A.toPhysicalFrontierAtoms.coeffTailData.toControlFamily modeOne)}
+    (k : Nat) :
+    (1 : Q') -
+        (A.toPhysicalFrontierAtoms.modeOneTailMonotonicity.toQuotientData
+          A.toPhysicalFrontierAtoms.coeffTailData
+          (B := B)).toCrossMul.factor k <=
+      YMGap.Constructive.HalfPow.half :=
+  A.toPhysicalFrontierAtoms.factorLossLeHalf k
+
+/-- The normalized-deficit tail reaches the actual `BlockingStep.Phi` map. -/
+theorem BlockCompatibleP2PhysicalFrontierAtomsNormalizedFromSeven.blockDefectPowerOnTrajectory
+    (A : BlockCompatibleP2PhysicalFrontierAtomsNormalizedFromSeven)
+    {B : BlockingStep
+      (fusionSeparator
+        A.toPhysicalFrontierAtoms.coeffTailData.toControlFamily modeOne)} :
+    IsBlockDefectPowerOnTrajectory 1
+      (fusionSeparator
+        A.toPhysicalFrontierAtoms.coeffTailData.toControlFamily modeOne) B.Φ
+      (A.toPhysicalFrontierAtoms.modeOneTailMonotonicity.toQuotientData
+        A.toPhysicalFrontierAtoms.coeffTailData (B := B)).toCrossMul.factor :=
+  A.toPhysicalFrontierAtoms.blockDefectPowerOnTrajectory
+
+/-- The normalized-deficit route retains the quotient half-loss bound. -/
+theorem BlockCompatibleP2PhysicalFrontierAtomsNormalizedFromSeven.factorLossLeHalf
+    (A : BlockCompatibleP2PhysicalFrontierAtomsNormalizedFromSeven)
+    {B : BlockingStep
+      (fusionSeparator
+        A.toPhysicalFrontierAtoms.coeffTailData.toControlFamily modeOne)}
+    (k : Nat) :
+    (1 : Q') -
+        (A.toPhysicalFrontierAtoms.modeOneTailMonotonicity.toQuotientData
+          A.toPhysicalFrontierAtoms.coeffTailData
+          (B := B)).toCrossMul.factor k <=
+      YMGap.Constructive.HalfPow.half :=
+  A.toPhysicalFrontierAtoms.factorLossLeHalf k
+
 #print axioms BlockCompatibleP2StrongTuranData.toCoeffTailData
 #print axioms BlockCompatibleP2BoxStrongTuranData.toStrongTuranData
 #print axioms BlockCompatibleP2BoxStrongTuranData.toCoeffTailData
@@ -239,5 +324,11 @@ theorem BlockCompatibleP2PhysicalFrontierAtomsFromSix.factorLossLeHalf
 #print axioms BlockCompatibleP2PhysicalFrontierAtomsFromSix.toPhysicalFrontierAtoms
 #print axioms BlockCompatibleP2PhysicalFrontierAtomsFromSix.blockDefectPowerOnTrajectory
 #print axioms BlockCompatibleP2PhysicalFrontierAtomsFromSix.factorLossLeHalf
+#print axioms BlockCompatibleP2PhysicalFrontierAtomsFromSeven.toPhysicalFrontierAtoms
+#print axioms BlockCompatibleP2PhysicalFrontierAtomsFromSeven.blockDefectPowerOnTrajectory
+#print axioms BlockCompatibleP2PhysicalFrontierAtomsFromSeven.factorLossLeHalf
+#print axioms BlockCompatibleP2PhysicalFrontierAtomsNormalizedFromSeven.toPhysicalFrontierAtoms
+#print axioms BlockCompatibleP2PhysicalFrontierAtomsNormalizedFromSeven.blockDefectPowerOnTrajectory
+#print axioms BlockCompatibleP2PhysicalFrontierAtomsNormalizedFromSeven.factorLossLeHalf
 
 end YMGap.Continuum.P2BlockCompatibleStrongTuranBridge

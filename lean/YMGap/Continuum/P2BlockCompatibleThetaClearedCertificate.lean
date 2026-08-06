@@ -826,7 +826,82 @@ def blockK5PhysicalCoefficientSandwichCell :
     blockWeight_five_eqv_k5_explicit blockWeight_six_eqv_explicit
     blockWeight_six_fourth_eqv_explicit
 
-/-! ## 7. Compile coefficient cells back to the physical path energy -/
+/-! ## 7. Third physical tail anchor (`k = 6`) -/
+
+/-- Exact coarse weight `blockWeight 6 = 49151/49152`. -/
+def blockK6CoarseWeight : Q' := Q'.mkPos 49151 49152 (by decide)
+
+/-- Exact fine weight `blockWeight 7 = 196607/196608`. -/
+def blockK6FineWeight : Q' := Q'.mkPos 196607 196608 (by decide)
+
+/-- Cleared numerator of `(blockWeight 7)^4`. -/
+def blockK6FourthNumerator : Nat := fastNatPow 196607 4
+
+/-- Cleared denominator of `(blockWeight 7)^4`. -/
+def blockK6FourthDenominator : Nat := fastNatPow 196608 4
+
+/-- Exact fourth-power fine weight used at the common `k=6` cutoff. -/
+def blockK6FourthWeight : Q' :=
+  Q'.mkPos blockK6FourthNumerator blockK6FourthDenominator
+    (fastNatPow_pos (by decide) 4)
+
+/-- Exact common-denominator check at `k=6`, with cutoffs `319 -> 639`. -/
+theorem blockK6ClearedCoefficientCheck :
+    clearedCoefficientSandwichCheck
+      49151 49152 319
+      196607 196608 639
+      blockK6FourthNumerator blockK6FourthDenominator 319
+      (P2BlockCompatibleThetaParityTransport.blockParityDebt 6)
+      (by decide) (by decide) (fastNatPow_pos (by decide) 4) = true := by
+  decide
+
+/-- Kernel-checked coefficient-space sandwich at `k=6`. -/
+def blockK6CoefficientSandwichCell :
+    CoefficientSandwichCell
+      blockK6CoarseWeight blockK6FineWeight blockK6FourthWeight
+      (P2BlockCompatibleThetaParityTransport.blockParityDebt 6)
+      319 639 319 :=
+  CoefficientSandwichCell.ofClearedCheck
+    49151 49152 319
+    196607 196608 639
+    blockK6FourthNumerator blockK6FourthDenominator 319
+    (P2BlockCompatibleThetaParityTransport.blockParityDebt 6)
+    (by decide) (by decide) (fastNatPow_pos (by decide) 4)
+    blockK6ClearedCoefficientCheck
+
+theorem blockWeight_six_eqv_k6_explicit :
+    P2BlockCompatibleSchedule.blockWeight 6 ≈ blockK6CoarseWeight := by
+  decide
+
+theorem blockWeight_seven_eqv_explicit :
+    P2BlockCompatibleSchedule.blockWeight 7 ≈ blockK6FineWeight := by
+  decide
+
+theorem blockWeight_seven_fourth_eqv_explicit :
+    qpow (P2BlockCompatibleSchedule.blockWeight 7) 4 ≈
+      blockK6FourthWeight := by
+  exact Q'.eqv_trans _ _ _
+    (qpow_eqv_congr_local blockWeight_seven_eqv_explicit 4)
+    (qpow_mkPos_eqv_fast 196607 196608 4 (by decide))
+
+/-- The checked `k=6` cell at the literal block-compatible schedule weights. -/
+def blockK6PhysicalCoefficientSandwichCell :
+    CoefficientSandwichCell
+      (P2BlockCompatibleSchedule.blockWeight 6)
+      (P2BlockCompatibleSchedule.blockWeight 7)
+      (qpow (P2BlockCompatibleSchedule.blockWeight 7) 4)
+      (P2BlockCompatibleThetaParityTransport.blockParityDebt 6)
+      (P2BlockCompatibleSchedule.blockNcut 6)
+      (P2BlockCompatibleSchedule.blockNcut 7)
+      (P2BlockCompatibleSchedule.blockNcut 6) := by
+  have hN6 : P2BlockCompatibleSchedule.blockNcut 6 = 319 := by decide
+  have hN7 : P2BlockCompatibleSchedule.blockNcut 7 = 639 := by decide
+  rw [hN6, hN7]
+  exact blockK6CoefficientSandwichCell.transportWeights
+    blockWeight_six_eqv_k6_explicit blockWeight_seven_eqv_explicit
+    blockWeight_seven_fourth_eqv_explicit
+
+/-! ## 8. Compile coefficient cells back to the physical path energy -/
 
 /-- Generic path-energy cell before specializing to the physical schedule. -/
 structure ThetaPathEnergySandwichCell
@@ -1051,6 +1126,28 @@ structure BlockCompatibleP2CoefficientSandwichFromSix : Type where
       (P2BlockCompatibleSchedule.blockNcut (k + 1))
       (P2BlockCompatibleSchedule.blockNcut k)
 
+/-- Three checked anchors leave a coefficient sandwich beginning at `k=7`. -/
+structure BlockCompatibleP2CoefficientSandwichFromSeven : Type where
+  cell : forall k, 7 <= k ->
+    CoefficientSandwichCell
+      (P2BlockCompatibleSchedule.blockWeight k)
+      (P2BlockCompatibleSchedule.blockWeight (k + 1))
+      (qpow (P2BlockCompatibleSchedule.blockWeight (k + 1)) 4)
+      (P2BlockCompatibleThetaParityTransport.blockParityDebt k)
+      (P2BlockCompatibleSchedule.blockNcut k)
+      (P2BlockCompatibleSchedule.blockNcut (k + 1))
+      (P2BlockCompatibleSchedule.blockNcut k)
+
+/-- Insert the checked `k=6` cell in front of a `k>=7` tail. -/
+def BlockCompatibleP2CoefficientSandwichFromSeven.toFromSix
+    (T : BlockCompatibleP2CoefficientSandwichFromSeven) :
+    BlockCompatibleP2CoefficientSandwichFromSix where
+  cell := fun k hk => by
+    by_cases hk6 : k = 6
+    · subst k
+      exact blockK6PhysicalCoefficientSandwichCell
+    · exact T.cell k (by omega)
+
 /-- Insert the checked `k=5` cell in front of a `k>=6` tail. -/
 def BlockCompatibleP2CoefficientSandwichFromSix.toFromFive
     (T : BlockCompatibleP2CoefficientSandwichFromSix) :
@@ -1078,6 +1175,13 @@ def BlockCompatibleP2CoefficientSandwichFromSix.toAllScale
     (T : BlockCompatibleP2CoefficientSandwichFromSix) :
     BlockCompatibleP2CoefficientSandwich :=
   T.toFromFive.toAllScale
+
+/-- The three checked anchors plus a `k>=7` tail yield the all-scale
+coefficient sandwich. -/
+def BlockCompatibleP2CoefficientSandwichFromSeven.toAllScale
+    (T : BlockCompatibleP2CoefficientSandwichFromSeven) :
+    BlockCompatibleP2CoefficientSandwich :=
+  T.toFromSix.toAllScale
 
 /-- The all-scale coefficient family compiles to the exact path-energy family
 consumed by the genuine physical bridge. -/
@@ -1113,6 +1217,18 @@ def blockK5PhysicalThetaPathEnergyCell :
       (P2BlockCompatibleSchedule.blockNcut 5) :=
   blockK5PhysicalCoefficientSandwichCell.toThetaPathEnergyCell
 
+/-- The third checked physical tail cell in the path-energy coordinate. -/
+def blockK6PhysicalThetaPathEnergyCell :
+    ThetaPathEnergySandwichCell
+      (P2BlockCompatibleSchedule.blockWeight 6)
+      (P2BlockCompatibleSchedule.blockWeight 7)
+      (qpow (P2BlockCompatibleSchedule.blockWeight 7) 4)
+      (P2BlockCompatibleThetaParityTransport.blockParityDebt 6)
+      (P2BlockCompatibleSchedule.blockNcut 6)
+      (P2BlockCompatibleSchedule.blockNcut 7)
+      (P2BlockCompatibleSchedule.blockNcut 6) :=
+  blockK6PhysicalCoefficientSandwichCell.toThetaPathEnergyCell
+
 #print axioms fastNatPow_eq_pow
 #print axioms fastNatPow_pos
 #print axioms monomial_eqv_clearedMonomialQ
@@ -1126,12 +1242,17 @@ def blockK5PhysicalThetaPathEnergyCell :
 #print axioms blockK5ClearedCoefficientCheck
 #print axioms blockK5CoefficientSandwichCell
 #print axioms blockK5PhysicalCoefficientSandwichCell
+#print axioms blockK6ClearedCoefficientCheck
+#print axioms blockK6CoefficientSandwichCell
+#print axioms blockK6PhysicalCoefficientSandwichCell
 #print axioms thetaPathEnergy_eqv_scaledCoefficientDeficit
 #print axioms CoefficientSandwichCell.toThetaPathEnergyCell
 #print axioms BlockCompatibleP2CoefficientSandwichFromFive.toAllScale
 #print axioms BlockCompatibleP2CoefficientSandwichFromSix.toAllScale
+#print axioms BlockCompatibleP2CoefficientSandwichFromSeven.toAllScale
 #print axioms BlockCompatibleP2CoefficientSandwich.toThetaPathEnergySandwich
 #print axioms blockK4PhysicalThetaPathEnergyCell
 #print axioms blockK5PhysicalThetaPathEnergyCell
+#print axioms blockK6PhysicalThetaPathEnergyCell
 
 end YMGap.Continuum.P2BlockCompatibleThetaClearedCertificate
