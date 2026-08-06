@@ -1216,6 +1216,35 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   for `k>=4`, `2<=s`, and `s+8<2*N_k`.  The deeper interior family remains
   open.  All closed gates are `[propext, Quot.sound]`.
 
+### [R4v-half-time-ninth-ratio] Ninth sharp endpoint ratio — **CLOSED 2026-08-06**
+
+- **milestone**: FrontierDAG bucket 1 / half-time physical coefficient route.
+- **file**: `lean/YMGap/Continuum/P2HalfTimeNinthRatio.lean`
+- **decl**: `ninthBoxRatio`
+- **obligation**: Compare the twenty-five-pair depth-eight endpoint box with
+  the adjacent thirty-pair depth-nine endpoint box without evaluating the
+  physical convolution.
+- **constructive?**: yes — a reflected polynomial identity rewrites the
+  cleared slack `5*B9-6*B8` as twenty-nine nonnegative products in nine
+  successive coefficient increments.
+- **status note**: this is a constant-size algebraic certificate consumed by
+  the physical shell.  Its gate is `[propext, Quot.sound]`.
+
+### [R4w-half-time-ninth-shell] Ninth boundary shell — **CLOSED 2026-08-06**
+
+- **milestone**: FrontierDAG bucket 1 / half-time physical coefficient route.
+- **file**: `lean/YMGap/Continuum/P2HalfTimeNinthShell.lean`
+- **decl**: `boxSum_top_nine`, `physical_ninth_coeff_descending`,
+  `physical_halfTime_lineSum_ninth_from_four`
+- **obligation**: Remove the `s=2*N_k-9` shell from the all-scale full-local
+  reserve carrier.
+- **constructive?**: yes — exact thirty/twenty-five-pair support, the
+  twenty-nine-term reflected ratio certificate, endpoint coefficient descent,
+  and the sharp physical `5/6` heat-power floor.
+- **status note**: the common compiled carrier now assumes reserve signs only
+  for `k>=4`, `2<=s`, and `s+9<2*N_k`.  The deeper interior family remains
+  open.  All closed gates are `[propext, Quot.sound]`.
+
 ## How to add an entry
 
 ```markdown

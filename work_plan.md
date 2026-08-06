@@ -20060,3 +20060,38 @@ eighth-shell and common-carrier monitored targets pass; every exported gate
 reports only `[propext, Quot.sound]`.  The deeper interior signs, theta
 trapezoid/fine reserve, later FrontierDAG atoms, physical recursion, and the
 constructive continuum Yang--Mills target remain open.
+
+## 79. Ninth half-time boundary shell (2026-08-06)
+
+**Status. THE `s=2*N_k-9` SHELL IS DISCHARGED FOR EVERY `k>=4`; THE OPEN
+PURE-NAT FAMILY MOVES A NINTH ROW BELOW THE CUTOFF.**
+
+`P2HalfTimeNinthRatio` compares the twenty-five-pair depth-eight endpoint box
+with the exact thirty-pair depth-nine box.  For descending coefficients
+`J >= I >= H >= G >= F >= E >= A >= X >= B >= C`, the sharp comparison is
+
+```text
+6*boxSum(w,N,2*N-8) <= 5*boxSum(w,N,2*N-9).
+```
+
+After substituting the nine successive nonnegative coefficient increments,
+the cleared slack is an explicit sum of twenty-nine nonnegative products.
+The constructive reflected normalizer checks this fixed polynomial certificate
+instead of evaluating the growing rational convolution.
+
+`P2HalfTimeNinthShell` separately proves the exact depth-nine Clebsch support.
+The schedule-specific descent `c_(N-8) <= c_(N-9)` follows from the closed
+physical denominator coordinate, while Bernoulli supplies the matching
+`5/6 <= w^(2*N-7)` heat floor.  Exact strand reindexing transports the box
+result to the physical line-sum carrier.  The common compiler now assumes
+exactly
+
+```text
+k >= 4,  2 <= s,  s + 9 < 2*N_k
+```
+
+for its remaining full-local natural-number reserve signs.  The focused
+ninth-shell target passes at 437 jobs and the common-carrier target passes at
+667 jobs; all exported gates report only `[propext, Quot.sound]`.  The deeper
+interior signs, theta trapezoid/fine reserve, later FrontierDAG atoms, physical
+recursion, and the constructive continuum Yang--Mills target remain open.

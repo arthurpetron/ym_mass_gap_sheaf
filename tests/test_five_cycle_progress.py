@@ -93,7 +93,8 @@ def test_compact_work_guide_tracks_the_live_frontier() -> None:
     assert "[x] half-time sixth shell" in chart
     assert "[x] half-time seventh shell" in chart
     assert "[x] half-time eighth shell" in chart
-    assert "s+8<2*N_k" in chart
+    assert "[x] half-time ninth shell" in chart
+    assert "s+9<2*N_k" in chart
     assert "[>] heat-matched pure-Nat frontier" in chart
     assert "pure-Nat boundary-free reserve family" in chart
     assert "pure-Nat interior reserve + theta tail inputs" in chart
