@@ -63,6 +63,7 @@
     "physical_coeff_head_tail_start": 8,
     "physical_coeff_head_complete": true,
     "physical_coeff_tail_invariant": "head-free odd q^4 pairs + preceding-odd q^2 insertion",
+    "physical_coeff_transition_compiler": "one integer cross-product per transition",
     "physical_theta_tail_start": 8,
     "physical_pins_head_free": true,
     "frontier_bucket1_atoms": [
@@ -76,6 +77,7 @@
       "physical k>=8 retuned-head boundary: exact D_k/cutoff coordinate, constant-cost 34-block Bernoulli endpoint floor, cubic debt cap, reciprocal-Bernoulli terminal descent, and genuine headBoundary payment kernel-checked",
       "physical k>=8 all-cutoff head: constant-size forward, exceptional first-interior, broad-interior, and terminal stencils sum by exact Dirichlet double counting to the weighted-box head consumer; no coefficient enumeration; all gates [propext,Quot.sound]",
       "head-free physical pin frontier: the proved k>=8 head is inserted automatically, leaving only k>=4 parity transitions and the k>=8 theta tail; finePin, imagePin, genuine BlockingStep.Phi defect power, and the half-loss gate remain kernel-checked; all gates [propext,Quot.sound]",
+      "parity-transition proof compiler: generic common-denominator reconstruction clears both weighted-box factors and the q^2/q^4 heat power, proves one pure-Nat cross product sound, and repoints the physical pin frontier to natural-number odd/even transition families; all gates [propext,Quot.sound]",
       "all-N post-boundary even/odd cleared-prefix reserve",
       "all-N UniformBoxLogConcave for every 0 <= w <= 1/2",
       "all-N endpoint S1Dominance at w = 1/2",

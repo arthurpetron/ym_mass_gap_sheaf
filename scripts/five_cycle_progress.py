@@ -213,6 +213,8 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
             lines.append(
                 "        |     +-- [>] exact coefficient tail "
                 f"k>={parameters['physical_coeff_tail_start']}"
+                + (" (pure-Nat odd/even cross family)"
+                  if parameters.get("physical_coeff_transition_compiler") else "")
             )
             lines.append(
                 "        |     +-- [x] exact coefficient heads "
@@ -247,6 +249,11 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
                 "        |     +-- [x] parity proof compiler "
                 f"{parameters['physical_coeff_tail_invariant']}"
             )
+            if parameters.get("physical_coeff_transition_compiler"):
+                lines.append(
+                    "        |     +-- [x] transition proof-about-computation "
+                    f"{parameters['physical_coeff_transition_compiler']}"
+                )
             lines.append(
                 "        |     +-- [>] trapezoid + fine reserve "
                 f"k>={parameters['physical_theta_tail_start']}"
@@ -259,7 +266,7 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
                 "        |     +-- [x] finePin + imagePin + genuine Phi defect-power dictionary"
             )
             lines.append(
-                "        |     +-- [>] coefficient transitions + theta tail inputs"
+                "        |     +-- [>] pure-Nat coefficient transitions + theta tail inputs"
             )
     lines.extend(
         [
