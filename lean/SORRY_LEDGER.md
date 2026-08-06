@@ -1304,6 +1304,38 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   for `k>=4`, `2<=s`, and `s+10<2*N_k`.  The deeper interior family remains
   open.  All closed gates are `[propext, Quot.sound]`.
 
+### [R4ab-macroscopic-endpoint-band] Macroscopic endpoint band — **CLOSED 2026-08-06**
+
+- **milestone**: FrontierDAG bucket 1 / half-time physical coefficient route.
+- **file**: `lean/YMGap/Continuum/P2HalfTimeMacroscopicEndpointDescent.lean`
+- **decl**: `physical_coeff_descending_of_half`,
+  `physical_endpointRatio_of_double_depth`,
+  `physical_halfTime_lineSum_fifth_depth_from_four`
+- **obligation**: Replace fixed-depth endpoint-shell certificates by a
+  schedule-wide coefficient descent, heat-floor payment, and complete
+  half-time theorem on a cutoff-growing band.
+- **constructive?**: yes — exact physical-coordinate arithmetic, the
+  all-depth semantic endpoint compiler, reciprocal Bernoulli, and exact
+  box-to-line transport.
+- **status note**: every cell `s=2*N_k-m` with `m>0` and
+  `5*(m+1)<=N_k+1` is discharged for `k>=4`; all gates are
+  `[propext, Quot.sound]`.
+
+### [R4ac-macroscopic-physical-consumer] Macroscopic reserve consumer — **CLOSED 2026-08-06**
+
+- **milestone**: FrontierDAG bucket 1 / genuine physical consumer.
+- **file**: `lean/YMGap/Continuum/P2BlockCompatibleMacroscopicPhysicalCompiledFrontier.lean`
+- **decl**: `BlockCompatibleP2FullLocalNumeratorMacroscopicInteriorFromFour.toLineSumTail`,
+  `BlockCompatibleP2PhysicalMacroscopicInteriorReserveFrontier.toCompiled`,
+  `BlockCompatibleP2PhysicalMacroscopicInteriorReserveFrontier.blockDefectPowerOnTrajectory`
+- **obligation**: Splice the proved macroscopic endpoint band into the same
+  reviewed `CanonicalBulkControl` and genuine `BlockingStep.Phi` trajectory.
+- **constructive?**: yes — a pure-Nat band split followed by the existing
+  physical compiler and spectrum dictionary.
+- **status note**: the exact remaining coefficient input is the off-band
+  full-local numerator sign for `k>=4`, `2<=s<2*N_k`, and
+  `5*(2*N_k-s+1)>N_k+1`; all gates are `[propext, Quot.sound]`.
+
 ## How to add an entry
 
 ```markdown

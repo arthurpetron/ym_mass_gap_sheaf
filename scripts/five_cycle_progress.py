@@ -368,6 +368,11 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
                     "        |     +-- [x] half-time tenth shell "
                     f"{parameters['physical_coeff_half_time_tenth_discharged']}"
                 )
+            if parameters.get("physical_coeff_half_time_macroscopic_band"):
+                lines.append(
+                    "        |     +-- [x] macroscopic endpoint band "
+                    f"{parameters['physical_coeff_half_time_macroscopic_band']}"
+                )
             if parameters.get("physical_coeff_half_time_frontier"):
                 lines.append(
                     "        |     +-- [>] half-time reserve frontier "
@@ -385,7 +390,7 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
                 "        |     +-- [x] finePin + imagePin + genuine Phi defect-power dictionary"
             )
             lines.append(
-                "        |     +-- [>] pure-Nat interior reserve + theta tail inputs"
+                "        |     +-- [>] pure-Nat off-band reserve + theta tail inputs"
             )
     lines.extend(
         [

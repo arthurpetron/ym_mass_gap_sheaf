@@ -657,6 +657,25 @@ uniform schedule-specific descent/heat transport theorem or the interior
 reserve proof discharges the remaining cells.  All new exported gates are
 `[propext, Quot.sound]`.  No full audit, remote push, or GitHub CI run was used.
 
+## Macroscopic physical endpoint band and genuine consumer (2026-08-06)
+
+The physical schedule identity `25*D_k = 12*(N_k+1)^2` now supplies the
+uniform schedule-specific theorem missing from the preceding entry.  Lean
+proves coefficient descent at every endpoint depth `m` with `2*m<=N_k`, then
+feeds the resulting nonnegative increment environment into the all-depth
+semantic endpoint-ratio compiler.  A variable-depth constructive Bernoulli
+argument pays the heat factor whenever `5*(m+1)<=N_k+1`.  The exact box/line
+reindex therefore proves the complete half-time cell
+`s=2*N_k-m` throughout that growing endpoint band.
+
+The new residual carrier asks for a full-local Nat numerator sign only when
+`k>=4`, `2<=s<2*N_k`, and
+`5*(2*N_k-s+1)>N_k+1`.  It coarsens into the existing reviewed physical
+carrier, and Lean checks the resulting `pGamma>=2`, `finePin`, `imagePin`,
+genuine `BlockingStep.Phi` trajectory defect-power law, and half-loss bound.
+All new gates are `[propext, Quot.sound]`.  No full audit, remote push, or
+GitHub CI run was used.
+
 ## Dead routes (refuted — do not re-attempt)
 
 - **`Var_m(cosθ)` monotonicity → uniform-in-`m`** — REFUTED (`VarianceMonotonicity.lean`,
