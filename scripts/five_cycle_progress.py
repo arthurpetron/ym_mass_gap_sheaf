@@ -8,6 +8,7 @@ the current repository to the full Clay/Jaffe--Witten target.  Individual stage
 states can be tested without changing the file:
 
     python3 scripts/five_cycle_progress.py --set haar5_evaluation=complete
+    python3 scripts/five_cycle_progress.py --compact
     python3 scripts/five_cycle_progress.py --param raw_links=116
 
 Parameter values use JSON syntax.  Add ``--write`` to persist the supplied
@@ -39,15 +40,30 @@ STAGE_ORDER: Final = (
     ("surface_haar_bridge", "prove closed-surface sum equals the actual Haar_5 moments"),
 )
 PROJECT_STAGE_ORDER: Final = (
-    ("constructive_substrate", "constructive kernel, exact arithmetic, and audited proof infrastructure"),
+    (
+        "constructive_substrate",
+        "constructive kernel, exact arithmetic, and audited proof infrastructure",
+    ),
     ("fixed_spacing", "fixed-spacing SU(2) heat-kernel Yang--Mills line"),
     ("haar5_surface_bridge", "BF4 Haar_5 surface expansion and topological amplitude"),
     ("frontier_bucket1", "FrontierDAG Bucket 1: a->0 gap-survival / cluster atoms"),
     ("frontier_bucket2", "FrontierDAG Bucket 2: reconstruction and physical-margin atoms"),
     ("functional_continuum", "a->0 Schwinger-functional limit with exact OS0--OS4"),
     ("uniform_spacing_floor", "one strictly-positive physical gap floor at every scale"),
-    ("shared_physical_stack", "same-action pinned OS/GNS stack with gauge, AF, O(4), and nontriviality"),
+    (
+        "shared_physical_stack",
+        "same-action pinned OS/GNS stack with gauge, AF, O(4), and nontriviality",
+    ),
     ("clay_target", "complete four-dimensional quantum Yang--Mills existence and mass-gap theorem"),
+)
+WORK_GUIDE_ORDER: Final = (
+    ("core_b_margin", "Core-B finite-s margin"),
+    ("positive_exponent_compiler", "Positive-exponent certificate compiler"),
+    ("finite_p2_cell", "Exact nonvacuous pΓ=2 finite cell"),
+    ("fusion_phi_dictionary", "Fusion-spectrum/Phi trajectory dictionary theorem"),
+    ("all_cutoff_bulk_control", "All-scale/cutoff CanonicalBulkControl family"),
+    ("physical_pins", "Physical finePin + imagePin + fusionPower proofs"),
+    ("tree_mayer_pentagon", "Tree/Mayer/pentagon frontier atoms"),
 )
 STATUS_MARKS: Final = {
     "pending": " ",
@@ -91,6 +107,22 @@ def load_state(path: Path) -> dict[str, Any]:
     }
     if invalid_project:
         raise ValueError(f"invalid project stage statuses: {invalid_project}")
+    work_guide = raw.get("work_guide")
+    if not isinstance(work_guide, dict):
+        raise ValueError("progress state requires a 'work_guide' object")
+    expected_work = {stage for stage, _ in WORK_GUIDE_ORDER}
+    missing_work = expected_work.difference(work_guide)
+    extra_work = set(work_guide).difference(expected_work)
+    if missing_work or extra_work:
+        raise ValueError(
+            "work-guide keys differ: "
+            f"missing={sorted(missing_work)}, extra={sorted(extra_work)}"
+        )
+    invalid_work = {
+        key: value for key, value in work_guide.items() if value not in VALID_STATUSES
+    }
+    if invalid_work:
+        raise ValueError(f"invalid work-guide statuses: {invalid_work}")
     return raw
 
 
@@ -98,6 +130,7 @@ def apply_overrides(state: dict[str, Any], overrides: list[str]) -> None:
     """Apply validated ``stage=status`` overrides in place."""
     stages = state["stages"]
     project_stages = state["project_stages"]
+    work_guide = state["work_guide"]
     for override in overrides:
         if "=" not in override:
             raise ValueError(f"override must be stage=status: {override!r}")
@@ -106,6 +139,8 @@ def apply_overrides(state: dict[str, Any], overrides: list[str]) -> None:
             destination = stages
         elif stage in project_stages:
             destination = project_stages
+        elif stage in work_guide:
+            destination = work_guide
         else:
             raise ValueError(f"unknown stage: {stage!r}")
         if status not in VALID_STATUSES:
@@ -142,6 +177,54 @@ def _indented_atoms(values: object, prefix: str) -> list[str]:
     if not isinstance(values, list) or not all(isinstance(value, str) for value in values):
         raise ValueError("project atom parameter is not a list of strings")
     return [f"{prefix}{value}" for value in values]
+
+
+def render_compact_work_guide(state: dict[str, Any]) -> str:
+    """Render the live, compact dependency path used after each Lean run."""
+    project = state["project_stages"]
+    work_guide = state["work_guide"]
+    lines = [
+        "CURRENT CHECKED LEAN",
+        "        |",
+        f"        +-- [{STATUS_MARKS[project['constructive_substrate']]}] "
+        "Constructive substrate and axiom guards",
+        f"        +-- [{STATUS_MARKS[project['fixed_spacing']]}] "
+        "Fixed-spacing SU(2) heat-kernel theory",
+        f"        +-- [{STATUS_MARKS[project['haar5_surface_bridge']]}] "
+        "BF4 Haar_5 surface bridge",
+        "        |",
+        "        v",
+        f"[{STATUS_MARKS[project['frontier_bucket1']]}] FRONTIERDAG BUCKET 1",
+        "        |",
+    ]
+    for key, label in WORK_GUIDE_ORDER:
+        lines.append(f"        +-- [{STATUS_MARKS[work_guide[key]]}] {label}")
+    lines.extend(
+        [
+            "        |",
+            "        v",
+            f"[{STATUS_MARKS[project['frontier_bucket2']]}] FRONTIERDAG BUCKET 2",
+            "        |",
+            "        +-- edge shifts and physical-margin recursion",
+            "        +-- bounded transfer Hamiltonian",
+            "        +-- physical O(4) restoration",
+            "        |",
+            "        v",
+            f"[{STATUS_MARKS[project['functional_continuum']]}] FUNCTIONAL CONTINUUM"
+            f"  +  [{STATUS_MARKS[project['uniform_spacing_floor']]}] UNIFORM POSITIVE GAP",
+            "        |",
+            "        v",
+            f"[{STATUS_MARKS[project['shared_physical_stack']]}] "
+            "SAME-ACTION OS/GNS PHYSICAL STACK",
+            "        |",
+            "        v",
+            f"[{STATUS_MARKS[project['clay_target']]}] "
+            "CONSTRUCTIVE 4D YANG--MILLS EXISTENCE + MASS GAP",
+            "",
+            "[x] kernel-checked  [>] active  [ ] pending  [!] blocked",
+        ]
+    )
+    return "\n".join(lines)
 
 
 def render_chart(state: dict[str, Any]) -> str:
@@ -363,6 +446,11 @@ def parse_args() -> argparse.Namespace:
         help="override one existing chart parameter; repeat as needed",
     )
     parser.add_argument(
+        "--compact",
+        action="store_true",
+        help="print only the compact live work guide",
+    )
+    parser.add_argument(
         "--write",
         action="store_true",
         help="persist validated --set overrides to the selected state file",
@@ -377,7 +465,7 @@ def main() -> int:
     apply_parameter_overrides(state, args.param)
     if args.write:
         args.state.write_text(json.dumps(state, indent=2) + "\n", encoding="utf-8")
-    print(render_chart(state))
+    print(render_compact_work_guide(state) if args.compact else render_chart(state))
     return 0
 
 

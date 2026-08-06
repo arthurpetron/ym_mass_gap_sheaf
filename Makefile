@@ -1,7 +1,7 @@
 .PHONY: test lint typecheck figures svg-to-pdf paper clean help \
         lean-build lean-audit lean-audit-strict lean-audit-update lean-rubric \
         lean-frontier-guard lean-statement-guard frontier-status frontier-dag-check \
-        five-cycle-progress five-cycle-evaluate
+        five-cycle-progress five-cycle-progress-detail five-cycle-evaluate
 
 # Every Lean entry point goes through the monitored launcher.  It selects two
 # workers on the 64 GiB development Mac and one on smaller machines, refuses an
@@ -28,7 +28,8 @@ help:
 	@echo "  lean-statement-guard Fail if a Clay-frontier STATEMENT (type/field signature or shared param) is weakened."
 	@echo "  frontier-status     Regenerate docs/frontier-status.md (partial-close + open-field ledger)."
 	@echo "  frontier-dag-check  Fail if a new *Scorecard/*Frontier/*Target enumeration lacks a FrontierDAG bridge."
-	@echo "  five-cycle-progress Print the parameter-driven BF4 five-cycle progress chart."
+	@echo "  five-cycle-progress Print the compact parameter-driven project work guide."
+	@echo "  five-cycle-progress-detail Print the detailed BF4 and whole-project chart."
 	@echo "  five-cycle-evaluate Evaluate both Haar_5 moments, the centered balance, then print the chart."
 	@echo "  clean               Remove Python, mypy, ruff, pytest, and LaTeX build artifacts."
 
@@ -43,6 +44,9 @@ typecheck:
 	mypy
 
 five-cycle-progress:
+	python3 scripts/five_cycle_progress.py --compact
+
+five-cycle-progress-detail:
 	python3 scripts/five_cycle_progress.py
 
 five-cycle-evaluate:

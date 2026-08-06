@@ -10,6 +10,7 @@ from scripts.five_cycle_progress import (
     apply_parameter_overrides,
     load_state,
     render_chart,
+    render_compact_work_guide,
 )
 
 STATE_PATH = Path(__file__).resolve().parents[1] / "docs" / "five-cycle-progress.json"
@@ -71,6 +72,28 @@ def test_project_stage_override_updates_full_path() -> None:
     chart = render_chart(state)
     assert "high-level milestones: 3/9 complete" in chart
     assert "[x] finite campaign: actual BF4 Haar_5 surface bridge" in chart
+
+
+def test_compact_work_guide_tracks_the_live_frontier() -> None:
+    chart = render_compact_work_guide(load_state(STATE_PATH))
+    assert chart.startswith("CURRENT CHECKED LEAN\n")
+    assert "[x] BF4 Haar_5 surface bridge" in chart
+    assert "[>] FRONTIERDAG BUCKET 1" in chart
+    assert "[x] Fusion-spectrum/Phi trajectory dictionary theorem" in chart
+    assert "[>] All-scale/cutoff CanonicalBulkControl family" in chart
+    assert "[ ] Physical finePin + imagePin + fusionPower proofs" in chart
+    assert "[ ] CONSTRUCTIVE 4D YANG--MILLS EXISTENCE + MASS GAP" in chart
+
+
+def test_work_guide_override_updates_compact_path() -> None:
+    state = deepcopy(load_state(STATE_PATH))
+    apply_overrides(
+        state,
+        ["all_cutoff_bulk_control=complete", "physical_pins=active"],
+    )
+    chart = render_compact_work_guide(state)
+    assert "[x] All-scale/cutoff CanonicalBulkControl family" in chart
+    assert "[>] Physical finePin + imagePin + fusionPower proofs" in chart
 
 
 def test_unknown_stage_is_rejected() -> None:
