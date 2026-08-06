@@ -17,7 +17,7 @@ No `Classical`, `native_decide`, `sorry`, custom axiom, or noncomputable
 declaration.
 -/
 
-import YMGap.Continuum.P2RetunedFusionPowerCertificate
+import YMGap.Continuum.P2RetunedFusionDefectPower
 import YMGap.Continuum.P2RetunedRatioCertificate
 
 namespace YMGap.Continuum.P2RetunedFusionPowerFenceAudit
@@ -28,6 +28,7 @@ open YMGap.Continuum.FusionKernelStatement
 open YMGap.Continuum.RebasedBulkLocalizationBridge
 open YMGap.Continuum.P2RetunedRatioCertificate
 open YMGap.Continuum.P2RetunedFusionPowerCertificate
+open YMGap.Continuum.P2RetunedFusionDefectPower
 
 set_option maxHeartbeats 4000000
 set_option maxRecDepth 30000
@@ -77,9 +78,48 @@ theorem fenceN2N3_no_supported_nonvacuum_cell
   rw [hfalse] at htrue
   cases htrue
 
+/-! ## A genuine one-step defect-power cell -/
+
+/-- The exact defect factor for coarse mode two and fine mode one.  It is the
+reduced rational quotient `lambda_(N=2,s=2) / lambda_(N=3,s=1)^2`. -/
+def fenceN2N3ModeTwoOneFactor : Q' :=
+  Q'.mkPos
+    35736905739694159537141398825689611546601069007797396546110936952779965841
+    51343908758468552538253145237793429616323588652033109686252847894970236928
+    (by decide)
+
+/-- The factor is a physical contraction factor. -/
+theorem fenceN2N3ModeTwoOneFactor_nonneg :
+    (0 : Q') <= fenceN2N3ModeTwoOneFactor := by decide
+
+theorem fenceN2N3ModeTwoOneFactor_le_one :
+    fenceN2N3ModeTwoOneFactor <= (1 : Q') := by decide
+
+/-- Its one-step loss is within the half-loss window consumed by the
+constructive product-floor compiler. -/
+theorem fenceN2N3ModeTwoOneFactor_loss_le_half :
+    (1 : Q') - fenceN2N3ModeTwoOneFactor <= HalfPow.half := by decide
+
+/-- The full exact eigenvalue identity is recomputed by the kernel as one
+integer cross product. -/
+theorem fenceN2N3ModeTwoOne_check :
+    qDefectPowerCellCheck (fenceModeN2Q 2) (fenceModeN3Q 1)
+      fenceN2N3ModeTwoOneFactor 2 = true := by decide
+
+/-- A non-vacuum, supported defect-power certificate for the first cutoff
+step.  This validates the corrected carrier without claiming an all-scale
+running family. -/
+def fenceN2N3ModeTwoOne_cell :
+    QDefectPowerCell (fenceModeN2Q 2) (fenceModeN3Q 1)
+      fenceN2N3ModeTwoOneFactor 2 :=
+  QDefectPowerCell.ofCheck fenceN2N3ModeTwoOne_check
+
 end YMGap.Continuum.P2RetunedFusionPowerFenceAudit
 
 /-! ## Axiom-dependency gates -/
 
 #print axioms YMGap.Continuum.P2RetunedFusionPowerFenceAudit.fenceN2N3_no_supported_nonvacuum_square
 #print axioms YMGap.Continuum.P2RetunedFusionPowerFenceAudit.fenceN2N3_no_supported_nonvacuum_cell
+#print axioms YMGap.Continuum.P2RetunedFusionPowerFenceAudit.fenceN2N3ModeTwoOneFactor_loss_le_half
+#print axioms YMGap.Continuum.P2RetunedFusionPowerFenceAudit.fenceN2N3ModeTwoOne_check
+#print axioms YMGap.Continuum.P2RetunedFusionPowerFenceAudit.fenceN2N3ModeTwoOne_cell
