@@ -19608,3 +19608,39 @@ the normalized diagonal product approaches about `0.8393`, below
 `64/75 = 0.85333...`; this is diagnostic only.  No inhabitant of the diagonal
 field, trapezoid field, fine reserve, or all-scale Yang--Mills theorem is
 asserted.
+
+## 65. Exact radial terminal reindex and rational factor split (2026-08-06)
+
+**Status. THE DIAGONAL ENVELOPE IS NOW AN EXACT RADIAL THETA SUM, AND ITS
+PRODUCT BUDGET IS REDUCED TO TWO INDEPENDENT DIVISION-FREE ALL-CUTOFF
+INEQUALITIES.**
+
+`P2BlockCompatibleThetaTerminalRadial` proves by structural finite-sum
+recursion that, for `N=n+1`, the diagonal gap envelope has the exact form
+
+```text
+(2*(N+1)^2-5) * diag(0)
+  + sum_(i<n) (4*(N+1)^2-4*(i+2)^2-2) * diag(i+1)
+  + (2*N+1) * diag(N).
+```
+
+The head, interior, and terminal coefficients are derived from the charge
+identity `C4(s)+1=(s+1)^2` and the constant second difference of `C4`; no
+inequality or cutoff-sized normalization certificate is used.  An honest
+radial carrier compiles this identity back through the diagonal AM--GM layer
+to the coefficient sandwich and genuine `BlockingStep.Phi` consumer.
+
+The remaining endpoint--radial product is then split without division into
+
+```text
+L * terminalOuterFactor <= (5/16) * D4,
+terminalRadialEnvelope  <= (341/125) * L^2 * D0.
+```
+
+Their product coefficient is exactly `341/400`, while the available terminal
+budget is `64/75`; the residual rational slack is `1/1200`.  Positive-factor
+cancellation proves that these two fields imply the radial product field.
+Both all-cutoff inequalities, the trapezoid exchange, and the fine reserve
+remain open.  Every exported gate reports only `[propext]` or
+`[propext, Quot.sound]`; no tail inhabitant or Yang--Mills completion is
+claimed.

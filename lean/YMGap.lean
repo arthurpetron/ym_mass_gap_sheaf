@@ -2314,6 +2314,7 @@ import YMGap.Continuum.P2BlockCompatibleThetaDriftCross
 import YMGap.Continuum.P2BlockCompatibleThetaTrapezoidExchange
 import YMGap.Continuum.P2BlockCompatibleThetaTerminalChord
 import YMGap.Continuum.P2BlockCompatibleThetaTerminalMoment
+import YMGap.Continuum.P2BlockCompatibleThetaTerminalRadial
 import YMGap.Continuum.P2BlockCompatibleStrongTuranBridge
 import YMGap.Continuum.P2DyadicPhysicalMarginTransport
 import YMGap.Continuum.P2RetunedFusionRunningCell

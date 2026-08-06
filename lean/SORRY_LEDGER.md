@@ -947,13 +947,16 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/P2BlockCompatibleThetaDriftCross.lean`,
   `lean/YMGap/Continuum/P2BlockCompatibleThetaTrapezoidExchange.lean`,
   `lean/YMGap/Continuum/P2BlockCompatibleThetaTerminalChord.lean`,
-  `lean/YMGap/Continuum/P2BlockCompatibleThetaTerminalMoment.lean`
+  `lean/YMGap/Continuum/P2BlockCompatibleThetaTerminalMoment.lean`,
+  `lean/YMGap/Continuum/P2BlockCompatibleThetaTerminalRadial.lean`
 - **decl**: `BlockCompatibleP2NormalizedDeficitTailFromSeven`,
   `BlockCompatibleP2DimensionlessNormalizedTailFromSeven`,
   `BlockCompatibleP2DimensionlessDriftCrossTailFromSeven`,
   `BlockCompatibleP2TrapezoidExchangeTailFromSeven`,
   `BlockCompatibleP2TerminalSeparatedTailFromSeven`,
-  `BlockCompatibleP2TerminalDiagEnvelopeTailFromSeven`
+  `BlockCompatibleP2TerminalDiagEnvelopeTailFromSeven`,
+  `BlockCompatibleP2TerminalRadialTailFromSeven`,
+  `BlockCompatibleP2TerminalFactorizedTailFromSeven`
 - **obligation**: Inhabit the two schedule-specific normalized-deficit
   inequalities for every `k >= 7`, including the explicit shared debt
   `delta_k=(1/360)8^(-k)`.
@@ -989,7 +992,13 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   further pays twice that adjacent-product moment by a purely diagonal
   Casimir-gap envelope.  The terminal atom is thus reduced to the diagonal
   product bound `outer*diagEnvelope <= (64/75)*L*D0*D4`.  The diagonal
-  terminal bound, trapezoid exchange, and fine reserve remain open.  These compile through
+  envelope is reindexed exactly into head, interior, and terminal radial
+  diagonal weights.  A checked rational factor compiler reduces its terminal
+  product bound to the two division-free fields
+  `L*outer <= (5/16)*D4` and
+  `radial <= (341/125)*L^2*D0`; their coefficient product leaves exact slack
+  `1/1200` below `64/75`.  Both factor fields, trapezoid exchange, and fine
+  reserve remain open.  These compile through
   the deficit-energy/SOS, dyadic parity, quotient, and genuine
   `BlockingStep.Phi` layers.  The remaining tail begins honestly at `k=7`;
   neither analytic field is claimed inhabited.
