@@ -94,6 +94,8 @@ def test_compact_work_guide_tracks_the_live_frontier() -> None:
     assert "[x] half-time seventh shell" in chart
     assert "[x] half-time eighth shell" in chart
     assert "[x] half-time ninth shell" in chart
+    assert "[x] endpoint-ratio proof compiler" in chart
+    assert "table-free depth 10 checked" in chart
     assert "s+9<2*N_k" in chart
     assert "[>] heat-matched pure-Nat frontier" in chart
     assert "pure-Nat boundary-free reserve family" in chart

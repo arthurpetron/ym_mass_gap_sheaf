@@ -1245,6 +1245,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   for `k>=4`, `2<=s`, and `s+9<2*N_k`.  The deeper interior family remains
   open.  All closed gates are `[propext, Quot.sound]`.
 
+### [R4x-endpoint-ratio-arithmetic] Parametric endpoint-ratio arithmetic — **CLOSED 2026-08-06**
+
+- **milestone**: FrontierDAG bucket 1 / proof-about-computation coefficient route.
+- **file**: `lean/YMGap/Continuum/P2HalfTimeEndpointRatioCompiler.lean`
+- **decl**: `scaled_parityTriangleCount_pred`,
+  `scaled_thresholdTriangleCount_pred`, `parityTriangleCount_boundary_balance`
+- **obligation**: Replace the growing handwritten endpoint-coefficient count
+  tables by one all-depth parity-triangle formula and its adjacent-depth
+  inequality.
+- **constructive?**: yes — parity splitting and monotone natural-number
+  arithmetic only.
+- **status note**: this closes the arithmetic coefficient schema, not a new
+  physical shell.  Its exported gates are `[propext, Quot.sound]` or smaller.
+
+### [R4y-endpoint-ratio-certificate] Reflected endpoint-ratio generator — **CLOSED 2026-08-06**
+
+- **milestone**: FrontierDAG bucket 1 / proof-about-computation coefficient route.
+- **file**: `lean/YMGap/Continuum/P2HalfTimeEndpointRatioCertificateCompiler.lean`
+- **decl**: `endpointRatio_of_certificate`, `endpointRatioCertificate_ten`,
+  `endpointRatio_ten`
+- **obligation**: Generate and check the adjacent endpoint polynomial from its
+  parity-triangle definition instead of spelling out a growing slack table.
+- **constructive?**: yes — the proved ring normalizer checks the closed
+  certificate; no native evaluator or trusted external computation is used.
+- **status note**: depths eight and nine are regressions and depth ten is the
+  first new table-free ratio.  The exact physical tenth-shell support,
+  coefficient descent, and heat transport remain open, so the compiled
+  carrier honestly remains at `s+9<2*N_k`.  Gates are
+  `[propext, Quot.sound]` or smaller.
+
 ## How to add an entry
 
 ```markdown

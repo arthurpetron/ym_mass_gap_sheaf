@@ -83,6 +83,7 @@
     "physical_coeff_half_time_seventh_discharged": "s=2*N_k-7 for every physical k>=4",
     "physical_coeff_half_time_eighth_discharged": "s=2*N_k-8 for every physical k>=4",
     "physical_coeff_half_time_ninth_discharged": "s=2*N_k-9 for every physical k>=4",
+    "physical_coeff_endpoint_ratio_compiler": "parametric parity-triangle counts + reflected certificates; table-free depth 10 checked",
     "physical_coeff_half_time_interior_frontier": true,
     "physical_coeff_half_time_frontier": "deep-interior reserve numerator >= 0 for k>=4, 2<=s, s+9<2*N_k",
     "physical_theta_tail_start": 8,

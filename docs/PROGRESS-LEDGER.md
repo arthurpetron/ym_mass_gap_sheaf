@@ -606,6 +606,19 @@ makes the desired energy inequality false for generic log-concave strings;
 the remaining work is the finite-path charge/summation theorem that consumes
 this broad-peak atom and the endpoint slopes.
 
+The endpoint-shell certificate route now has an all-depth arithmetic core.
+The number of ordered parity-triangle cells above increment thresholds is a
+closed product of two half-depth factors, and a parity split proves the sharp
+adjacent-depth coefficient inequality once for every depth.  A reflected
+generator constructs the corresponding endpoint quadratic form and its
+manifest nonnegative slack.  Regression certificates at depths eight and
+nine pass, and depth ten is the first new ratio checked without a handwritten
+slack polynomial.  This removes certificate-size growth from the route, but
+does not yet discharge the physical tenth shell: its exact box support,
+schedule-specific coefficient descent, and heat transport remain the active
+bridge.  Consequently the honest physical carrier still stops at
+`s+9<2*N_k`.  No full audit, remote push, or GitHub CI run was used.
+
 ## Dead routes (refuted — do not re-attempt)
 
 - **`Var_m(cosθ)` monotonicity → uniform-in-`m`** — REFUTED (`VarianceMonotonicity.lean`,

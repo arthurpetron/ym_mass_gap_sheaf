@@ -353,6 +353,11 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
                     "        |     +-- [x] half-time ninth shell "
                     f"{parameters['physical_coeff_half_time_ninth_discharged']}"
                 )
+            if parameters.get("physical_coeff_endpoint_ratio_compiler"):
+                lines.append(
+                    "        |     +-- [x] endpoint-ratio proof compiler "
+                    f"{parameters['physical_coeff_endpoint_ratio_compiler']}"
+                )
             if parameters.get("physical_coeff_half_time_frontier"):
                 lines.append(
                     "        |     +-- [>] half-time reserve frontier "

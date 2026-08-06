@@ -20095,3 +20095,42 @@ ninth-shell target passes at 437 jobs and the common-carrier target passes at
 667 jobs; all exported gates report only `[propext, Quot.sound]`.  The deeper
 interior signs, theta trapezoid/fine reserve, later FrontierDAG atoms, physical
 recursion, and the constructive continuum Yang--Mills target remain open.
+
+## 80. Parametric endpoint-ratio certificate compiler (2026-08-06)
+
+**Status. THE GROWING HANDWRITTEN ENDPOINT-RATIO TABLE HAS BEEN REPLACED BY A
+PARITY-TRIANGLE ARITHMETIC SCHEMA AND A REFLECTED CERTIFICATE GENERATOR;
+DEPTH TEN IS KERNEL-CHECKED WITHOUT A SPELLED-OUT SLACK POLYNOMIAL.**
+
+`P2HalfTimeEndpointRatioCompiler` proves the closed ordered parity-triangle
+count
+
+```text
+T(n) = (floor(n/2)+1) * (floor((n+1)/2)+1)
+```
+
+and, for `n<=2*R`, the coefficient inequality
+
+```text
+(R+1)*T(n-1) <= R*T(n).
+```
+
+Translation by the two increment thresholds turns this into the uniform
+nonnegativity statement required by every quadratic increment coefficient.
+`P2HalfTimeEndpointRatioCertificateCompiler` then constructs the exact
+ordered endpoint triangle in the proved reflected polynomial language,
+generates its manifest nonnegative slack, and asks the kernel-checked ring
+normalizer for equality.  Depths eight and nine are regression certificates;
+depth ten proves the new comparison `6*E_9 <= 5*E_10` without a handwritten
+polynomial table.  The focused target passes in 33 monitored jobs, and the
+exported gates are `[propext, Quot.sound]` or smaller.
+
+This milestone removes the certificate-growth bottleneck but is not yet the
+physical tenth shell.  Exact physical support, schedule-specific endpoint
+coefficient descent, and heat-power transport must still connect the generic
+ratio to `boxSum(w,N,2*N-10)`.  Until that bridge is checked, the honest common
+carrier remains
+
+```text
+k >= 4,  2 <= s,  s + 9 < 2*N_k.
+```
