@@ -1,9 +1,9 @@
 /-
-Track 11.7-fusion / R2n -- first same-mode running-coupling defect cell.
+Track 11.7-fusion / R2n -- running-coupling defect cells and mode separation.
 
 The fixed-weight N=2 to N=3 ladder cannot satisfy exact non-vacuum square
 self-similarity.  The physically relevant repair runs both heat weight and
-cutoff.  This module certifies the first such step:
+cutoff.  This module first certifies a bulk-localized step:
 
     coarse : N=2, w=11/12, mode=4
     fine   : N=4, w=23/24, mode=4.
@@ -16,6 +16,12 @@ supported and bulk at both endpoints, and
 The generic quotient compiler therefore constructs the exact defect-power
 cell with a contraction factor in `[1/2,1]`; no giant per-cell rational or
 cross-product proof is stored.
+
+The next dyadic bulk-mode step is then exactly refuted.  The repair is not to
+move the physical gap edge into the tail: the physical separator and the
+auxiliary bulk witness are independent.  At the three running endpoints
+`N=2,4,8`, mode one is checked against every displayed non-vacuum mode, and the
+first two mode-one dyadic quotient factors lie in `[1/2,1]`.
 
 No `Classical`, `native_decide`, `sorry`, custom axiom, or noncomputable
 declaration.
@@ -127,6 +133,81 @@ theorem runningModeFourCell_check :
       runningModeFourFactor 2 = true :=
   (qDefectPowerCellCheck_eq_true_iff _ _ _ _).2 runningModeFourCell.eqv
 
+/-! ## The physical mode-one branch -/
+
+/-- The candidate physical gap edge at the first two running endpoints. -/
+def runningCoarseModeOneQ : Q' :=
+  fusionEig 2 fenceW 2 1 (fenceRetunedControlN2.denomPos 1)
+
+def runningFineModeOneQ : Q' :=
+  fusionEig 4 runningFineW 2 1 (runningFineControlN4.denomPos 1)
+
+theorem runningCoarseModeOne_support : 1 <= 2 * 2 := by decide
+theorem runningFineModeOne_support : 1 <= 2 * 4 := by decide
+
+/-- Mode one is the exact largest displayed non-vacuum eigenvalue at the
+coarse endpoint. -/
+theorem runningCoarseModeOne_dominates (s : Nat) (hs : 1 <= s)
+    (hsupport : s <= 2 * 2) :
+    fusionEig 2 fenceW 2 s (fenceRetunedControlN2.denomPos s) <=
+      runningCoarseModeOneQ := by
+  have hcases : s = 1 \/ s = 2 \/ s = 3 \/ s = 4 := by omega
+  clear hs hsupport
+  rcases hcases with rfl | rfl | rfl | rfl <;> decide
+
+/-- Mode one is likewise the exact largest displayed non-vacuum eigenvalue at
+the first fine endpoint. -/
+theorem runningFineModeOne_dominates (s : Nat) (hs : 1 <= s)
+    (hsupport : s <= 2 * 4) :
+    fusionEig 4 runningFineW 2 s (runningFineControlN4.denomPos s) <=
+      runningFineModeOneQ := by
+  have hcases :
+      s = 1 \/ s = 2 \/ s = 3 \/ s = 4 \/
+      s = 5 \/ s = 6 \/ s = 7 \/ s = 8 := by omega
+  clear hs hsupport
+  rcases hcases with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl <;>
+    decide
+
+theorem runningFineModeOne_sq_pos :
+    (0 : Q') < RGTransport.qpow runningFineModeOneQ 2 := by decide
+
+theorem runningCoarseModeOne_nonneg :
+    (0 : Q') <= runningCoarseModeOneQ := by decide
+
+theorem runningModeOneFirst_coarse_le_fine_sq :
+    runningCoarseModeOneQ <= RGTransport.qpow runningFineModeOneQ 2 := by decide
+
+theorem runningModeOneFirst_half_fine_sq_le_coarse :
+    HalfPow.half * RGTransport.qpow runningFineModeOneQ 2 <=
+      runningCoarseModeOneQ := by decide
+
+/-- The physical mode-one quotient for `N=2 -> N=4`. -/
+def runningModeOneFirstFactor : Q' :=
+  canonicalDefectFactor runningCoarseModeOneQ runningFineModeOneQ 2
+    runningFineModeOne_sq_pos
+
+theorem runningModeOneFirstFactor_nonneg :
+    (0 : Q') <= runningModeOneFirstFactor :=
+  canonicalDefectFactor_nonneg runningFineModeOne_sq_pos
+    runningCoarseModeOne_nonneg
+
+theorem runningModeOneFirstFactor_le_one :
+    runningModeOneFirstFactor <= (1 : Q') :=
+  canonicalDefectFactor_le_one runningFineModeOne_sq_pos
+    runningModeOneFirst_coarse_le_fine_sq
+
+theorem runningModeOneFirstFactor_loss_le_half :
+    (1 : Q') - runningModeOneFirstFactor <= HalfPow.half :=
+  one_sub_le_half_of_half_le
+    (half_le_canonicalDefectFactor runningFineModeOne_sq_pos
+      runningModeOneFirst_half_fine_sq_le_coarse)
+
+def runningModeOneFirstCell :
+    QDefectPowerCell runningCoarseModeOneQ runningFineModeOneQ
+      runningModeOneFirstFactor 2 :=
+  canonicalDefectPowerCell runningCoarseModeOneQ runningFineModeOneQ 2
+    runningFineModeOne_sq_pos
+
 /-! ## The natural dyadic continuation is not automatic -/
 
 /-- Next dyadic heat weight. -/
@@ -148,6 +229,62 @@ def runningNextControlN8 : CanonicalBulkControl 8 runningNextW 2 :=
 
 def runningNextModeQ (s : Nat) : Q' :=
   fusionEig 8 runningNextW 2 s (runningNextControlN8.denomPos s)
+
+/-- The next physical mode-one endpoint. -/
+def runningNextModeOneQ : Q' := runningNextModeQ 1
+
+theorem runningNextModeOne_support : 1 <= 2 * 8 := by decide
+
+theorem runningNextModeOne_dominates (s : Nat) (hs : 1 <= s)
+    (hsupport : s <= 2 * 8) :
+    runningNextModeQ s <= runningNextModeOneQ := by
+  have hcases :
+      s = 1 \/ s = 2 \/ s = 3 \/ s = 4 \/ s = 5 \/ s = 6 \/
+      s = 7 \/ s = 8 \/ s = 9 \/ s = 10 \/ s = 11 \/ s = 12 \/
+      s = 13 \/ s = 14 \/ s = 15 \/ s = 16 := by omega
+  clear hs hsupport
+  rcases hcases with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl |
+      rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl <;> decide
+
+theorem runningNextModeOne_sq_pos :
+    (0 : Q') < RGTransport.qpow runningNextModeOneQ 2 := by decide
+
+theorem runningFineModeOne_nonneg :
+    (0 : Q') <= runningFineModeOneQ := by decide
+
+theorem runningModeOneSecond_coarse_le_fine_sq :
+    runningFineModeOneQ <= RGTransport.qpow runningNextModeOneQ 2 := by decide
+
+theorem runningModeOneSecond_half_fine_sq_le_coarse :
+    HalfPow.half * RGTransport.qpow runningNextModeOneQ 2 <=
+      runningFineModeOneQ := by decide
+
+/-- The physical mode-one quotient for `N=4 -> N=8`. -/
+def runningModeOneSecondFactor : Q' :=
+  canonicalDefectFactor runningFineModeOneQ runningNextModeOneQ 2
+    runningNextModeOne_sq_pos
+
+theorem runningModeOneSecondFactor_nonneg :
+    (0 : Q') <= runningModeOneSecondFactor :=
+  canonicalDefectFactor_nonneg runningNextModeOne_sq_pos
+    runningFineModeOne_nonneg
+
+theorem runningModeOneSecondFactor_le_one :
+    runningModeOneSecondFactor <= (1 : Q') :=
+  canonicalDefectFactor_le_one runningNextModeOne_sq_pos
+    runningModeOneSecond_coarse_le_fine_sq
+
+theorem runningModeOneSecondFactor_loss_le_half :
+    (1 : Q') - runningModeOneSecondFactor <= HalfPow.half :=
+  one_sub_le_half_of_half_le
+    (half_le_canonicalDefectFactor runningNextModeOne_sq_pos
+      runningModeOneSecond_half_fine_sq_le_coarse)
+
+def runningModeOneSecondCell :
+    QDefectPowerCell runningFineModeOneQ runningNextModeOneQ
+      runningModeOneSecondFactor 2 :=
+  canonicalDefectPowerCell runningFineModeOneQ runningNextModeOneQ 2
+    runningNextModeOne_sq_pos
 
 /-- At the next endpoint every bulk mode is at least six. -/
 theorem runningNext_bulk_mode_ge_six (s : Nat)
@@ -195,6 +332,17 @@ end YMGap.Continuum.P2RetunedFusionRunningCell
 #print axioms YMGap.Continuum.P2RetunedFusionRunningCell.runningModeFourFactor_loss_le_half
 #print axioms YMGap.Continuum.P2RetunedFusionRunningCell.runningModeFourCell
 #print axioms YMGap.Continuum.P2RetunedFusionRunningCell.runningModeFourCell_check
+#print axioms YMGap.Continuum.P2RetunedFusionRunningCell.runningCoarseModeOne_dominates
+#print axioms YMGap.Continuum.P2RetunedFusionRunningCell.runningFineModeOne_dominates
+#print axioms YMGap.Continuum.P2RetunedFusionRunningCell.runningModeOneFirst_coarse_le_fine_sq
+#print axioms YMGap.Continuum.P2RetunedFusionRunningCell.runningModeOneFirst_half_fine_sq_le_coarse
+#print axioms YMGap.Continuum.P2RetunedFusionRunningCell.runningModeOneFirstFactor_loss_le_half
+#print axioms YMGap.Continuum.P2RetunedFusionRunningCell.runningModeOneFirstCell
 #print axioms YMGap.Continuum.P2RetunedFusionRunningCell.runningNextControlN8
+#print axioms YMGap.Continuum.P2RetunedFusionRunningCell.runningNextModeOne_dominates
+#print axioms YMGap.Continuum.P2RetunedFusionRunningCell.runningModeOneSecond_coarse_le_fine_sq
+#print axioms YMGap.Continuum.P2RetunedFusionRunningCell.runningModeOneSecond_half_fine_sq_le_coarse
+#print axioms YMGap.Continuum.P2RetunedFusionRunningCell.runningModeOneSecondFactor_loss_le_half
+#print axioms YMGap.Continuum.P2RetunedFusionRunningCell.runningModeOneSecondCell
 #print axioms YMGap.Continuum.P2RetunedFusionRunningCell.runningNext_bulk_mode_ge_six
 #print axioms YMGap.Continuum.P2RetunedFusionRunningCell.runningSecondStep_no_supported_bulk_upperSandwich

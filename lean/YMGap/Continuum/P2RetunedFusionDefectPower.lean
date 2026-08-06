@@ -17,6 +17,13 @@ trajectory, `BlockingStep.step` then identifies the actual `BlockingStep.Phi`
 image with that defect power.  A summable family of factors is fed directly
 to the existing exponential product-floor compiler.
 
+Unlike the exact legacy dictionary, the defect route does not identify the
+physical separator with an auxiliary bulk-localization mode.  It instead asks
+directly that the selected non-vacuum mode dominate the displayed fusion
+spectrum.  This distinction is essential along a running cutoff: the physical
+gap edge can remain at mode one while the modes entering a bulk tail estimate
+move outward.
+
 No `Classical`, `native_decide`, `sorry`, custom axiom, or noncomputable
 declaration.
 -/
@@ -32,6 +39,7 @@ open YMGap.Constructive.CReal
 open YMGap.Continuum
 open YMGap.Continuum.RGTransport
 open YMGap.Continuum.BulkModeCrux
+open YMGap.Continuum.FusionKernelStatement
 open YMGap.Continuum.FusionSpectrumBlockingIdentification
 open YMGap.Continuum.P2RetunedBlockingDictionary
 open YMGap.Continuum.P2RetunedFusionPowerCertificate
@@ -182,15 +190,24 @@ def IsBlockDefectPowerOnTrajectory (b : Nat) (s : Nat -> CReal)
     (CReal.mul (CReal.cpow (s (k + 1)) (b + 1))
       (CReal.ofQ' (factor k)))
 
+/-- The selected mode is the physical gap edge of the displayed p=2 fusion
+row.  This is deliberately independent of the effective-bulk predicate used
+to prove localization estimates: along a running cutoff the gap edge and a
+bulk witness need not be the same representation label. -/
+structure P2PhysicalSeparatorMode
+    (F : P2RetunedControlFamily) (mode : Nat -> Nat) : Type where
+  nonvacuum : forall k, 1 <= mode k
+  support : forall k, mode k <= 2 * F.N k
+  dominates : forall k s, 1 <= s -> s <= 2 * F.N k ->
+    fusionEig (F.N k) (F.w k) 2 s ((F.control k).denomPos s) <=
+      fusionModeQ F mode k
+
 /-- Exact spectrum data identifying the physical map with a defected power at
-every displayed, bulk mode. -/
+every displayed physical separator. -/
 structure SpectrumPinnedP2CrossMulDefectPowerData
     (b : Nat) (F : P2RetunedControlFamily) (mode : Nat -> Nat)
     (_blockingStep : BlockingStep (fusionSeparator F mode)) : Type where
-  modeSupport : forall k, mode k <= 2 * F.N k
-  modeBulk : forall k,
-    q12 <= Q'.ofNat (c4 (mode k)) *
-      ((1 : Q') - (F.control k).weff)
+  physicalMode : P2PhysicalSeparatorMode F mode
   factor : Nat -> Q'
   factorNonneg : forall k, (0 : Q') <= factor k
   factorLeOne : forall k, factor k <= (1 : Q')
@@ -204,10 +221,7 @@ sandwich `half * fine^(b+1) <= coarse <= fine^(b+1)`. -/
 structure SpectrumPinnedP2QuotientDefectPowerData
     (b : Nat) (F : P2RetunedControlFamily) (mode : Nat -> Nat)
     (_blockingStep : BlockingStep (fusionSeparator F mode)) : Type where
-  modeSupport : forall k, mode k <= 2 * F.N k
-  modeBulk : forall k,
-    q12 <= Q'.ofNat (c4 (mode k)) *
-      ((1 : Q') - (F.control k).weff)
+  physicalMode : P2PhysicalSeparatorMode F mode
   coarseNonneg : forall k, (0 : Q') <= fusionModeQ F mode k
   finePowerPos : forall k,
     (0 : Q') < RGTransport.qpow (fusionModeQ F mode (k + 1)) (b + 1)
@@ -226,8 +240,7 @@ def SpectrumPinnedP2QuotientDefectPowerData.toCrossMul
     {B : BlockingStep (fusionSeparator F mode)}
     (D : SpectrumPinnedP2QuotientDefectPowerData b F mode B) :
     SpectrumPinnedP2CrossMulDefectPowerData b F mode B where
-  modeSupport := D.modeSupport
-  modeBulk := D.modeBulk
+  physicalMode := D.physicalMode
   factor := fun k => canonicalDefectFactor
     (fusionModeQ F mode k) (fusionModeQ F mode (k + 1)) (b + 1)
       (D.finePowerPos k)
@@ -267,10 +280,10 @@ theorem SpectrumPinnedP2CrossMulDefectPowerData.blockDefectPowerOnTrajectory
 def SpectrumPinnedP2CrossMulDefectPowerData.ofExact
     {b : Nat} {F : P2RetunedControlFamily} {mode : Nat -> Nat}
     {B : BlockingStep (fusionSeparator F mode)}
+    (physicalMode : P2PhysicalSeparatorMode F mode)
     (D : SpectrumPinnedP2CrossMulPowerData b F mode B) :
     SpectrumPinnedP2CrossMulDefectPowerData b F mode B where
-  modeSupport := D.modeSupport
-  modeBulk := D.modeBulk
+  physicalMode := physicalMode
   factor := fun _ => 1
   factorNonneg := fun _ => by decide
   factorLeOne := fun _ => by decide
