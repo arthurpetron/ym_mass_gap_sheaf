@@ -375,26 +375,34 @@ been tested at its first adverse schedule cell and constructively refuted.
   The previously checked downstream `CanonicalBulkControl`, `finePin`,
   `imagePin`, and genuine `BlockingStep.Phi` results remain valid conditional
   compilers, but cannot be inhabited through that premise.
-- The coefficient route is therefore repointed to
-  `P2RetunedHeadThreeTuran`: the actual adjacent coefficient inequalities are
-  supplied directly only at `s=1,2,3`, and the strengthened Turan recurrence
-  begins at `s=3`.  Constructive Nat induction propagates the third head over
-  the complete two-fold support.  Exact Peter--Weyl reconstruction also gives
-  the weighted-box and schedule-wide forms.
-- `BlockCompatibleP2PhysicalFrontierRepointed` carries this repair through the
-  physical consumer boundary.  Combined directly with the strict `k>=8`
-  theta tail, it constructs the reviewed all-cutoff `pGamma=2` family, its
+- A first repair, `P2RetunedHeadThreeTuran`, supplied the actual adjacent
+  inequalities at `s=1,2,3` and began strengthened Turan propagation at
+  `s=3`.  Reconnaissance exposed the same alternating defect at `s=4`.
+  The generic exact scale-two reconstruction now proves that cell false as
+  well, so both head-three schedule carriers are constructively empty.  They
+  remain only as valid conditional compilers and a fenced historical route.
+- `P2BlockCompatibleIntegralTailCertificate` now targets the actual adjacent
+  inequality directly.  One generic common-denominator theorem handles
+  arbitrary rational heat and retuned weights, turning each physical `Q'`
+  target into a single natural-number comparison.
+- Axiom-free Boolean checks discharge every supported adjacent atom at the
+  first four physical scales: 7 atoms at `k=0,N=4`, 17 at `k=1,N=9`, 37 at
+  `k=2,N=19`, and 77 at `k=3,N=39`.  The honest schedule-wide coefficient
+  carrier is therefore `BlockCompatibleP2CoeffTailFromFour`, with input only
+  for `k>=4`.
+- `BlockCompatibleP2PhysicalFrontierRepointed` carries this exact repair
+  through the physical consumer boundary.  Combined directly with the strict
+  `k>=8` theta tail, it constructs the reviewed all-cutoff `pGamma=2` family,
   selected-spectrum `finePin` and `imagePin`, the genuine
   `BlockingStep.Phi` quotient defect-power identity, and the half-loss gate.
-  No downstream theorem now needs to pass through the empty coefficient type.
+  No downstream theorem passes through either empty sufficient carrier.
 
-This is a real premise repair, not an inhabitant of the replacement carrier.
-The next coefficient atom is to prove its three fixed heads and its uniform
-`s>=3` recurrence on the physical schedule.  The two uniform `k>=8` theta
-transports, loss summability, physical recursion, continuum construction, and
-O(4) restoration also remain open.  No full audit, remote push, or GitHub CI
-run was used, and this is not a solution of the Yang--Mills Millennium
-problem.
+The next coefficient atom is an analytic proof of the exact adjacent family
+from `k>=4`; extending the cubic-size Boolean scan is evidence, not an
+all-scale argument.  The two uniform `k>=8` theta transports, loss summability,
+physical recursion, continuum construction, and O(4) restoration also remain
+open.  No full audit, remote push, or GitHub CI run was used, and this is not a
+solution of the Yang--Mills Millennium problem.
 
 ## Dead routes (refuted — do not re-attempt)
 

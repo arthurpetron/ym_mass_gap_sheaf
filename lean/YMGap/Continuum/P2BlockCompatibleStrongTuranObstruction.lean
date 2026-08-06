@@ -19,6 +19,7 @@ declaration.
 
 import YMGap.Continuum.P2VacNormIntegralCertificate
 import YMGap.Continuum.P2BlockCompatibleStrongTuranBridge
+import YMGap.Continuum.P2RetunedHeadThreeTuranCompiler
 
 namespace YMGap.Continuum.P2BlockCompatibleStrongTuranObstruction
 
@@ -34,6 +35,7 @@ open YMGap.Continuum.FusionResidualBound
 open YMGap.Continuum.P2BlockCompatibleSchedule
 open YMGap.Continuum.P2BlockCompatibleStrongTuranBridge
 open YMGap.Continuum.P2RetunedRatioCompiler
+open YMGap.Continuum.P2RetunedHeadThreeTuranCompiler
 open YMGap.Continuum.P2RetunedStrongTuranCompiler
 open YMGap.Continuum.P2VacNormIntegralCertificate
 open YMGap.Continuum.RGTransport
@@ -62,16 +64,24 @@ theorem blockRetunedSquare_two_eqv :
 def blockTwoScaledCoeff (mode : Nat) : Nat :=
   scaledCoeffAt 191 192 19 mode
 
-/-- Cleared form of the proposed strong-Turan atom at `k=2`, `s=2`. -/
-def blockTwoIntegralStrongTuranAtTwo : Prop :=
-  ((4 * blockTwoScaledCoeff 2) * (4 * blockTwoScaledCoeff 4)) *
+/-- Cleared form of the proposed strong-Turan atom at `k=2` and an arbitrary
+mode.  This exposes further adverse cells without repeating the rational
+reconstruction proof. -/
+def blockTwoIntegralStrongTuranAt (s : Nat) : Prop :=
+  (((s + 2) * blockTwoScaledCoeff s) *
+      ((s + 2) * blockTwoScaledCoeff (s + 2))) *
       384 ^ 2 <=
     383 ^ 2 *
-      ((5 * blockTwoScaledCoeff 3) * (3 * blockTwoScaledCoeff 3))
+      (((s + 3) * blockTwoScaledCoeff (s + 1)) *
+        ((s + 1) * blockTwoScaledCoeff (s + 1)))
+
+/-- First adverse cleared atom. -/
+def blockTwoIntegralStrongTuranAtTwo : Prop :=
+  blockTwoIntegralStrongTuranAt 2
 
 instance blockTwoIntegralStrongTuranAtTwoDecidable :
     Decidable blockTwoIntegralStrongTuranAtTwo := by
-  unfold blockTwoIntegralStrongTuranAtTwo
+  unfold blockTwoIntegralStrongTuranAtTwo blockTwoIntegralStrongTuranAt
   infer_instance
 
 /-- The proof-about-computation certificate: the cleared physical atom is
@@ -94,26 +104,26 @@ private theorem cross_of_ofNat_le_mkPos_mul
   exact Int.ofNat_le.mp (by
     simpa only [Int.natCast_mul] using hInt)
 
-/-- Any physical strong-Turan proof at the adverse cell would imply the
-refuted natural-number comparison. -/
-theorem blockTwoPhysicalTuran_implies_integral
+/-- Any physical strong-Turan proof at scale two transports to the generic
+cleared natural-number comparison. -/
+theorem blockTwoPhysicalTuran_implies_integralAt (s : Nat)
     (h :
-      (dimQ 3 * bondMovedCoeff 19 (blockWeight 2) 2 2) *
-          (dimQ 3 * bondMovedCoeff 19 (blockWeight 2) 2 4) <=
+      (dimQ (s + 1) * bondMovedCoeff 19 (blockWeight 2) 2 s) *
+          (dimQ (s + 1) * bondMovedCoeff 19 (blockWeight 2) 2 (s + 2)) <=
         (qpow (p2RetunedWeight (blockWeight 2)) 2 *
-            (dimQ 4 * bondMovedCoeff 19 (blockWeight 2) 2 3)) *
-          (dimQ 2 * bondMovedCoeff 19 (blockWeight 2) 2 3)) :
-    blockTwoIntegralStrongTuranAtTwo := by
+            (dimQ (s + 2) * bondMovedCoeff 19 (blockWeight 2) 2 (s + 1))) *
+          (dimQ s * bondMovedCoeff 19 (blockWeight 2) 2 (s + 1))) :
+    blockTwoIntegralStrongTuranAt s := by
   let scale := Q'.ofNat (192 ^ (2 * c4 19))
   let scaleSq := scale * scale
-  let x := dimQ 3 * bondMovedCoeff 19 (blockWeight 2) 2 2
-  let y := dimQ 3 * bondMovedCoeff 19 (blockWeight 2) 2 4
-  let z := dimQ 4 * bondMovedCoeff 19 (blockWeight 2) 2 3
-  let u := dimQ 2 * bondMovedCoeff 19 (blockWeight 2) 2 3
-  let xn := 4 * blockTwoScaledCoeff 2
-  let yn := 4 * blockTwoScaledCoeff 4
-  let zn := 5 * blockTwoScaledCoeff 3
-  let un := 3 * blockTwoScaledCoeff 3
+  let x := dimQ (s + 1) * bondMovedCoeff 19 (blockWeight 2) 2 s
+  let y := dimQ (s + 1) * bondMovedCoeff 19 (blockWeight 2) 2 (s + 2)
+  let z := dimQ (s + 2) * bondMovedCoeff 19 (blockWeight 2) 2 (s + 1)
+  let u := dimQ s * bondMovedCoeff 19 (blockWeight 2) 2 (s + 1)
+  let xn := (s + 2) * blockTwoScaledCoeff s
+  let yn := (s + 2) * blockTwoScaledCoeff (s + 2)
+  let zn := (s + 3) * blockTwoScaledCoeff (s + 1)
+  let un := (s + 1) * blockTwoScaledCoeff (s + 1)
   let q2 := qpow (p2RetunedWeight (blockWeight 2)) 2
   have hphysical : x * y <= (q2 * z) * u := by
     simpa only [x, y, z, u, q2] using h
@@ -129,19 +139,19 @@ theorem blockTwoPhysicalTuran_implies_integral
   have hx : scale * x ≈ Q'.ofNat xn := by
     simpa only [scale, x, xn, blockTwoScaledCoeff] using
       (scaledDimCoeffAt_reconstruct 191 192 (by decide)
-        (blockWeight 2) blockWeight_two_eqv 19 3 2)
+        (blockWeight 2) blockWeight_two_eqv 19 (s + 1) s)
   have hy : scale * y ≈ Q'.ofNat yn := by
     simpa only [scale, y, yn, blockTwoScaledCoeff] using
       (scaledDimCoeffAt_reconstruct 191 192 (by decide)
-        (blockWeight 2) blockWeight_two_eqv 19 3 4)
+        (blockWeight 2) blockWeight_two_eqv 19 (s + 1) (s + 2))
   have hz : scale * z ≈ Q'.ofNat zn := by
     simpa only [scale, z, zn, blockTwoScaledCoeff] using
       (scaledDimCoeffAt_reconstruct 191 192 (by decide)
-        (blockWeight 2) blockWeight_two_eqv 19 4 3)
+        (blockWeight 2) blockWeight_two_eqv 19 (s + 2) (s + 1))
   have hu : scale * u ≈ Q'.ofNat un := by
     simpa only [scale, u, un, blockTwoScaledCoeff] using
       (scaledDimCoeffAt_reconstruct 191 192 (by decide)
-        (blockWeight 2) blockWeight_two_eqv 19 2 3)
+        (blockWeight 2) blockWeight_two_eqv 19 s (s + 1))
   have hleftRegroup : (scale * x) * (scale * y) ≈ scaleSq * (x * y) :=
     mul_four_regroup scale x scale y
   have hinnerRegroup : (scale * z) * (scale * u) ≈
@@ -200,7 +210,18 @@ theorem blockTwoPhysicalTuran_implies_integral
   have hnat := cross_of_ofNat_le_mkPos_mul
     (xn * yn) (zn * un) (383 ^ 2) (384 ^ 2)
     (Nat.pow_pos (by decide)) hrat
-  simpa only [blockTwoIntegralStrongTuranAtTwo, xn, yn, zn, un] using hnat
+  simpa only [blockTwoIntegralStrongTuranAt, xn, yn, zn, un] using hnat
+
+/-- Compatibility wrapper for the first adverse atom. -/
+theorem blockTwoPhysicalTuran_implies_integral
+    (h :
+      (dimQ 3 * bondMovedCoeff 19 (blockWeight 2) 2 2) *
+          (dimQ 3 * bondMovedCoeff 19 (blockWeight 2) 2 4) <=
+        (qpow (p2RetunedWeight (blockWeight 2)) 2 *
+            (dimQ 4 * bondMovedCoeff 19 (blockWeight 2) 2 3)) *
+          (dimQ 2 * bondMovedCoeff 19 (blockWeight 2) 2 3)) :
+    blockTwoIntegralStrongTuranAtTwo :=
+  blockTwoPhysicalTuran_implies_integralAt 2 h
 
 theorem blockTwoPhysicalStrongTuran_false :
     ¬ ((dimQ 3 * bondMovedCoeff 19 (blockWeight 2) 2 2) *
@@ -211,6 +232,22 @@ theorem blockTwoPhysicalStrongTuran_false :
   intro h
   exact blockTwoIntegralStrongTuranAtTwo_false
     (blockTwoPhysicalTuran_implies_integral h)
+
+/-- The proposed repaired carrier is also adverse at `k=2,s=4`. -/
+theorem blockTwoIntegralStrongTuranAtFour_false :
+    ¬ blockTwoIntegralStrongTuranAt 4 := by
+  unfold blockTwoIntegralStrongTuranAt
+  decide
+
+theorem blockTwoPhysicalStrongTuranFour_false :
+    ¬ ((dimQ 5 * bondMovedCoeff 19 (blockWeight 2) 2 4) *
+          (dimQ 5 * bondMovedCoeff 19 (blockWeight 2) 2 6) ≤
+        (qpow (p2RetunedWeight (blockWeight 2)) 2 *
+            (dimQ 6 * bondMovedCoeff 19 (blockWeight 2) 2 5)) *
+          (dimQ 4 * bondMovedCoeff 19 (blockWeight 2) 2 5)) := by
+  intro h
+  exact blockTwoIntegralStrongTuranAtFour_false
+    (blockTwoPhysicalTuran_implies_integralAt 4 h)
 
 /-- The schedule-wide strong-Turan carrier is constructively empty. -/
 theorem noBlockCompatibleP2StrongTuranData
@@ -224,11 +261,27 @@ theorem noBlockCompatibleP2BoxStrongTuranData
     (T : BlockCompatibleP2BoxStrongTuranData) : False :=
   noBlockCompatibleP2StrongTuranData T.toStrongTuranData
 
+/-- The first head-three/Turan-from-three replacement is still too strong:
+its `k=2,s=4` recurrence atom is constructively false. -/
+theorem noBlockCompatibleP2HeadThreeTuranData
+    (T : BlockCompatibleP2HeadThreeTuranData) : False := by
+  have h := (T.headThreeTuran 2).turan 4 (by decide) (by decide)
+  rw [show blockNcut 2 = 19 by decide] at h
+  exact blockTwoPhysicalStrongTuranFour_false h
+
+theorem noBlockCompatibleP2BoxHeadThreeTuranData
+    (T : BlockCompatibleP2BoxHeadThreeTuranData) : False :=
+  noBlockCompatibleP2HeadThreeTuranData T.toHeadThreeTuranData
+
 #print axioms blockWeight_two_eqv
 #print axioms blockRetunedSquare_two_eqv
 #print axioms blockTwoIntegralStrongTuranAtTwo_false
 #print axioms blockTwoPhysicalStrongTuran_false
+#print axioms blockTwoIntegralStrongTuranAtFour_false
+#print axioms blockTwoPhysicalStrongTuranFour_false
 #print axioms noBlockCompatibleP2StrongTuranData
 #print axioms noBlockCompatibleP2BoxStrongTuranData
+#print axioms noBlockCompatibleP2HeadThreeTuranData
+#print axioms noBlockCompatibleP2BoxHeadThreeTuranData
 
 end YMGap.Continuum.P2BlockCompatibleStrongTuranObstruction

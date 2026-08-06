@@ -199,6 +199,21 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
     ]
     for key, label in WORK_GUIDE_ORDER:
         lines.append(f"        +-- [{STATUS_MARKS[work_guide[key]]}] {label}")
+        if key == "all_cutoff_bulk_control":
+            parameters = state["parameters"]
+            lines.append(
+                "        |     +-- [x] physical coefficient prefix "
+                f"k=[{_csv(parameters['physical_coeff_prefix_scales'])}] "
+                f"({parameters['physical_coeff_prefix_atoms']} atoms)"
+            )
+            lines.append(
+                "        |     +-- [>] exact coefficient tail "
+                f"k>={parameters['physical_coeff_tail_start']}"
+            )
+            lines.append(
+                "        |     +-- [>] trapezoid + fine reserve "
+                f"k>={parameters['physical_theta_tail_start']}"
+            )
     lines.extend(
         [
             "        |",
