@@ -1070,6 +1070,48 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   itself is still open.  All closed compiler gates are
   `[propext, Quot.sound]` only.
 
+### [R4j-half-time-fixed-row-obstruction] Fixed-row Turan shortcut audit — **CLOSED 2026-08-06**
+
+- **milestone**: FrontierDAG bucket 1 / physical pGamma=2 coefficient route.
+- **file**: `lean/YMGap/Continuum/P2HalfTimeStrongTuranObstruction.lean`
+- **decl**: `physicalHalfTimeBoxTuranAt_four_one_false`,
+  `integralStrongTuranFromFour_uninhabited`
+- **obligation**: Decide whether the proposed fixed-weight, one-row
+  strong-Turan carrier can hold on the physical schedule.
+- **constructive?**: yes — exact kernel reduction at `k=4,t=1`.
+- **status note**: the premise is false and the route is retired.  The sound
+  adjacent-row compression theorem remains available; no false premise is
+  carried into the physical frontier.
+
+### [R4k-physical-compiled-carrier] Common physical coefficient compiler — **CLOSED 2026-08-06**
+
+- **milestone**: FrontierDAG bucket 1 / physical pGamma=2 spectrum pins.
+- **file**:
+  `lean/YMGap/Continuum/P2BlockCompatiblePhysicalCompiledFrontier.lean`
+- **decl**: `BlockCompatibleP2PhysicalCompiledFrontier.toCanonicalFamily`,
+  `.finePin`, `.imagePin`, `.blockDefectPowerOnTrajectory`
+- **obligation**: Prove that the parity and exact-reserve coefficient routes
+  feed one reviewed spectrum and the genuine `BlockingStep.Phi` trajectory.
+- **constructive?**: yes.
+- **status note**: closed with `[propext, Quot.sound]`; the carrier still
+  honestly requires coefficient-reserve and theta-tail inputs.
+
+### [R4l-half-time-boundary-shells] Head, terminal, and penultimate shells — **CLOSED 2026-08-06**
+
+- **milestone**: FrontierDAG bucket 1 / half-time physical coefficient route.
+- **file**: `lean/YMGap/Continuum/P2HalfTimeTerminalShell.lean`,
+  `lean/YMGap/Continuum/P2HalfTimePenultimateShell.lean`
+- **decl**: `physical_halfTime_lineSum_head_from_four`,
+  `physical_halfTime_lineSum_terminal`,
+  `physical_halfTime_lineSum_penultimate_from_four`
+- **obligation**: Remove the three boundary regions from the all-scale
+  full-local reserve carrier.
+- **constructive?**: yes — exact box identities, coefficient descent,
+  reciprocal Bernoulli, and natural-number cutoff arithmetic.
+- **status note**: the common compiled carrier now assumes reserve signs only
+  for `k>=4`, `2<=s`, and `s+2<2*N_k`.  The deeper interior family remains
+  open.  All closed gates are `[propext, Quot.sound]`.
+
 ## How to add an entry
 
 ```markdown

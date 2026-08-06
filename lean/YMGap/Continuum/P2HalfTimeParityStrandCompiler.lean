@@ -402,6 +402,63 @@ theorem physical_halfTime_box_head_from_eight (r : Nat) :
   unfold boxTailLeft halfTimeBoxRight boxTailBase
   simpa only using physical_box_halfTime_head r
 
+/-- The physical half-time head is closed at every scale used by the
+coefficient tail: four sparse exact cells followed by the symbolic
+Dirichlet-energy family.  Naming this assembled theorem lets alternative
+tail compilers reuse the discharged head without importing the parity
+transition hypotheses. -/
+theorem physical_halfTime_box_head_from_four (k : Nat) (hk : 4 <= k) :
+    boxTailLeft (blockNcut k) (blockWeight k) 1 <=
+      halfTimeBoxRight (blockNcut k) (blockWeight k) 1 := by
+  by_cases h8 : 8 <= k
+  · simpa only [Nat.sub_add_cancel h8] using
+      physical_halfTime_box_head_from_eight (k - 8)
+  · have hkCases : k = 4 ∨ k = 5 ∨ k = 6 ∨ k = 7 := by omega
+    rcases hkCases with h4 | h5 | h6 | h7
+    · subst k
+      exact physical_halfTime_box_head_of_linear 4
+        physicalLinearHalfTimeHeadCheck_four
+    · subst k
+      exact physical_halfTime_box_head_of_linear 5
+        physicalLinearHalfTimeHeadCheck_five
+    · subst k
+      exact physical_halfTime_box_head_of_linear 6
+        physicalLinearHalfTimeHeadCheck_six
+    · subst k
+      exact physical_halfTime_box_head_of_linear 7
+        physicalLinearHalfTimeHeadCheck_seven
+
+/-- Exact A1 transport of the already-closed physical head into the line-sum
+coordinates used by the local-reserve normal form. -/
+theorem physical_halfTime_lineSum_head_from_four (k : Nat) (hk : 4 <= k) :
+    dimQ 1 * lineSum (lagCorr (blockWeight k) (blockNcut k)) 2 <=
+      qpow (blockWeight k) 3 *
+        (dimQ 2 * lineSum (lagCorr (blockWeight k) (blockNcut k)) 1) := by
+  have hbox := physical_halfTime_box_head_from_four k hk
+  have eleft :
+      dimQ 1 * lineSum (lagCorr (blockWeight k) (blockNcut k)) 2 ≈
+        boxTailLeft (blockNcut k) (blockWeight k) 1 := by
+    unfold boxTailLeft
+    exact Q'.mul_eqv_congr_left _ _ _
+      (Q'.eqv_symm
+        (boxSum_eq_lineSum_lagCorr (blockWeight k) (blockNcut k) 2))
+  have ebase :
+      boxTailBase (blockNcut k) (blockWeight k) 1 ≈
+        dimQ 2 * lineSum
+          (lagCorr (blockWeight k) (blockNcut k)) 1 := by
+    unfold boxTailBase
+    exact Q'.mul_eqv_congr_left _ _ _
+      (boxSum_eq_lineSum_lagCorr (blockWeight k) (blockNcut k) 1)
+  have eright :
+      halfTimeBoxRight (blockNcut k) (blockWeight k) 1 ≈
+        qpow (blockWeight k) 3 *
+          (dimQ 2 * lineSum
+            (lagCorr (blockWeight k) (blockNcut k)) 1) := by
+    unfold halfTimeBoxRight
+    exact Q'.mul_eqv_congr_left _ _ _ ebase
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv eleft)
+    (Q'.le_trans' _ _ _ hbox (Q'.le_of_eqv eright))
+
 /-! ## 5. Pure-natural transition certificates -/
 
 /-- Cleared heat-matched odd two-step transition. -/
@@ -475,21 +532,16 @@ theorem physicalHalfTimeBoxEvenTransitionAt_sound (k m : Nat)
       (Q'.mul_eqv_congr_right _ _ _ hone)
   exact Q'.le_trans' _ _ _ hraw (Q'.le_of_eqv hright)
 
-/-- Head-separated wrapper for the fixed-power `w^2` / `w` transition family.
-The physical pure-natural carrier below fills both displayed finite fields
-from checked sparse certificates; keeping them here makes this compiler
-reusable for other schedules. -/
+/-- Head-free wrapper for the fixed-power `w^2` / `w` transition family.
+Every physical head at `k >= 4` is already a theorem, so the carrier asks
+only for the genuinely open transition schemas. -/
 structure BlockCompatibleP2HalfTimeTransitionsFromFour : Type where
   transitions : forall k, 4 <= k ->
     P2HalfTimeBoxCoreParityTransitions (blockNcut k) (blockWeight k)
-  headSix : boxTailLeft (blockNcut 6) (blockWeight 6) 1 <=
-    halfTimeBoxRight (blockNcut 6) (blockWeight 6) 1
-  headSeven : boxTailLeft (blockNcut 7) (blockWeight 7) 1 <=
-    halfTimeBoxRight (blockNcut 7) (blockWeight 7) 1
 
 /-- Fully arithmetic form of the remaining frontier.  Every field is a
-natural-number comparison; the two exceptional heads are finite sparse cells
-and the only infinite family consists of the two fixed transition schemas. -/
+natural-number comparison and the only infinite family consists of the two
+fixed transition schemas. -/
 structure BlockCompatibleP2HalfTimeIntegralTransitionsFromFour : Type where
   odd : forall k m, 4 <= k -> 2 * m + 3 < 2 * blockNcut k ->
     physicalHalfTimeBoxOddTransitionAt k m
@@ -509,10 +561,6 @@ def BlockCompatibleP2HalfTimeIntegralTransitionsFromFour.toBox
       physicalHalfTimeBoxEvenTransitionAt_sound k m
         (T.even k m hk hm1 hm)
   }
-  headSix := physical_halfTime_box_head_of_linear 6
-    physicalLinearHalfTimeHeadCheck_six
-  headSeven := physical_halfTime_box_head_of_linear 7
-    physicalLinearHalfTimeHeadCheck_seven
 
 /-- Assemble the complete physical head with the two transition schemas. -/
 def BlockCompatibleP2HalfTimeTransitionsFromFour.toLineSumTail
@@ -521,22 +569,7 @@ def BlockCompatibleP2HalfTimeTransitionsFromFour.toLineSumTail
   tail := fun k hk =>
     halfTimeLineSumTail_of_boxCore (blockWeight_pos k)
       (halfTimeBoxCoreStrands_of_head_transitions
-        (by
-          by_cases h8 : 8 <= k
-          · simpa only [Nat.sub_add_cancel h8] using
-              physical_halfTime_box_head_from_eight (k - 8)
-          · have hkCases : k = 4 ∨ k = 5 ∨ k = 6 ∨ k = 7 := by omega
-            rcases hkCases with h4 | h5 | h6 | h7
-            · subst k
-              exact physical_halfTime_box_head_of_linear 4
-                physicalLinearHalfTimeHeadCheck_four
-            · subst k
-              exact physical_halfTime_box_head_of_linear 5
-                physicalLinearHalfTimeHeadCheck_five
-            · subst k
-              exact T.headSix
-            · subst k
-              exact T.headSeven)
+        (physical_halfTime_box_head_from_four k hk)
         (T.transitions k hk))
 
 /-- End-to-end compiler from the two fixed heat-matched transition schemas
@@ -565,6 +598,8 @@ def BlockCompatibleP2HalfTimeIntegralTransitionsFromFour.toControlFamily
 #print axioms physicalLinearHalfTimeHeadCheck_six
 #print axioms physicalLinearHalfTimeHeadCheck_seven
 #print axioms physical_halfTime_box_head_from_eight
+#print axioms physical_halfTime_box_head_from_four
+#print axioms physical_halfTime_lineSum_head_from_four
 #print axioms physicalHalfTimeBoxOddTransitionAt_sound
 #print axioms physicalHalfTimeBoxEvenTransitionAt_sound
 #print axioms BlockCompatibleP2HalfTimeIntegralTransitionsFromFour.toBox

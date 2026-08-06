@@ -1076,6 +1076,21 @@ theorem physicalFullLocalReserveAt_sound (k N s : Nat)
     (0 : Q') <= physicalFullLocalReserveSum k N s := by
   exact (Q'.zero_le_iff_num_nonneg _).mpr h
 
+/-- One integer numerator sign closes the corresponding original line-sum
+cell.  Exposing this pointwise form lets a compiler splice already-proved
+boundary cells into a residual certificate family instead of demanding a
+second proof of them. -/
+theorem physicalFullLocalReserveAt_lineSum (k N s : Nat)
+    (h : physicalFullLocalReserveAt k N s) :
+    dimQ s * lineSum (lagCorr (blockWeight k) N) (s + 1) <=
+      qpow (blockWeight k) (s + 2) *
+        (dimQ (s + 1) * lineSum (lagCorr (blockWeight k) N) s) := by
+  have hline : (0 : Q') <= physicalLineReserve k N s :=
+    Q'.le_trans' _ _ _ (physicalFullLocalReserveAt_sound k N s h)
+      (Q'.le_of_eqv (physicalFullLocalReserveSum_eq_lineReserve k N s))
+  exact le_of_reserve_nonneg (by
+    simpa only [physicalLineReserve] using hline)
+
 /-- Proof-about-computation carrier: one integer sign certificate per physical
 channel, with rational reconstruction proved once above. -/
 structure P2PhysicalFullLocalNumeratorCertificate (k N : Nat) : Type where
@@ -1381,6 +1396,7 @@ end YMGap.Continuum.P2HalfTimeShiftTail
 #print axioms YMGap.Continuum.P2HalfTimeShiftTail.P2PhysicalFullLocalReserveCertificate.toLineSum
 #print axioms YMGap.Continuum.P2HalfTimeShiftTail.P2PhysicalFullLocalReserveCertificate.ofLineSum
 #print axioms YMGap.Continuum.P2HalfTimeShiftTail.physicalFullLocalReserveAt_sound
+#print axioms YMGap.Continuum.P2HalfTimeShiftTail.physicalFullLocalReserveAt_lineSum
 #print axioms YMGap.Continuum.P2HalfTimeShiftTail.P2PhysicalFullLocalNumeratorCertificate.toLocal
 #print axioms YMGap.Continuum.P2HalfTimeShiftTail.P2PhysicalLocalReserveCertificate.toReserve
 #print axioms YMGap.Continuum.P2HalfTimeShiftTail.P2PhysicalLowHighReserve.toLineSum

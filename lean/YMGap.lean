@@ -2343,6 +2343,8 @@ import YMGap.Continuum.P2BlockCompatibleIntegralTailCertificate
 import YMGap.Continuum.FusionStrandExactReindex
 import YMGap.Continuum.P2BlockCompatibleHalfTimeRatioCompiler
 import YMGap.Continuum.P2HalfTimeShiftTail
+import YMGap.Continuum.P2HalfTimePenultimateShell
+import YMGap.Continuum.P2HalfTimeTerminalShell
 import YMGap.Continuum.P2RetunedParityStrandCompiler
 import YMGap.Continuum.P2BlockCompatibleHeadLinearCertificate
 import YMGap.Continuum.P2BlockCompatibleHeadDirichletCompiler
@@ -2355,6 +2357,8 @@ import YMGap.Continuum.P2BlockCompatibleHeadPhysicalEnergyClose
 import YMGap.Continuum.P2BlockCompatibleParityTransitionCertificate
 import YMGap.Continuum.P2HalfTimeParityStrandCompiler
 import YMGap.Continuum.P2HalfTimeStrongTuranCompiler
+import YMGap.Continuum.P2HalfTimeStrongTuranObstruction
+import YMGap.Continuum.P2BlockCompatiblePhysicalCompiledFrontier
 import YMGap.Continuum.P2BlockCompatiblePhysicalFrontierRepointed
 import YMGap.Continuum.P2DyadicPhysicalMarginTransport
 import YMGap.Continuum.P2RetunedFusionRunningCell

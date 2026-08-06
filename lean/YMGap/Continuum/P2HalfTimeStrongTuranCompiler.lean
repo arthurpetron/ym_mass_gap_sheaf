@@ -287,10 +287,6 @@ def BlockCompatibleP2HalfTimeStrongTuranFromFour.toTransitions
     BlockCompatibleP2HalfTimeTransitionsFromFour where
   transitions := fun k hk =>
     (T.turan k hk).toTransitions (blockWeight_pos k)
-  headSix := physical_halfTime_box_head_of_linear 6
-    physicalLinearHalfTimeHeadCheck_six
-  headSeven := physical_halfTime_box_head_of_linear 7
-    physicalLinearHalfTimeHeadCheck_seven
 
 /-- The one-row physical frontier reaches the reviewed all-cutoff canonical
 control family through the checked heads, parity automaton, and exact A1

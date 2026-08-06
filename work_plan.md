@@ -19814,3 +19814,52 @@ The focused check and monitored 369-job target pass.  Every exported gate
 reports only `[propext, Quot.sound]`.  No all-cutoff canonical family,
 half-to-one spectral sandwich, summable loss estimate, or physical-margin
 recursion is inhabited here.
+
+## 70. Fixed-row shortcut audit and common physical compiler (2026-08-06)
+
+**Status. THE FALSE FIXED-W STRONG-TURAN ROUTE IS RETIRED, AND BOTH SOUND
+COEFFICIENT ROUTES NOW LAND IN ONE PHYSICAL CARRIER.**
+
+`P2HalfTimeStrongTuranObstruction` kernel-checks the physical counterexample
+at `k=4,t=1`, so the one-row fixed-weight shortcut cannot be an all-scale
+premise.  `P2BlockCompatiblePhysicalCompiledFrontier` instead coarsens the
+reviewed parity route and the exact full-local reserve route to the same
+`BlockCompatibleP2CoeffTailData` plus the same post-radial theta tail.  The
+canonical spectrum, `pGamma=2`, `finePin`, `imagePin`, genuine
+`BlockingStep.Phi` defect power, and half-loss theorem are therefore shared,
+not duplicated.  All exported gates use only `[propext, Quot.sound]`.
+
+## 71. Half-time head and terminal-shell discharge (2026-08-06)
+
+**Status. BOTH EXTREME COEFFICIENT CHANNELS ARE THEOREMS AT EVERY PHYSICAL
+SCALE.**
+
+The all-cutoff head compiler proves `s=1` for every `k>=4` by exact sparse
+early cells and a symbolic Dirichlet-energy argument thereafter.
+`P2HalfTimeTerminalShell` proves `s=2*N_k-1` by the exact top-box Clebsch
+formula and coefficient-successor identity.  The live full-local numerator
+carrier consequently contains neither boundary channel.  Its compiler back
+to the reviewed all-scale control family is checked with only
+`[propext, Quot.sound]`.
+
+## 72. Penultimate half-time shell (2026-08-06)
+
+**Status. THE `s=2*N_k-2` SHELL IS DISCHARGED FOR EVERY `k>=4`; THE OPEN
+PURE-NAT FAMILY MOVES ONE ROW DEEPER.**
+
+`P2HalfTimePenultimateShell` expands the two top box sums into three adjacent
+coefficients.  Physical coefficient descent supplies the needed box pairing,
+while reciprocal Bernoulli gives `2/3 <= w^(2*N)` and the closed schedule
+coordinate pays the remaining dimension factor.  The proof is constant-cost
+in the cutoff and does not evaluate a growing convolution.  The compiled
+physical frontier now assumes exactly
+
+```text
+k >= 4,  2 <= s,  s + 2 < 2*N_k
+```
+
+for its remaining full-local natural-number reserve signs.  The focused
+penultimate-shell and common-carrier monitored targets pass; all exported
+gates report `[propext, Quot.sound]`.  The deeper interior signs, theta
+trapezoid/fine reserve, later FrontierDAG atoms, physical recursion, and the
+continuum Yang--Mills target remain open.

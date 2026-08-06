@@ -40,13 +40,28 @@ def physical_coordinates(k: int) -> tuple[int, float, float]:
 
 
 def fusion_row_p2(n_cut: int, w: float) -> list[float]:
+    """Return the full p=2 fusion row in O(N^2) arithmetic operations.
+
+    A pair ``(a,b)`` contributes the same positive weight to the arithmetic
+    progression ``|a-b|, |a-b|+2, ..., a+b``.  Two parity-separated
+    difference arrays therefore replace the old inner Clebsch-mode loop.
+    """
     coeff = [(a + 1) * (w ** c4(a)) for a in range(n_cut + 1)]
-    row = [0.0] * (2 * n_cut + 1)
+    stop = 2 * n_cut
+    diff = [0.0] * (stop + 3)
     for a, ca in enumerate(coeff):
         for b, cb in enumerate(coeff):
             term = ca * cb
-            for s in range(abs(a - b), a + b + 1, 2):
-                row[s] += term
+            lo = abs(a - b)
+            hi = a + b
+            diff[lo] += term
+            diff[hi + 2] -= term
+    row = [0.0] * (stop + 1)
+    for parity in (0, 1):
+        running = 0.0
+        for s in range(parity, stop + 1, 2):
+            running += diff[s]
+            row[s] = running
     return row
 
 
@@ -56,7 +71,7 @@ class Minimum:
     index: int
 
 
-def scan_scale(k: int) -> tuple[float, Minimum, Minimum, Minimum]:
+def scan_scale(k: int) -> tuple[float, Minimum, Minimum, Minimum, Minimum]:
     n_cut, w, q = physical_coordinates(k)
     g = fusion_row_p2(n_cut, w)
 
@@ -90,7 +105,15 @@ def scan_scale(k: int) -> tuple[float, Minimum, Minimum, Minimum]:
         if slack < tail_min.slack:
             tail_min = Minimum(slack, s)
 
-    return head, odd_min, even_min, tail_min
+    fixed_w_min = Minimum(inf, -1)
+    for t in range(1, 2 * n_cut):
+        left = (t + 1) * (t + 1) * g[t - 1] * g[t + 1]
+        right = w * t * (t + 2) * g[t] * g[t]
+        slack = right / left
+        if slack < fixed_w_min.slack:
+            fixed_w_min = Minimum(slack, t)
+
+    return head, odd_min, even_min, tail_min, fixed_w_min
 
 
 def main() -> None:
@@ -98,15 +121,19 @@ def main() -> None:
     parser.add_argument("--max-k", type=int, default=5)
     args = parser.parse_args()
 
-    print(" k    N       head       odd-min@index       even-min@index      tail-min@index")
+    print(
+        " k    N       head       odd-min@index       even-min@index      "
+        "tail-min@index       fixed-w-min@index"
+    )
     for k in range(args.max_k + 1):
         n_cut, _, _ = physical_coordinates(k)
-        head, odd, even, tail = scan_scale(k)
+        head, odd, even, tail, fixed_w = scan_scale(k)
         print(
             f"{k:2d} {n_cut:4d}  {head:11.8f}  "
             f"{odd.slack:11.8f}@{odd.index:<4d}  "
             f"{even.slack:11.8f}@{even.index:<4d}  "
-            f"{tail.slack:11.8f}@{tail.index:<4d}"
+            f"{tail.slack:11.8f}@{tail.index:<4d}  "
+            f"{fixed_w.slack:11.8f}@{fixed_w.index:<4d}"
         )
 
 

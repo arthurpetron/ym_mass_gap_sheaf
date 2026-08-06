@@ -83,7 +83,14 @@ def test_compact_work_guide_tracks_the_live_frontier() -> None:
     assert "[>] All-scale/cutoff CanonicalBulkControl family" in chart
     assert "[x] heat-matched parity automaton" in chart
     assert "[x] half-time Turan compression" in chart
+    assert "[!] fixed-w Turan shortcut retired" in chart
+    assert "[x] half-time boundary head" in chart
+    assert "[x] half-time terminal shell" in chart
+    assert "[x] half-time penultimate shell" in chart
+    assert "s+2<2*N_k" in chart
     assert "[>] heat-matched pure-Nat frontier" in chart
+    assert "pure-Nat boundary-free reserve family" in chart
+    assert "pure-Nat interior reserve + theta tail inputs" in chart
     assert "[>] Physical finePin + imagePin + fusionPower proofs" in chart
     assert "[ ] CONSTRUCTIVE 4D YANG--MILLS EXISTENCE + MASS GAP" in chart
 

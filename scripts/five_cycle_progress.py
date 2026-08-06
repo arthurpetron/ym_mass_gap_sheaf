@@ -213,7 +213,9 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
             lines.append(
                 "        |     +-- [>] exact coefficient tail "
                 f"k>={parameters['physical_coeff_tail_start']}"
-                + (" (pure-Nat one-row strong-Turan family)"
+                + (" (pure-Nat boundary-free reserve family)"
+                  if parameters.get("physical_coeff_half_time_interior_frontier")
+                  else " (pure-Nat one-row strong-Turan family)"
                   if parameters.get("physical_coeff_half_time_turan_compiler")
                   else " (pure-Nat odd/even cross family)"
                   if parameters.get("physical_coeff_transition_compiler") else "")
@@ -276,6 +278,11 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
                     "        |     +-- [x] half-time Turan compression "
                     f"{parameters['physical_coeff_half_time_turan_compiler']}"
                 )
+            if parameters.get("physical_coeff_half_time_turan_obstruction"):
+                lines.append(
+                    "        |     +-- [!] fixed-w Turan shortcut retired "
+                    f"{parameters['physical_coeff_half_time_turan_obstruction']}"
+                )
             if parameters.get("physical_coeff_half_time_nat_frontier"):
                 lines.append(
                     "        |     +-- [>] heat-matched pure-Nat frontier "
@@ -296,6 +303,21 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
                     "        |     +-- [x] half-time debt/reserve compiler "
                     f"{parameters['physical_coeff_half_time_balance']}"
                 )
+            if parameters.get("physical_coeff_half_time_head_discharged"):
+                lines.append(
+                    "        |     +-- [x] half-time boundary head "
+                    f"{parameters['physical_coeff_half_time_head_discharged']}"
+                )
+            if parameters.get("physical_coeff_half_time_terminal_discharged"):
+                lines.append(
+                    "        |     +-- [x] half-time terminal shell "
+                    f"{parameters['physical_coeff_half_time_terminal_discharged']}"
+                )
+            if parameters.get("physical_coeff_half_time_penultimate_discharged"):
+                lines.append(
+                    "        |     +-- [x] half-time penultimate shell "
+                    f"{parameters['physical_coeff_half_time_penultimate_discharged']}"
+                )
             if parameters.get("physical_coeff_half_time_frontier"):
                 lines.append(
                     "        |     +-- [>] half-time reserve frontier "
@@ -313,7 +335,7 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
                 "        |     +-- [x] finePin + imagePin + genuine Phi defect-power dictionary"
             )
             lines.append(
-                "        |     +-- [>] pure-Nat coefficient transitions + theta tail inputs"
+                "        |     +-- [>] pure-Nat interior reserve + theta tail inputs"
             )
     lines.extend(
         [
