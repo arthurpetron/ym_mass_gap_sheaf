@@ -215,6 +215,10 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
                 f"k>={parameters['physical_coeff_tail_start']}"
             )
             lines.append(
+                "        |     +-- [x] parity proof compiler "
+                f"{parameters['physical_coeff_tail_invariant']}"
+            )
+            lines.append(
                 "        |     +-- [>] trapezoid + fine reserve "
                 f"k>={parameters['physical_theta_tail_start']}"
             )

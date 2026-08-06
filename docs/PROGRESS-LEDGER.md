@@ -430,6 +430,46 @@ has been eliminated without enlarging the claim.
 Focused monitored checks are green and exported declarations use only
 `[propext, Quot.sound]`.  No full audit, remote push, or GitHub CI run was used.
 
+## Physical coefficient parity-strand compiler (2026-08-06)
+
+The exact `k>=4` adjacent family has been replaced by a smaller true
+proof-about-computation interface, without claiming the remaining analytic
+inequalities are proved.
+
+- For abstract positive states `L_s`, `R_s`, one odd head, a two-step odd
+  cross law, and a bridge from each preceding odd cell to the following even
+  cell constructively imply `L_s <= R_s` throughout `1<=s<2N`.
+- On the physical coefficient row,
+  `L_s=(s+1)g_(s+1)` and
+  `R_s=q^(2s+3)(s+2)g_s`.  Full Clebsch-support positivity supplies every
+  cancellation used by the compiler.
+- Common heat powers are removed exactly.  The odd transition retains only
+  `q^4`; the even insertion retains only `q^2` and is the old strengthened
+  Turan law at the true odd-index subset:
+  `(s+1)^2 g_(s-1)g_(s+1) <= q^2 s(s+2)g_s^2` for even `s`.
+  The odd transition is the paired product law that cancels the individually
+  false even-index Turan atom.
+- Exact Peter--Weyl reconstruction transports the fixed-power carrier to
+  `boxSum`, so the remaining producer is stated in the repository's existing
+  ballot/even-odd weighted-box coordinates.
+- `BlockCompatibleP2BoxCoreParityStrandFromFour` combines these laws only for
+  `k>=4` with the checked 138-atom integral prefix.  The reviewed
+  `BlockCompatibleP2PhysicalFrontierRepointed` now consumes this carrier and
+  reaches the all-cutoff `pGamma=2` canonical family, `finePin`, `imagePin`,
+  the genuine `BlockingStep.Phi` defect-power identity, and the half-loss
+  gate without passing through either constructively empty all-index
+  strong-Turan carrier.
+- An untrusted floating-point scout checks the invariant through `k=6` and
+  records the asymptotically tight parity cells.  It also rejected the first
+  attempted following-odd bridge near the support edge before that false
+  strengthening entered the formal frontier.  This numerical evidence is not
+  used as a Lean proof.
+
+Focused monitored checks are green and all new load-bearing gates use only
+`[propext, Quot.sound]`.  The uniform head, odd-pair, and even-insertion
+inequalities from `k>=4` remain the honest analytic coefficient frontier.
+No full audit, remote push, or GitHub CI run was used.
+
 ## Dead routes (refuted — do not re-attempt)
 
 - **`Var_m(cosθ)` monotonicity → uniform-in-`m`** — REFUTED (`VarianceMonotonicity.lean`,

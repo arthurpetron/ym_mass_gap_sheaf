@@ -2340,6 +2340,7 @@ import YMGap.Continuum.P2BlockCompatibleStrongTuranObstruction
 import YMGap.Continuum.P2RetunedHeadThreeTuranCompiler
 import YMGap.Continuum.P2BlockCompatibleScheduleClosed
 import YMGap.Continuum.P2BlockCompatibleIntegralTailCertificate
+import YMGap.Continuum.P2RetunedParityStrandCompiler
 import YMGap.Continuum.P2BlockCompatiblePhysicalFrontierRepointed
 import YMGap.Continuum.P2DyadicPhysicalMarginTransport
 import YMGap.Continuum.P2RetunedFusionRunningCell

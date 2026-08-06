@@ -2,13 +2,15 @@
 Track 11.7-fusion / R4e -- physically repoint the strict frontier away from
 the constructively empty schedule-wide strong-Turan carrier.
 
-The coefficient input is now the exact adjacent tail only from `k>=4`: direct
-integral certificates discharge every supported mode at scales zero through
-three.  The theta input remains the honest post-certificate tail with both
-fields requested only from `k>=8`.  These independent inputs compile directly
-to the reviewed all-cutoff family, its spectrum pins, and the genuine
+The coefficient input is now the fixed-power parity-strand family only from
+`k>=4`: direct integral certificates discharge every supported mode at scales
+zero through three, odd cells propagate by a two-step product law, and each
+even cell is inserted from the preceding odd cell by the true odd-index Turan
+law.  The theta input remains the honest post-certificate tail with both fields
+requested only from `k>=8`.  These independent inputs compile directly to the
+reviewed all-cutoff family, its spectrum pins, and the genuine
 `BlockingStep.Phi` quotient defect without passing through either refuted
-strong-Turan carrier.
+all-index strong-Turan carrier.
 
 No `Classical`, `native_decide`, `sorry`, custom axiom, or noncomputable
 declaration.
@@ -16,6 +18,7 @@ declaration.
 
 import YMGap.Continuum.P2BlockCompatiblePhysicalFrontierStrictFromEight
 import YMGap.Continuum.P2BlockCompatibleIntegralTailCertificate
+import YMGap.Continuum.P2RetunedParityStrandCompiler
 
 namespace YMGap.Continuum.P2BlockCompatiblePhysicalFrontierRepointed
 
@@ -32,18 +35,19 @@ open YMGap.Continuum.P2BlockCompatibleThetaClearedCertificate
 open YMGap.Continuum.P2BlockCompatibleThetaParityTransport
 open YMGap.Continuum.P2RetunedBlockingDictionary
 open YMGap.Continuum.P2RetunedFusionDefectPower
+open YMGap.Continuum.P2RetunedParityStrandCompiler
 open YMGap.Continuum.RGTransport
 
 /-- Honest Bucket-1 boundary after removing both refuted sufficient premises.
-The exact coefficient target begins only at physical scale four. -/
+The true parity-strand coefficient laws begin only at physical scale four. -/
 structure BlockCompatibleP2PhysicalFrontierRepointed : Type where
-  coefficient : BlockCompatibleP2CoeffTailFromFour
+  coefficient : BlockCompatibleP2BoxCoreParityStrandFromFour
   theta : BlockCompatibleP2PostRadialTailStrictFromEight
 
 def BlockCompatibleP2PhysicalFrontierRepointed.coeffTailData
     (A : BlockCompatibleP2PhysicalFrontierRepointed) :
     BlockCompatibleP2CoeffTailData :=
-  A.coefficient.toAllScale
+  A.coefficient.toCoeffTailData
 
 /-- The checked theta prefix and the two post-certificate tails produce the
 same physical mode-one monotonicity datum independently of the coefficient
