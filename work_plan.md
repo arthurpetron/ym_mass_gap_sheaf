@@ -19644,3 +19644,49 @@ Both all-cutoff inequalities, the trapezoid exchange, and the fine reserve
 remain open.  Every exported gate reports only `[propext]` or
 `[propext, Quot.sound]`; no tail inhabitant or Yang--Mills completion is
 claimed.
+
+## 66. Exact terminal theta compression and fixed-block refinement (2026-08-06)
+
+**Status. THE TERMINAL ENDPOINT SUM NOW HAS AN EXACT LOGARITHMIC DYADIC
+EVALUATOR AND A HIGHER-SLACK 320-BLOCK PHYSICAL CARRIER; ITS UNIFORM
+INEQUALITY REMAINS OPEN.**
+
+`P2BlockCompatibleThetaTerminalTheta` converts the physical endpoint factor
+exactly to the weighted integer-theta boundary term.  The constructive
+positive-factor compiler therefore reduces the first radial split field to
+
+```text
+L_k * integerThetaTerm(w4,L_k)
+  <= (5/16) * w4 * integerThetaSum(w4,L_k-1).
+```
+
+`P2BlockCompatibleThetaTerminalTenChord` partitions the physical sum into ten
+equal blocks and applies the exact convex chord of `n^2`, producing a genuine
+geometric lower bound rather than a numerical approximation.  The new
+`P2BlockCompatibleThetaTerminalGeoMoments` module proves exact doubling
+recurrences for
+
+```text
+sum r^(j+1),  sum (j+1)r^(j+1),  sum (j+1)^2 r^(j+1).
+```
+
+Consequently a length-`2^k` chord block is represented by `k` algebraic
+doubling steps.  Kernel theorems identify each compressed state with the
+literal finite sum, identify any fixed collection of compressed blocks with
+the exact chord sum, and compile the resulting carrier back to the existing
+theta and coefficient sandwiches.
+
+The compressor is block-count polymorphic.  Since
+
+```text
+L_k = 320 * 2^(k-6)  for k >= 6,
+```
+
+a checked 320-block carrier refines the original ten-block lower bound while
+keeping the block count independent of scale.  Floating-point scouting puts
+the limiting chord margin near `0.846%`, compared with about `0.156%` for ten
+blocks; these values guide the next invariant but are not proof evidence.
+The 320-state terminal inequality, trapezoid exchange, radial factor bound,
+and fine reserve are still honest open fields.  Every exported gate reports
+only `[propext, Quot.sound]`; no all-cutoff inhabitant or Yang--Mills
+completion is claimed.

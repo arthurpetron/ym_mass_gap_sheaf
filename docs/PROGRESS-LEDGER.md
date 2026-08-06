@@ -217,6 +217,26 @@ provably loops. The only honest attacks remain (a) direct atomic `singleStep` (t
 true-margin construction + real per-step recursion) or (b) a genuinely-new
 strictly-weaker reduction (none known).
 
+## Fixed-block terminal compression increment (2026-08-06)
+
+This increment moves the active block-compatible `CanonicalBulkControl`
+frontier without claiming an inhabitant of its remaining analytic fields.
+
+- The terminal outer factor is converted exactly to the integer-theta
+  endpoint term, and a fixed-block convex chord is proved below the complete
+  physical theta sum.
+- Zeroth, first, and second geometric moments now have exact dyadic doubling
+  recurrences.  A length-`2^k` block is represented in `k` checked state
+  transitions, and the state is proved equal to the literal finite sum.
+- Fixed-block soundness is generic in the block count.  The physical identity
+  `L_k = 320 * 2^(k-6)` yields a refined 320-block carrier that compiles back
+  to the theta factorization, coefficient sandwich, and existing physical
+  consumer.
+- All exported gates are `[propext, Quot.sound]`.  The uniform terminal
+  inequality, trapezoid exchange, radial factor bound, and fine reserve remain
+  open, so this is a complexity-reduction/decomposition move rather than a
+  critical-path discharge.
+
 ## Dead routes (refuted — do not re-attempt)
 
 - **`Var_m(cosθ)` monotonicity → uniform-in-`m`** — REFUTED (`VarianceMonotonicity.lean`,
