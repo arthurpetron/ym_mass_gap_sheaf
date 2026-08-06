@@ -473,6 +473,23 @@ theorem physical_halfTime_lineSum_of_cover_from_four
       simpa only [Nat.add_comm] using hdepth) (by
       simpa only [Nat.add_comm] using hcover)
 
+theorem physical_halfTime_box_of_cover_from_four
+    (k m : Nat) (hk : 4 <= k) (hm : 0 < m)
+    (hdepth : 2 * m <= blockNcut k)
+    (hcover : (m + 1) * (2 * blockNcut k - m + 2) <=
+      physicalWeightDen k) :
+    let N := blockNcut k
+    dimQ (2 * N - m) *
+        boxSum (blockWeight k) N (2 * N - m + 1) <=
+      qpow (blockWeight k) (2 * N - m + 2) *
+        (dimQ (2 * N - m + 1) *
+          boxSum (blockWeight k) N (2 * N - m)) := by
+  obtain ⟨r, rfl⟩ := Nat.exists_eq_add_of_le hk
+  simpa only [Nat.add_comm] using
+    physical_halfTime_box_of_cover r m hm (by
+      simpa only [Nat.add_comm] using hdepth) (by
+      simpa only [Nat.add_comm] using hcover)
+
 /-! ## 6. Simple one-fifth corollaries -/
 
 theorem physical_endpointBox_le_heat_fifth_depth
@@ -539,6 +556,7 @@ end YMGap.Continuum.P2HalfTimeMacroscopicEndpointDescent
 #print axioms YMGap.Continuum.P2HalfTimeMacroscopicEndpointDescent.physical_halfTime_box_of_cover
 #print axioms YMGap.Continuum.P2HalfTimeMacroscopicEndpointDescent.physical_halfTime_lineSum_of_cover
 #print axioms YMGap.Continuum.P2HalfTimeMacroscopicEndpointDescent.physical_halfTime_lineSum_of_cover_from_four
+#print axioms YMGap.Continuum.P2HalfTimeMacroscopicEndpointDescent.physical_halfTime_box_of_cover_from_four
 #print axioms YMGap.Continuum.P2HalfTimeMacroscopicEndpointDescent.physical_endpointBox_le_heat_fifth_depth
 #print axioms YMGap.Continuum.P2HalfTimeMacroscopicEndpointDescent.physical_halfTime_box_fifth_depth
 #print axioms YMGap.Continuum.P2HalfTimeMacroscopicEndpointDescent.physical_halfTime_lineSum_fifth_depth

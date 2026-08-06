@@ -677,6 +677,23 @@ genuine `BlockingStep.Phi` trajectory defect-power law, and half-loss bound.
 All new gates are `[propext, Quot.sound]`.  No full audit, remote push, or
 GitHub CI run was used.
 
+## Endpoint-spliced parity proof about computation (2026-08-06)
+
+The alternating parity compiler now supports a decidable family of cells
+proved by a direct theorem.  Its structural induction branches at each target:
+inside the direct region it consumes that cell immediately; outside it uses
+the appropriate odd two-step or even bridge and recursively proves the
+predecessor.  This theorem replaces a full-support transition scan by exactly
+the transitions whose targets remain unresolved.
+
+For the physical schedule, the direct predicate is the exact endpoint cover
+`2*m<=N_k`, `(m+1)*(s+2)<=D_k`, with `m=2*N_k-s`.  The resulting pure-Nat
+frontier requests `physicalHalfTimeBoxOddTransitionAt` and
+`physicalHalfTimeBoxEvenTransitionAt` only when their target is off-cover,
+then compiles through the exact A1 reindex to the common physical carrier.
+All new gates are `[propext, Quot.sound]`.  No full audit, remote push, or
+GitHub CI run was used.
+
 ## Dead routes (refuted — do not re-attempt)
 
 - **`Var_m(cosθ)` monotonicity → uniform-in-`m`** — REFUTED (`VarianceMonotonicity.lean`,

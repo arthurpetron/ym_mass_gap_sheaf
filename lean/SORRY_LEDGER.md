@@ -1336,6 +1336,21 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   numerator sign outside `2*(2*N_k-s)<=N_k` and
   `(2*N_k-s+1)*(s+2)<=D_k`; all gates are `[propext, Quot.sound]`.
 
+### [R4ad-endpoint-spliced-parity] Endpoint-spliced parity compiler — **CLOSED 2026-08-06**
+
+- **milestone**: FrontierDAG bucket 1 / proof about computation.
+- **file**: `lean/YMGap/Continuum/P2HalfTimeEndpointSplicedParityCompiler.lean`
+- **decl**: `tail_of_alternating_outside`,
+  `BlockCompatibleP2HalfTimeOffCoverTransitionsFromFour.toLineSumTail`,
+  `BlockCompatibleP2PhysicalEndpointSplicedParityFrontier.toCompiled`
+- **obligation**: Remove directly proved endpoint cells from the odd/even
+  parity-transition frontier without unrolling the finite automaton.
+- **constructive?**: yes — induction over parity strands with an explicit
+  `DecidablePred`, pointwise heat-power reinsertion, and exact A1 transport.
+- **status note**: only off-cover transition targets remain, and the resulting
+  family reaches the common reviewed physical carrier; all gates are
+  `[propext, Quot.sound]`.
+
 ## How to add an entry
 
 ```markdown

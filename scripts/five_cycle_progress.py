@@ -373,6 +373,11 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
                     "        |     +-- [x] macroscopic endpoint band "
                     f"{parameters['physical_coeff_half_time_macroscopic_band']}"
                 )
+            if parameters.get("physical_coeff_endpoint_spliced_parity"):
+                lines.append(
+                    "        |     +-- [x] endpoint-spliced parity compiler "
+                    f"{parameters['physical_coeff_endpoint_spliced_parity']}"
+                )
             if parameters.get("physical_coeff_half_time_frontier"):
                 lines.append(
                     "        |     +-- [>] half-time reserve frontier "
