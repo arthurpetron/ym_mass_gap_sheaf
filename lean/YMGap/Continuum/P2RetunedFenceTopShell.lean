@@ -471,6 +471,49 @@ theorem fenceTopShellTuran_of_scalar (N : Nat) (hN : 2 ≤ N)
   exact Q'.le_trans' _ _ _ hleft0
     (Q'.le_trans' _ _ _ hmiddle (Q'.le_of_eqv hright))
 
+/-- The smallest nontrivial boundary atom is closed directly; the deliberately
+coarse `3 B^2 + C^2` upper fence begins at `N=3`. -/
+theorem fenceTopShellTuran_two :
+    (dimQ 3 * boxSum fenceW 2 2) * (dimQ 3 * boxSum fenceW 2 4) ≤
+      (RGTransport.qpow (p2RetunedWeight fenceW) 2 *
+          (dimQ 4 * boxSum fenceW 2 3)) *
+        (dimQ 2 * boxSum fenceW 2 3) := by
+  decide
+
+theorem topShellScalarFence_three : TopShellScalarFence 3 := by
+  unfold TopShellScalarFence
+  decide
+
+/-- Exact worst-dimension anchor used by the all-`N` scalar proof. -/
+theorem topShellRatioAnchor :
+    Q'.ofNat 9 *
+        topShellUpper (coeffW fenceW 2) (coeffW fenceW 3) ≤
+      RGTransport.qpow (p2RetunedWeight fenceW) 2 *
+        (Q'.ofNat 35 * (coeffW fenceW 2 * coeffW fenceW 2)) := by
+  decide
+
+/-- Every later terminal heat-coefficient ratio is bounded by the anchor
+ratio `c_3/c_2`.  This is a shifted instance of the proved Hankel
+log-concavity theorem, not a numerical scan. -/
+theorem topShellCoeffRatio (N : Nat) (hN : 3 ≤ N) :
+    coeffW fenceW N * coeffW fenceW 2 ≤
+      coeffW fenceW (N - 1) * coeffW fenceW 3 := by
+  rcases Nat.eq_or_lt_of_le hN with rfl | h4
+  · exact Q'.le_of_eqv (Q'.mul_comm_eqv _ _)
+  · have hwp : (0 : Q') < fenceW := by decide
+    have h := FusionCoreStepRoundE.coeffW_step
+      fenceW_nonneg fenceW_le_one hwp 2 (N - 4)
+    have hk :
+        coeffW fenceW 2 * coeffW fenceW N ≤
+          coeffW fenceW 3 * coeffW fenceW (N - 1) := by
+      have eN : 2 + (N - 4) + 2 = N := by omega
+      have ePrev : 2 + (N - 4) + 1 = N - 1 := by omega
+      have e3 : 2 + 1 = 3 := by omega
+      rw [eN, ePrev, e3] at h
+      exact h
+    exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.mul_comm_eqv _ _))
+      (Q'.le_trans' _ _ _ hk (Q'.le_of_eqv (Q'.mul_comm_eqv _ _)))
+
 end YMGap.Continuum.P2RetunedFenceTopShell
 
 /-! ## Axiom-dependency gates -/
@@ -483,3 +526,7 @@ end YMGap.Continuum.P2RetunedFenceTopShell
 #print axioms YMGap.Continuum.P2RetunedFenceTopShell.boxSum_top_even
 #print axioms YMGap.Continuum.P2RetunedFenceTopShell.boxSum_top_even_le_upper
 #print axioms YMGap.Continuum.P2RetunedFenceTopShell.fenceTopShellTuran_of_scalar
+#print axioms YMGap.Continuum.P2RetunedFenceTopShell.fenceTopShellTuran_two
+#print axioms YMGap.Continuum.P2RetunedFenceTopShell.topShellScalarFence_three
+#print axioms YMGap.Continuum.P2RetunedFenceTopShell.topShellRatioAnchor
+#print axioms YMGap.Continuum.P2RetunedFenceTopShell.topShellCoeffRatio
