@@ -21,7 +21,7 @@ Pure structure compilation and the existing Nat induction.  No `Classical`,
 `native_decide`, `sorry`, custom axiom, or noncomputable declaration.
 -/
 
-import YMGap.Continuum.P2BlockCompatibleThetaParityTransport
+import YMGap.Continuum.P2BlockCompatibleThetaPathEnergy
 import YMGap.Continuum.P2RetunedStrongTuranCompiler
 
 namespace YMGap.Continuum.P2BlockCompatibleStrongTuranBridge
@@ -35,7 +35,9 @@ open YMGap.Continuum.P2BlockCompatibleModeOneCross
 open YMGap.Continuum.P2BlockCompatibleSchedule
 open YMGap.Continuum.P2BlockCompatibleThetaCross
 open YMGap.Continuum.P2BlockCompatibleThetaDeficit
+open YMGap.Continuum.P2BlockCompatibleThetaParityEnergy
 open YMGap.Continuum.P2BlockCompatibleThetaParityTransport
+open YMGap.Continuum.P2BlockCompatibleThetaPathEnergy
 open YMGap.Continuum.P2RetunedBlockingDictionary
 open YMGap.Continuum.P2RetunedFusionDefectPower
 open YMGap.Continuum.P2RetunedFusionPhysicalMode
@@ -86,13 +88,14 @@ def BlockCompatibleP2BoxStrongTuranData.toCoeffTailData
 /-! ## 2. The two canonical physical frontier atoms -/
 
 /-- The complete remaining input boundary for the present p=2 physical
-bridge: weighted-box strong Turan at every scale, together with coarse-to-even
-transport and fine bipartite subdivision for the normalized mode-one
-comparison.  Exact dyadic pairing and reflected polynomial normalization
-compile those two local atoms to the cross-cutoff theta half-contraction. -/
+bridge: weighted-box strong Turan at every scale, together with the additive
+coarse-deficit and fine even-path-energy comparisons for the normalized
+mode-one comparison.  Exact dyadic pairing and reflected polynomial
+normalization compile those two local atoms to the cross-cutoff theta
+half-contraction. -/
 structure BlockCompatibleP2PhysicalFrontierAtoms : Type where
   coefficient : BlockCompatibleP2BoxStrongTuranData
-  thetaParity : BlockCompatibleP2DyadicParityTransport
+  thetaEnergySandwich : BlockCompatibleP2ThetaPathEnergySandwich
 
 def BlockCompatibleP2PhysicalFrontierAtoms.coeffTailData
     (A : BlockCompatibleP2PhysicalFrontierAtoms) :
@@ -102,7 +105,9 @@ def BlockCompatibleP2PhysicalFrontierAtoms.coeffTailData
 def BlockCompatibleP2PhysicalFrontierAtoms.modeOneTailMonotonicity
     (A : BlockCompatibleP2PhysicalFrontierAtoms) :
     BlockCompatibleP2ModeOneTailMonotonicity :=
-  A.thetaParity.toThetaDeficitHalfContraction.toThetaDeficitTail
+  A.thetaEnergySandwich.toPathEnergyTransport.toEnergyTransport
+    |>.toDyadicParityTransport
+    |>.toThetaDeficitHalfContraction.toThetaDeficitTail
     |>.toThetaCrossTail.toModeOneCrossTail
     |>.toModeOneTailMonotonicity
 

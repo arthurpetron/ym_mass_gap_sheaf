@@ -19236,9 +19236,10 @@ inequalities
 
 ```text
 (w_k H_k) I(w_(k+1)^4,N_k)
-  <= I_k (w_(k+1)^4 H(w_(k+1)^4,N_k)),
+  <= I_k (w_(k+1)^4 H(w_(k+1)^4,N_k)
+          + delta_k I(w_(k+1)^4,N_k)),
 
-I_(k+1) (E_k+C_k)
+I_(k+1) (E_k+C_k+delta_k E_k)
   <= 2 E_k (w_(k+1) H_(k+1))
 ```
 
@@ -19248,9 +19249,13 @@ to the exact normalized half-contraction
 2 I_k T_(k+1) <= T_k I_(k+1).
 ```
 
-The first premise deliberately retains the exact schedule-specific pair
-`w_k` and `w_(k+1)^4`: generic fixed-cutoff weight monotonicity is not assumed.
-The factor-four even-node rescaling is proved and removed from the frontier.
+Here `delta_k=(1/360)8^(-k)` and the exact recursion
+`delta_(k+1)=delta_k/8` is proved.  The debt-free first premise is false on
+the physical schedule (already at `k=4`), so it has been removed rather than
+left as a vacuous interface.  The corrected first premise deliberately
+retains the exact schedule-specific pair `w_k` and `w_(k+1)^4`; generic
+fixed-cutoff weight monotonicity is not assumed.  The factor-four even-node
+rescaling is proved and removed from the frontier.
 `BlockCompatibleP2PhysicalFrontierAtoms` now consumes this parity transport
 instead of the single cumulative Pascal-residual field and still compiles to
 the genuine `BlockingStep.Phi` defect-power trajectory theorem.
@@ -19260,3 +19265,40 @@ transport (399 jobs), and downstream strong-Turan bridge (401 jobs).  The new
 declarations report only `[propext]` or `[propext, Quot.sound]`.  Neither local
 inequality is claimed inhabited; the all-scale weighted-box strong-Turan
 family also remains open.
+
+## 56. Deficit-energy and exact path-SOS frontier (2026-08-06)
+
+**Status. PHYSICAL CONSUMER REPOINTED TO POSITIVE PATH ENERGIES; TWO
+ALL-SCALE SOS COMPARISONS OPEN.**
+
+`P2BlockCompatibleThetaParityEnergy` proves that the two corrected parity
+atoms are exactly additive deficit comparisons.  The coarse atom transports
+the fourth-power theta deficit with the shared debt; the fine atom asks the
+even-subsequence path deficit to pay twice the full fine deficit and that
+same debt.  Constant-size reflective identities perform all cancellation.
+
+`P2BlockCompatibleThetaPathEnergy` then reuses the already proved
+cutoff-uniform Dirichlet identity to establish, for every weight and cutoff,
+
+```text
+2 (I(w,N) - w H(w,N))
+  = w^2 [ c_0^2 + c_N^2 + sum_(a<N) (c_a-c_(a+1))^2 ].
+```
+
+Both moving endpoint squares are retained.  This is a proof about the finite
+computation, not an expansion of the growing theta polynomial.  It specializes
+to the physical coarse deficit, fine deficit, and even-subsequence deficit;
+the latter is exactly four copies of the fourth-power path energy.
+
+`BlockCompatibleP2PhysicalFrontierAtoms` now consumes the division-free
+common-cutoff `BlockCompatibleP2ThetaPathEnergySandwich`.  Exact even-node
+rescaling constructs `BlockCompatibleP2DyadicParityPathEnergyTransport`; the checked compiler
+passes through the deficit-energy and debt-corrected parity layers to the
+genuine `BlockingStep.Phi` defect-power theorem and factor-loss half bound.
+The two explicit positive path-energy inequalities for every `k>=4` remain
+the analytic obligation; no inhabitant is claimed.
+
+Focused monitored builds pass for `P2BlockCompatibleThetaParityEnergy` (400
+jobs), `P2BlockCompatibleThetaPathEnergy` (401 jobs), and the downstream
+`P2BlockCompatibleStrongTuranBridge` (403 jobs).  Every new theorem reports
+only `[propext]` or `[propext, Quot.sound]`.

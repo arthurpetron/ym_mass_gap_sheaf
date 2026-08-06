@@ -941,18 +941,21 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 ### [R3k-parity] Block-compatible dyadic parity transport — **OPEN**
 
 - **milestone**: FrontierDAG bucket 1 / physical pGamma=2 mode-one transport.
-- **file**: `lean/YMGap/Continuum/P2BlockCompatibleThetaParityTransport.lean`
-- **decl**: `BlockCompatibleP2DyadicParityTransport`
-- **obligation**: Inhabit the schedule-specific same-cutoff
-  `coarseFourthPower` inequality and the fine even/odd `fineSubdivision`
-  inequality for every `k >= 4`.
+- **file**: `lean/YMGap/Continuum/P2BlockCompatibleThetaPathEnergy.lean`
+- **decl**: `BlockCompatibleP2ThetaPathEnergySandwich`
+- **obligation**: Inhabit the schedule-specific coarse and fine positive
+  path-energy comparisons for every `k >= 4`, including the explicit shared
+  debt `delta_k=(1/360)8^(-k)`.
 - **constructive?**: yes — both are finite `Q'` inequalities.  The checked
-  compiler uses exact dyadic finite-sum reconstruction, positive
-  cancellation, and the proved reflective polynomial normalizer.
+  compiler uses exact dyadic finite-sum reconstruction, the cutoff-uniform
+  endpoint-plus-Dirichlet sum-of-squares identity, positive cancellation,
+  and the proved reflective polynomial normalizer.
 - **status note**: the former single cross-cutoff Pascal-residual atom has been
-  split into these two smaller local atoms.  The even-node factor four and the
+  split into these two smaller local atoms.  The tempting debt-free coarse
+  comparison was numerically refuted and is not used.  The exact geometric
+  debt recursion, even-node factor four, deficit-energy/SOS equivalences, and
   implication to the genuine `BlockingStep.Phi` defect-power law are closed;
-  no inhabitant of either analytic premise is claimed.
+  no inhabitant of either all-scale analytic premise is claimed.
 - **axiom gate (closed compiler)**: `[propext, Quot.sound]` only.
 
 ### [R3k-box] All-scale weighted-box strong-Turan family — **OPEN**
