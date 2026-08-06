@@ -19690,3 +19690,49 @@ The 320-state terminal inequality, trapezoid exchange, radial factor bound,
 and fine reserve are still honest open fields.  Every exported gate reports
 only `[propext, Quot.sound]`; no all-cutoff inhabitant or Yang--Mills
 completion is claimed.
+
+## 67. Physical 640-step endpoint certificate and terminal outer-field discharge (2026-08-06)
+
+**Status. THE ALL-SCALE TERMINAL OUTER THETA FIELD IS NOW INHABITED FOR
+EVERY `k >= 7`; THE RADIAL FACTOR, TRAPEZOID EXCHANGE, AND FINE RESERVE
+REMAIN OPEN.**
+
+`P2BlockCompatibleThetaTerminalEndpointStep` replaces chord interpolation by
+a physical 640-block right-endpoint lower sum.  It proves the exact shell
+decomposition, transports every block to the first open scale, and reduces
+the full terminal theta inequality to a scale-uniform endpoint-power ceiling
+and one fixed rational table.
+
+`P2BlockCompatibleThetaTerminalEndpointPowerCeil` proves the uniform power
+bound without expanding the exponent.  It groups the exponent into 32768
+Bernoulli chunks, bounds one chunk by `196608/196633`, and uses a 15-step
+rounded squaring chain to obtain the compact rational ceiling
+
+```text
+1550796091359 / 100000000000000.
+```
+
+`P2BlockCompatibleThetaTerminalEndpointFixedPoint` evaluates the fixed table
+by downward-rounded square-and-multiply at scale
+`786432000000000000`.  A generic soundness theorem converts the algorithm to
+a rational lower bound.  Lean then checks the generated 640-entry recurrence
+against the explicit integer witness
+
+```text
+30839543747440921431163816
+```
+
+and checks the final cross-multiplied balance exactly.  The finite comparison
+is axiom-free; the exported physical transport uses only
+`[propext, Quot.sound]`.  The resulting concrete
+`TerminalEndpointFixedCertificate` proves
+
+```text
+L_k * integerThetaTerm(w4,L_k)
+  <= (5/16) * w4 * integerThetaSum(w4,L_k-1)
+```
+
+for every `k >= 7`.  Thus the first radial split field is discharged.  The
+remaining normalized-deficit tail still requires the nonpositive trapezoid
+exchange, `terminalRadialEnvelope <= (341/125)*L^2*D0`, and the independent
+fine even/odd reserve; no Yang--Mills completion is claimed.
