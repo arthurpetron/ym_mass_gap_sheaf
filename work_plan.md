@@ -19341,3 +19341,29 @@ every `k>=5` remain open.  The monitored narrow module build completes 402
 jobs; the downstream focused bridge check passes.  All exported gates are
 `[propext, Quot.sound]`, with no classical choice, `native_decide`, `sorry`,
 custom axiom, or noncomputable witness.
+
+## 58. Second cleared physical tail cell (2026-08-06)
+
+**Status. EXACT `k=5`, `N=159 -> 319` CELL CLOSED; HONEST TAIL MOVED TO
+`k>=6`.**
+
+The same logarithmic common-denominator checker closes the next coefficient
+sandwich at coarse weight `12287/12288`, fine weight `49151/49152`, and the
+literal shared debt `delta_5`.  The focused kernel check completes in 19
+seconds under the monitored one-worker launcher.  Exact rational-equivalence
+transport identifies these fractions with `blockWeight 5`, `blockWeight 6`,
+and `(blockWeight 6)^4`.
+
+`BlockCompatibleP2CoefficientSandwichFromSix.toAllScale` inserts both checked
+anchors before the remaining `k>=6` family.  The downstream
+`BlockCompatibleP2PhysicalFrontierAtomsFromSix` boundary compiles that reduced
+input to the genuine `BlockingStep.Phi` defect-power identity and quotient
+half-loss bound.  The focused physical bridge check passes, and every new
+declaration reports only `[propext, Quot.sound]`.
+
+This second cell confirms that the reflective computation scales, but finite
+cells alone are not an infinite-tail proof.  The next analytic target is a
+uniform normalized-deficit comparison/recurrence for the common-cutoff
+coarse inequality; the fine reserve is asymptotically much larger.  The
+weighted-box strong-Turan family and the coefficient sandwich for all `k>=6`
+remain open.

@@ -942,9 +942,9 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 
 - **milestone**: FrontierDAG bucket 1 / physical pGamma=2 mode-one transport.
 - **file**: `lean/YMGap/Continuum/P2BlockCompatibleThetaClearedCertificate.lean`
-- **decl**: `BlockCompatibleP2CoefficientSandwichFromFive`
+- **decl**: `BlockCompatibleP2CoefficientSandwichFromSix`
 - **obligation**: Inhabit the schedule-specific coarse and fine positive
-  coefficient/path-energy comparisons for every `k >= 5`, including the
+  coefficient/path-energy comparisons for every `k >= 6`, including the
   explicit shared debt `delta_k=(1/360)8^(-k)`.
 - **constructive?**: yes — both are finite `Q'` inequalities.  The checked
   compiler uses logarithmic square-and-multiply, one common denominator per
@@ -953,9 +953,9 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 - **status note**: the former single cross-cutoff Pascal-residual atom has been
   split into these two smaller local atoms.  The tempting debt-free coarse
   comparison was numerically refuted and is not used.  The exact `k=4`,
-  `N=79 -> 159` coefficient cell is kernel-checked and compiles through the
-  deficit-energy/SOS, dyadic parity, quotient, and genuine
-  `BlockingStep.Phi` layers.  The remaining tail begins honestly at `k=5`;
+  `N=79 -> 159` and `k=5`, `N=159 -> 319` coefficient cells are kernel-checked
+  and compile through the deficit-energy/SOS, dyadic parity, quotient, and
+  genuine `BlockingStep.Phi` layers.  The remaining tail begins honestly at `k=6`;
   no inhabitant of that all-scale analytic tail is claimed.
 - **axiom gate (closed compiler)**: `[propext, Quot.sound]` only.
 

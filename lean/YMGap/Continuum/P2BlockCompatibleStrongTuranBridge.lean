@@ -105,10 +105,25 @@ structure BlockCompatibleP2PhysicalFrontierAtomsFromFive : Type where
   coefficient : BlockCompatibleP2BoxStrongTuranData
   thetaCoefficientTail : BlockCompatibleP2CoefficientSandwichFromFive
 
+/-- Further reduced physical frontier after the exact `k=5`, `N=159 -> 319`
+cell is also checked. -/
+structure BlockCompatibleP2PhysicalFrontierAtomsFromSix : Type where
+  coefficient : BlockCompatibleP2BoxStrongTuranData
+  thetaCoefficientTail : BlockCompatibleP2CoefficientSandwichFromSix
+
 /-- Insert the checked `k=4` cell, compile the remaining coefficient cells to
 path-energy cells, and recover the original physical frontier boundary. -/
 def BlockCompatibleP2PhysicalFrontierAtomsFromFive.toPhysicalFrontierAtoms
     (A : BlockCompatibleP2PhysicalFrontierAtomsFromFive) :
+    BlockCompatibleP2PhysicalFrontierAtoms where
+  coefficient := A.coefficient
+  thetaEnergySandwich :=
+    A.thetaCoefficientTail.toAllScale.toThetaPathEnergySandwich
+
+/-- Insert both checked tail cells and recover the original physical frontier
+boundary from a coefficient sandwich beginning only at `k=6`. -/
+def BlockCompatibleP2PhysicalFrontierAtomsFromSix.toPhysicalFrontierAtoms
+    (A : BlockCompatibleP2PhysicalFrontierAtomsFromSix) :
     BlockCompatibleP2PhysicalFrontierAtoms where
   coefficient := A.coefficient
   thetaEnergySandwich :=
@@ -184,6 +199,35 @@ theorem BlockCompatibleP2PhysicalFrontierAtomsFromFive.factorLossLeHalf
       YMGap.Constructive.HalfPow.half :=
   A.toPhysicalFrontierAtoms.factorLossLeHalf k
 
+/-- The twice-reduced frontier reaches the genuine physical map with only a
+`k>=6` theta coefficient tail left open. -/
+theorem BlockCompatibleP2PhysicalFrontierAtomsFromSix.blockDefectPowerOnTrajectory
+    (A : BlockCompatibleP2PhysicalFrontierAtomsFromSix)
+    {B : BlockingStep
+      (fusionSeparator
+        A.toPhysicalFrontierAtoms.coeffTailData.toControlFamily modeOne)} :
+    IsBlockDefectPowerOnTrajectory 1
+      (fusionSeparator
+        A.toPhysicalFrontierAtoms.coeffTailData.toControlFamily modeOne) B.Φ
+      (A.toPhysicalFrontierAtoms.modeOneTailMonotonicity.toQuotientData
+        A.toPhysicalFrontierAtoms.coeffTailData (B := B)).toCrossMul.factor :=
+  A.toPhysicalFrontierAtoms.blockDefectPowerOnTrajectory
+
+/-- The quotient factors generated from the twice-reduced frontier retain the
+same uniform half-loss bound. -/
+theorem BlockCompatibleP2PhysicalFrontierAtomsFromSix.factorLossLeHalf
+    (A : BlockCompatibleP2PhysicalFrontierAtomsFromSix)
+    {B : BlockingStep
+      (fusionSeparator
+        A.toPhysicalFrontierAtoms.coeffTailData.toControlFamily modeOne)}
+    (k : Nat) :
+    (1 : Q') -
+        (A.toPhysicalFrontierAtoms.modeOneTailMonotonicity.toQuotientData
+          A.toPhysicalFrontierAtoms.coeffTailData
+          (B := B)).toCrossMul.factor k <=
+      YMGap.Constructive.HalfPow.half :=
+  A.toPhysicalFrontierAtoms.factorLossLeHalf k
+
 #print axioms BlockCompatibleP2StrongTuranData.toCoeffTailData
 #print axioms BlockCompatibleP2BoxStrongTuranData.toStrongTuranData
 #print axioms BlockCompatibleP2BoxStrongTuranData.toCoeffTailData
@@ -192,5 +236,8 @@ theorem BlockCompatibleP2PhysicalFrontierAtomsFromFive.factorLossLeHalf
 #print axioms BlockCompatibleP2PhysicalFrontierAtomsFromFive.toPhysicalFrontierAtoms
 #print axioms BlockCompatibleP2PhysicalFrontierAtomsFromFive.blockDefectPowerOnTrajectory
 #print axioms BlockCompatibleP2PhysicalFrontierAtomsFromFive.factorLossLeHalf
+#print axioms BlockCompatibleP2PhysicalFrontierAtomsFromSix.toPhysicalFrontierAtoms
+#print axioms BlockCompatibleP2PhysicalFrontierAtomsFromSix.blockDefectPowerOnTrajectory
+#print axioms BlockCompatibleP2PhysicalFrontierAtomsFromSix.factorLossLeHalf
 
 end YMGap.Continuum.P2BlockCompatibleStrongTuranBridge

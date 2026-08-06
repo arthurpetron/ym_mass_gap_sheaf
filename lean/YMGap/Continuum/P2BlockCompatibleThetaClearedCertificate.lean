@@ -750,7 +750,83 @@ def blockK4PhysicalCoefficientSandwichCell :
     blockWeight_four_eqv_explicit blockWeight_five_eqv_explicit
     blockWeight_five_fourth_eqv_explicit
 
-/-! ## 6. Compile coefficient cells back to the physical path energy -/
+/-! ## 6. Second physical tail anchor (`k = 5`) -/
+
+/-- Exact coarse weight `blockWeight 5 = 12287/12288`. -/
+def blockK5CoarseWeight : Q' := Q'.mkPos 12287 12288 (by decide)
+
+/-- Exact fine weight `blockWeight 6 = 49151/49152`. -/
+def blockK5FineWeight : Q' := Q'.mkPos 49151 49152 (by decide)
+
+/-- Cleared numerator of `(blockWeight 6)^4`. -/
+def blockK5FourthNumerator : Nat := fastNatPow 49151 4
+
+/-- Cleared denominator of `(blockWeight 6)^4`. -/
+def blockK5FourthDenominator : Nat := fastNatPow 49152 4
+
+/-- Exact fourth-power fine weight used at the common `k=5` cutoff. -/
+def blockK5FourthWeight : Q' :=
+  Q'.mkPos blockK5FourthNumerator blockK5FourthDenominator
+    (fastNatPow_pos (by decide) 4)
+
+/-- The same logarithmic common-denominator checker at the next physical
+scale `k=5`, with cutoffs `N=159 -> 319`. -/
+theorem blockK5ClearedCoefficientCheck :
+    clearedCoefficientSandwichCheck
+      12287 12288 159
+      49151 49152 319
+      blockK5FourthNumerator blockK5FourthDenominator 159
+      (P2BlockCompatibleThetaParityTransport.blockParityDebt 5)
+      (by decide) (by decide) (fastNatPow_pos (by decide) 4) = true := by
+  decide
+
+/-- Kernel-checked coefficient-space sandwich at `k=5`. -/
+def blockK5CoefficientSandwichCell :
+    CoefficientSandwichCell
+      blockK5CoarseWeight blockK5FineWeight blockK5FourthWeight
+      (P2BlockCompatibleThetaParityTransport.blockParityDebt 5)
+      159 319 159 :=
+  CoefficientSandwichCell.ofClearedCheck
+    12287 12288 159
+    49151 49152 319
+    blockK5FourthNumerator blockK5FourthDenominator 159
+    (P2BlockCompatibleThetaParityTransport.blockParityDebt 5)
+    (by decide) (by decide) (fastNatPow_pos (by decide) 4)
+    blockK5ClearedCoefficientCheck
+
+theorem blockWeight_five_eqv_k5_explicit :
+    P2BlockCompatibleSchedule.blockWeight 5 ≈ blockK5CoarseWeight := by
+  decide
+
+theorem blockWeight_six_eqv_explicit :
+    P2BlockCompatibleSchedule.blockWeight 6 ≈ blockK5FineWeight := by
+  decide
+
+theorem blockWeight_six_fourth_eqv_explicit :
+    qpow (P2BlockCompatibleSchedule.blockWeight 6) 4 ≈
+      blockK5FourthWeight := by
+  exact Q'.eqv_trans _ _ _
+    (qpow_eqv_congr_local blockWeight_six_eqv_explicit 4)
+    (qpow_mkPos_eqv_fast 49151 49152 4 (by decide))
+
+/-- The checked `k=5` cell at the literal block-compatible schedule weights. -/
+def blockK5PhysicalCoefficientSandwichCell :
+    CoefficientSandwichCell
+      (P2BlockCompatibleSchedule.blockWeight 5)
+      (P2BlockCompatibleSchedule.blockWeight 6)
+      (qpow (P2BlockCompatibleSchedule.blockWeight 6) 4)
+      (P2BlockCompatibleThetaParityTransport.blockParityDebt 5)
+      (P2BlockCompatibleSchedule.blockNcut 5)
+      (P2BlockCompatibleSchedule.blockNcut 6)
+      (P2BlockCompatibleSchedule.blockNcut 5) := by
+  have hN5 : P2BlockCompatibleSchedule.blockNcut 5 = 159 := by decide
+  have hN6 : P2BlockCompatibleSchedule.blockNcut 6 = 319 := by decide
+  rw [hN5, hN6]
+  exact blockK5CoefficientSandwichCell.transportWeights
+    blockWeight_five_eqv_k5_explicit blockWeight_six_eqv_explicit
+    blockWeight_six_fourth_eqv_explicit
+
+/-! ## 7. Compile coefficient cells back to the physical path energy -/
 
 /-- Generic path-energy cell before specializing to the physical schedule. -/
 structure ThetaPathEnergySandwichCell
@@ -962,6 +1038,29 @@ structure BlockCompatibleP2CoefficientSandwichFromFive : Type where
       (P2BlockCompatibleSchedule.blockNcut (k + 1))
       (P2BlockCompatibleSchedule.blockNcut k)
 
+/-- With the `k=4` and `k=5` cells checked, the remaining analytic tail starts
+at `k=6`. -/
+structure BlockCompatibleP2CoefficientSandwichFromSix : Type where
+  cell : forall k, 6 <= k ->
+    CoefficientSandwichCell
+      (P2BlockCompatibleSchedule.blockWeight k)
+      (P2BlockCompatibleSchedule.blockWeight (k + 1))
+      (qpow (P2BlockCompatibleSchedule.blockWeight (k + 1)) 4)
+      (P2BlockCompatibleThetaParityTransport.blockParityDebt k)
+      (P2BlockCompatibleSchedule.blockNcut k)
+      (P2BlockCompatibleSchedule.blockNcut (k + 1))
+      (P2BlockCompatibleSchedule.blockNcut k)
+
+/-- Insert the checked `k=5` cell in front of a `k>=6` tail. -/
+def BlockCompatibleP2CoefficientSandwichFromSix.toFromFive
+    (T : BlockCompatibleP2CoefficientSandwichFromSix) :
+    BlockCompatibleP2CoefficientSandwichFromFive where
+  cell := fun k hk => by
+    by_cases hk5 : k = 5
+    · subst k
+      exact blockK5PhysicalCoefficientSandwichCell
+    · exact T.cell k (by omega)
+
 /-- Prefix/tail compiler: the checked `k=4` anchor plus a `k>=5` coefficient
 tail yields the complete coefficient sandwich. -/
 def BlockCompatibleP2CoefficientSandwichFromFive.toAllScale
@@ -972,6 +1071,13 @@ def BlockCompatibleP2CoefficientSandwichFromFive.toAllScale
     · subst k
       exact blockK4PhysicalCoefficientSandwichCell
     · exact T.cell k (by omega)
+
+/-- The two checked anchors plus a `k>=6` tail yield the all-scale coefficient
+sandwich. -/
+def BlockCompatibleP2CoefficientSandwichFromSix.toAllScale
+    (T : BlockCompatibleP2CoefficientSandwichFromSix) :
+    BlockCompatibleP2CoefficientSandwich :=
+  T.toFromFive.toAllScale
 
 /-- The all-scale coefficient family compiles to the exact path-energy family
 consumed by the genuine physical bridge. -/
@@ -995,6 +1101,18 @@ def blockK4PhysicalThetaPathEnergyCell :
       (P2BlockCompatibleSchedule.blockNcut 4) :=
   blockK4PhysicalCoefficientSandwichCell.toThetaPathEnergyCell
 
+/-- The second checked physical tail cell in the path-energy coordinate. -/
+def blockK5PhysicalThetaPathEnergyCell :
+    ThetaPathEnergySandwichCell
+      (P2BlockCompatibleSchedule.blockWeight 5)
+      (P2BlockCompatibleSchedule.blockWeight 6)
+      (qpow (P2BlockCompatibleSchedule.blockWeight 6) 4)
+      (P2BlockCompatibleThetaParityTransport.blockParityDebt 5)
+      (P2BlockCompatibleSchedule.blockNcut 5)
+      (P2BlockCompatibleSchedule.blockNcut 6)
+      (P2BlockCompatibleSchedule.blockNcut 5) :=
+  blockK5PhysicalCoefficientSandwichCell.toThetaPathEnergyCell
+
 #print axioms fastNatPow_eq_pow
 #print axioms fastNatPow_pos
 #print axioms monomial_eqv_clearedMonomialQ
@@ -1005,10 +1123,15 @@ def blockK4PhysicalThetaPathEnergyCell :
 #print axioms blockK4ClearedCoefficientCheck
 #print axioms blockK4CoefficientSandwichCell
 #print axioms blockK4PhysicalCoefficientSandwichCell
+#print axioms blockK5ClearedCoefficientCheck
+#print axioms blockK5CoefficientSandwichCell
+#print axioms blockK5PhysicalCoefficientSandwichCell
 #print axioms thetaPathEnergy_eqv_scaledCoefficientDeficit
 #print axioms CoefficientSandwichCell.toThetaPathEnergyCell
 #print axioms BlockCompatibleP2CoefficientSandwichFromFive.toAllScale
+#print axioms BlockCompatibleP2CoefficientSandwichFromSix.toAllScale
 #print axioms BlockCompatibleP2CoefficientSandwich.toThetaPathEnergySandwich
 #print axioms blockK4PhysicalThetaPathEnergyCell
+#print axioms blockK5PhysicalThetaPathEnergyCell
 
 end YMGap.Continuum.P2BlockCompatibleThetaClearedCertificate
