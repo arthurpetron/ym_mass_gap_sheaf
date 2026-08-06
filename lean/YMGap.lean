@@ -2309,6 +2309,7 @@ import YMGap.Continuum.P2BlockCompatibleThetaParityEnergy
 import YMGap.Continuum.P2BlockCompatibleThetaPathEnergy
 import YMGap.Continuum.P2BlockCompatibleThetaClearedCertificate
 import YMGap.Continuum.P2BlockCompatibleThetaNormalizedDeficit
+import YMGap.Continuum.P2BlockCompatibleThetaScaleInvariant
 import YMGap.Continuum.P2BlockCompatibleStrongTuranBridge
 import YMGap.Continuum.P2DyadicPhysicalMarginTransport
 import YMGap.Continuum.P2RetunedFusionRunningCell

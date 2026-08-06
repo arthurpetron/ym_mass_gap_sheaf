@@ -19407,3 +19407,45 @@ physical bridge.  Every exported gate reports only `[propext, Quot.sound]`.
 The all-scale weighted-box strong-Turan family and the two normalized
 `k>=7` inequalities remain open; no all-scale physical frontier is claimed
 inhabited.
+
+## 60. Scale-free theta tail and symbolic fourth-power drift (2026-08-06)
+
+**Status. GROWING HEAT-POWER EVALUATION REMOVED; COARSE `k>=7` RESIDUE IS A
+FIXED `16/75` DIMENSIONLESS SLOPE BOUND.**
+
+`P2BlockCompatibleThetaScaleInvariant` rewrites the physical schedule in the
+cutoff length `L_k=N_k+1` and proves the exact, index-free identities
+
+```text
+L_(k+1) = 2*L_k,
+u_k*L_k^2 = 25/12,
+delta_k*L_k^3 = 25/72,
+6*delta_k*L_k = u_k.
+```
+
+The reusable alternating-Taylor theorem for `(1-u)^m` then proves, without
+expanding a cutoff-dependent theta sum,
+
+```text
+w_k <= w_(k+1)^4 <= w_k + (3/8)*u_k^2.
+```
+
+Writing `q_k=(3/8)u_k^2`, the exact schedule arithmetic further gives
+
+```text
+q_k*L_k = (75/16)*delta_k,
+(16/75)*(q_k*L_k) = delta_k.
+```
+
+Consequently `BlockCompatibleP2DimensionlessNormalizedTailFromSeven` replaces
+the scale-dependent coarse debt calculation by one uniform analytic target:
+the normalized coefficient deficit must change by at most
+`(16/75)*L_k*q_k` on the common cutoff.  Its checked compiler turns that fixed
+dimensionless slope atom, together with the independent fine even/odd reserve,
+back into `BlockCompatibleP2NormalizedDeficitTailFromSeven` and hence the
+existing genuine `BlockingStep.Phi` consumer.
+
+The focused monitored check completes in under one second and every exported
+gate reports only `[propext]` or `[propext, Quot.sound]`.  Neither the `16/75`
+slope inequality nor the fine dyadic reserve is claimed proved; the all-scale
+weighted-box strong-Turan family also remains open.

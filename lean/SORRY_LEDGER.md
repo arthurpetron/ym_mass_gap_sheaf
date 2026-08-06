@@ -941,8 +941,11 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 ### [R3k-parity] Block-compatible dyadic parity transport — **OPEN**
 
 - **milestone**: FrontierDAG bucket 1 / physical pGamma=2 mode-one transport.
-- **file**: `lean/YMGap/Continuum/P2BlockCompatibleThetaNormalizedDeficit.lean`
-- **decl**: `BlockCompatibleP2NormalizedDeficitTailFromSeven`
+- **file**:
+  `lean/YMGap/Continuum/P2BlockCompatibleThetaNormalizedDeficit.lean`,
+  `lean/YMGap/Continuum/P2BlockCompatibleThetaScaleInvariant.lean`
+- **decl**: `BlockCompatibleP2NormalizedDeficitTailFromSeven`,
+  `BlockCompatibleP2DimensionlessNormalizedTailFromSeven`
 - **obligation**: Inhabit the two schedule-specific normalized-deficit
   inequalities for every `k >= 7`, including the explicit shared debt
   `delta_k=(1/360)8^(-k)`.
@@ -955,10 +958,15 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   comparison was numerically refuted and is not used.  The exact `k=4`,
   `N=79 -> 159`, `k=5`, `N=159 -> 319`, and `k=6`, `N=319 -> 639`
   coefficient cells are kernel-checked.  Positive division cancellation
-  reduces the residue to the two displayed normalized inequalities, which
-  compile through the deficit-energy/SOS, dyadic parity, quotient, and genuine
+  reduces the residue to the two displayed normalized inequalities.  Exact
+  scale laws now prove `u_k*L_k^2=25/12`, `delta_k*L_k^3=25/72`, and
+  `(16/75)*((3/8)*u_k^2*L_k)=delta_k`; constructive alternating Taylor proves
+  `w_k <= w_(k+1)^4 <= w_k+(3/8)u_k^2`.  Thus the coarse tail has been reduced
+  further to a fixed `16/75` dimensionless normalized-slope bound, while the
+  fine field remains the independent even/odd reserve.  These compile through
+  the deficit-energy/SOS, dyadic parity, quotient, and genuine
   `BlockingStep.Phi` layers.  The remaining tail begins honestly at `k=7`;
-  no inhabitant of that all-scale analytic tail is claimed.
+  neither analytic field is claimed inhabited.
 - **axiom gate (closed compiler)**: `[propext, Quot.sound]` only.
 
 ### [R3k-box] All-scale weighted-box strong-Turan family — **OPEN**
