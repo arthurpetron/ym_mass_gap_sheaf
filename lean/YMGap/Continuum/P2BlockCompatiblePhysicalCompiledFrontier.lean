@@ -26,6 +26,7 @@ declaration.
 import YMGap.Continuum.P2BlockCompatiblePhysicalFrontierRepointed
 import YMGap.Continuum.P2HalfTimeParityStrandCompiler
 import YMGap.Continuum.P2HalfTimeShiftTail
+import YMGap.Continuum.P2HalfTimeSixthShell
 import YMGap.Continuum.P2HalfTimeFifthShell
 import YMGap.Continuum.P2HalfTimeFourthShell
 import YMGap.Continuum.P2HalfTimeAntepenultimateShell
@@ -45,6 +46,7 @@ open YMGap.Continuum.P2BlockCompatiblePhysicalFrontierStrictFromEight
 open YMGap.Continuum.P2BlockCompatibleSchedule
 open YMGap.Continuum.P2HalfTimeParityStrandCompiler
 open YMGap.Continuum.P2HalfTimeShiftTail
+open YMGap.Continuum.P2HalfTimeSixthShell
 open YMGap.Continuum.P2HalfTimeFifthShell
 open YMGap.Continuum.P2HalfTimeFourthShell
 open YMGap.Continuum.P2HalfTimeAntepenultimateShell
@@ -179,14 +181,14 @@ def BlockCompatibleP2FullLocalNumeratorAwayHeadFromFour.toCoeffTailData
     ((T.toLineSumTail).tail k hk).toCoeff).toAllScale
 
 /-- Boundary-reduced reserve interface.  The physical head `s=1` and the
-top five shells `s=2*N-5, ..., 2*N-1` are theorems, so only the deeper
+top six shells `s=2*N-6, ..., 2*N-1` are theorems, so only the deeper
 interior channels remain as integer signs. -/
 structure BlockCompatibleP2FullLocalNumeratorInteriorFromFour : Type where
   nonneg : forall k s, 4 <= k -> 2 <= s ->
-    s + 5 < 2 * blockNcut k ->
+    s + 6 < 2 * blockNcut k ->
     physicalFullLocalReserveAt k (blockNcut k) s
 
-/-- Insert the six proved boundary regions and reconstruct only the deeper
+/-- Insert the seven proved boundary regions and reconstruct only the deeper
 interior from the proof-about-computation signs. -/
 def BlockCompatibleP2FullLocalNumeratorInteriorFromFour.toLineSumTail
     (T : BlockCompatibleP2FullLocalNumeratorInteriorFromFour) :
@@ -194,62 +196,73 @@ def BlockCompatibleP2FullLocalNumeratorInteriorFromFour.toLineSumTail
   tail := fun k hk => {
     tail := fun s hs hsN => by
       by_cases h2 : 2 <= s
-      · by_cases hInterior : s + 5 < 2 * blockNcut k
+      · by_cases hInterior : s + 6 < 2 * blockNcut k
         · exact physicalFullLocalReserveAt_lineSum k (blockNcut k) s
             (T.nonneg k s hk h2 hInterior)
-        · by_cases hFifth : s + 4 < 2 * blockNcut k
-          · have hsFifth : s = 2 * blockNcut k - 5 := by omega
-            rw [hsFifth]
+        · by_cases hSixth : s + 5 < 2 * blockNcut k
+          · have hsSixth : s = 2 * blockNcut k - 6 := by omega
+            rw [hsSixth]
             simpa only [
-              show (2 * blockNcut k - 5) + 1 = 2 * blockNcut k - 4 by
+              show (2 * blockNcut k - 6) + 1 = 2 * blockNcut k - 5 by
                 have := blockNcut_pos k
                 omega,
-              show (2 * blockNcut k - 5) + 2 = 2 * blockNcut k - 3 by
+              show (2 * blockNcut k - 6) + 2 = 2 * blockNcut k - 4 by
                 have := blockNcut_pos k
                 omega] using
-              physical_halfTime_lineSum_fifth_from_four k hk
-          · by_cases hFourth : s + 3 < 2 * blockNcut k
-            · have hsFourth : s = 2 * blockNcut k - 4 := by omega
-              rw [hsFourth]
+              physical_halfTime_lineSum_sixth_from_four k hk
+          · by_cases hFifth : s + 4 < 2 * blockNcut k
+            · have hsFifth : s = 2 * blockNcut k - 5 := by omega
+              rw [hsFifth]
               simpa only [
-                show (2 * blockNcut k - 4) + 1 = 2 * blockNcut k - 3 by
+                show (2 * blockNcut k - 5) + 1 = 2 * blockNcut k - 4 by
                   have := blockNcut_pos k
                   omega,
-                show (2 * blockNcut k - 4) + 2 = 2 * blockNcut k - 2 by
+                show (2 * blockNcut k - 5) + 2 = 2 * blockNcut k - 3 by
                   have := blockNcut_pos k
                   omega] using
-                physical_halfTime_lineSum_fourth_from_four k hk
-            · by_cases hAntepenultimate : s + 2 < 2 * blockNcut k
-              · have hsAntepenultimate : s = 2 * blockNcut k - 3 := by omega
-                rw [hsAntepenultimate]
+                physical_halfTime_lineSum_fifth_from_four k hk
+            · by_cases hFourth : s + 3 < 2 * blockNcut k
+              · have hsFourth : s = 2 * blockNcut k - 4 := by omega
+                rw [hsFourth]
                 simpa only [
-                show (2 * blockNcut k - 3) + 1 = 2 * blockNcut k - 2 by
-                  have := blockNcut_pos k
-                  omega,
-                show (2 * blockNcut k - 3) + 2 = 2 * blockNcut k - 1 by
-                  have := blockNcut_pos k
-                  omega] using
-                physical_halfTime_lineSum_antepenultimate_from_four k hk
-              · by_cases hPenultimate : s + 1 < 2 * blockNcut k
-                · have hsPenultimate : s = 2 * blockNcut k - 2 := by omega
-                  rw [hsPenultimate]
-                  simpa only [
-                  show (2 * blockNcut k - 2) + 1 = 2 * blockNcut k - 1 by
+                  show (2 * blockNcut k - 4) + 1 = 2 * blockNcut k - 3 by
                     have := blockNcut_pos k
                     omega,
-                  show (2 * blockNcut k - 2) + 2 = 2 * blockNcut k by
+                  show (2 * blockNcut k - 4) + 2 = 2 * blockNcut k - 2 by
                     have := blockNcut_pos k
                     omega] using
-                  physical_halfTime_lineSum_penultimate_from_four k hk
-                · have hsTop : s = 2 * blockNcut k - 1 := by omega
-                  rw [hsTop]
+                  physical_halfTime_lineSum_fourth_from_four k hk
+              · by_cases hAntepenultimate : s + 2 < 2 * blockNcut k
+                · have hsAntepenultimate : s = 2 * blockNcut k - 3 := by omega
+                  rw [hsAntepenultimate]
                   simpa only [
-                    show (2 * blockNcut k - 1) + 1 = 2 * blockNcut k by
+                  show (2 * blockNcut k - 3) + 1 = 2 * blockNcut k - 2 by
+                    have := blockNcut_pos k
+                    omega,
+                  show (2 * blockNcut k - 3) + 2 = 2 * blockNcut k - 1 by
+                    have := blockNcut_pos k
+                    omega] using
+                  physical_halfTime_lineSum_antepenultimate_from_four k hk
+                · by_cases hPenultimate : s + 1 < 2 * blockNcut k
+                  · have hsPenultimate : s = 2 * blockNcut k - 2 := by omega
+                    rw [hsPenultimate]
+                    simpa only [
+                    show (2 * blockNcut k - 2) + 1 = 2 * blockNcut k - 1 by
                       have := blockNcut_pos k
                       omega,
-                    show (2 * blockNcut k - 1) + 2 = 2 * blockNcut k + 1 by
+                    show (2 * blockNcut k - 2) + 2 = 2 * blockNcut k by
                       have := blockNcut_pos k
-                      omega] using physical_halfTime_lineSum_terminal k
+                      omega] using
+                    physical_halfTime_lineSum_penultimate_from_four k hk
+                  · have hsTop : s = 2 * blockNcut k - 1 := by omega
+                    rw [hsTop]
+                    simpa only [
+                      show (2 * blockNcut k - 1) + 1 = 2 * blockNcut k by
+                        have := blockNcut_pos k
+                        omega,
+                      show (2 * blockNcut k - 1) + 2 = 2 * blockNcut k + 1 by
+                        have := blockNcut_pos k
+                        omega] using physical_halfTime_lineSum_terminal k
       · have hs1 : s = 1 := by omega
         subst s
         exact physical_halfTime_lineSum_head_from_four k hk

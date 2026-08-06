@@ -1157,6 +1157,21 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   for `k>=4`, `2<=s`, and `s+5<2*N_k`.  The deeper interior family remains
   open.  All closed gates are `[propext, Quot.sound]`.
 
+### [R4r-half-time-sixth-shell] Sixth boundary shell — **CLOSED 2026-08-06**
+
+- **milestone**: FrontierDAG bucket 1 / half-time physical coefficient route.
+- **file**: `lean/YMGap/Continuum/P2HalfTimeSixthShell.lean`
+- **decl**: `boxSum_top_six`, `sixthBoxRatio`,
+  `physical_halfTime_lineSum_sixth_from_four`
+- **obligation**: Remove the `s=2*N_k-6` shell from the all-scale full-local
+  reserve carrier.
+- **constructive?**: yes — exact sixteen/twelve-pair formulas, a sound
+  fourteen-term reflected integer-polynomial certificate, endpoint
+  coefficient descent, and the sharp physical `3/4` heat-power floor.
+- **status note**: the common compiled carrier now assumes reserve signs only
+  for `k>=4`, `2<=s`, and `s+6<2*N_k`.  The deeper interior family remains
+  open.  All closed gates are `[propext, Quot.sound]`.
+
 ## How to add an entry
 
 ```markdown

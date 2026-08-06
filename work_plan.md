@@ -19963,3 +19963,31 @@ and common-carrier monitored targets pass; every exported gate reports only
 `[propext, Quot.sound]`.  The deeper interior signs, theta trapezoid/fine
 reserve, later FrontierDAG atoms, physical recursion, and the constructive
 continuum Yang--Mills target remain open.
+
+## 76. Sixth half-time boundary shell (2026-08-06)
+
+**Status. THE `s=2*N_k-6` SHELL IS DISCHARGED FOR EVERY `k>=4`; THE OPEN
+PURE-NAT FAMILY MOVES A SIXTH ROW BELOW THE CUTOFF.**
+
+`P2HalfTimeSixthShell` extracts the exact sixteen-pair support of
+`boxSum(w,N,2*N-6)` and compares it with the adjacent twelve-pair box.  For
+descending endpoint coefficients `G >= F >= E >= A >= X >= B >= C`, the
+sharp `3/4` comparison is a sum of fourteen nonnegative products in the six
+successive coefficient increments.  The reflective polynomial normalizer
+checks the identity as an integer-polynomial certificate, without evaluating
+the physical rational convolution.
+
+A schedule-specific descent theorem proves `c_(N-5) <= c_(N-6)`, and the
+fifth-shell Bernoulli bound propagates the sharp `3/4 <= w^(2*N-4)` heat
+floor.  Exact strand reindexing transports the box result to the line-sum
+carrier.  The common physical compiler now assumes exactly
+
+```text
+k >= 4,  2 <= s,  s + 6 < 2*N_k
+```
+
+for its remaining full-local natural-number reserve signs.  The focused
+sixth-shell and common-carrier monitored targets pass; every exported gate
+reports only `[propext, Quot.sound]`.  The deeper interior signs, theta
+trapezoid/fine reserve, later FrontierDAG atoms, physical recursion, and the
+constructive continuum Yang--Mills target remain open.
