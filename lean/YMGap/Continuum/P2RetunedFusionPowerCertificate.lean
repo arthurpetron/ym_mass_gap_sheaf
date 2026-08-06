@@ -75,6 +75,15 @@ def QPowerCell.ofCheck {coarse fine : Q'} {n : Nat}
   refine ⟨?_⟩
   exact of_decide_eq_true h
 
+/-- The Boolean checker is complete as well as sound: it is exactly the
+`Q'.eqv` cross product for the requested power. -/
+theorem qPowerCellCheck_eq_true_iff (coarse fine : Q') (n : Nat) :
+    qPowerCellCheck coarse fine n = true <->
+      coarse ≈ RGTransport.qpow fine n := by
+  constructor
+  · exact of_decide_eq_true
+  · exact decide_eq_true
+
 /-- Soundness of a cross-multiplied power cell. -/
 theorem QPowerCell.eqv {coarse fine : Q'} {n : Nat}
     (C : QPowerCell coarse fine n) :
@@ -112,6 +121,10 @@ eliminated.  `fusionPowerCell` is the only adjacent-scale spectral datum. -/
 structure SpectrumPinnedP2CrossMulPowerData
     (b : Nat) (F : P2RetunedControlFamily) (mode : Nat -> Nat)
     (_blockingStep : BlockingStep (fusionSeparator F mode)) : Type where
+  /-- The selected spectral mode is genuinely displayed by the finite p=2
+  fusion row.  This rules out manufacturing a power law from zero modes beyond
+  the cutoff support. -/
+  modeSupport : forall k, mode k <= 2 * F.N k
   modeBulk : forall k,
     BulkModeCrux.q12 <= Q'.ofNat (c4 (mode k)) *
       ((1 : Q') - (F.control k).weff)
@@ -198,6 +211,7 @@ end YMGap.Continuum.P2RetunedFusionPowerCertificate
 
 #print axioms YMGap.Continuum.P2RetunedFusionPowerCertificate.cpow_ofQ'
 #print axioms YMGap.Continuum.P2RetunedFusionPowerCertificate.QPowerCell.ofCheck
+#print axioms YMGap.Continuum.P2RetunedFusionPowerCertificate.qPowerCellCheck_eq_true_iff
 #print axioms YMGap.Continuum.P2RetunedFusionPowerCertificate.QPowerCell.eqv
 #print axioms YMGap.Continuum.P2RetunedFusionPowerCertificate.fusionPower_of_cell
 #print axioms YMGap.Continuum.P2RetunedFusionPowerCertificate.SpectrumPinnedP2CrossMulPowerData.toFusionPowerData
