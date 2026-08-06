@@ -2290,6 +2290,7 @@ import YMGap.Continuum.P2DyadicFusionGapEnvelope
 import YMGap.Continuum.P2DyadicFusionGapBudget
 import YMGap.Continuum.P2DyadicFusionHalfFloor
 import YMGap.Continuum.P2DyadicFusionMonotonicityAudit
+import YMGap.Continuum.P2DyadicFusionEndpointCriterion
 import YMGap.Continuum.P2DyadicPhysicalMarginTransport
 import YMGap.Continuum.P2RetunedFusionRunningCell
 import YMGap.Continuum.FusionShiftMonotone
