@@ -182,6 +182,7 @@
     "surface_translation_compiler": "all-four-step chain congruence+factorProduct homomorphism+all-128-mask/all-32-edge/two-orientation-coordinate-action+all-selected-face-word+face-character/selected-factor-product-lift+padded-active-word Haar endpoint+actual BF4 Haar5 surface bridge kernel-checked",
     "block_compatible_p2_schedule": "recursive cutoff/quarter-margin+all-N endpoint-square reflective certificate+exact physical cells N4-to-N9 and N9-to-N19 kernel-checked;all gates [propext,Quot.sound];all-scale weighted tail open",
     "block_compatible_p2_heat_power": "exact 4*u_(k+1)=u_k+constructive Bernoulli w_k<=w_(k+1)^4+channelwise Casimir transport w_k^c4(s)<=w_(k+1)^(4*c4(s)) kernel-checked;all gates [propext,Quot.sound];normalized fused-amplitude tail open",
+    "block_compatible_p2_physical_bridge": "division-free coefficient-tail carrier compiles replacement schedule to reviewed CanonicalBulkControl;two exact head cells plus sole k>=2 raw mode-one square tail compile all-scale coarse<=fine^2;half-floor propagates automatically;quotient data reach genuine BlockingStep.Phi defect identity and factor-loss<=1/2;all gates [propext,Quot.sound];coefficient tail+normalized tail+loss summability open",
     "fusion_ballot_recurrence": "two-neighbor sparse compiler+exact cone/parity support iff;[propext,Quot.sound]",
     "fusion_ballot_closed_form": "pathCount=guarded-PNPaths.ballotNat exactly;[propext,Quot.sound]",
     "fusion_path_row_logconcavity": "all-p support-row ratio order+step-two log-concavity;[propext,Quot.sound]",
