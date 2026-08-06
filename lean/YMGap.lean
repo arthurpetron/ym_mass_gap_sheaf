@@ -2284,6 +2284,7 @@ import YMGap.Continuum.P2RetunedFusionPowerCertificate
 import YMGap.Continuum.CanonicalFusionSpectrumFamily
 import YMGap.Continuum.P2RetunedFusionPowerFenceAudit
 import YMGap.Continuum.P2RetunedFusionDefectPower
+import YMGap.Continuum.CanonicalFusionSpectrumDefectPower
 import YMGap.Continuum.P2RetunedFusionPhysicalMode
 import YMGap.Continuum.P2RetunedFusionAdditiveGap
 import YMGap.Continuum.P2RetunedFusionReferenceGap

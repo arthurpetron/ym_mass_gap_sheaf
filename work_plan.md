@@ -19770,3 +19770,47 @@ gate reports only `[propext, Quot.sound]`.  This milestone does **not** inhabit
 the all-cutoff analytic `CanonicalBulkControlFamily`, generate the physical
 cross-scale `QPowerCell`s, or close the remaining theta radial/trapezoid/fine
 reserve fields.
+
+## 69. Arbitrary-positive-exponent defect-power and margin transport (2026-08-06)
+
+**Status. THE HONEST DEFECT-AWARE PHYSICAL ROUTE NOW ACCEPTS EVERY
+SCALE-VARYING `pGamma >= 2` CANONICAL FAMILY AND REACHES THE REVIEWED
+DIMENSIONLESS-MARGIN CONSUMER; ITS ANALYTIC INPUTS REMAIN OPEN.**
+
+The first finite physical ladder already refutes exact nonvacuum square
+self-similarity, so `CanonicalFusionSpectrumDefectPower` generalizes the
+load-bearing corrected identity
+
+```text
+coarse = fine^(b+1) * factor
+```
+
+rather than pretending the factor is one.  The selected physical separator
+mode is required to be nonvacuum, lie in the true exponent-independent
+`2*N` support window of the truncated fusion product, and dominate every
+displayed nonvacuum mode.  This condition is kept separate from the auxiliary
+bulk-localization predicate.
+
+For arbitrary `pGamma k >= 2`, one exact `QDefectPowerCell` lifts through the
+rational embedding and constructive power.  `BlockingStep.step` then proves
+the genuine map identity on the spectrum-defined trajectory.  The quotient
+compiler removes the explicit factor and equality fields: a positive fine
+power and the division-free sandwich
+
+```text
+(1/2) * fine^(b+1) <= coarse <= fine^(b+1)
+```
+
+construct the canonical quotient factor, its range, the exact defect cell,
+and the half-loss bound.  A single cumulative loss estimate feeds the
+existing constructive exponential product theorem and yields a strictly
+positive rational product floor.  The generic `CanonicalDefectMarginTransport`
+then combines that same certified factor with one explicit dimensionless
+physical recursion to construct the reviewed `RGBlockPersistence`, its
+uniform floor, and a positive continuum scaling floor.  The existing p=2
+physical-mode and quotient data embed definitionally in the generic route.
+
+The focused check and monitored 369-job target pass.  Every exported gate
+reports only `[propext, Quot.sound]`.  No all-cutoff canonical family,
+half-to-one spectral sandwich, summable loss estimate, or physical-margin
+recursion is inhabited here.
