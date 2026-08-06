@@ -514,6 +514,362 @@ theorem topShellCoeffRatio (N : Nat) (hN : 3 ≤ N) :
     exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.mul_comm_eqv _ _))
       (Q'.le_trans' _ _ _ hk (Q'.le_of_eqv (Q'.mul_comm_eqv _ _)))
 
+private def topRatioScaleLeftExpr : PolyExpr :=
+  .mul (.mul (.var 0) (.var 0))
+    (.mul (.const 9)
+      (.add (.mul (.var 2) (.var 2))
+        (.add (.mul (.var 2) (.var 2))
+          (.add (.mul (.var 2) (.var 2)) (.mul (.var 3) (.var 3))))))
+
+private def topRatioScaleLeftPackedExpr : PolyExpr :=
+  .mul (.const 9)
+    (.add (.mul (.mul (.var 2) (.var 2)) (.mul (.var 0) (.var 0)))
+      (.add (.mul (.mul (.var 2) (.var 2)) (.mul (.var 0) (.var 0)))
+        (.add (.mul (.mul (.var 2) (.var 2)) (.mul (.var 0) (.var 0)))
+          (.mul (.mul (.var 3) (.var 3)) (.mul (.var 0) (.var 0))))))
+
+private theorem topRatioScaleLeft_normal :
+    normalize topRatioScaleLeftExpr = normalize topRatioScaleLeftPackedExpr := by
+  decide
+
+private theorem topRatioScaleLeft (b B C : Q') :
+    (b * b) * (Q'.ofNat 9 * topShellUpper B C) ≈
+      Q'.ofNat 9 *
+        ((B * B) * (b * b) +
+          ((B * B) * (b * b) +
+            ((B * B) * (b * b) + (C * C) * (b * b)))) := by
+  unfold topShellUpper
+  change
+    (eval (fun i => if i = 0 then b else if i = 2 then B else C)
+      topRatioScaleLeftExpr).eqv
+    (eval (fun i => if i = 0 then b else if i = 2 then B else C)
+      topRatioScaleLeftPackedExpr)
+  exact poly_identity_of_normal_eq _ _ topRatioScaleLeft_normal _
+
+private def topRatioScaleRightExpr : PolyExpr :=
+  .mul (.mul (.var 2) (.var 2))
+    (.mul (.const 9)
+      (.add (.mul (.var 0) (.var 0))
+        (.add (.mul (.var 0) (.var 0))
+          (.add (.mul (.var 0) (.var 0)) (.mul (.var 1) (.var 1))))))
+
+private def topRatioScaleRightPackedExpr : PolyExpr :=
+  .mul (.const 9)
+    (.add (.mul (.mul (.var 2) (.var 2)) (.mul (.var 0) (.var 0)))
+      (.add (.mul (.mul (.var 2) (.var 2)) (.mul (.var 0) (.var 0)))
+        (.add (.mul (.mul (.var 2) (.var 2)) (.mul (.var 0) (.var 0)))
+          (.mul (.mul (.var 2) (.var 2)) (.mul (.var 1) (.var 1))))))
+
+private theorem topRatioScaleRight_normal :
+    normalize topRatioScaleRightExpr = normalize topRatioScaleRightPackedExpr := by
+  decide
+
+private theorem topRatioScaleRight (b c B : Q') :
+    (B * B) * (Q'.ofNat 9 * topShellUpper b c) ≈
+      Q'.ofNat 9 *
+        ((B * B) * (b * b) +
+          ((B * B) * (b * b) +
+            ((B * B) * (b * b) + (B * B) * (c * c)))) := by
+  unfold topShellUpper
+  change
+    (eval (fun i => if i = 0 then b else if i = 1 then c else B)
+      topRatioScaleRightExpr).eqv
+    (eval (fun i => if i = 0 then b else if i = 1 then c else B)
+      topRatioScaleRightPackedExpr)
+  exact poly_identity_of_normal_eq _ _ topRatioScaleRight_normal _
+
+private def topAnchorSwapLeftExpr : PolyExpr :=
+  .mul (.mul (.var 2) (.var 2))
+    (.mul (.var 4) (.mul (.const 35) (.mul (.var 0) (.var 0))))
+
+private def topAnchorSwapRightExpr : PolyExpr :=
+  .mul (.mul (.var 0) (.var 0))
+    (.mul (.var 4) (.mul (.const 35) (.mul (.var 2) (.var 2))))
+
+private theorem topAnchorSwap_normal :
+    normalize topAnchorSwapLeftExpr = normalize topAnchorSwapRightExpr := by
+  decide
+
+private theorem topAnchorSwap (b B q : Q') :
+    (B * B) * (q * (Q'.ofNat 35 * (b * b))) ≈
+      (b * b) * (q * (Q'.ofNat 35 * (B * B))) := by
+  change
+    (eval (fun i => if i = 0 then b else if i = 2 then B else q)
+      topAnchorSwapLeftExpr).eqv
+    (eval (fun i => if i = 0 then b else if i = 2 then B else q)
+      topAnchorSwapRightExpr)
+  exact poly_identity_of_normal_eq _ _ topAnchorSwap_normal _
+
+/-- The single `N=3` ratio anchor propagates to every later top shell.  The
+proof squares the division-free Hankel ratio, adds the three common square
+terms, scales the exact anchor, and constructively cancels `c_2^2`. -/
+theorem topShellRatioFence (N : Nat) (hN : 3 ≤ N) :
+    Q'.ofNat 9 *
+        topShellUpper (coeffW fenceW (N - 1)) (coeffW fenceW N) ≤
+      RGTransport.qpow (p2RetunedWeight fenceW) 2 *
+        (Q'.ofNat 35 *
+          (coeffW fenceW (N - 1) * coeffW fenceW (N - 1))) := by
+  let b := coeffW fenceW 2
+  let c := coeffW fenceW 3
+  let B := coeffW fenceW (N - 1)
+  let C := coeffW fenceW N
+  let q := RGTransport.qpow (p2RetunedWeight fenceW) 2
+  have hcross : C * b ≤ B * c := by
+    simpa only [b, c, B, C] using topShellCoeffRatio N hN
+  have hCb0 : (0 : Q') ≤ C * b :=
+    Q'.mul_nonneg _ _ (coeffW_nonneg fenceW_nonneg N)
+      (coeffW_nonneg fenceW_nonneg 2)
+  have hsquare0 := BondMovingQuadratic.sq_le_sq hCb0 hcross
+  have hsquare : (C * C) * (b * b) ≤ (B * B) * (c * c) :=
+    Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (Q'.eqv_symm (FusionGenFunction.mul_swap4 C b C b)))
+      (Q'.le_trans' _ _ _ hsquare0
+        (Q'.le_of_eqv (FusionGenFunction.mul_swap4 B c B c)))
+  have hcommon :
+      (B * B) * (b * b) +
+          ((B * B) * (b * b) +
+            ((B * B) * (b * b) + (C * C) * (b * b))) ≤
+        (B * B) * (b * b) +
+          ((B * B) * (b * b) +
+            ((B * B) * (b * b) + (B * B) * (c * c))) :=
+    Q'.add_le_add (Q'.le_refl' _)
+      (Q'.add_le_add (Q'.le_refl' _)
+        (Q'.add_le_add (Q'.le_refl' _) hsquare))
+  have hcommon9 := Q'.mul_le_mul_of_nonneg_left _ _ (Q'.ofNat 9)
+    hcommon (by decide)
+  have hupper :
+      (b * b) * (Q'.ofNat 9 * topShellUpper B C) ≤
+        (B * B) * (Q'.ofNat 9 * topShellUpper b c) :=
+    Q'.le_trans' _ _ _ (Q'.le_of_eqv (topRatioScaleLeft b B C))
+      (Q'.le_trans' _ _ _ hcommon9
+        (Q'.le_of_eqv (Q'.eqv_symm (topRatioScaleRight b c B))))
+  have hB0 : (0 : Q') ≤ B := coeffW_nonneg fenceW_nonneg (N - 1)
+  have hB20 : (0 : Q') ≤ B * B := Q'.mul_nonneg _ _ hB0 hB0
+  have hanchor : Q'.ofNat 9 * topShellUpper b c ≤
+      q * (Q'.ofNat 35 * (b * b)) := by
+    simpa only [b, c, q] using topShellRatioAnchor
+  have hanchorScaled := Q'.mul_le_mul_of_nonneg_left _ _ (B * B)
+    hanchor hB20
+  have hchain :
+      (b * b) * (Q'.ofNat 9 * topShellUpper B C) ≤
+        (b * b) * (q * (Q'.ofNat 35 * (B * B))) :=
+    Q'.le_trans' _ _ _ hupper
+      (Q'.le_trans' _ _ _ hanchorScaled
+        (Q'.le_of_eqv (topAnchorSwap b B q)))
+  have hbpos : (0 : Q') < b := by
+    simpa only [b] using
+      (FusionResidualBound.coeffW_pos (by decide : (0 : Q') < fenceW) 2)
+  have hb2pos : (0 : Q') < b * b := Q'.mul_pos hbpos hbpos
+  simpa only [B, C, q] using
+    (FusionQuotientCollapse.le_of_mul_le_mul_left_pos hb2pos hchain)
+
+private theorem succ_mul_pred_square (m : Nat) (hm : 1 ≤ m) :
+    (m + 1) * (m - 1) = m * m - 1 := by
+  cases m with
+  | zero => omega
+  | succ k =>
+      simp only [Nat.succ_sub_one, Nat.add_mul, Nat.mul_add]
+      omega
+
+/-- The top-shell dimension factor is weakest at `N=3`; afterwards the
+elementary inequality `35 N^2 ≤ 9(4N^2-1)` only improves. -/
+theorem topShellDimensionFence (N : Nat) (hN : 3 ≤ N) :
+    Q'.ofNat 35 *
+        (dimQ (2 * N - 1) * dimQ (2 * N - 1)) ≤
+      Q'.ofNat 9 *
+        ((dimQ (2 * N) * dimQ (2 * N - 2)) * Q'.ofNat 4) := by
+  let d := (2 * N - 1) + 1
+  let hi := (2 * N) + 1
+  let lo := (2 * N - 2) + 1
+  have hNN : 3 * 3 ≤ N * N := Nat.mul_le_mul hN hN
+  have hd : d = 2 * N := by dsimp only [d]; omega
+  have hhi : hi = 2 * N + 1 := by rfl
+  have hlo : lo = 2 * N - 1 := by dsimp only [lo]; omega
+  have hsq : (2 * N) * (2 * N) = 4 * (N * N) := by
+    calc
+      (2 * N) * (2 * N) = (2 * 2) * (N * N) := by ac_rfl
+      _ = 4 * (N * N) := by rfl
+  have hnat : 35 * (d * d) ≤ 9 * ((hi * lo) * 4) := by
+    rw [hd, hhi, hlo, succ_mul_pred_square (2 * N) (by omega), hsq]
+    omega
+  have hq := Q'.ofNat_le_ofNat hnat
+  have hdd : Q'.ofNat d * Q'.ofNat d ≈ Q'.ofNat (d * d) :=
+    FusionRDFactor.ofNat_mul_eqv d d
+  have hleft :
+      Q'.ofNat 35 * (Q'.ofNat d * Q'.ofNat d) ≈
+        Q'.ofNat (35 * (d * d)) :=
+    Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_left (Q'.ofNat 35) _ _ hdd)
+      (FusionRDFactor.ofNat_mul_eqv 35 (d * d))
+  have hhl : Q'.ofNat hi * Q'.ofNat lo ≈ Q'.ofNat (hi * lo) :=
+    FusionRDFactor.ofNat_mul_eqv hi lo
+  have hhl4 :
+      (Q'.ofNat hi * Q'.ofNat lo) * Q'.ofNat 4 ≈
+        Q'.ofNat ((hi * lo) * 4) :=
+    Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_right _ _ (Q'.ofNat 4) hhl)
+      (FusionRDFactor.ofNat_mul_eqv (hi * lo) 4)
+  have hright :
+      Q'.ofNat 9 *
+          ((Q'.ofNat hi * Q'.ofNat lo) * Q'.ofNat 4) ≈
+        Q'.ofNat (9 * ((hi * lo) * 4)) :=
+    Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_left (Q'.ofNat 9) _ _ hhl4)
+      (FusionRDFactor.ofNat_mul_eqv 9 ((hi * lo) * 4))
+  exact Q'.le_trans' _ _ _
+    (Q'.le_of_eqv (by simpa only [dimQ, d, hi, lo] using hleft))
+    (Q'.le_trans' _ _ _ hq
+      (Q'.le_of_eqv (Q'.eqv_symm
+        (by simpa only [dimQ, d, hi, lo] using hright))))
+
+private def topScalarRatioLeftExpr : PolyExpr :=
+  .mul (.mul (.var 0) (.var 0)) (.mul (.const 9) (.var 3))
+
+private def topScalarRatioLeftPackedExpr : PolyExpr :=
+  .mul (.const 9) (.mul (.mul (.var 0) (.var 0)) (.var 3))
+
+private theorem topScalarRatioLeft_normal :
+    normalize topScalarRatioLeftExpr = normalize topScalarRatioLeftPackedExpr := by
+  decide
+
+private theorem topScalarRatioLeft (D U : Q') :
+    (D * D) * (Q'.ofNat 9 * U) ≈ Q'.ofNat 9 * ((D * D) * U) := by
+  change
+    (eval (fun i => if i = 0 then D else U) topScalarRatioLeftExpr).eqv
+    (eval (fun i => if i = 0 then D else U) topScalarRatioLeftPackedExpr)
+  exact poly_identity_of_normal_eq _ _ topScalarRatioLeft_normal _
+
+private def topScalarMiddleLeftExpr : PolyExpr :=
+  .mul (.mul (.var 0) (.var 0))
+    (.mul (.var 4) (.mul (.const 35) (.mul (.var 2) (.var 2))))
+
+private def topScalarMiddlePackedExpr : PolyExpr :=
+  .mul (.mul (.const 35) (.mul (.var 0) (.var 0)))
+    (.mul (.var 4) (.mul (.var 2) (.var 2)))
+
+private theorem topScalarMiddle_normal :
+    normalize topScalarMiddleLeftExpr = normalize topScalarMiddlePackedExpr := by
+  decide
+
+private theorem topScalarMiddle (D B q : Q') :
+    (D * D) * (q * (Q'.ofNat 35 * (B * B))) ≈
+      (Q'.ofNat 35 * (D * D)) * (q * (B * B)) := by
+  change
+    (eval (fun i => if i = 0 then D else if i = 2 then B else q)
+      topScalarMiddleLeftExpr).eqv
+    (eval (fun i => if i = 0 then D else if i = 2 then B else q)
+      topScalarMiddlePackedExpr)
+  exact poly_identity_of_normal_eq _ _ topScalarMiddle_normal _
+
+private def topScalarRightLeftExpr : PolyExpr :=
+  .mul (.mul (.const 9)
+      (.mul (.mul (.var 1) (.var 0)) (.const 4)))
+    (.mul (.var 4) (.mul (.var 2) (.var 2)))
+
+private def topScalarRightPackedExpr : PolyExpr :=
+  .mul (.const 9)
+    (.mul (.mul (.var 4) (.mul (.var 1) (.var 0)))
+      (.mul (.add (.var 2) (.var 2)) (.add (.var 2) (.var 2))))
+
+private theorem topScalarRight_normal :
+    normalize topScalarRightLeftExpr = normalize topScalarRightPackedExpr := by
+  decide
+
+private theorem topScalarRight (H L B q : Q') :
+    (Q'.ofNat 9 * ((H * L) * Q'.ofNat 4)) * (q * (B * B)) ≈
+      Q'.ofNat 9 *
+        ((q * (H * L)) * (topShellDouble B * topShellDouble B)) := by
+  unfold topShellDouble
+  change
+    (eval (fun i => if i = 1 then H else if i = 2 then B else
+      if i = 4 then q else L) topScalarRightLeftExpr).eqv
+    (eval (fun i => if i = 1 then H else if i = 2 then B else
+      if i = 4 then q else L) topScalarRightPackedExpr)
+  exact poly_identity_of_normal_eq _ _ topScalarRight_normal _
+
+/-- Ordered-semiring compiler combining the uniform coefficient-ratio fence
+with the improving dimension fence. -/
+private theorem topShellScalarFence_compile
+    {D H L U B q : Q'}
+    (hD0 : (0 : Q') ≤ D) (hB0 : (0 : Q') ≤ B) (hq0 : (0 : Q') ≤ q)
+    (hratio : Q'.ofNat 9 * U ≤ q * (Q'.ofNat 35 * (B * B)))
+    (hdim : Q'.ofNat 35 * (D * D) ≤
+      Q'.ofNat 9 * ((H * L) * Q'.ofNat 4)) :
+    (D * D) * U ≤
+      (q * (H * L)) * (topShellDouble B * topShellDouble B) := by
+  have hD20 : (0 : Q') ≤ D * D := Q'.mul_nonneg _ _ hD0 hD0
+  have hratioScaled := Q'.mul_le_mul_of_nonneg_left _ _ (D * D)
+    hratio hD20
+  have hB20 : (0 : Q') ≤ B * B := Q'.mul_nonneg _ _ hB0 hB0
+  have hqB20 : (0 : Q') ≤ q * (B * B) := Q'.mul_nonneg _ _ hq0 hB20
+  have hdimScaled := Q'.mul_le_mul_of_nonneg_right _ _ (q * (B * B))
+    hdim hqB20
+  have hchain :
+      Q'.ofNat 9 * ((D * D) * U) ≤
+        Q'.ofNat 9 *
+          ((q * (H * L)) * (topShellDouble B * topShellDouble B)) :=
+    Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (Q'.eqv_symm (topScalarRatioLeft D U)))
+      (Q'.le_trans' _ _ _ hratioScaled
+        (Q'.le_trans' _ _ _ (Q'.le_of_eqv (topScalarMiddle D B q))
+          (Q'.le_trans' _ _ _ hdimScaled
+            (Q'.le_of_eqv (topScalarRight H L B q)))))
+  exact FusionQuotientCollapse.le_of_mul_le_mul_left_pos
+    (by decide : (0 : Q') < Q'.ofNat 9) hchain
+
+/-- The scalar top-shell fence is valid for every cutoff `N≥3`; no cutoff
+enumeration remains. -/
+theorem topShellScalarFence_all (N : Nat) (hN : 3 ≤ N) :
+    TopShellScalarFence N := by
+  unfold TopShellScalarFence
+  exact topShellScalarFence_compile
+    (dimQ_nonneg (2 * N - 1))
+    (coeffW_nonneg fenceW_nonneg (N - 1))
+    (qpow_nonneg _ (p2RetunedWeight_nonneg fenceW_nonneg) 2)
+    (topShellRatioFence N hN)
+    (topShellDimensionFence N hN)
+
+/-- The actual physical top-shell strong-Turan atom is discharged at every
+cutoff: `N=2` by its exact cell and `N≥3` by the symbolic ratio/dimension
+compiler. -/
+theorem fenceTopShellTuran (N : Nat) (hN : 2 ≤ N) :
+    (dimQ (2 * N - 1) * boxSum fenceW N (2 * N - 2)) *
+        (dimQ (2 * N - 1) * boxSum fenceW N (2 * N)) ≤
+      (RGTransport.qpow (p2RetunedWeight fenceW) 2 *
+          (dimQ (2 * N) * boxSum fenceW N (2 * N - 1))) *
+        (dimQ (2 * N - 2) * boxSum fenceW N (2 * N - 1)) := by
+  rcases Nat.eq_or_lt_of_le hN with rfl | hN3
+  · exact fenceTopShellTuran_two
+  · exact fenceTopShellTuran_of_scalar N hN (topShellScalarFence_all N hN3)
+
+/-- The genuinely residual Turan family after physically discharging both
+the first edge and the canonical top shell.  Its support stops one shell
+before the boundary: `s+3≤2N`. -/
+def FenceBoxInteriorTuranTail (N : Nat) : Prop :=
+  forall s, 1 ≤ s -> s + 3 ≤ 2 * N ->
+    (dimQ (s + 1) * boxSum fenceW N s) *
+        (dimQ (s + 1) * boxSum fenceW N (s + 2)) ≤
+      (RGTransport.qpow (p2RetunedWeight fenceW) 2 *
+          (dimQ (s + 2) * boxSum fenceW N (s + 1))) *
+        (dimQ s * boxSum fenceW N (s + 1))
+
+/-- Fill the unique top boundary atom with `fenceTopShellTuran`, leaving an
+interior-only consumer family. -/
+def fenceBoxTuranTailOfInterior (N : Nat) (hN : 2 ≤ N)
+    (interior : FenceBoxInteriorTuranTail N) : FenceBoxTuranTail N := by
+  intro s hs hsupport
+  by_cases htop : s = 2 * N - 2
+  · subst s
+    simpa only [show 2 * N - 2 + 1 = 2 * N - 1 by omega,
+      show 2 * N - 2 + 2 = 2 * N by omega] using
+      (fenceTopShellTuran N hN)
+  · exact interior s hs (by omega)
+
+/-- The reviewed physical `CanonicalBulkControl` now consumes only the
+strictly interior strong-Turan family. -/
+def fenceCanonicalBulkControlOfInterior (N : Nat) (hN : 2 ≤ N)
+    (interior : FenceBoxInteriorTuranTail N) : CanonicalBulkControl N fenceW 2 :=
+  fenceCanonicalBulkControlOfTuran N (by omega)
+    (fenceBoxTuranTailOfInterior N hN interior)
+
 end YMGap.Continuum.P2RetunedFenceTopShell
 
 /-! ## Axiom-dependency gates -/
@@ -530,3 +886,9 @@ end YMGap.Continuum.P2RetunedFenceTopShell
 #print axioms YMGap.Continuum.P2RetunedFenceTopShell.topShellScalarFence_three
 #print axioms YMGap.Continuum.P2RetunedFenceTopShell.topShellRatioAnchor
 #print axioms YMGap.Continuum.P2RetunedFenceTopShell.topShellCoeffRatio
+#print axioms YMGap.Continuum.P2RetunedFenceTopShell.topShellRatioFence
+#print axioms YMGap.Continuum.P2RetunedFenceTopShell.topShellDimensionFence
+#print axioms YMGap.Continuum.P2RetunedFenceTopShell.topShellScalarFence_all
+#print axioms YMGap.Continuum.P2RetunedFenceTopShell.fenceTopShellTuran
+#print axioms YMGap.Continuum.P2RetunedFenceTopShell.fenceBoxTuranTailOfInterior
+#print axioms YMGap.Continuum.P2RetunedFenceTopShell.fenceCanonicalBulkControlOfInterior
