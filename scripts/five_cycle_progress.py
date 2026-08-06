@@ -269,9 +269,14 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
                     "        |     +-- [x] physical high-shift half-time tail "
                     f"{parameters['physical_coeff_high_shift_tail']}"
                 )
+            if parameters.get("physical_coeff_half_time_balance"):
+                lines.append(
+                    "        |     +-- [x] half-time debt/reserve compiler "
+                    f"{parameters['physical_coeff_half_time_balance']}"
+                )
             if parameters.get("physical_coeff_half_time_frontier"):
                 lines.append(
-                    "        |     +-- [>] half-time low-shift residual "
+                    "        |     +-- [>] half-time reserve frontier "
                     f"{parameters['physical_coeff_half_time_frontier']}"
                 )
             lines.append(

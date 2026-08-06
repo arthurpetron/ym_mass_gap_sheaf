@@ -1042,12 +1042,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   row to one reciprocal-Bernoulli coefficient comparison; a pure-`Nat`
   threshold payment proves it uniformly at every scale and cutoff.
 - **status note**: closed with axiom gate `[propext, Quot.sound]`.  The theorem
-  `P2PhysicalLowShiftPrefixRatio.toLineSum` proves that the remaining
-  schedule-wide input is exactly the prefix
-  `r < min(N+1,ceil((5*2^k+s)/2))`, and
-  `physical_mode_one_tail_nonempty` proves this is a strict reduction.  That
-  low prefix remains open; this entry does not claim the full all-scale
+  `physical_mode_one_tail_nonempty` proves that the discharged sector is
+  nonvacuous.  An independent low-prefix ratio is a valid stronger sufficient
+  input, but is not the sharp active frontier because it forbids cancellation
+  between the two sectors.  This entry does not claim the full all-scale
   control family or a Yang--Mills mass gap.
+
+### [R4i-half-time-balance] Sharp low-debt / high-reserve carrier — **COMPILER CLOSED 2026-08-06; RESERVE DOMINATION OPEN**
+
+- **milestone**: FrontierDAG bucket 1 / half-time physical coefficient route.
+- **file**: `lean/YMGap/Continuum/P2HalfTimeShiftTail.lean`
+- **decl**: `P2PhysicalLowHighReserve`
+- **obligation**: Prove at every physical scale and channel that the signed
+  low-shift debt is at most the reserve supplied by all high-shift rows.
+- **constructive?**: yes — `toLineSum` and `ofLineSum` prove two-way
+  equivalence with the schedule-native line-sum ratio, so the carrier neither
+  loses nor invents analytic content.
+- **status note**: `physicalHighShiftRowReserveSum_eq_reserve` exposes the
+  reserve as a finite sum of constant-shape row atoms, and
+  `BlockCompatibleP2LowHighReserveFromFour.toControlFamily` reaches the
+  reviewed all-scale control consumer.  The sharper exact aggregate form
+  `physicalFullLocalReserveSum_eq_lineReserve` removes the sector split:
+  nonnegativity of one finite double sum is equivalent in both directions to
+  the original line ratio.  `physicalFullLocalReserveAt_sound` reduces each
+  channel to one integer numerator sign, and the schedule-wide numerator
+  carrier also reaches the control consumer.  The all-scale sign theorem
+  itself is still open.  All closed compiler gates are
+  `[propext, Quot.sound]` only.
 
 ## How to add an entry
 

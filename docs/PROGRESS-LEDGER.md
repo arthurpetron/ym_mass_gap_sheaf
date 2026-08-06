@@ -572,8 +572,28 @@ just a change of coordinates.
   `[propext, Quot.sound]`.
 
 No full audit, remote push, or GitHub CI run was used.  The honest remaining
-half-time input is the low-shift prefix
-`r < min(N+1,ceil((5*2^k+s)/2))` for the physical `k >= 4` schedule.
+half-time input is the signed low/high balance for the physical `k >= 4`
+schedule.  The independent low-prefix inequality is only a stronger
+compatibility route and is not treated as the sharp frontier.
+
+The subsequent debt/reserve normalization makes that balance exact.  Define
+the low debt as `lowL-lowR` and the high reserve as `highR-highL`.  Lean now
+proves both directions between `lowDebt <= highReserve` and the original
+line-sum ratio, then expands `highReserve` into a finite sum of constant-shape
+row atoms.  The schedule-wide reserve carrier compiles directly to the
+reviewed all-scale control family.  This is the appropriate interface for a
+symbolic pairing theorem or an externally generated certificate whose
+soundness is proved once in Lean; the actual all-scale reserve domination is
+still open.
+
+The proof-about-computation boundary is now sharper still.  Summing the same
+local atoms over *all* cutoff rows gives `physicalFullLocalReserveSum`; Lean
+proves this is exactly the signed reserve of the original line-sum inequality
+and constructs both directions of the equivalence.  Since `Q'` denominators
+are structurally positive, `physicalFullLocalReserveAt` reduces each channel
+to the sign of one integer numerator.  A family of those integer signs for
+all `k >= 4` compiles end-to-end to the reviewed `CanonicalBulkControl`
+consumer.  This is a compiler closure, not the missing all-scale sign proof.
 
 The first load-bearing energy atom is also now explicit:
 `P2BlockCompatibleHeadPhysicalEnergy.physical_coeff_reverse_curvature` proves

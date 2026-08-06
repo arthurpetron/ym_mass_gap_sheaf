@@ -26,9 +26,13 @@ then every coefficient at shift `r` or above has successor ratio at most
 `blockWeight(k)^(s+2)`.  This is the explicit high-shift payment condition.
 
 Honest scope: the exact reindex, generic successor compiler, and every row at
-or above `ceil((5*2^k+s)/2)` are proved here, as is their aggregate.  The
-strictly smaller low-shift prefix still has to be paid; no all-scale control
-family or Yang--Mills mass gap is claimed by this module alone.
+or above `ceil((5*2^k+s)/2)` are proved here, as is their aggregate.  The full
+ratio is then normalized, in both directions, to the sharp comparison between
+the signed low-sector debt and the summed high-sector row reserve.  That
+comparison is further normalized exactly to one full finite double sum of
+local successor atoms, with a one-integer-sign certificate interface.  The
+schedule-wide sign theorem remains open; no all-scale control family or
+Yang--Mills mass gap is claimed by this module alone.
 
 Constructive contract: Mathlib-free `Nat`/`Q'`; no `Classical`,
 `native_decide`, `sorry`, custom axiom, or noncomputable declaration.
@@ -179,6 +183,18 @@ theorem lineSum_eq_cutoffShiftRows (w : Q') (N t : Nat) :
 def autoRow (x : Nat -> Q') (t : Nat) : Q' :=
   fsum (fun p => x p * x (t - p)) (t + 1)
 
+/-- Signed adjacent reserve of one autoconvolution row. -/
+def autoRowReserve (q : Q') (x : Nat -> Q') (s : Nat) : Q' :=
+  q * (Q'.ofNat (s + 2) * autoRow x s) +
+    -(Q'.ofNat (s + 1) * autoRow x (s + 1))
+
+/-- Constant-shape local reserve atom.  Summing these atoms is exactly the
+row reserve, by the weighted successor identity below. -/
+def autoStepReserve (q : Q') (x : Nat -> Q') (s p : Nat) : Q' :=
+  q * (Q'.ofNat (s + 2) * (x p * x (s - p))) +
+    -(Q'.ofNat (p + 1) * (x (p + 1) * x (s - p)) +
+      Q'.ofNat (s - p + 1) * (x p * x (s - p + 1)))
+
 private theorem weighted_cover (G : Nat -> Q') (s : Nat) :
     (Q'.ofNat (s + 1) * fsum G (s + 2)).eqv
       (fsum (fun p =>
@@ -265,6 +281,36 @@ theorem autoRow_succ_weighted (x : Nat -> Q') (s : Nat) :
       · exact Q'.mul_eqv_congr_left _ _ _
           (Q'.mul_eqv_congr_left _ _ _
             (Q'.eqv_of_eq (congrArg x (by omega))))))
+
+/-- Exact proof-about-computation normal form: a whole adjacent row reserve is
+the finite sum of `s+1` local successor atoms. -/
+theorem autoRowReserve_eq_stepSum (q : Q') (x : Nat -> Q') (s : Nat) :
+    (autoRowReserve q x s).eqv
+      (fsum (fun p => autoStepReserve q x s p) (s + 1)) := by
+  let G := fun p => x p * x (s - p)
+  let W := fun p =>
+    Q'.ofNat (p + 1) * (x (p + 1) * x (s - p)) +
+      Q'.ofNat (s - p + 1) * (x p * x (s - p + 1))
+  have ebase :
+      (q * (Q'.ofNat (s + 2) * autoRow x s)).eqv
+        (fsum (fun p => q * (Q'.ofNat (s + 2) * G p)) (s + 1)) := by
+    have einner : (Q'.ofNat (s + 2) * autoRow x s).eqv
+        (fsum (fun p => Q'.ofNat (s + 2) * G p) (s + 1)) := by
+      unfold autoRow
+      simpa only [G] using
+        fsum_const_mul (Q'.ofNat (s + 2)) G (s + 1)
+    exact Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_left q _ _ einner)
+      (fsum_const_mul q (fun p => Q'.ofNat (s + 2) * G p) (s + 1))
+  have eneg : (-(Q'.ofNat (s + 1) * autoRow x (s + 1))).eqv
+      (fsum (fun p => -(W p)) (s + 1)) := by
+    exact Q'.eqv_trans _ _ _
+      (Q'.neg_eqv_congr _ _ (autoRow_succ_weighted x s))
+      (Q'.eqv_symm (fsum_neg W (s + 1)))
+  unfold autoRowReserve autoStepReserve
+  exact Q'.eqv_trans _ _ _ (Q'.add_eqv_congr' ebase eneg)
+    (Q'.eqv_symm (fsum_add
+      (fun p => q * (Q'.ofNat (s + 2) * G p))
+      (fun p => -(W p)) (s + 1)))
 
 /-- If every coefficient successor is at most `q` times its predecessor,
 then the corresponding autoconvolution has the exact adjacent half-time
@@ -676,8 +722,562 @@ theorem physicalHighShiftSum_halfTime (k N s : Nat) :
   exact Q'.le_trans' _ _ _ (Q'.le_of_eqv eleft)
     (Q'.le_trans' _ _ _ hterms (Q'.le_of_eqv eright))
 
-/-- The only remaining half-time input after the explicit high-shift tail is
-removed: the prefix of rows strictly below `physicalTailStart`. -/
+/-! ## 6. The exact low-debt / high-reserve balance -/
+
+/-- Signed failure of the isolated low prefix.  Positive values are precisely
+the debt which must be paid by the high-shift sector. -/
+def physicalLowShiftDebt (k N s : Nat) : Q' :=
+  dimQ s * physicalLowShiftSum k N s (s + 1) +
+    -(qpow (blockWeight k) (s + 2) *
+      (dimQ (s + 1) * physicalLowShiftSum k N s s))
+
+/-- Signed surplus of the proved high-shift sector.  The preceding theorem
+shows that this quantity is nonnegative, but the full line-sum inequality
+needs the sharper comparison with `physicalLowShiftDebt`. -/
+def physicalHighShiftReserve (k N s : Nat) : Q' :=
+  qpow (blockWeight k) (s + 2) *
+      (dimQ (s + 1) * physicalHighShiftSum k N s s) +
+    -(dimQ s * physicalHighShiftSum k N s (s + 1))
+
+/-- One signed high-shift reserve contribution.  This is the constant-size
+unit consumed by an external certificate generator or a symbolic pairing
+argument. -/
+def physicalHighShiftRowReserve (k N s r : Nat) : Q' :=
+  qpow (blockWeight k) (s + 2) *
+      (dimQ (s + 1) * cutoffShiftRow (blockWeight k) N s r) +
+    -(dimQ s * cutoffShiftRow (blockWeight k) N (s + 1) r)
+
+/-- The physical row reserve is definitionally the generic autoconvolution
+reserve of the masked coefficient tail. -/
+theorem physicalHighShiftRowReserve_eq_autoRowReserve (k N s r : Nat) :
+    (physicalHighShiftRowReserve k N s r).eqv
+      (autoRowReserve (qpow (blockWeight k) (s + 2))
+        (fun n => cutoffCoeff (blockWeight k) N r n) s) := by
+  unfold physicalHighShiftRowReserve autoRowReserve cutoffShiftRow dimQ
+  exact Q'.eqv_refl _
+
+/-- Each physical high-row reserve is an explicit finite sum of local atoms. -/
+theorem physicalHighShiftRowReserve_eq_stepSum (k N s r : Nat) :
+    (physicalHighShiftRowReserve k N s r).eqv
+      (fsum (fun p => autoStepReserve
+        (qpow (blockWeight k) (s + 2))
+        (fun n => cutoffCoeff (blockWeight k) N r n) s p) (s + 1)) :=
+  Q'.eqv_trans _ _ _
+    (physicalHighShiftRowReserve_eq_autoRowReserve k N s r)
+    (autoRowReserve_eq_stepSum _ _ s)
+
+/-- Every row in the proved high sector contributes a nonnegative reserve. -/
+theorem physicalHighShiftRowReserve_nonneg (k N s r : Nat)
+    (hr : physicalTailStart k s <= r) :
+    (0 : Q') <= physicalHighShiftRowReserve k N s r := by
+  let rowL := dimQ s * cutoffShiftRow (blockWeight k) N (s + 1) r
+  let rowR := qpow (blockWeight k) (s + 2) *
+    (dimQ (s + 1) * cutoffShiftRow (blockWeight k) N s r)
+  have hadd := Q'.add_le_add_right _ _ (-rowL)
+    (cutoffShiftRow_physical_halfTime_tail k N s r hr)
+  have eleft : (rowL + -rowL).eqv (0 : Q') :=
+    Q'.eqv_trans _ _ _ (Q'.add_comm_eqv rowL (-rowL))
+      (Q'.neg_add_self_eqv rowL)
+  exact Q'.le_trans' _ _ _ (Q'.ge_of_eqv eleft)
+    (by simpa only [physicalHighShiftRowReserve, rowL, rowR] using hadd)
+
+/-- The high reserve as an explicit finite list of row contributions. -/
+def physicalHighShiftRowReserveSum (k N s : Nat) : Q' :=
+  let R := physicalSplitStart k N s
+  fsum (fun j => physicalHighShiftRowReserve k N s (R + j))
+    (N + 1 - R)
+
+/-- Fully local double-sum normal form of the high reserve. -/
+def physicalHighShiftLocalReserveSum (k N s : Nat) : Q' :=
+  let R := physicalSplitStart k N s
+  fsum (fun j => fsum (fun p => autoStepReserve
+    (qpow (blockWeight k) (s + 2))
+    (fun n => cutoffCoeff (blockWeight k) N (R + j) n) s p) (s + 1))
+    (N + 1 - R)
+
+theorem physicalHighShiftRowReserveSum_eq_local (k N s : Nat) :
+    (physicalHighShiftRowReserveSum k N s).eqv
+      (physicalHighShiftLocalReserveSum k N s) := by
+  unfold physicalHighShiftRowReserveSum physicalHighShiftLocalReserveSum
+  apply fsum_eqv_congr
+  intro j
+  exact physicalHighShiftRowReserve_eq_stepSum k N s
+    (physicalSplitStart k N s + j)
+
+private theorem balance_of_debt_le_reserve
+    {lowL lowR highL highR : Q'}
+    (h : lowL + -lowR <= highR + -highL) :
+    lowL + highL <= lowR + highR := by
+  have hadd := Q'.add_le_add_right _ _ (lowR + highL) h
+  have eleft : ((lowL + -lowR) + (lowR + highL)).eqv
+      (lowL + highL) := by
+    refine Q'.eqv_trans _ (lowL + ((-lowR + lowR) + highL)) _ ?_ ?_
+    · exact Q'.eqv_trans _ _ _
+        (Q'.add_assoc_eqv lowL (-lowR) (lowR + highL))
+        (Q'.add_eqv_congr_left lowL _ _
+          (Q'.eqv_symm (Q'.add_assoc_eqv (-lowR) lowR highL)))
+    · exact Q'.eqv_trans _ (lowL + ((0 : Q') + highL)) _
+        (Q'.add_eqv_congr_left lowL _ _
+          (Q'.add_eqv_congr_right _ _ highL
+            (Q'.neg_add_self_eqv lowR)))
+        (Q'.add_eqv_congr_left lowL _ _
+          (Q'.eqv_of_eq (Q'.zero_add' highL)))
+  have eright : ((highR + -highL) + (lowR + highL)).eqv
+      (lowR + highR) := by
+    refine Q'.eqv_trans _ (highR + ((-highL + lowR) + highL)) _ ?_ ?_
+    · exact Q'.eqv_trans _ _ _
+        (Q'.add_assoc_eqv highR (-highL) (lowR + highL))
+        (Q'.add_eqv_congr_left highR _ _
+          (Q'.eqv_symm (Q'.add_assoc_eqv (-highL) lowR highL)))
+    · refine Q'.eqv_trans _ (highR + (lowR + (-highL + highL))) _ ?_ ?_
+      · apply Q'.add_eqv_congr_left highR
+        exact Q'.eqv_trans _ ((lowR + -highL) + highL) _
+          (Q'.add_eqv_congr_right _ _ highL
+            (Q'.add_comm_eqv (-highL) lowR))
+          (Q'.add_assoc_eqv lowR (-highL) highL)
+      · exact Q'.eqv_trans _ (highR + lowR) _
+          (Q'.add_eqv_congr_left highR _ _
+            (Q'.eqv_trans _ (lowR + 0) _
+              (Q'.add_eqv_congr_left lowR _ _
+                (Q'.neg_add_self_eqv highL))
+              (Q'.eqv_of_eq (Q'.add_zero' lowR))))
+          (Q'.add_comm_eqv highR lowR)
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.eqv_symm eleft))
+    (Q'.le_trans' _ _ _ hadd (Q'.le_of_eqv eright))
+
+private theorem debt_le_reserve_of_balance
+    {lowL lowR highL highR : Q'}
+    (h : lowL + highL <= lowR + highR) :
+    lowL + -lowR <= highR + -highL := by
+  have hadd := Q'.add_le_add_right _ _ ((-lowR) + (-highL)) h
+  have eleft : ((lowL + highL) + ((-lowR) + (-highL))).eqv
+      (lowL + -lowR) := by
+    refine Q'.eqv_trans _
+      ((lowL + -lowR) + (highL + -highL)) _
+      (Q'.add_swap_inner lowL highL (-lowR) (-highL)) ?_
+    have hzero : (highL + -highL).eqv (0 : Q') :=
+      Q'.eqv_trans _ _ _ (Q'.add_comm_eqv highL (-highL))
+        (Q'.neg_add_self_eqv highL)
+    exact Q'.eqv_trans _ ((lowL + -lowR) + 0) _
+      (Q'.add_eqv_congr_left (lowL + -lowR) _ _ hzero)
+      (Q'.eqv_of_eq (Q'.add_zero' (lowL + -lowR)))
+  have eright : ((lowR + highR) + ((-lowR) + (-highL))).eqv
+      (highR + -highL) := by
+    refine Q'.eqv_trans _
+      ((lowR + -lowR) + (highR + -highL)) _
+      (Q'.add_swap_inner lowR highR (-lowR) (-highL)) ?_
+    have hzero : (lowR + -lowR).eqv (0 : Q') :=
+      Q'.eqv_trans _ _ _ (Q'.add_comm_eqv lowR (-lowR))
+        (Q'.neg_add_self_eqv lowR)
+    exact Q'.eqv_trans _ ((0 : Q') + (highR + -highL)) _
+      (Q'.add_eqv_congr_right _ _ (highR + -highL) hzero)
+      (Q'.eqv_of_eq (Q'.zero_add' (highR + -highL)))
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.eqv_symm eleft))
+    (Q'.le_trans' _ _ _ hadd (Q'.le_of_eqv eright))
+
+/-- The high-shift theorem has a nonnegative signed reserve. -/
+theorem physicalHighShiftReserve_nonneg (k N s : Nat) :
+    (0 : Q') <= physicalHighShiftReserve k N s := by
+  let highL := dimQ s * physicalHighShiftSum k N s (s + 1)
+  let highR := qpow (blockWeight k) (s + 2) *
+    (dimQ (s + 1) * physicalHighShiftSum k N s s)
+  have hadd := Q'.add_le_add_right _ _ (-highL)
+    (physicalHighShiftSum_halfTime k N s)
+  have eleft : (highL + -highL).eqv (0 : Q') := by
+    exact Q'.eqv_trans _ _ _ (Q'.add_comm_eqv highL (-highL))
+      (Q'.neg_add_self_eqv highL)
+  exact Q'.le_trans' _ _ _ (Q'.ge_of_eqv eleft)
+    (by simpa only [physicalHighShiftReserve, highL, highR] using hadd)
+
+/-- Finite-sum normalization of the high reserve.  Consequently the remaining
+analytic certificate is a single comparison with a sum of constant-shape row
+atoms, not a recomputation of the original Clebsch box. -/
+theorem physicalHighShiftRowReserveSum_eq_reserve (k N s : Nat) :
+    (physicalHighShiftRowReserveSum k N s).eqv
+      (physicalHighShiftReserve k N s) := by
+  let R := physicalSplitStart k N s
+  let L := N + 1 - R
+  let q := qpow (blockWeight k) (s + 2)
+  let d0 := dimQ (s + 1)
+  let d1 := dimQ s
+  let row0 := fun j => cutoffShiftRow (blockWeight k) N s (R + j)
+  let row1 := fun j => cutoffShiftRow (blockWeight k) N (s + 1) (R + j)
+  have ed0 : (d0 * physicalHighShiftSum k N s s).eqv
+      (fsum (fun j => d0 * row0 j) L) := by
+    unfold physicalHighShiftSum
+    simpa only [R, L, d0, row0] using fsum_const_mul d0 row0 L
+  have eq0 : (q * (d0 * physicalHighShiftSum k N s s)).eqv
+      (fsum (fun j => q * (d0 * row0 j)) L) := by
+    exact Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_left q _ _ ed0)
+      (fsum_const_mul q (fun j => d0 * row0 j) L)
+  have ed1 : (d1 * physicalHighShiftSum k N s (s + 1)).eqv
+      (fsum (fun j => d1 * row1 j) L) := by
+    unfold physicalHighShiftSum
+    simpa only [R, L, d1, row1] using fsum_const_mul d1 row1 L
+  have eneg : (fsum (fun j => -(d1 * row1 j)) L).eqv
+      (-(d1 * physicalHighShiftSum k N s (s + 1))) := by
+    exact Q'.eqv_trans _ _ _ (fsum_neg (fun j => d1 * row1 j) L)
+      (Q'.neg_eqv_congr _ _ (Q'.eqv_symm ed1))
+  unfold physicalHighShiftRowReserveSum physicalHighShiftRowReserve
+  dsimp only
+  exact Q'.eqv_trans _ _ _
+    (fsum_add (fun j => q * (d0 * row0 j))
+      (fun j => -(d1 * row1 j)) L)
+    (Q'.eqv_trans _
+      (q * (d0 * physicalHighShiftSum k N s s) +
+        -(d1 * physicalHighShiftSum k N s (s + 1))) _
+      (Q'.add_eqv_congr' (Q'.eqv_symm eq0) eneg)
+      (by
+        unfold physicalHighShiftReserve
+        exact Q'.eqv_refl _))
+
+/-! ## 7. Exact full-reserve proof-about-computation normal form -/
+
+/-- Reserve summed over every cutoff row, before any low/high split. -/
+def physicalFullRowReserveSum (k N s : Nat) : Q' :=
+  fsum (fun r => physicalHighShiftRowReserve k N s r) (N + 1)
+
+/-- Fully local double sum over every row and every successor atom.  This is
+the smallest uniform expression currently exposed to a certificate generator:
+one signed rational, with no sector split or intermediate convolution. -/
+def physicalFullLocalReserveSum (k N s : Nat) : Q' :=
+  fsum (fun r => fsum (fun p => autoStepReserve
+    (qpow (blockWeight k) (s + 2))
+    (fun n => cutoffCoeff (blockWeight k) N r n) s p) (s + 1)) (N + 1)
+
+/-- The signed reserve of the original physical line-sum inequality. -/
+def physicalLineReserve (k N s : Nat) : Q' :=
+  qpow (blockWeight k) (s + 2) *
+      (dimQ (s + 1) * lineSum (lagCorr (blockWeight k) N) s) +
+    -(dimQ s * lineSum (lagCorr (blockWeight k) N) (s + 1))
+
+theorem physicalFullRowReserveSum_eq_local (k N s : Nat) :
+    (physicalFullRowReserveSum k N s).eqv
+      (physicalFullLocalReserveSum k N s) := by
+  unfold physicalFullRowReserveSum physicalFullLocalReserveSum
+  apply fsum_eqv_congr
+  intro r
+  exact physicalHighShiftRowReserve_eq_stepSum k N s r
+
+/-- Summing the row reserves reconstructs the signed reserve of the original
+line-sum ratio exactly. -/
+theorem physicalFullRowReserveSum_eq_lineReserve (k N s : Nat) :
+    (physicalFullRowReserveSum k N s).eqv
+      (physicalLineReserve k N s) := by
+  let q := qpow (blockWeight k) (s + 2)
+  let d0 := dimQ (s + 1)
+  let d1 := dimQ s
+  let row0 := fun r => cutoffShiftRow (blockWeight k) N s r
+  let row1 := fun r => cutoffShiftRow (blockWeight k) N (s + 1) r
+  have ed0 : (d0 * lineSum (lagCorr (blockWeight k) N) s).eqv
+      (fsum (fun r => d0 * row0 r) (N + 1)) := by
+    exact Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_left d0 _ _
+        (lineSum_eq_cutoffShiftRows (blockWeight k) N s))
+      (fsum_const_mul d0 row0 (N + 1))
+  have eq0 : (q * (d0 * lineSum (lagCorr (blockWeight k) N) s)).eqv
+      (fsum (fun r => q * (d0 * row0 r)) (N + 1)) := by
+    exact Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_left q _ _ ed0)
+      (fsum_const_mul q (fun r => d0 * row0 r) (N + 1))
+  have ed1 : (d1 * lineSum (lagCorr (blockWeight k) N) (s + 1)).eqv
+      (fsum (fun r => d1 * row1 r) (N + 1)) := by
+    exact Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_left d1 _ _
+        (lineSum_eq_cutoffShiftRows (blockWeight k) N (s + 1)))
+      (fsum_const_mul d1 row1 (N + 1))
+  have eneg : (fsum (fun r => -(d1 * row1 r)) (N + 1)).eqv
+      (-(d1 * lineSum (lagCorr (blockWeight k) N) (s + 1))) := by
+    exact Q'.eqv_trans _ _ _ (fsum_neg (fun r => d1 * row1 r) (N + 1))
+      (Q'.neg_eqv_congr _ _ (Q'.eqv_symm ed1))
+  unfold physicalFullRowReserveSum physicalHighShiftRowReserve
+  exact Q'.eqv_trans _ _ _
+    (fsum_add (fun r => q * (d0 * row0 r))
+      (fun r => -(d1 * row1 r)) (N + 1))
+    (Q'.eqv_trans _
+      (q * (d0 * lineSum (lagCorr (blockWeight k) N) s) +
+        -(d1 * lineSum (lagCorr (blockWeight k) N) (s + 1))) _
+      (Q'.add_eqv_congr' (Q'.eqv_symm eq0) eneg)
+      (by
+        unfold physicalLineReserve
+        exact Q'.eqv_refl _))
+
+/-- The full local double sum is exactly the original line reserve. -/
+theorem physicalFullLocalReserveSum_eq_lineReserve (k N s : Nat) :
+    (physicalFullLocalReserveSum k N s).eqv
+      (physicalLineReserve k N s) :=
+  Q'.eqv_trans _ _ _
+    (Q'.eqv_symm (physicalFullRowReserveSum_eq_local k N s))
+    (physicalFullRowReserveSum_eq_lineReserve k N s)
+
+private theorem le_of_reserve_nonneg {left right : Q'}
+    (h : (0 : Q') <= right + -left) : left <= right := by
+  have hadd := Q'.add_le_add_right _ _ left h
+  have eleft : ((0 : Q') + left).eqv left :=
+    Q'.eqv_of_eq (Q'.zero_add' left)
+  have eright : ((right + -left) + left).eqv right := by
+    exact Q'.eqv_trans _ (right + (-left + left)) _
+      (Q'.add_assoc_eqv right (-left) left)
+      (Q'.eqv_trans _ (right + 0) _
+        (Q'.add_eqv_congr_left right _ _ (Q'.neg_add_self_eqv left))
+        (Q'.eqv_of_eq (Q'.add_zero' right)))
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.eqv_symm eleft))
+    (Q'.le_trans' _ _ _ hadd (Q'.le_of_eqv eright))
+
+private theorem reserve_nonneg_of_le {left right : Q'}
+    (h : left <= right) : (0 : Q') <= right + -left := by
+  have hadd := Q'.add_le_add_right _ _ (-left) h
+  have eleft : (left + -left).eqv (0 : Q') :=
+    Q'.eqv_trans _ _ _ (Q'.add_comm_eqv left (-left))
+      (Q'.neg_add_self_eqv left)
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.eqv_symm eleft)) hadd
+
+/-- Exact local-reserve carrier.  Unlike a termwise positivity input, this
+permits all cancellation inside the finite double sum. -/
+structure P2PhysicalFullLocalReserveCertificate (k N : Nat) : Type where
+  total : forall s, 1 <= s -> s < 2 * N ->
+    (0 : Q') <= physicalFullLocalReserveSum k N s
+
+/-- The local-reserve carrier implies the original line-sum ratio. -/
+def P2PhysicalFullLocalReserveCertificate.toLineSum {k N : Nat}
+    (T : P2PhysicalFullLocalReserveCertificate k N) :
+    P2HalfTimeLineSumTailRatio N (blockWeight k) where
+  tail := fun s hs hsN => by
+    have hline : (0 : Q') <= physicalLineReserve k N s :=
+      Q'.le_trans' _ _ _ (T.total s hs hsN)
+        (Q'.le_of_eqv (physicalFullLocalReserveSum_eq_lineReserve k N s))
+    exact le_of_reserve_nonneg (by
+      simpa only [physicalLineReserve] using hline)
+
+/-- Conversely, the original line-sum ratio supplies the full local-reserve
+certificate.  Hence the double-sum carrier is an exact normalization, not a
+stronger analytic assumption. -/
+def P2PhysicalFullLocalReserveCertificate.ofLineSum {k N : Nat}
+    (T : P2HalfTimeLineSumTailRatio N (blockWeight k)) :
+    P2PhysicalFullLocalReserveCertificate k N where
+  total := fun s hs hsN => by
+    have hline : (0 : Q') <= physicalLineReserve k N s := by
+      apply reserve_nonneg_of_le
+      exact T.tail s hs hsN
+    exact Q'.le_trans' _ _ _ hline
+      (Q'.ge_of_eqv (physicalFullLocalReserveSum_eq_lineReserve k N s))
+
+/-- Pure-integer sign atom for the full local reserve.  Because every `Q'`
+denominator is positive, this one numerator sign is sound and complete. -/
+def physicalFullLocalReserveAt (k N s : Nat) : Prop :=
+  (0 : Int) <= (physicalFullLocalReserveSum k N s).num
+
+instance physicalFullLocalReserveAtDecidable (k N s : Nat) :
+    Decidable (physicalFullLocalReserveAt k N s) := by
+  unfold physicalFullLocalReserveAt
+  infer_instance
+
+theorem physicalFullLocalReserveAt_sound (k N s : Nat)
+    (h : physicalFullLocalReserveAt k N s) :
+    (0 : Q') <= physicalFullLocalReserveSum k N s := by
+  exact (Q'.zero_le_iff_num_nonneg _).mpr h
+
+/-- Proof-about-computation carrier: one integer sign certificate per physical
+channel, with rational reconstruction proved once above. -/
+structure P2PhysicalFullLocalNumeratorCertificate (k N : Nat) : Type where
+  nonneg : forall s, 1 <= s -> s < 2 * N ->
+    physicalFullLocalReserveAt k N s
+
+def P2PhysicalFullLocalNumeratorCertificate.toLocal {k N : Nat}
+    (T : P2PhysicalFullLocalNumeratorCertificate k N) :
+    P2PhysicalFullLocalReserveCertificate k N where
+  total := fun s hs hsN =>
+    physicalFullLocalReserveAt_sound k N s (T.nonneg s hs hsN)
+
+/-- Sharp remaining datum: the proved high-shift surplus must dominate the
+signed low-shift debt.  Unlike an independent low-prefix ratio, this permits
+the cancellation which is present in the physical line sum. -/
+structure P2PhysicalLowHighReserve (k N : Nat) : Type where
+  reserve : forall s, 1 <= s -> s < 2 * N ->
+    physicalLowShiftDebt k N s <= physicalHighShiftReserve k N s
+
+/-- Proof-about-computation carrier targeting the fully local reserve normal
+form.  Its only field is a finite rational comparison between the low debt and
+the double sum of constant-shape atoms. -/
+structure P2PhysicalLocalReserveCertificate (k N : Nat) : Type where
+  atomBound : forall s, 1 <= s -> s < 2 * N ->
+    physicalLowShiftDebt k N s <= physicalHighShiftLocalReserveSum k N s
+
+def P2PhysicalLocalReserveCertificate.toReserve {k N : Nat}
+    (T : P2PhysicalLocalReserveCertificate k N) :
+    P2PhysicalLowHighReserve k N where
+  reserve := fun s hs hsN => by
+    have hlocal := T.atomBound s hs hsN
+    have elocal : (physicalHighShiftLocalReserveSum k N s).eqv
+        (physicalHighShiftReserve k N s) :=
+      Q'.eqv_trans _ _ _
+        (Q'.eqv_symm (physicalHighShiftRowReserveSum_eq_local k N s))
+        (physicalHighShiftRowReserveSum_eq_reserve k N s)
+    exact Q'.le_trans' _ _ _ hlocal (Q'.le_of_eqv elocal)
+
+/-- The exact debt/reserve comparison closes the physical line-sum ratio. -/
+def P2PhysicalLowHighReserve.toLineSum {k N : Nat}
+    (T : P2PhysicalLowHighReserve k N) :
+    P2HalfTimeLineSumTailRatio N (blockWeight k) where
+  tail := fun s hs hsN => by
+    let q := qpow (blockWeight k) (s + 2)
+    let lowL := dimQ s * physicalLowShiftSum k N s (s + 1)
+    let lowR := q * (dimQ (s + 1) * physicalLowShiftSum k N s s)
+    let highL := dimQ s * physicalHighShiftSum k N s (s + 1)
+    let highR := q * (dimQ (s + 1) * physicalHighShiftSum k N s s)
+    have hbalance : lowL + highL <= lowR + highR :=
+      balance_of_debt_le_reserve (by
+        simpa only [physicalLowShiftDebt, physicalHighShiftReserve,
+          lowL, lowR, highL, highR, q] using T.reserve s hs hsN)
+    have eleft :
+        (dimQ s * lineSum (lagCorr (blockWeight k) N) (s + 1)).eqv
+          (lowL + highL) := by
+      refine Q'.eqv_trans _
+        (dimQ s * (physicalLowShiftSum k N s (s + 1) +
+          physicalHighShiftSum k N s (s + 1))) _
+        (Q'.mul_eqv_congr_left (dimQ s) _ _
+          (lineSum_eq_physicalLow_add_high k N s (s + 1))) ?_
+      simpa only [lowL, highL] using Q'.mul_add_eqv (dimQ s)
+        (physicalLowShiftSum k N s (s + 1))
+        (physicalHighShiftSum k N s (s + 1))
+    have eright : (lowR + highR).eqv
+        (q * (dimQ (s + 1) *
+          lineSum (lagCorr (blockWeight k) N) s)) := by
+      refine Q'.eqv_trans _
+        (q * (dimQ (s + 1) * physicalLowShiftSum k N s s +
+          dimQ (s + 1) * physicalHighShiftSum k N s s)) _ ?_ ?_
+      · simpa only [lowR, highR] using
+          Q'.eqv_symm (Q'.mul_add_eqv q
+            (dimQ (s + 1) * physicalLowShiftSum k N s s)
+            (dimQ (s + 1) * physicalHighShiftSum k N s s))
+      · apply Q'.mul_eqv_congr_left q
+        refine Q'.eqv_trans _
+          (dimQ (s + 1) *
+            (physicalLowShiftSum k N s s +
+              physicalHighShiftSum k N s s)) _
+          (Q'.eqv_symm (Q'.mul_add_eqv (dimQ (s + 1)) _ _)) ?_
+        apply Q'.mul_eqv_congr_left (dimQ (s + 1))
+        exact Q'.eqv_symm (lineSum_eq_physicalLow_add_high k N s s)
+    exact Q'.le_trans' _ _ _ (Q'.le_of_eqv eleft)
+      (Q'.le_trans' _ _ _ hbalance (Q'.le_of_eqv eright))
+
+/-- Conversely, the line-sum ratio supplies exactly the debt/reserve
+comparison.  Thus this carrier loses no analytic content; it only exposes
+where the cancellation lives. -/
+def P2PhysicalLowHighReserve.ofLineSum {k N : Nat}
+    (T : P2HalfTimeLineSumTailRatio N (blockWeight k)) :
+    P2PhysicalLowHighReserve k N where
+  reserve := fun s hs hsN => by
+    let q := qpow (blockWeight k) (s + 2)
+    let lowL := dimQ s * physicalLowShiftSum k N s (s + 1)
+    let lowR := q * (dimQ (s + 1) * physicalLowShiftSum k N s s)
+    let highL := dimQ s * physicalHighShiftSum k N s (s + 1)
+    let highR := q * (dimQ (s + 1) * physicalHighShiftSum k N s s)
+    have eleft :
+        (dimQ s * lineSum (lagCorr (blockWeight k) N) (s + 1)).eqv
+          (lowL + highL) := by
+      refine Q'.eqv_trans _
+        (dimQ s * (physicalLowShiftSum k N s (s + 1) +
+          physicalHighShiftSum k N s (s + 1))) _
+        (Q'.mul_eqv_congr_left (dimQ s) _ _
+          (lineSum_eq_physicalLow_add_high k N s (s + 1))) ?_
+      simpa only [lowL, highL] using Q'.mul_add_eqv (dimQ s)
+        (physicalLowShiftSum k N s (s + 1))
+        (physicalHighShiftSum k N s (s + 1))
+    have eright : (lowR + highR).eqv
+        (q * (dimQ (s + 1) *
+          lineSum (lagCorr (blockWeight k) N) s)) := by
+      refine Q'.eqv_trans _
+        (q * (dimQ (s + 1) * physicalLowShiftSum k N s s +
+          dimQ (s + 1) * physicalHighShiftSum k N s s)) _ ?_ ?_
+      · simpa only [lowR, highR] using
+          Q'.eqv_symm (Q'.mul_add_eqv q
+            (dimQ (s + 1) * physicalLowShiftSum k N s s)
+            (dimQ (s + 1) * physicalHighShiftSum k N s s))
+      · apply Q'.mul_eqv_congr_left q
+        refine Q'.eqv_trans _
+          (dimQ (s + 1) *
+            (physicalLowShiftSum k N s s +
+              physicalHighShiftSum k N s s)) _
+          (Q'.eqv_symm (Q'.mul_add_eqv (dimQ (s + 1)) _ _)) ?_
+        apply Q'.mul_eqv_congr_left (dimQ (s + 1))
+        exact Q'.eqv_symm (lineSum_eq_physicalLow_add_high k N s s)
+    have hbalance : lowL + highL <= lowR + highR :=
+      Q'.le_trans' _ _ _ (Q'.ge_of_eqv eleft)
+        (Q'.le_trans' _ _ _ (T.tail s hs hsN) (Q'.ge_of_eqv eright))
+    simpa only [physicalLowShiftDebt, physicalHighShiftReserve,
+      lowL, lowR, highL, highR, q] using
+        debt_le_reserve_of_balance hbalance
+
+/-- Schedule-wide sharp reserve data beginning at the first unchecked
+physical scale. -/
+structure BlockCompatibleP2LowHighReserveFromFour : Type where
+  reserve : forall k, 4 <= k ->
+    P2PhysicalLowHighReserve k (blockNcut k)
+
+/-- Schedule-wide local-atom certificate family. -/
+structure BlockCompatibleP2LocalReserveFromFour : Type where
+  cert : forall k, 4 <= k ->
+    P2PhysicalLocalReserveCertificate k (blockNcut k)
+
+/-- Schedule-wide exact full-local-reserve family. -/
+structure BlockCompatibleP2FullLocalReserveFromFour : Type where
+  cert : forall k, 4 <= k ->
+    P2PhysicalFullLocalReserveCertificate k (blockNcut k)
+
+/-- Schedule-wide integer-sign version of the full-local-reserve family. -/
+structure BlockCompatibleP2FullLocalNumeratorFromFour : Type where
+  cert : forall k, 4 <= k ->
+    P2PhysicalFullLocalNumeratorCertificate k (blockNcut k)
+
+def BlockCompatibleP2LocalReserveFromFour.toReserve
+    (T : BlockCompatibleP2LocalReserveFromFour) :
+    BlockCompatibleP2LowHighReserveFromFour where
+  reserve := fun k hk => (T.cert k hk).toReserve
+
+def BlockCompatibleP2FullLocalNumeratorFromFour.toLocal
+    (T : BlockCompatibleP2FullLocalNumeratorFromFour) :
+    BlockCompatibleP2FullLocalReserveFromFour where
+  cert := fun k hk => (T.cert k hk).toLocal
+
+def BlockCompatibleP2FullLocalReserveFromFour.toLineSumTail
+    (T : BlockCompatibleP2FullLocalReserveFromFour) :
+    BlockCompatibleP2HalfTimeLineSumTailFromFour where
+  tail := fun k hk => (T.cert k hk).toLineSum
+
+def BlockCompatibleP2LowHighReserveFromFour.toLineSumTail
+    (T : BlockCompatibleP2LowHighReserveFromFour) :
+    BlockCompatibleP2HalfTimeLineSumTailFromFour where
+  tail := fun k hk => (T.reserve k hk).toLineSum
+
+/-- End-to-end compiler from the sharp debt/reserve comparison to the reviewed
+all-scale physical control family. -/
+def BlockCompatibleP2LowHighReserveFromFour.toControlFamily
+    (T : BlockCompatibleP2LowHighReserveFromFour) :
+    P2RetunedBlockingDictionary.P2RetunedControlFamily :=
+  T.toLineSumTail.toControlFamily
+
+def BlockCompatibleP2LocalReserveFromFour.toControlFamily
+    (T : BlockCompatibleP2LocalReserveFromFour) :
+    P2RetunedBlockingDictionary.P2RetunedControlFamily :=
+  T.toReserve.toControlFamily
+
+/-- End-to-end exact compiler from full local reserve signs to the reviewed
+all-scale physical control family. -/
+def BlockCompatibleP2FullLocalReserveFromFour.toControlFamily
+    (T : BlockCompatibleP2FullLocalReserveFromFour) :
+    P2RetunedBlockingDictionary.P2RetunedControlFamily :=
+  T.toLineSumTail.toControlFamily
+
+/-- End-to-end proof-about-computation compiler from integer numerator signs
+to the reviewed all-scale physical control family. -/
+def BlockCompatibleP2FullLocalNumeratorFromFour.toControlFamily
+    (T : BlockCompatibleP2FullLocalNumeratorFromFour) :
+    P2RetunedBlockingDictionary.P2RetunedControlFamily :=
+  T.toLocal.toControlFamily
+
+/-- A stronger compatibility input which forces the low prefix to close on
+its own.  It is sufficient, but the sharp active carrier above permits the
+necessary low/high cancellation. -/
 structure P2PhysicalLowShiftPrefixRatio (k N : Nat) : Type where
   low : forall s, 1 <= s -> s < 2 * N ->
     dimQ s * physicalLowShiftSum k N s (s + 1) <=
@@ -724,21 +1324,20 @@ def P2PhysicalLowShiftPrefixRatio.toLineSum {k N : Nat}
     exact Q'.le_trans' _ _ _ (Q'.le_of_eqv eleft)
       (Q'.le_trans' _ _ _ hsum (Q'.le_of_eqv eright))
 
-/-- The remaining schedule-wide input after the canonical high-shift sector
-has been physically discharged. -/
+/-- Schedule-wide version of the stronger independent-low-prefix input.  The
+active sharp route is `BlockCompatibleP2LowHighReserveFromFour`. -/
 structure BlockCompatibleP2LowShiftPrefixFromFour : Type where
   low : forall k, 4 <= k ->
     P2PhysicalLowShiftPrefixRatio k (blockNcut k)
 
-/-- The strict low-shift residual compiles back to the reviewed schedule-wide
-line-sum input. -/
+/-- The stronger independent-low-prefix input compiles back to the reviewed
+schedule-wide line-sum input. -/
 def BlockCompatibleP2LowShiftPrefixFromFour.toLineSumTail
     (T : BlockCompatibleP2LowShiftPrefixFromFour) :
     BlockCompatibleP2HalfTimeLineSumTailFromFour where
   tail := fun k hk => (T.low k hk).toLineSum
 
-/-- End-to-end: paying only the low-shift prefix now reaches the reviewed
-all-scale canonical control family. -/
+/-- End-to-end compatibility compiler for the stronger low-prefix route. -/
 def BlockCompatibleP2LowShiftPrefixFromFour.toControlFamily
     (T : BlockCompatibleP2LowShiftPrefixFromFour) :
     P2RetunedBlockingDictionary.P2RetunedControlFamily :=
@@ -762,6 +1361,7 @@ end YMGap.Continuum.P2HalfTimeShiftTail
 #print axioms YMGap.Continuum.P2HalfTimeShiftTail.truncatedStrandTerm_eq_cutoffProduct
 #print axioms YMGap.Continuum.P2HalfTimeShiftTail.lineSum_eq_cutoffShiftRows
 #print axioms YMGap.Continuum.P2HalfTimeShiftTail.autoRow_succ_weighted
+#print axioms YMGap.Continuum.P2HalfTimeShiftTail.autoRowReserve_eq_stepSum
 #print axioms YMGap.Continuum.P2HalfTimeShiftTail.autoRow_succ_le_of_step
 #print axioms YMGap.Continuum.P2HalfTimeShiftTail.coeffW_succ_le_physical_halfTime
 #print axioms YMGap.Continuum.P2HalfTimeShiftTail.cutoffCoeff_step_physical_of_payment
@@ -770,6 +1370,26 @@ end YMGap.Continuum.P2HalfTimeShiftTail
 #print axioms YMGap.Continuum.P2HalfTimeShiftTail.cutoffShiftRow_physical_halfTime_tail
 #print axioms YMGap.Continuum.P2HalfTimeShiftTail.lineSum_eq_physicalLow_add_high
 #print axioms YMGap.Continuum.P2HalfTimeShiftTail.physicalHighShiftSum_halfTime
+#print axioms YMGap.Continuum.P2HalfTimeShiftTail.physicalHighShiftReserve_nonneg
+#print axioms YMGap.Continuum.P2HalfTimeShiftTail.physicalHighShiftRowReserve_eq_stepSum
+#print axioms YMGap.Continuum.P2HalfTimeShiftTail.physicalHighShiftRowReserve_nonneg
+#print axioms YMGap.Continuum.P2HalfTimeShiftTail.physicalHighShiftRowReserveSum_eq_local
+#print axioms YMGap.Continuum.P2HalfTimeShiftTail.physicalHighShiftRowReserveSum_eq_reserve
+#print axioms YMGap.Continuum.P2HalfTimeShiftTail.physicalFullRowReserveSum_eq_local
+#print axioms YMGap.Continuum.P2HalfTimeShiftTail.physicalFullRowReserveSum_eq_lineReserve
+#print axioms YMGap.Continuum.P2HalfTimeShiftTail.physicalFullLocalReserveSum_eq_lineReserve
+#print axioms YMGap.Continuum.P2HalfTimeShiftTail.P2PhysicalFullLocalReserveCertificate.toLineSum
+#print axioms YMGap.Continuum.P2HalfTimeShiftTail.P2PhysicalFullLocalReserveCertificate.ofLineSum
+#print axioms YMGap.Continuum.P2HalfTimeShiftTail.physicalFullLocalReserveAt_sound
+#print axioms YMGap.Continuum.P2HalfTimeShiftTail.P2PhysicalFullLocalNumeratorCertificate.toLocal
+#print axioms YMGap.Continuum.P2HalfTimeShiftTail.P2PhysicalLocalReserveCertificate.toReserve
+#print axioms YMGap.Continuum.P2HalfTimeShiftTail.P2PhysicalLowHighReserve.toLineSum
+#print axioms YMGap.Continuum.P2HalfTimeShiftTail.P2PhysicalLowHighReserve.ofLineSum
+#print axioms YMGap.Continuum.P2HalfTimeShiftTail.BlockCompatibleP2LowHighReserveFromFour.toLineSumTail
+#print axioms YMGap.Continuum.P2HalfTimeShiftTail.BlockCompatibleP2LowHighReserveFromFour.toControlFamily
+#print axioms YMGap.Continuum.P2HalfTimeShiftTail.BlockCompatibleP2LocalReserveFromFour.toControlFamily
+#print axioms YMGap.Continuum.P2HalfTimeShiftTail.BlockCompatibleP2FullLocalReserveFromFour.toControlFamily
+#print axioms YMGap.Continuum.P2HalfTimeShiftTail.BlockCompatibleP2FullLocalNumeratorFromFour.toControlFamily
 #print axioms YMGap.Continuum.P2HalfTimeShiftTail.P2PhysicalLowShiftPrefixRatio.toLineSum
 #print axioms YMGap.Continuum.P2HalfTimeShiftTail.BlockCompatibleP2LowShiftPrefixFromFour.toLineSumTail
 #print axioms YMGap.Continuum.P2HalfTimeShiftTail.BlockCompatibleP2LowShiftPrefixFromFour.toControlFamily
