@@ -1275,6 +1275,35 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   carrier honestly remains at `s+9<2*N_k`.  Gates are
   `[propext, Quot.sound]` or smaller.
 
+### [R4z-endpoint-support-compiler] All-depth endpoint support compiler — **CLOSED 2026-08-06**
+
+- **milestone**: FrontierDAG bucket 1 / proof-about-computation coefficient route.
+- **file**: `lean/YMGap/Continuum/P2HalfTimeEndpointSupportCompiler.lean`
+- **decl**: `endpointDirectBox_eq_endpointBoxExpr`,
+  `boxSum_top_endpointDirect`, `boxSum_top_endpoint`
+- **obligation**: Replace the shell-by-shell sharp-cutoff Clebsch support
+  tables by one theorem valid at every endpoint depth `m<=N`.
+- **constructive?**: yes — finite coordinate reversal, the proved support
+  classifier, and exact reflected-polynomial evaluation.
+- **status note**: the support side of every later endpoint shell is now a
+  theorem schema rather than an enumeration.  Exported gates are
+  `[propext, Quot.sound]` or smaller.
+
+### [R4aa-half-time-tenth-shell] Tenth boundary shell — **CLOSED 2026-08-06**
+
+- **milestone**: FrontierDAG bucket 1 / half-time physical coefficient route.
+- **file**: `lean/YMGap/Continuum/P2HalfTimeTenthShell.lean`
+- **decl**: `physical_tenth_coeff_descending`, `tenthEndpointBoxRatio`,
+  `physical_halfTime_lineSum_tenth_from_four`
+- **obligation**: Remove the `s=2*N_k-10` shell from the all-scale full-local
+  reserve carrier using the new all-depth compilers.
+- **constructive?**: yes — a closed depth-ten reflected certificate, generic
+  support reindex, physical coefficient descent, heat-floor transport, and
+  exact box-to-line transport.
+- **status note**: the common compiled carrier now assumes reserve signs only
+  for `k>=4`, `2<=s`, and `s+10<2*N_k`.  The deeper interior family remains
+  open.  All closed gates are `[propext, Quot.sound]`.
+
 ## How to add an entry
 
 ```markdown

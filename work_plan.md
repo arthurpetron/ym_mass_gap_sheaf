@@ -20134,3 +20134,39 @@ carrier remains
 ```text
 k >= 4,  2 <= s,  s + 9 < 2*N_k.
 ```
+
+## 81. Compiler-driven tenth half-time boundary shell (2026-08-06)
+
+**Status. THE `s=2*N_k-10` SHELL IS DISCHARGED FOR EVERY `k>=4`; THE OPEN
+PURE-NAT FAMILY MOVES A TENTH ROW BELOW THE CUTOFF WITHOUT A NEW SUPPORT OR
+SLACK TABLE.**
+
+`P2HalfTimeEndpointSupportCompiler` proves at arbitrary endpoint depth `m<=N`
+that the exact sharp-cutoff box is the generated endpoint expression:
+
+```text
+boxSum(w,N,2*N-m) = endpointBoxExpr(w,N,m).
+```
+
+The proof reverses the cutoff coordinates once and uses the already proved
+Clebsch support classifier, so future endpoint shells no longer require
+hand-enumerated support.  The prefix form of the reflected ratio compiler
+then consumes only the first eleven nonnegative endpoint increments and the
+closed depth-ten certificate `6*E_9 <= 5*E_10`.
+
+`P2HalfTimeTenthShell` supplies the remaining physical facts: the schedule
+descent `c_(N-9) <= c_(N-10)`, monotone transport of the ninth-shell
+`5/6` heat floor to exponent `2*N-8`, and exact box-to-line reindexing.  The
+common physical compiler now assumes exactly
+
+```text
+k >= 4,  2 <= s,  s + 10 < 2*N_k
+```
+
+for its remaining full-local natural-number reserve signs.  The focused
+tenth-shell target passes at 441 monitored jobs and the common-carrier target
+passes at 671 jobs.  Every exported load-bearing gate reports only
+`[propext, Quot.sound]`.  The deeper interior signs, theta trapezoid/fine
+reserve, later FrontierDAG atoms, physical recursion, and the constructive
+continuum Yang--Mills target remain open.  No full audit, remote push, or
+GitHub CI run was used.

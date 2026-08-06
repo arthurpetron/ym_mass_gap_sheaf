@@ -619,6 +619,23 @@ schedule-specific coefficient descent, and heat transport remain the active
 bridge.  Consequently the honest physical carrier still stops at
 `s+9<2*N_k`.  No full audit, remote push, or GitHub CI run was used.
 
+## Compiler-driven tenth physical half-time shell (2026-08-06)
+
+The endpoint-shell route now has both halves of a scalable compiler.  The
+new all-depth support theorem identifies every sharp-cutoff endpoint box with
+the generated reflected expression, while the prefix certificate theorem
+consumes only the endpoint increments needed at the requested depth.  At
+depth ten, Lean checks `6*E_9 <= 5*E_10` without a handwritten support list or
+slack polynomial.
+
+The physical bridge proves `c_(N-9) <= c_(N-10)`, transports the `5/6` heat
+floor to exponent `2*N-8`, and carries the result through the exact
+box/line-sum reindex.  The common physical carrier is kernel-checked with the
+strictly smaller residual domain `k>=4`, `2<=s`, `s+10<2*N_k`; all exported
+gates are `[propext, Quot.sound]`.  The deeper interior reserve, theta tail,
+and later constructive Yang--Mills layers remain open.  No full audit,
+remote push, or GitHub CI run was used.
+
 ## Dead routes (refuted — do not re-attempt)
 
 - **`Var_m(cosθ)` monotonicity → uniform-in-`m`** — REFUTED (`VarianceMonotonicity.lean`,

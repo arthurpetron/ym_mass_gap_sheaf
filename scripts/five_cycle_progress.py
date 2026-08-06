@@ -358,6 +358,16 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
                     "        |     +-- [x] endpoint-ratio proof compiler "
                     f"{parameters['physical_coeff_endpoint_ratio_compiler']}"
                 )
+            if parameters.get("physical_coeff_endpoint_support_compiler"):
+                lines.append(
+                    "        |     +-- [x] endpoint-support proof compiler "
+                    f"{parameters['physical_coeff_endpoint_support_compiler']}"
+                )
+            if parameters.get("physical_coeff_half_time_tenth_discharged"):
+                lines.append(
+                    "        |     +-- [x] half-time tenth shell "
+                    f"{parameters['physical_coeff_half_time_tenth_discharged']}"
+                )
             if parameters.get("physical_coeff_half_time_frontier"):
                 lines.append(
                     "        |     +-- [>] half-time reserve frontier "
