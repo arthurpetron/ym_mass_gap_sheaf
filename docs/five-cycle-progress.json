@@ -69,7 +69,7 @@
     "physical_coeff_half_time_heads": "exact sparse k=[4,5,6,7] + symbolic Dirichlet-energy k>=8",
     "physical_coeff_half_time_turan_compiler": "two consecutive w rows -> odd w^2 row by positive-overlap cancellation",
     "physical_coeff_half_time_turan_obstruction": "premise is kernel-refuted already at physical k=4,t=1; compression theorem retained, false carrier abandoned",
-    "physical_coeff_half_time_nat_frontier": "one full-local integer reserve sign for k>=4, 2<=s, and s+4<2*N_k",
+    "physical_coeff_half_time_nat_frontier": "one full-local integer reserve sign for k>=4, 2<=s, and s+5<2*N_k",
     "physical_coeff_strand_reindex": "exact boxSum = lineSum(lagCorr) for every N,t,w",
     "physical_coeff_high_shift_tail": "all rows r>=ceil((5*2^k+s)/2), aggregated at every cutoff",
     "physical_coeff_half_time_balance": "exact line-sum <-> full local double sum + one integer sign/channel",
@@ -78,8 +78,9 @@
     "physical_coeff_half_time_penultimate_discharged": "s=2*N_k-2 for every physical k>=4",
     "physical_coeff_half_time_antepenultimate_discharged": "s=2*N_k-3 for every physical k>=4",
     "physical_coeff_half_time_fourth_discharged": "s=2*N_k-4 for every physical k>=4",
+    "physical_coeff_half_time_fifth_discharged": "s=2*N_k-5 for every physical k>=4",
     "physical_coeff_half_time_interior_frontier": true,
-    "physical_coeff_half_time_frontier": "deep-interior reserve numerator >= 0 for k>=4, 2<=s, s+4<2*N_k",
+    "physical_coeff_half_time_frontier": "deep-interior reserve numerator >= 0 for k>=4, 2<=s, s+5<2*N_k",
     "physical_theta_tail_start": 8,
     "physical_pins_head_free": true,
     "frontier_bucket1_atoms": [
@@ -88,7 +89,7 @@
       "physical fractional-6j pentagon associator",
       "Core-B finite-s margin [closed] + forward bridge [open]"
     ],
-    "current_frontier_atom": "bulkCtrl -- the physical pGamma=2 coefficient campaign now has a single honest compiled carrier. Exact prefix cells close k=0..3; the physical half-time head s=1 is discharged for every k>=4; and the four terminal shells s=2*N_k-1 through s=2*N_k-4 are discharged by constant-cost top-box, Bernoulli, coefficient-descent, and reflective polynomial arguments. The proposed fixed-w one-row strong-Turan shortcut is constructively refuted at k=4,t=1 and retired. The remaining coefficient input is exactly one full-local natural-number reserve sign for each deeper interior cell k>=4, 2<=s, s+4<2*N_k. That boundary-reduced family compiles to the reviewed all-cutoff CanonicalBulkControl family and the same selected spectrum, finePin, imagePin, and genuine BlockingStep.Phi defect-power trajectory. The independent theta input remains the uniform k>=8 trapezoid exchange and fine-reserve transport; later Bucket-1 atoms and the physical-margin recursion remain open.",
+    "current_frontier_atom": "bulkCtrl -- the physical pGamma=2 coefficient campaign now has a single honest compiled carrier. Exact prefix cells close k=0..3; the physical half-time head s=1 is discharged for every k>=4; and the five terminal shells s=2*N_k-1 through s=2*N_k-5 are discharged by constant-cost top-box, Bernoulli, coefficient-descent, and reflective polynomial arguments. The proposed fixed-w one-row strong-Turan shortcut is constructively refuted at k=4,t=1 and retired. The remaining coefficient input is exactly one full-local natural-number reserve sign for each deeper interior cell k>=4, 2<=s, s+5<2*N_k. That boundary-reduced family compiles to the reviewed all-cutoff CanonicalBulkControl family and the same selected spectrum, finePin, imagePin, and genuine BlockingStep.Phi defect-power trajectory. The independent theta input remains the uniform k>=8 trapezoid exchange and fine-reserve transport; later Bucket-1 atoms and the physical-margin recursion remain open.",
     "frontier_supporting_discharged": [
       "physical k>=8 retuned-head boundary: exact D_k/cutoff coordinate, constant-cost 34-block Bernoulli endpoint floor, cubic debt cap, reciprocal-Bernoulli terminal descent, and genuine headBoundary payment kernel-checked",
       "physical k>=8 all-cutoff head: constant-size forward, exceptional first-interior, broad-interior, and terminal stencils sum by exact Dirichlet double counting to the weighted-box head consumer; no coefficient enumeration; all gates [propext,Quot.sound]",
@@ -101,7 +102,7 @@
       "physical high-shift half-time tail: reciprocal Bernoulli and an exact weighted-successor identity prove every sharp-cutoff row r>=ceil((5*2^k+s)/2), sum those rows, and compile any certificate for the remaining strict low-shift prefix back to the reviewed all-scale control family; the removed tail is nonempty in channel one at every physical scale; all gates [propext,Quot.sound]",
       "sharp half-time debt/reserve normalization: the physical line-sum ratio is constructively equivalent in both directions to signed low-sector debt <= high-sector reserve; the reserve is exactly a finite sum of constant-shape row atoms, and the schedule-wide carrier compiles to reviewed all-scale control; reserve domination remains open; all gates [propext,Quot.sound]",
       "full aggregate proof-about-computation normal form: the original line-sum ratio is constructively equivalent in both directions to nonnegativity of one finite double sum over every row and local successor atom; positivity of its single integer numerator is sound and a schedule-wide numerator family compiles to reviewed all-scale control; the all-k sign theorem remains open; all gates [propext,Quot.sound]",
-      "physical half-time boundary shells: the mode-one head is checked for every k>=4; exact top-shell identities close s=2*N_k-1; a constant-cost three-box plus Bernoulli payment closes s=2*N_k-2; and the sound reflective polynomial normalizer certifies the successive endpoint factorizations closing s=2*N_k-3 and s=2*N_k-4 for every physical k>=4. The compiled carrier therefore assumes only 2<=s and s+4<2*N_k; all gates [propext,Quot.sound]",
+      "physical half-time boundary shells: the mode-one head is checked for every k>=4; exact top-shell identities close s=2*N_k-1; a constant-cost three-box plus Bernoulli payment closes s=2*N_k-2; and the sound reflective polynomial normalizer certifies the successive endpoint factorizations closing s=2*N_k-3, s=2*N_k-4, and s=2*N_k-5 for every physical k>=4. The compiled carrier therefore assumes only 2<=s and s+5<2*N_k; all gates [propext,Quot.sound]",
       "all-N post-boundary even/odd cleared-prefix reserve",
       "all-N UniformBoxLogConcave for every 0 <= w <= 1/2",
       "all-N endpoint S1Dominance at w = 1/2",

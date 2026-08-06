@@ -19927,3 +19927,39 @@ and common-carrier monitored targets pass; all exported gates report
 `[propext, Quot.sound]`.  The deeper interior signs, theta trapezoid/fine
 reserve, later FrontierDAG atoms, physical recursion, and the continuum
 Yang--Mills target remain open.
+
+## 75. Fifth half-time boundary shell (2026-08-06)
+
+**Status. THE `s=2*N_k-5` SHELL IS DISCHARGED FOR EVERY `k>=4`; THE OPEN
+PURE-NAT FAMILY MOVES A FIFTH ROW BELOW THE CUTOFF.**
+
+`P2HalfTimeFifthShell` extracts the exact twelve-pair support of
+`boxSum(w,N,2*N-5)` and compares it with the adjacent nine-pair box.  For
+descending endpoint coefficients `F >= E >= A >= X >= B >= C`, the sharp
+comparison is certified by
+
+```text
+3*V - 4*U
+  = 6*C*(B-C) + 4*C*(X-B) + 8*C*(A-X)
+    + 4*C*(E-A) + 6*C*(F-E)
+    + 2*(B-C)^2 + 8*(B-C)*(X-B)
+    + 4*(B-C)*(A-X) + 6*(B-C)*(E-A)
+    + 2*(X-B)^2 + 6*(X-B)*(A-X).
+```
+
+The reflected polynomial normalizer checks the identity without a growing
+rational expansion.  A new physical descent theorem establishes
+`c_(N-4) <= c_(N-5)`, while Bernoulli and the closed schedule coordinate give
+the sharp `3/4 <= w^(2*N-3)` floor.  Exact strand reindexing transports the
+box result to the line-sum carrier.  The common physical compiler now assumes
+exactly
+
+```text
+k >= 4,  2 <= s,  s + 5 < 2*N_k
+```
+
+for its remaining full-local natural-number reserve signs.  The focused shell
+and common-carrier monitored targets pass; every exported gate reports only
+`[propext, Quot.sound]`.  The deeper interior signs, theta trapezoid/fine
+reserve, later FrontierDAG atoms, physical recursion, and the constructive
+continuum Yang--Mills target remain open.
