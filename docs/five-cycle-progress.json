@@ -48,7 +48,7 @@
       "physical fractional-6j pentagon associator",
       "Core-B finite-s margin [closed] + forward bridge [open]"
     ],
-    "current_frontier_atom": "bulkCtrl -- the all-cutoff pGamma=2 first edge is discharged by an exact five-pair head plus log-concave infinite tail and terminal diagonal; canonical controls now consume only the dimension-weighted strong Turan family on 1<=s, propagated across the full 2N Clebsch support by a constructive positive-factor induction; w=11/12 retuned cells are kernel-checked through N=40; on the spectrum-defined separator finePin is definitional and imagePin follows from BlockingStep.step, leaving only the genuine adjacent-scale fusionPower identity",
+    "current_frontier_atom": "bulkCtrl -- the all-cutoff pGamma=2 first edge is discharged; canonical controls now consume only the dimension-weighted strong Turan family on 1<=s, with the canonical top shell reduced exactly to one/two/four Clebsch pairs and the full family propagated by constructive positive-factor induction; w=11/12 retuned cells are kernel-checked through N=40; on the spectrum-defined separator finePin is definitional and imagePin follows from BlockingStep.step, leaving only the genuine adjacent-scale fusionPower identity",
     "frontier_supporting_discharged": [
       "all-N post-boundary even/odd cleared-prefix reserve",
       "all-N UniformBoxLogConcave for every 0 <= w <= 1/2",
@@ -65,6 +65,7 @@
       "canonical pGamma=2 retune compiler: all-cutoff vacuum/fundamental closed, remaining adjacent coefficient ratios are division-free and telescope to zero-shift CanonicalBulkControl; reflective rational checker closes w=11/12 cutoffs 2..6 and 12; a proved common-denominator Nat reconstruction extends the genuine CanonicalBulkControl ladder through N=20 and N=40; full-support p2 coefficient positivity and a proof-about-computation compiler reduce the raw all-scale family to one s=1 edge plus the dimension-weighted strong Turan family on 1<=s; a second common-denominator soundness theorem checks this stronger structural route and produces genuine CanonicalBulkControl values at N=12 and N=40; the resulting coefficient family compiles definitionally to the reviewed dictionary",
       "all-cutoff channel-two formula: a constructive support classifier plus cutoff recurrence reduces the Clebsch double sum exactly to the positive diagonal and two distance-two bands; the only nontrivial rearrangement is certified by the proved reflective polynomial normalizer",
       "all-cutoff pGamma=2 first edge: five-pair exact head, two shifted Hankel/log-concavity tail ratios, and a terminal diagonal bound discharge the exceptional s=1 premise for every N; the CanonicalBulkControl compiler now consumes only the uniform strong-Turan tail",
+      "canonical top-shell formulas: at every cutoff N the p=2 coefficients in modes 2N, 2N-1, and 2N-2 are reconstructed from exactly one, two, and four Clebsch pairs, eliminating all finite sums from the boundary strong-Turan atom",
       "spectrum-defined separator discharges finePin definitionally and imagePin from BlockingStep.step; the one-pin fusionPower transport reaches PhysicalRGInput and CRealFloor while the genuine adjacent-scale fusionPower theorem remains explicit"
     ],
     "frontier_discharged_atoms": [
@@ -73,7 +74,7 @@
       "coreB -- FiniteSMargin for every 0 <= w <= 1/2"
     ],
     "frontier_open_atoms": [
-      "bulkCtrl -- pGamma=2 all-cutoff compiler, proved common-denominator finite ladder through N=40, symbolic channel-two band formula, and all-N s=1 edge closed; only the dimension-weighted strong-Turan family remains open",
+      "bulkCtrl -- pGamma=2 all-cutoff compiler, proved common-denominator finite ladder through N=40, symbolic channel-two band formula, all-N s=1 edge, and exact canonical top-shell formulas closed; the dimension-weighted strong-Turan inequalities remain open",
       "tTree -- 4D spanning-tree inequality",
       "d1Mayer -- absolute Mayer--Ursell expansion",
       "a2Pentagon -- physical fractional-6j associator",
