@@ -938,6 +938,34 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 - **must not be closed classically**: per AGENTS.md Rule 6 — and
   isn't.  All 13 Lean exports are axiom-free.
 
+### [R3k-parity] Block-compatible dyadic parity transport — **OPEN**
+
+- **milestone**: FrontierDAG bucket 1 / physical pGamma=2 mode-one transport.
+- **file**: `lean/YMGap/Continuum/P2BlockCompatibleThetaParityTransport.lean`
+- **decl**: `BlockCompatibleP2DyadicParityTransport`
+- **obligation**: Inhabit the schedule-specific same-cutoff
+  `coarseFourthPower` inequality and the fine even/odd `fineSubdivision`
+  inequality for every `k >= 4`.
+- **constructive?**: yes — both are finite `Q'` inequalities.  The checked
+  compiler uses exact dyadic finite-sum reconstruction, positive
+  cancellation, and the proved reflective polynomial normalizer.
+- **status note**: the former single cross-cutoff Pascal-residual atom has been
+  split into these two smaller local atoms.  The even-node factor four and the
+  implication to the genuine `BlockingStep.Phi` defect-power law are closed;
+  no inhabitant of either analytic premise is claimed.
+- **axiom gate (closed compiler)**: `[propext, Quot.sound]` only.
+
+### [R3k-box] All-scale weighted-box strong-Turan family — **OPEN**
+
+- **milestone**: FrontierDAG bucket 1 / all-cutoff CanonicalBulkControl.
+- **file**: `lean/YMGap/Continuum/P2BlockCompatibleStrongTuranBridge.lean`
+- **decl**: `BlockCompatibleP2BoxStrongTuranData`
+- **obligation**: Prove the weighted Clebsch-box strong-Turan seed and step at
+  every cutoff in the physical replacement schedule.
+- **constructive?**: yes — the downstream Nat-induction compiler and exact
+  Peter--Weyl reconstruction are already kernel-checked.
+- **status note**: remains independent of the parity-transport pair above.
+
 ## How to add an entry
 
 ```markdown

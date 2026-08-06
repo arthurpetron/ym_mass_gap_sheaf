@@ -2303,6 +2303,8 @@ import YMGap.Continuum.P2BlockCompatibleModeOneCross
 import YMGap.Continuum.P2BlockCompatibleThetaCross
 import YMGap.Continuum.P2BlockCompatibleThetaDeficit
 import YMGap.Continuum.P2BlockCompatibleThetaPascal
+import YMGap.Continuum.P2BlockCompatibleThetaDyadic
+import YMGap.Continuum.P2BlockCompatibleThetaParityTransport
 import YMGap.Continuum.P2BlockCompatibleStrongTuranBridge
 import YMGap.Continuum.P2DyadicPhysicalMarginTransport
 import YMGap.Continuum.P2RetunedFusionRunningCell

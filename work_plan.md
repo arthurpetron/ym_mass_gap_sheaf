@@ -19210,3 +19210,53 @@ Focused monitored builds pass for both
 `P2BlockCompatibleStrongTuranBridge` (399 jobs).  Every new gate reports only
 `[propext, Quot.sound]`; no `sorryAx`, classical choice, `native_decide`, custom
 axiom, noncomputable declaration, or unmonitored Lean command is present.
+
+## 55. Dyadic parity transport and physical-frontier repoint (2026-08-06)
+
+**Status. GLOBAL PASCAL ATOM SPLIT INTO TWO LOCAL TRANSPORT ATOMS; BOTH OPEN.**
+
+The changing-cutoff Pascal residual has been decomposed along the exact
+physical recursion `N_(k+1)=2*N_k+1`.  `P2BlockCompatibleThetaDyadic` proves
+the constructive even/odd finite-sum split and reconstructs the global Pascal
+residual as a sum of dyadic two-cell contributions plus its terminal endpoint.
+No canonical expansion is evaluated.
+
+`P2BlockCompatibleThetaParityTransport` introduces the fine even mass `E_k`,
+fine odd mass `O_k`, and the internal even-subsequence cross term `C_k`.  It
+proves
+
+```text
+I_(k+1) = E_k + O_k,
+E_k = 4 I(w_(k+1)^4, N_k),
+C_k = 4 w_(k+1)^4 H(w_(k+1)^4, N_k),
+```
+
+and uses a proved reflective polynomial normalizer to compile the two local
+inequalities
+
+```text
+(w_k H_k) I(w_(k+1)^4,N_k)
+  <= I_k (w_(k+1)^4 H(w_(k+1)^4,N_k)),
+
+I_(k+1) (E_k+C_k)
+  <= 2 E_k (w_(k+1) H_(k+1))
+```
+
+to the exact normalized half-contraction
+
+```text
+2 I_k T_(k+1) <= T_k I_(k+1).
+```
+
+The first premise deliberately retains the exact schedule-specific pair
+`w_k` and `w_(k+1)^4`: generic fixed-cutoff weight monotonicity is not assumed.
+The factor-four even-node rescaling is proved and removed from the frontier.
+`BlockCompatibleP2PhysicalFrontierAtoms` now consumes this parity transport
+instead of the single cumulative Pascal-residual field and still compiles to
+the genuine `BlockingStep.Phi` defect-power trajectory theorem.
+
+Focused monitored builds pass for the dyadic decomposition (398 jobs), parity
+transport (399 jobs), and downstream strong-Turan bridge (401 jobs).  The new
+declarations report only `[propext]` or `[propext, Quot.sound]`.  Neither local
+inequality is claimed inhabited; the all-scale weighted-box strong-Turan
+family also remains open.
