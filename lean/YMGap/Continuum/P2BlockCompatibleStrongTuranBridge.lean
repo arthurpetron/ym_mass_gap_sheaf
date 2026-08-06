@@ -21,7 +21,7 @@ Pure structure compilation and the existing Nat induction.  No `Classical`,
 `native_decide`, `sorry`, custom axiom, or noncomputable declaration.
 -/
 
-import YMGap.Continuum.P2BlockCompatibleThetaDeficit
+import YMGap.Continuum.P2BlockCompatibleThetaPascal
 import YMGap.Continuum.P2RetunedStrongTuranCompiler
 
 namespace YMGap.Continuum.P2BlockCompatibleStrongTuranBridge
@@ -35,6 +35,7 @@ open YMGap.Continuum.P2BlockCompatibleModeOneCross
 open YMGap.Continuum.P2BlockCompatibleSchedule
 open YMGap.Continuum.P2BlockCompatibleThetaCross
 open YMGap.Continuum.P2BlockCompatibleThetaDeficit
+open YMGap.Continuum.P2BlockCompatibleThetaPascal
 open YMGap.Continuum.P2RetunedBlockingDictionary
 open YMGap.Continuum.P2RetunedFusionDefectPower
 open YMGap.Continuum.P2RetunedFusionPhysicalMode
@@ -85,13 +86,13 @@ def BlockCompatibleP2BoxStrongTuranData.toCoeffTailData
 /-! ## 2. The two canonical physical frontier atoms -/
 
 /-- The complete remaining input boundary for the present p=2 physical
-bridge: weighted-box strong Turan at every scale, and the additive finite-
-theta deficit recursion for the normalized mode-one cross comparison.  The
-latter preserves cancellation because the crude unnormalized endpoint-
-Lipschitz route is provably too large. -/
+bridge: weighted-box strong Turan at every scale, and the reduced cross-cutoff
+Pascal-residual recursion for the normalized mode-one comparison.  The exact
+quarter schedule supplies a proved five-unit scalar reserve; only transport
+of the finite cumulative residual remains named-open. -/
 structure BlockCompatibleP2PhysicalFrontierAtoms : Type where
   coefficient : BlockCompatibleP2BoxStrongTuranData
-  thetaDeficit : BlockCompatibleP2ThetaDeficitHalfContraction
+  thetaPascal : BlockCompatibleP2PascalResidualHalfContraction
 
 def BlockCompatibleP2PhysicalFrontierAtoms.coeffTailData
     (A : BlockCompatibleP2PhysicalFrontierAtoms) :
@@ -101,7 +102,8 @@ def BlockCompatibleP2PhysicalFrontierAtoms.coeffTailData
 def BlockCompatibleP2PhysicalFrontierAtoms.modeOneTailMonotonicity
     (A : BlockCompatibleP2PhysicalFrontierAtoms) :
     BlockCompatibleP2ModeOneTailMonotonicity :=
-  A.thetaDeficit.toThetaDeficitTail.toThetaCrossTail.toModeOneCrossTail
+  A.thetaPascal.toThetaDeficitHalfContraction.toThetaDeficitTail
+    |>.toThetaCrossTail.toModeOneCrossTail
     |>.toModeOneTailMonotonicity
 
 /-- The two frontier atoms compile all the way to the actual physical map:

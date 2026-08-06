@@ -124,6 +124,20 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `blockingStep.Φ` image pin, and the exact fusion power identity.  Its proved
   bridge reaches `PhysicalRGInput` and `CRealFloor`.  This strictly refines the
   earlier over-strong global `forall x : CReal` residual.
+- **2026-08-05 block-compatible all-scale refinement**:
+  the replacement schedule `N_(k+1)=2*N_k+1`,
+  `u_(k+1)=u_k/4` now compiles exact head cells through `k=3` and reduces the
+  `k>=4` normalized mode-one atom in two proved stages.  First,
+  `P2BlockCompatibleThetaDeficit` rewrites it as theta-deficit
+  half-contraction.  Then `P2BlockCompatibleThetaPascal` proves
+  `8*T_k=M_k*I_k+R_k`, proves the exact cubic margin profile, and establishes
+  the all-scale scalar reserve `5*u_k <= M_k-2*M_(k+1)`.  The canonical
+  `BlockCompatibleP2PhysicalFrontierAtoms` field is therefore strictly reduced
+  from the full half-contraction to the cross-cutoff cumulative Pascal-residual
+  transport.  The latter remains a genuine named Type-level analytic input;
+  no inhabitant is claimed.  In parallel, weighted-box strong Turan remains
+  the second named all-scale family.  Both compile to the actual
+  `BlockingStep.Phi` trajectory dictionary once supplied.
 - **honest residual**: this is still NOT an all-scale physical `pΓ >= 2`
   discharge.  The certificate *compiler* and one exact finite cell are closed,
   but the genuine physical certificate family across the RG trajectory remains

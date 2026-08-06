@@ -19160,3 +19160,53 @@ after memory recovery, the required one-worker retry.  Both were stopped cleanly
 at the 12 GiB operating-system reserve, with no Lean diagnostic.  The focused
 213-job dependency closure and 2,461-declaration axiom audit are therefore the
 verified boundary; no safety threshold was weakened.
+
+## 54. Block-compatible Pascal residual and scalar reserve (2026-08-05)
+
+**Status. ALGEBRAIC/SCALAR COMPILER CLOSED; TWO ALL-SCALE ANALYTIC FAMILIES OPEN.**
+
+The physical replacement schedule is now carried through the normalized
+mode-one comparison without the refuted endpoint-Lipschitz shortcut.  With
+
+```text
+I_k = integerThetaSum w_k N_k,
+T_k = I_k - w_k H_k,
+R_k = (1+w_k)^3 I_k - 8 w_k H_k,
+M_k = 8 - (1+w_k)^3,
+```
+
+`P2BlockCompatibleThetaPascal` proves the exact common-cutoff identity
+
+```text
+8*T_k = M_k*I_k + R_k.
+```
+
+A constant-size reflected polynomial certificate then compiles the normalized
+half-contraction from only
+
+```text
+2*I_k*R_(k+1)
+  <= (M_k-2*M_(k+1))*I_k*I_(k+1) + R_k*I_(k+1).
+```
+
+The scalar term is completely discharged.  The exact profile
+`M_k=u_k*(12-6*u_k+u_k^2)`, the physical quarter law
+`4*u_(k+1)=u_k`, and constructive order arithmetic prove uniformly
+
+```text
+5*u_k <= M_k - 2*M_(k+1).
+```
+
+Thus the named mode-one input is no longer the full theta-deficit
+half-contraction: it is only cross-cutoff transport of the finite cumulative
+Pascal residual.  `BlockCompatibleP2PhysicalFrontierAtoms` has been repointed
+to that strictly smaller field.  Together with the still-open all-scale
+weighted-box strong-Turan family, it compiles through the actual spectrum pins
+to `BlockingStep.Phi`, the defect-power trajectory law, and the half-loss
+bound.  No frontier atom is claimed inhabited.
+
+Focused monitored builds pass for both
+`P2BlockCompatibleThetaPascal` (397 jobs) and the downstream
+`P2BlockCompatibleStrongTuranBridge` (399 jobs).  Every new gate reports only
+`[propext, Quot.sound]`; no `sorryAx`, classical choice, `native_decide`, custom
+axiom, noncomputable declaration, or unmonitored Lean command is present.
