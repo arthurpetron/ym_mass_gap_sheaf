@@ -19574,3 +19574,37 @@ large cutoffs, below `32/75 = 0.42666...`; this is diagnostic only and shows
 that the proof must preserve roughly 1.6 percent slack.  The focused monitored
 Lean check passes with only `[propext]` or `[propext, Quot.sound]`.  No tail
 inhabitant or all-scale Yang--Mills claim is asserted.
+
+## 64. Diagonal AM--GM reduction of the terminal moment (2026-08-06)
+
+**Status. THE TERMINAL ADJACENT-PRODUCT MOMENT IS NOW PAID BY A PURELY
+DIAGONAL GAP ENVELOPE; THE RESULTING ALL-CUTOFF DIAGONAL INEQUALITY REMAINS
+OPEN.**
+
+`P2BlockCompatibleThetaTerminalMoment` rewrites each term of the low-weight
+Casimir-gap moment as its exact nonnegative gap times an adjacent coefficient
+product.  The constructive square inequality `2*x*y <= x^2+y^2`, applied
+before summation, then proves for every cutoff
+
+```text
+2 * terminalLowMoment(low,N)
+  <= terminalDiagGapEnvelope(low,N).
+```
+
+Positive-factor cancellation therefore replaces the terminal
+endpoint--moment field by the diagonal-only target
+
+```text
+terminalOuterFactor(w4,Nk) * terminalDiagGapEnvelope(w0,Nk)
+  <= (64/75) * Lk * D0 * D4.
+```
+
+This formulation has no adjacent products and is prepared for an exact
+finite-sum reindex into radial diagonal weights.  Its honest carrier still
+includes the nonpositive trapezoid exchange and independent fine even/odd
+reserve, and its checked compiler reaches the existing coefficient sandwich
+and genuine `BlockingStep.Phi` consumer.  Floating-point scouting suggests
+the normalized diagonal product approaches about `0.8393`, below
+`64/75 = 0.85333...`; this is diagnostic only.  No inhabitant of the diagonal
+field, trapezoid field, fine reserve, or all-scale Yang--Mills theorem is
+asserted.

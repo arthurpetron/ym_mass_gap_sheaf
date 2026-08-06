@@ -946,12 +946,14 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/P2BlockCompatibleThetaScaleInvariant.lean`,
   `lean/YMGap/Continuum/P2BlockCompatibleThetaDriftCross.lean`,
   `lean/YMGap/Continuum/P2BlockCompatibleThetaTrapezoidExchange.lean`,
-  `lean/YMGap/Continuum/P2BlockCompatibleThetaTerminalChord.lean`
+  `lean/YMGap/Continuum/P2BlockCompatibleThetaTerminalChord.lean`,
+  `lean/YMGap/Continuum/P2BlockCompatibleThetaTerminalMoment.lean`
 - **decl**: `BlockCompatibleP2NormalizedDeficitTailFromSeven`,
   `BlockCompatibleP2DimensionlessNormalizedTailFromSeven`,
   `BlockCompatibleP2DimensionlessDriftCrossTailFromSeven`,
   `BlockCompatibleP2TrapezoidExchangeTailFromSeven`,
-  `BlockCompatibleP2TerminalSeparatedTailFromSeven`
+  `BlockCompatibleP2TerminalSeparatedTailFromSeven`,
+  `BlockCompatibleP2TerminalDiagEnvelopeTailFromSeven`
 - **obligation**: Inhabit the two schedule-specific normalized-deficit
   inequalities for every `k >= 7`, including the explicit shared debt
   `delta_k=(1/360)8^(-k)`.
@@ -983,8 +985,11 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   mixed-power right rectangle.  Its remaining field is the product of one
   explicit high-weight terminal monomial and one low-weight Casimir-gap
   moment, bounded by `(32/75)*L*D0*D4`; no growing difference of powers or
-  scale-dependent drift remains in that atom.  The separated terminal bound,
-  trapezoid exchange, and fine reserve remain open.  These compile through
+  scale-dependent drift remains in that atom.  Constructive termwise AM--GM
+  further pays twice that adjacent-product moment by a purely diagonal
+  Casimir-gap envelope.  The terminal atom is thus reduced to the diagonal
+  product bound `outer*diagEnvelope <= (64/75)*L*D0*D4`.  The diagonal
+  terminal bound, trapezoid exchange, and fine reserve remain open.  These compile through
   the deficit-energy/SOS, dyadic parity, quotient, and genuine
   `BlockingStep.Phi` layers.  The remaining tail begins honestly at `k=7`;
   neither analytic field is claimed inhabited.
