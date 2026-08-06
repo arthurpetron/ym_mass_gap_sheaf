@@ -264,9 +264,14 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
                     "        |     +-- [x] exact strand A1 reindex "
                     f"{parameters['physical_coeff_strand_reindex']}"
                 )
+            if parameters.get("physical_coeff_high_shift_tail"):
+                lines.append(
+                    "        |     +-- [x] physical high-shift half-time tail "
+                    f"{parameters['physical_coeff_high_shift_tail']}"
+                )
             if parameters.get("physical_coeff_half_time_frontier"):
                 lines.append(
-                    "        |     +-- [>] adjacent half-time alternative "
+                    "        |     +-- [>] half-time low-shift residual "
                     f"{parameters['physical_coeff_half_time_frontier']}"
                 )
             lines.append(

@@ -1030,6 +1030,25 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   lag-correlation line-sum inequality (A3/physical half-time sign) remains an
   explicit open input; this entry does not claim it or a continuum margin.
 
+### [R4h-half-time-high-shift] Physical high-shift half-time sector — **CLOSED 2026-08-06**
+
+- **milestone**: FrontierDAG bucket 1 / half-time physical coefficient route.
+- **file**: `lean/YMGap/Continuum/P2HalfTimeShiftTail.lean`
+- **decl**: `physicalHighShiftSum_halfTime`
+- **obligation**: Decompose the sharp-cutoff lag-correlation line sum by
+  common shift and prove the physical half-time ratio for the aggregate of
+  every row `r >= ceil((5*2^k+s)/2)`.
+- **constructive?**: yes — an exact weighted-successor identity reduces each
+  row to one reciprocal-Bernoulli coefficient comparison; a pure-`Nat`
+  threshold payment proves it uniformly at every scale and cutoff.
+- **status note**: closed with axiom gate `[propext, Quot.sound]`.  The theorem
+  `P2PhysicalLowShiftPrefixRatio.toLineSum` proves that the remaining
+  schedule-wide input is exactly the prefix
+  `r < min(N+1,ceil((5*2^k+s)/2))`, and
+  `physical_mode_one_tail_nonempty` proves this is a strict reduction.  That
+  low prefix remains open; this entry does not claim the full all-scale
+  control family or a Yang--Mills mass gap.
+
 ## How to add an entry
 
 ```markdown

@@ -2342,6 +2342,7 @@ import YMGap.Continuum.P2BlockCompatibleScheduleClosed
 import YMGap.Continuum.P2BlockCompatibleIntegralTailCertificate
 import YMGap.Continuum.FusionStrandExactReindex
 import YMGap.Continuum.P2BlockCompatibleHalfTimeRatioCompiler
+import YMGap.Continuum.P2HalfTimeShiftTail
 import YMGap.Continuum.P2RetunedParityStrandCompiler
 import YMGap.Continuum.P2BlockCompatibleHeadLinearCertificate
 import YMGap.Continuum.P2BlockCompatibleHeadDirichletCompiler

@@ -553,6 +553,28 @@ field is the uniform energy comparison
 `3*dirichletEnergy <= 2*headTwoStepEnergy`; it is not being conflated with the
 completed boundary payment.
 
+## Physical half-time high-shift sector (2026-08-06)
+
+The schedule-native half-time route now has a strict analytic reduction, not
+just a change of coordinates.
+
+- The exact sharp-cutoff line sum is decomposed into common-shift
+  autoconvolution rows.
+- A generic proof-about-computation theorem turns the weighted successor
+  ratio of a whole row into one adjacent coefficient comparison.
+- Reciprocal Bernoulli pays that comparison for every
+  `r >= ceil((5*2^k+s)/2)` at every physical scale and cutoff.
+- The high-shift rows are summed constructively, and a certificate for only
+  the complementary low prefix compiles back through the reviewed
+  `CanonicalBulkControl` route.
+- The removed tail is provably nonempty in channel one at every scale, so the
+  new residual is genuinely smaller.  All exported gates are exactly
+  `[propext, Quot.sound]`.
+
+No full audit, remote push, or GitHub CI run was used.  The honest remaining
+half-time input is the low-shift prefix
+`r < min(N+1,ceil((5*2^k+s)/2))` for the physical `k >= 4` schedule.
+
 The first load-bearing energy atom is also now explicit:
 `P2BlockCompatibleHeadPhysicalEnergy.physical_coeff_reverse_curvature` proves
 for every `k>=8` and `s>=1` that
