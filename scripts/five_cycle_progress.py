@@ -213,7 +213,9 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
             lines.append(
                 "        |     +-- [>] exact coefficient tail "
                 f"k>={parameters['physical_coeff_tail_start']}"
-                + (" (pure-Nat odd/even cross family)"
+                + (" (pure-Nat one-row strong-Turan family)"
+                  if parameters.get("physical_coeff_half_time_turan_compiler")
+                  else " (pure-Nat odd/even cross family)"
                   if parameters.get("physical_coeff_transition_compiler") else "")
             )
             lines.append(
@@ -268,6 +270,11 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
                 lines.append(
                     "        |     +-- [x] heat-matched physical heads "
                     f"{parameters['physical_coeff_half_time_heads']}"
+                )
+            if parameters.get("physical_coeff_half_time_turan_compiler"):
+                lines.append(
+                    "        |     +-- [x] half-time Turan compression "
+                    f"{parameters['physical_coeff_half_time_turan_compiler']}"
                 )
             if parameters.get("physical_coeff_half_time_nat_frontier"):
                 lines.append(

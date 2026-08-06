@@ -82,6 +82,7 @@ def test_compact_work_guide_tracks_the_live_frontier() -> None:
     assert "[x] Fusion-spectrum/Phi trajectory dictionary theorem" in chart
     assert "[>] All-scale/cutoff CanonicalBulkControl family" in chart
     assert "[x] heat-matched parity automaton" in chart
+    assert "[x] half-time Turan compression" in chart
     assert "[>] heat-matched pure-Nat frontier" in chart
     assert "[>] Physical finePin + imagePin + fusionPower proofs" in chart
     assert "[ ] CONSTRUCTIVE 4D YANG--MILLS EXISTENCE + MASS GAP" in chart
