@@ -2271,6 +2271,7 @@ import YMGap.Continuum.PhysicalP2FiniteCertificate
 import YMGap.Continuum.FusionSpectrumBlockingIdentification
 import YMGap.Continuum.P2RetunedRatioCompiler
 import YMGap.Continuum.P2RetunedRatioCertificate
+import YMGap.Continuum.P2RetunedFenceIntegralCertificate
 import YMGap.Continuum.P2RetunedBlockingDictionary
 import YMGap.Continuum.FusionShiftMonotone
 import YMGap.Continuum.MeanComplementClose
