@@ -42,6 +42,7 @@ declaration.
 
 import YMGap.Continuum.FusedFundamentalDefectFreeRetune
 import YMGap.Continuum.RebasedBulkLocalizationBridge
+import YMGap.Continuum.FusionMarginMono
 
 namespace YMGap.Continuum.P2RetunedRatioCompiler
 
@@ -57,6 +58,7 @@ open YMGap.Continuum.FusionKernelStatement
 open YMGap.Continuum.FusedPeterWeylNormalization
 open YMGap.Continuum.FusedSpectralCarrierBridge
 open YMGap.Continuum.FusedFundamentalDefectFreeRetune
+open YMGap.Continuum.FusionMarginMono
 open YMGap.Continuum.PeterWeylRealWeight
 open YMGap.Continuum.RebasedBulkShift
 open YMGap.Continuum.RebasedExpShiftSupportReduction
@@ -127,6 +129,68 @@ structure P2RetunedTailRatio (N : Nat) (w : Q')
     p2VacNorm N hw0 hw1 (s + 1) <=
       qpow (p2RetunedWeight w) (2 * s + 3) *
         p2VacNorm N hw0 hw1 s
+
+/-- **Division-free reduced residual.**  This is the cross-multiplied form of
+`P2RetunedTailRatio`: the common positive vacuum mass has been canceled and
+only raw adjacent bond-moved coefficients remain. -/
+structure P2RetunedCoeffTailRatio (N : Nat) (w : Q')
+    (hw0 : (0 : Q') <= w) (hw1 : w <= (1 : Q')) : Type where
+  tail : forall s, 1 <= s -> s < 2 * N ->
+    dimQ s * bondMovedCoeff N w 2 (s + 1) <=
+      qpow (p2RetunedWeight w) (2 * s + 3) *
+        (dimQ (s + 1) * bondMovedCoeff N w 2 s)
+
+/-- The raw coefficient inequality implies the normalized adjacent-ratio
+inequality.  The proof multiplies by the nonnegative vacuum coefficient,
+reassociates the four factors, and applies constructive cross-quotient
+monotonicity. -/
+def p2TailRatio_of_coeffTail {N : Nat} {w : Q'}
+    (hw0 : (0 : Q') <= w) (hw1 : w <= (1 : Q'))
+    (T : P2RetunedCoeffTailRatio N w hw0 hw1) :
+    P2RetunedTailRatio N w hw0 hw1 where
+  tail := fun s hs1 hsN => by
+    let q := qpow (p2RetunedWeight w) (2 * s + 3)
+    let b0 := bondMovedCoeff N w 2 0
+    let bs := bondMovedCoeff N w 2 s
+    let bs1 := bondMovedCoeff N w 2 (s + 1)
+    have hb0 : (0 : Q') <= b0 := bondMovedCoeff_nonneg N hw0 2 0
+    have hscaled :
+        (dimQ s * bs1) * b0 <= (q * (dimQ (s + 1) * bs)) * b0 :=
+      Q'.mul_le_mul_of_nonneg_right _ _ _ (T.tail s hs1 hsN) hb0
+    have hleft :
+        bs1 * (dimQ s * b0) ≈ (dimQ s * bs1) * b0 := by
+      refine Q'.eqv_trans _ _ _
+        (Q'.eqv_symm (Q'.mul_assoc_eqv bs1 (dimQ s) b0)) ?_
+      exact Q'.mul_eqv_congr_right _ _ b0 (Q'.mul_comm_eqv bs1 (dimQ s))
+    have hright :
+        (q * (dimQ (s + 1) * bs)) * b0 ≈
+          (q * bs) * (dimQ (s + 1) * b0) := by
+      have hinner :
+          (dimQ (s + 1) * bs) * b0 ≈ bs * (dimQ (s + 1) * b0) := by
+        refine Q'.eqv_trans _ _ _
+          (Q'.mul_eqv_congr_right _ _ b0
+            (Q'.mul_comm_eqv (dimQ (s + 1)) bs)) ?_
+        exact Q'.mul_assoc_eqv bs (dimQ (s + 1)) b0
+      refine Q'.eqv_trans _ _ _
+        (Q'.mul_assoc_eqv q (dimQ (s + 1) * bs) b0) ?_
+      refine Q'.eqv_trans _ _ _
+        (Q'.mul_eqv_congr_left q _ _ hinner) ?_
+      exact Q'.eqv_symm
+        (Q'.mul_assoc_eqv q bs (dimQ (s + 1) * b0))
+    have hcross :
+        bs1 * (dimQ s * b0) <= (q * bs) * (dimQ (s + 1) * b0) :=
+      Q'.le_trans' _ _ _ (Q'.le_of_eqv hleft)
+        (Q'.le_trans' _ _ _ hscaled (Q'.le_of_eqv hright))
+    have hquot := divPos_le_divPos_of_cross
+      bs1 (dimQ (s + 1) * b0) (q * bs) (dimQ s * b0)
+      (p2DenomPos N hw0 hw1 (s + 1)) (p2DenomPos N hw0 hw1 s) hcross
+    have hrightQuot :
+        Q'.divPos (q * bs) (dimQ s * b0) (p2DenomPos N hw0 hw1 s) ≈
+          q * p2VacNorm N hw0 hw1 s := by
+      unfold p2VacNorm vacNorm Q'.divPos
+      exact Q'.mul_assoc_eqv q bs
+        (Q'.recipPos (dimQ s * b0) (p2DenomPos N hw0 hw1 s))
+    exact Q'.le_trans' _ _ _ hquot (Q'.le_of_eqv hrightQuot)
 
 /-- The local tail ratios telescope to the complete retuned heat envelope on
 the exact finite support window. -/
@@ -220,6 +284,15 @@ def canonicalBulkControl_p2_of_tail {N : Nat} {w : Q'}
   hweff1 := p2RetunedWeight_le_one hw1
   finiteShift := finiteExpShiftBridge_p2_of_tail hw0 hw1 T
 
+/-- Division-free all-cutoff compiler. -/
+def canonicalBulkControl_p2_of_coeffTail {N : Nat} {w : Q'}
+    (hN : 1 <= N) (hw0 : (0 : Q') <= w) (hw1 : w <= (1 : Q'))
+    (hnc : (1 : Q') - w <= q112)
+    (T : P2RetunedCoeffTailRatio N w hw0 hw1) :
+    CanonicalBulkControl N w 2 :=
+  canonicalBulkControl_p2_of_tail hN hw0 hw1 hnc
+    (p2TailRatio_of_coeffTail hw0 hw1 T)
+
 end YMGap.Continuum.P2RetunedRatioCompiler
 
 /-! ## Axiom-dependency gates -/
@@ -227,7 +300,9 @@ end YMGap.Continuum.P2RetunedRatioCompiler
 #print axioms YMGap.Continuum.P2RetunedRatioCompiler.fusionEig_eqv_p2VacNorm
 #print axioms YMGap.Continuum.P2RetunedRatioCompiler.p2VacNorm_zero_eqv_one
 #print axioms YMGap.Continuum.P2RetunedRatioCompiler.p2VacNorm_one_le_retuned
+#print axioms YMGap.Continuum.P2RetunedRatioCompiler.p2TailRatio_of_coeffTail
 #print axioms YMGap.Continuum.P2RetunedRatioCompiler.p2VacNorm_le_retuned_of_tail
 #print axioms YMGap.Continuum.P2RetunedRatioCompiler.fusionEig_le_retuned_of_tail
 #print axioms YMGap.Continuum.P2RetunedRatioCompiler.finiteExpShiftBridge_p2_of_tail
 #print axioms YMGap.Continuum.P2RetunedRatioCompiler.canonicalBulkControl_p2_of_tail
+#print axioms YMGap.Continuum.P2RetunedRatioCompiler.canonicalBulkControl_p2_of_coeffTail

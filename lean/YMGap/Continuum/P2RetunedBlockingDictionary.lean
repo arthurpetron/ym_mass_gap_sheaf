@@ -6,19 +6,21 @@ Track 11.7-fusion / R2j -- repoint the physical dictionary to the p=2 compiler.
 The original `FusionSpectrumBlockingDictionary` honestly requested a completed
 `CanonicalBulkControl` at every RG scale.  `P2RetunedRatioCompiler` shows that
 for the physical exponent `pGamma=2`, those controls can be generated from one
-strictly smaller local datum: adjacent tail ratios above the already-proved
-vacuum and fundamental modes.
+strictly smaller local datum: division-free adjacent coefficient ratios above
+the already-proved vacuum and fundamental modes.
 
 This module makes that reduction load-bearing.  `P2RetunedControlFamily`
 contains the scale-dependent cutoffs and weights together with only the local
-tail-ratio family.  Its `control` method constructs every canonical carrier.
+tail-ratio family; `P2RetunedCoeffControlFamily` is its preferred raw form.
+Their `control` methods construct every canonical carrier.
 `P2RetunedBlockingPins.toDictionary` then supplies the genuine cross-scale
 dictionary.  Consequently the remaining physical interface is exactly:
 
-* the all-scale adjacent-ratio family;
-* `finePin`;
-* `imagePin`;
+* the all-scale division-free adjacent-coefficient family;
 * `fusionPower`.
+
+On the spectrum-defined separator trajectory, `finePin` is definitional and
+`imagePin` is the symmetric form of the genuine `BlockingStep.step` field.
 
 No global identity for an arbitrary blocking map is assumed or inferred.
 
@@ -66,6 +68,48 @@ def P2RetunedControlFamily.control (F : P2RetunedControlFamily) (k : Nat) :
   canonicalBulkControl_p2_of_tail (F.hN k) (F.hw0 k) (F.hw1 k) (F.hnc k)
     (F.tailRatio k)
 
+/-! ## Division-free all-scale family -/
+
+/-- **Raw-coefficient all-scale p=2 family.**  This is the preferred analytic
+interface: every open scale obligation is cross-multiplied, so neither a
+vacuum denominator nor rational division occurs in a supplied certificate. -/
+structure P2RetunedCoeffControlFamily : Type where
+  N : Nat -> Nat
+  w : Nat -> Q'
+  hN : forall k, 1 <= N k
+  hw0 : forall k, (0 : Q') <= w k
+  hw1 : forall k, w k <= (1 : Q')
+  hnc : forall k, (1 : Q') - w k <= SpectralLocalizationCrux.q112
+  coeffTailRatio : forall k,
+    P2RetunedCoeffTailRatio (N k) (w k) (hw0 k) (hw1 k)
+
+/-- Compile the raw family to the normalized residual expected by the existing
+dictionary.  Positivity and cross-quotient monotonicity are proved once in the
+compiler rather than repeated at every scale. -/
+def P2RetunedCoeffControlFamily.toTailFamily
+    (F : P2RetunedCoeffControlFamily) : P2RetunedControlFamily where
+  N := F.N
+  w := F.w
+  hN := F.hN
+  hw0 := F.hw0
+  hw1 := F.hw1
+  hnc := F.hnc
+  tailRatio := fun k =>
+    p2TailRatio_of_coeffTail (F.hw0 k) (F.hw1 k) (F.coeffTailRatio k)
+
+/-- The physical carrier generated directly from raw coefficients. -/
+def P2RetunedCoeffControlFamily.control
+    (F : P2RetunedCoeffControlFamily) (k : Nat) :
+    CanonicalBulkControl (F.N k) (F.w k) 2 :=
+  canonicalBulkControl_p2_of_coeffTail
+    (F.hN k) (F.hw0 k) (F.hw1 k) (F.hnc k) (F.coeffTailRatio k)
+
+/-- The raw and normalized compiler routes are definitionally the same
+reviewed `CanonicalBulkControl`; this prevents dictionary drift. -/
+theorem P2RetunedCoeffControlFamily.control_eq_tailControl
+    (F : P2RetunedCoeffControlFamily) (k : Nat) :
+    F.control k = F.toTailFamily.control k := rfl
+
 /-- **The remaining genuine blocking pins.**  The control field is no longer
 an input: every occurrence below uses the carrier compiled from `F.tailRatio`.
 The three equality fields retain the exact physical content and are not
@@ -106,6 +150,32 @@ def P2RetunedBlockingPins.toDictionary
   imagePin := P.imagePin
   fusionPower := P.fusionPower
 
+/-- Reuse the reviewed exact-pin interface after compiling the coefficient
+family.  The alias introduces no new pin or equality assumption. -/
+abbrev P2RetunedCoeffBlockingPins
+    (b : Nat) (physSep : Nat -> CReal)
+    (blockingStep : BlockingStep physSep)
+    (F : P2RetunedCoeffControlFamily) : Type :=
+  P2RetunedBlockingPins b physSep blockingStep F.toTailFamily
+
+/-- Raw coefficient data reaches the genuine fusion-spectrum dictionary
+without an additional physical field. -/
+def P2RetunedCoeffBlockingPins.toDictionary
+    {b : Nat} {physSep : Nat -> CReal} {B : BlockingStep physSep}
+    {F : P2RetunedCoeffControlFamily}
+    (P : P2RetunedCoeffBlockingPins b physSep B F) :
+    FusionSpectrumBlockingDictionary b physSep B :=
+  P2RetunedBlockingPins.toDictionary P
+
+/-- Hence the raw family and the three genuine pins yield the reviewed
+trajectory-only blocking law. -/
+theorem P2RetunedCoeffBlockingPins.blockPowerOnTrajectory
+    {b : Nat} {physSep : Nat -> CReal} {B : BlockingStep physSep}
+    {F : P2RetunedCoeffControlFamily}
+    (P : P2RetunedCoeffBlockingPins b physSep B F) :
+    IsBlockPowerOnTrajectory b physSep B.Φ :=
+  P.toDictionary.blockPowerOnTrajectory
+
 /-- The reduced interface reaches the exact trajectory-only block power law. -/
 theorem P2RetunedBlockingPins.blockPowerOnTrajectory
     {b : Nat} {physSep : Nat -> CReal} {B : BlockingStep physSep}
@@ -142,11 +212,22 @@ theorem fusionSeparator_finePin (F : P2RetunedControlFamily)
   exact BlockingStepFrontier.equivRefl
     (fusionModeCReal (F.control (k + 1)) (mode (k + 1)))
 
-/-- **Two-pin spectrum trajectory interface.**  Once the physical separator
+/-- On the spectrum-defined trajectory, the genuine map image pin is already
+the symmetric form of `BlockingStep.step`.  It is therefore structural data
+of the supplied physical blocking step, not a second analytic hypothesis. -/
+theorem fusionSeparator_imagePin (F : P2RetunedControlFamily)
+    (mode : Nat -> Nat)
+    (B : BlockingStep (fusionSeparator F mode)) (k : Nat) :
+    CReal.Equiv (B.Φ (fusionSeparator F mode (k + 1)))
+      (fusionModeCReal (F.control k) (mode k)) := by
+  simpa only [fusionSeparator] using (B.step k).symm
+
+/-- **Legacy two-pin spectrum trajectory interface.**  Once the physical separator
 is defined by the selected fusion spectrum, only the actual block-map image
 and the adjacent-scale fusion power law remain.  This does not identify an
 independently supplied separator trajectory; that same-action comparison is a
-separate physical theorem. -/
+separate physical theorem.  `SpectrumPinnedP2FusionPowerData` below is the
+preferred minimal interface because `imagePin` follows from `BlockingStep`. -/
 structure SpectrumPinnedP2BlockingData
     (b : Nat) (F : P2RetunedControlFamily) (mode : Nat -> Nat)
     (blockingStep : BlockingStep (fusionSeparator F mode)) : Type where
@@ -159,6 +240,67 @@ structure SpectrumPinnedP2BlockingData
   fusionPower : forall k,
     CReal.Equiv (fusionModeCReal (F.control k) (mode k))
       (cpow (fusionModeCReal (F.control (k + 1)) (mode (k + 1))) (b + 1))
+
+/-- **Minimal one-pin spectrum trajectory interface.**  `finePin` is
+definitional and `imagePin` is `BlockingStep.step`; only the exact
+adjacent-scale fusion power identity remains as physical proof data. -/
+structure SpectrumPinnedP2FusionPowerData
+    (b : Nat) (F : P2RetunedControlFamily) (mode : Nat -> Nat)
+    (_blockingStep : BlockingStep (fusionSeparator F mode)) : Type where
+  modeBulk : forall k,
+    q12 <= Q'.ofNat (c4 (mode k)) *
+      ((1 : Q') - (F.control k).weff)
+  fusionPower : forall k,
+    CReal.Equiv (fusionModeCReal (F.control k) (mode k))
+      (cpow (fusionModeCReal (F.control (k + 1)) (mode (k + 1))) (b + 1))
+
+/-- The sole remaining fusion-power pin is exactly the ordinary self-similar
+law after unfolding the spectrum-defined separator.  Thus the minimal
+interface hides no additional map-identification premise. -/
+theorem spectrumFusionPower_iff_selfSimilar
+    (b : Nat) (F : P2RetunedControlFamily) (mode : Nat -> Nat) :
+    (forall k,
+      CReal.Equiv (fusionModeCReal (F.control k) (mode k))
+        (cpow (fusionModeCReal (F.control (k + 1)) (mode (k + 1))) (b + 1)))
+      <-> selfSimilarC b (fusionSeparator F mode) := by
+  constructor
+  · intro h k
+    simpa only [fusionSeparator] using h k
+  · intro h k
+    simpa only [fusionSeparator] using h k
+
+/-- Build the one-pin data directly from a self-similar fusion-spectrum
+trajectory and the independently required bulk-mode witness. -/
+def SpectrumPinnedP2FusionPowerData.ofSelfSimilar
+    {b : Nat} {F : P2RetunedControlFamily} {mode : Nat -> Nat}
+    {B : BlockingStep (fusionSeparator F mode)}
+    (modeBulk : forall k,
+      q12 <= Q'.ofNat (c4 (mode k)) *
+        ((1 : Q') - (F.control k).weff))
+    (hself : selfSimilarC b (fusionSeparator F mode)) :
+    SpectrumPinnedP2FusionPowerData b F mode B where
+  modeBulk := modeBulk
+  fusionPower := (spectrumFusionPower_iff_selfSimilar b F mode).mpr hself
+
+/-- Conversely, the remaining pin exposes the exact spectral self-similarity
+statement it contains. -/
+theorem SpectrumPinnedP2FusionPowerData.selfSimilar
+    {b : Nat} {F : P2RetunedControlFamily} {mode : Nat -> Nat}
+    {B : BlockingStep (fusionSeparator F mode)}
+    (D : SpectrumPinnedP2FusionPowerData b F mode B) :
+    selfSimilarC b (fusionSeparator F mode) :=
+  (spectrumFusionPower_iff_selfSimilar b F mode).mp D.fusionPower
+
+/-- Reconstruct the older two-pin interface without adding a hypothesis:
+`imagePin` is supplied by the blocking-step relation itself. -/
+def SpectrumPinnedP2FusionPowerData.toBlockingData
+    {b : Nat} {F : P2RetunedControlFamily} {mode : Nat -> Nat}
+    {B : BlockingStep (fusionSeparator F mode)}
+    (D : SpectrumPinnedP2FusionPowerData b F mode B) :
+    SpectrumPinnedP2BlockingData b F mode B where
+  modeBulk := D.modeBulk
+  imagePin := fusionSeparator_imagePin F mode B
+  fusionPower := D.fusionPower
 
 /-- Reconstruct the reviewed three-pin interface; `finePin` is discharged by
 the spectrum trajectory definition. -/
@@ -181,15 +323,24 @@ theorem SpectrumPinnedP2BlockingData.blockPowerOnTrajectory
     IsBlockPowerOnTrajectory b (fusionSeparator F mode) B.Φ :=
   D.toPins.blockPowerOnTrajectory
 
+/-- The single genuine fusion-power pin implies the complete trajectory
+block-power law. -/
+theorem SpectrumPinnedP2FusionPowerData.blockPowerOnTrajectory
+    {b : Nat} {F : P2RetunedControlFamily} {mode : Nat -> Nat}
+    {B : BlockingStep (fusionSeparator F mode)}
+    (D : SpectrumPinnedP2FusionPowerData b F mode B) :
+    IsBlockPowerOnTrajectory b (fusionSeparator F mode) B.Φ :=
+  D.toBlockingData.blockPowerOnTrajectory
+
 /-- End-to-end physical transport whose spectral input is the reduced p=2
-tail family and whose map input consists only of the two spectrum-trajectory
-pins. -/
+tail family and whose only remaining map/spectrum input is the adjacent-scale
+fusion-power identity. -/
 structure SpectrumPinnedP2BlockingTransport (b : Nat) : Type where
   hb : 1 <= b
   family : P2RetunedControlFamily
   mode : Nat -> Nat
   blockingStep : BlockingStep (fusionSeparator family mode)
-  pins : SpectrumPinnedP2BlockingData b family mode blockingStep
+  pins : SpectrumPinnedP2FusionPowerData b family mode blockingStep
   sepNonneg : forall k, ExpPos.geRat (fusionSeparator family mode k) 0
   sepLeOne : forall k, CReal.leRat (fusionSeparator family mode k) 1
   floor0 : Q'
@@ -198,7 +349,7 @@ structure SpectrumPinnedP2BlockingTransport (b : Nat) : Type where
     (CodynamicPhysFloor.physGapC b (fusionSeparator family mode)
       (RateMatchFloor.geomSpacing b) 0)
 
-/-- The two-pin p=2 transport constructs the reviewed physical RG input. -/
+/-- The one-pin p=2 transport constructs the reviewed physical RG input. -/
 def SpectrumPinnedP2BlockingTransport.physicalRGInput {b : Nat}
     (T : SpectrumPinnedP2BlockingTransport b) : PhysicalRGInput :=
   physicalRGInput_of_blockingPowerOnTrajectory T.hb
@@ -223,11 +374,22 @@ end YMGap.Continuum.P2RetunedBlockingDictionary
 /-! ## Axiom-dependency gates -/
 
 #print axioms YMGap.Continuum.P2RetunedBlockingDictionary.P2RetunedControlFamily.control
+#print axioms YMGap.Continuum.P2RetunedBlockingDictionary.P2RetunedCoeffControlFamily.toTailFamily
+#print axioms YMGap.Continuum.P2RetunedBlockingDictionary.P2RetunedCoeffControlFamily.control
+#print axioms YMGap.Continuum.P2RetunedBlockingDictionary.P2RetunedCoeffControlFamily.control_eq_tailControl
 #print axioms YMGap.Continuum.P2RetunedBlockingDictionary.P2RetunedBlockingPins.toDictionary
+#print axioms YMGap.Continuum.P2RetunedBlockingDictionary.P2RetunedCoeffBlockingPins.toDictionary
+#print axioms YMGap.Continuum.P2RetunedBlockingDictionary.P2RetunedCoeffBlockingPins.blockPowerOnTrajectory
 #print axioms YMGap.Continuum.P2RetunedBlockingDictionary.P2RetunedBlockingPins.blockPowerOnTrajectory
 #print axioms YMGap.Continuum.P2RetunedBlockingDictionary.P2RetunedBlockingPins.coarseLocalized
 #print axioms YMGap.Continuum.P2RetunedBlockingDictionary.fusionSeparator_finePin
+#print axioms YMGap.Continuum.P2RetunedBlockingDictionary.fusionSeparator_imagePin
 #print axioms YMGap.Continuum.P2RetunedBlockingDictionary.SpectrumPinnedP2BlockingData.toPins
 #print axioms YMGap.Continuum.P2RetunedBlockingDictionary.SpectrumPinnedP2BlockingData.blockPowerOnTrajectory
+#print axioms YMGap.Continuum.P2RetunedBlockingDictionary.SpectrumPinnedP2FusionPowerData.toBlockingData
+#print axioms YMGap.Continuum.P2RetunedBlockingDictionary.SpectrumPinnedP2FusionPowerData.blockPowerOnTrajectory
+#print axioms YMGap.Continuum.P2RetunedBlockingDictionary.spectrumFusionPower_iff_selfSimilar
+#print axioms YMGap.Continuum.P2RetunedBlockingDictionary.SpectrumPinnedP2FusionPowerData.ofSelfSimilar
+#print axioms YMGap.Continuum.P2RetunedBlockingDictionary.SpectrumPinnedP2FusionPowerData.selfSimilar
 #print axioms YMGap.Continuum.P2RetunedBlockingDictionary.SpectrumPinnedP2BlockingTransport.physicalRGInput
 #print axioms YMGap.Continuum.P2RetunedBlockingDictionary.SpectrumPinnedP2BlockingTransport.continuumGap

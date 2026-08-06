@@ -81,7 +81,7 @@ def test_compact_work_guide_tracks_the_live_frontier() -> None:
     assert "[>] FRONTIERDAG BUCKET 1" in chart
     assert "[x] Fusion-spectrum/Phi trajectory dictionary theorem" in chart
     assert "[>] All-scale/cutoff CanonicalBulkControl family" in chart
-    assert "[ ] Physical finePin + imagePin + fusionPower proofs" in chart
+    assert "[>] Physical finePin + imagePin + fusionPower proofs" in chart
     assert "[ ] CONSTRUCTIVE 4D YANG--MILLS EXISTENCE + MASS GAP" in chart
 
 
