@@ -2345,6 +2345,7 @@ import YMGap.Continuum.P2BlockCompatibleHeadLinearCertificate
 import YMGap.Continuum.P2BlockCompatibleHeadDirichletCompiler
 import YMGap.Continuum.P2BlockCompatibleHeadPhysicalFloor
 import YMGap.Continuum.P2BlockCompatibleHeadPhysicalBoundary
+import YMGap.Continuum.P2BlockCompatibleHeadPhysicalEnergy
 import YMGap.Continuum.P2BlockCompatiblePhysicalFrontierRepointed
 import YMGap.Continuum.P2DyadicPhysicalMarginTransport
 import YMGap.Continuum.P2RetunedFusionRunningCell

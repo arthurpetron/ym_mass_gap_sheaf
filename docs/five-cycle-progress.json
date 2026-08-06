@@ -59,6 +59,7 @@
     ],
     "physical_coeff_head_reduction": "two-step/adjacent Dirichlet energies + explicit endpoints",
     "physical_coeff_head_boundary": true,
+    "physical_coeff_head_reverse_curvature": "7/8 broad-peak factor for k>=8, s>=1",
     "physical_coeff_head_tail_start": 8,
     "physical_coeff_tail_invariant": "head-free odd q^4 pairs + preceding-odd q^2 insertion",
     "physical_theta_tail_start": 8,

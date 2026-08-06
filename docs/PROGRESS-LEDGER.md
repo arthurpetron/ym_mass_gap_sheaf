@@ -553,6 +553,17 @@ field is the uniform energy comparison
 `3*dirichletEnergy <= 2*headTwoStepEnergy`; it is not being conflated with the
 completed boundary payment.
 
+The first load-bearing energy atom is also now explicit:
+`P2BlockCompatibleHeadPhysicalEnergy.physical_coeff_reverse_curvature` proves
+for every `k>=8` and `s>=1` that
+`(7/8)c_(s+1)^2 <= c_s*c_(s+2)`.  Its proof uses the exact physical lower
+weight `w_k>=127/128`, the exact heat curvature factor `w_k^2`, the dimension
+ratio lower bound `8/9`, and the fixed 64-unit cleared slack in
+`7/8 <= (8/9)(127/128)^2`.  This rules out the narrow log-concave spike that
+makes the desired energy inequality false for generic log-concave strings;
+the remaining work is the finite-path charge/summation theorem that consumes
+this broad-peak atom and the endpoint slopes.
+
 ## Dead routes (refuted — do not re-attempt)
 
 - **`Var_m(cosθ)` monotonicity → uniform-in-`m`** — REFUTED (`VarianceMonotonicity.lean`,
