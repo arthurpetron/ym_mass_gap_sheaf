@@ -35,6 +35,8 @@ open YMGap.Continuum.RGTransport
 
 local infix:50 " ≈ " => Q'.eqv
 
+private theorem neg_num_local (a : Q') : (-a).num = -(a.num) := rfl
+
 /-- A common-denominator fixed-point value `numerator / scale`. -/
 def fixedPointVal (scale : Nat) (hScale : 0 < scale) (numerator : Nat) : Q' :=
   Q'.mkPos numerator scale hScale
@@ -73,6 +75,16 @@ theorem fixedPointVal_scale_eqv_one
     show ((1 : Q').den : Int) = 1 from rfl,
     Int.mul_one, Int.one_mul]
 
+theorem fixedPointVal_zero_eqv
+    (scale : Nat) (hScale : 0 < scale) :
+    fixedPointVal scale hScale 0 ≈ (0 : Q') := by
+  show (fixedPointVal scale hScale 0).num * ((0 : Q').den : Int) =
+    (0 : Q').num * ((fixedPointVal scale hScale 0).den : Int)
+  rw [fixedPointVal_num, fixedPointVal_den,
+    show (0 : Q').num = 0 from rfl,
+    show (0 : Q').den = 1 from rfl]
+  simp
+
 /-- Fixed-point addition is exact when the denominator is shared. -/
 theorem fixedPointVal_add_eqv
     (scale : Nat) (hScale : 0 < scale) (a b : Nat) :
@@ -102,6 +114,38 @@ theorem fixedPointVal_natMul_eqv
     Q'.mul_num_cast, Q'.mul_den_cast,
     Q'.ofNat_num_cast, Q'.ofNat_den_cast,
     Int.natCast_mul, Int.one_mul]
+
+/-- Common-denominator fixed-point values preserve natural-number order. -/
+theorem fixedPointVal_mono
+    (scale : Nat) (hScale : 0 < scale) {a b : Nat} (hab : a <= b) :
+    fixedPointVal scale hScale a <= fixedPointVal scale hScale b := by
+  show (fixedPointVal scale hScale a).num *
+      ((fixedPointVal scale hScale b).den : Int) <=
+    (fixedPointVal scale hScale b).num *
+      ((fixedPointVal scale hScale a).den : Int)
+  rw [fixedPointVal_num, fixedPointVal_den,
+    fixedPointVal_num, fixedPointVal_den]
+  exact Int.mul_le_mul_of_nonneg_right
+    (Int.ofNat_le.mpr hab) (Int.natCast_nonneg scale)
+
+/-- Truncated natural subtraction is exact in a shared fixed-point scale when
+the subtrahend is known to be no larger. -/
+theorem fixedPointVal_sub_eqv
+    (scale : Nat) (hScale : 0 < scale) (a b : Nat) (hba : b <= a) :
+    fixedPointVal scale hScale (a - b) ≈
+      fixedPointVal scale hScale a +
+        -(fixedPointVal scale hScale b) := by
+  show (fixedPointVal scale hScale (a - b)).num *
+      ((fixedPointVal scale hScale a +
+        -(fixedPointVal scale hScale b)).den : Int) =
+    (fixedPointVal scale hScale a +
+      -(fixedPointVal scale hScale b)).num *
+        ((fixedPointVal scale hScale (a - b)).den : Int)
+  simp only [fixedPointVal_num, fixedPointVal_den,
+    Q'.add_num_cast, Q'.add_den_cast,
+    Q'.neg_den, neg_num_local, Int.natCast_sub hba,
+    Int.add_mul, Int.neg_mul, Int.sub_eq_add_neg]
+  ac_rfl
 
 /-- Downward-rounded fixed-point multiplication. -/
 def floorMul (scale a b : Nat) : Nat := (a * b) / scale
@@ -404,6 +448,9 @@ theorem qpow_le_ceilPow
 #print axioms ceilMul_sound
 #print axioms fixedPointVal_add_eqv
 #print axioms fixedPointVal_natMul_eqv
+#print axioms fixedPointVal_zero_eqv
+#print axioms fixedPointVal_mono
+#print axioms fixedPointVal_sub_eqv
 #print axioms qpow_binary_split
 #print axioms floorPow_le_qpow
 #print axioms qpow_le_ceilPow

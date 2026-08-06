@@ -270,6 +270,36 @@ remaining normalized-deficit fields, the deeper-interior strong-Turan family,
 the physical margin recursion, continuum construction, and O(4) restoration
 remain open.
 
+## Exact physical `k=7` fine reserve discharged (2026-08-06)
+
+The independent fine even/odd reserve now has an exact physical base cell at
+`k=7`.  This closes the finite head of that field; it does not yet prove its
+uniform tail.
+
+- A generic fixed-point interval-energy layer bounds squared differences from
+  lower/upper rational enclosures.  The physical path-energy expressions can
+  therefore be certified without normalizing the full closed rational terms.
+- Binary floor/ceiling power tables and a proved 32-term block compiler replace
+  the depth-1280 evaluation by logarithmic power proofs and fixed-size checked
+  range sums.
+- Four large physical `Q'` expressions are connected by structural equality to
+  irreducibly sealed atoms.  This is essential because `Q'.le` is represented
+  by an inline cross-product order: leaving the expressions transparent forces
+  reduction of their enormous numerators and denominators before theorem reuse.
+- Five exact numeral witnesses bound the two mass and two path-energy atoms.
+  The exact identity between the checked debt `1/754974720` and
+  `blockParityDebt 7` then proves the doubled reserve inequality.
+- Exact `P1 = 2*T1` and `P4 = 2*T4` identities, followed by constructive
+  cancellation of the positive factor two, produce the original physical
+  reserve theorem and inhabit `FineSevenPhysicalReserveCertificate`.
+- The exported load-bearing declarations check with
+  `[propext, Quot.sound]`.  No full-project audit or remote CI run was used.
+
+Honest frontier: the physical `k=7` fine-reserve cell is closed.  The uniform
+`k>=8` transport, nonpositive trapezoid exchange, deeper-interior strong-Turan
+family, and physical margin recursion remain open.  This is not a proof of the
+Yang--Mills Millennium problem.
+
 ## Dead routes (refuted — do not re-attempt)
 
 - **`Var_m(cosθ)` monotonicity → uniform-in-`m`** — REFUTED (`VarianceMonotonicity.lean`,
