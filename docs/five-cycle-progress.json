@@ -48,7 +48,7 @@
       "physical fractional-6j pentagon associator",
       "Core-B finite-s margin [closed] + forward bridge [open]"
     ],
-    "current_frontier_atom": "bulkCtrl -- canonical pGamma=2 controls are reduced to division-free adjacent coefficient ratios above the all-cutoff vacuum/fundamental theorem; w=11/12 retuned cells are kernel-checked through cutoffs 2..6 and 12; on the spectrum-defined separator finePin is definitional and imagePin follows from BlockingStep.step, leaving only the genuine adjacent-scale fusionPower identity; the all-cutoff coefficient family remains open",
+    "current_frontier_atom": "bulkCtrl -- canonical pGamma=2 controls are reduced to one s=1 edge plus a dimension-weighted strong Turan family on 1<=s, propagated across the full 2N Clebsch support by a constructive positive-factor induction; w=11/12 retuned cells are kernel-checked through N=40; on the spectrum-defined separator finePin is definitional and imagePin follows from BlockingStep.step, leaving only the genuine adjacent-scale fusionPower identity; the all-cutoff strong-Turan family remains open",
     "frontier_supporting_discharged": [
       "all-N post-boundary even/odd cleared-prefix reserve",
       "all-N UniformBoxLogConcave for every 0 <= w <= 1/2",
@@ -62,7 +62,7 @@
       "corrected canonical localization-to-block-power transport reaches PhysicalRGInput and positive CRealFloor conditional on one named physical map-identification bridge",
       "exact nonvacuous physical pGamma=2 CanonicalBulkControl cell at N=3,w=11/12,weff=23/25 with all seven support atoms kernel-checked and mode 2 in bulk",
       "trajectory-only block-power consumer and genuine cross-scale fusion-spectrum/blockingStep.Phi dictionary refine the over-strong global-map residual and reach CRealFloor",
-      "canonical pGamma=2 retune compiler: all-cutoff vacuum/fundamental closed, remaining adjacent coefficient ratios are division-free and telescope to zero-shift CanonicalBulkControl; reflective rational checker closes w=11/12 cutoffs 2..6 and 12; a proved common-denominator Nat reconstruction extends the genuine CanonicalBulkControl ladder through N=20 and N=40; raw all-scale family compiles definitionally to the reviewed dictionary",
+      "canonical pGamma=2 retune compiler: all-cutoff vacuum/fundamental closed, remaining adjacent coefficient ratios are division-free and telescope to zero-shift CanonicalBulkControl; reflective rational checker closes w=11/12 cutoffs 2..6 and 12; a proved common-denominator Nat reconstruction extends the genuine CanonicalBulkControl ladder through N=20 and N=40; full-support p2 coefficient positivity and a proof-about-computation compiler reduce the raw all-scale family to one s=1 edge plus the dimension-weighted strong Turan family on 1<=s; the resulting coefficient family compiles definitionally to the reviewed dictionary",
       "spectrum-defined separator discharges finePin definitionally and imagePin from BlockingStep.step; the one-pin fusionPower transport reaches PhysicalRGInput and CRealFloor while the genuine adjacent-scale fusionPower theorem remains explicit"
     ],
     "frontier_discharged_atoms": [
@@ -71,7 +71,7 @@
       "coreB -- FiniteSMargin for every 0 <= w <= 1/2"
     ],
     "frontier_open_atoms": [
-      "bulkCtrl -- pGamma=2 all-cutoff compiler and proved common-denominator finite ladder through N=40 closed; all-scale division-free adjacent-coefficient family remains open",
+      "bulkCtrl -- pGamma=2 all-cutoff compiler and proved common-denominator finite ladder through N=40 closed; all-scale s=1 edge and dimension-weighted strong-Turan family remain open",
       "tTree -- 4D spanning-tree inequality",
       "d1Mayer -- absolute Mayer--Ursell expansion",
       "a2Pentagon -- physical fractional-6j associator",
@@ -158,6 +158,6 @@
     "fusion_ballot_recurrence": "two-neighbor sparse compiler+exact cone/parity support iff;[propext,Quot.sound]",
     "fusion_ballot_closed_form": "pathCount=guarded-PNPaths.ballotNat exactly;[propext,Quot.sound]",
     "fusion_path_row_logconcavity": "all-p support-row ratio order+step-two log-concavity;[propext,Quot.sound]",
-    "fusion_weighted_interlacing": "exact even/odd sectors+margins+ratio-fence compiler+order-N^3 checker+N7-half core+u=4w^2 Bernstein family consumer;division-free prefix-to-Bernstein Abel compiler+exact reconstruction kernel-checked;constructive strand ceilings 13/8+35/32;all-N post-boundary even/odd cleared-prefix reserve kernel-checked;all-N UniformBoxLogConcave for every 0<=w<=1/2 kernel-checked;all-N endpoint S1Dominance at w=1/2 kernel-checked;Core-B FiniteSMargin physically discharged on closed 0<=w<=1/2;bare-p2 physical pin exactly refuted at N3/w11of12/s2;rebased bulk-to-gap-edge bridge all-N,p,s kernel-checked;positive-exponent finite-support compiler+reviewed canonical bulkCtrl repoint+reflected dyadic-log saddle-to-exp compiler;exact N3/w11of12/p2/weff23of25 seven-mode CanonicalBulkControl cell+nonempty mode-two bulk;trajectory-only block-power consumer+genuine cross-scale fusion-spectrum/Phi dictionary-to-CRealFloor kernel-checked;canonical-p2-retune all-cutoff compiler+division-free adjacent-coefficient checker+N2..6,N12 rational cells+proved common-denominator Nat reconstruction+N20,N40 genuine w11of12 CanonicalBulkControl cells+raw coefficient-family dictionary+spectrum-separator finePin definitional+imagePin from BlockingStep.step+one-pin fusionPower-to-CRealFloor transport kernel-checked;all gates [propext,Quot.sound]"
+    "fusion_weighted_interlacing": "exact even/odd sectors+margins+ratio-fence compiler+order-N^3 checker+N7-half core+u=4w^2 Bernstein family consumer;division-free prefix-to-Bernstein Abel compiler+exact reconstruction kernel-checked;constructive strand ceilings 13/8+35/32;all-N post-boundary even/odd cleared-prefix reserve kernel-checked;all-N UniformBoxLogConcave for every 0<=w<=1/2 kernel-checked;all-N endpoint S1Dominance at w=1/2 kernel-checked;Core-B FiniteSMargin physically discharged on closed 0<=w<=1/2;bare-p2 physical pin exactly refuted at N3/w11of12/s2;rebased bulk-to-gap-edge bridge all-N,p,s kernel-checked;positive-exponent finite-support compiler+reviewed canonical bulkCtrl repoint+reflected dyadic-log saddle-to-exp compiler;exact N3/w11of12/p2/weff23of25 seven-mode CanonicalBulkControl cell+nonempty mode-two bulk;trajectory-only block-power consumer+genuine cross-scale fusion-spectrum/Phi dictionary-to-CRealFloor kernel-checked;canonical-p2-retune all-cutoff compiler+division-free adjacent-coefficient checker+N2..6,N12 rational cells+proved common-denominator Nat reconstruction+N20,N40 genuine w11of12 CanonicalBulkControl cells+full-2N-support p2 positivity+strong-Turan proof-about-computation reduction+raw coefficient-family dictionary+spectrum-separator finePin definitional+imagePin from BlockingStep.step+one-pin fusionPower-to-CRealFloor transport kernel-checked;all gates [propext,Quot.sound]"
   }
 }

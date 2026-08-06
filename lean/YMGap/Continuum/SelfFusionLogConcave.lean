@@ -191,6 +191,63 @@ theorem bondMovedCoeff_p2_pos {w : Q'} (hw : (0 : Q') < w) {N s : Nat} (hsN : s 
     fsum_term_le_of_nonneg hinner_nn 0 (N + 1) (Nat.succ_pos N)
   exact lt_of_lt_of_le (box_channel_pos hw s) hb0
 
+/-- A single admissible Clebsch channel inside the cutoff box makes the
+two-fold bond-moved coefficient strictly positive.  This isolates the
+support argument from the particular `(s,0)` channel used above. -/
+theorem bondMovedCoeff_p2_pos_of_channel {w : Q'} (hw : (0 : Q') < w)
+    {N a b s : Nat} (haN : a ≤ N) (hbN : b ≤ N)
+    (hab : fusionOK a b s = true) :
+    (0 : Q') < bondMovedCoeff N w 2 s := by
+  refine lt_of_lt_of_le ?_ (Q'.ge_of_eqv (bondMovedCoeff_p2_doubleSum N s))
+  have houter_nn : ∀ i, (0 : Q')
+      ≤ fsum (fun j => fusionInd i j s * (coeffW w i * coeffW w j)) (N + 1) := by
+    intro i
+    refine fsum_nonneg (fun j => ?_) (N + 1)
+    exact Q'.mul_nonneg _ _ (fusionInd_nonneg i j s)
+      (Q'.mul_nonneg _ _ (coeffW_nonneg (Q'.le_of_lt hw) i)
+        (coeffW_nonneg (Q'.le_of_lt hw) j))
+  have ha : fsum (fun j => fusionInd a j s * (coeffW w a * coeffW w j)) (N + 1)
+      ≤ fsum (fun i => fsum (fun j =>
+          fusionInd i j s * (coeffW w i * coeffW w j)) (N + 1)) (N + 1) :=
+    fsum_term_le_of_nonneg houter_nn a (N + 1) (Nat.lt_succ_of_le haN)
+  refine lt_of_lt_of_le ?_ ha
+  have hinner_nn : ∀ j, (0 : Q') ≤ fusionInd a j s * (coeffW w a * coeffW w j) := by
+    intro j
+    exact Q'.mul_nonneg _ _ (fusionInd_nonneg a j s)
+      (Q'.mul_nonneg _ _ (coeffW_nonneg (Q'.le_of_lt hw) a)
+        (coeffW_nonneg (Q'.le_of_lt hw) j))
+  have hb : fusionInd a b s * (coeffW w a * coeffW w b)
+      ≤ fsum (fun j => fusionInd a j s * (coeffW w a * coeffW w j)) (N + 1) :=
+    fsum_term_le_of_nonneg hinner_nn b (N + 1) (Nat.lt_succ_of_le hbN)
+  refine lt_of_lt_of_le ?_ hb
+  unfold fusionInd
+  rw [hab]
+  exact Q'.mul_pos (by decide)
+    (Q'.mul_pos (coeffW_pos hw a) (coeffW_pos hw b))
+
+/-- **Full Clebsch-support positivity for two-fold fusion.**  The previous
+`(s,0)` argument covers `s ≤ N`.  Above the input cutoff, the admissible
+channel `(N,s-N)` covers the rest of the exact support through `s ≤ 2*N`.
+This is the positive-factor cancellation input needed by all ratio compilers
+on the complete fused window. -/
+theorem bondMovedCoeff_p2_pos_full_support {w : Q'} (hw : (0 : Q') < w)
+    {N s : Nat} (hs : s ≤ 2 * N) :
+    (0 : Q') < bondMovedCoeff N w 2 s := by
+  by_cases hsN : s ≤ N
+  · exact bondMovedCoeff_p2_pos hw hsN
+  · have hNs : N < s := Nat.lt_of_not_ge hsN
+    have hbN : s - N ≤ N := by omega
+    have hab : fusionOK N (s - N) s = true := by
+      rw [fusionOK_eq_true_iff]
+      have hsum : N + (s - N) = s := by omega
+      have hmax : Nat.max N (s - N) ≤ s := by
+        exact (Nat.max_le).2 ⟨by omega, Nat.sub_le s N⟩
+      refine ⟨Nat.le_trans (Nat.sub_le _ _) hmax, ?_, ?_⟩
+      · omega
+      · have htwo : N + (s - N) + s = 2 * s := by omega
+        rw [htwo, Nat.mul_comm 2 s, Nat.mul_mod_left]
+    exact bondMovedCoeff_p2_pos_of_channel hw (Nat.le_refl N) hbN hab
+
 /-! ## 2. The log-concavity cross-difference and its box form
 
 The cross-multiplied log-concavity `g_{s+1}·g_{s+1} ≥ g_s·g_{s+2}` is the
@@ -603,7 +660,9 @@ theorem boxSum1_logConcave_FALSE_at_one :
 PROVED (axiom-clean, pure `Q'`/`Nat`):
   * `fusionOK_self_zero` / `fusionInd_self_zero` / `box_channel_pos` — the non-empty
     `(s,0)` Clebsch channel carries strictly-positive mass.
-  * `bondMovedCoeff_p2_pos` — FUSED-TOWER POSITIVITY at EVERY mode `s ≤ N` (`g_s > 0`).
+  * `bondMovedCoeff_p2_pos` / `bondMovedCoeff_p2_pos_of_channel` /
+    `bondMovedCoeff_p2_pos_full_support` — FUSED-TOWER POSITIVITY first on `s ≤ N`,
+    then on the complete Clebsch support `s ≤ 2*N` via the `(N,s-N)` channel.
   * `logConcaveCross` / `logConcaveCross_eq_boxDiff` / `bondMovedCoeff_logConcave_of_core`
     — the log-concavity cross-difference, its rewrite into the closed Clebsch box
     double-sum form, and the sorry-free REDUCTION of `g_{s+1}² ≥ g_s·g_{s+2}` to the box
@@ -650,6 +709,8 @@ end YMGap.Continuum.SelfFusionLogConcave
 #print axioms YMGap.Continuum.SelfFusionLogConcave.fusionInd_self_zero
 #print axioms YMGap.Continuum.SelfFusionLogConcave.box_channel_pos
 #print axioms YMGap.Continuum.SelfFusionLogConcave.bondMovedCoeff_p2_pos
+#print axioms YMGap.Continuum.SelfFusionLogConcave.bondMovedCoeff_p2_pos_of_channel
+#print axioms YMGap.Continuum.SelfFusionLogConcave.bondMovedCoeff_p2_pos_full_support
 #print axioms YMGap.Continuum.SelfFusionLogConcave.bondMovedCoeff_eq_boxSum
 #print axioms YMGap.Continuum.SelfFusionLogConcave.logConcaveCross_eq_boxDiff
 #print axioms YMGap.Continuum.SelfFusionLogConcave.bondMovedCoeff_logConcave_of_core
