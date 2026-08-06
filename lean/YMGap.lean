@@ -2285,6 +2285,7 @@ import YMGap.Continuum.P2RetunedFusionPowerFenceAudit
 import YMGap.Continuum.P2RetunedFusionDefectPower
 import YMGap.Continuum.P2RetunedFusionPhysicalMode
 import YMGap.Continuum.P2RetunedFusionAdditiveGap
+import YMGap.Continuum.P2RetunedFusionReferenceGap
 import YMGap.Continuum.P2RetunedFusionRunningCell
 import YMGap.Continuum.FusionShiftMonotone
 import YMGap.Continuum.MeanComplementClose
