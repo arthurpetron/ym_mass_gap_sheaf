@@ -2274,6 +2274,7 @@ import YMGap.Continuum.P2RetunedRatioCertificate
 import YMGap.Continuum.P2RetunedFenceIntegralCertificate
 import YMGap.Continuum.P2RetunedStrongTuranCompiler
 import YMGap.Continuum.P2RetunedFenceStrongTuranCertificate
+import YMGap.Continuum.P2RetunedEdgeFormula
 import YMGap.Continuum.P2RetunedBlockingDictionary
 import YMGap.Continuum.FusionShiftMonotone
 import YMGap.Continuum.MeanComplementClose
