@@ -251,6 +251,16 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
                 "        |     +-- [>] trapezoid + fine reserve "
                 f"k>={parameters['physical_theta_tail_start']}"
             )
+        if key == "physical_pins" and state["parameters"].get("physical_pins_head_free"):
+            lines.append(
+                "        |     +-- [x] all-cutoff head removed from physical carrier"
+            )
+            lines.append(
+                "        |     +-- [x] finePin + imagePin + genuine Phi defect-power dictionary"
+            )
+            lines.append(
+                "        |     +-- [>] coefficient transitions + theta tail inputs"
+            )
     lines.extend(
         [
             "        |",

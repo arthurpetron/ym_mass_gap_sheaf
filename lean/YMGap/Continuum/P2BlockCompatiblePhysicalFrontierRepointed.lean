@@ -2,11 +2,12 @@
 Track 11.7-fusion / R4e -- physically repoint the strict frontier away from
 the constructively empty schedule-wide strong-Turan carrier.
 
-The coefficient input is now the fixed-power parity-transition family from
-`k>=4`, with its single head requested only from `k>=8`: direct integral
+The coefficient input is now only the fixed-power parity-transition family
+from `k>=4`.  Its former single head hypothesis from `k>=8` is discharged by
+the physical Dirichlet-energy theorem: direct integral
 certificates discharge every supported mode at scales zero through three;
 sparse linear certificates discharge the head cells at scales four through
-seven.  Odd cells propagate by a two-step
+seven, and the all-cutoff energy compiler supplies every later head.  Odd cells propagate by a two-step
 product law, and each even cell is inserted from the preceding odd cell by the
 true odd-index Turan law.  The theta input remains the honest post-certificate
 tail with both fields requested only from `k>=8`.  These independent inputs
@@ -20,6 +21,7 @@ declaration.
 
 import YMGap.Continuum.P2BlockCompatiblePhysicalFrontierStrictFromEight
 import YMGap.Continuum.P2BlockCompatibleIntegralTailCertificate
+import YMGap.Continuum.P2BlockCompatibleHeadPhysicalEnergyClose
 import YMGap.Continuum.P2RetunedParityStrandCompiler
 
 namespace YMGap.Continuum.P2BlockCompatiblePhysicalFrontierRepointed
@@ -31,6 +33,8 @@ open YMGap.Continuum.BlockingStepFrontier
 open YMGap.Continuum.CanonicalFusionSpectrumFamily
 open YMGap.Continuum.P2BlockCompatiblePhysicalBridge
 open YMGap.Continuum.P2BlockCompatibleIntegralTailCertificate
+open YMGap.Continuum.P2BlockCompatibleHeadPhysicalEnergyClose
+open YMGap.Continuum.P2BlockCompatibleSchedule
 open YMGap.Continuum.P2BlockCompatiblePhysicalFrontierStrictFromEight
 open YMGap.Continuum.P2BlockCompatibleStrongTuranBridge
 open YMGap.Continuum.P2BlockCompatibleThetaClearedCertificate
@@ -40,17 +44,39 @@ open YMGap.Continuum.P2RetunedFusionDefectPower
 open YMGap.Continuum.P2RetunedParityStrandCompiler
 open YMGap.Continuum.RGTransport
 
-/-- Honest Bucket-1 boundary after removing both refuted sufficient premises.
-The true transition laws begin at scale four; exact cells move the sole head
-seed to scale eight. -/
+/-- The sole remaining all-scale coefficient input: the true transition laws
+begin at scale four.  The physical head is no longer a field. -/
+structure BlockCompatibleP2BoxParityTransitionsFromFour : Type where
+  transitions : forall k, 4 <= k ->
+    P2RetunedBoxCoreParityTransitions (blockNcut k) (blockWeight k)
+
+/-- Insert the proved all-cutoff physical head into the head-free transition
+carrier expected by the existing parity-strand compiler. -/
+def BlockCompatibleP2BoxParityTransitionsFromFour.withPhysicalHead
+    (T : BlockCompatibleP2BoxParityTransitionsFromFour) :
+    BlockCompatibleP2BoxParityTransitionsFromFourHeadFromEight where
+  transitions := T.transitions
+  head := fun k hk => by
+    let r := k - 8
+    have hr : r + 8 = k := by
+      dsimp only [r]
+      omega
+    have h := physical_box_head r
+    rw [hr] at h
+    simpa only [boxTailLeft, boxTailRight, boxTailBase,
+      show 1 + 1 = 2 by decide,
+      show 2 * 1 + 3 = 5 by decide] using h
+
+/-- Honest Bucket-1 boundary after removing both refuted sufficient premises
+and the now-proved physical head field. -/
 structure BlockCompatibleP2PhysicalFrontierRepointed : Type where
-  coefficient : BlockCompatibleP2BoxParityTransitionsFromFourHeadFromEight
+  coefficient : BlockCompatibleP2BoxParityTransitionsFromFour
   theta : BlockCompatibleP2PostRadialTailStrictFromEight
 
 def BlockCompatibleP2PhysicalFrontierRepointed.coeffTailData
     (A : BlockCompatibleP2PhysicalFrontierRepointed) :
     BlockCompatibleP2CoeffTailData :=
-  A.coefficient.toCoeffTailData
+  A.coefficient.withPhysicalHead.toCoeffTailData
 
 /-- The checked theta prefix and the two post-certificate tails produce the
 same physical mode-one monotonicity datum independently of the coefficient
@@ -125,6 +151,7 @@ theorem BlockCompatibleP2PhysicalFrontierRepointed.factorLossLeHalf
   A.modeOneTailMonotonicity.factorLossLeHalf A.coeffTailData k
 
 #print axioms BlockCompatibleP2PhysicalFrontierRepointed.coeffTailData
+#print axioms BlockCompatibleP2BoxParityTransitionsFromFour.withPhysicalHead
 #print axioms BlockCompatibleP2PhysicalFrontierRepointed.modeOneTailMonotonicity
 #print axioms BlockCompatibleP2PhysicalFrontierRepointed.toCanonicalFamily
 #print axioms BlockCompatibleP2PhysicalFrontierRepointed.finePin
