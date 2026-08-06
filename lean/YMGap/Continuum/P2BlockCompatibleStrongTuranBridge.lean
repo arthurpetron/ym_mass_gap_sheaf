@@ -11,9 +11,9 @@ scale it propagates the first open edge through the entire Clebsch support.
 This module lifts that compiler over the complete replacement schedule.  It
 also exposes the weighted-box form, so the all-scale coefficient carrier is
 reduced to the existing ballot/interlacing coordinate rather than to fusion
-convolution evaluation.  Bundled with the exact endpoint reserve, these are
-the two remaining honest atoms needed to reach the genuine
-`BlockingStep.Phi` defect-power identity.
+convolution evaluation.  Bundled with the genuine normalized mode-one square
+comparison, these are the two remaining honest atoms needed to reach the
+genuine `BlockingStep.Phi` defect-power identity.
 
 # Constructivity
 
@@ -21,7 +21,7 @@ Pure structure compilation and the existing Nat induction.  No `Classical`,
 `native_decide`, `sorry`, custom axiom, or noncomputable declaration.
 -/
 
-import YMGap.Continuum.P2BlockCompatibleEndpointCriterion
+import YMGap.Continuum.P2BlockCompatibleModeOneCross
 import YMGap.Continuum.P2RetunedStrongTuranCompiler
 
 namespace YMGap.Continuum.P2BlockCompatibleStrongTuranBridge
@@ -30,8 +30,8 @@ open YMGap.Constructive
 open YMGap.Continuum
 open YMGap.Continuum.BlockingStepFrontier
 open YMGap.Continuum.FusionKernelStatement
-open YMGap.Continuum.P2BlockCompatibleEndpointCriterion
 open YMGap.Continuum.P2BlockCompatiblePhysicalBridge
+open YMGap.Continuum.P2BlockCompatibleModeOneCross
 open YMGap.Continuum.P2BlockCompatibleSchedule
 open YMGap.Continuum.P2RetunedBlockingDictionary
 open YMGap.Continuum.P2RetunedFusionDefectPower
@@ -83,11 +83,13 @@ def BlockCompatibleP2BoxStrongTuranData.toCoeffTailData
 /-! ## 2. The two canonical physical frontier atoms -/
 
 /-- The complete remaining input boundary for the present p=2 physical
-bridge: weighted-box strong Turan at every scale, and endpoint continuity
-errors fitting the exact closed reserve. -/
+bridge: weighted-box strong Turan at every scale, and the division-free
+normalized mode-one cross comparison.  The latter preserves cancellation
+because the crude unnormalized endpoint-Lipschitz route is provably too
+large. -/
 structure BlockCompatibleP2PhysicalFrontierAtoms : Type where
   coefficient : BlockCompatibleP2BoxStrongTuranData
-  endpoint : BlockCompatibleP2EndpointReserveTail
+  modeOneCross : BlockCompatibleP2ModeOneCrossTail
 
 def BlockCompatibleP2PhysicalFrontierAtoms.coeffTailData
     (A : BlockCompatibleP2PhysicalFrontierAtoms) :
@@ -97,7 +99,7 @@ def BlockCompatibleP2PhysicalFrontierAtoms.coeffTailData
 def BlockCompatibleP2PhysicalFrontierAtoms.modeOneTailMonotonicity
     (A : BlockCompatibleP2PhysicalFrontierAtoms) :
     BlockCompatibleP2ModeOneTailMonotonicity :=
-  A.endpoint.toEndpointMonotonicityTail.toModeOneTailMonotonicity
+  A.modeOneCross.toModeOneTailMonotonicity
 
 /-- The two frontier atoms compile all the way to the actual physical map:
 `finePin` is spectrum-defined, `imagePin` is `BlockingStep.step`, and the

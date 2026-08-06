@@ -213,6 +213,40 @@ def BlockCompatibleP2EndpointReserveTail.toEndpointMonotonicityTail
         simpa only [blockNcut_succ] using
           (endpointRate_add_endpointBlockSlack_eqv (blockNcut k))))
 
+/-! ## The crude endpoint modulus is provably too large -/
+
+private def qOneThirtySecond : Q' := Q'.mkPos 1 32 (by decide)
+
+/-- Already at `k=2`, the unnormalized finite-character Lipschitz modulus is
+larger than the exact endpoint reserve.  Thus the reserve compiler above is a
+valid sufficient implication, but its premise cannot be the final physical
+route.  A normalized cancellation estimate or a direct quotient comparison
+is necessary. -/
+theorem no_BlockCompatibleP2EndpointReserveTail :
+    BlockCompatibleP2EndpointReserveTail -> False := by
+  intro R
+  have hv : Q'.ofNat 6 <= vacLip (blockNcut 2) :=
+    vacLip_ge_six (by decide)
+  have hscaled :
+      Q'.ofNat 6 * blockMargin 2 <= blockEndpointError 2 := by
+    exact Q'.mul_le_mul_of_nonneg_right _ _ _ hv (blockMargin_nonneg 2)
+  have hquarter : qOneThirtySecond <= blockEndpointError 2 :=
+    Q'.le_trans' _ _ _ (Q'.le_of_eqv (by decide :
+      qOneThirtySecond ≈ Q'.ofNat 6 * blockMargin 2)) hscaled
+  have herrFine : (0 : Q') <= Q'.ofNat 2 * blockEndpointError 3 :=
+    Q'.mul_nonneg _ _ (by decide)
+      (Q'.mul_nonneg _ _ (vacLip_nonneg _) (blockMargin_nonneg _))
+  have herr : blockEndpointError 2 <=
+      blockEndpointError 2 + Q'.ofNat 2 * blockEndpointError 3 :=
+    Q'.add_le_self_of_nonneg _ _ herrFine
+  have hle : qOneThirtySecond <= endpointBlockSlack (blockNcut 2) :=
+    Q'.le_trans' _ _ _ hquarter
+      (Q'.le_trans' _ _ _ herr (R.errorsLeSlack 2 (by decide)))
+  have hlt : endpointBlockSlack (blockNcut 2) < qOneThirtySecond := by
+    decide
+  exact (by decide : Not (qOneThirtySecond < qOneThirtySecond))
+    (Q'.lt_of_le_of_lt hle hlt)
+
 /-- The endpoint budget discharges the sole normalized mode-one tail used by
 the physical bridge. -/
 def BlockCompatibleP2EndpointMonotonicityTail.toModeOneTailMonotonicity
@@ -254,6 +288,7 @@ theorem BlockCompatibleP2EndpointMonotonicityTail.factorLossLeHalf
 #print axioms blockRawModeOne_endpoint_error
 #print axioms endpointRate_add_endpointBlockSlack_eqv
 #print axioms BlockCompatibleP2EndpointReserveTail.toEndpointMonotonicityTail
+#print axioms no_BlockCompatibleP2EndpointReserveTail
 #print axioms BlockCompatibleP2EndpointMonotonicityTail.toModeOneTailMonotonicity
 #print axioms BlockCompatibleP2EndpointMonotonicityTail.blockDefectPowerOnTrajectory
 #print axioms BlockCompatibleP2EndpointMonotonicityTail.factorLossLeHalf
