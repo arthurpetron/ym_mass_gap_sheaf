@@ -2294,6 +2294,8 @@ import YMGap.Continuum.P2DyadicFusionEndpointCriterion
 import YMGap.Continuum.P2DyadicVacLipPolynomial
 import YMGap.Continuum.P2VacNormIntegralCertificate
 import YMGap.Continuum.P2DyadicQuadraticCutoffFence
+import YMGap.Continuum.P2BlockCompatibleSchedule
+import YMGap.Continuum.P2BlockCompatibleScheduleCells
 import YMGap.Continuum.P2DyadicPhysicalMarginTransport
 import YMGap.Continuum.P2RetunedFusionRunningCell
 import YMGap.Continuum.FusionShiftMonotone
