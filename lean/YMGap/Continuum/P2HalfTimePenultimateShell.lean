@@ -40,7 +40,7 @@ open YMGap.Continuum.SelfFusionLogConcave
 
 local infix:50 " ≈ " => Q'.eqv
 
-private def twoThirds : Q' := Q'.mkPos 2 3 (by decide)
+def twoThirds : Q' := Q'.mkPos 2 3 (by decide)
 private def oneThird : Q' := Q'.mkPos 1 3 (by decide)
 
 private theorem neg_num_cast (a : Q') : (-a).num = -(a.num) := rfl
@@ -166,7 +166,7 @@ theorem penultimateHalfTimeScalar (w : Q') (N : Nat)
 
 /-! ## 2. Physical schedule bounds -/
 
-private theorem blockNcut_ge_79 (r : Nat) :
+theorem blockNcut_ge_79 (r : Nat) :
     79 <= blockNcut (r + 4) := by
   induction r with
   | zero => decide
@@ -211,7 +211,7 @@ private theorem scaled_recip_le_third (n D : Nat) (hD : 0 < D)
   push_cast
   exact_mod_cast (by simpa only [Nat.mul_comm] using h)
 
-private theorem physical_twoThirds_power_floor (r : Nat) :
+theorem physical_twoThirds_power_floor (r : Nat) :
     twoThirds <=
       qpow (blockWeight (r + 4)) (2 * blockNcut (r + 4)) := by
   let k := r + 4
@@ -274,6 +274,38 @@ private theorem physical_margin_cleared_penultimate (r : Nat) :
     have htwo : 2 * (M + 1) - 1 = 2 * M + 1 := by omega
     rw [htwo]
     simp only [Nat.add_sub_cancel, Nat.mul_add, Nat.mul_one, Nat.mul_comm]
+    have hmm : M * (M * 2) = 2 * (M * M) := by ac_rfl
+    rw [hmm]
+    omega
+  exact Nat.le_trans hD hsquare
+
+private theorem physical_margin_cleared_prepenultimate (r : Nat) :
+    let N := blockNcut (r + 4)
+    physicalWeightDen (r + 4) <= (N - 2) * (2 * N - 3) := by
+  let N := blockNcut (r + 4)
+  let D := physicalWeightDen (r + 4)
+  have hN : 79 <= N := by simpa only [N] using blockNcut_ge_79 r
+  have hcoord := physicalWeightDen_cutoff_square (r + 4)
+  change 25 * D = 12 * (N + 1) * (N + 1) at hcoord
+  have hD : D <= (N + 1) * (N + 1) := by
+    have h1225 : (12 : Nat) <= 25 := by decide
+    have hscaled : 25 * D <= 25 * ((N + 1) * (N + 1)) := by
+      calc
+        25 * D = 12 * (N + 1) * (N + 1) := hcoord
+        _ = 12 * ((N + 1) * (N + 1)) := by ac_rfl
+        _ <= 25 * ((N + 1) * (N + 1)) :=
+          Nat.mul_le_mul_right ((N + 1) * (N + 1)) h1225
+    exact Nat.le_of_mul_le_mul_left hscaled (by decide)
+  have hsquare : (N + 1) * (N + 1) <= (N - 2) * (2 * N - 3) := by
+    obtain ⟨M, hM⟩ : ∃ M, N = M + 2 := ⟨N - 2, by omega⟩
+    have hM6 : 6 <= M := by omega
+    have h6M : 6 * M <= M * M := by
+      simpa only [Nat.mul_comm] using Nat.mul_le_mul_right M hM6
+    rw [hM]
+    have htwo : 2 * (M + 2) - 3 = 2 * M + 1 := by omega
+    rw [htwo]
+    simp only [Nat.add_sub_cancel, Nat.mul_add,
+      Nat.mul_one, Nat.one_mul, Nat.mul_comm]
     have hmm : M * (M * 2) = 2 * (M * M) := by ac_rfl
     rw [hmm]
     omega
@@ -374,7 +406,7 @@ private theorem physical_power_upper_step (r m n : Nat)
       (Q'.le_trans' _ _ _ (Q'.le_of_eqv hmiddle)
         (Q'.le_trans' _ _ _ hbernScaled (Q'.le_of_eqv (Q'.mul_one_eqv _)))))
 
-private theorem physical_penultimate_coeff_descending (r : Nat) :
+theorem physical_penultimate_coeff_descending (r : Nat) :
     coeffW (blockWeight (r + 4)) (blockNcut (r + 4) - 1) <=
       coeffW (blockWeight (r + 4)) (blockNcut (r + 4) - 2) := by
   let N := blockNcut (r + 4)
@@ -399,7 +431,35 @@ private theorem physical_penultimate_coeff_descending (r : Nat) :
     simpa only [show N - 2 + 1 = N - 1 by omega] using hs
   exact Q'.le_trans' _ _ _ hs' (Q'.le_of_eqv (Q'.one_mul_eqv _))
 
-private theorem physical_terminal_coeff_descending_from_four (r : Nat) :
+/-- The physical heat string is descending one further edge into the cutoff.
+This is the extra endpoint comparison needed by the six-pair shell. -/
+theorem physical_prepenultimate_coeff_descending (r : Nat) :
+    coeffW (blockWeight (r + 4)) (blockNcut (r + 4) - 2) <=
+      coeffW (blockWeight (r + 4)) (blockNcut (r + 4) - 3) := by
+  let N := blockNcut (r + 4)
+  have hN : 79 <= N := by simpa only [N] using blockNcut_ge_79 r
+  have hp0 : Q'.ofNat (N - 2 + 1) *
+      qpow (blockWeight (r + 4)) (2 * N - 3) <= Q'.ofNat (N - 2) :=
+    physical_power_upper_step r (N - 2) (2 * N - 3) (by
+      simpa only [N] using physical_margin_cleared_prepenultimate r)
+  have hp : Q'.ofNat (N - 1) *
+      qpow (blockWeight (r + 4)) (2 * N - 3) <=
+        (1 : Q') * Q'.ofNat (N - 2) := by
+    have hp1 : Q'.ofNat (N - 1) *
+        qpow (blockWeight (r + 4)) (2 * N - 3) <= Q'.ofNat (N - 2) := by
+      simpa only [show N - 2 + 1 = N - 1 by omega] using hp0
+    exact Q'.le_trans' _ _ _ hp1 (Q'.ge_of_eqv (Q'.one_mul_eqv _))
+  have hs := coeffW_succ_le_of_cross
+    (w := blockWeight (r + 4)) (R := (1 : Q')) (N - 3)
+    (blockWeight_nonneg (r + 4)) (by
+      simpa only [show N - 3 + 2 = N - 1 by omega,
+        show 2 * (N - 3) + 3 = 2 * N - 3 by omega] using hp)
+  have hs' : coeffW (blockWeight (r + 4)) (N - 2) <=
+      (1 : Q') * coeffW (blockWeight (r + 4)) (N - 3) := by
+    simpa only [show N - 3 + 1 = N - 2 by omega] using hs
+  exact Q'.le_trans' _ _ _ hs' (Q'.le_of_eqv (Q'.one_mul_eqv _))
+
+theorem physical_terminal_coeff_descending_from_four (r : Nat) :
     coeffW (blockWeight (r + 4)) (blockNcut (r + 4)) <=
       coeffW (blockWeight (r + 4)) (blockNcut (r + 4) - 1) := by
   let N := blockNcut (r + 4)
@@ -506,6 +566,11 @@ end YMGap.Continuum.P2HalfTimePenultimateShell
 /-! ## Axiom-dependency gates -/
 
 #print axioms YMGap.Continuum.P2HalfTimePenultimateShell.penultimateHalfTimeScalar
+#print axioms YMGap.Continuum.P2HalfTimePenultimateShell.blockNcut_ge_79
+#print axioms YMGap.Continuum.P2HalfTimePenultimateShell.physical_twoThirds_power_floor
+#print axioms YMGap.Continuum.P2HalfTimePenultimateShell.physical_prepenultimate_coeff_descending
+#print axioms YMGap.Continuum.P2HalfTimePenultimateShell.physical_penultimate_coeff_descending
+#print axioms YMGap.Continuum.P2HalfTimePenultimateShell.physical_terminal_coeff_descending_from_four
 #print axioms YMGap.Continuum.P2HalfTimePenultimateShell.halfTimeBox_penultimate_physical
 #print axioms YMGap.Continuum.P2HalfTimePenultimateShell.halfTimeLineSum_penultimate_physical
 #print axioms YMGap.Continuum.P2HalfTimePenultimateShell.physical_halfTime_lineSum_penultimate_from_four

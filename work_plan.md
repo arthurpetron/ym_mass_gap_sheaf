@@ -19863,3 +19863,34 @@ penultimate-shell and common-carrier monitored targets pass; all exported
 gates report `[propext, Quot.sound]`.  The deeper interior signs, theta
 trapezoid/fine reserve, later FrontierDAG atoms, physical recursion, and the
 continuum Yang--Mills target remain open.
+
+## 73. Antepenultimate half-time shell (2026-08-06)
+
+**Status. THE `s=2*N_k-3` SHELL IS DISCHARGED FOR EVERY `k>=4`; THE OPEN
+PURE-NAT FAMILY MOVES A THIRD ROW BELOW THE CUTOFF.**
+
+`P2HalfTimeAntepenultimateShell` expands the adjacent endpoint boxes into six
+and four Clebsch pairs.  For descending endpoint coefficients
+`A >= X >= B >= C`, the comparison is certified by the nonnegative identity
+
+```text
+2*T - 3*E
+  = 4*(A-X)*C + (B-C)^2 + 4*(B-C)*C
+    + 4*(B-C)*(X-B) + 2*C*(X-B).
+```
+
+The repository's proved reflective `Q'` polynomial normalizer checks the
+integer identity without expanding unnormalised rational denominators.  The
+physical Bernoulli floor pays `2/3`, coefficient descent supplies the four
+nonnegative differences, and dimension monotonicity finishes the cell.  The
+common physical compiler now assumes exactly
+
+```text
+k >= 4,  2 <= s,  s + 3 < 2*N_k
+```
+
+for its remaining full-local natural-number reserve signs.  The focused shell
+and common-carrier monitored targets pass; all exported gates report
+`[propext, Quot.sound]`.  The deeper interior signs, theta trapezoid/fine
+reserve, later FrontierDAG atoms, physical recursion, and the continuum
+Yang--Mills target remain open.

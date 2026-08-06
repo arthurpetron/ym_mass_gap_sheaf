@@ -848,10 +848,10 @@ shift atom or an explicit dyadic-log tail/separation atom whose false branch
 contradicts the faithful saddle estimate.  The physical `pΓ=2` coefficient
 route now has one common compiled carrier feeding the same selected spectrum,
 `finePin`, `imagePin`, and genuine `BlockingStep.Phi` defect-power theorem.
-For every scale `k>=4`, the half-time head `s=1`, terminal shell
-`s=2*N_k-1`, and penultimate shell `s=2*N_k-2` are kernel theorems.  The
+For every scale `k>=4`, the half-time head `s=1` and the three terminal shells
+`s=2*N_k-1`, `s=2*N_k-2`, and `s=2*N_k-3` are kernel theorems.  The
 remaining coefficient obligation is the pure-Nat reserve sign only for
-`2<=s` and `s+2<2*N_k`; the independent theta trapezoid/fine-reserve tail and
+`2<=s` and `s+3<2*N_k`; the independent theta trapezoid/fine-reserve tail and
 later physical recursion remain open.  A corrected conditional transport
 now carries canonical bulk localization through one named physical
 map-identification bridge to `PhysicalRGInput` and a positive `CRealFloor`.
