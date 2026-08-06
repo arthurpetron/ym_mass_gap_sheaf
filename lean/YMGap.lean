@@ -2281,6 +2281,7 @@ import YMGap.Continuum.P2RetunedFenceSecondShell
 import YMGap.Continuum.P2RetunedFenceThirdShell
 import YMGap.Continuum.P2RetunedBlockingDictionary
 import YMGap.Continuum.P2RetunedFusionPowerCertificate
+import YMGap.Continuum.CanonicalFusionSpectrumFamily
 import YMGap.Continuum.P2RetunedFusionPowerFenceAudit
 import YMGap.Continuum.P2RetunedFusionDefectPower
 import YMGap.Continuum.P2RetunedFusionPhysicalMode

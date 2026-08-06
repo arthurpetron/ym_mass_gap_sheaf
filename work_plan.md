@@ -19736,3 +19736,37 @@ for every `k >= 7`.  Thus the first radial split field is discharged.  The
 remaining normalized-deficit tail still requires the nonpositive trapezoid
 exchange, `terminalRadialEnvelope <= (341/125)*L^2*D0`, and the independent
 fine even/odd reserve; no Yang--Mills completion is claimed.
+
+## 68. Arbitrary-positive-exponent spectrum-family refinement (2026-08-06)
+
+**Status. THE ALL-CUTOFF `pGamma >= 2` CARRIER NOW REFINES THE REVIEWED
+FUSION-SPECTRUM DICTIONARY WITH BOTH STRUCTURAL PINS DISCHARGED; ANALYTIC
+CONTROL PRODUCTION AND PHYSICAL POWER CELLS REMAIN OPEN.**
+
+`CanonicalFusionSpectrumFamily` packages a scale-dependent cutoff `N k`, heat
+weight `w k`, physical exponent `pGamma k >= 2`, and completed
+`CanonicalBulkControl (N k) (w k) (pGamma k)`.  Defining the physical
+separator from the selected normalized fusion eigenvalue proves `finePin` by
+reflexivity.  For the same separator, `imagePin` is exactly the symmetric form
+of the supplied physical `BlockingStep.step`; it is no longer an independent
+field.
+
+The remaining genuine adjacent-scale condition is
+
+```text
+fusionMode(k) ~= fusionMode(k+1)^(b+1).
+```
+
+The generic `CanonicalSpectrumCrossMulPowerData` compiler represents this
+condition by `QPowerCell` integer cross-products and lifts it through `Q'.eqv`,
+`CReal.ofQ'`, and constructive `cpow`.  It refines directly to the existing
+`FusionSpectrumBlockingDictionary` and hence proves the actual
+`BlockingStep.Phi` power law on the physical trajectory.  The previous
+`P2RetunedControlFamily` mode and separator are proved definitionally equal to
+this generic specialization, so no parallel physical object is introduced.
+
+The focused check and monitored 367-job module target pass.  Every exported
+gate reports only `[propext, Quot.sound]`.  This milestone does **not** inhabit
+the all-cutoff analytic `CanonicalBulkControlFamily`, generate the physical
+cross-scale `QPowerCell`s, or close the remaining theta radial/trapezoid/fine
+reserve fields.
