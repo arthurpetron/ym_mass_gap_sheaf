@@ -359,6 +359,43 @@ fine-reserve transports from `k>=8`, loss summability, physical recursion,
 continuum construction, and O(4) restoration remain open.  This is not a
 solution of the Yang--Mills Millennium problem.
 
+## Block-compatible strong-Turan route refuted and repointed (2026-08-06)
+
+The coefficient premise used by the recent strict physical carriers has now
+been tested at its first adverse schedule cell and constructively refuted.
+
+- At `k=2`, the physical schedule has `N=19` and `w=191/192`.  The proposed
+  strengthened dimension-weighted Turan inequality is false at `s=2`.
+- A generic common-denominator reconstruction transports any proof of that
+  physical `Q'` inequality to one cleared natural-number comparison.  Kernel
+  `decide` refutes that comparison exactly; the load-bearing declarations use
+  only `[propext, Quot.sound]`.
+- Consequently both `BlockCompatibleP2StrongTuranData` and its weighted-box
+  predecessor `BlockCompatibleP2BoxStrongTuranData` are constructively empty.
+  The previously checked downstream `CanonicalBulkControl`, `finePin`,
+  `imagePin`, and genuine `BlockingStep.Phi` results remain valid conditional
+  compilers, but cannot be inhabited through that premise.
+- The coefficient route is therefore repointed to
+  `P2RetunedHeadThreeTuran`: the actual adjacent coefficient inequalities are
+  supplied directly only at `s=1,2,3`, and the strengthened Turan recurrence
+  begins at `s=3`.  Constructive Nat induction propagates the third head over
+  the complete two-fold support.  Exact Peter--Weyl reconstruction also gives
+  the weighted-box and schedule-wide forms.
+- `BlockCompatibleP2PhysicalFrontierRepointed` carries this repair through the
+  physical consumer boundary.  Combined directly with the strict `k>=8`
+  theta tail, it constructs the reviewed all-cutoff `pGamma=2` family, its
+  selected-spectrum `finePin` and `imagePin`, the genuine
+  `BlockingStep.Phi` quotient defect-power identity, and the half-loss gate.
+  No downstream theorem now needs to pass through the empty coefficient type.
+
+This is a real premise repair, not an inhabitant of the replacement carrier.
+The next coefficient atom is to prove its three fixed heads and its uniform
+`s>=3` recurrence on the physical schedule.  The two uniform `k>=8` theta
+transports, loss summability, physical recursion, continuum construction, and
+O(4) restoration also remain open.  No full audit, remote push, or GitHub CI
+run was used, and this is not a solution of the Yang--Mills Millennium
+problem.
+
 ## Dead routes (refuted — do not re-attempt)
 
 - **`Var_m(cosθ)` monotonicity → uniform-in-`m`** — REFUTED (`VarianceMonotonicity.lean`,
