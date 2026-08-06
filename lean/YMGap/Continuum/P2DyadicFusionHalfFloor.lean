@@ -231,6 +231,95 @@ theorem DyadicP2PhysicalSandwichInput.modeOneHalf
   | zero => exact base_modeOne_half D
   | succ k => exact half_le_physicalModeOne R P.cutoffCoeff_le (k + 1) (by omega)
 
+/-- The all-scale mode-one floor depends only on the corrected cutoff estimate
+and its scalar cap, not on either half of the quotient sandwich. -/
+theorem modeOneHalf_of_cutoffCap
+    {D : DyadicP2CoeffTailData} (R : DyadicP2RefinedCutoffData D)
+    (hCq : R.Cq <= cutoffCoeffCap) (k : Nat) :
+    half <= fusionModeQ D.toControlFamily modeOne k := by
+  cases k with
+  | zero => exact base_modeOne_half D
+  | succ k => exact half_le_physicalModeOne R hCq (k + 1) (by omega)
+
+/-! ## 4. Collapse the quotient carrier to one inequality -/
+
+/-- After the half-floor reduction, the sole genuine quotient estimate is
+the upper sandwich `coarse <= fine^2`.  Positivity, mode dominance, and the
+lower sandwich are all derived. -/
+structure DyadicP2PhysicalMonotoneInput
+    (D : DyadicP2CoeffTailData) (R : DyadicP2RefinedCutoffData D)
+    (_B : BlockingStep (fusionSeparator D.toControlFamily modeOne)) : Type where
+  cutoffCoeff_le : R.Cq <= cutoffCoeffCap
+  coarseLeFineSquare : forall k,
+    fusionModeQ D.toControlFamily modeOne k <=
+      qpow (fusionModeQ D.toControlFamily modeOne (k + 1)) 2
+
+/-- The one-inequality input constructs the complete spectral quotient
+sandwich expected by the physical defect compiler. -/
+def DyadicP2PhysicalMonotoneInput.toSandwichInput
+    {D : DyadicP2CoeffTailData} {R : DyadicP2RefinedCutoffData D}
+    {B : BlockingStep (fusionSeparator D.toControlFamily modeOne)}
+    (P : DyadicP2PhysicalMonotoneInput D R B) :
+    DyadicP2PhysicalSandwichInput D R B where
+  cutoffCoeff_le := P.cutoffCoeff_le
+  data :=
+    { physicalMode :=
+        P2RetunedFusionPhysicalMode.P2RetunedControlFamily.modeOnePhysical
+          D.toControlFamily
+      coarseNonneg := fun k => (fusionModeOne_range D.toControlFamily k).1
+      finePowerPos := fun k => by
+        have hhalf := modeOneHalf_of_cutoffCap R P.cutoffCoeff_le (k + 1)
+        have hpos : (0 : Q') <
+            fusionModeQ D.toControlFamily modeOne (k + 1) :=
+          BondMovingRelResidual.q_lt_of_lt_of_le
+            (by decide : (0 : Q') < half) hhalf
+        exact BondMovingScaledNorm.qpow_pos hpos 2
+      coarseLeFinePower := P.coarseLeFineSquare
+      halfFinePowerLeCoarse := fun k => by
+        have hfine := fusionModeOne_range D.toControlFamily (k + 1)
+        have hpow : qpow (fusionModeQ D.toControlFamily modeOne (k + 1)) 2 <=
+            (1 : Q') :=
+          HeatKernelGap.qpow_le_one hfine.1 hfine.2 2
+        have hscale := Q'.mul_le_mul_of_nonneg_left _ _ half hpow half_nonneg
+        exact Q'.le_trans' _ _ _ hscale
+          (Q'.le_trans' _ _ _
+            (Q'.le_of_eqv (Q'.mul_one_eqv half))
+            (modeOneHalf_of_cutoffCap R P.cutoffCoeff_le k)) }
+
+/-- The reduced one-inequality input reaches the additive envelope compiler. -/
+def DyadicP2PhysicalMonotoneInput.toAdditiveInput
+    {D : DyadicP2CoeffTailData} {R : DyadicP2RefinedCutoffData D}
+    {B : BlockingStep (fusionSeparator D.toControlFamily modeOne)}
+    (P : DyadicP2PhysicalMonotoneInput D R B) :
+    DyadicP2PhysicalAdditiveInput D R B where
+  data := P.toSandwichInput.data
+  fineSquareHalf := fun k =>
+    Q'.le_trans' _ _ _
+      (modeOneHalf_of_cutoffCap R P.cutoffCoeff_le k)
+      (P.coarseLeFineSquare k)
+
+/-- The genuine map identification now consumes only `coarse <= fine^2` and
+the scalar cutoff cap beyond the two honest analytic carriers `D` and `R`. -/
+theorem DyadicP2PhysicalMonotoneInput.blockDefectPowerOnTrajectory
+    {D : DyadicP2CoeffTailData} {R : DyadicP2RefinedCutoffData D}
+    {B : BlockingStep (fusionSeparator D.toControlFamily modeOne)}
+    (P : DyadicP2PhysicalMonotoneInput D R B) :
+    IsBlockDefectPowerOnTrajectory 1
+      (fusionSeparator D.toControlFamily modeOne) B.Φ
+      P.toSandwichInput.data.toCrossMul.factor :=
+  P.toAdditiveInput.blockDefectPowerOnTrajectory
+
+/-- The same one-inequality input carries the positive rational product
+floor. -/
+def DyadicP2PhysicalMonotoneInput.factorProductFloorRat
+    {D : DyadicP2CoeffTailData} {R : DyadicP2RefinedCutoffData D}
+    {B : BlockingStep (fusionSeparator D.toControlFamily modeOne)}
+    (P : DyadicP2PhysicalMonotoneInput D R B) :
+    Σ' (eps : Q'), (0 : Q') < eps ∧ forall n,
+      eps <= RGGapPersistence.prodPrefix
+        P.toSandwichInput.data.toCrossMul.factor n :=
+  P.toAdditiveInput.factorProductFloorRat
+
 /-- The coarse-to-fine square sandwich promotes the mode-one floor to the
 fine-square floor expected by `P2DyadicFusionGapBudget`. -/
 def DyadicP2PhysicalSandwichInput.toAdditiveInput
@@ -269,6 +358,10 @@ end YMGap.Continuum.P2DyadicFusionHalfFloor
 #print axioms YMGap.Continuum.P2DyadicFusionHalfFloor.physicalModeOne_deficit_le_half
 #print axioms YMGap.Continuum.P2DyadicFusionHalfFloor.half_le_physicalModeOne
 #print axioms YMGap.Continuum.P2DyadicFusionHalfFloor.base_modeOne_half
+#print axioms YMGap.Continuum.P2DyadicFusionHalfFloor.modeOneHalf_of_cutoffCap
 #print axioms YMGap.Continuum.P2DyadicFusionHalfFloor.DyadicP2PhysicalSandwichInput.toAdditiveInput
 #print axioms YMGap.Continuum.P2DyadicFusionHalfFloor.DyadicP2PhysicalSandwichInput.blockDefectPowerOnTrajectory
 #print axioms YMGap.Continuum.P2DyadicFusionHalfFloor.DyadicP2PhysicalSandwichInput.factorProductFloorRat
+#print axioms YMGap.Continuum.P2DyadicFusionHalfFloor.DyadicP2PhysicalMonotoneInput.toSandwichInput
+#print axioms YMGap.Continuum.P2DyadicFusionHalfFloor.DyadicP2PhysicalMonotoneInput.blockDefectPowerOnTrajectory
+#print axioms YMGap.Continuum.P2DyadicFusionHalfFloor.DyadicP2PhysicalMonotoneInput.factorProductFloorRat
