@@ -2342,6 +2342,7 @@ import YMGap.Continuum.P2BlockCompatibleScheduleClosed
 import YMGap.Continuum.P2BlockCompatibleIntegralTailCertificate
 import YMGap.Continuum.P2RetunedParityStrandCompiler
 import YMGap.Continuum.P2BlockCompatibleHeadLinearCertificate
+import YMGap.Continuum.P2BlockCompatibleHeadDirichletCompiler
 import YMGap.Continuum.P2BlockCompatiblePhysicalFrontierRepointed
 import YMGap.Continuum.P2DyadicPhysicalMarginTransport
 import YMGap.Continuum.P2RetunedFusionRunningCell

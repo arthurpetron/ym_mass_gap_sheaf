@@ -505,6 +505,29 @@ No full audit, remote push, or GitHub CI run was used.  The head from `k>=8`,
 the transition laws from `k>=4`, and the two uniform `k>=8` theta transports
 remain open.
 
+## All-cutoff sparse-head Dirichlet compiler (2026-08-06)
+
+The residual parity head now has an exact cutoff-uniform positive-energy
+normal form, replacing direct evaluation of the growing rational sums.
+
+- `P2BlockCompatibleHeadDirichletCompiler` proves that twice the bare head
+  slack is exactly two distance-two path energies minus three adjacent path
+  energies plus the four endpoint squares
+  `c_0^2 + 2c_1^2 + 2c_(N-1)^2 - c_N^2`.
+- The retuned weighted-box head follows from two smaller named inequalities:
+  the two-step energy pays three halves of the adjacent energy, and the
+  explicit endpoint reserve pays the `6*(1-q^5)*A_N` retune debt.
+- Every nonlinear rearrangement is certified by the constructive reflective
+  polynomial normalizer.  Splitting the cutoff induction into constant-size
+  successor certificates reduced the focused monitored check from a
+  deterministic heartbeat timeout to 1.25 seconds.
+- Both exported theorems are kernel-checked with exactly
+  `[propext, Quot.sound]`; there is no `sorry`, custom axiom, classical choice,
+  `native_decide`, or noncomputable declaration.
+
+No full audit, remote push, or GitHub CI run was used.  The honest next step is
+to discharge the two physical schedule inequalities uniformly for `k >= 8`.
+
 ## Dead routes (refuted — do not re-attempt)
 
 - **`Var_m(cosθ)` monotonicity → uniform-in-`m`** — REFUTED (`VarianceMonotonicity.lean`,
