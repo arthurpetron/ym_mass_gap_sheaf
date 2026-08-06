@@ -232,10 +232,17 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
                     "        |     +-- [x] physical broad-peak certificate "
                     f"{parameters['physical_coeff_head_reverse_curvature']}"
                 )
-            lines.append(
-                "        |     +-- [>] residual head seed "
-                f"k>={parameters['physical_coeff_head_tail_start']}"
-            )
+            if parameters.get("physical_coeff_head_complete"):
+                lines.append(
+                    "        |     +-- [x] physical all-cutoff head seed "
+                    f"k>={parameters['physical_coeff_head_tail_start']} "
+                    "(Dirichlet energy + weighted-box consumer)"
+                )
+            else:
+                lines.append(
+                    "        |     +-- [>] residual head seed "
+                    f"k>={parameters['physical_coeff_head_tail_start']}"
+                )
             lines.append(
                 "        |     +-- [x] parity proof compiler "
                 f"{parameters['physical_coeff_tail_invariant']}"
