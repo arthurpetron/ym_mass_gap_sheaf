@@ -419,6 +419,11 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
                     "        |     +-- [x] centered residual physical bridge "
                     f"{state['parameters']['physical_centered_frontier_bridge']}"
                 )
+                if state["parameters"].get("physical_centered_active_prefix"):
+                    lines.append(
+                        "        |     +-- [x] active-support upper-prefix compiler "
+                        f"{state['parameters']['physical_centered_active_prefix']}"
+                    )
                 lines.append(
                     "        |     +-- [>] open physical inputs "
                     f"{state['parameters']['physical_centered_residual']}"

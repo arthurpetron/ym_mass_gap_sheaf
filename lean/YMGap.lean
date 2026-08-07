@@ -2375,6 +2375,7 @@ import YMGap.Continuum.P2HalfTimeStrongTuranCompiler
 import YMGap.Continuum.P2HalfTimeStrongTuranObstruction
 import YMGap.Continuum.P2BlockCompatiblePhysicalCompiledFrontier
 import YMGap.Continuum.P2HalfTimeCenteredPhysicalFrontier
+import YMGap.Continuum.P2HalfTimeCenteredActivePrefix
 import YMGap.Continuum.P2HalfTimeScaleFourSplicedParityCompiler
 import YMGap.Continuum.P2HalfTimeStrandIntegralCertificate
 import YMGap.Continuum.P2HalfTimeScaleFivePrefix
