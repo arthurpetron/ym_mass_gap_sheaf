@@ -424,6 +424,11 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
                         "        |     +-- [x] active-support upper-prefix compiler "
                         f"{state['parameters']['physical_centered_active_prefix']}"
                     )
+                if state["parameters"].get("physical_centered_active_lower"):
+                    lines.append(
+                        "        |     +-- [x] active-support lower-residual compiler "
+                        f"{state['parameters']['physical_centered_active_lower']}"
+                    )
                 lines.append(
                     "        |     +-- [>] open physical inputs "
                     f"{state['parameters']['physical_centered_residual']}"
