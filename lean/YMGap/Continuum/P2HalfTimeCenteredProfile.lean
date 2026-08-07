@@ -34,6 +34,7 @@ open YMGap.Continuum.RGTransport
 open YMGap.Continuum.P2BlockCompatibleSchedule
 open YMGap.Continuum.P2BlockCompatibleScheduleClosed
 open YMGap.Continuum.P2BlockCompatibleHalfTimeRatioCompiler
+open YMGap.Continuum.P2BlockCompatiblePhysicalBridge
 open YMGap.Continuum.P2HalfTimeShiftTail
 open YMGap.Continuum.ReciprocalBernoulliUpper
 
@@ -1523,6 +1524,208 @@ theorem physicalHighShiftRowReserve_nonneg_of_centerPayment
   exact physicalHighShiftRowReserve_nonneg_of_centered k N r s hN
     (physicalCenteredSuccessorPair_le_of_payment k r s hpay)
 
+private theorem centered_le_of_reserve_nonneg {left right : Q'}
+    (h : (0 : Q') <= right + -left) : left <= right := by
+  have hadd := Q'.add_le_add_right _ _ left h
+  have eleft : ((0 : Q') + left).eqv left :=
+    Q'.eqv_of_eq (Q'.zero_add' left)
+  have eright : ((right + -left) + left).eqv right := by
+    exact Q'.eqv_trans _ (right + (-left + left)) _
+      (Q'.add_assoc_eqv right (-left) left)
+      (Q'.eqv_trans _ (right + 0) _
+        (Q'.add_eqv_congr_left right _ _ (Q'.neg_add_self_eqv left))
+        (Q'.eqv_of_eq (Q'.add_zero' right)))
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.eqv_symm eleft))
+    (Q'.le_trans' _ _ _ hadd (Q'.le_of_eqv eright))
+
+/-- Rectangular pure-Nat corollary of the centered payment.  With
+`A = 2^k`, every channel `s+2 >= 3A` and row `r >= 4A` satisfies
+`D_k <= r(s+2)`.  Unlike the exact quotient threshold, this region has fixed
+row width and can be spliced directly into trapezoid arguments. -/
+theorem physical_centeredRectangularPayment (k r s : Nat)
+    (hs : 3 * 2 ^ k <= s + 2) (hr : 4 * 2 ^ k <= r) :
+    physicalWeightDen k <= r * (s + 2) := by
+  let A := 2 ^ k
+  have hscaled := Nat.mul_le_mul_left (4 * A) hs
+  have hden : physicalWeightDen k = (4 * A) * (3 * A) := by
+    unfold physicalWeightDen
+    rw [CasimirMoment.four_pow_eq]
+    change (4 * 3) * (A * A) = (4 * A) * (3 * A)
+    ac_rfl
+  have hbase : physicalWeightDen k <= (4 * A) * (s + 2) := by
+    rw [hden]
+    simpa only [A] using hscaled
+  have hrow := Nat.mul_le_mul_right (s + 2) hr
+  exact Nat.le_trans hbase hrow
+
+/-- Constant-width rectangular row discharge extracted from the centered
+profile theorem. -/
+theorem physicalHighShiftRowReserve_nonneg_centeredRectangle
+    (k N r s : Nat) (hN : N <= blockNcut k)
+    (hs : 3 * 2 ^ k <= s + 2) (hr : 4 * 2 ^ k <= r) :
+    (0 : Q') <= physicalHighShiftRowReserve k N s r := by
+  exact physicalHighShiftRowReserve_nonneg_of_centerPayment k N r s hN
+    (physical_centeredRectangularPayment k r s hs hr)
+
+/-- Inequality form of the same rectangular row certificate. -/
+theorem cutoffShiftRow_physical_halfTime_centeredRectangle
+    (k N r s : Nat) (hN : N <= blockNcut k)
+    (hs : 3 * 2 ^ k <= s + 2) (hr : 4 * 2 ^ k <= r) :
+    dimQ s * cutoffShiftRow (blockWeight k) N (s + 1) r <=
+      qpow (blockWeight k) (s + 2) *
+        (dimQ (s + 1) * cutoffShiftRow (blockWeight k) N s r) := by
+  apply centered_le_of_reserve_nonneg
+  simpa only [physicalHighShiftRowReserve] using
+    physicalHighShiftRowReserve_nonneg_centeredRectangle
+      k N r s hN hs hr
+
+/-- Clamp the constant rectangular row boundary `4*2^k` to the cutoff. -/
+def physicalCenteredRectangleSplitStart (k N : Nat) : Nat :=
+  Nat.min (4 * 2 ^ k) (N + 1)
+
+/-- Fixed-width prefix left by the rectangular centered theorem. -/
+def physicalCenteredRectangleLowShiftSum (k N t : Nat) : Q' :=
+  fsum (fun r => cutoffShiftRow (blockWeight k) N t r)
+    (physicalCenteredRectangleSplitStart k N)
+
+/-- Rectangular high sector beginning at row `4*2^k`. -/
+def physicalCenteredRectangleHighShiftSum (k N t : Nat) : Q' :=
+  let R := physicalCenteredRectangleSplitStart k N
+  fsum (fun j => cutoffShiftRow (blockWeight k) N t (R + j))
+    (N + 1 - R)
+
+theorem physicalCenteredRectangleSplitStart_le (k N : Nat) :
+    physicalCenteredRectangleSplitStart k N <= N + 1 :=
+  Nat.min_le_right _ _
+
+private theorem physical_fourPow_le_rectangleSplit_add {k N j : Nat}
+    (hj : j < N + 1 - physicalCenteredRectangleSplitStart k N) :
+    4 * 2 ^ k <= physicalCenteredRectangleSplitStart k N + j := by
+  by_cases hR : 4 * 2 ^ k <= N + 1
+  · simp only [physicalCenteredRectangleSplitStart, Nat.min_eq_left hR]
+    omega
+  · have hNR : N + 1 <= 4 * 2 ^ k := Nat.le_of_not_ge hR
+    simp only [physicalCenteredRectangleSplitStart, Nat.min_eq_right hNR] at hj
+    omega
+
+/-- Exact line-sum decomposition at the fixed rectangular row boundary. -/
+theorem lineSum_eq_physicalCenteredRectangleLow_add_high
+    (k N t : Nat) :
+    (lineSum (lagCorr (blockWeight k) N) t).eqv
+      (physicalCenteredRectangleLowShiftSum k N t +
+        physicalCenteredRectangleHighShiftSum k N t) := by
+  let R := physicalCenteredRectangleSplitStart k N
+  have hR : R <= N + 1 := physicalCenteredRectangleSplitStart_le k N
+  have hcount : R + (N + 1 - R) = N + 1 := by omega
+  have hsplit := fsum_split_at
+    (fun r => cutoffShiftRow (blockWeight k) N t r)
+    R (N + 1 - R)
+  rw [hcount] at hsplit
+  exact Q'.eqv_trans _ _ _
+    (lineSum_eq_cutoffShiftRows (blockWeight k) N t)
+    (by
+      simpa only [physicalCenteredRectangleLowShiftSum,
+        physicalCenteredRectangleHighShiftSum, R] using hsplit)
+
+/-- Aggregate rectangular theorem: above channel `3*2^k-2`, every supported
+cutoff leaves at most the fixed prefix `r < 4*2^k`. -/
+theorem physicalCenteredRectangleHighShiftSum_halfTime
+    (k N s : Nat) (hN : N <= blockNcut k)
+    (hs : 3 * 2 ^ k <= s + 2) :
+    dimQ s * physicalCenteredRectangleHighShiftSum k N (s + 1) <=
+      qpow (blockWeight k) (s + 2) *
+        (dimQ (s + 1) *
+          physicalCenteredRectangleHighShiftSum k N s) := by
+  let R := physicalCenteredRectangleSplitStart k N
+  let L := N + 1 - R
+  let q := qpow (blockWeight k) (s + 2)
+  have hterms :
+      fsum (fun j => dimQ s *
+        cutoffShiftRow (blockWeight k) N (s + 1) (R + j)) L <=
+      fsum (fun j => q * (dimQ (s + 1) *
+        cutoffShiftRow (blockWeight k) N s (R + j))) L := by
+    apply fsum_mono_lt
+    intro j hj
+    exact cutoffShiftRow_physical_halfTime_centeredRectangle
+      k N (R + j) s hN hs
+        (physical_fourPow_le_rectangleSplit_add
+          (by simpa only [R, L] using hj))
+  have eleft :
+      (dimQ s * physicalCenteredRectangleHighShiftSum k N (s + 1)).eqv
+        (fsum (fun j => dimQ s *
+          cutoffShiftRow (blockWeight k) N (s + 1) (R + j)) L) := by
+    unfold physicalCenteredRectangleHighShiftSum
+    simpa only [R, L] using
+      fsum_const_mul (dimQ s)
+        (fun j => cutoffShiftRow (blockWeight k) N (s + 1) (R + j)) L
+  have eright :
+      (fsum (fun j => q * (dimQ (s + 1) *
+        cutoffShiftRow (blockWeight k) N s (R + j))) L).eqv
+        (q * (dimQ (s + 1) *
+          physicalCenteredRectangleHighShiftSum k N s)) := by
+    refine Q'.eqv_trans _
+      (q * fsum (fun j => dimQ (s + 1) *
+        cutoffShiftRow (blockWeight k) N s (R + j)) L) _
+      (Q'.eqv_symm (fsum_const_mul q _ L)) ?_
+    apply Q'.mul_eqv_congr_left q
+    refine Q'.eqv_trans _
+      (dimQ (s + 1) * fsum (fun j =>
+        cutoffShiftRow (blockWeight k) N s (R + j)) L) _
+      (Q'.eqv_symm (fsum_const_mul (dimQ (s + 1)) _ L)) ?_
+    apply Q'.mul_eqv_congr_left (dimQ (s + 1))
+    unfold physicalCenteredRectangleHighShiftSum
+    exact Q'.eqv_refl _
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv eleft)
+    (Q'.le_trans' _ _ _ hterms (Q'.le_of_eqv eright))
+
+/-- Pointwise upper-channel splice.  Once the fixed prefix `r < 4*2^k` is
+controlled, the rectangular centered theorem closes the complete physical
+line-sum cell. -/
+theorem physicalLineSum_halfTime_of_centeredRectangleLow
+    (k N s : Nat) (hN : N <= blockNcut k)
+    (hs : 3 * 2 ^ k <= s + 2)
+    (hlow :
+      dimQ s * physicalCenteredRectangleLowShiftSum k N (s + 1) <=
+        qpow (blockWeight k) (s + 2) *
+          (dimQ (s + 1) *
+            physicalCenteredRectangleLowShiftSum k N s)) :
+    dimQ s * lineSum (lagCorr (blockWeight k) N) (s + 1) <=
+      qpow (blockWeight k) (s + 2) *
+        (dimQ (s + 1) * lineSum (lagCorr (blockWeight k) N) s) := by
+  let q := qpow (blockWeight k) (s + 2)
+  let low1 := physicalCenteredRectangleLowShiftSum k N (s + 1)
+  let high1 := physicalCenteredRectangleHighShiftSum k N (s + 1)
+  let low0 := physicalCenteredRectangleLowShiftSum k N s
+  let high0 := physicalCenteredRectangleHighShiftSum k N s
+  have hsum := Q'.add_le_add hlow
+    (physicalCenteredRectangleHighShiftSum_halfTime k N s hN hs)
+  have eleft :
+      (dimQ s * lineSum (lagCorr (blockWeight k) N) (s + 1)).eqv
+        (dimQ s * low1 + dimQ s * high1) := by
+    refine Q'.eqv_trans _ (dimQ s * (low1 + high1)) _
+      (Q'.mul_eqv_congr_left (dimQ s) _ _ (by
+        simpa only [low1, high1] using
+          lineSum_eq_physicalCenteredRectangleLow_add_high
+            k N (s + 1))) ?_
+    exact Q'.mul_add_eqv _ _ _
+  have eright :
+      (q * (dimQ (s + 1) * low0) +
+        q * (dimQ (s + 1) * high0)).eqv
+        (q * (dimQ (s + 1) *
+          lineSum (lagCorr (blockWeight k) N) s)) := by
+    refine Q'.eqv_trans _
+      (q * (dimQ (s + 1) * low0 + dimQ (s + 1) * high0)) _
+      (Q'.eqv_symm (Q'.mul_add_eqv q _ _)) ?_
+    apply Q'.mul_eqv_congr_left q
+    refine Q'.eqv_trans _ (dimQ (s + 1) * (low0 + high0)) _
+      (Q'.eqv_symm (Q'.mul_add_eqv (dimQ (s + 1)) low0 high0)) ?_
+    apply Q'.mul_eqv_congr_left (dimQ (s + 1))
+    simpa only [low0, high0] using
+      Q'.eqv_symm
+        (lineSum_eq_physicalCenteredRectangleLow_add_high k N s)
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv eleft)
+    (Q'.le_trans' _ _ _ hsum (Q'.le_of_eqv eright))
+
 /-- Every row at or above the explicit centered threshold is discharged at
 every supported cutoff.  This exposes the new analytic region directly to
 later low/high splices. -/
@@ -1662,20 +1865,6 @@ theorem physicalCenteredHighShiftReserve_nonneg
     (physicalCenteredHighShiftRowReserveSum_nonneg k N s hN)
     (Q'.le_of_eqv
       (physicalCenteredHighShiftRowReserveSum_eq_reserve k N s))
-
-private theorem centered_le_of_reserve_nonneg {left right : Q'}
-    (h : (0 : Q') <= right + -left) : left <= right := by
-  have hadd := Q'.add_le_add_right _ _ left h
-  have eleft : ((0 : Q') + left).eqv left :=
-    Q'.eqv_of_eq (Q'.zero_add' left)
-  have eright : ((right + -left) + left).eqv right := by
-    exact Q'.eqv_trans _ (right + (-left + left)) _
-      (Q'.add_assoc_eqv right (-left) left)
-      (Q'.eqv_trans _ (right + 0) _
-        (Q'.add_eqv_congr_left right _ _ (Q'.neg_add_self_eqv left))
-        (Q'.eqv_of_eq (Q'.add_zero' right)))
-  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.eqv_symm eleft))
-    (Q'.le_trans' _ _ _ hadd (Q'.le_of_eqv eright))
 
 /-- Aggregate half-time inequality on the centered high sector, uniform in
 the cutoff.  This is the form consumed by the remaining low/high splice. -/
@@ -1833,17 +2022,18 @@ private theorem best_balance_of_debt_le_reserve
   exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.eqv_symm eleft))
     (Q'.le_trans' _ _ _ hadd (Q'.le_of_eqv eright))
 
-/-- Sharp remaining datum after taking the better of the two symbolic tail
-arguments channel by channel. -/
-structure P2PhysicalBestLowHighReserve (k N : Nat) : Type where
-  reserve : forall s, 1 <= s -> s < 2 * N ->
-    physicalBestLowShiftDebt k N s <= physicalBestHighShiftReserve k N s
-
-/-- The minimized residual compiles directly to the physical line-sum ratio. -/
-def P2PhysicalBestLowHighReserve.toLineSum {k N : Nat}
-    (T : P2PhysicalBestLowHighReserve k N) :
-    P2HalfTimeLineSumTailRatio N (blockWeight k) where
-  tail := fun s hs hsN => by
+ /-- One pointwise low-debt/high-reserve certificate closes the corresponding
+physical line-sum cell.  This form lets later compilers choose a different
+residual geometry in different channel regions without rebuilding an
+all-channel carrier first. -/
+theorem physicalLineSum_halfTime_of_bestLowHighReserve
+    (k N s : Nat)
+    (hreserve :
+      physicalBestLowShiftDebt k N s <=
+        physicalBestHighShiftReserve k N s) :
+    dimQ s * lineSum (lagCorr (blockWeight k) N) (s + 1) <=
+      qpow (blockWeight k) (s + 2) *
+        (dimQ (s + 1) * lineSum (lagCorr (blockWeight k) N) s) := by
     let q := qpow (blockWeight k) (s + 2)
     let lowL := dimQ s * physicalBestLowShiftSum k N s (s + 1)
     let lowR := q * (dimQ (s + 1) * physicalBestLowShiftSum k N s s)
@@ -1853,7 +2043,7 @@ def P2PhysicalBestLowHighReserve.toLineSum {k N : Nat}
       best_balance_of_debt_le_reserve (by
         simpa only [physicalBestLowShiftDebt,
           physicalBestHighShiftReserve, lowL, lowR, highL, highR, q] using
-            T.reserve s hs hsN)
+            hreserve)
     have eleft :
         (dimQ s * lineSum (lagCorr (blockWeight k) N) (s + 1)).eqv
           (lowL + highL) := by
@@ -1886,6 +2076,20 @@ def P2PhysicalBestLowHighReserve.toLineSum {k N : Nat}
     exact Q'.le_trans' _ _ _ (Q'.le_of_eqv eleft)
       (Q'.le_trans' _ _ _ hbalance (Q'.le_of_eqv eright))
 
+/-- Sharp remaining datum after taking the better of the two symbolic tail
+arguments channel by channel. -/
+structure P2PhysicalBestLowHighReserve (k N : Nat) : Type where
+  reserve : forall s, 1 <= s -> s < 2 * N ->
+    physicalBestLowShiftDebt k N s <= physicalBestHighShiftReserve k N s
+
+/-- The minimized residual compiles directly to the physical line-sum ratio. -/
+def P2PhysicalBestLowHighReserve.toLineSum {k N : Nat}
+    (T : P2PhysicalBestLowHighReserve k N) :
+    P2HalfTimeLineSumTailRatio N (blockWeight k) where
+  tail := fun s hs hsN =>
+    physicalLineSum_halfTime_of_bestLowHighReserve
+      k N s (T.reserve s hs hsN)
+
 /-- Schedule-wide minimized residual beginning after the checked finite
 physical prefix. -/
 structure BlockCompatibleP2BestLowHighReserveFromFour : Type where
@@ -1897,10 +2101,72 @@ def BlockCompatibleP2BestLowHighReserveFromFour.toLineSumTail
     P2BlockCompatibleHalfTimeRatioCompiler.BlockCompatibleP2HalfTimeLineSumTailFromFour where
   tail := fun k hk => (T.reserve k hk).toLineSum
 
+/-- Compile the minimized residual to the common all-scale coefficient datum
+used by the physical spectrum and blocking-map frontier. -/
+def BlockCompatibleP2BestLowHighReserveFromFour.toCoeffTailData
+    (T : BlockCompatibleP2BestLowHighReserveFromFour) :
+    BlockCompatibleP2CoeffTailData :=
+  (BlockCompatibleP2HalfTimeCoeffTailFromFour.mk fun k hk =>
+    ((T.toLineSumTail).tail k hk).toCoeff).toAllScale
+
 /-- End-to-end compiler from the minimized exact residual to the reviewed
 all-scale positive-exponent canonical bulk-control family. -/
 def BlockCompatibleP2BestLowHighReserveFromFour.toControlFamily
     (T : BlockCompatibleP2BestLowHighReserveFromFour) :
+    P2RetunedBlockingDictionary.P2RetunedControlFamily :=
+  T.toLineSumTail.toControlFamily
+
+/-! ## Fixed-width upper-channel residual -/
+
+/-- Region-split residual after the rectangular centered theorem.  Below the
+upper-channel threshold it retains the pointwise best low/high balance.  At
+and above that threshold it asks only for the fixed prefix `r < 4 * 2^k`;
+the entire remaining cutoff-dependent row range is already a theorem. -/
+structure P2PhysicalCenteredRectangleResidual (k N : Nat) : Type where
+  lower : forall s, 1 <= s -> s < 2 * N -> s + 2 < 3 * 2 ^ k ->
+    physicalBestLowShiftDebt k N s <= physicalBestHighShiftReserve k N s
+  upper : forall s, 1 <= s -> s < 2 * N -> 3 * 2 ^ k <= s + 2 ->
+    dimQ s * physicalCenteredRectangleLowShiftSum k N (s + 1) <=
+      qpow (blockWeight k) (s + 2) *
+        (dimQ (s + 1) * physicalCenteredRectangleLowShiftSum k N s)
+
+/-- Compile the region-split residual to the complete physical line-sum
+ratio.  The upper branch invokes the rectangular theorem, while the lower
+branch invokes the pointwise best-tail balance. -/
+def P2PhysicalCenteredRectangleResidual.toLineSum {k N : Nat}
+    (T : P2PhysicalCenteredRectangleResidual k N)
+    (hN : N <= blockNcut k) :
+    P2HalfTimeLineSumTailRatio N (blockWeight k) where
+  tail := fun s hs hsN => by
+    by_cases hupper : 3 * 2 ^ k <= s + 2
+    · exact physicalLineSum_halfTime_of_centeredRectangleLow k N s hN hupper
+        (T.upper s hs hsN hupper)
+    · exact physicalLineSum_halfTime_of_bestLowHighReserve k N s
+        (T.lower s hs hsN (Nat.lt_of_not_ge hupper))
+
+/-- Schedule-wide region-split coefficient residual beginning after the
+checked finite physical prefix. -/
+structure BlockCompatibleP2CenteredRectangleResidualFromFour : Type where
+  residual : forall k, 4 <= k ->
+    P2PhysicalCenteredRectangleResidual k (blockNcut k)
+
+def BlockCompatibleP2CenteredRectangleResidualFromFour.toLineSumTail
+    (T : BlockCompatibleP2CenteredRectangleResidualFromFour) :
+    P2BlockCompatibleHalfTimeRatioCompiler.BlockCompatibleP2HalfTimeLineSumTailFromFour where
+  tail := fun k hk => (T.residual k hk).toLineSum (Nat.le_refl _)
+
+/-- Compile the region-split residual to the common all-scale coefficient
+datum used by the physical spectrum and blocking-map frontier. -/
+def BlockCompatibleP2CenteredRectangleResidualFromFour.toCoeffTailData
+    (T : BlockCompatibleP2CenteredRectangleResidualFromFour) :
+    BlockCompatibleP2CoeffTailData :=
+  (BlockCompatibleP2HalfTimeCoeffTailFromFour.mk fun k hk =>
+    ((T.toLineSumTail).tail k hk).toCoeff).toAllScale
+
+/-- End-to-end positive-exponent control-family compiler from the
+region-split residual. -/
+def BlockCompatibleP2CenteredRectangleResidualFromFour.toControlFamily
+    (T : BlockCompatibleP2CenteredRectangleResidualFromFour) :
     P2RetunedBlockingDictionary.P2RetunedControlFamily :=
   T.toLineSumTail.toControlFamily
 
@@ -1946,6 +2212,12 @@ end YMGap.Continuum.P2HalfTimeCenteredProfile
 #print axioms YMGap.Continuum.P2HalfTimeCenteredProfile.fsum_nonnegative_lt
 #print axioms YMGap.Continuum.P2HalfTimeCenteredProfile.physicalHighShiftRowReserve_nonneg_of_centered
 #print axioms YMGap.Continuum.P2HalfTimeCenteredProfile.physicalHighShiftRowReserve_nonneg_of_centerPayment
+#print axioms YMGap.Continuum.P2HalfTimeCenteredProfile.physical_centeredRectangularPayment
+#print axioms YMGap.Continuum.P2HalfTimeCenteredProfile.physicalHighShiftRowReserve_nonneg_centeredRectangle
+#print axioms YMGap.Continuum.P2HalfTimeCenteredProfile.cutoffShiftRow_physical_halfTime_centeredRectangle
+#print axioms YMGap.Continuum.P2HalfTimeCenteredProfile.lineSum_eq_physicalCenteredRectangleLow_add_high
+#print axioms YMGap.Continuum.P2HalfTimeCenteredProfile.physicalCenteredRectangleHighShiftSum_halfTime
+#print axioms YMGap.Continuum.P2HalfTimeCenteredProfile.physicalLineSum_halfTime_of_centeredRectangleLow
 #print axioms YMGap.Continuum.P2HalfTimeCenteredProfile.physicalHighShiftRowReserve_nonneg_centeredTail
 #print axioms YMGap.Continuum.P2HalfTimeCenteredProfile.lineSum_eq_physicalCenteredLow_add_high
 #print axioms YMGap.Continuum.P2HalfTimeCenteredProfile.physicalCenteredHighShiftRowReserveSum_nonneg
@@ -1956,5 +2228,10 @@ end YMGap.Continuum.P2HalfTimeCenteredProfile
 #print axioms YMGap.Continuum.P2HalfTimeCenteredProfile.lineSum_eq_physicalBestLow_add_high
 #print axioms YMGap.Continuum.P2HalfTimeCenteredProfile.physicalBestHighShiftSum_halfTime
 #print axioms YMGap.Continuum.P2HalfTimeCenteredProfile.physicalBestHighShiftReserve_nonneg
+#print axioms YMGap.Continuum.P2HalfTimeCenteredProfile.physicalLineSum_halfTime_of_bestLowHighReserve
 #print axioms YMGap.Continuum.P2HalfTimeCenteredProfile.P2PhysicalBestLowHighReserve.toLineSum
+#print axioms YMGap.Continuum.P2HalfTimeCenteredProfile.BlockCompatibleP2BestLowHighReserveFromFour.toCoeffTailData
 #print axioms YMGap.Continuum.P2HalfTimeCenteredProfile.BlockCompatibleP2BestLowHighReserveFromFour.toControlFamily
+#print axioms YMGap.Continuum.P2HalfTimeCenteredProfile.P2PhysicalCenteredRectangleResidual.toLineSum
+#print axioms YMGap.Continuum.P2HalfTimeCenteredProfile.BlockCompatibleP2CenteredRectangleResidualFromFour.toCoeffTailData
+#print axioms YMGap.Continuum.P2HalfTimeCenteredProfile.BlockCompatibleP2CenteredRectangleResidualFromFour.toControlFamily

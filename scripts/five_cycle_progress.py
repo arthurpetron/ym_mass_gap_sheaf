@@ -404,11 +404,21 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
             lines.append(
                 "        |     +-- [x] finePin + imagePin + genuine Phi defect-power dictionary"
             )
-            lines.append(
-                "        |     +-- [>] pure-Nat off-cover transitions "
-                f"k>={state['parameters'].get('physical_coeff_residual_transition_start', 4)}"
-                " + theta tail inputs"
-            )
+            if state["parameters"].get("physical_centered_frontier_bridge"):
+                lines.append(
+                    "        |     +-- [x] centered residual physical bridge "
+                    f"{state['parameters']['physical_centered_frontier_bridge']}"
+                )
+                lines.append(
+                    "        |     +-- [>] open physical inputs "
+                    f"{state['parameters']['physical_centered_residual']}"
+                )
+            else:
+                lines.append(
+                    "        |     +-- [>] pure-Nat off-cover transitions "
+                    f"k>={state['parameters'].get('physical_coeff_residual_transition_start', 4)}"
+                    " + theta tail inputs"
+                )
     lines.extend(
         [
             "        |",
