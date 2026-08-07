@@ -303,6 +303,11 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
                     "        |     +-- [x] half-time debt/reserve compiler "
                     f"{parameters['physical_coeff_half_time_balance']}"
                 )
+            if parameters.get("physical_coeff_centered_row_compiler"):
+                lines.append(
+                    "        |     +-- [x] centered heat-successor row compiler "
+                    f"{parameters['physical_coeff_centered_row_compiler']}"
+                )
             if parameters.get("physical_coeff_half_time_head_discharged"):
                 lines.append(
                     "        |     +-- [x] half-time boundary head "

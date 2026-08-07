@@ -2343,6 +2343,7 @@ import YMGap.Continuum.P2BlockCompatibleIntegralTailCertificate
 import YMGap.Continuum.FusionStrandExactReindex
 import YMGap.Continuum.P2BlockCompatibleHalfTimeRatioCompiler
 import YMGap.Continuum.P2HalfTimeShiftTail
+import YMGap.Continuum.P2HalfTimeCenteredProfile
 import YMGap.Continuum.P2HalfTimePenultimateShell
 import YMGap.Continuum.P2HalfTimeAntepenultimateShell
 import YMGap.Continuum.P2HalfTimeFourthShell
