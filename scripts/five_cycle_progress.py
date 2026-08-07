@@ -293,6 +293,16 @@ def render_compact_work_guide(state: dict[str, Any]) -> str:
                     "        |     +-- [x] exact strand A1 reindex "
                     f"{parameters['physical_coeff_strand_reindex']}"
                 )
+            if parameters.get("physical_coeff_strand_integral_compiler"):
+                lines.append(
+                    "        |     +-- [x] strand-linear integral compiler "
+                    f"{parameters['physical_coeff_strand_integral_compiler']}"
+                )
+            if parameters.get("physical_coeff_half_time_scale_five_prefix"):
+                lines.append(
+                    "        |     +-- [>] physical k=5 checked prefix "
+                    f"{parameters['physical_coeff_half_time_scale_five_prefix']}"
+                )
             if parameters.get("physical_coeff_high_shift_tail"):
                 lines.append(
                     "        |     +-- [x] physical high-shift half-time tail "
