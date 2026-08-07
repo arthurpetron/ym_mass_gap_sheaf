@@ -72,7 +72,7 @@
     "physical_coeff_half_time_nat_frontier": "off-cover odd/even transition signs only for k>=5; the complete k=4 row is discharged directly",
     "physical_coeff_strand_reindex": "exact boxSum = lineSum(lagCorr) for every N,t,w",
     "physical_coeff_strand_integral_compiler": "exact active-strand Nat evaluator = cutoff-square evaluator for every num,den,N,t; concrete reflection visits only sharp A1 strands",
-    "physical_coeff_half_time_scale_five_prefix": "cells s=2..33 at N_5=159 (2..9 direct, 10..25 one 16-cell strand block, 26..33 one 8-cell strand block)",
+    "physical_coeff_half_time_scale_five_prefix": "cells s=2..41 at N_5=159 (2..9 direct, 10..25 one 16-cell strand block, 26..33 and 34..41 isolated 8-cell strand blocks)",
     "physical_coeff_high_shift_tail": "all rows r>=ceil((5*2^k+s)/2), aggregated at every cutoff",
     "physical_coeff_half_time_balance": "exact line-sum <-> full local double sum + one integer sign/channel",
     "physical_coeff_centered_row_compiler": "s+1 atoms -> midpoint; r>=ceil(D_k/(s+2)) discharged; on s+2>=3*2^k only the fixed prefix r<4*2^k remains, while lower channels use the min product/centered threshold",
