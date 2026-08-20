@@ -21951,3 +21951,47 @@ comparison edge but does not yet construct the central connected `CReal` or
 transport the `1/16` bound to the completed same-object moment.  Those are
 the next analytic joins; the presentation-independent uniform gap and the
 continuum/Clay theorem remain open.
+
+## 112. Thermodynamic connected CReal equals the completed same-object moment (2026-08-20)
+
+**Status. THE ANALYTIC AND ALGEBRAIC HALVES OF THE DENSE SAME-OBJECT BRIDGE
+ARE NOW JOINED, WITH THE COMMON `1/16` ENVELOPE PRESERVED.**
+
+`Z4CouplingParametricSignedThermodynamicClustering.lean` now proves that the
+selected central lower/upper roots are exactly the geometric two-block roots,
+and that the selected exact-fingerprint event is the ordinary conjunction of
+the two block events.  Therefore the central cross form is literally the
+finite observable product expectation.  Pairing with the constant cylinder
+extracts the two one-point expectations, so the central connected sequence is
+exactly joint moment minus product of means.
+
+The file then proves an explicit dyadic comparison with the existing centered
+thermodynamic form, including the product error.  From that modulus it
+constructs a separate Bishop real
+
+```text
+orientedDoubledTimeCentralConnectedLimit
+```
+
+whose approximants are the central connected covariances themselves.  Every
+approximant satisfies the finite geometric cluster estimate, hence this real
+inherits the same presentation prefactor times `(1/16)^shift`.  Kernel-checked
+equivalences identify it successively with the centered joint-minus-means
+form, the literal dense connected OS form, and—on the dense vacuum
+complement—the quotient real returned by
+
+```text
+strictJointCylinderCompletedTwoStepAutocorrelation.
+```
+
+The resulting `RCle` theorem is an actual bound on the completed same-object
+autocorrelation.  All printed load-bearing declarations report only
+`[propext, Quot.sound]`.
+
+This closes the thermodynamic same-object bridge.  It still does **not** give
+a uniform operator gap: the positive prefactor depends on the chosen finite
+cylinder presentation.  The next causal step is to combine the common rate
+with the already proved dyadic same-object moment identity so that taking
+large powers removes that fixed vector-dependent prefactor.  Extension from
+the dense vacuum complement to the completed one and all continuum/Clay
+claims remain open.
