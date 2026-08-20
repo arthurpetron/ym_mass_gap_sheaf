@@ -22084,3 +22084,45 @@ scalar multiplication/projection onto the vacuum kernel, or to prove and pass
 an approximately centered connected-form inequality that avoids exact
 stagewise centering.  The completed unconditional gap, continuum scaling
 limit, continuum QFT axioms, and Clay mass-gap theorem remain open.
+
+## 115. Scalar-safe centered dyadic route (2026-08-20)
+
+**Status. THE PREFACTOR-REMOVAL ARGUMENT NOW APPLIES DIRECTLY TO ARBITRARY
+THERMODYNAMIC CENTERED MOMENTS; EXACT RATIONAL-LINEAR VACUUM-KERNEL DENSITY IS
+NO LONGER THE ONLY COMPLETION ROUTE.**
+
+`Z4HalfTimeReflectionStrictJointCenteredDyadicGap.lean` packages the three
+same-object laws needed by the constructive spectral-radius argument:
+
+```text
+0 <= c_n,
+c_n <= c_0,
+c_n^2 <= c_(2n) * c_0,
+```
+
+where `c_n` is the already-constructed thermodynamic central connected
+`CReal` for one strict cylinder.  The package is Type-valued, and its global
+form ranges over every finite strict-cylinder presentation.  Independently
+of these laws, the file proves directly that every `c_n` has the existing
+presentation prefactor times `(1/16)^n` as an eventual-order upper bound.
+
+Consequently, any inhabitant of the three centered laws yields
+
+```text
+c_1 <= (1/16) * c_0
+```
+
+without assuming that the original dense cylinder is exactly orthogonal to
+the vacuum.  For compatibility, the existing completed two-step moment laws
+construct this package whenever exact dense vacuum orthogonality is already
+available.  Focused checking reports only `[propext, Quot.sound]` for the law
+types, geometric input, centered dyadic contraction, and compatibility map.
+
+The new open edge is narrower and physically natural: prove centered
+positivity, time-zero contraction, and dyadic log-convexity from the finite
+reflection-positive Gram laws (or their thermodynamic limits) for arbitrary
+cylinder presentations.  After that, pass the centered inequality through an
+arbitrary completion representative; completed vacuum orthogonality then
+removes the limiting disconnected term.  The unconditional completed gap,
+continuum scaling limit, continuum QFT axioms, and Clay mass-gap theorem remain
+open.
