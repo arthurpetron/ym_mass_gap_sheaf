@@ -21832,3 +21832,57 @@ operator contraction.  The immediate next step is to factor the common rate
 `(1/4)^2 = 1/16 < 1` and then pass the uniform finite-law estimate through the
 already constructed thermodynamic and cutoff limits without losing that
 epistemic distinction.
+
+## 108. Common `1/16` rate for arbitrary-cutoff signed covariance (2026-08-20)
+
+**Status. THE ALL-CUTOFF SIGNED ESTIMATE NOW HAS ONE EXPLICIT STRICT
+GEOMETRIC RATE, INDEPENDENT OF THE FINITE OBSERVABLE PRESENTATION.**
+
+`Z4CouplingParametricSignedGeometricClustering.lean` factors the temporal
+power in milestone 107 as
+
+```text
+anchorDecoratedEffectiveRatio^(2*shift+6) * 2
+  = (anchorDecoratedEffectiveRatio^6 * 2)
+      * anchorDecoratedDoubledTimeRate^shift,
+```
+
+where `anchorDecoratedDoubledTimeRate = (1/4)^2 = 1/16` is positive and
+strictly below one.  The remaining root-count and coefficient factors are
+packaged in an explicit positive presentation prefactor.  The focused check
+reports only `[propext, Quot.sound]` for the rate identity, strict inequality,
+prefactor positivity, and geometric signed bound.
+
+This is the common temporal rate needed by a same-object moment argument.  It
+does not make the raw coefficient norm semantic and therefore does not yet
+give a uniform bound on the completed vacuum complement.
+
+## 109. Cutoff-removed signed covariance at fixed admissible volume (2026-08-20)
+
+**Status. THE UNIFORM FINITE-CUTOFF CLUSTERING ESTIMATE NOW PASSES TO A
+CONSTRUCTED BISHOP `CReal` CUTOFF LIMIT.**
+
+`Z4CouplingParametricSignedCutoffLimitClustering.lean` uses the existing
+joint-cutoff schedule at one fixed admissible ambient volume.  Two scheduled
+cutoffs are compared through their explicit sum.  Each Boolean covariance
+changes by at most three copies of the dyadic event-probability tail, and
+finite heterogeneous bilinearity gives a six-error Cauchy modulus for the
+signed presentation.  This constructs
+
+```text
+couplingParametricStrictSignedCovarianceCutoffLimit : CReal
+```
+
+without choice or an assumed convergence witness.  Since every approximant
+satisfies the all-cutoff estimate, its constructive-real absolute value is
+bounded by the same positive presentation prefactor times `(1/16)^shift`.
+The focused check reports only `[propext, Quot.sound]` for the Boolean
+extension estimate, signed pair modulus, limit, and limiting geometric bound.
+
+This removes the representation cutoff at fixed volume.  The next
+load-bearing bridge is still thermodynamic and same-object: identify the
+receding-volume signed covariance, after the vacuum mean vanishes, with the
+exact completed autocorrelation
+`strictJointCylinderCompletedTwoStepAutocorrelation`.  Only after that
+identity and a presentation-independent density/uniformity argument can the
+common rate become the uniform completed vacuum-complement form gap.
