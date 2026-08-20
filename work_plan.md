@@ -21886,3 +21886,38 @@ exact completed autocorrelation
 `strictJointCylinderCompletedTwoStepAutocorrelation`.  Only after that
 identity and a presentation-independent density/uniformity argument can the
 common rate become the uniform completed vacuum-complement form gap.
+
+## 110. Connected dense form equals the completed same-object moment (2026-08-20)
+
+**Status. THE ALGEBRAIC SAME-OBJECT JOIN IS NOW CONSTRUCTED ON THE DENSE
+VACUUM COMPLEMENT.**
+
+`Z4HalfTimeReflectionStrictJointConnectedTwoStepMoment.lean` defines the
+literal connected doubled-time form
+
+```text
+B(source, target)
+  - B(source, vacuum) * B(vacuum, target).
+```
+
+Canonical box transport, exact vacuum stationarity, and even-time invariance
+of the dense vacuum complement prove that both one-point means vanish for a
+vacuum-orthogonal strict cylinder.  Hence the connected form is exactly the
+existing mixed OS bilinear.  The file also proves that completed time
+translation acts on a dense constant representative by literal staged time
+translation, and then identifies the quotient real represented by the
+connected form with
+
+```text
+strictJointCylinderCompletedTwoStepAutocorrelation
+```
+
+of the same embedded vector at the same separation.  The focused kernel
+check reports only `[propext, Quot.sound]` for all six load-bearing
+declarations.
+
+This closes the algebraic half of the same-object bridge.  The open analytic
+half is to construct the receding-volume limit of the central signed
+covariance, prove its geometric bound survives volume removal, and identify
+that limit with the connected form above.  No uniform completed contraction
+or continuum mass gap is claimed here.
