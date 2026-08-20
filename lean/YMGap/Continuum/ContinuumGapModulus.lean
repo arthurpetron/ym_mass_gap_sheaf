@@ -128,22 +128,82 @@ def afSchedule_rate (C : AFTrajectoryCertificate) :
       ∀ d, afSchedule C d ≤ Q'.divPos A (harmDen B d) (harmDen_pos hB d) :=
   af_reciprocal_rate C
 
-/-- **The schedule tends to zero (PROVED).**  For every positive `ε` there is a
-step `N` past which the schedule's scale is below `ε`: the reciprocal rate
-`A/(d+B) ≤ ε` is achieved once `d` is large (here `d ≥ A.num.toNat·(...)`-style),
-delivered via the reciprocal-rate denominator growth.  Concretely we bound
-`A/(d+B) ≤ A/(d+B)` and use that `harmDen B d = (d : Q') + B` grows past any
-`A/ε`.  We give the honest modulus by the cross-multiplied characterisation. -/
+/-- A computable cutoff large enough to force `A/(d+B) <= epsilon`.  Its
+simple numerator/denominator formula deliberately overestimates the minimal
+cutoff so no Archimedean existence principle is needed. -/
+def reciprocalRateCutoff (A epsilon : Q') : Nat :=
+  A.num.toNat * epsilon.den
+
+/-- At the computed cutoff, `A <= epsilon * cutoff`. -/
+theorem numerator_le_target_mul_cutoff (A epsilon : Q')
+    (hA : (0 : Q') < A) (hepsilon : (0 : Q') < epsilon) :
+    A <= epsilon * Q'.ofNat (reciprocalRateCutoff A epsilon) := by
+  have hAcast : ((A.num.toNat : Nat) : Int) = A.num :=
+    Int.toNat_of_nonneg (Int.le_of_lt (Q'.num_pos_of_pos hA))
+  have hcutcast : ((reciprocalRateCutoff A epsilon : Nat) : Int) =
+      A.num * (epsilon.den : Int) := by
+    unfold reciprocalRateCutoff
+    rw [Int.natCast_mul, hAcast]
+  have hbase : (0 : Int) <= A.num * (epsilon.den : Int) :=
+    Int.mul_nonneg (Int.le_of_lt (Q'.num_pos_of_pos hA))
+      (by exact_mod_cast Nat.zero_le epsilon.den)
+  have hfactorPos : (0 : Int) < epsilon.num * (A.den : Int) :=
+    Int.mul_pos (Q'.num_pos_of_pos hepsilon)
+      (by exact_mod_cast A.den_pos)
+  have hfactor : (1 : Int) <= epsilon.num * (A.den : Int) := by omega
+  have hmul := Int.mul_le_mul_of_nonneg_left hfactor hbase
+  show A.num * ((epsilon * Q'.ofNat (reciprocalRateCutoff A epsilon)).den : Int) <=
+    (epsilon * Q'.ofNat (reciprocalRateCutoff A epsilon)).num * (A.den : Int)
+  rw [Q'.mul_num_cast, Q'.mul_den_cast,
+    Q'.ofNat_num_cast, Q'.ofNat_den_cast, hcutcast]
+  simpa only [Int.mul_one, Int.mul_assoc, Int.mul_comm, Int.mul_left_comm]
+    using hmul
+
+/-- The reciprocal rational rate is genuinely below the requested positive
+target after the explicit cutoff. -/
+theorem reciprocalRate_le_target (A B epsilon : Q')
+    (hA : (0 : Q') < A) (hB : (0 : Q') < B)
+    (hepsilon : (0 : Q') < epsilon) (d : Nat)
+    (hd : reciprocalRateCutoff A epsilon <= d) :
+    Q'.divPos A (harmDen B d) (harmDen_pos hB d) <= epsilon := by
+  have hcut :
+      A <= epsilon * Q'.ofNat (reciprocalRateCutoff A epsilon) :=
+    numerator_le_target_mul_cutoff A epsilon hA hepsilon
+  have hnat :
+      Q'.ofNat (reciprocalRateCutoff A epsilon) <= Q'.ofNat d :=
+    CReal.ofNat_le_ofNat hd
+  have hden : Q'.ofNat d <= harmDen B d := by
+    unfold harmDen
+    exact Q'.add_le_self_of_nonneg _ _ (Q'.le_of_lt hB)
+  have hcutDen :
+      Q'.ofNat (reciprocalRateCutoff A epsilon) <= harmDen B d :=
+    Q'.le_trans' _ _ _ hnat hden
+  have hscaled :
+      epsilon * Q'.ofNat (reciprocalRateCutoff A epsilon) <=
+        epsilon * harmDen B d :=
+    Q'.mul_le_mul_of_nonneg_left _ _ _ hcutDen
+      (Q'.le_of_lt hepsilon)
+  exact Q'.divPos_le_of_le_mul A (harmDen B d) (harmDen_pos hB d)
+    (Q'.le_trans' _ _ _ hcut hscaled)
+
+/-- The genuine Type-level modulus for the proved AF schedule. -/
+def afScheduleCutoff (C : AFTrajectoryCertificate) (epsilon : Q') : Nat :=
+  reciprocalRateCutoff (afSchedule_rate C).1 epsilon
+
+/-- **The schedule tends to zero (PROVED, genuine epsilon conclusion).**
+For every positive `epsilon`, the explicit cutoff above makes the AF coupling
+itself at most `epsilon`. -/
 theorem afSchedule_to_zero (C : AFTrajectoryCertificate) :
-    ∀ ε : Q', (0 : Q') < ε → ∃ N : Nat, ∀ d : Nat, N ≤ d → afSchedule C d ≤
-      Q'.divPos (afSchedule_rate C).1
-        (harmDen (afSchedule_rate C).2.1 d)
-        (harmDen_pos (afSchedule_rate C).2.2.2.1 d) := by
-  -- The schedule is bounded by the reciprocal rate at every step; that is the
-  -- spacing modulus we expose (the reciprocal-rate value itself → 0).  We return
-  -- N = 0: the bound holds for ALL d, which is the genuine schedule control.
-  intro ε _hε
-  exact ⟨0, fun d _ => (afSchedule_rate C).2.2.2.2 d⟩
+    forall epsilon : Q', (0 : Q') < epsilon ->
+      forall d : Nat, afScheduleCutoff C epsilon <= d ->
+        afSchedule C d <= epsilon := by
+  intro epsilon hepsilon d hd
+  exact Q'.le_trans' _ _ _
+    ((afSchedule_rate C).2.2.2.2 d)
+    (reciprocalRate_le_target
+      (afSchedule_rate C).1 (afSchedule_rate C).2.1 epsilon
+      (afSchedule_rate C).2.2.1 (afSchedule_rate C).2.2.2.1
+      hepsilon d hd)
 
 /-! ## 2. The sharper named input — `UniformRatioVariation`
 

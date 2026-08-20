@@ -23,6 +23,11 @@ This module proves that continuity from the already-green pieces.
     a fixed `CReal` factor `F` with a uniform approximation bound times a
     null sequence is null.  Specialises the green `convergesTo_mul`.
 
+  * **Fixed powers.**  `convergesTo_cpow_of_bound` proves that every fixed
+    natural power preserves convergence under one explicit uniform bound on
+    the base sequence and its limit.  This is the finite-power continuity
+    needed by physical exponential sampling.
+
   * **Atom C — the squared→linear packaging (the one genuinely-new step).**
     `convergesTo_of_sqDiff_le_null`: from `(aₚ − A)² ≤ eₚ`, `eₚ → 0`, conclude
     `aₚ → A` sqrt-free (via `le_of_sq_le_sq` applied approximation-wise).  Combined
@@ -66,6 +71,25 @@ namespace YMGap.Constructive.Q'
 /-- From `|d| ≤ ε`: both `d ≤ ε` and `-d ≤ ε`. -/
 theorem abs_le_two_sided {d ε : Q'} (h : Q'.abs d ≤ ε) : d ≤ ε ∧ -d ≤ ε :=
   ⟨Q'.le_trans' _ _ _ (Q'.le_abs_self d) h, Q'.le_trans' _ _ _ (Q'.neg_le_abs d) h⟩
+
+/-- Multiplying a two-sided `δ`-approximation by a scalar bounded in absolute
+value by `B` changes it by at most `B * δ`. -/
+theorem mul_close_of_two_sided
+    (u v w B δ : Q') (hB : (0 : Q') ≤ B) (hδ : (0 : Q') ≤ δ)
+    (hu1 : -B ≤ u) (hu2 : u ≤ B)
+    (hvw1 : v ≤ w + δ) (hvw2 : w ≤ v + δ) :
+    u * v ≤ u * w + B * δ := by
+  have hd1 : v + -w ≤ δ := Q'.sub_le_of_le_add hvw1
+  have hd2 : -δ ≤ v + -w := Q'.neg_le_sub_of_le_add hvw2
+  have hterm : u * (v + -w) ≤ B * δ :=
+    Q'.mul_le_of_bounds hB hδ hu1 hu2 hd2 hd1
+  have hid : (u * v).eqv (u * w + u * (v + -w)) := by
+    refine Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_left u v (w + (v + -w))
+        (Q'.add_sub_cancel_eqv v w)) ?_
+    exact Q'.mul_add_eqv u w (v + -w)
+  refine Q'.le_trans' _ _ _ (Q'.le_of_eqv hid) ?_
+  exact Q'.add_le_add_left (u * w) (u * (v + -w)) (B * δ) hterm
 
 end YMGap.Constructive.Q'
 
@@ -134,6 +158,113 @@ theorem convergesTo_const (F : CReal) : ConvergesTo (fun _ => F) F :=
   fun ε hε => ⟨0, fun _ _ => ⟨0, fun n _ =>
     ⟨Q'.add_le_self_of_nonneg (F.approx n) ε (Q'.le_of_lt hε),
      Q'.add_le_self_of_nonneg (F.approx n) ε (Q'.le_of_lt hε)⟩⟩⟩
+
+/-- Multiplication by a fixed constructive real preserves convergence.  Only
+an eventual approximation bound for the fixed factor is needed. -/
+theorem convergesTo_const_mul (k : CReal) {s : Nat → CReal} {L : CReal}
+    (hs : ConvergesTo s L) :
+    ConvergesTo (fun N => mul k (s N)) (mul k L) := by
+  intro ε hε
+  obtain ⟨Nk, B, hB0, hBk⟩ := localBound k
+  obtain ⟨δ, hδpos, hδ⟩ := exists_mul_le hB0 hε
+  obtain ⟨Nstage, hstage⟩ := hs δ hδpos
+  refine ⟨Nstage, fun N hN => ?_⟩
+  obtain ⟨Napx, hap⟩ := hstage N hN
+  refine ⟨max Napx Nk, fun n hn => ?_⟩
+  have hn1 : Napx ≤ n := Nat.le_trans (Nat.le_max_left _ _) hn
+  have hn2 : Nk ≤ n := Nat.le_trans (Nat.le_max_right _ _) hn
+  obtain ⟨hs1, hs2⟩ := hap n hn1
+  obtain ⟨hk1, hk2⟩ := hBk n hn2
+  show (k.approx n * (s N).approx n) ≤ (k.approx n * L.approx n) + ε ∧
+    (k.approx n * L.approx n) ≤ (k.approx n * (s N).approx n) + ε
+  refine ⟨?_, ?_⟩
+  · refine Q'.le_trans' _ _ _
+      (Q'.mul_close_of_two_sided
+        (k.approx n) ((s N).approx n) (L.approx n) B δ
+        hB0 (Q'.le_of_lt hδpos) hk1 hk2 hs1 hs2) ?_
+    exact Q'.add_le_add_left _ _ _ hδ
+
+  · refine Q'.le_trans' _ _ _
+      (Q'.mul_close_of_two_sided
+        (k.approx n) (L.approx n) ((s N).approx n) B δ
+        hB0 (Q'.le_of_lt hδpos) hk1 hk2 hs2 hs1) ?_
+    exact Q'.add_le_add_left _ _ _ hδ
+
+/-- A uniform approximation bound on a constructive real propagates through
+each fixed natural power.  The rational bound is explicit and therefore can
+be consumed by `convergesTo_mul` without any choice of a hidden modulus. -/
+theorem cpow_approx_abs_le {x : CReal} {B : Q'}
+    (hB : (0 : Q') ≤ B) (hx : ∀ n, Q'.abs (x.approx n) ≤ B) :
+    ∀ p n : Nat, Q'.abs ((cpow x p).approx n) ≤ B ^ p
+  | 0, n => by
+      show Q'.abs (1 : Q') ≤ (1 : Q')
+      decide
+  | p + 1, n => by
+      show Q'.abs ((cpow x p).approx n * x.approx n) ≤ B * B ^ p
+      refine Q'.le_trans' _ _ _ (ExpNeg.abs_mul_le _ _) ?_
+      refine Q'.le_trans' _ _ _
+        (Q'.mul_le_mul_of_nonneg_right
+          (Q'.abs ((cpow x p).approx n)) (B ^ p)
+          (Q'.abs (x.approx n))
+          (cpow_approx_abs_le hB hx p n) (Q'.abs_nonneg _)) ?_
+      refine Q'.le_trans' _ _ _
+        (Q'.mul_le_mul_of_nonneg_left
+          (Q'.abs (x.approx n)) B (B ^ p) (hx n)
+          (Q'.pow_nonneg B hB p)) ?_
+      exact Q'.le_of_eqv (Q'.mul_comm_eqv (B ^ p) B)
+
+/-- Natural powers respect constructive-real equivalence. -/
+theorem cpow_equiv {x y : CReal} (h : Equiv x y) :
+    ∀ p : Nat, Equiv (cpow x p) (cpow y p)
+  | 0 => Equiv.refl cone
+  | p + 1 =>
+      Equiv.trans (mul_congr_left (cpow_equiv h p))
+        (Equiv.trans (CRealAlg.cmul_comm (cpow y p) x)
+          (Equiv.trans (mul_congr_left h)
+            (CRealAlg.cmul_comm y (cpow y p))))
+
+/-- Powers add their natural exponents. -/
+theorem cpow_add (x : CReal) (m : Nat) :
+    ∀ n : Nat, Equiv (cpow x (m + n)) (mul (cpow x m) (cpow x n))
+  | 0 => (CRealAlg.cmul_cone (cpow x m)).symm
+  | n + 1 => by
+      rw [Nat.add_succ]
+      exact Equiv.trans (mul_congr_left (cpow_add x m n))
+        (CRealAlg.cmul_assoc (cpow x m) (cpow x n) x)
+
+/-- Iterated natural powers multiply their exponents. -/
+theorem cpow_mul (x : CReal) (m : Nat) :
+    ∀ n : Nat, Equiv (cpow (cpow x m) n) (cpow x (m * n))
+  | 0 => Equiv.refl cone
+  | n + 1 => by
+      refine Equiv.trans (mul_congr_left (cpow_mul x m n)) ?_
+      simpa only [Nat.mul_succ] using (cpow_add x (m * n) m).symm
+
+/-- Fixed natural powers preserve constructive-real convergence when the
+base sequence and its limit share an explicit approximation bound. -/
+theorem convergesTo_cpow_of_bound
+    {s : Nat → CReal} {L : CReal} (B : Q') (hB : (0 : Q') ≤ B)
+    (hsB : ∀ k n, Q'.abs ((s k).approx n) ≤ B)
+    (hLB : ∀ n, Q'.abs (L.approx n) ≤ B)
+    (hs : ConvergesTo s L) :
+    ∀ p : Nat, ConvergesTo (fun k => cpow (s k) p) (cpow L p)
+  | 0 => convergesTo_const cone
+  | p + 1 => by
+      let K : Q' := B ^ p + B
+      have hK : (0 : Q') ≤ K :=
+        Q'.zero_le_add _ _ (Q'.pow_nonneg B hB p) hB
+      have hleft : ∀ k n, Q'.abs ((cpow (s k) p).approx n) ≤ K := by
+        intro k n
+        exact Q'.le_trans' _ _ _ (cpow_approx_abs_le hB (hsB k) p n)
+          (Q'.add_le_self_of_nonneg (B ^ p) B hB)
+      have hright : ∀ n, Q'.abs (L.approx n) ≤ K := by
+        intro n
+        exact Q'.le_trans' _ _ _ (hLB n)
+          (Q'.le_trans' _ _ _
+            (Q'.le_of_eqv (Q'.eqv_symm (QPoly.q_zero_add_eqv B)))
+            (Q'.add_le_add_right 0 (B ^ p) B (Q'.pow_nonneg B hB p)))
+      exact convergesTo_mul hK hleft hright
+        (convergesTo_cpow_of_bound B hB hsB hLB hs p) hs
 
 /-- **Atom B.**  A fixed `CReal` factor `F` (uniformly bounded by `B` on
 approximations) times a null sequence is null. -/
@@ -405,11 +536,18 @@ end YMGap.Continuum.FCLimitContinuity
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
 
 #print axioms YMGap.Constructive.Q'.abs_le_two_sided
+#print axioms YMGap.Constructive.Q'.mul_close_of_two_sided
 #print axioms YMGap.Constructive.CReal.RCneg
 #print axioms YMGap.Constructive.CReal.RCsub
 #print axioms YMGap.Constructive.CReal.convergesTo_neg
 #print axioms YMGap.Constructive.CReal.convergesTo_limit_congr
 #print axioms YMGap.Constructive.CReal.convergesTo_const
+#print axioms YMGap.Constructive.CReal.convergesTo_const_mul
+#print axioms YMGap.Constructive.CReal.cpow_approx_abs_le
+#print axioms YMGap.Constructive.CReal.cpow_equiv
+#print axioms YMGap.Constructive.CReal.cpow_add
+#print axioms YMGap.Constructive.CReal.cpow_mul
+#print axioms YMGap.Constructive.CReal.convergesTo_cpow_of_bound
 #print axioms YMGap.Constructive.CReal.convergesTo_null_mul_const
 #print axioms YMGap.Constructive.CReal.convergesTo_of_sqDiff_le_null
 #print axioms YMGap.Continuum.GNSQuotient.GNSData.cinnerRep_sub_left_equiv

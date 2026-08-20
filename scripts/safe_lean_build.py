@@ -31,6 +31,7 @@ import re
 import signal
 import subprocess
 import sys
+import tempfile
 import time
 from collections.abc import Iterator, Sequence
 from contextlib import AbstractContextManager, contextmanager, nullcontext
@@ -49,6 +50,7 @@ DEFAULT_MIN_PRESSURE_FREE_PERCENT = 15
 DEFAULT_POLL_SECONDS = 2.0
 DEFAULT_STATUS_SECONDS = 20.0
 DEFAULT_WORKER_LIMIT_MIB = 32768
+DEFAULT_STACK_LIMIT_KIB = 65536
 # Preflight uses a realistic high-water estimate.  The hard 32 GiB Lean cap is
 # still enforced per process, while live telemetry handles the rare worker that
 # exceeds this planning estimate.  On a 64 GiB machine this admits two workers
@@ -191,6 +193,55 @@ def configured_worker_limit_mib() -> int:
         return DEFAULT_WORKER_LIMIT_MIB
     match = re.search(r'weakLeanArgs\s*=.*?"-M"\s*,\s*"(\d+)"', text, re.DOTALL)
     return int(match.group(1)) if match else DEFAULT_WORKER_LIMIT_MIB
+
+
+def lakefile_text_with_worker_limit(
+    text: str,
+    worker_limit_mib: int,
+    stack_limit_kib: int = DEFAULT_STACK_LIMIT_KIB,
+) -> str:
+    """Return package configuration with one exact temporary Lean ceiling."""
+
+    replacement = (
+        f'weakLeanArgs = ["-s", "{stack_limit_kib}", '
+        f'"-M", "{worker_limit_mib}"]'
+    )
+    rewritten, count = re.subn(
+        r"^weakLeanArgs\s*=.*$",
+        replacement,
+        text,
+        count=1,
+        flags=re.MULTILINE,
+    )
+    if count != 1:
+        raise RuntimeError("could not locate the package weakLeanArgs setting")
+    return rewritten
+
+
+@contextmanager
+def _temporary_lakefile(
+    worker_limit_mib: int,
+    stack_limit_kib: int,
+) -> Iterator[Path]:
+    """Expose a one-build package config whose ``-M`` override Lake honors."""
+
+    try:
+        source = LAKEFILE.read_text(encoding="utf-8")
+    except OSError as error:
+        raise RuntimeError(f"could not read {LAKEFILE}: {error}") from error
+    rewritten = lakefile_text_with_worker_limit(
+        source, worker_limit_mib, stack_limit_kib
+    )
+    with tempfile.NamedTemporaryFile(
+        mode="w",
+        encoding="utf-8",
+        prefix=".safe-lakefile-",
+        suffix=".toml",
+        dir=LEAN_DIR,
+    ) as handle:
+        handle.write(rewritten)
+        handle.flush()
+        yield Path(handle.name)
 
 
 def default_reserve_bytes(total_bytes: int | None) -> int:
@@ -386,12 +437,39 @@ def _parse_arguments(argv: Sequence[str] | None) -> argparse.Namespace:
     parser.add_argument("--status-seconds", type=_positive_float, default=DEFAULT_STATUS_SECONDS)
     parser.add_argument("--log-file", type=Path)
     parser.add_argument("--check", type=Path, help="run one monitored `lake env lean` check")
+    parser.add_argument(
+        "--check-worker-limit-gib",
+        type=_positive_float,
+        help=(
+            "override Lean's per-process memory ceiling for a single --check; "
+            "the launcher rejects any value that would consume the RAM reserve"
+        ),
+    )
+    parser.add_argument(
+        "--lake-worker-limit-gib",
+        type=_positive_float,
+        help=(
+            "override the per-worker Lean ceiling for one Lake build; its "
+            "aggregate is checked against the RAM reserve before launch"
+        ),
+    )
+    parser.add_argument(
+        "--lean-stack-mib",
+        type=_positive_float,
+        default=DEFAULT_STACK_LIMIT_KIB / 1024,
+        help="Lean thread-stack ceiling in MiB for this monitored invocation",
+    )
     parser.add_argument("--dry-run", action="store_true", help="print preflight without launching")
     parser.add_argument("lake_args", nargs=argparse.REMAINDER)
     return parser.parse_args(argv)
 
 
-def _build_command(arguments: argparse.Namespace, worker_limit_mib: int) -> list[str]:
+def _build_command(
+    arguments: argparse.Namespace,
+    worker_limit_mib: int,
+    stack_limit_kib: int,
+    lakefile_override: Path | None = None,
+) -> list[str]:
     lake_args = list(arguments.lake_args)
     if lake_args[:1] == ["--"]:
         lake_args = lake_args[1:]
@@ -404,10 +482,22 @@ def _build_command(arguments: argparse.Namespace, worker_limit_mib: int) -> list
             "env",
             "lean",
             "-s",
-            "65536",
+            str(stack_limit_kib),
             "-M",
             str(worker_limit_mib),
             str(source),
+        ]
+    if arguments.lake_worker_limit_gib is not None:
+        if lakefile_override is None:
+            raise ValueError("Lake worker override requires a temporary package config")
+        return [
+            "lake",
+            "-q",
+            "--log-level=error",
+            "-f",
+            str(lakefile_override),
+            "build",
+            *lake_args,
         ]
     return ["lake", "build", *lake_args]
 
@@ -421,6 +511,32 @@ def main(argv: Sequence[str] | None = None) -> int:
     initial = memory_snapshot()
     jobs = arguments.jobs if arguments.jobs is not None else default_jobs(initial.total_bytes)
     worker_limit_mib = configured_worker_limit_mib()
+    stack_limit_kib = int(arguments.lean_stack_mib * 1024)
+    if (
+        arguments.check_worker_limit_gib is not None
+        and arguments.lake_worker_limit_gib is not None
+    ):
+        print(
+            "safe-lean: check and Lake worker overrides are mutually exclusive",
+            file=sys.stderr,
+        )
+        return 64
+    if arguments.check_worker_limit_gib is not None:
+        if arguments.check is None:
+            print(
+                "safe-lean: --check-worker-limit-gib requires --check",
+                file=sys.stderr,
+            )
+            return 64
+        worker_limit_mib = int(arguments.check_worker_limit_gib * 1024)
+    if arguments.lake_worker_limit_gib is not None:
+        if arguments.check is not None:
+            print(
+                "safe-lean: --lake-worker-limit-gib cannot be used with --check",
+                file=sys.stderr,
+            )
+            return 64
+        worker_limit_mib = int(arguments.lake_worker_limit_gib * 1024)
     reserve_bytes = (
         int(arguments.reserve_gib * GIB)
         if arguments.reserve_gib is not None
@@ -438,14 +554,28 @@ def main(argv: Sequence[str] | None = None) -> int:
         worker_limit_mib=worker_limit_mib,
     )
 
+    effective_workers = 1 if arguments.check is not None else jobs
+    planning_peak_mib = min(DEFAULT_PLANNING_PEAK_MIB, worker_limit_mib)
     concurrency_error = parallelism_error(
-        jobs,
+        effective_workers,
         initial.total_bytes,
-        DEFAULT_PLANNING_PEAK_MIB,
+        planning_peak_mib,
         reserve_bytes,
     )
     if concurrency_error:
         print(f"safe-lean: refused unsafe configuration: {concurrency_error}", file=sys.stderr)
+        return 64
+
+    if (
+        initial.total_bytes is not None
+        and worker_limit_mib * MIB + reserve_bytes > initial.total_bytes
+    ):
+        print(
+            "safe-lean: refused unsafe configuration: one Lean worker with a "
+            f"{worker_limit_mib / 1024:.1f} GiB ceiling plus the "
+            f"{reserve_bytes / GIB:.1f} GiB reserve exceeds physical RAM",
+            file=sys.stderr,
+        )
         return 64
 
     baseline_swap_bytes = initial.swap_used_bytes or 0
@@ -460,24 +590,6 @@ def main(argv: Sequence[str] | None = None) -> int:
         )
         return 75
 
-    try:
-        command = _build_command(arguments, worker_limit_mib)
-    except ValueError as error:
-        print(f"safe-lean: {error}", file=sys.stderr)
-        return 64
-
-    print(
-        "safe-lean: "
-        f"jobs={jobs}, planned-peak={DEFAULT_PLANNING_PEAK_MIB}MiB/job, "
-        f"hard-worker-limit={worker_limit_mib}MiB, "
-        f"reserve={reserve_bytes / GIB:.1f}GiB, max-swap={max_swap_bytes / GIB:.1f}GiB",
-        file=sys.stderr,
-        flush=True,
-    )
-    print(f"safe-lean: command={' '.join(command)}", file=sys.stderr, flush=True)
-    if arguments.dry_run:
-        return 0
-
     environment = os.environ.copy()
     environment["LEAN_NUM_THREADS"] = str(jobs)
     environment["SAFE_LEAN_ACTIVE"] = "1"
@@ -488,42 +600,66 @@ def main(argv: Sequence[str] | None = None) -> int:
             log_context = _open_log(arguments.log_file)
         else:
             log_context = nullcontext(None)
-        with _exclusive_build_lock(), log_context as log_handle:
-            output_target: int | IO[bytes] | None = log_handle
-            process = subprocess.Popen(
-                command,
-                cwd=LEAN_DIR,
-                env=environment,
-                stdout=output_target,
-                stderr=subprocess.STDOUT if log_handle is not None else None,
-                start_new_session=True,
+        lakefile_context: AbstractContextManager[Path | None]
+        if arguments.lake_worker_limit_gib is not None:
+            lakefile_context = _temporary_lakefile(
+                worker_limit_mib, stack_limit_kib
             )
-            violation_count = 0
-            last_status = time.monotonic()
-            while True:
-                try:
-                    return process.wait(timeout=arguments.poll_seconds)
-                except subprocess.TimeoutExpired:
-                    snapshot = memory_snapshot()
-                    build_rss = process_tree_rss_bytes(process.pid)
-                    reasons = pressure_reasons(
-                        snapshot,
-                        build_rss,
-                        limits,
-                        baseline_swap_bytes=baseline_swap_bytes,
-                    )
-                    violation_count = violation_count + 1 if reasons else 0
-                    now = time.monotonic()
-                    if now - last_status >= arguments.status_seconds:
-                        print(
-                            f"safe-lean: {_format_snapshot(snapshot, build_rss)}",
-                            file=sys.stderr,
-                            flush=True,
+        else:
+            lakefile_context = nullcontext(None)
+        with lakefile_context as lakefile_override:
+            command = _build_command(
+                arguments, worker_limit_mib, stack_limit_kib, lakefile_override
+            )
+            print(
+                "safe-lean: "
+                f"jobs={jobs}, planned-peak={planning_peak_mib}MiB/job, "
+                f"hard-worker-limit={worker_limit_mib}MiB, "
+                f"tstack={stack_limit_kib / 1024:.0f}MiB, "
+                f"reserve={reserve_bytes / GIB:.1f}GiB, "
+                f"max-swap={max_swap_bytes / GIB:.1f}GiB",
+                file=sys.stderr,
+                flush=True,
+            )
+            print(f"safe-lean: command={' '.join(command)}", file=sys.stderr, flush=True)
+            if arguments.dry_run:
+                return 0
+            with _exclusive_build_lock(), log_context as log_handle:
+                output_target: int | IO[bytes] | None = log_handle
+                process = subprocess.Popen(
+                    command,
+                    cwd=LEAN_DIR,
+                    env=environment,
+                    stdout=output_target,
+                    stderr=subprocess.STDOUT if log_handle is not None else None,
+                    start_new_session=True,
+                )
+                violation_count = 0
+                last_status = time.monotonic()
+                while True:
+                    try:
+                        return process.wait(timeout=arguments.poll_seconds)
+                    except subprocess.TimeoutExpired:
+                        snapshot = memory_snapshot()
+                        build_rss = process_tree_rss_bytes(process.pid)
+                        reasons = pressure_reasons(
+                            snapshot,
+                            build_rss,
+                            limits,
+                            baseline_swap_bytes=baseline_swap_bytes,
                         )
-                        last_status = now
-                    if violation_count >= 2:
-                        _stop_process_group(process, "; ".join(reasons))
-                        return 75
+                        violation_count = violation_count + 1 if reasons else 0
+                        now = time.monotonic()
+                        if now - last_status >= arguments.status_seconds:
+                            print(
+                                f"safe-lean: {_format_snapshot(snapshot, build_rss)}",
+                                file=sys.stderr,
+                                flush=True,
+                            )
+                            last_status = now
+                        if violation_count >= 2:
+                            _stop_process_group(process, "; ".join(reasons))
+                            return 75
     except RuntimeError as error:
         print(f"safe-lean: refused to start: {error}", file=sys.stderr)
         return 75

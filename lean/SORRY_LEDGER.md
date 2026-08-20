@@ -70,6 +70,605 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 
 ## Entries
 
+### [M2-physical-separator-band] exact physical separator band — **REDUCED TO SAME-OBJECT ANALYTIC INPUTS 2026-08-18**
+
+- **milestone**: physical-scale overlay M2 (`work_plan.md`)
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalSeparatorProducer.lean`,
+  `lean/YMGap/Continuum/BF4FarautPhysicalSeparatorProducer.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalLocalGluingAFCertificate.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalLocalGluingAFAdapter.lean`,
+  `lean/YMGap/Continuum/BF4BoundaryMessageProjectiveRefresh.lean`,
+  `lean/YMGap/Continuum/BF4BoundaryMessageQuarterLimitTransfer.lean`,
+  `lean/YMGap/Continuum/BF4BoundaryMessageRelativeRankOneQuarter.lean`,
+  `lean/YMGap/Continuum/BF4BoundaryMessagePrefixTailQuarter.lean`,
+  `lean/YMGap/Continuum/BF4BoundaryMessageRelativeErrorCrossTail.lean`,
+  `lean/YMGap/Continuum/BF4BoundaryMessagePhysicalTerminalFloorAdapter.lean`,
+  `lean/YMGap/Continuum/BF4BoundaryMessageFinitePositiveFloor.lean`,
+  `lean/YMGap/Continuum/BF4BoundaryMessageComputedTerminalFloor.lean`,
+  `lean/YMGap/Continuum/BF4BoundaryMessageComputedFloorQuarter.lean`,
+  `lean/YMGap/Continuum/BF4BoundaryMessageComputedFloorCrossTail.lean`,
+  `lean/YMGap/Continuum/BF4BoundaryMessageComputedFloorCrossTailExample.lean`,
+  `lean/YMGap/Continuum/BF4BoundaryMessageRegularizedRankOnePrefixExample.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundarySelfSmoothingReduction.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundarySelfSmoothingCrossTail.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundarySelfSmoothingPerronCrossTail.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryRegularizedRankOne.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryRegularizedRankOneCrossTail.lean`,
+  `lean/YMGap/Continuum/FiniteRegularizedRankOneStatistics.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryRegularizedRankOneStatistics.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryRegularizedRankOneStatisticsCrossTail.lean`,
+  `lean/YMGap/Continuum/BF4BoundaryMessageExactStatisticsCutoffZero.lean`,
+  `lean/YMGap/Continuum/BF4BoundaryMessagePrefixTailQuarterExample.lean`,
+  `lean/YMGap/Continuum/BF4BoundaryMessageRelativeRankOneQuarterExample.lean`,
+  `lean/YMGap/Continuum/BF4ExactPhysicalPerronCenteredSameActionFence.lean`,
+  `lean/YMGap/Continuum/PhysicalSeparatorLinearTail.lean`,
+  `lean/YMGap/Continuum/BF4AFPhysicalSpacingToZero.lean`,
+  `lean/YMGap/Continuum/HKPhysicalLinearMarginTail.lean`,
+  `lean/YMGap/Continuum/RenormalizedHKPhysicalComparison.lean`,
+  `lean/YMGap/Continuum/BF4FarautFullLogPrefixTailCertificate.lean`
+- **named fields / structures**:
+  `BF4PhysicalSeparatorSameObjectPin.macroCorrelation`,
+  `BF4PhysicalSeparatorRateSharpnessPin.separatorPower_le_four_correlation`,
+  `BF4QuarterPhysicalSeparatorProducer.bf4` (the direct positive-physical
+  local-gluing certificate),
+  `BF4QuarterPhysicalSeparatorProducer.groupedPhysicalSameObject` and
+  `BF4FarautQuarterPhysicalSeparatorProducer.groupedPhysicalSameObject`
+  (now derived theorems),
+  `PhysicalSeparatorLinearTail.LinearMarginTail`,
+  `RenormalizedHKComparison.physical_margin_le`,
+  `RenormalizedHKComparison.residual`,
+  `RenormalizedBareLinearTail.margin_le`, and the genuine local-slice fields
+  inside `PhysicalLocalGluingAFCertificate`; plus
+  `terminalProjectiveRefresh_l1_contraction` and
+  `terminalProjectiveRefresh_l1_quarter_contraction`, which check a raw
+  finite cross-ratio witness and construct the terminal-independent refresh
+  decomposition; and
+  `UniformRelativeRankOneQuarterWitness.toUniformBoundaryMessageQuarterCertificate`,
+  which derives that witness from an exact profile-relative `1/16` entry
+  enclosure;
+  `QuarterErrorPrefixTail.bound_all`, which joins an exact finite prefix to an
+  analytically antitone tail by induction; and
+  `CrossProductQuarterErrorTail.toQuarterErrorPrefixTail`, which derives that
+  analytic tail for `N_k/D_k` from positive denominators and the division-free
+  cross inequality `N_(k+1)*D_k <= N_k*D_(k+1)`; and
+  `QuarterContractionLimitData.limit_contraction`, which passes the exact
+  finite quarter bound to `CReal` limits constructed from the same streams and
+  explicit eventual Cauchy moduli; and
+  `MatchedPhysicalHalfAmplitudeTerminalFloorErrorRows.toUniformBoundaryMessageQuarterCertificate`,
+  which converts the existing literal physical half-amplitude `65/64`
+  projective estimate into a fixed-spread `33/32` uniform quarter certificate;
+  and `terminalSmoothedFiniteFloor`, which computes the positive ideal floor
+  by recursive rational minimum on the finite retained source-by-boundary
+  rectangle, plus
+  `MatchedPhysicalHalfAmplitudeComputedFloorErrorRows.toUniformBoundaryMessageQuarterCertificate`,
+  which leaves only the physical entry-error estimate as an input; and
+  `PositiveFloorErrorCrossTail.error_le_tolerance_mul_floor`, which combines
+  exact finite `E_k <= F_k/2048` checks with the analytic cross-tail inequality
+  `E_(k+1)*F_k <= E_k*F_(k+1)` to prove that estimate at every cutoff; and
+  `centralHalfAmplitude_boundaryIdentityFactorization`, which identifies the
+  literal physical factorization `A*I=A` on the faithful finite boundary
+  carrier; `physicalHalfAmplitudePositiveCoordinateRows`, which constructs
+  prefix positivity by total finite search from the exact physical moment
+  identity; and
+  `MatchedPhysicalBoundarySelfSmoothingCrossTailRows.toComputedFloorErrorRows`,
+  which leaves precisely the physical action defect `|A-A*P|`; and
+  `MatchedPhysicalBoundarySelfSmoothingPerronCrossTailRows.toCrossTailRows`,
+  which derives the terminal split budget from the same-kernel AF/Faraut
+  Perron estimate at depth `46*bits+6`.  Finally,
+  `centralRegularizedBoundaryRankOneCertificate` constructs a normalized
+  boundary smoother of exact spread one from the physical aggregate columns
+  plus a positive rational pseudocount, and
+  `MatchedPhysicalBoundaryRegularizedRankOneCrossTailRows.toComputedFloorErrorRows`
+  reduces the whole route to its explicit aggregate-profile rank-one defect
+  majorant and cross-tail certificate.  The generic finite-system theorem
+  `finiteRegularizedRankOneDefect_le_of_pairwise` now decomposes that defect,
+  after clearing its positive denominator, into a sum of pairwise cross-row
+  residuals plus an explicit pseudocount bias.  Its BF4 specialization
+  `centralHalfAmplitudeRegularizedRankOneDefect_le_max_of_pairwiseBound`
+  bounds every retained entry by an executable nested rational maximum, and
+  `MatchedPhysicalBoundaryRegularizedRankOneStatisticsCrossTailRows.toComputedFloorErrorRows`
+  feeds exactly that maximum through the existing positive-floor cross-tail
+  route.  An equality field ties the named error sequence to the finite
+  maximum, so the adapter does not accept an unaccounted majorant.  The sharper
+  `centralHalfAmplitudeRegularizedRankOneDefect_le_exactStatisticalMax` retains
+  the exact sum of absolute pairwise residuals and exact pseudocount bias.
+  `MatchedPhysicalBoundaryRegularizedRankOneExactStatisticsCrossTailRows.toComputedFloorErrorRows`
+  lifts that executable maximum across scales without requiring a separately
+  supplied pairwise-row bound; its remaining infinite obligation is the
+  positive-floor cross-tail property of the exact statistic itself.
+  Between the exact and coarse routes,
+  `centralHalfAmplitudeRegularizedRankOneDefect_le_hybridStatisticalMax`
+  pays the retained-source cardinality against one uniform pairwise-row bound
+  while retaining the literal pseudocount bias.  The matching
+  `MatchedPhysicalBoundaryRegularizedRankOneHybridStatisticsCrossTailRows.toComputedFloorErrorRows`
+  adapter makes that hybrid finite statistic the named cross-tail stream.
+  The checked generated example is emitted by
+  `computations/boundary_message_lean_certificate.py` from exact rational data
+  and proves a nontrivial terminal refresh rate at most one quarter.  Its
+  finite-prefix mode also emits a checked constructor from exact prefix errors
+  while leaving the physical stream identifications and analytic tail step as
+  named inputs.  Its regularized matrix-prefix mode additionally emits the
+  literal amplitude matrices and has Lean recompute the aggregate profile,
+  projected entries, pairwise cross-row residuals, the conservative
+  cardinality-plus-pseudocount statistical maximum, the sharper exact
+  residual-sum-plus-bias maximum, the hybrid uniform-residual-plus-exact-bias
+  maximum, the direct maximum-defect majorant, and the positive floor
+  coordinate by coordinate.  Its computed-floor adapter now uses the sharper
+  exact maximum.  The generated theorem applies the generic
+  finite-statistics implication rather than trusting an externally asserted
+  final inequality.  This certifies finite
+  enumeration output only after Lean compilation; equality with the genuine
+  BF4 enumerator, a uniform physical pairwise-row estimate, and the infinite
+  cross-tail step remain named inputs.  As a genuine but degenerate physical
+  checkpoint, `BF4BoundaryMessageExactStatisticsCutoffZero` kernel-computes
+  both the exact-statistical maximum and the actual BF4 defect to zero at
+  cutoff zero; it supplies no positive-cutoff or tail conclusion.  The earlier
+  all-observable `ExactHaarPhysicalPerronAFQuarterCertificate` is no longer an
+  active producer dependency: its same-action premise is constructively
+  refuted at cutoff one for positive coupling.  The centered replacement is
+  likewise no longer active: unconditional cutoff-one Haar evaluation
+  separates its exact and physical centered vacuum moments by `5/8 > 1/8`
+  at `w=8/9`.
+- **obligation**: Construct the genuine gauge-invariant physical separator
+  from the plaquette-coupled Gibbs/transfer object; prove that its selected
+  connected correlator is the normalized positive BF4 joint quadratic;
+  construct a normalized near-top-mode/rate-sharpness witness at the same
+  Faraut-pinned depth (from which the grouped separator bound is now proved);
+  and prove on that same object the
+  asymptotic upper estimate `1 - sep_j <= M * a_j`.  The last estimate is the
+  finite-mass half of dimensional transmutation and cannot be inferred from a
+  quarter contraction alone.
+- **proved reduction machinery**: the BF4/Faraut grouped contraction supplies
+  a strictly positive physical lower rate once the same-object field is
+  inhabited; exact full-range logarithmic rates are then bounded using a
+  computed finite prefix and the linear tail.  A corrected explicit
+  `afSchedule_to_zero` cutoff, exact coupling identification, and the existing
+  quadratic physical-spacing envelope construct the spacing-to-zero modulus,
+  so no independent spacing-limit hypothesis remains.  The same quadratic
+  envelope and coupling window derive the global spacing ceiling needed for
+  the three endpoint steps, so that earlier free producer input is also gone.
+  The two-sided additive `HKPhysicalComparison` is now formally diagnosed as
+  preserving finiteness of bare and physical margin rates, so it cannot
+  reshape an escaping bare rate.  The repaired one-sided renormalized
+  comparison proves that `Z_j*(1-w_j^3) = O(a_j)` plus an `O(a_j)` residual
+  supplies the physical linear tail, and a checked BF4/Faraut adapter consumes
+  exactly those inputs.  Independently, the boundary-message refresh theorem
+  proves that a raw positive-kernel cross-ratio certificate survives arbitrary
+  positive terminal weighting and row normalization, with common mass
+  `1/spread^2`; the exact squared-spread ceiling `4/3` implies a quarter-rate
+  finite `L1` contraction.  External exact computation may produce this
+  finite witness, but Lean checks the division-free inequalities and the
+  certificate-to-contraction soundness theorem.  A second checked producer
+  shows that the exact relative rank-one enclosure `1/16` supplies spread
+  `17/15` and hence the same quarter rate.  The end-to-end generated example
+  confirms that external exact data can be rechecked by Lean; it is a plumbing
+  witness, not a physical BF4 inhabitant.  The prefix/tail bridge permits
+  exact Rust/C/Python enumeration below a threshold only when Lean checks the
+  emitted rational inequalities and an independent analytic successor bound
+  closes the infinite tail.  The cutoff-limit bridge additionally requires
+  explicit `ModCauchyEv` witnesses for the exact input and output distance
+  streams and therefore does not infer convergence from boundedness or
+  numerical evidence.  Independently, the direct physical adapter shows that
+  the terminal-floor/error interface is already strong enough for a quarter
+  contraction.  The positive ideal floor is now constructed automatically
+  from finite strict positivity.  The uniform `computedFloor/2048`
+  physical-entry estimate is reduced further to an entrywise scalar majorant,
+  exact finite prefix checks, and the all-tail division-free cross inequality;
+  those physical inputs remain uninhabited on this route.  On the now
+  preferred canonical specialization, the terminal itself is no longer an
+  input: it is the normalized pseudocount-regularized aggregate-column profile
+  of the literal `centralHalfAmplitude`, with spread exactly one.  The honest
+  residual is the concrete rank-one defect bound
+  `|A-rowMass(A)*regularizedAggregateProfile| <= E_k` and its analytic
+  cross-tail inequality.  The pseudocount schedule may be selected by exact
+  computation, but its positivity and every accepted rational prefix check
+  must be rechecked by Lean.
+- **constructive or propositional**: constructive — the separator, coupling
+  identification, spacing modulus, coefficients, starts, and certificates are
+  all `Type`-level data.
+- **honest residual**: no producer inhabitant is constructed here.  The
+  genuine positive-physical local-gluing witness, physical separator,
+  same-object pin, rate-sharpness witness, and linear Gibbs margin remain open.
+  In particular, no uniform `spread^2 <= 4/3` certificate has yet been
+  constructed for the actual plaquette-coupled BF4 raw grouped kernel, nor
+  has its sufficient profile-relative `1/16` enclosure been inhabited.  No
+  physical scalar error stream with a checked finite prefix and analytic
+  antitone tail step (or its cross-product numerator/denominator witness), and
+  no physical input/output distance streams with
+  explicit eventual Cauchy moduli, have yet been constructed.
+  Equivalently on the shorter direct route, no inhabitant of
+  `MatchedPhysicalHalfAmplitudeComputedFloorErrorRows` has been constructed:
+  its sole new analytic field, the uniform `computedFloor/2048` physical entry
+  error, is still open.  The finite-prefix/cross-tail adapter does not inhabit
+  the physical entry majorant or analytic tail inequality.  The direct
+  boundary specialization removes the arbitrary middle/prefix data and
+  constructs prefix positivity.  Its canonical rank-one specialization also
+  constructs the normalized positive terminal and discharges the spread
+  budget exactly; it still does not prove that the physical amplitude is
+  uniformly within `computedFloor/2048` of that rank-one projection.  The
+  positive ideal floor itself is kernel-checked finite recursion and is no
+  longer an honest residual.
+  Neither refuted exact-Haar same-action seam is an honest residual.
+  Consequently this
+  entry does not establish an all-cutoff, continuum, OS-reconstructed, or Clay
+  mass gap.
+- **must not be closed classically**: per `AGENTS.md` Rules 4, 6, 8, and 9.
+
+### [M3-exact-log-rg-handoff] exact logarithmic family to normalized RG persistence — **SPECTRAL-INPUT REDUCTION CLOSED; ANALYTIC INHABITATION OPEN 2026-08-18**
+
+- **milestone**: physical-scale overlay M3 (`work_plan.md`)
+- **files**:
+  `lean/YMGap/Continuum/MassNormalizedRefinementPersistence.lean`,
+  `lean/YMGap/Continuum/MassNormalizedLossPersistence.lean`,
+  `lean/YMGap/Continuum/ExactLogMassNormalizedPersistence.lean`,
+  `lean/YMGap/Continuum/ExactLogMassNormalizedRefinementPersistence.lean`,
+  `lean/YMGap/Continuum/ExactLogMassNormalizedLossPersistence.lean`,
+  `lean/YMGap/Continuum/BF4FarautExactRefinementPersistence.lean`,
+  `lean/YMGap/Continuum/BF4FarautExactLossPersistence.lean`,
+  `lean/YMGap/Continuum/SpectralLocalizedMassNormalizedLossPersistence.lean`,
+  `lean/YMGap/Continuum/SpectralLocalizedPhysicalMarginLoss.lean`,
+  `lean/YMGap/Continuum/SpectralMarginInputMassNormalizedLoss.lean`, and
+  `lean/YMGap/Continuum/BF4FarautSpectralMarginInputExactCertificate.lean`
+- **named fields / structures**:
+  `MassNormalizedRefinementFlow.spacing_step`,
+  `MassNormalizedLossFlow.step`,
+  `MassNormalizedLossPersistence.lossBudget`,
+  `MassNormalizedLossPersistence.anchorDominates`,
+  `ExactLogMassNormalizedLossFlow.exactRate`,
+  `ExactLogMassNormalizedLossFlow.spacing_identification`,
+  `ExactLogMassNormalizedLossFlow.mass_certificate`,
+  `SpectralLocalizedPhysicalMarginFlow.normalizedLoss`,
+  `SpectralMarginInput.toInverseSquareControl`,
+  `SpectralMarginInput.persistence`, and
+  `BF4FarautSpectralMarginInputExactFlow.fullRangeExactCertificateOfSpectralMarginInputRenormalizedHK`.
+- **obligation**: Construct a rational lower-certificate flow on the same exact
+  physical log-rate family, prove the normalized one-step loss inequality, and
+  give a constructive summable loss budget strictly dominated by the anchor.
+  Also prove the rational mass certificate lies below the exact log rate at
+  each identified spacing.  No exact natural-number spacing ratio is required
+  by the preferred interface.
+- **proved reduction machinery**: the refinement-specific structure records
+  the literal AF orientation, while the direction-neutral structure isolates
+  the data actually used by telescoping and accepts both earlier conventions
+  through checked adapters.  Any persistent inhabitant transports its rational
+  floor to a uniform lower bound for the same exact constructive-real
+  logarithmic rates.  The BF4/Faraut hybrid then adds the renormalized M2
+  ceiling on definitionally the same separator and spacing family.  The
+  spectral-localization adapter corrects the dimensions of the additive loss:
+  a dimensionless defect `d_k` produces physical rate loss `d_k*M_k`; a
+  physical ceiling therefore yields `rateLoss <= M_ceiling*d_k`.  The existing
+  `SpectralMarginInput` now constructs the corresponding shifted inverse-square
+  budget at offset `fmCutoff+2`, and the exact BF4/Faraut adapter installs its
+  positive floor in the producer's same exact log-rate family.  The final
+  focused monitored build passed 1162 jobs, with only `propext` and
+  `Quot.sound` in the printed footprint; the six spectral-loss files also pass
+  the strict forbidden-token scan.
+- **constructive or propositional**: constructive — all flow, spacing,
+  certificate, loss-budget, and floor witnesses are `Type`-level data.
+- **honest residual**: `SpectralMarginInput` and
+  `BF4FarautSpectralMarginInputExactFlow` remain uninhabited for the actual 4D
+  corrected-slab flow.  In particular, localization, the same-defect tail
+  identification, the spectral bridge, physical ceiling, anchor dominance,
+  exact spacing identification, and rational-to-exact mass comparison remain
+  analytic inputs.  The BF4/Faraut producer and its renormalized upper
+  comparison also remain uninhabited.  The reduction does not establish cutoff
+  removal, OS reconstruction, or the Clay theorem.
+- **must not be closed classically**: per `AGENTS.md` Rules 4, 6, 8, and 9.
+
+### [M4-same-object-continuum-gap] exact-rate cutoff and continuum/OS handoff — **EXACT-MASS/THEORY-PIN REDUCTIONS EXTENDED; ANALYTIC INHABITATION OPEN 2026-08-18**
+
+- **milestone**: physical-scale overlay M4 (`work_plan.md`)
+- **files**:
+  `lean/YMGap/Constructive/CRealInnerRegularity.lean`,
+  `lean/YMGap/Constructive/CRealLogInnerRegularity.lean`,
+  `lean/YMGap/Continuum/SummableCRealStepVariation.lean`,
+  `lean/YMGap/Continuum/SummableCRealEventualStepVariation.lean`,
+  `lean/YMGap/Continuum/CRealRationalProxyTracking.lean`,
+  `lean/YMGap/Continuum/DirectLogQuadraticRemainder.lean`,
+  `lean/YMGap/Continuum/QuadraticRateErrorTailControl.lean`,
+  `lean/YMGap/Continuum/BF4AFPhysicalSpacingInverseSquare.lean`,
+  `lean/YMGap/Continuum/PhysicalSeparationSamplingOfSpacingToZero.lean`,
+  `lean/YMGap/Continuum/PhysicalSeparatorFullLogComparison.lean`,
+  `lean/YMGap/Continuum/PhysicalSeparatorContinuumRealization.lean`,
+  `lean/YMGap/Continuum/BF4FarautSpectralPhysicalMarginIdentification.lean`,
+  `lean/YMGap/Continuum/ProjectiveOSCorrelationHandoff.lean`,
+  `lean/YMGap/Continuum/ExactRateReconstructionHandoff.lean`,
+  `lean/YMGap/Continuum/OSCanonicalMarginGap.lean`,
+  `lean/YMGap/Continuum/CanonicalTransferFormGap.lean`,
+  `lean/YMGap/Continuum/WilsonLinkedOSReconstruction.lean`,
+  `lean/YMGap/Continuum/WilsonExactRateGapHandoff.lean`,
+  `lean/YMGap/Continuum/WilsonSpectralChannelHandoff.lean`,
+  `lean/YMGap/Continuum/WilsonLinearTimeTranslationHandoff.lean`,
+  `lean/YMGap/Continuum/WilsonOperatorNormGapHandoff.lean`,
+  `lean/YMGap/Continuum/WilsonQuadraticFormGapHandoff.lean`,
+  `lean/YMGap/Continuum/WilsonBoundedMassGapHandoff.lean`,
+  `lean/YMGap/Continuum/WilsonMinimalBoundedMassGapHandoff.lean`,
+  `lean/YMGap/Continuum/WilsonIteratedNormDecayHandoff.lean`,
+  `lean/YMGap/Continuum/WilsonMatrixCoefficientDecayHandoff.lean`,
+  `lean/YMGap/Continuum/WilsonOSConnectedDecayHandoff.lean`,
+  `lean/YMGap/Continuum/ProjectiveWilsonConnectedDecayHandoff.lean`,
+  `lean/YMGap/Continuum/ContinuumSquaredClusteringHandoff.lean`,
+  `lean/YMGap/Continuum/RCStrictPositivity.lean`,
+  `lean/YMGap/Continuum/ContinuumMassClusteringEndpoint.lean`,
+  `lean/YMGap/Continuum/ContinuumExactMassClusteringTarget.lean`,
+  `lean/YMGap/Continuum/ContinuumExactMassClusteringClayResidual.lean`,
+  `lean/YMGap/Continuum/ContinuumCorrectedExactMassTarget.lean`,
+  `lean/YMGap/Constructive/CRealAbsContinuity.lean`,
+  `lean/YMGap/Continuum/ContinuumExactMassScalingWindow.lean`,
+  `lean/YMGap/Continuum/ContinuumExactMassDecayEndpoint.lean`,
+  `lean/YMGap/Continuum/ContinuumSelectedExactMassDecayTarget.lean`,
+  `lean/YMGap/Continuum/ContinuumSelectedTheoryPins.lean`,
+  `lean/YMGap/Rubric/FrontierDAGBridges.lean`,
+  and
+  `lean/YMGap/Continuum/BF4FarautSpectralMarginInputContinuumRealization.lean`.
+- **named fields / structures**:
+  `PhysicalMarginIdentification.floorRate_eq_physMargin`,
+  `SymmetricSpectralShift.reverseHadd`,
+  `ProjectiveOSCorrelationHandoff`,
+  `ReconstructionSpectralChannelHandoff`,
+  `ExactRateReconstructionHandoff`,
+  `WilsonLinkedOSGNSData`,
+  `WilsonCharacterOS4Pin`,
+  `CanonicalTransferFormGap`,
+  `WilsonPositiveExactLogGapWitness`,
+  `WilsonCharacterSpectralChannelPin`,
+  `WilsonLinearTimeTranslationPin`,
+  `WilsonCharacterSquarePin`,
+  `WilsonQuadraticFormGapPin`,
+  `WilsonBoundedMassGap`,
+  `WilsonSelectedOSGNSData`,
+  `WilsonOperatorNormGapPin`,
+  `WilsonMinimalBoundedMassGap`,
+  `WilsonVacuumStationarityPin`,
+  `WilsonDenseVacuumPin`,
+  `WilsonIteratedBoundedMassGap`,
+  `WilsonOSConnectedMatrixCoefficientPin`,
+  `ProjectiveWilsonOSMatrixCoefficientPin`,
+  `RCSquaredGeometricClustering`,
+  `NontrivialRCSquaredGeometricClustering`,
+  `RCIsPositive`,
+  `PositiveRC`,
+  `ContinuumMassClusteringEndpoint`,
+  `ContinuumExactMassClusteringTarget`,
+  `LegacyClayPinnedExtensionResidual`,
+  `ExactMassUniformDecayExtension`,
+  `ContinuumCorrectedExactMassTarget`,
+  `ContinuumCorrectedExactMassResidualData`,
+  `ExactMassUniformDecayScalingWindow`,
+  `SelectedPhysicalScalingWindows`,
+  `SelectedPhysicalVolumeGrowthPins`,
+  `ContinuumExactMassScalingResidualData`,
+  `NontrivialExactMassContinuumClustering`,
+  `ContinuumSelectedExactMassDecayTarget`,
+  `SelectedRotationActionPins`,
+  `SelectedGaugeProjectionPins`,
+  `SelectedGroupUVPins`,
+  `SelectedCorrelationNonGaussianPin`,
+  `SelectedTheoryPins`,
+  `BF4SU2SelectedTheoryPinResidualData`,
+  `FrontierToExactMassClusteringTargetBridge`,
+  `FrontierToContinuumSelectedExactMassDecayTargetBridge`,
+  `WilsonTimeTranslationPin`,
+  `TransferFormGapResidual`,
+  `ContinuumProjectiveOSResidualData`,
+  `ContinuumWilsonBoundedResidualData`,
+  `ContinuumWilsonMinimalBoundedResidualData`,
+  `ContinuumWilsonIteratedBoundedResidualData`,
+  `ContinuumWilsonOSConnectedDecayResidualData`,
+  `ContinuumProjectiveWilsonDecayResidualData`,
+  `ContinuumYMExistence`,
+  `MeasureLinkedOSGNSData`,
+  and `ExactLogGapAt`.
+- **obligation**: Prove that the fixed-spacing cluster floor is the physical
+  margin of the same BF4 separator and prove the lower half of the two-sided
+  spectral-shift estimate.  Then construct one same-action projective
+  continuum measure with the required correlator semantics, OS reconstruction,
+  transfer-semigroup identification, and exact generator-gap binding.
+- **proved reduction machinery**: spacing-to-zero constructs physical
+  separation sampling.  The BF4 AF trajectory constructs the inverse-square
+  spacing majorant; the renormalized linear margin tail constructs the exact
+  logarithmic half-window and quadratic error bound.  The same-object floor
+  identification yields equality of the rational physical and spectral proxy
+  rates.  A symmetric shift estimate combines with the existing `hbridge` to
+  yield the missing upper normalized drift.  These data construct the exact
+  rate's eventual Cauchy modulus, cutoff limit, and positive limiting floor.
+  A single `ProjectiveOSCorrelationHandoff` plus the already measure-linked OS
+  functional convergence constructs the physical continuum correlators and
+  their OS gap-correlation identification; the GNS spectral-channel assertion
+  remains separately named.  Convergence of the same finite exact-rate family
+  to the reconstructed logarithmic gap now replaces a free final equality;
+  constructive-real limit uniqueness supplies that equality.  The full-range
+  floor also exports to the canonical `CRealFloor` interface.  The compressed
+  residual now additionally pins the Wilson expectation to the selected OS
+  functional and requires a concrete Wilson time translation whose
+  operator-form gap uses definitionally the same OS4 model and separator.
+  `WilsonCharacterOS4Pin.toSelectedFormGap` reduces that operator-form field
+  to the physical finite-character coordinate map, its two Schur diagonal
+  identities, and explicit fieldwise identifications of the finite model and
+  separator with OS4; no dependent equality of whole spectral records is
+  assumed.  `CanonicalTransferFormGap` makes the right-hand side of this
+  inequality definitionally the concrete separator scalar action, eliminating
+  the arbitrary `scaledInner` map in the legacy residual.  The exact-rate
+  handoff attaches a positive cutoff-removed logarithmic rate to this same
+  concrete Wilson datum and exports the canonical form gap.  The optional
+  finite-character spectral-channel handoff leaves only the connected
+  OS/character two-point equality as input and proves time-zero positivity for
+  every nonempty cutoff from the first character weight.
+  The optional linear time-translation handoff records the two missing scalar
+  laws, a representative-level linear lift, and an equality pin to the
+  selected Wilson transfer; it identifies the functional-calculus spectral
+  record with the selected OS4 record.  The operator-norm handoff isolates one
+  further square Schur identity for `<T^2 x,x>` and then derives the genuine
+  vacuum-complement contraction
+  `||T x||^2 <= separator^2 ||x||^2`.
+  `WilsonQuadraticFormGapHandoff` weakens that sufficient finite-coordinate
+  hypothesis to the minimal quadratic form inequality
+  `<T^2 x,x> <= separator * <T x,x>` on the vacuum complement; self-adjointness
+  and the canonical linear form gap then derive the same norm contraction.
+  The bounded mass-gap handoff combines
+  this contraction with the positive exact logarithmic rate on the same
+  datum, and the BF4 compressed adapter now exports that conditional endpoint
+  directly.  This bounded-transfer route does not require construction of an
+  unbounded `-log T` operator.
+  `ContinuumWilsonBoundedResidualData` then removes two further unused fields
+  from the bounded critical path: neither the projective correlator handoff nor
+  the reconstruction spectral-channel identification is needed to combine
+  exact-rate convergence with the Wilson operator gap.  The stronger
+  projective residual projects to this smaller package after supplying the
+  quadratic pin.
+  `WilsonMinimalBoundedMassGapHandoff` factors the endpoint once more:
+  `WilsonSelectedOSGNSData` stops before the canonical linear form gap, and a
+  direct `WilsonOperatorNormGapPin` is the only operator inequality retained.
+  `ContinuumWilsonMinimalBoundedResidualData` therefore carries exactly
+  continuum existence, that selected same-measure Wilson/OS datum, exact-rate
+  convergence, and the direct norm gap.  The quadratic and finite square
+  Schur paths compile to this package as sufficient constructors but are not
+  fields of the minimal endpoint.
+  `WilsonIteratedNormDecayHandoff` adds the explicitly named vacuum
+  stationarity pin needed to preserve the vacuum complement under iteration;
+  a dense zero-vector identity is a sufficient constructor.  The resulting
+  endpoint proves the geometric squared-norm estimate for every transfer
+  power.  `WilsonMatrixCoefficientDecayHandoff` combines it with the
+  completed-GNS Cauchy--Schwarz inequality to prove geometric squared decay
+  of arbitrary matrix coefficients.  `WilsonOSConnectedDecayHandoff` then
+  names the independent same-object pin identifying a selected connected OS
+  insertion with that Wilson autocorrelation and proves its squared decay.
+  The BF4 adapter carries this only in
+  `ContinuumWilsonOSConnectedDecayResidualData`; the correlation fields do not
+  re-enter the bounded mass-gap critical path.
+  `ProjectiveWilsonConnectedDecayHandoff` composes the projective functional
+  equality with that matrix-coefficient theorem, leaving exactly one direct
+  pin from the reconstructed continuum gap correlator to the selected Wilson
+  autocorrelation.  `ContinuumSquaredClusteringHandoff` packages the result
+  with ratio `separator^2 < 1`; the reconstruction spectral channel supplies a
+  positive time-zero floor, excluding a vacuous zero channel.
+  `ContinuumMassClusteringEndpoint` then packages the positive exact
+  logarithmic mass and this nontrivial clustering on the same selected object.
+  Its clustering ratio is definitionally the square of the separator whose
+  exact logarithm is the mass.  The BF4 projective/Wilson residual exports this
+  endpoint without adding any new analytic premise.
+  `RCStrictPositivity` moves the mass statement into the same completed-real
+  quotient used by the Wilson Hilbert and clustering layers.  There `PosEv` is
+  exactly strict positivity, so the endpoint exports a Type-level positive
+  `RC` mass literally equal to the reconstructed exact logarithm, without
+  making a non-invariant claim about the early approximations of a raw
+  `CReal` representative.
+  `ContinuumExactMassClusteringTarget` bundles the selected continuum measure,
+  full existence hypothesis, separator/spacing/sampling, Wilson datum,
+  projective handoff, and endpoint.  It chooses the reconstruction's computed
+  exact logarithm as a canonical raw positive representative.  The legacy
+  Clay comparison then constructs every shared carrier and pin of
+  `ClayTargetPinned` from that target, leaving only its separate continuum
+  existence/limit package, margin-mass equality, and uniformity as an
+  uninhabited residual.  `ContinuumCorrectedExactMassTarget` avoids that
+  currency loss: it requires a spacing-uniform physical correlation-decay
+  witness with mass `CReal.Equiv` to the canonical exact logarithm, proves the
+  two masses equal in `RC`, and projects full O(4) from the same continuum
+  existence datum.  The BF4 adapter now packages exactly this final
+  mass-pinned uniform-decay residual and exports the corrected target.
+  Absolute-value continuity on constructive reals transports the
+  finite-spacing inequality through the selected scaling limit.  The error
+  argument is the source-defined concrete ratio
+  `max(1/(n+1), n/(L+1))` on the exact same physical correlator; there is no
+  abstract ratio or later equality pin.  Source-level error nonnegativity,
+  canonical floor-sampler UV control and no-overshoot are proved.  Normalizing
+  the sampled exponent by physical time proves its convergence to the one-step
+  exact-mass exponent; exact exponential chunking rewrites the variable
+  lattice power as a fixed `(t+1)`-power.  Fixed-power and fixed-amplitude
+  continuity then reconstruct the complete envelope transport.
+  `SelectedPhysicalScalingWindows` therefore
+  retains only the same-family volume window beside the derived UV window,
+  while the BF4 `ContinuumExactMassScalingResidualData` carries exactly one
+  field beyond its nested corrected target: cofinal divergence of the same
+  family's physical linear extent `a_j(L_j+1)`.  A proved generic bridge and
+  BF4 constructor reduce this to the sufficient natural-number schedule
+  `L_j+1 >= j*den(a_j)`.  Generic sequential continuity of `expNegCD` on
+  constructive reals is proved, so it no
+  longer assumes the full unweighted positive-separation envelope limit.  The resulting endpoint
+  proves unsquared continuum decay at `t+1`, avoiding an artificial time-zero
+  scaling premise, and packages a nonzero selected channel.  A separate
+  audit showed that the legacy O(4), gauge, UV, and nontriviality carriers can
+  choose objects unrelated to their `ContinuumMeasure`.  The stronger
+  `SelectedTheoryPins` therefore puts the actions, projection, UV evaluator,
+  and interaction witness on the exact selected OS algebra/thread/correlator.
+  Its BF4 adapter fixes the group type to `A 1` (SU(2)) by construction and
+  proves strict monotonicity of the selected inverse coupling.  The exact-mass
+  targets are explicitly registered as consumers of completion maps from the
+  canonical `FrontierDAG`; no such map is inhabited.  The static DAG audit
+  reports 34 enumerations, 2 bridged, and 0 unbridged.
+  The canonical legacy margin export is separate from the exact-log endpoint.
+  The focused monitored Wilson-link build passes 121 jobs, the exact-rate
+  handoff passes 240 jobs, the spectral-channel handoff passes 243 jobs, the
+  linear time-translation handoff passes 124 jobs, the operator-norm handoff
+  passes 122 jobs, the minimal quadratic-form handoff passes 123 jobs, the
+  bounded mass-gap handoff passes 243 jobs, the minimal bounded mass-gap
+  handoff passes 244 jobs, the iterated norm-decay handoff passes 245 jobs,
+  the matrix-coefficient handoff passes 258 jobs, the connected OS handoff
+  passes 259 jobs, the projective/Wilson correlation handoff passes 261 jobs,
+  the constructive-real squared clustering handoff passes 262 jobs, the
+  completed-real strict-positivity bridge passes 80 jobs, the same-object
+  mass/clustering endpoint passes 264 jobs, the exact target bundle passes 265
+  jobs, the legacy Clay residual factoring passes 269 jobs, the corrected
+  exact-mass target passes 266 jobs, constructive-real absolute continuity
+  passes 47 jobs, the exact-mass scaling window passes 269 jobs, the continuum
+  exact-mass decay endpoint passes 270 jobs, the selected target passes 271
+  jobs, the same-theory pin layer passes 284 jobs, the canonical bridge module
+  passes 411 jobs, and the downstream BF4/SU(2) adapter passes 1224 jobs.
+  In each focused check, every newly printed load-bearing declaration depends
+  only on `propext` and `Quot.sound`.
+- **constructive or propositional**: constructive — all identifiers, moduli,
+  selected projective threads, continuum functionals, reconstructions, and
+  exact gap witnesses are carried as `Type`-level data.
+- **honest residual**: the physical/spectral identification is not inhabited
+  for the genuine 4D flow.  The projective OS correlator handoff remains open
+  for the separate full correlation theorem, but is no longer a premise of
+  the bounded-transfer mass-gap endpoint.
+  Continuum Yang--Mills existence, the selected same-measure Wilson GNS/time
+  translation datum, its direct vacuum-complement operator-norm contraction,
+  vacuum stationarity, and convergence to the exact reconstructed generator
+  gap are also not constructed here.  A finite-character/OS4 pin with its
+  square Schur
+  identity, or the weaker quadratic form inequality together with the
+  canonical linear form gap, remains a sufficient route to that direct norm
+  contraction rather than a premise of the minimal endpoint.  The selected
+  connected OS insertion's vacuum orthogonality and exact equality with its
+  Wilson `T^n` autocorrelation remain open only for the separate full
+  correlation theorem; the projective/Wilson handoff and clustering endpoint
+  make the consequence explicit but do not inhabit that equality.  Its
+  positive time-zero floor proves only that this selected continuum channel is
+  nonzero; it does not establish non-Gaussianity or the spectrum of the full
+  OS/Wightman field theory.  The OS/character equality is a distinct optional
+  channel.  The
+  corrected target still consumes an uninhabited `ContinuumYMExistence` and a
+  mass-pinned `UniformPhysicalCorrelationDecay`; it does not construct either.
+  The later exact-mass endpoint additionally consumes sampled-correlation
+  convergence through the corrected target.  Its reduced BF4 scaling residual
+  still requires only same-family cofinal physical linear-extent divergence;
+  exact exponential continuity, chunking, fixed-power reconstruction, the UV
+  window, no-overshoot, error sign, and fixed-amplitude transport are no longer
+  residual assumptions.  The
+  strengthened theory-pin record
+  is also uninhabited: its abstract label action has not been identified with
+  constructive full O(4), its `A 1` tag does not itself construct SU(2), Haar
+  integration, or the Gibbs law, and its current Wick-product violation is a
+  selected-correlator surrogate rather than a full hierarchy theorem.
+  The legacy `ContinuumYMExistence` O(4), gauge, UV, and nontriviality fields
+  are insufficient substitutes because their carrier definitions may select
+  objects unrelated to the chosen continuum measure.
+  Its full O4 theorem is therefore a projection from explicit hypothesis data,
+  not a proof of rotation restoration for 4D Yang--Mills.  The
+  linear transfer pin is an optional prerequisite for the general continuous
+  functional-calculus route, not for the bounded operator-norm conclusion.
+  The finite-character
+  spectral-channel reduction is optional rather than a claim that every
+  continuum model has that finite form.  The legacy abstract reconstruction
+  still does not
+  realize its Hilbert carrier as the concrete completed Wilson GNS space.  The
+  conditional endpoint therefore does not establish a continuum Yang--Mills
+  theory or the Clay theorem.
+- **must not be closed classically**: per `AGENTS.md` Rules 4, 6, 8, and 9.
+
 ### [FrontierDAG-bulkCtrl-repoint] canonical finite re-based fusion control — **STATEMENT REPOINTED 2026-08-05; ANALYTIC FIELD OPEN**
 
 - **milestone**: 11.14 / work-plan milestone 51 (`FrontierDAG` canonical-atom
@@ -354,33 +953,37 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   inhabitant must supply explicit rational moduli and witnesses rather than
   a selected spectral bound.
 
-### [BF4-exact-physical-Perron] exact Haar / positive Perron same action — **OPEN ANALYTIC INPUT**
+### [BF4-exact-physical-Perron] exact Haar / positive Perron same action — **REFUTED; DIRECT PHYSICAL REPLACEMENT OPEN**
 
 - **milestone**: AF macro-slab reroute (`work_plan.md`, Milestone 34)
-- **file**:
-  `lean/YMGap/Continuum/BF4ExactPhysicalPerronReroute.lean`
+- **files**:
+  `lean/YMGap/Continuum/BF4ExactPhysicalPerronReroute.lean`,
+  `lean/YMGap/Continuum/BF4ExactPhysicalPerronSameActionFence.lean`,
+  `lean/YMGap/Continuum/BF4ExactPhysicalPerronCenteredSameActionFence.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalLocalGluingAFCertificate.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalLocalGluingAFAdapter.lean`
 - **decls**: `ExactHaarPhysicalPerronSameActionAt`,
   `ExactHaarPhysicalPerronAFQuarterCertificate`,
   `ExactHaarPhysicalLocalGluingAFQuarterCertificate`
-- **obligation**: Construct, at every matched cutoff, the finite
-  fusion/holonomy resummation identifying the quadratic form of the literal
-  signed 116-link Haar kernel on `centralHalfStates K 0` with the normalized
-  positive physical reflection quadratic.  For the direct bypass, also
-  construct the genuine stationary one-slice density, its exact all-word
-  gluing to the physical conditional slab density, and a local centered rate
-  at most `1/4`.
-- **constructive or propositional**: constructive — same action is a
-  `Type`-level witness, while each rowwise local kernel is retained under
-  `Nonempty (Sigma oneStep, PhysicalBF4LocalContractionGluingRow ...)` so no
-  scale-indexed choice is introduced.
-- **status**: open analytic instantiation.  The consumer is closed:
-  zero-marginal row/column filtering is proved to preserve the normalized
-  full physical OS quadratic exactly; a symmetric-reference Perron estimate
-  transfers a quarter bound; and the direct local-gluing route bypasses the
-  grouped spectral-eighth/row-eighth/growth node and transfers the stronger
-  physical `1/16` estimate to the literal exact Haar quadratic.
-- **must not be closed classically**: per `AGENTS.md` Rule 6; the resummation,
-  gluing density, and AF-uniform local-rate witnesses must remain explicit.
+- **obligation**: Do not attempt to inhabit either same-action structure for
+  the present positive law.  Construct instead one explicit stationary
+  physical slice density at each AF scale, its row and column normalization,
+  exact all-word gluing to every row of the physical conditional slab density,
+  and a carrier-uniform centered rate at most `1/4`.
+- **constructive or propositional**: constructive —
+  `PhysicalLocalGluingAFCertificate.oneStep` is an explicit scale-indexed
+  kernel, and `localSlice` certifies that the same kernel serves every source;
+  no rowwise existential selection or classical choice remains in the active
+  producer interface.
+- **status**: both same-action routes are constructively fenced.  The raw
+  vacuum delta refutes full same action at cutoff one and positive coupling.
+  The unconditional Haar-five formulas, combined with the physical vacuum
+  marginal bound at `w=8/9`, put the centered exact moment above `5/8` and the
+  centered physical moment below `1/8`.  The surviving consumer is direct:
+  the global positive slice certificate proves the physical joint quadratic
+  `1/16` estimate without a signed-Haar comparison.
+- **must not be closed classically**: per `AGENTS.md` Rule 6; the global slice,
+  gluing identity, and AF-uniform local-rate witnesses must remain explicit.
 
 ### [SU2-Faraut-interior] constructive image-kernel Harnack certificate — **OPEN ANALYTIC INPUT**
 

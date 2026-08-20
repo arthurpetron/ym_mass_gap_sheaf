@@ -57,15 +57,17 @@ The renormalized model `epsRen` IS quadratic, so the MODEL leakage is summable
 BARE linear one) — i.e. whether the marginal counterterm subtraction is legitimate
 FOR THE GAP defect — is precisely the OPEN obligation.
 
-# The reduction (adversarial): `ε`-summability equi-inhabits `singleStep`
+# Interface audit: the legacy alias does not construct summability data
 
 `RealEpsQuadraticControl` carries exactly the open hypothesis
 `realEps_k ≤ 6p·(1 − w_k)²` and (given it) delivers `Σε < ∞`.  That hypothesis is
 the counterterm-subtracted renormalized-defect bound `δ_model = bondMovingDeltaRen
 ≤ 6p(1−w)²`, which is the content of `SingleStepDefectReduction.SingleStepDefectBound`
-(and the sharper `GradedBondMovingBudget.SpectralLocalization`).  `EpsQuadraticObligation`
-is the Rule-9.8 def-alias to `SingleStepDefectBound`: **`ε`-summability does NOT reduce
-to a NEW wall — it equi-inhabits `singleStep`, the campaign's core.**
+(and the sharper `GradedBondMovingBudget.SpectralLocalization`).  The legacy
+`EpsQuadraticObligation` declaration below is only a definitional alias to
+`SingleStepDefectBound`.  It does **not** construct `RealEpsQuadraticControl`,
+`FullModeDefect`, or any comparison between the true-margin recursion and the
+separately defined additive leakage sequence.
 
 # Reconciliation with the numerics plateau (crossover artifact ≠ non-summability)
 
@@ -84,8 +86,9 @@ cloud, and is exactly the `singleStep` obligation.
 
 # HONEST VERDICT (AGENTS.md Rule 6 / Rule 9)
 
-`ε`-summability is the BINDING OPEN OBLIGATION and is **equi-inhabiting
-`SingleStepDefectBound`** (NOT a new wall).  It is UNCONDITIONALLY TRUE for the
+`ε`-summability is a BINDING OPEN OBLIGATION.  The historical type alias names
+the same requested input as `SingleStepDefectBound`, but supplies no theorem
+turning that input into the additive quadratic control consumed below.  It is UNCONDITIONALLY TRUE for the
 renormalized model defect `epsRen` (quadratic, `modelEps_quadraticControl`), and
 UNCONDITIONALLY FALSE for any linearly-lower-bounded leakage (`linearLeakage_partial_unbounded`).
 Which of the two the REAL 4D `ε_k` obeys is the `singleStep` residual; the numerics
@@ -361,15 +364,15 @@ theorem modelEps_summable (afr : AFRateModulus) (p : Nat) (N M : Nat) :
           * SummableInverseSquare.pot 2 (by decide) N :=
   realEpsQuadratic_summable afr p (modelEps_quadraticControl afr p) N M
 
-/-! ## 5. The reduction — `ε`-summability equi-inhabits `singleStep` -/
+/-! ## 5. Legacy obligation alias (no implication to quadratic control) -/
 
 /-- **`EpsQuadraticObligation := SingleStepDefectBound` (Rule 9.8 def-alias;
 UNINHABITED).**  The open hypothesis of `RealEpsQuadraticControl` — that the real
 4D leakage obeys the renormalized quadratic bound `ε_k ≤ 6p·(1 − w_k)²` — is the
-counterterm-subtracted renormalized-defect content `δ_model = bondMovingDeltaRen ≤
-6p(1−w)²` that `SingleStepDefectReduction.SingleStepDefectBound.singleStep` asserts
-for the TRUE margin.  Hence `ε`-summability does NOT open a NEW wall: it is
-EQUI-INHABITING with `singleStep`, the campaign's core per-step estimate. -/
+counterterm-subtracted renormalized-defect target.  This alias records historical
+naming only: `SingleStepDefectBound.singleStep` is a multiplicative true-margin
+recursion and does not itself construct `RealEpsQuadraticControl` or a
+`FullModeDefect`. -/
 def EpsQuadraticObligation : Type :=
   SingleStepDefectReduction.SingleStepDefectBound
 
@@ -377,10 +380,9 @@ def EpsQuadraticObligation : Type :=
 theorem epsQuadraticObligation_eq :
     EpsQuadraticObligation = SingleStepDefectReduction.SingleStepDefectBound := rfl
 
-/-- **The reduction, as data.**  A `SingleStepDefectBound` (the open per-step estimate)
-IS an `EpsQuadraticObligation` (identity) — the two obligations coincide.  So closing
-`ε`-summability (via the renormalized quadratic control) and closing `singleStep` are
-the SAME task; neither is strictly harder than the other. -/
+/-- A `SingleStepDefectBound` can be re-labelled as the legacy
+`EpsQuadraticObligation` by definitional equality.  This identity map is not a
+constructor for `RealEpsQuadraticControl` and proves no summability statement. -/
 def epsObligation_of_singleStep (T : SingleStepDefectReduction.SingleStepDefectBound) :
     EpsQuadraticObligation := T
 

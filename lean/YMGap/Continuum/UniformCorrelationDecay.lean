@@ -156,6 +156,29 @@ structure PhysicalCorrelator : Type where
 def PhysicalCorrelator.physSep (P : PhysicalCorrelator) (n : Nat) : Q' :=
   Q'.ofNat n * P.a
 
+/-- The regularized UV ratio `1/(n+1)`. -/
+def latticeUVRatio (n : Nat) : Q' :=
+  Q'.mkPos 1 (n + 1) (Nat.succ_pos n)
+
+/-- The finite-volume IR ratio `n/(L+1)` of an actual physical correlator. -/
+def latticeIRRatio (P : PhysicalCorrelator) (n : Nat) : Q' :=
+  Q'.mkPos n (P.L + 1) (Nat.succ_pos P.L)
+
+/-- The physical scaling ratio `max(1/(n+1), n/(L+1))`.  It is defined at
+the same source as the correlator, so a later limit witness cannot substitute
+an unrelated abstract ratio. -/
+def physicalScalingRatio (P : PhysicalCorrelator) (n : Nat) : Q' :=
+  Q'.max' (latticeUVRatio n) (latticeIRRatio P n)
+
+theorem latticeUVRatio_nonneg (n : Nat) :
+    (0 : Q') <= latticeUVRatio n :=
+  Q'.invSucc_nonneg n
+
+theorem physicalScalingRatio_nonneg (P : PhysicalCorrelator) (n : Nat) :
+    (0 : Q') <= physicalScalingRatio P n :=
+  Q'.le_trans' _ _ _ (latticeUVRatio_nonneg n)
+    (Q'.le_max'_left _ _)
+
 /-- **The concrete inhabitant (non-vacuity).**  At any positive spacing `a` and
 volume `L`, the strong-coupling (`w = gw = 1/6`) Wilson connected correlator is a
 `PhysicalCorrelator`.  Grounds the interface in the REAL object. -/
@@ -234,16 +257,16 @@ structure UniformPhysicalCorrelationDecay : Type where
   fam : (a : Q') → (0 : Q') < a → PhysicalCorrelator
   /-- **The error modulus** `ε : Q' → CReal`. -/
   err : Q' → CReal
-  /-- The dimensionless ratio `r = max(a/|x|, |x|/L)` controlling the regime
-  `a ≪ |x| ≪ L`. -/
-  ratio : Q' → Nat → Q'
-  /-- The ratio is nonnegative. -/
-  ratio_nonneg : ∀ (a : Q') (n : Nat), (0 : Q') ≤ ratio a n
+  /-- An error modulus is nonnegative.  Recording this at its source prevents
+  every scaling-limit consumer from having to posit the same sign invariant. -/
+  err_nonneg : ∀ r : Q', CReal.leEv CReal.czero (err r)
   /-- **THE DECAY BOUND.**  For every spacing `a` and separation `n`,
-  `|C_{a,L}(x)| ≤ A·e^{−m₋·|x|} + ε(r)` with `|x| = n·a` and `r = ratio a n`. -/
+  `|C_{a,L}(x)| ≤ A·e^{−m₋·|x|} + ε(r)` with `|x| = n·a` and the concrete
+  `r = max(1/(n+1), n/(L+1))` of that same correlator. -/
   decay : ∀ (a : Q') (ha : (0 : Q') < a) (n : Nat),
     CReal.leEv (CReal.ofQ' (Q'.abs ((fam a ha).corr n)))
-      (CReal.add (CReal.mul A (physEnvelope m a (expData a) n)) (err (ratio a n)))
+      (CReal.add (CReal.mul A (physEnvelope m a (expData a) n))
+        (err (physicalScalingRatio (fam a ha) n)))
   /-- **`ε(r) → 0` as `r → 0`** (Type-level modulus of vanishing): for every
   tolerance `η > 0` there is a `δ > 0` with `ε(r) ≤ η` whenever `0 ≤ r ≤ δ`. -/
   err_vanish : ∀ η : Q', (0 : Q') < η →
@@ -389,6 +412,7 @@ end YMGap.Continuum.UniformCorrelationDecay
 #print axioms YMGap.Continuum.UniformCorrelationDecay.wilsonPhysicalCorrelator
 #print axioms YMGap.Continuum.UniformCorrelationDecay.wilsonPhysicalCorrelator_decay
 #print axioms YMGap.Continuum.UniformCorrelationDecay.physEnvelope_zero
+#print axioms YMGap.Continuum.UniformCorrelationDecay.physicalScalingRatio_nonneg
 #print axioms YMGap.Continuum.UniformCorrelationDecay.uniformPhysicalCorrelationDecay_imp_massGap
 #print axioms YMGap.Continuum.UniformCorrelationDecay.massGap_of_spectralGapData
 #print axioms YMGap.Continuum.UniformCorrelationDecay.massGap_imp_downstream

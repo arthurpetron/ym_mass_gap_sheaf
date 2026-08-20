@@ -5,6 +5,561 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
+## Physical-scale enrichment overlay (2026-08-18)
+
+The categorical/sheaf skeleton controls composition, descent, and dependency
+honesty; it does not determine a dimensionful spectral scale.  The physical
+layer must carry lattice spacing, the coupled action and running coupling, a
+physical separator, quantitative comparison and transport, normalized RG loss,
+and a same-object continuum realization.  The supporting rationale and exact
+interfaces are recorded in `notes/categorical-physical-scale-enrichment.md`.
+
+For `a_{k+1} = b_k a_k`, the first new reduction tracks
+
+\[
+q_{k+1} \le q_k^{b_k} e^{\delta_k}
+\quad\Longrightarrow\quad
+M_{k+1} \ge M_k - \frac{\delta_k}{a_{k+1}},
+\qquad M_k = -\frac{\log q_k}{a_k}.
+\]
+
+The execution phases are:
+
+1. **M1 — mass-normalized persistence algebra [CLOSED 2026-08-18].**  The
+   rational telescoping theorem, positive anchor-minus-loss floor, canonical
+   `QFloor`, and constructive dyadic tail modulus are kernel-checked.  The
+   preferred `MassNormalizedLossPersistence` core makes explicit that this
+   algebra needs no exact relation between adjacent spacings; the older
+   coarse-block and refinement flows map to it as optional geometric wrappers.
+2. **M2 — exact physical separator [PARTIAL, PRODUCER REDUCTIONS EXTENDED
+   2026-08-18].**
+   `YMGap.Continuum.PhysicalSeparatorFullLogRate` now computes the exact
+   constructive rate `-log(q_phys(k))/a_k` for every positive rational
+   separator below one, using binary range reduction rather than a supplied
+   direct-artanh window.  `PhysicalSeparatorFullLogComparison` proves the
+   unconditional lower comparison `(1-q)/a <= -log(q)/a`.
+   `FinitePrefixFullLogRateCeiling` computes every finite-prefix upper ceiling,
+   while `PhysicalSeparatorLinearTail` reduces the entire asymptotic upper
+   half to the same-object estimate `1-q_phys(k) <= M*a_k`.
+   `YMGap.Continuum.FixedDistancePhysicalSeparator` proves the dimensionally
+   correct grouped implication
+   `q_phys(k)^n_k <= rho`, `n_k a_k <= L` implies
+   `(1-rho)/L <= (1-q_phys(k))/a_k`.  The physical-BF4 adapter in
+   `BF4PhysicalSeparatorProducer` specializes this to the quarter contraction.
+   Its active finite-action input is now the direct positive-physical
+   `PhysicalLocalGluingAFCertificate`, with no exact-Haar same-action premise.
+   `BF4PhysicalLocalGluingAFAdapter` assembles that certificate from the
+   existing grouped common-kernel rows while retaining one explicit
+   scale-indexed slice kernel shared by the entire positive carrier.
+   `BF4BoundaryMessageProjectiveRefresh` now closes the exact finite
+   backward-message algebra directly: a division-free cross-ratio certificate
+   for the raw positive kernel survives arbitrary positive terminal weighting
+   and row normalization, yields common mass `1/spread^2`, and constructs a
+   pointwise-equal refresh packet with a proved finite `L1` contraction.  The
+   rational gate `spread^2 <= 4/3` gives common mass at least `3/4` and hence
+   contraction rate at most `1/4`.  Rust or C may enumerate the rational
+   witness, but the kernel entries, cross products, and theorem implication
+   are checked in Lean.
+   `BF4BoundaryMessageRelativeRankOneQuarter` further reduces the uniform
+   witness to one profile-relative enclosure: exact entrywise error at most
+   `1/16` constructs spread `17/15`, whose square `289/225` lies below `4/3`.
+   The physical analytic task is therefore isolated as an interval-certifiable
+   rank-one remainder bound on the literal grouped BF4 kernel.
+   The direct terminal-floor route is now tied to the literal physical
+   boundary carrier by `BF4PhysicalBoundarySelfSmoothingReduction`: a faithful
+   mixed-radix Dirac action proves `A*I=A`, and the exact physical first-moment
+   identity plus total finite search constructs a positive boundary coordinate
+   for every retained source row.  Hence the arbitrary middle carrier,
+   arbitrary prefix, and prefix-positivity input are removed.  Replacing `I`
+   by a positive `P` leaves exactly the physical action defect `|A-A*P|`.
+   `BF4PhysicalBoundarySelfSmoothingCrossTail` reduces that defect to exact
+   finite-prefix checks and an analytic cross-tail inequality, while
+   `BF4PhysicalBoundarySelfSmoothingPerronCrossTail` derives the terminal
+   `257/256` spread budget from the same-kernel AF/Faraut estimate at depth
+   `46*bits+6`.
+   A sharper canonical option is now available:
+   `BF4PhysicalBoundaryRegularizedRankOne` sums the actual amplitude columns,
+   adds a positive rational pseudocount, normalizes the finite profile, and
+   constructs a row-independent boundary kernel of exact spread one.  Lean
+   proves its exact action formula
+   `A*P = rowMass(A)*regularizedAggregateProfile`.
+   `BF4PhysicalBoundaryRegularizedRankOneCrossTail` therefore removes the
+   terminal kernel, terminal certificate, Perron estimate, and spread budget
+   from the input contract.  Its sole new analytic input is the explicit
+   aggregate-profile rank-one defect majorant plus the already checked
+   finite-prefix/division-free cross-tail certificate.
+   `FiniteRegularizedRankOneStatistics` now proves a deterministic finite
+   decomposition of that defect: after clearing the positive profile
+   denominator it is a sum of pairwise cross-row residuals and one explicit
+   pseudocount-bias term.  The BF4 specialization packages the resulting
+   cardinality-plus-bias bound as an executable nested rational maximum.
+   `BF4PhysicalBoundaryRegularizedRankOneStatisticsCrossTail` then uses that
+   exact maximum as the error sequence in the existing computed-floor route;
+   an equality field prevents substitution of an arbitrary majorant.  Thus
+   the remaining physical inputs are a genuine BF4 pairwise-row estimate and
+   the division-free all-cutoff cross-tail statement, not a presupposed
+   rank-one defect theorem.
+   A sharper companion now retains the literal sum of all absolute pairwise
+   residuals and the literal absolute pseudocount bias before division.  Its
+   one-scale theorem requires no supplied statistical estimate, and
+   `MatchedPhysicalBoundaryRegularizedRankOneExactStatisticsCrossTailRows`
+   lifts the executable nested maximum across scales.  The remaining tail
+   field is therefore about a uniquely defined finite statistic rather than
+   an arbitrary physical defect majorant.
+   A hybrid companion retains the exact absolute pseudocount bias while
+   paying the retained-source cardinality against one uniform pairwise-row
+   residual bound.  This is the preferred analytic interface when exact
+   enumeration is too large but a physical row-pair estimate is available;
+   its scale adapter again identifies the named error stream with the
+   executable hybrid maximum.
+   The public `YMGap` target passed a monitored 3,452-job audit with two Lean
+   workers and a 10 GiB reserve; every new exported gate reports only
+   `[propext, Quot.sound]`.
+   `BF4ExactPhysicalPerronSameActionFence` refutes the all-observable premise,
+   while the unconditional cutoff-one Haar-five closure and
+   `BF4ExactPhysicalPerronCenteredSameActionFence` refute the centered premise
+   at `w=8/9`: the exact centered vacuum moment is at least `5/8`, whereas the
+   physical centered moment is at most `1/8`.
+   `BF4PhysicalSeparatorSameObjectPin` now identifies the positive physical BF4
+   joint quadratic with a connected
+   correlator of the supplied `PhysicalSeparator` at the certificate's own
+   depth.  `BF4FarautPhysicalSeparatorProducer` pins that same depth to
+   `46*bits(k)+3` and its uniform physical-length ceiling from the existing
+   AF/Faraut bit-growth budget; the quadratic spacing envelope now also derives
+   the ceiling for the three endpoint spacings.  Exact AF-trajectory
+   identification and the corrected AF cutoff construct `a_k -> 0`, and
+   `BF4FarautFullLogPrefixTailCertificate` composes all of these reductions.
+   The comparison audit in `HKPhysicalLinearMarginTail` proves that the older
+   two-sided additive `O(a)` heat-kernel comparison preserves finiteness of the
+   bare and physical rates, so it cannot turn a divergent bare rate into a
+   finite physical rate.  `RenormalizedHKPhysicalComparison` repairs the
+   interface by inserting a same-object scale factor `Z_k`; its checked BF4
+   adapter needs `Z_k(1-w_k^3) <= M*a_k` and an `O(a_k)` residual.
+   The naked grouped-power hypothesis has now been eliminated.  A new
+   `BF4PhysicalSeparatorRateSharpnessPin` supplies a unit centered observable
+   witnessing `q_phys(k)^n_k <= 4*Corr_phys(k,n_k)`; the same-object physical
+   sixteenth then proves `q_phys(k)^n_k <= 1/4`.  This makes explicit the
+   finite-operator near-top-mode content that ordinary upper correlator control
+   cannot supply.  **Still open:** construct `q_phys` and its correlator control
+   on the actual plaquette-coupled Gibbs/transfer object; inhabit the genuine
+   positive-physical local-slice gluing and same-object correlator pins,
+   and rate-sharpness witness; and construct `Z_k` with the renormalized bare bound
+   and comparison residual on that same object.  Equivalently, prove the sole
+   M2 upper seam `1-q_phys(k) <= M*a_k`—not from categorical witness counts or
+   a fixed-cutoff proxy.
+3. **M3 — BF4 physical comparison producer [PREFERRED SAME-FAMILY HANDOFF,
+   SPECTRAL-INPUT REDUCTION CLOSED; ANALYTIC INHABITATION OPEN 2026-08-18].**
+   `MassNormalizedRefinementPersistence` records the
+   literal AF orientation, and `MassNormalizedLossPersistence` extracts the
+   smaller direction-neutral core actually used by telescoping.  The preferred
+   `ExactLogMassNormalizedLossPersistence` handoff ties that rational core to
+   one exact physical log-rate family on pointwise identified spacings, without
+   requiring an exact integer ratio between adjacent AF spacings.
+   `BF4FarautExactLossPersistence` combines its persistent lower floor with the
+   renormalized M2 upper ceiling definitionally on the producer's same exact
+   family.  The new spectral-localization route makes the physical units
+   explicit: a dimensionless one-step defect `d_k` contributes rate loss
+   `d_k*M_k`, which is bounded by `M_ceiling*d_k`, not by `d_k` alone.
+   `SpectralLocalizedPhysicalMarginLoss` constructs this loss flow and its
+   ceiling-scaled inverse-square budget.  `SpectralMarginInputMassNormalizedLoss`
+   then reuses the existing `SpectralMarginInput`, including its tail
+   identification with `spectralLocalization_defect`, at shifted offset
+   `fmCutoff+2`.  Finally,
+   `BF4FarautSpectralMarginInputExactCertificate` installs that persistent floor
+   into the producer's exact log-rate family and combines it with the
+   renormalized M2 upper ceiling.  The orientation, units, summability wiring,
+   and same-family interface are therefore closed as reductions.
+   **Still open:** inhabit `SpectralMarginInput` for the genuine corrected-slab
+   flow; prove its localization, bridge, physical ceiling, initial anchor
+   dominance, spacing identification, and rational-to-exact mass certificate;
+   and inhabit the BF4/Faraut producer plus renormalized upper comparison on
+   that same object.  The unscaled `rateLoss <= defect` adapter remains only a
+   stronger normalized special case, not the preferred physical route.
+4. **M4 — same-object continuum/OS bridge [EXACT-MASS/THEORY-PIN REDUCTIONS
+   EXTENDED; PHYSICAL/SPECTRAL AND CONTINUUM INHABITATION OPEN 2026-08-18].**
+   `PhysicalSeparatorContinuumRealization` now states the complete constructive
+   same-object contract from an exact finite-scale separator family to a
+   positive exact logarithmic Hamiltonian gap.  Physical separation sampling
+   is derived from spacing-to-zero, while `SummableCRealStepVariation`, its
+   eventual-tail version, rational proxy tracking, constructive-real inner
+   regularity, and the direct logarithmic quadratic remainder reduce exact-rate
+   cutoff removal to two-sided summable proxy drift.  In the BF4/Faraut
+   specialization, the AF trajectory computes the common tail start, direct
+   half-window, inverse-square spacing majorant, and the quadratic error tail;
+   `BF4FarautSpectralPhysicalMarginIdentification` isolates the two remaining
+   rate inputs at their proper analytic seam:
+   `PhysicalMarginIdentification.floorRate_eq_physMargin` and
+   `SymmetricSpectralShift.reverseHadd`.  The latter is the missing lower half
+   of a two-sided eigenvalue perturbation estimate; together with the existing
+   `SpectralMarginInput.hbridge` it proves the needed upper normalized drift.
+   Given those two inputs, the exact-rate Cauchy modulus and cutoff limit are
+   constructed, not assumed.  The exact full-range floor now exports directly
+   to the canonical `UnifiedContinuumFloor.CRealFloor` interface, so the
+   spacing-uniform frontier statement is discharged for this exact
+   constructive-real rate family without identifying it with the older
+   rational survival-product surrogate.  On the continuum side,
+   `ProjectiveOSCorrelationHandoff` now isolates one cutoff-independent
+   expectation compatibility: the physically sampled separator correlator is
+   the selected stage measure's expectation of a fixed OS observable.  The
+   existing measure-linked functional convergence then constructs
+   `ContinuumCorrelationSemantics` and `OSGapCorrelationIdentification`.
+   `ContinuumProjectiveOSResidualData` exposes the compressed endpoint, with
+   the genuinely GNS/spectral identification still separate as
+   `ReconstructionSpectralChannelHandoff`.  `ExactRateReconstructionHandoff`
+   replaces a free completed-gap equality by convergence of the same finite
+   exact-rate sequence to the reconstruction's computed `-log` gap; CReal
+   limit uniqueness constructs the equality.  `WilsonLinkedOSReconstruction`
+   further strengthens the compressed residual: the Wilson expectation is
+   pinned to the selected OS functional, a concrete time translation is
+   selected on the completed Wilson GNS carrier, and its operator-form gap is
+   required to use exactly the OS bundle's model and separator.
+   `WilsonCharacterOS4Pin` now reduces that form-gap field to the finite
+   physical character-coordinate map and its two Schur diagonal identities,
+   together with explicit fieldwise pins identifying the finite model and
+   separator with OS4.  Keeping those pins fieldwise avoids an invalid
+   dependent transport of the bundle's spectral-bound proof.
+   `CanonicalTransferFormGap` strengthens the resulting inequality so its
+   right-hand side is definitionally the concrete scalar multiple
+   `separator * inner(x,x)`, rather than an unconstrained legacy field merely
+   named `scaledInner`.  `WilsonExactRateGapHandoff` then attaches the positive
+   exact cutoff-removed logarithmic rate to that same concrete Wilson datum
+   and exports its canonical form gap.  As an optional finite-character route,
+   `WilsonSpectralChannelHandoff` reduces the remaining reconstruction
+   spectral-channel assertion to one equality between the connected OS
+   two-point function and the pinned character correlator; for every nonempty
+   cutoff it proves time-zero positivity from the first character weight.
+   `WilsonLinearTimeTranslationHandoff` separately isolates the scalar-module,
+   additive, and representative-lift data needed to pin a genuine linear
+   transfer operator to the already selected Wilson time translation.  This is
+   optional functional-calculus wiring, not an extra premise of the bounded
+   transfer route.  `WilsonOperatorNormGapHandoff` instead strengthens the
+   linear Schur form bound to
+   `||T x||^2 <= separator^2 ||x||^2` on the selected vacuum complement,
+   conditional on one additional square Schur identity for `<T^2 x,x>`.
+   `WilsonQuadraticFormGapHandoff` sharpens the critical boundary further: the
+   exact square resolution is only a sufficient route to the minimal input
+   `<T^2 x,x> <= separator * <T x,x>` on the vacuum complement.  Together with
+   self-adjointness and the canonical linear form gap, that inequality alone
+   yields the same operator-norm conclusion.
+   `WilsonBoundedMassGapHandoff` packages that genuine operator-norm gap and
+   the positive exact logarithmic rate on the same concrete Wilson datum.
+   The BF4 compressed adapter exports both the square-resolution route through
+   `continuumWilsonBoundedMassGap` and the minimal route through
+   `continuumWilsonBoundedMassGapOfQuadraticFormGapPin`; no unbounded `-log T`
+   operator construction is required for either bounded-transfer implication.
+   The still smaller `ContinuumWilsonBoundedResidualData` removes the
+   projective correlator and reconstruction spectral-channel fields entirely
+   from this critical path.  Its exact residual is continuum existence with a
+   same-measure Wilson-linked OS datum, convergence of the finite exact-rate
+   family to that reconstruction's logarithmic separator, and the minimal
+   quadratic form inequality.  The stronger projective residual forgets
+   canonically to this smaller package once the quadratic pin is supplied.
+   `WilsonMinimalBoundedMassGapHandoff` then factors the critical path at its
+   actual endpoint.  `WilsonSelectedOSGNSData` retains the same continuum
+   measure, Wilson GNS completion, expectation pin, and selected time
+   translation but no linear form gap.  A direct `WilsonOperatorNormGapPin`
+   is sufficient together with the positive exact reconstructed rate.
+   Correspondingly, `ContinuumWilsonMinimalBoundedResidualData` removes both
+   the canonical linear form gap and the quadratic-form bridge from the BF4
+   endpoint.  The quadratic and finite square-Schur routes remain checked
+   sufficient constructors for this irreducible direct-norm package, not
+   premises of its statement.
+   `WilsonIteratedNormDecayHandoff` then identifies the one extra dynamical
+   input needed to iterate the one-step bound: the selected transfer must fix
+   the vacuum and hence preserve its orthogonal complement.  A dense Wilson
+   zero-vector pin is a checked sufficient constructor for this stationarity
+   field.  Once supplied, the direct norm gap gives
+   `||T^n x||^2 <= separator^(2n) ||x||^2` constructively.
+   `WilsonMatrixCoefficientDecayHandoff` combines that result with the
+   completed-GNS Cauchy--Schwarz bound to obtain squared geometric decay for
+   every matrix coefficient with its propagated vector in the vacuum
+   complement.  Finally, `WilsonOSConnectedDecayHandoff` isolates the
+   same-object correlation seam: an OS connected gap insertion must embed as
+   the chosen vacuum-orthogonal Wilson vector, and its expectation must equal
+   the corresponding `T^n` autocorrelation.  Conditional on that pin, the OS
+   connected two-point function inherits the checked squared decay bound.
+   `ContinuumWilsonOSConnectedDecayResidualData` exposes this as an optional
+   BF4 correlation branch while leaving it outside the bounded mass-gap
+   premise.
+   `ProjectiveWilsonConnectedDecayHandoff` now closes the remaining reduction
+   from the projectively constructed physical continuum gap correlator to the
+   Wilson matrix-coefficient theorem.  It uses the projective functional
+   identification to descend the equality of continuum and reconstruction
+   correlators, while retaining one explicit same-object pin identifying that
+   reconstructed correlator with the selected Wilson `T^n` autocorrelation.
+   `ContinuumSquaredClusteringHandoff` packages the result as faithful
+   constructive-real squared geometric clustering: the ratio is the square of
+   the selected separator and is strictly below one.  With the already named
+   reconstruction spectral channel it also supplies a positive rational
+   time-zero floor, so this selected channel is nonvacuous.
+   `ContinuumMassClusteringEndpoint` finally places that nontrivial clustering
+   witness and the positive exact logarithmic mass on one selected
+   projective/Wilson object.  Definitionally, the mass is the exact logarithm
+   of the separator whose square is the clustering ratio.  The BF4 adapter
+   exports this endpoint directly from
+   `ContinuumProjectiveWilsonDecayResidualData`.
+   `RCStrictPositivity` resolves the representation mismatch between the
+   endpoint's stable `PosEv` statement and the Hilbert layer's completed-real
+   quotient: on `RC = CReal / Equiv`, strict positivity is definitionally the
+   existence of a positive rational lower bound in `RCle`, hence exactly
+   `PosEv` on any representative.  The endpoint therefore exports a
+   Type-level positive `RC` mass, and in `RC` this mass is literally equal to
+   the reconstruction's exact logarithm.  This does not convert the value to
+   the legacy raw-sequence `CReal.IsPositive` predicate, whose early-term
+   dependence is intentionally not quotient-invariant.
+   `ContinuumExactMassClusteringTarget` bundles that endpoint with its one
+   continuum measure, full `ContinuumYMExistence` datum, physical separator,
+   spacing/sampling, selected Wilson dynamics, and projective correlation
+   handoff.  It exports the reconstruction's computed exact logarithm as a
+   canonical raw `CReal.IsPositive` representative while retaining the
+   quotient-stable positive mass and nontrivial clustering theorem.
+   `ContinuumExactMassClusteringClayResidual` shows that this target
+   definitionally supplies every shared OS/Wilson/GNS identity pin in the
+   historical `ClayTargetPinned`; the remaining legacy residual is its
+   independent continuum-limit/tightness package, the legacy margin-mass pin,
+   and uniform-in-coupling clause.  This comparison also exposes that the
+   legacy target uses `1 - separator`, not the physical `-log(separator)`.
+   `ContinuumCorrectedExactMassTarget` therefore states the sharper endpoint:
+   it adds a `UniformPhysicalCorrelationDecay` witness whose mass is
+   constructively equivalent to the same exact logarithmic mass.  The full
+   O(4) witness is projected from the same `ContinuumYMExistence` object, and
+   equality of the uniform decay mass and spectral mass is proved in `RC`.
+   The BF4 adapter ends at this corrected target after one explicitly named,
+   deliberately uninhabited uniform-decay extension.
+   `CRealAbsContinuity` supplies the quotient-respecting absolute-value
+   continuity needed to take the selected physical correlation bound to the
+   continuum.  `ContinuumExactMassScalingWindow` fixes the decay error's
+   scaling argument definitionally to the same correlator's concrete
+   `max(1/(n+1), n/(L+1))` ratio.  Canonical positive-separation floor
+   sampling plus spacing-to-zero constructs the UV window and no-overshoot
+   bound; source-level error nonnegativity makes the sampled error converge
+   from its one-sided vanishing modulus.  Time-chunk normalization proves that
+   the sampled exponent converges to the one-step exact-mass exponent and
+   rewrites the variable lattice power exactly as a fixed `(t+1)`-power.
+   Fixed-power and fixed-amplitude continuity then reconstruct the weighted
+   envelope limit.  Sequential continuity of `expNegCD` on constructive reals
+   is now proved generically, so the BF4 scaling residual has only one field
+   beyond the corrected target: cofinal divergence of the same correlator
+   family's physical linear extent `a_j(L_j+1)`.  A generic constructive bridge
+   reduces this cofinal statement to the discrete sufficient schedule
+   `L_j+1 >= j*den(a_j)`, and the BF4 adapter accepts that schedule directly.
+   It no longer assumes convergence of the full unweighted
+   exact-mass envelope.  From it,
+   `ContinuumExactMassDecayEndpoint` proves unsquared continuum decay at the
+   same quotient-pinned exact logarithmic mass, and
+   `ContinuumSelectedExactMassDecayTarget` packages that theorem with the
+   selected measure and corrected endpoint.  The BF4 adapter exports this
+   selected target conditionally from one explicit scaling residual.
+   An audit of `FourDExistence` found that its historical O(4), gauge, UV, and
+   nontriviality carrier predicates do not use their `mu` argument and can
+   existentially select unrelated trivial or toy objects.  They therefore
+   cannot be the final same-theory contract.  `ContinuumSelectedTheoryPins`
+   adds nonidentity rotation and gauge actions on exactly the selected OS
+   algebra, fixes every selected gap insertion, evaluates the classified
+   group-Casimir UV trajectory on the selected projective thread, and places
+   the interaction witness on the exact same continuum gap correlator.  The
+   BF4 specialization forces this classified type definitionally to `A₁`
+   (SU(2)) and proves strict growth of the selected inverse coupling.
+   These are deliberately uninhabited pins: the rotation-label group is not
+   yet constructively identified with full real O(4), the Cartan label is not
+   yet a constructive compact group/Haar-law realization, and the current
+   non-Gaussian field is only the repository's selected Wick-product
+   surrogate.  `FrontierDAGBridges` records the two exact-mass targets as
+   downstream of the canonical `FrontierDAG`; its consumer declarations do
+   not construct either completion.  The static frontier audit passes with
+   zero orphan targets.
+   This is a local selected-channel endpoint, not a construction of the full
+   OS/Wightman field spectrum: its projective measure, selected Wilson
+   dynamics, direct norm contraction, stationarity, spectral channel, and
+   same-object matrix-coefficient pin are still fields, not inhabitants.
+   The legacy
+   abstract `OSReconstruction.space` is deliberately not equated with that
+   concrete carrier.  Finally, `OSCanonicalMarginGap` exports the
+   reconstruction's own positive `1 - separator` margin to the historical
+   `ContinuumYMWithGap` endpoint; this is kept distinct from the exact
+   logarithmic rate.  Neither target structure is inhabited here:
+   `ContinuumYMExistence`, the projective/Wilson pins, and the mass-pinned
+   spacing-uniform physical decay remain analytic inputs.
+   **Still open:** prove same-family physical linear-extent divergence, inhabit the strengthened
+   same-theory pins, and discharge the physical/spectral same-object inputs for the
+   genuine corrected-slab flow; construct the same continuum Yang--Mills
+   measure with OS0--OS4 and sharp Euclidean covariance; constructively
+   realize BF4 as SU(2) with its Haar/Gibbs law and identify the rotation
+   action with full O(4); prove the Wilson
+   GNS/time-translation data and vacuum stationarity; prove the direct
+   operator-norm contraction on the selected vacuum complement (the quadratic
+   form inequality, or the
+   still stronger finite-character square Schur identity, supplies one
+   sufficient route); if the
+   full correlator theorem is pursued, separately inhabit the projective OS
+   correlation handoff and prove that the selected connected OS insertion is
+   exactly the vacuum-orthogonal Wilson `T^n` autocorrelation (the separate
+   finite-character equality is another sufficient channel); and prove
+   convergence of the finite exact-rate sequence to the
+   reconstructed generator gap.  A genuine
+   constructive unbounded Hamiltonian functional calculus on the concrete
+   completion remains beyond the legacy abstract reconstruction signature,
+   but it is no longer on the critical path to the bounded-transfer mass-gap
+   endpoint.  These are constructive analytic obligations, not consequences
+   of the finite rate band.
+
+This overlay refines rather than replaces the active BF1--BF10 schedule below.
+In particular, M1 and the closed algebraic/AF-length parts of M2 are
+consumer/reduction theorems.  The new BF4 records have no inhabitants here:
+they do not close the exact same-action BF4 witness, construct the physical
+Gibbs separator, prove the same-object grouped contraction, or establish a
+continuum/Clay mass gap.
+
+### Critical-path computation gate (2026-08-19)
+
+Finite exact computation is evidence and proof support, not an independent
+milestone toward the continuum theorem.  From this point, a computational job
+is on the critical path only when all three conditions hold:
+
+1. it certifies a named premise of an already stated cutoff-uniform or
+   continuum theorem on the literal plaquette-coupled object;
+2. the remaining infinite tail is discharged analytically, so the job is a
+   genuinely finite prefix rather than the beginning of an unbounded table;
+3. Lean checks the emitted certificate and its identification with that
+   literal object; Rust, C, or Python may select witnesses but is not trusted.
+
+Accordingly, completing the cutoff-two `65 x 65` boundary matrix, extending
+the fixed half-time shell table, and checking successive complete cutoff rows
+are paused.  Their present values are calibration, regression tests, and
+counterexample discovery.  They do not construct `q_phys`, prove
+`1 - q_phys(k) <= M * a_k`, give an all-cutoff fixed-distance contraction, or
+construct the same continuum OS theory.  A narrow Lean build of a new
+load-bearing theorem remains required; repeated full audits are reserved for
+integration checkpoints.
+
+`YMGap.Continuum.BF4LocalRatePhysicalSeparatorFence` now kernel-checks the
+reason for this pause.  If the physical spacing tends to zero and the required
+linear margin estimate holds, then `q_phys(k)` is eventually at least `1/2`;
+the auxiliary local-gluing rate is at most `1/4` at every scale.  Hence a
+pointwise identification of those two rates is contradictory.  This no-go
+result has axiom footprint `[propext, Quot.sound]` and does not construct the
+missing physical-time transfer family.
+
+`BF4PhysicalMarkovTransferLaws` records the strongest current statement about
+the separate retained-boundary calibration operator: its reflected joint rows
+sum to the physical marginal, its Markov action is positive and self-adjoint
+in the marginal form, and its quadratic form lies between zero and the
+identity form.  These are exact finite laws, not an identification with
+Euclidean time evolution and not a strict gap.
+
+The literal Euclidean-time route is further advanced than that calibration
+operator.  The strict-cylinder development already constructs the
+plaquette-coupled infinite-volume reflection form, exact positive-time action,
+derived even-time covariance and OS contraction, a base-independent direct
+carrier, and a choice-free completed nonexpansive semigroup.
+`Z4HalfTimeReflectionStrictJointVacuumComplement` now constructs the constant
+cylinder as its canonical vacuum, proves exact stationarity under base
+transport and time translation, proves that every even-time translate
+preserves the dense vacuum-orthogonal sector, proves that its reflection norm
+is exactly one, and proves that the completed semigroup fixes the completed
+vacuum.  All exported theorems use only `[propext, Quot.sound]`.
+
+`Z4HalfTimeReflectionStrictJointDoubledTimeCarrierFloor` now converts literal
+Euclidean-time displacement into a kernel-checked combinatorial cost.  A face
+in the mixed upper OS block retains the full doubled-time displacement; every
+lower/upper face pair has `Linf` separation at least `2*shift+5`; consequently
+every connected cutoff-one plaquette support meeting both blocks has at least
+`2*shift+6` faces.  This is temporal separation, unlike the earlier
+`stage+3` boundary-carrier floor used only for thermodynamic-limit stability.
+
+The next analytic bridge is now exact: prove a two-block connected-correlation
+decomposition for the centered strict OS form.  Vacuum centering must cancel
+all replica/switching contributions whose components fail to meet both the
+lower and doubled-time upper blocks.  Each surviving contribution can then use
+the proved `2*shift+6` carrier floor and a genuine four-dimensional
+lattice-animal/KP tail.  To obtain an operator separator rather than merely
+observable-dependent clustering, the resulting bound must be relative to the
+strict-cylinder reflection norm (a Poincare/projective-mixing estimate).
+Neither the existing one-sided boundary residue nor another finite cutoff
+table supplies this cancellation or norm-relative estimate.
+
+The first two parts of that bridge are now constructive.  In
+`Z4CanonicalTwoBlockComponentSwitch`, the separated disagreement-component
+switch exchanges the complete lower-block occurrence fingerprint between the
+two replicas while leaving the complete upper-block fingerprint in its
+original replica; the connected branch returns explicit lower/upper roots with
+exact disagreement reachability.  In
+`Z4CanonicalTwoBlockConnectedCarrier`, that reachability is converted into a
+loop-erased disagreement path and one literal internally connected plaquette
+support.  Specializing its endpoints to the strict doubled-time root blocks
+constructs a carrier with the checked `2*shift+6` size floor.  These theorems
+close the finite cancellation classifier and connected-carrier geometry.
+
+`Z4CanonicalTwoBlockSwitchSummation` now performs the exact finite weighted
+four-cell summation.  The separated switch is injective, preserves the literal
+product activity, and proves that the `TT*FF - FT*TF` cell determinant is at
+most the connected source-pair residue, for every nonnegative rational
+coupling.  `Z4CanonicalTwoBlockConnectedResidueCarrier` then specializes that
+residue to the strict doubled-time root blocks.  Its Boolean-search decoder
+returns computational endpoint data rather than eliminating a propositional
+existential, and every residue term constructively yields a connected
+cutoff-one support of length at least `2*shift+6`.  Both focused targets build,
+and their exported gates report only `[propext, Quot.sound]`.
+
+That remaining finite statistical step is now complete.
+`Z4CanonicalTwoBlockColoredPathCarrier` splits the loop-erased path by its two
+replica colors, retains the deleted compatible backgrounds, proves exact
+activity factorization, and proves that the resulting code recovers the source
+pair.  `Z4CanonicalTwoBlockColoredCarrierGeometry` identifies the colored union
+with the full temporal path and pays one strong-coupling envelope factor per
+union face.  `Z4CanonicalTwoBlockCarrierFixedSize` injects each fixed-size
+residue into a root-tagged colored animal and two ambient backgrounds; the root
+tag costs only the finite lower observable-root count, while the backgrounds
+factor as `Z_n^2`.  Finally, `Z4CanonicalTwoBlockCarrierTail` sums all sizes
+from `2*shift+6` and proves the uniform explicit bound
+
+```text
+TT*FF - FT*TF
+  <= |lower roots| * Z_n^2 * 2 * anchorEffectiveRatio^(2*shift+6).
+```
+
+All focused targets build and every exported dependency gate reports only
+`[propext, Quot.sound]`.  This is real progress beyond finite calibration: it
+is a volume-uniform temporal connected-correlation tail on the literal
+canonical gas.  `Z4CanonicalTwoBlockNormalizedCovariance` now divides by the
+strictly positive genuine `Z_n^2`, cancels the two background partition
+factors, and uses complementation of the upper Boolean event to obtain the
+reverse determinant estimate.  Consequently its exported terminal controls
+the absolute normalized four-cell covariance determinant by
+
+```text
+|Cov(1_A,1_B)|
+  <= |lower roots| * 2 * anchorEffectiveRatio^(2*shift+6).
+```
+
+The direct check and focused build pass with dependency gates
+`[propext, Quot.sound]`.  `Z4CanonicalTwoBlockSignedCovariance` now performs
+the finite Boolean-atom expansion for two arbitrary rational coefficient
+tables.  It factors the rectangular coefficient-pair norm and proves
+
+```text
+|Cov(c,d)|
+  <= ||c||_1 * ||d||_1 * |roots| * 2
+       * anchorEffectiveRatio^(2*shift+6).
+```
+
+This focused target also builds with dependency gates
+`[propext, Quot.sound]`.  The genuinely new analytic obstruction is now
+isolated: compare the finite coefficient `l1` envelope, after vacuum
+centering and semantic quotienting, to the strict-cylinder reflection norm.
+Without such a Poincare/frame inequality the observable-dependent covariance
+tail is not an operator separator.
+
+The immediate M2 priority is therefore no longer construction of another
+transfer family.  It is the genuinely quantitative estimate on the existing
+strict-cylinder time family: define `q_phys(k)` from an even-time action on the
+vacuum complement, prove a strict `q_phys(k) < 1` bound at the required grouped
+physical distance, and prove the same-family linear ceiling
+`1 - q_phys(k) <= M*a_k`.  Completion-level inner-product/spectral structure
+and identification with the final selected Wilson/continuum carrier remain
+separate M4 obligations.  Existing BF4 finite computations may be reused only
+where they discharge a finite-prefix premise of this uniform estimate.
+
 ## Current execution overlay (updated 2026-07-26)
 
 The historical phases below remain the provenance of completed artifacts,
@@ -352,6 +907,290 @@ or equivalently a direct bound \(\Theta(G_{a,L})\le\Theta_L\). In
 path-integral language this is a bound on connected source-to-target
 distortion after all one-boundary free-energy factors cancel. See
 `notes/bf4-physical-feynman-kac-projective-harnack.md`.
+
+**Constructive boundary-message refresh update (2026-08-18).**
+`BF4BoundaryMessageProjectiveRefresh.lean` turns that projective strategy into
+a proof-by-checking interface.  For a finite positive raw kernel, Lean verifies
+the division-free four-entry cross-ratio inequalities, proves that positive
+terminal column scaling and backward-message row normalization preserve them,
+and derives the pointwise order between every pair of normalized rows.  A
+selected reference row then supplies terminal-independent common mass
+`1/spread^2`; subtracting it constructs an explicit nonnegative normalized
+residual, not merely an abstract contraction coefficient.  The resulting
+refresh kernel is proved pointwise equal to the backward-message kernel and
+contracts equal-mass finite weights in exact `L1`.  The fixed certificate gate
+`spread^2 <= 4/3` entails rate at most `1/4`.  This closes the finite CS-style
+certificate soundness theorem.  It does not construct the required uniform
+cross-ratio witness for the plaquette-coupled BF4 kernel; that remains the
+physical analytic input.
+
+`BF4BoundaryMessageRelativeRankOneQuarter.lean` supplies the corresponding
+profile producer.  A literal rational enclosure
+`|G-alpha*beta| <= (1/16)*alpha*beta` derives strict positivity, a finite
+cross-ratio certificate with spread `17/15`, and then the complete uniform
+quarter certificate.  Thus interval arithmetic or exact enumeration can aim
+at entry bounds instead of enumerating all four-entry ratios.  Sampling may
+locate a plausible profile or worst cell, but cannot discharge the universal
+enclosure without a rigorous covering and remainder estimate.
+
+`BF4BoundaryMessagePrefixTailQuarter.lean` now makes that covering strategy
+constructive across every cutoff.  Exact computation checks a finite prefix
+of scalar relative-error bounds and the threshold value; a separate analytic
+successor theorem proves that the error is antitone on the infinite tail.
+Natural-number induction then supplies the all-cutoff `1/16` bound and hence
+the uniform quarter certificate.  Rust, C, or Python may emit the finite
+rational checks, but Lean rechecks them, while the tail successor theorem
+remains an explicit mathematical obligation rather than a sampled inference.
+`computations/boundary_message_lean_certificate.py --prefix-input` emits the
+corresponding parameterized Lean constructor from exact rational JSON.  Its
+checked-in `BF4BoundaryMessagePrefixTailQuarterExample.lean` output verifies
+the finite values but still requires exact identifications with the target
+error stream and the all-tail successor inequality; this is deliberate proof
+separation, not an incomplete generator feature.
+
+`BF4BoundaryMessageQuarterLimitTransfer.lean` removes the cutoff only from
+the same exact streams appearing in the finite contraction theorem.  It asks
+for explicit eventual Cauchy moduli for the input and output `L1` distances,
+constructs both `CReal` limits, proves sequential continuity of multiplication
+by the exact quarter rate, and transfers the pointwise finite inequality to
+the constructive eventual order on those limits.  Boundedness or numerical
+convergence plots alone do not supply these moduli.  The remaining physical
+work is therefore sharply split into an entrywise BF4 envelope with an
+analytic tail step and effective Cauchy data for the resulting distance
+streams.
+
+`BF4BoundaryMessageRelativeErrorCrossTail.lean` gives the analytic tail a
+division-free certificate target.  If the relative-error budget is represented
+as `N_k/D_k` with `D_k>0`, Lean derives its antitone tail from the single
+cross-product inequality `N_(k+1)*D_k <= N_k*D_(k+1)`.  The module feeds this
+tail directly through the prefix/tail rank-one witness to the uniform quarter
+certificate.  Symbolic algebra or interval code may certify those polynomial
+cross products, but the actual physical choices of `N_k,D_k`, the entrywise
+envelope, and the all-tail cross inequality remain open inputs.
+
+There is also a shorter direct physical route.
+`BF4BoundaryMessagePhysicalTerminalFloorAdapter.lean` observes that the
+existing `MatchedPhysicalHalfAmplitudeTerminalFloorErrorRows` interface
+already constructs a cross-ratio bound for the literal `centralHalfAmplitude`
+with squared spread at most `65/64`.  Lean embeds this into one uniform spread
+`33/32`, checks `(33/32)^2 <= 4/3`, uses the physical vacuum state as the
+nonempty reference, and produces the complete terminal-independent quarter
+certificate.  `BF4BoundaryMessageFinitePositiveFloor.lean` and
+`BF4BoundaryMessageComputedTerminalFloor.lean` now remove the first member of
+the formerly stated analytic pair.  The retained source and boundary lists
+are finite and contain the vacuum labelling, while the terminal-smoothed
+certificate is strictly positive on their Cartesian product.  A recursive
+rational minimum therefore computes an exact positive scale-dependent floor,
+with no compactness or choice.  The replacement
+`MatchedPhysicalHalfAmplitudeComputedFloorErrorRows` interface has one
+remaining analytic field:
+`|physical-ideal| <= computedFloor/2048`.
+`BF4BoundaryMessageComputedFloorQuarter.lean` proves that this single field,
+together with the already named terminal data and spread estimate, constructs
+the full physical quarter certificate.  No new profile choice or asymptotic
+rank-one theorem is required on this route.
+
+`BF4BoundaryMessageComputedFloorCrossTail.lean` makes the remaining error
+field finitely certifiable.  If `E_k` majorizes every physical-minus-ideal
+entry and `F_k` is the computed positive floor, exact checks of
+`E_k <= F_k/2048` through one threshold combine with the analytic,
+division-free tail inequality
+`E_(k+1)*F_k <= E_k*F_(k+1)`.  Positive-denominator quotient monotonicity and
+natural-number induction then prove the error field at every cutoff and feed
+the computed-floor interface.  The certificate producer now accepts exact
+error/floor prefix pairs via `--floor-prefix-input`; the checked-in
+`BF4BoundaryMessageComputedFloorCrossTailExample.lean` confirms that Lean
+rechecks the generated prefix and leaves the physical entry majorant and
+infinite cross-tail theorem explicit.
+
+The producer's `--regularized-prefix-input` mode now starts one step earlier:
+at each finite scale it accepts the complete nonnegative rational amplitude
+matrix and a positive pseudocount, computes the canonical aggregate-column
+profile, `A*P`, every pairwise cross-row residual, the conservative
+cardinality-plus-pseudocount statistical budget, the sharper exact
+residual-sum-plus-bias budget, the maximum entry defect, and the minimum
+projected entry with exact `Fraction` arithmetic, and emits all literal
+matrices.  The checked-in
+`BF4BoundaryMessageRegularizedRankOnePrefixExample.lean` has Lean recompute
+the finite sums, positive divisions, pairwise bounds, statistical budgets,
+absolute defects, and floors.  Its statistical defect theorem is obtained by
+applying `finiteRegularizedRankOneDefect_le_of_pairwise`; it is not merely a
+brute-force check of the conclusion.  A second generated theorem applies
+`finiteRegularizedRankOneDefect_le_divPos_budget` to the sharper exact budget,
+and the computed-floor prefix now uses that value.  Identification of those
+finite matrices with the enumerated BF4 amplitude and the infinite cross-tail
+theorem remain explicit proof obligations; the external computation is not
+trusted.  The conservative pairwise route remains available for analytic
+all-cutoff estimates.
+
+`BF4PhysicalBoundarySelfSmoothingReduction.lean` now fixes the abstract
+factorization to the literal boundary-channel carrier.  The mixed-radix code
+is injective on that finite carrier, its sparse Dirac kernel acts exactly as
+the identity, and therefore the genuine half-amplitude satisfies `A*I=A`.
+The sparse identity is not positive when distinct boundary codes exist, so it
+cannot be smuggled into the projective certificate.  Instead, the exact
+physical first-moment sum is positive for every retained source.  A recursive
+total search selects a positive boundary amplitude coordinate, discharging
+prefix positivity without choice or an analytic field.  The only remaining
+comparison is the literal defect `|A-A*P|` for a positive boundary smoother.
+
+`BF4PhysicalBoundarySelfSmoothingCrossTail.lean` feeds a scalar majorant for
+that defect through the exact finite-prefix and division-free cross-tail
+theorem.  `BF4PhysicalBoundarySelfSmoothingPerronCrossTail.lean` additionally
+uses the existing AF/Faraut arithmetic to derive `spread(P)^2<=257/256` from a
+same-kernel Perron estimate at depth `46*bits+6`, so the split spread bound is
+not separately assumed.
+
+`BF4PhysicalBoundaryRegularizedRankOne.lean` constructs an explicit canonical
+choice of `P`.  It aggregates each boundary column of the actual physical
+amplitude over the finite retained source list, adds a positive rational
+pseudocount, and normalizes.  The resulting row-independent kernel is strictly
+positive, row normalized, and has exact projective spread one.  Its action is
+proved in closed form as `rowMass(A,source)*profile(boundary)`.
+`BF4PhysicalBoundaryRegularizedRankOneCrossTail.lean` packages this at every
+scale and removes all terminal/Perron data from the remaining contract.  Exact
+computation now has one unambiguous target: bound the displayed physical
+rank-one defect relative to its internally computed positive floor on a finite
+prefix, then prove the all-tail cross-product inequality.  This is a reduction,
+not an inhabitant of that physical estimate and not a continuum gap theorem.
+
+`FiniteRegularizedRankOneStatistics.lean` identifies a more local exact target
+for that computation.  Its cleared-defect identity splits into pairwise
+cross-row residuals and pseudocount bias, and its absolute-value estimate is
+fully finite and constructive.  The BF4 specialization in
+`BF4PhysicalBoundaryRegularizedRankOneStatistics.lean` turns a uniform
+pairwise residual bound into an exact nested maximum over the retained source
+and boundary lists.  The scale-indexed adapter in
+`BF4PhysicalBoundaryRegularizedRankOneStatisticsCrossTail.lean` requires its
+named error stream to be rationally equivalent to this exact maximum before
+using the positive-floor cross-tail theorem.  No all-cutoff BF4 pairwise bound
+or tail inequality is claimed here.
+
+The same module now also exposes the sharper exact residual-and-bias maximum.
+`centralHalfAmplitudeRegularizedRankOneDefect_le_exactStatisticalMax` proves
+entrywise domination without a supplied pairwise estimate, and
+`MatchedPhysicalBoundaryRegularizedRankOneExactStatisticsCrossTailRows` uses
+that exact maximum as its accountable error stream.  The generated demo
+rechecks this theorem path in Lean; its worst exact-statistical error/floor
+ratio is `4097/100642817`, compared with the conservative
+`16387/33566721`.  These are synthetic matrix values, not BF4 cutoff data.
+
+The intermediate hybrid route pays the number of retained sources against a
+single uniform pairwise residual bound but preserves the exact absolute
+pseudocount bias.  It therefore exposes the analytic estimate most likely to
+scale to positive cutoff without discarding the finite bias computation.  The
+generator emits and Lean rechecks this hybrid statistic alongside the exact
+and conservative variants.
+
+`BF4BoundaryMessageExactStatisticsCutoffZero.lean` is the first direct
+checkpoint on the genuine BF4 amplitude rather than synthetic matrix data.
+At cutoff zero, half-time zero, coupling one, and pseudocount one, Lean
+kernel-computes both the exact-statistical maximum and the regularized
+rank-one defect to zero.  This is intentionally recorded as a degenerate base
+case only: it proves neither a positive-cutoff estimate nor an infinite tail.
+
+**Exact positive-cutoff computation and physical-block update (2026-08-19).**
+`FiniteVariableEliminationCertificate.lean` now gives a generic exact
+dynamic-programming trace and a proof-carrying branch-and-bound contract.
+`FiniteBoundedEdgeLabellingVariableElimination.lean` identifies the physical
+bounded edge-labelling enumeration with decoded finite words, while
+`BF4PhysicalBoundaryFactorGraph.lean` proves that each genuine local link
+factor has scope at most six.  External Rust, C, or Python code may choose an
+elimination order and emit compact tables, but Lean rechecks the initial table
+and every elimination equation.  The checked example was independently
+produced by a synchronized 16-process exact-arithmetic run; this validates the
+certificate path only and does not make the producer trusted.
+
+At genuine cutoff one and half-extent zero, the physical vacuum and central
+lower-cube half-amplitude rows are now exact Boolean vacuum deltas, with scales
+`1` and `(coeffW w 1)^6`.  The 116-block incidence checker proves that every
+other nonclosed retained source has zero vacuum-column amplitude.  The exact
+closed-surface classifier leaves only the vacuum and the central cube, so the
+full retained vacuum column contracts to
+
+```text
+1 + (coeffW w 1)^6.
+```
+
+`BF4PhysicalBoundaryCutoffOneVacuumPosterior.lean` normalizes this genuine
+column, identifies it with the existing target-given-boundary posterior, and
+proves positive vacuum and cube atoms together with strictly positive cube
+variance.  `BF4PhysicalBoundaryCutoffOneVacuumRefreshSpectrum.lean` packages
+independent posterior resampling as a reversible idempotent finite Markov
+operator: constants have eigenvalue one and every centered observable has
+eigenvalue zero; the centered cube indicator is an explicit nonzero witness.
+
+The stronger `BF4PhysicalBoundaryCutoffOneVacuumGramMarkov.lean` identifies
+that refresh on both displayed sources with row normalization of the genuine
+reflected physical BF4 Gram.  The vacuum and cube raw rows are respectively
+
+```text
+W_0 * A(-, vacuum),
+W_0 * (coeffW w 1)^6 * A(-, vacuum).
+```
+
+Their normalized rows coincide, are reversible for the exact posterior, and
+have no retained target mass outside the vacuum/cube sector.  Thus this
+invariant finite physical block has exact algebraic modes `1` and `0` and
+finite gap one.  This is not a cutoff-uniform transfer gap: the next live
+obligation is to extend or compare this physical sector across increasing
+cutoff and volume without losing a positive gap, then carry that same object
+through constructive continuum convergence and OS transfer identification.
+No continuum or Clay conclusion is inferred from the cutoff-one block.
+
+The cutoff-two computation now advances the same chain without assuming that
+the binary two-source classification survives.  The 72 production local
+factors are checked on scopes of at most four active labels, and the complete
+24-step sparse elimination certificate contracts the full lower-source
+vacuum column to
+
+```text
+281543696188121 / 281474976710656.
+```
+
+`BF4PhysicalBoundaryCutoffTwoVacuumColumnFullContraction.lean` identifies the
+factor graph pointwise with the genuine production half-amplitude, while the
+generic support theorem proves that filtering to the retained positive-row
+carrier changes no vacuum-column mass.  The retained non-vacuum contribution
+is exactly
+
+```text
+68719477465 / 281474976710656 > 0.
+```
+
+`BF4PhysicalBoundaryCutoffTwoVacuumExcitation.lean` turns this strict excess
+into a deterministic retained non-vacuum source with positive amplitude.
+`BF4PhysicalBoundaryCutoffTwoVacuumPosterior.lean` normalizes the exact column,
+identifies it with the canonical target-given-vacuum posterior, and proves a
+strictly positive Bernoulli variance for the non-vacuum event.  The associated
+refresh kernel is reversible, stationary, and idempotent, with an explicit
+nonzero centered excitation mode at algebraic eigenvalue zero.  This refresh
+spectrum is a finite statistical benchmark, not the physical transfer gap.
+
+The representation-theoretic delta-row step is also closed at cutoff two.
+`BF4PhysicalBoundaryCutoffTwoVacuumDeltaRow.lean` uses ordered fusion-path
+zero-insertion to prove that one nonzero external spin has zero invariant
+multiplicity even for doubled-spin label two; the resulting width-one ternary
+certificate checks the full `3^24` vacuum boundary row and its exact mass one.
+`BF4PhysicalBoundaryCutoffTwoVacuumGramMarkov.lean` then identifies the
+row-normalized genuine reflected physical Gram at the vacuum source with the
+exact posterior-refresh row and proves that this actual physical row kills the
+centered excitation mode.  What remains finite and physical is to compute or
+control companion non-vacuum Gram rows and establish an invariant block (or a
+direct contraction comparison).  Beyond that, cutoff/volume uniformity,
+continuum convergence, and OS spectral identification remain open.
+
+The proof-producing computation path is executable rather than hypothetical.
+`computations/boundary_message_lean_certificate.py` accepts exact rational JSON
+(including output from a Rust/C enumerator), rejects malformed or over-tolerance
+rank-one, relative-error prefix, computed-floor prefix, or complete
+regularized amplitude-matrix prefix data, and emits literal Lean declarations.
+For the last mode Lean independently checks the matrix-derived defect and
+projected floor at every listed coordinate.  The checked-in generated
+`BF4BoundaryMessageRelativeRankOneQuarterExample.lean` has exact relative error
+`1/20`, constructs the refresh packet for a nontrivial terminal message, and
+kernel-checks its quarter rate.  This example validates the certificate
+plumbing only; it is not the plaquette-coupled BF4 witness.
 
 The spatial Yang--Mills well has now been audited exactly. The full 24-face
 complex is not itself a surface, but 18 face--edge collapses and 18 graph
@@ -20170,3 +21009,826 @@ passes at 671 jobs.  Every exported load-bearing gate reports only
 reserve, later FrontierDAG atoms, physical recursion, and the constructive
 continuum Yang--Mills target remain open.  No full audit, remote push, or
 GitHub CI run was used.
+
+## 82. Exact cutoff-two physical vacuum/cube Gram minor (2026-08-19)
+
+**Status. THE GENUINE `K=2`, HALF-EXTENT-ZERO PHYSICAL VACUUM/CUBE GRAM
+MINOR HAS STRICTLY POSITIVE DETERMINANT; THIS IS A FINITE NON-RANK-ONE
+CERTIFICATE, NOT YET A SPECTRAL OR CONTINUUM GAP.**
+
+The production BF4 definitions are now connected pointwise to a certified
+24-coordinate scoped factor graph for the lower-cube state.  An external
+exact-arithmetic scout found the sparse elimination order and candidate
+tables; Lean checks the production fixed-link bridge, literal arity-five and
+arity-six multiplicity tables, every elimination step, and the final exact
+contraction.  The certified interface sum is
+
+```text
+79228171482694884378979459057 / 79228162514264337593543950336.
+```
+
+Combining that contraction with the cutoff-two vacuum delta row gives the
+four genuine physical kernel entries
+
+```text
+K(vacuum, vacuum) = 1,
+K(vacuum, cube) = K(cube, vacuum) = 1/4096,
+K(cube, cube) = (1/4096)^2 * interfaceSum.
+```
+
+Consequently Lean proves, in the constructive rational order, that the
+actual physical determinant is equivalent to
+
+```text
+(1/4096)^2 * (interfaceSum - 1) > 0.
+```
+
+The normalized exact scout value is
+
+```text
+8968430546785435508721 /
+1329227995784915872903807060280344576.
+```
+
+The explicit 24-coordinate elimination permutation was proved directly,
+removing a hidden `Classical.choice` dependency in a generic list helper.
+All audited load-bearing theorems report only `[propext, Quot.sound]`.
+Arity-six certificate shards required a guarded two-worker build with a
+12-GiB per-worker ceiling and a 10-GiB system reserve; smaller ordinary
+targets continue to admit broader parallelism.
+
+This strict minor only proves that the finite physical sector is not rank
+one.  It does not prove that the vacuum/cube span is transfer-invariant, give
+a finite spectral gap, yield a cutoff- or volume-uniform lower bound, perform
+Osterwalder--Schrader reconstruction, or close the Yang--Mills mass-gap
+problem.  The next constructive milestone is a positive centered physical
+excitation and then an invariant finite transfer sector whose separation can
+be propagated uniformly.
+
+## 83. Centered excitation, residual witness, and first forced closure layer (2026-08-19)
+
+**Status. THE STRICT MINOR NOW PRODUCES AN EXPLICIT VACUUM-ORTHOGONAL
+POSITIVE-NORM EXCITATION AND A CONCRETE NONZERO BOUNDARY RESIDUAL; THE
+VACUUM/CUBE COORDINATE SPAN IS PROVED NOT ROW-CLOSED.**
+
+The Boolean two-state embedding assigns coefficient `1` to the lower cube
+and `-1/4096` to the vacuum.  Lean proves that its genuine physical Gram
+pairing with the vacuum is zero and that its quadratic form is both
+
+```text
+the actual strict vacuum/cube determinant
+```
+
+and
+
+```text
+the literal finite sum of boundaryWeight * channelResidual^2.
+```
+
+Both forms are strictly positive.  A total recursive `firstPositiveOr`
+search therefore returns an actual retained boundary label whose weighted
+residual square is positive and whose residual amplitude is not equivalent
+to zero.  This is constructive data extraction from a finite statistical
+certificate; no existential choice is used.
+
+The invariance audit then separates the cube contribution from the exact
+non-vacuum vacuum-column mass.  The remainder outside both vacuum and cube is
+certified exactly as
+
+```text
+729 / 281474976710656 > 0.
+```
+
+A second total finite search selects a retained state distinct from both
+displayed states and proves its genuine physical vacuum-row entry positive.
+Consequently the vacuum/cube coordinate span is not closed under the raw
+physical Gram action, so the positive `2 x 2` minor must not be advertised as
+an invariant spectral block.
+
+Faithful natural-number state codes now encode the first forced Krylov seed
+
+```text
+[vacuum, cube, selected leakage state].
+```
+
+The state and code lists are noduplicated.  A generic constructive closure
+lemma proves that a positive physical edge from an included source forces
+the target code into every code-sector satisfying literal row closure.
+Hence every row-closed sector containing the vacuum must include the selected
+leakage code, and the original two-code sector is independently refuted.
+
+All new load-bearing theorem audits report only `[propext, Quot.sound]`.
+Further support-closure layers remain valid finite information, but the route
+audit in Milestone 84 parks them: obtaining a larger row-closed finite sector
+would still not supply cutoff/volume uniformity or the continuum same-object
+transfer realization.
+
+## 84. Centered-observable clustering, same-object spectral fence, and computational stop rule (2026-08-19)
+
+**Status. THE FINITE BOOLEAN DETERMINANT ASSEMBLY IS NOW IDENTIFIED WITH AN
+ORDINARY CENTERED CYLINDER MOMENT AND HAS A COMMON GEOMETRIC RATE.  THE
+IMPLICATION FROM A SAME-OBJECT SPECTRAL REALIZATION TO A COUPLED GAP IS
+PROVED.  MANUFACTURING THAT REALIZATION IS THE ACTIVE FRONTIER; ADDITIONAL
+CUTOFF ENUMERATION IS PARKED.**
+
+The four strict two-block cells now have an exact probabilistic meaning.
+`Z4CanonicalTwoBlockProbabilityCovariance.lean` proves that their normalized
+determinant is the Boolean covariance
+
+```text
+P(A and B) - P(A) P(B).
+```
+
+`Z4CanonicalTwoBlockObservableCovariance.lean` then pushes this identity
+through the exhaustive fingerprint atoms and proves that the signed assembly
+is exactly
+
+```text
+E[F G] - E[F] E[G]
+```
+
+for literal rational strict-cylinder observables.  This is an exact semantic
+identification, not a numerical analogy.  The coefficient L1 fence and the
+connected-carrier tail yield in
+`Z4StrictJointObservableGeometricClustering.lean` a volume-independent common
+rate
+
+```text
+anchorDoubledTimeRate = anchorEffectiveRatio^2 < 1
+```
+
+and a presentation-dependent positive prefactor `C(F,G)` with
+
+```text
+|E[F G] - E[F] E[G]| <= C(F,G) * anchorDoubledTimeRate^shift.
+```
+
+`Z4StrictJointObservableSpectralBridge.lean` records the required
+same-object condition explicitly: one fixed spectral object must represent
+the moments of the same roots and coefficient function at every time.  Given
+that object, the constructive moment argument proves that every coupled live
+mode is bounded by the common rate, and packages a located gap when the
+live-mode and unused-tail conditions are supplied.  This implication does
+not construct the spectral realization.
+
+The route audit changes the immediate queue.  The custom strict-cylinder
+`CReal` completion currently carries a squared metric and a nonexpansive time
+semigroup, but no descended addition, rational scalar action, completed inner
+product, or linear self-adjoint transfer operator.  Conversely, the existing
+finite `SpectralModel` requires rational eigenvalues; a generic rational
+transfer matrix may have irrational algebraic eigenvalues, so exact
+diagonalization into that model is not a sound general bridge.
+
+### Load-bearing-only computation policy
+
+Until the same-object OS transfer construction is closed:
+
+1. park further cutoff-two Krylov/support-closure enumeration, larger Gram
+   tables, spectrum scouts, and repeated finite-prefix extensions;
+2. use external Rust/C/Python computation only to discover a reusable
+   symbolic statement or generate a finite certificate required by an open
+   arrow;
+3. require a proof-level explanation of how any proposed computation changes
+   an all-cutoff, thermodynamic-limit, OS-reconstruction, or mass-normalized
+   theorem before launching it;
+4. run only narrow monitored Lean checks while developing a theorem, followed
+   by one guarded target build at a genuine milestone; and
+5. treat low processor and memory utilization during proof design as normal,
+   not as a reason to start unrelated exhaustive work.
+
+The active next construction is therefore algebraic/analytic rather than
+enumerative: enrich the strict-cylinder direct-limit completion with its
+linear structure and same-object transfer pairing, then prove a spectral or
+operator-norm gap without assuming that the spectrum is rational.  The
+mass-normalized continuum persistence and full Osterwalder--Schrader
+reconstruction remain open after that.
+
+## 85. First linear operation on the completed strict OS carrier (2026-08-19)
+
+**Status. ADDITION NOW DESCENDS TO THE SAME BASE-INDEPENDENT `CReal` OS
+COMPLETION; ZERO, NEGATION, SCALAR ACTION, THE COMPLETED FORM, AND LINEAR
+TRANSFER LAWS REMAIN OPEN.**
+
+`CRealSeminormCompletion.lean` now contains a reusable
+`BinaryQuadraticLipschitz` interface.  Its bound
+
+```text
+d(op x y, op x' y') <= 2 d(x,x') + 2 d(y,y')
+```
+
+is sufficient to map two explicit-modulus Cauchy sequences to one Cauchy
+sequence and to preserve asymptotic closeness in both arguments.  The binary
+operation therefore descends through the completion quotient without choosing
+representatives.
+
+`Z4HalfTimeReflectionStrictJointCRealCompletionAdd.lean` instantiates this on
+the actual strict-cylinder carrier.  Staged vectors are transported to the
+maximum of their bases and then added.  Lean proves that transport of this sum
+is the sum of the transports and that
+
+```text
+(left + right) - (left' + right')
+```
+
+is semantically the sum of the two endpoint differences.  The established OS
+quadratic triangle inequality then supplies the required Lipschitz estimate,
+yielding `strictJointCylinderCompletedAdd` on the already constructed
+base-independent completion.
+
+The focused source check and guarded target build pass.  Every new
+load-bearing declaration reports only `[propext, Quot.sound]`.  This is a
+structural continuum-carrier advance, not another finite cutoff certificate
+and not yet a completed Hilbert space or spectral gap.
+
+## 86. Completed zero and isometric negation (2026-08-19)
+
+**Status. THE SAME COMPLETED STRICT OS CARRIER NOW HAS A CANONICAL ZERO POINT
+AND A CHOICE-FREE NEGATION MAP; NEGATION IS PROVED ISOMETRIC.**
+
+`Z4HalfTimeReflectionStrictJointCRealCompletionZeroNeg.lean` constructs the
+empty zero presentation at base zero and staged negation by rational scaling
+with `-1`.  The key semantic identity is
+
+```text
+(-left) - (-right)  =  -(left - right)
+```
+
+at the represented cylinder-function level.  Since the already established
+reflection quadratic is invariant under multiplication by `-1`, Lean proves
+that staged negation preserves the exact `CReal` OS squared distance.
+Nonexpansiveness therefore descends negation through the explicit-modulus
+Cauchy completion.  The canonical zero embeds into that same completion.
+
+The focused source check and guarded target build pass, and all new
+load-bearing declarations report only `[propext, Quot.sound]`.  The next
+load-bearing step is to prove the completed additive laws and general rational
+scalar action, followed by descent of the bilinear form and linearity of the
+physical time semigroup.
+
+## 87. Additive group laws and additive completed time semigroup (2026-08-19)
+
+**Status. THE COMPLETED STRICT OS CARRIER SATISFIES THE ADDITIVE IDENTITY,
+INVERSE, COMMUTATIVITY, AND ASSOCIATIVITY LAWS, AND THE COMPLETED EUCLIDEAN-TIME
+SEMIGROUP PRESERVES ADDITION.**
+
+`Z4HalfTimeReflectionStrictJointCRealCompletionAdditiveLaws.lean` first proves
+the presentation-level semantic laws, transports them to arbitrary staged
+bases, turns them into null-distance witnesses, and finally descends them
+through arbitrary Cauchy representatives.  Thus every completion point obeys
+
+```text
+x + 0 = x,   0 + x = x,   (-x) + x = 0,
+x + y = y + x,   (x + y) + z = x + (y + z).
+```
+
+`Z4HalfTimeReflectionStrictJointCRealCompletionAdditiveTimeTranslation.lean`
+then proves that canonical maximum-base addition commutes with staged time
+translation and descends the identity
+
+```text
+T_shift (x + y) = T_shift x + T_shift y
+```
+
+to all points of the same completed carrier.  Together with the previously
+proved nonexpansive semigroup laws, this is the first literal linear-operator
+content on the strict OS completion.  General rational homogeneity and the
+completed bilinear pairing remain open, so it is not yet a full rational
+pre-Hilbert/Hilbert object.  The focused checks and guarded builds pass with
+only `[propext, Quot.sound]` in the new load-bearing declarations.
+
+## 88. Rational module laws and rational-linear completed time semigroup (2026-08-20)
+
+**Status. THE SAME COMPLETED STRICT OS CARRIER NOW SATISFIES THE RATIONAL
+VECTOR-SPACE LAWS, AND EVERY COMPLETED EUCLIDEAN-TIME TRANSLATE IS ADDITIVE
+AND RATIONAL HOMOGENEOUS.**
+
+`Z4HalfTimeReflectionStrictJointCRealCompletionScalar.lean` proves exact
+degree-two scaling of the strict OS squared distance and supplies a computable
+continuity modulus for every rational scalar.  Scaling therefore descends to
+the choice-free completion.  The separate time-translation layer proves
+
+```text
+T_shift (s x) = s T_shift(x).
+```
+
+`Z4HalfTimeReflectionStrictJointCRealCompletionScalarLaws.lean` now closes the
+algebraic qualification that operation construction alone did not establish.
+Presentation equivalence, staged null distance, and pointwise descent through
+arbitrary Cauchy representatives prove
+
+```text
+1 x = x,                 0 x = 0,
+a (b x) = (a b) x,       (a + b) x = a x + b x,
+a (x + y) = a x + a y.
+```
+
+Together with Milestone 87 and rational homogeneity of time translation, this
+makes the carrier and its time maps literally rational-linear, stated through
+kernel-checked laws rather than an unproved wrapper.  No finite-state sweep is
+used.  The focused check and guarded target build pass with only
+`[propext, Quot.sound]` in the new load-bearing declarations.
+
+The active frontier is now analytic: descend the `CReal`-valued OS bilinear
+form through arbitrary completion sequences and then prove symmetry of the
+completed time maps.  This still does not supply a real/complex Hilbert-space
+operator, a non-rational spectral theorem, continuum persistence, or the Clay
+mass-gap conclusion.
+
+## 89. Type-level regularity of the actual strict OS pairing (2026-08-20)
+
+**Status. THE FIXED QUADRATIC, POLARIZED BILINEAR FORM, AND STAGED PAIRING NOW
+CARRY COMPUTABLE APPROXIMATION-INDEX MODULI.**
+
+The legacy `CReal.cauchy` field asserts an approximation cutoff under a
+propositional existential.  Such a witness cannot be extracted into the data
+of a constructive completion without choice.  This was the precise obstruction
+to taking the limit of the sequence of OS pairings on arbitrary completed
+representatives.
+
+`Z4HalfTimeReflectionStrictJointCRealBilinearInnerRegularity.lean` reuses the
+already proved half-power estimate
+
+```text
+|Q_later - Q_earlier| <= C(vector) * (1/2)^earlier
+```
+
+to expose the cutoff
+
+```text
+(epsilon * invSucc(C(vector).num.toNat)).den
+```
+
+as `CReal.InnerRegularity` data.  The new generic `scaleLeft` regularity
+combinator and the existing addition/negation combinators propagate that data
+through exact polarization.  Consequently every fixed-base and every
+maximum-common-base staged OS pairing has a choice-free, computable inner
+modulus.
+
+This closes the inner-regularity half of the completed-pairing construction.
+The outer Cauchy estimate for `n |-> B(X_n,Y_n)`, its quotient invariance, and
+the resulting completed inner form remain open.  No finite enumeration or
+numerical spectral search is involved.
+
+## 90. Cofinal denominator-rate completeness (2026-08-20)
+
+**Status. THE CONSTRUCTIVE `CReal` LIMIT ENGINE NO LONGER REQUIRES A FALSELY
+STRONG ANTITONE RATIONAL MODULUS WHEN A MONOTONE NATURAL PRECISION RATE IS
+AVAILABLE.**
+
+The squared-seminorm completion stores an arbitrary explicit modulus
+`Q' -> Nat`; it does not assert that this function is antitone.  The existing
+`completeLimitFromRate` convergence theorem asked for global antitonicity even
+though its diagonal proof uses only the cofinal comparison
+
+```text
+M(q) <= M(invSucc n)    when q.den <= n.
+```
+
+`CRealCompleteRate.lean` now exposes
+`convergesTo_completeLimitFromRate_of_cofinal` with exactly that weaker
+hypothesis.  The original theorem remains as a compatible corollary.
+`convergesTo_completeLimitFromDenRate` then proves convergence for rates of the
+form
+
+```text
+M(epsilon) = R(epsilon.den)
+```
+
+whenever `R : Nat -> Nat` is monotone.  A running maximum of the OS completion
+moduli along `invSucc 0, invSucc 1, ...` will provide precisely such an `R`.
+
+The focused check and guarded target build pass with `[propext]`.  This is a
+general constructive-completeness improvement directly required by the outer
+pairing limit; it performs no model enumeration and proves no spectral gap by
+itself.
+
+## 91. Bilinear geometry on the staged strict-cylinder carrier (2026-08-20)
+
+**Status. THE EXACT FIXED-BASE PAIRING IDENTITIES NOW HOLD ON THE
+MAXIMUM-COMMON-BASE STAGED CARRIER.**
+
+`Z4HalfTimeReflectionStrictJointCRealStageBilinearGeometry.lean` transports
+both arguments to one common box and proves symmetry, left and right
+additivity, and left and right rational homogeneity of the staged OS pairing.
+It also identifies the staged diagonal pairing with squared OS distance to the
+zero stage.  These statements are expressed using `CReal.Equiv`, so they are
+the exact algebraic rewrites needed by the outer Cauchy estimate rather than
+numerical approximations.
+
+The focused kernel check passes and every new declaration reports only
+`[propext, Quot.sound]`.  This milestone is load-bearing for the completed
+inner product: the next proof splits a difference of pairings into terms
+controlled by the Cauchy representatives and applies the existing strict
+Cauchy--Schwarz estimate.  It adds no cutoff enumeration or spectral scan.
+
+## 92. Choice-free representative-level outer OS pairing limit (2026-08-20)
+
+**Status. THE PAIRING OF TWO ARBITRARY EXPLICIT-MODULUS COMPLETION
+REPRESENTATIVES NOW HAS A CONSTRUCTED `CReal` LIMIT.**
+
+`Z4HalfTimeReflectionStrictJointCRealStageBilinearBounds.lean` upgrades the
+sharp rational Cauchy--Schwarz inequality at every inner approximation to a
+two-sided `CReal.leRat` bound from eventual diagonal bounds.  The staged
+bilinear geometry now also identifies the diagonal of `x-y` with
+`distSq(x,y)` and proves the exact bilinear difference telescope.
+
+`Z4HalfTimeReflectionStrictJointCRealCompletionBilinearOuter.lean` then obtains
+a computable uniform diagonal bound for each Cauchy representative from one
+explicitly regular anchor approximation.  A division-free product budget and
+a monotone running maximum along `invSucc` tolerances give the Type-level outer
+rate consumed by `CReal.completeLimitFromRate`.  Thus
+
+```text
+n |-> B(X.seq n, Y.seq n)
+```
+
+has a choice-free constructed limit, and the convergence theorem is proved.
+All new load-bearing declarations report only `[propext, Quot.sound]` in the
+focused checks.  The remaining step before an inner form on the completion is
+quotient well-definedness under explicit asymptotic closeness of either
+representative.  No finite-state enumeration or numerical spectral search is
+used.
+
+## 93. Completed `RC`-valued strict-cylinder OS inner form (2026-08-20)
+
+**Status. THE OUTER PAIRING LIMIT NOW DESCENDS TO THE ACTUAL COMPLETION
+QUOTIENT AND EXTENDS THE STAGED OS FORM ON THE DENSE IMAGE.**
+
+The outer-limit module proves a general constructive uniqueness lemma for two
+convergent `CReal` sequences whose matched terms become two-sided `leRat`-close.
+Applying the same difference split and quantitative Cauchy--Schwarz budget to
+explicit `Close` witnesses proves that `cauchyPairingLimit` is invariant under
+the completion relation in both arguments.
+
+`Z4HalfTimeReflectionStrictJointCRealCompletedInner.lean` therefore defines
+
+```text
+strictJointCylinderCompletedInner : Completion -> Completion -> CReal.RC
+```
+
+by `Quotient.lift2`.  Its dense-image theorem identifies the value on embedded
+staged vectors with the original maximum-common-base strict OS pairing.  The
+focused checks pass with only `[propext, Quot.sound]`.
+
+This constructs the completed form but does not yet package all of its
+symmetry, additivity, rational homogeneity, positivity, or time-translation
+self-adjointness laws.  Those are the next load-bearing phase; continuum
+persistence and a physical spectral gap remain open.
+
+## 94. Intrinsic laws of the completed strict OS form (2026-08-20)
+
+**Status. THE COMPLETED FORM IS SYMMETRIC, POSITIVE ON THE DIAGONAL, ADDITIVE,
+AND RATIONALLY HOMOGENEOUS IN BOTH ARGUMENTS.**
+
+`Z4HalfTimeReflectionStrictJointCRealCompletedInnerLaws.lean` proves the laws
+first for arbitrary Cauchy representatives.  Exact staged identities give
+termwise `CReal.Equiv`; convergence of addition and rational scaling plus
+limit uniqueness transport them to `cauchyPairingLimit`.  Quotient induction
+then yields, on the actual completed carrier,
+
+```text
+<x,y> = <y,x>,                  0 <= <x,x>,
+<x+y,z> = <x,z> + <y,z>,        <x,y+z> = <x,y> + <x,z>,
+<a x,y> = a <x,y>,              <x,a y> = a <x,y>.
+```
+
+The focused kernel check reports only `[propext, Quot.sound]` for every new
+declaration.  This is now a genuine rational pre-Hilbert form on the same
+choice-free completion that carries the time semigroup.  The immediate next
+frontier is self-adjointness of that completed time action; the existing
+oriented covariance theorem currently supplies the load-bearing even-shift
+case.
+
+## 95. Even-time self-adjointness on the completed strict OS carrier (2026-08-20)
+
+**Status. EVERY EVEN ELEMENT OF THE COMPLETED TIME SEMIGROUP IS NOW
+SELF-ADJOINT FOR THE CONSTRUCTED `RC`-VALUED OS FORM.**
+
+`Z4HalfTimeReflectionStrictJointCRealCompletedTimeSelfAdjoint.lean` first
+combines symmetry of the fixed-base reflection form with the previously
+derived oriented one-sided covariance theorem.  It then transports both
+arguments through one explicit common outer box, obtaining the staged identity
+
+```text
+<T^(2s) x, y> = <x, T^(2s) y>.
+```
+
+Termwise application to arbitrary explicit-modulus Cauchy representatives and
+uniqueness of their choice-free pairing limits yields the same identity on the
+actual completion quotient.  The focused kernel check reports only
+`[propext, Quot.sound]` for the fixed-base, staged, representative-limit, and
+completed declarations.
+
+This is a structural operator theorem on the completed carrier, not a larger
+finite certificate.  It deliberately stops at even shifts.  The existing
+one-step parity fence proves that the analogous odd-shift event rewrite is
+false in the current odd carrier, so the next step is an architectural
+analysis of the one-step carrier or an alternative route from the even
+semigroup; brute-force cutoff extension cannot discharge that obstruction.
+
+## 96. Positive-contraction interval for the completed even subsemigroup (2026-08-20)
+
+**Status. THE COMPLETED EVEN-TIME TRANSFER FORM IS NONNEGATIVE AND BOUNDED BY
+THE IDENTITY FORM ON EVERY COMPLETED VECTOR.**
+
+`Z4HalfTimeReflectionStrictJointCRealCompletedEvenTimeInterval.lean` transports
+the already proved fixed-base interval through the staged common-box pairing,
+then uses constructive order preservation under convergent `CReal` sequences
+to pass it to arbitrary explicit-modulus Cauchy representatives.  Quotient
+induction yields
+
+```text
+0 <= <T^(2s)x,x> <= <x,x>
+```
+
+for every vector in the actual strict OS completion.  The focused check
+reports only `[propext, Quot.sound]`; the guarded dependency and target builds
+pass.  Together with milestone 95 this supplies a positive self-adjoint
+contraction form for `S(s) := T(2s)`.
+
+The even subsemigroup is sufficient for a transfer-matrix mass-gap route: its
+physical time step is `2a`, so the eventual mass normalization is
+`-log(rho)/(2a)`.  The one-step parity carrier is therefore deferred rather
+than treated as a prerequisite.  The next genuine obstruction is the strict
+vacuum-complement estimate with one uniform `rho < 1`; no further finite-prefix
+extension is justified unless it supplies that exact bridge.
+
+## 97. Normalized vacuum complement in the completed strict OS carrier (2026-08-20)
+
+**Status. THE COMPLETED VACUUM IS UNIT-NORMALIZED, THE LITERAL DENSE VACUUM
+COMPLEMENT EMBEDS INTO ITS ORTHOGONAL COMPLEMENT, AND THAT COMPLEMENT IS
+INVARIANT UNDER EVERY EVEN TIME TRANSLATION.**
+
+`Z4HalfTimeReflectionStrictJointCRealCompletedVacuumComplement.lean` first
+identifies the staged constant cylinder pairing with constructive real one and
+passes the identity through the dense embedding.  It then defines completed
+vacuum orthogonality by
+
+```text
+<x, vacuum> = 0
+```
+
+and proves that every literal fixed-base `StrictJointVacuumOrthogonal` vector
+lands in this completed complement.  Finally, completed even-time
+self-adjointness moves `T^(2s)` to the vacuum argument, where exact vacuum
+stationarity proves invariance.  The focused check and guarded target build
+report only `[propext, Quot.sound]`.
+
+The mathematical frontier is now exact: prove one uniform strict form bound
+on this invariant completed complement.  Finite computations are relevant
+only if accompanied by a same-object and all-vector bridge to that statement;
+isolated spectra or longer finite prefixes do not advance it.
+
+## 98. Concrete completed two-step transfer operator (2026-08-20)
+
+**Status. `S = T^2` IS NOW THE NAMED PHYSICAL TRANSFER MAP ON THE ACTUAL
+COMPLETED STRICT OS CARRIER, WITH ALL CURRENTLY AVAILABLE OPERATOR LAWS.**
+
+`Z4HalfTimeReflectionStrictJointCRealCompletedTwoStepTransfer.lean` collects the
+proved facts for the physical step of length `2a`: rational additivity and
+homogeneity, self-adjointness, positive transfer form, form bound by the
+identity, squared-norm contraction, exact normalized-vacuum stationarity, and
+invariance of the completed vacuum complement.  Every declaration in the
+focused check reports only `[propext, Quot.sound]`.
+
+The module also states the one remaining quantitative theorem without hiding
+its content:
+
+```text
+exists rho, 0 <= rho < 1 and
+  <S x,x> <= rho <x,x>  for every completed x orthogonal to vacuum.
+```
+
+No inhabitant is claimed.  This exact object-level inequality is now the gate
+for further work.  A finite computation is useful only if a proof connects its
+certificate uniformly to this `S`, this inner form, and every vector in this
+completed complement.
+
+## 99. Cauchy--Schwarz on the completed strict OS carrier (2026-08-20)
+
+**Status. THE `RC`-VALUED INNER FORM ON THE ACTUAL COMPLETION NOW SATISFIES
+SHARP CAUCHY--SCHWARZ.**
+
+`Z4HalfTimeReflectionStrictJointCRealCompletedCauchySchwarz.lean` transports
+the fixed finite-support Cauchy--Schwarz inequality through the staged
+maximum-common-box pairing and then through the choice-free pairing limits.
+The limiting step uses a constructive multiplication-continuity theorem whose
+eventual bounds are derived from convergence itself, avoiding an artificial
+global bound on every approximation of every sequence term.  Quotient
+induction yields
+
+```text
+<x,y>^2 <= <x,x> <y,y>
+```
+
+for arbitrary vectors in the completed carrier.  The focused kernel check and
+guarded target build report only `[propext, Quot.sound]`.
+
+This is the analytic inequality needed for the same-object correlation route;
+it is not itself a strict gap.  The next load-bearing step is to formulate and
+prove a completed-space decay statement for `<S^n x,x>` on the vacuum
+complement, then determine the precise density/uniformity hypothesis needed to
+deduce the one-step form bound with one `rho < 1`.
+
+## 100. Same-object powers and dyadic moments of the completed transfer (2026-08-20)
+
+**Status. THE COMPLETE MOMENT SEQUENCE OF THE ACTUAL TWO-STEP TRANSFER IS NOW
+DEFINED AND SATISFIES THE SEMIGROUP AND DYADIC CAUCHY--SCHWARZ IDENTITIES.**
+
+`Z4HalfTimeReflectionStrictJointCRealCompletedTwoStepMoments.lean` defines the
+literal completed power `S^n` as the already constructed time translation
+`T^(2n)`.  It proves the zero, successor, and additive power laws, as well as
+self-adjointness, positivity, contraction, vacuum stationarity, and invariance
+of the completed vacuum complement for every power.  For the same completed
+vector `x`, its autocorrelation `m_n = <S^n x,x>` satisfies
+
+```text
+m_(r+s) = <S^r x,S^s x>,
+m_(2n)  = <S^n x,S^n x>,
+m_n^2  <= m_(2n) m_0.
+```
+
+The final inequality is sharp completed-space Cauchy--Schwarz, not a finite
+spectral calculation.  The focused kernel check and guarded target build report
+only `[propext, Quot.sound]`.
+
+This fixes the same-object ambiguity: any clustering input used next must bound
+this exact moment sequence, not an unrelated finite spectral model or isolated
+canonical covariance.  The remaining analytic task is the constructive dyadic
+moment-growth argument converting a common asymptotic rate for these moments
+into the one-step form gap.
+
+## 101. Arbitrary-cutoff physical two-block covariance identity (2026-08-20)
+
+**Status. BOOLEAN COVARIANCE FOR THE ACTUAL SPIN-SUMMED FINITE-CUTOFF LAW IS
+NOW EXACTLY ITS NORMALIZED FOUR-CELL DETERMINANT.**
+
+`Z4CouplingParametricTwoBlockProbabilityCovariance.lean` partitions the
+arbitrary-cutoff compatible-support gas into the four Boolean cells `TT`,
+`TF`, `FT`, and `FF`.  Using the already proved physical-to-support-gas event
+bridge, it identifies
+
+```text
+P(A and B) - P(A) P(B) = (TT * FF - FT * TF) / Z^2
+```
+
+inside the project's constructive rational quotient, uniformly in coupling,
+cutoff, volume, roots, and predicates.  The focused kernel check and guarded
+target build report only `[propext, Quot.sound]`.
+
+This is an exact algebraic bridge, not a clustering estimate.  The next
+load-bearing task is to generalize the connected two-block switch/carrier tail
+from canonical cutoff one to these same spin-summed arbitrary-cutoff cell
+weights.  Only after that uniform estimate is proved can it be transported to
+the completed same-object moments.
+
+## 102. Arbitrary-cutoff two-block switch cancellation (2026-08-20)
+
+**Status. THE PHYSICAL FOUR-CELL DETERMINANT IS NOW BOUNDED BY THE LITERAL
+CONNECTED TWO-REPLICA RESIDUE AT EVERY FINITE CUTOFF.**
+
+`Z4CouplingParametricTwoBlockSwitchSummation.lean` reuses the proved
+recoverable component-switch injection but replaces every cutoff-one polymer
+weight by the exact coupling-parametric spin-summed support-family activity.
+The switch preserves the product activity exactly.  Consequently, separated
+`TT x FF` pairs cancel injectively against `FT x TF`, leaving only pairs whose
+disagreement carrier joins the two event blocks.
+
+The focused kernel check and guarded target build report only
+`[propext, Quot.sound]`.  No brute-force enumeration or finite spectral
+surrogate is involved.
+
+The remaining finite-volume analytic task is now sharply localized: split
+each connected pair into its colored path and compatible backgrounds, charge
+the uniform decorated-face envelope to the path, and sum the resulting
+temporal carrier tail.  That estimate must retain the exact all-cutoff
+partition factors so normalization cancels them uniformly.
+
+## 103. Arbitrary-cutoff connected colored-carrier weight (2026-08-20)
+
+**Status. EVERY CONNECTED TWO-REPLICA SOURCE WEIGHT NOW FACTORS INTO AN EXACT
+BACKGROUND PRODUCT TIMES A UNIFORM COLORED-PATH ENVELOPE.**
+
+`Z4CouplingParametricTwoBlockColoredCarrierWeight.lean` filters both replicas
+along the already constructed loop-erased disagreement path.  Spin-summed
+family activity factors exactly across the path/background partition.  For
+every `0 <= coupling <= anchorCoupling` and every finite cutoff, the path
+product is bounded by
+
+```text
+anchorDecoratedFaceEnvelope ^ coloredSupport.length,
+```
+
+while both compatible background activities remain at their exact coupling
+and cutoff.  The focused kernel check and guarded target build report only
+`[propext, Quot.sound]`.
+
+This supplies the local analytic estimate required by the switch residue.
+The next step is finite Cartesian summation over colored supports of fixed
+size and both backgrounds, producing `anchorDecoratedEffectiveRatio^size`
+times the square of the same arbitrary-cutoff partition function.
+
+## 104. Fixed-size arbitrary-cutoff two-block carrier sum (2026-08-20)
+
+**Status. THE CONNECTED RESIDUE AT EACH CARRIER SIZE NOW SUMS TO THE SAME
+PHYSICAL PARTITION SQUARE TIMES A STRICT GEOMETRIC FACTOR.**
+
+`Z4CouplingParametricTwoBlockCarrierFixedSize.lean` combines the injective
+rooted colored-carrier encoding with the arbitrary-cutoff path/background
+weight bound.  Summing both exact compatible backgrounds produces
+
+```text
+(number of first-block roots)
+  * anchorDecoratedEffectiveRatio^size
+  * Z(coupling, cutoff, volume)^2.
+```
+
+The focused kernel check and guarded target build report only
+`[propext, Quot.sound]`.  The occurrence of precisely the same `Z^2` as in
+the normalized four-cell covariance is the necessary normalization bridge;
+it is not a cutoff-one surrogate.
+
+The next step is to use the strict doubled-time carrier floor
+`size >= 2*shift+6` and sum these fixed-size estimates as a finite geometric
+tail, uniformly in volume and cutoff.
+
+## 105. Uniform arbitrary-cutoff two-block temporal tail (2026-08-20)
+
+**Status. THE CONNECTED PHYSICAL FOUR-CELL NUMERATOR NOW HAS A UNIFORM
+GEOMETRIC TIME-SEPARATION BOUND AT EVERY FINITE CUTOFF.**
+
+`Z4CouplingParametricTwoBlockCarrierTail.lean` combines the strict doubled-time
+size floor `2*shift+6` with the fixed-size carrier estimate and sums the finite
+geometric tail.  For every `0 <= coupling <= anchorCoupling`, every cutoff and
+admissible ambient box, the four-cell cross numerator is at most
+
+```text
+(number of lower roots) * Z(coupling, cutoff, volume)^2
+  * (anchorDecoratedEffectiveRatio^(2*shift+6) * 2).
+```
+
+The focused kernel check and guarded target build report only
+`[propext, Quot.sound]`.  A first check was slow because several imported
+namespaces were not open, producing cascading elaboration failures; after
+that proof-engineering issue was corrected, the narrow check completed in
+about 1.4 seconds.  No high-cost computation is inherent in this milestone.
+
+The next step is exact positive-denominator cancellation of `Z^2` in the
+normalized Boolean covariance, followed by the complementary-event argument
+needed for a two-sided absolute covariance bound.
+
+## 106. Uniform normalized physical Boolean covariance decay (2026-08-20)
+
+**Status. THE ARBITRARY-CUTOFF PHYSICAL BOOLEAN COVARIANCE NOW DECAYS
+EXPONENTIALLY IN DOUBLED TIME, UNIFORMLY IN VOLUME AND CUTOFF.**
+
+`Z4CouplingParametricTwoBlockNormalizedCovariance.lean` divides the connected
+four-cell tail by the strictly positive square of the same spin-summed
+partition function.  The `Z^2` factors cancel exactly.  Applying the theorem
+again to the complement of the second event controls the opposite sign, so
+the ordinary event-law covariance satisfies
+
+```text
+|Cov(A_lower, B_upper)|
+  <= roots.length * 2
+       * anchorDecoratedEffectiveRatio^(2*shift+6),
+```
+
+for every finite cutoff, every admissible box, and every
+`0 <= coupling <= anchorCoupling`.  The previously certified rate is
+`anchorDecoratedEffectiveRatio = 1/4`.  The focused kernel check and guarded
+target build report only `[propext, Quot.sound]`.
+
+This closes the arbitrary-cutoff Boolean clustering layer.  It is not yet an
+operator gap: the estimate must next be extended by finite linearity to the
+signed cylinder observables used by the OS form, passed through the
+thermodynamic/cutoff limits, and compared to the completed reflection norm.
+
+## 107. Arbitrary-cutoff signed fingerprint covariance (2026-08-20)
+
+**Status. THE UNIFORM BOOLEAN DECAY NOW EXTENDS TO ALL FINITE RATIONAL SIGNED
+CYLINDER PRESENTATIONS.**
+
+`Z4CouplingParametricTwoBlockSignedCovariance.lean` expands each rational
+cylinder observable over the exhaustive finite Boolean fingerprint space.
+Every atom-pair kernel entry is the ordinary physical Boolean covariance, so
+finite bilinearity and the triangle inequality give
+
+```text
+|signed covariance|
+  <= L1(left coefficients) * L1(right coefficients)
+       * roots.length * 2
+       * anchorDecoratedEffectiveRatio^(2*shift+6).
+```
+
+The estimate holds for every finite cutoff and admissible volume below the
+anchor coupling.  The focused kernel check and guarded target build report
+only `[propext, Quot.sound]`.
+
+The coefficient norm here is deliberately presentation-level.  Existing
+counterexamples show that raw coefficient `l1` does not descend to the
+semantic cylinder quotient, so this theorem is not yet a completed-space
+operator contraction.  The immediate next step is to factor the common rate
+`(1/4)^2 = 1/16 < 1` and then pass the uniform finite-law estimate through the
+already constructed thermodynamic and cutoff limits without losing that
+epistemic distinction.

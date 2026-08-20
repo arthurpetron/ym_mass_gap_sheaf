@@ -6,6 +6,7 @@ from scripts.safe_lean_build import (
     default_jobs,
     default_max_swap_bytes,
     default_reserve_bytes,
+    lakefile_text_with_worker_limit,
     parallelism_error,
     pressure_reasons,
 )
@@ -67,3 +68,19 @@ def test_healthy_high_memory_snapshot_is_allowed() -> None:
     )
 
     assert pressure_reasons(snapshot, 42 * GIB, limits) == []
+
+
+def test_temporary_lakefile_worker_limit_replaces_only_package_setting() -> None:
+    source = '''name = "Example"
+# weakLeanArgs = ["-M", "999"]
+weakLeanArgs = ["-s", "65536", "-M", "32768"]
+
+[[lean_lib]]
+name = "Example"
+'''
+
+    rewritten = lakefile_text_with_worker_limit(source, 3072)
+
+    assert '# weakLeanArgs = ["-M", "999"]' in rewritten
+    assert 'weakLeanArgs = ["-s", "65536", "-M", "3072"]' in rewritten
+    assert "32768" not in rewritten

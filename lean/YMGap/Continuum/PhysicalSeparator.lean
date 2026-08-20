@@ -26,9 +26,9 @@ The difference is a genuine 4D RG DEVIATION `δ`, the residual the program must
 control.  This module introduces `sep_phys` as a NAMED distinct object, states
 the real obligation on it (`PhysicalGapFloor`, with BOTH a positive floor and a
 finiteness ceiling — the two-sided dimensional-transmutation requirement), and
-states the comparison to the bare separator (`HKPhysicalComparison`, carrying the
-per-spacing deviation `δ` and the residual bound `δ(a) ≤ C·a·Λ` as NAMED OPEN
-content).
+states a deliberately strong diagnostic comparison to the bare separator
+(`HKPhysicalComparison`, carrying the per-spacing deviation `δ` and the
+residual bound `δ(a) ≤ C·a·Λ` as NAMED OPEN content).
 
 # What is genuine — and what remains OPEN (honest)
 
@@ -37,17 +37,20 @@ PROVED here: that a `PhysicalSeparator` whose `sep_phys` satisfies
 continuum gap).  This re-anchors the open content cleanly on `sep_phys` (NOT on
 bare `w`), exactly mirroring the bare-separator bridge.
 
-NOT inhabited (the genuine residual): the floor `PhysicalGapFloor` itself, and
-the comparison `HKPhysicalComparison` — specifically its deviation field `δ` and
-the residual bound `δ j ≤ C·(a j)·Λ` (the 4D near-fixed-point deviation between
-the bare single-plaquette coordinate and the physical gauge-invariant
-separator).  These are the open frontier; no inhabitant is provided.  The point
-is to STOP conflating the bare coordinate with the physical separator.
+NOT inhabited: the floor `PhysicalGapFloor` itself or the diagnostic comparison
+`HKPhysicalComparison`.  The latter is now known to be too restrictive for a
+divergent bare rate: because it imposes two-sided additive `O(a)` closeness, the
+bare and physical margin rates are finite together.  The one-sided,
+scale-renormalized replacement is defined separately in
+`RenormalizedHKPhysicalComparison`; its factor `Z_j` carries the missing
+nonperturbative RG suppression.  No inhabitant of either interface is provided.
 
-The bare trajectory `sep_phys := sep_HK` VIOLATES the finiteness ceiling of
-`PhysicalGapFloor`: as `a → 0` the bare physical mass `(1 − w(a)³)/a → ∞` unless
-the 4D RG deviation `δ` reshapes it.  That violation is precisely why the
-PHYSICAL separator, not the bare one, carries the real content.
+If the bare rate `(1 − w(a)³)/a` escapes every finite ceiling along the chosen
+trajectory, then `sep_phys := sep_HK` violates the finiteness half of
+`PhysicalGapFloor`.  An additive `O(a)` deviation cannot repair that behavior;
+the formal no-go theorem is in `HKPhysicalLinearMarginTail`.  This is precisely
+why the PHYSICAL separator and a nonperturbative renormalization factor, not the
+bare coordinate alone, carry the real content.
 
 # Axiom-gate (AGENTS.md Rule 1 / Rule 8)
 
@@ -352,7 +355,7 @@ theorem continuum_gap_le_ceiling_of_physicalGapFloor
       ≤ ofQ' (toScalingBand (toRGGapPersistence F)).physGapMax :=
   continuum_gap_le_ceiling_of_RGGapPersistence (toRGGapPersistence F) j
 
-/-! ## 5. The comparison to the BARE heat-kernel separator — `HKPhysicalComparison`
+/-! ## 5. A diagnostic comparison to the BARE heat-kernel separator
 
 This is the genuine residual.  The bare separator `heatKernelSep (w j) = w_j³` is
 the single-plaquette transfer coordinate; `sep_phys j` is the physical
@@ -367,12 +370,17 @@ OPEN content:
 
   * `residual` : `δ j ≤ resC · (a j) · Λ`,
 
-the 4D near-fixed-point deviation between the bare single-plaquette coordinate
-and the physical separator — vanishing linearly in the spacing `a_j` (with a
-scale `Λ`).  NO inhabitant is provided: this residual is exactly the open 4D RG
-content the program owes. -/
+the deviation between the bare single-plaquette coordinate and the physical
+separator — vanishing linearly in the spacing `a_j` (with a scale `Λ`).
 
-/-- **The bare↔physical separator comparison (the genuine residual).**  Relates
+This record is useful as a diagnostic closeness interface, but its two-sided
+additive form is stronger than the physical program can generally expect:
+`HKPhysicalLinearMarginTail` proves that it preserves finiteness of the bare
+and physical margin rates.  The repaired open interface
+`RenormalizedHKPhysicalComparison` instead compares the physical margin to
+`Z_j` times the bare margin plus `O(a_j)`.  NO inhabitant is provided here. -/
+
+/-- **A two-sided bare↔physical diagnostic comparison.**  Relates
 the bare heat-kernel separator `heatKernelSep (w j) = w_j³` to the physical
 separator `sep_phys j` via a per-spacing deviation `δ j`, with BOTH-sided margin
 control and the residual bound `δ j ≤ resC · a_j · Λ` as NAMED OPEN content.
@@ -388,9 +396,9 @@ Fields:
   * `residual` — **the OPEN content:** `δ j ≤ resC · a_j · Λ`, the 4D
     near-fixed-point deviation, vanishing linearly in the spacing.
 
-NO inhabitant is provided — the deviation `δ` and its residual bound are the open
-4D RG frontier.  This record exists to NAME the bare↔physical gap, not to close
-it. -/
+NO inhabitant is provided.  This record names a strong bare↔physical closeness
+condition; it is not the general nonperturbative RG comparison.  See
+`RenormalizedHKPhysicalComparison` for the scale-renormalized replacement. -/
 structure HKPhysicalComparison
     (P : PhysicalSeparator) (a : Nat → Q') : Type where
   /-- The bare heat-kernel weights `w_j`. -/
@@ -452,32 +460,35 @@ TOGETHER WITH the finiteness ceiling
 
     ∃ C, ∀ j,  (1 − sep_phys j)/a_j ≤ C          (dimensional transmutation),
 
-PLUS the comparison residual `HKPhysicalComparison` (§5):
+PLUS a same-object renormalized comparison of the form
+
+    1 − sep_phys(j) ≤ Z_j (1 − w_j³) + δ_j,
+    δ_j ≤ C a_j Λ,
+    Z_j (1 − w_j³) ≤ M a_j,
+
+as named in `RenormalizedHKPhysicalComparison`.  The older diagnostic
+`HKPhysicalComparison` (§5) instead assumes
 
     δ j ≤ resC · a_j · Λ                          (the 4D RG deviation),
 
-with the two-sided margin control `|sep_phys j − w_j³| ≤ δ j` tying `sep_phys`
-back to the bare coordinate.
+with two-sided margin control `|sep_phys j − w_j³| ≤ δ j`; it cannot convert a
+divergent bare rate into a finite physical rate.
 
-**Why the BARE trajectory fails — and why the physical separator carries the
-content.**  Identifying `sep_phys := sep_HK = w³` would make the physical mass
-`(1 − w(a)³)/a` blow up as `a → 0` along asymptotic freedom (the dimensionless
-bare margin vanishes only like `a`-or-slower depending on the bare running),
-VIOLATING the finiteness ceiling of `PhysicalGapFloor`: an infinite-mass,
-trivial "continuum", not Yang–Mills.  The physical separator `sep_phys`, differing
-from the bare one by the 4D RG deviation `δ`, is precisely what can satisfy BOTH
-the positive floor AND the finiteness ceiling.  That is why the physical
-separator, not the bare one, carries the real content — and why `δ` (with its
-residual bound) is the genuine open frontier.
+**Why the bare trajectory is insufficient.**  Whenever the chosen bare AF
+trajectory makes `(1 − w(a)³)/a` escape every finite ceiling, identifying
+`sep_phys := sep_HK = w³` violates the finiteness half of `PhysicalGapFloor`.
+The two-sided additive comparison cannot change this conclusion.  The physical
+separator can satisfy both sides only through genuine same-object RG content,
+represented in the repaired interface by the scale-dependent factor `Z_j` and
+its renormalized bare-margin estimate.
 
 **Underclaim.**  This module introduces `sep_phys` as a NAMED distinct object,
 states the real two-sided obligation `PhysicalGapFloor` on it, proves the bridge
 `PhysicalGapFloor ⇒ physGapMin > 0`, and NAMES the comparison residual
-`HKPhysicalComparison` (deviation `δ` + bound `δ ≤ C·a·Λ`).  It does NOT inhabit
-`PhysicalGapFloor` or `HKPhysicalComparison` — the floor and the deviation are
-the open content.  The deliverable is the clean SEPARATION of the bare coordinate
-from the physical separator, and the honest naming of the residual between
-them. -/
+`HKPhysicalComparison` as a strong diagnostic comparison.  It does NOT inhabit
+`PhysicalGapFloor`, either comparison interface, or the scale-factor estimate.
+The deliverable is the clean separation of the bare coordinate from the
+physical separator; the nonperturbative comparison remains open. -/
 
 end YMGap.Continuum.PhysicalSeparator
 

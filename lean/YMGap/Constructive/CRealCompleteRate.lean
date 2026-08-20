@@ -356,9 +356,11 @@ def completeLimitFromRate (s : Nat → CReal) (M : Q' → Nat) (reg : Nat → Q'
 enlarged index `J = max (RhatR n) Kab`, where `Kab` is the `leRat` threshold at
 level `q` and tolerance `q` (outer ≤ `2q`).  Steps: inner-N (`≤ q`), outer
 (`≤ 2q`), inner-(MhatR n) (`≤ q`); `4q ≤ ε`. -/
-theorem convergesTo_completeLimitFromRate (s : Nat → CReal) (M : Q' → Nat)
+theorem convergesTo_completeLimitFromRate_of_cofinal
+    (s : Nat → CReal) (M : Q' → Nat)
     (reg : Nat → Q' → Nat) (hreg : RegPred s reg) (hb : LeRatBound s M)
-    (Mmono : MmonoPred M) :
+    (hcofinal : ∀ q : Q', (0 : Q') < q → ∀ n : Nat, q.den <= n →
+      M q <= M (Q'.invSucc n)) :
     ConvergesTo s (completeLimitFromRate s M reg hreg hb) := by
   intro ε hε
   let q : Q' := half * (half * ε)
@@ -372,7 +374,7 @@ theorem convergesTo_completeLimitFromRate (s : Nat → CReal) (M : Q' → Nat)
   have hinvnpos : (0 : Q') < Q'.invSucc n := Q'.invSucc_pos n
   -- M q ≤ MhatR n
   have hMqn : M q ≤ MhatR M n :=
-    Nat.le_trans (Mmono q (Q'.invSucc n) hinvnpos hinvn) (M_le_MhatR M n)
+    Nat.le_trans (hcofinal q hqpos n hqdenn) (M_le_MhatR M n)
   -- the leRat outer bound at level q comparing s N, s (MhatR n)
   obtain ⟨hxy, hyx⟩ := hb q hqpos N (MhatR M n) hN hMqn
   -- consume it (Prop): tolerance q, threshold Kab
@@ -440,6 +442,38 @@ theorem convergesTo_completeLimitFromRate (s : Nat → CReal) (M : Q' → Nat)
         exact Q'.eqv_symm (Q'.add_assoc_eqv ((s N).approx n + q) q q)
       exact Q'.le_of_eqv ereshape
     exact Q'.le_trans' _ _ _ hchain (h4q ((s N).approx n))
+
+/-- The original antitone-rate convergence theorem is the special case where
+cofinality follows by comparing `invSucc n <= q`. -/
+theorem convergesTo_completeLimitFromRate (s : Nat → CReal) (M : Q' → Nat)
+    (reg : Nat → Q' → Nat) (hreg : RegPred s reg) (hb : LeRatBound s M)
+    (Mmono : MmonoPred M) :
+    ConvergesTo s (completeLimitFromRate s M reg hreg hb) := by
+  apply convergesTo_completeLimitFromRate_of_cofinal s M reg hreg hb
+  intro q hq n hqn
+  have hinvn : Q'.invSucc n <= q :=
+    Q'.le_trans' _ _ _ (ExpNeg.invSucc_le_of_le hqn)
+      (HalfPow.invSucc_den_le q hq)
+  exact Mmono q (Q'.invSucc n) (Q'.invSucc_pos n) hinvn
+
+/-- A monotone natural precision rate gives the cofinal rational rate
+`epsilon |-> R epsilon.den`.  This is the form needed when a Cauchy object
+supplies an arbitrary modulus that has first been replaced by its running
+maximum along `invSucc 0, invSucc 1, ...`. -/
+theorem convergesTo_completeLimitFromDenRate
+    (s : Nat → CReal) (R : Nat → Nat)
+    (reg : Nat → Q' → Nat)
+    (hreg : RegPred s reg)
+    (hb : LeRatBound s (fun epsilon => R epsilon.den))
+    (hRmono : ∀ {a b : Nat}, a <= b -> R a <= R b) :
+    ConvergesTo s
+      (completeLimitFromRate s (fun epsilon => R epsilon.den) reg hreg hb) := by
+  apply convergesTo_completeLimitFromRate_of_cofinal
+    s (fun epsilon => R epsilon.den) reg hreg hb
+  intro q hq n hqn
+  apply hRmono
+  rw [Q'.invSucc_den]
+  exact Nat.le_trans hqn (Nat.le_succ n)
 
 /-! ## 7. Bound-passing to the diagonal limit -/
 
@@ -521,7 +555,9 @@ no `native_decide`, no `sorry`. -/
 #print axioms YMGap.Constructive.CReal.diagSeqR_directed
 #print axioms YMGap.Constructive.CReal.completeLimitFromRate
 #print axioms YMGap.Constructive.CReal.completeLimitFromRate_approx
+#print axioms YMGap.Constructive.CReal.convergesTo_completeLimitFromRate_of_cofinal
 #print axioms YMGap.Constructive.CReal.convergesTo_completeLimitFromRate
+#print axioms YMGap.Constructive.CReal.convergesTo_completeLimitFromDenRate
 #print axioms YMGap.Constructive.CReal.leEv_ofQ'_completeLimitFromRate
 #print axioms YMGap.Constructive.CReal.leEv_completeLimitFromRate_ofQ'
 #print axioms YMGap.Constructive.CReal.isPositiveEv_completeLimitFromRate

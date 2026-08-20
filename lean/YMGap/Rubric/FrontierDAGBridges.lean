@@ -62,11 +62,13 @@ import YMGap.Continuum.FiniteSMarginWorstcase
 import YMGap.Continuum.AcNReserveAnalytic
 import YMGap.Continuum.LaplaceMarginDeep
 import YMGap.Continuum.FusionCoreStep
+import YMGap.Continuum.ContinuumSelectedTheoryPins
 
 namespace YMGap.Rubric.FrontierDAGBridges
 
 open YMGap.Constructive
 open YMGap.Continuum
+open YMGap.Continuum.ContinuumMeasure
 open YMGap.Continuum.GNSQuotient
 open YMGap.Continuum.ClusterCount4DProgress
 open YMGap.Continuum.AFRateCalibration
@@ -190,6 +192,81 @@ def finiteSMargin_of_crossRatio {w : Q'} (hw0 : (0 : Q') ≤ w)
     AcNReserveAnalytic.FiniteSMargin w :=
   FiniteSMarginWorstcase.finiteSMarginOfCrossRatio hw0 hwWH star m
 
+/-! ## (v) Canonical frontier to exact-mass selected-theory completion
+
+The exact-mass endpoints are downstream consumers with substantially more
+same-object continuum data than the historical `FrontierDAG`: a selected
+projective measure thread, OS/GNS reconstruction, exact logarithmic physical
+mass, scaling-window convergence, and the same-theory pins.  Consequently there
+is no definitional projection in either direction.
+
+The two completion maps below are the honest relationship required by the
+anti-proliferation rule.  They are named, Type-level, and deliberately
+uninhabited.  The second is stronger: it returns the selected exact-mass target
+together with `SelectedTheoryPins`, so its rotation, gauge, UV, and interaction
+data cannot come from unrelated existential carriers. -/
+
+/-- **Canonical frontier -> exact-mass clustering completion (NAMED-OPEN).**
+An inhabitant must turn every compatible canonical frontier datum into the
+same-measure exact-mass clustering endpoint.  No such completion is constructed
+here. -/
+abbrev FrontierToExactMassClusteringTargetBridge
+    (p : z4Chain.toLattice.Plaquette) (w : Q')
+    {D : GNSData} (G : SpectralGapData D.gnsComplete)
+    (L : AdditiveTransferOperator D) (N pGamma : Nat)
+    {M : Nat -> Type} (mu : ContinuumMeasure M) : Type 3 :=
+  FrontierDAG.FrontierDAG p w G L N pGamma ->
+    ContinuumExactMassClusteringTarget.ContinuumExactMassClusteringTarget mu
+
+/-- **Canonical frontier -> selected pinned exact-mass theory (NAMED-OPEN).**
+This is the strongest current completion seam: it must return both the selected
+exact-mass decay target and its same-OS-algebra, classified-group, selected-UV-
+thread, and same-correlator non-Gaussian pins.  No inhabitant is supplied. -/
+abbrev FrontierToContinuumSelectedExactMassDecayTargetBridge
+    (p : z4Chain.toLattice.Plaquette) (w : Q')
+    {D : GNSData} (G : SpectralGapData D.gnsComplete)
+    (L : AdditiveTransferOperator D) (N pGamma : Nat)
+    {M : Nat -> Type} (mu : ContinuumMeasure M) : Type 3 :=
+  FrontierDAG.FrontierDAG p w G L N pGamma ->
+    Sigma fun T :
+      ContinuumSelectedExactMassDecayTarget.ContinuumSelectedExactMassDecayTarget mu =>
+      ContinuumSelectedTheoryPins.SelectedTheoryPins T
+
+/-- Apply a supplied canonical-frontier completion to the exact-mass clustering
+target.  This theorem is deliberately only a *consumer* of the open bridge: its
+signature makes the accounting edge machine-visible, but it constructs no
+bridge and hence closes no frontier field. -/
+def exactMassClusteringTarget_of_frontierBridge
+    (p : z4Chain.toLattice.Plaquette) (w : Q')
+    {D : GNSData} (G : SpectralGapData D.gnsComplete)
+    (L : AdditiveTransferOperator D) (N pGamma : Nat)
+    {M : Nat -> Type} (mu : ContinuumMeasure M)
+    (bridge :
+      FrontierDAG.FrontierDAG p w G L N pGamma ->
+        ContinuumExactMassClusteringTarget.ContinuumExactMassClusteringTarget mu)
+    (F : FrontierDAG.FrontierDAG p w G L N pGamma) :
+    ContinuumExactMassClusteringTarget.ContinuumExactMassClusteringTarget mu :=
+  bridge F
+
+/-- Apply a supplied canonical-frontier completion to the selected exact-mass
+target together with its same-theory pins.  As above, this consumes an explicit
+bridge hypothesis and does not inhabit that hypothesis. -/
+def selectedPinnedExactMassTarget_of_frontierBridge
+    (p : z4Chain.toLattice.Plaquette) (w : Q')
+    {D : GNSData} (G : SpectralGapData D.gnsComplete)
+    (L : AdditiveTransferOperator D) (N pGamma : Nat)
+    {M : Nat -> Type} (mu : ContinuumMeasure M)
+    (bridge :
+      FrontierDAG.FrontierDAG p w G L N pGamma ->
+        Sigma fun T :
+          ContinuumSelectedExactMassDecayTarget.ContinuumSelectedExactMassDecayTarget mu =>
+          ContinuumSelectedTheoryPins.SelectedTheoryPins T)
+    (F : FrontierDAG.FrontierDAG p w G L N pGamma) :
+    Sigma fun T :
+      ContinuumSelectedExactMassDecayTarget.ContinuumSelectedExactMassDecayTarget mu =>
+      ContinuumSelectedTheoryPins.SelectedTheoryPins T :=
+  bridge F
+
 /-! ## PROVED vs OPEN (AGENTS.md Rule 6)
 
 PROVED here (axiom-clean, `[propext]` / `[propext, Quot.sound]`):
@@ -199,7 +276,10 @@ PROVED here (axiom-clean, `[propext]` / `[propext, Quot.sound]`):
   * (iii) `qFloor_of_openTrueMargin` — multiplicative route, discharges the real
           `FrontierDAG.trueMargin` atom into `QFloor` (the KEY result);
   * (iii) `frontierTrueMargin_qFloor` — the same at the `FrontierDAG` field;
-  * (iv)  `finiteSMargin_of_crossRatio` — the PROVED converse of `CoreBBridge`.
+  * (iv)  `finiteSMargin_of_crossRatio` — the PROVED converse of `CoreBBridge`;
+  * (v)   `exactMassClusteringTarget_of_frontierBridge` and
+          `selectedPinnedExactMassTarget_of_frontierBridge` — axiom-clean
+          consumers of explicitly supplied completion bridges (not constructors).
 
 OPEN / REFUTED (named, NO inhabitant — never `sorry`):
 
@@ -208,6 +288,10 @@ OPEN / REFUTED (named, NO inhabitant — never `sorry`):
           genuine link being the named per-scale `hbridge_of_hlocalize`;
   * (iv)  `FrontierDAG.CoreBBridge` — the forward `FiniteSMargin → CrossRatioMonotone`
           direction stays open; the suspected equivalence is refuted.
+  * (v)   `FrontierToExactMassClusteringTargetBridge` and
+          `FrontierToContinuumSelectedExactMassDecayTargetBridge` — completion
+          from the canonical frontier to the same-measure exact-log-mass target,
+          with the latter additionally returning the non-phantom YM pins.
 
 Nothing here inhabits a Clay-frontier type: (iii)'s `QFloor` supplies are
 conditional on the uninhabited true-margin residual / on a `FrontierDAG` term, so
@@ -222,3 +306,5 @@ end YMGap.Rubric.FrontierDAGBridges
 #print axioms YMGap.Rubric.FrontierDAGBridges.qFloor_of_openTrueMargin
 #print axioms YMGap.Rubric.FrontierDAGBridges.frontierTrueMargin_qFloor
 #print axioms YMGap.Rubric.FrontierDAGBridges.finiteSMargin_of_crossRatio
+#print axioms YMGap.Rubric.FrontierDAGBridges.exactMassClusteringTarget_of_frontierBridge
+#print axioms YMGap.Rubric.FrontierDAGBridges.selectedPinnedExactMassTarget_of_frontierBridge

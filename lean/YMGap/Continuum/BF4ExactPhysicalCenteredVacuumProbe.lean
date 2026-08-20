@@ -19,6 +19,7 @@ Finite lists and exact `Q'` arithmetic only.  No `Classical.*`,
 -/
 
 import YMGap.Continuum.BF4ExactPhysicalPerronCenteredReroute
+import YMGap.Continuum.BF4ExactPhysicalPerronSameActionFence
 
 namespace YMGap.Continuum.BF4ExactPhysicalCenteredVacuumProbe
 

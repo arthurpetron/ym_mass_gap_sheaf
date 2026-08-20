@@ -200,6 +200,15 @@ theorem invSqTerm_nonneg (B : Nat) (hB : 2 ≤ B) (k : Nat) :
     (0 : Q') ≤ invSqTerm B hB k :=
   unit_nonneg _ _
 
+/-- The inverse-square majorant decreases as its natural index increases. -/
+theorem invSqTerm_antitone (B : Nat) (hB : 2 <= B)
+    {i j : Nat} (hij : i <= j) :
+    invSqTerm B hB j <= invSqTerm B hB i := by
+  unfold invSqTerm
+  apply unit_antitone
+  exact Nat.mul_le_mul (Nat.add_le_add_right hij B)
+    (Nat.add_le_add_right hij B)
+
 /-- The telescoping potential `1/(k+B−1)` (`= S k`). -/
 def pot (B : Nat) (hB : 2 ≤ B) (k : Nat) : Q' :=
   unit (k + B - 1) (by omega)
@@ -556,6 +565,7 @@ end YMGap.Continuum.SummableInverseSquare
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
 
 #print axioms YMGap.Continuum.SummableInverseSquare.unit_antitone
+#print axioms YMGap.Continuum.SummableInverseSquare.invSqTerm_antitone
 #print axioms YMGap.Continuum.SummableInverseSquare.invSq_le_lower
 #print axioms YMGap.Continuum.SummableInverseSquare.telescope_identity
 #print axioms YMGap.Continuum.SummableInverseSquare.invSq_le_telescope

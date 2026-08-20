@@ -24,7 +24,7 @@ Finite lists and exact `Q'` arithmetic only.  No `Classical.*`,
 `native_decide`, `sorry`, custom axiom, choice, or noncomputable declaration.
 -/
 
-import YMGap.Continuum.BF4ExactPhysicalPerronSameActionFence
+import YMGap.Continuum.BF4ExactPhysicalPerronReroute
 
 namespace YMGap.Continuum.BF4ExactPhysicalPerronCenteredReroute
 

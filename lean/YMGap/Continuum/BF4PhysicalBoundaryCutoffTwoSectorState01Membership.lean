@@ -1,0 +1,17 @@
+/- Named production-sector membership for state 1. -/
+import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSectorLocalZeroCertificate
+
+namespace YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSectorState01Membership
+
+open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCubeSubsetEnumeration
+open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSectorLocalZeroCertificate
+open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSectorFactorGraph
+
+theorem cutoffTwoSectorState01_mem :
+    cutoffTwoSectorLocalZeroStateAt 1 ∈ cutoffTwoCubeSectorStates :=
+  cutoffTwoSectorLocalZeroStateAt_mem (by decide)
+
+end YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSectorState01Membership
+
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSectorState01Membership.cutoffTwoSectorState01_mem

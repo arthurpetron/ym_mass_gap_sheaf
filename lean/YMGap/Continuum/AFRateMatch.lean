@@ -237,10 +237,8 @@ def af_coupling_reciprocal_rate (C : AFTrajectoryCertificate) :
 which tends to zero — the spacing modulus of the continuum limit is supplied by the
 proved running, not assumed. -/
 theorem af_schedule_vanishes (C : AFTrajectoryCertificate) :
-    ∀ ε : Q', (0 : Q') < ε → ∃ N : Nat, ∀ d : Nat, N ≤ d →
-      afSchedule C d ≤ Q'.divPos (afSchedule_rate C).1
-        (harmDen (afSchedule_rate C).2.1 d)
-        (harmDen_pos (afSchedule_rate C).2.2.2.1 d) :=
+    ∀ ε : Q', (0 : Q') < ε → ∀ d : Nat,
+      afScheduleCutoff C ε ≤ d → afSchedule C d ≤ ε :=
   afSchedule_to_zero C
 
 end YMGap.Continuum.AFRateMatch

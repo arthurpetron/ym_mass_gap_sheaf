@@ -1099,6 +1099,99 @@ theorem expNegCD_converges (w : CReal) (d : ExpNegCData w) :
     ConvergesTo (fun k => ExpNeg.expNeg (w.approx k) (d.hpos k)) (expNegCD w d) :=
   ExpNeg.expNegC_converges w d.Mw d.hpos d.hle1 d.hMw d.hMwmono
 
+/-- **Sequential continuity of the constructive exponential on `[0,1]`.**
+If `w_j -> W` and every exponent is equipped with its constructive
+`ExpNegCData`, then `expNegCD w_j -> expNegCD W`.  The proof uses the uniform
+partial-sum Lipschitz constant `3`: at one common exponent approximation index,
+input closeness at tolerance `(epsilon/4)/3` makes the two rational exponential
+partials `epsilon/4`-close, and the two defining completion limits consume the
+other two quarters. -/
+theorem convergesTo_expNegCD
+    {w : Nat -> CReal} {W : CReal}
+    (dw : forall j : Nat, ExpNegCData (w j)) (dW : ExpNegCData W)
+    (hw : ConvergesTo w W) :
+    ConvergesTo (fun j => expNegCD (w j) (dw j)) (expNegCD W dW) := by
+  intro epsilon hepsilon
+  let q : Q' := HalfPow.half * (HalfPow.half * epsilon)
+  have hq : (0 : Q') < q :=
+    ExpNeg.half_mul_pos _ (ExpNeg.half_mul_pos epsilon hepsilon)
+  let delta : Q' := q * Q'.mkPos 1 3 (by decide)
+  have hdelta : (0 : Q') < delta := ExpNeg.third_pos hq
+  obtain ⟨Nstage, hstage⟩ := hw delta hdelta
+  refine ⟨Nstage, fun N hN => ?_⟩
+  obtain ⟨Ninput, hinput⟩ := hstage N hN
+  obtain ⟨Nleft, hleft⟩ := expNegCD_converges (w N) (dw N) q hq
+  obtain ⟨Nright, hright⟩ := expNegCD_converges W dW q hq
+  let i : Nat := max Ninput (max Nleft Nright)
+  have hiInput : Ninput <= i := Nat.le_max_left _ _
+  have hiLeft : Nleft <= i :=
+    Nat.le_trans (Nat.le_max_left _ _) (Nat.le_max_right _ _)
+  have hiRight : Nright <= i :=
+    Nat.le_trans (Nat.le_max_right _ _) (Nat.le_max_right _ _)
+  obtain ⟨Pleft, hPleft⟩ := hleft i hiLeft
+  obtain ⟨Pright, hPright⟩ := hright i hiRight
+  obtain ⟨harg1, harg2⟩ := hinput i hiInput
+  refine ⟨max Pleft Pright, fun n hn => ?_⟩
+  have hnLeft : Pleft <= n := Nat.le_trans (Nat.le_max_left _ _) hn
+  have hnRight : Pright <= n := Nat.le_trans (Nat.le_max_right _ _) hn
+  obtain ⟨hleft1, hleft2⟩ := hPleft n hnLeft
+  obtain ⟨hright1, hright2⟩ := hPright n hnRight
+  have hpartials : Q'.abs
+      (ExpNeg.partialSum ((w N).approx i) n +
+        -(ExpNeg.partialSum (W.approx i) n)) <= q := by
+    refine Q'.le_trans' _ _ _
+      (ExpNeg.partialSumDiff_le
+        ((dw N).hpos i) ((dw N).hle1 i)
+        (dW.hpos i) (dW.hle1 i) (Q'.le_of_lt hdelta)
+        harg1 harg2 n) ?_
+    refine Q'.le_trans' _ _ _
+      (Q'.mul_le_mul_of_nonneg_left (ExpNeg.sumBound n)
+        (Q'.ofNat 3) delta (ExpNeg.sumBound_le_three n)
+        (Q'.le_of_lt hdelta)) ?_
+    exact Q'.le_of_eqv (ExpNeg.third_mul_three q)
+  have hpartial1 :
+      ExpNeg.partialSum ((w N).approx i) n <=
+        ExpNeg.partialSum (W.approx i) n + q :=
+    ExpNeg.le_add_of_abs_sub_le hpartials
+  have hpartial2 :
+      ExpNeg.partialSum (W.approx i) n <=
+        ExpNeg.partialSum ((w N).approx i) n + q :=
+    ExpNeg.le_add_of_abs_sub_le
+      (Q'.le_trans' _ _ _
+        (Q'.le_of_eqv
+          (ExpNeg.abs_sub_comm
+            (ExpNeg.partialSum (W.approx i) n)
+            (ExpNeg.partialSum ((w N).approx i) n)))
+        hpartials)
+  have chain3 : forall a b c d : Q',
+      a <= b + q -> b <= c + q -> c <= d + q -> a <= d + epsilon := by
+    intro a b c d hab hbc hcd
+    have h1 : a <= (c + q) + q :=
+      Q'.le_trans' _ _ _ hab (Q'.add_le_add_right _ _ q hbc)
+    have h2 : a <= ((d + q) + q) + q :=
+      Q'.le_trans' _ _ _ h1
+        (Q'.add_le_add_right _ _ q (Q'.add_le_add_right _ _ q hcd))
+    refine Q'.le_trans' _ _ _ h2 ?_
+    have hreassoc : (((d + q) + q) + q).eqv (d + ((q + q) + q)) := by
+      refine Q'.eqv_trans _ _ _ (Q'.add_assoc_eqv (d + q) q q) ?_
+      refine Q'.eqv_trans _ _ _ (Q'.add_assoc_eqv d q (q + q)) ?_
+      exact Q'.add_eqv_congr_left d _ _
+        (Q'.eqv_symm (Q'.add_assoc_eqv q q q))
+    refine Q'.le_trans' _ _ _ (Q'.le_of_eqv hreassoc) ?_
+    have hpad : d + ((q + q) + q) <= d + (((q + q) + q) + q) :=
+      Q'.add_le_add_left _ _ _
+        (Q'.add_le_self_of_nonneg ((q + q) + q) q (Q'.le_of_lt hq))
+    refine Q'.le_trans' _ _ _ hpad ?_
+    refine Q'.le_of_eqv (Q'.add_eqv_congr_left d _ _ ?_)
+    have hqq : (q + q).eqv (HalfPow.half * epsilon) :=
+      ExpNeg.two_halves (HalfPow.half * epsilon)
+    refine Q'.eqv_trans _ _ _ (Q'.add_assoc_eqv (q + q) q q) ?_
+    refine Q'.eqv_trans _ _ _ (ExpNeg.add_eqv_congr2 hqq hqq) ?_
+    exact ExpNeg.two_halves epsilon
+  exact ⟨
+    chain3 _ _ _ _ hleft2 hpartial1 hright1,
+    chain3 _ _ _ _ hright2 hpartial2 hleft1⟩
+
 /-- **The add-law lift.**  `e^{−a}·e^{−b} ≈ e^{−(a+b)}` for CReal arguments.
 Both factors converge (`expNegCD_converges`), their product converges to the
 product of limits (`convergesTo_mul`, bounded by `|partialSum| ≤ 3`), the product
@@ -1228,6 +1321,7 @@ end YMGap.Constructive
 
 #print axioms YMGap.Constructive.CReal.cpow
 #print axioms YMGap.Constructive.CReal.convergesTo_mul
+#print axioms YMGap.Constructive.CReal.convergesTo_expNegCD
 #print axioms YMGap.Constructive.CReal.expNegCD_add
 
 #print axioms YMGap.Constructive.CReal.mul_congr_left
