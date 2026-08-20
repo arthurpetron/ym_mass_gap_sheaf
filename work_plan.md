@@ -21995,3 +21995,38 @@ with the already proved dyadic same-object moment identity so that taking
 large powers removes that fixed vector-dependent prefactor.  Extension from
 the dense vacuum complement to the completed one and all continuum/Clay
 claims remain open.
+
+## 113. Dyadic prefactor removal and uniform dense form gap (2026-08-20)
+
+**Status. THE VECTOR-DEPENDENT PRESENTATION PREFACTOR HAS BEEN REMOVED, AND
+THE CONCRETE TWO-STEP TRANSFER HAS A COMMON STRICT FORM BOUND ON THE DENSE
+VACUUM COMPLEMENT.**
+
+`Z4HalfTimeReflectionStrictJointDenseDyadicGap.lean` supplies a reusable
+constructive spectral-radius argument for `CReal` moment sequences.  If a
+positive excess over `q*m₀` existed, located rational order would expose an
+explicit `d > 0`.  The geometric prefactor bound at time zero gives `m₀ <= P`;
+therefore `c := d/P > 0` and `r := q+c` yield `r*m₀ <= m₁`.  Dyadic
+log-convexity propagates this to `r^(2^k)*m₀ <= m_(2^k)`.  A new eventual-order
+cancellation theorem removes the strictly positive `m₀` factor without a
+reciprocal real.  Rational geometric domination then contradicts the existing
+`P*q^n` envelope.
+
+Specializing this engine through the proved thermodynamic same-object equality
+gives, for every finite strict-cylinder presentation orthogonal to the vacuum,
+
+```text
+<T² v,v> <= (1/16) <v,v>.
+```
+
+The rate is independent of the presentation, is nonnegative, and is strictly
+below one.  Focused checking reports only `[propext, Quot.sound]` for the order
+split, positive-factor cancellation, abstract dyadic theorem, same-object rate
+bound, and dense transfer form gap.
+
+This is a uniform **dense** fixed-spacing strong-coupling lattice gap.  The
+next required join is topological: prove the vacuum-orthogonal dense image is
+dense in the completed vacuum complement in the needed sense and pass the form
+inequality through the completed inner product and transfer continuity.  The
+continuum scaling limit, continuum QFT axioms, and Clay mass-gap theorem remain
+open.
