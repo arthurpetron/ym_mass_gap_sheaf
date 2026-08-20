@@ -40,6 +40,7 @@ open YMGap.Continuum.Z4HalfTimeReflectionStrictJointCylinderDirectLimit
 open YMGap.Continuum.Z4HalfTimeReflectionStrictJointCylinderSeminorm
 open YMGap.Continuum.Z4HalfTimeReflectionStrictJointDirectLimitBilinear
 open YMGap.Continuum.Z4HalfTimeReflectionStrictJointDoubledTimeMixedOSBilinear
+open YMGap.Continuum.Z4HalfTimeReflectionStrictJointOrientedDoubledTimeCovariance
 open YMGap.Continuum.Z4HalfTimeReflectionStrictJointVacuumComplement
 open YMGap.Continuum.Z4StrongCouplingParametricAnchor
 
@@ -64,6 +65,64 @@ def strictJointDoubledTimeUpperMean
   strictJointCylinderReflectionBilinear hcoupling hle
     (strictJointCylinderVacuum (base + (shift + shift)))
     (strictJointDoubledTimeMixedTarget shift vector)
+
+/-- The unshifted vacuum coefficient of a strict cylinder.  This is the one
+constructive real whose rational approximants can be used to center the
+literal rational-linear carrier. -/
+def strictJointVacuumMean
+    {coupling : Q'} (hcoupling : (0 : Q') ≤ coupling)
+    (hle : coupling ≤ anchorCoupling)
+    {base : Nat} (vector : StrictJointCylinderVector base) : CReal :=
+  strictJointCylinderReflectionBilinear hcoupling hle vector
+    (strictJointCylinderVacuum base)
+
+/-- Canonical box enlargement does not change the lower one-point function. -/
+theorem strictJointDoubledTimeLowerMean_equiv_vacuumMean
+    {coupling : Q'} (hcoupling : (0 : Q') ≤ coupling)
+    (hle : coupling ≤ anchorCoupling)
+    {base : Nat} (shift : Nat)
+    (vector : StrictJointCylinderVector base) :
+    CReal.Equiv
+      (strictJointDoubledTimeLowerMean hcoupling hle shift vector)
+      (strictJointVacuumMean hcoupling hle vector) := by
+  have htransport :=
+    boxTransportStrictJointCylinderVector_reflectionBilinear_equiv
+      hcoupling hle (shift + shift) vector
+      (strictJointCylinderVacuum base)
+  rw [boxTransportStrictJointCylinderVacuum] at htransport
+  simpa only [strictJointDoubledTimeLowerMean,
+    strictJointDoubledTimeMixedSource, strictJointVacuumMean] using htransport
+
+/-- Even-time covariance and vacuum stationarity identify the upper
+one-point function with the same unshifted vacuum coefficient. -/
+theorem strictJointDoubledTimeUpperMean_equiv_vacuumMean
+    {coupling : Q'} (hcoupling : (0 : Q') ≤ coupling)
+    (hle : coupling ≤ anchorCoupling)
+    {base : Nat} (shift : Nat)
+    (vector : StrictJointCylinderVector base) :
+    CReal.Equiv
+      (strictJointDoubledTimeUpperMean hcoupling hle shift vector)
+      (strictJointVacuumMean hcoupling hle vector) := by
+  let vacuum := strictJointCylinderVacuum base
+  have hcovariance := strictJointEvenOneSidedTimeCovariance_derived
+    hcoupling hle shift vacuum vector
+  change CReal.Equiv
+    (strictJointCylinderReflectionBilinear hcoupling hle
+      (boxTransportStrictJointCylinderVector
+        (Nat.le_add_right base (shift + shift)) vacuum)
+      (timeTranslateStrictJointCylinderVector (shift + shift) vector))
+    (strictJointCylinderReflectionBilinear hcoupling hle
+      (boxTransportStrictJointCylinderVector
+        (Nat.le_add_right base (shift + shift)) vector)
+      (timeTranslateStrictJointCylinderVector (shift + shift) vacuum))
+      at hcovariance
+  rw [boxTransportStrictJointCylinderVacuum,
+    timeTranslateStrictJointCylinderVacuum] at hcovariance
+  have htransport :=
+    boxTransportStrictJointCylinderVector_reflectionBilinear_equiv
+      hcoupling hle (shift + shift) vector vacuum
+  rw [boxTransportStrictJointCylinderVacuum] at htransport
+  exact CReal.Equiv.trans hcovariance htransport
 
 /-- The connected doubled-time form whose finite-volume approximants are the
 signed two-block covariances controlled by the geometric cluster expansion. -/
@@ -232,6 +291,8 @@ theorem strictJointCylinderCompletedTwoStepAutocorrelation_embed_eq_connected
 
 #print axioms strictJointDoubledTimeLowerMean_equiv_zero_of_vacuumOrthogonal
 #print axioms strictJointDoubledTimeUpperMean_equiv_zero_of_vacuumOrthogonal
+#print axioms strictJointDoubledTimeLowerMean_equiv_vacuumMean
+#print axioms strictJointDoubledTimeUpperMean_equiv_vacuumMean
 #print axioms strictJointDoubledTimeConnectedForm_equiv_OSBilinear_of_vacuumOrthogonal
 #print axioms strictJointCylinderCompletedTimeTranslate_embedRep
 #print axioms strictJointCylinderCompletedTwoStepAutocorrelation_embed_eq_mixedOS

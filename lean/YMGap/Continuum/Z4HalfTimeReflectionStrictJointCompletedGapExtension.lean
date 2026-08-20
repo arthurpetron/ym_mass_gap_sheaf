@@ -6,10 +6,11 @@ The dense strict-cylinder vacuum complement carries the uniform form estimate
   <S v, v> <= (1/16) <v, v>,
 
 for the concrete completed two-step transfer `S`.  Passing that estimate to a
-general completed vector requires more than density in the whole OS space: it
-requires a Cauchy representative whose stages lie *exactly* in the dense
-vacuum kernel.  This file separates the analytic limit passage, which is now
-proved, from that remaining scalar-closure/density statement.
+general completed vector by this route requires more than density in the whole
+OS space: it requires a Cauchy representative whose stages lie *exactly* in the
+dense vacuum kernel.  This file records that conditional analytic limit
+passage.  The downstream centered-completion argument avoids and supersedes
+the global exact-kernel density requirement.
 
 The residual hypothesis is carried in `Type`.  An approximation contains its
 actual Cauchy representative, an explicit-modulus `Close` witness to the
@@ -65,10 +66,10 @@ abbrev ExactDenseVacuumComplementReplacement
       StrictJointVacuumOrthogonal hcoupling hle stage.vector)
     original
 
-/-- The remaining global completion statement: every completed vector in the
-vacuum complement comes with exact dense-kernel approximation data.  This is
-deliberately a `Type`, not a bare existence proposition, preserving the
-representative and its constructive modulus.
+/-- The global exact-kernel completion statement required by this conditional
+route.  This is deliberately a `Type`, not a bare existence proposition,
+preserving the representative and its constructive modulus.  The centered
+completion route does not require an inhabitant of this type.
 -/
 def ExactDenseVacuumComplementDensity
     {coupling : Q'} (hcoupling : (0 : Q') <= coupling)

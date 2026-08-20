@@ -10,10 +10,10 @@ connected moment has the sharp common one-step rate `1/16` without any exact
 dense vacuum-orthogonality hypothesis.
 
 The geometric envelope is already proved for every strict cylinder.  The
-remaining laws are positivity, contraction to time zero, and dyadic
-log-convexity of the *centered* thermodynamic moment sequence.  They are
-packaged in `Type` so their eventual finite-volume/Gram witnesses remain
-visible.
+needed laws are positivity, contraction to time zero, and dyadic log-convexity
+of the *centered* thermodynamic moment sequence.  They are packaged in `Type`
+so their finite-volume/Gram origin remains visible, and are discharged
+downstream by rational centering.
 -/
 
 import YMGap.Continuum.Z4HalfTimeReflectionStrictJointDenseDyadicGap

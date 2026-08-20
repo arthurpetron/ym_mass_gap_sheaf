@@ -8,7 +8,8 @@ that have now been proved on the actual completed carrier: rational linearity,
 self-adjointness, positivity, norm contraction, vacuum stationarity, and
 vacuum-complement invariance.
 
-The strict `rho < 1` bound on the vacuum complement remains separate.
+The strict `rho < 1` bound is stated separately below and is discharged by
+`Z4HalfTimeReflectionStrictJointCenteredCompletedGap`.
 -/
 
 import YMGap.Continuum.Z4HalfTimeReflectionStrictJointCRealCompletedVacuumComplement
@@ -135,8 +136,9 @@ theorem strictJointCylinderCompletedTwoStepTransfer_preserves_vacuumOrthogonal
   strictJointCylinderCompletedEvenTimeTranslate_preserves_vacuumOrthogonal
     hcoupling hle 1 vector horthogonal
 
-/-- The one remaining transfer-matrix estimate, stated on the exact completed
-operator and its exact invariant vacuum complement. -/
+/-- The strict transfer-matrix estimate, stated on the exact completed operator
+and its exact invariant vacuum complement.  It is inhabited downstream by the
+centered completion argument. -/
 def StrictJointCylinderCompletedTwoStepVacuumFormGap
     {coupling : Q'} (hcoupling : (0 : Q') <= coupling)
     (hle : coupling <= anchorCoupling) (separator : Q') : Prop :=

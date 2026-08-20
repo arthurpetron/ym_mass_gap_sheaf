@@ -22126,3 +22126,73 @@ arbitrary completion representative; completed vacuum orthogonality then
 removes the limiting disconnected term.  The unconditional completed gap,
 continuum scaling limit, continuum QFT axioms, and Clay mass-gap theorem remain
 open.
+
+## 116. Rational centering discharges the central moment laws (2026-08-20)
+
+**Status. THE CENTERED POSITIVITY, TIME-ZERO CONTRACTION, AND DYADIC
+LOG-CONVEXITY LAWS ARE PROVED FOR EVERY DENSE STRICT-CYLINDER PRESENTATION;
+THE DENSE `1/16` FORM BOUND IS NOW UNCONDITIONAL.**
+
+`Z4HalfTimeReflectionStrictJointRationalCenteringMomentLaws.lean` keeps all
+centering operations inside the rational-linear carrier.  At approximation
+stage `k`, it replaces a strict cylinder `v` by the legal carrier element
+
+```text
+v - (vacuumMean v).approx k * vacuum.
+```
+
+The file expands this vector's raw mixed moment into four bilinear terms.
+Vacuum stationarity identifies both one-point terms with the same constructive
+real vacuum mean, while `CReal.convergesTo_self` sends the rational centering
+coefficient to that mean.  Thus the rationally centered raw moments converge
+to the existing thermodynamic central connected moments.
+
+The completed two-step Gram laws apply at every rational-centering stage and
+give nonnegativity, contraction to time zero, and dyadic log-convexity.  Passing
+these inequalities through their explicit limits inhabits
+`StrictJointAllDenseCentralMomentLaws`.  The constructive dyadic prefactor
+removal then proves, without exact dense vacuum orthogonality,
+
+```text
+c_1(v) <= (1/16) * c_0(v)
+```
+
+for every finite strict-cylinder presentation.  Focused checking reports only
+`[propext, Quot.sound]` for the new equalities, convergence statements, moment
+laws, and dense rate theorem.
+
+This closes the scalar-safe dense frontier.  It does not yet by itself prove a
+completed form estimate, a located spectral theorem, a continuum limit, or the
+Clay target.
+
+## 117. Unconditional completed vacuum-complement form gap (2026-08-20)
+
+**Status. THE UNIFORM `1/16` FORM ESTIMATE HAS PASSED TO THE ENTIRE COMPLETED
+VACUUM COMPLEMENT; THE EARLIER EXACT DENSE-KERNEL DENSITY HYPOTHESIS IS NO
+LONGER REQUIRED.**
+
+`Z4HalfTimeReflectionStrictJointCenteredCompletedGap.lean` starts from an
+arbitrary Cauchy representative of a completed vacuum-orthogonal vector.  Its
+stagewise vacuum pairing converges to zero by completed orthogonality.  The
+stagewise central moment is the raw two-step pairing minus the square of this
+vacuum pairing, so it converges to the raw completed two-step form.  At shift
+zero the same argument converges to the completed self-pairing.
+
+The unconditional dense centered estimate from milestone 116 can therefore be
+passed through both limits, yielding the headline inhabitant
+
+```text
+StrictJointCylinderCompletedTwoStepVacuumFormGap
+  hcoupling hle anchorDecoratedDoubledTimeRate
+```
+
+with `anchorDecoratedDoubledTimeRate = 1/16`, nonnegative and strictly below
+one, for every `0 <= coupling <= anchorCoupling`.  Focused checking reports
+only `[propext, Quot.sound]` for all representative-level convergence lemmas
+and the completed gap theorem.
+
+This is a completed fixed-spacing, strong-coupling lattice form gap.  It is not
+yet a constructed located spectral model and does not establish the stability
+of a physical mass scale under thermodynamic and lattice-spacing limits.  The
+continuum QFT construction, uniform continuum mass gap, and Clay theorem remain
+open.
