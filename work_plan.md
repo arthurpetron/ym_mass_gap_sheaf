@@ -22249,3 +22249,59 @@ spacing tends to zero.  The next causal bridge must transport a fine
 weak-coupling theory through a controlled RG/blocking map to this strong-
 coupling transfer endpoint while retaining a uniform positive *physical* mass
 scale.  Continuum measure/QFT construction and the Clay theorem remain open.
+
+## 119. Completed weak-to-strong RG transport contract and physical floor (2026-08-20)
+
+**Status. THE PROVED COMPLETED STRONG-COUPLING OPERATOR GAP NOW FEEDS THE
+CANONICAL FIXED-PHYSICAL-DISTANCE FLOOR PIPELINE THROUGH ONE EXPLICIT,
+TYPE-VALUED RG BRIDGE; THE PHYSICAL BRIDGE ITSELF REMAINS OPEN.**
+
+`Z4HalfTimeReflectionStrictJointCompletedRGTransport.lean` introduces
+`CompletedWeakToStrongRGBridge`.  At every fine spacing it carries the actual
+completed physical carrier indexed by the exact shifted two-loop AF coupling,
+its inner form, one-step transfer and vacuum complement, a positive block depth,
+and an isometric map to the proved strong-coupling completion.  The AF coupling
+is definitionally identified with `afSchedule`; its strict positivity and
+explicit coupling-to-zero modulus are derived rather than assumed.  Its central
+analytic field is the exact intertwining
+
+```text
+J_j (S_j^(depth j) x) = S_strong (J_j x).
+```
+
+The bridge also carries a same-operator rate-sharpness probe.  This pins the
+power of the selected physical gauge-invariant separator below the norm of the
+very blocked transfer being intertwined, preventing substitution of an
+unrelated decay coordinate.  Finally it records a uniform physical-length
+ceiling and an explicit modulus witnessing that the fine spacing tends to zero.
+
+From these data the new module proves, for every completed vacuum-orthogonal
+fine-scale vector,
+
+```text
+||S_j^(depth j) x||^2 <= (1/16)^2 ||x||^2,
+||S_j^(n * depth j) x||^2 <= ((1/16)^2)^n ||x||^2,
+(sep_phys j)^(depth j) <= 1/16.
+```
+
+The last inequality constructs the existing canonical
+`FixedDistanceContraction` with macro rate `1/16`.  Therefore the rational rate
+
+```text
+(1 - 1/16) / lengthCeiling
+```
+
+is constructively positive and lies below `(1-sep_phys j)/a_j` at every scale
+of the supplied `a_j -> 0` trajectory.  On a supplied logarithm window the same
+bridge constructs a uniform positive floor for the exact rate
+`-log(sep_phys j)/a_j`; an independent upper-rate ceiling is still required for
+a finite two-sided dimensional-transmutation band.  Every public theorem in the
+new module remains within the exact `[propext, Quot.sound]` gate (some require
+only `propext`, and strict iteration itself requires none).
+
+No `CompletedWeakToStrongRGBridge` inhabitant is manufactured.  Constructing
+its physical weak-coupling completions, exact vacuum-preserving isometric block
+maps, intertwining law, and same-operator sharpness probes along the AF
+trajectory is now the precise open nonperturbative RG edge.  Continuum
+Kolmogorov/OS reconstruction, the full QFT axioms, and the Clay theorem remain
+open.
