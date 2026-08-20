@@ -22030,3 +22030,57 @@ dense in the completed vacuum complement in the needed sense and pass the form
 inequality through the completed inner product and transfer continuity.  The
 continuum scaling limit, continuum QFT axioms, and Clay mass-gap theorem remain
 open.
+
+## 114. Constructive completion passage and exact kernel-density interface (2026-08-20)
+
+**Status. THE ANALYTIC LIMIT PASSAGE FROM STAGEWISE DENSE GAP ESTIMATES TO THE
+COMPLETED FORM IS PROVED; THE REMAINING TOPOLOGICAL/SCALAR-CLOSURE CLAIM IS NOW
+AN EXPLICIT TYPE-LEVEL WITNESS RATHER THAN AN IMPLICIT ASSUMPTION.**
+
+`Z4HalfTimeReflectionStrictJointCompletedGapExtension.lean` introduces the
+generic record
+
+```text
+ExactKernelCauchyReplacement D kernel X
+```
+
+containing a replacement Cauchy representative, an explicit-modulus `Close`
+witness to `X`, and a proof that every replacement stage lies exactly in the
+specified kernel.  Its strict-cylinder specialization records the precise
+data needed to approximate a completed vacuum-orthogonal vector by dense
+vectors that are themselves exactly vacuum-orthogonal.  Constant Cauchy
+representatives construct this witness for the already-established dense
+subspace.
+
+For every such representative, the file applies the dense `1/16` form bound
+stage by stage and uses the constructed pairing-limit convergence on both
+sides (including rational scaling of the source limit) to prove
+
+```text
+<S X,X> <= (1/16) <X,X>
+```
+
+in the completion.  Quotient soundness transports this estimate across the
+explicit `Close` witness.  Consequently the named Type-level hypothesis
+
+```text
+ExactDenseVacuumComplementDensity hcoupling hle
+```
+
+implies the exact existing proposition
+
+```text
+StrictJointCylinderCompletedTwoStepVacuumFormGap
+  hcoupling hle anchorDecoratedDoubledTimeRate.
+```
+
+Focused checking reports only `[propext, Quot.sound]` for the witness types,
+the analytic limit theorem, and the conditional completed gap.  The global
+kernel-density witness has **not** been inhabited.  Ordinary density of the
+rational-linear cylinder carrier is insufficient by itself: subtracting the
+exact vacuum mean generally requires a completed-real scalar.  The next
+causal branch is therefore either to construct compatible completed-real
+scalar multiplication/projection onto the vacuum kernel, or to prove and pass
+an approximately centered connected-form inequality that avoids exact
+stagewise centering.  The completed unconditional gap, continuum scaling
+limit, continuum QFT axioms, and Clay mass-gap theorem remain open.
