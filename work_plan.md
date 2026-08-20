@@ -21921,3 +21921,33 @@ half is to construct the receding-volume limit of the central signed
 covariance, prove its geometric bound survives volume removal, and identify
 that limit with the connected form above.  No uniform completed contraction
 or continuum mass gap is claimed here.
+
+## 111. Exact observable covariance and central-to-centered volume comparison (2026-08-20)
+
+**Status. THE FINITE SIGNED ASSEMBLY IS NOW LITERALLY A CENTERED OBSERVABLE
+MOMENT, AND THE CENTRAL EVEN-VOLUME FORM HAS AN EXPLICIT DYADIC COMPARISON TO
+THE EXISTING THERMODYNAMIC SCHEDULE.**
+
+`Z4CouplingParametricTwoBlockObservableCovariance.lean` defines the ordinary
+expectations of the rational Boolean observables themselves and proves, by
+finite algebra, that their centered moment is exactly the signed covariance
+assembly already carrying the common `1/16` geometric estimate.  Thus the
+geometric theorem is no longer phrased only as an atom-pair covariance sum.
+
+`Z4CouplingParametricSignedThermodynamicClustering.lean` then chooses the
+central even-volume law used by the geometric theorem on the selected
+lower-source/upper-target roots.  The selected event is proved equal to the
+projected ordinary-joint event, and the existing adjacent-volume estimate is
+summed against the two coefficient lists to give
+
+```text
+|centralCross(stage) - centeredCross.approx(stage)|
+  <= L1(left,right) * boundaryCoefficient(roots) * (1/2)^stage.
+```
+
+The focused checks report only `[propext, Quot.sound]` for the load-bearing
+identities and comparison theorem.  This proves the volume-schedule
+comparison edge but does not yet construct the central connected `CReal` or
+transport the `1/16` bound to the completed same-object moment.  Those are
+the next analytic joins; the presentation-independent uniform gap and the
+continuum/Clay theorem remain open.
