@@ -738,3 +738,31 @@ No full audit, remote push, or GitHub CI run was used.
    the "decomposition" is fake — record it, and the only honest attack left is on
    `singleStep` head-on or a declaration that it is the irreducible Clay core).
 3. **No more new-tool sweeps** whose predicted outcome is a confirmation alias.
+
+## Completed BF4/AF geometry and reduced operator RG residue (2026-08-20)
+
+`Z4HalfTimeReflectionStrictJointCompletedBF4RGReduction` factors the previously
+monolithic `CompletedWeakToStrongRGBridge` boundary along a causal line.  From
+an existing `BF4FarautQuarterPhysicalSeparatorProducer` and its exact
+two-loop-AF schedule identification, `BF4GeometryCompiler.ofProducer`
+constructs the coupling-to-zero schedule, quadratic-envelope spacing and its
+Type-level zero modulus, Faraut depth `46*bits+3`, positive uniformly bounded
+physical block length, and the honest same-object grouped rate `1/4`.
+
+The remaining `CompletedBF4RGOperatorRealization` contains only genuinely
+operator-level data: a completed scale carrier and transfer, an isometric map
+to the proved strong Z4 endpoint, exact block-transfer intertwining, vacuum
+complement preservation, realization of the finite BF4 rate probe, and the
+same-probe correlation-square/Cauchy--Schwarz handoff.  These fields imply the
+completed block squared-norm contraction at `(1/16)^2`; combined with the
+existing factor-four BF4 sharpness pin they reconstruct
+`separator^depth <= 1/4`, hence the positive physical margin floor
+`(1-1/4)/L` along the explicit vanishing-spacing trajectory.
+
+This does **not** inhabit either the BF4 producer or the completed operator
+realization.  In particular, the SU2 physical completed carrier, its
+same-object transfer/correlator identification, and the exact cross-model
+blocking map into the strong Z4 endpoint remain open.  No continuum measure,
+OS reconstruction of the physical weak-coupling theory, limit-stable gap, or
+Clay theorem follows.  The focused monitored Lean check reports only
+`[propext, Quot.sound]`; no full audit, remote push, or GitHub CI run was used.
