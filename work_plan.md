@@ -22196,3 +22196,56 @@ yet a constructed located spectral model and does not establish the stability
 of a physical mass scale under thermodynamic and lattice-spacing limits.  The
 continuum QFT construction, uniform continuum mass gap, and Clay theorem remain
 open.
+
+## 118. Completed operator-norm gap and geometric transfer decay (2026-08-20)
+
+**Status. THE COMPLETED `1/16` QUADRATIC-FORM GAP HAS BEEN UPGRADED TO AN
+INTRINSIC OPERATOR-NORM GAP AND ITERATED GEOMETRIC DECAY ON THE SAME VACUUM
+COMPLEMENT.**
+
+`Z4HalfTimeReflectionStrictJointCompletedOperatorNormGap.lean` derives the
+completed midpoint identity
+
+```text
+<T^s x,T^s y> = <x,T^(2s)y>
+```
+
+from the already-proved oriented doubled-time covariance.  This represents
+the positive two-step form `<Sx,y>`, with `S = T^2`, as an ordinary midpoint
+inner product and therefore proves Cauchy--Schwarz for that form.
+
+For a completed vacuum-orthogonal vector `x`, two-step-form Cauchy--Schwarz
+applied to `x` and `Sx`, followed by the form gap for `Sx`, gives
+
+```text
+||Sx||^4 <= <Sx,x> * ((1/16) ||Sx||^2).
+```
+
+A new constructive real-order lemma cancels the common nonnegative factor
+without division.  It uses only an explicit `PosEv` excess branch and the
+existing positive-factor cancellation theorem.  The resulting square-form
+estimate combines with the original form gap to prove
+
+```text
+||Sx||^2 <= (1/16)^2 ||x||^2.
+```
+
+Vacuum-complement invariance and the concrete semigroup identity
+`S^n = T^(2n)` then yield the iterated estimate
+
+```text
+||S^n x||^2 <= ((1/16)^2)^n ||x||^2,
+```
+
+together with squared matrix-coefficient decay against an arbitrary completed
+test vector.  Focused safe compilation checks the complete 910-module
+dependency cone, and every new public theorem reports exactly
+`[propext, Quot.sound]`.
+
+This is now an intrinsic completed fixed-spacing strong-coupling lattice
+operator gap, not merely a dense or quadratic-form-only estimate.  It still
+does not control the asymptotically free weak-coupling trajectory as lattice
+spacing tends to zero.  The next causal bridge must transport a fine
+weak-coupling theory through a controlled RG/blocking map to this strong-
+coupling transfer endpoint while retaining a uniform positive *physical* mass
+scale.  Continuum measure/QFT construction and the Clay theorem remain open.
