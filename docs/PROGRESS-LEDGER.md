@@ -792,3 +792,29 @@ The physical GNS datum, completion lift, vacuum/correlator realization, honest
 macro comparison map, continuum limit, and Clay theorem remain open.  The
 focused single-worker build completed 1128 jobs and reports only
 `[propext, Quot.sound]`; no full audit, remote push, or GitHub CI run was used.
+
+## Constructive completion of the physical BF4 macro transfer (2026-08-20)
+
+`BF4PhysicalMarkovGNSCompletion` now equips the literal finite BF4 observable
+carrier with its stationary marginal-weighted GNS form and descends the
+physical macro Markov action through the repository's explicit CReal Cauchy
+completion.  Exact pointwise rational linearity and the preceding Jensen
+estimate make a contractive diagonal transfer symbol.  On the completion, its
+transfer is self-adjoint, positive, and norm-nonexpanding.
+
+The constant observable gives a unit stationary vacuum.  Because the form only
+sees positive-marginal states, zero-marginal rows need not fix that observable
+pointwise; the proof instead shows that the discrepancy belongs to the GNS
+radical and therefore vanishes in the quotient.  Self-adjointness and vacuum
+fixation then prove that the completed vacuum complement is transfer-invariant.
+This is the actual physical finite-BF4 GNS carrier and completed macro transfer,
+not a placeholder realization and not a Faraut-depth re-iteration.
+
+No strict vacuum-complement contraction is proved.  The next frontier is the
+same-object realization identifying the completed matrix coefficient of the
+physical separator probe with the already-proved finite joint quadratic and
+macro correlation.  After that, the exact one-macro-step comparison map into
+the strong endpoint, uniform strict gap, limit stability, continuum theory,
+and Clay theorem remain open.  The focused single-worker build completed 1129
+jobs and every exported declaration reports only `[propext, Quot.sound]`; no
+full audit, remote push, or GitHub CI run was used.
