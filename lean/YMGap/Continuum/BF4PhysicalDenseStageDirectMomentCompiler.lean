@@ -47,6 +47,20 @@ open YMGap.Continuum.Z4HalfTimeReflectionStrictJointCRealCompletedCauchySchwarz
 
 /-! ## 1. The minimal representative transfer lift -/
 
+/-- A chosen Cauchy representative of the actual selected transfer.  This is
+the smallest transfer-lift datum needed by the representative graph-norm
+endpoint. -/
+structure WilsonRepresentativeTimeTranslationPin
+    {A : ObservableMeasure.ObsAlg}
+    {W : WilsonGNS.WilsonGNSData A}
+    (P : WilsonGNSTransferUnderdetermination.WilsonTimeTranslationPin W) :
+    Type 2 where
+  transferredRepresentative :
+    CauchyGNS W.toGNSData -> CauchyGNS W.toGNSData
+  transferredRepresentative_class : forall X,
+    Quotient.mk (cauchySetoid W.toGNSData) (transferredRepresentative X) =
+      P.op.T (Quotient.mk (cauchySetoid W.toGNSData) X)
+
 /-- A chosen Cauchy representative of the selected transfer, with the exact
 termwise observable-shift law used by the direct moment comparison.  Unlike
 `WilsonPointwiseLinearTimeTranslationPin`, this interface asks for no
@@ -67,6 +81,16 @@ structure WilsonPointwiseRepresentativeTimeTranslationPin
       (P.tau (X.seq n))
 
 namespace WilsonPointwiseRepresentativeTimeTranslationPin
+
+/-- Forget the termwise observable-shift equation. -/
+def toRepresentativePin
+    {A : ObservableMeasure.ObsAlg}
+    {W : WilsonGNS.WilsonGNSData A}
+    {P : WilsonGNSTransferUnderdetermination.WilsonTimeTranslationPin W}
+    (L : WilsonPointwiseRepresentativeTimeTranslationPin P) :
+    WilsonRepresentativeTimeTranslationPin P where
+  transferredRepresentative := L.transferredRepresentative
+  transferredRepresentative_class := L.transferredRepresentative_class
 
 /-- The former pointwise linear pin refines the representative-only pin. -/
 def ofLinear
@@ -151,6 +175,59 @@ structure BF4RawStageContinuumGraphMomentModulus
                 (transferredRawStageObservable D rawStageObservable)
                 scale observable + epsilon
 
+/-- The exact four moment families consumed by the slow diagonal after a
+representative lift has been selected.  Transferred targets are the terms of
+that chosen representative itself, so no pointwise identification with
+`tau` occurs in this interface. -/
+structure BF4RawStageContinuumRepresentativeGraphMomentModulus
+    {family : MatchedBlockFamily}
+    {coupling : Nat -> Q'}
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    {H : FourDExistence.ContinuumYMExistence mu}
+    (D : WilsonSelectedOSGNSData H)
+    (representativeTimeTranslation :
+      WilsonRepresentativeTimeTranslationPin D.timeTranslation)
+    (rawStageObservable : forall scale : Nat,
+      D.wilson.toGNSData.V ->
+        (MatchedPhysicalStageGNSData family coupling scale).V) : Type 2 where
+  sourceMoments : BF4RawStageContinuumMomentModulus D rawStageObservable
+  transferredSquareRate : SelectedWilsonCauchy D -> Nat -> Q' -> Nat
+  transferredSquareBound : forall (X : SelectedWilsonCauchy D) (index : Nat)
+    (epsilon : Q'), (0 : Q') < epsilon -> forall scale : Nat,
+      transferredSquareRate X index epsilon <= scale ->
+        finiteStageSquareExpectation D
+              (transferredRawStageObservable D rawStageObservable)
+              scale (X.seq index) <=
+            D.wilson.toGNSData.B
+              ((representativeTimeTranslation.transferredRepresentative X).seq
+                index)
+              ((representativeTimeTranslation.transferredRepresentative X).seq
+                index) + epsilon /\
+          D.wilson.toGNSData.B
+              ((representativeTimeTranslation.transferredRepresentative X).seq
+                index)
+              ((representativeTimeTranslation.transferredRepresentative X).seq
+                index) <=
+            finiteStageSquareExpectation D
+                (transferredRawStageObservable D rawStageObservable)
+                scale (X.seq index) + epsilon
+  transferredMeanRate : SelectedWilsonCauchy D -> Nat -> Q' -> Nat
+  transferredMeanBound : forall (X : SelectedWilsonCauchy D) (index : Nat)
+    (epsilon : Q'), (0 : Q') < epsilon -> forall scale : Nat,
+      transferredMeanRate X index epsilon <= scale ->
+        finiteStageRawMean D
+              (transferredRawStageObservable D rawStageObservable)
+              scale (X.seq index) <=
+            D.wilson.toGNSData.B
+              ((representativeTimeTranslation.transferredRepresentative X).seq
+                index) H.os_axioms.A.one + epsilon /\
+          D.wilson.toGNSData.B
+              ((representativeTimeTranslation.transferredRepresentative X).seq
+                index) H.os_axioms.A.one <=
+            finiteStageRawMean D
+                (transferredRawStageObservable D rawStageObservable)
+                scale (X.seq index) + epsilon
+
 namespace BF4RawStageContinuumMomentModulus
 
 variable
@@ -215,6 +292,63 @@ variable
       D.wilson.toGNSData.V ->
         (MatchedPhysicalStageGNSData family coupling scale).V}
     (data : BF4RawStageContinuumGraphMomentModulus D rawStageObservable)
+
+/-- A termwise transfer identification turns observable-shift graph moments
+into the weaker estimates targeting the chosen transferred representative. -/
+def toRepresentativeGraphMomentModulus
+    (pointwise :
+      WilsonPointwiseRepresentativeTimeTranslationPin D.timeTranslation) :
+    BF4RawStageContinuumRepresentativeGraphMomentModulus D
+      pointwise.toRepresentativePin rawStageObservable where
+  sourceMoments := data.sourceMoments
+  transferredSquareRate := fun X index epsilon =>
+    data.transferredSquareRate (X.seq index) epsilon
+  transferredSquareBound := by
+    intro X index epsilon hepsilon scale hscale
+    let a := X.seq index
+    let Ta := D.timeTranslation.tau a
+    have hbound := data.transferredSquareBound
+      a epsilon hepsilon scale hscale
+    have hpointwise : D.wilson.toGNSData.veq
+        ((pointwise.transferredRepresentative X).seq index) Ta :=
+      pointwise.pointwise X index
+    have hform :
+        (D.wilson.toGNSData.B
+          ((pointwise.transferredRepresentative X).seq index)
+          ((pointwise.transferredRepresentative X).seq index)).eqv
+          (continuumSquareExpectation D Ta) :=
+      Q'.eqv_trans _ _ _
+        (D.wilson.toGNSData.B_diag_congr hpointwise)
+        (Q'.eqv_of_eq (continuumForm_eq_continuumSquareExpectation D Ta))
+    exact
+      ⟨le_of_le_eqv hbound.1
+          (Q'.add_eqv_congr_right _ _ epsilon (Q'.eqv_symm hform)),
+        le_of_eqv_le hform hbound.2⟩
+  transferredMeanRate := fun X index epsilon =>
+    data.transferredMeanRate (X.seq index) epsilon
+  transferredMeanBound := by
+    intro X index epsilon hepsilon scale hscale
+    let a := X.seq index
+    let Ta := D.timeTranslation.tau a
+    have hbound := data.transferredMeanBound
+      a epsilon hepsilon scale hscale
+    have hpointwise : D.wilson.toGNSData.veq
+        ((pointwise.transferredRepresentative X).seq index) Ta :=
+      pointwise.pointwise X index
+    have hpair :
+        (D.wilson.toGNSData.B
+          ((pointwise.transferredRepresentative X).seq index)
+          H.os_axioms.A.one).eqv
+          (H.os_axioms.E.E (continuumVacuumPairingObservable D Ta)) :=
+      Q'.eqv_trans _ _ _
+        (D.wilson.toGNSData.B_congr_left H.os_axioms.A.one hpointwise)
+        (Q'.eqv_of_eq
+          (WilsonDenseUnitVacuumPairingModulus.pairing_eq_continuumVacuumPairingExpectation
+            (D := D) Ta))
+    exact
+      ⟨le_of_le_eqv hbound.1
+          (Q'.add_eqv_congr_right _ _ epsilon (Q'.eqv_symm hpair)),
+        le_of_eqv_le hpair hbound.2⟩
 
 def regularTransferredSquareRate (observable : D.wilson.toGNSData.V)
     (epsilon : Q') : Nat :=
@@ -318,6 +452,128 @@ theorem regularTransferredMeanBound
 
 end BF4RawStageContinuumGraphMomentModulus
 
+namespace BF4RawStageContinuumRepresentativeGraphMomentModulus
+
+variable
+    {family : MatchedBlockFamily}
+    {coupling : Nat -> Q'}
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    {H : FourDExistence.ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+    {representativeTimeTranslation :
+      WilsonRepresentativeTimeTranslationPin D.timeTranslation}
+    {rawStageObservable : forall scale : Nat,
+      D.wilson.toGNSData.V ->
+        (MatchedPhysicalStageGNSData family coupling scale).V}
+    (data : BF4RawStageContinuumRepresentativeGraphMomentModulus D
+      representativeTimeTranslation rawStageObservable)
+
+def regularTransferredSquareRate (X : SelectedWilsonCauchy D) (index : Nat)
+    (epsilon : Q') : Nat :=
+  CReal.Gmax
+    (fun precision =>
+      data.transferredSquareRate X index (Q'.invSucc precision))
+    (CReal.lv epsilon)
+
+def regularTransferredMeanRate (X : SelectedWilsonCauchy D) (index : Nat)
+    (epsilon : Q') : Nat :=
+  CReal.Gmax
+    (fun precision =>
+      data.transferredMeanRate X index (Q'.invSucc precision))
+    (CReal.lv epsilon)
+
+theorem regularTransferredSquareRate_antitone
+    (X : SelectedWilsonCauchy D) (index : Nat)
+    {epsilon delta : Q'} (hdelta : (0 : Q') < delta)
+    (hdeltaepsilon : delta <= epsilon) :
+    data.regularTransferredSquareRate X index epsilon <=
+      data.regularTransferredSquareRate X index delta := by
+  exact CReal.Gmax_mono _ _ _
+    (CReal.lv_antitone hdelta hdeltaepsilon)
+
+theorem regularTransferredMeanRate_antitone
+    (X : SelectedWilsonCauchy D) (index : Nat)
+    {epsilon delta : Q'} (hdelta : (0 : Q') < delta)
+    (hdeltaepsilon : delta <= epsilon) :
+    data.regularTransferredMeanRate X index epsilon <=
+      data.regularTransferredMeanRate X index delta := by
+  exact CReal.Gmax_mono _ _ _
+    (CReal.lv_antitone hdelta hdeltaepsilon)
+
+theorem regularTransferredSquareBound
+    (X : SelectedWilsonCauchy D) (index : Nat)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (scale : Nat)
+    (hscale : data.regularTransferredSquareRate X index epsilon <= scale) :
+    finiteStageSquareExpectation D
+          (transferredRawStageObservable D rawStageObservable)
+          scale (X.seq index) <=
+        D.wilson.toGNSData.B
+          ((representativeTimeTranslation.transferredRepresentative X).seq
+            index)
+          ((representativeTimeTranslation.transferredRepresentative X).seq
+            index) + epsilon /\
+      D.wilson.toGNSData.B
+          ((representativeTimeTranslation.transferredRepresentative X).seq
+            index)
+          ((representativeTimeTranslation.transferredRepresentative X).seq
+            index) <=
+        finiteStageSquareExpectation D
+            (transferredRawStageObservable D rawStageObservable)
+            scale (X.seq index) + epsilon := by
+  let delta : Q' := Q'.invSucc (CReal.lv epsilon)
+  have hdelta : (0 : Q') < delta := Q'.invSucc_pos _
+  have hrawRate : data.transferredSquareRate X index delta <=
+      data.regularTransferredSquareRate X index epsilon :=
+    CReal.Gmax_ge
+      (fun precision =>
+        data.transferredSquareRate X index (Q'.invSucc precision))
+      (CReal.lv epsilon)
+  have hbound := data.transferredSquareBound X index delta hdelta scale
+    (Nat.le_trans hrawRate hscale)
+  have hdeltaepsilon : delta <= epsilon := CReal.invSucc_lv_le hepsilon
+  exact
+    ⟨Q'.le_trans' _ _ _ hbound.1
+        (Q'.add_le_add_left _ _ _ hdeltaepsilon),
+      Q'.le_trans' _ _ _ hbound.2
+        (Q'.add_le_add_left _ _ _ hdeltaepsilon)⟩
+
+theorem regularTransferredMeanBound
+    (X : SelectedWilsonCauchy D) (index : Nat)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (scale : Nat)
+    (hscale : data.regularTransferredMeanRate X index epsilon <= scale) :
+    finiteStageRawMean D
+          (transferredRawStageObservable D rawStageObservable)
+          scale (X.seq index) <=
+        D.wilson.toGNSData.B
+          ((representativeTimeTranslation.transferredRepresentative X).seq
+            index) H.os_axioms.A.one + epsilon /\
+      D.wilson.toGNSData.B
+          ((representativeTimeTranslation.transferredRepresentative X).seq
+            index) H.os_axioms.A.one <=
+        finiteStageRawMean D
+            (transferredRawStageObservable D rawStageObservable)
+            scale (X.seq index) + epsilon := by
+  let delta : Q' := Q'.invSucc (CReal.lv epsilon)
+  have hdelta : (0 : Q') < delta := Q'.invSucc_pos _
+  have hrawRate : data.transferredMeanRate X index delta <=
+      data.regularTransferredMeanRate X index epsilon :=
+    CReal.Gmax_ge
+      (fun precision =>
+        data.transferredMeanRate X index (Q'.invSucc precision))
+      (CReal.lv epsilon)
+  have hbound := data.transferredMeanBound X index delta hdelta scale
+    (Nat.le_trans hrawRate hscale)
+  have hdeltaepsilon : delta <= epsilon := CReal.invSucc_lv_le hepsilon
+  exact
+    ⟨Q'.le_trans' _ _ _ hbound.1
+        (Q'.add_le_add_left _ _ _ hdeltaepsilon),
+      Q'.le_trans' _ _ _ hbound.2
+        (Q'.add_le_add_left _ _ _ hdeltaepsilon)⟩
+
+end BF4RawStageContinuumRepresentativeGraphMomentModulus
+
 /-! ## 3. The weaker direct-moment input -/
 
 /-- Dense-stage data with direct finite-to-continuum raw moment moduli.  No
@@ -336,12 +592,13 @@ structure BF4WilsonDenseStageCenteredVacuumQualitativeDirectBase
     (D : WilsonSelectedOSGNSData H) : Type 3 where
   separatorPinned : D.selectedSpectralData.gap.sep = bf4MacroNormRate
   representativeTimeTranslation :
-    WilsonPointwiseRepresentativeTimeTranslationPin D.timeTranslation
+    WilsonRepresentativeTimeTranslationPin D.timeTranslation
   rawStageObservable : forall scale : Nat,
     D.wilson.toGNSData.V ->
       (MatchedPhysicalStageGNSData family coupling scale).V
   graphMoments :
-    BF4RawStageContinuumGraphMomentModulus D rawStageObservable
+    BF4RawStageContinuumRepresentativeGraphMomentModulus D
+      representativeTimeTranslation rawStageObservable
   vacuumPin : WilsonDenseUnitStationaryVacuumPin D
 
 namespace BF4WilsonDenseStageCenteredVacuumQualitativeDirectBase
@@ -365,13 +622,15 @@ def ofProjectiveBase
     BF4WilsonDenseStageCenteredVacuumQualitativeDirectBase producer D where
   separatorPinned := base.separatorPinned
   representativeTimeTranslation :=
-    WilsonPointwiseRepresentativeTimeTranslationPin.ofLinear
-      base.pointwiseTimeTranslation
+    (WilsonPointwiseRepresentativeTimeTranslationPin.ofLinear
+      base.pointwiseTimeTranslation).toRepresentativePin
   rawStageObservable := base.rawStageObservable
   graphMoments :=
-    BF4RawStageContinuumMomentModulus.toGraphMomentModulus
+    (BF4RawStageContinuumMomentModulus.toGraphMomentModulus
       base.rawMoments.toContinuumMomentModulus
-      base.rawStageTransfer_intertwines
+      base.rawStageTransfer_intertwines).toRepresentativeGraphMomentModulus
+        (WilsonPointwiseRepresentativeTimeTranslationPin.ofLinear
+          base.pointwiseTimeTranslation)
   vacuumPin := base.vacuumPin.toStationaryVacuumPin
 
 /-- Exact same-stage semantics specialize the direct base through the proved
@@ -415,12 +674,12 @@ def requirement (X : SelectedWilsonCauchy D) (index : Nat) : Nat :=
       (base.graphMoments.sourceMoments.regularSquareRate (X.seq index)
         (Q'.invSucc index))
       (base.graphMoments.regularTransferredSquareRate
-        (X.seq index) (Q'.invSucc index)))
+        X index (Q'.invSucc index)))
     (max
       (base.graphMoments.sourceMoments.regularMeanRate (X.seq index)
         (Q'.invSucc index))
       (base.graphMoments.regularTransferredMeanRate
-        (X.seq index) (Q'.invSucc index)))
+        X index (Q'.invSucc index)))
 
 def sampleRate (X : SelectedWilsonCauchy D) (threshold : Nat) : Nat :=
   slowThreshold (requirement base X) threshold
@@ -462,14 +721,15 @@ theorem square_diagonal_admissible (X : SelectedWilsonCauchy D)
     (scale : Nat) (hscale : diagonalRate base X epsilon <= scale) :
     let a := X.seq (sampleIndex base X scale)
     base.graphMoments.sourceMoments.regularSquareRate a epsilon <= scale /\
-      base.graphMoments.regularTransferredSquareRate a epsilon <= scale := by
+      base.graphMoments.regularTransferredSquareRate X
+        (sampleIndex base X scale) epsilon <= scale := by
   let index := sampleIndex base X scale
   have hrequired := selected_requirement_paid base X epsilon scale hscale
   have hindexepsilon := selected_precision base X epsilon hepsilon scale hscale
   have hordinary := base.graphMoments.sourceMoments.regularSquareRate_antitone
     (X.seq index) (Q'.invSucc_pos index) hindexepsilon
   have htranslated := base.graphMoments.regularTransferredSquareRate_antitone
-    (X.seq index)
+    X index
     (Q'.invSucc_pos index) hindexepsilon
   dsimp only
   constructor
@@ -487,14 +747,15 @@ theorem mean_diagonal_admissible (X : SelectedWilsonCauchy D)
     (scale : Nat) (hscale : diagonalRate base X epsilon <= scale) :
     let a := X.seq (sampleIndex base X scale)
     base.graphMoments.sourceMoments.regularMeanRate a epsilon <= scale /\
-      base.graphMoments.regularTransferredMeanRate a epsilon <= scale := by
+      base.graphMoments.regularTransferredMeanRate X
+        (sampleIndex base X scale) epsilon <= scale := by
   let index := sampleIndex base X scale
   have hrequired := selected_requirement_paid base X epsilon scale hscale
   have hindexepsilon := selected_precision base X epsilon hepsilon scale hscale
   have hordinary := base.graphMoments.sourceMoments.regularMeanRate_antitone
     (X.seq index) (Q'.invSucc_pos index) hindexepsilon
   have htranslated := base.graphMoments.regularTransferredMeanRate_antitone
-    (X.seq index)
+    X index
     (Q'.invSucc_pos index) hindexepsilon
   dsimp only
   constructor
@@ -559,28 +820,10 @@ def translatedRawSquareContinuumClose (X : SelectedWilsonCauchy D) :
     close := by
       intro epsilon hepsilon scale hscale k _
       rw [continuumDenseNormSequence_approx]
-      let a := X.seq (sampleIndex base X scale)
-      let Ta := D.timeTranslation.tau a
       have hadmissible := (square_diagonal_admissible base
         X epsilon hepsilon scale hscale).2
-      have hbound := base.graphMoments.regularTransferredSquareBound
-        a epsilon hepsilon scale hadmissible
-      have hpointwise : D.wilson.toGNSData.veq
-          (TX.seq (sampleIndex base X scale)) Ta :=
-        base.representativeTimeTranslation.pointwise X
-          (sampleIndex base X scale)
-      have hform :
-          (D.wilson.toGNSData.B
-            (TX.seq (sampleIndex base X scale))
-            (TX.seq (sampleIndex base X scale))).eqv
-            (continuumSquareExpectation D Ta) :=
-        Q'.eqv_trans _ _ _
-          (D.wilson.toGNSData.B_diag_congr hpointwise)
-          (Q'.eqv_of_eq (continuumForm_eq_continuumSquareExpectation D Ta))
-      exact
-        ⟨le_of_le_eqv hbound.1
-            (Q'.add_eqv_congr_right _ _ epsilon (Q'.eqv_symm hform)),
-          le_of_eqv_le hform hbound.2⟩
+      exact base.graphMoments.regularTransferredSquareBound
+        X (sampleIndex base X scale) epsilon hepsilon scale hadmissible
   }
 
 def rawMeanContinuumClose (X : SelectedWilsonCauchy D) :
@@ -600,24 +843,20 @@ def rawMeanContinuumClose (X : SelectedWilsonCauchy D) :
     exact hbound
 
 def translatedRawMeanContinuumClose (X : SelectedWilsonCauchy D) :
+    let TX := base.representativeTimeTranslation.transferredRepresentative X
     CRealEventuallyClose (translatedRawMeanSequence base X)
-      (fun scale => CReal.ofQ'
-        (D.wilson.toGNSData.B
-          (D.timeTranslation.tau (X.seq (sampleIndex base X scale)))
-          H.os_axioms.A.one)) where
-  stageRate := diagonalRate base X
-  approxRate := fun _ _ => 0
-  close := by
-    intro epsilon hepsilon scale hscale _ _
-    let a := X.seq (sampleIndex base X scale)
-    let Ta := D.timeTranslation.tau a
-    have hadmissible := (mean_diagonal_admissible base
-      X epsilon hepsilon scale hscale).2
-    have hbound := base.graphMoments.regularTransferredMeanBound
-      a epsilon hepsilon scale hadmissible
-    rw [← WilsonDenseUnitVacuumPairingModulus.pairing_eq_continuumVacuumPairingExpectation
-      (D := D) Ta] at hbound
-    exact hbound
+      (continuumDenseVacuumPairingSequence D (sampleIndex base X) TX) := by
+  let TX := base.representativeTimeTranslation.transferredRepresentative X
+  exact {
+    stageRate := diagonalRate base X
+    approxRate := fun _ _ => 0
+    close := by
+      intro epsilon hepsilon scale hscale _ _
+      have hadmissible := (mean_diagonal_admissible base
+        X epsilon hepsilon scale hscale).2
+      exact base.graphMoments.regularTransferredMeanBound
+        X (sampleIndex base X scale) epsilon hepsilon scale hadmissible
+  }
 
 theorem rawSquareSequence_converges (X : SelectedWilsonCauchy D) :
     CReal.ConvergesTo (rawSquareSequence base X)
@@ -666,14 +905,7 @@ theorem translatedRawMeanSequence_converges_zero
     have hTX := continuumDenseVacuumPairingSequence_converges_zero_stationary
       base.vacuumPin (sampleIndex base X) (sampleRate base X)
       (sampleIndex_cofinal base X) TX hTXOrthogonal
-    apply YMGap.Constructive.TrigAddCReal.convergesTo_congr_seq
-      (s := continuumDenseVacuumPairingSequence D (sampleIndex base X) TX)
-    · intro scale
-      exact CReal.ofQ'_equiv_of_eqv
-        (D.wilson.toGNSData.B_congr_left H.os_axioms.A.one
-          (base.representativeTimeTranslation.pointwise X
-            (sampleIndex base X scale)))
-    · exact hTX)
+    exact hTX)
 
 /-! ## 6. Centering and graph-norm contraction -/
 
@@ -858,9 +1090,13 @@ end YMGap.Continuum.BF4PhysicalDenseStageDirectMomentCompiler
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageDirectMomentCompiler.BF4WilsonDenseStageCenteredVacuumQualitativeDirectBase.ofProjectiveBase
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageDirectMomentCompiler.BF4WilsonDenseStageCenteredVacuumQualitativeDirectBase.ofSemanticBase
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageDirectMomentCompiler.WilsonPointwiseRepresentativeTimeTranslationPin.ofLinear
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageDirectMomentCompiler.WilsonPointwiseRepresentativeTimeTranslationPin.toRepresentativePin
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageDirectMomentCompiler.BF4RawStageContinuumMomentModulus.toGraphMomentModulus
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageDirectMomentCompiler.BF4RawStageContinuumGraphMomentModulus.toRepresentativeGraphMomentModulus
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageDirectMomentCompiler.BF4RawStageContinuumGraphMomentModulus.regularTransferredSquareBound
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageDirectMomentCompiler.BF4RawStageContinuumGraphMomentModulus.regularTransferredMeanBound
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageDirectMomentCompiler.BF4RawStageContinuumRepresentativeGraphMomentModulus.regularTransferredSquareBound
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageDirectMomentCompiler.BF4RawStageContinuumRepresentativeGraphMomentModulus.regularTransferredMeanBound
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageDirectMomentCompiler.BF4WilsonDenseStageDirectMomentCompiler.sampleIndex_cofinal
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageDirectMomentCompiler.BF4WilsonDenseStageDirectMomentCompiler.square_diagonal_admissible
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageDirectMomentCompiler.BF4WilsonDenseStageDirectMomentCompiler.mean_diagonal_admissible

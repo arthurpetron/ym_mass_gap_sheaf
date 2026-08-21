@@ -712,6 +712,14 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   moments plus exact intertwining construct these four graph-moment families
   by proved radical-invariance lemmas, so that stronger route remains
   sufficient.  The graph-moment estimates themselves remain uninhabited.
+  A final representative-level weakening removes the pointwise equation
+  between the chosen transferred Cauchy sequence and `tau` from the public
+  endpoint.  The transferred square/mean bounds now target the terms of the
+  chosen representative directly, while the representative pin records only
+  its quotient class.  The stronger pointwise and observable-shift moment
+  inputs construct this record by proved form congruences.  The physical
+  representative lift and these representative-targeted moment estimates
+  remain uninhabited.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full

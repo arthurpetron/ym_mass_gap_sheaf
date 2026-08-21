@@ -1844,3 +1844,29 @@ endpoint.  Every newly printed declaration reports only
 `[propext, Quot.sound]`.  Continuum construction, the representative lift,
 raw-stage realization, four graph-moment moduli, stationary dense-unit pin,
 generator identification, QFT axioms, and the Clay theorem remain open.
+
+## Representative-targeted graph moments remove the pointwise shift law (2026-08-20)
+
+`WilsonRepresentativeTimeTranslationPin` now isolates only a chosen Cauchy
+representative of the actual quotient-level transfer and its class equation.
+`BF4RawStageContinuumRepresentativeGraphMomentModulus` targets the transferred
+finite square and mean directly at the corresponding terms of that chosen
+representative.  Its rates may depend constructively on both the source
+Cauchy representative and the sampled index, which the existing slow-diagonal
+construction already supports.
+
+The public direct base now uses these two records.  It therefore assumes
+neither continuum-transfer linearity nor a termwise identification with the
+observable shift `tau`.  The former pointwise representative pin and
+observable-shift graph moments construct the new representative-targeted
+certificate by the Wilson form-congruence laws; the older projective and
+exact-semantic routes consequently continue to refine the public endpoint.
+
+This is the current minimal four-moment compiler interface, not an inhabitant.
+The continuum construction must still supply a representative lift of the
+actual transfer, a raw finite-stage realization, ordinary and transferred
+moment convergence along that lift, and the stationary dense-unit pin.
+Focused monitored builds completed 1279 jobs for the compiler and 1339 jobs
+for the integrated endpoint.  Every newly printed declaration reports only
+`[propext, Quot.sound]`; generator identification, the full QFT axioms, and
+the Clay theorem remain open.
