@@ -2223,6 +2223,30 @@ Clay theorem remain open.  A source check and focused monitored build
 completed successfully, the latter with 1309 jobs.  Every printed
 load-bearing declaration reports only `[propext, Quot.sound]`.
 
+## Pointwise-data adaptive cofinal completed gap (2026-08-21)
+
+`BF4PhysicalCutoffLinearMarkovAdaptiveCofinalGap` reindexes the two new
+centered graph streams along a supplied
+`FixedNomeCofinalCenteredSixteenth`.  At each selected cutoff, the existing
+genuine finite completed operator theorem bounds the transferred squared norm
+by `(1/16)^2` times the input squared norm.  Constructive limit order carries
+that inequality to the actual cutoff-removed adaptive transfer.
+
+The result is
+`centralPhysicalAdaptiveCompletedMarkovCofinalStrictContractionData`: strict
+squared-norm contraction at literal rate `1/16` on the actual completed
+vacuum complement.  A companion compiler accepts the more geometric cofinal
+local-gluing certificate directly.
+
+This removes `CentralPhysicalLinearMarkovCompletionModulus` from the entire
+fixed-nome implication: pointwise dense cross-cutoff Cauchy data plus a
+cofinal finite sixteenth now suffice for the completed carrier, linear
+transfer, vacuum complement, graph norms, and strict contraction.  Neither
+remaining input is inhabited.  Thermodynamic/nome/spacing limits, continuum
+QFT, and the Clay theorem remain open.  A source check and focused monitored
+build completed successfully, the latter with 1313 jobs.  Every printed
+load-bearing declaration reports only `[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the
