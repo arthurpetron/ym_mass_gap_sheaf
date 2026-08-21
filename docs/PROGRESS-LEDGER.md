@@ -1574,3 +1574,34 @@ the raw compiler, and 1336 for the integrated AF/Faraut endpoint.  The changed
 files contain no forbidden proof tokens; every printed load-bearing
 declaration reports only `[propext, Quot.sound]`.  No full audit, remote push,
 or GitHub CI run was used.
+
+## Fixed-observable raw moments construct the moving diagonal (2026-08-20)
+
+`BF4PhysicalDenseStageRawMomentModulus` replaces a moving-observable
+convergence premise by two ordinary pointwise modulus families.  For every
+fixed dense observable it carries a `Nat` rate for the raw finite square and a
+`Nat` rate for the raw stationary mean, each compared with the corresponding
+rational projective evaluator.  Running-maximum regularization makes both
+rates antitone in tolerance while retaining their two-sided estimates.
+
+`BF4PhysicalDenseStageCenteredSlowComparison` now makes its executable slow
+sampler pay eight rates at each selected term: ordinary and translated
+projective square rates, ordinary and translated projective pairing rates,
+and the corresponding four raw finite/projective square and mean rates.
+Cofinality and antitonicity therefore construct both moving-diagonal raw
+comparison laws.  `BF4PhysicalDenseStageRawMeanComparison.ofProjectiveBase`
+feeds those theorems into exact centering, graph-norm convergence, and the
+completed vacuum-complement operator gap.  The AF/Faraut dense-stage endpoint
+now consumes this fixed-observable base directly; moving-diagonal uniformity
+is no longer assumed.
+
+This is another strict reduction, not a thermodynamic or continuum proof.
+The raw dense realization, its radical-valued transfer intertwining, the
+rational projective functional, the fixed-observable raw-square/raw-mean
+moduli, the representative vacuum-pairing modulus, and the same-object
+continuum measure still require analytic construction.  Physical generator
+identification, the complete QFT axioms, and the Clay theorem remain open.
+Focused monitored builds completed 1276 jobs for the enriched centered
+sampler, 1277 for the raw compiler, and 1337 for the integrated AF/Faraut
+endpoint.  Every newly printed load-bearing declaration reports only
+`[propext, Quot.sound]`; no full audit, remote push, or GitHub CI run was used.

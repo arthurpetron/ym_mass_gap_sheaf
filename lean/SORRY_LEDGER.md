@@ -402,6 +402,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Rubric/FrontierDAGBridges.lean`,
   `lean/YMGap/Continuum/BF4FarautSpectralMarginInputContinuumRealization.lean`,
   `lean/YMGap/Continuum/BF4PhysicalVacuumPairingModulus.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalDenseStageRawMomentModulus.lean`,
   `lean/YMGap/Continuum/BF4PhysicalDenseStageCenteredSlowComparison.lean`,
   `lean/YMGap/Continuum/BF4PhysicalDenseStageRawMeanComparison.lean`,
   and
@@ -462,9 +463,11 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `ContinuumWilsonOSConnectedDecayResidualData`,
   `ContinuumProjectiveWilsonDecayResidualData`,
   `WilsonDenseUnitVacuumPairingModulus`,
+  `BF4RawStageMomentModulus.squareBound`,
+  `BF4RawStageMomentModulus.meanBound`,
   `BF4WilsonDenseStageCenteredVacuumProjectiveBase`,
-  `BF4WilsonDenseStageRawMeanSlowComparison.rawSquareComparison`,
-  `BF4WilsonDenseStageRawMeanSlowComparison.rawMeanComparison`,
+  `BF4WilsonDenseStageCenteredVacuumProjectiveBase.raw_square_diagonal_comparison`,
+  `BF4WilsonDenseStageCenteredVacuumProjectiveBase.raw_mean_diagonal_comparison`,
   `ContinuumYMExistence`,
   `MeasureLinkedOSGNSData`,
   and `ExactLogGapAt`.
@@ -534,9 +537,12 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   Schur paths compile to this package as sufficient constructors but are not
   fields of the minimal endpoint.
   The dense BF4 graph-limit route now constructs its centered comparison from
-  two primitive rational estimates: the raw finite square against the
-  projective reflected-square evaluator and the raw finite stationary mean
-  against the projective vacuum-pairing evaluator.  A separately named
+  two fixed-observable rational modulus families: the raw finite square
+  against the projective reflected-square evaluator and the raw finite
+  stationary mean against the projective vacuum-pairing evaluator.  The slow
+  sampler accumulates the ordinary and translated rates at every candidate
+  dense term, so the moving-diagonal raw comparisons are theorems rather than
+  residual fields.  A separately named
   `WilsonDenseUnitVacuumPairingModulus` retains the representative-level
   `Nat` rate that cannot be extracted constructively from proposition-level
   equality in the completed-real quotient.  The vector-adaptive slow sampler
@@ -651,10 +657,12 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   canonical linear form gap, remains a sufficient route to that direct norm
   contraction rather than a premise of the minimal endpoint.  The selected
   dense-stage route still has no inhabitant for its raw observable map,
-  radical transfer intertwining, rational projective modulus, raw-square and
-  raw-mean comparisons, or explicit representative vacuum-pairing modulus.
-  Those fields are the current thermodynamic/projective analytic frontier;
-  the compiler proves their sufficiency but not the estimates themselves.
+  radical transfer intertwining, rational projective modulus,
+  fixed-observable raw-square and raw-mean moduli, or explicit representative
+  vacuum-pairing modulus.  The moving-diagonal versions are now constructed.
+  Those fixed-observable fields are the current thermodynamic/projective
+  analytic frontier; the compiler proves their sufficiency but not the
+  estimates themselves.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full

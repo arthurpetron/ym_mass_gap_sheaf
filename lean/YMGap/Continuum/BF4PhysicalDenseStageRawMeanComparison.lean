@@ -2,7 +2,7 @@
 # Raw-square/raw-mean compiler for the physical BF4 slow diagonal
 
 Exact finite-volume centering changes a raw quadratic form by the square of
-its stationary mean.  This module exposes the two primitive comparisons that
+its stationary mean.  This module exposes the two raw comparisons that
 therefore suffice for the centered slow-diagonal bridge:
 
 * the raw finite square versus the projective reflected-square evaluator;
@@ -11,8 +11,9 @@ therefore suffice for the centered slow-diagonal bridge:
 For a continuum vacuum-orthogonal representative, the explicit Type-level
 vacuum-pairing modulus then makes the finite mean small.  The exact centering
 identity compiles these inputs into the already constructed centered
-comparison and hence the completed operator gap.  No primitive comparison or
-continuum measure is constructed here.
+comparison and hence the completed operator gap.  The moving-diagonal raw
+comparisons are constructed from fixed-observable moduli; those pointwise
+moduli and the continuum measure remain explicit inputs.
 -/
 
 import YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison
@@ -29,6 +30,7 @@ open YMGap.Continuum.BF4PhysicalCompletedCenteredFormGap
 open YMGap.Continuum.BF4PhysicalDenseStageAdaptiveProjectiveComparison
 open YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison
 open YMGap.Continuum.BF4PhysicalDenseStageGraphNormCompiler
+open YMGap.Continuum.BF4PhysicalDenseStageRawMomentModulus
 open YMGap.Continuum.BF4PhysicalDenseStageSlowDiagonalComparison
 open YMGap.Continuum.BF4PhysicalMarkovGNSCompletion
 open YMGap.Continuum.BF4PhysicalModulatedGapLimitStability
@@ -53,23 +55,6 @@ local macro "q_ring" : tactic =>
                Int.neg_add, Int.neg_neg, Int.one_mul, Int.mul_one,
                Int.zero_mul, Int.mul_zero, Int.add_zero, Int.zero_add];
              try ac_rfl))
-
-/-- The exact stationary mean of one raw finite-stage realization. -/
-def finiteStageRawMean
-    {family : MatchedBlockFamily}
-    {coupling : Nat -> Q'}
-    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
-    {H : FourDExistence.ContinuumYMExistence mu}
-    (D : WilsonSelectedOSGNSData H)
-    (rawStageObservable : forall scale : Nat,
-      D.wilson.toGNSData.V ->
-        (MatchedPhysicalStageGNSData family coupling scale).V)
-    (scale : Nat) (observable : D.wilson.toGNSData.V) : Q' :=
-  centralPhysicalStationaryMean
-    (matchedAllSpinWeight family coupling scale)
-    (matchedAllSpinWeight_nonnegative family coupling scale)
-    (matchedAllSpinCutoff family coupling scale) 0
-    (rawStageObservable scale observable)
 
 /-- Exact finite-stage identity: centered square equals raw square minus the
 square of the raw stationary mean. -/
@@ -300,6 +285,17 @@ variable
     {D : WilsonSelectedOSGNSData H}
     (data : BF4WilsonDenseStageRawMeanSlowComparison producer D)
 
+/-- A projective base carrying fixed-observable raw moment moduli constructs
+both moving-diagonal raw comparisons. -/
+def ofProjectiveBase
+    (base : BF4WilsonDenseStageCenteredVacuumProjectiveBase producer D) :
+    BF4WilsonDenseStageRawMeanSlowComparison producer D where
+  base := base
+  rawSquareComparisonRate := base.projectiveDiagonalRate
+  rawSquareComparison := base.raw_square_diagonal_comparison
+  rawMeanComparisonRate := base.projectiveDiagonalRate
+  rawMeanComparison := base.raw_mean_diagonal_comparison
+
 /-- Radius whose square is bounded by the half-error budget. -/
 def meanRadius (epsilon : Q') : Q' :=
   Q'.invSucc (HalfPow.half * epsilon).den
@@ -416,10 +412,19 @@ physical BF4 operator gap. -/
 def toWilsonOperatorNormGapPin : WilsonOperatorNormGapPin D :=
   data.toCenteredVacuumSlowComparison.toWilsonOperatorNormGapPin
 
+/-- The fixed-observable projective base is sufficient for the selected
+completed physical BF4 operator gap. -/
+def projectiveBase_toWilsonOperatorNormGapPin
+    (base : BF4WilsonDenseStageCenteredVacuumProjectiveBase producer D) :
+    WilsonOperatorNormGapPin D :=
+  (ofProjectiveBase base).toWilsonOperatorNormGapPin
+
 end BF4WilsonDenseStageRawMeanSlowComparison
 
 end YMGap.Continuum.BF4PhysicalDenseStageRawMeanComparison
 
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMeanComparison.finiteStageCenteredSquare_identity
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMeanComparison.BF4WilsonDenseStageRawMeanSlowComparison.ofProjectiveBase
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMeanComparison.BF4WilsonDenseStageRawMeanSlowComparison.toCenteredVacuumSlowComparison
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMeanComparison.BF4WilsonDenseStageRawMeanSlowComparison.toWilsonOperatorNormGapPin
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMeanComparison.BF4WilsonDenseStageRawMeanSlowComparison.projectiveBase_toWilsonOperatorNormGapPin

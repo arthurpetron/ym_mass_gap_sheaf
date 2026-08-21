@@ -225,9 +225,10 @@ of the selected projective OS functional.
 Unlike `ContinuumWilsonGraphNormResidualData`, this record does not assume the
 two graph-norm convergence laws or a `CReal`-level norm-limit pin.  Its
 dense-stage field constructs both conditional laws from radical-valued
-transfer compatibility, an executable vector-adaptive slow diagonal, and
-rational raw-square and raw-mean finite-to-continuum bounds together with an
-explicit representative vacuum-pairing modulus. -/
+transfer compatibility, an executable vector-adaptive slow diagonal,
+fixed-observable rational raw-square/raw-mean moduli, and an explicit
+representative vacuum-pairing modulus.  The moving-diagonal comparisons are
+derived rather than assumed. -/
 structure ContinuumWilsonDenseStageResidualData
     {family : MatchedBlockFamily}
     {law : CubicMarginLaw family}
@@ -260,7 +261,7 @@ structure ContinuumWilsonDenseStageResidualData
     (continuumSourceCertificate flow
       anchorDominates AF trajectory comparison bare)
     osGNS.reconstruction
-  denseStageLimit : BF4WilsonDenseStageRawMeanSlowComparison
+  denseStageLimit : BF4WilsonDenseStageCenteredVacuumProjectiveBase
     producer.toBF4QuarterPhysicalSeparatorProducer osGNS
 
 namespace ContinuumWilsonDenseStageResidualData
@@ -301,7 +302,8 @@ def toContinuumWilsonGraphNormResidualData
   osGNS := D.osGNS
   rateReconstruction := D.rateReconstruction
   graphNormLimit :=
-    D.denseStageLimit.toCenteredVacuumSlowComparison
+    (BF4WilsonDenseStageRawMeanSlowComparison.ofProjectiveBase
+        D.denseStageLimit).toCenteredVacuumSlowComparison
       |>.toVacuumLinearGraphNormLimitApproximation
 
 /-- Literal dense finite-stage maps and projective expectation moduli construct
@@ -369,7 +371,7 @@ def ofProjectiveOSResidualData
     {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
     (D : ContinuumProjectiveOSResidualData flow
       anchorDominates AF trajectory comparison bare tracking mu)
-    (denseStageLimit : BF4WilsonDenseStageRawMeanSlowComparison
+    (denseStageLimit : BF4WilsonDenseStageCenteredVacuumProjectiveBase
       producer.toBF4QuarterPhysicalSeparatorProducer
       (WilsonSelectedOSGNSData.ofLinked D.osGNS)) :
     ContinuumWilsonDenseStageResidualData flow

@@ -6,14 +6,14 @@ mean zero and whose transfer intertwines continuum time translation modulo the
 physical GNS radical.  Both facts are automatic after exact stationary
 centering of a raw finite realization.
 
-This module packages that reduction.  Its remaining finite/continuum input is
-the centered-square projective pin; centering changes the quadratic form by
-the squared finite mean, so that pin is intentionally not inferred from an
-uncentered square comparison.  No thermodynamic or continuum construction is
-asserted here.
+This module packages that reduction and constructs a vector-adaptive slow
+diagonal from fixed-observable projective and raw-moment moduli.  The exact
+centering identity is compiled in the downstream raw-square/raw-mean module.
+No thermodynamic or continuum estimate is proved here.
 -/
 
 import YMGap.Continuum.BF4PhysicalCenteredRadicalIntertwining
+import YMGap.Continuum.BF4PhysicalDenseStageRawMomentModulus
 import YMGap.Continuum.BF4PhysicalDenseStageSlowDiagonalComparison
 import YMGap.Continuum.BF4PhysicalVacuumGraphNormLimitStability
 import YMGap.Continuum.BF4PhysicalVacuumPairingModulus
@@ -34,6 +34,7 @@ open YMGap.Continuum.BF4PhysicalDenseStageExpectationComparison
 open YMGap.Continuum.BF4PhysicalDenseStageGraphNormCompiler
 open YMGap.Continuum.BF4PhysicalDenseStageProjectiveComparison
 open YMGap.Continuum.BF4PhysicalDenseStageRationalComparison
+open YMGap.Continuum.BF4PhysicalDenseStageRawMomentModulus
 open YMGap.Continuum.BF4PhysicalDenseStageSlowDiagonalComparison
 open YMGap.Continuum.BF4PhysicalMarkovGNSCompletion
 open YMGap.Continuum.BF4PhysicalModulatedGapLimitStability
@@ -222,6 +223,8 @@ structure BF4WilsonDenseStageCenteredVacuumProjectiveBase
           (rawStageObservable scale a))
         (rawStageObservable scale (D.timeTranslation.tau a))
   rationalFunctional : ProjectiveOSRationalModulus D
+  rawMoments : BF4RawStageMomentModulus D rawStageObservable
+    rationalFunctional
   vacuumPairing : WilsonDenseUnitVacuumPairingModulus D
 
 namespace BF4WilsonDenseStageCenteredVacuumProjectiveBase
@@ -275,7 +278,8 @@ theorem centeredStageTransfer_intertwines (scale : Nat)
 def regularizedFunctional : ProjectiveOSRationalModulus D :=
   regularizedProjectiveModulus base.rationalFunctional
 
-def requirement (X : SelectedWilsonCauchy D) (index : Nat) : Nat :=
+def projectiveRequirement (X : SelectedWilsonCauchy D)
+    (index : Nat) : Nat :=
   max
     (max
       (base.regularizedFunctional.rate
@@ -293,6 +297,26 @@ def requirement (X : SelectedWilsonCauchy D) (index : Nat) : Nat :=
         (continuumVacuumPairingObservable D
           (D.timeTranslation.tau (X.seq index)))
         (Q'.invSucc index)))
+
+def rawRequirement (X : SelectedWilsonCauchy D) (index : Nat) : Nat :=
+  max
+    (max
+      (base.rawMoments.regularSquareRate (X.seq index)
+        (Q'.invSucc index))
+      (base.rawMoments.regularSquareRate
+        (D.timeTranslation.tau (X.seq index))
+        (Q'.invSucc index)))
+    (max
+      (base.rawMoments.regularMeanRate (X.seq index)
+        (Q'.invSucc index))
+      (base.rawMoments.regularMeanRate
+        (D.timeTranslation.tau (X.seq index))
+        (Q'.invSucc index)))
+
+/-- All pointwise rates that the selected slow term must pay: four projective
+evaluator rates and four raw finite/projective moment rates. -/
+def requirement (X : SelectedWilsonCauchy D) (index : Nat) : Nat :=
+  max (base.projectiveRequirement X index) (base.rawRequirement X index)
 
 def sampleRate (X : SelectedWilsonCauchy D) (threshold : Nat) : Nat :=
   slowThreshold (base.requirement X) threshold
@@ -366,11 +390,15 @@ theorem projective_diagonal_admissible (X : SelectedWilsonCauchy D)
   constructor
   · exact Nat.le_trans hordinary
       (Nat.le_trans
-        (Nat.le_trans (Nat.le_max_left _ _) (Nat.le_max_left _ _))
+        (Nat.le_trans
+          (Nat.le_trans (Nat.le_max_left _ _) (Nat.le_max_left _ _))
+          (Nat.le_max_left _ _))
         hrequired)
   · exact Nat.le_trans htranslated
       (Nat.le_trans
-        (Nat.le_trans (Nat.le_max_right _ _) (Nat.le_max_left _ _))
+        (Nat.le_trans
+          (Nat.le_trans (Nat.le_max_right _ _) (Nat.le_max_left _ _))
+          (Nat.le_max_left _ _))
         hrequired)
 
 /-- The same constructed slow diagonal pays the two projective rates for the
@@ -422,12 +450,176 @@ theorem projective_pairing_diagonal_admissible
   constructor
   · exact Nat.le_trans hordinary
       (Nat.le_trans
-        (Nat.le_trans (Nat.le_max_left _ _) (Nat.le_max_right _ _))
+        (Nat.le_trans
+          (Nat.le_trans (Nat.le_max_left _ _) (Nat.le_max_right _ _))
+          (Nat.le_max_left _ _))
         hrequired)
   · exact Nat.le_trans htranslated
       (Nat.le_trans
-        (Nat.le_trans (Nat.le_max_right _ _) (Nat.le_max_right _ _))
+        (Nat.le_trans
+          (Nat.le_trans (Nat.le_max_right _ _) (Nat.le_max_right _ _))
+          (Nat.le_max_left _ _))
         hrequired)
+
+/-- The constructed slow diagonal also pays the two fixed-observable
+raw-square rates for the representatives it selects. -/
+theorem raw_square_diagonal_admissible
+    (X : SelectedWilsonCauchy D)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (scale : Nat) (hscale : base.projectiveDiagonalRate X epsilon <= scale) :
+    let a := X.seq (base.sampleIndex X scale)
+    base.rawMoments.regularSquareRate a epsilon <= scale /\
+      base.rawMoments.regularSquareRate
+        (D.timeTranslation.tau a) epsilon <= scale := by
+  let precision := CReal.lv epsilon
+  let index := base.sampleIndex X scale
+  have hprecision : precision <= index :=
+    base.sampleIndex_cofinal X precision scale hscale
+  have hzeroRate : base.sampleRate X 0 <= base.sampleRate X precision :=
+    slowThreshold_mono (base.requirement X) (Nat.zero_le precision)
+  have hzero : base.sampleRate X 0 <= scale :=
+    Nat.le_trans hzeroRate hscale
+  have hrequired : base.requirement X index <= scale :=
+    required_slowIndex_le (base.requirement X) scale hzero
+  have hindexepsilon : Q'.invSucc index <= epsilon :=
+    Q'.le_trans' _ _ _
+      (ExpNeg.invSucc_le_of_le hprecision)
+      (CReal.invSucc_lv_le hepsilon)
+  have hordinary : base.rawMoments.regularSquareRate
+      (X.seq index) epsilon <=
+      base.rawMoments.regularSquareRate
+        (X.seq index) (Q'.invSucc index) :=
+    base.rawMoments.regularSquareRate_antitone
+      (X.seq index) (Q'.invSucc_pos index) hindexepsilon
+  have htranslated : base.rawMoments.regularSquareRate
+      (D.timeTranslation.tau (X.seq index)) epsilon <=
+      base.rawMoments.regularSquareRate
+        (D.timeTranslation.tau (X.seq index)) (Q'.invSucc index) :=
+    base.rawMoments.regularSquareRate_antitone
+      (D.timeTranslation.tau (X.seq index))
+      (Q'.invSucc_pos index) hindexepsilon
+  dsimp only
+  constructor
+  · exact Nat.le_trans hordinary
+      (Nat.le_trans
+        (Nat.le_trans
+          (Nat.le_trans (Nat.le_max_left _ _) (Nat.le_max_left _ _))
+          (Nat.le_max_right _ _))
+        hrequired)
+  · exact Nat.le_trans htranslated
+      (Nat.le_trans
+        (Nat.le_trans
+          (Nat.le_trans (Nat.le_max_right _ _) (Nat.le_max_left _ _))
+          (Nat.le_max_right _ _))
+        hrequired)
+
+/-- The constructed slow diagonal also pays the two fixed-observable
+raw-mean rates for the representatives it selects. -/
+theorem raw_mean_diagonal_admissible
+    (X : SelectedWilsonCauchy D)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (scale : Nat) (hscale : base.projectiveDiagonalRate X epsilon <= scale) :
+    let a := X.seq (base.sampleIndex X scale)
+    base.rawMoments.regularMeanRate a epsilon <= scale /\
+      base.rawMoments.regularMeanRate
+        (D.timeTranslation.tau a) epsilon <= scale := by
+  let precision := CReal.lv epsilon
+  let index := base.sampleIndex X scale
+  have hprecision : precision <= index :=
+    base.sampleIndex_cofinal X precision scale hscale
+  have hzeroRate : base.sampleRate X 0 <= base.sampleRate X precision :=
+    slowThreshold_mono (base.requirement X) (Nat.zero_le precision)
+  have hzero : base.sampleRate X 0 <= scale :=
+    Nat.le_trans hzeroRate hscale
+  have hrequired : base.requirement X index <= scale :=
+    required_slowIndex_le (base.requirement X) scale hzero
+  have hindexepsilon : Q'.invSucc index <= epsilon :=
+    Q'.le_trans' _ _ _
+      (ExpNeg.invSucc_le_of_le hprecision)
+      (CReal.invSucc_lv_le hepsilon)
+  have hordinary : base.rawMoments.regularMeanRate
+      (X.seq index) epsilon <=
+      base.rawMoments.regularMeanRate
+        (X.seq index) (Q'.invSucc index) :=
+    base.rawMoments.regularMeanRate_antitone
+      (X.seq index) (Q'.invSucc_pos index) hindexepsilon
+  have htranslated : base.rawMoments.regularMeanRate
+      (D.timeTranslation.tau (X.seq index)) epsilon <=
+      base.rawMoments.regularMeanRate
+        (D.timeTranslation.tau (X.seq index)) (Q'.invSucc index) :=
+    base.rawMoments.regularMeanRate_antitone
+      (D.timeTranslation.tau (X.seq index))
+      (Q'.invSucc_pos index) hindexepsilon
+  dsimp only
+  constructor
+  · exact Nat.le_trans hordinary
+      (Nat.le_trans
+        (Nat.le_trans
+          (Nat.le_trans (Nat.le_max_left _ _) (Nat.le_max_right _ _))
+          (Nat.le_max_right _ _))
+        hrequired)
+  · exact Nat.le_trans htranslated
+      (Nat.le_trans
+        (Nat.le_trans
+          (Nat.le_trans (Nat.le_max_right _ _) (Nat.le_max_right _ _))
+          (Nat.le_max_right _ _))
+        hrequired)
+
+/-- Fixed-observable raw-square estimates become a uniform comparison along
+the vector-adaptive slow diagonal selected by `base`. -/
+theorem raw_square_diagonal_comparison
+    (X : SelectedWilsonCauchy D)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (scale : Nat) (hscale : base.projectiveDiagonalRate X epsilon <= scale) :
+    let index := base.sampleIndex X scale
+    let a := X.seq index
+    let Ta := D.timeTranslation.tau a
+    let finiteA := finiteStageSquareExpectation D
+      base.rawStageObservable scale a
+    let finiteTa := finiteStageSquareExpectation D
+      base.rawStageObservable scale Ta
+    let rationalA := base.regularizedFunctional.stageExpectationQ
+      scale (mu.pick scale) (continuumSquareObservable D a)
+    let rationalTa := base.regularizedFunctional.stageExpectationQ
+      scale (mu.pick scale) (continuumSquareObservable D Ta)
+    (finiteA <= rationalA + epsilon /\ rationalA <= finiteA + epsilon) /\
+      (finiteTa <= rationalTa + epsilon /\
+        rationalTa <= finiteTa + epsilon) := by
+  have hadmissible := base.raw_square_diagonal_admissible
+    X epsilon hepsilon scale hscale
+  dsimp only
+  exact
+    ⟨base.rawMoments.regularSquareBound _ epsilon hepsilon scale
+        hadmissible.1,
+      base.rawMoments.regularSquareBound _ epsilon hepsilon scale
+        hadmissible.2⟩
+
+/-- Fixed-observable raw-mean estimates become a uniform comparison along
+the vector-adaptive slow diagonal selected by `base`. -/
+theorem raw_mean_diagonal_comparison
+    (X : SelectedWilsonCauchy D)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (scale : Nat) (hscale : base.projectiveDiagonalRate X epsilon <= scale) :
+    let index := base.sampleIndex X scale
+    let a := X.seq index
+    let Ta := D.timeTranslation.tau a
+    let finiteA := finiteStageRawMean D base.rawStageObservable scale a
+    let finiteTa := finiteStageRawMean D base.rawStageObservable scale Ta
+    let rationalA := base.regularizedFunctional.stageExpectationQ
+      scale (mu.pick scale) (continuumVacuumPairingObservable D a)
+    let rationalTa := base.regularizedFunctional.stageExpectationQ
+      scale (mu.pick scale) (continuumVacuumPairingObservable D Ta)
+    (finiteA <= rationalA + epsilon /\ rationalA <= finiteA + epsilon) /\
+      (finiteTa <= rationalTa + epsilon /\
+        rationalTa <= finiteTa + epsilon) := by
+  have hadmissible := base.raw_mean_diagonal_admissible
+    X epsilon hepsilon scale hscale
+  dsimp only
+  exact
+    ⟨base.rawMoments.regularMeanBound _ epsilon hepsilon scale
+        hadmissible.1,
+      base.rawMoments.regularMeanBound _ epsilon hepsilon scale
+        hadmissible.2⟩
 
 /-- The same slow diagonal also pays the explicit Type-level vacuum-pairing
 moduli for the ordinary and transferred representatives. -/
@@ -761,6 +953,10 @@ end YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison.BF4WilsonDenseStageCenteredSlowProjectiveCore.toWilsonOperatorNormGapPin
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison.BF4WilsonDenseStageCenteredVacuumProjectiveBase.projective_diagonal_admissible
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison.BF4WilsonDenseStageCenteredVacuumProjectiveBase.projective_pairing_diagonal_admissible
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison.BF4WilsonDenseStageCenteredVacuumProjectiveBase.raw_square_diagonal_admissible
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison.BF4WilsonDenseStageCenteredVacuumProjectiveBase.raw_mean_diagonal_admissible
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison.BF4WilsonDenseStageCenteredVacuumProjectiveBase.raw_square_diagonal_comparison
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison.BF4WilsonDenseStageCenteredVacuumProjectiveBase.raw_mean_diagonal_comparison
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison.BF4WilsonDenseStageCenteredVacuumProjectiveBase.vacuum_pairing_diagonal_small
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison.BF4WilsonDenseStageCenteredVacuumSlowComparison.norm_converges
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison.BF4WilsonDenseStageCenteredVacuumSlowComparison.transferredNorm_converges
