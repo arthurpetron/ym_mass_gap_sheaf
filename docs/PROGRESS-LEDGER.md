@@ -2306,3 +2306,26 @@ gap, nome/volume/spacing limits, continuum QFT, and Clay theorem remain open.
 A source check and focused monitored build completed successfully, the latter
 with 1139 jobs.  Every printed load-bearing declaration reports only
 `[propext, Quot.sound]`.
+
+## Representative-level outer physical BF4 pairing limit (2026-08-21)
+
+`BF4PhysicalCutoffLinearCompletedInnerOuter` constructs the pairing limit for
+two explicit-modulus Cauchy representatives of the physical completion.  One
+anchor term and its explicit inner approximation rate give a computable
+rational bound; the squared-distance triangle then bounds every sufficiently
+late diagonal term of each representative.
+
+A division-free product budget combines those diagonal ceilings with the
+preceding quantitative Cauchy--Schwarz theorem.  The exact bilinear telescope
+therefore supplies a Type-level outer rate for
+`B(X_m,Y_m)-B(X_n,Y_n)`.  `CReal.completeLimitFromRate` consumes that rate and
+the per-term inner moduli to construct a choice-free Bishop-real limit, with a
+proved `ConvergesTo` witness.
+
+This is still a representative-level construction.  Invariance under the
+completion `Close` relation, descent to an `RC`-valued form, and completed
+bilinear/positive laws remain next.  The cutoff-independent transfer, strict
+cofinal `1/16` input, nome/volume/spacing limits, continuum QFT, and Clay
+theorem remain open.  A source check and focused monitored build completed
+successfully, the latter with 1140 jobs.  Every printed load-bearing
+declaration reports only `[propext, Quot.sound]`.

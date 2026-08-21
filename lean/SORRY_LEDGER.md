@@ -411,6 +411,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedAlgebra.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedModule.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedInnerKernel.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedInnerOuter.lean`,
   and
   `lean/YMGap/Continuum/BF4FarautGraphNormContinuumRealization.lean`.
 - **named fields / structures**:
@@ -812,9 +813,10 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   physical slab cutoff modulus is retained as Type-level data through all
   signed finite-linear expressions, and quantitative two-sided
   Cauchy--Schwarz, diagonal/distance identification, and the bilinear endpoint
-  telescope are proved.  The outer representative pairing limit,
-  representative independence, descent to an `RC`-valued completed inner
-  form, and its laws remain the next structural obligations.  A
+  telescope are proved.  The outer representative pairing limit is now also
+  constructed from a computable uniform diagonal ceiling and a Type-level
+  outer Cauchy rate.  Representative independence, descent to an `RC`-valued
+  completed inner form, and its laws remain the next structural obligations.  A
   cutoff-independent transfer action remains a separate bridge after that.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
