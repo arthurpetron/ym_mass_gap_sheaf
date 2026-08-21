@@ -263,7 +263,8 @@ structure BF4WilsonDenseStageCenteredVacuumSemanticBase
 
 /-- Exact same-stage semantics with only the qualitative dense-unit vacuum
 pin.  Unlike `BF4WilsonDenseStageCenteredVacuumSemanticBase`, this interface
-does not carry a representative-level pairing rate. -/
+does not carry a representative-level pairing rate.  It also omits carrier
+congruence, which the direct qualitative convergence route never consumes. -/
 structure BF4WilsonDenseStageCenteredVacuumQualitativeSemanticBase
     {family : MatchedBlockFamily}
     {law : CubicMarginLaw family}
@@ -274,8 +275,23 @@ structure BF4WilsonDenseStageCenteredVacuumQualitativeSemanticBase
       family law spacing coupling P)
     {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
     {H : FourDExistence.ContinuumYMExistence mu}
-    (D : WilsonSelectedOSGNSData H) : Type 3
-    extends BF4WilsonDenseStageCenteredVacuumProjectiveCore producer D where
+    (D : WilsonSelectedOSGNSData H) : Type 3 where
+  separatorPinned : D.selectedSpectralData.gap.sep = bf4MacroNormRate
+  pointwiseTimeTranslation :
+    WilsonPointwiseLinearTimeTranslationPin D.timeTranslation
+  rawStageObservable : forall scale : Nat,
+    D.wilson.toGNSData.V ->
+      (MatchedPhysicalStageGNSData family coupling scale).V
+  rawStageTransfer_intertwines : forall (scale : Nat)
+    (a : D.wilson.toGNSData.V),
+      (MatchedPhysicalStageGNSData family coupling scale).rad
+        (centralPhysicalMarkovApply
+          (matchedAllSpinWeight family coupling scale)
+          (matchedAllSpinWeight_nonnegative family coupling scale)
+          (matchedAllSpinCutoff family coupling scale) 0
+          (rawStageObservable scale a))
+        (rawStageObservable scale (D.timeTranslation.tau a))
+  rationalFunctional : ProjectiveOSRationalModulus D
   rawMomentSemantics : BF4RawStageMomentSemanticIdentification D
     rawStageObservable
   vacuumPin : WilsonDenseUnitVacuumPin D

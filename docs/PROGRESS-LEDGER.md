@@ -1672,7 +1672,10 @@ the printed load-bearing declarations report only `[propext, Quot.sound]`.
 weaker exact-semantic input.  It retains the raw dense-stage realization,
 radical-valued transfer intertwining, rational projective functional, exact
 same-stage square/mean identities, and `WilsonDenseUnitVacuumPin`, but carries
-no representative pairing rate or smallness theorem.
+no representative pairing rate or smallness theorem.  A follow-on dependency
+audit also removes `rawStageObservable_congr` from this weak interface: the
+qualitative compiler operates on selected representatives and never consumes
+that setoid-congruence law.  The legacy quantitative route retains it.
 
 `BF4PhysicalDenseStageQualitativeVacuumCompiler` constructs an executable
 cofinal slow diagonal using only the four regularized projective rates for the
