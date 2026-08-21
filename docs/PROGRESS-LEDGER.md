@@ -2102,6 +2102,28 @@ open.  Source checks and a focused monitored build completed successfully,
 the latter with 1303 jobs.  Every printed load-bearing declaration reports
 only `[propext, Quot.sound]`.
 
+## Adaptive completed transfer preserves zero and addition (2026-08-21)
+
+`BF4PhysicalCutoffLinearMarkovAdaptiveCompletedAdd` proves the zero and
+addition laws for the new representative-dependent adaptive transfer.  Zero
+follows from its exact agreement with the dense transfer.  Addition requires
+a new quotient-level comparison because the representatives of a sum and of
+its two summands select three independent slow input indices.
+
+The comparison chooses one common fixed raw anchor.  The sum representative
+contributes one sixteenth, the two component representatives contribute four
+sixteenths through the proved quadratic-Lipschitz addition estimate, and the
+final squared-distance triangle contributes ten sixteenths in total.  The
+explicit rational budget closes below the requested tolerance.
+
+Thus the adaptive completed transfer is now an additive pointed endomap.
+Rational-scalar compatibility is still required before it can be bundled as a
+completed `Q'`-linear endomorphism.  Nonconstant pointwise cross-cutoff data,
+the cofinal finite sixteenth, thermodynamic/nome/spacing limits, continuum
+QFT, and the Clay theorem remain open.  A source check and focused monitored
+build completed successfully, the latter with 1304 jobs.  Every printed
+load-bearing declaration reports only `[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the
