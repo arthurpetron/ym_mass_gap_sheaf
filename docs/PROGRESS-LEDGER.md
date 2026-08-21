@@ -899,3 +899,28 @@ continuum stability and the Clay theorem remain open.  The focused
 single-worker build completed 1231 jobs and every exported declaration reports
 only `[propext, Quot.sound]`; no full audit, remote push, or GitHub CI run was
 used.
+
+## Type-modulated GNS null completion (2026-08-20)
+
+`GNSModulusCompletion` repairs the constructive interface exposed by the dense
+endpoint lift.  Its `CauchyNullModulus` retains `epsilon -> Nat` as Type-level
+data, and reflexivity, symmetry, and quarter-tolerance transitivity construct
+their output moduli explicitly.  Quotienting by `Nonempty` such data gives
+`ModulatedGNSCompletionSpace`; the existing representative inner-product limit
+descends to it without new analytic assumptions.
+
+There is a canonical inner-preserving map from the modulated completion to the
+legacy `GNSCompletionSpace`, obtained by forgetting the null modulus.  No
+inverse is asserted: the legacy relation contains only the proposition
+`forall epsilon, exists N`, and recovering a modulus function from it is the
+choice-like Prop-to-Type step forbidden by the project gate.  This makes the
+direction of future physical refactoring precise: construct the physical
+transfer and endpoint lift on the modulated carrier, rather than postulating a
+selector for the legacy quotient.
+
+This foundational construction does not supply the analytic BF4-to-strong
+dense stage map, so it does not yet inhabit the endpoint comparison or prove a
+physical strict gap.  Thermodynamic/continuum stability and the Clay theorem
+remain open.  The focused single-worker build completed 66 jobs and all
+exported declarations stay within `[propext, Quot.sound]`; no full audit,
+remote push, or GitHub CI run was used.
