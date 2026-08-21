@@ -1303,3 +1303,26 @@ axioms, and the Clay theorem remain open.  The focused compiler and integrated
 endpoint builds completed 1264 and 1325 jobs respectively; the forbidden-token
 scan was empty and exported declarations report only
 `[propext, Quot.sound]`.  No full audit, remote push, or GitHub CI run was used.
+
+## Rational same-observable norm comparison (2026-08-20)
+
+`BF4PhysicalDenseStageRationalComparison` lowers the active diagonal-limit
+hypothesis from completed constructive reals to the rational quadratic forms
+that actually occur before completion.  It exposes the finite BF4 form of the
+mapped observable and proves definitionally that every approximation of its
+constant-completion norm is that rational.  The sampled continuum dense norm
+is likewise the constant embedding of the continuum GNS form.
+
+An eventual two-sided rational form bound therefore constructs
+`CRealEventuallyClose` with inner approximation rate zero.  Cofinal dense
+convergence, exact transfer intertwining, graph-norm limit stability, and the
+operator-gap compiler then apply unchanged.  The AF/Faraut dense-stage
+residual now consumes this rational comparison record directly.
+
+This is a compiler, not the analytic estimate: the rational finite-versus-
+continuum form comparison, dense-stage maps, pointwise time-translation law,
+vacuum preservation, continuum construction, physical generator, QFT axioms,
+and Clay theorem remain open.  The focused rational compiler and integrated
+endpoint builds completed 1265 and 1326 jobs respectively; the forbidden-token
+scan was empty and exported declarations report only
+`[propext, Quot.sound]`.  No full audit, remote push, or GitHub CI run was used.
