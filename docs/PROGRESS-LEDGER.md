@@ -2380,9 +2380,14 @@ zero-outside support condition used by the old enumerated carrier, avoiding an
 unnecessary demand on illegal labellings.
 
 This closes the common old-row joint-numerator component only.  Passing to the
-conditional Markov row still requires a positive source-row marginal floor and
-joint target-shell bounds; the stationary source-shell tightness required by
-the GNS compiler is separate.  The cofinal finite sixteenth and every
+conditional Markov row is now backed by the constructive rational theorem
+`divPos_conditioning_abs_sub_le`: if two nonnegative numerators lie below their
+positive marginals, their conditioned values differ by at most the sum of the
+numerator and marginal errors divided by a common positive row floor.  Thus
+the division step itself is closed without field tactics or hidden
+cancellation.  Instantiating it still requires a positive source-row marginal
+floor and joint target-shell bounds; the stationary source-shell tightness
+required by the GNS compiler is separate.  The cofinal finite sixteenth and every
 thermodynamic/nome/spacing and continuum obligation remain open.  Focused
 monitored builds completed successfully with 1153 and 1159 jobs.  Every
 printed load-bearing declaration reports only `[propext, Quot.sound]`.
