@@ -1434,3 +1434,30 @@ axioms, and the Clay theorem remain open.  The focused slow-diagonal and
 integrated endpoint builds completed 1269 and 1330 jobs respectively; the
 forbidden-token scan was empty and every exported declaration reports only
 `[propext, Quot.sound]`.  No full audit, remote push, or GitHub CI run was used.
+
+## Finite rational vacuum certificate (2026-08-20)
+
+`BF4PhysicalDenseStageSlowDiagonalComparison` no longer asks for vacuum
+orthogonality as an equality in the completed Type-modulated quotient.  Its
+remaining vacuum field is now the exact finite statement
+`CentralPhysicalMeanZero` for every stage observable selected by the
+constructed slow diagonal.  The new theorem
+`centralPhysicalModulatedEmbedV_vacuumOrthogonal_of_meanZero` identifies the
+dense observable--vacuum inner product with its stationary weighted mean and
+therefore constructs the completed vacuum-orthogonality equality from that
+rational certificate.
+
+This lowers the obligation to finite arithmetic but does not yet construct the
+certificate.  Automatic centering is not pointwise compatible with the current
+transfer field: the finite physical vacuum is transfer-fixed only modulo the
+GNS radical on discarded zero-marginal rows.  The next sound interface must
+therefore express centered transfer intertwining modulo that radical and prove
+that it suffices for the transferred graph-norm comparison.  The finite
+evaluator pin, projective modulus, dense realization, same-object continuum
+limit, continuum construction, physical generator, QFT axioms, and Clay
+theorem remain open.
+
+The focused slow-diagonal target and integrated AF/Faraut endpoint builds
+completed 1269 and 1330 jobs respectively; the forbidden-token scan was empty
+and exported declarations report only `[propext, Quot.sound]`.  No full audit,
+remote push, or GitHub CI run was used.

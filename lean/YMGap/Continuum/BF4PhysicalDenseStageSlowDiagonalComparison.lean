@@ -34,6 +34,7 @@ open YMGap.Continuum.BF4MatchedPhysicalAFBridge
 open YMGap.Continuum.BF4PhysicalDenseStageAdaptiveProjectiveComparison
 open YMGap.Continuum.BF4PhysicalDenseStageGraphNormCompiler
 open YMGap.Continuum.BF4PhysicalDenseStageProjectiveComparison
+open YMGap.Continuum.BF4PhysicalCompletedMacroCorrelator
 open YMGap.Continuum.BF4PhysicalMarkovGNSCompletion
 open YMGap.Continuum.BF4PhysicalMarkovModulusCompletion
 open YMGap.Continuum.BF4PhysicalModulatedGapLimitStability
@@ -42,6 +43,7 @@ open YMGap.Continuum.BF4PhysicalSeparatorProducer
 open YMGap.Continuum.BF4ReflectedAllSpinAFRowRelative
 open YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
 open YMGap.Continuum.GNSQuotient
+open YMGap.Continuum.GNSModulusCompletion
 open YMGap.Continuum.MeasureLinkedOSReconstruction
 open YMGap.Continuum.ObservableMeasure
 open YMGap.Continuum.OSReconstructionProgress
@@ -392,9 +394,38 @@ end BF4WilsonDenseStageSlowProjectiveCore
 
 /-! ## 4. Compilation to the adaptive graph-norm comparison -/
 
-/-- Slow-projective data plus vacuum-complement preservation along the
-constructed sampler.  No sampler, cofinality proof, or diagonal-admissibility
-proof remains as an input. -/
+/-- An exact finite physical mean-zero certificate constructs vacuum
+orthogonality of the corresponding dense point in the Type-modulated
+completion. -/
+theorem centralPhysicalModulatedEmbedV_vacuumOrthogonal_of_meanZero
+    (w : Q') (hw : (0 : Q') <= w) (K half : Nat)
+    (observable :
+      SU2FundamentalPentagonFiniteGraph.EdgeLabelling -> Q')
+    (hmeanZero : CentralPhysicalMeanZero w hw K half observable) :
+    CentralPhysicalModulatedVacuumOrthogonal w hw K half
+      (modulatedEmbedV
+        (centralPhysicalSmulGNS w hw K half).toGNSData observable) := by
+  let stageD := (centralPhysicalSmulGNS w hw K half).toGNSData
+  unfold CentralPhysicalModulatedVacuumOrthogonal
+  change modulatedCinnerCompl stageD
+      (modulatedEmbedV stageD observable)
+      (modulatedEmbedV stageD centralPhysicalVacuumCarrier) = CReal.RCzero
+  rw [modulatedCinnerCompl_embed]
+  apply Quotient.sound
+  change CReal.Equiv
+    (CReal.ofQ'
+      (centralPhysicalWeightedInner w hw K half observable
+        centralPhysicalVacuumCarrier))
+    (CReal.ofQ' 0)
+  exact CReal.ofQ'_equiv_of_eqv
+    (Q'.eqv_trans _ _ _
+      (centralPhysicalWeightedInner_vacuum_right
+        w hw K half observable)
+      hmeanZero)
+
+/-- Slow-projective data plus an exact rational mean-zero certificate along
+the constructed sampler.  No sampler, cofinality proof, diagonal-admissibility
+proof, or completed vacuum-orthogonality equality remains as an input. -/
 structure BF4WilsonDenseStageSlowProjectiveComparison
     {family : MatchedBlockFamily}
     {law : CubicMarginLaw family}
@@ -407,16 +438,15 @@ structure BF4WilsonDenseStageSlowProjectiveComparison
     {H : FourDExistence.ContinuumYMExistence mu}
     (D : WilsonSelectedOSGNSData H) : Type 3 where
   core : BF4WilsonDenseStageSlowProjectiveCore producer D
-  stage_vacuumOrthogonal : forall (X : SelectedWilsonCauchy D),
+  stage_meanZero : forall (X : SelectedWilsonCauchy D),
     D.selectedSpectralData.vacPerp (selectedWilsonPoint D X) ->
       forall scale : Nat,
-        CentralPhysicalModulatedVacuumOrthogonal
+        CentralPhysicalMeanZero
           (matchedAllSpinWeight family coupling scale)
           (matchedAllSpinWeight_nonnegative family coupling scale)
           (matchedAllSpinCutoff family coupling scale) 0
-          (matchedPhysicalStagePoint family coupling scale
-            (adaptiveDenseStageApproximant D core.sampleIndex
-              core.stageObservable X scale))
+          (core.stageObservable scale
+            (X.seq (core.sampleIndex X scale)))
 
 namespace BF4WilsonDenseStageSlowProjectiveComparison
 
@@ -432,6 +462,27 @@ variable
     {H : FourDExistence.ContinuumYMExistence mu}
     {D : WilsonSelectedOSGNSData H}
     (data : BF4WilsonDenseStageSlowProjectiveComparison producer D)
+
+/-- The finite rational mean-zero field supplies the completed
+vacuum-orthogonality field required by the adaptive compiler. -/
+theorem stage_vacuumOrthogonal (X : SelectedWilsonCauchy D)
+    (horthogonal :
+      D.selectedSpectralData.vacPerp (selectedWilsonPoint D X))
+    (scale : Nat) :
+    CentralPhysicalModulatedVacuumOrthogonal
+      (matchedAllSpinWeight family coupling scale)
+      (matchedAllSpinWeight_nonnegative family coupling scale)
+      (matchedAllSpinCutoff family coupling scale) 0
+      (matchedPhysicalStagePoint family coupling scale
+        (adaptiveDenseStageApproximant D data.core.sampleIndex
+          data.core.stageObservable X scale)) := by
+  exact centralPhysicalModulatedEmbedV_vacuumOrthogonal_of_meanZero
+    (matchedAllSpinWeight family coupling scale)
+    (matchedAllSpinWeight_nonnegative family coupling scale)
+    (matchedAllSpinCutoff family coupling scale) 0
+    (data.core.stageObservable scale
+      (X.seq (data.core.sampleIndex X scale)))
+    (data.stage_meanZero X horthogonal scale)
 
 /-- Construct the complete vector-adaptive comparison from pointwise data and
 the executable slow diagonal. -/
@@ -466,5 +517,7 @@ end YMGap.Continuum.BF4PhysicalDenseStageSlowDiagonalComparison
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageSlowDiagonalComparison.regularizedProjectiveModulus
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageSlowDiagonalComparison.regularizedProjectiveModulus_rate_antitone
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageSlowDiagonalComparison.BF4WilsonDenseStageSlowProjectiveCore.diagonal_admissible
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageSlowDiagonalComparison.centralPhysicalModulatedEmbedV_vacuumOrthogonal_of_meanZero
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageSlowDiagonalComparison.BF4WilsonDenseStageSlowProjectiveComparison.stage_vacuumOrthogonal
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageSlowDiagonalComparison.BF4WilsonDenseStageSlowProjectiveComparison.toAdaptiveProjectiveComparison
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageSlowDiagonalComparison.BF4WilsonDenseStageSlowProjectiveComparison.toWilsonOperatorNormGapPin
