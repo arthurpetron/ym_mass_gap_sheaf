@@ -409,6 +409,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearRadicalDescent.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletion.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedAlgebra.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedModule.lean`,
   and
   `lean/YMGap/Continuum/BF4FarautGraphNormContinuumRealization.lean`.
 - **named fields / structures**:
@@ -804,8 +805,10 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   explicit-modulus Cauchy completion are constructed.  Addition, rational
   scaling, zero, and negation have now descended to actual operations on that
   completion using proved quadratic-Lipschitz and explicit continuity moduli.
-  Their completed module laws and a cutoff-independent transfer action on this
-  carrier remain the next structural obligations.
+  Their additive-group and rational-module laws are now literal equalities on
+  arbitrary completed points and are bundled as a completed rational module.
+  A cutoff-independent transfer action and extension of the limiting bilinear
+  form to the completion remain the next structural obligations.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full

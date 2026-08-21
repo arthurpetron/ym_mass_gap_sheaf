@@ -2255,3 +2255,28 @@ nome/volume/spacing limits, continuum QFT, and the Clay theorem remain open.
 A source check and focused monitored build completed successfully, the latter
 with 1137 jobs.  Every printed load-bearing declaration reports only
 `[propext, Quot.sound]`.
+
+## Rational module laws on the completed physical BF4 carrier (2026-08-20)
+
+`BF4PhysicalCutoffLinearCompletedModule` proves that the completed operations
+form an honest rational module.  Exact semantic laws for zero, inverse,
+associativity, commutativity, scalar identity, scalar multiplication,
+distributivity in the scalar, and distributivity over vectors are first
+checked on the finite-linear syntax.  The finite-stage GNS bridge shows that
+semantically equivalent presentations have zero limiting squared distance.
+
+Quotient induction and the explicit pointwise-null closeness witness then
+prove every law as literal equality on arbitrary completed Cauchy classes.
+The bundled `centralPhysicalCutoffCompletedQModule` therefore carries the
+actual fixed-nome completed carrier, its four operations, and all rational
+module equations without choosing representatives.
+
+This closes the linear-carrier frontier, not the operator frontier.  The
+finite physical Markov action is cutoff-dependent and does not preserve the
+finite unit-atom syntax at a fixed cutoff-independent level.  Constructing a
+single nonexpansive action on this limiting carrier requires a new transfer
+moment/realization bridge.  The strict cofinal `1/16` input, completed inner
+product extension, vacuum-complement gap, nome/volume/spacing limits,
+continuum QFT, and the Clay theorem remain open.  A source check and focused
+monitored build completed successfully, the latter with 1138 jobs.  Every
+printed load-bearing declaration reports only `[propext, Quot.sound]`.
