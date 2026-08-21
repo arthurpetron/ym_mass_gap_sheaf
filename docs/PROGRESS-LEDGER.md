@@ -2329,3 +2329,25 @@ cofinal `1/16` input, nome/volume/spacing limits, continuum QFT, and Clay
 theorem remain open.  A source check and focused monitored build completed
 successfully, the latter with 1140 jobs.  Every printed load-bearing
 declaration reports only `[propext, Quot.sound]`.
+
+## Representative independence of the outer physical pairing (2026-08-21)
+
+`BF4PhysicalCutoffLinearCompletedInnerWellDefined` proves that the constructed
+outer pairing limit depends only on completion classes.  A general constructive
+comparison lemma first shows that two convergent Bishop-real sequences with
+same-index two-sided `leRat` differences tending to zero have equivalent
+limits.
+
+For physical completion representatives, the two explicit `Close` moduli feed
+the exact bilinear telescope.  Uniform diagonal ceilings and quantitative
+Cauchy--Schwarz bound both telescope terms, yielding an explicit same-index
+comparison rate.  Applying the general limit lemma proves
+`physicalCauchyPairingLimit_welldef` simultaneously in both arguments.
+
+The pairing can now descend through the completion quotient; defining that
+`RC`-valued form and proving symmetry, positivity, additivity, homogeneity,
+and dense compatibility are next.  The cutoff-independent transfer, strict
+cofinal `1/16` input, nome/volume/spacing limits, continuum QFT, and Clay
+theorem remain open.  A source check and focused monitored build completed
+successfully, the latter with 1141 jobs.  Every printed load-bearing
+declaration reports only `[propext, Quot.sound]`.

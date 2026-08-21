@@ -412,6 +412,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedModule.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedInnerKernel.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedInnerOuter.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedInnerWellDefined.lean`,
   and
   `lean/YMGap/Continuum/BF4FarautGraphNormContinuumRealization.lean`.
 - **named fields / structures**:
@@ -815,8 +816,10 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   Cauchy--Schwarz, diagonal/distance identification, and the bilinear endpoint
   telescope are proved.  The outer representative pairing limit is now also
   constructed from a computable uniform diagonal ceiling and a Type-level
-  outer Cauchy rate.  Representative independence, descent to an `RC`-valued
-  completed inner form, and its laws remain the next structural obligations.  A
+  outer Cauchy rate.  Representative independence under both explicit `Close`
+  relations is now proved by a same-index quantitative comparison.  Descent
+  to an `RC`-valued completed inner form and its laws remain the next
+  structural obligations.  A
   cutoff-independent transfer action remains a separate bridge after that.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
