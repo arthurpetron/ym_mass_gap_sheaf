@@ -2772,9 +2772,14 @@ two canonical full-carrier penalized forms.
 Nonnegativity of both reduced matrices now proves the absolute centered
 contraction on the full carrier.  Ordinary complete LDL checks and scalable
 cleared-denominator row/triangularity/pivot checks are both compiled through
-that bridge.  This closes the generic logical gap between a reduced mean-zero
-factorization and the canonical physical two-sided inequality without using a
-basis choice or an existential coordinate inverse.
+that bridge.  Generic dependent packages bundle a restriction with either
+checker, and changing-dimension cofinal packages retain those bundles along an
+explicit unbounded finite-model schedule.  Keeping these recursors at the
+small finite-arithmetic level also prevents model-specific definitional
+expansion during kernel elaboration.  This closes the generic logical gap
+between a reduced mean-zero factorization and the canonical physical
+two-sided inequality without using a basis choice or an existential coordinate
+inverse.
 
 No physical restriction, reduced matrix table, or cofinal certificate family
 is constructed here.  In particular, the existing cutoff-two 64-coordinate
@@ -2786,6 +2791,31 @@ Thermodynamic, nome, spacing, continuum-reconstruction, QFT-axiom, and Clay
 targets remain open.  The source check and focused monitored build completed
 successfully, the latter with 218 jobs.  Every printed load-bearing declaration
 reports only `[propext, Quot.sound]`.
+
+## Cofinal reduced-coordinate physical LDL compiler (2026-08-21)
+
+`BF4PhysicalCutoffCofinalRestrictedLDLGap` specializes the generic centered
+restriction packages to the genuine finite-index BF4 physical carrier.  At
+one cutoff, an ordinary or cleared-denominator reduced LDL package now proves
+the exact absolute physical joint-quadratic bound for every stationary-mean-
+zero observable.  Exact carrier reindexing transports the reduced finite
+matrix conclusion back to the physical list sums.
+
+At fixed nome and half-extent, a constructively cofinal family of either kind
+now compiles directly to `FixedNomeCofinalCenteredSixteenth`.  Thus an
+external exact-arithmetic producer may eliminate a mean-zero coordinate and
+emit smaller upper/lower factor tables without any unrecorded basis or
+physical-identification step.
+
+No physical coordinate restriction, LDL table, or cofinal family is inhabited
+here.  The historical cutoff-two table remains one-sided at `49/50` and cannot
+fill the two-sided `1/16` interface.  The next constructive frontier is a
+canonical coordinate-elimination constructor from one proved-positive
+stationary weight, followed by production or obstruction analysis of actual
+two-sided tables.  Thermodynamic, nome, spacing, continuum-reconstruction,
+QFT-axiom, and Clay targets remain open.  Source checks and focused monitored
+builds completed successfully; the physical build passed 1217 jobs.  Every
+printed load-bearing declaration reports only `[propext, Quot.sound]`.
 
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 

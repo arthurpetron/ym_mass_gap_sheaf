@@ -208,6 +208,31 @@ theorem absContraction
 
 end FiniteCenteredRestrictionLDLCertificate
 
+/-- A centered coordinate restriction bundled with complete ordinary LDL
+checks of both of its reduced matrices.  Packaging this dependency at the
+generic finite level avoids rebuilding a model-specific dependent recursor. -/
+structure FiniteCenteredRestrictionLDLPackage
+    (n : Nat) (q : Q') (weight : Nat → Q')
+    (kernel : Nat → Nat → Q') : Type 1 where
+  restriction :
+    FiniteCenteredTwoSidedRestriction n q weight kernel
+  certificate : FiniteCenteredRestrictionLDLCertificate restriction
+
+namespace FiniteCenteredRestrictionLDLPackage
+
+/-- Soundness of a bundled restriction and its ordinary LDL checks. -/
+theorem absContraction
+    {n : Nat} {q : Q'} {weight : Nat → Q'}
+    {kernel : Nat → Nat → Q'}
+    (package : FiniteCenteredRestrictionLDLPackage n q weight kernel)
+    (coefficient : Nat → Q')
+    (hcenter : finiteWeightedMean n weight coefficient ≈ 0) :
+    Q'.abs (finiteMatrixQuadratic n kernel coefficient) ≤
+      q * finiteDiagonalQuadratic n weight coefficient :=
+  package.certificate.absContraction coefficient hcenter
+
+end FiniteCenteredRestrictionLDLPackage
+
 /-- Shardable cleared-denominator LDL checks of both reduced matrices. -/
 structure FiniteCenteredRestrictionClearedLDLCertificate
     {n : Nat} {q : Q'} {weight : Nat → Q'}
@@ -260,6 +285,62 @@ theorem absContraction
 
 end FiniteCenteredRestrictionClearedLDLCertificate
 
+/-- A centered coordinate restriction bundled with shardable
+cleared-denominator LDL checks of both of its reduced matrices. -/
+structure FiniteCenteredRestrictionClearedLDLPackage
+    (n : Nat) (q : Q') (weight : Nat → Q')
+    (kernel : Nat → Nat → Q') : Type 1 where
+  restriction :
+    FiniteCenteredTwoSidedRestriction n q weight kernel
+  certificate :
+    FiniteCenteredRestrictionClearedLDLCertificate restriction
+
+namespace FiniteCenteredRestrictionClearedLDLPackage
+
+/-- Soundness of a bundled restriction and its cleared LDL checks. -/
+theorem absContraction
+    {n : Nat} {q : Q'} {weight : Nat → Q'}
+    {kernel : Nat → Nat → Q'}
+    (package :
+      FiniteCenteredRestrictionClearedLDLPackage n q weight kernel)
+    (coefficient : Nat → Q')
+    (hcenter : finiteWeightedMean n weight coefficient ≈ 0) :
+    Q'.abs (finiteMatrixQuadratic n kernel coefficient) ≤
+      q * finiteDiagonalQuadratic n weight coefficient :=
+  package.certificate.absContraction coefficient hcenter
+
+end FiniteCenteredRestrictionClearedLDLPackage
+
+/-! ## 4. Generic cofinal families of changing finite carriers -/
+
+/-- Ordinary bundled reduced LDL checks along a constructively selected
+cofinal sequence of finite-model indices. -/
+structure CofinalFiniteCenteredRestrictionLDLPackage
+    (q : Q') (size : Nat → Nat)
+    (weight : Nat → Nat → Q')
+    (kernel : Nat → Nat → Nat → Q') : Type 1 where
+  anchor : Nat → Nat
+  anchor_ge : ∀ base, base ≤ anchor base
+  certificate :
+    ∀ base,
+      FiniteCenteredRestrictionLDLPackage
+        (size (anchor base)) q
+        (weight (anchor base)) (kernel (anchor base))
+
+/-- Cleared-denominator bundled reduced LDL checks along a constructively
+selected cofinal sequence of finite-model indices. -/
+structure CofinalFiniteCenteredRestrictionClearedLDLPackage
+    (q : Q') (size : Nat → Nat)
+    (weight : Nat → Nat → Q')
+    (kernel : Nat → Nat → Nat → Q') : Type 1 where
+  anchor : Nat → Nat
+  anchor_ge : ∀ base, base ≤ anchor base
+  certificate :
+    ∀ base,
+      FiniteCenteredRestrictionClearedLDLPackage
+        (size (anchor base)) q
+        (weight (anchor base)) (kernel (anchor base))
+
 end YMGap.Continuum.FiniteRationalCenteredRestrictionCertificate
 
 #print axioms
@@ -270,3 +351,7 @@ end YMGap.Continuum.FiniteRationalCenteredRestrictionCertificate
   YMGap.Continuum.FiniteRationalCenteredRestrictionCertificate.FiniteCenteredRestrictionLDLCertificate.absContraction
 #print axioms
   YMGap.Continuum.FiniteRationalCenteredRestrictionCertificate.FiniteCenteredRestrictionClearedLDLCertificate.absContraction
+#print axioms
+  YMGap.Continuum.FiniteRationalCenteredRestrictionCertificate.FiniteCenteredRestrictionLDLPackage.absContraction
+#print axioms
+  YMGap.Continuum.FiniteRationalCenteredRestrictionCertificate.FiniteCenteredRestrictionClearedLDLPackage.absContraction

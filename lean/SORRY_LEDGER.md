@@ -436,6 +436,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/FiniteRationalPenalizedMatrix.lean`,
   `lean/YMGap/Continuum/FiniteRationalCenteredRestrictionCertificate.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffCofinalLDLGap.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffCofinalRestrictedLDLGap.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovTransfer.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovLaws.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovVacuumComplement.lean`,
@@ -896,9 +897,12 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   constructively recovers reduced coordinates for every centered full vector;
   exact upper/lower quadratic identities then compile ordinary or
   cleared-denominator LDL checks to the canonical two-sided contraction.  No
-  physical restriction or reduced LDL table is inhabited.  The historical
-  cutoff-two table remains one-sided at `49/50`, so it is not evidence for the
-  required two-sided `1/16` cofinal family.
+  physical restriction or reduced LDL table is inhabited.  Generic
+  changing-dimension packages now retain either kind of reduced checker along
+  a cofinal schedule, and their genuine BF4 specialization compiles directly
+  to `FixedNomeCofinalCenteredSixteenth`.  The historical cutoff-two table
+  remains one-sided at `49/50`, so it is not evidence for the required
+  two-sided `1/16` cofinal family.
   That transport frontier is now specialized to the actual cutoff-removed
   carrier.  Every completion representative has a canonical exactly centered
   vector in each finite-cutoff physical GNS completion, and its finite vacuum
