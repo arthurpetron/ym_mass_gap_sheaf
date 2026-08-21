@@ -414,6 +414,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedInnerOuter.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedInnerWellDefined.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedInner.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedInnerLaws.lean`,
   and
   `lean/YMGap/Continuum/BF4FarautGraphNormContinuumRealization.lean`.
 - **named fields / structures**:
@@ -820,9 +821,12 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   outer Cauchy rate.  Representative independence under both explicit `Close`
   relations is now proved by a same-index quantitative comparison.  Descent
   to an `RC`-valued completed inner form is now complete, including equality
-  with the dense physical pairing.  Its symmetry, positivity, additivity, and
-  rational homogeneity laws remain the next structural obligations.  A
-  cutoff-independent transfer action remains a separate bridge after that.
+  with the dense physical pairing.  Its symmetry, diagonal nonnegativity,
+  additivity in both arguments, and rational homogeneity in both arguments
+  are now literal theorems on arbitrary completed points.  A normalized
+  completed vacuum and its orthogonal complement are the next structural
+  obligations; a cutoff-independent transfer action remains a separate
+  bridge after them.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full

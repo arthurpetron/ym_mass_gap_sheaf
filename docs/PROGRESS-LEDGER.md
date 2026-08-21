@@ -2372,3 +2372,22 @@ cofinal `1/16` input, nome/volume/spacing limits, continuum QFT, and Clay
 theorem remain open.  A source check and focused monitored build completed
 successfully, the latter with 1142 jobs.  Every printed load-bearing
 declaration reports only `[propext, Quot.sound]`.
+
+## Positive symmetric rational-bilinear laws for the completed BF4 form (2026-08-21)
+
+`BF4PhysicalCutoffLinearCompletedInnerLaws` proves the intrinsic laws of the
+completed `RC`-valued physical form.  Symmetry, diagonal nonnegativity,
+additivity in both arguments, and rational homogeneity in both arguments are
+first proved for arbitrary explicit-modulus Cauchy representatives by
+uniqueness of constructive limits.  Quotient induction then turns them into
+literal theorems on arbitrary completed points.
+
+The fixed-nome completed physical BF4 carrier therefore now has an actual
+positive symmetric rational-bilinear form extending the dense cutoff-removed
+pairing.  This is a structural inner-product milestone, not a transfer or
+spectral theorem: separation of points, a normalized vacuum and completed
+vacuum complement, a compatible cutoff-independent transfer, its uniform
+strict contraction, nome/volume/spacing limits, continuum QFT, and the Clay
+theorem remain open.  A source check and focused monitored build completed
+successfully, the latter with 1147 jobs.  Every printed load-bearing
+declaration reports only `[propext, Quot.sound]`.
