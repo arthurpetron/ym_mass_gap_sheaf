@@ -999,3 +999,38 @@ existence, and the Clay theorem remain open.  The focused single-worker build
 completed 1195 jobs; the forbidden-token scan was empty and every exported
 declaration reports only `[propext, Quot.sound]`.  No full audit, remote push,
 or GitHub CI run was used.
+
+## Completed physical BF4 centered form gap (2026-08-20)
+
+`BF4PhysicalCompletedCenteredFormGap` closes the next direct finite physical
+bridge.  It centers every finite-stage observable by its exact stationary
+row-marginal mean, proves that the centered observable is mean zero, and proves
+both algebraic correction identities
+
+`||center f||^2 = ||f||^2 - mean(f)^2`,
+
+`<T center f,center f> = <Tf,f> - mean(f)^2`.
+
+For a Cauchy representative of a completed vacuum-orthogonal vector, the
+stage means converge to zero.  Therefore the centered stage norms and Markov
+forms converge respectively to the ordinary completed norm and completed
+matrix coefficient.  Passing the producer's finite mean-zero `1/16` bound
+through those two limits proves
+
+`<T v,v> <= (1/16) <v,v>`
+
+on the entire completed physical vacuum complement at every matched scale.
+This route uses the actual stationary BF4 carrier and needs no BF4-to-strong-
+Z4 stage map or endpoint-comparison laws.
+
+The theorem is parametrized by an inhabitant of
+`BF4QuarterPhysicalSeparatorProducer`; this module does not construct that
+analytic producer.  It is consequently a genuine compilation theorem from
+the named finite producer data, not an unconditional Yang--Mills result.  The
+next finite operator frontier is to combine this form gap with completed
+Markov-form Cauchy--Schwarz and positivity to obtain the squared-norm/operator
+gap, then transport it to the Type-modulated carrier.  Thermodynamic and
+continuum stability, continuum QFT existence, and the Clay theorem remain
+open.  The focused single-worker build completed 1201 jobs; the forbidden-
+token scan was empty and every exported declaration reports only
+`[propext, Quot.sound]`.  No full audit, remote push, or GitHub CI run was used.
