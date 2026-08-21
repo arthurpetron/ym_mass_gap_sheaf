@@ -1207,3 +1207,38 @@ not supply continuum existence or the Clay theorem.  The focused
 single-worker build completed 1323 jobs; the forbidden-token scan was empty
 and every exported declaration reports only `[propext, Quot.sound]`.  No full
 audit, remote push, or GitHub CI run was used.
+
+## Dense finite-stage graph-norm compiler (2026-08-20)
+
+`BF4PhysicalDenseStageGraphNormCompiler` expands the remaining graph-norm
+interface into a causal approximation system.  For each continuum
+`CauchyGNS` representative it selects an explicit sequence term, maps that
+dense observable into the literal finite BF4 carrier, and forms the constant
+finite completion representative.  The new
+`WilsonPointwiseLinearTimeTranslationPin` records the exact law that the
+chosen `TCauchy` lift applies the selected observable shift termwise.  The
+finite-stage map separately records exact intertwining of that shift with the
+concrete physical macro transfer.
+
+The analytic norm input is now one `CReal.ModCauchyEv` record, not two
+independent `ConvergesTo` assumptions.  It exposes a Type-level outer modulus,
+inner regularity moduli, and eventual approximation thresholds.  Exact
+intertwining makes the transferred finite representative `CauchyNull`-
+equivalent to the ordinary dense-stage representative of `TCauchy X`.
+Consequently the module proves transferred-norm convergence by applying the
+same norm modulus to `TCauchy X`, and then compiles the result to
+`BF4WilsonLinearGraphNormLimitApproximation` and `WilsonOperatorNormGapPin`.
+
+`BF4FarautGraphNormContinuumRealization` now has a fully factored
+`ContinuumWilsonDenseStageResidualData` endpoint.  On the same selected
+continuum object, literal dense-stage maps plus the single modulus construct
+the prior graph-norm residual and hence `WilsonMinimalBoundedMassGap`.
+
+No dense stage map, pointwise interacting Wilson transfer lift, vacuum-
+complement preservation theorem, or norm modulus is inhabited here.  Those
+are the next thermodynamic-limit obligations.  Continuum measure existence,
+physical-time/generator identification, the full QFT axioms, and the Clay
+theorem remain open.  The focused dense compiler build completed 1263 jobs and
+the integrated endpoint build completed 1324 jobs; the forbidden-token scan
+was empty and every exported declaration reports only
+`[propext, Quot.sound]`.  No full audit, remote push, or GitHub CI run was used.
