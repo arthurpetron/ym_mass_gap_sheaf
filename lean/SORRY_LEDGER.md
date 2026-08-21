@@ -416,6 +416,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedInner.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedInnerLaws.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedVacuumComplement.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffLinearMarkovSyntax.lean`,
   and
   `lean/YMGap/Continuum/BF4FarautGraphNormContinuumRealization.lean`.
 - **named fields / structures**:
@@ -828,8 +829,14 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   vector is now an exactly normalized completed vacuum.  Orthogonality to it
   defines a proper completed subtype, the dense orthogonal sector embeds into
   it, and it inherits the ambient rational-module laws.  A cutoff-independent
-  transfer action, its vacuum stationarity, and preservation of this same
-  complement remain the next separate bridge.
+  transfer action still remains separate.  Every finite physical Markov map
+  has now been constructively clamped and recoded as an endomorphism of the
+  same cutoff-independent finite-linear syntax; on the retained carrier this
+  recoding is the literal finite action, fixes the vacuum, and satisfies the
+  exact same-cutoff GNS contraction.  What remains is cross-cutoff Cauchy and
+  representative-compatibility control for those recoded images, followed by
+  quotient descent, vacuum stationarity, and preservation of this same
+  complement.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full
