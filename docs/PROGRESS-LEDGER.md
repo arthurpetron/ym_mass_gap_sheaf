@@ -2025,6 +2025,32 @@ remain open.  A source check and focused monitored build completed
 successfully, the latter with 1261 jobs.  Every printed load-bearing
 declaration reports only `[propext, Quot.sound]`.
 
+## Adaptive two-index Markov completion schedule (2026-08-21)
+
+`BF4PhysicalCutoffLinearMarkovAdaptiveCompletionSchedule` replaces the
+unjustified same-index requirement on `P_n(X_n)` by an executable slow
+diagonal.  At action cutoff `K`, it selects the largest input index `i` whose
+cumulative obligations fit inside `K`.  The obligation at `i` is a finite
+running maximum over every earlier anchor `j <= i`: it pays both the
+cross-cutoff modulus of the fixed observable `X_j` and the inner regularity
+of the squared distance from `X_i` to `X_j`.
+
+Both kinds of rate are regularized constructively along the canonical
+`invSucc` precision ladder.  The main simultaneous admissibility theorem
+proves that one explicit late-stage bound makes the selected index cofinal
+past any requested anchor and pays the two rates at independently chosen
+positive tolerances.  A regularized version of limiting same-cutoff
+nonexpansiveness is also proved for direct use by the completion diagonal.
+
+This constructs the schedule and all of its local witnesses, but does not yet
+package `K |-> P_K(X_i(K))` as a Cauchy representative or prove quotient
+descent.  Those are the immediate next contraction steps.  Nonconstant
+pointwise cross-cutoff data, the cofinal finite sixteenth, thermodynamic/nome/
+spacing limits, continuum QFT, and the Clay theorem remain open.  A source
+check and focused monitored build completed successfully, the latter with
+1301 jobs.  Every printed load-bearing declaration reports only
+`[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the
