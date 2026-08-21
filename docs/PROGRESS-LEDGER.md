@@ -2001,6 +2001,32 @@ focused monitored build completed 979 jobs, followed by a clean source check
 after adding the explicit weighted-inner identity.  Every printed
 load-bearing declaration reports only `[propext, Quot.sound]`.
 
+## Adaptive completed graph-norm compiler (2026-08-21)
+
+`BF4PhysicalCutoffLinearCompletedMarkovAdaptiveGraphNorm` uses the equal
+rate-admissible representative constructed by the adaptive reindexing module
+to discharge all four raw graph diagonals.  A generalized diagonal theorem
+accepts the regularized inner witness; exact Markov syntax rate invariance then
+makes the one input sampler control the input self pair, input vacuum pair,
+action self pair, and action vacuum pair.
+
+Those four limits prove completed vacuum-pairing invariance directly from the
+completion modulus and prove convergence of both centered graph-norm streams.
+Quotient equality transports every arbitrary representative to its adaptive
+normal form.  Consequently
+`centralPhysicalCutoffCompletedMarkovAdaptiveStrictContractionData` constructs
+strict contraction of the actual cutoff-removed completed transfer at literal
+rate `1/16` from only `CentralPhysicalLinearMarkovCompletionModulus` and
+`FixedNomeCutoffCenteredSixteenth`.  The former separate graph-cofinality input
+is no longer present in the final compiler.
+
+Neither of those two remaining analytic inputs is inhabited.  Thus the next
+fixed-nome frontiers are the nonconstant completion modulus and the uniform
+finite-cutoff centered sixteenth; thermodynamic/nome/spacing limits, continuum
+QFT, and the Clay theorem remain open.  A source check and focused monitored
+build completed successfully, the latter with 1300 jobs.  Every printed
+load-bearing declaration reports only `[propext, Quot.sound]`.
+
 ## Fixed-nome cutoff limit of the physical autocorrelation form (2026-08-20)
 
 `BF4PhysicalCutoffAutocorrelationLimit` closes the next same-object moment
