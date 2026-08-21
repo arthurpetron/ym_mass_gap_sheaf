@@ -415,6 +415,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedInnerWellDefined.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedInner.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedInnerLaws.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedVacuumComplement.lean`,
   and
   `lean/YMGap/Continuum/BF4FarautGraphNormContinuumRealization.lean`.
 - **named fields / structures**:
@@ -823,10 +824,12 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   to an `RC`-valued completed inner form is now complete, including equality
   with the dense physical pairing.  Its symmetry, diagonal nonnegativity,
   additivity in both arguments, and rational homogeneity in both arguments
-  are now literal theorems on arbitrary completed points.  A normalized
-  completed vacuum and its orthogonal complement are the next structural
-  obligations; a cutoff-independent transfer action remains a separate
-  bridge after them.
+  are now literal theorems on arbitrary completed points.  The constant-one
+  vector is now an exactly normalized completed vacuum.  Orthogonality to it
+  defines a proper completed subtype, the dense orthogonal sector embeds into
+  it, and it inherits the ambient rational-module laws.  A cutoff-independent
+  transfer action, its vacuum stationarity, and preservation of this same
+  complement remain the next separate bridge.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full

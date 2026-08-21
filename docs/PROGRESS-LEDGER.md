@@ -2391,3 +2391,25 @@ strict contraction, nome/volume/spacing limits, continuum QFT, and the Clay
 theorem remain open.  A source check and focused monitored build completed
 successfully, the latter with 1147 jobs.  Every printed load-bearing
 declaration reports only `[propext, Quot.sound]`.
+
+## Normalized vacuum and completed physical BF4 vacuum complement (2026-08-21)
+
+`BF4PhysicalCutoffLinearCompletedVacuumComplement` identifies the literal
+constant-one finite-linear observable, embeds it into the same fixed-nome
+completed carrier, and proves that its completed `RC`-valued self-pairing is
+exactly one.  A direct constructive separation at tolerance `1/2` proves that
+this normalized vacuum is not orthogonal to itself.
+
+Orthogonality to the vacuum now defines an actual completed subtype.  Every
+dense finite-linear orthogonal vector embeds into it; completed zero,
+addition, negation, and rational scaling preserve it; and the inherited laws
+are bundled as `centralPhysicalCutoffCompletedVacuumComplementQModule`.
+
+This closes the fixed-nome carrier/vacuum-complement frontier, not the
+dynamical one.  The finite physical Markov action is still indexed by the
+representation cutoff and does not yet define one compatible action on this
+cutoff-removed syntax and completion.  Such a transfer, its stationarity and
+self-adjointness, its uniform strict complement bound, nome/volume/spacing
+limits, continuum QFT, and the Clay theorem remain open.  A source check and
+focused monitored build completed successfully, the latter with 1148 jobs.
+Every printed load-bearing declaration reports only `[propext, Quot.sound]`.
