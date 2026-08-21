@@ -845,3 +845,28 @@ physical macro transfer again.  Uniform limit stability, continuum existence,
 and the Clay theorem remain open.  The focused single-worker build completed
 1142 jobs and every exported declaration reports only `[propext, Quot.sound]`;
 no full audit, remote push, or GitHub CI run was used.
+
+## Corrected one-macro-step endpoint comparison residue (2026-08-20)
+
+`BF4PhysicalCompletedMacroEndpointIntertwiner` replaces the earlier
+over-expanded `CompletedBF4RGOperatorRealization` boundary with the actual
+remaining cross-model datum.  Its physical carrier, physical transfer,
+vacuum complement, rate probe, same-object coefficient, normalization, and
+Cauchy--Schwarz estimate are no longer fields: they are the concrete objects
+and theorems constructed in the two preceding modules.
+
+The corrected residual has four fields only: a map from each concrete physical
+BF4 GNS completion to the constructed strong endpoint, exact squared-norm
+identification, intertwining of **one** already-composed physical macro step
+with one strong two-step transfer, and preservation of the vacuum complement.
+Given those four fields, the proved endpoint theorem imports a uniform strict
+completed physical vacuum-complement norm gap with rate `1/16`; the same-probe
+correlation-square-to-strict-norm chain follows automatically.
+
+No inhabitant of this four-field cross-model intertwiner is constructed.  It
+is now the immediate analytic bridge: prove the exact blocking map and its
+three laws without a spurious Faraut-depth iterate.  Even after that finite
+completed gap, thermodynamic and continuum limit stability, the continuum QFT
+construction, and the Clay theorem remain open.  The focused single-worker
+build completed 1230 jobs and every exported declaration reports only
+`[propext, Quot.sound]`; no full audit, remote push, or GitHub CI run was used.
