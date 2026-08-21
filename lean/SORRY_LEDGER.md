@@ -425,6 +425,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovContraction.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovCorrelationDecay.lean`,
   `lean/YMGap/Continuum/BF4PhysicalFixedNomeCompletedOperatorNormGap.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovGraphNorm.lean`,
   and
   `lean/YMGap/Continuum/BF4FarautGraphNormContinuumRealization.lean`.
 - **named fields / structures**:
@@ -482,6 +483,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `CentralPhysicalLinearMarkovVacuumPairingInnerCofinality`,
   `CentralPhysicalLinearMarkovVacuumPairingDiagonalControl`,
   `CentralPhysicalCutoffCompletedMarkovStrictContractionData`,
+  `CentralPhysicalCutoffCompletedMarkovCenteredGraphNormConvergence`,
   `ContinuumProjectiveOSResidualData`,
   `ContinuumWilsonBoundedResidualData`,
   `ContinuumWilsonMinimalBoundedResidualData`,
@@ -823,6 +825,16 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   spaces are not yet the single cutoff-removed completion; centered graph-norm
   convergence of vectors and transferred vectors remains the exact transport
   frontier.
+  That transport frontier is now specialized to the actual cutoff-removed
+  carrier.  Every completion representative has a canonical exactly centered
+  vector in each finite-cutoff physical GNS completion, and its finite vacuum
+  orthogonality is proved rather than assumed.  The two remaining graph-norm
+  laws are named by
+  `CentralPhysicalCutoffCompletedMarkovCenteredGraphNormConvergence`: centered
+  norm convergence to the actual completed norm and transferred centered-norm
+  convergence to the norm of the actual completed transfer.  Together with
+  the fixed-nome sixteenth, these two laws construct the same-object strict
+  contraction certificate at literal rate `1/16`; neither input is inhabited.
   The structural carrier edge has advanced independently: the constructive
   finite rational span of the genuine unit observables now carries a positive
   symmetric rational-bilinear `CReal` form whose `K`-th approximation is the

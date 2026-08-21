@@ -2638,3 +2638,30 @@ convergence of both vectors and their transferred images.  Nome/volume/spacing
 limits, continuum QFT, and the Clay theorem remain open.  A source check and
 focused monitored build completed successfully, the latter with 1237 jobs.
 Every printed load-bearing declaration reports only `[propext, Quot.sound]`.
+
+## Centered graph-norm compiler to the same-object gap (2026-08-21)
+
+`BF4PhysicalCutoffLinearCompletedMarkovGraphNorm` constructs, for every
+representative of the cutoff-removed completion, its canonical exactly
+centered vector in each genuine finite-cutoff physical GNS completion.  Exact
+finite stationarity proves unconditionally that every such approximant lies
+in its own finite vacuum complement.
+
+The fixed-nome finite completed theorem therefore gives the literal
+`(1/16)^2` squared-norm inequality for every member of these two canonical
+graph-norm streams.  The only remaining transport data are packaged as
+`CentralPhysicalCutoffCompletedMarkovCenteredGraphNormConvergence`: convergence
+of the centered finite norms to the cutoff-removed norm and convergence of the
+transferred centered norms to the norm of the already constructed
+cutoff-removed transfer.  These two laws, together with
+`FixedNomeCutoffCenteredSixteenth`, now construct the actual same-object
+`CentralPhysicalCutoffCompletedMarkovStrictContractionData` with rate `1/16`.
+
+Neither analytic input record is inhabited.  Thus this closes the finite-gap
+to same-object compiler, not the cross-cutoff estimates that feed it.  The
+nonconstant completion modulus, vacuum-pairing cofinality, fixed-nome
+sixteenth, and centered graph-norm convergence remain open.  Nome/volume/
+spacing limits, continuum QFT, and the Clay theorem remain open.  A source
+check and focused monitored build completed successfully, the latter with
+1257 jobs.  Every printed load-bearing declaration reports only
+`[propext, Quot.sound]`.
