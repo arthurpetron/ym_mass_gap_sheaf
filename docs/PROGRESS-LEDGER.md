@@ -870,3 +870,32 @@ completed gap, thermodynamic and continuum limit stability, the continuum QFT
 construction, and the Clay theorem remain open.  The focused single-worker
 build completed 1230 jobs and every exported declaration reports only
 `[propext, Quot.sound]`; no full audit, remote push, or GitHub CI run was used.
+
+## Dense-stage construction of the completed endpoint map (2026-08-20)
+
+`BF4PhysicalDenseMacroEndpointLift` moves the remaining comparison boundary
+off arbitrary completed maps and onto finite dense-stage data.  A supplied map
+from finite physical BF4 observables to strict-cylinder stages is lifted
+termwise to physical GNS Cauchy representatives and then through both quotient
+completions.  Exact dense squared-distance and bilinear-form identities prove
+that the resulting completed map preserves the full inner product.  Dense
+radical identities for one macro time step and for the vacuum descend to exact
+completed transfer intertwining, vacuum identification, and preservation of
+the vacuum complement.  These theorems construct the corrected four-field
+`CompletedBF4MacroEndpointIntertwiner` automatically.
+
+The construction exposes one genuinely constructive interface mismatch.  The
+physical `CauchyNull` relation stores `forall epsilon, exists N` in `Prop`,
+whereas the strong seminorm completion requires a Type-valued modulus function
+`epsilon -> Nat`.  Eliminating `Prop` into that function would be a choice
+step forbidden by the axiom gate.  The dense lift therefore asks explicitly
+for `nullModulusTransport`, a dependent-pair witness carrying exactly those
+moduli.  This is separate from the still-open analytic dense stage map, exact
+distance/inner identities, one-macro radical law, and vacuum radical law.
+
+No inhabitant of the dense comparison data is constructed, so the strict
+physical completed gap remains conditional on that bridge.  Thermodynamic and
+continuum stability and the Clay theorem remain open.  The focused
+single-worker build completed 1231 jobs and every exported declaration reports
+only `[propext, Quot.sound]`; no full audit, remote push, or GitHub CI run was
+used.
