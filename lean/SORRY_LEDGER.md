@@ -410,6 +410,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletion.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedAlgebra.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedModule.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedInnerKernel.lean`,
   and
   `lean/YMGap/Continuum/BF4FarautGraphNormContinuumRealization.lean`.
 - **named fields / structures**:
@@ -807,8 +808,14 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   completion using proved quadratic-Lipschitz and explicit continuity moduli.
   Their additive-group and rational-module laws are now literal equalities on
   arbitrary completed points and are bundled as a completed rational module.
-  A cutoff-independent transfer action and extension of the limiting bilinear
-  form to the completion remain the next structural obligations.
+  The inner analytic kernel for extending the form is now complete: the
+  physical slab cutoff modulus is retained as Type-level data through all
+  signed finite-linear expressions, and quantitative two-sided
+  Cauchy--Schwarz, diagonal/distance identification, and the bilinear endpoint
+  telescope are proved.  The outer representative pairing limit,
+  representative independence, descent to an `RC`-valued completed inner
+  form, and its laws remain the next structural obligations.  A
+  cutoff-independent transfer action remains a separate bridge after that.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full

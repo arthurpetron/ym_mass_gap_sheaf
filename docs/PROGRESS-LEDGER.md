@@ -2280,3 +2280,29 @@ product extension, vacuum-complement gap, nome/volume/spacing limits,
 continuum QFT, and the Clay theorem remain open.  A source check and focused
 monitored build completed successfully, the latter with 1138 jobs.  Every
 printed load-bearing declaration reports only `[propext, Quot.sound]`.
+
+## Analytic kernel for the completed physical BF4 inner form (2026-08-21)
+
+`CRealInnerRegularity` now includes `scaleLeftSigned`: an explicit-modulus
+regularity combinator for multiplication by an arbitrary rational.  Its proof
+uses `abs q` as a constructive Lipschitz constant and a division-free
+sign-cased rational product estimate, so signed coefficients in a finite
+linear observable no longer hide a proposition-level cutoff.
+
+`BF4PhysicalCutoffLinearCompletedInnerKernel` retains the executable corrected-
+slab cutoff modulus as Type-level `InnerRegularity` data and propagates it
+through every node of the actual finite-linear physical pairing.  It also
+proves a quantitative two-sided Cauchy--Schwarz bound from eventual diagonal
+bounds, identifies the dense diagonal with squared distance to zero, and
+proves the exact bilinear endpoint telescope.  These are precisely the
+analytic inputs required to show that `n |-> B(X_n,Y_n)` is a constructive
+outer Cauchy sequence for two explicit-modulus completion representatives.
+
+This closes the inner analytic-kernel frontier, not the completed-form
+frontier: the outer pairing limit, representative independence, descent to an
+`RC`-valued completed inner form, and its laws are still to be constructed.
+The cutoff-independent transfer, strict cofinal `1/16` input, vacuum-complement
+gap, nome/volume/spacing limits, continuum QFT, and Clay theorem remain open.
+A source check and focused monitored build completed successfully, the latter
+with 1139 jobs.  Every printed load-bearing declaration reports only
+`[propext, Quot.sound]`.
