@@ -2051,6 +2051,31 @@ check and focused monitored build completed successfully, the latter with
 1301 jobs.  Every printed load-bearing declaration reports only
 `[propext, Quot.sound]`.
 
+## Adaptive two-index Markov output is Cauchy (2026-08-21)
+
+`BF4PhysicalCutoffLinearMarkovAdaptiveCompletionCauchy` contracts the adaptive
+schedule into an actual Cauchy representative for every input completion
+representative.  Its sequence is the honest two-index diagonal
+`K |-> P_K(X_{i_X(K)})`, with the input selector depending constructively on
+the representative and the action cutoff.
+
+For two late action cutoffs, the proof chooses one fixed earlier input anchor.
+Input Cauchyness plus regularized same-cutoff nonexpansiveness controls both
+outer action legs, while the supplied pointwise cross-cutoff modulus controls
+the middle leg.  Two applications of the sqrt-free squared-distance triangle
+cost ten copies of a sixteenth tolerance, which are proved rationally to fit
+inside the requested tolerance.
+
+This removes the diagonal-Cauchy field of the old
+`CentralPhysicalLinearMarkovCompletionModulus`: pointwise dense Cauchy data now
+suffice to construct an output Cauchy sequence for every arbitrary input
+representative.  Quotient well-definedness for close input representatives is
+the remaining immediate transfer-construction edge.  Nonconstant pointwise
+data, the cofinal finite sixteenth, thermodynamic/nome/spacing limits,
+continuum QFT, and the Clay theorem remain open.  A source check and focused
+monitored build completed successfully, the latter with 1302 jobs.  The
+printed load-bearing declaration reports only `[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the
