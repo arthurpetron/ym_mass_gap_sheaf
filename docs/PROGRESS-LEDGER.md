@@ -2843,6 +2843,29 @@ The source check and focused monitored build completed successfully, the
 latter with 219 jobs.  Every printed load-bearing declaration reports only
 `[propext, Quot.sound]`.
 
+## Exact finite rational matrix pullback (2026-08-21)
+
+`FiniteRationalMatrixPullback` defines the literal reduced matrix `A^T M A`
+for arbitrary finite full/reduced dimensions and an explicit rational
+coordinate matrix `A`.  A four-index finite Fubini proof, together with exact
+rational distributivity and product rearrangement, shows that the complete
+reduced quadratic is equivalent to the full matrix quadratic evaluated on the
+finite linear lift.
+
+This generates the reduced quadratic-identification theorem rather than
+asking an external factor producer to assert it.  Consequently an LDL producer
+can target the displayed pullback entries, while Lean verifies both the
+entries-to-quadratic semantics and later the factorization itself.
+
+No identification between the positive-head division lift and a finite linear
+coordinate matrix is proved here, and no physical pullback or LDL data is
+constructed.  The next frontier is to define that head-centering transform and
+prove its finite linear application equals the already verified explicit
+centered lift.  Thermodynamic, nome, spacing, continuum-reconstruction,
+QFT-axiom, and Clay targets remain open.  The source check and focused
+monitored build completed successfully, the latter with 219 jobs.  The
+load-bearing pullback theorem reports only `[propext]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the

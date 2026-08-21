@@ -436,6 +436,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/FiniteRationalPenalizedMatrix.lean`,
   `lean/YMGap/Continuum/FiniteRationalCenteredRestrictionCertificate.lean`,
   `lean/YMGap/Continuum/FiniteRationalHeadCenteredCoordinates.lean`,
+  `lean/YMGap/Continuum/FiniteRationalMatrixPullback.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffCofinalLDLGap.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffCofinalRestrictedLDLGap.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovTransfer.lean`,
@@ -910,7 +911,12 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   complete for all centered full vectors.  Hence the only remaining generic
   restriction fields are the two reduced-matrix quadratic identifications.
   Their canonical pullback construction and a physical positive head-weight
-  witness remain open.
+  witness remain open.  The generic pullback itself is now constructed:
+  Lean proves the literal `A^T M A` quadratic equals the full quadratic on the
+  finite linear lift using only finite Fubini and rational algebra.  What
+  remains at this subfrontier is the exact equality between the positive-head
+  division lift and its coordinate-matrix linear application, followed by the
+  physical head-weight witness.
   That transport frontier is now specialized to the actual cutoff-removed
   carrier.  Every completion representative has a canonical exactly centered
   vector in each finite-cutoff physical GNS completion, and its finite vacuum
