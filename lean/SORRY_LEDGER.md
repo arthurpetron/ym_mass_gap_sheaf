@@ -780,7 +780,13 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   arbitrary additive `epsilon` beyond an explicit cutoff suffices for the
   strict connected limit in transitive `CReal.leEv`.  This weaker modulus is
   also uninhabited; ordinary slab-observable convergence does not automatically
-  control the cutoff-dependent centered observable.
+  control the cutoff-dependent centered observable.  A further cofinal
+  weakening now shows that exact `1/16` strictness only on a constructive
+  unbounded subsequence of fixed-nome representation cutoffs suffices: the
+  connected streams' existing Cauchy proofs transfer the anchor estimates to
+  the limit in `CReal.leEv`.  The corresponding centered and local-gluing
+  cofinal records are uninhabited.  The matched-AF finite producer does not
+  supply them because its nome changes with scale.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full

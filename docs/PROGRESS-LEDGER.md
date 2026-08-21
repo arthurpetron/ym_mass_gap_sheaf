@@ -2123,3 +2123,29 @@ thermodynamic/spacing control, continuum construction, or Clay result follows.
 A source check and focused monitored build completed successfully, the latter
 with 1207 jobs.  Every printed load-bearing declaration reports only
 `[propext, Quot.sound]`.
+
+## Cofinal strict BF4 representation cutoffs suffice (2026-08-20)
+
+`BF4PhysicalCutoffCofinalConnectedGap` weakens the strict finite input once
+more.  `FixedNomeCofinalCenteredSixteenth` carries a constructive anchor
+function `anchor` with `base <= anchor base` and the exact mean-zero physical
+sixteenth only at those selected representation cutoffs.  The expanded
+`FixedNomeCofinalLocalGluing` supplies genuine local-slice witnesses only at
+the same anchors.
+
+The connected norm and autocorrelation Bishop reals already carry Cauchy
+proofs.  For each target tolerance, the new theorem selects an anchor beyond
+both Cauchy thresholds, compares an arbitrary later cutoff to that anchor,
+applies its exact `1/16` estimate, and pays the two comparison errors with an
+`epsilon/2 + epsilon/2` budget.  Hence either cofinal certificate proves the
+same strict connected gap in `CReal.leEv`.
+
+Neither cofinal certificate is inhabited.  This result does not turn the
+existing matched-AF producer into a fixed-nome family: that producer varies
+the nome together with its cutoff.  The next representation-cutoff analytic
+obligation is therefore a genuinely fixed-nome cofinal strict family; the
+next structural obligation is an additive cutoff-independent pre-Hilbert
+carrier and operator realization.  Thermodynamic/spacing control, continuum
+QFT, and the Clay theorem remain open.  A source check and focused monitored
+build completed successfully, the latter with 1208 jobs.  Every printed
+load-bearing declaration reports only `[propext, Quot.sound]`.
