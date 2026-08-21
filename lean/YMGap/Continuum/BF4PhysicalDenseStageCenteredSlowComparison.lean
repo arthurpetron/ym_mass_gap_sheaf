@@ -224,7 +224,6 @@ structure BF4WilsonDenseStageCenteredVacuumProjectiveCore
           (rawStageObservable scale a))
         (rawStageObservable scale (D.timeTranslation.tau a))
   rationalFunctional : ProjectiveOSRationalModulus D
-  vacuumPairing : WilsonDenseUnitVacuumPairingModulus D
 
 /-- Raw realization and projective data equipped with the two fixed-observable
 raw moment moduli from which the moving diagonal is constructed. -/
@@ -242,6 +241,7 @@ structure BF4WilsonDenseStageCenteredVacuumProjectiveBase
     extends BF4WilsonDenseStageCenteredVacuumProjectiveCore producer D where
   rawMoments : BF4RawStageMomentModulus D rawStageObservable
     rationalFunctional
+  vacuumPairing : WilsonDenseUnitVacuumPairingModulus D
 
 /-- The exact same-stage specialization.  Its two semantic identities imply
 the general raw moment moduli with zero rates. -/
@@ -259,6 +259,26 @@ structure BF4WilsonDenseStageCenteredVacuumSemanticBase
     extends BF4WilsonDenseStageCenteredVacuumProjectiveCore producer D where
   rawMomentSemantics : BF4RawStageMomentSemanticIdentification D
     rawStageObservable
+  vacuumPairing : WilsonDenseUnitVacuumPairingModulus D
+
+/-- Exact same-stage semantics with only the qualitative dense-unit vacuum
+pin.  Unlike `BF4WilsonDenseStageCenteredVacuumSemanticBase`, this interface
+does not carry a representative-level pairing rate. -/
+structure BF4WilsonDenseStageCenteredVacuumQualitativeSemanticBase
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat -> Q'}
+    {P : PhysicalSeparator}
+    (producer : BF4QuarterPhysicalSeparatorProducer
+      family law spacing coupling P)
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    {H : FourDExistence.ContinuumYMExistence mu}
+    (D : WilsonSelectedOSGNSData H) : Type 3
+    extends BF4WilsonDenseStageCenteredVacuumProjectiveCore producer D where
+  rawMomentSemantics : BF4RawStageMomentSemanticIdentification D
+    rawStageObservable
+  vacuumPin : WilsonDenseUnitVacuumPin D
 
 namespace BF4WilsonDenseStageCenteredVacuumSemanticBase
 

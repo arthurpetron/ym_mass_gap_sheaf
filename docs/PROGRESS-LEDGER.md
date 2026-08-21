@@ -1665,3 +1665,30 @@ semantics, dense-unit vacuum pin, continuum measure, generator identification,
 QFT axioms, and Clay theorem remain open.  Focused monitored builds completed
 1278 jobs for the qualitative compiler and 1338 for the integrated endpoint;
 the printed load-bearing declarations report only `[propext, Quot.sound]`.
+
+## Weak semantic endpoint removes the vacuum-pairing modulus (2026-08-20)
+
+`BF4WilsonDenseStageCenteredVacuumQualitativeSemanticBase` is the strictly
+weaker exact-semantic input.  It retains the raw dense-stage realization,
+radical-valued transfer intertwining, rational projective functional, exact
+same-stage square/mean identities, and `WilsonDenseUnitVacuumPin`, but carries
+no representative pairing rate or smallness theorem.
+
+`BF4PhysicalDenseStageQualitativeVacuumCompiler` constructs an executable
+cofinal slow diagonal using only the four regularized projective rates for the
+ordinary/translated square and vacuum-pairing observables.  Exact stage
+semantics give identically-zero raw square and mean comparison rates.  The
+result feeds the already checked qualitative convergence argument and hence
+the selected completed vacuum-complement operator gap.
+
+`ContinuumWilsonDenseStageQualitativeSemanticResidualData` exposes this weaker
+route at the AF/Faraut same-object endpoint.  From that named input it builds
+the graph-norm residual and the positive exact-log bounded mass-gap package.
+This does not inhabit the residual or construct a continuum theory: the raw
+physical realization, transfer law, projective functional, exact stage
+identities, dense-unit vacuum pin, continuum measure, generator
+identification, full QFT axioms, and Clay theorem remain open.  Focused
+monitored builds completed 1276 jobs for the split input structure and 1278
+for the qualitative compiler, and 1338 jobs for the integrated endpoint.
+Every printed load-bearing declaration reports only
+`[propext, Quot.sound]`; no full audit, remote push, or GitHub CI run was used.

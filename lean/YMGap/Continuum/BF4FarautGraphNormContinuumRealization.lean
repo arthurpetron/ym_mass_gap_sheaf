@@ -302,8 +302,9 @@ def toContinuumWilsonGraphNormResidualData
   osGNS := D.osGNS
   rateReconstruction := D.rateReconstruction
   graphNormLimit :=
-    (BF4WilsonDenseStageRawMeanSlowComparison.ofProjectiveBase
-        D.denseStageLimit)
+    (BF4WilsonDenseStageRawMeanQualitativeComparison.ofRateComparison
+      (BF4WilsonDenseStageRawMeanSlowComparison.ofProjectiveBase
+        D.denseStageLimit))
       |>.toVacuumLinearGraphNormLimitApproximationQualitative
 
 /-- Literal dense finite-stage maps and projective expectation moduli construct
@@ -422,6 +423,166 @@ def ofProjectiveOSResidualDataWithSemanticStages
 
 end ContinuumWilsonDenseStageResidualData
 
+/-! ## 4. Qualitative-vacuum exact-semantic endpoint -/
+
+/-- The strictly weaker dense-stage endpoint: exact same-stage square/mean
+semantics and the qualitative dense-unit vacuum pin replace both raw-moment
+comparison rates and the representative vacuum-pairing modulus. -/
+structure ContinuumWilsonDenseStageQualitativeSemanticResidualData
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat -> Q'}
+    {bits : Nat -> Nat}
+    {P : PhysicalSeparator}
+    {producer : BF4FarautQuarterPhysicalSeparatorProducer
+      family law spacing coupling bits P}
+    {b : Nat} {afr : AFRateModulus}
+    {N0 : Nat}
+    (flow : BF4FarautSpectralMarginInputExactFlow producer b afr N0)
+    (anchorDominates :
+      (flow.input.ceilConst *
+          fmAconst afr (spectralLocalization_defect afr N0 flow.input.sl)) *
+        pot
+          (fmCutoff afr
+              (spectralLocalization_defect afr N0 flow.input.sl) + 2)
+          (by omega) 0 < flow.input.g 0)
+    (AF : AFTrajectoryCertificate)
+    (trajectory : producer.ShiftedAFCoupling AF)
+    (comparison : producer.RenormalizedPhysicalComparison)
+    (bare : producer.RenormalizedBareTail comparison)
+    (tracking : ExactRateEventualPhysicalMarginTracking flow
+      anchorDominates AF trajectory comparison bare)
+    {M : Nat -> Type} (mu : ContinuumMeasure.ContinuumMeasure M) : Type 3 where
+  existence : ContinuumYMExistence mu
+  osGNS : WilsonSelectedOSGNSData existence
+  rateReconstruction : ExactRateReconstructionHandoff
+    (continuumSourceCertificate flow
+      anchorDominates AF trajectory comparison bare)
+    osGNS.reconstruction
+  denseStageSemantics :
+    BF4WilsonDenseStageCenteredVacuumQualitativeSemanticBase
+      producer.toBF4QuarterPhysicalSeparatorProducer osGNS
+
+namespace ContinuumWilsonDenseStageQualitativeSemanticResidualData
+
+/-- Exact stage semantics and qualitative vacuum convergence construct the
+graph-norm residual without any representative pairing modulus. -/
+def toContinuumWilsonGraphNormResidualData
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat -> Q'}
+    {bits : Nat -> Nat}
+    {P : PhysicalSeparator}
+    {producer : BF4FarautQuarterPhysicalSeparatorProducer
+      family law spacing coupling bits P}
+    {b : Nat} {afr : AFRateModulus}
+    {N0 : Nat}
+    {flow : BF4FarautSpectralMarginInputExactFlow producer b afr N0}
+    {anchorDominates :
+      (flow.input.ceilConst *
+          fmAconst afr (spectralLocalization_defect afr N0 flow.input.sl)) *
+        pot
+          (fmCutoff afr
+              (spectralLocalization_defect afr N0 flow.input.sl) + 2)
+          (by omega) 0 < flow.input.g 0}
+    {AF : AFTrajectoryCertificate}
+    {trajectory : producer.ShiftedAFCoupling AF}
+    {comparison : producer.RenormalizedPhysicalComparison}
+    {bare : producer.RenormalizedBareTail comparison}
+    {tracking : ExactRateEventualPhysicalMarginTracking flow
+      anchorDominates AF trajectory comparison bare}
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    (D : ContinuumWilsonDenseStageQualitativeSemanticResidualData flow
+      anchorDominates AF trajectory comparison bare tracking mu) :
+    ContinuumWilsonGraphNormResidualData flow
+      anchorDominates AF trajectory comparison bare tracking mu where
+  existence := D.existence
+  osGNS := D.osGNS
+  rateReconstruction := D.rateReconstruction
+  graphNormLimit :=
+    (YMGap.Continuum.BF4PhysicalDenseStageRawMeanComparison.BF4WilsonDenseStageCenteredVacuumQualitativeSemanticBase.toQualitativeComparison
+      D.denseStageSemantics)
+      |>.toVacuumLinearGraphNormLimitApproximationQualitative
+
+/-- The weak exact-semantic residual reaches the same-object positive
+exact-log bounded mass-gap endpoint. -/
+def continuumWilsonMinimalBoundedMassGap
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat -> Q'}
+    {bits : Nat -> Nat}
+    {P : PhysicalSeparator}
+    {producer : BF4FarautQuarterPhysicalSeparatorProducer
+      family law spacing coupling bits P}
+    {b : Nat} {afr : AFRateModulus}
+    {N0 : Nat}
+    {flow : BF4FarautSpectralMarginInputExactFlow producer b afr N0}
+    {anchorDominates :
+      (flow.input.ceilConst *
+          fmAconst afr (spectralLocalization_defect afr N0 flow.input.sl)) *
+        pot
+          (fmCutoff afr
+              (spectralLocalization_defect afr N0 flow.input.sl) + 2)
+          (by omega) 0 < flow.input.g 0}
+    {AF : AFTrajectoryCertificate}
+    {trajectory : producer.ShiftedAFCoupling AF}
+    {comparison : producer.RenormalizedPhysicalComparison}
+    {bare : producer.RenormalizedBareTail comparison}
+    {tracking : ExactRateEventualPhysicalMarginTracking flow
+      anchorDominates AF trajectory comparison bare}
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    (D : ContinuumWilsonDenseStageQualitativeSemanticResidualData flow
+      anchorDominates AF trajectory comparison bare tracking mu) :
+    WilsonMinimalBoundedMassGap D.osGNS :=
+  D.toContinuumWilsonGraphNormResidualData
+    |>.continuumWilsonMinimalBoundedMassGap
+
+/-- Adapt a same-object projective OS residual and the weak exact-semantic
+dense-stage data to the integrated endpoint. -/
+def ofProjectiveOSResidualData
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat -> Q'}
+    {bits : Nat -> Nat}
+    {P : PhysicalSeparator}
+    {producer : BF4FarautQuarterPhysicalSeparatorProducer
+      family law spacing coupling bits P}
+    {b : Nat} {afr : AFRateModulus}
+    {N0 : Nat}
+    {flow : BF4FarautSpectralMarginInputExactFlow producer b afr N0}
+    {anchorDominates :
+      (flow.input.ceilConst *
+          fmAconst afr (spectralLocalization_defect afr N0 flow.input.sl)) *
+        pot
+          (fmCutoff afr
+              (spectralLocalization_defect afr N0 flow.input.sl) + 2)
+          (by omega) 0 < flow.input.g 0}
+    {AF : AFTrajectoryCertificate}
+    {trajectory : producer.ShiftedAFCoupling AF}
+    {comparison : producer.RenormalizedPhysicalComparison}
+    {bare : producer.RenormalizedBareTail comparison}
+    {tracking : ExactRateEventualPhysicalMarginTracking flow
+      anchorDominates AF trajectory comparison bare}
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    (D : ContinuumProjectiveOSResidualData flow
+      anchorDominates AF trajectory comparison bare tracking mu)
+    (denseStageSemantics :
+      BF4WilsonDenseStageCenteredVacuumQualitativeSemanticBase
+        producer.toBF4QuarterPhysicalSeparatorProducer
+        (WilsonSelectedOSGNSData.ofLinked D.osGNS)) :
+    ContinuumWilsonDenseStageQualitativeSemanticResidualData flow
+      anchorDominates AF trajectory comparison bare tracking mu where
+  existence := D.existence
+  osGNS := WilsonSelectedOSGNSData.ofLinked D.osGNS
+  rateReconstruction := D.rateReconstruction
+  denseStageSemantics := denseStageSemantics
+
+end ContinuumWilsonDenseStageQualitativeSemanticResidualData
+
 end YMGap.Continuum.BF4FarautGraphNormContinuumRealization
 
 #print axioms YMGap.Continuum.BF4FarautGraphNormContinuumRealization.ContinuumWilsonGraphNormResidualData.toContinuumWilsonMinimalBoundedResidualData
@@ -431,3 +592,6 @@ end YMGap.Continuum.BF4FarautGraphNormContinuumRealization
 #print axioms YMGap.Continuum.BF4FarautGraphNormContinuumRealization.ContinuumWilsonDenseStageResidualData.continuumWilsonMinimalBoundedMassGap
 #print axioms YMGap.Continuum.BF4FarautGraphNormContinuumRealization.ContinuumWilsonDenseStageResidualData.ofProjectiveOSResidualData
 #print axioms YMGap.Continuum.BF4FarautGraphNormContinuumRealization.ContinuumWilsonDenseStageResidualData.ofProjectiveOSResidualDataWithSemanticStages
+#print axioms YMGap.Continuum.BF4FarautGraphNormContinuumRealization.ContinuumWilsonDenseStageQualitativeSemanticResidualData.toContinuumWilsonGraphNormResidualData
+#print axioms YMGap.Continuum.BF4FarautGraphNormContinuumRealization.ContinuumWilsonDenseStageQualitativeSemanticResidualData.continuumWilsonMinimalBoundedMassGap
+#print axioms YMGap.Continuum.BF4FarautGraphNormContinuumRealization.ContinuumWilsonDenseStageQualitativeSemanticResidualData.ofProjectiveOSResidualData

@@ -675,9 +675,13 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   that the `pairingRate` and `pairingSmall` fields are not needed by the final
   graph-norm convergence argument: qualitative convergence from
   `WilsonDenseUnitVacuumPin` suffices inside the proposition-valued limit.
-  The public dense-stage residual record still contains the stronger modulus;
-  removing it from that interface is the next structural reduction, not yet a
-  claimed closure.
+  The weak exact-semantic dense-stage residual now carries only that vacuum
+  pin and no representative pairing modulus.  Its slow diagonal pays the four
+  projective square/pairing evaluator rates, while exact same-stage semantics
+  make both raw comparison rates zero.  This is an interface reduction, not an
+  inhabitant: the raw realization, its radical transfer law, the rational
+  projective functional, the two exact stage identities, and the qualitative
+  vacuum pin remain unconstructed analytic inputs on the physical thread.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full
