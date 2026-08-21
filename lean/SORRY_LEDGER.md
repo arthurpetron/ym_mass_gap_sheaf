@@ -705,6 +705,13 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   stationary under the completed transfer; the stronger carrier equation
   `tau(one) ~ one` constructs this record but is no longer required.  These two
   weaker vacuum facts are still uninhabited on the physical continuum thread.
+  Finally, the public direct base no longer requires exact radical
+  intertwining between the finite transfer and a separately realized
+  translated observable.  It asks instead for direct square/mean convergence
+  both before and after the literal finite macro transfer.  The former direct
+  moments plus exact intertwining construct these four graph-moment families
+  by proved radical-invariance lemmas, so that stronger route remains
+  sufficient.  The graph-moment estimates themselves remain uninhabited.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full

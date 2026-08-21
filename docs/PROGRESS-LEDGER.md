@@ -1818,3 +1818,29 @@ Every newly printed declaration reports only `[propext, Quot.sound]`.  The
 continuum measure/OS-GNS construction, representative transfer lift, raw-stage
 map and radical intertwining, direct moments, generator identification, full
 QFT axioms, and Clay theorem remain open.
+
+## Actual-transfer graph-moment endpoint (2026-08-20)
+
+`BF4RawStageContinuumGraphMomentModulus` records the four estimates used by
+the direct graph-norm proof: square and stationary mean of the raw finite
+observable, and square and stationary mean after applying the literal finite
+BF4 macro transfer.  The transferred targets are the corresponding selected
+continuum moments of the one-step observable shift.
+
+The public direct base now consumes this graph-moment certificate and no
+longer requires an exact radical equation between the finite transferred
+observable and a separately realized continuum translate.  The former direct
+moment certificate together with radical intertwining constructs the new
+record: `B_welldef` transports the square, and radical invariance of the
+stationary mean transports the linear moment.  The transferred centered norm
+is then obtained internally from the already-proved exact identity that the
+finite Markov operator commutes with stationary centering modulo the radical.
+
+This contraction replaces an exact cross-scale structural identity by the two
+observable estimates actually needed after transfer; it does not prove those
+estimates for the interacting continuum thread.  Focused monitored builds
+completed 1279 jobs for the compiler and 1339 jobs for the integrated
+endpoint.  Every newly printed declaration reports only
+`[propext, Quot.sound]`.  Continuum construction, the representative lift,
+raw-stage realization, four graph-moment moduli, stationary dense-unit pin,
+generator identification, QFT axioms, and the Clay theorem remain open.
