@@ -755,11 +755,17 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   The same cutoff modulus now also constructs the actual one-step
   same-object transfer-form limit for bounded lower observables: its finite
   approximations are `centralPhysicalWeightedInner a (P a)`, and positivity
-  plus the identity-form upper bound survive the cutoff limit.  This is not a
-  cutoff-independent operator or Hilbert completion.  The next form-level
-  obligation is to construct the centered/connected cutoff limit and then
-  determine what strict finite contraction data can be made uniform along the
-  relevant physical scale trajectory.
+  plus the identity-form upper bound survive the cutoff limit.  The stationary
+  square, mean, and transfer-form limits have now been combined into literal
+  connected Bishop reals.  Exact finite centering identifies their
+  approximations with the norm and Markov form of the marginal-centered
+  observable, proving the limiting interval
+  `0 <= connectedAutocorrelation <= connectedNorm`.  This remains form-level:
+  it is not a cutoff-independent operator or Hilbert completion.  The next
+  obligation is to determine whether the existing finite `1/16` producer data
+  can be routed uniformly through representation-cutoff removal and the
+  relevant physical scale trajectory.  No such strict cutoff-uniform factor is
+  presently constructed.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full

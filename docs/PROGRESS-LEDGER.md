@@ -2025,3 +2025,28 @@ thermodynamic/spacing uniformity, OS reconstruction, and the Clay theorem
 remain open.  A source check and focused monitored build completed
 successfully, the latter with 1130 jobs.  Every printed load-bearing
 declaration reports only `[propext, Quot.sound]`.
+
+## Fixed-nome connected physical BF4 cutoff limits (2026-08-20)
+
+`BF4PhysicalCutoffConnectedLimit` contracts the already-constructed
+stationary mean, stationary square, and one-step physical Markov-form limits
+into the connected quantities `E(a^2) - E(a)^2` and
+`<a, P a> - E(a)^2`.  Bishop-real addition, negation, and multiplication are
+pointwise here, so every rational approximation is definitionally the
+corresponding finite-cutoff connected expression.
+
+The existing exact finite centering identities then identify those
+approximations, modulo `Q'.eqv`, with the stationary norm and one-step Markov
+form of the literal marginal-centered observable.  Finite BF4 positivity and
+the identity-form estimate therefore survive representation-cutoff removal as
+
+`0 <= connectedAutocorrelationLimit <= connectedNormLimit`.
+
+This is a form-level result at fixed rational nome and fixed finite
+half-extent.  It does not construct a cutoff-independent transfer operator or
+Hilbert carrier, and it does not prove a strict factor `q < 1`.  In particular,
+uniformity in representation cutoff, nome, extent, physical volume, and
+spacing must be audited before any completed vacuum-complement gap can be
+claimed.  A source check and focused monitored build completed successfully,
+the latter with 1205 jobs.  Every printed load-bearing declaration reports
+only `[propext, Quot.sound]`.
