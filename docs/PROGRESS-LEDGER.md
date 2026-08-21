@@ -2731,6 +2731,34 @@ check and focused monitored build completed successfully, the latter with 217
 jobs.  Every printed load-bearing declaration reports only
 `[propext, Quot.sound]`.
 
+## Cofinal two-sided physical LDL compiler (2026-08-21)
+
+`BF4PhysicalCutoffCofinalLDLGap` connects exact matrix computation to the
+actual fixed-nome physical gap interface.  At one genuine physical cutoff,
+nonnegativity of the canonical matrices
+`(1/16) D - K + d d^T` and `(1/16) D + K + d d^T` now proves the absolute
+joint-quadratic bound for every exactly stationary-mean-zero observable.  The
+proof uses the exact finite carrier reindexing and transports both sides back
+to the physical list sums.
+
+Two executable producers are exposed.  The ordinary interface accepts two
+complete `finiteLDLCheck = true` witnesses.  The scalable interface accepts
+cleared-denominator row checks, explicit triangularity, and pivot-sign checks
+for both signs, allowing large tables to be checked in independent row
+shards.  A constructively cofinal family of either kind compiles directly to
+`FixedNomeCofinalCenteredSixteenth`, hence into the already proved adaptive
+completed-transfer contraction, power decay, and same-object correlation
+decay implications.
+
+No per-cutoff LDL record or cofinal family is inhabited here.  Thus the
+remaining fixed-nome obstruction has contracted to producing two successful
+canonical matrix factorizations at constructively unbounded cutoffs.  Existing
+cutoff-two sector data targets a different one-sided mean-zero matrix and is
+not silently reused.  Thermodynamic, nome, spacing, continuum-reconstruction,
+QFT-axiom, and Clay targets remain open.  The source check and focused
+monitored build completed successfully, the latter with 1215 jobs.  Every
+printed load-bearing declaration reports only `[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the
