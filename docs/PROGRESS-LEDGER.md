@@ -2427,6 +2427,29 @@ open.  Focused monitored builds completed successfully with 1153 and 1159
 jobs.  Every printed load-bearing declaration reports only
 `[propext, Quot.sound]`.
 
+## Positive physical rows persist under cutoff enlargement (2026-08-21)
+
+`BF4PhysicalCutoffPositiveRowPersistence` proves that every source row with
+positive normalized physical mass at cutoff `K` still has positive mass at
+every cutoff `L >= K`.  A constructive finite-list search first extracts a
+positive target entry.  Multiplication by the positive partition recovers a
+positive unnormalized reflected-kernel entry.  Its exact cylinder numerator
+at cutoff `L` is the old positive numerator plus the already proved
+nonnegative new-label increment, so the later normalized entry and later row
+are positive.  Consequently the old positive carrier embeds into every later
+positive carrier.
+
+This removes an analytic hypothesis: all later conditional-division guards
+on the refined old core are now inhabited.  It is only qualitative
+positivity, however, not a cutoff-uniform lower bound.  Quantitative
+conditional-kernel Cauchy control still requires target-shell estimates and a
+uniform denominator budget derived from them; stationary source-shell
+tightness remains separate.  The cofinal finite sixteenth, thermodynamic/
+nome/spacing limits, continuum reconstruction and QFT axioms, and the Clay
+theorem remain open.  The source check and focused monitored build completed
+successfully, the latter with 1160 jobs.  Both printed declarations report
+only `[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the
