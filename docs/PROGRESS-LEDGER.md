@@ -2546,3 +2546,29 @@ contraction, nome/volume/spacing limits, continuum QFT, and the Clay theorem
 remain open.  A source check and focused monitored build completed
 successfully, the latter with 1153 jobs.  Every printed load-bearing
 declaration reports only `[propext, Quot.sound]`.
+
+## Finite stationarity to completed BF4 vacuum pairing (2026-08-21)
+
+`BF4PhysicalCutoffLinearCompletedMarkovVacuumPairing` proves the literal
+finite bridge that was previously only implicit.  At every representation
+cutoff `n`, the `n`-th approximation of `<P_n x, vacuum>` is exactly the
+`n`-th approximation of `<x, vacuum>`.  The proof uses the recoded action's
+agreement with the genuine retained-row action and the already-proved finite
+stationary-mean identity.
+
+The iterated-limit obstruction is then isolated as
+`CentralPhysicalLinearMarkovVacuumPairingInnerCofinality`.  Its explicit stage
+rate says precisely when the diagonal cutoff dominates the already-defined
+inner-regularity rates of both pairings.  Exact finite diagonal equality plus
+this cofinal rate constructs eventual two-sided approximation closeness,
+identifies the two outer pairing limits, supplies the completed
+vacuum-pairing invariant, and finally constructs the rational-linear
+completed vacuum-complement operator.
+
+This is a strict reduction of the prior abstract pairing/self-adjointness
+input, not its analytic discharge.  The cofinal inner-regularity record and
+the nonconstant completion modulus remain uninhabited.  A strict complement
+contraction, nome/volume/spacing limits, continuum QFT, and the Clay theorem
+remain open.  A source check and focused monitored build completed
+successfully, the latter with 1154 jobs.  Every printed load-bearing
+declaration reports only `[propext, Quot.sound]`.

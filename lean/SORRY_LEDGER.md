@@ -421,6 +421,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovTransfer.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovLaws.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovVacuumComplement.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovVacuumPairing.lean`,
   and
   `lean/YMGap/Continuum/BF4FarautGraphNormContinuumRealization.lean`.
 - **named fields / structures**:
@@ -475,6 +476,8 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `CentralPhysicalLinearMarkovCompletionModulus`,
   `CentralPhysicalCutoffCompletedMarkovVacuumPairingInvariant`,
   `CentralPhysicalCutoffCompletedMarkovSelfAdjointData`,
+  `CentralPhysicalLinearMarkovVacuumPairingInnerCofinality`,
+  `CentralPhysicalLinearMarkovVacuumPairingDiagonalControl`,
   `ContinuumProjectiveOSResidualData`,
   `ContinuumWilsonBoundedResidualData`,
   `ContinuumWilsonMinimalBoundedResidualData`,
@@ -868,7 +871,14 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   vacuum.  Either certificate constructs the actual restricted transfer and
   its rational-linear endomorphism laws on the completed complement.  Neither
   certificate is inhabited; deriving it from finite detailed balance and
-  cross-cutoff control remains analytic input.
+  cross-cutoff control remains analytic input.  The finite part of that route
+  is now proved more sharply: at every cutoff, the matched diagonal
+  approximations of `<P_n x, vacuum>` and `<x, vacuum>` are exactly equal by
+  the genuine stationary-mean theorem.  The residual is reduced to one
+  explicit cofinal inner-regularity rate ensuring that the diagonal cutoff
+  catches both nested inner limits.  Such a rate constructs the completed
+  pairing invariant and restricted rational-linear operator, but it is not
+  currently inhabited for arbitrary Cauchy representatives.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full
