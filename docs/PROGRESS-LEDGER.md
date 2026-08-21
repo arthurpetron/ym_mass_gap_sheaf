@@ -2392,6 +2392,41 @@ thermodynamic/nome/spacing and continuum obligation remain open.  Focused
 monitored builds completed successfully with 1153 and 1159 jobs.  Every
 printed load-bearing declaration reports only `[propext, Quot.sound]`.
 
+## Positive-row core, constructive floor, and exact target shell (2026-08-21)
+
+The moving-carrier compiler and
+`BF4PhysicalCutoffConditionalCoreReduction` now use the exact old **positive**
+physical carrier, rather than every old bounded source state.  This removes
+zero-marginal states on which the totalized conditional kernel is an arbitrary
+extension and therefore should not be required to converge pointwise.  The
+stationary source shell is correspondingly the complement of the old bounded,
+positive carrier.
+
+For every source in this refined core,
+`centralPositivePhysicalMarginalFloor_le_of_core` connects the source to the
+already constructed recursive finite minimum
+`centralPositivePhysicalMarginalFloorData`.  Thus the anchor-row denominator
+floor is inhabited constructively; it is not a new analytic hypothesis.
+
+The later normalized joint row is also split exactly into its old-target mass
+and the new-target quantity `centralOldRowJointTargetShellMass`.  Combining
+this identity with the proved old-row `l1` estimate gives the two asymmetric
+marginal inequalities
+
+`R_first <= R_second + oldL1 + firstShell` and
+`R_second <= R_first + oldL1 + secondShell`.
+
+Consequently the remaining conditional-kernel core estimate has been reduced
+to target-shell control and transport of a positive denominator floor to the
+later cutoffs (or an equivalent direct positivity-persistence theorem).  The
+stationary source-shell estimate needed by the GNS contraction is still a
+separate residual.  No target-shell bound or cutoff-positivity persistence is
+claimed here.  The cofinal finite sixteenth, all thermodynamic/nome/spacing
+limits, continuum reconstruction and QFT axioms, and the Clay theorem remain
+open.  Focused monitored builds completed successfully with 1153 and 1159
+jobs.  Every printed load-bearing declaration reports only
+`[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the

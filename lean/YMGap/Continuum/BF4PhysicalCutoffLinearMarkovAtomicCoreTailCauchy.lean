@@ -70,15 +70,17 @@ local infix:50 " ≈ " => Q'.eqv
 /-! ## 1. The explicit stationary shell -/
 
 /-- Stationary mass, at one finite approximation cutoff, outside the old
-edgewise representation carrier `base`. -/
+positive physical carrier at representation cutoff `base`. -/
 def centralPhysicalRowMarginalOutsideBase
     (w : Q') (hw : (0 : Q') <= w)
     (cutoff half base : Nat) : Q' :=
   listQSum
     (centralPhysicalRowMarginal w hw cutoff half)
     ((centralPositiveHalfStates w hw cutoff half).filter
-      (fun state => !(labelWithinB base
-        (centralLowerFaceIds half) state)))
+      (fun state => !(
+        labelWithinB base (centralLowerFaceIds half) state &&
+          decide ((0 : Q') <
+            centralPhysicalRowMarginal w hw base half state))))
 
 /-! ## 2. Unit-interval and finite core--shell estimates -/
 
@@ -146,6 +148,7 @@ theorem centralPhysicalFiniteUnitDistSq_le_core_add_shell
     (hcore : forall state,
       (forall edge, edge ∉ centralLowerFaceIds half -> state edge = 0) ->
       labelWithinB base (centralLowerFaceIds half) state = true ->
+      (0 : Q') < centralPhysicalRowMarginal w hw base half state ->
       let difference := left.value state + -(right.value state)
       difference * difference <= coreError) :
     (centralPhysicalSmulGNS w hw cutoff half).toGNSData.distSqQ
@@ -156,7 +159,9 @@ theorem centralPhysicalFiniteUnitDistSq_le_core_add_shell
   let states := centralPositiveHalfStates w hw cutoff half
   let row := centralPhysicalRowMarginal w hw cutoff half
   let test := fun state =>
-    labelWithinB base (centralLowerFaceIds half) state
+    labelWithinB base (centralLowerFaceIds half) state &&
+      decide ((0 : Q') <
+        centralPhysicalRowMarginal w hw base half state)
   let difference := fun state => left.value state + -(right.value state)
   let weightedSquare := fun state =>
     row state * (difference state * difference state)
@@ -177,8 +182,11 @@ theorem centralPhysicalFiniteUnitDistSq_le_core_add_shell
       have hsupport :=
         (boundedEdgeLabellings_sound cutoff
           (centralLowerFaceIds half) state hcutoffCarrier).2
+      have htest := (Bool.and_eq_true _ _).mp
+        (List.mem_filter.mp hstate).2
       exact Q'.mul_le_mul_of_nonneg_left _ _ _
-        (hcore state hsupport (List.mem_filter.mp hstate).2)
+        (hcore state hsupport htest.1
+          (by simpa only [decide_eq_true_eq] using htest.2))
         (centralPhysicalRowMarginal_nonnegative hw cutoff half state)
     refine Q'.le_trans' _ _ _ hpoint ?_
     refine Q'.le_trans' _
@@ -233,6 +241,8 @@ theorem centralPhysicalAtomicMarkovDistSq_le_core_add_shell
     (hcore : forall state,
       (forall edge, edge ∉ centralLowerFaceIds half -> state edge = 0) ->
       labelWithinB base (centralLowerFaceIds half) state = true ->
+      (0 : Q') < centralPhysicalRowMarginal
+        w (Q'.le_of_lt hw0) base half state ->
       let left := centralPhysicalMarkovCutoffUnitObservable
         (Q'.le_of_lt hw0) first half observable
       let right := centralPhysicalMarkovCutoffUnitObservable
@@ -298,6 +308,8 @@ structure CentralPhysicalAtomicMarkovCoreTailCauchyData
       (forall edge, edge ∉ centralLowerFaceIds half -> state edge = 0) ->
       labelWithinB (base observable epsilon)
         (centralLowerFaceIds half) state = true ->
+      (0 : Q') < centralPhysicalRowMarginal
+        w (Q'.le_of_lt hw0) (base observable epsilon) half state ->
       let left := centralPhysicalMarkovCutoffUnitObservable
         (Q'.le_of_lt hw0) first half observable
       let right := centralPhysicalMarkovCutoffUnitObservable
