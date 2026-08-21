@@ -1771,3 +1771,27 @@ and Clay theorem remain open.  Focused monitored builds completed 1279 jobs
 for the direct compiler and 1339 jobs for the integrated AF/Faraut endpoint.
 Every newly printed load-bearing declaration reports only
 `[propext, Quot.sound]`; no full audit, remote push, or GitHub CI run was used.
+
+## Representative-only direct-moment endpoint (2026-08-20)
+
+The direct four-rate route no longer assumes a linear continuum transfer.
+`WilsonPointwiseRepresentativeTimeTranslationPin` carries only a chosen Cauchy
+representative of the actual selected transfer, its quotient-class equation,
+and termwise agreement with the observable shift.  The former pointwise
+linear pin constructs this smaller record, but the converse is not required.
+
+`BF4PhysicalDenseStageDirectMomentCompiler` now derives a
+`BF4WilsonVacuumRepresentativeGraphNormLimitApproximation` directly.  The
+AF/Faraut `ContinuumWilsonGraphNormResidualData` is weakened to that same
+representative-only endpoint; its previous linear graph-norm input remains a
+sufficient refinement through a proved adapter.  Consequently additivity,
+scalar homogeneity, and the full `LinearTransferOperator` interface are no
+longer premises of the direct bounded operator-gap route.
+
+This does not construct the representative lift or any analytic continuum
+input.  The selected continuum measure/OS-GNS object, representative transfer
+lift and termwise law, raw-stage realization and radical intertwining, direct
+moment moduli, vacuum pin, generator identification, full QFT axioms, and Clay
+theorem remain open.  Focused monitored builds completed 1279 jobs for the
+direct compiler and 1339 jobs for the integrated endpoint.  Every newly
+printed declaration reports only `[propext, Quot.sound]`.

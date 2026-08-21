@@ -45,7 +45,46 @@ open YMGap.Continuum.PhysicalSeparator
 open YMGap.Continuum.WilsonMinimalBoundedMassGapHandoff
 open YMGap.Continuum.Z4HalfTimeReflectionStrictJointCRealCompletedCauchySchwarz
 
-/-! ## 1. The weaker direct-moment input -/
+/-! ## 1. The minimal representative transfer lift -/
+
+/-- A chosen Cauchy representative of the selected transfer, with the exact
+termwise observable-shift law used by the direct moment comparison.  Unlike
+`WilsonPointwiseLinearTimeTranslationPin`, this interface asks for no
+additivity or scalar homogeneity of the completed transfer. -/
+structure WilsonPointwiseRepresentativeTimeTranslationPin
+    {A : ObservableMeasure.ObsAlg}
+    {W : WilsonGNS.WilsonGNSData A}
+    (P : WilsonGNSTransferUnderdetermination.WilsonTimeTranslationPin W) :
+    Type 2 where
+  transferredRepresentative :
+    CauchyGNS W.toGNSData -> CauchyGNS W.toGNSData
+  transferredRepresentative_class : forall X,
+    Quotient.mk (cauchySetoid W.toGNSData) (transferredRepresentative X) =
+      P.op.T (Quotient.mk (cauchySetoid W.toGNSData) X)
+  pointwise : forall (X : CauchyGNS W.toGNSData) (n : Nat),
+    W.toGNSData.veq
+      ((transferredRepresentative X).seq n)
+      (P.tau (X.seq n))
+
+namespace WilsonPointwiseRepresentativeTimeTranslationPin
+
+/-- The former pointwise linear pin refines the representative-only pin. -/
+def ofLinear
+    {A : ObservableMeasure.ObsAlg}
+    {W : WilsonGNS.WilsonGNSData A}
+    {P : WilsonGNSTransferUnderdetermination.WilsonTimeTranslationPin W}
+    (L : WilsonPointwiseLinearTimeTranslationPin P) :
+    WilsonPointwiseRepresentativeTimeTranslationPin P where
+  transferredRepresentative := L.linear.linearOperator.TCauchy
+  transferredRepresentative_class := by
+    intro X
+    rw [<- L.linear.operatorPinned]
+    exact (L.linear.linearOperator.T_ofCauchy X).symm
+  pointwise := L.pointwise
+
+end WilsonPointwiseRepresentativeTimeTranslationPin
+
+/-! ## 2. The weaker direct-moment input -/
 
 /-- Dense-stage data with direct finite-to-continuum raw moment moduli.  No
 rational stage functional or intermediate projective diagonal occurs in this
@@ -62,8 +101,8 @@ structure BF4WilsonDenseStageCenteredVacuumQualitativeDirectBase
     {H : FourDExistence.ContinuumYMExistence mu}
     (D : WilsonSelectedOSGNSData H) : Type 3 where
   separatorPinned : D.selectedSpectralData.gap.sep = bf4MacroNormRate
-  pointwiseTimeTranslation :
-    WilsonPointwiseLinearTimeTranslationPin D.timeTranslation
+  representativeTimeTranslation :
+    WilsonPointwiseRepresentativeTimeTranslationPin D.timeTranslation
   rawStageObservable : forall scale : Nat,
     D.wilson.toGNSData.V ->
       (MatchedPhysicalStageGNSData family coupling scale).V
@@ -99,7 +138,9 @@ def ofProjectiveBase
       producer D) :
     BF4WilsonDenseStageCenteredVacuumQualitativeDirectBase producer D where
   separatorPinned := base.separatorPinned
-  pointwiseTimeTranslation := base.pointwiseTimeTranslation
+  representativeTimeTranslation :=
+    WilsonPointwiseRepresentativeTimeTranslationPin.ofLinear
+      base.pointwiseTimeTranslation
   rawStageObservable := base.rawStageObservable
   rawStageTransfer_intertwines := base.rawStageTransfer_intertwines
   directMoments := base.rawMoments.toContinuumMomentModulus
@@ -115,7 +156,7 @@ def ofSemanticBase
 
 end BF4WilsonDenseStageCenteredVacuumQualitativeDirectBase
 
-/-! ## 2. Four-rate slow diagonal -/
+/-! ## 3. Four-rate slow diagonal -/
 
 namespace BF4WilsonDenseStageDirectMomentCompiler
 
@@ -257,7 +298,7 @@ theorem mean_diagonal_admissible (X : SelectedWilsonCauchy D)
         (Nat.le_trans (Nat.le_max_right _ _) (Nat.le_max_right _ _))
         hrequired)
 
-/-! ## 3. Direct comparison streams -/
+/-! ## 4. Direct comparison streams -/
 
 def rawSquareSequence (X : SelectedWilsonCauchy D) : Nat -> CReal :=
   fun scale =>
@@ -299,10 +340,10 @@ def rawSquareContinuumClose (X : SelectedWilsonCauchy D) :
     exact hbound
 
 def translatedRawSquareContinuumClose (X : SelectedWilsonCauchy D) :
-    let TX := base.pointwiseTimeTranslation.linear.linearOperator.TCauchy X
+    let TX := base.representativeTimeTranslation.transferredRepresentative X
     CRealEventuallyClose (translatedRawSquareSequence base X)
       (continuumDenseNormSequence D (sampleIndex base X) TX) := by
-  let TX := base.pointwiseTimeTranslation.linear.linearOperator.TCauchy X
+  let TX := base.representativeTimeTranslation.transferredRepresentative X
   exact {
     stageRate := diagonalRate base X
     approxRate := fun _ _ => 0
@@ -317,7 +358,8 @@ def translatedRawSquareContinuumClose (X : SelectedWilsonCauchy D) :
         Ta epsilon hepsilon scale hadmissible
       have hpointwise : D.wilson.toGNSData.veq
           (TX.seq (sampleIndex base X scale)) Ta :=
-        base.pointwiseTimeTranslation.pointwise X (sampleIndex base X scale)
+        base.representativeTimeTranslation.pointwise X
+          (sampleIndex base X scale)
       have hform :
           (D.wilson.toGNSData.B
             (TX.seq (sampleIndex base X scale))
@@ -378,10 +420,10 @@ theorem rawSquareSequence_converges (X : SelectedWilsonCauchy D) :
 
 theorem translatedRawSquareSequence_converges
     (X : SelectedWilsonCauchy D) :
-    let TX := base.pointwiseTimeTranslation.linear.linearOperator.TCauchy X
+    let TX := base.representativeTimeTranslation.transferredRepresentative X
     CReal.ConvergesTo (translatedRawSquareSequence base X)
       (D.wilson.toGNSData.cinnerRep TX TX) := by
-  let TX := base.pointwiseTimeTranslation.linear.linearOperator.TCauchy X
+  let TX := base.representativeTimeTranslation.transferredRepresentative X
   exact convergesTo_of_eventuallyClose
     (translatedRawSquareContinuumClose base X)
     (continuumDenseNormSequence_converges D
@@ -403,13 +445,28 @@ theorem translatedRawMeanSequence_converges_zero
     (horthogonal :
       D.selectedSpectralData.vacPerp (selectedWilsonPoint D X)) :
     CReal.ConvergesTo (translatedRawMeanSequence base X) CReal.czero :=
-  convergesTo_of_eventuallyClose (translatedRawMeanContinuumClose base X)
-    (continuumTranslatedDenseVacuumPairingSequence_converges_zero
-      base.vacuumPin base.pointwiseTimeTranslation
-      (sampleIndex base X) (sampleRate base X)
-      (sampleIndex_cofinal base X) X horthogonal)
+  convergesTo_of_eventuallyClose (translatedRawMeanContinuumClose base X) (by
+    let TX := base.representativeTimeTranslation.transferredRepresentative X
+    have hTXOrthogonal :
+        D.selectedSpectralData.vacPerp (selectedWilsonPoint D TX) := by
+      change D.selectedSpectralData.vacPerp
+        (Quotient.mk (cauchySetoid D.wilson.toGNSData)
+          (base.representativeTimeTranslation.transferredRepresentative X))
+      rw [base.representativeTimeTranslation.transferredRepresentative_class X]
+      exact base.vacuumPin.toStationarity.transfer_preservesVacPerp horthogonal
+    have hTX := continuumDenseVacuumPairingSequence_converges_zero
+      base.vacuumPin (sampleIndex base X) (sampleRate base X)
+      (sampleIndex_cofinal base X) TX hTXOrthogonal
+    apply YMGap.Constructive.TrigAddCReal.convergesTo_congr_seq
+      (s := continuumDenseVacuumPairingSequence D (sampleIndex base X) TX)
+    · intro scale
+      exact CReal.ofQ'_equiv_of_eqv
+        (D.wilson.toGNSData.B_congr_left H.os_axioms.A.one
+          (base.representativeTimeTranslation.pointwise X
+            (sampleIndex base X scale)))
+    · exact hTX)
 
-/-! ## 4. Centering and graph-norm contraction -/
+/-! ## 5. Centering and graph-norm contraction -/
 
 private theorem creal_ofQ'_centered_equiv (raw mean : Q') :
     CReal.Equiv
@@ -488,9 +545,9 @@ theorem transferredNorm_converges
         (adaptiveDenseStageApproximant D (sampleIndex base)
           (centeredStageObservable base) X scale))
       (D.wilson.toGNSData.cinnerRep
-        (base.pointwiseTimeTranslation.linear.linearOperator.TCauchy X)
-        (base.pointwiseTimeTranslation.linear.linearOperator.TCauchy X)) := by
-  let TX := base.pointwiseTimeTranslation.linear.linearOperator.TCauchy X
+        (base.representativeTimeTranslation.transferredRepresentative X)
+        (base.representativeTimeTranslation.transferredRepresentative X)) := by
+  let TX := base.representativeTimeTranslation.transferredRepresentative X
   let rawSeq := translatedRawSquareSequence base X
   let meanSeq := translatedRawMeanSequence base X
   have hraw : CReal.ConvergesTo rawSeq
@@ -549,10 +606,13 @@ theorem transferredNorm_converges
       adaptiveDenseStageApproximant, denseStageApproximant, constCauchy]
       using hcenteredLimit
 
-def toVacuumLinearGraphNormLimitApproximation :
-    BF4WilsonVacuumLinearGraphNormLimitApproximation producer D where
+def toVacuumRepresentativeGraphNormLimitApproximation :
+    BF4WilsonVacuumRepresentativeGraphNormLimitApproximation producer D where
   separatorPinned := base.separatorPinned
-  linearTimeTranslation := base.pointwiseTimeTranslation.linear
+  transferredRepresentative :=
+    base.representativeTimeTranslation.transferredRepresentative
+  transferredRepresentative_class :=
+    base.representativeTimeTranslation.transferredRepresentative_class
   approximant := fun X scale =>
     adaptiveDenseStageApproximant D (sampleIndex base)
       (centeredStageObservable base) X scale
@@ -574,7 +634,7 @@ def toVacuumLinearGraphNormLimitApproximation :
   transferredNorm_converges := transferredNorm_converges base
 
 def toWilsonOperatorNormGapPin : WilsonOperatorNormGapPin D :=
-  (toVacuumLinearGraphNormLimitApproximation base).toWilsonOperatorNormGapPin
+  (toVacuumRepresentativeGraphNormLimitApproximation base).toWilsonOperatorNormGapPin
 
 end BF4WilsonDenseStageDirectMomentCompiler
 
@@ -582,6 +642,7 @@ end YMGap.Continuum.BF4PhysicalDenseStageDirectMomentCompiler
 
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageDirectMomentCompiler.BF4WilsonDenseStageCenteredVacuumQualitativeDirectBase.ofProjectiveBase
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageDirectMomentCompiler.BF4WilsonDenseStageCenteredVacuumQualitativeDirectBase.ofSemanticBase
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageDirectMomentCompiler.WilsonPointwiseRepresentativeTimeTranslationPin.ofLinear
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageDirectMomentCompiler.BF4WilsonDenseStageDirectMomentCompiler.sampleIndex_cofinal
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageDirectMomentCompiler.BF4WilsonDenseStageDirectMomentCompiler.square_diagonal_admissible
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageDirectMomentCompiler.BF4WilsonDenseStageDirectMomentCompiler.mean_diagonal_admissible
@@ -589,5 +650,5 @@ end YMGap.Continuum.BF4PhysicalDenseStageDirectMomentCompiler
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageDirectMomentCompiler.BF4WilsonDenseStageDirectMomentCompiler.rawMeanSequence_converges_zero
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageDirectMomentCompiler.BF4WilsonDenseStageDirectMomentCompiler.norm_converges
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageDirectMomentCompiler.BF4WilsonDenseStageDirectMomentCompiler.transferredNorm_converges
-#print axioms YMGap.Continuum.BF4PhysicalDenseStageDirectMomentCompiler.BF4WilsonDenseStageDirectMomentCompiler.toVacuumLinearGraphNormLimitApproximation
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageDirectMomentCompiler.BF4WilsonDenseStageDirectMomentCompiler.toVacuumRepresentativeGraphNormLimitApproximation
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageDirectMomentCompiler.BF4WilsonDenseStageDirectMomentCompiler.toWilsonOperatorNormGapPin

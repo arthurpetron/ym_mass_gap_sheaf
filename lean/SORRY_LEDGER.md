@@ -693,6 +693,13 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   radical transfer law, the direct fixed-observable moment certificate (or a
   stronger projective/exact-semantic refinement), and the qualitative vacuum
   pin remain unconstructed analytic inputs on the physical thread.
+  The direct endpoint additionally no longer assumes that the selected
+  continuum transfer is additive or scalar-linear.  It consumes only a chosen
+  Cauchy representative of the actual quotient-level transfer together with
+  its termwise observable-shift law, and it constructs the representative
+  graph-norm limit interface directly.  The former pointwise linear transfer
+  pin and linear graph-norm residual refine these weaker records by proved
+  adapters.  The representative lift itself remains uninhabited.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full
