@@ -8,8 +8,8 @@ representative carries its own cofinal stage sampler.
 
 The transferred graph-norm leg is proved directly along the sampler belonging
 to the original vector.  Hence no choice coherence between the samplers of
-`X` and `T X` is needed.  Exact finite transfer intertwining and the pointwise
-continuum lift identify the finite transferred observable with the sampled
+`X` and `T X` is needed.  Finite transfer intertwining modulo the physical GNS
+radical and the pointwise continuum lift identify the finite transferred norm with the sampled
 continuum representative of `T X` at that same index.
 
 The remaining analytic input is now a vectorwise admissible diagonal for the
@@ -185,7 +185,7 @@ structure BF4WilsonDenseStageAdaptiveProjectiveComparison
         (stageObservable scale a) (stageObservable scale b)
   stageTransfer_intertwines : forall (scale : Nat)
     (a : D.wilson.toGNSData.V),
-      (MatchedPhysicalStageGNSData family coupling scale).veq
+      (MatchedPhysicalStageGNSData family coupling scale).rad
         (centralPhysicalMarkovApply
           (matchedAllSpinWeight family coupling scale)
           (matchedAllSpinWeight_nonnegative family coupling scale)
@@ -324,7 +324,8 @@ def transferredNormClose (X : SelectedWilsonCauchy D) :
             (data.stageObservable scale a))).eqv
           (finiteStageSquareExpectation D data.stageObservable scale Ta) := by
       exact Q'.eqv_trans _ _ _
-        ((MatchedPhysicalStageGNSData family coupling scale).B_diag_congr
+        ((MatchedPhysicalStageGNSData family coupling scale).B_welldef
+          (data.stageTransfer_intertwines scale a)
           (data.stageTransfer_intertwines scale a))
         (Q'.eqv_refl _)
     have hleft := Q'.eqv_trans _ _ _ hfiniteTransfer

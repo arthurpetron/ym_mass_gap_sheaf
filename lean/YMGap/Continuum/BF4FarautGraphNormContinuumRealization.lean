@@ -17,14 +17,8 @@ continuum Yang--Mills theory is constructed here.
 -/
 
 import YMGap.Continuum.BF4FarautSpectralMarginInputContinuumRealization
-import YMGap.Continuum.BF4PhysicalDenseStageAdaptiveProjectiveComparison
-import YMGap.Continuum.BF4PhysicalDenseStageDiagonalComparison
-import YMGap.Continuum.BF4PhysicalDenseStageExpectationComparison
-import YMGap.Continuum.BF4PhysicalDenseStageGraphNormCompiler
-import YMGap.Continuum.BF4PhysicalDenseStageProjectiveComparison
-import YMGap.Continuum.BF4PhysicalDenseStageRationalComparison
-import YMGap.Continuum.BF4PhysicalDenseStageSlowDiagonalComparison
-import YMGap.Continuum.BF4PhysicalModulatedGapLimitStability
+import YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison
+import YMGap.Continuum.BF4PhysicalVacuumGraphNormLimitStability
 
 namespace YMGap.Continuum.BF4FarautGraphNormContinuumRealization
 
@@ -43,15 +37,9 @@ open YMGap.Continuum.BF4FarautPhysicalSeparatorProducer
 open YMGap.Continuum.BF4FarautPhysicalSeparatorProducer.BF4FarautQuarterPhysicalSeparatorProducer
 open YMGap.Continuum.BF4FarautSpectralMarginInputContinuumRealization
 open YMGap.Continuum.BF4FarautSpectralMarginInputContinuumRealization.BF4FarautSpectralMarginInputExactFlow
-open YMGap.Continuum.BF4PhysicalModulatedGapLimitStability
-open YMGap.Continuum.BF4PhysicalDenseStageAdaptiveProjectiveComparison
-open YMGap.Continuum.BF4PhysicalDenseStageDiagonalComparison
-open YMGap.Continuum.BF4PhysicalDenseStageExpectationComparison
-open YMGap.Continuum.BF4PhysicalDenseStageGraphNormCompiler
-open YMGap.Continuum.BF4PhysicalDenseStageProjectiveComparison
-open YMGap.Continuum.BF4PhysicalDenseStageRationalComparison
-open YMGap.Continuum.BF4PhysicalDenseStageSlowDiagonalComparison
+open YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison
 open YMGap.Continuum.BF4PhysicalSeparatorProducer
+open YMGap.Continuum.BF4PhysicalVacuumGraphNormLimitStability
 open YMGap.Continuum.ContinuumMeasure
 open YMGap.Continuum.ExactRateReconstructionHandoff
 open YMGap.Continuum.FourDExistence
@@ -105,7 +93,7 @@ structure ContinuumWilsonGraphNormResidualData
     osGNS.reconstruction
   /-- The explicit varying-carrier graph-norm limit from which the continuum
   operator gap will be derived. -/
-  graphNormLimit : BF4WilsonLinearGraphNormLimitApproximation
+  graphNormLimit : BF4WilsonVacuumLinearGraphNormLimitApproximation
     producer.toBF4QuarterPhysicalSeparatorProducer osGNS
 
 namespace ContinuumWilsonGraphNormResidualData
@@ -213,7 +201,7 @@ def ofProjectiveOSResidualData
     {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
     (D : ContinuumProjectiveOSResidualData flow
       anchorDominates AF trajectory comparison bare tracking mu)
-    (graphNormLimit : BF4WilsonLinearGraphNormLimitApproximation
+    (graphNormLimit : BF4WilsonVacuumLinearGraphNormLimitApproximation
       producer.toBF4QuarterPhysicalSeparatorProducer
       (WilsonSelectedOSGNSData.ofLinked D.osGNS)) :
     ContinuumWilsonGraphNormResidualData flow
@@ -229,15 +217,15 @@ end ContinuumWilsonGraphNormResidualData
 
 /-- The AF/Faraut continuum residual factored all the way down to literal
 dense finite-stage observables and an eventual rational same-observable form
-comparison, stated as convergence of the corresponding finite and continuum
-reflected-square expectations and factored through a modulus-carrying
-refinement of the selected projective OS functional.
+comparison, stated only on the continuum vacuum complement where the final
+gap estimate is required, and factored through a modulus-carrying refinement
+of the selected projective OS functional.
 
 Unlike `ContinuumWilsonGraphNormResidualData`, this record does not assume the
 two graph-norm convergence laws or a `CReal`-level norm-limit pin.  Its
-dense-stage field constructs both laws from pointwise transfer compatibility,
-an executable vector-adaptive slow diagonal, and rational
-finite-to-continuum quadratic-form bounds. -/
+dense-stage field constructs both conditional laws from radical-valued
+transfer compatibility, an executable vector-adaptive slow diagonal, and
+rational centered finite-to-continuum quadratic-form bounds. -/
 structure ContinuumWilsonDenseStageResidualData
     {family : MatchedBlockFamily}
     {law : CubicMarginLaw family}
@@ -270,7 +258,7 @@ structure ContinuumWilsonDenseStageResidualData
     (continuumSourceCertificate flow
       anchorDominates AF trajectory comparison bare)
     osGNS.reconstruction
-  denseStageLimit : BF4WilsonDenseStageSlowProjectiveComparison
+  denseStageLimit : BF4WilsonDenseStageCenteredVacuumSlowComparison
     producer.toBF4QuarterPhysicalSeparatorProducer osGNS
 
 namespace ContinuumWilsonDenseStageResidualData
@@ -310,8 +298,8 @@ def toContinuumWilsonGraphNormResidualData
   existence := D.existence
   osGNS := D.osGNS
   rateReconstruction := D.rateReconstruction
-  graphNormLimit := D.denseStageLimit.toAdaptiveProjectiveComparison
-    |>.toLinearGraphNormLimitApproximation
+  graphNormLimit :=
+    D.denseStageLimit.toVacuumLinearGraphNormLimitApproximation
 
 /-- Literal dense finite-stage maps and projective expectation moduli construct
 their vector-adaptive slow diagonal and then the same-object positive exact-log
@@ -378,7 +366,7 @@ def ofProjectiveOSResidualData
     {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
     (D : ContinuumProjectiveOSResidualData flow
       anchorDominates AF trajectory comparison bare tracking mu)
-    (denseStageLimit : BF4WilsonDenseStageSlowProjectiveComparison
+    (denseStageLimit : BF4WilsonDenseStageCenteredVacuumSlowComparison
       producer.toBF4QuarterPhysicalSeparatorProducer
       (WilsonSelectedOSGNSData.ofLinked D.osGNS)) :
     ContinuumWilsonDenseStageResidualData flow

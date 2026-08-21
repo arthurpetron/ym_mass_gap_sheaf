@@ -274,7 +274,7 @@ structure BF4WilsonDenseStageSlowProjectiveCore
         (stageObservable scale a) (stageObservable scale b)
   stageTransfer_intertwines : forall (scale : Nat)
     (a : D.wilson.toGNSData.V),
-      (MatchedPhysicalStageGNSData family coupling scale).veq
+      (MatchedPhysicalStageGNSData family coupling scale).rad
         (centralPhysicalMarkovApply
           (matchedAllSpinWeight family coupling scale)
           (matchedAllSpinWeight_nonnegative family coupling scale)

@@ -1461,3 +1461,48 @@ The focused slow-diagonal target and integrated AF/Faraut endpoint builds
 completed 1269 and 1330 jobs respectively; the forbidden-token scan was empty
 and exported declarations report only `[propext, Quot.sound]`.  No full audit,
 remote push, or GitHub CI run was used.
+
+## Radical-valued centered transfer and vacuum-only graph limit (2026-08-20)
+
+The finite transfer interface has been corrected from pointwise equality to
+the physical GNS radical, which is the actual equivalence relation seen by the
+quotient and its completion.  `BF4PhysicalCenteredRadicalIntertwining` proves
+the exact algebraic bridge: raw transfer intertwining modulo the radical,
+stationarity of the finite mean, and transfer-fixity of the finite vacuum
+modulo the radical imply transfer intertwining of the automatically centered
+observable modulo the radical.  Exact stationary centering simultaneously
+constructs `CentralPhysicalMeanZero`, so finite completed vacuum
+orthogonality is no longer an independent field.
+
+`BF4PhysicalVacuumGraphNormLimitStability` weakens graph-norm convergence to
+the domain on which the operator gap is actually asserted.  Ordinary and
+transferred norm convergence are required only when the continuum vector lies
+in the selected vacuum complement.  The module proves that this conditional
+representative-level data still transports the uniform finite BF4
+one-sixteenth estimate to a `WilsonOperatorNormGapPin`.  This avoids the
+incorrect demand that exactly centered finite representatives approximate
+arbitrary continuum vectors containing a vacuum component.
+
+`BF4PhysicalDenseStageCenteredSlowComparison` combines these two reductions.
+Its active conditional record constructs the vector-adaptive slow diagonal,
+centers every raw stage observable, proves its radical transfer law and finite
+vacuum orthogonality, and derives both graph-norm convergence laws from one
+two-sided centered finite/projective comparison on continuum
+vacuum-orthogonal vectors.  `BF4FarautGraphNormContinuumRealization` now
+consumes this vacuum-complement record and compiles it directly to the
+same-object bounded mass-gap endpoint.
+
+The remaining analytic bridge has consequently become narrower but is not
+proved: one must construct the raw dense realization and radical-valued
+transfer law, the modulus-carrying projective functional, and the conditional
+two-sided comparison between the centered finite square and the rational
+projective square along the constructed diagonal.  A causal next reduction is
+to pin the selected continuum vacuum to the dense unit and split that centered
+comparison into an uncentered square comparison plus convergence of the
+finite mean to zero for vacuum-complement vectors.  Continuum existence,
+thermodynamic and continuum control, physical generator identification, the
+full QFT axioms, and the Clay theorem remain open.
+
+The focused centered compiler and integrated AF/Faraut endpoint builds
+completed 1272 and 1333 jobs respectively.  Exported declarations report only
+`[propext, Quot.sound]`.  No full audit, remote push, or GitHub CI run was used.
