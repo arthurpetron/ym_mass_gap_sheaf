@@ -442,6 +442,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4PhysicalCutoffCofinalRestrictedLDLGap.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffCanonicalHeadLDLGap.lean`,
   `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSectorSixteenthObstruction.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffCofinalStrictGap.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovTransfer.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovLaws.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovVacuumComplement.lean`,
@@ -931,9 +932,17 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   type can be inhabited for that displayed sector restriction.  This rules
   out an all-cutoff sixteenth and cutoff two as a cofinal anchor; it does not
   rule out a sixteenth on some later unbounded schedule, and its transport to
-  a full physical-carrier observable remains separate.  The next compiler
-  frontier is an arbitrary constructive strict rate `0 <= q < 1`, followed by
-  production of a viable uniform cofinal family at that rate.
+  a full physical-carrier observable remains separate.  The certificate seam
+  is now parameterized by an arbitrary constructive strict rate
+  `0 <= q < 1`.  Canonical ordinary and cleared LDL families compile at that
+  supplied rate.  Moreover, reflection positivity of the genuine physical
+  joint quadratic reduces the physical certificate to the upper edge alone:
+  ordinary or cleared upper-only LDL checks prove `K <= qD`, and the existing
+  `0 <= K` theorem converts this to `|K| <= qD`.  No such full-carrier cofinal
+  family is inhabited.  The next compiler frontier is propagation of this
+  arbitrary rate through the completed adaptive graph-norm route; the next
+  finite analytic frontier is production of a viable uniform cofinal upper
+  family.
   That transport frontier is now specialized to the actual cutoff-removed
   carrier.  Every completion representative has a canonical exactly centered
   vector in each finite-cutoff physical GNS completion, and its finite vacuum

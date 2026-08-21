@@ -2941,8 +2941,8 @@ Lean-checked content.
 This closes the proposed all-cutoff `1/16` route and forbids cutoff two as an
 anchor for a `1/16` cofinal certificate.  It does not refute `1/16` on some
 later unbounded fixed-nome subsequence, and the sector obstruction has not yet
-been transported to a full physical-carrier observable.  The next causal
-frontier is to parameterize the finite/cofinal completed-transfer compiler by
+been transported to a full physical-carrier observable.  At this milestone
+the next causal frontier was to parameterize the finite/cofinal certificate by
 an arbitrary constructive rate `q` with `0 <= q < 1`, then seek a viable
 uniform cofinal rate rather than hardcode the disproved cutoff-two constant.
 Thermodynamic, nome, spacing, continuum-reconstruction, QFT-axiom, and Clay
@@ -2951,6 +2951,37 @@ dependency-complete focused audit was intentionally interrupted while
 repairing unrelated generated reflection objects (the most recent run stopped
 at 1193/1221 and is not recorded as passed).  The printed obstruction
 declarations report only `[propext, Quot.sound]`.
+
+## Arbitrary-rate cofinal and upper-only LDL compiler (2026-08-21)
+
+`BF4PhysicalCutoffCofinalStrictGap` replaces the hardcoded cofinal sixteenth
+at the finite-certificate seam by `FixedNomeCofinalCenteredStrictGap`.  The
+record carries a supplied rational `q`, constructive proofs `0 <= q` and
+`q < 1`, a constructive cofinal anchor, and the exact physical mean-zero form
+bound at every anchor.  The historical sixteenth interface embeds as the
+special case `q = 1/16`; canonical ordinary and cleared two-sided LDL families
+now compile at any supplied strict rate.
+
+The physical route is sharpened further to require only the upper matrix.
+Generic ordinary and shardable cleared-denominator upper-only LDL records
+prove `K <= qD` on every exactly centered vector.  The finite index bridge
+transports this inequality to the genuine physical sums, while the already
+proved reflection-positive physical quadratic supplies `0 <= K`; hence
+`|K| = K <= qD` without a lower-edge LDL factorization.  Generic cofinal
+records plus physical abbreviations avoid pathological dependent unfolding of
+the full canonical restriction.
+
+No cofinal upper certificate is inhabited here.  In particular, the existing
+cutoff-two `49/50` table is sector-level data and is not yet identified with a
+canonical full physical-carrier upper certificate, much less extended along
+an unbounded fixed-nome schedule.  The next compiler frontier is to propagate
+`FixedNomeCofinalCenteredStrictGap q` through the completed adaptive graph-
+norm route, which remains hardcoded to `1/16`; the next finite analytic
+frontier is then a viable full-carrier cofinal upper certificate at one
+uniform `q < 1`.  Thermodynamic, nome, spacing, continuum-reconstruction,
+QFT-axiom, and Clay targets remain open.  The source check and focused
+monitored build completed successfully, the latter with 1222 jobs.  Every
+printed load-bearing declaration reports only `[propext, Quot.sound]`.
 
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
