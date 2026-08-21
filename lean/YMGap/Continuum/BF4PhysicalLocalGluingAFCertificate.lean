@@ -54,27 +54,29 @@ local infix:50 " ≈ " => Q'.eqv
 /-- Genuine local gluing at rate at most one quarter gives a one-sixteenth
 contraction for the normalized positive physical joint quadratic. -/
 theorem physical_joint_quadratic_abs_le_sixteenth_of_local_gluing
-    {w : Q'} {hw : (0 : Q') ≤ w} {K depth : Nat}
+    {w : Q'} {hw : (0 : Q') ≤ w} {K halfExtent depth : Nat}
     {qS : Q'}
     (qS_le_quarter :
       qS ≤ YMGap.Continuum.FiveHolonomyPerronCutoff.quarter)
     (localRow_exists :
       ∀ source,
-        source ∈ centralPositiveHalfStates w hw K 0 →
+        source ∈ centralPositiveHalfStates w hw K halfExtent →
           Nonempty
             (Σ oneStep : EdgeLabelling → EdgeLabelling → Q',
               PhysicalBF4LocalContractionGluingRow
-                hw K 0 source depth oneStep qS))
+                hw K halfExtent source depth oneStep qS))
     (observable : EdgeLabelling → Q')
-    (hmean : CentralPhysicalMeanZero w hw K 0 observable) :
-    Q'.abs (centralPhysicalJointQuadratic w hw K 0 observable) ≤
+    (hmean : CentralPhysicalMeanZero w hw K halfExtent observable) :
+    Q'.abs
+        (centralPhysicalJointQuadratic
+          w hw K halfExtent observable) ≤
       Q'.mkPos 1 16 (by decide) *
         centralPhysicalWeightedInner
-          w hw K 0 observable observable := by
-  let states := centralPositiveHalfStates w hw K 0
+          w hw K halfExtent observable observable := by
+  let states := centralPositiveHalfStates w hw K halfExtent
   let physical :=
-    centralNormalizedPhysicalReflectedKernel w hw K 0
-  let vacuum := centralPhysicalVacuumJoint w hw K 0
+    centralNormalizedPhysicalReflectedKernel w hw K halfExtent
+  let vacuum := centralPhysicalVacuumJoint w hw K halfExtent
   let physicalQuadratic :=
     finiteJointQuadratic states observable physical
   let vacuumQuadratic :=
@@ -96,24 +98,25 @@ theorem physical_joint_quadratic_abs_le_sixteenth_of_local_gluing
       ∀ state,
         state ∈ states →
           finiteJointDifferenceAbsRowMass
-              states physical vacuum state ≤
-            Q'.mkPos 1 16 (by decide) *
-              centralPhysicalRowMarginal w hw K 0 state := by
+            states physical vacuum state ≤
+              Q'.mkPos 1 16 (by decide) *
+                centralPhysicalRowMarginal
+                  w hw K halfExtent state := by
     intro state hstate
     obtain ⟨⟨oneStep, row⟩⟩ := localRow_exists state hstate
     change physicalCenteredPhysicalRowMass
-        w hw K 0 state ≤ _
+        w hw K halfExtent state ≤ _
     exact row.physical_centered_row_le_sixteenth qS_le_quarter
   have hperturbation :
       Q'.abs (physicalQuadratic + (-vacuumQuadratic)) ≤
         Q'.mkPos 1 16 (by decide) *
           finiteWeightedSquare
             states
-            (centralPhysicalRowMarginal w hw K 0)
+            (centralPhysicalRowMarginal w hw K halfExtent)
             observable := by
     exact finiteJointQuadratic_abs_sub_le_weightedSquare
       states observable
-      (centralPhysicalRowMarginal w hw K 0)
+      (centralPhysicalRowMarginal w hw K halfExtent)
       physical vacuum
       (Q'.mkPos 1 16 (by decide))
       (fun left right hleft hright =>
@@ -122,13 +125,13 @@ theorem physical_joint_quadratic_abs_le_sixteenth_of_local_gluing
           ((mem_centralPositiveHalfStates_iff).1 hright).1)
       (fun left right _ _ =>
         centralPhysicalVacuumJoint_symmetric
-          w hw K 0 left right)
+          w hw K halfExtent left right)
       hrow
   have hphysical :
       Q'.abs physicalQuadratic ≤
         Q'.mkPos 1 16 (by decide) *
           centralPhysicalWeightedInner
-            w hw K 0 observable observable := by
+            w hw K halfExtent observable observable := by
     refine Q'.le_trans' _ _ _
       (Q'.ge_of_eqv (Q'.abs_eqv_congr hdifference))
       (Q'.le_trans' _ _ _ hperturbation ?_)
@@ -137,12 +140,12 @@ theorem physical_joint_quadratic_abs_le_sixteenth_of_local_gluing
         (Q'.mkPos 1 16 (by decide))
         (finiteWeightedSquare
           states
-          (centralPhysicalRowMarginal w hw K 0)
+          (centralPhysicalRowMarginal w hw K halfExtent)
           observable)
         (centralPhysicalWeightedInner
-          w hw K 0 observable observable)
+          w hw K halfExtent observable observable)
         (finiteWeightedSquare_physical_eqv_inner
-          w hw K 0 observable))
+          w hw K halfExtent observable))
   exact hphysical
 
 /-! ## 2. One genuine local slice for the whole carrier -/

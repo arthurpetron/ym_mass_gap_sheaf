@@ -2050,3 +2050,21 @@ spacing must be audited before any completed vacuum-complement gap can be
 claimed.  A source check and focused monitored build completed successfully,
 the latter with 1205 jobs.  Every printed load-bearing declaration reports
 only `[propext, Quot.sound]`.
+
+## Arbitrary-extent pointwise physical BF4 sixteenth (2026-08-20)
+
+`physical_joint_quadratic_abs_le_sixteenth_of_local_gluing` is now proved at
+an arbitrary finite half-extent, rather than only at half-extent zero.  The
+underlying `PhysicalBF4LocalSliceGluing` record already carried the general
+geometry; the contraction proof now retains that parameter through the
+positive state carrier, physical and vacuum joint laws, row marginal, and
+weighted square.
+
+Consequently, an explicit local slice of centered row rate at most `1/4`,
+whose prescribed power is exactly the physical conditional density at a
+given nome, cutoff, and finite extent, gives the same pointwise `1/16`
+mean-zero quadratic estimate there.  No such slice family is constructed by
+this generalization, and no uniformity in representation cutoff or physical
+scale follows automatically.  A source check and focused monitored build
+completed successfully, the latter with 1117 jobs; the printed declarations
+report only `[propext, Quot.sound]`.

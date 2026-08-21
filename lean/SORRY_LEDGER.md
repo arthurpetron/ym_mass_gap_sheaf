@@ -765,7 +765,10 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   obligation is to determine whether the existing finite `1/16` producer data
   can be routed uniformly through representation-cutoff removal and the
   relevant physical scale trajectory.  No such strict cutoff-uniform factor is
-  presently constructed.
+  presently constructed.  The pointwise local-gluing sixteenth has been
+  generalized from half-extent zero to arbitrary finite half-extent, exposing
+  the remaining cutoff-limit input exactly as a family of genuine local-slice
+  gluing witnesses uniform over the representation cutoff.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full
