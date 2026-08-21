@@ -947,6 +947,23 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   cutoff-removed completed transfer at stored rate `q`.  The next finite
   analytic frontier is production of a viable uniform full-carrier cofinal
   upper family; the nonconstant completion modulus also remains uninhabited.
+  The historical cutoff-two `49/50` table is no longer merely an unidentified
+  diagnostic matrix.  A sparse positive-head pullback formula and 64
+  process-isolated row checks identify all 4096 entries with the canonical
+  upper restriction of `(49/50)D-K+dd^T` on the verified 65-state cube-subset
+  sector.  The old cleared LDL rows and positive pivots therefore inhabit the
+  generic upper-only certificate and prove `K <= (49/50)D` for every exactly
+  centered coefficient on that sector.  Existing support theorems show the
+  65-state sector is row-closed in the genuine cutoff-two physical kernel.
+  This closes the finite invariant-sector matrix-identification obligation,
+  but not the full-carrier or cofinal obligation: equality with the entire
+  physical carrier, control of omitted components, a uniform unbounded
+  fixed-nome schedule, and the completion modulus all remain uninhabited.
+  The bridge-data and complete 4096-entry row targets built successfully; the
+  final theorem passed a direct monitored source check under
+  `[propext, Quot.sound]`.  A dependency-complete final target replay was
+  intentionally interrupted while rebuilding already-existing historical LDL
+  chunks and is not recorded as passed.
   That transport frontier is now specialized to the actual cutoff-removed
   carrier.  Every completion representative has a canonical exactly centered
   vector in each finite-cutoff physical GNS completion, and its finite vacuum

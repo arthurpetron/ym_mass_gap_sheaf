@@ -3011,6 +3011,45 @@ targets remain open.  The source check and focused monitored build completed
 successfully, the latter with 1318 jobs.  Every printed load-bearing
 declaration reports only `[propext, Quot.sound]`.
 
+## Exact cutoff-two invariant-sector upper gap at 49/50 (2026-08-21)
+
+`BF4PhysicalBoundaryCutoffTwoSectorUpperGap` turns the historical cleared LDL
+table into a named certificate for the canonical positive-head restriction,
+rather than accepting positivity of an unidentified `64 x 64` matrix.  A
+local sparse pullback theorem reduces every canonical entry of
+`(49/50)D-K+dd^T` to four entries of the full `65 x 65` matrix.  Sixty-four
+process-isolated row theorems then kernel-check all 4096 equalities between
+that sparse formula and the historical mean-zero table.  The aggregate bridge
+pins the old table to the literal canonical upper matrix.
+
+The existing cleared LDL rows and positive pivots therefore inhabit
+`FiniteCenteredRestrictionUpperClearedLDLCertificate` at the exact rational
+rate `q = 49/50`, with separately checked proofs `0 <= q < 1`.  Its
+`upperContraction` theorem proves, for every exactly weighted-centered
+coefficient on the verified 65-state cutoff-two cube-subset sector,
+`K <= (49/50) D`.  Existing sector-support work proves this 65-state sector is
+row-closed in the genuine cutoff-two physical kernel; this is stronger than
+the earlier two-state vacuum/cube diagnostic, which is not row-closed.
+
+The result is nevertheless only an invariant-sector upper gap.  It does not
+identify the 65 states with the entire cutoff-two physical carrier, does not
+control other invariant sectors or their mutual decomposition, and does not
+construct a fixed-nome cofinal family at one uniform `q < 1`.  The
+nonconstant completion modulus, thermodynamic/nome/spacing limits, continuum
+QFT axioms, and Clay conclusion remain open.  The next causal frontier is to
+resolve the 65-state sector versus full-carrier decomposition and either
+extend this exact upper certificate to every physical component or exhibit a
+kernel-checked obstruction/rate requirement on the omitted component.
+
+Verification was deliberately layered.  The bridge-data target completed
+successfully with 1610 jobs; the complete 64-row/4096-entry target completed
+with 1675 jobs; and the final theorem passed a direct monitored source check,
+with both printed load-bearing declarations reporting only
+`[propext, Quot.sound]`.  A dependency-complete final target audit was
+intentionally interrupted at its then-visible 1785/1788 jobs while replaying
+the already-existing 1024 historical LDL chunks after cache invalidation; it
+encountered no proof failure and is not recorded as a passed target build.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the
