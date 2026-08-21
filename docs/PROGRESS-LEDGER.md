@@ -2918,6 +2918,40 @@ check and focused monitored build completed successfully, the latter with
 1221 jobs.  Every printed load-bearing declaration reports only
 `[propext, Quot.sound]`.
 
+## Exact cutoff-two one-sixteenth obstruction (2026-08-21)
+
+`BF4PhysicalBoundaryCutoffTwoSectorSixteenthObstruction` evaluates one
+diagonal of the literal canonical head-centered upper matrix for the verified
+65-state cutoff-two raw sector.  A new sparse pullback identity reduces that
+diagonal to four entries of the full penalized matrix, avoiding evaluation of
+the complete 65-by-65 quadratic sum.  Exact rational reduction in Lean proves
+that tail coordinate one (full sector index two) has strictly negative
+diagonal at `q = 1/16`.  The corresponding coordinate-unit quadratic is
+therefore negative, so the upper matrix is not positive semidefinite.
+
+As kernel-checked consequences, neither the ordinary nor the cleared-
+denominator `FiniteCenteredRestrictionLDLCertificate` can inhabit this
+canonical cutoff-two sector restriction.  The external exact-rational scout
+agrees with the local witness: its mean-zero LDL inertia is 64 positive pivots
+for `(1/16)D+K` and 43 positive plus 21 negative pivots for `(1/16)D-K`.
+Those aggregate inertia counts remain untrusted computational reconnaissance;
+the displayed negative diagonal and both no-certificate theorems are the
+Lean-checked content.
+
+This closes the proposed all-cutoff `1/16` route and forbids cutoff two as an
+anchor for a `1/16` cofinal certificate.  It does not refute `1/16` on some
+later unbounded fixed-nome subsequence, and the sector obstruction has not yet
+been transported to a full physical-carrier observable.  The next causal
+frontier is to parameterize the finite/cofinal completed-transfer compiler by
+an arbitrary constructive rate `q` with `0 <= q < 1`, then seek a viable
+uniform cofinal rate rather than hardcode the disproved cutoff-two constant.
+Thermodynamic, nome, spacing, continuum-reconstruction, QFT-axiom, and Clay
+targets remain open.  The narrow source checks completed successfully; the
+dependency-complete focused audit was intentionally interrupted while
+repairing unrelated generated reflection objects (the most recent run stopped
+at 1193/1221 and is not recorded as passed).  The printed obstruction
+declarations report only `[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the

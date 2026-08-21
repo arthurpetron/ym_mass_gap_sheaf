@@ -394,11 +394,24 @@ def _mean_zero_restriction(
     target: Fraction,
 ) -> list[list[Fraction]]:
     """Restrict ``target * D - K`` to the ``D``-mean-zero hyperplane."""
+    return _mean_zero_signed_restriction(
+        kernel, row_sums, target, kernel_sign=Fraction(-1)
+    )
+
+
+def _mean_zero_signed_restriction(
+    kernel: list[list[Fraction]],
+    row_sums: tuple[Fraction, ...],
+    target: Fraction,
+    *,
+    kernel_sign: Fraction,
+) -> list[list[Fraction]]:
+    """Restrict ``target * D + kernel_sign * K`` to weighted mean zero."""
     size = len(kernel)
     pencil = [
         [
             (target * row_sums[row] if row == column else Fraction(0))
-            - kernel[row][column]
+            + kernel_sign * kernel[row][column]
             for column in range(size)
         ]
         for row in range(size)
@@ -560,6 +573,17 @@ def compute(*, coupling: Fraction, jobs: int) -> dict[str, object]:
     eigenvalues.sort()
     descending = tuple(float(value) for value in eigenvalues[::-1])
     second = descending[1]
+    upper_sixteenth = _mean_zero_signed_restriction(
+        kernel, row_sums, Fraction(1, 16), kernel_sign=Fraction(-1)
+    )
+    lower_sixteenth = _mean_zero_signed_restriction(
+        kernel, row_sums, Fraction(1, 16), kernel_sign=Fraction(1)
+    )
+    negative_upper_diagonals = tuple(
+        (index + 1, upper_sixteenth[index][index])
+        for index in range(len(upper_sixteenth))
+        if upper_sixteenth[index][index] < 0
+    )
     unordered_values = [kernel[left][right]
                         for left in range(65)
                         for right in range(left, 65)]
@@ -592,6 +616,15 @@ def compute(*, coupling: Fraction, jobs: int) -> dict[str, object]:
         "mean_zero_ldl_49_over_50": _exact_ldl_summary(
             _mean_zero_restriction(kernel, row_sums, Fraction(49, 50))
         ),
+        "mean_zero_upper_1_over_16": {
+            "ldl": _exact_ldl_summary(upper_sixteenth),
+            "negative_coordinate_diagonals": [
+                {"sector_index": index, "value": str(value)}
+                for index, value in negative_upper_diagonals
+            ],
+        },
+        "mean_zero_lower_1_over_16":
+            _exact_ldl_summary(lower_sixteenth),
         "rank_one_penalized_ldl_49_over_50": _exact_ldl_summary(
             _rank_one_penalized_matrix(
                 kernel, row_sums, Fraction(49, 50), Fraction(1)

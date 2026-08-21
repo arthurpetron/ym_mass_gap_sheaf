@@ -119,6 +119,32 @@ private theorem listQSum_ite_single
             (listQSum_ite_single selected value tail hparts.2 htail))
           (Q'.eqv_of_eq (Q'.zero_add' _))
 
+private theorem range_succ_shift_local (n : Nat) :
+    List.range (n + 1) = 0 :: (List.range n).map Nat.succ := by
+  induction n with
+  | zero => rfl
+  | succ n ih =>
+      calc
+        List.range (Nat.succ n + 1) =
+            List.range (n + 1) ++ [n + 1] := by
+          simpa only [Nat.succ_eq_add_one] using
+            (List.range_succ (n := n + 1))
+        _ = (0 :: (List.range n).map Nat.succ) ++ [n + 1] :=
+          congrArg (fun items => items ++ [n + 1]) ih
+        _ = 0 :: (List.range (n + 1)).map Nat.succ := by
+          simp only [List.range_succ, List.map_append, List.map,
+            List.cons_append, Nat.succ_eq_add_one]
+
+private theorem listQSum_map_local
+    {A B : Type} (value : B → Q') (map : A → B) :
+    ∀ items : List A,
+      listQSum value (items.map map) =
+        listQSum (fun item => value (map item)) items
+  | [] => rfl
+  | _ :: tail => by
+      simp only [List.map, listQSum]
+      rw [listQSum_map_local value map tail]
+
 /-! ## 1. The coordinate matrix of the centering lift -/
 
 /-- Coordinate matrix for the positive-head centered lift.  The head row
@@ -221,7 +247,115 @@ theorem finiteHeadCenteredLinearApply_eqv_lift
       exact finiteHeadCenteredLinearApply_succ
         n weight hhead coefficient i hitail
 
-/-! ## 2. Generated reduced penalized matrices -/
+/-! ## 2. Sparse column and diagonal formulas -/
+
+/-- Summing against one column of the head-centering transform reads only
+the head and the selected tail entry.  This sparse formula prevents exact
+certificate checks from expanding a mostly-zero `(n+1)`-term sum. -/
+theorem finiteHeadCenteredColumnSum
+    (n : Nat) (weight : Nat → Q')
+    (hhead : (0 : Q') < weight 0)
+    (value : Nat → Q') (k : Nat) (hk : k < n) :
+    listQSum
+        (fun i => value i * finiteHeadCenteredTransform weight hhead i k)
+        (List.range (n + 1)) ≈
+      value 0 * Q'.divPos (-(weight (k + 1))) (weight 0) hhead +
+        value (k + 1) := by
+  rw [range_succ_shift_local]
+  simp only [listQSum, listQSum_map_local,
+    finiteHeadCenteredTransform]
+  let tailValue : Nat → Q' := fun i => value (i + 1)
+  have htail :
+      listQSum
+          (fun i => value (i + 1) * (if i = k then 1 else 0))
+          (List.range n) ≈
+        value (k + 1) := by
+    refine Q'.eqv_trans _
+      (listQSum
+        (fun i => if k = i then tailValue i else 0)
+        (List.range n)) _ ?_ ?_
+    · apply listQSum_congr_on
+      intro i _hi
+      by_cases hik : i = k
+      · rw [if_pos hik, if_pos hik.symm]
+        exact Q'.mul_one_eqv _
+      · rw [if_neg hik, if_neg]
+        · exact Q'.mul_zero_eqv _
+        · exact fun hki => hik hki.symm
+    · exact listQSum_ite_single k tailValue (List.range n)
+        (rangeNodupLocal n) (List.mem_range.mpr hk)
+  exact Q'.add_eqv_congr_left _ _ _ htail
+
+/-- A diagonal entry of `A^T M A` for the head-centering transform depends
+on only the four full-matrix entries at the head and selected tail indices. -/
+theorem finiteHeadCenteredMatrix_diagonal
+    (n : Nat) (weight : Nat → Q')
+    (hhead : (0 : Q') < weight 0)
+    (matrix : Nat → Nat → Q') (k : Nat) (hk : k < n) :
+    finiteMatrixPullback (n + 1) matrix
+        (finiteHeadCenteredTransform weight hhead) k k ≈
+      let a := Q'.divPos (-(weight (k + 1))) (weight 0) hhead
+      (matrix 0 0 * a + matrix 0 (k + 1)) * a +
+        (matrix (k + 1) 0 * a + matrix (k + 1) (k + 1)) := by
+  let transform := finiteHeadCenteredTransform weight hhead
+  let a := Q'.divPos (-(weight (k + 1))) (weight 0) hhead
+  have hinner : ∀ i,
+      listQSum
+          (fun j => matrix i j * (transform i k * transform j k))
+          (List.range (n + 1)) ≈
+        (matrix i 0 * transform i k) * a +
+          matrix i (k + 1) * transform i k := by
+    intro i
+    refine Q'.eqv_trans _
+      (listQSum
+        (fun j => (matrix i j * transform i k) * transform j k)
+        (List.range (n + 1))) _ ?_ ?_
+    · apply listQSum_congr_on
+      intro j _hj
+      exact Q'.eqv_symm (Q'.mul_assoc_eqv _ _ _)
+    · simpa only [transform, a] using
+        (finiteHeadCenteredColumnSum n weight hhead
+          (fun j => matrix i j * transform i k) k hk)
+  refine Q'.eqv_trans _
+    (listQSum
+      (fun i =>
+        (matrix i 0 * transform i k) * a +
+          matrix i (k + 1) * transform i k)
+      (List.range (n + 1))) _ ?_ ?_
+  · unfold finiteMatrixPullback
+    apply listQSum_congr_on
+    intro i _hi
+    exact hinner i
+  · refine Q'.eqv_trans _
+      (listQSum
+        (fun i =>
+          (matrix i 0 * a + matrix i (k + 1)) * transform i k)
+        (List.range (n + 1))) _ ?_ ?_
+    · apply listQSum_congr_on
+      intro i _hi
+      have hswap :
+          (matrix i 0 * transform i k) * a ≈
+            (matrix i 0 * a) * transform i k := by
+        refine Q'.eqv_trans _
+          (matrix i 0 * (transform i k * a)) _
+          (Q'.mul_assoc_eqv _ _ _) ?_
+        refine Q'.eqv_trans _
+          (matrix i 0 * (a * transform i k)) _
+          (Q'.mul_eqv_congr_left _ _ _
+            (Q'.mul_comm_eqv _ _)) ?_
+        exact Q'.eqv_symm (Q'.mul_assoc_eqv _ _ _)
+      exact Q'.eqv_trans _
+        ((matrix i 0 * a) * transform i k +
+          matrix i (k + 1) * transform i k) _
+        (Q'.add_eqv_congr' hswap (Q'.eqv_refl _))
+        (Q'.eqv_symm
+          (Q'.add_mul_eqv
+            (matrix i 0 * a) (matrix i (k + 1)) (transform i k)))
+    · simpa only [transform, a] using
+        (finiteHeadCenteredColumnSum n weight hhead
+          (fun i => matrix i 0 * a + matrix i (k + 1)) k hk)
+
+/-! ## 3. Generated reduced penalized matrices -/
 
 /-- Canonical reduced upper-edge matrix obtained by pulling back
 `qD-K+dd^T` along the positive-head centering transform. -/

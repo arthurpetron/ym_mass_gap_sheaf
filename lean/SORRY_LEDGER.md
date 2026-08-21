@@ -441,6 +441,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4PhysicalCutoffCofinalLDLGap.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffCofinalRestrictedLDLGap.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffCanonicalHeadLDLGap.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSectorSixteenthObstruction.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovTransfer.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovLaws.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovVacuumComplement.lean`,
@@ -923,9 +924,16 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   positive-row support, so every genuine BF4 cutoff carries this canonical
   restriction.  Ordinary and cleared LDL certificates are pinned to the
   generated matrices, and cofinal families compile to
-  `FixedNomeCofinalCenteredSixteenth`.  What remains at this subfrontier is
-  the production—or exact obstruction—of actual LDL factorizations of those
-  displayed reduced matrices along an unbounded fixed-nome schedule.
+  `FixedNomeCofinalCenteredSixteenth`.  At cutoff two, the exact 65-state raw
+  sector now supplies the promised obstruction: sparse evaluation of one
+  canonical upper-matrix diagonal at `q = 1/16` proves it strictly negative,
+  and therefore proves that neither the ordinary nor cleared LDL certificate
+  type can be inhabited for that displayed sector restriction.  This rules
+  out an all-cutoff sixteenth and cutoff two as a cofinal anchor; it does not
+  rule out a sixteenth on some later unbounded schedule, and its transport to
+  a full physical-carrier observable remains separate.  The next compiler
+  frontier is an arbitrary constructive strict rate `0 <= q < 1`, followed by
+  production of a viable uniform cofinal family at that rate.
   That transport frontier is now specialized to the actual cutoff-removed
   carrier.  Every completion representative has a canonical exactly centered
   vector in each finite-cutoff physical GNS completion, and its finite vacuum
