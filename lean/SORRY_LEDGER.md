@@ -405,6 +405,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4PhysicalDenseStageRawMomentModulus.lean`,
   `lean/YMGap/Continuum/BF4PhysicalDenseStageCenteredSlowComparison.lean`,
   `lean/YMGap/Continuum/BF4PhysicalDenseStageRawMeanComparison.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffLinearGNSForm.lean`,
   and
   `lean/YMGap/Continuum/BF4FarautGraphNormContinuumRealization.lean`.
 - **named fields / structures**:
@@ -787,6 +788,14 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   the limit in `CReal.leEv`.  The corresponding centered and local-gluing
   cofinal records are uninhabited.  The matched-AF finite producer does not
   supply them because its nome changes with scale.
+  The structural carrier edge has advanced independently: the constructive
+  finite rational span of the genuine unit observables now carries a positive
+  symmetric rational-bilinear `CReal` form whose `K`-th approximation is the
+  literal finite physical GNS pairing at cutoff `K`.  Thus additivity after
+  representation-cutoff removal is no longer an open input.  CReal
+  Cauchy--Schwarz/radical descent, instantiation of the existing
+  `CRealSeminormCompletion`, and a cutoff-independent transfer action on this
+  carrier remain the next structural obligations.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full
