@@ -2268,6 +2268,28 @@ Clay theorem remain open.  A source check and focused monitored build completed
 successfully, the latter with 1314 jobs.  Every printed load-bearing
 declaration reports only `[propext, Quot.sound]`.
 
+## Pointwise-data adaptive same-object correlation decay (2026-08-21)
+
+`BF4PhysicalCutoffLinearMarkovAdaptiveCorrelationDecay` combines the new
+iterated adaptive norm bound with the already proved Cauchy--Schwarz inequality
+on the identical cutoff-removed completed physical carrier.  For every
+completed vacuum-orthogonal vector `v` and arbitrary completed test vector, it
+proves geometric decay of the squared matrix coefficient
+`<T^n v,test>^2`.
+
+Concrete cofinal and local-gluing corollaries carry the literal factor
+`((1/16)^2)^n`.  This closes the fixed-nome causal implication from pointwise
+cross-cutoff control and cofinal finite strictness to same-object completed
+correlation decay, without a same-index completion modulus and without
+identifying distinct cutoff carriers.
+
+The two analytic inputs remain uninhabited, and the theorem remains at fixed
+nome and fixed finite half-volume.  Uniform thermodynamic/nome/spacing limits,
+continuum reconstruction and QFT axioms, and the Clay theorem remain open.  A
+source check and focused monitored build completed successfully, the latter
+with 1315 jobs.  Every printed load-bearing declaration reports only
+`[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the
