@@ -830,13 +830,14 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   defines a proper completed subtype, the dense orthogonal sector embeds into
   it, and it inherits the ambient rational-module laws.  A cutoff-independent
   transfer action still remains separate.  Every finite physical Markov map
-  has now been constructively clamped and recoded as an endomorphism of the
-  same cutoff-independent finite-linear syntax; on the retained carrier this
-  recoding is the literal finite action, fixes the vacuum, and satisfies the
-  exact same-cutoff GNS contraction.  What remains is cross-cutoff Cauchy and
-  representative-compatibility control for those recoded images, followed by
-  quotient descent, vacuum stationarity, and preservation of this same
-  complement.
+  has now been recoded by the constructive stochastic extension
+  `P_K f + (1 - P_K 1) f` as an endomorphism of the same cutoff-independent
+  finite-linear syntax.  The extension is globally unit-interval-valued; on
+  the retained carrier it is the literal finite action; it fixes the vacuum
+  globally; and it satisfies the exact same-cutoff GNS contraction.  What
+  remains is cross-cutoff Cauchy and representative-compatibility control for
+  those recoded images, followed by quotient descent and preservation of this
+  same complement.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full

@@ -2414,21 +2414,24 @@ limits, continuum QFT, and the Clay theorem remain open.  A source check and
 focused monitored build completed successfully, the latter with 1148 jobs.
 Every printed load-bearing declaration reports only `[propext, Quot.sound]`.
 
-## Same-syntax recoding of every finite physical BF4 Markov action (2026-08-21)
+## Globally vacuum-fixing recoding of every finite physical BF4 Markov action (2026-08-21)
 
 `BF4PhysicalCutoffLinearMarkovSyntax` constructs a globally unit-interval
-atomic image without deciding equality of function-valued edge labellings.  A
-constructive rational clamp replaces the unavailable retained-list membership
-decision.  On every retained physical source, positivity and row
-normalization prove that the clamp is equivalent to the genuine finite
-Markov value.
+atomic image without deciding equality of function-valued edge labellings.
+For a unit observable `f`, the recoding is the constructive stochastic
+extension `P_K f + (1 - P_K 1) f`.  Every positive conditional row sums to one
+on the full finite carrier; filtering to retained targets cannot increase its
+mass; and exact rational monotonicity proves that this extension remains in
+`[0,1]`.  On every retained physical source, row normalization reduces it to
+the genuine finite Markov value.
 
 Recursion over the finite-linear syntax gives a cutoff-indexed endomorphism of
 the same carrier used by the cutoff-removed completion.  Its value on retained
-states is exactly the genuine finite physical action; the vacuum is fixed
-there; and the exact GNS bridge proves that the limiting squared distance of
-two recoded images, evaluated at the same cutoff, is bounded by the original
-distance evaluated at that cutoff.
+states is exactly the genuine finite physical action; the vacuum is fixed as
+a global semantic finite-linear object on every edge labelling; and the exact
+GNS bridge proves that the limiting squared distance of two recoded images,
+evaluated at the same cutoff, is bounded by the original distance evaluated
+at that cutoff.
 
 This removes the type mismatch between finite Markov outputs and the limiting
 syntax, but does not manufacture an operator limit.  Cross-cutoff Cauchy
