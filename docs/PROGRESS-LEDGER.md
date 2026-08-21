@@ -2450,6 +2450,32 @@ theorem remain open.  The source check and focused monitored build completed
 successfully, the latter with 1160 jobs.  Both printed declarations report
 only `[propext, Quot.sound]`.
 
+## Source-uniform physical target-shell modulus (2026-08-21)
+
+`BF4PhysicalCutoffTargetShellTail` identifies the normalized joint mass in
+targets beyond an old carrier with one literal corrected-slab Boolean event:
+the lower restriction equals the selected source and the reflected upper
+restriction lies outside the old carrier.  A finite selector/Fubini proof
+shows that the aggregate event numerator is exactly the sum of the relevant
+unnormalized reflected-kernel entries, and normalization gives precisely
+`centralOldRowJointTargetShellMass`.
+
+The event is empty at the old cutoff.  The existing retained-plus-new
+observable decomposition therefore bounds its expectation at every later
+cutoff by the complete corrected-slab new-label increment.  Applying the
+arbitrary-nome degree-thirteen retained-cutoff schedule constructs
+`centralPhysicalTargetShellCutoff` and proves a source-uniform target-shell
+bound `<= epsilon` at every later cutoff.
+
+Thus target-shell control is now inhabited rather than assumed.  The next
+conditional-kernel residual is quantitative denominator control and the
+weighted old-target numerator comparison; stationary source-shell tightness
+for the GNS compiler remains separate.  The cofinal finite sixteenth,
+thermodynamic/nome/spacing limits, continuum reconstruction and QFT axioms,
+and the Clay theorem remain open.  The source check and focused monitored
+build completed successfully, the latter with 1163 jobs.  Every printed
+load-bearing declaration reports only `[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the
