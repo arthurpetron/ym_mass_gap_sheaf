@@ -422,6 +422,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovLaws.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovVacuumComplement.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovVacuumPairing.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovContraction.lean`,
   and
   `lean/YMGap/Continuum/BF4FarautGraphNormContinuumRealization.lean`.
 - **named fields / structures**:
@@ -478,6 +479,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `CentralPhysicalCutoffCompletedMarkovSelfAdjointData`,
   `CentralPhysicalLinearMarkovVacuumPairingInnerCofinality`,
   `CentralPhysicalLinearMarkovVacuumPairingDiagonalControl`,
+  `CentralPhysicalCutoffCompletedMarkovStrictContractionData`,
   `ContinuumProjectiveOSResidualData`,
   `ContinuumWilsonBoundedResidualData`,
   `ContinuumWilsonMinimalBoundedResidualData`,
@@ -878,7 +880,15 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   explicit cofinal inner-regularity rate ensuring that the diagonal cutoff
   catches both nested inner limits.  Such a rate constructs the completed
   pairing invariant and restricted rational-linear operator, but it is not
-  currently inhabited for arbitrary Cauchy representatives.
+  currently inhabited for arbitrary Cauchy representatives.  Conditional on
+  those exact cutoff-removal and pairing inputs, strict contraction of the
+  actual restricted completed operator is now isolated as the Type-level
+  `CentralPhysicalCutoffCompletedMarkovStrictContractionData`: it carries a
+  recoverable rational `q` with `0 <= q < 1` and the literal completed
+  squared-norm inequality.  That one-step estimate is proved to iterate to
+  `<T^n v,T^n v> <= (q^2)^n <v,v>` on the same completed vacuum complement.
+  No inhabitant is claimed, and the separate finite or matched-cutoff `1/16`
+  estimates have not been transported to this same-object certificate.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full

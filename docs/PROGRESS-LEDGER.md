@@ -2572,3 +2572,25 @@ contraction, nome/volume/spacing limits, continuum QFT, and the Clay theorem
 remain open.  A source check and focused monitored build completed
 successfully, the latter with 1154 jobs.  Every printed load-bearing
 declaration reports only `[propext, Quot.sound]`.
+
+## Same-object strict contraction and geometric decay contract (2026-08-21)
+
+`BF4PhysicalCutoffLinearCompletedMarkovContraction` isolates the next analytic
+statement on the exact cutoff-removed operator as the Type-level certificate
+`CentralPhysicalCutoffCompletedMarkovStrictContractionData`.  Its recoverable
+rate `q` satisfies `0 <= q < 1`, and its estimate is the literal completed
+squared-norm contraction on the actual completed vacuum complement.
+
+The actual restricted transfer is iterated internally, and the one-step
+estimate is proved to yield
+`<T^n v,T^n v> <= (q^2)^n <v,v>` for every natural power.  This implication
+uses no spectral theorem, division by a possibly zero norm, or unbounded
+generator.
+
+No strict-contraction certificate is inhabited here.  In particular, the
+separate finite or matched-cutoff `1/16` results are not a same-object bridge
+to the cutoff-removed operator.  The nonconstant completion modulus, vacuum
+cofinality, and strict contraction remain open.  Nome/volume/spacing limits,
+continuum QFT, and the Clay theorem also remain open.  A source check and
+focused monitored build completed successfully, the latter with 1155 jobs.
+Every printed load-bearing declaration reports only `[propext, Quot.sound]`.
