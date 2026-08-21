@@ -2817,6 +2817,32 @@ QFT-axiom, and Clay targets remain open.  Source checks and focused monitored
 builds completed successfully; the physical build passed 1217 jobs.  Every
 printed load-bearing declaration reports only `[propext, Quot.sound]`.
 
+## Constructive positive-head mean-zero coordinates (2026-08-21)
+
+`FiniteRationalHeadCenteredCoordinates` eliminates the head coordinate of an
+`(n+1)`-state weighted carrier whenever its head weight is strictly positive.
+The lift retains the `n` literal tail coefficients and defines the head as the
+negative tail weighted sum divided by the positive head weight.  A finite-sum
+decomposition proves every lifted vector is exactly centered.
+
+Conversely, every centered full vector constructively returns its literal tail
+coordinates, and positive-denominator rational algebra proves that its head is
+equivalent to the computed lift.  This supplies the lift, centering, and
+Type-valued completeness fields of `FiniteCenteredTwoSidedRestriction`
+without a basis choice, existential witness extraction, or matrix assumption.
+A constructor now leaves only exact identification of the two reduced matrix
+quadratics as inputs.
+
+No reduced pullback matrix, physical head-weight proof, LDL table, or cofinal
+family is constructed here.  The next finite frontier is to define the
+canonical matrix pullback along this lift and prove its quadratic identity;
+after that, one physical positive-weight witness will generate the entire
+restriction rather than merely parameterize it.  Thermodynamic, nome,
+spacing, continuum-reconstruction, QFT-axiom, and Clay targets remain open.
+The source check and focused monitored build completed successfully, the
+latter with 219 jobs.  Every printed load-bearing declaration reports only
+`[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the

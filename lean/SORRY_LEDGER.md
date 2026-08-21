@@ -435,6 +435,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4PhysicalCutoffFiniteIndexBridge.lean`,
   `lean/YMGap/Continuum/FiniteRationalPenalizedMatrix.lean`,
   `lean/YMGap/Continuum/FiniteRationalCenteredRestrictionCertificate.lean`,
+  `lean/YMGap/Continuum/FiniteRationalHeadCenteredCoordinates.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffCofinalLDLGap.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffCofinalRestrictedLDLGap.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovTransfer.lean`,
@@ -903,6 +904,13 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   to `FixedNomeCofinalCenteredSixteenth`.  The historical cutoff-two table
   remains one-sided at `49/50`, so it is not evidence for the required
   two-sided `1/16` cofinal family.
+  The centered-coordinate residual is reduced further whenever the head
+  weight is strictly positive.  The explicit lift divides the negative tail
+  weighted sum by that head weight; it is proved centered and constructively
+  complete for all centered full vectors.  Hence the only remaining generic
+  restriction fields are the two reduced-matrix quadratic identifications.
+  Their canonical pullback construction and a physical positive head-weight
+  witness remain open.
   That transport frontier is now specialized to the actual cutoff-removed
   carrier.  Every completion representative has a canonical exactly centered
   vector in each finite-cutoff physical GNS completion, and its finite vacuum
