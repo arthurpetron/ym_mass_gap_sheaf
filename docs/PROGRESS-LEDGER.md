@@ -2124,6 +2124,33 @@ QFT, and the Clay theorem remain open.  A source check and focused monitored
 build completed successfully, the latter with 1304 jobs.  Every printed
 load-bearing declaration reports only `[propext, Quot.sound]`.
 
+## Adaptive completed transfer is rational-linear (2026-08-21)
+
+`BF4PhysicalCutoffLinearMarkovAdaptiveCompletedLinear` proves scalar
+compatibility for the adaptive transfer and packages all three laws as
+`centralPhysicalAdaptiveCompletedMarkovQLinearEndomorphism` on the concrete
+completed physical carrier.  This is not pointwise bookkeeping: the scaled
+representative and the original representative select independent slow input
+indices.
+
+The proof compares both selected terms with one common raw anchor.  It
+controls the scaled representative at one quarter of the requested squared-
+distance tolerance, asks the unscaled representative for the constructive
+`scaleTolerance (scalar * scalar)` needed by scalar continuity, and transports
+that bound through scaling.  One sqrt-free triangle then costs exactly four
+quarters.
+
+Consequently pointwise dense cross-cutoff data alone now construct a genuine
+completed rational-linear transfer operator; the old same-index
+`CentralPhysicalLinearMarkovCompletionModulus` is no longer needed for this
+operator's existence, quotient descent, or linearity.  Adaptive vacuum
+pairing/graph norms and their connection to a cofinal finite sixteenth are the
+next contraction frontier.  The nonconstant pointwise data, finite cofinal
+sixteenth, thermodynamic/nome/spacing limits, continuum QFT, and the Clay
+theorem remain open.  A source check and focused monitored build completed
+successfully, the latter with 1305 jobs.  Every printed load-bearing
+declaration reports only `[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the
