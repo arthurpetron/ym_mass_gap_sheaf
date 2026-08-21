@@ -18,6 +18,7 @@ continuum Yang--Mills theory is constructed here.
 
 import YMGap.Continuum.BF4FarautSpectralMarginInputContinuumRealization
 import YMGap.Continuum.BF4PhysicalDenseStageDiagonalComparison
+import YMGap.Continuum.BF4PhysicalDenseStageExpectationComparison
 import YMGap.Continuum.BF4PhysicalDenseStageGraphNormCompiler
 import YMGap.Continuum.BF4PhysicalDenseStageRationalComparison
 import YMGap.Continuum.BF4PhysicalModulatedGapLimitStability
@@ -41,6 +42,7 @@ open YMGap.Continuum.BF4FarautSpectralMarginInputContinuumRealization
 open YMGap.Continuum.BF4FarautSpectralMarginInputContinuumRealization.BF4FarautSpectralMarginInputExactFlow
 open YMGap.Continuum.BF4PhysicalModulatedGapLimitStability
 open YMGap.Continuum.BF4PhysicalDenseStageDiagonalComparison
+open YMGap.Continuum.BF4PhysicalDenseStageExpectationComparison
 open YMGap.Continuum.BF4PhysicalDenseStageGraphNormCompiler
 open YMGap.Continuum.BF4PhysicalDenseStageRationalComparison
 open YMGap.Continuum.BF4PhysicalSeparatorProducer
@@ -217,11 +219,12 @@ def ofProjectiveOSResidualData
 
 end ContinuumWilsonGraphNormResidualData
 
-/-! ## 3. Rational dense-stage causal endpoint -/
+/-! ## 3. Measure-level dense-stage causal endpoint -/
 
 /-- The AF/Faraut continuum residual factored all the way down to literal
 dense finite-stage observables and an eventual rational same-observable form
-comparison.
+comparison, stated as convergence of the corresponding finite and continuum
+reflected-square expectations.
 
 Unlike `ContinuumWilsonGraphNormResidualData`, this record does not assume the
 two graph-norm convergence laws or a `CReal`-level norm-limit pin.  Its
@@ -259,7 +262,7 @@ structure ContinuumWilsonDenseStageResidualData
     (continuumSourceCertificate flow
       anchorDominates AF trajectory comparison bare)
     osGNS.reconstruction
-  denseStageLimit : BF4WilsonDenseStageRationalComparison
+  denseStageLimit : BF4WilsonDenseStageExpectationComparison
     producer.toBF4QuarterPhysicalSeparatorProducer osGNS
 
 namespace ContinuumWilsonDenseStageResidualData
@@ -301,7 +304,7 @@ def toContinuumWilsonGraphNormResidualData
   rateReconstruction := D.rateReconstruction
   graphNormLimit := D.denseStageLimit.toLinearGraphNormLimitApproximation
 
-/-- Literal dense finite-stage maps and rational same-observable form bounds
+/-- Literal dense finite-stage maps and same-observable expectation bounds
 construct the same-object positive exact-log bounded mass-gap endpoint. -/
 def continuumWilsonMinimalBoundedMassGap
     {family : MatchedBlockFamily}
@@ -365,7 +368,7 @@ def ofProjectiveOSResidualData
     {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
     (D : ContinuumProjectiveOSResidualData flow
       anchorDominates AF trajectory comparison bare tracking mu)
-    (denseStageLimit : BF4WilsonDenseStageRationalComparison
+    (denseStageLimit : BF4WilsonDenseStageExpectationComparison
       producer.toBF4QuarterPhysicalSeparatorProducer
       (WilsonSelectedOSGNSData.ofLinked D.osGNS)) :
     ContinuumWilsonDenseStageResidualData flow

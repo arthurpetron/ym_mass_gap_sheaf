@@ -1326,3 +1326,27 @@ and Clay theorem remain open.  The focused rational compiler and integrated
 endpoint builds completed 1265 and 1326 jobs respectively; the forbidden-token
 scan was empty and exported declarations report only
 `[propext, Quot.sound]`.  No full audit, remote push, or GitHub CI run was used.
+
+## Same-object finite/continuum expectation comparison (2026-08-20)
+
+`BF4PhysicalDenseStageExpectationComparison` identifies the two rational forms
+from the preceding frontier with their underlying expectation values.  The
+finite quantity is the literal BF4 stationary-marginal weighted sum of the
+mapped observable squared.  The continuum quantity is the expectation of the
+reflected square in the selected OS axiom bundle.  The existing
+`WilsonSelectedOSGNSData.expectationPinned` theorem makes this the same
+expectation that defines the continuum Wilson GNS form.
+
+An eventual two-sided estimate between those two expectation values now
+constructs the rational comparison, cofinal completed-norm convergence,
+transferred graph-norm convergence, and selected continuum operator gap.  The
+AF/Faraut dense-stage residual has been tightened to consume this measure-level
+expectation comparison directly.
+
+The expectation convergence estimate remains an explicit uninhabited field,
+as do the dense observable realization, exact time intertwining, vacuum
+preservation, continuum construction, physical generator, QFT axioms, and
+Clay theorem.  The focused expectation compiler and integrated endpoint builds
+completed 1266 and 1327 jobs respectively; the forbidden-token scan was empty
+and exported declarations report only `[propext, Quot.sound]`.  No full audit,
+remote push, or GitHub CI run was used.
