@@ -456,6 +456,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovGraphNormAdaptiveReindex.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovAdaptiveGraphNorm.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalStrictGap.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearMarkovDenseRadicalFromCauchy.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearMarkovAdaptiveCompletionSchedule.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearMarkovAdaptiveCompletionCauchy.lean`,
@@ -939,10 +940,13 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   joint quadratic reduces the physical certificate to the upper edge alone:
   ordinary or cleared upper-only LDL checks prove `K <= qD`, and the existing
   `0 <= K` theorem converts this to `|K| <= qD`.  No such full-carrier cofinal
-  family is inhabited.  The next compiler frontier is propagation of this
-  arbitrary rate through the completed adaptive graph-norm route; the next
-  finite analytic frontier is production of a viable uniform cofinal upper
-  family.
+  family is inhabited.  The arbitrary rate is now propagated through the
+  completed adaptive graph-norm route as well: anchorwise form factor `q`
+  becomes squared-norm factor `q*q`, cofinal reindexing preserves both graph
+  limits, and quotient descent constructs strict contraction of the actual
+  cutoff-removed completed transfer at stored rate `q`.  The next finite
+  analytic frontier is production of a viable uniform full-carrier cofinal
+  upper family; the nonconstant completion modulus also remains uninhabited.
   That transport frontier is now specialized to the actual cutoff-removed
   carrier.  Every completion representative has a canonical exactly centered
   vector in each finite-cutoff physical GNS completion, and its finite vacuum

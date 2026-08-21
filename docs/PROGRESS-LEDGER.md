@@ -2974,14 +2974,42 @@ the full canonical restriction.
 No cofinal upper certificate is inhabited here.  In particular, the existing
 cutoff-two `49/50` table is sector-level data and is not yet identified with a
 canonical full physical-carrier upper certificate, much less extended along
-an unbounded fixed-nome schedule.  The next compiler frontier is to propagate
-`FixedNomeCofinalCenteredStrictGap q` through the completed adaptive graph-
-norm route, which remains hardcoded to `1/16`; the next finite analytic
-frontier is then a viable full-carrier cofinal upper certificate at one
+an unbounded fixed-nome schedule.  At this milestone the next compiler
+frontier was to propagate `FixedNomeCofinalCenteredStrictGap q` through the
+completed adaptive graph-norm route; the next finite analytic frontier was a
+viable full-carrier cofinal upper certificate at one
 uniform `q < 1`.  Thermodynamic, nome, spacing, continuum-reconstruction,
 QFT-axiom, and Clay targets remain open.  The source check and focused
 monitored build completed successfully, the latter with 1222 jobs.  Every
 printed load-bearing declaration reports only `[propext, Quot.sound]`.
+
+## Arbitrary-rate completed adaptive cofinal gap (2026-08-21)
+
+`BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalStrictGap` propagates
+the exact supplied rate from `FixedNomeCofinalCenteredStrictGap q` through the
+actual cutoff-removed completed transfer.  At every selected finite anchor,
+exact centering gives the completed form bound with factor `q`; the existing
+division-free form-to-operator theorem gives the squared-norm factor `q*q`.
+Both adaptive centered graph-norm streams are reindexed along the same
+constructively cofinal anchor without changing their limits.
+
+The resulting representative inequality descends through the cutoff-
+completion quotient and constructs
+`centralPhysicalCutoffCompletedMarkovAdaptiveCofinalStrictContractionDataAtRate`.
+Its stored rate is literally the supplied `q`, with strictness inherited from
+the certificate rather than recomputed at `1/16`.  Thus the finite matrix,
+cofinal, completed-operator, and quotient layers are no longer tied to the
+cutoff-two-obstructed constant.
+
+No cofinal finite certificate or nonconstant Markov completion modulus is
+inhabited.  The next finite analytic frontier is a genuine full-carrier upper
+certificate on an unbounded fixed-nome schedule at some uniform `q < 1`; the
+existing sector-level cutoff-two `49/50` table is only a finite diagnostic
+until its matrix identification and physical-carrier scope are proved.
+Thermodynamic, nome, spacing, continuum-reconstruction, QFT-axiom, and Clay
+targets remain open.  The source check and focused monitored build completed
+successfully, the latter with 1318 jobs.  Every printed load-bearing
+declaration reports only `[propext, Quot.sound]`.
 
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
