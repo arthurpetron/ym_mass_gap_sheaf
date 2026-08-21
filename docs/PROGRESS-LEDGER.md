@@ -766,3 +766,29 @@ blocking map into the strong Z4 endpoint remain open.  No continuum measure,
 OS reconstruction of the physical weak-coupling theory, limit-stable gap, or
 Clay theorem follows.  The focused monitored Lean check reports only
 `[propext, Quot.sound]`; no full audit, remote push, or GitHub CI run was used.
+
+## Exact physical BF4 macro-transfer `L2` contraction (2026-08-20)
+
+`BF4PhysicalMarkovL2Contraction` closes the finite norm estimate needed before
+the literal physical BF4 Markov operator can be lifted to the constructive GNS
+completion.  It first proves a generic exact-rational Jensen theorem for a
+nonnegative finite row of total mass one by expanding its manifest weighted
+variance.  Applied to `centralPhysicalConditionalKernel`, this gives the
+rowwise square bound.  Exact preservation of
+`centralPhysicalStationaryMean` then contracts the physical marginal-weighted
+norm:
+
+`<centralPhysicalMarkovApply f, centralPhysicalMarkovApply f> <= <f,f>`.
+
+This also corrects the causal interpretation of the preceding reduced RG
+residue.  `centralPhysicalMarkovApply` is the already-composed physical
+**macro** transfer represented by the slab conditional law; the Faraut depth
+belongs to its local-density construction and must not be applied again to
+this macro operator.  The next interface therefore needs one macro-transfer
+intertwining law, not an additional depth iterate.
+
+No strict contraction is proved here: Jensen supplies norm nonexpansion only.
+The physical GNS datum, completion lift, vacuum/correlator realization, honest
+macro comparison map, continuum limit, and Clay theorem remain open.  The
+focused single-worker build completed 1128 jobs and reports only
+`[propext, Quot.sound]`; no full audit, remote push, or GitHub CI run was used.
