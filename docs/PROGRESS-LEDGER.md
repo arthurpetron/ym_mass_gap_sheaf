@@ -1126,3 +1126,32 @@ the Clay theorem open.  The focused single-worker build completed 1261 jobs;
 the forbidden-token scan was empty and every exported declaration reports
 only `[propext, Quot.sound]`.  No full audit, remote push, or GitHub CI run was
 used.
+
+## AF/Faraut graph-norm continuum integration (2026-08-20)
+
+`BF4FarautGraphNormContinuumRealization` installs the new limit compiler in
+the existing same-object AF/Faraut endpoint.  Its
+`ContinuumWilsonGraphNormResidualData` retains genuine continuum Yang--Mills
+existence, the selected Wilson/OS carrier, and convergence of the exact
+physical-rate family to that reconstruction's logarithmic gap, but replaces
+the former freely supplied `WilsonOperatorNormGapPin` with the explicit BF4
+graph-norm limit record.  The module derives the old minimal bounded residual
+and therefore constructs `WilsonMinimalBoundedMassGap` on the same continuum
+object.  An adapter starts from the stronger projective OS residual without
+adding a separate operator-gap hypothesis.
+
+This proves the causal contraction
+
+`finite BF4 norm gap + graph-norm convergence + exact-rate reconstruction`
+
+`-> positive exact-log continuum rate + Wilson operator norm gap`.
+
+It does not inhabit the AF/Faraut producer, continuum existence, projective
+OS realization, exact-rate reconstruction, or graph-norm convergence.  The
+first graph-norm interface also provides finite approximants as a function of
+arbitrary quotient points; although this is explicit Type-level data rather
+than hidden choice, the next refinement is to quantify over continuum Cauchy
+representatives and prove the quotient-level statement by induction into
+`Prop`.  The focused single-worker build completed 1322 jobs; the forbidden-
+token scan was empty and every exported declaration reports only
+`[propext, Quot.sound]`.  No full audit, remote push, or GitHub CI run was used.
