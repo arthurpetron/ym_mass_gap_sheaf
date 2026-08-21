@@ -3082,6 +3082,39 @@ The monitored source check and dependency-complete target build both passed;
 the latter completed 1597 jobs.  All four printed declarations report only
 `[propext, Quot.sound]`.
 
+## Full-carrier cutoff-two strict-gap no-go (2026-08-21)
+
+`BF4PhysicalBoundaryCutoffTwoSectorReducibilityObstruction` upgrades the
+proper-complement witness to the exact obstruction it implies.  Faithful
+finite-state codes define the characteristic function of the closed 65-state
+sector on the literal positive physical carrier.  Exact cross-block kernel
+zeros and row normalization prove that this nonconstant indicator is fixed by
+the physical Markov operator.  Subtracting its stationary mean therefore
+produces an exactly mean-zero fixed observable.
+
+The centered observable has strictly positive physical weighted norm.  This
+is proved constructively from the retained vacuum and retained transverse
+states: their centered indicator values differ by one, so at least one value
+is nonzero, and its positive row marginal supplies a strictly positive norm
+summand.  The weighted Markov/joint identity then shows that the observable's
+joint quadratic equals its norm.  Hence `no_cutoffTwo_fullCarrier_strict_upper_gap`
+and `no_cutoffTwo_fullCarrier_strict_abs_gap` refute every full-carrier
+centered contraction rate `q < 1` at cutoff two.
+
+This is a correction to the previous full-positive-carrier roadmap, not a
+failure of the 65-state sector theorem: that invariant sector still has its
+proved upper rate `49/50`.  The all-positive carrier contains multiple
+stationary blocks and therefore has a degenerate vacuum.  Any viable mass-gap
+route must first choose a compatible invariant vacuum/superselection sector
+at every cutoff, prove its cofinal compatibility, and only then form the
+vacuum complement and pass the sector-restricted gap to completion.  Such a
+sector family, its thermodynamic/continuum compatibility, continuum QFT
+axioms, and the Clay conclusion remain open.
+
+The monitored source check and dependency-complete target build both passed;
+the latter completed 1673 jobs.  All three printed declarations report only
+`[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the

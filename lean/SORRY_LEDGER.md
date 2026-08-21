@@ -977,6 +977,19 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `q < 1`, followed by an explicit physical superselection-sector choice.
   The focused target built successfully in 1597 jobs, and all printed
   declarations use only `[propext, Quot.sound]`.
+  The reducibility consequence is now fully kernel-checked.
+  `BF4PhysicalBoundaryCutoffTwoSectorReducibilityObstruction` uses faithful
+  finite-state codes to define the 65-state block indicator, proves it fixed
+  by the literal full-carrier Markov action, centers it by the exact stationary
+  mean, and proves the resulting mean-zero mode has strictly positive weighted
+  norm.  Its joint quadratic equals that norm, so every proposed full-carrier
+  strict bound `q<1` fails at cutoff two, including the absolute-value form
+  consumed by the cofinal compiler.  The 65-state sector `49/50` theorem is
+  unaffected; what is refuted is treating the reducible union of all positive
+  rows as a single-vacuum carrier.  The next honest input is a constructively
+  compatible invariant vacuum/superselection sector family across cutoffs.
+  The focused target built successfully in 1673 jobs, and all printed
+  declarations use only `[propext, Quot.sound]`.
   That transport frontier is now specialized to the actual cutoff-removed
   carrier.  Every completion representative has a canonical exactly centered
   vector in each finite-cutoff physical GNS completion, and its finite vacuum
