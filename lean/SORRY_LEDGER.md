@@ -431,6 +431,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovGraphNormAdaptiveReindex.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovAdaptiveGraphNorm.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffLinearMarkovDenseRadicalFromCauchy.lean`,
   and
   `lean/YMGap/Continuum/BF4FarautGraphNormContinuumRealization.lean`.
 - **named fields / structures**:
@@ -491,6 +492,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `CentralPhysicalCutoffCompletedMarkovCenteredGraphNormConvergence`,
   `CentralPhysicalLinearMarkovGraphNormInnerCofinality`,
   `CentralPhysicalLinearGraphNormInputInnerCofinality`,
+  `CentralPhysicalLinearMarkovDenseCauchyData.toDenseRadicalData`,
   `ContinuumProjectiveOSResidualData`,
   `ContinuumWilsonBoundedResidualData`,
   `ContinuumWilsonMinimalBoundedResidualData`,
@@ -906,15 +908,19 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   completion: preservation of zero, addition, and every rational scalar is
   proved from pointwise identity of the recoded cutoff sequences.  The vacuum
   modulus is inhabited with rate zero and its completed limit is exactly the
-  normalized vacuum.  Nonconstant pointwise moduli and the radical/Cauchy-
+  normalized vacuum.  Nonconstant pointwise moduli and the arbitrary-Cauchy-
   representative compatibility needed for a completed operator remain open.
-  Those latter obligations are now split exactly: dense radical compatibility
-  descends the pointwise map through the null quotient, while a completion
-  modulus has one diagonal Cauchy rate for `P_n(X_n)` and one close-
-  preservation rate.  These two fields construct a quotient-well-defined
-  completed transfer, imply every earlier modulus layer, agree with the dense
-  cutoff limit, and fix the normalized completed vacuum.  No nonconstant
-  completion modulus is currently inhabited.  Conditional on that exact
+  Dense radical compatibility is no longer separate: exact same-cutoff
+  contraction and squared-distance inner-rate invariance give a limiting
+  nonexpansiveness estimate with explicit slack.  Hence every pointwise
+  Cauchy family constructs its own radical-closeness witness and descends
+  through the dense null quotient.  The completion modulus retains only its
+  genuinely stronger fields: one diagonal Cauchy rate for `P_n(X_n)` and one
+  close-preservation rate for arbitrary Cauchy representatives.  Those fields
+  construct a quotient-well-defined completed transfer, imply every earlier
+  modulus layer, agree with the dense cutoff limit, and fix the normalized
+  completed vacuum.  No nonconstant completion modulus is currently
+  inhabited.  Conditional on that exact
   modulus, the completed transfer is now a proved rational-linear
   endomorphism: it preserves zero, addition, and every rational scalar on
   arbitrary completed vectors.  Vacuum-complement preservation is now

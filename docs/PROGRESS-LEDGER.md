@@ -2001,6 +2001,30 @@ focused monitored build completed 979 jobs, followed by a clean source check
 after adding the explicit weighted-inner identity.  Every printed
 load-bearing declaration reports only `[propext, Quot.sound]`.
 
+## Dense Markov radical descent from pointwise Cauchy data (2026-08-21)
+
+`BF4PhysicalCutoffLinearMarkovDenseRadicalFromCauchy` proves that the
+previously separate dense radical-closeness input follows from any
+`CentralPhysicalLinearMarkovDenseCauchyData`.  Markov recoding preserves the
+explicit inner rate of the limiting squared distance exactly.  Once a cutoff
+pays that rate, the exact finite-cutoff contraction yields a limiting
+nonexpansive estimate with an explicit rational slack.
+
+For a null dense input pair, sampling the estimate at half the requested
+tolerance gives a concrete output-closeness modulus; the other half absorbs
+the null input distance.  Thus
+`CentralPhysicalLinearMarkovDenseCauchyData.toDenseRadicalData` constructs the
+dense null-quotient transfer without any additional analytic hypothesis.
+
+This does not construct nonconstant pointwise cross-cutoff moduli or the
+stronger arbitrary-completion transfer.  The next frontier remains an
+adaptive two-index construction for an arbitrary input representative and
+proof that it respects close representatives.  The cofinal finite
+sixteenth, nome/volume/spacing limits, continuum QFT, and the Clay theorem
+remain open.  A source check and focused monitored build completed
+successfully, the latter with 1261 jobs.  Every printed load-bearing
+declaration reports only `[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the
