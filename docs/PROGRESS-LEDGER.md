@@ -2312,6 +2312,30 @@ open.  A source check and focused monitored build completed successfully, the
 latter with 1151 jobs.  Every printed load-bearing declaration reports only
 `[propext, Quot.sound]`.
 
+## Uniform pointwise compiler for atomic Markov Cauchy data (2026-08-21)
+
+`BF4PhysicalCutoffLinearMarkovAtomicUniformCauchy` proves a general normalized
+average theorem: a global pointwise squared bound between two finite-linear
+observables bounds their distance in the cutoff-removed physical GNS form by
+the same rational.  At every finite approximation, positivity permits
+termwise comparison and exact total stationary mass one removes the average.
+
+The sufficient certificate
+`CentralPhysicalAtomicMarkovUniformSqCauchyData` therefore compiles finite
+rational pointwise convergence of each recoded atomic Markov image into the
+atomic and full dense Cauchy data used downstream.  This is an explicit route
+from a kernel estimate to the actual completed transfer, rather than a
+completed-space assumption.
+
+This uniform certificate is deliberately recorded only as sufficient, not as
+necessary or inhabited.  Global sup control may be stronger than the natural
+moving-carrier estimate because states entering between two cutoffs form an
+asymmetric shell.  Splitting common-carrier convergence from shell mass is the
+next sharper frontier.  The cofinal finite sixteenth and all thermodynamic/
+nome/spacing and continuum obligations remain open.  A source check and
+focused monitored build completed successfully, the latter with 1152 jobs.
+Every printed load-bearing declaration reports only `[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the
