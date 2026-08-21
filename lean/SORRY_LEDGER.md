@@ -437,6 +437,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearMarkovAdaptiveCompletedTransfer.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearMarkovAdaptiveCompletedAdd.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearMarkovAdaptiveCompletedLinear.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffLinearMarkovAdaptiveGraphSchedule.lean`,
   and
   `lean/YMGap/Continuum/BF4FarautGraphNormContinuumRealization.lean`.
 - **named fields / structures**:
@@ -505,6 +506,8 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `centralPhysicalAdaptiveCompletedMarkovTransfer_add`,
   `centralPhysicalAdaptiveCompletedMarkovTransfer_smul`,
   `centralPhysicalAdaptiveCompletedMarkovQLinearEndomorphism`,
+  `centralPhysicalAdaptiveGraph_input_rates_paid`,
+  `centralPhysicalAdaptiveGraph_action_rates_paid`,
   `ContinuumProjectiveOSResidualData`,
   `ContinuumWilsonBoundedResidualData`,
   `ContinuumWilsonMinimalBoundedResidualData`,

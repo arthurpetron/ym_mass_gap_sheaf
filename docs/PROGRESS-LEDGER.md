@@ -2151,6 +2151,30 @@ theorem remain open.  A source check and focused monitored build completed
 successfully, the latter with 1305 jobs.  Every printed load-bearing
 declaration reports only `[propext, Quot.sound]`.
 
+## Adaptive transfer pays all graph-diagonal rates (2026-08-21)
+
+`BF4PhysicalCutoffLinearMarkovAdaptiveGraphSchedule` composes the earlier
+graph-admissible representative sampler with the new adaptive Markov sampler.
+It first constructs the input-side sequence selected by the Markov schedule
+and proves that this sequence is Cauchy, close to the original representative,
+and therefore denotes the same completed point.
+
+For a graph-normalized representative, cofinality of the second sampler puts
+every selected input index beyond the requested graph-diagonal rate.  The
+selected index is also bounded by the current action cutoff.  Consequently
+the input self-pair and vacuum-pair inner rates are paid at the action cutoff;
+exact Markov syntax-rate invariance pays the corresponding two action rates.
+
+This supplies all four rate obligations needed to diagonalize the input and
+adaptive-action graph moments using only pointwise dense cross-cutoff data.
+The next contraction step is to turn those paid rates and exact finite
+stationarity into completed vacuum-pairing invariance and a transfer on the
+completed vacuum complement.  Nonconstant pointwise data, the cofinal finite
+sixteenth, thermodynamic/nome/spacing limits, continuum QFT, and the Clay
+theorem remain open.  A source check and focused monitored build completed
+successfully, the latter with 1306 jobs.  Every printed load-bearing
+declaration reports only `[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the
