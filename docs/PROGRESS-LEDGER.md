@@ -2603,6 +2603,31 @@ targets remain open.  The source check and focused monitored build completed
 successfully, the latter with 1167 jobs.  Every printed load-bearing
 declaration reports only `[propext, Quot.sound]`.
 
+## Concrete cutoff-removed completed physical Markov transfer (2026-08-21)
+
+`BF4PhysicalCutoffLinearMarkovConcreteAdaptiveTransfer` specializes the
+adaptive completion stack with the now-inhabited dense cross-cutoff Cauchy
+datum.  For every fixed `0 < w < 1` and finite half-extent it therefore
+constructs an actual endomap of the concrete completed physical carrier,
+without a same-index completion hypothesis or any remaining pointwise Cauchy
+input.
+
+The concrete map agrees with the finite-linear dense cutoff limit, fixes the
+normalized completed vacuum, preserves zero, addition, and rational scaling,
+and is bundled as a rational-linear endomorphism.  Its exact completed vacuum
+pairing is invariant, so it preserves vacuum orthogonality and restricts to a
+rational-linear endomorphism of the actual completed vacuum complement.
+
+This closes the representation-cutoff transfer-existence and
+vacuum-complement-construction frontiers at fixed nome and finite volume.  The
+next analytic frontier is now the finite strict-contraction certificate: the
+existing cofinal compiler needs cutoffs arbitrarily far out with centered
+operator norm at most `1/16`.  Such a cofinal certificate is not supplied by
+this construction.  Thermodynamic, nome, spacing, continuum-reconstruction,
+QFT-axiom, and Clay targets also remain open.  The source check and focused
+monitored build completed successfully, the latter with 1326 jobs.  Every
+printed load-bearing declaration reports only `[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the
