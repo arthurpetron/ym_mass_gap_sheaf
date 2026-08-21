@@ -2441,3 +2441,32 @@ nome/volume/spacing limits, continuum QFT, and the Clay theorem remain open.
 A source check and focused monitored build completed successfully, the latter
 with 1149 jobs.  Every printed load-bearing declaration reports only
 `[propext, Quot.sound]`.
+
+## Cross-cutoff Markov Cauchy residual and exact vacuum limit (2026-08-21)
+
+`BF4PhysicalCutoffLinearMarkovCauchy` isolates the first genuinely
+cross-cutoff operator estimate as the Type-level structure
+`CentralPhysicalLinearMarkovCrossCutoffModulus`.  For one finite-linear
+observable it supplies an explicit rate after which the limiting squared
+distance between its cutoff-`m` and cutoff-`n` recoded Markov images is below
+any positive rational tolerance.
+
+Such a witness now constructs an actual Cauchy representative and therefore a
+canonical point of the existing physical completion.  The completed point is
+independent of the chosen rate witness.  A family of pointwise witnesses
+contracts to an actual map from the dense finite-linear syntax into the
+completion.
+
+The vacuum channel is closed unconditionally: the global cutoff vacuum
+identity gives a zero-rate cross-cutoff modulus, and its completed cutoff
+limit is exactly the already normalized vacuum.  Thus the new analytic
+residual concerns nonconstant observables rather than stationarity.
+
+No theorem in the current arbitrary-cutoff covariance library inhabits the
+nonconstant cross-cutoff modulus.  Moreover, pointwise dense convergence by
+itself does not give compatibility with radical-null inputs or with arbitrary
+varying Cauchy representatives.  Those descent estimates, a completed
+transfer, complement preservation and strict contraction, nome/volume/spacing
+limits, continuum QFT, and the Clay theorem remain open.  A source check and
+focused monitored build completed successfully, the latter with 1150 jobs.
+Every printed load-bearing declaration reports only `[propext, Quot.sound]`.

@@ -417,6 +417,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedInnerLaws.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedVacuumComplement.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearMarkovSyntax.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffLinearMarkovCauchy.lean`,
   and
   `lean/YMGap/Continuum/BF4FarautGraphNormContinuumRealization.lean`.
 - **named fields / structures**:
@@ -837,7 +838,14 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   globally; and it satisfies the exact same-cutoff GNS contraction.  What
   remains is cross-cutoff Cauchy and representative-compatibility control for
   those recoded images, followed by quotient descent and preservation of this
-  same complement.
+  same complement.  The cross-cutoff Cauchy obligation is now factored at its
+  exact first use as Type-level pointwise modulus data.  Each witness produces
+  a canonical completed dense image independently of the rate proof, and a
+  family produces a map from finite-linear syntax into the completion.  The
+  vacuum modulus is inhabited with rate zero and its completed limit is
+  exactly the normalized vacuum.  Nonconstant pointwise moduli and the
+  radical/Cauchy-representative compatibility needed for a completed operator
+  remain open.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full
