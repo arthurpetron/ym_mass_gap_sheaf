@@ -2076,6 +2076,32 @@ continuum QFT, and the Clay theorem remain open.  A source check and focused
 monitored build completed successfully, the latter with 1302 jobs.  The
 printed load-bearing declaration reports only `[propext, Quot.sound]`.
 
+## Adaptive completed Markov transfer from pointwise data (2026-08-21)
+
+`BF4PhysicalCutoffLinearMarkovAdaptiveCompletedTransfer` proves that close
+input representatives have close adaptive output diagonals, even though their
+slow input samplers are chosen independently.  A pair-dependent rate selects
+one common fixed raw anchor, pays both representatives' selected-to-anchor
+rates, and pays the anchor-to-anchor rate induced by the supplied input
+closeness.  Three same-cutoff nonexpansive legs and the reusable
+ten-sixteenths estimate finish quotient descent.
+
+Therefore any `CentralPhysicalLinearMarkovDenseCauchyData` now constructs the
+actual endomap `centralPhysicalAdaptiveCompletedMarkovTransfer` of the whole
+cutoff-removed physical completion.  The map is representative-independent,
+agrees exactly with the previously proved dense cutoff limit on every embedded
+finite-linear observable, and fixes the normalized completed vacuum.
+
+This bypasses both fields of the historical same-index
+`CentralPhysicalLinearMarkovCompletionModulus` for existence of a completed
+transfer.  The next frontier is to prove rational linearity of the adaptive
+map and reconnect its own sampled graph norms to the cofinal finite
+sixteenth.  Nonconstant pointwise cross-cutoff data remain uninhabited, and
+thermodynamic/nome/spacing limits, continuum QFT, and the Clay theorem remain
+open.  Source checks and a focused monitored build completed successfully,
+the latter with 1303 jobs.  Every printed load-bearing declaration reports
+only `[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the

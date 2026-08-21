@@ -434,6 +434,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearMarkovDenseRadicalFromCauchy.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearMarkovAdaptiveCompletionSchedule.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearMarkovAdaptiveCompletionCauchy.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffLinearMarkovAdaptiveCompletedTransfer.lean`,
   and
   `lean/YMGap/Continuum/BF4FarautGraphNormContinuumRealization.lean`.
 - **named fields / structures**:
@@ -497,6 +498,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `CentralPhysicalLinearMarkovDenseCauchyData.toDenseRadicalData`,
   `centralPhysicalAdaptiveMarkov_requirements_paid`,
   `centralPhysicalAdaptiveMarkovMapCauchy`,
+  `centralPhysicalAdaptiveCompletedMarkovTransfer`,
   `ContinuumProjectiveOSResidualData`,
   `ContinuumWilsonBoundedResidualData`,
   `ContinuumWilsonMinimalBoundedResidualData`,
@@ -864,9 +866,11 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   self-pair and input vacuum-pair cofinality and constructs the four-rate
   record, both graph-norm laws, and the same-object strict contraction when
   combined with the completion modulus and fixed-nome sixteenth.  This
-  two-rate same-index record remains uninhabited; an adaptive representative
-  schedule is the next honest route because arbitrary completion syntax need
-  not have a modulus bounded by its own numeric sequence index.
+  two-rate same-index record remains uninhabited and is no longer on the
+  adaptive critical path: a slow representative schedule now handles syntax
+  whose modulus is not bounded by its own numeric sequence index.  Rebuilding
+  the graph-norm compiler around the new adaptive transfer is the remaining
+  connection to the strict-gap route.
   The structural carrier edge has advanced independently: the constructive
   finite rational span of the genuine unit observables now carries a positive
   symmetric rational-bilinear `CReal` form whose `K`-th approximation is the
@@ -896,38 +900,37 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   are now literal theorems on arbitrary completed points.  The constant-one
   vector is now an exactly normalized completed vacuum.  Orthogonality to it
   defines a proper completed subtype, the dense orthogonal sector embeds into
-  it, and it inherits the ambient rational-module laws.  A cutoff-independent
-  transfer action still remains separate.  Every finite physical Markov map
+  it, and it inherits the ambient rational-module laws.  Every finite physical Markov map
   has now been recoded by the constructive stochastic extension
   `P_K f + (1 - P_K 1) f` as an endomorphism of the same cutoff-independent
   finite-linear syntax.  The extension is globally unit-interval-valued; on
   the retained carrier it is the literal finite action; it fixes the vacuum
-  globally; and it satisfies the exact same-cutoff GNS contraction.  What
-  remains is cross-cutoff Cauchy and representative-compatibility control for
-  those recoded images, followed by quotient descent and preservation of this
-  same complement.  The cross-cutoff Cauchy obligation is now factored at its
+  globally; and it satisfies the exact same-cutoff GNS contraction.  The
+  cross-cutoff Cauchy obligation is factored at its
   exact first use as Type-level pointwise modulus data.  Each witness produces
   a canonical completed dense image independently of the rate proof, and a
   family produces a rational-linear map from finite-linear syntax into the
   completion: preservation of zero, addition, and every rational scalar is
   proved from pointwise identity of the recoded cutoff sequences.  The vacuum
   modulus is inhabited with rate zero and its completed limit is exactly the
-  normalized vacuum.  Nonconstant pointwise moduli and the arbitrary-Cauchy-
-  representative compatibility needed for a completed operator remain open.
+  normalized vacuum.  Nonconstant pointwise moduli remain open.
   Dense radical compatibility is no longer separate: exact same-cutoff
   contraction and squared-distance inner-rate invariance give a limiting
   nonexpansiveness estimate with explicit slack.  Hence every pointwise
   Cauchy family constructs its own radical-closeness witness and descends
-  through the dense null quotient.  The completion modulus retains only its
-  genuinely stronger fields: one diagonal Cauchy rate for `P_n(X_n)` and one
-  close-preservation rate for arbitrary Cauchy representatives.  Those fields
-  construct a quotient-well-defined completed transfer, imply every earlier
-  modulus layer, agree with the dense cutoff limit, and fix the normalized
-  completed vacuum.  No nonconstant completion modulus is currently
-  inhabited.  Conditional on that exact
-  modulus, the completed transfer is now a proved rational-linear
+  through the dense null quotient.  An adaptive two-index construction now
+  removes the same-index completion modulus altogether for transfer
+  existence: a slow finite-prefix schedule proves
+  `K |-> P_K(X_{i_X(K)})` Cauchy for every input representative and maps close
+  representatives to close output diagonals.  Pointwise dense Cauchy data
+  therefore construct a quotient-well-defined endomap of the whole physical
+  completion; it agrees with the dense cutoff limit and fixes the normalized
+  vacuum.  The historical same-index completion modulus remains uninhabited
+  and is retained only by older downstream compilers.  Conditional on that
+  older exact modulus, its completed transfer is a proved rational-linear
   endomorphism: it preserves zero, addition, and every rational scalar on
-  arbitrary completed vectors.  Vacuum-complement preservation is now
+  arbitrary completed vectors.  Rational linearity of the new adaptive
+  transfer is the next quotient-comparison theorem.  Vacuum-complement preservation is now
   reduced exactly to a completed vacuum-pairing invariant; completed
   self-adjointness is proved sufficient because the transfer fixes the
   vacuum.  Either certificate constructs the actual restricted transfer and

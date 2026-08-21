@@ -43,24 +43,24 @@ open YMGap.Continuum.CRealSeminormCompletion
 
 /-! ## 1. Rational error budget -/
 
-private def adaptiveQuarter (epsilon : Q') : Q' :=
+def adaptiveQuarter (epsilon : Q') : Q' :=
   HalfPow.half * (HalfPow.half * epsilon)
 
-private def adaptiveSixteenth (epsilon : Q') : Q' :=
+def adaptiveSixteenth (epsilon : Q') : Q' :=
   adaptiveQuarter (adaptiveQuarter epsilon)
 
-private theorem adaptiveQuarter_pos {epsilon : Q'}
+theorem adaptiveQuarter_pos {epsilon : Q'}
     (hepsilon : (0 : Q') < epsilon) :
     (0 : Q') < adaptiveQuarter epsilon :=
   ExpNeg.half_mul_pos _ (ExpNeg.half_mul_pos epsilon hepsilon)
 
-private theorem adaptiveSixteenth_pos {epsilon : Q'}
+theorem adaptiveSixteenth_pos {epsilon : Q'}
     (hepsilon : (0 : Q') < epsilon) :
     (0 : Q') < adaptiveSixteenth epsilon :=
   adaptiveQuarter_pos (adaptiveQuarter_pos hepsilon)
 
 /-- The nested two-triangle budget is ten sixteenths of `epsilon`. -/
-private theorem ten_sixteenths_le (epsilon : Q')
+theorem ten_sixteenths_le (epsilon : Q')
     (hepsilon : (0 : Q') < epsilon) :
     let tiny := adaptiveSixteenth epsilon
     let twice := tiny + tiny
@@ -117,7 +117,7 @@ private theorem ten_sixteenths_le (epsilon : Q')
 
 /-! ## 2. One same-cutoff anchor leg -/
 
-private theorem sameCutoffAnchorDistance_le
+theorem sameCutoffAnchorDistance_le
     {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
     (half cutoff : Nat)
     (selected anchor : CentralPhysicalLinearObservable)
@@ -159,9 +159,63 @@ private theorem sameCutoffAnchorDistance_le
   exact CReal.leEv_trans hmarkov
     (CReal.leEv_trans hsum hconstant)
 
+/-- Three consecutive squared-distance legs, each bounded by one sixteenth of
+the target tolerance, fit through two sqrt-free triangle estimates. -/
+theorem distSq_threeLeg_le_of_sixteenth
+    {D : SquaredSeminorm}
+    (left firstAnchor secondAnchor right : D.Carrier)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (hleft : CReal.leEv (D.distSq left firstAnchor)
+      (CReal.ofQ' (adaptiveSixteenth epsilon)))
+    (hmiddle : CReal.leEv (D.distSq firstAnchor secondAnchor)
+      (CReal.ofQ' (adaptiveSixteenth epsilon)))
+    (hright : CReal.leEv (D.distSq secondAnchor right)
+      (CReal.ofQ' (adaptiveSixteenth epsilon))) :
+    CReal.leEv (D.distSq left right) (CReal.ofQ' epsilon) := by
+  let tiny := adaptiveSixteenth epsilon
+  have hinner : CReal.leEv (D.distSq firstAnchor right)
+      (CReal.add
+        (CReal.add (CReal.ofQ' tiny) (CReal.ofQ' tiny))
+        (CReal.add (CReal.ofQ' tiny) (CReal.ofQ' tiny))) :=
+    CReal.leEv_trans
+      (D.distSq_triangle firstAnchor secondAnchor right)
+      (CReal.leEv_add
+        (CReal.leEv_add hmiddle hmiddle)
+        (CReal.leEv_add hright hright))
+  have htotal : CReal.leEv (D.distSq left right)
+      (CReal.add
+        (CReal.add (CReal.ofQ' tiny) (CReal.ofQ' tiny))
+        (CReal.add
+          (CReal.add
+            (CReal.add (CReal.ofQ' tiny) (CReal.ofQ' tiny))
+            (CReal.add (CReal.ofQ' tiny) (CReal.ofQ' tiny)))
+          (CReal.add
+            (CReal.add (CReal.ofQ' tiny) (CReal.ofQ' tiny))
+            (CReal.add (CReal.ofQ' tiny) (CReal.ofQ' tiny))))) :=
+    CReal.leEv_trans
+      (D.distSq_triangle left firstAnchor right)
+      (CReal.leEv_add
+        (CReal.leEv_add hleft hleft)
+        (CReal.leEv_add hinner hinner))
+  have hconstant : CReal.leEv
+      (CReal.add
+        (CReal.add (CReal.ofQ' tiny) (CReal.ofQ' tiny))
+        (CReal.add
+          (CReal.add
+            (CReal.add (CReal.ofQ' tiny) (CReal.ofQ' tiny))
+            (CReal.add (CReal.ofQ' tiny) (CReal.ofQ' tiny)))
+          (CReal.add
+            (CReal.add (CReal.ofQ' tiny) (CReal.ofQ' tiny))
+            (CReal.add (CReal.ofQ' tiny) (CReal.ofQ' tiny)))))
+      (CReal.ofQ' epsilon) := by
+    simp only [CReal.ofQ'_add]
+    exact CReal.leEv_of_le
+      (CReal.ofQ'_le_ofQ' (ten_sixteenths_le epsilon hepsilon))
+  exact CReal.leEv_trans htotal hconstant
+
 /-! ## 3. The actual adaptive output representative -/
 
-private def adaptiveMarkovCauchyThreshold
+def adaptiveMarkovCauchyThreshold
     {w : Q'} {hw0 : (0 : Q') < w} {hw1 : w < (1 : Q')}
     {half : Nat}
     (X : (centralPhysicalCutoffLinearSquaredSeminorm
@@ -286,5 +340,6 @@ def centralPhysicalAdaptiveMarkovMapCauchy
     exact CReal.leEv_trans htotal hconstant
 
 #print axioms centralPhysicalAdaptiveMarkovMapCauchy
+#print axioms distSq_threeLeg_le_of_sixteenth
 
 end YMGap.Continuum.BF4PhysicalCutoffLinearMarkovAdaptiveCompletionCauchy
