@@ -2866,6 +2866,31 @@ QFT-axiom, and Clay targets remain open.  The source check and focused
 monitored build completed successfully, the latter with 219 jobs.  The
 load-bearing pullback theorem reports only `[propext]`.
 
+## Canonical positive-head reduced penalized matrices (2026-08-21)
+
+`FiniteRationalHeadCenteredPullback` represents the explicit positive-head
+centering formula by a finite rational coordinate matrix.  Its head row is the
+negative tail weight divided by the positive head weight; all remaining rows
+are the retained-coordinate identity.  Exact finite-sum algebra proves that
+matrix application agrees in every full in-range coordinate with the earlier
+constructive centered lift.
+
+Pulling the canonical full matrices `qD-K+dd^T` and `qD+K+dd^T` back along
+this transform now generates literal reduced upper and lower matrices.  The
+generic pullback theorem and coefficient congruence prove both required
+quadratic identities, so a positive head weight constructs the entire
+`FiniteCenteredTwoSidedRestriction` with no externally supplied matrix-
+identification field.
+
+No LDL factorization or physical positive-head witness is constructed here.
+The next frontier is to prove positivity of indexed physical weight zero from
+the nonempty positive-row carrier, specialize this canonical restriction to
+every genuine BF4 cutoff, and pin ordinary/cleared LDL checks to its displayed
+matrices.  Thermodynamic, nome, spacing, continuum-reconstruction, QFT-axiom,
+and Clay targets remain open.  The source check and focused monitored build
+completed successfully, the latter with 221 jobs.  Every printed load-bearing
+declaration reports only `[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the
