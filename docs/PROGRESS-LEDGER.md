@@ -3939,3 +3939,35 @@ analytic inputs remain.  Nome/volume/spacing limits, continuum QFT, and the
 Clay theorem remain open.  A source check and focused monitored build
 completed successfully, the latter with 1299 jobs.  Every printed
 load-bearing declaration reports only `[propext, Quot.sound]`.
+
+## Nonzero upper-triangle reduction of the physical table seam (2026-08-21)
+
+`BF4PhysicalBoundaryCutoffTwoSectorLocalZeroClassificationCompact` replaces
+the historical deeply nested local-zero aggregate with a literal `List.all`
+composition of the already process-isolated 65 row theorems.  Every raw-table
+zero is therefore again proved to vanish in the production physical kernel,
+but the final composition now checks in under one second after its shards are
+cached.  Its focused target completed successfully with 1678 jobs.
+
+`BF4PhysicalBoundaryCutoffTwoSectorNonzeroUpperReduction` packages the
+remaining representation seam as
+`CutoffTwoSectorPhysicalNonzeroUpperCertificate`.  It asks for a cheap exact
+symmetry law of the stored raw table and physical equality only on nonzero
+upper-triangle entries.  Local support discharges every zero; physical and raw
+symmetry reflect upper entries into the lower triangle.  This smaller record
+constructs the original `CutoffTwoSectorPhysicalTableCertificate`, so all
+existing entry and row-marginal bridges consume it unchanged.  The direct
+source check and dependency-complete target passed, the latter with 1747
+jobs, and both load-bearing declarations report exactly
+`[propext, Quot.sound]`.
+
+The smaller certificate is not inhabited.  The untrusted shared-DAG generator
+reports 499 unordered nonzero pairs, but an attempted all-at-once Lean count
+was stopped at the 12 GiB memory reserve and no count theorem is retained or
+claimed.  More importantly, a direct `by decide` build of even physical
+recurrence row zero also reached the reserve, so raw recurrence rows are not a
+viable proof route.  The next finite frontier is to check raw-table symmetry
+in small shards and scale the already verified shared-DAG bucket method from
+its pilot entries to the nonzero upper pairs.  Cofinal sector selection,
+completion, thermodynamic/continuum limits, QFT axioms, and the Clay target
+remain open.

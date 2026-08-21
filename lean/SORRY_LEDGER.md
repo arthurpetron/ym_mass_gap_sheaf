@@ -2505,6 +2505,32 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   Therefore no fully discharged production-kernel `49/50` gap, cofinal sector
   family, completion, continuum QFT, or Clay conclusion is claimed.
 
+### [BF4-cutoff-two-nonzero-upper-reduction] Physical table residual contraction — **FACTORED 2026-08-21**
+
+- **milestone**: finite physical sector selection / exact kernel
+  representation.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSectorLocalZeroClassificationCompact.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSectorNonzeroUpperReduction.lean`.
+- **decl**: `cutoffTwoSectorLocalZeroRows_compact_checked`,
+  `centralPhysicalReflectedKernel_cutoffTwo_sector_index_eqv_zero_of_raw_compact`,
+  `CutoffTwoSectorPhysicalNonzeroUpperCertificate`,
+  `centralPhysicalReflectedKernel_cutoffTwo_sectorStateAt_eqv_raw_of_nonzeroUpper`,
+  and `CutoffTwoSectorPhysicalNonzeroUpperCertificate.toPhysicalTableCertificate`.
+- **obligation**: inhabit stored raw-table symmetry and the physical equality
+  only for nonzero upper-triangle entries; all raw zeros and the lower triangle
+  are now discharged by proved local support and symmetry compilers.
+- **constructive?**: yes — the smaller certificate remains uninhabited and
+  must be supplied by kernel-checked shared-DAG traces or a stronger symbolic
+  recurrence theorem.
+- **status note**: the compact zero-classification target completed in 1678
+  jobs and the reduction target in 1747 jobs; all load-bearing declarations
+  use only `[propext, Quot.sound]`.  Physical recurrence row zero and a
+  presentation-only all-entry count each reached the monitored 12 GiB reserve
+  and are not passed or retained.  No production-kernel `49/50` gap, cofinal
+  sector family, completed gap, continuum QFT, or Clay theorem is claimed.
+
 ## How to add an entry
 
 ```markdown
