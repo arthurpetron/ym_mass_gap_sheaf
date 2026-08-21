@@ -1273,3 +1273,33 @@ identification are not constructed here.  The focused compiler and integrated
 endpoint builds completed 1263 and 1324 jobs respectively; the forbidden-token
 scan was empty and exported declarations report only
 `[propext, Quot.sound]`.  No full audit, remote push, or GitHub CI run was used.
+
+## Cofinal finite-to-continuum dense-norm comparison (2026-08-20)
+
+`BF4PhysicalDenseStageDiagonalComparison` removes the remaining freely pinned
+equality between a separately constructed finite-stage norm limit and the
+selected continuum norm.  The existing `CauchyGNS` construction already proves
+that the raw continuum dense norms converge to `cinnerRep`.  A constructive
+cofinal-reindexing theorem preserves that limit along the stage sampler, and a
+new Type-level `CRealEventuallyClose` record transports it to the literal
+finite BF4 norm stream through explicit outer and inner moduli.
+
+Exact finite/continuum transfer intertwining applies the same argument to the
+transferred stream.  The resulting ordinary and transferred convergence laws
+compile to the existing graph-norm limit and then to
+`WilsonMinimalBoundedMassGap`.  `BF4FarautGraphNormContinuumRealization` now
+uses this diagonal comparison endpoint, so neither `normLimitPinned` nor a
+separately postulated global finite norm limit remains in the active AF/Faraut
+handoff.
+
+The comparison itself is not constructed: the open inputs are the literal
+dense-stage observable maps, the interacting pointwise time-translation law,
+vacuum-complement preservation, a cofinal sampler, and the vanishing
+finite-BF4-versus-continuum-dense norm estimate.  The next reduction should
+express that last CReal-level estimate as rational same-observable form bounds,
+which are the quantities supplied by lattice measure arguments.  Continuum
+measure existence, physical-time/generator identification, the full QFT
+axioms, and the Clay theorem remain open.  The focused compiler and integrated
+endpoint builds completed 1264 and 1325 jobs respectively; the forbidden-token
+scan was empty and exported declarations report only
+`[propext, Quot.sound]`.  No full audit, remote push, or GitHub CI run was used.

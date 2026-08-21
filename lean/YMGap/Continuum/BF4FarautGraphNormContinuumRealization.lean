@@ -17,6 +17,7 @@ continuum Yang--Mills theory is constructed here.
 -/
 
 import YMGap.Continuum.BF4FarautSpectralMarginInputContinuumRealization
+import YMGap.Continuum.BF4PhysicalDenseStageDiagonalComparison
 import YMGap.Continuum.BF4PhysicalDenseStageGraphNormCompiler
 import YMGap.Continuum.BF4PhysicalModulatedGapLimitStability
 
@@ -38,6 +39,7 @@ open YMGap.Continuum.BF4FarautPhysicalSeparatorProducer.BF4FarautQuarterPhysical
 open YMGap.Continuum.BF4FarautSpectralMarginInputContinuumRealization
 open YMGap.Continuum.BF4FarautSpectralMarginInputContinuumRealization.BF4FarautSpectralMarginInputExactFlow
 open YMGap.Continuum.BF4PhysicalModulatedGapLimitStability
+open YMGap.Continuum.BF4PhysicalDenseStageDiagonalComparison
 open YMGap.Continuum.BF4PhysicalDenseStageGraphNormCompiler
 open YMGap.Continuum.BF4PhysicalSeparatorProducer
 open YMGap.Continuum.ContinuumMeasure
@@ -254,7 +256,7 @@ structure ContinuumWilsonDenseStageResidualData
     (continuumSourceCertificate flow
       anchorDominates AF trajectory comparison bare)
     osGNS.reconstruction
-  denseStageLimit : BF4WilsonDenseStageEventualVariationApproximation
+  denseStageLimit : BF4WilsonDenseStageDiagonalComparison
     producer.toBF4QuarterPhysicalSeparatorProducer osGNS
 
 namespace ContinuumWilsonDenseStageResidualData
@@ -360,7 +362,7 @@ def ofProjectiveOSResidualData
     {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
     (D : ContinuumProjectiveOSResidualData flow
       anchorDominates AF trajectory comparison bare tracking mu)
-    (denseStageLimit : BF4WilsonDenseStageEventualVariationApproximation
+    (denseStageLimit : BF4WilsonDenseStageDiagonalComparison
       producer.toBF4QuarterPhysicalSeparatorProducer
       (WilsonSelectedOSGNSData.ofLinked D.osGNS)) :
     ContinuumWilsonDenseStageResidualData flow
