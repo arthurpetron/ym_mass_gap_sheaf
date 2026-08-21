@@ -1898,3 +1898,50 @@ moment convergence on the actual BF4 family.  The finite carrier, transfer,
 vacuum, and same-object correlator files were inspected here but not rebuilt in
 this audit; the newly integrated direct endpoint remains covered by the 1279-
 and 1339-job monitored builds above.
+
+## Actual finite BF4 probability functional (2026-08-20)
+
+`BF4PhysicalFiniteProbFunctional` packages the already-constructed physical
+row marginal as a genuine `ObservableMeasure.ProbFunctional` at every finite
+matched BF4 stage.  Because the repository's raw rational type stores
+unreduced fractions while `ProbFunctional.normalized` asks for structural
+equality, the observable carrier uses a distinguished tagged unit and literal
+rational functions.  The unit has expectation definitionally `1`; literal
+functions retain exactly `centralPhysicalStationaryMean`, and the two
+constant-one representations are proved equivalent in `Q'.eqv`.
+
+Positivity is the existing physical weighted-square theorem.  The new bridge
+also proves that the functional's literal `a* b` moment is definitionally the
+same `centralPhysicalWeightedInner` used by the physical GNS completion, and
+that expectation is stationary under the exact physical Markov action.
+Consequently the probability-functional, GNS, transfer, and vacuum data now
+refer to the same concrete finite object rather than parallel abstractions.
+
+This constructs no cross-scale map or limit.  A monitored focused build of the
+combined endpoint below rebuilt 1079 jobs; every newly printed declaration is
+within `[propext, Quot.sound]`.
+
+## Direct BF4 functional limit from an explicit modulus (2026-08-20)
+
+`BF4PhysicalFunctionalLimit` contracts an explicit cross-scale tail modulus
+for the actual matched-stage expectations into a positive normalized
+`CRealProbFunctional`.  The modulus contains a Type-level rate and is pinned
+at every scale to `matchedPhysicalProbFunctional`; the constructed continuum
+functional's rational approximations are therefore exactly the finite BF4
+expectations, not an unrelated supplied sequence.  Exact one-step
+Kolmogorov equality is not required for this direct pointwise limit.
+
+The public input `MatchedPhysicalFunctionLimitModulus` requests convergence
+only for literal edge observables.  Convergence of the tagged unit is
+constructed internally as the constant-one, zero-tail modulus.  Thus the
+remaining analytic edge is precise: provide uniform two-sided tail estimates
+for the stationary BF4 expectation of every intended literal observable.
+
+No inhabitant of that modulus is constructed here.  The resulting object is
+only a positive normalized functional on the current rational observable
+carrier; Euclidean covariance, reflection positivity on a positive-time
+algebra, OS reconstruction, non-triviality, transfer convergence, the uniform
+completed gap, the full QFT axioms, and the Clay theorem all remain open.  A
+source check and focused monitored build completed successfully, the latter
+with 1079 jobs, and every printed load-bearing declaration reports only
+`[propext, Quot.sound]`.

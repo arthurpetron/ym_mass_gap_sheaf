@@ -729,6 +729,15 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   only the inverse-limit thread of a supplied consistent abstract family; it
   does not provide the constructive probability-measure extension or these
   Wilson moment limits.
+  The finite row marginal is now also packaged as the genuine
+  `centralPhysicalProbFunctional` at each matched stage.  Its `a* b` moment is
+  the exact physical GNS weighted pairing and it is stationary under the
+  finite Markov action.  Given a Type-level tail modulus pinned to those actual
+  expectations, `matchedPhysicalFunctionLimitFunctional` constructs their
+  positive normalized `CReal` limit and discharges unit convergence
+  automatically.  The literal-observable tail modulus is not inhabited; even
+  after it is supplied, Euclidean/OS axioms, non-triviality, cross-scale
+  transfer moments, reconstruction, and the uniform physical gap remain open.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full
