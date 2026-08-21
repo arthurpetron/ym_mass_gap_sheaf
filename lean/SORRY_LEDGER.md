@@ -420,6 +420,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearMarkovCauchy.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovTransfer.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovLaws.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovVacuumComplement.lean`,
   and
   `lean/YMGap/Continuum/BF4FarautGraphNormContinuumRealization.lean`.
 - **named fields / structures**:
@@ -471,6 +472,9 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `FrontierToContinuumSelectedExactMassDecayTargetBridge`,
   `WilsonTimeTranslationPin`,
   `TransferFormGapResidual`,
+  `CentralPhysicalLinearMarkovCompletionModulus`,
+  `CentralPhysicalCutoffCompletedMarkovVacuumPairingInvariant`,
+  `CentralPhysicalCutoffCompletedMarkovSelfAdjointData`,
   `ContinuumProjectiveOSResidualData`,
   `ContinuumWilsonBoundedResidualData`,
   `ContinuumWilsonMinimalBoundedResidualData`,
@@ -858,8 +862,13 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   completion modulus is currently inhabited.  Conditional on that exact
   modulus, the completed transfer is now a proved rational-linear
   endomorphism: it preserves zero, addition, and every rational scalar on
-  arbitrary completed vectors.  Vacuum-complement preservation still needs a
-  completed pairing-invariance or sufficient self-adjointness bridge.
+  arbitrary completed vectors.  Vacuum-complement preservation is now
+  reduced exactly to a completed vacuum-pairing invariant; completed
+  self-adjointness is proved sufficient because the transfer fixes the
+  vacuum.  Either certificate constructs the actual restricted transfer and
+  its rational-linear endomorphism laws on the completed complement.  Neither
+  certificate is inhabited; deriving it from finite detailed balance and
+  cross-cutoff control remains analytic input.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full

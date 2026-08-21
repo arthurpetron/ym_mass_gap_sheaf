@@ -2519,3 +2519,30 @@ bridge).  Complement preservation, strict contraction, nome/volume/spacing
 limits, continuum QFT, and the Clay theorem remain open.  A source check and
 focused monitored build completed successfully, the latter with 1152 jobs.
 Every printed load-bearing declaration reports only `[propext, Quot.sound]`.
+
+## Completed BF4 transfer restricted to the vacuum complement (2026-08-21)
+
+`BF4PhysicalCutoffLinearCompletedMarkovVacuumComplement` isolates the minimum
+remaining form compatibility as the Type-level certificate
+`CentralPhysicalCutoffCompletedMarkovVacuumPairingInvariant`.  It says exactly
+that the already constructed completed transfer preserves pairing with the
+already normalized completed vacuum.  A second, stronger certificate records
+self-adjointness for the actual completed physical inner form.  Because the
+transfer already fixes the vacuum, self-adjointness now proves the minimum
+pairing invariant rather than requiring a separate stationarity assumption.
+
+Either certificate, once supplied, restricts the actual transfer to the
+actual completed vacuum-complement subtype.  Preservation of zero, addition,
+and every rational scalar follows from the ambient completed transfer laws,
+and the restricted map is bundled as a rational-linear endomorphism of the
+completed vacuum-complement module.
+
+This closes the quotient/subtype mechanics, not the analytic input.  Neither
+the nonconstant completion modulus nor completed pairing invariance or
+self-adjointness is inhabited here.  The next causal frontier is to transport
+finite-cutoff detailed balance through the cutoff limit, with enough explicit
+cross-cutoff control to inhabit those certificates.  A strict complement
+contraction, nome/volume/spacing limits, continuum QFT, and the Clay theorem
+remain open.  A source check and focused monitored build completed
+successfully, the latter with 1153 jobs.  Every printed load-bearing
+declaration reports only `[propext, Quot.sound]`.
