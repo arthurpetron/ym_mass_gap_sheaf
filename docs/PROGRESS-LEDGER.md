@@ -948,3 +948,29 @@ the required null moduli.  Thermodynamic/continuum stability and the Clay
 theorem remain open.  The focused single-worker build completed 1131 jobs and
 all exported declarations report only `[propext, Quot.sound]`; no full audit,
 remote push, or GitHub CI run was used.
+
+## Choice-free modulated dense endpoint compiler (2026-08-20)
+
+`BF4PhysicalModulatedDenseEndpointComparison` moves the dense BF4-to-strong
+comparison onto the Type-modulated physical carrier.  The remaining analytic
+input is now exactly five finite-stage laws: a map from physical observables
+to strict-cylinder stages, exact squared-distance preservation, exact full
+inner-form preservation, a one-macro-step radical intertwining law, and a
+vacuum radical law.
+
+Squared-distance preservation automatically transports each supplied physical
+null modulus to the strong completion with the same modulus.  Consequently no
+`Prop`-to-`Type` selector remains in the interface.  From the five laws the
+module constructs the completed map, proves full completed inner preservation,
+one-macro/two-step transfer intertwining, vacuum identification, and vacuum-
+complement preservation, then imports the endpoint's uniform strict completed
+norm gap with rate `1/16` to the actual modulated physical BF4 carrier.
+
+No inhabitant of the five dense analytic laws is constructed, so the strict
+physical completed gap remains conditional.  The immediate mathematical
+frontier is the cross-model finite-stage map and its four identities, not any
+further completion or choice infrastructure.  Thermodynamic/continuum
+stability, continuum QFT existence, and the Clay theorem remain open.  The
+focused single-worker build completed 1230 jobs; the forbidden-token scan was
+empty and every exported declaration reports only `[propext, Quot.sound]`.
+No full audit, remote push, or GitHub CI run was used.
