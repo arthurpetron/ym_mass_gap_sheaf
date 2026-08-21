@@ -419,6 +419,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearMarkovSyntax.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearMarkovCauchy.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovTransfer.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovLaws.lean`,
   and
   `lean/YMGap/Continuum/BF4FarautGraphNormContinuumRealization.lean`.
 - **named fields / structures**:
@@ -854,7 +855,11 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   preservation rate.  These two fields construct a quotient-well-defined
   completed transfer, imply every earlier modulus layer, agree with the dense
   cutoff limit, and fix the normalized completed vacuum.  No nonconstant
-  completion modulus is currently inhabited.
+  completion modulus is currently inhabited.  Conditional on that exact
+  modulus, the completed transfer is now a proved rational-linear
+  endomorphism: it preserves zero, addition, and every rational scalar on
+  arbitrary completed vectors.  Vacuum-complement preservation still needs a
+  completed pairing-invariance or sufficient self-adjointness bridge.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full

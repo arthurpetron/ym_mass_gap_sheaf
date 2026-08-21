@@ -2499,3 +2499,23 @@ bridge.  Strict complement contraction, nome/volume/spacing limits, continuum
 QFT, and the Clay theorem remain open.  A source check and focused monitored
 build completed successfully, the latter with 1151 jobs.  Every printed
 load-bearing declaration reports only `[propext, Quot.sound]`.
+
+## Rational-linearity of the conditional completed BF4 transfer (2026-08-21)
+
+`BF4PhysicalCutoffLinearCompletedMarkovLaws` proves that every completed
+transfer constructed from `CentralPhysicalLinearMarkovCompletionModulus`
+preserves completed zero, addition, and rational scaling on arbitrary
+completed points.  Quotient induction reduces each equality to the recursive
+definition of the same-syntax cutoff action, so no further analytic estimate
+is consumed.  The result is bundled as
+`centralPhysicalCutoffCompletedMarkovQLinearEndomorphism` on the concrete
+completed physical rational module.
+
+The completion modulus remains an uninhabited analytic input for nonconstant
+vectors.  Rational-linearity and `T vacuum = vacuum` also do not by themselves
+show that `T` preserves vectors orthogonal to the vacuum; that restriction
+needs completed vacuum-pairing invariance (or a sufficient self-adjointness
+bridge).  Complement preservation, strict contraction, nome/volume/spacing
+limits, continuum QFT, and the Clay theorem remain open.  A source check and
+focused monitored build completed successfully, the latter with 1152 jobs.
+Every printed load-bearing declaration reports only `[propext, Quot.sound]`.
