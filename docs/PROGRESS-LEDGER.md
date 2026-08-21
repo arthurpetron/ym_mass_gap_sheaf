@@ -2628,6 +2628,33 @@ QFT-axiom, and Clay targets also remain open.  The source check and focused
 monitored build completed successfully, the latter with 1326 jobs.  Every
 printed load-bearing declaration reports only `[propext, Quot.sound]`.
 
+## Concrete cutoff-removed gap implication with one finite input (2026-08-21)
+
+`BF4PhysicalCutoffLinearMarkovConcreteAdaptiveGap` specializes the entire
+adaptive strict-contraction, power, and same-object correlation stack with the
+now-constructed dense cutoff-Cauchy datum.  The formerly two-input implication
+has therefore contracted to one finite-volume analytic input:
+`FixedNomeCofinalCenteredSixteenth`, or its stronger cofinal local-gluing
+presentation.
+
+Given that one cofinal finite certificate, the actual cutoff-removed transfer
+on the completed physical vacuum complement contracts at literal rate
+`1/16`.  Its natural powers satisfy squared-norm decay with factor
+`((1/16)^2)^n`, and Cauchy--Schwarz gives the corresponding squared
+same-object matrix-coefficient decay against every test vector in the same
+completed carrier.  No pointwise cutoff-Cauchy or same-index completion input
+remains in these public implications.
+
+The cofinal centered-sixteenth certificate itself is not inhabited.  This is
+now the sole fixed-nome finite-volume gap obstruction on the concrete
+completed-transfer route.  It requires a genuinely fixed-nome unbounded
+family of strict finite estimates; the checked scale-five `s = 2..41` prefix
+belongs to a different coefficient/RG frontier and is not such a family.
+Thermodynamic, nome, spacing, continuum-reconstruction, QFT-axiom, and Clay
+targets remain open.  The source check and focused monitored build completed
+successfully, the latter with 1334 jobs.  Every printed load-bearing
+declaration reports only `[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the
