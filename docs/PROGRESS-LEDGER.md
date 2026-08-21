@@ -924,3 +924,27 @@ physical strict gap.  Thermodynamic/continuum stability and the Clay theorem
 remain open.  The focused single-worker build completed 66 jobs and all
 exported declarations stay within `[propext, Quot.sound]`; no full audit,
 remote push, or GitHub CI run was used.
+
+## Physical BF4 macro transfer on the modulated completion (2026-08-20)
+
+`BF4PhysicalMarkovModulusCompletion` specializes the Type-modulated quotient
+to the exact stationary physical BF4 form.  The finite Markov squared-distance
+contraction transports every supplied null modulus termwise, so the already-
+composed physical macro transfer descends directly to the modulated carrier.
+The canonical forgetful map to the legacy completion exactly intertwines the
+two macro transfers and preserves the full completed inner form.
+
+Those compatibility theorems import self-adjointness, positivity, and norm
+nonexpansion to the modulated carrier.  The constant physical observable is a
+unit vacuum, is fixed modulo the explicit null relation, and its completed
+orthogonal complement is invariant.  Thus choosing the Type-modulated carrier
+does not sacrifice any previously proved finite physical operator law, while
+it removes the forbidden need to select a modulus from a Prop-level null proof.
+
+No strict physical gap or dense BF4-to-strong stage comparison is constructed.
+The next bridge should be formulated directly from the modulated physical
+carrier, where exact dense squared-distance preservation automatically carries
+the required null moduli.  Thermodynamic/continuum stability and the Clay
+theorem remain open.  The focused single-worker build completed 1131 jobs and
+all exported declarations report only `[propext, Quot.sound]`; no full audit,
+remote push, or GitHub CI run was used.
