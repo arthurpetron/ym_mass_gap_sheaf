@@ -296,6 +296,14 @@ def ofProjectiveBase
   rawMeanComparisonRate := base.projectiveDiagonalRate
   rawMeanComparison := base.raw_mean_diagonal_comparison
 
+/-- Exact identification of the two finite raw moments with the selected
+same-stage projective functional is an alternative sufficient input for both
+moving-diagonal raw comparisons. -/
+def ofSemanticBase
+    (base : BF4WilsonDenseStageCenteredVacuumSemanticBase producer D) :
+    BF4WilsonDenseStageRawMeanSlowComparison producer D :=
+  ofProjectiveBase base.toProjectiveBase
+
 /-- Radius whose square is bounded by the half-error budget. -/
 def meanRadius (epsilon : Q') : Q' :=
   Q'.invSucc (HalfPow.half * epsilon).den
@@ -419,12 +427,21 @@ def projectiveBase_toWilsonOperatorNormGapPin
     WilsonOperatorNormGapPin D :=
   (ofProjectiveBase base).toWilsonOperatorNormGapPin
 
+/-- The exact same-stage semantic route is sufficient for the selected
+completed physical BF4 operator gap. -/
+def semanticBase_toWilsonOperatorNormGapPin
+    (base : BF4WilsonDenseStageCenteredVacuumSemanticBase producer D) :
+    WilsonOperatorNormGapPin D :=
+  (ofSemanticBase base).toWilsonOperatorNormGapPin
+
 end BF4WilsonDenseStageRawMeanSlowComparison
 
 end YMGap.Continuum.BF4PhysicalDenseStageRawMeanComparison
 
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMeanComparison.finiteStageCenteredSquare_identity
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMeanComparison.BF4WilsonDenseStageRawMeanSlowComparison.ofProjectiveBase
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMeanComparison.BF4WilsonDenseStageRawMeanSlowComparison.ofSemanticBase
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMeanComparison.BF4WilsonDenseStageRawMeanSlowComparison.toCenteredVacuumSlowComparison
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMeanComparison.BF4WilsonDenseStageRawMeanSlowComparison.toWilsonOperatorNormGapPin
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMeanComparison.BF4WilsonDenseStageRawMeanSlowComparison.projectiveBase_toWilsonOperatorNormGapPin
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMeanComparison.BF4WilsonDenseStageRawMeanSlowComparison.semanticBase_toWilsonOperatorNormGapPin

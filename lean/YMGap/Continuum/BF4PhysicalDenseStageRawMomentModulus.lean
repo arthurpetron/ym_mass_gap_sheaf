@@ -13,6 +13,7 @@ precision ladder.  No estimate is proved for the physical measure here.
 
 import YMGap.Continuum.BF4PhysicalDenseStageSlowDiagonalComparison
 import YMGap.Continuum.BF4PhysicalSelectedVacuumMeanConvergence
+import YMGap.Continuum.RCDistBridge
 
 namespace YMGap.Continuum.BF4PhysicalDenseStageRawMomentModulus
 
@@ -87,6 +88,125 @@ structure BF4RawStageMomentModulus
           rationalFunctional.stageExpectationQ scale (mu.pick scale)
               (continuumVacuumPairingObservable D observable) <=
             finiteStageRawMean D rawStageObservable scale observable + epsilon
+
+/-! ## Exact same-stage semantic identification -/
+
+/-- Equality of embedded rational constants reflects back to semantic
+rational equality.  This is constructive: the `CReal.Equiv` estimate is used
+at every positive rational tolerance and rational Archimedean closure supplies
+the two exact order inequalities. -/
+theorem rational_eqv_of_ofQ'_equiv {left right : Q'}
+    (h : CReal.Equiv (CReal.ofQ' left) (CReal.ofQ' right)) :
+    left.eqv right := by
+  have hleft : left <= right := Q'.le_of_forall_pos_add (fun epsilon hepsilon => by
+    obtain ⟨N, hN⟩ := h epsilon hepsilon
+    simpa using (hN N (Nat.le_refl N)).1)
+  have hright : right <= left := Q'.le_of_forall_pos_add (fun epsilon hepsilon => by
+    obtain ⟨N, hN⟩ := h epsilon hepsilon
+    simpa using (hN N (Nat.le_refl N)).2)
+  exact Int.le_antisymm hleft hright
+
+/-- Exact identification of the two finite BF4 raw moments with the
+measure-linked stage functional.  This is a sufficient same-object route to
+the pointwise raw-moment moduli; no such identification is asserted for the
+physical projective thread here. -/
+structure BF4RawStageMomentSemanticIdentification
+    {family : MatchedBlockFamily}
+    {coupling : Nat -> Q'}
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    {H : FourDExistence.ContinuumYMExistence mu}
+    (D : WilsonSelectedOSGNSData H)
+    (rawStageObservable : forall scale : Nat,
+      D.wilson.toGNSData.V ->
+        (MatchedPhysicalStageGNSData family coupling scale).V) : Type 2 where
+  squareSemantics : forall (scale : Nat)
+    (observable : D.wilson.toGNSData.V),
+      CReal.Equiv
+        (CReal.ofQ'
+          (finiteStageSquareExpectation D rawStageObservable scale observable))
+        (D.measureLinked.stageFunctional.expectationFromStage
+          scale (mu.pick scale) (continuumSquareObservable D observable))
+  meanSemantics : forall (scale : Nat)
+    (observable : D.wilson.toGNSData.V),
+      CReal.Equiv
+        (CReal.ofQ'
+          (finiteStageRawMean D rawStageObservable scale observable))
+        (D.measureLinked.stageFunctional.expectationFromStage
+          scale (mu.pick scale)
+          (continuumVacuumPairingObservable D observable))
+
+namespace BF4RawStageMomentSemanticIdentification
+
+variable
+    {family : MatchedBlockFamily}
+    {coupling : Nat -> Q'}
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    {H : FourDExistence.ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+    {rawStageObservable : forall scale : Nat,
+      D.wilson.toGNSData.V ->
+        (MatchedPhysicalStageGNSData family coupling scale).V}
+
+/-- The square semantic identification and the projective functional's
+same-thread pin give exact rational equality at every stage. -/
+theorem squarePinned
+    (data : BF4RawStageMomentSemanticIdentification D rawStageObservable)
+    (rationalFunctional : ProjectiveOSRationalModulus D)
+    (scale : Nat) (observable : D.wilson.toGNSData.V) :
+    (finiteStageSquareExpectation D rawStageObservable scale observable).eqv
+      (rationalFunctional.stageExpectationQ scale (mu.pick scale)
+        (continuumSquareObservable D observable)) := by
+  apply rational_eqv_of_ofQ'_equiv
+  exact CReal.Equiv.trans
+    (BF4RawStageMomentSemanticIdentification.squareSemantics
+      data scale observable)
+    (rationalFunctional.stageFunctionalPinned scale (mu.pick scale)
+      (continuumSquareObservable D observable))
+
+/-- The mean semantic identification and the projective functional's
+same-thread pin give exact rational equality at every stage. -/
+theorem meanPinned
+    (data : BF4RawStageMomentSemanticIdentification D rawStageObservable)
+    (rationalFunctional : ProjectiveOSRationalModulus D)
+    (scale : Nat) (observable : D.wilson.toGNSData.V) :
+    (finiteStageRawMean D rawStageObservable scale observable).eqv
+      (rationalFunctional.stageExpectationQ scale (mu.pick scale)
+        (continuumVacuumPairingObservable D observable)) := by
+  apply rational_eqv_of_ofQ'_equiv
+  exact CReal.Equiv.trans
+    (BF4RawStageMomentSemanticIdentification.meanSemantics
+      data scale observable)
+    (rationalFunctional.stageFunctionalPinned scale (mu.pick scale)
+      (continuumVacuumPairingObservable D observable))
+
+/-- Exact same-stage semantics construct both fixed-observable raw moment
+moduli with zero rates. -/
+def toRawStageMomentModulus
+    (data : BF4RawStageMomentSemanticIdentification D rawStageObservable)
+    (rationalFunctional : ProjectiveOSRationalModulus D) :
+    BF4RawStageMomentModulus D rawStageObservable rationalFunctional where
+  squareRate := fun _ _ => 0
+  squareBound := by
+    intro observable epsilon hepsilon scale _
+    have hpinned := squarePinned data rationalFunctional scale observable
+    have hnonnegative : (0 : Q') <= epsilon := Q'.le_of_lt hepsilon
+    exact
+      ⟨Q'.le_trans' _ _ _ (Q'.le_of_eqv hpinned)
+          (Q'.add_le_self_of_nonneg _ _ hnonnegative),
+        Q'.le_trans' _ _ _ (Q'.ge_of_eqv hpinned)
+          (Q'.add_le_self_of_nonneg _ _ hnonnegative)⟩
+  meanRate := fun _ _ => 0
+  meanBound := by
+    intro observable epsilon hepsilon scale _
+    have hpinned := meanPinned data rationalFunctional scale observable
+    have hnonnegative : (0 : Q') <= epsilon := Q'.le_of_lt hepsilon
+    exact
+      ⟨Q'.le_trans' _ _ _ (Q'.le_of_eqv hpinned)
+          (Q'.add_le_self_of_nonneg _ _ hnonnegative),
+        Q'.le_trans' _ _ _ (Q'.ge_of_eqv hpinned)
+          (Q'.add_le_self_of_nonneg _ _ hnonnegative)⟩
+
+end BF4RawStageMomentSemanticIdentification
 
 namespace BF4RawStageMomentModulus
 
@@ -199,3 +319,7 @@ end YMGap.Continuum.BF4PhysicalDenseStageRawMomentModulus
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMomentModulus.BF4RawStageMomentModulus.regularMeanRate_antitone
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMomentModulus.BF4RawStageMomentModulus.regularSquareBound
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMomentModulus.BF4RawStageMomentModulus.regularMeanBound
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMomentModulus.rational_eqv_of_ofQ'_equiv
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMomentModulus.BF4RawStageMomentSemanticIdentification.squarePinned
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMomentModulus.BF4RawStageMomentSemanticIdentification.meanPinned
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMomentModulus.BF4RawStageMomentSemanticIdentification.toRawStageMomentModulus

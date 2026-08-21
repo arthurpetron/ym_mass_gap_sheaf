@@ -1605,3 +1605,35 @@ Focused monitored builds completed 1276 jobs for the enriched centered
 sampler, 1277 for the raw compiler, and 1337 for the integrated AF/Faraut
 endpoint.  Every newly printed load-bearing declaration reports only
 `[propext, Quot.sound]`; no full audit, remote push, or GitHub CI run was used.
+
+## Exact same-stage semantics construct zero-rate raw moduli (2026-08-20)
+
+`BF4PhysicalDenseStageRawMomentModulus` now exposes an alternative sufficient
+route through `BF4RawStageMomentSemanticIdentification`.  It asks for two
+same-object identities: the finite raw square and finite raw stationary mean,
+embedded in `CReal`, must equal the already selected measure-linked stage
+functional on the corresponding continuum square and vacuum-pairing
+observables.  The projective stage-functional pin reflects each `CReal`
+identity back to exact rational equivalence.  Those equivalences construct
+both raw moment modulus families with the identically zero rate.
+
+`BF4WilsonDenseStageCenteredVacuumSemanticBase.toProjectiveBase` packages this
+route into the existing fixed-observable projective base.  The raw-mean
+compiler and the integrated AF/Faraut endpoint now have direct semantic-base
+adapters, so an exact same-stage realization can travel through the already
+verified slow diagonal, centering identity, graph-norm limit, and selected
+vacuum-complement operator-gap compiler without restating any asymptotic raw
+moment estimates.
+
+This route is sufficient but stronger than the general modulus route.  No
+semantic identity is inhabited here.  The remaining analytic construction
+must still provide either the general fixed-observable raw-square/raw-mean
+moduli or these two exact same-stage identities, together with the raw dense
+realization, radical transfer intertwining, rational projective functional,
+representative vacuum-pairing modulus, and same-object continuum measure.
+Physical generator identification, the complete QFT axioms, and the Clay
+theorem remain open.  Focused monitored builds completed 1272 jobs for the raw
+semantic reduction, 1276 for the centered semantic-base integration, 1277 for
+the raw-mean compiler, and 1337 for the AF/Faraut endpoint.  Every newly
+printed declaration reports only `[propext, Quot.sound]`; no full audit,
+remote push, or GitHub CI run was used.

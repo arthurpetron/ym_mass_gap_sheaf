@@ -381,6 +381,45 @@ def ofProjectiveOSResidualData
   rateReconstruction := D.rateReconstruction
   denseStageLimit := denseStageLimit
 
+/-- A projective same-object continuum realization plus exact same-stage
+semantic identifications for the two raw moments constructs the literal
+dense-stage residual.  The semantic base supplies zero-rate raw moment moduli
+before the existing diagonal compiler is invoked. -/
+def ofProjectiveOSResidualDataWithSemanticStages
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat -> Q'}
+    {bits : Nat -> Nat}
+    {P : PhysicalSeparator}
+    {producer : BF4FarautQuarterPhysicalSeparatorProducer
+      family law spacing coupling bits P}
+    {b : Nat} {afr : AFRateModulus}
+    {N0 : Nat}
+    {flow : BF4FarautSpectralMarginInputExactFlow producer b afr N0}
+    {anchorDominates :
+      (flow.input.ceilConst *
+          fmAconst afr (spectralLocalization_defect afr N0 flow.input.sl)) *
+        pot
+          (fmCutoff afr
+              (spectralLocalization_defect afr N0 flow.input.sl) + 2)
+          (by omega) 0 < flow.input.g 0}
+    {AF : AFTrajectoryCertificate}
+    {trajectory : producer.ShiftedAFCoupling AF}
+    {comparison : producer.RenormalizedPhysicalComparison}
+    {bare : producer.RenormalizedBareTail comparison}
+    {tracking : ExactRateEventualPhysicalMarginTracking flow
+      anchorDominates AF trajectory comparison bare}
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    (D : ContinuumProjectiveOSResidualData flow
+      anchorDominates AF trajectory comparison bare tracking mu)
+    (denseStageSemantics : BF4WilsonDenseStageCenteredVacuumSemanticBase
+      producer.toBF4QuarterPhysicalSeparatorProducer
+      (WilsonSelectedOSGNSData.ofLinked D.osGNS)) :
+    ContinuumWilsonDenseStageResidualData flow
+      anchorDominates AF trajectory comparison bare tracking mu :=
+  ofProjectiveOSResidualData D denseStageSemantics.toProjectiveBase
+
 end ContinuumWilsonDenseStageResidualData
 
 end YMGap.Continuum.BF4FarautGraphNormContinuumRealization
@@ -391,3 +430,4 @@ end YMGap.Continuum.BF4FarautGraphNormContinuumRealization
 #print axioms YMGap.Continuum.BF4FarautGraphNormContinuumRealization.ContinuumWilsonDenseStageResidualData.toContinuumWilsonGraphNormResidualData
 #print axioms YMGap.Continuum.BF4FarautGraphNormContinuumRealization.ContinuumWilsonDenseStageResidualData.continuumWilsonMinimalBoundedMassGap
 #print axioms YMGap.Continuum.BF4FarautGraphNormContinuumRealization.ContinuumWilsonDenseStageResidualData.ofProjectiveOSResidualData
+#print axioms YMGap.Continuum.BF4FarautGraphNormContinuumRealization.ContinuumWilsonDenseStageResidualData.ofProjectiveOSResidualDataWithSemanticStages

@@ -465,7 +465,12 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `WilsonDenseUnitVacuumPairingModulus`,
   `BF4RawStageMomentModulus.squareBound`,
   `BF4RawStageMomentModulus.meanBound`,
+  `BF4RawStageMomentSemanticIdentification.squareSemantics`,
+  `BF4RawStageMomentSemanticIdentification.meanSemantics`,
+  `BF4RawStageMomentSemanticIdentification.toRawStageMomentModulus`,
   `BF4WilsonDenseStageCenteredVacuumProjectiveBase`,
+  `BF4WilsonDenseStageCenteredVacuumSemanticBase`,
+  `BF4WilsonDenseStageCenteredVacuumSemanticBase.toProjectiveBase`,
   `BF4WilsonDenseStageCenteredVacuumProjectiveBase.raw_square_diagonal_comparison`,
   `BF4WilsonDenseStageCenteredVacuumProjectiveBase.raw_mean_diagonal_comparison`,
   `ContinuumYMExistence`,
@@ -660,9 +665,13 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   radical transfer intertwining, rational projective modulus,
   fixed-observable raw-square and raw-mean moduli, or explicit representative
   vacuum-pairing modulus.  The moving-diagonal versions are now constructed.
-  Those fixed-observable fields are the current thermodynamic/projective
-  analytic frontier; the compiler proves their sufficiency but not the
-  estimates themselves.
+  Alternatively, two exact same-stage semantic identities construct the raw
+  moment moduli with zero rates; these stronger identities are also not
+  inhabited.  Thus the current thermodynamic/projective analytic frontier is
+  to construct either the general fixed-observable moment moduli or, on an
+  exact realization branch, the finite-square and finite-mean same-stage
+  identities.  The compiler proves both routes sufficient but proves neither
+  analytic input.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full
