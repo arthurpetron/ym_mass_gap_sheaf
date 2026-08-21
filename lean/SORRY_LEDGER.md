@@ -424,6 +424,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovVacuumPairing.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovContraction.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovCorrelationDecay.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalFixedNomeCompletedOperatorNormGap.lean`,
   and
   `lean/YMGap/Continuum/BF4FarautGraphNormContinuumRealization.lean`.
 - **named fields / structures**:
@@ -812,6 +813,16 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   the limit in `CReal.leEv`.  The corresponding centered and local-gluing
   cofinal records are uninhabited.  The matched-AF finite producer does not
   supply them because its nome changes with scale.
+  The exact fixed-nome centered-sixteenth interface now has a stronger
+  kernel-checked consequence at every representation cutoff: exact rational
+  centering transports it through the genuine finite physical GNS completion,
+  and the constructive form-to-operator theorem yields
+  `||T v||^2 <= (1/16)^2 ||v||^2` on each completed finite-cutoff vacuum
+  complement, uniformly in the cutoff and for arbitrary finite half-extent.
+  The interface itself remains uninhabited, and these varying completed
+  spaces are not yet the single cutoff-removed completion; centered graph-norm
+  convergence of vectors and transferred vectors remains the exact transport
+  frontier.
   The structural carrier edge has advanced independently: the constructive
   finite rational span of the genuine unit observables now carries a positive
   symmetric rational-bilinear `CReal` form whose `K`-th approximation is the

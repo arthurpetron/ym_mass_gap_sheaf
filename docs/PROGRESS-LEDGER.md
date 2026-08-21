@@ -2616,3 +2616,25 @@ do nome/volume/spacing limits, continuum QFT, and the Clay theorem.  A source
 check and focused monitored build completed successfully, the latter with
 1215 jobs.  Every printed load-bearing declaration reports only
 `[propext, Quot.sound]`.
+
+## Fixed-nome finite-cutoff completed operator gap (2026-08-21)
+
+`BF4PhysicalFixedNomeCompletedOperatorNormGap` extends the existing
+`FixedNomeCutoffCenteredSixteenth` interface from bounded-observable connected
+forms to the genuine physical GNS completion at every representation cutoff.
+Exact rational centering now proves the completed vacuum-complement form gap
+with rate `1/16` for arbitrary finite half-extent.
+
+The existing constructive form-to-operator argument then upgrades this to the
+literal completed squared-norm contraction
+`||T v||^2 <= (1/16)^2 ||v||^2`, uniformly in the representation cutoff.  No
+division by a vector norm or spectral theorem is used.
+
+No `FixedNomeCutoffCenteredSixteenth` inhabitant is constructed here.  The
+result is still a family of finite-cutoff completed GNS spaces, not the single
+cutoff-removed completion constructed in the current frontier.  Reaching that
+object now requires the fixed-nome finite certificate and centered graph-norm
+convergence of both vectors and their transferred images.  Nome/volume/spacing
+limits, continuum QFT, and the Clay theorem remain open.  A source check and
+focused monitored build completed successfully, the latter with 1237 jobs.
+Every printed load-bearing declaration reports only `[propext, Quot.sound]`.
