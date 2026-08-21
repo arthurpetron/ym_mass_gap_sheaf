@@ -38,6 +38,7 @@ set_option maxHeartbeats 5000000
 
 open YMGap.Constructive
 open YMGap.Continuum.BF4PhysicalCutoffLinearCompletion
+open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedAlgebra
 open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedModule
 open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedVacuumComplement
 open YMGap.Continuum.BF4PhysicalCutoffLinearGNSForm
@@ -234,6 +235,77 @@ theorem centralPhysicalLinearMarkovDenseTransfer_vacuum
     (centralPhysicalLinearMarkovVacuumDenseLimit_eq_vacuum
       hw0 hw1 half)
 
+/-! ## 5. Algebra forced by the common cutoff syntax -/
+
+/-- Cauchy representatives with pointwise equal sequences are explicitly
+close, independently of their rate fields. -/
+private def cauchyCloseOfSeqEq
+    {D : SquaredSeminorm} (X Y : D.Cauchy)
+    (hseq : forall cutoff, X.seq cutoff = Y.seq cutoff) :
+    D.Close X Y where
+  modulus := fun _ => 0
+  close := by
+    intro epsilon hepsilon cutoff _
+    rw [hseq cutoff]
+    exact CReal.leEv_trans
+      (CReal.leEv_of_equiv (D.distSq_refl (Y.seq cutoff)))
+      (czero_le_ofQ'_of_pos hepsilon)
+
+/-- The dense cutoff-limit transfer preserves zero. -/
+theorem centralPhysicalLinearMarkovDenseTransfer_zero
+    {w : Q'} {hw0 : (0 : Q') < w} {hw1 : w < (1 : Q')}
+    {half : Nat}
+    (M : CentralPhysicalLinearMarkovDenseCauchyData hw0 hw1 half) :
+    centralPhysicalLinearMarkovDenseTransfer M zero =
+      completedPhysicalLinearZero hw0 hw1 half := by
+  apply Quotient.sound
+  exact ⟨cauchyCloseOfSeqEq
+    (centralPhysicalLinearMarkovCutoffCauchy (M.modulus zero))
+    ((centralPhysicalCutoffLinearSquaredSeminorm
+      hw0 hw1 half).constant zero)
+    (fun _ => rfl)⟩
+
+/-- The dense cutoff-limit transfer is additive.  This uses no new analytic
+estimate: both representatives have pointwise the same recursively defined
+cutoff image; only their Cauchy rate bookkeeping differs. -/
+theorem centralPhysicalLinearMarkovDenseTransfer_add
+    {w : Q'} {hw0 : (0 : Q') < w} {hw1 : w < (1 : Q')}
+    {half : Nat}
+    (M : CentralPhysicalLinearMarkovDenseCauchyData hw0 hw1 half)
+    (left right : CentralPhysicalLinearObservable) :
+    centralPhysicalLinearMarkovDenseTransfer M (add left right) =
+      completedPhysicalLinearAdd hw0 hw1 half
+        (centralPhysicalLinearMarkovDenseTransfer M left)
+        (centralPhysicalLinearMarkovDenseTransfer M right) := by
+  apply Quotient.sound
+  exact ⟨cauchyCloseOfSeqEq
+    (centralPhysicalLinearMarkovCutoffCauchy
+      (M.modulus (add left right)))
+    ((physicalLinearAddQuadraticLipschitz
+      hw0 hw1 half).mapCauchy
+        (centralPhysicalLinearMarkovCutoffCauchy (M.modulus left))
+        (centralPhysicalLinearMarkovCutoffCauchy (M.modulus right)))
+    (fun _ => rfl)⟩
+
+/-- The dense cutoff-limit transfer commutes with every rational scalar. -/
+theorem centralPhysicalLinearMarkovDenseTransfer_smul
+    {w : Q'} {hw0 : (0 : Q') < w} {hw1 : w < (1 : Q')}
+    {half : Nat}
+    (M : CentralPhysicalLinearMarkovDenseCauchyData hw0 hw1 half)
+    (scalar : Q') (observable : CentralPhysicalLinearObservable) :
+    centralPhysicalLinearMarkovDenseTransfer M (smul scalar observable) =
+      completedPhysicalLinearSmul hw0 hw1 half scalar
+        (centralPhysicalLinearMarkovDenseTransfer M observable) := by
+  apply Quotient.sound
+  exact ⟨cauchyCloseOfSeqEq
+    (centralPhysicalLinearMarkovCutoffCauchy
+      (M.modulus (smul scalar observable)))
+    ((physicalLinearSmulContinuous
+      hw0 hw1 half scalar).mapCauchy
+        (centralPhysicalLinearMarkovCutoffCauchy
+          (M.modulus observable)))
+    (fun _ => rfl)⟩
+
 /-! ## Axiom audit -/
 
 #print axioms CentralPhysicalLinearMarkovCrossCutoffModulus
@@ -243,5 +315,8 @@ theorem centralPhysicalLinearMarkovDenseTransfer_vacuum
 #print axioms centralPhysicalLinearMarkovVacuumDenseLimit_eq_vacuum
 #print axioms centralPhysicalLinearMarkovDenseTransfer
 #print axioms centralPhysicalLinearMarkovDenseTransfer_vacuum
+#print axioms centralPhysicalLinearMarkovDenseTransfer_zero
+#print axioms centralPhysicalLinearMarkovDenseTransfer_add
+#print axioms centralPhysicalLinearMarkovDenseTransfer_smul
 
 end YMGap.Continuum.BF4PhysicalCutoffLinearMarkovCauchy

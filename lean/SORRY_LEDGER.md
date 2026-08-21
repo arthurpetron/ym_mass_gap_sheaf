@@ -841,11 +841,12 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   same complement.  The cross-cutoff Cauchy obligation is now factored at its
   exact first use as Type-level pointwise modulus data.  Each witness produces
   a canonical completed dense image independently of the rate proof, and a
-  family produces a map from finite-linear syntax into the completion.  The
-  vacuum modulus is inhabited with rate zero and its completed limit is
-  exactly the normalized vacuum.  Nonconstant pointwise moduli and the
-  radical/Cauchy-representative compatibility needed for a completed operator
-  remain open.
+  family produces a rational-linear map from finite-linear syntax into the
+  completion: preservation of zero, addition, and every rational scalar is
+  proved from pointwise identity of the recoded cutoff sequences.  The vacuum
+  modulus is inhabited with rate zero and its completed limit is exactly the
+  normalized vacuum.  Nonconstant pointwise moduli and the radical/Cauchy-
+  representative compatibility needed for a completed operator remain open.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full

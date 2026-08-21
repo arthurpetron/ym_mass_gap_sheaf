@@ -2455,7 +2455,10 @@ Such a witness now constructs an actual Cauchy representative and therefore a
 canonical point of the existing physical completion.  The completed point is
 independent of the chosen rate witness.  A family of pointwise witnesses
 contracts to an actual map from the dense finite-linear syntax into the
-completion.
+completion.  Because the cutoff action is recursive on that common syntax,
+this dense map is now proved to preserve zero, addition, and every rational
+scalar.  These equalities compare pointwise identical Cauchy sequences and
+therefore require no additional analytic hypothesis.
 
 The vacuum channel is closed unconditionally: the global cutoff vacuum
 identity gives a zero-rate cross-cutoff modulus, and its completed cutoff
