@@ -752,6 +752,14 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   of the physical Markov action itself, extension beyond the bounded
   multiplicative carrier, and estimates uniform in nome, extent, volume, and
   spacing.
+  The same cutoff modulus now also constructs the actual one-step
+  same-object transfer-form limit for bounded lower observables: its finite
+  approximations are `centralPhysicalWeightedInner a (P a)`, and positivity
+  plus the identity-form upper bound survive the cutoff limit.  This is not a
+  cutoff-independent operator or Hilbert completion.  The next form-level
+  obligation is to construct the centered/connected cutoff limit and then
+  determine what strict finite contraction data can be made uniform along the
+  relevant physical scale trajectory.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full

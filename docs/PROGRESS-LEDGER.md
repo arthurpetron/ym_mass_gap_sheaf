@@ -2000,3 +2000,28 @@ OS reconstruction, completed limiting gap, or Clay theorem is proved.  A
 focused monitored build completed 979 jobs, followed by a clean source check
 after adding the explicit weighted-inner identity.  Every printed
 load-bearing declaration reports only `[propext, Quot.sound]`.
+
+## Fixed-nome cutoff limit of the physical autocorrelation form (2026-08-20)
+
+`BF4PhysicalCutoffAutocorrelationLimit` closes the next same-object moment
+edge.  For a lower `[0,1]` observable `a`, the full-slab insertion
+`a(lower) * a(reflected-upper)` is again cutoff-stable and `[0,1]`.  The
+existing physical Markov-quadratic equality and full-slab reindex identify
+its normalized BF4 expectation at every cutoff with the actual weighted
+transfer form `centralPhysicalWeightedInner a (P a)`.
+
+The executable cutoff modulus therefore constructs
+`centralPhysicalAutocorrelationCutoffLimit`, whose rational approximations
+are definitionally those finite physical Markov forms.  The finite OS
+positivity and identity-form estimate contract into the limiting interval
+`0 <= autocorrelationLimit <= stationaryNormLimit`.  This is a genuine limit
+of the same-object one-step transfer moment, not merely an ordinary
+expectation limit.
+
+No transfer operator or cutoff-independent Hilbert carrier is constructed;
+the nome and finite half-extent remain fixed.  Centering and connected
+correlations at the cutoff limit, a strict vacuum-complement bound,
+thermodynamic/spacing uniformity, OS reconstruction, and the Clay theorem
+remain open.  A source check and focused monitored build completed
+successfully, the latter with 1130 jobs.  Every printed load-bearing
+declaration reports only `[propext, Quot.sound]`.
