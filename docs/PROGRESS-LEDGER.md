@@ -2759,6 +2759,34 @@ QFT-axiom, and Clay targets remain open.  The source check and focused
 monitored build completed successfully, the latter with 1215 jobs.  Every
 printed load-bearing declaration reports only `[propext, Quot.sound]`.
 
+## Constructive centered-coordinate LDL restriction (2026-08-21)
+
+`FiniteRationalCenteredRestrictionCertificate` makes the coordinate reduction
+used by finite mean-zero computations explicit.  Its Type-valued restriction
+record supplies a lift from a smaller rational coordinate space, proves every
+lifted vector is exactly weighted-centered, and constructively recovers
+reduced coordinates for every centered full vector.  Separate exact
+quadratic identifications connect the reduced upper and lower matrices to the
+two canonical full-carrier penalized forms.
+
+Nonnegativity of both reduced matrices now proves the absolute centered
+contraction on the full carrier.  Ordinary complete LDL checks and scalable
+cleared-denominator row/triangularity/pivot checks are both compiled through
+that bridge.  This closes the generic logical gap between a reduced mean-zero
+factorization and the canonical physical two-sided inequality without using a
+basis choice or an existential coordinate inverse.
+
+No physical restriction, reduced matrix table, or cofinal certificate family
+is constructed here.  In particular, the existing cutoff-two 64-coordinate
+table still targets the one-sided `49/50` form and does not establish the
+two-sided `1/16` target.  The next frontier is to specialize this restriction
+interface to the genuine BF4 physical finite carrier and then construct valid
+upper/lower certificate data at constructively unbounded fixed-nome cutoffs.
+Thermodynamic, nome, spacing, continuum-reconstruction, QFT-axiom, and Clay
+targets remain open.  The source check and focused monitored build completed
+successfully, the latter with 218 jobs.  Every printed load-bearing declaration
+reports only `[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the

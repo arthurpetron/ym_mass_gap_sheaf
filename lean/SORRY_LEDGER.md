@@ -434,6 +434,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/FiniteListIndexQuadraticBridge.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffFiniteIndexBridge.lean`,
   `lean/YMGap/Continuum/FiniteRationalPenalizedMatrix.lean`,
+  `lean/YMGap/Continuum/FiniteRationalCenteredRestrictionCertificate.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffCofinalLDLGap.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovTransfer.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovLaws.lean`,
@@ -889,6 +890,15 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   spaces are not yet the single cutoff-removed completion; centered graph-norm
   convergence of vectors and transferred vectors remains the exact transport
   frontier.
+  The finite certificate path now also supports the smaller matrices produced
+  by eliminating one weighted-mean coordinate.  A Type-valued restriction
+  explicitly lifts reduced coordinates, proves exact centering, and
+  constructively recovers reduced coordinates for every centered full vector;
+  exact upper/lower quadratic identities then compile ordinary or
+  cleared-denominator LDL checks to the canonical two-sided contraction.  No
+  physical restriction or reduced LDL table is inhabited.  The historical
+  cutoff-two table remains one-sided at `49/50`, so it is not evidence for the
+  required two-sided `1/16` cofinal family.
   That transport frontier is now specialized to the actual cutoff-removed
   carrier.  Every completion representative has a canonical exactly centered
   vector in each finite-cutoff physical GNS completion, and its finite vacuum
