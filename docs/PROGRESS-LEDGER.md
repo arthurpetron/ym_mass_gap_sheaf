@@ -2363,6 +2363,30 @@ source check and focused monitored build completed successfully, the latter
 with 1153 jobs.  Every printed load-bearing declaration reports only
 `[propext, Quot.sound]`.
 
+## Old-row joint-kernel `l1` contraction (2026-08-21)
+
+`BF4PhysicalCutoffConditionalCoreReduction` contracts the already-proved
+degree-thirteen normalized joint-kernel entry modulus across one complete old
+target row.  For an old carrier with `N` targets, it requests entry tolerance
+`epsilon / N`; exact finite summation cancels the dimension and proves
+
+`sum_oldTargets |J_first(source,target) - J_second(source,target)| <= epsilon`
+
+for every supported old source and every two cutoffs beyond the executable
+schedule.  This is an inhabited theorem derived from the existing physical
+cutoff convergence, not a new residual assumption.  The preceding core--tail
+compiler was also sharpened so its core hypothesis includes the exact
+zero-outside support condition used by the old enumerated carrier, avoiding an
+unnecessary demand on illegal labellings.
+
+This closes the common old-row joint-numerator component only.  Passing to the
+conditional Markov row still requires a positive source-row marginal floor and
+joint target-shell bounds; the stationary source-shell tightness required by
+the GNS compiler is separate.  The cofinal finite sixteenth and every
+thermodynamic/nome/spacing and continuum obligation remain open.  Focused
+monitored builds completed successfully with 1153 and 1159 jobs.  Every
+printed load-bearing declaration reports only `[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the

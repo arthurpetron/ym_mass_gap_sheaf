@@ -56,11 +56,13 @@ open YMGap.Continuum.FiniteWeightedCartesianInjection
 open YMGap.Continuum.FiniteWeightedGramSOS
 open YMGap.Continuum.GNSQuotient
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphCutoffCoherence
+open YMGap.Continuum.SU2FiniteTrivalentPacketGraphActualOperator
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
 open YMGap.Continuum.Z4HalfTimeReflectionCrossPlaneFactorization
 open YMGap.Continuum.Z4HalfTimeReflectionCrossPlaneLabellings
 open YMGap.Continuum.Z4HalfTimeReflectionGeometry
+open YMGap.Continuum.Z4HalfTimeReflectionPhysicalGram
 open YMGap.Continuum.Z4FiniteCylinderQuadraticStability
 
 local infix:50 " ≈ " => Q'.eqv
@@ -142,6 +144,7 @@ theorem centralPhysicalFiniteUnitDistSq_le_core_add_shell
       YMGap.Continuum.BF4PhysicalCutoffStationaryBridge.CentralPhysicalUnitObservable)
     (coreError : Q') (hcoreError : (0 : Q') <= coreError)
     (hcore : forall state,
+      (forall edge, edge ∉ centralLowerFaceIds half -> state edge = 0) ->
       labelWithinB base (centralLowerFaceIds half) state = true ->
       let difference := left.value state + -(right.value state)
       difference * difference <= coreError) :
@@ -168,8 +171,14 @@ theorem centralPhysicalFiniteUnitDistSq_le_core_add_shell
           (states.filter test) := by
       apply listQSum_mono
       intro state hstate
+      have hpositive := (List.mem_filter.mp hstate).1
+      have hcutoffCarrier :=
+        (mem_centralPositiveHalfStates_iff.mp hpositive).1
+      have hsupport :=
+        (boundedEdgeLabellings_sound cutoff
+          (centralLowerFaceIds half) state hcutoffCarrier).2
       exact Q'.mul_le_mul_of_nonneg_left _ _ _
-        (hcore state (List.mem_filter.mp hstate).2)
+        (hcore state hsupport (List.mem_filter.mp hstate).2)
         (centralPhysicalRowMarginal_nonnegative hw cutoff half state)
     refine Q'.le_trans' _ _ _ hpoint ?_
     refine Q'.le_trans' _
@@ -222,6 +231,7 @@ theorem centralPhysicalAtomicMarkovDistSq_le_core_add_shell
     (hcoreError : (0 : Q') <= coreError)
     (stageRate : Nat)
     (hcore : forall state,
+      (forall edge, edge ∉ centralLowerFaceIds half -> state edge = 0) ->
       labelWithinB base (centralLowerFaceIds half) state = true ->
       let left := centralPhysicalMarkovCutoffUnitObservable
         (Q'.le_of_lt hw0) first half observable
@@ -285,6 +295,7 @@ structure CentralPhysicalAtomicMarkovCoreTailCauchyData
       actionRate observable epsilon <= first ->
       actionRate observable epsilon <= second ->
     forall state,
+      (forall edge, edge ∉ centralLowerFaceIds half -> state edge = 0) ->
       labelWithinB (base observable epsilon)
         (centralLowerFaceIds half) state = true ->
       let left := centralPhysicalMarkovCutoffUnitObservable
