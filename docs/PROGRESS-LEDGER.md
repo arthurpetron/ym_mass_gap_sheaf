@@ -2655,6 +2655,32 @@ targets remain open.  The source check and focused monitored build completed
 successfully, the latter with 1334 jobs.  Every printed load-bearing
 declaration reports only `[propext, Quot.sound]`.
 
+## Two-sided finite rational spectral certificate (2026-08-21)
+
+`FiniteRationalReversibleSpectralCertificate` now exposes the lower spectral
+edge that the absolute physical autocorrelation estimate requires.  Alongside
+the existing upper-edge quadratic `q D - K + d d^T`, it defines the exact
+lower-edge quadratic `q D + K + d d^T` and proves that nonnegativity of both
+forms gives `|x^T K x| <= q x^T D x` on the exactly weighted-centered
+subspace.
+
+The theorem is available both from the two penalized quadratic inequalities
+and from two separately identified finite matrix PSD certificates.  Those
+interfaces can be fed directly by the existing exact rational LDL checker, so
+the cofinal physical residual is no longer incorrectly presented as a
+one-sided PSD problem: each selected cutoff needs an upper and a lower
+kernel-checked certificate, plus exact identification with the physical
+carrier sums.
+
+No cofinal cutoff family, physical reindexing identification, or new LDL table
+is constructed here.  In particular, the existing cutoff-two sector LDL data
+certifies one finite matrix only and cannot inhabit the fixed-nome cofinal
+sixteenth.  Thermodynamic, nome, spacing, continuum-reconstruction, QFT-axiom,
+and Clay targets remain open.  The source check and focused monitored build
+completed successfully, the latter with 216 jobs.  Every printed load-bearing
+declaration reports only `[propext]`, within the allowed
+`[propext, Quot.sound]` gate.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the
