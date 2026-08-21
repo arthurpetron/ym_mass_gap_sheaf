@@ -974,3 +974,28 @@ stability, continuum QFT existence, and the Clay theorem remain open.  The
 focused single-worker build completed 1230 jobs; the forbidden-token scan was
 empty and every exported declaration reports only `[propext, Quot.sound]`.
 No full audit, remote push, or GitHub CI run was used.
+
+## Completed Cauchy--Schwarz for the physical Markov form (2026-08-20)
+
+`BF4PhysicalCompletedMarkovFormCauchySchwarz` starts a direct physical-gap
+route that does not require an isometric BF4-to-strong-Z4 embedding.  The
+positive one-macro form `B_T(left,right) = <T left,right>` is packaged as an
+actual rational `SmulGNSData`; its symmetry is the proved physical detailed-
+balance law and its positivity is the proved finite OS/Markov positivity.
+The generic constructive GNS algebra then supplies sharp finite Cauchy--
+Schwarz for `B_T`.
+
+Termwise rational Cauchy--Schwarz is passed through the explicit CReal pairing
+limits, giving the completed inequality
+
+`<Tx,y>^2 <= <Tx,x> * <Ty,y>`.
+
+This is the operator-algebra engine needed to upgrade a completed physical
+form gap to a squared-norm gap without a spectral theorem or square root.  It
+does not yet pass the producer's finite centered `1/16` estimate to every
+completed vacuum-orthogonal vector; stagewise centering and that limit passage
+are the next frontier.  Thermodynamic/continuum stability, continuum QFT
+existence, and the Clay theorem remain open.  The focused single-worker build
+completed 1195 jobs; the forbidden-token scan was empty and every exported
+declaration reports only `[propext, Quot.sound]`.  No full audit, remote push,
+or GitHub CI run was used.
