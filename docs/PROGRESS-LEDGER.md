@@ -1093,3 +1093,36 @@ interface, followed by OS/QFT reconstruction in that limit; the Clay theorem
 remains open.  The focused single-worker build completed 1234 jobs; the
 forbidden-token scan was empty and every exported declaration reports only
 `[propext, Quot.sound]`.  No full audit, remote push, or GitHub CI run was used.
+
+## Physical BF4 graph-norm limit stability (2026-08-20)
+
+`BF4PhysicalModulatedGapLimitStability` factors and proves the first honest
+finite-to-continuum operator bridge.  At each matched cutoff it exposes an
+explicit `CauchyGNS` representative, its literal constructive-real squared
+norm, and the squared norm after the actual finite physical macro transfer.
+The completed modulated theorem then rewrites to the representative-level
+inequality
+
+`||T_j v_j||^2 <= (1/16)^2 ||v_j||^2`.
+
+`BF4WilsonGraphNormLimitApproximation` records the nontrivial remaining limit
+data without assuming that conclusion: explicit approximants for every vector
+of a selected continuum Wilson carrier, preservation of the finite vacuum
+complement, constructive convergence of both graph-norm components, exact
+class identifications with the continuum inner products, and identification
+of the selected continuum macro separator with `1/16`.  Passing the uniform
+finite inequality through the two supplied limits constructs
+`WilsonOperatorNormGapPin`; the continuum operator gap is a theorem, not a
+field.  The AF/Faraut producer feeds this compiler through its already-proved
+conversion to `BF4QuarterPhysicalSeparatorProducer`.
+
+No inhabitant of the graph-norm approximation record is constructed, and the
+record still presupposes a genuine continuum Yang--Mills/OS/Wilson carrier.
+The macro separator also still needs a correct physical-time interpretation
+before it yields the dimensionful generator gap.  Thus this closes the formal
+inequality-persistence compiler while leaving the analytic thermodynamic and
+continuum construction, the physical semigroup/generator identification, and
+the Clay theorem open.  The focused single-worker build completed 1261 jobs;
+the forbidden-token scan was empty and every exported declaration reports
+only `[propext, Quot.sound]`.  No full audit, remote push, or GitHub CI run was
+used.
