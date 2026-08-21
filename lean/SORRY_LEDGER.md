@@ -433,6 +433,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/FiniteRationalReversibleSpectralCertificate.lean`,
   `lean/YMGap/Continuum/FiniteListIndexQuadraticBridge.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffFiniteIndexBridge.lean`,
+  `lean/YMGap/Continuum/FiniteRationalPenalizedMatrix.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovTransfer.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovLaws.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovVacuumComplement.lean`,

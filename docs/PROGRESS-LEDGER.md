@@ -2706,6 +2706,31 @@ checks and focused monitored builds completed successfully, with 216 and 983
 jobs respectively.  Every printed load-bearing declaration reports only
 `[propext, Quot.sound]`.
 
+## Canonical two-sided finite penalized matrices (2026-08-21)
+
+`FiniteRationalPenalizedMatrix` defines the literal finite matrices
+`q D - K + d d^T` and `q D + K + d d^T` whose positive semidefiniteness
+controls the upper and lower spectral edges of a reversible finite kernel.
+It proves directly that their complete indexed matrix quadratics are the two
+penalized scalar quadratics consumed by the two-sided contraction theorem.
+
+The proof expands the diagonal and stationary rank-one entries through exact
+finite rational sums, including a constructive local proof that `List.range`
+has no duplicates.  This avoids the `Classical.choice` dependency carried by
+the corresponding core-library theorem in this Lean toolchain.  External LDL
+generation can now target canonical physical entries rather than relying on
+an opaque matrix-identification hypothesis.
+
+No LDL factor table or cofinal cutoff family is constructed here.  The next
+finite frontier is to compile successful upper and lower Boolean LDL checks
+for these matrices, after the exact physical finite-index bridge, into one
+cutoffwise absolute centered-correlation certificate and then into
+`FixedNomeCofinalCenteredSixteenth`.  Thermodynamic, nome, spacing,
+continuum-reconstruction, QFT-axiom, and Clay targets remain open.  The source
+check and focused monitored build completed successfully, the latter with 217
+jobs.  Every printed load-bearing declaration reports only
+`[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the
