@@ -2247,6 +2247,27 @@ QFT, and the Clay theorem remain open.  A source check and focused monitored
 build completed successfully, the latter with 1313 jobs.  Every printed
 load-bearing declaration reports only `[propext, Quot.sound]`.
 
+## Iterated pointwise-data adaptive contraction (2026-08-21)
+
+`BF4PhysicalCutoffLinearMarkovAdaptiveContraction` defines natural powers of
+the actual pointwise-data adaptive transfer restricted to the actual completed
+physical vacuum complement.  Induction on the power proves the same-object
+geometric squared-norm estimate
+`<T^n v,T^n v> <= (q^2)^n <v,v>` from any adaptive strict-contraction datum.
+
+Specialized corollaries instantiate the rate with the literal `1/16` supplied
+by either `FixedNomeCofinalCenteredSixteenth` or the stronger
+`FixedNomeCofinalLocalGluing`.  Thus the causal chain from cofinal finite
+strictness through the completed adaptive operator to all discrete time powers
+is now kernel-checked without the historical same-index completion modulus.
+
+This theorem constructs neither the nonconstant pointwise dense Cauchy data
+nor either cofinal finite certificate.  It remains at fixed nome and fixed
+finite half-volume; thermodynamic/nome/spacing limits, continuum QFT, and the
+Clay theorem remain open.  A source check and focused monitored build completed
+successfully, the latter with 1314 jobs.  Every printed load-bearing
+declaration reports only `[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the
