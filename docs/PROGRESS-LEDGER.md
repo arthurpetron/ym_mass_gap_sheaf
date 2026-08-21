@@ -2199,6 +2199,36 @@ limits, continuum QFT, and the Clay theorem remain open.  A source check and
 focused monitored build completed successfully, the latter with 1308 jobs.
 Every printed load-bearing declaration reports only `[propext, Quot.sound]`.
 
+## Cutoff-two restricted physical-kernel bridge boundary (2026-08-21)
+
+`BF4PhysicalBoundaryCutoffTwoSectorRawRowSumCheck` and its 65
+process-isolated row modules now prove that every stored row weight in the
+exact cutoff-two sector table is the sum of its 65 stored kernel entries.
+Each individual Boolean row check is axiom-free; the aggregate rational
+equality uses only `[propext, Quot.sound]`.
+
+`BF4PhysicalBoundaryCutoffTwoSectorPhysicalKernelBridge` isolates the other
+representation obligation as
+`CutoffTwoSectorPhysicalTableCertificate`: all 65 generated recurrence rows
+must agree with the stored exact table.  Conditional on precisely this finite
+certificate, every stored entry is proved equal to the production
+`centralPhysicalReflectedKernel` restricted to the literal sector states, and
+every stored row weight is therefore the exact production restricted row
+sum.  The bridge proof itself passed both a direct source check and a focused
+dependency-complete build, the latter with 1668 jobs, at exactly
+`[propext, Quot.sound]`.
+
+The physical-table certificate is deliberately not inhabited here.  A prior
+monolithic attempt to check all physical rows was stopped by the monitored
+builder when available memory reached the 12 GiB reserve and is not recorded
+as passed.  Thus the existing `49/50` theorem is still a verified exact-table
+sector gap plus an explicit conditional production bridge, not yet a fully
+discharged production-kernel sector gap.  The next finite frontier is to
+inhabit that certificate with crash-safe physical-row shards or replace it by
+a more structural recurrence equality.  Compatible sector selection across
+cutoffs, completion, thermodynamic/continuum control, QFT axioms, and the Clay
+conclusion remain open.
+
 ## Adaptive completed graph-norm convergence (2026-08-21)
 
 `BF4PhysicalCutoffLinearMarkovAdaptiveGraphNorm` diagonalizes the two self-pair

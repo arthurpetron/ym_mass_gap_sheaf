@@ -2478,6 +2478,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `BlockingStep.Phi` defect power, and half-loss all remain kernel-checked
   under `[propext, Quot.sound]`.
 
+### [BF4-cutoff-two-physical-table-bridge] Restricted physical table seam — **FACTORED 2026-08-21**
+
+- **milestone**: finite physical sector selection / exact kernel
+  representation.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSectorRawRowSumCheck.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSectorRawRowSumRows.lean`,
+  its `RawRowSumRows/Row00.lean` through `Row64.lean` shards, and
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSectorPhysicalKernelBridge.lean`.
+- **decl**: `cutoffTwoSectorRawRowSums_checked`,
+  `cutoffTwoSectorRawRowSum_eqv_sum`,
+  `CutoffTwoSectorPhysicalTableCertificate`,
+  `centralPhysicalReflectedKernel_cutoffTwo_sectorStateAt_eqv_raw`, and
+  `cutoffTwoSectorRawRowSum_eqv_physicalSectorSum`.
+- **obligation**: inhabit the remaining 65-row certificate comparing the
+  computed production recurrence with the stored exact table; row-sum
+  normalization is now unconditionally checked, and the production bridge is
+  proved conditional on exactly that finite residual.
+- **constructive?**: yes — all witnesses must remain kernel-checkable under the
+  stated axiom gate; the current certificate has no inhabitant.
+- **status note**: the 65 row-sum shards and aggregate completed in 1667 jobs;
+  the bridge target completed in 1668 jobs; load-bearing declarations use only
+  `[propext, Quot.sound]`.  An earlier monolithic physical-row aggregate was
+  stopped at the monitored 12 GiB memory reserve and is not counted as passed.
+  Therefore no fully discharged production-kernel `49/50` gap, cofinal sector
+  family, completion, continuum QFT, or Clay conclusion is claimed.
+
 ## How to add an entry
 
 ```markdown
