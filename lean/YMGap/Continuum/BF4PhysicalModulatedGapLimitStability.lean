@@ -23,6 +23,7 @@ mass-gap theorem.
 import YMGap.Continuum.BF4PhysicalModulatedOperatorNormGap
 import YMGap.Continuum.BF4FarautPhysicalSeparatorProducer
 import YMGap.Continuum.FCNormBoundLimit
+import YMGap.Continuum.WilsonLinearTimeTranslationHandoff
 import YMGap.Continuum.WilsonMinimalBoundedMassGapHandoff
 
 namespace YMGap.Continuum.BF4PhysicalModulatedGapLimitStability
@@ -44,6 +45,7 @@ open YMGap.Continuum.GNSQuotient
 open YMGap.Continuum.FourDExistence
 open YMGap.Continuum.PhysicalSeparator
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
+open YMGap.Continuum.WilsonLinearTimeTranslationHandoff
 open YMGap.Continuum.WilsonMinimalBoundedMassGapHandoff
 
 /-! ## 1. Explicit representatives of the varying finite carriers -/
@@ -347,6 +349,83 @@ structure BF4WilsonRepresentativeGraphNormLimitApproximation
       (D.wilson.toGNSData.cinnerRep
         (transferredRepresentative X) (transferredRepresentative X))
 
+/-- The sharper graph-norm interface when the selected Wilson dynamics already
+comes with the repository's linear-time-translation certificate.  Its
+`LinearTransferOperator.TCauchy` field supplies the representative transfer
+lift, so no second lift or descent equation is requested here. -/
+structure BF4WilsonLinearGraphNormLimitApproximation
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat -> Q'}
+    {P : PhysicalSeparator}
+    (producer : BF4QuarterPhysicalSeparatorProducer
+      family law spacing coupling P)
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    (D : WilsonSelectedOSGNSData H) : Type 3 where
+  separatorPinned : D.selectedSpectralData.gap.sep = bf4MacroNormRate
+  /-- Existing linear and representative-lifted strengthening of the same
+  selected Wilson time translation. -/
+  linearTimeTranslation :
+    WilsonLinearTimeTranslationPin D.timeTranslation
+  approximant : forall _X : SelectedWilsonCauchy D,
+    (scale : Nat) -> MatchedPhysicalStageCauchy family coupling scale
+  approximant_vacuumOrthogonal : forall
+    (X : SelectedWilsonCauchy D),
+    D.selectedSpectralData.vacPerp (selectedWilsonPoint D X) ->
+      forall scale : Nat,
+        CentralPhysicalModulatedVacuumOrthogonal
+          (matchedAllSpinWeight family coupling scale)
+          (matchedAllSpinWeight_nonnegative family coupling scale)
+          (matchedAllSpinCutoff family coupling scale) 0
+          (matchedPhysicalStagePoint family coupling scale
+            (approximant X scale))
+  norm_converges : forall X,
+    CReal.ConvergesTo
+      (fun scale => matchedPhysicalStageNorm family coupling scale
+        (approximant X scale))
+      (D.wilson.toGNSData.cinnerRep X X)
+  /-- The finite transferred norms converge to the representative image
+  already supplied by the pinned linear continuum transfer. -/
+  transferredNorm_converges : forall X,
+    CReal.ConvergesTo
+      (fun scale => matchedPhysicalStageTransferredNorm family coupling scale
+        (approximant X scale))
+      (D.wilson.toGNSData.cinnerRep
+        (linearTimeTranslation.linearOperator.TCauchy X)
+        (linearTimeTranslation.linearOperator.TCauchy X))
+
+namespace BF4WilsonLinearGraphNormLimitApproximation
+
+/-- Reuse the existing linear transfer's representative lift to construct the
+choice-free representative graph-norm interface. -/
+def toRepresentativeGraphNormLimitApproximation
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat -> Q'}
+    {P : PhysicalSeparator}
+    {producer : BF4QuarterPhysicalSeparatorProducer
+      family law spacing coupling P}
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+    (data : BF4WilsonLinearGraphNormLimitApproximation producer D) :
+    BF4WilsonRepresentativeGraphNormLimitApproximation producer D where
+  separatorPinned := data.separatorPinned
+  transferredRepresentative := data.linearTimeTranslation.linearOperator.TCauchy
+  transferredRepresentative_class := by
+    intro X
+    rw [<- data.linearTimeTranslation.operatorPinned]
+    exact (data.linearTimeTranslation.linearOperator.T_ofCauchy X).symm
+  approximant := data.approximant
+  approximant_vacuumOrthogonal := data.approximant_vacuumOrthogonal
+  norm_converges := data.norm_converges
+  transferredNorm_converges := data.transferredNorm_converges
+
+end BF4WilsonLinearGraphNormLimitApproximation
+
 namespace BF4WilsonRepresentativeGraphNormLimitApproximation
 
 /-- Representative-level finite-to-limit preservation of the strict BF4
@@ -433,6 +512,29 @@ def toWilsonOperatorNormGapPin
 
 end BF4WilsonRepresentativeGraphNormLimitApproximation
 
+namespace BF4WilsonLinearGraphNormLimitApproximation
+
+/-- A pinned linear continuum transfer plus the finite graph-norm convergence
+laws construct the Wilson operator gap without any additional representative
+selection. -/
+def toWilsonOperatorNormGapPin
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat -> Q'}
+    {P : PhysicalSeparator}
+    {producer : BF4QuarterPhysicalSeparatorProducer
+      family law spacing coupling P}
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+    (data : BF4WilsonLinearGraphNormLimitApproximation producer D) :
+    WilsonOperatorNormGapPin D :=
+  data.toRepresentativeGraphNormLimitApproximation
+    |>.toWilsonOperatorNormGapPin
+
+end BF4WilsonLinearGraphNormLimitApproximation
+
 /-! ## 4. AF/Faraut specialization -/
 
 /-- The reduced AF/Faraut producer feeds the same limit compiler through its
@@ -473,6 +575,25 @@ def farautRepresentativeGraphNormLimit_toWilsonOperatorNormGapPin
     WilsonOperatorNormGapPin D :=
   data.toWilsonOperatorNormGapPin
 
+/-- AF/Faraut specialization using the already-named linear time-translation
+certificate as the continuum representative lift. -/
+def farautLinearGraphNormLimit_toWilsonOperatorNormGapPin
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat -> Q'}
+    {bits : Nat -> Nat}
+    {P : PhysicalSeparator}
+    {producer : BF4FarautQuarterPhysicalSeparatorProducer
+      family law spacing coupling bits P}
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+    (data : BF4WilsonLinearGraphNormLimitApproximation
+      producer.toBF4QuarterPhysicalSeparatorProducer D) :
+    WilsonOperatorNormGapPin D :=
+  data.toWilsonOperatorNormGapPin
+
 end YMGap.Continuum.BF4PhysicalModulatedGapLimitStability
 
 #print axioms YMGap.Continuum.BF4PhysicalModulatedGapLimitStability.matchedPhysicalStage_operator_norm_gap_sixteenth
@@ -482,3 +603,6 @@ end YMGap.Continuum.BF4PhysicalModulatedGapLimitStability
 #print axioms YMGap.Continuum.BF4PhysicalModulatedGapLimitStability.BF4WilsonRepresentativeGraphNormLimitApproximation.representative_limit_operator_norm_gap_sixteenth
 #print axioms YMGap.Continuum.BF4PhysicalModulatedGapLimitStability.BF4WilsonRepresentativeGraphNormLimitApproximation.toWilsonOperatorNormGapPin
 #print axioms YMGap.Continuum.BF4PhysicalModulatedGapLimitStability.farautRepresentativeGraphNormLimit_toWilsonOperatorNormGapPin
+#print axioms YMGap.Continuum.BF4PhysicalModulatedGapLimitStability.BF4WilsonLinearGraphNormLimitApproximation.toRepresentativeGraphNormLimitApproximation
+#print axioms YMGap.Continuum.BF4PhysicalModulatedGapLimitStability.BF4WilsonLinearGraphNormLimitApproximation.toWilsonOperatorNormGapPin
+#print axioms YMGap.Continuum.BF4PhysicalModulatedGapLimitStability.farautLinearGraphNormLimit_toWilsonOperatorNormGapPin

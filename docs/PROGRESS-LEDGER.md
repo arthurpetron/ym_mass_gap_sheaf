@@ -1183,3 +1183,27 @@ of those fields, the continuum carrier, or the physical producer is inhabited
 here.  The focused single-worker build completed 1322 jobs; the forbidden-
 token scan was empty and every exported declaration reports only
 `[propext, Quot.sound]`.  No full audit, remote push, or GitHub CI run was used.
+
+## Linear Wilson transfer supplies the continuum representative lift (2026-08-20)
+
+The representative graph-norm endpoint now reuses the pre-existing
+`WilsonLinearTimeTranslationPin`.  Its `LinearTransferOperator.TCauchy` is the
+required representative-level action, and `T_ofCauchy` together with
+`operatorPinned` proves that this action represents exactly the already-
+selected continuum Wilson time translation.  The new
+`BF4WilsonLinearGraphNormLimitApproximation` therefore asks only for that
+single established linear-dynamics certificate, finite BF4 approximants,
+vacuum-complement preservation, and the two graph-norm convergence laws.
+
+It constructs the representative limit record and then
+`WilsonOperatorNormGapPin`.  The AF/Faraut continuum residual has been tightened
+to consume this linear version, removing a duplicated transfer-lift field and
+descent equation from the open frontier.
+
+This remains conditional: no interacting continuum Wilson linear-time-
+translation pin or finite-to-continuum approximation system is constructed.
+The result identifies the next analytic frontier more economically; it does
+not supply continuum existence or the Clay theorem.  The focused
+single-worker build completed 1323 jobs; the forbidden-token scan was empty
+and every exported declaration reports only `[propext, Quot.sound]`.  No full
+audit, remote push, or GitHub CI run was used.

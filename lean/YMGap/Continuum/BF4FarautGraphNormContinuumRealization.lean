@@ -91,7 +91,7 @@ structure ContinuumWilsonGraphNormResidualData
     osGNS.reconstruction
   /-- The explicit varying-carrier graph-norm limit from which the continuum
   operator gap will be derived. -/
-  graphNormLimit : BF4WilsonRepresentativeGraphNormLimitApproximation
+  graphNormLimit : BF4WilsonLinearGraphNormLimitApproximation
     producer.toBF4QuarterPhysicalSeparatorProducer osGNS
 
 namespace ContinuumWilsonGraphNormResidualData
@@ -199,7 +199,7 @@ def ofProjectiveOSResidualData
     {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
     (D : ContinuumProjectiveOSResidualData flow
       anchorDominates AF trajectory comparison bare tracking mu)
-    (graphNormLimit : BF4WilsonRepresentativeGraphNormLimitApproximation
+    (graphNormLimit : BF4WilsonLinearGraphNormLimitApproximation
       producer.toBF4QuarterPhysicalSeparatorProducer
       (WilsonSelectedOSGNSData.ofLinked D.osGNS)) :
     ContinuumWilsonGraphNormResidualData flow
