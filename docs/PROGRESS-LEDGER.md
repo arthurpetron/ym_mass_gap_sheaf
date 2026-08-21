@@ -1376,3 +1376,32 @@ and Clay theorem remain open.  The focused projective compiler and integrated
 endpoint builds completed 1267 and 1328 jobs respectively; the forbidden-token
 scan was empty and exported declarations report only
 `[propext, Quot.sound]`.  No full audit, remote push, or GitHub CI run was used.
+
+## Vector-adaptive projective diagonal (2026-08-20)
+
+`BF4PhysicalDenseStageAdaptiveProjectiveComparison` removes the unnecessary
+requirement that every completed Wilson representative share one global dense
+sampling sequence.  Its sampler and cofinality modulus are explicit
+Type-level functions of the `CauchyGNS` representative.  The ordinary finite
+norm is compared with the continuum dense norm along that representative's
+own cofinal diagonal.
+
+The transferred graph-norm leg is now proved directly along the original
+representative's sampler.  Exact finite transfer intertwining identifies the
+finite transferred square with the stage realization of the translated dense
+observable, while the pointwise continuum transfer law identifies the same
+term with the selected representative of `T X`.  Therefore no equality or
+coherence law between the independently chosen samplers of `X` and `T X` is
+assumed.
+
+`BF4FarautGraphNormContinuumRealization` now consumes this adaptive record.
+The remaining diagonal input is vectorwise and simultaneous only for the two
+observables genuinely needed at each sampled term: its reflected square and
+the reflected square of its one-step translate.  Constructing those cofinal
+samplers from the pointwise projective rates is the next analytic frontier;
+the rational projective modulus, finite evaluator pins, dense realization,
+continuum construction, physical generator, QFT axioms, and Clay theorem are
+still open.  The focused adaptive compiler and integrated endpoint builds
+completed 1268 and 1329 jobs respectively; the forbidden-token scan was empty
+and every exported declaration reports only `[propext, Quot.sound]`.  No full
+audit, remote push, or GitHub CI run was used.
