@@ -2096,3 +2096,30 @@ carrier, thermodynamic/spacing uniformity, continuum theory, or Clay theorem
 is obtained.  A source check and focused monitored build completed
 successfully, the latter with 1206 jobs.  Every printed load-bearing
 declaration reports only `[propext, Quot.sound]`.
+
+## Asymptotic connected BF4 cutoff-gap modulus (2026-08-20)
+
+`BF4PhysicalCutoffAsymptoticConnectedGap` weakens the exact cutoff-uniform
+frontier to the estimate actually needed by the transitive constructive-real
+order.  `FixedNomeCutoffCenteredSixteenthModulus` carries an explicit
+tolerance-to-cutoff function and proves, beyond that cutoff, the mean-zero
+physical form estimate with additive rational error `epsilon`.
+
+A new exact centering lemma shows that an additive error survives stationary
+centering unchanged.  Consequently the modulus proves
+
+`connectedAutocorrelationLimit leEv (1/16) * connectedNormLimit`,
+
+where `leEv` is the transitive eventual Bishop-real order.  An exact
+cutoff-uniform sixteenth embeds with threshold zero, so the stronger previous
+certificate remains sufficient.
+
+The asymptotic modulus is not inhabited.  Ordinary bounded-observable cutoff
+convergence does not itself control the cutoff-dependent centered observable,
+and the matched-AF producer still follows a varying-nome trajectory.  Thus the
+next analytic task is a centered-form cutoff-tail estimate or a bridge from a
+cofinal family of genuinely strict finite cutoffs.  No operator limit,
+thermodynamic/spacing control, continuum construction, or Clay result follows.
+A source check and focused monitored build completed successfully, the latter
+with 1207 jobs.  Every printed load-bearing declaration reports only
+`[propext, Quot.sound]`.

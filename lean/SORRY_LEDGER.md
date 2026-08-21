@@ -775,7 +775,12 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   inhabited.  The next analytic frontier is to construct this cutoff-uniform
   slice family, or to prove a bridge from existing matched-profile row data to
   it without conflating a coupled nome/cutoff trajectory with a fixed-nome
-  representation-cutoff limit.
+  representation-cutoff limit.  Exact cutoff-uniformity has now been weakened
+  further to a Type-level asymptotic modulus: a `1/16` mean-zero bound with
+  arbitrary additive `epsilon` beyond an explicit cutoff suffices for the
+  strict connected limit in transitive `CReal.leEv`.  This weaker modulus is
+  also uninhabited; ordinary slab-observable convergence does not automatically
+  control the cutoff-dependent centered observable.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full
