@@ -400,8 +400,12 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/ContinuumSelectedExactMassDecayTarget.lean`,
   `lean/YMGap/Continuum/ContinuumSelectedTheoryPins.lean`,
   `lean/YMGap/Rubric/FrontierDAGBridges.lean`,
+  `lean/YMGap/Continuum/BF4FarautSpectralMarginInputContinuumRealization.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalVacuumPairingModulus.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalDenseStageCenteredSlowComparison.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalDenseStageRawMeanComparison.lean`,
   and
-  `lean/YMGap/Continuum/BF4FarautSpectralMarginInputContinuumRealization.lean`.
+  `lean/YMGap/Continuum/BF4FarautGraphNormContinuumRealization.lean`.
 - **named fields / structures**:
   `PhysicalMarginIdentification.floorRate_eq_physMargin`,
   `SymmetricSpectralShift.reverseHadd`,
@@ -457,6 +461,10 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `ContinuumWilsonIteratedBoundedResidualData`,
   `ContinuumWilsonOSConnectedDecayResidualData`,
   `ContinuumProjectiveWilsonDecayResidualData`,
+  `WilsonDenseUnitVacuumPairingModulus`,
+  `BF4WilsonDenseStageCenteredVacuumProjectiveBase`,
+  `BF4WilsonDenseStageRawMeanSlowComparison.rawSquareComparison`,
+  `BF4WilsonDenseStageRawMeanSlowComparison.rawMeanComparison`,
   `ContinuumYMExistence`,
   `MeasureLinkedOSGNSData`,
   and `ExactLogGapAt`.
@@ -525,6 +533,16 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   convergence, and the direct norm gap.  The quadratic and finite square
   Schur paths compile to this package as sufficient constructors but are not
   fields of the minimal endpoint.
+  The dense BF4 graph-limit route now constructs its centered comparison from
+  two primitive rational estimates: the raw finite square against the
+  projective reflected-square evaluator and the raw finite stationary mean
+  against the projective vacuum-pairing evaluator.  A separately named
+  `WilsonDenseUnitVacuumPairingModulus` retains the representative-level
+  `Nat` rate that cannot be extracted constructively from proposition-level
+  equality in the completed-real quotient.  The vector-adaptive slow sampler
+  pays the ordinary and one-step-translated projective and pairing rates.
+  Exact finite centering then subtracts the squared mean and constructs the
+  prior centered comparison and completed operator gap.
   `WilsonIteratedNormDecayHandoff` adds the explicitly named vacuum
   stationarity pin needed to preserve the vacuum complement under iteration;
   a dense zero-vector identity is a sufficient constructor.  The resulting
@@ -632,6 +650,12 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   identity, or the weaker quadratic form inequality together with the
   canonical linear form gap, remains a sufficient route to that direct norm
   contraction rather than a premise of the minimal endpoint.  The selected
+  dense-stage route still has no inhabitant for its raw observable map,
+  radical transfer intertwining, rational projective modulus, raw-square and
+  raw-mean comparisons, or explicit representative vacuum-pairing modulus.
+  Those fields are the current thermodynamic/projective analytic frontier;
+  the compiler proves their sufficiency but not the estimates themselves.
+  The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full
   correlation theorem; the projective/Wilson handoff and clustering endpoint

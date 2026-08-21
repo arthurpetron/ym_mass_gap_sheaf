@@ -16,6 +16,7 @@ asserted here.
 import YMGap.Continuum.BF4PhysicalCenteredRadicalIntertwining
 import YMGap.Continuum.BF4PhysicalDenseStageSlowDiagonalComparison
 import YMGap.Continuum.BF4PhysicalVacuumGraphNormLimitStability
+import YMGap.Continuum.BF4PhysicalVacuumPairingModulus
 
 namespace YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison
 
@@ -37,7 +38,9 @@ open YMGap.Continuum.BF4PhysicalDenseStageSlowDiagonalComparison
 open YMGap.Continuum.BF4PhysicalMarkovGNSCompletion
 open YMGap.Continuum.BF4PhysicalModulatedGapLimitStability
 open YMGap.Continuum.BF4PhysicalSeparatorProducer
+open YMGap.Continuum.BF4PhysicalSelectedVacuumMeanConvergence
 open YMGap.Continuum.BF4PhysicalVacuumGraphNormLimitStability
+open YMGap.Continuum.BF4PhysicalVacuumPairingModulus
 open YMGap.Continuum.BF4ReflectedAllSpinAFRowRelative
 open YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
 open YMGap.Continuum.MeasureLinkedOSReconstruction
@@ -219,6 +222,7 @@ structure BF4WilsonDenseStageCenteredVacuumProjectiveBase
           (rawStageObservable scale a))
         (rawStageObservable scale (D.timeTranslation.tau a))
   rationalFunctional : ProjectiveOSRationalModulus D
+  vacuumPairing : WilsonDenseUnitVacuumPairingModulus D
 
 namespace BF4WilsonDenseStageCenteredVacuumProjectiveBase
 
@@ -273,13 +277,22 @@ def regularizedFunctional : ProjectiveOSRationalModulus D :=
 
 def requirement (X : SelectedWilsonCauchy D) (index : Nat) : Nat :=
   max
-    (base.regularizedFunctional.rate
-      (continuumSquareObservable D (X.seq index))
-      (Q'.invSucc index))
-    (base.regularizedFunctional.rate
-      (continuumSquareObservable D
-        (D.timeTranslation.tau (X.seq index)))
-      (Q'.invSucc index))
+    (max
+      (base.regularizedFunctional.rate
+        (continuumSquareObservable D (X.seq index))
+        (Q'.invSucc index))
+      (base.regularizedFunctional.rate
+        (continuumSquareObservable D
+          (D.timeTranslation.tau (X.seq index)))
+        (Q'.invSucc index)))
+    (max
+      (base.regularizedFunctional.rate
+        (continuumVacuumPairingObservable D (X.seq index))
+        (Q'.invSucc index))
+      (base.regularizedFunctional.rate
+        (continuumVacuumPairingObservable D
+          (D.timeTranslation.tau (X.seq index)))
+        (Q'.invSucc index)))
 
 def sampleRate (X : SelectedWilsonCauchy D) (threshold : Nat) : Nat :=
   slowThreshold (base.requirement X) threshold
@@ -290,6 +303,16 @@ def sampleIndex (X : SelectedWilsonCauchy D) (scale : Nat) : Nat :=
 def projectiveDiagonalRate (X : SelectedWilsonCauchy D)
     (epsilon : Q') : Nat :=
   base.sampleRate X (CReal.lv epsilon)
+
+/-- The outer rate making the cofinal sampler reach both explicit
+vacuum-pairing moduli. -/
+def vacuumPairingDiagonalRate (X : SelectedWilsonCauchy D)
+    (epsilon : Q') : Nat :=
+  base.sampleRate X
+    (max
+      (base.vacuumPairing.regularPairingRate X epsilon)
+      (base.vacuumPairing.regularTransferredPairingRate
+        base.pointwiseTimeTranslation X epsilon))
 
 theorem sampleIndex_cofinal (X : SelectedWilsonCauchy D)
     (threshold scale : Nat)
@@ -342,9 +365,108 @@ theorem projective_diagonal_admissible (X : SelectedWilsonCauchy D)
   dsimp only
   constructor
   · exact Nat.le_trans hordinary
-      (Nat.le_trans (Nat.le_max_left _ _) hrequired)
+      (Nat.le_trans
+        (Nat.le_trans (Nat.le_max_left _ _) (Nat.le_max_left _ _))
+        hrequired)
   · exact Nat.le_trans htranslated
-      (Nat.le_trans (Nat.le_max_right _ _) hrequired)
+      (Nat.le_trans
+        (Nat.le_trans (Nat.le_max_right _ _) (Nat.le_max_left _ _))
+        hrequired)
+
+/-- The same constructed slow diagonal pays the two projective rates for the
+ordinary and translated vacuum-pairing observables. -/
+theorem projective_pairing_diagonal_admissible
+    (X : SelectedWilsonCauchy D)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (scale : Nat) (hscale : base.projectiveDiagonalRate X epsilon <= scale) :
+    let a := X.seq (base.sampleIndex X scale)
+    base.regularizedFunctional.rate
+        (continuumVacuumPairingObservable D a) epsilon <= scale /\
+      base.regularizedFunctional.rate
+        (continuumVacuumPairingObservable D
+          (D.timeTranslation.tau a)) epsilon <= scale := by
+  let precision := CReal.lv epsilon
+  let index := base.sampleIndex X scale
+  have hprecision : precision <= index :=
+    base.sampleIndex_cofinal X precision scale hscale
+  have hzeroRate : base.sampleRate X 0 <= base.sampleRate X precision :=
+    slowThreshold_mono (base.requirement X) (Nat.zero_le precision)
+  have hzero : base.sampleRate X 0 <= scale :=
+    Nat.le_trans hzeroRate hscale
+  have hrequired : base.requirement X index <= scale :=
+    required_slowIndex_le (base.requirement X) scale hzero
+  have hindexepsilon : Q'.invSucc index <= epsilon :=
+    Q'.le_trans' _ _ _
+      (ExpNeg.invSucc_le_of_le hprecision)
+      (CReal.invSucc_lv_le hepsilon)
+  have hordinary : base.regularizedFunctional.rate
+      (continuumVacuumPairingObservable D (X.seq index)) epsilon <=
+      base.regularizedFunctional.rate
+        (continuumVacuumPairingObservable D (X.seq index))
+        (Q'.invSucc index) :=
+    regularizedProjectiveModulus_rate_antitone base.rationalFunctional
+      (continuumVacuumPairingObservable D (X.seq index))
+      (Q'.invSucc_pos index) hindexepsilon
+  have htranslated : base.regularizedFunctional.rate
+      (continuumVacuumPairingObservable D
+        (D.timeTranslation.tau (X.seq index))) epsilon <=
+      base.regularizedFunctional.rate
+        (continuumVacuumPairingObservable D
+          (D.timeTranslation.tau (X.seq index)))
+        (Q'.invSucc index) :=
+    regularizedProjectiveModulus_rate_antitone base.rationalFunctional
+      (continuumVacuumPairingObservable D
+        (D.timeTranslation.tau (X.seq index)))
+      (Q'.invSucc_pos index) hindexepsilon
+  dsimp only
+  constructor
+  · exact Nat.le_trans hordinary
+      (Nat.le_trans
+        (Nat.le_trans (Nat.le_max_left _ _) (Nat.le_max_right _ _))
+        hrequired)
+  · exact Nat.le_trans htranslated
+      (Nat.le_trans
+        (Nat.le_trans (Nat.le_max_right _ _) (Nat.le_max_right _ _))
+        hrequired)
+
+/-- The same slow diagonal also pays the explicit Type-level vacuum-pairing
+moduli for the ordinary and transferred representatives. -/
+theorem vacuum_pairing_diagonal_small
+    (X : SelectedWilsonCauchy D)
+    (horthogonal :
+      D.selectedSpectralData.vacPerp (selectedWilsonPoint D X))
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (scale : Nat)
+    (hscale : base.vacuumPairingDiagonalRate X epsilon <= scale) :
+    let index := base.sampleIndex X scale
+    let a := X.seq index
+    (-epsilon <= D.wilson.toGNSData.B a H.os_axioms.A.one /\
+        D.wilson.toGNSData.B a H.os_axioms.A.one <= epsilon) /\
+      (-epsilon <= D.wilson.toGNSData.B
+          (D.timeTranslation.tau a) H.os_axioms.A.one /\
+        D.wilson.toGNSData.B
+          (D.timeTranslation.tau a) H.os_axioms.A.one <= epsilon) := by
+  let index := base.sampleIndex X scale
+  have hreached :
+      max
+          (base.vacuumPairing.regularPairingRate X epsilon)
+          (base.vacuumPairing.regularTransferredPairingRate
+            base.pointwiseTimeTranslation X epsilon) <= index :=
+    base.sampleIndex_cofinal X _ scale hscale
+  have hordinaryPaid : base.vacuumPairing.regularPairingRate X epsilon <=
+      index := by
+    exact Nat.le_trans (Nat.le_max_left _ _) hreached
+  have htranslatedPaid :
+      base.vacuumPairing.regularTransferredPairingRate
+          base.pointwiseTimeTranslation X epsilon <= index := by
+    exact Nat.le_trans (Nat.le_max_right _ _) hreached
+  dsimp only
+  exact
+    ⟨base.vacuumPairing.regularPairingSmall X horthogonal
+        epsilon hepsilon index hordinaryPaid,
+      base.vacuumPairing.regularTransferredPairingSmall
+        base.pointwiseTimeTranslation X horthogonal
+        epsilon hepsilon index htranslatedPaid⟩
 
 end BF4WilsonDenseStageCenteredVacuumProjectiveBase
 
@@ -638,6 +760,8 @@ end YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison.BF4WilsonDenseStageCenteredSlowProjectiveCore.toSlowProjectiveComparison
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison.BF4WilsonDenseStageCenteredSlowProjectiveCore.toWilsonOperatorNormGapPin
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison.BF4WilsonDenseStageCenteredVacuumProjectiveBase.projective_diagonal_admissible
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison.BF4WilsonDenseStageCenteredVacuumProjectiveBase.projective_pairing_diagonal_admissible
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison.BF4WilsonDenseStageCenteredVacuumProjectiveBase.vacuum_pairing_diagonal_small
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison.BF4WilsonDenseStageCenteredVacuumSlowComparison.norm_converges
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison.BF4WilsonDenseStageCenteredVacuumSlowComparison.transferredNorm_converges
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison.BF4WilsonDenseStageCenteredVacuumSlowComparison.toVacuumLinearGraphNormLimitApproximation

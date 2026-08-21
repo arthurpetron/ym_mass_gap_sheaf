@@ -1536,3 +1536,41 @@ QFT reconstruction, and the Clay theorem remain open.
 
 The focused build completed 1266 jobs.  Exported declarations report only
 `[propext, Quot.sound]`.  No full audit, remote push, or GitHub CI run was used.
+
+## Type-level vacuum modulus and raw square/mean compiler (2026-08-20)
+
+`BF4PhysicalVacuumPairingModulus` adds the constructive witness that the
+qualitative completed-real statement cannot supply: an explicit `Nat` rate
+for the pairing of every selected vacuum-orthogonal representative with the
+dense unit.  The modulus is transported through one time step using the
+selected vacuum stationarity and pointwise transfer pins.  No witness is
+extracted from proposition-level quotient equality.
+
+`BF4PhysicalDenseStageCenteredSlowComparison` now makes its vector-adaptive
+slow sampler pay four projective requirements at every selected term: the raw
+observable square, the translated square, the vacuum-pairing observable, and
+the translated vacuum-pairing observable.  A second outer threshold makes the
+selected dense index reach both explicit representative pairing rates.
+
+`BF4PhysicalDenseStageRawMeanComparison` then lowers the remaining centered
+finite/projective estimate to two primitive, unconditional rational estimates:
+the raw finite square versus the projective reflected-square evaluator, and
+the raw finite stationary mean versus the projective vacuum-pairing evaluator.
+On the continuum vacuum complement, three quarter-sized mean errors and the
+explicit pairing modulus bound the finite mean; an `invSucc` radius makes its
+square fit inside half of the requested tolerance.  The exact identity
+`centered square = raw square - mean^2` constructs the previous centered
+comparison, both graph-norm limits, and the selected completed operator gap.
+The AF/Faraut `ContinuumWilsonDenseStageResidualData` endpoint now consumes
+this raw square/mean record rather than assuming a centered-square comparison.
+
+This is a strict reduction, not an analytic closure.  The raw dense observable
+map and radical transfer law, projective rational modulus, raw-square and
+raw-mean finite/continuum estimates, explicit representative vacuum-pairing
+modulus, continuum measure, physical generator identification, QFT axioms,
+and Clay theorem remain open.  Focused monitored builds completed 1267 jobs
+for the pairing modulus, 1275 for the centered sampler integration, 1276 for
+the raw compiler, and 1336 for the integrated AF/Faraut endpoint.  The changed
+files contain no forbidden proof tokens; every printed load-bearing
+declaration reports only `[propext, Quot.sound]`.  No full audit, remote push,
+or GitHub CI run was used.
