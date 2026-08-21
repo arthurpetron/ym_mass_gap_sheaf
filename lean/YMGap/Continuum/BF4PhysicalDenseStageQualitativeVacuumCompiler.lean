@@ -661,6 +661,322 @@ def toWilsonOperatorNormGapPinQualitative : WilsonOperatorNormGapPin D :=
 
 end BF4WilsonDenseStageRawMeanQualitativeComparison
 
+/-! ## General fixed-observable construction without pairing rates -/
+
+namespace BF4WilsonDenseStageQualitativeProjectiveCompiler
+
+variable
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat -> Q'}
+    {P : PhysicalSeparator}
+    {producer : BF4QuarterPhysicalSeparatorProducer
+      family law spacing coupling P}
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    {H : FourDExistence.ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+    (base : BF4WilsonDenseStageCenteredVacuumQualitativeProjectiveBase
+      producer D)
+
+def regularizedFunctional : ProjectiveOSRationalModulus D :=
+  regularizedProjectiveModulus base.rationalFunctional
+
+def projectiveRequirement (X : SelectedWilsonCauchy D)
+    (index : Nat) : Nat :=
+  max
+    (max
+      ((regularizedFunctional base).rate
+        (continuumSquareObservable D (X.seq index))
+        (Q'.invSucc index))
+      ((regularizedFunctional base).rate
+        (continuumSquareObservable D
+          (D.timeTranslation.tau (X.seq index)))
+        (Q'.invSucc index)))
+    (max
+      ((regularizedFunctional base).rate
+        (continuumVacuumPairingObservable D (X.seq index))
+        (Q'.invSucc index))
+      ((regularizedFunctional base).rate
+        (continuumVacuumPairingObservable D
+          (D.timeTranslation.tau (X.seq index)))
+        (Q'.invSucc index)))
+
+def rawRequirement (X : SelectedWilsonCauchy D) (index : Nat) : Nat :=
+  max
+    (max
+      (base.rawMoments.regularSquareRate (X.seq index)
+        (Q'.invSucc index))
+      (base.rawMoments.regularSquareRate
+        (D.timeTranslation.tau (X.seq index))
+        (Q'.invSucc index)))
+    (max
+      (base.rawMoments.regularMeanRate (X.seq index)
+        (Q'.invSucc index))
+      (base.rawMoments.regularMeanRate
+        (D.timeTranslation.tau (X.seq index))
+        (Q'.invSucc index)))
+
+def requirement (X : SelectedWilsonCauchy D) (index : Nat) : Nat :=
+  max (projectiveRequirement base X index) (rawRequirement base X index)
+
+def sampleRate (X : SelectedWilsonCauchy D) (threshold : Nat) : Nat :=
+  slowThreshold (requirement base X) threshold
+
+def sampleIndex (X : SelectedWilsonCauchy D) (scale : Nat) : Nat :=
+  slowIndex (requirement base X) scale
+
+def projectiveDiagonalRate (X : SelectedWilsonCauchy D)
+    (epsilon : Q') : Nat :=
+  sampleRate base X (CReal.lv epsilon)
+
+theorem sampleIndex_cofinal (X : SelectedWilsonCauchy D)
+    (threshold scale : Nat)
+    (hscale : sampleRate base X threshold <= scale) :
+    threshold <= sampleIndex base X scale :=
+  slowIndex_cofinal (requirement base X) threshold scale hscale
+
+private theorem selected_requirement_paid (X : SelectedWilsonCauchy D)
+    (epsilon : Q') (scale : Nat)
+    (hscale : projectiveDiagonalRate base X epsilon <= scale) :
+    requirement base X (sampleIndex base X scale) <= scale := by
+  have hzeroRate : sampleRate base X 0 <=
+      sampleRate base X (CReal.lv epsilon) :=
+    slowThreshold_mono (requirement base X) (Nat.zero_le _)
+  exact required_slowIndex_le (requirement base X) scale
+    (Nat.le_trans hzeroRate hscale)
+
+private theorem selected_precision (X : SelectedWilsonCauchy D)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (scale : Nat)
+    (hscale : projectiveDiagonalRate base X epsilon <= scale) :
+    Q'.invSucc (sampleIndex base X scale) <= epsilon := by
+  have hprecision : CReal.lv epsilon <= sampleIndex base X scale :=
+    sampleIndex_cofinal base X (CReal.lv epsilon) scale hscale
+  exact Q'.le_trans' _ _ _
+    (ExpNeg.invSucc_le_of_le hprecision)
+    (CReal.invSucc_lv_le hepsilon)
+
+theorem projective_diagonal_admissible (X : SelectedWilsonCauchy D)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (scale : Nat)
+    (hscale : projectiveDiagonalRate base X epsilon <= scale) :
+    let a := X.seq (sampleIndex base X scale)
+    (regularizedFunctional base).rate
+        (continuumSquareObservable D a) epsilon <= scale /\
+      (regularizedFunctional base).rate
+        (continuumSquareObservable D (D.timeTranslation.tau a)) epsilon <=
+          scale := by
+  let index := sampleIndex base X scale
+  have hrequired := selected_requirement_paid base X epsilon scale hscale
+  have hindexepsilon := selected_precision base X epsilon hepsilon scale hscale
+  have hordinary : (regularizedFunctional base).rate
+      (continuumSquareObservable D (X.seq index)) epsilon <=
+      (regularizedFunctional base).rate
+        (continuumSquareObservable D (X.seq index))
+        (Q'.invSucc index) :=
+    regularizedProjectiveModulus_rate_antitone base.rationalFunctional
+      (continuumSquareObservable D (X.seq index))
+      (Q'.invSucc_pos index) hindexepsilon
+  have htranslated : (regularizedFunctional base).rate
+      (continuumSquareObservable D
+        (D.timeTranslation.tau (X.seq index))) epsilon <=
+      (regularizedFunctional base).rate
+        (continuumSquareObservable D
+          (D.timeTranslation.tau (X.seq index)))
+        (Q'.invSucc index) :=
+    regularizedProjectiveModulus_rate_antitone base.rationalFunctional
+      (continuumSquareObservable D
+        (D.timeTranslation.tau (X.seq index)))
+      (Q'.invSucc_pos index) hindexepsilon
+  dsimp only
+  constructor
+  · exact Nat.le_trans hordinary
+      (Nat.le_trans
+        (Nat.le_trans
+          (Nat.le_trans (Nat.le_max_left _ _) (Nat.le_max_left _ _))
+          (Nat.le_max_left _ _))
+        hrequired)
+  · exact Nat.le_trans htranslated
+      (Nat.le_trans
+        (Nat.le_trans
+          (Nat.le_trans (Nat.le_max_right _ _) (Nat.le_max_left _ _))
+          (Nat.le_max_left _ _))
+        hrequired)
+
+theorem projective_pairing_diagonal_admissible
+    (X : SelectedWilsonCauchy D)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (scale : Nat)
+    (hscale : projectiveDiagonalRate base X epsilon <= scale) :
+    let a := X.seq (sampleIndex base X scale)
+    (regularizedFunctional base).rate
+        (continuumVacuumPairingObservable D a) epsilon <= scale /\
+      (regularizedFunctional base).rate
+        (continuumVacuumPairingObservable D
+          (D.timeTranslation.tau a)) epsilon <= scale := by
+  let index := sampleIndex base X scale
+  have hrequired := selected_requirement_paid base X epsilon scale hscale
+  have hindexepsilon := selected_precision base X epsilon hepsilon scale hscale
+  have hordinary : (regularizedFunctional base).rate
+      (continuumVacuumPairingObservable D (X.seq index)) epsilon <=
+      (regularizedFunctional base).rate
+        (continuumVacuumPairingObservable D (X.seq index))
+        (Q'.invSucc index) :=
+    regularizedProjectiveModulus_rate_antitone base.rationalFunctional
+      (continuumVacuumPairingObservable D (X.seq index))
+      (Q'.invSucc_pos index) hindexepsilon
+  have htranslated : (regularizedFunctional base).rate
+      (continuumVacuumPairingObservable D
+        (D.timeTranslation.tau (X.seq index))) epsilon <=
+      (regularizedFunctional base).rate
+        (continuumVacuumPairingObservable D
+          (D.timeTranslation.tau (X.seq index)))
+        (Q'.invSucc index) :=
+    regularizedProjectiveModulus_rate_antitone base.rationalFunctional
+      (continuumVacuumPairingObservable D
+        (D.timeTranslation.tau (X.seq index)))
+      (Q'.invSucc_pos index) hindexepsilon
+  dsimp only
+  constructor
+  · exact Nat.le_trans hordinary
+      (Nat.le_trans
+        (Nat.le_trans
+          (Nat.le_trans (Nat.le_max_left _ _) (Nat.le_max_right _ _))
+          (Nat.le_max_left _ _))
+        hrequired)
+  · exact Nat.le_trans htranslated
+      (Nat.le_trans
+        (Nat.le_trans
+          (Nat.le_trans (Nat.le_max_right _ _) (Nat.le_max_right _ _))
+          (Nat.le_max_left _ _))
+        hrequired)
+
+theorem raw_square_diagonal_admissible (X : SelectedWilsonCauchy D)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (scale : Nat)
+    (hscale : projectiveDiagonalRate base X epsilon <= scale) :
+    let a := X.seq (sampleIndex base X scale)
+    base.rawMoments.regularSquareRate a epsilon <= scale /\
+      base.rawMoments.regularSquareRate
+        (D.timeTranslation.tau a) epsilon <= scale := by
+  let index := sampleIndex base X scale
+  have hrequired := selected_requirement_paid base X epsilon scale hscale
+  have hindexepsilon := selected_precision base X epsilon hepsilon scale hscale
+  have hordinary : base.rawMoments.regularSquareRate
+      (X.seq index) epsilon <=
+      base.rawMoments.regularSquareRate
+        (X.seq index) (Q'.invSucc index) :=
+    base.rawMoments.regularSquareRate_antitone
+      (X.seq index) (Q'.invSucc_pos index) hindexepsilon
+  have htranslated : base.rawMoments.regularSquareRate
+      (D.timeTranslation.tau (X.seq index)) epsilon <=
+      base.rawMoments.regularSquareRate
+        (D.timeTranslation.tau (X.seq index)) (Q'.invSucc index) :=
+    base.rawMoments.regularSquareRate_antitone
+      (D.timeTranslation.tau (X.seq index))
+      (Q'.invSucc_pos index) hindexepsilon
+  dsimp only
+  constructor
+  · exact Nat.le_trans hordinary
+      (Nat.le_trans
+        (Nat.le_trans
+          (Nat.le_trans (Nat.le_max_left _ _) (Nat.le_max_left _ _))
+          (Nat.le_max_right _ _))
+        hrequired)
+  · exact Nat.le_trans htranslated
+      (Nat.le_trans
+        (Nat.le_trans
+          (Nat.le_trans (Nat.le_max_right _ _) (Nat.le_max_left _ _))
+          (Nat.le_max_right _ _))
+        hrequired)
+
+theorem raw_mean_diagonal_admissible (X : SelectedWilsonCauchy D)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (scale : Nat)
+    (hscale : projectiveDiagonalRate base X epsilon <= scale) :
+    let a := X.seq (sampleIndex base X scale)
+    base.rawMoments.regularMeanRate a epsilon <= scale /\
+      base.rawMoments.regularMeanRate
+        (D.timeTranslation.tau a) epsilon <= scale := by
+  let index := sampleIndex base X scale
+  have hrequired := selected_requirement_paid base X epsilon scale hscale
+  have hindexepsilon := selected_precision base X epsilon hepsilon scale hscale
+  have hordinary : base.rawMoments.regularMeanRate
+      (X.seq index) epsilon <=
+      base.rawMoments.regularMeanRate
+        (X.seq index) (Q'.invSucc index) :=
+    base.rawMoments.regularMeanRate_antitone
+      (X.seq index) (Q'.invSucc_pos index) hindexepsilon
+  have htranslated : base.rawMoments.regularMeanRate
+      (D.timeTranslation.tau (X.seq index)) epsilon <=
+      base.rawMoments.regularMeanRate
+        (D.timeTranslation.tau (X.seq index)) (Q'.invSucc index) :=
+    base.rawMoments.regularMeanRate_antitone
+      (D.timeTranslation.tau (X.seq index))
+      (Q'.invSucc_pos index) hindexepsilon
+  dsimp only
+  constructor
+  · exact Nat.le_trans hordinary
+      (Nat.le_trans
+        (Nat.le_trans
+          (Nat.le_trans (Nat.le_max_left _ _) (Nat.le_max_right _ _))
+          (Nat.le_max_right _ _))
+        hrequired)
+  · exact Nat.le_trans htranslated
+      (Nat.le_trans
+        (Nat.le_trans
+          (Nat.le_trans (Nat.le_max_right _ _) (Nat.le_max_right _ _))
+          (Nat.le_max_right _ _))
+        hrequired)
+
+/-- General fixed-observable raw moment moduli construct the qualitative
+moving-diagonal comparison with no representative vacuum-pairing rate. -/
+def toQualitativeComparison :
+    BF4WilsonDenseStageRawMeanQualitativeComparison producer D where
+  base := {
+    separatorPinned := base.separatorPinned
+    pointwiseTimeTranslation := base.pointwiseTimeTranslation
+    rawStageObservable := base.rawStageObservable
+    rawStageTransfer_intertwines := base.rawStageTransfer_intertwines
+    rationalFunctional := regularizedFunctional base
+    vacuumPin := base.vacuumPin
+    sampleRate := sampleRate base
+    sampleIndex := sampleIndex base
+    sampleIndex_cofinal := sampleIndex_cofinal base
+    projectiveDiagonalRate := projectiveDiagonalRate base
+    projective_diagonal_admissible := projective_diagonal_admissible base
+    projective_pairing_diagonal_admissible :=
+      projective_pairing_diagonal_admissible base
+  }
+  rawSquareComparisonRate := projectiveDiagonalRate base
+  rawSquareComparison := by
+    intro X epsilon hepsilon scale hscale
+    have hadmissible := raw_square_diagonal_admissible base
+      X epsilon hepsilon scale hscale
+    dsimp only
+    exact
+      ⟨base.rawMoments.regularSquareBound _ epsilon hepsilon scale
+          hadmissible.1,
+        base.rawMoments.regularSquareBound _ epsilon hepsilon scale
+          hadmissible.2⟩
+  rawMeanComparisonRate := projectiveDiagonalRate base
+  rawMeanComparison := by
+    intro X epsilon hepsilon scale hscale
+    have hadmissible := raw_mean_diagonal_admissible base
+      X epsilon hepsilon scale hscale
+    dsimp only
+    exact
+      ⟨base.rawMoments.regularMeanBound _ epsilon hepsilon scale
+          hadmissible.1,
+        base.rawMoments.regularMeanBound _ epsilon hepsilon scale
+          hadmissible.2⟩
+
+def toWilsonOperatorNormGapPin : WilsonOperatorNormGapPin D :=
+  (toQualitativeComparison base).toWilsonOperatorNormGapPinQualitative
+
+end BF4WilsonDenseStageQualitativeProjectiveCompiler
+
 /-! ## Exact-semantic construction of the qualitative diagonal -/
 
 namespace BF4WilsonDenseStageCenteredVacuumQualitativeSemanticBase
@@ -889,6 +1205,12 @@ end YMGap.Continuum.BF4PhysicalDenseStageRawMeanComparison
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMeanComparison.BF4WilsonDenseStageRawMeanQualitativeComparison.norm_converges_qualitative
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMeanComparison.BF4WilsonDenseStageRawMeanQualitativeComparison.transferredNorm_converges_qualitative
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMeanComparison.BF4WilsonDenseStageRawMeanQualitativeComparison.toWilsonOperatorNormGapPinQualitative
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMeanComparison.BF4WilsonDenseStageQualitativeProjectiveCompiler.projective_diagonal_admissible
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMeanComparison.BF4WilsonDenseStageQualitativeProjectiveCompiler.projective_pairing_diagonal_admissible
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMeanComparison.BF4WilsonDenseStageQualitativeProjectiveCompiler.raw_square_diagonal_admissible
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMeanComparison.BF4WilsonDenseStageQualitativeProjectiveCompiler.raw_mean_diagonal_admissible
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMeanComparison.BF4WilsonDenseStageQualitativeProjectiveCompiler.toQualitativeComparison
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMeanComparison.BF4WilsonDenseStageQualitativeProjectiveCompiler.toWilsonOperatorNormGapPin
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMeanComparison.BF4WilsonDenseStageCenteredVacuumQualitativeSemanticBase.projective_diagonal_admissible
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMeanComparison.BF4WilsonDenseStageCenteredVacuumQualitativeSemanticBase.projective_pairing_diagonal_admissible
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMeanComparison.BF4WilsonDenseStageCenteredVacuumQualitativeSemanticBase.toQualitativeComparison

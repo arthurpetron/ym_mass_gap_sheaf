@@ -663,8 +663,11 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   contraction rather than a premise of the minimal endpoint.  The selected
   dense-stage route still has no inhabitant for its raw observable map,
   radical transfer intertwining, rational projective modulus,
-  fixed-observable raw-square and raw-mean moduli, or explicit representative
-  vacuum-pairing modulus.  The moving-diagonal versions are now constructed.
+  fixed-observable raw-square and raw-mean moduli, or qualitative dense-unit
+  vacuum pin.  The moving-diagonal versions are now constructed.  An explicit
+  representative vacuum-pairing modulus remains only on the legacy
+  quantitative route and is no longer an input of the general qualitative
+  endpoint.
   Alternatively, two exact same-stage semantic identities construct the raw
   moment moduli with zero rates; these stronger identities are also not
   inhabited.  Thus the current thermodynamic/projective analytic frontier is
@@ -675,16 +678,17 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   that the `pairingRate` and `pairingSmall` fields are not needed by the final
   graph-norm convergence argument: qualitative convergence from
   `WilsonDenseUnitVacuumPin` suffices inside the proposition-valued limit.
-  The weak exact-semantic dense-stage residual now carries only that vacuum
-  pin and no representative pairing modulus.  Its slow diagonal pays the four
-  projective square/pairing evaluator rates, while exact same-stage semantics
-  make both raw comparison rates zero.  The public weak route also no longer
-  asks the raw realization to preserve the continuum carrier setoid, because
-  that congruence law is unused by the direct representative-level proof.
+  The general weak dense-stage residual now carries the fixed-observable raw
+  moment moduli and that vacuum pin, but no representative pairing modulus.
+  Its slow diagonal pays all four projective and all four raw moment rates.
+  The exact-semantic specialization makes the four raw rates zero.  Neither
+  weak route asks the raw realization to preserve the continuum carrier
+  setoid, because that congruence law is unused by the direct
+  representative-level proof.
   This is an interface reduction, not an inhabitant: the raw realization, its
-  radical transfer law, the rational
-  projective functional, the two exact stage identities, and the qualitative
-  vacuum pin remain unconstructed analytic inputs on the physical thread.
+  radical transfer law, the rational projective functional, the raw moment
+  moduli (or two exact stage identities), and the qualitative vacuum pin
+  remain unconstructed analytic inputs on the physical thread.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full

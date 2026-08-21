@@ -1695,3 +1695,30 @@ monitored builds completed 1276 jobs for the split input structure and 1278
 for the qualitative compiler, and 1338 jobs for the integrated endpoint.
 Every printed load-bearing declaration reports only
 `[propext, Quot.sound]`; no full audit, remote push, or GitHub CI run was used.
+
+## General raw-moment endpoint removes the pairing modulus (2026-08-20)
+
+`BF4WilsonDenseStageCenteredVacuumQualitativeProjectiveBase` extends the
+interface reduction from the exact-semantic branch to the general
+fixed-observable branch.  It carries the raw square and mean modulus families
+and `WilsonDenseUnitVacuumPin`, but neither a representative pairing modulus
+nor the unused raw-carrier congruence law.
+
+`BF4WilsonDenseStageQualitativeProjectiveCompiler` builds one executable slow
+diagonal paying eight pointwise rates: the ordinary/translated projective
+square and pairing rates, and the ordinary/translated raw square and mean
+rates.  These yield the moving raw comparison laws; qualitative vacuum
+convergence then supplies both centered graph-norm limits and the selected
+completed operator gap without choosing a vacuum-pairing rate.
+
+`ContinuumWilsonDenseStageQualitativeResidualData` exposes this general weak
+route at the AF/Faraut endpoint.  The exact-semantic residual is proved to
+specialize it by constructing zero-rate raw moment moduli.  This is still a
+conditional compiler, not an inhabitant: the raw physical realization,
+radical transfer law, projective functional, fixed-observable raw moment
+moduli (or stronger exact identities), qualitative vacuum pin, continuum
+measure, generator identification, QFT axioms, and Clay theorem remain open.
+Focused monitored builds completed 1276 jobs for the input/refinement layer
+and 1278 for the general qualitative compiler, and 1338 jobs for the
+integrated endpoint.  Every printed load-bearing declaration reports only
+`[propext, Quot.sound]`.

@@ -261,6 +261,41 @@ structure BF4WilsonDenseStageCenteredVacuumSemanticBase
     rawStageObservable
   vacuumPairing : WilsonDenseUnitVacuumPairingModulus D
 
+/-- Fixed-observable raw moment moduli with only the qualitative dense-unit
+vacuum pin.  This is the general input used by the direct convergence route;
+it carries neither a representative pairing rate nor an unused carrier
+congruence law. -/
+structure BF4WilsonDenseStageCenteredVacuumQualitativeProjectiveBase
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat -> Q'}
+    {P : PhysicalSeparator}
+    (producer : BF4QuarterPhysicalSeparatorProducer
+      family law spacing coupling P)
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    {H : FourDExistence.ContinuumYMExistence mu}
+    (D : WilsonSelectedOSGNSData H) : Type 3 where
+  separatorPinned : D.selectedSpectralData.gap.sep = bf4MacroNormRate
+  pointwiseTimeTranslation :
+    WilsonPointwiseLinearTimeTranslationPin D.timeTranslation
+  rawStageObservable : forall scale : Nat,
+    D.wilson.toGNSData.V ->
+      (MatchedPhysicalStageGNSData family coupling scale).V
+  rawStageTransfer_intertwines : forall (scale : Nat)
+    (a : D.wilson.toGNSData.V),
+      (MatchedPhysicalStageGNSData family coupling scale).rad
+        (centralPhysicalMarkovApply
+          (matchedAllSpinWeight family coupling scale)
+          (matchedAllSpinWeight_nonnegative family coupling scale)
+          (matchedAllSpinCutoff family coupling scale) 0
+          (rawStageObservable scale a))
+        (rawStageObservable scale (D.timeTranslation.tau a))
+  rationalFunctional : ProjectiveOSRationalModulus D
+  rawMoments : BF4RawStageMomentModulus D rawStageObservable
+    rationalFunctional
+  vacuumPin : WilsonDenseUnitVacuumPin D
+
 /-- Exact same-stage semantics with only the qualitative dense-unit vacuum
 pin.  Unlike `BF4WilsonDenseStageCenteredVacuumSemanticBase`, this interface
 does not carry a representative-level pairing rate.  It also omits carrier
@@ -326,6 +361,37 @@ def toProjectiveBase
     data.rationalFunctional
 
 end BF4WilsonDenseStageCenteredVacuumSemanticBase
+
+namespace BF4WilsonDenseStageCenteredVacuumQualitativeSemanticBase
+
+variable
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat -> Q'}
+    {P : PhysicalSeparator}
+    {producer : BF4QuarterPhysicalSeparatorProducer
+      family law spacing coupling P}
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    {H : FourDExistence.ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+
+/-- Exact same-stage semantics specialize the general qualitative projective
+base by supplying zero-rate raw moment moduli. -/
+def toQualitativeProjectiveBase
+    (data : BF4WilsonDenseStageCenteredVacuumQualitativeSemanticBase
+      producer D) :
+    BF4WilsonDenseStageCenteredVacuumQualitativeProjectiveBase producer D where
+  separatorPinned := data.separatorPinned
+  pointwiseTimeTranslation := data.pointwiseTimeTranslation
+  rawStageObservable := data.rawStageObservable
+  rawStageTransfer_intertwines := data.rawStageTransfer_intertwines
+  rationalFunctional := data.rationalFunctional
+  rawMoments := data.rawMomentSemantics.toRawStageMomentModulus
+    data.rationalFunctional
+  vacuumPin := data.vacuumPin
+
+end BF4WilsonDenseStageCenteredVacuumQualitativeSemanticBase
 
 namespace BF4WilsonDenseStageCenteredVacuumProjectiveBase
 
@@ -1059,6 +1125,7 @@ end YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison.BF4WilsonDenseStageCenteredVacuumProjectiveBase.raw_mean_diagonal_comparison
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison.BF4WilsonDenseStageCenteredVacuumProjectiveBase.vacuum_pairing_diagonal_small
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison.BF4WilsonDenseStageCenteredVacuumSemanticBase.toProjectiveBase
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison.BF4WilsonDenseStageCenteredVacuumQualitativeSemanticBase.toQualitativeProjectiveBase
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison.BF4WilsonDenseStageCenteredVacuumSlowComparison.norm_converges
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison.BF4WilsonDenseStageCenteredVacuumSlowComparison.transferredNorm_converges
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageCenteredSlowComparison.BF4WilsonDenseStageCenteredVacuumSlowComparison.toVacuumLinearGraphNormLimitApproximation
