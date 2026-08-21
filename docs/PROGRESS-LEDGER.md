@@ -2891,6 +2891,33 @@ and Clay targets remain open.  The source check and focused monitored build
 completed successfully, the latter with 221 jobs.  Every printed load-bearing
 declaration reports only `[propext, Quot.sound]`.
 
+## Canonical head-reduced physical LDL target (2026-08-21)
+
+`BF4PhysicalCutoffCanonicalHeadLDLGap` proves that indexed weight zero on the
+genuine BF4 positive-row carrier is strictly positive, using nonemptiness of
+that carrier and the defining positive-row filter.  It therefore instantiates
+the generated positive-head restriction at every physical cutoff.  Its upper
+and lower reduced matrices are now literally the pullbacks of
+`(1/16)D-K+dd^T` and `(1/16)D+K+dd^T`; no abstract restriction or externally
+asserted matrix identity remains.
+
+Ordinary and cleared-denominator LDL certificates are pinned to these exact
+generated matrices.  A constructively cofinal family of either kind compiles
+directly to `FixedNomeCofinalCenteredSixteenth`, and hence through the existing
+adaptive completed-transfer route to the same-object strict contraction and
+correlation-decay consequences.
+
+No LDL factor table or cofinal family is inhabited.  The historical cutoff-two
+`49/50` table is one-sided and cannot prove the two-sided `1/16` target.  The
+next exact finite frontier is therefore a feasibility audit of the displayed
+physical matrices, followed either by production of both factor tables on an
+unbounded fixed-nome schedule or by a kernel-checked obstruction showing that
+this proposed constant/route cannot work.  Thermodynamic, nome, spacing,
+continuum-reconstruction, QFT-axiom, and Clay targets remain open.  The source
+check and focused monitored build completed successfully, the latter with
+1221 jobs.  Every printed load-bearing declaration reports only
+`[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the

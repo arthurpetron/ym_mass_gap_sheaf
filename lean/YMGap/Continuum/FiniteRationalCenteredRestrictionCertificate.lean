@@ -341,6 +341,40 @@ structure CofinalFiniteCenteredRestrictionClearedLDLPackage
         (size (anchor base)) q
         (weight (anchor base)) (kernel (anchor base))
 
+/-- Ordinary reduced LDL checks pinned to one prescribed restriction at each
+finite-model index of a constructively cofinal schedule. -/
+structure CofinalFixedCenteredRestrictionLDLCertificate
+    (q : Q') (size : Nat → Nat)
+    (weight : Nat → Nat → Q')
+    (kernel : Nat → Nat → Nat → Q')
+    (restriction :
+      ∀ cutoff,
+        FiniteCenteredTwoSidedRestriction
+          (size cutoff) q (weight cutoff) (kernel cutoff)) : Type 1 where
+  anchor : Nat → Nat
+  anchor_ge : ∀ base, base ≤ anchor base
+  certificate :
+    ∀ base,
+      FiniteCenteredRestrictionLDLCertificate
+        (restriction (anchor base))
+
+/-- Cleared-denominator reduced LDL checks pinned to one prescribed
+restriction at each finite-model index of a constructively cofinal schedule. -/
+structure CofinalFixedCenteredRestrictionClearedLDLCertificate
+    (q : Q') (size : Nat → Nat)
+    (weight : Nat → Nat → Q')
+    (kernel : Nat → Nat → Nat → Q')
+    (restriction :
+      ∀ cutoff,
+        FiniteCenteredTwoSidedRestriction
+          (size cutoff) q (weight cutoff) (kernel cutoff)) : Type 1 where
+  anchor : Nat → Nat
+  anchor_ge : ∀ base, base ≤ anchor base
+  certificate :
+    ∀ base,
+      FiniteCenteredRestrictionClearedLDLCertificate
+        (restriction (anchor base))
+
 end YMGap.Continuum.FiniteRationalCenteredRestrictionCertificate
 
 #print axioms

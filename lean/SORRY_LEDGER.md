@@ -440,6 +440,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/FiniteRationalHeadCenteredPullback.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffCofinalLDLGap.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffCofinalRestrictedLDLGap.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffCanonicalHeadLDLGap.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovTransfer.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovLaws.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovVacuumComplement.lean`,
@@ -911,16 +912,20 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   weighted sum by that head weight; it is proved centered and constructively
   complete for all centered full vectors.  Hence the only remaining generic
   restriction fields are the two reduced-matrix quadratic identifications.
-  Their canonical pullback construction and a physical positive head-weight
-  witness remain open.  The generic pullback itself is now constructed:
-  Lean proves the literal `A^T M A` quadratic equals the full quadratic on the
-  finite linear lift using only finite Fubini and rational algebra.  What
-  The positive-head transform is now also constructed and proved to evaluate
+  Their canonical pullback construction is now explicit: Lean proves the
+  literal `A^T M A` quadratic equals the full quadratic on the finite linear
+  lift using only finite Fubini and rational algebra.  The positive-head
+  transform is constructed and proved to evaluate
   to the explicit division lift on every in-range full coordinate.  Pullback
   of both canonical penalized matrices therefore generates the entire
   `FiniteCenteredTwoSidedRestriction`, including both quadratic identities.
-  What remains at this subfrontier is the physical head-weight witness and
-  actual LDL factorizations of those displayed reduced matrices.
+  Positivity of the indexed physical head weight is now proved from nonempty
+  positive-row support, so every genuine BF4 cutoff carries this canonical
+  restriction.  Ordinary and cleared LDL certificates are pinned to the
+  generated matrices, and cofinal families compile to
+  `FixedNomeCofinalCenteredSixteenth`.  What remains at this subfrontier is
+  the production—or exact obstruction—of actual LDL factorizations of those
+  displayed reduced matrices along an unbounded fixed-nome schedule.
   That transport frontier is now specialized to the actual cutoff-removed
   carrier.  Every completion representative has a canonical exactly centered
   vector in each finite-cutoff physical GNS completion, and its finite vacuum
