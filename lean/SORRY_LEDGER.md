@@ -720,6 +720,15 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   inputs construct this record by proved form congruences.  The physical
   representative lift and these representative-targeted moment estimates
   remain uninhabited.
+  The concrete finite-stage audit closes the finite side of this distinction:
+  the physical GNS completion, Markov transfer, stationary normalized vacuum,
+  vacuum-complement preservation, and same-object completed macro correlator
+  are already constructed at each matched cutoff.  What is missing is the
+  cross-scale realization of one continuum OS/GNS representative family and
+  convergence of its four moments.  `ContinuumMeasure` currently constructs
+  only the inverse-limit thread of a supplied consistent abstract family; it
+  does not provide the constructive probability-measure extension or these
+  Wilson moment limits.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full

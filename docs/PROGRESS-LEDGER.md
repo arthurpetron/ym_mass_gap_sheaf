@@ -1870,3 +1870,31 @@ Focused monitored builds completed 1279 jobs for the compiler and 1339 jobs
 for the integrated endpoint.  Every newly printed declaration reports only
 `[propext, Quot.sound]`; generator identification, the full QFT axioms, and
 the Clay theorem remain open.
+
+## Finite-stage closure and the genuine cross-scale cut (2026-08-20)
+
+A dependency audit of `BF4PhysicalMarkovGNSCompletion` and
+`BF4PhysicalCompletedMacroCorrelator` confirms that the finite side of the
+current bridge is already concrete.  At every matched cutoff the repository
+constructs the physical GNS carrier, the completed Markov transfer, its
+normalized stationary vacuum, preservation of the completed vacuum
+complement, and the equality between the selected same-object finite
+correlation and the completed matrix coefficient.  The producer supplies the
+uniform `1/16` contraction on that same finite carrier.
+
+The first missing causal arrow is therefore cross-scale, not operator
+theoretic.  One must construct a single selected continuum OS/GNS object and
+coherently realize its Cauchy representatives in the varying finite carriers,
+with the four ordinary/transferred moment moduli now isolated by the direct
+compiler.  The current `ContinuumMeasure` supplies a constructive inverse-limit
+thread from an already consistent abstract family; it does not construct the
+finite probability-measure carriers, prove Wilson-family consistency, perform
+the constructive sigma-additive extension, or prove the required moment
+convergence.
+
+This audit adds no theorem and makes no continuum claim.  It identifies the
+next mathematical frontier as constructive measure/coarsening and Wilson
+moment convergence on the actual BF4 family.  The finite carrier, transfer,
+vacuum, and same-object correlator files were inspected here but not rebuilt in
+this audit; the newly integrated direct endpoint remains covered by the 1279-
+and 1339-job monitored builds above.
