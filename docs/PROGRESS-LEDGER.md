@@ -2681,6 +2681,31 @@ completed successfully, the latter with 216 jobs.  Every printed load-bearing
 declaration reports only `[propext]`, within the allowed
 `[propext, Quot.sound]` gate.
 
+## Exact physical-carrier finite-index bridge (2026-08-21)
+
+`FiniteListIndexQuadraticBridge` proves generically that totalized `List.getD`
+lookup over `0, ..., states.length - 1` preserves literal single and double
+`listQSum` expressions.  `BF4PhysicalCutoffFiniteIndexBridge` applies this to
+the actual duplicate-free positive-row BF4 carrier at arbitrary nome, cutoff,
+and finite half-extent.
+
+The resulting indexed dimension, state lookup, stationary weights, normalized
+reflected kernel, and observable coefficients are now proved to reproduce
+exactly the physical stationary mean, weighted norm, and joint quadratic.
+Physical mean-zero observables therefore become exactly weighted-centered
+finite coefficient vectors.  This closes the previously implicit
+list-to-matrix identification step; out-of-range fallback values provably do
+not enter any checked quadratic.
+
+No upper/lower LDL data or cofinal cutoff family is constructed here.  The
+next finite frontier is to specify the canonical two penalized matrices and
+compile successful exact LDL checks for both signs into
+`FixedNomeCofinalCenteredSixteenth`.  Thermodynamic, nome, spacing,
+continuum-reconstruction, QFT-axiom, and Clay targets remain open.  Both source
+checks and focused monitored builds completed successfully, with 216 and 983
+jobs respectively.  Every printed load-bearing declaration reports only
+`[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the
