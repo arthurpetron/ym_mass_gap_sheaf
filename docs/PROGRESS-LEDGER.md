@@ -2175,6 +2175,30 @@ theorem remain open.  A source check and focused monitored build completed
 successfully, the latter with 1306 jobs.  Every printed load-bearing
 declaration reports only `[propext, Quot.sound]`.
 
+## Adaptive transfer preserves the completed vacuum complement (2026-08-21)
+
+`BF4PhysicalCutoffLinearMarkovAdaptiveVacuumComplement` contracts the four
+paid graph rates with exact finite stationarity.  For each graph-normalized
+representative, its input-side adaptive reindexing and its actual adaptive
+Markov image have convergent vacuum-pairing diagonals; stationarity identifies
+the two diagonal terms at every cutoff, and representative well-definedness
+returns the input limit to the original completed point.
+
+This proves a completed vacuum-pairing invariant for the new transfer.
+Therefore it preserves the actual completed vacuum complement and restricts
+to `centralPhysicalAdaptiveCompletedVacuumComplementMarkovTransfer`, bundled
+as a rational-linear endomorphism of that concrete subtype.
+
+The construction uses only pointwise dense cross-cutoff data and removes the
+historical same-index completion modulus from the carrier, transfer,
+linearity, vacuum-pairing, and vacuum-complement chain.  The next contraction
+frontier is convergence of the two centered graph-norm streams and transport
+of a cofinal finite sixteenth to a completed strict contraction.  Nonconstant
+pointwise data, the cofinal finite sixteenth, thermodynamic/nome/spacing
+limits, continuum QFT, and the Clay theorem remain open.  A source check and
+focused monitored build completed successfully, the latter with 1308 jobs.
+Every printed load-bearing declaration reports only `[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the
