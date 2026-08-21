@@ -2199,6 +2199,30 @@ limits, continuum QFT, and the Clay theorem remain open.  A source check and
 focused monitored build completed successfully, the latter with 1308 jobs.
 Every printed load-bearing declaration reports only `[propext, Quot.sound]`.
 
+## Adaptive completed graph-norm convergence (2026-08-21)
+
+`BF4PhysicalCutoffLinearMarkovAdaptiveGraphNorm` diagonalizes the two self-pair
+streams paid by the composed schedule.  For the input-side adaptively sampled
+representative `Z`, its raw self-pair and vacuum-pair diagonals converge; the
+same is true for the actual adaptive Markov output.
+
+A new same-cutoff theorem identifies the literal finite transferred centered
+norm directly with the adaptive action diagonal, without mentioning or
+inhabiting the historical completion modulus.  Completed vacuum orthogonality
+then makes both mean-square corrections converge to zero.  Therefore the
+centered finite norm stream converges to the completed squared norm of `Z`,
+and the transferred centered stream converges to the completed squared norm
+of its adaptive image.
+
+These are precisely the two graph-limit edges needed to transport finite
+strictness to the new completed operator.  The next step is to reindex them
+along a supplied cofinal family of finite `1/16` cutoffs and construct the
+completed strict-contraction datum.  Nonconstant pointwise data, that cofinal
+finite certificate, thermodynamic/nome/spacing limits, continuum QFT, and the
+Clay theorem remain open.  A source check and focused monitored build
+completed successfully, the latter with 1309 jobs.  Every printed
+load-bearing declaration reports only `[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the
