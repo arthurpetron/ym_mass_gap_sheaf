@@ -1034,3 +1034,34 @@ continuum stability, continuum QFT existence, and the Clay theorem remain
 open.  The focused single-worker build completed 1201 jobs; the forbidden-
 token scan was empty and every exported declaration reports only
 `[propext, Quot.sound]`.  No full audit, remote push, or GitHub CI run was used.
+
+## Completed physical BF4 operator-norm gap (2026-08-20)
+
+`BF4PhysicalCompletedOperatorNormGap` contracts the completed centered form
+gap and completed positive-Markov-form Cauchy--Schwarz into the actual
+completed operator estimate.  For a vacuum-orthogonal vector `v`, apply the
+Markov-form Cauchy--Schwarz inequality to `(v,Tv)` and the form gap to `Tv`:
+
+`||Tv||^4 <= <Tv,v> <T^2v,Tv> <= <Tv,v> (q ||Tv||^2)`.
+
+Constructive nonnegative-factor cancellation, with no division by
+`||Tv||^2`, gives `||Tv||^2 <= q <Tv,v>`.  Applying the form gap once more
+gives
+
+`||Tv||^2 <= q^2 ||v||^2`, with `q = 1/16`.
+
+The module packages the reusable completed physical form-gap contract, proves
+the square-form and norm-gap upgrades for any nonnegative strict rate, and
+then instantiates them from each `BF4QuarterPhysicalSeparatorProducer`.  It
+also defines the concrete completed macro-transfer powers and proves geometric
+squared-norm decay `((1/16)^2)^n` on the invariant vacuum complement.
+
+As before, the result is conditional on an inhabitant of the named physical
+producer structure; it does not construct that analytic producer.  It is a
+finite-cutoff completed operator theorem, not thermodynamic or continuum
+stability and not the Clay result.  The next representation frontier is to
+transport this now-direct physical gap to the Type-modulated completion; the
+next analytic frontier after that is uniform limit stability.  The focused
+single-worker build completed 1231 jobs; the forbidden-token scan was empty
+and every exported declaration reports only `[propext, Quot.sound]`.  No full
+audit, remote push, or GitHub CI run was used.
