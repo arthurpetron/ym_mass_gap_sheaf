@@ -2001,6 +2001,31 @@ focused monitored build completed 979 jobs, followed by a clean source check
 after adding the explicit weighted-inner identity.  Every printed
 load-bearing declaration reports only `[propext, Quot.sound]`.
 
+## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
+
+`BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the
+all-cutoff `FixedNomeCutoffCenteredSixteenth` is stronger than the completed
+limit needs.  At each anchor selected by the existing
+`FixedNomeCofinalCenteredSixteenth`, exact stationary centering first gives the
+finite completed form gap and the division-free form-to-operator theorem gives
+the `(1/16)^2` norm bound.
+
+Both adaptive graph-norm streams are then reindexed along the cofinal anchor
+map.  Their limits are unchanged, so the anchorwise finite bounds contract to
+`centralPhysicalCutoffCompletedMarkovAdaptiveCofinalStrictContractionData`, the
+same strict contraction of the actual cutoff-removed transfer at rate `1/16`.
+A second compiler accepts the more geometric
+`FixedNomeCofinalLocalGluing` directly.
+
+Neither the cofinal finite certificate nor the nonconstant completion modulus
+is inhabited.  The finite residual is nevertheless strictly weaker: one now
+needs certified cutoffs arbitrarily far out, not a certificate at every
+cutoff.  The next completed-transfer frontier is the cross-cutoff completion
+modulus.  Thermodynamic/nome/spacing limits, continuum QFT, and the Clay
+theorem remain open.  A source check and focused monitored build completed
+successfully, the latter with 1303 jobs.  Every printed load-bearing
+declaration reports only `[propext, Quot.sound]`.
+
 ## Adaptive completed graph-norm compiler (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveGraphNorm` uses the equal
