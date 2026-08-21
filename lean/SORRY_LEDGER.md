@@ -678,24 +678,21 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   that the `pairingRate` and `pairingSmall` fields are not needed by the final
   graph-norm convergence argument: qualitative convergence from
   `WilsonDenseUnitVacuumPin` suffices inside the proposition-valued limit.
-  The general weak dense-stage residual now carries the fixed-observable raw
-  moment moduli and that vacuum pin, but no representative pairing modulus.
-  Its slow diagonal pays all four projective and all four raw moment rates.
-  The exact-semantic specialization makes the four raw rates zero.  Neither
-  weak route asks the raw realization to preserve the continuum carrier
-  setoid, because that congruence law is unused by the direct
-  representative-level proof.
+  The general weak dense-stage residual now carries the fused
+  `BF4RawStageContinuumMomentModulus` and that vacuum pin, but no
+  representative pairing modulus, rational projective functional, or
+  intermediate projective diagonal.  Its slow diagonal pays exactly four
+  direct rates: raw square and stationary mean for the ordinary and
+  one-step-translated representatives.  The former projective-functional
+  modulus plus raw moment moduli construct this weaker certificate by a proved
+  half-error composition, while the exact-semantic route further specializes
+  the raw comparison legs to zero rates.  Neither weak route asks the raw
+  realization to preserve the continuum carrier setoid, because that
+  congruence law is unused by the representative-level proof.
   This is an interface reduction, not an inhabitant: the raw realization, its
-  radical transfer law, the rational projective functional, the raw moment
-  moduli (or two exact stage identities), and the qualitative vacuum pin
-  remain unconstructed analytic inputs on the physical thread.
-  A further fused certificate,
-  `BF4RawStageContinuumMomentModulus`, states only direct convergence of the
-  finite raw square and stationary mean to their selected continuum Wilson
-  moments.  The former projective-functional modulus plus raw moment moduli
-  construct this weaker certificate by a proved half-error composition; its
-  four-rate slow-diagonal consumer is the next integration frontier.  No
-  inhabitant of the fused certificate is claimed.
+  radical transfer law, the direct fixed-observable moment certificate (or a
+  stronger projective/exact-semantic refinement), and the qualitative vacuum
+  pin remain unconstructed analytic inputs on the physical thread.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full

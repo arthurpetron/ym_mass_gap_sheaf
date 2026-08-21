@@ -1744,3 +1744,30 @@ observable, its moment convergence on the interacting continuum thread, the
 transfer/vacuum pins, continuum measure, QFT axioms, and Clay theorem remains
 open.  A focused monitored build completed 1272 jobs, and every newly printed
 declaration reports only `[propext, Quot.sound]`.
+
+## Four-rate direct-moment endpoint (2026-08-20)
+
+`BF4PhysicalDenseStageDirectMomentCompiler` now consumes the direct
+`BF4RawStageContinuumMomentModulus` certificate at the graph-norm frontier.  It
+constructs a cofinal slow diagonal paying exactly four rates: the raw square
+and stationary mean for a selected representative and its one-step translate.
+Direct raw-moment convergence, qualitative dense-unit vacuum convergence, and
+the exact centering identity then give the ordinary and transferred graph-norm
+limits required by the completed vacuum-complement operator-gap compiler.
+
+The public general endpoint
+`ContinuumWilsonDenseStageQualitativeResidualData` now carries this weaker
+direct base.  Its former rational-functional/projective-moment input refines
+the direct certificate by the proved half-error composition, and the exact
+same-stage semantic route refines it through the existing zero-rate adapter.
+Thus neither an all-observable rational projective functional nor an
+intermediate projective diagonal is required by the public general endpoint.
+
+This is still a conditional compiler, not a construction of the input data.
+The actual continuum measure and selected OS/GNS thread, the raw-stage
+observable, radical transfer intertwining, direct fixed-observable moment
+moduli, qualitative vacuum pin, generator identification, full QFT axioms,
+and Clay theorem remain open.  Focused monitored builds completed 1279 jobs
+for the direct compiler and 1339 jobs for the integrated AF/Faraut endpoint.
+Every newly printed load-bearing declaration reports only
+`[propext, Quot.sound]`; no full audit, remote push, or GitHub CI run was used.
