@@ -1722,3 +1722,25 @@ Focused monitored builds completed 1276 jobs for the input/refinement layer
 and 1278 for the general qualitative compiler, and 1338 jobs for the
 integrated endpoint.  Every printed load-bearing declaration reports only
 `[propext, Quot.sound]`.
+
+## Direct raw-to-continuum moment certificate (2026-08-20)
+
+`BF4RawStageContinuumMomentModulus` isolates the fixed-observable statement
+actually needed after the finite BF4 carrier is constructed: its raw square
+and stationary mean converge, with Type-level rates, directly to the selected
+continuum Wilson square and vacuum-pairing expectations.  The certificate no
+longer exposes a rational evaluator on every OS observable or a separate
+finite/projective and projective/continuum split.
+
+`BF4RawStageMomentModulus.toContinuumMomentModulus` proves that the preceding
+two-leg projective input constructs the direct certificate by a half-error
+composition.  Antitone regularizations and their retained bounds are proved
+for both direct moment rates.  Thus the new interface is a genuine weakening,
+not an unrelated alternative; integrating its four-rate slow diagonal is the
+next compiler step.
+
+No direct moment certificate is inhabited here.  Constructing the raw stage
+observable, its moment convergence on the interacting continuum thread, the
+transfer/vacuum pins, continuum measure, QFT axioms, and Clay theorem remains
+open.  A focused monitored build completed 1272 jobs, and every newly printed
+declaration reports only `[propext, Quot.sound]`.

@@ -689,6 +689,13 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   radical transfer law, the rational projective functional, the raw moment
   moduli (or two exact stage identities), and the qualitative vacuum pin
   remain unconstructed analytic inputs on the physical thread.
+  A further fused certificate,
+  `BF4RawStageContinuumMomentModulus`, states only direct convergence of the
+  finite raw square and stationary mean to their selected continuum Wilson
+  moments.  The former projective-functional modulus plus raw moment moduli
+  construct this weaker certificate by a proved half-error composition; its
+  four-rate slow-diagonal consumer is the next integration frontier.  No
+  inhabitant of the fused certificate is claimed.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full

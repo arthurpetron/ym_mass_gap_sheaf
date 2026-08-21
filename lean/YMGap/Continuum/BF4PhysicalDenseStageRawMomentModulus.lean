@@ -89,6 +89,129 @@ structure BF4RawStageMomentModulus
               (continuumVacuumPairingObservable D observable) <=
             finiteStageRawMean D rawStageObservable scale observable + epsilon
 
+/-- Fixed-observable convergence of the literal finite BF4 raw moments
+directly to the selected continuum Wilson moments.  This is the fused
+finite/projective/continuum obligation actually consumed by graph-norm
+stability; it mentions neither a rational stage evaluator nor a separate
+projective comparison leg. -/
+structure BF4RawStageContinuumMomentModulus
+    {family : MatchedBlockFamily}
+    {coupling : Nat -> Q'}
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    {H : FourDExistence.ContinuumYMExistence mu}
+    (D : WilsonSelectedOSGNSData H)
+    (rawStageObservable : forall scale : Nat,
+      D.wilson.toGNSData.V ->
+        (MatchedPhysicalStageGNSData family coupling scale).V) : Type 2 where
+  squareRate : D.wilson.toGNSData.V -> Q' -> Nat
+  squareBound : forall (observable : D.wilson.toGNSData.V)
+    (epsilon : Q'), (0 : Q') < epsilon -> forall scale : Nat,
+      squareRate observable epsilon <= scale ->
+        finiteStageSquareExpectation D rawStageObservable scale observable <=
+            H.os_axioms.E.E (continuumSquareObservable D observable) + epsilon /\
+          H.os_axioms.E.E (continuumSquareObservable D observable) <=
+            finiteStageSquareExpectation D rawStageObservable scale observable +
+              epsilon
+  meanRate : D.wilson.toGNSData.V -> Q' -> Nat
+  meanBound : forall (observable : D.wilson.toGNSData.V)
+    (epsilon : Q'), (0 : Q') < epsilon -> forall scale : Nat,
+      meanRate observable epsilon <= scale ->
+        finiteStageRawMean D rawStageObservable scale observable <=
+            H.os_axioms.E.E
+              (continuumVacuumPairingObservable D observable) + epsilon /\
+          H.os_axioms.E.E
+              (continuumVacuumPairingObservable D observable) <=
+            finiteStageRawMean D rawStageObservable scale observable + epsilon
+
+private theorem close_trans_halves
+    (first middle last epsilon : Q')
+    (hfirst : first <= middle + HalfPow.half * epsilon /\
+      middle <= first + HalfPow.half * epsilon)
+    (hlast : middle <= last + HalfPow.half * epsilon /\
+      last <= middle + HalfPow.half * epsilon) :
+    first <= last + epsilon /\ last <= first + epsilon := by
+  constructor
+  · refine Q'.le_trans' _ _ _ hfirst.1 ?_
+    refine Q'.le_trans' _ _ _
+      (Q'.add_le_add_right middle
+        (last + HalfPow.half * epsilon)
+        (HalfPow.half * epsilon) hlast.1) ?_
+    exact Q'.le_of_eqv
+      (Q'.eqv_trans _ _ _
+        (Q'.add_assoc_eqv last
+          (HalfPow.half * epsilon) (HalfPow.half * epsilon))
+        (Q'.add_eqv_congr_left last
+          (HalfPow.half * epsilon + HalfPow.half * epsilon) epsilon
+          (ExpNeg.two_halves epsilon)))
+  · refine Q'.le_trans' _ _ _ hlast.2 ?_
+    refine Q'.le_trans' _ _ _
+      (Q'.add_le_add_right middle
+        (first + HalfPow.half * epsilon)
+        (HalfPow.half * epsilon) hfirst.2) ?_
+    exact Q'.le_of_eqv
+      (Q'.eqv_trans _ _ _
+        (Q'.add_assoc_eqv first
+          (HalfPow.half * epsilon) (HalfPow.half * epsilon))
+        (Q'.add_eqv_congr_left first
+          (HalfPow.half * epsilon + HalfPow.half * epsilon) epsilon
+          (ExpNeg.two_halves epsilon)))
+
+namespace BF4RawStageMomentModulus
+
+variable
+    {family : MatchedBlockFamily}
+    {coupling : Nat -> Q'}
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    {H : FourDExistence.ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+    {rawStageObservable : forall scale : Nat,
+      D.wilson.toGNSData.V ->
+        (MatchedPhysicalStageGNSData family coupling scale).V}
+    {rationalFunctional : ProjectiveOSRationalModulus D}
+
+/-- Compose the finite/projective raw-moment bounds with the projective/
+continuum modulus.  The half-error split proves that the older two-leg input
+constructs the fused direct moment certificate. -/
+def toContinuumMomentModulus
+    (data : BF4RawStageMomentModulus D rawStageObservable
+      rationalFunctional) :
+    BF4RawStageContinuumMomentModulus D rawStageObservable where
+  squareRate := fun observable epsilon =>
+    max (data.squareRate observable (HalfPow.half * epsilon))
+      (rationalFunctional.rate
+        (continuumSquareObservable D observable)
+        (HalfPow.half * epsilon))
+  squareBound := by
+    intro observable epsilon hepsilon scale hscale
+    let halfEpsilon := HalfPow.half * epsilon
+    have hhalf : (0 : Q') < halfEpsilon :=
+      ExpNeg.half_mul_pos epsilon hepsilon
+    have hraw := data.squareBound observable halfEpsilon hhalf scale
+      (Nat.le_trans (Nat.le_max_left _ _) hscale)
+    have hprojective := rationalFunctional.bound
+      (continuumSquareObservable D observable) halfEpsilon hhalf scale
+      (Nat.le_trans (Nat.le_max_right _ _) hscale)
+    exact close_trans_halves _ _ _ epsilon hraw hprojective
+  meanRate := fun observable epsilon =>
+    max (data.meanRate observable (HalfPow.half * epsilon))
+      (rationalFunctional.rate
+        (continuumVacuumPairingObservable D observable)
+        (HalfPow.half * epsilon))
+  meanBound := by
+    intro observable epsilon hepsilon scale hscale
+    let halfEpsilon := HalfPow.half * epsilon
+    have hhalf : (0 : Q') < halfEpsilon :=
+      ExpNeg.half_mul_pos epsilon hepsilon
+    have hraw := data.meanBound observable halfEpsilon hhalf scale
+      (Nat.le_trans (Nat.le_max_left _ _) hscale)
+    have hprojective := rationalFunctional.bound
+      (continuumVacuumPairingObservable D observable)
+      halfEpsilon hhalf scale
+      (Nat.le_trans (Nat.le_max_right _ _) hscale)
+    exact close_trans_halves _ _ _ epsilon hraw hprojective
+
+end BF4RawStageMomentModulus
+
 /-! ## Exact same-stage semantic identification -/
 
 /-- Equality of embedded rational constants reflects back to semantic
@@ -208,6 +331,106 @@ def toRawStageMomentModulus
 
 end BF4RawStageMomentSemanticIdentification
 
+namespace BF4RawStageContinuumMomentModulus
+
+variable
+    {family : MatchedBlockFamily}
+    {coupling : Nat -> Q'}
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    {H : FourDExistence.ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+    {rawStageObservable : forall scale : Nat,
+      D.wilson.toGNSData.V ->
+        (MatchedPhysicalStageGNSData family coupling scale).V}
+    (data : BF4RawStageContinuumMomentModulus D rawStageObservable)
+
+/-- Antitone regularization of the direct raw-square/continuum rate. -/
+def regularSquareRate (observable : D.wilson.toGNSData.V)
+    (epsilon : Q') : Nat :=
+  CReal.Gmax
+    (fun precision => data.squareRate observable (Q'.invSucc precision))
+    (CReal.lv epsilon)
+
+/-- Antitone regularization of the direct raw-mean/continuum rate. -/
+def regularMeanRate (observable : D.wilson.toGNSData.V)
+    (epsilon : Q') : Nat :=
+  CReal.Gmax
+    (fun precision => data.meanRate observable (Q'.invSucc precision))
+    (CReal.lv epsilon)
+
+theorem regularSquareRate_antitone
+    (observable : D.wilson.toGNSData.V)
+    {epsilon delta : Q'} (hdelta : (0 : Q') < delta)
+    (hdeltaepsilon : delta <= epsilon) :
+    data.regularSquareRate observable epsilon <=
+      data.regularSquareRate observable delta := by
+  exact CReal.Gmax_mono _ _ _
+    (CReal.lv_antitone hdelta hdeltaepsilon)
+
+theorem regularMeanRate_antitone
+    (observable : D.wilson.toGNSData.V)
+    {epsilon delta : Q'} (hdelta : (0 : Q') < delta)
+    (hdeltaepsilon : delta <= epsilon) :
+    data.regularMeanRate observable epsilon <=
+      data.regularMeanRate observable delta := by
+  exact CReal.Gmax_mono _ _ _
+    (CReal.lv_antitone hdelta hdeltaepsilon)
+
+theorem regularSquareBound
+    (observable : D.wilson.toGNSData.V)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (scale : Nat) (hscale : data.regularSquareRate observable epsilon <= scale) :
+    finiteStageSquareExpectation D rawStageObservable scale observable <=
+        H.os_axioms.E.E (continuumSquareObservable D observable) + epsilon /\
+      H.os_axioms.E.E (continuumSquareObservable D observable) <=
+        finiteStageSquareExpectation D rawStageObservable scale observable +
+          epsilon := by
+  let delta : Q' := Q'.invSucc (CReal.lv epsilon)
+  have hdelta : (0 : Q') < delta := Q'.invSucc_pos _
+  have hrawRate : data.squareRate observable delta <=
+      data.regularSquareRate observable epsilon :=
+    CReal.Gmax_ge
+      (fun precision => data.squareRate observable (Q'.invSucc precision))
+      (CReal.lv epsilon)
+  have hbound := data.squareBound observable delta hdelta scale
+    (Nat.le_trans hrawRate hscale)
+  have hdeltaepsilon : delta <= epsilon :=
+    CReal.invSucc_lv_le hepsilon
+  exact
+    ⟨Q'.le_trans' _ _ _ hbound.1
+        (Q'.add_le_add_left _ _ _ hdeltaepsilon),
+      Q'.le_trans' _ _ _ hbound.2
+        (Q'.add_le_add_left _ _ _ hdeltaepsilon)⟩
+
+theorem regularMeanBound
+    (observable : D.wilson.toGNSData.V)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (scale : Nat) (hscale : data.regularMeanRate observable epsilon <= scale) :
+    finiteStageRawMean D rawStageObservable scale observable <=
+        H.os_axioms.E.E
+          (continuumVacuumPairingObservable D observable) + epsilon /\
+      H.os_axioms.E.E
+          (continuumVacuumPairingObservable D observable) <=
+        finiteStageRawMean D rawStageObservable scale observable + epsilon := by
+  let delta : Q' := Q'.invSucc (CReal.lv epsilon)
+  have hdelta : (0 : Q') < delta := Q'.invSucc_pos _
+  have hrawRate : data.meanRate observable delta <=
+      data.regularMeanRate observable epsilon :=
+    CReal.Gmax_ge
+      (fun precision => data.meanRate observable (Q'.invSucc precision))
+      (CReal.lv epsilon)
+  have hbound := data.meanBound observable delta hdelta scale
+    (Nat.le_trans hrawRate hscale)
+  have hdeltaepsilon : delta <= epsilon :=
+    CReal.invSucc_lv_le hepsilon
+  exact
+    ⟨Q'.le_trans' _ _ _ hbound.1
+        (Q'.add_le_add_left _ _ _ hdeltaepsilon),
+      Q'.le_trans' _ _ _ hbound.2
+        (Q'.add_le_add_left _ _ _ hdeltaepsilon)⟩
+
+end BF4RawStageContinuumMomentModulus
+
 namespace BF4RawStageMomentModulus
 
 variable
@@ -323,3 +546,8 @@ end YMGap.Continuum.BF4PhysicalDenseStageRawMomentModulus
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMomentModulus.BF4RawStageMomentSemanticIdentification.squarePinned
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMomentModulus.BF4RawStageMomentSemanticIdentification.meanPinned
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMomentModulus.BF4RawStageMomentSemanticIdentification.toRawStageMomentModulus
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMomentModulus.BF4RawStageMomentModulus.toContinuumMomentModulus
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMomentModulus.BF4RawStageContinuumMomentModulus.regularSquareRate_antitone
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMomentModulus.BF4RawStageContinuumMomentModulus.regularMeanRate_antitone
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMomentModulus.BF4RawStageContinuumMomentModulus.regularSquareBound
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageRawMomentModulus.BF4RawStageContinuumMomentModulus.regularMeanBound
