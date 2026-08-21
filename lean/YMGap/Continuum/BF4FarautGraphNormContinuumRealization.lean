@@ -17,7 +17,7 @@ continuum Yang--Mills theory is constructed here.
 -/
 
 import YMGap.Continuum.BF4FarautSpectralMarginInputContinuumRealization
-import YMGap.Continuum.BF4PhysicalDenseStageRawMeanComparison
+import YMGap.Continuum.BF4PhysicalDenseStageQualitativeVacuumCompiler
 import YMGap.Continuum.BF4PhysicalVacuumGraphNormLimitStability
 
 namespace YMGap.Continuum.BF4FarautGraphNormContinuumRealization
@@ -303,8 +303,8 @@ def toContinuumWilsonGraphNormResidualData
   rateReconstruction := D.rateReconstruction
   graphNormLimit :=
     (BF4WilsonDenseStageRawMeanSlowComparison.ofProjectiveBase
-        D.denseStageLimit).toCenteredVacuumSlowComparison
-      |>.toVacuumLinearGraphNormLimitApproximation
+        D.denseStageLimit)
+      |>.toVacuumLinearGraphNormLimitApproximationQualitative
 
 /-- Literal dense finite-stage maps and projective expectation moduli construct
 their vector-adaptive slow diagonal and then the same-object positive exact-log

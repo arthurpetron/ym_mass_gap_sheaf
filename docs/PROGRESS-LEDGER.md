@@ -1637,3 +1637,31 @@ semantic reduction, 1276 for the centered semantic-base integration, 1277 for
 the raw-mean compiler, and 1337 for the AF/Faraut endpoint.  Every newly
 printed declaration reports only `[propext, Quot.sound]`; no full audit,
 remote push, or GitHub CI run was used.
+
+## Qualitative vacuum convergence bypasses the rate field (2026-08-20)
+
+`BF4PhysicalDenseStageQualitativeVacuumCompiler` proves the graph-norm limits
+directly at the proposition-valued convergence layer.  The raw square stream
+is connected to the sampled continuum norm through the finite/projective and
+projective/continuum comparison legs.  The raw mean stream is connected in the
+same way to the sampled dense-unit pairing, whose convergence to zero already
+follows qualitatively from vacuum orthogonality and the dense-unit vacuum pin.
+Continuity of multiplication and the exact identity
+`centered square = raw square - mean^2` then construct both ordinary and
+one-step-translated graph-norm limits.
+
+The integrated AF/Faraut endpoint now uses this direct route.  No pairing-rate
+field or pairing-rate theorem occurs in the new convergence proofs; only the
+underlying `WilsonDenseUnitVacuumPin` is used.  The current input record still
+contains the stronger `WilsonDenseUnitVacuumPairingModulus`, so this commit
+proves the logical redundancy but does not yet remove the field from the
+public residual interface.  That structural weakening is the immediate next
+frontier.
+
+This remains conditional finite-to-continuum plumbing, not an analytic
+construction of the physical thread.  The raw realization, radical transfer
+law, projective rational functional, raw moment moduli or exact stage
+semantics, dense-unit vacuum pin, continuum measure, generator identification,
+QFT axioms, and Clay theorem remain open.  Focused monitored builds completed
+1278 jobs for the qualitative compiler and 1338 for the integrated endpoint;
+the printed load-bearing declarations report only `[propext, Quot.sound]`.
