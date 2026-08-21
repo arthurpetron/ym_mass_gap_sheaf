@@ -2594,3 +2594,25 @@ cofinality, and strict contraction remain open.  Nome/volume/spacing limits,
 continuum QFT, and the Clay theorem also remain open.  A source check and
 focused monitored build completed successfully, the latter with 1155 jobs.
 Every printed load-bearing declaration reports only `[propext, Quot.sound]`.
+
+## Same-object completed Cauchy--Schwarz and correlation decay (2026-08-21)
+
+`BF4PhysicalCutoffLinearCompletedMarkovCorrelationDecay` transports the sharp
+finite-linear Cauchy--Schwarz inequality through the explicit outer pairing
+limit and the completion quotient.  The actual cutoff-limit physical BF4
+inner form therefore satisfies completed-real Cauchy--Schwarz for arbitrary
+completed vectors.
+
+Composing this unconditional theorem with the conditional same-object power
+norm estimate proves geometric decay of every squared matrix coefficient
+`<T^n v,test>^2` when `v` belongs to the actual completed vacuum complement;
+`test` may be any vector in the same completed carrier.  Thus the route from
+one-step strictness to same-object correlation decay is now kernel-checked.
+
+This does not inhabit the strict-contraction certificate or identify its rate
+with the separate finite or matched-cutoff `1/16`.  The nonconstant completion
+modulus, vacuum cofinality, and same-object strict contraction remain open, as
+do nome/volume/spacing limits, continuum QFT, and the Clay theorem.  A source
+check and focused monitored build completed successfully, the latter with
+1215 jobs.  Every printed load-bearing declaration reports only
+`[propext, Quot.sound]`.

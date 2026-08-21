@@ -423,6 +423,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovVacuumComplement.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovVacuumPairing.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovContraction.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovCorrelationDecay.lean`,
   and
   `lean/YMGap/Continuum/BF4FarautGraphNormContinuumRealization.lean`.
 - **named fields / structures**:
@@ -889,6 +890,15 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `<T^n v,T^n v> <= (q^2)^n <v,v>` on the same completed vacuum complement.
   No inhabitant is claimed, and the separate finite or matched-cutoff `1/16`
   estimates have not been transported to this same-object certificate.
+  Independently of that open strict estimate, finite-linear
+  Cauchy--Schwarz is now transported through the explicit outer pairing limit
+  and completion quotient.  Consequently the actual completed physical inner
+  form obeys sharp completed-real Cauchy--Schwarz.  Combining it with the
+  conditional power-norm theorem proves geometric decay of every squared
+  same-object matrix coefficient `<T^n v,test>^2`, with `v` in the completed
+  vacuum complement and arbitrary completed `test`.  This closes the
+  norm-to-correlation implication but does not inhabit any of its analytic
+  transfer or strictness inputs.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full
