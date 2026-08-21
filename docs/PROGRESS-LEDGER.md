@@ -1506,3 +1506,33 @@ full QFT axioms, and the Clay theorem remain open.
 The focused centered compiler and integrated AF/Faraut endpoint builds
 completed 1272 and 1333 jobs respectively.  Exported declarations report only
 `[propext, Quot.sound]`.  No full audit, remote push, or GitHub CI run was used.
+
+## Selected dense-unit vacuum and qualitative mean limit (2026-08-20)
+
+`BF4PhysicalSelectedVacuumMeanConvergence` identifies the physical vacuum
+structure that was absent from `WilsonSelectedOSGNSData`.  The new
+`WilsonDenseUnitVacuumPin` pins the abstract vacuum stored by the selected
+transfer operator to the completed dense constant observable and requires the
+observable time shift to preserve that unit modulo the Wilson carrier
+equivalence.  Dense intertwining then constructs the existing vacuum
+stationarity pin, so self-adjointness makes the selected vacuum complement
+invariant under one transfer step.
+
+For every explicit cofinal sampler, the module proves that the dense Wilson
+pairing with the unit converges to zero when the completed representative is
+vacuum orthogonal.  It also proves the corresponding result after one time
+step, using the representative-level linear transfer lift and the pointwise
+observable translation law.  This is the continuum counterpart of the finite
+stationary mean appearing in exact BF4 centering.
+
+The result is deliberately qualitative.  `vacPerp` is a proposition-level
+equality in the constructive-real quotient; eliminating its existential
+`CReal.Equiv` witness into a `Nat`-valued diagonal rate would use forbidden
+choice.  The next interface must therefore carry an explicit Type-level
+vacuum-pairing modulus.  It can then combine the finite/projective mean
+comparison with the exact identity `centered norm = raw norm - mean^2`.
+Continuum existence, the finite/projective estimates, physical generator and
+QFT reconstruction, and the Clay theorem remain open.
+
+The focused build completed 1266 jobs.  Exported declarations report only
+`[propext, Quot.sound]`.  No full audit, remote push, or GitHub CI run was used.
