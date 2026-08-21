@@ -2692,3 +2692,30 @@ spacing limits, continuum QFT, and the Clay theorem remain open.  A source
 check and focused monitored build completed successfully, the latter with
 1259 jobs.  Every printed load-bearing declaration reports only
 `[propext, Quot.sound]`.
+
+## Markov rate invariance and two-rate graph residual (2026-08-21)
+
+`BF4PhysicalCutoffLinearCompletedMarkovGraphNormRateInvariance` proves that
+the explicit inner-regularity rate is unchanged when both arguments are
+recoded by the finite-cutoff Markov syntax, and likewise when a recoded input
+is paired with the unchanged vacuum.  The proof is structural: the atomic
+slab modulus is independent of the atom value, while Markov recoding preserves
+the finite-linear addition and signed-scaling tree exactly.
+
+Consequently the prior four diagonal rate fields contract to
+`CentralPhysicalLinearGraphNormInputInnerCofinality`, containing only
+input-side self-pair and vacuum-pair cofinality.  Exact rate equalities produce
+both action-side fields, the completed vacuum-pairing invariant, both centered
+graph-norm limits, and—given the completion modulus and fixed-nome
+sixteenth—the actual cutoff-removed strict contraction at rate `1/16`.
+
+The two-rate record is not inhabited.  In particular, arbitrary completion
+representatives may carry syntax whose structural modulus grows faster than
+its same-index cutoff, so metric Cauchyness alone has not been claimed to
+imply this universal same-index property.  The next constructive frontier is
+an adaptive representative/reindexing schedule, followed independently by
+the nonconstant completion modulus and fixed-nome sixteenth.  Nome/volume/
+spacing limits, continuum QFT, and the Clay theorem remain open.  A source
+check and focused monitored build completed successfully, the latter with
+1260 jobs.  Every printed load-bearing declaration reports only
+`[propext, Quot.sound]`.

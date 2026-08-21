@@ -427,6 +427,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4PhysicalFixedNomeCompletedOperatorNormGap.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovGraphNorm.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovGraphNormCofinality.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovGraphNormRateInvariance.lean`,
   and
   `lean/YMGap/Continuum/BF4FarautGraphNormContinuumRealization.lean`.
 - **named fields / structures**:
@@ -486,6 +487,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `CentralPhysicalCutoffCompletedMarkovStrictContractionData`,
   `CentralPhysicalCutoffCompletedMarkovCenteredGraphNormConvergence`,
   `CentralPhysicalLinearMarkovGraphNormInnerCofinality`,
+  `CentralPhysicalLinearGraphNormInputInnerCofinality`,
   `ContinuumProjectiveOSResidualData`,
   `ContinuumWilsonBoundedResidualData`,
   `ContinuumWilsonMinimalBoundedResidualData`,
@@ -846,6 +848,16 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   Hence this four-rate datum, the completion modulus, and the fixed-nome
   sixteenth compile to same-object strict contraction at `1/16`.  None of
   those three analytic inputs is inhabited.
+  Exact structural rate invariance now removes the two action-side cofinal
+  fields: the atomic slab rate ignores atom labels and the recoded Markov
+  action preserves the finite-linear syntax tree.  Thus
+  `CentralPhysicalLinearGraphNormInputInnerCofinality` carries only input
+  self-pair and input vacuum-pair cofinality and constructs the four-rate
+  record, both graph-norm laws, and the same-object strict contraction when
+  combined with the completion modulus and fixed-nome sixteenth.  This
+  two-rate same-index record remains uninhabited; an adaptive representative
+  schedule is the next honest route because arbitrary completion syntax need
+  not have a modulus bounded by its own numeric sequence index.
   The structural carrier edge has advanced independently: the constructive
   finite rational span of the genuine unit observables now carries a positive
   symmetric rational-bilinear `CReal` form whose `K`-th approximation is the
