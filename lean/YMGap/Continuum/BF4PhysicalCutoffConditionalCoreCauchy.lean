@@ -631,14 +631,16 @@ error, the two proved target shells, and the explicit moving row floor. -/
 theorem centralPhysicalMarkovApply_abs_sub_le_conditioningCoreError
     {w : Q'} (hw0 : (0 : Q') < w)
     (hw1 : w < (1 : Q')) (half : Nat)
-    {base first second : Nat}
-    (hretained : centralPhysicalUniformRowFloorCutoff w half <= base)
-    (hbaseFirst : base <= first)
-    (hbaseSecond : base <= second)
+    {sourceBase targetBase first second : Nat}
+    (hretained :
+      centralPhysicalUniformRowFloorCutoff w half <= sourceBase)
+    (hsourceTarget : sourceBase <= targetBase)
+    (htargetFirst : targetBase <= first)
+    (htargetSecond : targetBase <= second)
     (observable : CentralPhysicalUnitObservable)
     {source : EdgeLabelling}
     (hsource : source ∈ centralPositiveHalfStates
-      w (Q'.le_of_lt hw0) base half) :
+      w (Q'.le_of_lt hw0) sourceBase half) :
     Q'.abs
         (centralPhysicalMarkovApply
             w (Q'.le_of_lt hw0) first half observable.value source +
@@ -646,13 +648,13 @@ theorem centralPhysicalMarkovApply_abs_sub_le_conditioningCoreError
             w (Q'.le_of_lt hw0) second half observable.value source) <=
       Q'.divPos
         (centralPhysicalConditioningCoreError
-              w (Q'.le_of_lt hw0) base first second half source +
+              w (Q'.le_of_lt hw0) targetBase first second half source +
           centralPhysicalConditioningCoreError
-              w (Q'.le_of_lt hw0) base first second half source)
+              w (Q'.le_of_lt hw0) targetBase first second half source)
         (centralPhysicalMovingPositiveRowFloor
-          w (Q'.le_of_lt hw0) base half)
+          w (Q'.le_of_lt hw0) sourceBase half)
         (centralPhysicalMovingPositiveRowFloor_pos
-          w (Q'.le_of_lt hw0) base half) := by
+          w (Q'.le_of_lt hw0) sourceBase half) := by
   let hw := Q'.le_of_lt hw0
   let numeratorFirst := centralPhysicalObservableJointNumerator
     w hw first half observable source
@@ -663,34 +665,38 @@ theorem centralPhysicalMarkovApply_abs_sub_le_conditioningCoreError
   let denominatorSecond := centralPhysicalRowMarginal
     w hw second half source
   let oldL1 := centralOldRowCutoffDifferenceL1
-    w hw base first second half source
+    w hw targetBase first second half source
   let firstShell := centralOldRowJointTargetShellMass
-    w hw base first half source
+    w hw targetBase first half source
   let secondShell := centralOldRowJointTargetShellMass
-    w hw base second half source
+    w hw targetBase second half source
   let commonError := centralPhysicalConditioningCoreError
-    w hw base first second half source
-  let floor := centralPhysicalMovingPositiveRowFloor w hw base half
+    w hw targetBase first second half source
+  let floor := centralPhysicalMovingPositiveRowFloor w hw sourceBase half
+  have hsourceFirstCutoff : sourceBase <= first :=
+    Nat.le_trans hsourceTarget htargetFirst
+  have hsourceSecondCutoff : sourceBase <= second :=
+    Nat.le_trans hsourceTarget htargetSecond
   have hsourceFirst := mem_centralPositiveHalfStates_of_le
-    hw hbaseFirst hsource
+    hw hsourceFirstCutoff hsource
   have hsourceSecond := mem_centralPositiveHalfStates_of_le
-    hw hbaseSecond hsource
+    hw hsourceSecondCutoff hsource
   have hfirstParts := mem_centralPositiveHalfStates_iff.mp hsourceFirst
   have hsecondParts := mem_centralPositiveHalfStates_iff.mp hsourceSecond
   have hfirstShell0 : (0 : Q') <= firstShell := by
     unfold firstShell
     exact centralOldRowJointTargetShellMass_nonnegative
-      hw base first half source
+      hw targetBase first half source
   have hsecondShell0 : (0 : Q') <= secondShell := by
     unfold secondShell
     exact centralOldRowJointTargetShellMass_nonnegative
-      hw base second half source
+      hw targetBase second half source
   have hnumeratorAsym :=
     centralPhysicalObservableJointNumerator_twoSided_of_oldRowL1
-      (half := half) hw hbaseFirst hbaseSecond observable source
+      (half := half) hw htargetFirst htargetSecond observable source
   have hdenominatorAsym :=
     centralPhysicalRowMarginal_twoSided_of_oldRowL1
-      (half := half) hw hbaseFirst hbaseSecond source
+      (half := half) hw htargetFirst htargetSecond source
   have hfirstAsymLe : oldL1 + firstShell <= commonError := by
     unfold commonError centralPhysicalConditioningCoreError
     exact asymmetric_error_le_common
@@ -721,15 +727,16 @@ theorem centralPhysicalMarkovApply_abs_sub_le_conditioningCoreError
       (Q'.add_le_add_left denominatorFirst _ _ hsecondAsymLe)
   have hfloorPos : (0 : Q') < floor := by
     unfold floor
-    exact centralPhysicalMovingPositiveRowFloor_pos w hw base half
+    exact centralPhysicalMovingPositiveRowFloor_pos
+      w hw sourceBase half
   have hfloorFirst : floor <= denominatorFirst := by
     unfold floor denominatorFirst hw
     exact centralPhysicalMovingPositiveRowFloor_le
-      hw0 hw1 half hretained hbaseFirst hsource
+      hw0 hw1 half hretained hsourceFirstCutoff hsource
   have hfloorSecond : floor <= denominatorSecond := by
     unfold floor denominatorSecond hw
     exact centralPhysicalMovingPositiveRowFloor_le
-      hw0 hw1 half hretained hbaseSecond hsource
+      hw0 hw1 half hretained hsourceSecondCutoff hsource
   have hratio := divPos_conditioning_abs_sub_le
     numeratorFirst numeratorSecond denominatorFirst denominatorSecond
     commonError commonError floor
@@ -745,9 +752,9 @@ theorem centralPhysicalMarkovApply_abs_sub_le_conditioningCoreError
     hnumeratorForward hnumeratorBackward
     hdenominatorForward hdenominatorBackward
     (centralPhysicalConditioningCoreError_nonnegative
-      hw base first second half source)
+      hw targetBase first second half source)
     (centralPhysicalConditioningCoreError_nonnegative
-      hw base first second half source)
+      hw targetBase first second half source)
     hfloorFirst hfloorSecond
   have hfirstMarkov :=
     centralPhysicalMarkovApply_eq_divPos_observableJointNumerator
@@ -768,6 +775,39 @@ theorem centralPhysicalMarkovApply_abs_sub_le_conditioningCoreError
   exact Q'.le_trans' _ _ _
     (Q'.le_of_eqv (ExpNeg.abs_eqv_congr hinside)) hratio
 
+/-- A target shell may be based at any cutoff beyond the executable retained
+cutoff.  Its complete new-label mass only decreases when the base is moved
+outward, so the original tolerance remains valid. -/
+theorem centralOldRowJointTargetShellMass_le_of_scheduled_base
+    {w : Q'} (hw0 : (0 : Q') < w)
+    (hw1 : w < (1 : Q')) (half : Nat)
+    {epsilon : Q'} (hepsilon : (0 : Q') < epsilon)
+    {base later : Nat}
+    (hscheduled :
+      centralPhysicalTargetShellCutoff w half epsilon <= base)
+    (hbaseLater : base <= later)
+    {source : EdgeLabelling}
+    (hsource : source ∈ centralHalfStates base half) :
+    centralOldRowJointTargetShellMass
+        w (Q'.le_of_lt hw0) base later half source <= epsilon := by
+  have hshell := centralOldRowJointTargetShellMass_le_increment
+    (Q'.le_of_lt hw0) hbaseLater hsource
+  have hincrementMono := slabParametricKCutoffIncrement_antitone_base
+    (extent := centralExtent half)
+    (Q'.le_of_lt hw0) hscheduled hbaseLater
+  have hscheduledLater :
+      centralPhysicalTargetShellCutoff w half epsilon <= later :=
+    Nat.le_trans hscheduled hbaseLater
+  have htolerance :
+      slabParametricKCutoffIncrement
+          w (centralPhysicalTargetShellCutoff w half epsilon)
+          later (centralExtent half) <= epsilon := by
+    unfold centralPhysicalTargetShellCutoff
+    exact slabPhysicalNomeCutoffIncrement_le_tolerance
+      hw0 hw1 (centralExtent half) hepsilon hscheduledLater
+  exact Q'.le_trans' _ _ _ hshell
+    (Q'.le_trans' _ _ _ hincrementMono htolerance)
+
 /-! ## Axiom audit -/
 
 #print axioms centralPhysicalObservableJointNumerator
@@ -778,5 +818,6 @@ theorem centralPhysicalMarkovApply_abs_sub_le_conditioningCoreError
 #print axioms centralPhysicalObservableJointNumerator_twoSided_of_oldRowL1
 #print axioms centralPhysicalConditioningCoreError
 #print axioms centralPhysicalMarkovApply_abs_sub_le_conditioningCoreError
+#print axioms centralOldRowJointTargetShellMass_le_of_scheduled_base
 
 end YMGap.Continuum.BF4PhysicalCutoffConditionalCoreCauchy

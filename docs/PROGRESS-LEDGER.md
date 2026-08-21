@@ -2544,6 +2544,35 @@ check and focused monitored build completed successfully, the latter with
 1165 jobs.  Every printed load-bearing declaration reports only
 `[propext, Quot.sound]`.
 
+## Executable conditional-core modulus and one-residual contraction (2026-08-21)
+
+`BF4PhysicalCutoffConditionalCoreModulus` closes the quantitative scheduling
+step without a circular cutoff choice.  It selects the positive source core
+first, obtains its constructive moving row floor, then independently enlarges
+the target core to pay both target shells.  The old-row schedule is placed
+beyond that target core.  One quarter of the quotient budget pays the old-row
+error and one eighth pays each shell, so doubling their common sum consumes
+exactly the budget `(1/2 * epsilon) * floor`; constructive positive division
+then cancels the floor.
+
+This proves an explicit action rate at which genuine conditional Markov values
+on the source core differ by at most `1/2 * epsilon`.  Since all recoded values
+lie in `[0,1]`, their squared difference is bounded by the same quantity.  The
+result directly inhabits the complete conditional-core field of
+`CentralPhysicalAtomicMarkovCoreTailCauchyData`.
+
+The remaining analytic input is isolated as
+`CentralPhysicalStationaryPositiveSourceTailData`: an expanding positive
+source core whose complementary stationary row-marginal mass is eventually
+at most `1/2 * epsilon`.  This one record compiles to the existing core-tail,
+atomic, and dense Markov cutoff-Cauchy data.  The record is deliberately not
+inhabited here; stationary positive-source tail tightness is now the sole
+finite-cutoff residual on this route.  The cofinal finite sixteenth,
+thermodynamic/nome/spacing limits, continuum reconstruction and QFT axioms,
+and the Clay theorem remain open.  The source check and focused monitored
+build completed successfully, the latter with 1166 jobs.  Every printed
+load-bearing declaration reports only `[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the
