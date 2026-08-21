@@ -768,7 +768,14 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   presently constructed.  The pointwise local-gluing sixteenth has been
   generalized from half-extent zero to arbitrary finite half-extent, exposing
   the remaining cutoff-limit input exactly as a family of genuine local-slice
-  gluing witnesses uniform over the representation cutoff.
+  gluing witnesses uniform over the representation cutoff.  That family is
+  now packaged as `FixedNomeCutoffLocalGluing`; it constructs the exact
+  mean-zero `FixedNomeCutoffCenteredSixteenth`, which in turn proves the strict
+  connected Bishop-real limit bound with factor `1/16 < 1`.  Neither record is
+  inhabited.  The next analytic frontier is to construct this cutoff-uniform
+  slice family, or to prove a bridge from existing matched-profile row data to
+  it without conflating a coupled nome/cutoff trajectory with a fixed-nome
+  representation-cutoff limit.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full

@@ -2068,3 +2068,31 @@ this generalization, and no uniformity in representation cutoff or physical
 scale follows automatically.  A source check and focused monitored build
 completed successfully, the latter with 1117 jobs; the printed declarations
 report only `[propext, Quot.sound]`.
+
+## Strict connected BF4 representation-cutoff limit compiler (2026-08-20)
+
+`BF4PhysicalCutoffConnectedGap` isolates the exact uniform input needed for a
+strict gap after representation-cutoff removal.  The direct
+`FixedNomeCutoffCenteredSixteenth` record is pinned at every cutoff to the
+actual mean-zero physical joint quadratic and stationary norm.  The expanded
+`FixedNomeCutoffLocalGluing` record instead asks for one explicit local slice
+per cutoff, with exact conditional-density gluing and centered row rate at
+most `1/4`; a proved adapter constructs the direct sixteenth record.
+
+For either presentation, exact finite centering and pointwise Bishop-real
+arithmetic prove the actual limiting bound
+
+`connectedAutocorrelationLimit <= (1/16) * connectedNormLimit`,
+
+with a separately checked proof that `0 <= 1/16 < 1`.  Thus strictness is now
+known to survive representation-cutoff removal once it is supplied uniformly
+on that same fixed-nome, fixed-finite-extent sequence.
+
+Neither uniform certificate is inhabited.  The existing matched-AF producer
+controls a coupled nome/cutoff trajectory at half-extent zero, not the
+fixed-nome cutoff sequence used by this limit, so it cannot be substituted
+without a new bridge.  No cutoff-independent operator or completed Hilbert
+carrier, thermodynamic/spacing uniformity, continuum theory, or Clay theorem
+is obtained.  A source check and focused monitored build completed
+successfully, the latter with 1206 jobs.  Every printed load-bearing
+declaration reports only `[propext, Quot.sound]`.
