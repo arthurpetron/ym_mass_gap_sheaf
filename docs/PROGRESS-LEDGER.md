@@ -818,3 +818,30 @@ the strong endpoint, uniform strict gap, limit stability, continuum theory,
 and Clay theorem remain open.  The focused single-worker build completed 1129
 jobs and every exported declaration reports only `[propext, Quot.sound]`; no
 full audit, remote push, or GitHub CI run was used.
+
+## Same-object physical BF4 correlator in the completion (2026-08-20)
+
+`BF4PhysicalCompletedMacroCorrelator` closes the next unconditional GNS edge.
+Every finite stationary-mean-zero BF4 observable now embeds into the actual
+completed physical vacuum complement.  Its one-macro-step completed matrix
+coefficient is exactly the normalized symmetric BF4 joint quadratic.  Finite
+OS positivity makes that quadratic nonnegative, so the existing same-object
+pin identifies the completed coefficient itself--not merely an unrelated
+absolute-value bound--with the selected physical connected correlation.
+
+For the producer's rate probe, the module constructs the literal completed
+vector, proves vacuum orthogonality and squared norm at most one, and identifies
+its same-object connected correlation with its completed autocorrelation.
+Constructive completed Cauchy--Schwarz then proves the correlation-square bound
+by the squared norm after one physical macro transfer.  That handoff is thus a
+theorem and should not remain an independent field in the residual RG operator
+interface.
+
+This still does not provide the cross-model map into the strong endpoint or a
+strict physical vacuum-complement contraction.  The remaining comparison must
+intertwine one already-composed physical macro transfer with the strong
+two-step endpoint transfer; the Faraut local-density depth must not iterate the
+physical macro transfer again.  Uniform limit stability, continuum existence,
+and the Clay theorem remain open.  The focused single-worker build completed
+1142 jobs and every exported declaration reports only `[propext, Quot.sound]`;
+no full audit, remote push, or GitHub CI run was used.
