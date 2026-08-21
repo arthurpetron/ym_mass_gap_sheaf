@@ -738,6 +738,15 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   automatically.  The literal-observable tail modulus is not inhabited; even
   after it is supplied, Euclidean/OS axioms, non-triviality, cross-scale
   transfer moments, reconstruction, and the uniform physical gap remain open.
+  Independently, `slabNomeCutoffProbFunctional` is now an actual inhabitant at
+  every fixed rational `0 < w < 1` and fixed finite corrected-slab extent: the
+  existing executable outer-cutoff bound removes the Peter--Weyl
+  representation cutoff for all cutoff-stable `[0,1]` observables and proves
+  positivity and normalization of the resulting `CReal` functional.  This
+  does not inhabit the matched physical-scale modulus above.  A one-sided
+  reindex theorem identifying these slab expectations with the physical
+  stationary row marginal, followed by estimates uniform in nome, extent,
+  volume, and spacing, is still required.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full

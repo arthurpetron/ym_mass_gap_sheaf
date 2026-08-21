@@ -1945,3 +1945,31 @@ completed gap, the full QFT axioms, and the Clay theorem all remain open.  A
 source check and focused monitored build completed successfully, the latter
 with 1079 jobs, and every printed load-bearing declaration reports only
 `[propext, Quot.sound]`.
+
+## Fixed-nome BF4 representation-cutoff functional (2026-08-20)
+
+`BF4PhysicalCutoffProbFunctional` applies the already-proved executable
+degree-thirteen cutoff modulus to the actual normalized corrected-slab BF4
+expectations.  Cutoff-stable `[0,1]` observables are closed constructively
+under the constant unit, pointwise multiplication, and identity star, giving
+the minimal `ObsAlg` needed by the probability-functional interface.  At each
+fixed rational `0 < w < 1` and fixed finite slab extent, their exact cutoff
+expectations therefore form a genuine positive normalized
+`CRealProbFunctional` after the Peter--Weyl cutoff is removed.
+
+The functional is unconditional beyond the explicit nome inequalities: its
+normalization is the exact finite partition divided by itself modulo
+`Q'.eqv`, positivity is inherited approximation by approximation from the
+nonnegative BF4 weights, and every `CReal` approximation is definitionally the
+finite normalized BF4 expectation at that cutoff.  This is the first actual
+BF4 limit-functional inhabitant on the current route, rather than a compiler
+waiting for a modulus.
+
+Only the representation cutoff is removed.  The nome, finite geometry, and
+volume are fixed; the carrier is multiplicative but not additive, and no
+linearity is claimed.  Identification with the stationary row-marginal/GNS
+functional, uniformity as nome and extent vary, the thermodynamic and spacing
+limits, OS reconstruction, the uniform completed gap, and the Clay theorem
+remain open.  A source check and focused monitored build completed
+successfully, the latter with 784 jobs.  Every printed load-bearing
+declaration reports only `[propext, Quot.sound]`.
