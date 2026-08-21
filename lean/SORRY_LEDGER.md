@@ -413,6 +413,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedInnerKernel.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedInnerOuter.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedInnerWellDefined.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedInner.lean`,
   and
   `lean/YMGap/Continuum/BF4FarautGraphNormContinuumRealization.lean`.
 - **named fields / structures**:
@@ -818,8 +819,9 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   constructed from a computable uniform diagonal ceiling and a Type-level
   outer Cauchy rate.  Representative independence under both explicit `Close`
   relations is now proved by a same-index quantitative comparison.  Descent
-  to an `RC`-valued completed inner form and its laws remain the next
-  structural obligations.  A
+  to an `RC`-valued completed inner form is now complete, including equality
+  with the dense physical pairing.  Its symmetry, positivity, additivity, and
+  rational homogeneity laws remain the next structural obligations.  A
   cutoff-independent transfer action remains a separate bridge after that.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its

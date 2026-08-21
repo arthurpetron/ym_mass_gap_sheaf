@@ -2351,3 +2351,24 @@ cofinal `1/16` input, nome/volume/spacing limits, continuum QFT, and Clay
 theorem remain open.  A source check and focused monitored build completed
 successfully, the latter with 1141 jobs.  Every printed load-bearing
 declaration reports only `[propext, Quot.sound]`.
+
+## RC-valued completed physical BF4 inner form (2026-08-21)
+
+`BF4PhysicalCutoffLinearCompletedInner` uses representative independence to
+descend the constructed pairing limit through both completion quotients.  The
+result `centralPhysicalCutoffCompletedInner` is a literal function from the
+actual fixed-nome completed physical carrier twice into the genuine-real
+quotient `RC`; no representatives are selected from a quotient.
+
+For constant Cauchy representatives, convergence of the outer sequence
+reverses directly to equivalence with the original `innerLimit`.  Consequently
+the completed form is proved equal to the cutoff-removed physical pairing on
+the dense embedded finite-linear image.
+
+Symmetry, diagonal nonnegativity, addition, and rational homogeneity on
+arbitrary completed points are not inferred merely from this descent; their
+limit-uniqueness proofs are next.  The cutoff-independent transfer, strict
+cofinal `1/16` input, nome/volume/spacing limits, continuum QFT, and Clay
+theorem remain open.  A source check and focused monitored build completed
+successfully, the latter with 1142 jobs.  Every printed load-bearing
+declaration reports only `[propext, Quot.sound]`.
