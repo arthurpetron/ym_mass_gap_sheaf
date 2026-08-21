@@ -2336,6 +2336,33 @@ nome/spacing and continuum obligations remain open.  A source check and
 focused monitored build completed successfully, the latter with 1152 jobs.
 Every printed load-bearing declaration reports only `[propext, Quot.sound]`.
 
+## Moving-carrier core--tail compiler for atomic Markov data (2026-08-21)
+
+`BF4PhysicalCutoffLinearMarkovAtomicCoreTailCauchy` replaces the overly strong
+global pointwise certificate by the finite decomposition naturally seen by a
+moving representation carrier.  The stationary finite GNS distance between
+two recoded atomic Markov images is bounded by the sum of (i) a pointwise
+squared error on a fixed old lower-face carrier and (ii) the stationary row-
+marginal mass outside that carrier.  The shell estimate uses only the proved
+`[0,1]` range of the two Markov images, while an exact Boolean partition and
+row-marginal normalization perform the contraction.
+
+`CentralPhysicalAtomicMarkovCoreTailCauchyData` assigns half of each requested
+epsilon to the core and half to the shell and compiles these finite rational
+estimates into the atomic and dense Cauchy data used by the adaptive completed
+transfer and correlation-decay chain.  Thus the remaining atomic convergence
+problem has been causally separated into old-core conditional-kernel
+convergence and stationary moving-shell tightness.
+
+Neither analytic estimate is inhabited here.  In particular, the existing
+fixed-carrier normalized joint-kernel Cauchy estimate still has to cross the
+conditional ratio through a positive row floor, and shell tightness remains a
+separate stationary-measure input.  The cofinal finite sixteenth and all
+thermodynamic/nome/spacing and continuum obligations also remain open.  A
+source check and focused monitored build completed successfully, the latter
+with 1153 jobs.  Every printed load-bearing declaration reports only
+`[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the
