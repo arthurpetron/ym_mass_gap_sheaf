@@ -1350,3 +1350,29 @@ Clay theorem.  The focused expectation compiler and integrated endpoint builds
 completed 1266 and 1327 jobs respectively; the forbidden-token scan was empty
 and exported declarations report only `[propext, Quot.sound]`.  No full audit,
 remote push, or GitHub CI run was used.
+
+## Projective-functional modulus and diagonal admissibility (2026-08-20)
+
+`BF4PhysicalDenseStageProjectiveComparison` factors same-object expectation
+convergence through the projective OS functional already stored in the
+selected continuum datum.  `ProjectiveOSRationalModulus` gives the functional
+an explicit rational evaluator on the exact `mu.pick` thread, pins its
+constructive-real embedding to the existing stage semantics, and retains a
+Type-level stage modulus.  The module proves that this rational evaluator
+converges to the continuum OS expectation.
+
+The finite BF4 adapter now asks separately for exact identification of its
+stationary-marginal expectation with that rational evaluator and for a
+diagonal-admissibility law.  The latter is essential: convergence for each
+fixed observable does not imply convergence when the sampled dense observable
+changes with the cutoff.  These inputs compile through the expectation,
+rational, completed-real, and graph-norm layers to the selected continuum
+operator gap.  The AF/Faraut residual now consumes this projective-functional
+form directly.
+
+The rational projective modulus, finite evaluator pin, admissible diagonal,
+dense realization, continuum construction, physical generator, QFT axioms,
+and Clay theorem remain open.  The focused projective compiler and integrated
+endpoint builds completed 1267 and 1328 jobs respectively; the forbidden-token
+scan was empty and exported declarations report only
+`[propext, Quot.sound]`.  No full audit, remote push, or GitHub CI run was used.

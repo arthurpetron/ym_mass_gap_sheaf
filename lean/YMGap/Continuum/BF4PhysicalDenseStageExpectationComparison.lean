@@ -59,6 +59,19 @@ def finiteDenseSquareExpectation
     (stageObservable scale (X.seq (sampleIndex scale)))
     (stageObservable scale (X.seq (sampleIndex scale)))
 
+/-- The reflected square of the sampled dense Wilson observable in the
+selected continuum observable algebra. -/
+def continuumDenseSquareObservable
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    {H : FourDExistence.ContinuumYMExistence mu}
+    (D : WilsonSelectedOSGNSData H)
+    (sampleIndex : Nat -> Nat)
+    (X : SelectedWilsonCauchy D) (scale : Nat) :
+    H.os_axioms.A.carrier :=
+  H.os_axioms.A.mul
+    (H.os_axioms.A.star (X.seq (sampleIndex scale)))
+    (X.seq (sampleIndex scale))
+
 /-- The selected continuum OS expectation of the reflected square of the
 sampled dense Wilson observable. -/
 def continuumDenseSquareExpectation
@@ -67,10 +80,7 @@ def continuumDenseSquareExpectation
     (D : WilsonSelectedOSGNSData H)
     (sampleIndex : Nat -> Nat)
     (X : SelectedWilsonCauchy D) (scale : Nat) : Q' :=
-  H.os_axioms.E.E
-    (H.os_axioms.A.mul
-      (H.os_axioms.A.star (X.seq (sampleIndex scale)))
-      (X.seq (sampleIndex scale)))
+  H.os_axioms.E.E (continuumDenseSquareObservable D sampleIndex X scale)
 
 /-- The finite rational dense-stage norm is definitionally the finite
 stationary-marginal expectation. -/
