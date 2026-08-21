@@ -2473,3 +2473,29 @@ transfer, complement preservation and strict contraction, nome/volume/spacing
 limits, continuum QFT, and the Clay theorem remain open.  A source check and
 focused monitored build completed successfully, the latter with 1150 jobs.
 Every printed load-bearing declaration reports only `[propext, Quot.sound]`.
+
+## Exact descent interface for one completed physical BF4 transfer (2026-08-21)
+
+`BF4PhysicalCutoffLinearCompletedMarkovTransfer` separates the remaining
+operator-limit problem into its actual constructive components.  Dense
+radical data consists of pointwise cross-cutoff convergence plus an explicit
+close witness for every limiting-radical-null input pair; this descends the
+dense map through the positive-definite null quotient.
+
+The stronger `CentralPhysicalLinearMarkovCompletionModulus` has exactly two
+quantitative fields.  Its diagonal Cauchy rate controls
+`P_m(X_m)` versus `P_n(X_n)` for each arbitrary input Cauchy representative.
+Its close-preservation rate controls `P_n(X_n)` versus `P_n(Y_n)` for close
+representatives.  These fields now construct a quotient-well-defined map on
+the entire completed physical carrier.  The construction agrees with the
+dense cutoff limit, fixes the normalized completed vacuum, and automatically
+supplies both the earlier pointwise moduli and dense radical data.
+
+This is an exact reduction, not an existence claim: no nonconstant completion
+modulus is currently inhabited.  Its two estimates must be derived from new
+BF4 cross-cutoff analysis.  Preservation of the completed vacuum complement
+also still requires the appropriate pairing/stationarity or self-adjointness
+bridge.  Strict complement contraction, nome/volume/spacing limits, continuum
+QFT, and the Clay theorem remain open.  A source check and focused monitored
+build completed successfully, the latter with 1151 jobs.  Every printed
+load-bearing declaration reports only `[propext, Quot.sound]`.

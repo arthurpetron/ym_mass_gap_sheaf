@@ -418,6 +418,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedVacuumComplement.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearMarkovSyntax.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearMarkovCauchy.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovTransfer.lean`,
   and
   `lean/YMGap/Continuum/BF4FarautGraphNormContinuumRealization.lean`.
 - **named fields / structures**:
@@ -847,6 +848,13 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   modulus is inhabited with rate zero and its completed limit is exactly the
   normalized vacuum.  Nonconstant pointwise moduli and the radical/Cauchy-
   representative compatibility needed for a completed operator remain open.
+  Those latter obligations are now split exactly: dense radical compatibility
+  descends the pointwise map through the null quotient, while a completion
+  modulus has one diagonal Cauchy rate for `P_n(X_n)` and one close-
+  preservation rate.  These two fields construct a quotient-well-defined
+  completed transfer, imply every earlier modulus layer, agree with the dense
+  cutoff limit, and fix the normalized completed vacuum.  No nonconstant
+  completion modulus is currently inhabited.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full
