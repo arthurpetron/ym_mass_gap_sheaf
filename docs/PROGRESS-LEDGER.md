@@ -2476,6 +2476,33 @@ and the Clay theorem remain open.  The source check and focused monitored
 build completed successfully, the latter with 1163 jobs.  Every printed
 load-bearing declaration reports only `[propext, Quot.sound]`.
 
+## Uniform later-cutoff floor on the positive source core (2026-08-21)
+
+`BF4PhysicalCutoffUniformRowFloor` identifies each physical row marginal with
+the normalized expectation of one aggregate lower source-cylinder observable.
+Its unnormalized numerator is retained exactly under cutoff enlargement and
+only gains a nonnegative new-label increment.  At the retained cutoff for
+complete new-label tolerance `1`, the partition increment is at most `1` while
+the anchor partition is at least `1`; exact rational cross multiplication
+therefore proves
+
+`(1/2) * rowMarginal_anchor(source) <= rowMarginal_later(source)`.
+
+Taking one half of the repository's constructive finite minimum over positive
+anchor rows defines `centralPhysicalUniformPositiveRowFloor`.  It is proved
+strictly positive and below every later row marginal for every source in the
+fixed anchor-positive carrier.  Thus the common denominator floor required by
+the conditioning-ratio theorem is now inhabited uniformly in the later
+representation cutoff.
+
+The remaining pointwise conditional-kernel work is the weighted old-target
+numerator comparison and its combination with the proved target shells.  The
+stationary source-shell estimate, cofinal finite sixteenth, thermodynamic/
+nome/spacing limits, continuum reconstruction and QFT axioms, and the Clay
+theorem remain open.  The source check and focused monitored build completed
+successfully, the latter with 1164 jobs.  Every printed load-bearing
+declaration reports only `[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the

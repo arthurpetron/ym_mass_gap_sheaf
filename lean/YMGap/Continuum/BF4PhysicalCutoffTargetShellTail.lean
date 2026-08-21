@@ -169,7 +169,7 @@ private theorem listQSum_unique_bool_local
               hunique item
                 (List.mem_cons_of_mem head hitem) hp))
 
-private theorem listQSum_left_selector_right_filter
+theorem listQSum_left_selector_right_filter
     {A B C : Type}
     (leftItems : List A) (rightItems : List B)
     (channels : List C)
