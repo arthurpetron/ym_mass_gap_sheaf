@@ -116,7 +116,7 @@ structure BF4WilsonDenseStageCenteredVacuumQualitativeDirectBase
           (rawStageObservable scale a))
         (rawStageObservable scale (D.timeTranslation.tau a))
   directMoments : BF4RawStageContinuumMomentModulus D rawStageObservable
-  vacuumPin : WilsonDenseUnitVacuumPin D
+  vacuumPin : WilsonDenseUnitStationaryVacuumPin D
 
 namespace BF4WilsonDenseStageCenteredVacuumQualitativeDirectBase
 
@@ -144,7 +144,7 @@ def ofProjectiveBase
   rawStageObservable := base.rawStageObservable
   rawStageTransfer_intertwines := base.rawStageTransfer_intertwines
   directMoments := base.rawMoments.toContinuumMomentModulus
-  vacuumPin := base.vacuumPin
+  vacuumPin := base.vacuumPin.toStationaryVacuumPin
 
 /-- Exact same-stage semantics specialize the direct base through the proved
 zero-rate raw moment and half-error projective adapters. -/
@@ -436,7 +436,7 @@ theorem rawMeanSequence_converges_zero
       D.selectedSpectralData.vacPerp (selectedWilsonPoint D X)) :
     CReal.ConvergesTo (rawMeanSequence base X) CReal.czero :=
   convergesTo_of_eventuallyClose (rawMeanContinuumClose base X)
-    (continuumDenseVacuumPairingSequence_converges_zero
+    (continuumDenseVacuumPairingSequence_converges_zero_stationary
       base.vacuumPin (sampleIndex base X) (sampleRate base X)
       (sampleIndex_cofinal base X) X horthogonal)
 
@@ -453,8 +453,8 @@ theorem translatedRawMeanSequence_converges_zero
         (Quotient.mk (cauchySetoid D.wilson.toGNSData)
           (base.representativeTimeTranslation.transferredRepresentative X))
       rw [base.representativeTimeTranslation.transferredRepresentative_class X]
-      exact base.vacuumPin.toStationarity.transfer_preservesVacPerp horthogonal
-    have hTX := continuumDenseVacuumPairingSequence_converges_zero
+      exact base.vacuumPin.stationarity.transfer_preservesVacPerp horthogonal
+    have hTX := continuumDenseVacuumPairingSequence_converges_zero_stationary
       base.vacuumPin (sampleIndex base X) (sampleRate base X)
       (sampleIndex_cofinal base X) TX hTXOrthogonal
     apply YMGap.Constructive.TrigAddCReal.convergesTo_congr_seq

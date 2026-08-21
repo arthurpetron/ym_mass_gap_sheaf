@@ -1795,3 +1795,26 @@ moment moduli, vacuum pin, generator identification, full QFT axioms, and Clay
 theorem remain open.  Focused monitored builds completed 1279 jobs for the
 direct compiler and 1339 jobs for the integrated endpoint.  Every newly
 printed declaration reports only `[propext, Quot.sound]`.
+
+## Stationary dense-unit vacuum reduction (2026-08-20)
+
+`WilsonDenseUnitStationaryVacuumPin` isolates the two vacuum facts actually
+used by the direct graph-norm proof: the selected completed vacuum is the
+embedded constant unit, and that completed vacuum is stationary under the
+actual transfer.  Dense vacuum-pairing convergence is reproved from this
+smaller record.  The former `WilsonDenseUnitVacuumPin`, which additionally
+requires the carrier-level equation `tau(one) ~ one`, constructs it through a
+proved adapter and remains available to the older routes.
+
+The public four-rate direct-moment base now consumes the stationary dense-unit
+record.  Hence the observable-level unit-preservation equation is no longer an
+analytic premise of the direct bounded operator-gap endpoint.  This is an
+interface contraction only: neither the dense-unit identification nor
+stationarity is constructed for a physical continuum Wilson theory.
+
+Focused monitored builds completed 1266 jobs for the mean-convergence layer,
+1279 jobs for the direct compiler, and 1339 jobs for the integrated endpoint.
+Every newly printed declaration reports only `[propext, Quot.sound]`.  The
+continuum measure/OS-GNS construction, representative transfer lift, raw-stage
+map and radical intertwining, direct moments, generator identification, full
+QFT axioms, and Clay theorem remain open.

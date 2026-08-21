@@ -700,6 +700,11 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   graph-norm limit interface directly.  The former pointwise linear transfer
   pin and linear graph-norm residual refine these weaker records by proved
   adapters.  The representative lift itself remains uninhabited.
+  The direct endpoint also weakens the former dense-unit vacuum input.  It now
+  asks only that the selected completed vacuum equal the embedded unit and be
+  stationary under the completed transfer; the stronger carrier equation
+  `tau(one) ~ one` constructs this record but is no longer required.  These two
+  weaker vacuum facts are still uninhabited on the physical continuum thread.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full

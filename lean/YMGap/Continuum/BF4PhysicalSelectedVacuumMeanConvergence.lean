@@ -47,6 +47,18 @@ structure WilsonDenseUnitVacuumPin
   tau_one : D.wilson.toGNSData.veq
     (D.timeTranslation.tau H.os_axioms.A.one) H.os_axioms.A.one
 
+/-- The strictly smaller vacuum datum used by dense mean convergence: the
+selected vacuum is the embedded unit and is stationary under the actual
+completed transfer.  No carrier-level equation for `tau one` is required. -/
+structure WilsonDenseUnitStationaryVacuumPin
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    (D : WilsonSelectedOSGNSData H) : Type 2 where
+  vacuumPinned :
+    D.timeTranslation.op.vacuum =
+      embedV D.wilson.toGNSData H.os_axioms.A.one
+  stationarity : WilsonVacuumStationarityPin D
+
 namespace WilsonDenseUnitVacuumPin
 
 /-- Dense intertwining turns the unit pin into stationarity of the selected
@@ -60,6 +72,20 @@ def toStationarity
     rw [V.vacuumPinned,
       D.timeTranslation.dense_intertwines H.os_axioms.A.one]
     exact embedV_eq_of_veq D.wilson.toGNSData V.tau_one
+
+end WilsonDenseUnitVacuumPin
+
+namespace WilsonDenseUnitVacuumPin
+
+/-- The observable-level unit pin refines the stationary dense-unit datum. -/
+def toStationaryVacuumPin
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+    (V : WilsonDenseUnitVacuumPin D) :
+    WilsonDenseUnitStationaryVacuumPin D where
+  vacuumPinned := V.vacuumPinned
+  stationarity := V.toStationarity
 
 end WilsonDenseUnitVacuumPin
 
@@ -83,13 +109,13 @@ def continuumDenseVacuumPairingSequence
     (D.wilson.toGNSData.B
       (X.seq (sampleIndex scale)) H.os_axioms.A.one)
 
-/-- Vacuum orthogonality plus the dense-unit vacuum pin makes the sampled
+/-- Vacuum orthogonality plus the stationary dense-unit pin makes the sampled
 Wilson pairing with the unit converge to zero. -/
-theorem continuumDenseVacuumPairingSequence_converges_zero
+theorem continuumDenseVacuumPairingSequence_converges_zero_stationary
     {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
     {H : ContinuumYMExistence mu}
     {D : WilsonSelectedOSGNSData H}
-    (V : WilsonDenseUnitVacuumPin D)
+    (V : WilsonDenseUnitStationaryVacuumPin D)
     (sampleIndex cofinalRate : Nat -> Nat)
     (hcofinal : forall threshold scale : Nat,
       cofinalRate threshold <= scale -> threshold <= sampleIndex scale)
@@ -131,6 +157,25 @@ theorem continuumDenseVacuumPairingSequence_converges_zero
       Quotient.mk CReal.crealSetoid CReal.czero at hv
     exact hv
   exact CReal.convergesTo_limit_congr hsequence (Quotient.exact hquotient)
+
+/-- Backwards-compatible specialization from the stronger observable-level
+dense-unit vacuum pin. -/
+theorem continuumDenseVacuumPairingSequence_converges_zero
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+    (V : WilsonDenseUnitVacuumPin D)
+    (sampleIndex cofinalRate : Nat -> Nat)
+    (hcofinal : forall threshold scale : Nat,
+      cofinalRate threshold <= scale -> threshold <= sampleIndex scale)
+    (X : SelectedWilsonCauchy D)
+    (horthogonal :
+      D.selectedSpectralData.vacPerp (selectedWilsonPoint D X)) :
+    CReal.ConvergesTo
+      (continuumDenseVacuumPairingSequence D sampleIndex X)
+      CReal.czero :=
+  continuumDenseVacuumPairingSequence_converges_zero_stationary
+    V.toStationaryVacuumPin sampleIndex cofinalRate hcofinal X horthogonal
 
 /-- The representative selected by the linear time-translation lift is the
 completed transfer of the original representative. -/
@@ -184,6 +229,8 @@ theorem continuumTranslatedDenseVacuumPairingSequence_converges_zero
 end YMGap.Continuum.BF4PhysicalSelectedVacuumMeanConvergence
 
 #print axioms YMGap.Continuum.BF4PhysicalSelectedVacuumMeanConvergence.WilsonDenseUnitVacuumPin.toStationarity
+#print axioms YMGap.Continuum.BF4PhysicalSelectedVacuumMeanConvergence.WilsonDenseUnitVacuumPin.toStationaryVacuumPin
+#print axioms YMGap.Continuum.BF4PhysicalSelectedVacuumMeanConvergence.continuumDenseVacuumPairingSequence_converges_zero_stationary
 #print axioms YMGap.Continuum.BF4PhysicalSelectedVacuumMeanConvergence.continuumDenseVacuumPairingSequence_converges_zero
 #print axioms YMGap.Continuum.BF4PhysicalSelectedVacuumMeanConvergence.selectedWilsonPoint_TCauchy
 #print axioms YMGap.Continuum.BF4PhysicalSelectedVacuumMeanConvergence.continuumTranslatedDenseVacuumPairingSequence_converges_zero
