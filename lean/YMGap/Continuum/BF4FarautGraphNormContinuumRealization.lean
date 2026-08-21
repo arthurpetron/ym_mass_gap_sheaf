@@ -254,7 +254,7 @@ structure ContinuumWilsonDenseStageResidualData
     (continuumSourceCertificate flow
       anchorDominates AF trajectory comparison bare)
     osGNS.reconstruction
-  denseStageLimit : BF4WilsonDenseStageApproximation
+  denseStageLimit : BF4WilsonDenseStageEventualVariationApproximation
     producer.toBF4QuarterPhysicalSeparatorProducer osGNS
 
 namespace ContinuumWilsonDenseStageResidualData
@@ -360,7 +360,7 @@ def ofProjectiveOSResidualData
     {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
     (D : ContinuumProjectiveOSResidualData flow
       anchorDominates AF trajectory comparison bare tracking mu)
-    (denseStageLimit : BF4WilsonDenseStageApproximation
+    (denseStageLimit : BF4WilsonDenseStageEventualVariationApproximation
       producer.toBF4QuarterPhysicalSeparatorProducer
       (WilsonSelectedOSGNSData.ofLinked D.osGNS)) :
     ContinuumWilsonDenseStageResidualData flow

@@ -18,6 +18,7 @@ limit, or Clay mass-gap theorem is constructed here.
 -/
 
 import YMGap.Continuum.BF4PhysicalModulatedGapLimitStability
+import YMGap.Continuum.SummableCRealEventualStepVariation
 
 namespace YMGap.Continuum.BF4PhysicalDenseStageGraphNormCompiler
 
@@ -38,6 +39,7 @@ open YMGap.Continuum.GNSQuotient
 open YMGap.Continuum.HamiltonianScalar
 open YMGap.Continuum.OSReconstructionProgress
 open YMGap.Continuum.PhysicalSeparator
+open YMGap.Continuum.SummableCRealEventualStepVariation
 open YMGap.Continuum.WilsonLinearTimeTranslationHandoff
 open YMGap.Continuum.WilsonMinimalBoundedMassGapHandoff
 
@@ -94,13 +96,9 @@ def denseStageNormSequence
   fun scale => matchedPhysicalStageNorm family coupling scale
     (denseStageApproximant D sampleIndex stageObservable X scale)
 
-/-- Dense finite-stage data sufficient to construct the full linear
-graph-norm approximation.
-
-The only norm-limit input is `normCauchy` plus `normLimitPinned`.  Both expose
-their constructive content: `ModCauchyEv` contains an outer modulus, inner
-regularity moduli, and eventual approximation thresholds. -/
-structure BF4WilsonDenseStageApproximation
+/-- The exact maps and intertwining laws shared by the two dense-stage limit
+interfaces below.  No norm convergence is included in this record. -/
+structure BF4WilsonDenseStageMapData
     {family : MatchedBlockFamily}
     {law : CubicMarginLaw family}
     {spacing : PhysicalSpacingEnvelope law.g₁}
@@ -149,6 +147,25 @@ structure BF4WilsonDenseStageApproximation
           (matchedAllSpinCutoff family coupling scale) 0
           (matchedPhysicalStagePoint family coupling scale
             (denseStageApproximant D sampleIndex stageObservable X scale))
+
+/-- Dense finite-stage data sufficient to construct the full linear
+graph-norm approximation.
+
+The only norm-limit input is `normCauchy` plus `normLimitPinned`.  Both expose
+their constructive content: `ModCauchyEv` contains an outer modulus, inner
+regularity moduli, and eventual approximation thresholds. -/
+structure BF4WilsonDenseStageApproximation
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat -> Q'}
+    {P : PhysicalSeparator}
+    (producer : BF4QuarterPhysicalSeparatorProducer
+      family law spacing coupling P)
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    {H : FourDExistence.ContinuumYMExistence mu}
+    (D : WilsonSelectedOSGNSData H)
+    extends BF4WilsonDenseStageMapData producer D where
   /-- Type-level Cauchy data for the single finite norm stream. -/
   normCauchy : forall X : SelectedWilsonCauchy D,
     CReal.ModCauchyEv
@@ -273,6 +290,76 @@ def toWilsonOperatorNormGapPin : WilsonOperatorNormGapPin D :=
 
 end BF4WilsonDenseStageApproximation
 
+/-! ## 3. Construct the norm modulus from summable cross-scale variation -/
+
+/-- A still more causal dense-stage interface: adjacent finite-stage norms
+move by a summable nonnegative error stream, eventually at each rational
+approximation depth.
+
+`SummableCRealEventualStepVariation` exposes the local step threshold, the
+variation tail, an antitone tail rate, and inner regularity data.  Its
+telescoping theorem constructs the `ModCauchyEv` field consumed above. -/
+structure BF4WilsonDenseStageEventualVariationApproximation
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat -> Q'}
+    {P : PhysicalSeparator}
+    (producer : BF4QuarterPhysicalSeparatorProducer
+      family law spacing coupling P)
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    {H : FourDExistence.ContinuumYMExistence mu}
+    (D : WilsonSelectedOSGNSData H)
+    extends BF4WilsonDenseStageMapData producer D where
+  /-- Summable eventual two-sided variation of the exact finite norm stream. -/
+  normVariation : forall X : SelectedWilsonCauchy D,
+    SummableCRealEventualStepVariation
+      (denseStageNormSequence D sampleIndex stageObservable X)
+  /-- The limit built from the telescoped step bounds is the actual continuum
+  representative norm. -/
+  normLimitPinned : forall X : SelectedWilsonCauchy D,
+    CReal.Equiv
+      (CReal.completeLimitCauchy
+        (denseStageNormSequence D sampleIndex stageObservable X)
+        (normVariation X).toModCauchyEv)
+      (D.wilson.toGNSData.cinnerRep X X)
+
+namespace BF4WilsonDenseStageEventualVariationApproximation
+
+variable
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat -> Q'}
+    {P : PhysicalSeparator}
+    {producer : BF4QuarterPhysicalSeparatorProducer
+      family law spacing coupling P}
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    {H : FourDExistence.ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+    (data : BF4WilsonDenseStageEventualVariationApproximation producer D)
+
+/-- Telescoping the summable adjacent-scale error constructs the dense-stage
+`ModCauchyEv` interface. -/
+def toDenseStageApproximation :
+    BF4WilsonDenseStageApproximation producer D where
+  toBF4WilsonDenseStageMapData := data.toBF4WilsonDenseStageMapData
+  normCauchy := fun X => (data.normVariation X).toModCauchyEv
+  normLimitPinned := data.normLimitPinned
+
+/-- Summable cross-scale norm variation plus the exact dense maps constructs
+the linear graph-norm limit interface. -/
+def toLinearGraphNormLimitApproximation :
+    BF4WilsonLinearGraphNormLimitApproximation producer D :=
+  data.toDenseStageApproximation.toLinearGraphNormLimitApproximation
+
+/-- The summable cross-scale interface therefore constructs the selected
+continuum Wilson operator norm gap. -/
+def toWilsonOperatorNormGapPin : WilsonOperatorNormGapPin D :=
+  data.toDenseStageApproximation.toWilsonOperatorNormGapPin
+
+end BF4WilsonDenseStageEventualVariationApproximation
+
 end YMGap.Continuum.BF4PhysicalDenseStageGraphNormCompiler
 
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageGraphNormCompiler.denseStageApproximant
@@ -283,3 +370,6 @@ end YMGap.Continuum.BF4PhysicalDenseStageGraphNormCompiler
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageGraphNormCompiler.BF4WilsonDenseStageApproximation.transferredNorm_converges
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageGraphNormCompiler.BF4WilsonDenseStageApproximation.toLinearGraphNormLimitApproximation
 #print axioms YMGap.Continuum.BF4PhysicalDenseStageGraphNormCompiler.BF4WilsonDenseStageApproximation.toWilsonOperatorNormGapPin
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageGraphNormCompiler.BF4WilsonDenseStageEventualVariationApproximation.toDenseStageApproximation
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageGraphNormCompiler.BF4WilsonDenseStageEventualVariationApproximation.toLinearGraphNormLimitApproximation
+#print axioms YMGap.Continuum.BF4PhysicalDenseStageGraphNormCompiler.BF4WilsonDenseStageEventualVariationApproximation.toWilsonOperatorNormGapPin

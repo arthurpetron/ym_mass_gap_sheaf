@@ -1242,3 +1242,34 @@ theorem remain open.  The focused dense compiler build completed 1263 jobs and
 the integrated endpoint build completed 1324 jobs; the forbidden-token scan
 was empty and every exported declaration reports only
 `[propext, Quot.sound]`.  No full audit, remote push, or GitHub CI run was used.
+
+## Summable cross-scale norm variation compiler (2026-08-20)
+
+The dense-stage graph-norm record is now split into reusable exact map data
+and its analytic norm control.  The sharper
+`BF4WilsonDenseStageEventualVariationApproximation` replaces a freely supplied
+global `ModCauchyEv` norm modulus by local cross-scale information: a
+nonnegative adjacent-scale variation stream, eventual two-sided step bounds,
+explicit inner approximation rates, an antitone cutoff rate, and a summable
+tail estimate.
+
+The existing `SummableCRealEventualStepVariation` telescope constructs the
+global `ModCauchyEv` record.  The dense-stage compiler then reuses its previous
+proof to derive transferred-norm convergence and the continuum Wilson
+operator gap.  The AF/Faraut `ContinuumWilsonDenseStageResidualData` endpoint
+now consumes this summable-step version directly, so the causal contraction is
+
+`adjacent-scale norm bounds + summable tail + exact transfer intertwining`
+
+`-> graph-norm convergence -> WilsonMinimalBoundedMassGap`.
+
+The remaining norm identification is explicit: the constructive real built
+from the telescoped finite norm stream must denote the inner norm of the
+selected continuum Wilson representative.  Constructing the continuum GNS
+carrier from this same stage system would make that identification structural;
+at present it is still an analytic field.  The local step estimates, their
+summable BF4 budget, the dense maps, continuum existence, and physical-time
+identification are not constructed here.  The focused compiler and integrated
+endpoint builds completed 1263 and 1324 jobs respectively; the forbidden-token
+scan was empty and exported declarations report only
+`[propext, Quot.sound]`.  No full audit, remote push, or GitHub CI run was used.
