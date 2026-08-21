@@ -23,6 +23,7 @@ import YMGap.Continuum.BF4PhysicalDenseStageExpectationComparison
 import YMGap.Continuum.BF4PhysicalDenseStageGraphNormCompiler
 import YMGap.Continuum.BF4PhysicalDenseStageProjectiveComparison
 import YMGap.Continuum.BF4PhysicalDenseStageRationalComparison
+import YMGap.Continuum.BF4PhysicalDenseStageSlowDiagonalComparison
 import YMGap.Continuum.BF4PhysicalModulatedGapLimitStability
 
 namespace YMGap.Continuum.BF4FarautGraphNormContinuumRealization
@@ -49,6 +50,7 @@ open YMGap.Continuum.BF4PhysicalDenseStageExpectationComparison
 open YMGap.Continuum.BF4PhysicalDenseStageGraphNormCompiler
 open YMGap.Continuum.BF4PhysicalDenseStageProjectiveComparison
 open YMGap.Continuum.BF4PhysicalDenseStageRationalComparison
+open YMGap.Continuum.BF4PhysicalDenseStageSlowDiagonalComparison
 open YMGap.Continuum.BF4PhysicalSeparatorProducer
 open YMGap.Continuum.ContinuumMeasure
 open YMGap.Continuum.ExactRateReconstructionHandoff
@@ -234,8 +236,8 @@ refinement of the selected projective OS functional.
 Unlike `ContinuumWilsonGraphNormResidualData`, this record does not assume the
 two graph-norm convergence laws or a `CReal`-level norm-limit pin.  Its
 dense-stage field constructs both laws from pointwise transfer compatibility,
-vector-adaptive cofinal sampling, and rational finite-to-continuum
-quadratic-form bounds. -/
+an executable vector-adaptive slow diagonal, and rational
+finite-to-continuum quadratic-form bounds. -/
 structure ContinuumWilsonDenseStageResidualData
     {family : MatchedBlockFamily}
     {law : CubicMarginLaw family}
@@ -268,7 +270,7 @@ structure ContinuumWilsonDenseStageResidualData
     (continuumSourceCertificate flow
       anchorDominates AF trajectory comparison bare)
     osGNS.reconstruction
-  denseStageLimit : BF4WilsonDenseStageAdaptiveProjectiveComparison
+  denseStageLimit : BF4WilsonDenseStageSlowProjectiveComparison
     producer.toBF4QuarterPhysicalSeparatorProducer osGNS
 
 namespace ContinuumWilsonDenseStageResidualData
@@ -308,11 +310,12 @@ def toContinuumWilsonGraphNormResidualData
   existence := D.existence
   osGNS := D.osGNS
   rateReconstruction := D.rateReconstruction
-  graphNormLimit := D.denseStageLimit.toLinearGraphNormLimitApproximation
+  graphNormLimit := D.denseStageLimit.toAdaptiveProjectiveComparison
+    |>.toLinearGraphNormLimitApproximation
 
-/-- Literal dense finite-stage maps, projective expectation moduli, and a
-vector-adaptive admissible diagonal construct the same-object positive
-exact-log bounded mass-gap endpoint. -/
+/-- Literal dense finite-stage maps and projective expectation moduli construct
+their vector-adaptive slow diagonal and then the same-object positive exact-log
+bounded mass-gap endpoint. -/
 def continuumWilsonMinimalBoundedMassGap
     {family : MatchedBlockFamily}
     {law : CubicMarginLaw family}
@@ -375,7 +378,7 @@ def ofProjectiveOSResidualData
     {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
     (D : ContinuumProjectiveOSResidualData flow
       anchorDominates AF trajectory comparison bare tracking mu)
-    (denseStageLimit : BF4WilsonDenseStageAdaptiveProjectiveComparison
+    (denseStageLimit : BF4WilsonDenseStageSlowProjectiveComparison
       producer.toBF4QuarterPhysicalSeparatorProducer
       (WilsonSelectedOSGNSData.ofLinked D.osGNS)) :
     ContinuumWilsonDenseStageResidualData flow

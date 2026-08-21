@@ -1405,3 +1405,32 @@ still open.  The focused adaptive compiler and integrated endpoint builds
 completed 1268 and 1329 jobs respectively; the forbidden-token scan was empty
 and every exported declaration reports only `[propext, Quot.sound]`.  No full
 audit, remote push, or GitHub CI run was used.
+
+## Constructed vectorwise slow diagonal (2026-08-20)
+
+`BF4PhysicalDenseStageSlowDiagonalComparison` constructs the sampler that the
+adaptive compiler previously accepted as data.  A generic natural-number
+threshold ladder accumulates the requirements of successive dense terms, and
+an executable bounded search chooses the greatest term whose threshold fits
+inside the current finite stage.  The resulting sampler has an explicit
+cofinality rate and pays the selected term's requirement by construction.
+
+To cover every positive rational tolerance with one sampler, the module first
+regularizes an arbitrary projective modulus along the canonical `invSucc`
+precision ladder.  Its running-maximum rate is antitone in tolerance and
+retains the original two-sided expectation estimate.  Each vector's threshold
+then accumulates both the reflected square of its current dense term and the
+reflected square of its one-step translate.  Cofinality plus antitonicity proves
+the complete diagonal-admissibility law.
+
+The active AF/Faraut endpoint now consumes
+`BF4WilsonDenseStageSlowProjectiveComparison`; sampler choice, sampler
+cofinality, and diagonal admissibility are no longer analytic inputs.  The
+remaining inputs are the stage observable realization and congruence law,
+finite/continuum transfer intertwining, finite evaluator pin, modulus-carrying
+projective functional, and vacuum-complement preservation along the constructed
+sampler.  Continuum existence, physical generator identification, the QFT
+axioms, and the Clay theorem remain open.  The focused slow-diagonal and
+integrated endpoint builds completed 1269 and 1330 jobs respectively; the
+forbidden-token scan was empty and every exported declaration reports only
+`[propext, Quot.sound]`.  No full audit, remote push, or GitHub CI run was used.
