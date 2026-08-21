@@ -406,6 +406,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4PhysicalDenseStageCenteredSlowComparison.lean`,
   `lean/YMGap/Continuum/BF4PhysicalDenseStageRawMeanComparison.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearGNSForm.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffLinearRadicalDescent.lean`,
   and
   `lean/YMGap/Continuum/BF4FarautGraphNormContinuumRealization.lean`.
 - **named fields / structures**:
@@ -792,10 +793,11 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   finite rational span of the genuine unit observables now carries a positive
   symmetric rational-bilinear `CReal` form whose `K`-th approximation is the
   literal finite physical GNS pairing at cutoff `K`.  Thus additivity after
-  representation-cutoff removal is no longer an open input.  CReal
-  Cauchy--Schwarz/radical descent, instantiation of the existing
-  `CRealSeminormCompletion`, and a cutoff-independent transfer action on this
-  carrier remain the next structural obligations.
+  representation-cutoff removal is no longer an open input.  Sharp CReal
+  Cauchy--Schwarz and radical descent are now proved from the exact
+  finite-stage bridge and explicit local-bound/product moduli.  Instantiation
+  of the existing `CRealSeminormCompletion` and a cutoff-independent transfer
+  action on this carrier remain the next structural obligations.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full

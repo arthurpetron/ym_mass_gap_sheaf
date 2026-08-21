@@ -2178,3 +2178,30 @@ certificate is still uninhabited.  Thermodynamic/spacing uniformity, continuum
 QFT, and the Clay theorem remain open.  A source check and focused monitored
 build completed successfully, the latter with 1133 jobs.  Every printed
 load-bearing declaration reports only `[propext, Quot.sound]`.
+
+## CReal Cauchy--Schwarz and physical limiting radical descent (2026-08-20)
+
+`BF4PhysicalCutoffLinearRadicalDescent` closes the analytic prerequisite for
+quotienting the new finite-linear limiting form.  The exact cutoff-stage bridge
+feeds the already-proved sharp rational Cauchy--Schwarz inequality of each
+finite physical GNS into every approximation of `innerLimit`.  This yields both
+the approximation-wise inequality and its invariant form in transitive
+`CReal.leEv` order.
+
+If the limiting norm of one finite-linear observable is zero, the proof takes
+a constructive local bound for the second norm and selects a positive rational
+input tolerance whose product with that bound fits the requested squared
+output tolerance.  Stagewise Cauchy--Schwarz then forces the absolute cross
+form below the output tolerance.  Hence every limiting null vector pairs to
+zero with every other vector.  The resulting
+`centralPhysicalCutoffLinearPreHilbert` is a concrete CReal pre-Hilbert datum
+with a proved radical law, not an assumed quotient certificate.
+
+The next structural step is now mechanical but still proof-bearing: define the
+squared distance from subtraction, prove its triangle and replacement laws,
+and instantiate `CRealSeminormCompletion`.  A cutoff-independent transfer
+action on the finite syntax remains a separate analytic issue.  The fixed-nome
+cofinal strictness certificate, thermodynamic/spacing uniformity, continuum
+QFT, and the Clay theorem remain open.  A source check and focused monitored
+build completed successfully, the latter with 1134 jobs.  Every printed
+load-bearing declaration reports only `[propext, Quot.sound]`.
