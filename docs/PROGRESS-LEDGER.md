@@ -2234,3 +2234,24 @@ uninhabited, and nome/volume/spacing limits, OS reconstruction, continuum QFT,
 and the Clay theorem remain open.  A source check and focused monitored build
 completed successfully, the latter with 1135 jobs.  Every printed
 load-bearing declaration reports only `[propext, Quot.sound]`.
+
+## Algebraic operations on the completed physical BF4 carrier (2026-08-20)
+
+`BF4PhysicalCutoffLinearCompletedAlgebra` descends the finite-linear
+operations to the newly constructed cutoff-removed completion.  Addition is
+proved binary quadratic-Lipschitz by comparison at every approximation index
+with the finite physical GNS parallelogram bound.  Rational scaling is proved
+to multiply squared distance by `s^2`; the computable
+`CReal.InnerRegularity.scaleTolerance` therefore supplies the Type-level
+continuity modulus needed by the generic completion map.
+
+The module consequently constructs completed addition, rational scaling,
+zero, and negation on the exact same fixed-nome, fixed-half-extent carrier.
+These are genuine quotient-respecting functions, not selected representative
+operations.  Their additive-group and rational-module equations have not yet
+been proved on arbitrary completed points, so no bundled linear-space claim is
+made here.  A cutoff-independent physical Markov action, strict completed gap,
+nome/volume/spacing limits, continuum QFT, and the Clay theorem remain open.
+A source check and focused monitored build completed successfully, the latter
+with 1137 jobs.  Every printed load-bearing declaration reports only
+`[propext, Quot.sound]`.
