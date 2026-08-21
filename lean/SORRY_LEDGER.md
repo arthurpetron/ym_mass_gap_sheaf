@@ -2518,9 +2518,10 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `CutoffTwoSectorPhysicalNonzeroUpperCertificate`,
   `centralPhysicalReflectedKernel_cutoffTwo_sectorStateAt_eqv_raw_of_nonzeroUpper`,
   and `CutoffTwoSectorPhysicalNonzeroUpperCertificate.toPhysicalTableCertificate`.
-- **obligation**: inhabit stored raw-table symmetry and the physical equality
-  only for nonzero upper-triangle entries; all raw zeros and the lower triangle
-  are now discharged by proved local support and symmetry compilers.
+- **obligation**: inhabit the physical equality only for nonzero
+  upper-triangle entries; stored raw-table symmetry was subsequently closed by
+  `[BF4-cutoff-two-raw-symmetry]`, and all raw zeros and the lower triangle are
+  discharged by proved local support and symmetry compilers.
 - **constructive?**: yes — the smaller certificate remains uninhabited and
   must be supplied by kernel-checked shared-DAG traces or a stronger symbolic
   recurrence theorem.
@@ -2530,6 +2531,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   presentation-only all-entry count each reached the monitored 12 GiB reserve
   and are not passed or retained.  No production-kernel `49/50` gap, cofinal
   sector family, completed gap, continuum QFT, or Clay theorem is claimed.
+
+### [BF4-cutoff-two-raw-symmetry] Stored sector-kernel symmetry — **CLOSED 2026-08-21**
+
+- **milestone**: finite physical sector selection / exact kernel
+  representation.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSectorRawSymmetryCheck.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSectorRawSymmetryRows.lean`,
+  its `RawSymmetryRows/Row00.lean` through `Row64.lean` shards, and the revised
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSectorNonzeroUpperReduction.lean`.
+- **decl**: `cutoffTwoSectorRawSymmetryRows_checked`,
+  `cutoffTwoSectorRawKernel_symm`, and
+  `CutoffTwoSectorPhysicalNonzeroUpperCertificate`.
+- **obligation**: none for raw-table symmetry.  The remaining finite seam is
+  solely the production physical equality on nonzero upper-triangle entries.
+- **constructive?**: yes — every literal row certificate is axiom-free; the
+  exported setoid theorem and revised reduction use only
+  `[propext, Quot.sound]`.
+- **status note**: the row-isolated target completed in 1667 jobs and the
+  dependency-complete revised reduction in 1814 jobs.  The untrusted generator
+  reports 499 residual pairs, but no kernel-checked count is claimed.  The
+  residual physical certificate remains uninhabited, so no production-kernel
+  `49/50` gap, cofinal sector family, completed gap, continuum QFT, or Clay
+  theorem is claimed.
 
 ## How to add an entry
 

@@ -4,7 +4,8 @@
 The literal cutoff-two table contains many exact zeros.  Those entries are
 already known to vanish in the production physical kernel by local support.
 Physical symmetry then reduces the remaining comparison to the upper
-triangle, provided the literal raw table is itself certified symmetric.
+triangle.  Process-isolated row certificates prove the literal raw table
+symmetric unconditionally.
 
 This module packages exactly that smaller residual and compiles it back to the
 row-check certificate consumed by the physical table bridge.  It does not
@@ -16,6 +17,7 @@ noncomputable declaration.
 
 import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSectorLocalZeroClassificationCompact
 import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSectorPhysicalKernelBridge
+import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSectorRawSymmetryRows
 import YMGap.Continuum.Z4HalfTimeReflectionStrictJointDoubledTimeMixedOSKernelSymmetry
 
 namespace YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSectorNonzeroUpperReduction
@@ -30,20 +32,17 @@ open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSectorLocalZeroCertificate
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSectorLocalZeroClassificationCompact
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSectorPhysicalKernelBridge
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSectorRawKernelCertificate
+open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSectorRawSymmetryRows
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoVacuumLocalFactors
 open YMGap.Continuum.Z4HalfTimeReflectionPhysicalGram
 open YMGap.Continuum.Z4HalfTimeReflectionStrictJointDoubledTimeMixedOSKernelSymmetry
 
 local infix:50 " ≈ " => Q'.eqv
 
-/-- The remaining expensive comparison after locally forced zeros and
-physical symmetry have been removed.  Raw-table symmetry is kept as a
-separate, cheap finite field so the physical field only covers unordered
-nonzero pairs. -/
+/-- The remaining expensive comparison after locally forced zeros, proved
+raw-table symmetry, and physical symmetry have been removed.  The sole field
+covers unordered nonzero physical pairs. -/
 structure CutoffTwoSectorPhysicalNonzeroUpperCertificate : Type where
-  rawSymmetry : ∀ {row column : Nat}, row < 65 → column < 65 →
-    cutoffTwoSectorRawKernel row column ≈
-      cutoffTwoSectorRawKernel column row
   upperNonzeroChecked : ∀ {row column : Nat},
     row < 65 → column < 65 → row ≤ column →
     ¬ cutoffTwoSectorRawKernel row column ≈ 0 →
@@ -78,7 +77,7 @@ theorem centralPhysicalReflectedKernel_cutoffTwo_sectorStateAt_eqv_raw_of_nonzer
           ¬ cutoffTwoSectorRawKernel column row ≈ 0 := by
         intro hswappedZero
         exact hzero (Q'.eqv_trans _ _ _
-          (certificate.rawSymmetry hrow hcolumn) hswappedZero)
+          (cutoffTwoSectorRawKernel_symm hrow hcolumn) hswappedZero)
       have hswapped := certificate.upperNonzeroChecked
         hcolumn hrow hlower hswappedNonzero
       have hphysicalSymmetry :=
@@ -89,7 +88,7 @@ theorem centralPhysicalReflectedKernel_cutoffTwo_sectorStateAt_eqv_raw_of_nonzer
             (cutoffTwoSectorStateAt_mem hcolumn))
       exact Q'.eqv_trans _ _ _ hphysicalSymmetry
         (Q'.eqv_trans _ _ _ hswapped
-          (Q'.eqv_symm (certificate.rawSymmetry hrow hcolumn)))
+          (Q'.eqv_symm (cutoffTwoSectorRawKernel_symm hrow hcolumn)))
 
 /-- The smaller unordered-nonzero certificate constructs the original
 65-row recurrence certificate without evaluating the giant recurrence in a

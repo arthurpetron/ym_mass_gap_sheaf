@@ -3951,10 +3951,11 @@ cached.  Its focused target completed successfully with 1678 jobs.
 
 `BF4PhysicalBoundaryCutoffTwoSectorNonzeroUpperReduction` packages the
 remaining representation seam as
-`CutoffTwoSectorPhysicalNonzeroUpperCertificate`.  It asks for a cheap exact
-symmetry law of the stored raw table and physical equality only on nonzero
-upper-triangle entries.  Local support discharges every zero; physical and raw
-symmetry reflect upper entries into the lower triangle.  This smaller record
+`CutoffTwoSectorPhysicalNonzeroUpperCertificate`.  At this historical stage it
+asked for a cheap exact symmetry law of the stored raw table and physical
+equality only on nonzero upper-triangle entries.  Local support discharges
+every zero; physical and raw symmetry reflect upper entries into the lower
+triangle.  This smaller record
 constructs the original `CutoffTwoSectorPhysicalTableCertificate`, so all
 existing entry and row-marginal bridges consume it unchanged.  The direct
 source check and dependency-complete target passed, the latter with 1747
@@ -3971,3 +3972,26 @@ in small shards and scale the already verified shared-DAG bucket method from
 its pilot entries to the nonzero upper pairs.  Cofinal sector selection,
 completion, thermodynamic/continuum limits, QFT axioms, and the Clay target
 remain open.
+
+## Stored cutoff-two raw-kernel symmetry (2026-08-21)
+
+`BF4PhysicalBoundaryCutoffTwoSectorRawSymmetryCheck` and the 65 modules under
+`BF4PhysicalBoundaryCutoffTwoSectorRawSymmetryRows/` check every transposed
+entry equality of the stored exact 65-state table in a separate Lean process.
+The compact `BF4PhysicalBoundaryCutoffTwoSectorRawSymmetryRows` aggregate
+therefore proves `cutoffTwoSectorRawKernel_symm` unconditionally.
+
+`BF4PhysicalBoundaryCutoffTwoSectorNonzeroUpperReduction` now consumes that
+theorem directly.  Its residual
+`CutoffTwoSectorPhysicalNonzeroUpperCertificate` has exactly one field: the
+production physical-kernel equality for upper-triangle entries whose stored
+raw value is nonzero.  Raw-table symmetry is no longer an assumed field.
+
+The row-isolated symmetry target completed successfully with 1667 jobs; every
+row theorem and the Boolean aggregate are axiom-free.  The exported setoid
+symmetry theorem uses only `[propext, Quot.sound]`.  A direct source check and
+dependency-complete build of the revised physical reduction also passed, the
+latter with 1814 jobs and the same axiom gate.  The external generator reports
+499 nonzero upper pairs, but no Lean count theorem is claimed.  Physical trace
+equalities, cofinal sector selection, completion, thermodynamic/continuum
+limits, QFT axioms, and the Clay target remain open.
