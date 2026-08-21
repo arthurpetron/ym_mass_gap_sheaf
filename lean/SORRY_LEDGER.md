@@ -964,6 +964,19 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `[propext, Quot.sound]`.  A dependency-complete final target replay was
   intentionally interrupted while rebuilding already-existing historical LDL
   chunks and is not recorded as passed.
+  The carrier-scope question is now answered negatively at cutoff two.
+  `BF4PhysicalBoundaryCutoffTwoSectorComplementWitness` constructs the lower
+  state with fundamental label one only at face `39` and a four-face fixed
+  boundary `[40, 41, 49, 59]`.  Direct production reduction proves its
+  diagonal kernel entry positive, so it is retained, while the exact
+  65-state classifier proves it lies outside the cube-subset sector.  Sector
+  row closure plus kernel symmetry proves both cross-block entries vanish.
+  Hence the omitted carrier has a genuine positive state in a distinct block;
+  full-carrier identification is refuted, not merely open.  The next honest
+  obligation is the centered block-indicator no-go for every full-carrier
+  `q < 1`, followed by an explicit physical superselection-sector choice.
+  The focused target built successfully in 1597 jobs, and all printed
+  declarations use only `[propext, Quot.sound]`.
   That transport frontier is now specialized to the actual cutoff-removed
   carrier.  Every completion representative has a canonical exactly centered
   vector in each finite-cutoff physical GNS completion, and its finite vacuum

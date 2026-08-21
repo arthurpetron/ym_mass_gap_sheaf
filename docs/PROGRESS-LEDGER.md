@@ -3050,6 +3050,38 @@ intentionally interrupted at its then-visible 1785/1788 jobs while replaying
 the already-existing 1024 historical LDL chunks after cache invalidation; it
 encountered no proof failure and is not recorded as a passed target build.
 
+## Proper nonempty complement of the cutoff-two 65-state sector (2026-08-21)
+
+`BF4PhysicalBoundaryCutoffTwoSectorComplementWitness` resolves the next
+carrier-scope question negatively: the row-closed 65-state cube-subset sector
+is a proper subset of the literal positive cutoff-two physical carrier.  The
+new lower state has fundamental label one only on face `39`; fixed-interface
+faces `[40, 41, 49, 59]`, together with the reflected upper face, complete a
+transverse closed cube.  Direct kernel reduction proves that complete
+production summand strictly positive, hence its diagonal physical reflected
+kernel entry is positive and the lower state belongs to the retained carrier.
+The exact 65-state membership semantics exclude it: it is neither the
+six-face fundamental cube nor a `0/2`-labelled cube subset.
+
+The existing sector row-closure theorem gives zero kernel coupling from every
+sector state to this explicit complement state, and exact reflected-kernel
+symmetry gives the reverse zero.  Thus the omitted carrier is not merely an
+uncertified tail: it contains a positive-norm state in a distinct exact block.
+Consequently the sector `49/50` theorem cannot be promoted by identifying its
+65 states with the full carrier.  The next causal frontier is the stronger
+reducibility consequence: construct the nonconstant centered block indicator,
+prove it is fixed by the full physical Markov action, and use its positive norm
+to refute every full-carrier strict rate `q < 1` at cutoff two.  Any viable
+gap route must then select the physically correct superselection/vacuum sector
+before forming the vacuum complement, rather than use the reducible union of
+all positive rows.  Cofinal sector selection, the completion modulus,
+thermodynamic/nome/spacing limits, continuum QFT axioms, and the Clay target
+remain open.
+
+The monitored source check and dependency-complete target build both passed;
+the latter completed 1597 jobs.  All four printed declarations report only
+`[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the
