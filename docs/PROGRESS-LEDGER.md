@@ -2205,3 +2205,32 @@ cofinal strictness certificate, thermodynamic/spacing uniformity, continuum
 QFT, and the Clay theorem remain open.  A source check and focused monitored
 build completed successfully, the latter with 1134 jobs.  Every printed
 load-bearing declaration reports only `[propext, Quot.sound]`.
+
+## Physical BF4 limiting squared-seminorm completion (2026-08-20)
+
+`BF4PhysicalCutoffLinearCompletion` closes the quotient-and-carrier frontier
+for the fixed-nome finite-linear physical form.  Squared distance is the
+limiting form of the presentation difference.  Its `K`-th approximation is
+proved equivalent to the literal squared distance in the finite physical GNS
+at representation cutoff `K`; finite reflexivity, symmetry, nonnegativity,
+and the sqrt-free quadratic triangle inequality therefore pass directly to
+the constructive-real limit.
+
+Endpoint replacement is not inferred from finite stages.  Instead, exact
+finite-linear difference algebra and the preceding limiting radical theorem
+show that replacing either endpoint by a limiting-null presentation preserves
+the squared distance.  This discharges `SquaredSeminorm.null_congr` honestly.
+The resulting `centralPhysicalCutoffLinearSquaredSeminorm` instantiates the
+existing choice-free framework, yielding a positive-definite null quotient,
+an explicit-modulus Cauchy completion
+`CentralPhysicalCutoffLinearCompletion`, and constant embeddings of both
+presentations and radical classes.
+
+This constructs an actual completed carrier at each fixed rational
+`0 < w < 1` and fixed finite half-extent, but it has not yet descended zero,
+addition, negation, rational scaling, or a cutoff-independent physical Markov
+transfer to that completion.  The cofinal strict `1/16` input is independently
+uninhabited, and nome/volume/spacing limits, OS reconstruction, continuum QFT,
+and the Clay theorem remain open.  A source check and focused monitored build
+completed successfully, the latter with 1135 jobs.  Every printed
+load-bearing declaration reports only `[propext, Quot.sound]`.

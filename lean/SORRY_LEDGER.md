@@ -407,6 +407,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4PhysicalDenseStageRawMeanComparison.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearGNSForm.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearRadicalDescent.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletion.lean`,
   and
   `lean/YMGap/Continuum/BF4FarautGraphNormContinuumRealization.lean`.
 - **named fields / structures**:
@@ -796,8 +797,12 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   representation-cutoff removal is no longer an open input.  Sharp CReal
   Cauchy--Schwarz and radical descent are now proved from the exact
   finite-stage bridge and explicit local-bound/product moduli.  Instantiation
-  of the existing `CRealSeminormCompletion` and a cutoff-independent transfer
-  action on this carrier remain the next structural obligations.
+  of the existing `CRealSeminormCompletion` is now complete: the limiting
+  squared distance has proved reflexive, symmetric, nonnegative, sqrt-free
+  triangle, and endpoint-replacement laws, so an actual radical quotient and
+  explicit-modulus Cauchy completion are constructed.  Descent of the module
+  operations and a cutoff-independent transfer action on this completed
+  carrier remain the next structural obligations.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full
