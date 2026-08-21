@@ -2495,8 +2495,18 @@ fixed anchor-positive carrier.  Thus the common denominator floor required by
 the conditioning-ratio theorem is now inhabited uniformly in the later
 representation cutoff.
 
-The remaining pointwise conditional-kernel work is the weighted old-target
-numerator comparison and its combination with the proved target shells.  The
+The same module now closes the moving-core version needed by the actual
+Cauchy compiler.  Exact retained-plus-new partition identities prove additive
+decomposition of complete slab cutoff increments; nonnegativity then makes
+the increment antitone in its retained cutoff.  Hence every source-core cutoff
+beyond the unit-tail schedule inherits the same `increment <= 1` estimate.
+Half of the constructive positive-row minimum at that moving cutoff defines
+`centralPhysicalMovingPositiveRowFloor`, which is strictly positive and below
+all later marginals of every positive source in that expanding core.
+
+The remaining pointwise conditional-kernel work is therefore only the
+weighted old-target numerator comparison and its combination with the proved
+target shells and quotient-stability theorem.  The
 stationary source-shell estimate, cofinal finite sixteenth, thermodynamic/
 nome/spacing limits, continuum reconstruction and QFT axioms, and the Clay
 theorem remain open.  The source check and focused monitored build completed

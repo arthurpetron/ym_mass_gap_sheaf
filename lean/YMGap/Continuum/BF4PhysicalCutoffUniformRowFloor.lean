@@ -392,7 +392,120 @@ theorem half_mul_centralPhysicalRowMarginal_le_of_increment_le_one
   refine Q'.le_trans' _ _ _ hratio ?_
   exact Q'.ge_of_eqv hlaterEq
 
-/-! ## 3. The explicit uniform positive-row floor -/
+/-! ## 3. Moving the positive source anchor -/
+
+private theorem add_left_cancel_eqv_local
+    {common left right : Q'}
+    (h : common + left ≈ common + right) :
+    left ≈ right := by
+  have hleft : -common + (common + left) ≈ left := by
+    refine Q'.eqv_trans _ ((-common + common) + left) _
+      (Q'.eqv_symm (Q'.add_assoc_eqv (-common) common left)) ?_
+    refine Q'.eqv_trans _ ((0 : Q') + left) _
+      (Q'.add_eqv_congr_right _ _ left
+        (Q'.neg_add_self_eqv common)) ?_
+    exact QPoly.q_zero_add_eqv left
+  have hright : -common + (common + right) ≈ right := by
+    refine Q'.eqv_trans _ ((-common + common) + right) _
+      (Q'.eqv_symm (Q'.add_assoc_eqv (-common) common right)) ?_
+    refine Q'.eqv_trans _ ((0 : Q') + right) _
+      (Q'.add_eqv_congr_right _ _ right
+        (Q'.neg_add_self_eqv common)) ?_
+    exact QPoly.q_zero_add_eqv right
+  exact Q'.eqv_trans _ _ _ (Q'.eqv_symm hleft)
+    (Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_left (-common) _ _ h)
+      hright)
+
+/-- Complete corrected-slab new-label sectors add exactly across an
+intermediate representation cutoff. -/
+theorem slabParametricKCutoffIncrement_additive
+    {w : Q'} {anchor middle later extent : Nat}
+    (hanchorMiddle : anchor <= middle)
+    (hmiddleLater : middle <= later) :
+    slabParametricKCutoffIncrement
+        w anchor later extent ≈
+      slabParametricKCutoffIncrement
+          w anchor middle extent +
+        slabParametricKCutoffIncrement
+          w middle later extent := by
+  let anchorPartition :=
+    slabParametricKPhysicalPartition w anchor extent
+  let middlePartition :=
+    slabParametricKPhysicalPartition w middle extent
+  let laterPartition :=
+    slabParametricKPhysicalPartition w later extent
+  let wholeIncrement :=
+    slabParametricKCutoffIncrement w anchor later extent
+  let firstIncrement :=
+    slabParametricKCutoffIncrement w anchor middle extent
+  let secondIncrement :=
+    slabParametricKCutoffIncrement w middle later extent
+  have hanchorLater : anchor <= later :=
+    Nat.le_trans hanchorMiddle hmiddleLater
+  have hwhole : laterPartition ≈
+      anchorPartition + wholeIncrement := by
+    dsimp only [laterPartition, anchorPartition, wholeIncrement]
+    exact slabParametricKPhysicalPartition_eq_base_add_increment
+      hanchorLater
+  have hfirst : middlePartition ≈
+      anchorPartition + firstIncrement := by
+    dsimp only [middlePartition, anchorPartition, firstIncrement]
+    exact slabParametricKPhysicalPartition_eq_base_add_increment
+      hanchorMiddle
+  have hsecond : laterPartition ≈
+      middlePartition + secondIncrement := by
+    dsimp only [laterPartition, middlePartition, secondIncrement]
+    exact slabParametricKPhysicalPartition_eq_base_add_increment
+      hmiddleLater
+  have hpadded :
+      anchorPartition + wholeIncrement ≈
+        anchorPartition + (firstIncrement + secondIncrement) := by
+    exact Q'.eqv_trans _ laterPartition _
+      (Q'.eqv_symm hwhole)
+      (Q'.eqv_trans _ (middlePartition + secondIncrement) _
+        hsecond
+        (Q'.eqv_trans _
+          ((anchorPartition + firstIncrement) + secondIncrement) _
+          (Q'.add_eqv_congr_right _ _ secondIncrement hfirst)
+          (Q'.add_assoc_eqv
+            anchorPartition firstIncrement secondIncrement)))
+  exact add_left_cancel_eqv_local hpadded
+
+/-- At a fixed later cutoff, moving the retained cutoff outward can only
+shrink the complete new-label sector. -/
+theorem slabParametricKCutoffIncrement_antitone_base
+    {w : Q'} (hw : (0 : Q') <= w)
+    {anchor middle later extent : Nat}
+    (hanchorMiddle : anchor <= middle)
+    (hmiddleLater : middle <= later) :
+    slabParametricKCutoffIncrement
+        w middle later extent <=
+      slabParametricKCutoffIncrement
+        w anchor later extent := by
+  have hfirst0 : (0 : Q') <=
+      slabParametricKCutoffIncrement
+        w anchor middle extent :=
+    slabParametricKCutoffIncrement_nonnegative
+      hw anchor middle extent
+  have hpad :
+      slabParametricKCutoffIncrement w middle later extent <=
+        slabParametricKCutoffIncrement w anchor middle extent +
+          slabParametricKCutoffIncrement w middle later extent := by
+    refine Q'.le_trans' _
+      (slabParametricKCutoffIncrement w middle later extent +
+        slabParametricKCutoffIncrement w anchor middle extent) _
+      (Q'.add_le_self_of_nonneg _ _ hfirst0) ?_
+    exact Q'.le_of_eqv
+      (Q'.add_comm_eqv
+        (slabParametricKCutoffIncrement w middle later extent)
+        (slabParametricKCutoffIncrement w anchor middle extent))
+  exact Q'.le_trans' _ _ _ hpad
+    (Q'.ge_of_eqv
+      (slabParametricKCutoffIncrement_additive
+        hanchorMiddle hmiddleLater))
+
+/-! ## 4. Explicit positive-row floors -/
 
 def centralPhysicalUniformRowFloorCutoff
     (w : Q') (half : Nat) : Nat :=
@@ -456,14 +569,91 @@ theorem centralPhysicalUniformPositiveRowFloor_le
     (half_mul_centralPhysicalRowMarginal_le_of_increment_le_one
       (Q'.le_of_lt hw0) hlater hincrement hparts.1)
 
+/-- Half of the finite positive-row minimum at an arbitrary source-core
+cutoff.  Unlike the fixed floor above, this floor moves with the core. -/
+def centralPhysicalMovingPositiveRowFloor
+    (w : Q') (hw : (0 : Q') <= w)
+    (base half : Nat) : Q' :=
+  HalfPow.half *
+    (centralPositivePhysicalMarginalFloorData
+      w hw base half).floor
+
+theorem centralPhysicalMovingPositiveRowFloor_pos
+    (w : Q') (hw : (0 : Q') <= w)
+    (base half : Nat) :
+    (0 : Q') <
+      centralPhysicalMovingPositiveRowFloor
+        w hw base half := by
+  unfold centralPhysicalMovingPositiveRowFloor
+  exact ExpNeg.half_mul_pos _
+    (centralPositivePhysicalMarginalFloorData
+      w hw base half).floor_pos
+
+/-- Once the moving source core lies beyond the unit-tail cutoff, half of
+its own positive-row minimum is a floor at every later cutoff.  This is the
+form needed by an accuracy-dependent expanding-core Cauchy argument. -/
+theorem centralPhysicalMovingPositiveRowFloor_le
+    {w : Q'} (hw0 : (0 : Q') < w)
+    (hw1 : w < (1 : Q')) (half : Nat)
+    {base later : Nat}
+    (hretained : centralPhysicalUniformRowFloorCutoff w half <= base)
+    (hlater : base <= later)
+    {source : EdgeLabelling}
+    (hsource : source ∈ centralPositiveHalfStates
+      w (Q'.le_of_lt hw0) base half) :
+    centralPhysicalMovingPositiveRowFloor
+        w (Q'.le_of_lt hw0) base half <=
+      centralPhysicalRowMarginal
+        w (Q'.le_of_lt hw0) later half source := by
+  have hparts := mem_centralPositiveHalfStates_iff.mp hsource
+  have hbaseFloor :=
+    (centralPositivePhysicalMarginalFloorData
+      w (Q'.le_of_lt hw0) base half).floor_le
+      source hsource
+  have hhalfFloor :
+      centralPhysicalMovingPositiveRowFloor
+          w (Q'.le_of_lt hw0) base half <=
+        HalfPow.half *
+          centralPhysicalRowMarginal
+            w (Q'.le_of_lt hw0) base half source := by
+    unfold centralPhysicalMovingPositiveRowFloor
+    exact Q'.mul_le_mul_of_nonneg_left _ _ _
+      hbaseFloor HalfPow.half_nonneg
+  have hretainedLater :
+      centralPhysicalUniformRowFloorCutoff w half <= later :=
+    Nat.le_trans hretained hlater
+  have hscheduled :
+      slabParametricKCutoffIncrement
+          w (centralPhysicalUniformRowFloorCutoff w half)
+          later (centralExtent half) <= (1 : Q') := by
+    unfold centralPhysicalUniformRowFloorCutoff
+      centralPhysicalTargetShellCutoff
+    exact slabPhysicalNomeCutoffIncrement_le_tolerance
+      hw0 hw1 (centralExtent half) (by decide) hretainedLater
+  have hincrement :
+      slabParametricKCutoffIncrement
+          w base later (centralExtent half) <= (1 : Q') :=
+    Q'.le_trans' _ _ _
+      (slabParametricKCutoffIncrement_antitone_base
+        (Q'.le_of_lt hw0) hretained hlater)
+      hscheduled
+  exact Q'.le_trans' _ _ _ hhalfFloor
+    (half_mul_centralPhysicalRowMarginal_le_of_increment_le_one
+      (Q'.le_of_lt hw0) hlater hincrement hparts.1)
+
 /-! ## Axiom audit -/
 
 #print axioms centralSourceCylinderObservable
 #print axioms centralSourceCylinderNumerator_eq_rawRow
 #print axioms centralPhysicalRowMarginal_eq_sourceExpectation
 #print axioms half_mul_centralPhysicalRowMarginal_le_of_increment_le_one
+#print axioms slabParametricKCutoffIncrement_additive
+#print axioms slabParametricKCutoffIncrement_antitone_base
 #print axioms centralPhysicalUniformRowFloorCutoff
 #print axioms centralPhysicalUniformPositiveRowFloor
 #print axioms centralPhysicalUniformPositiveRowFloor_le
+#print axioms centralPhysicalMovingPositiveRowFloor
+#print axioms centralPhysicalMovingPositiveRowFloor_pos
+#print axioms centralPhysicalMovingPositiveRowFloor_le
 
 end YMGap.Continuum.BF4PhysicalCutoffUniformRowFloor
