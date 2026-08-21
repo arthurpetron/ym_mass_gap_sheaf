@@ -2290,6 +2290,28 @@ source check and focused monitored build completed successfully, the latter
 with 1315 jobs.  Every printed load-bearing declaration reports only
 `[propext, Quot.sound]`.
 
+## Atomic reduction of the pointwise Markov Cauchy residual (2026-08-21)
+
+`BF4PhysicalCutoffLinearMarkovAtomicCauchy` replaces the open demand for an
+independent cross-cutoff Cauchy modulus on every finite rational-linear syntax
+tree by `CentralPhysicalLinearMarkovAtomicCauchyData`: one modulus for each
+atomic physical `[0,1]` observable.
+
+Structural recursion supplies the zero case unconditionally and uses the
+already proved completion-continuity of addition and rational scaling to
+construct all composite cases.  The resulting
+`CentralPhysicalLinearMarkovAtomicCauchyData.toDenseCauchyData` is exactly the
+pointwise input consumed by the adaptive completed carrier, transfer, vacuum
+complement, strict gap, powers, and correlation-decay chain.
+
+No nonconstant atomic modulus is inhabited here.  The remaining cross-cutoff
+analytic residual is now confined to bounded atoms instead of redundantly
+including their finite-linear closure.  The independent cofinal finite
+sixteenth and all thermodynamic/nome/spacing and continuum obligations remain
+open.  A source check and focused monitored build completed successfully, the
+latter with 1151 jobs.  Every printed load-bearing declaration reports only
+`[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the
