@@ -2513,6 +2513,37 @@ theorem remain open.  The source check and focused monitored build completed
 successfully, the latter with 1164 jobs.  Every printed load-bearing
 declaration reports only `[propext, Quot.sound]`.
 
+## Inhabited pointwise conditional-core estimate (2026-08-21)
+
+`BF4PhysicalCutoffConditionalCoreCauchy` now closes the division step for an
+arbitrary physical unit observable.  The genuine finite Markov value on a
+positive retained source is rewritten as one quotient: its numerator is the
+normalized joint row weighted by the observable, and its denominator is the
+source-row marginal.  The numerator splits exactly into an old target core
+and a new-target shell.  Since observable values lie in `[0,1]`, the weighted
+old-core difference is bounded by the already proved unweighted row `l1`
+error, and the weighted shell is bounded by the already proved joint shell.
+
+The resulting two-sided numerator and denominator estimates use one common
+error: old-row `l1` plus both outgoing target shells.  Positive-row
+persistence and `centralPhysicalMovingPositiveRowFloor` supply both positive
+division guards and a common lower floor.  The constructive ratio-stability
+theorem therefore proves an explicit absolute bound for the difference of
+the two genuine Markov values on every positive source in any expanding core
+beyond the unit-tail cutoff.  No conditioning or denominator hypothesis
+remains uninhabited at this pointwise level.
+
+The next contraction step is quantitative scheduling: allocate the requested
+core tolerance among the old-row error and the two target shells, cancel the
+moving floor in the quotient bound, square the resulting pointwise estimate,
+and instantiate the core field of the atomic Markov Cauchy compiler.  The
+stationary source-shell tightness required by that compiler remains separate,
+as do the cofinal finite sixteenth, thermodynamic/nome/spacing limits,
+continuum reconstruction and QFT axioms, and the Clay theorem.  The source
+check and focused monitored build completed successfully, the latter with
+1165 jobs.  Every printed load-bearing declaration reports only
+`[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the

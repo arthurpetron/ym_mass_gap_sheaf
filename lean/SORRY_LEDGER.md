@@ -425,6 +425,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4PhysicalCutoffPositiveRowPersistence.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffTargetShellTail.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffUniformRowFloor.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffConditionalCoreCauchy.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovTransfer.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovLaws.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovVacuumComplement.lean`,
