@@ -2665,3 +2665,30 @@ spacing limits, continuum QFT, and the Clay theorem remain open.  A source
 check and focused monitored build completed successfully, the latter with
 1257 jobs.  Every printed load-bearing declaration reports only
 `[propext, Quot.sound]`.
+
+## Four-rate cofinality compiler for completed graph norms (2026-08-21)
+
+`BF4PhysicalCutoffLinearCompletedMarkovGraphNormCofinality` replaces the two
+opaque centered graph-norm convergence laws by four explicit diagonal
+inner-regularity rates.  The existing vacuum-pairing cofinality already
+supplies the input and Markov-image vacuum rates, so the only genuinely new
+fields are cofinality of the input and Markov-image self-pair rates.
+
+A reusable diagonal theorem now proves that when an outer cutoff stage
+dominates its own explicit inner-approximation rate, the rational diagonal
+converges to the already constructed outer pairing limit.  Exact finite
+centering and centered Markov intertwining then prove both centered graph-norm
+limits.  Completed vacuum orthogonality kills the input mean-square correction,
+and the proved vacuum-pairing invariance kills the transferred correction.
+Together with `FixedNomeCutoffCenteredSixteenth`, these explicit rates compile
+to strict contraction of the actual cutoff-removed completed transfer at
+literal rate `1/16`.
+
+No completion modulus, four-rate cofinality datum, or fixed-nome sixteenth is
+inhabited.  The analytic frontier is therefore sharpened to construction of
+the nonconstant completion modulus, the two vacuum cofinal rates, the two
+self-pair cofinal rates, and the fixed-nome finite certificate.  Nome/volume/
+spacing limits, continuum QFT, and the Clay theorem remain open.  A source
+check and focused monitored build completed successfully, the latter with
+1259 jobs.  Every printed load-bearing declaration reports only
+`[propext, Quot.sound]`.

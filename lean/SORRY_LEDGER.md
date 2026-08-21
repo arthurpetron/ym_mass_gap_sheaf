@@ -426,6 +426,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovCorrelationDecay.lean`,
   `lean/YMGap/Continuum/BF4PhysicalFixedNomeCompletedOperatorNormGap.lean`,
   `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovGraphNorm.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffLinearCompletedMarkovGraphNormCofinality.lean`,
   and
   `lean/YMGap/Continuum/BF4FarautGraphNormContinuumRealization.lean`.
 - **named fields / structures**:
@@ -484,6 +485,7 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `CentralPhysicalLinearMarkovVacuumPairingDiagonalControl`,
   `CentralPhysicalCutoffCompletedMarkovStrictContractionData`,
   `CentralPhysicalCutoffCompletedMarkovCenteredGraphNormConvergence`,
+  `CentralPhysicalLinearMarkovGraphNormInnerCofinality`,
   `ContinuumProjectiveOSResidualData`,
   `ContinuumWilsonBoundedResidualData`,
   `ContinuumWilsonMinimalBoundedResidualData`,
@@ -835,6 +837,15 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   convergence to the norm of the actual completed transfer.  Together with
   the fixed-nome sixteenth, these two laws construct the same-object strict
   contraction certificate at literal rate `1/16`; neither input is inhabited.
+  The two graph-norm laws have now been derived from a smaller explicit
+  diagonal residual.  `CentralPhysicalLinearMarkovGraphNormInnerCofinality`
+  reuses the existing input/action vacuum-pair cofinality and adds only
+  input/action self-pair cofinality.  A general diagonal limit theorem proves
+  that these four rates dominate the nested inner/outer construction; exact
+  centering and quotient orthogonality then construct both graph-norm laws.
+  Hence this four-rate datum, the completion modulus, and the fixed-nome
+  sixteenth compile to same-object strict contraction at `1/16`.  None of
+  those three analytic inputs is inhabited.
   The structural carrier edge has advanced independently: the constructive
   finite rational span of the genuine unit observables now carries a positive
   symmetric rational-bilinear `CReal` form whose `K`-th approximation is the
