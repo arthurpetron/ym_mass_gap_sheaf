@@ -269,7 +269,171 @@ def toWilsonOperatorNormGapPin
 
 end BF4WilsonGraphNormLimitApproximation
 
-/-! ## 3. AF/Faraut specialization -/
+/-! ## 3. Choice-free representative-level graph-norm limits -/
+
+/-- An explicit Cauchy representative of the selected continuum Wilson
+completion. -/
+abbrev SelectedWilsonCauchy
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    (D : WilsonSelectedOSGNSData H) : Type :=
+  CauchyGNS D.wilson.toGNSData
+
+/-- The continuum completion point denoted by an explicit representative. -/
+def selectedWilsonPoint
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    (D : WilsonSelectedOSGNSData H) (X : SelectedWilsonCauchy D) :
+    D.wilson.toGNSData.gnsComplete.hilbert.carrier :=
+  Quotient.mk (cauchySetoid D.wilson.toGNSData) X
+
+/-- Choice-free graph-norm approximation data indexed by explicit continuum
+Cauchy representatives.
+
+Unlike `BF4WilsonGraphNormLimitApproximation`, this record never maps an
+arbitrary quotient point into a Type-valued family of finite representatives.
+It instead supplies finite approximants for each already-explicit continuum
+representative.  The additional `transferredRepresentative` field is the
+honest representative-level lift of the selected continuum transfer.  The
+quotient-level norm gap is then proved by quotient induction into `Prop`. -/
+structure BF4WilsonRepresentativeGraphNormLimitApproximation
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat -> Q'}
+    {P : PhysicalSeparator}
+    (producer : BF4QuarterPhysicalSeparatorProducer
+      family law spacing coupling P)
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    (D : WilsonSelectedOSGNSData H) : Type 3 where
+  separatorPinned : D.selectedSpectralData.gap.sep = bf4MacroNormRate
+  /-- A representative-level lift of the actual selected continuum
+  time-translation operator. -/
+  transferredRepresentative :
+    SelectedWilsonCauchy D -> SelectedWilsonCauchy D
+  /-- The lift represents exactly the quotient-level continuum transfer. -/
+  transferredRepresentative_class : forall X,
+    selectedWilsonPoint D (transferredRepresentative X) =
+      D.timeTranslation.op.T (selectedWilsonPoint D X)
+  /-- Explicit finite representatives approximating one explicit continuum
+  representative at every cutoff. -/
+  approximant : forall _X : SelectedWilsonCauchy D,
+    (scale : Nat) -> MatchedPhysicalStageCauchy family coupling scale
+  /-- Vacuum orthogonality descends to every finite approximant. -/
+  approximant_vacuumOrthogonal : forall
+    (X : SelectedWilsonCauchy D),
+    D.selectedSpectralData.vacPerp (selectedWilsonPoint D X) ->
+      forall scale : Nat,
+        CentralPhysicalModulatedVacuumOrthogonal
+          (matchedAllSpinWeight family coupling scale)
+          (matchedAllSpinWeight_nonnegative family coupling scale)
+          (matchedAllSpinCutoff family coupling scale) 0
+          (matchedPhysicalStagePoint family coupling scale
+            (approximant X scale))
+  /-- Finite squared norms converge to the literal inner-product representative
+  of the selected continuum Cauchy sequence. -/
+  norm_converges : forall X,
+    CReal.ConvergesTo
+      (fun scale => matchedPhysicalStageNorm family coupling scale
+        (approximant X scale))
+      (D.wilson.toGNSData.cinnerRep X X)
+  /-- The transferred finite squared norms converge to the literal inner
+  representative of the supplied continuum transfer lift. -/
+  transferredNorm_converges : forall X,
+    CReal.ConvergesTo
+      (fun scale => matchedPhysicalStageTransferredNorm family coupling scale
+        (approximant X scale))
+      (D.wilson.toGNSData.cinnerRep
+        (transferredRepresentative X) (transferredRepresentative X))
+
+namespace BF4WilsonRepresentativeGraphNormLimitApproximation
+
+/-- Representative-level finite-to-limit preservation of the strict BF4
+operator norm gap. -/
+theorem representative_limit_operator_norm_gap_sixteenth
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat -> Q'}
+    {P : PhysicalSeparator}
+    {producer : BF4QuarterPhysicalSeparatorProducer
+      family law spacing coupling P}
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+    (data : BF4WilsonRepresentativeGraphNormLimitApproximation producer D)
+    (X : SelectedWilsonCauchy D)
+    (horthogonal :
+      D.selectedSpectralData.vacPerp (selectedWilsonPoint D X)) :
+    CReal.leEv
+      (D.wilson.toGNSData.cinnerRep
+        (data.transferredRepresentative X)
+        (data.transferredRepresentative X))
+      (CReal.mul (CReal.ofQ' bf4MacroSquaredNormRate)
+        (D.wilson.toGNSData.cinnerRep X X)) := by
+  apply CReal.leEv_of_convergesTo_le
+    (data.transferredNorm_converges X)
+    (CReal.convergesTo_constMul bf4MacroSquaredNormRate
+      (data.norm_converges X))
+  intro scale
+  exact matchedPhysicalStage_operator_norm_gap_sixteenth
+    producer scale (data.approximant X scale)
+      (data.approximant_vacuumOrthogonal X horthogonal scale)
+
+/-- **Choice-free quotient compiler.**  Representative graph-norm limits
+construct the Wilson operator-gap pin for every quotient vector by induction
+into the proposition expressing the norm inequality. -/
+def toWilsonOperatorNormGapPin
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat -> Q'}
+    {P : PhysicalSeparator}
+    {producer : BF4QuarterPhysicalSeparatorProducer
+      family law spacing coupling P}
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+    (data : BF4WilsonRepresentativeGraphNormLimitApproximation producer D) :
+    WilsonOperatorNormGapPin D where
+  normGap := by
+    intro vector
+    refine Quotient.inductionOn vector ?_
+    intro X horthogonal
+    change CReal.RCle
+      (D.wilson.toGNSData.gnsComplete.hilbert.cinner
+        (D.timeTranslation.op.T (selectedWilsonPoint D X))
+        (D.timeTranslation.op.T (selectedWilsonPoint D X)))
+      (CReal.RCscale
+        (D.selectedSpectralData.gap.sep * D.selectedSpectralData.gap.sep)
+        (D.wilson.toGNSData.gnsComplete.hilbert.cinner
+          (selectedWilsonPoint D X) (selectedWilsonPoint D X)))
+    rw [<- data.transferredRepresentative_class X]
+    change CReal.RCle
+      (Quotient.mk CReal.crealSetoid
+        (D.wilson.toGNSData.cinnerRep
+          (data.transferredRepresentative X)
+          (data.transferredRepresentative X)))
+      (CReal.RCscale
+        (D.selectedSpectralData.gap.sep * D.selectedSpectralData.gap.sep)
+        (Quotient.mk CReal.crealSetoid
+          (D.wilson.toGNSData.cinnerRep X X)))
+    rw [data.separatorPinned]
+    change CReal.RCle
+      (Quotient.mk CReal.crealSetoid
+        (D.wilson.toGNSData.cinnerRep
+          (data.transferredRepresentative X)
+          (data.transferredRepresentative X)))
+      (CReal.RCscale bf4MacroSquaredNormRate
+        (Quotient.mk CReal.crealSetoid
+          (D.wilson.toGNSData.cinnerRep X X)))
+    rw [CReal.RCscale_mk, CReal.RCle_mk]
+    exact data.representative_limit_operator_norm_gap_sixteenth X horthogonal
+
+end BF4WilsonRepresentativeGraphNormLimitApproximation
+
+/-! ## 4. AF/Faraut specialization -/
 
 /-- The reduced AF/Faraut producer feeds the same limit compiler through its
 already-constructed general physical producer. -/
@@ -290,9 +454,31 @@ def farautGraphNormLimit_toWilsonOperatorNormGapPin
     WilsonOperatorNormGapPin D :=
   data.toWilsonOperatorNormGapPin
 
+/-- Choice-free AF/Faraut specialization using explicit continuum
+representatives and quotient induction. -/
+def farautRepresentativeGraphNormLimit_toWilsonOperatorNormGapPin
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat -> Q'}
+    {bits : Nat -> Nat}
+    {P : PhysicalSeparator}
+    {producer : BF4FarautQuarterPhysicalSeparatorProducer
+      family law spacing coupling bits P}
+    {M : Nat -> Type} {mu : ContinuumMeasure.ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+    (data : BF4WilsonRepresentativeGraphNormLimitApproximation
+      producer.toBF4QuarterPhysicalSeparatorProducer D) :
+    WilsonOperatorNormGapPin D :=
+  data.toWilsonOperatorNormGapPin
+
 end YMGap.Continuum.BF4PhysicalModulatedGapLimitStability
 
 #print axioms YMGap.Continuum.BF4PhysicalModulatedGapLimitStability.matchedPhysicalStage_operator_norm_gap_sixteenth
 #print axioms YMGap.Continuum.BF4PhysicalModulatedGapLimitStability.BF4WilsonGraphNormLimitApproximation.limit_operator_norm_gap_sixteenth
 #print axioms YMGap.Continuum.BF4PhysicalModulatedGapLimitStability.BF4WilsonGraphNormLimitApproximation.toWilsonOperatorNormGapPin
 #print axioms YMGap.Continuum.BF4PhysicalModulatedGapLimitStability.farautGraphNormLimit_toWilsonOperatorNormGapPin
+#print axioms YMGap.Continuum.BF4PhysicalModulatedGapLimitStability.BF4WilsonRepresentativeGraphNormLimitApproximation.representative_limit_operator_norm_gap_sixteenth
+#print axioms YMGap.Continuum.BF4PhysicalModulatedGapLimitStability.BF4WilsonRepresentativeGraphNormLimitApproximation.toWilsonOperatorNormGapPin
+#print axioms YMGap.Continuum.BF4PhysicalModulatedGapLimitStability.farautRepresentativeGraphNormLimit_toWilsonOperatorNormGapPin

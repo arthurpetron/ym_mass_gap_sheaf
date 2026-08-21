@@ -1155,3 +1155,31 @@ representatives and prove the quotient-level statement by induction into
 `Prop`.  The focused single-worker build completed 1322 jobs; the forbidden-
 token scan was empty and every exported declaration reports only
 `[propext, Quot.sound]`.  No full audit, remote push, or GitHub CI run was used.
+
+## Choice-free representative graph-norm limit (2026-08-20)
+
+`BF4PhysicalModulatedGapLimitStability` now provides the sharper
+`BF4WilsonRepresentativeGraphNormLimitApproximation`.  It is indexed by
+explicit `CauchyGNS` representatives of the continuum Wilson completion,
+rather than by arbitrary quotient points.  Its new
+`transferredRepresentative` field is the honest representative-level lift of
+the selected continuum transfer, with an exact quotient-class equation.  The
+finite approximants and both norm-convergence laws are likewise attached to
+the explicit continuum representative.
+
+The module proves the `CReal` limit inequality on each representative and
+then constructs `WilsonOperatorNormGapPin` for every completed vector by
+`Quotient.inductionOn` into the proposition expressing the norm inequality.
+No quotient representative is selected into `Type`, so the earlier
+choice-like point-to-approximant function is absent from the endpoint route.
+`BF4FarautGraphNormContinuumRealization` now consumes this representative-level
+record.
+
+The remaining analytic burden is consequently sharper: construct the
+continuum transfer at representative level, construct finite BF4
+approximants of every continuum Cauchy representative, preserve vacuum
+orthogonality, and prove the two effective graph-norm convergence laws.  None
+of those fields, the continuum carrier, or the physical producer is inhabited
+here.  The focused single-worker build completed 1322 jobs; the forbidden-
+token scan was empty and every exported declaration reports only
+`[propext, Quot.sound]`.  No full audit, remote push, or GitHub CI run was used.
