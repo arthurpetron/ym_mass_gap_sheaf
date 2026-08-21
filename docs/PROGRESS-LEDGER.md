@@ -2573,6 +2573,36 @@ and the Clay theorem remain open.  The source check and focused monitored
 build completed successfully, the latter with 1166 jobs.  Every printed
 load-bearing declaration reports only `[propext, Quot.sound]`.
 
+## Unconditional fixed-nome finite-volume Markov cutoff Cauchy data (2026-08-21)
+
+`BF4PhysicalCutoffStationarySourceTail` inhabits the final residual left by
+the conditional-core compiler.  The complement of an old positive source
+carrier is encoded as a Boolean lower observable: a state is selected exactly
+when it is either outside the old representation carrier or has zero old row
+marginal.  Its stationary mean is proved exactly equal to the compiler's
+literal filtered source-shell mass.
+
+At the base cutoff this event is empty on the positive stationary carrier, so
+its expectation is exactly zero.  The finite stationary/slab bridge turns the
+later source-shell mass into the expectation of one cutoff-stable corrected-
+slab event.  The sharp bounded-observable tail then bounds it by the complete
+new-label increment.  Antitonicity in the retained cutoff permits a base that
+is simultaneously beyond the moving-row-floor cutoff and the explicit
+half-epsilon tail schedule.
+
+The result constructs `centralPhysicalStationaryPositiveSourceTailData` and,
+without any remaining input record, compiles it to concrete moving-core,
+atomic, and dense physical Markov cutoff-Cauchy data for every fixed
+`0 < w < 1` and finite half-extent.  Thus the representation-cutoff Cauchy
+frontier for the actual conditional Markov action is closed on this route.
+The next contraction frontier is to feed this datum into the adaptive
+completed-transfer construction and remove its previously named Cauchy
+certificate.  A finite strict-contraction/sixteenth certificate and all
+thermodynamic, nome, spacing, continuum-reconstruction, QFT-axiom, and Clay
+targets remain open.  The source check and focused monitored build completed
+successfully, the latter with 1167 jobs.  Every printed load-bearing
+declaration reports only `[propext, Quot.sound]`.
+
 ## Cofinal finite-gap compiler for the adaptive completed transfer (2026-08-21)
 
 `BF4PhysicalCutoffLinearCompletedMarkovAdaptiveCofinalGap` proves that the
