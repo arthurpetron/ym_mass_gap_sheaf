@@ -2719,3 +2719,28 @@ spacing limits, continuum QFT, and the Clay theorem remain open.  A source
 check and focused monitored build completed successfully, the latter with
 1260 jobs.  Every printed load-bearing declaration reports only
 `[propext, Quot.sound]`.
+
+## Adaptive representative normalization for completed graph norms (2026-08-21)
+
+`BF4PhysicalCutoffLinearCompletedMarkovGraphNormAdaptiveReindex` removes the
+unjustified demand that an arbitrary completion representative pay its own
+syntax-dependent inner rates at the same cutoff index.  It first replaces each
+inner regularity witness by an explicitly antitone running-maximum rate and
+then applies the existing executable slow-diagonal search to the input
+self-pair and input-vacuum-pair requirements.
+
+For every completed representative, the resulting sampler is proved cofinal,
+pays both selected regularized rates, and defines a genuine Cauchy
+representative.  An explicit closeness modulus proves that this adaptively
+sampled representative is equal to the original point in the physical
+completion quotient.  Thus representative normalization is now constructive
+and no universal same-index cofinality hypothesis is needed.
+
+This module does not yet transport the finite graph-norm inequality through
+the sampled representative, and it constructs neither the nonconstant
+completion modulus nor `FixedNomeCutoffCenteredSixteenth`.  The next frontier
+is the sampled graph-norm convergence compiler, after which those two honest
+analytic inputs remain.  Nome/volume/spacing limits, continuum QFT, and the
+Clay theorem remain open.  A source check and focused monitored build
+completed successfully, the latter with 1299 jobs.  Every printed
+load-bearing declaration reports only `[propext, Quot.sound]`.
