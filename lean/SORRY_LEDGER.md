@@ -744,9 +744,14 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   representation cutoff for all cutoff-stable `[0,1]` observables and proves
   positivity and normalization of the resulting `CReal` functional.  This
   does not inhabit the matched physical-scale modulus above.  A one-sided
-  reindex theorem identifying these slab expectations with the physical
-  stationary row marginal, followed by estimates uniform in nome, extent,
-  volume, and spacing, is still required.
+  reindex theorem now identifies these slab expectations with the physical
+  stationary row marginal for globally `[0,1]`-valued lower observables.
+  The resulting cutoff-limit functional has literal stationary-mean
+  approximations, and its finite product moments are definitionally the
+  weighted pairings of the physical GNS.  What remains is cutoff convergence
+  of the physical Markov action itself, extension beyond the bounded
+  multiplicative carrier, and estimates uniform in nome, extent, volume, and
+  spacing.
   The selected
   connected OS insertion's vacuum orthogonality and exact equality with its
   Wilson `T^n` autocorrelation remain open only for the separate full

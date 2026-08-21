@@ -1973,3 +1973,30 @@ limits, OS reconstruction, the uniform completed gap, and the Clay theorem
 remain open.  A source check and focused monitored build completed
 successfully, the latter with 784 jobs.  Every printed load-bearing
 declaration reports only `[propext, Quot.sound]`.
+
+## Fixed-cutoff slab expectations are the physical stationary GNS moments (2026-08-20)
+
+`BF4PhysicalCutoffStationaryBridge` closes the one-sided finite reindex edge.
+The existing ordered bilinear full-slab theorem is specialized with the upper
+coefficient equal to one; zero-marginal rows are removed exactly, and the
+common partition normalization is carried through the finite sums.  Hence at
+every representation cutoff the corrected-slab expectation of a bounded
+lower pullback is `Q'.eqv` to `centralPhysicalStationaryMean`.
+
+The transferred cutoff modulus then constructs
+`centralPhysicalStationaryCutoffLimit`, whose `K`-th approximation is
+definitionally the physical stationary mean at cutoff `K`.  These limits form
+the positive normalized
+`centralPhysicalStationaryCutoffProbFunctional`.  Its finite `a* b`
+approximations are definitionally `centralPhysicalWeightedInner`, the exact
+pairing used by the already-constructed physical BF4 GNS completion.  Thus
+the cutoff-removed functional, stationary marginal, and finite GNS now refer
+to the same moments rather than merely parallel finite descriptions.
+
+The nome and finite half-extent remain fixed, and only globally `[0,1]`-valued
+lower observables are carried; the algebra is multiplicative but not additive.
+No cutoff limit of the transfer operator, thermodynamic/spacing uniformity,
+OS reconstruction, completed limiting gap, or Clay theorem is proved.  A
+focused monitored build completed 979 jobs, followed by a clean source check
+after adding the explicit weighted-inner identity.  Every printed
+load-bearing declaration reports only `[propext, Quot.sound]`.
