@@ -1065,3 +1065,31 @@ next analytic frontier after that is uniform limit stability.  The focused
 single-worker build completed 1231 jobs; the forbidden-token scan was empty
 and every exported declaration reports only `[propext, Quot.sound]`.  No full
 audit, remote push, or GitHub CI run was used.
+
+## Type-modulated physical BF4 operator-norm gap (2026-08-20)
+
+`BF4PhysicalModulatedOperatorNormGap` transfers the direct completed physical
+gap to the choice-free Type-modulated carrier.  Modulated vacuum orthogonality
+maps to legacy vacuum orthogonality; the forgetful map preserves the full
+completed inner form and exactly intertwines the macro transfer.  Rewriting
+the already-proved legacy inequalities therefore gives, on the modulated
+vacuum complement,
+
+`<T v,v> <= (1/16) <v,v>`,
+
+`||T v||^2 <= (1/16)^2 ||v||^2`.
+
+The module also defines modulated transfer powers, proves that forgetting the
+explicit null modulus commutes with every power, and imports the geometric
+squared-norm decay `((1/16)^2)^n`.  No BF4-to-strong-Z4 stage map and no
+Prop-to-Type modulus selector is used.
+
+This completes the representation-theoretic finite-cutoff gap compilation
+from an inhabitant of `BF4QuarterPhysicalSeparatorProducer` to both available
+completed physical carriers.  It does not construct that analytic producer,
+nor does it prove stability of the carriers or transfers as volume and cutoff
+vary.  The causal frontier is now the uniform thermodynamic/continuum limit
+interface, followed by OS/QFT reconstruction in that limit; the Clay theorem
+remains open.  The focused single-worker build completed 1234 jobs; the
+forbidden-token scan was empty and every exported declaration reports only
+`[propext, Quot.sound]`.  No full audit, remote push, or GitHub CI run was used.
