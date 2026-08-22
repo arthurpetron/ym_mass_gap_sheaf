@@ -4635,3 +4635,27 @@ same-object interface by proving that the zero-extended head-centered sector
 coefficient is centered on the full positive carrier.  Even an inhabited
 fixed-nome certificate would still leave volume and spacing uniformity,
 completion, and continuum QFT open.
+
+## Vacuum-sector forms contract inside the full positive carrier (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorFullCarrierContraction` closes the exact carrier
+seam between the growing canonical vacuum component and the finite rational
+LDL layer.  The explicit arbitrary-coefficient extension is proved zero at
+every full-carrier coordinate outside the later vacuum component.  Finite-list
+restriction and permutation lemmas then show that its full indexed weighted
+mean, diagonal quadratic, and matrix quadratic are exactly the already
+constructed pulled sector forms.
+
+Specializing to the moving head-centered coefficient proves exact weighted
+mean zero on the whole positive carrier—not merely on the component-local
+sum.  This is the centering hypothesis consumed by the canonical full-carrier
+LDL certificate.  The monitored focused check and one-job 1,261-job
+dependency-complete build pass, and all five printed load-bearing declarations
+report exactly `[propext, Quot.sound]`.
+
+This is an equality bridge, not an LDL family or a strict estimate.  The next
+causal frontier is to compile an existing cofinal canonical head LDL family at
+one supplied `q < 1` into the same-object vacuum-sector certificate and hence
+the centered form-limit inequality.  Constructing such a cutoff-uniform LDL
+family remains the substantive analytic input; completed-space, volume,
+spacing, continuum-QFT, and Clay closure remain open.

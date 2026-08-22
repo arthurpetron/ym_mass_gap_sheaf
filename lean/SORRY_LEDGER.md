@@ -3184,3 +3184,29 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   build pass.  The certificate type is uninhabited here, so this theorem is a
   sound contraction interface, not a proved uniform gap, completion theorem,
   thermodynamic/continuum QFT, or Clay result.
+
+### [BF4-cutoff-vacuum-sector-full-carrier-contraction] Exact full-carrier restriction — **CLOSED 2026-08-22**
+
+- **milestone**: the zero extension of every base vacuum-sector coefficient
+  has full positive-carrier mean, diagonal form, and matrix form exactly equal
+  to its pulled component forms; the moving head-centered specialization is
+  therefore exactly centered on the full carrier expected by canonical LDL.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorFullCarrierContraction.lean`.
+- **decl**:
+  `centralPhysicalFiniteVacuumSectorCoefficientExtension_eqv_zero_of_not_mem`,
+  `centralPhysicalFiniteFullCarrierCoefficientExtensionMean_eqv_pulled`,
+  `centralPhysicalFiniteFullCarrierCoefficientExtensionDiagonal_eqv_pulled`,
+  `centralPhysicalFiniteFullCarrierCoefficientExtensionMatrix_eqv_pulled`, and
+  `centralPhysicalFiniteFullCarrierHeadCenteredExtension_meanZero`.
+- **obligation**: compile an existing cofinal canonical full-carrier LDL
+  family at a supplied strict rate into
+  `FixedNomeCofinalVacuumSectorCenteredStrictGap`; an actual family uniformly
+  valid in the representation cutoff is still an open analytic input.
+- **constructive?**: yes — every printed declaration uses exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the monitored focused source check and one-job 1,261-job
+  dependency-complete build pass.  Exact carrier restriction is not an
+  inhabited LDL certificate, a uniform gap, completion theorem,
+  thermodynamic/continuum QFT, or the Clay theorem.
