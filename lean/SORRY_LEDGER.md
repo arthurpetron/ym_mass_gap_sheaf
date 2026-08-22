@@ -2958,3 +2958,27 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   pass.  Zero extension onto later component states is not a cutoff-uniform
   gap theorem; centering, new-state mass, cross terms, volume compatibility,
   completion, continuum QFT, and the Clay target remain open.
+
+### [BF4-cutoff-vacuum-sector-block-decomposition] Exact old/new sector blocks — **CLOSED 2026-08-22**
+
+- **milestone**: literal partition of every later canonical physical vacuum
+  component into the explicit old image and genuinely new states, together
+  with exact mean, norm, and four-block reflected-form decompositions.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorBlockDecomposition.lean`.
+- **decl**:
+  `centralPhysicalFiniteEmbeddedVacuumSectorIndices_mem_later`,
+  `mem_centralPhysicalFiniteVacuumSectorOldBlockIndices_iff`,
+  `centralPhysicalFiniteVacuumSectorWeightedMean_old_add_new`,
+  `centralPhysicalFiniteVacuumSectorDiagonalQuadratic_old_add_new`, and
+  `centralPhysicalFiniteVacuumSectorMatrixQuadratic_four_blocks`.
+- **obligation**: none for the exact finite old/new partition and algebraic
+  block identities.  The next obligations are an exact pushforward equality
+  between the target-ordered old block and the source-indexed pulled forms,
+  then uniform estimates on new-state mass and the old/new cross blocks.
+- **constructive?**: yes — every printed declaration uses exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the dependency-complete build passes.  Naming the leakage
+  residuals is not bounding them, and therefore proves no cutoff-uniform
+  contraction, completed gap, thermodynamic/continuum QFT, or Clay theorem.

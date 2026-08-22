@@ -4412,3 +4412,26 @@ finite partition of the later component into the embedded old image and its
 new-state complement, followed by algebraic mean/diagonal/matrix block
 decompositions.  Only estimates for the resulting leakage and cross terms
 could propagate a strict contraction to the growing component.
+
+## Growing physical vacuum sector has an exact old/new block split (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorBlockDecomposition` defines the explicit image
+of the base canonical component in a later carrier, filters the later
+root-connected component into a target-ordered old block and a genuinely new
+block, and proves that the old block has exactly the embedded-image members
+whenever `base <= later`.  Both filtered lists inherit duplicate-freeness from
+the later canonical component.
+
+The full later canonical-sector stationary mean and diagonal quadratic are
+then split exactly into old and new terms.  A generic constructive two-by-two
+finite quadratic identity splits the reflected matrix form into its old-old,
+old-new, new-old, and new-new blocks.  Focused and dependency-complete builds
+pass; every printed load-bearing declaration reports exactly
+`[propext, Quot.sound]`.
+
+This closes only the algebraic exposure of cutoff leakage.  It supplies no
+smallness estimate for the new stationary mass or for either cross block, and
+does not yet identify the target-ordered old block sum with the source-indexed
+pulled CReal sequences.  The next causal frontier is that exact pushforward
+identification, followed by quantitative leakage/cross-term bounds strong
+enough to leave a cutoff-uniform strict margin below one.
