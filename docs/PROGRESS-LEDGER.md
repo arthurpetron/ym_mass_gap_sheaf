@@ -4946,3 +4946,36 @@ source-dependent threshold core, and then replace any finite prefix by an
 analytic all-scale proof.  Physical-time, volume/lattice-spacing,
 thermodynamic and continuum limits, continuum QFT, and the Clay theorem
 remain open.
+
+## Exact carrier recoding removes the `2^24` cutoff-one ambient scan (2026-08-22)
+
+A direct ordinary-kernel attempt to evaluate the full-core `K = 1`
+all-source check was interrupted after two healthy minutes and is not counted
+as a pass.  The obstruction is architectural: `centralHalfStates 1 0`
+enumerates every binary labelling of 24 lower faces before positivity
+filtering, and each source check contains further full carrier sums.
+
+`BF4PhysicalCoreTailFiniteCarrierRecode` proves the exact compression seam.
+A `PhysicalPositiveCarrierPresentation` supplies a finite code list, a decoder
+whose mapped list is definitionally equal to the literal positive carrier,
+and an on-carrier encoder/retraction.  A checked core/tail window on the code
+list transports every weight, conditional-kernel, retained-core, and tail sum
+to the literal physical carrier.  Consequently one compressed all-code scan
+covers every physical source without evaluating the ambient `2^24` list.
+
+`PhysicalCoreTailAFRecodeCheckedCertificate` packages one exact presentation
+and one true compressed all-source check per matched AF scale, then contracts
+them to the minimal support-safe certificate, completed vacuum form gap, and
+geometric completed same-vector decay.  The focused check and monitored
+one-job 1,241-job dependency-complete build pass; all seven printed
+declarations use exactly `[propext, Quot.sound]`.
+
+No nontrivial positive-carrier presentation is constructed.  In particular,
+the repository's completed 128-surface forest-gauge calculation evaluates
+signed Haar moments; its own closure explicitly does not identify those
+moments with the separately normalized positive physical kernel.  The next
+cutoff-one frontier is therefore an exact recoding theorem from the literal
+positive half-state carrier to a small code list, followed by evaluation or
+analytic control of the positive marginal and conditional kernel on that
+list.  All-cutoff/AF uniformity, physical-time, volume/lattice-spacing,
+continuum QFT, and the Clay theorem remain open.

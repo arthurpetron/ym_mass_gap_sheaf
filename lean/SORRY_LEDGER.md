@@ -3493,3 +3493,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete build pass.  The inhabited result is only the finite
   cutoff-zero physical base case.  Cutoff/AF uniformity, physical-time,
   volume/spacing, continuum-QFT, and Clay closure remain open.
+
+### [BF4-core-tail-finite-carrier-recode] Exact compressed checker transport — **CLOSED 2026-08-22**
+
+- **milestone**: an exact mapped-list presentation of the literal positive
+  physical carrier transports all core/tail checker sums from a small code
+  list.  A true compressed all-code scan at every matched scale therefore
+  implies the minimal support-safe certificate and completed same-object
+  decay.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCoreTailFiniteCarrierRecode.lean`.
+- **decl**:
+  `finiteWeightedDensityCoreTailWindow_of_mappedCarrier`,
+  `PhysicalPositiveCarrierPresentation`,
+  `PhysicalPositiveCarrierPresentation.physicalCoreTailWindow_of_rowCheck`,
+  `PhysicalPositiveCarrierPresentation.physicalCoreTailWindow_of_allRowsCheck`,
+  `PhysicalCoreTailAFRecodeCheckedCertificate`,
+  `PhysicalCoreTailAFRecodeCheckedCertificate.toCoreTailCertificate`, and
+  `PhysicalCoreTailAFRecodeCheckedCertificate.completed_power_autocorrelationSq_decay_sixteenth`.
+- **obligation**: construct a nontrivial exact positive-carrier presentation,
+  beginning at `K = 1`, and close its compressed positive marginal/kernel
+  checks.  The existing 128-surface signed-Haar evaluation is not yet such a
+  presentation of the separately normalized positive physical kernel.
+- **constructive?**: yes — all seven printed declarations use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored source check and one-job 1,241-job
+  dependency-complete build pass.  A direct `K = 1` ambient evaluation was
+  interrupted after two minutes and is not counted as passed.  No nontrivial
+  recoding, all-cutoff uniformity, physical-time, volume/spacing,
+  continuum-QFT construction, or Clay theorem is asserted.
