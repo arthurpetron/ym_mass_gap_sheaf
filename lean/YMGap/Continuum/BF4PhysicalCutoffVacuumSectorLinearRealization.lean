@@ -137,7 +137,7 @@ theorem centralPhysicalStateCylinderLinearCombination_value
 
 /-! ## 2. Cylinder equality is the explicit cutoff embedding -/
 
-private theorem centralPhysicalFiniteStateAt_injective_of_lt
+theorem centralPhysicalFiniteStateAt_injective_of_lt
     {w : Q'} {hw : (0 : Q') ≤ w} {cutoff half left right : Nat}
     (hleft : left < centralPhysicalFiniteCarrierSize w hw cutoff half)
     (hright : right < centralPhysicalFiniteCarrierSize w hw cutoff half)

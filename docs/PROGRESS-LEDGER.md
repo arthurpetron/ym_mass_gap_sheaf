@@ -5652,6 +5652,35 @@ the reduction and the subsequent check passed.  The adaptive seed family is
 not inhabited.  No unconditional fixed-carrier gap, completed Hilbert gap,
 thermodynamic/continuum QFT, or Clay theorem is asserted.
 
+## The finite BF4 Markov action closes on the canonical vacuum sector (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorCylinderFiniteAction` proves the finite support
+ingredient required by the completed-sector transfer lift.  Raw reflected-
+kernel row closure, together with exact kernel symmetry, first shows that the
+physical conditional kernel cannot carry a source outside the canonical root
+component into that component.  Hence a sector-cylinder presentation whose
+base is at most the action cutoff has a genuine Markov image which vanishes at
+every retained state outside the current root component.
+
+The image values on the current component define an explicit sampled
+coefficient and a new presentation at the action cutoff.  Equal-cutoff index
+maps are proved to be identities on the component; zero extension of the
+sampled coefficient therefore agrees with the Markov image on the entire
+positive carrier.  The resulting finite-linear cylinder realization has
+exactly those values.  This is an actual support-preserving finite action, not
+an assumed invariant-subspace certificate.
+
+The focused monitored check and exact-target one-worker 1,264-job build pass.
+The three audited exports use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  Earlier focused attempts exposed a
+missing namespace and an elaboration-heavy projection route and are not
+counted as validation.  The next frontier is to choose action cutoffs
+cofinally along every sector Cauchy representative and prove the recoded
+outputs are Cauchy and completion-close, thereby inhabiting the existing
+completed transfer-lift interface.  One all-carrier strict rate, completed
+uniform gap, thermodynamic/continuum QFT, and the Clay theorem remain open.
+
 ## Finite BF4 vacuum-sector vectors are realized in the dense GNS carrier (2026-08-22)
 
 `BF4PhysicalCutoffVacuumSectorLinearRealization` constructs a globally bounded

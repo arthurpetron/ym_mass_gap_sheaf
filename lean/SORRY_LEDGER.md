@@ -4897,3 +4897,32 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   1,357-job dependency-complete build pass.  The lift record is deliberately
   uninhabited.  No completed sector gap, thermodynamic/continuum QFT, or Clay
   theorem is asserted.
+
+### [BF4-vacuum-sector-finite-action] Finite Markov action preserves and recodes the root sector — **PROVED 2026-08-22**
+
+- **milestone**: prove conditional-kernel separation across the canonical
+  component boundary, show that a sector cylinder's genuine finite Markov
+  image vanishes outside the current component whenever the action cutoff
+  dominates its base, and realize the sampled image exactly as a new finite
+  sector cylinder on the whole positive carrier.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCylinderFiniteAction.lean`.
+- **decl**:
+  `centralPhysicalConditionalKernel_outside_vacuumSector_eqv_zero`,
+  `centralPhysicalMarkovApply_vacuumSectorPresentation_eqv_zero_of_outside`,
+  `centralPhysicalVacuumSectorMarkovCoefficientExtension_eqv_self`, and
+  `centralPhysicalVacuumSectorMarkovCylinderRealization_value`.
+- **obligation**: select action cutoffs cofinally along arbitrary sector
+  Cauchy representatives, prove the resulting presentation sequence is
+  Cauchy and independent up to completion closeness, and use it to inhabit
+  `CentralPhysicalVacuumSectorCylinderTransferLiftData`; independently
+  construct one strict rate uniform over all carriers.
+- **constructive?**: yes — the three audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,264-job dependency-complete build pass.  Earlier focused attempts with a
+  missing namespace and an elaboration-heavy structure-projection theorem are
+  not counted.  This proves finite-stage support and exact recoding, not
+  Cauchy preservation or a completed transfer lift.  No completed uniform
+  gap, thermodynamic/continuum QFT, or Clay theorem is asserted.
