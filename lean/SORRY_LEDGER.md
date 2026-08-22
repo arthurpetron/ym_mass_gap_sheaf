@@ -3676,3 +3676,28 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete build pass.  The persistence compiler is verified, but
   its cofinal comparison input, physical-time and thermodynamic/continuum
   limits, continuum QFT, and the Clay theorem are not asserted.
+
+### [BF4-cutoff-two-robust-coefficientwise-persistence] Minimal limit-stage quantifiers — **CLOSED 2026-08-22**
+
+- **milestone**: the persistence compiler now permits diagonal inflation
+  `cD` and matrix error `eM`, yielding the exact robust rate
+  `(49/50) * cD + eM`.  Its constructively cofinal cutoff may depend on the
+  fixed coefficient; only the error budgets and strict rate remain uniform.
+  These weaker data still imply the fixed-sector moving `CReal` form gap.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoPulledGapPersistence.lean`.
+- **decl**:
+  `CutoffTwoPulledRobustGapPersistenceAt.robust_abs_gap` and
+  `CutoffTwoCoefficientwiseCofinalRobustGapPersistence.centeredMatrixCutoffLimit_leEv_robustRate_mul_diagonal`.
+- **obligation**: prove coefficientwise cofinal comparison estimates with
+  uniform `eM`, `cD`, and `(49/50) * cD + eM < 1`.  Ordinary cutoff-Cauchy
+  convergence does not by itself bound the total perturbation from cutoff
+  two, so this requires a summable incremental or direct anchor-to-limit
+  estimate plus quantitative recentering and norm comparison.
+- **constructive?**: yes — both new printed declarations use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the refined focused monitored check and one-worker
+  4,729-job dependency-complete build pass.  No robust persistence family,
+  completed-space gap, thermodynamic/continuum QFT, or Clay theorem is
+  asserted.

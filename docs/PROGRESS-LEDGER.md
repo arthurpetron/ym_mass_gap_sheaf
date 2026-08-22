@@ -5134,3 +5134,20 @@ comparison fields from quantitative cutoff stability (including the
 recentring correction and diagonal control).  Extension beyond the fixed
 cutoff-two sector, physical-time, thermodynamic/continuum control, continuum
 QFT, and the Clay theorem remain open.
+
+The same module now also records the weaker robust interface that the limit
+argument actually needs.  Exact diagonal domination is replaced by a
+nonnegative inflation factor `cD`, matrix perturbation by `eM`, and the
+resulting rate is exactly `(49/50) * cD + eM`.  The cofinal stage may depend on
+the fixed coefficient while both error budgets and the final rate remain
+uniform.  This is sufficient because `CReal.leEv` fixes the coefficient
+before requesting a Cauchy stage.  The refined focused check and one-worker
+4,729-job build pass; both additional printed declarations again use exactly
+`[propext, Quot.sound]`.
+
+This refinement removes two unnecessary analytic obligations, but does not
+construct the remaining comparison estimates.  Moreover, cutoff-Cauchy
+convergence alone controls pairs of sufficiently late cutoffs; it does not
+bound the total change from cutoff two.  The next estimate must therefore
+control that total perturbation (or propagate the gap incrementally) tightly
+enough that `(49/50) * cD + eM < 1`.

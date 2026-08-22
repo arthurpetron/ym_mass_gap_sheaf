@@ -265,6 +265,200 @@ theorem centeredMatrixCutoffLimit_leEv_relaxedRate_mul_diagonal
 
 end CutoffTwoCofinalPulledGapPersistence
 
+/-! ## 3. Robust coefficientwise persistence
+
+The exact diagonal domination above is sufficient but stronger than cutoff
+stability naturally supplies.  The following interface permits a rational
+diagonal inflation factor and lets the cofinal anchor depend on the fixed
+coefficient.  The rate remains uniform; only the stage witnessing it may
+depend on the vector, exactly as in a Cauchy-limit argument. -/
+
+def cutoffTwoRobustRate
+    (matrixError diagonalFactor : Q') : Q' :=
+  cutoffTwoAnchorRate * diagonalFactor + matrixError
+
+/-- A robust comparison for one coefficient at one later cutoff. -/
+structure CutoffTwoPulledRobustGapPersistenceAt
+    (later : Nat) (matrixError diagonalFactor : Q')
+    (coefficient : Nat → Q') : Type 1 where
+  later_ge : 2 ≤ later
+  recentered : Nat → Q'
+  recentered_centered :
+    cutoffTwoBaseWeightedMean recentered ≈ 0
+  matrix_comparison :
+    Q'.abs (cutoffTwoPulledMovingMatrix later coefficient) ≤
+      Q'.abs (cutoffTwoBaseMatrix recentered) +
+        matrixError * cutoffTwoPulledMovingDiagonal later coefficient
+  diagonal_comparison :
+    cutoffTwoBaseDiagonal recentered ≤
+      diagonalFactor * cutoffTwoPulledMovingDiagonal later coefficient
+
+namespace CutoffTwoPulledRobustGapPersistenceAt
+
+/-- Matrix error and diagonal inflation combine with the exact cutoff-two
+rate to give `q = (49/50) * diagonalFactor + matrixError`. -/
+theorem robust_abs_gap
+    {later : Nat} {matrixError diagonalFactor : Q'}
+    {coefficient : Nat → Q'}
+    (certificate : CutoffTwoPulledRobustGapPersistenceAt
+      later matrixError diagonalFactor coefficient) :
+    Q'.abs (cutoffTwoPulledMovingMatrix later coefficient) ≤
+      cutoffTwoRobustRate matrixError diagonalFactor *
+        cutoffTwoPulledMovingDiagonal later coefficient := by
+  let baseMatrix := cutoffTwoBaseMatrix certificate.recentered
+  let baseDiagonal := cutoffTwoBaseDiagonal certificate.recentered
+  let laterDiagonal := cutoffTwoPulledMovingDiagonal later coefficient
+  have hbase : Q'.abs baseMatrix ≤ cutoffTwoAnchorRate * baseDiagonal :=
+    cutoffTwoCanonicalVacuumFinite_abs_gap
+      certificate.recentered certificate.recentered_centered
+  have hscaled :
+      cutoffTwoAnchorRate * baseDiagonal ≤
+        cutoffTwoAnchorRate * (diagonalFactor * laterDiagonal) :=
+    Q'.mul_le_mul_of_nonneg_left _ _ _
+      certificate.diagonal_comparison
+      cutoffTwoSectorRate49Over50_nonnegative
+  have hadd :
+      Q'.abs baseMatrix + matrixError * laterDiagonal ≤
+        cutoffTwoAnchorRate * (diagonalFactor * laterDiagonal) +
+          matrixError * laterDiagonal :=
+    Q'.add_le_add
+      (Q'.le_trans' _ _ _ hbase hscaled)
+      (Q'.le_refl' _)
+  refine Q'.le_trans' _ _ _ certificate.matrix_comparison
+    (Q'.le_trans' _ _ _ hadd ?_)
+  exact Q'.le_of_eqv
+    (Q'.eqv_trans _
+      ((cutoffTwoAnchorRate * diagonalFactor) * laterDiagonal +
+        matrixError * laterDiagonal) _
+      (Q'.add_eqv_congr_right _ _ _
+        (Q'.eqv_symm
+          (Q'.mul_assoc_eqv
+            cutoffTwoAnchorRate diagonalFactor laterDiagonal)))
+      (Q'.eqv_symm
+        (Q'.add_mul_eqv
+          (cutoffTwoAnchorRate * diagonalFactor)
+          matrixError laterDiagonal)))
+
+end CutoffTwoPulledRobustGapPersistenceAt
+
+/-- Uniform error budgets with a coefficient-dependent constructively
+cofinal persistence stage. -/
+structure CutoffTwoCoefficientwiseCofinalRobustGapPersistence
+    (matrixError diagonalFactor : Q') : Type 1 where
+  matrix_error_nonnegative : (0 : Q') ≤ matrixError
+  diagonal_factor_nonnegative : (0 : Q') ≤ diagonalFactor
+  robust_rate_lt_one :
+    cutoffTwoRobustRate matrixError diagonalFactor < (1 : Q')
+  anchor : (Nat → Q') → Nat → Nat
+  anchor_ge : ∀ coefficient threshold,
+    max 2 threshold ≤ anchor coefficient threshold
+  persistence : ∀ coefficient threshold,
+    CutoffTwoPulledRobustGapPersistenceAt
+      (anchor coefficient threshold) matrixError diagonalFactor coefficient
+
+namespace CutoffTwoCoefficientwiseCofinalRobustGapPersistence
+
+theorem anchor_abs_gap
+    {matrixError diagonalFactor : Q'}
+    (family : CutoffTwoCoefficientwiseCofinalRobustGapPersistence
+      matrixError diagonalFactor)
+    (coefficient : Nat → Q') (threshold : Nat) :
+    Q'.abs
+        (cutoffTwoPulledMovingMatrix
+          (family.anchor coefficient threshold) coefficient) ≤
+      cutoffTwoRobustRate matrixError diagonalFactor *
+        cutoffTwoPulledMovingDiagonal
+          (family.anchor coefficient threshold) coefficient :=
+  (family.persistence coefficient threshold).robust_abs_gap
+
+/-- The coefficient-dependent cofinal stage is sufficient for the same
+fixed-coefficient Bishop-real comparison; a uniform stage was unnecessary. -/
+theorem centeredMatrixCutoffLimit_leEv_robustRate_mul_diagonal
+    {matrixError diagonalFactor : Q'}
+    (family : CutoffTwoCoefficientwiseCofinalRobustGapPersistence
+      matrixError diagonalFactor)
+    (coefficient : Nat → Q') :
+    CReal.leEv
+      (cutoffTwoMovingMatrixLimit coefficient)
+      (CReal.mul
+        (CReal.ofQ' (cutoffTwoRobustRate matrixError diagonalFactor))
+        (cutoffTwoMovingDiagonalLimit coefficient)) := by
+  let q := cutoffTwoRobustRate matrixError diagonalFactor
+  let matrix := cutoffTwoMovingMatrixLimit coefficient
+  let diagonal := cutoffTwoMovingDiagonalLimit coefficient
+  have hq0 : (0 : Q') ≤ q :=
+    Q'.zero_le_add
+      (cutoffTwoAnchorRate * diagonalFactor) matrixError
+      (Q'.mul_nonneg _ _ cutoffTwoSectorRate49Over50_nonnegative
+        family.diagonal_factor_nonnegative)
+      family.matrix_error_nonnegative
+  intro tolerance htolerance
+  let delta := HalfPow.half * tolerance
+  have hdelta : (0 : Q') < delta :=
+    ExpNeg.half_mul_pos tolerance htolerance
+  obtain ⟨matrixCutoff, hmatrix⟩ := matrix.cauchy delta hdelta
+  obtain ⟨diagonalCutoff, hdiagonal⟩ := diagonal.cauchy delta hdelta
+  let threshold := max matrixCutoff diagonalCutoff
+  let anchor := family.anchor coefficient threshold
+  have hanchorGe : max 2 threshold ≤ anchor :=
+    family.anchor_ge coefficient threshold
+  have hthresholdAnchor : threshold ≤ anchor :=
+    Nat.le_trans (Nat.le_max_right _ _) hanchorGe
+  have hmatrixAnchor : matrixCutoff ≤ anchor :=
+    Nat.le_trans (Nat.le_max_left _ _) hthresholdAnchor
+  have hdiagonalAnchor : diagonalCutoff ≤ anchor :=
+    Nat.le_trans (Nat.le_max_right _ _) hthresholdAnchor
+  refine ⟨threshold, ?_⟩
+  intro later hlater
+  have hmatrixLater : matrixCutoff ≤ later :=
+    Nat.le_trans (Nat.le_max_left _ _) hlater
+  have hdiagonalLater : diagonalCutoff ≤ later :=
+    Nat.le_trans (Nat.le_max_right _ _) hlater
+  have hmatrixToAnchor :
+      matrix.approx later ≤ matrix.approx anchor + delta :=
+    (hmatrix later anchor hmatrixLater hmatrixAnchor).1
+  have hdiagonalFromAnchor :
+      diagonal.approx anchor ≤ diagonal.approx later + delta :=
+    (hdiagonal anchor later hdiagonalAnchor hdiagonalLater).1
+  have hanchorGap :
+      matrix.approx anchor ≤ q * diagonal.approx anchor := by
+    refine Q'.le_trans' _ (Q'.abs (matrix.approx anchor)) _
+      (Q'.le_abs_self _) ?_
+    exact family.anchor_abs_gap coefficient threshold
+  have hscaledDiagonal :
+      q * diagonal.approx anchor ≤
+        q * (diagonal.approx later + delta) :=
+    Q'.mul_le_mul_of_nonneg_left _ _ _ hdiagonalFromAnchor hq0
+  have hscaleDelta : q * delta ≤ delta := by
+    exact Q'.le_trans' _ ((1 : Q') * delta) _
+      (Q'.mul_le_mul_of_nonneg_right _ _ delta
+        (Q'.le_of_lt family.robust_rate_lt_one)
+        (Q'.le_of_lt hdelta))
+      (Q'.le_of_eqv (Q'.one_mul_eqv delta))
+  have herror : q * delta + delta ≤ tolerance := by
+    exact Q'.le_trans' _ (delta + delta) _
+      (Q'.add_le_add_right _ _ delta hscaleDelta)
+      (Q'.le_of_eqv (ExpNeg.two_halves tolerance))
+  refine Q'.le_trans' _ _ _ hmatrixToAnchor ?_
+  refine Q'.le_trans' _ (q * diagonal.approx anchor + delta) _
+    (Q'.add_le_add_right _ _ delta hanchorGap) ?_
+  refine Q'.le_trans' _
+    (q * (diagonal.approx later + delta) + delta) _
+    (Q'.add_le_add_right _ _ delta hscaledDiagonal) ?_
+  refine Q'.le_trans' _
+    (q * diagonal.approx later + (q * delta + delta)) _
+    (Q'.le_of_eqv
+      (Q'.eqv_trans _
+        ((q * diagonal.approx later + q * delta) + delta) _
+        (Q'.add_eqv_congr_right _ _ delta
+          (Q'.mul_add_eqv q (diagonal.approx later) delta))
+        (Q'.add_assoc_eqv
+          (q * diagonal.approx later) (q * delta) delta))) ?_
+  exact Q'.add_le_add_left
+    (q * diagonal.approx later) (q * delta + delta) tolerance herror
+
+end CutoffTwoCoefficientwiseCofinalRobustGapPersistence
+
 end YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledGapPersistence
 
 /-! ## Axiom audit -/
@@ -275,3 +469,7 @@ end YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledGapPersistence
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledGapPersistence.CutoffTwoCofinalPulledGapPersistence.anchor_abs_gap
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledGapPersistence.CutoffTwoCofinalPulledGapPersistence.centeredMatrixCutoffLimit_leEv_relaxedRate_mul_diagonal
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledGapPersistence.CutoffTwoPulledRobustGapPersistenceAt.robust_abs_gap
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledGapPersistence.CutoffTwoCoefficientwiseCofinalRobustGapPersistence.centeredMatrixCutoffLimit_leEv_robustRate_mul_diagonal
