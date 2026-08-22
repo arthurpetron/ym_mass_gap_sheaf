@@ -51,20 +51,18 @@ local infix:50 " ≈ " => Q'.eqv
 
 /-! ## 1. Pointwise physical sixteenth -/
 
-/-- Genuine local gluing at rate at most one quarter gives a one-sixteenth
-contraction for the normalized positive physical joint quadratic. -/
-theorem physical_joint_quadratic_abs_le_sixteenth_of_local_gluing
-    {w : Q'} {hw : (0 : Q') ≤ w} {K halfExtent depth : Nat}
-    {qS : Q'}
-    (qS_le_quarter :
-      qS ≤ YMGap.Continuum.FiveHolonomyPerronCutoff.quarter)
-    (localRow_exists :
+/-- A physical centered-row sixteenth directly contracts every normalized
+positive physical joint quadratic on the stationary-mean-zero subspace. -/
+theorem physical_joint_quadratic_abs_le_sixteenth_of_centered_rows
+    {w : Q'} {hw : (0 : Q') ≤ w} {K halfExtent : Nat}
+    (centered_rows :
       ∀ source,
         source ∈ centralPositiveHalfStates w hw K halfExtent →
-          Nonempty
-            (Σ oneStep : EdgeLabelling → EdgeLabelling → Q',
-              PhysicalBF4LocalContractionGluingRow
-                hw K halfExtent source depth oneStep qS))
+          physicalCenteredPhysicalRowMass
+              w hw K halfExtent source ≤
+            Q'.mkPos 1 16 (by decide) *
+              centralPhysicalRowMarginal
+                w hw K halfExtent source)
     (observable : EdgeLabelling → Q')
     (hmean : CentralPhysicalMeanZero w hw K halfExtent observable) :
     Q'.abs
@@ -103,10 +101,9 @@ theorem physical_joint_quadratic_abs_le_sixteenth_of_local_gluing
                 centralPhysicalRowMarginal
                   w hw K halfExtent state := by
     intro state hstate
-    obtain ⟨⟨oneStep, row⟩⟩ := localRow_exists state hstate
     change physicalCenteredPhysicalRowMass
         w hw K halfExtent state ≤ _
-    exact row.physical_centered_row_le_sixteenth qS_le_quarter
+    exact centered_rows state hstate
   have hperturbation :
       Q'.abs (physicalQuadratic + (-vacuumQuadratic)) ≤
         Q'.mkPos 1 16 (by decide) *
@@ -147,6 +144,35 @@ theorem physical_joint_quadratic_abs_le_sixteenth_of_local_gluing
         (finiteWeightedSquare_physical_eqv_inner
           w hw K halfExtent observable))
   exact hphysical
+
+/-- Genuine local gluing at rate at most one quarter supplies the centered
+rows and therefore gives a one-sixteenth contraction for the normalized
+positive physical joint quadratic. -/
+theorem physical_joint_quadratic_abs_le_sixteenth_of_local_gluing
+    {w : Q'} {hw : (0 : Q') ≤ w} {K halfExtent depth : Nat}
+    {qS : Q'}
+    (qS_le_quarter :
+      qS ≤ YMGap.Continuum.FiveHolonomyPerronCutoff.quarter)
+    (localRow_exists :
+      ∀ source,
+        source ∈ centralPositiveHalfStates w hw K halfExtent →
+          Nonempty
+            (Σ oneStep : EdgeLabelling → EdgeLabelling → Q',
+              PhysicalBF4LocalContractionGluingRow
+                hw K halfExtent source depth oneStep qS))
+    (observable : EdgeLabelling → Q')
+    (hmean : CentralPhysicalMeanZero w hw K halfExtent observable) :
+    Q'.abs
+        (centralPhysicalJointQuadratic
+          w hw K halfExtent observable) ≤
+      Q'.mkPos 1 16 (by decide) *
+        centralPhysicalWeightedInner
+          w hw K halfExtent observable observable := by
+  apply physical_joint_quadratic_abs_le_sixteenth_of_centered_rows
+  · intro source hsource
+    obtain ⟨⟨oneStep, row⟩⟩ := localRow_exists source hsource
+    exact row.physical_centered_row_le_sixteenth qS_le_quarter
+  · exact hmean
 
 /-! ## 2. One genuine local slice for the whole carrier -/
 
@@ -317,6 +343,7 @@ end PhysicalLocalGluingAFCertificate
 
 end YMGap.Continuum.BF4PhysicalLocalGluingAFCertificate
 
+#print axioms YMGap.Continuum.BF4PhysicalLocalGluingAFCertificate.physical_joint_quadratic_abs_le_sixteenth_of_centered_rows
 #print axioms YMGap.Continuum.BF4PhysicalLocalGluingAFCertificate.physical_joint_quadratic_abs_le_sixteenth_of_local_gluing
 #print axioms YMGap.Continuum.BF4PhysicalLocalGluingAFCertificate.PhysicalBF4LocalSliceGluing.toRow
 #print axioms YMGap.Continuum.BF4PhysicalLocalGluingAFCertificate.PhysicalLocalGluingAFCertificate.physical_joint_quadratic_abs_le_sixteenth_at

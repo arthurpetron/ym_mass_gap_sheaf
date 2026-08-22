@@ -41,10 +41,104 @@ open YMGap.Continuum.BF4PhysicalLocalGluingAFCertificate
 open YMGap.Continuum.BF4PhysicalMarkovGNSCompletion
 open YMGap.Continuum.BF4ReflectedAllSpinAFRowRelative
 open YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
+open YMGap.Continuum.BF4WeightedJointPerronPerturbation
 open YMGap.Continuum.GNSQuotient
 open YMGap.Continuum.OSReconstructionProgress
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
 open YMGap.Continuum.Z4HalfTimeReflectionStrictJointCompletedOperatorNormGap
+
+/-! ## 0. Reusable finite-gap-to-completion interface -/
+
+/-- The exact finite quadratic input needed by the completed `1/16` gap. -/
+def CentralPhysicalFiniteQuadraticGapSixteenth
+    (w : Q') (hw : (0 : Q') ≤ w) (K half : Nat) : Prop :=
+  ∀ observable : EdgeLabelling → Q',
+    CentralPhysicalMeanZero w hw K half observable →
+      Q'.abs
+          (centralPhysicalJointQuadratic w hw K half observable) ≤
+        Q'.mkPos 1 16 (by decide) *
+          centralPhysicalWeightedInner
+            w hw K half observable observable
+
+/-- The finite quadratic contract controls each exactly centered correction. -/
+theorem centralPhysical_centeredCorrection_form_le_sixteenth_of_finite_gap
+    {w : Q'} (hw : (0 : Q') ≤ w) (K half : Nat)
+    (finiteGap : CentralPhysicalFiniteQuadraticGapSixteenth w hw K half)
+    (observable : EdgeLabelling → Q') :
+    let D := (centralPhysicalSmulGNS w hw K half).toGNSData
+    let E := (centralPhysicalMarkovFormGNS w hw K half).toGNSData
+    let mean := centralPhysicalStationaryMean w hw K half observable
+    E.B observable observable + -(mean * mean) ≤
+      Q'.mkPos 1 16 (by decide) *
+        (D.B observable observable + -(mean * mean)) :=
+  centralPhysical_centeredCorrection_form_le_of_abs_gap
+    w hw K half (Q'.mkPos 1 16 (by decide)) finiteGap observable
+
+/-- The finite contract gives the corrected inequality at every Cauchy stage. -/
+theorem centralPhysical_cauchyCenteredFormSeq_le_sixteenth_of_finite_gap
+    {w : Q'} (hw : (0 : Q') ≤ w) (K half : Nat)
+    (finiteGap : CentralPhysicalFiniteQuadraticGapSixteenth w hw K half)
+    (X : CauchyGNS (centralPhysicalSmulGNS w hw K half).toGNSData)
+    (stage : Nat) :
+    CReal.leEv
+      (centralPhysicalCauchyCenteredMarkovFormSeq w hw K half X stage)
+      (CReal.mul (CReal.ofQ' (Q'.mkPos 1 16 (by decide)))
+        (centralPhysicalCauchyCenteredNormSeq w hw K half X stage)) := by
+  let D := (centralPhysicalSmulGNS w hw K half).toGNSData
+  let E := (centralPhysicalMarkovFormGNS w hw K half).toGNSData
+  let mean := centralPhysicalStationaryMean w hw K half (X.seq stage)
+  let normCorrection := D.B (X.seq stage) (X.seq stage) + -(mean * mean)
+  let formCorrection := E.B (X.seq stage) (X.seq stage) + -(mean * mean)
+  have hfinite : formCorrection ≤
+      Q'.mkPos 1 16 (by decide) * normCorrection :=
+    centralPhysical_centeredCorrection_form_le_sixteenth_of_finite_gap
+      hw K half finiteGap (X.seq stage)
+  refine CReal.leEv_trans
+    (CReal.leEv_of_le (CReal.ofQ'_le_ofQ' hfinite)) ?_
+  exact CReal.leEv_of_equiv
+    (CRealAlg.ofQ'_mul (Q'.mkPos 1 16 (by decide)) normCorrection)
+
+/-- Representative-level completion of the finite quadratic contract. -/
+theorem centralPhysical_cinnerRep_form_gap_sixteenth_of_finite_gap
+    {w : Q'} (hw : (0 : Q') ≤ w) (K half : Nat)
+    (finiteGap : CentralPhysicalFiniteQuadraticGapSixteenth w hw K half)
+    (X : CauchyGNS (centralPhysicalSmulGNS w hw K half).toGNSData)
+    (horthogonal : CentralPhysicalCompletedVacuumOrthogonal w hw K half
+      (Quotient.mk
+        (cauchySetoid (centralPhysicalSmulGNS w hw K half).toGNSData) X)) :
+    CReal.leEv
+      ((centralPhysicalSmulGNS w hw K half).toGNSData.cinnerRep
+        ((centralPhysicalMarkovSymbol w hw K half).cDiagCauchy X) X)
+      (CReal.mul (CReal.ofQ' (Q'.mkPos 1 16 (by decide)))
+        ((centralPhysicalSmulGNS w hw K half).toGNSData.cinnerRep X X)) := by
+  apply CReal.leEv_of_convergesTo_le
+    (centralPhysicalCauchyCenteredMarkovFormSeq_converges_form
+      w hw K half X horthogonal)
+    (CReal.convergesTo_constMul (Q'.mkPos 1 16 (by decide))
+      (centralPhysicalCauchyCenteredNormSeq_converges_self
+        w hw K half X horthogonal))
+  exact centralPhysical_cauchyCenteredFormSeq_le_sixteenth_of_finite_gap
+    hw K half finiteGap X
+
+/-- Any finite physical `1/16` quadratic gap extends through exact centering
+and constructive Cauchy completion to the whole completed vacuum complement. -/
+theorem centralPhysical_completed_vacuum_form_gap_sixteenth_of_finite_gap
+    {w : Q'} (hw : (0 : Q') ≤ w) (K half : Nat)
+    (finiteGap : CentralPhysicalFiniteQuadraticGapSixteenth w hw K half)
+    (vector : CentralPhysicalGNSCompletion w hw K half)
+    (horthogonal :
+      CentralPhysicalCompletedVacuumOrthogonal w hw K half vector) :
+    CReal.RCle
+      ((centralPhysicalSmulGNS w hw K half).toGNSData.cinnerCompl
+        (centralPhysicalCompletedMarkovTransfer w hw K half vector) vector)
+      (CReal.RCscale (Q'.mkPos 1 16 (by decide))
+        ((centralPhysicalSmulGNS w hw K half).toGNSData.cinnerCompl
+          vector vector)) := by
+  revert horthogonal
+  refine Quotient.inductionOn vector ?_
+  intro X horthogonal
+  exact centralPhysical_cinnerRep_form_gap_sixteenth_of_finite_gap
+    hw K half finiteGap X horthogonal
 
 /-! ## 1. Local gluing extends through exact centering -/
 
@@ -410,6 +504,7 @@ theorem localGluing_completed_power_autocorrelationSq_decay_sixteenth
 /-! ## Axiom audit -/
 
 #print axioms localGluing_centeredCorrection_form_le_sixteenth
+#print axioms centralPhysical_completed_vacuum_form_gap_sixteenth_of_finite_gap
 #print axioms localGluing_cinnerRep_form_gap_sixteenth
 #print axioms localGluing_completed_vacuum_form_gap_sixteenth
 #print axioms localGluing_completed_vacuum_form_gap_data

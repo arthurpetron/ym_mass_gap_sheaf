@@ -285,6 +285,45 @@ theorem centralPhysicalCompletedMarkovPower_norm_gap_of_form_gap
       rw [CReal.RCscale_RCscale]
       exact CReal.RCle_refl _
 
+/-- Every squared matrix coefficient of a propagated vacuum-orthogonal
+vector inherits the completed geometric norm decay.  The test vector is an
+arbitrary element of the same completed physical carrier. -/
+theorem centralPhysicalCompletedMarkovPower_matrixCoefficientSq_decay_of_form_gap
+    {w rate : Q'} (hw : (0 : Q') ≤ w) (K half : Nat)
+    (gap : CentralPhysicalCompletedVacuumFormGap w hw K half rate)
+    (n : Nat)
+    (vector test : CentralPhysicalGNSCompletion w hw K half)
+    (horthogonal :
+      CentralPhysicalCompletedVacuumOrthogonal w hw K half vector) :
+    let D := (centralPhysicalSmulGNS w hw K half).toGNSData
+    let propagated :=
+      centralPhysicalCompletedMarkovPower w hw K half n vector
+    CReal.RCle
+      (CReal.RCmul
+        (D.cinnerCompl propagated test)
+        (D.cinnerCompl propagated test))
+      (CReal.RCmul
+        (CReal.RCscale ((rate * rate) ^ n)
+          (D.cinnerCompl vector vector))
+        (D.cinnerCompl test test)) := by
+  dsimp only
+  let D := (centralPhysicalSmulGNS w hw K half).toGNSData
+  let propagated :=
+    centralPhysicalCompletedMarkovPower w hw K half n vector
+  have hcs := D.RC_cauchy_schwarz propagated test
+  have hnorm := centralPhysicalCompletedMarkovPower_norm_gap_of_form_gap
+    hw K half gap n vector horthogonal
+  change CReal.RCle
+    (D.cinnerCompl propagated propagated)
+    (CReal.RCscale ((rate * rate) ^ n)
+      (D.cinnerCompl vector vector)) at hnorm
+  have htestNonnegative := D.cinner_self_nonneg test
+  have hmul := CReal.RCmul_mono_nonnegative_left_local
+    htestNonnegative hnorm
+  rw [CReal.RCmul_comm (D.cinnerCompl test test),
+      CReal.RCmul_comm (D.cinnerCompl test test)] at hmul
+  exact CReal.RCle_trans hcs hmul
+
 /-- Powers of the producer-selected physical BF4 macro transfer decay with
 squared-norm rate `((1/16)^2)^n` on the completed vacuum complement. -/
 theorem producer_completed_power_norm_decay_sixteenth
@@ -337,4 +376,5 @@ end YMGap.Continuum.BF4PhysicalCompletedOperatorNormGap
 #print axioms YMGap.Continuum.BF4PhysicalCompletedOperatorNormGap.centralPhysicalCompletedMarkovTransfer_norm_gap_of_form_gap
 #print axioms YMGap.Continuum.BF4PhysicalCompletedOperatorNormGap.producer_completed_vacuum_operator_norm_gap_sixteenth
 #print axioms YMGap.Continuum.BF4PhysicalCompletedOperatorNormGap.centralPhysicalCompletedMarkovPower_norm_gap_of_form_gap
+#print axioms YMGap.Continuum.BF4PhysicalCompletedOperatorNormGap.centralPhysicalCompletedMarkovPower_matrixCoefficientSq_decay_of_form_gap
 #print axioms YMGap.Continuum.BF4PhysicalCompletedOperatorNormGap.producer_completed_power_norm_decay_sixteenth

@@ -3398,3 +3398,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete build passes 1,127 jobs and the end-to-end target passes
   1,243 jobs.  No one-step row inhabitant, physical-time limit, continuum-QFT
   construction, or Clay theorem is asserted.
+
+### [BF4-centered-row-to-completed-gap] Minimal literal-row completion bridge — **CLOSED 2026-08-22**
+
+- **milestone**: a matched-AF `1/16` bound on the literal physical centered
+  rows, with no Harnack, local-root, exact power-gluing, endpoint, or spectral
+  field, implies the finite mean-zero quadratic gap, the completed vacuum form
+  gap, the concrete squared-norm operator gap, and geometric squared
+  same-vector matrix-coefficient decay.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalLocalGluingAFCertificate.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCompletedOperatorNormGap.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalLocalGluingCompletedOperatorNormGap.lean`,
+  and
+  `lean/YMGap/Continuum/BF4PhysicalCenteredRowCompletedGap.lean`.
+- **decl**:
+  `physical_joint_quadratic_abs_le_sixteenth_of_centered_rows`,
+  `CentralPhysicalFiniteQuadraticGapSixteenth`,
+  `centralPhysical_completed_vacuum_form_gap_sixteenth_of_finite_gap`,
+  `centralPhysicalCompletedMarkovPower_matrixCoefficientSq_decay_of_form_gap`,
+  `PhysicalCenteredRowSixteenthAFCertificate.ofCrossZeroRows`,
+  `PhysicalCenteredRowSixteenthAFCertificate.completed_vacuum_operator_norm_gap_sixteenth`,
+  and
+  `PhysicalCenteredRowSixteenthAFCertificate.completed_power_autocorrelationSq_decay_sixteenth`.
+- **obligation**: inhabit the literal matched-AF physical centered-row
+  `1/16` field, using any one of the existing conditional-density, core/tail,
+  boundary-Gram, projective, buffered, or local-gluing sufficient routes.
+- **constructive?**: yes — all newly printed declarations use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: focused checks pass; monitored one-job dependency-complete
+  builds pass 1,232 jobs for the generic dependency target and 1,233 jobs for
+  the row target.  No row-certificate inhabitant, physical-time limit,
+  continuum-QFT construction, or Clay theorem is asserted.

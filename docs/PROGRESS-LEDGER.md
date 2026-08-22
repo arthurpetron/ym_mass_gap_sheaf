@@ -4844,3 +4844,37 @@ three).  The direct `PhysicalLocalGluingAFCertificate` does not require the
 stronger endpoint/Faraut estimates.  Uniform physical-time interpretation,
 volume/lattice-spacing limits, continuum QFT, and the Clay theorem remain
 open.
+
+## Literal centered rows bypass local-root gluing and close completed decay (2026-08-22)
+
+`BF4PhysicalLocalGluingAFCertificate` now factors its finite contraction
+through the genuinely minimal row theorem: a `1/16` bound on every row of the
+literal physical joint minus its stationary product joint directly contracts
+all mean-zero physical quadratics.  Separately,
+`BF4PhysicalLocalGluingCompletedOperatorNormGap` exposes a reusable finite-
+quadratic-gap-to-completed-vacuum-gap interface, and
+`BF4PhysicalCompletedOperatorNormGap` now contains the generic completed
+power matrix-coefficient decay theorem.
+
+`BF4PhysicalCenteredRowCompletedGap` packages only the AF coupling window and
+that literal centered-row `1/16` field.  It discards the Harnack and
+diagonal-order fields from the existing
+`MatchedCrossZeroPhysicalSixteenthRows` package.  This minimal certificate
+then contracts causally through the finite quadratic form, exact centering,
+constructive Cauchy completion, concrete transfer norm
+`||T v||^2 <= (1/16)^2 ||v||^2`, and squared same-vector power coefficient
+decay `((1/16)^2)^n`.
+
+The focused checks pass.  The generic dependency target passes a monitored
+one-job 1,232-job build, and the row-to-completion target passes a monitored
+one-job 1,233-job build.  All newly printed declarations use exactly
+`[propext, Quot.sound]`.
+
+No matched centered-row certificate is inhabited.  The analytic frontier is
+now weaker than constructing a stationary local root: prove the literal
+physical centered-row `1/16` estimate along the matched AF trajectory.  The
+repository already exposes several sufficient producer interfaces—pointwise
+conditional-density windows, support-safe core/tail windows, boundary-Gram
+majorants, raw projective rows, and buffered/local-gluing rows—but no uniform
+inhabitant was found.  Physical-time interpretation, volume/lattice-spacing
+limits, continuum QFT, and the Clay theorem remain open.
