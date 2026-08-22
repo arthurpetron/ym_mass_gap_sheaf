@@ -4435,3 +4435,29 @@ does not yet identify the target-ordered old block sum with the source-indexed
 pulled CReal sequences.  The next causal frontier is that exact pushforward
 identification, followed by quantitative leakage/cross-term bounds strong
 enough to leave a cutoff-uniform strict margin below one.
+
+## Embedded vacuum-sector forms push forward exactly (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorFormPushforward` proves that the explicit cutoff
+index map is injective on the base canonical component.  The proof uses exact
+preservation of literal physical states together with duplicate-freeness of
+the base positive carrier.  Hence the target-ordered old block is a literal
+permutation of the mapped base component rather than merely a set-theoretic
+subset.
+
+For any physical state observable, the module defines an explicit later
+coefficient which agrees with the observable on the embedded image and is
+zero elsewhere.  Exact finite reindexing then identifies its old-block
+weighted mean, diagonal norm, and old-old reflected matrix block with the
+source-indexed pulled forms from
+`BF4PhysicalCutoffVacuumSectorFormCauchy`.  Focused and dependency-complete
+builds pass, and every printed declaration reports exactly
+`[propext, Quot.sound]`.
+
+This closes the exact enumeration and coefficient pushforward bridge.  It
+does not prove a strict bound for the limiting old block, a rate uniform in
+the choice of base component, or a gap on arbitrary vectors in the whole
+growing component.  For this particular zero extension the new-coordinate
+terms should vanish algebraically; the next frontier is to prove that exact
+contraction and isolate the remaining analytic obstruction as the lack of a
+base-uniform centered form bound.

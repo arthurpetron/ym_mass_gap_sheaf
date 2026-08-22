@@ -2982,3 +2982,28 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 - **status note**: the dependency-complete build passes.  Naming the leakage
   residuals is not bounding them, and therefore proves no cutoff-uniform
   contraction, completed gap, thermodynamic/continuum QFT, or Clay theorem.
+
+### [BF4-cutoff-vacuum-sector-form-pushforward] Exact old-block form reindexing — **CLOSED 2026-08-22**
+
+- **milestone**: constructive injectivity of the cutoff component embedding,
+  a literal old-block/image permutation, and exact pushforward of observable
+  mean, norm, and reflected form under an explicit zero extension.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorFormPushforward.lean`.
+- **decl**:
+  `centralPhysicalFiniteCutoffIndexMap_injective_on_vacuumSector`,
+  `centralPhysicalFiniteVacuumSectorOldBlockIndices_perm_embedded`,
+  `centralPhysicalFiniteVacuumSectorZeroExtensionCoefficient_on_map`,
+  `centralPhysicalFiniteVacuumSectorOldBlockWeightedMean_eqv_pulled`,
+  `centralPhysicalFiniteVacuumSectorOldBlockDiagonal_eqv_pulled`, and
+  `centralPhysicalFiniteVacuumSectorOldOldBlock_eqv_pulled`.
+- **obligation**: none for exact finite reindexing of the embedded old block.
+  The next obligation is to contract the full block decomposition for the
+  zero extension and then supply a centered strict form estimate uniform in
+  the base cutoff; the cutoff-two `49/50` certificate alone does not do so.
+- **constructive?**: yes — every printed declaration uses exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the dependency-complete build passes.  Exact pushforward
+  proves neither base-uniform contraction nor a completed, thermodynamic, or
+  continuum mass gap, and it does not prove the Clay theorem.
