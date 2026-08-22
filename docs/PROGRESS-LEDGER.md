@@ -5840,3 +5840,25 @@ Both audited declarations use exactly `[propext, Quot.sound]`; no
 noncomputable declaration was added.  A common positive pulled-edge floor is
 still an open analytic input, and no uniform strict rate, completed Hilbert
 gap, thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+## The fixed pulled carrier has normalized positive mass (2026-08-22)
+
+`BF4PhysicalBoundaryCutoffTwoPulledMass` proves that the stationary mass of
+the fixed cutoff-two vacuum component is strictly positive at every later
+cutoff and is at most one whenever the cutoff is at least two.  Positivity is
+witnessed by the retained vacuum root.  For the upper bound, the cutoff index
+map injects the fixed component into the complete later positive-row carrier,
+and the latter's finite weight sum is identified with the exactly normalized
+physical stationary mean.
+
+Thus the mass factor arising when the endpoint estimate is summed can be
+cancelled constructively and then bounded by one.  It does not require a new
+uniform analytic hypothesis: the only unresolved quantitative datum on this
+fixed-carrier branch remains the common positive pulled-edge floor.
+
+The focused monitored check and exact-target one-worker 4,750-job build pass.
+Both audited declarations use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  No common edge floor, uniform strict
+rate, completed Hilbert gap, thermodynamic/continuum QFT, or Clay theorem is
+asserted.

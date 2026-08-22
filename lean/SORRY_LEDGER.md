@@ -4425,3 +4425,25 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   4,749-job dependency-complete build pass.  No common positive-edge floor,
   uniform form gap, completed-space gap, thermodynamic/continuum QFT, or Clay
   theorem is asserted.
+
+### [BF4-cutoff-two-pulled-mass] Fixed-carrier normalization — **PROVED 2026-08-22**
+
+- **milestone**: define the total stationary mass on the fixed pulled
+  cutoff-two component, prove it is positive from the retained vacuum-root
+  weight, inject it into the complete later positive-row carrier, and prove it
+  is at most one by exact stationary-law normalization.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoPulledMass.lean`.
+- **decl**: `cutoffTwoPulledMassAt_pos` and
+  `cutoffTwoPulledMassAt_le_one`.
+- **obligation**: combine these mass bounds with the centered pairwise-
+  variance identity, the fixed path endpoint estimate, and the pulled-energy
+  embedding to derive a uniform finite Poincare rate from the common
+  positive-edge-floor certificate alone.
+- **constructive?**: yes — both audited declarations use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  4,750-job dependency-complete build pass.  The common positive-edge floor
+  is not inhabited.  No uniform form gap, completed-space gap,
+  thermodynamic/continuum QFT, or Clay theorem is asserted.
