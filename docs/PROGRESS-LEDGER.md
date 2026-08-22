@@ -5560,3 +5560,28 @@ All five printed declarations use exactly `[propext, Quot.sound]`; no
 noncomputable declaration was added.  No quantitative rate, cutoff
 uniformity, completed Hilbert gap, thermodynamic/continuum QFT, or Clay theorem
 is asserted.
+
+## The finite BF4 vacuum component has its exact stationary row law (2026-08-22)
+
+`BF4PhysicalFiniteVacuumSectorStationaryLaws` proves that restricting the
+normalized reflected joint kernel to the canonical root component preserves
+the exact physical row marginal.  For every sector source, the sum of the
+actual normalized physical entries over sector targets is exactly the stored
+stationary weight.  The proof recodes the full positive carrier by indices,
+uses component row closure to erase every complementary entry, and identifies
+the component enumeration with the corresponding carrier filter by a
+constructive nonnegative-sum reordering argument.
+
+The component's total stationary mass is also strictly positive: the vacuum
+index lies in the component and its retained physical weight is positive.
+Together with all-cutoff Gram nonnegativity and positive-kernel connectivity,
+these laws provide the exact hypotheses for the next finite Dirichlet and
+path-Poincare calculations.
+
+The focused monitored check and exact-target one-worker 1,181-job build pass.
+All three printed declarations use exactly `[propext, Quot.sound]`.  The
+standard `List.nodup_range` in this toolchain introduced `Classical.choice`, so
+it was deliberately replaced by an explicit list-inductive range proof.  No
+choice, `Classical.*`, `native_decide`, `sorry`, custom axiom, or noncomputable
+declaration remains.  No quantitative rate, cutoff uniformity, completed
+Hilbert gap, thermodynamic/continuum QFT, or Clay theorem is asserted.

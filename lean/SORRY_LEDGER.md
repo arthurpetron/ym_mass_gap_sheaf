@@ -4109,3 +4109,28 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   1,180-job dependency-complete build pass.  This is qualitative finite
   irreducibility, not yet a quantitative finite gap, cutoff-uniform rate,
   completed-space gap, thermodynamic/continuum QFT, or Clay theorem.
+
+### [BF4-finite-vacuum-sector-stationary-laws] Restricted row normalization — **PROVED 2026-08-22**
+
+- **milestone**: every normalized physical joint-kernel row, restricted to the
+  canonical finite vacuum component, sums exactly to its genuine physical
+  stationary weight.  The component has strictly positive total stationary
+  mass because it contains the positive-weight vacuum index.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorStationaryLaws.lean`.
+- **decl**:
+  `centralPhysicalFiniteKernel_fullRowSum_eqv_weight`,
+  `centralPhysicalFiniteVacuumSectorKernel_rowSum_eqv_weight`, and
+  `centralPhysicalFiniteVacuumSectorWeightSum_pos`.
+- **obligation**: prove the exact sector Dirichlet identity and use the
+  constructive positive-kernel paths to extract a positive finite Poincare
+  constant, hence a strict finite upper contraction.
+- **constructive?**: yes — all three exports use exactly
+  `[propext, Quot.sound]`.  An initial use of the toolchain's classical
+  `List.nodup_range` was replaced by an explicit inductive proof; no
+  `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+  noncomputable declaration remains.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,181-job dependency-complete build pass.  This is exact finite stationarity,
+  not yet a quantitative finite rate, cutoff-uniform estimate, completed-space
+  gap, thermodynamic/continuum QFT, or Clay theorem.
