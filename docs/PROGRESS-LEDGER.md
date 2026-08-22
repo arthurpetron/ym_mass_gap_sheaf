@@ -5757,6 +5757,24 @@ noncomputable declaration was added.  No quantitative rate, cutoff
 uniformity, completed Hilbert gap, thermodynamic/continuum QFT, or Clay theorem
 is asserted.
 
+## Every fixed BF4 carrier gap contracts to its Bishop-real limit (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorPulledUniformCRealGap` gives a reusable
+eventual-gap compiler for two Bishop reals and applies it to every arbitrary
+fixed BF4 vacuum carrier.  The existing Cauchy moduli select an anchor beyond
+both approximation moduli and the finite Poincare start; the finite
+absolute-value estimate then passes to `CReal.leEv` with the exact same rational
+rate, without relaxation.
+
+The focused monitored check and exact-target one-worker 4,754-job build pass.
+Both audited exports use exactly `[propext, Quot.sound]`; no `Classical.*`,
+choice, `native_decide`, `sorry`, custom axiom, or noncomputable declaration
+was added.  This contracts the later-cutoff estimate for one chosen fixed
+carrier and certificate.  Instantiating it with the constructed arbitrary-base
+floor removes that input; proving a single rate below one across an
+unbounded/cofinal carrier family remains open.  No completed-space gap,
+thermodynamic/continuum QFT, or Clay theorem is asserted.
+
 ## The finite BF4 vacuum component has its exact stationary row law (2026-08-22)
 
 `BF4PhysicalFiniteVacuumSectorStationaryLaws` proves that restricting the

@@ -4472,6 +4472,26 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   not inhabited.  No unconditional same-object CReal gap, completed-space
   gap, thermodynamic/continuum QFT, or Clay theorem is asserted.
 
+### [BF4-fixed-base-pulled-uniform-CReal-gap] Fixed-carrier finite gaps contract to same-object limits — **PROVED 2026-08-22**
+
+- **milestone**: use the moving matrix and diagonal Cauchy moduli to pass an
+  arbitrary fixed carrier's eventual absolute finite Poincare estimate to its
+  two same-object Bishop-real cutoff limits at the exact same rational rate.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorPulledUniformCRealGap.lean`.
+- **decl**: `cReal_leEv_of_eventual_abs_gap` and
+  `centeredMatrixCutoffLimit_leEv_uniformPoincareRate_mul_diagonal`.
+- **obligation**: instantiate the theorem with the constructed edge floor for
+  every base, then prove one common upper rate below one for an
+  unbounded/cofinal family of those base-indexed packages.
+- **constructive?**: yes — both audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  4,754-job dependency-complete build pass.  The rate may still vary with the
+  fixed base carrier.  No completed-space gap, thermodynamic/continuum QFT, or
+  Clay theorem is asserted.
+
 ### [BF4-cutoff-two-pulled-uniform-creal-gap] Unrelaxed same-object limit gap — **PROVED 2026-08-22**
 
 - **milestone**: recode the uniform pulled finite form bound to the literal
