@@ -1,0 +1,19 @@
+/- Process-isolated nonzero-representative coverage row 39. -/
+import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSpatialS3NonzeroRepresentativeCoverageCheck
+
+namespace YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSpatialS3NonzeroRepresentativeCoverageRows
+
+set_option maxRecDepth 1000000
+set_option maxHeartbeats 500000000
+
+open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSpatialS3NonzeroRepresentativeCoverageCheck
+
+theorem cutoffTwoSpatialS3NonzeroRepresentativeCoverageRow39_checked :
+    cutoffTwoSpatialS3NonzeroRepresentativeCoverageRowCheck
+      (39 : Fin 65) = true := by
+  decide
+
+end YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSpatialS3NonzeroRepresentativeCoverageRows
+
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSpatialS3NonzeroRepresentativeCoverageRows.cutoffTwoSpatialS3NonzeroRepresentativeCoverageRow39_checked

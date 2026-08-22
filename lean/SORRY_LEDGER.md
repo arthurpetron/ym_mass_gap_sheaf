@@ -2649,6 +2649,37 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   nonzero representatives is not yet a Lean theorem.  No residual physical
   trace certificate, uniform gap, continuum QFT, or Clay theorem is claimed.
 
+### [BF4-cutoff-two-spatial-S3-representatives] Exact representative carrier and compiler — **FACTORED 2026-08-21**
+
+- **milestone**: finite physical sector symmetry / exact kernel orbit
+  reduction.
+- **file**:
+  `computations/bf4_cutoff_two_spatial_s3_nonzero_representatives.py`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSpatialS3NonzeroRepresentativeData.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSpatialS3NonzeroRepresentativeCoverageCheck.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSpatialS3NonzeroRepresentativeCoverageRows.lean`,
+  its 65 row modules,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSpatialS3RepresentativeReduction.lean`,
+  and its axiom audit.
+- **decl**:
+  `cutoffTwoSpatialS3NonzeroRepresentatives_length`,
+  `cutoffTwoSpatialS3NonzeroRepresentativeRecognizedCodes_eq`,
+  `cutoffTwoSectorPairCanonicalCodeCheck_nonzeroRepresentative`,
+  `CutoffTwoSectorPhysicalSpatialS3RepresentativeCertificate`, and
+  `CutoffTwoSectorPhysicalSpatialS3RepresentativeCertificate.toPhysicalTableCertificate`.
+- **obligation**: inhabit production physical/raw equality on exactly the 127
+  kernel-checked spatial-S3 representative codes.  Coverage and compiler
+  theorems then discharge all 499 nonzero upper entries and all 4,225 table
+  entries.
+- **constructive?**: yes — recognizer/list equality is axiom-free; exported
+  coverage and compiler declarations use only `[propext, Quot.sound]`.  The
+  residual certificate remains uninhabited.
+- **status note**: the dependency-complete carrier/coverage/compiler axiom
+  audit passed with 2,119 jobs.  The next finite frontier is the shared-DAG
+  physical evaluation of those 127 representatives.  No production-kernel
+  `49/50` gap, cofinal sector family, completed gap, continuum QFT, or Clay
+  theorem is claimed.
+
 ## How to add an entry
 
 ```markdown

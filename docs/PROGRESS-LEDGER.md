@@ -4100,3 +4100,33 @@ member.  An external diagnostic reports 127 such representatives, but no
 Lean count or completeness theorem is claimed here.  Signed flips,
 cutoff-uniform contraction, completion, thermodynamic/continuum limits, QFT
 axioms, and the Clay theorem remain open.
+
+## Exact 127-representative contraction of the cutoff-two physical seam (2026-08-21)
+
+`bf4_cutoff_two_spatial_s3_nonzero_representatives.py` emits an explicit
+127-pair carrier, a duplicate-free 127-code list, a compact code recognizer,
+and 65 process-isolated coverage rows.  Lean proves the pair/code lengths,
+uniqueness, upper-triangularity, stored-raw nonzeroness, and that the
+recognizer accepts exactly the same in-range codes as the list.  The row
+aggregate proves that every nonzero upper-triangle source pair canonicalizes
+to an accepted representative code.  The earlier external counts are
+therefore replaced by kernel-checked carrier and completeness theorems.
+
+`BF4PhysicalBoundaryCutoffTwoSpatialS3RepresentativeReduction` packages the
+remaining physical work as
+`CutoffTwoSectorPhysicalSpatialS3RepresentativeCertificate`: production
+physical/raw equality only on the 127 checked representatives.  Proved
+physical canonical transport, representative coverage, and stored-raw
+canonical transport compile that record into the 499-entry nonzero-upper
+certificate and then into the original full 65-row physical-table
+certificate.  A `Fin 65`/`Nat.getD` accessor theorem closes the representation
+seam between the symmetry and raw-table modules.
+
+The dependency-complete axiom-audit target completed successfully with 2,119
+jobs.  Recognizer/list equality is axiom-free; the aggregate coverage theorem
+and exported compiler declarations use exactly `[propext, Quot.sound]`.
+The 127-field representative certificate remains uninhabited.  The next
+finite frontier is to extend the existing shared-DAG physical evaluator from
+pilot entries to these representatives.  No production-kernel `49/50` gap,
+cofinal sector family, completed gap, thermodynamic/continuum construction,
+QFT axioms, or Clay theorem is claimed.
