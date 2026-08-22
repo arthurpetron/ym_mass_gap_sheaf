@@ -5610,6 +5610,30 @@ the reduction and the subsequent check passed.  The adaptive seed family is
 not inhabited.  No unconditional fixed-carrier gap, completed Hilbert gap,
 thermodynamic/continuum QFT, or Clay theorem is asserted.
 
+## Finite BF4 vacuum-sector vectors are realized in the dense GNS carrier (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorLinearRealization` constructs a globally bounded
+state-cylinder indicator for every state of an arbitrary fixed canonical
+vacuum component.  Finite rational linear combinations of those indicators
+are literal `CentralPhysicalLinearObservable` terms, rather than external
+coefficient tables.  On every later positive carrier, finite coordinate
+agreement is proved equivalent to the explicit old-to-new cutoff index map.
+Therefore evaluation of the one fixed cylinder combination is exactly the
+previously constructed vacuum-sector coefficient extension by zero.
+
+The pointwise identity contracts further to exact equalities between the
+observable's physical weighted norm and pulled sector diagonal quadratic, and
+between its physical transfer quadratic and pulled sector matrix quadratic,
+at every later cutoff.  An initial focused check was interrupted after an
+overly generous heartbeat bound concealed ordinary namespace errors and is
+not validation.  With a bounded heartbeat budget, the corrected focused check
+and exact-target one-worker 1,262-job build pass.  All four audited exports use
+exactly `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`,
+`sorry`, custom axiom, or noncomputable declaration was added.  This proves
+dense-carrier realization, not density of these cylinders in a completed
+vacuum sector.  A uniform all-carrier rate, sector-completion closure,
+thermodynamic/continuum QFT, and the Clay theorem remain open.
+
 ## Every actual cutoff-two moving approximant has a strict finite gap (2026-08-22)
 
 `BF4PhysicalBoundaryCutoffTwoPulledPoincareGap` transports the new finite

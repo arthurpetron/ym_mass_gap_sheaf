@@ -4821,3 +4821,29 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   uninhabited.  The equivalence prevents finite-prefix compactness from being
   mistaken for an all-carrier estimate.  No completed-space gap,
   thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+### [BF4-vacuum-sector-dense-linear-realization] Sector coefficients are actual dense GNS observables — **PROVED 2026-08-22**
+
+- **milestone**: construct exact lower-half state cylinders, assemble every
+  fixed finite vacuum-sector coefficient into one finite-linear observable,
+  prove its later-cutoff values equal the explicit zero extension, and
+  identify its physical norm and transfer quadratic with the pulled forms.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorLinearRealization.lean`.
+- **decl**:
+  `centralPhysicalStateCylinder_agrees_iff_cutoffIndexMap_eq`,
+  `centralPhysicalFiniteVacuumSectorLinearObservable_value_eqv_extension`,
+  `centralPhysicalFiniteVacuumSectorLinearObservable_diagonal_eqv_pulled`, and
+  `centralPhysicalFiniteVacuumSectorLinearObservable_matrix_eqv_pulled`.
+- **obligation**: pass these actual dense elements through the same-object
+  completion pairing, then characterize and close the completed root-sector
+  subspace; independently inhabit the common all-carrier rate certificate.
+- **constructive?**: yes — all four audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: an initial focused check was interrupted after an overly
+  generous heartbeat bound concealed ordinary namespace errors and is not
+  counted.  The corrected focused check and exact-target one-worker 1,262-job
+  dependency-complete build pass.  This is an exact dense-carrier realization,
+  not a density theorem for a completed vacuum sector.  No completed-space
+  gap, thermodynamic/continuum QFT, or Clay theorem is asserted.
