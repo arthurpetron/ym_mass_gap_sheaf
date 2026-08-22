@@ -3113,3 +3113,26 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   heartbeat elaboration budget.  Scalar convergence is not yet convergence
   of the centered forms, a uniform spectral gap, thermodynamic/continuum QFT,
   or the Clay theorem.
+
+### [BF4-cutoff-vacuum-sector-centered-diagonal-cauchy] Moving centered norm Bishop real — **CLOSED 2026-08-22**
+
+- **milestone**: an exact finite root-replacement formula and a pointwise
+  constructive-real polynomial package prove cutoff-Cauchy convergence of
+  the literal pulled diagonal form of every fixed base-sector coefficient
+  after moving head centering.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCenteredDiagonalCauchy.lean`.
+- **decl**:
+  `finiteListRootCenteredCoefficient_diagonalExpansion`,
+  `centralPhysicalFinitePulledVacuumSectorHeadCenteredDiagonal_expansion`,
+  `cRealRecodePointwiseEqv`, and
+  `centralPhysicalFinitePulledVacuumSectorHeadCenteredDiagonalCutoffLimit`.
+- **obligation**: construct cutoff limits for the two root cross forms and
+  root-root reflected entry, expand the moving centered matrix form, and then
+  supply a strict form rate `q < 1` uniform in the base cutoff.
+- **constructive?**: yes — printed declarations use at most
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused source check and one-job dependency-complete
+  build pass.  Centered norm convergence alone is not a uniform spectral gap,
+  thermodynamic/continuum QFT, or the Clay theorem.

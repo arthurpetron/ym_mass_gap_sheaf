@@ -4560,3 +4560,27 @@ when only the root coefficient moves.  Beyond those form limits, the main
 analytic obstruction remains a single strict rate `q < 1` uniform in the base
 cutoff; no completed, thermodynamic, continuum, or Clay conclusion follows
 from this scalar limit alone.
+
+## Root-centered vacuum-sector diagonal is cutoff-Cauchy (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorCenteredDiagonalCauchy` proves that changing
+only coefficient zero changes a finite weighted square by exactly the
+difference of its new and old root contributions.  Applied to the physical
+head-centered coefficient, the moving diagonal is therefore the already-
+Cauchy fixed-coefficient diagonal plus an explicit polynomial in the moving
+head correction and pulled root weight.
+
+Constructive-real addition, negation, and multiplication build a pointwise
+Cauchy reference for that polynomial.  A general pointwise-`Q'.eqv` recoding
+then packages the literal physical centered diagonal values—not just the
+expanded representatives—as a Bishop real.  The focused source check and
+dependency-complete monitored build pass; all printed load-bearing
+declarations report at most `[propext, Quot.sound]`.
+
+This closes the norm-side limit needed to state a cutoff-removed centered
+form inequality.  The reflected matrix quadratic is still open: its root
+change produces two fixed-coefficient cross forms and one root-root form,
+which must first be given constructive cutoff limits.  After that algebraic
+frontier, the substantive obstruction remains a strict contraction rate
+`q < 1` uniform in the base cutoff, volume, and spacing.  No completed or
+continuum mass-gap conclusion is claimed here.
