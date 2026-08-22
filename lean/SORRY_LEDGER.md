@@ -2579,6 +2579,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   lift audit and are not claimed.  No production-kernel `49/50` gap, cofinal
   sector family, completed gap, continuum QFT, or Clay theorem is claimed.
 
+### [BF4-cutoff-two-spatial-axis-kernel] Adjacent-swap physical-kernel invariance — **CLOSED 2026-08-21**
+
+- **milestone**: finite physical sector symmetry / exact kernel orbit
+  reduction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSpatialAxisKernelInvariance.lean`,
+  the revised first-swap shard generator and interface, and the 64 modules
+  under
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoAxisSwapSectorTransportStates/`.
+- **decl**: `cutoffTwoLowerFaceScalar_axisSwap01_eqv`,
+  `cutoffTwoLowerFaceScalar_axisSwap12_eqv`,
+  `centralPhysicalReflectedKernel_cutoffTwo_axisSwap01_eqv`, and
+  `centralPhysicalReflectedKernel_cutoffTwo_axisSwap12_eqv`.
+- **obligation**: none for genuine kernel invariance under the two adjacent
+  unsigned spatial-axis generators.  The next finite obligation is a checked
+  six-element `S3` action/orbit quotient and its contraction of the nonzero
+  physical trace certificate.
+- **constructive?**: yes — the four exported invariance declarations use only
+  `[propext, Quot.sound]`.
+- **status note**: all 64 newly isolated first-swap state checks passed, its
+  interface and audit targets completed with 1680 and 1681 jobs, and the
+  combined physical-kernel target completed with 1762 jobs.  The stopped
+  historical five-state rebuild
+  and pre-fix interface attempt are not counted as passed.  Signed flips and
+  every uniform/continuum conclusion remain open; no production-kernel
+  `49/50` gap or Clay theorem is claimed.
+
 ## How to add an entry
 
 ```markdown

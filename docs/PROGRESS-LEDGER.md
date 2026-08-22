@@ -4026,3 +4026,30 @@ a separate summed-identity problem because the external pointwise factor
 transport audit did not validate them.  No cutoff-uniform gap,
 thermodynamic/continuum construction, QFT axioms, or Clay conclusion is
 claimed.
+
+## Adjacent-swap invariance of the genuine cutoff-two physical kernel (2026-08-21)
+
+`BF4PhysicalBoundaryCutoffTwoSpatialAxisKernelInvariance` closes the scalar
+term left outside the two interface-partition theorems.  Two literal
+`List.finRange 65` Boolean certificates verify that the lower-face heat scalar
+is invariant under each adjacent sector permutation.  Combining those
+certificates with the exact factor-partition equalities and the production
+kernel factorization proves simultaneous physical-kernel invariance under
+both swaps `(01)` and `(12)` for every pair of sector states.
+
+To make the first generator reproducibly buildable in the current cache,
+`bf4_cutoff_two_axis_swap_sector_transport_shards.py` now emits 64
+process-isolated state modules and thirteen compact aggregates, matching the
+successful second-swap architecture.  All 64 first-swap state checks and the
+first-swap interface then rebuilt successfully.  The first-swap interface was
+also made explicit about its concrete `EdgeLabelling`/rational-product
+dependencies and its boundary involution cases.
+
+The first-swap axiom audit completed with 1681 jobs and the combined
+physical-kernel target completed successfully with 1762 jobs.
+Both scalar invariance theorems and both genuine kernel invariance theorems
+report exactly `[propext, Quot.sound]`.  This closes the two generating
+physical equalities but does not yet construct or verify the six-element `S3`
+word action, orbit representatives, or a reduced nonzero-pair certificate.
+Signed flips, cutoff-uniform contraction, completion, thermodynamic/continuum
+limits, QFT axioms, and the Clay theorem remain open.

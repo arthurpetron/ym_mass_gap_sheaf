@@ -39,6 +39,8 @@ open YMGap.Continuum.FiniteScopedFactorCoordinateReindex
 open YMGap.Continuum.FiniteScopedFactorLocalReindexCertificate
 open YMGap.Continuum.FiniteScopedFactorTableCertificate
 open YMGap.Continuum.FiniteScopedFactorTableCertificate.CheckedScopedEliminationStep
+open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
+open YMGap.Continuum.Z4SpinDecoratedCrossVolumeWeights
 open YMGap.Continuum.Z4HalfTimeReflectionCrossPlaneFactorization
 
 local infix:50 " ≈ " => Q'.eqv
@@ -59,7 +61,55 @@ def axisSwap01PairTargetFactors
 
 theorem axisSwap01BoundaryRename_involutive (id : Nat) :
     axisSwap01BoundaryRename (axisSwap01BoundaryRename id) = id := by
-  simp [axisSwap01BoundaryRename]
+  by_cases h2 : id = 2
+  · subst id
+    rfl
+  by_cases h4 : id = 4
+  · subst id
+    rfl
+  by_cases h11 : id = 11
+  · subst id
+    rfl
+  by_cases h13 : id = 13
+  · subst id
+    rfl
+  by_cases h20 : id = 20
+  · subst id
+    rfl
+  by_cases h40 : id = 40
+  · subst id
+    rfl
+  by_cases h22 : id = 22
+  · subst id
+    rfl
+  by_cases h38 : id = 38
+  · subst id
+    rfl
+  by_cases h23 : id = 23
+  · subst id
+    rfl
+  by_cases h41 : id = 41
+  · subst id
+    rfl
+  by_cases h29 : id = 29
+  · subst id
+    rfl
+  by_cases h49 : id = 49
+  · subst id
+    rfl
+  by_cases h31 : id = 31
+  · subst id
+    rfl
+  by_cases h47 : id = 47
+  · subst id
+    rfl
+  by_cases h32 : id = 32
+  · subst id
+    rfl
+  by_cases h50 : id = 50
+  · subst id
+    rfl
+  · simp [axisSwap01BoundaryRename]
 
 theorem axisSwap01BoundaryRename_injective :
     InjectiveOnCoordinates (centralFixedFaceIds 0)
