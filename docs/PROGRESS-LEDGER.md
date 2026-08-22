@@ -6480,3 +6480,26 @@ noncomputable declaration was added.  This constructs the completed
 same-object moment interface but proves no carrier-independent strict rate.
 The common-rate analytic estimate, thermodynamic/continuum QFT, and Clay
 theorem remain open.
+
+## Any cofinal strict rate now reaches the actual adaptive completion (2026-08-22)
+
+`BF4PhysicalCutoffLinearMarkovAdaptiveCofinalStrictGap` removes the obsolete
+same-index completion-modulus assumption from the arbitrary-rate gap route.
+It combines the modern pointwise-adaptive input and transferred graph limits
+with the existing finite anchor theorem for
+`FixedNomeCofinalCenteredStrictGap q`.
+
+For every supplied rational `q` with `0 <= q < 1`, cofinal reindexing carries
+the finite squared-norm estimate through the two actual adaptive graph limits.
+Quotient descent gives
+`CentralPhysicalAdaptiveCompletedMarkovStrictContractionData` at rate `q` on
+the whole cutoff-removed global vacuum complement.  Specializing to the
+already-constructed stationary source-shell Cauchy data makes the cofinal
+strict-rate certificate the sole remaining input.
+
+The focused monitored check and exact-target one-worker 1,346-job build pass.
+All five audited exports use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  No cofinal common-rate certificate is
+inhabited here, so no unconditional completed gap, thermodynamic/continuum
+QFT, or Clay theorem is claimed.

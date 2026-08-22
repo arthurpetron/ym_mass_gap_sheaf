@@ -5116,3 +5116,29 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   1,364-job dependency-complete build pass.  This is an unconditional
   completed carrier-and-moment interface at fixed nome and finite half-extent,
   not a uniform completed gap, thermodynamic/continuum QFT, or Clay theorem.
+
+### [BF4-pointwise-adaptive-arbitrary-cofinal-gap] Common rate reaches the actual global completion — **PROVED 2026-08-22**
+
+- **milestone**: combine pointwise-adaptive graph limits with the arbitrary
+  rational finite anchor estimate, removing the historical same-index Markov
+  completion modulus from the general `q < 1` completed-gap route.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffLinearMarkovAdaptiveCofinalStrictGap.lean`.
+- **decl**:
+  `centralPhysicalAdaptiveInputCenteredNorm_cofinal_rate_converges`,
+  `centralPhysicalAdaptiveTransferredCenteredNorm_cofinal_rate_converges`,
+  `centralPhysicalAdaptiveCofinalRepresentative_operator_norm_gap_rate`,
+  `centralPhysicalAdaptiveCompletedMarkovCofinalStrictContractionDataAtRate`,
+  and
+  `centralPhysicalConcreteAdaptiveCompletedMarkovCofinalStrictContractionDataAtRate`.
+- **obligation**: inhabit one
+  `FixedNomeCofinalCenteredStrictGap w hw half q` with `q < 1`, uniformly over
+  the unbounded carrier family; transport the resulting global contraction to
+  the invariant completed root sector and then address volume/spacing limits.
+- **constructive?**: yes — all five audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,346-job dependency-complete build pass.  This is a stronger implication,
+  not an inhabitant of the common-rate certificate; no unconditional
+  completed gap, thermodynamic/continuum QFT, or Clay theorem is asserted.
