@@ -4561,3 +4561,27 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   4,754-job dependency-complete build pass.  The fixed-carrier same-object gap
   is unconditional, but no density/completed-space gap,
   thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+### [BF4-fixed-base-pulled-edge-floor] Persistent floor on every fixed vacuum carrier — **PROVED 2026-08-22**
+
+- **milestone**: generalize pair-cylinder half retention, qualitative support
+  persistence, and the anchored finite-positive-minimum construction from the
+  cutoff-two carrier to arbitrary fixed nome, base cutoff, and half-extent.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorPulledBaseEdgeFloor.lean`.
+- **decl**:
+  `centralPhysicalFinitePulledKernel_pos_of_base_pos`,
+  `half_mul_centralPhysicalFinitePulledKernel_le_of_increment_le_one`, and
+  `fixedBasePulledPositiveEdgeFloor`.
+- **obligation**: combine each constructed base floor with the base canonical
+  path ceiling and the later pulled Dirichlet identity to obtain a strict
+  same-object limit rate on every fixed carrier; then isolate and discharge
+  the genuinely stronger requirement that those base-indexed rates admit one
+  common upper bound below one along an unbounded/cofinal carrier family.
+- **constructive?**: yes — all three audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  4,749-job dependency-complete build pass.  Floors are constructed for every
+  fixed carrier, but not uniformly in the carrier.  No completed-space gap,
+  thermodynamic/continuum QFT, or Clay theorem is asserted.

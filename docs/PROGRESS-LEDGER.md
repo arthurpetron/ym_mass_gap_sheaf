@@ -5975,3 +5975,28 @@ was added.  This is an unconditional gap only for one fixed finite carrier at
 the representation-cutoff limit.  No density or cofinality theorem identifies
 that carrier with the full cutoff-removed vacuum complement, so no completed
 Hilbert-space gap, thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+## Every fixed BF4 vacuum carrier has a persistent path-edge floor (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorPulledBaseEdgeFloor` generalizes the constructed
+cutoff-two edge floor to arbitrary fixed nome, base representation cutoff, and
+finite half-extent.  A positive normalized edge in the base vacuum component
+remains positive after every canonical cutoff embedding.  The ordered-pair
+cylinder for two old literal states obeys the common half-retention theorem
+beyond the anchor
+`max base (centralPhysicalUniformRowFloorCutoff w half)`.
+
+At that anchor, a finite positive minimum over the Cartesian square of the
+base component gives an explicit rational floor.  Half of this minimum is
+below every later pulled-kernel entry whose base edge was positive.  The
+sealed `fixedBasePulledPositiveEdgeFloor` therefore constructs this persistent
+floor for every fixed carrier without a new analytic certificate.
+
+The focused monitored check and exact-target one-worker 4,749-job build pass.
+All three audited exports use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  This expands the quantitative geometry
+from one 65-state carrier to every member of the finite vacuum-sector family,
+but the floor and anchor still depend on the base.  A common strict rate
+uniform over an unbounded/cofinal family, the corresponding completed-space
+gap, thermodynamic/continuum QFT, and the Clay theorem remain open.
