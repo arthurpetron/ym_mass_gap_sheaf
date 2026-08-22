@@ -4584,3 +4584,29 @@ which must first be given constructive cutoff limits.  After that algebraic
 frontier, the substantive obstruction remains a strict contraction rate
 `q < 1` uniform in the base cutoff, volume, and spacing.  No completed or
 continuum mass-gap conclusion is claimed here.
+
+## Root-centered vacuum-sector reflected form is cutoff-Cauchy (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorCenteredMatrixCauchy` introduces the finite
+bilinear form associated to two different coefficient vectors and proves a
+cross-`l1` perturbation estimate under uniform entrywise kernel error.  The
+existing pulled-entry modulus therefore gives a Bishop-real cutoff limit for
+every fixed pair of base-sector coefficients.
+
+Writing the root-centered vector as the original coefficient plus the moving
+negative head correction times the root indicator exposes the reflected
+quadratic as exactly four terms: the raw quadratic, the coefficient/root and
+root/coefficient cross forms, and the root/root form.  Their fixed-coefficient
+bilinear limits combine pointwise with the head-correction limit.  A final
+pointwise-`Q'.eqv` recoding packages the literal physical centered reflected
+values as a Bishop real.  The focused check and 1,469-job dependency build
+pass; printed declarations report at most `[propext, Quot.sound]`.
+
+Thus, for every fixed base cutoff and rational base-sector coefficient, the
+exactly centered norm and reflected form both possess constructive cutoff
+limits.  This removes the moving-centering convergence obstruction but does
+not compare the two limits by a strict constant.  The next causal frontier is
+an honest certificate interface for one `q < 1` that bounds the centered
+reflected form by `q` times the centered diagonal uniformly in the base and
+later representation cutoffs.  Constructing such a certificate remains an
+open analytic problem; volume and spacing uniformity remain beyond it.

@@ -3136,3 +3136,28 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 - **status note**: the focused source check and one-job dependency-complete
   build pass.  Centered norm convergence alone is not a uniform spectral gap,
   thermodynamic/continuum QFT, or the Clay theorem.
+
+### [BF4-cutoff-vacuum-sector-centered-matrix-cauchy] Moving centered reflected-form Bishop real — **CLOSED 2026-08-22**
+
+- **milestone**: a cross-`l1` finite bilinear stability theorem, constructive
+  pulled bilinear cutoff limits, and an exact four-term root-shift expansion
+  package the literal reflected quadratic of every moving head-centered fixed
+  base-sector coefficient as a `CReal`.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCenteredMatrixCauchy.lean`.
+- **decl**:
+  `finiteJointBilinear_abs_sub_le_productL1`,
+  `centralPhysicalFinitePulledVacuumSectorMatrixBilinearCutoffLimit`,
+  `centralPhysicalFinitePulledVacuumSectorHeadCenteredMatrix_expansion`, and
+  `centralPhysicalFinitePulledVacuumSectorHeadCenteredMatrixCutoffLimit`.
+- **obligation**: provide and verify one strict centered form estimate with
+  rate `q < 1` uniform in the base and later representation cutoffs, transport
+  it to the two Bishop-real limits, then address completed-space, volume, and
+  lattice-spacing uniformity.
+- **constructive?**: yes — printed declarations use at most
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused source check and one-job 1,469-job dependency
+  build pass.  Existence of both centered form limits is not the missing
+  uniform strict estimate, a spectral gap, thermodynamic/continuum QFT, or
+  the Clay theorem.
