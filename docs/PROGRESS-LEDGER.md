@@ -5200,6 +5200,26 @@ transfer preserves it, or that one strict rate works over all carriers.
 Those completion-invariance and uniform-analytic steps, followed by the
 thermodynamic/continuum construction, remain open.
 
+## BF4 completed root-sector invariance is isolated as an exact lift (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorCylinderTransferLift` pulls the global completed
+inner product and global-vacuum-orthogonality predicate back along the new
+injective sector embedding.  It then states the exact remaining invariance
+datum: a map on the sector completion whose image under the embedding equals
+the already constructed concrete adaptive global Markov transfer.
+
+Any such lift is proved unique by injectivity.  It automatically preserves
+the global-vacuum-orthogonal part of the sector, and its completed transfer
+pairing is exactly the global concrete transfer pairing restricted to the
+sector image.  The focused monitored check and exact-target one-worker
+1,357-job build pass.  All three audited theorems use exactly
+`[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+custom axiom, or noncomputable declaration was added.  The lift record is
+deliberately uninhabited: constructing it requires a cofinal schedule on which
+the adaptive cutoff action preserves finite root-sector support.  The common
+all-carrier strict rate and thermodynamic/continuum construction also remain
+open.
+
 ## Every fixed pulled BF4 carrier has normalized mass (2026-08-22)
 
 `BF4PhysicalCutoffVacuumSectorPulledMass` proves for arbitrary nome, base

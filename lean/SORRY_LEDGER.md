@@ -4872,3 +4872,28 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   surjectivity onto the global vacuum complement nor transfer invariance is
   claimed.  No completed sector gap, thermodynamic/continuum QFT, or Clay
   theorem is asserted.
+
+### [BF4-vacuum-sector-completed-transfer-lift] Exact invariant-image frontier — **REDUCED 2026-08-22**
+
+- **milestone**: formulate transfer invariance as a lift of the concrete
+  adaptive global Markov transfer through the injective sector embedding;
+  prove uniqueness, preservation of global-vacuum orthogonality, and exact
+  agreement of the restricted completed transfer pairing.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCylinderTransferLift.lean`.
+- **decl**: `CentralPhysicalVacuumSectorCylinderTransferLiftData`,
+  `CentralPhysicalVacuumSectorCylinderTransferLiftData.transfer_eq_of_lifts`,
+  `CentralPhysicalVacuumSectorCylinderTransferLiftData.preserves_globalVacuumOrthogonal`,
+  and
+  `CentralPhysicalVacuumSectorCylinderTransferLiftData.completedInner_transfer_eq_global`.
+- **obligation**: construct the lift by cofinally reindexing sector Cauchy
+  representatives so that each action cutoff dominates the selected
+  presentation base, then prove the finite action remains in the canonical
+  root component and that the realized output is completion-close.
+- **constructive?**: yes — all three audited theorem exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,357-job dependency-complete build pass.  The lift record is deliberately
+  uninhabited.  No completed sector gap, thermodynamic/continuum QFT, or Clay
+  theorem is asserted.
