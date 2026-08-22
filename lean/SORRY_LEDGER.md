@@ -4585,3 +4585,25 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   4,749-job dependency-complete build pass.  Floors are constructed for every
   fixed carrier, but not uniformly in the carrier.  No completed-space gap,
   thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+### [BF4-fixed-base-pulled-path-energy] Later-uniform path control on every fixed carrier — **PROVED 2026-08-22**
+
+- **milestone**: rekernel every arbitrary-base canonical vacuum path into the
+  later pulled kernel, preserve its recursive scale, and combine the
+  constructed base floor with the finite base path ceiling to control every
+  endpoint square by the later pulled Dirichlet energy.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorPulledPathEnergy.lean`.
+- **decl**: `fixedBasePulledPositivePath_amplificationScale_eq_base` and
+  `FixedBasePulledPositiveEdgeFloor.floor_mul_endpoint_sq_le_ceiling_mul_pulledDirichlet`.
+- **obligation**: sum the endpoint estimate against the later pulled weights,
+  identify the pairwise variance and Dirichlet deficit, and construct the
+  resulting strict rate for each fixed base; then prove a single rate below
+  one uniformly over an unbounded/cofinal family.
+- **constructive?**: yes — both audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  4,750-job dependency-complete build pass.  The path constants remain
+  base-indexed.  No completed-space gap, thermodynamic/continuum QFT, or Clay
+  theorem is asserted.

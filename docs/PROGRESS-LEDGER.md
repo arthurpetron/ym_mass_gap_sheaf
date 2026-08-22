@@ -6000,3 +6000,21 @@ from one 65-state carrier to every member of the finite vacuum-sector family,
 but the floor and anchor still depend on the base.  A common strict rate
 uniform over an unbounded/cofinal family, the corresponding completed-space
 gap, thermodynamic/continuum QFT, and the Clay theorem remain open.
+
+## Every fixed BF4 carrier has later-uniform path control (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorPulledPathEnergy` transports each arbitrary
+base component's canonical positive paths to every later pulled kernel.  The
+transport retains the base-edge witnesses and preserves the recursive path
+amplification scale exactly, so the original finite base path ceiling remains
+valid at all later cutoffs.
+
+Combining that shape preservation with the constructed base edge floor gives
+a coefficient-independent endpoint estimate: the base floor times every
+endpoint square is bounded by the base path ceiling times the later pulled
+Dirichlet energy.  The focused monitored check and exact-target one-worker
+4,750-job build pass; both audited exports use exactly
+`[propext, Quot.sound]`.  The floor and ceiling are still allowed to vary with
+the base component.  The ensuing base-indexed strict form rate is the next
+finite contraction; a common rate below one on a cofinal family, completion,
+thermodynamic/continuum QFT, and the Clay theorem remain open.
