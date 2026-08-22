@@ -5355,3 +5355,35 @@ Bishop-real unfolding and the final checks pass.  The coefficientwise seed
 family is not yet inhabited.  Extending from the cutoff-two component to all
 finite base carriers, the completed Hilbert gap, thermodynamic/continuum QFT,
 and the Clay theorem remain open.
+
+## The cutoff-two-to-tail obstruction is now an explicit finite recurrence (2026-08-22)
+
+`BF4PhysicalBoundaryCutoffTwoPulledFinitePrefixGapBridge` expands the last
+fixed-carrier obstruction into consecutive physical moving-form increments.
+Starting at the verified cutoff-two rate `q(0) = 49/50`, a step with common
+relative matrix/diagonal error `eta(n)` forces exactly
+
+`q(n+1) = q(n) * (1 + eta(n)) + eta(n)`.
+
+`CutoffTwoPulledFinitePrefixIncrementControl.abs_gap_at_stage` proves by
+finite induction that certified steps propagate the gap to every prefix
+stage.  `CutoffTwoPulledFinitePrefixToTailGap` then requires the prefix
+endpoint to be a `1/200` moving-form stability start and checks the explicit
+final rate is still below one.  From those fields, every later cutoff and the
+literal same-object matrix/diagonal Bishop reals satisfy that computed strict
+rate.
+
+The certificate keeps the cutoff-two alias-form anchor as an explicit field
+to prevent Lean from repeatedly unfolding the very large Bishop-real
+recoding.  Its mathematical content is already the proved cutoff-two
+physical gap; the genuinely open fields are the finitely many consecutive
+increment bounds, their alignment with a tail start, and the remaining-slack
+inequality.  One slow narrow check that attempted the giant definitional
+unfolding was stopped and is not counted as a pass.
+
+The optimized focused check and exact-target one-worker 4,737-job build pass.
+The four printed declarations use only `[propext]` or
+`[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+custom axiom, or noncomputable declaration was added.  The finite-prefix
+certificate is not inhabited.  All-base carrier control, the completed
+Hilbert gap, thermodynamic/continuum QFT, and the Clay theorem remain open.

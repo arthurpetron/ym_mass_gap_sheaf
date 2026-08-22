@@ -3905,3 +3905,35 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   interrupted during proof optimization and are not counted as passes.  The
   certificate remains uninhabited; no unconditional CReal, completed-space,
   thermodynamic/continuum, or Clay mass-gap claim is made.
+
+### [BF4-cutoff-two-finite-prefix-gap-bridge] Consecutive increment compiler — **FACTORED 2026-08-22**
+
+- **milestone**: a generic one-step theorem propagates a form gap by the
+  exact recurrence `qNext = q * (1 + eta) + eta`.  A finite physical prefix
+  certificate iterates this recurrence from the verified cutoff-two
+  `49/50` anchor.  If its endpoint is a `1/200` full moving-form tail start
+  and the explicitly computed final rate remains below one, the certificate
+  contracts to every later cutoff and the same-object Bishop-real form gap.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoPulledFinitePrefixGapBridge.lean`.
+- **decl**:
+  `moving_abs_gap_step`,
+  `CutoffTwoPulledFinitePrefixIncrementControl.abs_gap_at_stage`,
+  `CutoffTwoPulledFinitePrefixToTailGap.later_abs_gap`, and
+  `CutoffTwoPulledFinitePrefixToTailGap.centeredMatrixCutoffLimit_leEv_prefixTailRate_mul_diagonal`.
+- **obligation**: inhabit the finite prefix certificate coefficientwise by
+  proving the consecutive moving-kernel and moving-diagonal relative errors,
+  align the endpoint with a proved tail-stability start, and close the strict
+  rate budget.  The explicit alias-form anchor field is the already-proved
+  cutoff-two gap under a large Bishop-real recoding, not a new analytic
+  assumption.
+- **constructive?**: yes — the four printed declarations use only
+  `[propext]` or `[propext, Quot.sound]`; no `Classical.*`, choice,
+  `native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+  added.
+- **status note**: the optimized focused check and exact-target one-worker
+  4,737-job dependency-complete build pass.  One earlier slow recoding check
+  was interrupted and is not counted as a pass.  The finite increment fields
+  remain uninhabited; no unconditional fixed-carrier limit gap,
+  completed-space gap, thermodynamic/continuum QFT, or Clay theorem is
+  asserted.
