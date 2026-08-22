@@ -1,0 +1,4 @@
+import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSpatialS3RawCanonicalUpperRows
+
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSpatialS3RawCanonicalUpperRows.cutoffTwoSectorRawKernel_pairCanonical_eqv_of_upper

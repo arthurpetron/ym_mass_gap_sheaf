@@ -4071,3 +4071,32 @@ by raw-table transport and a concrete nonzero orbit-representative list.
 Signed flips, residual physical trace evaluations, cutoff-uniform contraction,
 completion, thermodynamic/continuum limits, QFT axioms, and the Clay theorem
 remain open.
+
+## Canonical unordered-pair transport for the cutoff-two spatial S3 action (2026-08-21)
+
+`BF4PhysicalBoundaryCutoffTwoSpatialS3PairCanonicalizationData` defines a
+deterministic least-code representative of an unordered pair of the 65 sector
+states.  An abstraction lemma prevents Lean from accidentally reducing the
+concrete six-action fold while proving upper-triangularity.
+`BF4PhysicalBoundaryCutoffTwoSpatialS3PairCanonicalization` then transports the
+genuine production reflected kernel to that representative using the proved
+six-word action and physical-kernel symmetry.
+
+`BF4PhysicalBoundaryCutoffTwoSpatialS3RawCanonicalUpperCheck`, its 65
+process-isolated row modules, and the compact
+`BF4PhysicalBoundaryCutoffTwoSpatialS3RawCanonicalUpperRows` aggregate check
+the corresponding equality in the stored raw table for exactly the 2,145
+upper-triangle source pairs.  Thus both the physical and stored-raw sides of
+the existing nonzero-upper residual now transport to the same canonical pair.
+The row target completed successfully with 1,834 jobs and the combined axiom
+audit/physical-transport target with 1,836 jobs.  Closed row decisions use only
+`[propext]`; both exported transport theorems use exactly
+`[propext, Quot.sound]`.
+
+This does not yet inhabit the nonzero-upper physical certificate.  The next
+finite obligation is to kernel-check the explicit nonzero representative
+carrier and evaluate the production physical/raw trace equality once on each
+member.  An external diagnostic reports 127 such representatives, but no
+Lean count or completeness theorem is claimed here.  Signed flips,
+cutoff-uniform contraction, completion, thermodynamic/continuum limits, QFT
+axioms, and the Clay theorem remain open.

@@ -2625,6 +2625,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   signed flip, residual physical trace equality, production-kernel `49/50`
   gap, uniform limit, continuum QFT, or Clay theorem is claimed.
 
+### [BF4-cutoff-two-spatial-S3-pair-transport] Canonical pair transport — **CLOSED 2026-08-21**
+
+- **milestone**: finite physical sector symmetry / exact kernel orbit
+  reduction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSpatialS3PairCanonicalizationData.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSpatialS3PairCanonicalization.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSpatialS3RawCanonicalUpperCheck.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSpatialS3RawCanonicalUpperRows.lean`,
+  its 65 row modules, and the generating Python script.
+- **decl**: `cutoffTwoSectorPairCanonical_upper`,
+  `centralPhysicalReflectedKernel_cutoffTwo_pairCanonical_eqv`, and
+  `cutoffTwoSectorRawKernel_pairCanonical_eqv_of_upper`.
+- **obligation**: none for transporting an upper-triangle physical/raw pair to
+  its common deterministic spatial-S3 representative.  The next obligation
+  is the checked nonzero representative carrier and one production
+  physical/raw trace proof per member.
+- **constructive?**: yes — the 2,145 stored-raw equalities are process-isolated
+  kernel decisions; exported transports use only `[propext, Quot.sound]`.
+- **status note**: the row target passed with 1,834 jobs and the combined
+  physical transport/axiom audit with 1,836 jobs.  The external count of 127
+  nonzero representatives is not yet a Lean theorem.  No residual physical
+  trace certificate, uniform gap, continuum QFT, or Clay theorem is claimed.
+
 ## How to add an entry
 
 ```markdown
