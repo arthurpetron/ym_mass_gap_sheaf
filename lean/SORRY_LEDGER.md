@@ -3309,11 +3309,13 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `FixedNomeCofinalPhysicalLocalSliceGluing.toCenteredStrictGap`,
   `FixedNomeCofinalPhysicalLocalSliceGluing.toVacuumSectorCenteredStrictGap`,
   and
-  `FixedNomeCofinalPhysicalLocalSliceGluing.centeredMatrixCutoffLimit_leEv_sixteenth_mul_diagonal`.
+  `FixedNomeCofinalPhysicalLocalSliceGluing.centeredMatrixCutoffLimit_leEv_sixteenth_mul_diagonal`,
+  plus the adapter
+  `FixedNomeCofinalLocalGluing.centeredMatrixCutoffLimit_leEv_sixteenth_mul_diagonal`.
 - **obligation**: construct the cofinal genuine slice family.  The open fields
   are the physical stationary one-step density, its exact all-label gluing
   identity at the selected cutoffs, and its local centered `1/4` estimate.
-- **constructive?**: yes — all four printed declarations use exactly
+- **constructive?**: yes — all six printed declarations use exactly
   `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
   custom axiom, or noncomputable declaration was added.
 - **status note**: the focused monitored source check and one-job 1,475-job

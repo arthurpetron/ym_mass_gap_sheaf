@@ -32,6 +32,7 @@ open YMGap.Constructive
 open YMGap.Continuum.BF4CommonRankOneRowTriangle
 open YMGap.Continuum.BF4LocalContractionGluing
 open YMGap.Continuum.BF4PhysicalCutoffCofinalCenteredRowGap
+open YMGap.Continuum.BF4PhysicalCutoffCofinalConnectedGap
 open YMGap.Continuum.BF4PhysicalCutoffConnectedGap
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCenteredDiagonalCauchy
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCenteredLimitGap
@@ -128,11 +129,52 @@ theorem centeredMatrixCutoffLimit_leEv_sixteenth_mul_diagonal
 
 end FixedNomeCofinalPhysicalLocalSliceGluing
 
+/-! ## 3. Adapter from the established cofinal local-gluing certificate -/
+
+namespace FixedNomeCofinalLocalGluing
+
+/-- The repository's established cofinal local-gluing package is exactly a
+cofinal family of the genuine local-slice witnesses used above. -/
+def toPhysicalLocalSliceGluing
+    {w : Q'} {hw : (0 : Q') ≤ w} {half : Nat}
+    (certificate : FixedNomeCofinalLocalGluing w hw half) :
+    FixedNomeCofinalPhysicalLocalSliceGluing w hw half where
+  anchor := certificate.anchor
+  anchor_ge := certificate.anchor_ge
+  witness := fun base =>
+    { depth := certificate.depth base
+      oneStep := certificate.oneStep base
+      qS := certificate.localRate base
+      qS_le_quarter := certificate.localRate_le_quarter base
+      slice := certificate.localSlice base }
+
+/-- Existing cofinal local-gluing data therefore proves the moving
+same-object `1/16` cutoff-limit inequality directly. -/
+theorem centeredMatrixCutoffLimit_leEv_sixteenth_mul_diagonal
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (half : Nat)
+    (certificate : FixedNomeCofinalLocalGluing
+      w (Q'.le_of_lt hw0) half)
+    (base : Nat) (coefficient : Nat → Q') :
+    CReal.leEv
+      (centralPhysicalFinitePulledVacuumSectorHeadCenteredMatrixCutoffLimit
+        hw0 hw1 base half coefficient)
+      (CReal.mul
+        (CReal.ofQ' physicalCutoffSixteenth)
+        (centralPhysicalFinitePulledVacuumSectorHeadCenteredDiagonalCutoffLimit
+          hw0 hw1 base half coefficient)) :=
+  FixedNomeCofinalPhysicalLocalSliceGluing.centeredMatrixCutoffLimit_leEv_sixteenth_mul_diagonal
+    hw0 hw1 half (toPhysicalLocalSliceGluing certificate) base coefficient
+
+end FixedNomeCofinalLocalGluing
+
 /-! ## Axiom audit -/
 
 #print axioms FixedNomeCofinalPhysicalLocalSliceGluing.toCenteredRowDistance
 #print axioms FixedNomeCofinalPhysicalLocalSliceGluing.toCenteredStrictGap
 #print axioms FixedNomeCofinalPhysicalLocalSliceGluing.toVacuumSectorCenteredStrictGap
 #print axioms FixedNomeCofinalPhysicalLocalSliceGluing.centeredMatrixCutoffLimit_leEv_sixteenth_mul_diagonal
+#print axioms FixedNomeCofinalLocalGluing.toPhysicalLocalSliceGluing
+#print axioms FixedNomeCofinalLocalGluing.centeredMatrixCutoffLimit_leEv_sixteenth_mul_diagonal
 
 end YMGap.Continuum.BF4PhysicalCutoffCofinalLocalSliceGap

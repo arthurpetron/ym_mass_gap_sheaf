@@ -4752,8 +4752,10 @@ A constructively cofinal family of these genuine local slices now compiles to
 the fixed-nome physical centered-row family, the global centered strict-gap
 certificate, the moving same-object vacuum-sector certificate, and its
 `CReal.leEv` cutoff-limit inequality.  The focused monitored source check and
-one-job 1,475-job dependency-complete build pass; all four printed declarations
-use exactly `[propext, Quot.sound]`.
+one-job 1,475-job dependency-complete build pass.  An exact adapter also shows
+that the pre-existing `FixedNomeCofinalLocalGluing` certificate directly
+proves this same-object limit inequality; all six printed declarations use
+exactly `[propext, Quot.sound]`.
 
 No cofinal genuine local-slice family is constructed.  The remaining analytic
 leaf is explicit: produce a stationary one-step density at arbitrarily large
