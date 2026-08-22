@@ -2810,3 +2810,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-step no-escape, exact support equality, and the refactored reducibility
   obstruction all passed.  This does not establish a compatible cofinal
   sector family, a uniform completed gap, continuum QFT, or the Clay theorem.
+
+### [BF4-cutoff-two-canonical-vacuum-gap] Exact production form gap on the canonical vacuum component — **CLOSED 2026-08-22**
+
+- **milestone**: finite physical canonical-vacuum sector and strict centered
+  production-form contraction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSectorPhysicalFormTransport.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSectorPhysicalGramPositivity.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSectorPhysicalUpperGap.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoCanonicalVacuumGap.lean`,
+  and
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoCanonicalVacuumGapAxiomAudit.lean`.
+- **decl**:
+  `cutoffTwoSectorPhysicalMatrixQuadratic_eqv_raw`,
+  `cutoffTwoSectorPhysicalMatrixQuadratic_nonnegative`,
+  `cutoffTwoSectorPhysicalStrictAbsGapAt49Over50`, and
+  `cutoffTwoCanonicalVacuumSector_exact_and_strict_abs_gap`.
+- **obligation**: none for the exact finite cutoff-two theorem.  The next
+  obligation is a compatible cutoff/volume family of canonical vacuum
+  components with root, support-edge, weight, and restricted-form
+  compatibility, followed by a cutoff/volume-uniform strict rate.
+- **constructive?**: yes — the final leaf audit reports exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the complete 64-row upper LDL aggregate, physical/raw form
+  transport, weighted-Gram nonnegativity, `q = 49/50 < 1` absolute centered
+  form bound, contracted support-and-gap theorem, and axiom-audit target all
+  passed monitored dependency-complete builds.  This is not a compatible
+  cofinal sector family, a uniform completed operator gap,
+  thermodynamic/continuum construction, continuum QFT, or the Clay theorem.

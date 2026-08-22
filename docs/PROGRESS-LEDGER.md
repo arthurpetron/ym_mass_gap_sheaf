@@ -4247,3 +4247,51 @@ Every printed load-bearing declaration reports exactly
 seam.  Its `49/50` form-gap contraction is the next finite frontier; all
 cutoff/volume compatibility, a uniform completed gap, thermodynamic/continuum
 limits, QFT axioms, and the Clay theorem remain open.
+
+## Exact canonical-vacuum production form gap at cutoff two (2026-08-22)
+
+The historical 64-coordinate upper LDL certificate has now been checked
+through all rows `0` through `63` and its aggregate theorem.  Together with
+the complete 65-by-65 physical/raw table certificate, it proves the exact
+centered upper form bound at `q = 49/50`.  On the same literal sector, the
+production kernel is independently a finite weighted Gram kernel, so its
+quadratic form is nonnegative.  The upper bound therefore becomes the
+absolute estimate
+
+```text
+|sum_ij x_i K_phys(i,j) x_j| <=
+  (49/50) * sum_i d_phys(i) x_i^2
+```
+
+for every rational coefficient family satisfying the exact physical
+row-sum centering condition `sum_i x_i d_phys(i) = 0` modulo `Q'.eqv`.
+
+The implementation is factored through
+`BF4PhysicalBoundaryCutoffTwoSectorPhysicalFormTransport`,
+`BF4PhysicalBoundaryCutoffTwoSectorPhysicalGramPositivity`, and
+`BF4PhysicalBoundaryCutoffTwoSectorPhysicalUpperGap`.  The transport layer
+uses the opaque full-table certificate and explicit wrapper `change`s, so
+Lean does not replay the 127-way representative proof during downstream
+definitional-equality search.  A separate leaf audit module performs one
+recursive axiom report after the contracted theorem has built.
+
+`BF4PhysicalBoundaryCutoffTwoCanonicalVacuumGap` combines this form estimate
+with the independently proved support equality.  Its theorem
+`cutoffTwoCanonicalVacuumSector_exact_and_strict_abs_gap` therefore states in
+one place that the 65-state list is exactly the support component of the
+vacuum in the genuine finite production carrier and that the production form
+on its centered coordinates has strict rate `49/50 < 1`.
+
+Focused source checks and dependency-complete targets pass for form transport,
+Gram positivity, the strict absolute form bound, the contracted theorem, and
+the leaf axiom audit.  The final audit reports exactly
+`[propext, Quot.sound]`.
+
+This closes the finite cutoff-two canonical-vacuum form-gap frontier only.  It
+does not construct a compatible family of these canonical components across
+cutoffs or volumes, a cutoff/volume-uniform rate, a completed-space operator
+gap, thermodynamic or continuum limits, continuum QFT axioms, or the Clay
+theorem.  The next causal frontier is to construct explicit cutoff/volume
+embeddings that preserve the vacuum root and support edges and intertwine the
+restricted physical weights and quadratic forms; only after that can a
+uniform strict rate be formulated honestly.
