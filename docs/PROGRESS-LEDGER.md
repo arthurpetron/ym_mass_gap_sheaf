@@ -5508,6 +5508,29 @@ the reduction and the subsequent check passed.  The adaptive seed family is
 not inhabited.  No unconditional fixed-carrier gap, completed Hilbert gap,
 thermodynamic/continuum QFT, or Clay theorem is asserted.
 
+## Positive BF4 paths quantitatively control endpoint differences (2026-08-22)
+
+`BF4PhysicalFiniteVacuumSectorPathEnergy` equips every Type-level positive-
+kernel chain with an explicit recursively amplified physical edge energy.  If
+a nonnegative rational floor lies below every positive entry used by the
+chain, the floor times the squared endpoint difference is bounded by that
+amplified energy.  The proof is an induction on the actual chain data and uses
+only the two-term square inequality; it takes no reciprocal and extracts no
+propositional witness.
+
+The theorem is specialized to the canonical path returned between every pair
+of BF4 vacuum-sector indices.  Thus the remaining finite work is now cleanly
+combinatorial: construct a positive minimum of the finitely many positive
+sector entries and bound the finitely many path amplifications by one common
+factor, then sum the endpoint bounds into a Poincare inequality.
+
+The focused monitored check and exact-target one-worker 1,183-job build pass.
+All four printed declarations use only `[propext]` or
+`[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+custom axiom, or noncomputable declaration was added.  No common edge floor,
+finite `q < 1`, cutoff uniformity, completed Hilbert gap,
+thermodynamic/continuum QFT, or Clay theorem is asserted yet.
+
 ## Every finite BF4 vacuum component is a positive Gram sector (2026-08-22)
 
 `BF4PhysicalFiniteVacuumSectorGramPositivity` removes a cutoff-two-only

@@ -4159,3 +4159,29 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   1,182-job dependency-complete build pass.  This identity alone does not
   supply a strict finite rate, cutoff-uniform estimate, completed-space gap,
   thermodynamic/continuum QFT, or Clay theorem.
+
+### [BF4-finite-vacuum-sector-path-energy] Endpoint domination — **PROVED 2026-08-22**
+
+- **milestone**: define the recursively amplified actual kernel-weighted
+  energy of a Type-level positive-kernel chain and prove that any common
+  nonnegative lower edge bound times the squared endpoint difference is at
+  most this energy.  Apply the result to every explicit canonical BF4 sector
+  path returned by constructive connectedness.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorPathEnergy.lean`.
+- **decl**:
+  `square_add_le_double_square_sum`,
+  `PositiveKernelChainIn.amplifiedEnergy_nonnegative`,
+  `PositiveKernelChainIn.floor_mul_endpointDifference_sq_le_amplifiedEnergy`,
+  and
+  `centralPhysicalFiniteVacuumSector_floor_mul_endpoint_sq_le_pathEnergy`.
+- **obligation**: construct the common positive edge floor and a finite common
+  amplification ceiling, compare every amplified path energy to the global
+  Dirichlet energy, and sum the resulting pairwise estimates.
+- **constructive?**: yes — the four exports use only `[propext]` or
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,183-job dependency-complete build pass.  No common floor, strict finite
+  rate, cutoff-uniform estimate, completed-space gap, thermodynamic/continuum
+  QFT, or Clay theorem is asserted yet.
