@@ -2861,3 +2861,28 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   theorem provides neither equality nor a cutoff-uniform positive floor for
   old entries, and it does not establish uniform form contraction, Hilbert
   completion, thermodynamic/continuum limits, QFT axioms, or the Clay theorem.
+
+### [BF4-cutoff-vacuum-sector-embedding] Rooted component inclusion across cutoffs — **CLOSED 2026-08-22**
+
+- **milestone**: explicit compatible representation-cutoff family of finite
+  physical canonical vacuum components at fixed coupling and half-volume.
+- **file**:
+  `lean/YMGap/Continuum/FiniteBoolGraphRootComponentMap.lean` and
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorEmbedding.lean`.
+- **decl**:
+  `RootedFiniteBoolGraphHom.map_mem_targetRootComponent`,
+  `centralPhysicalFiniteStateAt_cutoffIndexMap_eq`,
+  `centralPhysicalFiniteSupportAdjacentB_cutoffIndexMap`,
+  `centralPhysicalFiniteVacuumSectorIndexMap_mem`, and
+  `centralPhysicalFiniteVacuumSectorStates_mono`.
+- **obligation**: none for qualitative component inclusion when only the
+  representation cutoff grows.  The next obligation is quantitative control
+  of pulled-back later weights and forms, whose values genuinely change with
+  the cutoff, followed by a uniform strict rate and volume compatibility.
+- **constructive?**: yes — the explicit recursive natural-code locator avoids
+  the `Classical.choice` dependency of the discarded standard `idxOf` route;
+  every printed declaration uses exactly `[propext, Quot.sound]`.
+- **status note**: the focused source check and dependency-complete target
+  pass.  No exact weight/form intertwining, cutoff-uniform gap, volume family,
+  completion, thermodynamic/continuum theory, QFT axioms, or Clay theorem is
+  claimed.

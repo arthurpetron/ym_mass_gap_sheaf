@@ -4313,3 +4313,30 @@ a quantitative lower bound uniform in the cutoff, an explicit index map, or
 rooted vacuum-component inclusion.  The next frontier is to use this theorem
 with an explicit old-to-new positive-carrier index map and the generic rooted
 graph homomorphism to prove canonical vacuum-component compatibility.
+
+## Canonical physical vacuum sector embeds across representation cutoffs (2026-08-22)
+
+`FiniteBoolGraphRootComponentMap` supplies a constructive transport theorem
+for root-preserving maps of finite Boolean graphs.  The BF4 specialization in
+`BF4PhysicalCutoffVacuumSectorEmbedding` constructs an explicit old-to-new
+carrier index map by recursively locating the faithful mixed-radix code of an
+old state in the later positive carrier.  A project-local structural locator
+is used because the first standard-library `idxOf` proof path introduced
+`Classical.choice`; the replacement has no such dependency.
+
+The map is proved in range, represents literally the same edge labelling,
+fixes the vacuum index zero, and preserves every true edge of the symmetrized
+production support graph.  Root-component transport then proves both indexed
+component inclusion and the state-level monotonicity theorem
+`centralPhysicalFiniteVacuumSectorStates_mono` for every `base <= later` at
+fixed coupling and finite half-volume.
+
+Focused source checks and the dependency-complete target pass.  Every printed
+load-bearing theorem reports exactly `[propext, Quot.sound]`.  This closes
+qualitative representation-cutoff compatibility of the canonical finite
+vacuum sectors.  It does not assert equality of old and later weights or
+kernel entries, an exact quadratic-form intertwiner, a cutoff-uniform strict
+rate, volume compatibility, Hilbert completion, thermodynamic/continuum
+limits, QFT axioms, or the Clay theorem.  The next causal frontier is the
+quantitative comparison of the pulled-back later weights and physical forms
+with their old-cutoff values.
