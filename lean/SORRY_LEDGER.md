@@ -4629,3 +4629,23 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   4,751-job dependency-complete build pass.  No cross-base rate is claimed;
   no completed-space gap, thermodynamic/continuum QFT, or Clay theorem is
   asserted.
+
+### [BF4-fixed-base-pulled-mass] Normalized mass on every fixed carrier — **PROVED 2026-08-22**
+
+- **milestone**: use the persistent root to prove positive pulled mass and
+  the injective cutoff map plus exact stationary normalization to prove mass
+  at most one for every arbitrary fixed base component at every later cutoff.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorPulledMass.lean`.
+- **decl**: `fixedBasePulledMass_pos` and `fixedBasePulledMass_le_one`.
+- **obligation**: contract the constructed floor, transported path ceiling,
+  deficit embedding, pairwise-variance identity, and these mass bounds into
+  one strict rate for each fixed carrier; then prove a rate uniform in an
+  unbounded/cofinal family.
+- **constructive?**: yes — both audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  4,752-job dependency-complete build pass.  No cross-base quantitative lower
+  bound is claimed; no completed-space gap, thermodynamic/continuum QFT, or
+  Clay theorem is asserted.

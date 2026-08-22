@@ -5178,6 +5178,22 @@ limit entry error nor the moving recentering comparison.  Those estimates,
 followed by the robust rate budget, remain the next frontier; completed-space,
 thermodynamic/continuum QFT, and the Clay theorem remain open.
 
+## Every fixed pulled BF4 carrier has normalized mass (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorPulledMass` proves for arbitrary nome, base
+cutoff, half-extent, and later cutoff that the stationary mass retained on the
+fixed base vacuum component is strictly positive.  The persistent vacuum root
+supplies the positive summand.  Whenever the base embeds into the later
+carrier, the same mass is at most one: the index embedding is injective and
+the complete later positive-row stationary law has exact total mass one.
+
+The focused monitored check and exact-target one-worker 4,752-job build pass.
+Both audited exports use exactly `[propext, Quot.sound]`.  These bounds remove
+mass as a separate base-dependent hypothesis in the pending Poincare
+contraction.  The edge-floor/path-ceiling ratio may still deteriorate as the
+base expands; no cofinal uniform rate, completed gap, thermodynamic/continuum
+QFT, or Clay theorem is asserted.
+
 ## Every fixed pulled BF4 energy reaches the moving deficit (2026-08-22)
 
 `BF4PhysicalCutoffVacuumSectorPulledDirichletEmbedding` maps the Cartesian
