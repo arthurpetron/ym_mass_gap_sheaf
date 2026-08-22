@@ -5888,3 +5888,24 @@ noncomputable declaration was added.  The common positive-edge-floor
 certificate is not inhabited, and no unconditional same-object CReal gap,
 completed Hilbert gap, thermodynamic/continuum QFT, or Clay theorem is
 asserted.
+
+## The uniform finite rate reaches the same-object Bishop-real limit unchanged (2026-08-22)
+
+`BF4PhysicalBoundaryCutoffTwoPulledUniformCRealGap` recodes the uniform pulled
+finite inequality to the literal moving matrix and diagonal approximants and
+passes it to their same-object Bishop-real limits.  Because the finite gap
+already holds after one common certificate start, the eventual-order proof
+uses only the two Cauchy moduli and preserves the exact rational rate
+`ceiling / (ceiling + floor)`; no adaptive tail relaxation is needed.
+
+Thus a `CutoffTwoPulledUniformPositiveEdgeFloor` now contracts all the way to
+one uniform strict CReal form inequality for every coefficient on the fixed
+cutoff-two vacuum carrier.  This is still a conditional finite-carrier
+statement: neither the edge-floor certificate nor a density/completion bridge
+to the full physical vacuum complement is constructed here.
+
+The focused monitored check and exact-target one-worker 4,752-job build pass.
+Both audited declarations use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  No unconditional completed Hilbert gap,
+thermodynamic/continuum QFT, or Clay theorem is asserted.
