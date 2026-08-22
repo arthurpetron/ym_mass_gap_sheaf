@@ -5818,3 +5818,25 @@ All five audited exports use only `[]`, `[propext]`, or
 custom axiom, or noncomputable declaration was added.  The quantitative
 positive-edge floor is not constructed here.  No uniform form gap, completed
 Hilbert gap, thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+## The fixed pulled energy is a sub-energy of the moving deficit (2026-08-22)
+
+`BF4PhysicalBoundaryCutoffTwoPulledDirichletEmbedding` maps the Cartesian
+square of the fixed cutoff-two vacuum carrier injectively into the Cartesian
+square of every later full vacuum sector.  Exact coefficient-extension and
+pulled-kernel recodings identify each source term with its old-old image,
+while positivity of every target summand makes the pulled Dirichlet energy a
+constructive sub-sum of the full zero-extension energy.
+
+The exact finite Dirichlet identity and the already proved head-centering form
+recodings then contract the full energy to twice the actual moving
+diagonal-minus-matrix deficit.  Consequently, the fixed-carrier energy needed
+by the uniform path estimate is now connected directly to the same moving
+forms used by the Bishop-real limit compiler, with no quantitative assumption.
+
+The focused monitored check and exact-target one-worker 4,749-job build pass.
+Both audited declarations use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  A common positive pulled-edge floor is
+still an open analytic input, and no uniform strict rate, completed Hilbert
+gap, thermodynamic/continuum QFT, or Clay theorem is asserted.

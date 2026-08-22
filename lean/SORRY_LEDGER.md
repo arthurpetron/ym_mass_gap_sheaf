@@ -4402,3 +4402,26 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   4,748-job dependency-complete build pass.  The common positive-edge floor is
   not inhabited.  No uniform form gap, completed-space gap,
   thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+### [BF4-cutoff-two-pulled-dirichlet-embedding] Old-old energy bridge — **PROVED 2026-08-22**
+
+- **milestone**: map the fixed cutoff-two Cartesian carrier injectively into
+  every later full vacuum-sector Cartesian carrier, identify source summands
+  with their old-old zero-extension images, and prove that the pulled
+  Dirichlet energy is bounded by the full energy and hence by twice the actual
+  moving diagonal-minus-matrix deficit.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoPulledDirichletEmbedding.lean`.
+- **decl**: `cutoffTwoPulledDirichlet_le_fullExtensionDirichlet` and
+  `cutoffTwoPulledDirichlet_le_twice_moving_deficit`.
+- **obligation**: sum the uniform endpoint estimate against the pulled
+  stationary weights, use the exact centered pairwise-variance identity, and
+  derive a cutoff-uniform finite Poincare rate from the still-uninhabited
+  common positive-edge-floor certificate.
+- **constructive?**: yes — both audited declarations use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  4,749-job dependency-complete build pass.  No common positive-edge floor,
+  uniform form gap, completed-space gap, thermodynamic/continuum QFT, or Clay
+  theorem is asserted.
