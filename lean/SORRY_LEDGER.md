@@ -5089,3 +5089,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   limiting core--shell estimate, but not yet its adaptive cofinal scheduling,
   the unconditional completed lift, a uniform completed gap,
   thermodynamic/continuum QFT, or the Clay theorem.
+
+### [BF4-vacuum-sector-completed-moments] Invariant completed powers and same-object autocorrelation — **PROVED 2026-08-22**
+
+- **milestone**: package the inhabited completed root-sector transfer on its
+  vacuum complement, construct all natural powers, prove powerwise global
+  intertwining and vacuum-orthogonality preservation, and identify the sector
+  same-object autocorrelation with the global adaptive matrix coefficient.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCylinderCompletedMoments.lean`.
+- **decl**:
+  `centralPhysicalVacuumSectorCylinderCompletedVacuumComplementToGlobal`,
+  `centralPhysicalVacuumSectorCylinderCompletedVacuumTransfer_intertwines`,
+  `centralPhysicalVacuumSectorCylinderCompletedTransferPower_intertwines`,
+  `centralPhysicalVacuumSectorCylinderCompletedTransferPower_preserves_orthogonal`,
+  `centralPhysicalVacuumSectorCylinderCompletedTransferPower_add`, and
+  `centralPhysicalVacuumSectorCylinderCompletedAutocorrelation_eq_global`.
+- **obligation**: prove nonnegativity, contraction/log-convexity, and a
+  carrier-independent geometric envelope for these same-object moments, or
+  construct the exact endpoint identification that transports the already
+  proved strict-joint `1/16` theorem to this physical carrier.
+- **constructive?**: yes — all thirteen audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,364-job dependency-complete build pass.  This is an unconditional
+  completed carrier-and-moment interface at fixed nome and finite half-extent,
+  not a uniform completed gap, thermodynamic/continuum QFT, or Clay theorem.

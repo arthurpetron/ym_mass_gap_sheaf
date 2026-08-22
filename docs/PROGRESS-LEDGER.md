@@ -6455,3 +6455,28 @@ was added.  This closes completed root-sector transfer invariance at fixed
 nome and finite half-extent.  It does not supply the independently open
 strict rate uniform over all carriers, nor thermodynamic/continuum control or
 the Clay theorem.
+
+## The completed BF4 root sector now has powers and same-object moments (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorCylinderCompletedMoments` packages the
+unconditionally inhabited root-sector transfer as an endomorphism of the
+completed sector and of its actual global-vacuum-orthogonal subtype.  That
+vacuum complement embeds injectively into the global cutoff-removed BF4
+vacuum complement, and the restricted transfer intertwines the concrete
+global adaptive transfer.
+
+Natural powers of the sector and global transfers are defined explicitly.
+Induction upgrades the one-step intertwining theorem to every power and shows
+that every sector power remains vacuum orthogonal.  The resulting same-object
+sector autocorrelation is proved equal to the global completed adaptive
+matrix coefficient of the embedded vector.  Thus future rate estimates now
+refer to one actual completed vector and one actual transfer at every time,
+instead of unrelated finite presentations.
+
+The focused monitored check and exact-target one-worker 1,364-job build pass.
+All thirteen audited exports use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  This constructs the completed
+same-object moment interface but proves no carrier-independent strict rate.
+The common-rate analytic estimate, thermodynamic/continuum QFT, and Clay
+theorem remain open.
