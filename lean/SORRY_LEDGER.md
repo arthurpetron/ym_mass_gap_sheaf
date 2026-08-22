@@ -2680,6 +2680,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `49/50` gap, cofinal sector family, completed gap, continuum QFT, or Clay
   theorem is claimed.
 
+### [BF4-cutoff-two-shared-DAG-R00C01] Representative `(0,1)` physical evaluation — **CLOSED 2026-08-21**
+
+- **milestone**: finite physical sector table / shared-DAG representative
+  evaluation.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSharedDAGTraceR00C01Data.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSharedDAGTraceR00C01/`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSharedDAGTraceR00C01Certificate.lean`,
+  and
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSharedDAGPhysicalR00C01Certificate.lean`.
+- **decl**:
+  `centralPhysicalReflectedKernel_cutoffTwo_sector_R00C01_eqv_raw_sharedDAG`.
+- **obligation**: none for representative `(0,1)`.  The residual obligation is
+  to discharge and assemble the rest of the exact 127-member representative
+  carrier into
+  `CutoffTwoSectorPhysicalSpatialS3RepresentativeCertificate`.
+- **constructive?**: yes — the exported equality uses exactly
+  `[propext, Quot.sound]`.
+- **status note**: the dependency-complete target passed with 1,722 jobs and
+  built the shared 1,606-bucket cache needed by later traces.  This is one new
+  representative equality, not yet the aggregate certificate, the
+  production-kernel `49/50` gap, a uniform limit, a continuum QFT, or the Clay
+  theorem.
+
 ## How to add an entry
 
 ```markdown

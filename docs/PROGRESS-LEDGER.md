@@ -4130,3 +4130,23 @@ finite frontier is to extend the existing shared-DAG physical evaluator from
 pilot entries to these representatives.  No production-kernel `49/50` gap,
 cofinal sector family, completed gap, thermodynamic/continuum construction,
 QFT axioms, or Clay theorem is claimed.
+
+## First new shared-DAG representative evaluation (2026-08-21)
+
+`bf4_cutoff_two_shared_dag_certificate.py` now emits the complete shared-DAG
+trace for representative `(0,1)`: one trace-data module, six process-isolated
+four-step trace shards, the trace root, and the final production-physical/raw
+kernel certificate.  The proof reuses the 1,606 globally canonical factor
+buckets and transports the actual cutoff-two physical factor list through the
+checked 24-step elimination trace.
+
+The dependency-complete physical-certificate target completed successfully
+with 1,722 jobs and reports exactly `[propext, Quot.sound]` for
+`centralPhysicalReflectedKernel_cutoffTwo_sector_R00C01_eqv_raw_sharedDAG`.
+This discharges one previously unevaluated member of the exact 127-element
+representative carrier and, importantly, leaves the global bucket cache built
+for subsequent traces.  It does not yet inhabit the representative
+certificate: the remaining representative equalities must be generated,
+kernel-checked, and assembled before the compiler can close the 499 nonzero
+upper entries and the full physical table.  No production-kernel `49/50` gap,
+uniform limit, continuum QFT, or Clay theorem is claimed.
