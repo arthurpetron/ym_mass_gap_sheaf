@@ -71,6 +71,41 @@ def centralPhysicalFinitePulledMatrixQuadratic
 
 /-! ## 2. Generic finite-sum stability -/
 
+theorem finiteLinearForm_abs_sub_le_l1_on
+    {State : Type} (states : List State)
+    (coefficient left right : State → Q')
+    (epsilon : Q')
+    (herror : ∀ state, state ∈ states →
+      Q'.abs (left state + (-right state)) ≤ epsilon) :
+    Q'.abs
+        (listQSum (fun state => coefficient state * left state) states +
+          (-listQSum (fun state => coefficient state * right state) states)) ≤
+      coefficientL1 states coefficient * epsilon := by
+  have hsum := abs_listQSum_sub_le
+    (fun state => coefficient state * left state)
+    (fun state => coefficient state * right state)
+    states
+  refine Q'.le_trans' _ _ _ hsum ?_
+  have hterms :
+      listQSum
+          (fun state => Q'.abs
+            (coefficient state * left state +
+              (-(coefficient state * right state))))
+          states ≤
+        listQSum
+          (fun state => Q'.abs (coefficient state) * epsilon)
+          states := by
+    apply listQSum_mono
+    intro state hstate
+    exact abs_common_mul_sub_le
+      (coefficient state) (left state) (right state) epsilon
+      (herror state hstate)
+  refine Q'.le_trans' _ _ _ hterms ?_
+  unfold coefficientL1
+  exact Q'.le_of_eqv
+    (listQSum_mul_right
+      (fun state => Q'.abs (coefficient state)) epsilon states)
+
 private theorem finiteLinearForm_abs_sub_le_l1
     (n : Nat) (coefficient left right : Nat → Q')
     (epsilon : Q')
@@ -82,33 +117,11 @@ private theorem finiteLinearForm_abs_sub_le_l1
           (-listQSum (fun index => coefficient index * right index)
             (List.range n))) ≤
       coefficientL1 (List.range n) coefficient * epsilon := by
-  have hsum := abs_listQSum_sub_le
-    (fun index => coefficient index * left index)
-    (fun index => coefficient index * right index)
-    (List.range n)
-  refine Q'.le_trans' _ _ _ hsum ?_
-  have hterms :
-      listQSum
-          (fun index => Q'.abs
-            (coefficient index * left index +
-              (-(coefficient index * right index))))
-          (List.range n) ≤
-        listQSum
-          (fun index => Q'.abs (coefficient index) * epsilon)
-          (List.range n) := by
-    apply listQSum_mono
-    intro index hindex
-    exact abs_common_mul_sub_le
-      (coefficient index) (left index) (right index) epsilon
-      (herror index (List.mem_range.mp hindex))
-  refine Q'.le_trans' _ _ _ hterms ?_
-  unfold coefficientL1
-  exact Q'.le_of_eqv
-    (listQSum_mul_right
-      (fun index => Q'.abs (coefficient index))
-      epsilon (List.range n))
+  exact finiteLinearForm_abs_sub_le_l1_on
+    (List.range n) coefficient left right epsilon
+    (fun index hindex => herror index (List.mem_range.mp hindex))
 
-private theorem coefficientL1_nonnegative_local
+theorem coefficientL1_nonnegative_local
     {State : Type} (states : List State) (coefficient : State → Q') :
     (0 : Q') ≤ coefficientL1 states coefficient := by
   unfold coefficientL1
@@ -116,7 +129,7 @@ private theorem coefficientL1_nonnegative_local
   intro state _
   exact Q'.abs_nonneg (coefficient state)
 
-private theorem positive_scale
+theorem positive_scale
     {baseScale : Q'} (hbase : (0 : Q') ≤ baseScale) :
     (0 : Q') < baseScale + 1 := by
   have hone : (0 : Q') < (1 : Q') := by decide
@@ -126,7 +139,7 @@ private theorem positive_scale
     simpa only [Q'.zero_add'] using hadd
   exact Q'.pos_of_lt_of_le hone hle
 
-private theorem scaled_divPos_le_epsilon
+theorem scaled_divPos_le_epsilon
     {baseScale epsilon : Q'}
     (hbase : (0 : Q') ≤ baseScale)
     (hepsilon : (0 : Q') < epsilon) :
@@ -150,7 +163,7 @@ private theorem scaled_divPos_le_epsilon
       (Q'.divPos_mul_eqv epsilon scale (positive_scale hbase))
   exact Q'.le_trans' _ _ _ hscaled (Q'.le_of_eqv hcollapse)
 
-private theorem two_sided_add_of_abs_sub_le_local
+theorem two_sided_add_of_abs_sub_le_local
     {left right epsilon : Q'}
     (habs : Q'.abs (left + (-right)) ≤ epsilon) :
     left ≤ right + epsilon ∧ right ≤ left + epsilon := by

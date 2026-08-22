@@ -2932,3 +2932,29 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   pass.  These CReal limits do not preserve centering, identify the
   cutoff-two table with the limit, bound new-sector leakage, establish a
   uniform gap, or construct thermodynamic/continuum QFT or the Clay theorem.
+
+### [BF4-cutoff-vacuum-sector-form-cauchy] Embedded canonical-sector form limits — **CLOSED 2026-08-22**
+
+- **milestone**: constructive cutoff limits for the weighted mean, diagonal
+  quadratic, and reflected matrix quadratic on the fixed base canonical
+  vacuum component embedded into every later cutoff.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorFormCauchy.lean`, with the
+  reusable list-level stability lemma in
+  `BF4PhysicalCutoffEmbeddedFormCauchy.lean`.
+- **decl**:
+  `centralPhysicalFinitePulledVacuumSectorWeightedMeanCutoffLimit`,
+  `centralPhysicalFinitePulledVacuumSectorDiagonalQuadraticCutoffLimit`, and
+  `centralPhysicalFinitePulledVacuumSectorMatrixQuadraticCutoffLimit`.
+- **obligation**: none for convergence on the fixed embedded old component.
+  The next obligation is an exact old-image/new-state partition of the later
+  canonical component and block decomposition of its mean, diagonal form,
+  and matrix quadratic, followed by genuine uniform leakage and cross-term
+  estimates.
+- **constructive?**: yes — every printed declaration uses exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused source check and dependency-complete target
+  pass.  Zero extension onto later component states is not a cutoff-uniform
+  gap theorem; centering, new-state mass, cross terms, volume compatibility,
+  completion, continuum QFT, and the Clay target remain open.

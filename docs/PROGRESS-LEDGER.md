@@ -4388,3 +4388,27 @@ vacuum-sector states, or prove that the `49/50` contraction persists.  The
 next causal frontier is the canonical vacuum-sector specialization followed
 by an exact old/new block decomposition that exposes the leakage and cross
 terms requiring uniform estimates.
+
+## Canonical-vacuum-sector pulled forms have cutoff limits (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorFormCauchy` restricts the pulled stationary
+mean, diagonal quadratic, and normalized reflected matrix quadratic to the
+exact root-connected canonical vacuum component at the fixed base cutoff.
+The earlier component embedding theorem guarantees that every one of these
+old indices represents a state in each later canonical component.  A reusable
+list-level linear-form stability theorem makes the construction pay only the
+coefficient envelope on this component rather than on the whole positive
+carrier.
+
+All three component-restricted sequences are packaged as Bishop reals.  The
+focused source check and dependency-complete target pass, and the printed
+axiom audit reports exactly `[propext, Quot.sound]` for each exported limit.
+
+These are limits of the embedded old block, equivalently of coefficient
+vectors extended by zero beyond it.  They are not limits of the whole growing
+canonical component: later cutoffs can add states, stationary mass, and
+old/new matrix entries.  The next causal frontier is therefore an exact
+finite partition of the later component into the embedded old image and its
+new-state complement, followed by algebraic mean/diagonal/matrix block
+decompositions.  Only estimates for the resulting leakage and cross terms
+could propagate a strict contraction to the growing component.
