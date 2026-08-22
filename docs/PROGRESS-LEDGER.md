@@ -4053,3 +4053,21 @@ physical equalities but does not yet construct or verify the six-element `S3`
 word action, orbit representatives, or a reduced nonzero-pair certificate.
 Signed flips, cutoff-uniform contraction, completion, thermodynamic/continuum
 limits, QFT axioms, and the Clay theorem remain open.
+
+## Six-element cutoff-two spatial S3 kernel action (2026-08-21)
+
+`BF4PhysicalBoundaryCutoffTwoSpatialS3KernelAction` packages the two adjacent
+swaps into six explicit normal words.  A literal multiplication table is
+proved associative with two-sided identity and inverses.  A finite check over
+all `6 * 6 * 65` cases proves that table multiplication agrees with function
+composition on the exact sector order.  The two generator kernel equalities
+then compose to physical-kernel invariance under every normal word.
+
+The focused target completed successfully with 1763 jobs.  Both the checked
+action-composition theorem and the six-word physical-kernel invariance theorem
+report exactly `[propext, Quot.sound]`.  The next frontier is no longer group
+closure: it is a checked canonicalization of unordered state pairs, followed
+by raw-table transport and a concrete nonzero orbit-representative list.
+Signed flips, residual physical trace evaluations, cutoff-uniform contraction,
+completion, thermodynamic/continuum limits, QFT axioms, and the Clay theorem
+remain open.

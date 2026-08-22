@@ -2606,6 +2606,25 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   every uniform/continuum conclusion remain open; no production-kernel
   `49/50` gap or Clay theorem is claimed.
 
+### [BF4-cutoff-two-spatial-S3-action] Six-word physical-kernel action — **CLOSED 2026-08-21**
+
+- **milestone**: finite physical sector symmetry / exact kernel orbit
+  reduction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSpatialS3KernelAction.lean`.
+- **decl**: `cutoffTwoSpatialS3Action_compose` and
+  `centralPhysicalReflectedKernel_cutoffTwo_spatialS3_eqv`.
+- **obligation**: none for the six-element unsigned spatial action and its
+  genuine physical-kernel invariance.  The next obligation is a checked
+  unordered-pair canonicalizer, raw-table transport, and the resulting
+  nonzero representative certificate.
+- **constructive?**: yes — the multiplication laws are finite constructor
+  proofs/checks and both load-bearing declarations use only
+  `[propext, Quot.sound]`.
+- **status note**: the dependency-complete target passed with 1763 jobs.  No
+  signed flip, residual physical trace equality, production-kernel `49/50`
+  gap, uniform limit, continuum QFT, or Clay theorem is claimed.
+
 ## How to add an entry
 
 ```markdown
