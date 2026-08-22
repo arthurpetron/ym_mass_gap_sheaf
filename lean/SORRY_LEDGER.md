@@ -3811,3 +3811,34 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   4,733-job dependency-complete build pass.  This is not yet a robust
   persistence family, completed spectral gap, thermodynamic/continuum QFT,
   or Clay theorem.
+
+### [BF4-cutoff-two-relative-tail-recentering] Coefficientwise relative tail control — **CLOSED 2026-08-22**
+
+- **milestone**: a constructive finite dichotomy separates root-supported
+  raw coefficients, whose moving-centered forms vanish exactly, from
+  coefficients with a positive non-root coordinate.  The latter coordinate
+  is invariant under root centering and supplies a positive lower bound for
+  the later centered `l1` norm.  Head-correction Cauchy control, the explicit
+  three-term quadratic amplification, and the positive physical diagonal
+  floor then produce arbitrarily small relative same-law matrix and diagonal
+  recentering errors for all sufficiently late cutoff pairs.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoPulledRelativeRecentering.lean`.
+- **decl**:
+  `cutoffTwoRootSupported_or_nonRootWitness`,
+  `cutoffTwoRootSupported_movingCentered_eqv_zero_on`,
+  `CutoffTwoNonRootCoefficientWitness.recenteringSize_le_scaled_l1_cofinally`,
+  `exists_positive_recentering_fraction_for_relative_error`, and
+  `sameLaw_relative_errors_for_every_coefficient`.
+- **obligation**: combine this same-law moving-coefficient estimate with the
+  entrywise cutoff-law Cauchy estimates to obtain full moving-form tail
+  stability.  That tail statement must not be mistaken for the still-open
+  finite cutoff-two-to-tail or summable-increment bridge needed to transport
+  the verified cutoff-two gap anchor.
+- **constructive?**: yes — all printed declarations use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  4,734-job dependency-complete build pass.  No robust cutoff-two persistence
+  family, completed spectral gap, thermodynamic/continuum QFT, or Clay theorem
+  is asserted.

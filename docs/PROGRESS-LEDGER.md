@@ -5261,3 +5261,32 @@ modulus can be chosen.  That relative recentering estimate must then be
 combined with entrywise law errors.  A strict total cutoff-two-to-limit
 budget, robust cofinal persistence, the completed spectral gap,
 thermodynamic/continuum QFT, and the Clay theorem remain open.
+
+## Moving recentering is relatively stable in the cutoff tail (2026-08-22)
+
+`BF4PhysicalBoundaryCutoffTwoPulledRelativeRecentering` closes the
+coefficientwise relative version of the same-law recentering estimate.  A
+constructive finite dichotomy says that every raw cutoff-two coefficient is
+either supported only at the distinguished root or has a non-root coordinate
+of positive absolute value.  Root-supported coefficients are annihilated
+exactly by moving root centering.  In the other branch, the unchanged
+non-root coordinate gives a cutoff-independent positive lower bound for the
+later centered `l1` norm.  The head-correction Cauchy modulus can therefore
+make the moving root shift an arbitrarily small multiple of that norm.
+
+Combining this coefficient estimate with the verified same-law quadratic
+bounds and positive physical diagonal floor gives, for every coefficient and
+every positive requested relative error, one cutoff after which both the
+matrix and diagonal recentering errors are bounded by that error times the
+later diagonal.  The rational amplification budget and its positive error
+fraction are explicit constructions rather than hypotheses.
+
+The focused monitored check and exact-target one-worker 4,734-job build pass.
+All printed declarations use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  This is a late-pair theorem: it does
+not bound the change from cutoff two to the tail.  The next causal step is to
+combine it with entrywise cutoff-law Cauchy estimates into full moving-form
+tail stability.  The finite cutoff-two-to-tail or summable-increment bridge,
+robust persistence from the cutoff-two gap anchor, completed spectral gap,
+thermodynamic/continuum QFT, and the Clay theorem remain open.
