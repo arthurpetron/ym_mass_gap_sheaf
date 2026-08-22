@@ -3087,3 +3087,29 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 - **status note**: monitored focused and dependency-complete builds pass.
   Exact same-sector centering is not a uniform gap, thermodynamic/continuum
   QFT, or the Clay theorem.
+
+### [BF4-cutoff-vacuum-sector-head-correction-cauchy] Moving head-correction Bishop real — **CLOSED 2026-08-22**
+
+- **milestone**: constructive cutoff-Cauchy control of the signed rational
+  quotient between the pulled base-sector weighted mean and the positive
+  pulled vacuum-root weight, packaged as a `CReal` with an explicit modulus.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorHeadCorrectionCauchy.lean`.
+- **decl**:
+  `signedDivPos_abs_sub_le`,
+  `centralPhysicalFinitePulledVacuumSectorWeightedMean_abs_le_l1`,
+  `centralPhysicalUniformPositiveRowFloor_le_pulledWeight_zero`,
+  `centralPhysicalFinitePulledVacuumSectorHeadCorrection_cauchy`, and
+  `centralPhysicalFinitePulledVacuumSectorHeadCorrectionCutoffLimit`.
+- **obligation**: use the scalar quotient modulus and the existing finite
+  entry/form moduli to prove cutoff-Cauchy control of the root-centered
+  diagonal and reflected quadratic forms, then establish a strict rate
+  `q < 1` uniform in the base cutoff.
+- **constructive?**: yes — every printed declaration uses exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused source check and one-job dependency-complete
+  build pass.  The large Cauchy modulus uses a file-local four-million-
+  heartbeat elaboration budget.  Scalar convergence is not yet convergence
+  of the centered forms, a uniform spectral gap, thermodynamic/continuum QFT,
+  or the Clay theorem.

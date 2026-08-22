@@ -4533,3 +4533,30 @@ Cauchy control of that quotient, using the existing pulled-form moduli and a
 uniform positive lower bound for the root weight.  Only after that passage
 can a base-uniform strict centered rate be meaningfully imposed on the
 cutoff-removed dense sector.
+
+## Moving vacuum-sector head correction is cutoff-Cauchy (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorHeadCorrectionCauchy` packages the positive
+head correction (pulled weighted mean divided by pulled root weight) as a
+Bishop real.  A reusable signed-quotient estimate controls two rational
+quotients from Cauchy bounds on their numerators and denominators, an `l1`
+bound on the fixed base coefficient, and one strictly positive lower bound on
+both denominators.
+
+For the physical sequence, the numerator and root-weight moduli come from the
+already constructed pulled-form and pulled-entry limits.  The root denominator
+is bounded below, beyond an explicit cutoff, by the fixed positive-row floor;
+all pulled stationary weights are between zero and one.  These data give an
+explicit tolerance and cutoff witnessing Cauchy convergence of the moving
+correction.  The large modulus proof was factored from the final `CReal`
+constructor and checked with a file-local four-million-heartbeat elaboration
+budget.  The focused and dependency-complete monitored builds pass, and every
+printed declaration reports exactly `[propext, Quot.sound]`.
+
+This proves convergence of the scalar used for exact same-sector centering,
+not yet convergence of either centered quadratic form.  The next causal
+frontier is finite polynomial stability for the diagonal and reflected forms
+when only the root coefficient moves.  Beyond those form limits, the main
+analytic obstruction remains a single strict rate `q < 1` uniform in the base
+cutoff; no completed, thermodynamic, continuum, or Clay conclusion follows
+from this scalar limit alone.
