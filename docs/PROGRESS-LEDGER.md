@@ -4712,3 +4712,29 @@ next causal frontier is to derive this certificate from the repository's
 existing common-rank-one, density, core/tail, or minorization estimates.
 Uniformity in physical volume and lattice spacing, continuum QFT, and the Clay
 mass-gap theorem remain open.
+
+## Literal physical centered rows contract to the same-object limit gap (2026-08-22)
+
+`BF4PhysicalCutoffCofinalCenteredRowGap` aligns the cofinal gap interface with
+the analytic quantity already produced throughout the BF4 density, buffer,
+and local-gluing layers.  It compares the normalized reflected joint with the
+full stationary product joint `d_i d_j`, independently of the requested
+contraction rate.  A generic finite-index row transport proves that this
+indexed row distance is exactly `physicalCenteredPhysicalRowMass` on the
+literal positive carrier.
+
+Exact centering annihilates the stationary-product quadratic, and the
+weighted Young estimate turns a row bound at rate `q` into
+`|x^T K x| <= q x^T D x`.  Thus one constructively cofinal family of the
+repository's literal physical row estimates supplies both the global centered
+strict-gap certificate and the moving same-object vacuum-sector cutoff-limit
+inequality.  The focused monitored source check and one-job 1,474-job
+dependency-complete build pass; all seven printed load-bearing declarations
+use exactly `[propext, Quot.sound]`.
+
+No cofinal physical centered-row family is constructed here.  This closes the
+indexing and contraction seam from the established analytic target, but not
+the target's cutoff-uniform inhabitant.  The next causal frontier is to compile
+cofinal genuine local-slice/density/gluing data into this family.  Physical
+volume and lattice-spacing uniformity, continuum QFT, and the Clay theorem
+remain open.

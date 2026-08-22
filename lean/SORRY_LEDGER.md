@@ -3263,3 +3263,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete build pass.  This closes a weaker sufficient interface,
   not the row estimate itself, a completed physical gap, volume/spacing
   uniformity, continuum QFT, or the Clay theorem.
+
+### [BF4-cutoff-cofinal-physical-centered-row-gap] Literal physical row compiler — **CLOSED 2026-08-22**
+
+- **milestone**: canonical finite indexing exactly preserves the literal BF4
+  row distance from the full stationary product joint; any constructively
+  cofinal family of source-relative bounds at one `0 <= q < 1` contracts both
+  global centered forms and the moving same-object vacuum-sector form limits.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffCofinalCenteredRowGap.lean`.
+- **decl**:
+  `finiteStationaryProductJoint_quadratic_centered_eqv_zero`,
+  `FiniteStationaryProductRowDistanceCertificate.absContraction`,
+  `finiteIndexJointDifferenceAbsRowMass_eqv_list`,
+  `centralPhysicalFiniteStationaryProductRowDistance_eqv`,
+  `FixedNomeCofinalPhysicalCenteredRowDistance.finiteCertificate`,
+  `FixedNomeCofinalPhysicalCenteredRowDistance.toCenteredStrictGap`,
+  `FixedNomeCofinalPhysicalCenteredRowDistance.toVacuumSectorCenteredStrictGap`,
+  and
+  `FixedNomeCofinalPhysicalCenteredRowDistance.centeredMatrixCutoffLimit_leEv_rate_mul_diagonal`.
+- **obligation**: construct an actual cofinal family of the literal physical
+  centered-row estimate, preferably by compiling the existing genuine
+  local-slice, conditional-density, buffered-Perron, or core/tail producer
+  interfaces.  No inhabitant is asserted here.
+- **constructive?**: yes — all seven printed load-bearing declarations use
+  exactly `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`,
+  `sorry`, custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored source check and one-job 1,474-job
+  dependency-complete build pass.  This closes the exact producer-to-gap
+  interface, not its analytic inhabitant, volume/spacing uniformity,
+  continuum QFT, or the Clay theorem.
