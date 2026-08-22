@@ -3625,3 +3625,27 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete build pass, with one benign unused-`simp`-argument
   linter warning.  No all-cutoff/cofinal family, physical-time limit,
   thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+### [BF4-cutoff-two-pulled-vacuum-gap] First moving centered-gap anchor — **CLOSED 2026-08-22**
+
+- **milestone**: self-pullback at `base = later = 2` identifies the pulled
+  canonical vacuum-sector weight, kernel, and forms with the normalized
+  cutoff-two forms.  The moving root-centered coefficient consequently
+  satisfies the exact `49/50` absolute gap in the same expression required by
+  the cofinal centered-gap structure.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoPulledVacuumGap.lean`.
+- **decl**:
+  `cutoffTwoPulledWeight_self_eqv`,
+  `cutoffTwoPulledKernel_self_eqv`,
+  `cutoffTwoPulledVacuumSectorMatrix_self_eqv`, and
+  `cutoffTwoPulledHeadCentered_abs_gap`.
+- **obligation**: preserve a strict sector rate from the cutoff-two anchor
+  along an all-cutoff or constructively cofinal family.  One finite anchor
+  does not satisfy the cofinal quantifiers.
+- **constructive?**: yes — all four printed declarations use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and one-worker 4,721-job
+  dependency-complete build pass.  No persistence family, physical-time
+  limit, thermodynamic/continuum QFT, or Clay theorem is asserted.

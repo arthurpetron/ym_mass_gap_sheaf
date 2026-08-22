@@ -5083,3 +5083,26 @@ coordinate bridge only.  The causal frontier is now to propagate a strict
 sector estimate uniformly to later/cofinal cutoffs; physical-time,
 thermodynamic and continuum control, continuum QFT, and the Clay theorem
 remain open.
+
+## Cutoff two inhabits the moving pulled centered-gap expression (2026-08-22)
+
+`BF4PhysicalBoundaryCutoffTwoPulledVacuumGap` connects the canonical finite
+theorem to the exact expression used by the cofinal same-object certificate.
+At `base = later = 2`, the explicit cutoff index map represents the same
+literal state, so pulled weights and normalized reflected-kernel entries are
+exactly the canonical cutoff-two entries.  The corresponding weighted mean,
+diagonal, and matrix forms agree term by term.
+
+Applying the previously verified arbitrary-coefficient theorem to the
+root-centered coefficient therefore proves the `49/50` absolute gap for the
+moving pulled forms at this first nontrivial anchor.  This is an inhabited
+finite point of the eventual `centeredGap` field, not an inhabitant of the
+cofinal structure itself.
+
+The focused monitored check and one-worker 4,721-job dependency-complete
+build pass.  All four printed declarations use exactly
+`[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+custom axiom, or noncomputable declaration was added.  The next causal
+frontier is a uniform persistence estimate from this anchor to arbitrarily
+late/cofinal cutoffs.  Physical-time, thermodynamic and continuum control,
+continuum QFT, and the Clay theorem remain open.
