@@ -5177,3 +5177,31 @@ coercivity theorem, but it supplies neither the needed total cutoff-two-to-
 limit entry error nor the moving recentering comparison.  Those estimates,
 followed by the robust rate budget, remain the next frontier; completed-space,
 thermodynamic/continuum QFT, and the Clay theorem remain open.
+
+## Entrywise pulled errors compile to relative physical form errors (2026-08-22)
+
+`BF4PhysicalBoundaryCutoffTwoPulledEntryPerturbation` consumes the positive
+floor coercivity instead of postulating form comparisons.  A uniform
+entrywise error `eta` between two pulled normalized kernels gives the cleared
+bound
+
+`floor * |M_first(x) - M_later(x)| <= |states| * eta * D_later(x)`.
+
+Likewise, a uniform entrywise pulled-weight error gives
+
+`floor * |D_first(x) - D_later(x)| <= eta * D_later(x)`.
+
+Exact rational budget inequalities against the positive floor cancel that
+floor constructively.  The first estimate becomes the robust `matrixError`
+term; the second becomes both a relative diagonal error and the multiplicative
+inflation `D_first(x) <= (1 + diagonalError) D_later(x)`.
+
+The focused monitored check and one-worker 4,731-job dependency-complete
+build pass.  All four printed declarations use exactly
+`[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+custom axiom, or noncomputable declaration was added.  These theorems compare
+the same coefficient at two cutoffs.  The moving root-centered coefficients
+differ, so their recentering perturbation and a strict total entry-error
+budget from the finite anchor remain open.  The completed-space and physical
+thermodynamic/continuum frontiers, continuum QFT, and the Clay theorem remain
+open.

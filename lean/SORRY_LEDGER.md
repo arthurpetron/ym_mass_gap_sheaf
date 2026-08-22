@@ -3728,3 +3728,29 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 - **status note**: the focused monitored check and one-worker 4,730-job
   dependency-complete build pass.  Norm coercivity alone is not a persistence
   family, completed spectral gap, thermodynamic/continuum QFT, or Clay theorem.
+
+### [BF4-cutoff-two-pulled-entry-perturbation] Relative form errors from entrywise bounds — **CLOSED 2026-08-22**
+
+- **milestone**: uniform pulled-kernel entry error `eta` yields the cleared
+  relative bound `floor * |Delta M| <= |states| * eta * D_later`; uniform
+  pulled-weight entry error yields `floor * |Delta D| <= eta * D_later`.
+  Explicit rational budgets against the positive floor then produce an
+  un-cleared robust matrix error and diagonal inflation factor
+  `1 + diagonalError`.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoPulledEntryPerturbation.lean`.
+- **decl**:
+  `CutoffTwoPulledKernelEntryErrorAt.cleared_matrix_error`,
+  `CutoffTwoPulledKernelEntryErrorAt.matrix_error`,
+  `CutoffTwoPulledWeightEntryErrorAt.cleared_diagonal_error`, and
+  `CutoffTwoPulledWeightEntryErrorAt.diagonal_inflation`.
+- **obligation**: control the change between the moving head-centered
+  coefficients, then produce a strict total anchor-to-late or summable
+  incremental entry-error budget satisfying the robust rate inequality.
+- **constructive?**: yes — all four printed declarations use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and one-worker 4,731-job
+  dependency-complete build pass.  Same-coefficient perturbation control is
+  not yet a robust persistence family, completed spectral gap,
+  thermodynamic/continuum QFT, or Clay theorem.
