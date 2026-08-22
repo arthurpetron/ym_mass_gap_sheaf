@@ -4199,3 +4199,36 @@ finite cutoff-two physical-table seam.  It does not yet make the stored-table
 `49/50` eigenspace estimate an unconditional production-kernel gap theorem,
 and it supplies no cofinal cutoff family, cutoff-uniform estimate, Hilbert
 completion, thermodynamic/continuum construction, QFT axioms, or Clay theorem.
+
+## Constructive canonical-vacuum foundations at cutoff two (2026-08-21)
+
+`FiniteBoolGraphRootComponent` now constructs, without choice, the connected
+component of a distinguished root in any finite Boolean symmetric graph and
+proves root membership, internal connectivity, exact adjacency separation,
+and closure under support edges.  `BF4PhysicalFiniteVacuumSector` applies that
+construction to the literal indexed positive-row BF4 production kernel.  It
+defines the canonical finite vacuum component at every finite cutoff and adds
+generic opaque introduction rules for positive kernel edges and two-edge
+vacuum connectivity, deliberately keeping concrete cutoff carriers out of
+downstream equality normalization.
+
+At cutoff two, `BF4PhysicalBoundaryCutoffTwoSectorRawRowZeroPositive` checks
+all 65 stored row-zero entries by kernel `decide`.  The full 127-representative
+certificate is sealed behind compact row-zero physical/raw and positivity
+theorems, with the generator updated in lockstep.
+`BF4PhysicalBoundaryCutoffTwoCubePositiveStar` exposes the genuine production
+kernel star, while `BF4PhysicalBoundaryCutoffTwoCubePositiveCarrier` proves
+that every state in the exact 65-state cube table belongs to the actual
+positive-row Markov carrier and packages proof-local table/carrier index
+witnesses.
+
+Focused source checks and dependency-complete targets for these modules pass;
+every printed load-bearing declaration reports exactly
+`[propext, Quot.sound]`.  The final concrete theorem identifying all 65 table
+states with the canonical vacuum component remains under construction:
+monitored checks of
+`BF4PhysicalBoundaryCutoffTwoCubeVacuumConnectivity` were interrupted after
+safe but prolonged elaboration and are **not** reported as passed.  The
+cutoff-two exact component equality, its `49/50` form-gap contraction, all
+cutoff/volume compatibility, Hilbert completion, thermodynamic/continuum
+limits, QFT axioms, and the Clay theorem remain open.

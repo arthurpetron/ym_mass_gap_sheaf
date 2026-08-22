@@ -8,6 +8,7 @@ reducing the concrete 65-state list during equality transport.
 -/
 
 import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSpatialS3RepresentativeReduction
+import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSectorRawRowZeroPositive
 import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGPhysicalR00C00Certificate
 import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGPhysicalR00C01Certificate
 import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGPhysicalR00C02Certificate
@@ -141,9 +142,20 @@ namespace YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGRepresentativeCer
 set_option maxRecDepth 1000000
 set_option maxHeartbeats 500000000
 
+open YMGap.Constructive
+open YMGap.Continuum.BF4CentralLowerCubePositiveRow
+open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCubeSubsetEnumeration
+open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSectorPhysicalKernelBridge
+open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSectorRawKernelCertificate
+open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSectorRawRowZeroPositive
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSpatialS3NonzeroRepresentativeData
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSpatialS3PairCanonicalizationData
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSpatialS3RepresentativeReduction
+open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoVacuumLocalFactors
+open YMGap.Continuum.SU2FiniteTrivalentPacketGraphActualOperator
+open YMGap.Continuum.Z4HalfTimeReflectionPhysicalGram
+
+local infix:50 " ≈ " => Q'.eqv
 
 theorem cutoffTwoSharedDAGRepresentativeR00C00_checked :
     cutoffTwoSectorRepresentativePhysicalStatement ⟨0, 0⟩ :=
@@ -1053,6 +1065,43 @@ def cutoffTwoSectorPhysicalTableCertificate :
     BF4PhysicalBoundaryCutoffTwoSectorPhysicalKernelBridge.CutoffTwoSectorPhysicalTableCertificate :=
   cutoffTwoSectorPhysicalSpatialS3RepresentativeCertificate.toPhysicalTableCertificate
 
+/-- Opaque presentation boundary for downstream consumers.  This is the same
+checked certificate, sealed so elaboration does not unfold its 127-way
+representative dispatch during ordinary theorem application. -/
+opaque cutoffTwoSectorPhysicalTableCertificateSealed :
+    BF4PhysicalBoundaryCutoffTwoSectorPhysicalKernelBridge.CutoffTwoSectorPhysicalTableCertificate :=
+  cutoffTwoSectorPhysicalTableCertificate
+
+/-- Specialized opaque row-zero bridge.  Downstream graph proofs consume this
+theorem without comparing the full representative-dispatch proof term. -/
+opaque cutoffTwoSectorPhysicalTableCertificateSealed_rowZero_eqv_raw
+    {column : Nat} (hcolumn : column < 65) :
+    centralPhysicalReflectedKernel cutoffTwoHalfCoupling 2 0
+        (cutoffTwoSectorStateAt 0) (cutoffTwoSectorStateAt column) ≈
+      cutoffTwoSectorRawKernel 0 column :=
+  centralPhysicalReflectedKernel_cutoffTwo_sectorStateAt_eqv_raw
+    cutoffTwoSectorPhysicalTableCertificateSealed
+    (row := 0) (column := column) (by decide) hcolumn
+
+/-- Specialized positive row-zero bridge.  This is the compact fact needed by
+the vacuum-component graph; it prevents later files from replaying the
+table-to-production positivity transport. -/
+opaque cutoffTwoSectorPhysicalTableCertificateSealed_rowZero_pos
+    {column : Nat} (hcolumn : column < 65) :
+    (0 : Q') < centralPhysicalReflectedKernel cutoffTwoHalfCoupling 2 0
+      (cutoffTwoSectorStateAt 0) (cutoffTwoSectorStateAt column) :=
+  Q'.pos_of_lt_of_le
+    (cutoffTwoSectorRawKernel_rowZero_pos hcolumn)
+    (Q'.ge_of_eqv
+      (cutoffTwoSectorPhysicalTableCertificateSealed_rowZero_eqv_raw hcolumn))
+
+/-- Opaque identification of the first table state with the named fundamental
+cube.  The equality is definitional, but sealing it prevents later graph files
+from normalizing the full literal labelling. -/
+opaque cutoffTwoSectorStateAt_zero_eq_cube_sealed :
+    cutoffTwoSectorStateAt 0 = centralLowerCubeState :=
+  rfl
+
 end YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGRepresentativeCertificate
 
 #print axioms
@@ -1061,3 +1110,11 @@ end YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGRepresentativeCertifica
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGRepresentativeCertificate.cutoffTwoSectorPhysicalSpatialS3RepresentativeCertificate
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGRepresentativeCertificate.cutoffTwoSectorPhysicalTableCertificate
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGRepresentativeCertificate.cutoffTwoSectorPhysicalTableCertificateSealed
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGRepresentativeCertificate.cutoffTwoSectorPhysicalTableCertificateSealed_rowZero_eqv_raw
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGRepresentativeCertificate.cutoffTwoSectorPhysicalTableCertificateSealed_rowZero_pos
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGRepresentativeCertificate.cutoffTwoSectorStateAt_zero_eq_cube_sealed

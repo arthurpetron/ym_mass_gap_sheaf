@@ -2768,3 +2768,34 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 - **constructive?**: yes / no
 - **notes**: <free text>
 ```
+
+### [BF4-cutoff-two-canonical-vacuum-foundations] Positive carrier and generic component machinery — **FACTORED 2026-08-21**
+
+- **milestone**: finite physical vacuum-sector selection before a strict
+  contraction statement.
+- **file**:
+  `lean/YMGap/Continuum/FiniteBoolGraphRootComponent.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSector.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSectorRawRowZeroPositive.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSharedDAGRepresentativeCertificate.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoCubePositiveStar.lean`,
+  and
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoCubePositiveCarrier.lean`.
+- **decl**:
+  `rootComponent_closed_under_edge`,
+  `centralPhysicalFiniteSupportAdjacentB_true_of_kernel_pos`,
+  `centralPhysicalFiniteVacuumSectorState_mem_of_two_edges`,
+  `cutoffTwoSectorPhysicalTableCertificateSealed_rowZero_pos`, and
+  `cutoffTwoCubeSectorState_mem_positive`.
+- **obligation**: finish and kernel-check the concrete specialization proving
+  every exact 65-state table state belongs to the canonical cutoff-two vacuum
+  component, then prove the converse from exact row closure.  The current
+  `BF4PhysicalBoundaryCutoffTwoCubeVacuumConnectivity` check was interrupted
+  after prolonged safe elaboration and is not a passed theorem boundary.
+- **constructive?**: yes for the closed foundations — all printed declarations
+  use only `[propext, Quot.sound]`; no `sorry`, named analytic input, classical
+  axiom, or `native_decide` was added.
+- **status note**: the open residue is a concrete elaboration/specialization
+  bridge, followed by the finite `49/50` contraction package.  It does not
+  establish a cofinal sector family, a uniform completed gap, continuum QFT,
+  or the Clay theorem.
