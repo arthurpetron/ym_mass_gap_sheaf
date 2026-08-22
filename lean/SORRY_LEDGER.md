@@ -3210,3 +3210,28 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete build pass.  Exact carrier restriction is not an
   inhabited LDL certificate, a uniform gap, completion theorem,
   thermodynamic/continuum QFT, or the Clay theorem.
+
+### [BF4-cutoff-vacuum-sector-canonical-LDL-bridge] Cofinal LDL-to-limit implication — **CLOSED 2026-08-22**
+
+- **milestone**: ordinary and cleared canonical head-reduced full-carrier LDL
+  families at a supplied `0 <= q < 1` construct the two-parameter same-object
+  centered-sector certificate and consequently the strict comparison between
+  the literal centered reflected-form and diagonal-form `CReal` limits.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCanonicalLDLBridge.lean`.
+- **decl**:
+  `FixedNomeCofinalCanonicalHeadLDLAtRate.toVacuumSectorCenteredStrictGap`,
+  `FixedNomeCofinalCanonicalHeadLDLAtRate.centeredMatrixCutoffLimit_leEv_rate_mul_diagonal`,
+  `FixedNomeCofinalCanonicalHeadClearedLDLAtRate.toVacuumSectorCenteredStrictGap`,
+  and
+  `FixedNomeCofinalCanonicalHeadClearedLDLAtRate.centeredMatrixCutoffLimit_leEv_rate_mul_diagonal`.
+- **obligation**: construct an actual cofinal canonical LDL family at one
+  strict rate uniform in representation cutoff, or supply an equivalent
+  non-LDL finite bound.  No such inhabitant is asserted here.
+- **constructive?**: yes — every printed declaration uses exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the monitored focused source check and one-job 1,473-job
+  dependency-complete build pass.  This closes the exact implication from a
+  named analytic input, not that input itself, a completed gap,
+  thermodynamic/continuum QFT, or the Clay theorem.

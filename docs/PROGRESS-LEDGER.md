@@ -4659,3 +4659,30 @@ one supplied `q < 1` into the same-object vacuum-sector certificate and hence
 the centered form-limit inequality.  Constructing such a cutoff-uniform LDL
 family remains the substantive analytic input; completed-space, volume,
 spacing, continuum-QFT, and Clay closure remain open.
+
+## Canonical cofinal LDL families contract to centered sector limits (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorCanonicalLDLBridge` composes the full-carrier
+restriction with the canonical head-reduced LDL machinery.  Given one
+ordinary or cleared-denominator canonical LDL family at a supplied rational
+`0 <= q < 1`, it reindexes the family by `max base threshold`.  At each
+selected cutoff, the zero-extended moving head-centered coefficient is a
+valid full-carrier centered vector, so LDL soundness supplies the absolute
+quadratic bound.  The exact full-carrier equalities transport it to the
+literal pulled same-object forms.
+
+The resulting inhabitant of
+`FixedNomeCofinalVacuumSectorCenteredStrictGap` feeds the preceding Cauchy
+theorem and proves `CReal.leEv` from the centered reflected-form limit to `q`
+times the centered diagonal-form limit for every fixed base coefficient.
+Both ordinary and shardable cleared routes are present.  The monitored
+focused check and one-job 1,473-job dependency-complete build pass; all four
+printed declarations use exactly `[propext, Quot.sound]`.
+
+The implication is now complete, but its antecedent is still open: the
+repository contains no inhabited cofinal canonical LDL family at any uniform
+strict rate.  The next causal frontier is therefore analytical rather than a
+carrier recoding seam: construct such a family, or replace it by a weaker
+uniform certificate that proves the same finite bound.  Completed Hilbert
+space, volume/spacing uniformity, continuum QFT, and the Clay theorem remain
+open.
