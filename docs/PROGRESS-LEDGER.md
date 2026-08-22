@@ -4461,3 +4461,27 @@ growing component.  For this particular zero extension the new-coordinate
 terms should vanish algebraically; the next frontier is to prove that exact
 contraction and isolate the remaining analytic obstruction as the lack of a
 base-uniform centered form bound.
+
+## Zero-extended vacuum-sector forms contract exactly to the pulled block (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorZeroExtensionContraction` proves that the
+observable-based zero extension is literally zero on every genuinely new
+later-component coordinate.  Its new-state mean and diagonal contributions
+therefore vanish, as do the old-new, new-old, and new-new reflected matrix
+blocks.  A generic finite theorem contracts any quadratic whose coefficient
+vanishes on one side of a Boolean partition to its true-true block.
+
+Combining those zero identities with the exact pushforward bridge proves that
+the full later canonical-component mean, norm, and reflected form of the zero
+extension are exactly the pulled base-component forms.  An initial direct
+four-block proof repeatedly exceeded the heartbeat limit; factoring the
+contraction into the generic theorem reduced the focused check below one
+second.  The final focused and dependency-complete builds pass, and all
+printed declarations report exactly `[propext, Quot.sound]`.
+
+This removes new-coordinate leakage for every fixed zero-extended vector.
+It does not prove a uniform gap on the growing component: every finitely
+supported later vector can be based at some cutoff, so the remaining analytic
+obligation is a centered strict form bound with one `q < 1` independent of
+that base cutoff (and later, of volume and lattice spacing).  The isolated
+cutoff-two `49/50` certificate does not supply this uniformity.

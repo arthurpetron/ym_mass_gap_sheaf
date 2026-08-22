@@ -3007,3 +3007,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 - **status note**: the dependency-complete build passes.  Exact pushforward
   proves neither base-uniform contraction nor a completed, thermodynamic, or
   continuum mass gap, and it does not prove the Clay theorem.
+
+### [BF4-cutoff-vacuum-sector-zero-extension-contraction] Full zero-extended form contraction — **CLOSED 2026-08-22**
+
+- **milestone**: exact vanishing of every new-coordinate and cross block for
+  observable zero extensions, and contraction of the full later-sector mean,
+  norm, and reflected form to the pulled base-sector forms.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorZeroExtensionContraction.lean`.
+- **decl**:
+  `centralPhysicalFiniteVacuumSectorZeroExtensionCoefficient_eq_zero_of_mem_new`,
+  `centralPhysicalFiniteVacuumSectorZeroExtension_oldNew_eqv_zero`,
+  `centralPhysicalFiniteVacuumSectorZeroExtension_newOld_eqv_zero`,
+  `centralPhysicalFiniteVacuumSectorZeroExtension_newNew_eqv_zero`,
+  `centralPhysicalFiniteVacuumSectorZeroExtensionWeightedMean_eqv_pulled`,
+  `centralPhysicalFiniteVacuumSectorZeroExtensionDiagonal_eqv_pulled`, and
+  `centralPhysicalFiniteVacuumSectorZeroExtensionMatrix_eqv_pulled`.
+- **obligation**: none for exact form compatibility of a fixed zero-extended
+  base-sector observable.  The next obligation is one centered strict form
+  rate `q < 1` uniform in the base cutoff, followed by volume and spacing
+  uniformity and completed-space passage.
+- **constructive?**: yes — every printed declaration uses exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the factored generic contraction avoids the deterministic
+  timeout of the first direct proof, and the focused and dependency-complete
+  builds pass.  Fixed-subspace compatibility is not a uniform gap,
+  thermodynamic/continuum QFT, or the Clay theorem.
