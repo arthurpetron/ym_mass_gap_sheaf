@@ -4953,3 +4953,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   and finite-support parts of invariance, not the limiting recoding-tail
   estimate.  No completed transfer lift, completed uniform gap,
   thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+### [BF4-vacuum-sector-adaptive-recoding-tail] One recoding-tail estimate compiles to the completed lift — **REDUCED 2026-08-22**
+
+- **milestone**: prove exact zero finite GNS distance between the support-safe
+  sector recoding and the global adaptive action at every current cutoff;
+  isolate their remaining limiting-distance tail with an explicit modulus;
+  and compile any inhabitant into a sector Cauchy output, quotient-respecting
+  completed transfer, and the existing exact transfer-lift datum.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCylinderFiniteAction.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCylinderAdaptiveRecodingTail.lean`.
+- **decl**:
+  `centralPhysicalVacuumSectorMarkovCylinder_finiteDistSq_eqv_zero`,
+  `centralPhysicalVacuumSectorConcreteAdaptiveOutput_distSq_approx_self_eqv_zero`,
+  `CentralPhysicalVacuumSectorAdaptiveRecodingTailData`,
+  `CentralPhysicalVacuumSectorAdaptiveRecodingDiagonalRegularityData.toAdaptiveRecodingTailData`,
+  `CentralPhysicalVacuumSectorAdaptiveRecodingTailData.recodedCauchy`, and
+  `CentralPhysicalVacuumSectorAdaptiveRecodingTailData.toTransferLiftData`.
+- **obligation**: inhabit the tail record, for example by proving that the
+  moving inner-regularity rate of each adaptive recoding error is eventually
+  paid by its own action cutoff; independently construct one strict rational
+  rate uniform over the unbounded/cofinal carrier family before extending a
+  gap to the completed sector.
+- **constructive?**: yes — the four audited adaptive exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,360-job dependency-complete build pass.  Earlier elaboration timeouts are
+  not counted.  The tail and diagonal-regularity records are deliberately
+  uninhabited, so this is an exact reduction of completed transfer invariance,
+  not an unconditional completed lift.  No completed uniform gap,
+  thermodynamic/continuum QFT, or Clay theorem is asserted.

@@ -40,10 +40,12 @@ open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFormPushforward
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFullCarrierContraction
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorLinearRealization
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSector
+open YMGap.Continuum.BF4PhysicalMarkovGNSCompletion
 open YMGap.Continuum.BF4SU2FixedMagneticPositiveKernelConvergence
 open YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
 open YMGap.Continuum.FiniteDeterministicKernelPushforward
 open YMGap.Continuum.FiniteListIndexQuadraticBridge
+open YMGap.Continuum.FiniteRationalReversibleSpectralCertificate
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphActualOperator
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
@@ -280,6 +282,18 @@ def centralPhysicalVacuumSectorMarkovCoefficientAtCutoff
     presentation.toLinearObservable).value
     (centralPhysicalFiniteStateAt w hw cutoff half index)
 
+theorem centralPhysicalVacuumSectorMarkovCoefficientAtCutoff_eqv_action
+    {w : Q'} {hw : (0 : Q') ≤ w} {half cutoff index : Nat}
+    (presentation : CentralPhysicalVacuumSectorCylinderPresentation
+      w hw half) :
+    centralPhysicalVacuumSectorMarkovCoefficientAtCutoff
+        cutoff presentation index ≈
+      (centralPhysicalLinearMarkovCutoffAction hw cutoff half
+        presentation.toLinearObservable).value
+        (centralPhysicalFiniteStateAt w hw cutoff half index) := by
+  unfold centralPhysicalVacuumSectorMarkovCoefficientAtCutoff
+  exact Q'.eqv_refl _
+
 /-- Read the finite Markov image on the current root component and package it
 as a new sector cylinder presentation at the action cutoff. -/
 def centralPhysicalVacuumSectorPresentationMarkovAtCutoff
@@ -364,6 +378,65 @@ theorem centralPhysicalVacuumSectorMarkovCylinderRealization_value
     (centralPhysicalVacuumSectorMarkovCoefficientExtension_eqv_self
       presentation hbase htarget)
 
+/-- The realized sector recoding and the global finite-linear action have zero
+finite GNS distance at the action cutoff. -/
+theorem centralPhysicalVacuumSectorMarkovCylinder_finiteDistSq_eqv_zero
+    {w : Q'} {hw : (0 : Q') ≤ w} {half cutoff : Nat}
+    (presentation : CentralPhysicalVacuumSectorCylinderPresentation
+      w hw half)
+    (hbase : presentation.base ≤ cutoff) :
+    (centralPhysicalSmulGNS w hw cutoff half).toGNSData.distSqQ
+        (centralPhysicalFiniteVacuumSectorLinearObservable
+          w hw cutoff half
+          (centralPhysicalVacuumSectorMarkovCoefficientAtCutoff
+            cutoff presentation)).value
+        (centralPhysicalLinearMarkovCutoffAction hw cutoff half
+          presentation.toLinearObservable).value ≈ 0 := by
+  let size := centralPhysicalFiniteCarrierSize w hw cutoff half
+  let weight := centralPhysicalFiniteWeight w hw cutoff half
+  let observableDifference := fun state =>
+    (centralPhysicalFiniteVacuumSectorLinearObservable
+      w hw cutoff half
+      (centralPhysicalVacuumSectorMarkovCoefficientAtCutoff
+        cutoff presentation)).value state +
+      -(centralPhysicalLinearMarkovCutoffAction hw cutoff half
+        presentation.toLinearObservable).value state
+  let difference := centralPhysicalFiniteCoefficient
+    w hw cutoff half observableDifference
+  have hdifference : ∀ target, target < size → difference target ≈ 0 := by
+    intro target htarget
+    have hvalue :=
+      centralPhysicalVacuumSectorMarkovCylinderRealization_value
+        presentation hbase htarget
+    have haction :=
+      centralPhysicalVacuumSectorMarkovCoefficientAtCutoff_eqv_action
+        (cutoff := cutoff) (index := target) presentation
+    have hagree := Q'.eqv_trans _ _ _ hvalue haction
+    unfold difference centralPhysicalFiniteCoefficient observableDifference
+    exact Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_right _ _ _ hagree)
+      (Q'.add_neg_self_eqv _)
+  have hfinite : finiteDiagonalQuadratic size weight difference ≈ 0 := by
+    unfold finiteDiagonalQuadratic
+    apply listQSum_eqv_zero_of_pointwise
+    intro target htarget
+    have htargetLt : target < size := List.mem_range.mp htarget
+    have hzero := hdifference target htargetLt
+    have hsquare : difference target * difference target ≈ 0 := by
+      refine Q'.eqv_trans _
+        (0 * difference target) _ ?_ ?_
+      · exact Q'.mul_eqv_congr_right _ _ _ hzero
+      · exact Q'.zero_mul_eqv _
+    exact Q'.eqv_trans _ (0 * weight target) _
+      (Q'.mul_eqv_congr_right _ _ _ hsquare)
+      (Q'.zero_mul_eqv _)
+  have hbridge :=
+    centralPhysicalFiniteDiagonalQuadratic_eqv_weightedInner
+      w hw cutoff half observableDifference
+  change centralPhysicalWeightedInner
+    w hw cutoff half observableDifference observableDifference ≈ 0
+  exact Q'.eqv_trans _ _ _ (Q'.eqv_symm hbridge) hfinite
+
 end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderFiniteAction
 
 #print axioms
@@ -372,3 +445,5 @@ end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderFiniteAction
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderFiniteAction.centralPhysicalMarkovApply_vacuumSectorPresentation_eqv_zero_of_outside
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderFiniteAction.centralPhysicalVacuumSectorMarkovCylinderRealization_value
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderFiniteAction.centralPhysicalVacuumSectorMarkovCylinder_finiteDistSq_eqv_zero

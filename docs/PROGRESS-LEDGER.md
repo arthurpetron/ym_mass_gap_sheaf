@@ -6324,3 +6324,38 @@ deliberately uninhabited: a uniform analytic estimate (or sharper replacement
 for the canonical-path constants) and the separate vacuum-sector
 density/completion bridge remain open.  No completed-space gap,
 thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+## One adaptive recoding tail now compiles to the completed BF4 sector transfer lift (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorCylinderFiniteAction` now strengthens exact
+finite recoding from pointwise carrier equality to zero finite GNS squared
+distance: whenever a presentation base is below the current action cutoff,
+the realized sector recoding and the genuine global finite-linear Markov
+action represent the same finite GNS vector.
+
+`BF4PhysicalCutoffVacuumSectorCylinderAdaptiveRecodingTail` applies that
+identity to every support-safe adaptive sample.  The limiting squared-distance
+approximation is exactly zero at its own action cutoff.  The remaining
+infinitary input is isolated as one explicit-modulus tail record requiring the
+limiting distance from the sector recoding to the global adaptive output to
+tend to zero.  A sufficient diagonal-regularity record states exactly when
+the current cutoff pays the moving inner-regularity rate and compiles to that
+tail.
+
+Given the tail, a three-leg squared-distance estimate constructs the recoded
+sector Cauchy sequence.  Completion closeness identifies its global image
+with the already constructed concrete adaptive transfer; injectivity of the
+sector embedding then supplies quotient descent.  The resulting sector
+transfer inhabits the previously stated
+`CentralPhysicalVacuumSectorCylinderTransferLiftData` and therefore has the
+proved vacuum-orthogonality and completed-pairing consequences.
+
+The focused monitored check and exact-target one-worker 1,360-job build pass.
+The four audited exports use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  Several earlier focused checks timed
+out during elaboration and are not counted as validation.  Neither the tail
+record nor its diagonal-regularity sufficient condition is inhabited here:
+the completed lift remains conditional on that one analytic estimate.  A
+common strict rate over all carriers is independently open.  No completed
+uniform gap, thermodynamic/continuum QFT, or Clay theorem is asserted.
