@@ -16,6 +16,7 @@ No `Classical.*`, `native_decide`, `sorry`, custom axiom, choice, or
 noncomputable declaration.
 -/
 
+import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCubeSectorCode
 import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSectorComplementWitness
 import YMGap.Continuum.BF4PhysicalCompletedCenteredFormGap
 import YMGap.Continuum.ClusteringImpliesGap
@@ -29,6 +30,7 @@ open YMGap.Constructive
 open YMGap.Constructive.SumOfSquares
 open YMGap.Continuum.BF4CanonicalFiniteNumeratorPartitionBudget
 open YMGap.Continuum.BF4FiveHolonomyNormalizedKernel
+open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCubeSectorCode
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCubeSectorRowClosure
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCubeSubsetEnumeration
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSectorComplementWitness
@@ -57,30 +59,10 @@ local infix:50 " ≈ " => Q'.eqv
 
 /-! ## 1. A decidable code for the exact closed sector -/
 
-/-- Faithful finite codes of the 65 exact sector states. -/
-def cutoffTwoCubeSectorCodes : List Nat :=
-  cutoffTwoCubeSectorStates.map (bf4StateCode 2 0)
-
 /-- The characteristic function of the exact sector, expressed through the
 faithful finite-state code so that it remains executable. -/
 def cutoffTwoSectorIndicator (state : EdgeLabelling) : Q' :=
   if bf4StateCode 2 0 state ∈ cutoffTwoCubeSectorCodes then 1 else 0
-
-theorem cutoffTwoSectorCode_mem_iff_of_halfState
-    {state : EdgeLabelling}
-    (hstate : state ∈ centralHalfStates 2 0) :
-    bf4StateCode 2 0 state ∈ cutoffTwoCubeSectorCodes ↔
-      state ∈ cutoffTwoCubeSectorStates := by
-  constructor
-  · intro hcode
-    rcases List.mem_map.mp hcode with ⟨candidate, hcand, hsameCode⟩
-    have hcandHalf := cutoffTwoCubeSectorState_mem_halfStates hcand
-    have hsame := bf4StateCode_injective_on_centralHalfStates
-      hstate hcandHalf (Eq.symm hsameCode)
-    subst candidate
-    exact hcand
-  · intro hsector
-    exact List.mem_map.mpr ⟨state, hsector, rfl⟩
 
 theorem zeroEdgeLabelling_mem_cutoffTwoCubeSectorStates :
     zeroEdgeLabelling ∈ cutoffTwoCubeSectorStates := by

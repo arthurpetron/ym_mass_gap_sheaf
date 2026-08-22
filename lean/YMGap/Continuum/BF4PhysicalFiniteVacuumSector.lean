@@ -199,6 +199,40 @@ theorem centralPhysicalFiniteSupportAdjacentB_true_of_kernel_pos
     centralPhysicalFiniteKernelNonzeroB
   simp [hnonzero]
 
+/-- If both directed production-kernel entries vanish, the symmetrized finite
+support test is false.  This abstract bridge prevents cutoff-specialized
+consumers from unfolding the full physical carrier while simplifying the two
+decidable nonzero tests. -/
+theorem centralPhysicalFiniteSupportAdjacentB_false_of_rawKernel_eqv_zero
+    (w : Q') (hw : (0 : Q') ≤ w) (K half row column : Nat)
+    (hforward :
+      centralPhysicalFiniteRawKernel w hw K half row column ≈ 0)
+    (hreverse :
+      centralPhysicalFiniteRawKernel w hw K half column row ≈ 0) :
+    centralPhysicalFiniteSupportAdjacentB
+      w hw K half row column = false := by
+  unfold centralPhysicalFiniteSupportAdjacentB
+    centralPhysicalFiniteKernelNonzeroB
+  simp [hforward, hreverse]
+
+/-- Reverse orientation of the generic positive-kernel support bridge. -/
+theorem centralPhysicalFiniteSupportAdjacentB_reverse_true_of_kernel_pos
+    (w : Q') (hw : (0 : Q') ≤ w) (K half : Nat)
+    {row column : Nat} {source target : EdgeLabelling}
+    (hrow : centralPhysicalFiniteStateAt w hw K half row = source)
+    (hcolumn : centralPhysicalFiniteStateAt w hw K half column = target)
+    (hpos : (0 : Q') <
+      centralPhysicalReflectedKernel w K half source target) :
+    centralPhysicalFiniteSupportAdjacentB
+      w hw K half column row = true :=
+  Eq.mp
+    (congrArg
+      (fun adjacent => adjacent = true)
+      (centralPhysicalFiniteSupportAdjacentB_symmetric
+        w hw K half row column))
+    (centralPhysicalFiniteSupportAdjacentB_true_of_kernel_pos
+      w hw K half hrow hcolumn hpos)
+
 theorem centralPhysicalFiniteRawKernel_eqv_zero_of_adj_false
     (w : Q') (hw : (0 : Q') ≤ w) (K half row column : Nat)
     (hadj :
@@ -390,6 +424,10 @@ end YMGap.Continuum.BF4PhysicalFiniteVacuumSector
   YMGap.Continuum.BF4PhysicalFiniteVacuumSector.centralPhysicalFiniteStateAt_zero_eq_vacuum
 #print axioms
   YMGap.Continuum.BF4PhysicalFiniteVacuumSector.centralPhysicalFiniteSupportAdjacentB_true_of_kernel_pos
+#print axioms
+  YMGap.Continuum.BF4PhysicalFiniteVacuumSector.centralPhysicalFiniteSupportAdjacentB_false_of_rawKernel_eqv_zero
+#print axioms
+  YMGap.Continuum.BF4PhysicalFiniteVacuumSector.centralPhysicalFiniteSupportAdjacentB_reverse_true_of_kernel_pos
 #print axioms
   YMGap.Continuum.BF4PhysicalFiniteVacuumSector.centralPhysicalFiniteVacuumSectorState_mem_of_index
 #print axioms

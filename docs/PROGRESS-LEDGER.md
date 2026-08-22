@@ -4200,7 +4200,7 @@ finite cutoff-two physical-table seam.  It does not yet make the stored-table
 and it supplies no cofinal cutoff family, cutoff-uniform estimate, Hilbert
 completion, thermodynamic/continuum construction, QFT axioms, or Clay theorem.
 
-## Constructive canonical-vacuum foundations at cutoff two (2026-08-21)
+## Exact constructive canonical-vacuum sector at cutoff two (2026-08-21)
 
 `FiniteBoolGraphRootComponent` now constructs, without choice, the connected
 component of a distinguished root in any finite Boolean symmetric graph and
@@ -4222,13 +4222,28 @@ that every state in the exact 65-state cube table belongs to the actual
 positive-row Markov carrier and packages proof-local table/carrier index
 witnesses.
 
-Focused source checks and dependency-complete targets for these modules pass;
-every printed load-bearing declaration reports exactly
-`[propext, Quot.sound]`.  The final concrete theorem identifying all 65 table
-states with the canonical vacuum component remains under construction:
-monitored checks of
-`BF4PhysicalBoundaryCutoffTwoCubeVacuumConnectivity` were interrupted after
-safe but prolonged elaboration and are **not** reported as passed.  The
-cutoff-two exact component equality, its `49/50` form-gap contraction, all
-cutoff/volume compatibility, Hilbert completion, thermodynamic/continuum
+`BF4PhysicalBoundaryCutoffTwoCubeFiniteSupportEdges`,
+`BF4PhysicalBoundaryCutoffTwoCubeVacuumHub`,
+`BF4PhysicalBoundaryCutoffTwoCubeHubStateEdge`, and
+`BF4PhysicalBoundaryCutoffTwoVacuumComponentIntro` factor the concrete
+vacuum-to-hub-to-state path through small proof-only interfaces.
+`BF4PhysicalBoundaryCutoffTwoCubeVacuumConnectivity` consequently proves that
+every table state belongs to the canonical physical vacuum component.
+
+For the converse, `BF4PhysicalBoundaryCutoffTwoCubeSectorCode` transports
+decidable natural-number code membership to a constructive sector-membership
+decision.  `BF4PhysicalBoundaryCutoffTwoCubeSectorNoEscape` combines that
+decision with exact production-kernel row closure to prove that no support
+edge can leave the table sector.  Path induction in
+`BF4PhysicalBoundaryCutoffTwoCanonicalVacuumSector` then proves exact support
+equality between the independently constructed canonical vacuum component and
+the literal duplicate-free 65-state table.
+
+Focused source checks and dependency-complete targets pass for the generic
+component machinery, the connectivity direction, the no-escape direction,
+the exact component equality, and the refactored reducibility obstruction.
+Every printed load-bearing declaration reports exactly
+`[propext, Quot.sound]`.  This closes the finite cutoff-two sector-selection
+seam.  Its `49/50` form-gap contraction is the next finite frontier; all
+cutoff/volume compatibility, a uniform completed gap, thermodynamic/continuum
 limits, QFT axioms, and the Clay theorem remain open.
