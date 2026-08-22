@@ -5508,6 +5508,27 @@ the reduction and the subsequent check passed.  The adaptive seed family is
 not inhabited.  No unconditional fixed-carrier gap, completed Hilbert gap,
 thermodynamic/continuum QFT, or Clay theorem is asserted.
 
+## Every fixed finite BF4 vacuum sector has an explicit strict form gap (2026-08-22)
+
+`BF4PhysicalFiniteVacuumSectorPoincareGap` eliminates the pairwise variance
+between its exact centered identity and path bound, cancelling only the
+explicitly positive doubled sector mass.  It proves the finite Poincare
+inequality
+`edgeFloor * diagonal <= sectorMass * pathCeiling * (diagonal - matrix)`.
+
+With `A = sectorMass * pathCeiling`, the module defines the concrete rational
+rate `q = A / (A + edgeFloor)`, proves `0 <= q < 1`, and derives
+`abs(matrix) <= q * diagonal` for every exactly centered coefficient on every
+fixed finite canonical sector.  Gram positivity supplies the absolute-value
+step.  The rate is uniform over all coefficients at that fixed cutoff; it may
+depend on the cutoff and is not asserted uniform along the continuum route.
+
+The focused monitored check and exact-target one-worker 1,188-job build pass.
+All five audited exports use only `[propext, Quot.sound]`; no `Classical.*`,
+choice, `native_decide`, `sorry`, custom axiom, or noncomputable declaration
+was added.  No cutoff-uniform rate, completed Hilbert gap,
+thermodynamic/continuum QFT, or Clay theorem is asserted.
+
 ## BF4 pairwise variance is exactly centered mass times diagonal (2026-08-22)
 
 `BF4PhysicalFiniteVacuumSectorPairwiseVariance` defines the ordered weighted

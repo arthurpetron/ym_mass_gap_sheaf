@@ -4284,3 +4284,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   1,187-job dependency-complete build pass.  No strict finite rate,
   completed-space gap, thermodynamic/continuum QFT, or Clay theorem is
   asserted yet.
+
+### [BF4-finite-vacuum-sector-poincare-gap] Explicit strict rate — **PROVED 2026-08-22**
+
+- **milestone**: eliminate pairwise variance between the exact centered
+  identity and path bound, cancel the positive doubled sector mass, prove
+  `edgeFloor * diagonal <= sectorMass * pathCeiling * (diagonal - matrix)`,
+  define `q = A/(A+edgeFloor)` for `A = sectorMass * pathCeiling`, prove
+  `0 <= q < 1`, and derive `abs(matrix) <= q * diagonal` for every exactly
+  centered coefficient at every fixed finite cutoff.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorPoincareGap.lean`.
+- **decl**: `centralPhysicalFiniteVacuumSector_poincare`,
+  `centralPhysicalFiniteVacuumSectorPoincareRate_nonnegative`,
+  `centralPhysicalFiniteVacuumSectorPoincareRate_lt_one`,
+  `centralPhysicalFiniteVacuumSector_gapDenominator_mul_matrix_le`, and
+  `centralPhysicalFiniteVacuumSector_abs_matrix_le_poincareRate_mul_diagonal`.
+- **obligation**: connect one explicit finite-sector rate to the existing
+  adaptive same-object tail bridge, then discharge its cofinal certificate or
+  expose the remaining cutoff-uniform persistence datum exactly.
+- **constructive?**: yes — all five audited exports use only
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,188-job dependency-complete build pass.  The strict rate is uniform over
+  coefficients at a fixed cutoff but may depend on cutoff.  No cutoff-uniform
+  gap, completed-space gap, thermodynamic/continuum QFT, or Clay theorem is
+  asserted.
