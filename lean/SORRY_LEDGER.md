@@ -3034,3 +3034,29 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   timeout of the first direct proof, and the focused and dependency-complete
   builds pass.  Fixed-subspace compatibility is not a uniform gap,
   thermodynamic/continuum QFT, or the Clay theorem.
+
+### [BF4-cutoff-arbitrary-vacuum-sector-extension] Arbitrary coefficient pushforward and contraction — **CLOSED 2026-08-22**
+
+- **milestone**: an explicit finite-sum zero extension for every rational
+  coefficient on the base canonical vacuum component, with exact on-image
+  recovery, off-image vanishing, and full later-sector mean, diagonal, and
+  reflected-form contraction to the pulled base forms.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorFormPushforward.lean` and
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorZeroExtensionContraction.lean`.
+- **decl**:
+  `centralPhysicalFiniteVacuumSectorCoefficientExtension`,
+  `centralPhysicalFiniteVacuumSectorCoefficientExtension_on_map`,
+  `centralPhysicalFiniteVacuumSectorCoefficientExtensionMean_eqv_pulled`,
+  `centralPhysicalFiniteVacuumSectorCoefficientExtensionDiagonal_eqv_pulled`,
+  and
+  `centralPhysicalFiniteVacuumSectorCoefficientExtensionMatrix_eqv_pulled`.
+- **obligation**: construct the later-weight head-centered base coefficient,
+  prove its exact mean-zero extension, then establish cutoff-Cauchy form
+  control and a single strict rate uniform in the base cutoff.
+- **constructive?**: yes — printed declarations use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: monitored focused and dependency-complete builds pass.
+  This extension theorem is not a uniform gap, thermodynamic/continuum QFT,
+  or the Clay theorem.

@@ -4485,3 +4485,26 @@ supported later vector can be based at some cutoff, so the remaining analytic
 obligation is a centered strict form bound with one `q < 1` independent of
 that base cutoff (and later, of volume and lattice spacing).  The isolated
 cutoff-two `49/50` certificate does not supply this uniformity.
+
+## Arbitrary vacuum-sector coefficients extend and contract exactly (2026-08-22)
+
+The pushforward and contraction layers now handle an arbitrary rational
+coefficient on the base canonical component, rather than only coefficients
+obtained by restricting a global physical observable.  The extension is an
+explicit finite sum over the base component.  Injectivity of the cutoff index
+map proves that exactly one source contributes on the embedded image, while
+no source contributes on a genuinely new target coordinate.
+
+Consequently the full later-component weighted mean, diagonal quadratic, and
+reflected matrix quadratic of the arbitrary-coefficient extension equal the
+corresponding pulled base-component forms.  This is the required
+representation layer for cutoff-dependent head centering: a centered
+coefficient may now be constructed directly on the base component and
+extended without populating other superselection sectors.  Focused and
+dependency-complete monitored builds pass, and all printed declarations use
+exactly `[propext, Quot.sound]`.
+
+This is still algebraic compatibility, not a spectral estimate.  The next
+frontier is the explicit positive-root head-centering witness at every later
+cutoff, followed by cutoff-Cauchy control of its moving correction and a
+strict rate uniform in the base cutoff.

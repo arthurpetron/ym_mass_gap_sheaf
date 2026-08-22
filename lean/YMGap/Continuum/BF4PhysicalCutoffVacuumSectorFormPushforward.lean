@@ -145,6 +145,52 @@ private theorem listQSum_map_local
       simp only [List.map, listQSum]
       rw [listQSum_map_local value map tail]
 
+private theorem mul_eqv_congr_local {a b c d : Q'}
+    (hac : a ≈ c) (hbd : b ≈ d) : a * b ≈ c * d :=
+  Q'.eqv_trans _ (c * b) _
+    (Q'.mul_eqv_congr_right _ _ b hac)
+    (Q'.mul_eqv_congr_left c _ _ hbd)
+
+private theorem listQSum_ite_single_local
+    {A : Type} [DecidableEq A] (selected : A) (value : A → Q') :
+    ∀ items : List A,
+      items.Nodup → selected ∈ items →
+      listQSum
+          (fun item => if item = selected then value item else 0)
+          items ≈
+        value selected
+  | [], _hnodup, hmem => False.elim (List.not_mem_nil hmem)
+  | head :: tail, hnodup, hmem => by
+      have hparts := List.nodup_cons.mp hnodup
+      rcases List.mem_cons.mp hmem with hhead | htail
+      · subst head
+        simp only [listQSum]
+        have htailZero :
+            listQSum
+                (fun item => if item = selected then value item else 0)
+                tail ≈ 0 := by
+          refine Q'.eqv_trans _
+            (listQSum (fun _item => (0 : Q')) tail) _ ?_ ?_
+          · apply listQSum_congr_on
+            intro item hitem
+            rw [if_neg]
+            · exact Q'.eqv_refl 0
+            intro heq
+            exact hparts.1 (heq ▸ hitem)
+          · exact listQSum_zero tail
+        exact Q'.eqv_trans _ (value selected + 0) _
+          (Q'.add_eqv_congr_left _ _ _ htailZero)
+          (Q'.eqv_of_eq (Q'.add_zero' _))
+      · have hne : head ≠ selected := by
+          intro heq
+          subst head
+          exact hparts.1 htail
+        simp only [listQSum, if_neg hne]
+        exact Q'.eqv_trans _ (0 + value selected) _
+          (Q'.add_eqv_congr_left _ _ _
+            (listQSum_ite_single_local selected value tail hparts.2 htail))
+          (Q'.eqv_of_eq (Q'.zero_add' _))
+
 /-- The explicit cutoff index map is injective when restricted to the old
 canonical component. -/
 theorem centralPhysicalFiniteCutoffIndexMap_injective_on_vacuumSector
@@ -240,6 +286,62 @@ def centralPhysicalFiniteVacuumSectorZeroExtensionCoefficient
       w hw base later half index then
     observable (centralPhysicalFiniteStateAt w hw later half index)
   else 0
+
+/-- Extend an arbitrary coefficient on the base canonical component by zero
+to the later component.  The finite sum is an explicit constructive inverse
+to the injective old-component index map: exactly one source contributes on
+the embedded image, and none contributes elsewhere. -/
+def centralPhysicalFiniteVacuumSectorCoefficientExtension
+    (w : Q') (hw : (0 : Q') ≤ w)
+    (base later half : Nat) (coefficient : Nat → Q')
+    (target : Nat) : Q' :=
+  listQSum
+    (fun source =>
+      if centralPhysicalFiniteCutoffIndexMap
+          w hw base later half source = target then
+        coefficient source
+      else 0)
+    (centralPhysicalFiniteVacuumSectorIndices w hw base half)
+
+/-- The arbitrary-coefficient extension agrees with its source coefficient
+at every embedded base-component index. -/
+theorem centralPhysicalFiniteVacuumSectorCoefficientExtension_on_map
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {base later half index : Nat}
+    (hcutoff : base ≤ later)
+    (hindex : index ∈
+      centralPhysicalFiniteVacuumSectorIndices w hw base half)
+    (coefficient : Nat → Q') :
+    centralPhysicalFiniteVacuumSectorCoefficientExtension
+        w hw base later half coefficient
+        (centralPhysicalFiniteCutoffIndexMap
+          w hw base later half index) ≈
+      coefficient index := by
+  unfold centralPhysicalFiniteVacuumSectorCoefficientExtension
+  refine Q'.eqv_trans _
+    (listQSum
+      (fun source => if source = index then coefficient source else 0)
+      (centralPhysicalFiniteVacuumSectorIndices w hw base half)) _ ?_ ?_
+  · apply listQSum_congr_on
+    intro source hsource
+    by_cases heq : source = index
+    · subst source
+      simp only [if_pos rfl]
+      exact Q'.eqv_refl _
+    · have hmapNe :
+          centralPhysicalFiniteCutoffIndexMap
+              w hw base later half source ≠
+            centralPhysicalFiniteCutoffIndexMap
+              w hw base later half index := by
+        intro hmap
+        exact heq
+          (centralPhysicalFiniteCutoffIndexMap_injective_on_vacuumSector
+            hcutoff hsource hindex hmap)
+      simp only [if_neg hmapNe, if_neg heq]
+      exact Q'.eqv_refl 0
+  · exact listQSum_ite_single_local index coefficient _
+      (centralPhysicalFiniteVacuumSectorIndices_nodup
+        w hw base half) hindex
 
 /-- The zero extension agrees exactly with the base observable coefficient on
 each embedded base-component index. -/
@@ -447,6 +549,130 @@ theorem centralPhysicalFiniteVacuumSectorOldOldBlock_eqv_pulled
         hcutoff hright observable]
     exact Q'.eqv_refl _
 
+/-! ## 3. Arbitrary-coefficient old-block pushforward -/
+
+/-- The old-block weighted mean of an arbitrary coefficient extension is the
+pulled base-component weighted mean. -/
+theorem centralPhysicalFiniteVacuumSectorCoefficientExtension_oldMean_eqv_pulled
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {base later half : Nat} (hcutoff : base ≤ later)
+    (coefficient : Nat → Q') :
+    listQSum
+        (fun target =>
+          centralPhysicalFiniteVacuumSectorCoefficientExtension
+              w hw base later half coefficient target *
+            centralPhysicalFiniteWeight w hw later half target)
+        (centralPhysicalFiniteVacuumSectorOldBlockIndices
+          w hw base later half) ≈
+      centralPhysicalFinitePulledVacuumSectorWeightedMean
+        w hw base later half coefficient := by
+  let targetValue := fun target =>
+    centralPhysicalFiniteVacuumSectorCoefficientExtension
+        w hw base later half coefficient target *
+      centralPhysicalFiniteWeight w hw later half target
+  refine Q'.eqv_trans _
+    (listQSum targetValue
+      (centralPhysicalFiniteEmbeddedVacuumSectorIndices
+        w hw base later half)) _ ?_ ?_
+  · exact listQSum_perm_local targetValue
+      (centralPhysicalFiniteVacuumSectorOldBlockIndices_perm_embedded
+        hcutoff)
+  · unfold centralPhysicalFiniteEmbeddedVacuumSectorIndices
+    rw [listQSum_map_local]
+    unfold centralPhysicalFinitePulledVacuumSectorWeightedMean
+    apply listQSum_congr_on
+    intro index hindex
+    dsimp [targetValue]
+    exact Q'.mul_eqv_congr_right _ _ _
+      (centralPhysicalFiniteVacuumSectorCoefficientExtension_on_map
+        hcutoff hindex coefficient)
+
+/-- The old-block diagonal form of an arbitrary coefficient extension is the
+pulled base-component diagonal form. -/
+theorem centralPhysicalFiniteVacuumSectorCoefficientExtension_oldDiagonal_eqv_pulled
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {base later half : Nat} (hcutoff : base ≤ later)
+    (coefficient : Nat → Q') :
+    listQSum
+        (fun target =>
+          (centralPhysicalFiniteVacuumSectorCoefficientExtension
+              w hw base later half coefficient target *
+            centralPhysicalFiniteVacuumSectorCoefficientExtension
+              w hw base later half coefficient target) *
+            centralPhysicalFiniteWeight w hw later half target)
+        (centralPhysicalFiniteVacuumSectorOldBlockIndices
+          w hw base later half) ≈
+      centralPhysicalFinitePulledVacuumSectorDiagonalQuadratic
+        w hw base later half coefficient := by
+  let targetValue := fun target =>
+    (centralPhysicalFiniteVacuumSectorCoefficientExtension
+        w hw base later half coefficient target *
+      centralPhysicalFiniteVacuumSectorCoefficientExtension
+        w hw base later half coefficient target) *
+      centralPhysicalFiniteWeight w hw later half target
+  refine Q'.eqv_trans _
+    (listQSum targetValue
+      (centralPhysicalFiniteEmbeddedVacuumSectorIndices
+        w hw base later half)) _ ?_ ?_
+  · exact listQSum_perm_local targetValue
+      (centralPhysicalFiniteVacuumSectorOldBlockIndices_perm_embedded
+        hcutoff)
+  · unfold centralPhysicalFiniteEmbeddedVacuumSectorIndices
+    rw [listQSum_map_local]
+    unfold centralPhysicalFinitePulledVacuumSectorDiagonalQuadratic
+    apply listQSum_congr_on
+    intro index hindex
+    dsimp [targetValue]
+    exact Q'.mul_eqv_congr_right _ _ _
+      (mul_eqv_congr_local
+        (centralPhysicalFiniteVacuumSectorCoefficientExtension_on_map
+          hcutoff hindex coefficient)
+        (centralPhysicalFiniteVacuumSectorCoefficientExtension_on_map
+          hcutoff hindex coefficient))
+
+/-- The old-old reflected block of an arbitrary coefficient extension is the
+pulled base-component reflected form. -/
+theorem centralPhysicalFiniteVacuumSectorCoefficientExtension_oldMatrix_eqv_pulled
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {base later half : Nat} (hcutoff : base ≤ later)
+    (coefficient : Nat → Q') :
+    finiteJointBlock
+        (centralPhysicalFiniteVacuumSectorOldBlockIndices
+          w hw base later half)
+        (centralPhysicalFiniteVacuumSectorOldBlockIndices
+          w hw base later half)
+        (centralPhysicalFiniteVacuumSectorCoefficientExtension
+          w hw base later half coefficient)
+        (centralPhysicalFiniteKernel w hw later half) ≈
+      centralPhysicalFinitePulledVacuumSectorMatrixQuadratic
+        w hw base later half coefficient := by
+  have hperm :
+      (centralPhysicalFiniteVacuumSectorOldBlockIndices
+          w hw base later half).Perm
+        (centralPhysicalFiniteEmbeddedVacuumSectorIndices
+          w hw base later half) :=
+    centralPhysicalFiniteVacuumSectorOldBlockIndices_perm_embedded hcutoff
+  refine Q'.eqv_trans _
+    (finiteJointBlock
+      (centralPhysicalFiniteEmbeddedVacuumSectorIndices
+        w hw base later half)
+      (centralPhysicalFiniteEmbeddedVacuumSectorIndices
+        w hw base later half)
+      (centralPhysicalFiniteVacuumSectorCoefficientExtension
+        w hw base later half coefficient)
+      (centralPhysicalFiniteKernel w hw later half)) _ ?_ ?_
+  · exact finiteJointBlock_perm_local hperm hperm _ _
+  · unfold centralPhysicalFiniteEmbeddedVacuumSectorIndices
+    unfold centralPhysicalFinitePulledVacuumSectorMatrixQuadratic
+    apply finiteJointBlock_map_eqv_local
+    intro left hleft right hright
+    exact Q'.mul_eqv_congr_right _ _ _
+      (mul_eqv_congr_local
+        (centralPhysicalFiniteVacuumSectorCoefficientExtension_on_map
+          hcutoff hleft coefficient)
+        (centralPhysicalFiniteVacuumSectorCoefficientExtension_on_map
+          hcutoff hright coefficient))
+
 end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFormPushforward
 
 #print axioms
@@ -461,3 +687,11 @@ end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFormPushforward
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFormPushforward.centralPhysicalFiniteVacuumSectorOldBlockDiagonal_eqv_pulled
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFormPushforward.centralPhysicalFiniteVacuumSectorOldOldBlock_eqv_pulled
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFormPushforward.centralPhysicalFiniteVacuumSectorCoefficientExtension_on_map
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFormPushforward.centralPhysicalFiniteVacuumSectorCoefficientExtension_oldMean_eqv_pulled
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFormPushforward.centralPhysicalFiniteVacuumSectorCoefficientExtension_oldDiagonal_eqv_pulled
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFormPushforward.centralPhysicalFiniteVacuumSectorCoefficientExtension_oldMatrix_eqv_pulled

@@ -26,6 +26,7 @@ set_option maxHeartbeats 1000000
 open YMGap.Constructive
 open YMGap.Continuum.BF4PhysicalCutoffFiniteIndexBridge
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorBlockDecomposition
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorEmbedding
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFormCauchy
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFormPushforward
 open YMGap.Continuum.FiniteDeterministicKernelPushforward
@@ -338,6 +339,174 @@ theorem centralPhysicalFiniteVacuumSectorZeroExtensionMatrix_eqv_pulled
       (w := w) (hw := hw) (base := base) (later := later)
       (half := half) hcutoff observable
 
+/-! ## 4. Arbitrary base coefficients contract in the same way -/
+
+/-- An arbitrary base coefficient extended by the explicit finite inverse sum
+vanishes on every genuinely new target coordinate. -/
+theorem centralPhysicalFiniteVacuumSectorCoefficientExtension_eqv_zero_of_mem_new
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {base later half target : Nat}
+    (htarget : target ∈
+      centralPhysicalFiniteVacuumSectorNewBlockIndices
+        w hw base later half)
+    (coefficient : Nat → Q') :
+    centralPhysicalFiniteVacuumSectorCoefficientExtension
+      w hw base later half coefficient target ≈ 0 := by
+  have hnotEmbedded :=
+    (mem_centralPhysicalFiniteVacuumSectorNewBlockIndices_iff.mp
+      htarget).2
+  unfold centralPhysicalFiniteVacuumSectorCoefficientExtension
+  apply listQSum_eqv_zero_of_pointwise
+  intro source hsource
+  have hne : centralPhysicalFiniteCutoffIndexMap
+      w hw base later half source ≠ target := by
+    intro heq
+    apply hnotEmbedded
+    unfold centralPhysicalFiniteEmbeddedVacuumSectorIndices
+    exact List.mem_map.mpr ⟨source, hsource, heq⟩
+  rw [if_neg hne]
+  exact Q'.eqv_refl 0
+
+/-- The new-coordinate weighted mean of an arbitrary coefficient extension
+vanishes. -/
+theorem centralPhysicalFiniteVacuumSectorCoefficientExtension_newMean_eqv_zero
+    (w : Q') (hw : (0 : Q') ≤ w)
+    (base later half : Nat) (coefficient : Nat → Q') :
+    listQSum
+        (fun index =>
+          centralPhysicalFiniteVacuumSectorCoefficientExtension
+              w hw base later half coefficient index *
+            centralPhysicalFiniteWeight w hw later half index)
+        (centralPhysicalFiniteVacuumSectorNewBlockIndices
+          w hw base later half) ≈ 0 := by
+  apply listQSum_eqv_zero_of_pointwise
+  intro index hindex
+  refine Q'.eqv_trans _ (0 *
+      centralPhysicalFiniteWeight w hw later half index) _ ?_ ?_
+  · exact Q'.mul_eqv_congr_right _ _ _
+      (centralPhysicalFiniteVacuumSectorCoefficientExtension_eqv_zero_of_mem_new
+        hindex coefficient)
+  · exact Q'.zero_mul_eqv _
+
+/-- The new-coordinate diagonal contribution of an arbitrary coefficient
+extension vanishes. -/
+theorem centralPhysicalFiniteVacuumSectorCoefficientExtension_newDiagonal_eqv_zero
+    (w : Q') (hw : (0 : Q') ≤ w)
+    (base later half : Nat) (coefficient : Nat → Q') :
+    listQSum
+        (fun index =>
+          (centralPhysicalFiniteVacuumSectorCoefficientExtension
+              w hw base later half coefficient index *
+            centralPhysicalFiniteVacuumSectorCoefficientExtension
+              w hw base later half coefficient index) *
+            centralPhysicalFiniteWeight w hw later half index)
+        (centralPhysicalFiniteVacuumSectorNewBlockIndices
+          w hw base later half) ≈ 0 := by
+  apply listQSum_eqv_zero_of_pointwise
+  intro index hindex
+  have hzero :=
+    centralPhysicalFiniteVacuumSectorCoefficientExtension_eqv_zero_of_mem_new
+      hindex coefficient
+  refine Q'.eqv_trans _ (0 *
+      centralPhysicalFiniteVacuumSectorCoefficientExtension
+        w hw base later half coefficient index *
+      centralPhysicalFiniteWeight w hw later half index) _ ?_ ?_
+  · exact Q'.mul_eqv_congr_right _ _ _
+      (Q'.mul_eqv_congr_right _ _ _ hzero)
+  · exact Q'.eqv_trans _
+      (0 * centralPhysicalFiniteWeight w hw later half index) _
+      (Q'.mul_eqv_congr_right _ _ _
+        (Q'.zero_mul_eqv _))
+      (Q'.zero_mul_eqv _)
+
+/-- The full later-component mean of an arbitrary coefficient extension is
+exactly its pulled base-component mean. -/
+theorem centralPhysicalFiniteVacuumSectorCoefficientExtensionMean_eqv_pulled
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {base later half : Nat} (hcutoff : base ≤ later)
+    (coefficient : Nat → Q') :
+    centralPhysicalFiniteVacuumSectorWeightedMean w hw later half
+        (centralPhysicalFiniteVacuumSectorCoefficientExtension
+          w hw base later half coefficient) ≈
+      centralPhysicalFinitePulledVacuumSectorWeightedMean
+        w hw base later half coefficient := by
+  have hsplit := centralPhysicalFiniteVacuumSectorWeightedMean_old_add_new
+    w hw base later half
+      (centralPhysicalFiniteVacuumSectorCoefficientExtension
+        w hw base later half coefficient)
+  have hold :=
+    centralPhysicalFiniteVacuumSectorCoefficientExtension_oldMean_eqv_pulled
+      (w := w) (hw := hw) (base := base) (later := later)
+      (half := half) hcutoff coefficient
+  have hnew :=
+    centralPhysicalFiniteVacuumSectorCoefficientExtension_newMean_eqv_zero
+      w hw base later half coefficient
+  exact Q'.eqv_trans _ _ _ hsplit
+    (Q'.eqv_trans _
+      (centralPhysicalFinitePulledVacuumSectorWeightedMean
+        w hw base later half coefficient + 0) _
+      (Q'.add_eqv_congr' hold hnew)
+      (Q'.eqv_of_eq (Q'.add_zero' _)))
+
+/-- The full later-component diagonal form of an arbitrary coefficient
+extension is exactly its pulled base-component diagonal form. -/
+theorem centralPhysicalFiniteVacuumSectorCoefficientExtensionDiagonal_eqv_pulled
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {base later half : Nat} (hcutoff : base ≤ later)
+    (coefficient : Nat → Q') :
+    centralPhysicalFiniteVacuumSectorDiagonalQuadratic w hw later half
+        (centralPhysicalFiniteVacuumSectorCoefficientExtension
+          w hw base later half coefficient) ≈
+      centralPhysicalFinitePulledVacuumSectorDiagonalQuadratic
+        w hw base later half coefficient := by
+  have hsplit := centralPhysicalFiniteVacuumSectorDiagonalQuadratic_old_add_new
+    w hw base later half
+      (centralPhysicalFiniteVacuumSectorCoefficientExtension
+        w hw base later half coefficient)
+  have hold :=
+    centralPhysicalFiniteVacuumSectorCoefficientExtension_oldDiagonal_eqv_pulled
+      (w := w) (hw := hw) (base := base) (later := later)
+      (half := half) hcutoff coefficient
+  have hnew :=
+    centralPhysicalFiniteVacuumSectorCoefficientExtension_newDiagonal_eqv_zero
+      w hw base later half coefficient
+  exact Q'.eqv_trans _ _ _ hsplit
+    (Q'.eqv_trans _
+      (centralPhysicalFinitePulledVacuumSectorDiagonalQuadratic
+        w hw base later half coefficient + 0) _
+      (Q'.add_eqv_congr' hold hnew)
+      (Q'.eqv_of_eq (Q'.add_zero' _)))
+
+/-- The full later-component reflected form of an arbitrary coefficient
+extension is exactly its pulled base-component reflected form. -/
+theorem centralPhysicalFiniteVacuumSectorCoefficientExtensionMatrix_eqv_pulled
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {base later half : Nat} (hcutoff : base ≤ later)
+    (coefficient : Nat → Q') :
+    centralPhysicalFiniteVacuumSectorMatrixQuadratic w hw later half
+        (centralPhysicalFiniteVacuumSectorCoefficientExtension
+          w hw base later half coefficient) ≈
+      centralPhysicalFinitePulledVacuumSectorMatrixQuadratic
+        w hw base later half coefficient := by
+  refine Q'.eqv_trans _
+    (finiteJointBlock
+      (centralPhysicalFiniteVacuumSectorOldBlockIndices
+        w hw base later half)
+      (centralPhysicalFiniteVacuumSectorOldBlockIndices
+        w hw base later half)
+      (centralPhysicalFiniteVacuumSectorCoefficientExtension
+        w hw base later half coefficient)
+      (centralPhysicalFiniteKernel w hw later half)) _ ?_ ?_
+  · unfold centralPhysicalFiniteVacuumSectorMatrixQuadratic
+      centralPhysicalFiniteVacuumSectorOldBlockIndices
+    apply finiteJointQuadratic_filter_eqv_trueBlock_of_zero_false
+    intro index hindex
+    exact centralPhysicalFiniteVacuumSectorCoefficientExtension_eqv_zero_of_mem_new
+      hindex coefficient
+  · exact centralPhysicalFiniteVacuumSectorCoefficientExtension_oldMatrix_eqv_pulled
+      (w := w) (hw := hw) (base := base) (later := later)
+      (half := half) hcutoff coefficient
+
 end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorZeroExtensionContraction
 
 #print axioms
@@ -354,3 +523,11 @@ end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorZeroExtensionContraction
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorZeroExtensionContraction.centralPhysicalFiniteVacuumSectorZeroExtensionDiagonal_eqv_pulled
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorZeroExtensionContraction.centralPhysicalFiniteVacuumSectorZeroExtensionMatrix_eqv_pulled
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorZeroExtensionContraction.centralPhysicalFiniteVacuumSectorCoefficientExtension_eqv_zero_of_mem_new
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorZeroExtensionContraction.centralPhysicalFiniteVacuumSectorCoefficientExtensionMean_eqv_pulled
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorZeroExtensionContraction.centralPhysicalFiniteVacuumSectorCoefficientExtensionDiagonal_eqv_pulled
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorZeroExtensionContraction.centralPhysicalFiniteVacuumSectorCoefficientExtensionMatrix_eqv_pulled
