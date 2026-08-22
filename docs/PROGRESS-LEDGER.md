@@ -5178,6 +5178,28 @@ limit entry error nor the moving recentering comparison.  Those estimates,
 followed by the robust rate budget, remain the next frontier; completed-space,
 thermodynamic/continuum QFT, and the Clay theorem remain open.
 
+## The BF4 root-sector cylinder union has a concrete injective completion (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorCylinderCompletion` forms the union of all
+finite canonical root-sector cylinder presentations at fixed nome and finite
+half-extent, equips it with the squared seminorm inherited from the existing
+cutoff-removed physical GNS form, and applies the explicit-modulus constructive
+Cauchy completion.  Termwise cylinder realization sends every sector Cauchy
+representative to a global physical Cauchy representative.
+
+The descended map into the existing global physical completion is proved
+injective: global closeness of two mapped representatives reflects verbatim
+to sector closeness.  On every dense sector constant, the actual global
+completed inner product is the quotient class of the already constructed
+pulled-sector diagonal Bishop real.  The focused monitored check and
+exact-target one-worker 1,263-job build pass.  All four audited exports use
+exactly `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`,
+`sorry`, custom axiom, or noncomputable declaration was added.  This does not
+prove that the image is all of the global vacuum complement, that the global
+transfer preserves it, or that one strict rate works over all carriers.
+Those completion-invariance and uniform-analytic steps, followed by the
+thermodynamic/continuum construction, remain open.
+
 ## Every fixed pulled BF4 carrier has normalized mass (2026-08-22)
 
 `BF4PhysicalCutoffVacuumSectorPulledMass` proves for arbitrary nome, base

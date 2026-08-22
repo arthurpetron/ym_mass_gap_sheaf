@@ -4847,3 +4847,28 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete build pass.  This is an exact dense-carrier realization,
   not a density theorem for a completed vacuum sector.  No completed-space
   gap, thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+### [BF4-vacuum-sector-cylinder-completion] Concrete completion embeds injectively in the global physical completion — **PROVED 2026-08-22**
+
+- **milestone**: complete the union of all finite canonical root-sector
+  cylinder presentations in the inherited cutoff-removed squared distance,
+  descend the termwise realization to the global completion, prove that map
+  injective, and identify dense sector norms with pulled diagonal limits.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCylinderCompletion.lean`.
+- **decl**: `centralPhysicalVacuumSectorCylinderSquaredSeminorm`,
+  `centralPhysicalVacuumSectorCylinderCompletionToGlobal`,
+  `centralPhysicalVacuumSectorCylinderCompletionToGlobal_injective`, and
+  `centralPhysicalVacuumSectorCylinder_completedInner_embedRep_eq_pulled`.
+- **obligation**: prove that the concrete completed Markov transfer preserves
+  this injective sector image (or state the exact Type-level lifting datum),
+  identify its transfer pairing with the pulled matrix limit, and inhabit one
+  all-carrier strict-rate certificate before extending the gap by continuity.
+- **constructive?**: yes — all four audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,263-job dependency-complete build pass.  Injectivity is proved, but neither
+  surjectivity onto the global vacuum complement nor transfer invariance is
+  claimed.  No completed sector gap, thermodynamic/continuum QFT, or Clay
+  theorem is asserted.
