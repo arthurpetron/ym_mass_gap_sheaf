@@ -4492,3 +4492,38 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   4,752-job dependency-complete build pass.  The edge-floor certificate is
   not inhabited and the completed-space bridge is open.  No thermodynamic/
   continuum QFT or Clay theorem is asserted.
+
+### [BF4-cutoff-two-pulled-base-edge-floor] Constructed canonical-path floor — **PROVED 2026-08-22**
+
+- **milestone**: weaken the pulled-edge premise to the cutoff-two-positive
+  edges actually used by the transported canonical paths, prove a generic
+  base-path/replacement-kernel endpoint compiler, establish half retention for
+  arbitrary cutoff-stable unit observables, and construct one explicit common
+  positive floor by a finite minimum of anchored pair-cylinder entries.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorPathEnergy.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffUniformRowFloor.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoPulledUniformPathEnergy.lean`,
+  and
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoPulledBaseEdgeFloor.lean`.
+- **decl**:
+  `PositiveKernelChainIn.floor_mul_endpointDifference_sq_le_rekernel_amplifiedEnergy`,
+  `half_mul_slabNomeCutoffBoundedObservableExpectation_le_of_increment_le_one`,
+  `CutoffTwoPulledUniformBasePositiveEdgeFloor.floor_mul_endpoint_sq_le_ceiling_mul_pulledDirichlet`,
+  `half_mul_centralNormalizedPhysicalReflectedKernel_le_of_increment_le_one`,
+  `half_mul_cutoffTwoPulledKernelAt_le_of_increment_le_one`, and
+  `cutoffTwoPulledUniformBasePositiveEdgeFloor`.
+- **obligation**: recode the uniform finite Poincare and same-object CReal
+  contractions to consume the newly inhabited base-positive certificate;
+  after that, construct a density/cofinal bridge from the fixed cutoff-two
+  carrier family to the full physical vacuum complement before invoking any
+  completed-space gap theorem.
+- **constructive?**: yes — the newly audited declarations use only
+  `[propext, Quot.sound]`, except the path-shape equality which is axiom-free;
+  no `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+  noncomputable declaration was added.
+- **status note**: the focused monitored checks and exact-target one-worker
+  4,749-job dependency-complete build pass.  The obsolete stronger
+  all-later-positive floor remains uninhabited but is no longer the
+  mathematically necessary condition.  No completed-space gap,
+  thermodynamic/continuum QFT, or Clay theorem is asserted.

@@ -93,6 +93,29 @@ theorem square_add_le_double_square_sum (left right : Q') :
 
 namespace PositiveKernelChainIn
 
+/-- Replace the kernel carried by a positive path when positivity of every
+used base edge transfers to the replacement kernel.  The original path is
+retained as recursive data, so later quantitative arguments can still use
+the positivity proof for the corresponding base edge. -/
+def rekernel
+    {State : Type} {kernel replacement : State → State → Q'}
+    {support : List State}
+    (edgePositive : ∀ first next,
+      first ∈ support → next ∈ support →
+      (0 : Q') < kernel first next →
+      (0 : Q') < replacement first next) :
+    {first last : State} → first ∈ support →
+      PositiveKernelChainIn kernel support first last →
+      PositiveKernelChainIn replacement support first last
+  | first, _, _hfirst, PositiveKernelChainIn.refl _ =>
+      PositiveKernelChainIn.refl first
+  | first, _, hfirst,
+      PositiveKernelChainIn.step
+        (next := next) positive hnext rest =>
+      PositiveKernelChainIn.step
+        (edgePositive first next hfirst hnext positive) hnext
+        (rekernel edgePositive hnext rest)
+
 /-- The explicit path length, retained for the later finite ceiling. -/
 def length {State : Type} {kernel : State → State → Q'}
     {support : List State} {first last : State} :
@@ -267,6 +290,119 @@ theorem floor_mul_endpointDifference_sq_le_amplifiedEnergy
         (Q'.le_trans' _ _ _ hscaledYoung
           (Q'.le_trans' _ _ _ (Q'.le_of_eqv hcollect) htwice))
 
+/-- A lower bound needed only on the positive edges of the *base* path
+controls the endpoint difference after that path is transported to a
+replacement kernel.  This is strictly weaker than requiring the floor below
+every positive replacement-kernel entry: replacement cutoffs may create new
+positive entries which the transported path does not use. -/
+theorem floor_mul_endpointDifference_sq_le_rekernel_amplifiedEnergy
+    {State : Type} {kernel replacement : State → State → Q'}
+    {support : List State} (coefficient : State → Q')
+    (floor : Q') (hfloor0 : (0 : Q') ≤ floor)
+    (edgePositive : ∀ first next,
+      first ∈ support → next ∈ support →
+      (0 : Q') < kernel first next →
+      (0 : Q') < replacement first next)
+    (edgeFloor : ∀ first next,
+      first ∈ support → next ∈ support →
+      (0 : Q') < kernel first next →
+      floor ≤ replacement first next) :
+    {first last : State} → (hfirst : first ∈ support) →
+      (path : PositiveKernelChainIn kernel support first last) →
+      floor *
+          ((coefficient first + -coefficient last) *
+            (coefficient first + -coefficient last)) ≤
+        amplifiedEnergy coefficient
+          (rekernel edgePositive hfirst path)
+  | first, _, _hfirst, PositiveKernelChainIn.refl _ => by
+      have hzero : coefficient first + -coefficient first ≈ 0 :=
+        Q'.add_neg_self_eqv _
+      exact Q'.le_of_eqv
+        (Q'.eqv_trans _ (floor * (0 * 0)) _
+          (Q'.mul_eqv_congr_left floor _ _
+            (square_eqv_congr hzero))
+          (Q'.eqv_trans _ (floor * 0) _
+            (Q'.mul_eqv_congr_left floor _ _
+              (Q'.zero_mul_eqv 0))
+            (Q'.mul_zero_eqv floor)))
+  | first, last, hfirst,
+      PositiveKernelChainIn.step
+        (next := next) positive hnext rest => by
+      let leftDifference := coefficient first + -coefficient next
+      let restDifference := coefficient next + -coefficient last
+      let restEnergy := amplifiedEnergy coefficient
+        (rekernel edgePositive hnext rest)
+      have hrest : floor * (restDifference * restDifference) ≤ restEnergy :=
+        floor_mul_endpointDifference_sq_le_rekernel_amplifiedEnergy
+          coefficient floor hfloor0 edgePositive edgeFloor hnext rest
+      have hedge : floor * (leftDifference * leftDifference) ≤
+          replacement first next * (leftDifference * leftDifference) :=
+        Q'.mul_le_mul_of_nonneg_right floor (replacement first next)
+          (leftDifference * leftDifference)
+          (edgeFloor first next hfirst hnext positive)
+          (square_nonnegative leftDifference)
+      have hadd :
+          floor * (leftDifference * leftDifference) +
+              floor * (restDifference * restDifference) ≤
+            replacement first next * (leftDifference * leftDifference) +
+              restEnergy :=
+        Q'.add_le_add hedge hrest
+      have htwice :
+          (floor * (leftDifference * leftDifference) +
+              floor * (restDifference * restDifference)) +
+            (floor * (leftDifference * leftDifference) +
+              floor * (restDifference * restDifference)) ≤
+          (replacement first next * (leftDifference * leftDifference) +
+              restEnergy) +
+            (replacement first next * (leftDifference * leftDifference) +
+              restEnergy) :=
+        Q'.add_le_add hadd hadd
+      have htel := endpointDifference_step
+        coefficient first next last
+      have hendpointSquare :
+          (coefficient first + -coefficient last) *
+              (coefficient first + -coefficient last) ≈
+            (leftDifference + restDifference) *
+              (leftDifference + restDifference) :=
+        square_eqv_congr htel
+      have hyoung := square_add_le_double_square_sum
+        leftDifference restDifference
+      have hscaledYoung :
+          floor *
+              ((leftDifference + restDifference) *
+                (leftDifference + restDifference)) ≤
+            floor *
+              ((leftDifference * leftDifference +
+                  restDifference * restDifference) +
+                (leftDifference * leftDifference +
+                  restDifference * restDifference)) :=
+        Q'.mul_le_mul_of_nonneg_left _ _ floor hyoung hfloor0
+      have hcollect :
+          floor *
+              ((leftDifference * leftDifference +
+                  restDifference * restDifference) +
+                (leftDifference * leftDifference +
+                  restDifference * restDifference)) ≈
+            (floor * (leftDifference * leftDifference) +
+                floor * (restDifference * restDifference)) +
+              (floor * (leftDifference * leftDifference) +
+                floor * (restDifference * restDifference)) := by
+        refine Q'.eqv_trans _
+          (floor *
+              (leftDifference * leftDifference +
+                restDifference * restDifference) +
+            floor *
+              (leftDifference * leftDifference +
+                restDifference * restDifference)) _
+          (Q'.mul_add_eqv _ _ _) ?_
+        exact Q'.add_eqv_congr'
+          (Q'.mul_add_eqv _ _ _) (Q'.mul_add_eqv _ _ _)
+      exact Q'.le_trans' _ _ _
+        (Q'.le_of_eqv
+          (Q'.mul_eqv_congr_left floor _ _ hendpointSquare))
+        (Q'.le_trans' _ _ _ hscaledYoung
+          (Q'.le_trans' _ _ _ (Q'.le_of_eqv hcollect) htwice))
+
 end PositiveKernelChainIn
 
 /-! ## 2. Specialization to the canonical BF4 physical paths -/
@@ -326,5 +462,7 @@ end YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEnergy
   YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEnergy.PositiveKernelChainIn.amplifiedEnergy_nonnegative
 #print axioms
   YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEnergy.PositiveKernelChainIn.floor_mul_endpointDifference_sq_le_amplifiedEnergy
+#print axioms
+  YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEnergy.PositiveKernelChainIn.floor_mul_endpointDifference_sq_le_rekernel_amplifiedEnergy
 #print axioms
   YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEnergy.centralPhysicalFiniteVacuumSector_floor_mul_endpoint_sq_le_pathEnergy

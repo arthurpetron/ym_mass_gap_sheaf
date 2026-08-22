@@ -61,16 +61,9 @@ def rekernel
         kernel support first last →
       BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn
         replacement support first last
-  | first, _, _hfirst,
-      BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn.refl _ =>
-      BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn.refl
-        first
-  | first, _, hfirst,
-      BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn.step
-        (next := next) positive hnext rest =>
-      BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn.step
-        (edgePositive first next hfirst hnext positive) hnext
-        (rekernel edgePositive hnext rest)
+  | _, _, hfirst, path =>
+      YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEnergy.PositiveKernelChainIn.rekernel
+        edgePositive hfirst path
 
 /-- Rekernelled paths have exactly the same recursive amplification scale. -/
 theorem amplificationScale_rekernel
@@ -199,6 +192,23 @@ structure CutoffTwoPulledUniformPositiveEdgeFloor : Type 1 where
       (0 : Q') < cutoffTwoPulledKernelAt later left right →
       floor ≤ cutoffTwoPulledKernelAt later left right
 
+/-- The exactly sufficient fixed-path input.  It asks for a common floor only
+on edges which are positive at cutoff two, because those and only those edges
+can occur in the canonical cutoff-two paths transported to later cutoffs.
+It deliberately places no condition on new positive entries created later. -/
+structure CutoffTwoPulledUniformBasePositiveEdgeFloor : Type 1 where
+  floor : Q'
+  floor_pos : (0 : Q') < floor
+  start : Nat
+  start_ge_two : 2 ≤ start
+  floor_le : ∀ later : Nat, start ≤ later →
+    ∀ left right : Nat,
+      left ∈ cutoffTwoPulledStates →
+      right ∈ cutoffTwoPulledStates →
+      (0 : Q') < centralPhysicalFiniteKernel
+        cutoffTwoHalfCoupling (by decide) 2 0 left right →
+      floor ≤ cutoffTwoPulledKernelAt later left right
+
 /-- The fixed coefficient-independent ceiling of the cutoff-two canonical
 paths. -/
 def cutoffTwoPulledCanonicalPathCeiling : Q' :=
@@ -288,6 +298,90 @@ theorem floor_mul_endpoint_sq_le_ceiling_mul_pulledDirichlet
 
 end CutoffTwoPulledUniformPositiveEdgeFloor
 
+namespace CutoffTwoPulledUniformBasePositiveEdgeFloor
+
+/-- A floor on the transported canonical-path edges gives the same endpoint
+estimate as the stronger all-later-positive certificate. -/
+theorem floor_mul_endpoint_sq_le_ceiling_mul_pulledDirichlet
+    (certificate : CutoffTwoPulledUniformBasePositiveEdgeFloor)
+    (later : Nat) (hlater : certificate.start ≤ later)
+    (coefficient : Nat → Q')
+    (left right : Nat)
+    (hleft : left ∈ cutoffTwoPulledStates)
+    (hright : right ∈ cutoffTwoPulledStates) :
+    certificate.floor *
+        ((coefficient left + -coefficient right) *
+          (coefficient left + -coefficient right)) ≤
+      cutoffTwoPulledCanonicalPathCeiling *
+        finiteJointDirichletEnergy cutoffTwoPulledStates coefficient
+          (cutoffTwoPulledKernelAt later) := by
+  have htwoLater : 2 ≤ later :=
+    Nat.le_trans certificate.start_ge_two hlater
+  let basePath := centralPhysicalFiniteVacuumSectorPositivePath
+    cutoffTwoHalfCoupling (by decide) 2 0
+    left right hleft hright
+  let path := cutoffTwoPulledPositivePath
+    later htwoLater left right hleft hright
+  let energy := finiteJointDirichletEnergy
+    cutoffTwoPulledStates coefficient (cutoffTwoPulledKernelAt later)
+  have hlocal :
+      certificate.floor *
+          ((coefficient left + -coefficient right) *
+            (coefficient left + -coefficient right)) ≤
+        BF4PhysicalFiniteVacuumSectorPathEnergy.PositiveKernelChainIn.amplifiedEnergy
+          coefficient path := by
+    exact
+      BF4PhysicalFiniteVacuumSectorPathEnergy.PositiveKernelChainIn.floor_mul_endpointDifference_sq_le_rekernel_amplifiedEnergy
+        coefficient certificate.floor (Q'.le_of_lt certificate.floor_pos)
+        (fun first next hfirst hnext hpositive =>
+          cutoffTwoPulledKernelAt_pos_of_base_pos
+            htwoLater hfirst hnext hpositive)
+        (fun first next hfirst hnext hpositive =>
+          certificate.floor_le later hlater first next
+            hfirst hnext hpositive)
+        hleft basePath
+  have hkernel : ∀ source target,
+      (0 : Q') ≤ cutoffTwoPulledKernelAt later source target := by
+    intro source target
+    unfold cutoffTwoPulledKernelAt centralPhysicalFinitePulledKernel
+      centralPhysicalFiniteKernel
+    exact centralNormalizedPhysicalReflectedKernel_nonnegative
+      (by decide) later 0 _ _
+  have hglobal :
+      BF4PhysicalFiniteVacuumSectorPathEnergy.PositiveKernelChainIn.amplifiedEnergy
+          coefficient path ≤
+        BF4PhysicalFiniteVacuumSectorPathGlobalEnergy.PositiveKernelChainIn.amplificationScale
+            path * energy := by
+    exact
+      BF4PhysicalFiniteVacuumSectorPathGlobalEnergy.PositiveKernelChainIn.amplifiedEnergy_le_scale_mul_finiteJointDirichletEnergy
+        coefficient hkernel hleft path
+  have hbaseScale :=
+    centralPhysicalFiniteVacuumSectorPathScale_le_ceiling
+      cutoffTwoHalfCoupling (by decide) 2 0
+      left right hleft hright
+  have hscale :
+      BF4PhysicalFiniteVacuumSectorPathGlobalEnergy.PositiveKernelChainIn.amplificationScale
+          path ≤ cutoffTwoPulledCanonicalPathCeiling := by
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv
+        (Q'.eqv_of_eq
+          (cutoffTwoPulledPositivePath_amplificationScale_eq_base
+            later htwoLater left right hleft hright)))
+      hbaseScale
+  have henergy0 : (0 : Q') ≤ energy :=
+    finiteJointDirichletEnergy_nonnegative
+      cutoffTwoPulledStates coefficient
+      (cutoffTwoPulledKernelAt later) hkernel
+  have hscaled :
+      BF4PhysicalFiniteVacuumSectorPathGlobalEnergy.PositiveKernelChainIn.amplificationScale
+          path * energy ≤
+        cutoffTwoPulledCanonicalPathCeiling * energy :=
+    Q'.mul_le_mul_of_nonneg_right _ _ _ hscale henergy0
+  exact Q'.le_trans' _ _ _ hlocal
+    (Q'.le_trans' _ _ _ hglobal hscaled)
+
+end CutoffTwoPulledUniformBasePositiveEdgeFloor
+
 end YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledUniformPathEnergy
 
 /-! ## Axiom audit -/
@@ -302,3 +396,5 @@ end YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledUniformPathEnergy
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledUniformPathEnergy.cutoffTwoPulledCanonicalPathCeiling_pos
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledUniformPathEnergy.CutoffTwoPulledUniformPositiveEdgeFloor.floor_mul_endpoint_sq_le_ceiling_mul_pulledDirichlet
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledUniformPathEnergy.CutoffTwoPulledUniformBasePositiveEdgeFloor.floor_mul_endpoint_sq_le_ceiling_mul_pulledDirichlet

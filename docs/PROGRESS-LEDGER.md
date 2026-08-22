@@ -5909,3 +5909,41 @@ Both audited declarations use exactly `[propext, Quot.sound]`; no
 `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
 noncomputable declaration was added.  No unconditional completed Hilbert gap,
 thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+## The transported cutoff-two path-edge floor is now constructed (2026-08-22)
+
+The earlier `CutoffTwoPulledUniformPositiveEdgeFloor` was stronger than the
+canonical-path argument actually needs: it requested a lower bound on every
+entry which is positive at a later cutoff, including entries which may first
+become positive only after new representation labels are admitted.  The path
+proof uses only edges already positive at cutoff two.  The new
+`CutoffTwoPulledUniformBasePositiveEdgeFloor` records exactly that weaker and
+sufficient premise.
+
+`BF4PhysicalFiniteVacuumSectorPathEnergy` now contains a generic quantitative
+`rekernel` compiler which retains each base-edge positivity proof while
+measuring energy with the replacement kernel.  Consequently the fixed
+cutoff-two path endpoint theorem applies under the weaker base-positive floor
+without any converse support-persistence claim.
+
+`BF4PhysicalCutoffUniformRowFloor` exposes the underlying observable-level
+half-retention theorem: every nonnegative cutoff-stable unit observable keeps
+at least half of its anchor expectation whenever the complete new-label
+partition increment is at most one.  Applying this to ordered pair cylinders,
+`BF4PhysicalBoundaryCutoffTwoPulledBaseEdgeFloor` chooses the explicit anchor
+`max 2 centralPhysicalUniformRowFloorCutoff`, takes a finite positive minimum
+over the fixed cutoff-two Cartesian carrier there, and proves that half this
+minimum is below every later pulled kernel entry whose cutoff-two ancestor is
+positive.  This constructs
+`cutoffTwoPulledUniformBasePositiveEdgeFloor` with no analytic certificate.
+
+The focused monitored checks and exact-target one-worker 4,749-job build pass.
+All newly audited declarations use only `[propext, Quot.sound]` (with the
+shape-preservation equality itself axiom-free); no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.  This removes the edge-floor input on the fixed-carrier branch, but the
+existing finite Poincare and same-object CReal contraction files still need
+to be recoded from the obsolete stronger certificate to the newly inhabited
+exact certificate.  A density/cofinal bridge to the full vacuum complement,
+completed-space gap, thermodynamic/continuum QFT, and Clay theorem remain
+open.

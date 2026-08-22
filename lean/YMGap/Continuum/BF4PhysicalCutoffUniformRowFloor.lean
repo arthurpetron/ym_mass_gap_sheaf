@@ -235,7 +235,7 @@ theorem centralPhysicalRowMarginal_eq_sourceExpectation
 
 /-! ## 2. Exact rational half-retention algebra -/
 
-private theorem divPos_half_le_of_retained_numerator_and_unit_increment
+theorem divPos_half_le_of_retained_numerator_and_unit_increment
     (anchorNumerator laterNumerator anchorPartition laterPartition
       increment : Q')
     (hanchorNumerator0 : (0 : Q') <= anchorNumerator)
@@ -303,6 +303,66 @@ private theorem divPos_half_le_of_retained_numerator_and_unit_increment
     (Q'.le_trans' _ _ _
       (Q'.le_of_eqv hcollapse)
       hanchorNumeratorLater)
+
+/-- Every nonnegative cutoff-stable unit observable retains at least half of
+its anchor expectation when the complete new-label partition increment is at
+most one.  This is the observable-level form of the denominator argument,
+independent of whether the cylinder selects one source row or one ordered
+source-target pair. -/
+theorem half_mul_slabNomeCutoffBoundedObservableExpectation_le_of_increment_le_one
+    {w : Q'} (hw : (0 : Q') ≤ w)
+    {anchor later extent : Nat} (hcutoff : anchor ≤ later)
+    (hincrementOne :
+      slabParametricKCutoffIncrement w anchor later extent ≤ (1 : Q'))
+    (observable : CutoffStableSlabUnitObservable extent) :
+    HalfPow.half *
+        slabNomeCutoffBoundedObservableExpectation
+          w hw anchor extent observable ≤
+      slabNomeCutoffBoundedObservableExpectation
+        w hw later extent observable := by
+  let anchorNumerator := slabBoundedObservableNumerator
+    w anchor extent observable
+  let laterNumerator := slabBoundedObservableNumerator
+    w later extent observable
+  let anchorPartition := slabParametricKPhysicalPartition
+    w anchor extent
+  let laterPartition := slabParametricKPhysicalPartition
+    w later extent
+  let increment := slabParametricKCutoffIncrement
+    w anchor later extent
+  have hanchorNumerator0 : (0 : Q') ≤ anchorNumerator := by
+    dsimp only [anchorNumerator]
+    exact slabBoundedObservableNumerator_nonnegative
+      hw anchor extent observable
+  have hobservableIncrement0 :
+      (0 : Q') ≤ slabBoundedObservableCutoffIncrement
+        w anchor later extent observable :=
+    slabBoundedObservableCutoffIncrement_nonnegative
+      hw anchor later extent observable
+  have hnumeratorDecomposition :=
+    slabBoundedObservableNumerator_eq_base_add_increment
+      (w := w) hcutoff observable
+  have hanchorNumeratorLater : anchorNumerator ≤ laterNumerator := by
+    refine Q'.le_trans' _ _ _
+      (Q'.add_le_self_of_nonneg _ _ hobservableIncrement0) ?_
+    exact Q'.ge_of_eqv hnumeratorDecomposition
+  have hanchorPartitionPos : (0 : Q') < anchorPartition := by
+    dsimp only [anchorPartition]
+    exact slabParametricKPhysicalPartition_pos hw anchor extent
+  have hlaterPartitionPos : (0 : Q') < laterPartition := by
+    dsimp only [laterPartition]
+    exact slabParametricKPhysicalPartition_pos hw later extent
+  have hanchorPartitionOne : (1 : Q') ≤ anchorPartition := by
+    dsimp only [anchorPartition]
+    exact slabParametricKPhysicalPartition_one_le hw anchor extent
+  have hpartitionDecomposition :=
+    slabParametricKPhysicalPartition_eq_base_add_increment
+      (w := w) (extent := extent) hcutoff
+  exact divPos_half_le_of_retained_numerator_and_unit_increment
+    anchorNumerator laterNumerator anchorPartition laterPartition
+    increment hanchorNumerator0 hanchorNumeratorLater
+    hanchorPartitionPos hlaterPartitionPos hanchorPartitionOne
+    hincrementOne hpartitionDecomposition
 
 /-- If the complete new-label increment is at most one, every carried source
 row at the later cutoff retains at least half of its anchor marginal. -/
@@ -646,6 +706,9 @@ theorem centralPhysicalMovingPositiveRowFloor_le
 #print axioms centralSourceCylinderObservable
 #print axioms centralSourceCylinderNumerator_eq_rawRow
 #print axioms centralPhysicalRowMarginal_eq_sourceExpectation
+#print axioms divPos_half_le_of_retained_numerator_and_unit_increment
+#print axioms
+  half_mul_slabNomeCutoffBoundedObservableExpectation_le_of_increment_le_one
 #print axioms half_mul_centralPhysicalRowMarginal_le_of_increment_le_one
 #print axioms slabParametricKCutoffIncrement_additive
 #print axioms slabParametricKCutoffIncrement_antitone_base
