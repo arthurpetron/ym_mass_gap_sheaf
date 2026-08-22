@@ -5055,3 +5055,31 @@ cutoff two.  Exact transport to the canonical cofinal finite-index/form
 coordinates, a uniform all-cutoff sector estimate, physical-time and
 thermodynamic/continuum control, continuum QFT, and the Clay theorem remain
 open.
+
+## Cutoff-two gap reaches the canonical finite vacuum-sector forms (2026-08-22)
+
+`BF4PhysicalBoundaryCutoffTwoCanonicalVacuumFiniteFormGap` removes the table
+coordinate seam.  It first proves that finite state lookup is injective on
+every canonical vacuum component and hence that the cutoff-two canonical
+state list is a literal permutation of the certified 65-state list.  Exact
+single- and double-sum transport then identifies the table weighted mean,
+diagonal norm, and normalized reflected matrix form with the standard
+canonical finite-sector forms.
+
+The bridge initially applies to literal state observables.  A constructive
+finite code observable then encodes any arbitrary coefficient on the
+canonical index list; code faithfulness and duplicate-freeness prove exact
+recovery at every sector index.  Therefore every exactly centered canonical
+cutoff-two coefficient satisfies the normalized physical absolute form gap
+at rate `49/50` in precisely the form language consumed by the cutoff-limit
+modules.
+
+The focused monitored check and one-worker 4,717-job dependency-complete
+build pass.  All seven printed declarations use exactly
+`[propext, Quot.sound]`; there is one benign unused-`simp`-argument linter
+warning.  No `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  This closes the finite cutoff-two
+coordinate bridge only.  The causal frontier is now to propagate a strict
+sector estimate uniformly to later/cofinal cutoffs; physical-time,
+thermodynamic and continuum control, continuum QFT, and the Clay theorem
+remain open.

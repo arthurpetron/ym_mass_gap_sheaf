@@ -3598,3 +3598,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete build pass.  This is a nontrivial finite cutoff-two
   normalized physical sector theorem, not a cofinal/uniform gap,
   thermodynamic/continuum construction, or Clay conclusion.
+
+### [BF4-cutoff-two-canonical-vacuum-finite-form-gap] Exact canonical coordinate transport — **CLOSED 2026-08-22**
+
+- **milestone**: the normalized `49/50` cutoff-two sector gap is transported
+  from the stored 65-state ordering to the standard canonical vacuum-sector
+  weighted mean, diagonal, and reflected matrix forms, first for state
+  observables and then for every arbitrary canonical index coefficient.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoCanonicalVacuumFiniteFormGap.lean`.
+- **decl**:
+  `cutoffTwoCanonicalVacuumSectorStates_perm`,
+  `cutoffTwoSectorObservableWeightedMean_eqv_canonical`,
+  `cutoffTwoSectorObservableMatrix_eqv_canonical`,
+  `cutoffTwoCanonicalVacuumObservable_abs_gap`,
+  `cutoffTwoCanonicalCoefficientObservable_recovers`,
+  `cutoffTwoCanonicalEncodedMatrix_eqv`, and
+  `cutoffTwoCanonicalVacuumFinite_abs_gap`.
+- **obligation**: prove one strict canonical-vacuum-sector estimate uniformly
+  over an all-cutoff or constructively cofinal family.  The exact cutoff-two
+  base case supplies the correct finite target but no persistence estimate.
+- **constructive?**: yes — all seven printed declarations use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and one-worker 4,717-job
+  dependency-complete build pass, with one benign unused-`simp`-argument
+  linter warning.  No all-cutoff/cofinal family, physical-time limit,
+  thermodynamic/continuum QFT, or Clay theorem is asserted.
