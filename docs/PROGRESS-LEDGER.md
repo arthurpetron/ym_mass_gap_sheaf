@@ -4508,3 +4508,28 @@ This is still algebraic compatibility, not a spectral estimate.  The next
 frontier is the explicit positive-root head-centering witness at every later
 cutoff, followed by cutoff-Cauchy control of its moving correction and a
 strict rate uniform in the base cutoff.
+
+## Moving head centering stays inside the canonical vacuum sector (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorHeadCentering` constructs the exact
+cutoff-dependent centering promised by the arbitrary-coefficient extension.
+The cutoff map fixes index zero, and its pulled stationary weight is strictly
+positive at every later cutoff.  The coefficient at that one root is changed
+by minus the pulled mean divided by the root weight; every other base
+coefficient is left unchanged.
+
+A generic finite-list theorem proves the corrected weighted mean is exactly
+zero.  After arbitrary-coefficient zero extension, the full later canonical
+component is therefore exactly centered, while its diagonal and reflected
+forms remain exactly the pulled forms of the moving base coefficient.  This
+avoids the mathematically incorrect alternative of subtracting a constant on
+the reducible full positive carrier, which would populate other
+superselection sectors.  Focused and dependency-complete monitored builds
+pass; every printed declaration uses exactly `[propext, Quot.sound]`.
+
+The moving coefficient contains a rational quotient whose numerator and
+denominator both vary with the cutoff.  The next frontier is constructive
+Cauchy control of that quotient, using the existing pulled-form moduli and a
+uniform positive lower bound for the root weight.  Only after that passage
+can a base-uniform strict centered rate be meaningfully imposed on the
+cutoff-removed dense sector.

@@ -3060,3 +3060,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 - **status note**: monitored focused and dependency-complete builds pass.
   This extension theorem is not a uniform gap, thermodynamic/continuum QFT,
   or the Clay theorem.
+
+### [BF4-cutoff-vacuum-sector-head-centering] Exact moving same-sector centering — **CLOSED 2026-08-22**
+
+- **milestone**: the pulled root weight is strictly positive at every later
+  cutoff; changing only the root coefficient by the exact negative
+  mean/root-weight quotient produces zero pulled mean, and its zero extension
+  is exactly centered on the full later canonical component with exact pulled
+  diagonal and reflected forms.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorHeadCentering.lean`.
+- **decl**:
+  `finiteListRootCenteredCoefficient_meanZero`,
+  `centralPhysicalFinitePulledWeight_zero_pos`,
+  `centralPhysicalFinitePulledVacuumSectorHeadCenteredCoefficient_meanZero`,
+  `centralPhysicalFiniteVacuumSectorHeadCenteredExtension_meanZero`,
+  `centralPhysicalFiniteVacuumSectorHeadCenteredExtensionDiagonal_eqv_pulled`,
+  and
+  `centralPhysicalFiniteVacuumSectorHeadCenteredExtensionMatrix_eqv_pulled`.
+- **obligation**: prove cutoff-Cauchy control of the moving mean/root-weight
+  quotient and the two resulting centered forms, then supply a single strict
+  contraction rate uniform in the base cutoff.
+- **constructive?**: yes — printed declarations use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: monitored focused and dependency-complete builds pass.
+  Exact same-sector centering is not a uniform gap, thermodynamic/continuum
+  QFT, or the Clay theorem.
