@@ -5505,6 +5505,26 @@ alignment as data, and especially the `1/200` finite total-variation estimate
 remain open.  No unconditional fixed-carrier CReal gap, completed spectral
 gap, thermodynamic/continuum QFT, or Clay theorem is asserted.
 
+## The BF4 cross-carrier rate bottleneck is an exact certificate (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorConstructedCofinalRateBridge` isolates the
+strictly stronger datum not supplied by the fixed-carrier theorems: one
+rational `q` with `0 <= q < 1` that bounds every constructed base rate.  From
+that single field it selects, for each base and Cauchy threshold, a cutoff
+beyond the constructed tail start, enlarges the base-rate estimate using
+nonnegativity of the diagonal form, and constructs the existing
+`FixedNomeCofinalVacuumSectorCenteredStrictGap` certificate.  The same common
+rate then controls every corresponding Bishop-real cutoff limit.
+
+The focused monitored check and exact-target one-worker 4,756-job build pass.
+All three audited exports use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  No inhabitant of the cross-carrier rate
+bound is claimed.  The next analytic task is to derive it from a uniform
+floor-to-path-ceiling estimate (or a sharper sector comparison), after which a
+separate vacuum-sector density/completion bridge is still required.  No
+completed-space gap, thermodynamic/continuum QFT, or Clay theorem is asserted.
+
 ## Any strict late finite BF4 gap now preserves its own slack (2026-08-22)
 
 `BF4PhysicalBoundaryCutoffTwoPulledAdaptiveTailSeedGapBridge` removes the

@@ -4716,3 +4716,27 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   4,753-job dependency-complete build pass.  The strict rate is uniform in the
   later cutoff but may vary with the fixed base carrier.  No completed-space
   gap, thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+### [BF4-constructed-cross-carrier-rate-bridge] One common bound compiles to the cofinal vacuum-sector gap — **PROVED 2026-08-22**
+
+- **milestone**: state the exact carrier-independent upper-bound certificate
+  for the constructed base rates and compile it to the existing cofinal
+  moving-centered vacuum-sector strict-gap interface and Bishop-real limit.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorConstructedCofinalRateBridge.lean`.
+- **decl**: `FixedNomeUniformConstructedVacuumSectorRateBound`,
+  `FixedNomeUniformConstructedVacuumSectorRateBound.selectedAnchor_ge`,
+  `FixedNomeUniformConstructedVacuumSectorRateBound.toVacuumSectorCenteredStrictGap`,
+  and
+  `FixedNomeUniformConstructedVacuumSectorRateBound.centeredMatrixCutoffLimit_leEv_rate_mul_diagonal`.
+- **obligation**: construct one `q < 1` satisfying `constructedRate_le` for
+  every base, preferably from a quantitative floor-to-path-ceiling ratio or a
+  sharper sector-local estimate; then establish the distinct vacuum-sector
+  density/completion bridge.
+- **constructive?**: yes — all three audited theorem exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  4,756-job dependency-complete build pass.  The cross-carrier certificate is
+  deliberately uninhabited.  No completed-space gap, thermodynamic/continuum
+  QFT, or Clay theorem is asserted.
