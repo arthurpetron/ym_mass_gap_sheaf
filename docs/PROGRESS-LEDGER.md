@@ -5031,3 +5031,27 @@ the new interface is the corrected analytic frontier after the reducibility
 obstruction.  Uniform construction of those sector-local rows, followed by
 physical-time, thermodynamic, lattice-spacing, and continuum control, remains
 open, as does the Clay theorem.
+
+## The cutoff-two canonical vacuum gap is normalized physical data (2026-08-22)
+
+`BF4PhysicalBoundaryCutoffTwoCanonicalVacuumNormalizedGap` transports the
+exact 65-state cutoff-two calculation from the raw production table to the
+normalized reflected physical joint.  Exact row closure makes the filtered
+full half-state marginal a permutation of the canonical vacuum-sector row
+sum, including zero contributions outside the sector.  Multiplication by the
+positive reciprocal of the physical partition function scales the joint
+quadratic form, diagonal norm, and mean-zero equation by the same factor.
+
+The resulting theorem identifies the 65 states with the canonical vacuum
+support and proves the normalized physical absolute centered contraction at
+rate `49/50`.  Thus cutoff two now supplies a genuine nontrivial physical
+sector base case rather than only an unnormalized table certificate.
+
+The focused monitored check and one-worker 4,684-job dependency-complete
+build pass.  The four printed declarations use exactly
+`[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+custom axiom, or noncomputable declaration was added.  This result is only at
+cutoff two.  Exact transport to the canonical cofinal finite-index/form
+coordinates, a uniform all-cutoff sector estimate, physical-time and
+thermodynamic/continuum control, continuum QFT, and the Clay theorem remain
+open.

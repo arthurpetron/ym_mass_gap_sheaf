@@ -3572,3 +3572,29 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 - **status note**: the focused monitored check and combined one-worker
   1,779-job dependency-complete build pass.  No cofinal family, physical-time
   limit, thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+### [BF4-cutoff-two-canonical-vacuum-normalized-gap] Normalized physical sector base case — **CLOSED 2026-08-22**
+
+- **milestone**: the exact cutoff-two 65-state calculation is the canonical
+  vacuum support, and its strict absolute centered gap at rate `49/50`
+  persists after physical partition normalization.  Exact row closure
+  identifies the restricted normalized row sum with the actual full-carrier
+  physical marginal.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoCanonicalVacuumNormalizedGap.lean`.
+- **decl**:
+  `cutoffTwoHalfStates_filter_sector_perm`,
+  `cutoffTwoSectorNormalizedRowSum_eqv_centralPhysicalRowMarginal`,
+  `cutoffTwoSectorNormalizedMeanZeroAbsGapAt49Over50`, and
+  `cutoffTwoCanonicalVacuumNormalized_exact_and_strict_abs_gap`.
+- **obligation**: transport this finite 65-state coordinate theorem to the
+  canonical cofinal vacuum-sector index/form objects, then construct a single
+  strict estimate uniformly over an all-cutoff or constructively cofinal
+  family.
+- **constructive?**: yes — all four printed declarations use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and one-worker 4,684-job
+  dependency-complete build pass.  This is a nontrivial finite cutoff-two
+  normalized physical sector theorem, not a cofinal/uniform gap,
+  thermodynamic/continuum construction, or Clay conclusion.
