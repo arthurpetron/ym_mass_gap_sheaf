@@ -5505,6 +5505,30 @@ alignment as data, and especially the `1/200` finite total-variation estimate
 remain open.  No unconditional fixed-carrier CReal gap, completed spectral
 gap, thermodynamic/continuum QFT, or Clay theorem is asserted.
 
+## The BF4 uniform-rate frontier is denominator-cleared (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorUniformFloorPathRate` rewrites the remaining
+cross-carrier problem entirely in terms of the constructed finite constants.
+For a supplied common `q < 1`, it asks at every base for the rational inequality
+
+`pathCeiling <= q * (pathCeiling + edgeFloor)`.
+
+Positive-denominator division proves this is exactly an upper bound on the
+constructed rate `pathCeiling / (pathCeiling + edgeFloor)`.  The module then
+compiles those inequalities through the cross-carrier certificate, the cofinal
+moving-centered vacuum-sector gap, and the same-object Bishop-real limit.
+`FixedBaseConstructedUniformGapData` now also records the exact equality between
+its sealed rate and that displayed quotient, allowing the compilers to compose
+without unfolding the finite minimum.
+
+The focused monitored checks and exact-target one-worker 4,757-job build pass.
+All four new audited exports and the updated constructed package use exactly
+`[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+custom axiom, or noncomputable declaration was added.  The all-base rational
+inequality remains unproved; this is now the concrete quantitative frontier.
+A distinct vacuum-sector density/completion bridge, thermodynamic/continuum
+QFT, and the Clay theorem remain open.
+
 ## The BF4 cross-carrier rate bottleneck is an exact certificate (2026-08-22)
 
 `BF4PhysicalCutoffVacuumSectorConstructedCofinalRateBridge` isolates the

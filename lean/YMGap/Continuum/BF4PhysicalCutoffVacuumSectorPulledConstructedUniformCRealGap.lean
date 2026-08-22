@@ -40,6 +40,9 @@ structure FixedBaseConstructedUniformGapData
   rate : Q'
   rate_nonnegative : (0 : Q') ≤ rate
   rate_lt_one : rate < (1 : Q')
+  rate_eq_uniformPoincareRate :
+    rate = FixedBasePulledPositiveEdgeFloor.uniformPoincareRate
+      (fixedBasePulledPositiveEdgeFloor hw0 hw1 base half)
   start : Nat
   start_ge_base : base ≤ start
   moving_abs_gap : ∀ later : Nat, start ≤ later →
@@ -77,6 +80,7 @@ opaque fixedBaseConstructedUniformGapData
           certificate
       rate_lt_one :=
         FixedBasePulledPositiveEdgeFloor.uniformPoincareRate_lt_one certificate
+      rate_eq_uniformPoincareRate := rfl
       start := certificate.start
       start_ge_base := certificate.start_ge_base
       moving_abs_gap := by

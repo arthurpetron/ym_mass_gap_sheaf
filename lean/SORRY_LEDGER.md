@@ -4717,6 +4717,34 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   later cutoff but may vary with the fixed base carrier.  No completed-space
   gap, thermodynamic/continuum QFT, or Clay theorem is asserted.
 
+### [BF4-uniform-floor-path-rate] Denominator-cleared all-carrier rate frontier — **REDUCED 2026-08-22**
+
+- **milestone**: expose the exact rational inequality
+  `pathCeiling <= q * (pathCeiling + edgeFloor)` whose all-base proof bounds the
+  constructed Poincare quotients by one common `q < 1`, and compile it through
+  the cofinal vacuum-sector and Bishop-real limit interfaces.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorUniformFloorPathRate.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorPulledConstructedUniformCRealGap.lean`.
+- **decl**: `FixedNomeUniformFloorPathRateBound`,
+  `FixedNomeUniformFloorPathRateBound.uniformPoincareRate_le`,
+  `FixedNomeUniformFloorPathRateBound.toUniformConstructedVacuumSectorRateBound`,
+  `FixedNomeUniformFloorPathRateBound.toVacuumSectorCenteredStrictGap`, and
+  `FixedNomeUniformFloorPathRateBound.centeredMatrixCutoffLimit_leEv_rate_mul_diagonal`.
+- **obligation**: construct one `q < 1` and prove the displayed
+  denominator-cleared inequality for every base carrier, or replace the
+  canonical-path constants by sharper uniform sector estimates; then prove the
+  separate vacuum-sector density/completion bridge.
+- **constructive?**: yes — all four new theorem exports and the updated sealed
+  package audit to exactly `[propext, Quot.sound]`; no `Classical.*`, choice,
+  `native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+  added.
+- **status note**: the focused monitored checks and exact-target one-worker
+  4,757-job dependency-complete build pass.  The certificate is deliberately
+  uninhabited.  No completed-space gap, thermodynamic/continuum QFT, or Clay
+  theorem is asserted.
+
 ### [BF4-constructed-cross-carrier-rate-bridge] One common bound compiles to the cofinal vacuum-sector gap — **PROVED 2026-08-22**
 
 - **milestone**: state the exact carrier-independent upper-bound certificate
