@@ -4909,3 +4909,40 @@ and prove its `1/32` weighted error together with the two `1/64` tail budgets,
 uniformly along the matched AF trajectory.  Physical-time interpretation,
 volume/lattice-spacing limits, continuum QFT, and the Clay theorem remain
 open.
+
+## The support-safe leaf is executable, with an inhabited cutoff-zero base case (2026-08-22)
+
+`BF4PhysicalCoreTailFiniteChecker` turns the remaining finite core/tail leaf
+into exact computation.  Its generic row checker scans a finite carrier and
+verifies weight and kernel nonnegativity, stationary normalization, the
+`1/32` pointwise retained-core window, and the two `1/64` tail sums.  A second
+checker scans every physical source at one cutoff.  Kernel-checked soundness
+turns `check = true` into the exact `FiniteWeightedDensityCoreTailWindow` and
+`PhysicalConditionalDensityCoreTailWindow` structures used downstream.
+
+`PhysicalConditionalDensityCoreTailAFCheckedCertificate` now states the
+uniform frontier as one true finite all-source Boolean scan per AF scale.  It
+compiles to the minimal support-safe certificate, completed form-gap data,
+and geometric completed same-vector decay.  The remaining scale quantifier is
+not hidden: no all-scale family of true computations is asserted.
+
+There is also a genuinely inhabited physical base case.  Lean's ordinary
+kernel evaluator proves that the canonical cutoff `K = 0`, coupling `w = 1`,
+half-extent-zero carrier passes the all-source check when its full carrier is
+retained.  That computed fact yields every literal centered row at rate
+`1/16`, the concrete finite mean-zero quadratic gap, the completed vacuum
+form gap, and geometric squared same-vector completed transfer decay.  This
+is a cutoff-zero theorem only, not evidence of cutoff uniformity.
+
+The focused monitored check and one-job 1,240-job dependency-complete build
+pass.  Every printed declaration is within the axiom gate: the closed
+nonnegativity fact has no axioms and the others use exactly
+`[propext, Quot.sound]`.  No `native_decide` or external numerical oracle is
+used.
+
+The next causal frontier is to obtain true checked values beyond the trivial
+cutoff-zero carrier, preferably for an increasing cutoff prefix with the
+source-dependent threshold core, and then replace any finite prefix by an
+analytic all-scale proof.  Physical-time, volume/lattice-spacing,
+thermodynamic and continuum limits, continuum QFT, and the Clay theorem
+remain open.

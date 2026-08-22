@@ -3460,3 +3460,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   local-root, and strict-positivity dependencies from the support-safe
   completion route; it does not inhabit its finite analytic leaf or establish
   physical-time, volume/spacing, continuum-QFT, or Clay closure.
+
+### [BF4-core-tail-finite-checker] Executable leaf and cutoff-zero base case — **CLOSED 2026-08-22**
+
+- **milestone**: exact Boolean row and all-source checkers compile verified
+  finite core/tail computations into the support-safe matched certificate and
+  its completed decay consequences.  The canonical physical `K = 0`, `w = 1`
+  all-source check is actually evaluated to true and yields an inhabited
+  finite completed same-object decay theorem.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCoreTailFiniteChecker.lean`.
+- **decl**:
+  `finiteWeightedDensityCoreTailCheck`,
+  `finiteWeightedDensityCoreTailWindow_of_check`,
+  `physicalConditionalDensityCoreTailAllRowsCheck`,
+  `physicalConditionalDensityCoreTailWindow_of_allRowsCheck`,
+  `PhysicalConditionalDensityCoreTailAFCheckedCertificate`,
+  `PhysicalConditionalDensityCoreTailAFCheckedCertificate.toCoreTailCertificate`,
+  `cutoffZero_allRows_check_true`,
+  `cutoffZero_finite_quadratic_gap`, and
+  `cutoffZero_completed_power_autocorrelationSq_decay_sixteenth`.
+- **obligation**: prove true all-source check values along the nontrivial
+  increasing matched cutoff trajectory.  A finite checked prefix would be a
+  useful next certificate but would still not replace the required analytic
+  all-scale estimate.
+- **constructive?**: yes — the closed nonnegativity declaration has no axioms;
+  every other printed declaration uses exactly `[propext, Quot.sound]`.  The
+  computation uses ordinary kernel `decide`, not `native_decide`, and no
+  `Classical.*`, choice, `sorry`, custom axiom, or noncomputable declaration
+  was added.
+- **status note**: the focused monitored source check and one-job 1,240-job
+  dependency-complete build pass.  The inhabited result is only the finite
+  cutoff-zero physical base case.  Cutoff/AF uniformity, physical-time,
+  volume/spacing, continuum-QFT, and Clay closure remain open.
