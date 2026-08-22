@@ -4979,3 +4979,26 @@ positive half-state carrier to a small code list, followed by evaluation or
 analytic control of the positive marginal and conditional kernel on that
 list.  All-cutoff/AF uniformity, physical-time, volume/lattice-spacing,
 continuum QFT, and the Clay theorem remain open.
+
+## Cutoff-two reducibility rules out the full-carrier core/tail frontier (2026-08-22)
+
+`BF4PhysicalCoreTailFullCarrierObstruction` connects the support-safe
+core/tail compiler to the repository's exact cutoff-two reducibility mode.
+If every retained cutoff-two source admitted the `1/32 + 1/64 + 1/64`
+window, the existing row theorem would give an absolute centered form gap at
+rate `1/16`.  The centered sector indicator is instead an eigenvalue-one mode
+with strictly positive norm, so this conclusion contradicts the already
+verified no-gap theorem.
+
+Lean consequently proves, for every source-dependent core predicate, both
+that the all-source window family is impossible and that the exact Boolean
+all-row checker cannot return `true`.  The focused monitored check passes;
+both printed declarations use exactly `[propext, Quot.sound]`.
+
+This corrects the frontier recorded above: a compressed presentation of the
+entire positive carrier cannot produce an all-cutoff strict gap, because the
+target itself is false at cutoff two.  Carrier compression remains useful
+only after selecting a communicating sector.  The next causal frontier is a
+row certificate on the canonical vacuum component, followed by a cofinal
+same-object limit estimate.  Thermodynamic/continuum construction and the
+Clay theorem remain open.

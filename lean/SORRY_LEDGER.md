@@ -3523,3 +3523,23 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   interrupted after two minutes and is not counted as passed.  No nontrivial
   recoding, all-cutoff uniformity, physical-time, volume/spacing,
   continuum-QFT construction, or Clay theorem is asserted.
+
+### [BF4-full-carrier-core-tail-obstruction] Cutoff-two no-go — **CLOSED 2026-08-22**
+
+- **milestone**: the exact cutoff-two reducibility mode formally rules out
+  support-safe core/tail windows for every source of the full positive
+  carrier; therefore the canonical Boolean all-row checker cannot equal
+  `true` for any proposed core predicate.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCoreTailFullCarrierObstruction.lean`.
+- **decl**:
+  `no_cutoffTwo_fullCarrier_coreTail_allRows` and
+  `cutoffTwo_fullCarrier_allRowsCheck_ne_true`.
+- **obligation**: replace the false full-carrier target by a strict row/form
+  estimate on the canonical communicating component containing the vacuum.
+- **constructive?**: yes — both printed declarations use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check passes.  This is a finite
+  routing/no-go theorem, not a sector gap, cutoff-uniform theorem,
+  thermodynamic/continuum construction, or Clay conclusion.
