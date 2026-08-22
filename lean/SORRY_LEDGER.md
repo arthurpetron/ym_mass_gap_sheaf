@@ -3983,3 +3983,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   500,000-heartbeat diagnostic and is not a proof result.  No unconditional
   fixed-carrier CReal gap, completed-space gap, thermodynamic/continuum QFT,
   or Clay theorem is asserted.
+
+### [BF4-cutoff-two-finite-prefix-sum-closure] One-total-budget contraction — **FACTORED 2026-08-22**
+
+- **milestone**: the single hypothesis `finSum eta stage <= 1/200` for every
+  stage of the constructed prefix implies the additive envelope
+  `qPrefix <= 99/100` and the exact final strict bound
+  `(99/100) * (1 + 1/200) + 1/200 = 19999/20000 < 1`.  A
+  `CutoffTwoPulledFinitePrefixSumClosure` therefore constructs the full
+  prefix-to-tail certificate and its same-object moving Bishop-real gap from
+  an exact recode, a tail-aligned endpoint, tail stability, and that one
+  finite total-error budget.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoPulledFinitePrefixSumClosure.lean`.
+- **decl**:
+  `cutoffTwoFinitePrefixEnvelopeAtBudget_le_one`,
+  `cutoffTwoFinitePrefixBudgetClosedTailRate_lt_one`,
+  `prefixTailRate_lt_one_of_finSum_le_totalErrorBudget`,
+  `CutoffTwoPulledFinitePrefixSumClosure.toFinitePrefixToTailGap`, and
+  `CutoffTwoPulledFinitePrefixSumClosure.centeredMatrixCutoffLimit_leEv_prefixTailRate_mul_diagonal`.
+- **obligation**: inhabit `CutoffTwoPulledFinitePrefixSumClosure`
+  coefficientwise.  The genuine quantitative field is the `1/200` bound on
+  the finite sum of canonical relative moving-form increments; the exact
+  compact recode and Type-level selection of a tail start are separate proof
+  engineering/data seams.  After this, extend beyond the fixed cutoff-two
+  carrier to all finite base vacuum sectors and the completion.
+- **constructive?**: yes — the two rational slack declarations are
+  axiom-free and the other three printed declarations use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  4,739-job dependency-complete build pass.  The closure structure remains
+  uninhabited; no unconditional fixed-carrier CReal gap, completed-space gap,
+  thermodynamic/continuum QFT, or Clay theorem is asserted.

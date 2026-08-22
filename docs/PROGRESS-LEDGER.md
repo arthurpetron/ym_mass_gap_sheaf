@@ -5439,3 +5439,33 @@ analytic obstruction is quantitative: align a finite endpoint with the
 proved tail and show that the finite sum of the constructed errors retains
 strict rate slack.  No unconditional fixed-carrier limit gap, completed
 spectral gap, thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+## A `1/200` total BF4 prefix error is sufficient (2026-08-22)
+
+`BF4PhysicalBoundaryCutoffTwoPulledFinitePrefixSumClosure` eliminates the
+remaining recursive rate arithmetic.  If every partial sum of the
+constructed relative prefix errors is at most `1/200`, then the prefix
+envelope is at most
+
+`49/50 + 2 * (1/200) = 99/100`.
+
+Composing that envelope with the independent `1/200` moving-form tail error
+gives the exact strict upper rate
+
+`(99/100) * (1 + 1/200) + 1/200 = 19999/20000 < 1`.
+
+The new `CutoffTwoPulledFinitePrefixSumClosure` carries precisely the exact
+compact-form recode, a tail-aligned finite endpoint, the proved tail
+stability at that endpoint, and the one partial-sum budget.  It constructs
+the complete prefix-to-tail certificate and contracts to the literal
+same-object moving matrix/diagonal Bishop-real gap.  Individual step controls
+and recursive-rate inequalities are no longer open fields.
+
+The focused monitored check and exact-target one-worker 4,739-job build pass.
+The two exact rational slack theorems are axiom-free; the other three printed
+declarations use exactly `[propext, Quot.sound]`.  No `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.  The closure structure is not inhabited: the exact recode, tail
+alignment as data, and especially the `1/200` finite total-variation estimate
+remain open.  No unconditional fixed-carrier CReal gap, completed spectral
+gap, thermodynamic/continuum QFT, or Clay theorem is asserted.
