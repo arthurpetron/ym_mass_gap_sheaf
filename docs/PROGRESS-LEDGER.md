@@ -6092,3 +6092,21 @@ the same-object Bishop-real cutoff limit is the next contraction; proving one
 strict rate uniform over an unbounded/cofinal carrier family remains the next
 expansion.  No completed-space gap, thermodynamic/continuum QFT, or Clay theorem
 is asserted.
+
+## Same-object BF4 gap data is constructed on every fixed carrier (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorPulledConstructedUniformCRealGap` instantiates the
+arbitrary-carrier Poincare and Bishop-real compilers with the constructed
+persistent edge floor.  For every fixed nome, base cutoff, and half-extent, the
+sealed `fixedBaseConstructedUniformGapData` now contains a rational rate, proofs
+`0 <= rate < 1`, a later-cutoff start above the base, the uniform moving-form
+estimate, and the same-object Bishop-real matrix-versus-diagonal inequality.
+
+The focused monitored check and exact-target one-worker 4,755-job build pass.
+The audited package uses exactly `[propext, Quot.sound]`; no `Classical.*`,
+choice, `native_decide`, `sorry`, custom axiom, or noncomputable declaration
+was added.  No analytic certificate remains for any individually fixed finite
+carrier.  The rates and starts remain base-indexed, so the next genuine
+frontier is a common strict rate on an unbounded/cofinal carrier family,
+followed by the vacuum-sector density/completion bridge.  No completed-space
+gap, thermodynamic/continuum QFT, or Clay theorem is asserted.

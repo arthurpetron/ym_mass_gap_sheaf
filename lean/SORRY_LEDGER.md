@@ -4472,6 +4472,27 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   not inhabited.  No unconditional same-object CReal gap, completed-space
   gap, thermodynamic/continuum QFT, or Clay theorem is asserted.
 
+### [BF4-every-fixed-base-constructed-CReal-gap] Unconditional same-object gap on each fixed carrier — **PROVED 2026-08-22**
+
+- **milestone**: instantiate the arbitrary-base finite and Bishop-real gap
+  compilers with the constructed persistent edge floor and package the rate,
+  strictness, tail start, moving-form inequality, and cutoff-limit inequality.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorPulledConstructedUniformCRealGap.lean`.
+- **decl**: `FixedBaseConstructedUniformGapData` and
+  `fixedBaseConstructedUniformGapData`.
+- **obligation**: prove that these base-indexed packages admit one common
+  rational upper rate strictly below one on an unbounded/cofinal carrier
+  family, then transport that common gap through vacuum-sector density and
+  completion.
+- **constructive?**: yes — the audited constructed package uses exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  4,755-job dependency-complete build pass.  Every fixed carrier is closed
+  unconditionally, but no carrier-independent rate is claimed.  No
+  completed-space gap, thermodynamic/continuum QFT, or Clay theorem is asserted.
+
 ### [BF4-fixed-base-pulled-uniform-CReal-gap] Fixed-carrier finite gaps contract to same-object limits — **PROVED 2026-08-22**
 
 - **milestone**: use the moving matrix and diagonal Cauchy moduli to pass an
