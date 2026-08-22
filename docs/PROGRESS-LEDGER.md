@@ -5505,6 +5505,29 @@ alignment as data, and especially the `1/200` finite total-variation estimate
 remain open.  No unconditional fixed-carrier CReal gap, completed spectral
 gap, thermodynamic/continuum QFT, or Clay theorem is asserted.
 
+## Every finite prefix of BF4 carriers has one constructed common gap (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorFinitePrefixUniformGap` takes the located
+`Q'.runningMax` of the constructed rates for bases `0, ..., bound`.  Induction
+on the finite bound proves that this maximum remains strictly below one, while
+located-max monotonicity bounds every earlier base rate.  The resulting
+`fixedCarrierPrefixConstructedUniformGapData` supplies one common rate for all
+later moving forms and all same-object Bishop-real cutoff limits in that finite
+carrier prefix.
+
+The first focused check was deliberately interrupted after a recursively
+referenced package caused prolonged elaboration; it was not counted as
+validation.  Factoring the moving and cutoff-limit estimates into named
+theorems removed that path.  The subsequent focused monitored check and
+exact-target one-worker 4,758-job build pass, and all four audited exports use
+exactly `[propext, Quot.sound]`.  No `Classical.*`, choice, `native_decide`,
+`sorry`, custom axiom, or noncomputable declaration was added.
+
+This is finite compactness only.  It does not show that the prefix maxima stay
+below one by a common margin as `bound` grows.  That uniform-tail estimate,
+vacuum-sector density/completion, thermodynamic/continuum QFT, and the Clay
+theorem remain open.
+
 ## The BF4 uniform-rate frontier is denominator-cleared (2026-08-22)
 
 `BF4PhysicalCutoffVacuumSectorUniformFloorPathRate` rewrites the remaining

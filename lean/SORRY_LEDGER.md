@@ -4717,6 +4717,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   later cutoff but may vary with the fixed base carrier.  No completed-space
   gap, thermodynamic/continuum QFT, or Clay theorem is asserted.
 
+### [BF4-finite-carrier-prefix-uniform-gap] One common strict gap on every finite carrier prefix — **PROVED 2026-08-22**
+
+- **milestone**: take the located maximum of the constructed base rates through
+  an arbitrary finite bound, prove it remains below one, and transport that
+  common prefix rate to every later moving form and same-object Bishop-real
+  limit in the prefix.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorFinitePrefixUniformGap.lean`.
+- **decl**: `constructedFixedBaseRate_le_finitePrefixRate`,
+  `constructedFinitePrefixRate_lt_one`,
+  `constructedFinitePrefixMoving_abs_gap`,
+  `constructedFinitePrefixCutoffLimit_gap`, and
+  `fixedCarrierPrefixConstructedUniformGapData`.
+- **obligation**: prove one rational `q < 1` above the prefix rates uniformly
+  for arbitrarily large bounds, equivalently discharge the all-base
+  denominator-cleared floor/path estimate; then prove the separate
+  vacuum-sector density/completion bridge.
+- **constructive?**: yes — all four audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: an initial focused check was interrupted after exposing a
+  recursive elaboration path and is not counted.  After factoring named
+  lemmas, the focused monitored check and exact-target one-worker 4,758-job
+  dependency-complete build pass.  This is finite-prefix compactness, not an
+  all-carrier gap.  No completed-space gap, thermodynamic/continuum QFT, or
+  Clay theorem is asserted.
+
 ### [BF4-uniform-floor-path-rate] Denominator-cleared all-carrier rate frontier — **REDUCED 2026-08-22**
 
 - **milestone**: expose the exact rational inequality
