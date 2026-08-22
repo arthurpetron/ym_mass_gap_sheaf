@@ -4992,8 +4992,9 @@ verified no-gap theorem.
 
 Lean consequently proves, for every source-dependent core predicate, both
 that the all-source window family is impossible and that the exact Boolean
-all-row checker cannot return `true`.  The focused monitored check passes;
-both printed declarations use exactly `[propext, Quot.sound]`.
+all-row checker cannot return `true`.  The focused monitored check and a
+combined one-worker 1,779-job dependency-complete build pass; both printed
+declarations use exactly `[propext, Quot.sound]`.
 
 This corrects the frontier recorded above: a compressed presentation of the
 entire positive carrier cannot produce an all-cutoff strict gap, because the
@@ -5002,3 +5003,31 @@ only after selecting a communicating sector.  The next causal frontier is a
 row certificate on the canonical vacuum component, followed by a cofinal
 same-object limit estimate.  Thermodynamic/continuum construction and the
 Clay theorem remain open.
+
+## Sector-local rows contract to the cofinal same-object limit gap (2026-08-22)
+
+`BF4PhysicalVacuumSectorCofinalRowGap` replaces the obstructed full-carrier
+comparison by the canonical vacuum communicating component.  On an arbitrary
+finite index list, it proves that exact restricted-weight centering
+annihilates the corresponding stationary-product quadratic.  A symmetric
+row-distance bound from the physical joint to that product therefore gives
+the absolute centered quadratic contraction by the existing weighted Young
+estimate.  The restricted physical weights need not be renormalized for this
+argument.
+
+`FixedNomeCofinalVacuumSectorRowDistance` asks for that row estimate only on
+the canonical vacuum-sector indices at one constructively cofinal cutoff for
+each base cutoff and Cauchy threshold.  It compiles directly to
+`FixedNomeCofinalVacuumSectorCenteredStrictGap`: exact head centering places
+the moving coefficient in the later sector's vacuum complement, and the
+verified form-pushforward identities identify its finite matrix and diagonal
+forms with the same-object pulled forms.  The existing CReal theorem then
+preserves the same strict rate in the two cutoff limits.
+
+The focused monitored check and the combined one-worker 1,779-job
+dependency-complete build pass.  All six printed declarations use exactly
+`[propext, Quot.sound]`.  No cofinal row-distance family is inhabited;
+the new interface is the corrected analytic frontier after the reducibility
+obstruction.  Uniform construction of those sector-local rows, followed by
+physical-time, thermodynamic, lattice-spacing, and continuum control, remains
+open, as does the Clay theorem.

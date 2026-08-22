@@ -3540,6 +3540,35 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 - **constructive?**: yes — both printed declarations use exactly
   `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
   custom axiom, or noncomputable declaration was added.
-- **status note**: the focused monitored check passes.  This is a finite
-  routing/no-go theorem, not a sector gap, cutoff-uniform theorem,
+- **status note**: the focused monitored check and combined one-worker
+  1,779-job dependency-complete build pass.  This is a finite routing/no-go
+  theorem, not a sector gap, cutoff-uniform theorem,
   thermodynamic/continuum construction, or Clay conclusion.
+
+### [BF4-vacuum-sector-cofinal-row-gap] Corrected sector-local row seam — **CLOSED 2026-08-22**
+
+- **milestone**: a rowwise comparison between the physical reflected joint
+  and the restricted stationary product, imposed only on the canonical
+  vacuum component along a constructively cofinal cutoff family, implies the
+  strict comparison of the existing moving centered same-object CReal form
+  limits at the same rate `q < 1`.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorCofinalRowGap.lean`.
+- **decl**:
+  `finiteCarrierStationaryProductJoint_quadratic_eqv_mean_square`,
+  `FiniteCarrierStationaryProductRowDistanceCertificate.absContraction`,
+  `finiteWeightedSquare_vacuumSector_eqv_diagonal`,
+  `FixedNomeCofinalVacuumSectorRowDistance.finiteCertificate`,
+  `FixedNomeCofinalVacuumSectorRowDistance.toVacuumSectorCenteredStrictGap`,
+  and
+  `FixedNomeCofinalVacuumSectorRowDistance.centeredMatrixCutoffLimit_leEv_rate_mul_diagonal`.
+- **obligation**: inhabit the sector-local row-distance certificate at one
+  strict rate uniformly on a constructively cofinal family of cutoffs; an
+  executable core/tail or compressed-carrier producer should now scan only
+  the canonical vacuum component.
+- **constructive?**: yes — all six printed declarations use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and combined one-worker
+  1,779-job dependency-complete build pass.  No cofinal family, physical-time
+  limit, thermodynamic/continuum QFT, or Clay theorem is asserted.
