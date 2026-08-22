@@ -6385,3 +6385,22 @@ tail: the next layer must prove global and recoded pointwise amplitude bounds,
 the finite core-zero plus shell-mass inequality, and the nested cofinality
 estimate.  The all-carrier strict rate and all continuum/Clay conclusions
 remain open.
+
+## The BF4 global action and sector recoding share a pointwise `l1` envelope (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorCylinderRecodingAmplitude` proves that the
+finite-linear cutoff Markov action is pointwise bounded by the input
+presentation's coefficient `l1`.  For the sector recoding, it proves that at
+most one finite lower-face state cylinder can match an arbitrary labelling;
+the recoded value is therefore one coefficient rather than a sum carrying a
+growing state-count factor.  Consequently both sides of the future recoding
+error have the same cutoff-independent pointwise envelope.
+
+The focused monitored check and exact-target one-worker 1,352-job build pass.
+Both audited exported amplitude bounds use exactly `[propext, Quot.sound]`;
+no `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  This proves the amplitude input to the
+planned core/shell argument, not yet its finite GNS inequality or the adaptive
+tail.  The completed transfer lift therefore remains conditional, and the
+uniform completed gap, thermodynamic/continuum QFT, and Clay theorem remain
+open.

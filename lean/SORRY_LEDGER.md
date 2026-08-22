@@ -5014,3 +5014,26 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   the amplitude/core-shell inequalities or the tail itself.  No unconditional
   completed lift, completed uniform gap, thermodynamic/continuum QFT, or Clay
   theorem is asserted.
+
+### [BF4-vacuum-sector-recoding-amplitude] Global and recoded actions have one pointwise envelope — **PROVED 2026-08-22**
+
+- **milestone**: bound the genuine finite cutoff action and its exact
+  canonical-sector recoding pointwise by the original presentation's finite
+  coefficient `l1`, without a carrier-cardinality loss.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCylinderRecodingAmplitude.lean`.
+- **decl**:
+  `centralPhysicalLinearMarkovCutoffAction_vacuumSector_abs_le_l1` and
+  `centralPhysicalVacuumSectorMarkovCylinder_abs_le_l1`.
+- **obligation**: combine these bounds with exact equality on the paid core
+  and stationary shell mass decay to prove the finite limiting-distance
+  estimate, then use nested cofinality to inhabit
+  `CentralPhysicalVacuumSectorAdaptiveRecodingTailData`.
+- **constructive?**: yes — both audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,352-job dependency-complete build pass.  This closes the pointwise
+  amplitude obligation only; it does not yet prove the core/shell GNS bound,
+  the adaptive tail, an unconditional completed transfer lift, a uniform
+  completed gap, thermodynamic/continuum QFT, or the Clay theorem.
