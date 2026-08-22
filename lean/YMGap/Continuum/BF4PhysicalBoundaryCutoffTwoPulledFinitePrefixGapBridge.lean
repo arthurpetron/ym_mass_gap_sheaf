@@ -26,12 +26,24 @@ set_option maxHeartbeats 5000000
 
 open YMGap.Constructive
 open YMGap.Constructive.HalfPow
+open YMGap.Constructive.RationalTail
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledGapPersistence
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledTailSeedGapBridge
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledVacuumGap
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSectorUpperGap
 
 local infix:50 " ≈ " => Q'.eqv
+
+private theorem neg_num_cast_local (a : Q') : (-a).num = -(a.num) := rfl
+
+local macro "ring_qeqv" : tactic =>
+  `(tactic| (show _ * (_ : Int) = _ * (_ : Int);
+             simp only [Q'.add_num_cast, Q'.add_den_cast, Q'.mul_num_cast,
+               Q'.mul_den_cast, Q'.neg_den, neg_num_cast_local,
+               show (1 : Q').num = 1 from rfl,
+               show ((1 : Q').den : Int) = 1 from rfl,
+               Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg,
+               Int.neg_add, Int.neg_neg, Int.one_mul, Int.mul_one]; ac_rfl))
 
 /-! ## 1. The rate recurrence forced by one relative moving-form step -/
 
@@ -42,6 +54,12 @@ def cutoffTwoPrefixRate (error : Nat → Q') : Nat → Q'
   | stage + 1 =>
       cutoffTwoPrefixRate error stage * ((1 : Q') + error stage) +
         error stage
+
+def cutoffTwoPrefixTailRate
+    (error : Nat → Q') (length : Nat) : Q' :=
+  cutoffTwoPrefixRate error length *
+      ((1 : Q') + cutoffTwoTailSeedRelativeError) +
+    cutoffTwoTailSeedRelativeError
 
 /-- Abstract one-step propagation.  Matrix drift adds `error`; diagonal drift
 inflates the old norm by `1 + error`. -/
@@ -168,15 +186,108 @@ theorem abs_gap_at_stage
         (control.prefixRate_nonnegative stage hprevious)
         hgap hstep.1 hstep.2
 
+private theorem prefixRate_step_expansion_eqv (rate error : Q') :
+    rate * ((1 : Q') + error) + error ≈
+      rate + (rate * error + error) := by
+  ring_qeqv
+
+private theorem sumEnvelope_step_eqv
+    (anchor accumulated error : Q') :
+    (anchor + (((1 : Q') + 1) * accumulated)) + (error + error) ≈
+      anchor + (((1 : Q') + 1) * (accumulated + error)) := by
+  ring_qeqv
+
+/-- Before the rate reaches one, the nonlinear recurrence loses at most
+twice the accumulated relative increment.  This turns a very long finite
+prefix into one rational partial-sum budget. -/
+theorem prefixRate_le_anchor_add_twice_finSum
+    {coefficient : Nat → Q'} {length : Nat}
+    (control : CutoffTwoPulledFinitePrefixIncrementControl
+      coefficient length)
+    (hbudget : ∀ stage, stage ≤ length →
+      cutoffTwoAnchorRate +
+          (((1 : Q') + 1) * finSum control.error stage) ≤
+        (1 : Q')) :
+    ∀ stage, stage ≤ length →
+      cutoffTwoPrefixRate control.error stage ≤
+        cutoffTwoAnchorRate +
+          (((1 : Q') + 1) * finSum control.error stage)
+  | 0, _ => by
+      exact Q'.le_of_eqv (by ring_qeqv)
+  | stage + 1, hstage => by
+      have hprevious : stage ≤ length := Nat.le_trans
+        (Nat.le_succ stage) hstage
+      have hstageLt : stage < length := Nat.lt_of_succ_le hstage
+      have hinduction := control.prefixRate_le_anchor_add_twice_finSum
+        hbudget stage hprevious
+      have hrateOne : cutoffTwoPrefixRate control.error stage ≤ (1 : Q') :=
+        Q'.le_trans' _ _ _ hinduction (hbudget stage hprevious)
+      have herror := control.error_nonnegative stage hstageLt
+      have hproduct : cutoffTwoPrefixRate control.error stage *
+          control.error stage ≤ control.error stage := by
+        exact Q'.le_trans' _ ((1 : Q') * control.error stage) _
+          (Q'.mul_le_mul_of_nonneg_right _ _ _ hrateOne herror)
+          (Q'.le_of_eqv (Q'.one_mul_eqv _))
+      have hinside :
+          cutoffTwoPrefixRate control.error stage * control.error stage +
+              control.error stage ≤
+            control.error stage + control.error stage :=
+        Q'.add_le_add_right _ _ (control.error stage) hproduct
+      have hrecurrence : cutoffTwoPrefixRate control.error (stage + 1) ≤
+          cutoffTwoPrefixRate control.error stage +
+            (control.error stage + control.error stage) := by
+        exact Q'.le_trans' _ _ _
+          (Q'.le_of_eqv
+            (prefixRate_step_expansion_eqv
+              (cutoffTwoPrefixRate control.error stage)
+              (control.error stage)))
+          (Q'.add_le_add (Q'.le_refl' _) hinside)
+      have henvelopeStep :
+          cutoffTwoPrefixRate control.error stage +
+              (control.error stage + control.error stage) ≤
+            (cutoffTwoAnchorRate +
+                (((1 : Q') + 1) * finSum control.error stage)) +
+              (control.error stage + control.error stage) :=
+        Q'.add_le_add_right _ _ _ hinduction
+      refine Q'.le_trans' _ _ _ hrecurrence
+        (Q'.le_trans' _ _ _ henvelopeStep ?_)
+      exact Q'.le_of_eqv
+        (sumEnvelope_step_eqv cutoffTwoAnchorRate
+          (finSum control.error stage) (control.error stage))
+
+/-- A closed partial-sum inequality discharges the recursive final-rate
+field.  Thus a long prefix needs one uniform sum budget, not a normalization
+of tens of thousands of individual recurrence expressions. -/
+theorem prefixTailRate_lt_one_of_sumBudget
+    {coefficient : Nat → Q'} {length : Nat}
+    (control : CutoffTwoPulledFinitePrefixIncrementControl
+      coefficient length)
+    (hbudget : ∀ stage, stage ≤ length →
+      cutoffTwoAnchorRate +
+          (((1 : Q') + 1) * finSum control.error stage) ≤
+        (1 : Q'))
+    (hstrict :
+      (cutoffTwoAnchorRate +
+          (((1 : Q') + 1) * finSum control.error length)) *
+            ((1 : Q') + cutoffTwoTailSeedRelativeError) +
+          cutoffTwoTailSeedRelativeError <
+        (1 : Q')) :
+    cutoffTwoPrefixTailRate control.error length < (1 : Q') := by
+  have hprefix := control.prefixRate_le_anchor_add_twice_finSum
+    hbudget length (Nat.le_refl _)
+  have htail0 : (0 : Q') ≤ cutoffTwoTailSeedRelativeError :=
+    Q'.le_of_lt cutoffTwoTailSeedRelativeError_pos
+  have hfactor0 : (0 : Q') ≤
+      (1 : Q') + cutoffTwoTailSeedRelativeError :=
+    Q'.zero_le_add _ _ (by decide) htail0
+  have hscaled := Q'.mul_le_mul_of_nonneg_right _ _ _ hprefix hfactor0
+  have hadd := Q'.add_le_add_right _ _
+    cutoffTwoTailSeedRelativeError hscaled
+  exact Q'.lt_of_le_of_lt hadd hstrict
+
 end CutoffTwoPulledFinitePrefixIncrementControl
 
 /-! ## 3. Alignment of the finite prefix with the proved tail -/
-
-def cutoffTwoPrefixTailRate
-    (error : Nat → Q') (length : Nat) : Q' :=
-  cutoffTwoPrefixRate error length *
-      ((1 : Q') + cutoffTwoTailSeedRelativeError) +
-    cutoffTwoTailSeedRelativeError
 
 /-- Exact finite-prefix-to-tail certificate.  The incremental controls start
 at cutoff two; their endpoint is required to be a stability start, and the
@@ -339,6 +450,10 @@ end YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledFinitePrefixGapBridge
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledFinitePrefixGapBridge.moving_abs_gap_step
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledFinitePrefixGapBridge.CutoffTwoPulledFinitePrefixIncrementControl.abs_gap_at_stage
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledFinitePrefixGapBridge.CutoffTwoPulledFinitePrefixIncrementControl.prefixRate_le_anchor_add_twice_finSum
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledFinitePrefixGapBridge.CutoffTwoPulledFinitePrefixIncrementControl.prefixTailRate_lt_one_of_sumBudget
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledFinitePrefixGapBridge.CutoffTwoPulledFinitePrefixToTailGap.later_abs_gap
 #print axioms

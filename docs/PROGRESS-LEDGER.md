@@ -5373,6 +5373,19 @@ final rate is still below one.  From those fields, every later cutoff and the
 literal same-object matrix/diagonal Bishop reals satisfy that computed strict
 rate.
 
+While the propagated rate remains at most one, the nonlinear recurrence has
+the closed additive envelope
+
+`q(n) <= 49/50 + 2 * sum_{j<n} eta(j)`.
+
+A uniform rational partial-sum estimate therefore discharges the strict
+final-rate field without normalizing a potentially enormous recurrence.  An
+attempted executable evaluation of the existing uniform-row-floor cutoff
+exhausted the interpreter recursion stack after more than eighty thousand
+nested cutoff-power calls.  That failed diagnostic is not a proof result, but
+it shows why a summable or telescoping increment theorem, rather than a small
+manual table, is the viable route.
+
 The certificate keeps the cutoff-two alias-form anchor as an explicit field
 to prevent Lean from repeatedly unfolding the very large Bishop-real
 recoding.  Its mathematical content is already the proved cutoff-two
@@ -5382,7 +5395,7 @@ inequality.  One slow narrow check that attempted the giant definitional
 unfolding was stopped and is not counted as a pass.
 
 The optimized focused check and exact-target one-worker 4,737-job build pass.
-The four printed declarations use only `[propext]` or
+The six printed declarations use only `[propext]` or
 `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
 custom axiom, or noncomputable declaration was added.  The finite-prefix
 certificate is not inhabited.  All-base carrier control, the completed

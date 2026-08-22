@@ -3914,11 +3914,16 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `49/50` anchor.  If its endpoint is a `1/200` full moving-form tail start
   and the explicitly computed final rate remains below one, the certificate
   contracts to every later cutoff and the same-object Bishop-real form gap.
+  While the rate is at most one, the recurrence is bounded by
+  `49/50 + 2 * finSum eta`, so one uniform partial-sum estimate closes a long
+  prefix and its final strict budget.
 - **file**:
   `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoPulledFinitePrefixGapBridge.lean`.
 - **decl**:
   `moving_abs_gap_step`,
   `CutoffTwoPulledFinitePrefixIncrementControl.abs_gap_at_stage`,
+  `CutoffTwoPulledFinitePrefixIncrementControl.prefixRate_le_anchor_add_twice_finSum`,
+  `CutoffTwoPulledFinitePrefixIncrementControl.prefixTailRate_lt_one_of_sumBudget`,
   `CutoffTwoPulledFinitePrefixToTailGap.later_abs_gap`, and
   `CutoffTwoPulledFinitePrefixToTailGap.centeredMatrixCutoffLimit_leEv_prefixTailRate_mul_diagonal`.
 - **obligation**: inhabit the finite prefix certificate coefficientwise by
@@ -3927,13 +3932,16 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   rate budget.  The explicit alias-form anchor field is the already-proved
   cutoff-two gap under a large Bishop-real recoding, not a new analytic
   assumption.
-- **constructive?**: yes — the four printed declarations use only
+- **constructive?**: yes — the six printed declarations use only
   `[propext]` or `[propext, Quot.sound]`; no `Classical.*`, choice,
   `native_decide`, `sorry`, custom axiom, or noncomputable declaration was
   added.
 - **status note**: the optimized focused check and exact-target one-worker
   4,737-job dependency-complete build pass.  One earlier slow recoding check
-  was interrupted and is not counted as a pass.  The finite increment fields
-  remain uninhabited; no unconditional fixed-carrier limit gap,
+  was interrupted and is not counted as a pass.  A separate attempted
+  evaluation of the uniform-row-floor cutoff hit interpreter recursion after
+  more than eighty thousand nested cutoff-power calls and is not a proof
+  result.  The finite increment fields and their summable bound remain
+  uninhabited; no unconditional fixed-carrier limit gap,
   completed-space gap, thermodynamic/continuum QFT, or Clay theorem is
   asserted.
