@@ -6428,3 +6428,30 @@ through the nested adaptive and slow-diagonal cofinality schedules, so the
 tail record and completed lift remain conditional at this checkpoint.  The
 all-carrier strict rate and all thermodynamic/continuum/Clay conclusions
 remain open.
+
+## The BF4 adaptive recoding tail and completed sector transfer lift are inhabited (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorCylinderAdaptiveRecodingTailInhabited` composes
+the two slow schedules explicitly.  At tolerance `epsilon`, the outer
+adaptive sampler is forced beyond both the inner zeroth threshold and the
+inner threshold at `CReal.lv epsilon`.  The selected original presentation
+index `i` is therefore at least `CReal.lv epsilon`; its amplitude-scaled shell
+cutoff is below the sampled controlled stage and hence below the action stage.
+
+Applying the proved core--shell estimate gives limiting squared distance at
+most `1/(i+1)`, and antitonicity plus `CReal.invSucc_lv_le` contracts this to
+`epsilon`.  This supplies an unconditional
+`CentralPhysicalVacuumSectorAdaptiveRecodingTailData`.  The existing
+three-leg, completion-closeness, injectivity, and quotient-descent compiler
+then constructs an unconditional
+`CentralPhysicalVacuumSectorCylinderTransferLiftData`, including its proved
+intertwining with the concrete global adaptive transfer and the inherited
+vacuum-orthogonality consequences.
+
+The focused monitored check and exact-target one-worker 1,363-job build pass.
+Both audited exports use exactly `[propext, Quot.sound]`; no `Classical.*`,
+choice, `native_decide`, `sorry`, custom axiom, or noncomputable declaration
+was added.  This closes completed root-sector transfer invariance at fixed
+nome and finite half-extent.  It does not supply the independently open
+strict rate uniform over all carriers, nor thermodynamic/continuum control or
+the Clay theorem.

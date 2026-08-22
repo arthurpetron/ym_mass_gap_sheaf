@@ -3035,6 +3035,32 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   builds pass.  Fixed-subspace compatibility is not a uniform gap,
   thermodynamic/continuum QFT, or the Clay theorem.
 
+### [BF4-vacuum-sector-adaptive-recoding-tail-inhabited] Completed root-sector transfer lift — **PROVED 2026-08-22**
+
+- **milestone**: compose outer adaptive cofinality with the inner
+  base-controlled slow diagonal, use the paid amplitude-scaled shell cutoff
+  and core--shell estimate to inhabit the adaptive recoding tail, and compile
+  it to a genuine completed root-sector transfer.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCylinderAdaptiveRecodingTailInhabited.lean`.
+- **decl**:
+  `centralPhysicalVacuumSectorAdaptiveRecodingTailAnchor`,
+  `centralPhysicalVacuumSectorAdaptiveRecodingTailRate`,
+  `centralPhysicalVacuumSectorAdaptiveRecodingTailData`, and
+  `centralPhysicalVacuumSectorCylinderTransferLiftData`.
+- **obligation**: use this unconditional transfer lift together with a strict
+  rational contraction rate uniform over the cofinal unbounded carrier family
+  to prove a completed vacuum-complement gap; then address thermodynamic and
+  continuum limits.
+- **constructive?**: yes — both audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,363-job dependency-complete build pass.  The formerly conditional
+  recoding-tail field and completed root-sector lift are now inhabited.  This
+  is fixed-nome, finite-half-extent transfer invariance, not a uniform
+  completed spectral gap, thermodynamic/continuum QFT, or the Clay theorem.
+
 ### [BF4-cutoff-arbitrary-vacuum-sector-extension] Arbitrary coefficient pushforward and contraction — **CLOSED 2026-08-22**
 
 - **milestone**: an explicit finite-sum zero extension for every rational
