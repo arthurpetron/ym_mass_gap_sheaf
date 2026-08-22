@@ -4926,3 +4926,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   not counted.  This proves finite-stage support and exact recoding, not
   Cauchy preservation or a completed transfer lift.  No completed uniform
   gap, thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+### [BF4-vacuum-sector-base-controlled-cauchy] Adaptive inputs are support-safe at every stage — **PROVED 2026-08-22**
+
+- **milestone**: construct an explicit base-paying slow reindex of every
+  sector Cauchy representative, prove it is Cauchy and close to the original,
+  prove its presentation base is at most its sequence stage, and combine this
+  with `adaptiveSampleIndex <= actionStage` to discharge the finite-action
+  support hypothesis at every adaptive stage.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCylinderBaseControlledCauchy.lean`.
+- **decl**: `centralPhysicalVacuumSectorBaseControlledCauchy`,
+  `centralPhysicalVacuumSectorBaseControlledCompletion_eq`,
+  `centralPhysicalVacuumSectorAdaptiveSample_base_le_stage`, and
+  `centralPhysicalVacuumSectorAdaptiveSample_realization_value`.
+- **obligation**: prove that the adaptive sequence of finite sector recodings
+  is Cauchy in the inherited limiting seminorm and completion-close to the
+  global adaptive Markov output, then descend it to the quotient and inhabit
+  `CentralPhysicalVacuumSectorCylinderTransferLiftData`; independently
+  construct one strict rate uniform over all carriers.
+- **constructive?**: yes — all four audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,348-job dependency-complete build pass.  This discharges the scheduling
+  and finite-support parts of invariance, not the limiting recoding-tail
+  estimate.  No completed transfer lift, completed uniform gap,
+  thermodynamic/continuum QFT, or Clay theorem is asserted.

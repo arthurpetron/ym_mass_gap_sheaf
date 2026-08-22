@@ -5681,6 +5681,36 @@ outputs are Cauchy and completion-close, thereby inhabiting the existing
 completed transfer-lift interface.  One all-carrier strict rate, completed
 uniform gap, thermodynamic/continuum QFT, and the Clay theorem remain open.
 
+## Every BF4 sector Cauchy class has a base-controlled representative (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorCylinderBaseControlledCauchy` removes the
+remaining finite-support scheduling mismatch.  A slow diagonal pays the base
+cutoff of each selected presentation.  It uses the literal zero presentation
+before the zeroth requirement is affordable and thereafter follows a cofinal
+subsequence of the original sector Cauchy representative.  The resulting
+representative is constructively Cauchy, explicitly close to the original,
+and satisfies `presentation.base <= stage` at every sequence stage.
+
+The existing global adaptive Markov selector is also proved never to exceed
+its action stage.  Applying it to the base-controlled representative therefore
+gives
+
+`base(selected presentation) <= selected index <= action cutoff`.
+
+Thus the finite root-sector support and recoding theorem applies at every
+adaptive stage, and the sampled action has an exact current-carrier cylinder
+realization.  No new cofinality certificate is assumed.
+
+The focused monitored check and exact-target one-worker 1,348-job build pass.
+All four audited exports use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  The remaining completed-lift frontier
+is now specifically a tail estimate: prove that the sequence of these finite
+sector recodings is Cauchy in the inherited limiting seminorm and is
+completion-close to the already constructed global adaptive output.  One
+all-carrier strict rate, completed uniform gap, thermodynamic/continuum QFT,
+and the Clay theorem remain open.
+
 ## Finite BF4 vacuum-sector vectors are realized in the dense GNS carrier (2026-08-22)
 
 `BF4PhysicalCutoffVacuumSectorLinearRealization` constructs a globally bounded
