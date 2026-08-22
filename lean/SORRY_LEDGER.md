@@ -4055,3 +4055,29 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   checks cleanly.  The adaptive seed family remains uninhabited; no
   unconditional fixed-carrier limit gap, completed-space gap,
   thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+### [BF4-finite-vacuum-sector-Gram-positivity] All-cutoff lower edge — **PROVED 2026-08-22**
+
+- **milestone**: at every nonnegative coupling and finite representation
+  cutoff, absorb the positive physical partition reciprocal into the boundary
+  channel weights and identify the normalized kernel restricted to the
+  canonical vacuum component with a literal finite weighted Gram.  Its sector
+  matrix quadratic is therefore nonnegative for every rational coefficient.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorGramPositivity.lean`.
+- **decl**:
+  `centralPhysicalFiniteVacuumSectorGramWeight_nonnegative`,
+  `centralPhysicalFiniteKernel_eqv_vacuumSectorWeightedGram`,
+  `centralPhysicalFiniteVacuumSectorMatrixQuadratic_eqv_weightedGram`, and
+  `centralPhysicalFiniteVacuumSectorMatrixQuadratic_nonnegative`.
+- **obligation**: use the already constructed Type-level connected support of
+  the canonical component to prove a quantitative finite Poincare upper gap.
+  Gram nonnegativity will then convert that one-sided estimate into the
+  absolute contraction consumed by the adaptive tail-seed bridge.
+- **constructive?**: yes — all four printed declarations use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,179-job dependency-complete build pass.  This proves the lower spectral
+  edge only; it does not provide a strict finite rate, cutoff uniformity, a
+  completed-space gap, thermodynamic/continuum QFT, or the Clay theorem.

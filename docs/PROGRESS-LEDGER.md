@@ -5507,3 +5507,27 @@ statement; spelling that theorem with the underlying physical forms removed
 the reduction and the subsequent check passed.  The adaptive seed family is
 not inhabited.  No unconditional fixed-carrier gap, completed Hilbert gap,
 thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+## Every finite BF4 vacuum component is a positive Gram sector (2026-08-22)
+
+`BF4PhysicalFiniteVacuumSectorGramPositivity` removes a cutoff-two-only
+restriction from the lower spectral edge.  At arbitrary nonnegative coupling,
+representation cutoff, and half-depth, the common positive partition
+reciprocal is absorbed into the physical boundary-channel weights.  Every
+normalized kernel entry between indices in the canonical vacuum component is
+then identified with the corresponding entry of this scaled weighted Gram.
+The complete sector quadratic is exactly the resulting finite weighted-Gram
+quadratic and is nonnegative for every coefficient.
+
+This establishes reflection positivity directly on every finite canonical
+vacuum sector.  Consequently the remaining finite strict-gap problem is
+one-sided: connected support must provide a quantitative Poincare upper bound
+strictly below the diagonal.  Once proved, nonnegativity will turn that upper
+bound into the absolute form bound needed by the adaptive tail-seed bridge.
+
+The focused monitored check and exact-target one-worker 1,179-job build pass.
+All four printed declarations use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  This is positivity, not strictness: no
+finite `q < 1`, uniform cutoff rate, completed Hilbert gap,
+thermodynamic/continuum QFT, or Clay theorem is asserted.
