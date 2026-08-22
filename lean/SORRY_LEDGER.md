@@ -3161,3 +3161,26 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   build pass.  Existence of both centered form limits is not the missing
   uniform strict estimate, a spectral gap, thermodynamic/continuum QFT, or
   the Clay theorem.
+
+### [BF4-cutoff-vacuum-sector-centered-limit-gap] Cofinal strictness-to-limit contraction — **CLOSED 2026-08-22**
+
+- **milestone**: the weakest direct same-object certificate supplies one
+  rational `0 <= q < 1` and exact centered form bounds on a constructively
+  cofinal later-cutoff schedule uniformly in the base coefficient; the two
+  form Cauchy moduli contract it to a strict `CReal.leEv` limit inequality.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCenteredLimitGap.lean`.
+- **decl**:
+  `FixedNomeCofinalVacuumSectorCenteredStrictGap` and
+  `FixedNomeCofinalVacuumSectorCenteredStrictGap.centeredMatrixCutoffLimit_leEv_rate_mul_diagonal`.
+- **obligation**: construct an inhabitant.  The next bridge is from existing
+  canonical full-carrier cofinal LDL certificates to this sector interface,
+  requiring exact full-carrier centering of the zero-extended head-centered
+  coefficient; the substantive residual is a `q < 1` uniform in base cutoff.
+- **constructive?**: yes — the printed theorem uses exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused source check and one-job 1,470-job dependency
+  build pass.  The certificate type is uninhabited here, so this theorem is a
+  sound contraction interface, not a proved uniform gap, completion theorem,
+  thermodynamic/continuum QFT, or Clay result.

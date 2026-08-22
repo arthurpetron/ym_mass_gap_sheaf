@@ -4610,3 +4610,28 @@ an honest certificate interface for one `q < 1` that bounds the centered
 reflected form by `q` times the centered diagonal uniformly in the base and
 later representation cutoffs.  Constructing such a certificate remains an
 open analytic problem; volume and spacing uniformity remain beyond it.
+
+## Cofinal same-object strictness contracts to the centered form limits (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorCenteredLimitGap` states the weakest direct
+strictness input supported by the new same-object limits.  A single rational
+`q` satisfies `0 <= q < 1`; for every base component and rational coefficient,
+an explicit anchor function selects arbitrarily late representation cutoffs
+where the literal moving centered reflected form is bounded in absolute value
+by `q` times its literal moving centered diagonal.
+
+The two Cauchy moduli prove that exact bounds on this constructively cofinal
+family suffice.  A half-epsilon argument transports the selected finite bound
+to all sufficiently late approximants and yields `CReal.leEv` between the
+centered reflected-form limit and `q` times the centered diagonal limit.  The
+focused and 1,470-job dependency-complete builds pass, and the theorem uses
+exactly `[propext, Quot.sound]`.
+
+No inhabitant of this certificate is asserted.  Its uniformity in the base
+cutoff is precisely the analytic content missing from finite-prefix or
+single-cutoff LDL computations.  The next implementation frontier is to
+connect existing canonical full-carrier LDL/cofinal certificates to this
+same-object interface by proving that the zero-extended head-centered sector
+coefficient is centered on the full positive carrier.  Even an inhabited
+fixed-nome certificate would still leave volume and spacing uniformity,
+completion, and continuum QFT open.
