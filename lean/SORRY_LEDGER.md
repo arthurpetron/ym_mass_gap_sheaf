@@ -3945,3 +3945,41 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   uninhabited; no unconditional fixed-carrier limit gap,
   completed-space gap, thermodynamic/continuum QFT, or Clay theorem is
   asserted.
+
+### [BF4-cutoff-two-finite-prefix-increment-existence] Qualitative increment controls — **FACTORED 2026-08-22**
+
+- **milestone**: every coefficient admits data-bearing finite support
+  selection: either a root-supported proof or an explicit positive-magnitude
+  non-root coordinate.  Root-supported moving forms have zero increments.
+  A non-root coordinate retains positive physical row weight at every later
+  cutoff, forces the later moving diagonal strictly positive, and defines the
+  common relative error
+  `(|Delta matrix| + |Delta diagonal|) / laterDiagonal`.  This constructs a
+  `CutoffTwoPulledFinitePrefixIncrementControl` for every coefficient and
+  finite length once the exact compact-form recoding seam is supplied.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoPulledFinitePrefixIncrementExistence.lean`.
+- **decl**:
+  `CutoffTwoNonRootCoefficientWitness.pulledWeight_pos`,
+  `CutoffTwoNonRootCoefficientWitness.movingDiagonalAt_pos`,
+  `cutoffTwoCanonicalPrefixIncrement_moving_error`,
+  `CutoffTwoNonRootCoefficientWitness.finitePrefixIncrementControl`,
+  `rootSupportedFinitePrefixIncrementControl`,
+  `cutoffTwoRootSupported_orNonRootData`, and
+  `finitePrefixIncrementControlForEveryCoefficient`.
+- **obligation**: discharge `CutoffTwoActualMovingFormRecode` without a giant
+  definitional reduction, align a constructed finite prefix endpoint with a
+  proved moving-form tail start, and prove the quantitative partial-sum
+  budget small enough to preserve a final rate below one.  The recoding seam
+  is exact proof engineering; the small accumulated error is the genuine
+  analytic input.
+- **constructive?**: yes — all seven printed declarations use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  4,738-job dependency-complete build pass.  Two earlier monitored checks
+  were interrupted during namespace/reduction diagnosis and are not counted
+  as passes; a direct definitional-recoding attempt exceeded a
+  500,000-heartbeat diagnostic and is not a proof result.  No unconditional
+  fixed-carrier CReal gap, completed-space gap, thermodynamic/continuum QFT,
+  or Clay theorem is asserted.

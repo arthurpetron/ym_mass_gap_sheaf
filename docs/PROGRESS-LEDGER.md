@@ -5400,3 +5400,42 @@ The six printed declarations use only `[propext]` or
 custom axiom, or noncomputable declaration was added.  The finite-prefix
 certificate is not inhabited.  All-base carrier control, the completed
 Hilbert gap, thermodynamic/continuum QFT, and the Clay theorem remain open.
+
+## Every finite BF4 prefix increment now has a constructive control (2026-08-22)
+
+`BF4PhysicalBoundaryCutoffTwoPulledFinitePrefixIncrementExistence` proves
+that the individual consecutive relative errors are not an additional
+qualitative analytic hypothesis.  A data-bearing finite scan returns either
+a proof that the coefficient is root-supported or an explicit non-root
+coordinate of positive magnitude; unlike the earlier propositional
+dichotomy, this witness is retained in `Type` and can construct downstream
+certificate data without choice.
+
+In the root-supported branch, moving head centering annihilates both forms
+exactly and every prefix error is zero.  In the non-root branch, the selected
+coordinate is unchanged by moving centering.  Its cutoff-two physical row is
+positive and positive-row persistence keeps its pulled weight strictly
+positive at every later cutoff.  Its square-weight summand therefore makes
+the moving diagonal strictly positive.  The explicit error
+
+`eta(n) = (|M_n-M_(n+1)| + |D_n-D_(n+1)|) / D_(n+1)`
+
+simultaneously bounds the matrix and diagonal increments.  Consequently,
+`finitePrefixIncrementControlForEveryCoefficient` constructs every field of
+the finite prefix increment certificate for every coefficient and length,
+apart from a named exact `CutoffTwoActualMovingFormRecode`.  That structure
+records only the definitional identification of the compact Bishop-real
+approximant aliases with the displayed physical forms.  Direct unfolding of
+that recoding exceeded a 500,000-heartbeat diagnostic, so the equality is
+kept explicit rather than hidden or claimed checked.
+
+The focused monitored check and exact-target one-worker 4,738-job build pass.
+All seven printed declarations use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  Two earlier monitored checks were
+interrupted while diagnosing unresolved namespaces and are not counted as
+passes; the later short checks exposed and fixed those names.  The remaining
+analytic obstruction is quantitative: align a finite endpoint with the
+proved tail and show that the finite sum of the constructed errors retains
+strict rate slack.  No unconditional fixed-carrier limit gap, completed
+spectral gap, thermodynamic/continuum QFT, or Clay theorem is asserted.
