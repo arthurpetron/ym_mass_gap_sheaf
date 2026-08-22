@@ -4793,3 +4793,25 @@ operator estimate into transfer-power and same-object matrix-coefficient
 decay, then connect an actually inhabited local-gluing producer to the
 certificate and control the cross-scale physical limits.  Continuum QFT and
 the Clay theorem remain open.
+
+## The completed local-gluing gap yields geometric same-object decay (2026-08-22)
+
+The direct local-gluing theorem now iterates the concrete completed physical
+Markov transfer on its vacuum complement.  After `n` macro steps, the squared
+norm is bounded by `((1/16)^2)^n` times the initial squared norm.  Completed
+Cauchy--Schwarz then gives the corresponding squared matrix-coefficient bound
+against every test vector on the same completed carrier, with same-vector
+autocorrelation as an explicit specialization.
+
+The monitored focused source check and one-job 1,232-job dependency-complete
+build pass.  The three new printed declarations use exactly
+`[propext, Quot.sound]`.
+
+This is a genuine completed finite matched-scale decay theorem conditional on
+`PhysicalLocalGluingAFCertificate`.  It does not construct that certificate,
+identify transfer power with a dimensionful continuum-time correlation, or
+provide volume/lattice-spacing uniformity.  The next causal frontier is to
+audit the existing conditional-density, buffered-Perron, and local-gluing
+producer packages field by field against `PhysicalLocalGluingAFCertificate`,
+then implement the strongest honest inhabitance bridge or isolate its first
+missing analytic leaf.  Continuum QFT and the Clay theorem remain open.

@@ -44,6 +44,7 @@ open YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
 open YMGap.Continuum.GNSQuotient
 open YMGap.Continuum.OSReconstructionProgress
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
+open YMGap.Continuum.Z4HalfTimeReflectionStrictJointCompletedOperatorNormGap
 
 /-! ## 1. Local gluing extends through exact centering -/
 
@@ -276,6 +277,136 @@ theorem localGluing_completed_vacuum_operator_norm_gap_sixteenth
     (localGluing_completed_vacuum_form_gap_data certificate scale)
     vector horthogonal
 
+/-! ## 4. Completed power and same-object coefficient decay -/
+
+/-- The direct local-gluing gap iterates on the concrete completed vacuum
+complement with squared-norm rate `((1/16)^2)^n`. -/
+theorem localGluing_completed_power_norm_decay_sixteenth
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat → Q'}
+    (certificate : PhysicalLocalGluingAFCertificate
+      family law spacing coupling)
+    (scale n : Nat)
+    (vector : CentralPhysicalGNSCompletion
+      (matchedAllSpinWeight family coupling scale)
+      (matchedAllSpinWeight_nonnegative family coupling scale)
+      (matchedAllSpinCutoff family coupling scale) 0)
+    (horthogonal : CentralPhysicalCompletedVacuumOrthogonal
+      (matchedAllSpinWeight family coupling scale)
+      (matchedAllSpinWeight_nonnegative family coupling scale)
+      (matchedAllSpinCutoff family coupling scale) 0 vector) :
+    let w := matchedAllSpinWeight family coupling scale
+    let hw := matchedAllSpinWeight_nonnegative family coupling scale
+    let K := matchedAllSpinCutoff family coupling scale
+    let D := (centralPhysicalSmulGNS w hw K 0).toGNSData
+    CReal.RCle
+      (D.cinnerCompl
+        (centralPhysicalCompletedMarkovPower w hw K 0 n vector)
+        (centralPhysicalCompletedMarkovPower w hw K 0 n vector))
+      (CReal.RCscale
+        ((Q'.mkPos 1 16 (by decide) * Q'.mkPos 1 16 (by decide)) ^ n)
+        (D.cinnerCompl vector vector)) := by
+  dsimp only
+  exact centralPhysicalCompletedMarkovPower_norm_gap_of_form_gap
+    (matchedAllSpinWeight_nonnegative family coupling scale)
+    (matchedAllSpinCutoff family coupling scale) 0
+    (localGluing_completed_vacuum_form_gap_data certificate scale)
+    n vector horthogonal
+
+/-- Every matrix coefficient of a propagated vacuum-orthogonal vector against
+an arbitrary test vector on the same completed physical carrier inherits the
+local-gluing geometric decay. -/
+theorem localGluing_completed_power_matrixCoefficientSq_decay_sixteenth
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat → Q'}
+    (certificate : PhysicalLocalGluingAFCertificate
+      family law spacing coupling)
+    (scale n : Nat)
+    (vector test : CentralPhysicalGNSCompletion
+      (matchedAllSpinWeight family coupling scale)
+      (matchedAllSpinWeight_nonnegative family coupling scale)
+      (matchedAllSpinCutoff family coupling scale) 0)
+    (horthogonal : CentralPhysicalCompletedVacuumOrthogonal
+      (matchedAllSpinWeight family coupling scale)
+      (matchedAllSpinWeight_nonnegative family coupling scale)
+      (matchedAllSpinCutoff family coupling scale) 0 vector) :
+    let w := matchedAllSpinWeight family coupling scale
+    let hw := matchedAllSpinWeight_nonnegative family coupling scale
+    let K := matchedAllSpinCutoff family coupling scale
+    let D := (centralPhysicalSmulGNS w hw K 0).toGNSData
+    let propagated :=
+      centralPhysicalCompletedMarkovPower w hw K 0 n vector
+    CReal.RCle
+      (CReal.RCmul
+        (D.cinnerCompl propagated test)
+        (D.cinnerCompl propagated test))
+      (CReal.RCmul
+        (CReal.RCscale
+          ((Q'.mkPos 1 16 (by decide) * Q'.mkPos 1 16 (by decide)) ^ n)
+          (D.cinnerCompl vector vector))
+        (D.cinnerCompl test test)) := by
+  dsimp only
+  let w := matchedAllSpinWeight family coupling scale
+  let hw := matchedAllSpinWeight_nonnegative family coupling scale
+  let K := matchedAllSpinCutoff family coupling scale
+  let D := (centralPhysicalSmulGNS w hw K 0).toGNSData
+  let propagated :=
+    centralPhysicalCompletedMarkovPower w hw K 0 n vector
+  have hcs := D.RC_cauchy_schwarz propagated test
+  have hnorm := localGluing_completed_power_norm_decay_sixteenth
+    certificate scale n vector horthogonal
+  change CReal.RCle
+    (D.cinnerCompl propagated propagated)
+    (CReal.RCscale
+      ((Q'.mkPos 1 16 (by decide) * Q'.mkPos 1 16 (by decide)) ^ n)
+      (D.cinnerCompl vector vector)) at hnorm
+  have htestNonnegative := D.cinner_self_nonneg test
+  have hmul := CReal.RCmul_mono_nonnegative_left_local
+    htestNonnegative hnorm
+  rw [CReal.RCmul_comm (D.cinnerCompl test test),
+      CReal.RCmul_comm (D.cinnerCompl test test)] at hmul
+  exact CReal.RCle_trans hcs hmul
+
+/-- In particular, the squared same-vector autocorrelation matrix coefficient
+decays geometrically on the completed physical vacuum complement. -/
+theorem localGluing_completed_power_autocorrelationSq_decay_sixteenth
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat → Q'}
+    (certificate : PhysicalLocalGluingAFCertificate
+      family law spacing coupling)
+    (scale n : Nat)
+    (vector : CentralPhysicalGNSCompletion
+      (matchedAllSpinWeight family coupling scale)
+      (matchedAllSpinWeight_nonnegative family coupling scale)
+      (matchedAllSpinCutoff family coupling scale) 0)
+    (horthogonal : CentralPhysicalCompletedVacuumOrthogonal
+      (matchedAllSpinWeight family coupling scale)
+      (matchedAllSpinWeight_nonnegative family coupling scale)
+      (matchedAllSpinCutoff family coupling scale) 0 vector) :
+    let w := matchedAllSpinWeight family coupling scale
+    let hw := matchedAllSpinWeight_nonnegative family coupling scale
+    let K := matchedAllSpinCutoff family coupling scale
+    let D := (centralPhysicalSmulGNS w hw K 0).toGNSData
+    let propagated :=
+      centralPhysicalCompletedMarkovPower w hw K 0 n vector
+    CReal.RCle
+      (CReal.RCmul
+        (D.cinnerCompl propagated vector)
+        (D.cinnerCompl propagated vector))
+      (CReal.RCmul
+        (CReal.RCscale
+          ((Q'.mkPos 1 16 (by decide) * Q'.mkPos 1 16 (by decide)) ^ n)
+          (D.cinnerCompl vector vector))
+        (D.cinnerCompl vector vector)) := by
+  exact localGluing_completed_power_matrixCoefficientSq_decay_sixteenth
+    certificate scale n vector vector horthogonal
+
 /-! ## Axiom audit -/
 
 #print axioms localGluing_centeredCorrection_form_le_sixteenth
@@ -283,5 +414,8 @@ theorem localGluing_completed_vacuum_operator_norm_gap_sixteenth
 #print axioms localGluing_completed_vacuum_form_gap_sixteenth
 #print axioms localGluing_completed_vacuum_form_gap_data
 #print axioms localGluing_completed_vacuum_operator_norm_gap_sixteenth
+#print axioms localGluing_completed_power_norm_decay_sixteenth
+#print axioms localGluing_completed_power_matrixCoefficientSq_decay_sixteenth
+#print axioms localGluing_completed_power_autocorrelationSq_decay_sixteenth
 
 end YMGap.Continuum.BF4PhysicalLocalGluingCompletedOperatorNormGap

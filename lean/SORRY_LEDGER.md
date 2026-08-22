@@ -3348,3 +3348,26 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete build pass.  This removes the physical-separator and
   rate-sharpness fields from the finite completed-gap dependency; it does not
   inhabit local gluing or prove a cross-scale, continuum-QFT, or Clay result.
+
+### [BF4-local-gluing-completed-power-correlation-decay] Completed geometric decay — **CLOSED 2026-08-22**
+
+- **milestone**: the direct local-gluing completed gap iterates to squared-norm
+  decay at rate `((1/16)^2)^n`; completed Cauchy--Schwarz transfers it to every
+  squared same-carrier matrix coefficient and, in particular, the same-vector
+  autocorrelation coefficient.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalLocalGluingCompletedOperatorNormGap.lean`.
+- **decl**:
+  `localGluing_completed_power_norm_decay_sixteenth`,
+  `localGluing_completed_power_matrixCoefficientSq_decay_sixteenth`, and
+  `localGluing_completed_power_autocorrelationSq_decay_sixteenth`.
+- **obligation**: inhabit `PhysicalLocalGluingAFCertificate` and relate the
+  completed macro-step powers uniformly to physical time while taking volume,
+  lattice-spacing, thermodynamic, and continuum limits.
+- **constructive?**: yes — all three printed declarations use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the monitored focused source check and one-job 1,232-job
+  dependency-complete build pass.  This is conditional finite matched-scale
+  decay, not an inhabited analytic certificate, continuum-QFT construction,
+  or Clay theorem.
