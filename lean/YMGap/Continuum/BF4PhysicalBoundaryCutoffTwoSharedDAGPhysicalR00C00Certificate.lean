@@ -1,6 +1,6 @@
 /- End-to-end shared-DAG physical certificate for sector R00C00. -/
 import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCanonicalCommonTransportSharded
-import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCanonicalSourceTransport00Sharded
+import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCanonicalCommonTransport
 import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCanonicalSourceTransport00Sharded
 import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSectorRawKernelData
 import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGPhysicalKernelBridge
@@ -15,7 +15,6 @@ open YMGap.Constructive
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCanonicalCommonTransportData
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCanonicalCommonTransportSharded
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCanonicalFactorPool
-open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCanonicalSourceTransport00Sharded
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCanonicalSourceTransport00Sharded
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCubeInterfaceContraction
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSectorFactorGraph
@@ -33,6 +32,13 @@ open YMGap.Continuum.Z4HalfTimeReflectionCrossPlaneFactorization
 open YMGap.Continuum.Z4HalfTimeReflectionPhysicalGram
 
 local infix:50 " ≈ " => Q'.eqv
+
+theorem cutoffTwoCanonicalSource00TransportForSharedDAG :
+    FactorListTransport 2 (centralFixedFaceIds 0)
+      cutoffTwoCanonicalTransportIdentity
+      (cutoffTwoSourceLinkFactors (cutoffTwoSectorLocalZeroStateAt 0))
+      (cutoffTwoCanonicalSourceFactorsAt 0) :=
+  cutoffTwoCanonicalSource00Transport
 
 def cutoffTwoPhysicalR00C00MatchedFactors : List ScopedQFactor :=
   (cutoffTwoBoundaryHeatFactors ++ cutoffTwoCubeFixedLinkFactors) ++
@@ -58,8 +64,8 @@ theorem cutoffTwoPhysicalR00C00MatchedTransport :
   FactorListTransport.append
     cutoffTwoCanonicalCommonTransport
     (FactorListTransport.append
-      cutoffTwoCanonicalSource00Transport
-      cutoffTwoCanonicalSource00Transport)
+      cutoffTwoCanonicalSource00TransportForSharedDAG
+      cutoffTwoCanonicalSource00TransportForSharedDAG)
 
 theorem cutoffTwoCanonicalR00C00Matched_eq_indexed :
     cutoffTwoCanonicalR00C00MatchedFactors =
@@ -128,7 +134,19 @@ theorem centralPhysicalReflectedKernel_cutoffTwo_sector_R00C00_eqv_raw_sharedDAG
     cutoffTwoPhysicalR00C00Interface_eqv_expected
     (by decide) (by decide)
 
+theorem centralPhysicalReflectedKernel_cutoffTwo_sector_R00C00_rawStateAt_eqv_raw_sharedDAG :
+    centralPhysicalReflectedKernel cutoffTwoHalfCoupling 2 0
+      (BF4PhysicalBoundaryCutoffTwoSectorRawKernelCertificate.cutoffTwoSectorStateAt 0)
+      (BF4PhysicalBoundaryCutoffTwoSectorRawKernelCertificate.cutoffTwoSectorStateAt 0) ≈
+        cutoffTwoSectorRawKernel 0 0 := by
+  simpa only [
+    BF4PhysicalBoundaryCutoffTwoSectorRawKernelCertificate.cutoffTwoSectorStateAt,
+    cutoffTwoSectorLocalZeroStateAt] using
+    centralPhysicalReflectedKernel_cutoffTwo_sector_R00C00_eqv_raw_sharedDAG
+
 end YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGPhysicalR00C00Certificate
 
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGPhysicalR00C00Certificate.centralPhysicalReflectedKernel_cutoffTwo_sector_R00C00_eqv_raw_sharedDAG
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGPhysicalR00C00Certificate.centralPhysicalReflectedKernel_cutoffTwo_sector_R00C00_rawStateAt_eqv_raw_sharedDAG

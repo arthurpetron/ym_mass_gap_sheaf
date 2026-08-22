@@ -57,7 +57,7 @@ theorem cutoffTwoCanonicalFixedLinkTransport :
     FactorListTransport 2 (centralFixedFaceIds 0)
       cutoffTwoCanonicalIdentity
       cutoffTwoCubeFixedLinkFactors
-      cutoffTwoCanonicalCubeFixedLinkFactors :=
+      cutoffTwoCanonicalCubeFixedLinkFactors := by
   have hprefix := factorListTransport_of_check 2 (centralFixedFaceIds 0)
     cutoffTwoCanonicalIdentity cutoffTwoCanonicalIdentity
     (cutoffTwoCubeFixedLinkFactors.take 10)

@@ -34,7 +34,19 @@ theorem centralPhysicalReflectedKernel_cutoffTwo_sector_R01C01_eqv_raw_sharedDAG
     cutoffTwoPhysicalR01C01Interface_eqv_one
     (by decide) (by decide)
 
+theorem centralPhysicalReflectedKernel_cutoffTwo_sector_R01C01_rawStateAt_eqv_raw_sharedDAG :
+    centralPhysicalReflectedKernel cutoffTwoHalfCoupling 2 0
+      (BF4PhysicalBoundaryCutoffTwoSectorRawKernelCertificate.cutoffTwoSectorStateAt 1)
+      (BF4PhysicalBoundaryCutoffTwoSectorRawKernelCertificate.cutoffTwoSectorStateAt 1) ≈
+        cutoffTwoSectorRawKernel 1 1 := by
+  simpa only [
+    BF4PhysicalBoundaryCutoffTwoSectorRawKernelCertificate.cutoffTwoSectorStateAt,
+    cutoffTwoSectorLocalZeroStateAt] using
+    centralPhysicalReflectedKernel_cutoffTwo_sector_R01C01_eqv_raw_sharedDAG
+
 end YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGPhysicalR01C01KernelCertificate
 
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGPhysicalR01C01KernelCertificate.centralPhysicalReflectedKernel_cutoffTwo_sector_R01C01_eqv_raw_sharedDAG
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGPhysicalR01C01KernelCertificate.centralPhysicalReflectedKernel_cutoffTwo_sector_R01C01_rawStateAt_eqv_raw_sharedDAG

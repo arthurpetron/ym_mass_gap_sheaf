@@ -1,5 +1,6 @@
 /- End-to-end shared-DAG physical certificate for sector R00C01. -/
 import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCanonicalCommonTransportSharded
+import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCanonicalCommonTransport
 import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCanonicalSourceTransport00Sharded
 import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCanonicalSourceTransport01Sharded
 import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSectorRawKernelData
@@ -34,6 +35,20 @@ open YMGap.Continuum.Z4HalfTimeReflectionPhysicalGram
 
 local infix:50 " ≈ " => Q'.eqv
 
+theorem cutoffTwoCanonicalSource00TransportForSharedDAG :
+    FactorListTransport 2 (centralFixedFaceIds 0)
+      cutoffTwoCanonicalTransportIdentity
+      (cutoffTwoSourceLinkFactors (cutoffTwoSectorLocalZeroStateAt 0))
+      (cutoffTwoCanonicalSourceFactorsAt 0) :=
+  cutoffTwoCanonicalSource00Transport
+
+theorem cutoffTwoCanonicalSource01TransportForSharedDAG :
+    FactorListTransport 2 (centralFixedFaceIds 0)
+      cutoffTwoCanonicalTransportIdentity
+      (cutoffTwoSourceLinkFactors (cutoffTwoSectorLocalZeroStateAt 1))
+      (cutoffTwoCanonicalSourceFactorsAt 1) :=
+  cutoffTwoCanonicalSource01Transport
+
 def cutoffTwoPhysicalR00C01MatchedFactors : List ScopedQFactor :=
   (cutoffTwoBoundaryHeatFactors ++ cutoffTwoCubeFixedLinkFactors) ++
     (cutoffTwoSourceLinkFactors (cutoffTwoSectorLocalZeroStateAt 0) ++
@@ -58,8 +73,8 @@ theorem cutoffTwoPhysicalR00C01MatchedTransport :
   FactorListTransport.append
     cutoffTwoCanonicalCommonTransport
     (FactorListTransport.append
-      cutoffTwoCanonicalSource00Transport
-      cutoffTwoCanonicalSource01Transport)
+      cutoffTwoCanonicalSource00TransportForSharedDAG
+      cutoffTwoCanonicalSource01TransportForSharedDAG)
 
 theorem cutoffTwoCanonicalR00C01Matched_eq_indexed :
     cutoffTwoCanonicalR00C01MatchedFactors =
@@ -128,7 +143,19 @@ theorem centralPhysicalReflectedKernel_cutoffTwo_sector_R00C01_eqv_raw_sharedDAG
     cutoffTwoPhysicalR00C01Interface_eqv_expected
     (by decide) (by decide)
 
+theorem centralPhysicalReflectedKernel_cutoffTwo_sector_R00C01_rawStateAt_eqv_raw_sharedDAG :
+    centralPhysicalReflectedKernel cutoffTwoHalfCoupling 2 0
+      (BF4PhysicalBoundaryCutoffTwoSectorRawKernelCertificate.cutoffTwoSectorStateAt 0)
+      (BF4PhysicalBoundaryCutoffTwoSectorRawKernelCertificate.cutoffTwoSectorStateAt 1) ≈
+        cutoffTwoSectorRawKernel 0 1 := by
+  simpa only [
+    BF4PhysicalBoundaryCutoffTwoSectorRawKernelCertificate.cutoffTwoSectorStateAt,
+    cutoffTwoSectorLocalZeroStateAt] using
+    centralPhysicalReflectedKernel_cutoffTwo_sector_R00C01_eqv_raw_sharedDAG
+
 end YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGPhysicalR00C01Certificate
 
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGPhysicalR00C01Certificate.centralPhysicalReflectedKernel_cutoffTwo_sector_R00C01_eqv_raw_sharedDAG
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGPhysicalR00C01Certificate.centralPhysicalReflectedKernel_cutoffTwo_sector_R00C01_rawStateAt_eqv_raw_sharedDAG

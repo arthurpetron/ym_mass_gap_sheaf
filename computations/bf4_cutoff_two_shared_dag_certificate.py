@@ -639,10 +639,57 @@ def render_physical_pair_certificate(
     column = trace.column
     tag = _trace_tag(trace)
     sorted_ids = trace.node_ids[0]
+    source_indices = tuple(dict.fromkeys((row, column)))
+
+    def source_module(index: int) -> str:
+        if index <= 1:
+            return (
+                "BF4PhysicalBoundaryCutoffTwoCanonicalSourceTransport"
+                f"{index:02d}Sharded"
+            )
+        return (
+            "BF4PhysicalBoundaryCutoffTwoCanonicalSourceTransports."
+            f"State{index:02d}"
+        )
+
+    def source_namespace(index: int) -> str:
+        suffix = "Sharded" if index <= 1 else ""
+        return (
+            "YMGap.Continuum."
+            "BF4PhysicalBoundaryCutoffTwoCanonicalSourceTransport"
+            f"{index:02d}{suffix}"
+        )
+
+    source_imports = "\n".join(
+        f"import YMGap.Continuum.{source_module(index)}"
+        for index in source_indices
+    )
+    source_opens = "\n".join(
+        f"open {source_namespace(index)}"
+        for index in source_indices
+    )
+    source_adapters = "\n\n".join(
+        f'''theorem cutoffTwoCanonicalSource{index:02d}TransportForSharedDAG :
+    FactorListTransport 2 (centralFixedFaceIds 0)
+      cutoffTwoCanonicalTransportIdentity
+      (cutoffTwoSourceLinkFactors (cutoffTwoSectorLocalZeroStateAt {index}))
+      (cutoffTwoCanonicalSourceFactorsAt {index}) := by
+  simpa [cutoffTwoCanonicalTransportIdentity,
+    YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCanonicalCommonTransport.cutoffTwoCanonicalIdentity] using
+    cutoffTwoCanonicalSourceTransport{index:02d}'''
+        if index >= 2 else
+        f'''theorem cutoffTwoCanonicalSource{index:02d}TransportForSharedDAG :
+    FactorListTransport 2 (centralFixedFaceIds 0)
+      cutoffTwoCanonicalTransportIdentity
+      (cutoffTwoSourceLinkFactors (cutoffTwoSectorLocalZeroStateAt {index}))
+      (cutoffTwoCanonicalSourceFactorsAt {index}) :=
+  cutoffTwoCanonicalSource{index:02d}Transport'''
+        for index in source_indices
+    )
     return f'''/- End-to-end shared-DAG physical certificate for sector {tag}. -/
 import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCanonicalCommonTransportSharded
-import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCanonicalSourceTransport{row:02d}Sharded
-import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCanonicalSourceTransport{column:02d}Sharded
+import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCanonicalCommonTransport
+{source_imports}
 import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSectorRawKernelData
 import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGPhysicalKernelBridge
 import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGTrace{tag}Certificate
@@ -656,8 +703,7 @@ open YMGap.Constructive
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCanonicalCommonTransportData
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCanonicalCommonTransportSharded
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCanonicalFactorPool
-open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCanonicalSourceTransport{row:02d}Sharded
-open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCanonicalSourceTransport{column:02d}Sharded
+{source_opens}
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCubeInterfaceContraction
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSectorFactorGraph
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSectorLocalZeroCertificate
@@ -674,6 +720,8 @@ open YMGap.Continuum.Z4HalfTimeReflectionCrossPlaneFactorization
 open YMGap.Continuum.Z4HalfTimeReflectionPhysicalGram
 
 local infix:50 " ≈ " => Q'.eqv
+
+{source_adapters}
 
 def cutoffTwoPhysical{tag}MatchedFactors : List ScopedQFactor :=
   (cutoffTwoBoundaryHeatFactors ++ cutoffTwoCubeFixedLinkFactors) ++
@@ -699,8 +747,8 @@ theorem cutoffTwoPhysical{tag}MatchedTransport :
   FactorListTransport.append
     cutoffTwoCanonicalCommonTransport
     (FactorListTransport.append
-      cutoffTwoCanonicalSource{row:02d}Transport
-      cutoffTwoCanonicalSource{column:02d}Transport)
+      cutoffTwoCanonicalSource{row:02d}TransportForSharedDAG
+      cutoffTwoCanonicalSource{column:02d}TransportForSharedDAG)
 
 theorem cutoffTwoCanonical{tag}Matched_eq_indexed :
     cutoffTwoCanonical{tag}MatchedFactors =
@@ -769,10 +817,22 @@ theorem centralPhysicalReflectedKernel_cutoffTwo_sector_{tag}_eqv_raw_sharedDAG 
     cutoffTwoPhysical{tag}Interface_eqv_expected
     (by decide) (by decide)
 
+theorem centralPhysicalReflectedKernel_cutoffTwo_sector_{tag}_rawStateAt_eqv_raw_sharedDAG :
+    centralPhysicalReflectedKernel cutoffTwoHalfCoupling 2 0
+      (BF4PhysicalBoundaryCutoffTwoSectorRawKernelCertificate.cutoffTwoSectorStateAt {row})
+      (BF4PhysicalBoundaryCutoffTwoSectorRawKernelCertificate.cutoffTwoSectorStateAt {column}) ≈
+        cutoffTwoSectorRawKernel {row} {column} := by
+  simpa only [
+    BF4PhysicalBoundaryCutoffTwoSectorRawKernelCertificate.cutoffTwoSectorStateAt,
+    cutoffTwoSectorLocalZeroStateAt] using
+    centralPhysicalReflectedKernel_cutoffTwo_sector_{tag}_eqv_raw_sharedDAG
+
 end YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGPhysical{tag}Certificate
 
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGPhysical{tag}Certificate.centralPhysicalReflectedKernel_cutoffTwo_sector_{tag}_eqv_raw_sharedDAG
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGPhysical{tag}Certificate.centralPhysicalReflectedKernel_cutoffTwo_sector_{tag}_rawStateAt_eqv_raw_sharedDAG
 '''
 
 

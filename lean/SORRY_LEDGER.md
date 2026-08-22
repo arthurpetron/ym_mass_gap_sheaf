@@ -2704,6 +2704,32 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   production-kernel `49/50` gap, a uniform limit, a continuum QFT, or the Clay
   theorem.
 
+### [BF4-cutoff-two-shared-DAG-prefix] Scalable four-representative aggregate — **CLOSED 2026-08-21**
+
+- **milestone**: finite physical sector table / shared-DAG representative
+  evaluation and aggregation.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSharedDAGPhysicalR00C02Certificate.lean`,
+  its trace modules,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSharedDAGRepresentativePrefixCertificate.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSpatialS3RepresentativeReduction.lean`,
+  and the two updated generators.
+- **decl**:
+  `centralPhysicalReflectedKernel_cutoffTwo_sector_R00C02_rawStateAt_eqv_raw_sharedDAG`,
+  `cutoffTwoSectorRepresentativePhysicalStatement_of_eq`, and
+  `cutoffTwoSharedDAGRepresentativePrefix_checked`.
+- **obligation**: none for the four-entry prefix `(0,0)`, `(0,1)`, `(0,2)`,
+  `(1,1)`.  Generate, check, and assemble the remaining 123 exact
+  representatives to inhabit the full residual certificate.
+- **constructive?**: yes — the individual, abstract-transport, and prefix
+  declarations use exactly `[propext, Quot.sound]`.
+- **status note**: the dependency-complete prefix target passed with 2,272
+  jobs, while its final aggregate built in 0.5 seconds.  The raw-`Nat`/`Fin`
+  bridge is now applied once symbolically in the compiler, avoiding concrete
+  state-list reduction.  This is not yet the 127-member certificate, the
+  production-kernel `49/50` gap, a uniform limit, a continuum QFT, or the Clay
+  theorem.
+
 ## How to add an entry
 
 ```markdown

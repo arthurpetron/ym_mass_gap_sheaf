@@ -4150,3 +4150,28 @@ certificate: the remaining representative equalities must be generated,
 kernel-checked, and assembled before the compiler can close the 499 nonzero
 upper entries and the full physical table.  No production-kernel `49/50` gap,
 uniform limit, continuum QFT, or Clay theorem is claimed.
+
+## Scalable representative aggregation and representative `(0,2)` (2026-08-21)
+
+The shared-DAG generator now supports every canonical source state, rather
+than only the specially sharded states `0` and `1`.  Its first use exposed and
+repaired a missing `by` in the generated unsharded common-transport module;
+that module and state `2` now kernel-check with exactly
+`[propext, Quot.sound]`.  The complete trace for representative `(0,2)` then
+passes, including a raw-`Nat`-state accessor wrapper suitable for aggregation.
+
+`CutoffTwoSectorPhysicalSpatialS3RepresentativeCertificate` now states its
+residual equality through the evaluator's raw `Nat/getD` accessor and performs
+the proved `Fin`-accessor conversion once, symbolically, in its compiler.
+The physical proposition is kept behind
+`cutoffTwoSectorRepresentativePhysicalStatement`, so pair equalities can be
+transported without reducing the concrete 65-state list.  A four-entry prefix
+module checks this assembly architecture for `(0,0)`, `(0,1)`, `(0,2)`, and
+`(1,1)`.
+
+The prefix dependency target completed successfully with 2,272 jobs; its
+exported aggregate uses exactly `[propext, Quot.sound]` and its final module
+built in 0.5 seconds.  Four of the 127 exact representatives are now assembled
+by this path.  The remaining 123 trace equalities and the full certificate are
+still open, as are the production-kernel `49/50` gap, every uniform limit,
+continuum QFT construction, and the Clay theorem.

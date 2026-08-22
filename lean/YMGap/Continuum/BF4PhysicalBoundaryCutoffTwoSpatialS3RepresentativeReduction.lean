@@ -60,16 +60,31 @@ theorem cutoffTwoSectorStateAt_fin_eq_nat (index : Fin 65) :
 reduction.  The Boolean premise recognizes exactly the explicit 127-code
 carrier; a later certificate producer must prove the physical/raw equality
 only on those representatives. -/
+def cutoffTwoSectorRepresentativePhysicalStatement
+    (pair : CutoffTwoSectorPair) : Prop :=
+  centralPhysicalReflectedKernel cutoffTwoHalfCoupling 2 0
+      (BF4PhysicalBoundaryCutoffTwoSectorRawKernelCertificate.cutoffTwoSectorStateAt
+        pair.row.val)
+      (BF4PhysicalBoundaryCutoffTwoSectorRawKernelCertificate.cutoffTwoSectorStateAt
+        pair.column.val) ≈
+    cutoffTwoSectorRawKernel pair.row.val pair.column.val
+
+/-- Transport a representative statement across an abstract pair equality
+without reducing either concrete sector state. -/
+theorem cutoffTwoSectorRepresentativePhysicalStatement_of_eq
+    {pair representative : CutoffTwoSectorPair}
+    (hpair : pair = representative)
+    (hrepresentative :
+      cutoffTwoSectorRepresentativePhysicalStatement representative) :
+    cutoffTwoSectorRepresentativePhysicalStatement pair := by
+  cases hpair
+  exact hrepresentative
+
 structure CutoffTwoSectorPhysicalSpatialS3RepresentativeCertificate : Type where
   representativeChecked : ∀ (pair : CutoffTwoSectorPair),
     cutoffTwoSpatialS3NonzeroRepresentativeCodeCheck
         (cutoffTwoSectorPairCode pair) = true →
-    centralPhysicalReflectedKernel cutoffTwoHalfCoupling 2 0
-        (BF4PhysicalBoundaryCutoffTwoAxisSwap12SectorTransportData.cutoffTwoSectorStateAt
-          pair.row)
-        (BF4PhysicalBoundaryCutoffTwoAxisSwap12SectorTransportData.cutoffTwoSectorStateAt
-          pair.column) ≈
-      cutoffTwoSectorRawKernel pair.row.val pair.column.val
+    cutoffTwoSectorRepresentativePhysicalStatement pair
 
 /-- A checked representative certificate propagates to every nonzero upper
 entry by physical transport to the canonical pair and checked raw transport
@@ -91,8 +106,28 @@ theorem centralPhysicalReflectedKernel_cutoffTwo_finStateAt_eqv_raw_of_spatialS3
   have hcode :=
     cutoffTwoSectorPairCanonicalCodeCheck_nonzeroRepresentative
       (row := row) (column := column) hupper hnonzero
-  have hrepresentative := certificate.representativeChecked
+  have hrepresentativeNat := certificate.representativeChecked
     (cutoffTwoSectorPairCanonical ⟨row, column⟩) hcode
+  change centralPhysicalReflectedKernel cutoffTwoHalfCoupling 2 0
+      (BF4PhysicalBoundaryCutoffTwoSectorRawKernelCertificate.cutoffTwoSectorStateAt
+        (cutoffTwoSectorPairCanonical ⟨row, column⟩).row.val)
+      (BF4PhysicalBoundaryCutoffTwoSectorRawKernelCertificate.cutoffTwoSectorStateAt
+        (cutoffTwoSectorPairCanonical ⟨row, column⟩).column.val) ≈
+    cutoffTwoSectorRawKernel
+      (cutoffTwoSectorPairCanonical ⟨row, column⟩).row.val
+      (cutoffTwoSectorPairCanonical ⟨row, column⟩).column.val at hrepresentativeNat
+  have hrepresentative :
+      centralPhysicalReflectedKernel cutoffTwoHalfCoupling 2 0
+          (BF4PhysicalBoundaryCutoffTwoAxisSwap12SectorTransportData.cutoffTwoSectorStateAt
+            (cutoffTwoSectorPairCanonical ⟨row, column⟩).row)
+          (BF4PhysicalBoundaryCutoffTwoAxisSwap12SectorTransportData.cutoffTwoSectorStateAt
+            (cutoffTwoSectorPairCanonical ⟨row, column⟩).column) ≈
+        cutoffTwoSectorRawKernel
+          (cutoffTwoSectorPairCanonical ⟨row, column⟩).row.val
+          (cutoffTwoSectorPairCanonical ⟨row, column⟩).column.val := by
+    rw [cutoffTwoSectorStateAt_fin_eq_nat,
+      cutoffTwoSectorStateAt_fin_eq_nat]
+    exact hrepresentativeNat
   have hraw := cutoffTwoSectorRawKernel_pairCanonical_eqv_of_upper
     (row := row) (column := column) hupper
   exact Q'.eqv_trans _ _ _ hphysical
