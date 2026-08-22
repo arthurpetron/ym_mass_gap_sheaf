@@ -4986,3 +4986,31 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   uninhabited, so this is an exact reduction of completed transfer invariance,
   not an unconditional completed lift.  No completed uniform gap,
   thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+### [BF4-vacuum-sector-amplitude-shell-schedule] The sector diagonal pays the scaled stationary shell cutoff — **PROVED 2026-08-22**
+
+- **milestone**: strengthen the completion-preserving base-controlled slow
+  diagonal so that each admitted presentation pays both its carrier base and
+  the existing stationary source-shell schedule at tolerance `1/(i+1)`
+  rescaled by the square of twice its finite coefficient `l1` envelope.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCylinderBaseControlledCauchy.lean`.
+- **decl**: `centralPhysicalVacuumSectorPresentationL1`,
+  `centralPhysicalVacuumSectorPresentationRecodingSqEnvelope`,
+  `centralPhysicalVacuumSectorPresentationEnvelope_mul_shellTolerance_le`,
+  `centralPhysicalVacuumSectorBaseRequirement`, and
+  `centralPhysicalVacuumSectorBaseControlled_shellCutoff_le_stage`.
+- **obligation**: prove that the input cutoff action and its exact sector
+  recoding are pointwise bounded by the presentation `l1` envelope, derive the
+  finite zero-core plus scaled-shell GNS estimate, and combine nested
+  cofinality with the new paid-shell theorem to inhabit
+  `CentralPhysicalVacuumSectorAdaptiveRecodingTailData`.
+- **constructive?**: yes — the three newly audited scheduling exports use
+  exactly `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`,
+  `sorry`, custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored schedule check and downstream
+  adaptive-tail check pass; the exact-target one-worker 1,351-job
+  dependency-complete build passes.  This closes a schedule obligation, not
+  the amplitude/core-shell inequalities or the tail itself.  No unconditional
+  completed lift, completed uniform gap, thermodynamic/continuum QFT, or Clay
+  theorem is asserted.

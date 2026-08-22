@@ -7,7 +7,8 @@ representative need not have its presentation base below its sequence index,
 so finite root-sector closure cannot be applied directly.
 
 This module removes that mismatch constructively.  A slow diagonal pays the
-base of every selected presentation.  Before the zeroth requirement is paid
+base of every selected presentation and an amplitude-scaled stationary-shell
+cutoff used by the later recoding-tail estimate.  Before the zeroth requirement is paid
 it uses the zero presentation; afterwards it selects a cofinal subsequence of
 the original representative.  The result is Cauchy, explicitly close to the
 original representative, and satisfies `base <= stage` at every stage.
@@ -22,6 +23,7 @@ noncomputable declaration.
 -/
 
 import YMGap.Continuum.BF4PhysicalCutoffLinearMarkovAdaptiveCompletionCauchy
+import YMGap.Continuum.BF4PhysicalCutoffStationarySourceTail
 import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderFiniteAction
 
 namespace YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderBaseControlledCauchy
@@ -31,15 +33,20 @@ set_option maxHeartbeats 2000000
 
 open YMGap.Constructive
 open YMGap.Continuum.BF4PhysicalCutoffFiniteIndexBridge
+open YMGap.Continuum.BF4PhysicalCutoffEmbeddedFormCauchy
 open YMGap.Continuum.BF4PhysicalCutoffLinearCompletion
 open YMGap.Continuum.BF4PhysicalCutoffLinearMarkovAdaptiveCompletionCauchy
 open YMGap.Continuum.BF4PhysicalCutoffLinearMarkovAdaptiveCompletionSchedule
 open YMGap.Continuum.BF4PhysicalCutoffLinearMarkovCauchy
+open YMGap.Continuum.BF4PhysicalCutoffStationarySourceTail
+open YMGap.Continuum.BF4PhysicalCutoffTargetShellTail
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletion
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderFiniteAction
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorLinearRealization
 open YMGap.Continuum.BF4PhysicalDenseStageSlowDiagonalComparison
+open YMGap.Continuum.BF4PhysicalFiniteVacuumSector
 open YMGap.Continuum.CRealSeminormCompletion
+open YMGap.Continuum.Z4FiniteCylinderQuadraticStability
 
 local infix:50 " ≈ " => Q'.eqv
 
@@ -53,15 +60,83 @@ def centralPhysicalVacuumSectorZeroPresentation
   base := 0
   coefficient := fun _ => 0
 
-/-- The raw requirement attached to one term is exactly its finite carrier
-base. -/
+/-- The finite coefficient `l1` envelope of one sector presentation. -/
+def centralPhysicalVacuumSectorPresentationL1
+    {w : Q'} {hw : (0 : Q') ≤ w} {half : Nat}
+    (presentation : CentralPhysicalVacuumSectorCylinderPresentation
+      w hw half) : Q' :=
+  coefficientL1
+    (centralPhysicalFiniteVacuumSectorIndices
+      w hw presentation.base half)
+    presentation.coefficient
+
+/-- A squared envelope for the difference between two observables whose
+absolute values are bounded by the presentation `l1` envelope. -/
+def centralPhysicalVacuumSectorPresentationRecodingSqEnvelope
+    {w : Q'} {hw : (0 : Q') ≤ w} {half : Nat}
+    (presentation : CentralPhysicalVacuumSectorCylinderPresentation
+      w hw half) : Q' :=
+  let doubled :=
+    centralPhysicalVacuumSectorPresentationL1 presentation +
+      centralPhysicalVacuumSectorPresentationL1 presentation
+  doubled * doubled
+
+theorem centralPhysicalVacuumSectorPresentationRecodingSqEnvelope_nonnegative
+    {w : Q'} {hw : (0 : Q') ≤ w} {half : Nat}
+    (presentation : CentralPhysicalVacuumSectorCylinderPresentation
+      w hw half) :
+    (0 : Q') ≤
+      centralPhysicalVacuumSectorPresentationRecodingSqEnvelope
+        presentation := by
+  have hl1 : (0 : Q') ≤
+      centralPhysicalVacuumSectorPresentationL1 presentation := by
+    unfold centralPhysicalVacuumSectorPresentationL1
+    exact coefficientL1_nonnegative_local _ _
+  unfold centralPhysicalVacuumSectorPresentationRecodingSqEnvelope
+  exact Q'.mul_nonneg _ _
+    (Q'.zero_le_add _ _ hl1 hl1)
+    (Q'.zero_le_add _ _ hl1 hl1)
+
+/-- The source-shell mass tolerance which, after multiplication by the
+recoding squared envelope, is at most `epsilon`. -/
+def centralPhysicalVacuumSectorPresentationShellTolerance
+    {w : Q'} {hw : (0 : Q') ≤ w} {half : Nat}
+    (presentation : CentralPhysicalVacuumSectorCylinderPresentation
+      w hw half)
+    (epsilon : Q') : Q' :=
+  CReal.InnerRegularity.scaleTolerance
+    (centralPhysicalVacuumSectorPresentationRecodingSqEnvelope
+      presentation)
+    epsilon
+
+theorem centralPhysicalVacuumSectorPresentationEnvelope_mul_shellTolerance_le
+    {w : Q'} {hw : (0 : Q') ≤ w} {half : Nat}
+    (presentation : CentralPhysicalVacuumSectorCylinderPresentation
+      w hw half)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon) :
+    centralPhysicalVacuumSectorPresentationRecodingSqEnvelope presentation *
+        centralPhysicalVacuumSectorPresentationShellTolerance
+          presentation epsilon ≤
+      epsilon := by
+  exact CReal.InnerRegularity.mul_scaleTolerance_le
+    (centralPhysicalVacuumSectorPresentationRecodingSqEnvelope presentation)
+    epsilon
+    (centralPhysicalVacuumSectorPresentationRecodingSqEnvelope_nonnegative
+      presentation)
+    hepsilon
+
+/-- At original sequence index `i`, pay both the literal carrier base and the
+stationary shell schedule at amplitude-scaled tolerance `1/(i+1)`. -/
 def centralPhysicalVacuumSectorBaseRequirement
     {w : Q'} {hw0 : (0 : Q') < w} {hw1 : w < (1 : Q')}
     {half : Nat}
     (X : (centralPhysicalVacuumSectorCylinderSquaredSeminorm
       hw0 hw1 half).Cauchy)
     (index : Nat) : Nat :=
-  (X.seq index).base
+  max (X.seq index).base
+    (centralPhysicalTargetShellCutoff w half
+      (centralPhysicalVacuumSectorPresentationShellTolerance
+        (X.seq index) (Q'.invSucc index)))
 
 def centralPhysicalVacuumSectorBaseSampleIndex
     {w : Q'} {hw0 : (0 : Q') < w} {hw1 : w < (1 : Q')}
@@ -232,9 +307,31 @@ theorem centralPhysicalVacuumSectorBaseControlled_base_le_stage
   unfold centralPhysicalVacuumSectorBaseControlledSeq
   split
   case isTrue hzero =>
-    exact required_slowIndex_le required stage hzero
+    exact Nat.le_trans (Nat.le_max_left _ _)
+      (required_slowIndex_le required stage hzero)
   case isFalse =>
     exact Nat.zero_le _
+
+/-- Once the zeroth slow-diagonal requirement is admissible, the selected
+presentation's amplitude-scaled stationary shell cutoff is also paid by the
+current sequence stage. -/
+theorem centralPhysicalVacuumSectorBaseControlled_shellCutoff_le_stage
+    {w : Q'} {hw0 : (0 : Q') < w} {hw1 : w < (1 : Q')}
+    {half : Nat}
+    (X : (centralPhysicalVacuumSectorCylinderSquaredSeminorm
+      hw0 hw1 half).Cauchy)
+    (stage : Nat)
+    (hzero : slowThreshold
+      (centralPhysicalVacuumSectorBaseRequirement X) 0 <= stage) :
+    centralPhysicalTargetShellCutoff w half
+        (centralPhysicalVacuumSectorPresentationShellTolerance
+          (X.seq (centralPhysicalVacuumSectorBaseSampleIndex X stage))
+          (Q'.invSucc
+            (centralPhysicalVacuumSectorBaseSampleIndex X stage))) <=
+      stage := by
+  let required := centralPhysicalVacuumSectorBaseRequirement X
+  exact Nat.le_trans (Nat.le_max_right _ _)
+    (required_slowIndex_le required stage hzero)
 
 /-- The generic adaptive input selector never exceeds its action stage. -/
 theorem centralPhysicalAdaptiveMarkovSampleIndex_le_stage
@@ -317,6 +414,10 @@ end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderBaseControlledCauchy
 
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderBaseControlledCauchy.centralPhysicalVacuumSectorBaseControlledCauchy
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderBaseControlledCauchy.centralPhysicalVacuumSectorPresentationEnvelope_mul_shellTolerance_le
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderBaseControlledCauchy.centralPhysicalVacuumSectorBaseControlled_shellCutoff_le_stage
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderBaseControlledCauchy.centralPhysicalVacuumSectorBaseControlledCompletion_eq
 #print axioms

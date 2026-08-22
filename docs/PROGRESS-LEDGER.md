@@ -6359,3 +6359,29 @@ record nor its diagonal-regularity sufficient condition is inhabited here:
 the completed lift remains conditional on that one analytic estimate.  A
 common strict rate over all carriers is independently open.  No completed
 uniform gap, thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+## The BF4 sector slow diagonal now pays an amplitude-scaled source-shell schedule (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorCylinderBaseControlledCauchy` now attaches two
+requirements to every original sector presentation.  It still pays the
+literal representation base.  In addition it computes the presentation's
+finite coefficient `l1` envelope, squares the doubled envelope, rescales
+`1/(i+1)` by that nonnegative factor, and pays the existing stationary
+target-shell cutoff at the resulting tolerance.
+
+The slow diagonal remains Cauchy and completion-equal to the original
+representative because its proof works for any pointwise natural-number
+requirement.  Its selected presentation still has `base <= stage`, and a new
+theorem proves that the corresponding amplitude-scaled shell cutoff is also
+at most the sequence stage once the zeroth requirement is admitted.  The
+downstream adaptive recoding-tail compiler continues to pass unchanged.
+
+The focused monitored checks for the strengthened schedule and downstream
+compiler pass, and the exact-target one-worker 1,351-job build passes.  The
+three newly audited scheduling exports use exactly `[propext, Quot.sound]`;
+no `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  This does not yet inhabit the recoding
+tail: the next layer must prove global and recoded pointwise amplitude bounds,
+the finite core-zero plus shell-mass inequality, and the nested cofinality
+estimate.  The all-carrier strict rate and all continuum/Clay conclusions
+remain open.
