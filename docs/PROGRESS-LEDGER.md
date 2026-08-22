@@ -4340,3 +4340,26 @@ rate, volume compatibility, Hilbert completion, thermodynamic/continuum
 limits, QFT axioms, or the Clay theorem.  The next causal frontier is the
 quantitative comparison of the pulled-back later weights and physical forms
 with their old-cutoff values.
+
+## Pulled physical carrier entries have constructive cutoff limits (2026-08-22)
+
+`BF4PhysicalCutoffEmbeddedEntryCauchy` pulls each later stationary weight and
+normalized reflected-kernel entry back to a fixed old positive carrier using
+the explicit state-preserving cutoff index map.  It proves that the resulting
+values are exactly the later row marginals and normalized kernel entries of
+the same literal old states.  The corrected-slab source and pair cylinder
+moduli then give executable two-sided epsilon bounds for any two sufficiently
+large cutoffs.
+
+Those bounds are packaged as actual Bishop reals
+`centralPhysicalFinitePulledWeightCutoffLimit` and
+`centralPhysicalFinitePulledKernelCutoffLimit`.  The source check and
+dependency-complete target pass, and every printed declaration reports
+exactly `[propext, Quot.sound]`.
+
+This closes entrywise representation-cutoff convergence on every fixed old
+finite carrier, and hence on each old canonical vacuum component.  It does
+not prove that the cutoff-two entries equal their limits or that its `49/50`
+form bound survives.  The next frontier is to pay the finite carrier size and
+coefficient envelope to obtain constructive Cauchy limits for the pulled
+weighted mean, diagonal form, and matrix quadratic as whole objects.

@@ -2886,3 +2886,25 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   pass.  No exact weight/form intertwining, cutoff-uniform gap, volume family,
   completion, thermodynamic/continuum theory, QFT axioms, or Clay theorem is
   claimed.
+
+### [BF4-cutoff-embedded-entry-cauchy] Pulled weight and kernel entry limits — **CLOSED 2026-08-22**
+
+- **milestone**: quantitative representation-cutoff comparison on a fixed
+  embedded old physical carrier.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffEmbeddedEntryCauchy.lean`.
+- **decl**:
+  `centralPhysicalFinitePulledKernel_twoSided_of_modulus`,
+  `centralPhysicalFinitePulledWeight_twoSided_of_modulus`,
+  `centralPhysicalFinitePulledWeightCutoffLimit`, and
+  `centralPhysicalFinitePulledKernelCutoffLimit`.
+- **obligation**: none for entrywise pulled cutoff convergence.  The next
+  obligation is dimension-compensated convergence of the complete pulled
+  weighted mean and quadratic forms, followed by a genuinely uniform strict
+  rate on a cofinal vacuum-sector family.
+- **constructive?**: yes — every printed declaration uses exactly
+  `[propext, Quot.sound]`; no excluded declaration or placeholder was added.
+- **status note**: the source and dependency-complete builds pass.  Entrywise
+  convergence alone does not identify the cutoff-two table with the limiting
+  form or prove persistence of `49/50`, a uniform gap, volume compatibility,
+  completion, thermodynamic/continuum QFT, or the Clay theorem.
