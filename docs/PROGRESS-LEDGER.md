@@ -4686,3 +4686,29 @@ carrier recoding seam: construct such a family, or replace it by a weaker
 uniform certificate that proves the same finite bound.  Completed Hilbert
 space, volume/spacing uniformity, continuum QFT, and the Clay theorem remain
 open.
+
+## Cofinal stationary rank-one row defects contract to the physical gap interfaces (2026-08-22)
+
+`BF4PhysicalCutoffCofinalRankOneDefectGap` replaces the sufficient but strong
+canonical-LDL antecedent by a smaller finite analytic target.  At a supplied
+rational `0 <= q < 1`, compare the symmetric physical joint kernel with the
+stationary rank-one joint `(1-q) d_i d_j` and require the absolute defect in
+each row to be at most `q d_i`.  Exact weighted centering annihilates the
+rank-one quadratic; the existing weighted Young perturbation estimate then
+proves `|x^T K x| <= q x^T D x` without constructing an LDL factorization.
+
+A constructively cofinal family of these row certificates now compiles both
+to the global physical centered strict-gap interface and, after exact
+zero-extension into the full carrier, to the moving same-object vacuum-sector
+certificate.  Consequently it also proves the strict comparison of the two
+fixed-nome centered cutoff-limit Bishop reals.  The monitored focused source
+check and one-job 1,473-job dependency-complete target build pass; the seven
+printed declarations use at most `[propext, Quot.sound]`.
+
+No cofinal row-defect family is constructed here.  The open fixed-nome
+analytic problem has been reduced from a growing canonical LDL factorization
+to row-relative total variation against one stationary rank-one joint.  The
+next causal frontier is to derive this certificate from the repository's
+existing common-rank-one, density, core/tail, or minorization estimates.
+Uniformity in physical volume and lattice spacing, continuum QFT, and the Clay
+mass-gap theorem remain open.

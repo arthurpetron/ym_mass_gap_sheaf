@@ -3235,3 +3235,31 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete build pass.  This closes the exact implication from a
   named analytic input, not that input itself, a completed gap,
   thermodynamic/continuum QFT, or the Clay theorem.
+
+### [BF4-cutoff-cofinal-rank-one-row-defect-gap] Rank-one row defect compiler — **CLOSED 2026-08-22**
+
+- **milestone**: a symmetric finite kernel whose rowwise absolute difference
+  from `(1-q) d_i d_j` is bounded by `q d_i` contracts every exactly centered
+  quadratic form by `q`; a constructively cofinal physical family compiles to
+  both the global centered-gap certificate and the moving same-object
+  vacuum-sector cutoff-limit inequality.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffCofinalRankOneDefectGap.lean`.
+- **decl**:
+  `finiteStationaryRankOneJoint_quadratic_eqv_mean_square`,
+  `finiteStationaryRankOneJoint_quadratic_centered_eqv_zero`,
+  `FiniteStationaryRankOneRowDefectCertificate.absContraction`,
+  `FixedNomeCofinalPhysicalRankOneRowDefect.toCenteredStrictGap`,
+  `FixedNomeCofinalPhysicalRankOneRowDefect.toVacuumSectorCenteredStrictGap`,
+  and
+  `FixedNomeCofinalPhysicalRankOneRowDefect.centeredMatrixCutoffLimit_leEv_rate_mul_diagonal`.
+- **obligation**: construct an actual cofinal row-defect family at one strict
+  rate, preferably from the existing common-rank-one, stationary-density,
+  minorization, or core/tail row estimates.  No inhabitant is asserted here.
+- **constructive?**: yes — the seven printed declarations use at most
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the monitored focused source check and one-job 1,473-job
+  dependency-complete build pass.  This closes a weaker sufficient interface,
+  not the row estimate itself, a completed physical gap, volume/spacing
+  uniformity, continuum QFT, or the Clay theorem.
