@@ -3322,3 +3322,29 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete build pass.  This closes the local-slice-to-limit
   implication, not its analytic inhabitant, volume/spacing uniformity,
   continuum QFT, or the Clay theorem.
+
+### [BF4-local-gluing-completed-operator-gap] Direct completed operator gap — **CLOSED 2026-08-22**
+
+- **milestone**: `PhysicalLocalGluingAFCertificate` alone implies the strict
+  completed vacuum-complement form gap at rate `1/16` and the genuine concrete
+  completed Markov-transfer estimate
+  `||T v||^2 <= (1/16)^2 ||v||^2` at every matched AF scale.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalLocalGluingCompletedOperatorNormGap.lean`.
+- **decl**:
+  `localGluing_centeredCorrection_form_le_sixteenth`,
+  `localGluing_cauchyCenteredFormSeq_le_sixteenth`,
+  `localGluing_cinnerRep_form_gap_sixteenth`,
+  `localGluing_completed_vacuum_form_gap_sixteenth`,
+  `localGluing_completed_vacuum_form_gap_data`, and
+  `localGluing_completed_vacuum_operator_norm_gap_sixteenth`.
+- **obligation**: construct an actual `PhysicalLocalGluingAFCertificate`, then
+  establish the same-object physical-time interpretation and uniform volume,
+  lattice-spacing, thermodynamic, and continuum control.
+- **constructive?**: yes — every printed declaration uses exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the monitored focused source check and one-job 1,232-job
+  dependency-complete build pass.  This removes the physical-separator and
+  rate-sharpness fields from the finite completed-gap dependency; it does not
+  inhabit local gluing or prove a cross-scale, continuum-QFT, or Clay result.

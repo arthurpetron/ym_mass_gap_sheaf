@@ -4764,3 +4764,32 @@ centered row norm by `1/4`.  The next causal frontier is to connect the
 repository's conditional-density or buffered-Perron witness packages to this
 cofinal local-slice family, or identify the first still-uninhabited field.
 Volume/spacing uniformity, continuum QFT, and the Clay theorem remain open.
+
+## Local gluing alone closes the completed physical operator gap (2026-08-22)
+
+`BF4PhysicalLocalGluingCompletedOperatorNormGap` removes an unnecessarily
+strong dependency from the completed finite-scale BF4 gap.  A
+`PhysicalLocalGluingAFCertificate` alone supplies the finite mean-zero
+`1/16` Markov-form estimate.  Exact stagewise centering transports that
+estimate through the constructive Cauchy completion to every vector in the
+completed vacuum complement.
+
+The existing positive Markov-form Cauchy--Schwarz theorem then upgrades this
+completed form gap to the concrete squared-norm contraction
+`||T v||^2 <= (1/16)^2 ||v||^2` for the completed physical Markov transfer at
+every matched AF scale.  No physical separator, same-object correlation pin,
+rate-sharpness witness, or dimensionful physical-length bound is used.
+
+The monitored focused source check and one-job 1,232-job dependency-complete
+build pass.  All five printed load-bearing declarations use exactly
+`[propext, Quot.sound]`.
+
+No inhabitant of `PhysicalLocalGluingAFCertificate` is constructed.  The
+result is a direct finite matched-scale completion theorem, not a
+thermodynamic, lattice-spacing, or continuum limit.  The separator data remain
+relevant to the distinct dimensionful same-object correlation and mass-floor
+interpretation.  The next causal frontier is to iterate this completed
+operator estimate into transfer-power and same-object matrix-coefficient
+decay, then connect an actually inhabited local-gluing producer to the
+certificate and control the cross-scale physical limits.  Continuum QFT and
+the Clay theorem remain open.
