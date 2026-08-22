@@ -6177,3 +6177,25 @@ carrier.  The rates and starts remain base-indexed, so the next genuine
 frontier is a common strict rate on an unbounded/cofinal carrier family,
 followed by the vacuum-sector density/completion bridge.  No completed-space
 gap, thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+## Cofinal finite-prefix ceilings exactly characterize all-carrier BF4 rate uniformity (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorCofinalPrefixRateBridge` isolates the infinitary
+step left after finite-prefix compactness.  A certificate now supplies one
+rational `q < 1`, a cofinal schedule `anchor B >= B`, and a proof that the
+running maximum of all constructed carrier rates through `anchor B` is at most
+`q`.  This data compiles to the existing all-carrier rate certificate, the
+cofinal moving-centered strict gap, and the same-object Bishop-real inequality.
+
+Conversely, every all-carrier rate certificate constructs such a cofinal
+finite-prefix ceiling using the identity schedule.  Thus merely choosing
+larger finite prefixes cannot hide deterioration of the carrier-dependent
+rates: the scheduled-prefix statement is constructively equivalent to a
+single bound on every carrier.  The focused monitored check and exact-target
+one-worker 4,759-job build pass.  All four audited exports use exactly
+`[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+custom axiom, or noncomputable declaration was added.  The certificate is
+deliberately uninhabited: a uniform analytic estimate (or sharper replacement
+for the canonical-path constants) and the separate vacuum-sector
+density/completion bridge remain open.  No completed-space gap,
+thermodynamic/continuum QFT, or Clay theorem is asserted.

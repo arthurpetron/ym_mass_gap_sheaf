@@ -4795,3 +4795,29 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   4,756-job dependency-complete build pass.  The cross-carrier certificate is
   deliberately uninhabited.  No completed-space gap, thermodynamic/continuum
   QFT, or Clay theorem is asserted.
+
+### [BF4-cofinal-prefix-rate-bridge] Cofinal finite-prefix ceilings characterize all-carrier uniformity — **PROVED 2026-08-22**
+
+- **milestone**: prove that one strict rational ceiling on a cofinal schedule
+  of finite-prefix running maxima compiles to the all-carrier constructed-rate
+  bound, and conversely that any all-carrier bound supplies such a schedule.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCofinalPrefixRateBridge.lean`.
+- **decl**: `FixedNomeCofinalFinitePrefixRateCeiling`,
+  `FixedNomeCofinalFinitePrefixRateCeiling.toUniformConstructedVacuumSectorRateBound`,
+  `FixedNomeCofinalFinitePrefixRateCeiling.toVacuumSectorCenteredStrictGap`,
+  `FixedNomeCofinalFinitePrefixRateCeiling.centeredMatrixCutoffLimit_leEv_rate_mul_diagonal`,
+  and
+  `FixedNomeUniformConstructedVacuumSectorRateBound.toCofinalFinitePrefixRateCeiling`.
+- **obligation**: inhabit the equivalent certificate by a carrier-independent
+  quantitative estimate, or replace the canonical-path floor/ceiling ratio
+  by sharper uniform sector control; separately establish vacuum-sector
+  density and completion.
+- **constructive?**: yes — all four audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  4,759-job dependency-complete build pass.  The certificate is deliberately
+  uninhabited.  The equivalence prevents finite-prefix compactness from being
+  mistaken for an all-carrier estimate.  No completed-space gap,
+  thermodynamic/continuum QFT, or Clay theorem is asserted.
