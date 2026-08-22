@@ -5794,3 +5794,27 @@ only `[propext]` or `[propext, Quot.sound]`; no `Classical.*`, choice,
 `native_decide`, `sorry`, custom axiom, or noncomputable declaration was
 added.  The uniform tail bound itself is not constructed here.  No completed
 Hilbert gap, thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+## Fixed cutoff-two paths retain one cutoff-independent ceiling (2026-08-22)
+
+`BF4PhysicalBoundaryCutoffTwoPulledUniformPathEnergy` replaces the growing
+full-sector path construction by the fixed cutoff-two vacuum carrier.  It
+proves from the existing rooted support-graph embedding that every positive
+edge of every canonical cutoff-two path remains positive in every later
+pulled kernel.  A generic `rekernel` operation transports the Type-level path
+and proves that its recursive amplification scale is exactly unchanged.
+
+The new `CutoffTwoPulledUniformPositiveEdgeFloor` certificate asks only for a
+common positive lower bound on positive entries of the fixed 65-state pulled
+kernel after one cutoff.  Given that datum, every fixed-carrier endpoint
+difference is bounded by the certificate floor and the original cutoff-two
+path ceiling times the later pulled Dirichlet energy.  Thus no cardinality,
+minimum-edge, or path-ceiling constant from the growing full sector appears in
+the uniform estimate.
+
+The focused monitored check and exact-target one-worker 4,748-job build pass.
+All five audited exports use only `[]`, `[propext]`, or
+`[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+custom axiom, or noncomputable declaration was added.  The quantitative
+positive-edge floor is not constructed here.  No uniform form gap, completed
+Hilbert gap, thermodynamic/continuum QFT, or Clay theorem is asserted.

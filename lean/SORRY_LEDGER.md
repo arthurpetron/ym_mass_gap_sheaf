@@ -4375,3 +4375,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   4,749-job dependency-complete build pass.  The uniform tail rate certificate
   is not inhabited.  No completed-space gap, thermodynamic/continuum QFT, or
   Clay theorem is asserted.
+
+### [BF4-cutoff-two-pulled-uniform-path-energy] Fixed-carrier endpoint compiler — **PROVED 2026-08-22**
+
+- **milestone**: prove qualitative persistence of every positive cutoff-two
+  canonical path edge in every later pulled kernel, rekernel the Type-level
+  paths without changing their recursive amplification scales, and compile a
+  common positive fixed-carrier edge floor into a uniform endpoint bound using
+  the original cutoff-two path ceiling.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoPulledUniformPathEnergy.lean`.
+- **decl**: `PositiveKernelChainIn.amplificationScale_rekernel`,
+  `cutoffTwoPulledKernelAt_pos_of_base_pos`,
+  `cutoffTwoPulledPositivePath_amplificationScale_eq_base`,
+  `cutoffTwoPulledCanonicalPathCeiling_pos`, and
+  `CutoffTwoPulledUniformPositiveEdgeFloor.floor_mul_endpoint_sq_le_ceiling_mul_pulledDirichlet`.
+- **obligation**: construct `CutoffTwoPulledUniformPositiveEdgeFloor`; then
+  compare the fixed pulled Dirichlet energy with the full zero-extension
+  deficit, sum the endpoint bound against the pulled stationary weights, and
+  derive one cutoff-uniform strict form rate.
+- **constructive?**: yes — the five audited exports use only `[]`,
+  `[propext]`, or `[propext, Quot.sound]`; no `Classical.*`, choice,
+  `native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+  added.
+- **status note**: the focused monitored check and exact-target one-worker
+  4,748-job dependency-complete build pass.  The common positive-edge floor is
+  not inhabited.  No uniform form gap, completed-space gap,
+  thermodynamic/continuum QFT, or Clay theorem is asserted.
