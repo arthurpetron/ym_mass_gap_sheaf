@@ -2556,6 +2556,29 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   `49/50` gap, cofinal sector family, completed gap, continuum QFT, or Clay
   theorem is claimed.
 
+### [BF4-cutoff-two-axis-swap12] Second adjacent spatial-axis transport — **CLOSED 2026-08-21**
+
+- **milestone**: finite physical sector symmetry / exact factor-graph
+  representation.
+- **file**:
+  `computations/bf4_cutoff_two_axis_swap12_certificate.py`, the nineteen
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoAxisSwap12*.lean` modules,
+  and the 64 process-isolated modules under
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoAxisSwap12SectorTransportStates/`.
+- **decl**: `axisSwap12AllStateLinkTransport` and
+  `cutoffTwoSectorPairInterface_axisSwap12_eqv`.
+- **obligation**: none for simultaneous second-swap invariance of the exact
+  cutoff-two interface partition sum.  The next obligation is to prove
+  lower-face scalar invariance and lift both adjacent swaps to genuine
+  physical-kernel equality before constructing the `S3` orbit quotient.
+- **constructive?**: yes — the checked transports and interface theorem use
+  only `[propext, Quot.sound]`.
+- **status note**: the all-state, audit, and interface targets completed with
+  1680, 1681, and 1680 jobs respectively.  A stopped five-state normalization
+  trial is not counted as passed.  Signed flips failed the external pointwise
+  lift audit and are not claimed.  No production-kernel `49/50` gap, cofinal
+  sector family, completed gap, continuum QFT, or Clay theorem is claimed.
+
 ## How to add an entry
 
 ```markdown

@@ -3995,3 +3995,34 @@ latter with 1814 jobs and the same axiom gate.  The external generator reports
 499 nonzero upper pairs, but no Lean count theorem is claimed.  Physical trace
 equalities, cofinal sector selection, completion, thermodynamic/continuum
 limits, QFT axioms, and the Clay target remain open.
+
+## Second adjacent cutoff-two spatial-axis transport (2026-08-21)
+
+`bf4_cutoff_two_axis_swap12_certificate.py` derives the action exchanging the
+last two abstract cube axes and emits explicit boundary-coordinate, common
+factor, cube-source, lower-link, and 65-sector permutations.  The 64 non-cube
+state checks live in separate modules under
+`BF4PhysicalBoundaryCutoffTwoAxisSwap12SectorTransportStates/`; thirteen small
+aggregates assemble them without repeating the expensive normalization.
+
+`BF4PhysicalBoundaryCutoffTwoAxisSwap12AllStateTransport` proves the checked
+local factor transport for every sector state, and
+`BF4PhysicalBoundaryCutoffTwoAxisSwap12InterfaceInvariance` lifts the common
+and state transports through the finite coordinate reindex theorem.  Thus the
+exact 140-factor interface partition sum is invariant when both sector states
+are transformed by this second adjacent swap.  Together with the pre-existing
+first adjacent swap, these are the two generators needed for the unsigned
+spatial `S3` action.
+
+The all-state target completed successfully with 1680 jobs, the dedicated
+axiom audit with 1681 jobs, and the interface target with 1680 jobs.  The
+load-bearing declarations report exactly `[propext, Quot.sound]`.  An earlier
+five-states-per-module build was intentionally stopped after silent expensive
+normalization; it is not counted as passed.  This theorem is only interface
+partition invariance: lower-face scalar invariance, physical-kernel
+invariance, a kernel-checked `S3` orbit quotient, and the reduced nonzero
+physical trace certificate remain open.  Signed coordinate flips also remain
+a separate summed-identity problem because the external pointwise factor
+transport audit did not validate them.  No cutoff-uniform gap,
+thermodynamic/continuum construction, QFT axioms, or Clay conclusion is
+claimed.
