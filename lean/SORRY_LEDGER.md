@@ -4134,3 +4134,28 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   1,181-job dependency-complete build pass.  This is exact finite stationarity,
   not yet a quantitative finite rate, cutoff-uniform estimate, completed-space
   gap, thermodynamic/continuum QFT, or Clay theorem.
+
+### [BF4-finite-vacuum-sector-Dirichlet] Exact edge-energy identity — **PROVED 2026-08-22**
+
+- **milestone**: for a generic finite symmetric stationary joint kernel, the
+  directed weighted edge energy is exactly twice `D-M`, and half of that
+  energy is exactly `D-M`.  Both theorems are specialized unconditionally to
+  the actual normalized physical kernel on every finite BF4 canonical vacuum
+  component.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorDirichlet.lean`.
+- **decl**:
+  `finiteJointDirichletEnergy_eqv_twice_deficit`,
+  `half_mul_finiteJointDirichletEnergy_eqv_deficit`,
+  `centralPhysicalFiniteVacuumSectorDirichlet_eqv_twice_deficit`, and
+  `half_mul_centralPhysicalFiniteVacuumSectorDirichlet_eqv_deficit`.
+- **obligation**: extract finite positive edge and path-length constants from
+  the constructive physical paths, then prove that this exact edge energy
+  dominates the centered stationary square with a positive coefficient.
+- **constructive?**: yes — all four exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,182-job dependency-complete build pass.  This identity alone does not
+  supply a strict finite rate, cutoff-uniform estimate, completed-space gap,
+  thermodynamic/continuum QFT, or Clay theorem.

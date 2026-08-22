@@ -5585,3 +5585,26 @@ it was deliberately replaced by an explicit list-inductive range proof.  No
 choice, `Classical.*`, `native_decide`, `sorry`, custom axiom, or noncomputable
 declaration remains.  No quantitative rate, cutoff uniformity, completed
 Hilbert gap, thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+## The finite BF4 vacuum-sector deficit is an exact edge energy (2026-08-22)
+
+`BF4PhysicalFiniteVacuumSectorDirichlet` proves a generic finite identity for
+every symmetric joint kernel whose row sums equal its stationary weights: the
+directed edge energy `sum K_ij (f_i-f_j)^2` is exactly twice the diagonal-minus-
+transfer deficit.  Its half-energy form is also proved without division or
+square roots.
+
+Specializing the generic theorem with the newly proved restricted BF4 row law
+and exact physical symmetry gives both identities on every canonical finite
+vacuum component and at every representation cutoff.  This turns the pending
+upper-gap problem into a literal path-energy estimate: it is now enough to
+bound the centered stationary square by the displayed sum of positive edge
+squares.
+
+The focused monitored check and exact-target one-worker 1,182-job build pass.
+All four printed declarations use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or noncomputable
+declaration was added.  The first proof shape caused expensive definitional
+reduction; named diagonal and matrix bridges reduced the final check to under
+one second.  No finite strict rate, cutoff uniformity, completed Hilbert gap,
+thermodynamic/continuum QFT, or Clay theorem is asserted.
