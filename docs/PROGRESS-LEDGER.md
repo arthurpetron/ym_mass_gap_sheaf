@@ -4878,3 +4878,34 @@ conditional-density windows, support-safe core/tail windows, boundary-Gram
 majorants, raw projective rows, and buffered/local-gluing rows—but no uniform
 inhabitant was found.  Physical-time interpretation, volume/lattice-spacing
 limits, continuum QFT, and the Clay theorem remain open.
+
+## Support-safe core/tail windows contract to completed decay (2026-08-22)
+
+`BF4PhysicalCoreTailCompletedGap` isolates the support-safe analytic leaf
+upstream of the literal centered-row certificate at physical half-extent
+zero.  The retained target core may depend on the AF scale and physical
+source.  Its weighted density error is bounded by `1/32`, while both the
+discarded stationary mass and discarded conditional row mass are bounded by
+`1/64`.  This formulation permits fusion-zero channels and requires neither
+strict positivity nor a full-support cross-ratio bound.
+
+The new `PhysicalConditionalDensityCoreTailAFCertificate` retains only those
+finite core/tail windows and the matched coupling window.  In particular it
+forgets the calibrated Harnack and diagonal-order fields of the older matched
+package.  The three budgets add to the literal physical centered-row rate
+`1/16`, which then contracts through the previously verified finite quadratic
+gap and constructive completion to the completed vacuum form gap, the
+concrete transfer estimate `||T v||^2 <= (1/16)^2 ||v||^2`, and geometric
+squared same-vector power decay `((1/16)^2)^n`.
+
+Exact adapters accept the pre-existing matched core/tail rows and the deeper
+buffered-Faraut rows when their explicit depth schedule is available.  The
+focused monitored check and one-job 1,239-job dependency-complete build pass;
+all seven printed declarations use exactly `[propext, Quot.sound]`.
+
+No matched core/tail certificate is inhabited.  The first remaining analytic
+leaf is now the sourcewise finite estimate itself: construct a retained core
+and prove its `1/32` weighted error together with the two `1/64` tail budgets,
+uniformly along the matched AF trajectory.  Physical-time interpretation,
+volume/lattice-spacing limits, continuum QFT, and the Clay theorem remain
+open.

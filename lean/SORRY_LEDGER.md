@@ -3431,3 +3431,32 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   builds pass 1,232 jobs for the generic dependency target and 1,233 jobs for
   the row target.  No row-certificate inhabitant, physical-time limit,
   continuum-QFT construction, or Clay theorem is asserted.
+
+### [BF4-core-tail-to-completed-gap] Support-safe density bridge — **CLOSED 2026-08-22**
+
+- **milestone**: source-dependent finite density cores with weighted core
+  error at most `1/32` and stationary/conditional tail budgets at most
+  `1/64` each imply the literal physical centered-row rate `1/16`, the
+  completed vacuum form and operator gaps, and geometric squared same-vector
+  completed matrix-coefficient decay.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCoreTailCompletedGap.lean`.
+- **decl**:
+  `PhysicalConditionalDensityCoreTailAFCertificate`,
+  `PhysicalConditionalDensityCoreTailAFCertificate.ofMatchedCoreTailRows`,
+  `PhysicalConditionalDensityCoreTailAFCertificate.ofFarautBufferedRows`,
+  `PhysicalConditionalDensityCoreTailAFCertificate.toCenteredRowCertificate`,
+  `PhysicalConditionalDensityCoreTailAFCertificate.completed_vacuum_operator_norm_gap_sixteenth`,
+  and
+  `PhysicalConditionalDensityCoreTailAFCertificate.completed_power_autocorrelationSq_decay_sixteenth`.
+- **obligation**: inhabit the support-safe matched certificate by constructing
+  a retained core for every physical source and proving the `1/32` core plus
+  two `1/64` tail estimates uniformly along the matched AF trajectory.
+- **constructive?**: yes — all seven printed declarations use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored source check and one-job 1,239-job
+  dependency-complete build pass.  This removes Harnack, diagonal-order,
+  local-root, and strict-positivity dependencies from the support-safe
+  completion route; it does not inhabit its finite analytic leaf or establish
+  physical-time, volume/spacing, continuum-QFT, or Clay closure.
