@@ -5290,3 +5290,36 @@ combine it with entrywise cutoff-law Cauchy estimates into full moving-form
 tail stability.  The finite cutoff-two-to-tail or summable-increment bridge,
 robust persistence from the cutoff-two gap anchor, completed spectral gap,
 thermodynamic/continuum QFT, and the Clay theorem remain open.
+
+## The complete moving physical forms are relatively stable in the tail (2026-08-22)
+
+`BF4PhysicalBoundaryCutoffTwoPulledMovingFormTailStability` combines the two
+independent moving pieces that had remained separate.  The corrected-slab
+modulus is first packaged into coefficient-independent entry certificates
+for both the pulled normalized kernel and pulled weights.  Explicit positive
+rational tolerances make those entries fit arbitrary relative matrix and
+diagonal law-error budgets through the verified physical row floor.
+
+At a late pair, the uniform law certificate is instantiated at the
+coefficient centered at the first cutoff.  The relative same-law recentering
+theorem then compares that coefficient with the coefficient centered at the
+later cutoff.  Its diagonal estimate gives exactly the norm-inflation factor
+`1 + recenteringError`, so the composed matrix error is
+
+`matrixLawError * (1 + recenteringError) + recenteringError`,
+
+and the diagonal error has the analogous formula.  An explicit component
+choice `relativeError / (relativeError + 2)` proves constructively that every
+positive requested total relative error is attained for both actual moving
+forms on all sufficiently late cutoff pairs.
+
+The focused monitored check and exact-target one-worker 4,735-job build pass.
+All eight printed load-bearing declarations use exactly
+`[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+custom axiom, or noncomputable declaration was added.  This completes the
+different-law-plus-recentering tail stability seam.  It remains a tail
+Cauchy theorem, not a bound on the finite change from the verified cutoff-two
+`49/50` anchor to the tail.  A finite-prefix certificate or a summable
+increment estimate with a strict remaining rate budget is now the next
+frontier.  Robust anchor-to-limit persistence, the completed spectral gap,
+thermodynamic/continuum QFT, and the Clay theorem remain open.

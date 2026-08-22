@@ -3842,3 +3842,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   4,734-job dependency-complete build pass.  No robust cutoff-two persistence
   family, completed spectral gap, thermodynamic/continuum QFT, or Clay theorem
   is asserted.
+
+### [BF4-cutoff-two-moving-form-tail-stability] Full law-and-centering relative tail — **CLOSED 2026-08-22**
+
+- **milestone**: corrected-slab entry moduli now construct uniform relative
+  pulled-kernel and pulled-weight law certificates.  Applying those uniform
+  certificates at the first-cutoff centered coefficient and composing with
+  same-law recentering gives the actual moving matrix and diagonal errors.
+  The explicit total factor is law error times `1 + recenteringError`, plus
+  recentering error.  The constructive choice
+  `relativeError / (relativeError + 2)` makes both total factors no larger
+  than every prescribed positive relative error.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoPulledMovingFormTailStability.lean`.
+- **decl**:
+  `cutoffTwoPulledKernelEntryErrorAt_of_anchor`,
+  `cutoffTwoPulledWeightEntryErrorAt_of_anchor`,
+  `cutoffTwoPulledRelativeLawErrors_cofinally`,
+  `moving_matrix_error_of_law_and_recentering`,
+  `moving_diagonal_error_of_law_and_recentering`,
+  `movingForm_relative_errors_cofinally`,
+  `cutoffTwoPulledMovingFormComponentError_amplification_le`, and
+  `movingForm_relative_errors_for_every_positive`.
+- **obligation**: bridge the verified cutoff-two `49/50` gap anchor to the
+  beginning of this cofinal tail.  Ordinary tail Cauchy control does not
+  quantify that finite prefix; an explicit finite-prefix certificate or a
+  summable incremental error budget with strict rate slack is required.
+- **constructive?**: yes — all eight printed declarations use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  4,735-job dependency-complete build pass.  This is full moving-form tail
+  stability, but not cutoff-two-to-tail persistence, a completed spectral
+  gap, thermodynamic/continuum QFT, or the Clay theorem.
