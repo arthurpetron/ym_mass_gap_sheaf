@@ -4607,3 +4607,25 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   4,750-job dependency-complete build pass.  The path constants remain
   base-indexed.  No completed-space gap, thermodynamic/continuum QFT, or Clay
   theorem is asserted.
+
+### [BF4-fixed-base-pulled-dirichlet-embedding] Old-block energy reaches the moving deficit — **PROVED 2026-08-22**
+
+- **milestone**: inject the old-carrier Cartesian square into every later
+  vacuum component, compare the nonnegative Dirichlet sums, and contract the
+  full zero-extension energy through the exact stationary Dirichlet identity
+  to twice the moving pulled diagonal-minus-matrix deficit.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorPulledDirichletEmbedding.lean`.
+- **decl**: `fixedBasePulledDirichlet_le_fullExtensionDirichlet` and
+  `fixedBasePulledDirichlet_le_twice_moving_deficit`.
+- **obligation**: combine this deficit bound with the arbitrary-base path
+  estimate and pulled-mass normalization to construct a strict rate on every
+  fixed carrier; then isolate the common lower ratio needed to keep those
+  rates uniformly below one on a cofinal family.
+- **constructive?**: yes — both audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  4,751-job dependency-complete build pass.  No cross-base rate is claimed;
+  no completed-space gap, thermodynamic/continuum QFT, or Clay theorem is
+  asserted.

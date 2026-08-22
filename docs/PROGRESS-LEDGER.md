@@ -5178,6 +5178,25 @@ limit entry error nor the moving recentering comparison.  Those estimates,
 followed by the robust rate budget, remain the next frontier; completed-space,
 thermodynamic/continuum QFT, and the Clay theorem remain open.
 
+## Every fixed pulled BF4 energy reaches the moving deficit (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorPulledDirichletEmbedding` maps the Cartesian
+square of an arbitrary fixed base vacuum component injectively into the
+Cartesian square of every later component.  Exact coefficient-extension and
+kernel recodings identify all old-old summands, while nonnegativity permits
+the remaining later summands to be discarded.  The pulled old-block
+Dirichlet energy is therefore bounded by the full later zero-extension
+energy.
+
+The finite stationary/symmetric Dirichlet identity and the exact moving
+head-centering form recodings then bound this energy by twice the actual
+pulled diagonal-minus-matrix deficit.  The focused monitored check and
+exact-target one-worker 4,751-job build pass.  Both audited declarations use
+exactly `[propext, Quot.sound]`.  This construction is uniform in the later
+cutoff for each fixed base, but it does not compare constants across bases;
+the cofinal uniform rate, completion, thermodynamic/continuum QFT, and Clay
+theorem remain open.
+
 ## Entrywise pulled errors compile to relative physical form errors (2026-08-22)
 
 `BF4PhysicalBoundaryCutoffTwoPulledEntryPerturbation` consumes the positive
