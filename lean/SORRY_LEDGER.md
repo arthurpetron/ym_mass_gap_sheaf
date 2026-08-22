@@ -3875,3 +3875,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   4,735-job dependency-complete build pass.  This is full moving-form tail
   stability, but not cutoff-two-to-tail persistence, a completed spectral
   gap, thermodynamic/continuum QFT, or the Clay theorem.
+
+### [BF4-cutoff-two-tail-seed-gap-bridge] Aligned finite seed to same-object CReal gap — **FACTORED 2026-08-22**
+
+- **milestone**: with a fixed tail error `1/200`, one finite `49/50` gap seed
+  aligned with a verified stability start propagates to every later cutoff at
+  the exact strict rate `9899/10000`.  Existing moving-form Cauchy moduli then
+  contract that cofinal bound to the corresponding matrix/diagonal Bishop
+  reals.  A coefficientwise family of aligned seeds gives the same uniform
+  limit rate for every vector on the fixed cutoff-two physical carrier.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoPulledTailSeedGapBridge.lean`.
+- **decl**:
+  `exists_cutoffTwoPulledTailStabilityStart`,
+  `CutoffTwoPulledTailSeedGapAt.later_abs_gap`,
+  `CutoffTwoPulledTailSeedGapAt.centeredMatrixCutoffLimit_leEv_tailSeedRate_mul_diagonal`,
+  and
+  `CutoffTwoCoefficientwiseTailSeedGap.centeredMatrixCutoffLimit_leEv_tailSeedRate_mul_diagonal`.
+- **obligation**: inhabit `CutoffTwoCoefficientwiseTailSeedGap`.  Its
+  stability half exists coefficientwise by the proved full moving-form tail;
+  the remaining analytic datum is a finite `49/50` gap at a cutoff aligned
+  with that tail start.  After this fixed-carrier seam, extend the estimate to
+  all finite base vacuum carriers and then to the completed physical space.
+- **constructive?**: yes — all four printed declarations use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  4,736-job dependency-complete build pass.  Two earlier slow checks were
+  interrupted during proof optimization and are not counted as passes.  The
+  certificate remains uninhabited; no unconditional CReal, completed-space,
+  thermodynamic/continuum, or Clay mass-gap claim is made.

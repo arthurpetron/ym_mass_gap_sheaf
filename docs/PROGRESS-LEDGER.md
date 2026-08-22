@@ -5323,3 +5323,35 @@ Cauchy theorem, not a bound on the finite change from the verified cutoff-two
 increment estimate with a strict remaining rate budget is now the next
 frontier.  Robust anchor-to-limit persistence, the completed spectral gap,
 thermodynamic/continuum QFT, and the Clay theorem remain open.
+
+## One aligned finite tail seed now suffices for the cutoff-two CReal gap (2026-08-22)
+
+`BF4PhysicalBoundaryCutoffTwoPulledTailSeedGapBridge` isolates the exact
+finite datum still missing after full tail stability.  The fixed tail error
+is `1/200`.  A `CutoffTwoPulledTailSeedGapAt coefficient` records one cutoff
+which is both a start for that verified moving-form stability estimate and a
+finite strict-gap seed at the cutoff-two anchor rate `49/50`.
+
+From this one aligned seed, the diagonal error gives the inflation
+`1 + 1/200`, the matrix error contributes the remaining `1/200`, and every
+later cutoff satisfies the explicit rate
+
+`(49/50) * (1 + 1/200) + 1/200 = 9899/10000 < 1`.
+
+The theorem then contracts this cofinal finite bound through the existing
+moving matrix and diagonal Cauchy moduli to a same-object Bishop-real form
+gap at `9899/10000`.  A coefficientwise family of such seeds supplies that
+same uniform CReal rate for the entire fixed cutoff-two physical vacuum
+carrier.  Separately, the stability half of the certificate is proved to
+exist for every coefficient; the uninhabited analytic field is the finite
+`49/50` seed gap aligned with one such tail start.
+
+The focused monitored check and exact-target one-worker 4,736-job build pass.
+All four printed declarations use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  Two initially slow narrow checks were
+stopped without being counted as passes; compact aliases removed the costly
+Bishop-real unfolding and the final checks pass.  The coefficientwise seed
+family is not yet inhabited.  Extending from the cutoff-two component to all
+finite base carriers, the completed Hilbert gap, thermodynamic/continuum QFT,
+and the Clay theorem remain open.
