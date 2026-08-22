@@ -6404,3 +6404,27 @@ planned core/shell argument, not yet its finite GNS inequality or the adaptive
 tail.  The completed transfer lift therefore remains conditional, and the
 uniform completed gap, thermodynamic/continuum QFT, and Clay theorem remain
 open.
+
+## The BF4 sector recoding has a uniform limiting core--shell estimate (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorCylinderRecodingCoreShell` generalizes the
+finite unit-observable core--shell inequality to arbitrary observables with a
+nonnegative pointwise square envelope.  For the sector recoding, exact finite
+action identifies the discrepancy with zero on the action-cutoff positive
+carrier, while the pointwise amplitude theorem bounds the complementary
+square by `(2 l1)^2`.
+
+The stationary source-shell theorem and the amplitude-scaled cutoff already
+paid by the base-controlled representative then give, uniformly in every
+later finite GNS approximation,
+`distSq(recoding, global action) <= 1/(i+1)`.  This replaces the previously
+open moving-inner-regularity condition by a concrete shell estimate.
+
+The focused monitored check and exact-target one-worker 1,353-job build pass.
+All four audited exports use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  The estimate has not yet been threaded
+through the nested adaptive and slow-diagonal cofinality schedules, so the
+tail record and completed lift remain conditional at this checkpoint.  The
+all-carrier strict rate and all thermodynamic/continuum/Clay conclusions
+remain open.

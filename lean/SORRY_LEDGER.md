@@ -5037,3 +5037,29 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   amplitude obligation only; it does not yet prove the core/shell GNS bound,
   the adaptive tail, an unconditional completed transfer lift, a uniform
   completed gap, thermodynamic/continuum QFT, or the Clay theorem.
+
+### [BF4-vacuum-sector-recoding-core-shell] Paid shell controls the limiting recoding distance — **PROVED 2026-08-22**
+
+- **milestone**: generalize the finite GNS core--shell estimate to a fixed
+  pointwise square envelope; prove exact zero discrepancy on the paid action
+  core; and combine the stationary source-shell cutoff with `(2 l1)^2` to
+  bound the limiting recoding distance by `1/(i+1)`.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCylinderRecodingCoreShell.lean`.
+- **decl**:
+  `centralPhysicalFiniteDistSq_le_core_add_scaled_shell`,
+  `centralPhysicalVacuumSectorRecoding_sub_sq_le_envelope`,
+  `centralPhysicalVacuumSectorRecoding_core_sub_sq_le_zero`, and
+  `centralPhysicalVacuumSectorRecoding_distSq_le_invSucc`.
+- **obligation**: prove that the nested adaptive sampler eventually selects
+  an original slow-diagonal index beyond `CReal.lv epsilon`, transport the
+  paid-shell theorem to the action stage, and inhabit
+  `CentralPhysicalVacuumSectorAdaptiveRecodingTailData`.
+- **constructive?**: yes — all four audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,353-job dependency-complete build pass.  This closes the finite and
+  limiting core--shell estimate, but not yet its adaptive cofinal scheduling,
+  the unconditional completed lift, a uniform completed gap,
+  thermodynamic/continuum QFT, or the Clay theorem.
