@@ -5142,3 +5142,31 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   1,346-job dependency-complete build pass.  This is a stronger implication,
   not an inhabitant of the common-rate certificate; no unconditional
   completed gap, thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+### [BF4-vacuum-sector-completed-gap] One cofinal common rate contracts the actual completed sector — **PROVED 2026-08-22**
+
+- **milestone**: pull the arbitrary-rate global adaptive contraction through
+  the exact completed root-sector embedding, iterate it on the actual sector
+  vacuum complement, and derive geometric decay of the exact same-object
+  autocorrelation.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCylinderCompletedGap.lean`.
+- **decl**:
+  `CentralPhysicalVacuumSectorCylinderCompletedStrictContractionData`,
+  `centralPhysicalVacuumSectorCylinderCompletedStrictContractionDataAtRate`,
+  `centralPhysicalVacuumSectorCylinderCompletedVacuumTransferPower_norm_decay`,
+  `centralPhysicalVacuumSectorCylinderCompletedVacuumTransferPower_cofinal_norm_decay`,
+  `centralPhysicalVacuumSectorCylinderCompletedInner_cauchy_schwarz`,
+  `centralPhysicalVacuumSectorCylinderCompletedAutocorrelation_sq_decay`, and
+  `centralPhysicalVacuumSectorCylinderCompletedAutocorrelation_cofinal_sq_decay`.
+- **obligation**: inhabit one cofinal common-rate certificate with `q < 1`,
+  uniformly over the unbounded carrier family; then construct the volume and
+  lattice-spacing limits without losing the strict rate.
+- **constructive?**: yes — all seven audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,372-job dependency-complete build pass.  The completed sector norm and
+  correlation decays are conditional on the common-rate certificate; no
+  unconditional completed gap, thermodynamic/continuum QFT, or Clay theorem
+  is asserted.

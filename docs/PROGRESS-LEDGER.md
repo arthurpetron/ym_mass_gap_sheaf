@@ -6503,3 +6503,26 @@ All five audited exports use exactly `[propext, Quot.sound]`; no
 noncomputable declaration was added.  No cofinal common-rate certificate is
 inhabited here, so no unconditional completed gap, thermodynamic/continuum
 QFT, or Clay theorem is claimed.
+
+## One cofinal common rate now closes the completed BF4 sector gap (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorCylinderCompletedGap` pulls the modern
+arbitrary-rate global adaptive contraction through the now-inhabited
+injective invariant root-sector embedding.  A
+`FixedNomeCofinalCenteredStrictGap` at any rational `q` with
+`0 <= q < 1` constructs strict squared-norm contraction data on the actual
+completed sector vacuum complement at rate `q*q`.
+
+Induction gives
+`||T^n v||^2 <= (q*q)^n ||v||^2`.  Pulling completed Cauchy--Schwarz back
+along the sector embedding then gives
+`|<T^n v,v>|^2 <= (q*q)^n ||v||^4` for the exact same-object
+autocorrelation constructed in the previous milestone.
+
+The focused monitored check and exact-target one-worker 1,372-job build pass.
+All seven audited exports use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  This is a proved conditional
+implication: the sole fixed-nome finite-half-volume rate input is the still
+uninhabited cofinal common-rate certificate.  No unconditional completed
+gap, thermodynamic/continuum QFT, or Clay theorem is claimed.
