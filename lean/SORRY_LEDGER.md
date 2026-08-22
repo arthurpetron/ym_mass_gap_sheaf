@@ -4210,3 +4210,28 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   1,184-job dependency-complete build pass.  No path ceiling, strict finite
   rate, completed-space gap, thermodynamic/continuum QFT, or Clay theorem is
   asserted yet.
+
+### [BF4-finite-vacuum-sector-path-global-energy] Global comparison — **PROVED 2026-08-22**
+
+- **milestone**: define a recursive rational amplification scale for each
+  positive-kernel chain, prove every nonnegative edge square is below the full
+  directed Dirichlet double sum, and inductively bound each amplified path
+  energy by its scale times the global energy.  Specialize the result to every
+  canonical BF4 vacuum-sector path.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorPathGlobalEnergy.lean`.
+- **decl**: `finiteJointDirichletEnergy_term_le`,
+  `PositiveKernelChainIn.amplificationScale_nonnegative`,
+  `PositiveKernelChainIn.amplifiedEnergy_le_scale_mul_finiteJointDirichletEnergy`,
+  and
+  `centralPhysicalFiniteVacuumSector_pathEnergy_le_scale_mul_Dirichlet`.
+- **obligation**: combine the finitely many canonical path scales into one
+  coefficient-independent ceiling, sum the endpoint bounds, and derive the
+  centered Poincare inequality.
+- **constructive?**: yes — the four audited exports use only `[propext]` or
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,185-job dependency-complete build pass.  No common ceiling, strict finite
+  rate, completed-space gap, thermodynamic/continuum QFT, or Clay theorem is
+  asserted yet.

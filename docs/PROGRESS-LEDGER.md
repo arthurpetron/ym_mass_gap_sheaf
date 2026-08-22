@@ -5508,6 +5508,28 @@ the reduction and the subsequent check passed.  The adaptive seed family is
 not inhabited.  No unconditional fixed-carrier gap, completed Hilbert gap,
 thermodynamic/continuum QFT, or Clay theorem is asserted.
 
+## Canonical BF4 path energy is bounded by global Dirichlet energy (2026-08-22)
+
+`BF4PhysicalFiniteVacuumSectorPathGlobalEnergy` assigns each Type-level
+positive-kernel chain an explicit recursive amplification scale.  A generic
+summand lemma first proves that every nonnegative kernel-weighted edge square
+is below the full directed finite Dirichlet double sum.  Induction on the
+actual chain then bounds its recursively amplified energy by its scale times
+that global energy.
+
+The theorem is specialized to every canonical path in every finite BF4
+vacuum sector using the already-proved nonnegativity of the genuine normalized
+physical kernel.  The remaining ceiling step is purely finite: sum (or
+maximize) the explicit path scales over the attached sector-pair carrier, so
+one coefficient-independent constant controls every endpoint estimate.
+
+The focused monitored check and exact-target one-worker 1,185-job build pass.
+The four audited exports use only `[propext]` or `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  No common path ceiling, Poincare
+inequality, strict finite rate, completed Hilbert gap,
+thermodynamic/continuum QFT, or Clay theorem is asserted yet.
+
 ## Every finite BF4 vacuum sector has a common positive edge floor (2026-08-22)
 
 `BF4PhysicalFiniteVacuumSectorEdgeFloor` constructs a single explicit positive
