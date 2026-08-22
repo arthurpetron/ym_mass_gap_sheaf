@@ -3649,3 +3649,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
 - **status note**: the focused monitored check and one-worker 4,721-job
   dependency-complete build pass.  No persistence family, physical-time
   limit, thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+### [BF4-cutoff-two-pulled-gap-persistence] Explicit persistence compiler — **CLOSED 2026-08-22**
+
+- **milestone**: a later moving-centered coefficient inherits the strict
+  rate `49/50 + epsilon` from the cutoff-two anchor whenever a cutoff-two
+  centered recoding satisfies the stated matrix-error and diagonal-domination
+  comparisons.  A constructively cofinal family with that relaxed rate below
+  one contracts to the strict comparison of the fixed cutoff-two-sector
+  moving matrix and diagonal `CReal` limits.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoPulledGapPersistence.lean`.
+- **decl**:
+  `CutoffTwoPulledGapPersistenceAt.relaxed_abs_gap`,
+  `CutoffTwoCofinalPulledGapPersistence.anchor_abs_gap`, and
+  `CutoffTwoCofinalPulledGapPersistence.centeredMatrixCutoffLimit_leEv_relaxedRate_mul_diagonal`.
+- **obligation**: construct one uniform `epsilon < 1/50` and a cofinal family
+  of the two comparison estimates, using quantitative entry/form stability
+  plus controlled recentering and diagonal comparison.  Then extend the
+  resulting fixed-base sector statement to the required dense/completed
+  physical space.
+- **constructive?**: yes — all three printed declarations use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and one-worker 4,729-job
+  dependency-complete build pass.  The persistence compiler is verified, but
+  its cofinal comparison input, physical-time and thermodynamic/continuum
+  limits, continuum QFT, and the Clay theorem are not asserted.

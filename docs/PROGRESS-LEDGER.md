@@ -5106,3 +5106,31 @@ custom axiom, or noncomputable declaration was added.  The next causal
 frontier is a uniform persistence estimate from this anchor to arbitrarily
 late/cofinal cutoffs.  Physical-time, thermodynamic and continuum control,
 continuum QFT, and the Clay theorem remain open.
+
+## Cutoff-two gap persistence is reduced to two explicit comparisons (2026-08-22)
+
+`BF4PhysicalBoundaryCutoffTwoPulledGapPersistence` isolates a sufficient
+non-tautological bridge from the exact cutoff-two anchor to later pulled
+forms.  For every later moving-centered coefficient, the certificate supplies
+a coefficient exactly centered at cutoff two, bounds the later absolute
+matrix form by the cutoff-two matrix form plus `epsilon` times the later
+diagonal, and bounds the cutoff-two diagonal by the later diagonal.  The
+verified cutoff-two theorem then contracts these data to the later rate
+`49/50 + epsilon`.
+
+One uniform `epsilon` and a constructively cofinal family of those comparison
+certificates, with `49/50 + epsilon < 1`, now imply a strict comparison of the
+existing moving centered matrix and diagonal Bishop-real limits on the fixed
+cutoff-two 65-dimensional vacuum sector.  Compact aliases for those `CReal`
+sequences keep the physical content exact while avoiding repeated elaboration
+of the full finite forms.
+
+The focused monitored check and one-worker 4,729-job dependency-complete
+build pass.  All three printed declarations use exactly
+`[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+custom axiom, or noncomputable declaration was added.  No cofinal comparison
+family is constructed here.  The next causal frontier is to derive its two
+comparison fields from quantitative cutoff stability (including the
+recentring correction and diagonal control).  Extension beyond the fixed
+cutoff-two sector, physical-time, thermodynamic/continuum control, continuum
+QFT, and the Clay theorem remain open.
