@@ -4185,3 +4185,28 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   1,183-job dependency-complete build pass.  No common floor, strict finite
   rate, cutoff-uniform estimate, completed-space gap, thermodynamic/continuum
   QFT, or Clay theorem is asserted yet.
+
+### [BF4-finite-vacuum-sector-edge-floor] Common positive floor — **PROVED 2026-08-22**
+
+- **milestone**: enumerate the finite ordered pairs of canonical sector
+  indices, replace nonpositive entries by the positive unit, and take their
+  located rational minimum (with a unit fallback).  Prove the resulting
+  rational is strictly positive, lies below every genuinely positive physical
+  entry, and discharges the floor premise of every canonical path estimate.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorEdgeFloor.lean`.
+- **decl**: `listPositiveMinOne_pos`, `listPositiveMinOne_le_of_mem`,
+  `centralPhysicalFiniteVacuumSectorEdgeFloor_pos`,
+  `centralPhysicalFiniteVacuumSectorEdgeFloor_le_positive_entry`, and
+  `centralPhysicalFiniteVacuumSector_edgeFloor_mul_endpoint_sq_le_pathEnergy`.
+- **obligation**: compare each amplified canonical path energy with the global
+  Dirichlet energy, construct a common finite amplification ceiling, and sum
+  the endpoint estimates into a Poincare inequality.
+- **constructive?**: yes — the audited exports use no axioms or only
+  `[propext]` or `[propext, Quot.sound]`; no `Classical.*`, choice,
+  `native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+  added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,184-job dependency-complete build pass.  No path ceiling, strict finite
+  rate, completed-space gap, thermodynamic/continuum QFT, or Clay theorem is
+  asserted yet.

@@ -5508,6 +5508,29 @@ the reduction and the subsequent check passed.  The adaptive seed family is
 not inhabited.  No unconditional fixed-carrier gap, completed Hilbert gap,
 thermodynamic/continuum QFT, or Clay theorem is asserted.
 
+## Every finite BF4 vacuum sector has a common positive edge floor (2026-08-22)
+
+`BF4PhysicalFiniteVacuumSectorEdgeFloor` constructs a single explicit positive
+rational below every positive physical-kernel entry between canonical sector
+indices.  It forms the finite ordered-pair list, replaces each nonpositive
+entry by `1`, and folds the located rational minimum with a positive `1`
+fallback.  Hence the minimum is strictly positive without a proposition-level
+selection, while on every actual positive path edge its candidate reduces to
+the kernel entry itself.
+
+The resulting floor discharges the lower-edge premise of the canonical
+path-energy theorem for every pair of sector indices.  The next remaining
+finite step is no longer positivity: it is to compare each recursively
+amplified path energy with the global Dirichlet energy and combine the finite
+path factors into one common ceiling.
+
+The focused monitored check and exact-target one-worker 1,184-job build pass.
+The five audited exports use no axioms or only `[propext]` or
+`[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+custom axiom, or noncomputable declaration was added.  No amplification
+ceiling, Poincare inequality, strict finite rate, completed Hilbert gap,
+thermodynamic/continuum QFT, or Clay theorem is asserted yet.
+
 ## Positive BF4 paths quantitatively control endpoint differences (2026-08-22)
 
 `BF4PhysicalFiniteVacuumSectorPathEnergy` equips every Type-level positive-
