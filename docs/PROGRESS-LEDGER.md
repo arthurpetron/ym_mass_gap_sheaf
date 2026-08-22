@@ -4815,3 +4815,32 @@ audit the existing conditional-density, buffered-Perron, and local-gluing
 producer packages field by field against `PhysicalLocalGluingAFCertificate`,
 then implement the strongest honest inhabitance bridge or isolate its first
 missing analytic leaf.  Continuum QFT and the Clay theorem remain open.
+
+## Genuine one-step gluing rows contract directly to completed decay (2026-08-22)
+
+`BF4PhysicalLocalGluingAFAdapter` now forgets the unused endpoint/Faraut
+fields of `PhysicalBF4OneStepContractionGluingRow`.  A matched family of those
+stronger rows therefore assembles constructively into one shared local slice
+per scale and hence an inhabitant of `PhysicalLocalGluingAFCertificate`.
+Neither a grouped Harnack profile nor endpoint estimates are required: the
+minimal adapter retains only the AF coupling window, the local `q <= 1/4`
+cap, the explicit shared kernel, and its genuine gluing rows.  A convenience
+adapter also accepts the pre-existing boundary grouped-profile package.
+
+`BF4PhysicalOneStepGluingCompletedGap` kernel-checks the entire causal
+composition in named declarations.  The matched one-step rows give the
+completed vacuum form gap at rate `1/16`, and therefore geometric decay of
+the squared same-vector completed matrix coefficient at rate
+`((1/16)^2)^n`.  The adapter's focused check and 1,127-job build pass; the
+end-to-end file's focused check and 1,243-job build pass.  All eight newly
+printed declarations use exactly `[propext, Quot.sound]`.
+
+No `MatchedBF4OneStepGluingRows` inhabitant is constructed.  The first open
+analytic leaf is now exact and finite at each matched scale: exhibit one
+stationary slice kernel, prove weighted row and column normalization, prove
+that its full power is the physical conditional density on every retained
+source/target, and bound every centered row by `1/4` (with depth at least
+three).  The direct `PhysicalLocalGluingAFCertificate` does not require the
+stronger endpoint/Faraut estimates.  Uniform physical-time interpretation,
+volume/lattice-spacing limits, continuum QFT, and the Clay theorem remain
+open.

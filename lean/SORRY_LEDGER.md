@@ -3371,3 +3371,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete build pass.  This is conditional finite matched-scale
   decay, not an inhabited analytic certificate, continuum-QFT construction,
   or Clay theorem.
+
+### [BF4-one-step-gluing-to-completed-gap] One-step row contraction bridge — **CLOSED 2026-08-22**
+
+- **milestone**: stronger matched one-step gluing rows forget their unused
+  endpoint/Faraut fields, assemble into `PhysicalLocalGluingAFCertificate`,
+  and consequently imply the completed `1/16` vacuum form gap and
+  `((1/16)^2)^n` squared same-vector matrix-coefficient decay.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalLocalGluingAFAdapter.lean` and
+  `lean/YMGap/Continuum/BF4PhysicalOneStepGluingCompletedGap.lean`.
+- **decl**:
+  `physicalBF4LocalContractionGluingRow_of_oneStep`,
+  `localContractionRows_of_oneStepGluingRows`,
+  `ofOneStepGluingRows`,
+  `ofGroupedProfileOneStepGluingRows`,
+  `oneStepGluing_completed_vacuum_form_gap_data`, and
+  `oneStepGluing_completed_power_autocorrelationSq_decay_sixteenth`.
+- **obligation**: inhabit the genuine shared one-step row family by proving
+  exact weighted row/column normalization, exact all-label density-power
+  gluing, depth at least three, and the uniform local centered `1/4` bound.
+- **constructive?**: yes — all newly printed declarations use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: monitored focused checks pass; the adapter's one-job
+  dependency-complete build passes 1,127 jobs and the end-to-end target passes
+  1,243 jobs.  No one-step row inhabitant, physical-time limit, continuum-QFT
+  construction, or Clay theorem is asserted.
