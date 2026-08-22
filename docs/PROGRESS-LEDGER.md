@@ -5205,3 +5205,29 @@ differ, so their recentering perturbation and a strict total entry-error
 budget from the finite anchor remain open.  The completed-space and physical
 thermodynamic/continuum frontiers, continuum QFT, and the Clay theorem remain
 open.
+
+## Moving cutoff-two recentering is exactly root-supported (2026-08-22)
+
+`BF4PhysicalBoundaryCutoffTwoPulledRecenteringPerturbation` now subtracts the
+two exact root-shift descriptions of a fixed raw coefficient centered at two
+different representation cutoffs.  The difference is precisely the change
+of the scalar head correction times the distinguished root indicator.  On
+the fixed cutoff-two carrier its coefficient `l1` norm is therefore exactly
+the absolute scalar correction change, with no carrier-cardinality loss.
+
+The existing constructive Cauchy modulus for the head-correction sequence
+then gives a cofinal `l1` Cauchy modulus for the moving centered coefficient.
+The focused monitored check and the exact-target one-worker 4,732-job build
+pass, and all three printed declarations use exactly
+`[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+custom axiom, or noncomputable declaration was added.  A broader default
+workspace build was separately stopped by the safety monitor at job
+2,116/3,696 when memory reached its 12 GiB reserve; that interrupted audit is
+not counted as a pass and reported no Lean error before termination.
+
+This closes the root-support and coefficient-norm seam only.  The next causal
+step is to turn that `l1` perturbation into matrix and diagonal perturbations
+under one fixed later pulled law, and then combine it with entrywise law
+errors.  A strict total cutoff-two-to-limit budget, a cofinal robust
+persistence family, the completed spectral gap, thermodynamic/continuum QFT,
+and the Clay theorem remain open.

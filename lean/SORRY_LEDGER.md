@@ -3754,3 +3754,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete build pass.  Same-coefficient perturbation control is
   not yet a robust persistence family, completed spectral gap,
   thermodynamic/continuum QFT, or Clay theorem.
+
+### [BF4-cutoff-two-moving-recentering] Exact root-only coefficient motion — **CLOSED 2026-08-22**
+
+- **milestone**: subtracting the exact moving root-centerings at two cutoffs
+  gives the head-correction difference times the root indicator.  Its finite
+  `l1` norm on the cutoff-two carrier is exactly the absolute scalar
+  correction difference, so the existing head-correction Cauchy modulus
+  supplies a coefficient `l1` Cauchy modulus without a carrier-size loss.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoPulledRecenteringPerturbation.lean`.
+- **decl**:
+  `cutoffTwoPulledMovingCenteredCoefficient_sub_eqv_rootCorrection`,
+  `cutoffTwoPulledMovingCenteredCoefficient_sub_l1_eqv_headCorrection`, and
+  `cutoffTwoPulledMovingCenteredCoefficient_l1_cauchy`.
+- **obligation**: derive same-law matrix and diagonal perturbation estimates
+  from this root-only coefficient control; combine them with the entrywise
+  law perturbations and produce a strict total anchor-to-limit or summable
+  incremental rate budget.
+- **constructive?**: yes — all three printed declarations use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  4,732-job dependency-complete build pass.  A broader default workspace build
+  was stopped by the safety monitor at job 2,116/3,696 on its 12 GiB reserve;
+  it is not counted as a pass and had reported no Lean error.  No robust
+  persistence family, completed spectral gap, thermodynamic/continuum QFT, or
+  Clay theorem is asserted.
