@@ -252,22 +252,23 @@ theorem cutoffTwoPulledBaseEdgeFloor_increment_le_one
     hscheduled
 
 /-- The explicit inhabited certificate required by the transported canonical
-paths. -/
-def cutoffTwoPulledUniformBasePositiveEdgeFloor :
-    CutoffTwoPulledUniformBasePositiveEdgeFloor where
-  floor := cutoffTwoPulledUniformBasePositiveEdgeFloorValue
-  floor_pos := cutoffTwoPulledUniformBasePositiveEdgeFloorValue_pos
-  start := cutoffTwoPulledBaseEdgeFloorAnchor
-  start_ge_two := cutoffTwoPulledBaseEdgeFloorAnchor_ge_two
-  floor_le := by
-    intro later hlater left right hleft hright hbasePositive
-    exact Q'.le_trans' _ _ _
-      (cutoffTwoPulledUniformBasePositiveEdgeFloorValue_le_half_anchor
-        hleft hright hbasePositive)
-      (half_mul_cutoffTwoPulledKernelAt_le_of_increment_le_one
-        cutoffTwoPulledBaseEdgeFloorAnchor_ge_two hlater
-        (cutoffTwoPulledBaseEdgeFloor_increment_le_one hlater)
-        hleft hright)
+paths.  It is sealed at this presentation boundary so downstream theorem
+application does not normalize the finite Cartesian minimum. -/
+opaque cutoffTwoPulledUniformBasePositiveEdgeFloor :
+    CutoffTwoPulledUniformBasePositiveEdgeFloor :=
+  { floor := cutoffTwoPulledUniformBasePositiveEdgeFloorValue
+    floor_pos := cutoffTwoPulledUniformBasePositiveEdgeFloorValue_pos
+    start := cutoffTwoPulledBaseEdgeFloorAnchor
+    start_ge_two := cutoffTwoPulledBaseEdgeFloorAnchor_ge_two
+    floor_le := by
+      intro later hlater left right hleft hright hbasePositive
+      exact Q'.le_trans' _ _ _
+        (cutoffTwoPulledUniformBasePositiveEdgeFloorValue_le_half_anchor
+          hleft hright hbasePositive)
+        (half_mul_cutoffTwoPulledKernelAt_le_of_increment_le_one
+          cutoffTwoPulledBaseEdgeFloorAnchor_ge_two hlater
+          (cutoffTwoPulledBaseEdgeFloor_increment_le_one hlater)
+          hleft hright) }
 
 end YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledBaseEdgeFloor
 

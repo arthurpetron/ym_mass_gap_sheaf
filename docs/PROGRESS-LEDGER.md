@@ -5947,3 +5947,31 @@ to be recoded from the obsolete stronger certificate to the newly inhabited
 exact certificate.  A density/cofinal bridge to the full vacuum complement,
 completed-space gap, thermodynamic/continuum QFT, and Clay theorem remain
 open.
+
+## The fixed-carrier same-object BF4 gap is now unconditional (2026-08-22)
+
+`BF4PhysicalBoundaryCutoffTwoPulledUniformPoincareGap` and
+`BF4PhysicalBoundaryCutoffTwoPulledUniformCRealGap` now consume the exact
+`CutoffTwoPulledUniformBasePositiveEdgeFloor` required by the canonical paths,
+rather than the obsolete stronger all-later-positive condition.  Their
+finite Poincare and Bishop-real limit arguments are unchanged: the constructed
+floor and fixed path ceiling give one rational rate
+`ceiling / (ceiling + floor)`, this rate is nonnegative and strictly below
+one, and it controls every coefficient on the fixed cutoff-two pulled carrier.
+
+`BF4PhysicalBoundaryCutoffTwoPulledConstructedUniformCRealGap` specializes
+those compilers to the constructed pair-cylinder floor.  Its sealed
+`cutoffTwoConstructedUniformGapData` contains the rational rate, proofs
+`0 <= rate < 1`, the uniform finite moving-form estimate after the certificate
+start, and the same-object Bishop-real matrix-versus-diagonal inequality for
+every fixed-carrier coefficient.  No certificate argument remains on this
+branch.  The opaque presentation boundary is kernel checked and prevents
+downstream elaboration from normalizing the explicit 65 by 65 finite minimum.
+
+The focused monitored checks and exact-target one-worker 4,754-job build pass.
+The final package uses exactly `[propext, Quot.sound]`; no `Classical.*`,
+choice, `native_decide`, `sorry`, custom axiom, or noncomputable declaration
+was added.  This is an unconditional gap only for one fixed finite carrier at
+the representation-cutoff limit.  No density or cofinality theorem identifies
+that carrier with the full cutoff-removed vacuum complement, so no completed
+Hilbert-space gap, thermodynamic/continuum QFT, or Clay theorem is asserted.

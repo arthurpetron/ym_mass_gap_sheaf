@@ -38,14 +38,14 @@ local infix:50 " ≈ " => Q'.eqv
 /-! ## 1. Exact projection to the literal moving approximants -/
 
 theorem cutoffTwoActualMoving_abs_gap_at_uniformPoincareRate
-    (certificate : CutoffTwoPulledUniformPositiveEdgeFloor)
+    (certificate : CutoffTwoPulledUniformBasePositiveEdgeFloor)
     (later : Nat) (hlater : certificate.start ≤ later)
     (coefficient : Nat → Q') :
     Q'.abs (cutoffTwoActualMovingMatrixAt later coefficient) ≤
-      CutoffTwoPulledUniformPositiveEdgeFloor.uniformPoincareRate certificate *
+      CutoffTwoPulledUniformBasePositiveEdgeFloor.uniformPoincareRate certificate *
         cutoffTwoActualMovingDiagonalAt later coefficient := by
   have hpulled :=
-    CutoffTwoPulledUniformPositiveEdgeFloor.moving_abs_gap_at_uniformPoincareRate
+    CutoffTwoPulledUniformBasePositiveEdgeFloor.moving_abs_gap_at_uniformPoincareRate
       certificate later hlater coefficient
   have hmatrix := cutoffTwoActualMovingMatrixAt_eqv_pulled
     later coefficient
@@ -56,7 +56,7 @@ theorem cutoffTwoActualMoving_abs_gap_at_uniformPoincareRate
     (Q'.le_trans' _ _ _ hpulled
       (Q'.le_of_eqv
         (Q'.mul_eqv_congr_left
-          (CutoffTwoPulledUniformPositiveEdgeFloor.uniformPoincareRate
+          (CutoffTwoPulledUniformBasePositiveEdgeFloor.uniformPoincareRate
             certificate) _ _ (Q'.eqv_symm hdiagonal))))
 
 /-! ## 2. An eventual-order compiler preserving the exact rational rate -/
@@ -132,22 +132,22 @@ private theorem cReal_leEv_of_eventual_abs_gap
 /-! ## 3. Same-object cutoff-limit gap at the unrelaxed uniform rate -/
 
 theorem centeredMatrixCutoffLimit_leEv_uniformPoincareRate_mul_diagonal
-    (certificate : CutoffTwoPulledUniformPositiveEdgeFloor)
+    (certificate : CutoffTwoPulledUniformBasePositiveEdgeFloor)
     (coefficient : Nat → Q') :
     CReal.leEv
       (cutoffTwoMovingMatrixLimit coefficient)
       (CReal.mul
         (CReal.ofQ'
-          (CutoffTwoPulledUniformPositiveEdgeFloor.uniformPoincareRate
+          (CutoffTwoPulledUniformBasePositiveEdgeFloor.uniformPoincareRate
             certificate))
         (cutoffTwoMovingDiagonalLimit coefficient)) := by
   apply cReal_leEv_of_eventual_abs_gap
     (cutoffTwoMovingMatrixLimit coefficient)
     (cutoffTwoMovingDiagonalLimit coefficient)
-    (CutoffTwoPulledUniformPositiveEdgeFloor.uniformPoincareRate certificate)
-    (CutoffTwoPulledUniformPositiveEdgeFloor.uniformPoincareRate_nonnegative
+    (CutoffTwoPulledUniformBasePositiveEdgeFloor.uniformPoincareRate certificate)
+    (CutoffTwoPulledUniformBasePositiveEdgeFloor.uniformPoincareRate_nonnegative
       certificate)
-    (CutoffTwoPulledUniformPositiveEdgeFloor.uniformPoincareRate_lt_one
+    (CutoffTwoPulledUniformBasePositiveEdgeFloor.uniformPoincareRate_lt_one
       certificate)
     certificate.start
   intro later hlater

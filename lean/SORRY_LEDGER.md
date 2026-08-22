@@ -4527,3 +4527,37 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   all-later-positive floor remains uninhabited but is no longer the
   mathematically necessary condition.  No completed-space gap,
   thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+### [BF4-cutoff-two-pulled-constructed-uniform-creal-gap] Certificate-free fixed-carrier limit gap — **PROVED 2026-08-22**
+
+- **milestone**: retarget the uniform finite Poincare and same-object CReal
+  compilers to the exactly sufficient base-positive edge-floor interface,
+  specialize them to the constructed pair-cylinder floor, and seal one data
+  package containing a rational `rate`, `0 <= rate < 1`, the uniform finite
+  moving-form inequality, and the same-object Bishop-real inequality for every
+  fixed-carrier coefficient.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoPulledUniformPoincareGap.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoPulledUniformCRealGap.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoPulledBaseEdgeFloor.lean`,
+  and
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoPulledConstructedUniformCRealGap.lean`.
+- **decl**:
+  `CutoffTwoPulledUniformBasePositiveEdgeFloor.uniformPoincareRate_lt_one`,
+  `CutoffTwoPulledUniformBasePositiveEdgeFloor.moving_abs_gap_at_uniformPoincareRate`,
+  `centeredMatrixCutoffLimit_leEv_uniformPoincareRate_mul_diagonal`, and
+  `cutoffTwoConstructedUniformGapData`.
+- **obligation**: construct an honest density/cofinality bridge from an
+  expanding family of finite physical carriers to the cutoff-removed vacuum
+  complement, prove that the common strict rate survives that bridge, and only
+  then invoke the existing completion compiler; thermodynamic and continuum
+  control remain subsequent frontiers.
+- **constructive?**: yes — the final sealed package uses exactly
+  `[propext, Quot.sound]`; the opacity is only a kernel-checked presentation
+  boundary for a large finite witness, and no `Classical.*`, choice,
+  `native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+  added.
+- **status note**: the focused monitored checks and exact-target one-worker
+  4,754-job dependency-complete build pass.  The fixed-carrier same-object gap
+  is unconditional, but no density/completed-space gap,
+  thermodynamic/continuum QFT, or Clay theorem is asserted.

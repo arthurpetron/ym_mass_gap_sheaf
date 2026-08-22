@@ -206,10 +206,10 @@ theorem cutoffTwoPulledMovingMatrix_le_diagonal
 
 /-! ## 2. The mass-free uniform Poincare inequality -/
 
-namespace CutoffTwoPulledUniformPositiveEdgeFloor
+namespace CutoffTwoPulledUniformBasePositiveEdgeFloor
 
 theorem floor_mul_movingDiagonal_le_ceiling_mul_deficit
-    (certificate : CutoffTwoPulledUniformPositiveEdgeFloor)
+    (certificate : CutoffTwoPulledUniformBasePositiveEdgeFloor)
     (later : Nat) (hlater : certificate.start ≤ later)
     (coefficient : Nat → Q') :
     certificate.floor *
@@ -330,37 +330,37 @@ theorem floor_mul_movingDiagonal_le_ceiling_mul_deficit
 /-! ## 3. One explicit cutoff-independent strict rate -/
 
 def uniformGapDenominator
-    (certificate : CutoffTwoPulledUniformPositiveEdgeFloor) : Q' :=
+    (certificate : CutoffTwoPulledUniformBasePositiveEdgeFloor) : Q' :=
   cutoffTwoPulledCanonicalPathCeiling + certificate.floor
 
 theorem uniformGapDenominator_pos
-    (certificate : CutoffTwoPulledUniformPositiveEdgeFloor) :
+    (certificate : CutoffTwoPulledUniformBasePositiveEdgeFloor) :
     (0 : Q') < uniformGapDenominator certificate := by
   unfold uniformGapDenominator
   exact Q'.pos_add_nonneg cutoffTwoPulledCanonicalPathCeiling_pos
     (Q'.le_of_lt certificate.floor_pos)
 
 def uniformPoincareRate
-    (certificate : CutoffTwoPulledUniformPositiveEdgeFloor) : Q' :=
+    (certificate : CutoffTwoPulledUniformBasePositiveEdgeFloor) : Q' :=
   Q'.divPos cutoffTwoPulledCanonicalPathCeiling
     (uniformGapDenominator certificate)
     (uniformGapDenominator_pos certificate)
 
 theorem uniformPoincareRate_nonnegative
-    (certificate : CutoffTwoPulledUniformPositiveEdgeFloor) :
+    (certificate : CutoffTwoPulledUniformBasePositiveEdgeFloor) :
     (0 : Q') ≤ uniformPoincareRate certificate := by
   exact Q'.le_of_lt (Q'.divPos_pos _ _
     (uniformGapDenominator_pos certificate)
     cutoffTwoPulledCanonicalPathCeiling_pos)
 
 theorem uniformPoincareRate_lt_one
-    (certificate : CutoffTwoPulledUniformPositiveEdgeFloor) :
+    (certificate : CutoffTwoPulledUniformBasePositiveEdgeFloor) :
     uniformPoincareRate certificate < (1 : Q') := by
   apply divPos_lt_one_of_lt_local
   exact lt_add_of_pos_right_local _ _ certificate.floor_pos
 
 theorem uniformGapDenominator_mul_movingMatrix_le
-    (certificate : CutoffTwoPulledUniformPositiveEdgeFloor)
+    (certificate : CutoffTwoPulledUniformBasePositiveEdgeFloor)
     (later : Nat) (hlater : certificate.start ≤ later)
     (coefficient : Nat → Q') :
     uniformGapDenominator certificate *
@@ -412,7 +412,7 @@ theorem uniformGapDenominator_mul_movingMatrix_le
       (Q'.le_of_eqv (Q'.add_comm_eqv _ _)) haddFinal)
 
 theorem movingMatrix_le_uniformPoincareRate_mul_diagonal
-    (certificate : CutoffTwoPulledUniformPositiveEdgeFloor)
+    (certificate : CutoffTwoPulledUniformBasePositiveEdgeFloor)
     (later : Nat) (hlater : certificate.start ≤ later)
     (coefficient : Nat → Q') :
     cutoffTwoPulledMatrixAt later
@@ -444,7 +444,7 @@ theorem movingMatrix_le_uniformPoincareRate_mul_diagonal
         (uniformGapDenominator_pos certificate)))
 
 theorem moving_abs_gap_at_uniformPoincareRate
-    (certificate : CutoffTwoPulledUniformPositiveEdgeFloor)
+    (certificate : CutoffTwoPulledUniformBasePositiveEdgeFloor)
     (later : Nat) (hlater : certificate.start ≤ later)
     (coefficient : Nat → Q') :
     Q'.abs
@@ -461,7 +461,7 @@ theorem moving_abs_gap_at_uniformPoincareRate
   exact movingMatrix_le_uniformPoincareRate_mul_diagonal
     certificate later hlater coefficient
 
-end CutoffTwoPulledUniformPositiveEdgeFloor
+end CutoffTwoPulledUniformBasePositiveEdgeFloor
 
 end YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledUniformPoincareGap
 
@@ -470,8 +470,8 @@ end YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledUniformPoincareGap
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledUniformPoincareGap.cutoffTwoPulledMovingMatrix_nonnegative
 #print axioms
-  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledUniformPoincareGap.CutoffTwoPulledUniformPositiveEdgeFloor.floor_mul_movingDiagonal_le_ceiling_mul_deficit
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledUniformPoincareGap.CutoffTwoPulledUniformBasePositiveEdgeFloor.floor_mul_movingDiagonal_le_ceiling_mul_deficit
 #print axioms
-  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledUniformPoincareGap.CutoffTwoPulledUniformPositiveEdgeFloor.uniformPoincareRate_lt_one
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledUniformPoincareGap.CutoffTwoPulledUniformBasePositiveEdgeFloor.uniformPoincareRate_lt_one
 #print axioms
-  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledUniformPoincareGap.CutoffTwoPulledUniformPositiveEdgeFloor.moving_abs_gap_at_uniformPoincareRate
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledUniformPoincareGap.CutoffTwoPulledUniformBasePositiveEdgeFloor.moving_abs_gap_at_uniformPoincareRate
