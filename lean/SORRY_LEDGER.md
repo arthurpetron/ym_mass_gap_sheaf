@@ -2730,6 +2730,32 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   production-kernel `49/50` gap, a uniform limit, a continuum QFT, or the Clay
   theorem.
 
+### [BF4-cutoff-two-shared-DAG-full] Full 127-representative physical table — **CLOSED 2026-08-21**
+
+- **milestone**: finite physical sector table / complete shared-DAG
+  representative evaluation and orbit contraction.
+- **file**:
+  `computations/bf4_cutoff_two_shared_dag_certificate.py`,
+  `computations/bf4_cutoff_two_shared_dag_representative_certificate.py`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSharedDAGRepresentativeCertificate.lean`,
+  the 127 shared-DAG physical certificates, and their trace data, six-shard,
+  and trace-root modules.
+- **decl**:
+  `cutoffTwoSharedDAGRepresentatives_checked`,
+  `cutoffTwoSectorPhysicalSpatialS3RepresentativeCertificate`, and
+  `cutoffTwoSectorPhysicalTableCertificate`.
+- **obligation**: none for the exact finite cutoff-two 65-by-65 production
+  physical/raw table equality.  The next finite obligation is to feed this
+  inhabitant into the stored-table `49/50` estimate and expose the resulting
+  unconditional production-kernel theorem.
+- **constructive?**: yes — all three exported aggregate declarations use
+  exactly `[propext, Quot.sound]`.
+- **status note**: the dependency-complete target passed with 3,413 jobs.  The
+  127 representative traces comprise 127 data modules, 762 process-isolated
+  shards, and 127 roots.  This is finite cutoff-two closure only; it does not
+  establish a cofinal cutoff family, a cutoff-uniform gap, completion,
+  thermodynamic/continuum limits, QFT axioms, or the Clay theorem.
+
 ## How to add an entry
 
 ```markdown

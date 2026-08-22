@@ -4175,3 +4175,27 @@ built in 0.5 seconds.  Four of the 127 exact representatives are now assembled
 by this path.  The remaining 123 trace equalities and the full certificate are
 still open, as are the production-kernel `49/50` gap, every uniform limit,
 continuum QFT construction, and the Clay theorem.
+
+## Complete cutoff-two physical table from the 127 shared-DAG representatives (2026-08-21)
+
+`bf4_cutoff_two_shared_dag_certificate.py --emit-representatives` now emits
+all 127 exact spatial-S3 representative traces from one 1,606-bucket shared
+DAG build: 127 trace-data modules, 762 process-isolated trace shards, 127
+trace roots, and 127 physical certificates.  The bulk path explicitly
+preserves the hand-specialized `(1,1)` bridge used by its kernel certificate.
+
+The representative carrier now has a proved injective pair-code accessor and
+a theorem turning its checked code recognizer back into literal list
+membership.  `BF4PhysicalBoundaryCutoffTwoSharedDAGRepresentativeCertificate`
+assembles the 127 production physical/raw equalities behind opaque statements,
+inhabits `CutoffTwoSectorPhysicalSpatialS3RepresentativeCertificate`, and
+applies the previously checked orbit-reduction compiler to inhabit the exact
+full 65-by-65 `CutoffTwoSectorPhysicalTableCertificate`.
+
+The dependency-complete aggregate target completed successfully with 3,413
+jobs.  The representative aggregate, residual certificate, and full physical
+table certificate each report exactly `[propext, Quot.sound]`.  This closes the
+finite cutoff-two physical-table seam.  It does not yet make the stored-table
+`49/50` eigenspace estimate an unconditional production-kernel gap theorem,
+and it supplies no cofinal cutoff family, cutoff-uniform estimate, Hilbert
+completion, thermodynamic/continuum construction, QFT axioms, or Clay theorem.

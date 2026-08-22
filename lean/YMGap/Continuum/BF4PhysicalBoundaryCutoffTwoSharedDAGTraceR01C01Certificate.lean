@@ -17,6 +17,9 @@ open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGTraceR01C01Data
 open YMGap.Continuum.FiniteDeterministicKernelPushforward
 open YMGap.Continuum.FiniteScopedFactorDAGCertificate
 open YMGap.Continuum.FiniteScopedFactorTableCertificate
+open YMGap.Continuum.FiniteScopedFactorTableCertificate.CheckedScopedEliminationStep
+open YMGap.Continuum.SU2FiniteTrivalentPacketGraphEdgeOrderNorm
+open YMGap.Continuum.Z4HalfTimeReflectionCrossPlaneFactorization
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGTraceR01C01Shard00
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGTraceR01C01Shard01
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGTraceR01C01Shard02
@@ -26,28 +29,30 @@ open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGTraceR01C01Shard05
 
 local infix:50 " ≈ " => Q'.eqv
 
-def cutoffTwoSharedDAGTraceR01C01 :
-    CheckedReorderedEliminationTrace 2
-      cutoffTwoCubeInterfaceEliminationOrder
-      cutoffTwoSharedDAGTraceR01C01Factors0
-      cutoffTwoSharedDAGTraceR01C01Factors24 :=
-  CheckedReorderedEliminationTrace.step _ _ _ _ _ cutoffTwoSharedDAGTraceR01C01Edge0 (CheckedReorderedEliminationTrace.step _ _ _ _ _ cutoffTwoSharedDAGTraceR01C01Edge1 (CheckedReorderedEliminationTrace.step _ _ _ _ _ cutoffTwoSharedDAGTraceR01C01Edge2 (CheckedReorderedEliminationTrace.step _ _ _ _ _ cutoffTwoSharedDAGTraceR01C01Edge3 (CheckedReorderedEliminationTrace.step _ _ _ _ _ cutoffTwoSharedDAGTraceR01C01Edge4 (CheckedReorderedEliminationTrace.step _ _ _ _ _ cutoffTwoSharedDAGTraceR01C01Edge5 (CheckedReorderedEliminationTrace.step _ _ _ _ _ cutoffTwoSharedDAGTraceR01C01Edge6 (CheckedReorderedEliminationTrace.step _ _ _ _ _ cutoffTwoSharedDAGTraceR01C01Edge7 (CheckedReorderedEliminationTrace.step _ _ _ _ _ cutoffTwoSharedDAGTraceR01C01Edge8 (CheckedReorderedEliminationTrace.step _ _ _ _ _ cutoffTwoSharedDAGTraceR01C01Edge9 (CheckedReorderedEliminationTrace.step _ _ _ _ _ cutoffTwoSharedDAGTraceR01C01Edge10 (CheckedReorderedEliminationTrace.step _ _ _ _ _ cutoffTwoSharedDAGTraceR01C01Edge11 (CheckedReorderedEliminationTrace.step _ _ _ _ _ cutoffTwoSharedDAGTraceR01C01Edge12 (CheckedReorderedEliminationTrace.step _ _ _ _ _ cutoffTwoSharedDAGTraceR01C01Edge13 (CheckedReorderedEliminationTrace.step _ _ _ _ _ cutoffTwoSharedDAGTraceR01C01Edge14 (CheckedReorderedEliminationTrace.step _ _ _ _ _ cutoffTwoSharedDAGTraceR01C01Edge15 (CheckedReorderedEliminationTrace.step _ _ _ _ _ cutoffTwoSharedDAGTraceR01C01Edge16 (CheckedReorderedEliminationTrace.step _ _ _ _ _ cutoffTwoSharedDAGTraceR01C01Edge17 (CheckedReorderedEliminationTrace.step _ _ _ _ _ cutoffTwoSharedDAGTraceR01C01Edge18 (CheckedReorderedEliminationTrace.step _ _ _ _ _ cutoffTwoSharedDAGTraceR01C01Edge19 (CheckedReorderedEliminationTrace.step _ _ _ _ _ cutoffTwoSharedDAGTraceR01C01Edge20 (CheckedReorderedEliminationTrace.step _ _ _ _ _ cutoffTwoSharedDAGTraceR01C01Edge21 (CheckedReorderedEliminationTrace.step _ _ _ _ _ cutoffTwoSharedDAGTraceR01C01Edge22 (CheckedReorderedEliminationTrace.step _ _ _ _ _ cutoffTwoSharedDAGTraceR01C01Edge23 (CheckedReorderedEliminationTrace.done cutoffTwoSharedDAGTraceR01C01Factors24))))))))))))))))))))))))
-
 def cutoffTwoSharedDAGTraceR01C01ExpectedInterface : Q' :=
   (1 : Q')
 
 theorem cutoffTwoSharedDAGTraceR01C01Terminal_eqv_expected :
-    scopedFactorPartitionSum 2 []
+    scopedFactorPartitionSum 2
+        (cutoffTwoCubeInterfaceEliminationOrder.drop 24)
         cutoffTwoSharedDAGTraceR01C01Factors24 ≈
       cutoffTwoSharedDAGTraceR01C01ExpectedInterface := by
   decide
+
+theorem cutoffTwoSharedDAGTraceR01C01Segments_partitionSum_eqv :
+    scopedFactorPartitionSum 2 cutoffTwoCubeInterfaceEliminationOrder
+        cutoffTwoSharedDAGTraceR01C01Factors0 ≈
+      scopedFactorPartitionSum 2
+        (cutoffTwoCubeInterfaceEliminationOrder.drop 24)
+        cutoffTwoSharedDAGTraceR01C01Factors24 :=
+  Q'.eqv_trans _ _ _ cutoffTwoSharedDAGTraceR01C01Shard00_partitionSum_eqv (Q'.eqv_trans _ _ _ cutoffTwoSharedDAGTraceR01C01Shard01_partitionSum_eqv (Q'.eqv_trans _ _ _ cutoffTwoSharedDAGTraceR01C01Shard02_partitionSum_eqv (Q'.eqv_trans _ _ _ cutoffTwoSharedDAGTraceR01C01Shard03_partitionSum_eqv (Q'.eqv_trans _ _ _ cutoffTwoSharedDAGTraceR01C01Shard04_partitionSum_eqv (cutoffTwoSharedDAGTraceR01C01Shard05_partitionSum_eqv)))))
 
 theorem cutoffTwoSharedDAGTraceR01C01Ordered_eqv_expected :
     scopedFactorPartitionSum 2 cutoffTwoCubeInterfaceEliminationOrder
         cutoffTwoSharedDAGTraceR01C01Factors0 ≈
       cutoffTwoSharedDAGTraceR01C01ExpectedInterface := by
   exact Q'.eqv_trans _ _ _
-    cutoffTwoSharedDAGTraceR01C01.partitionSum_eqv_terminal
+    cutoffTwoSharedDAGTraceR01C01Segments_partitionSum_eqv
     cutoffTwoSharedDAGTraceR01C01Terminal_eqv_expected
 
 theorem cutoffTwoSharedDAGTraceR01C01eqv_expected :

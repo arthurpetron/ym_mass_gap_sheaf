@@ -31,6 +31,9 @@ from computations.bf4_cutoff_two_65_sector_spectrum_scout import (
     sector_states,
 )
 from computations.bf4_cutoff_two_canonical_factor_pool import build_pool
+from computations.bf4_cutoff_two_spatial_s3_nonzero_representatives import (
+    representative_pairs,
+)
 from computations.bf4_cutoff_two_vacuum_column import Factor, _eliminate
 
 
@@ -608,18 +611,10 @@ def emit_trace_pilot(dag: SharedDAG, row: int, column: int) -> None:
         LEAN / f"BF4PhysicalBoundaryCutoffTwoSharedDAGTrace{tag}Certificate.lean",
         render_trace_root(trace),
     )
-    if (row, column) == (1, 1):
-        canonical = build_pool()
-        common_ids = canonical["common_ids"]
-        source_ids = canonical["source_ids"]
-        assert isinstance(common_ids, tuple)
-        assert isinstance(source_ids, tuple)
-        unsorted_ids = common_ids + source_ids[row] + source_ids[column]
-        _write_if_changed(
-            LEAN / "BF4PhysicalBoundaryCutoffTwoSharedDAGPhysicalR01C01Certificate.lean",
-            render_physical_r01c01_bridge(trace, unsorted_ids),
-        )
-    else:
+    if (row, column) != (1, 1):
+        # The (1,1) physical bridge is the hand-specialized input to
+        # BF4PhysicalBoundaryCutoffTwoSharedDAGPhysicalR01C01KernelCertificate.
+        # Preserve it when bulk-emitting the representative family.
         canonical = build_pool()
         common_ids = canonical["common_ids"]
         source_ids = canonical["source_ids"]
@@ -1003,6 +998,8 @@ def main() -> None:
     parser.add_argument("--shard-size", type=int, default=24)
     parser.add_argument("--trace-row", type=int, default=1)
     parser.add_argument("--trace-column", type=int, default=1)
+    parser.add_argument("--emit-representatives", action="store_true")
+    parser.add_argument("--representative-limit", type=int)
     arguments = parser.parse_args()
     dag = build_shared_dag()
     _write_if_changed(
@@ -1031,7 +1028,16 @@ def main() -> None:
             LEAN / "BF4PhysicalBoundaryCutoffTwoSharedDAGBuckets.lean",
             render_bucket_root(len(ranges)),
         )
-    emit_trace_pilot(dag, arguments.trace_row, arguments.trace_column)
+    if arguments.emit_representatives:
+        pairs = representative_pairs()
+        if arguments.representative_limit is not None:
+            if arguments.representative_limit < 1:
+                raise ValueError("representative limit must be positive")
+            pairs = pairs[:arguments.representative_limit]
+        for row, column in pairs:
+            emit_trace_pilot(dag, row, column)
+    else:
+        emit_trace_pilot(dag, arguments.trace_row, arguments.trace_column)
     scopes = Counter(len(factor.scope) for factor in dag.factors[INITIAL_FACTOR_COUNT:])
     reused = sum(count - 1 for count in dag.edge_usage)
     print(
@@ -1040,7 +1046,9 @@ def main() -> None:
         f"factors={len(dag.factors)} ({len(dag.factors) - INITIAL_FACTOR_COUNT} intermediate), "
         f"intermediate-scopes={dict(sorted(scopes.items()))}, "
         f"pilot={min(arguments.pilot_buckets, len(dag.edges))}, "
-        f"all-shards={'yes' if arguments.emit_all else 'no'}"
+        f"all-shards={'yes' if arguments.emit_all else 'no'}, "
+        f"representative-traces="
+        f"{len(pairs) if arguments.emit_representatives else 1}"
     )
 
 

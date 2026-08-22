@@ -1,0 +1,187 @@
+/- Structural shared-DAG trace R26C47, shard 4. -/
+import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGBuckets
+import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGTraceR26C47Data
+import YMGap.Continuum.FiniteScopedFactorDAGCertificate
+
+namespace YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGTraceR26C47Shard04
+
+set_option maxRecDepth 500000
+set_option maxHeartbeats 50000000
+
+open YMGap.Constructive
+open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCubeInterfaceContraction
+open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGBuckets
+open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGFactorPool
+open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGTraceR26C47Data
+open YMGap.Continuum.FiniteScopedFactorDAGCertificate
+open YMGap.Continuum.FiniteScopedFactorLocalReindexCertificate
+open YMGap.Continuum.FiniteScopedFactorTableCertificate
+open YMGap.Continuum.FiniteScopedFactorTableCertificate.CheckedScopedEliminationStep
+
+local infix:50 " ≈ " => Q'.eqv
+
+def cutoffTwoSharedDAGTraceR26C47Step16 : CheckedScopedEliminationStep 2
+    11
+    (cutoffTwoCubeInterfaceEliminationOrder.drop 17)
+    cutoffTwoSharedDAGTraceR26C47Factors16 where
+  bucketResult := cutoffTwoSharedDAGBucket0954Certificate
+  result_scope_remaining_checked := by decide
+
+def cutoffTwoSharedDAGTraceR26C47Edge16 :
+    CheckedReorderedEliminationStep 2 11
+      (cutoffTwoCubeInterfaceEliminationOrder.drop 17)
+      cutoffTwoSharedDAGTraceR26C47Factors16
+      cutoffTwoSharedDAGTraceR26C47Factors17 where
+  step := cutoffTwoSharedDAGTraceR26C47Step16
+  after_perm := by
+    have houtside :
+        factorOutside 11
+            cutoffTwoSharedDAGTraceR26C47Factors16 =
+          cutoffTwoSharedDAGFactorList [6, 9, 16, 20, 21, 22, 23, 33, 41, 41, 41, 42, 42, 42, 43, 43, 43, 46, 53, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 59, 66, 71, 71, 72, 72] := by
+      rfl
+    have hids : ([679, 6, 9, 16, 20, 21, 22, 23, 33, 41, 41, 41, 42, 42, 42, 43, 43, 43, 46, 53, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 59, 66, 71, 71, 72, 72]).Perm [6, 9, 16, 20, 21, 22, 23, 33, 41, 41, 41, 42, 42, 42, 43, 43, 43, 46, 53, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 59, 66, 71, 71, 72, 72, 679] :=
+      natListPerm_of_check _ _ (by decide)
+    have hmapped := hids.map cutoffTwoSharedDAGFactor
+    change
+      (cutoffTwoSharedDAGTraceR26C47Step16.bucketResult.result ::
+        factorOutside 11
+          cutoffTwoSharedDAGTraceR26C47Factors16).Perm
+        cutoffTwoSharedDAGTraceR26C47Factors17
+    rw [houtside]
+    change
+      (([679, 6, 9, 16, 20, 21, 22, 23, 33, 41, 41, 41, 42, 42, 42, 43, 43, 43, 46, 53, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 59, 66, 71, 71, 72, 72]).map cutoffTwoSharedDAGFactor).Perm
+        (([6, 9, 16, 20, 21, 22, 23, 33, 41, 41, 41, 42, 42, 42, 43, 43, 43, 46, 53, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 59, 66, 71, 71, 72, 72, 679]).map cutoffTwoSharedDAGFactor)
+    exact hmapped
+
+def cutoffTwoSharedDAGTraceR26C47Step17 : CheckedScopedEliminationStep 2
+    20
+    (cutoffTwoCubeInterfaceEliminationOrder.drop 18)
+    cutoffTwoSharedDAGTraceR26C47Factors17 where
+  bucketResult := cutoffTwoSharedDAGBucket0955Certificate
+  result_scope_remaining_checked := by decide
+
+def cutoffTwoSharedDAGTraceR26C47Edge17 :
+    CheckedReorderedEliminationStep 2 20
+      (cutoffTwoCubeInterfaceEliminationOrder.drop 18)
+      cutoffTwoSharedDAGTraceR26C47Factors17
+      cutoffTwoSharedDAGTraceR26C47Factors18 where
+  step := cutoffTwoSharedDAGTraceR26C47Step17
+  after_perm := by
+    have houtside :
+        factorOutside 20
+            cutoffTwoSharedDAGTraceR26C47Factors17 =
+          cutoffTwoSharedDAGFactorList [9, 16, 20, 21, 22, 23, 33, 41, 41, 41, 42, 42, 42, 43, 43, 43, 53, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 66, 71, 71, 72, 72] := by
+      rfl
+    have hids : ([680, 9, 16, 20, 21, 22, 23, 33, 41, 41, 41, 42, 42, 42, 43, 43, 43, 53, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 66, 71, 71, 72, 72]).Perm [9, 16, 20, 21, 22, 23, 33, 41, 41, 41, 42, 42, 42, 43, 43, 43, 53, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 66, 71, 71, 72, 72, 680] :=
+      natListPerm_of_check _ _ (by decide)
+    have hmapped := hids.map cutoffTwoSharedDAGFactor
+    change
+      (cutoffTwoSharedDAGTraceR26C47Step17.bucketResult.result ::
+        factorOutside 20
+          cutoffTwoSharedDAGTraceR26C47Factors17).Perm
+        cutoffTwoSharedDAGTraceR26C47Factors18
+    rw [houtside]
+    change
+      (([680, 9, 16, 20, 21, 22, 23, 33, 41, 41, 41, 42, 42, 42, 43, 43, 43, 53, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 66, 71, 71, 72, 72]).map cutoffTwoSharedDAGFactor).Perm
+        (([9, 16, 20, 21, 22, 23, 33, 41, 41, 41, 42, 42, 42, 43, 43, 43, 53, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 66, 71, 71, 72, 72, 680]).map cutoffTwoSharedDAGFactor)
+    exact hmapped
+
+def cutoffTwoSharedDAGTraceR26C47Step18 : CheckedScopedEliminationStep 2
+    65
+    (cutoffTwoCubeInterfaceEliminationOrder.drop 19)
+    cutoffTwoSharedDAGTraceR26C47Factors18 where
+  bucketResult := cutoffTwoSharedDAGBucket0018Certificate
+  result_scope_remaining_checked := by decide
+
+def cutoffTwoSharedDAGTraceR26C47Edge18 :
+    CheckedReorderedEliminationStep 2 65
+      (cutoffTwoCubeInterfaceEliminationOrder.drop 19)
+      cutoffTwoSharedDAGTraceR26C47Factors18
+      cutoffTwoSharedDAGTraceR26C47Factors19 where
+  step := cutoffTwoSharedDAGTraceR26C47Step18
+  after_perm := by
+    have houtside :
+        factorOutside 65
+            cutoffTwoSharedDAGTraceR26C47Factors18 =
+          cutoffTwoSharedDAGFactorList [9, 16, 20, 22, 23, 42, 42, 42, 43, 43, 43, 53, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 66, 71, 71, 72, 72, 680] := by
+      rfl
+    have hids : ([99, 9, 16, 20, 22, 23, 42, 42, 42, 43, 43, 43, 53, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 66, 71, 71, 72, 72, 680]).Perm [9, 16, 20, 22, 23, 42, 42, 42, 43, 43, 43, 53, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 66, 71, 71, 72, 72, 99, 680] :=
+      natListPerm_of_check _ _ (by decide)
+    have hmapped := hids.map cutoffTwoSharedDAGFactor
+    change
+      (cutoffTwoSharedDAGTraceR26C47Step18.bucketResult.result ::
+        factorOutside 65
+          cutoffTwoSharedDAGTraceR26C47Factors18).Perm
+        cutoffTwoSharedDAGTraceR26C47Factors19
+    rw [houtside]
+    change
+      (([99, 9, 16, 20, 22, 23, 42, 42, 42, 43, 43, 43, 53, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 66, 71, 71, 72, 72, 680]).map cutoffTwoSharedDAGFactor).Perm
+        (([9, 16, 20, 22, 23, 42, 42, 42, 43, 43, 43, 53, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 66, 71, 71, 72, 72, 99, 680]).map cutoffTwoSharedDAGFactor)
+    exact hmapped
+
+def cutoffTwoSharedDAGTraceR26C47Step19 : CheckedScopedEliminationStep 2
+    29
+    (cutoffTwoCubeInterfaceEliminationOrder.drop 20)
+    cutoffTwoSharedDAGTraceR26C47Factors19 where
+  bucketResult := cutoffTwoSharedDAGBucket0956Certificate
+  result_scope_remaining_checked := by decide
+
+def cutoffTwoSharedDAGTraceR26C47Edge19 :
+    CheckedReorderedEliminationStep 2 29
+      (cutoffTwoCubeInterfaceEliminationOrder.drop 20)
+      cutoffTwoSharedDAGTraceR26C47Factors19
+      cutoffTwoSharedDAGTraceR26C47Factors20 where
+  step := cutoffTwoSharedDAGTraceR26C47Step19
+  after_perm := by
+    have houtside :
+        factorOutside 29
+            cutoffTwoSharedDAGTraceR26C47Factors19 =
+          cutoffTwoSharedDAGFactorList [16, 20, 22, 23, 42, 42, 42, 43, 43, 43, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 71, 71, 72, 72] := by
+      rfl
+    have hids : ([681, 16, 20, 22, 23, 42, 42, 42, 43, 43, 43, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 71, 71, 72, 72]).Perm [16, 20, 22, 23, 42, 42, 42, 43, 43, 43, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 71, 71, 72, 72, 681] :=
+      natListPerm_of_check _ _ (by decide)
+    have hmapped := hids.map cutoffTwoSharedDAGFactor
+    change
+      (cutoffTwoSharedDAGTraceR26C47Step19.bucketResult.result ::
+        factorOutside 29
+          cutoffTwoSharedDAGTraceR26C47Factors19).Perm
+        cutoffTwoSharedDAGTraceR26C47Factors20
+    rw [houtside]
+    change
+      (([681, 16, 20, 22, 23, 42, 42, 42, 43, 43, 43, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 71, 71, 72, 72]).map cutoffTwoSharedDAGFactor).Perm
+        (([16, 20, 22, 23, 42, 42, 42, 43, 43, 43, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 55, 71, 71, 72, 72, 681]).map cutoffTwoSharedDAGFactor)
+    exact hmapped
+
+theorem cutoffTwoSharedDAGTraceR26C47Shard04_partitionSum_eqv :
+    scopedFactorPartitionSum 2
+        (cutoffTwoCubeInterfaceEliminationOrder.drop 16)
+        cutoffTwoSharedDAGTraceR26C47Factors16 ≈
+      scopedFactorPartitionSum 2
+        (cutoffTwoCubeInterfaceEliminationOrder.drop 20)
+        cutoffTwoSharedDAGTraceR26C47Factors20 := by
+  calc
+    _ ≈ scopedFactorPartitionSum 2
+        (cutoffTwoCubeInterfaceEliminationOrder.drop 17)
+        cutoffTwoSharedDAGTraceR26C47Factors17 := by
+      simpa [cutoffTwoCubeInterfaceEliminationOrder] using
+        cutoffTwoSharedDAGTraceR26C47Edge16.partitionSum_eqv_after
+    _ ≈ scopedFactorPartitionSum 2
+        (cutoffTwoCubeInterfaceEliminationOrder.drop 18)
+        cutoffTwoSharedDAGTraceR26C47Factors18 := by
+      simpa [cutoffTwoCubeInterfaceEliminationOrder] using
+        cutoffTwoSharedDAGTraceR26C47Edge17.partitionSum_eqv_after
+    _ ≈ scopedFactorPartitionSum 2
+        (cutoffTwoCubeInterfaceEliminationOrder.drop 19)
+        cutoffTwoSharedDAGTraceR26C47Factors19 := by
+      simpa [cutoffTwoCubeInterfaceEliminationOrder] using
+        cutoffTwoSharedDAGTraceR26C47Edge18.partitionSum_eqv_after
+    _ ≈ scopedFactorPartitionSum 2
+        (cutoffTwoCubeInterfaceEliminationOrder.drop 20)
+        cutoffTwoSharedDAGTraceR26C47Factors20 := by
+      simpa [cutoffTwoCubeInterfaceEliminationOrder] using
+        cutoffTwoSharedDAGTraceR26C47Edge19.partitionSum_eqv_after
+
+end YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGTraceR26C47Shard04
+
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSharedDAGTraceR26C47Shard04.cutoffTwoSharedDAGTraceR26C47Shard04_partitionSum_eqv

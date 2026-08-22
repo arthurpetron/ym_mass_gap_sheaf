@@ -214,6 +214,48 @@ theorem cutoffTwoSectorPairCode_lt (pair : CutoffTwoSectorPair) :
   unfold cutoffTwoSectorPairCode
   omega
 
+theorem cutoffTwoSectorPairCode_injective :
+    Function.Injective cutoffTwoSectorPairCode := by
+  intro left right hcode
+  rcases left with ⟨leftRow, leftColumn⟩
+  rcases right with ⟨rightRow, rightColumn⟩
+  change leftRow.val * 65 + leftColumn.val =
+    rightRow.val * 65 + rightColumn.val at hcode
+  have hrowVal : leftRow.val = rightRow.val := by
+    omega
+  have hcolumnVal : leftColumn.val = rightColumn.val := by
+    omega
+  have hrow : leftRow = rightRow := Fin.ext hrowVal
+  have hcolumn : leftColumn = rightColumn := Fin.ext hcolumnVal
+  cases hrow
+  cases hcolumn
+  rfl
+
+theorem cutoffTwoSpatialS3NonzeroRepresentatives_map_code :
+    cutoffTwoSpatialS3NonzeroRepresentatives.map cutoffTwoSectorPairCode =
+      cutoffTwoSpatialS3NonzeroRepresentativeCodes := by
+  decide
+
+theorem cutoffTwoSpatialS3NonzeroRepresentative_mem_of_codeCheck
+    (pair : CutoffTwoSectorPair)
+    (hcheck : cutoffTwoSpatialS3NonzeroRepresentativeCodeCheck
+      (cutoffTwoSectorPairCode pair) = true) :
+    pair ∈ cutoffTwoSpatialS3NonzeroRepresentatives := by
+  have hcode : cutoffTwoSectorPairCode pair ∈
+      cutoffTwoSpatialS3NonzeroRepresentativeCodes :=
+    (cutoffTwoSpatialS3NonzeroRepresentativeCodeCheck_iff_mem_of_lt
+      (cutoffTwoSectorPairCode_lt pair)).mp hcheck
+  have hmapped : cutoffTwoSectorPairCode pair ∈
+      cutoffTwoSpatialS3NonzeroRepresentatives.map cutoffTwoSectorPairCode := by
+    rw [cutoffTwoSpatialS3NonzeroRepresentatives_map_code]
+    exact hcode
+  rcases List.mem_map.mp hmapped with
+    ⟨representative, hrepresentative, hrepresentativeCode⟩
+  have hpairs : representative = pair :=
+    cutoffTwoSectorPairCode_injective hrepresentativeCode
+  cases hpairs
+  exact hrepresentative
+
 def cutoffTwoSpatialS3NonzeroRepresentativesUpperCheck : Bool :=
   cutoffTwoSpatialS3NonzeroRepresentatives.all fun pair =>
     decide (pair.row.val ≤ pair.column.val)
@@ -255,6 +297,9 @@ end {DATA_NAMESPACE}
 #print axioms {DATA_NAMESPACE}.cutoffTwoSpatialS3NonzeroRepresentativeRecognizedCodes_eq
 #print axioms {DATA_NAMESPACE}.cutoffTwoSpatialS3NonzeroRepresentativeCodeCheck_iff_mem_of_lt
 #print axioms {DATA_NAMESPACE}.cutoffTwoSectorPairCode_lt
+#print axioms {DATA_NAMESPACE}.cutoffTwoSectorPairCode_injective
+#print axioms {DATA_NAMESPACE}.cutoffTwoSpatialS3NonzeroRepresentatives_map_code
+#print axioms {DATA_NAMESPACE}.cutoffTwoSpatialS3NonzeroRepresentative_mem_of_codeCheck
 #print axioms {DATA_NAMESPACE}.cutoffTwoSpatialS3NonzeroRepresentative_upper
 #print axioms {DATA_NAMESPACE}.cutoffTwoSpatialS3NonzeroRepresentative_raw
 """
