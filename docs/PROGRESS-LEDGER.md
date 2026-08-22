@@ -4295,3 +4295,21 @@ theorem.  The next causal frontier is to construct explicit cutoff/volume
 embeddings that preserve the vacuum root and support edges and intertwine the
 restricted physical weights and quadratic forms; only after that can a
 uniform strict rate be formulated honestly.
+
+## Physical production-kernel support persists under cutoff enlargement (2026-08-22)
+
+`BF4PhysicalCutoffKernelSupportPersistence` proves that the unnormalized
+reflected production kernel is entrywise nonnegative and that every nonzero
+entry between states already present at a representation cutoff remains
+nonzero at every larger cutoff.  The proof first upgrades nonzero plus
+nonnegative to strict positivity, then uses the exact cylinder-numerator
+decomposition into the old positive numerator plus a nonnegative new-label
+increment.
+
+The source check and dependency-complete target pass, and all three exported
+declarations report exactly `[propext, Quot.sound]`.  This closes qualitative
+support-edge persistence only.  It does not give equality of kernel entries,
+a quantitative lower bound uniform in the cutoff, an explicit index map, or
+rooted vacuum-component inclusion.  The next frontier is to use this theorem
+with an explicit old-to-new positive-carrier index map and the generic rooted
+graph homomorphism to prove canonical vacuum-component compatibility.

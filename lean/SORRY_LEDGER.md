@@ -2840,3 +2840,24 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   passed monitored dependency-complete builds.  This is not a compatible
   cofinal sector family, a uniform completed operator gap,
   thermodynamic/continuum construction, continuum QFT, or the Clay theorem.
+
+### [BF4-cutoff-kernel-support-persistence] Old physical support edges survive larger cutoffs — **CLOSED 2026-08-22**
+
+- **milestone**: qualitative representation-cutoff compatibility of the
+  genuine unnormalized physical production kernel.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffKernelSupportPersistence.lean`.
+- **decl**:
+  `centralPhysicalReflectedKernel_nonnegative`,
+  `centralPhysicalReflectedKernel_pos_of_le`, and
+  `centralPhysicalReflectedKernel_not_eqv_zero_of_le`.
+- **obligation**: none for qualitative persistence of an old nonzero kernel
+  entry.  The next obligation is an explicit carrier-index embedding that
+  preserves the vacuum root and transports the canonical root component.
+- **constructive?**: yes — every printed declaration uses exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the source check and dependency-complete target pass.  This
+  theorem provides neither equality nor a cutoff-uniform positive floor for
+  old entries, and it does not establish uniform form contraction, Hilbert
+  completion, thermodynamic/continuum limits, QFT axioms, or the Clay theorem.
