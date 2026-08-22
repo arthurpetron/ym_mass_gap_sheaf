@@ -4311,3 +4311,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   coefficients at a fixed cutoff but may depend on cutoff.  No cutoff-uniform
   gap, completed-space gap, thermodynamic/continuum QFT, or Clay theorem is
   asserted.
+
+### [BF4-cutoff-two-pulled-poincare-gap] Actual moving finite gap — **PROVED 2026-08-22**
+
+- **milestone**: name the definitional matrix/diagonal CReal projection seams,
+  zero-extend each moving cutoff-two head-centered coefficient to the current
+  full finite vacuum sector, use exact centering and exact form pushforward,
+  and prove `abs(actualMovingMatrix cutoff) <= q(cutoff) *
+  actualMovingDiagonal cutoff` for every cutoff at least two and every
+  coefficient, with `0 <= q(cutoff) < 1`.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCenteredMatrixCauchy.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCenteredDiagonalCauchy.lean`,
+  and
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoPulledPoincareGap.lean`.
+- **decl**:
+  `centralPhysicalFinitePulledVacuumSectorHeadCenteredMatrixCutoffLimit_approx`,
+  `centralPhysicalFinitePulledVacuumSectorHeadCenteredDiagonalCutoffLimit_approx`,
+  `cutoffTwoPulledPoincareRateAt_nonnegative`,
+  `cutoffTwoPulledPoincareRateAt_lt_one`, and
+  `cutoffTwoActualMoving_abs_gap_at_poincareRate`.
+- **obligation**: prove a common `q < 1` which bounds the finite Poincare rates
+  at coefficientwise tail starts and aligns those starts with the existing
+  relative moving-form stability budget; then contract that datum through the
+  same-object CReal limit interface.
+- **constructive?**: yes — the audited bridge exports use exactly
+  `[propext, Quot.sound]`, while the two new projection equalities are
+  definitional; no `Classical.*`, choice, `native_decide`, `sorry`, custom
+  axiom, or noncomputable declaration was added.
+- **status note**: focused monitored checks and the exact-target one-worker
+  4,747-job dependency-complete build pass.  The first deep-unfolding attempt
+  failed with a stack-space exception and is not counted as validation.  No
+  cutoff-uniform gap, completed-space gap, thermodynamic/continuum QFT, or Clay
+  theorem is asserted.

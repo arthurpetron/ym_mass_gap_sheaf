@@ -5508,6 +5508,35 @@ the reduction and the subsequent check passed.  The adaptive seed family is
 not inhabited.  No unconditional fixed-carrier gap, completed Hilbert gap,
 thermodynamic/continuum QFT, or Clay theorem is asserted.
 
+## Every actual cutoff-two moving approximant has a strict finite gap (2026-08-22)
+
+`BF4PhysicalBoundaryCutoffTwoPulledPoincareGap` transports the new finite
+Poincare theorem to the literal approximants of the cutoff-two same-object
+moving Bishop reals.  At every representation cutoff at least two, the moving
+head-centered coefficient extends by zero to the full finite vacuum sector;
+that extension has exactly zero weighted mean, and its full matrix and
+diagonal forms are exactly the pulled cutoff-two forms.  Consequently, for
+every coefficient,
+
+`abs(actualMovingMatrix cutoff) <= q(cutoff) * actualMovingDiagonal cutoff`,
+
+where `q(cutoff)` is coefficient-independent and satisfies
+`0 <= q(cutoff) < 1`.
+
+Two definitional projection lemmas were added to the centered matrix and
+diagonal CReal constructions so this exact physical recoding seam can be used
+without forcing Lean to unfold the full Cauchy and BF4 kernel expressions at
+once.  The initial giant-reduction proof exhausted the elaboration stack; the
+named seams independently check and the revised bridge checks cleanly.
+
+The focused monitored checks pass, and the dependency-complete exact-target
+one-worker 4,747-job build passes.  All three audited bridge declarations use
+exactly `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`,
+`sorry`, custom axiom, or noncomputable declaration was added.  This removes
+finite strict-gap existence from the same-object frontier, but the displayed
+rate still depends on cutoff.  No common tail rate, completed-space gap,
+thermodynamic/continuum QFT, or Clay theorem is asserted.
+
 ## Every fixed finite BF4 vacuum sector has an explicit strict form gap (2026-08-22)
 
 `BF4PhysicalFiniteVacuumSectorPoincareGap` eliminates the pairwise variance

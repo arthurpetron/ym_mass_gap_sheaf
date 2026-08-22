@@ -621,6 +621,20 @@ def centralPhysicalFinitePulledVacuumSectorHeadCenteredMatrixCutoffLimit
     (centralPhysicalFinitePulledVacuumSectorHeadCenteredMatrix_eqv_expansionApprox
       hw0 hw1 base half coefficient)
 
+/-- The physical recoding exposes the literal moving reflected form as each
+approximant.  Naming this definitional projection prevents downstream proofs
+from unfolding the whole Cauchy construction merely to cross the seam. -/
+theorem centralPhysicalFinitePulledVacuumSectorHeadCenteredMatrixCutoffLimit_approx
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (base half : Nat) (coefficient : Nat → Q') (later : Nat) :
+    (centralPhysicalFinitePulledVacuumSectorHeadCenteredMatrixCutoffLimit
+        hw0 hw1 base half coefficient).approx later =
+      centralPhysicalFinitePulledVacuumSectorMatrixQuadratic
+        w (Q'.le_of_lt hw0) base later half
+        (centralPhysicalFinitePulledVacuumSectorHeadCenteredCoefficient
+          w (Q'.le_of_lt hw0) base later half coefficient) :=
+  rfl
+
 end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCenteredMatrixCauchy
 
 #print axioms

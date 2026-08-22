@@ -365,6 +365,20 @@ def centralPhysicalFinitePulledVacuumSectorHeadCenteredDiagonalCutoffLimit
     (centralPhysicalFinitePulledVacuumSectorHeadCenteredDiagonal_eqv_expansionApprox
       hw0 hw1 base half coefficient)
 
+/-- The physical recoding exposes the literal moving diagonal form as each
+approximant.  Naming this definitional projection keeps downstream transport
+proofs from unfolding the complete Cauchy construction. -/
+theorem centralPhysicalFinitePulledVacuumSectorHeadCenteredDiagonalCutoffLimit_approx
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (base half : Nat) (coefficient : Nat → Q') (later : Nat) :
+    (centralPhysicalFinitePulledVacuumSectorHeadCenteredDiagonalCutoffLimit
+        hw0 hw1 base half coefficient).approx later =
+      centralPhysicalFinitePulledVacuumSectorDiagonalQuadratic
+        w (Q'.le_of_lt hw0) base later half
+        (centralPhysicalFinitePulledVacuumSectorHeadCenteredCoefficient
+          w (Q'.le_of_lt hw0) base later half coefficient) :=
+  rfl
+
 end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCenteredDiagonalCauchy
 
 #print axioms
