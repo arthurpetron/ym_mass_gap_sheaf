@@ -3293,3 +3293,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete build pass.  This closes the exact producer-to-gap
   interface, not its analytic inhabitant, volume/spacing uniformity,
   continuum QFT, or the Clay theorem.
+
+### [BF4-cutoff-cofinal-local-slice-gap] Genuine local-slice compiler — **CLOSED 2026-08-22**
+
+- **milestone**: a constructively cofinal family of genuine stationary
+  one-step slice densities, each with exact row/column normalization, exact
+  all-label gluing, and centered local rate at most `1/4`, supplies the literal
+  physical `1/16` row family and hence both global and moving same-object gap
+  interfaces.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffCofinalLocalSliceGap.lean`.
+- **decl**:
+  `FixedNomePhysicalLocalSliceWitness`,
+  `FixedNomeCofinalPhysicalLocalSliceGluing.toCenteredRowDistance`,
+  `FixedNomeCofinalPhysicalLocalSliceGluing.toCenteredStrictGap`,
+  `FixedNomeCofinalPhysicalLocalSliceGluing.toVacuumSectorCenteredStrictGap`,
+  and
+  `FixedNomeCofinalPhysicalLocalSliceGluing.centeredMatrixCutoffLimit_leEv_sixteenth_mul_diagonal`.
+- **obligation**: construct the cofinal genuine slice family.  The open fields
+  are the physical stationary one-step density, its exact all-label gluing
+  identity at the selected cutoffs, and its local centered `1/4` estimate.
+- **constructive?**: yes — all four printed declarations use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored source check and one-job 1,475-job
+  dependency-complete build pass.  This closes the local-slice-to-limit
+  implication, not its analytic inhabitant, volume/spacing uniformity,
+  continuum QFT, or the Clay theorem.

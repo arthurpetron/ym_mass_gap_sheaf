@@ -4738,3 +4738,27 @@ the target's cutoff-uniform inhabitant.  The next causal frontier is to compile
 cofinal genuine local-slice/density/gluing data into this family.  Physical
 volume and lattice-spacing uniformity, continuum QFT, and the Clay theorem
 remain open.
+
+## Cofinal genuine local slices contract to the same-object sixteenth gap (2026-08-22)
+
+`BF4PhysicalCutoffCofinalLocalSliceGap` packages the geometric producer
+immediately upstream of the literal centered-row interface.  At each selected
+cutoff, one shared stationary one-step density has exact row and column
+normalization, exact all-label density gluing to the physical slab, and a
+centered one-step rate at most `1/4`.  Existing tensorization turns that local
+quarter into the physical centered-row rate `1/16` for every source.
+
+A constructively cofinal family of these genuine local slices now compiles to
+the fixed-nome physical centered-row family, the global centered strict-gap
+certificate, the moving same-object vacuum-sector certificate, and its
+`CReal.leEv` cutoff-limit inequality.  The focused monitored source check and
+one-job 1,475-job dependency-complete build pass; all four printed declarations
+use exactly `[propext, Quot.sound]`.
+
+No cofinal genuine local-slice family is constructed.  The remaining analytic
+leaf is explicit: produce a stationary one-step density at arbitrarily large
+representation cutoffs, prove its exact gluing identity, and bound its
+centered row norm by `1/4`.  The next causal frontier is to connect the
+repository's conditional-density or buffered-Perron witness packages to this
+cofinal local-slice family, or identify the first still-uninhabited field.
+Volume/spacing uniformity, continuum QFT, and the Clay theorem remain open.
