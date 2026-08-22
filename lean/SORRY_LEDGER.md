@@ -4235,3 +4235,27 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   1,185-job dependency-complete build pass.  No common ceiling, strict finite
   rate, completed-space gap, thermodynamic/continuum QFT, or Clay theorem is
   asserted yet.
+
+### [BF4-finite-vacuum-sector-path-ceiling] Common finite ceiling — **PROVED 2026-08-22**
+
+- **milestone**: enumerate the finite Cartesian square of membership-carrying
+  sector indices, sum all nonnegative canonical path scales, and add the unit
+  to construct a strictly positive common ceiling.  Combine it with the edge
+  floor and both path-energy comparisons to prove
+  `floor * (f_i-f_j)^2 <= ceiling * Dirichlet(f)` for every sector pair.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorPathCeiling.lean`.
+- **decl**: `finiteJointDirichletEnergy_nonnegative`,
+  `centralPhysicalFiniteVacuumSectorPathCeiling_pos`,
+  `centralPhysicalFiniteVacuumSectorPathScale_le_ceiling`, and
+  `centralPhysicalFiniteVacuumSector_floor_mul_endpoint_sq_le_ceiling_mul_Dirichlet`.
+- **obligation**: sum the all-endpoint estimate, prove the exact centered
+  pairwise-variance identity, and derive an explicit finite strict transfer
+  rate.
+- **constructive?**: yes — the four audited exports use only `[propext]` or
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,186-job dependency-complete build pass.  No Poincare inequality, strict
+  finite rate, completed-space gap, thermodynamic/continuum QFT, or Clay
+  theorem is asserted yet.

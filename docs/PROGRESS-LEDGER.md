@@ -5508,6 +5508,27 @@ the reduction and the subsequent check passed.  The adaptive seed family is
 not inhabited.  No unconditional fixed-carrier gap, completed Hilbert gap,
 thermodynamic/continuum QFT, or Clay theorem is asserted.
 
+## Every finite BF4 vacuum sector has one path-amplification ceiling (2026-08-22)
+
+`BF4PhysicalFiniteVacuumSectorPathCeiling` packages each sector index together
+with its membership proof, enumerates the finite Cartesian square of attached
+indices, and sums the nonnegative scales of all canonical paths.  Adding `1`
+produces a strictly positive, coefficient-independent rational ceiling above
+every endpoint-specific scale.
+
+Combining this ceiling with the common positive edge floor and the local and
+global path-energy estimates yields a single all-endpoint theorem:
+`floor * (f_i-f_j)^2 <= ceiling * Dirichlet(f)` for every pair of indices in
+the fixed finite sector.  This is the exact input needed to sum pairwise
+variance and derive a finite Poincare inequality.
+
+The focused monitored check and exact-target one-worker 1,186-job build pass.
+The four audited exports use only `[propext]` or `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  No pairwise-variance identity, Poincare
+inequality, strict finite rate, completed Hilbert gap,
+thermodynamic/continuum QFT, or Clay theorem is asserted yet.
+
 ## Canonical BF4 path energy is bounded by global Dirichlet energy (2026-08-22)
 
 `BF4PhysicalFiniteVacuumSectorPathGlobalEnergy` assigns each Type-level
