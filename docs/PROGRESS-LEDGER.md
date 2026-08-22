@@ -5231,3 +5231,33 @@ under one fixed later pulled law, and then combine it with entrywise law
 errors.  A strict total cutoff-two-to-limit budget, a cofinal robust
 persistence family, the completed spectral gap, thermodynamic/continuum QFT,
 and the Clay theorem remain open.
+
+## Same-law moving recentering has explicit matrix and diagonal errors (2026-08-22)
+
+`BF4PhysicalBoundaryCutoffTwoPulledSameLawRecentering` puts the matrix and
+diagonal forms onto one common finite quadratic interface.  A generic
+bilinear estimate proves that a law with entries of absolute value at most
+one sends a scalar basis-vector perturbation to the exact three-term `l1`
+bound (two cross terms and one quadratic term).  The normalized physical
+pulled kernel has that entry cap because every nonnegative entry lies below
+its row marginal, and the row marginal is at most one.  The pulled diagonal
+law has the same cap because every retained pulled weight lies in `[0,1]`.
+
+The exact root-only coefficient identity therefore yields explicit absolute
+same-law perturbation bounds for both the later pulled matrix and later pulled
+diagonal.  Their small parameter is precisely the absolute head-correction
+change; no factor 65 is introduced into that parameter.  The focused
+monitored check and exact-target one-worker 4,733-job build pass.  All six
+printed load-bearing declarations use only `[propext]` or
+`[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+custom axiom, or noncomputable declaration was added.
+
+These estimates are absolute and retain finite coefficient-`l1` factors.
+They are not yet a relative uniform error against the later diagonal.  The
+next causal step is a coefficientwise dichotomy: the root-only raw mode
+centers to zero identically, while any non-root coefficient supplies a
+positive later-diagonal witness against which the head-correction Cauchy
+modulus can be chosen.  That relative recentering estimate must then be
+combined with entrywise law errors.  A strict total cutoff-two-to-limit
+budget, robust cofinal persistence, the completed spectral gap,
+thermodynamic/continuum QFT, and the Clay theorem remain open.

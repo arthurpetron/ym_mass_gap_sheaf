@@ -3781,3 +3781,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   it is not counted as a pass and had reported no Lean error.  No robust
   persistence family, completed spectral gap, thermodynamic/continuum QFT, or
   Clay theorem is asserted.
+
+### [BF4-cutoff-two-same-law-recentering] Matrix and diagonal form stability — **CLOSED 2026-08-22**
+
+- **milestone**: a generic finite same-law quadratic estimate controls a
+  scalar basis-vector coefficient shift by its two `l1` cross terms and one
+  quadratic term.  Normalized physical pulled-kernel entries and the
+  diagonal pulled-weight law are each bounded in absolute value by one, so
+  the exact moving-root identity gives explicit same-law matrix and diagonal
+  recentering errors whose small parameter is the head-correction change.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoPulledSameLawRecentering.lean`.
+- **decl**:
+  `finiteJointBilinear_abs_le_productL1_of_entry_abs_le_one`,
+  `finiteJointQuadratic_add_scaled_abs_sub_le`,
+  `cutoffTwoPulledKernelAt_abs_le_one`,
+  `cutoffTwoPulledMovingCenteredSameLaw_matrix_error`,
+  `cutoffTwoPulledDiagonalJointAt_abs_le_one`, and
+  `cutoffTwoPulledMovingCenteredSameLaw_diagonal_error`.
+- **obligation**: turn the coefficient-dependent absolute bounds into
+  coefficientwise cofinal relative errors against the later diagonal, then
+  combine them with entrywise law errors in a strict uniform robust-rate
+  budget.  Ordinary late-pair Cauchy convergence still does not bound the
+  entire cutoff-two-to-limit law change.
+- **constructive?**: yes — the six printed declarations use only `[propext]`
+  or `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`,
+  `sorry`, custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  4,733-job dependency-complete build pass.  This is not yet a robust
+  persistence family, completed spectral gap, thermodynamic/continuum QFT,
+  or Clay theorem.
