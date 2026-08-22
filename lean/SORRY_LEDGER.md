@@ -3701,3 +3701,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   4,729-job dependency-complete build pass.  No robust persistence family,
   completed-space gap, thermodynamic/continuum QFT, or Clay theorem is
   asserted.
+
+### [BF4-cutoff-two-pulled-l1-diagonal-control] Physical finite-norm coercivity — **CLOSED 2026-08-22**
+
+- **milestone**: finite-list Cauchy--Schwarz and a pointwise positive weight
+  floor imply `floor * ||x||_1^2 <= |states| * D(x)`.  At the maximum of
+  cutoff two and the verified row-floor schedule, positive-row persistence
+  constructs an explicit strictly positive rational floor below every later
+  pulled weight of the canonical cutoff-two vacuum component.  Hence the
+  physical inequality holds for every coefficient on that fixed component.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoPulledL1DiagonalControl.lean`.
+- **decl**:
+  `coefficientL1_square_le_length_mul_squareSum`,
+  `floor_mul_coefficientL1_square_le_length_mul_diagonal`,
+  `cutoffTwoPulledUniformPositiveRowFloor_le_weight`, and
+  `cutoffTwoPulled_coefficientL1_square_control`.
+- **obligation**: combine this coercivity with entrywise pulled-kernel and
+  pulled-weight errors to obtain relative matrix and diagonal perturbation
+  bounds.  Then control the full cutoff-two-to-limit perturbation, including
+  the difference between the two root-centering corrections, within the
+  robust strict-rate budget.
+- **constructive?**: yes — all four printed declarations use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and one-worker 4,730-job
+  dependency-complete build pass.  Norm coercivity alone is not a persistence
+  family, completed spectral gap, thermodynamic/continuum QFT, or Clay theorem.

@@ -5151,3 +5151,29 @@ convergence alone controls pairs of sufficiently late cutoffs; it does not
 bound the total change from cutoff two.  The next estimate must therefore
 control that total perturbation (or propagate the gap incrementally) tightly
 enough that `(49/50) * cD + eM < 1`.
+
+## Pulled entrywise errors now coerce to the physical diagonal norm (2026-08-22)
+
+`BF4PhysicalBoundaryCutoffTwoPulledL1DiagonalControl` proves a finite-list
+Cauchy--Schwarz inequality in the repository's exact rational `coefficientL1`
+normalization.  Any nonnegative pointwise weight floor then yields the cleared
+coercivity estimate
+
+`floor * ||x||_1^2 <= |states| * diagonal(x)`.
+
+For the physical specialization, the anchor is chosen as the maximum of
+cutoff two and the already verified uniform row-floor cutoff.  Positivity of
+the moving finite minimum and positive-row persistence put one explicit
+strictly positive rational floor below every pulled weight in the canonical
+cutoff-two vacuum component at every later cutoff.  The generic inequality
+therefore gives the required physical `l1`-square-to-diagonal conversion for
+arbitrary coefficients on that fixed component.
+
+The focused monitored check and one-worker 4,730-job dependency-complete
+build pass.  All four printed declarations use exactly
+`[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+custom axiom, or noncomputable declaration was added.  This is an actual norm
+coercivity theorem, but it supplies neither the needed total cutoff-two-to-
+limit entry error nor the moving recentering comparison.  Those estimates,
+followed by the robust rate budget, remain the next frontier; completed-space,
+thermodynamic/continuum QFT, and the Clay theorem remain open.
