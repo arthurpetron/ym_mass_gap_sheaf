@@ -2908,3 +2908,27 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   convergence alone does not identify the cutoff-two table with the limiting
   form or prove persistence of `49/50`, a uniform gap, volume compatibility,
   completion, thermodynamic/continuum QFT, or the Clay theorem.
+
+### [BF4-cutoff-embedded-form-cauchy] Pulled finite-form cutoff limits — **CLOSED 2026-08-22**
+
+- **milestone**: dimension-compensated constructive cutoff convergence of the
+  weighted mean, diagonal quadratic, and reflected matrix quadratic on a
+  fixed embedded old positive carrier.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffEmbeddedFormCauchy.lean`.
+- **decl**:
+  `centralPhysicalFinitePulledWeightedMeanCutoffLimit`,
+  `centralPhysicalFinitePulledDiagonalQuadraticCutoffLimit`, and
+  `centralPhysicalFinitePulledMatrixQuadraticCutoffLimit`.
+- **obligation**: none for whole-form cutoff convergence on a fixed finite
+  zero-extended coordinate subspace.  The next obligation is to restrict the
+  construction to the canonical vacuum component and decompose every later
+  component into embedded-old and genuinely new states, exposing the leakage
+  and cross terms needed for a uniform strict rate.
+- **constructive?**: yes — every printed declaration uses exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused source check and dependency-complete target
+  pass.  These CReal limits do not preserve centering, identify the
+  cutoff-two table with the limit, bound new-sector leakage, establish a
+  uniform gap, or construct thermodynamic/continuum QFT or the Clay theorem.

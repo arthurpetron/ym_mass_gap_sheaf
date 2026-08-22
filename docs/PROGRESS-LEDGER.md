@@ -4363,3 +4363,28 @@ not prove that the cutoff-two entries equal their limits or that its `49/50`
 form bound survives.  The next frontier is to pay the finite carrier size and
 coefficient envelope to obtain constructive Cauchy limits for the pulled
 weighted mean, diagonal form, and matrix quadratic as whole objects.
+
+## Pulled physical finite forms have constructive cutoff limits (2026-08-22)
+
+`BF4PhysicalCutoffEmbeddedFormCauchy` lifts the entrywise pulled cutoff
+moduli to the complete weighted mean, diagonal quadratic, and normalized
+reflected matrix quadratic on any fixed old positive carrier.  Its finite-sum
+estimates explicitly pay the coefficient `l1` envelope for linear forms and
+the corresponding quadratic envelope for matrix forms before invoking the
+physical source and pair-cylinder moduli.
+
+The three resulting cutoff sequences are packaged as Bishop reals:
+`centralPhysicalFinitePulledWeightedMeanCutoffLimit`,
+`centralPhysicalFinitePulledDiagonalQuadraticCutoffLimit`, and
+`centralPhysicalFinitePulledMatrixQuadraticCutoffLimit`.  The focused source
+check and dependency-complete target pass, and every exported declaration
+reports exactly `[propext, Quot.sound]`.
+
+This closes cutoff convergence of whole forms only on a fixed finite
+coordinate subspace, equivalently after extending its coefficient vector by
+zero on all new states.  It does not identify those limits with the
+cutoff-two table, preserve exact centering, control the mass of newly entering
+vacuum-sector states, or prove that the `49/50` contraction persists.  The
+next causal frontier is the canonical vacuum-sector specialization followed
+by an exact old/new block decomposition that exposes the leakage and cross
+terms requiring uniform estimates.
