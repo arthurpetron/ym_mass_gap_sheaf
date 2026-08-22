@@ -5508,6 +5508,28 @@ the reduction and the subsequent check passed.  The adaptive seed family is
 not inhabited.  No unconditional fixed-carrier gap, completed Hilbert gap,
 thermodynamic/continuum QFT, or Clay theorem is asserted.
 
+## BF4 pairwise variance is exactly centered mass times diagonal (2026-08-22)
+
+`BF4PhysicalFiniteVacuumSectorPairwiseVariance` defines the ordered weighted
+pairwise variance and proves the generic exact identity
+`PV = 2 * (mass * diagonal - mean^2)`.  It does so by viewing
+`weight_i * weight_j` as a stationary product joint kernel and reusing the
+already-audited Dirichlet identity; the selected communicating component need
+not have unit total mass.
+
+For exactly centered BF4 sector coefficients this contracts to
+`PV = 2 * sectorMass * diagonal`.  Independently, summing the common endpoint
+estimate with the nonnegative stationary product weights proves
+`edgeFloor * PV <= sectorMass^2 * pathCeiling * Dirichlet`.  These are now two
+kernel-checked faces of the same quantity, so the next module can eliminate
+`PV` and derive an explicit finite Poincare inequality.
+
+The focused monitored check and exact-target one-worker 1,187-job build pass.
+All five audited exports use only `[propext, Quot.sound]`; no `Classical.*`,
+choice, `native_decide`, `sorry`, custom axiom, or noncomputable declaration
+was added.  No Poincare inequality, strict finite rate, completed Hilbert gap,
+thermodynamic/continuum QFT, or Clay theorem is asserted yet.
+
 ## Every finite BF4 vacuum sector has one path-amplification ceiling (2026-08-22)
 
 `BF4PhysicalFiniteVacuumSectorPathCeiling` packages each sector index together

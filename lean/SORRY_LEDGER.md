@@ -4259,3 +4259,28 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   1,186-job dependency-complete build pass.  No Poincare inequality, strict
   finite rate, completed-space gap, thermodynamic/continuum QFT, or Clay
   theorem is asserted yet.
+
+### [BF4-finite-vacuum-sector-pairwise-variance] Exact variance compiler — **PROVED 2026-08-22**
+
+- **milestone**: define weighted ordered pairwise variance, prove generically
+  `PV = 2 * (mass * diagonal - mean^2)` through the stationary-product
+  Dirichlet identity, specialize exact centering to
+  `PV = 2 * sectorMass * diagonal`, and sum the common endpoint estimate to
+  obtain `edgeFloor * PV <= sectorMass^2 * pathCeiling * Dirichlet`.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorPairwiseVariance.lean`.
+- **decl**: `finiteWeightedPairwiseVariance_eqv_mass_diagonal_mean`,
+  `finiteWeightedPairwiseVariance_centered_eqv_twice_mass_diagonal`,
+  `floor_mul_finiteWeightedPairwiseVariance_le`,
+  `centralPhysicalFiniteVacuumSectorPairwiseVariance_centered_eqv`, and
+  `centralPhysicalFiniteVacuumSector_floor_mul_pairwiseVariance_le`.
+- **obligation**: eliminate pairwise variance between the centered identity
+  and its path bound, cancel positive factors constructively, and calibrate an
+  explicit strict finite transfer rate.
+- **constructive?**: yes — all five audited exports use only
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,187-job dependency-complete build pass.  No strict finite rate,
+  completed-space gap, thermodynamic/continuum QFT, or Clay theorem is
+  asserted yet.
