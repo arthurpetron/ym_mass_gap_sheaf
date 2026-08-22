@@ -25,6 +25,7 @@ set_option maxRecDepth 1000000
 set_option maxHeartbeats 10000000
 
 open YMGap.Constructive
+open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledEntryPerturbation
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledGapPersistence
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledRecenteringPerturbation
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledTailSeedGapBridge
@@ -58,7 +59,45 @@ theorem cutoffTwoPulledPoincareRateAt_lt_one (cutoff : Nat) :
   exact centralPhysicalFiniteVacuumSectorPoincareRate_lt_one
     cutoffTwoHalfCoupling (by decide) cutoff 0
 
-/-! ## 2. Exact transport to the moving pulled forms -/
+/-! ## 2. Named exact recoding seams -/
+
+/-- The compact moving-matrix approximant is exactly the displayed pulled
+physical quadratic. -/
+theorem cutoffTwoActualMovingMatrixAt_eqv_pulled
+    (cutoff : Nat) (coefficient : Nat → Q') :
+    cutoffTwoActualMovingMatrixAt cutoff coefficient ≈
+      cutoffTwoPulledMatrixAt cutoff
+        (cutoffTwoPulledMovingCenteredCoefficientAt cutoff coefficient) := by
+  apply Q'.eqv_of_eq
+  unfold cutoffTwoActualMovingMatrixAt cutoffTwoPulledMovingMatrix
+    cutoffTwoMovingMatrixLimit
+  rw [centralPhysicalFinitePulledVacuumSectorHeadCenteredMatrixCutoffLimit_approx]
+  rfl
+
+/-- The compact moving-diagonal approximant is exactly the displayed pulled
+physical diagonal quadratic. -/
+theorem cutoffTwoActualMovingDiagonalAt_eqv_pulled
+    (cutoff : Nat) (coefficient : Nat → Q') :
+    cutoffTwoActualMovingDiagonalAt cutoff coefficient ≈
+      cutoffTwoPulledDiagonalAt cutoff
+        (cutoffTwoPulledMovingCenteredCoefficientAt cutoff coefficient) := by
+  apply Q'.eqv_of_eq
+  unfold cutoffTwoActualMovingDiagonalAt cutoffTwoPulledMovingDiagonal
+    cutoffTwoMovingDiagonalLimit
+  rw [centralPhysicalFinitePulledVacuumSectorHeadCenteredDiagonalCutoffLimit_approx]
+  rfl
+
+/-- The actual moving diagonal is nonnegative at every cutoff. -/
+theorem cutoffTwoActualMovingDiagonalAt_nonnegative
+    (cutoff : Nat) (coefficient : Nat → Q') :
+    (0 : Q') ≤ cutoffTwoActualMovingDiagonalAt cutoff coefficient := by
+  exact Q'.le_trans' _ _ _
+    (cutoffTwoPulledDiagonalAt_nonnegative cutoff
+      (cutoffTwoPulledMovingCenteredCoefficientAt cutoff coefficient))
+    (Q'.ge_of_eqv
+      (cutoffTwoActualMovingDiagonalAt_eqv_pulled cutoff coefficient))
+
+/-! ## 3. Exact transport to the moving pulled forms -/
 
 /-- At every cutoff at least two, the literal cutoff-two moving approximants
 obey the strict full-sector Poincare rate at that cutoff.  No persistence
@@ -149,5 +188,11 @@ end YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledPoincareGap
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledPoincareGap.cutoffTwoPulledPoincareRateAt_nonnegative
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledPoincareGap.cutoffTwoPulledPoincareRateAt_lt_one
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledPoincareGap.cutoffTwoActualMovingMatrixAt_eqv_pulled
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledPoincareGap.cutoffTwoActualMovingDiagonalAt_eqv_pulled
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledPoincareGap.cutoffTwoActualMovingDiagonalAt_nonnegative
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledPoincareGap.cutoffTwoActualMoving_abs_gap_at_poincareRate

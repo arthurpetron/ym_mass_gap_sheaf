@@ -5769,3 +5769,28 @@ declaration was added.  The first proof shape caused expensive definitional
 reduction; named diagonal and matrix bridges reduced the final check to under
 one second.  No finite strict rate, cutoff uniformity, completed Hilbert gap,
 thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+## A uniform tail Poincare rate is now the sole same-object input (2026-08-22)
+
+`BF4PhysicalBoundaryCutoffTwoPulledUniformTailPoincareGap` removes the apparent
+coefficientwise seed-alignment hypothesis from the fixed cutoff-two
+same-object frontier.  Its only new certificate supplies a rational `q` with
+`0 <= q < 1`, one global start, and the bound
+`poincareRate(cutoff) <= q` at every later cutoff.
+
+For each requested coefficient, the proof obtains the already verified
+pairwise moving-form stability start and takes its maximum with the global
+rate start.  Stability is still valid at the maximum, while the all-cutoff
+finite Poincare theorem supplies the strict seed gap there.  Named exact
+matrix and diagonal recoding seams transfer the physical tail inequalities to
+the literal Bishop-real approximants.  The existing adaptive compiler then
+gives, at one common propagated rate strictly below one, the same-object CReal
+matrix-versus-diagonal inequality for every coefficient.
+
+The coefficientwise starts are eliminated only inside the Prop-valued CReal
+comparison, so no choice function is formed.  The focused monitored check and
+exact-target one-worker 4,749-job build pass.  All five audited exports use
+only `[propext]` or `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.  The uniform tail bound itself is not constructed here.  No completed
+Hilbert gap, thermodynamic/continuum QFT, or Clay theorem is asserted.

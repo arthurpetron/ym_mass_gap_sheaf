@@ -4344,3 +4344,34 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   failed with a stack-space exception and is not counted as validation.  No
   cutoff-uniform gap, completed-space gap, thermodynamic/continuum QFT, or Clay
   theorem is asserted.
+
+### [BF4-cutoff-two-uniform-tail-poincare] Alignment-free CReal compiler — **PROVED 2026-08-22**
+
+- **milestone**: reduce the coefficientwise adaptive seed frontier to one
+  global eventual bound on the explicit finite Poincare rates.  Maximize each
+  existing pairwise tail-modulus start with the global rate start, derive the
+  finite seed gap there, and contract to a uniform same-object CReal form rate
+  strictly below one without constructing a choice function.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoPulledPoincareGap.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoPulledUniformTailPoincareGap.lean`.
+- **decl**: `cutoffTwoActualMovingMatrixAt_eqv_pulled`,
+  `cutoffTwoActualMovingDiagonalAt_eqv_pulled`,
+  `cutoffTwoActualMovingDiagonalAt_nonnegative`,
+  `CutoffTwoUniformTailPoincareRateBound.nonempty_adaptiveTailSeedGapAt`,
+  `CutoffTwoUniformTailPoincareRateBound.centeredMatrixCutoffLimit_leEv_adaptiveRate_mul_diagonal`,
+  and `CutoffTwoUniformTailPoincareRateBound.adaptiveRate_lt_one`.
+- **obligation**: construct `CutoffTwoUniformTailPoincareRateBound q` for some
+  common `q < 1`, equivalently obtain a cutoff-uniform positive ratio between
+  the finite edge floor and the mass-times-path-ceiling scale; then transport
+  the resulting same-object form gap to the completed vacuum complement.
+- **constructive?**: yes — the audited exports use only `[propext]` or
+  `[propext, Quot.sound]`; coefficientwise existential stability starts are
+  eliminated only into a Prop-valued CReal comparison, and no `Classical.*`,
+  choice, `native_decide`, `sorry`, custom axiom, or noncomputable declaration
+  was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  4,749-job dependency-complete build pass.  The uniform tail rate certificate
+  is not inhabited.  No completed-space gap, thermodynamic/continuum QFT, or
+  Clay theorem is asserted.
