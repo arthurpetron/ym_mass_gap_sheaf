@@ -5469,3 +5469,41 @@ added.  The closure structure is not inhabited: the exact recode, tail
 alignment as data, and especially the `1/200` finite total-variation estimate
 remain open.  No unconditional fixed-carrier CReal gap, completed spectral
 gap, thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+## Any strict late finite BF4 gap now preserves its own slack (2026-08-22)
+
+`BF4PhysicalBoundaryCutoffTwoPulledAdaptiveTailSeedGapBridge` removes the
+artificial requirement that the moving cutoff sequence remain within a fixed
+`1/200` total error of the cutoff-two `49/50` anchor.  Given any rational
+finite-seed rate `0 <= q < 1`, it chooses the explicit moving-form tail error
+
+`epsilon(q) = (1/4) * (1 - q)`
+
+and proves constructively that the propagated rate
+
+`qAdaptive = q * (1 + epsilon(q)) + epsilon(q)`
+
+is still strictly below one.  The proof uses `q * epsilon <= epsilon`, hence
+`qAdaptive <= q + 2*epsilon = q + (1/2)*(1-q) < 1`.  The existing full
+moving-form tail theorem constructs a stability start for this exact positive
+error.  If that same finite cutoff carries a gap at rate `q`, every later
+cutoff and the literal same-object moving matrix/diagonal Bishop-real limits
+inherit the strict rate `qAdaptive`.  A coefficientwise family with one common
+`q` gives a uniform fixed-carrier CReal form gap.
+
+This changes the causal frontier.  The `1/200` finite-prefix sum closure
+remains a valid sufficient route, but it is no longer necessary.  The direct
+route now asks only for one common strict finite gap on the canonical vacuum
+sector at coefficient-dependent cutoffs already lying in their certified
+tails.  Constructing that finite-sector gap is the genuine next analytic
+problem; no small comparison with cutoff two is assumed.
+
+The focused monitored check and exact-target one-worker 4,737-job build pass.
+All eight printed declarations use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  One initial full-module check hit a
+stack overflow while elaborating compact aliases in the displayed existence
+statement; spelling that theorem with the underlying physical forms removed
+the reduction and the subsequent check passed.  The adaptive seed family is
+not inhabited.  No unconditional fixed-carrier gap, completed Hilbert gap,
+thermodynamic/continuum QFT, or Clay theorem is asserted.

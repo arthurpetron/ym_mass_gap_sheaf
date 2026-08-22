@@ -4016,3 +4016,42 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   4,739-job dependency-complete build pass.  The closure structure remains
   uninhabited; no unconditional fixed-carrier CReal gap, completed-space gap,
   thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+### [BF4-cutoff-two-adaptive-tail-seed-gap] Seed-slack-preserving contraction — **FACTORED 2026-08-22**
+
+- **milestone**: for every rational seed rate `0 <= q < 1`, the explicit
+  relative tail error `epsilon(q) = (1/4)*(1-q)` is positive and the
+  propagated rate `q*(1+epsilon(q))+epsilon(q)` remains strictly below one.
+  The verified moving-form modulus supplies a tail start for that exact
+  tolerance.  A finite `q` gap at the same start propagates to every later
+  cutoff and contracts to the literal same-object moving matrix/diagonal
+  Bishop-real gap.  A coefficientwise family sharing one `q` yields a uniform
+  fixed-carrier rate.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoPulledAdaptiveTailSeedGapBridge.lean`.
+- **decl**:
+  `cutoffTwoAdaptiveTailSeedRelativeError_pos`,
+  `cutoffTwoAdaptiveTailSeedRate_nonnegative`,
+  `cutoffTwoAdaptiveTailSeedRate_lt_one`,
+  `exists_cutoffTwoPulledAdaptiveTailStabilityStart`,
+  `CutoffTwoPulledAdaptiveTailSeedGapAt.later_abs_gap`,
+  `CutoffTwoPulledAdaptiveTailSeedGapAt.centeredMatrixCutoffLimit_leEv_adaptiveTailSeedRate_mul_diagonal`,
+  `CutoffTwoCoefficientwiseAdaptiveTailSeedGap.centeredMatrixCutoffLimit_leEv_adaptiveTailSeedRate_mul_diagonal`,
+  and
+  `CutoffTwoCoefficientwiseAdaptiveTailSeedGap.adaptiveTailSeedRate_lt_one`.
+- **obligation**: inhabit
+  `CutoffTwoCoefficientwiseAdaptiveTailSeedGap q` for some common
+  `0 <= q < 1`.  The tail stability field already has a constructive start;
+  the genuine analytic input is a strict finite gap on the canonical vacuum
+  sector at such a start.  The earlier `1/200` cutoff-two prefix-sum route is
+  still sufficient but is no longer required.
+- **constructive?**: yes — all eight printed declarations use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  4,737-job dependency-complete build pass.  An earlier check hit a stack
+  overflow while elaborating compact aliases in one existence statement and
+  is not counted as a pass; the equivalent displayed physical-form statement
+  checks cleanly.  The adaptive seed family remains uninhabited; no
+  unconditional fixed-carrier limit gap, completed-space gap,
+  thermodynamic/continuum QFT, or Clay theorem is asserted.
