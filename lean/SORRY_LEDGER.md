@@ -4447,3 +4447,27 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   4,750-job dependency-complete build pass.  The common positive-edge floor
   is not inhabited.  No uniform form gap, completed-space gap,
   thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+### [BF4-cutoff-two-pulled-uniform-poincare] Fixed-carrier strict rate compiler — **PROVED 2026-08-22**
+
+- **milestone**: sum the fixed endpoint inequality against the pulled
+  stationary weights, eliminate pairwise variance and energy by exact
+  centering and Dirichlet identities, cancel the positive mass, use its
+  normalized upper bound, and derive the cutoff-independent rate
+  `ceiling / (ceiling + floor) < 1` and its absolute moving-form gap.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoPulledUniformPoincareGap.lean`.
+- **decl**: `cutoffTwoPulledMovingMatrix_nonnegative`,
+  `CutoffTwoPulledUniformPositiveEdgeFloor.floor_mul_movingDiagonal_le_ceiling_mul_deficit`,
+  `CutoffTwoPulledUniformPositiveEdgeFloor.uniformPoincareRate_lt_one`, and
+  `CutoffTwoPulledUniformPositiveEdgeFloor.moving_abs_gap_at_uniformPoincareRate`.
+- **obligation**: feed this direct uniform finite gap into the adaptive
+  same-object Bishop-real tail compiler; separately, construct the sole
+  remaining analytic certificate `CutoffTwoPulledUniformPositiveEdgeFloor`.
+- **constructive?**: yes — all four audited declarations use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  4,751-job dependency-complete build pass.  The edge-floor certificate is
+  not inhabited.  No unconditional same-object CReal gap, completed-space
+  gap, thermodynamic/continuum QFT, or Clay theorem is asserted.

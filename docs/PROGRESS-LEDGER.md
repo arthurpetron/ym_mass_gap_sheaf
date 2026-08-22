@@ -5862,3 +5862,29 @@ Both audited declarations use exactly `[propext, Quot.sound]`; no
 noncomputable declaration was added.  No common edge floor, uniform strict
 rate, completed Hilbert gap, thermodynamic/continuum QFT, or Clay theorem is
 asserted.
+
+## One pulled edge floor now gives a uniform finite BF4 gap (2026-08-22)
+
+`BF4PhysicalBoundaryCutoffTwoPulledUniformPoincareGap` completes the
+fixed-carrier finite Poincare contraction.  It sums the common endpoint
+estimate against the later pulled weights, uses exact moving centering to
+identify pairwise variance with twice mass times the diagonal, and uses the
+old-old energy embedding to bound the pulled energy by twice the moving
+diagonal-minus-matrix deficit.  Strict positivity cancels the pulled mass and
+its proved upper bound by one removes it from the final constant.
+
+For a `CutoffTwoPulledUniformPositiveEdgeFloor` certificate, the resulting
+rate is the explicit cutoff-independent rational
+`ceiling / (ceiling + floor)`.  The fixed path ceiling is positive and the
+certificate floor is positive, so the rate is nonnegative and strictly below
+one.  Full-sector Gram positivity and exact form recodings then give the
+absolute moving-matrix bound at this one rate for every later cutoff and every
+coefficient.
+
+The focused monitored check and exact-target one-worker 4,751-job build pass.
+The four audited exports use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  The common positive-edge-floor
+certificate is not inhabited, and no unconditional same-object CReal gap,
+completed Hilbert gap, thermodynamic/continuum QFT, or Clay theorem is
+asserted.
