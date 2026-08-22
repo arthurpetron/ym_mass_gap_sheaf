@@ -4081,3 +4081,31 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   1,179-job dependency-complete build pass.  This proves the lower spectral
   edge only; it does not provide a strict finite rate, cutoff uniformity, a
   completed-space gap, thermodynamic/continuum QFT, or the Clay theorem.
+
+### [BF4-finite-vacuum-sector-positive-connectivity] Physical irreducibility — **PROVED 2026-08-22**
+
+- **milestone**: on indices in the canonical finite vacuum component, Boolean
+  support adjacency is equivalent to strict positivity of the actual
+  normalized reflected kernel.  The data-level Boolean paths already returned
+  by the component construction compile to `PositiveKernelChainIn` paths with
+  a strict physical kernel witness on every edge.  Every retained sector
+  weight is also strictly positive.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorPositiveConnectivity.lean`.
+- **decl**:
+  `centralPhysicalFiniteWeight_pos_of_vacuumSectorIndex`,
+  `centralPhysicalFiniteRawKernel_pos_of_supportAdjacent`,
+  `centralPhysicalFiniteKernel_pos_of_supportAdjacent`,
+  `centralPhysicalFiniteSupportAdjacentB_true_iff_kernel_pos`, and
+  `centralPhysicalFiniteVacuumSector_positiveKernelConnected`.
+- **obligation**: extract a positive finite bottleneck/path constant from the
+  constructive paths and prove a finite weighted Poincare upper contraction.
+  The preceding all-cutoff Gram theorem then supplies the lower edge needed
+  for an absolute `q < 1` form bound.
+- **constructive?**: yes — all five printed declarations use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,180-job dependency-complete build pass.  This is qualitative finite
+  irreducibility, not yet a quantitative finite gap, cutoff-uniform rate,
+  completed-space gap, thermodynamic/continuum QFT, or Clay theorem.

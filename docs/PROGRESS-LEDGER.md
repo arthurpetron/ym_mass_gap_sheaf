@@ -5531,3 +5531,32 @@ All four printed declarations use exactly `[propext, Quot.sound]`; no
 noncomputable declaration was added.  This is positivity, not strictness: no
 finite `q < 1`, uniform cutoff rate, completed Hilbert gap,
 thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+## The finite BF4 vacuum component is physically irreducible (2026-08-22)
+
+`BF4PhysicalFiniteVacuumSectorPositiveConnectivity` closes the semantic gap
+between the Boolean graph used to select the canonical component and the
+actual normalized physical kernel.  On sector indices, a true symmetrized
+support edge is equivalent to strict positivity of the normalized reflected
+kernel in the requested orientation.  The reverse-orientation case uses
+exact Gram symmetry and nonnegativity, so no directed edge is silently lost.
+
+The new `PositiveKernelChainIn` is Type-level path data carrying a strict
+kernel-positivity witness at every step.  The generic `ofChainIn` compiler
+turns the already constructed Boolean `ChainIn` data into these physical
+paths.  Therefore every pair of indices in every finite canonical vacuum
+sector is connected by an explicit positive-kernel chain.  Every sector
+stationary weight is also proved strictly positive.
+
+This proves finite physical irreducibility constructively.  The next step is
+quantitative rather than qualitative: turn the finite positive paths into a
+positive bottleneck/path constant and a Poincare upper estimate.  Combined
+with the all-cutoff Gram nonnegativity, that estimate will produce a strict
+absolute finite form rate for the adaptive tail-seed bridge.
+
+The focused monitored check and exact-target one-worker 1,180-job build pass.
+All five printed declarations use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  No quantitative rate, cutoff
+uniformity, completed Hilbert gap, thermodynamic/continuum QFT, or Clay theorem
+is asserted.
