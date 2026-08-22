@@ -6053,3 +6053,24 @@ Dirichlet energy.  The focused monitored check and exact-target one-worker
 the base component.  The ensuing base-indexed strict form rate is the next
 finite contraction; a common rate below one on a cofinal family, completion,
 thermodynamic/continuum QFT, and the Clay theorem remain open.
+
+## Every fixed BF4 carrier has a later-uniform strict Poincare rate (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorPulledUniformPoincareGap` contracts the arbitrary-
+base edge floor, transported path ceiling, pulled Dirichlet embedding, exact
+pairwise-variance identity, and normalized positive pulled mass into an explicit
+rational rate
+`basePathCeiling / (basePathCeiling + floor)`.  The rate is nonnegative and
+strictly below one, and its absolute-value form controls every moving centered
+matrix quadratic by the corresponding diagonal quadratic at every cutoff after
+the floor certificate's start.
+
+The focused monitored check and exact-target one-worker 4,753-job build pass.
+The four audited exports use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  This proves a cutoff-uniform gap for each
+fixed carrier, but its rate may depend on that carrier.  Passing the estimate to
+the same-object Bishop-real cutoff limit is the next contraction; proving one
+strict rate uniform over an unbounded/cofinal carrier family remains the next
+expansion.  No completed-space gap, thermodynamic/continuum QFT, or Clay theorem
+is asserted.

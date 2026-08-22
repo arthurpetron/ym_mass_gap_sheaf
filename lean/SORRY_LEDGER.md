@@ -4649,3 +4649,29 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   4,752-job dependency-complete build pass.  No cross-base quantitative lower
   bound is claimed; no completed-space gap, thermodynamic/continuum QFT, or
   Clay theorem is asserted.
+
+### [BF4-fixed-base-pulled-uniform-Poincare-gap] Strict later-cutoff rate on every fixed carrier — **PROVED 2026-08-22**
+
+- **milestone**: combine the arbitrary-base persistent edge floor, transported
+  path ceiling, Dirichlet embedding, pairwise-variance identity, and pulled-mass
+  normalization into an explicit rational rate below one that controls the
+  absolute moving centered matrix form at every sufficiently late cutoff.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorPulledUniformPoincareGap.lean`.
+- **decl**:
+  `FixedBasePulledPositiveEdgeFloor.uniformPoincareRate_nonnegative`,
+  `FixedBasePulledPositiveEdgeFloor.uniformPoincareRate_lt_one`,
+  `FixedBasePulledPositiveEdgeFloor.uniformGapDenominator_mul_movingMatrix_le`,
+  and
+  `FixedBasePulledPositiveEdgeFloor.moving_abs_gap_at_uniformPoincareRate`.
+- **obligation**: pass the eventual finite estimate to the same-object
+  Bishop-real cutoff limit for each fixed carrier, then prove that the
+  base-indexed rates admit one common upper bound strictly below one on an
+  unbounded/cofinal carrier family.
+- **constructive?**: yes — all four audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  4,753-job dependency-complete build pass.  The strict rate is uniform in the
+  later cutoff but may vary with the fixed base carrier.  No completed-space
+  gap, thermodynamic/continuum QFT, or Clay theorem is asserted.
