@@ -10488,3 +10488,31 @@ three executable ceiling-payment scans and retain block-tagged failures.  The
 analytic frontier remains cofinal success of those sharper payments (or route
 refinement informed by exact-product counteredges).  Completed uniform
 contraction, thermodynamic/continuum theory, and the Clay theorem remain open.
+
+## Routed-support payments now have a complete three-block decision (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricRoutedSupportFiniteDecision`
+substitutes the restricted routed-edge ratio maximum into the common symmetric
+ceiling load.  It decides the old--old half-allocation payment and the full
+old-to-new and new--new payments as three explicit finite Boolean scans.
+
+Combined success constructs the routed-ceiling capacity certificate, then
+contracts through exact transition-product capacity and physical capacity to
+the existing completed strict-contraction interface.  Constructive inspection
+instead retains the first literal failed edge with its block-membership
+witnesses and failed routed-ceiling inequality.  This is strictly a decision
+procedure: no successful cutoff, cofinal family, or uniform estimate is
+asserted.
+
+The first focused check found an ambiguous dotted `certified` constructor and
+is not a pass.  After qualification, the focused monitored check passes in
+about 1.2 seconds.  The exact one-worker dependency-complete target passes
+4,992 jobs, with the new module taking about 1.2 seconds.  All six audited
+exports use exactly `[propext, Quot.sound]`.
+
+The next frontier is to evaluate the routed-support and exact-product scans at
+small meaningful cutoffs and compare their first failures.  A routed-ceiling
+failure paired with exact-product success calls for a sharper local estimate;
+an exact-product failure calls for route redesign.  Cofinal successful
+payments, completed uniform contraction, thermodynamic/continuum theory, and
+the Clay theorem remain open.

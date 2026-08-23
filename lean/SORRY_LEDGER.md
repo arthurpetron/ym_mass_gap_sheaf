@@ -8837,3 +8837,35 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   about 1.2 seconds.  The comparison is non-strict (`routed <= full`); no
   payment or cofinal success, completed uniform contraction, continuum QFT, or
   Clay theorem is asserted.
+
+### [BF4-cutoff-two-novel-flow-symmetric-routed-support-finite-decision] Routed-support three-block payment decision — **CLOSED 2026-08-23**
+
+- **milestone**: substitute the routed-support maximum into the common
+  symmetric ceiling load; decide its old--old, old-to-new, and new--new
+  payments; construct routed-ceiling capacity on combined success; retain a
+  literal failed edge tagged by block otherwise; and compile cofinal check
+  success to completed strict contraction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricRoutedSupportFiniteDecision.lean`.
+- **decl**:
+  `cutoffTwoNovelSymmetricRoutedSupportFiniteRatioCeilingLoad`,
+  `cutoffTwoNovelSymmetricTransitionProductLoad_le_routedSupportFiniteCeilingLoad`,
+  the three block checks and soundness theorems,
+  `cutoffTwoNovelSymmetricAllBlockRoutedSupportFiniteCeilingCheck`,
+  `cutoffTwoNovelSymmetricThreeBlockRoutedCeilingCapacityAt_of_routedSupportCheck`,
+  `CutoffTwoNovelSymmetricRoutedSupportFiniteCeilingOutcome`, its inspector,
+  and the cofinal completed compiler.
+- **obligation**: evaluate the new scans at small meaningful cutoffs and
+  compare any routed-ceiling failure with the exact-product inspector; prove
+  cofinal success by a uniform estimate or redesign failing canonical routes;
+  then construct and control thermodynamic and continuum limits.
+- **constructive?**: yes — all checks are Boolean rational comparisons and
+  inspection returns Type-level success or literal block-tagged failure; all
+  six audited exports use exactly `[propext, Quot.sound]`; no forbidden
+  construct was added.
+- **status note**: the first focused check failed only because `.certified`
+  was ambiguous among imported decision types and is not a pass.  The corrected
+  focused check passes in about 1.2 seconds; the exact one-worker target passes
+  4,992 jobs with the new module taking about 1.2 seconds.  No scan result or
+  cofinal success, completed uniform contraction, continuum QFT, or Clay
+  theorem is asserted.
