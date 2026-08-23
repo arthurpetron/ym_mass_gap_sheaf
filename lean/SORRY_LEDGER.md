@@ -5476,3 +5476,40 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   1,366-job dependency-complete build pass.  This closes raw transfer-matrix
   convergence, not centered matrix convergence, a common strict rate,
   thermodynamic/continuum QFT, or the Clay theorem.
+
+### [BF4-vacuum-sector-completed-outer-centered-matrix] Outer centered matrices give the all-vector completed form bound at any certified rate — **PROVED 2026-08-22**
+
+- **milestone**: package every pulled finite-sector kernel as constructive
+  GNS data; prove sharp Cauchy--Schwarz for its bilinear form; squeeze the two
+  head-correction crosses and root-correction term to zero along the cofinal
+  arbitrary-representative presentation; identify the centered matrix limit
+  with the actual completed transfer form; and eliminate the completion
+  quotient directly into the strict-form proposition.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCylinderCompletedOuterCenteredMatrix.lean`.
+- **decl**:
+  `centralPhysicalFinitePulledVacuumSectorMatrixGNSData`,
+  `centralPhysicalFinitePulledVacuumSectorMatrixBilinear_cauchy_schwarz`,
+  `centralPhysicalFinitePulledVacuumSectorMatrixBilinearCutoffLimit_cauchy_schwarz`,
+  `centralPhysicalFinitePulledVacuumSectorMatrixCross_sq_le_raw_mul_rootWeight`,
+  `centralPhysicalVacuumSectorCylinder_outerMatrixRightCorrection_converges_zero`,
+  `centralPhysicalVacuumSectorCylinder_outerMatrixLeftCorrection_converges_zero`,
+  `centralPhysicalVacuumSectorCylinder_outerMatrixRootCorrection_converges_zero`,
+  `centralPhysicalVacuumSectorCylinder_outerHeadCenteredMatrix_converges`,
+  `centralPhysicalVacuumSectorCylinder_completedTransferForm_mk_eq_outerCenteredMatrixLimit`,
+  `centralPhysicalVacuumSectorCylinder_centeredFormLimitData_mk`, and
+  `centralPhysicalVacuumSectorCylinder_completedStrictFormGapAtRate_constructed`.
+- **obligation**: construct one strict
+  `FixedNomeCofinalVacuumSectorCenteredStrictGap q` with `q < 1` at the
+  uniformity scope required by the sector, cutoff, thermodynamic, and
+  continuum route; then compile the unconditional completed spectral gap and
+  control its limits.
+- **constructive?**: yes — all eleven audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,596-job dependency-complete build pass.  A global Type-valued presentation
+  selector is deliberately not claimed: quotient induction is used only into
+  the all-vector strict-form proposition.  Thus the completion extension is
+  closed at any supplied certified rate, but no common rate, unconditional
+  spectral gap, thermodynamic/continuum QFT, or Clay theorem is asserted.

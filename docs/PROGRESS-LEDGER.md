@@ -6814,3 +6814,33 @@ the raw matrix half of the arbitrary-vector bridge.  Outer head-centered
 matrix convergence, the resulting global centered-form cofinality inhabitant,
 one common sector-local `q < 1`, and all thermodynamic/continuum/Clay
 conclusions remain open.
+
+## Outer centered matrices close the completed sector inequality without representative choice (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorCylinderCompletedOuterCenteredMatrix` packages
+every fixed-base pulled finite kernel as a constructive rational GNS form and
+derives sharp bilinear Cauchy--Schwarz.  Along the previously constructed
+outer matrix presentation, this bounds each head-centering cross square by a
+null correction square times convergent raw/root quadratics.  Both cross
+terms and the root correction therefore converge to zero, so the exact
+four-term centered expansion converges to the actual completed transfer
+pairing.
+
+For one arbitrary Cauchy representative, the same recoded presentation now
+simultaneously supplies centered diagonal and centered matrix limit data with
+the actual completed norm and transfer endpoints.  A global Type-valued
+selector of such data cannot be obtained merely by quotient induction and is
+not asserted.  Instead, the completed strict-form proposition itself is
+proved by choice-free quotient induction: any explicit
+`FixedNomeCofinalVacuumSectorCenteredStrictGap q` now yields
+`<T v,v> <= q <v,v>` for every vector in the actual completed root-sector
+vacuum complement.
+
+The focused monitored check and exact-target one-worker 1,596-job build pass.
+All eleven audited exports use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  The completed-vector extension is no
+longer an independent hypothesis for the strict-form inequality.  Still open
+are construction of a common sector-local `q < 1` with the required
+cutoff/volume scope, the resulting unconditional completed spectral gap, and
+all thermodynamic/continuum/Clay conclusions.
