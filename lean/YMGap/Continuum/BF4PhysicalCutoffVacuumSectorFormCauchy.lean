@@ -204,6 +204,128 @@ def centralPhysicalFinitePulledVacuumSectorDiagonalQuadraticCutoffLimit
       (Q'.le_trans' _ _ _ habs
         (scaled_divPos_le_epsilon hbaseScale hepsilon))
 
+/-- Explicit cutoff rate for the pulled reflected quadratic on one fixed old
+canonical vacuum component.  Exposing this rate separately from the legacy
+`CReal.cauchy` field lets later moving-presentation diagonals pay it without
+extracting a witness from `Prop`. -/
+def centralPhysicalFinitePulledVacuumSectorMatrixQuadraticCutoffRate
+    {w : Q'} (hw0 : (0 : Q') < w)
+    (base half : Nat) (coefficient : Nat → Q')
+    (epsilon : Q') : Nat :=
+  let states := centralPhysicalFiniteVacuumSectorIndices
+    w (Q'.le_of_lt hw0) base half
+  let l1 := coefficientL1 states coefficient
+  let baseScale := l1 * l1
+  let tolerance := Q'.divPos epsilon (baseScale + 1)
+    (positive_scale
+      (Q'.mul_nonneg _ _
+        (coefficientL1_nonnegative_local states coefficient)
+        (coefficientL1_nonnegative_local states coefficient)))
+  max base
+    (slabNomeBoundedObservableModulus
+      w (centralExtent half) tolerance)
+
+/-- The explicit rate above controls every pair of later pulled reflected
+quadratics. -/
+theorem centralPhysicalFinitePulledVacuumSectorMatrixQuadraticCutoff_regular
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (base half : Nat) (coefficient : Nat → Q')
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (first second : Nat)
+    (hfirst :
+      centralPhysicalFinitePulledVacuumSectorMatrixQuadraticCutoffRate
+        hw0 base half coefficient epsilon ≤ first)
+    (hsecond :
+      centralPhysicalFinitePulledVacuumSectorMatrixQuadraticCutoffRate
+        hw0 base half coefficient epsilon ≤ second) :
+    centralPhysicalFinitePulledVacuumSectorMatrixQuadratic
+        w (Q'.le_of_lt hw0) base first half coefficient ≤
+      centralPhysicalFinitePulledVacuumSectorMatrixQuadratic
+          w (Q'.le_of_lt hw0) base second half coefficient + epsilon ∧
+    centralPhysicalFinitePulledVacuumSectorMatrixQuadratic
+        w (Q'.le_of_lt hw0) base second half coefficient ≤
+      centralPhysicalFinitePulledVacuumSectorMatrixQuadratic
+          w (Q'.le_of_lt hw0) base first half coefficient + epsilon := by
+  let states := centralPhysicalFiniteVacuumSectorIndices
+    w (Q'.le_of_lt hw0) base half
+  let l1 := coefficientL1 states coefficient
+  let baseScale := l1 * l1
+  have hl1 : (0 : Q') ≤ l1 :=
+    coefficientL1_nonnegative_local _ _
+  have hbaseScale : (0 : Q') ≤ baseScale :=
+    Q'.mul_nonneg _ _ hl1 hl1
+  let tolerance := Q'.divPos epsilon (baseScale + 1)
+    (positive_scale hbaseScale)
+  have htolerance : (0 : Q') < tolerance :=
+    Q'.divPos_pos epsilon (baseScale + 1)
+      (positive_scale hbaseScale) hepsilon
+  have hrate :
+      centralPhysicalFinitePulledVacuumSectorMatrixQuadraticCutoffRate
+          hw0 base half coefficient epsilon =
+        max base
+          (slabNomeBoundedObservableModulus
+            w (centralExtent half) tolerance) := by
+    rfl
+  have hbaseFirst := Nat.le_trans
+    (Nat.le_max_left base
+      (slabNomeBoundedObservableModulus
+        w (centralExtent half) tolerance))
+    (hrate ▸ hfirst)
+  have hbaseSecond := Nat.le_trans
+    (Nat.le_max_left base
+      (slabNomeBoundedObservableModulus
+        w (centralExtent half) tolerance))
+    (hrate ▸ hsecond)
+  have hmodFirst := Nat.le_trans
+    (Nat.le_max_right base
+      (slabNomeBoundedObservableModulus
+        w (centralExtent half) tolerance))
+    (hrate ▸ hfirst)
+  have hmodSecond := Nat.le_trans
+    (Nat.le_max_right base
+      (slabNomeBoundedObservableModulus
+        w (centralExtent half) tolerance))
+    (hrate ▸ hsecond)
+  have hentry : ∀ row column,
+      row ∈ states → column ∈ states →
+      Q'.abs
+        (centralPhysicalFinitePulledKernel
+            w (Q'.le_of_lt hw0) base first half row column +
+          (-centralPhysicalFinitePulledKernel
+            w (Q'.le_of_lt hw0) base second half row column)) ≤
+        tolerance := by
+    intro row column hrow hcolumn
+    have hrowLt : row < centralPhysicalFiniteCarrierSize
+        w (Q'.le_of_lt hw0) base half :=
+      centralPhysicalFiniteVacuumSectorIndex_lt
+        w (Q'.le_of_lt hw0) base half hrow
+    have hcolumnLt : column < centralPhysicalFiniteCarrierSize
+        w (Q'.le_of_lt hw0) base half :=
+      centralPhysicalFiniteVacuumSectorIndex_lt
+        w (Q'.le_of_lt hw0) base half hcolumn
+    have htwo := centralPhysicalFinitePulledKernel_twoSided_of_modulus
+      hw0 hw1 htolerance hbaseFirst hbaseSecond
+      hmodFirst hmodSecond hrowLt hcolumnLt
+    exact CReal.abs_sub_le_of_bounds htwo.1 htwo.2
+  have habs :
+      Q'.abs
+        (centralPhysicalFinitePulledVacuumSectorMatrixQuadratic
+            w (Q'.le_of_lt hw0) base first half coefficient +
+          (-centralPhysicalFinitePulledVacuumSectorMatrixQuadratic
+            w (Q'.le_of_lt hw0) base second half coefficient)) ≤
+        baseScale * tolerance := by
+    unfold centralPhysicalFinitePulledVacuumSectorMatrixQuadratic
+    exact finiteJointQuadratic_abs_sub_le_square
+      states coefficient
+      (centralPhysicalFinitePulledKernel
+        w (Q'.le_of_lt hw0) base first half)
+      (centralPhysicalFinitePulledKernel
+        w (Q'.le_of_lt hw0) base second half)
+      tolerance (Q'.le_of_lt htolerance) hentry
+  exact two_sided_add_of_abs_sub_le_local
+    (Q'.le_trans' _ _ _ habs
+      (scaled_divPos_le_epsilon hbaseScale hepsilon))
+
 /-- The pulled reflected quadratic on the embedded old canonical vacuum
 component is a constructive cutoff-Cauchy sequence. -/
 def centralPhysicalFinitePulledVacuumSectorMatrixQuadraticCutoffLimit
@@ -213,66 +335,32 @@ def centralPhysicalFinitePulledVacuumSectorMatrixQuadraticCutoffLimit
     w (Q'.le_of_lt hw0) base later half coefficient
   cauchy := by
     intro epsilon hepsilon
-    let states := centralPhysicalFiniteVacuumSectorIndices
-      w (Q'.le_of_lt hw0) base half
-    let l1 := coefficientL1 states coefficient
-    let baseScale := l1 * l1
-    have hl1 : (0 : Q') ≤ l1 :=
-      coefficientL1_nonnegative_local _ _
-    have hbaseScale : (0 : Q') ≤ baseScale :=
-      Q'.mul_nonneg _ _ hl1 hl1
-    let tolerance := Q'.divPos epsilon (baseScale + 1)
-      (positive_scale hbaseScale)
-    have htolerance : (0 : Q') < tolerance :=
-      Q'.divPos_pos epsilon (baseScale + 1)
-        (positive_scale hbaseScale) hepsilon
-    refine ⟨max base
-      (slabNomeBoundedObservableModulus
-        w (centralExtent half) tolerance), ?_⟩
-    intro first second hfirst hsecond
-    have hbaseFirst := Nat.le_trans (Nat.le_max_left _ _) hfirst
-    have hbaseSecond := Nat.le_trans (Nat.le_max_left _ _) hsecond
-    have hmodFirst := Nat.le_trans (Nat.le_max_right _ _) hfirst
-    have hmodSecond := Nat.le_trans (Nat.le_max_right _ _) hsecond
-    have hentry : ∀ row column,
-        row ∈ states → column ∈ states →
-        Q'.abs
-          (centralPhysicalFinitePulledKernel
-              w (Q'.le_of_lt hw0) base first half row column +
-            (-centralPhysicalFinitePulledKernel
-              w (Q'.le_of_lt hw0) base second half row column)) ≤
-          tolerance := by
-      intro row column hrow hcolumn
-      have hrowLt : row < centralPhysicalFiniteCarrierSize
-          w (Q'.le_of_lt hw0) base half :=
-        centralPhysicalFiniteVacuumSectorIndex_lt
-          w (Q'.le_of_lt hw0) base half hrow
-      have hcolumnLt : column < centralPhysicalFiniteCarrierSize
-          w (Q'.le_of_lt hw0) base half :=
-        centralPhysicalFiniteVacuumSectorIndex_lt
-          w (Q'.le_of_lt hw0) base half hcolumn
-      have htwo := centralPhysicalFinitePulledKernel_twoSided_of_modulus
-        hw0 hw1 htolerance hbaseFirst hbaseSecond
-        hmodFirst hmodSecond hrowLt hcolumnLt
-      exact CReal.abs_sub_le_of_bounds htwo.1 htwo.2
-    have habs :
-        Q'.abs
-          (centralPhysicalFinitePulledVacuumSectorMatrixQuadratic
-              w (Q'.le_of_lt hw0) base first half coefficient +
-            (-centralPhysicalFinitePulledVacuumSectorMatrixQuadratic
-              w (Q'.le_of_lt hw0) base second half coefficient)) ≤
-          baseScale * tolerance := by
-      unfold centralPhysicalFinitePulledVacuumSectorMatrixQuadratic
-      exact finiteJointQuadratic_abs_sub_le_square
-        states coefficient
-        (centralPhysicalFinitePulledKernel
-          w (Q'.le_of_lt hw0) base first half)
-        (centralPhysicalFinitePulledKernel
-          w (Q'.le_of_lt hw0) base second half)
-        tolerance (Q'.le_of_lt htolerance) hentry
-    exact two_sided_add_of_abs_sub_le_local
-      (Q'.le_trans' _ _ _ habs
-        (scaled_divPos_le_epsilon hbaseScale hepsilon))
+    exact
+      ⟨centralPhysicalFinitePulledVacuumSectorMatrixQuadraticCutoffRate
+          hw0 base half coefficient epsilon,
+        fun first second hfirst hsecond =>
+          centralPhysicalFinitePulledVacuumSectorMatrixQuadraticCutoff_regular
+            hw0 hw1 base half coefficient epsilon hepsilon
+            first second hfirst hsecond⟩
+
+set_option maxHeartbeats 3000000 in
+/-- Type-level inner regularity of the fixed-presentation pulled matrix
+cutoff limit. -/
+def centralPhysicalFinitePulledVacuumSectorMatrixQuadraticInnerRegularity
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (base half : Nat) (coefficient : Nat → Q') :
+    CReal.InnerRegularity
+      (centralPhysicalFinitePulledVacuumSectorMatrixQuadraticCutoffLimit
+        hw0 hw1 base half coefficient) where
+  rate :=
+    centralPhysicalFinitePulledVacuumSectorMatrixQuadraticCutoffRate
+      hw0 base half coefficient
+  regular := by
+    intro epsilon hepsilon first second hfirst hsecond
+    exact
+      centralPhysicalFinitePulledVacuumSectorMatrixQuadraticCutoff_regular
+        hw0 hw1 base half coefficient epsilon hepsilon
+        first second hfirst hsecond
 
 end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFormCauchy
 
@@ -281,4 +369,8 @@ end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFormCauchy
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFormCauchy.centralPhysicalFinitePulledVacuumSectorDiagonalQuadraticCutoffLimit
 #print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFormCauchy.centralPhysicalFinitePulledVacuumSectorMatrixQuadraticCutoff_regular
+#print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFormCauchy.centralPhysicalFinitePulledVacuumSectorMatrixQuadraticCutoffLimit
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFormCauchy.centralPhysicalFinitePulledVacuumSectorMatrixQuadraticInnerRegularity

@@ -5424,3 +5424,27 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   1,584-job dependency-complete build pass.  This closes the norm/diagonal
   half, not the transfer/matrix half, a common strict rate,
   thermodynamic/continuum QFT, or the Clay theorem.
+
+### [BF4-vacuum-sector-matrix-inner-regularity] Pulled matrix cutoff modulus is recoverable data — **PROVED 2026-08-22**
+
+- **milestone**: expose the fixed-presentation pulled reflected-quadratic
+  cutoff rate as data, prove its two-sided regularity estimate, and package it
+  as `CReal.InnerRegularity` without extracting the legacy propositional
+  `CReal.cauchy` witness.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorFormCauchy.lean`.
+- **decl**:
+  `centralPhysicalFinitePulledVacuumSectorMatrixQuadraticCutoffRate`,
+  `centralPhysicalFinitePulledVacuumSectorMatrixQuadraticCutoff_regular`, and
+  `centralPhysicalFinitePulledVacuumSectorMatrixQuadraticInnerRegularity`.
+- **obligation**: construct a cofinal reindex of every arbitrary sector
+  representative which pays this moving matrix cutoff together with the
+  transfer-pairing diagonal; use it to prove outer raw and centered matrix
+  convergence and inhabit the all-vector centered-form cofinality datum.
+- **constructive?**: yes — both newly audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,177-job dependency-complete build pass.  This is a modulus-exposure
+  milestone, not moving-matrix convergence, a common strict rate,
+  thermodynamic/continuum QFT, or the Clay theorem.

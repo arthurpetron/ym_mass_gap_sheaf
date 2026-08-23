@@ -6739,6 +6739,29 @@ convergence, the global centered-form cofinality inhabitant, one common
 sector-local `q < 1`, and all thermodynamic/continuum/Clay conclusions remain
 open.
 
+## The pulled sector matrix cutoff now exports its constructive inner modulus (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorFormCauchy` now exposes the exact finite-sector
+matrix cutoff rate which was previously local to the legacy `CReal.cauchy`
+proof.  The new
+`centralPhysicalFinitePulledVacuumSectorMatrixQuadraticCutoff_regular`
+theorem proves the two-sided estimate at that rate, and
+`centralPhysicalFinitePulledVacuumSectorMatrixQuadraticInnerRegularity`
+packages it as recoverable `CReal.InnerRegularity` data.
+
+The existing pulled-matrix Bishop real is unchanged extensionally and now
+uses the same exported rate theorem for its `CReal.cauchy` field.  This avoids
+any extraction from a propositional existential when a later moving
+presentation must pay its own inner cutoff, which is the next constructive
+step toward arbitrary-representative outer matrix convergence.
+
+The focused monitored check and exact-target one-worker 1,177-job build pass.
+Both newly audited exports use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  No moving-matrix convergence, global
+centered-form cofinality, common sector-local `q < 1`, thermodynamic or
+continuum limit, or Clay theorem is claimed here.
+
 ## Outer head-centered diagonals converge to the actual completed sector norm (2026-08-22)
 
 `BF4PhysicalCutoffVacuumSectorCylinderCompletedOuterCenteredDiagonal`
