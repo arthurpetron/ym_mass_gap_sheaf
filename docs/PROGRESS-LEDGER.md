@@ -7861,3 +7861,34 @@ to combine the two exact floors into the one finite residual-rate scalar
 consumed by the centered Gram and make a uniform cofinal upper bound below one
 the sole analytic obligation.  Thermodynamic/continuum control and the Clay
 theorem remain open.
+
+## Posterior mixing is reduced to one exact finite residual-rate sequence (2026-08-23)
+
+`BF4PhysicalVacuumSectorCenteredGramOverlapResidualRate` defines the target
+and source support-compatible rates `2(1-alpha_K)` and `2(1-beta_K)` from the
+two exact finite overlap floors, then defines their product `r_K` as the sole
+finite scalar consumed downstream.
+
+The module proves successively that `r_K` is nonnegative; each actual target
+and source posterior `L1` distance is bounded by its corresponding floor rate;
+the two physical profile deviations inherit those rates; and the literal
+actual centered-Gram row majorant is bounded by
+
+`r_K * physicalWeight(source)`.
+
+A constructively cofinal certificate now asks only for anchors at which
+`r_K <= q` for one fixed rational `q < 1`.  That one scalar estimate compiles
+directly through the centered Gram to the completed same-object vacuum-sector
+strict gap.  Separate uniform target/source floors are no longer necessary.
+
+The corrected focused monitored check passes after adding one missing
+positive-connectivity namespace, and the exact-target one-worker dependency-
+complete build passes 1,494 jobs.  All seven audited exports use at most
+`[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+custom axiom, or noncomputable declaration was added.
+
+No cofinal upper bound `r_K <= q < 1` is inhabited.  The next finite diagnostic
+frontier is to evaluate or characterize this exact scalar on the already
+solved cutoff-one model and then isolate which cutoff-growth estimate must
+prevent it from approaching one.  Thermodynamic/continuum control and the
+Clay theorem remain open.

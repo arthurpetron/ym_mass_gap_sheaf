@@ -6475,3 +6475,35 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   before both passing checks.  Fixed-cutoff positivity does not imply a
   cofinal floor, so the unconditional completed gap, thermodynamic/continuum
   QFT, and Clay theorem remain open.
+
+### [BF4-vacuum-sector-overlap-residual-rate] One exact scalar to centered Gram — **REDUCED 2026-08-23**
+
+- **milestone**: define the two exact overlap-deficit `L1` rates and their
+  single product `r_K`; prove each physical posterior distance and profile
+  deviation is controlled by its finite rate; prove the literal centered-Gram
+  row majorant is bounded by `r_K * physicalWeight(source)`; and compile a
+  constructively cofinal upper bound `r_K <= q < 1` directly to the completed
+  same-object vacuum-sector strict gap.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorCenteredGramOverlapResidualRate.lean`.
+- **decl**:
+  `centralPhysicalFiniteVacuumSectorPosteriorOverlapResidualRate_nonnegative`,
+  `centralPhysicalFiniteVacuumSectorTargetGivenBoundaryL1_le_overlapResidualRate`,
+  `centralPhysicalFiniteVacuumSectorBoundaryGivenSourceL1_le_overlapResidualRate`,
+  `centralPhysicalFiniteVacuumSectorTargetProfileDeviation_le_overlapResidualRate`,
+  `centralPhysicalFiniteVacuumSectorSourceBoundaryProfileDeviation_le_overlapResidualRate`,
+  `centralPhysicalFiniteVacuumSectorCenteredGramRowMajorant_le_overlapResidualRate_mul_weight`,
+  and
+  `FixedNomeCofinalVacuumSectorPosteriorOverlapResidualRateBound.toVacuumSectorCenteredStrictGap`.
+- **obligation**: prove one constructively cofinal uniform rational bound
+  `r_K <= q < 1` for the explicit finite residual-rate sequence.  Separate
+  uniform lower bounds on the target and source floors are sufficient but no
+  longer required by the formal interface.
+- **constructive?**: yes — all seven audited exports use at most
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the corrected focused monitored check passes after one
+  missing positive-connectivity namespace was added, and the exact-target
+  one-worker dependency-complete build passes 1,494 jobs.  No cofinal bound
+  below one is inhabited, so the unconditional completed gap,
+  thermodynamic/continuum QFT, and Clay theorem remain open.
