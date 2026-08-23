@@ -5569,3 +5569,31 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   but its Markov-form Cauchy--Schwarz input and the common rate are both still
   open; no unconditional operator gap, thermodynamic/continuum QFT, or Clay
   theorem is asserted.
+
+### [BF4-vacuum-sector-dense-markov-form-cauchy-schwarz] Dense actual sector Markov form obeys sharp Cauchy--Schwarz — **PROVED 2026-08-22**
+
+- **milestone**: identify the regular cross pairing of two finite-linear
+  observables with the finite positive Markov form at every cutoff; prove its
+  convergence to the actual dense completed transfer pairing; pass finite
+  sharp Cauchy--Schwarz through the three product limits; and pull the result
+  back to two arbitrary dense canonical sector presentations, without a
+  common-base assumption.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCylinderDenseMarkovFormCauchySchwarz.lean`.
+- **decl**:
+  `innerLimit_markovCutoffAction_cross_approx_eqv_form`,
+  `centralPhysicalDenseMarkovCrossForm_converges`,
+  `centralPhysicalDenseMarkovFormLimit_cauchy_schwarz`, and
+  `centralPhysicalVacuumSectorCylinderCompletedMarkovForm_embedRep_cauchy_schwarz`.
+- **obligation**: extend this dense two-vector law jointly to arbitrary
+  completed sector representatives, thereby inhabiting
+  `CentralPhysicalVacuumSectorCylinderCompletedMarkovFormCauchySchwarzData`;
+  independently construct one cofinal strict rate `q < 1` at the required
+  cutoff/volume scope.
+- **constructive?**: yes — all four audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,366-job dependency-complete build pass.  The dense law is unconditional,
+  but the arbitrary-completion extension, common rate, unconditional operator
+  gap, thermodynamic/continuum QFT, and Clay theorem remain open.

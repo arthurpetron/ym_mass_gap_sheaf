@@ -6901,3 +6901,29 @@ noncomputable declaration was added.  The positive Markov-form
 Cauchy--Schwarz datum itself is not yet inhabited, and no common cofinal rate
 is constructed.  Therefore no unconditional operator gap, thermodynamic or
 continuum limit, or Clay result is asserted.
+
+## Sharp Markov-form Cauchy--Schwarz now holds on the dense completed BF4 root sector (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorCylinderDenseMarkovFormCauchySchwarz`
+generalizes the same-object dense transfer diagonal to two independent
+finite-linear observables.  At every cutoff, the regular same-cutoff
+approximation is identified with the rational positive Markov form
+`(left,right) |-> <P_K left,right>_K`.  Structural inner regularity is
+unchanged by recoding the left syntax, so each cross form converges to the
+literal completed pairing of the dense cutoff-removed transfer with its test
+observable.
+
+Finite sharp Markov-form Cauchy--Schwarz then passes through the three
+constructive product limits.  Pulling the result through the inhabited sector
+transfer lift proves the exact `CReal.RC` inequality on any two dense
+canonical root-sector cylinders, including presentations with different
+bases.
+
+The focused monitored check and exact-target one-worker 1,366-job build pass.
+All four audited exports use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  The positive-form law is now proved on
+the dense sector, but its joint continuity extension to arbitrary completed
+sector representatives and one common cofinal rate `q < 1` remain open.  No
+unconditional operator gap, thermodynamic/continuum limit, or Clay theorem is
+asserted.
