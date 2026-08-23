@@ -7921,3 +7921,35 @@ to determine whether the solved cutoff-one physical block identifies the
 canonical-sector scalar exactly, and then to isolate a support-stable
 all-cutoff overlap mechanism strong enough to improve the ceiling below one.
 Thermodynamic/continuum control and the Clay theorem remain open.
+
+## The cutoff-one vacuum/cube block is exactly the canonical vacuum sector (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffOneVacuumCubeNoEscape` first transports the already
+proved zero of every normalized two-row target outside `{vacuum,cube}` back
+to the raw reflected kernel by multiplying through the strictly positive row
+mass.  Decidable natural-number state codes, rather than equality branching
+on function-valued labellings, then prove that one support-graph edge cannot
+leave the block without introducing `Classical.choice`.
+
+`BF4PhysicalBoundaryCutoffOneCanonicalVacuumSector` propagates that one-step
+closure along every chain in the rooted support component.  In the converse
+direction, the exact vacuum-to-cube reflected-kernel entry is strictly
+positive, so the cube index is in the component.  The resulting support
+theorem is exact for every rational `w > 0`:
+
+`state in canonicalVacuumSectorStates(w, K=1, half=0)`
+`  iff state in [vacuum, centralLowerCubeState]`.
+
+Focused monitored checks pass for both modules.  Exact-target one-worker
+dependency-complete builds pass 1,398 and 1,399 jobs; all six audited exports
+use exactly `[propext, Quot.sound]`.  No `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.  Direct branching on labelling equality was rejected after its audit
+exposed `Classical.choice`; the final proof branches on the faithful finite
+state code.  Earlier long exploratory checks and the broad `YMGapGuard` run
+were interrupted and are not counted as passing audits.
+
+This finite support equality is not a cutoff-uniform sector theorem.  It
+provides the prerequisite for evaluating the exact canonical posterior-
+overlap residual scalar at cutoff one.  A cofinal bound `r_K <= q < 1`,
+thermodynamic/continuum control, and the Clay theorem remain open.

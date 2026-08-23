@@ -6531,3 +6531,38 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker dependency-complete build passes 1,495 jobs in 269 seconds.  The
   uniform `< 4` estimate is not an operator contraction; the unconditional
   completed gap, thermodynamic/continuum QFT, and Clay theorem remain open.
+
+### [BF4-cutoff-one-canonical-vacuum-sector] Exact vacuum/cube support identification — **PROVED FINITE 2026-08-23**
+
+- **milestone**: transport zero mass outside the exact normalized two-row
+  block back to the raw reflected kernel; prove one-step support-graph
+  no-escape constructively through faithful finite state codes; propagate
+  closure along every rooted-component chain; prove the vacuum-to-cube entry
+  is positive; and identify the canonical cutoff-one vacuum-sector state
+  support exactly with `[vacuum, central cube]`.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffOneVacuumCubeNoEscape.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffOneCanonicalVacuumSector.lean`.
+- **decl**:
+  `centralPhysicalReflectedKernel_cutoffOne_vacuumCube_eqv_zero_of_outside`,
+  `next_state_mem_cutoffOneVacuumCubeBlock_of_adjacent`,
+  `canonicalVacuumSectorState_mem_cutoffOneVacuumCubeBlock`,
+  `centralPhysicalReflectedKernel_cutoffOne_vacuum_cube_pos`,
+  `centralLowerCubeState_mem_cutoffOneCanonicalVacuumSector`, and
+  `centralPhysicalFiniteVacuumSectorStates_cutoffOne_iff`.
+- **obligation**: use this exact support identification to evaluate the
+  canonical target/source posterior overlap floors, or their product
+  residual scalar, at cutoff one; then construct a support-stable mechanism
+  that gives one fixed cofinal bound `r_K <= q < 1`.
+- **constructive?**: yes — all six audited exports use exactly
+  `[propext, Quot.sound]`.  A direct labelling-equality branch exposed
+  `Classical.choice` and was replaced by decidable natural-number state-code
+  comparisons plus positive-carrier code injectivity.  No `Classical.*`,
+  choice, `native_decide`, `sorry`, custom axiom, or noncomputable declaration
+  remains.
+- **status note**: both focused monitored checks pass; exact-target
+  one-worker dependency-complete builds pass 1,398 and 1,399 jobs.  Earlier
+  exploratory checks and the broad `YMGapGuard` audit were interrupted and
+  are not counted as passes.  The theorem is cutoff-one only; the cofinal
+  completed gap, thermodynamic/continuum QFT, and Clay theorem remain open.
