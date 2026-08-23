@@ -7296,3 +7296,41 @@ construct a sector-normalized conditional density/core-tail or local-slice
 witness that proves these checked rows uniformly.  The unconditional
 completed gap, thermodynamic/continuum control, and the Clay theorem remain
 open.
+
+## Conditioned density compiles exact sector core/tail windows to the gap (2026-08-23)
+
+`BF4PhysicalVacuumSectorMassNormalizedDensity` constructs the conditional
+probability weight and density on the canonical positive-mass vacuum
+component.  It proves exact recovery of the physical joint from the
+component-conditioned stationary product and density, normalization of the
+conditioned weight, and the row identity
+
+`sum_y |J(x,y) - pi(x)pi(y)/pi(S)|
+  = pi(x) sum_y pi_S(y)|k_S(x,y)-1|`.
+
+Thus the generic checked core/tail budget `1/32 + 1/64 + 1/64` gives the
+correct mass-normalized row estimate at rate `1/16` with no spurious factor
+of `pi(S)`.
+
+`BF4PhysicalVacuumSectorCoreTailFiniteChecker` specializes the exact rational
+core/tail checker to this conditioned component.  It scans only canonical
+vacuum-sector rows, permits a source-dependent Boolean core, packages a true
+all-row scan as the corrected finite row-distance certificate, and compiles
+a constructively cofinal family of true scans through the same-object
+centered cutoff limit to the completed vacuum-sector strict gap at `1/16`.
+
+Focused monitored checks pass for both modules.  Exact-target one-worker
+dependency-complete builds pass 1,484 jobs for the density module and 1,523
+jobs for the final checker target.  All 11 audited exports use at most
+`[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+custom axiom, or noncomputable declaration was added.  A diagnostic physical
+wrapper whose transparent proof payload caused CPU-bound elaboration was
+manually interrupted and removed; it is not counted as a successful check.
+
+No cofinal checked family is inhabited.  The next analytic frontier is to
+construct uniform sector-conditioned core/tail or local-slice estimates.
+Full-carrier density convergence cannot be silently reused: on the component
+the conditioned density rescales by its mass, so a component-mass defect must
+either be budgeted explicitly or avoided by a genuinely sector-local mixing
+argument.  The unconditional completed gap, thermodynamic/continuum control,
+and the Clay theorem remain open.

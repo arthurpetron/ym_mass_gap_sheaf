@@ -5935,3 +5935,43 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   checker and the cofinal compiler themselves pass.  No nontrivial cofinal check is
   inhabited, so the unconditional completed gap, thermodynamic/continuum QFT,
   and Clay theorem remain open.
+
+### [BF4-vacuum-sector-conditioned-core-tail] Exact conditioned-density compiler — **REDUCED 2026-08-23**
+
+- **milestone**: construct the canonical component-conditioned probability
+  weight and density; prove exact recovery, normalization, and the exact row
+  identity relating corrected joint distance to conditioned weighted density
+  distance; specialize the `1/32 + 1/64 + 1/64` core/tail checker to the
+  canonical vacuum sector; and compile any constructively cofinal family of
+  true all-row checks to the existing completed centered gap at rate `1/16`.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorMassNormalizedDensity.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorCoreTailFiniteChecker.lean`.
+- **decl**:
+  `finiteCarrierMassNormalizedWeight`,
+  `finiteCarrierMassNormalizedDensity`,
+  `finiteCarrierMassNormalizedStationaryProduct_mul_density_eqv_joint`,
+  `finiteCarrierMassNormalizedWeight_total_one`,
+  `finiteCarrierMassNormalizedRowDistance_eqv_densityCenteredRowMass`,
+  `finiteCarrierMassNormalizedRowDistance_le_sixteenth_of_coreTail`,
+  `centralPhysicalFiniteVacuumSectorCoreTailAllRowsCheck`,
+  `centralPhysicalFiniteVacuumSectorCoreTailCertificate_of_allRowsCheck`,
+  `FixedNomeCofinalVacuumSectorCoreTailCheckedRows.toMassNormalizedRowDistance`,
+  and
+  `FixedNomeCofinalVacuumSectorCoreTailCheckedRows.toVacuumSectorCenteredStrictGap`.
+- **obligation**: inhabit a constructively cofinal family of the sector-only
+  checked core/tail rows, or replace it by an equivalent uniform sector-local
+  analytic estimate.  Any attempted adapter from a full-carrier density must
+  account explicitly for the conditioned component mass; reducibility at
+  cutoff two prevents using the full-carrier scan as a substitute.
+- **constructive?**: yes — all 11 audited exports use at most
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: focused monitored checks pass for both modules.  Exact-
+  target one-worker dependency-complete builds pass 1,484 jobs for the density
+  target and 1,523 jobs for the final checker target.  One CPU-bound
+  transparent-wrapper diagnostic was manually interrupted, removed, and is
+  not reported as a pass.  No cofinal checked family is inhabited, so the
+  unconditional completed gap, thermodynamic/continuum QFT, and Clay theorem
+  remain open.
