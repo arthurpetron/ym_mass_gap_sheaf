@@ -8355,3 +8355,36 @@ an honest inhabitant at one rate `0 <= q < 1`, ideally via a checkable
 cutoff-dependent upper matrix certificate plus a uniform tail argument.
 Completion, volume/spacing uniformity, continuum QFT, and the Clay theorem
 remain open.
+
+## Canonical LDL checks are reduced to the vacuum component itself (2026-08-23)
+
+`BF4PhysicalCutoffVacuumSectorLocalCanonicalLDLBridge` removes a remaining
+certificate-scope mismatch.  It totalizes the duplicate-free canonical
+vacuum-sector list into coordinates `0, ..., n-1` and proves exact reindexing
+of the physical sector weighted mean, diagonal quadratic, and reflected
+matrix quadratic.  Nonemptiness and positivity of every retained sector
+weight give a positive coordinate-zero head, so the generic canonical
+head-centered restriction is constructed directly on this sector-local
+matrix.
+
+Ordinary and shardable cleared upper-only LDL certificates for the generated
+sector restriction prove the fixed-cutoff absolute centered gap by reflection
+positivity.  Cofinal families of those smaller certificates then compile to
+`FixedNomeCofinalVacuumSectorCenteredStrictGap` and to the same literal
+`CReal.leEv` cutoff-limit inequality as the prior full-carrier route.  This is
+a genuine weakening of the open input: disconnected positive-carrier
+components no longer appear in the required matrices.
+
+The focused monitored check passes in about 1.3 seconds, and the exact-target
+one-worker dependency-complete build passes 4,756 jobs.  All ten audited
+exports use exactly `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.  Two initial focused checks failed on omitted namespace opens and one
+unfold ordering; neither is counted as a pass.
+
+No cofinal sector-local certificate is inhabited.  The next concrete
+frontier is to identify the already-proved cutoff-two `49/50` signed-form/LDL
+data with this generated sector-local restriction, establishing the first
+nontrivial finite inhabitant before seeking an unbounded uniform schedule.
+The completed gap, volume/spacing control, continuum QFT, and Clay theorem
+remain open.

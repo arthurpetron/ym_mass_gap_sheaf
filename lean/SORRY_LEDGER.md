@@ -6917,3 +6917,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   and is not a pass.  This closes the implication from a named upper-LDL
   input, not construction of that input, a completed gap,
   thermodynamic/continuum QFT, or the Clay theorem.
+
+### [BF4-cutoff-vacuum-sector-local-canonical-LDL] Sector-local upper compiler — **CLOSED 2026-08-23**
+
+- **milestone**: reindex exactly the canonical vacuum-component list; prove
+  coordinate mean, diagonal, and matrix forms equal the physical sector
+  forms; construct the positive-head restriction on that smaller matrix; and
+  compile ordinary or cleared cofinal upper LDL families to the same-object
+  centered certificate and its `CReal.leEv` limit inequality.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorLocalCanonicalLDLBridge.lean`.
+- **decl**:
+  `centralPhysicalFiniteVacuumSectorCoordinateMean_eqv`,
+  `centralPhysicalFiniteVacuumSectorCoordinateDiagonal_eqv`,
+  `centralPhysicalFiniteVacuumSectorCoordinateMatrix_eqv`,
+  `centralPhysicalFiniteVacuumSectorCanonicalHeadRestriction`,
+  both `CentralPhysicalFiniteVacuumSectorCanonicalHeadUpper*LDLCertificate.meanZeroAbsGap`
+  theorems, and both cofinal `toVacuumSectorCenteredStrictGap` and
+  `centeredMatrixCutoffLimit_leEv_rate_mul_diagonal` pairs.
+- **obligation**: identify the cutoff-two `49/50` certificate with this
+  generated sector-local restriction, then construct one strict-rate family
+  on a constructively cofinal unbounded cutoff schedule.  No cofinal
+  inhabitant is asserted.
+- **constructive?**: yes — all ten audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check passes in about 1.3 seconds,
+  and the exact-target one-worker dependency-complete build passes 4,756
+  jobs.  Two early namespace/unfold failures are not passes.  This closes a
+  certificate recoding implication, not its cofinal inhabitant, the completed
+  gap, thermodynamic/continuum QFT, or the Clay theorem.
