@@ -6888,3 +6888,32 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   corrected.  The theorem is finite and cutoff-two only.  Cofinal signed-form
   control, the completed uniform gap, thermodynamic/continuum QFT, and the
   Clay theorem remain open.
+
+### [BF4-cutoff-vacuum-sector-upper-LDL-bridge] Upper-only LDL to same-object limits — **CLOSED 2026-08-23**
+
+- **milestone**: compile ordinary and cleared upper-only canonical
+  full-carrier LDL families at a supplied `0 <= q < 1` into the exact
+  same-object centered-sector certificate; use reflection positivity to
+  recover the absolute bound; and prove the corresponding `CReal.leEv`
+  cutoff-limit inequalities.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCanonicalLDLBridge.lean`.
+- **decl**:
+  `FixedNomeCofinalCanonicalHeadUpperLDLAtRate.toVacuumSectorCenteredStrictGap`,
+  `FixedNomeCofinalCanonicalHeadUpperLDLAtRate.centeredMatrixCutoffLimit_leEv_rate_mul_diagonal`,
+  `FixedNomeCofinalCanonicalHeadUpperClearedLDLAtRate.toVacuumSectorCenteredStrictGap`,
+  and
+  `FixedNomeCofinalCanonicalHeadUpperClearedLDLAtRate.centeredMatrixCutoffLimit_leEv_rate_mul_diagonal`.
+- **obligation**: construct an actual cofinal upper-only canonical LDL family
+  at one strict rate uniform in cutoff, or derive it from a smaller
+  cancellation-preserving finite/tail certificate.  No inhabitant is asserted
+  here.
+- **constructive?**: yes — all four new audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check passes in about 1.3 seconds,
+  and the exact-target one-worker dependency-complete build passes 4,755
+  jobs.  One prolonged direct positivity reproving attempt was interrupted
+  and is not a pass.  This closes the implication from a named upper-LDL
+  input, not construction of that input, a completed gap,
+  thermodynamic/continuum QFT, or the Clay theorem.

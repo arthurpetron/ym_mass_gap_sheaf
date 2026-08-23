@@ -8323,3 +8323,35 @@ The next honest frontier is therefore cancellation-preserving: construct or
 factor a cofinal signed-form/upper-LDL certificate that controls the actual
 vacuum-sector quadratic form uniformly.  A uniform completed gap,
 thermodynamic/continuum QFT, and the Clay theorem remain open.
+
+## Upper-only canonical LDL families now reach same-object form limits (2026-08-23)
+
+`BF4PhysicalCutoffVacuumSectorCanonicalLDLBridge` now compiles both ordinary
+and shardable cleared-denominator *upper-only* canonical LDL families into
+the exact two-parameter same-object certificate
+`FixedNomeCofinalVacuumSectorCenteredStrictGap`.  At each reindexed anchor,
+the upper LDL check proves `K <= qD` for the zero-extended centered
+coefficient.  Exact carrier recoding transports that inequality to the pulled
+vacuum-sector form, while the existing finite Gram/reflection-positivity
+theorem proves `0 <= K`; therefore `|K| <= qD` without a lower LDL check or a
+row-total-variation majorant.
+
+Both new routes then feed the existing Cauchy theorem and prove the literal
+`CReal.leEv` comparison between the centered reflected-form cutoff limit and
+`q` times the centered diagonal-form cutoff limit.  Thus the
+cancellation-preserving upper-LDL interface now reaches the same object whose
+limit is used by the vacuum-sector program.
+
+The focused monitored check passes in about 1.3 seconds, and the exact-target
+one-worker dependency-complete build passes 4,755 jobs.  All four new audited
+exports use exactly `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.  A direct local reproving of pulled reflection positivity was
+intentionally interrupted after prolonged elaboration and is not a pass; the
+final proof reuses the already kernel-checked positivity theorem.
+
+No cofinal upper-LDL family is constructed.  The next analytic frontier is
+an honest inhabitant at one rate `0 <= q < 1`, ideally via a checkable
+cutoff-dependent upper matrix certificate plus a uniform tail argument.
+Completion, volume/spacing uniformity, continuum QFT, and the Clay theorem
+remain open.
