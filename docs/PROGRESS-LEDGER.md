@@ -7733,3 +7733,31 @@ uniform `65/64` cross-ratio estimate, or exhibit a support obstruction and
 replace this sufficient criterion by a support-compatible coupling or
 multi-step estimate.  The unconditional completed gap,
 thermodynamic/continuum control, and the Clay theorem remain open.
+
+## The cutoff-two vacuum sector obstructs every finite projective spread (2026-08-23)
+
+`BF4PhysicalVacuumSectorProjectiveObstruction` resolves the first branch of
+that frontier negatively.  The exact cutoff-two vacuum half-amplitude row is
+zero at the explicit non-vacuum single-face boundary, while the fundamental-
+cube row is strictly positive there and the vacuum-to-vacuum corner is
+strictly positive.  The canonical-vacuum-sector theorem places the cube in
+the literal 65-state vacuum component.
+
+These four entries form a support rectangle whose projective inequality has
+a strictly positive left side and a zero right side.  Hence no rational
+spread of any size can satisfy the proposed half-amplitude cross-ratio field
+on the cutoff-two canonical sector and full physical boundary carrier.  This
+is an obstruction to that sufficient criterion, not an obstruction to
+posterior mixing itself.
+
+The focused monitored check passes after adding one missing namespace open,
+and the exact-target one-worker dependency-complete build passes 3,583 jobs.
+All three audited exports use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.
+
+This finite result does not rule out a cofinal family that skips cutoff two.
+The next causal frontier is therefore a support-compatible overlap,
+minorization, coupling, or multi-step estimate for the two exact posterior
+laws.  No such cofinal bound is yet inhabited.  The unconditional completed
+gap, thermodynamic/continuum control, and the Clay theorem remain open.

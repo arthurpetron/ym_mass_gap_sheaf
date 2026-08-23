@@ -6348,3 +6348,31 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   both passing checks.  No projective family is inhabited, so the
   unconditional completed gap, thermodynamic/continuum QFT, and Clay theorem
   remain open.
+
+### [BF4-vacuum-sector-projective-obstruction] Cutoff-two support rectangle — **OBSTRUCTED 2026-08-23**
+
+- **milestone**: prove the fundamental-cube half-amplitude is strictly
+  positive at the explicit single-face boundary, prove the vacuum amplitude
+  vanishes at that boundary and is positive at the vacuum boundary, place
+  the cube in the canonical 65-state vacuum sector, and use the resulting
+  support rectangle to refute every rational half-amplitude projective
+  spread on the cutoff-two sector and full boundary carrier.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorProjectiveObstruction.lean`.
+- **decl**:
+  `centralHalfAmplitude_cutoffTwo_cube_singleFaceBoundary_pos`,
+  `centralHalfAmplitude_cutoffTwo_vacuum_singleFaceBoundary_eqv_zero`, and
+  `no_cutoffTwo_vacuumSector_halfAmplitudeCrossRatio`.
+- **obligation**: replace the globally positive projective criterion by a
+  support-compatible overlap, minorization, coupling, or multi-step
+  posterior estimate.  The cutoff-two contradiction does not rule out a
+  cofinal family whose anchors skip cutoff two, and it does not refute the
+  exact posterior route itself.
+- **constructive?**: yes — all three audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check passes after one missing
+  namespace open was corrected, and the exact-target one-worker dependency-
+  complete build passes 3,583 jobs.  No support-compatible cofinal mixing
+  certificate is inhabited, so the unconditional completed gap,
+  thermodynamic/continuum QFT, and Clay theorem remain open.
