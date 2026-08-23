@@ -8623,3 +8623,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   jobs with the new module taking about 0.9 seconds.  The cofinal family is not
   inhabited.  Uniform completed contraction, continuum QFT, and the Clay
   theorem remain open.
+
+### [BF4-cutoff-two-novel-flow-symmetric-three-block-decision] Complete finite block checker — **CLOSED 2026-08-23**
+
+- **milestone**: reflect the exact old--old and new--new symmetric capacity
+  inequalities into finite Boolean scans with soundness and completeness;
+  combine them with the sufficient cross-ceiling scan; compile combined
+  success to the existing three-field oriented capacity datum and completed
+  strict contraction; and constructively retain a literal failed edge tagged
+  by block when inspection fails.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricThreeBlockDecision.lean`.
+- **decl**: `cutoffTwoNovelSymmetricOldOldCapacityCheck`,
+  `cutoffTwoNovelSymmetricNewNewCapacityCheck`, their soundness and completeness
+  theorems, `cutoffTwoNovelSymmetricThreeBlockCapacityCheck`,
+  `cutoffTwoNovelSymmetricOrientedCapacityAt_of_threeBlockCheck`,
+  `CutoffTwoNovelSymmetricThreeBlockCapacityOutcome`,
+  `inspectCutoffTwoNovelSymmetricThreeBlockCapacity`, and
+  `CutoffTwoCofinalNovelSymmetricThreeBlockCheck.toCompletedStrictContractionData`.
+- **obligation**: prove that the combined three-block check succeeds along a
+  cofinal cutoff schedule, using tagged failed edges to identify which local
+  estimate or flow choice must be sharpened.  Then construct and control the
+  thermodynamic and continuum theories.
+- **constructive?**: yes — both diagonal scans decide the exact displayed
+  rational inequality; the cross scan retains its stated conservative status;
+  failed inspection carries literal endpoints and memberships in Type; all
+  five audited exports use exactly `[propext, Quot.sound]`; no forbidden
+  construct was added.
+- **status note**: the first focused check failed on one missing namespace
+  opening and is not a pass.  The corrected focused check passes in about 1.2
+  seconds; the exact one-worker dependency-complete target passes 4,985 jobs
+  with the new module taking about 1.2 seconds.  The cofinal checked family is
+  not inhabited.  Uniform completed contraction, continuum QFT, and the Clay
+  theorem remain open.

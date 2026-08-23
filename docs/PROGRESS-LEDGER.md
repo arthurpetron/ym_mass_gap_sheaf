@@ -10287,3 +10287,33 @@ fields into exact finite scans as well.  That will reduce the entire cofinal
 finite/completed gap input to success of three transparent Boolean block
 checks, while leaving their uniform analytic success—and all thermodynamic and
 continuum work—honestly open.
+
+## All three symmetric capacity blocks now have one finite decision (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricThreeBlockDecision` adds exact
+Boolean scans of the old--old and new--new capacity inequalities and combines
+them with the existing sufficient old-to-new ceiling scan.  Soundness and
+completeness are proved separately for both diagonal scans.  Success of the
+combined checker constructs the exact three-field oriented capacity datum and
+therefore compiles, along any cofinal successful schedule, to completed
+vacuum-sector strict contraction.
+
+Constructive inspection is stronger than a bare Boolean result: it returns
+either the complete finite capacity certificate or a literal failed edge,
+tagged as old--old, cross ceiling, or new--new and carrying endpoint-membership
+witnesses.  Diagonal failures refute the displayed exact capacity inequality;
+a cross failure only refutes the conservative finite ratio-ceiling test and
+does not refute exact cross capacity.
+
+The first focused check exposed one missing namespace opening and is not a
+pass.  The corrected focused monitored check passes in about 1.2 seconds.  The
+exact one-worker dependency-complete target passes 4,985 jobs, with the new
+module taking about 1.2 seconds.  All five audited exports use exactly
+`[propext, Quot.sound]`.
+
+The finite/completed BF4 contraction frontier is now a single transparent
+analytic statement: exhibit a cofinal schedule on which the combined
+three-block checker succeeds.  No such schedule is constructed here.  The
+next proof-search step is to analyze the diagonal scans and the returned
+counteredges for reusable algebraic bounds, while cross-ceiling cofinality,
+thermodynamic/continuum construction, and the Clay theorem remain open.
