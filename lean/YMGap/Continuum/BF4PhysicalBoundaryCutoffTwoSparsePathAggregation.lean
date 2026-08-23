@@ -400,6 +400,23 @@ private theorem cutoffTwo_edgeFloor_lengthLinear_endpoint
         cutoffTwoHalfCoupling (by decide) later 0
         left right hleft hright)
 
+/-- Public endpoint form of the polynomial canonical path estimate.  This is
+the reusable atom for aggregating arbitrary finite endpoint families, not
+only the old/new cross family below. -/
+theorem cutoffTwo_edgeFloor_mul_endpoint_sq_le_lengthLinearPathBudget
+    (later : Nat) (coefficient : Nat → Q')
+    (left right : Nat)
+    (hleft : left ∈ cutoffTwoFullStates later)
+    (hright : right ∈ cutoffTwoFullStates later) :
+    centralPhysicalFiniteVacuumSectorEdgeFloor
+          cutoffTwoHalfCoupling (by decide) later 0 *
+        ((coefficient left + -coefficient right) *
+          (coefficient left + -coefficient right)) ≤
+      cutoffTwoCanonicalFullLengthLinearPathBudget
+        later coefficient left right :=
+  cutoffTwo_edgeFloor_lengthLinear_endpoint
+    later coefficient left right hleft hright
+
 theorem cutoffTwo_edgeFloor_mul_oldNewVariance_le_lengthLinearPathBudget
     (later : Nat) (coefficient : Nat → Q') :
     centralPhysicalFiniteVacuumSectorEdgeFloor
@@ -676,6 +693,8 @@ end YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSparsePathAggregation
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSparsePathAggregation.cutoffTwo_edgeFloor_mul_crossVariance_le_lengthLinearPathBudget
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSparsePathAggregation.cutoffTwoCanonicalFullLengthLinearPathBudget_eqv_of_mem
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSparsePathAggregation.cutoffTwo_edgeFloor_mul_endpoint_sq_le_lengthLinearPathBudget
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSparsePathAggregation.CutoffTwoSparsePathAllocatedGluingAt.toAllocatedDirichletGluingAt
 #print axioms

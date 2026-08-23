@@ -7427,3 +7427,37 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   check failed on missing namespace openings and is not a pass.  Finite
   capacity existence is closed, but its uniform scaled lower bound, the
   completed gap inhabitant, continuum QFT, and the Clay theorem remain open.
+
+### [BF4-cutoff-two-canonical-full-edge-load] Inhabited finite full-sector coercivity — **CLOSED 2026-08-23**
+
+- **milestone**: aggregate canonical positive paths over every ordered
+  full-sector endpoint pair; regroup their stationary length-weighted edge
+  occurrences into one explicit full edge load; take its located finite
+  maximum; and inhabit the cleared full-sector coercivity certificate without
+  a separate within-block hypothesis.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoCanonicalFullEdgeLoad.lean`,
+  plus public one-path atoms in
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSparsePathAggregation.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoCanonicalCrossEdgeLoad.lean`.
+- **decl**: `cutoffTwoCanonicalFullWeightedEdgeOccurrences`,
+  `cutoffTwoCanonicalFullEdgeLoad`,
+  `cutoffTwoCanonicalFullLengthLinearAggregateBudget_eqv_loadedDirichlet`,
+  `cutoffTwoCanonicalFullEdgeLoadCapacity`,
+  `cutoffTwo_edgeFloor_mul_fullVariance_le_fullLoadCapacity_mul_Dirichlet`,
+  `cutoffTwoCanonicalFullEdgeLoadClearedDirichletAt`, and
+  `CutoffTwoCofinalCanonicalFullEdgeLoadRatio.toCompletedStrictContractionData`.
+- **obligation**: bound the cutoff dependence of the full edge-load capacity,
+  preferably after replacing arbitrary canonical walks by loop-free paths;
+  prove a fixed positive cofinal lower bound for edge floor divided by that
+  capacity and a fixed positive sector-mass floor; then construct the
+  thermodynamic and continuum theories.
+- **constructive?**: yes — all eight audited exports use exactly
+  `[propext, Quot.sound]`; the two newly public supporting atoms have the same
+  audit, and no forbidden construct was added.
+- **status note**: the focused check passes in about 1.4 seconds and the exact
+  one-worker dependency-complete target passes 4,900 jobs.  One preliminary
+  missing-namespace/unfolding failure is not a pass.  Finite full-sector
+  coercivity existence is closed; the uniform ratio, completed gap
+  inhabitant, continuum QFT, and Clay theorem remain open.

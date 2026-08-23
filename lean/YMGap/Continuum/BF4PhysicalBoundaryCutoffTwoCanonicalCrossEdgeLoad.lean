@@ -204,6 +204,23 @@ private theorem onePath_occurrenceEnergy_eqv_pairBudget
       (cutoffTwoCanonicalFullLengthLinearPathBudget_eqv_of_mem
         later coefficient left right hleft hright))
 
+/-- Public one-path occurrence identity used when the same canonical path
+encoding is aggregated over endpoint families other than the cross block. -/
+theorem cutoffTwoCanonicalWeightedPathOccurrenceEnergy_eqv_pairBudget
+    (later : Nat) (coefficient : Nat → Q')
+    (left right : Nat)
+    (hleft : left ∈ cutoffTwoEdgeLoadFullStates later)
+    (hright : right ∈ cutoffTwoEdgeLoadFullStates later) :
+    finiteWeightedOccurrenceEnergy
+        (cutoffTwoCanonicalWeightedPathOccurrences later left right)
+        coefficient (cutoffTwoEdgeLoadKernel later) ≈
+      (cutoffTwoEdgeLoadWeight later left *
+          cutoffTwoEdgeLoadWeight later right) *
+        cutoffTwoCanonicalFullLengthLinearPathBudget
+          later coefficient left right :=
+  onePath_occurrenceEnergy_eqv_pairBudget
+    later coefficient left right hleft hright
+
 /-! ## 3. Flatten all cross paths and identify the loaded Dirichlet form -/
 
 def cutoffTwoCanonicalCrossPairBudget
@@ -785,6 +802,8 @@ end YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCanonicalCrossEdgeLoad
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCanonicalCrossEdgeLoad.cutoffTwoCanonicalCrossPairBudget_eqv_lengthLinearPathBudget
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCanonicalCrossEdgeLoad.cutoffTwoCanonicalCrossOccurrenceEnergy_eqv_pairBudget
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCanonicalCrossEdgeLoad.cutoffTwoCanonicalWeightedPathOccurrenceEnergy_eqv_pairBudget
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoCanonicalCrossEdgeLoad.cutoffTwoCanonicalCrossLengthLinearPathBudget_eqv_loadedDirichlet
 #print axioms

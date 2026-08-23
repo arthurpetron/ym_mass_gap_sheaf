@@ -8951,3 +8951,47 @@ exports use at most `[propext, Quot.sound]`; no forbidden construct was added.
 The first focused check failed on missing namespace openings and is not a
 pass.  No uniform ratio or mass-floor family, continuum QFT, or Clay theorem
 is claimed.
+
+## Full-sector edge loading removes the finite within-block hypothesis (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoCanonicalFullEdgeLoad` aggregates the canonical
+positive path over every ordered pair in the finite vacuum sector, rather
+than only over old/new cross pairs.  Stationary endpoint weight times path
+length is attached to every literal directed-edge occurrence, and finite
+regrouping proves the exact identity
+
+`fullCanonicalLengthLinearAggregateBudget`
+
+`  = Dirichlet(fullCanonicalEdgeLoad * physicalKernel)`.
+
+The coefficient-independent capacity `1 + max(fullCanonicalEdgeLoad)` is
+constructively located on the finite full edge-pair list.  The module proves
+
+`edgeFloor(later) * V_full`
+
+`  <= fullEdgeLoadCapacity(later) * E_full`
+
+and therefore inhabits the finite cleared coercivity certificate without any
+separate within-block cost or induced-subgraph connectivity assumption.  A
+cofinal family now requires only the transparent quantitative inputs
+
+`effectiveFloor * fullEdgeLoadCapacity(anchor(request))`
+
+`  <= edgeFloor(anchor(request))`
+
+and a fixed positive lower bound on sector mass.  Those inputs compile to the
+completed strict-contraction interface.
+
+The focused monitored check passes in about 1.4 seconds, and the exact
+one-worker dependency-complete target passes 4,900 jobs.  All eight audited
+exports use exactly `[propext, Quot.sound]`; no forbidden construct was added.
+One preliminary focused check failed on missing namespace openings and an
+over-eager unfolding step and is not a pass.  The two reused one-path atoms
+were made public and separately audited in the sparse aggregation and cross
+edge-load modules.
+
+The next frontier is no longer finite coercivity existence.  It is to replace
+or compare the arbitrary canonical paths with loop-free carrier-bounded paths
+and obtain a usable cutoff dependence for the full edge-load capacity, then
+prove a cofinal positive ratio and mass floor.  Continuum QFT and the Clay
+theorem remain open.
