@@ -6649,3 +6649,34 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   factoring; none is counted as a pass.  This theorem is cutoff-one only; the
   cofinal completed gap, thermodynamic/continuum QFT, and Clay theorem remain
   open.
+
+### [BF4-cutoff-one-canonical-overlap-residual] Exact rank-one Bayes factorization and zero residual — **PROVED FINITE 2026-08-23**
+
+- **milestone**: prove the cutoff-one cube half-amplitude is a fixed activity
+  multiple of the vacuum half-amplitude on every boundary channel; derive the
+  exact indexed stationary-times-channel-total factorization; identify both
+  physical conditional laws with their priors; and evaluate the two overlap
+  floors and their product residual scalar.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffOneCanonicalVacuumSectorOverlapResidual.lean`.
+- **decl**:
+  `centralHalfAmplitude_cutoffOne_cube_eqv_activity_mul_vacuum_on_boundary`,
+  `centralPhysicalFiniteVacuumSectorGramAmplitude_cutoffOne_eqv_stationary_mul_channelTotal`,
+  `centralPhysicalFiniteVacuumSectorTargetGivenBoundary_cutoffOne_eqv_stationary`,
+  `centralPhysicalFiniteVacuumSectorBoundaryGivenSource_cutoffOne_eqv_prior`,
+  `centralPhysicalFiniteVacuumSectorTargetPosteriorOverlapFloor_cutoffOne_eqv_one`,
+  `centralPhysicalFiniteVacuumSectorSourcePosteriorOverlapFloor_cutoffOne_eqv_one`,
+  and
+  `centralPhysicalFiniteVacuumSectorPosteriorOverlapResidualRate_cutoffOne_eqv_zero`.
+- **obligation**: construct an all-cutoff support-stable defect estimate that
+  preserves enough of the cutoff-one rank-one factorization to prove one fixed
+  constructively cofinal bound `r_K <= q < 1`.
+- **constructive?**: yes — all seven audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the corrected focused monitored check passes in 1.2
+  seconds, and the exact-target one-worker dependency-complete build passes
+  1,556 jobs.  One exploratory run was interrupted and two low-heartbeat
+  diagnostics failed during factoring; none is counted as a pass.  The exact
+  zero residual is cutoff-one only; the cofinal completed gap,
+  thermodynamic/continuum QFT, and Clay theorem remain open.

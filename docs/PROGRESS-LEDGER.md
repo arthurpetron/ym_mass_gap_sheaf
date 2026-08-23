@@ -8039,3 +8039,40 @@ to prove both target/source posterior overlap floors equal one and hence the
 exact residual mixing scalar `r_1` is zero.  A fixed cofinal bound
 `r_K <= q < 1`, thermodynamic/continuum control, and the Clay theorem remain
 open.
+
+## The cutoff-one physical amplitude is rank one and its overlap residual vanishes (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffOneCanonicalVacuumSectorOverlapResidual` proves
+directly on every literal fixed-time boundary channel that the central-cube
+half-amplitude is `coeffW(w,1)^6` times the vacuum half-amplitude.  Exact
+two-state recoding then gives the genuine indexed factorization
+
+`amplitude(index,boundary)`
+`  = stationaryWeight(index) * channelTotal(boundary)`.
+
+This is stronger than merely observing equal transfer rows: it exposes the
+rank-one state/boundary factorization before the Gram contraction.  As exact
+Bayes consequences, every positive-channel target posterior equals the
+component-conditioned stationary law, and every canonical source posterior
+on boundary channels equals the common boundary prior.  Therefore both actual
+posterior overlaps and both capped finite overlap floors equal one.  The
+single exact scalar consumed by the centered-Gram compiler consequently
+satisfies
+
+`r_1 = 0`.
+
+The corrected focused monitored check passes in 1.2 seconds, and the exact-
+target one-worker dependency-complete build passes 1,556 jobs.  All seven
+audited exports use exactly `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.  The first exploratory check was intentionally interrupted after ten
+minutes.  Two subsequent low-heartbeat diagnostics exposed missing namespaces
+and an expensive generic rational distributivity step; explicit namespace
+opens and the exact chain `v + A*v = 1*v + A*v = (1+A)*v` resolved them.
+Only the final passing checks are counted as verification.
+
+The equality `r_1 = 0` is a solved finite base case, not a cofinal estimate.
+The next causal frontier is to isolate an all-cutoff support-stable defect from
+this rank-one factorization and prove that its contribution keeps the exact
+sequence `r_K` below one on a constructively cofinal family.  The completed
+uniform gap, thermodynamic/continuum QFT, and Clay theorem remain open.
