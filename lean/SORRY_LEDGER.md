@@ -7489,3 +7489,41 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   check failed on missing namespace openings and is not a pass.  The explicit
   polynomial finite cost is closed; its uniform ratio, completed gap
   inhabitant, continuum QFT, and Clay theorem remain open.
+
+### [BF4-cutoff-two-simple-full-edge-load] Linear loop-erased congestion cost — **CLOSED 2026-08-23**
+
+- **milestone**: prove vertex-simple walks have duplicate-free directed-edge
+  lists; transport this to the loop-erased BF4 positive paths; regroup their
+  stationary length-weighted occurrences; prove every full-sector edge load
+  is at most sector cardinality; derive the cleared coercivity cost
+  `1 + |sector|`; bound it by the explicit half-zero ambient cost
+  `1 + (later + 1)^24`; and compile a supplied cofinal ratio to completed
+  strict contraction.
+- **files**:
+  `lean/YMGap/Continuum/FiniteBoolGraphSimplePaths.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSimpleFullSectorCost.lean`,
+  and
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoSimpleFullEdgeLoad.lean`.
+- **decl**: `Walk.directedEdges_nodup_of_vertices_nodup`,
+  `cutoffTwoSimplePositivePath_directedEdges_nodup`,
+  `cutoffTwoSimpleWeightedPathOccurrenceEnergy_eqv_pairBudget`,
+  `cutoffTwoSimpleFullLengthLinearAggregateBudget_eqv_loadedDirichlet`,
+  `cutoffTwoSimpleFullEdgeLoad_le_sectorSize`,
+  `cutoffTwo_edgeFloor_mul_fullVariance_le_linearCost_mul_Dirichlet`,
+  `cutoffTwoLinearFullSectorClearedDirichletAt`,
+  `cutoffTwoAmbientLinearFullSectorCost_eqv_power`, and
+  `CutoffTwoCofinalAmbientLinearFullSectorRatio.toCompletedStrictContractionData`.
+- **obligation**: prove a fixed positive cofinal lower bound for the canonical
+  BF4 positive-edge floor divided by `1 + (later + 1)^24`, or replace that
+  global-minimum route by a stronger weighted-flow/minorization estimate;
+  also prove a fixed positive sector-mass floor and construct the
+  thermodynamic and continuum theories.
+- **constructive?**: yes — nine audited exports use exactly
+  `[propext, Quot.sound]`, the ambient-power identity uses only `[propext]`,
+  and all supporting exports stay inside the same axiom gate.
+- **status note**: the final focused check passes in about 72 seconds and the
+  exact one-worker dependency-complete target passes 4,905 jobs, with the new
+  module taking about 78 seconds.  Earlier missing-olean, proof-rewrite,
+  syntax, and deterministic-heartbeat failures are not passes.  Linear
+  carrier congestion is closed; the uniform ratio, completed gap inhabitant,
+  continuum QFT, and Clay theorem remain open.

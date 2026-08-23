@@ -48,6 +48,41 @@ def edgeLength : {first last : State} → Walk edge first last → Nat
   | _, _, .single _ => 0
   | _, _, .cons _ rest => edgeLength rest + 1
 
+/-- The literal directed edges of a cons-form walk. -/
+def directedEdges : {first last : State} →
+    Walk edge first last → List (State × State)
+  | _, _, .single _ => []
+  | first, _, .cons (next := next) _ rest =>
+      (first, next) :: directedEdges rest
+
+/-- The source of every directed edge occurs among the walk vertices. -/
+theorem directedEdges_source_mem_vertices :
+    ∀ {first last : State} (path : Walk edge first last)
+      (traversed : State × State),
+      traversed ∈ path.directedEdges → traversed.1 ∈ path.vertices
+  | _, _, .single _, traversed, htraversed => by
+      cases htraversed
+  | first, _, .cons (next := next) hedge rest, traversed, htraversed => by
+      rcases List.mem_cons.mp htraversed with hhead | htail
+      · rw [hhead]
+        exact List.mem_cons_self
+      · exact List.mem_cons_of_mem first
+          (directedEdges_source_mem_vertices rest traversed htail)
+
+/-- A vertex-simple walk cannot repeat a directed edge. -/
+theorem directedEdges_nodup_of_vertices_nodup :
+    ∀ {first last : State} (path : Walk edge first last),
+      path.vertices.Nodup → path.directedEdges.Nodup
+  | _, _, .single _, _ => List.nodup_nil
+  | first, _, .cons (next := next) hedge rest, hvertices => by
+      have hparts := List.nodup_cons.mp hvertices
+      apply List.nodup_cons.mpr
+      constructor
+      · intro hhead
+        exact hparts.1
+          (directedEdges_source_mem_vertices rest (first, next) hhead)
+      · exact directedEdges_nodup_of_vertices_nodup rest hparts.2
+
 def append {first middle last : State} :
     Walk edge first middle → Walk edge middle last → Walk edge first last
   | .single _, right => right
@@ -273,6 +308,8 @@ end YMGap.Continuum.FiniteBoolGraphSimplePaths
   YMGap.Continuum.FiniteBoolGraphSimplePaths.Walk.dropTo_nodup
 #print axioms
   YMGap.Continuum.FiniteBoolGraphSimplePaths.Walk.edgeLength_add_one_eq_vertices_length
+#print axioms
+  YMGap.Continuum.FiniteBoolGraphSimplePaths.Walk.directedEdges_nodup_of_vertices_nodup
 #print axioms
   YMGap.Continuum.FiniteBoolGraphSimplePaths.FiniteListBound.nodup_subset_length_le
 #print axioms

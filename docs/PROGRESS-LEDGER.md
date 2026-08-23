@@ -9031,3 +9031,49 @@ frontier is a sharper simple-path edge-load/congestion bound exploiting which
 endpoint paths actually use each edge, or a stronger analytic BF4 kernel
 minorization.  A uniform completed gap, continuum QFT, and the Clay theorem
 remain open.
+
+## Simple-path congestion lowers the explicit cost to degree 24 (2026-08-23)
+
+`FiniteBoolGraphSimplePaths` now records the literal directed edges of a
+cons-form walk and proves that a vertex-simple walk has a duplicate-free edge
+list.  `BF4PhysicalBoundaryCutoffTwoSimpleFullEdgeLoad` transports that fact
+to the actual loop-erased BF4 positive paths, assigns each occurrence its
+stationary endpoint-pair weight times path length, and regroups all ordered
+endpoint paths by physical directed edge.
+
+For every directed edge, duplicate-freeness gives one charge per endpoint
+path.  Summing over all endpoint pairs and using stationary sector mass at
+most one proves
+
+`simpleFullEdgeLoad(later, source, target) <= |vacuumSector(later)|`.
+
+The exact occurrence-energy identity therefore contracts to the inhabited
+finite coercivity estimate
+
+`edgeFloor(later) * V_full`
+
+`  <= (1 + |vacuumSector(later)|) * E_full`.
+
+At half extent zero the ambient enumeration gives the exact presentation
+
+`1 + ambientSize(later, 0) = 1 + (later + 1)^24`,
+
+halving the previous fallback's polynomial degree from 48 to 24.  A supplied
+cofinal positive lower bound for `edgeFloor / (1 + (later + 1)^24)` and a
+positive sector-mass floor compile through the existing capacity-cleared
+pipeline to completed strict contraction.
+
+The final focused monitored check passes in about 72 seconds, and the exact
+one-worker dependency-complete target passes 4,905 jobs with the new module
+itself taking about 78 seconds.  Nine audited exports use exactly
+`[propext, Quot.sound]`; the exact ambient-power presentation uses only
+`[propext]`.  The two supporting public lemmas and the generic no-repeated-edge
+lemma remain inside the same axiom gate.  Earlier missing-olean, proof-rewrite,
+syntax, and deterministic-heartbeat failures are not passes.
+
+The structural congestion frontier is closed at the linear-carrier level.
+The next analytic frontier is to compare the canonical positive BF4 edge
+floor against this degree-24 cost (or replace the global minimum by a stronger
+weighted flow/minorization estimate), and separately establish a uniform
+positive vacuum-sector mass floor.  A uniform completed gap, continuum QFT,
+and the Clay theorem remain open.

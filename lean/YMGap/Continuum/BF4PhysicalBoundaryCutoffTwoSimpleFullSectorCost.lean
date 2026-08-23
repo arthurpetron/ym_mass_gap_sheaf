@@ -124,7 +124,7 @@ theorem cutoffTwoFullSectorMass_le_one (later : Nat) :
   exact Q'.le_trans' _ _ _ hsubsum
     (Q'.le_of_eqv (fullFiniteWeightSum_eqv_one later))
 
-private theorem cutoffTwoFullSectorMass_square_le_one (later : Nat) :
+theorem cutoffTwoFullSectorMass_square_le_one (later : Nat) :
     let mass := centralPhysicalFiniteVacuumSectorMass
       cutoffTwoHalfCoupling (by decide) later 0
     mass * mass ≤ 1 := by
@@ -154,7 +154,7 @@ theorem cutoffTwoSimpleFullSectorCost_pos (later : Nat) :
   centralPhysicalFiniteVacuumSectorSimpleCarrierSquareScale_pos
     cutoffTwoHalfCoupling (by decide) later 0
 
-private theorem cutoffTwoFullSectorDirichlet_nonnegative_local
+theorem cutoffTwoFullSectorDirichlet_nonnegative
     (later : Nat) (coefficient : Nat → Q') :
     (0 : Q') ≤ cutoffTwoFullSectorDirichlet later coefficient := by
   refine Q'.le_trans' _
@@ -206,7 +206,7 @@ theorem cutoffTwo_edgeFloor_mul_fullVariance_le_simpleCost_mul_Dirichlet
   have hscaleEnergy0 : (0 : Q') ≤ scale * energy :=
     Q'.mul_nonneg _ _
       (Q'.le_of_lt (cutoffTwoSimpleFullSectorCost_pos later))
-      (cutoffTwoFullSectorDirichlet_nonnegative_local later coefficient)
+      (cutoffTwoFullSectorDirichlet_nonnegative later coefficient)
   have hmassScaled : (mass * mass) * (scale * energy) ≤
       1 * (scale * energy) :=
     Q'.mul_le_mul_of_nonneg_right _ _ _
@@ -256,7 +256,7 @@ theorem cutoffTwo_edgeFloor_mul_fullVariance_le_ambientCost_mul_Dirichlet
         cutoffTwoFullSectorDirichlet later coefficient := by
   have hscale := Q'.mul_le_mul_of_nonneg_right _ _ _
     (cutoffTwoSimpleFullSectorCost_le_ambient later)
-    (cutoffTwoFullSectorDirichlet_nonnegative_local later coefficient)
+    (cutoffTwoFullSectorDirichlet_nonnegative later coefficient)
   exact Q'.le_trans' _ _ _
     (cutoffTwo_edgeFloor_mul_fullVariance_le_simpleCost_mul_Dirichlet
       later coefficient)
@@ -336,6 +336,10 @@ end YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSimpleFullSectorCost
 
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSimpleFullSectorCost.cutoffTwoFullSectorMass_le_one
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSimpleFullSectorCost.cutoffTwoFullSectorMass_square_le_one
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSimpleFullSectorCost.cutoffTwoFullSectorDirichlet_nonnegative
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoSimpleFullSectorCost.cutoffTwo_edgeFloor_mul_fullVariance_le_simpleCost_mul_Dirichlet
 #print axioms
