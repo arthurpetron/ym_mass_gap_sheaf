@@ -6680,3 +6680,34 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   diagnostics failed during factoring; none is counted as a pass.  The exact
   zero residual is cutoff-one only; the cofinal completed gap,
   thermodynamic/continuum QFT, and Clay theorem remain open.
+
+### [BF4-exact-posterior-L1-maximum-rate] Sharp finite Bayes-defect scalar — **PROVED / COFINAL BOUND OPEN 2026-08-23**
+
+- **milestone**: totalize both actual posterior `L1` defects, construct their
+  located finite maxima and product `s_K`, prove the literal centered physical
+  Gram row is bounded by `s_K` times the source stationary weight, compile a
+  cofinal bound below one to the completed gap, compare `s_K <= r_K`, and
+  evaluate `s_1 = 0`.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorExactPosteriorL1MaximumRate.lean`.
+- **decl**:
+  `centralPhysicalFiniteVacuumSectorExactPosteriorL1MaximumRate_nonnegative`,
+  `centralPhysicalFiniteVacuumSectorCenteredGramRowMajorant_le_exactPosteriorL1MaximumRate_mul_weight`,
+  `FixedNomeCofinalVacuumSectorExactPosteriorL1MaximumRateBound.toVacuumSectorCenteredStrictGap`,
+  `centralPhysicalFiniteVacuumSectorExactPosteriorL1MaximumRate_le_overlapResidualRate`,
+  `centralPhysicalFiniteVacuumSectorTargetPosteriorL1Maximum_cutoffOne_eqv_zero`,
+  `centralPhysicalFiniteVacuumSectorSourcePosteriorL1Maximum_cutoffOne_eqv_zero`,
+  and
+  `centralPhysicalFiniteVacuumSectorExactPosteriorL1MaximumRate_cutoffOne_eqv_zero`.
+- **obligation**: prove one constructively cofinal fixed bound `s_K <= q < 1`,
+  or pass to the still sharper normalized centered-Gram row maximum and prove
+  that scalar uniformly below one.
+- **constructive?**: yes — all eight audited exports use at most
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the corrected focused monitored check passes in 0.83
+  seconds, and the exact-target one-worker dependency-complete build passes
+  1,557 jobs.  The first focused check failed on a namespace ambiguity and is
+  not counted as a pass.  No cofinal bound below one is inhabited; the
+  unconditional completed gap, thermodynamic/continuum QFT, and Clay theorem
+  remain open.

@@ -8076,3 +8076,40 @@ The next causal frontier is to isolate an all-cutoff support-stable defect from
 this rank-one factorization and prove that its contribution keeps the exact
 sequence `r_K` below one on a constructively cofinal family.  The completed
 uniform gap, thermodynamic/continuum QFT, and Clay theorem remain open.
+
+## The physical posterior frontier is sharpened to exact finite L1 maxima (2026-08-23)
+
+`BF4PhysicalVacuumSectorExactPosteriorL1MaximumRate` removes the slack caused
+by passing first through overlap lower bounds.  It totalizes each actual
+target- and source-posterior `L1` defect by zero off its relevant carrier,
+takes a located finite maximum of each family, and defines their product
+
+`s_K = maxBoundaryL1_K * maxSourceL1_K`.
+
+Both maxima and `s_K` are nonnegative.  Every actual target/source posterior
+defect is bounded by its corresponding exact maximum, so the existing Bayes
+profile factorization proves the literal centered physical Gram row bound
+
+`rowMajorant_K(source) <= s_K * physicalWeight_K(source)`.
+
+A constructively cofinal fixed upper bound `s_K <= q < 1` now compiles
+directly to the completed same-object vacuum-sector strict gap.  This is a
+strictly weaker analytic interface than the previous overlap-residual one:
+the module proves `s_K <= r_K` at every finite cutoff.  The cutoff-one
+rank-one theorem also evaluates both exact maxima and their product to zero.
+
+The corrected focused monitored check passes in 0.83 seconds, and the exact-
+target one-worker dependency-complete build passes 1,557 jobs.  All eight
+audited exports use at most `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.  The first focused check failed only on an ambiguity between two
+definitionally identical names for `finiteL1Distance`; qualifying the genuine
+physical boundary-posterior definition resolved it before both passing
+checks.
+
+No cofinal bound on `s_K` is inhabited.  The next exact contraction is to
+take the located maximum of the physical centered-Gram row majorant divided by
+its strictly positive stationary source weight.  That scalar is no larger
+than `s_K` and removes the remaining product-of-maxima slack.  A uniform
+below-one estimate, thermodynamic/continuum control, and the Clay theorem
+remain open.
