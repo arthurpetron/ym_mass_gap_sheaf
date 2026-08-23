@@ -9420,3 +9420,49 @@ on every loaded BF4 edge, using concrete stationary-weight and allocated
 kernel factorizations, or produce a cofinal overload family proving that the
 chosen canonical paths require redesign.  No such uniform bound is claimed;
 the completed gap inhabitant, continuum QFT, and Clay theorem remain open.
+
+## Stationary source mass cancels from novel-flow congestion (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowConditionalCongestion` exposes the
+Markov factorization hidden inside the preceding joint-kernel ratio.  On every
+actual vacuum-sector source, the indexed physical joint kernel is exactly
+
+`weight(source) * conditionalKernel(source,target)`.
+
+The old-old half allocation is recorded by an explicit fraction taking only
+the values `1/2` and `1`, so the allocated joint capacity is exactly
+
+`weight(source) * allocatedConditionalKernel(source,target)`.
+
+Every routed pair contribution is divided by the same strictly positive
+source weight and the resulting terms are summed into
+`cutoffTwoNovelRelativeSourceEdgeLoad`.  Finite-sum distributivity proves the
+exact reverse factorization
+
+`weight(source) * relativeSourceEdgeLoad = novelEdgeLoad`.
+
+Positive rational cancellation therefore gives an equivalence, not merely a
+sufficient implication:
+
+`delta_flow * novelEdgeLoad <= allocatedJointKernel`
+
+if and only if
+
+`delta_flow * relativeSourceEdgeLoad <= allocatedConditionalKernel`.
+
+Every literal novel-flow occurrence is also proved to traverse a strictly
+positive conditional transition.  A constructively cofinal family of the
+relative conditional comparisons compiles through the exact capacity ratio
+to the completed vacuum-sector strict-contraction datum.
+
+The focused monitored check passes in about 1.2 seconds.  The exact
+one-worker dependency-complete target passes 4,918 jobs, with the new module
+taking about 1.1 seconds.  All five audited exports use exactly
+`[propext, Quot.sound]`; no forbidden construct was added.
+
+The common stationary source factor is no longer part of the analytic
+obstruction.  The next frontier is to expand the relative load into the exact
+path-incidence sum of endpoint stationary-weight ratios and compare that sum
+uniformly with the allocated conditional transition probability.  Such a
+uniform Markov/Harnack bound is not yet proved; the completed gap inhabitant,
+continuum QFT, and Clay theorem remain open.

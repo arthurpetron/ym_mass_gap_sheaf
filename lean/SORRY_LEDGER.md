@@ -7805,3 +7805,38 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   exposing a nonexistent convenience lemma are not passes.  The uniform
   congestion estimate, completed gap inhabitant, continuum QFT, and Clay
   theorem remain open.
+
+### [BF4-cutoff-two-novel-flow-conditional-congestion] Cancel stationary source mass — **CLOSED 2026-08-23**
+
+- **milestone**: define the indexed conditional physical transition; prove
+  the exact joint-kernel factorization by stationary source weight; factor the
+  old-old half allocation identically; prove strict conditional positivity on
+  every literal flow occurrence; divide and regroup every endpoint-pair load
+  by the positive edge-source weight; cancel that weight from the physical
+  capacity inequality in both directions; and compile a cofinal relative
+  conditional-congestion family to completed strict contraction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowConditionalCongestion.lean`.
+- **decl**: `cutoffTwoEdgeLoadConditionalKernel`,
+  `cutoffTwoEdgeLoadWeight_mul_conditional_eqv_kernel`,
+  `cutoffTwoNovelAllocationFraction`,
+  `cutoffTwoNovelAllocatedConditionalKernel`,
+  `cutoffTwoNovelAllocatedKernel_eqv_weight_mul_conditional`,
+  `cutoffTwoNovelOccurrence_conditionalKernel_pos`,
+  `cutoffTwoNovelPathPairRelativeSourceDemand`,
+  `cutoffTwoNovelRelativeSourceEdgeLoad`,
+  `cutoffTwoEdgeLoadWeight_mul_relativeSourceEdgeLoad_eqv_load`,
+  `cutoffTwoNovelEdgeCapacity_iff_relativeConditionalCongestion`, and
+  `CutoffTwoCofinalNovelConditionalCongestionBound.toCompletedStrictContractionData`.
+- **obligation**: expand the relative source load into its exact
+  path-incidence formula and prove that its stationary-weight-ratio sum is
+  uniformly bounded by the allocated conditional transition, or exhibit a
+  cofinal overload family requiring new paths; then construct and control the
+  thermodynamic and continuum theories.
+- **constructive?**: yes — all five audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the focused check passes in about 1.2 seconds and the exact
+  one-worker dependency-complete target passes 4,918 jobs, with the new module
+  taking about 1.1 seconds.  The common stationary source factor is now
+  cancelled exactly, but the uniform conditional Markov/Harnack estimate,
+  completed gap inhabitant, continuum QFT, and Clay theorem remain open.
