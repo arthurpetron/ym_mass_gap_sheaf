@@ -5244,3 +5244,29 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   1,368-job dependency-complete build pass.  This closes a scalar limit edge,
   not completed centered density, a uniform completed gap,
   thermodynamic/continuum QFT, or the Clay theorem.
+
+### [BF4-vacuum-sector-dense-centered-form-identification] Moving centered limits are the actual dense completed forms — **PROVED 2026-08-22**
+
+- **milestone**: contract scalar head-correction vanishing through the exact
+  centered polynomial expansions, then identify the resulting centered
+  diagonal and matrix limits with the actual completed norm and transfer form
+  of every dense globally vacuum-orthogonal root-sector cylinder.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCylinderDenseCenteredFormIdentification.lean`.
+- **decl**:
+  `centralPhysicalFinitePulledVacuumSectorHeadCenteredDiagonal_equiv_raw_of_correction_zero`,
+  `centralPhysicalFinitePulledVacuumSectorHeadCenteredMatrix_equiv_raw_of_correction_zero`,
+  `centralPhysicalVacuumSectorCylinder_completedInner_embedRep_eq_centered`,
+  and
+  `centralPhysicalVacuumSectorCylinder_completedTransferForm_embedRep_eq_centered`.
+- **obligation**: inhabit one common sector-local cofinal `q < 1`, use these
+  endpoint identities to obtain a dense completed strict form bound, and
+  extend that bound to arbitrary completed sector vacuum vectors before
+  addressing volume/spacing limits.
+- **constructive?**: yes — all four audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,577-job dependency-complete build pass.  This closes endpoint
+  identification on the dense orthogonal domain, not the common strict rate,
+  its completion extension, thermodynamic/continuum QFT, or the Clay theorem.

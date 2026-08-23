@@ -6594,3 +6594,27 @@ Still open are the completed-norm comparison between the moving centered
 presentations and their dense source, the extension to arbitrary completed
 sector vacuum vectors, one common sector-local `q < 1`, and all
 thermodynamic/continuum/Clay conclusions.
+
+## Moving centered limits are the actual dense completed sector forms (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorCylinderDenseCenteredFormIdentification`
+contracts the vanishing head correction through the exact polynomial
+expansions of the moving centered diagonal and reflected quadratics.  Whenever
+the head-correction limit is zero, both centered Bishop-real form limits are
+constructively equivalent to their uncentered pulled limits.
+
+For every dense root-sector cylinder already orthogonal to the normalized
+global vacuum, the preceding norm and transfer-form bridges therefore become
+exact completed identities: its actual completed squared norm is represented
+by the moving head-centered diagonal limit, and its actual completed transfer
+form is represented by the moving head-centered matrix limit.  These are the
+same two objects controlled by the sector-local cofinal Poincare certificate.
+
+The focused monitored check and exact-target one-worker 1,577-job build pass.
+All four audited exports use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  The direct sector form-identification
+edge is now closed on dense orthogonal vectors.  Still open are a common
+sector-local `q < 1`, extension of the resulting estimate from the dense
+orthogonal domain to arbitrary completed sector vacuum vectors, and all
+thermodynamic/continuum/Clay conclusions.
