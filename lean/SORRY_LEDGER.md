@@ -7013,3 +7013,31 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   passes.  This closes the implication from a cofinal finite strict-gap/PSD
   family to completion, not construction of that family, thermodynamic or
   continuum QFT, or the Clay theorem.
+
+### [BF4-cutoff-two-full-sector-persistence] Old core plus new-state residuals — **PARTIAL 2026-08-23**
+
+- **milestone**: reduce a later arbitrary centered vacuum-sector vector to a
+  centered cutoff-two core plus matrix-tail error and diagonal inflation;
+  prove the exact composed rate `(49/50) * lambda + epsilon`; inhabit the
+  zero-error/unit-inflation cutoff-two anchor; and compile a supplied cofinal
+  family to the completed transfer contraction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoFullSectorGapPersistence.lean`.
+- **decl**:
+  `CutoffTwoFullSectorGapPersistenceAt`,
+  `CutoffTwoFullSectorGapPersistenceAt.full_abs_gap`,
+  `cutoffTwoFullSectorGapPersistenceAtAnchor`,
+  `cutoffTwoFullSectorGapPersistenceAtAnchor_abs_gap`,
+  `CutoffTwoCofinalFullSectorGapPersistence.toFiniteStrictGap`, and
+  `CutoffTwoCofinalFullSectorGapPersistence.toCompletedStrictContractionData`.
+- **obligation**: construct later-cutoff comparisons by bounding old-old
+  drift, both old/new cross blocks, the new-new block, and diagonal
+  recentering/inflation uniformly enough that `(49/50) * lambda + epsilon < 1`
+  on an unbounded cofinal schedule.
+- **constructive?**: yes — all five audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused check passes in about 2.3 seconds and the
+  exact-target one-worker dependency-complete build passes 4,885 jobs.  The
+  finite anchor is inhabited; no later or cofinal comparison, completed gap
+  inhabitant, thermodynamic/continuum QFT, or Clay theorem is claimed.

@@ -8456,3 +8456,34 @@ No cofinal finite strict-gap or upper-PSD family is inhabited.  The cutoff-two
 analytic frontier is uniform strict persistence on an unbounded cutoff
 schedule; after that, volume/spacing-uniform completion and the continuum QFT
 and Clay targets remain open.
+
+## Cutoff-two signed control is expanded to the full growing sector (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoFullSectorGapPersistence` addresses the precise
+scope deficit left by zero extension.  For an arbitrary centered vector on a
+later full vacuum sector, a persistence certificate supplies a recentered
+cutoff-two core, a relative matrix-tail error `epsilon`, and a diagonal
+inflation factor `lambda`.  The verified cutoff-two theorem then proves the
+later full-sector bound at the exact composed rate
+
+`(49/50) * lambda + epsilon`.
+
+The finite anchor is genuinely inhabited: at cutoff two, identity
+recentering, zero matrix error, and unit diagonal inflation satisfy every
+field and recover the original strict gap.  A constructively cofinal family
+of these full-sector comparisons compiles to the cofinal finite strict-gap
+interface and hence to the actual completed vacuum-sector transfer
+contraction.
+
+The focused monitored check passes in about 2.3 seconds, and the exact
+one-worker dependency-complete target passes 4,885 jobs.  All five audited
+exports use exactly `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.
+
+No later-cutoff or cofinal comparison is inhabited.  The next expansion is
+to derive its two comparison fields from the existing exact old/new
+four-block identity: old-old drift, the two cross blocks, the new-new block,
+and the new-sector diagonal contribution.  Uniform control of those residuals
+is the genuine analytic frontier; completion beyond the fixed nome/volume,
+continuum QFT, and the Clay theorem remain open.
