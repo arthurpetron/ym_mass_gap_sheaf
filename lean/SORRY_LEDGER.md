@@ -8011,3 +8011,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   about 1.0 seconds.  The ceiling exists constructively at every fixed cutoff,
   but its uniform asymptotics, uniform payment, completed gap inhabitant,
   continuum QFT, and Clay theorem remain open.
+
+### [BF4-cutoff-two-novel-flow-conditional-finite-ratio-ceiling-decision] Exact finite payment checker — **CLOSED 2026-08-23**
+
+- **milestone**: reflect every concrete ratio-ceiling payment inequality over
+  the literal ordered carrier square into a Boolean scan; prove the scan sound
+  and complete for that finite predicate; compile success to the finite flow-
+  capacity floor; construct a Type-level recursive inspector returning either
+  that certificate or a literal overloaded ceiling edge; and compile a
+  cofinally successful checked schedule to completed strict contraction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowConditionalFiniteRatioCeilingDecision.lean`.
+- **decl**: `cutoffTwoNovelConditionalFiniteRatioCeilingCheck`,
+  `cutoffTwoNovelConditionalFiniteRatioCeilingCheck_sound_capacity`,
+  `cutoffTwoNovelConditionalFiniteRatioCeilingCheck_complete`,
+  `cutoffTwoNovelConditionalFiniteRatioCeilingCheck_sound_floor`,
+  `ListComparisonOutcome`, `inspectListComparison`,
+  `CutoffTwoNovelConditionalFiniteRatioCeilingOutcome`,
+  `inspectCutoffTwoNovelConditionalFiniteRatioCeiling`, and
+  `CutoffTwoCofinalNovelConditionalFiniteRatioCeilingCheck.toCompletedStrictContractionData`.
+- **obligation**: analyze the cutoff dependence of the constructed ratio
+  ceiling and ceiling-weighted path loads, then prove cofinal checker success
+  or use the returned overloaded edges to derive a systematic obstruction and
+  redesign the flow; after that, construct and control the thermodynamic and
+  continuum theories.
+- **constructive?**: yes — the inspector preserves its failure witness as
+  `Type`-level data; all five audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the focused monitored check passes in about 1.1 seconds and
+  the exact one-worker dependency-complete target passes 4,924 jobs, with the
+  new module taking about 1.1 seconds.  Fixed-cutoff payment is now exactly
+  decidable, but no cutoff is claimed to pass, no cofinal success family is
+  constructed, and the completed gap inhabitant, continuum QFT, and Clay
+  theorem remain open.

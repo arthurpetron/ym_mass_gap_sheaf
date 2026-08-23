@@ -9653,3 +9653,41 @@ uniform upper bound on its cutoff dependence is proved.  The decisive open
 finite-volume frontier is the cofinal payment of its explicit weighted path
 load; the completed gap inhabitant, continuum QFT, and Clay theorem remain
 open.
+
+## Concrete ratio-ceiling payment is now a finite reflected check (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowConditionalFiniteRatioCeilingDecision`
+scans the literal Cartesian square of the cutoff-two vacuum-sector carrier.
+For each ordered edge it decides the exact rational comparison
+
+`coercivityFloor * concreteFiniteRatioCeilingLoad(source,target)`
+
+`  <= allocatedConditionalKernel(source,target)`.
+
+The Boolean checker is proved sound and complete for precisely this finite
+payment predicate.  Successful evaluation therefore supplies every edgewise
+ceiling-payment inequality and compiles through the concrete ceiling theorem
+to the exact finite flow-capacity floor.
+
+A separate recursive Type-level inspector avoids eliminating a propositional
+existential into data.  It returns either the compiled finite floor bound or a
+literal ordered carrier edge, its two membership witnesses, and the failed
+rational payment inequality.  This distinguishes failure of the conservative
+ceiling/path choice from an unavailable analytic proof; it does not turn such
+a failure into a no-go theorem for the underlying exact flow.
+
+The cofinal checked-schedule structure
+`CutoffTwoCofinalNovelConditionalFiniteRatioCeilingCheck` compiles successful
+checks at arbitrarily late cutoffs to completed vacuum-sector strict
+contraction.  No inhabitant of that cofinal structure is constructed here.
+
+The focused monitored check passes in about 1.1 seconds.  The exact one-worker
+dependency-complete target passes 4,924 jobs, with the new module taking about
+1.1 seconds.  All five audited exports use exactly
+`[propext, Quot.sound]`.
+
+The next frontier is analytic and asymptotic: determine the cutoff behavior of
+the constructed reverse/forward ceiling and the resulting weighted path load,
+then either prove cofinal checker success or extract a systematic overload
+family that forces a redesigned flow.  The uniform completed gap inhabitant,
+thermodynamic/continuum construction, and Clay theorem remain open.
