@@ -7669,3 +7669,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   are now reduced to one explicit scalar sequence, but its cofinal uniform
   lower bound, the completed gap inhabitant, continuum QFT, and Clay theorem
   remain open.
+
+### [BF4-cutoff-two-novel-flow-capacity-decision] Exact finite certificate or overloaded edge — **CLOSED 2026-08-23**
+
+- **milestone**: reflect the explicit finite capacity floor into a sound and
+  complete Boolean scan; construct a Type-level recursive failure locator for
+  the finite positive minimum; return either a valid floor comparison, failure
+  at the unit fallback, or a literal positive-load directed edge violating
+  the requested allocated-kernel payment; and compile cofinally successful
+  finite scans to completed strict contraction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowCapacityDecision.lean`.
+- **decl**: `le_listPositiveMinOne_of_forall`,
+  `not_le_listPositiveMinOne_cases`, `ListPositiveMinOneFailure`,
+  `locateListPositiveMinOneFailure`, `cutoffTwoNovelFlowCapacityCheck`,
+  `cutoffTwoNovelFlowCapacityCheck_sound`,
+  `cutoffTwoNovelFlowCapacityCheck_complete`,
+  `CutoffTwoNovelFlowCapacityOutcome`,
+  `inspectCutoffTwoNovelFlowCapacity`, and
+  `CutoffTwoCofinalNovelFlowCapacityCheck.toCompletedStrictContractionData`.
+- **obligation**: eliminate the unit-fallback failure branch for the fixed
+  constructed strength, then prove successful checks on a constructively
+  cofinal schedule by bounding every possible loaded edge, or use a returned
+  overload witness to prove that the chosen simple flow must be redesigned;
+  then construct and control the thermodynamic and continuum theories.
+- **constructive?**: yes — all four audited exports use exactly
+  `[propext, Quot.sound]`; proposition-to-Type elimination was avoided by an
+  explicit Type-level failure family, and no forbidden construct was added.
+- **status note**: the focused check passes and the exact one-worker
+  dependency-complete target passes 4,914 jobs, with the new module taking
+  about 1.1 seconds.  The first Boolean-syntax/large-elimination check failed
+  and is not a pass.  Every fixed cutoff is now an exact executable
+  certificate-or-local-obstruction calculation, but cofinal success, the
+  completed gap inhabitant, continuum QFT, and Clay theorem remain open.

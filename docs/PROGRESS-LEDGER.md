@@ -9265,3 +9265,47 @@ analytic frontier is to derive a cutoff-uniform cofinal lower bound from the
 concrete BF4 kernel/load formulas, or prove that the chosen simple flow has a
 vanishing ratio.  The completed uniform gap is still conditional; the
 thermodynamic/continuum construction and Clay theorem remain open.
+
+## Exact finite novel-flow capacity decision (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowCapacityDecision` reflects the explicit
+finite capacity minimum into a Boolean scan.  Generic constructive lemmas
+prove that a candidate lies below `listPositiveMinOne` exactly when it lies
+below the unit fallback and every listed candidate.  Therefore
+`cutoffTwoNovelFlowCapacityCheck later = true` is a sound and complete finite
+test for
+
+`delta_flow <= cutoffTwoNovelFiniteFlowCapacityFloor(later)`.
+
+A Type-level recursive failure locator avoids eliminating propositional
+existence into data.  `inspectCutoffTwoNovelFlowCapacity later` consequently
+returns one of three exact outcomes: a certified scalar floor comparison, a
+proof that the requested strength is not below the unit fallback, or a
+literal full-sector directed edge with positive flow load on which
+
+`delta_flow * load <= allocatedPhysicalKernel`
+
+fails.  Thus a negative fixed-cutoff computation now produces a local
+overloaded-edge obstruction to the chosen path family rather than an opaque
+failed minimum.
+
+`CutoffTwoCofinalNovelFlowCapacityCheck` packages a constructively cofinal
+schedule of successful Boolean scans and compiles it through the ratio and
+flow layers to the completed vacuum-sector strict-contraction datum.  This is
+equivalent in analytic strength to the preceding cofinal scalar lower bound,
+but each finite member is executable and kernel-auditable.
+
+The focused monitored check passes.  The exact one-worker
+dependency-complete target passes 4,914 jobs, with the new module taking about
+1.1 seconds.  All four audited exports use exactly
+`[propext, Quot.sound]`.  The first focused check failed on Boolean theorem
+application syntax and forbidden proposition-to-Type elimination; both were
+replaced by explicit theorem arguments and a Type-level recursive witness,
+and that failed check is not a pass.
+
+The finite capacity question is now an exact certificate-or-local-obstruction
+calculation.  The next frontier is to rule out the unit-fallback branch and
+then analyze the returned loaded edges using concrete BF4 weight and kernel
+factorizations, seeking a cofinal uniform comparison or a genuine asymptotic
+counterexample.  The uniform completed gap, continuum QFT, and Clay theorem
+remain open.
