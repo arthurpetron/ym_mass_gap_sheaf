@@ -9077,3 +9077,38 @@ floor against this degree-24 cost (or replace the global minimum by a stronger
 weighted flow/minorization estimate), and separately establish a uniform
 positive vacuum-sector mass floor.  A uniform completed gap, continuum QFT,
 and the Clay theorem remain open.
+
+## The cutoff-two vacuum sector has a uniform positive mass floor (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoUniformSectorMassFloor` observes that finite
+index zero is literally the all-zero lower boundary state and belongs to the
+root-selected vacuum sector at every cutoff.  The existing uniform positive
+row-floor theorem applies to that same state beyond its explicit unit-tail
+anchor.  Since all sector weights are nonnegative, the weight of index zero
+is bounded above by the full sector mass.  Therefore
+
+`centralPhysicalUniformPositiveRowFloor(cutoffTwoHalfCoupling, 0)`
+
+is an explicit rational constant which is strictly positive and lies below
+the canonical vacuum-sector mass at every sufficiently large cutoff.
+
+The module then refactors the degree-24 cofinal compiler: a cofinal lower
+bound for
+
+`edgeFloor(later) / (1 + (later + 1)^24)`
+
+alone now supplies the completed strict-contraction datum.  The mass-floor
+field and its positivity/persistence proofs are inhabited internally.
+
+The focused monitored check passes in about 1.1 seconds, and the exact
+one-worker dependency-complete target passes 4,906 jobs with the new module
+taking about one second.  All three audited exports use exactly
+`[propext, Quot.sound]`; no forbidden construct was added.  The first focused
+check failed on two missing names and is not a pass.
+
+The positive sector-mass frontier is closed.  The sole remaining finite-gap
+input in this route is the degree-24 cost-scaled edge-floor bound.  The next
+frontier is to reuse the constructed uniform persistence of cutoff-two pulled
+positive edges and isolate precisely which newly appearing states/edges still
+prevent that bound.  A uniform completed gap, continuum QFT, and the Clay
+theorem remain open.

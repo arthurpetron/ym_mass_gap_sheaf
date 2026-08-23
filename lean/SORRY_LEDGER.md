@@ -7527,3 +7527,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   syntax, and deterministic-heartbeat failures are not passes.  Linear
   carrier congestion is closed; the uniform ratio, completed gap inhabitant,
   continuum QFT, and Clay theorem remain open.
+
+### [BF4-cutoff-two-uniform-sector-mass-floor] Uniform positive vacuum-sector mass — **CLOSED 2026-08-23**
+
+- **milestone**: identify finite index zero with the all-zero boundary state;
+  apply the existing cutoff-uniform positive-row floor to that fixed state;
+  use root-component membership and nonnegative finite summation to bound the
+  full vacuum-sector mass below by the same fixed positive rational; and
+  remove the mass-floor hypothesis from the degree-24 completed-gap compiler.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoUniformSectorMassFloor.lean`.
+- **decl**: `cutoffTwoUniformVacuumSectorMassFloor`,
+  `cutoffTwoUniformVacuumSectorMassFloor_pos`,
+  `cutoffTwoUniformVacuumSectorMassFloorAnchor`,
+  `cutoffTwoUniformVacuumSectorMassFloor_le`, and
+  `CutoffTwoCofinalAmbientLinearEdgeRatio.toCompletedStrictContractionData`.
+- **obligation**: prove a fixed positive cofinal lower bound for the canonical
+  positive-edge floor divided by `1 + (later + 1)^24`, using pulled-edge
+  persistence plus control of newly appearing states/edges or a stronger
+  weighted-flow/minorization estimate; then construct the thermodynamic and
+  continuum theories.
+- **constructive?**: yes — all three audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the focused check passes in about 1.1 seconds and the exact
+  one-worker dependency-complete target passes 4,906 jobs, with the new module
+  taking about one second.  The first missing-name focused check is not a
+  pass.  The mass-floor input is closed; the cost-scaled edge-floor ratio,
+  completed gap inhabitant, continuum QFT, and Clay theorem remain open.
