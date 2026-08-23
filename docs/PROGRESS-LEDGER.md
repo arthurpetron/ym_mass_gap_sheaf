@@ -8817,3 +8817,24 @@ exports use exactly `[propext, Quot.sound]`; no forbidden construct was added.
 No uniform path-length, edge-load, positive-floor, or mass-floor certificate
 is inhabited, so no uniform completed gap or continuum/Clay conclusion is
 claimed.
+
+## Linear path energy is now a literal edge-occurrence sum (2026-08-23)
+
+`BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences` extracts the ordered list
+of directed edges traversed by any positive-kernel path, retaining both
+orientation and repetitions.  It proves that this list has the existing path
+length, that both endpoints of every occurrence lie in the declared support,
+and that the recursive `linearEnergy` is exactly
+
+`sum_{edge occurrence} kernel(edge) * (delta f(edge))^2`.
+
+The length-weighted linear path cost is therefore also exactly path length
+times this literal occurrence sum.  This closes the combinatorial exposure
+needed before defining stationary-weighted per-edge loads.  The focused check
+passes in about 0.4 seconds and the exact one-worker target passes 1,189 jobs.
+All four audits use at most `[propext]`; no forbidden construct was added.
+
+The next frontier is a finite reindexing theorem that groups the endpoint-pair
+path occurrences by physical directed edge.  Its resulting per-edge load can
+then be compared pointwise with the within/cross energy capacities.  No such
+load bound, uniform gap, continuum QFT, or Clay theorem is claimed here.

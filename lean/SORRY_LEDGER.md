@@ -7324,3 +7324,23 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   exact-target one-worker dependency-complete build passes 4,895 jobs.  This
   closes the polynomial path-cost compiler, not its uniform congestion
   inhabitant, a completed gap, continuum QFT, or the Clay theorem.
+
+### [BF4-finite-path-edge-occurrences] Literal directed path edges — **CLOSED 2026-08-23**
+
+- **milestone**: extract the duplicate-preserving directed edge list of every
+  positive-kernel chain and identify linear path energy exactly with the sum
+  of physical edge-square terms over that list.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences.lean`.
+- **decl**: `PositiveKernelChainIn.directedEdges`,
+  `directedEdges_length_eq_edgeLength`, `directedEdges_mem_support`,
+  `linearEnergy_eqv_directedEdges_sum`, and
+  `length_mul_linearEnergy_eqv_directedEdges_sum`.
+- **obligation**: group weighted occurrences from all canonical cross paths by
+  directed physical edge and prove pointwise within/cross load bounds.
+- **constructive?**: yes — all four audited theorems use at most `[propext]`;
+  no forbidden construct was added.
+- **status note**: the focused check passes in about 0.4 seconds and the exact
+  one-worker target passes 1,189 jobs.  This exposes occurrences but does not
+  prove congestion, a uniform finite/completed gap, continuum QFT, or the Clay
+  theorem.
