@@ -5622,3 +5622,39 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   1,310-job dependency-complete build pass.  This proves only
   `||T x||^2 <= ||x||^2` at fixed nome and volume; it does not prove a strict
   spectral gap, a thermodynamic/continuum QFT, or the Clay theorem.
+
+### [BF4-completed-markov-form-cauchy-schwarz] Arbitrary completed sector Markov form obeys sharp Cauchy--Schwarz — **PROVED 2026-08-22**
+
+- **milestone**: construct one cofinal two-vector adaptive sampler paying the
+  two original action requirements plus left-self, right-self, and cross-inner
+  cutoff moduli; identify the three aligned finite Markov forms with the
+  actual completed pairings; pass finite positive-form Cauchy--Schwarz through
+  their constructive-real limits; and pull the result to the completed root
+  sector.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffLinearMarkovJointAdaptiveSchedule.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalCutoffLinearMarkovJointAdaptiveCauchySchwarz.lean`.
+- **decl**:
+  `CentralPhysicalLinearMarkovAdmissibleSample`,
+  `centralPhysicalAdmissibleMarkovMap_class_eq_adaptive`,
+  `centralPhysicalJointAdaptiveMarkovSampleIndex`,
+  `centralPhysicalJointAdaptiveMarkov_inner_rates_paid`,
+  `centralPhysicalJointAdaptiveMarkovCrossForm_converges`,
+  `centralPhysicalJointAdaptiveMarkovForm_cauchy_schwarz`,
+  `centralPhysicalAdaptiveCompletedMarkovForm_cauchy_schwarz`,
+  `centralPhysicalVacuumSectorCylinderCompletedMarkovForm_cauchy_schwarz`,
+  `centralPhysicalVacuumSectorCylinderCompletedMarkovFormCauchySchwarzData`,
+  and
+  `centralPhysicalVacuumSectorCylinderCompletedStrictContractionDataAtSectorRate`.
+- **obligation**: construct one sector-local cofinal strict-rate certificate
+  with `q < 1` at the cutoff/volume scope required downstream; the completed
+  operator contraction then follows without any further Markov-form input.
+- **constructive?**: yes — all eight audited final exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: focused monitored checks pass; the joint-schedule exact
+  target passes a one-worker 1,303-job dependency-complete build and the final
+  Cauchy--Schwarz target passes 1,609 jobs.  This closes the functional-
+  analytic extension, not the common strict rate, unconditional spectral gap,
+  thermodynamic/continuum QFT, or Clay theorem.

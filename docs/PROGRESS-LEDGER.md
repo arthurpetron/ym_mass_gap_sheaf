@@ -6952,3 +6952,32 @@ noncomputable declaration was added.  This is nonexpansiveness at rate one,
 not a strict gap.  Joint continuity of the positive Markov cross form, one
 common strict rate below one, the thermodynamic/continuum limit, and the Clay
 conclusion remain open.
+
+## Sharp Markov-form Cauchy--Schwarz now holds on the entire completed BF4 root sector (2026-08-22)
+
+`BF4PhysicalCutoffLinearMarkovJointAdaptiveSchedule` constructs one explicit
+two-vector slow diagonal which simultaneously pays both original adaptive
+sampling requirements and the left-self, right-self, and cross-inner cutoff
+rates.  Its aligned input and action sequences are Cauchy, remain cofinal, and
+represent the same completed vectors and actual adaptive transfer images as
+the original one-vector construction.
+
+`BF4PhysicalCutoffLinearMarkovJointAdaptiveCauchySchwarz` identifies all three
+aligned finite positive Markov forms with their literal completed pairings.
+Finite sharp positive-form Cauchy--Schwarz therefore passes through the three
+constructive-real limits.  Pullback along the inhabited root-sector transfer
+lift proves the law for any two arbitrary completed vacuum-sector vectors and
+inhabits the previously isolated
+`CentralPhysicalVacuumSectorCylinderCompletedMarkovFormCauchySchwarzData`.
+
+Consequently one supplied sector-local
+`FixedNomeCofinalVacuumSectorCenteredStrictGap q` now compiles directly to the
+existing completed strict-contraction datum; no independent functional-
+analytic certificate remains.  The focused monitored checks pass, the joint
+schedule exact-target one-worker build passes 1,303 jobs, and the final
+Cauchy--Schwarz target passes 1,609 jobs.  All eight audited final exports use
+exactly `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`,
+`sorry`, custom axiom, or noncomputable declaration was added.  The sole local
+analytic obstruction to an unconditional completed sector gap is now the
+construction of a common cofinal rate `q < 1`.  Thermodynamic/continuum control
+and the Clay theorem remain open.
