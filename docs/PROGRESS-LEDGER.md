@@ -6574,3 +6574,23 @@ noncomputable declaration was added.  Still open are head-correction
 vanishing in completed norm, moving head-centered density for arbitrary
 completed sector vectors, one common sector-local `q < 1`, and all
 thermodynamic/continuum/Clay conclusions.
+
+## Dense orthogonal sector cylinders have vanishing moving head correction (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorCylinderDenseHeadCorrectionVanishing` combines
+the completed dense vacuum-pairing identity with the already-proved uniform
+positive rational floor for the pulled vacuum-root weight.  For any dense
+root-sector cylinder whose completed image is globally vacuum orthogonal, the
+pulled mean numerator is eventually bounded by `epsilon * floor`, while the
+root denominator remains at least `floor`.  Constructive signed-division
+estimates therefore prove that the head-correction cutoff limit is equivalent
+to zero in `CReal`.
+
+The focused monitored check and exact-target one-worker 1,368-job build pass.
+The audited export uses exactly `[propext, Quot.sound]`; no `Classical.*`,
+choice, `native_decide`, `sorry`, custom axiom, or noncomputable declaration
+was added.  This closes the scalar vanishing part of moving head-centering.
+Still open are the completed-norm comparison between the moving centered
+presentations and their dense source, the extension to arbitrary completed
+sector vacuum vectors, one common sector-local `q < 1`, and all
+thermodynamic/continuum/Clay conclusions.

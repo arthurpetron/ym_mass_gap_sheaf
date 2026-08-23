@@ -5222,3 +5222,25 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   1,366-job dependency-complete build pass.  This proves the numerator-zero
   part of the moving-centering bridge, not head-correction norm convergence, a
   uniform completed gap, thermodynamic/continuum QFT, or the Clay theorem.
+
+### [BF4-vacuum-sector-dense-head-correction-vanishing] Dense orthogonality kills the moving head correction — **PROVED 2026-08-22**
+
+- **milestone**: use the zero pulled-mean limit and the fixed positive
+  pulled-root floor to prove that the rational moving head-correction cutoff
+  limit is constructively equivalent to zero for every dense completed
+  root-sector cylinder orthogonal to the global vacuum.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCylinderDenseHeadCorrectionVanishing.lean`.
+- **decl**:
+  `centralPhysicalVacuumSectorCylinder_headCorrection_equiv_zero_of_orthogonal`.
+- **obligation**: turn scalar correction vanishing into completed-norm
+  convergence of moving head-centered sector presentations to their source;
+  then prove the corresponding density/diagonal argument for arbitrary
+  completed sector vacuum vectors.
+- **constructive?**: yes — the audited export uses exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,368-job dependency-complete build pass.  This closes a scalar limit edge,
+  not completed centered density, a uniform completed gap,
+  thermodynamic/continuum QFT, or the Clay theorem.
