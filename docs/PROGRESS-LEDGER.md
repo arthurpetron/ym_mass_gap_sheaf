@@ -9466,3 +9466,41 @@ path-incidence sum of endpoint stationary-weight ratios and compare that sum
 uniformly with the allocated conditional transition probability.  Such a
 uniform Markov/Harnack bound is not yet proved; the completed gap inhabitant,
 continuum QFT, and Clay theorem remain open.
+
+## Conditional Harnack load is now an exact path-incidence sum (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowConditionalHarnackTarget` defines the
+stationary endpoint/source ratio and proves that multiplication by the
+strictly positive source weight recovers the endpoint weight exactly.  For
+each literal novel endpoint pair, it then exposes the source-cancelled routed
+demand as
+
+`weight(pair.left) / weight(edge.source)`
+
+`  * weight(pair.right) * pathLength(pair.left,pair.right)`
+
+when the selected directed edge lies on the actual loop-erased positive path,
+and as zero otherwise.  Summing these terms proves an exact equality with the
+relative source edge load from the preceding milestone.
+
+Consequently, the original physical joint-edge capacity comparison is proved
+equivalent to bounding this explicit conditional-Harnack load by the allocated
+conditional transition probability.  An all-edge proof of that comparison
+gives the finite flow-capacity floor, and the cofinal structure
+`CutoffTwoCofinalNovelConditionalHarnackBound` compiles it to completed
+vacuum-sector strict contraction.
+
+The first focused check exposed an incorrectly qualified private theorem name
+and is not a pass.  After replacing it by the underlying constructive row-
+marginal nonnegativity proof, the focused monitored check passes in about 1.3
+seconds.  The exact one-worker dependency-complete target passes 4,919 jobs,
+with the new module taking about 1.2 seconds.  All five audited exports use
+exactly `[propext, Quot.sound]`.
+
+The analytic obstruction is now the explicit finite path-incidence sum rather
+than an opaque flow ratio.  The next frontier is to transport each stationary
+endpoint/source ratio along its positive path using detailed balance and then
+obtain a uniform projective/Harnack comparison with the selected conditional
+transition, or prove that these paths overload cofinally and must be
+redesigned.  The uniform completed gap inhabitant, continuum QFT, and Clay
+theorem remain open.

@@ -7840,3 +7840,37 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   taking about 1.1 seconds.  The common stationary source factor is now
   cancelled exactly, but the uniform conditional Markov/Harnack estimate,
   completed gap inhabitant, continuum QFT, and Clay theorem remain open.
+
+### [BF4-cutoff-two-novel-flow-conditional-harnack-target] Exact projective path-incidence formula — **CLOSED 2026-08-23**
+
+- **milestone**: define the endpoint/source stationary-weight ratio; prove its
+  exact cancellation with the positive source weight; expose each
+  source-cancelled pair demand as the endpoint ratio times the other endpoint
+  weight and path length on precisely the traversed edges; sum this identity;
+  prove equivalence between physical edge capacity and the explicit
+  conditional-Harnack target; and compile a cofinal family of those targets to
+  completed strict contraction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowConditionalHarnackTarget.lean`.
+- **decl**: `cutoffTwoNovelEndpointWeightRatioAtSource`,
+  `cutoffTwoEdgeLoadWeight_mul_endpointRatio_eqv_endpointWeight`,
+  `cutoffTwoNovelPathPairConditionalHarnackTerm`,
+  `cutoffTwoNovelPathPairRelativeSourceDemand_eqv_harnackTerm`,
+  `cutoffTwoNovelConditionalHarnackLoad`,
+  `cutoffTwoNovelRelativeSourceEdgeLoad_eqv_conditionalHarnackLoad`,
+  `cutoffTwoNovelEdgeCapacity_iff_conditionalHarnackTarget`,
+  `cutoffTwoNovelFiniteFlowCapacityFloor_ge_of_conditionalHarnack`, and
+  `CutoffTwoCofinalNovelConditionalHarnackBound.toCompletedStrictContractionData`.
+- **obligation**: derive a pathwise stationary-ratio transport formula from
+  detailed balance and use it to prove a cutoff-uniform comparison between the
+  explicit incidence sum and the allocated conditional transition, or exhibit
+  cofinal overload requiring new paths; then construct and control the
+  thermodynamic and continuum theories.
+- **constructive?**: yes — all five audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first focused check failed on an incorrectly qualified
+  private theorem and is not a pass.  The corrected focused check passes in
+  about 1.3 seconds; the exact one-worker dependency-complete target passes
+  4,919 jobs with the new module taking about 1.2 seconds.  The exact Harnack
+  target is now explicit, but its uniform bound, the completed gap inhabitant,
+  continuum QFT, and Clay theorem remain open.
