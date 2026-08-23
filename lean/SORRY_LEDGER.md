@@ -7106,3 +7106,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   probes are not passes.  This constructs the structural core, not any
   later-cutoff analytic budget, cofinal completed gap inhabitant,
   thermodynamic/continuum QFT, or the Clay theorem.
+
+### [BF4-full-sector-diagonal-block-gap] Diagonal-preserving recursion — **CLOSED 2026-08-23**
+
+- **milestone**: prove the pulled-old and new diagonal pieces nonnegative and
+  individually bounded by the full diagonal; combine a common rate `q` on
+  both diagonal matrix blocks with a cross budget `c` into the exact full
+  rate `q + c`; and compile a supplied cofinal family to the completed
+  vacuum-sector contraction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoFullSectorDiagonalBlockGap.lean`.
+- **decl**:
+  `cutoffTwoOldPulledDiagonal_nonnegative`,
+  `cutoffTwoNewDiagonal_nonnegative`,
+  `cutoffTwoOldPulledDiagonal_le_full`,
+  `cutoffTwoNewDiagonal_le_full`,
+  `CutoffTwoFullSectorDiagonalBlockGapAt.full_abs_gap`,
+  `CutoffTwoCofinalFullSectorDiagonalBlockGap.toFiniteStrictGap`, and
+  `CutoffTwoCofinalFullSectorDiagonalBlockGap.toCompletedStrictContractionData`.
+- **obligation**: construct a cofinal family with a common block rate and
+  cross error satisfying `q + c < 1`.  The old and new diagonal blocks both
+  require contraction; the new diagonal cannot be assumed uniformly small
+  for arbitrary full-sector vectors.
+- **constructive?**: yes — all seven audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused check passes in about 1.1 seconds and the
+  exact-target one-worker dependency-complete build passes 4,888 jobs.  Two
+  initial namespace/syntax failures are not passes.  This closes the exact
+  block-rate arithmetic and cofinal implication, not its analytic inhabitant,
+  thermodynamic/continuum QFT, or the Clay theorem.

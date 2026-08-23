@@ -8559,3 +8559,40 @@ terms of (i) old pulled-weight drift and (ii) the exactly cancelling new mean,
 then reduce the diagonal inflation and old-old comparison to explicit
 relative tail budgets.  The uniform completed gap inhabitant, volume/spacing
 control, continuum QFT, and the Clay theorem remain open.
+
+## Old/new contraction now preserves the exact diagonal partition (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoFullSectorDiagonalBlockGap` corrects an
+important rate-accounting weakness in the additive residual route.  An
+arbitrary later-sector vector may be supported entirely on newly appearing
+states, so its new diagonal is not a uniformly small fraction of the full
+norm.  A valid recursive gap argument must contract the old and new diagonal
+blocks separately rather than pay both against the full diagonal.
+
+The module proves both diagonal pieces nonnegative and each bounded by the
+full diagonal.  More importantly, it combines
+
+`|M_old,old| <= q D_old`,
+
+`|M_new,new| <= q D_new`, and
+
+`|M_old,new| + |M_new,old| <= c D_full`
+
+into the exact full-sector rate `q + c`, using
+`D_full = D_old + D_new`.  The two diagonal rates are not added.  A
+constructively cofinal family of these block certificates compiles directly
+to the existing finite strict-gap interface and then to the actual completed
+vacuum-sector transfer contraction.
+
+The focused monitored check passes in about 1.1 seconds, and the exact
+one-worker dependency-complete target passes 4,888 jobs.  All seven audited
+exports use exactly `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.  Two initial namespace/syntax checks failed and are not passes.
+
+No cofinal diagonal-block family is inhabited.  The next frontier is now
+causal and recursive: prove one common subunit diagonal-block rate on both
+the embedded old sector and its new complement, plus a cross budget smaller
+than the remaining margin.  This replaces the untenable demand that every
+new-sector norm be small.  The completed gap inhabitant, volume/spacing
+control, continuum QFT, and the Clay theorem remain open.
