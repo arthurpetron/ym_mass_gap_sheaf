@@ -7514,3 +7514,40 @@ focused check and exact build.
 No exact physical time-factorization or strict sector-local power budget is
 inhabited.  The unconditional completed gap, thermodynamic/continuum
 control, and the Clay theorem remain open.
+
+## Full time-factorization now restricts exactly to the BF4 vacuum sector (2026-08-23)
+
+`BF4PhysicalVacuumSectorTimeFactorizationAdapter` isolates the next causal
+producer into two mathematically distinct obligations.  First, a non-strict
+full-carrier one-step density must have exact row and column normalization,
+preserve the canonical vacuum component in both directions, and factor the
+actual full physical density as a depth-`d` weighted density power.  Second,
+only its conditioned restriction must satisfy a strict centered one-step
+bound.  This formulation respects the cutoff-two theorem ruling out every
+strict full-carrier slice.
+
+The new total conditioned-kernel extension equals `mass * fullOneStep` on
+sector endpoints and equals the stationary density one off the sector.  The
+file proves constructively that outgoing and incoming closure make all its
+conditioned rows and columns exactly normalized.  The earlier conditioning-
+power theorem then transports a compatible full factorization to the actual
+component-conditioned physical density at the same depth.
+
+`PhysicalBF4VacuumSectorDensityPowerGluing` uses the natural power syntax:
+power index `depth - 1` means exactly `depth` one-step factors.  Its direct
+tensorization theorem gives the conditioned centered-row estimate
+`qS^depth`, without routing through the older endpoint/middle/endpoint
+association.  Thus the remaining strict estimate is explicitly sector-
+native and the complete amplified rate is exposed with no mass defect.
+
+The corrected focused monitored check passes, and the exact-target
+one-worker dependency-complete build passes 1,489 jobs.  All five audited
+exports use at most `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.  Initial focused checks exposed missing namespace opens and one
+off-sector column branch; those proof-engineering issues were corrected
+before the passing focused check and exact build.
+
+Neither the compatible full time-factorization nor the sector strict bound
+is inhabited.  A cofinal direct-power compiler, the unconditional completed
+gap, thermodynamic/continuum control, and the Clay theorem remain open.

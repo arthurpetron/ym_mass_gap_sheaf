@@ -6143,3 +6143,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   factorization or strict sector-local power budget is inhabited, so the
   unconditional completed gap, thermodynamic/continuum QFT, and Clay theorem
   remain open.
+
+### [BF4-vacuum-sector-time-factorization-adapter] Non-strict full factorization to strict sector power — **REDUCED 2026-08-23**
+
+- **milestone**: construct a total conditioned-kernel extension equal to
+  `mass * fullOneStep` on sector endpoints and one off the sector; prove its
+  exact conditioned row and column normalization from two-sided component
+  closure; package the minimal non-strict full-carrier density-power
+  factorization compatible with the canonical component; transport it
+  exactly to the conditioned physical density; and prove the direct sector
+  centered-row estimate `qS^depth`.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorTimeFactorizationAdapter.lean`.
+- **decl**:
+  `finiteComponentConditionedKernelExtension_row_normalized`,
+  `finiteComponentConditionedKernelExtension_column_normalized`,
+  `PhysicalBF4VacuumSectorDensityPowerGluing.conditionedDensityCenteredRow_le_pow`,
+  `PhysicalBF4FiniteVacuumCompatibleTimeFactorization.conditionedDensity_eqv_conditionedOneStepPower`,
+  and
+  `PhysicalBF4FiniteVacuumCompatibleTimeFactorization.toVacuumSectorDensityPowerGluing`.
+- **obligation**: construct a cofinal family of non-strict compatible full
+  physical time-factorizations (or the equivalent sector-native exact
+  factorization), and prove a uniform strict budget for the conditioned
+  one-step power `qS(cutoff)^depth(cutoff)`.  Strictness is deliberately not
+  required on the reducible full carrier.
+- **constructive?**: yes — all five audited exports use at most
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the corrected focused monitored check passes, and the
+  exact-target one-worker dependency-complete build passes 1,489 jobs.
+  Initial missing namespace opens and one off-sector column branch were
+  corrected before both passing checks.  Neither producer is inhabited, so
+  the unconditional completed gap, thermodynamic/continuum QFT, and Clay
+  theorem remain open.
