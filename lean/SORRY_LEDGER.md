@@ -6621,3 +6621,31 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   missing namespace for `zeroEdgeLabelling`; neither is counted as a pass.
   This is cutoff-one only; the cofinal completed gap,
   thermodynamic/continuum QFT, and Clay theorem remain open.
+
+### [BF4-cutoff-one-canonical-stationary-posterior] Exact conditioned stationary law — **PROVED FINITE 2026-08-23**
+
+- **milestone**: express physical row marginals through raw positive-row mass
+  and the common partition reciprocal; prove the cutoff-one cube marginal is
+  the six-face activity times the vacuum marginal; compute the exact
+  two-state component mass; and identify every indexed component-conditioned
+  stationary weight with the genuine vacuum-column refresh posterior.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffOneCanonicalVacuumSectorStationaryPosterior.lean`.
+- **decl**:
+  `centralPhysicalRowMarginal_eqv_positiveRawRowMass_mul_partitionReciprocal`,
+  `centralPhysicalRowMarginal_cutoffOne_cube_eqv_activity_mul_vacuum`,
+  `centralPhysicalFiniteVacuumSectorMass_cutoffOne_eqv`, and
+  `centralPhysicalFiniteVacuumSectorMassNormalizedWeight_cutoffOne_eqv_posterior`.
+- **obligation**: combine this stationary-law identification with the common
+  physical refresh-row theorem to evaluate both exact posterior-overlap floors
+  and the product residual scalar at cutoff one; then prove one fixed cofinal
+  bound `r_K <= q < 1`.
+- **constructive?**: yes — all four audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the corrected focused monitored check passes, and the
+  exact-target one-worker dependency-complete build passes 1,548 jobs.  One
+  exploratory check was interrupted and three bounded checks failed during
+  factoring; none is counted as a pass.  This theorem is cutoff-one only; the
+  cofinal completed gap, thermodynamic/continuum QFT, and Clay theorem remain
+  open.

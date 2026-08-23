@@ -8005,3 +8005,37 @@ ambiguity but does not yet prove that the indexed sector-conditioned
 stationary law equals the refresh posterior.  That equality, the exact
 overlap floors and `r_1`, a cofinal `r_K <= q < 1`, thermodynamic/continuum
 control, and the Clay theorem remain open.
+
+## The cutoff-one component-conditioned stationary law is exactly the refresh posterior (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffOneCanonicalVacuumSectorStationaryPosterior`
+computes the normalization inherited from the genuine finite physical joint
+law.  It first proves that every physical row marginal is the raw positive-row
+mass times the common finite partition reciprocal.  The solved cutoff-one
+vacuum/cube rows then give the exact relative marginal identity
+
+`marginal(cube) = coeffW(w,1)^6 * marginal(vacuum)`.
+
+Transport across the multiplicity-free two-state presentation proves that the
+canonical component mass is the vacuum-column denominator times the vacuum
+marginal.  Positive-mass cancellation consequently identifies, pointwise on
+every actual canonical index, the component-conditioned stationary weight
+with the genuine vacuum-column refresh posterior.
+
+The corrected focused monitored check passes, and the exact-target one-worker
+dependency-complete build passes 1,548 jobs.  All four audited exports use
+exactly `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`,
+`sorry`, custom axiom, or noncomputable declaration was added.  During proof
+development one long exploratory check was intentionally interrupted, and
+three bounded failed checks exposed an expensive rational ring step, a missing
+list-sum namespace, and global reduction caused by substituting a let-bound
+state.  Explicit rational equality chains, the correct namespace, and two
+state-specific posterior-times-mass lemmas resolved those issues; only the
+final passing checks are counted as verification.
+
+This remains an exact `K = 1`, half-extent-zero result.  The next finite
+contraction is to use the common refresh row and this stationary-law identity
+to prove both target/source posterior overlap floors equal one and hence the
+exact residual mixing scalar `r_1` is zero.  A fixed cofinal bound
+`r_K <= q < 1`, thermodynamic/continuum control, and the Clay theorem remain
+open.
