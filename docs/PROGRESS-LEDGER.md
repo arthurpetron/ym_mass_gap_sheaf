@@ -9807,3 +9807,41 @@ comparison of neighboring BF4 amplitudes or local action terms would bound
 the positive-edge row ratio uniformly.  The uniform payment theorem,
 completed gap inhabitant, thermodynamic/continuum theory, and Clay theorem
 remain open.
+
+## Raw rows are boundary moments; amplitude Harnack bounds their ratios (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowConditionalRawBoundaryMoment` expands
+the unnormalized reflected row sum through the genuine weighted-Gram
+factorization and finite Fubini reordering.  For every retained indexed state,
+the raw row mass is exactly
+
+`sum_boundary boundaryWeight * sourceHalfAmplitude * totalTargetAmplitude`.
+
+All three factors are the literal BF4 boundary data, and their required
+nonnegativity is proved on the finite boundary carrier.  The module introduces
+the Type-level datum `CutoffTwoPositiveEdgeHalfAmplitudeHarnackAt`: on each
+positive physical edge it compares the two source half-amplitudes pointwise
+on every boundary channel by one nonnegative factor `rho`.
+
+Multiplication by the common nonnegative boundary weight and target-amplitude
+total preserves that comparison.  Finite summation bounds the raw row masses,
+positive-denominator division bounds their ratio, and the preceding exact
+normalization cancellation plus detailed balance bounds the reverse/forward
+conditional ratio.  Thus this local amplitude datum constructs the existing
+conditional-ceiling datum.  A cofinal fixed-`rho` Harnack-and-payment family
+then compiles to completed vacuum-sector strict contraction.
+
+The first focused check exposed two missing namespace openings and is not a
+pass.  The corrected focused monitored check passes in about 1.3 seconds.  The
+exact one-worker dependency-complete target passes 4,967 jobs, with the new
+module taking about 1.2 seconds.  All seven audited exports use exactly
+`[propext, Quot.sound]`.
+
+This is a sufficient reduction, not an inhabitant of the local Harnack datum.
+Pointwise domination can be too strong when adjacent Gram rows have overlapping
+but non-nested boundary support.  The next frontier is therefore to inspect the
+explicit positive-edge support geometry and existing projective/Harnack
+machinery, then either construct the amplitude comparison on the relevant
+weighted support or replace it by a support-aware moment comparison.  Uniform
+payment, the completed gap inhabitant, thermodynamic/continuum theory, and the
+Clay theorem remain open.

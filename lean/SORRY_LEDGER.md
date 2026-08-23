@@ -8157,3 +8157,42 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   now eliminated from the edge ratio, but the local raw comparison, uniform
   payment, completed gap inhabitant, continuum QFT, and Clay theorem remain
   open.
+
+### [BF4-cutoff-two-novel-flow-conditional-raw-boundary-moment] Boundary-moment Harnack reduction — **CLOSED 2026-08-23**
+
+- **milestone**: expand every retained raw BF4 row mass into the finite
+  boundary-channel moment `boundaryWeight * sourceHalfAmplitude *
+  totalTargetAmplitude`; prove nonnegativity of the literal moment factors;
+  define a Type-level positive-edge pointwise half-amplitude Harnack datum;
+  propagate it termwise and through finite summation to a raw row-ratio bound;
+  transport that bound by normalization cancellation and detailed balance to
+  the conditional-ratio ceiling; and compile a cofinal Harnack-and-payment
+  family to completed strict contraction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowConditionalRawBoundaryMoment.lean`.
+- **decl**: `cutoffTwoRawBoundaryMomentTerm`,
+  `cutoffTwoRawBoundaryMoment`,
+  `cutoffTwoRawStationaryRowMass_eqv_boundaryMoment`,
+  `CutoffTwoPositiveEdgeHalfAmplitudeHarnackAt`,
+  `cutoffTwoRawBoundaryMomentTerm_le_rho_mul_of_halfAmplitudeHarnack`,
+  `cutoffTwoRawBoundaryMoment_le_rho_mul_of_halfAmplitudeHarnack`,
+  `cutoffTwoRawStationaryRowMassRatio_le_of_halfAmplitudeHarnack`,
+  `cutoffTwoConditionalReverseForwardRatio_le_of_halfAmplitudeHarnack`,
+  `CutoffTwoPositiveEdgeHalfAmplitudeHarnackAt.toConditionalReverseForwardCeilingAt`,
+  and
+  `CutoffTwoCofinalNovelHalfAmplitudeHarnackPayment.toCompletedStrictContractionData`.
+- **obligation**: inspect positive-edge boundary support and the existing BF4
+  projective estimates; inhabit the pointwise amplitude datum where support is
+  nested, or formulate and prove a support-aware weighted-moment substitute
+  where it is not; then prove uniform path-load payment and construct and
+  control the thermodynamic and continuum theories.
+- **constructive?**: yes — the comparison is carried by explicit Type-level
+  data and every quotient retains a strict positivity witness; all seven
+  audited exports use exactly `[propext, Quot.sound]`; no forbidden construct
+  was added.
+- **status note**: the first focused check failed on missing namespace
+  exposure and is not a pass.  The corrected focused check passes in about
+  1.3 seconds; the exact one-worker dependency-complete target passes 4,967
+  jobs with the new module taking about 1.2 seconds.  The Harnack implication
+  is proved, but no Harnack inhabitant, uniform payment, completed gap
+  inhabitant, continuum QFT, or Clay theorem is closed.
