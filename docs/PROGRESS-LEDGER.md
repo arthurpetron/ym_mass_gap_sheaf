@@ -6981,3 +6981,32 @@ exactly `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`,
 analytic obstruction to an unconditional completed sector gap is now the
 construction of a common cofinal rate `q < 1`.  Thermodynamic/continuum control
 and the Clay theorem remain open.
+
+## The BF4 fixed-carrier path rate now uses a finite maximum instead of a sum (2026-08-22)
+
+`BF4PhysicalFiniteVacuumSectorPathMaximum` replaces the earlier positive path
+ceiling `1 + sum(all endpoint path scales)` by the located finite quantity
+`1 + max(all endpoint path scales)`.  It proves constructively that every
+canonical endpoint path is controlled by this maximum and that the maximum
+ceiling is no larger than the previous sum ceiling.  The corresponding
+endpoint inequality is transported unchanged to every sufficiently late
+pulled physical kernel.
+
+`BF4PhysicalCutoffVacuumSectorPulledPoincareScale` factors the rational
+Poincare algebra through a reusable positive-scale datum.  The maximum path
+estimate inhabits this datum in
+`BF4PhysicalCutoffVacuumSectorPulledMaximumPoincareGap`, giving the explicit
+fixed-base rate
+
+`q_max = pathMaximum / (pathMaximum + edgeFloor) < 1`.
+
+Monotonicity of `scale / (scale + edgeFloor)` is proved division-free and
+shows `q_max <= q_sum`, so this is a genuine quantitative strengthening of
+the constructed rate, not a parallel certificate.  Focused monitored checks
+pass and the exact-target one-worker dependency-complete build passes 4,757
+jobs.  All audited exports use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  The maximum and edge floor may still
+vary with the base carrier.  A common cofinal `q < 1`, the unconditional
+completed spectral gap, thermodynamic/continuum control, and the Clay theorem
+remain open.

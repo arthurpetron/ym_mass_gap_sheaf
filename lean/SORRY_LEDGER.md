@@ -5658,3 +5658,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   Cauchy--Schwarz target passes 1,609 jobs.  This closes the functional-
   analytic extension, not the common strict rate, unconditional spectral gap,
   thermodynamic/continuum QFT, or Clay theorem.
+
+### [BF4-vacuum-sector-path-maximum-rate] Fixed-carrier Poincare rate uses the located maximum path scale — **PROVED 2026-08-22**
+
+- **milestone**: construct the finite maximum of all canonical endpoint path
+  scales; prove it controls every path and lies below the former sum ceiling;
+  transport it to all later pulled kernels; factor positive Poincare scales
+  through a reusable rate compiler; and prove the resulting maximum-based
+  rate is no larger than the old sum-based rate.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorPathMaximum.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorPulledPathMaximum.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorPulledPoincareScale.lean`,
+  and
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorPulledMaximumPoincareGap.lean`.
+- **decl**:
+  `centralPhysicalFiniteVacuumSectorPathMaximum`,
+  `centralPhysicalFiniteVacuumSectorPathMaximum_le_ceiling`,
+  `FixedBasePulledPoincareScaleData`,
+  `FixedBasePulledPoincareScaleData.rate_le_of_scale_le`,
+  `FixedBasePulledPositiveEdgeFloor.maximumPoincareScaleData`,
+  `FixedBasePulledPositiveEdgeFloor.maximumPoincareRate_lt_one`, and
+  `FixedBasePulledPositiveEdgeFloor.maximumPoincareRate_le_uniformPoincareRate`.
+- **obligation**: replace the former all-base sum-ceiling certificate by the
+  strictly weaker all-base maximum-rate certificate and construct one common
+  `q < 1` for that sharper family.
+- **constructive?**: yes — all audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: focused checks pass and the exact-target one-worker build
+  passes 4,757 jobs.  This improves every fixed-base rational constant but
+  does not bound the expanding family by one strict rate, prove an
+  unconditional completed spectral gap, or reach thermodynamic/continuum QFT
+  or the Clay theorem.
