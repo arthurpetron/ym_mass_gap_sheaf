@@ -6376,3 +6376,40 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   complete build passes 3,583 jobs.  No support-compatible cofinal mixing
   certificate is inhabited, so the unconditional completed gap,
   thermodynamic/continuum QFT, and Clay theorem remain open.
+
+### [BF4-vacuum-sector-centered-Gram-overlap] Support-compatible posterior common mass — **REDUCED 2026-08-23**
+
+- **milestone**: define canonical finite overlap as the sum of pointwise
+  minima; prove the generic common-submass residual inequality and the
+  normalized `L1 <= 2(1-overlap)` bound; specialize overlap to both actual
+  vacuum-sector posterior pairs; and compile cofinal target/source overlap
+  floors with residual-rate product below one to the completed same-object
+  vacuum-sector strict gap.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorCenteredGramOverlap.lean`.
+- **decl**:
+  `qAbs_sub_le_common_residuals`,
+  `finiteL1Distance_le_commonResidualMass`,
+  `finiteL1Distance_le_two_mul_one_sub_overlap`,
+  `centralPhysicalFiniteVacuumSectorTargetGivenBoundaryL1_le_of_overlap`,
+  `centralPhysicalFiniteVacuumSectorBoundaryGivenSourceL1_le_of_overlap`,
+  and
+  `FixedNomeCofinalVacuumSectorPosteriorOverlap.toVacuumSectorCenteredStrictGap`.
+- **obligation**: prove constructively cofinal positive lower bounds on both
+  exact physical posterior overlaps, or obtain them after a fixed number of
+  support-compatible steps, with
+  `[2(1-alpha)] * [2(1-beta)] < 1`.  No global positive-support ratio is
+  assumed.
+- **constructive?**: yes — all seven audited exports use at most
+  `[propext, Quot.sound]`, and the four generic finite exports use only
+  `[propext]`; no `Classical.*`, choice, `native_decide`, `sorry`, custom
+  axiom, or noncomputable declaration was added.
+- **status note**: the corrected focused monitored check passes, and the
+  exact-target one-worker dependency-complete build passes 1,491 jobs.  The
+  first focused run naturally hit its deterministic heartbeat after two raw-
+  denominator algebra normalizations and missing namespace opens caused
+  cascading elaboration errors; it was not manually interrupted.  Replacing
+  those calculations by structural exact-rational identities and adding the
+  required namespaces resolved every error before both passing checks.  No
+  cofinal overlap family is inhabited, so the unconditional completed gap,
+  thermodynamic/continuum QFT, and Clay theorem remain open.

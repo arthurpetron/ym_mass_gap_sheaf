@@ -7761,3 +7761,39 @@ The next causal frontier is therefore a support-compatible overlap,
 minorization, coupling, or multi-step estimate for the two exact posterior
 laws.  No such cofinal bound is yet inhabited.  The unconditional completed
 gap, thermodynamic/continuum control, and the Clay theorem remain open.
+
+## Posterior overlap replaces the obstructed projective criterion (2026-08-23)
+
+`BF4PhysicalVacuumSectorCenteredGramOverlap` introduces the canonical common
+submass `sum_x min(p(x),q(x))` for finite rational laws.  It proves first, at
+the generic finite level, that removing any common submass leaves two
+nonnegative residuals whose total controls `L1`.  For normalized laws this
+gives the support-compatible estimate
+
+`L1(p,q) <= 2 * (1 - overlap(p,q))`.
+
+Unlike a projective ratio, this bound permits zeros and therefore remains
+applicable to the actual cutoff-two support pattern.  The module specializes
+the overlap to both exact sector laws: `target | boundary` versus the sector
+stationary law, and `boundary | source` versus the square-amplitude boundary
+prior.  Cofinal overlap floors `alpha` and `beta` now compile to the completed
+same-object vacuum-sector strict gap whenever
+
+`[2(1-alpha)] * [2(1-beta)] < 1`.
+
+The corrected focused monitored check passes, and the exact-target one-worker
+dependency-complete build passes 1,491 jobs.  All seven audited exports use at
+most `[propext, Quot.sound]`; the four generic finite exports use only
+`[propext]`.  No `Classical.*`, choice, `native_decide`, `sorry`, custom axiom,
+or noncomputable declaration was added.  The first focused run naturally
+reached the deterministic heartbeat limit after two raw-denominator
+normalizations and missing namespace opens caused cascading elaboration
+errors.  It was not manually interrupted.  Structural exact-rational
+identities and the correct physical namespaces resolved every error before
+the passing focused check and exact build.
+
+No cofinal overlap floors are inhabited.  The next analytic frontier is to
+derive positive uniform common mass for the two physical posterior pairs,
+potentially after a fixed number of support-compatible steps.  The
+unconditional completed gap, thermodynamic/continuum control, and the Clay
+theorem remain open.
