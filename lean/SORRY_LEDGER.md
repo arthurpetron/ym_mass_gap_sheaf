@@ -7942,3 +7942,37 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   with the new module taking about 1.1 seconds.  The transition-product target
   is exact, but its uniform bound, the completed gap inhabitant, continuum QFT,
   and Clay theorem remain open.
+
+### [BF4-cutoff-two-novel-flow-conditional-ratio-ceiling] Separate projective and counting bounds — **CLOSED 2026-08-23**
+
+- **milestone**: define a fixed-cutoff nonnegative ceiling for every positive
+  one-edge reverse/forward conditional ratio; prove strict positivity of each
+  prefix product; prove the product is bounded by the ceiling raised to the
+  exact prefix length; propagate the bound through each weighted path term and
+  the finite endpoint-pair sum; and compile separate local-ceiling and global-
+  counting obligations to completed strict contraction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowConditionalRatioCeiling.lean`.
+- **decl**: `CutoffTwoConditionalReverseForwardCeilingAt`,
+  `cutoffTwoNovelPathReverseForwardProduct_pos`,
+  `cutoffTwoNovelPathReverseForwardProduct_le_ceilingPow`,
+  `cutoffTwoNovelPathPairConditionalRatioCeilingTerm`,
+  `cutoffTwoNovelPathPairConditionalTransitionProductTerm_le_ceiling`,
+  `cutoffTwoNovelConditionalRatioCeilingLoad`,
+  `cutoffTwoNovelConditionalTransitionProductLoad_le_ratioCeilingLoad`,
+  `cutoffTwoNovelFiniteFlowCapacityFloor_ge_of_ratioCeiling`, and
+  `CutoffTwoCofinalNovelConditionalRatioCeilingBound.toCompletedStrictContractionData`.
+- **obligation**: construct a concrete one-edge projective ceiling with
+  controlled cutoff dependence and prove that its explicit ceiling-weighted
+  path load is uniformly bounded by the allocated conditional transition, or
+  exhibit cofinal overload requiring a new flow; then construct and control
+  the thermodynamic and continuum theories.
+- **constructive?**: yes — all five audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: two focused checks failed on explicit-witness, namespace,
+  unfolding, and natural-number nonnegativity details and are not passes.  The
+  corrected focused check passes in about 1.3 seconds; the exact one-worker
+  dependency-complete target passes 4,922 jobs with the new module taking
+  about 1.2 seconds.  Projective distortion and path counting are now separate
+  obligations, but neither uniform estimate, the completed gap inhabitant,
+  continuum QFT, nor the Clay theorem is closed.

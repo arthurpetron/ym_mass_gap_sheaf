@@ -9580,3 +9580,42 @@ control of the reverse/forward conditional ratios along canonical prefixes,
 then combine it with path length and endpoint-weight counting to bound the
 explicit edge sum.  No such uniform estimate, completed gap inhabitant,
 continuum QFT, or Clay theorem is claimed.
+
+## Local projective distortion is separated from path counting (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowConditionalRatioCeiling` introduces an
+explicit nonnegative one-edge ceiling `rho` for the reverse/forward
+conditional ratio on every positive directed edge of a fixed cutoff carrier.
+It proves recursively that every exact prefix transition product is strictly
+positive and satisfies
+
+`prefixProduct <= rho ^ prefixLength`.
+
+Substituting this inequality into each literal path-pair term and using
+nonnegativity of the endpoint weight and path length yields a termwise bound.
+Finite-list monotonicity then proves that the exact transition-product load is
+bounded by the explicit ratio-ceiling load
+
+`sum_{pairs crossing edge}`
+
+`  rho^prefixLength * weight(pair.right) * fullPathLength(pair)`.
+
+The cofinal structure `CutoffTwoCofinalNovelConditionalRatioCeilingBound`
+keeps two obligations separate: a local one-edge ratio ceiling and a global
+comparison of the resulting ceiling-weighted path count with the allocated
+conditional transition.  Supplying both compiles to the already constructed
+completed vacuum-sector strict-contraction datum.
+
+The first focused check exposed unnamed carrier witnesses, a zero-length
+unfolding issue, missing namespace openings, and a downstream timeout; the
+second exposed one missing qualified natural-number nonnegativity theorem.
+Those failed checks are not passes.  The corrected focused check passes in
+about 1.3 seconds.  The exact one-worker dependency-complete target passes
+4,922 jobs, with the new module taking about 1.2 seconds.  All five audited
+exports use exactly `[propext, Quot.sound]`.
+
+The remaining finite-volume analytic work is now visibly bifurcated: construct
+and control the cutoff dependence of a concrete one-edge projective ceiling,
+and prove that the corresponding weighted path count is uniformly payable by
+the selected conditional transition.  Neither uniform estimate, the completed
+gap inhabitant, continuum QFT, nor the Clay theorem is claimed.
