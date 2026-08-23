@@ -6844,3 +6844,32 @@ longer an independent hypothesis for the strict-form inequality.  Still open
 are construction of a common sector-local `q < 1` with the required
 cutoff/volume scope, the resulting unconditional completed spectral gap, and
 all thermodynamic/continuum/Clay conclusions.
+
+## The actual completed BF4 sector transfer form is positive and strictly bounded at every supplied certified rate (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorCylinderCompletedStrictFormGap` passes finite
+pulled-kernel positivity through the arbitrary-representative outer matrix
+limit.  Each moving pulled matrix is nonnegative by its constructive finite
+GNS form; closedness of Bishop-real order under convergence then proves that
+the actual cutoff-removed transfer form is nonnegative on every completed
+root-sector vector, with quotient induction used only into `Prop`.
+
+The resulting `CentralPhysicalVacuumSectorCylinderCompletedStrictFormGapData`
+packages the literal completed interval
+
+`0 <= <T v,v> <= q <v,v>` with `0 <= q < 1`
+
+for every completed vacuum-complement vector from any supplied
+`FixedNomeCofinalVacuumSectorCenteredStrictGap q`.  Thus positivity and the
+upper form estimate now live in one actual completed-sector datum rather than
+as separate endpoint facts.
+
+The focused monitored check and exact-target one-worker 1,597-job build pass.
+All four audited exports use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  This is still conditional on an
+explicit cofinal rate certificate.  It does not construct one rate uniform
+over the required cutoff/volume scope, does not upgrade the quadratic-form
+bound to an operator-norm gap without an additional square-form or positive-
+form Cauchy--Schwarz bridge, and does not assert a thermodynamic, continuum,
+or Clay conclusion.

@@ -5513,3 +5513,30 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   the all-vector strict-form proposition.  Thus the completion extension is
   closed at any supplied certified rate, but no common rate, unconditional
   spectral gap, thermodynamic/continuum QFT, or Clay theorem is asserted.
+
+### [BF4-vacuum-sector-completed-strict-form-gap] Actual completed transfer form is positive and strictly bounded at any certified rate — **PROVED 2026-08-22**
+
+- **milestone**: prove every moving pulled finite matrix is nonnegative from
+  its constructive GNS datum; pass positivity through the outer matrix limit;
+  descend it propositionally to every completed sector vector; and combine it
+  with the all-vector upper estimate into one strict completed form-gap datum.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCylinderCompletedStrictFormGap.lean`.
+- **decl**:
+  `centralPhysicalVacuumSectorCylinder_outerPulledMatrixSeq_nonnegative`,
+  `centralPhysicalVacuumSectorCylinder_completedTransferForm_mk_nonnegative`,
+  `centralPhysicalVacuumSectorCylinder_completedTransferForm_nonnegative`, and
+  `centralPhysicalVacuumSectorCylinderCompletedStrictFormGapDataAtRate`.
+- **obligation**: inhabit a cofinal strict-rate certificate with one `q < 1`
+  at the cutoff/volume uniformity scope needed downstream; separately supply
+  the square-form or positive-form Cauchy--Schwarz mechanism needed to turn
+  the quadratic-form interval into an operator-norm/spectral statement; then
+  control thermodynamic and continuum limits.
+- **constructive?**: yes — all four audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,597-job dependency-complete build pass.  The completed form interval is
+  available for every supplied certified rate, but no common uniform rate,
+  unconditional operator gap, thermodynamic/continuum QFT, or Clay theorem is
+  asserted.
