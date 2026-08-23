@@ -6550,3 +6550,27 @@ identification half of the direct sector completion bridge.  Still open are
 the density/representation theorem for moving head-centered sector
 presentations, one common sector-local `q < 1`, and all
 thermodynamic/continuum/Clay conclusions.
+
+## Dense completed sector vacuum pairing is the pulled mean limit (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorCylinderDenseVacuumPairing` identifies the
+actual completed global-vacuum pairing of every dense root-sector cylinder
+with its existing pulled weighted-mean cutoff limit.  At each sufficiently
+large cutoff, the finite weighted pairing with the constant vacuum is reduced
+to the indexed stationary mean; exact coefficient extension then identifies
+that mean with the pulled root-sector mean.  Eventual stage equality and
+quotient descent carry the identity to the completion.
+
+Consequently, if the dense completed sector vector lies in the actual global
+vacuum complement, its pulled weighted-mean cutoff limit is constructively
+equivalent to zero.  This supplies the numerator-zero statement required to
+show that moving rational head corrections disappear for an orthogonal dense
+vector.
+
+The focused monitored check and exact-target one-worker 1,366-job build pass.
+All four audited exports use exactly `[propext, Quot.sound]`; no
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  Still open are head-correction
+vanishing in completed norm, moving head-centered density for arbitrary
+completed sector vectors, one common sector-local `q < 1`, and all
+thermodynamic/continuum/Clay conclusions.

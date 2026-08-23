@@ -5196,3 +5196,29 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   1,365-job dependency-complete build pass.  This proves the transfer-form
   half of the direct sector bridge, not the head-centering density theorem, a
   uniform completed gap, thermodynamic/continuum QFT, or the Clay theorem.
+
+### [BF4-vacuum-sector-dense-vacuum-pairing] Actual dense vacuum pairing is the pulled mean limit — **PROVED 2026-08-22**
+
+- **milestone**: identify the completed pairing of every dense root-sector
+  cylinder with the normalized global vacuum as its pulled weighted-mean
+  cutoff limit, and deduce that completed vacuum orthogonality forces that
+  Bishop-real mean to vanish.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCylinderDenseVacuumPairing.lean`.
+- **decl**:
+  `centralPhysicalFiniteVacuumSectorLinearObservable_vacuumPairing_eqv_pulledMean`,
+  `centralPhysicalVacuumSectorCylinder_innerLimitVacuum_equiv_pulledMean`,
+  `centralPhysicalVacuumSectorCylinder_completedVacuumPairing_embedRep_eq_pulled`,
+  and
+  `centralPhysicalVacuumSectorCylinder_pulledMean_equiv_zero_of_orthogonal`.
+- **obligation**: combine the zero pulled-mean limit with the positive
+  root-weight floor to prove head-correction vanishing in completed norm;
+  then extend moving head-centering from dense presentations to arbitrary
+  completed sector vacuum vectors.
+- **constructive?**: yes — all four audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,366-job dependency-complete build pass.  This proves the numerator-zero
+  part of the moving-centering bridge, not head-correction norm convergence, a
+  uniform completed gap, thermodynamic/continuum QFT, or the Clay theorem.
