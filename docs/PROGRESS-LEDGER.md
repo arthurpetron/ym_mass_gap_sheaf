@@ -10195,3 +10195,34 @@ The next reduction should restrict the ceiling obligation to routed prefix
 edges, avoiding an unnecessarily global carrier-wide Harnack assumption.
 Old--old and new--new capacity, uniform completed contraction,
 thermodynamic/continuum theory, and the Clay theorem remain open.
+
+## Cross ceilings now quantify only over routed prefixes (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricCrossRoutedCeiling` replaces the
+global carrier Harnack requirement by two exact families of product bounds on
+the canonical prefixes that occur in nonzero flow terms.  The source-prefix
+family stops before the selected edge; the target-prefix family extends
+through it.  Both the path and its occurrence witness remain explicit data.
+
+A global one-edge reverse/forward ceiling is proved to construct this routed
+datum, but the downstream compiler depends only on the weaker routed fields.
+Separate endpoint-pair estimates bound the forward and reverse product loads;
+finite summation and exact averaging then bound the symmetric cross product
+load by the same ceiling load used in the preceding module.
+
+The Type-level
+`CutoffTwoNovelSymmetricOldNewRoutedCeilingCapacityAt` combines a routed
+product ceiling with the still-required conditional payment and contracts to
+the exact transition-product capacity certificate.  No carrier-wide ratio
+bound is therefore part of the minimal old-to-new interface.
+
+The focused monitored check passes on its first run in about 1.1 seconds.  The
+exact one-worker dependency-complete target passes 4,981 jobs, with the new
+module taking about 1.1 seconds.  All five audited exports use exactly
+`[propext, Quot.sound]`.
+
+The next frontier is to connect the constructively located finite ratio
+ceilings already available at each cutoff to this routed interface, then
+separate finite decidability from the genuinely open cofinal uniform ceiling
+and payment estimates.  Old--old and new--new capacity, uniform completed
+contraction, thermodynamic/continuum theory, and the Clay theorem remain open.

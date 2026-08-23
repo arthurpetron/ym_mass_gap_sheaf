@@ -8528,3 +8528,35 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   dependency-complete target passes 4,980 jobs with the new module taking about
   1.1 seconds.  No analytic ceiling or capacity payment is inhabited.  Uniform
   completed contraction, continuum QFT, and the Clay theorem remain open.
+
+### [BF4-cutoff-two-novel-flow-symmetric-cross-routed-ceiling] Minimal routed-product ceiling interface — **CLOSED 2026-08-23**
+
+- **milestone**: name the canonical routed path and its constructive prefix;
+  replace a global carrier-wide one-edge Harnack field by product ceilings only
+  on actual source prefixes and through-edge target prefixes; show that the
+  stronger global ceiling maps to this routed datum; bound both exact product
+  loads termwise and after finite summation; and compile a routed ceiling plus
+  payment to the old-to-new transition-product capacity certificate.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricCrossRoutedCeiling.lean`.
+- **decl**: `cutoffTwoNovelRoutedPath`, `cutoffTwoNovelRoutedPrefix`,
+  `CutoffTwoNovelRoutedPrefixRatioCeilingAt`,
+  `CutoffTwoConditionalReverseForwardCeilingAt.toRoutedPrefixRatioCeilingAt`,
+  `cutoffTwoNovelConditionalTransitionProductLoad_le_routedCeilingLoad`,
+  `cutoffTwoNovelConditionalTargetTransitionProductLoad_le_routedCeilingLoad`,
+  `cutoffTwoNovelSymmetricCrossTransitionProductLoad_le_routedCeilingLoad`,
+  and `CutoffTwoNovelSymmetricOldNewRoutedCeilingCapacityAt`.
+- **obligation**: transport the existing constructively located finite ratio
+  ceiling into the routed interface, then isolate the actual cofinal uniform
+  bound and conditional payment.  Independently inhabit the old--old and
+  irreducible new--new capacity blocks; after all three fields are uniform,
+  construct and control the thermodynamic and continuum theories.
+- **constructive?**: yes — the restricted hypotheses quantify over explicit
+  endpoint-pair membership and literal path-edge occurrence witnesses; the
+  stronger-to-weaker map preserves all data; all five audited exports use
+  exactly `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the focused monitored check passes on its first run in about
+  1.1 seconds; the exact one-worker dependency-complete target passes 4,981
+  jobs with the new module taking about 1.1 seconds.  No routed ceiling or
+  capacity payment is inhabited here.  Uniform completed contraction,
+  continuum QFT, and the Clay theorem remain open.
