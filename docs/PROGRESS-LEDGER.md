@@ -7892,3 +7892,32 @@ frontier is to evaluate or characterize this exact scalar on the already
 solved cutoff-one model and then isolate which cutoff-growth estimate must
 prevent it from approaching one.  Thermodynamic/continuum control and the
 Clay theorem remain open.
+
+## The exact posterior-overlap residual rate is uniformly below four (2026-08-23)
+
+`BF4PhysicalVacuumSectorCenteredGramOverlapResidualCeiling` uses the already
+proved strict positivity of both exact finite overlap floors to prove that
+each residual factor `2(1-alpha_K)` and `2(1-beta_K)` is strictly below two.
+Nonnegativity and monotonic multiplication then give the unconditional
+all-cutoff estimate
+
+`0 <= r_K < 4`.
+
+This is the first cutoff-uniform bound on the single exact scalar controlling
+the literal centered-Gram row majorant.  It is intentionally not presented as
+a contraction or gap result: the completed compiler needs `r_K <= q` for one
+fixed `q < 1`, whereas the proved ceiling is four.  The remaining analytic
+improvement is therefore quantitatively pinned to crossing the exact scalar
+threshold from `< 4` to a cofinal uniform `< 1`.
+
+The focused monitored check passes, and the exact-target one-worker
+dependency-complete build passes 1,495 jobs in 269 seconds.  All three audited
+exports use exactly `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.
+
+No cofinal upper bound below one is inhabited.  The next causal frontier is
+to determine whether the solved cutoff-one physical block identifies the
+canonical-sector scalar exactly, and then to isolate a support-stable
+all-cutoff overlap mechanism strong enough to improve the ceiling below one.
+Thermodynamic/continuum control and the Clay theorem remain open.

@@ -6507,3 +6507,27 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   one-worker dependency-complete build passes 1,494 jobs.  No cofinal bound
   below one is inhabited, so the unconditional completed gap,
   thermodynamic/continuum QFT, and Clay theorem remain open.
+
+### [BF4-vacuum-sector-overlap-residual-ceiling] Exact scalar is uniformly below four — **PROVED / THRESHOLD OPEN 2026-08-23**
+
+- **milestone**: use strict positivity of both exact finite overlap floors to
+  prove each overlap-residual factor is strictly below two, and combine those
+  estimates with residual nonnegativity to bound the one centered-Gram scalar
+  strictly below four at every cutoff.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorCenteredGramOverlapResidualCeiling.lean`.
+- **decl**:
+  `centralPhysicalFiniteVacuumSectorTargetPosteriorOverlapResidualRate_lt_two`,
+  `centralPhysicalFiniteVacuumSectorSourcePosteriorOverlapResidualRate_lt_two`,
+  and
+  `centralPhysicalFiniteVacuumSectorPosteriorOverlapResidualRate_lt_four`.
+- **obligation**: improve the unconditional all-cutoff ceiling `< 4` to a
+  constructively cofinal fixed bound `r_K <= q < 1`.  The theorem quantifies
+  this threshold gap but does not inhabit the completed-gap certificate.
+- **constructive?**: yes — all three audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check passes, and the exact-target
+  one-worker dependency-complete build passes 1,495 jobs in 269 seconds.  The
+  uniform `< 4` estimate is not an operator contraction; the unconditional
+  completed gap, thermodynamic/continuum QFT, and Clay theorem remain open.
