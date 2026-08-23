@@ -8272,3 +8272,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   exact one-worker dependency-complete target passes 4,974 jobs with the new
   module taking about 1.7 seconds.  No independent uniform row ratio, flow
   payment, completed gap inhabitant, continuum QFT, or Clay theorem is closed.
+
+### [BF4-cutoff-two-novel-flow-new-source-obstruction] Positive new-source occurrence — **CLOSED 2026-08-23**
+
+- **milestone**: prove that the vacuum root belongs to the persistent old
+  block and every genuinely new state differs from it; place each ordered
+  new-to-vacuum pair in the literal novel endpoint list; extract the first edge
+  of its nontrivial loop-erased positive path; prove that occurrence has the
+  chosen new state as source and strictly positive load; and refute any claim
+  that every positive occurrence of the present directed novel flow is sourced
+  in the old block whenever the new block is inhabited.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowNewSourceObstruction.lean`.
+- **decl**: `cutoffTwoVacuumRoot_mem_oldStates`,
+  `cutoffTwoNewState_ne_vacuumRoot`,
+  `cutoffTwoNovelFlow_exists_positiveOccurrence_with_newSource`, and
+  `no_cutoffTwoNovelFlow_allPositiveOccurrenceSourcesOld`.
+- **obligation**: the persistent-old row floor cannot alone control every
+  source denominator in the literal directed flow.  Test whether kernel
+  symmetry and paired endpoint traffic support an exact symmetrized or
+  orientation-free payment; if not, derive an independent adjacent raw-row
+  scale estimate for new states, then prove uniform payment and construct and
+  control the thermodynamic and continuum theories.
+- **constructive?**: yes — nontriviality, first-edge occurrence, endpoint
+  weight positivity, and positive path length are all explicit; all four
+  audited exports use exactly `[propext, Quot.sound]`; no forbidden construct
+  was added.
+- **status note**: the first focused check failed on one missing namespace
+  opening and is not a pass.  The corrected focused monitored check passes in
+  about 1.1 seconds; the exact one-worker dependency-complete target passes
+  4,975 jobs with the new module taking about 1.0 second.  This result concerns
+  the current directed path flow only and does not rule out symmetric
+  reorientation.  No uniform flow payment, completed gap inhabitant, continuum
+  QFT, or Clay theorem is closed.

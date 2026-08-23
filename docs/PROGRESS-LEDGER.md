@@ -9939,3 +9939,39 @@ placed in the persistent old carrier with its proved uniform row floor.  If
 not, the remaining honest target is an adjacent raw row-scale estimate from
 the explicit BF4 action/support geometry.  Uniform payment, the completed gap
 inhabitant, thermodynamic/continuum theory, and the Clay theorem remain open.
+
+## The literal novel flow necessarily has new-sourced positive traffic (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowNewSourceObstruction` resolves the
+proposed persistent-denominator shortcut for the directed flow now used in the
+congestion argument.  At every cutoff `later >= 2`, the vacuum root belongs to
+the persistent old block, while every state in the genuinely new block differs
+from that root.  Hence the ordered new-to-vacuum endpoint pair occurs in the
+literal novel endpoint list.
+
+The loop-erased positive path for this pair is nontrivial.  Its first directed
+edge is therefore sourced at the chosen new state, and its occurrence load is
+strictly positive: both endpoint stationary weights are positive and the path
+has positive natural-number length.  Consequently, whenever the new block is
+inhabited, no certificate can assert that every positive occurrence in the
+present directed novel flow has an old source.
+
+This is a diagnostic theorem about the current orientation, not a no-go result
+for every flow construction.  It proves that the existing persistent-old row
+floor alone cannot control all source denominators in this directed flow.  A
+symmetric reorientation, a symmetrized/undirected load argument, or an
+independent local row-scale bound for new states may still close the finite
+congestion payment.
+
+The first focused check exposed one missing namespace opening and is not a
+pass.  The corrected focused monitored check passes in about 1.1 seconds.  The
+exact one-worker dependency-complete target passes 4,975 jobs, with the new
+module taking about 1.0 second.  All four audited exports use exactly
+`[propext, Quot.sound]`.
+
+The next frontier is to test whether kernel symmetry and the paired ordered
+endpoint list permit an exact orientation-free or symmetrized edge-load
+payment.  If deterministic path choice obstructs that route, the remaining
+local target is a BF4 raw-row scale comparison for new-state endpoints.
+Uniform payment, the completed gap inhabitant, thermodynamic/continuum theory,
+and the Clay theorem remain open.
