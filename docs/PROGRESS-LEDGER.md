@@ -8523,3 +8523,39 @@ block and prove exact mean/diagonal identities, leaving only kernel drift,
 cross-block, and new-tail analytic estimates.  Uniform full-sector control,
 the completed gap inhabitant, volume/spacing control, continuum QFT, and the
 Clay theorem remain open.
+
+## The cutoff-two core is now a canonical pullback and recentering (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoFullSectorOldPullbackResidual` removes the
+arbitrary recentering map from the full-sector residual input.  Any later
+coefficient is restricted constructively along the explicit cutoff-two index
+embedding.  Its old weighted mean, old diagonal, and old-old matrix block are
+proved exactly equal to the corresponding moving pulled forms.
+
+For a centered later vector the pulled-old mean plus the new-sector mean is
+therefore exactly zero.  The full diagonal likewise splits exactly into the
+pulled-old diagonal plus the new diagonal.  The old pullback is then centered
+at the fixed cutoff-two root and explicitly extended on the cutoff-two sector;
+the resulting core is unconditionally centered, and its diagonal and matrix
+forms are exactly the fixed pulled forms.
+
+The specialized residual certificate now asks only for five analytic
+estimates: moving-versus-fixed old-old control, both cross blocks, the
+new-new block, and centered-core diagonal inflation.  Its cofinal compiler
+inserts all structural witnesses and reaches the actual completed
+vacuum-sector transfer contraction through the previously verified bridges.
+
+The final focused monitored check passes in about 1.6 seconds, and the exact
+one-worker dependency-complete target passes 4,887 jobs.  All eleven audited
+exports use exactly `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.  Three early checks were interrupted while missing namespaces for
+`listQSum` and its private local reindexing lemmas caused unresolved-term
+expansion; subsequent diagnostic failures are not passes.
+
+No later-cutoff analytic estimate or cofinal family is inhabited.  The next
+frontier is to expand the fixed-root recentering correction quantitatively in
+terms of (i) old pulled-weight drift and (ii) the exactly cancelling new mean,
+then reduce the diagonal inflation and old-old comparison to explicit
+relative tail budgets.  The uniform completed gap inhabitant, volume/spacing
+control, continuum QFT, and the Clay theorem remain open.

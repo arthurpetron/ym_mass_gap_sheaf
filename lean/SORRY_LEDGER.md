@@ -7073,3 +7073,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   closes the residual-to-gap implication, not any later-cutoff residual
   estimate, cofinal gap inhabitant, thermodynamic/continuum QFT, or the Clay
   theorem.
+
+### [BF4-cutoff-two-full-sector-old-pullback] Canonical core recentering — **CLOSED 2026-08-23**
+
+- **milestone**: pull an arbitrary later-sector coefficient back along the
+  explicit cutoff-two embedding; prove exact old mean, diagonal, and old-old
+  matrix identities; expose exact cancellation of old and new means and the
+  old/new diagonal split; construct a fixed-root centered cutoff-two core;
+  and compile five remaining analytic budgets to the completed contraction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoFullSectorOldPullbackResidual.lean`.
+- **decl**:
+  `cutoffTwoOldCoefficientPullback`,
+  `cutoffTwoOldWeightedMean_eqv_pulled`,
+  `cutoffTwoOldDiagonal_eqv_pulled`,
+  `cutoffTwoOldOldBlock_eqv_pulled`,
+  `cutoffTwoOldPulled_add_newWeightedMean_eqv_zero`,
+  `cutoffTwoFullSectorDiagonal_eqv_oldPulled_add_new`,
+  `cutoffTwoOldCoefficientRecentered_meanZero`,
+  `CutoffTwoFullSectorOldPullbackResidualAt.toFullSectorBlockResidualAt`,
+  and
+  `CutoffTwoCofinalFullSectorOldPullbackResidual.toCompletedStrictContractionData`.
+- **obligation**: bound the fixed-root correction through pulled-weight drift
+  and the new mean, then prove cofinal moving-old, cross-block, new-new, and
+  diagonal budgets whose exact combined rate stays below one.
+- **constructive?**: yes — all eleven audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the final focused check passes in about 1.6 seconds, and
+  the exact-target one-worker dependency-complete build passes 4,887 jobs.
+  Three interrupted unresolved-name diagnostics and later failed namespace
+  probes are not passes.  This constructs the structural core, not any
+  later-cutoff analytic budget, cofinal completed gap inhabitant,
+  thermodynamic/continuum QFT, or the Clay theorem.
