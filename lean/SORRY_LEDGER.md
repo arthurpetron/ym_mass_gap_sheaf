@@ -8723,3 +8723,28 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   module taking about 1.2 seconds.  No scan success or uniform product payment
   is proved.  Uniform completed contraction, continuum QFT, and the Clay
   theorem remain open.
+
+### [BF4-cutoff-two-novel-flow-symmetric-all-block-transition-product-decision] Exact tagged product counteredge — **CLOSED 2026-08-23**
+
+- **milestone**: inspect all three exact finite transition-product payment
+  lists in block order; return the complete capacity certificate on success;
+  and preserve a literal failed edge, its endpoint memberships, failed exact
+  inequality, and old--old / old-to-new / new--new tag on failure.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricAllBlockTransitionProductDecision.lean`.
+- **decl**:
+  `CutoffTwoNovelSymmetricThreeBlockTransitionProductCapacityOutcome` and
+  `inspectCutoffTwoNovelSymmetricThreeBlockTransitionProductCapacity`.
+- **obligation**: use the exact tagged counteredge to target a block-specific
+  uniform transition-product estimate or alter the selected simple routes;
+  establish cofinal capacity, then construct and control thermodynamic and
+  continuum limits.
+- **constructive?**: yes — recursive rational comparison returns Type-level
+  success or literal endpoints with membership and negated payment; the
+  audited inspector uses exactly `[propext, Quot.sound]`; no forbidden
+  construct was added.
+- **status note**: the focused monitored check passes on its first run in about
+  0.9 seconds; the exact one-worker target passes 4,988 jobs with the new
+  module taking about 0.9 seconds.  No inspection outcome or cofinal success is
+  asserted.  Uniform completed contraction, continuum QFT, and the Clay
+  theorem remain open.

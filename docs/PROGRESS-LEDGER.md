@@ -10382,3 +10382,27 @@ conditional edge, with an extra factor one half of capacity on old--old edges.
 The next step is a constructive exact inspector retaining a literal failed
 transition-product edge, followed by block-aware ceiling or route-sharing
 bounds.  Cofinal success and all thermodynamic/continuum work remain open.
+
+## Exact transition-product failure now returns a literal block edge (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricAllBlockTransitionProductDecision`
+constructively inspects the old--old, old-to-new, and new--new product-payment
+lists in sequence.  Success returns the complete three-field transition-
+product capacity certificate.  Failure returns the first literal source and
+target, their block-membership witnesses, the failed inequality, and a tag
+identifying the responsible block.
+
+Unlike failure of the conservative cross-ceiling scan, every failure here is
+of the exact transition-product capacity predicate, which the preceding module
+proved equivalent to physical symmetric capacity.  The inspector therefore
+provides a precise local diagnostic for flow redesign or analytic estimation.
+
+The focused monitored check passes on its first run in about 0.9 seconds.  The
+exact one-worker dependency-complete target passes 4,988 jobs, with the new
+module taking about 0.9 seconds.  Its audited export uses exactly
+`[propext, Quot.sound]`.
+
+The next frontier is no longer logical bookkeeping: it is a block-aware
+analytic bound on the explicit transition-product sums, or a demonstrably
+better route when a returned exact counteredge overloads.  Cofinal success,
+thermodynamic/continuum theory, and the Clay theorem remain open.
