@@ -8594,3 +8594,32 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   jobs with the new module taking about 1.1 seconds.  No scan-success theorem
   or uniform capacity datum is asserted.  Uniform completed contraction,
   continuum QFT, and the Clay theorem remain open.
+
+### [BF4-cutoff-two-novel-flow-symmetric-checked-cross-compiler] Cofinal checked-cross contraction — **CLOSED 2026-08-23**
+
+- **milestone**: define a cofinal capacity family whose old-to-new field is an
+  exact scan-success witness rather than an opaque inequality; compile that
+  witness to the cross capacity field at every scheduled cutoff; combine it
+  with explicit old--old and new--new payments; and feed the assembled
+  three-field family through the existing finite gap to completed
+  vacuum-sector strict contraction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricCheckedCrossCompiler.lean`.
+- **decl**: `CutoffTwoCofinalNovelSymmetricCheckedCrossCapacity`,
+  `CutoffTwoCofinalNovelSymmetricCheckedCrossCapacity.toCofinalNovelSymmetricOrientedCapacity`,
+  and
+  `CutoffTwoCofinalNovelSymmetricCheckedCrossCapacity.toCompletedStrictContractionData`.
+- **obligation**: prove cofinal success of the exact cross scan and inhabit the
+  old--old and new--new symmetric capacity fields.  First reflect both
+  same-block fields into exact finite scans so success and counteredges are
+  computationally visible; after the full cofinal capacity is proved,
+  construct and control the thermodynamic and continuum theories.
+- **constructive?**: yes — the scan equality is an explicit field, its
+  compiler returns the actual cross certificate, and both same-block gaps
+  remain named fields in a Type-level structure; both audited exports use
+  exactly `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the focused monitored check passes on its first run in about
+  0.9 seconds; the exact one-worker dependency-complete target passes 4,984
+  jobs with the new module taking about 0.9 seconds.  The cofinal family is not
+  inhabited.  Uniform completed contraction, continuum QFT, and the Clay
+  theorem remain open.

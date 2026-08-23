@@ -10258,3 +10258,32 @@ with separate old--old and new--new capacity fields, yielding the completed
 strict-contraction interface.  Analytically, success of those cofinal scans
 and both same-block payments remain open; thermodynamic/continuum theory and
 the Clay theorem also remain open.
+
+## Checked cross scans now plug into the completed-gap compiler (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricCheckedCrossCompiler` performs
+the cofinal contraction step for the newly decidable cross block.  Its
+Type-level family carries a cofinal schedule, a successful exact cross scan at
+each scheduled cutoff, and only the two remaining same-block capacity fields:
+old--old and new--new.
+
+At every scheduled cutoff the scan proof constructs the ratio-free cross
+certificate, which supplies the old-to-new field; load/capacity symmetry still
+supplies new-to-old.  The two explicit same-block fields complete the existing
+three-field oriented capacity datum.  The previously proved finite gap and
+completion pipeline then yields completed vacuum-sector strict contraction.
+
+This compiler is intentionally uninhabited.  It neither asserts cofinal scan
+success nor supplies old--old or new--new payments; it shows exactly how those
+three remaining inputs would close the finite/completed BF4 contraction stage.
+
+The focused monitored check passes on its first run in about 0.9 seconds.  The
+exact one-worker dependency-complete target passes 4,984 jobs, with the new
+module taking about 0.9 seconds.  Both audited exports use exactly
+`[propext, Quot.sound]`.
+
+The next frontier is to reflect the old--old and new--new symmetric capacity
+fields into exact finite scans as well.  That will reduce the entire cofinal
+finite/completed gap input to success of three transparent Boolean block
+checks, while leaving their uniform analytic success—and all thermodynamic and
+continuum work—honestly open.
