@@ -7010,3 +7010,31 @@ noncomputable declaration was added.  The maximum and edge floor may still
 vary with the base carrier.  A common cofinal `q < 1`, the unconditional
 completed spectral gap, thermodynamic/continuum control, and the Clay theorem
 remain open.
+
+## The all-base BF4 frontier now uses maximum path scale and reaches the completed operator directly (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorMaximumCofinalRateBridge` replaces the former
+all-base sum-ceiling frontier by the strictly weaker maximum-scale condition.
+Its denominator-cleared analytic input is exactly
+
+`pathMaximum <= q * (pathMaximum + edgeFloor)`
+
+for every base carrier, with one rational `0 <= q < 1`.  This condition bounds
+the already-constructed maximum Poincare rate.  Conversely, any witness for
+the old sum-ceiling frontier supplies a witness for the new maximum-rate
+frontier at the same `q`, because the maximum rate is no larger than the sum
+rate.
+
+The new bridge contracts either form of maximum-rate witness first to the
+cofinal same-object centered finite gap and then, using the now-proved
+completed Markov-form Cauchy--Schwarz law, directly to the actual completed
+vacuum-sector strict-contraction datum.  Thus no functional-analytic residue
+remains after the uniform rate is supplied.
+
+The focused monitored check passes, and the exact-target one-worker
+dependency-complete build passes 4,890 jobs.  All five audited exports use
+exactly `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`,
+`sorry`, custom axiom, or noncomputable declaration was added.  The all-base
+maximum/floor inequality is deliberately not inhabited.  Constructing one
+such common rate, the unconditional completed gap, thermodynamic/continuum
+control, and the Clay theorem remain open.

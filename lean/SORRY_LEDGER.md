@@ -5691,3 +5691,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   does not bound the expanding family by one strict rate, prove an
   unconditional completed spectral gap, or reach thermodynamic/continuum QFT
   or the Clay theorem.
+
+### [BF4-vacuum-sector-maximum-cofinal-rate] Sharper all-base maximum-rate frontier reaches completed contraction — **REDUCED 2026-08-22**
+
+- **milestone**: isolate the all-base maximum-rate and exact
+  denominator-cleared maximum/floor data; compile either witness to the
+  cofinal centered finite gap and actual completed vacuum-sector contraction;
+  and prove that the old sum-ceiling frontier maps to the new frontier at the
+  same rate.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorMaximumCofinalRateBridge.lean`.
+- **decl**:
+  `FixedNomeUniformMaximumVacuumSectorRateBound`,
+  `FixedNomeUniformMaximumVacuumSectorRateBound.selectedAnchor`,
+  `FixedNomeUniformMaximumVacuumSectorRateBound.selectedAnchor_ge`,
+  `FixedNomeUniformMaximumVacuumSectorRateBound.toVacuumSectorCenteredStrictGap`,
+  `FixedNomeUniformMaximumVacuumSectorRateBound.toCompletedStrictContractionData`,
+  `FixedNomeUniformMaximumFloorPathRateBound`,
+  `FixedNomeUniformMaximumFloorPathRateBound.maximumPoincareRate_le`,
+  `FixedNomeUniformMaximumFloorPathRateBound.toUniformMaximumVacuumSectorRateBound`,
+  `FixedNomeUniformMaximumFloorPathRateBound.toCompletedStrictContractionData`,
+  and
+  `FixedNomeUniformFloorPathRateBound.toUniformMaximumVacuumSectorRateBound`.
+- **obligation**: inhabit one rational `0 <= q < 1` satisfying
+  `pathMaximum <= q * (pathMaximum + edgeFloor)` for every base carrier at the
+  required fixed-nome, fixed-volume scope.
+- **constructive?**: yes — all five audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  4,890-job dependency-complete build pass.  This sharpens and contracts the
+  remaining finite-volume analytic input; it does not inhabit that input,
+  prove an unconditional completed gap, construct the thermodynamic/continuum
+  QFT, or prove the Clay theorem.
