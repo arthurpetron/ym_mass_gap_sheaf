@@ -5724,3 +5724,47 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   remaining finite-volume analytic input; it does not inhabit that input,
   prove an unconditional completed gap, construct the thermodynamic/continuum
   QFT, or prove the Clay theorem.
+
+### [BF4-vacuum-sector-path-length-rate] Polynomial canonical-path accounting sharpens the all-base completed-gap frontier — **REDUCED 2026-08-23**
+
+- **milestone**: replace the exponential recursive path-amplification factor
+  by a finite Cauchy estimate quadratic in the literal edge length; take the
+  located maximum over all endpoint pairs; pull the estimate through every
+  later physical kernel; construct the resulting sharper Poincare rate; and
+  compile its all-base rate witness directly to the completed vacuum-sector
+  strict contraction.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorPathLengthEnergy.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorPathLengthMaximum.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorPulledPathLengthMaximum.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorPulledPathLengthPoincareGap.lean`,
+  and
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorPathLengthCofinalRateBridge.lean`.
+- **decl**:
+  `listQSum_square_le_length_mul_squareSum`,
+  `PositiveKernelChainIn.floor_mul_endpointDifference_sq_le_length_sq_mul_finiteJointDirichletEnergy`,
+  `PositiveKernelChainIn.floor_mul_endpointDifference_sq_le_quadraticLength_mul_rekernel_Dirichlet`,
+  `centralPhysicalFiniteVacuumSectorPathLengthMaximum`,
+  `centralPhysicalFiniteVacuumSectorPathLengthMaximum_le_pathMaximum`,
+  `FixedBasePulledPositiveEdgeFloor.pathLengthPoincareRate`,
+  `FixedBasePulledPositiveEdgeFloor.pathLengthPoincareRate_le_maximumPoincareRate`,
+  `FixedNomeUniformPathLengthVacuumSectorRateBound.toCompletedStrictContractionData`,
+  `FixedNomeUniformPathLengthFloorRateBound.toCompletedStrictContractionData`,
+  and
+  `FixedNomeUniformMaximumVacuumSectorRateBound.toUniformPathLengthVacuumSectorRateBound`.
+- **obligation**: inhabit one rational `0 <= q < 1` satisfying
+  `pathLengthMaximum <= q * (pathLengthMaximum + edgeFloor)` for every base
+  carrier, or replace the path method with a stronger direct uniform-mixing
+  proof.  An explicit uniform upper control on canonical path length together
+  with an appropriately scaled positive lower control on the persistent edge
+  floor is a concrete sufficient next input.
+- **constructive?**: yes — all 20 audited exports use at most
+  `[propext, Quot.sound]`, and `edgeLength_rekernel` uses no axioms.  No
+  `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+  noncomputable declaration was added.
+- **status note**: focused monitored checks pass for all five modules and the
+  final exact-target one-worker dependency-complete build passes 4,895 jobs.
+  The polynomial replacement and both rate comparisons are unconditional;
+  the common all-base rate itself is not inhabited.  Therefore the
+  unconditional completed gap, thermodynamic/continuum QFT, and Clay theorem
+  remain open.

@@ -7038,3 +7038,54 @@ exactly `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`,
 maximum/floor inequality is deliberately not inhabited.  Constructing one
 such common rate, the unconditional completed gap, thermodynamic/continuum
 control, and the Clay theorem remain open.
+
+## The BF4 path compiler now has a polynomial length-square rate frontier (2026-08-23)
+
+The former canonical-path energy proof accumulated the recursively defined
+scale `s(refl) = 0` and `s(step rest) = 2 + 2 * s(rest)`, which is exponential
+in the number of path edges.  `BF4PhysicalFiniteVacuumSectorPathLengthEnergy`
+instead proves the finite rational Cauchy inequality
+
+`(sum values)^2 <= values.length * sum(value^2)`.
+
+Applied to the literal list of edge differences, this telescopes to the
+endpoint difference and gives the polynomial estimate
+
+`edgeFloor * endpointDifference^2 <= pathLength^2 * DirichletEnergy`.
+
+The proof survives re-kerneling because its floor hypothesis is needed only
+on the positive base edges actually traversed by the path.  The resulting
+quadratic length scale is also proved no larger than the former recursive
+amplification scale.
+
+`BF4PhysicalFiniteVacuumSectorPathLengthMaximum` takes a located maximum over
+all endpoint pairs and defines the positive scale
+
+`pathLengthMaximum = 1 + max(pathLength^2)`.
+
+It controls every endpoint difference and is no larger than the preceding
+`pathMaximum`.  The pulled-kernel and Poincare modules transport this estimate
+to every later cutoff and construct the sharper fixed-base rate
+
+`q_len = pathLengthMaximum / (pathLengthMaximum + edgeFloor) < 1`.
+
+Constructively, `q_len <= q_max <= q_sum`.  Finally,
+`BF4PhysicalCutoffVacuumSectorPathLengthCofinalRateBridge` makes the new
+all-base frontier exactly the denominator-cleared condition
+
+`pathLengthMaximum <= q * (pathLengthMaximum + edgeFloor)`
+
+for every base carrier and one rational `0 <= q < 1`.  Such a witness compiles
+directly to the cofinal centered strict gap and the actual completed
+vacuum-sector strict contraction.  A witness for the previous maximum-rate
+frontier maps to this strictly weaker frontier at the same `q`.
+
+Focused monitored checks pass for all five new modules, and the final
+exact-target one-worker dependency-complete build passes 4,895 jobs.  All 20
+audited exports remain within the axiom gate: each uses at most
+`[propext, Quot.sound]`, with `edgeLength_rekernel` using no axioms.  No
+`Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+noncomputable declaration was added.  The common all-base `q` is deliberately
+not inhabited: a uniform comparison between path length and persistent edge
+floor, the unconditional completed gap, thermodynamic/continuum control, and
+the Clay theorem remain open.
