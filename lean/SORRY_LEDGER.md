@@ -6829,3 +6829,33 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   open; neither is counted as a pass.  The theorem is finite and cutoff-two
   only.  It leaves cofinal signed-form control, the completed uniform gap,
   thermodynamic/continuum QFT, and the Clay theorem open.
+
+### [BF4-cutoff-two-normalized-row-rate-obstruction] Partition-scale invariance — **PROVED FINITE 2026-08-23**
+
+- **milestone**: package the positive physical partition scale with exact
+  kernel and row-sum transports; prove the normalized component mass and
+  cleared row distance scale respectively by the first and second powers of
+  that common factor; and preserve the strict row-ten obstruction.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoCanonicalVacuumNormalizedGap.lean`
+  and
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoExactMassNormalizedRowRateObstruction.lean`.
+- **decl**:
+  `CutoffTwoPartitionScaleCertificate`,
+  `cutoffTwoSectorNormalizedMass_eqv_physical_mul_rowRateReciprocal`,
+  `cutoffTwoSectorNormalizedClearedMassNormalizedRowDistance_eqv_scaled`, and
+  `cutoffTwoSectorNormalizedClearedRowTen_gt_mass_mul_rowSum`.
+- **obligation**: transport the normalized row-ten witness through the exact
+  canonical state-list permutation to prove that the named exact scalar
+  `h_2` is superunit; then replace row TV by a cancellation-preserving signed
+  form or spectral certificate on a constructively cofinal cutoff family.
+- **constructive?**: yes — all three audited obstruction exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the corrected focused checks pass in about 1.3 seconds;
+  the exact normalization target passes 4,684 jobs and the exact obstruction
+  target passes 4,686 jobs.  Earlier timeout, syntax, namespace, stack,
+  algebra-shape, and intentionally interrupted diagnostic runs are not passes.
+  The theorem is finite and cutoff-two only.  The canonical `h_2` bridge,
+  cofinal signed-form control, completed uniform gap, thermodynamic/continuum
+  QFT, and the Clay theorem remain open.

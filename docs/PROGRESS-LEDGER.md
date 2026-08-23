@@ -8253,3 +8253,41 @@ cofinal route now has to preserve signed form/operator cancellations rather
 than demand row-TV contraction at every cutoff.  A cofinal signed-form
 certificate, completed uniform gap, thermodynamic/continuum QFT, and the Clay
 theorem remain open.
+
+## The cutoff-two row-TV obstruction survives physical normalization (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoExactMassNormalizedRowRateObstruction` proves
+that the row-ten obstruction is invariant under the common positive physical
+partition normalization.  A sealed dependent certificate now packages the
+normalization scale, its positivity, and the exact kernel and row-mass
+transport laws.  This prevents the checker from expanding the enormous
+partition expression while preserving the kernel-checked provenance of every
+downstream equality.
+
+The module proves that the normalized component mass is the raw physical
+component mass times the common scale, while the normalized cleared centered
+row distance is the physical cleared distance times the square of that scale.
+The left side of the unit row bound acquires the same positive square.
+Consequently Lean proves the exact strict inequality
+
+`normalizedMass * normalizedRowSum(10)`
+`  < normalizedClearedMassNormalizedRowDistance(normalizedMass, 10)`.
+
+The corrected focused monitored checks pass in about 1.3 seconds.  The exact
+normalization module target passes 4,684 jobs, and the new exact-target
+one-worker dependency-complete build passes 4,686 jobs.  All three audited
+exports use exactly `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.  Development checks that timed out while comparing opaque and
+transparent partition representatives, failed on record syntax or namespace
+opens, terminated with a Lean expression-equality stack exception, or were
+intentionally interrupted after diagnostic `#exit` probes are not counted as
+verification.  Factoring the algebra into generic scale-transport lemmas made
+the final check small and stable.
+
+This is still a finite cutoff-two theorem.  The next coordinate frontier is
+the canonical state-list permutation and the resulting statement for the
+named exact scalar `h_2`.  The viable analytic frontier remains a
+cancellation-preserving cofinal signed-form or spectral certificate; the
+completed uniform gap, thermodynamic/continuum QFT, and Clay theorem remain
+open.

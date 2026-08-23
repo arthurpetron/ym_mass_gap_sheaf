@@ -159,7 +159,7 @@ private theorem listQSum_perm_local {A : Type} (value : A → Q') :
 
 /-! ## 1. The exact normalized 65-state sector data -/
 
-private def cutoffTwoPartitionReciprocal : Q' :=
+def cutoffTwoPartitionReciprocal : Q' :=
   Q'.recipPos
     (slabParametricKPhysicalPartition cutoffTwoHalfCoupling 2
       (centralExtent 0))
@@ -215,6 +215,53 @@ theorem cutoffTwoSectorNormalizedRowSum_eqv_scaled
     intro column _
     exact cutoffTwoSectorNormalizedKernel_eqv_scaled
   · exact listQSum_mul_right _ _ _
+
+/-- A sealed dependent package for the common positive normalization scale.
+Keeping the value and its two exact transport laws in one package prevents a
+downstream checker from unfolding the full partition expression merely to
+compare rational representatives. -/
+structure CutoffTwoPartitionScaleCertificate where
+  scale : Q'
+  scale_pos : (0 : Q') < scale
+  kernel_scaled : ∀ row column : Nat,
+    cutoffTwoSectorNormalizedKernel row column ≈
+      cutoffTwoSectorPhysicalKernel row column * scale
+  rowSum_scaled : ∀ row : Nat,
+    cutoffTwoSectorNormalizedRowSum row ≈
+      cutoffTwoSectorPhysicalRowSum row * scale
+
+opaque cutoffTwoPartitionScaleCertificate :
+    CutoffTwoPartitionScaleCertificate := {
+  scale := cutoffTwoPartitionReciprocal
+  scale_pos := cutoffTwoPartitionReciprocal_pos
+  kernel_scaled := by
+    intro row column
+    exact cutoffTwoSectorNormalizedKernel_eqv_scaled
+  rowSum_scaled := by
+    intro row
+    exact cutoffTwoSectorNormalizedRowSum_eqv_scaled row
+}
+
+def cutoffTwoPartitionReciprocalSealed : Q' :=
+  cutoffTwoPartitionScaleCertificate.scale
+
+theorem cutoffTwoPartitionReciprocalSealed_pos :
+    (0 : Q') < cutoffTwoPartitionReciprocalSealed :=
+  cutoffTwoPartitionScaleCertificate.scale_pos
+
+theorem cutoffTwoSectorNormalizedKernel_eqv_scaledSealed
+    {row column : Nat} :
+    cutoffTwoSectorNormalizedKernel row column ≈
+      cutoffTwoSectorPhysicalKernel row column *
+        cutoffTwoPartitionReciprocalSealed :=
+  cutoffTwoPartitionScaleCertificate.kernel_scaled row column
+
+theorem cutoffTwoSectorNormalizedRowSum_eqv_scaledSealed
+    (row : Nat) :
+    cutoffTwoSectorNormalizedRowSum row ≈
+      cutoffTwoSectorPhysicalRowSum row *
+        cutoffTwoPartitionReciprocalSealed :=
+  cutoffTwoPartitionScaleCertificate.rowSum_scaled row
 
 /-! ## 2. Row closure identifies the restricted and full marginals -/
 
