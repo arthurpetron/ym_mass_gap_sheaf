@@ -10160,3 +10160,38 @@ analytic core will then be a local ceiling-and-payment estimate rather than a
 hidden stationary-ratio assertion.  Old--old and new--new capacity, uniform
 completed contraction, thermodynamic/continuum theory, and the Clay theorem
 remain open.
+
+## One local ratio ceiling controls both cross orientations (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricCrossRatioCeiling` applies the
+existing one-edge reverse/forward conditional-ratio ceiling to the new
+target-prefix transition product.  The prefix-through-edge chain is explicit,
+so the generic path induction bounds its exact product by `rho` raised to that
+chain's exact edge length.  Nonnegative endpoint weights and path length then
+preserve the bound in every endpoint-pair term and under finite summation.
+
+Combining this with the previously proved source-prefix ceiling gives a single
+explicit symmetric cross ceiling load: half of the forward prefix ceiling plus
+half of the reverse through-edge ceiling.  The exact symmetric transition
+product load is bounded by it without introducing stationary weights or
+denominator ratios.
+
+The Type-level `CutoffTwoNovelSymmetricOldNewRatioCeilingCapacityAt` carries a
+local one-edge ceiling and payment of the resulting symmetric load by the
+old-to-new conditional transition.  It contracts to the exact transition-
+product certificate and hence the physical cross-capacity field.  Neither
+field is inhabited here.
+
+The first focused check exposed two missing namespace openings and induced an
+elaboration timeout; it is not a pass.  The corrected focused monitored check
+passes in about 1.1 seconds.  The exact one-worker dependency-complete target
+passes 4,980 jobs, with the new module taking about 1.1 seconds.  All five
+audited exports use exactly `[propext, Quot.sound]`.
+
+The old-to-new analytic frontier is now explicit: construct a scale-controlled
+one-edge ratio bound on the actually used positive prefixes and prove that its
+finite symmetric ceiling load fits inside the selected conditional transition.
+The next reduction should restrict the ceiling obligation to routed prefix
+edges, avoiding an unnecessarily global carrier-wide Harnack assumption.
+Old--old and new--new capacity, uniform completed contraction,
+thermodynamic/continuum theory, and the Clay theorem remain open.

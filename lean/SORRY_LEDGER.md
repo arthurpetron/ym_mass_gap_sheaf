@@ -8492,3 +8492,39 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   taking about 1.1 seconds.  The transition-product capacity certificate is
   not inhabited.  Uniform completed contraction, continuum QFT, and the Clay
   theorem remain open.
+
+### [BF4-cutoff-two-novel-flow-symmetric-cross-ratio-ceiling] Two-orientation local ceiling compiler — **CLOSED 2026-08-23**
+
+- **milestone**: replace the reverse target-prefix transition product by the
+  corresponding power of a supplied one-edge reverse/forward conditional
+  ratio ceiling; sum the pointwise bounds; combine them with the existing
+  forward source-prefix ceiling; and package ceiling plus conditional payment
+  as a Type-level certificate that contracts to the exact old-to-new
+  transition-product capacity input.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricCrossRatioCeiling.lean`.
+- **decl**: `cutoffTwoNovelPathPairConditionalTargetRatioCeilingTerm`,
+  `cutoffTwoNovelPathPairConditionalTargetTransitionProductTerm_le_ceiling`,
+  `cutoffTwoNovelConditionalTargetRatioCeilingLoad`,
+  `cutoffTwoNovelConditionalTargetTransitionProductLoad_le_ratioCeilingLoad`,
+  `cutoffTwoNovelSymmetricCrossRatioCeilingLoad`,
+  `cutoffTwoNovelSymmetricCrossTransitionProductLoad_le_ratioCeilingLoad`,
+  `CutoffTwoNovelSymmetricOldNewRatioCeilingCapacityAt`, and its two compiler
+  maps.
+- **obligation**: construct a scale-controlled reverse/forward ceiling on the
+  positive edges actually used by the two routed prefixes and pay the explicit
+  symmetric ceiling load by the old-to-new conditional transition.  Avoid
+  strengthening this to a global carrier Harnack assertion unless the BF4
+  geometry genuinely supplies it.  Independently inhabit old--old and
+  new--new capacity; then construct and control the thermodynamic and continuum
+  theories.
+- **constructive?**: yes — both prefix chains, every exponent, and all
+  positivity multipliers are explicit; the unavailable ceiling/payment remain
+  named Type-level data; all five audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first focused check failed on missing namespace openings
+  and reached an induced elaboration timeout, so it is not a pass.  The
+  corrected focused check passes in about 1.1 seconds; the exact one-worker
+  dependency-complete target passes 4,980 jobs with the new module taking about
+  1.1 seconds.  No analytic ceiling or capacity payment is inhabited.  Uniform
+  completed contraction, continuum QFT, and the Clay theorem remain open.
