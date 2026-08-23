@@ -8748,3 +8748,31 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   module taking about 0.9 seconds.  No inspection outcome or cofinal success is
   asserted.  Uniform completed contraction, continuum QFT, and the Clay
   theorem remain open.
+
+### [BF4-cutoff-two-novel-flow-symmetric-all-block-routed-ceiling] Common routed ceiling compiler — **CLOSED 2026-08-23**
+
+- **milestone**: prove that the routed source-prefix and through-edge target-
+  prefix ceiling bounds the common symmetric transition-product load on every
+  block; retain the old--old half allocation and full allocation elsewhere in
+  a three-field ceiling-payment datum; and compile it through exact product
+  capacity and physical capacity to completed strict contraction.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricAllBlockRoutedCeiling.lean`.
+- **decl**: `cutoffTwoNovelSymmetricRoutedRatioCeilingLoad`,
+  `cutoffTwoNovelSymmetricTransitionProductLoad_le_routedCeilingLoad`,
+  `CutoffTwoNovelSymmetricThreeBlockRoutedCeilingCapacityAt`, its
+  `toTransitionProductCapacityAt` and `toOrientedCapacityAt` compilers, and
+  `CutoffTwoCofinalNovelSymmetricThreeBlockRoutedCeilingCapacity.toCompletedStrictContractionData`.
+- **obligation**: instantiate the common routed ceiling by the located finite
+  reverse/forward maximum and decide its three block payments; prove cofinal
+  payment or use exact counteredges to improve the routes; then construct and
+  control thermodynamic and continuum limits.
+- **constructive?**: yes — the same explicit routed-prefix witness is reused
+  in each block, all three payments remain visible Type fields, and all four
+  audited exports use exactly `[propext, Quot.sound]`; no forbidden construct
+  was added.
+- **status note**: the first focused check failed on one missing namespace and
+  is not a pass.  The corrected focused check passes in about 1.0 seconds; the
+  exact one-worker target passes 4,989 jobs with the new module taking about
+  1.1 seconds.  No ceiling payment or cofinal family is inhabited.  Uniform
+  completed contraction, continuum QFT, and the Clay theorem remain open.

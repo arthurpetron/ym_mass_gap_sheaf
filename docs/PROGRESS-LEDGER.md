@@ -10406,3 +10406,29 @@ The next frontier is no longer logical bookkeeping: it is a block-aware
 analytic bound on the explicit transition-product sums, or a demonstrably
 better route when a returned exact counteredge overloads.  Cofinal success,
 thermodynamic/continuum theory, and the Clay theorem remain open.
+
+## A single routed ceiling now majorizes all three product blocks (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricAllBlockRoutedCeiling` proves
+that the routed-prefix ceiling argument is independent of the old/new class of
+the selected edge.  The same explicit ceiling load majorizes the common exact
+transition-product load on old--old, old-to-new, and new--new edges.
+
+The new three-field routed-ceiling certificate asks that this one majorant be
+paid by one half of the conditional transition on old--old edges and by the
+full transition on old-to-new and new--new edges.  It contracts to the exact
+three-block transition-product certificate, then to physical capacity and
+completed vacuum-sector strict contraction.  The ceiling and its payments
+remain uninhabited analytic data.
+
+The first focused check exposed one missing symmetric-capacity namespace and
+is not a pass.  The corrected focused monitored check passes in about 1.0
+seconds.  The exact one-worker dependency-complete target passes 4,989 jobs,
+with the new module taking about 1.1 seconds.  All four audited exports use
+exactly `[propext, Quot.sound]`.
+
+The next contraction step is to insert the already constructed located finite
+reverse/forward ceiling into this all-block interface and expose three finite
+ceiling-payment decisions.  The genuine analytic task will then be cofinal
+success of those explicit payments (or route refinement from exact failed
+edges).  Thermodynamic/continuum theory and the Clay theorem remain open.
