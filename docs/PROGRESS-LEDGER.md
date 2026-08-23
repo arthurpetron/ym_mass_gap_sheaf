@@ -8181,3 +8181,33 @@ cofinal `h_K <= q < 1`.  Further algebraic progress must either estimate this
 literal scalar from BF4 geometry or pass below rowwise total variation to a
 sharper signed-form/operator coefficient.  The unconditional completed gap,
 thermodynamic/continuum QFT, and Clay theorem remain open.
+
+## The exact row scalar and executable finite checker are equivalent (2026-08-23)
+
+`BF4PhysicalVacuumSectorExactMassNormalizedRowRateChecker` identifies the new
+sharp scalar with the existing exact Boolean scan.  For every nonnegative
+rational `q`, it proves the biconditional
+
+`allRowsCheck_K(q) = true  <->  h_K <= q`.
+
+The proof first identifies one Boolean row check with its literal
+mass-conditioned row inequality, then lifts that equivalence through the
+canonical vacuum-sector list, and finally uses the defining least-coefficient
+property of `h_K`.  The Type-level constructively cofinal exact-rate family
+and the constructively cofinal checked-row family convert in both directions,
+so the executable and analytic frontiers now contain exactly the same
+quantifiers and no comparison slack.  At cutoff one, the rank-one result
+produces the actual certificate `allRowsCheck_1(0) = true`.
+
+The focused monitored check passes on the first attempt, and the exact-target
+one-worker dependency-complete build passes 1,560 jobs.  All six audited
+exports use exactly `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.
+
+No nontrivial cofinal scan is asserted.  The next finite diagnostic is the
+cutoff-two row criterion: the already-proved `49/50` cutoff-two signed-form
+gap does not logically imply a row-total-variation bound at the same rate, so
+that stronger Boolean statement must be evaluated or proved separately.  A
+uniform cofinal strict rate, thermodynamic/continuum QFT, and the Clay theorem
+remain open.

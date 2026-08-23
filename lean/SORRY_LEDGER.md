@@ -6769,3 +6769,32 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   unfold; none is counted as a pass.  No cofinal bound below one is inhabited;
   the unconditional completed gap, thermodynamic/continuum QFT, and Clay
   theorem remain open.
+
+### [BF4-exact-row-rate-checker] Exact Boolean/scalar equivalence — **PROVED / COFINAL CHECK OPEN 2026-08-23**
+
+- **milestone**: prove one row check is exactly its literal inequality; prove
+  the all-row scan is exactly the family of canonical-source inequalities;
+  prove for every nonnegative `q` that
+  `allRowsCheck_K(q) = true <-> h_K <= q`; convert the cofinal exact-rate and
+  checked-row structures both ways; and certify the cutoff-one scan at rate
+  zero.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorExactMassNormalizedRowRateChecker.lean`.
+- **decl**:
+  `centralPhysicalFiniteVacuumSectorMassNormalizedRowCheck_eq_true_iff`,
+  `centralPhysicalFiniteVacuumSectorMassNormalizedAllRowsCheck_eq_true_iff_rowBounds`,
+  `centralPhysicalFiniteVacuumSectorMassNormalizedAllRowsCheck_eq_true_iff_exactRate_le`,
+  `FixedNomeCofinalVacuumSectorExactMassNormalizedRowRateBound.toCheckedRows`,
+  `FixedNomeCofinalVacuumSectorMassNormalizedCheckedRows.toExactRateBound`,
+  and
+  `centralPhysicalFiniteVacuumSectorMassNormalizedAllRowsCheck_cutoffOne_zero`.
+- **obligation**: evaluate or prove the first nontrivial cutoff-two exact row
+  criterion, then find one strict rate whose equivalent all-row scan succeeds
+  on a constructively cofinal unbounded cutoff family.
+- **constructive?**: yes — all six audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check passes on the first attempt,
+  and the exact-target one-worker dependency-complete build passes 1,560 jobs.
+  The cutoff-one rate-zero check is finite only; no nontrivial cofinal scan,
+  thermodynamic/continuum QFT, or Clay theorem is asserted.
