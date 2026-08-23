@@ -7874,3 +7874,36 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   4,919 jobs with the new module taking about 1.2 seconds.  The exact Harnack
   target is now explicit, but its uniform bound, the completed gap inhabitant,
   continuum QFT, and Clay theorem remain open.
+
+### [BF4-cutoff-two-novel-flow-pathwise-detailed-balance] Exact stationary-ratio telescope — **CLOSED 2026-08-23**
+
+- **milestone**: prove detailed balance for the indexed conditional kernel;
+  transport positive joint edges to the reverse orientation and to positive
+  conditional transitions; identify each one-edge stationary ratio with the
+  reverse/forward conditional ratio; define the recursive product on the
+  Type-level positive path; and prove that the endpoint stationary ratio
+  telescopes exactly to that product.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowPathwiseDetailedBalance.lean`.
+- **decl**: `cutoffTwoEdgeLoadConditionalKernel_detailedBalance`,
+  `cutoffTwoEdgeLoadKernel_reverse_pos_of_pos`,
+  `cutoffTwoEdgeLoadConditionalKernel_reverse_pos_of_kernel_pos`,
+  `cutoffTwoEdgeLoadWeightRatio_eqv_conditionalReverseForward`,
+  `cutoffTwoNovelEndpointWeightRatioAtSource_eqv_oneStep`,
+  `PositiveKernelChainIn.lastMem`,
+  `cutoffTwoNovelPathReverseForwardProduct`, and
+  `cutoffTwoNovelEndpointWeightRatioAtSource_eqv_pathProduct`.
+- **obligation**: extract the positive prefix ending at the source of each
+  selected path occurrence, rewrite each conditional-Harnack summand with its
+  prefix transition-ratio product, and prove a cutoff-uniform congestion
+  bound or a cofinal overload theorem; then construct and control the
+  thermodynamic and continuum theories.
+- **constructive?**: yes — all four audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: two focused checks failed on equality-versus-implication,
+  multiplication-congruence, and recursive-ratio unfolding details and are not
+  passes.  The corrected focused check passes in about 1.4 seconds; the exact
+  one-worker dependency-complete target passes 4,920 jobs with the new module
+  taking about 1.3 seconds.  Exact pathwise ratio transport is proved, but the
+  prefix extraction, uniform congestion estimate, completed gap inhabitant,
+  continuum QFT, and Clay theorem remain open.

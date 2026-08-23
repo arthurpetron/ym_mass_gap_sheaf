@@ -9504,3 +9504,39 @@ obtain a uniform projective/Harnack comparison with the selected conditional
 transition, or prove that these paths overload cofinally and must be
 redesigned.  The uniform completed gap inhabitant, continuum QFT, and Clay
 theorem remain open.
+
+## Stationary ratios telescope by pathwise detailed balance (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowPathwiseDetailedBalance` proves detailed
+balance for the exact indexed conditional kernel used by the novel-flow load.
+It also proves that a positive directed joint edge is positive in reverse and
+hence has strictly positive conditional probabilities in both orientations.
+
+On one positive directed edge, exact rational cross multiplication gives
+
+`weight(left) / weight(right)`
+
+`  = conditional(right,left) / conditional(left,right)`.
+
+A recursive product over the existing Type-level positive-kernel chain then
+telescopes these one-edge identities.  For any supported positive path from
+`first` to `last`, the projective stationary ratio
+`weight(first) / weight(last)` is exactly the product of its reverse/forward
+conditional transition ratios.  The construction carries the initial and
+successive carrier-membership proofs explicitly; it introduces no reachability
+proposition or choice.
+
+The first focused check found that support symmetry is exposed as an equality
+and that the rational library provides separate left/right multiplication
+congruences; a second check exposed the need to unfold the recursive endpoint
+ratio before congruence.  Those failed checks are not passes.  The corrected
+focused monitored check passes in about 1.4 seconds.  The exact one-worker
+dependency-complete target passes 4,920 jobs, with the new module taking about
+1.3 seconds.  All four audited exports use exactly
+`[propext, Quot.sound]`.
+
+The next frontier is to extract, from each actual directed-edge occurrence,
+the positive prefix ending at that edge source.  Applying the telescoping
+identity to that prefix will rewrite the exact conditional-Harnack summand in
+local transition-ratio form.  A cutoff-uniform bound for the resulting sums,
+the completed gap inhabitant, continuum QFT, and Clay theorem remain open.
