@@ -7579,3 +7579,42 @@ No cofinal direct-power or compatible full-factorization family is inhabited.
 The remaining finite analytic frontier is now exactly the construction of
 that producer (or a sector-native equivalent).  The unconditional completed
 gap, thermodynamic/continuum control, and the Clay theorem remain open.
+
+## The actual BF4 vacuum-sector centered boundary Gram is exact (2026-08-23)
+
+`BF4PhysicalVacuumSectorCenteredGram` replaces the artificial same-carrier
+matrix-root search by the genuine heterogeneous physical time cut already
+present in the BF4 model: lower-half states couple through complete
+fixed-time boundary channels.  On the canonical vacuum component, the
+module centers every physical half-amplitude against the component-
+conditioned stationary weight.
+
+Exact sector closure gives the two component first-moment identities and
+the channel-total square identity.  These prove, without a spectral square
+root, that the weighted Gram of the centered physical half-amplitudes is
+exactly
+
+`physicalJoint(left,right) - weight(left) * weight(right) / sectorMass`
+
+for sector endpoints.  Consequently the corrected mass-normalized row
+distance is bounded by a literal boundary-channel Tonelli majorant.
+`FixedNomeCofinalVacuumSectorCenteredGramMajorant` packages only the
+remaining analytic producer: a constructively cofinal uniform bound on this
+explicit actual majorant by `rate * weight(source)`, for one `rate < 1`.  Its
+compiler reaches the existing completed same-object vacuum-sector strict
+gap directly, with no component-mass defect.
+
+The corrected focused monitored check passes, and the exact-target
+one-worker dependency-complete build passes 1,487 jobs.  All five audited
+exports use at most `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.  The initial focused run naturally reached the heartbeat limit after
+namespace and reciprocal-normal-form errors; it was not manually
+interrupted.  Those proof-engineering issues were corrected before the
+passing focused check and exact build.
+
+No cofinal majorant bound is inhabited.  The next finite analytic frontier
+is to factor the explicit sector-centered Gram majorant into target and
+source boundary-posterior deviations and isolate the corresponding uniform
+mixing estimates.  The unconditional completed gap, thermodynamic/continuum
+control, and the Clay theorem remain open.

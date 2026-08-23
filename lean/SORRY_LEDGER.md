@@ -6207,3 +6207,38 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   the exact-target one-worker dependency-complete build passes 1,490 jobs.
   No cofinal producer is inhabited, so the unconditional completed gap,
   thermodynamic/continuum QFT, and Clay theorem remain open.
+
+### [BF4-vacuum-sector-centered-Gram] Actual physical boundary factorization — **PROVED 2026-08-23**
+
+- **milestone**: use the genuine heterogeneous BF4 reflection cut through
+  fixed-time boundary channels; prove the exact component first moments and
+  channel-total square mass; identify the weighted Gram of component-
+  centered physical half-amplitudes with the physical joint minus the
+  correctly mass-normalized stationary product; bound its row distance by
+  the literal boundary-channel Tonelli majorant; and compile any cofinal
+  uniform strict bound on that majorant to the completed same-object vacuum-
+  sector gap.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorCenteredGram.lean`.
+- **decl**:
+  `centralPhysicalFiniteVacuumSector_boundaryMoment_eqv_mass_mul_weight`,
+  `centralPhysicalFiniteVacuumSector_boundaryTotalSquare_eqv_mass`,
+  `centralPhysicalFiniteVacuumSector_centeredGram_eqv_joint_sub_equilibrium`,
+  `centralPhysicalFiniteVacuumSector_rowDistance_le_centeredGramMajorant`,
+  and
+  `FixedNomeCofinalVacuumSectorCenteredGramMajorant.toVacuumSectorCenteredStrictGap`.
+- **obligation**: factor the explicit centered-Gram majorant into target and
+  source boundary-posterior deviations and prove a constructively cofinal
+  cutoff-uniform product bound strictly below one.  This is an actual
+  physical boundary factorization, not an uninhabited same-carrier root or
+  density-power certificate.
+- **constructive?**: yes — all five audited exports use at most
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the corrected focused monitored check passes, and the
+  exact-target one-worker dependency-complete build passes 1,487 jobs.  The
+  first focused run naturally reached the heartbeat limit after namespace
+  and reciprocal-normal-form errors; it was not manually interrupted, and
+  all issues were corrected before both passing checks.  No cofinal
+  majorant bound is inhabited, so the unconditional completed gap,
+  thermodynamic/continuum QFT, and Clay theorem remain open.
