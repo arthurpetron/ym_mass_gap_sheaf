@@ -9619,3 +9619,37 @@ and control the cutoff dependence of a concrete one-edge projective ceiling,
 and prove that the corresponding weighted path count is uniformly payable by
 the selected conditional transition.  Neither uniform estimate, the completed
 gap inhabitant, continuum QFT, nor the Clay theorem is claimed.
+
+## The fixed-cutoff projective ceiling is now constructed (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowConditionalFiniteRatioCeiling` totalizes
+the reverse/forward conditional ratio by zero away from positive directed
+carrier edges and takes the located `Q'` maximum over the literal finite
+Cartesian square of the cutoff-two vacuum-sector carrier.  The totalized ratio
+and its maximum are proved nonnegative.
+
+Every actual positive physical edge belongs to that finite Cartesian square,
+so its reverse/forward conditional ratio is bounded by the constructed maximum
+`cutoffTwoConditionalReverseForwardFiniteCeiling`.  This supplies an explicit
+`CutoffTwoConditionalReverseForwardCeilingAt` datum at every fixed cutoff; the
+local projective bound is no longer an assumed field there.
+
+The resulting concrete ceiling load bounds the exact transition-product load.
+The remaining cofinal certificate now asks only that, at chosen arbitrarily
+late cutoffs, this fully constructed ceiling-weighted path load be payable by
+the allocated conditional transition on every carrier edge.  Such a family
+still compiles to completed vacuum-sector strict contraction.
+
+The first focused check hit a deterministic elaboration timeout while
+accidentally unfolding the large carrier, retained an unreduced pair lambda,
+and missed two namespaces; it is not a pass.  After pinning the abstract
+maximum argument and normalizing only the selected pair, the focused check
+passes in about 1.1 seconds.  The exact one-worker dependency-complete target
+passes 4,923 jobs, with the new module taking about 1.0 seconds.  All four
+audited exports use exactly `[propext, Quot.sound]`.
+
+The projective ceiling is therefore constructive at each finite cutoff, but no
+uniform upper bound on its cutoff dependence is proved.  The decisive open
+finite-volume frontier is the cofinal payment of its explicit weighted path
+load; the completed gap inhabitant, continuum QFT, and Clay theorem remain
+open.

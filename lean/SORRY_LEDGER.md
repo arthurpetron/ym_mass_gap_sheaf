@@ -7976,3 +7976,38 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   about 1.2 seconds.  Projective distortion and path counting are now separate
   obligations, but neither uniform estimate, the completed gap inhabitant,
   continuum QFT, nor the Clay theorem is closed.
+
+### [BF4-cutoff-two-novel-flow-conditional-finite-ratio-ceiling] Construct the fixed-cutoff maximum — **CLOSED 2026-08-23**
+
+- **milestone**: totalize the reverse/forward conditional ratio on all ordered
+  carrier pairs; take its located rational maximum over the literal finite
+  Cartesian carrier square; prove nonnegativity; prove every positive physical
+  edge ratio lies below that maximum; instantiate the local ceiling datum at
+  every fixed cutoff; and reduce the cofinal compiler to payment of the fully
+  concrete ceiling-weighted path load.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowConditionalFiniteRatioCeiling.lean`.
+- **decl**: `cutoffTwoConditionalReverseForwardRatio`,
+  `cutoffTwoConditionalReverseForwardRatio_nonnegative`,
+  `cutoffTwoConditionalReverseForwardFiniteCeiling`,
+  `cutoffTwoConditionalReverseForwardFiniteCeiling_nonnegative`,
+  `cutoffTwoConditionalReverseForwardRatio_le_finiteCeiling`,
+  `cutoffTwoConditionalReverseForwardFiniteCeilingData`,
+  `cutoffTwoNovelConditionalFiniteRatioCeilingLoad`,
+  `cutoffTwoNovelConditionalTransitionProductLoad_le_finiteRatioCeilingLoad`,
+  `cutoffTwoNovelFiniteFlowCapacityFloor_ge_of_finiteRatioCeiling`, and
+  `CutoffTwoCofinalNovelConditionalFiniteRatioCeilingBound.toCompletedStrictContractionData`.
+- **obligation**: control the cutoff dependence of the constructed maximum and
+  prove that its explicit ceiling-weighted path load is uniformly payable by
+  every allocated conditional transition, or exhibit cofinal overload
+  requiring a different flow; then construct and control the thermodynamic
+  and continuum theories.
+- **constructive?**: yes — all four audited exports use exactly
+  `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the first focused check hit a deterministic unfolding
+  timeout plus pair-normalization and namespace errors and is not a pass.  The
+  corrected focused check passes in about 1.1 seconds; the exact one-worker
+  dependency-complete target passes 4,923 jobs with the new module taking
+  about 1.0 seconds.  The ceiling exists constructively at every fixed cutoff,
+  but its uniform asymptotics, uniform payment, completed gap inhabitant,
+  continuum QFT, and Clay theorem remain open.
