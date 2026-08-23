@@ -6690,3 +6690,25 @@ noncomputable declaration was added.  This is the first arbitrary-completion
 ingredient of the global cofinality datum.  Outer centered diagonal and
 matrix convergence, a global cofinality inhabitant, one common sector-local
 `q < 1`, and all thermodynamic/continuum/Clay conclusions remain open.
+
+## Outer raw diagonals converge to the actual completed sector norm (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorCylinderCompletedOuterRawDiagonal` takes an
+arbitrary sector Cauchy representative and, at each outer stage, forms the
+already-constructed pulled diagonal cutoff-limit Bishop real of that dense
+term.  Termwise dense form identification transports the global completed
+pairing convergence theorem to this pulled sequence.
+
+The resulting limit is definitionally the representative-level pairing limit
+whose real-quotient class is the actual completed squared norm of the sector
+quotient vector.  Thus the uncentered diagonal side of the arbitrary-vector
+cofinality bridge now has both outer convergence and exact endpoint
+identification.
+
+The focused monitored check and exact-target one-worker 1,582-job build pass.
+Both audited exports use exactly `[propext, Quot.sound]`; no `Classical.*`,
+choice, `native_decide`, `sorry`, custom axiom, or noncomputable declaration
+was added.  Still open are control of the centered-minus-raw outer diagonal,
+the analogous outer matrix convergence, a global centered-form cofinality
+inhabitant, one common sector-local `q < 1`, and all
+thermodynamic/continuum/Clay conclusions.

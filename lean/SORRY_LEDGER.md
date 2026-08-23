@@ -5349,3 +5349,26 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   centering ingredient, not outer centered quadratic convergence, a global
   cofinality inhabitant, a uniform completed gap, thermodynamic/continuum QFT,
   or the Clay theorem.
+
+### [BF4-vacuum-sector-completed-outer-raw-diagonal] Outer raw diagonals represent the arbitrary completed norm — **PROVED 2026-08-22**
+
+- **milestone**: prove that the pulled diagonal cutoff-limit Bishop reals of
+  the successive dense terms of any sector Cauchy representative converge to
+  its global representative pairing limit, and identify the real-quotient
+  class of that target with the actual completed sector squared norm.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCylinderCompletedOuterRawDiagonal.lean`.
+- **decl**:
+  `centralPhysicalVacuumSectorCylinder_outerPulledDiagonal_converges` and
+  `centralPhysicalVacuumSectorCylinder_completedInner_mk_eq_outerRawDiagonalLimit`.
+- **obligation**: use outer head-correction convergence plus constructive
+  coefficient/root-weight control to prove centered-minus-raw diagonal
+  convergence to zero; then establish the corresponding outer transfer-matrix
+  result and inhabit the global centered-form cofinality datum.
+- **constructive?**: yes — both audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,582-job dependency-complete build pass.  This proves outer uncentered norm
+  convergence and endpoint identification, not centered outer convergence, a
+  common strict rate, thermodynamic/continuum QFT, or the Clay theorem.
