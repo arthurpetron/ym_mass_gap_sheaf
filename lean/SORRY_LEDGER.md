@@ -5448,3 +5448,31 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   1,177-job dependency-complete build pass.  This is a modulus-exposure
   milestone, not moving-matrix convergence, a common strict rate,
   thermodynamic/continuum QFT, or the Clay theorem.
+
+### [BF4-vacuum-sector-completed-outer-raw-matrix] Outer raw matrices represent the arbitrary completed transfer form — **PROVED 2026-08-22**
+
+- **milestone**: construct a cofinal base-controlled reindex which pays both
+  the same-object physical-inner cutoff and the pulled-matrix cutoff; identify
+  its rational same-cutoff Markov diagonal with the pulled matrix; lift the
+  result to convergence of moving matrix Bishop reals and identify the target
+  with the actual completed transfer pairing of the original quotient class.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCylinderCompletedOuterRawMatrix.lean`.
+- **decl**:
+  `CReal.convergesTo_of_regularizedApproxDiagonal`,
+  `centralPhysicalVacuumSectorOuterMatrixInput_class_eq`,
+  `centralPhysicalVacuumSectorCylinder_outerPulledMatrix_converges`, and
+  `centralPhysicalVacuumSectorCylinder_completedTransferForm_mk_eq_outerRawMatrixLimit`.
+- **obligation**: prove that the head-correction terms in the exact centered
+  matrix expansion vanish along this same cofinal representative; combine
+  centered diagonal and matrix convergence into the unconditional all-vector
+  centered-form cofinality inhabitant; independently inhabit one common
+  sector-local strict rate.
+- **constructive?**: yes — the generic lifting export uses `[propext]`; the
+  three sector exports use exactly `[propext, Quot.sound]`.  No `Classical.*`,
+  choice, `native_decide`, `sorry`, custom axiom, or noncomputable declaration
+  was added.
+- **status note**: the focused monitored check and exact-target one-worker
+  1,366-job dependency-complete build pass.  This closes raw transfer-matrix
+  convergence, not centered matrix convergence, a common strict rate,
+  thermodynamic/continuum QFT, or the Clay theorem.

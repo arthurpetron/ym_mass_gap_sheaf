@@ -6789,3 +6789,28 @@ vector centered-form cofinality datum is now closed.  Outer centered matrix
 convergence, the resulting global cofinality inhabitant, one common
 sector-local `q < 1`, and all thermodynamic/continuum/Clay conclusions remain
 open.
+
+## Outer raw transfer matrices converge to the actual completed sector form (2026-08-22)
+
+`BF4PhysicalCutoffVacuumSectorCylinderCompletedOuterRawMatrix` constructs a
+base-controlled slow diagonal for every arbitrary sector Cauchy
+representative.  Its selected presentations pay both the same-object
+physical-inner cutoff and the independently exported pulled-matrix cutoff
+modulus.  The construction remains cofinal, is Cauchy, and represents the
+same completed sector vector.
+
+A generic regularized-diagonal lifting theorem upgrades convergence of the
+rational same-cutoff diagonal to convergence of the moving pulled-matrix
+Bishop reals.  The exact finite Markov-action identity identifies that
+diagonal with the pulled sector matrix, while the adaptive completed transfer
+construction identifies its limit with the actual completed transfer pairing
+of the original quotient class.
+
+The focused monitored check and exact-target one-worker 1,366-job build pass.
+The generic lifting theorem uses `[propext]`; the three sector exports use
+exactly `[propext, Quot.sound]`.  No `Classical.*`, choice, `native_decide`,
+`sorry`, custom axiom, or noncomputable declaration was added.  This closes
+the raw matrix half of the arbitrary-vector bridge.  Outer head-centered
+matrix convergence, the resulting global centered-form cofinality inhabitant,
+one common sector-local `q < 1`, and all thermodynamic/continuum/Clay
+conclusions remain open.
