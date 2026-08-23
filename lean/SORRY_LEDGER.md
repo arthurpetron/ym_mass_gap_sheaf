@@ -8416,3 +8416,41 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   4,978 jobs with the new module taking about 1.1 seconds.  No cross-capacity
   certificate is inhabited yet.  Uniform completed contraction, continuum
   QFT, and the Clay theorem remain open.
+
+### [BF4-cutoff-two-novel-flow-symmetric-cross-row-floor] Fixed old-denominator envelope — **CLOSED 2026-08-23**
+
+- **milestone**: extract a cutoff-two preimage from every later old-block
+  state; transport the previously proved pulled positive row floor to its
+  later stationary weight; prove positive-denominator antitonicity for a
+  nonnegative constructive rational numerator; majorize reverse relative
+  cross traffic by division through the fixed old-row floor; and compile
+  payment of the resulting symmetric envelope to the physical `old_new`
+  capacity field.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricCrossRowFloor.lean`.
+- **decl**: `cutoffTwoPulledUniformPositiveRowFloor_le_oldWeight`,
+  `divPos_le_divPos_of_denominator_le`,
+  `cutoffTwoNovelReverseOldRowFloorEnvelope`,
+  `cutoffTwoNovelRelativeTargetEdgeLoad_le_reverseOldRowFloorEnvelope`,
+  `cutoffTwoNovelSymmetricOldNewRowFloorEnvelope`,
+  `cutoffTwoNovelSymmetricRelativeSourceEdgeLoad_le_oldNewRowFloorEnvelope`,
+  `CutoffTwoNovelSymmetricOldNewRowFloorCapacityAt`,
+  `CutoffTwoNovelSymmetricOldNewRowFloorCapacityAt.toOldNewConditionalCapacityAt`,
+  and `CutoffTwoNovelSymmetricOldNewRowFloorCapacityAt.old_new`.
+- **obligation**: bound the explicit fixed-denominator envelope by the
+  old-to-new conditional transition, using the endpoint-pair/edge-occurrence
+  decomposition and existing conditional transition product identities where
+  possible.  Independently inhabit old--old and irreducible new--new capacity;
+  after cofinal uniform payment, construct and control the thermodynamic and
+  continuum theories.
+- **constructive?**: yes — the old preimage and every positivity fact remain
+  explicit, division antitonicity uses only ordered rational multiplication,
+  the unavailable payment remains a named Type-level field, and all six
+  audited exports use exactly `[propext, Quot.sound]`; no forbidden construct
+  was added.
+- **status note**: the first focused check failed on one omitted explicit
+  argument and is not a pass.  The corrected focused monitored check passes in
+  about 1.2 seconds; the exact one-worker dependency-complete target passes
+  4,979 jobs with the new module taking about 1.1 seconds.  No capacity field
+  is inhabited by this envelope alone.  Uniform completed contraction,
+  continuum QFT, and the Clay theorem remain open.

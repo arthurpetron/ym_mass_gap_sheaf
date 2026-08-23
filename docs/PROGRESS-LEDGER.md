@@ -10088,3 +10088,37 @@ load by a fixed-denominator envelope.  This will isolate the remaining
 old-to-new task as a uniform conditional transition payment.  New--new
 capacity, uniform completed contraction, thermodynamic/continuum theory, and
 the Clay theorem remain open.
+
+## Persistent old mass gives a fixed cross-traffic denominator (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowSymmetricCrossRowFloor` transports the
+existing cutoff-two pulled positive row floor to every state in the later old
+block.  Old-block membership is expanded into an explicit preimage under the
+cutoff index map; the prior pulled-weight theorem then identifies its later
+stationary weight and proves the uniform lower bound.
+
+A constructive rational lemma proves that division of a nonnegative numerator
+is antitone in a positive denominator.  Applied to reverse cross traffic, it
+majorizes division by the actual old-state weight with division by the one
+fixed positive cutoff-two row floor.  The resulting symmetric envelope keeps
+the forward source-relative half unchanged and enlarges only the reverse half.
+
+The Type-level `CutoffTwoNovelSymmetricOldNewRowFloorCapacityAt` records payment
+of this larger fixed-denominator envelope by the old-to-new conditional
+transition.  It contracts through the preceding exact cancellation theorem to
+the `old_new` physical capacity field required by the three-field compiler.
+The certificate is not inhabited here; the missing analytic comparison is now
+free of all later-cutoff and old-state denominators.
+
+The first focused check exposed one omitted explicit `newState` argument and
+is not a pass.  The corrected focused monitored check passes in about 1.2
+seconds.  The exact one-worker dependency-complete target passes 4,979 jobs,
+with the new module taking about 1.1 seconds.  All six audited exports use
+exactly `[propext, Quot.sound]`.
+
+The old-to-new frontier is now the scale-uniform conditional payment of this
+explicit envelope.  The next structural audit is to split its forward and
+reverse terms into endpoint-pair/edge-occurrence sums and compare them with
+the already formalized conditional transition product formulas.  Old--old and
+new--new capacity, uniform completed contraction, thermodynamic/continuum
+theory, and the Clay theorem remain open.
