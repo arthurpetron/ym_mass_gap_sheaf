@@ -7628,3 +7628,44 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   removed from this route, but the cofinal local flow-capacity family remains
   uninhabited; therefore the completed uniform gap, continuum QFT, and Clay
   theorem remain open.
+
+### [BF4-cutoff-two-novel-flow-capacity-ratio] Explicit finite weighted-flow ratio — **CLOSED 2026-08-23**
+
+- **milestone**: recover a literal positive-path occurrence from every
+  positive regrouped edge load; transport strict positivity from that
+  occurrence to the normalized physical kernel; allocate half old-old and
+  full novel-block physical capacity; define the exact allocated-kernel/load
+  ratio and its located positive finite minimum; prove that this minimum
+  satisfies every pointwise capacity comparison; and compile one cofinal
+  scalar lower-bound certificate to completed strict contraction.
+- **files**:
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorPathEdgeLoad.lean`,
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelSimpleFlow.lean`, and
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoNovelFlowCapacityRatio.lean`.
+- **decl**:
+  `PositiveKernelChainIn.directedEdges_kernel_pos`,
+  `exists_occurrence_of_weightedDirectedEdgeLoad_pos`,
+  `cutoffTwoNovelSimpleEdgeLoad_pos_implies_kernel_pos`,
+  `cutoffTwoNovelAllocatedKernel`,
+  `cutoffTwoNovelFiniteFlowCapacityFloor`,
+  `cutoffTwoNovelFiniteFlowCapacityFloor_pos`,
+  `cutoffTwoNovelFiniteFlowCapacityFloor_mul_load_le_allocated`,
+  `cutoffTwoNovelSimpleFlowCapacityAt_of_finiteRatio`, and
+  `CutoffTwoCofinalNovelFlowCapacityRatio.toCompletedStrictContractionData`.
+- **obligation**: prove that the fixed constructed flow coercivity floor is
+  below the explicit finite capacity minimum along a constructively cofinal
+  cutoff schedule, using the concrete BF4 kernel and path-load formulas, or
+  prove that this chosen flow's ratio vanishes asymptotically; then construct
+  and control the thermodynamic and continuum theories.
+- **constructive?**: yes — the five audited exports of the ratio module use
+  exactly `[propext, Quot.sound]`; the generic directed-edge positivity result
+  uses only `[propext]`, and the other supporting audited declarations stay
+  within `[propext, Quot.sound]`; no forbidden construct was added.
+- **status note**: the focused checks pass and the exact one-worker
+  dependency-complete target passes 4,913 jobs, with the new module taking
+  about 2.4 seconds.  Preliminary stale-olean, parser, missing-tactic, and
+  dependent-rewrite failures are not passes.  The four local capacity fields
+  are now reduced to one explicit scalar sequence, but its cofinal uniform
+  lower bound, the completed gap inhabitant, continuum QFT, and Clay theorem
+  remain open.

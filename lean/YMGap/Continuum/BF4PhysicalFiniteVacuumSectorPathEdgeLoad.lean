@@ -75,6 +75,81 @@ theorem weightedDirectedEdgeLoad_nonnegative
   · rw [if_neg heq]
     exact Q'.le_refl' 0
 
+private theorem q_nonpos_of_not_pos_local {q : Q'}
+    (hnot : ¬ (0 : Q') < q) : q ≤ 0 := by
+  show q.num * (1 : Int) ≤ (0 : Int) * (q.den : Int)
+  rw [Int.mul_one, Int.zero_mul]
+  apply Int.not_lt.mp
+  intro hnum
+  apply hnot
+  exact CReal.pos_of_num_pos hnum
+
+private theorem listQSum_pos_exists_of_nonnegative_local
+    {A : Type} (value : A → Q') :
+    ∀ items : List A,
+      (∀ item, item ∈ items → (0 : Q') ≤ value item) →
+      (0 : Q') < listQSum value items →
+      ∃ item, item ∈ items ∧ (0 : Q') < value item
+  | [], _, hsum => by
+      exact absurd hsum (Int.not_lt_of_ge (Q'.le_refl' 0))
+  | head :: tail, hnonnegative, hsum => by
+      by_cases hhead : (0 : Q') < value head
+      · exact ⟨head, List.mem_cons_self, hhead⟩
+      · have hheadNonpos : value head ≤ 0 :=
+          q_nonpos_of_not_pos_local hhead
+        have hheadZero : value head ≈ 0 :=
+          Q'.eqv_of_le_le hheadNonpos
+            (hnonnegative head List.mem_cons_self)
+        have hsumEqTail :
+            listQSum value (head :: tail) ≈ listQSum value tail := by
+          refine Q'.eqv_trans _ (0 + listQSum value tail) _ ?_ ?_
+          · exact Q'.add_eqv_congr' hheadZero (Q'.eqv_refl _)
+          exact Q'.eqv_of_eq (Q'.zero_add' (listQSum value tail))
+        have htailPos : (0 : Q') < listQSum value tail :=
+          Q'.pos_of_lt_of_le hsum (Q'.le_of_eqv hsumEqTail)
+        rcases listQSum_pos_exists_of_nonnegative_local value tail
+          (fun item hitem =>
+            hnonnegative item (List.mem_cons_of_mem head hitem))
+          htailPos with ⟨item, hitem, hitemPos⟩
+        exact ⟨item, List.mem_cons_of_mem head hitem, hitemPos⟩
+
+/-- A strictly positive grouped edge load is witnessed by a literal
+occurrence of that directed edge.  This is the support bridge needed to take
+a positive minimum only over edges actually used by a weighted flow. -/
+theorem exists_occurrence_of_weightedDirectedEdgeLoad_pos
+    {State : Type} [DecidableEq State]
+    (occurrences : List (WeightedDirectedEdgeOccurrence State))
+    (hload : ∀ occurrence, occurrence ∈ occurrences →
+      (0 : Q') ≤ occurrence.2)
+    (source target : State)
+    (hpositive : (0 : Q') <
+      weightedDirectedEdgeLoad occurrences source target) :
+    ∃ occurrence, occurrence ∈ occurrences ∧
+      occurrence.1 = (source, target) := by
+  unfold weightedDirectedEdgeLoad at hpositive
+  have hindicator : ∀ occurrence, occurrence ∈ occurrences →
+      (0 : Q') ≤
+        weightedDirectedEdgeIndicator occurrence source target := by
+    intro occurrence hoccurrence
+    unfold weightedDirectedEdgeIndicator
+    by_cases heq : occurrence.1 = (source, target)
+    · rw [if_pos heq]
+      exact hload occurrence hoccurrence
+    · rw [if_neg heq]
+      exact Q'.le_refl' 0
+  rcases listQSum_pos_exists_of_nonnegative_local
+      (fun occurrence =>
+        weightedDirectedEdgeIndicator occurrence source target)
+      occurrences hindicator hpositive with
+    ⟨occurrence, hoccurrence, htermPositive⟩
+  refine ⟨occurrence, hoccurrence, ?_⟩
+  by_cases hedge : occurrence.1 = (source, target)
+  · exact hedge
+  · unfold weightedDirectedEdgeIndicator at htermPositive
+    rw [if_neg hedge] at htermPositive
+    exact False.elim
+      ((Int.not_lt_of_ge (Q'.le_refl' 0)) htermPositive)
+
 /-- Total weighted physical edge-square cost before equal edges are grouped. -/
 def finiteWeightedOccurrenceEnergy
     {State : Type}
@@ -379,5 +454,7 @@ end YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEdgeLoad
 
 #print axioms
   YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEdgeLoad.weightedDirectedEdgeLoad_nonnegative
+#print axioms
+  YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEdgeLoad.exists_occurrence_of_weightedDirectedEdgeLoad_pos
 #print axioms
   YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEdgeLoad.finiteWeightedOccurrenceLoadedDirichlet_eqv_occurrenceEnergy

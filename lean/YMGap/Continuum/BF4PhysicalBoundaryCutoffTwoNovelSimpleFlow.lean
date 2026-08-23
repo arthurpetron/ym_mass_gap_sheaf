@@ -361,7 +361,7 @@ theorem cutoffTwoNovelRawOccurrenceEnergy_eqv_pairBudget
     exact cutoffTwoSimpleWeightedPathRawOccurrenceEnergy_eqv_pairBudget
       later coefficient pair.1 pair.2 hfull.1 hfull.2
 
-private theorem cutoffTwoNovelOccurrence_mem_full
+theorem cutoffTwoNovelOccurrence_mem_full
     (later : Nat)
     (occurrence : WeightedDirectedEdgeOccurrence Nat)
     (hoccurrence : occurrence ∈
@@ -383,6 +383,78 @@ private theorem cutoffTwoNovelOccurrence_mem_full
         cutoffTwoHalfCoupling (by decide) later 0
         pair.1 pair.2 hfull.1 hfull.2)
       edge hedge
+
+/-- Every literal occurrence of the novel simple flow traverses a strictly
+positive entry of the genuine normalized physical kernel. -/
+theorem cutoffTwoNovelOccurrence_kernel_pos
+    (later : Nat)
+    (occurrence : WeightedDirectedEdgeOccurrence Nat)
+    (hoccurrence : occurrence ∈
+      cutoffTwoNovelSimpleWeightedEdgeOccurrences later) :
+    (0 : Q') < cutoffTwoEdgeLoadKernel
+      later occurrence.1.1 occurrence.1.2 := by
+  unfold cutoffTwoNovelSimpleWeightedEdgeOccurrences at hoccurrence
+  obtain ⟨pair, hpair, hpathOccurrence⟩ :=
+    List.mem_flatMap.mp hoccurrence
+  have hfull := cutoffTwoNovelEndpointPair_mem_full hpair
+  unfold cutoffTwoSimpleWeightedPathOccurrences at hpathOccurrence
+  rw [dif_pos hfull.1, dif_pos hfull.2] at hpathOccurrence
+  obtain ⟨edge, hedge, heq⟩ := List.mem_map.mp hpathOccurrence
+  subst occurrence
+  exact
+    BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences.PositiveKernelChainIn.directedEdges_kernel_pos
+      (centralPhysicalFiniteVacuumSectorSimplePositivePath
+        cutoffTwoHalfCoupling (by decide) later 0
+        pair.1 pair.2 hfull.1 hfull.2)
+      edge hedge
+
+/-- Every occurrence weight in the novel simple flow is nonnegative. -/
+theorem cutoffTwoNovelOccurrence_load_nonnegative
+    (later : Nat)
+    (occurrence : WeightedDirectedEdgeOccurrence Nat)
+    (hoccurrence : occurrence ∈
+      cutoffTwoNovelSimpleWeightedEdgeOccurrences later) :
+    (0 : Q') ≤ occurrence.2 := by
+  unfold cutoffTwoNovelSimpleWeightedEdgeOccurrences at hoccurrence
+  obtain ⟨pair, hpair, hpathOccurrence⟩ :=
+    List.mem_flatMap.mp hoccurrence
+  have hfull := cutoffTwoNovelEndpointPair_mem_full hpair
+  unfold cutoffTwoSimpleWeightedPathOccurrences at hpathOccurrence
+  rw [dif_pos hfull.1, dif_pos hfull.2] at hpathOccurrence
+  obtain ⟨edge, _hedge, heq⟩ := List.mem_map.mp hpathOccurrence
+  subst occurrence
+  exact Q'.mul_nonneg _ _
+    (Q'.mul_nonneg _ _
+      (cutoffTwoWeight_nonnegative later pair.1)
+      (cutoffTwoWeight_nonnegative later pair.2))
+    (Q'.ofNat_le_ofNat (Nat.zero_le _))
+
+/-- The regrouped novel load is nonnegative on every directed edge. -/
+theorem cutoffTwoNovelSimpleEdgeLoad_nonnegative
+    (later source target : Nat) :
+    (0 : Q') ≤ cutoffTwoNovelSimpleEdgeLoad later source target := by
+  unfold cutoffTwoNovelSimpleEdgeLoad
+  exact weightedDirectedEdgeLoad_nonnegative
+    (cutoffTwoNovelSimpleWeightedEdgeOccurrences later)
+    (cutoffTwoNovelOccurrence_load_nonnegative later)
+    source target
+
+/-- A positive regrouped novel load can occur only on a strictly positive
+physical-kernel edge. -/
+theorem cutoffTwoNovelSimpleEdgeLoad_pos_implies_kernel_pos
+    (later source target : Nat)
+    (hload : (0 : Q') <
+      cutoffTwoNovelSimpleEdgeLoad later source target) :
+    (0 : Q') < cutoffTwoEdgeLoadKernel later source target := by
+  unfold cutoffTwoNovelSimpleEdgeLoad at hload
+  rcases exists_occurrence_of_weightedDirectedEdgeLoad_pos
+      (cutoffTwoNovelSimpleWeightedEdgeOccurrences later)
+      (cutoffTwoNovelOccurrence_load_nonnegative later)
+      source target hload with
+    ⟨occurrence, hoccurrence, hedge⟩
+  have hpositive := cutoffTwoNovelOccurrence_kernel_pos
+    later occurrence hoccurrence
+  simpa only [hedge] using hpositive
 
 /-- The novel raw endpoint budget is exactly the full-sector Dirichlet block
 whose joint coefficient is the regrouped flow load (times the unit kernel). -/
@@ -430,6 +502,10 @@ end YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoNovelSimpleFlow
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoNovelSimpleFlow.cutoffTwoNovelPairwiseVariance_le_rawPairBudget
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoNovelSimpleFlow.cutoffTwoSimpleWeightedPathRawOccurrenceEnergy_eqv_pairBudget
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoNovelSimpleFlow.cutoffTwoNovelOccurrence_kernel_pos
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoNovelSimpleFlow.cutoffTwoNovelSimpleEdgeLoad_pos_implies_kernel_pos
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoNovelSimpleFlow.cutoffTwoNovelRawPairBudget_eqv_loadedDirichlet
 #print axioms

@@ -9218,3 +9218,50 @@ capacity family from the concrete BF4 kernel and stationary-weight formulas,
 or to identify a genuine obstruction.  The uniform completed gap remains
 conditional on that family; thermodynamic/continuum construction and the
 Clay theorem remain open.
+
+## Exact finite novel-flow capacity ratio (2026-08-23)
+
+`BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences` now proves that every
+literal directed edge of a positive-kernel chain retains strict positivity
+of the corresponding kernel entry.  The generic support lemma added to
+`BF4PhysicalFiniteVacuumSectorPathEdgeLoad` proves constructively that every
+strictly positive regrouped load has a literal occurrence on that directed
+edge.  Together these facts show that a positive novel-flow load can occur
+only where the concrete normalized BF4 physical kernel is strictly positive.
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowCapacityRatio` allocates half of the
+physical kernel on the embedded old-old block and the full kernel on the
+other three blocks.  It then defines the exact edge ratio
+
+`allocatedPhysicalKernel(source,target) / novelEdgeLoad(source,target)`
+
+on positive-load edges, uses the harmless value one on zero-load edges, and
+takes a located finite minimum over every ordered pair in the full sector.
+This explicit cutoff-dependent minimum is positive and its product with the
+load is bounded by the allocated kernel on every full-sector edge.
+
+Consequently a single scalar comparison
+
+`delta_flow <= finiteFlowCapacityFloor(later)`
+
+inhabits all four old-old, old-new, new-old, and new-new capacity fields.
+`CutoffTwoCofinalNovelFlowCapacityRatio` states only the remaining uniform
+content: the fixed constructed `delta_flow` must lie below that explicit
+finite minimum on a constructively cofinal cutoff schedule.  Such a scalar
+certificate compiles through the existing flow theorem to the completed
+vacuum-sector strict-contraction datum.
+
+The focused monitored checks pass, and the exact one-worker
+dependency-complete target passes 4,913 jobs, with the final module taking
+about 2.4 seconds.  The five audited exports of the new ratio module use
+exactly `[propext, Quot.sound]`; the generic directed-edge positivity theorem
+uses only `[propext]`, and the other supporting audited exports stay within
+`[propext, Quot.sound]`.  Preliminary stale-olean, parser, missing-tactic, and
+dependent-rewrite checks failed and are not passes.
+
+The four local capacity hypotheses have therefore contracted to a lower-bound
+problem for one completely explicit rational sequence.  The next finite
+analytic frontier is to derive a cutoff-uniform cofinal lower bound from the
+concrete BF4 kernel/load formulas, or prove that the chosen simple flow has a
+vanishing ratio.  The completed uniform gap is still conditional; the
+thermodynamic/continuum construction and Clay theorem remain open.

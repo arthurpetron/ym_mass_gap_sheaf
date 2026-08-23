@@ -96,6 +96,30 @@ theorem directedEdges_mem_support
         exact ⟨hfirst, hnext⟩
       · exact directedEdges_mem_support hnext rest edge htail
 
+/-- Every literal directed edge remembers the strict kernel positivity carried
+by the corresponding step of the positive-kernel chain. -/
+theorem directedEdges_kernel_pos
+    {State : Type} {kernel : State → State → Q'}
+    {support : List State} :
+    {first last : State} →
+      (path :
+        BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn
+          kernel support first last) →
+      ∀ edge, edge ∈ directedEdges path →
+        (0 : Q') < kernel edge.1 edge.2
+  | _, _,
+      BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn.refl _,
+      edge, hedge => by
+      cases hedge
+  | first, _,
+      BF4PhysicalFiniteVacuumSectorPositiveConnectivity.PositiveKernelChainIn.step
+        (next := next) positive _ rest,
+      edge, hedge => by
+      rcases List.mem_cons.mp hedge with hhead | htail
+      · subst edge
+        exact positive
+      · exact directedEdges_kernel_pos rest edge htail
+
 /-- The recursive linear energy is exactly the sum over the literal directed
 edge-occurrence list. -/
 theorem linearEnergy_eqv_directedEdges_sum
@@ -196,6 +220,8 @@ end YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences
   YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences.PositiveKernelChainIn.directedEdges_length_eq_edgeLength
 #print axioms
   YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences.PositiveKernelChainIn.directedEdges_mem_support
+#print axioms
+  YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences.PositiveKernelChainIn.directedEdges_kernel_pos
 #print axioms
   YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathEdgeOccurrences.PositiveKernelChainIn.linearEnergy_eqv_directedEdges_sum
 #print axioms
