@@ -6272,3 +6272,43 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   direction; both were corrected before both passing checks.  No profile
   family is inhabited, so the unconditional completed gap,
   thermodynamic/continuum QFT, and Clay theorem remain open.
+
+### [BF4-vacuum-sector-centered-Gram-posterior] Exact conditional-law reduction — **REDUCED 2026-08-23**
+
+- **milestone**: construct generic weighted-Gram channel priors and state-
+  conditioned channel laws; prove their exact total-one and Bayes identities;
+  instantiate the target-given-boundary law, square-amplitude boundary prior,
+  and boundary-given-source law on the actual BF4 vacuum sector; prove all
+  three are nonnegative normalized laws; identify the two literal profile
+  deviations with their exact posterior `L1` distances; handle zero-total
+  channels constructively; and compile cofinal posterior mixing with product
+  rate below one to the completed same-object sector gap.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorCenteredGramPosterior.lean`.
+- **decl**:
+  `finiteWeightedGramChannelPrior_total_one`,
+  `finiteWeightedGramChannelGivenState_total_one`,
+  `finiteWeightedGramChannelBayesDifference_mul_rowMass`,
+  `centralPhysicalFiniteVacuumSectorTargetGivenBoundary_total_one`,
+  `centralPhysicalFiniteVacuumSectorBoundaryPrior_total_one`,
+  `centralPhysicalFiniteVacuumSectorBoundaryGivenSource_total_one`,
+  `centralPhysicalFiniteVacuumSectorTargetProfileDeviation_eq_total_mul_posteriorL1`,
+  `centralPhysicalFiniteVacuumSectorSourceBoundaryProfileDeviation_eq_weight_mul_posteriorL1`,
+  and
+  `FixedNomeCofinalVacuumSectorCenteredGramPosteriorMixing.toVacuumSectorCenteredStrictGap`.
+- **obligation**: prove constructively cofinal cutoff-uniform `L1` mixing
+  bounds for both actual conditional laws whose product is strictly below
+  one, or supply a projective/coupling certificate that entails those
+  bounds.  The normalization and all component-mass cancellation are now
+  kernel-checked rather than assumed.
+- **constructive?**: yes — all twelve audited exports use at most
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the corrected focused monitored check passes, and the
+  exact-target one-worker dependency-complete build passes 1,490 jobs.  The
+  initial focused run naturally hit its deterministic heartbeat after
+  unresolved namespace errors; it was not manually interrupted.  Missing
+  opens and one later function-arity mismatch were corrected before both
+  passing checks.  No posterior-mixing family is inhabited, so the
+  unconditional completed gap, thermodynamic/continuum QFT, and Clay theorem
+  remain open.

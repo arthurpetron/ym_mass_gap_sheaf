@@ -7653,3 +7653,45 @@ sector profiles as target-given-boundary and boundary-given-source posterior
 `L1` distances, including zero-channel handling, so the remaining estimates
 are stated as explicit conditional mixing.  The unconditional completed
 gap, thermodynamic/continuum control, and the Clay theorem remain open.
+
+## The BF4 vacuum-sector profiles are exact posterior distances (2026-08-23)
+
+`BF4PhysicalVacuumSectorCenteredGramPosterior` constructs the two genuine
+conditional laws on the actual finite physical carriers.  The target law is
+the sector state conditioned on a positive fixed-time boundary channel.  The
+source law is the boundary channel conditioned on a sector source, and its
+reference law is the sector square-amplitude boundary prior.
+
+The module first proves generic weighted-Gram normalization and Bayes
+identities.  In the BF4 sector specialization, the target conditional,
+boundary prior, and source conditional are pointwise nonnegative on their
+literal carriers and each has total mass one.  It then proves the exact
+unnormalizations
+
+`targetProfile(boundary) = channelTotal(boundary) * targetPosteriorL1`
+
+and
+
+`sourceProfile(source) = physicalWeight(source) * sourcePosteriorL1`.
+
+Channels of zero total are discharged constructively from nonnegativity; no
+positivity decision or classical branch is hidden.  Therefore cofinal bounds
+on the two posterior `L1` distances, with product strictly below one, compile
+through the actual centered boundary Gram to the completed same-object
+vacuum-sector strict gap.
+
+The corrected focused monitored check passes, and the exact-target
+one-worker dependency-complete build passes 1,490 jobs.  All twelve audited
+exports use at most `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.  The first focused run naturally reached the deterministic heartbeat
+limit after missing namespace opens left downstream types unresolved; it was
+not manually interrupted.  After those opens were corrected, one function-
+arity mismatch was exposed and fixed before the passing focused check and
+exact build.
+
+No cofinal posterior-mixing family is inhabited.  The next finite analytic
+frontier is now an explicit uniform estimate on the two actual conditional
+laws (or a projective/coupling criterion that implies it), with product rate
+strictly below one.  The unconditional completed gap,
+thermodynamic/continuum control, and the Clay theorem remain open.
