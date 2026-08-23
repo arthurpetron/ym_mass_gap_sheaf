@@ -8487,3 +8487,39 @@ four-block identity: old-old drift, the two cross blocks, the new-new block,
 and the new-sector diagonal contribution.  Uniform control of those residuals
 is the genuine analytic frontier; completion beyond the fixed nome/volume,
 continuum QFT, and the Clay theorem remain open.
+
+## Full-sector persistence is factored into four old/new block budgets (2026-08-23)
+
+`BF4PhysicalBoundaryCutoffTwoFullSectorBlockResidual` specializes the exact
+old/new decomposition to the cutoff-two base and turns four separately
+checkable estimates into the aggregate matrix comparison required by the
+full-sector persistence theorem.  The old-old budget measures drift from the
+recentered cutoff-two core; the two cross budgets and the new-new budget
+measure the genuinely added sector.  Their exact total is
+
+`(eOO + eON) + (eNO + eNN)`,
+
+so the completed contraction rate supplied by a cofinal family is
+
+`(49/50) * lambda + (eOO + eON) + (eNO + eNN)`.
+
+The compiler uses the kernel-checked four-block equality and three triangle
+inequalities, then feeds the resulting persistence family through the
+existing cofinal finite-gap and completion bridges.  It therefore exposes
+the next analytic work without hiding it inside one undifferentiated matrix
+error.
+
+The focused monitored check passes in about 1.3 seconds, and the exact
+one-worker dependency-complete target passes 4,886 jobs.  All four audited
+exports use exactly `[propext, Quot.sound]`; no `Classical.*`, choice,
+`native_decide`, `sorry`, custom axiom, or noncomputable declaration was
+added.  Five diagnostic checks were deliberately interrupted while a missing
+namespace for `centralPhysicalFiniteKernel` made Lean's error pretty-printer
+expand enormous unresolved terms; none is counted as a pass.
+
+No later-cutoff block residual or cofinal family is inhabited.  The next
+frontier is to construct the cutoff-two recentering from the old coefficient
+block and prove exact mean/diagonal identities, leaving only kernel drift,
+cross-block, and new-tail analytic estimates.  Uniform full-sector control,
+the completed gap inhabitant, volume/spacing control, continuum QFT, and the
+Clay theorem remain open.

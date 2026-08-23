@@ -7041,3 +7041,35 @@ O(4) restoration), tracked in the chapters and `notes/`, not here.
   exact-target one-worker dependency-complete build passes 4,885 jobs.  The
   finite anchor is inhabited; no later or cofinal comparison, completed gap
   inhabitant, thermodynamic/continuum QFT, or Clay theorem is claimed.
+
+### [BF4-cutoff-two-full-sector-block-residual] Four-block residual compiler — **CLOSED 2026-08-23**
+
+- **milestone**: specialize the exact old/new four-block identity to the
+  cutoff-two base; compile old-old, old-new, new-old, and new-new relative
+  budgets into the aggregate full-sector matrix comparison; and carry a
+  supplied cofinal family to the actual completed transfer contraction at
+  rate `(49/50) * lambda + (eOO + eON) + (eNO + eNN)`.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffTwoFullSectorBlockResidual.lean`.
+- **decl**:
+  `cutoffTwoFullSectorMatrix_four_blocks`,
+  `CutoffTwoFullSectorBlockResidualAt`,
+  `CutoffTwoFullSectorBlockResidualAt.toFullSectorGapPersistenceAt`,
+  `CutoffTwoCofinalFullSectorBlockResidual`,
+  `CutoffTwoCofinalFullSectorBlockResidual.toCofinalFullSectorGapPersistence`,
+  and
+  `CutoffTwoCofinalFullSectorBlockResidual.toCompletedStrictContractionData`.
+- **obligation**: inhabit the residual fields on an unbounded cofinal
+  schedule with a uniform subunit composed rate.  First construct the old
+  coefficient projection/recentering and its exact mean and diagonal
+  identities; then bound old-kernel drift, both cross blocks, and the new-new
+  tail.
+- **constructive?**: yes — all four audited exports use exactly
+  `[propext, Quot.sound]`; no `Classical.*`, choice, `native_decide`, `sorry`,
+  custom axiom, or noncomputable declaration was added.
+- **status note**: the focused monitored check passes in about 1.3 seconds,
+  and the exact-target one-worker dependency-complete build passes 4,886
+  jobs.  Five interrupted namespace-error diagnostics are not passes.  This
+  closes the residual-to-gap implication, not any later-cutoff residual
+  estimate, cofinal gap inhabitant, thermodynamic/continuum QFT, or the Clay
+  theorem.
